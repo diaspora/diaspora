@@ -28,6 +28,11 @@ class Reshare < Post
   def comment_email_subject
     I18n.t('reshares.comment_email_subject', :resharer => author.name, :author => root.author.name)
   end
+
+  def notification_type(user, person)
+    Notifications::Reshared if root.author == user.person
+  end
+  
   private
 
   def after_parse

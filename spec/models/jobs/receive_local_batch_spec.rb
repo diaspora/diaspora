@@ -22,6 +22,10 @@ describe Job::ReceiveLocalBatch do
       Job::ReceiveLocalBatch.should_receive(:notify_mentioned_users).with(@post)
       Job::ReceiveLocalBatch.perform(@post.id, [bob.id])
     end
+    it 'notifies users' do
+      Job::ReceiveLocalBatch.should_receive(:notify_users).with(@post, [bob.id])
+      Job::ReceiveLocalBatch.perform(@post.id, [bob.id])
+    end
   end
   describe '.create_visibilities' do
     it 'creates a visibility for each user' do
@@ -56,6 +60,22 @@ describe Job::ReceiveLocalBatch do
     it 'does not call notify person for a non-mentioned person' do
       Notification.should_not_receive(:notify)
       Job::ReceiveLocalBatch.notify_mentioned_users(@post)
+    end
+  end
+
+  describe '.notify_users' do
+    it 'calls notify for posts with notification type' do
+      reshare = Factory.create(:reshare)
+      Notification.should_receive(:notify)
+
+      Job::ReceiveLocalBatch.notify_users(reshare, [bob.id])
+    end
+
+    it 'calls notify for posts with notification type' do
+      sm = Factory.create(:status_message, :author => alice.person)
+      Notification.should_not_receive(:notify)
+
+      Job::ReceiveLocalBatch.notify_users(sm, [bob.id])
     end
   end
 end

@@ -53,14 +53,15 @@ describe Reshare do
 
   describe '#notification_type' do
     before do
-      @reshare = Factory.create(:reshare, :author => alice.person)
+      sm = Factory.create(:status_message, :author => alice.person, :public => true)
+      @reshare = Factory.create(:reshare, :root => sm)
     end
-    it 'does not return anything for the author' do
+    it 'does not return anything for non-author of the original post' do
       @reshare.notification_type(bob, @reshare.author).should be_nil
     end
 
-    it 'returns private mesage for an actual receiver' do
-      @reshare.notification_type(alice, @reshare.author).should == Notifications::PrivateMessage
+    it 'returns "Reshared" for the original post author' do
+      @reshare.notification_type(alice, @reshare.author).should == Notifications::Reshared
     end
   end
 

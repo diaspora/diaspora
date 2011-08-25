@@ -7,6 +7,7 @@ Feature: Notifications
   Background:
     Given a user with email "bob@bob.bob"
     And a user with email "alice@alice.alice"
+    And "alice@alice.alice" has a public post with text "check this out!"
     When I sign in as "bob@bob.bob"
 
   Scenario: someone shares with me
@@ -20,10 +21,10 @@ Feature: Notifications
     Then I should see "started sharing with you"
     When I follow "View all"
     Then I should see "started sharing with you"
+    And I should have 1 email delivery
 
   Scenario: someone re-shares my post
     And a user with email "bob@bob.bob" is connected with "alice@alice.alice"
-    And "alice@alice.alice" has a public post with text "reshare this!"
     And I am on "alice@alice.alice"'s page
     And I preemptively confirm the alert
     And I follow "Reshare"
@@ -35,6 +36,27 @@ Feature: Notifications
     And I follow "notifications" in the header
     And I wait for the ajax to finish
     Then the notification dropdown should be visible
+    And I wait for the ajax to finish
     Then I should see "reshared your post"
     When I follow "View all"
     Then I should see "reshared your post"
+    And I should have 1 email delivery
+
+  Scenario: someone likes my post
+    And a user with email "bob@bob.bob" is connected with "alice@alice.alice"
+    And I am on "alice@alice.alice"'s page
+    And I preemptively confirm the alert
+    And I follow "Like"
+    And I wait for the ajax to finish
+
+    And I go to the destroy user session page
+    When I sign in as "alice@alice.alice"
+
+    And I follow "notifications" in the header
+    And I wait for the ajax to finish
+    Then the notification dropdown should be visible
+    And I wait for the ajax to finish
+    Then I should see "just liked your post"
+    When I follow "View all"
+    Then I should see "just liked your post"
+    And I should have 1 email delivery

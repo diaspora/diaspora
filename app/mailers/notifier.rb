@@ -51,6 +51,19 @@ class Notifier < ActionMailer::Base
     end
   end
 
+  def reshared(recipient_id, sender_id, reshare_id)
+    @receiver = User.find_by_id(recipient_id)
+    @sender = Person.find_by_id(sender_id)
+    @reshare = Reshare.find(reshare_id)
+
+    log_mail(recipient_id, sender_id, 'reshared')
+
+    I18n.with_locale(@receiver.language) do
+      mail(:to => "\"#{@receiver.name}\" <#{@receiver.email}>",
+           :subject => I18n.t('notifier.reshared.reshared', :name => @sender.name), :host => AppConfig[:pod_uri].host)
+    end
+  end
+
   def mentioned(recipient_id, sender_id, target_id)
     @receiver = User.find_by_id(recipient_id)
     @sender = Person.find_by_id(sender_id)

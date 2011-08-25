@@ -379,6 +379,12 @@ en:
       few: "%{actors} has just liked your %{post_link}."
       many: "%{actors} has just liked your %{post_link}."
       other: "%{actors} has just liked your %{post_link}."
+    reshared:
+      zero: "%{actors} has reshared your %{post_link}."
+      one: "%{actors} has reshared your %{post_link}."
+      few: "%{actors} has reshared your %{post_link}."
+      many: "%{actors} has reshared your %{post_link}."
+      other: "%{actors} has reshared your %{post_link}."
     post: "post"
     also_commented_deleted:
       zero: "%{actors} commented on a deleted post."
@@ -392,6 +398,12 @@ en:
       few: "%{actors} liked your deleted post."
       many: "%{actors} liked your deleted post."
       other: "%{actors} liked your deleted post."
+    reshared_post_deleted:
+      zero: "%{actors} reshared your deleted post."
+      one: "%{actors} reshared your deleted post."
+      few: "%{actors} reshared your deleted post."
+      many: "%{actors} reshared your deleted post."
+      other: "%{actors} reshared your deleted post."
     mentioned_deleted:
       zero: "%{actors} mentioned you in a deleted post."
       one: "%{actors} mentioned you in a deleted post."
@@ -439,6 +451,9 @@ en:
         reply_to_or_view: "Reply to or view this conversation >"
     liked:
         liked: "%{name} just liked your post"
+        view_post: "View post >"
+    reshared:
+        reshared: "%{name} just reshared your post"
         view_post: "View post >"
     confirm_email:
         subject: "Please activate your new email address %{unconfirmed_email}"

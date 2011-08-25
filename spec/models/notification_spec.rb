@@ -55,7 +55,7 @@ describe Notification do
       Notification.notify(@user, @sm, @person)
     end
 
-   context 'with a request' do
+    context 'with a request' do
       before do
         @request = Request.diaspora_initialize(:from => @user.person, :to => @user2.person, :into => @aspect)
       end
