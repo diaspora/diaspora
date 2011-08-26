@@ -5,10 +5,11 @@
     this.subscribe("widget/ready", function(evt, comment) {
       $.extend(self, {
         comment: comment,
-        deleteCommentLink: comment.find(".comment_delete")
+        deleteCommentLink: comment.find("a.comment_delete")
       });
 
       self.deleteCommentLink.click(self.removeComment);
+      self.deleteCommentLink.tipsy({ trigger: "hover" });
     });
 
     this.removeComment = function(evt) {

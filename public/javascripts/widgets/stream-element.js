@@ -10,8 +10,13 @@
         commentStream: self.instantiate("CommentStream", element.find("ul.comments")),
         embedder: self.instantiate("Embedder", element.find("div.content")),
         likes: self.instantiate("Likes", element.find("div.likes_container")),
-        lightBox: self.instantiate("Lightbox", element)
+        lightBox: self.instantiate("Lightbox", element),
+        deletePostLink: element.find("a.stream_element_delete"),
+        postScope: element.find("span.post_scope")
       });
+
+      self.deletePostLink.tipsy({ trigger: "hover" });
+      self.postScope.tipsy({ trigger: "hover" });
 
       self.globalSubscribe("post/" + self.postGuid + "/comment/added", function(evt, comment) {
         self.commentStream.publish("comment/added", comment);
