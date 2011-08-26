@@ -26,7 +26,7 @@ var WSR = WebSocketReceiver = {
           ContentUpdater.addLikesToPost(message.post_guid, message.html);
           break;
         default:
-          if(WSR.onPageForAspects(message.aspects_ids)) {
+          if(WSR.onPageForAspects(message.aspect_ids)) {
             ContentUpdater.addPostToStream(message.html);
           }
           break;
