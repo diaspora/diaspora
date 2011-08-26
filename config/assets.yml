@@ -15,6 +15,7 @@ javascripts:
     - public/javascripts/vendor/jquery.hotkeys.js
     - public/javascripts/vendor/jquery.autoresize.min.js
     - public/javascripts/vendor/jquery-ui-1.8.9.custom.min.js
+    - public/javascripts/vendor/jquery-debounce.js
     - public/javascripts/vendor/jquery.expander.js
     - public/javascripts/vendor/timeago.js
     - public/javascripts/vendor/Mustache.js
@@ -38,6 +39,7 @@ javascripts:
     - public/javascripts/widgets/direction-detector.js
     - public/javascripts/widgets/notifications.js
     - public/javascripts/widgets/flash-messages.js
+    - public/javascripts/widgets/back-to-top.js
     - public/javascripts/widgets/stream.js
     - public/javascripts/widgets/stream-element.js
     - public/javascripts/widgets/comment-stream.js

@@ -16,7 +16,8 @@ src_files:
   - public/javascripts/vendor/jquery.tipsy.js
   - public/javascripts/jquery.infieldlabel-custom.js
   - public/javascripts/vendor/jquery.autoresize.min.js
-  - public/javascripts/vendor/jquery.expander.js
+  - public/javascripts/vendor/jquery.expander.js]
+  - public/javascripts/vendor/jquery-debounce.js
   - public/javascripts/vendor/Mustache.js
   - public/javascripts/vendor/charCount.js
   - public/javascripts/vendor/timeago.js

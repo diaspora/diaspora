@@ -25,5 +25,3 @@
 
   Diaspora.Widgets.StreamElement = StreamElement;
 })();
-
-

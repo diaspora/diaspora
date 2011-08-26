@@ -25,19 +25,6 @@ var View = {
       $('#main_stream label').inFieldLabels();
     });
 
-    /*scroll to top */
-    var back_to_top = jQuery('#back-to-top');
-     jQuery(window).scroll(function(){
-      if(jQuery(window).scrollTop() > 1000){
-        // show back to top
-        back_to_top.stop().animate({opacity: .5});
-      }
-      else{
-        // hide back to top
-        back_to_top.stop().animate({opacity: 0});
-      }
-    }); 
-
     /* "Toggling" the search input */
     $(this.search.selector)
       .blur(this.search.blur)
