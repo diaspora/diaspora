@@ -20,6 +20,8 @@ class Notification < ActiveRecord::Base
       if note_type = target.notification_type(recipient, actor)
         if(target.is_a? Comment) || (target.is_a? Like) 
           n = note_type.concatenate_or_create(recipient, target.parent, actor, note_type)
+        elsif(target.is_a? Reshare)
+          n = note_type.concatenate_or_create(recipient, target.root, actor, note_type)
         else
           n = note_type.make_notification(recipient, target, actor, note_type)
         end

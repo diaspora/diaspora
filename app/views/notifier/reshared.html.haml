@@ -1,0 +1,8 @@
+%p
+  = "#{t('.reshared', :name => "#{@sender.name}")}:"
+
+%p{:style => "font-style:italic;color:#666"}
+  = post_message(@reshare.root, :process_newlines => true)
+
+%p
+  = link_to t('.view_post'), post_url(@reshare)

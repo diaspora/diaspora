@@ -109,6 +109,10 @@
           = type.label t('.liked') 
           = type.check_box :liked, {:checked =>  @email_prefs['liked']}, false, true 
 
+        %br
+        %p.checkbox_select
+          = type.label t('.reshared') 
+          = type.check_box :reshared, {:checked =>  @email_prefs['reshared']}, false, true 
     %br
     = f.submit t('.change')
 

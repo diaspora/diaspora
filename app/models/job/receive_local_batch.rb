@@ -13,6 +13,7 @@ module Job
       create_visibilities(post, recipient_user_ids)
       socket_to_users(post, recipient_user_ids) if post.respond_to?(:socket_to_user)
       notify_mentioned_users(post)
+      notify_users(post, recipient_user_ids)
     end
 
     def self.create_visibilities(post, recipient_user_ids)
@@ -32,14 +33,24 @@ module Job
       end
 
     end
+    
     def self.socket_to_users(post, recipient_user_ids)
       recipient_user_ids.each do |id|
         post.socket_to_user(id)
       end
     end
+    
     def self.notify_mentioned_users(post)
       post.mentions.each do |mention|
         mention.notify_recipient
+      end
+    end
+
+    def self.notify_users(post,  recipient_user_ids)
+      if post.respond_to?(:notification_type) 
+        recipient_user_ids.each{|id|
+          Notification.notify(User.find(id), post, post.author)
+        }
       end
     end
   end

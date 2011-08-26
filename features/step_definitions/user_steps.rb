@@ -154,6 +154,10 @@ Then /^I should have (\d+) Devise email delivery$/ do |n|
   Devise.mailer.deliveries.length.should == n.to_i
 end
 
+Then /^I should have (\d+) email delivery$/ do |n|
+  ActionMailer::Base.deliveries.length.should == n.to_i
+end
+
 
 When /^"([^\"]+)" has posted a status message with a photo$/ do |email|
   user = User.find_for_database_authentication(:username => email)

@@ -51,6 +51,20 @@ describe Reshare do
     end
   end
 
+  describe '#notification_type' do
+    before do
+      sm = Factory.create(:status_message, :author => alice.person, :public => true)
+      @reshare = Factory.create(:reshare, :root => sm)
+    end
+    it 'does not return anything for non-author of the original post' do
+      @reshare.notification_type(bob, @reshare.author).should be_nil
+    end
+
+    it 'returns "Reshared" for the original post author' do
+      @reshare.notification_type(alice, @reshare.author).should == Notifications::Reshared
+    end
+  end
+
   describe "XML" do
     before do
       @reshare = Factory(:reshare)
