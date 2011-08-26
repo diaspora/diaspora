@@ -31,7 +31,7 @@ class LikesController < ApplicationController
   end
 
   def destroy
-    if target && @like = Like.where(:id => params[:id], :author_id => current_user.person.id).first
+    if @like = Like.where(:id => params[:id], :author_id => current_user.person.id).first
       current_user.retract(@like)
       respond_to do |format|
         format.all { }

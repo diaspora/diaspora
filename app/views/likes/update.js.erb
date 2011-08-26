@@ -1,2 +1,2 @@
-$(".like_action", "#<%=@target.guid%>").first().html("<%= escape_javascript(like_action(@like.target))%>");
-ContentUpdater.addLikesToPost("<%=@like.target.guid%>", "<%= escape_javascript(render("likes/likes_container", :target_id => @like.target_id, :likes_count => @target.reload.likes_count, :target_type => @like.target_type)) %>");
+$(".like_action", "#<%=@like.target.guid%>").first().html("<%= escape_javascript(like_action(@like.target))%>");
+ContentUpdater.addLikesToPost("<%=@like.target.guid%>", "<%= escape_javascript(render("likes/likes_container", :target_id => @like.target_id, :likes_count => @like.target.reload.likes_count, :target_type => @like.target_type)) %>");
