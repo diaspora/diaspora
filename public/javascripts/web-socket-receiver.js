@@ -17,7 +17,7 @@ var WSR = WebSocketReceiver = {
     else {
       switch(message["class"]) {
         case "retractions":
-          ContentUpdater.removePostFromStream(message.post_guid);
+          ContentUpdater.removePostFromStream(message.post_id);
           break;
         case "comments":
           ContentUpdater.addCommentToPost(message.post_guid, message.comment_guid, message.html);

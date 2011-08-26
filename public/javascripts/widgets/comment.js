@@ -15,13 +15,15 @@
     this.removeComment = function(evt) {
       evt.preventDefault();
 
-      $.post(self.deleteCommentLink.attr("href"), {
-        _method: "delete"
-      }, function() {
-        self.comment.hide("blind", { direction: "vertical" }, 300, function() {
-          self.comment.remove();
+      if(confirm(Diaspora.I18n.t("confirm_dialog"))) {
+        $.post(self.deleteCommentLink.attr("href"), {
+          _method: "delete"
+        }, function() {
+          self.comment.hide("blind", { direction: "vertical" }, 300, function() {
+            self.comment.remove();
+          });
         });
-      });
+      }
     };
   };
 

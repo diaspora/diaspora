@@ -46,9 +46,12 @@ var ContentUpdater = {
   },
 
   addLikesToPost: function(postGUID, html) {
-    $(".likes_container", "#" + postGUID)
+    var likesContainer = $(".likes_container", "#" + postGUID)
       .fadeOut("fast")
-      .html(html)
-      .fadeIn("fast");
+      .html(html);
+
+    Diaspora.page.stream.streamElements[postGUID].likes.publish("widget/ready", [likesContainer]);
+
+    likesContainer.fadeIn("fast");
   }
 };

@@ -67,22 +67,6 @@ var Stream = {
       Stream.focusNewComment($(this), evt);
     });
 
-
-    $(".comment .comment_delete", this.selector).live("ajax:success", function() {
-      var element = $(this),
-        target = element.parents(".comment"),
-        post = element.closest(".stream_element"),
-        toggler = post.find(".toggle_post_comments");
-
-      target.hide("blind", { direction: "vertical" }, 300, function() {
-        $(this).remove();
-        toggler.html(
-          toggler.html().replace(/\d+/, $(".comments li", post).length - 1)
-        );
-      });
-
-    });
-
     $("textarea.comment_box", this.selector).live("focus", function(evt) {
       if (this.value === undefined || this.value ===  ''){
         var commentBox = $(this);
@@ -146,8 +130,7 @@ var Stream = {
         textarea.focus();
       }
     }
-  },
-
+  }
 };
 
 $(document).ready(function() {

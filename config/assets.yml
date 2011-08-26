@@ -8,18 +8,18 @@ javascripts:
     - public/javascripts/vendor/swfobject.js
     - public/javascripts/vendor/web_socket.js
   jquery:
-    - public/javascripts/vendor/jquery152.min.js
+    - public/javascripts/vendor/jquery162.min.js
   main:
     - public/javascripts/rails.js
     - public/javascripts/vendor/jquery.tipsy.js
     - public/javascripts/vendor/jquery.hotkeys.js
     - public/javascripts/vendor/jquery.autoresize.min.js
     - public/javascripts/vendor/jquery-ui-1.8.9.custom.min.js
+    - public/javascripts/vendor/jquery.charcount.js
     - public/javascripts/vendor/jquery-debounce.js
     - public/javascripts/vendor/jquery.expander.js
     - public/javascripts/vendor/timeago.js
     - public/javascripts/vendor/Mustache.js
-    - public/javascripts/vendor/charCount.js
     - public/javascripts/vendor/facebox.js
     - public/javascripts/jquery.infinitescroll-custom.js
     - public/javascripts/jquery.autocomplete-custom.js

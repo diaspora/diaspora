@@ -13,10 +13,11 @@
 
     this.expandLikes = function(evt) {
       evt.preventDefault();
-      var likesList = $(this).siblings(".likes_list");
+
+      var likesList = self.expander.siblings(".likes_list");
       if(likesList.children().length == 0) {
         self.loadingImage.appendTo(likesList.parent());
-        $.get(this.href, function(data) {
+        $.get(self.expander.href, function(data) {
           self.loadingImage.fadeOut(100, function() {
             likesList.html(data)
               .fadeToggle(100);

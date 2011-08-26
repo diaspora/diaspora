@@ -69,12 +69,11 @@ describe("ContentUpdater", function() {
     it("adds a comment to a post only if it doesn't already exist", function() {
       var comments = post.find("ul.comments li");
 
-      expect(comments.length).toEqual(0);
       ContentUpdater.addCommentToPost(postGUID, "YEAH", "<li id='YEAH'>Comment</li>");
-      expect(post.find("ul.comments li").length).toEqual(1);
+      expect(post.find("ul.comments li").length).toEqual(comments.length + 1);
 
       ContentUpdater.addCommentToPost(postGUID, "YEAH", "<li id='YEAH'>Comment</li>");
-      expect(post.find("ul.comments li").length).toEqual(1);
+      expect(post.find("ul.comments li").length).toEqual(comments.length + 1);
 
     });
   });
@@ -83,13 +82,29 @@ describe("ContentUpdater", function() {
     var post, postGUID;
     beforeEach(function() {
       spec.loadFixture("aspects_index_with_posts");
+
+      Diaspora.Page = "AspectsIndex";
+      Diaspora.instantiatePage();
+
+      console.log(Diaspora, $("#main_stream"), $("#jasmine_content"));
+
       post = $(".stream_element:first"),
         postGUID = post.attr("id");
+
     });
 
     it("adds the given html to a post's likes container", function() {
+      jasmine.Clock.useMock();
+
       ContentUpdater.addLikesToPost(postGUID, "<p>1 like</p>");
+
+      jasmine.Clock.tick(250);
+
       expect(post.find(".likes .likes_container").html()).toEqual("<p>1 like</p>");
+    });
+
+    afterEach(function() {
+      $.fx.off = false;
     });
   });
 });

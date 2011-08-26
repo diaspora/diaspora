@@ -23,6 +23,7 @@ beforeEach(function() {
       self.directionDetector = self.instantiate("DirectionDetector");
     });
   };
+  
   var Page = Diaspora.Pages["TestPage"];
   $.extend(Page.prototype, Diaspora.EventBroker.extend(Diaspora.BaseWidget));
 

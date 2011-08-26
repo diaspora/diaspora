@@ -89,6 +89,15 @@ describe AspectsController do
       save_fixture(html_for("body"), "aspects_index_with_video_post")
     end
 
+    it "generates a jasmine fixture with a post that has been liked", :fixture => true do
+      message = alice.post(:status_message, :text => "hello "*800, :to => @alices_aspect_2.id)
+      alice.build_like(:positive => true, :target => message).save
+      bob.build_like(:positive => true, :target => message).save
+
+      get :index
+      save_fixture(html_for("body"), "aspects_index_with_a_post_with_likes")
+    end
+
     context 'with getting_started = true' do
       before do
         alice.getting_started = true

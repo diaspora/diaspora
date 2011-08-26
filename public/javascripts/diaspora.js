@@ -68,20 +68,22 @@
     });
   };
 
+  Diaspora.instantiatePage = function() {
+    if (typeof Diaspora.Pages[Diaspora.Page] === "undefined") {
+      Diaspora.page = Diaspora.EventBroker.extend(Diaspora.BaseWidget);
+    } else {
+      var Page = Diaspora.Pages[Diaspora.Page];
+      $.extend(Page.prototype, Diaspora.EventBroker.extend(Diaspora.BaseWidget));
+
+      Diaspora.page = new Page();
+    }
+
+    $.extend(Diaspora.page, new Diaspora.BasePage($(document.body)));
+    Diaspora.page.publish("page/ready", [$(document.body)])
+  };
+
   window.Diaspora = Diaspora;
 })();
 
 
-$(function() {
-  if (typeof Diaspora.Pages[Diaspora.Page] === "undefined") {
-    Diaspora.page = Diaspora.EventBroker.extend(Diaspora.BaseWidget);
-  } else {
-    var Page = Diaspora.Pages[Diaspora.Page];
-    $.extend(Page.prototype, Diaspora.EventBroker.extend(Diaspora.BaseWidget));
-
-    Diaspora.page = new Page();
-  }
-
-  $.extend(Diaspora.page, new Diaspora.BasePage($(document.body)));
-  Diaspora.page.publish("page/ready", [$(document.body)])
-});
+$(Diaspora.instantiatePage);
