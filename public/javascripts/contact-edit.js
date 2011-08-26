@@ -75,7 +75,6 @@ var ContactEdit = {
       "person_id": li.parent().data("person_id"),
       "_method": (selected) ? "DELETE" : "POST"
     }, function(aspectMembership) {
-      console.dir(aspectMembership);
       li.removeClass("loading");
       ContactEdit.toggleCheckbox(li);
       ContactEdit.updateNumber(li.closest(".dropdown_list"), li.parent().data("person_id"), aspectMembership.aspect_ids.length, 'in_aspects');

@@ -3,7 +3,6 @@
     var self = this;
     this.streamElements = {};
 
-
     this.subscribe("widget/ready", function(evt, stream) {
       $.extend(self, {
         stream: $(stream)
@@ -15,6 +14,10 @@
           self.addPost(post);
         }
       });
+    });
+
+    this.globalSubscribe("stream/reloaded", function() {
+      self.streamElements = {};
     });
 
     this.globalSubscribe("stream/reloaded stream/scrolled", function() {
