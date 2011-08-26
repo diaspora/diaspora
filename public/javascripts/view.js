@@ -29,6 +29,7 @@ var View = {
     $(this.search.selector)
       .blur(this.search.blur)
       .focus(this.search.focus)
+
     /* Submit the form when the user hits enter */
       .keypress(this.search.keyPress);
 

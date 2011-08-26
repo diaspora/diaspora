@@ -37,8 +37,6 @@
 
   Diaspora.BaseWidget = {
     instantiate: function(Widget, element) {
-      if(typeof Diaspora.Widgets[Widget] === "undefined") { throw new Error("Widget " + Widget + " does not exist"); }
-     
       $.extend(Diaspora.Widgets[Widget].prototype, Diaspora.EventBroker.extend(Diaspora.BaseWidget));
 
       var widget = new Diaspora.Widgets[Widget](),
@@ -50,13 +48,24 @@
     },
 
     globalSubscribe: function(eventName, callback, context) {
-      if(typeof callback === "undefined") { throw new Error("Callback must be defined for event: " + eventName); }
       Diaspora.page.subscribe(eventName, callback, context);
     },  
 
     globalPublish: function(eventName, args) {
       Diaspora.page.publish(eventName, args);
     }
+  };
+
+  Diaspora.BasePage = function(body) {
+    $.extend(this, Diaspora.BaseWidget);
+    $.extend(this, {
+      backToTop: this.instantiate("BackToTop", body.find("#back-to-top")),
+      directionDetector: this.instantiate("DirectionDetector"),
+      flashMessages: this.instantiate("FlashMessages"),
+      header: this.instantiate("Header", body.find("header")),
+      hoverCard: this.instantiate("HoverCard", body.find("#hovercard")),
+      timeAgo: this.instantiate("TimeAgo", "abbr.timeago")
+    });
   };
 
   window.Diaspora = Diaspora;
@@ -66,12 +75,13 @@
 $(function() {
   if (typeof Diaspora.Pages[Diaspora.Page] === "undefined") {
     Diaspora.page = Diaspora.EventBroker.extend(Diaspora.BaseWidget);
-    return;
+  } else {
+    var Page = Diaspora.Pages[Diaspora.Page];
+    $.extend(Page.prototype, Diaspora.EventBroker.extend(Diaspora.BaseWidget));
+
+    Diaspora.page = new Page();
   }
 
-  var Page = Diaspora.Pages[Diaspora.Page];
-  $.extend(Page.prototype, Diaspora.EventBroker.extend(Diaspora.BaseWidget));
-
-  Diaspora.page = new Page();
+  $.extend(Diaspora.page, new Diaspora.BasePage($(document.body)));
   Diaspora.page.publish("page/ready", [$(document.body)])
 });
