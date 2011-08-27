@@ -381,6 +381,18 @@ fr:
       one: "%{actors} vous a envoyé un message."
       other: "%{actors} vous a envoyé un message."
       zero: "%{actors} vous a envoyé un message."
+    reshared: 
+      few: "%{actors} has reshared your %{post_link}."
+      many: "%{actors} has reshared your %{post_link}."
+      one: "%{actors} has reshared your %{post_link}."
+      other: "%{actors} has reshared your %{post_link}."
+      zero: "%{actors} has reshared your %{post_link}."
+    reshared_post_deleted: 
+      few: "%{actors} reshared your deleted post."
+      many: "%{actors} reshared your deleted post."
+      one: "%{actors} reshared your deleted post."
+      other: "%{actors} reshared your deleted post."
+      zero: "%{actors} reshared your deleted post."
     started_sharing: 
       few: "%{actors} a/ont commencé à partager avec vous."
       many: "%{actors} a/ont commencé à partager avec vous."
@@ -405,6 +417,9 @@ fr:
       subject: "%{name} vous a mentionné(e) sur Diaspora*"
     private_message: 
       reply_to_or_view: "Répondre ou voir cette conversation >"
+    reshared: 
+      reshared: "%{name} just reshared your post"
+      view_post: "View post >"
     single_admin: 
       admin: "Votre administrateur Diaspora"
       subject: "Un message concernant votre compte Diaspora :"
@@ -747,6 +762,7 @@ fr:
       new_password: "Nouveau mot de passe"
       private_message: "…vous recevez un message privé ?"
       receive_email_notifications: "Recevoir des notifications par courrier électronique lorsque…"
+      reshared: "...someone reshares your post?"
       started_sharing: "...quelqu'un commence à partager avec vous ?"
       your_email: "Votre adresse électronique"
       your_handle: "Votre identifiant diaspora"

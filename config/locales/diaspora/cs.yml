@@ -381,6 +381,18 @@ cs:
       one: "%{actors} vám poslal zprávu."
       other: "%{actors} vám poslali zprávu."
       zero: "%{actors} vám poslal zprávu."
+    reshared: 
+      few: "%{actors} has reshared your %{post_link}."
+      many: "%{actors} has reshared your %{post_link}."
+      one: "%{actors} has reshared your %{post_link}."
+      other: "%{actors} has reshared your %{post_link}."
+      zero: "%{actors} has reshared your %{post_link}."
+    reshared_post_deleted: 
+      few: "%{actors} reshared your deleted post."
+      many: "%{actors} reshared your deleted post."
+      one: "%{actors} reshared your deleted post."
+      other: "%{actors} reshared your deleted post."
+      zero: "%{actors} reshared your deleted post."
     started_sharing: 
       few: "%{actors} s vámi začali sdílet."
       many: "%{actors} s vámi začali sdílet."
@@ -405,6 +417,9 @@ cs:
       subject: "%{name} vás zmínil na Diaspoře*"
     private_message: 
       reply_to_or_view: "Zobrazit konverzaci nebo na ni odpovědět >"
+    reshared: 
+      reshared: "%{name} just reshared your post"
+      view_post: "View post >"
     single_admin: 
       admin: "Váš Diaspora administrátor"
       subject: "Zpráva o vašem účtu na Diaspoře:"
@@ -747,6 +762,7 @@ cs:
       new_password: "Nové heslo"
       private_message: "...obdržíte soukromou zprávu?"
       receive_email_notifications: "Přijímat oznámení e-mailem když..."
+      reshared: "...someone reshares your post?"
       started_sharing: "...někdo začne sdílet s vámi?"
       your_email: "Váš e-mail"
       your_handle: "Vaše Diaspora ID"

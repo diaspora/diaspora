@@ -381,6 +381,18 @@ da:
       one: "%{actors} sent you a message."
       other: "%{actors} sent you a message."
       zero: "%{actors} sent you a message."
+    reshared: 
+      few: "%{actors} has reshared your %{post_link}."
+      many: "%{actors} has reshared your %{post_link}."
+      one: "%{actors} has reshared your %{post_link}."
+      other: "%{actors} has reshared your %{post_link}."
+      zero: "%{actors} has reshared your %{post_link}."
+    reshared_post_deleted: 
+      few: "%{actors} reshared your deleted post."
+      many: "%{actors} reshared your deleted post."
+      one: "%{actors} reshared your deleted post."
+      other: "%{actors} reshared your deleted post."
+      zero: "%{actors} reshared your deleted post."
     started_sharing: 
       few: "%{actors} started sharing with you."
       many: "%{actors} started sharing with you."
@@ -405,6 +417,9 @@ da:
       subject: "%{name} har omtalt dig på Diaspora*"
     private_message: 
       reply_to_or_view: "Reply to or view this conversation >"
+    reshared: 
+      reshared: "%{name} just reshared your post"
+      view_post: "View post >"
     single_admin: 
       admin: "Din Diaspora administrator"
       subject: "En besked fra din Diaspora administrator:"
@@ -747,6 +762,7 @@ da:
       new_password: "Ny adgangskode"
       private_message: "...du har modtaget en besked?"
       receive_email_notifications: "Modtag e-mail notifikation når..."
+      reshared: "...someone reshares your post?"
       started_sharing: "...nogen er begyndt at dele med dig?"
       your_email: "Din e-mail"
       your_handle: "Dit diaspora handle"

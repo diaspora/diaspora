@@ -381,6 +381,18 @@ he:
       one: "%{actors} שלח/ה לך הודעה."
       other: "%{actors} שלח/ה לך הודעה."
       zero: "%{actors} שלחו לך הודעה."
+    reshared: 
+      few: "%{actors} has reshared your %{post_link}."
+      many: "%{actors} has reshared your %{post_link}."
+      one: "%{actors} has reshared your %{post_link}."
+      other: "%{actors} has reshared your %{post_link}."
+      zero: "%{actors} has reshared your %{post_link}."
+    reshared_post_deleted: 
+      few: "%{actors} reshared your deleted post."
+      many: "%{actors} reshared your deleted post."
+      one: "%{actors} reshared your deleted post."
+      other: "%{actors} reshared your deleted post."
+      zero: "%{actors} reshared your deleted post."
     started_sharing: 
       few: "%{actors} החלו לשתף אתך."
       many: "%{actors} החלו לשתף אתך."
@@ -405,6 +417,9 @@ he:
       subject: "הוזכרת על ידי %{name} בדיאספורה*"
     private_message: 
       reply_to_or_view: "שליחת תגובה או צפייה בדיון זה >"
+    reshared: 
+      reshared: "%{name} just reshared your post"
+      view_post: "View post >"
     single_admin: 
       admin: "מנהל הדיאספורה שלך"
       subject: "הודעה בנוגע לחשבונך בדיאספורה:"
@@ -747,6 +762,7 @@ he:
       new_password: "ססמה חדשה"
       private_message: "...קיבלת הודעה פרטית?"
       receive_email_notifications: "לקבל התרעות בדוא״ל כאשר..."
+      reshared: "...someone reshares your post?"
       started_sharing: "...מישהו התחיל לשתף אתך?"
       your_email: "כתובת הדוא״ל שלך"
       your_handle: "שם המשתמש שלך בדיאספורה"

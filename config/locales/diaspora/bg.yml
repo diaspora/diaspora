@@ -381,6 +381,18 @@ bg:
       one: "%{actors} ви изпрати съобщение."
       other: "%{actors} ви изпрати съобщение."
       zero: "%{actors} ви изпрати съобщение."
+    reshared: 
+      few: "%{actors} has reshared your %{post_link}."
+      many: "%{actors} has reshared your %{post_link}."
+      one: "%{actors} has reshared your %{post_link}."
+      other: "%{actors} has reshared your %{post_link}."
+      zero: "%{actors} has reshared your %{post_link}."
+    reshared_post_deleted: 
+      few: "%{actors} reshared your deleted post."
+      many: "%{actors} reshared your deleted post."
+      one: "%{actors} reshared your deleted post."
+      other: "%{actors} reshared your deleted post."
+      zero: "%{actors} reshared your deleted post."
     started_sharing: 
       few: "%{actors} започнаха да споделят с вас."
       many: "%{actors} започнаха да споделят с вас."
@@ -405,6 +417,9 @@ bg:
       subject: "%{name} ви спомена в Diaspora*"
     private_message: 
       reply_to_or_view: "Отговорете или прегледайте разговора >"
+    reshared: 
+      reshared: "%{name} just reshared your post"
+      view_post: "View post >"
     single_admin: 
       admin: "Вашият администратор на Diaspora"
       subject: "Съобщение относно акаунта ви в Diaspora:"
@@ -747,6 +762,7 @@ bg:
       new_password: "Нова парола"
       private_message: "...получите лично съобщение?"
       receive_email_notifications: "Получаване на известие по ел. поща когато..."
+      reshared: "...someone reshares your post?"
       started_sharing: "...някой започне да споделя с вас?"
       your_email: "Вашата ел. поща"
       your_handle: "Вашият адрес в Diaspora"

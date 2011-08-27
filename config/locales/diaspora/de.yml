@@ -381,6 +381,18 @@ de:
       one: "%{actors} hat dir eine Nachricht gesendet."
       other: "%{actors} haben dir eine Nachricht gesendet."
       zero: "%{actors} hat dir eine Nachricht gesendet."
+    reshared: 
+      few: "%{actors} haben deinen %{post_link} weitergesagt."
+      many: "%{actors} haben deinen %{post_link} weitergesagt."
+      one: "%{actors} hat deinen %{post_link} weitergesagt."
+      other: "%{actors} haben deinen %{post_link} weitergesagt."
+      zero: "%{actors} haben deinen %{post_link} weitergesagt."
+    reshared_post_deleted: 
+      few: "%{actors} haben deinen gelöschten Beitrag weitergesagt."
+      many: "%{actors} haben deinen gelöschten Beitrag weitergesagt."
+      one: "%{actors} hat deinen gelöschten Beitrag weitergesagt."
+      other: "%{actors} haben deinen gelöschten Beitrag weitergesagt."
+      zero: "%{actors} haben deinen gelöschten Beitrag weitergesagt."
     started_sharing: 
       few: "%{actors} haben angefangen mit dir zu teilen."
       many: "%{actors} haben angefangen mit dir zu teilen."
@@ -405,6 +417,9 @@ de:
       subject: "%{name} hat dich auf Diaspora* erwähnt"
     private_message: 
       reply_to_or_view: "Antworte oder sieh dir diese Unterhaltung an >"
+    reshared: 
+      reshared: "%{name} hat deinen Beitrag weitergesagt"
+      view_post: "Beitrag anzeigen >"
     single_admin: 
       admin: "Dein Diaspora-Administrator"
       subject: "Eine Nachricht dein Diaspora*-Konto betreffend:"
@@ -747,6 +762,7 @@ de:
       new_password: "Neues Passwort"
       private_message: "… du eine private Nachricht erhältst?"
       receive_email_notifications: "E-Mail-Benachrichtigungen empfangen, wenn …"
+      reshared: "...jemand deinen Beitrag weitersagt?"
       started_sharing: "...jemand anfängt mit dir zu teilen?"
       your_email: "Deine E-Mail-Adresse"
       your_handle: "Deine Diaspora ID"

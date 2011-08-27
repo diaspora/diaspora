@@ -381,6 +381,18 @@ zh-TW:
       one: "%{actors}寫了訊息給你."
       other: "%{actors}寫了訊息給你."
       zero: "%{actors}寫了訊息給你."
+    reshared: 
+      few: "%{actors} has reshared your %{post_link}."
+      many: "%{actors} has reshared your %{post_link}."
+      one: "%{actors} has reshared your %{post_link}."
+      other: "%{actors} has reshared your %{post_link}."
+      zero: "%{actors} has reshared your %{post_link}."
+    reshared_post_deleted: 
+      few: "%{actors} reshared your deleted post."
+      many: "%{actors} reshared your deleted post."
+      one: "%{actors} reshared your deleted post."
+      other: "%{actors} reshared your deleted post."
+      zero: "%{actors} reshared your deleted post."
     started_sharing: 
       few: "%{actors}開始跟你分享了."
       many: "%{actors}開始跟你分享了."
@@ -405,6 +417,9 @@ zh-TW:
       subject: "%{name} 在 Diaspora* 提到你"
     private_message: 
       reply_to_or_view: "回或看這次對話 >"
+    reshared: 
+      reshared: "%{name} just reshared your post"
+      view_post: "View post >"
     single_admin: 
       admin: "為您服務的 Diaspora 管理員"
       subject: "關於你的 Diaspora 帳號的訊息:"
@@ -747,6 +762,7 @@ zh-TW:
       new_password: "新的密碼"
       private_message: "...當收到私人訊息時?"
       receive_email_notifications: "是否要在以下時機透過電子郵件接收消息..."
+      reshared: "...someone reshares your post?"
       started_sharing: "...當有人開始和你分享時?"
       your_email: "你的電子郵件"
       your_handle: "你的 diaspora 識別碼"

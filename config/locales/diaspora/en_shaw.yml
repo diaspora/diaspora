@@ -381,6 +381,18 @@ en_shaw:
       one: "%{actors} 𐑕𐑧𐑯𐑑 𐑿 𐑩 𐑥𐑧𐑕𐑩𐑡."
       other: "%{actors} 𐑕𐑧𐑯𐑑 𐑿 𐑩 𐑥𐑧𐑕𐑩𐑡."
       zero: "%{actors} 𐑕𐑧𐑯𐑑 𐑿 𐑩 𐑥𐑧𐑕𐑩𐑡."
+    reshared: 
+      few: "%{actors} has reshared your %{post_link}."
+      many: "%{actors} has reshared your %{post_link}."
+      one: "%{actors} has reshared your %{post_link}."
+      other: "%{actors} has reshared your %{post_link}."
+      zero: "%{actors} has reshared your %{post_link}."
+    reshared_post_deleted: 
+      few: "%{actors} reshared your deleted post."
+      many: "%{actors} reshared your deleted post."
+      one: "%{actors} reshared your deleted post."
+      other: "%{actors} reshared your deleted post."
+      zero: "%{actors} reshared your deleted post."
     started_sharing: 
       few: "%{actors} 𐑕𐑑𐑸𐑑𐑩𐑛 𐑖𐑺𐑦𐑙 𐑢𐑦𐑞 𐑿."
       many: "%{actors} 𐑕𐑑𐑸𐑑𐑩𐑛 𐑖𐑺𐑦𐑙 𐑢𐑦𐑞 𐑿."
@@ -405,6 +417,9 @@ en_shaw:
       subject: "%{name} 𐑣𐑨𐑟 𐑥𐑧𐑯𐑖𐑩𐑯𐑛 𐑿 𐑪𐑯 ·𐑛𐑦𐑨𐑕𐑐𐑹𐑩*"
     private_message: 
       reply_to_or_view: "𐑮𐑦𐑐𐑤𐑲 𐑑 𐑹 𐑝𐑿 𐑞𐑦𐑕 𐑒𐑪𐑯𐑝𐑼𐑕𐑱𐑖𐑩𐑯 >"
+    reshared: 
+      reshared: "%{name} just reshared your post"
+      view_post: "View post >"
     single_admin: 
       admin: "𐑿𐑼 ·𐑛𐑦𐑨𐑕𐑐𐑹𐑩 𐑨𐑛𐑥𐑦𐑯𐑦𐑕𐑑𐑮𐑱𐑑𐑼"
       subject: "𐑩 𐑥𐑧𐑕𐑩𐑡 𐑑 𐑿𐑼 ·𐑛𐑦𐑨𐑕𐑐𐑹𐑩 𐑩𐑒𐑬𐑯𐑑:"
@@ -747,6 +762,7 @@ en_shaw:
       new_password: "𐑯𐑿 𐑐𐑨𐑕𐑢𐑼𐑛"
       private_message: "...𐑿 𐑮𐑦𐑕𐑰𐑝 𐑩 𐑐𐑮𐑲𐑝𐑩𐑑 𐑥𐑧𐑕𐑩𐑡?"
       receive_email_notifications: "𐑮𐑦𐑕𐑰𐑝 𐑦-𐑥𐑱𐑤 𐑯𐑴𐑑𐑦𐑓𐑦𐑒𐑱𐑖𐑩𐑯𐑟 𐑢𐑧𐑯..."
+      reshared: "...someone reshares your post?"
       started_sharing: "...𐑕𐑳𐑥𐑢𐑩𐑯 𐑕𐑑𐑸𐑑𐑕 𐑖𐑺𐑦𐑙 𐑢𐑦𐑞 𐑿?"
       your_email: "𐑿𐑼 𐑦-𐑥𐑱𐑤"
       your_handle: "𐑿𐑼 ·𐑛𐑦𐑨𐑕𐑐𐑹𐑩 𐑲𐑛𐑧𐑯𐑑𐑦𐑓𐑦𐑒𐑱𐑖𐑩𐑯"

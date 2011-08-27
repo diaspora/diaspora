@@ -381,6 +381,18 @@ ko:
       one: "%{actors}님이 쪽지를 보냈습니다."
       other: "%{actors}님이 쪽지를 보냈습니다."
       zero: "%{actors}님이 쪽지를 보냈습니다."
+    reshared: 
+      few: "%{actors} has reshared your %{post_link}."
+      many: "%{actors} has reshared your %{post_link}."
+      one: "%{actors} has reshared your %{post_link}."
+      other: "%{actors} has reshared your %{post_link}."
+      zero: "%{actors} has reshared your %{post_link}."
+    reshared_post_deleted: 
+      few: "%{actors} reshared your deleted post."
+      many: "%{actors} reshared your deleted post."
+      one: "%{actors} reshared your deleted post."
+      other: "%{actors} reshared your deleted post."
+      zero: "%{actors} reshared your deleted post."
     started_sharing: 
       few: "%{actors}님이 나와 공유를 시작했습니다."
       many: "%{actors}님이 나와 공유를 시작했습니다."
@@ -405,6 +417,9 @@ ko:
       subject: "%{name}님이 디아스포라*에서 나를 멘션했습니다"
     private_message: 
       reply_to_or_view: "이 쪽지 답장 또는 보기 >"
+    reshared: 
+      reshared: "%{name} just reshared your post"
+      view_post: "View post >"
     single_admin: 
       admin: "디아스포라 관리자"
       subject: "내 디아스포라 계정에 대한 메시지:"
@@ -747,6 +762,7 @@ ko:
       new_password: "새 암호"
       private_message: "쪽지를 받았을 때"
       receive_email_notifications: "이럴 때 이메일 알림을 받겠습니다"
+      reshared: "...someone reshares your post?"
       started_sharing: "누군가가 나와 공유를 시작할 때"
       your_email: "이메일 주소"
       your_handle: "디아스포라 핸들"

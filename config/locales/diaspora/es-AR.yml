@@ -381,6 +381,18 @@ es-AR:
       one: "%{actors} te envió un mensaje."
       other: "%{actors} te enviaron un mensaje."
       zero: "%{actors} te envió un mensaje."
+    reshared: 
+      few: "%{actors} has reshared your %{post_link}."
+      many: "%{actors} has reshared your %{post_link}."
+      one: "%{actors} has reshared your %{post_link}."
+      other: "%{actors} has reshared your %{post_link}."
+      zero: "%{actors} has reshared your %{post_link}."
+    reshared_post_deleted: 
+      few: "%{actors} reshared your deleted post."
+      many: "%{actors} reshared your deleted post."
+      one: "%{actors} reshared your deleted post."
+      other: "%{actors} reshared your deleted post."
+      zero: "%{actors} reshared your deleted post."
     started_sharing: 
       few: "%{actors} comparten con vos."
       many: "%{actors} comparten con vos."
@@ -405,6 +417,9 @@ es-AR:
       subject: "%{name} te mencionó en Diáspora*"
     private_message: 
       reply_to_or_view: "Reply to or view this conversation >"
+    reshared: 
+      reshared: "%{name} just reshared your post"
+      view_post: "View post >"
     single_admin: 
       admin: "Tu administrador de Diáspora*"
       subject: "Un mensaje sobre tu cuenta Diáspora*:"
@@ -747,6 +762,7 @@ es-AR:
       new_password: "Contraseña nueva"
       private_message: "...recibís un mensaje privado?"
       receive_email_notifications: "¿Recibir notificaciones por correo electrónico cuando..."
+      reshared: "...someone reshares your post?"
       started_sharing: "...alguien comienza a compartir con vos?"
       your_email: "Tu correo electrónico"
       your_handle: "Tu dirección Diáspora*"
