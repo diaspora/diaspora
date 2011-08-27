@@ -141,7 +141,7 @@ class PeopleController < ApplicationController
   end
 
   def contacts
-    @person = Person.find(params[:person_id])
+    @person = Person.find_by_id(params[:person_id])
     if @person
       @contact = current_user.contact_for(@person)
       @aspect = :profile

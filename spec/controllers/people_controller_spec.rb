@@ -322,6 +322,12 @@ describe PeopleController do
       assigns(:contacts_of_contact).should == contacts
       response.should be_success
     end
+
+    it 'shows an error when invalid person id' do
+      get :contacts, :person_id => 'foo'
+      flash[:error].should be_present
+      response.should redirect_to people_path
+    end
   end
 
   describe '#webfinger' do
