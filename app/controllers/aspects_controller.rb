@@ -98,9 +98,12 @@ class AspectsController < ApplicationController
     begin
       @aspect.destroy
       flash[:notice] = I18n.t 'aspects.destroy.success', :name => @aspect.name
-      redirect_to aspects_path
     rescue ActiveRecord::StatementInvalid => e
       flash[:error] = I18n.t 'aspects.destroy.failure', :name => @aspect.name
+    end
+    if request.referer.include?('contacts')
+      redirect_to contacts_path
+    else
       redirect_to aspects_path
     end
   end
