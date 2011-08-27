@@ -8,24 +8,39 @@ module MarkdownifyHelper
 
     options[:newlines] = true if !options.has_key?(:newlines)
     options[:specialchars] = true if !options.has_key?(:specialchars)
+    options[:plain_text] ||= false
 
-    message = process_links(message)
-    message = process_autolinks(message)
-    message = process_emphasis(message)
-    message = process_youtube(message, options[:youtube_maps])
-    message = process_vimeo(message, options[:vimeo_maps])
-    message = process_specialchars(message) if options[:specialchars]
-    message = process_newlines(message) if options[:newlines]
+    message = process_links(message, options)
+    message = process_autolinks(message, options)
+    message = process_emphasis(message, options)
+    message = process_youtube(message, options)
+    message = process_vimeo(message, options)
+    message = process_specialchars(message, options) if options[:specialchars]
+    message = process_newlines(message, options) if options[:newlines]
 
     message.html_safe
   end
 
-  def process_newlines(message)
-    message.gsub!(/\n+/, '<br />')
+  def markdownify2plaintext(message, options={})
+    options[:newlines] = true if !options.has_key?(:newlines)
+    options[:specialchars] = true if !options.has_key?(:specialchars)
+    options[:plain_text] = true
+
+    message = process_links(message, options)
+    message = process_specialchars(message, options) if options[:specialchars]
+    message = process_newlines(message, options) if options[:newlines]
+  end
+
+  def process_newlines(message, options)
+    unless options[:plain_text]
+      message.gsub!(/\n+/, '<br />')
+    else
+      message.gsub!(/\n+/, "\n")
+    end
     message
   end
 
-  def process_links(message)
+  def process_links(message, options)
     message.gsub!(/\[\s*([^\[]+?)\s*\]\(\s*([^ ]+\s*) \&quot;(([^&]|(&[^q])|(&q[^u])|(&qu[^o])|(&quo[^t])|(&quot[^;]))+)\&quot;\s*\)/) do |m|
       escape = "\\"
       link = $1
@@ -34,7 +49,11 @@ module MarkdownifyHelper
       url.gsub!("_", "\\_")
       url.gsub!("*", "\\*")
       protocol = (url =~ /^\w+:\/\//) ? '' :'http://'
-      res    = "<a target=\"#{escape}_blank\" href=\"#{protocol}#{url}\" title=\"#{title}\">#{link}</a>"
+      unless options[:plain_text]
+        res    = "<a target=\"#{escape}_blank\" href=\"#{protocol}#{url}\" title=\"#{title}\">#{link}</a>"
+      else
+        res    = "#{link} (#{protocol}#{url})"
+      end
       res
     end
 
@@ -45,14 +64,19 @@ module MarkdownifyHelper
       url.gsub!("_", "\\_")
       url.gsub!("*", "\\*")
       protocol = (url =~ /^\w+:\/\//) ? '' :'http://'
-      res    = "<a target=\"#{escape}_blank\" href=\"#{protocol}#{url}\">#{link}</a>"
+      unless options[:plain_text]
+        res    = "<a target=\"#{escape}_blank\" href=\"#{protocol}#{url}\">#{link}</a>"
+      else
+        res    = "#{link} (#{protocol}#{url})"
+      end
       res
     end
 
     message
   end
 
-  def process_youtube(message, youtube_maps)
+  def process_youtube(message, options)
+    youtube_maps = options[:youtube_maps]
     processed_message = message.gsub(YoutubeTitles::YOUTUBE_ID_REGEX) do |matched_string|
       match_data = matched_string.match(YoutubeTitles::YOUTUBE_ID_REGEX)
       video_id = match_data[1]
@@ -68,7 +92,7 @@ module MarkdownifyHelper
     processed_message
   end
 
-  def process_autolinks(message)
+  def process_autolinks(message, options)
     message.gsub!(/( |^)(www\.[^\s]+\.[^\s])/, '\1http://\2')
     message.gsub!(/(<a target="\\?_blank" href=")?(https|http|ftp):\/\/([^\s]+)/) do |m|
       captures = [$1,$2,$3]
@@ -85,14 +109,20 @@ module MarkdownifyHelper
     message
   end
 
-  def process_emphasis(message)
+  def process_emphasis(message, options)
     message.gsub!("\\**", "-^doublestar^-")
     message.gsub!("\\__", "-^doublescore^-")
     message.gsub!("\\*", "-^star^-")
     message.gsub!("\\_", "-^score^-")
-    message.gsub!(/(\*\*\*|___)(.+?)\1/m, '<em><strong>\2</strong></em>')
-    message.gsub!(/(\*\*|__)(.+?)\1/m, '<strong>\2</strong>')
-    message.gsub!(/(\*|_)(.+?)\1/m, '<em>\2</em>')
+    unless options[:plain_text]
+      message.gsub!(/(\*\*\*|___)(.+?)\1/m, '<em><strong>\2</strong></em>')
+      message.gsub!(/(\*\*|__)(.+?)\1/m, '<strong>\2</strong>')
+      message.gsub!(/(\*|_)(.+?)\1/m, '<em>\2</em>')
+    else
+      message.gsub!(/(\*\*\*|___)(.+?)\1/m, '*\2*')
+      message.gsub!(/(\*\*|__)(.+?)\1/m, '*\2*')
+      message.gsub!(/(\*|_)(.+?)\1/m, '*\2*')
+    end
     message.gsub!("-^doublestar^-", "**")
     message.gsub!("-^doublescore^-", "__")
     message.gsub!("-^star^-", "*")
@@ -100,7 +130,8 @@ module MarkdownifyHelper
     message
   end
 
-  def process_vimeo(message, vimeo_maps)
+  def process_vimeo(message, options)
+    vimeo_maps = options[:vimeo_maps]
     regex = /https?:\/\/(?:w{3}\.)?vimeo.com\/(\d{6,})\/?/
     processed_message = message.gsub(regex) do |matched_string|
       match_data = message.match(regex)
@@ -110,25 +141,33 @@ module MarkdownifyHelper
       else
         title = I18n.t 'application.helper.video_title.unknown'
       end
-      ' <a class="video-link" data-host="vimeo.com" data-video-id="' + video_id + '" href="' + match_data[0] + '" target="_blank">Vimeo: ' + title + '</a>'
+      unless options[:plain_text]
+        ' <a class="video-link" data-host="vimeo.com" data-video-id="' + video_id + '" href="' + match_data[0] + '" target="_blank">Vimeo: ' + title + '</a>'
+      else
+        match_data[0]
+      end
     end
     processed_message
   end
 
-  def process_specialchars(message)
+  def process_specialchars(message, options)
     map = [
-      ["&lt;3", "&hearts;"],
-      ["&lt;-&gt;", "&#8596;"],
-      ["-&gt;", "&rarr;"],
-      ["&lt;-", "&larr;"],
-      ["...", "&hellip;"],
-      ["(tm)", "&trade;"],
-      ["(r)", "&reg;"],
-      ["(c)", "&copy;"]
+      ["&lt;3", "&hearts;", "♥"],
+      ["&lt;-&gt;", "&#8596;", "↔"],
+      ["-&gt;", "&rarr;", "→"],
+      ["&lt;-", "&larr;", "←"],
+      ["...", "&hellip;", "…"],
+      ["(tm)", "&trade;", "™"],
+      ["(r)", "&reg;", "®"],
+      ["(c)", "&copy;", "©"]
     ]
 
     map.each do |mapping|
-      message.gsub!(mapping[0], mapping[1])
+      unless options[:plain_text]
+        message.gsub!(mapping[0], mapping[1])
+      else
+        message.gsub!(CGI.unescapeHTML(mapping[0]), mapping[2])
+      end
     end
     message
   end

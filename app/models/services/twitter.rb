@@ -1,4 +1,6 @@
 class Services::Twitter < Service
+  include MarkdownifyHelper
+  include ERB::Util
   MAX_CHARACTERS = 140
 
   def provider
@@ -8,6 +10,7 @@ class Services::Twitter < Service
   def post(post, url='')
     Rails.logger.debug("event=post_to_service type=twitter sender_id=#{self.user_id}")
     message = public_message(post, url)
+    message = markdownify2plaintext(message)
 
     twitter_key = SERVICES['twitter']['consumer_key']
     twitter_consumer_secret = SERVICES['twitter']['consumer_secret']
