@@ -61,7 +61,7 @@ class AspectsController < ApplicationController
         redirect_to :back
       elsif request.env['HTTP_REFERER'].include?("contacts")
         redirect_to :back
-      elsif params[:aspect][:person_id]
+      elsif params[:aspect][:person_id].present?
         @person = Person.where(:id => params[:aspect][:person_id]).first
 
         if @contact = current_user.contact_for(@person)
@@ -86,9 +86,9 @@ class AspectsController < ApplicationController
   def new
     @aspect = Aspect.new
     @person_id = params[:person_id]
+    @remote = params[:remote] == "true"
     respond_to do |format|
-      format.js { render :layout => false }
-      format.html { render '_new' }
+      format.html { render :layout => false }
     end
   end
 

@@ -84,8 +84,3 @@
       -if current_user.admin?
         %li= link_to t('.admin'), user_search_path
       %li= link_to t('.logout'), destroy_user_session_path
-
-    -unless @landing_page
-      .facebox_content
-        #add_aspect_pane
-          = render "aspects/new"

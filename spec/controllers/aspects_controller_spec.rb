@@ -47,6 +47,24 @@ describe AspectsController do
     it_should_behave_like "it overrides the logs on redirect"
   end
 
+  describe "#new" do
+    it "renders a remote form if remote is true" do
+      get :new, "remote" => "true"
+      response.should be_success
+      response.body.should =~ /#{Regexp.escape('data-remote="true"')}/
+    end
+    it "renders a non-remote form if remote is false" do
+      get :new, "remote" => "false"
+      response.should be_success
+      response.body.should_not =~ /#{Regexp.escape('data-remote="true"')}/
+    end
+    it "renders a non-remote form if remote is missing" do
+      get :new
+      response.should be_success
+      response.body.should_not =~ /#{Regexp.escape('data-remote="true"')}/
+    end
+  end
+
   describe "#index" do
     it "generates a jasmine fixture", :fixture => true do
       get :index

@@ -18,4 +18,4 @@
       - if (dropdown_may_create_new_aspect && defined?(person) && person)
         %li.newItem
           .add_aspect
-            = link_to t('contacts.index.add_a_new_aspect'), new_aspect_path(:person_id => person.id), :rel => 'facebox'
+            = link_to t('contacts.index.add_a_new_aspect'), new_aspect_path(:person_id => person.id, :remote => true), :rel => 'facebox'
