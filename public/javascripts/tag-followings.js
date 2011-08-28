@@ -5,9 +5,9 @@
 
 var TagFollowings = {
   initialize: function(){
-    $('.unfollow').live('mouseover', function(){
+    $('.unfollow').live('mouseenter', function(){
       $(this).find('.unfollow_icon').removeClass('hidden');
-    }).live('mouseout', function(){
+    }).live('mouseleave', function(){
       $(this).find('.unfollow_icon').addClass('hidden');
     });
   }
