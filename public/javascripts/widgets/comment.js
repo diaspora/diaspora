@@ -5,7 +5,8 @@
     this.subscribe("widget/ready", function(evt, comment) {
       $.extend(self, {
         comment: comment,
-        deleteCommentLink: comment.find("a.comment_delete")
+        deleteCommentLink: comment.find("a.comment_delete"),
+        timeAgo: self.instantiate("TimeAgo", comment)
       });
 
       self.deleteCommentLink.click(self.removeComment);
