@@ -54,7 +54,7 @@ When /^I append "([^"]*)" to the publisher$/ do |stuff|
 end
 
 And /^I hover over the "([^"]+)"$/ do |element|
-  page.execute_script("$(\"#{element}\").first().mouseover()")
+  page.execute_script("$(\"#{element}\").first().addClass('hover')")
 end
 
 When /^I click to delete the first post$/ do
