@@ -26,30 +26,12 @@ javascripts:
     - public/javascripts/jquery.infieldlabel-custom.js
     - public/javascripts/keycodes.js
     - public/javascripts/fileuploader-custom.js
+
     - public/javascripts/diaspora.js
     - public/javascripts/pages/*.js
-    - public/javascripts/helpers/i18n.js
-    - public/javascripts/helpers/alert.js
-    - public/javascripts/widgets/header.js
-    - public/javascripts/widgets/search.js
-    - public/javascripts/widgets/user-dropdown.js
-    - public/javascripts/widgets/embedder.js
-    - public/javascripts/widgets/timeago.js
-    - public/javascripts/widgets/infinite-scroll.js
-    - public/javascripts/widgets/direction-detector.js
-    - public/javascripts/widgets/notifications.js
-    - public/javascripts/widgets/flash-messages.js
-    - public/javascripts/widgets/back-to-top.js
-    - public/javascripts/widgets/stream.js
-    - public/javascripts/widgets/stream-element.js
-    - public/javascripts/widgets/comment-stream.js
-    - public/javascripts/widgets/comment-toggler.js
-    - public/javascripts/widgets/comment-form.js
-    - public/javascripts/widgets/comment.js
-    - public/javascripts/widgets/likes.js
-    - public/javascripts/widgets/hovercard.js
-    - public/javascripts/widgets/lightbox.js
-    - public/javascripts/widgets/notifications-badge.js
+    - public/javascripts/helpers/*.js
+    - public/javascripts/widgets/*.js
+
     - public/javascripts/view.js
     - public/javascripts/stream.js
     - public/javascripts/content-updater.js
