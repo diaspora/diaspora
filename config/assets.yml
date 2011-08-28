@@ -82,7 +82,6 @@ javascripts:
     - public/javascripts/publisher.js
     - public/javascripts/aspect-filters.js
     - public/javascripts/aspect-edit-pane.js
-    - public/javascripts/tag-followings.js
     - public/javascripts/fileuploader-custom.js
   people:
     - public/javascripts/vendor/jquery.autoSuggest.custom.js
