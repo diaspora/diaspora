@@ -16,6 +16,10 @@ var Stream = {
 
     Diaspora.page.subscribe("stream/scrolled", Stream.collapseText);
     Stream.collapseText('eventID', $(Stream.selector)[0]);
+
+    $(".hide_message").bind("click", function(evt){
+      $(".empty_message").toggleClass("hidden");
+    });
   },
   collapseText: function(){
     elements = $(Array.prototype.slice.call(arguments,1));

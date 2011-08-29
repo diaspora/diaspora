@@ -3045,6 +3045,27 @@ ul.left_nav
     :color #eee
   :color #666
 
+  .hide_message
+    @include opacity(0.3)
+    :padding 5px
+
+    &:hover
+      @include opacity(1)
+
+  .right
+    :position absolute
+    :right 12px
+
+  .controls
+    @include transition(opacity)
+    @include opacity(0)
+    :z-index 6
+    :color #999
+
+  &:hover
+    > .controls
+      @include opacity(1)
+
 .left
   :position absolute
   :left 0
