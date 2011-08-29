@@ -56,6 +56,12 @@ GIT
       addressable (>= 2.1.1)
       eventmachine (>= 0.12.9)
 
+GIT
+  remote: git://github.com/tanoku/redcarpet
+  revision: 3c6b5807e8a5be51d769149e555b09bae8ae3228
+  specs:
+    redcarpet (2.0.0b3)
+
 GEM
   remote: http://rubygems.org/
   specs:
@@ -87,8 +93,9 @@ GEM
       activesupport (= 3.0.9)
       arel (~> 2.0.10)
       tzinfo (~> 0.3.23)
-    activerecord-import (0.2.7)
-      activerecord (~> 3.0.0)
+    activerecord-import (0.2.8)
+      activerecord (~> 3.0pre)
+      activerecord (~> 3.0pre)
     activeresource (3.0.9)
       activemodel (= 3.0.9)
       activesupport (= 3.0.9)
@@ -136,9 +143,9 @@ GEM
       ohai (>= 0.5.7)
       rest-client (< 1.7.0, >= 1.0.4)
       uuidtools
-    childprocess (0.2.1)
+    childprocess (0.2.2)
       ffi (~> 1.0.6)
-    closure-compiler (1.1.1)
+    closure-compiler (1.1.3)
     cloudfiles (1.4.10)
       mime-types (>= 1.16)
     columnize (0.3.4)
@@ -167,7 +174,7 @@ GEM
     eventmachine (0.12.10)
     excon (0.2.4)
     extlib (0.9.15)
-    factory_girl (2.0.3)
+    factory_girl (2.0.5)
     factory_girl_rails (1.1.0)
       factory_girl (~> 2.0.0)
       railties (>= 3.0.0)
@@ -194,12 +201,12 @@ GEM
       ruby-hmac
     foreigner (0.9.1)
     formatador (0.2.0)
-    fuubar (0.0.5)
+    fuubar (0.0.6)
       rspec (~> 2.0)
-      rspec-instafail (~> 0.1.4)
+      rspec-instafail (~> 0.1.8)
       ruby-progressbar (~> 0.0.10)
     gem_plugin (0.2.3)
-    gherkin (2.4.5)
+    gherkin (2.4.16)
       json (>= 1.4.6)
     haml (3.1.2)
     hashie (1.0.0)
@@ -209,9 +216,9 @@ GEM
       builder
     http_connection (1.4.1)
     i18n (0.5.0)
-    i18n-inflector (2.6.2)
+    i18n-inflector (2.6.3)
       i18n (>= 0.4.1)
-    i18n-inflector-rails (1.0.5)
+    i18n-inflector-rails (1.0.6)
       actionpack (~> 3.0)
       i18n-inflector (~> 2.6)
       railties (~> 3.0)
@@ -343,9 +350,9 @@ GEM
     rake (0.9.2)
     rash (0.3.0)
       hashie (~> 1.0.0)
-    rcov (0.9.9)
-    rdoc (3.9.1)
-    redis (2.2.1)
+    rcov (0.9.10)
+    rdoc (3.9.4)
+    redis (2.2.2)
     redis-namespace (0.8.0)
       redis (< 3.0.0)
     resque (1.10.0)
@@ -407,14 +414,14 @@ GEM
       tilt (< 2.0, >= 1.2.2)
     sqlite3 (1.3.4)
     subexec (0.0.4)
-    systemu (2.2.0)
+    systemu (2.3.0)
     term-ansicolor (1.0.6)
     thin (1.2.11)
       daemons (>= 1.0.9)
       eventmachine (>= 0.12.6)
       rack (>= 1.0.0)
     thor (0.14.6)
-    tilt (1.3.2)
+    tilt (1.3.3)
     treetop (1.4.10)
       polyglot
       polyglot (>= 0.3.1)
@@ -496,6 +503,7 @@ DEPENDENCIES
   rails (= 3.0.9)
   rails-i18n
   rcov
+  redcarpet!
   resque (= 1.10.0)
   resque-ensure-connected
   rest-client (= 1.6.1)
