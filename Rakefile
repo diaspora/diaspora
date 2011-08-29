@@ -197,12 +197,10 @@ end
 
 desc "copy dot files for deployment"
 task :copydot do
-  cd "#{source_dir}" do
-    exclusions = [".", "..", ".DS_Store"]
-    Dir[".*"].each do |file|
-      if !File.directory?(file) && !exclusions.include?(file)
-        cp(file, "../#{public_dir}");
-      end
+   exclusions = [".", "..", ".DS_Store"]
+   Dir["#{source_dir}/.*"].each do |file|
+     if !File.directory?(file) && !exclusions.include?(file)
+       cp(file, "#{public_dir}");
     end
   end
 end
