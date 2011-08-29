@@ -31,6 +31,17 @@ Feature: User manages contacts
     Then I should be on the contacts page
     And I should not see "People" within "#aspect_nav"
 
+  Scenario: deleting an aspect from homepage
+    Given I am signed in
+    And I have an aspect called "People"
+    When I am on the home page
+    And I click on "People" aspect edit icon
+    And I wait for the ajax to finish
+    And I click ok in the confirm dialog to appear next
+    And I press "Delete" in the modal window
+    Then I should be on the aspects page
+    And I should not see "People" within "#aspect_nav"
+
   Scenario: Editing the aspect memberships of a contact from the aspect edit facebox
     Given I am signed in
     And I have 2 contacts

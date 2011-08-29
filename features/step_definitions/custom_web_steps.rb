@@ -215,3 +215,10 @@ When /^I resize my window to 800x600$/ do
     window.resizeTo(800,600);
   JS
 end
+
+When /^I click on "([^"]*)" aspect edit icon$/ do |aspect_name|
+  When %{I hover over the "ul.sub_nav > li:contains('#{aspect_name}')"}
+  within("#aspect_nav") do
+    find(:xpath, "//a[@rel='facebox'][.//img[@title='Edit #{aspect_name}']]").click
+  end
+end
