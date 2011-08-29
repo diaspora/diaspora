@@ -5,7 +5,7 @@
     this.subscribe("widget/ready", function(evt, button) {
       $.extend(self, {
         button: button,
-        body: $(document.body),
+        body: $("html, body"),
         window: $(window)
       });
 
