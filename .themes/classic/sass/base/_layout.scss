@@ -112,7 +112,7 @@ body.sidebar-footer {
     @extend .group;
     margin-right: $sidebar-width-medium;
     position: relative;
-    .no-sidebar & { margin-right: 0; }
+    .no-sidebar & { margin-right: 0; border-right: 0; }
     .collapse-sidebar & { margin-right: 20px; }
     > div, > article {
       padding-top: $pad-medium/2;
