@@ -200,6 +200,9 @@ GEM
       nokogiri (~> 1.4.3.1)
       ruby-hmac
     foreigner (0.9.1)
+    foreman (0.20.0)
+      term-ansicolor (~> 1.0.5)
+      thor (>= 0.13.6)
     formatador (0.2.0)
     fuubar (0.0.6)
       rspec (~> 2.0)
@@ -481,6 +484,7 @@ DEPENDENCIES
   fixture_builder (= 0.2.2)
   fog (= 0.3.25)
   foreigner (= 0.9.1)
+  foreman
   fuubar
   haml (= 3.1.2)
   hoptoad_notifier

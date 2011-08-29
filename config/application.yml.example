@@ -133,9 +133,6 @@ defaults: &defaults
   #s3_bucket: 'my_photos'
   s3_region: 'us-east-1'
 
-  # Set this to true if you want to do everything synchronously instead of using resque, our redis-backed queue system.
-  single_process_mode: true
-
   # Use paypal for recurring donations
   paypal_hosted_button_id: ""
 
@@ -154,7 +151,6 @@ development:
 
 production:
   <<: *defaults
-  single_process_mode: false
 
   # Setting the root certificate bundle (this is operating system specific). Defaults:
   # CentOS: '/etc/pki/tls/certs/ca-bundle.crt'

@@ -14,6 +14,8 @@ gem 'ohai', '0.5.8', :require => false #Chef dependency
 gem 'nokogiri'
 gem 'settingslogic', '2.0.6'
 
+gem 'foreman'
+
 gem 'vanna', :git => "git://github.com/MikeSofaer/vanna.git"
 
 #Security

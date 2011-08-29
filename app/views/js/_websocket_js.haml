@@ -2,7 +2,7 @@
 -#   licensed under the Affero General Public License version 3 or later.  See
 -#   the COPYRIGHT file.
 
--if AppConfig[:single_process_mode]
+-if ENV['SINGLE_PROCESS']
   :javascript
     var websocket_enabled = false
 - else
