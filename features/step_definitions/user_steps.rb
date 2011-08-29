@@ -27,11 +27,12 @@ end
 Given /^a user named "([^\"]*)" with email "([^\"]*)"$/ do |name, email|
   first, last = name.split
   username = "#{first}_#{last}" if first
-  user = Factory(:user, :email => email, :password => 'password', :username => "#{first}_#{last}",
+  user = Factory.create(:user, :email => email, :password => 'password', :username => "#{first}_#{last}",
                  :password_confirmation => 'password', :getting_started => false)
-  user.profile.update_attributes(:first_name => first, :last_name => last) if first
-  user.aspects.create(:name => "Besties")
-  user.aspects.create(:name => "Unicorns")
+
+  user.profile.update_attributes!(:first_name => first, :last_name => last) if first
+  user.aspects.create!(:name => "Besties")
+  user.aspects.create!(:name => "Unicorns")
 end
 
 Given /^I have been invited by an admin$/ do
