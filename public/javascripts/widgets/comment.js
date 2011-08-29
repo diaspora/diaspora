@@ -6,11 +6,21 @@
       $.extend(self, {
         comment: comment,
         deleteCommentLink: comment.find("a.comment_delete"),
-        timeAgo: self.instantiate("TimeAgo", comment)
+        timeAgo: self.instantiate("TimeAgo", comment),
+        content: comment.find(".content span")
       });
 
       self.deleteCommentLink.click(self.removeComment);
       self.deleteCommentLink.tipsy({ trigger: "hover" });
+      
+      // collapse long comments
+      self.content.expander({
+        slicePoint: 200,
+        widow: 18,
+        expandText: Diaspora.I18n.t("show_more"),
+        userCollapse: false
+      });
+
     });
 
     this.removeComment = function(evt) {

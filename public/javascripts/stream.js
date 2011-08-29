@@ -7,33 +7,13 @@ var Stream = {
   selector: "#main_stream",
 
   initialize: function() {
-    Diaspora.page.timeAgo.updateTimeAgo();
+    //Diaspora.page.timeAgo.updateTimeAgo(); // this is not needed because
+                                             // we do this in both streamelement
+                                             // and comment widgets
     Diaspora.page.directionDetector.updateBinds();
 
     //audio links
     Stream.setUpAudioLinks();
-    //Stream.setUpImageLinks();
-
-    Diaspora.page.subscribe("stream/scrolled", Stream.collapseText);
-    Stream.collapseText('eventID', $(Stream.selector)[0]);
-  },
-  collapseText: function(){
-    elements = $(Array.prototype.slice.call(arguments,1));
-    // collapse long posts
-    $(".content p", elements).expander({
-      slicePoint: 400,
-      widow: 12,
-      expandText: Diaspora.I18n.t("show_more"),
-      userCollapse: false
-    });
-
-    // collapse long comments
-    $(".comment .content span", elements).expander({
-      slicePoint: 200,
-      widow: 18,
-      expandText: Diaspora.I18n.t("show_more"),
-      userCollapse: false
-    });
   },
 
   initializeLives: function(){
@@ -94,19 +74,6 @@ var Stream = {
           preload: "none",
           src: this.href,
           controls: "controls"
-        }).appendTo(link.parent());
-
-        link.remove();
-      }
-    });
-  },
-
-  setUpImageLinks: function() {
-    $(".stream a[target='_blank']").each(function() {
-      var link = $(this);
-      if(this.href.match(/\.gif$|\.jpg$|\.png$|\.jpeg$/)) {
-        $("<img/>", {
-          src: this.href
         }).appendTo(link.parent());
 
         link.remove();
