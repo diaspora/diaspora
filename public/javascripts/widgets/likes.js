@@ -17,7 +17,7 @@
       var likesList = self.expander.siblings(".likes_list");
       if(likesList.children().length == 0) {
         self.loadingImage.appendTo(likesList.parent());
-        $.get(self.expander.href, function(data) {
+        $.get(self.expander.attr('href'), function(data) {
           self.loadingImage.fadeOut(100, function() {
             likesList.html(data)
               .fadeToggle(100);
