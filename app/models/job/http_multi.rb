@@ -37,6 +37,9 @@ module Job
         request = Request.new(url, OPTS.merge(:params => {:xml => CGI::escape(xml)}))
 
         request.on_complete do |response|
+          # Save the reference to the pod to the database if not already present
+          Pod.find_or_create_by_url(response.effective_url)
+
           if response.code >= 300 && response.code < 400
             if response.headers_hash['Location'] == response.request.url.sub('http://', 'https://')
               location = URI.parse(response.headers_hash['Location'])
@@ -48,10 +51,7 @@ module Job
             end
           end
           unless response.success?
-            pod = Pod.find_or_create_by_url(response.effective_url)
-            log_line = "event=http_multi_fail sender_id=#{user_id} recipient_id=#{person.id} url=#{response.effective_url} response_code='#{response.code}'"
-            Rails.logger.info(log_line)
-            pod.pod_stats.create(:error_message => log_line, :person_id => person.id, :error_code => response.code.to_i)
+            Rails.logger.info("event=http_multi_fail sender_id=#{user_id} recipient_id=#{person.id} url=#{response.effective_url} response_code='#{response.code}'")
             failed_request_people << person.id
           end
         end
