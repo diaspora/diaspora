@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110818212541) do
+ActiveRecord::Schema.define(:version => 20110830000140) do
 
   create_table "aspect_memberships", :force => true do |t|
     t.integer  "aspect_id",  :null => false
@@ -235,22 +235,6 @@ ActiveRecord::Schema.define(:version => 20110818212541) do
   add_index "people", ["diaspora_handle"], :name => "index_people_on_diaspora_handle", :unique => true
   add_index "people", ["guid"], :name => "index_people_on_guid", :unique => true
   add_index "people", ["owner_id"], :name => "index_people_on_owner_id", :unique => true
-
-  create_table "pod_stats", :force => true do |t|
-    t.integer  "error_code"
-    t.integer  "person_id"
-    t.text     "error_message"
-    t.integer  "pod_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "pods", :force => true do |t|
-    t.string   "host"
-    t.boolean  "ssl"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
 
   create_table "post_visibilities", :force => true do |t|
     t.integer  "post_id",                       :null => false
