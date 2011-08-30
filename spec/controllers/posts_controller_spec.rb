@@ -54,6 +54,7 @@ describe PostsController do
     end
 
     context 'user not signed in' do
+
       it 'shows a public post' do
         status = alice.post(:status_message, :text => "hello", :public => true, :to => 'all')
 
@@ -62,7 +63,6 @@ describe PostsController do
       end
 
       it 'succeeds for statusnet' do
-        pending "StatusNet send a weird ACCEPT header"
         status = alice.post(:status_message, :text => "hello", :public => true, :to => 'all')
         @request.env["HTTP_ACCEPT"] = "application/html+xml,text/html"
         get :show, :id => status.id

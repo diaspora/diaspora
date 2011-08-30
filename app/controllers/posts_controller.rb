@@ -4,6 +4,7 @@
 
 class PostsController < ApplicationController
   before_filter :authenticate_user!, :except => :show
+  before_filter :set_format_if_malformed_from_status_net, :only => :show
 
   respond_to :html,
              :mobile,
@@ -28,7 +29,7 @@ class PostsController < ApplicationController
 
       respond_to do |format|
         format.xml{ render :xml => @post.to_diaspora_xml }
-        format.any{}
+        format.any{render 'posts/show.html.haml'}
       end
 
     else
@@ -51,5 +52,9 @@ class PostsController < ApplicationController
       Rails.logger.info "event=post_destroy status=failure user=#{current_user.diaspora_handle} reason='User does not own post'"
       render :nothing => true, :status => 404
     end
+  end
+
+  def set_format_if_malformed_from_status_net
+   request.format = :html if request.format == 'application/html+xml'
   end
 end
