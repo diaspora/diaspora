@@ -15,5 +15,5 @@
     .from
       = person_link(comment.author)
     %p{ :class => direction_for(comment.text) }
-      = markdownify(comment.text, :youtube_maps => comment[:youtube_titles])
+      = markdownify(comment, :youtube_maps => comment[:youtube_titles])
 

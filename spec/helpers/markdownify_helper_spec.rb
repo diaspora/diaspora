@@ -5,10 +5,11 @@
 require 'spec_helper'
 
 describe MarkdownifyHelper do
+
   describe "#markdownify" do
     describe "autolinks" do
       it "should not allow basic XSS/HTML" do
-        markdownify("<script>alert('XSS is evil')</script>").should == "<p>alert('XSS is evil')</p>"
+        markdownify("<script>alert('XSS is evil')</script>").should == "<p>&lt;script&gt;alert('XSS is evil')&lt;/script&gt;</p>"
       end
 
       it "should recognize basic http links (1/3)" do
@@ -250,12 +251,6 @@ describe MarkdownifyHelper do
         markdownify(message).should == '<p>This <a target="_blank" href="http://en.wikipedia.org/wiki/Text_%28literary_theory%29"><em>text</em></a> with many <a target="_blank" href="http://google.com">links</a> tests <a target="_blank" href="http://google.com/search?q=with_multiple__underscores*and**asterisks"><em>http</em></a>, <a target="_blank" href="ftp://ftp.uni-kl.de/CCC/26C3/mp4/26c3-3540-en-a_hackers_utopia.mp4" title="File Transfer Protocol"><em><strong>FTP</strong></em></a>, <a target="_blank" href="foo://bar.example.org/yes_it*makes*no_sense"><strong>any protocol</strong></a></p>'
       end
 
-      it "should leave #tag links intact" do
-        message = %{<a href="/tags/tagged" class="tag">#tagged</a>}
-        markdownify(message).should == "<p>#{message}</p>"
-        message = %{alice - 1 - <a href="/tags/tagged" class="tag">#tagged</a>}
-        markdownify(message).should == "<p>#{message}</p>"
-      end
     end
 
     describe "nested emphasis and links tags" do
@@ -288,6 +283,26 @@ describe MarkdownifyHelper do
         res = markdownify(message)
         res.should == '<p>Some text, then a line break and a link<br /><a target="_blank" href="http://joindiaspora.com">joindiaspora.com</a><br />some more text</p>'
       end
+    end
+
+    context 'when formatting status messages' do
+
+      it "should leave tags intact" do
+        message = Factory.create(:status_message, 
+                                 :author => alice.person,
+                                 :text => "I love #markdown")
+        formatted = markdownify(message)
+        formatted.should =~ %r{<a href="/tags/markdown" class="tag">#markdown</a>}
+      end
+
+      it "should leave mentions intact" do
+        message = Factory.create(:status_message, 
+                                 :author => alice.person,
+                                 :text => "Hey @{Bob; #{bob.diaspora_handle}}!")
+        formatted = markdownify(message)
+        formatted.should =~ /hovercard/
+      end
+
     end
 
     context 'performance' do

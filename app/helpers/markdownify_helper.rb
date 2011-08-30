@@ -5,7 +5,7 @@
 require File.expand_path("#{Rails.root}/lib/diaspora/markdownify")
 
 module MarkdownifyHelper
-  def markdownify(message, render_options={})
+  def markdownify(target, render_options={})
     markdown_options = {
       :autolink            => true,
       :fenced_code_blocks  => true,
@@ -19,7 +19,25 @@ module MarkdownifyHelper
 
     renderer = Diaspora::Markdownify::HTML.new(render_options)
     markdown = Redcarpet::Markdown.new(renderer, markdown_options)
+
+    # This ugly little hack basically means 
+    #   "Give me the rawest contents of target available"
+    if target.respond_to?(:raw_message)
+      message = target.raw_message
+    elsif target.respond_to?(:text)
+      message = target.text
+    else
+      message = target.to_s
+    end
+
     message = markdown.render(message)
+
+    if target.respond_to?(:format_mentions)
+      message = target.format_mentions(message)
+    end
+
+    message = Diaspora::Taggable.format_tags(message, :no_escape => true)
+
     return message.html_safe
   end
 
