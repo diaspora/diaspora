@@ -75,7 +75,10 @@ module Diaspora
         "<br />"
       end
 
-      def link(link, title, content='')
+      def link(link, title, content)
+        #hax
+        content ||=''
+
         return autolink(link, 'url') if link == content 
         
         if link =~ Regexp.new(Regexp.escape(content))
