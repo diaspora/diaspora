@@ -86,7 +86,6 @@ describe("ContentUpdater", function() {
       Diaspora.Page = "AspectsIndex";
       Diaspora.instantiatePage();
 
-      console.log(Diaspora, $("#main_stream"), $("#jasmine_content"));
 
       post = $(".stream_element:first"),
         postGUID = post.attr("id");
