@@ -6,9 +6,7 @@ require 'uri'
 class AppConfig < Settingslogic
 
   def self.source_file_name
-    return ENV.to_hash if ENV["HEROKU"] # Using Heroku
-
-    if Rails.env == 'test' || ENV["CI"] || Rails.env.include?("integration")
+    if Rails.env == 'test' || ENV["CI"] || Rails.env.include?("integration") || ENV["HEROKU"].present?
       File.join(Rails.root, "config", "application.yml.example")
     else
       File.join(Rails.root, "config", "application.yml")
@@ -18,7 +16,7 @@ class AppConfig < Settingslogic
   namespace Rails.env
 
   def self.load!
-    unless ENV["HEROKU"]
+    unless ENV["HEROKU"].present?
       if no_config_file? && !have_old_config_file?
         $stderr.puts <<-HELP
 ******** You haven't set up your Diaspora settings file. **********
@@ -54,7 +52,7 @@ Please do the following:
       Process.exit(1)
     end
 
-    if !ENV["HEROKU"] && no_cert_file_in_prod?
+    if !ENV["HEROKU"].present? && no_cert_file_in_prod?
       $stderr.puts <<-HELP
 ******** Diaspora does not know where your SSL-CA-Certificates file is. **********
   Please add the root certificate bundle (this is operating system specific) to application.yml. Defaults:
@@ -119,6 +117,7 @@ HELP
 
   def self.[] (key)
     return self.pod_uri if key == :pod_uri
+    return ENV[key.to_s] if ENV[key.to_s].present? && ENV["HEROKU"]
     super
   end
 
