@@ -116,6 +116,18 @@ describe AspectsController do
       save_fixture(html_for("body"), "aspects_index_with_a_post_with_likes")
     end
 
+    context "mobile" do
+      it "renders a share button when you don't pass aspect IDs" do
+        get :index, :format => :mobile
+        response.body.should =~ /#{Regexp.escape('id="status_message_submit"')}/
+      end
+      
+      it "renders a share button when you pass aspect IDs" do
+        get :index, :a_ids => [@alices_aspect_1], :format => :mobile
+        response.body.should =~ /#{Regexp.escape('id="status_message_submit"')}/
+      end
+    end
+
     context 'with getting_started = true' do
       before do
         alice.getting_started = true
