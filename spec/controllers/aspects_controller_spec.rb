@@ -163,7 +163,8 @@ describe AspectsController do
 
       describe "post visibilities" do
         before do
-          @status = bob.post(:status_message, :text=> "hello", :to => bob.aspects.first)
+          aspect_to_post = bob.aspects.where(:name => "generic").first
+          @status = bob.post(:status_message, :text=> "hello", :to => aspect_to_post)
           @vis = @status.post_visibilities.first
         end
 

@@ -6,8 +6,8 @@ require 'spec_helper'
 
 describe CommentsController do
   before do
-    @aspect1 = alice.aspects.first
-    @aspect2 = bob.aspects.first
+    @aspect1 = alice.aspects.where(:name => "generic").first
+    @aspect2 = bob.aspects.where(:name => "generic").first
 
     @controller.stub(:current_user).and_return(alice)
     sign_in :user, alice
@@ -124,7 +124,8 @@ describe CommentsController do
 
   describe '#index' do
     before do
-      @message = bob.post(:status_message, :text => "hey", :to => bob.aspects.first.id)
+      aspect_to_post = bob.aspects.where(:name => "generic").first
+      @message = bob.post(:status_message, :text => "hey", :to => aspect_to_post.id)
       @comments = [alice, bob, eve].map{ |u| u.comment("hey", :post => @message) }
     end
     it 'works for mobile' do
@@ -141,7 +142,8 @@ describe CommentsController do
       response.status.should == 404
     end
     it 'returns a 404 on a post that is not visible to the signed in user' do
-      message = eve.post(:status_message, :text => "hey", :to => eve.aspects.first.id)
+      aspect_to_post = eve.aspects.where(:name => "generic").first
+      message = eve.post(:status_message, :text => "hey", :to => aspect_to_post.id)
       bob.comment("hey", :post => @message)
       get :index, :post_id => message.id, :format => 'js'
       response.status.should == 404

@@ -11,7 +11,7 @@ describe AspectMembership do
       @aspect = alice.aspects.create(:name => "two")
       @contact = alice.contact_for(bob.person)
 
-      @am = alice.aspects.first.aspect_memberships.first
+      @am = alice.aspects.where(:name => "generic").first.aspect_memberships.first
       @am.stub!(:user).and_return(alice)
     end
 

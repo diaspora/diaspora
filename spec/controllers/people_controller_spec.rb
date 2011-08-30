@@ -253,8 +253,10 @@ describe PeopleController do
       it "assigns only the posts the current user can see" do
         bob.posts.should be_empty
         posts_user_can_see = []
-        posts_user_can_see << bob.post(:status_message, :text => "to an aspect @user is in", :to => bob.aspects[0].id)
-        bob.post(:status_message, :text => "to an aspect @user is not in", :to => bob.aspects[1].id)
+        aspect_user_is_in = bob.aspects.where(:name => "generic").first
+        aspect_user_is_not_in = bob.aspects.where(:name => "empty").first
+        posts_user_can_see << bob.post(:status_message, :text => "to an aspect @user is in", :to => aspect_user_is_in.id)
+        bob.post(:status_message, :text => "to an aspect @user is not in", :to => aspect_user_is_not_in.id)
         posts_user_can_see << bob.post(:status_message, :text => "to all aspects", :to => 'all')
         posts_user_can_see << bob.post(:status_message, :text => "public", :to => 'all', :public => true)
         bob.reload.posts.length.should == 4

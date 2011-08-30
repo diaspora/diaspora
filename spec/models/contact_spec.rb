@@ -90,17 +90,21 @@ describe Contact do
       @eve = eve
       @bob.aspects.create(:name => 'next')
       @bob.aspects(true)
+
+      @original_aspect = @bob.aspects.where(:name => "generic").first
+      @new_aspect = @bob.aspects.where(:name => "next").first
+
       @people1 = []
       @people2 = []
 
       1.upto(5) do
         person = Factory(:person)
-        @bob.contacts.create(:person => person, :aspects => [@bob.aspects.first])
+        @bob.contacts.create(:person => person, :aspects => [@original_aspect])
         @people1 << person
       end
       1.upto(5) do
         person = Factory(:person)
-        @bob.contacts.create(:person => person, :aspects => [@bob.aspects.last])
+        @bob.contacts.create(:person => person, :aspects => [@new_aspect])
         @people2 << person
       end
     #eve <-> bob <-> alice
@@ -118,9 +122,8 @@ describe Contact do
       end
 
       it 'returns nothing if contacts_visible is false in that aspect' do
-        asp = @bob.aspects.first
-        asp.contacts_visible = false
-        asp.save
+        @original_aspect.contacts_visible = false
+        @original_aspect.save
         @contact.contacts.should == []
       end
 

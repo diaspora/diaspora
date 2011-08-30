@@ -6,13 +6,10 @@ require 'spec_helper'
 
 describe LikesController do
   before do
-    @user1 = alice
-    @user2 = bob
+    @alices_aspect = alice.aspects.where(:name => "generic").first
+    @bobs_aspect = bob.aspects.where(:name => "generic").first
 
-    @aspect1 = @user1.aspects.first
-    @aspect2 = @user2.aspects.first
-
-    sign_in :user, @user1
+    sign_in :user, alice
   end
 
   [Comment, Post].each do |class_const|
@@ -33,9 +30,9 @@ describe LikesController do
 
         context "on my own post" do
           before do
-            @target = @user1.post :status_message, :text => "AWESOME", :to => @aspect1.id
+            @target = alice.post :status_message, :text => "AWESOME", :to => @alices_aspect.id
 
-            @target = @user1.comment "hey", :post => @target if class_const == Comment
+            @target = alice.comment "hey", :post => @target if class_const == Comment
           end
 
           it 'responds to format js' do
@@ -46,8 +43,8 @@ describe LikesController do
 
         context "on a post from a contact" do
           before do
-            @target = @user2.post :status_message, :text => "AWESOME", :to => @aspect2.id
-            @target = @user2.comment "hey", :post => @target if class_const == Comment
+            @target = bob.post :status_message, :text => "AWESOME", :to => @bobs_aspect.id
+            @target = bob.comment "hey", :post => @target if class_const == Comment
           end
 
           it 'likes' do
@@ -61,7 +58,7 @@ describe LikesController do
           end
 
           it "doesn't post multiple times" do
-            @user1.like(1, :target => @target)
+            alice.like(1, :target => @target)
             post :create, dislike_hash
             response.code.should == '422'
           end
@@ -74,7 +71,7 @@ describe LikesController do
           end
 
           it "doesn't post" do
-            @user1.should_not_receive(:like)
+            alice.should_not_receive(:like)
             post :create, like_hash
             response.code.should == '422'
           end
@@ -83,7 +80,7 @@ describe LikesController do
 
       describe '#index' do
         before do
-          @message = alice.post(:status_message, :text => "hey", :to => @aspect1.id)
+          @message = alice.post(:status_message, :text => "hey", :to => @alices_aspect.id)
           @message = alice.comment( "hey", :post => @message) if class_const == Comment
         end
         it 'returns a 404 for a post not visible to the user' do
@@ -107,7 +104,7 @@ describe LikesController do
 
       describe '#destroy' do
         before do
-          @message = bob.post(:status_message, :text => "hey", :to => @aspect1.id)
+          @message = bob.post(:status_message, :text => "hey", :to => @alices_aspect.id)
           @message = bob.comment( "hey", :post => @message) if class_const == Comment
           @like = alice.build_like(:positive => true, :target => @message)
           @like.save

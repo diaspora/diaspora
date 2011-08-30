@@ -8,12 +8,17 @@ FixtureBuilder.configure do |fbuilder|
   fbuilder.factory do
     # Users
     alice = Factory(:user_with_aspect, :username => "alice")
+    alices_aspect = alice.aspects.where(:name => "generic").first
+
     eve   = Factory(:user_with_aspect, :username => "eve")
+    eves_aspect = eve.aspects.where(:name => "generic").first
+
     bob   = Factory(:user_with_aspect, :username => "bob")
+    bobs_aspect = bob.aspects.where(:name => "generic").first
     Factory(:aspect, :name => "empty", :user => bob)
 
-    connect_users(bob, bob.aspects.first, alice, alice.aspects.first)
-    connect_users(bob, bob.aspects.first, eve, eve.aspects.first)
+    connect_users(bob, bobs_aspect, alice, alices_aspect)
+    connect_users(bob, bobs_aspect, eve, eves_aspect)
 
 
     # Set up friends
