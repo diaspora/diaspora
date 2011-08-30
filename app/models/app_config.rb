@@ -6,6 +6,8 @@ require 'uri'
 class AppConfig < Settingslogic
 
   def self.source_file_name
+    return ENV.to_hash if ENV["STACK"] # Using Heroku
+
     if Rails.env == 'test' || ENV["CI"] || Rails.env.include?("integration")
       File.join(Rails.root, "config", "application.yml.example")
     else
@@ -16,8 +18,9 @@ class AppConfig < Settingslogic
   namespace Rails.env
 
   def self.load!
-    if no_config_file? && !have_old_config_file?
-      $stderr.puts <<-HELP
+    unless ENV["STACK"]
+      if no_config_file? && !have_old_config_file?
+        $stderr.puts <<-HELP
 ******** You haven't set up your Diaspora settings file. **********
 Please do the following:
 1. Copy config/application.yml.example to config/application.yml.
@@ -25,12 +28,12 @@ Please do the following:
 work without modification. However, it's always good to know what's available to change later.
 3. Restart Diaspora!
 ******** Thanks for being an alpha tester! **********
-HELP
-      Process.exit(1)
-    end
+  HELP
+        Process.exit(1)
+      end
 
-    if (no_config_file? && have_old_config_file?) || config_file_is_old_style?
-      $stderr.puts <<-HELP
+      if ((no_config_file? && have_old_config_file?) || config_file_is_old_style?)
+        $stderr.puts <<-HELP
 ******** The Diaspora configuration file format has changed. **********
 Please do the following:
 1. Copy config/application.yml.example to config/application.yml.
@@ -38,8 +41,9 @@ Please do the following:
 3. Delete config/app.yml and config/app_config.yml. Don't worry if they don't exist, though.
 4. Restart Diaspora!
 ******** Thanks for being an alpha tester! **********
-HELP
-      Process.exit(1)
+  HELP
+        Process.exit(1)
+      end
     end
 
     begin
@@ -50,7 +54,7 @@ HELP
       Process.exit(1)
     end
 
-    if no_cert_file_in_prod?
+    if !ENV["STACK"] && no_cert_file_in_prod?
       $stderr.puts <<-HELP
 ******** Diaspora does not know where your SSL-CA-Certificates file is. **********
   Please add the root certificate bundle (this is operating system specific) to application.yml. Defaults:
