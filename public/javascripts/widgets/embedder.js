@@ -25,6 +25,8 @@
           ? self.services[service]
           : self.services.undefined;
   
+          console.log(template);
+          console.log(views);
       return $.mustache(template, views);
     };
 
@@ -48,8 +50,10 @@
         $("div.video-container").slideUp("fast", function() { $(this).detach(); });
       }
 
+        console.log(videoLink.data());
       container.html(
         self.render(host, videoLink.data())
+
       );
 
       container.hide()
@@ -65,8 +69,8 @@
 
     this.registerServices = function() {
       self.register("youtube.com",
-        '<a href="//www.youtube.com/watch?v={{video-id}}{{anchor}}" target="_blank">' + Diaspora.I18n.t("videos.watch", { provider: "YouTube" }) + '</a><br />' +
-        '<iframe class="youtube-player" type="text/html" src="http://www.youtube.com/embed/{{video-id}}?wmode=opaque{{anchor}}"></iframe>');
+        '<a href="https://www.youtube.com/watch?v={{videoId}}{{anchor}}" target="_blank">' + Diaspora.I18n.t("videos.watch", { provider: "YouTube" }) + '</a><br />' +
+        '<iframe class="youtube-player" type="text/html" src="https://www.youtube.com/embed/{{videoId}}?wmode=opaque{{anchor}}"></iframe>');
 
       self.register("vimeo.com",
 				'<a href="http://vimeo.com/{{video-id}}">' + Diaspora.I18n.t("videos.watch", { provider: "Vimeo" }) + '</a><br />' +
