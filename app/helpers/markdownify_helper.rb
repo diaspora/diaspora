@@ -2,7 +2,7 @@
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
-require 'lib/diaspora/markdownify'
+require File.expand_path("#{Rails.root}/lib/diaspora/markdownify")
 
 module MarkdownifyHelper
   def markdownify(message, render_options={})
