@@ -5,8 +5,7 @@
 require File.expand_path("#{Rails.root}/lib/diaspora/markdownify")
 
 module MarkdownifyHelper
-  def markdownify(message, render_options={})
-    return '' if message.blank?
+  def markdownify(target, render_options={})
 
     markdown_options = {
       :autolink            => true,
@@ -19,8 +18,6 @@ module MarkdownifyHelper
 
     render_options[:filter_html] = true
 
-    renderer = Diaspora::Markdownify::HTML.new(render_options)
-    markdown = Redcarpet::Markdown.new(renderer, markdown_options)
 
     # This ugly little hack basically means 
     #   "Give me the rawest contents of target available"
@@ -31,6 +28,11 @@ module MarkdownifyHelper
     else
       message = target.to_s
     end
+
+    return '' if message.blank?
+
+    renderer = Diaspora::Markdownify::HTML.new(render_options)
+    markdown = Redcarpet::Markdown.new(renderer, markdown_options)
 
     message = markdown.render(message)
 
