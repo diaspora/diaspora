@@ -290,6 +290,10 @@ describe MarkdownifyHelper do
       end
     end
 
+    it 'does not barf is message is nil' do
+      markdownify(nil).should == ''
+    end
+
     context 'performance' do
       before do
         @message = "HHello,Hello_, I _am a strong robot.*Hello, I am *a strong robot.Hello, I am a strong robot.Hello, I am a strong robot.Hello, I am a strong robot.Hello, I am a **strong robot.Hello, I am _a _strong *robot**.Hello*, I am a strong "

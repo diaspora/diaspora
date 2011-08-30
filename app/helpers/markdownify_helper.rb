@@ -6,6 +6,7 @@ require File.expand_path("#{Rails.root}/lib/diaspora/markdownify")
 
 module MarkdownifyHelper
   def markdownify(message, render_options={})
+    return '' if message.blank?
     markdown_options = {
       :autolink            => true,
       :fenced_code_blocks  => true,
