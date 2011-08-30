@@ -4,6 +4,7 @@ namespace :heroku do
     CONFIG = YAML.load_file('config/application.yml')['production'] rescue {}
     command = "heroku config:add"
     CONFIG.each {|key, val| command << " #{key}=#{val} " if val }
+    command << " HEROKU=true "
     system command
   end
 end
