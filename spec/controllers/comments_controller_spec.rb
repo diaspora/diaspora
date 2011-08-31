@@ -128,6 +128,14 @@ describe CommentsController do
       @message = bob.post(:status_message, :text => "hey", :to => aspect_to_post.id)
       @comments = [alice, bob, eve].map{ |u| u.comment("hey", :post => @message) }
     end
+
+    it 'generates a jasmine fixture', :fixture => true do
+      2.times { alice.comment("hey", :post => @message) }
+      get :index, :post_id => @message.id
+
+      save_fixture(response.body, "ajax_comments_on_post")
+    end
+
     it 'works for mobile' do
       get :index, :post_id => @message.id, :format => 'mobile'
       response.should be_success

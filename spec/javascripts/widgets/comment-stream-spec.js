@@ -1,7 +1,11 @@
 describe("Diaspora.Widgets.CommentStream", function() {
   var commentStream;
   beforeEach(function() {
+    spec.readFixture("ajax_comments_on_post");
+
     jasmine.Clock.useMock();
+    jasmine.Ajax.useMock();
+
     spec.loadFixture("aspects_index_with_posts");
     Diaspora.I18n.locale = { };
 
@@ -13,7 +17,21 @@ describe("Diaspora.Widgets.CommentStream", function() {
 
   describe("toggling comments", function() {
     it("toggles class hidden on the comments ul", function () {
-      spyOn($, "ajax");
+      spyOn($, "ajax").andCallThrough();
+
+      expect($("ul.comments:first")).not.toHaveClass("hidden");
+
+      commentStream.showComments($.Event());
+
+      mostRecentAjaxRequest().response({
+        responseHeaders: {
+          "Content-type": "text/html"
+        },
+        responseText: spec.readFixture("ajax_comments_on_post"),
+        status: 200
+      });
+
+      jasmine.Clock.tick(200);
 
       expect($("ul.comments:first")).not.toHaveClass("hidden");
 
@@ -22,16 +40,10 @@ describe("Diaspora.Widgets.CommentStream", function() {
       jasmine.Clock.tick(200);
 
       expect($("ul.comments:first")).toHaveClass("hidden");
-
-      commentStream.showComments($.Event());
-
-      $.ajax.mostRecentCall.args[0].success("comment response");
-      jasmine.Clock.tick(200);
-
-      expect($("ul.comments:first")).not.toHaveClass("hidden");
     });
 
     it("changes the text on the show comments link", function() {
+      spyOn($, "ajax").andCallThrough();
       Diaspora.I18n.loadLocale({'comments' : {
         'show': 'show comments translation',
         'hide': 'hide comments translation'
@@ -40,6 +52,14 @@ describe("Diaspora.Widgets.CommentStream", function() {
       var link = $("a.toggle_post_comments:first");
 
       commentStream.showComments($.Event());
+
+     mostRecentAjaxRequest().response({
+        responseHeaders: {
+          "Content-type": "text/html"
+        },
+        responseText: spec.readFixture("ajax_comments_on_post"),
+        status: 200
+      });
 
       jasmine.Clock.tick(200);
 
@@ -53,13 +73,20 @@ describe("Diaspora.Widgets.CommentStream", function() {
     });
 
     it("only requests the comments when the loaded class is not present", function() {
-      spyOn($, "ajax");
-
+      spyOn($, "ajax").andCallThrough();
+      
       expect(commentStream.commentsList).not.toHaveClass("loaded");
 
       commentStream.showComments($.Event());
 
-      $.ajax.mostRecentCall.args[0].success("comment response");
+      mostRecentAjaxRequest().response({
+        responseHeaders: {
+          "Content-type": "text/html"
+        },
+        responseText: spec.readFixture("ajax_comments_on_post"),
+        status: 200
+      });
+
 
       expect($.ajax.callCount).toEqual(1);
       expect(commentStream.commentsList).toHaveClass("loaded");
