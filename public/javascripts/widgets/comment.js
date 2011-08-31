@@ -6,6 +6,7 @@
       $.extend(self, {
         comment: comment,
         deleteCommentLink: comment.find("a.comment_delete"),
+        likes: self.instantiate("Likes", comment.find(".likes_container")),
         timeAgo: self.instantiate("TimeAgo", comment.find("abbr.timeago")),
         content: comment.find(".content span")
       });

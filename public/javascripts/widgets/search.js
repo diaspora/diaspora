@@ -32,9 +32,9 @@
         return Diaspora.I18n.t("search_for", row);
       } else {
         return $("<img/>", {
-          'class': "avatar",
+          "class": "avatar",
           src: row.avatar
-        }).html() + row.name;
+        })[0].outerHTML + row.name;
       }
     };
 
@@ -63,7 +63,7 @@
       if (data['search'] === true) { // The placeholder "search for" result
         window.location = self.searchFormAction + '?' + self.searchInputName + '=' + data['name'];
       } else { // The actual result
-        element.val(formatted);
+        self.options.element.val(formatted);
         window.location = data['url'];
       }
     };
