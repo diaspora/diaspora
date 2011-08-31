@@ -24,9 +24,7 @@
       var template = (typeof self.services[service] === "string")
           ? self.services[service]
           : self.services.undefined;
-  
-          console.log(template);
-          console.log(views);
+
       return $.mustache(template, views);
     };
 
@@ -50,10 +48,8 @@
         $("div.video-container").slideUp("fast", function() { $(this).detach(); });
       }
 
-        console.log(videoLink.data());
       container.html(
         self.render(host, videoLink.data())
-
       );
 
       container.hide()

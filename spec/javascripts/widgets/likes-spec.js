@@ -3,6 +3,7 @@ describe("Diaspora.Widgets.Likes", function() {
   beforeEach(function() {
     spec.loadFixture("aspects_index_with_a_post_with_likes");
     likes = Diaspora.BaseWidget.instantiate("Likes", $(".stream_element .likes_container"));
+    $.fx.off = true;
   });
 
   describe("integration", function() {
@@ -49,5 +50,9 @@ describe("Diaspora.Widgets.Likes", function() {
 
       expect($(".stream_element .likes_list").html()).toEqual("some html response");
     });
+  });
+
+  afterEach(function() {
+    $.fx.off = false;
   });
 });
