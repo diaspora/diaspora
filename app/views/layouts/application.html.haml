@@ -97,9 +97,6 @@
     %header{:class=>('landing' unless current_user)}
       = render 'layouts/header'
 
-    %h3
-      = Resque.redis.inspect
-
     .container{:style=> "#{yield(:break_the_mold)}"}
       .span-24.last{:style=> "#{yield(:break_the_mold)}"}
         = yield
