@@ -419,9 +419,10 @@ var Publisher = {
       });
       Publisher.close();
     });
-
+ 
     Publisher.autocompletion.initialize();
     Publisher.hiddenInput().val(Publisher.input().val());
+    Publisher.input().autoResize();
     Publisher.input().keydown(Publisher.autocompletion.keyDownHandler);
     Publisher.input().keyup(Publisher.autocompletion.keyUpHandler);
     Publisher.bindAjax();

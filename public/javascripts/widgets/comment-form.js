@@ -8,6 +8,7 @@
         commentInput: commentFormElement.find("textarea")
       });
 
+      self.commentInput.autoResize();
       self.commentInput.focus(self.showCommentForm);
     });
 
