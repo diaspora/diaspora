@@ -16,7 +16,7 @@ module Encryptor
       cipher = OpenSSL::Cipher.new('AES-256-CBC')
       key = cipher.random_key
       iv = cipher.random_iv
-      {'key' => Base64.encode64s(key), 'iv' => Base64.encode64(iv)}
+      {'key' => Base64.encode64s(key), 'iv' => Base64.encode64s(iv)}
     end
 
     def aes_encrypt(txt, key)
