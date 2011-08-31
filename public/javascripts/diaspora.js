@@ -37,6 +37,7 @@
 
   Diaspora.BaseWidget = {
     instantiate: function(Widget, element) {
+
       $.extend(Diaspora.Widgets[Widget].prototype, Diaspora.EventBroker.extend(Diaspora.BaseWidget));
 
       var widget = new Diaspora.Widgets[Widget](),
@@ -76,8 +77,8 @@
 
       Diaspora.page = new Page();
     }
-
-    $.extend(Diaspora.page, new Diaspora.BasePage($(document.body)));
+    if (!$.mobile)
+    	$.extend(Diaspora.page, new Diaspora.BasePage($(document.body)));
     Diaspora.page.publish("page/ready", [$(document.body)])
   };
 
