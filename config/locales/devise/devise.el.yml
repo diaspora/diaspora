@@ -34,9 +34,9 @@ el:
         no_account_till: "Ο λογαριασμός σας δεν θα δημιουργηθεί μέχρι να μεταβείτε στον παρακάτω σύνδεσμο και συνδεθείτε. "
         subject: "Έχετε προσκληθεί να συμμετάσχετε στο Diaspora!"
       inviter: 
-        accept_at: "at %{url}, you can accept it through the link below."
+        accept_at: "στο %{url}, μπορείτε να το αποδεχτείτε μέσω του παρακάτω συνδέσμου."
         has_invited_you: "%{name}"
-        have_invited_you: "%{names} have invited you to join Diaspora"
+        have_invited_you: "οι χρήστες %{names} σας προσκάλεσαν να συνδεθείτε στο Diaspora"
       reset_password_instructions: 
         change: "Αλλαγή του κωδικού μου"
         ignore: "Εάν δεν το ζητήσατε, παρακαλούμε να αγνοήσετε αυτό το μήνυμα."

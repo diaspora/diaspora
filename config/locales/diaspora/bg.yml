@@ -101,7 +101,7 @@ bg:
         heading: "Адрес в Diaspora"
       donate: "Дарете"
       handle_explanation: "Това е вашият адрес в Diaspora. Наподобява адрес на ел. поща - давате го на хора, за да се свържат с вас."
-      keep_us_running: "Помогнете за бързата и надеждна работа на %{pod} като осигурите на сървърите месечната им доза кафе!"
+      keep_us_running: "Помогнете за бързата и надеждна работа на %{pod} като осигурите на сървърите месечната им доза \"кафе\"!"
       no_contacts: "Няма контакти"
       no_tags: "+ Намиране на тагове"
       people_sharing_with_you: "Хора споделящи с вас"
@@ -351,11 +351,11 @@ bg:
       mark_all_as_read: "Маркиране на всички като прочетени"
       notifications: "Известия"
     liked: 
-      few: "%{actors} току-що харесаха ваша %{post_link}."
-      many: "%{actors} току-що харесаха ваша %{post_link}."
-      one: "%{actors} току-що хареса ваша %{post_link}."
-      other: "%{actors} току-що харесаха ваша %{post_link}."
-      zero: "%{actors} току-що хареса ваша %{post_link}."
+      few: "Току-що %{actors} харесаха ваша %{post_link}."
+      many: "Току-що %{actors} харесаха ваша %{post_link}."
+      one: "Току-що %{actors} хареса ваша %{post_link}."
+      other: "Току-що  %{actors} харесаха ваша %{post_link}."
+      zero: "Току-що %{actors} хареса ваша %{post_link}."
     liked_post_deleted: 
       few: "%{actors} харесаха ваша изтрита публикация."
       many: "%{actors} харесаха ваша изтрита публикация."
@@ -382,17 +382,17 @@ bg:
       other: "%{actors} ви изпрати съобщение."
       zero: "%{actors} ви изпрати съобщение."
     reshared: 
-      few: "%{actors} has reshared your %{post_link}."
-      many: "%{actors} has reshared your %{post_link}."
-      one: "%{actors} has reshared your %{post_link}."
-      other: "%{actors} has reshared your %{post_link}."
-      zero: "%{actors} has reshared your %{post_link}."
+      few: "%{actors} споделиха ваша %{post_link}."
+      many: "%{actors} споделиха ваша %{post_link}."
+      one: "%{actors} сподели ваша %{post_link}."
+      other: "%{actors} сподели ваша %{post_link}."
+      zero: "%{actors} сподели ваша %{post_link}."
     reshared_post_deleted: 
-      few: "%{actors} reshared your deleted post."
-      many: "%{actors} reshared your deleted post."
-      one: "%{actors} reshared your deleted post."
-      other: "%{actors} reshared your deleted post."
-      zero: "%{actors} reshared your deleted post."
+      few: "%{actors} споделиха ваша изтрита публикация."
+      many: "%{actors} споделиха ваша изтрита публикация."
+      one: "%{actors} сподели ваша изтрита публикация."
+      other: "%{actors} сподели ваша изтрита публикация."
+      zero: "%{actors} сподели ваша изтрита публикация."
     started_sharing: 
       few: "%{actors} започнаха да споделят с вас."
       many: "%{actors} започнаха да споделят с вас."
@@ -400,7 +400,7 @@ bg:
       other: "%{actors} започна да споделя с вас."
       zero: "%{actors} започна да споделя с вас."
   notifier: 
-    a_post_you_shared: "a post."
+    a_post_you_shared: "публикация."
     click_here: "кликнете тук"
     comment_on_post: 
       reply: "Отговорете или прегледайте публикацията на %{name} >"
@@ -410,7 +410,7 @@ bg:
     email_sent_by_diaspora: "Ел. писмо е изпратено от Diaspora.  Ако вече не желаете да получавате подобни писма,"
     hello: "Здравейте %{name}!"
     liked: 
-      liked: "току-що %{name} хареса вашата публикация"
+      liked: "Току-що %{name} хареса вашата публикация"
       view_post: "Преглед на публикацията >"
     mentioned: 
       mentioned: "ви спомена в публикация:"
@@ -418,8 +418,8 @@ bg:
     private_message: 
       reply_to_or_view: "Отговорете или прегледайте разговора >"
     reshared: 
-      reshared: "%{name} just reshared your post"
-      view_post: "View post >"
+      reshared: "Току-що %{name} сподели ваша публикация"
+      view_post: "Преглеждане >"
     single_admin: 
       admin: "Вашият администратор на Diaspora"
       subject: "Съобщение относно акаунта ви в Diaspora:"
@@ -762,7 +762,7 @@ bg:
       new_password: "Нова парола"
       private_message: "...получите лично съобщение?"
       receive_email_notifications: "Получаване на известие по ел. поща когато..."
-      reshared: "...someone reshares your post?"
+      reshared: "...някой сподели ваша публикация?"
       started_sharing: "...някой започне да споделя с вас?"
       your_email: "Вашата ел. поща"
       your_handle: "Вашият адрес в Diaspora"

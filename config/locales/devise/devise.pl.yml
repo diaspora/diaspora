@@ -29,14 +29,14 @@ pl:
         you_can_confirm: "Możesz aktywować swoje konto klikając poniższy odnośnik:"
       hello: "Cześć %{email}!"
       invitation_instructions: 
-        accept: "Accept invitation"
-        ignore: "If you don't want to accept the invitation, please ignore this email."
-        no_account_till: "Your account won't be created until you access the link above and sign up."
-        subject: "You've been invited to join Diaspora!"
+        accept: "Przyjmij zaproszenie"
+        ignore: "Zignoruj tę wiadomość jeśli nie chcesz akceptować tego zaproszenia."
+        no_account_till: "Twoje konto nie zostanie utworzone dopóki nie zalogujesz się na stronie powyżej."
+        subject: "Zostałeś zaproszony do projektu Diaspora!"
       inviter: 
-        accept_at: "at %{url}, you can accept it through the link below."
+        accept_at: "na %{url}, możesz je zaakceptować używając odnośnika poniżej."
         has_invited_you: "%{name}"
-        have_invited_you: "%{names} have invited you to join Diaspora"
+        have_invited_you: "%{names} zaprosili cię do projektu Diaspora"
       reset_password_instructions: 
         change: "Zmień moje hasło"
         ignore: "Jeśli nie chcesz zresetować hasła, zignoruj ten e-mail."
@@ -66,7 +66,7 @@ pl:
       new: 
         alpha_software: "Pamiętaj, że będziesz używać programu we wczesnym stadium rozwoju (alfa)."
         bugs_and_feedback: "Miej świadomość, że doświadczysz błędów. Zachęcamy do korzystania z przycisku Feedback umieszczonego po prawej stronie okna przeglądarki, aby sygnalizować wszelkie problemy. Pracujemy najszybciej jak się da, aby rozwiązać wszelkie zgłaszane kłopoty."
-        bugs_and_feedback_mobile: "Be advised, you will experience bugs.  We encourage you to report any hiccups!  We will work as fast as we can to resolve any issues you report."
+        bugs_and_feedback_mobile: "Informujemy o możliwości występowania błędów.  Zachęcamy do informowania o nich! Postaramy się jak najszybciej je zlikwidować. "
         login: "Login"
         modern_browsers: "obsługuje wyłącznie nowoczesne przeglądarki."
         password: "Hasło"

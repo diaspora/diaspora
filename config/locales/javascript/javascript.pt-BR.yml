@@ -6,29 +6,29 @@
 pt-BR: 
   javascripts: 
     aspect_dropdown: 
-      add_to_aspect: "Add to aspect"
+      add_to_aspect: "Adicione para aspecto"
       toggle: 
-        few: "In {{count}} aspects"
-        many: "In {{count}} aspects"
-        one: "In {{count}} aspect"
-        other: "In {{count}} aspects"
-        zero: "Add to aspect"
+        few: "Em {{count}} aspectos"
+        many: "Em {{count}} aspectos"
+        one: "Em {{count}} aspecto"
+        other: "Em {{count}} aspectos"
+        zero: "Adicione para aspecto"
     comments: 
-      hide: "hide comments"
-      show: "show all comments"
+      hide: "ocultar comentários"
+      show: "mostrar todos comentários"
     confirm_dialog: "Tem certeza?"
-    failed_to_like: "Failed to like!"
-    failed_to_post_message: "Failed to post message!"
+    failed_to_like: "Falhou ao curtir!"
+    failed_to_post_message: "Falha em postar a mensagem!"
     infinite_scroll: 
-      no_more: "No more posts."
+      no_more: "Não há mais postagem."
     publisher: 
-      at_least_one_aspect: "You must publish to at least one aspect"
-      limited: "Limited - your post will only be seen by people you are sharing with"
-      public: "Public - your post will be visible to everyone and found by search engines"
+      at_least_one_aspect: "Você deve publicar pelo menos um aspecto"
+      limited: "Limitada - a sua postagem será visível apenas para as pessoas que você compartilha."
+      public: "Pública - a sua postagem será totalmente visível na web e poderá ser encontrada pelos mecanismos de buscas, Google, Bing e etc..."
     reshares: 
-      duplicate: "You've already reshared that post!"
-    search_for: "Search for {{name}}"
-    show_more: "show more"
+      duplicate: "Você já compartilhou essa postagem."
+    search_for: "Procurar por {{name}}"
+    show_more: "mostrar mais"
     timeago: 
       day: "um dia"
       days: "%d dias"
@@ -49,4 +49,4 @@ pt-BR:
       unknown: "Tipo de vídeo desconhecido"
       watch: "Assista este vídeo no {{provider}}"
     web_sockets: 
-      disconnected: "The websocket is closed; posts will no longer be streamed live."
+      disconnected: "A conexão foi encerrada, não é mais possível transmitir novas postagens."

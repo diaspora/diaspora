@@ -190,7 +190,7 @@ ko:
     zero: "컨택 없음"
   conversations: 
     create: 
-      fail: "Invalid message"
+      fail: "유효하지 않은 쪽지"
       sent: "쪽지를 보냈습니다"
     destroy: 
       success: "대화를 성공적으로 지웠습니다"
@@ -215,11 +215,11 @@ ko:
       subject: "제목"
       to: "받는이"
     new_message: 
-      fail: "Invalid message"
+      fail: "유효하지 않은 쪽지"
     show: 
       delete: "지운 뒤 대화를 차단합니다"
       reply: "답장"
-      replying: "Replying..."
+      replying: "답장중···"
   date: 
     formats: 
       birthday: "%B %d일"
@@ -382,17 +382,17 @@ ko:
       other: "%{actors}님이 쪽지를 보냈습니다."
       zero: "%{actors}님이 쪽지를 보냈습니다."
     reshared: 
-      few: "%{actors} has reshared your %{post_link}."
-      many: "%{actors} has reshared your %{post_link}."
-      one: "%{actors} has reshared your %{post_link}."
-      other: "%{actors} has reshared your %{post_link}."
-      zero: "%{actors} has reshared your %{post_link}."
+      few: "%{actors}님이 내 %{post_link} 공유물을 제공유했습니다."
+      many: "%{actors}님이 내 %{post_link} 공유물을 제공유했습니다."
+      one: "%{actors}님이 내 %{post_link} 공유물을 제공유했습니다."
+      other: "%{actors}님이 내 %{post_link} 공유물을 제공유했습니다."
+      zero: "%{actors}님이 내 %{post_link} 공유물을 제공유했습니다."
     reshared_post_deleted: 
-      few: "%{actors} reshared your deleted post."
-      many: "%{actors} reshared your deleted post."
-      one: "%{actors} reshared your deleted post."
-      other: "%{actors} reshared your deleted post."
-      zero: "%{actors} reshared your deleted post."
+      few: "%{actors}님이 내가 지운 공유물을 재공유했습니다."
+      many: "%{actors}님이 내가 지운 공유물을 재공유했습니다."
+      one: "%{actors}님이 내가 지운 공유물을 재공유했습니다."
+      other: "%{actors}님이 내가 지운 공유물을 재공유했습니다."
+      zero: "%{actors}님이 내가 지운 공유물을 재공유했습니다."
     started_sharing: 
       few: "%{actors}님이 나와 공유를 시작했습니다."
       many: "%{actors}님이 나와 공유를 시작했습니다."
@@ -405,8 +405,8 @@ ko:
     comment_on_post: 
       reply: "%{name}님의 공유물에 댓글달기 >"
     confirm_email: 
-      click_link: "To activate your new e-mail address %{unconfirmed_email}, please click this link:"
-      subject: "Please activate your new e-mail address %{unconfirmed_email}"
+      click_link: "새 이메일 주소 %{unconfirmed_email} 를 활성화하려면 이 링크를 클릭해주세요:"
+      subject: "새 이메일 주소 %{unconfirmed_email} 를 활성화해주세요"
     email_sent_by_diaspora: "이 메일은 디아스포라가 보냈습니다. 앞으로 받고싶지 않다면"
     hello: "%{name}님!"
     liked: 
@@ -418,8 +418,8 @@ ko:
     private_message: 
       reply_to_or_view: "이 쪽지 답장 또는 보기 >"
     reshared: 
-      reshared: "%{name} just reshared your post"
-      view_post: "View post >"
+      reshared: "%{name}님이 내 공유물을 재공유했습니다"
+      view_post: "공유물 보기 >"
     single_admin: 
       admin: "디아스포라 관리자"
       subject: "내 디아스포라 계정에 대한 메시지:"
@@ -478,9 +478,9 @@ ko:
       start_sharing: "공유 시작"
       to_accept_or_ignore: "수락 또는 무시하기."
     sub_header: 
-      add_some: "add some"
-      edit: "edit"
-      you_have_no_tags: "you have no tags!"
+      add_some: "추가하기"
+      edit: "고치기"
+      you_have_no_tags: "태그가 없습니다!"
     webfinger: 
       fail: "%{handle} 핸들을 찾을 수 없습니다."
     zero: "없음"
@@ -595,14 +595,14 @@ ko:
     reshare: 
       deleted: "주인이 원래 공유물을 지웠습니다."
       reshare: 
-        few: "%{count} Reshares"
-        many: "%{count} Reshares"
-        one: "1 Reshare"
-        other: "%{count} Reshares"
+        few: "재공유 %{count}번"
+        many: "재공유 %{count}번"
+        one: "재공유 한 번"
+        other: "재공유 %{count}번"
         zero: "재공유"
       reshare_confirmation: "%{author}님의 %{text} 공유물을 재공유합니까?"
-      reshare_original: "Reshare orignial"
-      show_original: "Show Original"
+      reshare_original: "원본 재공유"
+      show_original: "원본 보기"
   search: "검색"
   services: 
     create: 
@@ -640,13 +640,13 @@ ko:
       know_email: "이메일 주소를 알면 초대할 수 있습니다!"
       your_diaspora_username_is: "내 디아스포라 핸들: %{diaspora_handle}"
     aspect_dropdown: 
-      add_to_aspect: "Add to aspect"
+      add_to_aspect: "애스펙에 넣기"
       toggle: 
-        few: "In %{count} aspects"
-        many: "In %{count} aspects"
-        one: "In %{count} aspect"
-        other: "In %{count} aspects"
-        zero: "Add to aspect"
+        few: "애스펙 %{count}개 안에 있어요"
+        many: "애스펙 %{count}개 안에 있어요"
+        one: "애스펙 한 개 안에 있어요"
+        other: "애스펙 %{count}개 안에 있어요"
+        zero: "애스펙에 넣기"
     contact_list: 
       all_contacts: "모든 컨택"
     footer: 
@@ -740,13 +740,13 @@ ko:
   username: "사용자명"
   users: 
     confirm_email: 
-      email_confirmed: "E-Mail %{email} activated"
-      email_not_confirmed: "E-Mail could not be activated. Wrong link?"
+      email_confirmed: "%{email} 이메일이 활성화되었습니다"
+      email_not_confirmed: "이메일을 활성화할 수 없습니다. 링크를 확인해주세요."
     destroy: "계정을 성공적으로 없앴습니다."
     edit: 
       also_commented: "댓글 달았던 공유물에 내 컨택도 댓글을 달았을 때"
       change: "바꾸기"
-      change_email: "Change E-Mail"
+      change_email: "이메일 바꾸기"
       change_language: "언어 바꾸기"
       change_password: "암호 바꾸기"
       close_account: "계정 없애기"
@@ -755,19 +755,19 @@ ko:
       download_photos: "내 사진 다운로드"
       download_xml: "내 xml 다운로드"
       edit_account: "계정 고치기"
-      email_awaiting_confirmation: "We have sent you an activation link to %{unconfirmed_email}. Till you follow this link and activate the new address, we will continue to use your original address %{email}."
+      email_awaiting_confirmation: "%{unconfirmed_email} 로 활성화 링크를 보냈습니다. 이 링크를 따라 새 주소를 활성화하기 전까지는 원래 이메일 주소 %{email} 를 사용합니다."
       export_data: "자료 뽑아내기"
       liked: "누군가가 내 공유물을 좋아할 때"
       mentioned: "내가 멘션되었을 때"
       new_password: "새 암호"
       private_message: "쪽지를 받았을 때"
       receive_email_notifications: "이럴 때 이메일 알림을 받겠습니다"
-      reshared: "...someone reshares your post?"
+      reshared: "누군가 내 공유물을 재공유할 때"
       started_sharing: "누군가가 나와 공유를 시작할 때"
       your_email: "이메일 주소"
       your_handle: "디아스포라 핸들"
     getting_started: 
-      bold: "aspects"
+      bold: "애스펙"
       connect_to: "연결하기:"
       connect_to_your_other_social_networks: "다른 소셜 네트워크와 연결하기"
       connect_with_people: "멋진 사람들과 연결하기"
@@ -801,8 +801,8 @@ ko:
       language_not_changed: "언어를 바꿀 수 없습니다"
       password_changed: "암호를 바꿨습니다"
       password_not_changed: "암호를 바꿀 수 없습니다"
-      unconfirmed_email_changed: "E-Mail Changed. Needs activation."
-      unconfirmed_email_not_changed: "E-Mail Change Failed"
+      unconfirmed_email_changed: "이메일을 고쳤습니다. 활성화가 필요합니다."
+      unconfirmed_email_not_changed: "이메일 고치기 실패"
   webfinger: 
     fetch_failed: "failed to fetch webfinger profile for %{profile_url}"
     hcard_fetch_failed: "there was a problem fetching the hcard for %{account}"

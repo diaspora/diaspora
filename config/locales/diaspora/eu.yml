@@ -29,7 +29,7 @@ eu:
         reshare: 
           attributes: 
             root_guid: 
-              taken: "You've already reshared that post!"
+              taken: "Dagoeneko birpartekatu duzu mezu hori!"
         user: 
           attributes: 
             email: 
@@ -211,7 +211,7 @@ eu:
     new: 
       abandon_changes: "Aldaketak bertan behera utzi?"
       send: "Bidali"
-      sending: "Sending..."
+      sending: "Bidaltzen..."
       subject: "gaia"
       to: "nori:"
     new_message: 
@@ -287,7 +287,7 @@ eu:
       login: "sartu"
       logout: "irten"
       profile: "profila"
-      recent_notifications: "Recent notifications"
+      recent_notifications: "Jakinarazpen berrienak"
       settings: "lehentasunak"
       view_all: "Guztiak ikusi"
   likes: 
@@ -305,11 +305,11 @@ eu:
         other: "%{count} pertsonek gustoko dute hau"
         zero: "oraindik ez du inork gustoko"
       people_like_this_comment: 
-        few: "%{count} likes"
-        many: "%{count} likes"
-        one: "%{count} like"
-        other: "%{count} likes"
-        zero: "no likes"
+        few: "%{count}(e)k gustoko dute"
+        many: "%{count}(e)k gustoko dute"
+        one: "%{count}ek gustoko du"
+        other: "%{count}(e)k gustoko dute"
+        zero: "inork ez du gustoko"
   limited: "Mugatua"
   more: "Gehiago"
   next: "hurrengoa"
@@ -401,22 +401,22 @@ eu:
       zero: "%{actors} zurekin harremanetan hasi d(ir)a"
   notifier: 
     a_post_you_shared: "a post."
-    click_here: "click here"
+    click_here: "sakatu hau"
     comment_on_post: 
-      reply: "Reply or view %{name}'s post >"
+      reply: "Erantzun edo ikusi %{name}(r)en mezua >"
     confirm_email: 
       click_link: "To activate your new e-mail address %{unconfirmed_email}, please click this link:"
       subject: "Please activate your new e-mail address %{unconfirmed_email}"
-    email_sent_by_diaspora: "This email was sent by Diaspora.  If you'd like to stop getting emails like this,"
+    email_sent_by_diaspora: "Email hau Diasporak bidali dizu.  Horrelako emailik ez baduzu jaso nahi,"
     hello: "Kaixo, %{name}!"
     liked: 
       liked: "%{name}(e)k zure mezua gustoko du:"
-      view_post: "View post >"
+      view_post: "Mezua ikusi >"
     mentioned: 
       mentioned: "zu aipatu zaituzte mezu batean:"
       subject: "%{name}(e)k Diasporan aipatu zaitu"
     private_message: 
-      reply_to_or_view: "Reply to or view this conversation >"
+      reply_to_or_view: "Erantzun edo ikusi elkarrizketa hau >"
     reshared: 
       reshared: "%{name} just reshared your post"
       view_post: "View post >"
@@ -426,9 +426,9 @@ eu:
     started_sharing: 
       sharing: "zurekin harremanetan hasi da!"
       subject: "%{name} zurekin harremanetan hasi da Diasporan"
-      view_profile: "View %{name}'s profile"
+      view_profile: "Ikusi %{name}(r)en profila"
     thanks: "Milesker,"
-    to_change_your_notification_settings: "to change your notification settings"
+    to_change_your_notification_settings: "zure jakinarazpenen lehentasunak aldatzeko"
   ok: "Onartu"
   or: "edo"
   password: "Pasahitza"
@@ -591,15 +591,15 @@ eu:
   reshares: 
     comment_email_subject: "%{resharer}'s reshare of %{author}'s post"
     create: 
-      failure: "There was an error resharing this post."
+      failure: "Huts mezu hau birpartekatzean."
     reshare: 
-      deleted: "Original post deleted by author."
+      deleted: "Egileak jatorrizko mezua ezabatu du."
       reshare: 
         few: "%{count} Reshares"
         many: "%{count} Reshares"
         one: "1 Reshare"
         other: "%{count} Reshares"
-        zero: "Reshare"
+        zero: "Birpartekatu"
       reshare_confirmation: "Reshare %{author} - %{text}?"
       reshare_original: "Reshare orignial"
       show_original: "Show Original"

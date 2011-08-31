@@ -23,10 +23,10 @@ eu:
       no_more: "Mezu gehiagorik ez dago."
     publisher: 
       at_least_one_aspect: "Gutxienez alderdi batean partekatu behar duzu"
-      limited: "Limited - your post will only be seen by people you are sharing with"
-      public: "Public - your post will be visible to everyone and found by search engines"
+      limited: "Mugatua - zure mezua aukeratu duzun jendeak bakarrik ikusiko du"
+      public: "Publikoa - zure mezua edonork ikusi ahalko du, bai eta bilaketa zerbitzuetan agertu ere"
     reshares: 
-      duplicate: "You've already reshared that post!"
+      duplicate: "Dagoeneko birpartekatu duzu mezu hori!"
     search_for: "Bilatu {{name}}"
     show_more: "erakutsi gehiago"
     timeago: 

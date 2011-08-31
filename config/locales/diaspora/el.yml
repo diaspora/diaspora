@@ -190,7 +190,7 @@ el:
     zero: "καμία επαφή"
   conversations: 
     create: 
-      fail: "Invalid message"
+      fail: "Μη έγκυρο μήνυμα"
       sent: "Μήνυμα εστάλη"
     destroy: 
       success: "Η συζήτηση αφαιρέθηκε επιτυχώς"
@@ -215,7 +215,7 @@ el:
       subject: "θέμα"
       to: "στον"
     new_message: 
-      fail: "Invalid message"
+      fail: "Μη έγκυρο μήνυμα"
     show: 
       delete: "διαγραφή και φραγή συζήτησης"
       reply: "απάντηση"
@@ -418,8 +418,8 @@ el:
     private_message: 
       reply_to_or_view: "Απαντήστε ή δείτε τη συζήτηση >"
     reshared: 
-      reshared: "%{name} just reshared your post"
-      view_post: "View post >"
+      reshared: "ο χρήστης %{name} μόλις κοινοποίησε τη δημοσίευση σας"
+      view_post: "Δείτε τη δημοσίευση >"
     single_admin: 
       admin: "Ο διαχειριστής Diaspora σας"
       subject: "Μήνυμα για τον Diaspora λογαριασμό σας:"
@@ -478,9 +478,9 @@ el:
       start_sharing: "ξεκινήσετε την κοινή χρήση"
       to_accept_or_ignore: "να το αποδεχθεί ή να το αγνοήσει."
     sub_header: 
-      add_some: "add some"
-      edit: "edit"
-      you_have_no_tags: "you have no tags!"
+      add_some: "προσθέστε κάποιες"
+      edit: "επεξεργασία"
+      you_have_no_tags: "δεν έχετε ετικέτες!"
     webfinger: 
       fail: "Λυπούμαστε, δεν ήταν δυνατή η εύρεση του %{handle}."
     zero: "κανένα άτομο"
@@ -640,13 +640,13 @@ el:
       know_email: "Ξέρετε τις ηλεκτρονικές τους διευθύνσεις; Τότε πρέπει να τους προσκαλέσετε"
       your_diaspora_username_is: "Το όνομα χρήστη σας στο Diaspora είναι: %{diaspora_handle}"
     aspect_dropdown: 
-      add_to_aspect: "Add to aspect"
+      add_to_aspect: "Προσθήκη σε πτυχή"
       toggle: 
-        few: "In %{count} aspects"
-        many: "In %{count} aspects"
-        one: "In %{count} aspect"
-        other: "In %{count} aspects"
-        zero: "Add to aspect"
+        few: "Σε %{count} πτυχές"
+        many: "Σε %{count} πτυχές"
+        one: "Σε %{count} πτυχές"
+        other: "Σε %{count} πτυχές"
+        zero: "Προσθήκη σε πτυχή"
     contact_list: 
       all_contacts: "Όλες οι επαφές"
     footer: 
@@ -762,16 +762,16 @@ el:
       new_password: "Νέος κωδικός πρόσβασης"
       private_message: "...μόλις λάβατε μία προσωπική ειδοποίηση?"
       receive_email_notifications: "Να λαμβάνετε ειδοποιήσεις στο ηλεκτρονικό σας ταχυδρομείο όταν..."
-      reshared: "...someone reshares your post?"
+      reshared: "...κάποιος κοινοποίησε τη δημοσίευση σας?"
       started_sharing: "...κάποιος άρχισε να διαμοιράζεται μαζί σας?"
       your_email: "Το email σας"
       your_handle: "Το αναγνωριστικό σας στο diaspora"
     getting_started: 
-      bold: "aspects"
+      bold: "πτυχές"
       connect_to: "Συνδεθείτε με"
       connect_to_your_other_social_networks: "Συνδεθείτε με άλλα κοινωνικά δίκτυα"
       connect_with_people: "Συνδεθείτε με ενδιαφέροντα άτομα"
-      connect_with_people_explanation_pt1: "Συνδεθείτε με άτομα τοποθετώντας τα σε μια ή περισσότερες από τις "
+      connect_with_people_explanation_pt1: "Συνδεθείτε με άτομα τοποθετώντας τα σε μια ή περισσότερες από τις %{bold}"
       connect_with_people_explanation_pt2: "Aspects are an intuitive way to group new and familar faces, private to you, allowing you to filter down or share with subsets of your contacts easily."
       featured_tags: "Αξιόλογες ετικέτες"
       featured_users: "Αξιόλογοι χρήστες"

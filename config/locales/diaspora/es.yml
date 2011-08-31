@@ -382,17 +382,17 @@ es:
       other: "%{actors} te enviaron un mensaje."
       zero: "%{actors} te envió un mensaje."
     reshared: 
-      few: "%{actors} has reshared your %{post_link}."
-      many: "%{actors} has reshared your %{post_link}."
-      one: "%{actors} has reshared your %{post_link}."
-      other: "%{actors} has reshared your %{post_link}."
-      zero: "%{actors} has reshared your %{post_link}."
+      few: "%{actors} han vuelto a compartir tu %{post_link}."
+      many: "%{actors} han vuelto a compartir tu %{post_link}."
+      one: "%{actors} ha vuelto a compartir tu %{post_link}."
+      other: "%{actors} ha vuelto a compartir tu %{post_link}."
+      zero: "%{actors} ha vuelto a compartir tu %{post_link}."
     reshared_post_deleted: 
-      few: "%{actors} reshared your deleted post."
-      many: "%{actors} reshared your deleted post."
-      one: "%{actors} reshared your deleted post."
-      other: "%{actors} reshared your deleted post."
-      zero: "%{actors} reshared your deleted post."
+      few: "%{actors} volvieron a compartir tu publicación eliminada."
+      many: "%{actors} volvieron a compartir tu publicación eliminada."
+      one: "%{actors} volvió a compartir tu publicación eliminada."
+      other: "%{actors} volvió a compartir tu publicación eliminada."
+      zero: "%{actors} volvió a compartir tu publicación eliminada."
     started_sharing: 
       few: "%{actors} comenzaron a compartir contigo."
       many: "%{actors} comenzaron a compartir contigo."
@@ -418,8 +418,8 @@ es:
     private_message: 
       reply_to_or_view: "Responder o ver esta conversación >"
     reshared: 
-      reshared: "%{name} just reshared your post"
-      view_post: "View post >"
+      reshared: "%{name} acaba de volver a compartir tu publicación"
+      view_post: "Ver publicación >"
     single_admin: 
       admin: "Tu administrador Diaspora*"
       subject: "Un mensaje sobre tu cuenta Diaspora*:"
@@ -762,7 +762,7 @@ es:
       new_password: "Nueva contraseña"
       private_message: "...recibes un mensaje privado?"
       receive_email_notifications: "Recibir notificaciones por correo cuando..."
-      reshared: "...someone reshares your post?"
+      reshared: "...alguien ha vuelto a compartir tu publicación?"
       started_sharing: "...alquien empieza a compartir contigo?"
       your_email: "Tu email"
       your_handle: "Tu dirección Diaspora*"

@@ -6,37 +6,37 @@
 pt-BR: 
   devise: 
     confirmations: 
-      confirmed: "Sua conta foi confirmada com sucesso. Seja bem-vindo!"
+      confirmed: "Sua conta foi confirmada com sucesso. Seja Bem vindo(a)!"
       new: 
         resend_confirmation: "Reenviar as instruções de confirmação."
       send_instructions: "Você receberá um email em poucos minutos com as instruções sobre como confirmar a sua conta."
     failure: 
       inactive: "Sua conta ainda não foi ativada."
-      invalid: "E-mail ou senha inválidos."
+      invalid: "Email ou senha inválidos."
       invalid_token: "Token de autenticação inválido."
       locked: "Sua conta está bloqueada."
-      timeout: "Sua sessão expirou. Por favor, entre novamente para continuar."
+      timeout: "Sua sessão expirou, por favor, entre novamente para continuar."
       unauthenticated: "Você precisa entrar ou se cadastrar antes de continuar."
       unconfirmed: "Você deve confirmar a sua conta antes de continuar."
     invitations: 
       invitation_token_invalid: "Seu convite é inválido!"
       send_instructions: "Seu convite foi enviado."
-      updated: "Sua senha foi definida com sucesso. Seja bem-vindo!"
+      updated: "Sua senha foi definida com sucesso. Seja Bem vindo(a)!"
     mailer: 
       confirmation_instructions: 
-        confirm: "Confirmar a minha conta"
+        confirm: "Confirmar minha conta"
         subject: "Instruções para confirmação"
         you_can_confirm: "Você pode confirmar a sua conta através do link abaixo:"
       hello: "Oi %{email}!"
       invitation_instructions: 
-        accept: "Accept invitation"
-        ignore: "If you don't want to accept the invitation, please ignore this email."
-        no_account_till: "Your account won't be created until you access the link above and sign up."
-        subject: "You've been invited to join Diaspora!"
+        accept: "Aceitar convite"
+        ignore: "Se você não quer aceitar o convite, por favor ignore este e-mail."
+        no_account_till: "Sua conta não pode ser criada até que você acesse o link para a sua inscrição."
+        subject: "Você foi convidado(a) para participar em Diaspora!"
       inviter: 
-        accept_at: "at %{url}, you can accept it through the link below."
+        accept_at: "em %{url}, você pode aceitar através do link abaixo."
         has_invited_you: "%{name}"
-        have_invited_you: "%{names} have invited you to join Diaspora"
+        have_invited_you: "%{names} convidou você para participar em Diaspora"
       reset_password_instructions: 
         change: "Alterar minha senha"
         ignore: "Se você não fez esta solicitação, por favor ignore este email."
@@ -47,7 +47,7 @@ pt-BR:
         account_locked: "Sua conta foi bloqueada devido a uma quantidade excessiva de tentativas de entrar."
         click_to_unlock: "Clique no link abaixo para desbloquear a sua conta:"
         subject: "Instruções para Desbloquear"
-        unlock: "Desbloquear a minha conta"
+        unlock: "Desbloquear minha conta"
       welcome: "Bem-vindo(a) %{email}!"
     passwords: 
       edit: 
