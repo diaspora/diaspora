@@ -86,7 +86,7 @@ describe AspectsController do
     it 'generates a jasmine fixture with posts', :fixture => true do
       bob.post(:status_message, :text => "Is anyone out there?", :to => @bob.aspects.first.id)
       message = alice.post(:status_message, :text => "hello "*800, :to => @alices_aspect_2.id)
-      3.times { bob.comment("what", :post => message) }
+      5.times { bob.comment("what", :post => message) }
       get :index
       save_fixture(html_for("body"), "aspects_index_with_posts")
     end

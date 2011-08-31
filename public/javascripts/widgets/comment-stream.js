@@ -39,7 +39,10 @@
         $.get(self.commentToggler.attr("href"), function(data) {
           self.commentToggler.html(Diaspora.I18n.t("comments.hide"));
 
-          self.commentsList.html(data);
+          self.commentsList
+            .html(data)
+            .addClass("loaded")
+            .removeClass("hidden");
 
           self.instantiateCommentWidgets();
         });
