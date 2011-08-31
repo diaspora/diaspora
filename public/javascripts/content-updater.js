@@ -47,7 +47,7 @@ var ContentUpdater = {
   },
 
   addLikesToPost: function(postGUID, html) {
-    var likesContainer = $(".likes.on_post .likes_container", "#" + postGUID)
+    var likesContainer = $(".likes_container:first", "#" + postGUID)
       .fadeOut("fast")
       .html(html);
 

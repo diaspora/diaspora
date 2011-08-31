@@ -6,7 +6,7 @@
   - if likes_count > 0
     = image_tag('icons/heart.svg')
     - if target_type == "Comment"
-      = t('likes.likes.people_like_this_comment', :count => likes_count)
+      = link_to t('likes.likes.people_like_this_comment', :count => likes_count), comment_likes_path(target_id), :class => "expand_likes"
     - else
       = link_to t('likes.likes.people_like_this', :count => likes_count), post_likes_path(target_id), :class => "expand_likes"
     %span.hidden.likes_list
