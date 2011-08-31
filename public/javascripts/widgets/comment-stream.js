@@ -4,37 +4,16 @@
 
     this.subscribe("widget/ready", function(evt, commentStream) {
       $.extend(self, {
-        commentStream: commentStream,
-        commentToggler: self.instantiate("CommentToggler", commentStream),
+        commentsList: commentStream.find("ul.comments"),
+        commentToggler: commentStream.find(".toggle_post_comments"),
         comments: {}
       });
 
-      self.commentStream.delegate(".new_comment", "ajax:failure", function() {
+      self.commentsList.delegate(".new_comment", "ajax:failure", function() {
         Diaspora.Alert.show(Diaspora.I18n.t("failed_to_post_message"));
       });
 
-      // doesn't belong here.
-      self.commentStream.parents(".stream_element").delegate("a.focus_comment_textarea", "click", function(evt) {
-        evt.preventDefault();
-
-        var post = $(this).closest(".stream_element"),
-          commentBlock = post.find(".new_comment_form_wrapper"),
-          commentForm = commentBlock.find("form"),
-          textarea = post.find(".new_comment textarea");
-
-        if(commentBlock.hasClass("hidden")) {
-          commentBlock.removeClass("hidden");
-          commentForm.addClass("open");
-          textarea.focus();
-        } else {
-          if(commentBlock.children().length <= 1) {
-            commentBlock.addClass("hidden").removeClass("open");
-
-          } else {
-            textarea.focus();
-          }
-        }
-      });
+      self.commentToggler.toggle(self.showComments, self.hideComments);
 
       self.instantiateCommentWidgets();
     });
@@ -42,10 +21,41 @@
     this.instantiateCommentWidgets = function() {
       self.comments = {};
 
-      $.each(self.commentStream.find("li.comment"), function() {
-        self.comments[this.id] = self.instantiate("Comment", $(this));
+      self.commentsList.find("li.comment").each(function() {
+        self.publish("comment/added", [$("#" + this.id)]);
       });
     };
+
+    this.showComments = function(evt) {
+      evt.preventDefault();
+
+      if(self.commentsList.hasClass("loaded")) {
+        self.commentToggler.html(Diaspora.I18n.t("comments.hide"));
+        self.commentsList.removeClass("hidden");
+      }
+      else {
+        $("<img/>", { alt: "loading", src: "/images/ajax-loader.gif"}).appendTo(self.commentToggler);
+
+        $.get(self.commentToggler.attr("href"), function(data) {
+          self.commentToggler.html(Diaspora.I18n.t("comments.hide"));
+
+          self.commentsList.html(data);
+
+          self.instantiateCommentWidgets();
+        });
+      }
+    };
+
+    this.hideComments = function(evt) {
+      evt.preventDefault();
+
+      self.commentToggler.html(Diaspora.I18n.t("comments.show"));
+      self.commentsList.addClass("hidden");
+    };
+
+    this.subscribe("comment/added", function(evt, comment) {
+      self.comments[comment.attr("id")] = self.instantiate("Comment", comment);
+    });
   };
 
   Diaspora.Widgets.CommentStream = CommentStream;

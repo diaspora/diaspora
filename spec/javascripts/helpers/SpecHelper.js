@@ -19,7 +19,6 @@ beforeEach(function() {
   Diaspora.Pages.TestPage = function() {
     var self = this;
     this.subscribe("page/ready", function() {
-      self.timeAgo = self.instantiate("TimeAgo", "abbr.timeago");
       self.directionDetector = self.instantiate("DirectionDetector");
     });
   };

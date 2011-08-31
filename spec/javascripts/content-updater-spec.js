@@ -64,17 +64,23 @@ describe("ContentUpdater", function() {
       spec.loadFixture("aspects_index_with_posts");
       post = $(".stream_element:first"),
         postGUID = post.attr("id");
+
+
+      Diaspora.page.stream = { streamElements: { } };
+
+      Diaspora.page.stream.streamElements[postGUID] = {
+        commentStream: {publish: $.noop}
+      };
     });
 
     it("adds a comment to a post only if it doesn't already exist", function() {
       var comments = post.find("ul.comments li");
 
-      ContentUpdater.addCommentToPost(postGUID, "YEAH", "<li id='YEAH'>Comment</li>");
+      ContentUpdater.addCommentToPost(postGUID, "978124", "<li id='978124'>Comment</li>");
       expect(post.find("ul.comments li").length).toEqual(comments.length + 1);
 
-      ContentUpdater.addCommentToPost(postGUID, "YEAH", "<li id='YEAH'>Comment</li>");
+      ContentUpdater.addCommentToPost(postGUID, "978124", "<li id='978124'>Comment</li>");
       expect(post.find("ul.comments li").length).toEqual(comments.length + 1);
-
     });
   });
 
@@ -85,7 +91,6 @@ describe("ContentUpdater", function() {
 
       Diaspora.Page = "AspectsIndex";
       Diaspora.instantiatePage();
-
 
       post = $(".stream_element:first"),
         postGUID = post.attr("id");

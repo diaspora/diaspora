@@ -12,8 +12,6 @@
         ajaxLoader: dropdown.find(".ajax_loader")
       });
 
-      self.timeago = self.instantiate("TimeAgo");
-
       self.badgeLink.toggle(self.showDropdown, self.hideDropdown);
 
       self.dropdown.click(function(evt) {
@@ -72,7 +70,7 @@
             }))
             .appendTo(self.dropdownNotifications);
 
-          self.timeago.updateTimeAgo(".notification_element abbr.timeago");
+          notificationElement.find("abbr.timeago").timeago();
 
           if(notification.unread) {
             notificationElement.addClass("unread");

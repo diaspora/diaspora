@@ -12,6 +12,7 @@
     });
 
     this.showCommentForm = function() {
+      self.commentFormElement.parent().removeClass("hidden");
       self.commentFormElement.addClass("open");
     };
   };

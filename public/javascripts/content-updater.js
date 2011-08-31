@@ -18,8 +18,6 @@ var ContentUpdater = {
       });
 
       Diaspora.page.publish("stream/postAdded", [postGUID]);
-      Diaspora.page.timeAgo.updateTimeAgo();
-      Diaspora.page.directionDetector.updateBinds();
     }
   },
 
@@ -41,16 +39,22 @@ var ContentUpdater = {
 
     $(html).appendTo(comments).fadeIn("fast");
 
-    Diaspora.page.timeAgo.updateTimeAgo();
-    Diaspora.page.directionDetector.updateBinds()
+    Diaspora.page
+      .stream
+      .streamElements[postGUID]
+      .commentStream
+      .publish("comment/added", [$("#"+commentGUID)]);
   },
 
   addLikesToPost: function(postGUID, html) {
-    var likesContainer = $(".likes_container", "#" + postGUID)
+    var likesContainer = $(".likes.on_post .likes_container", "#" + postGUID)
       .fadeOut("fast")
       .html(html);
 
-    Diaspora.page.stream.streamElements[postGUID].likes.publish("widget/ready", [likesContainer]);
+    Diaspora.page
+      .stream
+      .streamElements[postGUID]
+      .likes.publish("widget/ready", [likesContainer]);
 
     likesContainer.fadeIn("fast");
   }

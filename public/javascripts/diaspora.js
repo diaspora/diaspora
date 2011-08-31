@@ -63,8 +63,7 @@
       directionDetector: this.instantiate("DirectionDetector"),
       flashMessages: this.instantiate("FlashMessages"),
       header: this.instantiate("Header", body.find("header")),
-      hoverCard: this.instantiate("HoverCard", body.find("#hovercard")),
-      timeAgo: this.instantiate("TimeAgo", "abbr.timeago")
+      hoverCard: this.instantiate("HoverCard", body.find("#hovercard"))
     });
   };
 
