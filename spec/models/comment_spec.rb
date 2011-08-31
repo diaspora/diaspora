@@ -101,7 +101,7 @@ describe Comment do
 
       mock_http = mock("http")
       Net::HTTP.stub!(:new).with('gdata.youtube.com', 80).twice.and_return(mock_http)
-      mock_http.should_receive(:get).with(/\/feeds\/api\/videos/, nil).twice.and_return(
+      mock_http.should_receive(:get).with(/\/feeds\/api\/videos/).twice.and_return(
         [nil, 'Foobar <title>'+expected_title+'</title> hallo welt <asd><dasdd><a>dsd</a>'])
 
       comment = alice.build_comment :text => url, :post => @message

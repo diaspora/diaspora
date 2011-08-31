@@ -10,7 +10,7 @@ module YoutubeTitles
   def youtube_title_for video_id
     http = Net::HTTP.new('gdata.youtube.com', 80)
     path = "/feeds/api/videos/#{video_id}?v=2"
-    resp, data = http.get(path, nil)
+    resp, data = http.get(path)
     title = data.match(/<title>(.*)<\/title>/)
     unless title.nil?
       title = title.to_s[7..-9]
