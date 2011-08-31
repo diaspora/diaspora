@@ -8,7 +8,6 @@ module Diaspora
       def initialize(options={})
         super
 
-        @expand_tags  = options.fetch(:expand_tabs, true)
         @newlines     = options.fetch(:newlines, true)
         @specialchars = options.fetch(:specialchars, true)
         @youtube_maps = options.fetch(:youtube_maps, {})
@@ -100,10 +99,6 @@ module Diaspora
       end
 
       def paragraph(text)
-        if @expand_tags
-          text =  Diaspora::Taggable.format_tags(text, :no_escape => true)
-        end
-
         if @newlines
           br = linebreak
 
@@ -118,6 +113,15 @@ module Diaspora
       end
 
       def preprocess(full_document)
+        entities = {
+          '>' => '&gt;',
+          '<' => '&lt;',
+          '&' => '&amp;',
+        }
+        entities.each do |k,v|
+          full_document = full_document.gsub(k, v)
+        end
+
         if @specialchars
           full_document = specialchars(full_document)
         end
@@ -152,10 +156,10 @@ module Diaspora
       def specialchars(text)
         if @specialchars
           map = [
-            ["<3", "&hearts;"],
-            ["<->", "&#8596;"],
-            ["->", "&rarr;"],
-            ["<-", "&larr;"],
+            ["&lt;3", "&hearts;"],
+            ["&lt;-&gt;", "&#8596;"],
+            ["-&gt;", "&rarr;"],
+            ["&lt;-", "&larr;"],
             ["\.\.\.", "&hellip;"],
             ["(tm)", "&trade;"],
             ["(r)", "&reg;"],
