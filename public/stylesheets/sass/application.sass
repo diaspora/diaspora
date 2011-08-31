@@ -1756,11 +1756,6 @@ ul#request_result
   :background
     :color rgb(252,252,252)
 
-  .diaspora_id
-    :color #777
-    :font
-      :size smaller
-
   .avatar
     :float left
     :height 50px
@@ -1782,6 +1777,7 @@ ul#request_result
 
     > .contact
       @include border-radius(3px)
+      @include box-shadow(0, 1px, 5px, #ccc)
       :background
         :color #fff
 
@@ -1801,8 +1797,8 @@ ul#request_result
         :bottom 5px
         :right 5px
 
-      :padding 8px
-      :border 1px solid #ccc
+      :padding 5px
+      :border 1px solid #999
 
       > .right
         :right -5px

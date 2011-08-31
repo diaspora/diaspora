@@ -12,10 +12,8 @@
     - for contact in contacts
       %li.contact{:data=>{:contact_id=>contact.id}}
         = person_image_tag contact.person
-        .name
+        %h4.name
           = link_to contact.person.name, contact.person
-          .diaspora_id
-            = contact.person.diaspora_handle
         .right
           = aspect_membership_button(aspect, contact, contact.person)
 
