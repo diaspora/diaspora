@@ -17,6 +17,7 @@ module Base64
   # ArgumentError is raised if +str+ is incorrectly padded or contains
   # non-alphabet characters.  Note that CR or LF are also rejected.
   def strict_decode64(str)
+    Rails.logger.info("trying to decode string: " + str)
     str.unpack("m0").first
   end
 

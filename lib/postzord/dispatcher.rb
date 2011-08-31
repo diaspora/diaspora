@@ -152,7 +152,7 @@ class Postzord::Dispatcher
   # @param remote_people [Array<Person>] Recipients of the post on other pods
   # @return [void]
   def queue_remote_delivery_job(remote_people)
-    Resque.enqueue(Jobs::HttpMulti, @sender.id, Base64.encode64(@object.to_diaspora_xml), remote_people.map{|p| p.id}, self.class.to_s) 
+    Resque.enqueue(Jobs::HttpMulti, @sender.id, Base64.encode64s(@object.to_diaspora_xml), remote_people.map{|p| p.id}, self.class.to_s) 
   end
 end
 
