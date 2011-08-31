@@ -31,10 +31,7 @@
       if (typeof row.search !== "undefined") {
         return Diaspora.I18n.t("search_for", row);
       } else {
-        return $("<img/>", {
-          "class": "avatar",
-          src: row.avatar
-        })[0].outerHTML + row.name;
+        return "<img src='"+ row.avatar +"' class='avatar'/>" + row.name;
       }
     };
 
