@@ -52,7 +52,7 @@ module PeopleHelper
   end
 
   def person_href(person, opts={})
-    link = "href='"
+    link = "href='/"
     link += AppConfig.pod_url if opts[:absolute]
     if person.local?
       username = person.diaspora_handle.split('@')[0]
