@@ -10,8 +10,8 @@ module Diaspora
 
         @newlines     = options.fetch(:newlines, true)
         @specialchars = options.fetch(:specialchars, true)
-        @youtube_maps = options.fetch(:youtube_maps, {})
-        @vimeo_maps   = options.fetch(:vimeo_maps, {})
+        @youtube_maps = options[:youtube_maps]||{}
+        @vimeo_maps   = options[:vimeo_maps] || {}
       end
 
       def autolink(link, type)

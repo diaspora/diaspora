@@ -7,6 +7,18 @@ require 'spec_helper'
 describe MarkdownifyHelper do
 
   describe "#markdownify" do
+    it 'does not error if youtube_maps in the hash is explicitly set to nil' do
+      expect{
+        markdownify("http://www.youtube.com/watch?v=pZROlhHOvuo", :youtube_maps => nil)
+      }.should_not raise_error
+    end
+
+    it 'does not error if youtube_maps in the hash is explicitly set to nil' do
+      expect{
+        markdownify("http://vimeo.com/18589934", :vimeo_maps => nil)
+      }.should_not raise_error
+    end
+    
     describe "autolinks" do
       it "should not allow basic XSS/HTML" do
         markdownify("<script>alert('XSS is evil')</script>").should == "&lt;script&gt;alert('XSS is evil')&lt;/script&gt;"
