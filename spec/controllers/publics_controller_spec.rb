@@ -103,6 +103,11 @@ describe PublicsController do
       post :webfinger, 'q' => 'me@mydiaspora.pod.com'
       response.should be_not_found
     end
+
+    it 'has the users profile href' do
+      get :webfinger, :q => @user.diaspora_handle
+      response.body.should include "http://webfinger.net/rel/profile-page"
+    end
   end
 
   describe '#hub' do
