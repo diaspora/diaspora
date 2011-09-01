@@ -9,40 +9,40 @@ describe MarkdownifyHelper do
   describe "#markdownify" do
     describe "autolinks" do
       it "should not allow basic XSS/HTML" do
-        markdownify("<script>alert('XSS is evil')</script>").should == "<p>&lt;script&gt;alert('XSS is evil')&lt;/script&gt;</p>"
+        markdownify("<script>alert('XSS is evil')</script>").should == "&lt;script&gt;alert('XSS is evil')&lt;/script&gt;"
       end
 
       it "should recognize basic http links (1/3)" do
         proto="http"
         url="bugs.joindiaspora.com/issues/332"
         full_url = "#{proto}://#{url}"
-        markdownify(full_url).should == %Q{<p><a target="_blank" href="#{full_url}">#{url}</a></p>}
+        markdownify(full_url).should == %Q{<a target="_blank" href="#{full_url}">#{url}</a>}
       end
 
       it "should recognize basic http links (2/3)" do
         proto="http"
         url="webmail.example.com?~()!*/"
         full_url = "#{proto}://#{url}"
-        markdownify(full_url).should == %Q{<p><a target="_blank" href="#{full_url}">#{url}</a></p>}
+        markdownify(full_url).should == %Q{<a target="_blank" href="#{full_url}">#{url}</a>}
       end
 
       it "should recognize basic http links (3/3)" do
         proto="http"
         url="127.0.0.1:3000/users/sign_in"
         full_url = "#{proto}://#{url}"
-        markdownify(full_url).should == %Q{<p><a target="_blank" href="#{full_url}">#{url}</a></p>}
+        markdownify(full_url).should == %Q{<a target="_blank" href="#{full_url}">#{url}</a>}
       end
 
       it "should recognize secure https links" do
         proto="https"
         url="127.0.0.1:3000/users/sign_in"
         full_url = "#{proto}://#{url}"
-        markdownify(full_url).should == %Q{<p><a target="_blank" href="#{full_url}">#{url}</a></p>}
+        markdownify(full_url).should == %Q{<a target="_blank" href="#{full_url}">#{url}</a>}
       end
 
       it "doesn't muck up code text" do
         message = %{`puts "Hello"`}
-        markdownify(message).should =~ %r{<p><code>puts &quot;Hello&quot;</code></p>}
+        markdownify(message).should =~ %r{<code>puts &quot;Hello&quot;</code>}
         message = %Q{~~~\nA\nB\n~~~\n}
         markdownify(message).should =~ %r{<pre><code>\nA\nB\n</code></pre>}
       end
@@ -159,76 +159,76 @@ describe MarkdownifyHelper do
         proto="ftp"
         url="ftp.uni-kl.de/CCC/26C3/mp4/26c3-3540-en-a_hackers_utopia.mp4"
         # I did not watch that one, but the title sounds nice :P
-        markdownify(proto+"://"+url).should == "<p><a target=\"_blank\" href=\""+proto+"://"+url+"\">"+url+"</a></p>"
+        markdownify(proto+"://"+url).should == "<a target=\"_blank\" href=\""+proto+"://"+url+"\">"+url+"</a>"
       end
 
       it "should recognize www links" do
         url="www.joindiaspora.com"
-        markdownify(url).should == %Q{<p><a target="_blank" href="http://#{url}">#{url}</a></p>}
+        markdownify(url).should == %Q{<a target="_blank" href="http://#{url}">#{url}</a>}
       end
     end
 
     describe "specialchars" do
       it "replaces &lt;3 with &hearts;" do
         message = "i <3 you"
-        markdownify(message).should == "<p>i &hearts; you</p>"
+        markdownify(message).should == "i &hearts; you"
       end
 
       it "replaces various things with (their) HTML entities" do
         message = "... <-> -> <- (tm) (r) (c)"
-        markdownify(message).should == "<p>&hellip; &#8596; &rarr; &larr; &trade; &reg; &copy;</p>"
+        markdownify(message).should == "&hellip; &#8596; &rarr; &larr; &trade; &reg; &copy;"
       end
 
       it "skips doing it if you say so" do
         message = "... -> <-"
-        markdownify(message, :specialchars => false).should == "<p>... -&gt; &lt;-</p>"
+        markdownify(message, :specialchars => false).should == "... -&gt; &lt;-"
       end
     end
 
     describe "weak emphasis" do
       it "should be recognized (1/2)" do
         message = "*some text* some text *some text* some text"
-        markdownify(message).should == "<p><em>some text</em> some text <em>some text</em> some text</p>"
+        markdownify(message).should == "<em>some text</em> some text <em>some text</em> some text"
       end
 
       it "should be recognized (2/2)" do
         message = "_some text_ some text _some text_ some text"
-        markdownify(message).should == "<p><em>some text</em> some text <em>some text</em> some text</p>"
+        markdownify(message).should == "<em>some text</em> some text <em>some text</em> some text"
       end
     end
 
     describe "strong emphasis" do
       it "should be recognized (1/2)" do
         message = "**some text** some text **some text** some text"
-        markdownify(message).should == "<p><strong>some text</strong> some text <strong>some text</strong> some text</p>"
+        markdownify(message).should == "<strong>some text</strong> some text <strong>some text</strong> some text"
       end
 
       it "should be recognized (2/2)" do
         message = "__some text__ some text __some text__ some text"
-        markdownify(message).should == "<p><strong>some text</strong> some text <strong>some text</strong> some text</p>"
+        markdownify(message).should == "<strong>some text</strong> some text <strong>some text</strong> some text"
       end
     end
 
     describe "nested weak and strong emphasis" do
       it "should be rendered correctly" do
         message = "__this is _some_ text__"
-        markdownify(message).should == "<p><strong>this is <em>some</em> text</strong></p>"
+        markdownify(message).should == "<strong>this is <em>some</em> text</strong>"
         message = "*this is **some** text*"
-        markdownify(message).should == "<p><em>this is <strong>some</strong> text</em></p>"
+        markdownify(message).should == "<em>this is <strong>some</strong> text</em>"
         message = "___some text___"
-        markdownify(message).should == "<p><em><strong>some text</strong></em></p>"
+        markdownify(message).should == "<em><strong>some text</strong></em>"
       end
     end
 
     describe "links" do
       it "should be recognized without title attribute" do
         message = "[link text](http://someurl.com) [link text](http://someurl.com)"
-        markdownify(message).should == '<p><a target="_blank" href="http://someurl.com">link text</a> <a target="_blank" href="http://someurl.com">link text</a></p>'
+        markdownify(message).should == '<a target="_blank" href="http://someurl.com">link text</a> <a target="_blank" href="http://someurl.com">link text</a>'
       end
 
       it "should be recognized with title attribute" do
         message = '[link text](http://someurl.com "some title") [link text](http://someurl.com "some title")'
-        markdownify(message).should == '<p><a target="_blank" href="http://someurl.com" title="some title">link text</a> <a target="_blank" href="http://someurl.com" title="some title">link text</a></p>'
+        markdownify(message).should == '<a target="_blank" href="http://someurl.com" title="some title">link text</a> <a target="_blank" href="http://someurl.com" title="some title">link text</a>'
       end
 
       it "should have a robust link parsing" do
@@ -237,18 +237,18 @@ describe MarkdownifyHelper do
         link.should =~ %r{href="http://en.wikipedia.org/wiki/Text_%28literary_theory%29"}
         
         message = "[  links]( google.com)"
-        markdownify(message).should == %Q{<p><a target="_blank" href="http://google.com">links</a></p>}
+        markdownify(message).should == %Q{<a target="_blank" href="http://google.com">links</a>}
 
         message = "[_http_](http://google.com/search?q=with_multiple__underscores*and**asterisks )"
-        markdownify(message).should == %Q{<p><a target="_blank" href="http://google.com/search?q=with_multiple__underscores*and**asterisks"><em>http</em></a></p>}
+        markdownify(message).should == %Q{<a target="_blank" href="http://google.com/search?q=with_multiple__underscores*and**asterisks"><em>http</em></a>}
         message = %{[___FTP___]( ftp://ftp.uni-kl.de/CCC/26C3/mp4/26c3-3540-en-a_hackers_utopia.mp4 'File Transfer Protocol')}
-        markdownify(message).should == %{<p><a target="_blank" href="ftp://ftp.uni-kl.de/CCC/26C3/mp4/26c3-3540-en-a_hackers_utopia.mp4" title="File Transfer Protocol"><em><strong>FTP</strong></em></a></p>}
+        markdownify(message).should == %{<a target="_blank" href="ftp://ftp.uni-kl.de/CCC/26C3/mp4/26c3-3540-en-a_hackers_utopia.mp4" title="File Transfer Protocol"><em><strong>FTP</strong></em></a>}
 
         message = %{[**any protocol**](foo://bar.example.org/yes_it*makes*no_sense)}
-        markdownify(message).should == %{<p><a target="_blank" href="foo://bar.example.org/yes_it*makes*no_sense"><strong>any protocol</strong></a></p>}
+        markdownify(message).should == %{<a target="_blank" href="foo://bar.example.org/yes_it*makes*no_sense"><strong>any protocol</strong></a>}
 
         message = "This [ *text* ]( http://en.wikipedia.org/wiki/Text_(literary_theory) ) with many [ links]( google.com) tests [_http_](http://google.com/search?q=with_multiple__underscores*and**asterisks ), [___FTP___]( ftp://ftp.uni-kl.de/CCC/26C3/mp4/26c3-3540-en-a_hackers_utopia.mp4 'File Transfer Protocol'), [**any protocol**](foo://bar.example.org/yes_it*makes*no_sense)"
-        markdownify(message).should == '<p>This <a target="_blank" href="http://en.wikipedia.org/wiki/Text_%28literary_theory%29"><em>text</em></a> with many <a target="_blank" href="http://google.com">links</a> tests <a target="_blank" href="http://google.com/search?q=with_multiple__underscores*and**asterisks"><em>http</em></a>, <a target="_blank" href="ftp://ftp.uni-kl.de/CCC/26C3/mp4/26c3-3540-en-a_hackers_utopia.mp4" title="File Transfer Protocol"><em><strong>FTP</strong></em></a>, <a target="_blank" href="foo://bar.example.org/yes_it*makes*no_sense"><strong>any protocol</strong></a></p>'
+        markdownify(message).should == 'This <a target="_blank" href="http://en.wikipedia.org/wiki/Text_%28literary_theory%29"><em>text</em></a> with many <a target="_blank" href="http://google.com">links</a> tests <a target="_blank" href="http://google.com/search?q=with_multiple__underscores*and**asterisks"><em>http</em></a>, <a target="_blank" href="ftp://ftp.uni-kl.de/CCC/26C3/mp4/26c3-3540-en-a_hackers_utopia.mp4" title="File Transfer Protocol"><em><strong>FTP</strong></em></a>, <a target="_blank" href="foo://bar.example.org/yes_it*makes*no_sense"><strong>any protocol</strong></a>'
       end
 
     end
@@ -256,32 +256,32 @@ describe MarkdownifyHelper do
     describe "nested emphasis and links tags" do
       it "should be rendered correctly" do
         message = '[**some *link* text**](someurl.com "some title")'
-        markdownify(message).should == '<p><a target="_blank" href="http://someurl.com" title="some title"><strong>some <em>link</em> text</strong></a></p>'
+        markdownify(message).should == '<a target="_blank" href="http://someurl.com" title="some title"><strong>some <em>link</em> text</strong></a>'
       end
     end
 
     it "should allow escaping" do
       message = '*some text* \*some text* \**some text* _some text_ \_some text_ \__some text_'
-      markdownify(message).should == "<p><em>some text</em> *some text* *<em>some text</em> <em>some text</em> _some text_ _<em>some text</em></p>"
+      markdownify(message).should == "<em>some text</em> *some text* *<em>some text</em> <em>some text</em> _some text_ _<em>some text</em>"
     end
 
     describe "newlines" do
       it 'skips inserting newlines if you pass the newlines option' do
         message = "These\nare\n\some\nnew\lines"
         res = markdownify(message, :newlines => false)
-        res.should == "<p>#{message}</p>"
+        res.should == "#{message}"
       end
 
       it 'generates breaklines' do
         message = "These\nare\nsome\nnew\nlines"
         res = markdownify(message)
-        res.should == "<p>These<br /\>are<br /\>some<br /\>new<br /\>lines</p>"
+        res.should == "These<br /\>are<br /\>some<br /\>new<br /\>lines"
       end
 
       it 'should render newlines and basic http links correctly' do
         message = "Some text, then a line break and a link\nhttp://joindiaspora.com\nsome more text"
         res = markdownify(message)
-        res.should == '<p>Some text, then a line break and a link<br /><a target="_blank" href="http://joindiaspora.com">joindiaspora.com</a><br />some more text</p>'
+        res.should == 'Some text, then a line break and a link<br /><a target="_blank" href="http://joindiaspora.com">joindiaspora.com</a><br />some more text'
       end
     end
 
@@ -307,6 +307,14 @@ describe MarkdownifyHelper do
         formatted.should =~ /hovercard/
       end
 
+      it "should leave mentions intact for real diaspora handles" do
+        new_person = Factory(:person, :diaspora_handle => 'maxwell@joindiaspora.com')
+        message = Factory.create(:status_message, 
+                                 :author => alice.person,
+                                 :text => "Hey @{maxwell@joindiaspora.com; #{new_person.diaspora_handle}}!")
+        formatted = markdownify(message)
+        formatted.should =~ /hovercard/
+      end
     end
 
     context 'performance' do

@@ -15,6 +15,7 @@ module Diaspora
       end
 
       def autolink(link, type)
+        return link if type == :email
         autolink_youtube(link) || autolink_vimeo(link) || autolink_simple(link)
       end
 
@@ -108,8 +109,7 @@ module Diaspora
             x =~ /\n{2}/ ? x : (x = x.strip; x << br)
           end
         end
-
-        return "<p>#{text}</p>"
+        return text
       end
 
       def preprocess(full_document)
@@ -147,6 +147,7 @@ module Diaspora
 
         return full_document
       end
+
 
 
       def single_emphasis(text)
