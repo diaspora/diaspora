@@ -771,7 +771,7 @@ it:
       connect_to: "Connettiti a"
       connect_to_your_other_social_networks: "Connetti altri social network"
       connect_with_people: "Connettiti con gente speciale"
-      connect_with_people_explanation_pt1: "Stai in contatto con le persone mettendole in uno o più dei tuoi %{bold}"
+      connect_with_people_explanation_pt1: "Stai in contatto con le persone mettendole in uno o più dei tuoi %{bold}."
       connect_with_people_explanation_pt2: "Gli aspetti sono un sistema intuitivo per raggruppare vecchie e nuove conoscenze in modo riservato, così potrai filtrare o condividere i contenuti con chi vuoi e con facilità."
       featured_tags: "Tag consigliati"
       featured_users: "Utenti consigliati"

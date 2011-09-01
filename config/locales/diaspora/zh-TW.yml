@@ -17,7 +17,7 @@ zh-TW:
         contact: 
           attributes: 
             person_id: 
-              taken: "對此使用者必須為不重複的聯繫."
+              taken: "對此使用者必須為不重複的聯絡人."
         person: 
           attributes: 
             diaspora_handle: 
@@ -55,8 +55,8 @@ zh-TW:
       success: "從面向中移除聯絡人成功"
   aspects: 
     add_to_aspect: 
-      failure: "將聯繫加入至面向失敗."
-      success: "將聯繫加入至面向成功."
+      failure: "將聯絡人加入至面向失敗."
+      success: "將聯絡人加入至面向成功."
     aspect_contacts: 
       done_editing: "編輯完成"
     aspect_listings: 
@@ -66,21 +66,21 @@ zh-TW:
       posted: "發表的"
       recently: "最近:"
       stream: "事件流"
-    contacts_not_visible: "此面向中的聯繫無法看見彼此."
-    contacts_visible: "此面向中的聯繫可以看見彼此."
+    contacts_not_visible: "此面向中的聯絡人無法看見彼此."
+    contacts_visible: "此面向中的聯絡人可以看見彼此."
     create: 
       failure: "創造面向失敗."
-      success: "新的面向 %{name} 已造出來了"
+      success: "新的面向 %{name} 已經造出來了"
     destroy: 
       failure: "無法刪除 %{name} 因為它不是空的."
       success: "成功刪除 %{name} 了."
     edit: 
-      add_existing: "加入既有聯繫"
-      aspect_list_is_not_visible: "面向中的其他人無法看見聯繫列表"
-      aspect_list_is_visible: "面向中的其他人可以看見聯繫列表"
+      add_existing: "加入既有聯絡人"
+      aspect_list_is_not_visible: "面向中的其他人無法看見聯絡人列表"
+      aspect_list_is_visible: "面向中的其他人可以看見聯絡人列表"
       confirm_remove_aspect: "你確定要刪除這個面向?"
       done: "完成"
-      make_aspect_list_visible: "是否讓其他人可以看見面向裡的聯繫列表?"
+      make_aspect_list_visible: "是否讓其他人可以看見面向的聯絡人列表?"
       remove_aspect: "刪除這個面向"
       rename: "改名"
       update: "更新"
@@ -102,7 +102,7 @@ zh-TW:
       donate: "捐獻"
       handle_explanation: "這是你的 diaspora 識別碼. 就像電子信箱一樣, 你可以把它給想聯絡你的人."
       keep_us_running: "為了讓 %{pod} 高速奔馳, 提供些咖啡存量給我們的伺服器吧!"
-      no_contacts: "沒有任何聯繫"
+      no_contacts: "沒有任何聯絡人"
       no_tags: "+ 找個標籤來追蹤"
       people_sharing_with_you: "跟你分享的人"
       post_a_message: "貼訊息 >>"
@@ -114,8 +114,8 @@ zh-TW:
       your_aspects: "你的面向"
     many: "%{count}個面向"
     move_contact: 
-      error: "聯繫移動錯誤: %{inspect}"
-      failure: "因%{inspect}沒有作用"
+      error: "聯絡人移動錯誤: %{inspect}"
+      failure: "因%{inspect}而沒有作用"
       success: "聯絡人已移至新的面向"
     new: 
       create: "建立"
@@ -169,12 +169,12 @@ zh-TW:
       failure: "建立聯繫失敗"
     featured: 
       featured_users: "特色使用者"
-    few: "%{count}個聯繫"
+    few: "%{count}個聯絡人"
     index: 
       add_a_new_aspect: "加入新面向"
       all_contacts: "全部聯絡人"
       edit_aspect: "編輯%{name}"
-      many_people_are_you_sure: "你確定要進行跟%{suggested_limit}個聯絡人的私人對話? 貼文到該面向可能是比較好跟他們聯絡的方式."
+      many_people_are_you_sure: "你確定要進行跟%{suggested_limit}個聯絡人的私人對話? 貼文到該面向可能是跟他們聯絡比較好的方式."
       my_contacts: "我的聯絡人"
       no_contacts: "沒有聯絡人."
       only_sharing_with_me: "和我分享的人"
@@ -182,12 +182,12 @@ zh-TW:
       start_a_conversation: "開始對話"
       title: "聯絡人"
       your_contacts: "你的聯絡人"
-    many: "%{count}個聯繫"
-    one: "1個聯繫"
-    other: "%{count}個聯繫"
+    many: "%{count}個聯絡人"
+    one: "1個聯絡人"
+    other: "%{count}個聯絡人"
     sharing: 
       people_sharing: "跟你分享的人:"
-    zero: "沒有任何聯繫"
+    zero: "沒有任何聯絡人"
   conversations: 
     create: 
       fail: "無效的訊息"
@@ -435,12 +435,12 @@ zh-TW:
   password_confirmation: "密碼確認"
   people: 
     add_contact_small: 
-      add_contact_from_tag: "從標籤新增聯繫"
+      add_contact_from_tag: "從標籤新增聯絡人"
     aspect_list: 
       edit_membership: "編輯所屬面向"
     few: "%{count}個聯絡人"
     helper: 
-      people_on_pod_are_aware_of: "Pod 上已知的人"
+      people_on_pod_are_aware_of: "Pod上已知的人"
       results_for: "%{params}的搜尋結果"
     index: 
       couldnt_find_them_send_invite: "找不到他們? 寄一封邀請函吧!"
@@ -451,7 +451,7 @@ zh-TW:
     one: "1個聯絡人"
     other: "%{count}個聯絡人"
     person: 
-      add_contact: "加入聯繫"
+      add_contact: "加入聯絡人"
       already_connected: "已建立連結"
       pending_request: "請求等候中"
       thats_you: "那是你耶!"
@@ -462,7 +462,7 @@ zh-TW:
       gender: "性別"
       in_aspects: "所屬面向"
       location: "位置"
-      remove_contact: "刪除聯繫"
+      remove_contact: "刪除聯絡人"
       remove_from: "要從 %{aspect} 刪除 %{name} 嗎?"
     show: 
       does_not_exist: "聯絡人不存在!"
@@ -565,7 +565,7 @@ zh-TW:
       enter_email: "輸入電子信箱"
       enter_password: "輸入密碼"
       enter_password_again: "輸入與前面相同的密碼"
-      enter_username: "選個用戶名稱(名稱只能包含拉丁字母,數字,以及底線字元)"
+      enter_username: "選個使用者名稱(名稱只能包含拉丁字母,數字,以及底線字元)"
       join_the_movement: "參加這個行動!"
       sign_up_today: "今天就來註冊"
   requests: 
@@ -584,8 +584,8 @@ zh-TW:
         other: "%{count}個新請求!"
         zero: "沒有新請求"
     manage_aspect_contacts: 
-      existing: "聯繫編輯"
-      manage_within: "管理聯繫:"
+      existing: "既有聯絡人"
+      manage_within: "管理聯絡人於"
     new_request_to_person: 
       sent: "已送出!"
   reshares: 
@@ -633,12 +633,12 @@ zh-TW:
   settings: "設定"
   shared: 
     add_contact: 
-      add_new_contact: "加入新聯繫"
+      add_new_contact: "加入新聯絡人"
       create_request: "以 Diaspora 識別碼搜尋"
       diaspora_handle: "diaspora@pod.org"
-      enter_a_diaspora_username: "輸入 Diaspora 用戶名稱:"
+      enter_a_diaspora_username: "輸入 Diaspora 使用者名稱:"
       know_email: "知道他們的電子信箱嗎? 你應該邀請他們來"
-      your_diaspora_username_is: "你的 Diaspora 用戶名稱是: %{diaspora_handle}"
+      your_diaspora_username_is: "你的 Diaspora 使用者名稱是: %{diaspora_handle}"
     aspect_dropdown: 
       add_to_aspect: "加入至面向"
       toggle: 
@@ -648,7 +648,7 @@ zh-TW:
         other: "在%{count}個面向中"
         zero: "加入至面向"
     contact_list: 
-      all_contacts: "全部聯繫"
+      all_contacts: "全部聯絡人"
     footer: 
       logged_in_as: "已用 %{name} 登入"
       your_aspects: "你的面向"
@@ -670,7 +670,7 @@ zh-TW:
       title: "設定連線服務"
     publisher: 
       all: "全部"
-      all_contacts: "全部的聯繫"
+      all_contacts: "全部聯絡人"
       click_to_share_with: "點一下以一起分享: "
       discard_post: "捨棄貼文"
       make_public: "公開"
@@ -737,14 +737,14 @@ zh-TW:
       via: "(經由%{link})"
       what_is_cubbies: "Cubbi.es 是世界上第一個 Diaspora 應用程式. 它也是收集線上照片的最佳方式."
   undo: "復原?"
-  username: "用戶名稱"
+  username: "使用者名稱"
   users: 
     confirm_email: 
       email_confirmed: "已啟用E-Mail %{email}"
       email_not_confirmed: "無法啟用E-Mail. 連結有誤嗎?"
     destroy: "帳號已鎖定. 關閉帳號可能需要20分鐘才能完成. 感謝你試用 Diaspora."
     edit: 
-      also_commented: "...當有人也對你的聯繫的貼文發表意見時?"
+      also_commented: "...當有人也對你的聯絡人的貼文發表意見時?"
       change: "更改"
       change_email: "更改E-Mail"
       change_language: "更改語言"
@@ -771,7 +771,7 @@ zh-TW:
       connect_to: "連結至"
       connect_to_your_other_social_networks: "與其他社交網站連結"
       connect_with_people: "與酷咖連結"
-      connect_with_people_explanation_pt1: "為了和別人聯繫, 將他們放入你的任何一個或多個%{bold}"
+      connect_with_people_explanation_pt1: "將別人放進你的任何一個或多個%{bold}中來與他們建立聯繫."
       connect_with_people_explanation_pt2: "面向是區分新人或熟人的直覺方式, 並且只有你自己知道, 讓你可以輕易過濾他們, 或只和部份聯絡人分享."
       featured_tags: "特色標籤"
       featured_users: "特色使用者"
@@ -794,7 +794,7 @@ zh-TW:
       welcome: "歡迎光臨!"
       welcome_with_name: "歡迎光臨, %{name}!"
     public: 
-      does_not_exist: "不存在 %{username} 這個用戶!"
+      does_not_exist: "不存在 %{username} 這個使用者!"
     update: 
       email_notifications_changed: "已更改電郵通知"
       language_changed: "已更改語言"

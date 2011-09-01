@@ -771,7 +771,7 @@ bg:
       connect_to: "Свържете профила си с"
       connect_to_your_other_social_networks: "Свържете профила си с други социални мрежи"
       connect_with_people: "Свържете се с интересни хора"
-      connect_with_people_explanation_pt1: "Свържете се с хора поставяйки ги в един или няколко от вашите %{bold}"
+      connect_with_people_explanation_pt1: "Свържете се с хора поставяйки ги в един или няколко от вашите %{bold}."
       connect_with_people_explanation_pt2: "Групирането на контактите в аспекти ще ви позволи да споделяте/филрирате информация само с/от определена подгрупа от контактите ви."
       featured_tags: "Отличени тагове"
       featured_users: "Отличени потребители"

@@ -771,7 +771,7 @@ es:
       connect_to: "Conectar a"
       connect_to_your_other_social_networks: "Conéctate a tus otras redes sociales"
       connect_with_people: "Conectate con gente interesante"
-      connect_with_people_explanation_pt1: "Comparte con gente añadiéndola en uno o más de tus %{bold}"
+      connect_with_people_explanation_pt1: "Conecta con gente colocándola en uno o más de tus %{bold}"
       connect_with_people_explanation_pt2: "Los Aspectos son una manera intuitiva de agrupar contactos nuevos o caras familiares, de forma privada, permitiéndote el filtrado o compartir cosas con subgrupos de entre tus contactos muy fácilmente."
       featured_tags: "Etiquetas ofrecidas"
       featured_users: "Usuarios ofrecidos"
