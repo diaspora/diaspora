@@ -3,5 +3,6 @@ Diaspora.Pages.NotificationsIndex = function() {
 
   this.subscribe("page/ready", function(evt, document) {
     self.infiniteScroll = self.instantiate("InfiniteScroll");
+    self.instantiate("TimeAgo", document.find("abbr.timeago"));
   });
 };
