@@ -34,7 +34,7 @@ module MarkdownifyHelper
     renderer = Diaspora::Markdownify::HTML.new(render_options)
     markdown = Redcarpet::Markdown.new(renderer, markdown_options)
 
-    message = markdown.render(message)
+    message = markdown.render(message).html_safe
 
     if target.respond_to?(:format_mentions)
       message = target.format_mentions(message)

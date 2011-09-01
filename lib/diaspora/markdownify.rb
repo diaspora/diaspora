@@ -100,6 +100,9 @@ module Diaspora
       end
 
       def paragraph(text)
+        #hax again... why is markdownify passing us nil?
+        text ||=''
+
         if @newlines
           br = linebreak
 
@@ -109,7 +112,7 @@ module Diaspora
             x =~ /\n{2}/ ? x : (x = x.strip; x << br)
           end
         end
-        return text
+        return "<p>#{text}</p>"
       end
 
       def preprocess(full_document)
