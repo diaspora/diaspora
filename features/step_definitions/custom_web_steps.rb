@@ -108,11 +108,19 @@ When /^I press the ([\d])(nd|rd|st|th) "([^\"]*)"(?: within "([^\"]*)")?$/ do |n
     find(:css, link_selector+":nth-child(#{number})").click
   end
 end
+
 Then /^(?:|I )should see a "([^\"]*)"(?: within "([^\"]*)")?$/ do |selector, scope_selector|
   with_scope(scope_selector) do
     page.has_css?(selector).should be_true
   end
 end
+
+Then /^(?:|I )should not see a "([^\"]*)"(?: within "([^\"]*)")?$/ do |selector, scope_selector|
+  with_scope(scope_selector) do
+    page.has_css?(selector).should be_false
+  end
+end
+
 Then /^I should see "([^\"]*)" in the main content area$/ do |stuff|
   within("#main_stream") do
     Then "I should see #{stuff}"
