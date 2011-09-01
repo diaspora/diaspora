@@ -58,13 +58,15 @@
 
   Diaspora.BasePage = function(body) {
     $.extend(this, Diaspora.BaseWidget);
-    $.extend(this, {
-      backToTop: this.instantiate("BackToTop", body.find("#back-to-top")),
-      directionDetector: this.instantiate("DirectionDetector"),
-      flashMessages: this.instantiate("FlashMessages"),
-      header: this.instantiate("Header", body.find("header")),
-      hoverCard: this.instantiate("HoverCard", body.find("#hovercard"))
-    });
+    if (!$.mobile){
+      $.extend(this, {
+        backToTop: this.instantiate("BackToTop", body.find("#back-to-top")),
+        directionDetector: this.instantiate("DirectionDetector"),
+        flashMessages: this.instantiate("FlashMessages"),
+        header: this.instantiate("Header", body.find("header")),
+        hoverCard: this.instantiate("HoverCard", body.find("#hovercard"))
+      });
+    }
   };
 
   Diaspora.instantiatePage = function() {
@@ -76,8 +78,7 @@
 
       Diaspora.page = new Page();
     }
-    if (!$.mobile)
-      $.extend(Diaspora.page, new Diaspora.BasePage($(document.body)));
+    $.extend(Diaspora.page, new Diaspora.BasePage($(document.body)));
     Diaspora.page.publish("page/ready", [$(document.body)])
   };
 
