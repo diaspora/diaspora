@@ -13,7 +13,6 @@
   $(document).ready(function() 
     {
       Publisher.open();
-      Publisher.bookmarklet = true;
       $("#publisher").bind('ajax:success', function(){
         $('h4').text("#{t('bookmarklet.post_success')}");
         Publisher.close();
