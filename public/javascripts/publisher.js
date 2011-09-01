@@ -5,6 +5,7 @@
 
 //TODO: make this a widget
 var Publisher = {
+  bookmarklet = false,
   close: function(){
     Publisher.form().addClass('closed');
     Publisher.form().find("#publisher_textarea_wrapper").removeClass('active');
@@ -374,6 +375,7 @@ var Publisher = {
     }
   },
   onSuccess: function(data, json, xhr){
+   if(Publisher.bookmarklet == false){
     var isPostVisible = AspectFilters.selectedGUIDS.length == 0;
     var postedTo = Publisher.selectedAspectIds();
     $.each(AspectFilters.selectedGUIDS, function(index, value){
@@ -391,7 +393,7 @@ var Publisher = {
         message: Diaspora.I18n.t('successfully_posted_message_to_an_aspects_that_is_not_visible')
       });
     }
-
+   }
     //collapse publisher
     Publisher.close();
     Publisher.clear();
