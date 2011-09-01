@@ -36,6 +36,7 @@
       - else
         = render 'status_messages/status_message', :post => post, :photos => post.photos
 
+    .below_content
       .info
         - if post.public?
           %span.post_scope{:title => t('.viewable_to_anyone')}

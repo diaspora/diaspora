@@ -465,6 +465,10 @@ ul.as-selections
         :margin
           :top -1px
 
+  .below_content
+    :padding
+      :left 20px
+
   .delete
     @include opacity(0.3)
     :padding 5px
@@ -496,7 +500,8 @@ ul.as-selections
 
 .status_message_show
   .stream_element
-    .content
+    .content,
+    .below_content
       p
       :font
         :size 1em
@@ -672,7 +677,7 @@ form.new_comment
         :right 0
 
   textarea
-    :width 365px
+    :width 405px
     :height 21px
 
     :font
@@ -684,7 +689,6 @@ form.new_comment
   p
     :margin
       :bottom 0
-      :top -10px
     :position relative
     :left 35px
 
@@ -1722,7 +1726,8 @@ ul#request_result
     input.add
       :color green
   .stream_element
-    .content
+    .content,
+    .below_content
       :display inline
       :position relative
       :bottom 2.5em
