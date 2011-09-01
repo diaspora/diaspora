@@ -1,0 +1,5 @@
+- if current_user.can_be_notified_for?(target)
+  - want_notifications = current_user.wants_to_be_notified_for?(target, notification_types)
+  = link_to image_tag('icons/mail_stop_black.png'), block_notifications_path(:notification_types => notification_types, :target_id => target, :target_type => target.class.base_class.to_s), :method => :put, :remote => true, :class => ["toggle_notifications stream_element_icon", want_notifications && "hidden"], :title => t('.disable_notifications')
+  = link_to image_tag('icons/mail_black.png'), block_notifications_path(:notification_types => notification_types, :target_id => target, :target_type => target.class.base_class.to_s), :method => :delete, :remote => true, :class => ["toggle_notifications stream_element_icon", !want_notifications && "hidden"], :title => t('.enable_notifications')
+

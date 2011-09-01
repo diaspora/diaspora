@@ -17,7 +17,7 @@ class NotificationsController < VannaController
 
   def index(opts=params)
     @aspect = :notification
-    conditions = {:recipient_id => current_user.id}
+    conditions = {:recipient_id => current_user.id, :blocker => false}
     page = opts[:page] || 1
     per_page = opts[:per_page] || 25
     notifications = WillPaginate::Collection.create(page, per_page, Notification.where(conditions).count ) do |pager|
@@ -49,6 +49,21 @@ class NotificationsController < VannaController
     def post_read_all(json)
       Response.new(:status => 302, :location => aspects_path)
     end
+  end
+
+  def block
+    raise 'Unknown target_type' unless ['Post'].include?(params[:target_type])
+    raise 'Unknown notification_types' unless params[:notification_types] & ['Notifications::CommentOnPost', 'Notifications::Liked'] == params[:notification_types]
+
+    target = params[:target_type].constantize.find(params[:target_id])
+    params[:notification_types].each do |n_type|
+      if request.method == 'DELETE'
+        Notification.unblock current_user, target, n_type.constantize
+      else
+        Notification.block current_user, target, n_type.constantize
+      end
+    end
+    true
   end
 
   def controller

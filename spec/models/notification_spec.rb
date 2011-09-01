@@ -135,5 +135,44 @@ describe Notification do
       end
     end
   end
+
+  describe '.block' do
+    before do
+      @user = bob
+      @sm = @user.post(:status_message, :text => "Hello World!", :to => :all)
+    end
+
+    context 'when a user disables notifications' do
+      before do
+         @post = Factory(:status_message, :author => @user.person)
+         Notification.block @user,  @post, [Notifications::CommentOnPost, Notifications::Liked]
+
+         @person = Factory(:person)
+      end
+
+      it 'does not notify the user on comments' do
+        comment = Factory(:comment, :author =>  @person, :post =>  @post)
+        notification = Notification.notify(@user, comment,  @person)
+        notification.should be nil
+      end
+
+      context 'and re-enables a notification for comments' do
+        before do
+          Notification.unblock @user, @post, [Notifications::CommentOnPost]
+        end
+
+        it 'notifys the user on comments' do
+          notification = Notification.notify(@user, Factory(:comment, :author => @person, :post => @post), @person)
+          notification.should_not be nil
+        end
+
+        it 'does not notify the user on likes' do
+          notification = Notification.notify(@user, Factory(:like, :author => @person, :target => @post), @person)
+          notification.should be nil
+        end
+      end
+
+    end
+  end
 end
 

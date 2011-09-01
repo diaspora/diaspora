@@ -466,4 +466,26 @@ class User < ActiveRecord::Base
     self.email = self.invitation_identifier if self.invitation_service == 'email'
     self
   end
+
+  def can_be_notified_for?(target)
+    if(target.is_a? Comment) || (target.is_a? Like)
+      return target.parent.author == self || target.parent.contacts.include?(self)
+    elsif(target.is_a? Reshare)
+      return target.root == self
+    else
+      return true
+    end
+  end
+
+  def wants_to_be_notified_for?(target, notification_types)
+    target = Notification.notification_target_for(target)
+
+    notification_types = [notification_types] unless notification_types.is_a? Array
+    not Notification.where(:recipient_id => self.id,
+                           :type => notification_types.map {|t| t.to_s},
+                           :target_id => target.id,
+                           :target_type => target.class.base_class.to_s,
+                           :blocker => true
+                          ).exists?
+  end
 end

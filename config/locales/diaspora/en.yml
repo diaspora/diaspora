@@ -427,6 +427,9 @@ en:
         few: "%{count} new notifications"
         many: "%{count} new notifications"
         other: "%{count} new notifications"
+    toggle:
+      disable_notifications: "Disable notifications"
+      enable_notifications: "Enable notifications"
 
   notifier:
     a_post_you_shared: "a post."

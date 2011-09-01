@@ -12,24 +12,45 @@ class Notification < ActiveRecord::Base
   belongs_to :target, :polymorphic => true
 
   def self.for(recipient, opts={})
-    self.where(opts.merge!(:recipient_id => recipient.id)).order('updated_at desc')
+    self.where(opts.merge!(:recipient_id => recipient.id, :blocker => false)).order('updated_at desc')
   end
 
   def self.notify(recipient, target, actor)
-    if target.respond_to? :notification_type
-      if note_type = target.notification_type(recipient, actor)
-        if(target.is_a? Comment) || (target.is_a? Like) 
-          n = note_type.concatenate_or_create(recipient, target.parent, actor, note_type)
-        elsif(target.is_a? Reshare)
-          n = note_type.concatenate_or_create(recipient, target.root, actor, note_type)
-        else
-          n = note_type.make_notification(recipient, target, actor, note_type)
-        end
-        n.email_the_user(target, actor) if n
-        n.socket_to_user(recipient, :actor => actor) if n
-        n
-       end
+    return nil unless target.respond_to? :notification_type
+
+    if note_type = target.notification_type(recipient, actor)
+      note_target = notification_target_for(target)
+      if(target.is_a? Comment) || (target.is_a? Like) || (target.is_a? Reshare)
+        return nil unless recipient.wants_to_be_notified_for?(note_target, note_type)
+        n = note_type.concatenate_or_create(recipient, note_target, actor, note_type)
+      else
+        n = note_type.make_notification(recipient, note_target, actor, note_type)
+      end
+      n.email_the_user(target, actor) if n
+      n.socket_to_user(recipient, :actor => actor) if n
+      n
     end
+  end
+
+  def self.block(recipient, target, notification_types)
+    note_target = notification_target_for(target)
+    return unless recipient.wants_to_be_notified_for?(note_target, notification_types)
+
+    notification_types = [notification_types] unless notification_types.is_a? Array
+    notification_types.each do |type|
+      self.make_notification(recipient, note_target, recipient.person, type, :block_notification => true, :unread => false)
+    end
+  end
+
+  def self.unblock(recipient, target, notification_types)
+    notification_types = [notification_types] unless notification_types.is_a? Array
+    target = notification_target_for(target)
+
+    Notification.delete_all(:recipient_id => recipient.id,
+                            :type => notification_types.collect {|t| t.to_s},
+                            :target_id => target.id,
+                            :target_type => target.class.base_class.to_s,
+                            :blocker => true)
   end
 
   def email_the_user(target, actor)
@@ -39,6 +60,16 @@ class Notification < ActiveRecord::Base
 
   def mail_job
     raise NotImplementedError.new('Subclass this.')
+  end
+
+  def self.notification_target_for(target)
+    if(target.is_a? Comment) || (target.is_a? Like)
+      target.parent
+    elsif(target.is_a? Reshare)
+      target.root
+    else
+      target
+    end
   end
 
 private
@@ -61,11 +92,15 @@ private
     end
   end
 
-  def self.make_notification(recipient, target, actor, notification_type)
+  def self.make_notification(recipient, target, actor, notification_type, opts={})
+    opts[:block_notification] ||= false;
+
     n = notification_type.new(:target => target,
-                               :recipient_id => recipient.id)
+                              :recipient_id => recipient.id)
     n.actors = n.actors | [actor]
     n.unread = false if target.is_a? Request
+    n.unread = opts[:unread] if opts.has_key?(:unread)
+    n.blocker = opts[:block_notification]
     n.save!
     n
   end

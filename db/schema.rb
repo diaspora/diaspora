@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110818212541) do
+ActiveRecord::Schema.define(:version => 20110901194928) do
 
   create_table "aspect_memberships", :force => true do |t|
     t.integer  "aspect_id",  :null => false
@@ -167,11 +167,12 @@ ActiveRecord::Schema.define(:version => 20110818212541) do
   create_table "notifications", :force => true do |t|
     t.string   "target_type"
     t.integer  "target_id"
-    t.integer  "recipient_id",                   :null => false
-    t.boolean  "unread",       :default => true, :null => false
+    t.integer  "recipient_id",                    :null => false
+    t.boolean  "unread",       :default => true,  :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "type"
+    t.boolean  "blocker",      :default => false, :null => false
   end
 
   add_index "notifications", ["recipient_id"], :name => "index_notifications_on_recipient_id"

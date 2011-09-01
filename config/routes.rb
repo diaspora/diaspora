@@ -43,6 +43,8 @@ Diaspora::Application.routes.draw do
   end
 
   resources :notifications, :only => [:index, :update] do
+    put :block, :on => :collection
+    delete :block, :on => :collection
     get :read_all, :on => :collection
   end
 

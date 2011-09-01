@@ -49,8 +49,12 @@ var Stream = {
       }
     });
 
+    $('a.stream_element_icon.toggle_notifications').live("click", function(evt){
+      $(this).fadeToggle(function () {$(this).siblings('.toggle_notifications').fadeToggle() });
+    });
+
     // ajax-loader and hide icon visibility handling for post hide and unhide
-    $("a.stream_element_delete.vis_hide").live("click", function(evt){
+    $("a.stream_element_icon.vis_hide").live("click", function(evt){
       $(this).toggleClass("hidden");
       $(this).next("img.hide_loader").toggleClass("hidden");
     });
