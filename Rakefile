@@ -173,15 +173,13 @@ desc "Move source to source.old, install source theme updates, replace source/_i
 task :update_source, :theme do |t, args|
   theme = args.theme || 'classic'
   if File.directory?("#{source_dir}.old")
-    puts "removed existing #{source_dir}.old directory"
+    puts "## Removed existing #{source_dir}.old directory"
     rm_r "#{source_dir}.old", :secure=>true
   end
-  mv source_dir, "#{source_dir}.old"
-  puts "moved #{source_dir} into #{source_dir}.old/"
-  mkdir_p source_dir
-  cp_r "#{themes_dir}/"+theme+"/source/.", source_dir
-  cp_r "#{source_dir}.old/.", source_dir, :preserve=>true
-  cp_r "#{source_dir}.old/_includes/custom/.", "#{source_dir}/_includes/custom/"
+  cp_r "#{source_dir}/.", "#{source_dir}.old"
+  puts "## Copied #{source_dir} into #{source_dir}.old/"
+  cp_r "#{themes_dir}/"+theme+"/source/.", source_dir, :remove_destination=>true
+  cp_r "#{source_dir}.old/_includes/custom/.", "#{source_dir}/_includes/custom/", :remove_destination=>true
   mv "#{source_dir}/index.html", "#{blog_index_dir}", :force=>true if blog_index_dir != source_dir
   cp "#{source_dir}.old/index.html", source_dir if blog_index_dir != source_dir
   puts "## Updated #{source_dir} ##"
