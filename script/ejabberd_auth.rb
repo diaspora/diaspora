@@ -23,7 +23,6 @@ class EjabberdAuthentication
 
       #`echo "#{[operation, username, domain, password].join(' ')}" >> /home/lasek/Scrivania/foo.txt`
 
-
       response = case operation
       when "auth"
         auth username, password.chomp
