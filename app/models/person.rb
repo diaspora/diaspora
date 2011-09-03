@@ -94,7 +94,7 @@ class Person < ActiveRecord::Base
   end
 
   def self.search(query, user)
-    return [] if query.to_s.blank? || query.to_s.length < 2
+    return self.where("1 = 0") if query.to_s.blank? || query.to_s.length < 2
 
     sql, tokens = self.search_query_string(query)
 
