@@ -1,6 +1,7 @@
 bundler_args: "--without development production"
 rvm:
   - ree
+  - 1.9.2
 
 before_script:
   - "sudo aptitude -y install firefox"
