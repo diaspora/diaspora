@@ -72,6 +72,11 @@ describe PeopleController do
       get :index, :q => '#babies'
       response.should redirect_to('/tags/babies')
     end
+
+    it 'goes to a tag page if you search for a hash with dots' do
+      get :index, :q => '#babi.es'
+      response.should redirect_to('/tags/babies')
+    end
   end
 
   describe '#tag_index' do
