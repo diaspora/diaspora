@@ -21,8 +21,10 @@ namespace :cruise do
   end
 
   task :travis do
-    system('export DISPLAY=:99.0 && CI=true bundle exec rake')
-    raise "tests failed!" unless $?.exitstatus == 0
+    ["rspec spec", "rake cucumber", "jasmine:ci"].each do |cmd|
+      system("export DISPLAY=:99.0 && bundle exec #{cmd}")
+      raise "#{cmd} failed!" unless $?.exitstatus == 0
+    end
   end
 end
 task :cruise => "cruise:cruise"
