@@ -21,7 +21,7 @@ namespace :cruise do
   end
 
   task :travis do
-    system('export DISPLAY=:99.0 && CI=true bundle exec rake')
+    system('export DISPLAY=:99.0 && CI=true bundle exec cucumber')
     raise "tests failed!" unless $?.exitstatus == 0
   end
 end
