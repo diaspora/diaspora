@@ -10,7 +10,7 @@ describe AspectsController do
     alice.getting_started = false
     alice.save
     sign_in :user, alice
-    @alices_aspect_1 = alice.aspects.first
+    @alices_aspect_1 = alice.aspects.where(:name => "generic").first
     @alices_aspect_2 = alice.aspects.create(:name => "another aspect")
 
     @controller.stub(:current_user).and_return(alice)
@@ -84,7 +84,7 @@ describe AspectsController do
     end
 
     it 'generates a jasmine fixture with posts', :fixture => true do
-      bob.post(:status_message, :text => "Is anyone out there?", :to => @bob.aspects.first.id)
+      bob.post(:status_message, :text => "Is anyone out there?", :to => @bob.aspects.where(:name => "generic").first.id)
       message = alice.post(:status_message, :text => "hello "*800, :to => @alices_aspect_2.id)
       5.times { bob.comment("what", :post => message) }
       get :index

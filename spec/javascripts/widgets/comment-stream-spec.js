@@ -1,24 +1,21 @@
 describe("Diaspora.Widgets.CommentStream", function() {
   var commentStream;
+  var ajaxCommentResponse;
+
   beforeEach(function() {
-    spec.readFixture("ajax_comments_on_post");
+    ajaxCommentResponse = spec.readFixture("ajax_comments_on_post");
+    spec.loadFixture("aspects_index_with_posts");
 
     jasmine.Clock.useMock();
     jasmine.Ajax.useMock();
 
-    spec.loadFixture("aspects_index_with_posts");
     Diaspora.I18n.locale = { };
-
-    var post = $(".stream_element:first"),
-      postGUID = post.attr("id");
 
     commentStream = Diaspora.BaseWidget.instantiate("CommentStream", $(".stream_element:first .comment_stream"));
   });
 
   describe("toggling comments", function() {
     it("toggles class hidden on the comments ul", function () {
-      spyOn($, "ajax").andCallThrough();
-
       expect($("ul.comments:first")).not.toHaveClass("hidden");
 
       commentStream.showComments($.Event());
@@ -27,7 +24,7 @@ describe("Diaspora.Widgets.CommentStream", function() {
         responseHeaders: {
           "Content-type": "text/html"
         },
-        responseText: spec.readFixture("ajax_comments_on_post"),
+        responseText: ajaxCommentResponse,
         status: 200
       });
 
@@ -43,7 +40,6 @@ describe("Diaspora.Widgets.CommentStream", function() {
     });
 
     it("changes the text on the show comments link", function() {
-      spyOn($, "ajax").andCallThrough();
       Diaspora.I18n.loadLocale({'comments' : {
         'show': 'show comments translation',
         'hide': 'hide comments translation'
@@ -53,11 +49,11 @@ describe("Diaspora.Widgets.CommentStream", function() {
 
       commentStream.showComments($.Event());
 
-     mostRecentAjaxRequest().response({
+      mostRecentAjaxRequest().response({
         responseHeaders: {
           "Content-type": "text/html"
         },
-        responseText: spec.readFixture("ajax_comments_on_post"),
+        responseText: ajaxCommentResponse,
         status: 200
       });
 
@@ -74,7 +70,7 @@ describe("Diaspora.Widgets.CommentStream", function() {
 
     it("only requests the comments when the loaded class is not present", function() {
       spyOn($, "ajax").andCallThrough();
-      
+
       expect(commentStream.commentsList).not.toHaveClass("loaded");
 
       commentStream.showComments($.Event());
@@ -83,10 +79,9 @@ describe("Diaspora.Widgets.CommentStream", function() {
         responseHeaders: {
           "Content-type": "text/html"
         },
-        responseText: spec.readFixture("ajax_comments_on_post"),
+        responseText: ajaxCommentResponse,
         status: 200
       });
-
 
       expect($.ajax.callCount).toEqual(1);
       expect(commentStream.commentsList).toHaveClass("loaded");
