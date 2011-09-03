@@ -177,7 +177,7 @@ li code {
   .s1     { color: $solar-cyan !important; }                                             /* Literal.String.Single */
   //.ss     { color: #990073 }                                          /* Literal.String.Symbol */
   //.il     { color: #009999 }                                          /* Literal.Number.Integer.Long */
-  div { .gd, .gd .x, .gi, .gi .x { display: block; }}
+  div { .gd, .gd .x, .gi, .gi .x { display: inline-block; width: 100%; }}
 }
 
 .highlight, .gist-highlight {
