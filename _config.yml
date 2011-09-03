@@ -48,6 +48,12 @@ default_asides: [asides/recent_posts.html, asides/github.html, asides/twitter.ht
 #   3rd Party Settings    #
 # ----------------------- #
 
+# Github repositories
+github_user:
+github_repo_count: 0
+github_show_profile_link: true
+github_skip_forks: true
+
 # Twitter
 twitter_user:
 twitter_tweet_count: 4
@@ -55,12 +61,6 @@ twitter_show_replies: false
 twitter_follow_button: true
 twitter_show_follower_count: false
 twitter_tweet_button: true
-
-# github repositories
-github_user:
-github_repo_count: 0
-github_show_profile_link: true
-github_skip_forks: true
 
 # Google Plus
 google_plus_one: true
