@@ -3,12 +3,13 @@ rvm:
   - ree
 
 before_script:
+  - "sudo cp config/ci/xvfb /etc/init.d/xvfb"
+  - "sh -e /etc/init.d/xvfb start"
   - "sass --update public/stylesheets/sass/:public/stylesheets/"
   - "cp config/database.yml.example config/database.yml"
   - "rake db:create"
   - "rake db:schema:load"
   - "rspec spec --tag fixture"
-  - "sh -e /etc/init.d/xvfb start"
 script: "bundle exec rake travis"
 env: "TRAVIS=true"
 notifications:
