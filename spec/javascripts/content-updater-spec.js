@@ -7,6 +7,8 @@ describe("ContentUpdater", function() {
   describe("addPostToStream", function() {
     beforeEach(function() {
       spec.loadFixture("aspects_index");
+      Diaspora.Page = "AspectsIndex";
+      Diaspora.instantiatePage();
     });
 
     it("adds a post to the stream", function() {

@@ -15,7 +15,6 @@
 
     this.expandLikes = function(evt) {
       evt.preventDefault();
-      console.log("called again");
 
       if(self.likesList.children().length == 0) {
         self.loadingImage.appendTo(self.likesContainer);
