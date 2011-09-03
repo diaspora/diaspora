@@ -92,6 +92,11 @@ task :new_post, :title do |t, args|
   args.with_defaults(:title => 'new-post')
   title = args.title
   filename = "#{source_dir}/#{posts_dir}/#{Time.now.strftime('%Y-%m-%d')}-#{title.to_url}.#{new_post_ext}"
+  if File.exist?(filename)
+    puts "### #{filename} Already exists. Overwrite? y/n:"
+    response = $stdin.gets.chomp.downcase
+    next unless response == 'y'
+  end
   puts "Creating new post: #{filename}"
   open(filename, 'w') do |post|
     system "mkdir -p #{source_dir}/#{posts_dir}/";
@@ -119,6 +124,11 @@ task :new_page, :filename do |t, args|
     filename = "#{name}.#{extension}"
     mkdir_p page_dir
     file = page_dir + filename
+    if File.exist?(file)
+      puts "### #{file} Already exists. Overwrite? y/n:"
+      response = $stdin.gets.chomp.downcase
+      next unless response == 'y'
+    end
     puts "Creating new page: #{file}"
     open(file, 'w') do |page|
       page.puts "---"
