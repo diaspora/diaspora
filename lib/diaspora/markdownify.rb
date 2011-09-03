@@ -116,13 +116,13 @@ module Diaspora
       end
 
       def preprocess(full_document)
-        entities = {
-          '>' => '&gt;',
-          '<' => '&lt;',
-          '&' => '&amp;',
-        }
-        entities.each do |k,v|
-          full_document = full_document.gsub(k, v)
+        entities = [
+          ['&', '&amp;'],
+          ['>', '&gt;'],
+          ['<', '&lt;']
+        ]
+        entities.each do |original, replacement|
+          full_document = full_document.gsub(original, replacement)
         end
 
         if @specialchars
