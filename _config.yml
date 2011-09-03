@@ -56,6 +56,12 @@ twitter_follow_button: true
 twitter_show_follower_count: false
 twitter_tweet_button: true
 
+# github repositories
+github_user:
+github_repo_count: 0
+github_show_profile_link: true
+github_skip_forks: true
+
 # Google Plus
 google_plus_one: true
 google_plus_one_size: medium
