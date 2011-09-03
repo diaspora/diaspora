@@ -4,7 +4,7 @@ rvm:
   - 1.9.2
 
 before_script:
-  - "sudo aptitude -y install firefox"
+  - "sudo aptitude -q -y install firefox"
   - "sudo cp config/ci/xvfb /etc/init.d/xvfb"
   - "sh -e /etc/init.d/xvfb start"
   - "sass --update public/stylesheets/sass/:public/stylesheets/"
