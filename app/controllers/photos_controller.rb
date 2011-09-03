@@ -128,7 +128,7 @@ class PhotosController < ApplicationController
         format.html do
           flash[:notice] = I18n.t 'photos.destroy.notice'
           if photo.status_message_guid
-            if photo.status_message.message_or_photos_present?
+            if photo.status_message.text_and_photos_blank?
               photo.status_message.destroy
               respond_with photo, :location => person_photos_path(current_user.person)
             else

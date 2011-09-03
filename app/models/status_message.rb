@@ -136,14 +136,14 @@ class StatusMessage < Post
     formatted_message(:plain_text => true)
   end
 
-  def message_or_photos_present?
+  def text_and_photos_blank?
     self.text.blank? && self.photos == []
   end
 
   protected
 
   def ensure_message_requirements
-    if message_or_photos_present?
+    if text_and_photos_blank?
       errors[:base] << 'Status message requires a message or at least one photo'
     end
   end
