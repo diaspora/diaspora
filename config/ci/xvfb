@@ -4,7 +4,7 @@
 
 XVFB=/usr/bin/Xvfb
 XVFBARGS=":99 -ac -screen 0 1024x768x16"
-PIDFILE=/root/cucumber_xvfb_99.pid
+PIDFILE=/tmp/cucumber_xvfb_99.pid
 case "$1" in
   start)
     echo -n "Starting virtual X frame buffer: Xvfb"
