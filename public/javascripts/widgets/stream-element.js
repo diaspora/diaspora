@@ -27,12 +27,12 @@
       self.postScope.tipsy({ trigger: "hover" });
 
       // collapse long posts
-      self.content.expander({
-        slicePoint: 400,
-        widow: 12,
-        expandText: Diaspora.I18n.t("show_more"),
-        userCollapse: false
-      });
+      // self.content.expander({
+      //   slicePoint: 400,
+      //   widow: 12,
+      //   expandText: Diaspora.I18n.t("show_more"),
+      //   userCollapse: false
+      // });
 
       self.globalSubscribe("likes/" + self.postGuid + "/updated", function() {
         self.likes = self.instantiate("Likes", self.post.find(".likes_container:first"));
