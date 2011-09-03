@@ -74,6 +74,7 @@
             = link_to t('comments.new_comment.comment'), '#', :class => 'focus_comment_textarea'
 
       .likes.on_post
-        = render "likes/likes_container", :target_id => post.id, :likes_count => post.likes_count, :current_user => current_user, :target_type => "Post"
+        .likes_container
+          = render "likes/likes_container", :target_id => post.id, :likes_count => post.likes_count, :current_user => current_user, :target_type => "Post"
 
       = render "comments/comments", :post => post, :current_user => current_user, :commenting_disabled => @commenting_disabled

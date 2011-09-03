@@ -16,7 +16,7 @@ var ContentUpdater = {
       streamElement.prependTo("#main_stream:not('.show')").fadeIn("fast", function() {
         streamElement.find("label").inFieldLabels();
       });
-
+      Diaspora.page.stream.addPost(streamElement);
       Diaspora.page.publish("stream/postAdded", [postGUID]);
     }
   },
@@ -51,10 +51,7 @@ var ContentUpdater = {
       .fadeOut("fast")
       .html(html);
 
-    Diaspora.page
-      .stream
-      .streamElements[postGUID]
-      .likes.publish("widget/ready", [likesContainer]);
+    Diaspora.page.publish("likes/" + postGUID + "/updated");
 
     likesContainer.fadeIn("fast");
   }

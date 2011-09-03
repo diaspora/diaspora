@@ -18,6 +18,7 @@
         focusCommentLink: element.find("a.focus_comment_textarea"),
         hidePostLoader: element.find("img.hide_loader"),
         hidePostUndo: element.find("a.stream_element_hide_undo"),
+        post: element,
         postScope: element.find("span.post_scope")
       });
 
@@ -31,6 +32,10 @@
         widow: 12,
         expandText: Diaspora.I18n.t("show_more"),
         userCollapse: false
+      });
+
+      self.globalSubscribe("likes/" + self.postGuid + "/updated", function() {
+        self.likes = self.instantiate("Likes", self.post.find(".likes_container:first"));
       });
 
       self.deletePostLink.click(function(evt) {
