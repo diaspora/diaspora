@@ -96,15 +96,17 @@ class Notifier < ActionMailer::Base
     @sender   = Person.find_by_id(sender_id)
     @comment  = Comment.find_by_id(comment_id)
 
-    @post_author_name = @comment.post.author.name
+    if @receiver && @sender && @comment
+      @post_author_name = @comment.post.author.name
 
 
-    log_mail(recipient_id, sender_id, 'comment_on_post')
+      log_mail(recipient_id, sender_id, 'comment_on_post')
 
-    I18n.with_locale(@receiver.language) do
-      mail(:from => "\"#{@sender.name} (Diaspora)\" <#{AppConfig[:smtp_sender_address]}>",
-           :to => "\"#{@receiver.name}\" <#{@receiver.email}>",
-           :subject => "Re: #{comment_email_subject}")
+      I18n.with_locale(@receiver.language) do
+        mail(:from => "\"#{@sender.name} (Diaspora)\" <#{AppConfig[:smtp_sender_address]}>",
+             :to => "\"#{@receiver.name}\" <#{@receiver.email}>",
+             :subject => "Re: #{comment_email_subject}")
+      end
     end
   end
 
