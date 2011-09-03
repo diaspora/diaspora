@@ -18,7 +18,7 @@ class PeopleController < ApplicationController
     params[:q] ||= params[:term] || ''
 
     if (params[:q][0] == 35 || params[:q][0] == '#') && params[:q].length > 1
-      redirect_to "/tags/#{params[:q].gsub("#", "")}"
+      redirect_to tag_path(:name => params[:q].gsub("#", ""))
       return
     end
 
