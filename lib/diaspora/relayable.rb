@@ -36,28 +36,30 @@ module Diaspora
     end
 
     def receive(user, person)
-      object = self.class.where(:guid => self.guid).first || self
+      self.class.transaction do
+        object = self.class.where(:guid => self.guid).first || self
 
-      unless object.parent.author == user.person || object.verify_parent_author_signature
-        Rails.logger.info("event=receive status=abort reason='object signature not valid' recipient=#{user.diaspora_handle} sender=#{self.parent.author.diaspora_handle} payload_type=#{self.class} parent_id=#{self.parent.id}")
-        return
-      end
+        unless object.parent.author == user.person || object.verify_parent_author_signature
+          Rails.logger.info("event=receive status=abort reason='object signature not valid' recipient=#{user.diaspora_handle} sender=#{self.parent.author.diaspora_handle} payload_type=#{self.class} parent_id=#{self.parent.id}")
+          return
+        end
 
-      #sign object as the parent creator if you've been hit UPSTREAM
-      if user.owns? object.parent
-        object.parent_author_signature = object.sign_with_key(user.encryption_key)
-        object.save!
-      end
+        #sign object as the parent creator if you've been hit UPSTREAM
+        if user.owns? object.parent
+          object.parent_author_signature = object.sign_with_key(user.encryption_key)
+          object.save!
+        end
 
-      #dispatch object DOWNSTREAM, received it via UPSTREAM
-      unless user.owns?(object)
-        object.save!
-        Postzord::Dispatch.new(user, object).post
-      end
+        #dispatch object DOWNSTREAM, received it via UPSTREAM
+        unless user.owns?(object)
+          object.save 
+          Postzord::Dispatch.new(user, object).post
+        end
 
-      object.socket_to_user(user) if object.respond_to? :socket_to_user
-      if object.after_receive(user, person)
-        object
+        object.socket_to_user(user) if object.respond_to? :socket_to_user
+        if object.after_receive(user, person)
+          object
+        end
       end
     end
 

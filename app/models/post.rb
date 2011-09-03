@@ -83,33 +83,34 @@ class Post < ActiveRecord::Base
     #exists_locally?
     #you know about it, and it is mutable
     #you know about it, and it is not mutable
-
-    local_post = Post.where(:guid => self.guid).first
-    if local_post && local_post.author_id == self.author_id
-      known_post = user.find_visible_post_by_id(self.guid, :key => :guid)
-      if known_post
-        if known_post.mutable?
-          known_post.update_attributes(self.attributes)
+    self.class.transaction do
+      local_post = self.class.where(:guid => self.guid).first
+      if local_post && local_post.author_id == self.author_id
+        known_post = user.find_visible_post_by_id(self.guid, :key => :guid)
+        if known_post
+          if known_post.mutable?
+            known_post.update_attributes(self.attributes)
+          else
+            Rails.logger.info("event=receive payload_type=#{self.class} update=true status=abort sender=#{self.diaspora_handle} reason=immutable existing_post=#{known_post.id}")
+          end
         else
-          Rails.logger.info("event=receive payload_type=#{self.class} update=true status=abort sender=#{self.diaspora_handle} reason=immutable existing_post=#{known_post.id}")
+          user.contact_for(person).receive_post(local_post)
+          user.notify_if_mentioned(local_post)
+          Rails.logger.info("event=receive payload_type=#{self.class} update=true status=complete sender=#{self.diaspora_handle} existing_post=#{local_post.id}")
+          return local_post
+        end
+      elsif !local_post
+        if  self.save  
+          user.contact_for(person).receive_post(self)
+          user.notify_if_mentioned(self)
+          Rails.logger.info("event=receive payload_type=#{self.class} update=false status=complete sender=#{self.diaspora_handle}")
+          return self
+        else
+          Rails.logger.info("event=receive payload_type=#{self.class} update=false status=abort sender=#{self.diaspora_handle} reason=#{self.errors.full_messages}")
         end
       else
-        user.contact_for(person).receive_post(local_post)
-        user.notify_if_mentioned(local_post)
-        Rails.logger.info("event=receive payload_type=#{self.class} update=true status=complete sender=#{self.diaspora_handle} existing_post=#{local_post.id}")
-        return local_post
+        Rails.logger.info("event=receive payload_type=#{self.class} update=true status=abort sender=#{self.diaspora_handle} reason='update not from post owner' existing_post=#{self.id}")
       end
-    elsif !local_post
-      if self.save
-        user.contact_for(person).receive_post(self)
-        user.notify_if_mentioned(self)
-        Rails.logger.info("event=receive payload_type=#{self.class} update=false status=complete sender=#{self.diaspora_handle}")
-        return self
-      else
-        Rails.logger.info("event=receive payload_type=#{self.class} update=false status=abort sender=#{self.diaspora_handle} reason=#{self.errors.full_messages}")
-      end
-    else
-      Rails.logger.info("event=receive payload_type=#{self.class} update=true status=abort sender=#{self.diaspora_handle} reason='update not from post owner' existing_post=#{self.id}")
     end
   end
 
