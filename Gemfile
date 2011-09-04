@@ -95,8 +95,7 @@ group :development do
 end
 
 group :test, :development do
-  #gem 'rb-fsevent', :require => false if RUBY_PLATFORM =~ /darwin/i
-  #gem 'guard-rspec'
+  gem 'jasmine', '1.1.0.rc3'
 end
 
 group :test do
@@ -105,7 +104,6 @@ group :test do
   gem 'selenium-webdriver', '2.4'
   gem 'capybara', '~> 0.3.9'
   gem 'cucumber-rails', '0.3.2'
-  gem 'jasmine', '1.1.0.rc3'
   gem 'rspec', '>= 2.0.0'
   gem 'rspec-core', '2.6.0'
   gem 'rspec-rails', '>= 2.0.0'
