@@ -1,7 +1,7 @@
 source 'http://rubygems.org'
 
 gem 'mysql2', '0.2.6'
-#gem 'pg'
+gem 'pg'
 #gem 'sqlite3'
 gem 'rails', '3.0.9'
 gem 'foreigner', '0.9.1'

@@ -324,6 +324,7 @@ GEM
       oa-openid (= 0.2.6)
     open4 (1.1.0)
     orm_adapter (0.0.5)
+    pg (0.11.0)
     polyglot (0.3.2)
     pyu-ruby-sasl (0.0.3.3)
     rack (1.2.3)
@@ -504,6 +505,7 @@ DEPENDENCIES
   oauth2-provider (= 0.0.16)
   ohai (= 0.5.8)
   omniauth (= 0.2.6)
+  pg
   rails (= 3.0.9)
   rails-i18n
   rcov
