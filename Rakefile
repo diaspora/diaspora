@@ -96,9 +96,7 @@ task :new_post, :title do |t, args|
   title = args.title
   filename = "#{source_dir}/#{posts_dir}/#{Time.now.strftime('%Y-%m-%d')}-#{title.to_url}.#{new_post_ext}"
   if File.exist?(filename)
-    puts "### #{filename} Already exists. Overwrite? y/n:"
-    response = $stdin.gets.chomp.downcase
-    next unless response == 'y'
+    abort("rake aborted!") if ask("#{filename} already exists. Do you want to overwrite?", ['y', 'n']) == 'n'
   end
   puts "Creating new post: #{filename}"
   open(filename, 'w') do |post|
@@ -128,9 +126,7 @@ task :new_page, :filename do |t, args|
     mkdir_p page_dir
     file = page_dir + filename
     if File.exist?(file)
-      puts "### #{file} Already exists. Overwrite? y/n:"
-      response = $stdin.gets.chomp.downcase
-      next unless response == 'y'
+      abort("rake aborted!") if ask("#{file} already exists. Do you want to overwrite?", ['y', 'n']) == 'n'
     end
     puts "Creating new page: #{file}"
     open(file, 'w') do |page|
