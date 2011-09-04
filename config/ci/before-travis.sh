@@ -1,10 +1,10 @@
-# Remove Gemfile.lock and rebundle on Ruby 1.9
-ruby -e "system('rm Gemfile.lock') if RUBY_VERSION.include?('1.9')"
-ruby -e "system('bundle install --without development production') if RUBY_VERSION.include?('1.9')"
-
 # Change Gemfile if this is a postgresql build
 echo $DB
 ruby -e "system('cp config/ci/Gemfile.postgresql Gemfile') if ENV['DB'] == 'postgres'"
+
+# Remove Gemfile.lock and rebundle on Ruby 1.9
+ruby -e "system('rm Gemfile.lock') if RUBY_VERSION.include?('1.9')"
+ruby -e "system('bundle install --without development production') if RUBY_VERSION.include?('1.9')"
 
 # Create a database.yml for the right database
 cp config/database.yml.example config/database.yml
