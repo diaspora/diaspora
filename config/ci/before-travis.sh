@@ -2,9 +2,10 @@
 echo $DB
 ruby -e "system('cp config/ci/Gemfile.postgresql Gemfile') if ENV['DB'] == 'postgres'"
 
-# Remove Gemfile.lock and rebundle on Ruby 1.9
+# Remove Gemfile.lock if we're on Ruby 1.9
 ruby -e "system('rm Gemfile.lock') if RUBY_VERSION.include?('1.9')"
-ruby -e "system('bundle install --without development production') if RUBY_VERSION.include?('1.9')"
+# Re-bundle if we're on Ruby 1.9 or postgres
+ruby -e "system('bundle install --without development production') if RUBY_VERSION.include?('1.9') || ENV['DB'] == 'postgres'"
 
 # Create a database.yml for the right database
 cp config/database.yml.example config/database.yml
