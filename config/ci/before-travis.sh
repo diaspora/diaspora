@@ -22,7 +22,7 @@ bundle exec sass -q --update public/stylesheets/sass/:public/stylesheets/
 echo "Setting up database.yml for $DB"
 cp config/database.yml.example config/database.yml
 if [ "$DB" = "postgres" ]; then
-  sed 's/<<: *mysql/<<: *postgres/' config/database.yml > config/database.yml
+  sed 's/*mysql/*postgres/' config/database.yml > config/database.yml
 fi
 
 # Set up database
