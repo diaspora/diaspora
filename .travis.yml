@@ -1,6 +1,7 @@
 bundler_args: "--without development production"
 
 rvm:
+  - 1.8.7
   - ree
   - 1.9.2
 
