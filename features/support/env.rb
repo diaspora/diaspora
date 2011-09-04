@@ -56,7 +56,9 @@ Before do
 end
 
 After do
-  Capybara.current_session.driver.browser.manage.delete_all_cookies
+  if Capybara.current_session.driver.respond_to?(:browser)
+    Capybara.current_session.driver.browser.manage.delete_all_cookies
+  end
 end
 
 silence_warnings do
