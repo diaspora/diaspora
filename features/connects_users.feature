@@ -12,7 +12,7 @@ Feature: sending and receiving requests
     And I am on the home page
     Given I expand the publisher
     When I fill in "status_message_fake_text" with "I am following you"
-      And I press "Share"
+    And I press "Share"
 
     Then I go to the destroy user session page
     
@@ -106,6 +106,6 @@ Feature: sending and receiving requests
     And I add the person to my 2nd aspect
     And I wait for the ajax to finish
     When I go to "bob@bob.bob"'s page
-    Then I should see "In 2 aspects"
+    Then I should see "All Aspects"
     And I should see "Mention"
     And I should see "Message"
