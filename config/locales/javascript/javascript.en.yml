@@ -37,6 +37,7 @@ en:
         disconnected: "The websocket is closed; posts will no longer be streamed live."
       aspect_dropdown:
         add_to_aspect: "Add to aspect"
+        all_aspects: "All aspects"
         toggle:
           zero: "Add to aspect"
           one: "In {{count}} aspect"

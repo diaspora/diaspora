@@ -5,11 +5,15 @@
 var AspectsDropdown = {
   updateNumber: function(dropdown, personId, number, inAspectClass){
     var button = dropdown.parents(".dropdown").children('.button.toggle'),
+        selectedAspects = dropdown.children(".selected").length,
+        allAspects = dropdown.children().length,
         replacement;
 
     if (number == 0) {
       button.removeClass(inAspectClass);
       replacement = Diaspora.I18n.t("aspect_dropdown.toggle.zero");
+    }else if (selectedAspects == allAspects) {
+      replacement = Diaspora.I18n.t('aspect_dropdown.all_aspects');
     }else if (number == 1) { 
       button.addClass(inAspectClass);
       replacement = dropdown.find(".selected").first().text();

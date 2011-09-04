@@ -4,7 +4,9 @@
 
 .dropdown{:class => ["hang_#{hang}", defined?(dropdown_class) && dropdown_class]}
   .button.toggle{:class => ("in_aspects" if selected_aspects.size > 0)}
-    - if selected_aspects.size == 1
+    - if selected_aspects.size == all_aspects.size
+      = t('all_aspects')
+    - elsif selected_aspects.size == 1
       = selected_aspects.first.name
     - else
       = t('.toggle', :count => selected_aspects.size)
