@@ -21,5 +21,5 @@ sass --update public/stylesheets/sass/:public/stylesheets/
 cp config/database.yml.example config/database.yml
 which rake
 rake --version
-rake db:create --trace
-rake db:schema:load --trace
+bundle exec rake db:create --trace
+bundle exec rake db:schema:load --trace
