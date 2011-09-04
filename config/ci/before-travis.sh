@@ -1,6 +1,6 @@
 # Remove Gemfile.lock and rebundle on Ruby 1.9
 ruby -e "system('rm Gemfile.lock') if RUBY_VERSION.include?('1.9')"
-ruby -e "system('bundle install') if RUBY_VERSION.include?('1.9')"
+ruby -e "system('bundle install --without development production') if RUBY_VERSION.include?('1.9')"
 
 # adjust GC settings for REE
 export RUBY_HEAP_MIN_SLOTS=1000000
@@ -19,5 +19,7 @@ sass --update public/stylesheets/sass/:public/stylesheets/
 
 # Set up database
 cp config/database.yml.example config/database.yml
+which rake
+rake --version
 rake db:create --trace
 rake db:schema:load --trace
