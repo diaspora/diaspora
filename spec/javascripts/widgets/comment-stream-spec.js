@@ -4,7 +4,7 @@ describe("Diaspora.Widgets.CommentStream", function() {
 
   beforeEach(function() {
     ajaxCommentResponse = spec.readFixture("ajax_comments_on_post");
-    spec.loadFixture("aspects_index_with_posts");
+    spec.loadFixture("aspects_index_post_with_comments");
 
     jasmine.Clock.useMock();
     jasmine.Ajax.useMock();
