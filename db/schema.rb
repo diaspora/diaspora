@@ -83,7 +83,7 @@ ActiveRecord::Schema.define(:version => 20110830170929) do
     t.datetime "updated_at"
   end
 
-  add_index "conversation_visibilities", ["conversation_id", "person_id"], :name => "index_conversation_visibilities_on_conversation_id_and_person_id", :unique => true
+  add_index "conversation_visibilities", ["conversation_id", "person_id"], :name => "index_conversation_visibilities_usefully", :unique => true
   add_index "conversation_visibilities", ["conversation_id"], :name => "index_conversation_visibilities_on_conversation_id"
   add_index "conversation_visibilities", ["person_id"], :name => "index_conversation_visibilities_on_person_id"
 
