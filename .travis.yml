@@ -1,4 +1,5 @@
 bundler_args: "--without development production"
+
 rvm:
   - ree
   - 1.9.2
@@ -7,7 +8,9 @@ before_script: "./config/ci/before-travis.sh"
 
 script: "bundle exec rake travis"
 
-env: "TRAVIS=true"
+env:
+  - DB=postgres
+  - DB=mysql
 
 notifications:
   disable: true

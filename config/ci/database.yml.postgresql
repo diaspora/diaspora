@@ -1,0 +1,20 @@
+common: &common
+  ejabbdb: ejabberd
+  encoding: unicode
+  adapter: postgresql
+  username: postgres
+  password:
+  port: 5432
+  host: localhost
+
+development:
+  <<: *common
+  database: diaspora_development
+
+production:
+  <<: *common
+  database: diaspora_production
+
+test:
+  <<: *common
+  database: "diaspora_test"
