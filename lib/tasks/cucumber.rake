@@ -20,7 +20,7 @@ begin
       t.profile = 'default'
       cucumber_opts = "--exclude features/uri-tests/*"
       cucumber_opts << " -f pretty" unless ENV["CI"] || ENV["TRAVIS"]
-      cucumber_opts << " --tags ~@no-ci"
+      cucumber_opts << " --tags ~@no-ci" if ENV["CI"] || ENV["TRAVIS"]
       t.cucumber_opts =  cucumber_opts
     end
 
