@@ -19,7 +19,5 @@ sass --update public/stylesheets/sass/:public/stylesheets/
 
 # Set up database
 cp config/database.yml.example config/database.yml
-which rake
-rake --version
-bundle exec rake db:create --trace
-bundle exec rake db:schema:load --trace
+bundle exec rake db:create
+bundle exec rake db:schema:load
