@@ -1,4 +1,7 @@
 script_server:
+  # Choose database. Currently supported: mysql, postgres
+  db: "mysql"
+
   # Enable thin as application server
   enable_thin: true
 
