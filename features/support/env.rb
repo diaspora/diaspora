@@ -55,6 +55,10 @@ Before do
   Devise.mailer.deliveries = []
 end
 
+After do
+  Capybara.current_session.driver.browser.manage.delete_all_cookies
+end
+
 silence_warnings do
   SERVICES['facebook'] = {'app_id' => :fake, 'app_secret' => 'sdoigjosdfijg'}
   AppConfig[:configured_services] << 'facebook'
