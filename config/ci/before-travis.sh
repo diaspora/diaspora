@@ -7,7 +7,7 @@ export RUBY_HEAP_FREE_MIN=500000
 
 # Install firefox 
 echo "Installing Firefox"
-sudo aptitude -q3 -y install firefox
+sudo aptitude -q2 -y install firefox
 
 # Start xvfb in preparation for cucumber & jasmine
 echo "Starting Xvfb"
