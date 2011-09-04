@@ -3,8 +3,8 @@
 {% capture updated %}{{ page.updated }}{{ post.updated }}{% endcapture %}
 {% capture was_updated %}{{ updated | size }}{% endcapture %}
 {% if has_date != '0' %}
-<time datetime="{{ date | datetime }}" pubdate {% if updated %} updated {% endif %}>{{ date | ordinalize }}</time>
+<time datetime="{{ date | datetime | date_to_xmlschema }}" pubdate {% if updated %} data-updated="true" {% endif %}>{{ date | ordinalize }}</time>
 {% endif %}
 {% if was_updated != '0' %}
-<time class="updated" datetime="{{ updated | datetime }}">{{ updated | ordinalize }}</time>
+<time class="updated" datetime="{{ updated | datetime | date_to_xmlschema }}">{{ updated | ordinalize }}</time>
 {% endif %}
