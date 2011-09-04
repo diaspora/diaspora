@@ -4,7 +4,7 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>{{site.title}}{% if page.title %}: {{page.title}}{% endif %}</title>
+  <title>{% if page.title %}{{page.title}} « {% endif %}{{site.title}}</title>
   <meta name="author" content="{{site.author}}">
   {% if page.description %}
     <meta name="description" content="{{page.description}}"/>
