@@ -1,12 +1,26 @@
-common: &common
+mysql: &mysql
   adapter: mysql2
-  host: "localhost" 
+  host: "localhost"
   port: 3306
-#  socket: /tmp/mysql.sock
   username: "root"
   password: ""
+#  socket: /tmp/mysql.sock
   charset: utf8
   collation: utf8_bin
+
+postgres: &postgres
+  adapter: postgresql
+  host: localhost
+  port: 5432
+  username: postgres
+  password:
+  encoding: unicode
+
+
+common: &common
+  # Choose one of the following
+  <<: *mysql
+  #<<: *postgres
 
 
 development:
