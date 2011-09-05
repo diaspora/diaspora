@@ -599,9 +599,9 @@ pt-BR:
         many: "%{count} compartilhados"
         one: "1 compartilhado"
         other: "%{count} compartilhados"
-        zero: "Compartilhado"
+        zero: "Compartilhar"
       reshare_confirmation: "Compartilhar %{author} - %{text}?"
-      reshare_original: "Compartilhamento original"
+      reshare_original: "Compartilhar isso"
       show_original: "Ver original"
   search: "Busca"
   services: 

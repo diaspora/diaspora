@@ -7,6 +7,7 @@ zh-TW:
   javascripts: 
     aspect_dropdown: 
       add_to_aspect: "加入面向"
+      all_aspects: "All aspects"
       toggle: 
         few: "在{{count}}個面向中"
         many: "在{{count}}個面向中"

@@ -7,6 +7,7 @@ ru:
   javascripts: 
     aspect_dropdown: 
       add_to_aspect: "Добавить к аспектам"
+      all_aspects: "All aspects"
       toggle: 
         few: "В {{count}} аспектах"
         many: "В {{count}} аспектах"

@@ -7,6 +7,7 @@ es:
   javascripts: 
     aspect_dropdown: 
       add_to_aspect: "Añadir al aspecto"
+      all_aspects: "All aspects"
       toggle: 
         few: "En {{count}} aspectos"
         many: "En {{count}} aspectos"

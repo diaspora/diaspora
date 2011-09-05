@@ -544,7 +544,7 @@ it:
       your_private_profile: "Il tuo profilo privato"
       your_public_profile: "Il tuo profilo pubblico"
       your_tags: "Descriviti con 5 parole"
-      your_tags_placeholder: "per esempio #cinema #stirare #gattini #musica"
+      your_tags_placeholder: "per esempio #cinema #viaggiare #gattini #musica"
     update: 
       failed: "Aggiornamento del profilo non riuscito"
       updated: "Profilo aggiornato"

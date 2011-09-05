@@ -7,6 +7,7 @@ eo:
   javascripts: 
     aspect_dropdown: 
       add_to_aspect: "Aldoni al aspekto"
+      all_aspects: "All aspects"
       toggle: 
         few: "En {{count}} aspektoj"
         many: "En {{count}} aspektoj"

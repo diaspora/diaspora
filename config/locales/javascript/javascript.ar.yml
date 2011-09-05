@@ -7,6 +7,7 @@ ar:
   javascripts: 
     aspect_dropdown: 
       add_to_aspect: "أضف إلى فئة"
+      all_aspects: "All aspects"
       toggle: 
         few: "في {{count}} فئات"
         many: "في {{count}} فئات"
