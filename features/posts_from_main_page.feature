@@ -35,10 +35,12 @@ Feature: posting from the main page
 
       When I am on the aspects page
       And I follow "PostTo" within "#aspect_nav"
+      And I wait for the ajax to finish
       Then I should see "I am eating a yogurt"
 
       When I am on the aspects page
       And I follow "DidntPostTo" within "#aspect_nav"
+      And I wait for the ajax to finish
       Then I should not see "I am eating a yogurt"
 
     Scenario: post a photo with text
