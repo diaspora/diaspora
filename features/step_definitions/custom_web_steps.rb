@@ -93,7 +93,7 @@ When /^I press the first "([^"]*)"(?: within "([^"]*)")?$/ do |link_selector, wi
   end
 end
 
-When /^I press the ([\d])(nd|rd|st|th) "([^\"]*)"(?: within "([^\"]*)")?$/ do |number, rd, link_selector, within_selector|
+When /^I press the ([\d])(?:nd|rd|st|th) "([^\"]*)"(?: within "([^\"]*)")?$/ do |number, link_selector, within_selector|
   with_scope(within_selector) do
     find(:css, link_selector+":nth-child(#{number})").click
   end

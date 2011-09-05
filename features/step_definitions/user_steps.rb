@@ -94,15 +94,14 @@ Given /^many posts from alice for bob$/ do
   end
 end
 
-
 Then /^I should have (\d) contacts? in "([^"]*)"$/ do |n_contacts, aspect_name|
   @me.aspects.where(:name => aspect_name).first.contacts.count.should == n_contacts.to_i
 end
 
-When /^I (add|remove|toggle) the person (to|from) my ([\d])(nd|rd|st|th) aspect$/ do |word1, word2, aspect_number, nd|
+When /^I (?:add|remove) the person (?:to|from) my (1st|2nd) aspect$/ do |aspect_ordinal|
   steps %Q{
     And I press the first ".toggle.button"
-    And I press the #{aspect_number}#{nd} "li" within ".dropdown.active .dropdown_list"
+    And I press the #{aspect_ordinal} "li" within ".dropdown.active .dropdown_list"
     And I press the first ".toggle.button"
   }
 end
@@ -110,7 +109,6 @@ end
 When /^I post a status with the text "([^\"]*)"$/ do |text|
   @me.post(:status_message, :text => text, :public => true, :to => 'all')
 end
-
 
 And /^I follow the "([^\"]*)" link from the last sent email$/ do |link_text|
   email_text = Devise.mailer.deliveries.first.body.to_s
