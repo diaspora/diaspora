@@ -77,7 +77,8 @@
 
       Diaspora.page = new Page();
     }
-    if (!$.mobile)
+    
+    if(!$.mobile)//why does this need this?
       $.extend(Diaspora.page, new Diaspora.BasePage($(document.body)));
     Diaspora.page.publish("page/ready", [$(document.body)])
   };

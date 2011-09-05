@@ -43,14 +43,12 @@ javascripts:
     - public/javascripts/login.js
   mobile:
     - public/javascripts/vendor/jquery162.min.js
-
     - public/javascripts/custom-mobile-scripting.js
-    - public/javascripts/vendor/jquery.mobile-1.0b1.min.js
+    - public/javascripts/vendor/jquery.mobile-1.0b2.min.js
     - public/javascripts/jquery.infinitescroll-custom.js
-    
     - public/javascripts/diaspora.js
+    - public/javascripts/mobile_hacks.js
     - public/javascripts/helpers/i18n.js
-
     - public/javascripts/widgets/infinite-scroll.js
     - public/javascripts/rails.js
     
@@ -92,6 +90,6 @@ stylesheets:
     - public/stylesheets/rtl.css
 
   mobile:
-    - public/stylesheets/vendor/jquery.mobile-1.0b1.min.css
+    - public/stylesheets/vendor/jquery.mobile-1.0b2.min.css
     - public/stylesheets/mobile.css
  
