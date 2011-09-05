@@ -4,55 +4,43 @@
 
 @import 'mixins'
 
+$button-border-color: #aaa 
+
 .ui-autocomplete
   :left -11px
 
 .button
-  @include border-radius(2px)
+  @include border-radius(3px)
   @include linear-gradient(rgb(248,250,250),rgb(228,223,223))
+  @include button-gradient($light-grey)
   @include box-shadow(0,1px,1px,#cfcfcf)
-  @include transition(width, 3s)
-
-  :font
-    :style normal
-    :weight bold
+  @include transition(border)
 
   :display inline
 
+  :font
+    :style normal
+    :size 12px
+  :color #505050
+
   :padding 4px 9px
+
   :min-width 90px
-
-  :font-size 12px
-  :line
-    :height 13px
-
   :min-height 10px
 
-  :border 1px solid #aaa
-    :top 1px solid #bbb
-    :bottom 1px solid darken(#aaa,13%)
+  :border 1px solid $button-border-color
 
-  :cursor pointer
-
+  :cursor default
   :white-space nowrap
 
-  :color #444
-
   &:hover
-    @include linear-gradient(#d6d6d6,#b0b0b0)
-
-    :text
-      :decoration none
-    :color #444
+    @include button-gradient-hover-no-saturation($light-grey)
+    :color #505050
+    :text-decoration none
+    :border 1px solid darken($button-border-color,15%)
 
   &:active
     @include linear-gradient(#acacac,#808080)
-
-    :color #111
-    :text-shadow 0 1px 0 #ccc
-    :border 1px solid #666
-      :top 1px solid #444
-      :bottom 1px solid #999
 
   img
     :position relative
@@ -60,45 +48,44 @@
     :width 20px
     :top 6px
 
+/* fix for input height */
+input.button
+  :padding 3px 9px
+    :bottom 4px
+
 .button .selected
   @include linear-gradient(#f0f0f0,#fafafa,29%,85%)
 
   :border
     :top 1px solid #aaa
 
-.button.delete
-  :color desaturate($red,10%)
+.button
+  &.delete
+    :color desaturate($red,10%)
 
-.button.in_aspects
-  @include linear-gradient(lighten(#76C000,8%),#76C000)
+  &.in_aspects
+    @include button-gradient($green)
+    &:hover
+      @include button-gradient-hover($green)
 
-.button.creation
-  @include linear-gradient(lighten($creation-blue,8%), darken($creation-blue, 3%))
-  :color #fafafa
+  &.creation
+    @include button-gradient($creation-blue)
+    :color #fff
 
-  :border 1px solid #666
-    :top 1px solid #777
-    :bottom 1px solid darken(#666,13%)
+    :border 1px solid darken($button-border-color,20%)
 
-  &:hover
-    @include linear-gradient(lighten($creation-blue,3%), darken($creation-blue, 8%))
+    &:hover
+      @include button-gradient-hover($creation-blue)
+      :border 1px solid darken($button-border-color,35%)
 
-.button.red_on_hover
-  &:hover
-    @include linear-gradient(lighten(#F74427, 10%), darken(#F74427,0%))
-    :color #222
-
-    :border 1px solid #666
-      :top 1px solid #777
-      :bottom 1px solid darken(#666,13%)
-
-  &:active
-    :text-shadow none
+  &.red_on_hover
+    &:hover
+      @include button-gradient(#F74427)
+      :color #222
 
 .right
   :position absolute
   :right 0
-
 
 .dropdown
   :position relative
@@ -115,7 +102,7 @@
     :display none
     :width 140px
     :padding 4px 0
-    :margin-top 1px
+    :margin-top 2px
     :background
       :color #fff
     :border 1px solid #999
@@ -185,7 +172,6 @@
     .button
       @include border-radius(3px, 3px, 0, 0)
       :border 1px solid #444
-        :bottom none
 
     .selected
       :font-weight bold
