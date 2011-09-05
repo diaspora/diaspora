@@ -1,6 +1,8 @@
 module HelperMethods
-  def connect_users_with_aspects(u1,u2)
-    connect_users(u1, u1.aspects.first, u2, u2.aspects.first)
+  def connect_users_with_aspects(u1, u2)
+    aspect1 = u1.aspects.length == 1 ? u1.aspects.first : u1.aspects.where(:name => "Besties").first
+    aspect2 = u2.aspects.length == 1 ? u2.aspects.first : u2.aspects.where(:name => "Besties").first
+    connect_users(u1, aspect1, u2, aspect2)
   end
   def connect_users(user1, aspect1, user2, aspect2)
     user1.contacts.create!(:person => user2.person,

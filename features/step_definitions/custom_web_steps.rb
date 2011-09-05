@@ -61,10 +61,6 @@ When /^I click to delete the first post$/ do
   page.execute_script('$(".stream_element").first().find(".stream_element_delete").first().click()')
 end
 
-When /^I click to delete the ([\d])(nd|rd|st|th) post$/ do |number, stuff|
-  page.execute_script('$(".stream_element:nth-child('+ number +'").first().find(".stream_element_delete").first().click()')
-end
-
 When /^I click to delete the first comment$/ do
   page.execute_script('$(".comment.posted").first().find(".comment_delete").click()')
 end
@@ -87,12 +83,6 @@ end
 
 When /^(.*) in the modal window$/ do |action|
   within('#facebox') do
-    When action
-  end
-end
-
-When /^(.*) in the aspect list$/ do |action|
-  within('#aspect_list') do
     When action
   end
 end
@@ -121,12 +111,6 @@ Then /^(?:|I )should not see a "([^\"]*)"(?: within "([^\"]*)")?$/ do |selector,
   end
 end
 
-Then /^I should see "([^\"]*)" in the main content area$/ do |stuff|
-  within("#main_stream") do
-    Then "I should see #{stuff}"
-  end
-end
-
 When /^I wait for the ajax to finish$/ do
   wait_until(10) { evaluate_script("$.active") == 0 }
 end
@@ -151,12 +135,6 @@ When /^I attach the file "([^\"]*)" to hidden element "([^\"]*)"(?: within "([^\
   JS
 end
 
-When /^I click ok in the confirm dialog to appear next$/ do
-  evaluate_script <<-JS
-    window.confirm = function() { return true; };
-  JS
-end
-
 Then /^I should get download alert$/ do
   page.evaluate_script("window.alert = function() { return true; }")
 end
@@ -168,15 +146,6 @@ When /^I search for "([^\"]*)"$/ do |search_term|
     e.keyCode = 13;
     $("#q").trigger(e);
   JS
-end
-
-Then /^I should( not)? see an add contact button$/ do |not_see|
-  expected_length = not_see ? 0 : 1
-  evaluate_script("$('.add_contact a').length == #{expected_length};")
-end
-
-When /^I click on the add contact button$/ do
-  page.execute_script("$('.add_contact a').click();")
 end
 
 Then /^the "([^"]*)" field(?: within "([^"]*)")? should be filled with "([^"]*)"$/ do |field, selector, value|
@@ -204,14 +173,6 @@ And /^I scroll down$/ do
   evaluate_script("window.scrollBy(0,3000000)")
   sleep 1
   wait_until(10) { evaluate_script('$("#infscr-loading:visible").length') == 0 }
-end
-
-When /^I wait for (\d+) seconds?$/ do |seconds|
-  sleep seconds.to_i
-end
-
-When /^I click the notification badge$/ do
-  find(:css, "#notification_badge a").click
 end
 
 Then /^the notification dropdown should be visible$/ do
