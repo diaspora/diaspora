@@ -13,5 +13,9 @@ env:
   - DB=postgres
   - DB=mysql
 
+branches:
+  only:
+    - master
+
 notifications:
   disable: true
