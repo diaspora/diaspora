@@ -112,7 +112,7 @@ Then /^(?:|I )should not see a "([^\"]*)"(?: within "([^\"]*)")?$/ do |selector,
 end
 
 When /^I wait for the ajax to finish$/ do
-  wait_until(10) { evaluate_script("$.active") == 0 }
+  wait_until(30) { evaluate_script("$.active") == 0 }
 end
 
 When /^I have turned off jQuery effects$/ do
@@ -162,17 +162,17 @@ Then /^the "([^"]*)" field(?: within "([^"]*)")? should be filled with "([^"]*)"
 end
 
 Then /^I should see (\d+) posts$/ do |n_posts|
-  wait_until(10) { all("#main_stream .stream_element").length == n_posts.to_i }
+  wait_until(30) { all("#main_stream .stream_element").length == n_posts.to_i }
 end
 
 Then /^I should see (\d+) contacts$/ do |n_posts|
-  wait_until(10) { all("#people_stream .stream_element").length == n_posts.to_i }
+  wait_until(30) { all("#people_stream .stream_element").length == n_posts.to_i }
 end
 
 And /^I scroll down$/ do
   evaluate_script("window.scrollBy(0,3000000)")
   sleep 1
-  wait_until(10) { evaluate_script('$("#infscr-loading:visible").length') == 0 }
+  wait_until(30) { evaluate_script('$("#infscr-loading:visible").length') == 0 }
 end
 
 Then /^the notification dropdown should be visible$/ do
