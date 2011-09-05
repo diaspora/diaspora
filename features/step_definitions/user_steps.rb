@@ -76,7 +76,7 @@ end
 Given /^a user with email "([^"]*)" is connected with "([^"]*)"$/ do |arg1, arg2|
   user1 = User.where(:email => arg1).first
   user2 = User.where(:email => arg2).first
-  connect_users(user1, user1.aspects.first, user2, user2.aspects.first)
+  connect_users(user1, user1.aspects.where(:name => "Besties").first, user2, user2.aspects.where(:name => "Besties").first)
 end
 
 Given /^a user with username "([^"]*)" is connected with "([^"]*)"$/ do |arg1, arg2|

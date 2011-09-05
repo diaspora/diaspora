@@ -53,7 +53,7 @@ Feature: commenting
     And I wait for 2 seconds
     Then I should not see "is that a poodle?"
 
-  Scenario: expand the comment form
+  Scenario: expand the comment form in the main stream and an individual aspect stream
     When I sign in as "bob@bob.bob"
     Then I should see "Look at this dog"
     Then the first comment field should be closed
