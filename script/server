@@ -166,7 +166,7 @@ if [ ! -e 'public/assets/default.css' ]; then
 fi
 
 mkdir -p -v log/thin/
-if [ "$(./script/get_config.rb single_process_mode $RAILS_ENV)" = "false" ]; then
+if [ "$SINGLE_PROCESS" != "true" ]; then
     redis_config
     redis-server config/redis.conf &>log/redis-console.log &
 
