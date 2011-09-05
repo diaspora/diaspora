@@ -9,7 +9,7 @@ OS=`uname -s`
 
 
 export RAILS_ENV=$(./script/get_config.rb rails_env script_server)
-export DB=$(.script/get_config.rb db script_server)
+export DB=$(./script/get_config.rb db script_server)
 THIN_PORT=$(./script/get_config.rb thin_port script_server)
 eval "DEFAULT_THIN_ARGS=\"$(./script/get_config.rb default_thin_args script_server)\""
 SOCKET_PORT=$(./script/get_config.rb socket_port $RAILS_ENV)
