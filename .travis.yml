@@ -18,4 +18,12 @@ branches:
     - master
 
 notifications:
-  disable: true
+  email:
+    on_success: change
+    on_failure: all
+  irc:
+    on_success: all
+    on_failure: all
+    channels:
+      - 'irc.freenode.org#diaspora-dev'
+      - 'irc.freenode.org#diaspora-de'

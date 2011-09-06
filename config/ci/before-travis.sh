@@ -5,13 +5,8 @@ export RUBY_HEAP_SLOTS_GROWTH_FACTOR=1
 export RUBY_GC_MALLOC_LIMIT=1000000000
 export RUBY_HEAP_FREE_MIN=500000
 
-# Install firefox 
-echo "Installing Firefox"
-sudo aptitude --quiet=2 --without-recommends --assume-yes install firefox
 
 # Start xvfb in preparation for cucumber & jasmine
-echo "Starting Xvfb"
-sudo cp config/ci/xvfb /etc/init.d/xvfb
 sh -e /etc/init.d/xvfb start
 
 # Regenerate css files
