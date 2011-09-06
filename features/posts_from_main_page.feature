@@ -11,10 +11,10 @@ Feature: posting from the main page
 
       When I sign in as "bob@bob.bob"
       And a user with username "bob" is connected with "alice"
-      And I have an aspect called "PostTo"
-      And I have an aspect called "DidntPostTo"
-      And I have user with username "alice" in an aspect called "PostTo"
-      And I have user with username "alice" in an aspect called "DidntPostTo"
+      And I have an aspect called "PostingTo"
+      And I have an aspect called "NotPostingTo"
+      And I have user with username "alice" in an aspect called "PostingTo"
+      And I have user with username "alice" in an aspect called "NotPostingTo"
 
       And I am on the home page
 
@@ -26,7 +26,7 @@ Feature: posting from the main page
       Then I should see "I am eating a yogurt" within ".stream_element"
 
     Scenario: post a text-only message to just one aspect
-      When I follow "PostTo"
+      When I follow "PostingTo"
       And I wait for the ajax to finish
       And I expand the publisher
       And I fill in "status_message_fake_text" with "I am eating a yogurt"
@@ -34,12 +34,12 @@ Feature: posting from the main page
       And I wait for the ajax to finish
 
       When I am on the aspects page
-      And I follow "PostTo" within "#aspect_nav"
+      And I follow "PostingTo" within "#aspect_nav"
       And I wait for the ajax to finish
       Then I should see "I am eating a yogurt"
 
-      When I am on the aspects page
-      And I follow "DidntPostTo" within "#aspect_nav"
+      When I follow "Your Aspects" within "#aspect_nav"
+      And I follow "NotPostingTo" within "#aspect_nav"
       And I wait for the ajax to finish
       Then I should not see "I am eating a yogurt"
 

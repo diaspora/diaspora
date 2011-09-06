@@ -2,7 +2,7 @@
 Feature: mentioning a contact from their profile page
     In order to enlighten humanity for the good of society
     As a rock star
-    I want to mention someone I think is cool
+    I want to mention someone more cool than the average bear
 
     Background:
       Given I am on the home page
@@ -11,10 +11,10 @@ Feature: mentioning a contact from their profile page
 
       When I sign in as "bob@bob.bob"
       And a user with username "bob" is connected with "alice"
-      And I have an aspect called "PostTo"
-      And I have an aspect called "DidntPostTo"
-      And I have user with username "alice" in an aspect called "PostTo"
-      And I have user with username "alice" in an aspect called "DidntPostTo"
+      And I have an aspect called "PostingTo"
+      And I have an aspect called "NotPostingTo"
+      And I have user with username "alice" in an aspect called "PostingTo"
+      And I have user with username "alice" in an aspect called "NotPostingTo"
 
       And I am on the home page
 
@@ -27,12 +27,12 @@ Feature: mentioning a contact from their profile page
       And I press "Share" in the modal window
 
       When I am on the aspects page
-      And I follow "PostTo" within "#aspect_nav"
+      And I follow "PostingTo" within "#aspect_nav"
       And I wait for the ajax to finish
       Then I should see "I am eating a yogurt"
 
-      When I am on the aspects page
-      And I follow "DidntPostTo" within "#aspect_nav"
+      When I follow "Your Aspects" within "#aspect_nav"
+      And I follow "NotPostingTo" within "#aspect_nav"
       And I wait for the ajax to finish
       Then I should see "I am eating a yogurt"
 
@@ -40,18 +40,19 @@ Feature: mentioning a contact from their profile page
       Given I am on "alice@alice.alice"'s page
       And I have turned off jQuery effects
       And I click "Mention" button
+      And I wait for the ajax to finish
       And I expand the publisher in the modal window
       And I append "I am eating a yogurt" to the publisher
       And I press the aspect dropdown in the modal window
-      And I toggle the aspect "DidntPostTo" in the modal window
+      And I toggle the aspect "NotPostingTo" in the modal window
       And I press "Share" in the modal window
 
       When I am on the aspects page
-      And I follow "PostTo" within "#aspect_nav"
+      And I follow "PostingTo" within "#aspect_nav"
       And I wait for the ajax to finish
       Then I should see "I am eating a yogurt"
 
-      When I am on the aspects page
-      And I follow "DidntPostTo" within "#aspect_nav"
+      When I follow "Your Aspects" within "#aspect_nav"
+      And I follow "NotPostingTo" within "#aspect_nav"
       And I wait for the ajax to finish
       Then I should not see "I am eating a yogurt"
