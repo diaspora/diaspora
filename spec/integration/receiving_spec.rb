@@ -12,9 +12,9 @@ describe 'a user receives a post' do
   end
 
   before do
-    @aspect = alice.aspects.first
-    @aspect2 = bob.aspects.first
-    @aspect3 = eve.aspects.first
+    @alices_aspect = alice.aspects.where(:name => "generic").first
+    @bobs_aspect = bob.aspects.where(:name => "generic").first
+    @eves_aspect = eve.aspects.where(:name => "generic").first
 
     @contact = alice.contact_for(bob.person)
   end
@@ -22,7 +22,7 @@ describe 'a user receives a post' do
   it 'streams only one message to the everyone aspect when a multi-aspected contacts posts' do
     contact = alice.contact_for(bob.person)
     alice.add_contact_to_aspect(contact, alice.aspects.create(:name => "villains"))
-    status = bob.build_post(:status_message, :text => "Users do things", :to => @aspect2.id)
+    status = bob.build_post(:status_message, :text => "Users do things", :to => @bobs_aspect.id)
     Diaspora::WebSocket.stub!(:is_connected?).and_return(true)
     Diaspora::WebSocket.should_receive(:queue_to_user).exactly(:once)
     zord = Postzord::Receiver.new(alice, :object => status, :person => bob.person)
@@ -30,7 +30,7 @@ describe 'a user receives a post' do
   end
 
   it 'should be able to parse and store a status message from xml' do
-    status_message = bob.post :status_message, :text => 'store this!', :to => @aspect2.id
+    status_message = bob.post :status_message, :text => 'store this!', :to => @bobs_aspect.id
 
     xml = status_message.to_diaspora_xml
     bob.delete
@@ -45,7 +45,7 @@ describe 'a user receives a post' do
     num_aspects = alice.aspects.size
 
     2.times do |n|
-      status_message = bob.post :status_message, :text => "store this #{n}!", :to => @aspect2.id
+      status_message = bob.post :status_message, :text => "store this #{n}!", :to => @bobs_aspect.id
     end
 
     alice.aspects.size.should == num_aspects
@@ -83,7 +83,7 @@ describe 'a user receives a post' do
 
     it 'notifies users when receiving a mention in a post from a remote user' do
       @remote_person = Factory.create(:person, :diaspora_handle => "foobar@foobar.com")
-      Contact.create!(:user => alice, :person => @remote_person, :aspects => [@aspect])
+      Contact.create!(:user => alice, :person => @remote_person, :aspects => [@alices_aspect])
 
       Notification.should_receive(:notify).with(alice, anything(), @remote_person)
 
@@ -110,7 +110,7 @@ describe 'a user receives a post' do
 
   context 'update posts' do
     it 'does not update posts not marked as mutable' do
-      status = alice.post :status_message, :text => "store this!", :to => @aspect.id
+      status = alice.post :status_message, :text => "store this!", :to => @alices_aspect.id
       status.text = 'foo'
       xml = status.to_diaspora_xml
 
@@ -120,7 +120,7 @@ describe 'a user receives a post' do
     end
 
     it 'updates posts marked as mutable' do
-      photo = alice.post(:photo, :user_file => uploaded_photo, :text => "Original", :to => @aspect.id)
+      photo = alice.post(:photo, :user_file => uploaded_photo, :text => "Original", :to => @alices_aspect.id)
       photo.text = 'foo'
       xml = photo.to_diaspora_xml
       bob.reload
@@ -146,9 +146,9 @@ describe 'a user receives a post' do
 
   describe 'post refs' do
     before do
-      @status_message = bob.post(:status_message, :text => "hi", :to => @aspect2.id)
+      @status_message = bob.post(:status_message, :text => "hi", :to => @bobs_aspect.id)
       alice.reload
-      @aspect.reload
+      @alices_aspect.reload
       @contact = alice.contact_for(bob.person)
     end
 
@@ -166,7 +166,7 @@ describe 'a user receives a post' do
     context 'dependant delete' do
       before do
         @person = Factory(:person)
-        alice.contacts.create(:person => @person, :aspects => [@aspect])
+        alice.contacts.create(:person => @person, :aspects => [@alices_aspect])
 
         @post = Factory.create(:status_message, :author => @person)
         @post.post_visibilities.should be_empty
@@ -225,8 +225,8 @@ describe 'a user receives a post' do
 
     context 'remote' do
       before do
-        connect_users(alice, @aspect, eve, @aspect3)
-        @post = alice.post(:status_message, :text => "hello", :to => @aspect.id)
+        connect_users(alice, @alices_aspect, eve, @eves_aspect)
+        @post = alice.post(:status_message, :text => "hello", :to => @alices_aspect.id)
 
         xml = @post.to_diaspora_xml
 
@@ -276,7 +276,7 @@ describe 'a user receives a post' do
 
     context 'local' do
       before do
-        @post = alice.post :status_message, :text => "hello", :to => @aspect.id
+        @post = alice.post :status_message, :text => "hello", :to => @alices_aspect.id
 
         xml = @post.to_diaspora_xml
 
@@ -327,7 +327,7 @@ describe 'a user receives a post' do
 
 
   describe 'salmon' do
-    let(:post){alice.post :status_message, :text => "hello", :to => @aspect.id}
+    let(:post){alice.post :status_message, :text => "hello", :to => @alices_aspect.id}
     let(:salmon){alice.salmon( post )}
 
     it 'processes a salmon for a post' do
@@ -343,7 +343,7 @@ describe 'a user receives a post' do
 
   context 'retractions' do
     it 'should accept retractions' do
-      message = bob.post(:status_message, :text => "cats", :to => @aspect2.id)
+      message = bob.post(:status_message, :text => "cats", :to => @bobs_aspect.id)
       retraction = Retraction.for(message)
       xml = retraction.to_diaspora_xml
 
