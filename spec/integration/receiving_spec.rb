@@ -57,8 +57,8 @@ describe 'a user receives a post' do
       sm.save!
       sm.stub!(:socket_to_user)
       bob.aspects.reload
-      bob.add_to_streams(sm, [bob.aspects.first])
-      bob.dispatch_post(sm, :to => bob.aspects.first)
+      bob.add_to_streams(sm, [@bobs_aspect])
+      bob.dispatch_post(sm, :to => @bobs_aspect)
     end
 
     alice.visible_posts.count.should == 1
