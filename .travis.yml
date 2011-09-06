@@ -1,29 +1,27 @@
-bundler_args: "--without development production"
+branches:
+  only:
+    - 'master'
+
 
 rvm:
   - 1.8.7
   - ree
   - 1.9.2
 
-before_script: "./config/ci/before-travis.sh"
-
-script: "bundle exec rake travis"
-
 env:
   - DB=postgres
   - DB=mysql
 
-branches:
-  only:
-    - master
+
+bundler_args: "--without development production"
+before_script: "./config/ci/before-travis.sh"
+script: "bundle exec rake travis"
+
 
 notifications:
-  email:
-    on_success: change
-    on_failure: all
   irc:
     on_success: all
     on_failure: all
     channels:
-      - 'irc.freenode.org#diaspora-dev'
-      - 'irc.freenode.org#diaspora-de'
+      - 'irc.freenode.org:6667#diaspora-dev'
+      - 'irc.freenode.org:6667#diaspora-de'
