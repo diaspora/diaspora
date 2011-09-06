@@ -20,15 +20,19 @@ FixtureBuilder.configure do |fbuilder|
     connect_users(bob, bobs_aspect, alice, alices_aspect)
     connect_users(bob, bobs_aspect, eve, eves_aspect)
 
-
-    # Set up friends
+    # Set up friends - 2 local, 1 remote
     local_luke = Factory(:user_with_aspect, :username => "luke")
+    lukes_aspect = local_luke.aspects.where(:name => "generic").first
+
     local_leia = Factory(:user_with_aspect, :username => "leia")
+    leias_aspect = local_leia.aspects.where(:name => "generic").first
+
     remote_raphael = Factory(:person, :diaspora_handle => "raphael@remote.net")
+
     connect_users_with_aspects(local_luke, local_leia)
 
-    local_leia.contacts.create(:person => remote_raphael, :aspects => [local_leia.aspects.first])
-    local_luke.contacts.create(:person => remote_raphael, :aspects => [local_luke.aspects.first])
+    local_leia.contacts.create(:person => remote_raphael, :aspects => [leias_aspect])
+    local_luke.contacts.create(:person => remote_raphael, :aspects => [lukes_aspect])
    end
 end
 

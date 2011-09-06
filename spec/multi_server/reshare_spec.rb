@@ -39,13 +39,15 @@ unless Server.all.empty?
 
       Server[0].in_scope do
         r = User.find_by_username("resharer")
+        rs_aspect = r.aspects.where(:name => "generic").first
         person = Webfinger.new("recipient@localhost:#{Server[1].port}").fetch
-        r.share_with(person, r.aspects.first)
+        r.share_with(person, rs_aspect)
       end
       Server[1].in_scope do
         r = User.find_by_username("recipient")
+        rs_aspect = r.aspects.where(:name => "generic").first
         person = Webfinger.new("resharer@localhost:#{Server[0].port}").fetch
-        r.share_with(person, r.aspects.first)
+        r.share_with(person, rs_aspect)
       end
 
       Server[0].in_scope do

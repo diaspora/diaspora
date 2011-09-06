@@ -25,9 +25,10 @@ unless Server.all.empty?
 
       Server[1].in_scope do
         recipient = Factory.create(:user_with_aspect, :username => "recipient")
+        recipients_aspect = recipient.aspects.where(:name => "generic").first
         person = Webfinger.new("poster@localhost:#{Server[0].port}").fetch
         person.save!
-        recipient.share_with(person, recipient.aspects.first)
+        recipient.share_with(person, recipients_aspect)
       end
     end
 
@@ -48,8 +49,9 @@ unless Server.all.empty?
     it 'sends public posts to remote friends' do
       Server[0].in_scope do
         poster = User.find_by_username("poster")
+        posters_aspect = poster.aspects.where(:name => "generic").first
         person = Person.find_by_diaspora_handle("recipient@localhost:#{Server[1].port}")
-        poster.share_with(person, poster.aspects.first)
+        poster.share_with(person, posters_aspect)
         @post = poster.
           post(:status_message,
               :public => true,
