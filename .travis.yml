@@ -1,4 +1,4 @@
-bundler_args: "--without development production"
+bundler_args: "--without development,production"
 
 rvm:
   - 1.8.7
@@ -18,12 +18,4 @@ branches:
     - master
 
 notifications:
-  email:
-    on_success: change
-    on_failure: all
-  irc:
-    on_success: all
-    on_failure: all
-    channels:
-      - 'irc.freenode.org#diaspora-dev'
-      - 'irc.freenode.org#diaspora-de'
+  disable: true
