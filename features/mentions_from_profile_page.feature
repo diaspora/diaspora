@@ -28,10 +28,12 @@ Feature: mentioning a contact from their profile page
 
       When I am on the aspects page
       And I follow "PostTo" within "#aspect_nav"
+      And I wait for the ajax to finish
       Then I should see "I am eating a yogurt"
 
       When I am on the aspects page
       And I follow "DidntPostTo" within "#aspect_nav"
+      And I wait for the ajax to finish
       Then I should see "I am eating a yogurt"
 
     Scenario: mentioning while posting to just one aspect
@@ -46,8 +48,10 @@ Feature: mentioning a contact from their profile page
 
       When I am on the aspects page
       And I follow "PostTo" within "#aspect_nav"
+      And I wait for the ajax to finish
       Then I should see "I am eating a yogurt"
 
       When I am on the aspects page
       And I follow "DidntPostTo" within "#aspect_nav"
+      And I wait for the ajax to finish
       Then I should not see "I am eating a yogurt"
