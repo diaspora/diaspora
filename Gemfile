@@ -37,6 +37,7 @@ gem 'faraday-stack'
 gem 'haml', '3.1.2'
 gem 'sass', '3.1.4'
 gem 'will_paginate', '3.0.pre2'
+gem 'mobile-fu'
 
 #Localization
 gem 'rails-i18n'
