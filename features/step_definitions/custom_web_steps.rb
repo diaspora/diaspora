@@ -73,6 +73,10 @@ And /^I click "([^"]*)" button$/ do |arg1|
   page.execute_script('$(".button:contains('+arg1+')").click()')
 end
 
+And /^I click on selector "([^"]*)"$/ do |selector|
+  page.execute_script("$('#{selector}').click();")
+end
+
 And /^I preemptively confirm the alert$/ do
   page.evaluate_script("window.confirm = function() { return true; }")
 end

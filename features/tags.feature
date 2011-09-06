@@ -16,7 +16,7 @@ Feature: Interacting with tags
     When I search for "#rockstar"
     Then I should see "Add to aspect"
 
-    When I add the person to my 1st aspect
+    When I add the person to my "Besties" aspect
 
     When I search for "#rockstar"
     Then I should see "generic"

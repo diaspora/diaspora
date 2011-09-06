@@ -9,12 +9,12 @@ Feature: Unfollowing
     And a user with email "alice@alice.alice"
     When I sign in as "bob@bob.bob"
     And I am on "alice@alice.alice"'s page
-    And I add the person to my 1st aspect
+    And I add the person to my "Besties" aspect
 
   Scenario: stop following someone while on their profile page 
     When I am on "alice@alice.alice"'s page
 
-    And I remove the person from my 1st aspect
+    And I remove the person from my "Besties" aspect
     And I am on the home page
 
     Then I should have 0 contacts in "Besties"
