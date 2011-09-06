@@ -34,9 +34,9 @@ ru:
         no_account_till: "Ваш аккаунт не будет создан, пока вы не зарегистрировались."
         subject: "Вы приглашены присоединиться к диаспоре!"
       inviter: 
-        accept_at: "at %{url}, you can accept it through the link below."
+        accept_at: "в %{url}, вы можете принять его по ссылке ниже."
         has_invited_you: "%{name}"
-        have_invited_you: "%{names} have invited you to join Diaspora"
+        have_invited_you: "%{names} пригласил[а,и] вас присоединиться к диаспоре"
       reset_password_instructions: 
         change: "Изменить пароль"
         ignore: "Если вы не совершали запрос, проигнорируйте это письмо."
