@@ -41,6 +41,7 @@ en:
         toggle:
           zero: "Add to aspect"
           one: "In {{count}} aspect"
+          two: "In {{count}} aspects"
           few: "In {{count}} aspects"
           many: "In {{count}} aspects"
           other: "In {{count}} aspects"

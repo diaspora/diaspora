@@ -85,6 +85,7 @@ en:
   aspects:
     zero: "no aspects"
     one: "1 aspect"
+    two: "%{count} aspects"
     few: "%{count} aspects"
     many: "%{count} aspects"
     other: "%{count} aspects"
@@ -191,6 +192,7 @@ en:
   comments:
     zero: "no comments"
     one: "1 comment"
+    two: "%{count} comments"
     few: "%{count} comments"
     many: "%{count} comments"
     other: "%{count} comments"
@@ -201,6 +203,7 @@ en:
   contacts:
     zero: "no contacts"
     one: "1 contact"
+    two: "%{count} contacts"
     few: "%{count} contacts"
     many: "%{count} contacts"
     other: "%{count} contacts"
@@ -245,6 +248,7 @@ en:
       new_messages: 
         zero: "No new messages"
         one: "1 new messages"
+        two: "%{count} new messages"
         few: "%{count} new messages"
         many: "%{count} new messages"
         other: "%{count} new messages"
@@ -326,18 +330,21 @@ en:
       people_like_this:
         zero: "no likes"
         one: "%{count} like"
+        two: "%{count} likes"
         few: "%{count} likes"
         many: "%{count} likes"
         other: "%{count} likes"
       people_like_this_comment:
         zero: "no likes"
         one: "%{count} like"
+        two: "%{count} likes"
         few: "%{count} likes"
         many: "%{count} likes"
         other: "%{count} likes"
       people_dislike_this:
         zero: "no dislikes"
         one: "%{count} dislike"
+        two: "%{count} dislikes"
         few: "%{count} dislikes"
         many: "%{count} dislikes"
         other: "%{count} dislikes"
@@ -346,42 +353,49 @@ en:
     started_sharing:
       zero: "%{actors} started sharing with you."
       one: "%{actors} started sharing with you."
+      two: "%{actors} started sharing with you."
       few: "%{actors} started sharing with you."
       many: "%{actors} started sharing with you."
       other: "%{actors} started sharing with you."
     private_message:
       zero: "%{actors} sent you a message."
       one: "%{actors} sent you a message."
+      two: "%{actors} sent you a message."
       few: "%{actors} sent you a message."
       many: "%{actors} sent you a message."
       other: "%{actors} sent you a message."
     comment_on_post:
       zero: "%{actors} commented on your %{post_link}."
       one: "%{actors} commented on your %{post_link}."
+      two: "%{actors} commented on your %{post_link}."
       few: "%{actors} commented on your %{post_link}."
       many: "%{actors} commented on your %{post_link}."
       other: "%{actors} commented on your %{post_link}."
     also_commented:
       zero: "%{actors} also commented on %{post_author}'s %{post_link}."
       one: "%{actors} also commented on %{post_author}'s %{post_link}."
+      two: "%{actors} also commented on %{post_author}'s %{post_link}."
       few: "%{actors} also commented on %{post_author}'s %{post_link}."
       many: "%{actors} also commented on %{post_author}'s %{post_link}."
       other: "%{actors} also commented on %{post_author}'s %{post_link}."
     mentioned:
       zero: "%{actors} has mentioned you in a %{post_link}."
       one: "%{actors} has mentioned you in a %{post_link}."
+      two: "%{actors} has mentioned you in a %{post_link}."
       few: "%{actors} has mentioned you in a %{post_link}."
       many: "%{actors} has mentioned you in a %{post_link}."
       other: "%{actors} has mentioned you in a %{post_link}."
     liked:
       zero: "%{actors} has just liked your %{post_link}."
       one: "%{actors} has just liked your %{post_link}."
+      two: "%{actors} has just liked your %{post_link}."
       few: "%{actors} has just liked your %{post_link}."
       many: "%{actors} has just liked your %{post_link}."
       other: "%{actors} has just liked your %{post_link}."
     reshared:
       zero: "%{actors} has reshared your %{post_link}."
       one: "%{actors} has reshared your %{post_link}."
+      two: "%{actors} has reshared your %{post_link}."
       few: "%{actors} has reshared your %{post_link}."
       many: "%{actors} has reshared your %{post_link}."
       other: "%{actors} has reshared your %{post_link}."
@@ -389,24 +403,28 @@ en:
     also_commented_deleted:
       zero: "%{actors} commented on a deleted post."
       one: "%{actors} commented on a deleted post."
+      two: "%{actors} commented on a deleted post."
       few: "%{actors} commented on a deleted post."
       many: "%{actors} commented on a deleted post."
       other: "%{actors} commented on a deleted post."
     liked_post_deleted:
       zero: "%{actors} liked your deleted post."
       one: "%{actors} liked your deleted post."
+      two: "%{actors} liked your deleted post."
       few: "%{actors} liked your deleted post."
       many: "%{actors} liked your deleted post."
       other: "%{actors} liked your deleted post."
     reshared_post_deleted:
       zero: "%{actors} reshared your deleted post."
       one: "%{actors} reshared your deleted post."
+      two: "%{actors} reshared your deleted post."
       few: "%{actors} reshared your deleted post."
       many: "%{actors} reshared your deleted post."
       other: "%{actors} reshared your deleted post."
     mentioned_deleted:
       zero: "%{actors} mentioned you in a deleted post."
       one: "%{actors} mentioned you in a deleted post."
+      two: "%{actors} mentioned you in a deleted post."
       few: "%{actors} mentioned you in a deleted post."
       many: "%{actors} mentioned you in a deleted post."
       other: "%{actors} mentioned you in a deleted post."
@@ -416,6 +434,7 @@ en:
       and_others: 
         zero: "and nobody else"
         one: "and one more"
+        two: "and %{count} others"
         few: "and %{count} others"
         many: "and %{count} others"
         other: "and %{count} others"
@@ -424,6 +443,7 @@ en:
       new_notifications:
         zero: "No new notifications"
         one: "1 new notifications"
+        two: "%{count} new notifications"
         few: "%{count} new notifications"
         many: "%{count} new notifications"
         other: "%{count} new notifications"
@@ -461,6 +481,7 @@ en:
   people:
     zero: "no people"
     one: "1 person"
+    two: "%{count} people"
     few: "%{count} people"
     many: "%{count} people"
     other: "%{count} people"
@@ -615,6 +636,7 @@ en:
       new_requests:
         zero: "no new requests"
         one: "new request!"
+        two: "%{count} new requests!"
         few: "%{count} new requests!"
         many: "%{count} new requests!"
         other: "%{count} new requests!"
@@ -624,6 +646,7 @@ en:
       reshare:
         zero: "Reshare"
         one: "1 reshare"
+        two: "%{count} reshares"
         few: "%{count} reshares"
         many: "%{count} reshares"
         other: "%{count} reshares"
@@ -666,6 +689,7 @@ en:
       toggle:
         zero: "Add to aspect"
         one: "In %{count} aspect"
+        two: "In %{count} aspects"
         few: "In %{count} aspects"
         many: "In %{count} aspects"
         other: "In %{count} aspects"
@@ -731,6 +755,7 @@ en:
     too_long:
       zero: "please make your status messages less than %{count} characters"
       one: "please make your status messages less than %{count} character"
+      two: "please make your status messages less than %{count} characters"
       few: "please make your status messages less than %{count} characters"
       many: "please make your status messages less than %{count} characters"
       other: "please make your status messages less than %{count} characters"
