@@ -54,7 +54,16 @@ SQL
 
   def self.backers_never_login
     file = self.filename("v3_backers_never_login.csv")
-    sql = self.select_fragment(file, "#{self.backer_email_condition} AND #{self.never_login_query}")
+    sql = <<SQL
+          SELECT '%EMAIL%','%NAME%','%INVITATION_LINK%'
+          UNION
+            SELECT `users`.email AS '%EMAIL%',
+                    'friend of Diaspora*' AS '%NAME%',
+                IF(`users`.invitation_token, CONCAT( 'http://joindiaspora.com/users/invitation/accept?invitation_token=', `users`.invitation_token) ,NULL) AS '%INVITATION_LINK%'
+                #{self.output_syntax(file)}
+             FROM `users`
+            WHERE #{self.backer_email_condition} AND #{self.never_login_query};
+SQL
 
     ActiveRecord::Base.connection.execute(sql)
   end
@@ -75,7 +84,16 @@ SQL
 
   def self.non_backers_never_login
     file = self.filename("v6_non_backers_never_login.csv")
-    sql = self.select_fragment(file, "#{self.non_backer_email_condition} AND #{self.never_login_query}") #
+    sql = <<SQL
+          SELECT '%EMAIL%','%NAME%','%INVITATION_LINK%'
+          UNION
+            SELECT `users`.email AS '%EMAIL%',
+                    'friend of Diaspora*' AS '%NAME%',
+                IF(`users`.invitation_token, CONCAT( 'http://joindiaspora.com/users/invitation/accept?invitation_token=', `users`.invitation_token) ,NULL) AS '%INVITATION_LINK%'
+                #{self.output_syntax(file)}
+             FROM `users`
+            WHERE #{self.non_backer_email_condition} AND #{self.never_login_query};
+SQL
     ActiveRecord::Base.connection.execute(sql)
   end
 
