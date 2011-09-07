@@ -119,7 +119,7 @@ SQL
   end
 
   def self.has_invitation_token
-    '`users`.`invitation_token` IS NOT NULL AND `users`.`invitation_token` != ""'
+    '`users`.`invitation_token` IS NOT NULL'
   end
   
   def self.has_email
