@@ -23,11 +23,6 @@ if ARGV.length >= 1
   if Rails.env == 'script_server' # load from the special script_server_config.yml file
     require 'yaml'
     script_server_config_file = File.join(Rails.root, 'config', 'script_server.yml')
-    unless File.exists? script_server_config_file
-      $stderr.puts "Deprecation warning: config/script_server_config.yml has been renamed to config/script_server.yml"
-    else
-      script_server_config_file = File.join(Rails.root, 'config', 'script_server_config.yml')
-    end
     begin
       print YAML.load_file(script_server_config_file)['script_server'][setting_name]
     rescue
