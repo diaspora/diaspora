@@ -64,7 +64,7 @@ SQL
                 IF(`users`.invitation_token, CONCAT( 'https://joindiaspora.com/users/invitation/accept?invitation_token=', `users`.invitation_token) ,NULL) AS '%INVITATION_LINK%'
                 #{self.output_syntax(file)}
              FROM `users`
-            WHERE #{self.has_email} AND #{self.backer_email_condition} AND #{self.never_login_query};
+            WHERE #{self.has_email} AND #{self.has_invitation_token} AND #{self.backer_email_condition} AND #{self.never_login_query};
 SQL
 
     ActiveRecord::Base.connection.execute(sql)
@@ -94,7 +94,7 @@ SQL
                 IF(`users`.invitation_token, CONCAT( 'https://joindiaspora.com/users/invitation/accept?invitation_token=', `users`.invitation_token) ,NULL) AS '%INVITATION_LINK%'
                 #{self.output_syntax(file)}
              FROM `users`
-            WHERE #{self.has_email} AND #{self.non_backer_email_condition} AND #{self.never_login_query};
+            WHERE #{self.has_email} AND #{self.has_invitation_token} AND #{self.non_backer_email_condition} AND #{self.never_login_query};
 SQL
     ActiveRecord::Base.connection.execute(sql)
   end
@@ -118,6 +118,10 @@ SQL
 SQL
   end
 
+  def self.has_invitation_token
+    '`users`.`invitation_token` IS NOT NULL AND `users`.`invitation_token` != ""'
+  end
+  
   def self.has_email
     '`users`.`email` IS NOT NULL AND `users`.`email` != ""'
   end
@@ -135,11 +139,11 @@ SQL
   end
 
   def self.recent_login_query
-    "(last_sign_in_at > #{(Time.now - 1.month).iso8601})"
+    "(last_sign_in_at > SUBDATE(NOW(), INTERVAL 31 DAY))"
   end
 
   def self.old_login_query
-    "(last_sign_in_at < #{(Time.now - 1.month).iso8601})"
+    "(last_sign_in_at < SUBDATE(NOW(), INTERVAL 31 DAY))"
   end
 
   def self.never_login_query
