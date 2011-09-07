@@ -49,14 +49,6 @@ module AspectGlobalHelper
     link_to aspect.name, aspects_path( opts[:params] ), opts
   end
 
-  def aspect_listing_link_opts aspect
-    if controller.instance_of?(ContactsController)
-      {:href => contacts_path(:a_id => aspect.id)}
-    else
-      {:href => aspects_path("a_ids[]" => aspect.id), :class => "aspect_selector name hard_aspect_link", 'data-guid' => aspect.id}
-    end
-  end
-
   def aspect_or_all_path(aspect)
     if @aspect.is_a? Aspect
       aspect_path @aspect
