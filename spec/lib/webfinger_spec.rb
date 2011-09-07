@@ -32,6 +32,12 @@ describe Webfinger do
         n = Webfinger.new("mbs348@gmail.com")
         n.instance_variable_get(:@account).should_not be nil
       end
+      
+      it 'downcases account' do
+        account = "BIGBOY@Example.Org"
+        n = Webfinger.new(account)
+        n.instance_variable_get(:@account).should == account.downcase
+      end
 
       it 'should set ssl as the default' do
         foo = Webfinger.new(account)

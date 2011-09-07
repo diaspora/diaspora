@@ -57,6 +57,14 @@ describe PeopleController do
       get :index, :q => "eugene@example.org"
       assigns[:people][0].id.should == eugene2.id
     end
+    
+    it "downcases the handle before trying to find someone by it" do
+      eugene2 = Factory.create(:person, :diaspora_handle => "eugene@example.org",
+                               :profile => Factory.build(:profile, :first_name => "Eugene",
+                                                         :last_name => "w", :searchable => false))
+      get :index, :q => "Eugene@Example.ORG"
+      assigns[:people][0].id.should == eugene2.id
+    end
 
     it "does not redirect to person page if there is exactly one match" do
       get :index, :q => "Korth"

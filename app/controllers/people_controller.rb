@@ -33,7 +33,7 @@ class PeopleController < ApplicationController
       format.html do
         #only do it if it is an email address
         if params[:q].try(:match, Devise.email_regexp)
-          people = Person.where(:diaspora_handle => params[:q])
+          people = Person.where(:diaspora_handle => params[:q].downcase)
           webfinger(params[:q]) if people.empty?
         else
           people = Person.search(params[:q], current_user)
