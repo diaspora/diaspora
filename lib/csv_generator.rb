@@ -1,7 +1,7 @@
 module CsvGenerator
 
-  PATH = '/usr/local/app/diaspora'
-  BACKER_CSV_LOCATION = File.join('/usr/local/app/diaspora/', 'backer_list.csv')
+  PATH = '/home/ilya/workspace/diaspora/'
+  BACKER_CSV_LOCATION = File.join('/home/ilya/workspace/diaspora/', 'backer_list.csv')
   WAITLIST_LOCATION = File.join(Rails.root, 'config', 'mailing_list.csv')
   OFFSET_LOCATION = File.join(Rails.root, 'config', 'email_offset')
 
@@ -31,34 +31,45 @@ SQL
 
   def self.backers_recent_login
     file = self.filename("v1_backers_recent_login.csv")
+    # coalesce( `profiles`.full_name, )
+    # JOIN ( `profiles`.)
     sql = <<SQL
-          SELECT email AS '%EMAIL%',
-                 coalesce( full_name, 'friend of Diaspora*') AS '%NAME%',
-                 invitation_token AS '%TOKEN%'
+          SELECT `users`.email AS '%EMAIL%',
+                 'friend of Diaspora*' AS '%NAME%',
+                 `users`.invitation_token AS '%TOKEN%'
               #{self.output_syntax(file)}
-           FROM `users` 
+           FROM `users`
           WHERE #{self.backer_email_condition}
-            AND (last_sign_in_at >= #{(Time.now - 1.month).to_i})
+            AND (last_sign_in_at > 1312675027);
 SQL
+
+    puts "Here is the sql:"
+    puts sql
+    puts
+
+    User.connection.execute(sql)
   end
 
-  def self.backers_older_login
-    file = self.filename("v1_backers_recent_login.csv")
-    sql = <<SQL
-          SELECT email AS '%EMAIL%',
-                 coalesce( full_name, 'friend of Diaspora*') AS '%NAME%',
-                 invitation_token AS '%TOKEN%'
-              #{self.output_syntax(file)}
-           FROM `users` 
-          WHERE #{self.backer_email_condition}
-            AND (last_sign_in_at < #{(Time.now - 1.month).to_i})
-SQL
-  end
+#  def self.backers_older_login
+#    file = self.filename("v1_backers_recent_login.csv")
+#    sql = <<SQL
+#          SELECT email AS '%EMAIL%',
+#                 coalesce( full_name, 'friend of Diaspora*') AS '%NAME%',
+#                 invitation_token AS '%TOKEN%'
+#              #{self.output_syntax(file)}
+#           FROM `users` 
+#          WHERE #{self.backer_email_condition}
+#            AND (last_sign_in_at < #{(Time.now - 1.month).to_i})
+#SQL
+#    ActiveRecord::Base.execute(sql)
+#  end
 
 
   # ---------------- QUERY METHODS & NOTES -------------------------
   def self.backer_email_condition
-    "`users`.`email` IN (#{query_string_from_array(self.backer_emails)})" 
+    b_emails = self.backer_emails
+    b_emails.map!{|a| "'#{a}'"}
+    "`users`.`email` IN (#{query_string_from_array(b_emails[1..b_emails.length])})" 
   end
 
   def self.recent_login_query
