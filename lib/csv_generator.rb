@@ -55,13 +55,14 @@ SQL
   end
 
   def self.backers_never_login
+    #IF(`users`.invitation_token,   ,NULL)
     file = self.filename("v3_backers_never_login.csv")
     sql = <<SQL
           SELECT '%EMAIL%','%NAME%','%INVITATION_LINK%'
           UNION
             SELECT `users`.email AS '%EMAIL%',
                     'friend of Diaspora*' AS '%NAME%',
-                IF(`users`.invitation_token, CONCAT( 'https://joindiaspora.com/users/invitation/accept?invitation_token=', `users`.invitation_token) ,NULL) AS '%INVITATION_LINK%'
+                CONCAT( 'https://joindiaspora.com/users/invitation/accept?invitation_token=', `users`.invitation_token) AS '%INVITATION_LINK%'
                 #{self.output_syntax(file)}
              FROM `users`
             WHERE #{self.has_email} AND #{self.has_invitation_token} AND #{self.backer_email_condition} AND #{self.never_login_query};
@@ -91,7 +92,7 @@ SQL
           UNION
             SELECT `users`.email AS '%EMAIL%',
                     'friend of Diaspora*' AS '%NAME%',
-                IF(`users`.invitation_token, CONCAT( 'https://joindiaspora.com/users/invitation/accept?invitation_token=', `users`.invitation_token) ,NULL) AS '%INVITATION_LINK%'
+                CONCAT( 'https://joindiaspora.com/users/invitation/accept?invitation_token=', `users`.invitation_token) AS '%INVITATION_LINK%'
                 #{self.output_syntax(file)}
              FROM `users`
             WHERE #{self.has_email} AND #{self.has_invitation_token} AND #{self.non_backer_email_condition} AND #{self.never_login_query};
