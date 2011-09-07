@@ -60,22 +60,6 @@ module ApplicationHelper
     @rtl ||= RTL_LANGUAGES.include? I18n.locale
   end
 
-  def controller_index_path
-    kontroller = request.filtered_parameters["controller"]
-    if kontroller.downcase != "contacts"
-      kontroller = "aspects"
-    end
-    self.send((kontroller + "_path").to_sym)
-  end
-
-  def left_nav_root
-    if request.filtered_parameters["controller"] == "contacts"
-      t('contacts.index.my_contacts')
-    else
-      t('aspects.index.your_aspects')
-    end
-  end
-
   def contacts_link
     if current_user.contacts.size > 0
       contacts_path
