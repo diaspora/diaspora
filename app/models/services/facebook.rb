@@ -72,7 +72,7 @@ class Services::Facebook < Service
       self.save_friends
       self.service_users.reload
     else
-      Resque.enqueue(Job::UpdateServiceUsers, self.id)
+      #Resque.enqueue(Job::UpdateServiceUsers, self.id)
     end
   end
 end
