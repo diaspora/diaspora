@@ -61,7 +61,7 @@ SQL
           SELECT '%EMAIL%','%NAME%','%INVITATION_LINK%'
           UNION
             SELECT `users`.email AS '%EMAIL%',
-                    'friend of Diaspora*' AS '%NAME%',
+                    'Friend of Diaspora*' AS '%NAME%',
                 CONCAT( 'https://joindiaspora.com/users/invitation/accept?invitation_token=', `users`.invitation_token) AS '%INVITATION_LINK%'
                 #{self.output_syntax(file)}
              FROM `users`
@@ -91,7 +91,7 @@ SQL
           SELECT '%EMAIL%','%NAME%','%INVITATION_LINK%'
           UNION
             SELECT `users`.email AS '%EMAIL%',
-                    'friend of Diaspora*' AS '%NAME%',
+                    'Friend of Diaspora*' AS '%NAME%',
                 CONCAT( 'https://joindiaspora.com/users/invitation/accept?invitation_token=', `users`.invitation_token) AS '%INVITATION_LINK%'
                 #{self.output_syntax(file)}
              FROM `users`
@@ -110,8 +110,7 @@ SQL
           UNION
             SELECT `users`.email AS '%EMAIL%',
                    IF( `profiles`.full_name IS NOT NULL AND `profiles`.full_name != "",
-                                               `profiles`.full_name, 'friend of Diaspora*') AS '%NAME%',
-                IF(`users`.invitation_token, CONCAT( 'https://joindiaspora.com/users/invitation/accept?invitation_token=', `users`.invitation_token) ,NULL) AS '%INVITATION_LINK%'
+                                               `profiles`.full_name, 'Friend of Diaspora*') AS '%NAME%',
                 #{self.output_syntax(file)}
              FROM `users`
              JOIN `people` ON `users`.id = `people`.owner_id JOIN `profiles` ON `people`.id = `profiles`.person_id
