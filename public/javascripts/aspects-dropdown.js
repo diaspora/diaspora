@@ -32,9 +32,18 @@ var AspectsDropdown = {
 
     button.text(replacement + ' ▼');
   },
-
+  
+  invertSelection: function(list) {
+    list.children('li[data-aspect_id]').trigger('click');
+  },
+  
   toggleCheckbox: function(check) {
-    check.toggleClass('selected');
+    if(check.hasClass('invertSelection')) {
+      this.invertSelection(check.parent());
+    }
+    else {
+      check.toggleClass('selected');
+    }
   }
 };
 
