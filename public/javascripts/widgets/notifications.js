@@ -33,15 +33,27 @@
     });
     
     this.showNotification = function(notification) {
-      $(notification.html).prependTo(this.notificationArea)
-				.fadeIn(200)
-				.delay(8000)
-				.fadeOut(200, function() {
-	  			$(this).detach();
-				});
+      // If browser supports webkitNotifications and we have permissions to show those.
+      if( window.webkitNotifications && window.webkitNotifications.checkPermission() == 0 ) {
+        window.webkitNotifications.createNotification(
+          $(notification.html).children("img").attr('src'), // Icon
+          "DIASPORA*", // Headline
+          $(notification.html).text() // Body
+        ).show();
+      }
+      else {
+        // If browser doesn't support webkitNotifications at all, or we currently don't have permissions
+        $(notification.html).prependTo(this.notificationArea)
+          .fadeIn(200)
+          .delay(8000)
+          .fadeOut(200, function() {
+          $(this).detach();
+        });
+      }
+
 
       if(typeof notification.incrementCount === "undefined" || notification.incrementCount) {
-				this.incrementCount();
+        this.incrementCount();
       }
     };
 

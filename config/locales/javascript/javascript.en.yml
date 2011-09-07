@@ -52,3 +52,9 @@ en:
         hide: "hide comments"
       reshares:
         duplicate: "You've already reshared that post!"
+      users:
+        edit:
+          desktop_notifications:
+            active: "Diaspora has permission to show desktop notifications!"
+            progress: "Now your browser should ask you about the desktop notifications. Click 'accept' and reload this page."
+            unsupported: "Unfortunately your browser doesn't support desktop notifications."

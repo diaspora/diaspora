@@ -121,6 +121,17 @@
   %hr
   %br
 
+  #desktop_notifications
+    %h3
+      = t('.desktop_notifications.headline')
+    = t('.desktop_notifications.info')
+    #desktop_notifications_status.submit_block
+      = link_to t('.desktop_notifications.activate'), '#', :class => "button"
+    
+  %br
+  %br
+  %hr
+  %br
 
   #account_data.span-5.append-2
     %h3 
