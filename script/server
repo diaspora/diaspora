@@ -1,13 +1,39 @@
 #!/bin/bash
+#   Copyright (c) 2011, Diaspora Inc.  This file is
+#   licensed under the Affero General Public License version 3 or later.  See
+#   the COPYRIGHT file.
 #
 # Start diaspora websocket and main services
 #
 
-realpath=$( ruby -e "puts File.expand_path(\"$0\")")
-cd $( dirname $realpath)/..
+# ensure right directory
+cd $(dirname $(readlink -e $0))/..
+
+# Check if script_server.yml exists
+if [ ! -e 'config/script_server.yml' ]; then
+    echo 'FATAL: config/script_server.yml is missing! Copy over config/script_server.yml.example to config/script_server.yml and edit it properly!' >&2
+    exit 69
+fi
+
+
+# Check if database.yml exists
+if [ ! -e 'config/database.yml' ]; then
+    echo 'FATAL: config/database.yml is missing! Copy over config/database.yml.example to config/database.yml and edit it properly!' >&2
+    exit 68
+fi
+
+
+# Check if application.yml exists
+if [ ! -e 'config/application.yml' ]; then
+    echo 'FATAL: config/application.yml is missing! Copy over config/application.yml.example to config/application.yml and edit it properly!' >&2
+    exit 70
+fi
+
+
+
+
+# Setup environment
 OS=`uname -s`
-
-
 export RAILS_ENV=$(./script/get_config.rb rails_env script_server)
 export DB=$(./script/get_config.rb db script_server)
 THIN_PORT=$(./script/get_config.rb thin_port script_server)
@@ -16,30 +42,6 @@ SOCKET_PORT=$(./script/get_config.rb socket_port $RAILS_ENV)
 
 # Backward compatibillity, overide default settings
 [ -e config/server.sh ] && source config/server.sh
-
-function init_public
-# Create all dynamically generated files in public/ folder
-{
-    bundle exec thin \
-         -d --pid log/thin.pid --address localhost --port $THIN_PORT \
-         start
-    for ((i = 0; i < 30; i += 1)) do
-        sleep 2
-        wget -q -O tmp/server.html http://localhost:$THIN_PORT && \
-            rm tmp/server.html && break
-    done
-    if [ -e 'log/thin.pid' ]; then
-        bundle exec thin --pid log/thin.pid stop
-    else
-        echo "Warning: Something is wrong in your installation, thin didn't come up for the first time initialization!" >&2
-        echo "Try starting it manually with bundle exec thin start and look at the output." >&2
-    fi
-    if [ -e tmp/server.html ]; then
-        echo "Cannot get index.html from web server (aborted)" >&2
-        return 2
-    fi
-    bundle exec jammit
-}
 
 
 function chk_service
@@ -138,25 +140,7 @@ if [ ! -e public/source.tar.gz ]; then
 fi
 
 
-# Check if database.yml exists
-if [ ! -e 'config/database.yml' ]; then
-    echo 'FATAL: config/database.yml is missing! Copy over config/database.yml.example to config/database.yml and edit it properly!' >&2
-    exit 68
-fi
-
-
-# Precache jammit assets
-#if [[ -w public  && ! -e 'public/stylesheets/application.css' ]]; then
-#    if [ "$INIT_PUBLIC" != 'no' ]; then
-#        echo "Making first-time server initialization."
-#        init_public
-#    fi
-#fi
-
-#if [ ! -e 'public/stylesheets/application.css' ]; then
-#    echo 'WARNING: Jammit precache error (now or at install)' >&2
-#fi
-
+# Jammit notice
 if [ ! -e 'public/assets/default.css' ]; then
     if [ "$RAILS_ENV" == 'production' ]; then
         echo "INFO: If you want further performance improvements," >&2
@@ -165,7 +149,9 @@ if [ ! -e 'public/assets/default.css' ]; then
     fi
 fi
 
-mkdir -p -v log/thin/
+
+# Start Diaspora
+
 if [ "$SINGLE_PROCESS" != "true" ]; then
     redis_config
     redis-server config/redis.conf &>log/redis-console.log &
