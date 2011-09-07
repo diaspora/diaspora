@@ -1,6 +1,6 @@
 module CsvGenerator
 
-  PATH = '/home/ilya/workspace/diaspora/'
+  PATH = '/tmp/'
   BACKER_CSV_LOCATION = File.join('/home/ilya/workspace/diaspora/', 'backer_list.csv')
   WAITLIST_LOCATION = File.join(Rails.root, 'config', 'mailing_list.csv')
   OFFSET_LOCATION = File.join(Rails.root, 'config', 'email_offset')
@@ -12,7 +12,7 @@ module CsvGenerator
         #{self.output_syntax(file)}
         FROM users where username IS NOT NULL
 SQL
-    ActiveRecord::Base.execute(sql)
+    ActiveRecord::Base.connection.execute(sql)
   end
 
   def self.all_inactive_invited_users
@@ -26,54 +26,100 @@ SQL
           WHERE users.username IS NULL
             AND invitations.service='email'
 SQL
-    ActiveRecord::Base.execute(sql)
+    ActiveRecord::Base.connection.execute(sql)
+  end
+
+  def self.generate_csvs
+    self.backers_recent_login
+    self.backers_old_login
+    self.backers_never_login
+    self.non_backers_recent_login
+    self.non_backers_old_login
+    self.non_backers_never_login
   end
 
   def self.backers_recent_login
     file = self.filename("v1_backers_recent_login.csv")
-    # coalesce( `profiles`.full_name, )
-    # JOIN ( `profiles`.)
-    sql = <<SQL
-          SELECT `users`.email AS '%EMAIL%',
-                 'friend of Diaspora*' AS '%NAME%',
-                 `users`.invitation_token AS '%TOKEN%'
-              #{self.output_syntax(file)}
-           FROM `users`
-          WHERE #{self.backer_email_condition}
-            AND (last_sign_in_at > 1312675027);
-SQL
+    sql = self.select_fragment(file, "#{self.backer_email_condition} AND #{self.recent_login_query}")
 
-    puts "Here is the sql:"
-    puts sql
-    puts
-
-    User.connection.execute(sql)
+    ActiveRecord::Base.connection.execute(sql)
   end
 
-#  def self.backers_older_login
-#    file = self.filename("v1_backers_recent_login.csv")
-#    sql = <<SQL
-#          SELECT email AS '%EMAIL%',
-#                 coalesce( full_name, 'friend of Diaspora*') AS '%NAME%',
-#                 invitation_token AS '%TOKEN%'
-#              #{self.output_syntax(file)}
-#           FROM `users` 
-#          WHERE #{self.backer_email_condition}
-#            AND (last_sign_in_at < #{(Time.now - 1.month).to_i})
-#SQL
-#    ActiveRecord::Base.execute(sql)
-#  end
+  def self.backers_old_login
+    file = self.filename("v2_backers_old_login.csv")
+    sql = self.select_fragment(file, "#{self.backer_email_condition} AND #{self.old_login_query}")
 
+    ActiveRecord::Base.connection.execute(sql)
+  end
+
+  def self.backers_never_login
+    file = self.filename("v3_backers_never_login.csv")
+    sql = self.select_fragment(file, "#{self.backer_email_condition} AND #{self.never_login_query}")
+
+    ActiveRecord::Base.connection.execute(sql)
+  end
+
+  def self.non_backers_recent_login
+    file = self.filename("v4_non_backers_recent_login.csv")
+    sql = self.select_fragment(file, "#{self.non_backer_email_condition} AND #{self.recent_login_query}")
+
+    ActiveRecord::Base.connection.execute(sql)
+  end
+
+  def self.non_backers_old_login
+    file = self.filename("v5_non_backers_old_login.csv")
+    sql = self.select_fragment(file, "#{self.non_backer_email_condition} AND #{self.old_login_query}")
+
+    ActiveRecord::Base.connection.execute(sql)
+  end
+
+  def self.non_backers_never_login
+    file = self.filename("v6_non_backers_never_login.csv")
+    sql = self.select_fragment(file, "#{self.non_backer_email_condition} AND #{self.never_login_query}") #
+    ActiveRecord::Base.connection.execute(sql)
+  end
 
   # ---------------- QUERY METHODS & NOTES -------------------------
+  def self.select_fragment(file, where_clause)
+    #    #
+    #
+    #
+    sql = <<SQL
+          SELECT '%EMAIL%','%NAME%','%INVITATION_LINK%'
+          UNION
+            SELECT `users`.email AS '%EMAIL%',
+                   IF( `profiles`.full_name IS NOT NULL AND `profiles`.full_name != "",
+                                               `profiles`.full_name, 'friend of Diaspora*') AS '%NAME%',
+                IF(`users`.invitation_token, CONCAT( 'http://joindiaspora.com/users/invitation/accept?invitation_token=', `users`.invitation_token) ,NULL) AS '%INVITATION_LINK%'
+                #{self.output_syntax(file)}
+             FROM `users`
+             JOIN `people` ON `users`.id = `people`.owner_id JOIN `profiles` ON `people`.id = `profiles`.person_id
+            WHERE #{where_clause};
+SQL
+  end
+
   def self.backer_email_condition
     b_emails = self.backer_emails
     b_emails.map!{|a| "'#{a}'"}
     "`users`.`email` IN (#{query_string_from_array(b_emails[1..b_emails.length])})" 
   end
 
-  def self.recent_login_query
+  def self.non_backer_email_condition
+    b_emails = self.backer_emails
+    b_emails.map!{|a| "'#{a}'"}
+    "`users`.`email` NOT IN (#{query_string_from_array(b_emails[1..b_emails.length])})" 
+  end
 
+  def self.recent_login_query
+    "(last_sign_in_at > #{(Time.now - 1.month).to_i})"
+  end
+
+  def self.old_login_query
+    "(last_sign_in_at < #{(Time.now - 1.month).to_i})"
+  end
+
+  def self.never_login_query
+    "(last_sign_in_at IS NULL)"
   end
   
   def self.query_string_from_array(array)
