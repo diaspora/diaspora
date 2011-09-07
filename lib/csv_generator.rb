@@ -135,11 +135,11 @@ SQL
   end
 
   def self.recent_login_query
-    "(last_sign_in_at > #{(Time.now - 1.month).to_i})"
+    "(last_sign_in_at > #{(Time.now - 1.month).iso8601})"
   end
 
   def self.old_login_query
-    "(last_sign_in_at < #{(Time.now - 1.month).to_i})"
+    "(last_sign_in_at < #{(Time.now - 1.month).iso8601})"
   end
 
   def self.never_login_query
