@@ -42,11 +42,13 @@
 # </figure>
 #
 require './plugins/pygments_code'
+require './plugins/raw'
 
 module Jekyll
 
   class CodeBlock < Liquid::Block
     include HighlightCode
+    include TemplateWrapper
     CaptionUrlTitle = /(\S[\S\s]*)\s+(https?:\/\/)(\S+)\s+(.+)/i
     CaptionUrl = /(\S[\S\s]*)\s+(https?:\/\/)(\S+)/i
     Caption = /(\S[\S\s]*)/
@@ -78,14 +80,15 @@ module Jekyll
     def render(context)
       output = super
       code = super.join
-      source = "<div><figure role=code>"
+      source = "<figure role=code>"
       source += @caption if @caption
-      source = context['pygments_prefix'] + source if context['pygments_prefix']
       if @filetype
-        source += " #{highlight(code, @filetype)}</figure></div>"
+        source += " #{highlight(code, @filetype)}</figure>"
       else
-        source += "#{tableize_code(code.lstrip.rstrip.gsub(/</,'&lt;'))}</figure></div>"
+        source += "#{tableize_code(code.lstrip.rstrip.gsub(/</,'&lt;'))}</figure>"
       end
+      source = safe_wrap(source)
+      source = context['pygments_prefix'] + source if context['pygments_prefix']
       source = source + context['pygments_suffix'] if context['pygments_suffix']
     end
   end

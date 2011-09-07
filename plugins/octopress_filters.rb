@@ -1,8 +1,38 @@
 #custom filters for Octopress
-require './plugins/pygments_code'
+require './plugins/backtick_code_block'
+require './plugins/post_filters'
+require './plugins/raw'
+require 'rubypants'
 
 module OctopressFilters
-  include HighlightCode
+  include BacktickCodeBlock
+  include TemplateWrapper
+  def pre_filter(input)
+    input = render_code_block(input)
+    input.gsub /(<figure.+?>.+?<\/figure>)/m do
+      safe_wrap($1)
+    end
+  end
+  def post_filter(input)
+    input = unwrap(input)
+    RubyPants.new(input).to_html
+  end
+end
+
+module Jekyll
+  class ContentFilters < PostFilter
+    include OctopressFilters
+    def pre_render(post)
+      post.content = pre_filter(post.content)
+    end
+    def post_render(post)
+      post.content = post_filter(post.content)
+    end
+  end
+end
+
+
+module OctopressLiquidFilters
   # Used on the blog index to split posts on the <!--more--> marker
   def excerpt(input)
     if input.index(/<!--\s*more\s*-->/i)
@@ -23,45 +53,6 @@ module OctopressFilters
       input.split(/\n\n/)[0]
     else
       input
-    end
-  end
-
-  # for Github style codeblocks eg.
-  # ``` ruby
-  #     code snippet
-  # ```
-  def backtick_codeblock(input)
-    code = nil
-    # Markdown support
-    input = input.gsub /<p>`{3}\s*(\w+)?<\/p>\s*<pre><code>\s*(.+?)\s*<\/code><\/pre>\s*<p>`{3}<\/p>/m do
-      lang = $1
-      if lang != ''
-        str  = $2.gsub('&lt;','<').gsub('&gt;','>').gsub('&amp;','&')
-        code = highlight(str, lang)
-        "<figure role=code>#{code}</figure>"
-      else
-        code = tableize_code($2)
-        "<figure role=code>#{code}</figure>"
-      end
-    end
-
-    # Textile warning
-    input = input.gsub /<p>`{3}\s*(\w+)?<br\s*\/>\n(.+?)`{3}<\/p>/m do
-      lang = $1
-      "<pre><code>Back tick code blocks are not supported for Textile.\nTry HTML or Markdown instead or use the codeblock tag.\n\n{% codeblock #{lang} %}\nYour code snippet\n{% endcodeblock %}</code></pre>"
-    end
-
-    # Regular HTML support
-    input.gsub /^`{3}\s*(\w+)?\n(.+?)\n`{3}/m do
-      lang = $1
-      str  = $2.gsub(/^\s{4}/, '')
-      if lang != ''
-        code = highlight(str, lang)
-        "<figure role=code>#{code}</figure>"
-      else
-        code = tableize_code($2.gsub('<','&lt;').gsub('>','&gt;'))
-        "<figure role=code>#{code}</figure>"
-      end
     end
   end
 
@@ -86,12 +77,6 @@ module OctopressFilters
     input.gsub /(https?:\/\/)(\S+)/ do
       $2
     end
-  end
-
-  # replaces primes with smartquotes using RubyPants
-  def smart_quotes(input)
-    require 'rubypants'
-    RubyPants.new(input).to_html
   end
 
   # Returns a title cased string based on John Gruber's title case http://daringfireball.net/2008/08/title_case_update
@@ -127,5 +112,5 @@ module OctopressFilters
     end
   end
 end
-Liquid::Template.register_filter OctopressFilters
+Liquid::Template.register_filter OctopressLiquidFilters
 
