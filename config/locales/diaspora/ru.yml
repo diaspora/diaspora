@@ -159,7 +159,7 @@ ru:
     few: "%{count} комментариев"
     many: "%{count} комментариев"
     new_comment: 
-      comment: "Комментарий"
+      comment: "Комментировать"
       commenting: "Комментирование..."
     one: "1 комментарий"
     other: "%{count} комментариев"
@@ -424,9 +424,9 @@ ru:
       admin: "Ваш администратор Диаспоры"
       subject: "Сообщение о вашем аккаунте Диаспоры:"
     started_sharing: 
-      sharing: "начал делиться с вами!"
-      subject: "%{name} начал делиться с вами в Диаспоре*"
-      view_profile: "Посмотреть профиль %{name}"
+      sharing: "начал(а) делиться с вами!"
+      subject: "Пользователь %{name} начал делиться с вами в Диаспоре*"
+      view_profile: "%{name} - посмотреть профиль"
     thanks: "Спасибо,"
     to_change_your_notification_settings: "чтобы изменить ваши настройки уведомлений"
   ok: "Ок"
@@ -655,10 +655,10 @@ ru:
     invitations: 
       by_email: "По электронной почте"
       dont_have_now: "У вас больше нет приглашений, но новые будут уже скоро!"
-      from_facebook: "из Facebook"
+      from_facebook: "Из Facebook"
       invitations_left: "осталось %{count}"
       invite_someone: "Пригласить кого-нибудь"
-      invite_your_friends: "Пригласить своих друзей"
+      invite_your_friends: "Пригласить друзей"
       invites: "Приглашения"
       invites_closed: "В данный момент возможность приглашений закрыта в этой части Диаспоры"
     notification: 
@@ -685,7 +685,7 @@ ru:
       reshare: "Поделиться повторно"
     stream_element: 
       dislike: "Не нравится"
-      like: "Нравится"
+      like: "Мне нравится"
       shared_with: "Для аспектов: %{aspect_names}"
       unlike: "Не нравится"
       via: "через %{link}"
@@ -707,7 +707,7 @@ ru:
       zero: "сократите, пожалуйста, ваше сообщение до %{count} символов"
   stream_helper: 
     hide_comments: "Скрыть все комментарии"
-    show_more_comments: "Показать еще комментарии (%{number})"
+    show_more_comments: "Все комментарии (%{number})"
   tag_followings: 
     create: 
       failure: "Failed to follow: #%{name}"
@@ -735,7 +735,7 @@ ru:
       sign_up_today: "Зарегистрируйтесь прямо сейчас!"
       typical_userpage: "Типичная cubbi.es страница"
       via: "(via %{link})"
-      what_is_cubbies: "Cubbi.es первая программа диаспоры. Это также лучший способ коллекции фотографий в Интернете."
+      what_is_cubbies: "Cubbi.es - это первое в мире приложение для Диаспоры. Кроме того, это лучший способ создания коллекции фотографий в Интернете."
   undo: "Отменить?"
   username: "Имя пользователя"
   users: 
@@ -767,8 +767,8 @@ ru:
       your_email: "Ваш адрес электронной почты"
       your_handle: "Ваша ID диаспоры"
     getting_started: 
-      bold: "аспекты"
-      connect_to: "Подключиться к"
+      bold: "аспектов"
+      connect_to: "Подключитесь к"
       connect_to_your_other_social_networks: "Подключитесь к другим вашим социальным сетям"
       connect_with_people: "Знакомьтесь с интересными людьми"
       connect_with_people_explanation_pt1: "Общайтесь с людьми, добавляя их в один или несколько ваших %{bold}."

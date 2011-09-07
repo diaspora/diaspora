@@ -29,14 +29,14 @@ hu:
         you_can_confirm: "Megerősítheted a fiókod ezen a linken keresztül:"
       hello: "Szia %{email}!"
       invitation_instructions: 
-        accept: "Accept invitation"
-        ignore: "If you don't want to accept the invitation, please ignore this email."
-        no_account_till: "Your account won't be created until you access the link above and sign up."
-        subject: "You've been invited to join Diaspora!"
+        accept: "Elfogadom a meghívót"
+        ignore: "Ha nem szeretnél csatlakozni csak hagyd figyelmen kívül ezt a levelet."
+        no_account_till: "A fiókod addig nem készül el amíg be nem lépsz a megadott linkkel és be nem regisztrálsz."
+        subject: "Meghívtak, hogy csatlakozz a Diaspora* közösségi hálóhoz."
       inviter: 
-        accept_at: "at %{url}, you can accept it through the link below."
+        accept_at: "Meghívás elfogadása: %{url}"
         has_invited_you: "%{name}"
-        have_invited_you: "%{names} have invited you to join Diaspora"
+        have_invited_you: "%{names} meghívott a Diaspora* közösségi oldalra."
       reset_password_instructions: 
         change: "Jelszavam módosítása"
         ignore: "Ha nem kérted ezt, hagyd figyelmen kívül ezt a levelet."

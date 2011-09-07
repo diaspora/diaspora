@@ -6,30 +6,30 @@
 hu: 
   javascripts: 
     aspect_dropdown: 
-      add_to_aspect: "Add to aspect"
-      all_aspects: "All aspects"
+      add_to_aspect: "Hozzáadás egy csoporthoz"
+      all_aspects: "Összes csoport"
       toggle: 
-        few: "In {{count}} aspects"
-        many: "In {{count}} aspects"
-        one: "In {{count}} aspect"
-        other: "In {{count}} aspects"
-        zero: "Add to aspect"
+        few: "{{count}} csoportban"
+        many: "{{count}} csoportban"
+        one: "{{count}} csoportban"
+        other: "{{count}} csoportban"
+        zero: "Hozzáadás egy csoporthoz"
     comments: 
-      hide: "hide comments"
-      show: "show all comments"
+      hide: "hozzászólások elrejtése"
+      show: "összes hozzászólás"
     confirm_dialog: "Biztos vagy benne?"
-    failed_to_like: "Failed to like!"
-    failed_to_post_message: "Failed to post message!"
+    failed_to_like: "Hiba"
+    failed_to_post_message: "Üzenet elküldése sikertelen!"
     infinite_scroll: 
       no_more: "Nincs több bejegyzés."
     publisher: 
       at_least_one_aspect: "Minimum 1 csoportnak meg kell osztanod!"
-      limited: "Limited - your post will only be seen by people you are sharing with"
-      public: "Public - your post will be visible to everyone and found by search engines"
+      limited: "Korlátozott - csak az ismerőseid láthatják ezt a bejegyzést"
+      public: "Nyilvános - ezt a bejegyzést bárki láthatja az interneten."
     reshares: 
-      duplicate: "You've already reshared that post!"
+      duplicate: "Már újraosztottad ezt a bejegyzést!"
     search_for: "{{name}} keresése."
-    show_more: "show more"
+    show_more: "tovább"
     timeago: 
       day: "egy nappal"
       days: "%d nappal"
