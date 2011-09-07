@@ -1,6 +1,6 @@
 module CsvGenerator
 
-  PATH = '/tmp/'
+  PATH = '/tmp/csvs'
   BACKER_CSV_LOCATION = File.join('/home/ilya/workspace/diaspora/', 'backer_list.csv')
   WAITLIST_LOCATION = File.join(Rails.root, 'config', 'mailing_list.csv')
   OFFSET_LOCATION = File.join(Rails.root, 'config', 'email_offset')
@@ -30,6 +30,7 @@ SQL
   end
 
   def self.generate_csvs
+    `mkdir /tmp/csvs`
     self.backers_recent_login
     self.backers_old_login
     self.backers_never_login
