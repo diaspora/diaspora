@@ -106,7 +106,7 @@ SQL
     #
     #
     sql = <<SQL
-          SELECT '%EMAIL%','%NAME%','%INVITATION_LINK%'
+          SELECT '%EMAIL%','%NAME%'
           UNION
             SELECT `users`.email AS '%EMAIL%',
                    IF( `profiles`.full_name IS NOT NULL AND `profiles`.full_name != "",
