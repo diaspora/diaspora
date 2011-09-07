@@ -1,5 +1,10 @@
 require 'resque'
 
+
+if !ENV['SINGLE_PROCESS'] && AppConfig[:redis_url]
+  Resque.redis = Redis.new(:host => AppConfig[:redis_url], :port => 6379)
+end
+
 begin
   if ENV['SINGLE_PROCESS']
     if Rails.env == 'production'
