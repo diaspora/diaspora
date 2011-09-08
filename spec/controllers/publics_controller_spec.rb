@@ -20,6 +20,24 @@ describe PublicsController do
     end
   end
 
+  describe '#receive_public' do
+    it 'succeeds' do
+      post :receive_public, :xml => "<stuff/>"
+      response.should be_success
+    end
+
+    it 'returns a 422 if no xml is passed' do
+      post :receive_public
+      response.code.should == '422'
+    end
+
+    it 'calls Postzord::Receiver:Public' do
+      xml = "stuff"
+      Postzord::Receiver::Public.should_receive(:new).with(xml)
+      post :receive_public, :xml => xml
+    end
+  end
+
   describe '#receive' do
     let(:xml) { "<walruses></walruses>" }
 

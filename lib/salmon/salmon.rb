@@ -54,35 +54,45 @@ module Salmon
       salmon
     end
 
-    def self.parse(xml, user)
+    def self.parse(xml, user=nil)
       slap = self.new
       doc = Nokogiri::XML(xml)
 
       sig_doc = doc.search('entry')
 
       ### Header ##
-      decrypted_header = user.decrypt(doc.search('encrypted_header').text)
-      header_doc       = Nokogiri::XML(decrypted_header)
+      header_doc       = slap.salmon_header(doc, user) 
       slap.author_email= header_doc.search('uri').text.split("acct:").last
       slap.aes_key     = header_doc.search('aes_key').text
       slap.iv          = header_doc.search('iv').text
 
       slap.magic_sig = MagicSigEnvelope.parse sig_doc
 
-      if  'base64url' == slap.magic_sig.encoding
-
-        key_hash = {'key' => slap.aes_key, 'iv' => slap.iv}
-        slap.parsed_data = user.aes_decrypt(decode64url(slap.magic_sig.data), key_hash)
-        slap.sig = slap.magic_sig.sig
-      else
-        raise ArgumentError, "Magic Signature data must be encoded with base64url, was #{slap.magic_sig.encoding}"
-      end
-
+      key_hash = {'key' => slap.aes_key, 'iv' => slap.iv}
+      slap.parsed_data = slap.parse_data(key_hash, user)
+      slap.sig = slap.magic_sig.sig
       slap.data_type = slap.magic_sig.data_type
 
-      raise ArgumentError, "Magic Signature data must be signed with RSA-SHA256, was #{slap.magic_sig.alg}" unless 'RSA-SHA256' == slap.magic_sig.alg
-
       slap
+    end
+
+    def parse_data(key_hash, user)
+      data = SalmonSlap.decode64url(self.magic_sig.data)
+      if user.present?
+        user.aes_decrypt(data, key_hash)
+      else
+        data
+      end
+    end
+
+    # @return [Nokogiri::Doc]
+    def salmon_header(doc, user)
+      if user.present?
+        decrypted_header = user.decrypt(doc.search('encrypted_header').text)
+        Nokogiri::XML(decrypted_header)
+      else
+        doc.search('header')
+      end
     end
 
     def xml_for person
@@ -190,10 +200,20 @@ HEADER
       env = self.new
       ns = {'me'=>'http://salmon-protocol.org/ns/magic-env'}
       env.encoding = doc.search('//me:env/me:encoding', ns).text.strip
+
+      if env.encoding != 'base64url'
+        raise ArgumentError, "Magic Signature data must be encoded with base64url, was #{slap.magic_sig.encoding}"
+      end
+
       env.data =  doc.search('//me:env/me:data', ns).text
       env.alg = doc.search('//me:env/me:alg', ns).text.strip
       env.sig =  doc.search('//me:env/me:sig', ns).text
       env.data_type = doc.search('//me:env/me:data', ns).first['type'].strip
+
+      unless 'RSA-SHA256' == env.alg
+        raise ArgumentError, "Magic Signature data must be signed with RSA-SHA256, was #{env.alg}"
+      end
+
       env
     end
 

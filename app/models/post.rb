@@ -102,7 +102,7 @@ class Post < ActiveRecord::Base
           return local_post
         end
       elsif !local_post
-        if  self.save  
+        if self.save
           user.contact_for(person).receive_post(self)
           user.notify_if_mentioned(self)
           Rails.logger.info("event=receive payload_type=#{self.class} update=false status=complete sender=#{self.diaspora_handle}")
