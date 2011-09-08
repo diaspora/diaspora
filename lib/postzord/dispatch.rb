@@ -35,7 +35,7 @@ class Postzord::Dispatch
         self.deliver_to_local(local_people)
       end
 
-      self.deliver_to_remote(remote_people)
+      self.deliver_to_remote(remote_people) unless @sender.username == 'diasporahq' #NOTE: 09/08/11 this is temporary (~3days max) till we fix fanout in federation
     end
     self.deliver_to_services(opts[:url], opts[:services] || [])
     @object.after_dispatch(@sender)
@@ -85,6 +85,7 @@ class Postzord::Dispatch
     notify_users(users)
     socket_to_users(users)
   end
+
 
   def notify_users(users)
     Resque.enqueue(Job::NotifyLocalUsers, users.map{|u| u.id}, @object.class.to_s, @object.id, @object.author.id)
