@@ -4,10 +4,10 @@
 
 %ul#aspect_nav.left_nav
   %li.all_aspects{:class => ("active" if params["set"] != "all" && params["set"] != "only_sharing" && !@featured && !@finder)}
-    %a.home_selector{:href => aspects_path, :class => ("sub_selected" if params["a_id"])}
-      = t('aspects.index.your_aspects')
+    .root_element= t('aspects.index.your_aspects')
 
     %ul.sub_nav
+      %a.toggle_selector{:href => '#'}
       - for aspect in all_aspects
         %li{:data => {:aspect_id => aspect.id}, :class => ("active" if params["a_id"].to_i == aspect.id)}
           .edit
