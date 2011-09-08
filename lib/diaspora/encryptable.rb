@@ -1,5 +1,7 @@
 module Diaspora
   module Encryptable
+    
+    LAST_FALLBACK_TIME = "Sept 15 2011 17:00 UTC "
     # Check that signature is a correct signature of #signable_string by person
     #
     # @param [String] signature The signature to be verified.
@@ -17,7 +19,11 @@ module Diaspora
         return false
       end
       log_string = "event=verify_signature status=complete guid=#{self.guid}"
-      validity = person.public_key.verify "SHA", Base64.decode64(signature), signable_string
+      validity = person.public_key.verify OpenSSL::Digest::SHA256.new, Base64.decode64(signature), signable_string
+      if !validity && Time.now < Time.parse(LAST_FALLBACK_TIME)
+        validity = person.public_key.verify "SHA", Base64.decode64(signature), signable_string
+      end
+      #validity = person.public_key.verify "SHA", Base64.decode64(signature), signable_string
       log_string += " validity=#{validity}"
       Rails.logger.info(log_string)
       validity
@@ -26,7 +32,7 @@ module Diaspora
     # @param [OpenSSL::PKey::RSA] key An RSA key
     # @return [String] A Base64 encoded signature of #signable_string with key
     def sign_with_key(key)
-      sig = Base64.encode64s(key.sign "SHA", signable_string)
+      sig = Base64.encode64s(key.sign( OpenSSL::Digest::SHA256.new, signable_string ))
       log_hash = {:event => :sign_with_key, :status => :complete}
       log_hash.merge(:model_id => self.id) if self.respond_to?(:persisted?)
       Rails.logger.info(log_hash)
