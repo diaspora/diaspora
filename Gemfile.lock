@@ -374,6 +374,8 @@ GEM
     resque-ensure-connected (0.1.0)
       activerecord (>= 2.3.5)
       resque (~> 1.10.0)
+    resque-timeout (1.0.0)
+      resque (~> 1.0)
     rest-client (1.6.1)
       mime-types (>= 1.16)
     rspec (2.6.0)
@@ -521,6 +523,7 @@ DEPENDENCIES
   redcarpet!
   resque (= 1.10.0)
   resque-ensure-connected
+  resque-timeout (= 1.0.0)
   rest-client (= 1.6.1)
   roxml!
   rspec (>= 2.0.0)
