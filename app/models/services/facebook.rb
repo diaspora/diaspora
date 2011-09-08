@@ -71,8 +71,6 @@ class Services::Facebook < Service
     if self.service_users.blank?
       self.save_friends
       self.service_users.reload
-    else
-      #Resque.enqueue(Job::UpdateServiceUsers, self.id)
     end
   end
 end

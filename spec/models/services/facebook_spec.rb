@@ -90,12 +90,6 @@ JSON
         @service.should_receive(:save_friends)
         @service.finder
       end
-      it 'dispatches a resque job' do
-        Resque.should_receive(:enqueue).with(Job::UpdateServiceUsers, @service.id)
-        su2 = ServiceUser.create(:service => @user2_service, :uid => @user2_fb_id, :name => @user2_fb_name, :photo_url => @user2_fb_photo_url)
-        @service.service_users = [su2]
-        @service.finder
-      end
       context 'opts' do
         it 'only local does not return people who are remote' do
           @service.save_friends
