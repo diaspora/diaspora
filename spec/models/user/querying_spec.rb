@@ -7,14 +7,15 @@ require 'spec_helper'
 describe User do
 
   before do
-    @alices_aspect = alice.aspects.first
-    @eves_aspect = eve.aspects.first
+    @alices_aspect = alice.aspects.where(:name => "generic").first
+    @eves_aspect = eve.aspects.where(:name => "generic").first
+    @bobs_aspect = bob.aspects.where(:name => "generic").first
   end
 
   describe "#visible_posts" do
     it "returns all the posts the user can see" do
       self_post = alice.post(:status_message, :text => "hi", :to => @alices_aspect.id)
-      visible_post = bob.post(:status_message, :text => "hello", :to => bob.aspects.first.id)
+      visible_post = bob.post(:status_message, :text => "hello", :to => @bobs_aspect.id)
       dogs = bob.aspects.create(:name => "dogs")
       invisible_post = bob.post(:status_message, :text => "foobar", :to => dogs.id)
 
@@ -25,11 +26,12 @@ describe User do
     end
     context 'with many posts' do
       before do
-        bob.move_contact(eve.person, bob.aspects.first, bob.aspects.create(:name => 'new aspect'))
+        bob.move_contact(eve.person, @bobs_aspect, bob.aspects.create(:name => 'new aspect'))
         time_interval = 1000
         (1..25).each do |n|
           [alice, bob, eve].each do |u|
-            post = u.post :status_message, :text => "#{u.username} - #{n}", :to => u.aspects.first.id
+            aspect_to_post = u.aspects.where(:name => "generic").first
+            post = u.post :status_message, :text => "#{u.username} - #{n}", :to => aspect_to_post.id
             post.created_at = post.created_at - time_interval
             post.updated_at = post.updated_at - time_interval
             post.save
@@ -175,7 +177,7 @@ describe User do
       end
 
       it "returns an empty array when passed an aspect the user doesn't own" do
-        alice.people_in_aspects([eve.aspects.first]).should == []
+        alice.people_in_aspects([@eves_aspect]).should == []
       end
     end
   end
@@ -234,7 +236,7 @@ describe User do
       end
 
       it 'should return the aspects with given contact' do
-        alice.aspects_with_person(@connected_person).should == [alice.aspects.first]
+        alice.aspects_with_person(@connected_person).should == [@alices_aspect]
       end
 
       it 'returns multiple aspects if the person is there' do

@@ -12,14 +12,14 @@
 = render 'shared/contact_sidebar'
 
 .span-18.last.searchable
-  = search_field_tag :contact_search, "", :id => "contact_list_search", :class => 'contact_list_search', :results => 5, :placeholder => t('search')
+  /= search_field_tag :contact_search, "", :id => "contact_list_search", :class => 'contact_list_search', :results => 5, :placeholder => t('search')
   %h3
     = t('.service_friends', :service => params[:provider].titleize)
   #people_stream.stream.contacts
     - if @friends.size > 0
       = render :partial => 'remote_friend', :collection => @friends, :as => :friend
 
-      /= will_paginate @friends
+      = will_paginate @friends
     - else
       .no_contacts
         = link_to(image_tag("social_media_logos/facebook-48x48.png"), "/auth/facebook")

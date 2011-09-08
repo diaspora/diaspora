@@ -22,7 +22,7 @@ if ARGV.length >= 1
   setting_name = ARGV[0]
   if Rails.env == 'script_server' # load from the special script_server_config.yml file
     require 'yaml'
-    script_server_config_file = File.join(Rails.root, 'config', 'script_server_config.yml')
+    script_server_config_file = File.join(Rails.root, 'config', 'script_server.yml')
     begin
       print YAML.load_file(script_server_config_file)['script_server'][setting_name]
     rescue

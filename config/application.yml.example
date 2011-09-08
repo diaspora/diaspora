@@ -144,6 +144,8 @@ defaults: &defaults
   #Hoptoad api key
   hoptoad_api_key: ''
 
+  #url for a remote redis, on the default port.  Don't forget to restrict IP access!
+  redis_url: ''
 # Use this section to override default settings in specific environments
 development:
   <<: *defaults

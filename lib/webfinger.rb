@@ -4,7 +4,7 @@ require File.join(Rails.root, 'lib/webfinger_profile')
 class Webfinger
   class WebfingerFailedError < RuntimeError; end
   def initialize(account)
-    @account = account.strip.gsub('acct:','').to_s
+    @account = account.strip.gsub('acct:','').to_s.downcase
     @ssl = true
     Rails.logger.info("event=webfinger status=initialized target=#{account}")
   end

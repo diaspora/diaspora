@@ -6,10 +6,6 @@ Given /^a user with username "([^\"]*)" and password "([^\"]*)"$/ do |username, 
   @me.reload
 end
 
-Given /^that I am a rock star$/ do
-  Given('a user with username "awesome" and password "totallyawesome"')
-end
-
 Given /^a user with email "([^\"]*)"$/ do |email|
   user = Factory(:user, :email => email, :password => 'password',
                  :password_confirmation => 'password', :getting_started => false)
@@ -62,17 +58,6 @@ When /^I have user with username "([^"]*)" in an aspect called "([^"]*)"$/ do |u
   contact.aspects << @me.aspects.find_by_name(aspect)
 end
 
-
-Given /^I have one follower$/ do
-  other_user = Factory(:user)
-  other_aspect = other_user.aspects.create!(:name => "meh")
-  other_user.share_with(@me.person, other_aspect)
-
-  other_user.reload
-  other_aspect.reload
-  @me.reload
-end
-
 Given /^a user with email "([^"]*)" is connected with "([^"]*)"$/ do |arg1, arg2|
   user1 = User.where(:email => arg1).first
   user2 = User.where(:email => arg2).first
@@ -82,7 +67,7 @@ end
 Given /^a user with username "([^"]*)" is connected with "([^"]*)"$/ do |arg1, arg2|
   user1 = User.where(:username => arg1).first
   user2 = User.where(:username => arg2).first
-  connect_users(user1, user1.aspects.first, user2, user2.aspects.first)
+  connect_users(user1, user1.aspects.where(:name => "Besties").first, user2, user2.aspects.where(:name => "Besties").first)
 end
 
 Given /^there is a user "([^\"]*)" who's tagged "([^\"]*)"$/ do |full_name, tag|
@@ -101,7 +86,7 @@ Given /^many posts from alice for bob$/ do
   time_fulcrum = Time.now - 40000
   time_interval = 1000
   (1..40).each do |n|
-    post = alice.post :status_message, :text => "#{alice.username} - #{n} - #seeded", :to => alice.aspects.first.id
+    post = alice.post :status_message, :text => "#{alice.username} - #{n} - #seeded", :to => alice.aspects.where(:name => "generic").first.id
     post.created_at = time_fulcrum - time_interval
     post.updated_at = time_fulcrum + time_interval
     post.save
@@ -109,28 +94,14 @@ Given /^many posts from alice for bob$/ do
   end
 end
 
-
 Then /^I should have (\d) contacts? in "([^"]*)"$/ do |n_contacts, aspect_name|
   @me.aspects.where(:name => aspect_name).first.contacts.count.should == n_contacts.to_i
 end
 
-When /^I (add|remove|toggle) the person (to|from) my ([\d])(nd|rd|st|th) aspect$/ do |word1, word2, aspect_number, nd|
+When /^I (?:add|remove) the person (?:to|from) my "([^\"]*)" aspect$/ do |aspect_name|
   steps %Q{
     And I press the first ".toggle.button"
-    And I press the #{aspect_number}#{nd} "li" within ".dropdown.active .dropdown_list"
-    And I press the first ".toggle.button"
-  }
-end
-
-When /^I add the person to a new aspect called "([^\"]*)"$/ do |aspect_name|
-  steps %Q{
-    And I press the first ".toggle.button"
-
-    And I press click ".new_aspect" within ".dropdown.active"
-    And I fill in "#aspect_name" with "#{aspect_name}"
-    And I submit the form
-
-    And I wait for the ajax to finish
+    And I click on selector ".dropdown.active .dropdown_list li[data-aspect_id=#{@me.aspects.where(:name => aspect_name).first.id}]"
     And I press the first ".toggle.button"
   }
 end
@@ -138,7 +109,6 @@ end
 When /^I post a status with the text "([^\"]*)"$/ do |text|
   @me.post(:status_message, :text => text, :public => true, :to => 'all')
 end
-
 
 And /^I follow the "([^\"]*)" link from the last sent email$/ do |link_text|
   email_text = Devise.mailer.deliveries.first.body.to_s
@@ -191,9 +161,9 @@ Given /^I have (\d+) contacts$/ do |n|
   Contact.import(contacts)
   contacts = @me.contacts.limit(n.to_i)
 
-  aspect_id = @me.aspects.first.id
+  aspect_id = @me.aspects.length == 1 ? @me.aspects.first.id : @me.aspects.where(:name => "Besties").first.id
   contacts.each do |contact|
-    aspect_memberships << AspectMembership.new(:contact_id => contact.id, :aspect_id => @me.aspects.first.id)
+    aspect_memberships << AspectMembership.new(:contact_id => contact.id, :aspect_id => aspect_id)
   end
   AspectMembership.import(aspect_memberships)
 end

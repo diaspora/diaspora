@@ -1,14 +1,3 @@
-Given /^I am signed in as the following (\w+):$/ do |role, table|
-  Given %(the following #{role}:), table
-  @me = @it
-  Given 'I am signed in'
-end
-
-Given /^I (?:am signed|sign) in as an? (\w+)$/ do |role|
-  @me = Factory(role.to_sym)
-  Given 'I am signed in'
-end
-
 Given /^(?:I am signed in|I sign in)$/ do
   When %(I try to sign in)
   wait_until { page.has_content?("#{@me.first_name} #{@me.last_name}") }

@@ -12,7 +12,7 @@ Feature: Notifications
 
   Scenario: someone shares with me
     And I am on "alice@alice.alice"'s page
-    And I add the person to my 1st aspect
+    And I add the person to my "Besties" aspect
     And I go to the destroy user session page
     When I sign in as "alice@alice.alice"
     And I follow "notifications" in the header

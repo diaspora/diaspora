@@ -53,7 +53,8 @@ class User
   end
 
   def post_at_time(time)
-    p = self.post(:status_message, :text => 'hi', :to => self.aspects.first)
+    to_aspect = self.aspects.length == 1 ? self.aspects.first : self.aspects.where(:name => "generic")
+    p = self.post(:status_message, :text => 'hi', :to => to_aspect)
     p.created_at = time
     p.save!
   end

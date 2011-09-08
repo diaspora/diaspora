@@ -329,7 +329,7 @@ describe MarkdownifyHelper do
       end
     end
 
-    context 'performance' do
+    context 'performance', :performance => true do
       before do
         @message = "</p>HHello,Hello_, I _am a strong robot.*Hello, I am *a strong robot.Hello, I am a strong robot.Hello, I am a strong robot.Hello, I am a strong robot.Hello, I am a **strong robot.Hello, I am _a _strong *robot**.Hello*, I am a strong</p>"
       end

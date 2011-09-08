@@ -7,7 +7,7 @@ ru:
   javascripts: 
     aspect_dropdown: 
       add_to_aspect: "Добавить к аспектам"
-      all_aspects: "All aspects"
+      all_aspects: "Все аспекты"
       toggle: 
         few: "В {{count}} аспектах"
         many: "В {{count}} аспектах"
@@ -24,10 +24,10 @@ ru:
       no_more: "Сообщений больше нет."
     publisher: 
       at_least_one_aspect: "Вам надо минимум один аспект создать"
-      limited: "Limited - your post will only be seen by people you are sharing with"
-      public: "Public - your post will be visible to everyone and found by search engines"
+      limited: "Ограниченная - ваша запись будет видна только указанным вами людям"
+      public: "Публичная - ваша запись будет видна всем, включая поисковые системы"
     reshares: 
-      duplicate: "You've already reshared that post!"
+      duplicate: "Вы уже поделились этой записью!"
     search_for: "Искать {{name}}"
     show_more: "показать больше"
     timeago: 

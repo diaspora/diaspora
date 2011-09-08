@@ -8,7 +8,7 @@ Feature: Close Account
     Given I am signed in
     When I click on my name in the header
     And I follow "settings"
-    And I click ok in the confirm dialog to appear next
+    And I preemptively confirm the alert
     And I follow "Close Account"
     Then I should be on the home page
 
@@ -31,7 +31,7 @@ Feature: Close Account
     Then I sign in as "bob@bob.bob"
     When I click on my name in the header
     And I follow "settings"
-    And I click ok in the confirm dialog to appear next
+    And I preemptively confirm the alert
     And I follow "Close Account"
     Then I sign in as "alice@alice.alice"
     And I am on the home page

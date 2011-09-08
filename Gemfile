@@ -3,7 +3,7 @@ source 'http://rubygems.org'
 gem 'mysql2', '0.2.6' if ENV['DB'].nil? || ENV['DB'] == "mysql"
 gem 'pg' if ENV['DB'].nil? || ENV['DB'] == "postgres"
 gem 'sqlite3' if ENV['DB'].nil? || ENV['DB'] == "sqlite"
-gem 'rails', '3.0.9'
+gem 'rails', '3.0.10'
 gem 'foreigner', '0.9.1'
 gem 'activerecord-import'
 
@@ -37,6 +37,7 @@ gem 'faraday-stack'
 gem 'haml', '3.1.2'
 gem 'sass', '3.1.4'
 gem 'will_paginate', '3.0.pre2'
+gem 'mobile-fu'
 
 #Localization
 gem 'rails-i18n'

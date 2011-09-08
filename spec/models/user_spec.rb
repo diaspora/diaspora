@@ -6,18 +6,19 @@ require 'spec_helper'
 
 describe User do
 
-  it 'should have a key' do
-    alice.encryption_key.should_not be nil
-  end
+  describe "private key" do
+    it 'has a key' do
+      alice.encryption_key.should_not be nil
+    end
 
-  it 'the key should marshall to and from the db correctly' do
-    user = User.build(:username => 'max', :email => 'foo@bar.com', :password => 'password', :password_confirmation => 'password')
-    user.save!
+    it 'marshalls the key to and from the db correctly' do
+      user = User.build(:username => 'max', :email => 'foo@bar.com', :password => 'password', :password_confirmation => 'password')
+      user.save!
 
-    expect{
-      user.reload.encryption_key
-    }.should_not raise_error
-
+      expect{
+        user.reload.encryption_key
+      }.should_not raise_error
+    end
   end
 
   context 'callbacks' do
@@ -395,16 +396,16 @@ describe User do
 
     it 'unsets disable mail and makes the right amount of prefs' do
       alice.disable_mail = true
-      proc {
+      expect {
         alice.update_user_preferences({})
-      }.should change(alice.user_preferences, :count).by(@pref_count)
+      }.to change(alice.user_preferences, :count).by(@pref_count)
     end
 
     it 'still sets new prefs to false on update' do
       alice.disable_mail = true
-      proc {
+      expect {
         alice.update_user_preferences({'mentioned' => false})
-      }.should change(alice.user_preferences, :count).by(@pref_count-1)
+      }.to change(alice.user_preferences, :count).by(@pref_count-1)
       alice.reload.disable_mail.should be_false
     end
   end
@@ -593,7 +594,7 @@ describe User do
         message = alice.post(:status_message, :text => "hi", :to => alice.aspects.first.id)
         alice.reload
         alice.remove_person
-        proc { message.reload }.should raise_error ActiveRecord::RecordNotFound
+        expect { message.reload }.to raise_error ActiveRecord::RecordNotFound
       end
     end
 
@@ -604,7 +605,7 @@ describe User do
         mention  = Mention.create(:person => person, :post=> sm)
         alice.reload
         alice.remove_mentions
-        proc { mention.reload }.should raise_error ActiveRecord::RecordNotFound
+        expect { mention.reload }.to raise_error ActiveRecord::RecordNotFound
       end
     end
 
@@ -677,45 +678,46 @@ describe User do
   context "aspect management" do
     before do
       @contact = alice.contact_for(bob.person)
-      @aspect1 = alice.aspects.create(:name => 'two')
+      @original_aspect = alice.aspects.where(:name => "generic").first
+      @new_aspect = alice.aspects.create(:name => 'two')
     end
 
     describe "#add_contact_to_aspect" do
       it 'adds the contact to the aspect' do
         lambda {
-          alice.add_contact_to_aspect(@contact, @aspect1)
-        }.should change(@aspect1.contacts, :count).by(1)
+          alice.add_contact_to_aspect(@contact, @new_aspect)
+        }.should change(@new_aspect.contacts, :count).by(1)
       end
 
       it 'returns true if they are already in the aspect' do
-        alice.add_contact_to_aspect(@contact, alice.aspects.first).should be_true
+        alice.add_contact_to_aspect(@contact, @original_aspect).should be_true
       end
     end
 
     context 'moving and removing posts' do
       describe 'User#move_contact' do
         it 'should be able to move a contact from one of users existing aspects to another' do
-          alice.move_contact(bob.person, @aspect1, alice.aspects.first)
+          alice.move_contact(bob.person, @new_aspect, @original_aspect)
 
-          alice.aspects.first.contacts(true).include?(@contact).should be_false
-          @aspect1.contacts(true).include?(@contact).should be_true
+          @original_aspect.contacts(true).include?(@contact).should be_false
+          @new_aspect.contacts(true).include?(@contact).should be_true
         end
 
         it "should not move a person who is not a contact" do
           non_contact = eve.person
 
-          proc{
-            alice.move_contact(non_contact, @aspect1, alice.aspects.first)
-          }.should raise_error
+          expect {
+            alice.move_contact(non_contact, @new_aspect, @original_aspect)
+          }.to raise_error
 
-          alice.aspects.first.contacts.where(:person_id => non_contact.id).should be_empty
-          @aspect1.contacts.where(:person_id => non_contact.id).should be_empty
+          @original_aspect.contacts.where(:person_id => non_contact.id).should be_empty
+          @new_aspect.contacts.where(:person_id => non_contact.id).should be_empty
         end
 
         it 'does not try to delete if add person did not go through' do
           alice.should_receive(:add_contact_to_aspect).and_return(false)
           alice.should_not_receive(:delete_person_from_aspect)
-          alice.move_contact(bob.person, @aspect1, alice.aspects.first)
+          alice.move_contact(bob.person, @new_aspect, @original_aspect)
         end
       end
     end
@@ -723,8 +725,10 @@ describe User do
 
   context 'likes' do
     before do
-      @message = alice.post(:status_message, :text => "cool", :to => alice.aspects.first)
-      @message2 = bob.post(:status_message, :text => "uncool", :to => bob.aspects.first)
+      alices_aspect = alice.aspects.where(:name => "generic").first
+      bobs_aspect = bob.aspects.where(:name => "generic").first
+      @message = alice.post(:status_message, :text => "cool", :to => alices_aspect)
+      @message2 = bob.post(:status_message, :text => "uncool", :to => bobs_aspect)
       @like = alice.like(true, :target => @message)
       @like2 = bob.like(true, :target => @message)
     end
@@ -890,14 +894,16 @@ describe User do
         @invitation = Factory.create(:invitation, :sender => eve, :identifier => 'invitee@example.org', :aspect => eve.aspects.first)
       end
       @invitation.reload
-      @form_params = {:invitation_token => "abc",
-                            :email    => "a@a.com",
-                            :username => "user",
-                            :password => "secret",
-                            :password_confirmation => "secret",
-                            :person => {:profile => {:first_name => "Bob",
-                              :last_name  => "Smith"}}}
-
+      @form_params = {
+                       :invitation_token => "abc",
+                       :email    => "a@a.com",
+                       :username => "user",
+                       :password => "secret",
+                       :password_confirmation => "secret",
+                       :person => {
+                         :profile => {:first_name => "Bob", :last_name  => "Smith"}
+                       }
+                     }
     end
 
     context 'after invitation acceptance' do
@@ -933,7 +939,6 @@ describe User do
   describe '#retract' do
     before do
       @retraction = mock
-
       @post = Factory(:status_message, :author => bob.person, :public => true)
     end
 

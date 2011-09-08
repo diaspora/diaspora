@@ -20,22 +20,21 @@ class AspectsController < ApplicationController
       @aspects = current_user.aspects
     end
 
-    aspect_ids = @aspects.map{|a| a.id}
-
     # redirect to aspects creation
     if @aspects.blank?
       redirect_to new_aspect_path
       return
     end
 
+    @aspect_ids = @aspects.map { |a| a.id }
+
     unless params[:only_posts]
       all_selected_people = Person.joins(:contacts => :aspect_memberships).
         where(:contacts => {:user_id => current_user.id},
-              :aspect_memberships => {:aspect_id => aspect_ids})
+              :aspect_memberships => {:aspect_id => @aspect_ids})
       @selected_people = all_selected_people.select("DISTINCT people.*").includes(:profile)
     end
 
-    @aspect_ids = @aspects.map { |a| a.id }
     @posts = current_user.visible_posts(:by_members_of => @aspect_ids,
                                            :type => ['StatusMessage','Reshare', 'ActivityStreams::Photo'],
                                            :order => session[:sort_order] + ' DESC',

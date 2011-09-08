@@ -23,19 +23,26 @@ class Comment < ActiveRecord::Base
   xml_attr :text
   xml_attr :diaspora_handle
 
-  belongs_to :post, :touch => true
+  belongs_to :post
   belongs_to :author, :class_name => 'Person'
 
   validates_presence_of :text, :post
   validates_length_of :text, :maximum => 2500
 
   serialize :youtube_titles, Hash
+
   before_save do
     self.text.strip! unless self.text.nil?
   end
+
+  after_save do
+    self.post.touch
+  end
+
   def diaspora_handle
     self.author.diaspora_handle
   end
+
   def diaspora_handle= nh
     self.author = Webfinger.new(nh).fetch
   end
