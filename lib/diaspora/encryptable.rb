@@ -23,7 +23,6 @@ module Diaspora
       if !validity && Time.now < Time.parse(LAST_FALLBACK_TIME)
         validity = person.public_key.verify "SHA", Base64.decode64(signature), signable_string
       end
-      #validity = person.public_key.verify "SHA", Base64.decode64(signature), signable_string
       log_string += " validity=#{validity}"
       Rails.logger.info(log_string)
       validity
