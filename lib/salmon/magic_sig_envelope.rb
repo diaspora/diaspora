@@ -6,12 +6,13 @@ module Salmon
   class MagicSigEnvelope
     attr_accessor :data, :data_type, :encoding, :alg, :sig, :author
     def self.parse(doc)
+      puts doc.to_s
       env = self.new
       ns = {'me'=>'http://salmon-protocol.org/ns/magic-env'}
       env.encoding = doc.search('//me:env/me:encoding', ns).text.strip
 
       if env.encoding != 'base64url'
-        raise ArgumentError, "Magic Signature data must be encoded with base64url, was #{slap.magic_sig.encoding}"
+        raise ArgumentError, "Magic Signature data must be encoded with base64url, was #{env.encoding}"
       end
 
       env.data =  doc.search('//me:env/me:data', ns).text

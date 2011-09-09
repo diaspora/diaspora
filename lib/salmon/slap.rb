@@ -7,7 +7,9 @@ module Salmon
     attr_accessor :magic_sig, :author, :author_email, :parsed_data
     attr_accessor :aes_key, :iv
 
-    def self.create(user, activity)
+    delegate :sig, :data_type, :to => :magic_sig
+
+    def self.create_by_user_and_activity(user, activity)
       salmon = self.new
       salmon.author   = user.person
       aes_key_hash    = user.person.gen_aes_key
@@ -20,34 +22,30 @@ module Salmon
       salmon
     end
 
-    def self.parse(xml, user=nil)
+    def self.from_xml(xml, receiving_user=nil)
       slap = self.new
       doc = Nokogiri::XML(xml)
 
+      entry_doc = doc.search('entry')
+
       ### Header ##
-      header_doc       = slap.salmon_header(doc, user) 
+      header_doc       = slap.salmon_header(doc, receiving_user) 
       slap.author_email= header_doc.search('uri').text.split("acct:").last
+
       slap.aes_key     = header_doc.search('aes_key').text
       slap.iv          = header_doc.search('iv').text
 
-      slap.magic_sig = MagicSigEnvelope.parse(doc.search('entry'))
+      slap.magic_sig = MagicSigEnvelope.parse(entry_doc)
 
 
       #should be in encrypted salmon only
       key_hash = {'key' => slap.aes_key, 'iv' => slap.iv}
       
-      slap.parsed_data = slap.parse_data(key_hash, user)
+      slap.parsed_data = slap.parse_data(key_hash, receiving_user)
 
       slap
     end
 
-    def sig
-      self.magic_sig.sig
-    end
-
-    def data_type
-      self.magic_sig.data_type
-    end
 
     # @return [String]
     def self.payload(activity, user=nil, aes_key_hash=nil)

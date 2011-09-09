@@ -60,8 +60,8 @@ describe Job::HttpMulti do
 
     Typhoeus::Hydra.stub!(:new).and_return(@hydra)
 
-    salmon = Salmon::EncryptedSlap.create(bob, Base64.decode64(@post_xml))
-    Salmon::EncryptedSlap.stub(:create).and_return(salmon)
+    salmon = Salmon::EncryptedSlap.create_by_user_and_activity(bob, Base64.decode64(@post_xml))
+    Salmon::EncryptedSlap.stub(:create_by_user_and_activity).and_return(salmon)
     salmon.should_receive(:xml_for).and_return("encrypted things")
 
     Job::HttpMulti.perform(bob.id, @post_xml, [person.id])
