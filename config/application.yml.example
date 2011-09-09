@@ -141,6 +141,7 @@ defaults: &defaults
   featured_users:
     - 'diasporahq@joindiaspora.com'
 
+  single_process_mode: false
   #Hoptoad api key
   hoptoad_api_key: ''
 
