@@ -329,7 +329,6 @@ GEM
       oa-openid (= 0.2.6)
     open4 (1.1.0)
     orm_adapter (0.0.5)
-    pg (0.11.0)
     polyglot (0.3.2)
     pyu-ruby-sasl (0.0.3.3)
     rack (1.2.3)
@@ -426,7 +425,6 @@ GEM
       rack (~> 1.1)
       tilt (< 2.0, >= 1.2.2)
     spruz (0.2.13)
-    sqlite3 (1.3.4)
     subexec (0.0.4)
     systemu (2.3.0)
     term-ansicolor (1.0.6)
@@ -516,7 +514,6 @@ DEPENDENCIES
   oauth2-provider (= 0.0.16)
   ohai (= 0.5.8)
   omniauth (= 0.2.6)
-  pg
   rails (= 3.0.10)
   rails-i18n
   rcov
@@ -536,7 +533,6 @@ DEPENDENCIES
   selenium-webdriver (= 2.4)
   settingslogic (= 2.0.6)
   sod!
-  sqlite3
   thin (= 1.2.11)
   twitter (= 1.5.0)
   typhoeus
