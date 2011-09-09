@@ -24,7 +24,7 @@ describe Postzord::Receiver do
   describe '.initialize' do
     it 'valid for local' do
       Webfinger.should_not_receive(:new)
-      Salmon::SalmonSlap.should_not_receive(:parse)
+      Salmon::EncryptedSlap.should_not_receive(:parse)
 
       zord = Postzord::Receiver.new(@user, :person => @person2, :object => @original_post)
       zord.instance_variable_get(:@user).should_not be_nil
@@ -37,7 +37,7 @@ describe Postzord::Receiver do
       web_mock = mock()
       web_mock.should_receive(:fetch).and_return true
       salmon_mock.should_receive(:author_email).and_return(true)
-      Salmon::SalmonSlap.should_receive(:parse).with(@salmon_xml, @user).and_return(salmon_mock)
+      Salmon::EncryptedSlap.should_receive(:parse).with(@salmon_xml, @user).and_return(salmon_mock)
       Webfinger.should_receive(:new).and_return(web_mock)
 
       zord = Postzord::Receiver.new(@user, :salmon_xml => @salmon_xml)

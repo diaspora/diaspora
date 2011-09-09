@@ -18,7 +18,7 @@ class Postzord::Dispatch
   end
 
   def salmon
-    @salmon_factory ||= Salmon::EncryptedSalmonSlap.create(@sender, @xml)
+    @salmon_factory ||= Salmon::EncryptedSlap.create(@sender, @xml)
   end
 
   def post(opts = {})

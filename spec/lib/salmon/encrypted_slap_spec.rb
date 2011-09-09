@@ -4,10 +4,10 @@
 
 require 'spec_helper'
 
-describe Salmon::EncryptedSalmonSlap do
+describe Salmon::EncryptedSlap do
   let(:post){ alice.post :status_message, :text => "hi", :to => alice.aspects.create(:name => "sdg").id }
 
-  let!(:created_salmon) {Salmon::EncryptedSalmonSlap.create(alice, post.to_diaspora_xml)}
+  let!(:created_salmon) {Salmon::EncryptedSlap.create(alice, post.to_diaspora_xml)}
 
   describe '#create' do
 
@@ -26,7 +26,7 @@ describe Salmon::EncryptedSalmonSlap do
 
     it 'makes the data in the signature encrypted with that key' do
       key_hash = {'key' => created_salmon.aes_key, 'iv' => created_salmon.iv}
-      decoded_string = Salmon::EncryptedSalmonSlap.decode64url(created_salmon.magic_sig.data)
+      decoded_string = Salmon::EncryptedSlap.decode64url(created_salmon.magic_sig.data)
       alice.aes_decrypt(decoded_string, key_hash).should == post.to_diaspora_xml
     end
   end
@@ -47,7 +47,7 @@ describe Salmon::EncryptedSalmonSlap do
 
   context 'marshaling' do
     let(:xml)   {created_salmon.xml_for eve.person}
-    let(:parsed_salmon) { Salmon::EncryptedSalmonSlap.parse(xml, eve)}
+    let(:parsed_salmon) { Salmon::EncryptedSlap.parse(xml, eve)}
 
     it 'should parse out the aes key' do
       parsed_salmon.aes_key.should == created_salmon.aes_key

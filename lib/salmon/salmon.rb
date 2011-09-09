@@ -39,7 +39,7 @@ end
 
 # Verify documents secured with Magic Signatures
 module Salmon
-  autoload :SalmonSlap,          File.join(Rails.root, "lib", "salmon", "salmon_slap")
-  autoload :EncryptedSalmonSlap, File.join(Rails.root, "lib", "salmon", "encrypted_salmon_slap")
-  autoload :MagicSigEnvelope,    File.join(Rails.root, "lib", "salmon", "magic_sig_envelope")
+  autoload :Slap,             File.join(Rails.root, "lib", "salmon", "slap")
+  autoload :EncryptedSlap,    File.join(Rails.root, "lib", "salmon", "encrypted_slap")
+  autoload :MagicSigEnvelope, File.join(Rails.root, "lib", "salmon", "magic_sig_envelope")
 end

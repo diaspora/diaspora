@@ -16,12 +16,13 @@ module Salmon
 
       env.data =  doc.search('//me:env/me:data', ns).text
       env.alg = doc.search('//me:env/me:alg', ns).text.strip
-      env.sig =  doc.search('//me:env/me:sig', ns).text
-      env.data_type = doc.search('//me:env/me:data', ns).first['type'].strip
 
       unless 'RSA-SHA256' == env.alg
         raise ArgumentError, "Magic Signature data must be signed with RSA-SHA256, was #{env.alg}"
       end
+
+      env.sig =  doc.search('//me:env/me:sig', ns).text
+      env.data_type = doc.search('//me:env/me:data', ns).first['type'].strip
 
       env
     end
@@ -34,6 +35,7 @@ module Salmon
       env.encoding  = env.get_encoding
       env.alg = env.get_alg
 
+      #TODO: WHY DO WE DOUBLE ENCODE
       env.sig = Base64.urlsafe_encode64(
         user.encryption_key.sign OpenSSL::Digest::SHA256.new, env.signable_string )
 

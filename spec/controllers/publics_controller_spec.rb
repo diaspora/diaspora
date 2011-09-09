@@ -57,7 +57,7 @@ describe PublicsController do
       xml2 = post1.to_diaspora_xml
       user2 = Factory(:user)
 
-      salmon_factory = Salmon::SalmonSlap.create(@user, xml2)
+      salmon_factory = Salmon::EncryptedSlap.create(@user, xml2)
       enc_xml = salmon_factory.xml_for(user2.person)
 
       Resque.should_receive(:enqueue).with(Job::ReceiveSalmon, @user.id, enc_xml).once

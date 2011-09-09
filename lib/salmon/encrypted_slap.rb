@@ -3,7 +3,7 @@
 #   the COPYRIGHT file.
 
 module Salmon
-  class EncryptedSalmonSlap < SalmonSlap
+  class EncryptedSlap < Slap
     def header(person)
       <<XML
         <encrypted_header>
@@ -20,6 +20,11 @@ XML
     def salmon_header(doc, user)
       header = user.decrypt(doc.search('encrypted_header').text)
       Nokogiri::XML(header)
+    end
+
+    # @return [String]
+    def self.payload(activity, user, aes_key_hash)
+      user.person.aes_encrypt(activity, aes_key_hash)
     end
   end
 end

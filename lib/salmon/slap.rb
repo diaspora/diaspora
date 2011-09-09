@@ -3,17 +3,20 @@
 #   the COPYRIGHT file.
 
 module Salmon
- class SalmonSlap
+ class Slap
     attr_accessor :magic_sig, :author, :author_email, :aes_key, :iv, :parsed_data,
                   :data_type, :sig
 
     def self.create(user, activity)
       salmon = self.new
-      salmon.author = user.person
-      aes_key_hash = user.person.gen_aes_key
-      salmon.aes_key = aes_key_hash['key']
-      salmon.iv      = aes_key_hash['iv']
-      salmon.magic_sig = MagicSigEnvelope.create(user , user.person.aes_encrypt(activity, aes_key_hash))
+      salmon.author   = user.person
+      aes_key_hash    = user.person.gen_aes_key
+
+      #additional headers
+      salmon.aes_key  = aes_key_hash['key']
+      salmon.iv       = aes_key_hash['iv']
+
+      salmon.magic_sig = MagicSigEnvelope.create(user, self.payload(activity, user, aes_key_hash))
       salmon
     end
 
@@ -40,8 +43,13 @@ module Salmon
     end
 
     # @return [String]
+    def self.payload(activity, user=nil, aes_key_hash=nil)
+      activity
+    end
+
+    # @return [String]
     def parse_data(key_hash, user=nil)
-      SalmonSlap.decode64url(self.magic_sig.data)
+      Slap.decode64url(self.magic_sig.data)
     end
 
     # @return [Nokogiri::Doc]
@@ -55,7 +63,7 @@ module Salmon
     <entry xmlns='http://www.w3.org/2005/Atom'>
       #{header(person)}
       #{@magic_sig.to_xml}
-      </entry>
+    </entry>
 ENTRY
     end
 

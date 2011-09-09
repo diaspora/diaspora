@@ -215,7 +215,7 @@ class User < ActiveRecord::Base
   end
 
   def salmon(post)
-    Salmon::EncryptedSalmonSlap.create(self, post.to_diaspora_xml)
+    Salmon::EncryptedSlap.create(self, post.to_diaspora_xml)
   end
 
   def build_relayable(model, options = {})
