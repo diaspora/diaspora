@@ -68,7 +68,7 @@ private
 
 
   def self.make_notification(recipient, target, actor, notification_type)
-    return nil if target.is_a?(Post) && post_visiblity_is_hidden?(recipient, target)
+    return nil if post_visiblity_is_hidden?(recipient, target)
     n = notification_type.new(:target => target,
                                :recipient_id => recipient.id)
     n.actors = n.actors | [actor]
@@ -77,7 +77,10 @@ private
     n
   end
 
+  #horrible hack that should not be here!
   def self.post_visiblity_is_hidden?(recipient, post)
+    return false unless post.is_a?(Post)
+
     contact = recipient.contact_for(post.author)
     return false unless contact && recipient && post
     pv = PostVisibility.where(:contact_id => contact.id, :post_id => post.id).first
