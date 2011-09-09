@@ -574,7 +574,8 @@ en:
 
   post_visibilites:
     update:
-      post_hidden: "%{name}'s post has been hidden."
+      post_hidden_and_muted: "%{name}'s post has been hidden, and notifications have been muted."
+      see_it_on_their_profile: "If you want to see updates on this post, visit %{name}'s profile page."
 
   profiles:
     edit:
@@ -736,6 +737,7 @@ en:
     stream_element:
       viewable_to_anyone: "This post is viewable to anyone on the web"
       via: "via %{link}"
+      hide_and_mute: "Hide and Mute"
       like: "Like"
       unlike: "Unlike"
       dislike: "Dislike"
