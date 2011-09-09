@@ -19,7 +19,7 @@ module Job
 
       people = Person.where(:id => person_ids)
 
-      salmon = Salmon::SalmonSlap.create(user, Base64.decode64(enc_object_xml))
+      salmon = Salmon::EncryptedSalmonSlap.create(user, Base64.decode64(enc_object_xml))
 
       failed_request_people = []
 
