@@ -4,8 +4,8 @@
 
 module Salmon
  class Slap
-    attr_accessor :magic_sig, :author, :author_email, :aes_key, :iv, :parsed_data,
-                  :data_type, :sig
+    attr_accessor :magic_sig, :author, :author_email, :parsed_data
+    attr_accessor :aes_key, :iv
 
     def self.create(user, activity)
       salmon = self.new
@@ -24,22 +24,29 @@ module Salmon
       slap = self.new
       doc = Nokogiri::XML(xml)
 
-      sig_doc = doc.search('entry')
-
       ### Header ##
       header_doc       = slap.salmon_header(doc, user) 
       slap.author_email= header_doc.search('uri').text.split("acct:").last
       slap.aes_key     = header_doc.search('aes_key').text
       slap.iv          = header_doc.search('iv').text
 
-      slap.magic_sig = MagicSigEnvelope.parse sig_doc
+      slap.magic_sig = MagicSigEnvelope.parse(doc.search('entry'))
 
+
+      #should be in encrypted salmon only
       key_hash = {'key' => slap.aes_key, 'iv' => slap.iv}
+      
       slap.parsed_data = slap.parse_data(key_hash, user)
-      slap.sig = slap.magic_sig.sig
-      slap.data_type = slap.magic_sig.data_type
 
       slap
+    end
+
+    def sig
+      self.magic_sig.sig
+    end
+
+    def data_type
+      self.magic_sig.data_type
     end
 
     # @return [String]
