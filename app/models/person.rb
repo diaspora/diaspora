@@ -89,14 +89,19 @@ class Person < ActiveRecord::Base
       people.diaspora_handle #{like_operator} ?
     SQL
 
-    q_tokens = query.to_s.strip.gsub(/(\s|$|^)/) { "%#{$1}" }
-    [where_clause, [q_tokens, q_tokens]]
+    q_tokens = []
+    q_tokens[0] = query.to_s.strip.gsub(/(\s|$|^)/) { "%#{$1}" }
+    q_tokens[1] = q_tokens[0].gsub(/\s/,'').gsub('%','')
+    q_tokens[1] << "%"
+
+    [where_clause, q_tokens]
   end
 
   def self.search(query, user)
     return self.where("1 = 0") if query.to_s.blank? || query.to_s.length < 2
 
     sql, tokens = self.search_query_string(query)
+    pp sql,tokens
 
     Person.searchable.where(sql, *tokens).joins(
       "LEFT OUTER JOIN contacts ON contacts.user_id = #{user.id} AND contacts.person_id = people.id"
