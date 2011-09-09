@@ -25,9 +25,13 @@ class Notification < ActiveRecord::Base
         else
           n = note_type.make_notification(recipient, target, actor, note_type)
         end
-        n.email_the_user(target, actor) if n
-        n.socket_to_user(recipient, :actor => actor) if n
-        n
+        if n
+          n.email_the_user(target, actor) if n
+          n.socket_to_user(recipient, :actor => actor) if n
+          n
+        else
+          nil
+        end
        end
     end
   end
@@ -43,6 +47,7 @@ class Notification < ActiveRecord::Base
 
 private
   def self.concatenate_or_create(recipient, target, actor, notification_type)
+    return nil if post_visiblity_is_hidden?(recipient, target)
     if n = notification_type.where(:target_id => target.id,
                                    :target_type => target.class.base_class,
                                    :recipient_id => recipient.id,
@@ -61,12 +66,21 @@ private
     end
   end
 
+
   def self.make_notification(recipient, target, actor, notification_type)
+    return nil if post_visiblity_is_hidden?(recipient, target)
     n = notification_type.new(:target => target,
                                :recipient_id => recipient.id)
     n.actors = n.actors | [actor]
     n.unread = false if target.is_a? Request
     n.save!
     n
+  end
+
+  def self.post_visiblity_is_hidden?(recipient, post)
+    contact = recipient.contact_for(post.author)
+    return false unless contact && recipient && post
+    pv = PostVisibility.where(:contact_id => contact.id, :post_id => post.id).first
+    pv.present? ? pv.hidden? : false
   end
 end
