@@ -6,24 +6,24 @@
   #sort_by
     = t('.recently')
     %span.controls
-      = link_to_if(session[:sort_order] == 'created_at', t('.commented_on'), aspects_path(:a_ids => params[:a_ids], :sort_order => 'updated_at'))
+      = link_to_if(session[:sort_order] == 'created_at', t('.commented_on'), aspects_path(:a_ids => stream.aspect_ids, :sort_order => 'updated_at'))
       ·
-      = link_to_if(session[:sort_order] == 'updated_at', t('.posted'), aspects_path(:a_ids => params[:a_ids], :sort_order => 'created_at' ))
+      = link_to_if(session[:sort_order] == 'updated_at', t('.posted'), aspects_path(:a_ids => stream.aspect_ids, :sort_order => 'created_at' ))
 
   %h3
-    - if all_aspects_selected?
+    - if stream.for_all_aspects?
       = t('.stream')
     - else
-      = @aspects.to_sentence
+      = stream.aspects.to_sentence
 
-= render 'shared/publisher', :selected_aspects => @aspects, :aspect_ids => aspect_ids, :aspect => @aspect
+= render 'shared/publisher', :selected_aspects => stream.aspects, :aspect_ids => stream.aspect_ids, :for_all_aspects => stream.for_all_aspects?, :aspect => stream.aspect
 = render 'aspects/no_posts_message'
 
 - if current_user.contacts.size < 2
   = render 'aspects/no_contacts_message'
 
-#main_stream.stream{:data => {:guids => aspect_ids.join(',')}}
-  - if posts.length > 0
-    = render 'shared/stream', :posts => posts
+#main_stream.stream{:data => {:guids => stream.aspect_ids.join(',')}}
+  - if stream.posts.length > 0
+    = render 'shared/stream', :posts => stream.posts
     #pagination
       =link_to(t('more'), next_page_path, :class => 'paginate')

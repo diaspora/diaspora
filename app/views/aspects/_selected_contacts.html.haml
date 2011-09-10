@@ -1,22 +1,22 @@
 #selected_aspect_contacts.section
   .title.no_icon
     %h5
-      - if all_aspects_selected? || !@aspect || @aspect_ids.size > 1
+      - if @stream.for_all_aspects? || @stream.aspect_ids.size > 1
         = "#{t('_contacts')}"
       - else
-        = @aspect.name
-      = "(#{count})"
+        = @stream.aspect.name
+      = "(#{@stream.people.size})"
 
 
   .content
-    - if people.size > 0
-      - for person in people
-        = person_image_link person
+    - if @stream.people.size > 0
+      - for person in @stream.people
+        = person_image_link(person)
 
-      - if all_aspects_selected? || @aspect_ids.size > 1
+      - if @stream.for_all_aspects? || @stream.aspect_ids.size > 1
         = link_to t('.view_all_contacts'), contacts_link, :id => "view_all_contacts_link"
       - else
-        = link_to t('.view_all_contacts'), contacts_path(:a_id => @aspect.id), :id => "view_all_contacts_link"
+        = link_to t('.view_all_contacts'), contacts_path(:a_id => @stream.aspect.id), :id => "view_all_contacts_link"
 
     - else
       = t('.no_contacts')

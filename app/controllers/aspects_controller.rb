@@ -2,6 +2,8 @@
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
+require File.join(Rails.root, "lib", "aspect_stream")
+
 class AspectsController < ApplicationController
   before_filter :authenticate_user!
   before_filter :save_sort_order, :only => :index
@@ -11,36 +13,16 @@ class AspectsController < ApplicationController
   respond_to :json, :only => [:show, :create]
 
   helper_method :tags, :tag_followings
-  helper_method :all_aspects_selected?
   helper_method :selected_people
 
   def index
-    @aspects = current_user.aspects
-    @aspects = @aspects.where(:id => params[:a_ids]) if params[:a_ids]
-
-    @aspect_ids = @aspects.map { |a| a.id }
-    @posts = current_user.visible_posts(:by_members_of => @aspect_ids,
-                                        :type => ['StatusMessage','Reshare', 'ActivityStreams::Photo'],
-                                        :order => session[:sort_order] + ' DESC',
-                                        :max_time => params[:max_time].to_i
-                          ).includes(:mentions => {:person => :profile}, :author => :profile)
+    @stream = AspectStream.new(current_user, params[:a_ids],
+                               :order => session[:sort_order],
+                               :max_time => params[:max_time])
 
     if params[:only_posts]
-      render :partial => 'shared/stream', :locals => {:posts => @posts}
-    else
-      @contact_count = selected_people(@aspect_ids).count
-
-      # aspects.first is used for mobile
-      # the :all is currently used for view switching logic
-      @aspect = (params[:a_ids] ? @aspects.first : :all)
+      render :partial => 'shared/stream', :locals => {:posts => @stream.posts}
     end
-  end
-
-  def selected_people(aspect_ids)
-    @selected_people ||= Person.joins(:contacts => :aspect_memberships).
-                                   where(:contacts => {:user_id => current_user.id},
-                                         :aspect_memberships => {:aspect_id => @aspect_ids}).
-                                   select("DISTINCT people.*").includes(:profile)
   end
 
   def create
@@ -154,10 +136,6 @@ class AspectsController < ApplicationController
 
   def ensure_page
     params[:max_time] ||= Time.now + 1
-  end
-
-  def all_aspects_selected?
-    @aspect == :all
   end
 
   def tag_followings
