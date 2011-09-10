@@ -29,6 +29,10 @@ module ProfilesHelper
   # @param [Profile, Symbol] Profile and field in question
   # @return [Boolean] The field in question is set?
   def field_filled_out?(profile, field)
-    profile.send("#{field}".to_sym).present?
+    if field != :image_url
+      profile.send("#{field}".to_sym).present?
+    else
+      profile.send("#{field}".to_sym) != "/images/user/default.png" 
+    end
   end
 end
