@@ -152,18 +152,6 @@ describe AspectsController do
       end
     end
 
-    context 'with no aspects' do
-      before do
-        alice.aspects.each { |aspect| aspect.destroy }
-        alice.reload
-      end
-
-      it 'redirects to the new aspect page' do
-        get :index
-        response.should redirect_to new_aspect_path
-      end
-    end
-
     context 'with posts in multiple aspects' do
       before do
         @posts = []

@@ -18,12 +18,6 @@ class AspectsController < ApplicationController
     @aspects = current_user.aspects
     @aspects = @aspects.where(:id => params[:a_ids]) if params[:a_ids]
 
-    # redirect to aspects creation
-    if @aspects.blank?
-      redirect_to new_aspect_path
-      return
-    end
-
     @aspect_ids = @aspects.map { |a| a.id }
     @posts = current_user.visible_posts(:by_members_of => @aspect_ids,
                                         :type => ['StatusMessage','Reshare', 'ActivityStreams::Photo'],
