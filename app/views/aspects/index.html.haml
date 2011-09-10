@@ -32,6 +32,6 @@
       :posts => @posts
 
 .span-5.rightBar.last
-  = render 'selected_contacts', :people => @selected_people.sample(20), :count => @contact_count
+  = render 'selected_contacts', :people => selected_people(@aspect_ids).sample(20), :count => @contact_count
 
   = render 'shared/right_sections'

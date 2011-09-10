@@ -12,13 +12,11 @@ class AspectsController < ApplicationController
 
   helper_method :tags, :tag_followings
   helper_method :all_aspects_selected?
+  helper_method :selected_people
 
   def index
-    if params[:a_ids]
-      @aspects = current_user.aspects.where(:id => params[:a_ids])
-    else
-      @aspects = current_user.aspects
-    end
+    @aspects = current_user.aspects
+    @aspects = @aspects.where(:id => params[:a_ids]) if params[:a_ids]
 
     # redirect to aspects creation
     if @aspects.blank?
@@ -27,28 +25,28 @@ class AspectsController < ApplicationController
     end
 
     @aspect_ids = @aspects.map { |a| a.id }
-
-    unless params[:only_posts]
-      all_selected_people = Person.joins(:contacts => :aspect_memberships).
-        where(:contacts => {:user_id => current_user.id},
-              :aspect_memberships => {:aspect_id => @aspect_ids})
-      @selected_people = all_selected_people.select("DISTINCT people.*").includes(:profile)
-    end
-
     @posts = current_user.visible_posts(:by_members_of => @aspect_ids,
-                                           :type => ['StatusMessage','Reshare', 'ActivityStreams::Photo'],
-                                           :order => session[:sort_order] + ' DESC',
-                                           :max_time => params[:max_time].to_i
+                                        :type => ['StatusMessage','Reshare', 'ActivityStreams::Photo'],
+                                        :order => session[:sort_order] + ' DESC',
+                                        :max_time => params[:max_time].to_i
                           ).includes(:mentions => {:person => :profile}, :author => :profile)
 
     if params[:only_posts]
       render :partial => 'shared/stream', :locals => {:posts => @posts}
     else
-      @contact_count = @selected_people.count
+      @contact_count = selected_people(@aspect_ids).count
 
-      @aspect = :all unless params[:a_ids]
-      @aspect ||= @aspects.first # used in mobile
+      # aspects.first is used for mobile
+      # the :all is currently used for view switching logic
+      @aspect = (params[:a_ids] ? @aspects.first : :all)
     end
+  end
+
+  def selected_people(aspect_ids)
+    @selected_people ||= Person.joins(:contacts => :aspect_memberships).
+                                   where(:contacts => {:user_id => current_user.id},
+                                         :aspect_memberships => {:aspect_id => @aspect_ids}).
+                                   select("DISTINCT people.*").includes(:profile)
   end
 
   def create
