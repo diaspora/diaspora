@@ -50,7 +50,7 @@ class PublicsController < ApplicationController
   end
 
   def receive_public
-    Postzord::Receiver::Public.new(params[:xml])
+    Resque.enqueue(Job::ReceivePublicSalmon, params[:xml])
     render :nothing => true, :status => :ok
   end
 

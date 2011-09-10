@@ -6,7 +6,6 @@ module Salmon
   class MagicSigEnvelope
     attr_accessor :data, :data_type, :encoding, :alg, :sig, :author
     def self.parse(doc)
-      puts doc.to_s
       env = self.new
       ns = {'me'=>'http://salmon-protocol.org/ns/magic-env'}
       env.encoding = doc.search('//me:env/me:encoding', ns).text.strip

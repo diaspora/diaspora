@@ -45,7 +45,7 @@ module Postzord
 
     protected
     def salmon
-      @salmon ||= Salmon::EncryptedSlap.parse(@salmon_xml, @user)
+      @salmon ||= Salmon::EncryptedSlap.from_xml(@salmon_xml, @user)
     end
 
     def xml_author

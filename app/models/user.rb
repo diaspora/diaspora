@@ -59,6 +59,10 @@ class User < ActiveRecord::Base
                   :invitation_identifier
 
 
+  def self.all_sharing_with_person(person)
+    User.joins(:contacts).where(:contacts => {:person_id => person.id})
+  end
+
   # @return [User]
   def self.find_by_invitation(invitation)
     service = invitation.service
