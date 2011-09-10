@@ -139,7 +139,7 @@ describe AspectsController do
 
     context 'with posts in multiple aspects' do
       before do
-        pending 'this spec needs to be moved into AspectStream spec'
+        pending 'this spec needs to be moved into AspectStream spec or visible_posts spec'
         @posts = []
         2.times do |n|
           user = Factory(:user)

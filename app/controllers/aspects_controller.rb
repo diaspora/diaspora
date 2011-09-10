@@ -16,7 +16,8 @@ class AspectsController < ApplicationController
   helper_method :selected_people
 
   def index
-    @stream = AspectStream.new(current_user, params[:a_ids],
+    aspect_ids = (params[:a_ids] ? params[:a_ids] : [])
+    @stream = AspectStream.new(current_user, aspect_ids,
                                :order => session[:sort_order],
                                :max_time => params[:max_time])
 
@@ -82,8 +83,7 @@ class AspectsController < ApplicationController
   end
 
   def show
-    @aspect = current_user.aspects.where(:id => params[:id]).first
-    if @aspect
+    if @aspect = current_user.aspects.where(:id => params[:id]).first
       redirect_to aspects_path('a_ids[]' => @aspect.id)
     else
       redirect_to aspects_path
