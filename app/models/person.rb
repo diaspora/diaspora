@@ -39,9 +39,11 @@ class Person < ActiveRecord::Base
 
   before_destroy :remove_all_traces
   before_validation :clean_url
-
-  validates_presence_of :url, :profile, :serialized_public_key
-  validates_uniqueness_of :diaspora_handle
+  
+  validates :url, :presence => true
+  validates :profile, :presence => true
+  validates :serialized_public_key, :presence => true
+  validates :diaspora_handle, :uniqueness => true
 
   scope :searchable, joins(:profile).where(:profiles => {:searchable => true})
   scope :remote, where('people.owner_id IS NULL')
