@@ -126,5 +126,11 @@ class Post < ActiveRecord::Base
   def last_three_comments
     self.comments.order('created_at DESC').limit(3).includes(:author => :profile).reverse
   end
+
+  # @return [Integer]
+  def update_comments_counter
+    self.class.where(:id => self.id).
+      update_all(:comments_count => self.comments.count)
+  end
 end
 

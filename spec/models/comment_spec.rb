@@ -42,7 +42,6 @@ describe Comment do
     end
   end
 
-
   describe 'User#comment' do
     it "should be able to comment on one's own status" do
       alice.comment("Yeah, it was great", :post => @status)
@@ -53,10 +52,21 @@ describe Comment do
       bob.comment("sup dog", :post => @status)
       @status.reload.comments.first.text.should == "sup dog"
     end
+
     it 'does not multi-post a comment' do
       lambda {
         alice.comment 'hello', :post => @status
       }.should change { Comment.count }.by(1)
+    end
+  end
+
+  describe 'counter cache' do
+    it 'increments the counter cache on its post' do
+      lambda {
+        alice.comment("oh yeah", :post => @status)
+      }.should change{
+        @status.reload.comments_count
+      }.by(1)
     end
   end
 
@@ -69,19 +79,24 @@ describe Comment do
       @comment = @commenter.comment "Fool!", :post => @post
       @xml = @comment.to_xml.to_s
     end
+
     it 'serializes the sender handle' do
       @xml.include?(@commenter.diaspora_handle).should be_true
     end
+
     it 'serializes the post_guid' do
       @xml.should include(@post.guid)
     end
+
     describe 'marshalling' do
       before do
         @marshalled_comment = Comment.from_xml(@xml)
       end
+
       it 'marshals the author' do
         @marshalled_comment.author.should == @commenter.person
       end
+
       it 'marshals the post' do
         @marshalled_comment.post.should == @post
       end

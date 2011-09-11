@@ -39,6 +39,14 @@ class Comment < ActiveRecord::Base
     self.post.touch
   end
 
+  after_create do
+    self.parent.update_comments_counter
+  end
+
+  after_destroy do
+    self.parent.update_comments_counter
+  end
+
   def diaspora_handle
     self.author.diaspora_handle
   end

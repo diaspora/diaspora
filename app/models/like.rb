@@ -24,11 +24,11 @@ class Like < ActiveRecord::Base
   validates :target, :presence => true
 
   after_create do
-    self.target.update_likes_counter
+    self.parent.update_likes_counter
   end
 
   after_destroy do
-    self.target.update_likes_counter
+    self.parent.update_likes_counter
   end
 
   def diaspora_handle
