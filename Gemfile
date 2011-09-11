@@ -1,8 +1,8 @@
 source 'http://rubygems.org'
 
-gem 'mysql2', '0.2.6' if ENV['DB'].nil? || ENV['DB'] == "mysql"
-gem 'pg' if ENV['DB'] == "postgres"
-gem 'sqlite3' if ENV['DB'] == "sqlite"
+gem 'mysql2', '0.2.6' if ENV['DB'].nil? || ENV['DB'] == 'all' || ENV['DB'] == "mysql"
+gem 'pg' if ENV['DB'] == 'all' || ENV['DB'] == "postgres"
+gem 'sqlite3' if ENV['DB'] == 'all' || ENV['DB'] == "sqlite"
 gem 'rails', '3.0.10'
 gem 'foreigner', '0.9.1'
 gem 'activerecord-import'
