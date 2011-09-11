@@ -66,61 +66,92 @@ describe AspectsController do
   end
 
   describe "#index" do
-    it "generates a jasmine fixture", :fixture => true do
+    context 'jasmine fixtures' do
+      it "generates a jasmine fixture", :fixture => true do
+        get :index
+        save_fixture(html_for("body"), "aspects_index")
+      end
+
+      it "generates a jasmine fixture with a prefill", :fixture => true do
+        get :index, :prefill => "reshare things"
+        save_fixture(html_for("body"), "aspects_index_prefill")
+      end
+
+      it 'generates a jasmine fixture with services', :fixture => true do
+        alice.services << Services::Facebook.create(:user_id => alice.id)
+        alice.services << Services::Twitter.create(:user_id => alice.id)
+        get :index, :prefill => "reshare things"
+        save_fixture(html_for("body"), "aspects_index_services")
+      end
+
+      it 'generates a jasmine fixture with posts', :fixture => true do
+        bob.post(:status_message, :text => "Is anyone out there?", :to => @bob.aspects.where(:name => "generic").first.id)
+        message = alice.post(:status_message, :text => "hello "*800, :to => @alices_aspect_2.id)
+        5.times { bob.comment("what", :post => message) }
+        get :index
+        save_fixture(html_for("body"), "aspects_index_with_posts")
+      end
+
+      it "generates a jasmine fixture with a post with comments", :fixture => true do
+        message = bob.post(:status_message, :text => "HALO WHIRLED", :to => @bob.aspects.where(:name => "generic").first.id)
+        5.times { bob.comment("what", :post => message) }
+        get :index
+        save_fixture(html_for("body"), "aspects_index_post_with_comments")
+      end
+
+      it 'generates a jasmine fixture with a followed tag', :fixture => true do
+        @tag = ActsAsTaggableOn::Tag.create!(:name => "partytimeexcellent")
+        TagFollowing.create!(:tag => @tag, :user => alice)
+        get :index
+        save_fixture(html_for("body"), "aspects_index_with_one_followed_tag")
+      end
+
+      it "generates a jasmine fixture with a post containing a video", :fixture => true do
+        stub_request(:get, "http://gdata.youtube.com/feeds/api/videos/UYrkQL1bX4A?v=2").
+            with(:headers => {'Accept'=>'*/*'}).
+            to_return(:status => 200, :body => "<title>LazyTown song - Cooking By The Book</title>", :headers => {})
+        alice.post(:status_message, :text => "http://www.youtube.com/watch?v=UYrkQL1bX4A", :to => @alices_aspect_2.id)
+        get :index
+        save_fixture(html_for("body"), "aspects_index_with_video_post")
+      end
+
+      it "generates a jasmine fixture with a post that has been liked", :fixture => true do
+        message = alice.post(:status_message, :text => "hello "*800, :to => @alices_aspect_2.id)
+        alice.build_like(:positive => true, :target => message).save
+        bob.build_like(:positive => true, :target => message).save
+
+        get :index
+        save_fixture(html_for("body"), "aspects_index_with_a_post_with_likes")
+      end
+    end
+
+    it 'renders just the stream with the infinite scroll param set' do
+      get :index, :only_posts => true
+      response.should render_template('shared/_stream')
+    end
+
+    it 'assigns an AspectStream' do
       get :index
-      save_fixture(html_for("body"), "aspects_index")
+      assigns(:stream).class.should == AspectStream
     end
 
-    it "generates a jasmine fixture with a prefill", :fixture => true do
-      get :index, :prefill => "reshare things"
-      save_fixture(html_for("body"), "aspects_index_prefill")
-    end
+    describe 'filtering by aspect' do
+      before do
+        @aspect1 = alice.aspects.create(:name => "test aspect")
+        @stream = AspectStream.new(alice, [])
+        @stream.stub(:posts).and_return([])
+      end
 
-    it 'generates a jasmine fixture with services', :fixture => true do
-      alice.services << Services::Facebook.create(:user_id => alice.id)
-      alice.services << Services::Twitter.create(:user_id => alice.id)
-      get :index, :prefill => "reshare things"
-      save_fixture(html_for("body"), "aspects_index_services")
-    end
+      it 'respects a single aspect' do
+        AspectStream.should_receive(:new).with(alice, [@aspect1.id], anything).and_return(@stream)
+        get :index, :a_ids => [@aspect1.id]
+      end
 
-    it 'generates a jasmine fixture with posts', :fixture => true do
-      bob.post(:status_message, :text => "Is anyone out there?", :to => @bob.aspects.where(:name => "generic").first.id)
-      message = alice.post(:status_message, :text => "hello "*800, :to => @alices_aspect_2.id)
-      5.times { bob.comment("what", :post => message) }
-      get :index
-      save_fixture(html_for("body"), "aspects_index_with_posts")
-    end
-
-    it "generates a jasmine fixture with a post with comments", :fixture => true do
-      message = bob.post(:status_message, :text => "HALO WHIRLED", :to => @bob.aspects.where(:name => "generic").first.id)
-      5.times { bob.comment("what", :post => message) }
-      get :index
-      save_fixture(html_for("body"), "aspects_index_post_with_comments")
-    end
-
-    it 'generates a jasmine fixture with a followed tag', :fixture => true do
-      @tag = ActsAsTaggableOn::Tag.create!(:name => "partytimeexcellent")
-      TagFollowing.create!(:tag => @tag, :user => alice)
-      get :index
-      save_fixture(html_for("body"), "aspects_index_with_one_followed_tag")
-    end
-
-    it "generates a jasmine fixture with a post containing a video", :fixture => true do
-      stub_request(:get, "http://gdata.youtube.com/feeds/api/videos/UYrkQL1bX4A?v=2").
-          with(:headers => {'Accept'=>'*/*'}).
-          to_return(:status => 200, :body => "<title>LazyTown song - Cooking By The Book</title>", :headers => {})
-      alice.post(:status_message, :text => "http://www.youtube.com/watch?v=UYrkQL1bX4A", :to => @alices_aspect_2.id)
-      get :index
-      save_fixture(html_for("body"), "aspects_index_with_video_post")
-    end
-
-    it "generates a jasmine fixture with a post that has been liked", :fixture => true do
-      message = alice.post(:status_message, :text => "hello "*800, :to => @alices_aspect_2.id)
-      alice.build_like(:positive => true, :target => message).save
-      bob.build_like(:positive => true, :target => message).save
-
-      get :index
-      save_fixture(html_for("body"), "aspects_index_with_a_post_with_likes")
+      it 'respects multiple aspects' do
+        aspect2 = alice.aspects.create(:name => "test aspect two")
+        AspectStream.should_receive(:new).with(alice, [@aspect1.id, aspect2.id], anything).and_return(@stream)
+        get :index, :a_ids => [@aspect1.id, aspect2.id]
+      end
     end
 
     context "mobile" do
@@ -132,117 +163,6 @@ describe AspectsController do
       it "renders a share button when you pass aspect IDs" do
         get :index, :a_ids => [@alices_aspect_1], :format => :mobile
         response.body.should =~ /#{Regexp.escape('id="status_message_submit"')}/
-      end
-    end
-
-    context 'with getting_started = true' do
-      before do
-        alice.getting_started = true
-        alice.save
-      end
-
-      it 'does not redirect mobile users to getting_started' do
-        get :index, :format => :mobile
-        response.should_not be_redirect
-      end
-
-      it 'does not redirect ajax to getting_started' do
-        get :index, :format => :js
-        response.should_not be_redirect
-      end
-    end
-
-    context 'with posts in multiple aspects' do
-      before do
-        @posts = []
-        2.times do |n|
-          user = Factory(:user)
-          aspect = user.aspects.create(:name => 'people')
-          connect_users(alice, @alices_aspect_1, user, aspect)
-          target_aspect = n.even? ? @alices_aspect_1 : @alices_aspect_2
-          post = alice.post(:status_message, :text=> "hello#{n}", :to => target_aspect)
-          post.created_at = Time.now - (2 - n).seconds
-          post.save!
-          @posts << post
-        end
-        alice.build_comment(:text => 'lalala', :post => @posts.first).save
-      end
-
-      describe "post visibilities" do
-        before do
-          aspect_to_post = bob.aspects.where(:name => "generic").first
-          @status = bob.post(:status_message, :text=> "hello", :to => aspect_to_post)
-          @vis = @status.post_visibilities.first
-        end
-
-        it "pulls back non hidden posts" do
-          get :index
-          assigns[:posts].include?(@status).should be_true
-        end
-        it "does not pull back hidden posts" do
-          @vis.update_attributes(:hidden => true)
-          get :index
-          assigns[:posts].include?(@status).should be_false
-        end
-      end
-
-      describe 'infinite scroll' do
-        it 'renders with the infinite scroll param' do
-          get :index, :only_posts => true
-          assigns[:posts].include?(@posts.first).should be_true
-          response.should be_success
-        end
-
-      end
-
-      describe "ordering" do
-        it "orders posts by updated_at by default" do
-          get :index
-          assigns(:posts).should == @posts
-        end
-
-        it "orders posts by created_at on request" do
-          get :index, :sort_order => 'created_at'
-          assigns(:posts).should == @posts.reverse
-        end
-
-        it "remembers your sort order and lets you override the memory" do
-          get :index, :sort_order => "created_at"
-          assigns(:posts).should == @posts.reverse
-          get :index
-          assigns(:posts).should == @posts.reverse
-          get :index, :sort_order => "updated_at"
-          assigns(:posts).should == @posts
-        end
-
-        it "doesn't allow SQL injection" do
-          get :index, :sort_order => "\"; DROP TABLE users;"
-          assigns(:posts).should == @posts
-          get :index, :sort_order => "created_at"
-          assigns(:posts).should == @posts.reverse
-        end
-      end
-
-      it "returns all posts by default" do
-        alice.aspects.reload
-        get :index
-        assigns(:posts).length.should == 2
-      end
-
-      it "posts include reshares" do
-        reshare = alice.post(:reshare, :public => true, :root_guid => Factory(:status_message, :public => true).guid, :to => alice.aspects)
-        get :index
-        assigns[:posts].map { |x| x.id }.should include(reshare.id)
-      end
-
-      it "can filter to a single aspect" do
-        get :index, :a_ids => [@alices_aspect_2.id.to_s]
-        assigns(:posts).length.should == 1
-      end
-
-      it "can filter to multiple aspects" do
-        get :index, :a_ids => [@alices_aspect_1.id.to_s, @alices_aspect_2.id.to_s]
-        assigns(:posts).length.should == 2
       end
     end
 
