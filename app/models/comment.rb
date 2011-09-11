@@ -25,9 +25,9 @@ class Comment < ActiveRecord::Base
 
   belongs_to :post
   belongs_to :author, :class_name => 'Person'
-
-  validates_presence_of :text, :post
-  validates_length_of :text, :maximum => 2500
+  
+  validates :text, :presence => true, :length => { :maximum => 2500 }
+  validates :post, :presence => true
 
   serialize :youtube_titles, Hash
 

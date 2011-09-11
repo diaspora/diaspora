@@ -5,8 +5,8 @@
 class Mention < ActiveRecord::Base
   belongs_to :post
   belongs_to :person
-  validates_presence_of :post
-  validates_presence_of :person
+  validates :post, :presence => true
+  validates :person, :presence => true
 
   after_destroy :delete_notification
 
