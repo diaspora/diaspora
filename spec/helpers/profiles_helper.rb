@@ -17,6 +17,15 @@ describe ProfilesHelper do
       @profile.bio = "abc"
       field_filled_out?(@profile, :bio).should be_true
     end
+
+    it 'returns false if default profile photo is used' do
+      field_filled_out?(@profile, :image_url).should be_false
+    end
+
+    it 'returns true if custom profile photo is set' do
+      @profile.image_url = "abc.jpg"
+      field_filled_out?(@profile, :image_url).should be_true
+    end
   end
 
   describe '#profile_field_tag' do
