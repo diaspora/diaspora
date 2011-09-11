@@ -10,7 +10,7 @@
 
   .content
     - if @stream.people.size > 0
-      - for person in @stream.people
+      - for person in @stream.people.sample(20)
         = person_image_link(person)
 
       - if @stream.for_all_aspects? || @stream.aspect_ids.size > 1
