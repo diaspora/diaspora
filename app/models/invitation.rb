@@ -13,7 +13,8 @@ class Invitation < ActiveRecord::Base
   before_validation :set_email_as_default_service
 
  # before_create :share_with_exsisting_user, :if => :recipient_id?
-  validates_presence_of :identifier, :service
+  validates :identifier, :presence => true
+  validates :service, :presence => true
   validate :valid_identifier?
   validate :recipient_not_on_pod?
   validates_presence_of :sender, :aspect, :unless => :admin?

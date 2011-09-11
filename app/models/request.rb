@@ -11,8 +11,10 @@ class Request
 
   xml_accessor :sender_handle
   xml_accessor :recipient_handle
-
-  validates_presence_of :sender, :recipient
+  
+  validates :sender, :presence => true
+  validates :recipient, :presence => true
+  
   validate :not_already_connected
   validate :not_friending_yourself
 

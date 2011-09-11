@@ -10,9 +10,9 @@ class Aspect < ActiveRecord::Base
 
   has_many :aspect_visibilities
   has_many :posts, :through => :aspect_visibilities
+  
+  validates :name, :presence => true, :length => { :maximum => 20 }
 
-  validates_presence_of :name
-  validates_length_of :name, :maximum => 20
   validates_uniqueness_of :name, :scope => :user_id, :case_sensitive => false
 
   attr_accessible :name, :contacts_visible, :order_id

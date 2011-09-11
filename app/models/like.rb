@@ -20,7 +20,8 @@ class Like < ActiveRecord::Base
   belongs_to :author, :class_name => 'Person'
 
   validates_uniqueness_of :target_id, :scope => [:target_type, :author_id]
-  validates_presence_of :author, :target
+  validates :author, :presence => true
+  validates :target, :presence => true
 
   after_create do
     self.target.update_likes_counter
