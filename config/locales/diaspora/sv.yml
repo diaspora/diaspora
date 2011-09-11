@@ -147,6 +147,7 @@ sv:
     zero: "inga aspekter"
   authorizations: 
     index: 
+      no_applications: "You haven't registered any applications yet."
       revoke_access: "Revoke Access"
   back: "Tillbaka"
   bookmarklet: 

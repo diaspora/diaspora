@@ -147,6 +147,7 @@ zh-TW:
     zero: "沒有面向"
   authorizations: 
     index: 
+      no_applications: "You haven't registered any applications yet."
       revoke_access: "撤銷存取權"
   back: "後退"
   bookmarklet: 

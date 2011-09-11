@@ -147,6 +147,7 @@ cs:
     zero: "žádné aspekty"
   authorizations: 
     index: 
+      no_applications: "You haven't registered any applications yet."
       revoke_access: "Zrušit přístup"
   back: "Zpět"
   bookmarklet: 

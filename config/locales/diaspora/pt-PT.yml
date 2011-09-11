@@ -147,6 +147,7 @@ pt-PT:
     zero: "não há aspectos"
   authorizations: 
     index: 
+      no_applications: "You haven't registered any applications yet."
       revoke_access: "Revogar o Acesso"
   back: "Voltar"
   bookmarklet: 

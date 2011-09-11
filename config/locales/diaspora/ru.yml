@@ -147,6 +147,7 @@ ru:
     zero: "нет аспектов"
   authorizations: 
     index: 
+      no_applications: "Вы еще не зарегистрировали ни одного приложения."
       revoke_access: "Отменить доступ"
   back: "Назад"
   bookmarklet: 
@@ -541,8 +542,8 @@ ru:
       notice: "Фотография успешно загружена."
   post_visibilites: 
     update: 
-      post_hidden_and_muted: "%{name}'s post has been hidden, and notifications have been muted."
-      see_it_on_their_profile: "If you want to see updates on this post, visit %{name}'s profile page."
+      post_hidden_and_muted: "Запись пользователя %{name} была скрыта вместе с уведомлениями."
+      see_it_on_their_profile: "Если вы хотите видеть обновления этой записи, посетите профиль пользователя %{name}."
   posts: 
     show: 
       destroy: "Удалить"
@@ -710,7 +711,7 @@ ru:
       reshare: "Поделиться повторно"
     stream_element: 
       dislike: "Не нравится"
-      hide_and_mute: "Hide and Mute"
+      hide_and_mute: "Скрыть и отключить уведомления"
       like: "Мне нравится"
       shared_with: "Для аспектов: %{aspect_names}"
       unlike: "Не нравится"
@@ -800,7 +801,7 @@ ru:
       connect_with_people: "Знакомьтесь с интересными людьми"
       connect_with_people_explanation_pt1: "Общайтесь с людьми, добавляя их в один или несколько ваших %{bold}."
       connect_with_people_explanation_pt2: "Аспекты - это интуитивно понятный способ организации новых и уже знакомых собеседников, невидимый никому, кроме вас и позволяющий легко делиться только с нужными группами людей."
-      edit_profile: "Edit Profile"
+      edit_profile: "Редактировать профиль"
       featured_tags: "Рекомендуемые метки"
       featured_users: "Рекомендуемые пользователи"
       fill_out_your_profile: "Заполните ваш профиль"
@@ -818,8 +819,8 @@ ru:
         name: "Имя"
         photo: "Фото"
         tags: "Метки"
-      search_for_hashtags: "Search for #hashtags"
-      search_for_people: "Search for people"
+      search_for_hashtags: "Искать по #меткам"
+      search_for_people: "Искать людей"
       see_all_featured_users: "Посмотреть всех рекомендуемых пользователей"
       welcome: "Добро пожаловать!"
       welcome_with_name: "Добро пожаловать, %{name}!"

@@ -147,6 +147,7 @@ fr:
     zero: "aucun aspect"
   authorizations: 
     index: 
+      no_applications: "You haven't registered any applications yet."
       revoke_access: "Révoquer l'accès"
   back: "Retour"
   bookmarklet: 

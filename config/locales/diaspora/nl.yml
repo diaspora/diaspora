@@ -147,6 +147,7 @@ nl:
     zero: "geen aspecten"
   authorizations: 
     index: 
+      no_applications: "You haven't registered any applications yet."
       revoke_access: "Toegang Terugdraaien"
   back: "Terug"
   bookmarklet: 

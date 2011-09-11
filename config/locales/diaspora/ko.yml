@@ -147,6 +147,7 @@ ko:
     zero: "애스펙 없음"
   authorizations: 
     index: 
+      no_applications: "You haven't registered any applications yet."
       revoke_access: "접속권한 취소"
   back: "돌아가기"
   bookmarklet: 

@@ -147,6 +147,7 @@ zh-CN:
     zero: "没有视图"
   authorizations: 
     index: 
+      no_applications: "You haven't registered any applications yet."
       revoke_access: "Revoke Access"
   back: "后退"
   bookmarklet: 

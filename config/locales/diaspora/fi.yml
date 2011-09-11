@@ -147,6 +147,7 @@ fi:
     zero: "ei näkymiä"
   authorizations: 
     index: 
+      no_applications: "You haven't registered any applications yet."
       revoke_access: "Revoke Access"
   back: "Takaisin"
   bookmarklet: 

@@ -147,6 +147,7 @@ de:
     zero: "keine Aspekte"
   authorizations: 
     index: 
+      no_applications: "You haven't registered any applications yet."
       revoke_access: "Zugriff widerrufen"
   back: "Zurück"
   bookmarklet: 
@@ -800,7 +801,7 @@ de:
       connect_with_people: "Kontaktiere tolle Leute"
       connect_with_people_explanation_pt1: "Verbinde dich mit Leuten indem du sie in einen oder mehr von deinen %{bold} platzierst."
       connect_with_people_explanation_pt2: "Aspekte sind ein intuitiver weg um neue und bekannte Gesichter zu gruppieren. Nur für dich, erlauben sie dir nach Teilen deiner Kontakte zu filtern oder mit ihnen Beiträge zu teilen."
-      edit_profile: "Edit Profile"
+      edit_profile: "Profil bearbeiten"
       featured_tags: "Empfohlene Tags"
       featured_users: "Besondere Leute"
       fill_out_your_profile: "Fülle dein Profil aus"

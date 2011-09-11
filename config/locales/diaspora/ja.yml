@@ -147,6 +147,7 @@ ja:
     zero: "アスペクト無し"
   authorizations: 
     index: 
+      no_applications: "You haven't registered any applications yet."
       revoke_access: "Revoke Access"
   back: "前へ"
   bookmarklet: 

@@ -147,6 +147,7 @@ eu:
     zero: "alderdirik ez"
   authorizations: 
     index: 
+      no_applications: "You haven't registered any applications yet."
       revoke_access: "Sarbidea Baliogabetu"
   back: "Atzera"
   bookmarklet: 

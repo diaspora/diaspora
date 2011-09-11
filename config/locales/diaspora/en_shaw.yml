@@ -147,6 +147,7 @@ en_shaw:
     zero: "𐑯𐑴 𐑨𐑕𐑐𐑧𐑒𐑑𐑕"
   authorizations: 
     index: 
+      no_applications: "You haven't registered any applications yet."
       revoke_access: "𐑮𐑦𐑝𐑴𐑒 𐑨𐑒𐑕𐑧𐑕"
   back: "𐑚𐑨𐑒"
   bookmarklet: 

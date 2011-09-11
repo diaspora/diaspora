@@ -147,6 +147,7 @@ he:
     zero: "אין היבטים"
   authorizations: 
     index: 
+      no_applications: "You haven't registered any applications yet."
       revoke_access: "שלילת הגישה"
   back: "חזרה"
   bookmarklet: 

@@ -147,6 +147,7 @@ pt-BR:
     zero: "Nenhum Aspecto"
   authorizations: 
     index: 
+      no_applications: "You haven't registered any applications yet."
       revoke_access: "Revogar Acesso"
   back: "Voltar"
   bookmarklet: 

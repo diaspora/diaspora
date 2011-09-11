@@ -147,6 +147,7 @@ it:
     zero: "nessun aspetto"
   authorizations: 
     index: 
+      no_applications: "Non hai ancora autorizzato nessuna applicazione."
       revoke_access: "Revoca l'autorizzazione"
   back: "Indietro"
   bookmarklet: 
@@ -541,8 +542,8 @@ it:
       notice: "Foto aggiornata con successo."
   post_visibilites: 
     update: 
-      post_hidden_and_muted: "%{name}'s post has been hidden, and notifications have been muted."
-      see_it_on_their_profile: "If you want to see updates on this post, visit %{name}'s profile page."
+      post_hidden_and_muted: "Il post di %{name} è stato nascosto e le notifiche disattivate."
+      see_it_on_their_profile: "Se vuoi vedere i nuovi commenti su questo post, visita il profilo di {name}."
   posts: 
     show: 
       destroy: "Elimina"
@@ -710,7 +711,7 @@ it:
       reshare: "Condividi"
     stream_element: 
       dislike: "Non mi piace"
-      hide_and_mute: "Hide and Mute"
+      hide_and_mute: "Nascondi e Disattiva le notifiche"
       like: "Mi piace"
       shared_with: "Condiviso con: %{aspect_names}"
       unlike: "Annulla"
@@ -800,7 +801,7 @@ it:
       connect_with_people: "Connettiti con gente speciale"
       connect_with_people_explanation_pt1: "Stai in contatto con le persone mettendole in uno o più dei tuoi %{bold}."
       connect_with_people_explanation_pt2: "Gli aspetti sono un sistema intuitivo per raggruppare vecchie e nuove conoscenze in modo riservato, così potrai filtrare o condividere i contenuti con chi vuoi e con facilità."
-      edit_profile: "Edit Profile"
+      edit_profile: "Modifica il Profilo"
       featured_tags: "Tag consigliati"
       featured_users: "Utenti consigliati"
       fill_out_your_profile: "Riempi il tuo profilo"
@@ -818,8 +819,8 @@ it:
         name: "Nome"
         photo: "Foto"
         tags: "Tag"
-      search_for_hashtags: "Search for #hashtags"
-      search_for_people: "Search for people"
+      search_for_hashtags: "Cerca #tag"
+      search_for_people: "Cerca persone"
       see_all_featured_users: "Visualizza tutti gli utenti consigliati"
       welcome: "Benvenuto!"
       welcome_with_name: "Ciao %{name}!"

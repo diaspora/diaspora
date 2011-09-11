@@ -147,6 +147,7 @@ is:
     zero: "no aspects"
   authorizations: 
     index: 
+      no_applications: "You haven't registered any applications yet."
       revoke_access: "Revoke Access"
   back: "Til baka"
   bookmarklet: 

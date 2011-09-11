@@ -147,6 +147,7 @@ ar:
     zero: "لا فئات"
   authorizations: 
     index: 
+      no_applications: "You haven't registered any applications yet."
       revoke_access: "إلغاء الوصول"
   back: "عودة"
   bookmarklet: 

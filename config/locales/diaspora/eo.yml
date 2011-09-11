@@ -147,6 +147,7 @@ eo:
     zero: "neniu aspektoj"
   authorizations: 
     index: 
+      no_applications: "You haven't registered any applications yet."
       revoke_access: "Revoki Permeson"
   back: "Antaŭen"
   bookmarklet: 

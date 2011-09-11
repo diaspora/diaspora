@@ -147,6 +147,7 @@ hu:
     zero: "nincs csoport"
   authorizations: 
     index: 
+      no_applications: "You haven't registered any applications yet."
       revoke_access: "Hozzáférés visszavonása"
   back: "Vissza"
   bookmarklet: 

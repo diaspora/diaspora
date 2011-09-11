@@ -147,6 +147,7 @@ pl:
     zero: "brak aspektów"
   authorizations: 
     index: 
+      no_applications: "You haven't registered any applications yet."
       revoke_access: "Odwołaj dostęp"
   back: "Wróć"
   bookmarklet: 

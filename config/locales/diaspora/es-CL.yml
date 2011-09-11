@@ -147,6 +147,7 @@ es-CL:
     zero: "ningún aspecto"
   authorizations: 
     index: 
+      no_applications: "You haven't registered any applications yet."
       revoke_access: "Revocar el Acceso"
   back: "Atrás"
   bookmarklet: 
