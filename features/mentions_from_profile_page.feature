@@ -12,9 +12,9 @@ Feature: mentioning a contact from their profile page
       When I sign in as "bob@bob.bob"
       And a user with username "bob" is connected with "alice"
       And I have an aspect called "PostingTo"
-      And I have an aspect called "TotallyNotPostingAnythingHere"
+      And I have an aspect called "NotPostingThingsHere"
       And I have user with username "alice" in an aspect called "PostingTo"
-      And I have user with username "alice" in an aspect called "TotallyNotPostingAnythingHere"
+      And I have user with username "alice" in an aspect called "NotPostingThingsHere"
 
       And I am on the home page
 
@@ -32,7 +32,7 @@ Feature: mentioning a contact from their profile page
       Then I should see "I am eating a yogurt"
 
       When I follow "Your Aspects" within "#aspect_nav"
-      And I follow "TotallyNotPostingAnythingHere" within "#aspect_nav"
+      And I follow "NotPostingThingsHere" within "#aspect_nav"
       And I wait for the ajax to finish
       Then I should see "I am eating a yogurt"
 
@@ -44,7 +44,7 @@ Feature: mentioning a contact from their profile page
       And I expand the publisher in the modal window
       And I append "I am eating a yogurt" to the publisher
       And I press the aspect dropdown in the modal window
-      And I toggle the aspect "TotallyNotPostingAnythingHere" in the modal window
+      And I toggle the aspect "NotPostingThingsHere" in the modal window
       And I wait for the ajax to finish
       And I press "Share" in the modal window
 
@@ -54,6 +54,6 @@ Feature: mentioning a contact from their profile page
       Then I should see "I am eating a yogurt"
 
       When I follow "Your Aspects" within "#aspect_nav"
-      And I follow "TotallyNotPostingAnythingHere" within "#aspect_nav"
+      And I follow "NotPostingThingsHere" within "#aspect_nav"
       And I wait for the ajax to finish
       Then I should not see "I am eating a yogurt"
