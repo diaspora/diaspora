@@ -153,7 +153,7 @@ fi
 
 # Start Diaspora
 
-if [ "$SINGLE_PROCESS" != "true" ]; then
+if [ "$(./script/get_config.rb 'single_process_mode?')" != "true" ]; then
     redis_config
     redis-server config/redis.conf &>log/redis-console.log &
 

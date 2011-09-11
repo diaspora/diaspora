@@ -132,4 +132,8 @@ HELP
     end
     return @@pod_uri
   end
+  
+  def self.single_process_mode?
+    (ENV['SINGLE_PROCESS'] == "true" || ENV['SINGLE_PROCESS_MODE'] == "true" || self[:single_process_mode]) ? true : false
+  end
 end

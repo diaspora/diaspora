@@ -6,7 +6,7 @@ if !ENV['SINGLE_PROCESS'] && AppConfig[:redis_url]
   Resque.redis = Redis.new(:host => AppConfig[:redis_url], :port => 6379)
 end
 
-if ENV['SINGLE_PROCESS'] || AppConfig.single_process_mode
+if AppConfig.single_process_mode?
   if Rails.env == 'production'
     puts "WARNING: You are running Diaspora in production without Resque workers turned on.  Please don't do this."
   end

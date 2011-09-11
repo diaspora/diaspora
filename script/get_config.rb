@@ -35,9 +35,11 @@ if ARGV.length >= 1
     require 'settingslogic'
     require File.join(Rails.root, 'app', 'models', 'app_config')
     setting_name = setting_name.to_sym
-    if AppConfig[setting_name].nil?
+    if (!AppConfig.respond_to?(setting_name) || AppConfig.send(setting_name).nil?) && AppConfig[setting_name].nil?
       $stderr.puts "Could not find setting #{ARGV[0]} for environment #{Rails.env}."
       Process.exit(1)
+    elsif AppConfig.respond_to?(setting_name)
+      print AppConfig.send(setting_name)
     else
       print AppConfig[setting_name]
     end
