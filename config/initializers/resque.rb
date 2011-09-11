@@ -15,7 +15,7 @@ if AppConfig.single_process_mode?
       begin 
         klass.send(:perform, *args)
       rescue Exception => e
-        Rails.logger(e.message)
+        Rails.logger.warn(e.message)
         nil
       end
     end
