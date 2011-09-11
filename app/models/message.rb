@@ -14,7 +14,7 @@ class Message < ActiveRecord::Base
   belongs_to :author, :class_name => 'Person'
   belongs_to :conversation, :touch => true
 
-  validates_presence_of :text
+  validates :text, :presence => true
 
   after_create do
     #sign comment as commenter

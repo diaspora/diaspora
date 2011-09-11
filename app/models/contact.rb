@@ -7,7 +7,7 @@ class Contact < ActiveRecord::Base
   validates_presence_of :user
 
   belongs_to :person
-  validates_presence_of :person
+  validates :person, :presence => true
 
   has_many :aspect_memberships
   has_many :aspects, :through => :aspect_memberships

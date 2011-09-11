@@ -4,51 +4,15 @@
 
 defaults: &defaults
 
-  #
-  # Environment
-  #
-
   # Hostname of the machine you're running Diaspora on, as seen from the internet.
   # For development and testing, you can leave this as is.
   pod_url: "http://localhost:3000"
 
-  # Websocket host - leave as 0.0.0.0 unless you know what you are doing
-  socket_host: 0.0.0.0
-
-  # Websocket port - should normally be 8080 or 8081.
-  socket_port: 8080
-
-  # Setting the root certificate bundle (this is operating system specific). Defaults:
-  # CentOS: '/etc/pki/tls/certs/ca-bundle.crt'
-  # Debian: '/etc/ssl/certs/ca-certificates.crt'
-  ca_file: '/etc/pki/tls/certs/ca-bundle.crt'
-
-  # Secure websocket confguration (wss://).
-  # Requires SSL cert and key
-  socket_secure: false
-  socket_cert_chain_location: '/full/path/to/cert_chain.crt'
-  socket_private_key_location: '/full/path/to/file.key'
-
-
-  # URL for a remote redis, on the default port. Don't forget to restrict IP access!
-  # leave it empty for the default (localhost)
-  redis_url: ''
-
-  # Amazon S3 for photos
-
-  # s3 config - if set, carrierwave will store your photos on s3. Otherwise they're on the filesystem.
-  #s3_key: 'key'
-  #s3_secret: 'secret'
-  #s3_bucket: 'my_photos'
-  s3_region: 'us-east-1'
-
-
-  #
-  # Settings
-  #
-
   # Set this to true to prevent people from signing up for your pod without an invitation.
   registrations_closed: false
+
+  # Set this to true to prevent users from sending invitations.
+  invites_off: false
 
   # Set this to true if you want users to invite as many people as they want
   open_invitations: true
@@ -59,16 +23,9 @@ defaults: &defaults
   # to contact joindiaspora.com, set this to true:
   no_follow_diasporahq: false
 
-  # Featured users
-  # (expressed as an array of Diaspora IDs)
-  featured_users:
-    - 'diasporahq@joindiaspora.com'
-
-  # List of users who have admin privileges
-  admins:
-    - 'example_user1dsioaioedfhgoiesajdigtoearogjaidofgjo'
-
+  #
   # Logging setup
+  #
 
   # Enable extensive logging to log/{development,test,production}.log
   debug: false
@@ -77,46 +34,58 @@ defaults: &defaults
   # It is false by default in development and test.
   enable_splunk_logging: true
 
+  #
+  # Websocket server setup - see script/websocket_server.rb
+  #
+
   # Enable extensive logging to websocket server.
   socket_debug : false
 
-  # Hoptoad api key, send failures to Hoptoad
-  hoptoad_api_key: ''
-
-  # Miscellaneous
-
-  # If set to true Diaspora will work with just the appserver, thin by default,
-  # running, however this makes it quite slow as all the time intensive jobs
-  # must be run inside the request cycle. Also the live updates from the Websocket
-  # will be disabled.
-  single_process_mode: false
+  # Websocket host - leave as 0.0.0.0 unless you know what you are doing
+  socket_host: 0.0.0.0
 
   # File containing pid of running script/websocket_server.rb
   socket_pidfile: "log/diaspora-wsd.pid"
 
-  # Do not touch unless you know what you're doing
+  # Websocket port - should normally be 8080 or 8081.
+  socket_port: 8080
   socket_collection_name: 'websocket'
+
+  # Secure websocket confguration (wss://).
+  # Requires SSL cert and key
+  socket_secure: false
+  socket_cert_chain_location: '/full/path/to/cert_chain.crt'
+  socket_private_key_location: '/full/path/to/file.key'
+
+  #
+  # Federation setup
+  #
 
   # Diaspora is only tested against this default pubsub server. You probably don't want to change this.
   pubsub_server: 'https://pubsubhubbub.appspot.com/'
 
-  # Email
+  #
+  # Email setup
+  #
 
   # Setting this to true enables Diaspora's "send email" functionality,
   # requiring meaningful smtp_* settings. These are options for RoR's
   # ActionMailer class.
   mailer_on: false
 
-  # Address/port to smtp server handling outgoing mail.
-  smtp_address: 'smtp.example.com'
-  smtp_port: '587'
-
   # This chooses which mailer should be used. 'smtp' for a smtp
   # connection or 'sendmail' to use the sendmail binary.
   mailer_method: 'smtp'
 
-  # The path to the sendmail binary. Ignored if mailer_method is not set to sendmail
-  sendmail_location: '/usr/sbin/sendmail'
+  # Address/port to smtp server handling outgoing mail.
+  smtp_address: 'smtp.example.com'
+  smtp_port: '587'
+
+  # Domain of smtp server.
+  smtp_domain: 'example.com'
+
+  # Sender address in Diaspora's outgoing mail.
+  smtp_sender_address: 'no-reply@joindiaspora.com'
 
   # Authentication required to send mail. Use one of 'one', 'plain',
   # 'login' or 'cram-md5'. Use 'none' if server does not support
@@ -126,20 +95,17 @@ defaults: &defaults
   # Automatically enable TLS? Ignored if smtp_authentication is set to none
   smtp_starttls_auto: true
 
-  # Domain of smtp server.
-  # This should match the common name of the certificate 
-  # the SMTP server sends. If he sends one
-  smtp_domain: 'example.com'
-
   # Credentials to log in to the SMTP server - may be necessary if
   # smtp_authentication is not 'none'
   smtp_username: 'smtp_username'
   smtp_password: 'secret'
 
-  # Sender address in Diaspora's outgoing mail.
-  smtp_sender_address: 'no-reply@joindiaspora.com'
+  # The path to the sendmail binary.
+  sendmail_location: '/usr/sbin/sendmail'
 
-  # Web tracking
+  #
+  # Web tracking setup
+  #
 
   # google analytics key - if false, no javascript included
   google_a_site: false
@@ -149,22 +115,39 @@ defaults: &defaults
   # the site url in raw format (e.g. pikwik.examplehost.com)
   piwik_url:
 
-  # Backups
+  #
+  # Miscellaneous setup
+  #
 
   # cloudfiles username and api-key - used for backups
   cloudfiles_username: 'example'
   cloudfiles_api_key:  'abc123'
 
-  # Donations
+  # List of users who have admin privileges
+  admins:
+    - 'example_user1dsioaioedfhgoiesajdigtoearogjaidofgjo'
+
+  # s3 config - if set, carrierwave will store your photos on s3. Otherwise they're on the filesystem.
+  #s3_key: 'key'
+  #s3_secret: 'secret'
+  #s3_bucket: 'my_photos'
+  s3_region: 'us-east-1'
 
   # Use paypal for recurring donations
   paypal_hosted_button_id: ""
 
+  # Featured users
+  # (expressed as an array of Diaspora IDs)
+  featured_users:
+    - 'diasporahq@joindiaspora.com'
 
-#
+  single_process_mode?: false
+  #Hoptoad api key
+  hoptoad_api_key: ''
+
+  #url for a remote redis, on the default port.  Don't forget to restrict IP access!
+  redis_url: ''
 # Use this section to override default settings in specific environments
-#
-
 development:
   <<: *defaults
   enable_splunk_logging: false
@@ -172,11 +155,12 @@ development:
 production:
   <<: *defaults
 
+  # Setting the root certificate bundle (this is operating system specific). Defaults:
+  # CentOS: '/etc/pki/tls/certs/ca-bundle.crt'
+  # Debian: '/etc/ssl/certs/ca-certificates.crt'
+  ca_file: '/etc/pki/tls/certs/ca-bundle.crt'
 
-#
 # Do not touch unless you know what you're doing
-#
-
 test:
   <<: *defaults
   pod_url: "http://localhost:9887"
