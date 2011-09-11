@@ -800,6 +800,8 @@ en:
   authorizations:
     index:
       revoke_access: "Revoke Access"
+      no_applications: "You haven't registered any applications yet."
+      
 
   users:
     edit:
