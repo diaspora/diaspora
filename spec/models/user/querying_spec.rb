@@ -17,38 +17,46 @@ describe User do
       public_post = alice.post(:status_message, :text => "hi", :to => @alices_aspect.id, :public => true)
       alice.visible_posts.should include(public_post)
     end
+
     it "contains your non-public posts" do
       private_post = alice.post(:status_message, :text => "hi", :to => @alices_aspect.id, :public => false)
       alice.visible_posts.should include(private_post)
     end
+
     it "contains public posts from people you're following" do
       dogs = bob.aspects.create(:name => "dogs")
       bobs_public_post = bob.post(:status_message, :text => "hello", :public => true, :to => dogs.id)
       alice.visible_posts.should include(bobs_public_post)
     end
+
     it "contains non-public posts from people who are following you" do
       bobs_post = bob.post(:status_message, :text => "hello", :to => @bobs_aspect.id)
       alice.visible_posts.should include(bobs_post)
     end
+
     it "does not contain non-public posts from aspects you're not in" do
       dogs = bob.aspects.create(:name => "dogs")
       invisible_post = bob.post(:status_message, :text => "foobar", :to => dogs.id)
       alice.visible_posts.should_not include(invisible_post)
     end
+
     it "does not contain pending posts" do
       pending_post = bob.post(:status_message, :text => "hey", :public => true, :to => @bobs_aspect.id, :pending => true)
       pending_post.should be_pending
       alice.visible_posts.should_not include pending_post
     end
+
     it "does not contain pending photos" do
       pending_photo = bob.post(:photo, :pending => true, :user_file=> File.open(photo_fixture_name), :to => @bobs_aspect)
       alice.visible_posts.should_not include pending_photo
     end
+
     it "respects the :type option" do
       photo = bob.post(:photo, :pending => false, :user_file=> File.open(photo_fixture_name), :to => @bobs_aspect)
       alice.visible_posts.should include(photo)
       alice.visible_posts(:type => 'StatusMessage').should_not include(photo)
     end
+
     it "does not contain duplicate posts" do
       bobs_other_aspect = bob.aspects.create(:name => "cat people")
       bob.add_contact_to_aspect(bob.contact_for(alice.person), bobs_other_aspect)
@@ -59,16 +67,35 @@ describe User do
       alice.visible_posts.length.should == 1
       alice.visible_posts.should include(bobs_post)
     end
+
+    describe 'hidden posts' do
+      before do
+        aspect_to_post = bob.aspects.where(:name => "generic").first
+        @status = bob.post(:status_message, :text=> "hello", :to => aspect_to_post)
+        @vis = @status.post_visibilities.first
+      end
+
+      it "pulls back non hidden posts" do
+        alice.visible_posts.include?(@status).should be_true
+      end
+
+      it "does not pull back hidden posts" do
+        @vis.update_attributes(:hidden => true)
+        alice.visible_posts.include?(@status).should be_false
+      end
+    end
+
     context 'with many posts' do
       before do
         bob.move_contact(eve.person, @bobs_aspect, bob.aspects.create(:name => 'new aspect'))
         time_interval = 1000
+        time_past = 1000000
         (1..25).each do |n|
           [alice, bob, eve].each do |u|
             aspect_to_post = u.aspects.where(:name => "generic").first
             post = u.post :status_message, :text => "#{u.username} - #{n}", :to => aspect_to_post.id
-            post.created_at = post.created_at - time_interval
-            post.updated_at = post.updated_at - time_interval
+            post.created_at = (post.created_at-time_past) - time_interval
+            post.updated_at = (post.updated_at-time_past) + time_interval
             post.save
             time_interval += 1000
           end
@@ -79,6 +106,14 @@ describe User do
         bob.visible_posts.should == bob.visible_posts(:by_members_of => bob.aspects.map { |a| a.id }) # it is the same when joining through aspects
         bob.visible_posts.sort_by { |p| p.updated_at }.map { |p| p.id }.should == bob.visible_posts.map { |p| p.id }.reverse #it is sorted updated_at desc by default
 
+        # It should respect the order option
+        opts = {:order => 'created_at DESC'}
+        bob.visible_posts(opts).first.created_at.should > bob.visible_posts(opts).last.created_at
+
+        # It should respect the order option
+        opts = {:order => 'updated_at DESC'}
+        bob.visible_posts(opts).first.updated_at.should > bob.visible_posts(opts).last.updated_at
+        
         # It should respect the limit option
         opts = {:limit => 40}
         bob.visible_posts(opts).length.should == 40

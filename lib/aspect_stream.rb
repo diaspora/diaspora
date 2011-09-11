@@ -7,12 +7,15 @@ class AspectStream
   attr_reader :max_time, :order
 
   # @param user [User]
+  # @param inputted_aspect_ids [Array<Integer>] Ids of aspects for given stream
   # @param aspect_ids [Array<Integer>] Aspects this stream is responsible for
+  # @opt max_time [Integer] Unix timestamp of stream's post ceiling
+  # @opt order [String] Order of posts (i.e. 'created_at', 'updated_at')
+  # @return [void]
   def initialize(user, inputted_aspect_ids, opts={})
     @user = user
     @inputted_aspect_ids = inputted_aspect_ids
-
-    @max_time = opts[:max_time].to_i
+    @max_time = opts[:max_time]
     @order = opts[:order]
   end
 
@@ -27,7 +30,6 @@ class AspectStream
       a = a.where(:id => @inputted_aspect_ids) if @inputted_aspect_ids.length > 0
       a
     end.call
-    @aspects
   end
 
   # Maps ids into an array from #aspects
@@ -39,9 +41,9 @@ class AspectStream
 
   # @return [ActiveRecord::Association<Post>] AR association of posts
   def posts
-    # NOTE(this should be something like User.aspect_post(@aspect_ids, {}) that calls visible_posts
+    # NOTE(this should be something like Post.all_for_stream(@user, aspect_ids, {}) that calls visible_posts
     @posts ||= @user.visible_posts(:by_members_of => @aspect_ids,
-                                   :type => ['StatusMessage','Reshare', 'ActivityStreams::Photo'],
+                                   :type => ['StatusMessage', 'Reshare', 'ActivityStreams::Photo'],
                                    :order => "#{@order} DESC",
                                    :max_time => @max_time
                    ).includes(:mentions => {:person => :profile}, :author => :profile)
@@ -49,11 +51,7 @@ class AspectStream
 
   # @return [ActiveRecord::Association<Person>] AR association of people within stream's given aspects
   def people
-    # NOTE(this should call a method in Person
-    @people ||= Person.joins(:contacts => :aspect_memberships).
-                                   where(:contacts => {:user_id => @user.id},
-                                         :aspect_memberships => {:aspect_id => @aspect_ids}).
-                                   select("DISTINCT people.*").includes(:profile)
+    @people ||= Person.all_from_aspects(aspect_ids, @user)
   end
 
   # @note aspects.first is used for mobile. NOTE(this is a hack and should be fixed)
@@ -71,5 +69,4 @@ class AspectStream
   def for_all_aspects?
     @all_aspects ||= aspect_ids.length == @user.aspects.size
   end
-
 end

@@ -48,6 +48,14 @@ class Person < ActiveRecord::Base
   scope :local, where('people.owner_id IS NOT NULL')
   scope :for_json, select('DISTINCT people.id, people.diaspora_handle').includes(:profile)
 
+  # @note user is passed in here defensively
+  scope :all_from_aspects, lambda { |aspect_ids, user|
+    joins(:contacts => :aspect_memberships).
+         where(:contacts => {:user_id => user.id},
+               :aspect_memberships => {:aspect_id => aspect_ids}).
+         select("DISTINCT people.*").includes(:profile)
+  }
+
   def self.featured_users
     AppConfig[:featured_users].present? ? Person.where(:diaspora_handle => AppConfig[:featured_users]) : []
   end
@@ -68,13 +76,13 @@ class Person < ActiveRecord::Base
   
   
   def self.find_from_id_or_username(params)
-    p =   if params[:id].present?
-            Person.where(:id => params[:id]).first
-          elsif params[:username].present? && u = User.find_by_username(params[:username])
-            u.person
-          else
-            nil
-          end
+    p = if params[:id].present?
+          Person.where(:id => params[:id]).first
+        elsif params[:username].present? && u = User.find_by_username(params[:username])
+          u.person
+        else
+          nil
+        end
     raise ActiveRecord::RecordNotFound unless p.present?
     p
   end
@@ -125,6 +133,8 @@ class Person < ActiveRecord::Base
     sql, tokens = self.search_query_string(query)
     Person.searchable.where(sql, *tokens)
   end
+
+
 
   def name(opts = {})
     if self.profile.nil?

@@ -52,6 +52,12 @@ describe AspectStream do
       stream.posts
     end
 
+    it 'is called with 3 types' do
+      stream = AspectStream.new(@alice, [1,2], :order => 'created_at')
+      @alice.should_receive(:visible_posts).with(hash_including(:type=> ['StatusMessage', 'Reshare', 'ActivityStreams::Photo'])).and_return(stub.as_null_object)
+      stream.posts
+    end
+
     it 'respects ordering' do 
       stream = AspectStream.new(@alice, [1,2], :order => 'created_at')
       @alice.should_receive(:visible_posts).with(hash_including(:order => 'created_at DESC')).and_return(stub.as_null_object)
@@ -66,7 +72,17 @@ describe AspectStream do
   end
 
   describe '#people' do
-    it 'should call a method on person that doesnt exist yet'
+    it 'should call Person.all_from_aspects' do
+      class Person ; end
+
+      alice = stub.as_null_object
+      aspect_ids = [1,2,3]
+      stream = AspectStream.new(alice, [])
+
+      stream.stub(:aspect_ids).and_return(aspect_ids)
+      Person.should_receive(:all_from_aspects).with(stream.aspect_ids, alice)
+      stream.people
+    end
   end
 
   describe '#aspect' do

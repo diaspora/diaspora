@@ -40,6 +40,7 @@ describe Person do
         person_ids.uniq.should == person_ids
       end
     end
+
     describe '.local' do
       it 'returns only local people' do
         Person.local =~ [@person]
@@ -73,7 +74,25 @@ describe Person do
         }.to raise_error ActiveRecord::RecordNotFound
       end
     end
+
+    describe '.all_from_aspects' do
+      it "pulls back the right people given all a user's aspects" do
+        aspect_ids = bob.aspects.map(&:id)
+        Person.all_from_aspects(aspect_ids, bob).map(&:id).should =~ bob.contacts.includes(:person).map{|c| c.person.id}
+      end
+
+      it "pulls back the right people given a subset of aspects" do
+        aspect_ids = bob.aspects.first.id
+        Person.all_from_aspects(aspect_ids, bob).map(&:id).should =~ bob.aspects.first.contacts.includes(:person).map{|c| c.person.id}
+      end
+
+      it "respects aspects given a user" do
+        aspect_ids = alice.aspects.map(&:id)
+        Person.all_from_aspects(aspect_ids, bob).map(&:id).should == []
+      end
+    end
   end
+
   describe "delegating" do
     it "delegates last_name to the profile" do
       @person.last_name.should == @person.profile.last_name

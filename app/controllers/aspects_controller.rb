@@ -19,7 +19,7 @@ class AspectsController < ApplicationController
     aspect_ids = (params[:a_ids] ? params[:a_ids] : [])
     @stream = AspectStream.new(current_user, aspect_ids,
                                :order => session[:sort_order],
-                               :max_time => params[:max_time])
+                               :max_time => params[:max_time].to_i)
 
     if params[:only_posts]
       render :partial => 'shared/stream', :locals => {:posts => @stream.posts}
