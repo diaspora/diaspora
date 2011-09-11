@@ -13,6 +13,7 @@ eu:
         many: "{{count}} alderdietan"
         one: "Alderdi {{count}}ean"
         other: "{{count}} alderdietan"
+        two: "In {{count}} aspects"
         zero: "Alderdira gehitu"
     comments: 
       hide: "iruzkinak ezkutatu"

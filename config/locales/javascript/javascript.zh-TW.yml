@@ -13,6 +13,7 @@ zh-TW:
         many: "在{{count}}個面向中"
         one: "在{{count}}個面向中"
         other: "在{{count}}個面向中"
+        two: "在{{count}}個面向中"
         zero: "加入面向"
     comments: 
       hide: "隱藏意見"

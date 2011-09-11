@@ -62,7 +62,7 @@ el:
     aspect_listings: 
       add_an_aspect: "+ Προσθέστε μια πτυχή"
     aspect_stream: 
-      commented_on: "commented on"
+      commented_on: "σχολιάστηκε"
       posted: "δημοσιεύτηκε"
       recently: "πρόσφατα:"
       stream: "Stream"
@@ -110,7 +110,7 @@ el:
         content: "Μπορείτε να συνδέσετε τις παρακάτω υπηρεσίες στο Diaspora:"
         heading: "Συνδέστε Υπηρεσίες"
       tags_following: "Ετικέτες που ακολουθείτε"
-      unfollow_tag: "Stop following #%{tag}"
+      unfollow_tag: "Σταματήστε να ακολουθείτε την ετικέτα #%{tag}"
       your_aspects: "Οι Πτυχές σας"
     many: "%{count} πτυχές"
     move_contact: 
@@ -140,6 +140,7 @@ el:
       view_all_contacts: "Προβολή όλων των επαφών"
     show: 
       edit_aspect: "επεξεργασία πτυχής"
+    two: "%{count} πτυχές"
     update: 
       failure: "Η πτυχή σας, %{name}, έχει πολύ μεγάλο όνομα για να αποθηκευτεί."
       success: "Έγινε επιτυχώς η επεξεργασία της πτυχής σας,% {name}."
@@ -163,6 +164,7 @@ el:
       commenting: "Σχολιάζει..."
     one: "1 σχόλιο"
     other: "%{count} σχόλια"
+    two: "%{count} σχόλια"
     zero: "κανένα σχόλιο"
   contacts: 
     create: 
@@ -187,6 +189,7 @@ el:
     other: "%{count} επαφές"
     sharing: 
       people_sharing: "Άτομα που διαμοιράζονται μαζί σας: "
+    two: "%{count} επαφές"
     zero: "καμία επαφή"
   conversations: 
     create: 
@@ -200,6 +203,7 @@ el:
         many: "%{count} νέα μηνύματα"
         one: "1 νέο μήνυμα"
         other: "%{count} νέα μηνύματα"
+        two: "%{count} νέα μηνύματα"
         zero: "Κανένα νέο μήνυμα"
     index: 
       create_a_new_message: "δημιουργία νέου μηνύματος"
@@ -297,18 +301,21 @@ el:
         many: "Δεν αρέσει σε %{count} άτομα"
         one: "Δεν αρέσει σε 1 άτομο"
         other: "Δεν αρέσει σε %{count} άτομα"
+        two: "δεν αρέσει σε %{count}"
         zero: "κανένας δεν ανέφερε ότι δεν του αρέσει"
       people_like_this: 
         few: "Αρέσει σε %{count} άτομα"
         many: "Αρέσει σε %{count} άτομα"
         one: "Αρέσει σε 1 άτομο"
         other: "Αρέσει σε %{count} άτομα"
+        two: "αρέσει σε %{count}"
         zero: "δεν αρέσει σε κανέναν"
       people_like_this_comment: 
         few: "Αρέσει σε %{count} χρήστες"
         many: "Αρέσει σε %{count} χρήστες"
         one: "Αρέσει σε %{count} χρήστη"
         other: "Αρέσει σε %{count} χρήστες"
+        two: "αρέσει σε %{count}"
         zero: "Δεν αρέσει σε κανέναν "
   limited: "Περιορισμένο"
   more: "Περισσότερα"
@@ -320,25 +327,29 @@ el:
       many: "Οι χρήστες %{actors} επίσης σχολίασαν τη %{post_link} του %{post_author}."
       one: "Ο χρήστης %{actors} επίσης σχολίασε τη %{post_link} του %{post_author}."
       other: "Οι χρήστες %{actors} επίσης σχολίασαν τη %{post_link} του %{post_author}."
+      two: "Οι χρήστες %{actors} επίσης σχολίασαν τη %{post_link} του %{post_author}."
       zero: "Οι χρήστες %{actors} επίσης σχολίασαν τη %{post_link} του %{post_author}"
     also_commented_deleted: 
       few: "Οι χρήστες %{actors} σχολίασαν μια διαγεγραμμένη δημοσίευση. "
       many: "Οι χρήστες %{actors} σχολίασαν μια διαγεγραμμένη δημοσίευση. "
       one: "Ο χρήστης %{actors} σχολίασε μια διαγεγραμμένη δημοσίευση. "
-      other: "Οι χρήστες %{actors} σχολίασαν μια διαγεγραμμένη δημοσίευση. "
-      zero: "Οι χρήστες %{actors} σχολίασαν μια διαγεγραμμένη δημοσίευση. "
+      other: "Ο χρήστης %{actors} σχολίασε μια διαγεγραμμένη δημοσίευση. "
+      two: "Οι χρήστες %{actors} σχολίασαν μια διαγεγραμμένη δημοσίευση."
+      zero: "Ο χρήστης %{actors} σχολίασε μια διαγεγραμμένη δημοσίευση. "
     comment_on_post: 
       few: "Οι χρήστες %{actors} σχολίασαν τη %{post_link}."
       many: "Οι χρήστες %{actors} σχολίασαν τη %{post_link}."
       one: "Ο χρήστης %{actors} σχολίασε τη %{post_link}."
-      other: "Οι χρήστες %{actors} σχολίασαν τη %{post_link}."
-      zero: "Οι χρήστες %{actors} σχολίασαν τη %{post_link}."
+      other: "Ο χρήστης %{actors} σχολίασε τη %{post_link}."
+      two: "Οι χρήστες %{actors} σχολίασαν τη %{post_link}."
+      zero: "Ο χρήστης %{actors} σχολίασε τη %{post_link}."
     helper: 
       new_notifications: 
         few: "%{count} νέες ειδοποιήσεις"
         many: "%{count} νέες ειδοποιήσεις"
         one: "1 νέα ειδοποίηση"
         other: "%{count} νέες ειδοποιήσεις"
+        two: "%{count} νέες ειδοποιήσεις"
         zero: "Kαμία νέα ειδοποίηση"
     index: 
       and: "και"
@@ -347,6 +358,7 @@ el:
         many: "και %{count} άλλοι"
         one: "και ένας ακόμα"
         other: "και %{count} άλλοι"
+        two: "και %{count} άλλοι"
         zero: "και κανένας άλλος"
       mark_all_as_read: "Σήμανση όλων ως διαβασμένα"
       notifications: "Ειδοποιήσεις"
@@ -355,50 +367,58 @@ el:
       many: "Η %{post_link} άρεσε στους χρήστες %{actors}."
       one: "Η %{post_link} άρεσε στον χρήστη %{actors}."
       other: "Η %{post_link} άρεσε στους χρήστες %{actors}."
+      two: "Στους χρήστες %{actors} άρεσε η %{post_link}."
       zero: "Η %{post_link} άρεσε στους χρήστες %{actors}."
     liked_post_deleted: 
       few: "Η διαγεγραμμένη δημοσίευσή σας άρεσε στους χρήστες %{actors}."
       many: "Η διαγεγραμμένη δημοσίευσή σας άρεσε στους χρήστες %{actors}."
       one: "Η διαγεγραμμένη δημοσίευσή σας άρεσε στον χρήστη %{actors}."
       other: "Η διαγεγραμμένη δημοσίευσή σας άρεσε στον χρήστη %{actors}."
-      zero: "Η διαγεγραμμένη δημοσίευσή σας άρεσε στους χρήστες %{actors}."
+      two: "Στους χρήστες %{actors} άρεσε η διαγεγραμμένη δημοσίευσή σας."
+      zero: "Η διαγεγραμμένη δημοσίευσή σας άρεσε στον χρήστη %{actors}."
     mentioned: 
-      few: "Οι χρήστες %{actors} σας ανέφεραν στο %{post_link}."
-      many: "Οι χρήστες %{actors} σας ανέφεραν στο %{post_link}."
+      few: "Οι χρήστες %{actors} σας ανέφεραν στη %{post_link}."
+      many: "Οι χρήστες %{actors} σας ανέφεραν στη %{post_link}."
       one: "Ο χρήστης %{actors} σας ανέφερε στη %{post_link}."
-      other: "Οι χρήστες %{actors} σας ανέφεραν στο %{post_link}."
+      other: "Οι χρήστες %{actors} σας ανέφεραν στη %{post_link}."
+      two: "Οι χρήστες %{actors} σας ανέφεραν σε μια %{post_link}."
       zero: "Ο χρήστης %{actors} σας ανέφερε στη %{post_link}."
     mentioned_deleted: 
       few: "Οι χρήστες %{actors} σας ανέφεραν σε μια διαγεγραμμένη δημοσίευση."
       many: "Οι χρήστες %{actors} σας ανέφεραν σε μια διαγεγραμμένη δημοσίευση."
       one: "Ο χρήστης %{actors} σας ανέφερε σε μια διαγεγραμμένη δημοσίευση."
       other: "Οι χρήστες %{actors} σας ανέφεραν σε μια διαγεγραμμένη δημοσίευση."
+      two: "Οι χρήστες %{actors} σας ανέφεραν σε μια διαγεγραμμένη δημοσίευση. "
       zero: "Οι χρήστες %{actors} σας ανέφεραν σε μια διαγεγραμμένη δημοσίευση."
     post: "δημοσίευση"
     private_message: 
       few: "Οι χρήστες %{actors} σας έστειλαν ένα μήνυμα."
       many: "Οι χρήστες %{actors} σας έστειλαν ένα μήνυμα. "
       one: "Ο χρήστης %{actors} σας έστειλε ένα μήνυμα."
-      other: "Οι χρήστες %{actors} σας έστειλαν ένα μήνυμα."
+      other: "Ο χρήστης %{actors} σας έστειλε ένα μήνυμα."
+      two: "Οι χρήστες %{actors} σας έστειλαν ένα μήνυμα."
       zero: "Ο χρήστης %{actors} σας έστειλε ένα μήνυμα."
     reshared: 
-      few: "%{actors} has reshared your %{post_link}."
-      many: "%{actors} has reshared your %{post_link}."
-      one: "%{actors} has reshared your %{post_link}."
-      other: "%{actors} has reshared your %{post_link}."
-      zero: "%{actors} has reshared your %{post_link}."
+      few: "Οι χρήστες %{actors} κοινοποίησαν τη %{post_link}."
+      many: "Οι χρήστες %{actors} κοινοποίησαν τη %{post_link}."
+      one: "Ο χρήστης %{actors} κοινοποίησε τη %{post_link}."
+      other: "Οι χρήστες %{actors} κοινοποίησαν τη %{post_link}."
+      two: "Οι χρήστες %{actors} κοινοποίησαν τη %{post_link}."
+      zero: "Οι χρήστες %{actors} κοινοποίησαν τη %{post_link}."
     reshared_post_deleted: 
-      few: "%{actors} reshared your deleted post."
-      many: "%{actors} reshared your deleted post."
-      one: "%{actors} reshared your deleted post."
-      other: "%{actors} reshared your deleted post."
-      zero: "%{actors} reshared your deleted post."
+      few: "Οι χρήστες %{actors} κοινοποίησαν τη διαγεγραμμένη δημοσίευση. "
+      many: "Οι χρήστες %{actors} κοινοποίησαν τη διαγεγραμμένη δημοσίευση."
+      one: "Ο χρήστης %{actors} κοινοποίησε τη διαγεγραμμένη δημοσίευσή σας.  "
+      other: "Ο χρήστης %{actors} κοινοποίησε τη διαγεγραμμένη δημοσίευσή σας. "
+      two: "Οι χρήστες %{actors} κοινοποίησαν μια διαγεγραμμένη δημοσίευση."
+      zero: "Ο χρήστης %{actors} κοινοποίησε τη διαγεγραμμένη δημοσίευσή σας."
     started_sharing: 
       few: "Οι χρήστες %{actors} άρχισαν να διαμοιράζονται μαζί σας."
       many: "Οι χρήστες %{actors} άρχισαν να διαμοιράζονται μαζί σας."
       one: "Ο χρήστης %{actors} άρχισε να διαμοιράζεται μαζί σας."
       other: "Οι χρήστες %{actors} άρχισαν να διαμοιράζονται μαζί σας."
-      zero: "Οι χρήστες %{actors} άρχισαν να διαμοιράζονται μαζί σας."
+      two: "Οι χρήστες %{actors} άρχισαν να διαμοιράζονται μαζί σας. "
+      zero: "Ο χρήστης %{actors} άρχισε να διαμοιράζεται μαζί σας."
   notifier: 
     a_post_you_shared: "μια δημοσίευση."
     click_here: "πατήστε εδώ"
@@ -481,6 +501,7 @@ el:
       add_some: "προσθέστε κάποιες"
       edit: "επεξεργασία"
       you_have_no_tags: "δεν έχετε ετικέτες!"
+    two: "%{count} άτομα"
     webfinger: 
       fail: "Λυπούμαστε, δεν ήταν δυνατή η εύρεση του %{handle}."
     zero: "κανένα άτομο"
@@ -520,7 +541,8 @@ el:
       notice: "Η φωτογραφία ενημερώθηκε επιτυχώς."
   post_visibilites: 
     update: 
-      post_hidden: "Στη δημοσίευση του χρήστη %{name} έχει γίνει απόκρυψη."
+      post_hidden_and_muted: "%{name}'s post has been hidden, and notifications have been muted."
+      see_it_on_their_profile: "If you want to see updates on this post, visit %{name}'s profile page."
   posts: 
     show: 
       destroy: "Διαγραφή"
@@ -582,6 +604,7 @@ el:
         many: "%{count} νέα αιτήματα!"
         one: "νέο αίτημα!"
         other: "%{count} νέα αιτήματα!"
+        two: "%{count} νέα αιτήματα!"
         zero: "κανένα νέο αίτημα"
     manage_aspect_contacts: 
       existing: "Υφιστάμενες επαφές"
@@ -599,6 +622,7 @@ el:
         many: "%{count} κοινοποιήσεις"
         one: "1 κοινοποίηση"
         other: "%{count} κοινοποιήσεις"
+        two: "%{count} κοινοποιήσεις"
         zero: "Κοινοποίηση"
       reshare_confirmation: "Κοινοποίηση της δημοσίευσης του χρήστη %{author};"
       reshare_original: "Κοινοποίηση αρχικής"
@@ -646,6 +670,7 @@ el:
         many: "Σε %{count} πτυχές"
         one: "Σε %{count} πτυχές"
         other: "Σε %{count} πτυχές"
+        two: "Σε %{count} πτυχές"
         zero: "Προσθήκη σε πτυχή"
     contact_list: 
       all_contacts: "Όλες οι επαφές"
@@ -685,6 +710,7 @@ el:
       reshare: "Μοιράσου και πάλι"
     stream_element: 
       dislike: "Δεν μ' αρέσει"
+      hide_and_mute: "Hide and Mute"
       like: "Μου αρέσει"
       shared_with: "Shared with: %{aspect_names}"
       unlike: "Δεν μου αρέσει"
@@ -704,6 +730,7 @@ el:
       many: "παρακαλώ ελαττώστε την κατάσταση σας σε λιγότερο από %{count} χαρακτήρες"
       one: "παρακαλώ μετατρέψτε τα μηνύματα κατάστασης σας σε λιγότερο από %{count} χαρακτήρα"
       other: "παρακαλώ μετατρέψτε τα μηνύματα κατάστασης σας σε λιγότερους από %{count} χαρακτήρες"
+      two: "παρακαλούμε ορίστε το μήνυμα κατάστασής σας σε λιγότερους από %{count} χαρακτήρες"
       zero: "παρακαλώ μετατρέψτε τα μηνύματα κατάστασης σας σε λιγότερους από %{count} χαρακτήρες"
   stream_helper: 
     hide_comments: "Απόκρυψη όλων των σχολίων"
@@ -771,8 +798,9 @@ el:
       connect_to: "Συνδεθείτε με"
       connect_to_your_other_social_networks: "Συνδεθείτε με άλλα κοινωνικά δίκτυα"
       connect_with_people: "Συνδεθείτε με ενδιαφέροντα άτομα"
-      connect_with_people_explanation_pt1: "Συνδεθείτε με άτομα τοποθετώντας τα σε μια ή περισσότερες από τις %{bold}"
+      connect_with_people_explanation_pt1: "Συνδεθείτε με άτομα τοποθετώντας τα σε μία ή περισσότερες από τις %{bold}"
       connect_with_people_explanation_pt2: "Aspects are an intuitive way to group new and familar faces, private to you, allowing you to filter down or share with subsets of your contacts easily."
+      edit_profile: "Edit Profile"
       featured_tags: "Αξιόλογες ετικέτες"
       featured_users: "Αξιόλογοι χρήστες"
       fill_out_your_profile: "Συμπληρώστε το προφίλ σας "
@@ -790,6 +818,8 @@ el:
         name: "Όνομα"
         photo: "Φωτογραφία"
         tags: "Ετικέτες"
+      search_for_hashtags: "Search for #hashtags"
+      search_for_people: "Search for people"
       see_all_featured_users: "Δείτε όλους τους αξιόλογους χρήστες"
       welcome: "Καλώς ήλθατε!"
       welcome_with_name: "Καλώς ήρθες, %{name}!"

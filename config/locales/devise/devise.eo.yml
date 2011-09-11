@@ -34,9 +34,9 @@ eo:
         no_account_till: "Via konto ne kreiĝos ĝis vi eniros la supre ligilon kaj registiĝos."
         subject: "Vi invitigitas aniĝi al DIASPORA*!"
       inviter: 
-        accept_at: "at %{url}, you can accept it through the link below."
+        accept_at: "ĉe %{url}, vi povas akcepti ĝin per la posta ligilo."
         has_invited_you: "%{name}"
-        have_invited_you: "%{names} have invited you to join Diaspora"
+        have_invited_you: "%{names} invitis vin aniĝi DIASPORA*"
       reset_password_instructions: 
         change: "Ŝanĝi mian pasvorton"
         ignore: "Se vi ne petis tiun ĉi, bonvolu ignori tiun ĉi retpoŝton."

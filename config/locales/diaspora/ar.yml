@@ -140,6 +140,7 @@ ar:
       view_all_contacts: "أظهر كل جهات الاتصال"
     show: 
       edit_aspect: "تحرير الفئة"
+    two: "%{count} aspects"
     update: 
       failure: "فئتك, %{name}, اسمها طويل ولا يمكن حفظها."
       success: ".بنجاح %{name} تم تعديل"
@@ -163,6 +164,7 @@ ar:
       commenting: "يُرسل التعليق ..."
     one: "تعليقٌ واحد"
     other: "%{count} تعليق"
+    two: "%{count} comments"
     zero: "لا تعليقات"
   contacts: 
     create: 
@@ -187,6 +189,7 @@ ar:
     other: "%{count} أعضاء"
     sharing: 
       people_sharing: "أعضاء يتشاركون معك:"
+    two: "%{count} contacts"
     zero: "لا يوجد أعضاء"
   conversations: 
     create: 
@@ -200,6 +203,7 @@ ar:
         many: "%{count} رسالةً جديدة"
         one: "رسالةٌ واحدةٌ جديدة"
         other: "%{count} رسالة جديدة"
+        two: "%{count} new messages"
         zero: "لا يوجد رسائل جديدة"
     index: 
       create_a_new_message: "اكتُب رسالةً جديدة"
@@ -297,18 +301,21 @@ ar:
         many: "%{count} كرهوا هذا"
         one: "كره هذا شخصُ واحد"
         other: "%{count} كرهو هذا"
+        two: "%{count} dislikes"
         zero: "لا أحد يكره هذا"
       people_like_this: 
         few: "%{count} إعجابات"
         many: "%{count} إعجابًا"
         one: "إعجابٌ واحد"
         other: "%{count} إعجابًا"
+        two: "%{count} likes"
         zero: "لا إعجابات"
       people_like_this_comment: 
         few: "%{count} إعجابات"
         many: "%{count} إعجابًا"
         one: "إعجابٌ واحد"
         other: "%{count} إعجاب"
+        two: "%{count} likes"
         zero: "لا إعجابات"
   limited: "محدود"
   more: "أكثر"
@@ -320,18 +327,21 @@ ar:
       many: "%{actors} علق أيضا على %{post_link} %{post_author}."
       one: "%{actors} علق أيضا على %{post_link} %{post_author}."
       other: "%{actors} علق أيضا على %{post_link} %{post_author}."
+      two: "%{actors} also commented on %{post_author}'s %{post_link}."
       zero: "%{actors} علق أيضا على %{post_link} %{post_author}."
     also_commented_deleted: 
       few: "%{actors} علقوا على المنشور المحذوف."
       many: "%{actors} علقوا على المنشور المحذوف."
       one: "%{actors} علق على المنشور المحذوف."
       other: "%{actors} علقوا على المنشور المحذوف."
+      two: "%{actors} commented on a deleted post."
       zero: "%{actors} علق على المنشور المحذوف."
     comment_on_post: 
       few: "%{actors} علقوا على %{post_link}."
       many: "%{actors} علقوا على %{post_link}."
       one: "%{actors} علق على %{post_link}."
       other: "%{actors} علقوا على %{post_link}."
+      two: "%{actors} commented on your %{post_link}."
       zero: "%{actors} علق على %{post_link}."
     helper: 
       new_notifications: 
@@ -339,6 +349,7 @@ ar:
         many: "%{count} تنبيهات جديدة"
         one: "1 تنبيه جديد"
         other: "%{count} تنبيهات جديدة"
+        two: "%{count} new notifications"
         zero: "لا تنبيهات جديدة"
     index: 
       and: "و"
@@ -347,6 +358,7 @@ ar:
         many: "و %{count} آخرون"
         one: "و آخر"
         other: "و %{count} آخرون"
+        two: "and %{count} others"
         zero: "و لا أحد"
       mark_all_as_read: "وضع الجميع كمقروء"
       notifications: "تنبيهات"
@@ -355,24 +367,28 @@ ar:
       many: "%{actors} أعجبوا لتوهم بـ %{post_link}."
       one: "%{actors} أعجب لتوه بـ %{post_link}."
       other: "%{actors} أعجبوا لتوهم بـ %{post_link}."
+      two: "%{actors} has just liked your %{post_link}."
       zero: "%{actors} أعجب لتوه بـ %{post_link}."
     liked_post_deleted: 
       few: "%{actors} أعجبوا بالمنشور المحذوف."
       many: "%{actors} أعجبوا بالمنشور المحذوف."
       one: "%{actors} أعجب بالمنشور المحذوف."
       other: "%{actors} أعجبوا بالمنشور المحذوف."
+      two: "%{actors} liked your deleted post."
       zero: "%{actors} أعجب بالمنشور المحذوف."
     mentioned: 
       few: "%{actors} أشاروا إليك في %{post_link}."
       many: "%{actors} أشاروا إليك في %{post_link}."
       one: "%{actors} أشار إليك في %{post_link}."
       other: "%{actors} أشاروا إليك في %{post_link}."
+      two: "%{actors} has mentioned you in a %{post_link}."
       zero: "%{actors} أشار إليك في %{post_link}."
     mentioned_deleted: 
       few: "%{actors} أشاروا إليك في منشور محذوف."
       many: "%{actors} أشاروا إليك في منشور محذوف."
       one: "%{actors} أشار إليك في منشور محذوف."
       other: "%{actors} أشاروا إليك في منشور محذوف."
+      two: "%{actors} mentioned you in a deleted post."
       zero: "%{actors} أشار إليك في منشور محذوف."
     post: "مشاركة"
     private_message: 
@@ -380,24 +396,28 @@ ar:
       many: "%{actors} راسلوك."
       one: "%{actors} راسلك."
       other: "%{actors} راسلوك."
+      two: "%{actors} sent you a message."
       zero: "%{actors} راسلك."
     reshared: 
       few: "%{actors} has reshared your %{post_link}."
       many: "%{actors} has reshared your %{post_link}."
       one: "%{actors} has reshared your %{post_link}."
       other: "%{actors} has reshared your %{post_link}."
+      two: "%{actors} has reshared your %{post_link}."
       zero: "%{actors} has reshared your %{post_link}."
     reshared_post_deleted: 
       few: "%{actors} reshared your deleted post."
       many: "%{actors} reshared your deleted post."
       one: "%{actors} reshared your deleted post."
       other: "%{actors} reshared your deleted post."
+      two: "%{actors} reshared your deleted post."
       zero: "%{actors} reshared your deleted post."
     started_sharing: 
       few: "%{actors} بدؤوا المشاركة معك."
       many: "%{actors} بدؤوا المشاركة معك."
       one: "%{actors} بدأ المشاركة معك."
       other: "%{actors} بدؤوا المشاركة معك."
+      two: "%{actors} started sharing with you."
       zero: "%{actors} بدأ المشاركة معك."
   notifier: 
     a_post_you_shared: "a post."
@@ -481,6 +501,7 @@ ar:
       add_some: "add some"
       edit: "edit"
       you_have_no_tags: "you have no tags!"
+    two: "%{count} people"
     webfinger: 
       fail: "للأسف، لم نجد %{handle}."
     zero: "لا أحد"
@@ -520,7 +541,8 @@ ar:
       notice: "حُدِّثَت الصورة بنجاح."
   post_visibilites: 
     update: 
-      post_hidden: "أُخْفِيَت مشاركة %{name}."
+      post_hidden_and_muted: "%{name}'s post has been hidden, and notifications have been muted."
+      see_it_on_their_profile: "If you want to see updates on this post, visit %{name}'s profile page."
   posts: 
     show: 
       destroy: "احذف"
@@ -582,6 +604,7 @@ ar:
         many: "%{count} طلب تشارك جديد!"
         one: "طلب تشارك جديد!"
         other: "%{count} طلب تشارك جديد!"
+        two: "%{count} new requests!"
         zero: "لا يوجد طلبات مشاركة جديدة"
     manage_aspect_contacts: 
       existing: "جهات الإتصال الموجودة مسبقًا"
@@ -599,6 +622,7 @@ ar:
         many: "أُعِيدَ نشرها %{count} مرة"
         one: "أُعِيدَ نشرها مرة واحدة"
         other: "أُعِيدَ نشرها %{count} مرة"
+        two: "%{count} reshares"
         zero: "أَعِد النشر"
       reshare_confirmation: "هل أُعِد نشر مشاركة %{author} - ومحتواها: %{text} ?"
       reshare_original: "أعد نشر المشاركة الأصلية"
@@ -646,6 +670,7 @@ ar:
         many: "In %{count} aspects"
         one: "In %{count} aspect"
         other: "In %{count} aspects"
+        two: "In %{count} aspects"
         zero: "Add to aspect"
     contact_list: 
       all_contacts: "جميع الأعضاء"
@@ -685,6 +710,7 @@ ar:
       reshare: "أَعِد النشر"
     stream_element: 
       dislike: "لم يعجبني"
+      hide_and_mute: "Hide and Mute"
       like: "أعجبني"
       shared_with: "مُشَارك مع: %{aspect_names}"
       unlike: "إلغاء إعجابي"
@@ -704,6 +730,7 @@ ar:
       many: "رجاءًا لا تتجاوز حد %{count} حرفا في مشاركاتك"
       one: "رجاءًا لا تتجاوز حد الحرف الواحد في مشاركاتك"
       other: "رجاء لا تتجاوز حد %{count} حرفًا في مشاركاتك"
+      two: "please make your status messages less than %{count} characters"
       zero: "رجاءًا لا تضع في مشاركاتك أية حروف "
   stream_helper: 
     hide_comments: "أخْفِ كل التعليقات"
@@ -773,6 +800,7 @@ ar:
       connect_with_people: "Connect with cool people"
       connect_with_people_explanation_pt1: "Connect with people by placing them into one or more of your"
       connect_with_people_explanation_pt2: "Aspects are an intuitive way to group new and familar faces, private to you, allowing you to filter down or share with subsets of your contacts easily."
+      edit_profile: "Edit Profile"
       featured_tags: "Featured tags"
       featured_users: "Featured users"
       fill_out_your_profile: "Fill out your profile"
@@ -790,6 +818,8 @@ ar:
         name: "Name"
         photo: "Photo"
         tags: "Tags"
+      search_for_hashtags: "Search for #hashtags"
+      search_for_people: "Search for people"
       see_all_featured_users: "See all featured users"
       welcome: "مرحبا بك في دياسبرا!"
       welcome_with_name: "Welcome, %{name}!"

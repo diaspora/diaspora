@@ -7,12 +7,13 @@ cs:
   javascripts: 
     aspect_dropdown: 
       add_to_aspect: "Přidat do aspektu"
-      all_aspects: "All aspects"
+      all_aspects: "Všechny aspekty"
       toggle: 
         few: "Ve {{count}} aspektech"
         many: "V {{count}} aspektech"
         one: "V {{count}} aspektu"
         other: "Ve {{count}} aspektech"
+        two: "In {{count}} aspects"
         zero: "Přidat do aspektu"
     comments: 
       hide: "skrýt komentáře"

@@ -140,6 +140,7 @@ eu:
       view_all_contacts: "Adiskide guztiak ikusi"
     show: 
       edit_aspect: "alderdia aldatu"
+    two: "%{count} aspects"
     update: 
       failure: "Zure alderdiak, %{name}(e)k, izen luzeegia du."
       success: "Zure alderdia, %{name}, eraldatua izan da."
@@ -163,6 +164,7 @@ eu:
       commenting: "Iruzkintzen..."
     one: "iruzkin 1"
     other: "%{count} iruzkin"
+    two: "%{count} comments"
     zero: "iruzkinik ez"
   contacts: 
     create: 
@@ -187,6 +189,7 @@ eu:
     other: "%{count} adiskide"
     sharing: 
       people_sharing: "Zurekin harremanetan daudenak:"
+    two: "%{count} contacts"
     zero: "adiskiderik ez"
   conversations: 
     create: 
@@ -200,6 +203,7 @@ eu:
         many: "%{count} mezu pribatu berri"
         one: "mezu pribatu berri 1"
         other: "%{count} mezu pribatu berri"
+        two: "%{count} new messages"
         zero: "Mezu pribatu berririk ez"
     index: 
       create_a_new_message: "mezu berria sortu"
@@ -297,18 +301,21 @@ eu:
         many: "%{count} pertsonek ez dute hau gustuko"
         one: "%{count}ek ez du hau gustuko"
         other: "%{count} pertsonek ez dute hau gustuko"
+        two: "%{count} dislikes"
         zero: "gustoko ez duen pertsonarik ez"
       people_like_this: 
         few: "%{count} pertsonek gustoko dute hau"
         many: "%{count} pertsonek gustoko dute hau"
         one: "%{count}ek du gustoko"
         other: "%{count} pertsonek gustoko dute hau"
+        two: "%{count} likes"
         zero: "oraindik ez du inork gustoko"
       people_like_this_comment: 
         few: "%{count}(e)k gustoko dute"
         many: "%{count}(e)k gustoko dute"
         one: "%{count}ek gustoko du"
         other: "%{count}(e)k gustoko dute"
+        two: "%{count} likes"
         zero: "inork ez du gustoko"
   limited: "Mugatua"
   more: "Gehiago"
@@ -320,18 +327,21 @@ eu:
       many: "%{actors}(e)k ere iruzkindu du(te) %{post_author}(r)en %{post_link}."
       one: "%{actors}(e)k ere iruzkindu du(te) %{post_author}(r)en %{post_link}."
       other: "%{actors}(e)k ere iruzkindu du(te) %{post_author}(r)en %{post_link}."
+      two: "%{actors} also commented on %{post_author}'s %{post_link}."
       zero: "%{actors}(e)k ere iruzkindu du(te) %{post_author}(r)en %{post_link}."
     also_commented_deleted: 
       few: "%{actors}(e)k mezu ezabatu bat iruzkindu du(te)."
       many: "%{actors}(e)k mezu ezabatu bat iruzkindu du(te)."
       one: "%{actors}(e)k mezu ezabatu bat iruzkindu du(te)."
       other: "%{actors}(e)k mezu ezabatu bat iruzkindu du(te)."
+      two: "%{actors} commented on a deleted post."
       zero: "%{actors}(e)k mezu ezabatu bat iruzkindu du(te)."
     comment_on_post: 
       few: "%{actors}(e)k zure %{post_link} iruzkindu du(te)."
       many: "%{actors}(e)k zure %{post_link} iruzkindu du(te)."
       one: "%{actors}(e)k zure %{post_link} iruzkindu du(te)."
       other: "%{actors}(e)k zure %{post_link} iruzkindu du(te)."
+      two: "%{actors} commented on your %{post_link}."
       zero: "%{actors}(e)k zure %{post_link} iruzkindu du(te)."
     helper: 
       new_notifications: 
@@ -339,6 +349,7 @@ eu:
         many: "%{count} jakinarazpen berri"
         one: "jakinarazpen berri 1"
         other: "%{count} jakinarazpen berri"
+        two: "%{count} new notifications"
         zero: "Jakinarazpen berririk ez"
     index: 
       and: "eta"
@@ -347,6 +358,7 @@ eu:
         many: "eta beste %{count}(e)k"
         one: "eta beste batek"
         other: "eta beste %{count}(e)k"
+        two: "and %{count} others"
         zero: "eta inork gehiago ez"
       mark_all_as_read: "Guztiak irakurrita"
       notifications: "Jakinarazpenak"
@@ -355,24 +367,28 @@ eu:
       many: "%{actors}(e)k gustoko du(te) zure %{post_link}."
       one: "%{actors}(e)k gustoko du(te) zure %{post_link}."
       other: "%{actors}(e)k gustoko du(te) zure %{post_link}."
+      two: "%{actors} has just liked your %{post_link}."
       zero: "%{actors}(e)k gustoko du(te) zure %{post_link}."
     liked_post_deleted: 
       few: "%{actors}(e)k gustoko du(te) zure mezu ezabatua."
       many: "%{actors}(e)k gustoko du(te) zure mezu ezabatua."
       one: "%{actors}(e)k gustoko du(te) zure mezu ezabatua."
       other: "%{actors}(e)k gustoko du(te) zure mezu ezabatua."
+      two: "%{actors} liked your deleted post."
       zero: "%{actors}(e)k gustoko du(te) zure mezu ezabatua."
     mentioned: 
       few: "%{actors}(e)k zu aipatu zaitu(zte) %{post_link}(e)n."
       many: "%{actors}(e)k zu aipatu zaitu(zte) %{post_link}(e)n."
       one: "%{actors}(e)k zu aipatu zaitu(zte) %{post_link}(e)n."
       other: "%{actors}(e)k zu aipatu zaitu(zte) %{post_link}(e)n."
+      two: "%{actors} has mentioned you in a %{post_link}."
       zero: "%{actors}(e)k zu aipatu zaitu(zte) %{post_link}(e)n."
     mentioned_deleted: 
       few: "%{actors}(e)k zu aipatu zaitu(zte) mezu ezabatu batean."
       many: "%{actors}(e)k zu aipatu zaitu(zte) mezu ezabatu batean."
       one: "%{actors}(e)k zu aipatu zaitu(zte) mezu ezabatu batean.\n"
       other: "%{actors}(e)k mezu ezabatu batean aipatu zaitu(zte)."
+      two: "%{actors} mentioned you in a deleted post."
       zero: "%{actors}(e)k mezu ezabatu batean aipatu zaitu(zte)."
     post: "mezua"
     private_message: 
@@ -380,24 +396,28 @@ eu:
       many: "%{actors}(e)k mezu bat bidali dizu(te)."
       one: "%{actors}(e)k mezu bat bidali dizu(te)."
       other: "%{actors}(e)k mezu bat bidali dizu(te)."
+      two: "%{actors} sent you a message."
       zero: "%{actors}(e)k mezu bat bidali dizu(te)."
     reshared: 
       few: "%{actors} has reshared your %{post_link}."
       many: "%{actors} has reshared your %{post_link}."
       one: "%{actors} has reshared your %{post_link}."
       other: "%{actors} has reshared your %{post_link}."
+      two: "%{actors} has reshared your %{post_link}."
       zero: "%{actors} has reshared your %{post_link}."
     reshared_post_deleted: 
       few: "%{actors} reshared your deleted post."
       many: "%{actors} reshared your deleted post."
       one: "%{actors} reshared your deleted post."
       other: "%{actors} reshared your deleted post."
+      two: "%{actors} reshared your deleted post."
       zero: "%{actors} reshared your deleted post."
     started_sharing: 
       few: "%{actors} zurekin harremanetan hasi dir)a."
       many: "%{actors} zurekin harremanetan hasi d(ir)a"
       one: "%{actors} zurekin harremanetan hasi d(ir)a"
       other: "%{actors} zurekin harremanetan hasi d(ir)a"
+      two: "%{actors} started sharing with you."
       zero: "%{actors} zurekin harremanetan hasi d(ir)a"
   notifier: 
     a_post_you_shared: "a post."
@@ -481,6 +501,7 @@ eu:
       add_some: "add some"
       edit: "edit"
       you_have_no_tags: "you have no tags!"
+    two: "%{count} people"
     webfinger: 
       fail: "%{handle} ezin izan dugu aurkitu."
     zero: "jenderik ez"
@@ -520,7 +541,8 @@ eu:
       notice: "Argazkia arrakastaz eguneratua."
   post_visibilites: 
     update: 
-      post_hidden: "%{name}(r)en mezua ezkutatua izan da."
+      post_hidden_and_muted: "%{name}'s post has been hidden, and notifications have been muted."
+      see_it_on_their_profile: "If you want to see updates on this post, visit %{name}'s profile page."
   posts: 
     show: 
       destroy: "Ezabatu"
@@ -582,6 +604,7 @@ eu:
         many: "%{count} eskaera berri!"
         one: "eskaera berria!"
         other: "%{count} eskaera berri!"
+        two: "%{count} new requests!"
         zero: "eskaera berririk ez"
     manage_aspect_contacts: 
       existing: "Adiskideak"
@@ -599,6 +622,7 @@ eu:
         many: "%{count} Reshares"
         one: "1 Reshare"
         other: "%{count} Reshares"
+        two: "%{count} reshares"
         zero: "Birpartekatu"
       reshare_confirmation: "Reshare %{author} - %{text}?"
       reshare_original: "Reshare orignial"
@@ -646,6 +670,7 @@ eu:
         many: "In %{count} aspects"
         one: "In %{count} aspect"
         other: "In %{count} aspects"
+        two: "In %{count} aspects"
         zero: "Add to aspect"
     contact_list: 
       all_contacts: "Adiskide Guztiak"
@@ -685,6 +710,7 @@ eu:
       reshare: "Berriz partekatu"
     stream_element: 
       dislike: "Ez dut gustoko"
+      hide_and_mute: "Hide and Mute"
       like: "Gustoko dut"
       shared_with: "%{aspect_names}(r)kin partekatua"
       unlike: "Ez dut gustoko"
@@ -704,6 +730,7 @@ eu:
       many: "mesedez, egin itzazu zure mezuak %{count} karaktere baino motzagoak"
       one: "mesedez, egin itzazu zure mezuak karaktere %{count} baino motzagoak"
       other: "mesedez, egin itzazu zure mezuak %{count} karaktere baino motzagoak"
+      two: "please make your status messages less than %{count} characters"
       zero: "mesedez, egin itzazu zure mezuak %{count} karaktere baino motzagoak"
   stream_helper: 
     hide_comments: "Iruzkin guztiak ezkutatu"
@@ -773,6 +800,7 @@ eu:
       connect_with_people: "Connect with cool people"
       connect_with_people_explanation_pt1: "Connect with people by placing them into one or more of your"
       connect_with_people_explanation_pt2: "Aspects are an intuitive way to group new and familar faces, private to you, allowing you to filter down or share with subsets of your contacts easily."
+      edit_profile: "Zure profila aldatu"
       featured_tags: "Featured tags"
       featured_users: "Featured users"
       fill_out_your_profile: "Fill out your profile"
@@ -790,6 +818,8 @@ eu:
         name: "Name"
         photo: "Photo"
         tags: "Tags"
+      search_for_hashtags: "Search for #hashtags"
+      search_for_people: "Search for people"
       see_all_featured_users: "See all featured users"
       welcome: "Ongi Etorri Diasporara!"
       welcome_with_name: "Welcome, %{name}!"

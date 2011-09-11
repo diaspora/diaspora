@@ -140,6 +140,7 @@ hu:
       view_all_contacts: "Összes kapcsolat"
     show: 
       edit_aspect: "csoport szerkesztése"
+    two: "%{count} aspects"
     update: 
       failure: "A %{name} nevű csoportodnak túl hosszú a neve."
       success: "%{name} csoport szerkesztve."
@@ -163,6 +164,7 @@ hu:
       commenting: "Hozzászólok.."
     one: "1 hozzászólás"
     other: "%{count} hozzászólás"
+    two: "%{count} comments"
     zero: "nincs hozzászólás"
   contacts: 
     create: 
@@ -187,6 +189,7 @@ hu:
     other: "%{count} ismerős"
     sharing: 
       people_sharing: "Ismerőseid:"
+    two: "%{count} contacts"
     zero: "nincs ismerős"
   conversations: 
     create: 
@@ -200,6 +203,7 @@ hu:
         many: "%{count} új üzenet"
         one: "1 új üzenet"
         other: "%{count} új üzenet"
+        two: "%{count} new messages"
         zero: "nincs új üzenet"
     index: 
       create_a_new_message: "új üzenet írása"
@@ -297,18 +301,21 @@ hu:
         many: "%{count} személy nem kedveli"
         one: "nem kedveli"
         other: "%{count} nem kedveli"
+        two: "%{count} dislikes"
         zero: "nincs negatív visszajelzés"
       people_like_this: 
         few: "%{count} személy kedveli"
         many: "%{count} személy kedveli"
         one: "1 személy kedveli"
         other: "%{count} személy kedveli"
+        two: "%{count} likes"
         zero: "senki nem kedveli"
       people_like_this_comment: 
         few: "%{count} kedveli"
         many: "%{count} kedveli"
         one: "%{count} kedveli"
         other: "%{count} tetszik"
+        two: "%{count} likes"
         zero: "nincs 'tetszik'"
   limited: "Korlátozott"
   more: "Bővebben"
@@ -320,18 +327,21 @@ hu:
       many: "%{actors} is hozzászólt %{post_author} bejegyzéséhez: %{post_link}."
       one: "%{actors} is hozzászólt %{post_author} bejegyzéséhez: %{post_link}."
       other: "%{actors} is hozzászólt %{post_author} bejegyzéséhez: %{post_link}."
+      two: "%{actors} also commented on %{post_author}'s %{post_link}."
       zero: "%{actors} is hozzászólt %{post_author} bejegyzéséhez: %{post_link}."
     also_commented_deleted: 
       few: "%{actors} hozzászólt egy törölt bejegyzéshez."
       many: "%{actors} hozzászólt egy törölt bejegyzéshez."
       one: "%{actors} hozzászólt egy törölt bejegyzéshez."
       other: "%{actors} hozzászólt egy törölt bejegyzéshez."
+      two: "%{actors} commented on a deleted post."
       zero: "%{actors} hozzászólt egy törölt bejegyzéshez."
     comment_on_post: 
       few: "%{actors} hozzászólt a bejegyzésedhez: %{post_link}."
       many: "%{actors} hozzászólt a bejegyzésedhez: %{post_link}."
       one: "%{actors} hozzászólt a bejegyzésedhez: %{post_link}."
       other: "%{actors} hozzászólt a bejegyzésedhez: %{post_link}."
+      two: "%{actors} commented on your %{post_link}."
       zero: "%{actors} hozzászólt a bejegyzésedhez: %{post_link}."
     helper: 
       new_notifications: 
@@ -339,6 +349,7 @@ hu:
         many: "%{count} új értesítés"
         one: "1 új értesítés"
         other: "%{count} új értesítések"
+        two: "%{count} new notifications"
         zero: "nincs új értesítés"
     index: 
       and: "és"
@@ -347,6 +358,7 @@ hu:
         many: "és %{count} másik"
         one: "és még egy"
         other: "és %{count} másik"
+        two: "and %{count} others"
         zero: "és senki más"
       mark_all_as_read: "Mind megjelölése olvasottként"
       notifications: "Értesítések"
@@ -355,24 +367,28 @@ hu:
       many: "%{actors} kedveli a bejegyzésedet: %{post_link}."
       one: "%{actors} kedveli a bejegyzésedet: %{post_link}."
       other: "%{actors} kedveli a bejegyzésedet: %{post_link}."
+      two: "%{actors} has just liked your %{post_link}."
       zero: "%{actors} kedveli a bejegyzésedet: %{post_link}."
     liked_post_deleted: 
       few: "%{actors} kedveli a már törölt bejegyzésedet."
       many: "%{actors} kedveli a már törölt bejegyzésedet."
       one: "%{actors} kedveli a már törölt bejegyzésedet."
       other: "%{actors} kedveli a már törölt bejegyzésedet."
+      two: "%{actors} liked your deleted post."
       zero: "%{actors} kedveli a már törölt bejegyzésedet."
     mentioned: 
       few: "%{actors} megemlített téged egy bejegyzésben %{post_link}."
       many: "%{actors} megemlített téged egy bejegyzésben %{post_link}."
       one: "%{actors} megemlített téged egy bejegyzésben %{post_link}."
       other: "%{actors} megemlített téged egy bejegyzésben %{post_link}."
+      two: "%{actors} has mentioned you in a %{post_link}."
       zero: "%{actors} hmegemlített téged egy bejegyzésben %{post_link}."
     mentioned_deleted: 
       few: "%{actors} megemlített téged egy, már törölt bejegyzésben."
       many: "%{actors} megemlített téged egy, már törölt bejegyzésben."
       one: "%{actors} megemlített téged egy, már törölt bejegyzésben."
       other: "%{actors} megemlített téged egy, már törölt bejegyzésben."
+      two: "%{actors} mentioned you in a deleted post."
       zero: "%{actors} megemlített téged egy, már törölt bejegyzésben."
     post: "bejegyzés"
     private_message: 
@@ -380,24 +396,28 @@ hu:
       many: "%{actors} üzenetet küldött neked."
       one: "%{actors} üzenetet küldött neked."
       other: "%{actors} üzenetet küldött neked."
+      two: "%{actors} sent you a message."
       zero: "%{actors} üzenetet küldött neked."
     reshared: 
       few: "%{actors} újraosztotta a bejegyzésedet: %{post_link}."
       many: "%{actors} újraosztotta a bejegyzésedet: %{post_link}."
       one: "%{actors} újraosztotta a bejegyzésedet: %{post_link}."
       other: "%{actors} újraosztotta a bejegyzésedet: %{post_link}."
+      two: "%{actors} has reshared your %{post_link}."
       zero: "%{actors} újraosztotta a bejegyzésedet: %{post_link}."
     reshared_post_deleted: 
       few: "%{actors} újraosztotta a már törölt bejegyzésedet."
       many: "%{actors} újraosztotta a már törölt bejegyzésedet."
       one: "%{actors} újraosztotta a már törölt bejegyzésedet."
       other: "%{actors} újraosztotta a már törölt bejegyzésedet."
+      two: "%{actors} reshared your deleted post."
       zero: "%{actors} újraosztotta a már törölt bejegyzésedet."
     started_sharing: 
       few: "%{actors} mostantól megoszt veled."
       many: "%{actors} mostantól megoszt veled."
       one: "%{actors} mostantól megoszt veled."
       other: "%{actors} mostantól megoszt veled."
+      two: "%{actors} started sharing with you."
       zero: "%{actors} mostantól megoszt veled."
   notifier: 
     a_post_you_shared: "egy bejegyzés."
@@ -481,6 +501,7 @@ hu:
       add_some: "adj hozzá néhány"
       edit: "szerkesztés"
       you_have_no_tags: "nincs címkéd!"
+    two: "%{count} people"
     webfinger: 
       fail: "Sajnáljuk, de nem találjuk őt: %{handle}."
     zero: "nincs személy"
@@ -520,7 +541,8 @@ hu:
       notice: "Kép szerkesztése sikerült."
   post_visibilites: 
     update: 
-      post_hidden: "%{name} bejegyzése elrejtve."
+      post_hidden_and_muted: "%{name}'s post has been hidden, and notifications have been muted."
+      see_it_on_their_profile: "If you want to see updates on this post, visit %{name}'s profile page."
   posts: 
     show: 
       destroy: "Töröl"
@@ -582,6 +604,7 @@ hu:
         many: "%{count} új felkérés!"
         one: "új felkérések!"
         other: "%{count} új felkérés!"
+        two: "%{count} new requests!"
         zero: "nincs új felkérés"
     manage_aspect_contacts: 
       existing: "Meglévő kapcsolatok"
@@ -599,6 +622,7 @@ hu:
         many: "%{count} újraosztás"
         one: "1 újraosztás"
         other: "%{count} újraosztás"
+        two: "%{count} reshares"
         zero: "Újraosztás"
       reshare_confirmation: "Újraosztod %{author} - %{text}?"
       reshare_original: "Eredeti újraosztása"
@@ -646,6 +670,7 @@ hu:
         many: "%{count} csoportban"
         one: "%{count} csoportban"
         other: "%{count} csoportban"
+        two: "In %{count} aspects"
         zero: "Hozzáadás egy csoporthoz"
     contact_list: 
       all_contacts: "Összes kapcsolat"
@@ -685,6 +710,7 @@ hu:
       reshare: "Újraosztás"
     stream_element: 
       dislike: "Nem tetszik"
+      hide_and_mute: "Hide and Mute"
       like: "Tetszik"
       shared_with: "Megosztva vele: %{aspect_names}"
       unlike: "Nem tetszik"
@@ -704,6 +730,7 @@ hu:
       many: "kérlek a státusz üzeneted ne legyen több, mint %{count} karakter"
       one: "kérlek a státusz üzeneted ne legyen több, mint %{count} karakter"
       other: "kérlek a státusz üzeneted ne legyen több, mint %{count} karakter"
+      two: "please make your status messages less than %{count} characters"
       zero: "kérlek a státusz üzeneted ne legyen több, mint %{count} karakter"
   stream_helper: 
     hide_comments: "hozzászólások elrejtése"
@@ -773,6 +800,7 @@ hu:
       connect_with_people: "Lépj kapcsolatba király emberekkel"
       connect_with_people_explanation_pt1: "Maradj kapcsolatban az emberekkel. Helyezd őket egy vagy több csoportba."
       connect_with_people_explanation_pt2: "A csoportokkal könnyen beoszthatod az ismerőseidet, kikkel mit szeretnél megosztani."
+      edit_profile: "Edit Profile"
       featured_tags: "Kiemelt címkék"
       featured_users: "Kiemelt felhasználók"
       fill_out_your_profile: "Töltsd ki a profilod"
@@ -790,6 +818,8 @@ hu:
         name: "Név"
         photo: "Fénykép"
         tags: "Címkék"
+      search_for_hashtags: "Search for #hashtags"
+      search_for_people: "Search for people"
       see_all_featured_users: "Az összes kiemelt felhasználó"
       welcome: "Üdv!"
       welcome_with_name: "Üdv, %{name}!"

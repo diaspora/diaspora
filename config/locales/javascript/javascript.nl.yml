@@ -13,6 +13,7 @@ nl:
         many: "In {{count}} aspecten"
         one: "In {{count}} aspect"
         other: "In {{count}} aspecten"
+        two: "In {{count}} aspects"
         zero: "Voeg toe aan aspect"
     comments: 
       hide: "verberg reacties"

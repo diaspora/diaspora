@@ -140,6 +140,7 @@ pt-PT:
       view_all_contacts: "Ver todos os contactos"
     show: 
       edit_aspect: "editar aspecto"
+    two: "%{count} aspects"
     update: 
       failure: "O seu aspecto, %{name}, tinha um nome grande demais para ser guardado."
       success: "O seu aspecto, %{name}, foi editado com sucesso."
@@ -163,6 +164,7 @@ pt-PT:
       commenting: "A comentar..."
     one: "1 comentário"
     other: "%{count} comentários"
+    two: "%{count} comments"
     zero: "não há comentários"
   contacts: 
     create: 
@@ -187,6 +189,7 @@ pt-PT:
     other: "%{count} contactos"
     sharing: 
       people_sharing: "Pessoas a partilhar consigo:"
+    two: "%{count} contacts"
     zero: "sem contactos"
   conversations: 
     create: 
@@ -200,6 +203,7 @@ pt-PT:
         many: "%{count} novas mensagens"
         one: "1 nova mensagem"
         other: "%{count} novas mensagens"
+        two: "%{count} new messages"
         zero: "Não há novas mensagens"
     index: 
       create_a_new_message: "criar uma nova mensagem"
@@ -297,18 +301,21 @@ pt-PT:
         many: "%{count} pessoas não gostam"
         one: "%{count} pessoa não gosta"
         other: "%{count} pessoa não gosta"
+        two: "%{count} dislikes"
         zero: "nenhuma pessoa não gosta disto"
       people_like_this: 
         few: "%{count} pessoas gostam"
         many: "%{count} pessoas não gostam"
         one: "%{count} pessoa gosta"
         other: "%{count} pessoas gostam"
+        two: "%{count} likes"
         zero: "ninguém gosta"
       people_like_this_comment: 
         few: "%{count} gostos"
         many: "%{count} gostos"
         one: "%{count} gosto"
         other: "%{count} gostos"
+        two: "%{count} likes"
         zero: "não há gostos"
   limited: "Limitado"
   more: "Mais"
@@ -320,18 +327,21 @@ pt-PT:
       many: "%{actors} também comentaram %{post_link} de %{post_author}."
       one: "%{actors} também comentou %{post_link} de %{post_author}."
       other: "%{actors} também comentaram %{post_link} de %{post_author}."
+      two: "%{actors} also commented on %{post_author}'s %{post_link}."
       zero: "%{actors} também comentaram %{post_link} de %{post_author}."
     also_commented_deleted: 
       few: "%{actors} comentaram na sua publicação apagada."
       many: "%{actors} comentaram na sua publicação apagada."
       one: "%{actors} comentou uma publicação apagada."
       other: "%{actors} comentaram uma publicação apagada."
+      two: "%{actors} commented on a deleted post."
       zero: "%{actors} comentou uma publicação apagada."
     comment_on_post: 
       few: "%{actors} comentaram na sua %{post_link}."
       many: "%{actors} comentaram na sua %{post_link}."
       one: "%{actors} comentou na sua %{post_link}."
       other: "%{actors} comentaram na sua %{post_link}."
+      two: "%{actors} commented on your %{post_link}."
       zero: "%{actors} comentou na sua %{post_link}."
     helper: 
       new_notifications: 
@@ -339,6 +349,7 @@ pt-PT:
         many: "%{count} novas notificações"
         one: "1 nova notificação"
         other: "%{count} novas notificações"
+        two: "%{count} new notifications"
         zero: "Não há novas notificações"
     index: 
       and: "e"
@@ -347,6 +358,7 @@ pt-PT:
         many: "e %{count} outros"
         one: "e mais uma pessoa"
         other: "e {count} outros"
+        two: "and %{count} others"
         zero: "e mais ninguém"
       mark_all_as_read: "Marcar Tudo como Lido"
       notifications: "Notificações"
@@ -355,24 +367,28 @@ pt-PT:
       many: "%{actors} gostam da sua %{post_link}."
       one: "%{actors} gosta da sua %{post_link}."
       other: "%{actors} gostam da sua %{post_link}."
+      two: "%{actors} has just liked your %{post_link}."
       zero: "%{actors} gostaram da sua %{post_link}."
     liked_post_deleted: 
       few: "%{actors} gostam da sua publicação apagada."
       many: "%{actors} gostam da sua publicação apagada."
       one: "%{actors} gosta da sua publicação apagada."
       other: "%{actors} gostam da sua publicação apagada."
+      two: "%{actors} liked your deleted post."
       zero: "%{actors} gostam da sua publicação apagada."
     mentioned: 
       few: "%{actors} mencionou-o numa %{post_link}."
       many: "%{actors} mencionou-o numa %{post_link}."
       one: "%{actors} mencionou-o numa %{post_link}."
       other: "%{actors} mencionou-o numa %{post_link}."
+      two: "%{actors} has mentioned you in a %{post_link}."
       zero: "%{actors} mencionou-o numa %{post_link}."
     mentioned_deleted: 
       few: "%{actors} mencionaram-no numa publicação apagada."
       many: "%{actors} mencionaram-no numa publicação apagada."
       one: "%{actors} mencionou-no numa publicação apagada."
       other: "%{actors} mencionaram-no numa publicação apagada."
+      two: "%{actors} mentioned you in a deleted post."
       zero: "%{actors} mencionaram-no numa publicação apagada."
     post: "publicação"
     private_message: 
@@ -380,24 +396,28 @@ pt-PT:
       many: "%{actors} enviaram-lhe uma mensagem."
       one: "%{actors} enviou-lhe uma mensagem."
       other: "%{actors} enviaram-lhe uma mensagem."
+      two: "%{actors} sent you a message."
       zero: "%{actors} enviou-lhe uma mensagem."
     reshared: 
-      few: "%{actors} has reshared your %{post_link}."
-      many: "%{actors} has reshared your %{post_link}."
-      one: "%{actors} has reshared your %{post_link}."
-      other: "%{actors} has reshared your %{post_link}."
-      zero: "%{actors} has reshared your %{post_link}."
+      few: "%{actors} partilharam a sua %{post_link}."
+      many: "%{actors} partilharam a sua %{post_link}."
+      one: "%{actors} partilhou a sua %{post_link}."
+      other: "%{actors} partilhou a sua %{post_link}."
+      two: "%{actors} has reshared your %{post_link}."
+      zero: "%{actors} repartilhou a sua %{post_link}."
     reshared_post_deleted: 
-      few: "%{actors} reshared your deleted post."
-      many: "%{actors} reshared your deleted post."
-      one: "%{actors} reshared your deleted post."
-      other: "%{actors} reshared your deleted post."
-      zero: "%{actors} reshared your deleted post."
+      few: "%{actors} repartilharam a sua publicação apagada."
+      many: "%{actors} repartilharam a sua publicação apagada."
+      one: "%{actors} repartilhou a sua publicação apagada."
+      other: "%{actors} repartilhou a sua publicação apagada."
+      two: "%{actors} reshared your deleted post."
+      zero: "%{actors} repartilhou a sua publicação apagada."
     started_sharing: 
       few: "%{actors} começaram a partilhar consigo."
       many: "%{actors} começaram a partilhar consigo."
       one: "%{actors} começou a partilhar consigo."
       other: "%{actors} começaram a partilhar consigo."
+      two: "%{actors} started sharing with you."
       zero: "%{actors} começou a partilhar consigo."
   notifier: 
     a_post_you_shared: "uma publicação."
@@ -418,8 +438,8 @@ pt-PT:
     private_message: 
       reply_to_or_view: "Responder ou ver esta conversa >"
     reshared: 
-      reshared: "%{name} just reshared your post"
-      view_post: "View post >"
+      reshared: "%{name} acabou de repartilhar a sua publicação"
+      view_post: "Ver publicação >"
     single_admin: 
       admin: "O seu administrador do Diaspora"
       subject: "Uma mensagem sobre a sua conta do Diaspora:"
@@ -481,6 +501,7 @@ pt-PT:
       add_some: "adicionar alguns"
       edit: "editar"
       you_have_no_tags: "não tem tags!"
+    two: "%{count} people"
     webfinger: 
       fail: "Lamentamos muito, não conseguimos encontrar %{handle}."
     zero: "não há pessoas"
@@ -520,7 +541,8 @@ pt-PT:
       notice: "Fotografia actualizada com sucesso."
   post_visibilites: 
     update: 
-      post_hidden: "A publicação de %{name} foi escondida."
+      post_hidden_and_muted: "%{name}'s post has been hidden, and notifications have been muted."
+      see_it_on_their_profile: "If you want to see updates on this post, visit %{name}'s profile page."
   posts: 
     show: 
       destroy: "Apagar"
@@ -582,6 +604,7 @@ pt-PT:
         many: "%{count} novos pedidos!"
         one: "novo pedido!"
         other: "%{count} novos pedidos!"
+        two: "%{count} new requests!"
         zero: "não há novos pedidos"
     manage_aspect_contacts: 
       existing: "Contactos existentes"
@@ -599,6 +622,7 @@ pt-PT:
         many: "%{count} repartilhas"
         one: "1 repartilha"
         other: "%{count} repartilhas"
+        two: "%{count} reshares"
         zero: "Repartilhar"
       reshare_confirmation: "Repartilhar a publicação de %{author}?"
       reshare_original: "Repartilha original"
@@ -646,6 +670,7 @@ pt-PT:
         many: "Em %{count} aspectos"
         one: "Em %{count} aspecto"
         other: "Em %{count} aspectos"
+        two: "In %{count} aspects"
         zero: "Adicionar ao aspecto"
     contact_list: 
       all_contacts: "Todos os contactos"
@@ -685,6 +710,7 @@ pt-PT:
       reshare: "Voltar a partilhar"
     stream_element: 
       dislike: "Não gosto"
+      hide_and_mute: "Hide and Mute"
       like: "Gosto"
       shared_with: "Partilhado com: %{aspect_names}"
       unlike: "Não Gosto"
@@ -704,6 +730,7 @@ pt-PT:
       many: "por favor não utilize mais de %{count} caracteres ao escrever as suas mensagens de estado"
       one: "por favor não utilize mais de %{count} caracter ao escrever as suas mensagens de estado"
       other: "por favor não utilize mais de %{count} caracteres ao escrever as suas mensagens de estado"
+      two: "please make your status messages less than %{count} characters"
       zero: "por favor não utilize mais de %{count} caracteres ao escrever as suas mensagens de estado"
   stream_helper: 
     hide_comments: "Ocultar todos comentários"
@@ -773,6 +800,7 @@ pt-PT:
       connect_with_people: "Ligue-se a pessoas interessantes"
       connect_with_people_explanation_pt1: "Ligue-se a pessoas ao colocá-las em um ou mais dos seus %{bold}."
       connect_with_people_explanation_pt2: "Aspectos são uma forma intuitiva de agrupar rostos novos e familiares, de forma privada, permitindo-lhe filtrar ou partilhar com subconjuntos dos seus contactos facilmente."
+      edit_profile: "Edit Profile"
       featured_tags: "Tags destacadas"
       featured_users: "Utilizadores destacados"
       fill_out_your_profile: "Preencha o seu perfil"
@@ -790,6 +818,8 @@ pt-PT:
         name: "Nome"
         photo: "Fotografia"
         tags: "Tags"
+      search_for_hashtags: "Search for #hashtags"
+      search_for_people: "Search for people"
       see_all_featured_users: "Ver todos os utilizadores destacados"
       welcome: "Bem-vindo(a)!"
       welcome_with_name: "Bem-vindo(a), %{name}!"

@@ -140,6 +140,7 @@ pl:
       view_all_contacts: "Zobacz wszystkie kontakty"
     show: 
       edit_aspect: "edytuj aspekt"
+    two: "%{count} aspects"
     update: 
       failure: "Twój aspekt %{name} nie mógł zostać zapisany z powodu zbyt długiej nazwy."
       success: "Twój aspekt '%{name}' został pomyślnie zmieniony."
@@ -163,6 +164,7 @@ pl:
       commenting: "Komentowanie…"
     one: "1 komentarz"
     other: "%{count} komentarzy"
+    two: "%{count} comments"
     zero: "brak komentarzy"
   contacts: 
     create: 
@@ -187,6 +189,7 @@ pl:
     other: "%{count} kontaktów"
     sharing: 
       people_sharing: "Osoby dzielące się z tobą:"
+    two: "%{count} contacts"
     zero: "brak kontaktów"
   conversations: 
     create: 
@@ -200,6 +203,7 @@ pl:
         many: "%{count} nowych wiadomości"
         one: "1 nowa wiadomość"
         other: "%{count} nowych wiadomości"
+        two: "%{count} new messages"
         zero: "brak nowych wiadomości"
     index: 
       create_a_new_message: "stwórz nową wiadomość"
@@ -297,18 +301,21 @@ pl:
         many: "%{count} osób nie lubi tego"
         one: "1 osoba tego nie lubi"
         other: "%{count} osób nie lubi tego"
+        two: "%{count} dislikes"
         zero: "no people disliked this"
       people_like_this: 
         few: "%{count} osoby polubiły to"
         many: "%{count} osób polubiło to"
         one: "1 osoba to polubiła"
         other: "%{count} osób polubiło to"
+        two: "%{count} likes"
         zero: "nikt tego nie polubił"
       people_like_this_comment: 
         few: "%{count} poleciło"
         many: "%{count} pochwaliło"
         one: "%{count} polecił"
         other: "%{count} poleciło"
+        two: "%{count} likes"
         zero: "brak pochwaleń"
   limited: "Ograniczone"
   more: "Więcej"
@@ -320,18 +327,21 @@ pl:
       many: "%{actors} także skomentowały %{post_link} użytkownika %{post_author} ."
       one: "%{actors} także skomentowali %{post_link} użytkownika %{post_author} ."
       other: "%{actors} także skomentowali %{post_link} użytkownika %{post_author} ."
+      two: "%{actors} also commented on %{post_author}'s %{post_link}."
       zero: "%{actors} także skomentowali %{post_link} użytkownika %{post_author} ."
     also_commented_deleted: 
       few: "%{actors} skomentowali już usunięty wpis."
       many: "%{actors} skomentował twój usunięty wpis."
       one: "%{actors} skomentował już usunięty wpis."
       other: "%{actors} skomentował już usunięty wpis."
+      two: "%{actors} commented on a deleted post."
       zero: "%{actors} skomentował już usunięty wpis."
     comment_on_post: 
       few: "%{actors} skomentowali twój %{post_link}."
       many: "%{actors} skomentowali twój %{post_link}."
       one: "%{actors} skomentował(a) twój %{post_link}."
       other: "%{actors} skomentowali twój %{post_link}."
+      two: "%{actors} commented on your %{post_link}."
       zero: "%{actors} skomentował twój %{post_link}."
     helper: 
       new_notifications: 
@@ -339,6 +349,7 @@ pl:
         many: "%{count} nowych powiadomień"
         one: "1 nowe powiadomienie"
         other: "%{count} nowych powiadomień"
+        two: "%{count} new notifications"
         zero: "brak nowych powiadomień"
     index: 
       and: "i"
@@ -347,6 +358,7 @@ pl:
         many: "i %{count} innych"
         one: "i ktoś jeszcze"
         other: "i %{count} innych"
+        two: "and %{count} others"
         zero: "i nikt więcej"
       mark_all_as_read: "Oznacz wszystkie jako przeczytane"
       notifications: "Powiadomienia"
@@ -355,24 +367,28 @@ pl:
       many: "%{actors} polecili twój %{post_link}."
       one: "%{actors} polecił(a) twój %{post_link}."
       other: "%{actors} polecił(a) twój %{post_link}."
+      two: "%{actors} has just liked your %{post_link}."
       zero: "%{actors} polecił twój %{post_link}."
     liked_post_deleted: 
       few: "%{actors} polubiły twój usunięty wpis."
       many: "%{actors} lubią twój już usunięty wpis."
       one: "%{actors} polubił(a) twój usunięty wpis."
       other: "%{actors} polubił twój usunięty wpis."
+      two: "%{actors} liked your deleted post."
       zero: "%{actors} polubił twój usunięty wpis."
     mentioned: 
       few: "%{actors} wspomnieli o tobie w %{post_link}."
       many: "%{actors} wspomnieli o tobie w %{post_link}."
       one: "%{actors} wspomniał o tobie w %{post_link}."
       other: "%{actors} wspomnieli o tobie w %{post_link}."
+      two: "%{actors} has mentioned you in a %{post_link}."
       zero: "%{actors} wspomniał o tobie w %{post_link}."
     mentioned_deleted: 
       few: "%{actors} wspomnieli o tobie w już usuniętym wpisie."
       many: "%{actors} wspomnieli o tobie w już usuniętym wpisie."
       one: "%{actors} wspomniał(a) o tobie w już usuniętym wpisie."
       other: "%{actors} wspomniał o tobie w usuniętym już wpisie."
+      two: "%{actors} mentioned you in a deleted post."
       zero: "%{actors} wspomniał o tobie w usuniętym wpisie."
     post: "wpis."
     private_message: 
@@ -380,24 +396,28 @@ pl:
       many: "%{actors} wysłali ci wiadomość."
       one: "%{actors} wysłał ci wiadomość."
       other: "%{actors} wysłali ci wiadomość."
+      two: "%{actors} sent you a message."
       zero: "%{actors} wysłał ci wiadomość."
     reshared: 
       few: "%{actors} podzielili się twoim wpisem %{post_link}."
       many: "%{actors} podzieliły się twoim wpisem %{post_link}."
       one: "%{actors} podzielił się twoim wpisem %{post_link}."
       other: "%{actors} podzielili się twoim %{post_link}."
+      two: "%{actors} has reshared your %{post_link}."
       zero: "%{actors} podzieliło się twoim %{post_link}."
     reshared_post_deleted: 
       few: "%{actors} podzieliło się twoim już nieistniejącym wpisem."
       many: "%{actors} podzielili się twoim już nieistniejącym wpisem."
       one: "%{actors} podzielił się twoim już usuniętym wpisem."
       other: "%{actors} podzielili się twoim już usuniętym wpisem."
+      two: "%{actors} reshared your deleted post."
       zero: "%{actors} podzieliło się twoim usuniętym wpisem."
     started_sharing: 
       few: "%{actors} zaczęli się z tobą dzielić."
       many: "%{actors} zaczął się z tobą dzielić."
       one: "%{actors} zaczęli się z tobą dzielić."
       other: "%{actors} zaczęli się z tobą dzielić."
+      two: "%{actors} started sharing with you."
       zero: "%{actors} zaczęli się z tobą dzielić."
   notifier: 
     a_post_you_shared: "wpis."
@@ -481,6 +501,7 @@ pl:
       add_some: "dodaj coś"
       edit: "zmień"
       you_have_no_tags: "nie masz znaczników!"
+    two: "%{count} people"
     webfinger: 
       fail: "Wybacz, nie można było znaleźć %{handle}."
     zero: "nikt"
@@ -520,7 +541,8 @@ pl:
       notice: "Pomyślnie zaktualizowano zdjęcie."
   post_visibilites: 
     update: 
-      post_hidden: "wpis użytkownika %{name} został ukryty."
+      post_hidden_and_muted: "%{name}'s post has been hidden, and notifications have been muted."
+      see_it_on_their_profile: "If you want to see updates on this post, visit %{name}'s profile page."
   posts: 
     show: 
       destroy: "Usuń"
@@ -582,6 +604,7 @@ pl:
         many: "%{count} nowych zaproszeń!"
         one: "nowe zaproszenie!"
         other: "%{count} nowych zaproszeń!"
+        two: "%{count} new requests!"
         zero: "brak nowych zaproszeń"
     manage_aspect_contacts: 
       existing: "Istniejące kontakty"
@@ -599,6 +622,7 @@ pl:
         many: "%{count} Reshares"
         one: "1 Reshare"
         other: "%{count} Reshares"
+        two: "%{count} reshares"
         zero: "Przekaż innym"
       reshare_confirmation: "Reshare %{author} - %{text}?"
       reshare_original: "Reshare orignial"
@@ -646,6 +670,7 @@ pl:
         many: "W %{count} aspektach"
         one: "W %{count} aspektach"
         other: "W %{count} aspektach"
+        two: "In %{count} aspects"
         zero: "Dodaj do aspektu (obszaru)"
     contact_list: 
       all_contacts: "Wszystkie kontakty"
@@ -685,6 +710,7 @@ pl:
       reshare: "Podziel się ponownie"
     stream_element: 
       dislike: "Nie lubię tego"
+      hide_and_mute: "Hide and Mute"
       like: "Lubię to"
       shared_with: "Publikuj w: %{aspect_names}"
       unlike: "Odwołaj \"Lubię to\""
@@ -704,6 +730,7 @@ pl:
       many: "skróć swoje wiadomości statusowe do mniej niż %{count} znaków"
       one: "skróć swoje wiadomości statusowe do mniej niż %{count} znaku"
       other: "skróć swoje wiadomości statusowe do mniej niż %{count} znaków"
+      two: "please make your status messages less than %{count} characters"
       zero: "skróć swoje wiadomości statusowe do mniej niż %{count} znaków"
   stream_helper: 
     hide_comments: "ukryj komentarze"
@@ -773,6 +800,7 @@ pl:
       connect_with_people: "Nawiąż kontakt z ciekawymi osobami"
       connect_with_people_explanation_pt1: "Connect with people by placing them into one or more of your"
       connect_with_people_explanation_pt2: "Aspekty to intuicyjnie prosty sposób grupowania znanych ci osób i tych nowo poznanych w odpowiednie obszary (tzw. aspekty). Dzięki nim możesz kontrolować to, z kim podzielisz się swoimi wpisami. "
+      edit_profile: "Edytuj swój profil"
       featured_tags: "Interesujące tagi"
       featured_users: "Aktywni użytkownicy"
       fill_out_your_profile: "Wpisz tutaj"
@@ -790,6 +818,8 @@ pl:
         name: "Imię"
         photo: "Zdjęcie"
         tags: "Tagi"
+      search_for_hashtags: "Search for #hashtags"
+      search_for_people: "Search for people"
       see_all_featured_users: "Zobacz wszystkich aktywnych użytkowników"
       welcome: "Witaj w Diasporze!"
       welcome_with_name: "Witaj, %{name}!"

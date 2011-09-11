@@ -140,6 +140,7 @@ zh-TW:
       view_all_contacts: "檢視所有聯絡人"
     show: 
       edit_aspect: "編輯面向"
+    two: "%{count}個面向"
     update: 
       failure: "你的面向 %{name} 因名稱太長了無法儲存."
       success: "你的面向 %{name} 已編輯完成."
@@ -163,6 +164,7 @@ zh-TW:
       commenting: "意見發表中..."
     one: "1則意見"
     other: "%{count}則意見"
+    two: "%{count}則回應"
     zero: "沒有意見"
   contacts: 
     create: 
@@ -187,6 +189,7 @@ zh-TW:
     other: "%{count}個聯絡人"
     sharing: 
       people_sharing: "跟你分享的人:"
+    two: "%{count}個聯絡人"
     zero: "沒有任何聯絡人"
   conversations: 
     create: 
@@ -200,6 +203,7 @@ zh-TW:
         many: "%{count}則新訊息"
         one: "1則新訊息"
         other: "%{count}則新訊息"
+        two: "%{count}則新訊息"
         zero: "沒有新訊息"
     index: 
       create_a_new_message: "編寫新訊息"
@@ -297,18 +301,21 @@ zh-TW:
         many: "有%{count}個遜"
         one: "有%{count}個遜"
         other: "有%{count}個遜"
+        two: "%{count}個遜"
         zero: "沒有遜"
       people_like_this: 
         few: "有%{count}個讚"
         many: "有%{count}個讚"
         one: "有%{count}個讚"
         other: "有%{count}個讚"
+        two: "%{count}個讚"
         zero: "沒有讚"
       people_like_this_comment: 
         few: "有%{count}個人說讚"
         many: "有%{count}個人說讚"
         one: "有%{count}個人說讚"
         other: "有%{count}個人說讚"
+        two: "%{count}個讚"
         zero: "沒人說讚"
   limited: "限制"
   more: "更多"
@@ -320,18 +327,21 @@ zh-TW:
       many: "%{actors} 也對 %{post_author} 的%{post_link}發表了意見."
       one: "%{actors} 也對 %{post_author} 的%{post_link}發表了意見."
       other: "%{actors} 也對 %{post_author} 的%{post_link}發表了意見."
+      two: "%{actors} 也回應了 %{post_author} 的%{post_link}."
       zero: "%{actors} 也對 %{post_author} 的%{post_link}發表了意見."
     also_commented_deleted: 
       few: "%{actors}對已刪掉的貼文發表了意見."
       many: "%{actors}對已刪掉的貼文發表了意見."
       one: "%{actors}對已刪掉的貼文發表了意見."
       other: "%{actors}對已刪掉的貼文發表了意見."
+      two: "%{actors} 回應了已刪掉的貼文."
       zero: "%{actors}對已刪掉的貼文發表了意見."
     comment_on_post: 
       few: "%{actors}對你的%{post_link}發表了意見."
       many: "%{actors}對你的%{post_link}發表了意見."
       one: "%{actors}對你的%{post_link}發表了意見."
       other: "%{actors}對你的%{post_link}發表了意見."
+      two: "%{actors} 回應了你的%{post_link}."
       zero: "%{actors}對你的%{post_link}發表了意見."
     helper: 
       new_notifications: 
@@ -339,6 +349,7 @@ zh-TW:
         many: "%{count}個新消息"
         one: "1個新消息"
         other: "%{count}個新消息"
+        two: "%{count}個新消息"
         zero: "沒有新消息"
     index: 
       and: "和"
@@ -347,6 +358,7 @@ zh-TW:
         many: "和其他%{count}個人"
         one: "和另外一個人"
         other: "和其他%{count}個人"
+        two: "以及其他%{count}個"
         zero: "以外沒有其他人"
       mark_all_as_read: "全部標示為已讀"
       notifications: "消息"
@@ -355,24 +367,28 @@ zh-TW:
       many: "%{actors}剛才說你的%{post_link}很讚."
       one: "%{actors}剛才說你的%{post_link}很讚."
       other: "%{actors}剛才說你的%{post_link}很讚."
+      two: "%{actors} 剛剛說你的%{post_link}很讚."
       zero: "%{actors}剛才說你的%{post_link}很讚."
     liked_post_deleted: 
       few: "%{actors}說你刪掉了的貼文很讚."
       many: "%{actors}說你刪掉了的貼文很讚."
       one: "%{actors}說你刪掉了的貼文很讚."
       other: "%{actors}說你刪掉了的貼文很讚."
+      two: "%{actors} 說你刪掉的貼文很讚."
       zero: "%{actors}說你刪掉了的貼文很讚."
     mentioned: 
       few: "%{actors}在%{post_link}中提到了你."
       many: "%{actors}在%{post_link}中提到了你."
       one: "%{actors}在%{post_link}中提到了你."
       other: "%{actors}在%{post_link}中提到了你."
+      two: "%{actors} 在%{post_link}中提到了你."
       zero: "%{actors}在%{post_link}中提到了你."
     mentioned_deleted: 
       few: "%{actors}在已刪掉的貼文中提到了你."
       many: "%{actors}在已刪掉的貼文中提到了你."
       one: "%{actors}在已刪掉的貼文中提到了你."
       other: "%{actors}在已刪掉的貼文中提到了你."
+      two: "%{actors} 在刪掉的貼文中提到了你."
       zero: "%{actors}在已刪掉的貼文中提到了你."
     post: "貼文"
     private_message: 
@@ -380,24 +396,28 @@ zh-TW:
       many: "%{actors}寫了訊息給你."
       one: "%{actors}寫了訊息給你."
       other: "%{actors}寫了訊息給你."
+      two: "%{actors} 送了一則訊息給你."
       zero: "%{actors}寫了訊息給你."
     reshared: 
       few: "%{actors} 轉貼了你的%{post_link}."
       many: "%{actors} 轉貼了你的%{post_link}."
       one: "%{actors} 轉貼了你的%{post_link}."
       other: "%{actors} 轉貼了你的%{post_link}."
+      two: "%{actors} 轉貼了你的%{post_link}."
       zero: "%{actors} 轉貼了你的%{post_link}."
     reshared_post_deleted: 
       few: "%{actors} 轉貼了你刪掉的貼文."
       many: "%{actors} 轉貼了你刪掉的貼文."
       one: "%{actors} 轉貼了你刪掉的貼文."
       other: "%{actors} 轉貼了你刪掉的貼文."
+      two: "%{actors} 轉貼了你刪掉的貼文."
       zero: "%{actors} 轉貼了你刪掉的貼文."
     started_sharing: 
       few: "%{actors}開始跟你分享了."
       many: "%{actors}開始跟你分享了."
       one: "%{actors}開始跟你分享了."
       other: "%{actors}開始跟你分享了."
+      two: "%{actors} 開始和你分享了."
       zero: "%{actors}開始跟你分享了."
   notifier: 
     a_post_you_shared: "一則貼文."
@@ -481,6 +501,7 @@ zh-TW:
       add_some: "加入一些"
       edit: "編輯"
       you_have_no_tags: "你沒有任何標籤!"
+    two: "%{count}個人"
     webfinger: 
       fail: "抱歉, 找不到 %{handle}."
     zero: "沒有聯絡人"
@@ -520,7 +541,8 @@ zh-TW:
       notice: "相片更新成功."
   post_visibilites: 
     update: 
-      post_hidden: "已隱藏 %{name} 的貼文"
+      post_hidden_and_muted: "%{name}'s post has been hidden, and notifications have been muted."
+      see_it_on_their_profile: "If you want to see updates on this post, visit %{name}'s profile page."
   posts: 
     show: 
       destroy: "刪除"
@@ -582,6 +604,7 @@ zh-TW:
         many: "%{count}個新請求!"
         one: "新的請求!"
         other: "%{count}個新請求!"
+        two: "%{count}個新請求!"
         zero: "沒有新請求"
     manage_aspect_contacts: 
       existing: "既有聯絡人"
@@ -599,6 +622,7 @@ zh-TW:
         many: "被轉貼%{count}次"
         one: "被轉貼1次"
         other: "被轉貼%{count}次"
+        two: "%{count}次轉貼"
         zero: "轉貼"
       reshare_confirmation: "要轉貼 %{author} 的貼文嗎?"
       reshare_original: "轉貼原文"
@@ -646,6 +670,7 @@ zh-TW:
         many: "在%{count}個面向中"
         one: "在%{count}個面向中"
         other: "在%{count}個面向中"
+        two: "在%{count}個面向中"
         zero: "加入至面向"
     contact_list: 
       all_contacts: "全部聯絡人"
@@ -685,6 +710,7 @@ zh-TW:
       reshare: "轉貼"
     stream_element: 
       dislike: "遜"
+      hide_and_mute: "Hide and Mute"
       like: "讚"
       shared_with: "分享給: %{aspect_names}"
       unlike: "收回讚"
@@ -704,6 +730,7 @@ zh-TW:
       many: "請限制狀態訊息在%{count}個字內"
       one: "請限制狀態訊息在%{count}個字內"
       other: "請限制狀態訊息在%{count}個字內"
+      two: "請縮短你的狀態訊息在%{count}個字元以下"
       zero: "請限制狀態訊息在%{count}個字內"
   stream_helper: 
     hide_comments: "隱藏所有意見"
@@ -773,6 +800,7 @@ zh-TW:
       connect_with_people: "與酷咖連結"
       connect_with_people_explanation_pt1: "將別人放進你的任何一個或多個%{bold}中來與他們建立聯繫."
       connect_with_people_explanation_pt2: "面向是區分新人或熟人的直覺方式, 並且只有你自己知道, 讓你可以輕易過濾他們, 或只和部份聯絡人分享."
+      edit_profile: "Edit Profile"
       featured_tags: "特色標籤"
       featured_users: "特色使用者"
       fill_out_your_profile: "填寫個人檔案"
@@ -790,6 +818,8 @@ zh-TW:
         name: "名字"
         photo: "相片"
         tags: "標籤"
+      search_for_hashtags: "Search for #hashtags"
+      search_for_people: "Search for people"
       see_all_featured_users: "看所有的特色使用者"
       welcome: "歡迎光臨!"
       welcome_with_name: "歡迎光臨, %{name}!"

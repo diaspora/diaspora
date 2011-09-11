@@ -13,6 +13,7 @@ fr:
         many: "Dans {{count}} aspects"
         one: "Dans {{count}} aspect"
         other: "Dans {{count}} aspects"
+        two: "In {{count}} aspects"
         zero: "Ajouter à l'aspect"
     comments: 
       hide: "cacher les commentaires"

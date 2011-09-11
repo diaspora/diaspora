@@ -13,6 +13,7 @@ pt-PT:
         many: "Em {{count}} aspectos"
         one: "Em {{count}} aspecto"
         other: "Em {{count}} aspectos"
+        two: "In {{count}} aspects"
         zero: "Adicionar ao aspecto"
     comments: 
       hide: "esconder comentários"

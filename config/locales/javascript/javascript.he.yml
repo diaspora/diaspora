@@ -7,12 +7,13 @@ he:
   javascripts: 
     aspect_dropdown: 
       add_to_aspect: "הוספה להיבט"
-      all_aspects: "All aspects"
+      all_aspects: "כל ההיבטים"
       toggle: 
         few: "ב־{{count}} היבטים"
         many: "ב־{{count}} היבטים"
         one: "בהיבט אחד"
         other: "ב־{{count}} היבטים"
+        two: "ב־{{count}} היבטים"
         zero: "הוספה להיבט"
     comments: 
       hide: "הסתרת תגובות"
@@ -24,10 +25,10 @@ he:
       no_more: "אין רשומות נוספות."
     publisher: 
       at_least_one_aspect: "עליך לפרסם היבט אחד לפחות"
-      limited: "Limited - your post will only be seen by people you are sharing with"
-      public: "Public - your post will be visible to everyone and found by search engines"
+      limited: "מוגבל - הרשומה שלך תהיה גלויה אך ורק לאנשים אתם בחרת לשתף"
+      public: "ציבורי - הרשומה שלך תהיה גלויה לכולם וניתן יהיה למצוא אותה במנועי חיפוש"
     reshares: 
-      duplicate: "You've already reshared that post!"
+      duplicate: "כבר שיתפת רשומה זו מחדש!"
     search_for: "חיפוש אחר {{name}}"
     show_more: "הצגת עוד"
     timeago: 

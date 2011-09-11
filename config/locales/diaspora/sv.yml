@@ -140,6 +140,7 @@ sv:
       view_all_contacts: "View all contacts"
     show: 
       edit_aspect: "ändra aspekt"
+    two: "%{count} aspects"
     update: 
       failure: "Din aspekt, %{name}, hade ett för långt namn för att kunna sparas."
       success: "Din aspekt %{name} är nu ändrad."
@@ -163,6 +164,7 @@ sv:
       commenting: "Kommenterar..."
     one: "1 kommentar"
     other: "%{count} kommentarer"
+    two: "%{count} comments"
     zero: "inga kommentarer"
   contacts: 
     create: 
@@ -187,6 +189,7 @@ sv:
     other: "%{count} kontakter"
     sharing: 
       people_sharing: "Personer delar med dig:"
+    two: "%{count} contacts"
     zero: "inga kontakter"
   conversations: 
     create: 
@@ -200,6 +203,7 @@ sv:
         many: "%{count} nya meddelanden"
         one: "1 nytt meddelande"
         other: "%{count} nya meddelanden"
+        two: "%{count} new messages"
         zero: "inga nya meddelanden"
     index: 
       create_a_new_message: "skapa ett nytt meddelande"
@@ -297,18 +301,21 @@ sv:
         many: "%{count} personer ogillar det här"
         one: "1 person ogillar det här"
         other: "%{count} personer ogillar det här"
+        two: "%{count} dislikes"
         zero: "inga personer ogillar det här"
       people_like_this: 
         few: "%{count} personer gillar det här"
         many: "%{count} personer gillar det här"
         one: "1 person gillar det här"
         other: "%{count} personer gillar det här"
+        two: "%{count} likes"
         zero: "inga personer gillar det här"
       people_like_this_comment: 
         few: "%{count} likes"
         many: "%{count} likes"
         one: "%{count} like"
         other: "%{count} likes"
+        two: "%{count} likes"
         zero: "no likes"
   limited: "Limited"
   more: "Mer"
@@ -320,18 +327,21 @@ sv:
       many: "%{actors} also commented on %{post_author}'s %{post_link}."
       one: "%{actors} also commented on %{post_author}'s %{post_link}."
       other: "%{actors} also commented on %{post_author}'s %{post_link}."
+      two: "%{actors} also commented on %{post_author}'s %{post_link}."
       zero: "%{actors} also commented on %{post_author}'s %{post_link}."
     also_commented_deleted: 
       few: "%{actors} commented on a deleted post."
       many: "%{actors} commented on a deleted post."
       one: "%{actors} commented on a deleted post."
       other: "%{actors} commented on a deleted post."
+      two: "%{actors} commented on a deleted post."
       zero: "%{actors} commented on a deleted post."
     comment_on_post: 
       few: "%{actors} commented on your %{post_link}."
       many: "%{actors} commented on your %{post_link}."
       one: "%{actors} commented on your %{post_link}."
       other: "%{actors} commented on your %{post_link}."
+      two: "%{actors} commented on your %{post_link}."
       zero: "%{actors} commented on your %{post_link}."
     helper: 
       new_notifications: 
@@ -339,6 +349,7 @@ sv:
         many: "%{count} nya meddelanden"
         one: "1 nya meddelanden"
         other: "%{count} nya meddelanden"
+        two: "%{count} new notifications"
         zero: "inga nya meddelanden"
     index: 
       and: "och"
@@ -347,6 +358,7 @@ sv:
         many: "and %{count} others"
         one: "and one more"
         other: "and %{count} others"
+        two: "and %{count} others"
         zero: "and nobody else"
       mark_all_as_read: "Markera alla som läst"
       notifications: "Notifieringar"
@@ -355,24 +367,28 @@ sv:
       many: "%{actors} has just liked your %{post_link}."
       one: "%{actors} has just liked your %{post_link}."
       other: "%{actors} has just liked your %{post_link}."
+      two: "%{actors} has just liked your %{post_link}."
       zero: "%{actors} has just liked your %{post_link}."
     liked_post_deleted: 
       few: "%{actors} liked your deleted post."
       many: "%{actors} liked your deleted post."
       one: "%{actors} liked your deleted post."
       other: "%{actors} liked your deleted post."
+      two: "%{actors} liked your deleted post."
       zero: "%{actors} liked your deleted post."
     mentioned: 
       few: "%{actors} has mentioned you in a %{post_link}."
       many: "%{actors} has mentioned you in a %{post_link}."
       one: "%{actors} has mentioned you in a %{post_link}."
       other: "%{actors} has mentioned you in a %{post_link}."
+      two: "%{actors} has mentioned you in a %{post_link}."
       zero: "%{actors} has mentioned you in a %{post_link}."
     mentioned_deleted: 
       few: "%{actors} mentioned you in a deleted post."
       many: "%{actors} mentioned you in a deleted post."
       one: "%{actors} mentioned you in a deleted post."
       other: "%{actors} mentioned you in a deleted post."
+      two: "%{actors} mentioned you in a deleted post."
       zero: "%{actors} mentioned you in a deleted post."
     post: "inlägg."
     private_message: 
@@ -380,24 +396,28 @@ sv:
       many: "%{actors} sent you a message."
       one: "%{actors} sent you a message."
       other: "%{actors} sent you a message."
+      two: "%{actors} sent you a message."
       zero: "%{actors} sent you a message."
     reshared: 
       few: "%{actors} has reshared your %{post_link}."
       many: "%{actors} has reshared your %{post_link}."
       one: "%{actors} has reshared your %{post_link}."
       other: "%{actors} has reshared your %{post_link}."
+      two: "%{actors} has reshared your %{post_link}."
       zero: "%{actors} has reshared your %{post_link}."
     reshared_post_deleted: 
       few: "%{actors} reshared your deleted post."
       many: "%{actors} reshared your deleted post."
       one: "%{actors} reshared your deleted post."
       other: "%{actors} reshared your deleted post."
+      two: "%{actors} reshared your deleted post."
       zero: "%{actors} reshared your deleted post."
     started_sharing: 
       few: "%{actors} started sharing with you."
       many: "%{actors} started sharing with you."
       one: "%{actors} started sharing with you."
       other: "%{actors} started sharing with you."
+      two: "%{actors} started sharing with you."
       zero: "%{actors} started sharing with you."
   notifier: 
     a_post_you_shared: "a post."
@@ -481,6 +501,7 @@ sv:
       add_some: "add some"
       edit: "edit"
       you_have_no_tags: "you have no tags!"
+    two: "%{count} people"
     webfinger: 
       fail: "Förlåt, vi kunde inte hitta %{handle}."
     zero: "inga personer"
@@ -520,7 +541,8 @@ sv:
       notice: "Fotot är nu uppdaterat."
   post_visibilites: 
     update: 
-      post_hidden: "%{name}s post har gömts."
+      post_hidden_and_muted: "%{name}'s post has been hidden, and notifications have been muted."
+      see_it_on_their_profile: "If you want to see updates on this post, visit %{name}'s profile page."
   posts: 
     show: 
       destroy: "Delete"
@@ -582,6 +604,7 @@ sv:
         many: "%{count} nya förfrågningar!"
         one: "ny förfrågan!"
         other: "%{count} nya förfrågningar!"
+        two: "%{count} new requests!"
         zero: "inga nya förfrågningar"
     manage_aspect_contacts: 
       existing: "Befintliga kontakter"
@@ -599,6 +622,7 @@ sv:
         many: "%{count} Reshares"
         one: "1 Reshare"
         other: "%{count} Reshares"
+        two: "%{count} reshares"
         zero: "Reshare"
       reshare_confirmation: "Reshare %{author} - %{text}?"
       reshare_original: "Reshare orignial"
@@ -646,6 +670,7 @@ sv:
         many: "In %{count} aspects"
         one: "In %{count} aspect"
         other: "In %{count} aspects"
+        two: "In %{count} aspects"
         zero: "Add to aspect"
     contact_list: 
       all_contacts: "Alla kontakter"
@@ -685,6 +710,7 @@ sv:
       reshare: "Återdela"
     stream_element: 
       dislike: "Jag ogillar det här"
+      hide_and_mute: "Hide and Mute"
       like: "Jag gillar det här"
       shared_with: "Shared with: %{aspect_names}"
       unlike: "Sluta gilla"
@@ -704,6 +730,7 @@ sv:
       many: "ditt statusmeddelande får inte vara längre än %{count} bokstäver"
       one: "ditt statusmeddelande får inte vara längre än %{count} bokstäver"
       other: "ditt statusmeddelande får inte vara längre än %{count} bokstäver"
+      two: "please make your status messages less than %{count} characters"
       zero: "ditt statusmeddelande får inte vara längre än %{count} bokstäver"
   stream_helper: 
     hide_comments: "dölj kommentarer"
@@ -773,6 +800,7 @@ sv:
       connect_with_people: "Connect with cool people"
       connect_with_people_explanation_pt1: "Connect with people by placing them into one or more of your"
       connect_with_people_explanation_pt2: "Aspects are an intuitive way to group new and familar faces, private to you, allowing you to filter down or share with subsets of your contacts easily."
+      edit_profile: "Ändra din profil"
       featured_tags: "Featured tags"
       featured_users: "Featured users"
       fill_out_your_profile: "Fill out your profile"
@@ -790,6 +818,8 @@ sv:
         name: "Name"
         photo: "Photo"
         tags: "Tags"
+      search_for_hashtags: "Search for #hashtags"
+      search_for_people: "Search for people"
       see_all_featured_users: "See all featured users"
       welcome: "Välkommen till diaspora!"
       welcome_with_name: "Welcome, %{name}!"

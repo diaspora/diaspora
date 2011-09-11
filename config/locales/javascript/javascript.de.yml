@@ -13,6 +13,7 @@ de:
         many: "In {{count}} Aspekten"
         one: "In einem Aspekt"
         other: "In {{count}} Aspekten"
+        two: "In {{count}} aspects"
         zero: "Zu Aspekt hinzufügen"
     comments: 
       hide: "Kommentare verbergen"

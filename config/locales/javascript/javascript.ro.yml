@@ -13,6 +13,7 @@ ro:
         many: "În {{count}} aspecte"
         one: "În {{count}} aspect"
         other: "În {{count}} aspecte"
+        two: "In {{count}} aspects"
         zero: "Adaugă la aspect"
     comments: 
       hide: "hide comments"

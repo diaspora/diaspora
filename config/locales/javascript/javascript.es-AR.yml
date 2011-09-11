@@ -13,6 +13,7 @@ es-AR:
         many: "En {{count}} aspectos"
         one: "En {{count}} aspecto"
         other: "En {{count}} aspectos"
+        two: "In {{count}} aspects"
         zero: "Agregar a un aspecto"
     comments: 
       hide: "ocultar los comentarios"

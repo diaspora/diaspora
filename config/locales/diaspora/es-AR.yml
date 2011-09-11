@@ -140,6 +140,7 @@ es-AR:
       view_all_contacts: "View all contacts"
     show: 
       edit_aspect: "editar aspecto"
+    two: "%{count} aspects"
     update: 
       failure: "Tu aspecto, %{name}, tenía un nombre muy largo para guardarlo."
       success: "Tu aspecto, %{name}, se editó con éxito."
@@ -163,6 +164,7 @@ es-AR:
       commenting: "Comentando..."
     one: "1 comentario"
     other: "%{count} comentarios"
+    two: "%{count} comments"
     zero: "no hay comentarios"
   contacts: 
     create: 
@@ -187,6 +189,7 @@ es-AR:
     other: "%{count} contactos"
     sharing: 
       people_sharing: "Compartiendo con vos:"
+    two: "%{count} contacts"
     zero: "no hay contactos"
   conversations: 
     create: 
@@ -200,6 +203,7 @@ es-AR:
         many: "%{count} mensajes nuevos"
         one: "1 mensaje nuevo"
         other: "%{count} mensajes nuevos"
+        two: "%{count} new messages"
         zero: "no hay mensajes nuevos"
     index: 
       create_a_new_message: "crear un nuevo mensaje"
@@ -297,18 +301,21 @@ es-AR:
         many: "%{count} les disgusta"
         one: "%{count} le disgusta"
         other: "%{count} les disgusta"
+        two: "%{count} dislikes"
         zero: "a nadie le disgusta"
       people_like_this: 
         few: "%{count} les gusta"
         many: "%{count} les gusta"
         one: "%{count} le gusta"
         other: "%{count} les gusta"
+        two: "%{count} likes"
         zero: "a nadie le gusta"
       people_like_this_comment: 
         few: "%{count} likes"
         many: "%{count} likes"
         one: "%{count} like"
         other: "%{count} likes"
+        two: "%{count} likes"
         zero: "no likes"
   limited: "Limited"
   more: "Más"
@@ -320,18 +327,21 @@ es-AR:
       many: "%{actors} también comentaron en la %{post_link} de %{post_author}."
       one: "%{actors} también comentó en la %{post_link} de %{post_author}."
       other: "%{actors} también comentaron en la %{post_link} de %{post_author}."
+      two: "%{actors} also commented on %{post_author}'s %{post_link}."
       zero: "%{actors} también comentó en la %{post_link} de %{post_author}."
     also_commented_deleted: 
       few: "%{actors} comentaron en una publicación eliminada."
       many: "%{actors} comentaron en una publicación eliminada."
       one: "%{actors} comentó en una publicación eliminada."
       other: "%{actors} comentaron en una publicación eliminada."
+      two: "%{actors} commented on a deleted post."
       zero: "%{actors} comentó en una publicación eliminada."
     comment_on_post: 
       few: "%{actors} comentaron en tu %{post_link}."
       many: "%{actors} comentaron en tu %{post_link}."
       one: "%{actors} comentó en tu %{post_link}."
       other: "%{actors} comentaron en tu %{post_link}."
+      two: "%{actors} commented on your %{post_link}."
       zero: "%{actors} comentó en tu %{post_link}."
     helper: 
       new_notifications: 
@@ -339,6 +349,7 @@ es-AR:
         many: "%{count} notificaciones nuevas"
         one: "1 notificación nueva"
         other: "%{count} notificaciones nuevas"
+        two: "%{count} new notifications"
         zero: "ninguna notificacíon nueva"
     index: 
       and: "y"
@@ -347,6 +358,7 @@ es-AR:
         many: "y otros %{count}"
         one: "y alguien más"
         other: "y otros %{count}"
+        two: "and %{count} others"
         zero: "y nadie más"
       mark_all_as_read: "Marcar todo como leído"
       notifications: "Notificaciones"
@@ -355,24 +367,28 @@ es-AR:
       many: "A %{actors} les gusta tu %{post_link}."
       one: "A %{actors} le gusta tu %{post_link}."
       other: "A %{actors} les gusta tu %{post_link}."
+      two: "%{actors} has just liked your %{post_link}."
       zero: "A %{actors} le gusta tu %{post_link}."
     liked_post_deleted: 
       few: "A %{actors} les gusta tu publicación eliminada."
       many: "A %{actors} les gusta tu publicación eliminada."
       one: "A %{actors} le gusta tu publicación eliminada."
       other: "A %{actors} les gusta tu publicación eliminada."
+      two: "%{actors} liked your deleted post."
       zero: "A %{actors} le gusta tu publicación eliminada."
     mentioned: 
       few: "%{actors} te mencionaron en %{post_link}."
       many: "%{actors} te mencionaron en %{post_link}."
       one: "%{actors} te mencionó en %{post_link}."
       other: "%{actors} te mencionaron en %{post_link}."
+      two: "%{actors} has mentioned you in a %{post_link}."
       zero: "%{actors} te mencionó en %{post_link}."
     mentioned_deleted: 
       few: "%{actors} te mencionaron en una publicación eliminada."
       many: "%{actors} te mencionaron en una publicación eliminada."
       one: "%{actors} te mencionó en una publicación eliminada."
       other: "%{actors} te mencionaron en una publicación eliminada."
+      two: "%{actors} mentioned you in a deleted post."
       zero: "%{actors} te mencionó en una publicación eliminada."
     post: "publicación"
     private_message: 
@@ -380,24 +396,28 @@ es-AR:
       many: "%{actors} te enviaron un mensaje."
       one: "%{actors} te envió un mensaje."
       other: "%{actors} te enviaron un mensaje."
+      two: "%{actors} sent you a message."
       zero: "%{actors} te envió un mensaje."
     reshared: 
       few: "%{actors} has reshared your %{post_link}."
       many: "%{actors} has reshared your %{post_link}."
       one: "%{actors} has reshared your %{post_link}."
       other: "%{actors} has reshared your %{post_link}."
+      two: "%{actors} has reshared your %{post_link}."
       zero: "%{actors} has reshared your %{post_link}."
     reshared_post_deleted: 
       few: "%{actors} reshared your deleted post."
       many: "%{actors} reshared your deleted post."
       one: "%{actors} reshared your deleted post."
       other: "%{actors} reshared your deleted post."
+      two: "%{actors} reshared your deleted post."
       zero: "%{actors} reshared your deleted post."
     started_sharing: 
       few: "%{actors} comparten con vos."
       many: "%{actors} comparten con vos."
       one: "%{actors} comparte con vos."
       other: "%{actors} comparten con vos."
+      two: "%{actors} started sharing with you."
       zero: "%{actors} comparte con vos."
   notifier: 
     a_post_you_shared: "a post."
@@ -481,6 +501,7 @@ es-AR:
       add_some: "add some"
       edit: "edit"
       you_have_no_tags: "you have no tags!"
+    two: "%{count} people"
     webfinger: 
       fail: "Lo sentimos, no pudimos encontrar a %{handle}."
     zero: "nadie"
@@ -520,7 +541,8 @@ es-AR:
       notice: "La foto se subió correctamente."
   post_visibilites: 
     update: 
-      post_hidden: "La publicación de %{name} fue ocultada."
+      post_hidden_and_muted: "%{name}'s post has been hidden, and notifications have been muted."
+      see_it_on_their_profile: "If you want to see updates on this post, visit %{name}'s profile page."
   posts: 
     show: 
       destroy: "Delete"
@@ -582,6 +604,7 @@ es-AR:
         many: "¡%{count} solicitudes nuevas!"
         one: "¡Una solicitud nueva!"
         other: "¡%{count} solicitudes nuevas!"
+        two: "%{count} new requests!"
         zero: "No hay solicitudes nuevas"
     manage_aspect_contacts: 
       existing: "Contactos existentes"
@@ -599,6 +622,7 @@ es-AR:
         many: "%{count} Reshares"
         one: "1 Reshare"
         other: "%{count} Reshares"
+        two: "%{count} reshares"
         zero: "Reshare"
       reshare_confirmation: "Reshare %{author} - %{text}?"
       reshare_original: "Reshare orignial"
@@ -646,6 +670,7 @@ es-AR:
         many: "In %{count} aspects"
         one: "In %{count} aspect"
         other: "In %{count} aspects"
+        two: "In %{count} aspects"
         zero: "Add to aspect"
     contact_list: 
       all_contacts: "Todos los contactos"
@@ -685,6 +710,7 @@ es-AR:
       reshare: "Republicar"
     stream_element: 
       dislike: "Me disgusta"
+      hide_and_mute: "Hide and Mute"
       like: "Me gusta"
       shared_with: "Shared with: %{aspect_names}"
       unlike: "No me gusta"
@@ -704,6 +730,7 @@ es-AR:
       many: "Por favor, hacé tu mensaje de estado tenga menos de %{count} caracteres"
       one: "Por favor, hacé tu mensaje de estado tenga menos de %{count} carácter"
       other: "Por favor, hacé tu mensaje de estado tenga menos de %{count} caracteres"
+      two: "please make your status messages less than %{count} characters"
       zero: "Por favor, hacé tu mensaje de estado tenga menos de %{count} caracteres"
   stream_helper: 
     hide_comments: "ocultar los comentarios"
@@ -773,6 +800,7 @@ es-AR:
       connect_with_people: "Connect with cool people"
       connect_with_people_explanation_pt1: "Connect with people by placing them into one or more of your"
       connect_with_people_explanation_pt2: "Aspects are an intuitive way to group new and familar faces, private to you, allowing you to filter down or share with subsets of your contacts easily."
+      edit_profile: "Editá tu perfil"
       featured_tags: "Featured tags"
       featured_users: "Featured users"
       fill_out_your_profile: "Fill out your profile"
@@ -790,6 +818,8 @@ es-AR:
         name: "Name"
         photo: "Photo"
         tags: "Tags"
+      search_for_hashtags: "Search for #hashtags"
+      search_for_people: "Search for people"
       see_all_featured_users: "See all featured users"
       welcome: "¡Bienvenido a Diáspora*!"
       welcome_with_name: "Welcome, %{name}!"

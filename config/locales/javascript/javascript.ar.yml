@@ -13,6 +13,7 @@ ar:
         many: "في {{count}} فئات"
         one: "في {{count}} فئة"
         other: "في {{count}} فئات"
+        two: "In {{count}} aspects"
         zero: "أضف إلى فئة"
     comments: 
       hide: "أخفِ التعليقات"

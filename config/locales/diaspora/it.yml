@@ -140,6 +140,7 @@ it:
       view_all_contacts: "Visualizza tutti i contatti"
     show: 
       edit_aspect: "modifica aspetto"
+    two: "%{count} aspetti"
     update: 
       failure: "Il tuo  aspetto, %{name}, ha un nome troppo lungo per poter essere salvato."
       success: "Il tuo aspetto, %{name}, è stato modificato con successo."
@@ -163,6 +164,7 @@ it:
       commenting: "Invio commento in corso..."
     one: "1 commento"
     other: "%{count} commenti"
+    two: "%{count} commenti"
     zero: "nessun commento"
   contacts: 
     create: 
@@ -187,6 +189,7 @@ it:
     other: "%{count} contatti"
     sharing: 
       people_sharing: "Persone che condividono con te:"
+    two: "%{count} contatti"
     zero: "nessun contatto"
   conversations: 
     create: 
@@ -200,6 +203,7 @@ it:
         many: "%{count} nuovi messaggi"
         one: "un nuovo messaggio"
         other: "%{count} nuovi messaggi"
+        two: "%{count} nuovi messaggi"
         zero: "Nessun nuovo messaggio"
     index: 
       create_a_new_message: "scrivi un nuovo messaggio"
@@ -297,18 +301,21 @@ it:
         many: "%{count} Non mi piace"
         one: "%{count} Non mi piace"
         other: "%{count} Non mi piace"
+        two: "%{count} non mi piace"
         zero: "0 Non mi piace"
       people_like_this: 
         few: "%{count} Mi piace"
         many: "%{count} Mi piace"
         one: "%{count} Mi piace"
         other: "%{count} Mi piace"
+        two: "%{count} mi piace"
         zero: "0 Mi piace"
       people_like_this_comment: 
         few: "%{count} mi piace"
         many: "%{count} mi piace"
         one: "%{count} mi piace"
         other: "%{count} mi piace"
+        two: "%{count} mi piace"
         zero: "0 mi piace"
   limited: "Non pubblico"
   more: "Altro"
@@ -320,18 +327,21 @@ it:
       many: "Anche %{actors} hanno commentato il %{post_link} di %{post_author}."
       one: "Anche %{actors} ha commentato il %{post_link} di %{post_author}."
       other: "Anche %{actors} hanno commentato il %{post_link} di %{post_author}."
+      two: "Anche %{actors} hanno commentato il %{post_link} di %{post_author}."
       zero: "%{actors} ha commentato il %{post_link} di %{post_author}."
     also_commented_deleted: 
       few: "%{actors} hanno commentato il messaggio che hai eliminato."
       many: "%{actors} hanno commentato il messaggio che hai eliminato."
       one: "%{actors} ha commentato su un post cancellato."
       other: "%{actors} ha commentato su un post cancellato."
+      two: "%{actors} hanno commentato il post che hai rimosso."
       zero: "%{actors} ha commentato su un post cancellato."
     comment_on_post: 
       few: "%{actors} hanno commentato il tuo %{post_link}."
       many: "%{actors} hanno commentato il tuo %{post_link}."
       one: "%{actors} ha commentato il tuo %{post_link}."
       other: "%{actors} hanno commentato il tuo %{post_link}."
+      two: "%{actors} hanno commentato il tuo %{post_link}."
       zero: "%{actors} ha commentato il tuo %{post_link}."
     helper: 
       new_notifications: 
@@ -339,14 +349,16 @@ it:
         many: "%{count} nuove notifiche"
         one: "una nuova notifica"
         other: "%{count} nuove notifiche"
+        two: "%{count} nuove notifiche"
         zero: "Nessuna nuova notifica"
     index: 
       and: "e"
       and_others: 
-        few: "e %{count} altri"
-        many: "e %{count} altri"
-        one: "e uno in più"
-        other: "e %{count} altri"
+        few: "e altre %{count} persone"
+        many: "e altre %{count} persone"
+        one: "e un'altra persona"
+        other: "e altre %{count} persone"
+        two: "e altre %{count} persone"
         zero: "e nessun altro"
       mark_all_as_read: "Segna tutti come letti"
       notifications: "Notifiche"
@@ -355,24 +367,28 @@ it:
       many: "%{actors} hanno apprezzato il tuo %{post_link}."
       one: "%{actors} ha apprezzato il tuo %{post_link}."
       other: "%{actors} ha apprezzato il tuo %{post_link}."
+      two: "A %{actors} piace il tuo %{post_link}."
       zero: "%{actors} ha apprezzato il tuo %{post_link}."
     liked_post_deleted: 
       few: "A %{actors} piaceva il messaggio che hai eliminato."
       many: "A %{actors} piaceva il messaggio che hai eliminato."
       one: "A %{actors} piaceva il messaggio che hai eliminato."
       other: "A %{actors} piaceva il messaggio che hai eliminato."
+      two: "A %{actors} piaceva il post che hai rimosso."
       zero: "A %{actors} piaceva il messaggio che hai eliminato."
     mentioned: 
       few: "%{actors} ti hanno menzionato in un %{post_link}."
       many: "%{actors} ti hanno menzionato in un %{post_link}."
       one: "%{actors} ti ha menzionato in un %{post_link}."
       other: "%{actors} ti ha menzionato in un %{post_link}."
+      two: "%{actors} ti hanno nominato in un %{post_link}."
       zero: "%{actors} ti ha menzionato in un %{post_link}."
     mentioned_deleted: 
       few: "%{actors} ti hanno menzionato in un post cancellato."
       many: "%{actors} ti hanno menzionato in un post cancellato."
       one: "%{actors} ti ha menzionato in un post cancellato."
       other: "%{actors} ti ha menzionato in un post cancellato."
+      two: "%{actors} ti hanno nominato in un post che è stato rimosso."
       zero: "%{actors} ti ha menzionato in un post cancellato."
     post: "post"
     private_message: 
@@ -380,24 +396,28 @@ it:
       many: "%{actors} ti hanno inviato un messaggio."
       one: "%{actors} ti ha inviato un messaggio."
       other: "%{actors} ti ha inviato un messaggio."
+      two: "%{actors} ti hanno inviato un messaggio."
       zero: "%{actors} ti ha inviato un messaggio."
     reshared: 
       few: "%{actors} hanno condiviso il tuo %{post_link}."
       many: "%{actors} hanno condiviso il tuo %{post_link}."
       one: "%{actors} ha condiviso il tuo %{post_link}."
       other: "%{actors} hanno condiviso il tuo %{post_link}."
+      two: "%{actors} hanno condiviso il tuo %{post_link}."
       zero: "%{actors} hanno condiviso il tuo %{post_link}."
     reshared_post_deleted: 
       few: "%{actors} hanno condiviso il post che hai cancellato."
       many: "%{actors} hanno condiviso il post che hai cancellato."
       one: "%{actors} ha condiviso il post che hai cancellato."
       other: "%{actors} hanno condiviso il post che hai cancellato."
+      two: "%{actors} hanno condiviso il post che hai rimosso."
       zero: "%{actors} hanno condiviso il post che hai cancellato."
     started_sharing: 
       few: "%{actors} hanno iniziato a condividere con te."
       many: "%{actors} hanno iniziato a condividere con te."
       one: "%{actors} ha iniziato a condividere con te."
       other: "%{actors} hanno iniziato a condividere con te."
+      two: "%{actors} hanno iniziato a condividere con te."
       zero: "%{actors} ha iniziato a condividere con te."
   notifier: 
     a_post_you_shared: "un post."
@@ -481,6 +501,7 @@ it:
       add_some: "aggiungi qualcuno"
       edit: "modifica"
       you_have_no_tags: "non hai alcun tag!"
+    two: "%{count} persone"
     webfinger: 
       fail: "Spiacenti, non possiamo trovare %{handle}."
     zero: "nessuna persona"
@@ -520,7 +541,8 @@ it:
       notice: "Foto aggiornata con successo."
   post_visibilites: 
     update: 
-      post_hidden: "Il post di %{name} è stato nascosto."
+      post_hidden_and_muted: "%{name}'s post has been hidden, and notifications have been muted."
+      see_it_on_their_profile: "If you want to see updates on this post, visit %{name}'s profile page."
   posts: 
     show: 
       destroy: "Elimina"
@@ -582,6 +604,7 @@ it:
         many: "%{count} nuove richieste!"
         one: "una nuova richiesta!"
         other: "%{count} nuove richieste!"
+        two: "%{count} nuove richieste!"
         zero: "nessuna nuova richiesta"
     manage_aspect_contacts: 
       existing: "Contatti esistenti"
@@ -599,6 +622,7 @@ it:
         many: "%{count} condivisioni"
         one: "1 condivisione"
         other: "%{count} condivisioni"
+        two: "%{count} condivisioni"
         zero: "Condividi"
       reshare_confirmation: "Vuoi condividere il post di %{author} con i tuoi contatti?"
       reshare_original: "Condividi l'originale"
@@ -646,6 +670,7 @@ it:
         many: "In %{count} aspetti"
         one: "In %{count} aspetto"
         other: "In %{count} aspetti"
+        two: "In %{count} aspetti"
         zero: "Aggiungi ad un aspetto"
     contact_list: 
       all_contacts: "Tutti i contatti"
@@ -685,6 +710,7 @@ it:
       reshare: "Condividi"
     stream_element: 
       dislike: "Non mi piace"
+      hide_and_mute: "Hide and Mute"
       like: "Mi piace"
       shared_with: "Condiviso con: %{aspect_names}"
       unlike: "Annulla"
@@ -704,6 +730,7 @@ it:
       many: "per favore scrivi i tuoi messaggi di stato con meno di %{count} caratteri"
       one: "per favore scrivi i tuoi messaggi di stato con meno di %{count} carattere"
       other: "per favore scrivi i tuoi messaggi di stato con meno di %{count} caratteri"
+      two: "i tuoi messaggi di stato dovrebbero essere più corti di %{count} caratteri"
       zero: "per favore scrivi i tuoi messaggi di stato con meno di %{count} caratteri"
   stream_helper: 
     hide_comments: "Nascondi i commenti"
@@ -773,6 +800,7 @@ it:
       connect_with_people: "Connettiti con gente speciale"
       connect_with_people_explanation_pt1: "Stai in contatto con le persone mettendole in uno o più dei tuoi %{bold}."
       connect_with_people_explanation_pt2: "Gli aspetti sono un sistema intuitivo per raggruppare vecchie e nuove conoscenze in modo riservato, così potrai filtrare o condividere i contenuti con chi vuoi e con facilità."
+      edit_profile: "Edit Profile"
       featured_tags: "Tag consigliati"
       featured_users: "Utenti consigliati"
       fill_out_your_profile: "Riempi il tuo profilo"
@@ -790,6 +818,8 @@ it:
         name: "Nome"
         photo: "Foto"
         tags: "Tag"
+      search_for_hashtags: "Search for #hashtags"
+      search_for_people: "Search for people"
       see_all_featured_users: "Visualizza tutti gli utenti consigliati"
       welcome: "Benvenuto!"
       welcome_with_name: "Ciao %{name}!"

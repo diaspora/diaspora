@@ -13,6 +13,7 @@ pl:
         many: "W {{count}} obszarach"
         one: "W {{count}} aspektach"
         other: "W {{count}} aspektach"
+        two: "In {{count}} aspects"
         zero: "Dodaj do aspektu"
     comments: 
       hide: "ukryj komentarze"
