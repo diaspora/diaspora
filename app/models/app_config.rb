@@ -42,7 +42,13 @@ HELP
       Process.exit(1)
     end
 
-    super
+    begin
+      super
+    rescue TypeError
+      puts "Couldn't find section ''#{self.namespace}' in config/application.yml."
+      puts "Double check it's there and that you haven't set RAILS_ENV to something weired (check it for typos)"
+      Process.exit(1)
+    end
 
     if no_cert_file_in_prod?
       $stderr.puts <<-HELP
