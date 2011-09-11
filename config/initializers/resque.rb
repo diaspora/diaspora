@@ -2,7 +2,7 @@ require 'resque'
 
 Resque::Plugins::Timeout.timeout = 120
 
-if !ENV['SINGLE_PROCESS'] && AppConfig[:redis_url]
+if !AppConfig.single_process_mode? && AppConfig[:redis_url]
   Resque.redis = Redis.new(:host => AppConfig[:redis_url], :port => 6379)
 end
 
