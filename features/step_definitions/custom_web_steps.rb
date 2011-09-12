@@ -197,9 +197,9 @@ When /^I click on "([^"]*)" aspect edit icon$/ do |aspect_name|
 end
 
 Then /^I should see first post deletion link$/ do
-  page.evaluate_script("$('.stream_element_delete').first().css('display')").should == "inline"
+  wait_until(30) { page.evaluate_script("$('.stream_element_delete').first().css('display')") == "inline" }
 end
 
 Then /^I should not see ajax loader on deletion link place$/ do
-  page.evaluate_script("$('.hide_loader').first().css('display')").should == "none"
+  wait_until(30) { page.evaluate_script("$('.hide_loader').first().css('display')") == "none" }
 end
