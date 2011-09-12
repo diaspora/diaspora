@@ -42,7 +42,7 @@ class AspectStream
   # @return [ActiveRecord::Association<Post>] AR association of posts
   def posts
     # NOTE(this should be something like Post.all_for_stream(@user, aspect_ids, {}) that calls visible_posts
-    @posts ||= @user.visible_posts(:by_members_of => @aspect_ids,
+    @posts ||= @user.visible_posts(:by_members_of => aspect_ids,
                                    :type => ['StatusMessage', 'Reshare', 'ActivityStreams::Photo'],
                                    :order => "#{@order} DESC",
                                    :max_time => @max_time
