@@ -4,7 +4,7 @@ class CounterCacheOnPostComments < ActiveRecord::Migration
     add_column :posts, :comments_count, :integer, :default => 0
     execute <<SQL if Post.count > 0
       UPDATE posts
-      SET posts.comments_count = (SELECT COUNT(*) FROM comments WHERE comments.post_id = posts.id)
+      SET comments_count = (SELECT COUNT(*) FROM comments WHERE comments.post_id = posts.id)
 SQL
   end
 
