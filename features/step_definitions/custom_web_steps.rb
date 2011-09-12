@@ -195,3 +195,11 @@ When /^I click on "([^"]*)" aspect edit icon$/ do |aspect_name|
     find(:xpath, "//a[@rel='facebox'][.//img[@title='Edit #{aspect_name}']]").click
   end
 end
+
+Then /^I should see first post deletion link$/ do
+  page.evaluate_script("$('.stream_element_delete').first().css('display')").should == "inline"
+end
+
+Then /^I should not see ajax loader on deletion link place$/ do
+  page.evaluate_script("$('.hide_loader').first().css('display')").should == "none"
+end
