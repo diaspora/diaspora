@@ -30,10 +30,6 @@ module Postzord
       end
 
       def receive_relayable
-       # unless @object.parent.present?
-       #   raise RelayableObjectWithoutParent.new("Receiving a relayable object without parent object present locally!") 
-       # end
-
         if @object.parent.author.local?
           # receive relayable object only for the owner of the parent object
           @object.receive(@object.parent.author.user, @author)
@@ -49,7 +45,6 @@ module Postzord
         raise "Object is not public" if object_can_be_public_and_it_is_not?
         @object.save!
       end
-
 
       # @return [Array<Integer>] User ids
       def recipient_user_ids

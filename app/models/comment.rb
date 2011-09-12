@@ -25,9 +25,9 @@ class Comment < ActiveRecord::Base
 
   belongs_to :post
   belongs_to :author, :class_name => 'Person'
-  
+
   validates :text, :presence => true, :length => { :maximum => 2500 }
-  validates :post, :presence => true
+  validates :parent, :presence => true #should be in relayable (pending on fixing Message)
 
   serialize :youtube_titles, Hash
 
@@ -56,21 +56,13 @@ class Comment < ActiveRecord::Base
   end
 
   def notification_type(user, person)
-    if user.owns?(self.post)
+    if self.post.author == user.person
       return Notifications::CommentOnPost
-    elsif user_has_commented_on_others_post?(person, self.post, user)
+    elsif self.post.comments.where(:author_id => user.person.id) != [] && self.author_id != user.person.id
       return Notifications::AlsoCommented
     else
       return false
     end
-  end
-
-  def user_has_commented_on_others_post?(author, post, user)
-    Comment.comments_by_author_on_post_exist?(author, post.id) && self.author_id != user.person.id
-  end
-
-  def self.comments_by_author_on_post_exist?(author, post_id)
-    Comment.exists?(:author_id => author.id, :post_id => post_id)
   end
 
   def parent_class
