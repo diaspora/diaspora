@@ -5,6 +5,7 @@ module CsvGenerator
   #BACKER_CSV_LOCATION = File.join('/home/ilya/workspace/diaspora/', 'backer_list.csv')
   WAITLIST_LOCATION = File.join(Rails.root, 'config', 'mailing_list.csv')
   OFFSET_LOCATION = File.join(Rails.root, 'config', 'email_offset')
+  UNSUBSCRIBE_LOCATION = File.join(Rails.root, 'config', 'unsubscribe.csv')
 
   def self.all_active_users
     file = self.filename("all_active_users")
@@ -42,14 +43,16 @@ SQL
 
   def self.backers_recent_login
     file = self.filename("v1_backers_recent_login.csv")
-    sql = self.select_fragment(file, "#{self.has_email} AND #{self.backer_email_condition} AND #{self.recent_login_query}")
+    sql = self.select_fragment(file, "#{self.has_email} AND #{self.backer_email_condition}" +
+                                " AND #{self.unsubscribe_email_condition} AND #{self.recent_login_query}")
 
     ActiveRecord::Base.connection.execute(sql)
   end
 
   def self.backers_old_login
     file = self.filename("v2_backers_old_login.csv")
-    sql = self.select_fragment(file, "#{self.has_email} AND #{self.backer_email_condition} AND #{self.old_login_query}")
+    sql = self.select_fragment(file, "#{self.has_email} AND #{self.backer_email_condition} " +
+                                " AND #{self.unsubscribe_email_condition} AND #{self.old_login_query}")
 
     ActiveRecord::Base.connection.execute(sql)
   end
@@ -65,7 +68,7 @@ SQL
                 CONCAT( 'https://joindiaspora.com/users/invitation/accept?invitation_token=', `users`.invitation_token) AS '%INVITATION_LINK%'
                 #{self.output_syntax(file)}
              FROM `users`
-            WHERE #{self.has_email} AND #{self.has_invitation_token} AND #{self.backer_email_condition} AND #{self.never_login_query};
+            WHERE #{self.has_email} AND #{self.has_invitation_token} AND #{self.backer_email_condition} AND #{self.unsubscribe_email_condition} AND #{self.never_login_query};
 SQL
 
     ActiveRecord::Base.connection.execute(sql)
@@ -73,14 +76,16 @@ SQL
 
   def self.non_backers_recent_login
     file = self.filename("v4_non_backers_recent_login.csv")
-    sql = self.select_fragment(file, "#{self.has_email} AND #{self.non_backer_email_condition} AND #{self.recent_login_query}")
+    sql = self.select_fragment(file, "#{self.has_email} AND #{self.non_backer_email_condition} " +
+                                "AND #{self.unsubscribe_email_condition} AND #{self.recent_login_query}")
 
     ActiveRecord::Base.connection.execute(sql)
   end
 
   def self.non_backers_old_login
     file = self.filename("v5_non_backers_old_login.csv")
-    sql = self.select_fragment(file, "#{self.has_email} AND #{self.non_backer_email_condition} AND #{self.old_login_query}")
+    sql = self.select_fragment(file, "#{self.has_email} AND #{self.non_backer_email_condition} " +
+                                "AND #{self.unsubscribe_email_condition} AND #{self.old_login_query}")
 
     ActiveRecord::Base.connection.execute(sql)
   end
@@ -95,16 +100,13 @@ SQL
                 CONCAT( 'https://joindiaspora.com/users/invitation/accept?invitation_token=', `users`.invitation_token) AS '%INVITATION_LINK%'
                 #{self.output_syntax(file)}
              FROM `users`
-            WHERE #{self.has_email} AND #{self.has_invitation_token} AND #{self.non_backer_email_condition} AND #{self.never_login_query};
+            WHERE #{self.has_email} AND #{self.has_invitation_token} AND #{self.non_backer_email_condition} AND #{self.unsubscribe_email_condition} AND #{self.never_login_query};
 SQL
     ActiveRecord::Base.connection.execute(sql)
   end
 
   # ---------------- QUERY METHODS & NOTES -------------------------
   def self.select_fragment(file, where_clause)
-    #    #
-    #
-    #
     sql = <<SQL
           SELECT '%EMAIL%','%NAME%','%INVITATION_LINK%'
           UNION
@@ -137,6 +139,12 @@ SQL
     b_emails = self.backer_emails
     b_emails.map!{|a| "'#{a}'"}
     "`users`.`email` NOT IN (#{query_string_from_array(b_emails[1..b_emails.length])})" 
+  end
+
+  def self.unsubscribe_email_condition
+    u_emails = self.unsubscriber_emails
+    u_emails.map!{|a| "'#{a}'"}
+    "`users`.`email` NOT IN (#{query_string_from_array(u_emails[1..u_emails.length])})" 
   end
 
   def self.recent_login_query
@@ -213,5 +221,13 @@ SQL
 
   def self.backer_emails
     self.backers.map{|b| b[0]}
+  end
+
+  def self.unsubsribers
+    self.load_waiting_list_csv(UNSUBSCRIBE_LOCATION)
+  end
+
+  def self.unsubscriber_emails
+    self.unsubsribers.map{|b| b[1]}
   end
 end
