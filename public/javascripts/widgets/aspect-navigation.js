@@ -11,6 +11,7 @@
       $.extend(self, {
         aspectNavigation: aspectNavigation,
         aspectSelectors: aspectNavigation.find("a.aspect_selector[data-guid]"),
+        aspectLis: aspectNavigation.find("li[data-aspect_id]"),
         toggleSelector: aspectNavigation.find("a.toggle_selector")
       });
 
@@ -43,21 +44,18 @@
     this.toggleAll = function(evt) {
       evt.preventDefault();
 
-      var aspectLis = self.aspectSelectors.parent();
-
-      if (aspectLis.not(".active").length === 0) {
-        aspectLis.removeClass("active");
+      if (self.aspectLis.not(".active").length === 0) {
+        self.aspectLis.removeClass("active");
         self.abortAjax();
       } else {
-        aspectLis.addClass("active");
+        self.aspectLis.addClass("active");
         self.performAjax();
       }
       self.calculateToggleText();
     };
 
     this.calculateToggleText = function() {
-      var aspectLis = self.aspectSelectors.parent();
-      if (aspectLis.not(".active").length === 0) {
+      if (self.aspectLis.not(".active").length === 0) {
         self.toggleSelector.text(Diaspora.I18n.t('aspect_navigation.deselect_all'));
       } else {
         self.toggleSelector.text(Diaspora.I18n.t('aspect_navigation.select_all'));
@@ -71,10 +69,10 @@
       baseURL = baseURL.replace('#','');
       baseURL += '?';
 
-      self.aspectSelectors.each(function() {
-        var aspectSelector = $(this);
-        if(aspectSelector.parent().hasClass("active")) {
-          baseURL += "a_ids[]=" + aspectSelector.data("guid") + "&";
+      self.aspectLis.each(function() {
+        var aspectLi = $(this);
+        if (aspectLi.hasClass("active")) {
+          baseURL += "a_ids[]=" + aspectLi.data("aspect_id") + "&";
         }
       });
 
