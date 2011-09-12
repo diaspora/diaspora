@@ -44,7 +44,7 @@ class Webfinger
   private
   def get_xrd
     begin
-      http = Faraday.get xrd_url
+      http = get_url xrd_url
 
       profile_url = webfinger_profile_url(http.body)
       if profile_url
@@ -66,7 +66,7 @@ class Webfinger
 
   def get_webfinger_profile(profile_url)
     begin
-      http = Faraday.get(profile_url)
+      http = get_url profile_url
 
     rescue
       raise I18n.t('webfinger.fetch_failed', :profile_url => profile_url)
@@ -84,7 +84,7 @@ class Webfinger
       @wf_profile = WebfingerProfile.new(@account, webfinger_profile)
 
       begin
-        hcard = Faraday.get(hcard_url)
+        hcard = get_url hcard_url
       rescue
         return I18n.t('webfinger.hcard_fetch_failed', :account => @account)
       end
@@ -119,5 +119,9 @@ class Webfinger
 
   def swizzle(template)
     template.gsub '{uri}', @account
+  end
+
+  def get_url(url)
+    Faraday.new(url, :ssl => { :verify => false }).get
   end
 end

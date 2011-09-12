@@ -56,7 +56,7 @@ class Reshare < Post
   # @param [String] guid the remote post's guid
   # @return [Post] an unsaved remote post
   def self.fetch_post author, guid
-    response = Faraday.get(author.url + "/p/#{guid}.xml")
+    response = Faraday.new(author.url + "/p/#{guid}.xml", :ssl => { :verify => false }).get
     Diaspora::Parser.from_xml(response.body)
   end
 
