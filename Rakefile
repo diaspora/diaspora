@@ -199,7 +199,8 @@ end
 ##############
 
 desc "Default deploy task"
-multitask :deploy => [:copydot, "#{deploy_default}"] do
+task :deploy do
+  [:generate, :copydot, "#{deploy_default}"].each { |t| Rake::Task[t].execute }
 end
 
 desc "copy dot files for deployment"
