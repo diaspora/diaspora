@@ -60,12 +60,11 @@ task :watch do
   compassPid = Process.spawn("compass watch")
 
   trap("INT") {
-	Process.kill(9, jekyllPid)
-	Process.kill(9, compassPid)
-	exit 0
+    [jekyllPid, compassPid].each { |pid| Process.kill(9, pid) rescue Errno::ESRCH }
+    exit 0
   }
 
-  Process.wait
+  [jekyllPid, compassPid].each { |pid| Process.wait(pid) }
 end
 
 desc "preview the site in a web browser"
@@ -77,13 +76,11 @@ task :preview do
   rackupPid = Process.spawn("rackup --port #{server_port}")
 
   trap("INT") {
-	Process.kill(9, jekyllPid)
-	Process.kill(9, compassPid)
-	Process.kill(9, rackupPid)
-	exit 0
+    [jekyllPid, compassPid, rackupPid].each { |pid| Process.kill(9, pid) rescue Errno::ESRCH }
+    exit 0
   }
 
-  Process.wait
+  [jekyllPid, compassPid, rackupPid].each { |pid| Process.wait(pid) }
 end
 
 # usage rake new_post[my-new-post] or rake new_post['my new post'] or rake new_post (defaults to "new-post")
