@@ -169,7 +169,7 @@ describe Contact do
         @contact.stub(:user).and_return(@user)
         m = mock()
         m.should_receive(:post)
-        Postzord::Dispatch.should_receive(:new).and_return(m)
+        Postzord::Dispatcher.should_receive(:new).and_return(m)
         @contact.dispatch_request
       end
     end

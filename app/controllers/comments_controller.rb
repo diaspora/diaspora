@@ -23,7 +23,7 @@ class CommentsController < ApplicationController
       if @comment.save
         Rails.logger.info(:event => :create, :type => :comment, :user => current_user.diaspora_handle,
                           :status => :success, :comment => @comment.id, :chars => params[:text].length)
-        Postzord::Dispatch.new(current_user, @comment).post
+        Postzord::Dispatcher.new(current_user, @comment).post
 
         respond_to do |format|
           format.js{ render(:create, :status => 201)}

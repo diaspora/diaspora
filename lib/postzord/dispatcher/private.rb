@@ -1,9 +1,8 @@
-#   Copyright (c) 2010, Diaspora Inc.  This file is
+#   Copyright (c) 2011, Diaspora Inc.  This file is
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
-class Postzord::Dispatch
-
+class Postzord::Dispatcher::Private
   # @note Takes :additional_subscribers param to add to subscribers to dispatch to
   def initialize(user, object, opts={})
     unless object.respond_to? :to_diaspora_xml

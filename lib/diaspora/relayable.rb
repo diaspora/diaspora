@@ -58,7 +58,7 @@ module Diaspora
         #dispatch object DOWNSTREAM, received it via UPSTREAM
         unless user.owns?(comment_or_like)
           comment_or_like.save 
-          Postzord::Dispatch.new(user, comment_or_like).post
+          Postzord::Dispatcher.new(user, comment_or_like).post
         end
 
         comment_or_like.socket_to_user(user) if comment_or_like.respond_to? :socket_to_user

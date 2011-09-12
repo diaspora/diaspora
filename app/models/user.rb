@@ -4,7 +4,7 @@
 
 require File.join(Rails.root, 'lib/diaspora/user')
 require File.join(Rails.root, 'lib/salmon/salmon')
-require File.join(Rails.root, 'lib/postzord/dispatch')
+require File.join(Rails.root, 'lib/postzord/dispatcher')
 require 'rest-client'
 
 class User < ActiveRecord::Base
@@ -186,14 +186,14 @@ class User < ActiveRecord::Base
 
   def dispatch_post(post, opts = {})
     additional_people = opts.delete(:additional_subscribers)
-    mailman = Postzord::Dispatch.new(self, post, :additional_subscribers => additional_people)
+    mailman = Postzord::Dispatcher.new(self, post, :additional_subscribers => additional_people)
     mailman.post(opts)
   end
 
   def update_post(post, post_hash = {})
     if self.owns? post
       post.update_attributes(post_hash)
-      Postzord::Dispatch.new(self, post).post
+      Postzord::Dispatcher.new(self, post).post
     end
   end
 
@@ -292,7 +292,7 @@ class User < ActiveRecord::Base
      opts[:additional_subscribers] = target.resharers
    end
 
-    mailman = Postzord::Dispatch.new(self, retraction, opts)
+    mailman = Postzord::Dispatcher.new(self, retraction, opts)
     mailman.post
 
     retraction.perform(self)
@@ -309,7 +309,7 @@ class User < ActiveRecord::Base
       params[:image_url_small] = photo.url(:thumb_small)
     end
     if self.person.profile.update_attributes(params)
-      Postzord::Dispatch.new(self, profile).post
+      Postzord::Dispatcher.new(self, profile).post
       true
     else
       false

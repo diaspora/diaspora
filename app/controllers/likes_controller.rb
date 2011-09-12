@@ -15,7 +15,7 @@ class LikesController < ApplicationController
 
       if @like.save
         Rails.logger.info("event=create type=like user=#{current_user.diaspora_handle} status=success like=#{@like.id} positive=#{positive}")
-        Postzord::Dispatch.new(current_user, @like).post
+        Postzord::Dispatcher.new(current_user, @like).post
 
         respond_to do |format|
           format.js { render 'likes/update', :status => 201 }

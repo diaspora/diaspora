@@ -49,7 +49,7 @@ describe RelayableRetraction do
       it 'dispatches' do
         zord = mock()
         zord.should_receive(:post)
-        Postzord::Dispatch.should_receive(:new).with(@local_luke, @retraction).and_return zord
+        Postzord::Dispatcher.should_receive(:new).with(@local_luke, @retraction).and_return zord
         @retraction.receive(@recipient, @comment.author)
       end
       it 'performs' do
@@ -71,7 +71,7 @@ describe RelayableRetraction do
         @retraction.receive(@recipient, @remote_raphael)
       end
       it 'does not dispatch' do
-        Postzord::Dispatch.should_not_receive(:new)
+        Postzord::Dispatcher.should_not_receive(:new)
         @retraction.receive(@recipient, @remote_raphael)
       end
     end

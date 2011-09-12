@@ -33,7 +33,7 @@ class RelayableRetraction < SignedRetraction
     elsif self.parent.author == recipient.person && self.target_author_signature_valid?
       #this is a retraction from the downstream object creator, and the recipient is the upstream owner
       self.parent_author_signature = self.sign_with_key(recipient.encryption_key)
-      Postzord::Dispatch.new(recipient, self).post
+      Postzord::Dispatcher.new(recipient, self).post
       self.perform(recipient)
     elsif self.parent_author_signature_valid?
       #this is a retraction from the upstream owner

@@ -164,7 +164,7 @@ describe Photo do
       xml = @photo.to_diaspora_xml
 
       @photo.destroy
-      zord = Postzord::Receiver.new(user2, :person => @photo.author)
+      zord = Postzord::Receiver::Private.new(user2, :person => @photo.author)
       zord.parse_and_receive(xml)
 
       new_photo = Photo.where(:guid => @photo.guid).first

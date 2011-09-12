@@ -60,9 +60,9 @@ describe Diaspora::Relayable do
         end
 
         it 'dispatches when the person receiving is the parent author' do
-          p = Postzord::Dispatch.new(@local_luke, @object_by_recipient)
+          p = Postzord::Dispatcher.new(@local_luke, @object_by_recipient)
           p.should_receive(:post)
-          Postzord::Dispatch.stub!(:new).and_return(p)
+          Postzord::Dispatcher.stub!(:new).and_return(p)
           @object_by_recipient.receive(@local_luke, @local_leia.person)
         end
 

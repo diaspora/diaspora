@@ -67,7 +67,7 @@ class SignedRetraction
     if reshare = Reshare.where(:author_id => receiving_user.person.id, :root_guid => target_guid).first
       onward_retraction = self.dup
       onward_retraction.sender = receiving_user.person
-      Postzord::Dispatch.new(receiving_user, onward_retraction).post
+      Postzord::Dispatcher.new(receiving_user, onward_retraction).post
     end
     if target
       self.target.unsocket_from_user receiving_user if target.respond_to? :unsocket_from_user

@@ -27,7 +27,7 @@ describe "attack vectors" do
       bad_user.delete
       post_count = Post.count
 
-      zord = Postzord::Receiver.new(user, :salmon_xml => salmon_xml)
+      zord = Postzord::Receiver::Private.new(user, :salmon_xml => salmon_xml)
       zord.perform
 
       user.visible_posts.include?(post_from_non_contact).should be_false
@@ -46,7 +46,7 @@ describe "attack vectors" do
     user3.contacts.create(:person => user2.person, :aspects => [user3.aspects.first])
 
     salmon_xml = user.salmon(original_message).xml_for(user3.person)
-    zord = Postzord::Receiver.new(user, :salmon_xml => salmon_xml)
+    zord = Postzord::Receiver::Private.new(user, :salmon_xml => salmon_xml)
     zord.perform
 
     user3.reload.visible_posts.should_not include(StatusMessage.find(original_message.id))
@@ -64,12 +64,12 @@ describe "attack vectors" do
 
         salmon_xml = user2.salmon(original_message).xml_for(user.person)
 
-        zord = Postzord::Receiver.new(user, :salmon_xml => salmon_xml)
+        zord = Postzord::Receiver::Private.new(user, :salmon_xml => salmon_xml)
         zord.perform
 
         malicious_message = Factory.build(:status_message, :id => original_message.id, :text => 'BAD!!!', :author => user3.person)
         salmon_xml = user3.salmon(malicious_message).xml_for(user.person)
-        zord = Postzord::Receiver.new(user, :salmon_xml => salmon_xml)
+        zord = Postzord::Receiver::Private.new(user, :salmon_xml => salmon_xml)
         zord.perform
 
         original_message.reload.text.should == "store this!"
@@ -79,14 +79,14 @@ describe "attack vectors" do
         original_message = user2.post :status_message, :text => 'store this!', :to => aspect2.id
 
         salmon_xml =  user2.salmon(original_message).xml_for(user.person)
-        zord = Postzord::Receiver.new(user, :salmon_xml => salmon_xml)
+        zord = Postzord::Receiver::Private.new(user, :salmon_xml => salmon_xml)
         zord.perform
 
         lambda {
           malicious_message = Factory.build( :status_message, :id => original_message.id, :text => 'BAD!!!', :author => user2.person)
 
           salmon_xml2 = user3.salmon(malicious_message).xml_for(user.person)
-          zord = Postzord::Receiver.new(user, :salmon_xml => salmon_xml)
+          zord = Postzord::Receiver::Private.new(user, :salmon_xml => salmon_xml)
           zord.perform
 
         }.should_not change{user.reload.visible_posts.count}
@@ -104,7 +104,7 @@ describe "attack vectors" do
       first_name = user2.profile.first_name
       salmon_xml = user3.salmon(profile).xml_for(user.person)
 
-      zord = Postzord::Receiver.new(user, :salmon_xml => salmon_xml)
+      zord = Postzord::Receiver::Private.new(user, :salmon_xml => salmon_xml)
       zord.perform
 
       user2.reload
@@ -116,7 +116,7 @@ describe "attack vectors" do
       original_message = user2.post :status_message, :text => 'store this!', :to => aspect2.id
 
       salmon_xml = user2.salmon(original_message).xml_for(user.person)
-      zord = Postzord::Receiver.new(user, :salmon_xml => salmon_xml)
+      zord = Postzord::Receiver::Private.new(user, :salmon_xml => salmon_xml)
       zord.perform
 
       user.visible_posts.count.should == 1
@@ -128,7 +128,7 @@ describe "attack vectors" do
       ret.type = original_message.class.to_s
 
       salmon_xml = user3.salmon(ret).xml_for(user.person)
-      zord = Postzord::Receiver.new(user, :salmon_xml => salmon_xml)
+      zord = Postzord::Receiver::Private.new(user, :salmon_xml => salmon_xml)
       zord.perform
 
       StatusMessage.count.should == 1
@@ -150,7 +150,7 @@ describe "attack vectors" do
       StatusMessage.count.should == 0
       proc {
         salmon_xml = user3.salmon(ret).xml_for(user.person)
-        zord = Postzord::Receiver.new(user, :salmon_xml => salmon_xml)
+        zord = Postzord::Receiver::Private.new(user, :salmon_xml => salmon_xml)
         zord.perform
       }.should_not raise_error
     end
@@ -159,7 +159,7 @@ describe "attack vectors" do
       original_message = user2.post :status_message, :text => 'store this!', :to => aspect2.id
 
       salmon_xml = user2.salmon(original_message).xml_for(user.person)
-      zord = Postzord::Receiver.new(user, :salmon_xml => salmon_xml)
+      zord = Postzord::Receiver::Private.new(user, :salmon_xml => salmon_xml)
       zord.perform
 
 
@@ -173,7 +173,7 @@ describe "attack vectors" do
       lambda {
 
         salmon_xml = user3.salmon(ret).xml_for(user.person)
-        zord = Postzord::Receiver.new(user, :salmon_xml => salmon_xml)
+        zord = Postzord::Receiver::Private.new(user, :salmon_xml => salmon_xml)
         zord.perform
 
       }.should_not change(StatusMessage, :count)
@@ -189,7 +189,7 @@ describe "attack vectors" do
       proc{
         salmon_xml = user3.salmon(ret).xml_for(user.person)
 
-        zord = Postzord::Receiver.new(user, :salmon_xml => salmon_xml)
+        zord = Postzord::Receiver::Private.new(user, :salmon_xml => salmon_xml)
         zord.perform
 
       }.should_not change{user.reload.contacts.count}
@@ -203,7 +203,7 @@ describe "attack vectors" do
 
       proc{
         salmon_xml = user3.salmon(ret).xml_for(user.person)
-        zord = Postzord::Receiver.new(user, :salmon_xml => salmon_xml)
+        zord = Postzord::Receiver::Private.new(user, :salmon_xml => salmon_xml)
         zord.perform
       }.should_not change{user.reload.contacts.count}
     end
@@ -212,7 +212,7 @@ describe "attack vectors" do
       original_message = user2.post(:photo, :user_file => uploaded_photo, :text => "store this!", :to => aspect2.id)
 
       salmon_xml = user2.salmon(original_message).xml_for(user.person)
-      zord = Postzord::Receiver.new(user, :salmon_xml => salmon_xml)
+      zord = Postzord::Receiver::Private.new(user, :salmon_xml => salmon_xml)
       zord.perform
 
       original_message.diaspora_handle = user3.diaspora_handle
@@ -220,7 +220,7 @@ describe "attack vectors" do
 
       salmon_xml = user3.salmon(original_message).xml_for(user.person)
 
-      zord = Postzord::Receiver.new(user, :salmon_xml => salmon_xml)
+      zord = Postzord::Receiver::Private.new(user, :salmon_xml => salmon_xml)
       zord.perform
 
       original_message.reload.text.should == "store this!"

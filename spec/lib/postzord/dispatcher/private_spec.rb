@@ -1,13 +1,12 @@
-#   Copyright (c) 2010, Diaspora Inc.  This file is
+#   Copyright (c) 2011, Diaspora Inc.  This file is
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
 require 'spec_helper'
 
-require File.join(Rails.root, 'lib/postzord')
-require File.join(Rails.root, 'lib/postzord/dispatch')
+require File.join(Rails.root, 'lib/postzord/dispatcher/private')
 
-describe Postzord::Dispatch do
+describe Postzord::Dispatcher::Private do
   before do
     @sm = Factory(:status_message, :public => true, :author => alice.person)
     @subscribers = []
@@ -18,7 +17,7 @@ describe Postzord::Dispatch do
 
   describe '.initialize' do
     it 'takes an sender(User) and object (responds_to #subscibers) and sets then to @sender and @object' do
-      zord = Postzord::Dispatch.new(alice, @sm)
+      zord = Postzord::Dispatcher::Private.new(alice, @sm)
       zord.instance_variable_get(:@sender).should == alice
       zord.instance_variable_get(:@object).should == @sm
     end
@@ -26,7 +25,7 @@ describe Postzord::Dispatch do
     context 'setting @subscribers' do 
       it 'sets @subscribers from object' do
         @sm.should_receive(:subscribers).and_return(@subscribers)
-        zord = Postzord::Dispatch.new(alice, @sm)
+        zord = Postzord::Dispatcher::Private.new(alice, @sm)
         zord.instance_variable_get(:@subscribers).should == @subscribers
       end
 
@@ -34,24 +33,24 @@ describe Postzord::Dispatch do
         new_person = Factory(:person)
 
         @sm.should_receive(:subscribers).and_return(@subscribers)
-        zord = Postzord::Dispatch.new(alice, @sm, :additional_subscribers => new_person)
+        zord = Postzord::Dispatcher::Private.new(alice, @sm, :additional_subscribers => new_person)
         zord.instance_variable_get(:@subscribers).should == @subscribers | [new_person]
       end
     end
 
     it 'sets the @sender_person object' do
-      zord = Postzord::Dispatch.new(alice, @sm)
+      zord = Postzord::Dispatcher::Private.new(alice, @sm)
       zord.instance_variable_get(:@sender_person).should == alice.person
     end
 
     it 'raises and gives you a helpful message if the object can not federate' do
-      proc{ Postzord::Dispatch.new(alice, [])
+      proc{ Postzord::Dispatcher::Private.new(alice, [])
       }.should raise_error /Diaspora::Webhooks/
     end
   end
 
   it 'creates a salmon base object' do
-    zord = Postzord::Dispatch.new(alice, @sm)
+    zord = Postzord::Dispatcher::Private.new(alice, @sm)
     zord.salmon.should_not be nil
   end
 
@@ -60,7 +59,7 @@ describe Postzord::Dispatch do
       @subscribers << bob.person
       @remote_people, @local_people = @subscribers.partition{ |person| person.owner_id.nil? }
       @sm.stub!(:subscribers).and_return @subscribers
-      @zord =  Postzord::Dispatch.new(alice, @sm)
+      @zord =  Postzord::Dispatcher::Private.new(alice, @sm)
     end
 
     describe '#post' do
@@ -99,7 +98,7 @@ describe Postzord::Dispatch do
           end
           context "local leia's mailman" do
             before do
-              @mailman = Postzord::Dispatch.new(@local_leia, @comment)
+              @mailman = Postzord::Dispatcher::Private.new(@local_leia, @comment)
             end
             it 'calls deliver_to_local with local_luke' do
               @mailman.should_receive(:deliver_to_local).with([@local_luke.person])
@@ -120,7 +119,7 @@ describe Postzord::Dispatch do
           end
           context "local luke's mailman" do
             before do
-              @mailman = Postzord::Dispatch.new(@local_luke, @comment)
+              @mailman = Postzord::Dispatcher::Private.new(@local_luke, @comment)
             end
             it 'does not call deliver_to_local' do
               @mailman.should_not_receive(:deliver_to_local)
@@ -145,7 +144,7 @@ describe Postzord::Dispatch do
           before do
             @comment = Factory.build(:comment, :author => @remote_raphael, :post => @post)
             @comment.save
-            @mailman = Postzord::Dispatch.new(@local_luke, @comment)
+            @mailman = Postzord::Dispatcher::Private.new(@local_luke, @comment)
           end
           it 'does not call deliver_to_local' do
             @mailman.should_not_receive(:deliver_to_local)
@@ -168,7 +167,7 @@ describe Postzord::Dispatch do
           before do
             @comment = @local_luke.build_comment :text => "yo", :post => @post
             @comment.save
-            @mailman = Postzord::Dispatch.new(@local_luke, @comment)
+            @mailman = Postzord::Dispatcher::Private.new(@local_luke, @comment)
           end
           it 'does not call deliver_to_local' do
             @mailman.should_not_receive(:deliver_to_local)
@@ -194,7 +193,7 @@ describe Postzord::Dispatch do
           @post = Factory(:status_message, :author => @remote_raphael)
           @comment = @local_luke.build_comment :text => "yo", :post => @post
           @comment.save
-          @mailman = Postzord::Dispatch.new(@local_luke, @comment)
+          @mailman = Postzord::Dispatcher::Private.new(@local_luke, @comment)
         end
         it 'calls deliver_to_remote with remote_raphael' do
           @mailman.should_receive(:deliver_to_remote).with([@remote_raphael])
@@ -219,7 +218,7 @@ describe Postzord::Dispatch do
       before do
         @remote_people = []
         @remote_people << alice.person
-        @mailman = Postzord::Dispatch.new(alice, @sm)
+        @mailman = Postzord::Dispatcher::Private.new(alice, @sm)
         @hydra = mock()
         Typhoeus::Hydra.stub!(:new).and_return(@hydra)
       end
@@ -243,7 +242,7 @@ describe Postzord::Dispatch do
 
     describe '#deliver_to_local' do
       before do
-        @mailman = Postzord::Dispatch.new(alice, @sm)
+        @mailman = Postzord::Dispatcher::Private.new(alice, @sm)
       end
 
       it 'queues a batch receive' do
@@ -280,7 +279,7 @@ describe Postzord::Dispatch do
 
       it 'does not push to hub for non-public posts' do
        @sm     = Factory(:status_message)
-       mailman = Postzord::Dispatch.new(alice, @sm)
+       mailman = Postzord::Dispatcher::Private.new(alice, @sm)
 
        mailman.should_not_receive(:deliver_to_hub)
        mailman.post(:url => "http://joindiaspora.com/p/123")
@@ -291,7 +290,7 @@ describe Postzord::Dispatch do
        alice.services << @s1
        @s2 = Factory.create(:service, :user_id => alice.id)
        alice.services << @s2
-       mailman = Postzord::Dispatch.new(alice, Factory(:status_message))
+       mailman = Postzord::Dispatcher::Private.new(alice, Factory(:status_message))
 
        Resque.stub!(:enqueue).with(Job::PublishToHub, anything)
        Resque.stub!(:enqueue).with(Job::HttpMulti, anything, anything, anything)
@@ -300,7 +299,7 @@ describe Postzord::Dispatch do
       end
 
       it 'does not push to services if none are specified' do
-       mailman = Postzord::Dispatch.new(alice, Factory(:status_message))
+       mailman = Postzord::Dispatcher::Private.new(alice, Factory(:status_message))
 
        Resque.stub!(:enqueue).with(Job::PublishToHub, anything)
        Resque.should_not_receive(:enqueue).with(Job::PostToService, anything, anything, anything)
@@ -323,7 +322,7 @@ describe Postzord::Dispatch do
         f.stub!(:subscribers)
         f.stub!(:to_diaspora_xml)
         users = [bob]
-        z = Postzord::Dispatch.new(alice, f)
+        z = Postzord::Dispatcher::Private.new(alice, f)
         z.instance_variable_get(:@object).should_receive(:socket_to_user).once
         z.send(:socket_to_users, users)
       end

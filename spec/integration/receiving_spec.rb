@@ -7,7 +7,7 @@ require 'spec_helper'
 describe 'a user receives a post' do
 
   def receive_with_zord(user, person, xml)
-    zord = Postzord::Receiver.new(user, :person => person)
+    zord = Postzord::Receiver::Private.new(user, :person => person)
     zord.parse_and_receive(xml)
   end
 
@@ -25,7 +25,7 @@ describe 'a user receives a post' do
     status = bob.build_post(:status_message, :text => "Users do things", :to => @bobs_aspect.id)
     Diaspora::WebSocket.stub!(:is_connected?).and_return(true)
     Diaspora::WebSocket.should_receive(:queue_to_user).exactly(:once)
-    zord = Postzord::Receiver.new(alice, :object => status, :person => bob.person)
+    zord = Postzord::Receiver::Private.new(alice, :object => status, :person => bob.person)
     zord.receive_object
   end
 
@@ -74,10 +74,10 @@ describe 'a user receives a post' do
       bob.add_to_streams(@sm, [bob.aspects.first])
       @sm.save
 
-      zord = Postzord::Receiver.new(alice, :object => @sm, :person => bob.person)
+      zord = Postzord::Receiver::Private.new(alice, :object => @sm, :person => bob.person)
       zord.receive_object
 
-      zord = Postzord::Receiver.new(eve, :object => @sm, :person => bob.person)
+      zord = Postzord::Receiver::Private.new(eve, :object => @sm, :person => bob.person)
       zord.receive_object
     end
 
@@ -91,7 +91,7 @@ describe 'a user receives a post' do
       @sm.stub!(:socket_to_user)
       @sm.save
 
-      zord = Postzord::Receiver.new(alice, :object => @sm, :person => bob.person)
+      zord = Postzord::Receiver::Private.new(alice, :object => @sm, :person => bob.person)
       zord.receive_object
     end
 
@@ -103,7 +103,7 @@ describe 'a user receives a post' do
       eve.add_to_streams(@sm, [eve.aspects.first])
       @sm.save
 
-      zord = Postzord::Receiver.new(alice, :object => @sm, :person => bob.person)
+      zord = Postzord::Receiver::Private.new(alice, :object => @sm, :person => bob.person)
       zord.receive_object
     end
   end
@@ -333,7 +333,7 @@ describe 'a user receives a post' do
     it 'processes a salmon for a post' do
       salmon_xml = salmon.xml_for(bob.person)
 
-      zord = Postzord::Receiver.new(bob, :salmon_xml => salmon_xml)
+      zord = Postzord::Receiver::Private.new(bob, :salmon_xml => salmon_xml)
       zord.perform
 
       bob.visible_posts.include?(post).should be_true
@@ -348,7 +348,7 @@ describe 'a user receives a post' do
       xml = retraction.to_diaspora_xml
 
       lambda {
-        zord = Postzord::Receiver.new(alice, :person => bob.person)
+        zord = Postzord::Receiver::Private.new(alice, :person => bob.person)
         zord.parse_and_receive(xml)
       }.should change(StatusMessage, :count).by(-1)
     end
@@ -370,7 +370,7 @@ describe 'a user receives a post' do
     xml = new_profile.to_diaspora_xml
 
     #Marshal profile
-    zord = Postzord::Receiver.new(alice, :person => person)
+    zord = Postzord::Receiver::Private.new(alice, :person => person)
     zord.parse_and_receive(xml)
 
     #Check that marshaled profile is the same as old profile

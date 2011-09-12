@@ -58,7 +58,7 @@ describe Diaspora::UserModules::Connecting do
 
       it 'dispatches a retraction' do
         p = mock()
-        Postzord::Dispatch.should_receive(:new).and_return(p)
+        Postzord::Dispatcher.should_receive(:new).and_return(p)
         p.should_receive(:post)
 
         bob.disconnect bob.contact_for(eve.person)

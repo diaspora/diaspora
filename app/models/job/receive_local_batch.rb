@@ -2,7 +2,7 @@
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
-require File.join(Rails.root, 'lib/postzord/receiver')
+require File.join(Rails.root, 'lib/postzord/receiver/private')
 require File.join(Rails.root, 'lib/postzord/receiver/local_post_batch')
 
 module Job

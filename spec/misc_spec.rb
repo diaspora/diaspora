@@ -56,7 +56,7 @@ describe 'making sure the spec runner works' do
       person_status = Factory.create(:status_message, :author => person)
       m = mock()
       m.stub!(:post)
-      Postzord::Dispatch.should_receive(:new).and_return(m)
+      Postzord::Dispatcher.should_receive(:new).and_return(m)
 
       alice.comment "yo", :post => person_status
     end

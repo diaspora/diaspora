@@ -3,7 +3,7 @@
 #   the COPYRIGHT file.
 #
 module Postzord
-  class Receiver
+  module Receiver
     class Public
       attr_accessor :salmon, :author
 

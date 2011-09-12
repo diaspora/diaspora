@@ -3,7 +3,7 @@
 #   the COPYRIGHT file.
 
 
-require File.join(Rails.root, 'lib/postzord/receiver')
+require File.join(Rails.root, 'lib/postzord/receiver/private')
 module Job
   class ReceiveSalmon < Base
     @queue = :receive_salmon

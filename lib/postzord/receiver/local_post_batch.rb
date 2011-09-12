@@ -1,5 +1,5 @@
 module Postzord
-  class Receiver
+  module Receiver
     class LocalPostBatch
       attr_reader :post, :recipient_user_ids, :users
 
