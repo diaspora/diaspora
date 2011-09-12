@@ -59,6 +59,10 @@ class User < ActiveRecord::Base
                   :invitation_identifier
 
 
+  def self.all_sharing_with_person(person)
+    User.joins(:contacts).where(:contacts => {:person_id => person.id})
+  end
+
   # @return [User]
   def self.find_by_invitation(invitation)
     service = invitation.service
@@ -215,7 +219,7 @@ class User < ActiveRecord::Base
   end
 
   def salmon(post)
-    Salmon::SalmonSlap.create(self, post.to_diaspora_xml)
+    Salmon::EncryptedSlap.create_by_user_and_activity(self, post.to_diaspora_xml)
   end
 
   def build_relayable(model, options = {})

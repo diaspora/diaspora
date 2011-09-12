@@ -122,6 +122,7 @@ Diaspora::Application.routes.draw do
     get 'hcard/users/:guid'     => :hcard
     get '.well-known/host-meta' => :host_meta
     post 'receive/users/:guid'  => :receive
+    post 'receive/public'       => :receive_public
     get 'hub'                   => :hub
   end
 

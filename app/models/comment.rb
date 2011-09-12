@@ -25,9 +25,9 @@ class Comment < ActiveRecord::Base
 
   belongs_to :post
   belongs_to :author, :class_name => 'Person'
-  
+
   validates :text, :presence => true, :length => { :maximum => 2500 }
-  validates :post, :presence => true
+  validates :parent, :presence => true #should be in relayable (pending on fixing Message)
 
   serialize :youtube_titles, Hash
 

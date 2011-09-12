@@ -19,6 +19,8 @@ class Contact < ActiveRecord::Base
 
   validates_uniqueness_of :person_id, :scope => :user_id
 
+  before_destroy :destroy_notifications
+
   # contact.sharing is true when contact.person is sharing with contact.user
   scope :sharing, lambda {
     where(:sharing => true)
@@ -33,7 +35,6 @@ class Contact < ActiveRecord::Base
     sharing.where(:receiving => false)
   }
 
-  before_destroy :destroy_notifications
   def destroy_notifications
     Notification.where(:target_type => "Person",
                        :target_id => person_id,

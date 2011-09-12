@@ -158,7 +158,7 @@ class Person < ActiveRecord::Base
   end
 
   def owns?(obj)
-    self == obj.author
+    self.id == obj.author_id
   end
 
   def url

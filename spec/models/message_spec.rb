@@ -17,7 +17,7 @@ describe Message do
       :messages_attributes => [ {:author => @user1.person, :text => 'stuff'} ]
     }
 
-    @cnv = Conversation.create(@create_hash)
+    @cnv = Conversation.create!(@create_hash)
     @message = @cnv.messages.first
     @xml = @message.to_diaspora_xml
   end

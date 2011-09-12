@@ -20,8 +20,7 @@ class Like < ActiveRecord::Base
   belongs_to :author, :class_name => 'Person'
 
   validates_uniqueness_of :target_id, :scope => [:target_type, :author_id]
-  validates :author, :presence => true
-  validates :target, :presence => true
+  validates :parent, :presence => true #should be in relayable (pending on fixing Message)
 
   after_create do
     self.parent.update_likes_counter

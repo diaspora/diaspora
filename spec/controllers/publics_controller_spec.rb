@@ -20,6 +20,24 @@ describe PublicsController do
     end
   end
 
+  describe '#receive_public' do
+    it 'succeeds' do
+      post :receive_public, :xml => "<stuff/>"
+      response.should be_success
+    end
+
+    it 'returns a 422 if no xml is passed' do
+      post :receive_public
+      response.code.should == '422'
+    end
+
+    it 'enqueues a ReceivePublicSalmon job' do
+      xml = "stuff"
+      Resque.should_receive(:enqueue).with(Job::ReceivePublicSalmon, xml)
+      post :receive_public, :xml => xml
+    end
+  end
+
   describe '#receive' do
     let(:xml) { "<walruses></walruses>" }
 
@@ -39,7 +57,7 @@ describe PublicsController do
       xml2 = post1.to_diaspora_xml
       user2 = Factory(:user)
 
-      salmon_factory = Salmon::SalmonSlap.create(@user, xml2)
+      salmon_factory = Salmon::EncryptedSlap.create_by_user_and_activity(@user, xml2)
       enc_xml = salmon_factory.xml_for(user2.person)
 
       Resque.should_receive(:enqueue).with(Job::ReceiveSalmon, @user.id, enc_xml).once

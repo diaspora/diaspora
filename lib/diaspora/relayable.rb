@@ -12,6 +12,9 @@ module Diaspora
         xml_attr :parent_guid
         xml_attr :parent_author_signature
         xml_attr :author_signature
+
+        validates_associated :parent
+        validates :author, :presence => true
       end
     end
 
