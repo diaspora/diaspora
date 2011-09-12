@@ -31,6 +31,8 @@ class Post < ActiveRecord::Base
   
   validates :guid, :uniqueness => true
 
+  scope :all_public, where(:public => true, :pending => false)
+
   def diaspora_handle
     read_attribute(:diaspora_handle) || self.author.diaspora_handle
   end

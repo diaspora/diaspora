@@ -57,7 +57,7 @@ class TagsController < ApplicationController
           )
         )).select('DISTINCT posts.*')
     else
-      @posts = StatusMessage.where(:public => true, :pending => false)
+      @posts = StatusMessage.all_public
     end
 
     @posts = @posts.tagged_with(params[:name])
