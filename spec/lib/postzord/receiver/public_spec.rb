@@ -14,6 +14,19 @@ describe Postzord::Receiver::Public do
     @xml = @created_salmon.xml_for(nil)
   end
 
+  context 'round trips works with' do
+    it 'a comment' do
+      comment = bob.build_comment(:text => 'yo', :post => Factory(:status_message))
+      comment.save
+      xml = Salmon::Slap.create_by_user_and_activity(bob, comment.to_diaspora_xml).xml_for(nil)
+      comment.destroy
+      expect{
+        receiver = Postzord::Receiver::Public.new(xml) 
+        receiver.perform!
+      }.to change(Comment, :count).by(1)
+    end
+  end
+
   describe '#initialize' do
     it 'creates a Salmon instance variable' do
       receiver = Postzord::Receiver::Public.new(@xml)
@@ -62,6 +75,37 @@ describe Postzord::Receiver::Public do
       User.should_receive(:all_sharing_with_person).and_return(stub(:select => []))
       receiver = Postzord::Receiver::Public.new(@xml)
       receiver.perform!
+    end
+  end
+
+  describe '#receive_relayable' do 
+    before do
+      @comment = bob.build_comment(:text => 'yo', :post => Factory(:status_message))
+      @comment.save
+      created_salmon = Salmon::Slap.create_by_user_and_activity(alice, @comment.to_diaspora_xml)
+      xml = created_salmon.xml_for(nil)
+      @comment.delete
+      @receiver = Postzord::Receiver::Public.new(xml)
+    end
+
+    it 'raises if parent object does not exist'
+
+    it 'receives only for the parent author if he is local to the pod' do
+      comment = stub.as_null_object
+      @receiver.instance_variable_set(:@object, comment)
+
+      comment.should_receive(:receive)
+      @receiver.receive_relayable
+    end
+
+    it 'calls notifiy_users' do
+      comment = stub.as_null_object
+      @receiver.instance_variable_set(:@object, comment)
+
+      local_post_batch_receiver = stub.as_null_object
+      Postzord::Receiver::LocalPostBatch.stub(:new).and_return(local_post_batch_receiver)
+      local_post_batch_receiver.should_receive(:notify_users)
+      @receiver.receive_relayable
     end
   end
 end

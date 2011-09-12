@@ -22,7 +22,7 @@ module Postzord
         return false unless verified_signature?
         return unless save_object
 
-        if @object.respond_to?(:relayable)
+        if @object.respond_to?(:relayable?)
           receive_relayable
         else
           Resque.enqueue(Job::ReceiveLocalBatch, @object.id, self.recipient_user_ids)
@@ -30,11 +30,14 @@ module Postzord
       end
 
       def receive_relayable
-        raise RelayableObjectWithoutParent.new("Receiving a relayable object without parent object present locally!") unless @object.parent.user.present?
+       # unless @object.parent.present?
+       #   raise RelayableObjectWithoutParent.new("Receiving a relayable object without parent object present locally!") 
+       # end
 
-        # receive relayable object only for the owner of the parent object
-        @object.receive(@object.parent.user, @author)
-
+        if @object.parent.author.local?
+          # receive relayable object only for the owner of the parent object
+          @object.receive(@object.parent.author.user, @author)
+        end
         # notify everyone who can see the parent object
         receiver = Postzord::Receiver::LocalPostBatch.new(nil, self.recipient_user_ids)
         receiver.notify_users
@@ -43,9 +46,10 @@ module Postzord
       # @return [Object]
       def save_object
         @object = Diaspora::Parser::from_xml(@salmon.parsed_data)
-        raise "Object is not public" unless @object.public?
+        raise "Object is not public" if object_can_be_public_and_it_is_not?
         @object.save!
       end
+
 
       # @return [Array<Integer>] User ids
       def recipient_user_ids
@@ -53,7 +57,11 @@ module Postzord
       end
 
       class RelayableObjectWithoutParent < StandardError ; ; end
+      private
+
+      def object_can_be_public_and_it_is_not?
+        @object.respond_to?(:public) && !@object.public?
+      end
     end
   end
 end
-
