@@ -200,7 +200,12 @@ end
 
 desc "Default deploy task"
 task :deploy do
-  [:generate, :copydot, "#{deploy_default}"].each { |t| Rake::Task[t].execute }
+  [:copydot, "#{deploy_default}"].each { |t| Rake::Task[t].execute }
+end
+
+desc "Generate website and deploy"
+task :gen_deploy do
+  [:generate, :deploy].each { |t| Rake::Task[t].execute }
 end
 
 desc "copy dot files for deployment"
