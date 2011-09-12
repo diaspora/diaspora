@@ -202,7 +202,7 @@ end
 
 desc "Generate website and deploy"
 task :gen_deploy do
-  [:generate, :deploy].each { |t| Rake::Task[t].execute }
+  [:integrate, :generate, :deploy].each { |t| Rake::Task[t].execute }
 end
 
 desc "copy dot files for deployment"
