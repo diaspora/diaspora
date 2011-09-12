@@ -47,6 +47,7 @@
       if (self.aspectLis.not(".active").length === 0) {
         self.aspectLis.removeClass("active");
         self.abortAjax();
+        self.fadeIn();
       } else {
         self.aspectLis.addClass("active");
         self.performAjax();
@@ -101,12 +102,9 @@
         history.pushState(null, document.title, newURL);
       }
 
-      if(self.jXHR) {
-        self.jXHR.abort();
-        self.jXHR = null;
-      }
-
+      self.abortAjax();
       self.fadeOut();
+
       self.jXHR = $.getScript(newURL, function(data) {
         var textarea = $("#publisher textarea"),
           photozone = $("#photodropzone");
@@ -133,7 +131,6 @@
         self.jXHR.abort();
         self.jXHR = null;
       }
-      self.fadeIn();
     };
 
     this.fadeOut = function() {
