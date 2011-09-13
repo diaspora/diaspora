@@ -12,6 +12,8 @@ class RelayableRetraction < SignedRetraction
     super - ['parent_author_signature']
   end
 
+  # @param sender [User]
+  # @param target [Object]
   def self.build(sender, target)
     retraction = super
     retraction.parent_author_signature = retraction.sign_with_key(sender.encryption_key) if defined?(target.parent) && sender.person == target.parent.author
@@ -24,6 +26,10 @@ class RelayableRetraction < SignedRetraction
 
   def diaspora_handle
     self.sender_handle
+  end
+
+  def relayable?
+    true
   end
 
   def receive(recipient, sender)

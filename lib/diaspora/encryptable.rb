@@ -50,11 +50,5 @@ module Diaspora
         (self.send accessor.to_sym).to_s
       }.join(';')
     end
-
-    # @abstract
-    # @return [String]
-    #def signable_string
-    #  raise NotImplementedError.new("Implement this in your encryptable class")
-    #end
   end
 end

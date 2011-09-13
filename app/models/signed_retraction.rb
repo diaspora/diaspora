@@ -18,6 +18,10 @@ class SignedRetraction
                 :target_author_signature,
                 :sender
 
+  def author
+    sender.person
+  end
+
   def signable_accessors
       accessors = self.class.roxml_attrs.collect do |definition|
         definition.accessor

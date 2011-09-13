@@ -119,7 +119,9 @@ class Postzord::Dispatcher::Private
 
   # @param services [Array<User>]
   def notify_users(users)
-    Resque.enqueue(Job::NotifyLocalUsers, users.map{|u| u.id}, @object.class.to_s, @object.id, @object.author.id)
+    if @object.respond_to?(:persisted?)
+      Resque.enqueue(Job::NotifyLocalUsers, users.map{|u| u.id}, @object.class.to_s, @object.id, @object.author.id)
+    end
   end
 
   # @param services [Array<User>]
