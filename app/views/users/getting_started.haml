@@ -128,7 +128,7 @@
             = t('.hashtag_explanation')
 
           .span-5.append-1
-            = form_tag(tags_path, :method => 'get', :class => "tag search_form") do
+            = form_tag(tags_path, :method => 'get', :class => "tag_input search_form") do
               = text_field_tag 'q', nil, :placeholder => t(".search_for_hashtags"), :type => 'search', :results => 5
           .span-5.last
             %h4{:style => "margin-top:7px;"}
