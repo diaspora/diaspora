@@ -6,7 +6,7 @@ mysql: &mysql
   password: ""
 #  socket: /tmp/mysql.sock
   charset: utf8
-  collation: utf8_bin
+  collation: utf8_general_ci
 
 postgres: &postgres
   adapter: postgresql
