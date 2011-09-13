@@ -4,6 +4,13 @@
 */
 var View = {
   initialize: function() {
+    /* Header */
+    jQuery(window).bind('scroll resize', function() {
+      var scrollLeft = jQuery(window).scrollLeft();
+      jQuery('header').css('left', '-' + scrollLeft + 'px')
+      jQuery('header').css('width', jQuery(window).width() + scrollLeft + 'px');
+    });
+
     /* Buttons */
     $("input:submit").addClass("button");
 
