@@ -16,6 +16,7 @@ config/deploy_config.yml
 config/newrelic.yml
 .bundle
 vendor/bundle/*
+vendor/cache/*
 config/database.yml
 .rvmrc_custom
 
