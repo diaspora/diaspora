@@ -21,6 +21,5 @@ class Postzord::Dispatcher
      @zord =  Postzord::Dispatcher::Private.new(user, object, opts)
     #end
   end
-
 end
 

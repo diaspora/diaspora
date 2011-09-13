@@ -35,10 +35,14 @@ module Diaspora
         self.parent.subscribers(user)
       elsif user.owns?(self)
         [self.parent.author]
+      else
+        raise "What are you doing with a relayable that you have nothing to do with?"
+        #[] 
       end
     end
 
     def receive(user, person)
+
       self.class.transaction do
         comment_or_like = self.class.where(:guid => self.guid).first || self
 
@@ -57,11 +61,14 @@ module Diaspora
 
         #dispatch object DOWNSTREAM, received it via UPSTREAM
         unless user.owns?(comment_or_like)
-          comment_or_like.save 
+          puts "i am #{user.username}, I am reiveiving and object for #{person.owner.username}"
+          pp self
+          comment_or_like.save!
           Postzord::Dispatcher.new(user, comment_or_like).post
         end
 
         comment_or_like.socket_to_user(user) if comment_or_like.respond_to? :socket_to_user
+
         if comment_or_like.after_receive(user, person)
           comment_or_like 
         end

@@ -33,6 +33,8 @@ module Postzord
         Rails.logger.info("event=receive status=start recipient=#{@user_person.diaspora_handle} payload_type=#{@object.class} sender=#{@sender.diaspora_handle}")
         if self.validate_object
           receive_object
+        else
+          raise 'not a valid object'
         end
       end
 
