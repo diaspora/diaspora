@@ -127,7 +127,7 @@ class Profile < ActiveRecord::Base
   end
 
   # Constructs a full name by joining #first_name and #last_name
-  # @returns [String] A full name
+  # @return [String] A full name
   def construct_full_name
     self.full_name = [self.first_name, self.last_name].join(' ').downcase
     self.full_name

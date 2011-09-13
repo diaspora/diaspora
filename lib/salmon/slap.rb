@@ -46,7 +46,6 @@ module Salmon
       slap
     end
 
-
     # @return [String]
     def self.payload(activity, user=nil, aes_key_hash=nil)
       activity
@@ -62,6 +61,7 @@ module Salmon
       doc.search('header')
     end
 
+    # @return [String] The constructed salmon, given a person
     def xml_for(person)
       xml =<<ENTRY
     <?xml version='1.0' encoding='UTF-8'?>
@@ -72,10 +72,14 @@ module Salmon
 ENTRY
     end
 
+    # Wraps plaintext header in <header></header> tags
+    # @return [String] Header XML
     def header(person)
       "<header>#{plaintext_header}</header>"
     end
 
+    # Generate a plaintext salmon header (unencrypted), sans <header></header> tags
+    # @return [String] Header XML (sans <header></header> tags)
     def plaintext_header
       header =<<HEADER
     <iv>#{iv}</iv>
@@ -87,6 +91,7 @@ ENTRY
 HEADER
     end
 
+    # @return [Person] Author of the salmon object
     def author
       if @author.nil?
         @author ||= Person.by_account_identifier @author_email

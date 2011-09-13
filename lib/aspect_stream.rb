@@ -54,6 +54,7 @@ class AspectStream
     @people ||= Person.all_from_aspects(aspect_ids, @user)
   end
 
+  # The first aspect in #aspects, given the stream is not for all aspects, or #aspects size is 1
   # @note aspects.first is used for mobile. NOTE(this is a hack and should be fixed)
   # @return [Aspect,Symbol]
   def aspect

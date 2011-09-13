@@ -29,6 +29,7 @@ module Postzord
         end
       end
 
+      # @return [Object]
       def receive_relayable
         if @object.parent.author.local?
           # receive relayable object only for the owner of the parent object
@@ -37,6 +38,7 @@ module Postzord
         # notify everyone who can see the parent object
         receiver = Postzord::Receiver::LocalPostBatch.new(nil, self.recipient_user_ids)
         receiver.notify_users
+        @object
       end
 
       # @return [Object]
@@ -51,9 +53,9 @@ module Postzord
         User.all_sharing_with_person(@author).select('users.id').map!{ |u| u.id }
       end
 
-      class RelayableObjectWithoutParent < StandardError ; ; end
       private
 
+      # @return [Boolean]
       def object_can_be_public_and_it_is_not?
         @object.respond_to?(:public) && !@object.public?
       end

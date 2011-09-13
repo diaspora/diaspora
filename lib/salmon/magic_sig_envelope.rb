@@ -4,7 +4,10 @@
 
 module Salmon
   class MagicSigEnvelope
+
     attr_accessor :data, :data_type, :encoding, :alg, :sig, :author
+
+    # @return [MagicSigEnvelope]
     def self.parse(doc)
       env = self.new
       ns = {'me'=>'http://salmon-protocol.org/ns/magic-env'}
@@ -27,6 +30,7 @@ module Salmon
       env
     end
 
+    # @return [MagicSigEnvelope]
     def self.create(user, activity)
       env = MagicSigEnvelope.new
       env.author = user.person
@@ -42,10 +46,12 @@ module Salmon
       env
     end
 
+    # @return [String]
     def signable_string
       [@data, Base64.urlsafe_encode64(@data_type),Base64.urlsafe_encode64(@encoding),  Base64.urlsafe_encode64(@alg)].join(".")
     end
 
+    # @return [String]
     def to_xml
       <<ENTRY
 <me:env xmlns:me="http://salmon-protocol.org/ns/magic-env">
@@ -57,14 +63,17 @@ module Salmon
 ENTRY
     end
 
+    # @return [String]
     def get_encoding
       'base64url'
     end
 
+    # @return [String]
     def get_data_type
       'application/atom+xml'
     end
 
+    # @return [String]
     def get_alg
       'RSA-SHA256'
     end
