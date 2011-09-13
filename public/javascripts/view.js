@@ -8,7 +8,7 @@ var View = {
     jQuery(window).bind('scroll resize', function() {
       var scrollLeft = jQuery(window).scrollLeft();
       jQuery('header').css('left', '-' + scrollLeft + 'px')
-      jQuery('header').css('width', jQuery(window).width() + scrollLeft + 'px');
+      jQuery('header').css('width', (jQuery(window).width() + scrollLeft) + 'px');
     });
 
     /* Buttons */
