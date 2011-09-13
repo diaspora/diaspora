@@ -103,7 +103,7 @@ cs:
       handle_explanation: "Toto je vaše Diaspora ID. Podobně jako e-mailovou adresu ho můžete dál lidem a budete na něm dostupní."
       keep_us_running: "Pomozte %{pod} udržet rychlý, kupte našim serverům dávku kávy."
       no_contacts: "Žádné kontakty"
-      no_tags: "+ najít nějaký štítek ke sledování"
+      no_tags: "+ Najít nějaký štítek ke sledování"
       people_sharing_with_you: "Lidé, kteří s vámi sdílí"
       post_a_message: "odeslat příspěvek >>"
       services: 
@@ -147,7 +147,7 @@ cs:
     zero: "žádné aspekty"
   authorizations: 
     index: 
-      no_applications: "You haven't registered any applications yet."
+      no_applications: "Nemáte registrovanou žádnou aplikaci."
       revoke_access: "Zrušit přístup"
   back: "Zpět"
   bookmarklet: 
@@ -224,7 +224,7 @@ cs:
     show: 
       delete: "smazat a blokovat konverzaci"
       reply: "odpověď"
-      replying: "Replying..."
+      replying: "Odpovídám..."
   date: 
     formats: 
       birthday: "%B %d"
@@ -502,7 +502,7 @@ cs:
       add_some: "přidat nějaké"
       edit: "upravit"
       you_have_no_tags: "nemáš žádný štítek!"
-    two: "%{count} people"
+    two: "%{count} lidé"
     webfinger: 
       fail: "Omlouváme se, ale %{handle} nebyl nalezen."
     zero: "žádní lidé"

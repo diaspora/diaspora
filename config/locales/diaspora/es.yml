@@ -147,7 +147,7 @@ es:
     zero: "no hay aspectos"
   authorizations: 
     index: 
-      no_applications: "You haven't registered any applications yet."
+      no_applications: "Aún no tienes registrada ninguna aplicación."
       revoke_access: "Revocar acceso"
   back: "Atrás"
   bookmarklet: 

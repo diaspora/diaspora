@@ -13,7 +13,7 @@ cs:
         many: "V {{count}} aspektech"
         one: "V {{count}} aspektu"
         other: "Ve {{count}} aspektech"
-        two: "In {{count}} aspects"
+        two: "Ve {{count}} aspektech"
         zero: "Přidat do aspektu"
     comments: 
       hide: "skrýt komentáře"

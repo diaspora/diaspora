@@ -543,7 +543,7 @@ it:
   post_visibilites: 
     update: 
       post_hidden_and_muted: "Il post di %{name} è stato nascosto e le notifiche disattivate."
-      see_it_on_their_profile: "Se vuoi vedere i nuovi commenti su questo post, visita il profilo di {name}."
+      see_it_on_their_profile: "Se vuoi vedere i nuovi commenti su questo post, visita il profilo di %{name}."
   posts: 
     show: 
       destroy: "Elimina"
