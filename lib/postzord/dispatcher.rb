@@ -2,7 +2,11 @@
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
+
 class Postzord::Dispatcher
+  require File.join(Rails.root, 'lib/postzord/dispatcher/private')
+  #require File.join(Rails.root, 'lib/postzord/dispatcher/public')
+
   attr_reader :zord
   delegate :post, :to => :zord
 
