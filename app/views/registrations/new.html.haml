@@ -2,7 +2,8 @@
 
 :javascript
   $(function() {
-    $("#user_username").focus();
+    $('#user_new input[type=text], input[type=password]').tipsy({trigger: 'focus', gravity: 'w'});
+    $('#user_username').focus();
   });
 
 .span-7.append-1.prepend-3
@@ -22,18 +23,13 @@
   %br
   = form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => {:class => 'sign_up_form'}) do |f|
     %p
-      = f.label :username , t('username')
-      = f.text_field :username, :title => t('.enter_username')
-    %p  
-      = f.label :email , t('email')
-      = f.text_field :email, :title => t('.enter_email')
-    
+      = f.text_field :username, :title => t('.enter_username'), :placeholder => t('username')
     %p
-      = f.label :password , t('password')
-      = f.password_field :password, :title => t('.enter_password') 
+      = f.text_field :email, :title => t('.enter_email'), :placeholder => t('email')
     %p
-      = f.label :password_confirmation , t('password_confirmation')
-      = f.password_field :password_confirmation, :title => t('.enter_password_again') 
+      = f.password_field :password, :title => t('.enter_password'), :placeholder => t('password')
+    %p
+      = f.password_field :password_confirmation, :title => t('.enter_password_again'), :placeholder => t('password_confirmation')
 
     = f.submit t('.create_my_account')
 
