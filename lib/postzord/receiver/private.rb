@@ -34,12 +34,14 @@ module Postzord
         Rails.logger.info("event=receive status=start recipient=#{@user_person.diaspora_handle} payload_type=#{@object.class} sender=#{@sender.diaspora_handle}")
 
         if self.validate_object
+          set_author!
           receive_object
         else
           raise 'not a valid object'
         end
       end
 
+      # @return [Object]
       def receive_object
         obj = @object.receive(@user, @author)
         Notification.notify(@user, obj, @author) if obj.respond_to?(:notification_type)
@@ -64,34 +66,51 @@ module Postzord
       end
 
       def validate_object
-        #begin similar
+        return false if contact_required_unless_request
+        return false if relayable_without_parent?
+
+        assign_sender_handle_if_request
+
+        return false if author_does_not_match_xml_author?
+
+        @object
+      end
+
+      def set_author!
+        return unless @author
+        @object.author = @author if @object.respond_to? :author=
+        @object.person = @author if @object.respond_to? :person=
+      end
+
+      private
+
+      #validations
+      def relayable_without_parent?
+        if @object.respond_to?(:relayable?) && @object.parent.nil?
+          Rails.logger.info("event=receive status=abort reason='received a comment but no corresponding post' recipient=#{@user_person.diaspora_handle} sender=#{@sender.diaspora_handle} payload_type=#{@object.class})")
+          return true
+        end
+      end
+
+      def author_does_not_match_xml_author?
+        if (@author.diaspora_handle != xml_author)
+          Rails.logger.info("event=receive status=abort reason='author in xml does not match retrieved person' payload_type=#{@object.class} recipient=#{@user_person.diaspora_handle} sender=#{@sender.diaspora_handle}")
+          return true
+        end
+      end
+
+      def contact_required_unless_request
         unless @object.is_a?(Request) || @user.contact_for(@sender)
           Rails.logger.info("event=receive status=abort reason='sender not connected to recipient' recipient=#{@user_person.diaspora_handle} sender=#{@sender.diaspora_handle}")
-          return false
+          return true 
         end
+      end
 
+      def assign_sender_handle_if_request
         #special casey
         if @object.is_a?(Request)
           @object.sender_handle = @sender.diaspora_handle
         end
-
-        # abort if we haven't received the post to a comment
-        if @object.respond_to?(:relayable?) && @object.parent.nil?
-          Rails.logger.info("event=receive status=abort reason='received a comment but no corresponding post' recipient=#{@user_person.diaspora_handle} sender=#{@sender.diaspora_handle} payload_type=#{@object.class})")
-          return false
-        end
-
-        if (@author.diaspora_handle != xml_author)
-          Rails.logger.info("event=receive status=abort reason='author in xml does not match retrieved person' payload_type=#{@object.class} recipient=#{@user_person.diaspora_handle} sender=#{@sender.diaspora_handle}")
-          return false
-        end
-
-        if @author
-          @object.author = @author if @object.respond_to? :author=
-          @object.person = @author if @object.respond_to? :person=
-        end
-
-        @object
       end
     end
   end
