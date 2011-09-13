@@ -241,6 +241,8 @@ GEM
       spruz (~> 0.2.8)
     jwt (0.1.3)
       json (>= 1.2.4)
+    kaminari (0.12.4)
+      rails (>= 3.0.0)
     linecache (0.43)
     linecache19 (0.5.12)
       ruby_core_source (>= 0.1.4)
@@ -504,6 +506,7 @@ DEPENDENCIES
   jasmine (= 1.1.0.rc3)
   json (= 1.4.6)
   jwt (= 0.1.3)
+  kaminari
   linecache (= 0.43)
   mini_magick (= 3.2)
   mobile-fu

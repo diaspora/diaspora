@@ -3,24 +3,20 @@ require 'spec_helper'
 describe Notifier do
   include ActionView::Helpers::TextHelper
 
-  let!(:user) {alice}
-  let!(:user2) {eve}
-
-  let!(:aspect) {user.aspects.create(:name => "win")}
-  let!(:aspect2) {user2.aspects.create(:name => "win")}
-  let!(:person) {Factory.create :person}
+  let(:person) { Factory(:person) }
 
   before do
     Notifier.deliveries = []
   end
+
   describe '.administrative' do
     it 'mails a user' do
-      mails = Notifier.admin("Welcome to bureaucracy!", [user])
+      mails = Notifier.admin("Welcome to bureaucracy!", [bob])
       mails.length.should == 1
       mail = mails.first
-      mail.to.should == [user.email]
+      mail.to.should == [bob.email]
       mail.body.encoded.should match /Welcome to bureaucracy!/
-      mail.body.encoded.should match /#{user.username}/
+      mail.body.encoded.should match /#{bob.username}/
     end
     it 'mails a bunch of users' do
       users = []
@@ -39,23 +35,23 @@ describe Notifier do
 
   describe '.single_admin' do
     it 'mails a user' do
-      mail = Notifier.single_admin("Welcome to bureaucracy!", user)
-      mail.to.should == [user.email]
+      mail = Notifier.single_admin("Welcome to bureaucracy!", bob)
+      mail.to.should == [bob.email]
       mail.body.encoded.should match /Welcome to bureaucracy!/
-      mail.body.encoded.should match /#{user.username}/
+      mail.body.encoded.should match /#{bob.username}/
     end
 
     it 'has the layout' do
-
-      mail = Notifier.single_admin("Welcome to bureaucracy!", user)
+      mail = Notifier.single_admin("Welcome to bureaucracy!", bob)
       mail.body.encoded.should match /change your notification settings/
     end
   end
 
   describe ".started_sharing" do
-    let!(:request_mail) {Notifier.started_sharing(user.id, person.id)}
+    let!(:request_mail) {Notifier.started_sharing(bob.id, person.id)}
+
     it 'goes to the right person' do
-      request_mail.to.should == [user.email]
+      request_mail.to.should == [bob.email]
     end
 
     it 'has the name of person sending the request' do
@@ -168,11 +164,11 @@ describe Notifier do
 
       @cnv = Conversation.create(@create_hash)
 
-      @mail = Notifier.private_message(user.id, @cnv.author.id, @cnv.messages.first.id)
+      @mail = Notifier.private_message(bob.id, @cnv.author.id, @cnv.messages.first.id)
     end
 
     it 'TO: goes to the right person' do
-      @mail.to.should == [user.email]
+      @mail.to.should == [bob.email]
     end
 
     it "FROM: contains the sender's name" do
@@ -186,7 +182,7 @@ describe Notifier do
 
     it 'SUBJECT: has "Re:" if not the first message in a conversation' do
       @cnv.messages << Message.new(:text => 'yo', :author => eve.person)
-      @mail = Notifier.private_message(user.id, @cnv.author.id, @cnv.messages.last.id)
+      @mail = Notifier.private_message(bob.id, @cnv.author.id, @cnv.messages.last.id)
 
       @mail.subject.should == "Re: #{@cnv.subject}"
     end
@@ -201,15 +197,14 @@ describe Notifier do
   end
 
   context "comments" do
-    let(:connect) { connect_users(user, aspect, user2, aspect2)}
-    let(:commented_post) {user.post(:status_message, :text => "It's really sunny outside today, and this is a super long status message!  #notreally", :to => :all)}
-    let(:comment) { user2.comment("Totally is", :post => commented_post)}
+    let(:commented_post) {bob.post(:status_message, :text => "It's really sunny outside today, and this is a super long status message!  #notreally", :to => :all)}
+    let(:comment) { eve.comment("Totally is", :post => commented_post)}
 
     describe ".comment_on_post" do
-      let(:comment_mail) {Notifier.comment_on_post(user.id, person.id, comment.id).deliver}
+      let(:comment_mail) {Notifier.comment_on_post(bob.id, person.id, comment.id).deliver}
 
       it 'TO: goes to the right person' do
-        comment_mail.to.should == [user.email]
+        comment_mail.to.should == [bob.email]
       end
 
       it "FROM: contains the sender's name" do
@@ -237,7 +232,7 @@ describe Notifier do
 
       [:reshare, :activity_streams_photo].each do |post_type|
         context post_type.to_s do
-          let(:commented_post) { Factory(post_type, :author => user.person) }
+          let(:commented_post) { Factory(post_type, :author => bob.person) }
           it 'succeeds' do
             proc {
               comment_mail
@@ -248,10 +243,10 @@ describe Notifier do
     end
 
     describe ".also_commented" do
-      let(:comment_mail) {Notifier.also_commented(user.id, person.id, comment.id)}
+      let(:comment_mail) {Notifier.also_commented(bob.id, person.id, comment.id)}
 
       it 'TO: goes to the right person' do
-        comment_mail.to.should == [user.email]
+        comment_mail.to.should == [bob.email]
       end
 
       it 'FROM: has the name of person commenting as the sender' do
@@ -278,7 +273,7 @@ describe Notifier do
       end
       [:reshare, :activity_streams_photo].each do |post_type|
         context post_type.to_s do
-          let(:commented_post) { Factory(post_type, :author => user.person) }
+          let(:commented_post) { Factory(post_type, :author => bob.person) }
           it 'succeeds' do
             proc {
               comment_mail
@@ -290,29 +285,28 @@ describe Notifier do
 
     describe ".confirm_email" do
       before do
-        user.update_attribute(:unconfirmed_email, "my@newemail.com")
+        bob.update_attribute(:unconfirmed_email, "my@newemail.com")
+        @confirm_email = Notifier.confirm_email(bob.id)
       end
 
-      let!(:confirm_email) { Notifier.confirm_email(user.id) }
-
       it 'goes to the right person' do
-        confirm_email.to.should == [user.unconfirmed_email]
+        @confirm_email.to.should == [bob.unconfirmed_email]
       end
 
       it 'has the unconfirmed emil in the subject' do
-        confirm_email.subject.should include(user.unconfirmed_email)
+        @confirm_email.subject.should include(bob.unconfirmed_email)
       end
 
       it 'has the unconfirmed emil in the body' do
-        confirm_email.body.encoded.should include(user.unconfirmed_email)
+        @confirm_email.body.encoded.should include(bob.unconfirmed_email)
       end
 
       it 'has the receivers name in the body' do
-        confirm_email.body.encoded.should include(user.person.profile.first_name)
+        @confirm_email.body.encoded.should include(bob.person.profile.first_name)
       end
 
       it 'has the activation link in the body' do
-        confirm_email.body.encoded.should include(confirm_email_url(:token => user.confirm_email_token))
+        @confirm_email.body.encoded.should include(confirm_email_url(:token => bob.confirm_email_token))
       end
     end
   end
