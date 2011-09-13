@@ -18,10 +18,12 @@ module Diaspora
       end
     end
 
+    # @return [Boolean] true
     def relayable?
       true
     end
 
+    # @return [String]
     def parent_guid
       self.parent.guid
     end
@@ -30,15 +32,19 @@ module Diaspora
       self.parent = parent_class.where(:guid => new_parent_guid).first
     end
 
+    # @return [Array<Person>]
     def subscribers(user)
       if user.owns?(self.parent)
         self.parent.subscribers(user)
       elsif user.owns?(self)
         [self.parent.author]
+      else
+        []
       end
     end
 
     def receive(user, person)
+
       self.class.transaction do
         comment_or_like = self.class.where(:guid => self.guid).first || self
 
@@ -51,23 +57,24 @@ module Diaspora
         #as the owner of the post being liked or commented on, you need to add your own signature in order to pass it to the people who received your original post
         if user.owns? comment_or_like.parent
           comment_or_like.parent_author_signature = comment_or_like.sign_with_key(user.encryption_key)
-
           comment_or_like.save!
         end
 
         #dispatch object DOWNSTREAM, received it via UPSTREAM
         unless user.owns?(comment_or_like)
-          comment_or_like.save 
+          comment_or_like.save!
           Postzord::Dispatcher.new(user, comment_or_like).post
         end
 
         comment_or_like.socket_to_user(user) if comment_or_like.respond_to? :socket_to_user
+
         if comment_or_like.after_receive(user, person)
           comment_or_like 
         end
       end
     end
 
+    # @return [Object]
     def after_receive(user, person)
       self
     end

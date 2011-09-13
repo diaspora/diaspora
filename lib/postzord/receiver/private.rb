@@ -30,9 +30,13 @@ module Postzord
 
       def parse_and_receive(xml)
         @object ||= Diaspora::Parser.from_xml(xml)
+
         Rails.logger.info("event=receive status=start recipient=#{@user_person.diaspora_handle} payload_type=#{@object.class} sender=#{@sender.diaspora_handle}")
+
         if self.validate_object
           receive_object
+        else
+          raise 'not a valid object'
         end
       end
 
