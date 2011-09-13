@@ -11,22 +11,23 @@ describe Postzord::Dispatcher::Private do
     @sm = Factory(:status_message, :public => true, :author => alice.person)
     @subscribers = []
     5.times{@subscribers << Factory(:person)}
-    @sm.stub!(:subscribers)
+    @sm.stub(:subscribers).and_return(@subscribers)
     @xml = @sm.to_diaspora_xml
   end
 
   describe '.initialize' do
-    it 'takes an sender(User) and object (responds_to #subscibers) and sets then to @sender and @object' do
+    it 'sets @sender, @object, @xml' do
       zord = Postzord::Dispatcher::Private.new(alice, @sm)
-      zord.instance_variable_get(:@sender).should == alice
-      zord.instance_variable_get(:@object).should == @sm
+      zord.sender.should == alice
+      zord.object.should == @sm
+      zord.xml.should == @sm.to_diaspora_xml
     end
 
     context 'setting @subscribers' do 
       it 'sets @subscribers from object' do
         @sm.should_receive(:subscribers).and_return(@subscribers)
         zord = Postzord::Dispatcher::Private.new(alice, @sm)
-        zord.instance_variable_get(:@subscribers).should == @subscribers
+        zord.subscribers.should == @subscribers
       end
 
       it 'accepts additional subscribers from opts' do
@@ -34,32 +35,24 @@ describe Postzord::Dispatcher::Private do
 
         @sm.should_receive(:subscribers).and_return(@subscribers)
         zord = Postzord::Dispatcher::Private.new(alice, @sm, :additional_subscribers => new_person)
-        zord.instance_variable_get(:@subscribers).should == @subscribers | [new_person]
+        zord.subscribers.should == @subscribers | [new_person]
       end
     end
 
-    it 'sets the @sender_person object' do
-      zord = Postzord::Dispatcher::Private.new(alice, @sm)
-      zord.instance_variable_get(:@sender_person).should == alice.person
-    end
-
     it 'raises and gives you a helpful message if the object can not federate' do
-      proc{ Postzord::Dispatcher::Private.new(alice, [])
+      pending "put this in the base class!"
+      expect {
+        Postzord::Dispatcher::Private.new(alice, [])
       }.should raise_error /Diaspora::Webhooks/
     end
-  end
-
-  it 'creates a salmon base object' do
-    zord = Postzord::Dispatcher::Private.new(alice, @sm)
-    zord.salmon.should_not be nil
   end
 
   context 'instance methods' do
     before do
       @subscribers << bob.person
       @remote_people, @local_people = @subscribers.partition{ |person| person.owner_id.nil? }
-      @sm.stub!(:subscribers).and_return @subscribers
-      @zord =  Postzord::Dispatcher::Private.new(alice, @sm)
+
+      @zord = Postzord::Dispatcher::Private.new(alice, @sm)
     end
 
     describe '#post' do
@@ -67,6 +60,7 @@ describe Postzord::Dispatcher::Private do
         @zord.stub!(:socket_and_notify_users)
       end
       it 'calls Array#partition on subscribers' do
+        @zord.instance_variable_set(:@subscribers, @subscribers)
         @subscribers.should_receive(:partition).and_return([@remote_people, @local_people])
         @zord.post
       end
@@ -138,49 +132,58 @@ describe Postzord::Dispatcher::Private do
               @mailman.post
             end
           end
-
         end
+
         context "remote raphael" do
           before do
             @comment = Factory.build(:comment, :author => @remote_raphael, :post => @post)
             @comment.save
             @mailman = Postzord::Dispatcher::Private.new(@local_luke, @comment)
           end
+
           it 'does not call deliver_to_local' do
             @mailman.should_not_receive(:deliver_to_local)
             @mailman.post
           end
+
           it 'calls deliver_to_remote with remote_raphael' do
             @mailman.should_receive(:deliver_to_remote).with([@remote_raphael])
             @mailman.post
           end
+
           it 'calls socket_to_users' do
             @mailman.should_receive(:socket_to_users).with([@local_leia])
             @mailman.post
           end
+
           it 'calls notify_users' do
             @mailman.should_receive(:notify_users).with([@local_leia])
             @mailman.post
           end
         end
+
         context "local luke" do
           before do
             @comment = @local_luke.build_comment :text => "yo", :post => @post
             @comment.save
             @mailman = Postzord::Dispatcher::Private.new(@local_luke, @comment)
           end
+
           it 'does not call deliver_to_local' do
             @mailman.should_not_receive(:deliver_to_local)
             @mailman.post
           end
+
           it 'calls deliver_to_remote with remote_raphael' do
             @mailman.should_receive(:deliver_to_remote).with([@remote_raphael])
             @mailman.post
           end
+
           it 'calls socket_to_users' do
             @mailman.should_receive(:socket_to_users).with([@local_leia, @local_luke])
             @mailman.post
           end
+
           it 'calls notify_users' do
             @mailman.should_receive(:notify_users).with([@local_leia])
             @mailman.post
@@ -195,18 +198,22 @@ describe Postzord::Dispatcher::Private do
           @comment.save
           @mailman = Postzord::Dispatcher::Private.new(@local_luke, @comment)
         end
+
         it 'calls deliver_to_remote with remote_raphael' do
           @mailman.should_receive(:deliver_to_remote).with([@remote_raphael])
           @mailman.post
         end
+
         it 'calls deliver_to_local with nobody' do
           @mailman.should_receive(:deliver_to_local).with([])
           @mailman.post
         end
+
         it 'does not call socket_to_users' do
           @mailman.should_not_receive(:socket_to_users)
           @mailman.post
         end
+
         it 'does not call notify_users' do
           @mailman.should_not_receive(:notify_users)
           @mailman.post
@@ -226,17 +233,6 @@ describe Postzord::Dispatcher::Private do
       it 'should queue an HttpPost job for each remote person' do
         Resque.should_receive(:enqueue).with(Job::HttpMulti, alice.id, anything, @remote_people.map{|p| p.id}).once
         @mailman.send(:deliver_to_remote, @remote_people)
-      end
-
-      it 'calls salmon_for each remote person' do
-       salmon = @mailman.salmon
-       Salmon::EncryptedSlap.stub(:create_by_user_and_activity).and_return(salmon)
-       salmon.should_receive(:xml_for).with(alice.person).and_return('what')
-       @hydra.stub!(:queue)
-       @hydra.stub!(:run)
-       fantasy_resque do
-         @mailman.send(:deliver_to_remote, @remote_people)
-       end
       end
     end
 
