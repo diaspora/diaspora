@@ -19,7 +19,16 @@ class Photo < Post
   validate :ownership_of_status_message
 
   before_destroy :ensure_user_picture
+  after_destroy :clear_empty_status_message
   after_create :queue_processing_job
+
+  def clear_empty_status_message
+    if self.status_message_guid && self.status_message.text_and_photos_blank?
+      self.status_message.destroy
+    else
+      true
+    end
+  end
 
   def ownership_of_status_message
     message = StatusMessage.find_by_guid(self.status_message_guid)
