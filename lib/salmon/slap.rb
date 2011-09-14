@@ -62,8 +62,9 @@ module Salmon
     end
 
     # @return [String] The constructed salmon, given a person
+    # note this memoizes the xml, as for every user for unsigned salmon will be the same
     def xml_for(person)
-      xml =<<ENTRY
+      @xml =<<ENTRY
     <?xml version='1.0' encoding='UTF-8'?>
     <entry xmlns='http://www.w3.org/2005/Atom'>
       #{header(person)}

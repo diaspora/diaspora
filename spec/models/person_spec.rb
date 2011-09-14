@@ -474,4 +474,30 @@ describe Person do
       end
     end
   end
+
+  context 'updating urls' do
+    before do
+      @url = "http://new-url.com/"
+    end
+
+    describe '.url_batch_update' do
+      it "calls #update_person_url given an array of users and a url" do
+        people = [stub.as_null_object, stub.as_null_object, stub.as_null_object]
+        people.each do |person|
+          person.should_receive(:update_url).with(@url)
+        end
+        Person.url_batch_update(people, @url)
+      end
+    end
+
+    describe '#update_url' do
+      it "updates a given person's url" do
+        expect {
+          alice.person.update_url(@url)
+        }.to change {
+          alice.person.reload.url
+        }.from(anything).to(@url)
+      end
+    end
+  end
 end

@@ -186,14 +186,14 @@ class User < ActiveRecord::Base
 
   def dispatch_post(post, opts = {})
     additional_people = opts.delete(:additional_subscribers)
-    mailman = Postzord::Dispatcher.new(self, post, :additional_subscribers => additional_people)
+    mailman = Postzord::Dispatcher.build(self, post, :additional_subscribers => additional_people)
     mailman.post(opts)
   end
 
   def update_post(post, post_hash = {})
     if self.owns? post
       post.update_attributes(post_hash)
-      Postzord::Dispatcher.new(self, post).post
+      Postzord::Dispatcher.build(self, post).post
     end
   end
 
@@ -292,7 +292,7 @@ class User < ActiveRecord::Base
      opts[:additional_subscribers] = target.resharers
    end
 
-    mailman = Postzord::Dispatcher.new(self, retraction, opts)
+    mailman = Postzord::Dispatcher.build(self, retraction, opts)
     mailman.post
 
     retraction.perform(self)
@@ -309,7 +309,7 @@ class User < ActiveRecord::Base
       params[:image_url_small] = photo.url(:thumb_small)
     end
     if self.person.profile.update_attributes(params)
-      Postzord::Dispatcher.new(self, profile).post
+      Postzord::Dispatcher.build(self, profile).post
       true
     else
       false

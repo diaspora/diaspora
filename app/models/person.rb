@@ -264,6 +264,25 @@ class Person < ActiveRecord::Base
     json
   end
 
+  # Update an array of people given a url, and set it as the new destination_url
+  # @param people [Array<People>]
+  # @param url [String]
+  def self.url_batch_update(people, url)
+    people.each do |person|
+      person.update_url(url)
+    end 
+  end
+  
+  # @param person [Person]
+  # @param url [String]
+  def update_url(url)
+    location = URI.parse(url)
+    newuri = "#{location.scheme}://#{location.host}"
+    newuri += ":#{location.port}" unless ["80", "443"].include?(location.port.to_s)
+    newuri += "/"
+    self.update_attributes(:url => newuri)
+  end
+
   protected
 
   def clean_url

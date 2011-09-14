@@ -14,7 +14,7 @@ describe SignedRetraction do
       retraction.should_receive(:dup).and_return(onward_retraction)
 
       dis = mock
-      Postzord::Dispatcher.should_receive(:new).with(@resharer, onward_retraction).and_return(dis)
+      Postzord::Dispatcher.should_receive(:build).with(@resharer, onward_retraction).and_return(dis)
       dis.should_receive(:post)
 
       retraction.perform(@resharer)
@@ -35,7 +35,7 @@ describe SignedRetraction do
       Post.exists?(:id => remote_post.id).should be_false
 
       dis = mock
-      Postzord::Dispatcher.should_receive(:new){ |sender, retraction|
+      Postzord::Dispatcher.should_receive(:build){ |sender, retraction|
         sender.should == alice
         retraction.sender.should == alice.person
         dis

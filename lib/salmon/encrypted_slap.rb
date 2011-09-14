@@ -15,6 +15,16 @@ module Salmon
 XML
     end
 
+    # @return [String, Boolean] False if RSAError; XML if no error
+    def xml_for(person)
+      begin
+       super 
+      rescue OpenSSL::PKey::RSAError => e
+        Rails.logger.info(:event => :invalid_rsa_key, :identifier => person.diaspora_handle)
+        false
+      end
+    end
+
     # Decrypts an encrypted magic sig envelope
     # @param key_hash [Hash] Contains 'key' (aes) and 'iv' values
     # @param user [User]

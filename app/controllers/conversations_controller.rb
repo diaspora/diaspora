@@ -33,7 +33,7 @@ class ConversationsController < ApplicationController
 
     @conversation = Conversation.new(params[:conversation])
     if @conversation.save
-      Postzord::Dispatcher.new(current_user, @conversation).post
+      Postzord::Dispatcher.build(current_user, @conversation).post
       flash[:notice] = I18n.t('conversations.create.sent')
     else
       flash[:error] = I18n.t('conversations.create.fail')

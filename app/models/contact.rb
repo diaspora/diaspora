@@ -44,7 +44,7 @@ class Contact < ActiveRecord::Base
 
   def dispatch_request
     request = self.generate_request
-    Postzord::Dispatcher.new(self.user, request).post
+    Postzord::Dispatcher.build(self.user, request).post
     request
   end
 

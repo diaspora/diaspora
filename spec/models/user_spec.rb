@@ -440,14 +440,14 @@ describe User do
 
     it 'dispatches the profile when tags are set' do
       @params = {:tags => '#what #hey'}
-      mailman = Postzord::Dispatcher.new(alice, Profile.new)
-      Postzord::Dispatcher.should_receive(:new).and_return(mailman)
+      mailman = Postzord::Dispatcher.build(alice, Profile.new)
+      Postzord::Dispatcher.should_receive(:build).and_return(mailman)
       alice.update_profile(@params).should be_true
     end
 
     it 'sends a profile to their contacts' do
-      mailman = Postzord::Dispatcher.new(alice, Profile.new)
-      Postzord::Dispatcher.should_receive(:new).and_return(mailman)
+      mailman = Postzord::Dispatcher.build(alice, Profile.new)
+      Postzord::Dispatcher.should_receive(:build).and_return(mailman)
       alice.update_profile(@params).should be_true
     end
 
@@ -496,7 +496,7 @@ describe User do
     it 'sends a notification to aspects' do
       m = mock()
       m.should_receive(:post)
-      Postzord::Dispatcher.should_receive(:new).and_return(m)
+      Postzord::Dispatcher.should_receive(:build).and_return(m)
       photo = alice.build_post(:photo, :user_file => uploaded_photo, :text => "hello", :to => alice.aspects.first.id)
       alice.update_post(photo, :text => 'hellp')
     end
@@ -948,7 +948,7 @@ describe User do
 
       it 'sends a retraction' do
         dispatcher = mock
-        Postzord::Dispatcher.should_receive(:new).with(bob, @retraction, anything()).and_return(dispatcher)
+        Postzord::Dispatcher.should_receive(:build).with(bob, @retraction, anything()).and_return(dispatcher)
         dispatcher.should_receive(:post)
 
         bob.retract(@post)
@@ -960,7 +960,7 @@ describe User do
         @post.reshares << reshare
 
         dispatcher = mock
-        Postzord::Dispatcher.should_receive(:new).with(bob, @retraction, {:additional_subscribers => [person]}).and_return(dispatcher)
+        Postzord::Dispatcher.should_receive(:build).with(bob, @retraction, {:additional_subscribers => [person]}).and_return(dispatcher)
         dispatcher.should_receive(:post)
 
         bob.retract(@post)
