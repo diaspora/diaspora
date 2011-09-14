@@ -120,7 +120,6 @@ group :test do
   gem 'fixture_builder', '0.2.2'
   gem 'fuubar'
   gem 'mongrel', :require => false, :platforms => :ruby_18
-  gem 'rcov', :require => false
 	gem 'rspec', '>= 2.0.0'
   gem 'rspec-core', '2.6.0'
   gem 'rspec-instafail', '>= 0.1.7', :require => false

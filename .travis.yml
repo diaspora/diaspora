@@ -7,7 +7,7 @@ rvm:
   - 1.8.7
   - ree
   - 1.9.2
-  - rbx-2.0.0pre
+  - rbx
 
 env:
   - DB=postgres
