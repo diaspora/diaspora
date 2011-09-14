@@ -39,6 +39,9 @@ en:
         add_to_aspect: "Add contact"
         select_aspects: "Select aspects"
         all_aspects: "All aspects"
+        toggle_selection:
+          all_aspects: "Select all aspects"
+          no_aspects: "Select no aspects"
         toggle:
           zero: "Select aspects"
           one: "In {{count}} aspect"

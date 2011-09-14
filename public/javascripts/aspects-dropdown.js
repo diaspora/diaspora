@@ -6,16 +6,22 @@ var AspectsDropdown = {
   updateNumber: function(dropdown, personId, number, inAspectClass){
     var button = dropdown.parents(".dropdown").children('.button.toggle'),
         selectedAspects = dropdown.children(".selected").length,
-        allAspects = dropdown.children().length,
-        replacement;
+        allAspects = dropdown.children('li[data-aspect_id]').length,
+        replacement,
+        toggleButtonReplacement = Diaspora.I18n.t("aspect_dropdown.toggle_selection.no_aspects");
+    
+    var toggleButton = dropdown.children('.toggleSelection');
 
     if (number == 0) {
       button.removeClass(inAspectClass);
+      
       if( dropdown.closest('#publisher').length ) {
         replacement = Diaspora.I18n.t("aspect_dropdown.select_aspects");
       } else {
         replacement = Diaspora.I18n.t("aspect_dropdown.add_to_aspect");
       }
+      
+      toggleButtonReplacement = Diaspora.I18n.t("aspect_dropdown.toggle_selection.all_aspects");
     }else if (selectedAspects == allAspects) {
       replacement = Diaspora.I18n.t('aspect_dropdown.all_aspects');
     }else if (number == 1) {
@@ -31,15 +37,19 @@ var AspectsDropdown = {
     }
 
     button.text(replacement + ' ▼');
+    toggleButton.children('span').text(toggleButtonReplacement);
   },
   
-  invertSelection: function(list) {
-    list.children('li[data-aspect_id]').trigger('click');
+  toggleSelection: function(dropdown) {
+    dropdown.children('li[data-aspect_id]').toggleClass(
+      'selected',
+      dropdown.children('li.selected[data-aspect_id]').length == 0
+    );
   },
   
   toggleCheckbox: function(check) {
-    if(check.hasClass('invertSelection')) {
-      this.invertSelection(check.parent());
+    if(check.hasClass('toggleSelection')) {
+      this.toggleSelection(check.parent());
     }
     else {
       check.toggleClass('selected');

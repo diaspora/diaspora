@@ -244,7 +244,9 @@ en:
       add_to_aspect: "Add contacts to %{name}"
       start_a_conversation: "Start a conversation"
       add_a_new_aspect: "Add a new aspect"
-      invert_aspect_selection: "Invert selection"
+      toggle_selection:
+        all_aspects: "Select all aspects"
+        no_aspects: "Select no aspects"
       title: "Contacts"
       your_contacts: "Your Contacts"
       no_contacts: "Looks like you need to add some contacts!"
