@@ -48,4 +48,4 @@ execute 'rebundle' do
   command 'bundle install'
 end
 
-include_recipe "centos::startcom_bundle"
+include_recipe "diaspora::startcom_bundle"
