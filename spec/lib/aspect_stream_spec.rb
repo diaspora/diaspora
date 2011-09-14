@@ -80,7 +80,7 @@ describe AspectStream do
       stream = AspectStream.new(alice, [])
 
       stream.stub(:aspect_ids).and_return(aspect_ids)
-      Person.should_receive(:all_from_aspects).with(stream.aspect_ids, alice)
+      Person.should_receive(:all_from_aspects).with(stream.aspect_ids, alice).and_return(stub(:includes => :profile))
       stream.people
     end
   end
