@@ -200,5 +200,20 @@ describe Photo do
         @status_message.destroy
       }.should change(Photo, :count).by(-1)
     end
+
+    it 'will delete parent status message iff message is otherwise empty' do
+      expect {
+        @photo2.destroy
+      }.should change(StatusMessage, :count).by(-1)
+    end
+
+    it 'will not delete parent status message iff message had other content' do
+      expect {
+        @status_message.text = "Some text"
+        @status_message.save
+        @status_message.reload
+        @photo2.destroy
+      }.should_not change(StatusMessage, :count)
+    end
   end
 end
