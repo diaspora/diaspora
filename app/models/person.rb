@@ -55,7 +55,7 @@ class Person < ActiveRecord::Base
     joins(:contacts => :aspect_memberships).
          where(:contacts => {:user_id => user.id},
                :aspect_memberships => {:aspect_id => aspect_ids}).
-         select("DISTINCT people.*").includes(:profile)
+         select("DISTINCT people.*")
   }
 
   def self.featured_users

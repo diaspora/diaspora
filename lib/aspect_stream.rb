@@ -51,7 +51,7 @@ class AspectStream
 
   # @return [ActiveRecord::Association<Person>] AR association of people within stream's given aspects
   def people
-    @people ||= Person.all_from_aspects(aspect_ids, @user)
+    @people ||= Person.all_from_aspects(aspect_ids, @user).includes(:profile)
   end
 
   # The first aspect in #aspects, given the stream is not for all aspects, or #aspects size is 1

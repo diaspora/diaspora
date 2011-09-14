@@ -95,10 +95,6 @@ module Diaspora
         end
       end
 
-      def all_aspect_ids
-        self.aspects.all.collect{|x| x.id}
-      end
-
       def posts_from(person)
         return self.person.posts.where(:pending => false).order("created_at DESC") if person == self.person
         con = Contact.arel_table
