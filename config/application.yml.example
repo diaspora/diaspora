@@ -126,6 +126,11 @@ defaults: &defaults
   # Automatically enable TLS? Ignored if smtp_authentication is set to none
   smtp_starttls_auto: true
 
+  # OpenSSL verify mode used when connecting to a SMTP server with TLS.
+  # Set this to none if you have a self signed certificate, keep it empty (not '') for the default
+  # Possible values: none, peer, client_once, fail_if_no_peer_cert
+  smtp_openssl_verify_mode:
+
   # Domain of smtp server.
   # This should match the common name of the certificate 
   # the SMTP server sends. If he sends one
