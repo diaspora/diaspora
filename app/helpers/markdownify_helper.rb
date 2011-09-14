@@ -31,6 +31,7 @@ module MarkdownifyHelper
 
     return '' if message.blank?
 
+    #renderer = Redcarpet::Render::HTML.new(render_options)
     renderer = Diaspora::Markdownify::HTML.new(render_options)
     markdown = Redcarpet::Markdown.new(renderer, markdown_options)
 

@@ -56,12 +56,6 @@ GIT
       addressable (>= 2.1.1)
       eventmachine (>= 0.12.9)
 
-GIT
-  remote: git://github.com/tanoku/redcarpet
-  revision: 3c6b5807e8a5be51d769149e555b09bae8ae3228
-  specs:
-    redcarpet (2.0.0b3)
-
 GEM
   remote: http://rubygems.org/
   specs:
@@ -363,6 +357,7 @@ GEM
     rash (0.3.0)
       hashie (~> 1.0.0)
     rdoc (3.9.4)
+    redcarpet (2.0.0b5)
     redis (2.2.2)
     redis-namespace (0.8.0)
       redis (< 3.0.0)
@@ -518,7 +513,7 @@ DEPENDENCIES
   omniauth (= 0.2.6)
   rails (= 3.0.10)
   rails-i18n
-  redcarpet!
+  redcarpet (= 2.0.0b5)
   resque (= 1.10.0)
   resque-ensure-connected
   resque-timeout (= 1.0.0)

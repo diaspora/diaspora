@@ -62,7 +62,7 @@ gem 'rails-i18n'
 # parsing
 
 gem 'nokogiri'
-gem 'redcarpet', :git => 'git://github.com/tanoku/redcarpet'
+gem 'redcarpet', "2.0.0b5"
 gem 'roxml', :git => 'git://github.com/Empact/roxml.git', :ref => '7ea9a9ffd2338aaef5b0'
 
 # queue
