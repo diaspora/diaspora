@@ -1,5 +1,5 @@
 #!/usr/bin/env ruby
-# Copyright (c) 2011, Diaspora Inc.  This file is
+# Copyright (c) 2010-2011, Diaspora Inc.  This file is
 # licensed under the Affero General Public License version 3 or later.  See
 # the COPYRIGHT file.
 
@@ -30,7 +30,7 @@ data = { "config/locales/diaspora/#{locale}.yml" => "xml_locales/#{locale}.xml",
          "config/locales/devise/devise.#{locale}.yml" => "xml_locales/devise.#{locale}.xml",
          "config/locales/javascript/javascript.#{locale}.yml" => "xml_locales/javascript.#{locale}.xml" }
 
-copyright = "#   Copyright (c) 2011, Diaspora Inc.  This file is\n#   licensed under the Affero General Public License version 3 or later.  See\n#   the COPYRIGHT file.\n\n"
+copyright = "#   Copyright (c) 2010-2011, Diaspora Inc.  This file is\n#   licensed under the Affero General Public License version 3 or later.  See\n#   the COPYRIGHT file.\n\n"
 
 data.each do |destfile, sourcefile|
   if File.exists?(sourcefile)
