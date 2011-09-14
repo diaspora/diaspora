@@ -360,6 +360,8 @@ class User < ActiveRecord::Base
   def setup(opts)
     self.username = opts[:username]
     self.email = opts[:email]
+    self.language = opts[:language]
+    self.language ||= I18n.locale.to_s
     self.valid?
     errors = self.errors
     errors.delete :person
