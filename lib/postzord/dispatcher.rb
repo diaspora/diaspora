@@ -5,21 +5,34 @@
 
 class Postzord::Dispatcher
   require File.join(Rails.root, 'lib/postzord/dispatcher/private')
-  #require File.join(Rails.root, 'lib/postzord/dispatcher/public')
+  require File.join(Rails.root, 'lib/postzord/dispatcher/public')
 
   attr_reader :sender, :object, :xml, :subscribers
 
+  # @return [Postzord::Dispatcher] Public or private dispatcher depending on the object's intended audience
   def self.build(user, object, opts={})
     unless object.respond_to? :to_diaspora_xml
       raise 'this object does not respond_to? to_diaspora xml.  try including Diaspora::Webhooks into your object'
     end
 
-    #if object.respond_to?(:public) && object.public?
+    #if self.object_should_be_processed_as_public?(object)
     #  Postzord::Dispatcher::Public.new(user, object, opts)
     #else
-    Postzord::Dispatcher::Private.new(user, object, opts)
+      Postzord::Dispatcher::Private.new(user, object, opts)
     #end
   end
+
+  # @param object [Object]
+  # @return [Boolean]
+  def self.object_should_be_processed_as_public?(object)
+    if object.respond_to?(:public) && object.public?
+      true
+    elsif object.respond_to?(:relayable?) && object.parent.public?
+      true
+    else
+      false
+    end
+  end 
 
   # @return [Object]
   def post(opts={})
@@ -140,6 +153,13 @@ class Postzord::Dispatcher
     users.each do |user|
       @object.socket_to_user(user)
     end
+  end
+
+  # Enqueues a job in Resque
+  # @param remote_people [Array<Person>] Recipients of the post on other pods
+  # @return [void]
+  def queue_remote_delivery_job(remote_people)
+    Resque.enqueue(Job::HttpMulti, @sender.id, Base64.encode64(@object.to_diaspora_xml), remote_people.map{|p| p.id}, self.class.to_s) 
   end
 end
 

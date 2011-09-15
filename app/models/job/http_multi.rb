@@ -3,20 +3,22 @@
 #   the COPYRIGHT file.
 
 require 'uri'
+require File.join(Rails.root, 'lib/hydra_wrapper')
 
 module Job
   class HttpMulti < Base
+
     @queue = :http
 
     MAX_RETRIES = 3
 
-    def self.perform(user_id, encoded_object_xml, person_ids, retry_count=0)
+    def self.perform(user_id, encoded_object_xml, person_ids, dispatcher_class_as_string, retry_count=0)
       return true if user_id == '91842' #NOTE 09/08/11 blocking diapsorahqposts
 
       user = User.find(user_id)
       people = Person.where(:id => person_ids)
 
-      dispatcher = Postzord::Dispatcher::Private
+      dispatcher = dispatcher_class_as_string.constantize
       hydra = HydraWrapper.new(user, people, encoded_object_xml, dispatcher)
 
       hydra.enqueue_batch
@@ -24,7 +26,7 @@ module Job
 
       unless hydra.failed_people.empty?
         if retry_count < MAX_RETRIES
-          Resque.enqueue(Job::HttpMulti, user_id, encoded_object_xml, hydra.failed_people, retry_count + 1 )
+          Resque.enqueue(Job::HttpMulti, user_id, encoded_object_xml, hydra.failed_people, dispatcher_class_as_string, retry_count + 1 )
         else
           Rails.logger.info("event=http_multi_abandon sender_id=#{user_id} failed_recipient_ids='[#{person_ids.join(', ')}] '")
         end

@@ -40,7 +40,6 @@ describe Postzord::Dispatcher do
     end
 
     it 'raises and gives you a helpful message if the object can not federate' do
-      pending "put this in the base class!"
       expect {
         Postzord::Dispatcher.build(alice, [])
       }.should raise_error /Diaspora::Webhooks/
@@ -231,7 +230,7 @@ describe Postzord::Dispatcher do
       end
 
       it 'should queue an HttpPost job for each remote person' do
-        Resque.should_receive(:enqueue).with(Job::HttpMulti, alice.id, anything, @remote_people.map{|p| p.id}).once
+        Resque.should_receive(:enqueue).with(Job::HttpMulti, alice.id, anything, @remote_people.map{|p| p.id}, anything).once
         @mailman.send(:deliver_to_remote, @remote_people)
       end
     end
