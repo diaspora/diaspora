@@ -91,7 +91,7 @@ class Postzord::Dispatcher
   # @param people [Array<Person>] Recipients of the post
   def deliver_to_local(people)
     return if people.blank? || @object.is_a?(Profile)
-    if @object.is_a?(Post)
+    if @object.respond_to?(:persisted?)
       batch_deliver_to_local(people)
     else
       people.each do |person|
@@ -104,7 +104,7 @@ class Postzord::Dispatcher
   # @param people [Array<Person>] Recipients of the post
   def batch_deliver_to_local(people)
     ids = people.map{ |p| p.owner_id }
-    Resque.enqueue(Job::ReceiveLocalBatch, @object.id, ids)
+    Resque.enqueue(Job::ReceiveLocalBatch, @object.class.to_s, @object.id, ids)
     Rails.logger.info("event=push route=local sender=#{@sender.person.diaspora_handle} recipients=#{ids.join(',')} payload_type=#{@object.class}")
   end
 
@@ -124,12 +124,6 @@ class Postzord::Dispatcher
         Resque.enqueue(Job::PostToService, service.id, @object.id, url)
       end
     end
-  end
-
-  # @param services [Array<User>]
-  def socket_and_notify_users(users)
-    notify_users(users)
-    socket_to_users(users)
   end
 
   # @param local_people [Array<People>]

@@ -36,7 +36,7 @@ module Postzord
           @object.receive(@object.parent.author.user, @author)
         end
         # notify everyone who can see the parent object
-        receiver = Postzord::Receiver::LocalPostBatch.new(nil, self.recipient_user_ids)
+        receiver = Postzord::Receiver::LocalPostBatch.new(@object, self.recipient_user_ids)
         receiver.notify_users
         @object
       end

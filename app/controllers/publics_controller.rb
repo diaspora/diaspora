@@ -78,5 +78,4 @@ class PublicsController < ApplicationController
       return
     end
   end
-
 end

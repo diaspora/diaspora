@@ -55,9 +55,6 @@ describe Postzord::Dispatcher do
     end
 
     describe '#post' do
-      before do
-        @zord.stub!(:socket_and_notify_users)
-      end
       it 'calls Array#partition on subscribers' do
         @zord.instance_variable_set(:@subscribers, @subscribers)
         @subscribers.should_receive(:partition).and_return([@remote_people, @local_people])
@@ -243,7 +240,7 @@ describe Postzord::Dispatcher do
       it 'queues a batch receive' do
         local_people = []
         local_people << alice.person
-        Resque.should_receive(:enqueue).with(Job::ReceiveLocalBatch, @sm.id, [alice.id]).once
+        Resque.should_receive(:enqueue).with(Job::ReceiveLocalBatch, @sm.class.to_s, @sm.id, [alice.id]).once
         @mailman.send(:deliver_to_local, local_people)
       end
 
@@ -302,30 +299,29 @@ describe Postzord::Dispatcher do
       end
     end
 
-    describe '#socket_and_notify_users' do
-      it 'should call object#socket_to_user for each local user' do
-        sc = mock()
-        SocketsController.should_receive(:new).and_return(sc)
-        sc.should_receive(:outgoing).with(bob,
-                                          @zord.instance_variable_get(:@object),
-                                          :aspect_ids => bob.contact_for(alice.person).aspect_memberships.map{|a| postgres? ? a.aspect_id.to_s : a.aspect_id })
-        @zord.send(:socket_and_notify_users, [bob])
+    describe '#socket_and_notify_local_users' do
+      it 'calls notifiy_users' do
+        @zord.should_receive(:notify_users).with([bob])
+        @zord.send(:socket_and_notify_local_users, [bob.person])
       end
 
-      it 'only tries to socket when the object responds to #socket_to_user' do
-        f = Request.new
-        f.stub!(:subscribers)
-        f.stub!(:to_diaspora_xml)
-        users = [bob]
-        z = Postzord::Dispatcher.build(alice, f)
-        z.instance_variable_get(:@object).should_receive(:socket_to_user).once
-        z.send(:socket_to_users, users)
+      it 'calls socket_to_users with the object author' do
+        @zord.should_receive(:socket_to_users).with([bob, @zord.sender])
+        @zord.send(:socket_and_notify_local_users, [bob.person])
       end
+    end
 
-      it 'queues Job::NotifyLocalUsers jobs' do
-        @zord.instance_variable_get(:@object).should_receive(:socket_to_user).and_return(false)
-        Resque.should_receive(:enqueue).with(Job::NotifyLocalUsers, [bob.id], @sm.class.to_s, @sm.id, @sm.author.id)
-        @zord.send(:socket_and_notify_users, [bob])
+    describe '#notify_users' do
+      it 'enqueues a NotifyLocalUsers job' do
+        Resque.should_receive(:enqueue).with(Job::NotifyLocalUsers, [bob.id], @zord.object.class.to_s, @zord.object.id, @zord.object.author.id)
+        @zord.send(:notify_users, [bob])
+      end
+    end
+
+    describe '#socket_to_users' do
+      it 'calls socket_to_user given users' do
+        @zord.object.should_receive(:socket_to_user).with(bob)
+        @zord.send(:socket_to_users, [bob])
       end
     end
   end

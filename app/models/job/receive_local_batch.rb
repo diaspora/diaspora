@@ -10,9 +10,9 @@ module Job
 
     @queue = :receive
 
-    def self.perform(post_id, recipient_user_ids)
-      post = Post.find(post_id)
-      receiver = Postzord::Receiver::LocalPostBatch.new(post, recipient_user_ids)
+    def self.perform(object_class_string, object_id, recipient_user_ids)
+      object = object_class_string.constantize.find(object_id)
+      receiver = Postzord::Receiver::LocalPostBatch.new(object, recipient_user_ids)
       receiver.perform!
     end
   end
