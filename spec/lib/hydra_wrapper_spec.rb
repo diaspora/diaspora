@@ -6,7 +6,7 @@ require 'hydra_wrapper'
 
 describe HydraWrapper do
   before do
-    @wrapper = HydraWrapper.new(stub, [stub, stub, stub], stub, stub)
+    @wrapper = HydraWrapper.new(stub, [stub, stub, stub], "<encoded_xml>", stub)
   end
 
   describe 'initialize' do
@@ -33,7 +33,9 @@ describe HydraWrapper do
 
   describe '#salmon' do
     it 'calls the salmon method on the dispatcher class (and memoizes)' do
-      @wrapper.dispatcher_class.should_receive(:salmon).once.and_return(true)
+      Base64.stub(:decode64).and_return(@wrapper.encoded_object_xml + 'decoded')
+      decoded = Base64.decode64(@wrapper.encoded_object_xml)
+      @wrapper.dispatcher_class.should_receive(:salmon).with(@wrapper.user, decoded).once.and_return(true)
       @wrapper.salmon
       @wrapper.salmon
     end
@@ -55,6 +57,7 @@ describe HydraWrapper do
     end
 
     it 'inserts a job for every group of people' do
+      Base64.stub(:decode64)
       @wrapper.dispatcher_class = stub(:salmon => stub(:xml_for => "<XML>"))
       @wrapper.stub(:grouped_people).and_return({'https://foo.com' => @wrapper.people})
       @wrapper.people.should_receive(:first).once
@@ -63,6 +66,7 @@ describe HydraWrapper do
     end
 
     it 'does not insert a job for a person whos xml returns false' do
+      Base64.stub(:decode64)
       @wrapper.stub(:grouped_people).and_return({'https://foo.com' => [stub]})
       @wrapper.dispatcher_class = stub(:salmon => stub(:xml_for => false))
       @wrapper.should_not_receive(:insert_job)

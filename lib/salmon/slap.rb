@@ -9,6 +9,9 @@ module Salmon
 
     delegate :sig, :data_type, :to => :magic_sig
 
+    # @param user [User]
+    # @param activity [String] A decoded string
+    # @return [Slap]
     def self.create_by_user_and_activity(user, activity)
       salmon = self.new
       salmon.author   = user.person

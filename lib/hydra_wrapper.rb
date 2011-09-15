@@ -3,6 +3,7 @@
 #   the COPYRIGHT file.
 
 require 'typhoeus'
+require 'active_support/base64'
 
 class HydraWrapper
 
@@ -27,7 +28,7 @@ class HydraWrapper
 
   # @return [Salmon]
   def salmon
-    @salmon ||= @dispatcher_class.salmon(@user, @encoded_object_xml)
+    @salmon ||= @dispatcher_class.salmon(@user, Base64.decode64(@encoded_object_xml))
   end
 
   # Group people on their receiving_urls
