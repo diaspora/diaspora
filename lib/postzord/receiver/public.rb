@@ -33,7 +33,7 @@ module Postzord
       def receive_relayable
         if @object.parent.author.local?
           # receive relayable object only for the owner of the parent object
-          @object.receive(@object.parent.author.user, @author)
+          @object.receive(@object.parent.author.owner, @author)
         end
         # notify everyone who can see the parent object
         receiver = Postzord::Receiver::LocalPostBatch.new(@object, self.recipient_user_ids)

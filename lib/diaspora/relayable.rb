@@ -43,7 +43,7 @@ module Diaspora
       end
     end
 
-    def receive(user, person)
+    def receive(user, person=nil)
 
       self.class.transaction do
         comment_or_like = self.class.where(:guid => self.guid).first || self

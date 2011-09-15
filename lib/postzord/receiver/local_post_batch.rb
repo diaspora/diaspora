@@ -10,11 +10,25 @@ module Postzord
       end
 
       def perform!
-        create_visibilities unless @object.respond_to?(:relayable?)
+        if @object.respond_to?(:relayable?)
+          receive_relayable
+        else
+          create_visibilities
+        end
         notify_mentioned_users if @object.respond_to?(:mentions)
 
         socket_to_users if @object.respond_to?(:socket_to_user)
         notify_users
+      end
+
+      # NOTE(copied over from receiver public)
+      # @return [Object]
+      def receive_relayable
+        if @object.parent.author.local?
+          # receive relayable object only for the owner of the parent object
+          @object.receive(@object.parent.author.owner)
+        end
+        @object
       end
 
       # Batch import visibilities for the recipients of the given @object
