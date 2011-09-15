@@ -142,14 +142,13 @@ class Postzord::Dispatcher
 
   # @param services [Array<User>]
   def notify_users(users)
-    if @object.respond_to?(:persisted?)
-      Resque.enqueue(Job::NotifyLocalUsers, users.map{|u| u.id}, @object.class.to_s, @object.id, @object.author.id)
-    end
+    return unless users && @object.respond_to?(:persisted?)
+    Resque.enqueue(Job::NotifyLocalUsers, users.map{|u| u.id}, @object.class.to_s, @object.id, @object.author.id)
   end
 
   # @param services [Array<User>]
   def socket_to_users(users)
-    return unless @object.respond_to?(:socket_to_user)
+    return unless users && @object.respond_to?(:socket_to_user)
     users.each do |user|
       @object.socket_to_user(user)
     end
