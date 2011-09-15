@@ -5,7 +5,7 @@
 
 require File.join(Rails.root, 'lib/postzord/receiver/private')
 module Jobs
-  class ReceiveSalmon < Base
+  class ReceiveEncryptedSalmon < Base
     @queue = :receive_salmon
 
     def self.perform(user_id, xml)

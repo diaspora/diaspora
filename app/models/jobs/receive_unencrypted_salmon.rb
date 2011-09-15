@@ -4,7 +4,7 @@
 require File.join(Rails.root, 'lib/postzord/receiver/private')
 
 module Jobs
-  class ReceivePublicSalmon < Base
+  class ReceiveUnencryptedSalmon < Base
 
     @queue = :receive
 
