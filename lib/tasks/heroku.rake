@@ -5,6 +5,7 @@ namespace :heroku do
     command = "heroku config:add"
     CONFIG.each {|key, val| command << " #{key}=#{val} " if val }
     command << " HEROKU=true "
+    command << " DB=postgres "
     system command
   end
 end
