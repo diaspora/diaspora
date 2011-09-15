@@ -15,11 +15,11 @@ class Postzord::Dispatcher
       raise 'this object does not respond_to? to_diaspora xml.  try including Diaspora::Webhooks into your object'
     end
 
-    #if self.object_should_be_processed_as_public?(object)
-    #  Postzord::Dispatcher::Public.new(user, object, opts)
-    #else
+    if self.object_should_be_processed_as_public?(object)
+      Postzord::Dispatcher::Public.new(user, object, opts)
+    else
       Postzord::Dispatcher::Private.new(user, object, opts)
-    #end
+    end
   end
 
   # @param object [Object]
@@ -59,7 +59,7 @@ class Postzord::Dispatcher
       self.deliver_to_local(local_people)
     end
 
-    self.deliver_to_remote(remote_people) unless @sender.username == 'diasporahq' #NOTE: 09/08/11 this is temporary (~3days max) till we fix fanout in federation
+    self.deliver_to_remote(remote_people)
   end
 
   # @return [Array<Person>] Recipients of the object, minus any additional subscribers
