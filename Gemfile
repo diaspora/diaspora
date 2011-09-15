@@ -4,6 +4,7 @@ gem 'rails', '3.0.10'
 
 gem 'bundler', '>= 1.0.0'
 gem 'foreman'
+gem 'heroku'
 
 gem 'thin', '1.2.11', :require => false
 

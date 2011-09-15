@@ -209,6 +209,11 @@ GEM
       json (>= 1.4.6)
     haml (3.1.2)
     hashie (1.0.0)
+    heroku (2.6.1)
+      launchy (>= 0.3.2)
+      rest-client (~> 1.6.1)
+      rubyzip
+      term-ansicolor (~> 1.0.5)
     highline (1.6.2)
     hoptoad_notifier (2.4.11)
       activesupport
@@ -237,6 +242,7 @@ GEM
       json (>= 1.2.4)
     kaminari (0.12.4)
       rails (>= 3.0.0)
+    launchy (2.0.3)
     linecache (0.43)
     linecache19 (0.5.12)
       ruby_core_source (>= 0.1.4)
@@ -493,6 +499,7 @@ DEPENDENCIES
   foreman
   fuubar
   haml (= 3.1.2)
+  heroku
   hoptoad_notifier
   http_accept_language!
   i18n-inflector-rails (~> 1.0)
