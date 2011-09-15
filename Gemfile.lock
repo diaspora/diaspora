@@ -242,6 +242,7 @@ GEM
       json (>= 1.2.4)
     kaminari (0.12.4)
       rails (>= 3.0.0)
+    launchy (2.0.3)
     linecache (0.43)
     linecache19 (0.5.12)
       ruby_core_source (>= 0.1.4)
