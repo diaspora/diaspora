@@ -10,21 +10,22 @@ module Salmon
     # @return [MagicSigEnvelope]
     def self.parse(doc)
       env = self.new
-      env.encoding = doc.search('//me:env/me:encoding').text.strip
+      ns = {'me'=>'http://salmon-protocol.org/ns/magic-env'}
+      env.encoding = doc.search('//me:env/me:encoding', ns).text.strip
 
       if env.encoding != 'base64url'
         raise ArgumentError, "Magic Signature data must be encoded with base64url, was #{env.encoding}"
       end
 
-      env.data =  doc.search('//me:env/me:data').text
-      env.alg = doc.search('//me:env/me:alg').text.strip
+      env.data =  doc.search('//me:env/me:data', ns).text
+      env.alg = doc.search('//me:env/me:alg', ns).text.strip
 
       unless 'RSA-SHA256' == env.alg
         raise ArgumentError, "Magic Signature data must be signed with RSA-SHA256, was #{env.alg}"
       end
 
-      env.sig =  doc.search('//me:env/me:sig').text
-      env.data_type = doc.search('//me:env/me:data').first['type'].strip
+      env.sig =  doc.search('//me:env/me:sig', ns).text
+      env.data_type = doc.search('//me:env/me:data', ns).first['type'].strip
 
       env
     end
@@ -69,7 +70,7 @@ ENTRY
 
     # @return [String]
     def get_data_type
-      'application/atom+xml'
+      'application/xml'
     end
 
     # @return [String]

@@ -70,7 +70,7 @@ module Salmon
     def xml_for(person)
       @xml =<<ENTRY
     <?xml version='1.0' encoding='UTF-8'?>
-    <diaspora xmlns="https://github.com/diaspora/diaspora/wiki/Diaspora%27s-federation-protocol" xmlns:me="http://salmon-protocol.org/ns/magic-env">
+    <diaspora xmlns="https://joindiaspora.com/protocol" xmlns:me="http://salmon-protocol.org/ns/magic-env">
       #{header(person)}
       #{@magic_sig.to_xml}
     </diaspora>
