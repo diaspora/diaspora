@@ -68,9 +68,9 @@ class Postzord::Dispatcher
   end
 
   # @param local_people [Array<People>]
-  # @return [ActiveRecord::Association<User>]
+  # @return [ActiveRecord::Association<User>, Array]
   def fetch_local_users(people)
-    return if people.blank?
+    return [] if people.blank?
     user_ids = people.map{|x| x.owner_id }
     User.where(:id => user_ids)
   end
@@ -142,13 +142,13 @@ class Postzord::Dispatcher
 
   # @param services [Array<User>]
   def notify_users(users)
-    return unless users && @object.respond_to?(:persisted?)
+    return unless users.present? && @object.respond_to?(:persisted?)
     Resque.enqueue(Job::NotifyLocalUsers, users.map{|u| u.id}, @object.class.to_s, @object.id, @object.author.id)
   end
 
   # @param services [Array<User>]
   def socket_to_users(users)
-    return unless users && @object.respond_to?(:socket_to_user)
+    return unless users.present? && @object.respond_to?(:socket_to_user)
     users.each do |user|
       @object.socket_to_user(user)
     end
