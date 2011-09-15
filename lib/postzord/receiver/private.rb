@@ -49,7 +49,6 @@ module Postzord
         obj
       end
 
-
       protected
       def salmon
         @salmon ||= Salmon::EncryptedSlap.from_xml(@salmon_xml, @user)

@@ -3,7 +3,7 @@
 #   the COPYRIGHT file.
 
 require File.join(Rails.root, 'lib/postzord/receiver/private')
-require File.join(Rails.root, 'lib/postzord/receiver/local_post_batch')
+require File.join(Rails.root, 'lib/postzord/receiver/local_batch')
 
 module Jobs
   class ReceiveLocalBatch < Base
@@ -12,7 +12,7 @@ module Jobs
 
     def self.perform(object_class_string, object_id, recipient_user_ids)
       object = object_class_string.constantize.find(object_id)
-      receiver = Postzord::Receiver::LocalPostBatch.new(object, recipient_user_ids)
+      receiver = Postzord::Receiver::LocalBatch.new(object, recipient_user_ids)
       receiver.perform!
     end
   end

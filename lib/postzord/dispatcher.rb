@@ -91,7 +91,7 @@ class Postzord::Dispatcher
   # @param people [Array<Person>] Recipients of the post
   def deliver_to_local(people)
     return if people.blank? || @object.is_a?(Profile)
-    if @object.respond_to?(:persisted?)
+    if @object.respond_to?(:persisted?) && !@object.is_a?(Conversation)
       batch_deliver_to_local(people)
     else
       people.each do |person|

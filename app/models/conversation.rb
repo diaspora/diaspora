@@ -55,6 +55,7 @@ class Conversation < ActiveRecord::Base
     self.participants.each do |participant|
       ConversationVisibility.find_or_create_by_conversation_id_and_person_id(cnv.id, participant.id)
     end
+
     self.messages.each do |msg|
       msg.conversation_id = cnv.id
       received_msg = msg.receive(user, person)
