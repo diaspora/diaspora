@@ -98,7 +98,7 @@
                   = person_link(person, :class => "hovercardable")
                   .tags
                     - person.profile.tags[0..2].each do |tg|
-                      = link_to "##{tg}", tags_path(tg)
+                      = link_to "##{tg}", tag_path(tg.name)
 
             = link_to "#{t('.see_all_featured_users')} ->", featured_users_path
 
