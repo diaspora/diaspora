@@ -227,7 +227,7 @@ describe Postzord::Dispatcher do
       end
 
       it 'should queue an HttpPost job for each remote person' do
-        Resque.should_receive(:enqueue).with(Job::HttpMulti, alice.id, anything, @remote_people.map{|p| p.id}, anything).once
+        Resque.should_receive(:enqueue).with(Jobs::HttpMulti, alice.id, anything, @remote_people.map{|p| p.id}, anything).once
         @mailman.send(:deliver_to_remote, @remote_people)
       end
     end
@@ -240,7 +240,7 @@ describe Postzord::Dispatcher do
       it 'queues a batch receive' do
         local_people = []
         local_people << alice.person
-        Resque.should_receive(:enqueue).with(Job::ReceiveLocalBatch, @sm.class.to_s, @sm.id, [alice.id]).once
+        Resque.should_receive(:enqueue).with(Jobs::ReceiveLocalBatch, @sm.class.to_s, @sm.id, [alice.id]).once
         @mailman.send(:deliver_to_local, local_people)
       end
 
@@ -264,8 +264,8 @@ describe Postzord::Dispatcher do
       end
 
       it 'queues a job to notify the hub' do
-        Resque.stub!(:enqueue).with(Job::PostToService, anything, anything, anything)
-        Resque.should_receive(:enqueue).with(Job::PublishToHub, alice.public_url)
+        Resque.stub!(:enqueue).with(Jobs::PostToService, anything, anything, anything)
+        Resque.should_receive(:enqueue).with(Jobs::PublishToHub, alice.public_url)
         @zord.send(:deliver_to_services, nil, [])
       end
 
@@ -284,17 +284,17 @@ describe Postzord::Dispatcher do
        alice.services << @s2
        mailman = Postzord::Dispatcher.build(alice, Factory(:status_message))
 
-       Resque.stub!(:enqueue).with(Job::PublishToHub, anything)
-       Resque.stub!(:enqueue).with(Job::HttpMulti, anything, anything, anything)
-       Resque.should_receive(:enqueue).with(Job::PostToService, @s1.id, anything, anything)
+       Resque.stub!(:enqueue).with(Jobs::PublishToHub, anything)
+       Resque.stub!(:enqueue).with(Jobs::HttpMulti, anything, anything, anything)
+       Resque.should_receive(:enqueue).with(Jobs::PostToService, @s1.id, anything, anything)
        mailman.post(:url => "http://joindiaspora.com/p/123", :services => [@s1])
       end
 
       it 'does not push to services if none are specified' do
        mailman = Postzord::Dispatcher.build(alice, Factory(:status_message))
 
-       Resque.stub!(:enqueue).with(Job::PublishToHub, anything)
-       Resque.should_not_receive(:enqueue).with(Job::PostToService, anything, anything, anything)
+       Resque.stub!(:enqueue).with(Jobs::PublishToHub, anything)
+       Resque.should_not_receive(:enqueue).with(Jobs::PostToService, anything, anything, anything)
        mailman.post(:url => "http://joindiaspora.com/p/123")
       end
     end
@@ -313,7 +313,7 @@ describe Postzord::Dispatcher do
 
     describe '#notify_users' do
       it 'enqueues a NotifyLocalUsers job' do
-        Resque.should_receive(:enqueue).with(Job::NotifyLocalUsers, [bob.id], @zord.object.class.to_s, @zord.object.id, @zord.object.author.id)
+        Resque.should_receive(:enqueue).with(Jobs::NotifyLocalUsers, [bob.id], @zord.object.class.to_s, @zord.object.id, @zord.object.author.id)
         @zord.send(:notify_users, [bob])
       end
     end

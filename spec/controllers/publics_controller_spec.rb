@@ -33,7 +33,7 @@ describe PublicsController do
 
     it 'enqueues a ReceivePublicSalmon job' do
       xml = "stuff"
-      Resque.should_receive(:enqueue).with(Job::ReceivePublicSalmon, xml)
+      Resque.should_receive(:enqueue).with(Jobs::ReceivePublicSalmon, xml)
       post :receive_public, :xml => xml
     end
   end
@@ -47,7 +47,7 @@ describe PublicsController do
     end
 
     it 'enqueues a receive job' do
-      Resque.should_receive(:enqueue).with(Job::ReceiveSalmon, @user.id, xml).once
+      Resque.should_receive(:enqueue).with(Jobs::ReceiveSalmon, @user.id, xml).once
       post :receive, "guid" => @user.person.guid.to_s, "xml" => xml
     end
 
@@ -60,7 +60,7 @@ describe PublicsController do
       salmon_factory = Salmon::EncryptedSlap.create_by_user_and_activity(@user, xml2)
       enc_xml = salmon_factory.xml_for(user2.person)
 
-      Resque.should_receive(:enqueue).with(Job::ReceiveSalmon, @user.id, enc_xml).once
+      Resque.should_receive(:enqueue).with(Jobs::ReceiveSalmon, @user.id, enc_xml).once
       post :receive, "guid" => @user.person.guid.to_s, "xml" => CGI::escape(enc_xml)
     end
 

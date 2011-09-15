@@ -40,7 +40,7 @@ describe SessionsController do
     it 'queues up an update job' do
       service = Services::Facebook.new(:access_token => "yeah")
       @user.services << service
-      Resque.should_receive(:enqueue).with(Job::UpdateServiceUsers, service.id)
+      Resque.should_receive(:enqueue).with(Jobs::UpdateServiceUsers, service.id)
 
       post :create, {"user" => {"remember_me" => "0", "username" => @user.username, "password" => "evankorth"}}
     end

@@ -171,7 +171,7 @@ class PeopleController < ApplicationController
 
   private
   def webfinger(account, opts = {})
-    Resque.enqueue(Job::SocketWebfinger, current_user.id, account, opts)
+    Resque.enqueue(Jobs::SocketWebfinger, current_user.id, account, opts)
   end
 
   def remote_profile_with_no_user_session?

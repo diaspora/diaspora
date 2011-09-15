@@ -94,7 +94,7 @@ class Photo < Post
   end
 
   def queue_processing_job
-    Resque.enqueue(Job::ProcessPhoto, self.id)
+    Resque.enqueue(Jobs::ProcessPhoto, self.id)
   end
 
   def process

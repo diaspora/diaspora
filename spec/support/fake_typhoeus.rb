@@ -10,13 +10,13 @@ end
 
 def disable_typhoeus
   silence_warnings do
-    Job::HttpMulti.const_set('Hydra', FakeHydra)
-    Job::HttpMulti.const_set('Request', FakeHydraRequest)
+    Jobs::HttpMulti.const_set('Hydra', FakeHydra)
+    Jobs::HttpMulti.const_set('Request', FakeHydraRequest)
   end
 end
 def enable_typhoeus
   silence_warnings do
-    Job::HttpMulti.const_set('Hydra', Typhoeus::Hydra)
-    Job::HttpMulti.const_set('Request', Typhoeus::Request)
+    Jobs::HttpMulti.const_set('Hydra', Typhoeus::Hydra)
+    Jobs::HttpMulti.const_set('Request', Typhoeus::Request)
   end
 end

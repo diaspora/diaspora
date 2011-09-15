@@ -1,6 +1,6 @@
 class Notifications::Mentioned < Notification
   def mail_job
-    Job::Mail::Mentioned
+    Jobs::Mail::Mentioned
   end
   
   def popup_translation_key

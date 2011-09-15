@@ -10,7 +10,7 @@ class SessionsController < Devise::SessionsController
   def enqueue_update
     if current_user
       current_user.services.each do |s|
-        Resque.enqueue(Job::UpdateServiceUsers, s.id) if s.respond_to? :save_friends
+        Resque.enqueue(Jobs::UpdateServiceUsers, s.id) if s.respond_to? :save_friends
       end
     end
   end

@@ -25,7 +25,7 @@ module Postzord
         if @object.respond_to?(:relayable?)
           receive_relayable
         else
-          Resque.enqueue(Job::ReceiveLocalBatch, @object.id, self.recipient_user_ids)
+          Resque.enqueue(Jobs::ReceiveLocalBatch, @object.id, self.recipient_user_ids)
         end
       end
 

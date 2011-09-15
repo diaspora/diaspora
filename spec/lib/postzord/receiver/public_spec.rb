@@ -55,8 +55,8 @@ describe Postzord::Receiver::Public do
         @receiver.perform!
       end
 
-      it 'enqueues a Job::ReceiveLocalBatch' do 
-        Resque.should_receive(:enqueue).with(Job::ReceiveLocalBatch, anything, anything)
+      it 'enqueues a Jobs::ReceiveLocalBatch' do 
+        Resque.should_receive(:enqueue).with(Jobs::ReceiveLocalBatch, anything, anything)
         @receiver.perform!
       end
     end

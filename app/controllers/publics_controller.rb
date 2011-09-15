@@ -50,7 +50,7 @@ class PublicsController < ApplicationController
   end
 
   def receive_public
-    Resque.enqueue(Job::ReceivePublicSalmon, params[:xml])
+    Resque.enqueue(Jobs::ReceivePublicSalmon, params[:xml])
     render :nothing => true, :status => :ok
   end
 
@@ -64,7 +64,7 @@ class PublicsController < ApplicationController
     end
 
     @user = person.owner
-    Resque.enqueue(Job::ReceiveSalmon, @user.id, CGI::unescape(params[:xml]))
+    Resque.enqueue(Jobs::ReceiveSalmon, @user.id, CGI::unescape(params[:xml]))
 
     render :nothing => true, :status => 202
   end

@@ -68,7 +68,7 @@ class UsersController < ApplicationController
   end
 
   def destroy
-    Resque.enqueue(Job::DeleteAccount, current_user.id)
+    Resque.enqueue(Jobs::DeleteAccount, current_user.id)
     current_user.lock_access!
     sign_out current_user
     flash[:notice] = I18n.t 'users.destroy'

@@ -1,6 +1,6 @@
 class Notifications::CommentOnPost < Notification
   def mail_job
-    Job::Mail::CommentOnPost
+    Jobs::Mail::CommentOnPost
   end
 
   def popup_translation_key

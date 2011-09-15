@@ -182,7 +182,7 @@ describe Photo do
 
   describe '#queue_processing_job' do
     it 'should queue a resque job to process the images' do
-      Resque.should_receive(:enqueue).with(Job::ProcessPhoto, @photo.id)
+      Resque.should_receive(:enqueue).with(Jobs::ProcessPhoto, @photo.id)
       @photo.queue_processing_job
     end
   end

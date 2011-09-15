@@ -609,7 +609,7 @@ describe User do
 
     describe '#disconnect_everyone' do
       it 'has no error on a local friend who has deleted his account' do
-        Job::DeleteAccount.perform(alice.id)
+        Jobs::DeleteAccount.perform(alice.id)
         lambda {
           bob.disconnect_everyone
         }.should_not raise_error
@@ -654,14 +654,14 @@ describe User do
       alice.disable_mail = false
       alice.save
 
-      Resque.should_receive(:enqueue).with(Job::Mail::StartedSharing, alice.id, 'contactrequestid').once
-      alice.mail(Job::Mail::StartedSharing, alice.id, 'contactrequestid')
+      Resque.should_receive(:enqueue).with(Jobs::Mail::StartedSharing, alice.id, 'contactrequestid').once
+      alice.mail(Jobs::Mail::StartedSharing, alice.id, 'contactrequestid')
     end
 
     it 'does not enqueue a mail job if the correct corresponding job has a prefrence entry' do
       alice.user_preferences.create(:email_type => 'started_sharing')
       Resque.should_not_receive(:enqueue)
-      alice.mail(Job::Mail::StartedSharing, alice.id, 'contactrequestid')
+      alice.mail(Jobs::Mail::StartedSharing, alice.id, 'contactrequestid')
     end
 
     it 'does not send a mail if disable_mail is set to true' do
@@ -669,7 +669,7 @@ describe User do
        alice.save
        alice.reload
        Resque.should_not_receive(:enqueue)
-      alice.mail(Job::Mail::StartedSharing, alice.id, 'contactrequestid')
+      alice.mail(Jobs::Mail::StartedSharing, alice.id, 'contactrequestid')
     end
   end
 
@@ -816,12 +816,12 @@ describe User do
     describe '#mail_confirm_email' do
       it 'enqueues a mail job on user with unconfirmed email' do
         user.update_attribute(:unconfirmed_email, "alice@newmail.com")
-        Resque.should_receive(:enqueue).with(Job::Mail::ConfirmEmail, alice.id).once
+        Resque.should_receive(:enqueue).with(Jobs::Mail::ConfirmEmail, alice.id).once
         alice.mail_confirm_email.should eql(true)
       end
 
       it 'enqueues NO mail job on user without unconfirmed email' do
-        Resque.should_not_receive(:enqueue).with(Job::Mail::ConfirmEmail, alice.id)
+        Resque.should_not_receive(:enqueue).with(Jobs::Mail::ConfirmEmail, alice.id)
         alice.mail_confirm_email.should eql(false)
       end
     end

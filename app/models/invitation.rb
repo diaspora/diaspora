@@ -135,7 +135,7 @@ class Invitation < ActiveRecord::Base
 
   def queue_send!
     unless self.recipient.present?
-      Resque.enqueue(Job::Mail::InviteUserByEmail, self.id) 
+      Resque.enqueue(Jobs::Mail::InviteUserByEmail, self.id) 
     end
   end
 

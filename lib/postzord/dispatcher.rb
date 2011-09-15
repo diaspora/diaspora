@@ -96,7 +96,7 @@ class Postzord::Dispatcher
     else
       people.each do |person|
         Rails.logger.info("event=push route=local sender=#{@sender.person.diaspora_handle} recipient=#{person.diaspora_handle} payload_type=#{@object.class}")
-        Resque.enqueue(Job::Receive, person.owner_id, @xml, @sender.person.id)
+        Resque.enqueue(Jobs::Receive, person.owner_id, @xml, @sender.person.id)
       end
     end
   end
@@ -104,13 +104,13 @@ class Postzord::Dispatcher
   # @param people [Array<Person>] Recipients of the post
   def batch_deliver_to_local(people)
     ids = people.map{ |p| p.owner_id }
-    Resque.enqueue(Job::ReceiveLocalBatch, @object.class.to_s, @object.id, ids)
+    Resque.enqueue(Jobs::ReceiveLocalBatch, @object.class.to_s, @object.id, ids)
     Rails.logger.info("event=push route=local sender=#{@sender.person.diaspora_handle} recipients=#{ids.join(',')} payload_type=#{@object.class}")
   end
 
   def deliver_to_hub
     Rails.logger.debug("event=post_to_service type=pubsub sender_handle=#{@sender.diaspora_handle}")
-    Resque.enqueue(Job::PublishToHub, @sender.public_url)
+    Resque.enqueue(Jobs::PublishToHub, @sender.public_url)
   end
 
   # @param url [String]
@@ -121,7 +121,7 @@ class Postzord::Dispatcher
     end
     if @object.instance_of?(StatusMessage)
       services.each do |service|
-        Resque.enqueue(Job::PostToService, service.id, @object.id, url)
+        Resque.enqueue(Jobs::PostToService, service.id, @object.id, url)
       end
     end
   end
@@ -137,7 +137,7 @@ class Postzord::Dispatcher
   # @param services [Array<User>]
   def notify_users(users)
     return unless users.present? && @object.respond_to?(:persisted?)
-    Resque.enqueue(Job::NotifyLocalUsers, users.map{|u| u.id}, @object.class.to_s, @object.id, @object.author.id)
+    Resque.enqueue(Jobs::NotifyLocalUsers, users.map{|u| u.id}, @object.class.to_s, @object.id, @object.author.id)
   end
 
   # @param services [Array<User>]
@@ -152,7 +152,7 @@ class Postzord::Dispatcher
   # @param remote_people [Array<Person>] Recipients of the post on other pods
   # @return [void]
   def queue_remote_delivery_job(remote_people)
-    Resque.enqueue(Job::HttpMulti, @sender.id, Base64.encode64(@object.to_diaspora_xml), remote_people.map{|p| p.id}, self.class.to_s) 
+    Resque.enqueue(Jobs::HttpMulti, @sender.id, Base64.encode64(@object.to_diaspora_xml), remote_people.map{|p| p.id}, self.class.to_s) 
   end
 end
 
