@@ -10,7 +10,7 @@ module Job
 
     def self.perform(user_id, xml)
       user = User.find(user_id)
-      zord = Postzord::Receiver.new(user, :salmon_xml => xml)
+      zord = Postzord::Receiver::Private.new(user, :salmon_xml => xml)
       zord.perform
     end
   end
