@@ -23,6 +23,25 @@ describe Salmon::EncryptedSlap do
     end
   end
 
+  describe "#process_header" do
+    before do
+      @new_slap = Salmon::EncryptedSlap.new
+      @new_slap.process_header(Nokogiri::XML(@created_salmon.plaintext_header))
+    end
+
+    it 'sets the author id' do
+      @new_slap.author_id.should == alice.diaspora_handle
+    end
+
+    it 'sets the aes_key' do
+      @new_slap.aes_key.should == @created_salmon.aes_key
+    end
+
+    it 'sets the aes_key' do
+      @new_slap.iv.should == @created_salmon.iv
+    end
+  end
+
   context 'marshalling' do
     let(:xml)   {@created_salmon.xml_for(eve.person)}
     let(:parsed_salmon) { Salmon::EncryptedSlap.from_xml(xml, alice)}
@@ -41,16 +60,33 @@ describe Salmon::EncryptedSlap do
   end
 
   describe '#xml_for' do
-    let(:xml) {@created_salmon.xml_for eve.person}
-
-    it 'has a encrypted header field' do
-      xml.include?("encrypted_header").should be true
+    before do
+      @xml = @created_salmon.xml_for eve.person
     end
 
-    it 'the encrypted_header field should contain the aes key' do
-      doc = Nokogiri::XML(xml)
-      decrypted_header = eve.decrypt(doc.search('encrypted_header').text)
-      decrypted_header.include?(@created_salmon.aes_key).should be true
+    it 'has a encrypted header field' do
+      doc = Nokogiri::XML(@xml)
+      doc.find("encrypted_header").should_not be_blank
+    end
+    
+    context "encrypted header" do
+      before do
+        doc = Nokogiri::XML(@xml)
+        decrypted_header = eve.decrypt(doc.search('encrypted_header').text)
+        @dh_doc = Nokogiri::XML(decrypted_header)
+      end
+
+      it 'contains the aes key' do
+        @dh_doc.search('aes_key').map(&:text).should == [@created_salmon.aes_key]
+      end
+
+      it 'contains the initialization vector' do
+        @dh_doc.search('iv').map(&:text).should == [@created_salmon.iv]
+      end
+
+      it 'contains the author id' do
+        @dh_doc.search('author_id').map(&:text).should == [alice.diaspora_handle]
+      end
     end
   end
 end

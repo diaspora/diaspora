@@ -1,7 +1,7 @@
 module Diaspora
   module Encryptable
     
-    LAST_FALLBACK_TIME = "Sept 15 2011 17:00 UTC "
+    LAST_FALLBACK_TIME = "Sept 19 2011 17:00 UTC "
     # Check that signature is a correct signature of #signable_string by person
     #
     # @param [String] signature The signature to be verified.

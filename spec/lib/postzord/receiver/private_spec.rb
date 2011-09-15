@@ -36,7 +36,7 @@ describe Postzord::Receiver::Private do
       salmon_mock = mock()
       web_mock = mock()
       web_mock.should_receive(:fetch).and_return true
-      salmon_mock.should_receive(:author_email).and_return(true)
+      salmon_mock.should_receive(:author_id).and_return(true)
       Salmon::EncryptedSlap.should_receive(:from_xml).with(@salmon_xml, @user).and_return(salmon_mock)
       Webfinger.should_receive(:new).and_return(web_mock)
 
