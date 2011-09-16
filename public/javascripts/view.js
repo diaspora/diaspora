@@ -5,10 +5,12 @@
 var View = {
   initialize: function() {
     /* Header */
+    jQuery('header').css('width', jQuery(document).width() + 'px');
+
     jQuery(window).bind('scroll resize', function() {
-      var scrollLeft = jQuery(window).scrollLeft();
-      jQuery('header').css('left', '-' + scrollLeft + 'px')
-      jQuery('header').css('width', (jQuery(window).width() + scrollLeft) + 'px');
+      jQuery('header')
+        .css('left', '-' + jQuery(window).scrollLeft() + 'px')
+        .css('width', jQuery(document).width() + 'px');
     });
 
     /* Buttons */
