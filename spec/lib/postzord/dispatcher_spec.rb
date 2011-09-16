@@ -267,9 +267,14 @@ describe Postzord::Dispatcher do
         Postzord::Dispatcher.object_should_be_processed_as_public?(f).should be_false
       end
 
-      it 'returns true with a like on a comment on a private post' do
+      it 'returns true with a like on a comment on a public post' do
         f = Factory(:like, :target => Factory(:comment, :post => Factory(:status_message, :public => true)))
         Postzord::Dispatcher.object_should_be_processed_as_public?(f).should be_true
+      end
+
+      it 'returns false with a like on a comment on a private post' do
+        f = Factory(:like, :target => Factory(:comment, :post => Factory(:status_message, :public => false)))
+        Postzord::Dispatcher.object_should_be_processed_as_public?(f).should be_false
       end
     end
 
