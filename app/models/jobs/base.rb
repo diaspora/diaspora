@@ -8,5 +8,3 @@ module Jobs
     extend ResqueJobLogging
   end
 end
-
-Job = Jobs
