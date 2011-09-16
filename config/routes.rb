@@ -157,6 +157,11 @@ Diaspora::Application.routes.draw do
 
   get 'mobile/toggle', :to => 'home#toggle_mobile', :as => 'toggle_mobile'
 
+  # Resque web
+  if AppConfig.mount_resque_web
+    mount Resque::Server.new, :at => '/resque-jobs'
+  end
+
   # Startpage
 
   root :to => 'home#show'
