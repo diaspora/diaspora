@@ -16,4 +16,3 @@ module Jobs
   end
 end
 
-ReceiveSalmon = ReceiveEncryptedSalmon
