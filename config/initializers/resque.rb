@@ -28,7 +28,7 @@ if AppConfig.single_process_mode?
   end
 end
 
-if AppConfig.mount_resque_web
+if AppConfig[:mount_resque_web}
   require 'resque/server'
 
   class AdminRack
