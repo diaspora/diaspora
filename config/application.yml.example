@@ -165,6 +165,8 @@ defaults: &defaults
   # Use paypal for recurring donations
   paypal_hosted_button_id: ""
 
+  # Mount resque-web into routes
+  mount_resque_web: true
 
 #
 # Use this section to override default settings in specific environments
@@ -176,6 +178,7 @@ development:
 
 production:
   <<: *defaults
+  mount_resque_web: false
 
 
 #
