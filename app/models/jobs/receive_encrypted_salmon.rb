@@ -15,3 +15,5 @@ module Jobs
     end
   end
 end
+
+ReceiveSalmon = ReceiveEncryptedSalmon
