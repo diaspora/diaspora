@@ -5,6 +5,7 @@
 class PublicsController < ApplicationController
   require File.join(Rails.root, '/lib/diaspora/parser')
   require File.join(Rails.root, '/lib/postzord/receiver/public')
+  require File.join(Rails.root, '/lib/postzord/receiver/private')
   include Diaspora::Parser
 
   skip_before_filter :set_header_data

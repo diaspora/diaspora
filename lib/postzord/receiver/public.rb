@@ -1,7 +1,7 @@
 #   Copyright (c) 2010-2011, Diaspora Inc.  This file is
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
-#
+
 module Postzord
   module Receiver
     class Public
@@ -25,7 +25,7 @@ module Postzord
         if @object.respond_to?(:relayable?)
           receive_relayable
         else
-          Resque.enqueue(Jobs::ReceiveLocalBatch, @object.id, self.recipient_user_ids)
+          Resque.enqueue(Jobs::ReceiveLocalBatch, @object.class.to_s, @object.id, self.recipient_user_ids)
         end
       end
 
