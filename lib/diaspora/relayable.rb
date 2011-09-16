@@ -15,6 +15,8 @@ module Diaspora
 
         validates_associated :parent
         validates :author, :presence => true
+        
+        delegate :public?, :to => :parent
       end
     end
 
