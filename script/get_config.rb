@@ -32,6 +32,7 @@ if ARGV.length >= 1
     end
   else                            # load from the general diaspora settings file
     require 'active_support/core_ext/class/attribute_accessors'
+    require 'active_support/core_ext/object/blank'
     require 'settingslogic'
     require File.join(Rails.root, 'app', 'models', 'app_config')
     setting_name = setting_name.to_sym
