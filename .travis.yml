@@ -22,4 +22,3 @@ notifications:
   irc:
     channels:
       - 'irc.freenode.org:6667#diaspora-dev'
-      - 'irc.freenode.org:6667#diaspora-de'
