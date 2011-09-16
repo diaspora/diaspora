@@ -24,8 +24,13 @@ class Conversation < ActiveRecord::Base
   def diaspora_handle
     self.author.diaspora_handle
   end
+
   def diaspora_handle= nh
     self.author = Webfinger.new(nh).fetch
+  end
+
+  def public?
+    false
   end
 
   def participant_handles
