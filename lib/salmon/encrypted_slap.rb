@@ -10,9 +10,19 @@ module Salmon
     def header(person)
       <<XML
         <encrypted_header>
-          #{person.encrypt("<decrypted_header>#{plaintext_header}</decrypted_header>")}
+          #{person.encrypt(plaintext_header)}
         </encrypted_header>
 XML
+    end
+
+    def plaintext_header
+      header =<<HEADER
+<decrypted_header>
+    <iv>#{iv}</iv>
+    <aes_key>#{aes_key}</aes_key>
+    <author_id>#{@author.diaspora_handle}</author_id>
+</decrypted_header>
+HEADER
     end
 
     # @return [String, Boolean] False if RSAError; XML if no error
@@ -24,12 +34,21 @@ XML
         false
       end
     end
-
+    
+    # Takes in a doc of the header and sets the author id
+    # returns an empty hash
+    # @return [Hash]
+    def process_header(doc)
+      self.author_id   = doc.search('author_id').text
+      self.aes_key     = doc.search('aes_key').text
+      self.iv          = doc.search('iv').text
+    end
+    
     # Decrypts an encrypted magic sig envelope
     # @param key_hash [Hash] Contains 'key' (aes) and 'iv' values
     # @param user [User]
-    def parse_data(key_hash, user)
-      user.aes_decrypt(super, key_hash)
+    def parse_data(user)
+      user.aes_decrypt(super, {'key' => self.aes_key, 'iv' => self.iv})
     end
 
     # Decrypts and parses out the salmon header

@@ -4,7 +4,7 @@
 
 module Salmon
  class Slap
-    attr_accessor :magic_sig, :author, :author_email, :parsed_data
+    attr_accessor :magic_sig, :author, :author_id, :parsed_data
     attr_accessor :aes_key, :iv
 
     delegate :sig, :data_type, :to => :magic_sig
@@ -29,22 +29,16 @@ module Salmon
       slap = self.new
       doc = Nokogiri::XML(xml)
 
-      entry_doc = doc.search('entry')
+      root_doc = doc.search('diaspora')
 
       ### Header ##
       header_doc       = slap.salmon_header(doc, receiving_user) 
-      slap.author_email= header_doc.search('uri').text.split("acct:").last
+      slap.process_header(header_doc)
 
-      slap.aes_key     = header_doc.search('aes_key').text
-      slap.iv          = header_doc.search('iv').text
+      ### Envelope ##
+      slap.magic_sig = MagicSigEnvelope.parse(root_doc)
 
-      slap.magic_sig = MagicSigEnvelope.parse(entry_doc)
-
-
-      #should be in encrypted salmon only
-      key_hash = {'key' => slap.aes_key, 'iv' => slap.iv}
-      
-      slap.parsed_data = slap.parse_data(key_hash, receiving_user)
+      slap.parsed_data = slap.parse_data(receiving_user)
 
       slap
     end
@@ -54,8 +48,15 @@ module Salmon
       activity
     end
 
+    # Takes in a doc of the header and sets the author id
+    # returns an empty hash
+    # @return [String] Author id  
+    def process_header(doc)
+      self.author_id   = doc.search('author_id').text
+    end
+
     # @return [String]
-    def parse_data(key_hash, user=nil)
+    def parse_data(user=nil)
       Slap.decode64url(self.magic_sig.data)
     end
 
@@ -69,10 +70,10 @@ module Salmon
     def xml_for(person)
       @xml =<<ENTRY
     <?xml version='1.0' encoding='UTF-8'?>
-    <entry xmlns='http://www.w3.org/2005/Atom'>
+    <diaspora xmlns="https://joindiaspora.com/protocol" xmlns:me="http://salmon-protocol.org/ns/magic-env">
       #{header(person)}
       #{@magic_sig.to_xml}
-    </entry>
+    </diaspora>
 ENTRY
     end
 
@@ -86,19 +87,14 @@ ENTRY
     # @return [String] Header XML (sans <header></header> tags)
     def plaintext_header
       header =<<HEADER
-    <iv>#{iv}</iv>
-    <aes_key>#{aes_key}</aes_key>
-    <author>
-      <name>#{@author.name}</name>
-      <uri>acct:#{@author.diaspora_handle}</uri>
-    </author>
+    <author_id>#{@author.diaspora_handle}</author_id>
 HEADER
     end
 
     # @return [Person] Author of the salmon object
     def author
       if @author.nil?
-        @author ||= Person.by_account_identifier @author_email
+        @author ||= Person.by_account_identifier @author_id
         raise "did you remember to async webfinger?" if @author.nil?
       end
       @author

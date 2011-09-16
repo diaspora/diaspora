@@ -9,7 +9,7 @@ module Postzord
 
       def initialize(xml)
         @salmon = Salmon::Slap.from_xml(xml) 
-        @author = Webfinger.new(@salmon.author_email).fetch
+        @author = Webfinger.new(@salmon.author_id).fetch
       end
 
       # @return [Boolean]

@@ -54,7 +54,7 @@ module Salmon
     # @return [String]
     def to_xml
       <<ENTRY
-<me:env xmlns:me="http://salmon-protocol.org/ns/magic-env">
+<me:env>
   <me:data type='#{@data_type}'>#{@data}</me:data>
   <me:encoding>#{@encoding}</me:encoding>
   <me:alg>#{@alg}</me:alg>
@@ -70,7 +70,7 @@ ENTRY
 
     # @return [String]
     def get_data_type
-      'application/atom+xml'
+      'application/xml'
     end
 
     # @return [String]
