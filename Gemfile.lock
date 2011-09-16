@@ -185,7 +185,9 @@ GEM
     fastercsv (1.5.4)
     fastthread (1.0.7)
     ffi (1.0.9)
-    fixture_builder (0.2.2)
+    fixture_builder (0.3.0)
+      activerecord (>= 2)
+      activesupport (>= 2)
     fog (0.3.25)
       builder
       excon (>= 0.2.4)
@@ -493,7 +495,7 @@ DEPENDENCIES
   faraday
   faraday-stack
   fastercsv (= 1.5.4)
-  fixture_builder (= 0.2.2)
+  fixture_builder (= 0.3.0)
   fog (= 0.3.25)
   foreigner (= 0.9.1)
   foreman

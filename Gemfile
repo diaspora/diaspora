@@ -118,7 +118,7 @@ group :test do
 	gem 'diaspora-client', :git => 'git://github.com/diaspora/diaspora-client.git'
                           #"0.1.0", #:path => '~/workspace/diaspora-client'
   gem 'factory_girl_rails'
-  gem 'fixture_builder', '0.2.2'
+  gem 'fixture_builder', '0.3.0'
   gem 'fuubar'
   gem 'mongrel', :require => false, :platforms => :ruby_18
 	gem 'rspec', '>= 2.0.0'
