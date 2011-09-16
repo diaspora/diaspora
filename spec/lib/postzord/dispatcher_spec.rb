@@ -276,6 +276,12 @@ describe Postzord::Dispatcher do
         f = Factory(:like, :target => Factory(:comment, :post => Factory(:status_message, :public => false)))
         Postzord::Dispatcher.object_should_be_processed_as_public?(f).should be_false
       end
+
+      it 'returns false for a relayable_retraction' do
+        f = RelayableRetraction.new
+        f.target = Factory(:status_message, :public => true)
+        Postzord::Dispatcher.object_should_be_processed_as_public?(f).should be_false
+      end
     end
 
 
