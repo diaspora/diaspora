@@ -25,9 +25,9 @@ class Postzord::Dispatcher
   # @param object [Object]
   # @return [Boolean]
   def self.object_should_be_processed_as_public?(object)
-    if object.respond_to?(:public) && object.public?
+    if object.respond_to?(:public?) && object.public?
       true
-    elsif object.respond_to?(:relayable?) && object.parent.public?
+    elsif object.respond_to?(:relayable?) && object.parent.respond_to?(:public?) && object.parent.public?
       true
     else
       false
