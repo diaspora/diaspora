@@ -114,13 +114,13 @@ group :test do
   gem 'capybara', '~> 0.3.9'
   gem 'cucumber-rails', '0.3.2'
   gem 'database_cleaner', '0.6.0'
-	gem 'diaspora-client', :git => 'git://github.com/diaspora/diaspora-client.git'
+  gem 'diaspora-client', :git => 'git://github.com/diaspora/diaspora-client.git'
                           #"0.1.0", #:path => '~/workspace/diaspora-client'
   gem 'factory_girl_rails'
   gem 'fixture_builder', '0.3.0'
   gem 'fuubar'
   gem 'mongrel', :require => false, :platforms => :ruby_18
-	gem 'rspec', '>= 2.0.0'
+  gem 'rspec', '>= 2.0.0'
   gem 'rspec-core', '2.6.0'
   gem 'rspec-instafail', '>= 0.1.7', :require => false
   gem 'rspec-rails', '>= 2.0.0'
@@ -132,7 +132,8 @@ group :development do
   gem 'capistrano', '2.5.19', :require => false
   gem 'capistrano-ext', '1.2.1', :require => false
   gem 'linecache', '0.43', :platforms => :mri_18
-	gem 'ruby-debug-base19', '0.11.23' if RUBY_VERSION.include? '1.9.1'
+  gem 'parallel_tests'
+  gem 'ruby-debug-base19', '0.11.23' if RUBY_VERSION.include? '1.9.1'
   gem 'ruby-debug19', :platforms => :ruby_19
   gem 'ruby-debug', :platforms => :mri_18
   gem 'sod', :git => 'git://github.com/MikeSofaer/sod.git', :require => false

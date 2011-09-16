@@ -327,6 +327,9 @@ GEM
       oa-openid (= 0.2.6)
     open4 (1.1.0)
     orm_adapter (0.0.5)
+    parallel (0.5.9)
+    parallel_tests (0.6.1)
+      parallel
     polyglot (0.3.2)
     pyu-ruby-sasl (0.0.3.3)
     rack (1.2.3)
@@ -513,6 +516,7 @@ DEPENDENCIES
   oauth2-provider (= 0.0.16)
   ohai (= 0.5.8)
   omniauth (= 0.2.6)
+  parallel_tests
   rails (= 3.0.10)
   rails-i18n
   redcarpet (= 2.0.0b5)
