@@ -1,4 +1,4 @@
-#   Copyright (c) 2010-2011, Diaspora Inc.  This file is
+#   Copyright (c) 2011, Diaspora Inc.  This file is
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
@@ -147,7 +147,7 @@ de:
     zero: "keine Aspekte"
   authorizations: 
     index: 
-      no_applications: "You haven't registered any applications yet."
+      no_applications: "Du hast noch keine Anwendung registriert."
       revoke_access: "Zugriff widerrufen"
   back: "Zurück"
   bookmarklet: 
@@ -542,7 +542,7 @@ de:
       notice: "Foto erfolgreich aktualisiert."
   post_visibilites: 
     update: 
-      post_hidden_and_muted: "%{name}'s post has been hidden, and notifications have been muted."
+      post_hidden_and_muted: "%{name}'s Beitrag wurde ausgeblendet und Benachrichtigungen abgeschaltet."
       see_it_on_their_profile: "If you want to see updates on this post, visit %{name}'s profile page."
   posts: 
     show: 
@@ -711,7 +711,7 @@ de:
       reshare: "Weitersagen"
     stream_element: 
       dislike: "Gefällt mir nicht"
-      hide_and_mute: "Hide and Mute"
+      hide_and_mute: "verbergen und stummschalten"
       like: "Gefällt mir"
       shared_with: "Geteilt mit: %{aspect_names}"
       unlike: "Gefällt mir nicht mehr"
@@ -819,8 +819,8 @@ de:
         name: "Name"
         photo: "Foto"
         tags: "Tags"
-      search_for_hashtags: "Search for #hashtags"
-      search_for_people: "Search for people"
+      search_for_hashtags: "Suche nach #hashtags"
+      search_for_people: "Suche nach Leuten"
       see_all_featured_users: "See all featured users"
       welcome: "Herzlich willkommen!"
       welcome_with_name: "Herzlich willkommen, %{name}!"

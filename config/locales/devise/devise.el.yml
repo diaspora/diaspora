@@ -1,4 +1,4 @@
-#   Copyright (c) 2010-2011, Diaspora Inc.  This file is
+#   Copyright (c) 2011, Diaspora Inc.  This file is
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
@@ -94,4 +94,4 @@ el:
     messages: 
       already_confirmed: "έχει ήδη επιβεβαιωθεί"
       not_found: "δεν βρέθηκε"
-      not_locked: "δεν ήταν κλειδωμένο/η"
+      not_locked: "δεν ήταν κλειδωμένο"

@@ -1,4 +1,4 @@
-#   Copyright (c) 2010-2011, Diaspora Inc.  This file is
+#   Copyright (c) 2011, Diaspora Inc.  This file is
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
@@ -147,7 +147,7 @@ el:
     zero: "καμία πτυχή"
   authorizations: 
     index: 
-      no_applications: "You haven't registered any applications yet."
+      no_applications: "Δεν έχετε εσισάγει καμία εφαρμογή ακόμα. "
       revoke_access: "Ανάκληση Πρόσβασης"
   back: "Πίσω"
   bookmarklet: 
@@ -428,7 +428,7 @@ el:
     confirm_email: 
       click_link: "Για να ενεργοποιήσετε την καινούρια διεύθυνση ηλεκτρονικού ταχυδρομείου %{unconfirmed_email}, παρακαλούμε πατήστε στο παρακάτω σύνδεσμο: "
       subject: "Παρακαλούμε ενεργοποιήστε την καινούρια διεύθυνση ηλεκτρονικού ταχυδρομείου %{unconfirmed_email}"
-    email_sent_by_diaspora: "Αυτό το μήνυμα εστάλη αό το Diaspora. Εάν δεν θέλετε να λαμβάνετε πλεόν μηνύματα σαν κι αυτό,"
+    email_sent_by_diaspora: "Αυτό το μήνυμα εστάλη από το Diaspora. Εάν δεν θέλετε να λαμβάνετε πλεόν μηνύματα σαν κι αυτό,"
     hello: "Γειά σου %{name}!"
     liked: 
       liked: "στο χρήστη %{name} αρέσει η δημοσίευση σας"
@@ -543,7 +543,7 @@ el:
   post_visibilites: 
     update: 
       post_hidden_and_muted: "%{name}'s post has been hidden, and notifications have been muted."
-      see_it_on_their_profile: "If you want to see updates on this post, visit %{name}'s profile page."
+      see_it_on_their_profile: "Εάν θέλετε να δείτε τις ενημερώσεις αυτής της δημοσίευσης, επισκεφθείτε το προφίλ του χρήστη %{name}. "
   posts: 
     show: 
       destroy: "Διαγραφή"
@@ -711,7 +711,7 @@ el:
       reshare: "Μοιράσου και πάλι"
     stream_element: 
       dislike: "Δεν μ' αρέσει"
-      hide_and_mute: "Hide and Mute"
+      hide_and_mute: "Απόκρυψη και Σίγαση "
       like: "Μου αρέσει"
       shared_with: "Shared with: %{aspect_names}"
       unlike: "Δεν μου αρέσει"
@@ -801,7 +801,7 @@ el:
       connect_with_people: "Συνδεθείτε με ενδιαφέροντα άτομα"
       connect_with_people_explanation_pt1: "Συνδεθείτε με άτομα τοποθετώντας τα σε μία ή περισσότερες από τις %{bold}"
       connect_with_people_explanation_pt2: "Aspects are an intuitive way to group new and familar faces, private to you, allowing you to filter down or share with subsets of your contacts easily."
-      edit_profile: "Edit Profile"
+      edit_profile: "Επεξεργασία Προφίλ"
       featured_tags: "Αξιόλογες ετικέτες"
       featured_users: "Αξιόλογοι χρήστες"
       fill_out_your_profile: "Συμπληρώστε το προφίλ σας "
@@ -819,8 +819,8 @@ el:
         name: "Όνομα"
         photo: "Φωτογραφία"
         tags: "Ετικέτες"
-      search_for_hashtags: "Search for #hashtags"
-      search_for_people: "Search for people"
+      search_for_hashtags: "Αναζήτηση για #ετικέτες"
+      search_for_people: "Ψάξτε άτομα"
       see_all_featured_users: "Δείτε όλους τους αξιόλογους χρήστες"
       welcome: "Καλώς ήλθατε!"
       welcome_with_name: "Καλώς ήρθες, %{name}!"

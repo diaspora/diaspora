@@ -1,4 +1,4 @@
-#   Copyright (c) 2010-2011, Diaspora Inc.  This file is
+#   Copyright (c) 2011, Diaspora Inc.  This file is
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
@@ -101,7 +101,7 @@ ru:
         heading: "Идентификатор в Диаспоре"
       donate: "Пожертвовать"
       handle_explanation: "Это ваш идентификатор в Диаспоре. Как и адрес электронной почты, вы можете дать его людям для связи с вами."
-      keep_us_running: "Помогите %{pod} работать быстро, купите нашим серверам месячную дозу кофе!"
+      keep_us_running: "Помогите %{pod} работать быстро, подарите нашим серверам ежемесячную дозу кофе!"
       no_contacts: "Контакты отсутствуют"
       no_tags: "+ Найти метку"
       people_sharing_with_you: "Люди делятся с вами"
