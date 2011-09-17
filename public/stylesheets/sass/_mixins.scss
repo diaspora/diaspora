@@ -71,6 +71,7 @@ $easing: linear;
   
   background-image: -webkit-gradient(linear, 0% $start, 0% $end, from($from), to($to));
   background-image: -moz-linear-gradient(top, $from $start, $to $end);
+  background-image: -o-linear-gradient(top, $from $start, $to $end);
 }
 
 @mixin opacity($val){
