@@ -42,6 +42,7 @@ available:
   sk: "Slovenčina"
   sv: "Svenska"
   tr: "Türk"
+  ur-PK: "اُردو (پاکستان)"
   zh-CN: "中文"
   zh-TW: "台灣中文"
 fallbacks:
@@ -70,6 +71,9 @@ fallbacks:
   zh:
     - :zh-CN
     - :zh-TW
+  ur-PK:
+    - :ur
 rtl:
   - :ar
   - :he
+  - :ur
