@@ -209,7 +209,7 @@ desc "copy dot files for deployment"
 task :copydot do
   exclusions = [".", "..", ".DS_Store"]
   Dir["#{source_dir}/**/.*"].each do |file|
-    if !File.directory?(file) && !exclusions.include?(file)
+    if !File.directory?(file) && !exclusions.include?(File.basename(file))
       cp(file, file.gsub(/#{source_dir}/, "#{public_dir}"));
     end
   end
