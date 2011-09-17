@@ -15,7 +15,20 @@ describe TagFollowingsController do
     sign_in :user, bob
   end
 
-  describe "POST create" do
+  describe 'index' do
+
+    it 'assings new TagStream' do
+      get :index
+      assigns[:stream].should be_a TagStream
+    end
+
+    it 'renders a view' do
+      get :index
+      response.body.should_not be_blank
+    end
+  end
+
+  describe "create" do
     describe "with valid params" do
       it "creates a new TagFollowing" do
         expect {
