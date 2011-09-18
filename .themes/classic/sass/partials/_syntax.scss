@@ -201,7 +201,7 @@ pre, .highlight, .gist-highlight {
 }
 
 .highlight code { @extend .pre-code; background: #000;}
-figure[role=code] {
+figure.code {
   background: none;
   padding: 0;
   border: 0;

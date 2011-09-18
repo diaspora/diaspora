@@ -27,7 +27,7 @@ module BacktickCodeBlock
       end
       if @lang.nil? || @lang == 'plain'
         code = tableize_code(str.gsub('<','&lt;').gsub('>','&gt;'))
-        "<figure role=code>#{@caption}#{code}</figure>"
+        "<figure class='code'>#{@caption}#{code}</figure>"
       else
         if @lang.include? "-raw"
           raw = "``` #{@options.sub('-raw', '')}\n"
@@ -35,7 +35,7 @@ module BacktickCodeBlock
           raw += "\n```\n"
         else
           code = highlight(str, @lang)
-          "<figure role=code>#{@caption}#{code}</figure>"
+          "<figure class='code'>#{@caption}#{code}</figure>"
         end
       end
     end
