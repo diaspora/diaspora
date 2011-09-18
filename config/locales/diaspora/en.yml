@@ -477,7 +477,7 @@ en:
         view_post: "View post >"
     confirm_email:
         subject: "Please activate your new email address %{unconfirmed_email}"
-        click_link: "To activate your new email address %{unconfirmed_email}, please click this link:"
+        click_link: "To activate your new email address %{unconfirmed_email}, please follow this link:"
   people:
     zero: "no people"
     one: "1 person"
@@ -675,7 +675,7 @@ en:
       error: "there was an error connecting that service"
     inviter:
       join_me_on_diaspora: "Join me on DIASPORA*"
-      click_link_to_accept_invitation: "Click this link to accept your invitation"
+      click_link_to_accept_invitation: "Follow this link to accept your invitation"
     finder:
       service_friends: "%{service} Friends"
       no_friends: "No Facebook friends found."
