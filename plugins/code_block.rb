@@ -24,7 +24,7 @@
 #
 # Output:
 #
-# <figure role=code>
+# <figure class='code'>
 # <figcaption><span>Got pain? painrelief.sh</span> <a href="http://site.com/painrelief.sh">Download it!</a>
 # <div class="highlight"><pre><code class="sh">
 # -- nicely escaped highlighted code --
@@ -37,7 +37,7 @@
 # <sarcasm>Ooooh, sarcasm... How original!</sarcasm>
 # {% endcodeblock %}
 #
-# <figure role=code>
+# <figure class='code'>
 # <pre><code>&lt;sarcasm> Ooooh, sarcasm... How original!&lt;/sarcasm></code></pre>
 # </figure>
 #
@@ -80,7 +80,7 @@ module Jekyll
     def render(context)
       output = super
       code = super.join
-      source = "<figure role=code>"
+      source = "<figure class='code'>"
       source += @caption if @caption
       if @filetype
         source += " #{highlight(code, @filetype)}</figure>"
