@@ -1,38 +1,40 @@
-function getNav(){
+function getNav() {
   var mobileNav = $('nav[role=navigation] fieldset[role=site-search]').after('<fieldset role="mobile-nav"></fieldset>').next().append('<select></select>');
   mobileNav.children('select').append('<option value="">Navigate&hellip;</option>');
-  $($('ul[role=main-navigation] a')).each(function(link) {
-    mobileNav.children('select').append('<option value="'+link.href+'">&bull; '+link.text+'</option>')
+  $('ul[role=main-navigation] a').each(function(link) {
+    mobileNav.children('select').append('<option value="'+link.href+'">&bull; '+link.text+'</option>');
   });
-  mobileNav.children('select').bind('change', function(event){
+  mobileNav.children('select').bind('change', function(event) {
     if (event.target.value) window.location.href = event.target.value;
   });
 }
+
 function addSidebarToggler() {
   $('#content').append('<span class="toggle-sidebar"></span>');
-  $('.toggle-sidebar').bind('click', function(e){
+  $('.toggle-sidebar').bind('click', function(e) {
     e.preventDefault();
-    if($('body').hasClass('collapse-sidebar')){
+    if ($('body').hasClass('collapse-sidebar')) {
       $('body').removeClass('collapse-sidebar');
     } else {
       $('body').addClass('collapse-sidebar');
     }
   });
-  sections = $('aside[role=sidebar] > section')
-  if(sections.length > 1){
+  var sections = $('aside[role=sidebar] > section');
+  if (sections.length > 1) {
     sections.each(function(section, index){
-      if ((sections.length >= 3) && index % 3 == 0) {
+      if ((sections.length >= 3) && index % 3 === 0) {
         $(section).addClass("first");
       }
-      count = ((index +1) % 2) ? "odd" : "even";
+      var count = ((index +1) % 2) ? "odd" : "even";
       $(section).addClass(count);
     });
   }
-  if(sections.length >= 3){ $('aside[role=sidebar]').addClass('thirds') }
+  if (sections.length >= 3){ $('aside[role=sidebar]').addClass('thirds'); }
 }
+
 function testFeatures() {
   var features = ['maskImage'];
-  $(features).map(function(feature){
+  $(features).map(function(feature) {
     if (Modernizr.testAllProps(feature)) {
       $('html').addClass(feature);
     } else {
@@ -46,59 +48,60 @@ function testFeatures() {
   }
 }
 
-function addCodeLineNumbers(){
-  if (navigator.appName == 'Microsoft Internet Explorer') { return }
-  $('div.gist-highlight').each(function(code){
-    var tableStart = '<table cellpadding="0" cellspacing="0"><tbody><tr><td class="gutter">';
-    var lineNumbers = '<pre class="line-numbers">';
-    var tableMiddle = '</pre></td><td class="code" width="100%">';
-    var tableEnd = '</td></tr></tbody></table>';
-    var count = $('div.line', code).length;
-    for (i=1;i<=count; i++){
-      lineNumbers += '<span class="line">'+i+'</span>\n';
+function addCodeLineNumbers() {
+  if (navigator.appName == 'Microsoft Internet Explorer') { return; }
+  $('div.gist-highlight').each(function(code) {
+    var tableStart = '<table><tbody><tr><td class="gutter">',
+        lineNumbers = '<pre class="line-numbers">',
+        tableMiddle = '</pre></td><td class="code">',
+        tableEnd = '</td></tr></tbody></table>',
+        count = $('span.line', code).length;
+    for (var i=1;i<=count; i++) {
+      lineNumbers += '<span class="line-number">'+i+'</span>\n';
     }
-    table = tableStart + lineNumbers + tableMiddle + '<pre>'+$('pre', code).html()+'</pre>' + tableEnd;
+    var table = tableStart + lineNumbers + tableMiddle + '<pre>'+$('pre', code).html()+'</pre>' + tableEnd;
     $(code).html(table);
   });
 }
 
 function flashVideoFallback(){
   var flashplayerlocation = "/assets/jwplayer/player.swf",
-  flashplayerskin = "/assets/jwplayer/glow/glow.xml";
+      flashplayerskin = "/assets/jwplayer/glow/glow.xml";
   $('video').each(function(video){
     video = $(video);
-    if(!Modernizr.video.h264 && swfobject.getFlashPlayerVersion() || window.location.hash.indexOf("flash-test") != -1){
-      video.children('source[src$=mp4]').first().map(function(source){;
+    if (!Modernizr.video.h264 && swfobject.getFlashPlayerVersion() || window.location.hash.indexOf("flash-test") != -1){
+      video.children('source[src$=mp4]').first().map(function(source){
         var src = $(source).attr('src'),
-        id = 'video_'+Math.round(1 + Math.random()*(100000)),
-        width = video.attr('width'),
-        height = parseInt(video.attr('height')) + 30;
-        video.after('<div class="flash-video"><div><div id='+id+'>');
+            id = 'video_'+Math.round(1 + Math.random()*(100000)),
+            width = video.attr('width'),
+            height = parseInt(video.attr('height'), 10) + 30;
+            video.after('<div class="flash-video"><div><div id='+id+'>');
         swfobject.embedSWF(flashplayerlocation, id, width, height + 30, "9.0.0",
           { file : src, image : video.attr('poster'), skin : flashplayerskin } ,
-          { movie : src, wmode : "opaque", allowfullscreen : "true" });
+          { movie : src, wmode : "opaque", allowfullscreen : "true" }
+        );
       });
       video.remove();
     }
   });
 }
 
-function wrapFlashVideos(){
-  $('object').each(function(object){
+function wrapFlashVideos() {
+  $('object').each(function(object) {
     object = $(object);
-    if(object.children('param[name=movie]')){
+    if (object.children('param[name=movie]')) {
       var wrapper = object.before('<div class="flash-video"><div>').previous();
       $(wrapper).children().append(object);
     }
   });
-  $('iframe[src*=vimeo],iframe[src*=youtube]').each(function(iframe){
+  $('iframe[src*=vimeo],iframe[src*=youtube]').each(function(iframe) {
     iframe = $(iframe);
     var wrapper = iframe.before('<div class="flash-video"><div>').previous();
     $(wrapper).children().append(iframe);
   });
 }
 
-$.domReady(function(){
+$.domReady(function() {
   testFeatures();
   wrapFlashVideos();
   flashVideoFallback();
@@ -113,17 +116,17 @@ $.domReady(function(){
 // Source url: https://gist.github.com/901295
 (function(doc) {
   var addEvent = 'addEventListener',
-  type = 'gesturestart',
-  qsa = 'querySelectorAll',
-  scales = [1, 1],
-  meta = qsa in doc ? doc[qsa]('meta[name=viewport]') : [];
+      type = 'gesturestart',
+      qsa = 'querySelectorAll',
+      scales = [1, 1],
+      meta = qsa in doc ? doc[qsa]('meta[name=viewport]') : [];
   function fix() {
     meta.content = 'width=device-width,minimum-scale=' + scales[0] + ',maximum-scale=' + scales[1];
     doc.removeEventListener(type, fix, true);
   }
   if ((meta = meta[meta.length - 1]) && addEvent in doc) {
     fix();
-    scales = [.25, 1.6];
+    scales = [0.25, 1.6];
     doc[addEvent](type, fix, true);
   }
 }(document));
