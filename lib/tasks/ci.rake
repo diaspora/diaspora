@@ -1,10 +1,20 @@
-namespace :cruise do
-  desc "Run all specs and features"
-  task :cruise => [:environment, :'cruise:migrate'] do
+namespace :ci do
+
+  desc "Run tests in the cloud. ZOMG!"
+  task :travis do
+    ["rspec spec", "rake jasmine:ci", "rake cucumber"].each do |cmd|
+      puts "Starting to run #{cmd}..."
+      system("export DISPLAY=:99.0 && bundle exec #{cmd}")
+      raise "#{cmd} failed!" unless $?.exitstatus == 0
+    end
+  end
+
+  desc "Run tests that can't run on travis"
+  task :hard_things => [:environment, :'ci:migrate'] do
     puts "Starting virtual display..."
     `sh -e /etc/init.d/xvfb start`
     puts "Starting specs..."
-    system('export DISPLAY=:99.0 && CI=true bundle exec rake')
+    system('export DISPLAY=:99.0 && CI=true bundle exec rake cucumber')
     exit_status = $?.exitstatus
     puts "Stopping virtual display..."
     `sh -e /etc/init.d/xvfb stop`
@@ -19,14 +29,6 @@ namespace :cruise do
     system('bundle exec rake db:test:prepare')
     raise "migration failed!" unless $?.exitstatus == 0
   end
-
-  task :travis do
-    ["rspec spec", "rake jasmine:ci", "rake cucumber"].each do |cmd|
-      puts "Starting to run #{cmd}..."
-      system("export DISPLAY=:99.0 && bundle exec #{cmd}")
-      raise "#{cmd} failed!" unless $?.exitstatus == 0
-    end
-  end
 end
-task :cruise => "cruise:cruise"
-task :travis => "cruise:travis"
+
+task :travis => "ci:travis"
