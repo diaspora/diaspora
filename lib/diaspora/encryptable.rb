@@ -1,7 +1,5 @@
 module Diaspora
   module Encryptable
-    
-    LAST_FALLBACK_TIME = "Sept 19 2011 17:00 UTC "
     # Check that signature is a correct signature of #signable_string by person
     #
     # @param [String] signature The signature to be verified.
@@ -20,9 +18,6 @@ module Diaspora
       end
       log_string = "event=verify_signature status=complete guid=#{self.guid}"
       validity = person.public_key.verify OpenSSL::Digest::SHA256.new, Base64.decode64(signature), signable_string
-      if !validity && Time.now < Time.parse(LAST_FALLBACK_TIME)
-        validity = person.public_key.verify "SHA", Base64.decode64(signature), signable_string
-      end
       log_string += " validity=#{validity}"
       Rails.logger.info(log_string)
       validity

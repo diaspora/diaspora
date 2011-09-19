@@ -21,18 +21,9 @@ describe Diaspora::Encryptable do
       @comment.verify_signature(sig, bob.person).should be_true
     end
 
-    context "fallback" do
-      it "checks the SHA if it's within the week of the rollout window" do
-        sig = Base64.encode64s(bob.encryption_key.sign( "SHA", @comment.signable_string )) 
-        @comment.verify_signature(sig, bob.person).should be_true
-      end
-
-      it 'does not verify the fallback after rollout window' do
-        Kernel::silence_warnings { Diaspora::Encryptable.const_set(:LAST_FALLBACK_TIME,((Time.now - 1.week).to_s))}
-
-        sig = Base64.encode64s(bob.encryption_key.sign( "SHA", @comment.signable_string )) 
-        @comment.verify_signature(sig, bob.person).should be_false
-      end
+    it 'does not verify the fallback after rollout window' do
+      sig = Base64.encode64s(bob.encryption_key.sign( "SHA", @comment.signable_string )) 
+      @comment.verify_signature(sig, bob.person).should be_false
     end
   end
 end
