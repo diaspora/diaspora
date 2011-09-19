@@ -11,7 +11,7 @@
 
 #publisher.closed{:class => ((aspect == :profile)? 'mention_popup' : nil )}
   .content_creation
-    = form_for(StatusMessage.new, :remote => true, :html => {"data-type" => "json"}) do |status|
+    = form_for(StatusMessage.new, :remote => remote?, :html => {"data-type" => "json"}) do |status|
       = status.error_messages
       %p
         %params
@@ -33,8 +33,8 @@
           %span#publisher_service_icons
             = t("shared.publisher.click_to_share_with")
             - if((defined?(for_all_aspects) && for_all_aspects) || aspect == :profile)
-              = status.hidden_field(:public)
-              = image_tag "icons/globe.png", :title => t('javascripts.publisher.limited'), :class => 'public_icon dim', :width => 16, :height => 16
+              = status.hidden_field(:public, :value => public_value )
+              = image_tag "icons/globe.png", :title => public_helper_text, :class => "public_icon #{'dim' if !public_value}", :width => 16, :height => 16
             - if current_user.services
               - for service in current_user.services
                 = image_tag "social_media_logos/#{service.provider}-16x16.png", :title => service.provider.titleize, :class => "service_icon dim", :id =>"#{service.provider}", :maxchar => "#{service.class::MAX_CHARACTERS}"
