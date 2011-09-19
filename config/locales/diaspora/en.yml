@@ -156,7 +156,7 @@ en:
       friends: "Friends"
     index: 
       donate: "Donate"
-      keep_us_running: "Keep %{pod} running fast, buy our servers their monthly coffee fix!"
+      keep_us_running: "Keep %{pod} running fast and buy servers their coffee fix with a monthly donation!"
       your_aspects: "Your Aspects"
       tags_following: "Followed Tags"
       no_tags: "+ Find a tag to follow"
@@ -165,6 +165,15 @@ en:
       no_contacts: "No contacts"
       post_a_message: "post a message >>"
       people_sharing_with_you: "People sharing with you"
+      help:
+        need_help: "Need Help?"
+        here_to_help: "Diaspora community is here to help!"
+        tutorials: "For tutotials check out %{link}"
+        did_you: "Did you:"
+        have_a_question: "... have a %{link}?"
+        find_a_bug: "... find a %{link}?"
+        feature_suggestion: "... have a %{link} suggestion?"
+        more_support: "For more support, you should also check out, %{link}"
       cubbies:
         heading: "Connect to Cubbi.es"
         explanation: "Cubbi.es is the first Diaspora application under development."
