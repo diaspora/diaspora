@@ -147,7 +147,7 @@ zh-TW:
     zero: "沒有面向"
   authorizations: 
     index: 
-      no_applications: "You haven't registered any applications yet."
+      no_applications: "尚未註冊任何應用程式."
       revoke_access: "撤銷存取權"
   back: "後退"
   bookmarklet: 
@@ -542,8 +542,8 @@ zh-TW:
       notice: "相片更新成功."
   post_visibilites: 
     update: 
-      post_hidden_and_muted: "%{name}'s post has been hidden, and notifications have been muted."
-      see_it_on_their_profile: "If you want to see updates on this post, visit %{name}'s profile page."
+      post_hidden_and_muted: "%{name} 的貼文設定為隱藏了, 且異動時不會送出消息通知."
+      see_it_on_their_profile: "如果你想要看這篇貼文的異動, 請見 %{name} 的個人檔案頁面."
   posts: 
     show: 
       destroy: "刪除"
@@ -711,7 +711,7 @@ zh-TW:
       reshare: "轉貼"
     stream_element: 
       dislike: "遜"
-      hide_and_mute: "Hide and Mute"
+      hide_and_mute: "隱藏且消音"
       like: "讚"
       shared_with: "分享給: %{aspect_names}"
       unlike: "收回讚"
@@ -801,7 +801,7 @@ zh-TW:
       connect_with_people: "與酷咖連結"
       connect_with_people_explanation_pt1: "將別人放進你的任何一個或多個%{bold}中來與他們建立聯繫."
       connect_with_people_explanation_pt2: "面向是區分新人或熟人的直覺方式, 並且只有你自己知道, 讓你可以輕易過濾他們, 或只和部份聯絡人分享."
-      edit_profile: "Edit Profile"
+      edit_profile: "編輯個人檔案"
       featured_tags: "特色標籤"
       featured_users: "特色使用者"
       fill_out_your_profile: "填寫個人檔案"
@@ -819,8 +819,8 @@ zh-TW:
         name: "名字"
         photo: "相片"
         tags: "標籤"
-      search_for_hashtags: "Search for #hashtags"
-      search_for_people: "Search for people"
+      search_for_hashtags: "搜尋\"#雜湊標籤\""
+      search_for_people: "搜尋人"
       see_all_featured_users: "看所有的特色使用者"
       welcome: "歡迎光臨!"
       welcome_with_name: "歡迎光臨, %{name}!"

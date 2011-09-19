@@ -1,0 +1,54 @@
+#   Copyright (c) 2011, Diaspora Inc.  This file is
+#   licensed under the Affero General Public License version 3 or later.  See
+#   the COPYRIGHT file.
+
+
+nn: 
+  javascripts: 
+    aspect_dropdown: 
+      add_to_aspect: "Legg til aspektet"
+      all_aspects: "Alle aspekta"
+      toggle: 
+        few: "I {{count}} aspekt"
+        many: "I {{count}} aspekt"
+        one: "I {{count}} aspekt"
+        other: "I {{count}} aspekt"
+        two: "I {{count}} aspekt"
+        zero: "Legg til aspektet"
+    comments: 
+      hide: "gøym merknader"
+      show: "syn alle merknadene"
+    confirm_dialog: "Er du sikker?"
+    failed_to_like: "Like-funksjonen feila."
+    failed_to_post_message: "Klarte ikkje å senda meldinga."
+    infinite_scroll: 
+      no_more: "Ingen fleire meldingar."
+    publisher: 
+      at_least_one_aspect: "Du må offentleggjera til minst eitt aspekt"
+      limited: "Avgrensa - berre personar du deler med vil kunna sjå meldinga"
+      public: "Offentleg - alle kan sjå meldinga di og ho kan bli funnen av søkjemotorar"
+    reshares: 
+      duplicate: "Du har allereie delt den meldinga."
+    search_for: "Leit etter {{name}}"
+    show_more: "syn meir"
+    timeago: 
+      day: "om dagen"
+      days: "%d dagar"
+      hour: "om lag ein time"
+      hours: "om lag %d timar"
+      minute: "om lag eit minutt"
+      minutes: "%d minutt"
+      month: "om lag ein månad"
+      months: "%d månader"
+      prefixAgo: ""
+      prefixFromNow: ""
+      seconds: "mindre enn eit minutt"
+      suffixAgo: "sidan"
+      suffixFromNow: "frå no"
+      year: "om lag eit år"
+      years: "%d år"
+    videos: 
+      unknown: "Ukjend videotype"
+      watch: "Sjå denne videoen hos {{provider}}"
+    web_sockets: 
+      disconnected: "Nettendepunktet er lukka - meldingane vil ikkje lenger kunna strøymast direkte."
