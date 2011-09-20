@@ -168,12 +168,12 @@ en:
       help:
         need_help: "Need Help?"
         here_to_help: "Diaspora community is here to help!"
-        tutorials: "For tutotials check out %{link}"
+        tutorials: "For tutorials, check out %{link}."
         did_you: "Did you:"
         have_a_question: "... have a %{link}?"
         find_a_bug: "... find a %{link}?"
         feature_suggestion: "... have a %{link} suggestion?"
-        more_support: "For more support, you should also check out, %{link}"
+        more_support: "For more support, you should also check out %{link}."
       cubbies:
         heading: "Connect to Cubbi.es"
         explanation: "Cubbi.es is the first Diaspora application under development."
