@@ -339,7 +339,7 @@ en:
     application:
       powered_by: "POWERED BY DIASPORA*"
       whats_new: "what's new?"
-      toggle: "toggle mobile site"
+      toggle: "toggle mobile"
       public_feed: "Public Diaspora Feed for %{name}"
       your_aspects: "your aspects"
 

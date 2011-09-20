@@ -171,18 +171,28 @@ body {
     top: -2px; }; }
 
 #author_info.profile {
+  box-shadow: inset 0 -1px 3px #111;
+
+  h2 {
+    color: #ccc;
+  }
+
   background: {
-    color: #eeeeee; };
+    color: #333; };
   border: {
     bottom: 1px solid black; };
   height: 90px;
-  padding: 6px;
+  padding: 10px;
   margin: {
     bottom: 6px; };
   img {
     float: left;
     height: 90px;
-    width: 90px; }
+    width: 90px;
+    margin: {
+      right: 10px;
+    }
+  }
   .content {
     padding: {
       left: 100px; }; }
@@ -197,27 +207,25 @@ body {
 
 header {
   @include linear-gradient(#444444, black);
-  padding: 12px 5px;
+  @include box-shadow(0,1px,1px,rgba(0,0,0,0.7));
   border: {
-    bottom: 1px solid #444444; };
+    bottom: 1px solid #222;
+  }
+  padding: 12px 5px;
   .right {
     float: right; } }
 
 footer {
-  background: {
-    color: #cccccc; };
+  font-size: larger;
+  text-align: center;
+  a,
+  a:visited {
+    color: #999;
+  }
+  padding: {
+    bottom: 10px;
+  }
 }
-
-.notification_day_header {
-  padding: 6px;
-  background: {
-    color: #eeeeee; };
-  border: {
-    top: 1px solid #dddddd;
-    bottom: 1px solid #cccccc; };
-  font: {
-    weight: bold; };
-  color: #666666; }
 
 .bottom_bar {
   @include border-radius(0, 0, 3px, 3px);
@@ -233,14 +241,41 @@ footer {
     size: larger; };
   a {
     color: #999999 !important;
-    font-weight: bold !important; } }
+    font-weight: bold !important; }
+
+  #bottom_bar_tabs {
+    display: table;
+    width: 100%;
+    text: {
+      align: center;
+    }
+    font: {
+      size: 28px;
+    }
+    color: #ccc;
+    .tab {
+      display: table-cell;
+
+      border: {
+        right: 1px solid #ccc;
+      }
+
+      &:last-child {
+        border: none;
+      }
+    }
+  }
+
+}
 
 .floater {
   float: right; }
 
 .stream_element .photo_attachments {
-  img {
-    @include border-radius(3px, 3px, 0, 0); }
+  img.big-stream-photo {
+    @include border-radius(3px, 3px, 0, 0);
+    width: 100%;
+  }
   a {
     padding: 0; }
   margin-top: 0; }

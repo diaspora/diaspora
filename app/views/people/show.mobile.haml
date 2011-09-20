@@ -8,12 +8,10 @@
 
 #author_info.profile
   = person_image_tag @person, :thumb_medium
-
-  .content
-    %h2
-      = @person.name
-    - if user_signed_in? && current_user.person == @person
-      = link_to t('people.profile_sidebar.edit_my_profile'), edit_profile_path, :class => 'button creation'
+  %h2
+    = @person.name
+  - if user_signed_in? && current_user.person == @person
+    = link_to t('people.profile_sidebar.edit_my_profile'), edit_profile_path, :class => 'button creation'
 
 - if user_signed_in? && !(@contact.persisted? || current_user.person == @person)
   - if @incoming_request

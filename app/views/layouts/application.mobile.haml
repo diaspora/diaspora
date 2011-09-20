@@ -12,12 +12,29 @@
     %meta{:name => "author", :content => "Diaspora, Inc."}
 
     %meta{"http-equiv"=>"Content-Type", :content=>"text/html; charset=utf-8"}/
-    %meta{:name =>'viewport', :content => "width=device-width, minimum-scale=1, maximum-scale=1"}
+    / Viewport scale
+    %meta{:name =>'viewport', :content => "width=device-width, initial-scale=1"}
     %meta{:name => "HandheldFriendly", :content => "True"}
     %meta{:name => "MobileOptimized", :content => "320"}
+    / Force cleartype on WP7
     %meta{'http-equiv' => "cleartype", :content => 'on'}
 
+    / Home screen icon (sized for retina displays)
+    %link{:rel => 'apple-touch-icon', :href => '/apple-touch-icon.png'}
+    / For Nokia devices
+    %link{:rel => 'shortcut icon', :href => '/apple-touch-icon.png'}
+
+    / iOS mobile web app indicator
+    /%meta{:name => "apple-mobile-web-app-capable", :content => "yes"}
+    /%link{:rel => "apple-touch-startup-image", :href => "/images/apple-splash.png"}
+
+    / Stylesheets
     = include_stylesheets :mobile
+
+    %script{:src => "javascripts/vendor/mbp-modernizr-custom.js"}
+    / Media Queries Polyfill https://github.com/shichuan/mobile-html5-boilerplate/wiki/Media-Queries-Polyfill
+    :javascript
+      Modernizr.mq('(min-width:0)') || document.write('<script src="javascripts/vendor/mbp-respond.min.js">\x3C/script>')
 
     = csrf_meta_tag
 
@@ -35,15 +52,18 @@
         - flash.each do |name, msg|
           = content_tag :div, msg, :id => "flash_#{name}"
 
-    = yield
+    #main{:role => "main"}
+      = yield
 
-    /= render :partial =>'shared/footer' if user_signed_in?
+    - if user_signed_in?
+      = render :partial =>'shared/footer'
 
     / javascripts at the bottom
     = include_javascripts :mobile
-    -if current_user
-      :javascript
-        Diaspora.I18n.loadLocale(#{get_javascript_strings_for(current_user.language).to_json}, "#{current_user.language}");
+
+    /-if current_user
+    /  :javascript
+    /    Diaspora.I18n.loadLocale(#{get_javascript_strings_for(current_user.language).to_json}, "#{current_user.language}");
 
     -if AppConfig[:google_a_site]
       :javascript
@@ -56,7 +76,6 @@
       :javascript
         var pkBaseURL = (("https:" == document.location.protocol) ? "https://#{AppConfig[:piwik_url]}/" : "http://#{AppConfig[:piwik_url]}/");
         document.write(unescape("%3Cscript src='" + pkBaseURL + "piwik.js' type='text/javascript'%3E%3C/script%3E"));
-      :javascript
         try {
         var piwikTracker = Piwik.getTracker(pkBaseURL + "piwik.php", #{AppConfig[:piwik_id]});
         piwikTracker.trackPageView();

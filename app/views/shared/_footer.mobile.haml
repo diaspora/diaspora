@@ -1,4 +1,4 @@
 %footer
-  = link_to t('.logged_in_as', :name => current_user.name), current_user.person
+  = link_to current_user.name, current_user.person
   = link_to t('layouts.application.toggle'), toggle_mobile_path
   = link_to t('layouts.header.logout'), destroy_user_session_path

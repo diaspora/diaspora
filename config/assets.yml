@@ -43,13 +43,14 @@ javascripts:
     - public/javascripts/login.js
   mobile:
     - public/javascripts/vendor/jquery162.min.js
-    - public/javascripts/custom-mobile-scripting.js
+    #- public/javascripts/custom-mobile-scripting.js
     #- public/javascripts/vendor/jquery.mobile-1.0b2.min.js
     #- public/javascripts/jquery.infinitescroll-custom.js
-    - public/javascripts/diaspora.js
-    - public/javascripts/helpers/i18n.js
+    #- public/javascripts/diaspora.js
+    #- public/javascripts/helpers/i18n.js
     #- public/javascripts/widgets/infinite-scroll.js
     #- public/javascripts/rails.js
+    - public/javascripts/vendor/mbp-helper.js
     
   mailchimp:
     - public/javascripts/vendor/mailchimp/jquery.form.js
