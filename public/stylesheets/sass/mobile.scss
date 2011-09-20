@@ -368,7 +368,7 @@ footer {
 
 .like_action {
   background-image: url("/images/icons/heart_mobile_grey.png");
-  .active {
+  &.active {
     background-image: url("/images/icons/heart_mobile_red.png"); } }
 
 .comment_action {

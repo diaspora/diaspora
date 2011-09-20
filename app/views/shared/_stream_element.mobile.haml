@@ -47,5 +47,5 @@
       - else
         = link_to '', '#', :class => "image_link like_action inactive", 'data-post-id' => post.id
 
-    = link_to "#{t('comments', :count => post.comments.length)}", post_path(post), :class => 'comment_link'
+    = link_to "#{t('reactions', :count => (post.comments.length + post.likes_count))}", post_path(post), :class => 'comment_link'
 

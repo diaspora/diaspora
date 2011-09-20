@@ -210,6 +210,14 @@ en:
       comment: "Comment"
       commenting: "Commenting..."
 
+  reactions:
+    zero: "No reactions"
+    one: "1 reaction"
+    two: "%{count} reactions"
+    few: "%{count} reactions"
+    many: "%{count} reactions"
+    other: "%{count} reactions"
+
   contacts:
     zero: "no contacts"
     one: "1 contact"
