@@ -23,40 +23,9 @@ body {
   max-width: 100%;
 }
 
-#landing_content {
-  text-align: center;
-  .info_pane {
-    text-align: left;
-  }
-}
-
 #login_form {
   padding: 15px;
   padding-top: 0px;
-}
-
-#diaspora_description {
-  background: {
-    image: url("../images/ball_small.png");
-    repeat: no-repeat;
-    position: top center; };
-  padding: {
-    top: 195px; };
-  margin: {
-    top: -18px; };
-  font: {
-    size: 1.3em;
-    weight: bold; };
-  text-shadow: 0 1px 3px #999999;
-  line-height: 1.5;
-  p {
-    padding: 12px;
-    background: {
-      color: white; };
-    -webkit-box-shadow: 0 1px 3px #cccccc;
-    -moz-box-shadow: 0 1px 3px #cccccc;
-    box-shadow: 0 1px 3px #cccccc;
-  }
 }
 
 .login_form {
@@ -109,8 +78,6 @@ body {
     margin: 0 auto;
     font-size: 14px;
     line-height: 19px; }
-  .black {
-    color: #333333; }
   margin: 10px {
     top: 10px;
     bottom: 0; };
@@ -186,59 +153,22 @@ body {
     text-shadow: 0 -2px 0 black; } }
 
 .time, .via {
-  color: #cccccc;
+  color: #ccc;
   font: {
     size: smaller;
     weight: bold; };
+}
+.via {
   a {
-    color: #cccccc; } }
+    color: #ccc; } }
 
 .comment {
   .time {
-    color: #777777; } }
+    color: #777; } }
 
 .info {
   margin: {
     top: -2px; }; }
-
-#show_content {
-  padding: 12px {
-    bottom: 24px; };
-  border: {
-    bottom: 1px solid #bbbbbb; };
-  background: {
-    color: white; };
-  font: {
-    size: larger; };
-  img {
-    max-width: 100%; }
-  .photo {
-    text-align: center; }
-  .controls {
-    font: {
-      size: smaller; }; }
-  &.photo {
-    background: {
-      color: black; }; } }
-
-#photo_controls {
-  margin: {
-    bottom: -42px; }; }
-
-.arrow {
-  color: white !important;
-  font: {
-    size: 26pt; };
-  text: {
-    shadow: 0 1px 2px #333333;
-    decoration: none; };
-  padding: 0; }
-
-ul {
-  margin: 0;
-  padding: 0;
-  list: {
-    style: none; }; }
 
 #author_info.profile {
   background: {
@@ -262,41 +192,8 @@ ul {
       size: small; };
     color: #999999; } }
 
-.stream_marker {
-  background: {
-    color: #eeeeee; };
-  border: {
-    bottom: 1px solid #aaaaaa;
-    top: 1px solid #cccccc; };
-  font: {
-    weight: bold;
-    size: smaller; };
-  color: #666666;
-  padding: 3px 6px; }
-
 .right {
   float: right; }
-
-.hidden {
-  display: none; }
-
-.grey_back {
-  background: {
-    color: #eeeeee; };
-  border: {
-    bottom: 1px solid #999999; };
-  padding: 8px {
-    top: 3px; };
-  margin: {
-    bottom: 12px; }; }
-
-#aspect_title {
-  padding: 0 6px {
-    bottom: 6px; };
-  font: {
-    weight: bold; };
-  text: {
-    align: left; }; }
 
 header {
   @include linear-gradient(#444444, black);
@@ -309,8 +206,7 @@ header {
 footer {
   background: {
     color: #cccccc; };
-  .inset {
-    padding: 10px; } }
+}
 
 .notification_day_header {
   padding: 6px;
@@ -335,8 +231,6 @@ footer {
   height: 24px;
   font: {
     size: larger; };
-  img {
-    height: 24px; }
   a {
     color: #999999 !important;
     font-weight: bold !important; } }

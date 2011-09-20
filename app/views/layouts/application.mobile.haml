@@ -8,24 +8,42 @@
     %title
       DIASPORA*
 
+    %meta{:name => "description", :content => "Diaspora* Mobile"}
+    %meta{:name => "author", :content => "Diaspora, Inc."}
+
     %meta{"http-equiv"=>"Content-Type", :content=>"text/html; charset=utf-8"}/
     %meta{:name =>'viewport', :content => "width=device-width, minimum-scale=1, maximum-scale=1"}
     %meta{:name => "HandheldFriendly", :content => "True"}
     %meta{:name => "MobileOptimized", :content => "320"}
     %meta{'http-equiv' => "cleartype", :content => 'on'}
 
-    = include_javascripts :mobile
-    -if current_user
-      :javascript
-        Diaspora.I18n.loadLocale(#{get_javascript_strings_for(current_user.language).to_json}, "#{current_user.language}");
+    = include_stylesheets :mobile
 
-    =include_stylesheets :mobile
     = csrf_meta_tag
 
     - if rtl?
       = include_stylesheets :rtl, :media => 'all'
 
     = yield(:head)
+
+  %body
+    %header
+      = link_to(image_tag('white@2x.png', :height => 22, :width => 136, :id => 'header_title'), aspects_path)
+
+    - if flash.present?
+      %p
+        - flash.each do |name, msg|
+          = content_tag :div, msg, :id => "flash_#{name}"
+
+    = yield
+
+    /= render :partial =>'shared/footer' if user_signed_in?
+
+    / javascripts at the bottom
+    = include_javascripts :mobile
+    -if current_user
+      :javascript
+        Diaspora.I18n.loadLocale(#{get_javascript_strings_for(current_user.language).to_json}, "#{current_user.language}");
 
     -if AppConfig[:google_a_site]
       :javascript
@@ -44,21 +62,3 @@
         piwikTracker.trackPageView();
         piwikTracker.enableLinkTracking();
         } catch( err ) {}
-
-
-  %body
-    %header
-      /- if current_user
-      /  /= link_to(image_tag('icons/list_white.png'), '#menu', :id => "menu_button")
-      /  /= link_to(image_tag('icons/search_white.png'), people_path, :class => "right")
-      = link_to(image_tag('white@2x.png', :height => 22, :width => 136, :id => 'header_title'), aspects_path)
-
-    - if flash.present?
-      %p
-        - flash.each do |name, msg|
-          = content_tag :div, msg, :id => "flash_#{name}"
-
-    = yield
-
-    /= render :partial =>'shared/footer' if user_signed_in?
-
