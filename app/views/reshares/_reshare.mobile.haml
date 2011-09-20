@@ -8,7 +8,6 @@
     .content
       .from
         = person_link(post.author, :class => "hovercardable")
-             
 
       - if post.activity_streams?
         = link_to image_tag(post.image_url, 'data-small-photo' => post.image_url, 'data-full-photo' => post.image_url, :class => 'stream-photo'), post.object_url, :class => "stream-photo-link"

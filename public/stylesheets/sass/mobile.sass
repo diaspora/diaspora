@@ -13,13 +13,13 @@ a:not([role='button']):not(.arrow)
   :font
     :weight normal !important
   :-webkit-tap-highlight-color rgba(200, 200, 200, 1) !important
-a.ui-link-inherit
-  :font
-    :weight bold !important
-  :color #000 !important
 
-.ui-body-c a
+a
   :color #2489CE
+
+body
+  :background #555
+  :max-width 100%
 
 #landing_content
   :text-align center
@@ -58,7 +58,7 @@ a.ui-link-inherit
 .tapped
   :background
     :color rgba(100, 103, 103, .2)
-  :border-radius 5px
+  @include border-radius(3px)
 a
   :padding 2px
 .alpha-warning
@@ -73,13 +73,11 @@ a
 .message
   :padding
     :left 2px
+
 .stream_element,
-.comment
+.comments
   :overflow auto
   :position relative
-
-  :background
-    :color #fff
 
   *
     :max-width 100%
@@ -88,33 +86,31 @@ a
 
   .avatar
     :float left
-    :height 48px
-    :width 48px
+    :height 35px
+    :width 35px
+    :margin
+      :right 10px
 
   .from
     a
       :margin
         :left -2px
-      :color #000 !important
+      :color #aaa !important
       :font
         :weight bold !important
 
     :margin-bottom 2px
+    :height 45px
 
   .content
-    :padding
-      :left 58px
+    :padding 10px
+      :bottom 0
 
-  :border
-    :bottom 1px solid #eee
-
-  :padding 10px
+  :padding 10px 0
 
   .info
     :margin
-      :top 0.5em
-    :font
-      :size smaller
+      :top 0
 
   .photo_attachments
     :margin
@@ -125,11 +121,56 @@ a
       :weight normal
   p
     :margin 0 auto
-    :line-height 1.4em
+    :font-size 14px
+    :line-height 19px
 
   .black
     :color #333
-    
+
+  :margin 10px
+    :top 10px
+    :bottom 0
+  :padding 0 !important
+
+.comments
+  :color #ccc
+
+  .from
+    a
+      :color #888 !important
+
+.new_comment
+  :padding 10px
+
+.comment
+  :padding 4px 0
+  :border
+    :bottom 1px dotted #444
+
+
+.stream_element
+  @include border-radius(3px)
+  @include box-shadow(0,1px,5px,rgba(0,0,0,1))
+
+  :background
+    :color #fff
+  :border
+    :top 1px solid #000
+    :bottom 1px solid #000
+
+
+.photo_attachments
+  :position relative
+  :left 0
+  :top 0
+  :padding 0
+  :margin 0
+
+  img
+    :margin 0
+    :padding 0
+
+
 .reshare
   .content
     :padding
@@ -142,23 +183,28 @@ a
     :font
       :size 0.8em
 
-.comment
-  :padding
-    :top 12px
-    :bottom 12px
-
 #main_stream
   :font
     :size 0.95em
 
-.stream_element.person
-  .from
-    :font
-      :size larger
+.from
+  :font
+    :size larger
 
 .more-link
-  :line-height 4em
+  :display block
   :text-align center
+  :padding 0 10px
+  :margin 0 10px
+  :-webkit-box-shadow inset 0 1px 5px #111
+  :border-radius 3px
+  :background
+    :color #333
+
+  h1
+    :color #ccc
+    :padding 20px
+    :text-shadow 0 -2px 0 #000
 
 .time, .via
   :color #ccc
@@ -168,9 +214,13 @@ a
   a
     :color #ccc
 
+.comment
+  .time
+    :color #777
+
 .info
-  :font
-    :size smaller
+  :margin
+    :top -2px
 
 #show_content
   :padding 12px
@@ -216,34 +266,11 @@ ul
   :list
     :style none
 
-#author_info.show
-  :margin
-    :bottom 24px
-  a
-    :color #000
-    :font
-      :weight bold !important
-
-  img
-    :float left
-    :height 36px
-    :width 36px
-    :margin
-      :right 6px
-
-  :font
-    :size smaller
-
-  .diaspora_handle
-    :font
-      :size 14px
-    :color #999
-
 #author_info.profile
   :background
     :color #eee
   :border
-    :bottom 2px solid #ccc
+    :bottom 1px solid #000
   :height 90px
   :padding 6px
   :margin
@@ -263,18 +290,6 @@ ul
       :weight normal
       :size small
     :color #999
-
-.comments
-  :border
-    :top 2px solid #D2DBE1
-  :background
-    :color #EDF5FB
-  :font
-    :size smaller
-
-  .comment
-    :background
-      :color #EDF5FB
 
 .stream_marker
   :background
@@ -304,18 +319,6 @@ ul
   :margin
     :bottom 12px
 
-  #publisher
-    :text
-      :align center
-
-#publisher_text
-  :text
-    :align left
-  :font
-    :weight bold
-  :margin
-    :bottom 3px
-
 #aspect_title
   :padding 0 6px
     :bottom 6px
@@ -324,22 +327,18 @@ ul
   :text
     :align left
 
-#header
-  @include linear-gradient(#222, #000)
+header
+  @include linear-gradient(#444, #000)
 
-  :padding 11px 5px
-    :bottom 7px
+  :padding 12px 5px
+
   :border
     :bottom 1px solid #444
 
   .right
-    :position absolute
-    :top 0px
-    :padding 6px
-      :top 4px
-    :right 0
+    :float right
 
-#footer
+footer
   :background
     :color #ccc
   .inset
@@ -356,13 +355,63 @@ ul
     :weight bold
   :color #666
 
-#aspect_header
-  :padding 4px 7px 
-    :bottom 7px
+.bottom_bar
+  @include border-radius(0, 0, 3px, 3px)
+  :display block
+  :padding 10px
+  :background #eee
+  :margin
+    :top 10px
+  :border
+    :top 1px solid #ddd
+  :height 24px
   :font
-    :weight bold
-  :text
-    :shadow none
+    :size larger
+
+  img
+    :height 24px
+
+  a
+    :color #999 !important
+    :font-weight bold !important
+
+
+.floater
+  :float right
+
+.stream_element .photo_attachments
+  img
+    @include border-radius(3px, 3px, 0, 0)
+  a
+    :padding 0
+  :margin-top 0
+
+.photo_area
+  :text-align center
+
+.image_link
+  :display inline-block
   :background
-    :color #eee
-  :color #999
+    :size 24px
+    :repeat no-repeat
+    :position center
+  :height 16px
+  :width 24px
+  :padding 5px
+  :margin
+    :left 5px
+
+.like_action
+  :background-image url('/images/icons/heart_mobile_grey.png')
+  .active
+    :background-image url('/images/icons/heart_mobile_red.png')
+
+.comment_action
+  :background-image url('/images/icons/pencil_mobile_grey.png')
+
+form
+  :position relative
+  textarea,
+  input
+    :font
+      :size larger

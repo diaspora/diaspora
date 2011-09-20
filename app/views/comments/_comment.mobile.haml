@@ -4,16 +4,17 @@
 
 %li.comment{:data=>{:guid=>comment.id}, :class => ("hidden" if(defined? hidden))}
   .right
-    %span.time
-      = comment.created_at ? time_ago_in_words(comment.created_at) : time_ago_in_words(Time.now)
     -#.controls
       -#= link_to image_tag('deletelabel.png'), comment, :confirm => t('are_you_sure'), :method => :delete, :class => "delete comment_delete", :title => t('delete')
 
-
-  = person_image_link(comment.author)
   .content
     .from
+      = person_image_link(comment.author)
       = person_link(comment.author)
-    %div{ :class => direction_for(comment.text) }
+      .info
+        %span.time.timeago{:datetime => comment.created_at}
+          = comment.created_at ? time_ago_in_words(comment.created_at) : time_ago_in_words(Time.now)
+
+    %div{:class => direction_for(comment.text)}
       = markdownify(comment, :youtube_maps => comment[:youtube_titles])
 

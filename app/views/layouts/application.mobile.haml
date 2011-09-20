@@ -9,16 +9,19 @@
       DIASPORA*
 
     %meta{"http-equiv"=>"Content-Type", :content=>"text/html; charset=utf-8"}/
-    = include_javascripts :mobile
-    %meta{'name' =>'viewport', 'content' => "width=device-width, minimum-scale=1, maximum-scale=1"}
+    %meta{:name =>'viewport', :content => "width=device-width, minimum-scale=1, maximum-scale=1"}
+    %meta{:name => "HandheldFriendly", :content => "True"}
+    %meta{:name => "MobileOptimized", :content => "320"}
+    %meta{'http-equiv' => "cleartype", :content => 'on'}
 
+    = include_javascripts :mobile
     -if current_user
       :javascript
         Diaspora.I18n.loadLocale(#{get_javascript_strings_for(current_user.language).to_json}, "#{current_user.language}");
 
     =include_stylesheets :mobile
     = csrf_meta_tag
-    
+
     - if rtl?
       = include_stylesheets :rtl, :media => 'all'
 
@@ -26,15 +29,10 @@
 
     -if AppConfig[:google_a_site]
       :javascript
-        var _gaq = _gaq || [];
-        _gaq.push(['_setAccount', '#{AppConfig[:google_a_site]}']);
-        _gaq.push(['_trackPageview']);
-
-        (function() {
-        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-        })();
+        var _gaq=[["_setAccount","#{AppConfig[:google_a_site]}"],["_trackPageview"]];
+        (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];g.async=1;
+        g.src=("https:"==location.protocol?"//ssl":"//www")+".google-analytics.com/ga.js";
+        s.parentNode.insertBefore(g,s)}(document,"script"));
 
     -if AppConfig[:piwik_id]
       :javascript
@@ -49,64 +47,18 @@
 
 
   %body
-    #content{:data => {:role => 'page', :theme => 'c'}}
-      #header
-        - if current_user
-          .right
-            = link_to(image_tag('icons/list_white.png'), '#menu', :id => "menu_button")
-            = link_to(image_tag('icons/search_white.png'), people_path)
-        = link_to(image_tag('white@2x.png', :height => 22, :width => 136, :id => 'header_title'), aspects_path)
+    %header
+      /- if current_user
+      /  /= link_to(image_tag('icons/list_white.png'), '#menu', :id => "menu_button")
+      /  /= link_to(image_tag('icons/search_white.png'), people_path, :class => "right")
+      = link_to(image_tag('white@2x.png', :height => 22, :width => 136, :id => 'header_title'), aspects_path)
+
+    - if flash.present?
       %p
         - flash.each do |name, msg|
           = content_tag :div, msg, :id => "flash_#{name}"
 
-      = yield
+    = yield
 
-      = render :partial =>'shared/footer' if user_signed_in?
-
-    -if current_user
-      #menu{:data => {:role => 'page', :theme => 'c'}}
-        #header
-          .right
-            = link_to(image_tag('icons/search_white.png'), people_path)
-          = link_to(image_tag('white.png'), aspects_path)
-
-        #content{:data => {:role => 'content'}}
-
-          %h2
-            = current_user.name
-
-          %ul{:data => {:role => 'listview', :inset => 'true'}}
-            %li
-              = link_to t('notifications.index.notifications'), notifications_path
-              .ui-li-count
-                = @notification_count
-            %li
-              = link_to t('conversations.index.message_inbox'), conversations_path
-              .ui-li-count
-                = @unread_message_count
-
-
-
-          - if AppConfig[:open_invitations]
-            %h4
-              = t('shared.invitations.invite_your_friends')
-            %ul{:data => {:role => 'listview', :inset => 'true'}}
-              %li
-                = link_to t('.by_email'), new_user_invitation_path                  
-
-          %h4
-            = t('.your_aspects')
-
-          %ul{:data => {:role => 'listview', :inset => 'true'}}
-            %li
-              = link_to t('all_aspects'), aspects_path
-            - for aspect in all_aspects
-              %li
-                = link_to aspect, aspects_path('a_ids[]' => aspect.id)
-
-
-        = render :partial =>'shared/footer'
-
-  = yield :subpages
+    /= render :partial =>'shared/footer' if user_signed_in?
 

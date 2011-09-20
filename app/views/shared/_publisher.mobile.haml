@@ -2,52 +2,26 @@
 -#   licensed under the Affero General Public License version 3 or later.  See
 -#   the COPYRIGHT file.
 
-:javascript
-  $(document).ready(function(){
-    $("#status_message_text").bind("focus", function(){
-      $("#publisher fieldset:first").removeClass('hidden');
-    });
-  });
+= form_for StatusMessage.new, {:data => {:ajax => false}}  do |status|
+  = status.text_area :text, :placeholder => t('.whats_on_your_mind'), :style => "width:300px", :rows => 4
 
-#publisher_page{:data => {:role => 'page', :theme => 'c'}}
-  #header
-    - if current_user
-      .left
-        = link_to(image_tag('icons/list_white.png'), '/aspects/#menu', :id => "menu_button")
+  - for aspect_id in aspect_ids
+    = hidden_field_tag 'aspect_ids[]', aspect_id.to_s
 
-      .right
-        = link_to(image_tag('icons/search_white.png'), people_path)
-    = link_to(image_tag('white.png'), aspects_path)
-  %div{:data => {:role => 'content'}}
-    = form_for StatusMessage.new, {:data => {:ajax => false}}  do |status|
-      #publisher_text
-        = t('.whats_on_your_mind')
+  %fieldset
+    - unless aspect == :all
+      %input{:type => 'checkbox', :name => 'status_message[public]', :id => 'public', :class => 'custom', :value => 'true'}
+      %label{:for => 'public'}
+        = t('.make_public')
+      - unless current_user.services.empty?
+        %div{:data => {:role => 'fieldcontain'}}
+          %label{:for => 'services', :class => 'select'}
+            choose services
 
-      = status.text_area :text
+          - current_user.services.each do |service|
+            %input{:type => 'checkbox', :name => "services[]", :id => "#{service.provider}", :class => 'custom', :value => "#{service.provider}"}
+            %label{:for => "#{service.provider}"}
+              = "#{service.provider}"
 
-      - for aspect_id in aspect_ids
-        = hidden_field_tag 'aspect_ids[]', aspect_id.to_s
-
-
-      %fieldset
-        - unless aspect_ids
-          %input{:type => 'checkbox', :name => 'status_message[public]', :id => 'public', :class => 'custom', :value => 'true'}
-          %label{:for => 'public'}
-            = t('.make_public')
-          - unless current_user.services.empty?
-            %div{:data => {:role => 'fieldcontain'}}
-              %label{:for => 'services', :class => 'select'}
-                choose services
-
-              - current_user.services.each do |service|
-                %input{:type => 'checkbox', :name => "services[]", :id => "#{service.provider}", :class => 'custom', :value => "#{service.provider}"}
-                %label{:for => "#{service.provider}"}
-                  = "#{service.provider}"
-              -#%select{:name => 'services', :multiple => 'multiple', :id => "services"}
-                -#%option
-                  -#Choose a Service
-                -#- current_user.services.each do |service|
-                  -#%option{:value => "#{service.provider}"}
-                    -#= service.provider.titleize
-        = status.submit t('.share'), 'data-theme' => 'c'
+    = status.submit t('.share')
 
