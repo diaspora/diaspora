@@ -6,18 +6,16 @@
   <meta charset="utf-8">
   <title>{% if page.title %}{{page.title}} - {% endif %}{{site.title}}</title>
   <meta name="author" content="{{site.author}}">
-  {% if page.description %}
-    <meta name="description" content="{{page.description}}"/>
-  {% endif %}
+
+  {% capture description %}{% if page.description %}{{ page.description }}{% else %}{{ content | raw_content }}{% endif %}{% endcapture %}
+  <meta name="description" content="{{ description | strip_newlines | strip_html | truncate:150 }}">
+  {% if page.keywords %}<meta name="keywords" content="{{ page.keywords }}">{% endif %}
 
   <!-- http://t.co/dKP3o1e -->
   <meta name="HandheldFriendly" content="True">
   <meta name="MobileOptimized" content="320">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  {% if page.keywords %}
-    <meta name="keywords" content="{{page.keywords}}"/>
-  {% endif %}
   {% capture canonical %}{{ site.url }}{% if site.permalink contains '.html' %}{{ page.url }}{% else %}{{ page.url | remove:'index.html' }}{% endif %}{% endcapture %}
   <link rel="canonical" href="{{ canonical }}">
   <link href="{{ root_url }}/favicon.png" rel="shortcut icon" />
