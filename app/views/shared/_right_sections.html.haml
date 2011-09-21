@@ -43,6 +43,8 @@
       != t('aspects.index.help.satisfaction', :link => link_to("GetSatisfaction", "http://getsatisfaction.com/diaspora"))
       %br
       != t('aspects.index.help.tutorials', :link => link_to("Diasporial" , "http://diasporial.com/tutorials"))
+      %br
+      != t('aspects.index.help.email_feedback', :link => link_to("Email" , "mailto:yosem@joindiaspora.com"))
 
 - unless AppConfig.configured_services.blank? || all_services_connected?
   .section

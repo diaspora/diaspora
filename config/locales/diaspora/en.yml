@@ -174,6 +174,7 @@ en:
         feature_suggestion: "... have a %{link} suggestion?"
         tutorials: "%{link}: Community-powered tutorials, how-to, and news"
         satisfaction: "%{link}: Community-powered support"
+        email_feedback: "%{link} your feedback, if you prefer"
       cubbies:
         heading: "Connect to Cubbi.es"
         explanation: "Cubbi.es is the first Diaspora application under development."
