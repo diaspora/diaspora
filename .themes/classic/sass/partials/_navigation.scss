@@ -44,7 +44,7 @@ body > nav {
       display: block;
       padding-top: .15em;
     }
-    ul[role=subscription] {
+    ul.subscription {
       margin-left: .8em;
       float: right;
       li:last-child a { padding-right: 0; }
@@ -130,7 +130,7 @@ body > nav {
       }
     }
   }
-  ul[role=subscription] { position: relative; top: .2em; li, a { border: 0; padding: 0; }}
+  ul.subscription { position: relative; top: .2em; li, a { border: 0; padding: 0; }}
   a[rel=subscribe-rss]{ @include mask-subscription-nav('rss.png'); }
   a[rel=subscribe-email]{ @include mask-subscription-nav('email.png'); }
 }
