@@ -6,5 +6,5 @@
   :locals => {:post => @post, :commenting_disabled => defined?(@commenting_disabled),
   :expanded_info => true}
 
-.stream.show{:data=>{:guid=>@post.id}}
-  = render "comments/comments", :post => @post, :comments => @post.comments, :comments_expanded => true
+/.stream.show{:data=>{:guid=>@post.id}}
+/  = render "comments/comments", :post => @post, :comments => @post.comments, :comments_expanded => true

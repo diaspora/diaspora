@@ -21,6 +21,7 @@ a {
 body {
   background: #555555;
   max-width: 100%;
+  margin-top: 55px;
 }
 
 #login_form {
@@ -83,20 +84,22 @@ body {
     bottom: 0; };
   padding: 0 !important; }
 
-.comments {
-  color: #cccccc;
-  .from {
-    a {
-      color: #888888 !important; } } }
-
 .new_comment {
   padding: 10px;
+}
+
+.comments {
+  padding: 0;
+  margin: 0;
+  .content {
+    padding: 0;
+  }
 }
 
 .comment {
   padding: 4px 0;
   border: {
-    bottom: 1px dotted #444444; };
+    bottom: 1px dotted #ccc; };
 }
 
 .stream_element {
@@ -106,7 +109,10 @@ body {
     color: white; };
   border: {
     top: 1px solid black;
-    bottom: 1px solid black; }; }
+    bottom: 1px solid black; };
+
+  max-width: 700px;
+}
 
 .photo_attachments {
   position: relative;
@@ -208,6 +214,11 @@ body {
 header {
   @include linear-gradient(#444444, black);
   @include box-shadow(0,1px,1px,rgba(0,0,0,0.7));
+  width: 100%;
+  position: fixed;
+  z-index: 10;
+  top: 0;
+
   border: {
     bottom: 1px solid #222;
   }
@@ -216,7 +227,6 @@ header {
     float: right; } }
 
 footer {
-  font-size: larger;
   text-align: center;
   a,
   a:visited {
@@ -236,9 +246,7 @@ footer {
     top: 10px; };
   border: {
     top: 1px solid #dddddd; };
-  height: 24px;
-  font: {
-    size: larger; };
+  min-height: 24px;
   a {
     color: #999999 !important;
     font-weight: bold !important; }
@@ -249,12 +257,18 @@ footer {
     text: {
       align: center;
     }
+    border: {
+      bottom: 1px solid #ccc;
+    }
     font: {
       size: 28px;
     }
     color: #ccc;
+
     .tab {
       display: table-cell;
+      position:relative;
+      top: -5px;
 
       border: {
         right: 1px solid #ccc;
@@ -309,3 +323,9 @@ form {
   input {
     font: {
       size: larger; }; } }
+
+.compose_icon {
+  position: absolute;
+  top: 6px;
+  right: 15px;
+}

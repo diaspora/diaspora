@@ -49,10 +49,13 @@
             = link_to '', '#', :class => "image_link like_action active", 'data-post-id' => post.id, 'data-like-id' => current_user.like_for(post).id
           - else
             = link_to '', '#', :class => "image_link like_action inactive", 'data-post-id' => post.id
-            
-        .reshare_count.tab
-          = post.comments.size
-          = link_to '', post_path(post), :class => "image_link comment_action"
+
+        /.reshare_count.tab
+        /  = post.comments.size
+        /  = link_to '', post_path(post), :class => "image_link comment_action"
+
+      = render "comments/comments", :post => post, :comments => post.comments, :comments_expanded => true
+
 
     - else
       .floater
