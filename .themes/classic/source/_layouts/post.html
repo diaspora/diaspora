@@ -4,7 +4,7 @@ single: true
 ---
 
 <div>
-<article class="hentry">
+<article class="hentry" role="article">
   {% include article.html %}
   <footer>
     <p class="meta">
@@ -25,7 +25,7 @@ single: true
 {% endif %}
 </div>
 {% unless page.sidebar == false %}
-<aside role=sidebar>
+<aside class="sidebar">
   {% if site.post_asides.size %}
     {% include_array post_asides %}
   {% else %}

@@ -41,7 +41,7 @@ body {
   max-width: $max-width;
   position: relative;
   margin: 0 auto;
-  > header, > nav, > footer, #content > article, #content > div > article, #content > div > section, nav[role=pagination] {
+  > header, > nav, > footer, #content > article, #content > div > article, #content > div > section, nav.pagination {
     @extend .group;
     padding-left: $pad-min;
     padding-right: $pad-min;
@@ -67,7 +67,7 @@ body {
 
 #content { > div, > article { width: 100%; }}
 
-aside[role=sidebar] {
+aside.sidebar {
   float: none;
   padding: 0 $pad-min 1px;
   background-color: lighten($sidebar-bg, 2);
@@ -88,7 +88,7 @@ aside[role=sidebar] {
 
 body.sidebar-footer {
   @media only screen and (min-width: 750px) {
-    aside[role=sidebar]{ @include collapse-sidebar; }
+    aside.sidebar{ @include collapse-sidebar; }
   }
   #content { margin-right: 0px; }
   .toggle-sidebar { display: none; }
@@ -98,7 +98,7 @@ body.sidebar-footer {
   body > header { font-size: 1em; }
 }
 @media only screen and (min-width: 750px) {
-  aside[role=sidebar] { @include collapse-sidebar; }
+  aside.sidebar { @include collapse-sidebar; }
 }
 @media only screen and (min-width: 768px) {
   body { -webkit-text-size-adjust: auto; }
@@ -120,7 +120,7 @@ body.sidebar-footer {
       float: left;
     }
   }
-  aside[role=sidebar] {
+  aside.sidebar {
     @extend .group;
     width: $sidebar-width-medium - $sidebar-pad-medium*2;
     padding: 0 $sidebar-pad-medium $sidebar-pad-medium;
@@ -147,7 +147,7 @@ body.sidebar-footer {
       padding-bottom: $pad-wide/2;
     }
   }
-  aside[role=sidebar] {
+  aside.sidebar {
     width: $sidebar-width-wide - $sidebar-pad-wide*2;
     padding: 1.2em $sidebar-pad-wide $sidebar-pad-wide;
     .collapse-sidebar & {

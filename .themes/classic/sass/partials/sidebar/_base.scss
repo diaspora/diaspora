@@ -1,7 +1,7 @@
 .side-shadow-border {
   @include box-shadow(lighten($sidebar-bg, 5) 0 1px);
 }
-aside[role=sidebar] {
+aside.sidebar {
   color: $sidebar-color;
   text-shadow: lighten($sidebar-bg, 8) 0 1px;
   a { @extend .force-wrap; }

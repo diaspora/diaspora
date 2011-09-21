@@ -31,8 +31,8 @@ body > nav {
       }
     }
   }
-  fieldset[role=site-search]{ float: right; width: 48%; }
-  fieldset[role=mobile-nav]{ float: left; width: 48%;
+  fieldset[role=search]{ float: right; width: 48%; }
+  fieldset.mobile-nav{ float: left; width: 48%;
     select{ width: 100%; font-size: .8em; border: 1px solid #888;}
   }
   ul { display: none; }
@@ -85,8 +85,8 @@ body > nav {
       width: $sidebar-width-medium - $pad-medium*2 - $sidebar-pad-medium - 58px;
       .search { width: 91%; }
     }
-    fieldset[role=mobile-nav] { display: none; }
-    fieldset[role=site-search]{ width: 99%; }
+    fieldset.mobile-nav { display: none; }
+    fieldset[role=search]{ width: 99%; }
   }
   @media only screen and (min-width: 992px) {
     form {

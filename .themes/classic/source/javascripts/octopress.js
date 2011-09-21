@@ -1,7 +1,7 @@
 function getNav() {
-  var mobileNav = $('nav[role=navigation] fieldset[role=site-search]').after('<fieldset role="mobile-nav"></fieldset>').next().append('<select></select>');
+  var mobileNav = $('nav[role=navigation] fieldset[role=search]').after('<fieldset class="mobile-nav"></fieldset>').next().append('<select></select>');
   mobileNav.children('select').append('<option value="">Navigate&hellip;</option>');
-  $('ul[role=main-navigation] a').each(function(link) {
+  $('ul.main-navigation a').each(function(link) {
     mobileNav.children('select').append('<option value="'+link.href+'">&bull; '+link.text+'</option>');
   });
   mobileNav.children('select').bind('change', function(event) {
@@ -19,7 +19,7 @@ function addSidebarToggler() {
       $('body').addClass('collapse-sidebar');
     }
   });
-  var sections = $('aside[role=sidebar] > section');
+  var sections = $('aside.sidebar > section');
   if (sections.length > 1) {
     sections.each(function(section, index){
       if ((sections.length >= 3) && index % 3 === 0) {
@@ -29,7 +29,7 @@ function addSidebarToggler() {
       $(section).addClass(count);
     });
   }
-  if (sections.length >= 3){ $('aside[role=sidebar]').addClass('thirds'); }
+  if (sections.length >= 3){ $('aside.sidebar').addClass('thirds'); }
 }
 
 function testFeatures() {

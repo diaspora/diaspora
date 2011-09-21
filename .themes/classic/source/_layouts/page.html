@@ -3,7 +3,7 @@ layout: default
 ---
 
 <div>
-<article>
+<article role="article">
   {% if page.title %}
   <header>
     <h1 class="entry-title">{{ page.title | titlecase }}</h1>
@@ -32,7 +32,7 @@ layout: default
 {% endif %}
 </div>
 {% unless page.sidebar == false %}
-<aside role=sidebar>
+<aside class="sidebar">
   {% if site.page_asides.size %}
     {% include_array page_asides %}
   {% else %}

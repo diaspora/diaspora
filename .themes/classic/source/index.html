@@ -10,7 +10,7 @@ layout: default
       {% include article.html %}
     </article>
   {% endfor %}
-  <nav role="pagination">
+  <nav class="pagination">
     <div>
       {% if paginator.next_page %}
         <a class="prev" href="{{paginator.next_page}}">&larr; Older</a>
@@ -22,7 +22,7 @@ layout: default
     </div>
   </nav>
 </div>
-<aside role=sidebar>
+<aside class="sidebar">
   {% if site.blog_index_asides.size %}
     {% include_array blog_index_asides %}
   {% else %}
