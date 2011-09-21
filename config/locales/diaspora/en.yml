@@ -172,8 +172,8 @@ en:
         have_a_question: "... have a %{link}?"
         find_a_bug: "... find a %{link}?"
         feature_suggestion: "... have a %{link} suggestion?"
-        tutorials: "%{link}: Commuinity powered tutorials, how-to, and news"
-        satisfaction: "%{link}: Commuinity powered support"
+        tutorials: "%{link}: Community-powered tutorials, how-to, and news"
+        satisfaction: "%{link}: Community-powered support"
       cubbies:
         heading: "Connect to Cubbi.es"
         explanation: "Cubbi.es is the first Diaspora application under development."
