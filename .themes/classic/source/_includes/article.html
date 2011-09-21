@@ -6,7 +6,12 @@
       <h1 class="entry-title">{{ page.title | titlecase }}</h1>
     {% endif %}
     {% unless page.meta == false %}
-      <p class="meta">{% include post/date.html %}{{ time }}</p>
+      <p class="meta">
+        {% include post/date.html %}{{ time }}
+        {% if site.disqus_short_name and page.comments != false and site.disqus_show_comment_count == true %}
+         | <a href="{% if index %}{{ root_url }}{{ post.url }}{% endif %}#disqus_thread">Comments</a>
+        {% endif %}
+      </p>
     {% endunless %}
   </header>
 {% endunless %}
