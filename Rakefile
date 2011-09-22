@@ -197,35 +197,23 @@ end
 
 desc "Default deploy task"
 task :deploy do
-  [:copydot, "#{deploy_default}"].each { |t| Rake::Task[t].execute }
+  Rake::Task[:copydot].invoke(source_dir, public_dir)
+  Rake::Task["#{deploy_default}"].execute
 end
 
 desc "Generate website and deploy"
-task :gen_deploy do
-  [:integrate, :generate, :deploy].each { |t| Rake::Task[t].execute }
+task :gen_deploy => [:integrate, :generate, :deploy] do
 end
 
 desc "copy dot files for deployment"
-task :copydot do
+task :copydot, :source, :dest do |t, args|
   exclusions = [".", "..", ".DS_Store"]
-  Dir["#{source_dir}/**/.*"].each do |file|
+  Dir["#{args.source}/**/.*"].each do |file|
     if !File.directory?(file) && !exclusions.include?(File.basename(file))
-      cp(file, file.gsub(/#{source_dir}/, "#{public_dir}"));
+      cp(file, file.gsub(/#{args.source}/, "#{args.dest}"));
     end
   end
 end
-
-desc "copy dot files for Github Pages deployment"
-task :copydot_deploy do
-  exclusions = [".", "..", ".DS_Store"]
-  Dir["#{public_dir}/**/.*"].each do |file|
-    if !File.directory?(file) && !exclusions.include?(File.basename(file))
-      cp(file, file.gsub(/#{public_dir}/, "#{deploy_dir}"));
-    end
-  end
-  puts "\n## copying #{public_dir} to #{deploy_dir}"
-end
-
 
 desc "Deploy website via rsync"
 task :rsync do
@@ -237,7 +225,8 @@ desc "deploy public directory to github pages"
 multitask :push do
   puts "## Deploying branch to Github Pages "
   (Dir["#{deploy_dir}/*"]).each { |f| rm_rf(f) }
-  Rake::Task[:copydot_deploy].execute
+  Rake::Task[:copydot].invoke(public_dir, deploy_dir)
+  puts "\n## copying #{public_dir} to #{deploy_dir}"
   cd "#{deploy_dir}" do
     system "git add ."
     system "git add -u"
