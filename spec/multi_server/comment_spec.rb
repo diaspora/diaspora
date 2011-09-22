@@ -5,21 +5,14 @@ require 'spec_helper'
 unless Server.all.empty?
   describe "commenting" do
     before(:all) do
-      WebMock::Config.instance.allow_localhost = true
-      enable_typhoeus
-      #Server.all.each{|s| s.kill if s.running?}
-      #Server.all.each{|s| s.run}
+      Server.start
     end
 
     after(:all) do
-      disable_typhoeus
-      #Server.all.each{|s| s.kill if s.running?}
-      #sleep(1)
-      #Server.all.each{|s| puts "Server at port #{s.port} still running." if s.running?}
-      WebMock::Config.instance.allow_localhost = false
+      Server.stop
     end
     before do
-      Server.all.each{|s| s.truncate_database; }
+      Server.truncate_databases
       @post = nil
       Server[0].in_scope do
         poster = Factory.create(:user_with_aspect, :username => "poster")

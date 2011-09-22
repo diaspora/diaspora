@@ -180,7 +180,6 @@ production:
   <<: *defaults
   mount_resque_web: false
 
-
 #
 # Do not touch unless you know what you're doing
 #
@@ -191,7 +190,6 @@ test:
   socket_port: 8081
   enable_splunk_logging: false
   open_invitations: true
-
 
 integration_1:
   <<: *defaults
