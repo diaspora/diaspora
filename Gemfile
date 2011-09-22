@@ -121,6 +121,7 @@ group :test do
   gem 'factory_girl_rails'
   gem 'fixture_builder', '0.3.0'
   gem 'fuubar'
+  gem 'mock_redis'
   gem 'mongrel', :require => false, :platforms => :ruby_18
   gem 'rspec', '>= 2.0.0'
   gem 'rspec-core', '2.6.0'
@@ -129,7 +130,6 @@ group :test do
   gem "selenium-webdriver", "~> 2.7.0"
   gem 'webmock', :require => false
   gem 'sqlite3'
-  gem 'mock_redis'
 end
 
 group :development do

@@ -29,6 +29,11 @@
   .section#followed_tags_listing
     = render 'tags/followed_tags_listings'
 
+  .section
+    %ul.left_nav
+      .li
+        %b= link_to t('.notes'), notes_path, :class => 'home_selector'
+
 .span-13.append-1
   #aspect_stream_container.stream_container
     = render 'aspects/aspect_stream', :stream => @stream

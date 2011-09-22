@@ -158,6 +158,7 @@ en:
       friends: "Friends"
     index: 
       mentions: "Mentions"
+      notes: "Notes"
       featured_users: "Featured Users"
       community_members: "Featured Diaspora* members"
       see_more_from_us: "See more of the D* community."
@@ -772,6 +773,7 @@ en:
       unlike: "Unlike"
       dislike: "Dislike"
       shared_with: "Shared with: %{aspect_names}"
+      read_more: "Read More..."
     footer:
       logged_in_as: "logged in as %{name}"
       your_aspects: "your aspects"
@@ -842,6 +844,9 @@ en:
     public:
       title: "Public Activity"
       contacts_title: "Recent Posters"
+    notes:
+      title: "Notes by Your Friends"
+      contacts_title: "People who have written notes"
 
   users:
     logged_out:

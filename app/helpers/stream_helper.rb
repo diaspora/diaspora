@@ -3,23 +3,29 @@
 #   the COPYRIGHT file.
 
 module StreamHelper
-  def next_page_path(opts ={})
+  def next_page_path(opts={})
+    if [TagsController, AppsController, PeopleController].include? controller.class
+      parameters = {:max_time => @posts.last.created_at.to_i}
+    else
+      parameters = {:max_time => time_for_scroll(opts[:ajax_stream], @stream), :sort_order => session[:sort_order]}
+    end
+
     if controller.instance_of?(TagsController)
-      tag_path(@tag, :max_time => @posts.last.created_at.to_i)
+      tag_path(@tag, parameters)
     elsif controller.instance_of?(AppsController)
-      "/apps/1?#{{:max_time => @posts.last.created_at.to_i}.to_param}"
+      "/apps/1?#{parameters.to_param}"
     elsif controller.instance_of?(PeopleController)
-      person_path(@person, :max_time => @posts.last.created_at.to_i)
-    elsif controller.instance_of?(TagFollowingsController) 
-      tag_followings_path(:max_time => time_for_scroll(opts[:ajax_stream], @stream), :sort_order => session[:sort_order])
-    elsif controller.instance_of?(FeaturedUsersController) 
-      featured_path(:max_time => time_for_scroll(opts[:ajax_stream], @stream), :sort_order => session[:sort_order])
-    elsif controller.instance_of?(MentionsController) 
-      mentions_path(:max_time => time_for_scroll(opts[:ajax_stream], @stream), :sort_order => session[:sort_order])
-    elsif controller.instance_of?(PostsController) 
-      public_stream_path(:max_time => time_for_scroll(opts[:ajax_stream], @stream), :sort_order => session[:sort_order])
+      person_path(@person, parameters)
+    elsif controller.instance_of?(TagFollowingsController)
+      tag_followings_path(parameters)
+    elsif controller.instance_of?(FeaturedUsersController)
+      featured_users_path(parameters)
+    elsif controller.instance_of?(MentionsController)
+      mentions_path(parameters)
+    elsif controller.instance_of?(NotesController)
+      notes_path(parameters)
     elsif controller.instance_of?(AspectsController)
-      aspects_path(:max_time => time_for_scroll(opts[:ajax_stream], @stream), :a_ids => @stream.aspect_ids, :sort_order => session[:sort_order])
+      aspects_path(parameters.merge({:a_ids => @stream.aspect_ids}))
     else
       raise 'in order to use pagination for this new controller, update next_page_path in stream helper'
     end
@@ -48,5 +54,9 @@ module StreamHelper
 
   def reshare?(post)
     post.instance_of?(Reshare)
+  end
+  
+  def note?(post)
+    post.instance_of?(Note)
   end
 end

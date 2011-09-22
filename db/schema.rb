@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111003232053) do
+ActiveRecord::Schema.define(:version => 20111005063626) do
 
   create_table "aspect_memberships", :force => true do |t|
     t.integer  "aspect_id",  :null => false
@@ -152,6 +152,13 @@ ActiveRecord::Schema.define(:version => 20111003232053) do
 
   add_index "messages", ["author_id"], :name => "index_messages_on_author_id"
   add_index "messages", ["conversation_id"], :name => "messages_conversation_id_fk"
+
+  create_table "note_extensions", :force => true do |t|
+    t.text     "text",       :limit => 16777215
+    t.integer  "post_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "notification_actors", :force => true do |t|
     t.integer  "notification_id"

@@ -95,6 +95,19 @@ Factory.define :reshare do |r|
   r.association(:author, :factory => :person)
 end
 
+Factory.define :note do |n|
+  n.text "This is a note!"
+  n.association :author, :factory => :person
+  n.after_build do |n|
+    n.diaspora_handle = n.author.diaspora_handle
+  end
+end
+
+Factory.define :note_extension do |ne|
+  ne.text " This is the extension..."
+  ne.association :note, :factory => :note
+end
+
 Factory.define :invitation do |i|
   i.service "email"
   i.identifier "bob.smith@smith.com"

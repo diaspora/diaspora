@@ -26,3 +26,8 @@ end
 When /^The user deletes their first post$/ do
   @me.posts.first.destroy
 end
+
+Given /^"([^"]*)" has a public note with text "([^"]*)"$/ do |email, text|
+  user = User.find_by_email(email)
+  user.post(:note, :text => text, :public => true, :to => user.aspects)
+end

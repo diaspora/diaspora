@@ -50,12 +50,16 @@ class StatusMessage < Post
     write_attribute(:text, text)
   end
 
+  def format_text(text, opts={})
+    escaped_message = opts[:plain_text] ? text : ERB::Util.h(text)
+    mentioned_message = self.format_mentions(escaped_message, opts)
+    Diaspora::Taggable.format_tags(mentioned_message, opts.merge(:no_escape => true))
+  end
+
   def formatted_message(opts={})
     return self.raw_message unless self.raw_message
 
-    escaped_message = opts[:plain_text] ? self.raw_message: ERB::Util.h(self.raw_message)
-    mentioned_message = self.format_mentions(escaped_message, opts)
-    Diaspora::Taggable.format_tags(mentioned_message, opts.merge(:no_escape => true))
+    format_text(self.raw_message, opts)
   end
 
   def format_mentions(text, opts = {})

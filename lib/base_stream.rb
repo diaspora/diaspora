@@ -1,5 +1,5 @@
 class BaseStream
-  TYPES_OF_POST_IN_STREAM = ['StatusMessage', 'Reshare', 'ActivityStreams::Photo']
+  TYPES_OF_POST_IN_STREAM = ['StatusMessage', 'Reshare', 'ActivityStreams::Photo', 'Note']
   attr_accessor :max_time, :order, :user
 
   def initialize(user, opts={})

@@ -40,7 +40,14 @@ class StatusMessagesController < ApplicationController
 
     normalize_public_flag!
 
-    @status_message = current_user.build_post(:status_message, params[:status_message])
+    create_type = params[:status_message][:type] || :status_message
+    if create_type == 'Note' and params[:status_message][:text].length > 10000
+      full = params[:status_message][:text]
+      params[:status_message][:text] = full[0..9999]
+      params[:note_extension] = {:text => full[10000..-1]}
+    end
+
+    @status_message = current_user.build_post(create_type, params[:status_message])
 
     photos = Photo.where(:id => [*params[:photos]], :diaspora_handle => current_user.person.diaspora_handle)
     unless photos.empty?
@@ -53,6 +60,12 @@ class StatusMessagesController < ApplicationController
         aspect_ids = current_user.aspects.map{|a| a.id}
       else
         aspect_ids = params[:aspect_ids]
+      end
+
+      if params[:note_extension]
+        extension = NoteExtension.new(params[:note_extension])
+        extension.note = @status_message
+        extension.save
       end
 
       aspects = current_user.aspects_from_ids(aspect_ids)

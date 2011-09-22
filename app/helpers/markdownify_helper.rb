@@ -21,13 +21,16 @@ module MarkdownifyHelper
 
     # This ugly little hack basically means 
     #   "Give me the rawest contents of target available"
-    if target.respond_to?(:raw_message)
+    if target.instance_of?(Note) and render_options[:full_note]
+      message = target.raw_full_text
+    elsif target.respond_to?(:raw_message)
       message = target.raw_message
     elsif target.respond_to?(:text)
       message = target.text
     else
       message = target.to_s
     end
+    render_options.delete :full_note
 
     return '' if message.blank?
 
