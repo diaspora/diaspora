@@ -5,65 +5,48 @@
 require 'aspect_stream'
 
 describe AspectStream do
- #describe '#aspects' do
- #  it 'queries the user given initialized aspect ids' do
- #    alice = stub.as_null_object
- #    stream = AspectStream.new(alice, [1,2,3])
+  describe '#aspects' do
+    it 'queries the user given initialized aspect ids' do
+      alice = stub.as_null_object
+      stream = AspectStream.new(alice, [1,2,3])
 
- #    alice.aspects.should_receive(:where)
- #    stream.aspects
- #  end
+      alice.aspects.should_receive(:where)
+      stream.aspects
+    end
 
- #  it "returns all the user's aspects if no aspect ids are specified" do
- #    alice = stub.as_null_object
- #    stream = AspectStream.new(alice, [])
+    it "returns all the user's aspects if no aspect ids are specified" do
+      alice = stub.as_null_object
+      stream = AspectStream.new(alice, [])
 
- #    alice.aspects.should_not_receive(:where)
- #    stream.aspects
- #  end
+      alice.aspects.should_not_receive(:where)
+      stream.aspects
+    end
 
- #  it 'filters aspects given a user' do
- #    alice = stub(:aspects => [stub(:id => 1)])
- #    alice.aspects.stub(:where).and_return(alice.aspects)
- #    stream = AspectStream.new(alice, [1,2,3])
+    it 'filters aspects given a user' do
+      alice = stub(:aspects => [stub(:id => 1)])
+      alice.aspects.stub(:where).and_return(alice.aspects)
+      stream = AspectStream.new(alice, [1,2,3])
 
- #    stream.aspects.should == alice.aspects
- #  end
- #end
+      stream.aspects.should == alice.aspects
+    end
+  end
 
- #describe '#aspect_ids' do
- #  it 'maps ids from aspects' do
- #    alice = stub.as_null_object
- #    aspects = stub.as_null_object
+  describe '#aspect_ids' do
+    it 'maps ids from aspects' do
+      alice = stub.as_null_object
+      aspects = stub.as_null_object
 
- #    stream = AspectStream.new(alice, [1,2])
+      stream = AspectStream.new(alice, [1,2])
 
- #    stream.should_receive(:aspects).and_return(aspects)
- #    aspects.should_receive(:map)
- #    stream.aspect_ids
- #  end
- #end
+      stream.should_receive(:aspects).and_return(aspects)
+      aspects.should_receive(:map)
+      stream.aspect_ids
+    end
+  end
 
   describe '#posts' do
     before do
       @alice = stub.as_null_object
-    end
-
-    it 'calls visible posts with blank by_members_of if called with all aspects' do
-      stream = AspectStream.new(@alice, [])
-      stream.stub(:aspect_ids).and_return([1,2])
-
-      @alice.stub(:visible_posts).and_return(stub.as_null_object)
-      @alice.should_not_receive(:visible_posts).with(hash_including(:by_members_of => anything)).and_return(stub.as_null_object)
-      stream.posts
-    end
-    
-    it 'calls visible posts with by_members_of if with aspects are filtered' do
-      stream = AspectStream.new(@alice, [1,2])
-      stream.stub(:aspect_ids).and_return([1])
-
-      @alice.should_receive(:visible_posts).with(hash_including(:by_members_of => [1])).and_return(stub.as_null_object)
-      stream.posts
     end
 
     it 'calls visible posts for the given user' do
