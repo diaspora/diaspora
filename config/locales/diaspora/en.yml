@@ -841,6 +841,8 @@ en:
     getting_started:
       welcome: "Welcome!"
       welcome_with_name: "Welcome, %{name}!"
+      community_welcome: "Diaspora's community is happy to have you aboard!"
+      not_mandatory: "Completing the following steps will improve your Diaspora experience, but they are not mandatory."
 
       finished: "Finished"
 
