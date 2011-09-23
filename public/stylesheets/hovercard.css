@@ -1,0 +1,64 @@
+/* Mixin file for sass.  Here is where we define our variables and
+   browser compatability functions used in all scss/sass files */
+/* Diapora's default color palate */
+/* Transision defaults */
+/* Style includes */
+/* Style includes */
+/* Browser compatability */
+#hovercard {
+  -moz-border-radius: 2px 2px 2px 2px;
+  -webkit-border-radius: 2px 2px 2px 2px;
+  border-radius: 2px 2px 2px 2px;
+  -webkit-box-shadow: 0 0 5px #666666;
+  -moz-box-shadow: 0 0 5px #666666;
+  box-shadow: 0 0 5px #666666;
+  position: relative;
+  background-color: white;
+  height: 70px;
+  border: 1px solid #999999;
+  padding: 5px;
+  padding-bottom: 25px; 
+  font-size: small;}
+  #hovercard .avatar {
+    position: relative;
+    float: left;
+    height: 70px !important;
+    width: 70px !important;
+    top: 0 !important;
+    margin-right: 10px;
+    margin-left: 0; }
+  #hovercard h4 {
+    margin-bottom: 10px;
+    overflow: hidden; }
+  #hovercard a {
+    color: #3f8fba;
+    font-weight: bold !important; }
+  #hovercard .hovercard_footer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background-color: #eeeeee;
+    width: 100%;
+    min-height: 19px;
+    font-size: smaller;
+    border-top: 1px solid #cccccc; }
+    #hovercard .hovercard_footer .footer_container {
+      padding: 1px 5px; }
+      #hovercard .hovercard_footer .footer_container .hashtags {
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        font-size: x-small; }
+      #hovercard .hovercard_footer .footer_container a {
+        color: #999999;
+        margin-right: 4px;
+        font-weight: normal; }
+
+#hovercard_container {
+  position: absolute;
+  display: none;
+  z-index: 10;
+  min-width: 250px;
+  max-width: 300px;
+  padding: 10px;
+    padding-top: 5px; }
