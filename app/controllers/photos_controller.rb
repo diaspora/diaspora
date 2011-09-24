@@ -75,6 +75,7 @@ class PhotosController < ApplicationController
 
         respond_to do |format|
           format.json{ render(:layout => false , :json => {"success" => true, "data" => @photo}.to_json )}
+          format.html{ render(:layout => false , :json => {"success" => true, "data" => @photo}.to_json )}
         end
       else
         respond_with @photo, :location => photos_path, :error => message
