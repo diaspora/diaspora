@@ -139,13 +139,9 @@
             %h4{:style => "margin-top:7px;"}
               = t('.featured_tags')
             %p
-              = link_to "#diaspora", tag_path('diaspora'), :target => "_blank"
-              %br
-              = link_to "#art", tag_path('art'), :target => "_blank"
-              %br
-              = link_to "#gif", tag_path('gif'), :target => "_blank"
-              %br
-              = link_to "#french", tag_path('french'), :target => "_blank"
+              - ["diaspora", "art", "gif", "french"].each do |tag_name|
+                = tag_link(tag_name)
+                %br
           .clearfix
             %br
           %br

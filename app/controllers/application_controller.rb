@@ -16,6 +16,7 @@ class ApplicationController < ActionController::Base
   inflection_method :grammatical_gender => :gender
 
   helper_method :all_aspects, :all_contacts_count, :my_contacts_count, :only_sharing_count
+  helper_method :tags, :tag_followings
 
   def ensure_http_referer_is_set
     request.env['HTTP_REFERER'] ||= '/aspects'
@@ -117,4 +118,18 @@ class ApplicationController < ActionController::Base
   def after_sign_in_path_for(resource)
     stored_location_for(:user) || (current_user.getting_started? ? getting_started_path : aspects_path)
   end
+
+  def tag_followings
+    if current_user
+      if @tag_followings == nil
+        @tag_followings = current_user.tag_followings
+      end
+      @tag_followings
+    end
+  end
+
+  def tags
+    @tags ||= current_user.followed_tags
+  end
+
 end

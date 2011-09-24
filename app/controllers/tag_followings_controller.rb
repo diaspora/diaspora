@@ -19,7 +19,7 @@ class TagFollowingsController < ApplicationController
       flash[:error] = I18n.t('tag_followings.create.failure', :name => params[:name])
     end
 
-    redirect_to tag_path(:name => params[:name])
+    redirect_to :back
   end
 
   # DELETE /tag_followings/1
