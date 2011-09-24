@@ -56,18 +56,16 @@ describe TagFollowingsController do
         }.to_not change(alice.tag_followings, :count).by(1)
       end
 
-      it "redirects and flashes success to the tag page" do
+      it "flashes success to the tag page" do
         post :create, valid_attributes
 
-        response.should redirect_to(tag_path(:name => valid_attributes[:name]))
         flash[:notice].should == "Successfully following: ##{valid_attributes[:name]}"
       end
 
-      it "redirects and flashes error if you already have a tag" do
+      it "flashes error if you already have a tag" do
         TagFollowing.any_instance.stub(:save).and_return(false)
         post :create, valid_attributes
 
-        response.should redirect_to(tag_path(:name => valid_attributes[:name]))
         flash[:error].should == "Failed to follow: ##{valid_attributes[:name]}"
       end
 

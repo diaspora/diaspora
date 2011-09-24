@@ -195,3 +195,10 @@ When /^I click on "([^"]*)" aspect edit icon$/ do |aspect_name|
     find(:xpath, "//a[@rel='facebox'][.//img[@title='Edit #{aspect_name}']]").click
   end
 end
+
+Then /^I follow Edit Profile in the same window$/ do 
+  page.execute_script("$('a[href=\"#{edit_profile_path}\"]').removeAttr('target')")
+
+  And %(I follow "Edit Profile")
+end
+
