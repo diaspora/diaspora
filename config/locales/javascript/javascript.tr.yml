@@ -6,31 +6,31 @@
 tr: 
   javascripts: 
     aspect_dropdown: 
-      add_to_aspect: "Add to aspect"
-      all_aspects: "All aspects"
+      add_to_aspect: "Yönüne ekle"
+      all_aspects: "Tüm yönler"
       toggle: 
-        few: "In {{count}} aspects"
-        many: "In {{count}} aspects"
-        one: "In {{count}} aspect"
-        other: "In {{count}} aspects"
-        two: "In {{count}} aspects"
-        zero: "Add to aspect"
+        few: "{{count}} yön"
+        many: "{{count}} yön"
+        one: "{{count}} yön"
+        other: "{{count}} yön"
+        two: "{{count}} yön"
+        zero: "Yönüne ekle"
     comments: 
-      hide: "hide comments"
-      show: "show all comments"
+      hide: "yorumları gizle"
+      show: "tüm yorumları görüntüle"
     confirm_dialog: "Emin misiniz?"
-    failed_to_like: "Failed to like!"
-    failed_to_post_message: "Failed to post message!"
+    failed_to_like: "Beğenme başarısız oldu!"
+    failed_to_post_message: "Gönderi başarısız oldu!"
     infinite_scroll: 
-      no_more: "No more posts."
+      no_more: "Daha fazla gönderi yok."
     publisher: 
-      at_least_one_aspect: "You must publish to at least one aspect"
-      limited: "Limited - your post will only be seen by people you are sharing with"
-      public: "Public - your post will be visible to everyone and found by search engines"
+      at_least_one_aspect: "En az bir yönün yayınlanmak zorundadır"
+      limited: "Sınırlı - gönderi sadece paylaşılan kişiler tarafından görünür"
+      public: "Genel - gönderi herkes tarafından görünür ve arama motorları tarafından bulunur olacak"
     reshares: 
-      duplicate: "You've already reshared that post!"
+      duplicate: "Zaten bu gönderiyi tekrar paylaştın!"
     search_for: "{{name}}'i ara"
-    show_more: "show more"
+    show_more: "daha fazlasını göster"
     timeago: 
       day: "1 gün"
       days: "%d günler"
@@ -51,4 +51,4 @@ tr:
       unknown: "Bilinmeyen video tipi"
       watch: "Bu videoyu {{provider}}'da izle"
     web_sockets: 
-      disconnected: "The websocket is closed; posts will no longer be streamed live."
+      disconnected: "Websocket kapalı; gönderiler bundan sonra canlı akış olacak."

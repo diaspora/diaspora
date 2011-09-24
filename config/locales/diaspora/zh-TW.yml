@@ -37,7 +37,7 @@ zh-TW:
             person: 
               invalid: "不合格."
             username: 
-              invalid: "不被接受. 只能夠使用字母, 數字, 以及底線符號"
+              invalid: "不被接受. 只能夠使用字母, 數字, 以及底線符號."
               taken: "已被使用."
   ago: "%{time}前"
   all_aspects: "所有面向"
@@ -101,7 +101,16 @@ zh-TW:
         heading: "Diaspora 識別碼"
       donate: "捐獻"
       handle_explanation: "這是你的 diaspora 識別碼. 就像電子信箱一樣, 你可以把它給想聯絡你的人."
-      keep_us_running: "為了讓 %{pod} 高速奔馳, 提供些咖啡存量給我們的伺服器吧!"
+      help: 
+        did_you: "Did you:"
+        feature_suggestion: "... have a %{link} suggestion?"
+        find_a_bug: "... find a %{link}?"
+        have_a_question: "... have a %{link}?"
+        here_to_help: "Diaspora community is here to help!"
+        more_support: "For more support, you should also check out %{link}."
+        need_help: "Need Help?"
+        tutorials: "For tutorials, check out %{link}."
+      keep_us_running: "為了讓 %{pod} 高速奔馳, 用每月捐款來提供些咖啡存量給我們的伺服器吧!"
       no_contacts: "沒有任何聯絡人"
       no_tags: "+ 找個標籤來追蹤"
       people_sharing_with_you: "跟你分享的人"
@@ -110,7 +119,7 @@ zh-TW:
         content: "你可以連結以下服務至 Diaspora:"
         heading: "連結服務"
       tags_following: "追蹤的標籤"
-      unfollow_tag: "停止追隨#%{tag}"
+      unfollow_tag: "停止追蹤#%{tag}"
       your_aspects: "你的面向"
     many: "%{count}個面向"
     move_contact: 
@@ -426,7 +435,7 @@ zh-TW:
     comment_on_post: 
       reply: "回或看 %{name} 的貼文 >"
     confirm_email: 
-      click_link: "請按一下以下連結, 來啟用你新的電子郵件信箱 %{unconfirmed_email}:"
+      click_link: "請使用以下連結, 來啟用你新的電子郵件信箱 %{unconfirmed_email}:"
       subject: "請啟用你新的電子信箱 %{unconfirmed_email}"
     email_sent_by_diaspora: "這封電子郵件是從 Diaspora 寄出. 如果你不想再收到這類的信件,"
     hello: "%{name}你好!"
@@ -649,7 +658,7 @@ zh-TW:
       no_services: "你還沒有任何已連結的服務."
       really_disconnect: "切斷與 %{service} 的連結?"
     inviter: 
-      click_link_to_accept_invitation: "按一下這個連結來接受邀請"
+      click_link_to_accept_invitation: "使用這個連結來接受邀請"
       join_me_on_diaspora: "跟我一起加入 DIASPORA*"
     remote_friend: 
       invite: "邀請"

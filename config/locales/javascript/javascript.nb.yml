@@ -16,13 +16,13 @@ nb:
         two: "In {{count}} aspects"
         zero: "Add to aspect"
     comments: 
-      hide: "hide comments"
-      show: "show all comments"
+      hide: "skjul kommentarer"
+      show: "vis alle kommentarer"
     confirm_dialog: "Er du sikker?"
     failed_to_like: "Failed to like!"
     failed_to_post_message: "Failed to post message!"
     infinite_scroll: 
-      no_more: "No more posts."
+      no_more: "Ingen flere innlegg."
     publisher: 
       at_least_one_aspect: "Du må poste til minst ett aspekt"
       limited: "Limited - your post will only be seen by people you are sharing with"
@@ -30,7 +30,7 @@ nb:
     reshares: 
       duplicate: "You've already reshared that post!"
     search_for: "Søk etter {{name}}"
-    show_more: "show more"
+    show_more: "vis mer"
     timeago: 
       day: "en dag"
       days: "%d dager"

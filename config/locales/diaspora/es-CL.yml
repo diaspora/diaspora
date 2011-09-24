@@ -101,6 +101,15 @@ es-CL:
         heading: "ID de Diaspora "
       donate: "Donar"
       handle_explanation: "Este es tu ID de Diaspora. Como una dirección de correo, puedes dársela a la gente para que te encuentren."
+      help: 
+        did_you: "Acaso tú:"
+        feature_suggestion: "... tienes una %{link} sugerencia?"
+        find_a_bug: "... encontraste un %{link}?"
+        have_a_question: "... tienes una %{link}?"
+        here_to_help: "La comunidad de Diaspora esta aquí para ayudar!"
+        more_support: "Para más ayuda, deberías ver aquí%{link}."
+        need_help: "Necesitas ayuda?"
+        tutorials: "Por tutoriales, ver %{link}."
       keep_us_running: "Mantén %{pod} rápido, !compra a nuestros servidores su dosis mensual de café!"
       no_contacts: "No hay contactos"
       no_tags: "+ Busca un tag para seguir"
@@ -140,14 +149,14 @@ es-CL:
       view_all_contacts: "Ver todos los contactos"
     show: 
       edit_aspect: "editar aspecto"
-    two: "%{count} aspects"
+    two: "%{count} aspectos"
     update: 
       failure: "Tu aspecto, %{name}, tenía el nombre muy largo para ser guardado."
       success: "Tu aspecto, %{name}, ha sido correctamente editado."
     zero: "ningún aspecto"
   authorizations: 
     index: 
-      no_applications: "You haven't registered any applications yet."
+      no_applications: "Todavía no has registrado ninguna aplicación."
       revoke_access: "Revocar el Acceso"
   back: "Atrás"
   bookmarklet: 
@@ -165,7 +174,7 @@ es-CL:
       commenting: "Comentando..."
     one: "1 comentario"
     other: "%{count} comentarios"
-    two: "%{count} comments"
+    two: "%{count} comentarios"
     zero: "no hay comentarios"
   contacts: 
     create: 
@@ -190,11 +199,11 @@ es-CL:
     other: "%{count} contactos"
     sharing: 
       people_sharing: "Personas compartiendo contigo:"
-    two: "%{count} contacts"
+    two: "%{count} contactos"
     zero: "no hay contactos"
   conversations: 
     create: 
-      fail: "Invalid message"
+      fail: "Mensaje invalido"
       sent: "Mensaje enviado"
     destroy: 
       success: "Conversación eliminada exitosamente"
@@ -204,7 +213,7 @@ es-CL:
         many: "%{count} nuevos mensajes"
         one: "1 nuevo mensaje"
         other: "%{count} nuevos mensajes"
-        two: "%{count} new messages"
+        two: "%{count} nuevos mensajes"
         zero: "sin nuevos mensajes"
     index: 
       create_a_new_message: "crear un nuevo mensaje"
@@ -220,11 +229,11 @@ es-CL:
       subject: "asunto"
       to: "para"
     new_message: 
-      fail: "Invalid message"
+      fail: "Mensaje invalido"
     show: 
       delete: "Eliminar y bloquear conversación"
       reply: "responder"
-      replying: "Replying..."
+      replying: "Respondiendo..."
   date: 
     formats: 
       birthday: "%B %d"
@@ -302,7 +311,7 @@ es-CL:
         many: "%{count} personas no les gusta esto"
         one: "1 persona no le gusta esto"
         other: "%{count} personas no les gusta esto"
-        two: "%{count} dislikes"
+        two: "%{count} no me gusta"
         zero: "a ninguna persona le disgusta esto"
       people_like_this: 
         few: "%{count} personas les gusta esto"
@@ -316,7 +325,7 @@ es-CL:
         many: "a %{count} les gusta esto"
         one: "a %{count} le gusta esto"
         other: "a %{count} les gusta esto"
-        two: "%{count} likes"
+        two: "%{count} me gusta"
         zero: "a nadie le gusta esto aun"
   limited: "Restringido"
   more: "Más"
@@ -328,21 +337,21 @@ es-CL:
       many: "%{actors} también comentaron en el %{post_link} de %{post_author}."
       one: "%{actors} también comentó en el %{post_link} de %{post_author}."
       other: "%{actors} también comentaron en el %{post_link} de %{post_author}."
-      two: "%{actors} also commented on %{post_author}'s %{post_link}."
+      two: "%{actors} también comentaron en el %{post_link} de  %{post_author}."
       zero: "%{actors} también comentó en el %{post_link} de %{post_author}."
     also_commented_deleted: 
       few: "%{actors} comentaron en un post eliminado."
       many: "%{actors} comentaron en una post eliminado."
       one: "%{actors} comentó en un post eliminado."
       other: "%{actors} comentaron en un post eliminado."
-      two: "%{actors} commented on a deleted post."
+      two: "%{actors} comentaron en un post eliminado."
       zero: "%{actors} comentó en un post eliminado."
     comment_on_post: 
       few: "%{actors} comentaron en tu %{post_link}."
       many: "%{actors} comentaron en tu %{post_link}."
       one: "%{actors} comentó en tu %{post_link}."
       other: "%{actors} comentaron en tu %{post_link}."
-      two: "%{actors} commented on your %{post_link}."
+      two: "%{actors} comentaron en tu %{post_link}."
       zero: "%{actors} comentó en tu %{post_link}."
     helper: 
       new_notifications: 
@@ -350,7 +359,7 @@ es-CL:
         many: "%{count} nuevas notificaciones"
         one: "1 nueva notificación"
         other: "%{count} nuevas notificaciones"
-        two: "%{count} new notifications"
+        two: "%{count} nuevas notificaciones"
         zero: "sin nuevas notificaciones"
     index: 
       and: "y"
@@ -359,7 +368,7 @@ es-CL:
         many: "y otros %{count}"
         one: "y uno más"
         other: "y otros %{count}"
-        two: "and %{count} others"
+        two: "y %{count} más"
         zero: "y nadie más"
       mark_all_as_read: "Marcar todo como leido"
       notifications: "Notificaciones"
@@ -368,28 +377,28 @@ es-CL:
       many: "%{actors} les gustó tu %{post_link}."
       one: "%{actors} le gustó tu %{post_link}."
       other: "%{actors} le gustó tu %{post_link}."
-      two: "%{actors} has just liked your %{post_link}."
+      two: "%{actors} les gusto tu %{post_link}."
       zero: "%{actors} le gustó tu %{post_link}."
     liked_post_deleted: 
       few: "%{actors} les gustó tu post eliminado."
       many: "%{actors} les gustó tu post eliminado."
       one: "%{actors} le gustó tu post eliminado."
       other: "%{actors} les gustó tu post eliminado."
-      two: "%{actors} liked your deleted post."
+      two: "%{actors} les gusto tu post eliminado."
       zero: "%{actors} le gustó tu post eliminado."
     mentioned: 
       few: "%{actors} te menciono en %{post_link}."
       many: "%{actors} te menciono en %{post_link}."
       one: "%{actors} te menciono en %{post_link}."
       other: "%{actors} te menciono en %{post_link}."
-      two: "%{actors} has mentioned you in a %{post_link}."
+      two: "%{actors} te han mencionado en %{post_link}."
       zero: "%{actors} te menciono en %{post_link}."
     mentioned_deleted: 
       few: "%{actors} te mencionó en un post eliminado."
       many: "%{actors} te mencionó en un post eliminado."
       one: "%{actors} te mencionó en un post eliminado."
       other: "%{actors} te mencionó en un post eliminado."
-      two: "%{actors} mentioned you in a deleted post."
+      two: "%{actors} te mencionaron en un post eliminado."
       zero: "%{actors} te mencionó en un post eliminado."
     post: "post"
     private_message: 
@@ -397,28 +406,28 @@ es-CL:
       many: "%{actors} te envió un mensaje."
       one: "%{actors} te envió un mensaje."
       other: "%{actors} te envió un mensaje."
-      two: "%{actors} sent you a message."
+      two: "%{actors} te enviaron un mensaje."
       zero: "%{actors} te envió un mensaje."
     reshared: 
-      few: "%{actors} has reshared your %{post_link}."
-      many: "%{actors} has reshared your %{post_link}."
-      one: "%{actors} has reshared your %{post_link}."
-      other: "%{actors} has reshared your %{post_link}."
-      two: "%{actors} has reshared your %{post_link}."
-      zero: "%{actors} has reshared your %{post_link}."
+      few: "%{actors} compartieron tu %{post_link}."
+      many: "%{actors} compartieron tu %{post_link}."
+      one: "%{actors} compartió tu %{post_link}."
+      other: "%{actors} compartieron tu %{post_link}."
+      two: "%{actors} compartieron tu %{post_link}."
+      zero: "%{actors} compartieron tu %{post_link}."
     reshared_post_deleted: 
-      few: "%{actors} reshared your deleted post."
-      many: "%{actors} reshared your deleted post."
-      one: "%{actors} reshared your deleted post."
-      other: "%{actors} reshared your deleted post."
-      two: "%{actors} reshared your deleted post."
-      zero: "%{actors} reshared your deleted post."
+      few: "%{actors} compartieron tu post eliminado."
+      many: "%{actors} compartieron tu post eliminado."
+      one: "%{actors} compartió tu post eliminado."
+      other: "%{actors} compartieron tu post eliminado."
+      two: "%{actors} compartieron tu post eliminado."
+      zero: "%{actors} compartió tu post eliminado."
     started_sharing: 
       few: "%{actors} comenzaron a compartir contigo."
       many: "%{actors} comenzaron a compartir contigo."
       one: "%{actors} comenzó a compartir contigo."
       other: "%{actors} comenzaron a compartir contigo."
-      two: "%{actors} started sharing with you."
+      two: "%{actors} comenzaron a compartir contigo."
       zero: "%{actors} comenzó a compartir contigo."
   notifier: 
     a_post_you_shared: "un post."
@@ -439,8 +448,8 @@ es-CL:
     private_message: 
       reply_to_or_view: "Responder o ver esta conversación >"
     reshared: 
-      reshared: "%{name} just reshared your post"
-      view_post: "View post >"
+      reshared: "%{name} compartió tu post"
+      view_post: "Ver el post >"
     single_admin: 
       admin: "Tu administrador de Diaspora"
       subject: "Un mensaje sobre tu cuenta de Diaspora:"
@@ -499,10 +508,10 @@ es-CL:
       start_sharing: "Empezar a compartir"
       to_accept_or_ignore: "aceptar o ignorar."
     sub_header: 
-      add_some: "add some"
-      edit: "edit"
-      you_have_no_tags: "you have no tags!"
-    two: "%{count} people"
+      add_some: "Agrega algunos"
+      edit: "editar"
+      you_have_no_tags: "No tienes ningún tag!"
+    two: "%{count} personas"
     webfinger: 
       fail: "Lo siento, no pudimos encontrar %{handle}."
     zero: "ninguna persona"
@@ -542,8 +551,8 @@ es-CL:
       notice: "Foto actualizada correctamente."
   post_visibilites: 
     update: 
-      post_hidden_and_muted: "%{name}'s post has been hidden, and notifications have been muted."
-      see_it_on_their_profile: "If you want to see updates on this post, visit %{name}'s profile page."
+      post_hidden_and_muted: "El post de %{name} se ha ocultado, y las notificaciones se han silenciado."
+      see_it_on_their_profile: "Si quieres ver las actualizaciones de este post, visita el perfil de %{name}."
   posts: 
     show: 
       destroy: "ELiminar"
@@ -605,7 +614,7 @@ es-CL:
         many: "%{count} nuevas solicitudes!"
         one: "nueva solicitud!"
         other: "%{count} nuevas solicitudes!"
-        two: "%{count} new requests!"
+        two: "%{count} nuevas solicitudes!"
         zero: "sin nuevas solicitudes"
     manage_aspect_contacts: 
       existing: "Los contactos existen"
@@ -623,7 +632,7 @@ es-CL:
         many: "Se ha compartido %{count} veces"
         one: "Se ha compartido 1 vez"
         other: "Se ha compartido %{count} veces"
-        two: "%{count} reshares"
+        two: "se ha compartido %{count} veces"
         zero: "Compartir"
       reshare_confirmation: "Compartir el post de %{author}? "
       reshare_original: "Compartir el original"
@@ -665,14 +674,14 @@ es-CL:
       know_email: "¿Conoces sus direcciones de correo? Deberías invitarlos"
       your_diaspora_username_is: "Tu nombre de usuario Diaspora es: %{diaspora_handle}"
     aspect_dropdown: 
-      add_to_aspect: "Add to aspect"
+      add_to_aspect: "Agregar al aspecto"
       toggle: 
-        few: "In %{count} aspects"
-        many: "In %{count} aspects"
-        one: "In %{count} aspect"
-        other: "In %{count} aspects"
-        two: "In %{count} aspects"
-        zero: "Add to aspect"
+        few: "En %{count} aspectos"
+        many: "En %{count} aspectos"
+        one: "En %{count} aspecto"
+        other: "En %{count} aspectos"
+        two: "En %{count} aspectos"
+        zero: "Agregar al aspecto"
     contact_list: 
       all_contacts: "Todos los contactos"
     footer: 
@@ -711,7 +720,7 @@ es-CL:
       reshare: "Compartir de nuevo"
     stream_element: 
       dislike: "No me gusta esto"
-      hide_and_mute: "Hide and Mute"
+      hide_and_mute: "Ocultar y silenciar"
       like: "Me gusta esto"
       shared_with: "Compartir con: %{aspect_names}"
       unlike: "No me gusta"
@@ -731,7 +740,7 @@ es-CL:
       many: "Tu mensaje de estado debe tener menos de %{count} caracteres"
       one: "Tu mensaje de estado debe tener menos de %{count} caracter"
       other: "Tu mensaje de estado debe tener menos de %{count} caracteres"
-      two: "please make your status messages less than %{count} characters"
+      two: "tu mensaje de estado tiene que tener menos de %{count} caracteres"
       zero: "Tu mensaje de estado debe tener menos de %{count} caracteres"
   stream_helper: 
     hide_comments: "ocultar todos los comentarios"
@@ -790,18 +799,18 @@ es-CL:
       new_password: "Nueva Contraseña"
       private_message: "...recibes un mensaje privado?"
       receive_email_notifications: "Recibir notificaciones por correo electrónico cuando..."
-      reshared: "...someone reshares your post?"
+      reshared: "...alguien comparte tu post?"
       started_sharing: "...alguien comienza a compartir contigo?"
       your_email: "Tu correo electrónico"
       your_handle: "Tu id de diaspora"
     getting_started: 
-      bold: "aspects"
+      bold: "aspectos"
       connect_to: "Conectar a"
       connect_to_your_other_social_networks: "Conectate con tus otras redes sociales"
       connect_with_people: "Conectate con gente cool"
-      connect_with_people_explanation_pt1: "Conectate con las personas ubicándolas en uno o mas de tus"
+      connect_with_people_explanation_pt1: "Conéctate con las personas ubicándolas en uno o más de tus %{bold}"
       connect_with_people_explanation_pt2: "Los Aspectos son la forma intuitiva de agrupar caras nuevas y familiares, de manera privada, te permiten filtrar o compartir con un subconjunto de tus contactos de manera sencilla."
-      edit_profile: "Edit Profile"
+      edit_profile: "Editar perfil"
       featured_tags: "Etiquetas destacadas"
       featured_users: "Usuarios destacados"
       fill_out_your_profile: "Rellena tu perfil"
@@ -819,8 +828,8 @@ es-CL:
         name: "Nombre"
         photo: "Foto"
         tags: "Tags"
-      search_for_hashtags: "Search for #hashtags"
-      search_for_people: "Search for people"
+      search_for_hashtags: "Buscar por #hashtags"
+      search_for_people: "Buscar por persona"
       see_all_featured_users: "Ver todos los usuarios destacados"
       welcome: "¡Bienvenido!"
       welcome_with_name: "Bienvenido, %{name}!"

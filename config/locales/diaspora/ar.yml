@@ -37,7 +37,7 @@ ar:
             person: 
               invalid: "غير صالح."
             username: 
-              invalid: "غير صالح، يُسمح بالحروف، الأرقام وخطوط التأكيد (-_) فقط"
+              invalid: "غير صالح، يـسمح بالحروف، الأرقام وخطوط التأكيد (-_) فقط"
               taken: "حُجِزَ بالفعل."
   ago: "منذ %{time}"
   all_aspects: "كل الفئات"
@@ -101,7 +101,16 @@ ar:
         heading: "وسيط ديسبورا"
       donate: "تبرّع"
       handle_explanation: "هذا وسيط دياسبرا. مثل البريد الالكتروني، يمكنك منحه للأصدقاء حتى تستطيع التواصل معهم."
-      keep_us_running: "أبقِ %{pod} سريعا عبر تأمين قيمة صيانته الشهرية"
+      help: 
+        did_you: "هل:"
+        feature_suggestion: "... تملك %{link} اقتراحا؟"
+        find_a_bug: "... وجدت %{link}?"
+        have_a_question: "... تملك %{link}?"
+        here_to_help: "مجتمع دياسبرا متأهب للمساعدة"
+        more_support: "لمزيد من الاستعلامات، يرجى مراجعة %{link}."
+        need_help: "تحتاج للمساعدة؟"
+        tutorials: "لمزيد من الشروحات، راجع %{link}."
+      keep_us_running: "حافظ على %{pod} سريعا عبر تبرع شهري لصيانة السيرفرات "
       no_contacts: "لا أعضاء"
       no_tags: "+ جِـد وسما لمتابعته"
       people_sharing_with_you: "أعضاء يتشاركون معك"
@@ -359,7 +368,7 @@ ar:
         many: "و %{count} آخرون"
         one: "و آخر"
         other: "و %{count} آخرون"
-        two: "و %{count} آخرين"
+        two: "و %{count} آخران"
         zero: "و لا أحد"
       mark_all_as_read: "وضع الجميع كمقروء"
       notifications: "تنبيهات"
@@ -426,7 +435,7 @@ ar:
     comment_on_post: 
       reply: "رُد أو اعرض مشاركة %{name} >"
     confirm_email: 
-      click_link: "لتفعيل عنوان بريدك الإلكتروني الجديد %{unconfirmed_email}, من فضلك اضغط على هذا الرابط:"
+      click_link: "لتفعيل عنوان بريدك الإلكتروني الجديد %{unconfirmed_email}, من فضلك إتبع هذا الرابط:"
       subject: "من فضلك، فَعِّل عنوان بريدك الإلكتروني الجديد %{unconfirmed_email}"
     email_sent_by_diaspora: "أُرسِلَت هذه الرسالة بواسطة ديسبورا.  إذا أردت إيقاف مثل هذه الرسالة، "
     hello: "مرحبا %{name}!"
@@ -649,7 +658,7 @@ ar:
       no_services: "لم تَصِل أي خدمة بحسابك بعد."
       really_disconnect: "فصل إتصال %{service}?"
     inviter: 
-      click_link_to_accept_invitation: "إضغط على هذا الرابط لقبول دعوتك"
+      click_link_to_accept_invitation: "إتبع هذا الرابط لقبول دعوتك"
       join_me_on_diaspora: "انضم إلي في DIASPORA*"
     remote_friend: 
       invite: "دعوة"
@@ -711,7 +720,7 @@ ar:
       reshare: "أَعِد النشر"
     stream_element: 
       dislike: "لم يعجبني"
-      hide_and_mute: "أخْـفِ وأسْكِـتْ"
+      hide_and_mute: "أخـفِ وأسكـتْ"
       like: "أعجبني"
       shared_with: "مُشَارك مع: %{aspect_names}"
       unlike: "إلغاء إعجابي"
