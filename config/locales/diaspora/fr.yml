@@ -91,6 +91,16 @@ fr:
       aspect_not_empty: "L’aspect n’est pas vide"
       remove: "supprimer"
     index: 
+      help:
+        need_help: "Besoin d'aide?"
+        here_to_help: "La communauté Diaspora est là!"
+        did_you: "Avez-vous:"
+        have_a_question: "... une question %{link}?"
+        find_a_bug: "... trouvé un bogue %{link}?"
+        feature_suggestion: "... une suggestion %{link}?"
+        tutorials: "%{link}: Tutoriels communautaires, guides et nouvelles"
+        satisfaction: "%{link}: Soutien par la communauté"
+        email_feedback: "%{link}: Envoyez vos commentaires et suggestion, si vous préférez"
       cubbies: 
         explanation: "Cubbi.es est la première application Diaspora en cours de développement."
         heading: "Connectez-vous à Cubbi.es"
