@@ -34,7 +34,13 @@ class ApplicationController < ActionController::Base
 
   # Overwriting the sign_out redirect path method
   def after_sign_out_path_for(resource_or_scope)
-    logged_out_path
+    # mobile_fu's is_mobile_device? wasn't working here for some reason...
+    # it may have been just because of the test env.
+    if request.env['HTTP_USER_AGENT'].match(/mobile/i)
+      root_path
+    else
+      logged_out_path
+    end
   end
 
   ##helpers
