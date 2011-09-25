@@ -13,6 +13,18 @@ describe PhotosController do
     sign_in :user, alice
     request.env["HTTP_REFERER"] = ''
   end
+  
+  describe '#create' do
+    before do
+      @params = {:photo => {:aspect_ids => "all"}, :qqfile => Rack::Test::UploadedFile.new("spec/fixtures/button.png", "image/png") }
+    end
+    
+    it 'accepts a photo from a regular form submission' do
+      lambda {
+        post :create, @params
+      }.should change(Photo, :count).by(1)
+    end
+  end
 
   describe '#create' do
     before do
