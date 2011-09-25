@@ -12,7 +12,7 @@
       = person_link(comment.author, :class => "hovercardable")
 
     %span{:class => direction_for(comment.text)}
-      = markdownify(comment, :youtube_maps => comment.youtube_titles)
+      = markdownify(comment, :oembed => true, :youtube_maps => comment.youtube_titles)
 
     .comment_info
       %time.timeago{:datetime => comment.created_at}

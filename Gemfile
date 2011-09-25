@@ -64,6 +64,7 @@ gem 'rails-i18n'
 gem 'nokogiri'
 gem 'redcarpet', "2.0.0b5"
 gem 'roxml', :git => 'git://github.com/Empact/roxml.git', :ref => '7ea9a9ffd2338aaef5b0'
+gem 'ruby-oembed'
 
 # queue
 
