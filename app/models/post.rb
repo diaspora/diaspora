@@ -50,6 +50,11 @@ class Post < ActiveRecord::Base
     @reshare_count ||= Post.where(:root_guid => self.guid).count
   end
 
+  def text= nd
+    Resque.enqueue(Jobs::GatherOEmbedData, nd)
+    write_attribute(:text, nd)
+  end
+
   def diaspora_handle= nd
     self.author = Person.where(:diaspora_handle => nd).first
     write_attribute(:diaspora_handle, nd)

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111002013921) do
+ActiveRecord::Schema.define(:version => 20110911213207) do
 
   create_table "aspect_memberships", :force => true do |t|
     t.integer  "aspect_id",  :null => false
@@ -278,7 +278,7 @@ ActiveRecord::Schema.define(:version => 20111002013921) do
     t.integer  "image_width"
     t.string   "provider_display_name"
     t.string   "actor_url"
-    t.string   "objectId"
+    t.integer  "objectId"
     t.string   "root_guid",             :limit => 30
     t.string   "status_message_guid"
     t.integer  "likes_count",                         :default => 0
@@ -287,7 +287,6 @@ ActiveRecord::Schema.define(:version => 20111002013921) do
 
   add_index "posts", ["author_id"], :name => "index_posts_on_person_id"
   add_index "posts", ["guid"], :name => "index_posts_on_guid", :unique => true
-  add_index "posts", ["root_guid"], :name => "index_posts_on_root_guid"
   add_index "posts", ["status_message_guid", "pending"], :name => "index_posts_on_status_message_guid_and_pending"
   add_index "posts", ["status_message_guid"], :name => "index_posts_on_status_message_guid"
   add_index "posts", ["type", "pending", "id"], :name => "index_posts_on_type_and_pending_and_id"
@@ -332,9 +331,9 @@ ActiveRecord::Schema.define(:version => 20111002013921) do
   add_index "service_users", ["uid", "service_id"], :name => "index_service_users_on_uid_and_service_id", :unique => true
 
   create_table "services", :force => true do |t|
-    t.string   "type",          :limit => 127, :null => false
-    t.integer  "user_id",                      :null => false
-    t.string   "uid",           :limit => 127
+    t.string   "type",          :null => false
+    t.integer  "user_id",       :null => false
+    t.string   "uid"
     t.string   "access_token"
     t.string   "access_secret"
     t.string   "nickname"
