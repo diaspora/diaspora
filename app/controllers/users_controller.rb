@@ -7,7 +7,7 @@ class UsersController < ApplicationController
   require File.join(Rails.root, 'lib/diaspora/exporter')
   require File.join(Rails.root, 'lib/collect_user_photos')
 
-  before_filter :authenticate_user!, :except => [:new, :create, :public]
+  before_filter :authenticate_user!, :except => [:new, :create, :public, :user_photo]
 
   respond_to :html
 
@@ -117,6 +117,16 @@ class UsersController < ApplicationController
   def export_photos
     tar_path = PhotoMover::move_photos(current_user)
     send_data( File.open(tar_path).read, :filename => "#{current_user.id}.tar" )
+  end
+
+  def user_photo
+    username = params[:username].split('@')[0]
+    user = User.find_by_username(username)
+    if user.present? 
+      redirect_to user.profile.image_url
+    else
+      render :nothing => true, :status => 404
+    end
   end
 
   def confirm_email

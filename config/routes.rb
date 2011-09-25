@@ -52,6 +52,8 @@ Diaspora::Application.routes.draw do
     delete "tag_followings" => "tag_followings#destroy"
   end
 
+  get '/user_photo/:username' => 'users#user_photo'
+
   # get "tag_followings" => "tag_followings#index", :as => 'tag_followings'
 
   get 'tags/:name' => 'tags#show', :as => 'tag'
