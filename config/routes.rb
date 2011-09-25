@@ -52,7 +52,6 @@ Diaspora::Application.routes.draw do
     delete "tag_followings" => "tag_followings#destroy"
   end
 
-  get '/user_photo/:username' => 'users#user_photo'
 
   # get "tag_followings" => "tag_followings#index", :as => 'tag_followings'
 
@@ -119,7 +118,7 @@ Diaspora::Application.routes.draw do
     end
   end
   get '/u/:username' => 'people#show', :as => 'user_profile'
-
+  get '/u/:username/profile_photo' => 'users#user_photo'
 
   # Federation
 
