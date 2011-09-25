@@ -17,7 +17,7 @@ module MarkdownifyHelper
     }
 
     render_options[:filter_html] = true
-
+    render_options[:oembed] ||= false
 
     # This ugly little hack basically means 
     #   "Give me the rawest contents of target available"
@@ -32,7 +32,11 @@ module MarkdownifyHelper
     return '' if message.blank?
 
     #renderer = Redcarpet::Render::HTML.new(render_options)
-    renderer = Diaspora::Markdownify::HTML.new(render_options)
+    if render_options[:oembed]
+      renderer = Diaspora::Markdownify::HTMLwithOEmbed.new(render_options)
+    else
+      renderer = Diaspora::Markdownify::HTML.new(render_options)
+    end
     markdown = Redcarpet::Markdown.new(renderer, markdown_options)
 
     message = markdown.render(message).html_safe

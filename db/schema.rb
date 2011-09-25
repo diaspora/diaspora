@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110911213207) do
+ActiveRecord::Schema.define(:version => 20110924112840) do
 
   create_table "aspect_memberships", :force => true do |t|
     t.integer  "aspect_id",  :null => false
@@ -177,6 +177,13 @@ ActiveRecord::Schema.define(:version => 20110911213207) do
   add_index "notifications", ["recipient_id"], :name => "index_notifications_on_recipient_id"
   add_index "notifications", ["target_id"], :name => "index_notifications_on_target_id"
   add_index "notifications", ["target_type", "target_id"], :name => "index_notifications_on_target_type_and_target_id"
+
+  create_table "o_embed_caches", :force => true do |t|
+    t.string "url",  :limit => 1024, :null => false
+    t.text   "data"
+  end
+
+  add_index "o_embed_caches", ["url"], :name => "index_o_embed_caches_on_url", :length => {"url"=>255}
 
   create_table "oauth_access_tokens", :force => true do |t|
     t.integer  "authorization_id",               :null => false
