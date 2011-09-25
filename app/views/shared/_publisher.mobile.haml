@@ -2,7 +2,7 @@
 -#   licensed under the Affero General Public License version 3 or later.  See
 -#   the COPYRIGHT file.
 
-= form_for StatusMessage.new, {:data => {:ajax => false}}  do |status|
+= form_for StatusMessage.new, {:data => {:ajax => false}} do |status|
   = status.text_area :text, :placeholder => t('.whats_on_your_mind'), :style => "width:300px", :rows => 4
 
   - for aspect_id in aspect_ids

@@ -45,8 +45,9 @@
 
   %body
     %header
-      = link_to(image_tag('icons/compose_mobile2.png', :height => 28, :width => 28), new_status_message_path, :class => 'compose_icon')
       = link_to(image_tag('white@2x.png', :height => 20, :width => 127, :id => 'header_title'), aspects_path)
+      - if user_signed_in?
+        = link_to(image_tag('icons/compose_mobile2.png', :height => 28, :width => 28), new_status_message_path, :class => 'compose_icon')
 
     - if flash.present?
       %p

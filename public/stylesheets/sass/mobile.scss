@@ -40,6 +40,16 @@ body {
     left: 2px; };
 }
 
+#main {
+  text-align: center;
+}
+
+.stream {
+  text-align: left;
+  max-width: 700px;
+}
+
+
 .stream_element,
 .comments {
   overflow: auto;
@@ -106,12 +116,9 @@ body {
   @include border-radius(3px);
   @include box-shadow(0, 1px, 5px, rgba(0, 0, 0, 1));
   background: {
-    color: white; };
+    color: #fff; };
   border: {
-    top: 1px solid black;
     bottom: 1px solid black; };
-
-  max-width: 700px;
 }
 
 .photo_attachments {
@@ -129,12 +136,8 @@ body {
     padding: {
       left: 15px;
       top: 10px; };
-    .from {
-      font: {
-        style: italic; }; } }
-  .reshare_action {
-    font: {
-      size: 0.8em; }; } }
+  }
+}
 
 #main_stream {
   font: {
@@ -310,9 +313,17 @@ footer {
     left: 5px; }; }
 
 .like_action {
-  background-image: url("/images/icons/heart_mobile_grey.png");
+  &.inactive{
+    background-image: url("/images/icons/heart_mobile_grey.png");
+  }
   &.active {
-    background-image: url("/images/icons/heart_mobile_red.png"); } }
+    background-image: url("/images/icons/heart_mobile_red.png");
+  }
+
+  &.loading {
+    background-image: url("/images/mobile-spinner.gif");
+  }
+}
 
 .comment_action {
   background-image: url("/images/icons/pencil_mobile_grey.png"); }
@@ -328,4 +339,16 @@ form {
   position: absolute;
   top: 6px;
   right: 15px;
+}
+
+#new_status_message {
+  position: absolute;
+  left: 0;
+  top: 45px;
+  width:100%;
+
+  textarea {
+    @include border-radius(0);
+    left: 0;
+  }
 }

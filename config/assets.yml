@@ -49,8 +49,9 @@ javascripts:
     #- public/javascripts/diaspora.js
     #- public/javascripts/helpers/i18n.js
     #- public/javascripts/widgets/infinite-scroll.js
-    #- public/javascripts/rails.js
+    - public/javascripts/rails.js
     - public/javascripts/vendor/mbp-helper.js
+    - public/javascripts/mobile.js
     
   mailchimp:
     - public/javascripts/vendor/mailchimp/jquery.form.js
