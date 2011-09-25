@@ -13,7 +13,8 @@ Feature: user authentication
     Given I am signed in
     And I click on my name in the header
     And I follow "log out"
-    Then I should be on the home page
+    Then I should be on the logged out page
+    And I should see "Now go mobile."
 
   Scenario: user uses token auth
     Given a user with username "ohai" and password "secret"

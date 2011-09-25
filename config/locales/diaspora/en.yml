@@ -814,6 +814,12 @@ en:
       
 
   users:
+    logged_out:
+      signed_out: "You've signed out of Diaspora*"
+      go_mobile: "Now go mobile."
+      simply_visit: "Simply visit"
+      on_your_mobile_device: "on your mobile device to access Diaspora* mobile."
+      works_on_modern: "Works on all modern smartphones"
     edit:
       export_data: "Export Data"
       close_account: "Close Account"

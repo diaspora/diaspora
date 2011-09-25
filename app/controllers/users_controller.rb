@@ -7,7 +7,7 @@ class UsersController < ApplicationController
   require File.join(Rails.root, 'lib/diaspora/exporter')
   require File.join(Rails.root, 'lib/collect_user_photos')
 
-  before_filter :authenticate_user!, :except => [:new, :create, :public, :user_photo]
+  before_filter :authenticate_user!, :except => [:new, :create, :public, :user_photo, :logged_out]
 
   respond_to :html
 
@@ -101,6 +101,12 @@ class UsersController < ApplicationController
     @step     = 0
 
     render "users/getting_started"
+  end
+
+  def go_mobile
+    if user_signed_in?
+      redirect_to root_path
+    end
   end
 
   def getting_started_completed
