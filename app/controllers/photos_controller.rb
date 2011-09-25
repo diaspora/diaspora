@@ -49,7 +49,11 @@ class PhotosController < ApplicationController
         params[:photo][:aspect_ids] = params[:photo][:aspect_ids].values
       end
 
-      params[:photo][:user_file] = file_handler(params)
+      params[:photo][:user_file] = if request.params.has_key?(:qqfile) and not request.params[:qqfile].is_a?(String)
+        params[:qqfile]
+      else
+        file_handler(params)
+      end
 
       @photo = current_user.build_post(:photo, params[:photo])
 
