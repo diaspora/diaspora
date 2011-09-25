@@ -90,7 +90,7 @@ function flashVideoFallback(){
 function wrapFlashVideos() {
   $('object').each(function(object) {
     object = $(object);
-    if (object.children('param[name=movie]')) {
+    if ( $('param[name=movie]', object).length ) {
       var wrapper = object.before('<div class="flash-video"><div>').previous();
       $(wrapper).children().append(object);
     }
