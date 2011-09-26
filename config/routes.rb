@@ -167,7 +167,7 @@ Diaspora::Application.routes.draw do
   
   # Resque web
   if AppConfig[:mount_resque_web]
-    mount Resque::Server.new, :at => '/resque-jobs'
+    mount Resque::Server.new, :at => '/resque-jobs', :as => "resque_web"
   end
 
   # Logout Page (go mobile)

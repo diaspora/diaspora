@@ -65,6 +65,7 @@ defaults: &defaults
     - 'diasporahq@joindiaspora.com'
 
   # List of users who have admin privileges
+  # (expressed as an array of local usernames)
   admins:
     - 'example_user1dsioaioedfhgoiesajdigtoearogjaidofgjo'
 
@@ -166,6 +167,7 @@ defaults: &defaults
   paypal_hosted_button_id: ""
 
   # Mount resque-web into routes
+  # This allows an administrator to see info about the workers 
   mount_resque_web: true
 
 #
