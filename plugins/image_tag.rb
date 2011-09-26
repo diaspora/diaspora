@@ -30,9 +30,9 @@ module Jekyll
           @img['title']  = title
           @img['alt']    = alt
         else
-          @img['alt']    = @img['title'].gsub!(/"/, '&#34;')
+          @img['alt']    = @img['title'].gsub!(/"/, '&#34;') if @img['title']
         end
-        @img['class'].gsub!(/"/, '')
+        @img['class'].gsub!(/"/, '') if @img['class']
       end
       super
     end
