@@ -178,11 +178,11 @@ body {
     size: larger; }; }
 
 .more-link {
+  -webkit-box-shadow: inset 0 1px 5px #111, 0 1px 1px #999;
   display: block;
   text-align: center;
   padding: 0 10px;
   margin: 0 10px;
-  -webkit-box-shadow: inset 0 1px 5px #111111;
   border-radius: 3px;
   background: {
     color: #333333; };
