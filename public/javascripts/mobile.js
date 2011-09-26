@@ -45,14 +45,15 @@ $(document).ready(function(){
 
   $("a.show_comments").live('tap click', function(evt){
     evt.preventDefault();
-    var postId = $(this).data('post-id');
-        parent = $(this).closest(".bottom_bar").first();
-    var link = $(this);
+    var link = $(this),
+        parent = link.closest(".bottom_bar").first();
+        
 
     $.ajax({
       url: link.attr('href'),
       success: function(data){
-        parent.append(data);
+        var comments = $("<ul class='comments'></ul>");
+        parent.append(comments.append(data));
       }
     });
   });

@@ -81,11 +81,18 @@ body {
   padding: 10px;
 }
 
-.comments {
+.stream_element .comments {
   padding: 0;
   margin: 0;
+  width: 100%;
   .content {
     padding: 0;
+  }
+
+  .comment {
+    padding: {
+      top: 10px;
+    }
   }
 }
 
@@ -374,4 +381,8 @@ form {
   input {
     -webkit-appearance: none;
   }
+}
+
+.show_comments {
+  font-size: larger;
 }

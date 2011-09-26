@@ -1,0 +1,18 @@
+-#   Copyright (c) 2010-2011, Diaspora Inc.  This file is
+-#   licensed under the Affero General Public License version 3 or later.  See
+-#   the COPYRIGHT file.
+.comment_stream
+  - unless comments_expanded
+    %ul.show_comments{:class => ("hidden" if post.comments.size <= 3)}
+      %li
+        = comment_toggle( post)
+
+  %ul.comments{:class => ('loaded' if post.comments.size <= 3)}
+    -if post.comments.size > 3 && !comments_expanded
+      = render :partial => 'comments/comment', :collection => post.last_three_comments, :locals => {:post => post}
+    -else
+      = render :partial => 'comments/comment', :collection => post.comments, :locals => {:post => post}
+
+  - unless !user_signed_in? || @commenting_disabled
+    .new_comment_form_wrapper{:class => comment_form_wrapper_class(post)}
+      = new_comment_form(post.id, current_user)
