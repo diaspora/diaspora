@@ -3,7 +3,7 @@
 -#   the COPYRIGHT file.
 
 = form_for StatusMessage.new, {:data => {:ajax => false}} do |status|
-  = status.text_area :text, :placeholder => t('.whats_on_your_mind'), :style => "width:300px", :rows => 4
+  = status.text_area :text, :placeholder => t('.whats_on_your_mind'), :style => "width:300px", :rows => 4, :autofocus => "autofocus"
 
   - for aspect_id in aspect_ids
     = hidden_field_tag 'aspect_ids[]', aspect_id.to_s

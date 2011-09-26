@@ -84,6 +84,7 @@ body {
 .stream_element .comments {
   padding: 0;
   margin: 0;
+  margin-top: 18px;
   width: 100%;
   .content {
     padding: 0;
@@ -92,14 +93,14 @@ body {
   .comment {
     padding: {
       top: 10px;
+      bottom: 5px;
     }
   }
 }
 
 .comment {
-  padding: 4px 0;
   border: {
-    bottom: 1px dotted #ccc; };
+    top: 1px solid #ccc; };
 }
 
 #login_form {
@@ -265,6 +266,7 @@ footer {
   a,
   a:visited {
     color: #999;
+    margin: 10px;
   }
   padding: {
     top: 10px;
@@ -282,9 +284,29 @@ footer {
   border: {
     top: 1px solid #dddddd; };
   min-height: 24px;
-  a {
-    color: #999999 !important;
-    font-weight: bold !important; }
+
+  a,
+  .show_comments {
+    color: #999;
+    font-weight: bold;
+  }
+
+  .show_comments {
+    position: relative;
+    top: 3px;
+    font: {
+      size: larger;
+    }
+    color: #ccc;
+  }
+
+  a.show_comments {
+    color: #999;
+
+    &.active {
+      color: #444;
+    }
+  }
 
   #bottom_bar_tabs {
     display: table;
@@ -351,14 +373,21 @@ footer {
   &.active {
     background-image: url("/images/icons/heart_mobile_red.png");
   }
-
   &.loading {
     background-image: url("/images/mobile-spinner.gif");
   }
 }
 
 .comment_action {
-  background-image: url("/images/icons/pencil_mobile_grey.png"); }
+  background-image: url("/images/icons/pencil_mobile_grey_active.png");
+
+  &.inactive {
+    background-image: url("/images/icons/pencil_mobile_grey.png");
+  }
+  &.loading {
+    background-image: url("/images/mobile-spinner.gif");
+  }
+}
 
 .compose_icon {
   position: absolute;
@@ -379,11 +408,26 @@ footer {
 }
 
 form {
-  input {
+  input:not([type='checkbox']),
+  textarea {
     -webkit-appearance: none;
+    text-size: larger;
   }
-}
 
-.show_comments {
-  font-size: larger;
+  .btn,
+  input[type=submit] {
+    @include border-radius(3px);
+    background-color: #ccc;
+    color: #666;
+    text-size: larger;
+    font-weight: bold;
+    padding: 10px;
+    border: 1px solid #999;
+
+    &.action {
+      color: #fff;
+      background-color: green;
+      border: 1px solid #888;
+    }
+  }
 }

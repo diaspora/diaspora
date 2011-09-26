@@ -31,7 +31,7 @@
     / Stylesheets
     = include_stylesheets :mobile
 
-    %script{:src => "javascripts/vendor/mbp-modernizr-custom.js"}
+    %script{:src => "/javascripts/vendor/mbp-modernizr-custom.js"}
     / Media Queries Polyfill https://github.com/shichuan/mobile-html5-boilerplate/wiki/Media-Queries-Polyfill
     :javascript
       Modernizr.mq('(min-width:0)') || document.write('<script src="javascripts/vendor/mbp-respond.min.js">\x3C/script>')
@@ -62,10 +62,13 @@
 
     / javascripts at the bottom
     = include_javascripts :mobile
+    = yield(:javascript)
 
     /-if current_user
     /  :javascript
     /    Diaspora.I18n.loadLocale(#{get_javascript_strings_for(current_user.language).to_json}, "#{current_user.language}");
+    :javascript
+      MBP.hideUrlBar();
 
     -if AppConfig[:google_a_site]
       :javascript

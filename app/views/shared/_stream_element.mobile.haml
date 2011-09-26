@@ -30,34 +30,17 @@
       = render 'status_messages/status_message', :post => post, :photos => post.photos
 
   .bottom_bar
-    - if defined?(expanded_info) && expanded_info
-      #bottom_bar_tabs
-        .comment_count.tab
-          = post.comments.size
-          = link_to '', post_path(post), :class => "image_link comment_action"
+    .floater
+      = link_to '', new_post_comment_path(post), :class => "image_link comment_action inactive"
 
-        .like_count.tab
-          = post.likes.size
-          - if current_user.liked?(post)
-            = link_to '', post_likes_path(post.id), :class => "image_link like_action active", 'data-post-id' => post.id, 'data-like-id' => current_user.like_for(post).id
-          - else
-            = link_to '', post_likes_path(post.id), :class => "image_link like_action inactive"
+      - if current_user.liked?(post)
+        = link_to '', post_like_path(post.id, current_user.like_for(post).id), :class => "image_link like_action active"
+      - else
+        = link_to '', post_likes_path(post.id), :class => "image_link like_action inactive"
 
-        /.reshare_count.tab
-        /  = post.comments.size
-        /  = link_to '', post_path(post), :class => "image_link comment_action"
-
-      = render "comments/comments", :post => post, :comments => post.comments, :comments_expanded => true
-
-
-    - else
-      .floater
-        = link_to '', post_path(post), :class => "image_link comment_action"
-
-        - if current_user.liked?(post)
-          = link_to '', post_like_path(post.id, current_user.like_for(post).id), :class => "image_link like_action active"
-        - else
-          = link_to '', post_likes_path(post.id), :class => "image_link like_action inactive"
-
+    - if post.comments.length + post.likes_count > 0
       = link_to "#{t('reactions', :count => (post.comments.length + post.likes_count))}", post_comments_path(post, :format => "mobile"), :class => 'show_comments'
+    - else
+      %span.show_comments
+        = "#{t('reactions', :count => (post.comments.length + post.likes_count))}"
 
