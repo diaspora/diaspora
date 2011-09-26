@@ -57,10 +57,24 @@
           .content
             %h3
               = t('.connect_to_your_other_social_networks')
+
+            %p
+              = t('.connect_to_your_other_social_networks_explanation_p1')
+              - if AppConfig[:configured_services].detect{|s| s == "facebook"}
+                = t('.connect_to_your_other_social_networks_explanation_p2')
+
           #getting_started_service_icons
             - AppConfig.configured_services.each do |service|
               - unless current_user.services.any?{|x| x.provider == service}
-                = link_to(image_tag("social_media_logos/#{service.to_s.downcase}-48x48.png", :title => service.to_s.titleize), "/auth/#{service}")
+                %span.service
+                  %span.service_image
+                    = link_to(image_tag("social_media_logos/#{service.to_s.downcase}-48x48.png", :title => service.to_s.titleize), "/auth/#{service}")
+              - else
+                %span.service
+                  %span.service_image
+                    = image_tag( "social_media_logos/#{service.to_s.downcase}-48x48.png", :title => service.to_s.titleize, :class => "dim")
+                  %span.checkmark
+                    = image_tag( "icons/check_yes_ok.png")
 
       %li.connect_with_people{:class => ("completed" if has_few_contacts?)}
         .getting_started_number
