@@ -211,6 +211,7 @@ body {
 
 #author_info.profile {
   box-shadow: inset 0 -1px 3px #111;
+  margin-top: -10px;
 
   h2 {
     color: #ccc;
@@ -361,7 +362,7 @@ footer {
 
 .compose_icon {
   position: absolute;
-  top: 6px;
+  top: 8px;
   right: 15px;
 }
 
