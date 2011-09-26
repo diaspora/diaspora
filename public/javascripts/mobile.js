@@ -1,18 +1,18 @@
 $(document).ready(function(){
   $(".like_action.inactive").live('tap click', function(evt){
     evt.preventDefault();
-    var target = $(this),
-        postId = target.data('post-id');
+    var link = $(this);
 
     $.ajax({
-      url: '/posts/'+postId+'/likes.json',
+      url: link.attr("href"),
+      dataType: 'json',
       type: 'POST',
       beforeSend: function(){
-        target.removeClass('inactive')
+        link.removeClass('inactive')
               .addClass('loading');
       },
       complete: function(data){
-        target.removeClass('loading')
+        link.removeClass('loading')
               .removeClass('inactive')
               .addClass('active')
               .data('post-id', postId);
@@ -22,24 +22,37 @@ $(document).ready(function(){
 
   $(".like_action.active").live('tap click', function(evt){
     evt.preventDefault();
-    var target = $(this),
-        postId = $(this).data('post-id'),
-        likeId = $(this).data('like-id');
-
+    var link = $(this);
 
     $.ajax({
-      url: '/posts/'+postId+'/likes/'+likeId+'.json',
+      url: link.attr("href"),
+      dataType: 'json',
       type: 'DELETE',
       beforeSend: function(){
-        target.removeClass('active')
+        link.removeClass('active')
               .addClass('loading')
               .fadeIn(50);
       },
       complete: function(data){
-        target.removeClass('loading')
+        link.removeClass('loading')
               .removeClass('active')
               .addClass('inactive')
               .data('like-id', '');
+      }
+    });
+  });
+
+
+  $("a.show_comments").live('tap click', function(evt){
+    evt.preventDefault();
+    var postId = $(this).data('post-id');
+        parent = $(this).closest(".bottom_bar").first();
+    var link = $(this);
+
+    $.ajax({
+      url: link.attr('href'),
+      success: function(data){
+        parent.append(data);
       }
     });
   });

@@ -6,16 +6,10 @@
 
 $blue: #3f8fba;
 
-a:not([role='button']):not(.arrow) {
-  text: {
-    decoration: none; };
-  font: {
-    weight: normal !important; };
-  -webkit-tap-highlight-color: rgba(200, 200, 200, 1) !important; }
-
 a {
   color: #2489ce;
-  padding: 2px;
+  text: {
+    decoration: none; };
 }
 
 body {
@@ -23,17 +17,6 @@ body {
   max-width: 100%;
   margin-top: 55px;
 }
-
-#login_form {
-  padding: 15px;
-  padding-top: 0px;
-}
-
-.login_form {
-  @include mobile-box;
-  padding: 10px;
-  label {
-    font-weight: bold; } }
 
 .message {
   padding: {
@@ -110,6 +93,46 @@ body {
   padding: 4px 0;
   border: {
     bottom: 1px dotted #ccc; };
+}
+
+#login_form {
+  @include border-radius(3px);
+  @include box-shadow(0, 1px, 5px, rgba(0, 0, 0, 1));
+  padding: 0;
+  background: {
+    color: #fff;
+  }
+
+  margin: auto 20px;
+
+  .login-container {
+    padding: 10px;
+  }
+
+  .row {
+    margin-bottom: 10px;
+    .login-submit {
+      float: right;
+    }
+  }
+
+  .centered{
+    text-align: center;
+  }
+
+  label {
+    color: #ccc;
+    font-size: larger;
+    font-weight: bold;
+  }
+
+  input[type='text'],
+  input[type='password'] {
+    font-size: 18px;
+    font-weight: bold;
+    max-width:90%;
+
+  }
 }
 
 .stream_element {
@@ -236,6 +259,7 @@ footer {
     color: #999;
   }
   padding: {
+    top: 10px;
     bottom: 10px;
   }
 }
@@ -328,13 +352,6 @@ footer {
 .comment_action {
   background-image: url("/images/icons/pencil_mobile_grey.png"); }
 
-form {
-  position: relative;
-  textarea,
-  input {
-    font: {
-      size: larger; }; } }
-
 .compose_icon {
   position: absolute;
   top: 6px;
@@ -350,5 +367,11 @@ form {
   textarea {
     @include border-radius(0);
     left: 0;
+  }
+}
+
+form {
+  input {
+    -webkit-appearance: none;
   }
 }

@@ -6,7 +6,7 @@ class CommentsController < ApplicationController
   include ApplicationHelper
   before_filter :authenticate_user!
 
-  respond_to :html, :mobile, :only => [:create, :destroy]
+  respond_to :html, :mobile, :only => [:create, :destroy, :index]
   respond_to :js, :only => [:index]
 
   rescue_from ActiveRecord::RecordNotFound do
