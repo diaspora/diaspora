@@ -6,7 +6,7 @@ function getNav() {
     mobileNav.children('select').append('<option value="'+link.href+'">&bull; '+link.text+'</option>');
   });
   mobileNav.children('select').bind('change', function(event) {
-    if (event.target.value) window.location.href = event.target.value;
+    if (event.target.value) { window.location.href = event.target.value; }
   });
 }
 
@@ -52,7 +52,7 @@ function testFeatures() {
 }
 
 function addCodeLineNumbers() {
-  if (navigator.appName == 'Microsoft Internet Explorer') { return; }
+  if (navigator.appName === 'Microsoft Internet Explorer') { return; }
   $('div.gist-highlight').each(function(code) {
     var tableStart = '<table><tbody><tr><td class="gutter">',
         lineNumbers = '<pre class="line-numbers">',
@@ -72,7 +72,7 @@ function flashVideoFallback(){
       flashplayerskin = "/assets/jwplayer/glow/glow.xml";
   $('video').each(function(video){
     video = $(video);
-    if (!Modernizr.video.h264 && swfobject.getFlashPlayerVersion() || window.location.hash.indexOf("flash-test") != -1){
+    if (!Modernizr.video.h264 && swfobject.getFlashPlayerVersion() || window.location.hash.indexOf("flash-test") !== -1){
       video.children('source[src$=mp4]').first().map(function(source){
         var src = $(source).attr('src'),
             id = 'video_'+Math.round(1 + Math.random()*(100000)),
