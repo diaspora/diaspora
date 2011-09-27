@@ -211,7 +211,7 @@ en:
       commenting: "Commenting..."
 
   reactions:
-    zero: "No reactions"
+    zero: "0 reactions"
     one: "1 reaction"
     two: "%{count} reactions"
     few: "%{count} reactions"

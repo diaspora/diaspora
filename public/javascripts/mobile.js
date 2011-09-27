@@ -62,8 +62,19 @@ $(document).ready(function(){
       commentsContainer.first().hide();
       link.removeClass('active');
 
-    } else if( commentsContainer.length > 0 ) {
+    } else if( commentsContainer.length > 0) {
       commentsContainer.first().show();
+
+      if(!commentsContainer.hasClass('noComments')) {
+        $.ajax({
+          url: link.attr('href'),
+          success: function(data){
+            parent.append($(data).find('.comments_container').html());
+            link.addClass('active');
+          }
+        });
+      }
+
       link.addClass('active');
 
     } else {
@@ -95,7 +106,10 @@ $(document).ready(function(){
               lineHeight = 14;
 
           link.removeClass('loading')
-              .removeClass('inactive');
+
+          if(!link.hasClass("add_comment_bottom_link")){
+            link.removeClass('inactive');
+          }
 
           container.first().hide();
 
@@ -128,11 +142,32 @@ $(document).ready(function(){
     var form = $(this);
 
     $.post(form.attr('action')+"?format=mobile", form.serialize(), function(data){
-      var container = form.closest('.bottom_bar').find('.add_comment_bottom_link_container');
+      var bottomBar = form.closest('.bottom_bar').first(),
+          container = bottomBar.find('.add_comment_bottom_link_container'),
+          commentActionLink = bottomBar.find("a.comment_action").first();
+          reactionLink = bottomBar.find(".show_comments"),
+          commentCount = bottomBar.find(".comment_count");
 
-      container.before(data);
-      form.remove();
-      container.show();
+      if(container.length > 0) {
+        container.before(data);
+        form.remove();
+        container.show();
+
+      } else {
+        var container = $("<div class='comments_container '></div>"),
+            comments = $("<ul class='comments'></ul>");
+
+        comments.html(data);
+        container.append(comments);
+        form.remove();
+        container.appendTo(bottomBar)
+      }
+
+      console.log(reactionLink.text());
+
+      reactionLink.text(reactionLink.text().replace(/(\d+)/, function(match){ return parseInt(match) + 1; }));
+      commentCount.text(commentCount.text().replace(/(\d+)/, function(match){ return parseInt(match) + 1; }));
+      commentActionLink.addClass("inactive");
     }, 'html');
   });
 
