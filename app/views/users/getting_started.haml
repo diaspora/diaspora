@@ -113,6 +113,12 @@
             %div
               - Person.featured_users[0..5].each do |person|
                 .featured_user_card_small
+                  .right
+                    .add_to_aspect
+                      = render :partial => 'people/relationship_action',
+                        :locals => { :person => person,
+                                      :contact => current_user.contact_for(person),
+                                      :current_user => current_user }
                   = person_image_link(person, :target => "_blank")
                   = person_link(person, :class => "hovercardable", :target => "_blank")
                   .tags

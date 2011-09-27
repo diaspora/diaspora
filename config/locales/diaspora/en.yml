@@ -92,7 +92,7 @@ en:
     contacts_visible: "Contacts in this aspect will be able to see each other."
     contacts_not_visible: "Contacts in this aspect will not be able to see each other."
     edit:
-      make_aspect_list_visible: "make aspect list visible?"
+      make_aspect_list_visible: "make contacts in this aspect visible to each other?"
       remove_aspect: "Delete this aspect"
       confirm_remove_aspect: "Are you sure you want to delete this aspect?"
       add_existing: "Add an existing contact"
@@ -127,7 +127,7 @@ en:
       manage_your_aspects: "Manage your aspects."
 
     new:
-      name: "Name"
+      name: "Name (only visibile to you)"
       create: "Create"
     create:
       success: "Your new aspect %{name} was created"
@@ -696,9 +696,9 @@ en:
 
   shared:
     aspect_dropdown:
-      add_to_aspect: "Add to aspect"
+      add_to_aspect: "Add contact"
       toggle:
-        zero: "Add to aspect"
+        zero: "Add contact"
         one: "In %{count} aspect"
         two: "In %{count} aspects"
         few: "In %{count} aspects"
