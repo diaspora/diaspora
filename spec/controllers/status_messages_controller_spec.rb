@@ -65,7 +65,6 @@ describe StatusMessagesController do
         post :create, status_message_hash.merge(:format => 'js')
         json = JSON.parse(response.body)
         save_fixture(json['html'], "created_status_message")
-
       end
 
       it 'escapes XSS' do
@@ -74,6 +73,14 @@ describe StatusMessagesController do
         json = JSON.parse(response.body)
         json['html'].should_not =~ /<script>/
       end
+    end
+
+    it 'takes public in aspect ids' do
+      post :create, status_message_hash.merge(:aspect_ids => ['public'])
+    end
+
+    it 'takes all_aspects in aspect ids' do
+      post :create, status_message_hash.merge(:aspect_ids => ['all_aspects'])
     end
 
     it "dispatches the post to the specified services" do

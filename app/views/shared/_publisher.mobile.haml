@@ -2,26 +2,38 @@
 -#   licensed under the Affero General Public License version 3 or later.  See
 -#   the COPYRIGHT file.
 
+- content_for :custom_css do
+  :css
+    body {
+      background-color: #eee;
+    }
+
+
 = form_for StatusMessage.new, {:data => {:ajax => false}} do |status|
   #message_container
     = status.text_area :text, :placeholder => t('.whats_on_your_mind'), :style => "width:300px", :rows => 4, :autofocus => "autofocus"
 
-  - for aspect_id in aspect_ids
-    = hidden_field_tag 'aspect_ids[]', aspect_id.to_s
-
   %fieldset
     %div{:style => 'float:right;'}
-      = select_tag 'aspect_ids[]', options_from_collection_for_select(current_user.aspects, "id", "name")
-    /%input{:type => 'checkbox', :name => 'status_message[public]', :id => 'public', :class => 'custom', :value => 'true'}
-    /%label{:for => 'public'}
-    /  = t('.make_public')
-    - unless current_user.services.empty?
-      %div{:data => {:role => 'fieldcontain'}}
-        %label{:for => 'services', :class => 'select'}
-        - current_user.services.each do |service|
-          %input{:type => 'checkbox', :name => "services[]", :id => "#{service.provider}", :class => 'custom', :value => "#{service.provider}"}
-          %label{:for => "#{service.provider}"}
-            = "#{service.provider}"
+      = status.submit t('.share'), :class => 'action'
 
-    = status.submit t('.share'), :class => 'action'
+    %select{:id => "aspect_ids_", :name => "aspect_ids[]"}
+      %option{:value => 'public'}
+        = t('public')
+
+      %option{:value => 'all_aspects', :selected => true}
+        = t('all_aspects')
+
+      - current_user.aspects.each do |aspect|
+        %option{:value => aspect.id}
+          = "· #{aspect.name}"
+
+    /- unless current_user.services.empty?
+    /  %div{:data => {:role => 'fieldcontain'}}
+    /    %label{:for => 'services', :class => 'select'}
+    /    - current_user.services.each do |service|
+    /      %input{:type => 'checkbox', :name => "services[]", :id => "#{service.provider}", :class => 'custom', :value => "#{service.provider}"}
+    /      %label{:for => "#{service.provider}"}
+    /        = "#{service.provider}"
+
 

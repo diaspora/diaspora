@@ -5,10 +5,13 @@
 .stream_element{:data=>{:guid=>post.id}}
 
   .photo_area
-    - if post.is_a?(StatusMessage) && post.photos.size > 0
-      - photos = post.photos
-      .photo_attachments
-        = image_tag photos.first.url(:thumb_large), :class => "stream-photo big-stream-photo", 'data-small-photo' => photos.first.url(:thumb_medium), 'data-full-photo' => photos.first.url
+    - if post.is_a?(StatusMessage)
+      -if post.photos.size > 0
+        .photo_attachments
+          - if post.photos.size > 1
+            .additional_photo_count
+              = "+ #{post.photos.size-1}"
+          = image_tag post.photos.first.url(:thumb_large), :class => "stream-photo big-stream-photo"
     - elsif post.activity_streams?
       = image_tag post.image_url
 
@@ -19,6 +22,13 @@
       .info
         %span.time{:integer => post.created_at.to_i}
           = t('ago', :time => time_ago_in_words(post.created_at))
+        &ndash;
+        %span.scope_scope
+          - if post.public?
+            = t('public')
+          - else
+            = t('limited')
+
         %span.via
           - if post.activity_streams?
             = t('.via', :link => link_to("#{post.provider_display_name}", post.actor_url)).html_safe
