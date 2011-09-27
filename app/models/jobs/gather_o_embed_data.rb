@@ -11,21 +11,28 @@ module Jobs
       include ActionView::Helpers::TextHelper
       include ActionView::Helpers::TagHelper
 
+      def isHttp?(url)
+        URI.parse(url).scheme.downcase == 'http'
+      end
+
       def autolink(link, type)
-        return link if OEmbedCache.exists?(:url => link)
+        url = auto_link(link, :link => :urls).scan(/href=["']?((?:.(?!["']?\s+(?:\S+)=|[>"']))+.)["']?/).first.first
+        url = CGI::unescapeHTML(url)
+
+        return url if OEmbedCache.exists?(:url => url) or not isHttp?(url)
         
         begin
-          res = ::OEmbed::Providers.get(link, {:maxwidth => 420, :maxheight => 420, :frame => 1, :iframe => 1})
+          res = ::OEmbed::Providers.get(url, {:maxwidth => 420, :maxheight => 420, :frame => 1, :iframe => 1})
         rescue Exception => e
           # noop
         else
           data = res.fields
           data['trusted_endpoint_url'] = res.provider.endpoint
-          cache = OEmbedCache.new(:url => link, :data => data)
+          cache = OEmbedCache.new(:url => url, :data => data)
           cache.save
         end
         
-        return link
+        return url
       end
     end
 

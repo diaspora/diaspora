@@ -162,8 +162,9 @@ describe MarkdownifyHelper do
 
         scenarios.each do |type, data|
           specify 'for type "'+type+'"' do
-            stub_request(:get, data['oembed_get_request']).to_return(:status => 200, :body => data['oembed_data'].to_json.to_s)
+            url = 
             stub_request(:get, data['link_url']).to_return(:status => 200, :body => data['discovery_data']) if data.has_key?('discovery_data')
+            stub_request(:get, data['oembed_get_request']).to_return(:status => 200, :body => data['oembed_data'].to_json.to_s)
 
             message = "Look at this! "+data['link_url']
             Jobs::GatherOEmbedData.perform(message)
