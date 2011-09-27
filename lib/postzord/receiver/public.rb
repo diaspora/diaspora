@@ -44,7 +44,7 @@ module Postzord
       # @return [Object]
       def save_object
         @object = Diaspora::Parser::from_xml(@salmon.parsed_data)
-        return false if @object.parent.blank?
+        return false if @object.respond_to?(:parent) && @object.parent.blank?
         raise "Object is not public" if object_can_be_public_and_it_is_not?
         @object.save!
       end
