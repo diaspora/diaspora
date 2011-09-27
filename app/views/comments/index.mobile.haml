@@ -1,1 +1,5 @@
-= render :partial => 'comments/comment', :collection => @comments, :locals => {:post => @post}
+%ul.comments
+  = render :partial => 'comments/comment', :collection => @comments, :locals => {:post => @post}
+
+  %li.comment.add_comment_bottom_link_container
+    = link_to "Add a comment", new_post_comment_path(@post), :class => 'add_comment_bottom_link btn comment_action inactive'

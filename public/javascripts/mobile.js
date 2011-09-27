@@ -59,8 +59,7 @@ $(document).ready(function(){
       $.ajax({
         url: link.attr('href'),
         success: function(data){
-          var comments = $("<ul class='comments'></ul>");
-          parent.append(comments.append(data));
+          parent.append(data);
           link.addClass('active');
         }
       });
@@ -72,7 +71,9 @@ $(document).ready(function(){
     var link = $(this);
 
     if(link.hasClass('inactive')) {
-      var parent = link.closest(".bottom_bar").first();
+      var parent = link.closest(".bottom_bar").first(),
+          container = link.closest('.bottom_bar').find('.add_comment_bottom_link_container');
+
       $.ajax({
         url: link.attr('href'),
         beforeSend: function(){
@@ -81,7 +82,11 @@ $(document).ready(function(){
         success: function(data){
           link.removeClass('loading')
               .removeClass('inactive');
+
+          container.first().hide();
+
           parent.append(data);
+          parent.find('textarea').first().focus();
         }
       });
     }
@@ -92,9 +97,13 @@ $(document).ready(function(){
     var link = $(this);
         form = link.closest("form"),
         commentActionLink = link.closest(".bottom_bar").find("a.comment_action").first();
+        container = link.closest('.bottom_bar').find('.add_comment_bottom_link_container');
+
+    if(container.length > 0 ){
+      container.first().show();
+    }
 
     commentActionLink.addClass("inactive");
     form.remove();
   });
-
 });
