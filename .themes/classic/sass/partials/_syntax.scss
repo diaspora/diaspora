@@ -1,4 +1,5 @@
 .highlight, html .gist .gist-file .gist-syntax .gist-highlight {
+  table td.code { width: 100%; }
   .line-numbers {
     text-align: right;
     font-size: 13px;
@@ -85,19 +86,21 @@ h3.filename {
   + pre { @include border-top-radius(0px); }
 }
 
-p code,
-li code {
-  @extend .mono;
-  display: inline-block;
-  white-space: no-wrap;
-  background: #fff;
-  font-size: .8em;
-  line-height: 1.5em;
-  color: #555;
-  border: 1px solid #ddd;
-  @include border-radius(.4em);
-  padding: 0 .3em;
-  margin: -1px 0;
+p, li {
+  code {
+    @extend .mono;
+    display: inline-block;
+    white-space: no-wrap;
+    background: #fff;
+    font-size: .8em;
+    line-height: 1.5em;
+    color: #555;
+    border: 1px solid #ddd;
+    @include border-radius(.4em);
+    padding: 0 .3em;
+    margin: -1px 0;
+  }
+  pre code { font-size: 1em !important; background: none; border: none; }
 }
 
 .pre-code {
@@ -216,6 +219,7 @@ figure.code {
     margin-bottom: 0;
   }
 }
+
 .code-title {
   text-align: center;
   font-size: 13px;
@@ -243,3 +247,4 @@ figure.code {
   text-shadow: #cbcccc 0 1px 0;
   padding-left: 3em;
 }
+

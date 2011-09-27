@@ -58,7 +58,7 @@ function addCodeLineNumbers() {
         lineNumbers = '<pre class="line-numbers">',
         tableMiddle = '</pre></td><td class="code">',
         tableEnd = '</td></tr></tbody></table>',
-        count = $('span.line', code).length;
+        count = $('.line', code).length;
     for (var i=1;i<=count; i++) {
       lineNumbers += '<span class="line-number">'+i+'</span>\n';
     }
