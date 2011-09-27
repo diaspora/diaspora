@@ -38,7 +38,7 @@ Feature: posting from the main page
       And I wait for the ajax to finish
       Then I should see "I am eating a yogurt"
 
-      When I follow "Your Aspects" within "#aspect_nav"
+      When I am on the aspects page
       And I follow "NotPostingThingsHere" within "#aspect_nav"
       And I wait for the ajax to finish
       Then I should not see "I am eating a yogurt"
