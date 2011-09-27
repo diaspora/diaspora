@@ -1,5 +1,5 @@
 $(document).ready(function(){
-  $(".like_action.inactive").live('tap click', function(evt){
+  $(".stream").delegate(".like_action.inactive", "tap click", function(evt){
     evt.preventDefault();
     var link = $(this),
         likeCounter = $(this).closest(".stream_element").find("like_count"),
@@ -26,7 +26,7 @@ $(document).ready(function(){
     });
   });
 
-  $(".like_action.active").live('tap click', function(evt){
+  $(".stream").delegate(".like_action.active", "tap click", function(evt){
     evt.preventDefault();
     var link = $(this);
         likeCounter = $(this).closest(".stream_element").find("like_count");
@@ -52,7 +52,7 @@ $(document).ready(function(){
     });
   });
 
-  $("a.show_comments").live('tap click', function(evt){
+  $("a.show_comments").bind("tap click", function(evt){
     evt.preventDefault();
     var link = $(this),
         parent = link.closest(".bottom_bar").first(),
@@ -77,7 +77,7 @@ $(document).ready(function(){
     }
   });
 
-  $("a.comment_action").live('tap click', function(evt){
+  $(".stream").delegate("a.comment_action", "tap click", function(evt){
     evt.preventDefault();
     var link = $(this);
 
@@ -108,7 +108,7 @@ $(document).ready(function(){
     }
   });
 
-  $("a.cancel_new_comment").live('tap click', function(evt){
+  $(".stream").delegate("a.cancel_new_comment", "tap click", function(evt){
     evt.preventDefault();
     var link = $(this);
         form = link.closest("form"),
@@ -134,7 +134,6 @@ $(document).ready(function(){
       form.remove();
       container.show();
     }, 'html');
-
   });
 
 });
