@@ -55,7 +55,7 @@ body {
         weight: bold !important; }; }
     margin-bottom: 2px;
     height: 45px; }
-  .content {
+  > .content {
     padding: 10px {
       bottom: 0; }; }
   padding: 10px 0;
@@ -164,9 +164,12 @@ body {
 
 .reshare {
   .content {
+    border: {
+      left: 3px solid #ccc;
+    }
     padding: {
-      left: 15px;
-      top: 10px; };
+      left: 5px;
+      top: 0px; };
   }
 }
 
@@ -485,14 +488,14 @@ input[type=submit] {
 .post_stats {
   position: absolute;
   font-size: larger;
-  right: 11px;
+  right: 10px;
   top: 38px;
   z-index: 2;
   span {
     color: #666;
     font-weight: bold;
     padding: 2px 7px;
-    margin: 5px 5px;
+    margin: 5px 6px;
     background: {
       color: #eee;
     }
