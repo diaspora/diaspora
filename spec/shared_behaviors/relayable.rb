@@ -1,4 +1,4 @@
-#   Copyright (c) 2010, Diaspora Inc.  This file is
+#   Copyright (c) 2010-2011, Diaspora Inc.  This file is
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
@@ -6,6 +6,12 @@ require 'spec_helper'
 
 describe Diaspora::Relayable do
   shared_examples_for "it is relayable" do
+
+    context 'validation' do
+      it 'ensures an valid associated parent'
+      it 'ensures the presence of an author'
+    end
+
     context 'encryption' do
       describe '#parent_author_signature' do
         it 'should sign the object if the user is the post author' do
@@ -54,9 +60,9 @@ describe Diaspora::Relayable do
         end
 
         it 'dispatches when the person receiving is the parent author' do
-          p = Postzord::Dispatch.new(@local_luke, @object_by_recipient)
+          p = Postzord::Dispatcher.build(@local_luke, @object_by_recipient)
           p.should_receive(:post)
-          Postzord::Dispatch.stub!(:new).and_return(p)
+          Postzord::Dispatcher.stub!(:new).and_return(p)
           @object_by_recipient.receive(@local_luke, @local_leia.person)
         end
 

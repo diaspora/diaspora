@@ -1,4 +1,4 @@
-#   Copyright (c) 2010, Diaspora Inc.  This file is
+#   Copyright (c) 2010-2011, Diaspora Inc.  This file is
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
@@ -40,7 +40,7 @@ describe SessionsController do
     it 'queues up an update job' do
       service = Services::Facebook.new(:access_token => "yeah")
       @user.services << service
-      Resque.should_receive(:enqueue).with(Job::UpdateServiceUsers, service.id)
+      Resque.should_receive(:enqueue).with(Jobs::UpdateServiceUsers, service.id)
 
       post :create, {"user" => {"remember_me" => "0", "username" => @user.username, "password" => "evankorth"}}
     end
@@ -52,7 +52,7 @@ describe SessionsController do
     end
     it "redirects to / for a non-mobile user" do
       delete :destroy
-      response.should redirect_to root_path
+      response.should redirect_to logged_out_path
     end
 
     it "redirects to / for a mobile user" do

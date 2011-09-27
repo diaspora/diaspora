@@ -37,7 +37,7 @@ fr:
             person: 
               invalid: "est invalide."
             username: 
-              invalid: "n'est pas valide. Nous n'autorisons que les lettres, chiffres et _"
+              invalid: "n'est pas valide. Nous n'autorisons que les lettres, chiffres et caractère de soulignement."
               taken: "est déjà pris."
   ago: "Il y a %{time}"
   all_aspects: "Tous les aspects"
@@ -47,7 +47,7 @@ fr:
       unknown_person: "personne inconnue"
       video_title: 
         unknown: "Titre de vidéo inconnu"
-  are_you_sure: "Êtes-vous certains?"
+  are_you_sure: "Êtes-vous certain ?"
   aspect_memberships: 
     destroy: 
       failure: "Impossible de retirer la personne de l'aspect"
@@ -101,7 +101,16 @@ fr:
         heading: "Identifiant Diaspora"
       donate: "Faire un don"
       handle_explanation: "Ceci est votre identifiant diaspora. Comme une adresse de courrier électronique, vous pouvez le communiquer à d'autres personnes pour leur permettre de vous joindre."
-      keep_us_running: "Permettez à %{pod} de fonctionner rapidement, achetez une dose de café mensuelle à nos serveurs !"
+      help: 
+        did_you: "Avez-vous:"
+        feature_suggestion: "... une suggestion (%{link}) ?"
+        find_a_bug: "... trouvé un %{link} ?"
+        have_a_question: "... une %{link} ?"
+        here_to_help: "La communauté de Diaspora est là pour vous aider !"
+        more_support: "Pour plus d'aide, vous pouvez visiter %{link}."
+        need_help: "Besoin d'aide ?"
+        tutorials: "Pour les tutoriaux, visitez %{link}."
+      keep_us_running: "Permettez à %{pod} de fonctionner rapidement et achetez une dose de café par mois à nos serveurs !"
       no_contacts: "Aucun contact"
       no_tags: "+ Trouver un tag à suivre"
       people_sharing_with_you: "Personnes partageant avec vous"
@@ -140,12 +149,14 @@ fr:
       view_all_contacts: "Afficher tous les contacts"
     show: 
       edit_aspect: "modifier l'aspect"
+    two: "%{count} aspects"
     update: 
       failure: "Votre aspect %{name} a un nom trop long pour être enregistré."
       success: "Votre aspect « %{aspect_name} » a été modifié."
     zero: "aucun aspect"
   authorizations: 
     index: 
+      no_applications: "Vous n'avez pas encore enregistré d'application."
       revoke_access: "Révoquer l'accès"
   back: "Retour"
   bookmarklet: 
@@ -163,6 +174,7 @@ fr:
       commenting: "Commentaire en cours d'envoi..."
     one: "1 commentaire"
     other: "%{count} commentaires"
+    two: "%{count} commentaires"
     zero: "aucun commentaire"
   contacts: 
     create: 
@@ -187,6 +199,7 @@ fr:
     other: "%{count} contacts"
     sharing: 
       people_sharing: "Personnes partageant avec vous :"
+    two: "%{count} contacts"
     zero: "aucun contact"
   conversations: 
     create: 
@@ -200,6 +213,7 @@ fr:
         many: "%{count} nouveaux messages"
         one: "1 nouveau message"
         other: "%{count} nouveaux messages"
+        two: "%{count} nouveaux messages"
         zero: "Aucun nouveau message"
     index: 
       create_a_new_message: "créer un nouveau message"
@@ -297,18 +311,21 @@ fr:
         many: "%{count} personnes n'aiment pas"
         one: "%{count} personne n'aime pas"
         other: "%{count} personnes n'aiment pas"
+        two: "%{count} n'aiment pas"
         zero: "Personne n'aime pas ça"
       people_like_this: 
         few: "%{count} personnes aiment"
         many: "%{count} personnes aiment"
         one: "%{count} personne aime"
         other: "%{count} personnes aiment"
+        two: "%{count} aiment"
         zero: "Personne n'aime ça"
       people_like_this_comment: 
         few: "%{count} aiment"
         many: "%{count} aiment"
         one: "%{count} aime"
         other: "%{count} aiment"
+        two: "%{count} aiment"
         zero: "personne n'aime"
   limited: "Limité"
   more: "Plus"
@@ -320,18 +337,21 @@ fr:
       many: "%{actors} a/ont également commenté le %{post_link} de %{post_author}."
       one: "%{actors} a/ont également commenté le %{post_link} de %{post_author}."
       other: "%{actors} a/ont également commenté le %{post_link} de %{post_author}."
+      two: "%{actors} ont aussi commenté %{post_link} de %{post_author}."
       zero: "%{actors} a/ont également commenté le %{post_link} de %{post_author}."
     also_commented_deleted: 
       few: "%{actors} a commenté votre message supprimé."
       many: "%{actors} a commenté votre message supprimé."
       one: "%{actors} a commenté votre message supprimé."
       other: "%{actors} a commenté votre message supprimé."
+      two: "%{actors} ont commenté sur un message supprimé."
       zero: "%{actors} a commenté votre message supprimé."
     comment_on_post: 
       few: "%{actors} a/ont commenté %{post_link}."
       many: "%{actors} a/ont commenté %{post_link}."
       one: "%{actors} a/ont commenté %{post_link}."
       other: "%{actors} a/ont commenté votre %{post_link}."
+      two: "%{actors} ont commenté votre %{post_link}."
       zero: "%{actors} a/ont commenté votre %{post_link}."
     helper: 
       new_notifications: 
@@ -339,6 +359,7 @@ fr:
         many: "%{count} nouvelles notifications"
         one: "1 nouvelle notification"
         other: "%{count} nouvelles notifications"
+        two: "%{count} nouvelles notifications"
         zero: "Aucune nouvelle notification"
     index: 
       and: "et"
@@ -347,6 +368,7 @@ fr:
         many: "et %{count} autres"
         one: "et un autre"
         other: "et %{count} autres"
+        two: "et %{count} autres"
         zero: "et personne d'autre"
       mark_all_as_read: "Tout marquer comme lu"
       notifications: "Notifications"
@@ -355,24 +377,28 @@ fr:
       many: "%{actors} a/ont aimé votre %{post_link}."
       one: "%{actors} a/ont aimé votre %{post_link}."
       other: "%{actors} a/ont aimé votre %{post_link}."
+      two: "%{actors} viennent d'aimer votre %{post_link}."
       zero: "%{actors} a/ont aimé votre %{post_link}."
     liked_post_deleted: 
       few: "%{actors} a aimé votre message supprimé."
       many: "%{actors} a aimé votre message supprimé."
       one: "%{actors} a aimé votre message supprimé."
       other: "%{actors} a aimé votre message supprimé."
+      two: "%{actors} aiment le message que vous avez supprimé."
       zero: "%{actors} a aimé votre message supprimé."
     mentioned: 
       few: "%{actors} vous a mentionné(e) dans un %{post_link}."
       many: "%{actors} vous a mentionné(e) dans un %{post_link}."
       one: "%{actors} vous a mentionné(e) dans un %{post_link}."
       other: "%{actors} vous a mentionné(e) dans un %{post_link}."
+      two: "%{actors} a parlé de vous dans %{post_link}."
       zero: "%{actors} vous a mentionné(e) dans un %{post_link}."
     mentioned_deleted: 
       few: "%{actors} vous a mentionné dans un message supprimé."
       many: "%{actors} vous a mentionné dans un message supprimé."
       one: "%{actors} vous a mentionné dans un message supprimé."
       other: "%{actors} vous a/ont mentionné(e) dans un message supprimé."
+      two: "%{actors} ont parlé de vous dans un message supprimé."
       zero: "%{actors} vous a/ont mentionné(e) dans un message supprimé."
     post: "message"
     private_message: 
@@ -380,24 +406,28 @@ fr:
       many: "%{actors} vous a envoyé un message."
       one: "%{actors} vous a envoyé un message."
       other: "%{actors} vous a envoyé un message."
+      two: "%{actors} vous ont envoyé un message."
       zero: "%{actors} vous a envoyé un message."
     reshared: 
-      few: "%{actors} has reshared your %{post_link}."
-      many: "%{actors} has reshared your %{post_link}."
-      one: "%{actors} has reshared your %{post_link}."
-      other: "%{actors} has reshared your %{post_link}."
-      zero: "%{actors} has reshared your %{post_link}."
+      few: "%{actors} a repartagé votre %{post_link}."
+      many: "%{actors} a repartagé votre %{post_link}."
+      one: "%{actors} a repartagé votre %{post_link}."
+      other: "%{actors} a repartagé votre %{post_link}."
+      two: "%{actors} ont partagé votre %{post_link}."
+      zero: "%{actors} a repartagé votre %{post_link}."
     reshared_post_deleted: 
-      few: "%{actors} reshared your deleted post."
-      many: "%{actors} reshared your deleted post."
-      one: "%{actors} reshared your deleted post."
-      other: "%{actors} reshared your deleted post."
-      zero: "%{actors} reshared your deleted post."
+      few: "%{actors} a partagé le message que vous avez supprimé."
+      many: "%{actors} ont partagé le message que vous avez supprimé."
+      one: "%{actors} a partagé le message que vous avez supprimé."
+      other: "%{actors} a partagé le message que vous avez supprimé."
+      two: "%{actors} ont partagé le message que vous avez supprimé."
+      zero: "%{actors} a partagé votre message supprimé."
     started_sharing: 
       few: "%{actors} a/ont commencé à partager avec vous."
       many: "%{actors} a/ont commencé à partager avec vous."
       one: "%{actors} a/ont commencé à partager avec vous."
       other: "%{actors} a/ont commencé à partager avec vous."
+      two: "%{actors} ont commencé à échanger avec vous."
       zero: "%{actors} a/ont commencé à partager avec vous."
   notifier: 
     a_post_you_shared: "un post."
@@ -405,7 +435,7 @@ fr:
     comment_on_post: 
       reply: "Répondre ou voir le post de %{name} >"
     confirm_email: 
-      click_link: "Pour activer votre nouvelle adresse email %{unconfirmed_email}, merci de cliquer sur ce lien :"
+      click_link: "Pour activer votre nouvelle adresse email %{unconfirmed_email}, merci de suivre ce lien :"
       subject: "Merci d'activer votre nouvelle adresse email %{unconfirmed_email}"
     email_sent_by_diaspora: "Ce courriel a été envoyé par Diaspora. Si vous souhaitez cesser de recevoir des courriels de ce genre,"
     hello: "Bonjour %{name} !"
@@ -418,8 +448,8 @@ fr:
     private_message: 
       reply_to_or_view: "Répondre ou voir cette conversation >"
     reshared: 
-      reshared: "%{name} just reshared your post"
-      view_post: "View post >"
+      reshared: "%{name} a juste partagé votre message"
+      view_post: "Voir le message >"
     single_admin: 
       admin: "Votre administrateur Diaspora"
       subject: "Un message concernant votre compte Diaspora :"
@@ -481,6 +511,7 @@ fr:
       add_some: "ajouter quelques"
       edit: "modifier"
       you_have_no_tags: "vous n'avez pas de tags !"
+    two: "%{count} personnes"
     webfinger: 
       fail: "Impossible de trouver %{handle}."
     zero: "personne"
@@ -497,7 +528,7 @@ fr:
     new: 
       back_to_list: "Retourner à la liste"
       new_photo: "Nouvelle photo"
-      post_it: "la publier !"
+      post_it: "publiez-le !"
     new_photo: 
       empty: "{file} est vide, merci de sélectionner de nouveau des fichiers sans celui-ci."
       invalid_ext: "{file} a une extension invalide. Seules {extensions} sont autorisées."
@@ -520,7 +551,8 @@ fr:
       notice: "La photo a été mise à jour."
   post_visibilites: 
     update: 
-      post_hidden: "Le message de %{name} à été masqué."
+      post_hidden_and_muted: "Le message de %{name} a été masqué, et les notifications mises en sourdine."
+      see_it_on_their_profile: "Si vous voulez voir les mises à jour de ce message, visitez la page de profil de %{name}."
   posts: 
     show: 
       destroy: "Supprimer"
@@ -582,6 +614,7 @@ fr:
         many: "%{count} nouvelles requêtes !"
         one: "nouvelle requête !"
         other: "%{count} nouvelles requêtes !"
+        two: "%{count} nouvelles demandes !"
         zero: "aucune nouvelle requête"
     manage_aspect_contacts: 
       existing: "Contacts existants"
@@ -599,6 +632,7 @@ fr:
         many: "%{count} partages"
         one: "1 partage"
         other: "%{count} partages"
+        two: "%{count} partages"
         zero: "Repartager"
       reshare_confirmation: "Partager le post d'%{author} ?"
       reshare_original: "Partager l'original"
@@ -624,7 +658,7 @@ fr:
       no_services: "Vous n'êtes connectés à aucun service pour le moment."
       really_disconnect: "déconnecter %{service} ?"
     inviter: 
-      click_link_to_accept_invitation: "Cliquer sur ce lien pour accepter l'invitation"
+      click_link_to_accept_invitation: "Suivez ce lien pour accepter l'invitation"
       join_me_on_diaspora: "Rejoignez-moi sur DIASPORA*"
     remote_friend: 
       invite: "inviter"
@@ -646,6 +680,7 @@ fr:
         many: "Dans %{count} aspects"
         one: "Dans %{count} aspect"
         other: "Dans %{count} aspects"
+        two: "Dans %{count} aspects"
         zero: "Ajouter à l'aspect"
     contact_list: 
       all_contacts: "Tous les contacts"
@@ -685,6 +720,7 @@ fr:
       reshare: "Repartager"
     stream_element: 
       dislike: "Je n'aime pas"
+      hide_and_mute: "Masquer et mettre en sourdine"
       like: "J'aime"
       shared_with: "Partagé avec : %{aspect_names}"
       unlike: "Je n'aime pas"
@@ -704,6 +740,7 @@ fr:
       many: "s'il vous plaît, veuillez écrire des messages de moins de %{count} caractères"
       one: "s'il vous plaît, veuillez écrire des messages de moins de %{count} caractère"
       other: "s'il vous plaît, veuillez écrire des messages de moins de %{count} caractères"
+      two: "votre statut doit faire moins de %{count} caractères"
       zero: "s'il vous plaît, veuillez écrire des messages de moins de %{count} caractères"
   stream_helper: 
     hide_comments: "Masquer tous les commentaires"
@@ -762,7 +799,7 @@ fr:
       new_password: "Nouveau mot de passe"
       private_message: "…vous recevez un message privé ?"
       receive_email_notifications: "Recevoir des notifications par courrier électronique lorsque…"
-      reshared: "...someone reshares your post?"
+      reshared: "...quelqu'un a partagé votre message ?"
       started_sharing: "...quelqu'un commence à partager avec vous ?"
       your_email: "Votre adresse électronique"
       your_handle: "Votre identifiant diaspora"
@@ -771,8 +808,9 @@ fr:
       connect_to: "Connectez-vous à"
       connect_to_your_other_social_networks: "Connectez-vous à vos autres réseaux sociaux"
       connect_with_people: "Connectez-vous avec des gens cool"
-      connect_with_people_explanation_pt1: "Connectez-vous avec des gens en les plaçant dans un ou plusieurs de vos %{gras}"
+      connect_with_people_explanation_pt1: "Connectez-vous avec des gens en les plaçant dans un ou plusieurs de vos %{gras}."
       connect_with_people_explanation_pt2: "Les aspects sont un moyen intuitif de grouper les visages familiers et nouveaux, privés, vous permettant de filtrer ou partager avec des sous-ensembles de vos contacts facilement."
+      edit_profile: "Editer le profil"
       featured_tags: "Tags recommandés"
       featured_users: "Utilisateurs recommandés"
       fill_out_your_profile: "Remplissez votre profil"
@@ -790,6 +828,8 @@ fr:
         name: "Nom"
         photo: "Photo"
         tags: "Tags"
+      search_for_hashtags: "Chercher #tag"
+      search_for_people: "Rechercher des personnes"
       see_all_featured_users: "Voir tous les utilisateurs recommandés"
       welcome: "Bienvenue !"
       welcome_with_name: "Bienvenue, %{name} !"

@@ -6,17 +6,18 @@
 sv: 
   javascripts: 
     aspect_dropdown: 
-      add_to_aspect: "Add to aspect"
-      all_aspects: "All aspects"
+      add_to_aspect: "Lägg till i aspekt"
+      all_aspects: "Alla aspekter"
       toggle: 
-        few: "In {{count}} aspects"
-        many: "In {{count}} aspects"
-        one: "In {{count}} aspect"
-        other: "In {{count}} aspects"
-        zero: "Add to aspect"
+        few: "I {{count}} aspekter"
+        many: "I {{count}} aspekter"
+        one: "I {{count}} aspekt"
+        other: "I {{count}} aspekter"
+        two: "I {{count}} aspekter"
+        zero: "Lägg till i aspekt"
     comments: 
-      hide: "hide comments"
-      show: "show all comments"
+      hide: "dölj kommentarer"
+      show: "visa alla kommentarer"
     confirm_dialog: "Är du säker?"
     failed_to_like: "Failed to like!"
     failed_to_post_message: "Failed to post message!"
@@ -48,6 +49,6 @@ sv:
       years: "%d år"
     videos: 
       unknown: "Okänd videotyp"
-      watch: "Se denhär videon på {{provider}}"
+      watch: "Se den här videon på {{provider}}"
     web_sockets: 
       disconnected: "Webbsockeln är stängd; inlägg kommer inte längre att bli direktstreamade."

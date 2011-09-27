@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe Job::Mail::InviteUserByEmail do
+describe Jobs::Mail::InviteUserByEmail do
   before do
     @sender = alice
     @email = 'bob@bob.com'
@@ -12,6 +12,6 @@ describe Job::Mail::InviteUserByEmail do
     invitation = Invitation.create(:sender => @sender, :identifier => @email, :service => "email", :aspect => @aspect, :message => @message)
     invitation.should_receive(:send!)
     Invitation.stub(:find).and_return(invitation)
-    Job::Mail::InviteUserByEmail.perform(invitation.id)
+    Jobs::Mail::InviteUserByEmail.perform(invitation.id)
   end
 end

@@ -1,4 +1,4 @@
-#   Copyright (c) 2010, Diaspora Inc.  This file is
+#   Copyright (c) 2010-2011, Diaspora Inc.  This file is
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
@@ -15,7 +15,7 @@ class LikesController < ApplicationController
 
       if @like.save
         Rails.logger.info("event=create type=like user=#{current_user.diaspora_handle} status=success like=#{@like.id} positive=#{positive}")
-        Postzord::Dispatch.new(current_user, @like).post
+        Postzord::Dispatcher.build(current_user, @like).post
 
         respond_to do |format|
           format.js { render 'likes/update', :status => 201 }

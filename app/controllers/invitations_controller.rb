@@ -1,4 +1,4 @@
-#   Copyright (c) 2010, Diaspora Inc.  This file is
+#   Copyright (c) 2010-2011, Diaspora Inc.  This file is
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
@@ -56,7 +56,7 @@ class InvitationsController < Devise::InvitationsController
   def resend
     invitation = current_user.invitations_from_me.where(:id => params[:id]).first
     if invitation
-      Resque.enqueue(Job::ResendInvitation, invitation.id)
+      Resque.enqueue(Jobs::ResendInvitation, invitation.id)
       flash[:notice] = I18n.t('invitations.create.sent') + invitation.recipient.email
     end
     redirect_to :back

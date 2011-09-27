@@ -1,9 +1,12 @@
-#   Copyright (c) 2010, Diaspora Inc.  This file is
+#   Copyright (c) 2010-2011, Diaspora Inc.  This file is
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
 class NotificationsController < VannaController
   include NotificationsHelper
+
+  include ActionController::MobileFu
+  has_mobile_fu
 
   def update(opts=params)
     note = Notification.where(:recipient_id => current_user.id, :id => opts[:id]).first

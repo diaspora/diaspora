@@ -30,13 +30,13 @@ de:
       hello: "Hallo %{email}!"
       invitation_instructions: 
         accept: "Einladung annehmen"
-        ignore: "Wenn du die Einladung nicht annehmen möchtest ignoriere diese E-Mail einfach."
+        ignore: "Wenn du die Einladung nicht annehmen möchtest, ignoriere diese E-Mail einfach."
         no_account_till: "Dein Konto wird nicht erstellt solange du dich nicht über den oberen Link registrierst."
         subject: "Du wurdest zu Diaspora eingeladen!"
       inviter: 
-        accept_at: "at %{url}, you can accept it through the link below."
+        accept_at: "unter %{url}, kannst du sie über den untenstehenden Link akzeptieren."
         has_invited_you: "%{name}"
-        have_invited_you: "%{names} have invited you to join Diaspora"
+        have_invited_you: "%{names} hat Dich eingeladen Diaspora beizutreten"
       reset_password_instructions: 
         change: "Mein Kennwort ändern"
         ignore: "Wenn du dies nicht angefordert hast, ignoriere bitte diese E-Mail."

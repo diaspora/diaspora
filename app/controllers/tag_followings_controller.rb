@@ -1,6 +1,12 @@
+require File.join(Rails.root, '/lib/tag_stream')
 class TagFollowingsController < ApplicationController
   before_filter :authenticate_user!
 
+  def index
+    @stream = TagStream.new(current_user)
+
+    render 'aspects/index', :locals => {:posts => @stream.posts}
+  end
   # POST /tag_followings
   # POST /tag_followings.xml
   def create
@@ -13,7 +19,7 @@ class TagFollowingsController < ApplicationController
       flash[:error] = I18n.t('tag_followings.create.failure', :name => params[:name])
     end
 
-    redirect_to tag_path(:name => params[:name])
+    redirect_to :back
   end
 
   # DELETE /tag_followings/1

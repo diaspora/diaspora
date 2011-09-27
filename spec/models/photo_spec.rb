@@ -1,4 +1,4 @@
-#   Copyright (c) 2010, Diaspora Inc.  This file is
+#   Copyright (c) 2010-2011, Diaspora Inc.  This file is
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
@@ -164,7 +164,7 @@ describe Photo do
       xml = @photo.to_diaspora_xml
 
       @photo.destroy
-      zord = Postzord::Receiver.new(user2, :person => @photo.author)
+      zord = Postzord::Receiver::Private.new(user2, :person => @photo.author)
       zord.parse_and_receive(xml)
 
       new_photo = Photo.where(:guid => @photo.guid).first
@@ -182,7 +182,7 @@ describe Photo do
 
   describe '#queue_processing_job' do
     it 'should queue a resque job to process the images' do
-      Resque.should_receive(:enqueue).with(Job::ProcessPhoto, @photo.id)
+      Resque.should_receive(:enqueue).with(Jobs::ProcessPhoto, @photo.id)
       @photo.queue_processing_job
     end
   end
@@ -199,6 +199,21 @@ describe Photo do
       expect {
         @status_message.destroy
       }.should change(Photo, :count).by(-1)
+    end
+
+    it 'will delete parent status message iff message is otherwise empty' do
+      expect {
+        @photo2.destroy
+      }.should change(StatusMessage, :count).by(-1)
+    end
+
+    it 'will not delete parent status message iff message had other content' do
+      expect {
+        @status_message.text = "Some text"
+        @status_message.save
+        @status_message.reload
+        @photo2.destroy
+      }.should_not change(StatusMessage, :count)
     end
   end
 end

@@ -1,4 +1,4 @@
-#   Copyright (c) 2010, Diaspora Inc.  This file is
+#   Copyright (c) 2010-2011, Diaspora Inc.  This file is
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
@@ -28,8 +28,10 @@ class Post < ActiveRecord::Base
   has_many :resharers, :class_name => 'Person', :through => :reshares, :source => :author
 
   belongs_to :author, :class_name => 'Person'
+  
+  validates :guid, :uniqueness => true
 
-  validates_uniqueness_of :guid
+  scope :all_public, where(:public => true, :pending => false)
 
   def diaspora_handle
     read_attribute(:diaspora_handle) || self.author.diaspora_handle
@@ -100,7 +102,7 @@ class Post < ActiveRecord::Base
           return local_post
         end
       elsif !local_post
-        if  self.save  
+        if self.save
           user.contact_for(person).receive_post(self)
           user.notify_if_mentioned(self)
           Rails.logger.info("event=receive payload_type=#{self.class} update=false status=complete sender=#{self.diaspora_handle}")
@@ -125,6 +127,12 @@ class Post < ActiveRecord::Base
   # @return [Array<Comment>]
   def last_three_comments
     self.comments.order('created_at DESC').limit(3).includes(:author => :profile).reverse
+  end
+
+  # @return [Integer]
+  def update_comments_counter
+    self.class.where(:id => self.id).
+      update_all(:comments_count => self.comments.count)
   end
 end
 

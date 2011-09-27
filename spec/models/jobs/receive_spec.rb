@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe Job::Receive do
+describe Jobs::Receive do
   before do
     @user = alice
     @person = Factory(:person)
@@ -17,7 +17,7 @@ describe Job::Receive do
   it 'calls receive' do
     zord_mock = mock()
     zord_mock.should_receive(:parse_and_receive).with(@xml)
-    Postzord::Receiver.should_receive(:new).with(@user, anything).and_return(zord_mock)
-    Job::Receive.perform(@user.id, @xml, @person.id)
+    Postzord::Receiver::Private.should_receive(:new).with(@user, anything).and_return(zord_mock)
+    Jobs::Receive.perform(@user.id, @xml, @person.id)
   end
 end

@@ -1,4 +1,4 @@
-# Copyright (c) 2011, Diaspora Inc.  This file is
+# Copyright (c) 2010-2011, Diaspora Inc.  This file is
 # licensed under the Affero General Public License version 3 or later.  See
 # the COPYRIGHT file.
 require 'uri'
@@ -6,7 +6,7 @@ require 'uri'
 class AppConfig < Settingslogic
 
   def self.source_file_name
-    if Rails.env == 'test' || ENV["CI"] || Rails.env.include?("integration")
+    if Rails.env == 'test' || ENV["CI"] || Rails.env.include?("integration") || ENV["HEROKU"]
       File.join(Rails.root, "config", "application.yml.example")
     else
       File.join(Rails.root, "config", "application.yml")
@@ -16,8 +16,9 @@ class AppConfig < Settingslogic
   namespace Rails.env
 
   def self.load!
-    if no_config_file? && !have_old_config_file?
-      $stderr.puts <<-HELP
+    unless ENV["HEROKU"]
+      if no_config_file? && !have_old_config_file?
+        $stderr.puts <<-HELP
 ******** You haven't set up your Diaspora settings file. **********
 Please do the following:
 1. Copy config/application.yml.example to config/application.yml.
@@ -25,12 +26,12 @@ Please do the following:
 work without modification. However, it's always good to know what's available to change later.
 3. Restart Diaspora!
 ******** Thanks for being an alpha tester! **********
-HELP
-      Process.exit(1)
-    end
+  HELP
+        Process.exit(1)
+      end
 
-    if (no_config_file? && have_old_config_file?) || config_file_is_old_style?
-      $stderr.puts <<-HELP
+      if ((no_config_file? && have_old_config_file?) || config_file_is_old_style?)
+        $stderr.puts <<-HELP
 ******** The Diaspora configuration file format has changed. **********
 Please do the following:
 1. Copy config/application.yml.example to config/application.yml.
@@ -38,13 +39,20 @@ Please do the following:
 3. Delete config/app.yml and config/app_config.yml. Don't worry if they don't exist, though.
 4. Restart Diaspora!
 ******** Thanks for being an alpha tester! **********
-HELP
+  HELP
+        Process.exit(1)
+      end
+    end
+
+    begin
+      super
+    rescue TypeError
+      puts "Couldn't find section ''#{self.namespace}' in config/application.yml."
+      puts "Double check it's there and that you haven't set RAILS_ENV to something weired (check it for typos)"
       Process.exit(1)
     end
 
-    super
-
-    if no_cert_file_in_prod?
+    if !ENV["HEROKU"] && no_cert_file_in_prod?
       $stderr.puts <<-HELP
 ******** Diaspora does not know where your SSL-CA-Certificates file is. **********
   Please add the root certificate bundle (this is operating system specific) to application.yml. Defaults:
@@ -109,6 +117,7 @@ HELP
 
   def self.[] (key)
     return self.pod_uri if key == :pod_uri
+    return ENV[key.to_s] if ENV[key.to_s] && ENV["HEROKU"]
     super
   end
 
@@ -125,11 +134,15 @@ HELP
   def self.pod_uri
     if @@pod_uri.nil?
       begin
-        @@pod_uri = Addressable::URI.parse(self.pod_url)
+        @@pod_uri = Addressable::URI.parse(self[:pod_url])
       rescue
-        puts "WARNING: pod url " + self.pod_url + " is not a legal URI"
+        puts "WARNING: pod url " + self[:pod_url] + " is not a legal URI"
       end
     end
     return @@pod_uri
+  end
+  
+  def self.single_process_mode?
+    (ENV['SINGLE_PROCESS'] == "true" || ENV['SINGLE_PROCESS_MODE'] == "true" || self[:single_process_mode]) ? true : false
   end
 end

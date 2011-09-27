@@ -13,6 +13,7 @@ ko:
         many: "애스펙 {{count}}개 안에 있습니다"
         one: "애스펙 한 개 안에 있습니다"
         other: "애스펙 {{count}}개 안에 있습니다"
+        two: "In {{count}} aspects"
         zero: "애스펙에 넣기"
     comments: 
       hide: "댓글 감추기"

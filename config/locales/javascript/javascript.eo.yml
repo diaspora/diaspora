@@ -7,12 +7,13 @@ eo:
   javascripts: 
     aspect_dropdown: 
       add_to_aspect: "Aldoni al aspekto"
-      all_aspects: "All aspects"
+      all_aspects: "Ĉiuj aspektoj"
       toggle: 
         few: "En {{count}} aspektoj"
         many: "En {{count}} aspektoj"
         one: "En {{count}} aspekto"
         other: "En {{count}} aspektoj"
+        two: "En {{count}} aspektoj"
         zero: "Aldoni al aspekto"
     comments: 
       hide: "Kaŝi komentojn"
@@ -24,8 +25,8 @@ eo:
       no_more: "Ne pli afiŝoj."
     publisher: 
       at_least_one_aspect: "Vi devus eldoni al almenaŭ unu aspekto"
-      limited: "Limited - your post will only be seen by people you are sharing with"
-      public: "Public - your post will be visible to everyone and found by search engines"
+      limited: "Malpublika - via afiŝo nur vidoteblos de homoj, kun kiuj vi partoprenas"
+      public: "Publika - via afiŝo vidoteblos de ĉiuj kaj trovotos de retserĉaplikaĵoj."
     reshares: 
       duplicate: "Vi jam repartoprenis tiun afiŝon!"
     search_for: "Serĉi por {{name}}"

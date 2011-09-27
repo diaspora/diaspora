@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe Job::HttpMulti do
+describe Jobs::HttpMulti do
   before :all do
     enable_typhoeus
   end
@@ -28,7 +28,7 @@ describe Job::HttpMulti do
     Typhoeus::Hydra.stub!(:new).and_return(@hydra)
 
     people_ids = @people.map{ |p| p.id }
-    Job::HttpMulti.perform(bob.id, @post_xml, people_ids)
+    Jobs::HttpMulti.perform(bob.id, @post_xml, people_ids, "Postzord::Dispatcher::Private")
   end
 
   it 'retries' do
@@ -38,8 +38,8 @@ describe Job::HttpMulti do
 
     Typhoeus::Hydra.stub!(:new).and_return(@hydra)
 
-    Resque.should_receive(:enqueue).with(Job::HttpMulti, bob.id, @post_xml, [person.id], 1).once
-    Job::HttpMulti.perform(bob.id, @post_xml, [person.id])
+    Resque.should_receive(:enqueue).with(Jobs::HttpMulti, bob.id, @post_xml, [person.id], anything, 1).once
+    Jobs::HttpMulti.perform(bob.id, @post_xml, [person.id], "Postzord::Dispatcher::Private")
   end
 
   it 'max retries' do
@@ -50,7 +50,7 @@ describe Job::HttpMulti do
     Typhoeus::Hydra.stub!(:new).and_return(@hydra)
 
     Resque.should_not_receive(:enqueue)
-    Job::HttpMulti.perform(bob.id, @post_xml, [person.id], 3)
+    Jobs::HttpMulti.perform(bob.id, @post_xml, [person.id], "Postzord::Dispatcher::Private", 3)
   end
 
   it 'generates encrypted xml for people' do
@@ -60,11 +60,11 @@ describe Job::HttpMulti do
 
     Typhoeus::Hydra.stub!(:new).and_return(@hydra)
 
-    salmon = Salmon::SalmonSlap.create(bob, Base64.decode64(@post_xml))
-    Salmon::SalmonSlap.stub(:create).and_return(salmon)
+    salmon = Salmon::EncryptedSlap.create_by_user_and_activity(bob, Base64.decode64(@post_xml))
+    Salmon::EncryptedSlap.stub(:create_by_user_and_activity).and_return(salmon)
     salmon.should_receive(:xml_for).and_return("encrypted things")
 
-    Job::HttpMulti.perform(bob.id, @post_xml, [person.id])
+    Jobs::HttpMulti.perform(bob.id, @post_xml, [person.id], "Postzord::Dispatcher::Private")
   end
 
   it 'updates http users who have moved to https' do
@@ -76,7 +76,7 @@ describe Job::HttpMulti do
 
     Typhoeus::Hydra.stub!(:new).and_return(@hydra)
 
-    Job::HttpMulti.perform(bob.id, @post_xml, [person.id])
+    Jobs::HttpMulti.perform(bob.id, @post_xml, [person.id], "Postzord::Dispatcher::Private")
     person.reload
     person.url.should == "https://remote.net/"
   end
@@ -91,6 +91,6 @@ describe Job::HttpMulti do
     Typhoeus::Hydra.stub!(:new).and_return(@hydra)
 
     @hydra.should_receive(:queue).once
-    Job::HttpMulti.perform(bob.id, @post_xml, [@people[0].id, @people[1].id])
+    Jobs::HttpMulti.perform(bob.id, @post_xml, [@people[0].id, @people[1].id], "Postzord::Dispatcher::Private")
   end
 end

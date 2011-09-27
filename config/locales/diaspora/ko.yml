@@ -101,6 +101,15 @@ ko:
         heading: "디아스포라 ID"
       donate: "기부하기"
       handle_explanation: "이 디아스포라 핸들은 이메일 주소처럼 남에게 건넬 수 있습니다."
+      help: 
+        did_you: "Did you:"
+        feature_suggestion: "... have a %{link} suggestion?"
+        find_a_bug: "... find a %{link}?"
+        have_a_question: "... have a %{link}?"
+        here_to_help: "Diaspora community is here to help!"
+        more_support: "For more support, you should also check out %{link}."
+        need_help: "Need Help?"
+        tutorials: "For tutorials, check out %{link}."
       keep_us_running: "Keep %{pod} running fast, buy our servers their monthly coffee fix!"
       no_contacts: "컨택 없음"
       no_tags: "태그 없음"
@@ -140,12 +149,14 @@ ko:
       view_all_contacts: "모든 컨택 보기"
     show: 
       edit_aspect: "애스펙 고치기"
+    two: "애스펙 %{count}개"
     update: 
       failure: "%{name} 애스펙은 이름이 너무 길어 저장할 수 없습니다."
       success: "%{name} 애스펙을 성공적으로 고쳤습니다."
     zero: "애스펙 없음"
   authorizations: 
     index: 
+      no_applications: "아직 어플을 등록하지 않았습니다."
       revoke_access: "접속권한 취소"
   back: "돌아가기"
   bookmarklet: 
@@ -163,6 +174,7 @@ ko:
       commenting: "댓글 다는 중···"
     one: "댓글 한 개"
     other: "댓글 %{count}개"
+    two: "댓글 %{count}개"
     zero: "댓글 없음"
   contacts: 
     create: 
@@ -187,6 +199,7 @@ ko:
     other: "컨택 %{count}명"
     sharing: 
       people_sharing: "나와 공유하는 사람들:"
+    two: "컨택 %{count}명"
     zero: "컨택 없음"
   conversations: 
     create: 
@@ -200,6 +213,7 @@ ko:
         many: "새 쪽지 %{count}개"
         one: "새 쪽지 한 개"
         other: "새 쪽지 %{count}개"
+        two: "새 쪽지 %{count}개"
         zero: "새 쪽지 없음"
     index: 
       create_a_new_message: "쪽지 보내기"
@@ -297,18 +311,21 @@ ko:
         many: "%{count}명이 싫어합니다"
         one: "한 명이 싫어합니다"
         other: "%{count}명이 싫어합니다"
+        two: "싪어요 %{count}개"
         zero: "아무도 싫어하지 않습니다"
       people_like_this: 
         few: "%{count}명이 좋아합니다"
         many: "%{count}명이 좋아합니다"
         one: "한 명이 좋아합니다"
         other: "%{count}명이 좋아합니다"
+        two: "좋아요 %{count}개"
         zero: "아무도 좋아하지 않습니다"
       people_like_this_comment: 
         few: "%{count}명이 좋아합니다"
         many: "%{count}명이 좋아합니다"
         one: "한 명이 좋아합니다"
         other: "%{count}명이 좋아합니다"
+        two: "좋아요 %{count}개"
         zero: "아무도 좋아하지 않습니다"
   limited: "제한됨"
   more: "더"
@@ -320,18 +337,21 @@ ko:
       many: "%{actors}님 등도 %{post_author}님의 %{post_link}에 댓글을 달았습니다."
       one: "%{actors}님도 %{post_author}님의 %{post_link}에 댓글을 달았습니다."
       other: "%{actors}님 등도 %{post_author}님의 %{post_link}에 댓글을 달았습니다."
+      two: "%{actors}님도 %{post_author}님의 %{post_link} 공유물에 댓글을 달았습니다."
       zero: "%{actors}님도 %{post_author}님의 %{post_link}에 댓글을 달았습니다."
     also_commented_deleted: 
       few: "%{actors}님이 지운 공유물에 댓글을 달았습니다."
       many: "%{actors}님이 내가 지운 공유물을 좋아합니다."
       one: "%{actors}님이 지운 공유물에 댓글을 달았습니다."
       other: "%{actors}님이 지운 공유물에 댓글을 달았습니다."
+      two: "%{actors}님이 지워진 공유물에 댓글을 달았습니다."
       zero: "%{actors}님이 지운 공유물에 댓글을 달았습니다."
     comment_on_post: 
       few: "%{actors}님 등이 내 %{post_link}에 댓글을 달았습니다."
       many: "%{actors}님 등이 내 %{post_link}에 댓글을 달았습니다."
       one: "%{actors}님 등이 내 %{post_link}에 댓글을 달았습니다."
       other: "%{actors}님 등이 내 %{post_link}에 댓글을 달았습니다."
+      two: "%{actors}님이 내 %{post_link} 공유물에 댓글을 달았습니다."
       zero: "%{actors}님이 내 %{post_link}에 댓글을 달았습니다."
     helper: 
       new_notifications: 
@@ -339,6 +359,7 @@ ko:
         many: "새 알림 %{count}개"
         one: "새 알림 한 개"
         other: "새 알림 %{count}개"
+        two: "새 알림 %{count}개"
         zero: "새 알림 없음"
     index: 
       and: "그리고"
@@ -347,6 +368,7 @@ ko:
         many: "+ %{count}명"
         one: "+ 한 명"
         other: "+ %{count}명"
+        two: "과 %{count}명"
         zero: ""
       mark_all_as_read: "모두 읽음으로 표시"
       notifications: "알림"
@@ -355,24 +377,28 @@ ko:
       many: "%{actors}님 등이 내 %{post_link}을 좋아합니다."
       one: "%{actors}님이 내 %{post_link}을 좋아합니다."
       other: "%{actors}님 등이 내 %{post_link}을 좋아합니다."
+      two: "%{actors}님이 %{post_link} 공유물을 좋아합니다."
       zero: "%{actors}님 등이 내 %{post_link}을 좋아합니다."
     liked_post_deleted: 
       few: "%{actors}님 등이 내가 지운 공유물을 좋아합니다."
       many: "%{actors}님 등이 내가 지운 공유물을 좋아합니다."
       one: "%{actors}님이 내가 지운 공유물을 좋아합니다."
       other: "%{actors}님 등이 내가 지운 공유물을 좋아합니다."
+      two: "%{actors}님이 내가 지운 공유물을 좋아합니다."
       zero: "%{actors}님이 내가 지운 공유물을 좋아합니다."
     mentioned: 
       few: "%{actors}님이 %{post_link}에서 나를 멘션했습니다!"
       many: "%{actors}님이 %{post_link}에서 나를 멘션했습니다."
       one: "%{actors}님이 %{post_link}에서 나를 멘션했습니다!"
       other: "%{actors}님이 %{post_link}에서 나를 멘션했습니다!"
+      two: "%{actors}님이 %{post_link} 공유물에서 나를 멘션했습니다."
       zero: "%{actors}님이 %{post_link}에서 나를 멘션했습니다!"
     mentioned_deleted: 
       few: "%{actors}님 등이 지워진 공유물에서 나를 멘션했습니다."
       many: "%{actors}님 등이 지워진 공유물에서 나를 멘션했습니다."
       one: "%{actors}님이 지워진 공유물에서 나를 멘션했습니다."
       other: "%{actors}님 등이 지워진 공유물에서 나를 멘션했습니다."
+      two: "%{actors}님이 지워진 공유물에서 나를 멘션했습니다."
       zero: "%{actors}님이 지워진 공유물에서 나를 멘션했습니다."
     post: "공유물"
     private_message: 
@@ -380,24 +406,28 @@ ko:
       many: "%{actors}님이 쪽지를 보냈습니다."
       one: "%{actors}님이 쪽지를 보냈습니다."
       other: "%{actors}님이 쪽지를 보냈습니다."
+      two: "%{actors}님이 내게 쪽지를 보냈습니다."
       zero: "%{actors}님이 쪽지를 보냈습니다."
     reshared: 
       few: "%{actors}님이 내 %{post_link} 공유물을 제공유했습니다."
       many: "%{actors}님이 내 %{post_link} 공유물을 제공유했습니다."
       one: "%{actors}님이 내 %{post_link} 공유물을 제공유했습니다."
       other: "%{actors}님이 내 %{post_link} 공유물을 제공유했습니다."
+      two: "%{actors}님이 내 %{post_link} 공유물을 재공유했습니다."
       zero: "%{actors}님이 내 %{post_link} 공유물을 제공유했습니다."
     reshared_post_deleted: 
       few: "%{actors}님이 내가 지운 공유물을 재공유했습니다."
       many: "%{actors}님이 내가 지운 공유물을 재공유했습니다."
       one: "%{actors}님이 내가 지운 공유물을 재공유했습니다."
       other: "%{actors}님이 내가 지운 공유물을 재공유했습니다."
+      two: "%{actors}님이 내가 지운 공유물을 재공유했습니다."
       zero: "%{actors}님이 내가 지운 공유물을 재공유했습니다."
     started_sharing: 
       few: "%{actors}님이 나와 공유를 시작했습니다."
       many: "%{actors}님이 나와 공유를 시작했습니다."
       one: "%{actors}님이 나와 공유를 시작했습니다."
       other: "%{actors}님이 나와 공유를 시작했습니다."
+      two: "%{actors}님이 나와 공유를 시작했습니다."
       zero: "%{actors}님이 나와 공유를 시작했습니다."
   notifier: 
     a_post_you_shared: "공유물"
@@ -481,6 +511,7 @@ ko:
       add_some: "추가하기"
       edit: "고치기"
       you_have_no_tags: "태그가 없습니다!"
+    two: "%{count}명"
     webfinger: 
       fail: "%{handle} 핸들을 찾을 수 없습니다."
     zero: "없음"
@@ -520,7 +551,8 @@ ko:
       notice: "사진을 성공적으로 갱신했습니다."
   post_visibilites: 
     update: 
-      post_hidden: "%{name}님의 공유물을 감췄습니다."
+      post_hidden_and_muted: "%{name}님의 공유물이 숨겨지고, 알림이 꺼졌습니다."
+      see_it_on_their_profile: "이 공유물의 업데이트를 보고싶으면 %{name}님의 프로필을 방문하세요."
   posts: 
     show: 
       destroy: "지우기"
@@ -582,6 +614,7 @@ ko:
         many: "요청이 %{count}개 들어왔습니다!"
         one: "요청이 한 개 들어왔습니다!"
         other: "요청이 %{count}개 들어왔습니다!"
+        two: "새 요청이 %{count}개 있습니다!"
         zero: "요청 없음"
     manage_aspect_contacts: 
       existing: "Existing contacts"
@@ -599,6 +632,7 @@ ko:
         many: "재공유 %{count}번"
         one: "재공유 한 번"
         other: "재공유 %{count}번"
+        two: "재공유 %{count}개"
         zero: "재공유"
       reshare_confirmation: "%{author}님의 %{text} 공유물을 재공유합니까?"
       reshare_original: "원본 재공유"
@@ -646,6 +680,7 @@ ko:
         many: "애스펙 %{count}개 안에 있어요"
         one: "애스펙 한 개 안에 있어요"
         other: "애스펙 %{count}개 안에 있어요"
+        two: "애스펙 %{count}개"
         zero: "애스펙에 넣기"
     contact_list: 
       all_contacts: "모든 컨택"
@@ -685,6 +720,7 @@ ko:
       reshare: "재공유"
     stream_element: 
       dislike: "싪어요"
+      hide_and_mute: "숨기고 알림 끄기"
       like: "좋아요"
       shared_with: "공유된 애스펙: %{aspect_names}"
       unlike: "좋아요 취소"
@@ -704,6 +740,7 @@ ko:
       many: "공유할 메시지를 %{count}자보다 적게 줄여주세요"
       one: "공유할 메시지를 %{count}자보다 적게 줄여주세요"
       other: "공유할 메시지를 %{count}자보다 적게 줄여주세요"
+      two: "내 상태 메시지가 %{count}자 보다 적어야 합니다"
       zero: "공유할 메시지를 %{count}자보다 적게 줄여주세요"
   stream_helper: 
     hide_comments: "댓글 감추기"
@@ -773,6 +810,7 @@ ko:
       connect_with_people: "멋진 사람들과 연결하기"
       connect_with_people_explanation_pt1: "누군가를 한 개 이상의 애스펙으로 분류하면"
       connect_with_people_explanation_pt2: "애스펙은 새로운 컨택, 낯익은 컨택, 사적인 컨택을 분류하여 일부와만 공유하거나 일부를 거를 수 있게하는 쉽고 직관적인 방법입니다."
+      edit_profile: "프로필 고치기"
       featured_tags: "추천 태그"
       featured_users: "추천 사용자"
       fill_out_your_profile: "프로필 채우기"
@@ -790,6 +828,8 @@ ko:
         name: "이름"
         photo: "사진"
         tags: "태그"
+      search_for_hashtags: "#해시태그 검색하기"
+      search_for_people: "사람 검색하기"
       see_all_featured_users: "모든 추천 사용자 보기"
       welcome: "환영합니다!"
       welcome_with_name: "%{name}님 환영합니다!"

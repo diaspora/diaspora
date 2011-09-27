@@ -1,4 +1,4 @@
-#   Copyright (c) 2010, Diaspora Inc.  This file is
+#   Copyright (c) 2010-2011, Diaspora Inc.  This file is
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
@@ -127,13 +127,8 @@ class PhotosController < ApplicationController
         format.json{ render :nothing => true, :status => 204 }
         format.html do
           flash[:notice] = I18n.t 'photos.destroy.notice'
-          if photo.status_message_guid
-            if photo.status_message.text_and_photos_blank?
-              photo.status_message.destroy
-              respond_with photo, :location => person_photos_path(current_user.person)
-            else
+          if StatusMessage.find_by_guid(photo.status_message_guid)
               respond_with photo, :location => post_path(photo.status_message)
-            end
           else
             respond_with photo, :location => person_photos_path(current_user.person)
           end

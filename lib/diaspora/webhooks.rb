@@ -1,4 +1,4 @@
-#   Copyright (c) 2010, Diaspora Inc.  This file is
+#   Copyright (c) 2010-2011, Diaspora Inc.  This file is
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
@@ -7,9 +7,11 @@ module Diaspora
     require 'builder/xchar'
 
     def to_diaspora_xml
-      xml = "<XML>"
-      xml += "<post>#{to_xml.to_s}</post>"
-      xml += "</XML>"
+      <<XML
+      <XML>
+      <post>#{to_xml.to_s}</post>
+      </XML>
+XML
     end
 
     def x(input)
@@ -17,16 +19,19 @@ module Diaspora
     end
 
     # @abstract
+    # @note this must return [Array<Person>]
+    # @return [Array<Person>]
     def subscribers(user)
-      raise 'you must override subscribers in order to enable federation on this model'
+      raise 'You must override subscribers in order to enable federation on this model'
     end
 
     # @abstract
     def receive(user, person)
-      raise 'you must override receive in order to enable federation on this model'
+      raise 'You must override receive in order to enable federation on this model'
     end
 
     # @param [User] sender
+    # @note this is a hook
     def after_dispatch sender
     end
   end

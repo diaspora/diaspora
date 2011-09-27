@@ -1,4 +1,4 @@
--#   Copyright (c) 2010, Diaspora Inc.  This file is
+-#   Copyright (c) 2010-2011, Diaspora Inc.  This file is
 -#   licensed under the Affero General Public License version 3 or later.  See
 -#   the COPYRIGHT file.
 
@@ -21,6 +21,30 @@
     .content
       = t('aspects.index.cubbies.explanation')
       = link_to t('aspects.index.cubbies.learn_more'), token_path
+
+.section
+  .title
+    = image_tag('/images/icons/question.png')
+    %h5
+      = t('aspects.index.help.need_help')
+  .content
+    = t('aspects.index.help.here_to_help')
+    %br
+    = t('aspects.index.help.did_you')
+    %br
+    != t('aspects.index.help.have_a_question', :link => link_to("#question" , tag_path(:name => "question")))
+    %br
+    != t('aspects.index.help.find_a_bug', :link => link_to("#bug" , tag_path(:name => "bug")))
+    %br
+    != t('aspects.index.help.feature_suggestion', :link => link_to("#feature" , tag_path(:name => "feature")))
+    %br
+    %br
+    %p
+      != t('aspects.index.help.satisfaction', :link => link_to("GetSatisfaction", "http://getsatisfaction.com/diaspora"))
+      %br
+      != t('aspects.index.help.tutorials', :link => link_to("Diasporial" , "http://diasporial.com/tutorials"))
+      %br
+      != t('aspects.index.help.email_feedback', :link => link_to("Email" , "mailto:yosem@joindiaspora.com"))
 
 - unless AppConfig.configured_services.blank? || all_services_connected?
   .section
@@ -55,3 +79,5 @@
       = t('aspects.index.keep_us_running', :pod => URI.parse(AppConfig[:pod_url]).host)
       %br
       = render 'shared/donate'
+
+

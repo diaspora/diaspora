@@ -1,4 +1,4 @@
-#   Copyright (c) 2010, Diaspora Inc.  This file is
+#   Copyright (c) 2010-2011, Diaspora Inc.  This file is
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
@@ -13,128 +13,140 @@ describe User do
   end
 
   describe "#visible_posts" do
-    it "returns all the posts the user can see" do
-      self_post = alice.post(:status_message, :text => "hi", :to => @alices_aspect.id)
-      visible_post = bob.post(:status_message, :text => "hello", :to => @bobs_aspect.id)
+    it "contains your public posts" do
+      public_post = alice.post(:status_message, :text => "hi", :to => @alices_aspect.id, :public => true)
+      alice.visible_posts.should include(public_post)
+    end
+
+    it "contains your non-public posts" do
+      private_post = alice.post(:status_message, :text => "hi", :to => @alices_aspect.id, :public => false)
+      alice.visible_posts.should include(private_post)
+    end
+
+    it "contains public posts from people you're following" do
+      dogs = bob.aspects.create(:name => "dogs")
+      bobs_public_post = bob.post(:status_message, :text => "hello", :public => true, :to => dogs.id)
+      alice.visible_posts.should include(bobs_public_post)
+    end
+
+    it "contains non-public posts from people who are following you" do
+      bobs_post = bob.post(:status_message, :text => "hello", :to => @bobs_aspect.id)
+      alice.visible_posts.should include(bobs_post)
+    end
+
+    it "does not contain non-public posts from aspects you're not in" do
       dogs = bob.aspects.create(:name => "dogs")
       invisible_post = bob.post(:status_message, :text => "foobar", :to => dogs.id)
-
-      stream = alice.visible_posts
-      stream.should include(self_post)
-      stream.should include(visible_post)
-      stream.should_not include(invisible_post)
+      alice.visible_posts.should_not include(invisible_post)
     end
+
+    it "does not contain pending posts" do
+      pending_post = bob.post(:status_message, :text => "hey", :public => true, :to => @bobs_aspect.id, :pending => true)
+      pending_post.should be_pending
+      alice.visible_posts.should_not include pending_post
+    end
+
+    it "does not contain pending photos" do
+      pending_photo = bob.post(:photo, :pending => true, :user_file=> File.open(photo_fixture_name), :to => @bobs_aspect)
+      alice.visible_posts.should_not include pending_photo
+    end
+
+    it "respects the :type option" do
+      photo = bob.post(:photo, :pending => false, :user_file=> File.open(photo_fixture_name), :to => @bobs_aspect)
+      alice.visible_posts.should include(photo)
+      alice.visible_posts(:type => 'StatusMessage').should_not include(photo)
+    end
+
+    it "does not contain duplicate posts" do
+      bobs_other_aspect = bob.aspects.create(:name => "cat people")
+      bob.add_contact_to_aspect(bob.contact_for(alice.person), bobs_other_aspect)
+      bob.aspects_with_person(alice.person).should =~ [@bobs_aspect, bobs_other_aspect]
+
+      bobs_post = bob.post(:status_message, :text => "hai to all my people", :to => [@bobs_aspect.id, bobs_other_aspect.id])
+
+      alice.visible_posts.length.should == 1
+      alice.visible_posts.should include(bobs_post)
+    end
+
+    describe 'hidden posts' do
+      before do
+        aspect_to_post = bob.aspects.where(:name => "generic").first
+        @status = bob.post(:status_message, :text=> "hello", :to => aspect_to_post)
+        @vis = @status.post_visibilities.first
+      end
+
+      it "pulls back non hidden posts" do
+        alice.visible_posts.include?(@status).should be_true
+      end
+
+      it "does not pull back hidden posts" do
+        @vis.update_attributes(:hidden => true)
+        alice.visible_posts.include?(@status).should be_false
+      end
+    end
+
     context 'with many posts' do
       before do
         bob.move_contact(eve.person, @bobs_aspect, bob.aspects.create(:name => 'new aspect'))
         time_interval = 1000
+        time_past = 1000000
         (1..25).each do |n|
           [alice, bob, eve].each do |u|
             aspect_to_post = u.aspects.where(:name => "generic").first
             post = u.post :status_message, :text => "#{u.username} - #{n}", :to => aspect_to_post.id
-            post.created_at = post.created_at - time_interval
-            post.updated_at = post.updated_at - time_interval
+            post.created_at = (post.created_at-time_past) - time_interval
+            post.updated_at = (post.updated_at-time_past) + time_interval
             post.save
             time_interval += 1000
           end
         end
       end
-      it 'works' do #This is in one spec to save time
+      it 'works' do # The set up takes a looong time, so to save time we do several tests in one
         bob.visible_posts.length.should == 15 #it returns 15 by default
-        bob.visible_posts.should == bob.visible_posts(:by_members_of => bob.aspects.map{|a| a.id}) # it is the same when joining through aspects
-        bob.visible_posts.sort_by{|p| p.updated_at}.map{|p| p.id}.should == bob.visible_posts.map{|p| p.id}.reverse #it is sorted updated_at desc by default
+        bob.visible_posts.should == bob.visible_posts(:by_members_of => bob.aspects.map { |a| a.id }) # it is the same when joining through aspects
+        bob.visible_posts.sort_by { |p| p.updated_at }.map { |p| p.id }.should == bob.visible_posts.map { |p| p.id }.reverse #it is sorted updated_at desc by default
 
+        # It should respect the order option
+        opts = {:order => 'created_at DESC'}
+        bob.visible_posts(opts).first.created_at.should > bob.visible_posts(opts).last.created_at
+
+        # It should respect the order option
+        opts = {:order => 'updated_at DESC'}
+        bob.visible_posts(opts).first.updated_at.should > bob.visible_posts(opts).last.updated_at
+        
+        # It should respect the limit option
         opts = {:limit => 40}
-        bob.visible_posts(opts).length.should == 40 #it takes a limit
-        bob.visible_posts(opts).should == bob.visible_posts(opts.merge(:by_members_of => bob.aspects.map{|a| a.id}))
-        bob.visible_posts(opts).sort_by{|p| p.updated_at}.map{|p| p.id}.should == bob.visible_posts(opts).map{|p| p.id}.reverse
+        bob.visible_posts(opts).length.should == 40
+        bob.visible_posts(opts).should == bob.visible_posts(opts.merge(:by_members_of => bob.aspects.map { |a| a.id }))
+        bob.visible_posts(opts).sort_by { |p| p.updated_at }.map { |p| p.id }.should == bob.visible_posts(opts).map { |p| p.id }.reverse
 
-        last_time_of_last_page =  bob.visible_posts.last.updated_at
+        # It should paginate using a datetime timestamp
+        last_time_of_last_page = bob.visible_posts.last.updated_at
         opts = {:max_time => last_time_of_last_page}
         bob.visible_posts(opts).length.should == 15
-        bob.visible_posts(opts).map{|p| p.id}.should == bob.visible_posts(opts.merge(:by_members_of => bob.aspects.map{|a| a.id})).map{|p| p.id}
-        bob.visible_posts(opts).sort_by{|p| p.updated_at}.map{|p| p.id}.should == bob.visible_posts(opts).map{|p| p.id}.reverse
-        bob.visible_posts(opts).map{|p|p.id}.should == bob.visible_posts(:limit => 40)[15...30].map{|p|p.id} #pagination should return the right posts
+        bob.visible_posts(opts).map { |p| p.id }.should == bob.visible_posts(opts.merge(:by_members_of => bob.aspects.map { |a| a.id })).map { |p| p.id }
+        bob.visible_posts(opts).sort_by { |p| p.updated_at }.map { |p| p.id }.should == bob.visible_posts(opts).map { |p| p.id }.reverse
+        bob.visible_posts(opts).map { |p| p.id }.should == bob.visible_posts(:limit => 40)[15...30].map { |p| p.id } #pagination should return the right posts
 
+        # It should paginate using an integer timestamp
         opts = {:max_time => last_time_of_last_page.to_i}
         bob.visible_posts(opts).length.should == 15
-        bob.visible_posts(opts).map{|p| p.id}.should == bob.visible_posts(opts.merge(:by_members_of => bob.aspects.map{|a| a.id})).map{|p| p.id}
-        bob.visible_posts(opts).sort_by{|p| p.updated_at}.map{|p| p.id}.should == bob.visible_posts(opts).map{|p| p.id}.reverse
-        bob.visible_posts(opts).map{|p|p.id}.should == bob.visible_posts(:limit => 40)[15...30].map{|p|p.id} #pagination should return the right posts
+        bob.visible_posts(opts).map { |p| p.id }.should == bob.visible_posts(opts.merge(:by_members_of => bob.aspects.map { |a| a.id })).map { |p| p.id }
+        bob.visible_posts(opts).sort_by { |p| p.updated_at }.map { |p| p.id }.should == bob.visible_posts(opts).map { |p| p.id }.reverse
+        bob.visible_posts(opts).map { |p| p.id }.should == bob.visible_posts(:limit => 40)[15...30].map { |p| p.id } #pagination should return the right posts
       end
     end
   end
 
-  context 'with two posts' do
-    before do
-      connect_users(eve, @eves_aspect, alice, @alices_aspect)
-      aspect3 = alice.aspects.create(:name => "Snoozers")
-      @status_message1 = eve.post :status_message, :text => "hi", :to => @eves_aspect.id
-      @status_message2 = eve.post :status_message, :text => "hey", :public => true , :to => @eves_aspect.id
-      @status_message3 = alice.post :status_message, :text => "hey", :public => true , :to => @alices_aspect.id
-      @status_message4 = eve.post :status_message, :text => "blah", :public => true , :to => @eves_aspect.id
-      @status_message5 = alice.post :status_message, :text => "secrets", :to => aspect3.id
-
-      @pending_status_message = eve.post :status_message, :text => "hey", :public => true , :to => @eves_aspect.id, :pending => true
+  describe '#find_visible_post_by_id' do
+    it "returns a post if you can see it" do
+      bobs_post = bob.post(:status_message, :text => "hi", :to => @bobs_aspect.id, :public => false)
+      alice.find_visible_post_by_id(bobs_post.id).should == bobs_post
     end
-
-    describe "#visible_posts" do
-      it "queries by person id" do
-        query = eve.visible_posts.where(:author_id => eve.person.id)
-        query.include?(@status_message1).should == true
-        query.include?(@status_message2).should == true
-        query.include?(@status_message3).should == false
-        query.include?(@status_message4).should == true
-        query.include?(@status_message5).should == false
-      end
-
-      it "selects public posts" do
-        query = eve.visible_posts.where(:public => true)
-        query.include?(@status_message1).should == false
-        query.include?(@status_message2).should == true
-        query.include?(@status_message3).should == true
-        query.include?(@status_message4).should == true
-        query.include?(@status_message5).should == false
-      end
-
-      it "selects non public posts" do
-        query = eve.visible_posts.where(:public => false)
-        query.include?(@status_message1).should == true
-        query.include?(@status_message2).should == false
-        query.include?(@status_message3).should == false
-        query.include?(@status_message4).should == false
-        query.include?(@status_message5).should == false
-      end
-
-      it "selects by message contents" do
-        query = eve.visible_posts.where(:text=> "hi")
-        query.should == [@status_message1]
-      end
-
-      it "does not return pending posts" do
-        @pending_status_message.pending.should be_true
-        eve.visible_posts.should_not include @pending_status_message
-      end
-
-      it '#find_visible_post_by_id' do
-        eve.find_visible_post_by_id(@status_message1.id).should == @status_message1
-        eve.find_visible_post_by_id(@status_message5.id).should == nil
-      end
-
-      it 'is not emptied by a load of pending photos' do
-        15.times {
-          eve.build_post(:photo, :pending => true, :user_file=> File.open(photo_fixture_name), :to => eve.aspect_ids, :updated_at => Time.now + 1.day).save!
-        }
-        query = eve.visible_posts
-        query.map{|p| p.id}.should =~ [@status_message1, @status_message2, @status_message3, @status_message4].map{|p| p.id}
-      end
-      it 'is not emptied by a load of photos' do
-        15.times {
-          eve.build_post(:photo, :pending => false, :user_file=> File.open(photo_fixture_name), :to => eve.aspect_ids, :updated_at => Time.now + 1.day).save!
-        }
-        query = eve.visible_posts(:type => 'StatusMessage')
-        query.map{|p| p.id}.should =~ [@status_message1, @status_message2, @status_message3, @status_message4].map{|p| p.id}
-      end
+    it "returns nil if you can't see that post" do
+      dogs = bob.aspects.create(:name => "dogs")
+      invisible_post = bob.post(:status_message, :text => "foobar", :to => dogs.id)
+      alice.find_visible_post_by_id(invisible_post.id).should be_nil
     end
   end
 
@@ -284,7 +296,7 @@ describe User do
       msg4.created_at = Time.now+14
       msg4.save!
 
-      alice.posts_from(@user3.person).map{|p| p.id}.should == [msg4, msg3, @public_message].map{|p| p.id}
+      alice.posts_from(@user3.person).map { |p| p.id }.should == [msg4, msg3, @public_message].map { |p| p.id }
     end
   end
 end

@@ -14,21 +14,20 @@ class Message < ActiveRecord::Base
   belongs_to :author, :class_name => 'Person'
   belongs_to :conversation, :touch => true
 
-  validates_presence_of :text
+  validates :text, :presence => true
+  validate :participant_of_parent_conversation
 
   after_create do
     #sign comment as commenter
     self.author_signature = self.sign_with_key(self.author.owner.encryption_key) if self.author.owner
 
-    if !self.parent.blank? &&  self.author.owns?(self.parent)
+    if self.author.owns?(self.parent)
       #sign comment as post owner
-      self.parent_author_signature = self.sign_with_key( self.parent.author.owner.encryption_key) if self.parent.author.owner
+      self.parent_author_signature = self.sign_with_key(self.parent.author.owner.encryption_key) if self.parent.author.owner
     end
     self.save!
     self
   end
-
-  validate :participant_of_parent_conversation
 
   def diaspora_handle
     self.author.diaspora_handle

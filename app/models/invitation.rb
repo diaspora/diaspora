@@ -1,4 +1,4 @@
-#   Copyright (c) 2011, Diaspora Inc.  This file is
+#   Copyright (c) 2010-2011, Diaspora Inc.  This file is
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
@@ -13,7 +13,8 @@ class Invitation < ActiveRecord::Base
   before_validation :set_email_as_default_service
 
  # before_create :share_with_exsisting_user, :if => :recipient_id?
-  validates_presence_of :identifier, :service
+  validates :identifier, :presence => true
+  validates :service, :presence => true
   validate :valid_identifier?
   validate :recipient_not_on_pod?
   validates_presence_of :sender, :aspect, :unless => :admin?
@@ -134,7 +135,7 @@ class Invitation < ActiveRecord::Base
 
   def queue_send!
     unless self.recipient.present?
-      Resque.enqueue(Job::Mail::InviteUserByEmail, self.id) 
+      Resque.enqueue(Jobs::Mail::InviteUserByEmail, self.id) 
     end
   end
 

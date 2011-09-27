@@ -1,4 +1,4 @@
-#   Copyright (c) 2010, Diaspora Inc.  This file is
+#   Copyright (c) 2010-2011, Diaspora Inc.  This file is
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
@@ -58,7 +58,7 @@ describe Diaspora::UserModules::Connecting do
 
       it 'dispatches a retraction' do
         p = mock()
-        Postzord::Dispatch.should_receive(:new).and_return(p)
+        Postzord::Dispatcher.should_receive(:build).and_return(p)
         p.should_receive(:post)
 
         bob.disconnect bob.contact_for(eve.person)

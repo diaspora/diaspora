@@ -1,10 +1,10 @@
-#   Copyright (c) 2010, Diaspora Inc.  This file is
+#   Copyright (c) 2010-2011, Diaspora Inc.  This file is
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
 require 'spec_helper'
 
-describe Job::Mail::PrivateMessage do
+describe Jobs::Mail::PrivateMessage do
   describe '#perfom_delegate' do
     it 'should call .deliver on the notifier object' do
       user1 = alice
@@ -21,7 +21,7 @@ describe Job::Mail::PrivateMessage do
       mail_mock.should_receive(:deliver)
       Notifier.should_receive(:mentioned).with(user2.id, user1.person.id, message.id).and_return(mail_mock)
 
-      Job::Mail::Mentioned.perform(user2.id, user1.person.id, message.id)
+      Jobs::Mail::Mentioned.perform(user2.id, user1.person.id, message.id)
     end
   end
 end

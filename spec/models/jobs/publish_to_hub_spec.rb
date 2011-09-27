@@ -1,11 +1,11 @@
-#   Copyright (c) 2010, Diaspora Inc.  This file is
+#   Copyright (c) 2010-2011, Diaspora Inc.  This file is
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
 require 'spec_helper'
 require "#{Rails.root}/lib/pubsubhubbub"
 
-describe Job::PublishToHub do
+describe Jobs::PublishToHub do
   describe '.perform' do
     it 'calls pubsubhubbub' do
       url = "http://publiczone.com/"
@@ -13,7 +13,7 @@ describe Job::PublishToHub do
 
       m.should_receive(:publish).with(url+'.atom')
       Pubsubhubbub.should_receive(:new).with(AppConfig[:pubsub_server]).and_return(m)
-      Job::PublishToHub.perform(url)
+      Jobs::PublishToHub.perform(url)
     end
   end
 end

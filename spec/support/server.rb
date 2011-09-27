@@ -1,5 +1,18 @@
 #This class is for running servers in the background during integration testing.  This will not run on Windows.
 class Server
+  def self.start
+    WebMock::Config.instance.allow_localhost = true
+    enable_typhoeus
+  end
+
+  def self.stop
+    disable_typhoeus
+    WebMock::Config.instance.allow_localhost = false
+  end
+
+  def self.truncate_databases
+    all.each{|s| s.truncate_database }
+  end
 
   def self.[] index
     self.all[index]
@@ -21,6 +34,7 @@ class Server
   end
 
   def ensure_database_setup
+    @@databases_setup = lambda {
     `cd #{Rails.root} && RAILS_ENV=#{@env} bundle exec rake db:create`
     tables_exist = self.db do
       ActiveRecord::Base.connection.tables.include?("users")
@@ -30,6 +44,7 @@ class Server
     else
       `cd #{Rails.root} && RAILS_ENV=#{@env} bundle exec rake db:schema:load`
     end
+    true}.call
   end
 
   def run

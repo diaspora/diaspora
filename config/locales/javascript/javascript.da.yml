@@ -13,6 +13,7 @@ da:
         many: "I {{count}} aspekter"
         one: "I {{count}} aspekt"
         other: "I {{count}} aspekter"
+        two: "In {{count}} aspects"
         zero: "Tilføj til aspekt"
     comments: 
       hide: "Skjul kommentarer"

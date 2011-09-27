@@ -13,6 +13,7 @@ ru:
         many: "В {{count}} аспектах"
         one: "В {{count}} аспектах"
         other: "В {{count}} аспектах"
+        two: "В {{count}} аспектах"
         zero: "Добавить к аспектам"
     comments: 
       hide: "скрыть комментарии"

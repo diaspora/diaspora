@@ -7,12 +7,13 @@ el:
   javascripts: 
     aspect_dropdown: 
       add_to_aspect: "Προσθήκη σε πτυχή"
-      all_aspects: "All aspects"
+      all_aspects: "Όλες οι πτυχές"
       toggle: 
         few: "Σε {{count}} πτυχές"
         many: "Σε {{count}} πτυχές"
         one: "Σε {{count}} πτυχές"
         other: "Σε {{count}} πτυχές"
+        two: "Σε {{count}} πτυχές"
         zero: "Προσθήκη σε πτυχή"
     comments: 
       hide: "απόκρυψη σχολίων"

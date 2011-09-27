@@ -1,4 +1,4 @@
-#   Copyright (c) 2010, Diaspora Inc.  This file is
+#   Copyright (c) 2010-2011, Diaspora Inc.  This file is
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
@@ -17,7 +17,7 @@ describe Message do
       :messages_attributes => [ {:author => @user1.person, :text => 'stuff'} ]
     }
 
-    @cnv = Conversation.create(@create_hash)
+    @cnv = Conversation.create!(@create_hash)
     @message = @cnv.messages.first
     @xml = @message.to_diaspora_xml
   end
@@ -82,7 +82,7 @@ describe Message do
 
       msg_hash = {:author => @local_luke.person, :text => 'yo', :conversation => @local_parent}
       @object_by_parent_author = Message.create(msg_hash.dup)
-      Postzord::Dispatch.new(@local_luke, @object_by_parent_author).post
+      Postzord::Dispatcher.build(@local_luke, @object_by_parent_author).post
 
       msg_hash[:author] = @local_leia.person
       @object_by_recipient = Message.create(msg_hash.dup)
@@ -92,7 +92,7 @@ describe Message do
       msg_hash[:author] = @local_luke.person
       msg_hash[:conversation] = @remote_parent
       @object_on_remote_parent = Message.create(msg_hash)
-      Postzord::Dispatch.new(@local_luke, @object_on_remote_parent).post
+      Postzord::Dispatcher.build(@local_luke, @object_on_remote_parent).post
     end
     it_should_behave_like 'it is relayable'
 

@@ -1,6 +1,8 @@
-#   Copyright (c) 2010, Diaspora Inc.  This file is
+#   Copyright (c) 2010-2011, Diaspora Inc.  This file is
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
+
+require File.join(Rails.root, "lib", "aspect_stream")
 
 class AspectsController < ApplicationController
   before_filter :authenticate_user!
@@ -10,44 +12,16 @@ class AspectsController < ApplicationController
   respond_to :html, :js
   respond_to :json, :only => [:show, :create]
 
-  helper_method :tags, :tag_followings
-  helper_method :all_aspects_selected?
+  helper_method :selected_people
 
   def index
-    if params[:a_ids]
-      @aspects = current_user.aspects.where(:id => params[:a_ids])
-    else
-      @aspects = current_user.aspects
-    end
-
-    # redirect to aspects creation
-    if @aspects.blank?
-      redirect_to new_aspect_path
-      return
-    end
-
-    @aspect_ids = @aspects.map { |a| a.id }
-
-    unless params[:only_posts]
-      all_selected_people = Person.joins(:contacts => :aspect_memberships).
-        where(:contacts => {:user_id => current_user.id},
-              :aspect_memberships => {:aspect_id => @aspect_ids})
-      @selected_people = all_selected_people.select("DISTINCT people.*").includes(:profile)
-    end
-
-    @posts = current_user.visible_posts(:by_members_of => @aspect_ids,
-                                           :type => ['StatusMessage','Reshare', 'ActivityStreams::Photo'],
-                                           :order => session[:sort_order] + ' DESC',
-                                           :max_time => params[:max_time].to_i
-                          ).includes(:mentions => {:person => :profile}, :author => :profile)
+    aspect_ids = (params[:a_ids] ? params[:a_ids] : [])
+    @stream = AspectStream.new(current_user, aspect_ids,
+                               :order => session[:sort_order],
+                               :max_time => params[:max_time].to_i)
 
     if params[:only_posts]
-      render :partial => 'shared/stream', :locals => {:posts => @posts}
-    else
-      @contact_count = @selected_people.count
-
-      @aspect = :all unless params[:a_ids]
-      @aspect ||= @aspects.first # used in mobile
+      render :partial => 'shared/stream', :locals => {:posts => @stream.posts}
     end
   end
 
@@ -108,8 +82,7 @@ class AspectsController < ApplicationController
   end
 
   def show
-    @aspect = current_user.aspects.where(:id => params[:id]).first
-    if @aspect
+    if @aspect = current_user.aspects.where(:id => params[:id]).first
       redirect_to aspects_path('a_ids[]' => @aspect.id)
     else
       redirect_to aspects_path
@@ -162,23 +135,6 @@ class AspectsController < ApplicationController
 
   def ensure_page
     params[:max_time] ||= Time.now + 1
-  end
-
-  def all_aspects_selected?
-    @aspect == :all
-  end
-
-  def tag_followings
-    if current_user
-      if @tag_followings == nil
-        @tag_followings = current_user.tag_followings
-      end
-      @tag_followings
-    end
-  end
-
-  def tags
-    @tags ||= current_user.followed_tags
   end
 
   private

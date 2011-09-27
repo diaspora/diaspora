@@ -1,4 +1,4 @@
-#   Copyright (c) 2010, Diaspora Inc.  This file is
+#   Copyright (c) 2010-2011, Diaspora Inc.  This file is
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
@@ -17,6 +17,15 @@ class SignedRetraction
                 :target_type,
                 :target_author_signature,
                 :sender
+
+  #NOTE(fix this hack -- go through the app and make sure we only call RelayableRetraction in a unified way)
+  def author
+    if sender.is_a?(User)
+      sender.person
+    else
+      sender
+    end
+  end
 
   def signable_accessors
       accessors = self.class.roxml_attrs.collect do |definition|
@@ -67,7 +76,7 @@ class SignedRetraction
     if reshare = Reshare.where(:author_id => receiving_user.person.id, :root_guid => target_guid).first
       onward_retraction = self.dup
       onward_retraction.sender = receiving_user.person
-      Postzord::Dispatch.new(receiving_user, onward_retraction).post
+      Postzord::Dispatcher.build(receiving_user, onward_retraction).post
     end
     if target
       self.target.unsocket_from_user receiving_user if target.respond_to? :unsocket_from_user

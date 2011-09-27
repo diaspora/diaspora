@@ -13,6 +13,7 @@ hu:
         many: "{{count}} csoportban"
         one: "{{count}} csoportban"
         other: "{{count}} csoportban"
+        two: "In {{count}} aspects"
         zero: "Hozzáadás egy csoporthoz"
     comments: 
       hide: "hozzászólások elrejtése"

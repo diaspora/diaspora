@@ -6,22 +6,22 @@
 pt-BR: 
   devise: 
     confirmations: 
-      confirmed: "Sua conta foi confirmada com sucesso. Seja Bem vindo(a)!"
+      confirmed: "Sua conta foi confirmada com sucesso. Seja bem-vindo(a)!"
       new: 
         resend_confirmation: "Reenviar as instruções de confirmação."
-      send_instructions: "Você receberá um email em poucos minutos com as instruções sobre como confirmar a sua conta."
+      send_instructions: "Em poucos minutos, você receberá um email com as instruções sobre como confirmar a sua conta."
     failure: 
       inactive: "Sua conta ainda não foi ativada."
-      invalid: "Email ou senha inválidos."
+      invalid: "Nome de usuário ou senha inválidos."
       invalid_token: "Token de autenticação inválido."
       locked: "Sua conta está bloqueada."
-      timeout: "Sua sessão expirou, por favor, entre novamente para continuar."
+      timeout: "Sua sessão expirou; por favor, entre novamente para continuar."
       unauthenticated: "Você precisa entrar ou se cadastrar antes de continuar."
       unconfirmed: "Você deve confirmar a sua conta antes de continuar."
     invitations: 
       invitation_token_invalid: "Seu convite é inválido!"
       send_instructions: "Seu convite foi enviado."
-      updated: "Sua senha foi definida com sucesso. Seja Bem vindo(a)!"
+      updated: "Sua senha foi definida com sucesso. Seja bem-vindo(a)!"
     mailer: 
       confirmation_instructions: 
         confirm: "Confirmar minha conta"
@@ -31,7 +31,7 @@ pt-BR:
       invitation_instructions: 
         accept: "Aceitar convite"
         ignore: "Se você não quer aceitar o convite, por favor ignore este e-mail."
-        no_account_till: "Sua conta não pode ser criada até que você acesse o link para a sua inscrição."
+        no_account_till: "Sua conta não pode ser criada até que você acesse o link acima e se cadastre."
         subject: "Você foi convidado(a) para participar em Diaspora!"
       inviter: 
         accept_at: "em %{url}, você pode aceitar através do link abaixo."
@@ -54,7 +54,7 @@ pt-BR:
         change_password: "Mudar minha senha"
       new: 
         forgot_password: "Esqueceu sua senha?"
-        no_account: "Não há conta com este email. Se você aguarda por um convite, seja paciente: estamos trabalhando para enviá-lo o quanto antes."
+        no_account: "Não há nenhuma conta com este email. Se você aguarda por um convite, seja paciente: estamos trabalhando para enviá-lo o quanto antes."
         send_password_instructions: "Me envie instruções para redefinir minha senha."
       send_instructions: "Você receberá em breve um email com instruções sobre como redefinir sua senha."
       updated: "Sua senha foi alterada com sucesso."

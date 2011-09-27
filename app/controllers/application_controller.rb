@@ -1,4 +1,4 @@
-#   Copyright (c) 2010, Diaspora Inc.  This file is
+#   Copyright (c) 2010-2011, Diaspora Inc.  This file is
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
@@ -16,6 +16,7 @@ class ApplicationController < ActionController::Base
   inflection_method :grammatical_gender => :gender
 
   helper_method :all_aspects, :all_contacts_count, :my_contacts_count, :only_sharing_count
+  helper_method :tags, :tag_followings
 
   def ensure_http_referer_is_set
     request.env['HTTP_REFERER'] ||= '/aspects'
@@ -31,6 +32,16 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  # Overwriting the sign_out redirect path method
+  def after_sign_out_path_for(resource_or_scope)
+    # mobile_fu's is_mobile_device? wasn't working here for some reason...
+    # it may have been just because of the test env.
+    if request.env['HTTP_USER_AGENT'].match(/mobile/i)
+      root_path
+    else
+      logged_out_path
+    end
+  end
 
   ##helpers
   def all_aspects
@@ -117,4 +128,18 @@ class ApplicationController < ActionController::Base
   def after_sign_in_path_for(resource)
     stored_location_for(:user) || (current_user.getting_started? ? getting_started_path : aspects_path)
   end
+
+  def tag_followings
+    if current_user
+      if @tag_followings == nil
+        @tag_followings = current_user.tag_followings
+      end
+      @tag_followings
+    end
+  end
+
+  def tags
+    @tags ||= current_user.followed_tags
+  end
+
 end

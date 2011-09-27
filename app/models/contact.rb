@@ -1,4 +1,4 @@
-#   Copyright (c) 2010, Diaspora Inc.  This file is
+#   Copyright (c) 2010-2011, Diaspora Inc.  This file is
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
@@ -7,7 +7,7 @@ class Contact < ActiveRecord::Base
   validates_presence_of :user
 
   belongs_to :person
-  validates_presence_of :person
+  validates :person, :presence => true
 
   has_many :aspect_memberships
   has_many :aspects, :through => :aspect_memberships
@@ -18,6 +18,8 @@ class Contact < ActiveRecord::Base
   validate :not_contact_for_self
 
   validates_uniqueness_of :person_id, :scope => :user_id
+
+  before_destroy :destroy_notifications
 
   # contact.sharing is true when contact.person is sharing with contact.user
   scope :sharing, lambda {
@@ -33,7 +35,6 @@ class Contact < ActiveRecord::Base
     sharing.where(:receiving => false)
   }
 
-  before_destroy :destroy_notifications
   def destroy_notifications
     Notification.where(:target_type => "Person",
                        :target_id => person_id,
@@ -43,7 +44,7 @@ class Contact < ActiveRecord::Base
 
   def dispatch_request
     request = self.generate_request
-    Postzord::Dispatch.new(self.user, request).post
+    Postzord::Dispatcher.build(self.user, request).post
     request
   end
 

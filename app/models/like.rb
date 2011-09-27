@@ -1,4 +1,4 @@
-#   Copyright (c) 2010, Diaspora Inc.  This file is
+#   Copyright (c) 2010-2011, Diaspora Inc.  This file is
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
@@ -20,14 +20,14 @@ class Like < ActiveRecord::Base
   belongs_to :author, :class_name => 'Person'
 
   validates_uniqueness_of :target_id, :scope => [:target_type, :author_id]
-  validates_presence_of :author, :target
+  validates :parent, :presence => true #should be in relayable (pending on fixing Message)
 
   after_create do
-    self.target.update_likes_counter
+    self.parent.update_likes_counter
   end
 
   after_destroy do
-    self.target.update_likes_counter
+    self.parent.update_likes_counter
   end
 
   def diaspora_handle

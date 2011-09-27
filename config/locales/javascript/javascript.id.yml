@@ -13,6 +13,7 @@ id:
         many: "In {{count}} aspects"
         one: "In {{count}} aspect"
         other: "In {{count}} aspects"
+        two: "In {{count}} aspects"
         zero: "Add to aspect"
     comments: 
       hide: "hide comments"

@@ -1,4 +1,4 @@
-#   Copyright (c) 2010, Diaspora Inc.  This file is
+#   Copyright (c) 2010-2011, Diaspora Inc.  This file is
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
@@ -6,9 +6,6 @@ require 'spec_helper'
 
 describe CommentsController do
   before do
-    @aspect1 = alice.aspects.where(:name => "generic").first
-    @aspect2 = bob.aspects.where(:name => "generic").first
-
     @controller.stub(:current_user).and_return(alice)
     sign_in :user, alice
   end
@@ -21,7 +18,8 @@ describe CommentsController do
 
     context "on my own post" do
       before do
-        @post = alice.post :status_message, :text => 'GIANTS', :to => @aspect1.id
+        aspect_to_post = alice.aspects.where(:name => "generic").first
+        @post = alice.post :status_message, :text => 'GIANTS', :to => aspect_to_post
       end
 
       it 'responds to format js' do
@@ -37,7 +35,8 @@ describe CommentsController do
 
     context "on a post from a contact" do
       before do
-        @post = bob.post :status_message, :text => 'GIANTS', :to => @aspect2.id
+        aspect_to_post = bob.aspects.where(:name => "generic").first
+        @post = bob.post :status_message, :text => 'GIANTS', :to => aspect_to_post
       end
 
       it 'comments' do
@@ -60,61 +59,64 @@ describe CommentsController do
       end
     end
 
-    context 'on a post from a stranger' do
-      before do
-        @post = eve.post :status_message, :text => 'GIANTS', :to => eve.aspects.first.id
-      end
+    it 'posts no comment on a post from a stranger' do
+      aspect_to_post = eve.aspects.where(:name => "generic").first
+      @post = eve.post :status_message, :text => 'GIANTS', :to => aspect_to_post
 
-      it 'posts no comment' do
-        alice.should_not_receive(:comment)
-        post :create, comment_hash
-        response.code.should == '422'
-      end
+      alice.should_not_receive(:comment)
+      post :create, comment_hash
+      response.code.should == '422'
     end
   end
 
   describe '#destroy' do
+    before do
+      aspect_to_post = bob.aspects.where(:name => "generic").first
+      @message = bob.post(:status_message, :text => "hey", :to => aspect_to_post)
+    end
+
     context 'your post' do
       before do
-        @message = alice.post(:status_message, :text => "hey", :to => @aspect1.id)
-        @comment = alice.comment("hey", :post => @message)
-        @comment2 = bob.comment("hey", :post => @message)
-        @comment3 = eve.comment("hey", :post => @message)
+        @controller.stub(:current_user).and_return(bob)
+        sign_in :user, bob
       end
 
       it 'lets the user delete his comment' do
-        alice.should_receive(:retract).with(@comment)
-        delete :destroy, :format => "js", :post_id => 1,  :id => @comment.id
+        comment = bob.comment("hey", :post => @message)
+
+        bob.should_receive(:retract).with(comment)
+        delete :destroy, :format => "js", :post_id => 1,  :id => comment.id
         response.status.should == 204
       end
 
       it "lets the user destroy other people's comments" do
-        alice.should_receive(:retract).with(@comment2)
-        delete :destroy, :format => "js", :post_id => 1,  :id => @comment2.id
+        comment = alice.comment("hey", :post => @message)
+
+        bob.should_receive(:retract).with(comment)
+        delete :destroy, :format => "js", :post_id => 1,  :id => comment.id
         response.status.should == 204
       end
     end
 
     context "another user's post" do
-      before do
-        @message = bob.post(:status_message, :text => "hey", :to => bob.aspects.first.id)
-        @comment = alice.comment("hey", :post => @message)
-        @comment2 = bob.comment("hey", :post => @message)
-        @comment3 = eve.comment("hey", :post => @message)
-      end
-
       it 'let the user delete his comment' do
-        alice.should_receive(:retract).with(@comment)
-        delete :destroy, :format => "js", :post_id => 1,  :id => @comment.id
+        comment = alice.comment("hey", :post => @message)
+
+        alice.should_receive(:retract).with(comment)
+        delete :destroy, :format => "js", :post_id => 1,  :id => comment.id
         response.status.should == 204
       end
 
       it 'does not let the user destroy comments he does not own' do
-        alice.should_not_receive(:retract).with(@comment2)
-        delete :destroy, :format => "js", :post_id => 1,  :id => @comment3.id
+        comment1 = bob.comment("hey", :post => @message)
+        comment2 = eve.comment("hey", :post => @message)
+
+        alice.should_not_receive(:retract).with(comment1)
+        delete :destroy, :format => "js", :post_id => 1,  :id => comment2.id
         response.status.should == 403
       end
     end
+
     it 'renders nothing and 404 on a nonexistent comment' do
       delete :destroy, :post_id => 1, :id => 343415
       response.status.should == 404
@@ -126,7 +128,6 @@ describe CommentsController do
     before do
       aspect_to_post = bob.aspects.where(:name => "generic").first
       @message = bob.post(:status_message, :text => "hey", :to => aspect_to_post.id)
-      @comments = [alice, bob, eve].map{ |u| u.comment("hey", :post => @message) }
     end
 
     it 'generates a jasmine fixture', :fixture => true do
@@ -142,9 +143,12 @@ describe CommentsController do
     end
 
     it 'returns all the comments for a post' do
+      comments = [alice, bob, eve].map{ |u| u.comment("hey", :post => @message) }
+
       get :index, :post_id => @message.id, :format => 'js'
-      assigns[:comments].should == @comments
+      assigns[:comments].should == comments
     end
+
     it 'returns a 404 on a nonexistent post' do
       get :index, :post_id => 235236, :format => 'js'
       response.status.should == 404

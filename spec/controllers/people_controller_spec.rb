@@ -1,4 +1,4 @@
-#   Copyright (c) 2010, Diaspora Inc.  This file is
+#   Copyright (c) 2010-2011, Diaspora Inc.  This file is
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
@@ -57,8 +57,14 @@ describe PeopleController do
       get :index, :q => "eugene@example.org"
       assigns[:people][0].id.should == eugene2.id
     end
-    
-    it "downcases the handle before trying to find someone by it" do
+
+    it "allows unsearchable people to be found by handle" do
+      d_id = "eugene@example.org"
+      @controller.should_receive(:diaspora_id?).with(d_id)
+      get :index, :q => d_id
+    end
+
+     it "downcases the handle before trying to find someone by it" do
       eugene2 = Factory.create(:person, :diaspora_handle => "eugene@example.org",
                                :profile => Factory.build(:profile, :first_name => "Eugene",
                                                          :last_name => "w", :searchable => false))
@@ -345,9 +351,43 @@ describe PeopleController do
     end
   end
 
+  describe '#diaspora_id?' do
+    it 'returns true for pods on urls' do
+      @controller.diaspora_id?("ilya_123@pod.geraspora.de").should be_true
+    end
+
+    it 'returns true for pods on urls with port' do
+      @controller.diaspora_id?("ilya_123@pod.geraspora.de:12314").should be_true
+    end
+
+    it 'returns true for pods on localhost' do
+      @controller.diaspora_id?("ilya_123@localhost").should be_true
+    end
+
+    it 'returns true for pods on localhost and port' do
+      @controller.diaspora_id?("ilya_123@localhost:1234").should be_true
+    end
+
+    it 'returns true for pods on ip' do
+      @controller.diaspora_id?("ilya_123@1.1.1.1").should be_true
+    end
+
+    it 'returns true for pods on ip and port' do
+      @controller.diaspora_id?("ilya_123@1.2.3.4:1234").should be_true
+    end
+
+    it 'returns false for pods on with invalid url characters' do
+      @controller.diaspora_id?("ilya_123@join_diaspora.com").should be_false
+    end
+
+    it 'returns false for invalid usernames' do
+      @controller.diaspora_id?("ilya_2%3@joindiaspora.com").should be_false
+    end
+  end
+
   describe '#webfinger' do
     it 'enqueues a webfinger job' do
-      Resque.should_receive(:enqueue).with(Job::SocketWebfinger, @user.id, @user.diaspora_handle, anything).once
+      Resque.should_receive(:enqueue).with(Jobs::SocketWebfinger, @user.id, @user.diaspora_handle, anything).once
       get :retrieve_remote, :diaspora_handle => @user.diaspora_handle
     end
   end

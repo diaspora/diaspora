@@ -37,7 +37,7 @@ module ResqueJobLogging
       :backtrace => error.backtrace,
       :parameters => {
         :job_class => self.name,
-        :arguments => job_arguments.map!{|a| a.to_s[0..30]},
+        :arguments => job_arguments.map!{|a| a.to_s[0..30]}.join(', '),
         :controller => "Resque",
         :action => self.name
       }

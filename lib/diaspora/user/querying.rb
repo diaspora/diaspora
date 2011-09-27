@@ -1,4 +1,4 @@
-#   Copyright (c) 2010, Diaspora Inc.  This file is
+#   Copyright (c) 2010-2011, Diaspora Inc.  This file is
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
@@ -93,10 +93,6 @@ module Diaspora
         aspects.inject([]) do |contacts,aspect|
           contacts | aspect.contacts
         end
-      end
-
-      def all_aspect_ids
-        self.aspects.all.collect{|x| x.id}
       end
 
       def posts_from(person)

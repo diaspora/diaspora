@@ -1,4 +1,4 @@
-#   Copyright (c) 2010, Diaspora Inc.  This file is
+#   Copyright (c) 2010-2011, Diaspora Inc.  This file is
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
@@ -7,7 +7,7 @@ class UsersController < ApplicationController
   require File.join(Rails.root, 'lib/diaspora/exporter')
   require File.join(Rails.root, 'lib/collect_user_photos')
 
-  before_filter :authenticate_user!, :except => [:new, :create, :public]
+  before_filter :authenticate_user!, :except => [:new, :create, :public, :user_photo, :logged_out]
 
   respond_to :html
 
@@ -68,7 +68,7 @@ class UsersController < ApplicationController
   end
 
   def destroy
-    Resque.enqueue(Job::DeleteAccount, current_user.id)
+    Resque.enqueue(Jobs::DeleteAccount, current_user.id)
     current_user.lock_access!
     sign_out current_user
     flash[:notice] = I18n.t 'users.destroy'
@@ -103,6 +103,12 @@ class UsersController < ApplicationController
     render "users/getting_started"
   end
 
+  def logged_out
+    if user_signed_in?
+      redirect_to root_path
+    end
+  end
+
   def getting_started_completed
     user = current_user
     user.update_attributes(:getting_started => false)
@@ -117,6 +123,16 @@ class UsersController < ApplicationController
   def export_photos
     tar_path = PhotoMover::move_photos(current_user)
     send_data( File.open(tar_path).read, :filename => "#{current_user.id}.tar" )
+  end
+
+  def user_photo
+    username = params[:username].split('@')[0]
+    user = User.find_by_username(username)
+    if user.present? 
+      redirect_to user.profile.image_url
+    else
+      render :nothing => true, :status => 404
+    end
   end
 
   def confirm_email

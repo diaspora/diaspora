@@ -37,7 +37,7 @@ bg:
             person: 
               invalid: "is invalid."
             username: 
-              invalid: "is invalid. We only allow letters, numbers, and underscores"
+              invalid: "не е валидно. Разрешени са само букви, цифри и долна черта."
               taken: "е вече заето."
   ago: "преди %{time}"
   all_aspects: "Всички аспекти"
@@ -101,7 +101,16 @@ bg:
         heading: "Адрес в Diaspora"
       donate: "Дарете"
       handle_explanation: "Това е вашият адрес в Diaspora. Наподобява адрес на ел. поща - давате го на хора, за да се свържат с вас."
-      keep_us_running: "Помогнете за бързата и надеждна работа на %{pod} като осигурите на сървърите месечната им доза \"кафе\"!"
+      help: 
+        did_you: "Вие:"
+        feature_suggestion: "... имате предложение за нова %{link}?"
+        find_a_bug: "... сте открили %{link} (грешка)?"
+        have_a_question: "... имате %{link}?"
+        here_to_help: "Общността Diaspora е готова да помогне!"
+        more_support: "За допълнителна помощ посетете %{link}."
+        need_help: "Нуждаетесе от помощ?"
+        tutorials: "За ръководства посетете %{link}."
+      keep_us_running: "Осигурете бързата работа на %{pod} като дарите пари за месечната издръжка на сървърите!"
       no_contacts: "Няма контакти"
       no_tags: "+ Намиране на тагове"
       people_sharing_with_you: "Хора споделящи с вас"
@@ -140,12 +149,14 @@ bg:
       view_all_contacts: "Показване на всички контакти"
     show: 
       edit_aspect: "редактиране на аспекта"
+    two: "%{count} аспекта"
     update: 
       failure: "Аспектът %{name} има твърде дълго име. Не може да бъде запаметен."
       success: "Аспектът %{name} е успешно редактиран."
     zero: "няма аспекти"
   authorizations: 
     index: 
+      no_applications: "You haven't registered any applications yet."
       revoke_access: "Прекратяване на достъпа"
   back: "Назад"
   bookmarklet: 
@@ -163,6 +174,7 @@ bg:
       commenting: "Коментиране..."
     one: "1 коментар"
     other: "%{count} коментара"
+    two: "%{count} коментара"
     zero: "няма коментари"
   contacts: 
     create: 
@@ -187,6 +199,7 @@ bg:
     other: "%{count} контакта"
     sharing: 
       people_sharing: "Хора споделящи с вас:"
+    two: "%{count} контакта"
     zero: "няма контакти"
   conversations: 
     create: 
@@ -200,6 +213,7 @@ bg:
         many: "%{count} нови съобщения"
         one: "1 ново съобщение"
         other: "%{count} нови съобщения"
+        two: "%{count} нови съобщения"
         zero: "Няма нови съобщения"
     index: 
       create_a_new_message: "създаване на съобщение"
@@ -263,7 +277,7 @@ bg:
       accept_your_invitation: "Accept your invitation"
       your_account_awaits: "Вашият акаунт ви очаква!"
     new: 
-      already_invited: "Следните хора не са потвърдили паканата ви:"
+      already_invited: "Следните хора не са потвърдили поканата ви:"
       aspect: "Аспект"
       comma_seperated_plz: "Можете да въведете повече от една ел. поща като ги разделяте със запетаи."
       if_they_accept_info: "ако приемат поканата ще бъдат добавени към аспекта в който сте ги поканили."
@@ -297,18 +311,21 @@ bg:
         many: "не е харесана %{count} пъти"
         one: "не е харесана %{count} път"
         other: "не е харесана %{count} пъти"
+        two: "не е харесана %{count} пъти"
         zero: "всички са я харесали"
       people_like_this: 
         few: "харесана %{count} пъти"
         many: "харесана %{count} пъти"
         one: "харесана %{count} път"
         other: "харесана %{count} пъти"
+        two: "харесана %{count} пъти"
         zero: "не е харесана"
       people_like_this_comment: 
         few: "харесан %{count} пъти"
         many: "харесан %{count} пъти"
         one: "харесан %{count} път"
         other: "харесан %{count} пъти"
+        two: "харесан %{count} пъти"
         zero: "не е харесан"
   limited: "Ограничена"
   more: "Още"
@@ -316,22 +333,25 @@ bg:
   no_results: "Няма намерени резултати"
   notifications: 
     also_commented: 
-      few: "%{actors} също коментираха публикацията %{post_link} на %{post_author}."
-      many: "%{actors} също коментираха публикацията %{post_link} на %{post_author}."
+      few: "%{actors} също коментираха %{post_link} на %{post_author}."
+      many: "%{actors} също коментираха %{post_link} на %{post_author}."
       one: "%{actors} също коментира %{post_link} на %{post_author}."
       other: "%{actors} също коментираха %{post_link} на %{post_author}."
+      two: "%{actors} също коментираха %{post_link} на %{post_author}."
       zero: "%{actors} също коментира %{post_link} на %{post_author}."
     also_commented_deleted: 
       few: "%{actors} коментираха изтрита публикация."
       many: "%{actors} коментираха изтрита публикация."
       one: "%{actors} коментира изтрита публикация."
       other: "%{actors} коментира изтрита публикация."
+      two: "%{actors} коментираха изтрита публикация."
       zero: "%{actors} коментира изтрита публикация."
     comment_on_post: 
       few: "%{actors} коментираха ваша %{post_link}."
       many: "%{actors} коментираха ваша %{post_link}."
       one: "%{actors} коментира ваша %{post_link}."
       other: "%{actors} коментираха ваша %{post_link}."
+      two: "%{actors} коментираха ваша %{post_link}."
       zero: "%{actors} коментира ваша %{post_link}."
     helper: 
       new_notifications: 
@@ -339,14 +359,16 @@ bg:
         many: "%{count} нови известия"
         one: "1 ново известие"
         other: "%{count} нови известия"
+        two: "%{count}  нови известия"
         zero: "Няма нови известия"
     index: 
       and: "и"
       and_others: 
-        few: "и %{count} други"
-        many: "и %{count} други"
+        few: "и други %{count}-ма"
+        many: "и други %{count}-ма"
         one: "и още някой"
-        other: "и %{count} други"
+        other: "и други %{count}-ма"
+        two: "и други %{count}-ма"
         zero: "и никой друг"
       mark_all_as_read: "Маркиране на всички като прочетени"
       notifications: "Известия"
@@ -355,24 +377,28 @@ bg:
       many: "Току-що %{actors} харесаха ваша %{post_link}."
       one: "Току-що %{actors} хареса ваша %{post_link}."
       other: "Току-що  %{actors} харесаха ваша %{post_link}."
+      two: "Току-що %{actors} харесаха ваша %{post_link}."
       zero: "Току-що %{actors} хареса ваша %{post_link}."
     liked_post_deleted: 
       few: "%{actors} харесаха ваша изтрита публикация."
       many: "%{actors} харесаха ваша изтрита публикация."
       one: "%{actors} хареса ваша изтрита публикация."
       other: "%{actors} хареса ваша изтрита публикация."
+      two: "%{actors} харесаха ваша изтрита публикация."
       zero: "%{actors} хареса ваша изтрита публикация."
     mentioned: 
       few: "%{actors} ви споменаха %{post_link}."
       many: "%{actors} ви споменаха в %{post_link}."
       one: "%{actors} ви спомена в %{post_link}."
       other: "%{actors} ви спомена %{post_link}."
+      two: "%{actors}  ви споменаха в %{post_link}."
       zero: "%{actors} ви спомена в %{post_link}."
     mentioned_deleted: 
       few: "%{actors} ви споменаха в изтрита публикация."
       many: "%{actors} ви споменаха в изтрита публикация."
       one: "%{actors} ви спомена в изтрита публикация."
       other: "%{actors} ви спомена в изтрита публикация."
+      two: "%{actors} ви споменаха в изтрита публикация."
       zero: "%{actors} ви спомена в изтрита публикация."
     post: "публикация"
     private_message: 
@@ -380,24 +406,28 @@ bg:
       many: "%{actors} ви изпратиха съобщение."
       one: "%{actors} ви изпрати съобщение."
       other: "%{actors} ви изпрати съобщение."
+      two: "%{actors} ви изпратиха съобщение."
       zero: "%{actors} ви изпрати съобщение."
     reshared: 
       few: "%{actors} споделиха ваша %{post_link}."
       many: "%{actors} споделиха ваша %{post_link}."
       one: "%{actors} сподели ваша %{post_link}."
       other: "%{actors} сподели ваша %{post_link}."
+      two: "%{actors} споделиха ваша %{post_link}."
       zero: "%{actors} сподели ваша %{post_link}."
     reshared_post_deleted: 
       few: "%{actors} споделиха ваша изтрита публикация."
       many: "%{actors} споделиха ваша изтрита публикация."
       one: "%{actors} сподели ваша изтрита публикация."
       other: "%{actors} сподели ваша изтрита публикация."
+      two: "%{actors} споделиха ваша изтрита публикация."
       zero: "%{actors} сподели ваша изтрита публикация."
     started_sharing: 
       few: "%{actors} започнаха да споделят с вас."
       many: "%{actors} започнаха да споделят с вас."
       one: "%{actors} започна да споделя с вас."
       other: "%{actors} започна да споделя с вас."
+      two: "%{actors} започнаха да споделят с вас."
       zero: "%{actors} започна да споделя с вас."
   notifier: 
     a_post_you_shared: "публикация."
@@ -428,7 +458,7 @@ bg:
       subject: "%{name} започна да споделя с вас в Diaspora*"
       view_profile: "Прегледайте профила на %{name}"
     thanks: "Благодаря,"
-    to_change_your_notification_settings: "за да промените насройките за известяване"
+    to_change_your_notification_settings: "за да промените настройките за известяване"
   ok: "Добре"
   or: "или"
   password: "Парола"
@@ -481,6 +511,7 @@ bg:
       add_some: "add some"
       edit: "редактиране"
       you_have_no_tags: "you have no tags!"
+    two: "%{count} човека"
     webfinger: 
       fail: "За съжаление %{handle} не може да бъде намерен."
     zero: "няма хора"
@@ -520,7 +551,8 @@ bg:
       notice: "Снимката е обновена."
   post_visibilites: 
     update: 
-      post_hidden: "Скрита е публикация на %{name}."
+      post_hidden_and_muted: "Публикацията на %{name} е скрита и няма да получавате известия за нея."
+      see_it_on_their_profile: "Ако желаете да прегледате новините относно публикацията посетете профила на %{name}."
   posts: 
     show: 
       destroy: "Изтриване"
@@ -580,8 +612,9 @@ bg:
       new_requests: 
         few: "%{count} нови покани!"
         many: "%{count} нови покани!"
-        one: "имате нова покана!"
+        one: "нова покана!"
         other: "%{count} нови покани!"
+        two: "%{count} нови покани!"
         zero: "няма нови покани"
     manage_aspect_contacts: 
       existing: "Съществуващи контакти"
@@ -599,6 +632,7 @@ bg:
         many: "%{count} споделяния"
         one: "1 споделяне"
         other: "%{count} споделяния"
+        two: "%{count} споделяния"
         zero: "Споделяне"
       reshare_confirmation: "Споделяне публикацията на %{author}?"
       reshare_original: "Споделяне на оригинала"
@@ -646,6 +680,7 @@ bg:
         many: "В %{count} аспекта"
         one: "В %{count} аспект"
         other: "В %{count} аспекта"
+        two: "В %{count} аспекта"
         zero: "Добавяне в аспект"
     contact_list: 
       all_contacts: "Всички контакти"
@@ -685,6 +720,7 @@ bg:
       reshare: "споделяне с"
     stream_element: 
       dislike: "Не ми харесва"
+      hide_and_mute: "Скриване и прекратяване на известяването"
       like: "Харесва ми"
       shared_with: "Споделена с: %{aspect_names}"
       unlike: "Не ми харесва"
@@ -704,6 +740,7 @@ bg:
       many: ", моля съкратете съобщението си до %{count} знака"
       one: ", моля съкратете съобщението си до %{count} знака"
       other: ", моля съкратете съобщението си до %{count} знака"
+      two: ", моля съкратете съобщението си до %{count} знака"
       zero: ", моля съкратете съобщението си до %{count} знака"
   stream_helper: 
     hide_comments: "Скриване на коментарите"
@@ -772,7 +809,8 @@ bg:
       connect_to_your_other_social_networks: "Свържете профила си с други социални мрежи"
       connect_with_people: "Свържете се с интересни хора"
       connect_with_people_explanation_pt1: "Свържете се с хора поставяйки ги в един или няколко от вашите %{bold}."
-      connect_with_people_explanation_pt2: "Групирането на контактите в аспекти ще ви позволи да споделяте/филрирате информация само с/от определена подгрупа от контактите ви."
+      connect_with_people_explanation_pt2: "Групирането на контактите в аспекти ще ви позволи да споделяте/филтрирате информация само с/от определена подгрупа от контактите ви."
+      edit_profile: "Редактиране на профила"
       featured_tags: "Отличени тагове"
       featured_users: "Отличени потребители"
       fill_out_your_profile: "Попълнете профила си"
@@ -790,9 +828,11 @@ bg:
         name: "Име"
         photo: "Снимка"
         tags: "Тагове"
+      search_for_hashtags: "Търсене за #диез таговете"
+      search_for_people: "Търсене за хора"
       see_all_featured_users: "Показване на всички отличени потребители"
       welcome: "Добре дошли!"
-      welcome_with_name: "Welcome, %{name}!"
+      welcome_with_name: "Здравейте, %{name}!"
     public: 
       does_not_exist: "Потребителят %{username} не съществува!"
     update: 

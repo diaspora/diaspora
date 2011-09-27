@@ -1,4 +1,4 @@
-#   Copyright (c) 2010, Diaspora Inc.  This file is
+#   Copyright (c) 2010-2011, Diaspora Inc.  This file is
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
@@ -79,6 +79,6 @@ LISTITEM
   end
 
   def dropdown_may_create_new_aspect
-    @aspect == :profile || @aspect == :tag || @aspect == :search || @aspect == :notification
+    @aspect == :profile || @aspect == :tag || @aspect == :search || @aspect == :notification || params[:action] == "getting_started"
   end
 end

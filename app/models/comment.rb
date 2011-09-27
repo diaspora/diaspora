@@ -1,4 +1,4 @@
-#   Copyright (c) 2010, Diaspora Inc.  This file is
+#   Copyright (c) 2010-2011, Diaspora Inc.  This file is
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
@@ -26,8 +26,8 @@ class Comment < ActiveRecord::Base
   belongs_to :post
   belongs_to :author, :class_name => 'Person'
 
-  validates_presence_of :text, :post
-  validates_length_of :text, :maximum => 2500
+  validates :text, :presence => true, :length => { :maximum => 2500 }
+  validates :parent, :presence => true #should be in relayable (pending on fixing Message)
 
   serialize :youtube_titles, Hash
 
@@ -37,6 +37,14 @@ class Comment < ActiveRecord::Base
 
   after_save do
     self.post.touch
+  end
+
+  after_create do
+    self.parent.update_comments_counter
+  end
+
+  after_destroy do
+    self.parent.update_comments_counter
   end
 
   def diaspora_handle
@@ -68,4 +76,5 @@ class Comment < ActiveRecord::Base
   def parent= parent
     self.post = parent
   end
+
 end

@@ -1,4 +1,4 @@
-#   Copyright (c) 2011, Diaspora Inc.  This file is
+#   Copyright (c) 2010-2011, Diaspora Inc.  This file is
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
@@ -51,6 +51,10 @@ Diaspora::Application.routes.draw do
     post   "tag_followings" => "tag_followings#create", :as => 'tag_tag_followings'
     delete "tag_followings" => "tag_followings#destroy"
   end
+
+
+  # get "tag_followings" => "tag_followings#index", :as => 'tag_followings'
+
   get 'tags/:name' => 'tags#show', :as => 'tag'
 
   resources :apps, :only => [:show]
@@ -90,6 +94,7 @@ Diaspora::Application.routes.draw do
   scope 'admins', :controller => :admins do
     match :user_search
     get   :admin_inviter
+    get   :weekly_user_stats
     get   :stats, :as => 'pod_stats'
   end
 
@@ -113,7 +118,7 @@ Diaspora::Application.routes.draw do
     end
   end
   get '/u/:username' => 'people#show', :as => 'user_profile'
-
+  get '/u/:username/profile_photo' => 'users#user_photo'
 
   # Federation
 
@@ -122,6 +127,7 @@ Diaspora::Application.routes.draw do
     get 'hcard/users/:guid'     => :hcard
     get '.well-known/host-meta' => :host_meta
     post 'receive/users/:guid'  => :receive
+    post 'receive/public'       => :receive_public
     get 'hub'                   => :hub
   end
 
@@ -156,7 +162,17 @@ Diaspora::Application.routes.draw do
 
   get 'mobile/toggle', :to => 'home#toggle_mobile', :as => 'toggle_mobile'
 
-  # Startpage
+  #Protocol Url
+  get 'protocol' => redirect("https://github.com/diaspora/diaspora/wiki/Diaspora%27s-federation-protocol")
+  
+  # Resque web
+  if AppConfig[:mount_resque_web]
+    mount Resque::Server.new, :at => '/resque-jobs', :as => "resque_web"
+  end
 
+  # Logout Page (go mobile)
+  get 'logged_out' => 'users#logged_out', :as => 'logged_out'
+
+  # Startpage
   root :to => 'home#show'
 end

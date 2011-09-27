@@ -31,15 +31,19 @@ ca:
       search_for: "Cerca per {{name}}"
       publisher:
         at_least_one_aspect: "Heu de publicar en almenys un aspecte."
+        limited: "Limitat - la vostra publicació només serà visible per a la gent amb qui esteu compartint"
+        public: "Públic - la vostra publicació serà visible per a tothom i serà trobada pels cercadors"
       infinite_scroll:
         no_more: "No hi ha més publicacions."
       web_sockets:
         disconnected: "S'ha tancat el sòcol web. Les publicacions ja no es mostraran en temps real."
       aspect_dropdown:
         add_to_aspect: "Afegeix a l'aspecte"
+        all_aspects: "Tots els aspectes"
         toggle:
           zero: "Afegeix a aspectes"
           one: "En {{count}} aspecte"
+          two: "En {{count}} aspectes"
           few: "En {{count}} aspectes"
           many: "En {{count}} aspectes"
           other: "En {{count}} aspectes"

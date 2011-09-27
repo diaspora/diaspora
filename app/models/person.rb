@@ -1,4 +1,4 @@
-#   Copyright (c) 2010, Diaspora Inc.  This file is
+#   Copyright (c) 2010-2011, Diaspora Inc.  This file is
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
@@ -26,9 +26,9 @@ class Person < ActiveRecord::Base
     diaspora_handle.downcase! unless diaspora_handle.blank?
   end
 
-  has_many :contacts, :dependent => :destroy #Other people's contacts for this person
-  has_many :posts, :foreign_key => :author_id, :dependent => :destroy #his own posts
-  has_many :comments, :foreign_key => :author_id, :dependent => :destroy #his own comments
+  has_many :contacts, :dependent => :destroy # Other people's contacts for this person
+  has_many :posts, :foreign_key => :author_id, :dependent => :destroy # This person's own posts
+  has_many :comments, :foreign_key => :author_id, :dependent => :destroy # This person's own comments
 
   belongs_to :owner, :class_name => 'User'
 
@@ -39,14 +39,24 @@ class Person < ActiveRecord::Base
 
   before_destroy :remove_all_traces
   before_validation :clean_url
-
-  validates_presence_of :url, :profile, :serialized_public_key
-  validates_uniqueness_of :diaspora_handle
+  
+  validates :url, :presence => true
+  validates :profile, :presence => true
+  validates :serialized_public_key, :presence => true
+  validates :diaspora_handle, :uniqueness => true
 
   scope :searchable, joins(:profile).where(:profiles => {:searchable => true})
   scope :remote, where('people.owner_id IS NULL')
   scope :local, where('people.owner_id IS NOT NULL')
   scope :for_json, select('DISTINCT people.id, people.diaspora_handle').includes(:profile)
+
+  # @note user is passed in here defensively
+  scope :all_from_aspects, lambda { |aspect_ids, user|
+    joins(:contacts => :aspect_memberships).
+         where(:contacts => {:user_id => user.id},
+               :aspect_memberships => {:aspect_id => aspect_ids}).
+         select("DISTINCT people.*")
+  }
 
   def self.featured_users
     AppConfig[:featured_users].present? ? Person.where(:diaspora_handle => AppConfig[:featured_users]) : []
@@ -68,13 +78,13 @@ class Person < ActiveRecord::Base
   
   
   def self.find_from_id_or_username(params)
-    p =   if params[:id].present?
-            Person.where(:id => params[:id]).first
-          elsif params[:username].present? && u = User.find_by_username(params[:username])
-            u.person
-          else
-            nil
-          end
+    p = if params[:id].present?
+          Person.where(:id => params[:id]).first
+        elsif params[:username].present? && u = User.find_by_username(params[:username])
+          u.person
+        else
+          nil
+        end
     raise ActiveRecord::RecordNotFound unless p.present?
     p
   end
@@ -89,8 +99,12 @@ class Person < ActiveRecord::Base
       people.diaspora_handle #{like_operator} ?
     SQL
 
-    q_tokens = query.to_s.strip.gsub(/(\s|$|^)/) { "%#{$1}" }
-    [where_clause, [q_tokens, q_tokens]]
+    q_tokens = []
+    q_tokens[0] = query.to_s.strip.gsub(/(\s|$|^)/) { "%#{$1}" }
+    q_tokens[1] = q_tokens[0].gsub(/\s/,'').gsub('%','')
+    q_tokens[1] << "%"
+
+    [where_clause, q_tokens]
   end
 
   def self.search(query, user)
@@ -122,6 +136,8 @@ class Person < ActiveRecord::Base
     Person.searchable.where(sql, *tokens)
   end
 
+
+
   def name(opts = {})
     if self.profile.nil?
       fix_profile
@@ -142,7 +158,7 @@ class Person < ActiveRecord::Base
   end
 
   def owns?(obj)
-    self == obj.author
+    self.id == obj.author_id
   end
 
   def url
@@ -246,6 +262,25 @@ class Person < ActiveRecord::Base
     }
     json.merge!(:tags => self.profile.tags.map{|t| "##{t.name}"}) if opts[:includes] == "tags"
     json
+  end
+
+  # Update an array of people given a url, and set it as the new destination_url
+  # @param people [Array<People>]
+  # @param url [String]
+  def self.url_batch_update(people, url)
+    people.each do |person|
+      person.update_url(url)
+    end 
+  end
+  
+  # @param person [Person]
+  # @param url [String]
+  def update_url(url)
+    location = URI.parse(url)
+    newuri = "#{location.scheme}://#{location.host}"
+    newuri += ":#{location.port}" unless ["80", "443"].include?(location.port.to_s)
+    newuri += "/"
+    self.update_attributes(:url => newuri)
   end
 
   protected

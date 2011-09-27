@@ -1,7 +1,7 @@
 class Notifications::Reshared < Notification
   def mail_job
-    Job::Mail::Reshared
-    #Job::Mail::Liked
+    Jobs::Mail::Reshared
+    #Jobs::Mail::Liked
   end
 
   def popup_translation_key

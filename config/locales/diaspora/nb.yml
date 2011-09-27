@@ -6,7 +6,7 @@
 nb: 
   _applications: "Applications"
   _comments: "Kommentarer"
-  _contacts: "Contacts"
+  _contacts: "Kontakter"
   _home: "Hjem"
   _photos: "bilder"
   _services: "Tjenester"
@@ -99,8 +99,17 @@ nb:
         content_1: "Your Diaspora ID is:"
         content_2: "Give it to anyone and they'll be able to find you on Diaspora."
         heading: "Diaspora ID"
-      donate: "Donate"
+      donate: "Doner"
       handle_explanation: "This is your diaspora handle.  Like an email address, you can give this to people to reach you."
+      help: 
+        did_you: "Did you:"
+        feature_suggestion: "... have a %{link} suggestion?"
+        find_a_bug: "... find a %{link}?"
+        have_a_question: "... have a %{link}?"
+        here_to_help: "Diaspora community is here to help!"
+        more_support: "For more support, you should also check out %{link}."
+        need_help: "Trenger du hjelp?"
+        tutorials: "For tutorials, check out %{link}."
       keep_us_running: "Keep %{pod} running fast, buy our servers their monthly coffee fix!"
       no_contacts: "Ingen kontakter"
       no_tags: "No tags"
@@ -132,20 +141,22 @@ nb:
     seed: 
       acquaintances: "Acquaintances"
       family: "Familie"
-      friends: "Friends"
+      friends: "Venner"
       work: "Jobb"
     selected_contacts: 
       manage_your_aspects: "Manage your aspects."
-      no_contacts: "You don't have any contacts here yet."
-      view_all_contacts: "View all contacts"
+      no_contacts: "Du har ingen kontakter her enda."
+      view_all_contacts: "Vis alle kontakter"
     show: 
       edit_aspect: "endre aspekt"
+    two: "%{count} aspects"
     update: 
       failure: "Aspektet ditt, %{name}, har for langt navn."
       success: "Aspektet ditt, %{name}, har blitt endra."
     zero: "ingen aspekter"
   authorizations: 
     index: 
+      no_applications: "You haven't registered any applications yet."
       revoke_access: "Revoke Access"
   back: "Tilbake"
   bookmarklet: 
@@ -163,6 +174,7 @@ nb:
       commenting: "Kommenterer..."
     one: "1 kommentar"
     other: "%{count} kommentarer"
+    two: "%{count} comments"
     zero: "ingen kommentarer"
   contacts: 
     create: 
@@ -172,21 +184,22 @@ nb:
     few: "%{count} kontakter"
     index: 
       add_a_new_aspect: "Add a new aspect"
-      all_contacts: "All Contacts"
+      all_contacts: "Alle kontakter"
       edit_aspect: "Edit %{name}"
       many_people_are_you_sure: "Are you sure you want to start a private conversation with more than %{suggested_limit} contacts? Posting to this aspect may be a better way to contact them."
-      my_contacts: "My Contacts"
-      no_contacts: "No contacts."
+      my_contacts: "Mine kontakter"
+      no_contacts: "Ingen kontakter."
       only_sharing_with_me: "Only sharing with me"
-      remove_person_from_aspect: "Remove %{person_name} from \"%{aspect_name}\""
-      start_a_conversation: "Start a conversation"
-      title: "Contacts"
-      your_contacts: "Your Contacts"
+      remove_person_from_aspect: "Fjern %{person_name} fra \"%{aspect_name}\""
+      start_a_conversation: "Start en samtale"
+      title: "Kontakter"
+      your_contacts: "Dine kontakter"
     many: "%{count} kontakter"
     one: "1 kontakt"
     other: "%{count} kontakter"
     sharing: 
       people_sharing: "Folk som deler med deg:"
+    two: "%{count} kontakter"
     zero: "ingen kontakter"
   conversations: 
     create: 
@@ -200,6 +213,7 @@ nb:
         many: "%{count} nye meldinger"
         one: "1 ny melding"
         other: "%{count} nye meldinger"
+        two: "%{count} new messages"
         zero: "ingen nye meldinger"
     index: 
       create_a_new_message: "skriv en ny melding"
@@ -219,7 +233,7 @@ nb:
     show: 
       delete: "slett og blokkér samtalen"
       reply: "svar"
-      replying: "Replying..."
+      replying: "Svarer..."
   date: 
     formats: 
       birthday: "%B %d"
@@ -260,7 +274,7 @@ nb:
       rejected: "Følgende e-postadresser hadde problemer:"
       sent: "Invitasjoner har blitt sendt til:"
     edit: 
-      accept_your_invitation: "Accept your invitation"
+      accept_your_invitation: "Godta invitasjonen din"
       your_account_awaits: "Your account awaits!"
     new: 
       already_invited: "Allerede innvitert"
@@ -297,18 +311,21 @@ nb:
         many: "%{count} personer misliker dette"
         one: "1 person misliker dette"
         other: "%{count} personer misliker dette"
+        two: "%{count} dislikes"
         zero: "ingen misliker dette"
       people_like_this: 
         few: "%{count} personer liker dette"
         many: "%{count} personer liker dette"
         one: "1 person liker dette"
         other: "%{count} personer liker dette"
+        two: "%{count} likes"
         zero: "ingen liker dette"
       people_like_this_comment: 
         few: "%{count} likes"
         many: "%{count} likes"
         one: "%{count} like"
         other: "%{count} likes"
+        two: "%{count} likes"
         zero: "no likes"
   limited: "Limited"
   more: "Mer"
@@ -316,22 +333,25 @@ nb:
   no_results: "Ingen resultater ble funnet"
   notifications: 
     also_commented: 
-      few: "%{actors} also commented on %{post_author}'s %{post_link}."
-      many: "%{actors} also commented on %{post_author}'s %{post_link}."
-      one: "%{actors} also commented on %{post_author}'s %{post_link}."
+      few: "%{actors} kommenterte også på %{post_author}s %{post_link}."
+      many: "%{actors} kommenterte også på %{post_author}s %{post_link}."
+      one: "%{actors} kommenterte også på %{post_author}s %{post_link}."
       other: "%{actors} also commented on %{post_author}'s %{post_link}."
+      two: "%{actors} also commented on %{post_author}'s %{post_link}."
       zero: "%{actors} also commented on %{post_author}'s %{post_link}."
     also_commented_deleted: 
       few: "%{actors} commented on a deleted post."
       many: "%{actors} commented on a deleted post."
       one: "%{actors} commented on a deleted post."
       other: "%{actors} commented on a deleted post."
+      two: "%{actors} commented on a deleted post."
       zero: "%{actors} commented on a deleted post."
     comment_on_post: 
       few: "%{actors} commented on your %{post_link}."
       many: "%{actors} commented on your %{post_link}."
       one: "%{actors} commented on your %{post_link}."
       other: "%{actors} commented on your %{post_link}."
+      two: "%{actors} commented on your %{post_link}."
       zero: "%{actors} commented on your %{post_link}."
     helper: 
       new_notifications: 
@@ -339,15 +359,17 @@ nb:
         many: "%{count} nye varsler"
         one: "1 nytt varsel"
         other: "%{count} nye varsler"
+        two: "%{count} new notifications"
         zero: "ingen nye varsler"
     index: 
       and: "og"
       and_others: 
-        few: "and %{count} others"
-        many: "and %{count} others"
-        one: "and one more"
-        other: "and %{count} others"
-        zero: "and nobody else"
+        few: "og %{count} andre"
+        many: "og %{count} andre"
+        one: "og en annen"
+        other: "og %{count} andre"
+        two: "og %{count} andre"
+        zero: "og ingen andre"
       mark_all_as_read: "Merk alle som leste"
       notifications: "Varsler"
     liked: 
@@ -355,49 +377,57 @@ nb:
       many: "%{actors} has just liked your %{post_link}."
       one: "%{actors} has just liked your %{post_link}."
       other: "%{actors} has just liked your %{post_link}."
+      two: "%{actors} has just liked your %{post_link}."
       zero: "%{actors} has just liked your %{post_link}."
     liked_post_deleted: 
       few: "%{actors} liked your deleted post."
       many: "%{actors} liked your deleted post."
       one: "%{actors} liked your deleted post."
       other: "%{actors} liked your deleted post."
+      two: "%{actors} liked your deleted post."
       zero: "%{actors} liked your deleted post."
     mentioned: 
       few: "%{actors} has mentioned you in a %{post_link}."
       many: "%{actors} har nevnt deg i et %{post_link}."
       one: "%{actors} has mentioned you in a %{post_link}."
       other: "%{actors} has mentioned you in a %{post_link}."
+      two: "%{actors} has mentioned you in a %{post_link}."
       zero: "%{actors} has mentioned you in a %{post_link}."
     mentioned_deleted: 
       few: "%{actors} mentioned you in a deleted post."
       many: "%{actors} mentioned you in a deleted post."
       one: "%{actors} mentioned you in a deleted post."
       other: "%{actors} mentioned you in a deleted post."
+      two: "%{actors} mentioned you in a deleted post."
       zero: "%{actors} mentioned you in a deleted post."
     post: "innlegg"
     private_message: 
-      few: "%{actors} sent you a message."
-      many: "%{actors} sent you a message."
-      one: "%{actors} sent you a message."
-      other: "%{actors} sent you a message."
-      zero: "%{actors} sent you a message."
+      few: "%{actors} sendte deg en melding."
+      many: "%{actors} sendte deg en melding."
+      one: "%{actors} sendte deg en melding."
+      other: "%{actors} sendte deg en melding."
+      two: "%{actors} sendte deg en melding."
+      zero: "%{actors} sendte deg en melding."
     reshared: 
       few: "%{actors} has reshared your %{post_link}."
       many: "%{actors} has reshared your %{post_link}."
       one: "%{actors} has reshared your %{post_link}."
       other: "%{actors} has reshared your %{post_link}."
+      two: "%{actors} has reshared your %{post_link}."
       zero: "%{actors} has reshared your %{post_link}."
     reshared_post_deleted: 
       few: "%{actors} reshared your deleted post."
       many: "%{actors} reshared your deleted post."
       one: "%{actors} reshared your deleted post."
       other: "%{actors} reshared your deleted post."
+      two: "%{actors} reshared your deleted post."
       zero: "%{actors} reshared your deleted post."
     started_sharing: 
       few: "%{actors} started sharing with you."
       many: "%{actors} started sharing with you."
       one: "%{actors} started sharing with you."
       other: "%{actors} started sharing with you."
+      two: "%{actors} started sharing with you."
       zero: "%{actors} started sharing with you."
   notifier: 
     a_post_you_shared: "a post."
@@ -479,8 +509,9 @@ nb:
       to_accept_or_ignore: "for å akseptere eller ignorere."
     sub_header: 
       add_some: "add some"
-      edit: "edit"
+      edit: "endre"
       you_have_no_tags: "you have no tags!"
+    two: "%{count} people"
     webfinger: 
       fail: "Beklager, vi kunne ikke finne %{handle}."
     zero: "ingen personer"
@@ -520,7 +551,8 @@ nb:
       notice: "Bildet er oppdatert."
   post_visibilites: 
     update: 
-      post_hidden: "%{name}s innlegg har blitt skjult."
+      post_hidden_and_muted: "%{name}'s post has been hidden, and notifications have been muted."
+      see_it_on_their_profile: "If you want to see updates on this post, visit %{name}'s profile page."
   posts: 
     show: 
       destroy: "Delete"
@@ -582,6 +614,7 @@ nb:
         many: "%{count} nye forespørsler!"
         one: "nye forespørsler!"
         other: "%{count} nye forespørsler!"
+        two: "%{count} new requests!"
         zero: "ingen nye forespørsler"
     manage_aspect_contacts: 
       existing: "Eksisterende kontakter"
@@ -599,6 +632,7 @@ nb:
         many: "%{count} Reshares"
         one: "1 Reshare"
         other: "%{count} Reshares"
+        two: "%{count} reshares"
         zero: "Reshare"
       reshare_confirmation: "Reshare %{author} - %{text}?"
       reshare_original: "Reshare orignial"
@@ -616,7 +650,7 @@ nb:
       service_friends: "%{service} Friends"
     index: 
       connect_to_facebook: "Koble til facebook"
-      connect_to_tumblr: "Connect to Tumblr"
+      connect_to_tumblr: "Koble til Tumblr"
       connect_to_twitter: "Koble til twitter"
       disconnect: "koble fra"
       edit_services: "Rediger tjenester"
@@ -633,7 +667,7 @@ nb:
   settings: "Innstillinger"
   shared: 
     add_contact: 
-      add_new_contact: "Add a new contact"
+      add_new_contact: "Legg til en ny kontakt"
       create_request: "Finn etter Diaspora brukernavn"
       diaspora_handle: "Diaspora handle"
       enter_a_diaspora_username: "Skriv inn et Diaspora brukernavn:"
@@ -646,6 +680,7 @@ nb:
         many: "In %{count} aspects"
         one: "In %{count} aspect"
         other: "In %{count} aspects"
+        two: "In %{count} aspects"
         zero: "Add to aspect"
     contact_list: 
       all_contacts: "Alle kontakter"
@@ -679,12 +714,13 @@ nb:
       publishing_to: "publiserer til:"
       share: "Del"
       share_with: "del med"
-      upload_photos: "Upload photos"
+      upload_photos: "Last opp bilder"
       whats_on_your_mind: "Hva tenker du på?"
     reshare: 
       reshare: "Del på nytt"
     stream_element: 
       dislike: "Liker ikke"
+      hide_and_mute: "Hide and Mute"
       like: "Liker"
       shared_with: "Shared with: %{aspect_names}"
       unlike: "Liker ikke"
@@ -704,6 +740,7 @@ nb:
       many: "Du bør begrense statusmeldingene dine til %{count} characters"
       one: "du bør begrense statusmeldingene dine til %{count} tegn"
       other: "du må gjøre statusmeldingene dine kortere enn %{count} tegn"
+      two: "please make your status messages less than %{count} characters"
       zero: "Statusmeldinger må være lengre enn ingenting."
   stream_helper: 
     hide_comments: "skjul kommentarer"
@@ -773,26 +810,29 @@ nb:
       connect_with_people: "Connect with cool people"
       connect_with_people_explanation_pt1: "Connect with people by placing them into one or more of your"
       connect_with_people_explanation_pt2: "Aspects are an intuitive way to group new and familar faces, private to you, allowing you to filter down or share with subsets of your contacts easily."
+      edit_profile: "Rediger profilen"
       featured_tags: "Featured tags"
       featured_users: "Featured users"
       fill_out_your_profile: "Fill out your profile"
-      find_friends: "Find friends"
-      find_friends_from_facebook: "find friends from Facebook"
+      find_friends: "Finn venner"
+      find_friends_from_facebook: "finn venner fra Facebook"
       finished: "Ferdig!"
       follow_your_interests: "Follow your interests"
       hashtag_explanation: "Hashtags allow you to talk about and follow your interests.  They're also a great way to find new people on Diaspora."
       profile_description: "Make it easier for people to find you by filling out your profile information."
       profile_fields: 
         bio: "Bio"
-        birthday: "Birthday"
+        birthday: "Bursdag"
         gender: "Gender"
         location: "Location"
-        name: "Name"
+        name: "Navn"
         photo: "Photo"
         tags: "Tags"
+      search_for_hashtags: "Search for #hashtags"
+      search_for_people: "Search for people"
       see_all_featured_users: "See all featured users"
       welcome: "Velkommen til Diaspora!"
-      welcome_with_name: "Welcome, %{name}!"
+      welcome_with_name: "Velkommen %{name}!"
     public: 
       does_not_exist: "Bruker %{username} finnes ikke!"
     update: 

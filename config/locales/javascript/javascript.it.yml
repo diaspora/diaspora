@@ -13,6 +13,7 @@ it:
         many: "In {{count}} aspetti"
         one: "In {{count}} aspetto"
         other: "In {{count}} aspetti"
+        two: "In {{count}} aspetti"
         zero: "Aggiungi ad un aspetto"
     comments: 
       hide: "nascondi i commenti"

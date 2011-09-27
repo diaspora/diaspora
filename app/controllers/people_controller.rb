@@ -1,4 +1,4 @@
-#   Copyright (c) 2010, Diaspora Inc.  This file is
+#   Copyright (c) 2010-2011, Diaspora Inc.  This file is
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
@@ -32,7 +32,7 @@ class PeopleController < ApplicationController
 
       format.html do
         #only do it if it is an email address
-        if params[:q].try(:match, Devise.email_regexp)
+        if diaspora_id?(params[:q])
           people = Person.where(:diaspora_handle => params[:q].downcase)
           webfinger(params[:q]) if people.empty?
         else
@@ -43,7 +43,7 @@ class PeopleController < ApplicationController
       end
       format.mobile do
         #only do it if it is an email address
-        if params[:q].try(:match, Devise.email_regexp)
+        if diaspora_id?(params[:q])
           people = Person.where(:diaspora_handle => params[:q])
           webfinger(params[:q]) if people.empty?
         else
@@ -165,13 +165,18 @@ class PeopleController < ApplicationController
     end
   end
 
-  private
-  def webfinger(account, opts = {})
-    Resque.enqueue(Job::SocketWebfinger, current_user.id, account, opts)
+  def diaspora_id?(query)
+    !query.try(:match, /^(\w)*@([a-zA-Z0-9]|[-]|[.]|[:])*$/).nil?
   end
 
+  private
+  def webfinger(account, opts = {})
+    Resque.enqueue(Jobs::SocketWebfinger, current_user.id, account, opts)
+  end
 
   def remote_profile_with_no_user_session?
     @person && @person.remote? && !user_signed_in?
   end
+
+
 end

@@ -766,6 +766,8 @@ form.new_comment
     > li
       :margin
         :bottom 2em
+      h4
+        :font-weight bold
 
 a.paginate, #infscr-loading
   :display block
@@ -1431,7 +1433,7 @@ input[type="search"]
       :weight bold
 
 .photo_options
-  :color #ddd
+  :color #888
   :text
     :align center
 
@@ -3235,13 +3237,25 @@ ul#getting_started
 #getting_started_service_icons
   :text-align center
 
-  img
-    :margin
-      :right 48px
-
   :padding
     :bottom 20px
     :top 10px
+
+  .service
+    :margin
+      :right 48px
+    :position relative
+
+    .service_image
+      :position relative
+
+    .checkmark
+      :position absolute
+      img
+        :height 36px
+        :width 36px
+      :left 25px
+      :top -15px
 
 #right_service_icons
   :text-align center
@@ -3301,6 +3315,27 @@ ul#getting_started
     :background
       :image url('/images/icons/check_yes_ok.png') !important
 
+.featured_tag
+  :background
+    //:image url('/images/icons/check_yes_ok.png')
+    :position center left 
+    :repeat no-repeat
+    :display none
+
+  :padding
+    :left 20px
+ 
+  &.followed
+    :background
+      :image url('/images/icons/check_yes_ok.png') 
+
+  &:hover,
+    :background
+      :image url('/images/icons/check_yes_ok_lighter.png')
+
+
+
+
 #featured_users_pane
   :padding 10px 0
 
@@ -3309,6 +3344,9 @@ ul#getting_started
 
     :vertical-align top
     :position relative
+
+    :border
+      :bottom 1px solid #ddd
 
     :padding 5px
     :margin
@@ -3364,6 +3402,7 @@ ul#getting_started
   :display block
   :color white
   :position fixed
+  :z-index 49
   :right 20px
   :bottom 20px
   :opacity 0
@@ -3400,3 +3439,19 @@ ul#getting_started
     :display inline
     :margin
       :right 0.5em
+
+#grey_header
+  @include box-shadow(0,1px,1px,#eee)
+  :background
+    :color #fafafa
+  :width 100%
+  :position absolute
+  :left 0
+  :top 0
+  :padding
+    :top 80px
+    :bottom 20px
+  :text
+    :align center
+  :border
+    :bottom 1px solid #ddd

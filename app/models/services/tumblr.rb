@@ -38,7 +38,7 @@ class Services::Tumblr < Service
     post.photos.each do |photo|
       html += "<img src='#{photo.url(:scaled_full)}'/><br>"
     end
-    html += auto_link(post.text)
+    html += auto_link(post.text, :link => :urls)
   end
 end
 

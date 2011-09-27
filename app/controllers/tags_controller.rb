@@ -1,4 +1,4 @@
-#   Copyright (c) 2010, Diaspora Inc.  This file is
+#   Copyright (c) 2010-2011, Diaspora Inc.  This file is
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
@@ -57,9 +57,10 @@ class TagsController < ApplicationController
           )
         )).select('DISTINCT posts.*')
     else
-      @posts = StatusMessage.where(:public => true, :pending => false)
+      @posts = StatusMessage.all_public
     end
 
+    params[:prefill] = "##{params[:name]} "
     @posts = @posts.tagged_with(params[:name])
 
     max_time = params[:max_time] ? Time.at(params[:max_time].to_i) : Time.now

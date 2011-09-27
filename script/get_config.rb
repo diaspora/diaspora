@@ -1,5 +1,5 @@
 #!/usr/bin/env ruby
-# Copyright (c) 2011, Diaspora Inc.  This file is
+# Copyright (c) 2010-2011, Diaspora Inc.  This file is
 # licensed under the Affero General Public License version 3 or later.  See
 # the COPYRIGHT file.
 
@@ -32,12 +32,15 @@ if ARGV.length >= 1
     end
   else                            # load from the general diaspora settings file
     require 'active_support/core_ext/class/attribute_accessors'
+    require 'active_support/core_ext/object/blank'
     require 'settingslogic'
     require File.join(Rails.root, 'app', 'models', 'app_config')
     setting_name = setting_name.to_sym
-    if AppConfig[setting_name].nil?
+    if (!AppConfig.respond_to?(setting_name) || AppConfig.send(setting_name).nil?) && AppConfig[setting_name].nil?
       $stderr.puts "Could not find setting #{ARGV[0]} for environment #{Rails.env}."
       Process.exit(1)
+    elsif AppConfig.respond_to?(setting_name)
+      print AppConfig.send(setting_name)
     else
       print AppConfig[setting_name]
     end

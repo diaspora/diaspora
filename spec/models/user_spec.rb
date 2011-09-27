@@ -1,4 +1,4 @@
-#   Copyright (c) 2010, Diaspora Inc.  This file is
+#   Copyright (c) 2010-2011, Diaspora Inc.  This file is
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
@@ -440,16 +440,14 @@ describe User do
 
     it 'dispatches the profile when tags are set' do
       @params = {:tags => '#what #hey'}
-      mailman = Postzord::Dispatch.new(alice, Profile.new)
-      Postzord::Dispatch.should_receive(:new).and_return(mailman)
-      mailman.should_receive(:deliver_to_local)
+      mailman = Postzord::Dispatcher.build(alice, Profile.new)
+      Postzord::Dispatcher.should_receive(:build).and_return(mailman)
       alice.update_profile(@params).should be_true
     end
 
     it 'sends a profile to their contacts' do
-      mailman = Postzord::Dispatch.new(alice, Profile.new)
-      Postzord::Dispatch.should_receive(:new).and_return(mailman)
-      mailman.should_receive(:deliver_to_local)
+      mailman = Postzord::Dispatcher.build(alice, Profile.new)
+      Postzord::Dispatcher.should_receive(:build).and_return(mailman)
       alice.update_profile(@params).should be_true
     end
 
@@ -498,7 +496,7 @@ describe User do
     it 'sends a notification to aspects' do
       m = mock()
       m.should_receive(:post)
-      Postzord::Dispatch.should_receive(:new).and_return(m)
+      Postzord::Dispatcher.should_receive(:build).and_return(m)
       photo = alice.build_post(:photo, :user_file => uploaded_photo, :text => "hello", :to => alice.aspects.first.id)
       alice.update_post(photo, :text => 'hellp')
     end
@@ -611,7 +609,7 @@ describe User do
 
     describe '#disconnect_everyone' do
       it 'has no error on a local friend who has deleted his account' do
-        Job::DeleteAccount.perform(alice.id)
+        Jobs::DeleteAccount.perform(alice.id)
         lambda {
           bob.disconnect_everyone
         }.should_not raise_error
@@ -656,14 +654,14 @@ describe User do
       alice.disable_mail = false
       alice.save
 
-      Resque.should_receive(:enqueue).with(Job::Mail::StartedSharing, alice.id, 'contactrequestid').once
-      alice.mail(Job::Mail::StartedSharing, alice.id, 'contactrequestid')
+      Resque.should_receive(:enqueue).with(Jobs::Mail::StartedSharing, alice.id, 'contactrequestid').once
+      alice.mail(Jobs::Mail::StartedSharing, alice.id, 'contactrequestid')
     end
 
     it 'does not enqueue a mail job if the correct corresponding job has a prefrence entry' do
       alice.user_preferences.create(:email_type => 'started_sharing')
       Resque.should_not_receive(:enqueue)
-      alice.mail(Job::Mail::StartedSharing, alice.id, 'contactrequestid')
+      alice.mail(Jobs::Mail::StartedSharing, alice.id, 'contactrequestid')
     end
 
     it 'does not send a mail if disable_mail is set to true' do
@@ -671,7 +669,7 @@ describe User do
        alice.save
        alice.reload
        Resque.should_not_receive(:enqueue)
-      alice.mail(Job::Mail::StartedSharing, alice.id, 'contactrequestid')
+      alice.mail(Jobs::Mail::StartedSharing, alice.id, 'contactrequestid')
     end
   end
 
@@ -818,12 +816,12 @@ describe User do
     describe '#mail_confirm_email' do
       it 'enqueues a mail job on user with unconfirmed email' do
         user.update_attribute(:unconfirmed_email, "alice@newmail.com")
-        Resque.should_receive(:enqueue).with(Job::Mail::ConfirmEmail, alice.id).once
+        Resque.should_receive(:enqueue).with(Jobs::Mail::ConfirmEmail, alice.id).once
         alice.mail_confirm_email.should eql(true)
       end
 
       it 'enqueues NO mail job on user without unconfirmed email' do
-        Resque.should_not_receive(:enqueue).with(Job::Mail::ConfirmEmail, alice.id)
+        Resque.should_not_receive(:enqueue).with(Jobs::Mail::ConfirmEmail, alice.id)
         alice.mail_confirm_email.should eql(false)
       end
     end
@@ -950,7 +948,7 @@ describe User do
 
       it 'sends a retraction' do
         dispatcher = mock
-        Postzord::Dispatch.should_receive(:new).with(bob, @retraction, anything()).and_return(dispatcher)
+        Postzord::Dispatcher.should_receive(:build).with(bob, @retraction, anything()).and_return(dispatcher)
         dispatcher.should_receive(:post)
 
         bob.retract(@post)
@@ -962,7 +960,7 @@ describe User do
         @post.reshares << reshare
 
         dispatcher = mock
-        Postzord::Dispatch.should_receive(:new).with(bob, @retraction, {:additional_subscribers => [person]}).and_return(dispatcher)
+        Postzord::Dispatcher.should_receive(:build).with(bob, @retraction, {:additional_subscribers => [person]}).and_return(dispatcher)
         dispatcher.should_receive(:post)
 
         bob.retract(@post)

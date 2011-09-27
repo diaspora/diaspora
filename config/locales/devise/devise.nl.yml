@@ -34,9 +34,9 @@ nl:
         no_account_till: "Je account wordt niet aangemaakt totdat je de bovenstaande link bezoekt en je aanmeldt."
         subject: "Je bent uitgenodigd om lid te worden van Diaspora!"
       inviter: 
-        accept_at: "at %{url}, you can accept it through the link below."
+        accept_at: "op %{url}, je kunt deze accepteren via onderstaande link."
         has_invited_you: "%{name}"
-        have_invited_you: "%{names} have invited you to join Diaspora"
+        have_invited_you: "%{names} hebben je uitgenodigd om lid te worden van Diaspora"
       reset_password_instructions: 
         change: "Wijzig mijn wachtwoord"
         ignore: "Als je hier niet om hebt gevraagd kun je deze mail gewoon negeren."

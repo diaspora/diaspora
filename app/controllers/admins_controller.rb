@@ -19,6 +19,20 @@ class AdminsController < ApplicationController
     redirect_to user_search_path, :notice => flash[:notice]
   end
 
+  def weekly_user_stats
+    @created_users_by_day = User.where("username IS NOT NULL").count(:group => "date(created_at)") 
+    @created_users_by_week = {}
+    @created_users_by_day.keys.each do |k| 
+      unless k.nil?
+        if @created_users_by_week[k.beginning_of_week].blank?
+          @created_users_by_week[k.beginning_of_week] = @created_users_by_day[k] 
+        else
+          @created_users_by_week[k.beginning_of_week] += @created_users_by_day[k] 
+        end
+      end
+    end
+  end
+
   def stats
     @popular_tags = ActsAsTaggableOn::Tagging.joins(:tag).limit(15).count(:group => :tag, :order => 'count(taggings.id) DESC')
 

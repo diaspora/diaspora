@@ -34,9 +34,9 @@ fi:
         no_account_till: "Käyttäjätilisi luodaan vasta, kun rekisteröidyt yllä olevan linkin kautta. "
         subject: "Sinut on kutsuttu käyttämään Diasporaa!"
       inviter: 
-        accept_at: "at %{url}, you can accept it through the link below."
-        has_invited_you: "%{name}"
-        have_invited_you: "%{names} have invited you to join Diaspora"
+        accept_at: "osoitteessa %{url}, hyväksyminen alla olevasta linkistä."
+        has_invited_you: "%{names}"
+        have_invited_you: "%{names} on kutsunut sinut Diasporan käyttäjäksi"
       reset_password_instructions: 
         change: "Vaihda salasanani"
         ignore: "Jos et pyytänyt tätä, voit jättää viestin huomiotta."

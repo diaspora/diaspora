@@ -1,4 +1,4 @@
-#   Copyright (c) 2010, Diaspora Inc.  This file is
+#   Copyright (c) 2010-2011, Diaspora Inc.  This file is
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
@@ -24,6 +24,18 @@ describe UsersController do
       get :export_photos
       response.header["Content-Type"].should include "application/octet-stream"
     end
+  end
+
+  describe 'user_photo' do
+    it 'should return the url of the users profile photo' do
+      get :user_photo, :username => @user.username
+      response.should redirect_to(@user.profile.image_url)
+    end
+
+    it 'should 404 if no user is found' do
+      get :user_photo, :username => 'none'
+      response.should_not be_success
+    end 
   end
 
   describe '#public' do
@@ -124,7 +136,7 @@ describe UsersController do
       end
 
       it 'sends out activation email on success' do
-        Resque.should_receive(:enqueue).with(Job::Mail::ConfirmEmail, @user.id).once
+        Resque.should_receive(:enqueue).with(Jobs::Mail::ConfirmEmail, @user.id).once
         put(:update, :id => @user.id, :user => { :email => "my@newemail.com"})
       end
     end
@@ -169,7 +181,7 @@ describe UsersController do
 
   describe '#destroy' do
     it 'enqueues a delete job' do
-      Resque.should_receive(:enqueue).with(Job::DeleteAccount, alice.id)
+      Resque.should_receive(:enqueue).with(Jobs::DeleteAccount, alice.id)
       delete :destroy
     end
 

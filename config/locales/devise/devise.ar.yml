@@ -34,9 +34,9 @@ ar:
         no_account_till: "لن يتم إنشاء حسابك حتى تلج الرابط أعلاه وتسجل"
         subject: "تم دعوتك للإنضمام لدياسبرا"
       inviter: 
-        accept_at: "at %{url}, you can accept it through the link below."
-        has_invited_you: "%{name}"
-        have_invited_you: "%{names} have invited you to join Diaspora"
+        accept_at: ", %{url}, يمكنك قبولها عبر الرابط التالي"
+        has_invited_you: "%{name} يدعوك للإنضمام إلى دياسبرا"
+        have_invited_you: "%{names} يدعونك للإنضمام إلى دياسبرا"
       reset_password_instructions: 
         change: "غيِر كلمة المرور"
         ignore: "إذا لم تكن من طلب هذا، رجاء تجاهل هذا البريد"

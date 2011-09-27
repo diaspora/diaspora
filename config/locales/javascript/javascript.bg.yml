@@ -13,6 +13,7 @@ bg:
         many: "В {{count}} аспекта"
         one: "В {{count}} аспект"
         other: "В {{count}} аспекта"
+        two: "В {{count}} аспекта"
         zero: "Добавяне в аспект"
     comments: 
       hide: "скриване на коментарите"

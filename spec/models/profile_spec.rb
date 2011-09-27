@@ -1,4 +1,4 @@
-#   Copyright (c) 2010, Diaspora Inc.  This file is
+#   Copyright (c) 2010-2011, Diaspora Inc.  This file is
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
@@ -30,6 +30,26 @@ describe Profile do
     end
 
     describe '#contruct_full_name' do
+      it 'generates a full name given only first name' do
+        profile = Factory(:person).profile
+        profile.first_name = "casimiro"
+        profile.last_name = nil
+
+        profile.full_name.should_not == "casimiro"
+        profile.save
+        profile.full_name.should == "casimiro"
+      end
+
+      it 'generates a full name given only last name' do
+        profile = Factory(:person).profile
+        profile.first_name = nil
+        profile.last_name = "grippi"
+
+        profile.full_name.should_not == "grippi"
+        profile.save
+        profile.full_name.should == "grippi"
+      end
+
       it 'generates a full name given first and last names' do
         profile = Factory(:person).profile
         profile.first_name = "casimiro"

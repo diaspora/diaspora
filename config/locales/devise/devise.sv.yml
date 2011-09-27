@@ -9,7 +9,7 @@ sv:
       confirmed: "Ditt konto har verifierats och du är inloggad."
       new: 
         resend_confirmation: "Skicka instruktioner för att bekräfta kontot igen"
-      send_instructions: "Du kommer att få ett ebrev med instruktioner för att verifiera ditt konto inom några minuter."
+      send_instructions: "Du kommer att få ett mail med instruktioner för att verifiera ditt konto inom några minuter."
     failure: 
       inactive: "Ditt konto är inte aktiverat."
       invalid: "Felaktigt användarnamn eller lösenord."
@@ -30,17 +30,17 @@ sv:
       hello: "Hej %{email}!"
       invitation_instructions: 
         accept: "Acceptera inbjudan"
-        ignore: "Om du inte vill acceptera inbjudan, var snäll och ignorera detta email."
-        no_account_till: "Ditt konto kommer inte att skapas förren du besöker länken ovan och registrerar dig."
-        subject: "Du har blivit inbjuden till att gå med i Diaspora!"
+        ignore: "Om du inte vill acceptera inbjudan, var snäll och ignorera detta mail."
+        no_account_till: "Ditt konto kommer inte att skapas förrän du besöker länken ovan och registrerar dig."
+        subject: "Du har blivit inbjuden att gå med i Diaspora!"
       inviter: 
-        accept_at: "at %{url}, you can accept it through the link below."
+        accept_at: "via %{url}. Du accepterar genom att klicka på länken nedan."
         has_invited_you: "%{name}"
-        have_invited_you: "%{names} have invited you to join Diaspora"
+        have_invited_you: "%{names} har bjudit in dig att gå med i Diaspora"
       reset_password_instructions: 
         change: "Återställ mitt lösenord"
         ignore: "Om det inte är du som vill byta lösenord så kan du ignorera det här mailet."
-        someone_requested: "Du har efterfrågat en länk för att återställa ditt lösenord. För att fullfölja det, klicka på länken neda."
+        someone_requested: "Någon har efterfrågat en länk för att återställa ditt lösenord. För att återställa lösenordet, klicka på länken nedan."
         subject: "Instruktioner för att återställa lösenordet"
         wont_change: "Dit lösenord kommer inte ändras förrän du klickat på länken och ändrat det."
       unlock_instructions: 
@@ -56,15 +56,15 @@ sv:
         forgot_password: "Glömt ditt lösenord?"
         no_account: "Det finns inget konto med den här mailadressen. Väntar du på en inbjudan så skickar vi ut dem så snart som möjligt."
         send_password_instructions: "Skicka information om hur jag återställer lösenordet"
-      send_instructions: "Du kommer att få ett ebrev med instruktioner för att återställa lösenordet inom några minuter."
+      send_instructions: "Du kommer att få ett mail med instruktioner för att återställa lösenordet inom några minuter."
       updated: "Ditt lösenord har ändrats och du är inloggad."
     registrations: 
       destroyed: "Ditt konto är avslutat. Välkommen åter!"
-      signed_up: "Du har skapat ett konto. Beroende på inställningar kan ett ebrev ha skickats till dig."
+      signed_up: "Du har skapat ett konto. Beroende på dina inställningar kan ett mail ha skickats till dig."
       updated: "Ditt konto har uppdateras."
     sessions: 
       new: 
-        alpha_software: "Du är påväg att använda mjukvara i alpha-stadie."
+        alpha_software: "Du är på väg att använda mjukvara i alpha-stadium."
         bugs_and_feedback: "Var beredd på att stöta på buggar och problem. Använd gärna feedback-knappen till vänster för att rapportera dessa, vi kommer att försöka ordna problemen så snart som möjligt."
         bugs_and_feedback_mobile: "Tänk på att du kommer att uppleva buggar.Vi uppmanar dig att rapportera alla fel! Vi kommer att arbeta så fort som möjligt med att lösa dom problem som du rapporterar."
         login: "Logga in"

@@ -12,9 +12,9 @@ Feature: posting from the main page
       When I sign in as "bob@bob.bob"
       And a user with username "bob" is connected with "alice"
       And I have an aspect called "PostingTo"
-      And I have an aspect called "NotPostingTo"
+      And I have an aspect called "NotPostingThingsHere"
       And I have user with username "alice" in an aspect called "PostingTo"
-      And I have user with username "alice" in an aspect called "NotPostingTo"
+      And I have user with username "alice" in an aspect called "NotPostingThingsHere"
 
       And I am on the home page
 
@@ -38,8 +38,8 @@ Feature: posting from the main page
       And I wait for the ajax to finish
       Then I should see "I am eating a yogurt"
 
-      When I go to the aspects page
-      And I follow "NotPostingTo" within "#aspect_nav"
+      When I follow "Your Aspects" within "#aspect_nav"
+      And I follow "NotPostingThingsHere" within "#aspect_nav"
       And I wait for the ajax to finish
       Then I should not see "I am eating a yogurt"
 

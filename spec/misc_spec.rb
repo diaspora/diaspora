@@ -1,4 +1,4 @@
-#   Copyright (c) 2010, Diaspora Inc.  This file is
+#   Copyright (c) 2010-2011, Diaspora Inc.  This file is
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
@@ -56,7 +56,7 @@ describe 'making sure the spec runner works' do
       person_status = Factory.create(:status_message, :author => person)
       m = mock()
       m.stub!(:post)
-      Postzord::Dispatch.should_receive(:new).and_return(m)
+      Postzord::Dispatcher.should_receive(:build).and_return(m)
 
       alice.comment "yo", :post => person_status
     end

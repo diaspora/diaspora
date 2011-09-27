@@ -1,4 +1,4 @@
-#   Copyright (c) 2010, Diaspora Inc.  This file is
+#   Copyright (c) 2010-2011, Diaspora Inc.  This file is
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
@@ -40,6 +40,7 @@ describe Person do
         person_ids.uniq.should == person_ids
       end
     end
+
     describe '.local' do
       it 'returns only local people' do
         Person.local =~ [@person]
@@ -73,7 +74,25 @@ describe Person do
         }.to raise_error ActiveRecord::RecordNotFound
       end
     end
+
+    describe '.all_from_aspects' do
+      it "pulls back the right people given all a user's aspects" do
+        aspect_ids = bob.aspects.map(&:id)
+        Person.all_from_aspects(aspect_ids, bob).map(&:id).should =~ bob.contacts.includes(:person).map{|c| c.person.id}
+      end
+
+      it "pulls back the right people given a subset of aspects" do
+        aspect_ids = bob.aspects.first.id
+        Person.all_from_aspects(aspect_ids, bob).map(&:id).should =~ bob.aspects.first.contacts.includes(:person).map{|c| c.person.id}
+      end
+
+      it "respects aspects given a user" do
+        aspect_ids = alice.aspects.map(&:id)
+        Person.all_from_aspects(aspect_ids, bob).map(&:id).should == []
+      end
+    end
   end
+
   describe "delegating" do
     it "delegates last_name to the profile" do
       @person.last_name.should == @person.profile.last_name
@@ -452,6 +471,32 @@ describe Person do
       end
       it "returns an empty array" do
         Person.featured_users.should == []
+      end
+    end
+  end
+
+  context 'updating urls' do
+    before do
+      @url = "http://new-url.com/"
+    end
+
+    describe '.url_batch_update' do
+      it "calls #update_person_url given an array of users and a url" do
+        people = [stub.as_null_object, stub.as_null_object, stub.as_null_object]
+        people.each do |person|
+          person.should_receive(:update_url).with(@url)
+        end
+        Person.url_batch_update(people, @url)
+      end
+    end
+
+    describe '#update_url' do
+      it "updates a given person's url" do
+        expect {
+          alice.person.update_url(@url)
+        }.to change {
+          alice.person.reload.url
+        }.from(anything).to(@url)
       end
     end
   end
