@@ -20,6 +20,10 @@ module Diaspora
       include ActionView::Helpers::RawOutputHelper
 
       def autolink(link, type)
+        title = link
+        url = auto_link(link, :link => :urls).scan(/href=["']?((?:.(?!["']?\s+(?:\S+)=|[>"']))+.)["']?/).first.first
+        url = CGI::unescapeHTML(url)
+
         # SECURITY NOTICE! CROSS-SITE SCRIPTING!
         # these endpoints may inject html code into our page
         secure_endpoints = [::OEmbed::Providers::Youtube.endpoint,
@@ -33,8 +37,7 @@ module Diaspora
 
         # note that 'trusted_endpoint_url' is the only information
         # in OEmbed that we can trust. anything else may be spoofed!
-        link = CGI.unescapeHTML(link)
-        cache = OEmbedCache.find_by_url(link)
+        cache = OEmbedCache.find_by_url(url)
         if not cache.nil? and cache.data.has_key?('type')
           case cache.data['type']
             when 'video', 'rich'
@@ -46,7 +49,7 @@ module Diaspora
                                     :width  => cache.data['thumbnail_width']}) if cache.data.has_key?('thumbnail_width') and cache.data.has_key?('thumbnail_height')
                 img_options[:alt] = cache.data['title'] if cache.data.has_key?('title')
                 rep = link_to(image_tag(cache.data['thumbnail_url'], img_options),
-                              link, :target => '_blank')
+                              url, :target => '_blank')
               end
 
             when 'photo'
@@ -56,7 +59,7 @@ module Diaspora
                                     :width  => cache.data['width']}) if cache.data.has_key?('width') and cache.data.has_key?('height')
                 img_options[:alt] = cache.data['title'] if cache.data.has_key?('title')
                 rep = link_to(image_tag(cache.data['url'], img_options),
-                              link, :target => '_blank')
+                              url, :target => '_blank')
             end
           end
 
@@ -65,8 +68,7 @@ module Diaspora
                                      not cache.data['title'].blank?
         end
 
-        title ||= link
-        rep ||= link_to(title, link, :target => '_blank') if rep.blank?
+        rep ||= link_to(title, url, :target => '_blank') if rep.blank?
         return rep
       end
     end
