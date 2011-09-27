@@ -84,7 +84,7 @@ body {
 .stream_element .comments {
   padding: 0;
   margin: 0;
-  margin-top: 18px;
+  top: 8px;
   width: 100%;
   .content {
     padding: 0;
@@ -278,6 +278,7 @@ footer {
 .bottom_bar {
   @include border-radius(0, 0, 3px, 3px);
   display: block;
+  position: relative;
   padding: 10px;
   background: #eeeeee;
   margin: {
@@ -306,6 +307,14 @@ footer {
 
     &.active {
       color: #444;
+      padding: {
+        right: 14px;
+      }
+      background: {
+        image: url("/images/icons/arrow_down_small.png");
+        position: center right;
+        repeat: no-repeat;
+      }
     }
   }
 
@@ -436,6 +445,7 @@ form {
 }
 
 .btn,
+select,
 input[type=submit] {
   @include border-radius(3px);
   background-color: #ddd;
@@ -469,6 +479,22 @@ input[type=submit] {
 
 .comment.add_comment_bottom_link_container {
   text-align: center;
-  padding: 15px !important;
-  padding-top: 25px !important;
+  padding: 25px !important;
+}
+
+.post_stats {
+  position: absolute;
+  font-size: larger;
+  right: 11px;
+  top: 38px;
+  z-index: 2;
+  span {
+    color: #666;
+    font-weight: bold;
+    padding: 2px 7px;
+    margin: 5px 5px;
+    background: {
+      color: #eee;
+    }
+  }
 }

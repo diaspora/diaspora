@@ -1,7 +1,9 @@
 $(document).ready(function(){
   $(".like_action.inactive").live('tap click', function(evt){
     evt.preventDefault();
-    var link = $(this);
+    var link = $(this),
+        likeCounter = $(this).closest(".stream_element").find("like_count"),
+        postId = link.closest(".stream_element").data("post-guid");
 
     $.ajax({
       url: link.attr("href"),
@@ -13,9 +15,13 @@ $(document).ready(function(){
       },
       complete: function(data){
         link.removeClass('loading')
-              .removeClass('inactive')
-              .addClass('active')
-              .data('post-id', postId);
+             .removeClass('inactive')
+             .addClass('active')
+             .data('post-id', postId);
+
+        if(likeCounter){
+          likeCounter.text(parseInt(likeCounter.text) + 1);
+        }
       }
     });
   });
@@ -23,6 +29,7 @@ $(document).ready(function(){
   $(".like_action.active").live('tap click', function(evt){
     evt.preventDefault();
     var link = $(this);
+        likeCounter = $(this).closest(".stream_element").find("like_count");
 
     $.ajax({
       url: link.attr("href"),
@@ -37,6 +44,10 @@ $(document).ready(function(){
               .removeClass('active')
               .addClass('inactive')
               .data('like-id', '');
+
+        if(likeCounter){
+          likeCounter.text(parseInt(likeCounter.text) - 1);
+        }
       }
     });
   });
@@ -45,7 +56,7 @@ $(document).ready(function(){
     evt.preventDefault();
     var link = $(this),
         parent = link.closest(".bottom_bar").first(),
-        commentsContainer = parent.find(".comments");
+        commentsContainer = parent.find(".comment_container");
 
     if( link.hasClass('active') ) {
       commentsContainer.first().hide();
@@ -80,13 +91,18 @@ $(document).ready(function(){
           link.addClass('loading');
         },
         success: function(data){
+          var textarea = parent.find('textarea').first();
+              lineHeight = 14;
+
           link.removeClass('loading')
               .removeClass('inactive');
 
           container.first().hide();
 
           parent.append(data);
-          parent.find('textarea').first().focus();
+
+          textarea.focus();
+          new MBP.autogrow(textarea, lineHeight);
         }
       });
     }
@@ -106,4 +122,19 @@ $(document).ready(function(){
     commentActionLink.addClass("inactive");
     form.remove();
   });
+
+  $(".new_comment").live("submit", function(evt){
+    evt.preventDefault();
+    var form = $(this);
+
+    $.post(form.attr('action')+"?format=mobile", form.serialize(), function(data){
+      var container = form.closest('.bottom_bar').find('.add_comment_bottom_link_container');
+
+      container.before(data);
+      form.remove();
+      container.show();
+    }, 'html');
+
+  });
+
 });
