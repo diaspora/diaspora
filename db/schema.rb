@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110911213207) do
+ActiveRecord::Schema.define(:version => 20110926120220) do
 
   create_table "aspect_memberships", :force => true do |t|
     t.integer  "aspect_id",  :null => false
@@ -331,9 +331,9 @@ ActiveRecord::Schema.define(:version => 20110911213207) do
   add_index "service_users", ["uid", "service_id"], :name => "index_service_users_on_uid_and_service_id", :unique => true
 
   create_table "services", :force => true do |t|
-    t.string   "type",          :null => false
-    t.integer  "user_id",       :null => false
-    t.string   "uid"
+    t.string   "type",          :limit => 127, :null => false
+    t.integer  "user_id",                      :null => false
+    t.string   "uid",           :limit => 127
     t.string   "access_token"
     t.string   "access_secret"
     t.string   "nickname"

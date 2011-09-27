@@ -117,7 +117,7 @@ HELP
 
   def self.[] (key)
     return self.pod_uri if key == :pod_uri
-    return ENV[key.to_s] if ENV[key.to_s].present? && ENV["HEROKU"]
+    return ENV[key.to_s] if ENV[key.to_s] && ENV["HEROKU"]
     super
   end
 

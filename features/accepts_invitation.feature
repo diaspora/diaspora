@@ -11,7 +11,7 @@ Feature: invitation acceptance
       And I press "Create my account"
       Then I should be on the getting started page
       And I should see "Welcome"
-      Then I follow "Edit Profile"
+      Then I follow Edit Profile in the same window
       And I fill in the following:
         | profile_first_name | O             |
         | profile_last_name  | Hai           |
@@ -35,7 +35,7 @@ Feature: invitation acceptance
       And I press "Create my account"
       Then I should be on the getting started page
       And I should see "Welcome"
-      Then I follow "Edit Profile"
+      Then I follow Edit Profile in the same window
       And I fill in the following:
         | profile_first_name | O             |
         | profile_last_name  | Hai           |

@@ -185,7 +185,9 @@ GEM
     fastercsv (1.5.4)
     fastthread (1.0.7)
     ffi (1.0.9)
-    fixture_builder (0.2.2)
+    fixture_builder (0.3.0)
+      activerecord (>= 2)
+      activesupport (>= 2)
     fog (0.3.25)
       builder
       excon (>= 0.2.4)
@@ -241,7 +243,6 @@ GEM
       json (>= 1.2.4)
     kaminari (0.12.4)
       rails (>= 3.0.0)
-    launchy (2.0.3)
     linecache (0.43)
     linecache19 (0.5.12)
       ruby_core_source (>= 0.1.4)
@@ -330,6 +331,9 @@ GEM
       oa-openid (= 0.2.6)
     open4 (1.1.0)
     orm_adapter (0.0.5)
+    parallel (0.5.9)
+    parallel_tests (0.6.1)
+      parallel
     polyglot (0.3.2)
     pyu-ruby-sasl (0.0.3.3)
     rack (1.2.3)
@@ -491,13 +495,12 @@ DEPENDENCIES
   faraday
   faraday-stack
   fastercsv (= 1.5.4)
-  fixture_builder (= 0.2.2)
+  fixture_builder (= 0.3.0)
   fog (= 0.3.25)
   foreigner (= 0.9.1)
   foreman
   fuubar
   haml (= 3.1.2)
-  heroku
   hoptoad_notifier
   http_accept_language!
   i18n-inflector-rails (~> 1.0)
@@ -516,6 +519,7 @@ DEPENDENCIES
   oauth2-provider (= 0.0.16)
   ohai (= 0.5.8)
   omniauth (= 0.2.6)
+  parallel_tests
   rails (= 3.0.10)
   rails-i18n
   redcarpet (= 2.0.0b5)

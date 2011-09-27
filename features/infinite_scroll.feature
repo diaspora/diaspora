@@ -41,7 +41,8 @@ Feature: infinite scroll
       Then I should see "No more"
 
     Scenario: on the main stream post created time
-      When I follow "posted"
+      When I wait for the ajax to finish
+      And I follow "posted"
       Then I should see 15 posts
       And I should see "alice - 15 - #seeded"
 

@@ -26,6 +26,18 @@ describe UsersController do
     end
   end
 
+  describe 'user_photo' do
+    it 'should return the url of the users profile photo' do
+      get :user_photo, :username => @user.username
+      response.should redirect_to(@user.profile.image_url)
+    end
+
+    it 'should 404 if no user is found' do
+      get :user_photo, :username => 'none'
+      response.should_not be_success
+    end 
+  end
+
   describe '#public' do
     it 'renders xml if atom is requested' do
       sm = Factory(:status_message, :public => true, :author => @user.person)

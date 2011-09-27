@@ -41,6 +41,14 @@ SQL
     self.non_backers_never_login
   end
 
+  def self.all_users
+    file = self.filename("v1_9_20_all_users.csv")
+    sql = self.select_fragment(file, "#{self.has_email}" +
+                                " AND #{self.unsubscribe_email_condition}")
+
+    ActiveRecord::Base.connection.execute(sql)
+  end
+
   def self.backers_recent_login
     file = self.filename("v1_backers_recent_login.csv")
     sql = self.select_fragment(file, "#{self.has_email} AND #{self.backer_email_condition}" +
@@ -111,8 +119,8 @@ SQL
           SELECT '%EMAIL%','%NAME%','%INVITATION_LINK%'
           UNION
             SELECT `users`.email AS '%EMAIL%',
-                   IF( `profiles`.full_name IS NOT NULL AND `profiles`.full_name != "",
-                                               `profiles`.full_name, 'Friend of Diaspora*') AS '%NAME%',
+                   IF( `profiles`.first_name IS NOT NULL AND `profiles`.first_name != "",
+                                               `profiles`.first_name, 'Friend of Diaspora*') AS '%NAME%',
                 IF(`users`.invitation_token, CONCAT( 'https://joindiaspora.com/users/invitation/accept?invitation_token=', `users`.invitation_token) ,NULL) AS '%INVITATION_LINK%'
                 #{self.output_syntax(file)}
              FROM `users`

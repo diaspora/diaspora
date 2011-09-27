@@ -33,4 +33,4 @@ production:
 
 test:
   <<: *common
-  database: "diaspora_test"
+  database: "diaspora_test<%= ENV['TEST_ENV_NUMBER'] %>"

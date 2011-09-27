@@ -1,6 +1,6 @@
 module Postzord
   module Receiver
-    class LocalPostBatch
+    class LocalBatch
       attr_reader :object, :recipient_user_ids, :users
 
       def initialize(object, recipient_user_ids)
@@ -10,17 +10,31 @@ module Postzord
       end
 
       def perform!
-        create_visibilities unless @object.respond_to?(:relayable?)
+        if @object.respond_to?(:relayable?)
+          receive_relayable
+        else
+          create_post_visibilities
+        end
         notify_mentioned_users if @object.respond_to?(:mentions)
 
         socket_to_users if @object.respond_to?(:socket_to_user)
         notify_users
       end
 
-      # Batch import visibilities for the recipients of the given @object
+      # NOTE(copied over from receiver public)
+      # @return [Object]
+      def receive_relayable
+        if @object.parent.author.local?
+          # receive relayable object only for the owner of the parent object
+          @object.receive(@object.parent.author.owner)
+        end
+        @object
+      end
+
+      # Batch import post visibilities for the recipients of the given @object
       # @note performs a bulk insert into mySQL
       # @return [void]
-      def create_visibilities
+      def create_post_visibilities
         contacts = Contact.where(:user_id => @recipient_user_ids, :person_id => @object.author_id)
         PostVisibility.batch_import(contacts, object)
       end
@@ -46,7 +60,7 @@ module Postzord
       # Notify users of the new object
       # return [void]
       def notify_users
-        return unless @object.respond_to?(:notification_type) 
+        return unless @object.respond_to?(:notification_type)
         @users.each do |user|
           Notification.notify(user, @object, @object.author)
         end

@@ -1,8 +1,9 @@
 #!/bin/bash
 
-echo "*************************************************************************************************" &&
-echo "*                                  ruby 1.8.7 REE build                                         *" &&
-echo "*************************************************************************************************" &&
+echo "*********************************************************************************" &&
+echo "*                          ruby 1.8.7 REE build                                 *" &&
+echo "*     Runs tests we can't run on travis because their VMs are a bit puny.       *" &&
+echo "*********************************************************************************" &&
 echo "" &&
 rm -f Gemfile.lock &&
 source /usr/local/rvm/scripts/rvm &&
@@ -16,4 +17,4 @@ rm -rf /usr/local/rvm/gems/ree-1.8.7-2010.02@diaspora/cache &&
 rm -rf /usr/local/rvm/gems/ree-1.8.7-2010.02@global/cache &&
 rm -rf /usr/local/rvm/gems/ree-1.8.7-2010.02/cache &&
 bundle install &&
-CI=true bundle exec rake cruise
+CI=true bundle exec rake ci:hard_things

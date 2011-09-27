@@ -1,4 +1,4 @@
-#   Copyright (c) 2010-2011, Diaspora Inc.  This file is
+#   Copyright (c) 2011, Diaspora Inc.  This file is
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
@@ -101,6 +101,15 @@ de:
         heading: "Diaspora ID"
       donate: "Spenden"
       handle_explanation: "Das ist deine Diaspora ID. Du kannst sie wie eine E-Mail-Adresse weitergeben, damit andere Nutzer mit dir Kontakt aufnehmen können."
+      help: 
+        did_you: "Hast du:"
+        feature_suggestion: "... einen %{link} Vorschlag?"
+        find_a_bug: "... einen %{link} gefunden?"
+        have_a_question: "... eine %{link}?"
+        here_to_help: "Die Diaspora-Gemeinde ist hier um Dir zu helfen!"
+        more_support: "Für mehr Support, schau auch auf %{link}."
+        need_help: "Benötigst du Hilfe?"
+        tutorials: "Für Tutorials, probiere %{link}."
       keep_us_running: "Hilf %{pod} schnell zu laufen und kaufe unseren Servern ihren monatlichen Schuss Kaffee!"
       no_contacts: "Keine Kontakte"
       no_tags: "+ Finde einen Tag zum folgen"
@@ -121,7 +130,7 @@ de:
       create: "Erstellen"
       name: "Name"
     no_contacts_message: 
-      featured_users: "featured users"
+      featured_users: "Vorgestellte Nutzer"
       or_featured: "Oder fang an mit %{link} zu teilen."
       try_adding_some_more_contacts: "Du kannst nach Kontakten suchen (oben) oder welche einladen (rechts)."
       you_should_add_some_more_contacts: "Du solltest ein paar mehr Kontakte hinzufügen!"
@@ -147,7 +156,7 @@ de:
     zero: "keine Aspekte"
   authorizations: 
     index: 
-      no_applications: "You haven't registered any applications yet."
+      no_applications: "Du hast noch keine Anwendung registriert."
       revoke_access: "Zugriff widerrufen"
   back: "Zurück"
   bookmarklet: 
@@ -542,8 +551,8 @@ de:
       notice: "Foto erfolgreich aktualisiert."
   post_visibilites: 
     update: 
-      post_hidden_and_muted: "%{name}'s post has been hidden, and notifications have been muted."
-      see_it_on_their_profile: "If you want to see updates on this post, visit %{name}'s profile page."
+      post_hidden_and_muted: "%{name}'s Beitrag wurde ausgeblendet und Benachrichtigungen abgeschaltet."
+      see_it_on_their_profile: "Wenn Du Neuigkeiten zu diesem Beitrag sehen willst, besuche %{name}'s Profilseite."
   posts: 
     show: 
       destroy: "Löschen"
@@ -711,7 +720,7 @@ de:
       reshare: "Weitersagen"
     stream_element: 
       dislike: "Gefällt mir nicht"
-      hide_and_mute: "Hide and Mute"
+      hide_and_mute: "verbergen und stummschalten"
       like: "Gefällt mir"
       shared_with: "Geteilt mit: %{aspect_names}"
       unlike: "Gefällt mir nicht mehr"
@@ -819,9 +828,9 @@ de:
         name: "Name"
         photo: "Foto"
         tags: "Tags"
-      search_for_hashtags: "Search for #hashtags"
-      search_for_people: "Search for people"
-      see_all_featured_users: "See all featured users"
+      search_for_hashtags: "Suche nach #hashtags"
+      search_for_people: "Suche nach Leuten"
+      see_all_featured_users: "Sehe alle vorgestellten Nutzer"
       welcome: "Herzlich willkommen!"
       welcome_with_name: "Herzlich willkommen, %{name}!"
     public: 

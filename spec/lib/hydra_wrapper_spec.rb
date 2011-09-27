@@ -6,19 +6,19 @@ require 'hydra_wrapper'
 
 describe HydraWrapper do
   before do
-    @wrapper = HydraWrapper.new(stub, [stub, stub, stub], "<encoded_xml>", stub)
+    @people = ["person", "person2", "person3"]
+    @wrapper = HydraWrapper.new(stub, @people, "<encoded_xml>", stub)
   end
 
   describe 'initialize' do
     it 'it sets the proper instance variables' do
       user = "user"
-      people = ["person"]
       encoded_object_xml = "encoded xml"
       dispatcher_class = "Postzord::Dispatcher::Private"
 
-      wrapper = HydraWrapper.new(user, people, encoded_object_xml, dispatcher_class)
+      wrapper = HydraWrapper.new(user, @people, encoded_object_xml, dispatcher_class)
       wrapper.user.should == user
-      wrapper.people.should == people
+      wrapper.people.should == @people
       wrapper.encoded_object_xml.should == encoded_object_xml
     end
   end
@@ -43,10 +43,9 @@ describe HydraWrapper do
 
   describe '#grouped_people' do
     it 'groups people given their receive_urls' do
-      @wrapper.people.each do |person|
-        @wrapper.dispatcher_class.should_receive(:receive_url_for).with(person).and_return("foo.com")
-      end
-      @wrapper.grouped_people.should == {"foo.com" => @wrapper.people}
+      @wrapper.dispatcher_class.should_receive(:receive_url_for).and_return("foo.com","bar.com","bar.com")
+
+      @wrapper.grouped_people.should == {"foo.com" => [@people[0]], "bar.com" => @people[1,2]}
     end
   end
 

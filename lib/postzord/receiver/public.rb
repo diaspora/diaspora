@@ -1,7 +1,7 @@
 #   Copyright (c) 2010-2011, Diaspora Inc.  This file is
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
-#
+
 module Postzord
   module Receiver
     class Public
@@ -9,7 +9,7 @@ module Postzord
 
       def initialize(xml)
         @salmon = Salmon::Slap.from_xml(xml) 
-        @author = Webfinger.new(@salmon.author_email).fetch
+        @author = Webfinger.new(@salmon.author_id).fetch
       end
 
       # @return [Boolean]
@@ -25,7 +25,7 @@ module Postzord
         if @object.respond_to?(:relayable?)
           receive_relayable
         else
-          Resque.enqueue(Jobs::ReceiveLocalBatch, @object.id, self.recipient_user_ids)
+          Resque.enqueue(Jobs::ReceiveLocalBatch, @object.class.to_s, @object.id, self.recipient_user_ids)
         end
       end
 
@@ -33,10 +33,10 @@ module Postzord
       def receive_relayable
         if @object.parent.author.local?
           # receive relayable object only for the owner of the parent object
-          @object.receive(@object.parent.author.user, @author)
+          @object.receive(@object.parent.author.owner, @author)
         end
         # notify everyone who can see the parent object
-        receiver = Postzord::Receiver::LocalPostBatch.new(@object, self.recipient_user_ids)
+        receiver = Postzord::Receiver::LocalBatch.new(@object, self.recipient_user_ids)
         receiver.notify_users
         @object
       end

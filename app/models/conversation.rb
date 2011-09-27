@@ -24,8 +24,13 @@ class Conversation < ActiveRecord::Base
   def diaspora_handle
     self.author.diaspora_handle
   end
+
   def diaspora_handle= nh
     self.author = Webfinger.new(nh).fetch
+  end
+
+  def public?
+    false
   end
 
   def participant_handles
@@ -55,6 +60,7 @@ class Conversation < ActiveRecord::Base
     self.participants.each do |participant|
       ConversationVisibility.find_or_create_by_conversation_id_and_person_id(cnv.id, participant.id)
     end
+
     self.messages.each do |msg|
       msg.conversation_id = cnv.id
       received_msg = msg.receive(user, person)

@@ -1,4 +1,4 @@
-#   Copyright (c) 2010-2011, Diaspora Inc.  This file is
+#   Copyright (c) 2011, Diaspora Inc.  This file is
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
@@ -37,7 +37,7 @@ bg:
             person: 
               invalid: "is invalid."
             username: 
-              invalid: "не е валидно. Разрешени са само букви, цифри и долна черта"
+              invalid: "не е валидно. Разрешени са само букви, цифри и долна черта."
               taken: "е вече заето."
   ago: "преди %{time}"
   all_aspects: "Всички аспекти"
@@ -101,7 +101,16 @@ bg:
         heading: "Адрес в Diaspora"
       donate: "Дарете"
       handle_explanation: "Това е вашият адрес в Diaspora. Наподобява адрес на ел. поща - давате го на хора, за да се свържат с вас."
-      keep_us_running: "Помогнете за бързата и надеждна работа на %{pod} като осигурите на сървърите месечната им доза \"кафе\"!"
+      help: 
+        did_you: "Вие:"
+        feature_suggestion: "... имате предложение за нова %{link}?"
+        find_a_bug: "... сте открили %{link} (грешка)?"
+        have_a_question: "... имате %{link}?"
+        here_to_help: "Общността Diaspora е готова да помогне!"
+        more_support: "За допълнителна помощ посетете %{link}."
+        need_help: "Нуждаетесе от помощ?"
+        tutorials: "За ръководства посетете %{link}."
+      keep_us_running: "Осигурете бързата работа на %{pod} като дарите пари за месечната издръжка на сървърите!"
       no_contacts: "Няма контакти"
       no_tags: "+ Намиране на тагове"
       people_sharing_with_you: "Хора споделящи с вас"
@@ -355,11 +364,11 @@ bg:
     index: 
       and: "и"
       and_others: 
-        few: "и %{count} други"
-        many: "и %{count} други"
+        few: "и други %{count}-ма"
+        many: "и други %{count}-ма"
         one: "и още някой"
-        other: "и %{count} други"
-        two: "и %{count} други"
+        other: "и други %{count}-ма"
+        two: "и други %{count}-ма"
         zero: "и никой друг"
       mark_all_as_read: "Маркиране на всички като прочетени"
       notifications: "Известия"

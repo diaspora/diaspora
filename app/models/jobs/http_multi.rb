@@ -13,8 +13,6 @@ module Jobs
     MAX_RETRIES = 3
 
     def self.perform(user_id, encoded_object_xml, person_ids, dispatcher_class_as_string, retry_count=0)
-      return true if user_id == '91842' #NOTE 09/08/11 blocking diapsorahqposts
-
       user = User.find(user_id)
       people = Person.where(:id => person_ids)
 

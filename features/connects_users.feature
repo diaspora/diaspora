@@ -96,7 +96,7 @@ Feature: following and being followed
     Given I sign in as "alice@alice.alice"
     And I am on "bob@bob.bob"'s page
 
-    Then I should see "Add to aspect"
+    Then I should see "Add contact"
     And I should not see "Mention"
     And I should not see "Message"
 

@@ -15,6 +15,8 @@ module Diaspora
 
         validates_associated :parent
         validates :author, :presence => true
+        
+        delegate :public?, :to => :parent
       end
     end
 
@@ -43,34 +45,31 @@ module Diaspora
       end
     end
 
-    def receive(user, person)
+    def receive(user, person=nil)
+      comment_or_like = self.class.where(:guid => self.guid).first || self
 
-      self.class.transaction do
-        comment_or_like = self.class.where(:guid => self.guid).first || self
+      #check to make sure the signature of the comment or like comes from the person claiming to authoring said comment or like
+      unless comment_or_like.parent.author == user.person || comment_or_like.verify_parent_author_signature
+        Rails.logger.info("event=receive status=abort reason='object signature not valid' recipient=#{user.diaspora_handle} sender=#{self.parent.author.diaspora_handle} payload_type=#{self.class} parent_id=#{self.parent.id}")
+        return
+      end
 
-        #check to make sure the signature of the comment or like comes from the person claiming to authoring said comment or like
-        unless comment_or_like.parent.author == user.person || comment_or_like.verify_parent_author_signature
-          Rails.logger.info("event=receive status=abort reason='object signature not valid' recipient=#{user.diaspora_handle} sender=#{self.parent.author.diaspora_handle} payload_type=#{self.class} parent_id=#{self.parent.id}")
-          return
-        end
+      #as the owner of the post being liked or commented on, you need to add your own signature in order to pass it to the people who received your original post
+      if user.owns? comment_or_like.parent
+        comment_or_like.parent_author_signature = comment_or_like.sign_with_key(user.encryption_key)
+        comment_or_like.save!
+      end
 
-        #as the owner of the post being liked or commented on, you need to add your own signature in order to pass it to the people who received your original post
-        if user.owns? comment_or_like.parent
-          comment_or_like.parent_author_signature = comment_or_like.sign_with_key(user.encryption_key)
-          comment_or_like.save!
-        end
+      #dispatch object DOWNSTREAM, received it via UPSTREAM
+      unless user.owns?(comment_or_like)
+        comment_or_like.save!
+        Postzord::Dispatcher.build(user, comment_or_like).post
+      end
 
-        #dispatch object DOWNSTREAM, received it via UPSTREAM
-        unless user.owns?(comment_or_like)
-          comment_or_like.save!
-          Postzord::Dispatcher.build(user, comment_or_like).post
-        end
+      comment_or_like.socket_to_user(user) if comment_or_like.respond_to? :socket_to_user
 
-        comment_or_like.socket_to_user(user) if comment_or_like.respond_to? :socket_to_user
-
-        if comment_or_like.after_receive(user, person)
-          comment_or_like 
-        end
+      if comment_or_like.after_receive(user, person)
+        comment_or_like 
       end
     end
 

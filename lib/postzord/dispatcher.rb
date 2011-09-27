@@ -15,19 +15,17 @@ class Postzord::Dispatcher
       raise 'this object does not respond_to? to_diaspora xml.  try including Diaspora::Webhooks into your object'
     end
 
-    #if self.object_should_be_processed_as_public?(object)
-    #  Postzord::Dispatcher::Public.new(user, object, opts)
-    #else
+    if self.object_should_be_processed_as_public?(object)
+      Postzord::Dispatcher::Public.new(user, object, opts)
+    else
       Postzord::Dispatcher::Private.new(user, object, opts)
-    #end
+    end
   end
 
   # @param object [Object]
   # @return [Boolean]
   def self.object_should_be_processed_as_public?(object)
-    if object.respond_to?(:public) && object.public?
-      true
-    elsif object.respond_to?(:relayable?) && object.parent.public?
+    if object.respond_to?(:public?) && object.public?
       true
     else
       false
@@ -59,7 +57,7 @@ class Postzord::Dispatcher
       self.deliver_to_local(local_people)
     end
 
-    self.deliver_to_remote(remote_people) unless @sender.username == 'diasporahq' #NOTE: 09/08/11 this is temporary (~3days max) till we fix fanout in federation
+    self.deliver_to_remote(remote_people)
   end
 
   # @return [Array<Person>] Recipients of the object, minus any additional subscribers
@@ -91,7 +89,7 @@ class Postzord::Dispatcher
   # @param people [Array<Person>] Recipients of the post
   def deliver_to_local(people)
     return if people.blank? || @object.is_a?(Profile)
-    if @object.respond_to?(:persisted?)
+    if @object.respond_to?(:persisted?) && !@object.is_a?(Conversation)
       batch_deliver_to_local(people)
     else
       people.each do |person|
@@ -152,7 +150,7 @@ class Postzord::Dispatcher
   # @param remote_people [Array<Person>] Recipients of the post on other pods
   # @return [void]
   def queue_remote_delivery_job(remote_people)
-    Resque.enqueue(Jobs::HttpMulti, @sender.id, Base64.encode64(@object.to_diaspora_xml), remote_people.map{|p| p.id}, self.class.to_s) 
+    Resque.enqueue(Jobs::HttpMulti, @sender.id, Base64.encode64s(@object.to_diaspora_xml), remote_people.map{|p| p.id}, self.class.to_s) 
   end
 end
 

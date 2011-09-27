@@ -4,20 +4,15 @@ require 'spec_helper'
 unless Server.all.empty?
   describe Server do
     before(:all) do
-      WebMock::Config.instance.allow_localhost = true
-      #Server.all.each{|s| s.kill if s.running?}
-      #Server.all.each{|s| s.run}
+      Server.start
     end
 
     after(:all) do
-      #Server.all.each{|s| s.kill if s.running?}
-      #sleep(1)
-      #Server.all.each{|s| puts "Server at port #{s.port} still running." if s.running?}
-      WebMock::Config.instance.allow_localhost = false
+      Server.stop
     end
 
     before do
-      Server.all.each{|s| s.truncate_database }
+      Server.truncate_databases
     end
     describe '.all' do
       it 'returns a server object for each server' do

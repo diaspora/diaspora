@@ -1,4 +1,4 @@
-#   Copyright (c) 2010-2011, Diaspora Inc.  This file is
+#   Copyright (c) 2011, Diaspora Inc.  This file is
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
@@ -101,6 +101,15 @@ eo:
         heading: "DIASPORA* uzantnomo"
       donate: "Donaci"
       handle_explanation: "Tiu ĉi estas via DIASPORA* uzantnomo.  Kiel retpoŝtadreso, vi povas doni tiun ĉi al homoj, por ke ili vin kontaktu."
+      help: 
+        did_you: "Did you:"
+        feature_suggestion: "... have a %{link} suggestion?"
+        find_a_bug: "... find a %{link}?"
+        have_a_question: "... have a %{link}?"
+        here_to_help: "Diaspora community is here to help!"
+        more_support: "For more support, you should also check out %{link}."
+        need_help: "Need Help?"
+        tutorials: "For tutorials, check out %{link}."
       keep_us_running: "Helpu %{pod} bone funkcii; aĉetu por niaj servkomputiloj ilian ĉiumonatan kaforiparon!"
       no_contacts: "Nul kontaktoj"
       no_tags: "+ Trovi etikedon aboni"

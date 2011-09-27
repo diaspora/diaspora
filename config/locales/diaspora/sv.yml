@@ -1,12 +1,12 @@
-#   Copyright (c) 2010-2011, Diaspora Inc.  This file is
+#   Copyright (c) 2011, Diaspora Inc.  This file is
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
 
 sv: 
-  _applications: "Applications"
+  _applications: "Applikationer"
   _comments: "Kommentarer"
-  _contacts: "Contacts"
+  _contacts: "Kontakter"
   _home: "Hem"
   _photos: "foton"
   _services: "Tjänster"
@@ -96,11 +96,20 @@ sv:
         heading: "Connect to Cubbi.es"
         learn_more: "Learn more"
       diaspora_id: 
-        content_1: "Your Diaspora ID is:"
-        content_2: "Give it to anyone and they'll be able to find you on Diaspora."
-        heading: "Diaspora ID"
-      donate: "Donate"
+        content_1: "Ditt Diaspora-ID är:"
+        content_2: "Med hjälp av det kan alla hitta dig på Diaspora."
+        heading: "Diaspora-ID"
+      donate: "Donera"
       handle_explanation: "Det här är ditt Diaspora-användarnamn. Det är den här du ska ge till dina vänner om du vill att de ska lägga till dig på Diaspora."
+      help: 
+        did_you: "Did you:"
+        feature_suggestion: "... have a %{link} suggestion?"
+        find_a_bug: "... find a %{link}?"
+        have_a_question: "... have a %{link}?"
+        here_to_help: "Diaspora community is here to help!"
+        more_support: "For more support, you should also check out %{link}."
+        need_help: "Behöver du hjälp?"
+        tutorials: "For tutorials, check out %{link}."
       keep_us_running: "Keep %{pod} running fast, buy our servers their monthly coffee fix!"
       no_contacts: "Inga kontakter"
       no_tags: "No tags"
@@ -111,7 +120,7 @@ sv:
         heading: "Connect Services"
       tags_following: "Followed Tags"
       unfollow_tag: "Stop following #%{tag}"
-      your_aspects: "Your Aspects"
+      your_aspects: "Dina aspekter"
     many: "%{count} aspekter"
     move_contact: 
       error: "Kunde inte flytta kontakt: %{inspect}"
@@ -130,25 +139,25 @@ sv:
     one: "1 aspekt"
     other: "%{count} aspekter"
     seed: 
-      acquaintances: "Acquaintances"
+      acquaintances: "Bekanta"
       family: "Familj"
-      friends: "Friends"
+      friends: "Vänner"
       work: "Arbete"
     selected_contacts: 
       manage_your_aspects: "Manage your aspects."
       no_contacts: "You don't have any contacts here yet."
-      view_all_contacts: "View all contacts"
+      view_all_contacts: "Se alla kontakter"
     show: 
       edit_aspect: "ändra aspekt"
-    two: "%{count} aspects"
+    two: "%{count} aspekter"
     update: 
       failure: "Din aspekt, %{name}, hade ett för långt namn för att kunna sparas."
       success: "Din aspekt %{name} är nu ändrad."
     zero: "inga aspekter"
   authorizations: 
     index: 
-      no_applications: "You haven't registered any applications yet."
-      revoke_access: "Revoke Access"
+      no_applications: "Du har inte registrerat några applikationer än."
+      revoke_access: "Neka tillträde"
   back: "Tillbaka"
   bookmarklet: 
     explanation: "%{link} från var som helst genom att lägga till den här länken som bokmärke."
@@ -174,23 +183,23 @@ sv:
       featured_users: "Featured Users"
     few: "%{count} kontakter"
     index: 
-      add_a_new_aspect: "Add a new aspect"
-      all_contacts: "All Contacts"
-      edit_aspect: "Edit %{name}"
+      add_a_new_aspect: "Lägg till en ny aspekt"
+      all_contacts: "Alla kontakter"
+      edit_aspect: "Redigera %{name}"
       many_people_are_you_sure: "Are you sure you want to start a private conversation with more than %{suggested_limit} contacts? Posting to this aspect may be a better way to contact them."
-      my_contacts: "My Contacts"
-      no_contacts: "No contacts."
+      my_contacts: "Mina kontakter"
+      no_contacts: "Inga kontakter."
       only_sharing_with_me: "Only sharing with me"
-      remove_person_from_aspect: "Remove %{person_name} from \"%{aspect_name}\""
-      start_a_conversation: "Start a conversation"
-      title: "Contacts"
-      your_contacts: "Your Contacts"
+      remove_person_from_aspect: "Ta bort %{person_name} från \"%{aspect_name}\""
+      start_a_conversation: "Påbörja en konversation"
+      title: "Kontakter"
+      your_contacts: "Dina kontakter"
     many: "%{count} kontakter"
     one: "1 kontakt"
     other: "%{count} kontakter"
     sharing: 
       people_sharing: "Personer delar med dig:"
-    two: "%{count} contacts"
+    two: "%{count} kontakter"
     zero: "inga kontakter"
   conversations: 
     create: 
@@ -204,7 +213,7 @@ sv:
         many: "%{count} nya meddelanden"
         one: "1 nytt meddelande"
         other: "%{count} nya meddelanden"
-        two: "%{count} new messages"
+        two: "%{count} nya meddelanden"
         zero: "inga nya meddelanden"
     index: 
       create_a_new_message: "skapa ett nytt meddelande"
@@ -216,7 +225,7 @@ sv:
     new: 
       abandon_changes: "Abandon changes?"
       send: "Skicka"
-      sending: "Sending..."
+      sending: "Skickar..."
       subject: "ämne"
       to: "till"
     new_message: 
@@ -224,7 +233,7 @@ sv:
     show: 
       delete: "ta bort och blockera konversation"
       reply: "svara"
-      replying: "Replying..."
+      replying: "Svarar..."
   date: 
     formats: 
       birthday: "%B %d"
@@ -261,7 +270,7 @@ sv:
       already_contacts: "Du är redan ansluten med denna personen"
       already_sent: "Du har redan bjudit in denna personen."
       no_more: "Du har inga fler inbjudningar."
-      own_address: "You can't send an invitation to your own address."
+      own_address: "Du kan inte skicka en inbjudan till din egen adress."
       rejected: "Det var problem med följande e-postadresser: "
       sent: "Inbjudningar har skickats till:"
     edit: 
@@ -294,7 +303,7 @@ sv:
       profile: "profil"
       recent_notifications: "Recent notifications"
       settings: "Inställningar"
-      view_all: "View all"
+      view_all: "Se alla"
   likes: 
     likes: 
       people_dislike_this: 
@@ -355,12 +364,12 @@ sv:
     index: 
       and: "och"
       and_others: 
-        few: "and %{count} others"
-        many: "and %{count} others"
-        one: "and one more"
-        other: "and %{count} others"
-        two: "and %{count} others"
-        zero: "and nobody else"
+        few: "och %{count} andra"
+        many: "och %{count} andra"
+        one: "och en till"
+        other: "och %{count} andra"
+        two: "och %{count} andra"
+        zero: "och ingen mer"
       mark_all_as_read: "Markera alla som läst"
       notifications: "Notifieringar"
     liked: 
@@ -422,7 +431,7 @@ sv:
       zero: "%{actors} started sharing with you."
   notifier: 
     a_post_you_shared: "a post."
-    click_here: "click here"
+    click_here: "klicka här"
     comment_on_post: 
       reply: "Reply or view %{name}'s post >"
     confirm_email: 
@@ -447,7 +456,7 @@ sv:
     started_sharing: 
       sharing: "har börjat dela med dig!"
       subject: "%{name} har börjat dela med dig på Diaspora*"
-      view_profile: "View %{name}'s profile"
+      view_profile: "Se %{name}s profil"
     thanks: "Tack,"
     to_change_your_notification_settings: "to change your notification settings"
   ok: "OK"
@@ -483,7 +492,7 @@ sv:
       gender: "kön"
       in_aspects: "i aspekter"
       location: "plats"
-      remove_contact: "remove contact"
+      remove_contact: "ta bort kontakt"
       remove_from: "Ta bort %{name} från %{aspect}?"
     show: 
       does_not_exist: "Den här personen finns inte!"
@@ -500,9 +509,9 @@ sv:
       to_accept_or_ignore: "for att acceptera eller ignorera."
     sub_header: 
       add_some: "add some"
-      edit: "edit"
-      you_have_no_tags: "you have no tags!"
-    two: "%{count} people"
+      edit: "redigera"
+      you_have_no_tags: "du har inga taggar!"
+    two: "%{count} människor"
     webfinger: 
       fail: "Förlåt, vi kunde inte hitta %{handle}."
     zero: "inga personer"
@@ -584,7 +593,7 @@ sv:
       unhappy: "Missnöjd?"
       update: "Uppdatera"
     new: 
-      create_my_account: "Create my account"
+      create_my_account: "Skapa mitt konto"
       enter_email: "Skriv in en e-post"
       enter_password: "Skriv in ett lösenord"
       enter_password_again: "Skriv in samma lösenord som tidigare"
@@ -624,7 +633,7 @@ sv:
         one: "1 Reshare"
         other: "%{count} Reshares"
         two: "%{count} reshares"
-        zero: "Reshare"
+        zero: "Dela igen"
       reshare_confirmation: "Reshare %{author} - %{text}?"
       reshare_original: "Reshare orignial"
       show_original: "Show Original"
@@ -638,7 +647,7 @@ sv:
       error: "Det blev ett fel vid anslutning till tjänsten"
     finder: 
       no_friends: "No Facebook friends found."
-      service_friends: "%{service} Friends"
+      service_friends: "%{service}-vänner"
     index: 
       connect_to_facebook: "Anslut till facebook"
       connect_to_tumblr: "Connect to Tumblr"
@@ -662,17 +671,17 @@ sv:
       create_request: "Sök på Diaspora-användarnamn"
       diaspora_handle: "Diaspora-användarnamn"
       enter_a_diaspora_username: "Ange ett Diaspora-användarnamn:"
-      know_email: "Vet du deras e-post adress? Du borde bjuda in dom"
+      know_email: "Vet du deras e-post adress? Du borde bjuda in dem"
       your_diaspora_username_is: "Ditt Diaspora-användarnamn är: %{diaspora_handle}"
     aspect_dropdown: 
-      add_to_aspect: "Add to aspect"
+      add_to_aspect: "Lägg till i aspekt"
       toggle: 
-        few: "In %{count} aspects"
-        many: "In %{count} aspects"
-        one: "In %{count} aspect"
-        other: "In %{count} aspects"
-        two: "In %{count} aspects"
-        zero: "Add to aspect"
+        few: "I %{count} aspekter"
+        many: "I %{count} aspekter"
+        one: "I %{count} aspekt"
+        other: "I %{count} aspekter"
+        two: "I %{count} aspekter"
+        zero: "Lägg till i aspekt"
     contact_list: 
       all_contacts: "Alla kontakter"
     footer: 
@@ -705,7 +714,7 @@ sv:
       publishing_to: "publicerar till: "
       share: "Dela"
       share_with: "dela med"
-      upload_photos: "Upload photos"
+      upload_photos: "Ladda upp foton"
       whats_on_your_mind: "Vad har du på hjärtat?"
     reshare: 
       reshare: "Återdela"
@@ -735,7 +744,7 @@ sv:
       zero: "ditt statusmeddelande får inte vara längre än %{count} bokstäver"
   stream_helper: 
     hide_comments: "dölj kommentarer"
-    show_more_comments: "Show %{number} more comments"
+    show_more_comments: "Visa %{number} kommentarer till"
   tag_followings: 
     create: 
       failure: "Failed to follow: #%{name}"
@@ -745,17 +754,17 @@ sv:
       success: "Successfully stopped following: #%{name}"
   tags: 
     show: 
-      follow: "Follow #%{tag}"
-      following: "Following #%{tag}"
+      follow: "Följ #%{tag}"
+      following: "Följer #%{tag}"
       nobody_talking: "Ingen talar om %{tag} än."
       people_tagged_with: "Personer taggade med %{tag}"
       posts_tagged_with: "Poster taggade med #%{tag}"
-      stop_following: "Stop Following #%{tag}"
+      stop_following: "Sluta följa #%{tag}"
   tokens: 
     show: 
       connect_to_cubbies: "Connect to Cubbi.es"
       connecting_is_simple: "Connecting your Diaspora account is as simple as filling out two fields on your Cubbi.es account page."
-      daniels_account: "Daniel's Diaspora account"
+      daniels_account: "Daniels Diasporakonto"
       log_in_with_diaspora_is_comming: "Pretty soon, you'll be able to connect to a new application without creating an account separate from your one on Diaspora."
       love_to_try: "We'd love for you to try it out."
       making_the_connection: "Making the Connection"
@@ -795,7 +804,7 @@ sv:
       your_email: "Din epost"
       your_handle: "Ditt Diaspora-användarnamn"
     getting_started: 
-      bold: "aspects"
+      bold: "aspekter"
       connect_to: "Connect to"
       connect_to_your_other_social_networks: "Connect to your other social networks"
       connect_with_people: "Connect with cool people"
@@ -805,25 +814,25 @@ sv:
       featured_tags: "Featured tags"
       featured_users: "Featured users"
       fill_out_your_profile: "Fill out your profile"
-      find_friends: "Find friends"
+      find_friends: "Hitta vänner"
       find_friends_from_facebook: "find friends from Facebook"
       finished: "Slutfört!"
       follow_your_interests: "Follow your interests"
       hashtag_explanation: "Hashtags allow you to talk about and follow your interests.  They're also a great way to find new people on Diaspora."
       profile_description: "Make it easier for people to find you by filling out your profile information."
       profile_fields: 
-        bio: "Bio"
-        birthday: "Birthday"
-        gender: "Gender"
-        location: "Location"
-        name: "Name"
-        photo: "Photo"
-        tags: "Tags"
+        bio: "Biografi"
+        birthday: "Födelsedag"
+        gender: "Kön"
+        location: "Plats"
+        name: "Namn"
+        photo: "Foto"
+        tags: "Taggar"
       search_for_hashtags: "Search for #hashtags"
-      search_for_people: "Search for people"
+      search_for_people: "Leta efter människor"
       see_all_featured_users: "See all featured users"
       welcome: "Välkommen till diaspora!"
-      welcome_with_name: "Welcome, %{name}!"
+      welcome_with_name: "Välkommen, %{name}!"
     public: 
       does_not_exist: "Användaren %{username} finns inte!"
     update: 

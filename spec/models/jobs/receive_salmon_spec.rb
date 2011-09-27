@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe Jobs::ReceiveSalmon do
+describe Jobs::ReceiveEncryptedSalmon do
   before do
     @user = alice
     @xml = '<xml></xml>'
@@ -18,6 +18,6 @@ describe Jobs::ReceiveSalmon do
     zord.should_receive(:perform)
     Postzord::Receiver::Private.should_receive(:new).with(@user, hash_including(:salmon_xml => @xml)).and_return(zord)
 
-    Jobs::ReceiveSalmon.perform(@user.id, @xml)
+    Jobs::ReceiveEncryptedSalmon.perform(@user.id, @xml)
   end
 end

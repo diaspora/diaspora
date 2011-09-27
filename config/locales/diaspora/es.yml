@@ -1,4 +1,4 @@
-#   Copyright (c) 2010-2011, Diaspora Inc.  This file is
+#   Copyright (c) 2011, Diaspora Inc.  This file is
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
@@ -101,6 +101,15 @@ es:
         heading: "Identidad Diaspora*"
       donate: "Donar"
       handle_explanation: "Ésta es tu dirección Diaspora*. Como una dirección de correo, puedes dársela a la gente para que te encuentre."
+      help: 
+        did_you: "Quizás..."
+        feature_suggestion: "tengas alguna sugerencia. %{link}"
+        find_a_bug: "encontraste algún error. %{link}"
+        have_a_question: "tengas alguna pregunta. %{link}"
+        here_to_help: "¡La comunidad Diaspora está aquí para ayudar!"
+        more_support: "Para más ayuda deberías visitar %{link}."
+        need_help: "¿Necesitas ayuda?"
+        tutorials: "Para ver los tutoriales visita %{link}."
       keep_us_running: "Haz que %{pod} vaya más rápido, ¡compra a nuestros servidores su dosis de café mensual!"
       no_contacts: "No hay contactos"
       no_tags: "+ Encuentra una etiqueta a seguir"
@@ -300,23 +309,23 @@ es:
       people_dislike_this: 
         few: "A %{count} no les gusta"
         many: "A %{count} no les gusta"
-        one: "A 1 no le gusta"
+        one: "A 1 persona no le gusta"
         other: "A %{count} no les gusta"
-        two: "A %{count} no les gusta"
+        two: "A %{count} personas no les gusta"
         zero: "A nadie le disgusta"
       people_like_this: 
         few: "A %{count} les gusta"
         many: "A %{count} les gusta"
-        one: "A 1 le gusta"
+        one: "A 1 persona le gusta"
         other: "A %{count} les gusta"
-        two: "A %{count} les gusta"
+        two: "A %{count} personas les gusta"
         zero: "A nadie le gusta"
       people_like_this_comment: 
         few: "A %{count} les gusta"
         many: "A %{count} les gusta"
-        one: "A %{count} le gusta"
+        one: "A %{count} persona le gusta"
         other: "A %{count} les gusta"
-        two: "A %{count} les gusta"
+        two: "A %{count} personas les gusta"
         zero: "sin votos"
   limited: "Restringido"
   more: "Más"
@@ -375,7 +384,7 @@ es:
       many: "%{actors} les gustó una publicación eliminada."
       one: "%{actors} le gustó una publicación eliminada."
       other: "%{actors} les gustó una publicación eliminada."
-      two: "%{actors} le gustaron tu publicación eliminada."
+      two: "%{actors} les gustaron tu publicación eliminada."
       zero: "%{actors} le gustó una publicación eliminada."
     mentioned: 
       few: "%{actors} te mencionaron en un %{post_link}."
@@ -649,7 +658,7 @@ es:
       no_services: "Aún no has enlazado ningún servicio."
       really_disconnect: "¿Desconectar %{service}?"
     inviter: 
-      click_link_to_accept_invitation: "Haz click en este enlace para aceptar tu invitación"
+      click_link_to_accept_invitation: "Sigue este enlace para aceptar la invitación"
       join_me_on_diaspora: "Comparte conmigo en DIASPORA*."
     remote_friend: 
       invite: "invitar"

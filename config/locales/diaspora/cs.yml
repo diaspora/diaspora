@@ -1,4 +1,4 @@
-#   Copyright (c) 2010-2011, Diaspora Inc.  This file is
+#   Copyright (c) 2011, Diaspora Inc.  This file is
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
@@ -101,6 +101,15 @@ cs:
         heading: "Diaspora ID"
       donate: "Přispějte"
       handle_explanation: "Toto je vaše Diaspora ID. Podobně jako e-mailovou adresu ho můžete dál lidem a budete na něm dostupní."
+      help: 
+        did_you: "Did you:"
+        feature_suggestion: "... have a %{link} suggestion?"
+        find_a_bug: "... find a %{link}?"
+        have_a_question: "... have a %{link}?"
+        here_to_help: "Diaspora community is here to help!"
+        more_support: "For more support, you should also check out %{link}."
+        need_help: "Need Help?"
+        tutorials: "For tutorials, check out %{link}."
       keep_us_running: "Pomozte %{pod} udržet rychlý, kupte našim serverům dávku kávy."
       no_contacts: "Žádné kontakty"
       no_tags: "+ Najít nějaký štítek ke sledování"
@@ -140,7 +149,7 @@ cs:
       view_all_contacts: "Zobrazit všechny kontakty"
     show: 
       edit_aspect: "upravit aspekt"
-    two: "%{count} aspects"
+    two: "%{count} aspekty"
     update: 
       failure: "Váš aspekt %{name} má příliš dlouhý název na to, aby mohl být uložen."
       success: "Váš aspekt, %{name}, byl úspěšně upraven."
@@ -237,7 +246,7 @@ cs:
       correct_the_following_errors_and_try_again: "Opravte následující chyby a zkuste to znovu."
       invalid_fields: "Neplatná pole"
   fill_me_out: "Vyplňte"
-  find_people: "Najít lidi"
+  find_people: "Najít lidi nebo #štítky"
   hide: "Skrýt"
   home: 
     show: 
@@ -248,10 +257,10 @@ cs:
       login_here: "přihlásit se zde"
       ownership: "Vlastnictví"
       ownership_explanation: "Vaše obrázky jsou Vaším vlastnictvím. Neměli by jste se ho zříkat jen kvůli tomu, že je chcete sdílet. Zachovejte si proto právo na vše, co zveřejňujete. Jen to Vám dá plnou kontrolu nad tím, jak se s tím nakládá."
-      share_what_you_want: "Sdílejte co chcete s kým chcete."
+      share_what_you_want: "Sdílejte, co chcete, s kým chcete."
       simplicity: "Jednoduchost"
       simplicity_explanation: "Sdílení je v Diaspoře velmi lehké a transparentní – je to dvojitá záruka ochrany soukromí. Kromě soukromí, Diaspora neobsahuje žádné složité stránky s nastavením, kterými by jste se museli prolouskat, aby jste uchovali bezpečnost Vašeho profilu podle svých představ."
-      tagline_first_half: "Sdílejte co chcete,"
+      tagline_first_half: "Sdílejte, co chcete,"
       tagline_second_half: "s kým chcete."
   invitations: 
     a_facebook_user: "Uživatel Facebooku"
@@ -371,12 +380,12 @@ cs:
       two: "%{actors} si právě oblíbili váš %{post_link}."
       zero: "%{actors} si právě oblíbili váš %{post_link}."
     liked_post_deleted: 
-      few: "%{actors} měli oblíben váš smazaný příspěvek."
-      many: "%{actors} měli oblíben váš smazaný příspěvek."
-      one: "%{actors} měl oblíben váš smazaný příspěvek."
-      other: "%{actors} měli oblíben váš smazaný příspěvek."
-      two: "%{actors} liked your deleted post."
-      zero: "%{actors} měli oblíben váš smazaný příspěvek."
+      few: "%{actors} se líbil váš odstraněný příspěvek."
+      many: "%{actors} se líbil váš odstraněný příspěvek."
+      one: "%{actors} se líbil váš odstraněný příspěvek."
+      other: "%{actors} se líbil váš odstraněný příspěvek."
+      two: "%{actors} se líbil váš odstraněný příspěvek."
+      zero: "%{actors} se líbil váš odstraněný příspěvek."
     mentioned: 
       few: "%{actors} vás zmínilo na %{post_link}."
       many: "%{actors} vás zmínili na %{post_link}."
@@ -819,8 +828,8 @@ cs:
         name: "Jméno"
         photo: "Fotografie"
         tags: "Štítky"
-      search_for_hashtags: "Search for #hashtags"
-      search_for_people: "Search for people"
+      search_for_hashtags: "Vyhledat #štítky"
+      search_for_people: "Vyhledat lidi"
       see_all_featured_users: "See all featured users"
       welcome: "Vítejte na Diaspoře!"
       welcome_with_name: "Vítejte, %{name}!"

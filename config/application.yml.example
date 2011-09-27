@@ -65,6 +65,7 @@ defaults: &defaults
     - 'diasporahq@joindiaspora.com'
 
   # List of users who have admin privileges
+  # (expressed as an array of local usernames)
   admins:
     - 'example_user1dsioaioedfhgoiesajdigtoearogjaidofgjo'
 
@@ -165,6 +166,9 @@ defaults: &defaults
   # Use paypal for recurring donations
   paypal_hosted_button_id: ""
 
+  # Mount resque-web into routes
+  # This allows an administrator to see info about the workers 
+  mount_resque_web: true
 
 #
 # Use this section to override default settings in specific environments
@@ -176,7 +180,7 @@ development:
 
 production:
   <<: *defaults
-
+  mount_resque_web: false
 
 #
 # Do not touch unless you know what you're doing
@@ -188,7 +192,6 @@ test:
   socket_port: 8081
   enable_splunk_logging: false
   open_invitations: true
-
 
 integration_1:
   <<: *defaults

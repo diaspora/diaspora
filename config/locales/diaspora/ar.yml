@@ -1,4 +1,4 @@
-#   Copyright (c) 2010-2011, Diaspora Inc.  This file is
+#   Copyright (c) 2011, Diaspora Inc.  This file is
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
@@ -37,7 +37,7 @@ ar:
             person: 
               invalid: "غير صالح."
             username: 
-              invalid: "is invalid. We only allow letters, numbers, and underscores"
+              invalid: "غير صالح، يـسمح بالحروف، الأرقام وخطوط التأكيد (-_) فقط"
               taken: "حُجِزَ بالفعل."
   ago: "منذ %{time}"
   all_aspects: "كل الفئات"
@@ -99,18 +99,27 @@ ar:
         content_1: "وسيط ديسبورا خاصتك هو:"
         content_2: "أعطه لأي شخص وسيتمكن من إيجادك على ديسبورا."
         heading: "وسيط ديسبورا"
-      donate: "Donate"
+      donate: "تبرّع"
       handle_explanation: "هذا وسيط دياسبرا. مثل البريد الالكتروني، يمكنك منحه للأصدقاء حتى تستطيع التواصل معهم."
-      keep_us_running: "Keep %{pod} running fast, buy our servers their monthly coffee fix!"
+      help: 
+        did_you: "هل:"
+        feature_suggestion: "... تملك %{link} اقتراحا؟"
+        find_a_bug: "... وجدت %{link}?"
+        have_a_question: "... تملك %{link}?"
+        here_to_help: "مجتمع دياسبرا متأهب للمساعدة"
+        more_support: "لمزيد من الاستعلامات، يرجى مراجعة %{link}."
+        need_help: "تحتاج للمساعدة؟"
+        tutorials: "لمزيد من الشروحات، راجع %{link}."
+      keep_us_running: "حافظ على %{pod} سريعا عبر تبرع شهري لصيانة السيرفرات "
       no_contacts: "لا أعضاء"
-      no_tags: "لا وسوم"
+      no_tags: "+ جِـد وسما لمتابعته"
       people_sharing_with_you: "أعضاء يتشاركون معك"
       post_a_message: "انشر رسالة >>"
       services: 
         content: "يمكنك وصل حساب ديسبورا الخاص بك بالخدمات الآتية:"
         heading: "صل حسابك بالخدمات"
       tags_following: "الوسوم المتابعة"
-      unfollow_tag: "Stop following #%{tag}"
+      unfollow_tag: "أَوقِف متابعة #%{tag}"
       your_aspects: "فئاتك"
     many: "%{count} فئات"
     move_contact: 
@@ -121,18 +130,18 @@ ar:
       create: "أنشئ"
       name: "إسم"
     no_contacts_message: 
-      featured_users: "featured users"
-      or_featured: "Or you can share with %{link}"
-      try_adding_some_more_contacts: "You can search (top) or invite (right) more contacts."
-      you_should_add_some_more_contacts: "You should add some more contacts!"
+      featured_users: "المستخدمون الشّرفِيون"
+      or_featured: "أو يمكنك المشاركة عبر %{link}"
+      try_adding_some_more_contacts: "إبحث عن (أنظر بالأعلى) أو أُدعُ (أُنظر يمينا) أعضاءً جددا."
+      you_should_add_some_more_contacts: "يُستحسن إضافة مزيد من الأعضاء"
     no_posts_message: 
       start_talking: "لم يتحدث أحد بعد!"
     one: "فئة"
     other: "%{count} فئات"
     seed: 
-      acquaintances: "Acquaintances"
+      acquaintances: "معارِفي"
       family: "العائلة"
-      friends: "Friends"
+      friends: "الأصدقاء"
       work: "العمل"
     selected_contacts: 
       manage_your_aspects: "أَدِر فئاتك."
@@ -140,14 +149,14 @@ ar:
       view_all_contacts: "أظهر كل جهات الاتصال"
     show: 
       edit_aspect: "تحرير الفئة"
-    two: "%{count} aspects"
+    two: "%{count} فئتان"
     update: 
       failure: "فئتك, %{name}, اسمها طويل ولا يمكن حفظها."
       success: ".بنجاح %{name} تم تعديل"
     zero: "لا فئات"
   authorizations: 
     index: 
-      no_applications: "You haven't registered any applications yet."
+      no_applications: "لم تُسجِّل أي تطبيقات بعد."
       revoke_access: "إلغاء الوصول"
   back: "عودة"
   bookmarklet: 
@@ -165,13 +174,13 @@ ar:
       commenting: "يُرسل التعليق ..."
     one: "تعليقٌ واحد"
     other: "%{count} تعليق"
-    two: "%{count} comments"
+    two: "%{count} تعليقان"
     zero: "لا تعليقات"
   contacts: 
     create: 
       failure: "فشل في إنشاء الإتصال"
     featured: 
-      featured_users: "Featured Users"
+      featured_users: "المستخدمون الشَّرفِيون"
     few: "%{count} أعضاء"
     index: 
       add_a_new_aspect: "أضف فئة جديدة"
@@ -190,11 +199,11 @@ ar:
     other: "%{count} أعضاء"
     sharing: 
       people_sharing: "أعضاء يتشاركون معك:"
-    two: "%{count} contacts"
+    two: "%{count} عضوان"
     zero: "لا يوجد أعضاء"
   conversations: 
     create: 
-      fail: "Invalid message"
+      fail: "رسالة غير صالحة"
       sent: "أُرْسِلَت الرسالة"
     destroy: 
       success: "حُذِفَت المحادثة بنجاح"
@@ -204,7 +213,7 @@ ar:
         many: "%{count} رسالةً جديدة"
         one: "رسالةٌ واحدةٌ جديدة"
         other: "%{count} رسالة جديدة"
-        two: "%{count} new messages"
+        two: "%{count} رسالتان جديدتان"
         zero: "لا يوجد رسائل جديدة"
     index: 
       create_a_new_message: "اكتُب رسالةً جديدة"
@@ -216,15 +225,15 @@ ar:
     new: 
       abandon_changes: "أأتجاهل التغييرات؟"
       send: "أَرْسِل"
-      sending: "Sending..."
+      sending: "يُرسـَل..."
       subject: "العنوان"
       to: "إلى"
     new_message: 
-      fail: "Invalid message"
+      fail: "رسالة غير صالحة"
     show: 
       delete: "احْذِف واحْظُر المحادثة"
       reply: "رُدَّ"
-      replying: "Replying..."
+      replying: "يُجيب..."
   date: 
     formats: 
       birthday: "%d %B"
@@ -254,7 +263,7 @@ ar:
       tagline_first_half: "شارك ما تريد،"
       tagline_second_half: "مع من تريد."
   invitations: 
-    a_facebook_user: "A Facebook user"
+    a_facebook_user: "مستخدم فايسبوك"
     check_token: 
       not_found: "الدعوة الرمزية غير موجودة"
     create: 
@@ -265,8 +274,8 @@ ar:
       rejected: "واجه هذا البريد الإلكتروني مشاكلا:  "
       sent: "تم إرسال دعوتك"
     edit: 
-      accept_your_invitation: "Accept your invitation"
-      your_account_awaits: "Your account awaits!"
+      accept_your_invitation: "قبِل دعوتك"
+      your_account_awaits: "حسابك ينتظر."
     new: 
       already_invited: "لم يقبل هؤلاء الأشخاص دعوتك:"
       aspect: "فئة"
@@ -302,21 +311,21 @@ ar:
         many: "%{count} كرهوا هذا"
         one: "كره هذا شخصُ واحد"
         other: "%{count} كرهو هذا"
-        two: "%{count} dislikes"
+        two: "%{count} كرها"
         zero: "لا أحد يكره هذا"
       people_like_this: 
         few: "%{count} إعجابات"
         many: "%{count} إعجابًا"
         one: "إعجابٌ واحد"
         other: "%{count} إعجابًا"
-        two: "%{count} likes"
+        two: "%{count} إعجابان"
         zero: "لا إعجابات"
       people_like_this_comment: 
         few: "%{count} إعجابات"
         many: "%{count} إعجابًا"
         one: "إعجابٌ واحد"
         other: "%{count} إعجاب"
-        two: "%{count} likes"
+        two: "%{count} أعجبهما"
         zero: "لا إعجابات"
   limited: "محدود"
   more: "أكثر"
@@ -328,21 +337,21 @@ ar:
       many: "%{actors} علق أيضا على %{post_link} %{post_author}."
       one: "%{actors} علق أيضا على %{post_link} %{post_author}."
       other: "%{actors} علق أيضا على %{post_link} %{post_author}."
-      two: "%{actors} also commented on %{post_author}'s %{post_link}."
+      two: "%{actors} علقا أيضا على %{post_link} مشاركة %{post_author}."
       zero: "%{actors} علق أيضا على %{post_link} %{post_author}."
     also_commented_deleted: 
       few: "%{actors} علقوا على المنشور المحذوف."
       many: "%{actors} علقوا على المنشور المحذوف."
       one: "%{actors} علق على المنشور المحذوف."
       other: "%{actors} علقوا على المنشور المحذوف."
-      two: "%{actors} commented on a deleted post."
+      two: "%{actors} علقا على مشاركتك المحذوفة."
       zero: "%{actors} علق على المنشور المحذوف."
     comment_on_post: 
       few: "%{actors} علقوا على %{post_link}."
       many: "%{actors} علقوا على %{post_link}."
       one: "%{actors} علق على %{post_link}."
       other: "%{actors} علقوا على %{post_link}."
-      two: "%{actors} commented on your %{post_link}."
+      two: "%{actors} علقا على %{post_link}."
       zero: "%{actors} علق على %{post_link}."
     helper: 
       new_notifications: 
@@ -350,7 +359,7 @@ ar:
         many: "%{count} تنبيهات جديدة"
         one: "1 تنبيه جديد"
         other: "%{count} تنبيهات جديدة"
-        two: "%{count} new notifications"
+        two: "%{count} تنبيهان"
         zero: "لا تنبيهات جديدة"
     index: 
       and: "و"
@@ -359,7 +368,7 @@ ar:
         many: "و %{count} آخرون"
         one: "و آخر"
         other: "و %{count} آخرون"
-        two: "and %{count} others"
+        two: "و %{count} آخران"
         zero: "و لا أحد"
       mark_all_as_read: "وضع الجميع كمقروء"
       notifications: "تنبيهات"
@@ -368,28 +377,28 @@ ar:
       many: "%{actors} أعجبوا لتوهم بـ %{post_link}."
       one: "%{actors} أعجب لتوه بـ %{post_link}."
       other: "%{actors} أعجبوا لتوهم بـ %{post_link}."
-      two: "%{actors} has just liked your %{post_link}."
+      two: "%{actors} أعجبا لتوهما بـ %{post_link}."
       zero: "%{actors} أعجب لتوه بـ %{post_link}."
     liked_post_deleted: 
       few: "%{actors} أعجبوا بالمنشور المحذوف."
       many: "%{actors} أعجبوا بالمنشور المحذوف."
       one: "%{actors} أعجب بالمنشور المحذوف."
       other: "%{actors} أعجبوا بالمنشور المحذوف."
-      two: "%{actors} liked your deleted post."
+      two: "%{actors} أعجبتهما مشاركتك المحذوفة."
       zero: "%{actors} أعجب بالمنشور المحذوف."
     mentioned: 
       few: "%{actors} أشاروا إليك في %{post_link}."
       many: "%{actors} أشاروا إليك في %{post_link}."
       one: "%{actors} أشار إليك في %{post_link}."
       other: "%{actors} أشاروا إليك في %{post_link}."
-      two: "%{actors} has mentioned you in a %{post_link}."
+      two: "%{actors} أشارا إليك في %{post_link}."
       zero: "%{actors} أشار إليك في %{post_link}."
     mentioned_deleted: 
       few: "%{actors} أشاروا إليك في منشور محذوف."
       many: "%{actors} أشاروا إليك في منشور محذوف."
       one: "%{actors} أشار إليك في منشور محذوف."
       other: "%{actors} أشاروا إليك في منشور محذوف."
-      two: "%{actors} mentioned you in a deleted post."
+      two: "%{actors} أشارا إليك في مشاركة محذوفة."
       zero: "%{actors} أشار إليك في منشور محذوف."
     post: "مشاركة"
     private_message: 
@@ -397,36 +406,36 @@ ar:
       many: "%{actors} راسلوك."
       one: "%{actors} راسلك."
       other: "%{actors} راسلوك."
-      two: "%{actors} sent you a message."
+      two: "%{actors} راسلاك."
       zero: "%{actors} راسلك."
     reshared: 
-      few: "%{actors} has reshared your %{post_link}."
-      many: "%{actors} has reshared your %{post_link}."
-      one: "%{actors} has reshared your %{post_link}."
-      other: "%{actors} has reshared your %{post_link}."
-      two: "%{actors} has reshared your %{post_link}."
-      zero: "%{actors} has reshared your %{post_link}."
+      few: "%{actors} أعادوا نشر %{post_link}."
+      many: "%{actors} أعادوا نشر %{post_link}."
+      one: "%{actors} أعاد نشر %{post_link}."
+      other: "%{actors} أعادوا نشر %{post_link}."
+      two: "%{actors} أعادا نشر %{post_link}."
+      zero: "%{actors} أعاد نشر %{post_link}."
     reshared_post_deleted: 
-      few: "%{actors} reshared your deleted post."
-      many: "%{actors} reshared your deleted post."
-      one: "%{actors} reshared your deleted post."
-      other: "%{actors} reshared your deleted post."
-      two: "%{actors} reshared your deleted post."
-      zero: "%{actors} reshared your deleted post."
+      few: "%{actors} أعادوا نشر مشاركتك المحذوفة."
+      many: "%{actors} أعادوا نشر مشاركتك المحذوفة."
+      one: "%{actors} أعاد نشر مشاركتك المحذوفة."
+      other: "%{actors} أعادوا نشر مشاركتك المحذوفة."
+      two: "%{actors} أعادا نشر مشاركتك المحذوفة."
+      zero: "%{actors} أعاد نشر مشاركتك المحذوفة"
     started_sharing: 
       few: "%{actors} بدؤوا المشاركة معك."
       many: "%{actors} بدؤوا المشاركة معك."
       one: "%{actors} بدأ المشاركة معك."
       other: "%{actors} بدؤوا المشاركة معك."
-      two: "%{actors} started sharing with you."
+      two: "%{actors} بدآ المشاركة معك."
       zero: "%{actors} بدأ المشاركة معك."
   notifier: 
-    a_post_you_shared: "a post."
+    a_post_you_shared: "مشاركة."
     click_here: "اضغط هنا"
     comment_on_post: 
       reply: "رُد أو اعرض مشاركة %{name} >"
     confirm_email: 
-      click_link: "لتفعيل عنوان بريدك الإلكتروني الجديد %{unconfirmed_email}, من فضلك اضغط على هذا الرابط:"
+      click_link: "لتفعيل عنوان بريدك الإلكتروني الجديد %{unconfirmed_email}, من فضلك إتبع هذا الرابط:"
       subject: "من فضلك، فَعِّل عنوان بريدك الإلكتروني الجديد %{unconfirmed_email}"
     email_sent_by_diaspora: "أُرسِلَت هذه الرسالة بواسطة ديسبورا.  إذا أردت إيقاف مثل هذه الرسالة، "
     hello: "مرحبا %{name}!"
@@ -439,8 +448,8 @@ ar:
     private_message: 
       reply_to_or_view: "رُد أو اعرض هذه المحادثة >"
     reshared: 
-      reshared: "%{name} just reshared your post"
-      view_post: "View post >"
+      reshared: "%{name} أعاد نشر مشاركتك."
+      view_post: "إعرِض المشاركة >"
     single_admin: 
       admin: "إدارة دياسبرا"
       subject: "رسالة من إدارة دياسبرا:"
@@ -487,7 +496,7 @@ ar:
       remove_from: "حذف %{name} من %{aspect}?"
     show: 
       does_not_exist: "هذا العضو غير موجود"
-      has_not_shared_with_you_yet: "%{name} has not shared any posts with you yet!"
+      has_not_shared_with_you_yet: "%{name} لمْ يشارك أي مشاركة معك بعد"
       incoming_request: "%{name} يريد المشاركة معك"
       mention: "إشارة"
       message: "رسالة"
@@ -499,15 +508,15 @@ ar:
       start_sharing: "بدء المشاركة"
       to_accept_or_ignore: "للقبول أو التجاهل"
     sub_header: 
-      add_some: "add some"
-      edit: "edit"
-      you_have_no_tags: "you have no tags!"
-    two: "%{count} people"
+      add_some: "أضف بعض"
+      edit: "عدِّل"
+      you_have_no_tags: "لا تتوفر على وسوم"
+    two: "%{count} عضوان"
     webfinger: 
       fail: "للأسف، لم نجد %{handle}."
     zero: "لا أحد"
   photos: 
-    comment_email_subject: "%{name}'s photo"
+    comment_email_subject: "صور %{name}"
     create: 
       integrity_error: "فشل رفع الصورة، أواثقٌ أن هذا الملف صورة؟"
       runtime_error: "فشل رفع الصورة، هل قمت بربطها مع نص؟"
@@ -535,15 +544,15 @@ ar:
       edit: "عَدِّل"
       edit_delete_photo: "عَدِّل وصف الصورة / احْذِف الصورة"
       make_profile_photo: "اجعلها صورة شخصية"
-      show_original_post: "Show original post"
+      show_original_post: "إِعرِضْ المشاركة الأصلية"
       update_photo: "حَدِّث الصورة"
     update: 
       error: "فشل تحرير الصورة."
       notice: "حُدِّثَت الصورة بنجاح."
   post_visibilites: 
     update: 
-      post_hidden_and_muted: "%{name}'s post has been hidden, and notifications have been muted."
-      see_it_on_their_profile: "If you want to see updates on this post, visit %{name}'s profile page."
+      post_hidden_and_muted: "أُخفِيت مشاركة %{name}، وعُطِلت تنبيهاتها"
+      see_it_on_their_profile: "راجع صفحة %{name} الشخصية إن رغبت في الإطلاع على جديد هاته المشاركة"
   posts: 
     show: 
       destroy: "احذف"
@@ -584,13 +593,13 @@ ar:
       unhappy: "غير راض?"
       update: "تحديث"
     new: 
-      create_my_account: "Create my account"
+      create_my_account: "أًنشِئ حسابي"
       enter_email: "أدخل عنوان بريد إلكتروني"
       enter_password: "أدخل كلمة مرور"
       enter_password_again: "أعد إدخال كلمة المرور"
       enter_username: "اختر معرف (فقط حروف, أرقام, و الإشارات الخطية)"
-      join_the_movement: "Join the movement!"
-      sign_up_today: "Sign up today"
+      join_the_movement: "إنضم للرّكب"
+      sign_up_today: "سجِّل الآن"
   requests: 
     create: 
       sending: "يُرسِل ..."
@@ -605,7 +614,7 @@ ar:
         many: "%{count} طلب تشارك جديد!"
         one: "طلب تشارك جديد!"
         other: "%{count} طلب تشارك جديد!"
-        two: "%{count} new requests!"
+        two: "%{count} طلبان جديدان!"
         zero: "لا يوجد طلبات مشاركة جديدة"
     manage_aspect_contacts: 
       existing: "جهات الإتصال الموجودة مسبقًا"
@@ -613,19 +622,19 @@ ar:
     new_request_to_person: 
       sent: "أُرْسِلَت!"
   reshares: 
-    comment_email_subject: "%{resharer}'s reshare of %{author}'s post"
+    comment_email_subject: "نشر %{resharer} المُعاد لمشاركة %{author}"
     create: 
       failure: "هناك خطأ ما في إعادة نشر هذه المشاركة."
     reshare: 
       deleted: "لقد حذف المؤلف مشاركته الأصلية."
       reshare: 
-        few: "أُعِيدَ نشرها %{count} مرات"
-        many: "أُعِيدَ نشرها %{count} مرة"
+        few: "%{count} إعادة نشر"
+        many: "%{count} إعادة نشر"
         one: "أُعِيدَ نشرها مرة واحدة"
-        other: "أُعِيدَ نشرها %{count} مرة"
-        two: "%{count} reshares"
+        other: "%{count} إعادة نشر"
+        two: "%{count} إعادتا نشر"
         zero: "أَعِد النشر"
-      reshare_confirmation: "هل أُعِد نشر مشاركة %{author} - ومحتواها: %{text} ?"
+      reshare_confirmation: "هل أُعِيد نشر مشاركة %{author} ؟"
       reshare_original: "أعد نشر المشاركة الأصلية"
       show_original: "اعرض الأصلية"
   search: "بحث"
@@ -637,8 +646,8 @@ ar:
     failure: 
       error: "خطأ خلال محاولة الإتصال بالخدمة"
     finder: 
-      no_friends: "No Facebook friends found."
-      service_friends: "%{service} Friends"
+      no_friends: "لم يُعثَر على أصدقاء فايسبوك."
+      service_friends: "%{service} الأصدقاء"
     index: 
       connect_to_facebook: "إتصل بـ فيسبوك"
       connect_to_tumblr: "صل حسابك بـ Tumblr"
@@ -649,11 +658,11 @@ ar:
       no_services: "لم تَصِل أي خدمة بحسابك بعد."
       really_disconnect: "فصل إتصال %{service}?"
     inviter: 
-      click_link_to_accept_invitation: "إضغط على هذا الرابط لقبول دعوتك"
+      click_link_to_accept_invitation: "إتبع هذا الرابط لقبول دعوتك"
       join_me_on_diaspora: "انضم إلي في DIASPORA*"
     remote_friend: 
       invite: "دعوة"
-      not_on_diaspora: "Not yet on Diaspora"
+      not_on_diaspora: "ليس بعد على دياسبرا"
       resend: "إعادة إرسال"
   settings: "إعدادات"
   shared: 
@@ -665,14 +674,14 @@ ar:
       know_email: "أتَعرِف بُرُدَهم الإلكترونية؟ يَجدر بك دعوتهم"
       your_diaspora_username_is: "وسيط دياسبورا خاصتك هو: %{diaspora_handle}"
     aspect_dropdown: 
-      add_to_aspect: "Add to aspect"
+      add_to_aspect: "أضف إلى فئة"
       toggle: 
-        few: "In %{count} aspects"
-        many: "In %{count} aspects"
-        one: "In %{count} aspect"
-        other: "In %{count} aspects"
-        two: "In %{count} aspects"
-        zero: "Add to aspect"
+        few: "في %{count} فئات"
+        many: "في %{count} فئات"
+        one: "في %{count} فئات"
+        other: "في %{count} فئة"
+        two: "في %{count} فئتين"
+        zero: "أشف إلى فئة"
     contact_list: 
       all_contacts: "جميع الأعضاء"
     footer: 
@@ -711,7 +720,7 @@ ar:
       reshare: "أَعِد النشر"
     stream_element: 
       dislike: "لم يعجبني"
-      hide_and_mute: "Hide and Mute"
+      hide_and_mute: "أخـفِ وأسكـتْ"
       like: "أعجبني"
       shared_with: "مُشَارك مع: %{aspect_names}"
       unlike: "إلغاء إعجابي"
@@ -731,7 +740,7 @@ ar:
       many: "رجاءًا لا تتجاوز حد %{count} حرفا في مشاركاتك"
       one: "رجاءًا لا تتجاوز حد الحرف الواحد في مشاركاتك"
       other: "رجاء لا تتجاوز حد %{count} حرفًا في مشاركاتك"
-      two: "please make your status messages less than %{count} characters"
+      two: "رجاء لا تتجاوز %{count} حرفا في مشاركاتك"
       zero: "رجاءًا لا تضع في مشاركاتك أية حروف "
   stream_helper: 
     hide_comments: "أخْفِ كل التعليقات"
@@ -790,40 +799,40 @@ ar:
       new_password: "كلمة مرور جديدة"
       private_message: "...وصلتك راسلة خاصة"
       receive_email_notifications: "استقبال تنبيهات عبر البريد الإلكتروني؟"
-      reshared: "...someone reshares your post?"
+      reshared: "...أعاد أحدهم نشر مشاركتك?"
       started_sharing: "...بدأ أحدهم المشاركة معك؟"
       your_email: "بريدك الإلكتروني"
       your_handle: "وسيط ديسبورا الخاص بك"
     getting_started: 
-      bold: "aspects"
-      connect_to: "Connect to"
-      connect_to_your_other_social_networks: "Connect to your other social networks"
-      connect_with_people: "Connect with cool people"
-      connect_with_people_explanation_pt1: "Connect with people by placing them into one or more of your"
-      connect_with_people_explanation_pt2: "Aspects are an intuitive way to group new and familar faces, private to you, allowing you to filter down or share with subsets of your contacts easily."
-      edit_profile: "Edit Profile"
-      featured_tags: "Featured tags"
-      featured_users: "Featured users"
-      fill_out_your_profile: "Fill out your profile"
-      find_friends: "Find friends"
-      find_friends_from_facebook: "find friends from Facebook"
+      bold: "فئات"
+      connect_to: "إتصل بـ"
+      connect_to_your_other_social_networks: "إتصل بشبكات اجتماعية أخرى"
+      connect_with_people: "إتصل بأحلى ناس"
+      connect_with_people_explanation_pt1: "إتصل مع الآخرين فقط بوضعهم في إحدى أو عديد %{bold}."
+      connect_with_people_explanation_pt2: "الفئات وسيلة ذكية لتصنيف مراسليك حسب رغبتك وخيارك وتمنحك امكانية المشاركة مع مجموعة من الأصدقاء دون أخرى."
+      edit_profile: "حرِّر الملف الشخصي"
+      featured_tags: "وسوم مميزة"
+      featured_users: "المستخدمون الشّرفِيون"
+      fill_out_your_profile: "إملأ بياناتك الشخصية"
+      find_friends: "جِـدْ أصدقائك"
+      find_friends_from_facebook: "جـِدْ أصدقائك بفايسبوك"
       finished: "تم"
-      follow_your_interests: "Follow your interests"
-      hashtag_explanation: "Hashtags allow you to talk about and follow your interests.  They're also a great way to find new people on Diaspora."
-      profile_description: "Make it easier for people to find you by filling out your profile information."
+      follow_your_interests: "تابع اهتماماتك"
+      hashtag_explanation: "الوسوم تسمح لك بالحديث عن اهتماماتك ومتابعتها.  وهي أيضا طريقة عبقرية للعثور على أناس جدد بدياسبرا."
+      profile_description: "سَـهِّل مهمة العثور عليك عبر ملأ بياناتك الشخصية."
       profile_fields: 
-        bio: "Bio"
-        birthday: "Birthday"
-        gender: "Gender"
-        location: "Location"
-        name: "Name"
-        photo: "Photo"
-        tags: "Tags"
-      search_for_hashtags: "Search for #hashtags"
-      search_for_people: "Search for people"
-      see_all_featured_users: "See all featured users"
-      welcome: "مرحبا بك في دياسبرا!"
-      welcome_with_name: "Welcome, %{name}!"
+        bio: "سيرة ذاتية"
+        birthday: "تاريخ الميلاد"
+        gender: "الجنس"
+        location: "محل الإقامة"
+        name: "الإسم"
+        photo: "صورة"
+        tags: "وسوم"
+      search_for_hashtags: "إبحث عن #وسوم"
+      search_for_people: "إبحث عن أصدقاء"
+      see_all_featured_users: "شاهِد جميع المستخدمين الشرفِيّين"
+      welcome: "السلام عليكم ورحمة الله تعالى وبركاته"
+      welcome_with_name: "مرحبا، %{name}!"
     public: 
       does_not_exist: "هذا المستخدم %{username} غير موجود"
     update: 

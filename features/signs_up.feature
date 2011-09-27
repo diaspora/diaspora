@@ -17,7 +17,7 @@ Feature: new user registration
     And I should see "Connect to Cubbi.es"
 
   Scenario: new user goes through the setup wizard
-   When I follow "Edit Profile"
+   When I follow Edit Profile in the same window
     And I fill in "profile_first_name" with "O"
     And I fill in "profile_last_name" with "Hai"
     And I fill in "tags" with "#tags"

@@ -11,7 +11,7 @@ describe Jobs::ReceiveLocalBatch do
   end
 
   describe '.perform' do
-    it 'calls Postzord::Receiver::LocalPostBatch' do
+    it 'calls Postzord::Receiver::LocalBatch' do
       pending
     end
   end

@@ -52,7 +52,7 @@ describe SessionsController do
     end
     it "redirects to / for a non-mobile user" do
       delete :destroy
-      response.should redirect_to root_path
+      response.should redirect_to logged_out_path
     end
 
     it "redirects to / for a mobile user" do

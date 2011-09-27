@@ -1,13 +1,13 @@
 require 'spec_helper' 
-require File.join(Rails.root, 'lib','postzord', 'receiver', 'local_post_batch')
+require File.join(Rails.root, 'lib','postzord', 'receiver', 'local_batch')
 
-describe Postzord::Receiver::LocalPostBatch do
+describe Postzord::Receiver::LocalBatch do
   before do
     @object = Factory(:status_message, :author => alice.person)
     @ids = [bob.id] 
   end
 
-  let(:receiver) { Postzord::Receiver::LocalPostBatch.new(@object, @ids) }
+  let(:receiver) { Postzord::Receiver::LocalBatch.new(@object, @ids) }
 
   describe '.initialize' do
     it 'sets @post, @recipient_user_ids, and @user' do
@@ -18,8 +18,8 @@ describe Postzord::Receiver::LocalPostBatch do
   end
 
   describe '#perform!' do
-    it 'calls .create_visibilities' do
-      receiver.should_receive(:create_visibilities)
+    it 'calls .create_post_visibilities' do
+      receiver.should_receive(:create_post_visibilities)
       receiver.perform!
     end
 
@@ -39,10 +39,10 @@ describe Postzord::Receiver::LocalPostBatch do
     end
   end
 
-  describe '#create_visibilities' do
+  describe '#create_post_visibilities' do
     it 'calls Postvisibility.batch_import' do
       PostVisibility.should_receive(:batch_import)
-      receiver.create_visibilities
+      receiver.create_post_visibilities
     end
   end
 
@@ -61,7 +61,7 @@ describe Postzord::Receiver::LocalPostBatch do
                    :author => alice.person,
                    :text => "Hey @{Bob; #{bob.diaspora_handle}}")
 
-      receiver2 = Postzord::Receiver::LocalPostBatch.new(sm, @ids)
+      receiver2 = Postzord::Receiver::LocalBatch.new(sm, @ids)
       Notification.should_receive(:notify).with(bob, anything, alice.person)
       receiver2.notify_mentioned_users
     end
@@ -76,13 +76,13 @@ describe Postzord::Receiver::LocalPostBatch do
     it 'calls notify for posts with notification type' do
       reshare = Factory.create(:reshare)
       Notification.should_receive(:notify)
-      receiver = Postzord::Receiver::LocalPostBatch.new(reshare, @ids)
+      receiver = Postzord::Receiver::LocalBatch.new(reshare, @ids)
       receiver.notify_users
     end
 
     it 'calls notify for posts with notification type' do
       sm = Factory.create(:status_message, :author => alice.person)
-      receiver = Postzord::Receiver::LocalPostBatch.new(sm, @ids)
+      receiver = Postzord::Receiver::LocalBatch.new(sm, @ids)
       Notification.should_not_receive(:notify)
       receiver.notify_users
     end
@@ -102,7 +102,7 @@ describe Postzord::Receiver::LocalPostBatch do
 
     it 'does not call create_visibilities and notify_mentioned_users' do
       receiver.should_not_receive(:notify_mentioned_users)
-      receiver.should_not_receive(:create_visibilities)
+      receiver.should_not_receive(:create_post_visibilities)
       receiver.perform!
     end
   end

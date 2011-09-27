@@ -1,4 +1,4 @@
-#   Copyright (c) 2010-2011, Diaspora Inc.  This file is
+#   Copyright (c) 2011, Diaspora Inc.  This file is
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
@@ -72,7 +72,7 @@ el:
       failure: "Η δημιουργία της πτυχής απέτυχε."
       success: "Η νέα σας πτυχή %{name} δημιουργήθηκε"
     destroy: 
-      failure: "Το όνομα %{name} δεν είναι άδειο και δεν μπορεί να αφαιρεθεί."
+      failure: "Το %{name} δεν είναι άδειο και δεν μπορεί να αφαιρεθεί."
       success: "Ο χρήστης %{name} αφαιρέθηκε επιτυχώς."
     edit: 
       add_existing: "Προσθέστε μια υπάρχουσα επαφή"
@@ -101,7 +101,16 @@ el:
         heading: "Αναγνωριστικό Diaspora (ID)"
       donate: "Κάντε Δωρεά"
       handle_explanation: "Αυτό είναι το αναγνωριστικό σας στο Diaspora (ID). Όπως και με μια διεύθυνση ηλεκτρονικού ταχυδρομείου, μπορείτε να το δώσετε σε άλλους για να σας βρουν."
-      keep_us_running: "Keep %{pod} running fast, buy our servers their monthly coffee fix!"
+      help: 
+        did_you: "Έχεις:"
+        feature_suggestion: "... έχεις μια %{link} πρόταση?"
+        find_a_bug: "... βρες %{link}?"
+        have_a_question: "... έχεις ένα %{link}?"
+        here_to_help: "Η κοινότητα του Diaspora είναι εδώ για να σε βοηθήσει!"
+        more_support: "Για περισσότερη βοήθεια, θα πρέπει να ελέγξετε %{link}."
+        need_help: "Χρειάζεστε βοήθεια;"
+        tutorials: "Για οδηγούς, ελέγξτε %{link}."
+      keep_us_running: "Διατηρείστε τη καλή λειτουργία του %{pod}, παρέχοντας στους servers μας τη καφείνη τους!"
       no_contacts: "Καμία επαφή"
       no_tags: "+ Βρείτε μια ετικέτα να ακολουθείτε"
       people_sharing_with_you: "Άτομα που μοιράζονται μαζί σας"
@@ -147,7 +156,7 @@ el:
     zero: "καμία πτυχή"
   authorizations: 
     index: 
-      no_applications: "You haven't registered any applications yet."
+      no_applications: "Δεν έχετε εσισάγει καμία εφαρμογή ακόμα. "
       revoke_access: "Ανάκληση Πρόσβασης"
   back: "Πίσω"
   bookmarklet: 
@@ -177,7 +186,7 @@ el:
       add_a_new_aspect: "Προσθέστε μια νέα πτυχή"
       all_contacts: "Όλες οι Επαφές"
       edit_aspect: "Επεξεργασία %{name}"
-      many_people_are_you_sure: "Είστε σίγουρος/η ότι θέλετε να ξεκινήσετε μια ιδιωτική συνομιλία με περισσότερες από %{suggested_limit} επαφές? Η δημοσίευση σε αυτή την πτυχή ίσως είναι ο καλύτερος τρόπος για να επικοινωνήσετε μαζί τους."
+      many_people_are_you_sure: "Είστε σίγουρος/η ότι θέλετε να ξεκινήσετε μια ιδιωτική συνομιλία με περισσότερες από %{suggested_limit} επαφές? Η δημοσίευση σε αυτή την πτυχή ίσως είναι ένας καλύτερος τρόπος για να επικοινωνήσετε μαζί τους."
       my_contacts: "Οι Επαφές μου"
       no_contacts: "Καμία Επαφή"
       only_sharing_with_me: "Μοιράζονται μόνο με εμένα"
@@ -224,7 +233,7 @@ el:
     show: 
       delete: "διαγραφή και φραγή συζήτησης"
       reply: "απάντηση"
-      replying: "Replying..."
+      replying: "Απάντηση..."
   date: 
     formats: 
       birthday: "%B %d"
@@ -247,7 +256,7 @@ el:
       learn_about_host: "Μάθετε για το πώς να φιλοξενήσετε το δικό σας διακομιστή Diaspora."
       login_here: "συνδεθείτε εδώ"
       ownership: "Ιδιοκτησία"
-      ownership_explanation: "Οι φωτογραφίες σας είναι δική σας ιδιοκτησία και δεν πρέπει να κάνετε παραχωρήσεις, απλά και μόνο για  να τις μοιραστείτε. Στο Diaspora διατηρείτε την κυριότητα για ό,τι μοιράζεστε, ενώ έχετε τον πλήρη έλεγχο για το πώς αυτό θα διανεμηθεί."
+      ownership_explanation: "Οι φωτογραφίες σας είναι δική σας ιδιοκτησία και δεν πρέπει να κάνετε παραχωρήσεις, απλά και μόνο για  να τις μοιραστείτε. Στο Diaspora διατηρείτε την ιδιοκτησία για ό,τι μοιράζεστε, ενώ έχετε τον πλήρη έλεγχο για το πώς αυτό θα διανεμηθεί."
       share_what_you_want: "Μοιραστείτε ό,τι θέλετε, με όποιον θέλετε."
       simplicity: "Απλότητα"
       simplicity_explanation: "Το Diaspora σας επιτρέπει να μοιράζεστε εύκολα και διάφανα – και αυτό ισχύει και για την ιδιωτικότητα σας. Από τη φύση του ιδιωτικό, το Diaspora δεν έχει σελίδες επί σελίδων με ρυθμίσεις και επιλογές ώστε να διατηρείτε το προφίλ σας ασφαλές."
@@ -428,7 +437,7 @@ el:
     confirm_email: 
       click_link: "Για να ενεργοποιήσετε την καινούρια διεύθυνση ηλεκτρονικού ταχυδρομείου %{unconfirmed_email}, παρακαλούμε πατήστε στο παρακάτω σύνδεσμο: "
       subject: "Παρακαλούμε ενεργοποιήστε την καινούρια διεύθυνση ηλεκτρονικού ταχυδρομείου %{unconfirmed_email}"
-    email_sent_by_diaspora: "Αυτό το μήνυμα εστάλη αό το Diaspora. Εάν δεν θέλετε να λαμβάνετε πλεόν μηνύματα σαν κι αυτό,"
+    email_sent_by_diaspora: "Αυτό το μήνυμα εστάλη από το Diaspora. Εάν δεν θέλετε να λαμβάνετε πλεόν μηνύματα σαν κι αυτό,"
     hello: "Γειά σου %{name}!"
     liked: 
       liked: "στο χρήστη %{name} αρέσει η δημοσίευση σας"
@@ -442,7 +451,7 @@ el:
       reshared: "ο χρήστης %{name} μόλις κοινοποίησε τη δημοσίευση σας"
       view_post: "Δείτε τη δημοσίευση >"
     single_admin: 
-      admin: "Ο διαχειριστής Diaspora σας"
+      admin: "Ο διαχειριστής του Diaspora σας"
       subject: "Μήνυμα για τον Diaspora λογαριασμό σας:"
     started_sharing: 
       sharing: "ξεκίνησε το διαμοιρασμό μαζί σας!"
@@ -478,7 +487,7 @@ el:
       thats_you: "Εσύ είσαι αυτός!"
     profile_sidebar: 
       bio: "βιογραφικό"
-      born: "γεννήθηκε"
+      born: "γενέθλια"
       edit_my_profile: "Επεξεργασία του προφίλ μου"
       gender: "φύλο"
       in_aspects: "στις πτυχές"
@@ -522,7 +531,7 @@ el:
       post_it: "δημοσίευσε το!"
     new_photo: 
       empty: "{file} είναι κενό, επιλέξτε και πάλι τα αρχεία χωρίς αυτό."
-      invalid_ext: "{φιλε} δεν έχει έγκυρη επέκταση. Μόνο επεκτάσεις {extensions} επιτρέπονται."
+      invalid_ext: "{file} δεν έχει έγκυρη τύπο αρχείου. Μόνο τύποι αρχείου {extensions} επιτρέπονται."
       size_error: "{file} είναι πολύ μεγάλο, το μέγιστο μέγεθος αρχείου είναι {sizeLimit}."
     new_profile_photo: 
       or_select_one: "ή επιλέξτε κάποια από τις υπάρχουσες"
@@ -542,8 +551,8 @@ el:
       notice: "Η φωτογραφία ενημερώθηκε επιτυχώς."
   post_visibilites: 
     update: 
-      post_hidden_and_muted: "%{name}'s post has been hidden, and notifications have been muted."
-      see_it_on_their_profile: "If you want to see updates on this post, visit %{name}'s profile page."
+      post_hidden_and_muted: "Οι αναρτήσεις από τον/την %{name} έχουν γίνει κρυφές, και οι ειδοποιήσεις έχουν απενεργοποιηθεί."
+      see_it_on_their_profile: "Εάν θέλετε να δείτε τις ενημερώσεις αυτής της δημοσίευσης, επισκεφθείτε το προφίλ του χρήστη %{name}. "
   posts: 
     show: 
       destroy: "Διαγραφή"
@@ -594,7 +603,7 @@ el:
   requests: 
     create: 
       sending: "Αποστολή"
-      sent: "Σας ζητήθηκε να μοιράζεστε με τον χρήστη %{name}. Θα είναι ορατό την επόμενη φορά που θα συνδεθεί στο Diaspora."
+      sent: "Σας ζητήθηκε να μοιράζεστε με τον/την χρήστη %{name}. Θα είναι ορατό την επόμενη φορά που θα συνδεθεί στο Diaspora."
     destroy: 
       error: "Παρακαλώ επιλέξτε μια πτυχή!"
       ignore: "Αγνοήθηκε αίτηση επαφής."
@@ -617,7 +626,7 @@ el:
     create: 
       failure: "Υπήρξε κάποιο σφάλμα κατά την κοινοποίηση αυτής της δημοσίευσης."
     reshare: 
-      deleted: "Η αρχική δημοσίευση δαγράφτηκε από τον δημιουργό της."
+      deleted: "Η αρχική δημοσίευση διαγράφτηκε από τον δημιουργό της."
       reshare: 
         few: "%{count} κοινοποιήσεις"
         many: "%{count} κοινοποιήσεις"
@@ -645,7 +654,7 @@ el:
       connect_to_twitter: "Σύνδεση με Twitter"
       disconnect: "αποσύνδεση"
       edit_services: "Επεξεργασία υπηρεσιών"
-      logged_in_as: "συνδεδεμένο ως"
+      logged_in_as: "συνδεδεμένος ως"
       no_services: "Δεν έχετε συνδέσει κάποια υπηρεσία ακόμα."
       really_disconnect: "αποσύνδεση %{service};"
     inviter: 
@@ -680,7 +689,7 @@ el:
       your_aspects: "οι πτυχές σας"
     invitations: 
       by_email: "Μέσω ηλεκτρονικού ταχυδρομείου"
-      dont_have_now: "Δεν έχετε κάποιο δικαίωμα τώρα, αλλά περισσότερες προσκλήσεις έρχονται σύντομα!"
+      dont_have_now: "Δεν έχετε κάποια τώρα, αλλά περισσότερες προσκλήσεις έρχονται σύντομα!"
       from_facebook: "Από το Facebook"
       invitations_left: "απομένουν %{count}"
       invite_someone: "Προσκαλέστε κάποιον/α"
@@ -697,7 +706,7 @@ el:
     publisher: 
       all: "όλα"
       all_contacts: "όλες οι επαφές"
-      click_to_share_with: "Πατήστε για να διαμοιραστείτε με: "
+      click_to_share_with: "Πατήστε για να μοιραστείτε με:"
       discard_post: "Απομάκρυνση δημοσίευσης"
       make_public: "Δημοσιοποίησε το"
       post_a_message_to: "Αναρτήστε ένα μήνυμα στην πτυχή %{aspect}"
@@ -711,9 +720,9 @@ el:
       reshare: "Μοιράσου και πάλι"
     stream_element: 
       dislike: "Δεν μ' αρέσει"
-      hide_and_mute: "Hide and Mute"
+      hide_and_mute: "Απόκρυψη και Σίγαση "
       like: "Μου αρέσει"
-      shared_with: "Shared with: %{aspect_names}"
+      shared_with: "Διαμοιρασμένο με: %{aspect_names}"
       unlike: "Δεν μου αρέσει"
       via: "μέσω %{link}"
       viewable_to_anyone: "Αυτή η δημοσίευση είναι εμφανής σε όλους στο διαδίκτυο"
@@ -728,7 +737,7 @@ el:
       mentioning: "Αναφορά σε: %{person}"
     too_long: 
       few: "παρακαλώ μετατρέψτε τα μηνύματα κατάστασης σας σε λιγότερους από %{count} χαρακτήρες"
-      many: "παρακαλώ ελαττώστε την κατάσταση σας σε λιγότερο από %{count} χαρακτήρες"
+      many: "παρακαλώ ελαττώστε το μύνημα κατάστασης σας σε λιγότερο από %{count} χαρακτήρες"
       one: "παρακαλώ μετατρέψτε τα μηνύματα κατάστασης σας σε λιγότερο από %{count} χαρακτήρα"
       other: "παρακαλώ μετατρέψτε τα μηνύματα κατάστασης σας σε λιγότερους από %{count} χαρακτήρες"
       two: "παρακαλούμε ορίστε το μήνυμα κατάστασής σας σε λιγότερους από %{count} χαρακτήρες"
@@ -800,8 +809,8 @@ el:
       connect_to_your_other_social_networks: "Συνδεθείτε με άλλα κοινωνικά δίκτυα"
       connect_with_people: "Συνδεθείτε με ενδιαφέροντα άτομα"
       connect_with_people_explanation_pt1: "Συνδεθείτε με άτομα τοποθετώντας τα σε μία ή περισσότερες από τις %{bold}"
-      connect_with_people_explanation_pt2: "Aspects are an intuitive way to group new and familar faces, private to you, allowing you to filter down or share with subsets of your contacts easily."
-      edit_profile: "Edit Profile"
+      connect_with_people_explanation_pt2: "Οι Πτυχές είναι ενας τρόπος οργάνωσης, των προσωπικών σου, καινούργιων και γνωστών σου προσώπων, επιτρέποντας σου να διαχωρίσεις η να μοιραστέις με υποκατηγοριές των επαφών σου πιο εύκολα."
+      edit_profile: "Επεξεργασία Προφίλ"
       featured_tags: "Αξιόλογες ετικέτες"
       featured_users: "Αξιόλογοι χρήστες"
       fill_out_your_profile: "Συμπληρώστε το προφίλ σας "
@@ -819,15 +828,15 @@ el:
         name: "Όνομα"
         photo: "Φωτογραφία"
         tags: "Ετικέτες"
-      search_for_hashtags: "Search for #hashtags"
-      search_for_people: "Search for people"
+      search_for_hashtags: "Αναζήτηση για #ετικέτες"
+      search_for_people: "Ψάξτε άτομα"
       see_all_featured_users: "Δείτε όλους τους αξιόλογους χρήστες"
       welcome: "Καλώς ήλθατε!"
       welcome_with_name: "Καλώς ήρθες, %{name}!"
     public: 
       does_not_exist: "Ο χρήστης %{username} δεν υπάρχει!"
     update: 
-      email_notifications_changed: "Αποτυχία αλλαγής γλώσσας"
+      email_notifications_changed: "Αλλαγή ειδοποιήσεων ηλεκτρονικού ταχυδρομείου,επιτυχής"
       language_changed: "Αλλαγή Γλώσσας επιτυχής"
       language_not_changed: "Η αλλαγή γλώσσας απέτυχε"
       password_changed: "Ο κωδικός σας άλλαξε. Μπορείτε τώρα να συνδεθείτε με τον νέο κωδικό. "
@@ -835,8 +844,8 @@ el:
       unconfirmed_email_changed: "Η διεύθυνση ηλεκτρονικού ταχυδρομείου άλλαξε. Χρειάζεται ενεργοποίηση."
       unconfirmed_email_not_changed: "Η αλλαγή της διεύθυνσης ηλεκτρονικού ταχυδρομείου απέτυχε."
   webfinger: 
-    fetch_failed: "failed to fetch webfinger profile for %{profile_url}"
-    hcard_fetch_failed: "there was a problem fetching the hcard for #{@account}"
-    no_person_constructed: "No person could be constructed from this hcard."
-    not_enabled: "webfinger does not seem to be enabled for %{account}'s host"
-    xrd_fetch_failed: "there was an error getting the xrd from account %{account}"
+    fetch_failed: "αποτυχία παροχής του προφίλ webfinger για %{profile_url}"
+    hcard_fetch_failed: "υπήρξε ενά πρόβλημα παροχής του hcard για #{@account}"
+    no_person_constructed: "Κανένα άτομο δεν μπορούσε να κατασκευαστεί απο αυτό το hcard."
+    not_enabled: "το webfinger φαίνεται να μην είναι ενεργοποιημέο για τον host του %{account}"
+    xrd_fetch_failed: "υπήρξε ένα πρόβλημα στη λήψη του xrd απο το λογαριασμό %{account}"

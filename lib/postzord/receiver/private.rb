@@ -13,7 +13,7 @@ module Postzord
         @user_person = @user.person
         @salmon_xml = opts[:salmon_xml]
 
-        @sender = opts[:person] || Webfinger.new(self.salmon.author_email).fetch
+        @sender = opts[:person] || Webfinger.new(self.salmon.author_id).fetch
         @author = @sender
 
         @object = opts[:object]
@@ -23,7 +23,7 @@ module Postzord
         if @sender && self.salmon.verified_for_key?(@sender.public_key)
           parse_and_receive(salmon.parsed_data)
         else
-          Rails.logger.info("event=receive status=abort recipient=#{@user.diaspora_handle} sender=#{@salmon.author_email} reason='not_verified for key'")
+          Rails.logger.info("event=receive status=abort recipient=#{@user.diaspora_handle} sender=#{@salmon.author_id} reason='not_verified for key'")
           nil
         end
       end
@@ -37,7 +37,7 @@ module Postzord
           set_author!
           receive_object
         else
-          raise 'not a valid object'
+          raise "not a valid object:#{@object.inspect}"
         end
       end
 
@@ -48,7 +48,6 @@ module Postzord
         Rails.logger.info("event=receive status=complete recipient=#{@user_person.diaspora_handle} sender=#{@sender.diaspora_handle} payload_type=#{obj.class}")
         obj
       end
-
 
       protected
       def salmon

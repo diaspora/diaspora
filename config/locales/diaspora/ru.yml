@@ -1,4 +1,4 @@
-#   Copyright (c) 2010-2011, Diaspora Inc.  This file is
+#   Copyright (c) 2011, Diaspora Inc.  This file is
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
@@ -37,7 +37,7 @@ ru:
             person: 
               invalid: "недействительно."
             username: 
-              invalid: "не подходит. Можно использовать только буквы, цифры и знак подчеркивания"
+              invalid: "не подходит. Можно использовать только буквы, цифры и знак подчеркивания."
               taken: "уже занято."
   ago: "%{time} назад"
   all_aspects: "Все аспекты"
@@ -101,11 +101,20 @@ ru:
         heading: "Идентификатор в Диаспоре"
       donate: "Пожертвовать"
       handle_explanation: "Это ваш идентификатор в Диаспоре. Как и адрес электронной почты, вы можете дать его людям для связи с вами."
-      keep_us_running: "Помогите %{pod} работать быстро, купите нашим серверам месячную дозу кофе!"
+      help: 
+        did_you: "Вы:"
+        feature_suggestion: "... хотите предложить что-то новое (%{link})?"
+        find_a_bug: "... нашли ошибку (%{link})?"
+        have_a_question: "... хотите задать вопрос (%{link})?"
+        here_to_help: "Сообщество Диаспоры готово помочь!"
+        more_support: "За дополнительной поддержкой обращайтесь в %{link}."
+        need_help: "Нужна помощь?"
+        tutorials: "Справочные пособия (на английском): %{link}."
+      keep_us_running: "Помогите %{pod} работать быстро — купите нашим серверам дозу кофе, сделав ежемесячное пожертвование!"
       no_contacts: "Контакты отсутствуют"
       no_tags: "+ Найти метку"
       people_sharing_with_you: "Люди делятся с вами"
-      post_a_message: "опубликовать сообщение >>"
+      post_a_message: "новая запись >>"
       services: 
         content: "Вы можете подключить к Диаспоре следующие службы:"
         heading: "Подключенные службы"
@@ -154,7 +163,7 @@ ru:
     explanation: "Пишите в Диаспору с любой страницы с помощью %{link}."
     explanation_link_text: "этой закладки"
     heading: "Букмарклет Диаспоры"
-    post_something: "Сообщите что-нибудь диаспоре"
+    post_something: "Сообщите что-нибудь Диаспоре"
     post_success: "Опубликовано! Закрытие!"
   cancel: "Отмена"
   comments: 
@@ -174,7 +183,7 @@ ru:
       featured_users: "Рекомендуемые пользователи"
     few: "%{count} контакт[-а, -ов]"
     index: 
-      add_a_new_aspect: "Добавить аспект"
+      add_a_new_aspect: "Новый аспект"
       all_contacts: "Все контакты"
       edit_aspect: "Редактировать аспект %{name}"
       many_people_are_you_sure: "Вы уверены, что хотите начать приватную беседу с числом контактов более %{suggested_limit}? Возможно, лучше просто написать сообщение в этот аспект."
@@ -200,10 +209,10 @@ ru:
       success: "Разговор успешно удален"
     helper: 
       new_messages: 
-        few: "%{count} новoe[-ых] сообщениe[-ий]"
-        many: "%{count} новoe[-ых] сообщениe[-ий]"
+        few: "Новые сообщения: %{count}"
+        many: "Новые сообщения: %{count}"
         one: "1 новое сообщение"
-        other: "%{count} новoe[-ых] сообщениe[-ий]"
+        other: "Новые сообщения: %{count}"
         two: "%{count} новых сообщений"
         zero: "Новых сообщений нет"
     index: 
@@ -319,17 +328,17 @@ ru:
         two: "%{count} понравилось"
         zero: "не понравилось никому"
   limited: "Ограниченная"
-  more: "Подробнее"
+  more: "Еще"
   next: "далее"
   no_results: "Результатов не найдено"
   notifications: 
     also_commented: 
-      few: "%{actors} прокомментировали %{post_author}'s %{post_link}."
-      many: "%{actors} прокомментировали %{post_author}'s %{post_link}."
-      one: "%{actors} прокомментировали %{post_author}'s %{post_link}."
-      other: "%{actors} также прокомментировал %{post_author}'s %{post_link}."
-      two: "%{actors} также прокомментировали запись %{post_author} %{post_link}."
-      zero: "%{actors} также прокомментировал %{post_author}'s %{post_link}."
+      few: "%{actors} также прокомментировали %{post_link} %{post_author}."
+      many: "%{actors} также прокомментировали %{post_link} %{post_author}."
+      one: "%{actors} также прокомментировал(а) %{post_link} %{post_author}."
+      other: "%{actors} также прокомментировали %{post_link} %{post_author}."
+      two: "%{actors} также прокомментировали %{post_link} %{post_author}."
+      zero: "%{actors} также прокомментировали %{post_link} %{post_author}."
     also_commented_deleted: 
       few: "%{actors} комментировали ваше удаленое сообщение."
       many: "%{actors} комментировали ваше удаленое сообщение."
@@ -338,18 +347,18 @@ ru:
       two: "%{actors} комментировали удаленое сообщение."
       zero: "%{actors} комментировали ваше удаленое сообщение."
     comment_on_post: 
-      few: "%{actors} прокомментировал(а) ваше %{post_link}."
-      many: "%{actors} прокомментировал(а) ваше %{post_link}."
-      one: "%{actors} прокомментировал(а) ваше %{post_link}."
-      other: "%{actors} прокомментировал(а) ваше %{post_link}."
-      two: "%{actors} прокомментировали ваш %{post_link}."
-      zero: "%{actors} прокомментировал(а) ваше %{post_link}."
+      few: "%{actors} прокомментировали вашу %{post_link}."
+      many: "%{actors} прокомментировали вашу %{post_link}."
+      one: "%{actors} прокомментировал(а) вашу %{post_link}."
+      other: "%{actors} прокомментировали вашу %{post_link}."
+      two: "%{actors} прокомментировали вашу %{post_link}."
+      zero: "%{actors} прокомментировали вашу %{post_link}."
     helper: 
       new_notifications: 
-        few: "%{count} новое[-ых] извещение[-ий]"
-        many: "%{count} новое[-ых] извещение[-ий]"
+        few: "Новые извещения: %{count}"
+        many: "Новые извещения: %{count}"
         one: "1 новое извещение"
-        other: "%{count} новое[-ых] извещение[-ий]"
+        other: "Новые извещения: %{count}"
         two: "%{count} новых уведомлений"
         zero: "Новых извещений нет"
     index: 
@@ -364,25 +373,25 @@ ru:
       mark_all_as_read: "Отметить все как прочитанные"
       notifications: "Уведомления"
     liked: 
-      few: "%{actors} понравилось ваш %{post_link}."
-      many: "%{actors} понравилось ваш %{post_link}."
-      one: "%{actors} понравилось ваш %{post_link}."
-      other: "%{actors} понравилось ваш %{post_link}."
-      two: "%{actors} понравилась ваша запись %{post_link}."
-      zero: "%{actors} понравилось ваш %{post_link}."
+      few: "%{actors} понравилась ваша %{post_link}."
+      many: "%{actors} понравилась ваша %{post_link}."
+      one: "%{actors} понравилась ваша %{post_link}."
+      other: "%{actors} понравилась ваша %{post_link}."
+      two: "%{actors} понравилась ваша %{post_link}."
+      zero: "%{actors} понравилась ваша %{post_link}."
     liked_post_deleted: 
-      few: "%{actors} нравилось ваше удаленое сообщение."
-      many: "%{actors} нравилось ваше удаленое сообщение."
-      one: "%{actors} нравилось ваше удаленое сообщение."
-      other: "%{actors} нравилось ваше удаленое сообщение."
-      two: "%{actors} нравилoсь ваше удаленноe сообщение."
-      zero: "%{actors} нравилось ваше удаленое сообщение."
+      few: "%{actors} нравилась ваша удаленая запись."
+      many: "%{actors} нравилась ваша удаленая запись."
+      one: "%{actors} нравилась ваша удаленая запись."
+      other: "%{actors} нравилась ваша удаленая запись."
+      two: "%{actors} нравилась ваша удаленная запись."
+      zero: "%{actors} нравилась ваша удаленая запись."
     mentioned: 
       few: "%{actors} упомянули вас в %{post_link}."
       many: "%{actors} упомянули вас в %{post_link}."
-      one: "%{actors} упомянули вас в %{post_link}."
+      one: "%{actors} упомянул(а) вас в %{post_link}."
       other: "%{actors} упомянули вас в %{post_link}."
-      two: "%{actors} упомянул[и] вас в %{post_link}."
+      two: "%{actors} упомянули вас в %{post_link}."
       zero: "%{actors} упомянули вас в %{post_link}."
     mentioned_deleted: 
       few: "%{actors} упомянули вас в удаленом сообщение."
@@ -391,7 +400,7 @@ ru:
       other: "%{actors} упомянули вас в удаленом сообщение."
       two: "%{actors} упомянули вас в удаленной записи."
       zero: "%{actors} упомянули вас в удаленом сообщение."
-    post: "сообщение"
+    post: "запись"
     private_message: 
       few: "%{actors} послали вам сообщение."
       many: "%{actors} послали вам сообщение."
@@ -400,16 +409,16 @@ ru:
       two: "%{actors} отправили вам сообщение."
       zero: "%{actors} послали Вам сообщение."
     reshared: 
-      few: "%{actors} поделились вашей записью %{post_link}."
-      many: "%{actors} поделились вашей записью %{post_link}."
-      one: "%{actors} поделился вашей записью %{post_link}."
-      other: "%{actors} поделились вашей записью %{post_link}."
-      two: "%{actors} поделились вашей записью %{post_link}."
-      zero: "%{actors} поделились вашей записью %{post_link}."
+      few: "%{actors} поделились вашей %{post_link}."
+      many: "%{actors} поделились вашей %{post_link}."
+      one: "%{actors} поделился(лась) вашей %{post_link}."
+      other: "%{actors} поделились вашей %{post_link}."
+      two: "%{actors} поделились вашей %{post_link}."
+      zero: "%{actors} поделились вашей %{post_link}."
     reshared_post_deleted: 
       few: "%{actors} поделились вашей удаленной записью."
       many: "%{actors} поделились вашей удаленной записью."
-      one: "%{actors} поделился вашей удаленной записью."
+      one: "%{actors} поделился(лась) вашей удаленной записью."
       other: "%{actors} поделились вашей удаленной записью."
       two: "%{actors} поделились вашей удаленной записью."
       zero: "%{actors} поделились вашей удаленной записью."
@@ -435,11 +444,11 @@ ru:
       view_post: "Посмотреть запись >"
     mentioned: 
       mentioned: "упомянул вас в сообщении:"
-      subject: "% {name} упомянул вас в диаспоре*"
+      subject: "%{name} упомянул вас в диаспоре*"
     private_message: 
       reply_to_or_view: "Ответить или посмотреть эту беседу >"
     reshared: 
-      reshared: "%{name} только что поделился вашей записью"
+      reshared: "%{name} только что поделился(лась) вашей записью"
       view_post: "Посмотреть запись >"
     single_admin: 
       admin: "Ваш администратор Диаспоры"
@@ -466,8 +475,8 @@ ru:
     index: 
       couldnt_find_them_send_invite: "Не можете их найти? Отправьте им приглашение!"
       no_one_found: "...не удалось никого найти."
-      no_results: "Ой! Чтобы что-то найти, надо что-то искать."
-      results_for: "результат поиска для"
+      no_results: "Введите текст для поиска."
+      results_for: "результаты поиска для"
     many: "%{count} человек[-a]"
     one: "1 человек"
     other: "%{count} человек[-a]"
@@ -492,7 +501,7 @@ ru:
       mention: "Упоминание"
       message: "Сообщение"
       not_connected: "Вы не делитесь с этим человеком"
-      recent_posts: "Последние сообщения"
+      recent_posts: "Последние записи"
       recent_public_posts: "Последние Публичные Посты"
       return_to_aspects: "Вернуться на страницу аспектов"
       see_all: "Показать все"
@@ -749,7 +758,7 @@ ru:
       following: "Вы следите за меткой #%{tag}"
       nobody_talking: "Никто пока не говорил о %{tag}."
       people_tagged_with: "Люди с меткой %{tag}"
-      posts_tagged_with: "Сообщения с меткой #%{tag}"
+      posts_tagged_with: "Записи с меткой #%{tag}"
       stop_following: "Не следить за меткой #%{tag}"
   tokens: 
     show: 
@@ -778,7 +787,7 @@ ru:
       change_language: "Изменить язык"
       change_password: "Изменить пароль"
       close_account: "Закрыть аккаунт"
-      comment_on_post: "... кто-то прокомментировал ваше сообщение?"
+      comment_on_post: "... кто-то прокомментировал вашу запись?"
       current_password: "Текущий пароль"
       download_photos: "Скачать мои фотографии"
       download_xml: "Скачать мою информацию в xml"
