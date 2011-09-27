@@ -195,12 +195,19 @@ body {
     padding: 20px;
     text-shadow: 0 -2px 0 black; } }
 
-.time, .via {
+.info {
   color: #ccc;
   font: {
     size: smaller;
-    weight: bold; };
+  };
 }
+
+.via {
+  font: {
+    weight: bold;
+  }
+}
+
 .via {
   a {
     color: #ccc; } }
@@ -257,6 +264,8 @@ header {
   position: fixed;
   z-index: 10;
   top: 0;
+
+  -webkit-transform: translate3d(0,0,0);
 
   border: {
     bottom: 1px solid #222;
@@ -355,7 +364,18 @@ footer {
 .floater {
   float: right; }
 
+.stream_element {
+  -webkit-transform: translate3d(0,0,0);
+}
+
 .stream_element .photo_attachments {
+  background: {
+    color: #999;
+  }
+  border: {
+    bottom: 1px solid #ccc;
+  }
+
   img.big-stream-photo {
     @include border-radius(3px, 3px, 0, 0);
     width: 100%;
@@ -422,6 +442,9 @@ footer {
   #message_container {
     background-color: #fff;
     padding: 5px;
+    border: {
+      bottom: 1px solid #ccc;
+    }
   }
 
   textarea {
@@ -448,12 +471,10 @@ form {
 }
 
 .btn,
-select,
 input[type=submit] {
   @include border-radius(3px);
   background-color: #ddd;
   color: #666;
-  text-size: larger;
   font-weight: bold;
   padding: 10px;
   border: 1px solid #ccc;
@@ -464,6 +485,11 @@ input[type=submit] {
     background-color: green;
     border: 1px solid #888;
   }
+}
+
+select {
+  font-size: larger;
+    padding: 7px;
 }
 
 .new_comment {
@@ -500,4 +526,18 @@ input[type=submit] {
       color: #eee;
     }
   }
+}
+
+.additional_photo_count {
+  @include opacity(0.5);
+
+  position: absolute;
+  padding: 3px 8px;
+  font-weight: bold;
+  background: #fff;
+  border: 1px solid #222;
+  border-bottom: 2px solid #111;
+  bottom: 10px;
+  right: 10px;
+  line-height: 16px;
 }
