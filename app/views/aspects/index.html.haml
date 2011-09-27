@@ -26,7 +26,12 @@
 
 .span-13.append-1
   #aspect_stream_container.stream_container
-    = render 'aspects/aspect_stream', :stream => @stream
+
+    = render 'shared/publisher', :selected_aspects => @stream.aspects, :aspect_ids => @stream.aspect_ids, :for_all_aspects => @stream.for_all_aspects?, :aspect => @stream.aspect
+    #main_stream.stream{:data => {:guids => @stream.aspect_ids.join(',')}}
+      #pagination
+        =link_to(t('more'), next_page_path(:ajax_stream => true), :class => 'paginate')
+    /= render 'aspects/aspect_stream', :stream => @stream
 
 .span-5.rightBar.last
   = render 'aspects/selected_contacts', :stream => @stream
