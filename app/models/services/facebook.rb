@@ -9,11 +9,8 @@ class Services::Facebook < Service
     Rails.logger.debug("event=post_to_service type=facebook sender_id=#{self.user_id}")
     message = public_message(post, url)
     begin
-      if /https?:\/\/(.+) / =~ message
-        link = /https?:\/\/(.+) /.match(message)[0]
-        Faraday.post("https://graph.facebook.com/me/feed", {:message => message, :link => link, :access_token => self.access_token}.to_param)
-      elsif /https?:\/\/(.+)$/ =~ message
-        link = /https?:\/\/(.+)$/.match(message)[0]
+      if /https?:\/\/(\S+)/ =~ message
+        link = /https?:\/\/(\S+)/.match(message)[0]
         Faraday.post("https://graph.facebook.com/me/feed", {:message => message, :link => link, :access_token => self.access_token}.to_param)
       else
         Faraday.post("https://graph.facebook.com/me/feed", {:message => message, :access_token => self.access_token}.to_param)
