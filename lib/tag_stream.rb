@@ -14,31 +14,22 @@ class TagStream
   # @return [void]
   def initialize(user, opts={})
     @tags = user.followed_tags
-    @tag_string = @tags.join(', '){|tag| tag.name}.to_sym
+    @tag_string = @tags.join(', '){|tag| tag.name}
     @user = user
     @max_time = opts[:max_time]
     @order = opts[:order]
   end
 
-  # Filters aspects given the stream's aspect ids on initialization and the user.
-  # Will disclude aspects from inputted aspect ids if user is not associated with their
-  # target aspects.
-  #
-  # @return [ActiveRecord::Association<Aspect>] Filtered aspects given the stream's user
-  def aspects
-    [@tag_string]
+  def link(opts={})
+    Rails.application.routes.url_helpers.tag_followings_path(opts)
   end
 
-  # Maps ids into an array from #aspects
-  #
-  # @return [Array<Integer>] Aspect ids
-  def aspect_ids
-    [] 
+  def title
+    "Tag Stream"
   end
 
   # @return [ActiveRecord::Association<Post>] AR association of posts
   def posts
-    # NOTE(this should be something like Post.all_for_stream(@user, aspect_ids, {}) that calls visible_posts
     @posts ||= StatusMessage.tagged_with([@tag_string], :any => true)
              
           
@@ -49,18 +40,24 @@ class TagStream
     @people ||= posts.map{|p| p.author}.uniq 
   end
 
-  # The first aspect in #aspects, given the stream is not for all aspects, or #aspects size is 1
-  # @note aspects.first is used for mobile. NOTE(this is a hack and should be fixed)
-  # @return [Aspect,Symbol]
-  def aspect
-   @tags_string
+  def for_all_aspects?
+    false
+  end
+  
+  def aspects
+    []
   end
 
-  # Determine whether or not the stream is displaying across
-  # all of the user's aspects.
-  #
-  # @return [Boolean]
-  def for_all_aspects?
-    true
+  def aspect
+    nil
   end
+
+  def contacts_title
+    "People who like #{@tag_string}"
+  end
+  
+  def aspect_ids
+    []
+  end
+
 end

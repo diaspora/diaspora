@@ -54,6 +54,10 @@ class AspectStream
     @people ||= Person.all_from_aspects(aspect_ids, @user).includes(:profile)
   end
 
+  def link(opts={})
+    Rails.application.routes.url_helpers.aspects_path(opts.merge(:a_ids => aspect_ids))
+  end
+
   # The first aspect in #aspects, given the stream is not for all aspects, or #aspects size is 1
   # @note aspects.first is used for mobile. NOTE(this is a hack and should be fixed)
   # @return [Aspect,Symbol]
@@ -67,11 +71,27 @@ class AspectStream
     for_all_aspects?
   end
 
+  def title
+    if self.for_all_aspects?
+      I18n.t('.stream')
+    else 
+      self.aspects.to_sentence
+    end    
+  end
+
   # Determine whether or not the stream is displaying across
   # all of the user's aspects.
   #
   # @return [Boolean]
   def for_all_aspects?
     @all_aspects ||= aspect_ids.length == @user.aspects.size
+  end
+
+  def contacts_title
+    if self.for_all_aspects? || self.aspect_ids.size > 1
+      I18n.t('_contacts')
+    else
+     "#{self.aspect.name}(#{self.people.size})"
+    end
   end
 end

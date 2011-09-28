@@ -6,7 +6,7 @@
   %ul.left_nav
     %li
       %div.root_element
-        = t('aspects.index.tags_following')
+        =link_to t('aspects.index.tags_following'), tag_followings_path
   
       %ul.sub_nav
         - if tags.size > 0

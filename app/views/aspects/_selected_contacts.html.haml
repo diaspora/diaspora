@@ -1,12 +1,7 @@
 #selected_aspect_contacts.section
   .title.no_icon
     %h5
-      - if @stream.for_all_aspects? || @stream.aspect_ids.size > 1
-        = "#{t('_contacts')}"
-      - else
-        = @stream.aspect.name
-      = "(#{@stream.people.size})"
-
+      = @stream.contacts_title
 
   .content
     - if @stream.people.size > 0
