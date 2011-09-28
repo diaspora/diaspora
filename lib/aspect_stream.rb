@@ -94,4 +94,12 @@ class AspectStream
      "#{self.aspect.name}(#{self.people.size})"
     end
   end
+
+  def contacts_link
+    if for_all_aspects? || aspect_ids.size > 1
+      Rails.application.routes.url_helpers.contacts_path
+    else
+      Rails.application.routes.url_helpers.contacts_path(:a_id => @stream.aspect.id)
+    end
+  end
 end

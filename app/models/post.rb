@@ -34,6 +34,10 @@ class Post < ActiveRecord::Base
 
   scope :all_public, where(:public => true, :pending => false)
 
+  def self.for_a_stream(max_time, order)
+    where("#{order} < ?", max_time).order("#{order} desc").includes({:author => :profile}, :mentions).limit(15)
+  end
+
   def diaspora_handle
     read_attribute(:diaspora_handle) || self.author.diaspora_handle
   end

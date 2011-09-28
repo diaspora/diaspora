@@ -3,10 +3,15 @@ class TagFollowingsController < ApplicationController
   before_filter :authenticate_user!
 
   def index
-    @stream = TagStream.new(current_user)
+    @stream = TagStream.new(current_user, :max_time => params[:max_time])
 
-    render 'aspects/index', :locals => {:posts => @stream.posts}
+    if params[:only_posts]
+      render :partial => 'shared/stream', :locals => {:posts => @stream.posts}
+    else
+      render 'aspects/index'
+    end
   end
+
   # POST /tag_followings
   # POST /tag_followings.xml
   def create

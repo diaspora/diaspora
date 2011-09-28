@@ -12,6 +12,8 @@ module StreamHelper
       person_path(@person, :max_time => @posts.last.created_at.to_i)
     elsif controller.instance_of?(TagFollowingsController) 
       tag_followings_path(:max_time => time_for_scroll(opts[:ajax_stream], @stream))
+    elsif controller.instance_of?(MentionsController) 
+      mentions_path(:max_time => time_for_scroll(opts[:ajax_stream], @stream))
     elsif controller.instance_of?(AspectsController)
       aspects_path(:max_time => time_for_scroll(opts[:ajax_stream], @stream), :a_ids => @stream.aspect_ids)
     else
