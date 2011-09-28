@@ -11,8 +11,8 @@ class String
     # capitalize first and last words
     x.first.to_s.smart_capitalize!
     x.last.to_s.smart_capitalize!
-    # small words after colons are capitalized
-    x.join(" ").gsub(/:\s?(\W*#{small_words.join("|")}\W*)\s/) { ": #{$1.smart_capitalize} " }
+    # small words after colons or periods are capitalized
+    x.join(" ").gsub(/(:|\.)\s?(\W*#{small_words.join("|")}\W*)\s/) { "#{$1} #{$2.smart_capitalize} " }
   end
 
   def titlecase!
