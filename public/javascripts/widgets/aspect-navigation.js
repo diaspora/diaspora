@@ -54,6 +54,8 @@
     this.perform = function() {
       if (self.noneSelected()) {
         self.abortAjax();
+        Diaspora.page.stream.empty();
+        Diaspora.page.stream.setHeaderTitle(Diaspora.I18n.t('aspect_navigation.no_aspects'));
         self.fadeIn();
       } else {
         self.performAjax();
