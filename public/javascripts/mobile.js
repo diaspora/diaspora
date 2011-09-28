@@ -188,4 +188,9 @@ $(document).ready(function(){
     }, 'html');
   });
 
+  $("#submit_new_message").bind("tap click", function(evt){
+    evt.preventDefault();
+    $("#new_status_message").submit();
+  });
+
 });

@@ -8,16 +8,15 @@
       background-color: #eee;
     }
 
+- content_for :header_action do
+  = submit_tag t('.share'), :class => 'action', :id => "submit_new_message"
 
 = form_for StatusMessage.new, {:data => {:ajax => false}} do |status|
   #message_container
     = status.text_area :text, :placeholder => t('.whats_on_your_mind'), :style => "width:300px", :rows => 4, :autofocus => "autofocus"
 
   %fieldset
-    %div{:style => 'float:right;'}
-      = status.submit t('.share'), :class => 'action'
-
-    %select{:id => "aspect_ids_", :name => "aspect_ids[]"}
+    %select{:id => "aspect_ids_", :name => "aspect_ids[]", :style => "float:right;"}
       %option{:value => 'public'}
         = t('public')
 
@@ -27,13 +26,5 @@
       - current_user.aspects.each do |aspect|
         %option{:value => aspect.id}
           = "· #{aspect.name}"
-
-    /- unless current_user.services.empty?
-    /  %div{:data => {:role => 'fieldcontain'}}
-    /    %label{:for => 'services', :class => 'select'}
-    /    - current_user.services.each do |service|
-    /      %input{:type => 'checkbox', :name => "services[]", :id => "#{service.provider}", :class => 'custom', :value => "#{service.provider}"}
-    /      %label{:for => "#{service.provider}"}
-    /        = "#{service.provider}"
 
 

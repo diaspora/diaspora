@@ -15,7 +15,7 @@ a {
 body {
   background: #555555;
   max-width: 100%;
-  margin-top: 55px;
+  margin-top: 45px;
 }
 
 .message {
@@ -28,6 +28,7 @@ body {
 }
 
 .stream {
+  display: inline-block;
   text-align: left;
   max-width: 700px;
 }
@@ -222,7 +223,6 @@ body {
 
 #author_info.profile {
   box-shadow: inset 0 -1px 3px #111;
-  margin-top: -10px;
   text-align: left;
 
   h2 {
@@ -299,6 +299,7 @@ footer {
 
   > a,
   .show_comments {
+    @include transition(color);
     color: #999;
     font-weight: bold;
   }
@@ -363,7 +364,6 @@ footer {
       }
     }
   }
-
 }
 
 .floater {
@@ -441,10 +441,11 @@ footer {
   }
 
   #message_container {
+    @include box-shadow(0, 2px, 3px, #999);
     background-color: #fff;
     padding: 5px;
     border: {
-      bottom: 1px solid #ccc;
+      bottom: 1px solid #999;
     }
   }
 
@@ -542,4 +543,19 @@ select {
   bottom: 10px;
   right: 10px;
   line-height: 16px;
+}
+
+header {
+  input {
+    position: absolute;
+    top: 8px;
+    right: 15px;
+    padding: 5px !important;
+    min-width: 75px !important;
+    border: 1px solid #444 !important;
+  }
+}
+
+.new_status_message {
+  min-height: 300px;
 }
