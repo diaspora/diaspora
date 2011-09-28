@@ -32,9 +32,7 @@
             - else
               = t('limited')
 
-      - if post.activity_streams?
-        = link_to image_tag(post.image_url, 'data-small-photo' => post.image_url, 'data-full-photo' => post.image_url, :class => 'stream-photo'), post.object_url, :class => "stream-photo-link"
-      - else
+      - if !post.activity_streams?
         = render 'status_messages/status_message', :post => post, :photos => post.photos
   - else
     = t('.deleted')
