@@ -210,6 +210,14 @@ en:
       comment: "Comment"
       commenting: "Commenting..."
 
+  reactions:
+    zero: "0 reactions"
+    one: "1 reaction"
+    two: "%{count} reactions"
+    few: "%{count} reactions"
+    many: "%{count} reactions"
+    other: "%{count} reactions"
+
   contacts:
     zero: "no contacts"
     one: "1 contact"
@@ -331,7 +339,7 @@ en:
     application:
       powered_by: "POWERED BY DIASPORA*"
       whats_new: "what's new?"
-      toggle: "toggle mobile site"
+      toggle: "toggle mobile"
       public_feed: "Public Diaspora Feed for %{name}"
       your_aspects: "your aspects"
 
@@ -653,6 +661,7 @@ en:
         other: "%{count} new requests!"
   reshares:
     reshare:
+      reshared_via: "reshared via"
       reshare_original: "Reshare original"
       reshare:
         zero: "Reshare"

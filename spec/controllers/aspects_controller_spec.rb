@@ -154,18 +154,6 @@ describe AspectsController do
       end
     end
 
-    context "mobile" do
-      it "renders a share button when you don't pass aspect IDs" do
-        get :index, :format => :mobile
-        response.body.should =~ /#{Regexp.escape('id="status_message_submit"')}/
-      end
-      
-      it "renders a share button when you pass aspect IDs" do
-        get :index, :a_ids => [@alices_aspect_1], :format => :mobile
-        response.body.should =~ /#{Regexp.escape('id="status_message_submit"')}/
-      end
-    end
-
     describe 'performance', :performance => true do
       before do
         require 'benchmark'
@@ -357,7 +345,6 @@ describe AspectsController do
     it 'should not 500' do
       get :index, :format => :mobile
       response.should be_success
-
     end
   end
 end

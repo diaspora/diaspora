@@ -17,7 +17,7 @@ class AspectsController < ApplicationController
   def index
     aspect_ids = (params[:a_ids] ? params[:a_ids] : [])
     @stream = AspectStream.new(current_user, aspect_ids,
-                               :order => session[:sort_order],
+                               :order => sort_order,
                                :max_time => params[:max_time].to_i)
 
     if params[:only_posts]
@@ -146,6 +146,10 @@ class AspectsController < ApplicationController
     else
       session[:sort_order] = (session[:sort_order] == 'created_at') ? 'created_at' : 'updated_at'
     end
+  end
+
+  def sort_order
+    is_mobile_device? ? 'created_at' : session[:sort_order]
   end
 
 end
