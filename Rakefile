@@ -5,6 +5,7 @@ require "stringex"
 ## -- Rsync Deploy config -- ##
 # Be sure your public key is listed in your server's ~/.ssh/authorized_keys file
 ssh_user       = "user@domain.com"
+ssh_port       = "22"
 document_root  = "~/website.com/"
 deploy_default = "rsync"
 
@@ -219,7 +220,7 @@ end
 desc "Deploy website via rsync"
 task :rsync do
   puts "## Deploying website via Rsync"
-  ok_failed system("rsync -avz --delete #{public_dir}/ #{ssh_user}:#{document_root}")
+  ok_failed system("rsync -avze 'ssh -p #{ssh_port}' --delete #{public_dir}/ #{ssh_user}:#{document_root}")
 end
 
 desc "deploy public directory to github pages"
@@ -228,6 +229,7 @@ multitask :push do
   (Dir["#{deploy_dir}/*"]).each { |f| rm_rf(f) }
   Rake::Task[:copydot].invoke(public_dir, deploy_dir)
   puts "\n## copying #{public_dir} to #{deploy_dir}"
+  system "cp -R #{public_dir}/* #{deploy_dir}"
   cd "#{deploy_dir}" do
     system "git add ."
     system "git add -u"
@@ -235,7 +237,7 @@ multitask :push do
     message = "Site updated at #{Time.now.utc}"
     system "git commit -m \"#{message}\""
     puts "\n## Pushing generated #{deploy_dir} website"
-    system "git push origin #{deploy_branch}"
+    system "git push origin #{deploy_branch} --force"
     puts "\n## Github Pages deploy complete"
   end
 end
@@ -275,25 +277,54 @@ task :set_root_dir, :dir do |t, args|
   end
 end
 
-desc "Setup _deploy folder and deploy branch"
-task :config_deploy, :branch do |t, args|
-  puts "!! Please provide a deploy branch, eg. rake init_deploy[gh-pages] !!" unless args.branch
-  puts "## Creating a clean #{args.branch} branch in ./#{deploy_dir} for Github pages deployment"
+desc "Set up _deploy folder and deploy branch for Github Pages deployment"
+task :setup_github_pages do
+  repo_url = get_stdin("Enter the read/write url for your repository: ")
+  user = repo_url.match(/:([^\/]+)/)[1]
+  branch = (repo_url.match(/\/\w+.github.com/).nil?) ? 'gh-pages' : 'master'
+  project = (branch == 'gh-pages') ? repo_url.match(/\/([^\.]+)/)[1] : ''
+  unless `git remote -v`.match(/origin.+?octopress.git/).nil?
+    # If octopress is still the origin remote (from cloning) rename it to octopress
+    system "git remote rename origin octopress"
+    if branch == 'master'
+      # If this is a user/organization pages repository, add the correct origin remote
+      # and checkout the source branch for committing changes to the blog source.
+      system "git remote add origin #{repo_url}"
+      puts "Added remote #{repo_url} as origin"
+      system "git config branch.master.remote origin"
+      puts "Set origin as default remote"
+      system "git branch -m master source"
+      puts "Master branch renamed to 'source' for committing your blog source files"
+    else
+      unless !public_dir.match("#{project}").nil?
+        system "rake set_root_dir[#{project}]"
+      end
+    end
+  end
+  url = "http://#{user}.github.com"
+  url += "/#{project}" unless project == ''
+  jekyll_config = IO.read('_config.yml')
+  jekyll_config.sub!(/^url:.*$/, "url: #{url}")
+  File.open('_config.yml', 'w') do |f|
+    f.write jekyll_config
+  end
+  rm_rf deploy_dir
+  mkdir deploy_dir
   cd "#{deploy_dir}" do
-    system "git symbolic-ref HEAD refs/heads/#{args.branch}"
-    system "rm .git/index"
-    system "git clean -fdx"
+    system "git init"
     system "echo 'My Octopress Page is coming soon &hellip;' > index.html"
     system "git add ."
     system "git commit -m \"Octopress init\""
+    system "git branch -m gh-pages" unless branch == 'master'
+    system "git remote add origin #{repo_url}"
     rakefile = IO.read(__FILE__)
-    rakefile.sub!(/deploy_branch(\s*)=(\s*)(["'])[\w-]*["']/, "deploy_branch\\1=\\2\\3#{args.branch}\\3")
+    rakefile.sub!(/deploy_branch(\s*)=(\s*)(["'])[\w-]*["']/, "deploy_branch\\1=\\2\\3#{branch}\\3")
     rakefile.sub!(/deploy_default(\s*)=(\s*)(["'])[\w-]*["']/, "deploy_default\\1=\\2\\3push\\3")
     File.open(__FILE__, 'w') do |f|
       f.write rakefile
     end
   end
-  puts "## Deployment configured. Now you can deploy to the #{args.branch} branch with `rake deploy` ##"
+  puts "\n---\n## Now you can deploy to #{url} with `rake deploy` ##"
 end
 
 def ok_failed(condition)
