@@ -160,7 +160,7 @@ ca:
       friends: "Amistats"
     index:
       donate: "Doneu"
-      keep_us_running: "Mantingueu $(pod} en marxa i compreu-li als nostres servidors la seva dosi de cafeïna amb una donació mensual!"
+      keep_us_running: "Mantingueu %{pod} en marxa i compreu-li als nostres servidors la seva dosi de cafeïna amb una donació mensual!"
       your_aspects: "Els vostres aspectes"
       tags_following: "Etiquetes que seguiu"
       no_tags: "+ Cerqueu una etiqueta per seguir-la"
@@ -173,9 +173,10 @@ ca:
         need_help: "Necessiteu ajuda?"
         here_to_help: "La comunitat del Diàspora és aquí per ajudar-vos!"
         did_you: "Potser…"
+        # Aquests missatges estan malament, però de moment, així es queda.
         have_a_question: "… teniu alguna %{link}"
         find_a_bug: "… heu trobat una %{link}"
-        feature_suggestion: "teniu alguna proposta de %{link}"
+        feature_suggestion: "…teniu alguna proposta de %{link}"
         tutorials: "%{link}: Tutorials, guies i notícies mantinguts per la comunitat."
         satisfaction: "%{link}: Suport de la comunitat"
         email_feedback: "%{link} els vostres comentaris, si ho preferiu"
