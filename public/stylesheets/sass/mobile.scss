@@ -265,8 +265,6 @@ header {
   z-index: 10;
   top: 0;
 
-  -webkit-transform: translate3d(0,0,0);
-
   border: {
     bottom: 1px solid #222;
   }
@@ -317,7 +315,7 @@ footer {
   a.show_comments {
     color: #999;
 
-    &.active {
+    &.active:not(.bottom_collapse) {
       color: #444;
       padding: {
         right: 14px;
@@ -328,6 +326,13 @@ footer {
         repeat: no-repeat;
       }
     }
+  }
+
+  .show_comments.bottom_collapse {
+    position: absolute;
+    right: 10px;
+    top: 14px;
+    padding: 5px 10px;
   }
 
   #bottom_bar_tabs {
@@ -363,10 +368,6 @@ footer {
 
 .floater {
   float: right; }
-
-.stream_element {
-  -webkit-transform: translate3d(0,0,0);
-}
 
 .stream_element .photo_attachments {
   background: {
@@ -507,6 +508,7 @@ select {
 }
 
 .comment.add_comment_bottom_link_container {
+  position: relative;
   text-align: center;
   padding: 25px !important;
 }

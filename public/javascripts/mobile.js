@@ -52,27 +52,37 @@ $(document).ready(function(){
     });
   });
 
-  $("a.show_comments").bind("tap click", function(evt){
+  $(".stream").delegate(".show_comments", "tap click", function(evt){
     evt.preventDefault();
     var link = $(this),
         parent = link.closest(".bottom_bar").first(),
-        commentsContainer = parent.find(".comment_container");
+        commentsContainer = function(){ return parent.find(".comment_container").first(); }
+        existingCommentsContainer = commentsContainer();
 
     if( link.hasClass('active') ) {
-      commentsContainer.first().hide();
-      link.removeClass('active');
+      existingCommentsContainer.hide();
+      if(!link.hasClass('bottom_collapse')){
+        link.removeClass('active');
+      } else {
+        parent.find(".show_comments").first().removeClass('active');
+      }
 
-    } else if( commentsContainer.length > 0) {
-      commentsContainer.first().show();
+      $('html,body').scrollTop(parent.offset().top - parent.closest(".stream_element").height() - 8);
 
-      if(!commentsContainer.hasClass('noComments')) {
+    } else if( existingCommentsContainer.length > 0) {
+
+      if(!existingCommentsContainer.hasClass('noComments')) {
         $.ajax({
           url: link.attr('href'),
           success: function(data){
             parent.append($(data).find('.comments_container').html());
             link.addClass('active');
+            existingCommentsContainer.show();
+            scrollToOffset(parent, commentsContainer());
           }
         });
+      } else {
+        existingCommentsContainer.show();
       }
 
       link.addClass('active');
@@ -83,10 +93,22 @@ $(document).ready(function(){
         success: function(data){
           parent.append(data);
           link.addClass('active');
+          scrollToOffset(parent, commentsContainer());
         }
       });
     }
+
   });
+
+  var scrollToOffset = function(parent, commentsContainer){
+    var commentCount = commentsContainer.find("li.comment").length;
+    if( commentCount > 3 ) {
+      var lastComment = commentsContainer.find("li:nth-child("+(commentCount-4)+")");
+      $('html,body').animate({
+        scrollTop: lastComment.offset().top
+      }, 1000);
+    }
+  };
 
   $(".stream").delegate("a.comment_action", "tap click", function(evt){
     evt.preventDefault();
@@ -94,7 +116,7 @@ $(document).ready(function(){
 
     if(link.hasClass('inactive')) {
       var parent = link.closest(".bottom_bar").first(),
-          container = link.closest('.bottom_bar').find('.add_comment_bottom_link_container');
+          container = link.closest('.bottom_bar').find('.add_comment_bottom_link_container').first();
 
       $.ajax({
         url: link.attr('href'),
@@ -111,12 +133,9 @@ $(document).ready(function(){
             link.removeClass('inactive');
           }
 
-          container.first().hide();
-
+          container.hide();
           parent.append(data);
-
-          textarea.focus();
-          new MBP.autogrow(textarea, lineHeight);
+          new MBP.autogrow(textarea);
         }
       });
     }
@@ -145,7 +164,7 @@ $(document).ready(function(){
       var bottomBar = form.closest('.bottom_bar').first(),
           container = bottomBar.find('.add_comment_bottom_link_container'),
           commentActionLink = bottomBar.find("a.comment_action").first();
-          reactionLink = bottomBar.find(".show_comments"),
+          reactionLink = bottomBar.find("a.show_comments").first(),
           commentCount = bottomBar.find(".comment_count");
 
       if(container.length > 0) {
@@ -154,7 +173,7 @@ $(document).ready(function(){
         container.show();
 
       } else {
-        var container = $("<div class='comments_container '></div>"),
+        var container = $("<div class='comments_container not_all_present'></div>"),
             comments = $("<ul class='comments'></ul>");
 
         comments.html(data);
@@ -162,8 +181,6 @@ $(document).ready(function(){
         form.remove();
         container.appendTo(bottomBar)
       }
-
-      console.log(reactionLink.text());
 
       reactionLink.text(reactionLink.text().replace(/(\d+)/, function(match){ return parseInt(match) + 1; }));
       commentCount.text(commentCount.text().replace(/(\d+)/, function(match){ return parseInt(match) + 1; }));
