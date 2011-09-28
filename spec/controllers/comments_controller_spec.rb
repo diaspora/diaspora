@@ -29,7 +29,7 @@ describe CommentsController do
       end
       it 'responds to format mobile' do
         post :create, comment_hash.merge(:format => 'mobile')
-        response.should be_redirect
+        response.should be_success
       end
     end
 

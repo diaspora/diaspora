@@ -27,6 +27,10 @@ class PostsController < ApplicationController
         notification.save
       end
 
+      if is_mobile_device?
+        @comments = @post.comments
+      end
+
       respond_to do |format|
         format.xml{ render :xml => @post.to_diaspora_xml }
         format.mobile{render 'posts/show.mobile.haml'}	

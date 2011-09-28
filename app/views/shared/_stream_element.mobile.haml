@@ -3,27 +3,69 @@
 -#   the COPYRIGHT file.
 
 .stream_element{:data=>{:guid=>post.id}}
-  = person_image_link(post.author, :size => :thumb_small)
+
+  - if post.is_a?(Reshare)
+    = render 'reshares/reshare', :reshare => post, :post => post.root
+
+  .photo_area
+    - if post.is_a?(StatusMessage)
+      -if post.photos.size > 0
+        .photo_attachments
+          - if post.photos.size > 1
+            .additional_photo_count
+              = "+ #{post.photos.size-1}"
+          = image_tag post.photos.first.url(:thumb_large), :class => "stream-photo big-stream-photo"
+    - elsif post.activity_streams?
+      = image_tag post.image_url
 
   .content
     .from
+      = person_image_link(post.author, :size => :thumb_small)
       = person_link(post.author)
+      .info
+        %span.time{:integer => post.created_at.to_i}
+          = t('ago', :time => time_ago_in_words(post.created_at))
+        &ndash;
+        %span.scope_scope
+          - if post.public?
+            = t('public')
+          - else
+            = t('limited')
 
-    - if post.activity_streams?
-      = image_tag post.image_url
-    - elsif reshare?(post)
-      = render 'reshares/reshare', :reshare => post, :post => post.root
-    - else
+        %span.via
+          - if post.activity_streams?
+            = t('.via', :link => link_to("#{post.provider_display_name}", post.actor_url)).html_safe
+
+    - if post.is_a?(StatusMessage)
       = render 'status_messages/status_message', :post => post, :photos => post.photos
 
-    .info
-      %span.time{:integer => post.created_at.to_i}
-        = t('ago', :time => time_ago_in_words(post.created_at))
-      %span.via
-        - if post.activity_streams?
-          = t('.via', :link => link_to("#{post.provider_display_name}", post.actor_url)).html_safe
+  .bottom_bar
+    .floater
+      = link_to '', new_post_comment_path(post), :class => "image_link comment_action inactive"
 
-      = link_to "#{t('comments', :count => post.comments.length)} →", post_path(post), :class => 'comment_link right'
-      - if post.activity_streams?
-        %br
+      - if current_user.liked?(post)
+        = link_to '', post_like_path(post.id, current_user.like_for(post).id), :class => "image_link like_action active"
+      - else
+        = link_to '', post_likes_path(post.id), :class => "image_link like_action inactive"
+
+    - if post.comments.length + post.likes_count > 0
+      = link_to "#{t('reactions', :count => (post.comments.length + post.likes_count))}", post_comments_path(post, :format => "mobile"), :class => 'show_comments'
+    - else
+      %span.show_comments
+        = "#{t('reactions', :count => (post.comments.length + post.likes_count))}"
+
+    - if defined?(expanded_info) && expanded_info
+      .comment_container
+        .post_stats
+          %span.comment_count
+            = @post.comments.size
+
+          %span.like_count
+            = @post.likes.size
+
+        %ul.comments
+          = render :partial => 'comments/comment', :collection => @comments, :locals => {:post => @post}
+
+          %li.comment.add_comment_bottom_link_container
+            = link_to "Add a comment", new_post_comment_path(@post), :class => 'add_comment_bottom_link btn comment_action inactive'
 

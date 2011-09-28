@@ -8,12 +8,8 @@
 
 #author_info.profile
   = person_image_tag @person, :thumb_medium
-
-  .content
-    %h3
-      = @person.name
-      .description
-        = @person.diaspora_handle
+  %h2
+    = @person.name
 
 - if user_signed_in? && !(@contact.persisted? || current_user.person == @person)
   - if @incoming_request

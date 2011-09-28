@@ -2,22 +2,41 @@
 -#   licensed under the Affero General Public License version 3 or later.  See
 -#   the COPYRIGHT file.
 
-
 .reshare
   - if post
+    .photo_area
+      - if post.is_a?(StatusMessage)
+        -if post.photos.size > 0
+          .photo_attachments
+            - if post.photos.size > 1
+              .additional_photo_count
+                = "+ #{post.photos.size-1}"
+            = image_tag post.photos.first.url(:thumb_large), :class => "stream-photo big-stream-photo"
+      - elsif post.activity_streams?
+        = image_tag post.image_url
+
     .content
       .from
-        = person_link(post.author, :class => "hovercardable")
-             
+        = person_image_link(post.author, :size => :thumb_small)
+        = person_link(post.author)
+        .info
+          %span.time{:integer => post.created_at.to_i}
+            = t('ago', :time => time_ago_in_words(post.created_at))
+          %span.via
+            - if post.activity_streams?
+              = t('shared.stream_element.via', :link => link_to("#{post.provider_display_name}", post.actor_url)).html_safe
+          &ndash;
+          %span.scope_scope
+            - if post.public?
+              = t('public')
+            - else
+              = t('limited')
 
-      - if post.activity_streams?
-        = link_to image_tag(post.image_url, 'data-small-photo' => post.image_url, 'data-full-photo' => post.image_url, :class => 'stream-photo'), post.object_url, :class => "stream-photo-link"
-      - else
+      - if !post.activity_streams?
         = render 'status_messages/status_message', :post => post, :photos => post.photos
-      - if defined?(current_user) && current_user && (post.author_id != current_user.person.id) && (post.public?) && !reshare?(post)
-        .reshare_action
-          = reshare_link(post)
-          = link_to t(".show_original"), post_path(post)
-
   - else
     = t('.deleted')
+
+  .reshare_via
+    %span
+      = t('.reshared_via')

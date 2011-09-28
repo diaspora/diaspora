@@ -17,7 +17,8 @@ module Postzord
         end
         notify_mentioned_users if @object.respond_to?(:mentions)
 
-        socket_to_users if @object.respond_to?(:socket_to_user)
+        # 09/27/11 this is slow
+        #socket_to_users if @object.respond_to?(:socket_to_user)
         notify_users
       end
 

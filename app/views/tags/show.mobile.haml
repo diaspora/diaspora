@@ -2,15 +2,12 @@
 -#   licensed under the Affero General Public License version 3 or later.  See
 -#   the COPYRIGHT file.
 
-%h2{:style => "padding:0 10px;display:none;"}
-  - if @stream.for_all_aspects?
-    = t('all_aspects')
-  - else
-    = @stream.aspect
+%h1
+  = "##{params[:name]}"
 
 #main_stream.stream
-  = render 'shared/stream', :posts => @stream.posts
-  -if @stream.posts.length > 0
+  = render 'shared/stream', :posts => @posts
+  -if @posts.length > 0
     #pagination
       %a.more-link.paginate{:href => next_page_path}
         %h1
