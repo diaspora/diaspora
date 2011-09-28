@@ -4,6 +4,9 @@
 
 .stream_element{:data=>{:guid=>post.id}}
 
+  - if post.is_a?(Reshare)
+    = render 'reshares/reshare', :reshare => post, :post => post.root
+
   .photo_area
     - if post.is_a?(StatusMessage)
       -if post.photos.size > 0
@@ -33,9 +36,7 @@
           - if post.activity_streams?
             = t('.via', :link => link_to("#{post.provider_display_name}", post.actor_url)).html_safe
 
-    - if reshare?(post)
-      = render 'reshares/reshare', :reshare => post, :post => post.root
-    - elsif post.is_a?(StatusMessage)
+    - if post.is_a?(StatusMessage)
       = render 'status_messages/status_message', :post => post, :photos => post.photos
 
   .bottom_bar
