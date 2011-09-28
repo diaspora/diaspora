@@ -55,7 +55,9 @@ body {
         weight: bold !important; }; }
     margin-bottom: 2px;
     height: 45px; }
-  > .content {
+
+  > .content,
+  .reshare > .content {
     padding: 10px {
       bottom: 0; }; }
   padding: 10px 0;
@@ -107,6 +109,7 @@ body {
   @include border-radius(3px);
   @include box-shadow(0, 1px, 5px, rgba(0, 0, 0, 1));
   padding: 0;
+  padding-bottom: 10px;
   background: {
     color: #fff;
   }
@@ -552,4 +555,27 @@ header {
 
 .new_status_message {
   min-height: 300px;
+}
+
+.reshare {
+  border-bottom: 1px solid #ccc;
+  padding: {
+    bottom: 10px;
+  }
+  position: relative;
+
+  .reshare_via {
+    width: 100%;
+    position: absolute;
+    bottom: -7px;
+    text-align: center;
+    span {
+      padding: 2px 10px;
+      font-weight: bold;
+      color: #999;
+      background: {
+        color: #fff;
+      }
+    }
+  }
 }

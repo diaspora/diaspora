@@ -661,6 +661,7 @@ en:
         other: "%{count} new requests!"
   reshares:
     reshare:
+      reshared_via: "reshared via"
       reshare_original: "Reshare original"
       reshare:
         zero: "Reshare"

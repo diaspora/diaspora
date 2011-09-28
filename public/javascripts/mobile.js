@@ -123,10 +123,9 @@ $(document).ready(function(){
         beforeSend: function(){
           link.addClass('loading');
         },
+        context: link,
         success: function(data){
-          var textarea = parent.find('textarea').first();
-              lineHeight = 14;
-
+          var textarea = function(target) { return target.closest(".stream_element").find('textarea.comment_box').first()[0] };
           link.removeClass('loading')
 
           if(!link.hasClass("add_comment_bottom_link")){
@@ -135,7 +134,10 @@ $(document).ready(function(){
 
           container.hide();
           parent.append(data);
-          new MBP.autogrow(textarea);
+
+          console.log($(this).closest(".stream_element").find('textarea'));
+
+          MBP.autogrow(textarea($(this)));
         }
       });
     }
@@ -164,7 +166,7 @@ $(document).ready(function(){
       var bottomBar = form.closest('.bottom_bar').first(),
           container = bottomBar.find('.add_comment_bottom_link_container'),
           commentActionLink = bottomBar.find("a.comment_action").first();
-          reactionLink = bottomBar.find("a.show_comments").first(),
+          reactionLink = bottomBar.find(".show_comments").first(),
           commentCount = bottomBar.find(".comment_count");
 
       if(container.length > 0) {
