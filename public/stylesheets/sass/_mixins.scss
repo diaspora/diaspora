@@ -64,7 +64,7 @@ $easing: linear;
 }
 
 @mixin linear-gradient($from, $to, $start:0%, $end:100%){
-  background-image: mix($from,$to);
+  background-color: mix($from,$to);
 
   filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0, startColorstr=$from, endColorstr=$to);
   -ms-filter: "progid:DXImageTransform.Microsoft.gradient (GradientType=0, startColorstr=#{$from}, endColorstr=#{$to})";
