@@ -37,7 +37,7 @@ eo:
             person: 
               invalid: "ne estas valida."
             username: 
-              invalid: "ne ĝustas.  Ni nur lasu leterojn, numerojn, kaj sublineojn"
+              invalid: "ne ĝustas.  Ni nur lasu leterojn, numerojn, kaj sublineojn."
               taken: "jam okupiĝis."
   ago: "antaŭ %{time}"
   all_aspects: "Ĉiuj Aspektoj"
@@ -102,15 +102,15 @@ eo:
       donate: "Donaci"
       handle_explanation: "Tiu ĉi estas via DIASPORA* uzantnomo.  Kiel retpoŝtadreso, vi povas doni tiun ĉi al homoj, por ke ili vin kontaktu."
       help: 
-        did_you: "Did you:"
-        feature_suggestion: "... have a %{link} suggestion?"
-        find_a_bug: "... find a %{link}?"
-        have_a_question: "... have a %{link}?"
-        here_to_help: "Diaspora community is here to help!"
-        more_support: "For more support, you should also check out %{link}."
-        need_help: "Need Help?"
-        tutorials: "For tutorials, check out %{link}."
-      keep_us_running: "Helpu %{pod} bone funkcii; aĉetu por niaj servkomputiloj ilian ĉiumonatan kaforiparon!"
+        did_you: "Ĉu vi:"
+        feature_suggestion: "... havas %{link} proponon?"
+        find_a_bug: "... trovas %{link}?"
+        have_a_question: "... havas %{link}?"
+        here_to_help: "La DIASPORA* komunumo povas helpi!"
+        more_support: "Por pli helpo, vi ankaŭ devas vidi al %{link}."
+        need_help: "Ĉu Devas Helpon?"
+        tutorials: "Por lerniloj, vidu al %{link}."
+      keep_us_running: "Helpu %{pod} rapide funkcii kaj aĉetu por niaj servkomputiloj ilian kaforiparon per ĉiumonata donatado!"
       no_contacts: "Nul kontaktoj"
       no_tags: "+ Trovi etikedon aboni"
       people_sharing_with_you: "Homoj, kiuj konigas kun vi"
@@ -156,7 +156,7 @@ eo:
     zero: "neniu aspektoj"
   authorizations: 
     index: 
-      no_applications: "You haven't registered any applications yet."
+      no_applications: "Vi ne jam registris iujn aplikaĵojn."
       revoke_access: "Revoki Permeson"
   back: "Antaŭen"
   bookmarklet: 
@@ -435,7 +435,7 @@ eo:
     comment_on_post: 
       reply: "Respondi aŭ vidi afiŝon de %{name} >"
     confirm_email: 
-      click_link: "Por aktivigi vian novan retpoŝtadreson %{unconfirmed_email}, bonvolu kliki tiun ĉi ligilon:"
+      click_link: "Por aktivigi vian novan retpoŝtadreson %{unconfirmed_email}, bonvolu iru al tiun ĉi ligilon:"
       subject: "Bonvolu aktivigi vian novan retpoŝtadreson %{unconfirmed_email}"
     email_sent_by_diaspora: "Tiu ĉi retpoŝton poŝtiĝi de DIASPORA*.  Se vi volus recivi tiajn ĉi retpoŝtojn ne plu,"
     hello: "Saluton %{name}!"
@@ -551,8 +551,8 @@ eo:
       notice: "Bildo sukcese ĝisdatiĝis."
   post_visibilites: 
     update: 
-      post_hidden_and_muted: "%{name}'s post has been hidden, and notifications have been muted."
-      see_it_on_their_profile: "If you want to see updates on this post, visit %{name}'s profile page."
+      post_hidden_and_muted: "La afiŝo de %{name} ne plu videblas, kaj sciigoj ne plu sendiĝos."
+      see_it_on_their_profile: "Se vi volas vidi ŝanĝojn pri tiu ĉi afiŝo, iru al la profilpaĝo de %{name}."
   posts: 
     show: 
       destroy: "Forlasi"
@@ -658,7 +658,7 @@ eo:
       no_services: "Vi ankoraŭ ne konektis iujn ajn servojn."
       really_disconnect: "ĉu malkonektu el %{service}?"
     inviter: 
-      click_link_to_accept_invitation: "Kliki tiun ligilon por akcepti vian inviton"
+      click_link_to_accept_invitation: "Iru al tiun ligilon por akcepti vian inviton"
       join_me_on_diaspora: "Kuniĝu kun mi ĉe DIASPORA*"
     remote_friend: 
       invite: "inviti"
@@ -720,7 +720,7 @@ eo:
       reshare: "Rekontigi"
     stream_element: 
       dislike: "Malŝati"
-      hide_and_mute: "Hide and Mute"
+      hide_and_mute: "Malvidebligi kaj malsciiĝi"
       like: "Ŝati"
       shared_with: "Partoprenita kun: %{aspect_names}"
       unlike: "Ne plu ŝati"
@@ -810,7 +810,7 @@ eo:
       connect_with_people: "Koniĝi kun mojosaj homoj"
       connect_with_people_explanation_pt1: "Partopreni kun homoj, aldonu tiujn en unu aŭ pli el viaj %{bold}."
       connect_with_people_explanation_pt2: "Aspektojn estas facilkomprenita metodo arigi novajn kaj familiarajn homojn, malpublike al vi, lasante, ke vi filtras aŭ partoprenas kun subaroj el viaj kontaktojn facile."
-      edit_profile: "Edit Profile"
+      edit_profile: "Redakti Profilon"
       featured_tags: "Prezentataj etikedoj"
       featured_users: "Prezentataj uzantoj"
       fill_out_your_profile: "Kompletigu vian profilon"
@@ -828,8 +828,8 @@ eo:
         name: "Nomo"
         photo: "Profilbildo"
         tags: "Etikedoj"
-      search_for_hashtags: "Search for #hashtags"
-      search_for_people: "Search for people"
+      search_for_hashtags: "Serĉi por #etikedoj"
+      search_for_people: "Serĉi por homoj"
       see_all_featured_users: "Vidi ĉiujn prezentatajn uzantojn"
       welcome: "Bonvenon!"
       welcome_with_name: "Bonvenon, %{name}!"

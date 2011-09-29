@@ -29,7 +29,7 @@ fi:
         reshare: 
           attributes: 
             root_guid: 
-              taken: "You've already reshared that post!"
+              taken: "Olet jo jakanut viestin uudelleen!"
         user: 
           attributes: 
             email: 
@@ -65,7 +65,7 @@ fi:
       commented_on: "kommentoitu"
       posted: "lähetetty"
       recently: "äskettäin:"
-      stream: "Virta"
+      stream: "Uutisvirta"
     contacts_not_visible: "Kontaktit tässä näkymässä eivät voi nähdä toisiaan."
     contacts_visible: "Kontaktit tässä näkymässä voivat nähdä toisensa."
     create: 
@@ -97,9 +97,9 @@ fi:
         learn_more: "Lue lisää"
       diaspora_id: 
         content_1: "Diaspora ID:si on:"
-        content_2: "Give it to anyone and they'll be able to find you on Diaspora."
+        content_2: "Anna se toisille ihmisille, jotta he voivat löytää sinut Diasporasta."
         heading: "Diaspora ID"
-      donate: "Donate"
+      donate: "Lahjoita"
       handle_explanation: "Tämä on Diaspora-osoitteesi. Voit käyttää sitä kuten sähköpostiosoitettasi. Sen avulla sinut tavoitetaan Diasporasta."
       help: 
         did_you: "Did you:"
@@ -116,8 +116,8 @@ fi:
       people_sharing_with_you: "Ihmiset jotka jakavat kanssasi"
       post_a_message: "lähetä viesti >>"
       services: 
-        content: "You can connect the following services to Diaspora:"
-        heading: "Connect Services"
+        content: "Voit yhdistää Diasporaan seuraavat palvelut:"
+        heading: "Yhdistä palveluihin"
       tags_following: "Seuratut Tagit"
       unfollow_tag: "Stop following #%{tag}"
       your_aspects: "Näkymäsi"
@@ -139,9 +139,9 @@ fi:
     one: "1 näkymä"
     other: "%{count} näkymää"
     seed: 
-      acquaintances: "Acquaintances"
+      acquaintances: "Tuttavat"
       family: "Perhe"
-      friends: "Friends"
+      friends: "Ystävät"
       work: "Työ"
     selected_contacts: 
       manage_your_aspects: "Hallitse näkymiä."
@@ -180,7 +180,7 @@ fi:
     create: 
       failure: "Kontaktin luonti epäonnistui"
     featured: 
-      featured_users: "Featured Users"
+      featured_users: "Valikoidut käyttäjät"
     few: "%{count} kontaktia"
     index: 
       add_a_new_aspect: "Lisää näkymä"
@@ -191,7 +191,7 @@ fi:
       no_contacts: "Ei kontakteja."
       only_sharing_with_me: "Jakaa vain kanssani"
       remove_person_from_aspect: "Poista %{person_name} näkymästä: \"%{aspect_name}\""
-      start_a_conversation: "Start a conversation"
+      start_a_conversation: "Aloita keskustelu"
       title: "Kontaktit"
       your_contacts: "Kontaktisi"
     many: "%{count} kontaktia"
@@ -223,7 +223,7 @@ fi:
       no_conversation_selected: "ei valittua keskustelua"
       no_messages: "ei viestejä"
     new: 
-      abandon_changes: "Abandon changes?"
+      abandon_changes: "Hylkää muutokset?"
       send: "Lähetä"
       sending: "Sending..."
       subject: "aihe"
@@ -270,7 +270,7 @@ fi:
       already_contacts: "Olet jo yhteydessä tähän henkilöön"
       already_sent: "Olet jo kutsunut tämän henkilön."
       no_more: "Sinulla ei ole enempää kutsuja."
-      own_address: "You can't send an invitation to your own address."
+      own_address: "Et voi lähettää kutsua omaan osoitteeseen."
       rejected: "Seuraavissa sähköpostiosoitteissa oli ongelmia: "
       sent: "Kutsut on lähetetty seuraaviin osoitteisiin:"
     edit: 
@@ -301,9 +301,9 @@ fi:
       login: "kirjaudu sisään"
       logout: "kirjaudu ulos"
       profile: "Profiili"
-      recent_notifications: "Recent notifications"
+      recent_notifications: "Viimeaikaiset ilmoitukset"
       settings: "Asetukset"
-      view_all: "View all"
+      view_all: "Kaikki"
   likes: 
     likes: 
       people_dislike_this: 
@@ -327,14 +327,14 @@ fi:
         other: "%{count} likes"
         two: "%{count} likes"
         zero: "no likes"
-  limited: "Limited"
+  limited: "Rajoitettu"
   more: "Lisää"
   next: "seuraava"
   no_results: "Tuloksia ei löytynyt"
   notifications: 
     also_commented: 
       few: "%{actors} kommentoi myös %{post_author}:n viestiä: %{post_link}."
-      many: "%{actors} also commented on %{post_author}'s %{post_link}."
+      many: "%{actors} kommentoi myös %{post_author}:n viestiä: %{post_link}."
       one: "%{actors} kommentoi myös %{post_author}:n viestiä: %{post_link}."
       other: "%{actors} kommentoi myös %{post_author}:n viestiä: %{post_link}."
       two: "%{actors} also commented on %{post_author}'s %{post_link}."
@@ -343,9 +343,9 @@ fi:
       few: "%{actors} kommentoi poistettua viestiä."
       many: "%{actors} kommentoi poistettua viestiä."
       one: "%{actors} kommentoi poistettua viestiä."
-      other: "%{actors} commented on a deleted post."
+      other: "%{actors} kommentoivat poistettua viestiä."
       two: "%{actors} commented on a deleted post."
-      zero: "%{actors} commented on a deleted post."
+      zero: "%{actors} kommentoivat poistettua viestiä."
     comment_on_post: 
       few: "%{actors} kommentoi viestiäsi: %{post_link}."
       many: "%{actors} kommentoi viestiäsi: %{post_link}."
@@ -364,21 +364,21 @@ fi:
     index: 
       and: "ja"
       and_others: 
-        few: "and %{count} others"
-        many: "and %{count} others"
-        one: "and one more"
-        other: "and %{count} others"
+        few: "ja %{count} muut"
+        many: "ja %{count} muut"
+        one: "ja yksi lisää"
+        other: "ja %{count} muut"
         two: "and %{count} others"
-        zero: "and nobody else"
+        zero: "eikä kukaan muu"
       mark_all_as_read: "Merkitse kaikki luetuiksi"
       notifications: "Ilmoitukset"
     liked: 
-      few: "%{actors} has just liked your %{post_link}."
-      many: "%{actors} has just liked your %{post_link}."
-      one: "%{actors} has just liked your %{post_link}."
-      other: "%{actors} has just liked your %{post_link}."
+      few: "%{actors} tykkää viestistäsi: %{post_link}."
+      many: "%{actors} tykkää viestistäsi: %{post_link}."
+      one: "%{actors} tykkää viestistäsi: %{post_link}."
+      other: "%{actors} tykkää viestistäsi: %{post_link}."
       two: "%{actors} has just liked your %{post_link}."
-      zero: "%{actors} has just liked your %{post_link}."
+      zero: "%{actors} tykkää viestistäsi: %{post_link}."
     liked_post_deleted: 
       few: "%{actors} piti poistamastasi viestistä."
       many: "%{actors} piti poistamastasi viestistä."
@@ -387,25 +387,25 @@ fi:
       two: "%{actors} liked your deleted post."
       zero: "%{actors} piti poistamastasi viestistä."
     mentioned: 
-      few: "%{actors} has mentioned you in a %{post_link}."
-      many: "%{actors} has mentioned you in a %{post_link}."
-      one: "%{actors} has mentioned you in a %{post_link}."
+      few: "%{actors} on maininnut sinut viestissä %{post_link}."
+      many: "%{actors} on maininnut sinut viestissä %{post_link}."
+      one: "%{actors} on maininnut sinut viestissä %{post_link}."
       other: "%{actors} on maininnut sinut viestissä: %{post_link}."
       two: "%{actors} has mentioned you in a %{post_link}."
       zero: "%{actors} on maininnut sinut viestissä %{post_link}."
     mentioned_deleted: 
-      few: "%{actors} mentioned you in a deleted post."
-      many: "%{actors} mentioned you in a deleted post."
-      one: "%{actors} mentioned you in a deleted post."
-      other: "%{actors} mentioned you in a deleted post."
+      few: "%{actors} mainitsi sinut poistetussa viestissä."
+      many: "%{actors} mainitsi sinut poistetussa viestissä."
+      one: "%{actors} mainitsi sinut poistetussa viestissä."
+      other: "%{actors} mainitsi sinut poistetussa viestissä."
       two: "%{actors} mentioned you in a deleted post."
-      zero: "%{actors} mentioned you in a deleted post."
+      zero: "%{actors} mainitsi sinut poistetussa viestissä."
     post: "viesti."
     private_message: 
       few: "%{actors} lähetti sinulle viestin."
       many: "%{actors} lähetti sinulle viestin."
-      one: "%{actors} sent you a message."
-      other: "%{actors} sent you a message."
+      one: "%{actors} lähetti sinulle viestin."
+      other: "%{actors} lähetti sinulle viestin."
       two: "%{actors} sent you a message."
       zero: "%{actors} lähetti sinulle viestin."
     reshared: 
@@ -431,22 +431,22 @@ fi:
       zero: "%{actors} on aloittanut jakamaan kanssasi."
   notifier: 
     a_post_you_shared: "a post."
-    click_here: "click here"
+    click_here: "klikkaa tästä"
     comment_on_post: 
-      reply: "Reply or view %{name}'s post >"
+      reply: "Vastaa tai katso %{name}:n viesti >"
     confirm_email: 
       click_link: "To activate your new e-mail address %{unconfirmed_email}, please click this link:"
       subject: "Please activate your new e-mail address %{unconfirmed_email}"
-    email_sent_by_diaspora: "This email was sent by Diaspora.  If you'd like to stop getting emails like this,"
+    email_sent_by_diaspora: "Tämä sähköposti lähetettiin Diasporan kautta. Jos ei halua saada samanlaisia sähköposteja jatkossa, tykkää tästä,"
     hello: "Hei %{name}!"
     liked: 
       liked: "%{name} tykkäsi kirjoituksestasi: "
-      view_post: "View post >"
+      view_post: "Katso viesti >"
     mentioned: 
       mentioned: "mainitsi sinut viestissään:"
       subject: "%{name} on maininnut sinut Diaspora*:ssa"
     private_message: 
-      reply_to_or_view: "Reply to or view this conversation >"
+      reply_to_or_view: "Lue tai osallistu keskusteluun >"
     reshared: 
       reshared: "%{name} just reshared your post"
       view_post: "View post >"
@@ -454,11 +454,11 @@ fi:
       admin: "Diasporasi ylläpitäjä"
       subject: "Viesti Diaspora-käyttäjätilistäsi:"
     started_sharing: 
-      sharing: "has started sharing with you!"
+      sharing: "on aloittanut jakamaan kanssasi!"
       subject: "%{name} has started sharing with you on Diaspora*"
-      view_profile: "View %{name}'s profile"
+      view_profile: "Näytä %{name}:n profiiili"
     thanks: "Kiitos,"
-    to_change_your_notification_settings: "to change your notification settings"
+    to_change_your_notification_settings: "vaihtaaksesi ilmoitusasetuksia"
   ok: "OK"
   or: "tai"
   password: "Salasana"
@@ -496,7 +496,7 @@ fi:
       remove_from: "Poista %{name} näkymästä %{aspect}?"
     show: 
       does_not_exist: "Henkilöä ei ole olemassa!"
-      has_not_shared_with_you_yet: "%{name} has not shared any posts with you yet!"
+      has_not_shared_with_you_yet: "%{name} ei ole jakanut vielä yhtään postausta kanssasi!"
       incoming_request: "Tämä henkilö on lähettänyt sinulle pyynnön."
       mention: "Mainitse"
       message: "Viesti"
@@ -555,9 +555,9 @@ fi:
       see_it_on_their_profile: "If you want to see updates on this post, visit %{name}'s profile page."
   posts: 
     show: 
-      destroy: "Delete"
-      not_found: "Sorry, we couldn't find that post."
-      permalink: "permalink"
+      destroy: "Poista"
+      not_found: "Valitettavasti viestiä ei löytynyt."
+      permalink: "pysyvä linkki"
   previous: "edellinen"
   profile: "Profiili"
   profiles: 
@@ -580,7 +580,7 @@ fi:
     update: 
       failed: "Profiilin päivitys epäonnistui"
       updated: "Profiili päivitetty"
-  public: "Public"
+  public: "Julkinen"
   registrations: 
     closed: "Rekisteröityminen on suljettu tässä Diaspora-podissa."
     create: 
@@ -655,7 +655,7 @@ fi:
       disconnect: "katkaise"
       edit_services: "Muokkaa palveluita"
       logged_in_as: "kirjautunut käyttäjänä"
-      no_services: "You have not connected any services yet."
+      no_services: "Et ole vielä yhdistänyt palveluita."
       really_disconnect: "katkaise %{service}?"
     inviter: 
       click_link_to_accept_invitation: "Paina tätä linkkiä hyväksyäksesi kutsun"
@@ -722,10 +722,10 @@ fi:
       dislike: "En tykkää"
       hide_and_mute: "Hide and Mute"
       like: "Tykkää"
-      shared_with: "Shared with: %{aspect_names}"
-      unlike: "Unlike"
-      via: "via %{link}"
-      viewable_to_anyone: "This post is viewable to anyone on the web"
+      shared_with: "Jaa heidän kanssa: %{aspect_names}"
+      unlike: "En tykkää"
+      via: "%{link} kautta"
+      viewable_to_anyone: "Kuka tahansa verkossa näkee tämän viestin"
   status_messages: 
     create: 
       success: "Onnistuneesti mainittu: %{names}"
@@ -736,43 +736,43 @@ fi:
     new: 
       mentioning: "Mainitse: %{person}"
     too_long: 
-      few: "please make your status messages less than %{count} characters"
+      few: "viestin merkkimäärä voi olla maksimissaan %{count}"
       many: "Ole hyvä ja kirjoita tilaasi vähemmän kuin %{count} merkkiä"
-      one: "please make your status messages less than %{count} character"
-      other: "please make your status messages less than %{count} characters"
+      one: "viestin merkkimäärä voi olla maksimissaan %{count}"
+      other: "viestin merkkimäärä voi olla maksimissaan %{count}"
       two: "please make your status messages less than %{count} characters"
-      zero: "please make your status messages less than %{count} characters"
+      zero: "viestin merkkimäärä voi olla maksimissaan %{count}"
   stream_helper: 
     hide_comments: "piilota kommentit"
-    show_more_comments: "Näytä seuraavat (%{number} kommenttia"
+    show_more_comments: "Näytä kaikki (%{number}) kommentit"
   tag_followings: 
     create: 
-      failure: "Failed to follow: #%{name}"
-      success: "Successfully following: #%{name}"
+      failure: "Seuraamisen aloittaminen #%{name}:lle epäonnistui"
+      success: "Onnistuneesti seurataan: #%{name}:a"
     destroy: 
-      failure: "Failed to stop following: #%{name}"
-      success: "Successfully stopped following: #%{name}"
+      failure: "Seuraamisen lopettaminen: #%{name} epäonnistui"
+      success: "Onnistuneesti lopetettiin #%{name}:n seuraaminen"
   tags: 
     show: 
-      follow: "Follow #%{tag}"
-      following: "Following #%{tag}"
+      follow: "Seuraa #%{tag} "
+      following: "Seurataan #%{tag}"
       nobody_talking: "Kukaan ei keskustele %{tag} tagista vielä."
       people_tagged_with: "Ihmiset merkitty %{tag} tagilla"
       posts_tagged_with: "Viestit merkitty #%{tag} tagilla"
-      stop_following: "Stop Following #%{tag}"
+      stop_following: "Lopeta #%{tag} seuraaminen"
   tokens: 
     show: 
-      connect_to_cubbies: "Connect to Cubbi.es"
+      connect_to_cubbies: "Yhdistä kohteeseen Cubbi.es"
       connecting_is_simple: "Connecting your Diaspora account is as simple as filling out two fields on your Cubbi.es account page."
-      daniels_account: "Daniel's Diaspora account"
-      log_in_with_diaspora_is_comming: "Pretty soon, you'll be able to connect to a new application without creating an account separate from your one on Diaspora."
-      love_to_try: "We'd love for you to try it out."
-      making_the_connection: "Making the Connection"
-      screenshot_explanation: "%{link1}.  This particular cubby is linked to %{link2}."
-      sign_up_today: "Sign up today!"
-      typical_userpage: "A typical cubbi.es userpage"
-      via: "(via %{link})"
-      what_is_cubbies: "Cubbi.es is the world's first Diaspora application.  It's also the best way to collect photos online."
+      daniels_account: "Daniel:in Diaspora käyttäjätili"
+      log_in_with_diaspora_is_comming: "Pian voit lisätä uuden sovelluksen luomatta uutta käyttäjätiliä nykyisen tilisi lisäksi."
+      love_to_try: "Kokeile sinäkin."
+      making_the_connection: "Yhteyttä muodostetaan"
+      screenshot_explanation: "%{link1}. Tämä tila on linkitetty tänne: %{link2}."
+      sign_up_today: "Liity tänään!"
+      typical_userpage: "Esimerkki cubbi.es käyttäjäsivusta"
+      via: "(%{link} kautta)"
+      what_is_cubbies: "Cubbi.es on maailman ensimmäinen Diaspora sovellus, joka on myös paras tapa kerätä valokuvia verkkoon."
   undo: "Peruuta?"
   username: "Käyttäjätunnus"
   users: 
@@ -805,34 +805,34 @@ fi:
       your_handle: "Diaspora-tunnuksesi"
     getting_started: 
       bold: "aspects"
-      connect_to: "Connect to"
-      connect_to_your_other_social_networks: "Connect to your other social networks"
+      connect_to: "Yhdistä"
+      connect_to_your_other_social_networks: "Yhdistä muihin sosiaalisen median verkostoihisi"
       connect_with_people: "Connect with cool people"
       connect_with_people_explanation_pt1: "Connect with people by placing them into one or more of your"
       connect_with_people_explanation_pt2: "Aspects are an intuitive way to group new and familar faces, private to you, allowing you to filter down or share with subsets of your contacts easily."
       edit_profile: "Muokkaa profiiliasi"
-      featured_tags: "Featured tags"
-      featured_users: "Featured users"
-      fill_out_your_profile: "Fill out your profile"
-      find_friends: "Find friends"
+      featured_tags: "Valikoidut tagit"
+      featured_users: "Valikoidut käyttäjät"
+      fill_out_your_profile: "Täytä profiilisi"
+      find_friends: "Etsi ystäviä"
       find_friends_from_facebook: "find friends from Facebook"
       finished: "Valmis!"
-      follow_your_interests: "Follow your interests"
-      hashtag_explanation: "Hashtags allow you to talk about and follow your interests.  They're also a great way to find new people on Diaspora."
-      profile_description: "Make it easier for people to find you by filling out your profile information."
+      follow_your_interests: "Seuraa mielenkiinnon kohteitasi"
+      hashtag_explanation: "Hashtagit mahdollistavat kiinnostuksen kohteistasi keskustelun ja niiden seuraamisen. Ne ovat myös hyvä keino ihmisten löytämiseen Diasporassa."
+      profile_description: "Täytä profiilisi, että ihmisten on helpompi löytää sinut."
       profile_fields: 
         bio: "Bio"
-        birthday: "Birthday"
-        gender: "Gender"
-        location: "Location"
-        name: "Name"
-        photo: "Photo"
-        tags: "Tags"
+        birthday: "Syntymäpäivä"
+        gender: "Sukupuoli"
+        location: "Sijainti"
+        name: "Nimi"
+        photo: "Kuva"
+        tags: "Tagit"
       search_for_hashtags: "Search for #hashtags"
       search_for_people: "Search for people"
       see_all_featured_users: "See all featured users"
       welcome: "Tervetuloa Diasporaan!"
-      welcome_with_name: "Welcome, %{name}!"
+      welcome_with_name: "Tervetuloa, %{name}!"
     public: 
       does_not_exist: "Käyttäjää %{username} ei ole olemassa!"
     update: 

@@ -20,17 +20,17 @@ sv:
       show: "visa alla kommentarer"
     confirm_dialog: "Är du säker?"
     failed_to_like: "Failed to like!"
-    failed_to_post_message: "Failed to post message!"
+    failed_to_post_message: "Misslyckades att posta meddelande!"
     infinite_scroll: 
       no_more: "Inga fler inlägg."
     publisher: 
       at_least_one_aspect: "Du måste publicera till minst en aspekt."
-      limited: "Limited - your post will only be seen by people you are sharing with"
-      public: "Public - your post will be visible to everyone and found by search engines"
+      limited: "Begränsad - ditt inlägg visas endast för personer som du delar med"
+      public: "Publikt - ditt inlägg visas för alla och i söktjänster"
     reshares: 
       duplicate: "You've already reshared that post!"
     search_for: "Sök efter {{name}}"
-    show_more: "show more"
+    show_more: "visa mer"
     timeago: 
       day: "en dag"
       days: "%d dagar"

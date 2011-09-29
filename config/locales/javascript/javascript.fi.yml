@@ -6,15 +6,15 @@
 fi: 
   javascripts: 
     aspect_dropdown: 
-      add_to_aspect: "Add to aspect"
-      all_aspects: "All aspects"
+      add_to_aspect: "Lisää näkymään"
+      all_aspects: "Kaikki näkymät"
       toggle: 
-        few: "In {{count}} aspects"
-        many: "In {{count}} aspects"
-        one: "In {{count}} aspect"
-        other: "In {{count}} aspects"
-        two: "In {{count}} aspects"
-        zero: "Add to aspect"
+        few: "{{count}}:ssa näkymässä"
+        many: "{{count}}:ssa näkymässä"
+        one: "{{count}}:ssa näkymässä"
+        other: "{{count}}:ssa näkymässä"
+        two: "{{count}}:ssa näkymässä"
+        zero: "Lisää näkymään"
     comments: 
       hide: "piilota kommentit"
       show: "näytä kaikki kommentit"
@@ -25,10 +25,10 @@ fi:
       no_more: "Ei enempää viestejä."
     publisher: 
       at_least_one_aspect: "Sinun täytyy julkaista vähintään yhdelle näkymälle."
-      limited: "Limited - your post will only be seen by people you are sharing with"
-      public: "Public - your post will be visible to everyone and found by search engines"
+      limited: "Rajoitettu - viestisi näkyy vain ihmisille, joiden kanssa jaat"
+      public: "Julkinen - viestisi näkyvät kaikille mukaan lukien hakukoneet ja niiden tulokset"
     reshares: 
-      duplicate: "You've already reshared that post!"
+      duplicate: "Olet jo uudelleenjakanut viesti!"
     search_for: "Etsi nimellä {{name}}"
     show_more: "näytä lisää"
     timeago: 
@@ -51,4 +51,4 @@ fi:
       unknown: "Tuntematon videomuoto"
       watch: "Katso video {{provider}} :ssa"
     web_sockets: 
-      disconnected: "The websocket is closed; posts will no longer be streamed live."
+      disconnected: "Yhteys on suljettu; viestejä ei enää esitetä reaaliaikaisesti."

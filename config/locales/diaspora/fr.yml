@@ -29,7 +29,7 @@ fr:
         reshare: 
           attributes: 
             root_guid: 
-              taken: "Vous avez déjà repartagé ce post !"
+              taken: "Vous avez déjà repartagé ce message !"
         user: 
           attributes: 
             email: 
@@ -312,7 +312,7 @@ fr:
         one: "%{count} personne n'aime pas"
         other: "%{count} personnes n'aiment pas"
         two: "%{count} n'aiment pas"
-        zero: "Personne n'aime pas ça"
+        zero: "Personne n'aime pas"
       people_like_this: 
         few: "%{count} personnes aiment"
         many: "%{count} personnes aiment"
@@ -430,25 +430,25 @@ fr:
       two: "%{actors} ont commencé à échanger avec vous."
       zero: "%{actors} a/ont commencé à partager avec vous."
   notifier: 
-    a_post_you_shared: "un post."
+    a_post_you_shared: "un message."
     click_here: "cliquez ici"
     comment_on_post: 
-      reply: "Répondre ou voir le post de %{name} >"
+      reply: "Répondre ou voir le message de %{name} >"
     confirm_email: 
       click_link: "Pour activer votre nouvelle adresse email %{unconfirmed_email}, merci de suivre ce lien :"
       subject: "Merci d'activer votre nouvelle adresse email %{unconfirmed_email}"
     email_sent_by_diaspora: "Ce courriel a été envoyé par Diaspora. Si vous souhaitez cesser de recevoir des courriels de ce genre,"
     hello: "Bonjour %{name} !"
     liked: 
-      liked: "%{name} aime juste votre message"
-      view_post: "Voir le post >"
+      liked: "%{name} vient d'aimer votre message"
+      view_post: "Voir le message >"
     mentioned: 
       mentioned: "vous a mentionné(e) dans un message :"
       subject: "%{name} vous a mentionné(e) sur Diaspora*"
     private_message: 
       reply_to_or_view: "Répondre ou voir cette conversation >"
     reshared: 
-      reshared: "%{name} a juste partagé votre message"
+      reshared: "%{name} vient de repartager votre message"
       view_post: "Voir le message >"
     single_admin: 
       admin: "Votre administrateur Diaspora"
@@ -496,7 +496,7 @@ fr:
       remove_from: "Supprimer %{name} de %{aspect} ?"
     show: 
       does_not_exist: "Cette personne n'existe pas !"
-      has_not_shared_with_you_yet: "%{name} n'as pas encore partagé de post avec vous !"
+      has_not_shared_with_you_yet: "%{name} n'as pas encore partagé de messages avec vous !"
       incoming_request: "%{name} désire partager avec vous"
       mention: "Mentionner"
       message: "Message"
@@ -544,7 +544,7 @@ fr:
       edit: "modifier"
       edit_delete_photo: "Modifier la description de la photo / supprimer la photo"
       make_profile_photo: "en faire la photo de profil"
-      show_original_post: "Montrer le post original"
+      show_original_post: "Montrer le message original"
       update_photo: "Mettre à jour la photo"
     update: 
       error: "La modification de la photo a échoué."
@@ -556,7 +556,7 @@ fr:
   posts: 
     show: 
       destroy: "Supprimer"
-      not_found: "Désolé, nous n'avons pas pu trouver ce post."
+      not_found: "Désolé, nous n'avons pas pu trouver ce message."
       permalink: "lien permanent"
   previous: "précédent"
   profile: "Profil"
@@ -624,9 +624,9 @@ fr:
   reshares: 
     comment_email_subject: "Partage par %{resharer} d'un message de %{author}"
     create: 
-      failure: "Une erreur a été rencontrée lors du repartage de ce post."
+      failure: "Une erreur a été rencontrée lors du repartage de ce message."
     reshare: 
-      deleted: "Le post original a été supprimé par l'auteur."
+      deleted: "Le message original a été supprimé par l'auteur."
       reshare: 
         few: "%{count} partages"
         many: "%{count} partages"
@@ -634,7 +634,7 @@ fr:
         other: "%{count} partages"
         two: "%{count} partages"
         zero: "Repartager"
-      reshare_confirmation: "Partager le post d'%{author} ?"
+      reshare_confirmation: "Partager le message d'%{author} ?"
       reshare_original: "Partager l'original"
       show_original: "Afficher l'original"
   search: "Rechercher"
@@ -723,7 +723,7 @@ fr:
       hide_and_mute: "Masquer et mettre en sourdine"
       like: "J'aime"
       shared_with: "Partagé avec : %{aspect_names}"
-      unlike: "Je n'aime pas"
+      unlike: "Je n'aime plus"
       via: "via %{link}"
       viewable_to_anyone: "Publication visible par n'importe qui sur le web"
   status_messages: 

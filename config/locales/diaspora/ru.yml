@@ -291,7 +291,7 @@ ru:
     application: 
       powered_by: "ПОДДЕРЖИВАЕТСЯ ДИАСПОРОЙ*"
       public_feed: "Общественный канал диаспоры для %{name}"
-      toggle: "переключить на мобильный сайт"
+      toggle: "обычный/мобильный сайт"
       whats_new: "Что нового?"
       your_aspects: "Ваши аспекты"
     header: 
