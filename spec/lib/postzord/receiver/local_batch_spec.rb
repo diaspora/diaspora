@@ -40,8 +40,8 @@ describe Postzord::Receiver::LocalBatch do
   end
 
   describe '#create_post_visibilities' do
-    it 'calls Postvisibility.batch_import' do
-      PostVisibility.should_receive(:batch_import).with([bob.contact_for(alice.person)], @object)
+    it 'calls Postvisibility.batch_import with hashes' do
+      PostVisibility.should_receive(:batch_import).with([{:id => bob.contact_for(alice.person).id}], @object)
       receiver.create_post_visibilities
     end
   end
