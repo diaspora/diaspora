@@ -25,11 +25,12 @@
     %link{:rel => 'shortcut icon', :href => '/apple-touch-icon.png'}
 
     / iOS mobile web app indicator
-    %meta{:name => "apple-mobile-web-app-capable", :content => "yes"}
-    %link{:rel => "apple-touch-startup-image", :href => "/images/apple-splash.png"}
+    / NOTE(we will enable these once we don't have to rely on back/forward buttons anymore)
+    /%meta{:name => "apple-mobile-web-app-capable", :content => "yes"}
+    /%link{:rel => "apple-touch-startup-image", :href => "/images/apple-splash.png"}
 
     / Stylesheets
-    = include_stylesheets :mobile
+    = include_stylesheets :mobile, :format => 'all'
     = yield(:custom_css)
 
     %script{:src => "/javascripts/vendor/mbp-modernizr-custom.js"}
