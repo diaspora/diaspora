@@ -36,8 +36,8 @@ module Postzord
       # @note performs a bulk insert into mySQL
       # @return [void]
       def create_post_visibilities
-        contacts = Contact.where(:user_id => @recipient_user_ids, :person_id => @object.author_id)
-        PostVisibility.batch_import(contacts, object)
+        contacts_ids = Contact.connection.select_values(Contact.where(:user_id => @recipient_user_ids, :person_id => @object.author_id).select("id").to_sql)
+        PostVisibility.batch_import(contacts_ids, object)
       end
 
       # Notify any mentioned users within the @object's text
