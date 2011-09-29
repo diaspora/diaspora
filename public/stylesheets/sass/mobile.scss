@@ -32,7 +32,6 @@ body {
   max-width: 700px;
 }
 
-
 .stream_element,
 .comments {
   overflow: auto;
@@ -259,12 +258,20 @@ header {
   z-index: 10;
   top: 0;
 
+  /* force hardware acceleration on webkit browsers */
+  -webkit-transform: translateZ(0);
+
   border: {
     bottom: 1px solid #222;
   }
   padding: 12px 5px;
   .right {
     float: right; } }
+
+.stream_element {
+  /* force hardware acceleration on webkit browsers */
+  -webkit-transform: translateZ(0);
+}
 
 footer {
   text-align: center;
