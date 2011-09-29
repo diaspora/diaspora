@@ -32,9 +32,6 @@ class StatusMessagesController < ApplicationController
     @aspects = current_user.aspects
     @selected_contacts = @aspects.map { |aspect| aspect.contacts }.flatten.uniq
     @aspect_ids = @aspects.map{|x| x.id}
-
-    pp @aspect_ids.inspect
-
     render :layout => nil
   end
 
@@ -51,8 +48,6 @@ class StatusMessagesController < ApplicationController
     end
 
     if @status_message.save
-      Rails.logger.info("event=create type=status_message chars=#{params[:status_message][:text].length}")
-
       # always send to all aspects if public
       if params[:status_message][:public] || params[:status_message][:aspect_ids].first == "all_aspects"
         aspect_ids = current_user.aspects.map{|a| a.id}
@@ -91,7 +86,7 @@ class StatusMessagesController < ApplicationController
 
   def normalize_public_flag!
     # mobile || desktop conditions
-    public_flag = params[:status_message][:aspect_ids].first == 'public' || params[:status_message][:public]
+    public_flag = (params[:status_message][:aspect_ids] && params[:status_message][:aspect_ids].first == 'public') || params[:status_message][:public]
     public_flag.to_s.match(/(true)|(on)/) ? public_flag = true : public_flag = false
     params[:status_message][:public] = public_flag
     public_flag

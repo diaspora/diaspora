@@ -12,6 +12,7 @@ class Post < ActiveRecord::Base
   include Diaspora::Likeable
 
   xml_attr :diaspora_handle
+  xml_attr :provider_display_name
   xml_attr :public
   xml_attr :created_at
 
