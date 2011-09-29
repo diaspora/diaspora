@@ -168,11 +168,15 @@ en:
       help:
         need_help: "Need Help?"
         here_to_help: "The Diaspora community is here!"
-        did_you: "Did you:"
+        do_you: "Do you:"
         have_a_question: "... have a %{link}?"
         find_a_bug: "... find a %{link}?"
         feature_suggestion: "... have a %{link} suggestion?"
-        tutorials: "%{link}: Community-powered tutorials, how-to, and news"
+
+        tutorials_and_wiki: "%{tutorial} & %{wiki}: Community-powered tutorials, how-to, and news"
+
+        feature_and_forum: "%{gs} & %{forum}: Community-powered support and feature requests"
+
         satisfaction: "%{link}: Community-powered support"
         email_feedback: "%{link} your feedback, if you prefer"
       cubbies:
