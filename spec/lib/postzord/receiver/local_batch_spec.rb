@@ -24,6 +24,7 @@ describe Postzord::Receiver::LocalBatch do
     end
 
     it 'sockets to users' do
+      pending 'not currently socketing'
       receiver.should_receive(:socket_to_users)
       receiver.perform!
     end
@@ -94,12 +95,16 @@ describe Postzord::Receiver::LocalBatch do
       @object = Factory(:comment, :author => bob.person, :post => sm)
     end
 
-    it 'calls socket_to_users and notify_users' do
-      receiver.should_receive(:socket_to_users)
+    it 'calls notify_users' do
       receiver.should_receive(:notify_users)
       receiver.perform!
     end
 
+    it 'calls socket_to_users' do
+      pending 'not currently socketing'
+      receiver.should_receive(:socket_to_users)
+      receiver.perform!
+    end
     it 'does not call create_visibilities and notify_mentioned_users' do
       receiver.should_not_receive(:notify_mentioned_users)
       receiver.should_not_receive(:create_post_visibilities)
