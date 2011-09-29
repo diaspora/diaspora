@@ -48,10 +48,9 @@ Feature: public repost
 
     And I go to the home page
     Then I should see a ".reshare"
-    And I follow "Your Aspects"
-    Then I should see "reshare this!" 
-    Then I should see a ".reshare"
-    And I should see "Bob" 
+    And I should see "reshare this!"
+    And I should see a ".reshare"
+    And I should see "Bob"
 
   Scenario: I can delete a post that has been reshared 
     Given "bob@bob.bob" has a public post with text "reshare this!"
@@ -62,11 +61,9 @@ Feature: public repost
 
     And I go to the home page
     Then I should see a ".reshare"
-
-    When I follow "Your Aspects"
-    Then I should see "reshare this!" 
-    Then I should see a ".reshare"
-    And I should see "Bob" 
+    And I should see "reshare this!"
+    And I should see a ".reshare"
+    And I should see "Bob"
 
     When I go to the destroy user session page
     And I sign in as "bob@bob.bob"
@@ -86,10 +83,9 @@ Feature: public repost
 
     When I go to the home page
     Then I should see a ".reshare"
-    When I follow "Your Aspects"
-    Then I should see "reshare this!" 
+    And I should see "reshare this!"
     And I should see a ".reshare"
-    And I should see "Bob" 
+    And I should see "Bob"
 
     When I go to the home page
     Then I should see "1 reshare"

@@ -31,7 +31,7 @@ Feature: mentioning a contact from their profile page
       And I wait for the ajax to finish
       Then I should see "I am eating a yogurt"
 
-      When I follow "Your Aspects" within "#aspect_nav"
+      When I am on the aspects page
       And I follow "NotPostingThingsHere" within "#aspect_nav"
       And I wait for the ajax to finish
       Then I should see "I am eating a yogurt"
@@ -49,11 +49,13 @@ Feature: mentioning a contact from their profile page
       And I press "Share" in the modal window
 
       When I am on the aspects page
+      And I follow "Deselect all" within "#aspect_nav"
       And I follow "PostingTo" within "#aspect_nav"
       And I wait for the ajax to finish
       Then I should see "I am eating a yogurt"
 
-      When I follow "Your Aspects" within "#aspect_nav"
+      When I am on the aspects page
+      And I follow "Deselect all" within "#aspect_nav"
       And I follow "NotPostingThingsHere" within "#aspect_nav"
       And I wait for the ajax to finish
       Then I should not see "I am eating a yogurt"
