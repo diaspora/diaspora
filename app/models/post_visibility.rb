@@ -14,7 +14,7 @@ class PostVisibility < ActiveRecord::Base
   # @return [void]
   def self.batch_import(contact_ids, post)
     if postgres?
-      contacs_ids.each do |contact_id|
+      contact_ids.each do |contact_id|
         PostVisibility.find_or_create_by_contact_id_and_post_id(contact_id, post.id)
       end
     else
