@@ -41,7 +41,7 @@ describe Postzord::Receiver::LocalBatch do
 
   describe '#create_post_visibilities' do
     it 'calls Postvisibility.batch_import' do
-      PostVisibility.should_receive(:batch_import)
+      PostVisibility.should_receive(:batch_import).with([bob.contact_for(alice.person)], @object)
       receiver.create_post_visibilities
     end
   end
