@@ -26,11 +26,15 @@
     };
 
     this.initializeSelectedAspects = function() {
-      self.aspectSelectors.each(function() {
-        guid = $(this).data('guid');
-        if (guid && location.href.search("a_ids..=" + guid + "(#|&|$)") != -1)
-          $(this).parent().addClass('active');
-      });
+      if (location.href.search("a_ids..=") == -1) {
+        self.aspectLis.addClass("active");
+      } else {
+        self.aspectSelectors.each(function() {
+          guid = $(this).data('guid');
+          if (guid && location.href.search("a_ids..=" + guid + "(#|&|$)") != -1)
+            $(this).parent().addClass('active');
+        });
+      }
     };
 
     this.toggleAspect = function(evt) {
