@@ -49,11 +49,7 @@ class PhotosController < ApplicationController
         params[:photo][:aspect_ids] = params[:photo][:aspect_ids].values
       end
 
-      params[:photo][:user_file] = if request.params.has_key?(:qqfile) and not request.params[:qqfile].is_a?(String)
-        params[:qqfile]
-      else
-        file_handler(params)
-      end
+      params[:photo][:user_file] = file_handler(params)
 
       @photo = current_user.build_post(:photo, params[:photo])
 
@@ -213,6 +209,11 @@ class PhotosController < ApplicationController
   private
 
   def file_handler(params)
+    # For XHR file uploads, request.params[:qqfile] will be the path to the temporary file
+    # For regular form uploads (such as those made by Opera), request.params[:qqfile] will be an UploadedFile which can be returned unaltered.
+    if not request.params[:qqfile].is_a?(String)
+      params[:qqfile]
+    else
       ######################## dealing with local files #############
       # get file name
       file_name = params[:qqfile]
@@ -234,5 +235,6 @@ class PhotosController < ApplicationController
       Tempfile.send(:define_method, "content_type") {return att_content_type}
       Tempfile.send(:define_method, "original_filename") {return file_name}
       file
+    end
   end
 end
