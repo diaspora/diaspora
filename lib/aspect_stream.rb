@@ -63,6 +63,10 @@ class AspectStream
     end
   end
 
+  def ajax_stream?
+    true
+  end
+
   # Determine whether or not the stream is displaying across
   # all of the user's aspects.
   #
