@@ -32,7 +32,10 @@ $indented-lists: false !default;
   &.thirds section {
     width: 30%;
     margin-left: 5%;
-    &.first { margin-left: 0; }
+    &.first {
+      margin-left: 0;
+      clear: both;
+    }
   }
 }
 
