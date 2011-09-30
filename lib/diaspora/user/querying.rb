@@ -24,11 +24,11 @@ module Diaspora
       def visible_post_ids(opts={})
         opts = prep_opts(opts)
 
-        if AppConfig[:redis_cache]
-          cache = RedisCache.new(self.id, opts[:order_field])
-          if cache.cache_exists?
-            post_ids = cache.post_ids(opts[:max_time], opts[:limit])
-          end
+        if AppConfig[:redis_cache] && RedisCache.supported_order?(opts[:order_field])
+          cache = RedisCache.new(self, opts[:order_field])
+
+          cache.ensure_populated!
+          post_ids = cache.post_ids(opts[:max_time], opts[:limit])
         end
 
         if post_ids.blank? || post_ids.length < opts[:limit]
@@ -40,6 +40,11 @@ module Diaspora
 
       # @return [Array<Integer>]
       def visible_ids_from_sql(opts={})
+        opts = prep_opts(opts)
+        Post.connection.select_values(visible_posts_sql(opts))
+      end
+
+      def visible_posts_sql(opts={})
         opts = prep_opts(opts)
         select_clause ='DISTINCT posts.id, posts.updated_at AS updated_at, posts.created_at AS created_at'
 
@@ -55,9 +60,7 @@ module Diaspora
         posts_from_others = posts_from_others.select(select_clause).order(opts[:order_with_table]).where(Post.arel_table[opts[:order_field]].lt(opts[:max_time]))
         posts_from_self = posts_from_self.select(select_clause).order(opts[:order_with_table]).where(Post.arel_table[opts[:order_field]].lt(opts[:max_time]))
 
-        all_posts = "(#{posts_from_others.to_sql} LIMIT #{opts[:limit]}) UNION ALL (#{posts_from_self.to_sql} LIMIT #{opts[:limit]}) ORDER BY #{opts[:order]} LIMIT #{opts[:limit]}"
-
-        Post.connection.select_values(all_posts)
+        "(#{posts_from_others.to_sql} LIMIT #{opts[:limit]}) UNION ALL (#{posts_from_self.to_sql} LIMIT #{opts[:limit]}) ORDER BY #{opts[:order]} LIMIT #{opts[:limit]}"
       end
 
       def contact_for(person)

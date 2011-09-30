@@ -88,37 +88,43 @@ describe User do
     context "RedisCache" do
       before do
         AppConfig[:redis_cache] = true
+        @opts = {:order => "created_at DESC"}
       end
 
-      context 'empty cache' do
-        it "does not read from the cache" do
-          cache = mock(:cache_exists? => false)
-          RedisCache.stub(:new).and_return(cache)
-          cache.should_not_receive(:post_ids)
+      after do
+        AppConfig[:redis_cache] = nil
+      end
 
-          alice.visible_post_ids
-        end
+      it "gets populated with latest 100 posts" do
+        cache = mock(:cache_exists? => true, :ensure_populated! => mock, :post_ids => [])
+        RedisCache.stub(:new).and_return(cache)
+        cache.should_receive(:ensure_populated!)
 
-        it "is populated" do
-        end
+        alice.visible_post_ids(@opts)
+      end
+
+      describe "#ensure_populated_cache" do
+        it 'does nothing if the cache is already populated'
+        it 're-populates the cache with the latest posts (in hashes)'
       end
 
       context 'populated cache' do
         before do
-          @cache = mock(:cache_exists? => true)
+          @cache = mock(:cache_exists? => true, :ensure_populated! => mock)
           RedisCache.stub(:new).and_return(@cache)
         end
-        it "reads from the cache" do
-          @cache.stub(:post_ids).and_return([1,2,3])
 
-          alice.visible_post_ids(:limit => 3).should == [1,2,3]
+        it "reads from the cache" do
+          @cache.should_receive(:post_ids).and_return([1,2,3])
+
+          alice.visible_post_ids(@opts.merge({:limit => 3})).should == [1,2,3]
         end
 
         it "queries if maxtime is later than the last cached post" do
           @cache.stub(:post_ids).and_return([])
           alice.should_receive(:visible_ids_from_sql)
 
-          alice.visible_post_ids
+          alice.visible_post_ids(@opts)
         end
 
         it "does not get repopulated" do

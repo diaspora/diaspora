@@ -3,18 +3,20 @@
 #   the COPYRIGHT file.
 
 require 'spec_helper'
-require 'diaspora/redis_cache'
 
 describe RedisCache do
   before do
-    @redis = MockRedis.new
-    @cache = RedisCache.new(bob.id, "created_at")
-    @cache.stub(:redis).and_return(@redis)
+    #@redis = MockRedis.new
+    @redis = Redis.new
+    @redis.keys.each{|p| @redis.del(p)}
+
+    @cache = RedisCache.new(bob, :created_at)
+    #@cache.stub(:redis).and_return(@redis)
   end
 
-  it 'gets initialized with user_id and an order field' do
-    cache = RedisCache.new(bob.id, "updated_at")
-    [:@user_id, :@order].each do |var|
+  it 'gets initialized with user and an created_at order' do
+    cache = RedisCache.new(bob, :created_at)
+    [:@user, :@order_field].each do |var|
       cache.instance_variable_get(var).should_not be_blank
     end
   end
@@ -22,7 +24,7 @@ describe RedisCache do
   describe "#cache_exists?" do
     it 'returns true if the sorted set exists' do
       timestamp = Time.now.to_i
-      @redis.zadd("cache_stream_#{@bob.id}_created_at", timestamp, "post_1")
+      @redis.zadd("cache_stream_#{bob.id}_created_at", timestamp, "post_1")
 
       @cache.cache_exists?.should be_true
     end
@@ -38,7 +40,7 @@ describe RedisCache do
       @timestamp = Time.now.to_i
       30.times do |n|
         created_time = @timestamp - n*1000
-        @redis.zadd("cache_stream_#{@bob.id}_created_at", created_time, n)
+        @redis.zadd("cache_stream_#{bob.id}_created_at", created_time, n)
         @timestamps << created_time
       end
     end
@@ -56,7 +58,84 @@ describe RedisCache do
     end
   end
 
-  describe "#populate"
+  describe "#ensure_populated!" do
+    it 'does nothing if the cache is populated' do
+      @cache.stub(:cache_exists?).and_return(true)
+      @cache.should_not_receive(:repopulate!)
+
+      @cache.ensure_populated!
+    end
+
+    it 'clears and poplulates if the cache is not populated' do
+      @cache.stub(:cache_exists?).and_return(false)
+      @cache.should_receive(:repopulate!)
+
+      @cache.ensure_populated!
+    end
+  end
+
+  describe "#repopulate!" do
+    it 'populates' do
+      @cache.stub(:trim!).and_return(true)
+      @cache.should_receive(:populate!).and_return(true)
+      @cache.repopulate!
+    end
+
+    it 'trims' do
+      @cache.stub(:populate!).and_return(true)
+      @cache.should_receive(:trim!)
+      @cache.repopulate!
+    end
+  end
+
+  describe "#populate!" do
+    it 'queries the db with the visible post sql string' do
+      sql = "long_sql"
+      order = "created_at DESC"
+      @cache.should_receive(:order).and_return(order)
+      bob.should_receive(:visible_posts_sql).with(hash_including(
+                                                    :limit => 100,
+                                                    :order => order)).
+                                             and_return(sql)
+
+      Post.connection.should_receive(:select_all).with(sql).and_return([])
+
+      @cache.populate!
+    end
+
+    it 'adds the post from the hash to the cache'
+  end
+
+  describe "#trim!" do
+    it 'does nothing if the set is smaller than the cache limit' do
+      @timestamps = []
+      @timestamp = Time.now.to_i
+      30.times do |n|
+        created_time = @timestamp - n*1000
+        @redis.zadd("cache_stream_#{bob.id}_created_at", created_time, n)
+        @timestamps << created_time
+      end
+
+      post_ids = @cache.post_ids(Time.now.to_i, @cache.size)
+      @cache.trim!
+      @cache.post_ids(Time.now.to_i, @cache.size).should == post_ids
+    end
+
+    it 'trims the set to the cache limit' do
+      @timestamps = []
+      @timestamp = Time.now.to_i
+      120.times do |n|
+        created_time = @timestamp - n*1000
+        @redis.zadd("cache_stream_#{bob.id}_created_at", created_time, n)
+        @timestamps << created_time
+      end
+
+      post_ids = 100.times.map{|n| n}
+      @cache.trim!
+      @cache.post_ids(Time.now.to_i, @cache.size).should == post_ids[0...100]
+    end
+  end
+
   describe "#add"
   describe "#remove"
 end
