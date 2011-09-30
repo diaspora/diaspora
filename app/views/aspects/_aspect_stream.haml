@@ -20,15 +20,8 @@
   = render 'aspects/no_contacts_message'
 
 #main_stream.stream{:data => {:guids => stream.aspect_ids.join(',')}}
-<<<<<<< HEAD
   - if stream.ajax_stream? 
-=======
-  - if stream.ajax_posts?
->>>>>>> added tag follow feature, mention page feature.  is now pretty easy to add new types of streams, but some more refactoring could make it even nicer
-    #pagination
-      =link_to(t('more'), next_page_path(:ajax_stream => true), :class => 'paginate')
-
   - elsif stream.posts.length > 0
     = render 'shared/stream', :posts => stream.posts
-    #pagination
-      =link_to(t('more'), next_page_path, :class => 'paginate')
+  #pagination
+    =link_to(t('more'), next_page_path(:ajax_stream => stream.ajax_stream?, :class => 'paginate')
