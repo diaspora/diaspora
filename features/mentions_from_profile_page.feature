@@ -25,8 +25,9 @@ Feature: mentioning a contact from their profile page
       And I expand the publisher in the modal window
       And I append "I am eating a yogurt" to the publisher
       And I press "Share" in the modal window
-
+      And I wait for the ajax to finish
       When I am on the aspects page
+      And I wait for the ajax to finish
       And I follow "PostingTo" within "#aspect_nav"
       And I wait for the ajax to finish
       Then I should see "I am eating a yogurt"

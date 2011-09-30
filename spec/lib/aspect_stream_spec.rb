@@ -123,4 +123,19 @@ describe AspectStream do
       @stream.should_not be_for_all_aspects
     end
   end
+
+  describe '.ajax_stream?' do
+    before do
+      @stream = AspectStream.new(stub, stub)
+    end
+    it 'is true stream is for all aspects?' do
+      @stream.stub(:for_all_aspects?).and_return(true)
+      @stream.ajax_stream?.should be_true
+    end
+
+    it 'is false if it is not for all aspects' do
+      @stream.stub(:for_all_aspects?).and_return(false)
+      @stream.ajax_stream?.should be_false
+    end
+  end
 end

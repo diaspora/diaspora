@@ -18,7 +18,6 @@ class StatusMessagesController < ApplicationController
       if @contact
         @aspects_with_person = @contact.aspects
         @aspect_ids = @aspects_with_person.map{|x| x.id}
-        puts @aspect_ids.inspect
         @contacts_of_contact = @contact.contacts
         render :layout => nil
       end

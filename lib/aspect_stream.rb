@@ -64,7 +64,7 @@ class AspectStream
   end
 
   def ajax_stream?
-    true
+    for_all_aspects?
   end
 
   # Determine whether or not the stream is displaying across
