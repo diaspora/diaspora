@@ -4,7 +4,7 @@ require File.join(Rails.root, 'lib','postzord', 'receiver', 'local_batch')
 describe Postzord::Receiver::LocalBatch do
   before do
     @object = Factory(:status_message, :author => alice.person)
-    @ids = [bob.id] 
+    @ids = [bob.id.to_s] 
   end
 
   let(:receiver) { Postzord::Receiver::LocalBatch.new(@object, @ids) }
