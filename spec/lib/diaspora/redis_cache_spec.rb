@@ -6,12 +6,12 @@ require 'spec_helper'
 
 describe RedisCache do
   before do
-    #@redis = MockRedis.new
-    @redis = Redis.new
-    @redis.keys.each{|p| @redis.del(p)}
+    @redis = MockRedis.new
+    #@redis = Redis.new
+    #@redis.keys.each{|p| @redis.del(p)}
 
     @cache = RedisCache.new(bob, :created_at)
-    #@cache.stub(:redis).and_return(@redis)
+    @cache.stub(:redis).and_return(@redis)
   end
 
   it 'gets initialized with user and an created_at order' do
