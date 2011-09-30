@@ -1,12 +1,12 @@
 // JSON-P Twitter fetcher for Octopress
-// (c) Brandon Mathis // MIT Lisence
+// (c) Brandon Mathis // MIT License
 
 /* Sky Slavin, Ludopoli. MIT license.  * based on JavaScript Pretty Date * Copyright (c) 2008 John Resig (jquery.com) * Licensed under the MIT license.  */
 function prettyDate(time) {
   if (navigator.appName === 'Microsoft Internet Explorer') {
     return "<span>&infin;</span>"; // because IE date parsing isn't fun.
   }
-
+  console.log(time);
   var say = {
     just_now:    " now",
     minute_ago:  "1m",
@@ -15,6 +15,7 @@ function prettyDate(time) {
     hours_ago:   "h",
     yesterday:   "1d",
     days_ago:    "d",
+    last_week:   "1w",
     weeks_ago:   "w"
   };
 
@@ -35,6 +36,7 @@ function prettyDate(time) {
     diff < 86400 && Math.floor(diff / 3600) + say.hours_ago) ||
     day_diff === 1 && say.yesterday ||
     day_diff < 7 && day_diff + say.days_ago ||
+    day_diff === 7 && say.last_week ||
     day_diff > 7 && Math.ceil(day_diff / 7) + say.weeks_ago;
 }
 
@@ -47,8 +49,10 @@ function linkifyTweet(text, url) {
   // Use twitter's api to replace t.co shortened urls with expanded ones.
   for (var u in url) {
     if(url[u].expanded_url != null){
-      var shortUrl = new RegExp( url[u].url.replace(/https?:\/\//, ''), 'g');
-      text = text.replace(shortUrl, url[u].display_url);
+      var shortUrl = new RegExp(url[u].url, 'g');
+      text = text.replace(shortUrl, url[u].expanded_url);
+      var shortUrl = new RegExp(">"+(url[u].url.replace(/https?:\/\//, '')), 'g');
+      text = text.replace(shortUrl, ">"+url[u].display_url);
     }
   }
   return text
