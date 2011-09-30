@@ -6,7 +6,6 @@ function prettyDate(time) {
   if (navigator.appName === 'Microsoft Internet Explorer') {
     return "<span>&infin;</span>"; // because IE date parsing isn't fun.
   }
-  console.log(time);
   var say = {
     just_now:    " now",
     minute_ago:  "1m",
