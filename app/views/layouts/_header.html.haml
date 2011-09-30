@@ -21,26 +21,27 @@
       = form_tag(people_path, :method => 'get', :class => "search_form") do
         = text_field_tag 'q', nil, :placeholder => t('find_people'), :type => 'search', :results => 5
 
-    #nav_badges
-      #home_badge.badge
-        = link_to aspects_path, :title => t('_home') do
-          = image_tag 'icons/home_grey.svg', :height => 16
+    - if @notification_count
+      #nav_badges
+        #home_badge.badge
+          = link_to aspects_path, :title => t('_home') do
+            = image_tag 'icons/home_grey.svg', :height => 16
 
-      #contacts_badge.badge
-        = link_to contacts_link, :title => t('_contacts') do
-          = image_tag 'icons/contacts_grey.svg', :height => 16
+        #contacts_badge.badge
+          = link_to contacts_link, :title => t('_contacts') do
+            = image_tag 'icons/contacts_grey.svg', :height => 16
 
-      #notification_badge.badge
-        = link_to notifications_path, :title => new_notification_text(@notification_count) do
-          = image_tag 'icons/notifications_grey.svg', :height => 16, :id => "notification-flag"
-          .badge_count{:class => ("hidden" if notification_count == 0)}
-            = notification_count
+        #notification_badge.badge
+          = link_to notifications_path, :title => new_notification_text(@notification_count) do
+            = image_tag 'icons/notifications_grey.svg', :height => 16, :id => "notification-flag"
+            .badge_count{:class => ("hidden" if @notification_count == 0)}
+              = @notification_count
 
-      #message_inbox_badge.badge
-        = link_to conversations_path , :title => new_message_text(@unread_message_count) do
-          = image_tag 'icons/mail_grey.svg', :width => 18
-          .badge_count{:class => ("hidden" if unread_message_count == 0)}
-            = unread_message_count
+        #message_inbox_badge.badge
+          = link_to conversations_path , :title => new_message_text(@unread_message_count) do
+            = image_tag 'icons/mail_grey.svg', :width => 18
+            .badge_count{:class => ("hidden" if @unread_message_count == 0)}
+              = @unread_message_count
 
       #notification_dropdown
         .header

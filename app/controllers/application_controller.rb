@@ -15,7 +15,7 @@ class ApplicationController < ActionController::Base
 
   inflection_method :grammatical_gender => :gender
 
-  helper_method :all_aspects, :all_contacts_count, :my_contacts_count, :only_sharing_count, :notification_count, :unread_message_count
+  helper_method :all_aspects, :all_contacts_count, :my_contacts_count, :only_sharing_count
   helper_method :tags, :tag_followings
 
   def ensure_http_referer_is_set
@@ -26,6 +26,8 @@ class ApplicationController < ActionController::Base
     if user_signed_in?
       if request.format.html? && !params[:only_posts]
         @aspect = nil
+        @notification_count = Notification.for(current_user, :unread =>true).count
+        @unread_message_count = ConversationVisibility.sum(:unread, :conditions => "person_id = #{current_user.person.id}")
       end
     end
   end
@@ -42,14 +44,6 @@ class ApplicationController < ActionController::Base
   end
 
   ##helpers
-  def notification_count 
-    @ontification_count ||= Notification.for(current_user, :unread =>true).count
-  end
-
-  def unread_message_count
-    @unread_message_count ||= ConversationVisibility.sum(:unread, :conditions => "person_id = #{current_user.person.id}")
-  end
-
   def all_aspects
     @all_aspects ||= current_user.aspects
   end
