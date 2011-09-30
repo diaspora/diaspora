@@ -16,9 +16,6 @@ class StatusMessagesController < ApplicationController
       @contact = current_user.contact_for(@person)
       @aspects_with_person = []
       if @contact
-        pp @contact
-        pp @contact.aspects
-        pp params[:format]
         @aspects_with_person = @contact.aspects
         @aspect_ids = @aspects_with_person.map{|x| x.id}
         puts @aspect_ids.inspect
