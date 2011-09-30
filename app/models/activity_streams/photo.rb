@@ -10,7 +10,6 @@ class ActivityStreams::Photo < Post
   xml_attr :image_height
   xml_attr :image_width
   xml_attr :object_url
-  xml_attr :provider_display_name
   xml_attr :actor_url
   xml_attr :objectId
 

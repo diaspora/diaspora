@@ -2,20 +2,27 @@
 -#   licensed under the Affero General Public License version 3 or later.  See
 -#   the COPYRIGHT file.
 
-#login_form
-  = form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f|
-    %div{:data => {:role => 'fieldcontain'}}
-      = f.label :username , t('username')
-      = f.text_field :username
-      %p.user_network
-        ="@#{AppConfig[:pod_uri].host}"
-    
-      = f.label :password , t('password')
-      = f.password_field :password
-    = f.submit t('devise.sessions.new.sign_in')
-    - if devise_mapping.rememberable?
-      = f.check_box :remember_me
-      = f.label :remember_me, t('devise.sessions.new.remember_me')
+.stream
+  #login_form
+    .login-container
+      %h2
+        Log in
+      = form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f|
+        .row
+          .row
+            = f.label :username, t('username')
+          .centered
+            = f.text_field :username
+        .row
+          .row
+            = f.label :password , t('password')
+          .centered
+            = f.password_field :password
+        .row
+          = f.submit t('devise.sessions.new.sign_in'), :class => 'login-submit'
+          - if devise_mapping.recoverable? && controller_name != 'passwords'
+            = link_to "Forgot password?", new_password_path(resource_name)
 
-  %p
-    = render :partial => "devise/shared/links"
+%footer
+  - if !AppConfig[:registrations_closed] && devise_mapping.registerable? && controller_name != 'registrations'
+    = link_to t('.sign_up'), new_registration_path(resource_name)

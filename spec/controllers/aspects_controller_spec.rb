@@ -67,6 +67,9 @@ describe AspectsController do
 
   describe "#index" do
     context 'jasmine fixtures' do
+      before do
+        AspectStream.any_instance.stub(:ajax_stream?).and_return(false)
+      end
       it "generates a jasmine fixture", :fixture => true do
         get :index
         save_fixture(html_for("body"), "aspects_index")
@@ -151,18 +154,6 @@ describe AspectsController do
         aspect2 = alice.aspects.create(:name => "test aspect two")
         AspectStream.should_receive(:new).with(alice, [@aspect1.id, aspect2.id], anything).and_return(@stream)
         get :index, :a_ids => [@aspect1.id, aspect2.id]
-      end
-    end
-
-    context "mobile" do
-      it "renders a share button when you don't pass aspect IDs" do
-        get :index, :format => :mobile
-        response.body.should =~ /#{Regexp.escape('id="status_message_submit"')}/
-      end
-      
-      it "renders a share button when you pass aspect IDs" do
-        get :index, :a_ids => [@alices_aspect_1], :format => :mobile
-        response.body.should =~ /#{Regexp.escape('id="status_message_submit"')}/
       end
     end
 
@@ -357,7 +348,6 @@ describe AspectsController do
     it 'should not 500' do
       get :index, :format => :mobile
       response.should be_success
-
     end
   end
 end

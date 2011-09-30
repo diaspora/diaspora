@@ -14,6 +14,7 @@ describe Services::Facebook do
       @service.post(@post)
       WebMock.should have_requested(:post, "https://graph.facebook.com/me/feed").with(:body => {:message => @post.text, :access_token => @service.access_token}.to_param)
     end
+
     it 'swallows exception raised by facebook always being down' do
       stub_request(:post,"https://graph.facebook.com/me/feed").
         to_raise(StandardError)
@@ -24,6 +25,15 @@ describe Services::Facebook do
       url = "foo"
       @service.should_receive(:public_message).with(@post, url)
       @service.post(@post, url)
+    end
+  end
+  
+  describe '#create_post_params' do
+    it 'should have a link when the message has a link' do
+      @service.create_post_params("http://example.com/ test message")[:link].should == "http://example.com/"
+    end
+    it 'should not have a link when the message has no link' do
+      @service.create_post_params("test message")[:link].should == nil
     end
   end
 

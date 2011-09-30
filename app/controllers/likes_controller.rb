@@ -21,6 +21,7 @@ class LikesController < ApplicationController
           format.js { render 'likes/update', :status => 201 }
           format.html { render :nothing => true, :status => 201 }
           format.mobile { redirect_to post_path(@like.post_id) }
+          format.json { render :nothing => true, :status => 201 }
         end
       else
         render :nothing => true, :status => 422
@@ -34,13 +35,15 @@ class LikesController < ApplicationController
     if @like = Like.where(:id => params[:id], :author_id => current_user.person.id).first
       current_user.retract(@like)
       respond_to do |format|
-        format.all { }
+        format.any { }
         format.js { render 'likes/update' }
+        format.json { render :nothing => true, :status => :ok}
       end
     else
       respond_to do |format|
         format.mobile { redirect_to :back }
         format.js { render :nothing => true, :status => 403 }
+        format.json { render :nothing => true, :status => 403}
       end
     end
   end

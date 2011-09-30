@@ -99,7 +99,7 @@ eu:
         content_1: "Zure Diaspora ID honakoa da:"
         content_2: "Emaiozu edonori eta Diasporan aurkituko zaituzte hura erabiliz."
         heading: "Diaspora IDa"
-      donate: "Donate"
+      donate: "Donatu"
       handle_explanation: "Hau da zure Diaspora IDa. E-posta helbidea bezalakoa da, zure adiskideei emaiezu zu aurkitzearren."
       help: 
         did_you: "Did you:"
@@ -141,7 +141,7 @@ eu:
     seed: 
       acquaintances: "Acquaintances"
       family: "Familia"
-      friends: "Friends"
+      friends: "Adiskideak"
       work: "Lantokia"
     selected_contacts: 
       manage_your_aspects: "Zure alderdiak kudeatu."

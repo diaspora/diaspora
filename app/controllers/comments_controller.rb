@@ -6,7 +6,7 @@ class CommentsController < ApplicationController
   include ApplicationHelper
   before_filter :authenticate_user!
 
-  respond_to :html, :mobile, :only => [:create, :destroy]
+  respond_to :html, :mobile, :except => :show
   respond_to :js, :only => [:index]
 
   rescue_from ActiveRecord::RecordNotFound do
@@ -28,7 +28,7 @@ class CommentsController < ApplicationController
         respond_to do |format|
           format.js{ render(:create, :status => 201)}
           format.html{ render :nothing => true, :status => 201 }
-          format.mobile{ redirect_to post_url(@comment.post) }
+          format.mobile{ render :partial => 'comment', :locals => {:post => @comment.post, :comment => @comment} }
         end
       else
         render :nothing => true, :status => 422
@@ -64,4 +64,7 @@ class CommentsController < ApplicationController
     end
   end
 
+  def new
+    render :layout => false
+  end
 end

@@ -9,10 +9,19 @@ class Services::Facebook < Service
     Rails.logger.debug("event=post_to_service type=facebook sender_id=#{self.user_id}")
     message = public_message(post, url)
     begin
-      Faraday.post("https://graph.facebook.com/me/feed", {:message => message, :access_token => self.access_token}.to_param)
+      post_params = self.create_post_params(message)
+      Faraday.post("https://graph.facebook.com/me/feed", post_params.to_param)
     rescue Exception => e
       Rails.logger.info("#{e.message} failed to post to facebook")
     end
+  end
+
+  def create_post_params(message)
+    hash = {:message => message, :access_token => self.access_token}
+    if /https?:\/\/(\S+)/ =~ message
+    hash.merge!({:link => /https?:\/\/(\S+)/.match(message)[0]})
+    end
+    return hash
   end
 
   def public_message(post, url)

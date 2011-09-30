@@ -12,16 +12,16 @@ class PostVisibility < ActiveRecord::Base
   # @param contacts [Array<Contact>] Recipients
   # @param post [Post]
   # @return [void]
-  def self.batch_import(contacts, post)
+  def self.batch_import(contact_ids, post)
     if postgres?
-      contacts.each do |contact|
-        PostVisibility.find_or_create_by_contact_id_and_post_id(contact.id, post.id)
+      contact_ids.each do |contact_id|
+        PostVisibility.find_or_create_by_contact_id_and_post_id(contact_id, post.id)
       end
     else
-      new_post_visibilities = contacts.map do |contact|
-        PostVisibility.new(:contact_id => contact.id, :post_id => post.id)
+       new_post_visibilities_data = contact_ids.map do |contact_id|
+        [contact_id, post.id]
       end
-      PostVisibility.import(new_post_visibilities)
+      PostVisibility.import([:contact_id, :post_id], new_post_visibilities_data)
     end
   end
 end

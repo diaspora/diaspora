@@ -168,11 +168,15 @@ en:
       help:
         need_help: "Need Help?"
         here_to_help: "The Diaspora community is here!"
-        did_you: "Did you:"
+        do_you: "Do you:"
         have_a_question: "... have a %{link}?"
         find_a_bug: "... find a %{link}?"
         feature_suggestion: "... have a %{link} suggestion?"
-        tutorials: "%{link}: Community-powered tutorials, how-to, and news"
+
+        tutorials_and_wiki: "%{tutorial} & %{wiki}: Community-powered tutorials, how-to, and news"
+
+        feature_and_forum: "%{gs} & %{forum}: Community-powered support and feature requests"
+
         satisfaction: "%{link}: Community-powered support"
         email_feedback: "%{link} your feedback, if you prefer"
       cubbies:
@@ -209,6 +213,14 @@ en:
     new_comment:
       comment: "Comment"
       commenting: "Commenting..."
+
+  reactions:
+    zero: "0 reactions"
+    one: "1 reaction"
+    two: "%{count} reactions"
+    few: "%{count} reactions"
+    many: "%{count} reactions"
+    other: "%{count} reactions"
 
   contacts:
     zero: "no contacts"
@@ -331,7 +343,7 @@ en:
     application:
       powered_by: "POWERED BY DIASPORA*"
       whats_new: "what's new?"
-      toggle: "toggle mobile site"
+      toggle: "toggle mobile"
       public_feed: "Public Diaspora Feed for %{name}"
       your_aspects: "your aspects"
 
@@ -653,6 +665,7 @@ en:
         other: "%{count} new requests!"
   reshares:
     reshare:
+      reshared_via: "reshared via"
       reshare_original: "Reshare original"
       reshare:
         zero: "Reshare"

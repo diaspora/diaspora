@@ -27,6 +27,10 @@ else
   RTL_LANGUAGES = []
 end
 
+# Blacklist of usernames
+USERNAME_BLACKLIST = ['admin', 'administrator', 'hostmaster', 'info', 'postmaster', 'root', 'ssladmin', 
+  'ssladministrator', 'sslwebmaster', 'sysadmin', 'webmaster', 'support', 'contact']
+
 # Initialize the rails application
 Diaspora::Application.initialize!
 

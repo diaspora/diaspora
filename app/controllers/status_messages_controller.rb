@@ -9,20 +9,22 @@ class StatusMessagesController < ApplicationController
   respond_to :mobile
 
   # Called when a user clicks "Mention" on a profile page
-  # @option [Integer] person_id The id of the person to be mentioned
+  # @param person_id [Integer] The id of the person to be mentioned
   def new
-    @person = Person.find(params[:person_id])
-    @aspect = :profile
-    @contact = current_user.contact_for(@person)
-    @aspects_with_person = []
-    if @contact
-      @aspects_with_person = @contact.aspects
-      @aspect_ids = @aspects_with_person.map(&:id)
-      @contacts_of_contact = @contact.contacts
-
-      render :layout => nil
+    if params[:person_id] && @person = Person.where(:id => params[:person_id]).first
+      @aspect = :profile
+      @contact = current_user.contact_for(@person)
+      @aspects_with_person = []
+      if @contact
+        @aspects_with_person = @contact.aspects
+        @aspect_ids = @aspects_with_person.map{|x| x.id}
+        @contacts_of_contact = @contact.contacts
+        render :layout => nil
+      end
     else
-      redirect_to :back
+      @aspect = :all
+      @aspects = current_user.aspects
+      @aspect_ids = @aspects.map{ |a| a.id }
     end
   end
 
@@ -46,9 +48,14 @@ class StatusMessagesController < ApplicationController
     end
 
     if @status_message.save
-      Rails.logger.info("event=create type=status_message chars=#{params[:status_message][:text].length}")
+      # always send to all aspects if public
+      if params[:status_message][:public] || params[:status_message][:aspect_ids].first == "all_aspects"
+        aspect_ids = current_user.aspects.map{|a| a.id}
+      else
+        aspect_ids = params[:aspect_ids]
+      end
 
-      aspects = current_user.aspects_from_ids(params[:aspect_ids])
+      aspects = current_user.aspects_from_ids(aspect_ids)
       current_user.add_to_streams(@status_message, aspects)
       receiving_services = current_user.services.where(:type => params[:services].map{|s| "Services::"+s.titleize}) if params[:services]
       current_user.dispatch_post(@status_message, :url => short_post_url(@status_message.guid), :services => receiving_services)
@@ -78,7 +85,8 @@ class StatusMessagesController < ApplicationController
   end
 
   def normalize_public_flag!
-    public_flag = params[:status_message][:public]
+    # mobile || desktop conditions
+    public_flag = (params[:status_message][:aspect_ids] && params[:status_message][:aspect_ids].first == 'public') || params[:status_message][:public]
     public_flag.to_s.match(/(true)|(on)/) ? public_flag = true : public_flag = false
     params[:status_message][:public] = public_flag
     public_flag

@@ -17,7 +17,8 @@ module Postzord
         end
         notify_mentioned_users if @object.respond_to?(:mentions)
 
-        socket_to_users if @object.respond_to?(:socket_to_user)
+        # 09/27/11 this is slow
+        #socket_to_users if @object.respond_to?(:socket_to_user)
         notify_users
       end
 
@@ -35,8 +36,8 @@ module Postzord
       # @note performs a bulk insert into mySQL
       # @return [void]
       def create_post_visibilities
-        contacts = Contact.where(:user_id => @recipient_user_ids, :person_id => @object.author_id)
-        PostVisibility.batch_import(contacts, object)
+        contacts_ids = Contact.connection.select_values(Contact.where(:user_id => @recipient_user_ids, :person_id => @object.author_id).select("id").to_sql)
+        PostVisibility.batch_import(contacts_ids, object)
       end
 
       # Notify any mentioned users within the @object's text

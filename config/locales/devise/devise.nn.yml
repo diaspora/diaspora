@@ -11,13 +11,13 @@ nn:
         resend_confirmation: "Resend confirmation instructions"
       send_instructions: "You will receive an email with instructions about how to confirm your account in a few minutes."
     failure: 
-      inactive: "Your account was not activated yet."
+      inactive: "Kontoen din var ikkje teken i bruk."
       invalid: "Brukarnamnet eller passordet er ugyldig."
-      invalid_token: "Invalid authentication token."
-      locked: "Your account is locked."
+      invalid_token: "Ugyldig autentisering."
+      locked: "Kontoen din er låst."
       timeout: "Økta finst ikkje lenger. Logg deg på att."
       unauthenticated: "Du må logga deg på eller melda deg inn før du kan halda fram."
-      unconfirmed: "You have to confirm your account before continuing."
+      unconfirmed: "Du må stadfesta kontoen din før du kan halda fram."
     invitations: 
       invitation_token_invalid: "The invitation token provided is not valid!"
       send_instructions: "Your invitation has been sent."
@@ -51,11 +51,11 @@ nn:
       welcome: "Welcome %{email}!"
     passwords: 
       edit: 
-        change_password: "Change my password"
+        change_password: "Endra passordet mitt"
       new: 
-        forgot_password: "Forgot your password?"
-        no_account: "No account with this email exists.  If you are waiting for an invite, we are rolling them out as soon as possible"
-        send_password_instructions: "Send me reset password instructions"
+        forgot_password: "Har du gløymt passordet ditt?"
+        no_account: "Det finst ingen konto med denne e-postadressa. Om du ventar på ein invitasjon, skal du veta at vi sender dei ut så fort vi kan."
+        send_password_instructions: "Send meg opplysningar om korleis nullstilla passordet"
       send_instructions: "You will receive an email with instructions about how to reset your password in a few minutes."
       updated: "Your password was changed successfully. You are now signed in."
     registrations: 

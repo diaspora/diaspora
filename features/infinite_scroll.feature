@@ -8,6 +8,7 @@ Feature: infinite scroll
       Given many posts from alice for bob
       And I resize my window to 800x600
       And I sign in as "bob@bob.bob"
+      And I wait for the ajax to finish
 
     Scenario: on the main stream by activity
       Then I should see 15 posts
@@ -25,7 +26,6 @@ Feature: infinite scroll
       Then I should see "No more"
 
       When I follow "generic"
-      And I wait for the ajax to finish
       Then I should see 15 posts
       And I should see "alice - 26 - #seeded"
 
@@ -41,8 +41,8 @@ Feature: infinite scroll
       Then I should see "No more"
 
     Scenario: on the main stream post created time
-      When I wait for the ajax to finish
       And I follow "posted"
+      And I go to the home page
       Then I should see 15 posts
       And I should see "alice - 15 - #seeded"
 
