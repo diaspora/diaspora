@@ -11,7 +11,6 @@ class RedisCache
   def initialize(user, order_field)
     @user = user
     @order_field = order_field.to_s
-    self
   end
 
   # @return [Boolean]
@@ -29,19 +28,14 @@ class RedisCache
     post_ids[0...limit]
   end
 
-  # @return [RedisCache] self
   def ensure_populated!
     self.repopulate! unless cache_exists?
-    self
   end
 
-  # @return [RedisCache] self
   def repopulate!
     self.populate! && self.trim!
-    self
   end
 
-  # @return [RedisCache] self
   def populate!
     # user executes query and gets back hashes
     sql = @user.visible_posts_sql(:limit => CACHE_LIMIT, :order => self.order)
@@ -50,19 +44,13 @@ class RedisCache
     # hashes are inserted into set in a single transaction
     redis.multi do
       hashes.each do |h|
-        self.redis.zadd(set_key, h[@order_field], h["id"])
+        self.redis.zadd(set_key, h[@order_field].to_i, h["id"])
       end
     end
-
-    self
   end
 
-  # @return [RedisCache] self
   def trim!
-    puts "cache limit #{CACHE_LIMIT}"
-    puts "cache size #{self.size}"
     self.redis.zremrangebyrank(set_key, 0, -(CACHE_LIMIT+1))
-    self
   end
 
   # @param order [Symbol, String]

@@ -40,21 +40,21 @@ describe RedisCache do
       @timestamp = Time.now.to_i
       30.times do |n|
         created_time = @timestamp - n*1000
-        @redis.zadd("cache_stream_#{bob.id}_created_at", created_time, n)
+        @redis.zadd("cache_stream_#{bob.id}_created_at", created_time, n.to_s)
         @timestamps << created_time
       end
     end
 
     it 'returns the most recent post ids (default created at, limit 15)' do
-      @cache.post_ids.should =~ 15.times.map {|n| n}
+      @cache.post_ids.should =~ 15.times.map {|n| n.to_s}
     end
 
     it 'returns posts ids after the specified time' do
-      @cache.post_ids(@timestamps[15]).should =~ (15...30).map {|n| n}
+      @cache.post_ids(@timestamps[15]).should =~ (15...30).map {|n| n.to_s}
     end
 
     it 'returns post ids with a non-default limit' do
-      @cache.post_ids(@timestamp, 20).should =~ 20.times.map {|n| n}
+      @cache.post_ids(@timestamp, 20).should =~ 20.times.map {|n| n.to_s}
     end
   end
 
@@ -112,7 +112,7 @@ describe RedisCache do
       @timestamp = Time.now.to_i
       30.times do |n|
         created_time = @timestamp - n*1000
-        @redis.zadd("cache_stream_#{bob.id}_created_at", created_time, n)
+        @redis.zadd("cache_stream_#{bob.id}_created_at", created_time, n.to_s)
         @timestamps << created_time
       end
 
@@ -126,11 +126,11 @@ describe RedisCache do
       @timestamp = Time.now.to_i
       120.times do |n|
         created_time = @timestamp - n*1000
-        @redis.zadd("cache_stream_#{bob.id}_created_at", created_time, n)
+        @redis.zadd("cache_stream_#{bob.id}_created_at", created_time, n.to_s)
         @timestamps << created_time
       end
 
-      post_ids = 100.times.map{|n| n}
+      post_ids = 100.times.map{|n| n.to_s}
       @cache.trim!
       @cache.post_ids(Time.now.to_i, @cache.size).should == post_ids[0...100]
     end
