@@ -151,6 +151,13 @@ describe User do
         alice.username =  "hexagooooooooooooooooooooooooooon"
         alice.should_not be_valid
       end
+      
+      it "cannot be one of the blacklist names" do
+        ['hostmaster', 'postmaster', 'root', 'webmaster'].each do |username|
+          alice.username =  username
+          alice.should_not be_valid
+        end
+      end
     end
 
     describe "of email" do
