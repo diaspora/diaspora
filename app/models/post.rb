@@ -46,6 +46,10 @@ class Post < ActiveRecord::Base
     end
   end
 
+  def reshare_count
+    @reshare_count ||= Post.where(:root_guid => self.guid).count
+  end
+
   def diaspora_handle= nd
     self.author = Person.where(:diaspora_handle => nd).first
     write_attribute(:diaspora_handle, nd)
