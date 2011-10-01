@@ -21,17 +21,19 @@
   }
   border: 1px solid $pre-border !important;
 }
+figure.code, .gist-file, pre {
+  @include box-shadow(rgba(#000, .06) 0 0 10px);
+  .highlight pre { @include box-shadow(none); }
+}
+
 html .gist .gist-file {
   margin-bottom: 1.8em;
   position: relative;
   border: none;
   padding-top: image-height("code_bg.png") !important;
   .gist-syntax {
-    @if $solarized == dark {
-      border-bottom: 1px solid $base03 !important;
-    } @else if $solarized == light {
-      border-bottom: 0px;
-    }
+    border-bottom: 0 !important;
+    background: none !important;
     .gist-highlight{
       background: $base03 !important;
       pre {
@@ -46,6 +48,7 @@ html .gist .gist-file {
    font-size: .7em !important;
    @if $solarized == light {
      background: lighten($base03, 2) $noise-bg;
+     border: 1px solid $pre-border !important;
      border-top: 1px solid lighten($base03, 2) !important;
    } @else {
      background: $base02 $noise-bg;
