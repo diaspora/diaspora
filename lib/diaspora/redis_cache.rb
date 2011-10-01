@@ -63,6 +63,12 @@ class RedisCache
     "#{@order_field} DESC"
   end
 
+  def add(score, id)
+    return unless self.cache_exists?
+    self.redis.zadd(set_key, score.to_i, id)
+    self.trim!
+  end
+
   protected
   # @return [Redis]
   def redis

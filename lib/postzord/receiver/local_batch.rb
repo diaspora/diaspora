@@ -12,20 +12,24 @@ class Postzord::Receiver::LocalBatch < Postzord::Receiver
     @users = User.where(:id => @recipient_user_ids)
   end
 
-  def perform!
+  def receive!
     if @object.respond_to?(:relayable?)
       receive_relayable
     else
       create_post_visibilities
-
-      # if caching enabled, add to cache
-
     end
     notify_mentioned_users if @object.respond_to?(:mentions)
 
     # 09/27/11 this is slow
     #socket_to_users if @object.respond_to?(:socket_to_user)
     notify_users
+  end
+
+  def update_cache!
+    @users.each do |user|
+      cache = RedisCache.new(user, "created_at")
+      cache.add(@object.created_at.to_i, @object.id)
+    end
   end
 
   # NOTE(copied over from receiver public)

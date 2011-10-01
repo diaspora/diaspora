@@ -17,7 +17,7 @@ class Postzord::Receiver::Public < Postzord::Receiver
   end
 
   # @return [void]
-  def perform!
+  def receive!
     return false unless verified_signature?
     return unless save_object
 

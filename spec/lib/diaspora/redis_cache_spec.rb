@@ -136,6 +136,30 @@ describe RedisCache do
     end
   end
 
-  describe "#add"
+  describe "#add" do
+    before do
+      @cache.stub(:cache_exists?).and_return(true)
+      @id = 1
+      @score = 123
+    end
+
+    it "adds an id with a given score" do
+      @redis.should_receive(:zadd).with(@cache.send(:set_key), @score, @id)
+      @cache.add(@score, @id)
+    end
+
+    it 'trims' do
+      @cache.should_receive(:trim!)
+      @cache.add(@score, @id)
+    end
+
+    it "doesn't add if the cache does not exist" do
+      @cache.stub(:cache_exists?).and_return(false)
+
+      @redis.should_not_receive(:zadd)
+      @cache.add(@score, @id).should be_false
+    end
+  end
+
   describe "#remove"
 end

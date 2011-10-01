@@ -131,4 +131,10 @@ describe Post do
       @post.reload.updated_at.to_i.should == old_time.to_i
     end
   end
+
+  describe "triggers_caching?" do
+    it 'returns true' do
+      Post.new.triggers_caching?.should be_true
+    end
+  end
 end

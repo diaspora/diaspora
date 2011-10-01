@@ -138,6 +138,10 @@ class Post < ActiveRecord::Base
     false
   end
 
+  def triggers_caching?
+    true
+  end
+
   def comment_email_subject
     I18n.t('notifier.a_post_you_shared')
   end

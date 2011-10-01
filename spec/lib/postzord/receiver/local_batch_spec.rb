@@ -17,26 +17,26 @@ describe Postzord::Receiver::LocalBatch do
     end
   end
 
-  describe '#perform!' do
+  describe '#receive!' do
     it 'calls .create_post_visibilities' do
       receiver.should_receive(:create_post_visibilities)
-      receiver.perform!
+      receiver.receive!
     end
 
     it 'sockets to users' do
       pending 'not currently socketing'
       receiver.should_receive(:socket_to_users)
-      receiver.perform!
+      receiver.receive!
     end
 
     it 'notifies mentioned users' do
       receiver.should_receive(:notify_mentioned_users)
-      receiver.perform!
+      receiver.receive!
     end
 
     it 'notifies users' do
       receiver.should_receive(:notify_users)
-      receiver.perform!
+      receiver.receive!
     end
   end
 
@@ -109,6 +109,22 @@ describe Postzord::Receiver::LocalBatch do
       receiver.should_not_receive(:notify_mentioned_users)
       receiver.should_not_receive(:create_post_visibilities)
       receiver.perform!
+    end
+  end
+
+  describe '#update_cache!' do
+    it 'adds to a redis cache for receiving_users' do
+      users = [alice, eve]
+      @zord = Postzord::Receiver::LocalBatch.new(@object, users.map{|u| u.id})
+
+      sort_order = "created_at"
+
+      cache = mock
+      RedisCache.should_receive(:new).exactly(users.length).times.with(instance_of(User), sort_order).and_return(cache)
+
+      cache.should_receive(:add).exactly(users.length).times.with(@object.created_at.to_i, @object.id)
+
+      @zord.update_cache!
     end
   end
 end

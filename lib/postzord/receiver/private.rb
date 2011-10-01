@@ -18,7 +18,7 @@ class Postzord::Receiver::Private < Postzord::Receiver
     @object = opts[:object]
   end
 
-  def perform!
+  def receive!
     if @sender && self.salmon.verified_for_key?(@sender.public_key)
       parse_and_receive(salmon.parsed_data)
     else
@@ -46,6 +46,11 @@ class Postzord::Receiver::Private < Postzord::Receiver
     Notification.notify(@user, obj, @author) if obj.respond_to?(:notification_type)
     Rails.logger.info("event=receive status=complete recipient=#{@user_person.diaspora_handle} sender=#{@sender.diaspora_handle} payload_type=#{obj.class}")
     obj
+  end
+
+  def update_cache!
+    cache = RedisCache.new(@user, "created_at")
+    cache.add(@object.created_at.to_i, @object.id)
   end
 
   protected
