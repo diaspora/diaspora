@@ -17,7 +17,10 @@ class TagStream < BaseStream
     if tag_string.empty?
       []
     else
-      @posts ||= StatusMessage.owned_or_visible_by_user(user).tagged_with([@tag_string], :any => true).where(:public => true).for_a_stream(@max_time, @order)
+      @posts ||= StatusMessage.owned_or_visible_by_user(user).
+        tagged_with([tag_string], :any => true).
+        where(:public => true).
+        for_a_stream(@max_time, @order)
     end
   end
 
