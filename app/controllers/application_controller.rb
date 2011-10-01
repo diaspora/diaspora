@@ -4,28 +4,35 @@
 
 class ApplicationController < ActionController::Base
   has_mobile_fu
+
   protect_from_forgery :except => :receive
+
   before_filter :ensure_http_referer_is_set
-  before_filter :set_header_data, :except => [:create, :update]
+  before_filter :set_header_data, :except => [:create, :update, :destroy]
   before_filter :set_locale
   before_filter :set_git_header if (AppConfig[:git_update] && AppConfig[:git_revision])
-  before_filter :which_action_and_user
-  prepend_before_filter :clear_gc_stats
   before_filter :set_grammatical_gender
+
+  prepend_before_filter :clear_gc_stats
 
   inflection_method :grammatical_gender => :gender
 
-  helper_method :all_aspects, :all_contacts_count, :my_contacts_count, :only_sharing_count
-  helper_method :tags, :tag_followings
+  helper_method :all_aspects,
+                :all_contacts_count,
+                :my_contacts_count,
+                :only_sharing_count,
+                :tag_followings,
+                :tags
 
   def ensure_http_referer_is_set
     request.env['HTTP_REFERER'] ||= '/aspects'
   end
 
+  # we need to do this for vanna controller.  these should really be controller
+  # helper methods instead
   def set_header_data
     if user_signed_in?
       if request.format.html? && !params[:only_posts]
-        @aspect = nil
         @notification_count = Notification.for(current_user, :unread =>true).count
         @unread_message_count = ConversationVisibility.sum(:unread, :conditions => "person_id = #{current_user.person.id}")
       end
@@ -67,18 +74,6 @@ class ApplicationController < ActionController::Base
   def set_git_header
     headers['X-Git-Update'] = AppConfig[:git_update]
     headers['X-Git-Revision'] = AppConfig[:git_revision]
-  end
-
-  def which_action_and_user
-    str = "event=request_with_user controller=#{self.class} action=#{self.action_name} "
-    if current_user
-      str << "uid=#{current_user.id} "
-      str << "user_created_at='#{current_user.created_at.to_date.to_s}' user_created_at_unix=#{current_user.created_at.to_i} " if current_user.created_at
-      str << "user_non_pending_contact_count=#{current_user.contacts.size} user_contact_count=#{Contact.unscoped.where(:user_id => current_user.id).size} "
-    else
-      str << 'uid=nil'
-    end
-    Rails.logger.info str
   end
 
   def set_locale

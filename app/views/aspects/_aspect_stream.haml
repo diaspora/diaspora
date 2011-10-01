@@ -23,7 +23,7 @@
   = render 'aspects/no_contacts_message'
 
 #main_stream.stream{:data => {:guids => stream.aspect_ids.join(',')}}
-  - if defined?(no_posts) && no_posts
+  - if stream.ajax_stream? 
     #pagination
       =link_to(t('more'), next_page_path(:ajax_stream => true), :class => 'paginate')
 

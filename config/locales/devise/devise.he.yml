@@ -34,9 +34,9 @@ he:
         no_account_till: " החשבון שלך לא ייווצר עד לכניסתך לקישור המופיע למעלה וההרשמה לשירות."
         subject: "הוזמנת להצטרף לדיאספורה!"
       inviter: 
-        accept_at: "at %{url}, you can accept it through the link below."
+        accept_at: "בכתובת %{url}, באפשרותך לקבל זאת באמצעות הקישור שלהלן."
         has_invited_you: "%{name}"
-        have_invited_you: "%{names} have invited you to join Diaspora"
+        have_invited_you: "הוזמנת על-ידי %{names} להצטרף לדיאספורה"
       reset_password_instructions: 
         change: "החלפת הססמה שלי"
         ignore: "אם לא ביקשת זאת, ניתן להתעלם מהודעה זו."

@@ -37,7 +37,7 @@ cs:
             person: 
               invalid: "je neplatný."
             username: 
-              invalid: "je neplatné. Povolené znaky jsou pouze písmena, číslice a podtržítko"
+              invalid: "je neplatné. Povolené znaky jsou pouze písmena, číslice a podtržítko."
               taken: "je již obsazeno."
   ago: "před %{time}"
   all_aspects: "Všechny aspekty"

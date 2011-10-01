@@ -39,10 +39,11 @@ module Diaspora
           posts_from_self = posts_from_self.joins(:aspect_visibilities).where(:aspect_visibilities => {:aspect_id => opts[:by_members_of]})
         end
 
-        unless defined?(ActiveRecord::ConnectionAdapters::SQLite3Adapter) && ActiveRecord::Base.connection.class == ActiveRecord::ConnectionAdapters::SQLite3Adapter
-          posts_from_others = posts_from_others.select(select_clause).limit(opts[:limit]).order(order_with_table).where(Post.arel_table[order_field].lt(opts[:max_time]))
-          posts_from_self = posts_from_self.select(select_clause).limit(opts[:limit]).order(order_with_table).where(Post.arel_table[order_field].lt(opts[:max_time]))
-          all_posts = "(#{posts_from_others.to_sql}) UNION ALL (#{posts_from_self.to_sql}) ORDER BY #{opts[:order]} LIMIT #{opts[:limit]}"
+        unless sqlite? 
+          posts_from_others = posts_from_others.select(select_clause).order(order_with_table).where(Post.arel_table[order_field].lt(opts[:max_time]))
+          posts_from_self = posts_from_self.select(select_clause).order(order_with_table).where(Post.arel_table[order_field].lt(opts[:max_time]))
+
+          all_posts = "(#{posts_from_others.to_sql} LIMIT #{opts[:limit]}) UNION ALL (#{posts_from_self.to_sql} LIMIT #{opts[:limit]}) ORDER BY #{opts[:order]} LIMIT #{opts[:limit]}"
         else
           posts_from_others = posts_from_others.select(select_clause)
           posts_from_self = posts_from_self.select(select_clause)

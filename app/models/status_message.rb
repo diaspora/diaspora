@@ -21,7 +21,7 @@ class StatusMessage < Post
   has_many :photos, :dependent => :destroy, :foreign_key => :status_message_guid, :primary_key => :guid
   validate :presence_of_content
 
-  attr_accessible :text
+  attr_accessible :text, :provider_display_name
   serialize :youtube_titles, Hash
 
   after_create :create_mentions

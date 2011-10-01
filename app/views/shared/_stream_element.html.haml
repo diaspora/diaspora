@@ -40,10 +40,19 @@
         = render 'status_messages/status_message', :post => post, :photos => post.photos
 
       .info
+        %span.via
+          - if post.activity_streams?
+            = t('.via', :link => link_to("#{post.provider_display_name}", post.actor_url)).html_safe
+            &ndash;
+          - elsif post.provider_display_name == 'mobile'
+            = t('.via', :link => nil)
+            mobile
+            &ndash;
+
         - if post.public?
           %span.post_scope{:title => t('.viewable_to_anyone')}
             = t('public')
-            ·
+            &ndash;
         - else
           - if user_signed_in? && post.author.owner_id == current_user.id
             - aspects = aspects_with_post(all_aspects, post)
@@ -56,12 +65,8 @@
           - else
             %span.post_scope
               = t('limited')
-          ·
+          &ndash;
 
-        %span.via
-          - if post.activity_streams?
-            = t('.via', :link => link_to("#{post.provider_display_name}", post.actor_url)).html_safe
-            ·
 
         - if user_signed_in?
           - unless @commenting_disabled

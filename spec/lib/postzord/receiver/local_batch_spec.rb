@@ -4,7 +4,7 @@ require File.join(Rails.root, 'lib','postzord', 'receiver', 'local_batch')
 describe Postzord::Receiver::LocalBatch do
   before do
     @object = Factory(:status_message, :author => alice.person)
-    @ids = [bob.id] 
+    @ids = [bob.id.to_s] 
   end
 
   let(:receiver) { Postzord::Receiver::LocalBatch.new(@object, @ids) }
@@ -24,6 +24,7 @@ describe Postzord::Receiver::LocalBatch do
     end
 
     it 'sockets to users' do
+      pending 'not currently socketing'
       receiver.should_receive(:socket_to_users)
       receiver.perform!
     end
@@ -40,8 +41,8 @@ describe Postzord::Receiver::LocalBatch do
   end
 
   describe '#create_post_visibilities' do
-    it 'calls Postvisibility.batch_import' do
-      PostVisibility.should_receive(:batch_import)
+    it 'calls Postvisibility.batch_import with hashes' do
+      PostVisibility.should_receive(:batch_import).with(instance_of(Array), @object)
       receiver.create_post_visibilities
     end
   end
@@ -94,12 +95,16 @@ describe Postzord::Receiver::LocalBatch do
       @object = Factory(:comment, :author => bob.person, :post => sm)
     end
 
-    it 'calls socket_to_users and notify_users' do
-      receiver.should_receive(:socket_to_users)
+    it 'calls notify_users' do
       receiver.should_receive(:notify_users)
       receiver.perform!
     end
 
+    it 'calls socket_to_users' do
+      pending 'not currently socketing'
+      receiver.should_receive(:socket_to_users)
+      receiver.perform!
+    end
     it 'does not call create_visibilities and notify_mentioned_users' do
       receiver.should_not_receive(:notify_mentioned_users)
       receiver.should_not_receive(:create_post_visibilities)

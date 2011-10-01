@@ -38,10 +38,10 @@ ca:
       web_sockets:
         disconnected: "S'ha tancat el sòcol web. Les publicacions ja no es mostraran en temps real."
       aspect_dropdown:
-        add_to_aspect: "Afegeix a l'aspecte"
+        add_to_aspect: "Afegeix el contacte"
         all_aspects: "Tots els aspectes"
         toggle:
-          zero: "Afegeix a aspectes"
+          zero: "Afegeix el contacte"
           one: "En {{count}} aspecte"
           two: "En {{count}} aspectes"
           few: "En {{count}} aspectes"

@@ -7,6 +7,10 @@ def postgres?
   @using_postgres ||= defined?(ActiveRecord::ConnectionAdapters::PostgreSQLAdapter) && ActiveRecord::Base.connection.is_a?(ActiveRecord::ConnectionAdapters::PostgreSQLAdapter)
 end
 
+def sqlite?
+  @using_sqlite ||= defined?(ActiveRecord::ConnectionAdapters::SQLite3Adapter) && ActiveRecord::Base.connection.class == ActiveRecord::ConnectionAdapters::SQLite3Adapter
+end
+
 # Load the rails application
 require File.expand_path('../application', __FILE__)
 Haml::Template.options[:format] = :html5
@@ -26,6 +30,10 @@ else
   LANGUAGE_CODES_MAP = {}
   RTL_LANGUAGES = []
 end
+
+# Blacklist of usernames
+USERNAME_BLACKLIST = ['admin', 'administrator', 'hostmaster', 'info', 'postmaster', 'root', 'ssladmin', 
+  'ssladministrator', 'sslwebmaster', 'sysadmin', 'webmaster', 'support', 'contact']
 
 # Initialize the rails application
 Diaspora::Application.initialize!

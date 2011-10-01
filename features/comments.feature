@@ -23,6 +23,7 @@ Feature: commenting
   Scenario: comment on a photo from the photo page
     When I sign in as "bob@bob.bob"
     And I am on the photo page for "alice@alice.alice"'s post "Look at this dog"
+    And I wait for the ajax to finish
     And I focus the comment field
     And I fill in "Comment" with "hahahah"
     And I press "Comment"
@@ -32,6 +33,7 @@ Feature: commenting
   Scenario: comment on your own photo from the photo page
     When I sign in as "alice@alice.alice"
     And I am on the photo page for "alice@alice.alice"'s post "Look at this dog"
+    And I wait for the ajax to finish
     And I focus the comment field
     And I fill in "Comment" with "hahahah"
     And I press "Comment"

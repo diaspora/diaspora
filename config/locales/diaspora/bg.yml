@@ -103,10 +103,10 @@ bg:
       handle_explanation: "Това е вашият адрес в Diaspora. Наподобява адрес на ел. поща - давате го на хора, за да се свържат с вас."
       help: 
         did_you: "Вие:"
-        feature_suggestion: "... имате предложение за нова %{link}?"
+        feature_suggestion: "... имате предложение за нова %{link} (функция)?"
         find_a_bug: "... сте открили %{link} (грешка)?"
-        have_a_question: "... имате %{link}?"
-        here_to_help: "Общността Diaspora е готова да помогне!"
+        have_a_question: "... имате %{link} (въпрос)?"
+        here_to_help: "Общността е готова да помогне!"
         more_support: "За допълнителна помощ посетете %{link}."
         need_help: "Нуждаетесе от помощ?"
         tutorials: "За ръководства посетете %{link}."

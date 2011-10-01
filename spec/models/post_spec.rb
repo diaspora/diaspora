@@ -37,6 +37,13 @@ describe Post do
     end
   end
 
+  describe '.diaspora_initialize' do
+    it 'takes provider_display_name' do
+      sm = Factory.build(:status_message, :provider_display_name => 'mobile')
+      StatusMessage.diaspora_initialize(sm.attributes.merge(:author => bob.person)).provider_display_name.should == 'mobile'
+    end
+  end
+
   describe '#mutable?' do
     it 'should be false by default' do
       post = @user.post :status_message, :text => "hello", :to => @aspect.id

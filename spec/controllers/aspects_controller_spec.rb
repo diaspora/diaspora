@@ -67,6 +67,9 @@ describe AspectsController do
 
   describe "#index" do
     context 'jasmine fixtures' do
+      before do
+        AspectStream.any_instance.stub(:ajax_stream?).and_return(false)
+      end
       it "generates a jasmine fixture", :fixture => true do
         get :index
         save_fixture(html_for("body"), "aspects_index")

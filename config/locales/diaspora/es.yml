@@ -474,8 +474,8 @@ es:
       results_for: "resultados para %{params}"
     index: 
       couldnt_find_them_send_invite: "¿No les puedes encontrar? ¡Envíales una invitación!"
-      no_one_found: "...y no se encontró a nadie."
-      no_results: "¡Eh! ¡Tienes que buscar algo!"
+      no_one_found: "...y no se ha encontrado nada."
+      no_results: "¡Eh! Tienes que buscar algo."
       results_for: "buscar resultados para"
     many: "%{count} personas"
     one: "1 persona"
@@ -484,7 +484,7 @@ es:
       add_contact: "añadir contacto"
       already_connected: "Ya conectado"
       pending_request: "Solicitud pendiente"
-      thats_you: "¡Ése eres tú!"
+      thats_you: "¡Ese eres tú!"
     profile_sidebar: 
       bio: "Biografía"
       born: "Fecha de nacimiento"

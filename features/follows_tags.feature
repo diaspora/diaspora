@@ -11,8 +11,6 @@ Feature: posting
     When I sign in as "bob@bob.bob"
     And I post a status with the text "I am da #boss"
     And I am on the home page
-    Then I should see "I am da #boss"
-
     When I go to the destroy user session page
     And I sign in as "alice@alice.alice"
     And I search for "#boss"

@@ -19,7 +19,7 @@ module StreamHelper
      else
        time = @stream.posts.last.send(@stream.order.to_sym).to_i
      end
-      aspects_path(:max_time => time, :a_ids => @stream.aspect_ids)
+      aspects_path(:max_time => time, :sort_order => session[:sort_order], :a_ids => @stream.aspect_ids)
     else
       raise 'in order to use pagination for this new controller, update next_page_path in stream helper'
     end

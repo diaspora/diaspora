@@ -7,13 +7,13 @@ nl:
   javascripts: 
     aspect_dropdown: 
       add_to_aspect: "Voeg toe aan aspect"
-      all_aspects: "All aspects"
+      all_aspects: "Alle aspecten"
       toggle: 
         few: "In {{count}} aspecten"
         many: "In {{count}} aspecten"
         one: "In {{count}} aspect"
         other: "In {{count}} aspecten"
-        two: "In {{count}} aspects"
+        two: "In {{count}} aspecten"
         zero: "Voeg toe aan aspect"
     comments: 
       hide: "verberg reacties"
@@ -25,8 +25,8 @@ nl:
       no_more: "Geen posts meer."
     publisher: 
       at_least_one_aspect: "Je moet op zijn minst één aspect publiceren"
-      limited: "Limited - your post will only be seen by people you are sharing with"
-      public: "Public - your post will be visible to everyone and found by search engines"
+      limited: "Gelimiteerd - je post is alleen zichtbaar voor de mensen waarmee je hem deelt"
+      public: "Openbaar - je post is zichtbaar voor iedereen en kan gevonden worden door zoekmachines"
     reshares: 
       duplicate: "Je hebt deze post al doorgegeven!"
     search_for: "Zoek naar {{name}}"

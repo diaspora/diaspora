@@ -160,7 +160,7 @@ it:
       revoke_access: "Revoca l'autorizzazione"
   back: "Indietro"
   bookmarklet: 
-    explanation: "Condividi su Diaspora da ovunque aggiungendo come segnalibro %{link}."
+    explanation: "Condividi su Diaspora in qualsiasi momento aggiungendo come segnalibro %{link}."
     explanation_link_text: "questo link"
     heading: "Bookmarklet"
     post_something: "Pubblica qualcosa su Diaspora"

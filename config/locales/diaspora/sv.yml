@@ -37,7 +37,7 @@ sv:
             person: 
               invalid: "är ogiltig."
             username: 
-              invalid: "is invalid. We only allow letters, numbers, and underscores"
+              invalid: "är felaktig. Vi tillåter endast bokstäver, siffror och understreck."
               taken: "är redan taget."
   ago: "%{time} sedan"
   all_aspects: "Alla Aspekter"
@@ -64,8 +64,8 @@ sv:
     aspect_stream: 
       commented_on: "commented on"
       posted: "posted"
-      recently: "recently:"
-      stream: "Stream"
+      recently: "tidigare:"
+      stream: "Flöde"
     contacts_not_visible: "Kontakterna på den här aspekten kommer inte kunna se varandra."
     contacts_visible: "Kontakterna på den här aspekten kommer kunna se varandra."
     create: 
@@ -93,7 +93,7 @@ sv:
     index: 
       cubbies: 
         explanation: "Cubbi.es is the first Diaspora application under development."
-        heading: "Connect to Cubbi.es"
+        heading: "Anslut till Cubbi.es"
         learn_more: "Learn more"
       diaspora_id: 
         content_1: "Ditt Diaspora-ID är:"
@@ -102,24 +102,24 @@ sv:
       donate: "Donera"
       handle_explanation: "Det här är ditt Diaspora-användarnamn. Det är den här du ska ge till dina vänner om du vill att de ska lägga till dig på Diaspora."
       help: 
-        did_you: "Did you:"
-        feature_suggestion: "... have a %{link} suggestion?"
-        find_a_bug: "... find a %{link}?"
-        have_a_question: "... have a %{link}?"
+        did_you: "Har du:"
+        feature_suggestion: "... ett %{link} förslag?"
+        find_a_bug: "... hittat en %{link}?"
+        have_a_question: "... en %{link}?"
         here_to_help: "Diaspora community is here to help!"
         more_support: "For more support, you should also check out %{link}."
         need_help: "Behöver du hjälp?"
         tutorials: "For tutorials, check out %{link}."
       keep_us_running: "Keep %{pod} running fast, buy our servers their monthly coffee fix!"
       no_contacts: "Inga kontakter"
-      no_tags: "No tags"
+      no_tags: "+ Hitta en tag att följa"
       people_sharing_with_you: "Personer som delar med dig"
       post_a_message: "skriv ett inlägg >>"
       services: 
-        content: "You can connect the following services to Diaspora:"
-        heading: "Connect Services"
+        content: "Du kan koppla ihop Diaspora med följande tjänster:"
+        heading: "Ihopkopplade tjänster"
       tags_following: "Followed Tags"
-      unfollow_tag: "Stop following #%{tag}"
+      unfollow_tag: "Sluta följa #%{tag}"
       your_aspects: "Dina aspekter"
     many: "%{count} aspekter"
     move_contact: 
@@ -161,7 +161,7 @@ sv:
   back: "Tillbaka"
   bookmarklet: 
     explanation: "%{link} från var som helst genom att lägga till den här länken som bokmärke."
-    explanation_link_text: "Posta på Diaspora"
+    explanation_link_text: "denna länk"
     heading: "Diaspora Bookmarklet"
     post_something: "Posta något till Diaspora"
     post_success: "Postat! Stänger!"
@@ -174,7 +174,7 @@ sv:
       commenting: "Kommenterar..."
     one: "1 kommentar"
     other: "%{count} kommentarer"
-    two: "%{count} comments"
+    two: "%{count} kommentarer"
     zero: "inga kommentarer"
   contacts: 
     create: 
@@ -214,7 +214,7 @@ sv:
         one: "1 nytt meddelande"
         other: "%{count} nya meddelanden"
         two: "%{count} nya meddelanden"
-        zero: "inga nya meddelanden"
+        zero: "Inga nya meddelanden"
     index: 
       create_a_new_message: "skapa ett nytt meddelande"
       inbox: "Inlåda"
@@ -246,7 +246,7 @@ sv:
       correct_the_following_errors_and_try_again: "Rätta till följande fel och försök igen."
       invalid_fields: "Ogiltiga uppgifter"
   fill_me_out: "Fyll i mig"
-  find_people: "Find people"
+  find_people: "Hitta personer eller #taggar"
   hide: "Göm"
   home: 
     show: 
@@ -263,7 +263,7 @@ sv:
       tagline_first_half: "Dela vad du vill,"
       tagline_second_half: "med vem du vill."
   invitations: 
-    a_facebook_user: "A Facebook user"
+    a_facebook_user: "En Facebook användare"
     check_token: 
       not_found: "Inbjudan inte funnen"
     create: 
@@ -275,9 +275,9 @@ sv:
       sent: "Inbjudningar har skickats till:"
     edit: 
       accept_your_invitation: "Accept your invitation"
-      your_account_awaits: "Your account awaits!"
+      your_account_awaits: "Ditt konto väntar på dig!"
     new: 
-      already_invited: "Redan inbjuden"
+      already_invited: "Följande har inte accepterat din inbjudan:"
       aspect: "Aspekt"
       comma_seperated_plz: "Du kan ange flera e-postadresser separerade av kommatecken."
       if_they_accept_info: "om de accepterar, kommer de bli med på den sida du har bjudit in dem till."
@@ -321,13 +321,13 @@ sv:
         two: "%{count} likes"
         zero: "inga personer gillar det här"
       people_like_this_comment: 
-        few: "%{count} likes"
-        many: "%{count} likes"
-        one: "%{count} like"
-        other: "%{count} likes"
+        few: "%{count} gillar"
+        many: "%{count} gillar"
+        one: "En gillar"
+        other: "%{count} gillar"
         two: "%{count} likes"
-        zero: "no likes"
-  limited: "Limited"
+        zero: "Ingen gillar"
+  limited: "Begränsad"
   more: "Mer"
   next: "nästa"
   no_results: "Inga Resultat Funna"
@@ -340,27 +340,27 @@ sv:
       two: "%{actors} also commented on %{post_author}'s %{post_link}."
       zero: "%{actors} also commented on %{post_author}'s %{post_link}."
     also_commented_deleted: 
-      few: "%{actors} commented on a deleted post."
-      many: "%{actors} commented on a deleted post."
-      one: "%{actors} commented on a deleted post."
-      other: "%{actors} commented on a deleted post."
+      few: "%{actors} har kommenterat ett borttaget inlägg."
+      many: "%{actors} har kommenterat ett borttaget inlägg."
+      one: "En har kommenterat ett borttaget inlägg."
+      other: "%{actors} har kommenterat ett borttaget inlägg."
       two: "%{actors} commented on a deleted post."
-      zero: "%{actors} commented on a deleted post."
+      zero: "Ingen har kommenterat ett borttaget inlägg."
     comment_on_post: 
-      few: "%{actors} commented on your %{post_link}."
-      many: "%{actors} commented on your %{post_link}."
-      one: "%{actors} commented on your %{post_link}."
-      other: "%{actors} commented on your %{post_link}."
+      few: "%{actors} har kommenterat %{post_link}."
+      many: "%{actors} har kommenterat %{post_link}."
+      one: "En person har kommenterat %{post_link}."
+      other: "%{actors} har kommenterat %{post_link}."
       two: "%{actors} commented on your %{post_link}."
-      zero: "%{actors} commented on your %{post_link}."
+      zero: "Ingen har kommenterat %{post_link}."
     helper: 
       new_notifications: 
         few: "%{count} nya meddelanden"
         many: "%{count} nya meddelanden"
         one: "1 nya meddelanden"
         other: "%{count} nya meddelanden"
-        two: "%{count} new notifications"
-        zero: "inga nya meddelanden"
+        two: "%{count} nya notifieringar"
+        zero: "Inga nya notifieringar"
     index: 
       and: "och"
       and_others: 
@@ -380,34 +380,34 @@ sv:
       two: "%{actors} has just liked your %{post_link}."
       zero: "%{actors} has just liked your %{post_link}."
     liked_post_deleted: 
-      few: "%{actors} liked your deleted post."
-      many: "%{actors} liked your deleted post."
-      one: "%{actors} liked your deleted post."
-      other: "%{actors} liked your deleted post."
-      two: "%{actors} liked your deleted post."
-      zero: "%{actors} liked your deleted post."
+      few: "%{actors} gillade ditt borttagna inlägg."
+      many: "%{actors} gillade ditt borttagna inlägg."
+      one: "En gillade ditt borttagna inlägg."
+      other: "%{actors} gillade ditt borttagna inlägg."
+      two: "%{actors} gillade ditt borttagna inlägg."
+      zero: "Ingen gillade ditt borttagna inlägg."
     mentioned: 
-      few: "%{actors} has mentioned you in a %{post_link}."
-      many: "%{actors} has mentioned you in a %{post_link}."
-      one: "%{actors} has mentioned you in a %{post_link}."
-      other: "%{actors} has mentioned you in a %{post_link}."
+      few: "%{actors} har nämnt dig i en %{post_link}."
+      many: "%{actors} har nämnt dig i en %{post_link}."
+      one: "%{actors} har nämnt dig i en %{post_link}."
+      other: "%{actors} har nämnt dig i en %{post_link}."
       two: "%{actors} has mentioned you in a %{post_link}."
-      zero: "%{actors} has mentioned you in a %{post_link}."
+      zero: "%{actors} har nämnt dig i en %{post_link}."
     mentioned_deleted: 
-      few: "%{actors} mentioned you in a deleted post."
-      many: "%{actors} mentioned you in a deleted post."
-      one: "%{actors} mentioned you in a deleted post."
-      other: "%{actors} mentioned you in a deleted post."
-      two: "%{actors} mentioned you in a deleted post."
-      zero: "%{actors} mentioned you in a deleted post."
-    post: "inlägg."
+      few: "%{actors} har nämnt dig i ett raderat inlägg."
+      many: "%{actors} har nämnt dig i ett raderat inlägg."
+      one: "%{actors} har nämnt dig i ett raderat inlägg."
+      other: "%{actors} har nämnt dig i ett raderat inlägg."
+      two: "%{actors} har nämnt dig i ett raderat inlägg."
+      zero: "Ingen inlägg där du är nämnd är raderat."
+    post: "inlägg"
     private_message: 
-      few: "%{actors} sent you a message."
-      many: "%{actors} sent you a message."
-      one: "%{actors} sent you a message."
-      other: "%{actors} sent you a message."
+      few: "%{actors} har skickat dig ett meddelande."
+      many: "%{actors} har skickat dig ett meddelande."
+      one: "%{actors} har skickat dig ett meddelande."
+      other: "%{actors} har skickat dig ett meddelande."
       two: "%{actors} sent you a message."
-      zero: "%{actors} sent you a message."
+      zero: "Ingen har ännu skickat något meddelande till dig."
     reshared: 
       few: "%{actors} has reshared your %{post_link}."
       many: "%{actors} has reshared your %{post_link}."
@@ -430,23 +430,23 @@ sv:
       two: "%{actors} started sharing with you."
       zero: "%{actors} started sharing with you."
   notifier: 
-    a_post_you_shared: "a post."
+    a_post_you_shared: "ett inlägg."
     click_here: "klicka här"
     comment_on_post: 
       reply: "Reply or view %{name}'s post >"
     confirm_email: 
-      click_link: "To activate your new e-mail address %{unconfirmed_email}, please click this link:"
-      subject: "Please activate your new e-mail address %{unconfirmed_email}"
+      click_link: "För att aktivera din nya e-postadress %{unconfirmed_email}, klicka här:"
+      subject: "Var vänlig och aktivera din nya e-postadress %{unconfirmed_email}"
     email_sent_by_diaspora: "This email was sent by Diaspora.  If you'd like to stop getting emails like this,"
     hello: "Hej %{name}!"
     liked: 
       liked: "%{name} har precis gillat ditt inlägg: "
-      view_post: "View post >"
+      view_post: "Se inlägg >"
     mentioned: 
       mentioned: "nämnde dig i ett inlägg:"
       subject: "%{name} har nämnt dig på Diaspora*"
     private_message: 
-      reply_to_or_view: "Reply to or view this conversation >"
+      reply_to_or_view: "Svara på eller läs denna konversation >"
     reshared: 
       reshared: "%{name} just reshared your post"
       view_post: "View post >"
@@ -458,7 +458,7 @@ sv:
       subject: "%{name} har börjat dela med dig på Diaspora*"
       view_profile: "Se %{name}s profil"
     thanks: "Tack,"
-    to_change_your_notification_settings: "to change your notification settings"
+    to_change_your_notification_settings: "för att ändra dina notifieringsinställningar"
   ok: "OK"
   or: "eller"
   password: "Lösenord"
@@ -516,7 +516,7 @@ sv:
       fail: "Förlåt, vi kunde inte hitta %{handle}."
     zero: "inga personer"
   photos: 
-    comment_email_subject: "%{name}'s photo"
+    comment_email_subject: "%{name} foto"
     create: 
       integrity_error: "Fotouppladdning misslyckades. Är du säker på att det var en bild?"
       runtime_error: "Fotouppladdning misslyckades. Har du på dig ditt säkerhetsbälte?"
@@ -544,7 +544,7 @@ sv:
       edit: "ändra"
       edit_delete_photo: "Ändra beskrivning / ta bort bild"
       make_profile_photo: "använd som profilbild"
-      show_original_post: "Show original post"
+      show_original_post: "Visa det ursprungliga inlägget"
       update_photo: "Uppdatera foto"
     update: 
       error: "Misslyckades med att ändra fotot."
@@ -555,7 +555,7 @@ sv:
       see_it_on_their_profile: "If you want to see updates on this post, visit %{name}'s profile page."
   posts: 
     show: 
-      destroy: "Delete"
+      destroy: "Ta bort"
       not_found: "Sorry, we couldn't find that post."
       permalink: "permalink"
   previous: "föregående"
@@ -575,12 +575,12 @@ sv:
       your_photo: "Ditt foto"
       your_private_profile: "Din privata profil"
       your_public_profile: "Din publika profil"
-      your_tags: "Du: i 5 #taggar"
-      your_tags_placeholder: "t.ex. #diaspora #stryka #katter #musik"
+      your_tags: "Beskriv dig själv med fem ord"
+      your_tags_placeholder: "gillar #diaspora #stryka #katter #musik"
     update: 
       failed: "Misslyckades att uppdatera profil"
       updated: "Profilen uppdaterades"
-  public: "Public"
+  public: "Publik"
   registrations: 
     closed: "Registreringsformuläret är stäng på den här poden."
     create: 
@@ -594,7 +594,7 @@ sv:
       update: "Uppdatera"
     new: 
       create_my_account: "Skapa mitt konto"
-      enter_email: "Skriv in en e-post"
+      enter_email: "Ange en e-postadress"
       enter_password: "Skriv in ett lösenord"
       enter_password_again: "Skriv in samma lösenord som tidigare"
       enter_username: "Välj ett användarnamn (endast bokstäver, nummer eller understreck)"
@@ -636,7 +636,7 @@ sv:
         zero: "Dela igen"
       reshare_confirmation: "Reshare %{author} - %{text}?"
       reshare_original: "Reshare orignial"
-      show_original: "Show Original"
+      show_original: "Visa original"
   search: "Sök"
   services: 
     create: 
@@ -649,25 +649,25 @@ sv:
       no_friends: "No Facebook friends found."
       service_friends: "%{service}-vänner"
     index: 
-      connect_to_facebook: "Anslut till facebook"
-      connect_to_tumblr: "Connect to Tumblr"
-      connect_to_twitter: "Anslut till twitter"
+      connect_to_facebook: "Anslut till Facebook"
+      connect_to_tumblr: "Anslut till Tumblr"
+      connect_to_twitter: "Anslut till Twitter"
       disconnect: "koppla från"
       edit_services: "Anslutna tjänster"
       logged_in_as: "inloggad som"
-      no_services: "You have not connected any services yet."
+      no_services: "Du har inte kopplat ihop några tjänster."
       really_disconnect: "koppla från %{service}?"
     inviter: 
       click_link_to_accept_invitation: "Klicka på den här länken för att acceptera din inbjudan"
       join_me_on_diaspora: "Join me on DIASPORA*"
     remote_friend: 
       invite: "bjud in"
-      not_on_diaspora: "Not yet on Diaspora"
+      not_on_diaspora: "Ännu inte på Diaspora"
       resend: "skicka igen"
   settings: "Inställningar"
   shared: 
     add_contact: 
-      add_new_contact: "Add a new contact"
+      add_new_contact: "Lägg till en ny kontakt"
       create_request: "Sök på Diaspora-användarnamn"
       diaspora_handle: "Diaspora-användarnamn"
       enter_a_diaspora_username: "Ange ett Diaspora-användarnamn:"
@@ -688,10 +688,10 @@ sv:
       logged_in_as: "inloggad som %{name}"
       your_aspects: "dina aspekter"
     invitations: 
-      by_email: "by Emaila"
+      by_email: "Via e-post"
       dont_have_now: "Du har inga inbjudningar just nu, men fler kommer delas ut inom kort!"
       from_facebook: "från Facebook"
-      invitations_left: "(%{count} kvar)"
+      invitations_left: "%{count} kvar"
       invite_someone: "Bjud in en kontakt"
       invite_your_friends: "Bjud in dina vänner"
       invites: "Inbjudningar"
@@ -722,10 +722,10 @@ sv:
       dislike: "Jag ogillar det här"
       hide_and_mute: "Hide and Mute"
       like: "Jag gillar det här"
-      shared_with: "Shared with: %{aspect_names}"
+      shared_with: "Delas med: %{aspect_names}"
       unlike: "Sluta gilla"
       via: "via %{link}"
-      viewable_to_anyone: "This post is viewable to anyone on the web"
+      viewable_to_anyone: "Detta inlägg är synligt för alla på nätet"
   status_messages: 
     create: 
       success: "Lyckades omnämna: %{names}"
@@ -740,14 +740,14 @@ sv:
       many: "ditt statusmeddelande får inte vara längre än %{count} bokstäver"
       one: "ditt statusmeddelande får inte vara längre än %{count} bokstäver"
       other: "ditt statusmeddelande får inte vara längre än %{count} bokstäver"
-      two: "please make your status messages less than %{count} characters"
+      two: "korta ner ditt status meddelande till %{count} tecken"
       zero: "ditt statusmeddelande får inte vara längre än %{count} bokstäver"
   stream_helper: 
-    hide_comments: "dölj kommentarer"
+    hide_comments: "Dölj alla kommentarer"
     show_more_comments: "Visa %{number} kommentarer till"
   tag_followings: 
     create: 
-      failure: "Failed to follow: #%{name}"
+      failure: "Misslyckades med att följa: #%{name}"
       success: "Successfully following: #%{name}"
     destroy: 
       failure: "Failed to stop following: #%{name}"
@@ -762,14 +762,14 @@ sv:
       stop_following: "Sluta följa #%{tag}"
   tokens: 
     show: 
-      connect_to_cubbies: "Connect to Cubbi.es"
+      connect_to_cubbies: "Koppla till Cubbi.es"
       connecting_is_simple: "Connecting your Diaspora account is as simple as filling out two fields on your Cubbi.es account page."
       daniels_account: "Daniels Diasporakonto"
       log_in_with_diaspora_is_comming: "Pretty soon, you'll be able to connect to a new application without creating an account separate from your one on Diaspora."
       love_to_try: "We'd love for you to try it out."
-      making_the_connection: "Making the Connection"
+      making_the_connection: "Koppla ihop"
       screenshot_explanation: "%{link1}.  This particular cubby is linked to %{link2}."
-      sign_up_today: "Sign up today!"
+      sign_up_today: "Registrera dig idag!"
       typical_userpage: "A typical cubbi.es userpage"
       via: "(via %{link})"
       what_is_cubbies: "Cubbi.es is the world's first Diaspora application.  It's also the best way to collect photos online."
@@ -777,13 +777,13 @@ sv:
   username: "Användarnamn"
   users: 
     confirm_email: 
-      email_confirmed: "E-Mail %{email} activated"
-      email_not_confirmed: "E-Mail could not be activated. Wrong link?"
-    destroy: "Ditt konto är nu stängt."
+      email_confirmed: "E-mail %{email} aktiverad"
+      email_not_confirmed: "E-mail kunde inte aktiveras. Fel länk?"
+    destroy: "Ditt konto är nu låst. Det kan ta upp till 20 minuter att stänga kontot. Tack för att du provade Diaspora."
     edit: 
       also_commented: "...någon har också kommenterat på din kontakts post?"
       change: "Ändra"
-      change_email: "Change E-Mail"
+      change_email: "Ändra e-post"
       change_language: "Ändra språk"
       change_password: "Ändra lösenord"
       close_account: "Stäng kontot"
@@ -805,21 +805,21 @@ sv:
       your_handle: "Ditt Diaspora-användarnamn"
     getting_started: 
       bold: "aspekter"
-      connect_to: "Connect to"
-      connect_to_your_other_social_networks: "Connect to your other social networks"
+      connect_to: "Anslut till"
+      connect_to_your_other_social_networks: "Anslut till dina andra sociala nätverk"
       connect_with_people: "Connect with cool people"
       connect_with_people_explanation_pt1: "Connect with people by placing them into one or more of your"
       connect_with_people_explanation_pt2: "Aspects are an intuitive way to group new and familar faces, private to you, allowing you to filter down or share with subsets of your contacts easily."
-      edit_profile: "Ändra din profil"
+      edit_profile: "Redigera profil"
       featured_tags: "Featured tags"
       featured_users: "Featured users"
-      fill_out_your_profile: "Fill out your profile"
+      fill_out_your_profile: "Fyll i din profil"
       find_friends: "Hitta vänner"
-      find_friends_from_facebook: "find friends from Facebook"
-      finished: "Slutfört!"
-      follow_your_interests: "Follow your interests"
-      hashtag_explanation: "Hashtags allow you to talk about and follow your interests.  They're also a great way to find new people on Diaspora."
-      profile_description: "Make it easier for people to find you by filling out your profile information."
+      find_friends_from_facebook: "hitta Facebook-vänner"
+      finished: "Slutfört"
+      follow_your_interests: "Följ dina intressen"
+      hashtag_explanation: "Hashtaggar gör det möjligt att diskutera och följa dina intressen. Det är också ett bra sätt att lära känna nya människor på Diaspora."
+      profile_description: "Gör det lättare för andra att hitta dig genom att fylla i din profil."
       profile_fields: 
         bio: "Biografi"
         birthday: "Födelsedag"
@@ -828,10 +828,10 @@ sv:
         name: "Namn"
         photo: "Foto"
         tags: "Taggar"
-      search_for_hashtags: "Search for #hashtags"
+      search_for_hashtags: "Sök efter #hashtaggar"
       search_for_people: "Leta efter människor"
       see_all_featured_users: "See all featured users"
-      welcome: "Välkommen till diaspora!"
+      welcome: "Välkommen!"
       welcome_with_name: "Välkommen, %{name}!"
     public: 
       does_not_exist: "Användaren %{username} finns inte!"
@@ -839,10 +839,10 @@ sv:
       email_notifications_changed: "E-post-notifieringar har ändrats"
       language_changed: "Språk är nu ändrat"
       language_not_changed: "Språket kunde inte ändras"
-      password_changed: "Lösenordet är nu ändrat."
+      password_changed: "Lösenordet är nu ändrat och klart att användas."
       password_not_changed: "Lösenordet kunde inte ändras"
-      unconfirmed_email_changed: "E-Mail Changed. Needs activation."
-      unconfirmed_email_not_changed: "E-Mail Change Failed"
+      unconfirmed_email_changed: "E-postadressen har ändrats och behöver aktiveras."
+      unconfirmed_email_not_changed: "Byte av e-postadress misslyckades"
   webfinger: 
     fetch_failed: "Kunde inte hämta webfinger-profil för %{profile_url}"
     hcard_fetch_failed: "Kunde inte hämta hcard för #{@account}"
