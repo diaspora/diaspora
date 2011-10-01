@@ -47,7 +47,7 @@
     .floater
       = link_to '', new_post_comment_path(post), :class => "image_link comment_action inactive"
 
-      - if current_user.liked?(post)
+      - if current_user && current_user.liked?(post)
         = link_to '', post_like_path(post.id, current_user.like_for(post).id), :class => "image_link like_action active"
       - else
         = link_to '', post_likes_path(post.id), :class => "image_link like_action inactive"
