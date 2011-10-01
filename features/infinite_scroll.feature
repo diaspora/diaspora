@@ -43,6 +43,7 @@ Feature: infinite scroll
     Scenario: on the main stream post created time
       And I follow "posted"
       And I go to the home page
+      And I wait for the ajax to finish
       Then I should see 15 posts
       And I should see "alice - 15 - #seeded"
 
