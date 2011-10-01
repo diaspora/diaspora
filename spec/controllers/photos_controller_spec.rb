@@ -24,6 +24,16 @@ describe PhotosController do
         post :create, @params
       }.should change(Photo, :count).by(1)
     end
+    
+    it 'returns application/json when possible' do
+      request.env['HTTP_ACCEPT'] = 'application/json'
+      post(:create, @params).headers['Content-Type'].should match 'application/json.*'
+    end
+    
+    it 'returns text/html by default' do
+      request.env['HTTP_ACCEPT'] = 'text/html,*/*'
+      post(:create, @params).headers['Content-Type'].should match 'text/html.*'
+    end
   end
 
   describe '#create' do
