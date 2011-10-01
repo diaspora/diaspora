@@ -26,6 +26,8 @@ class StatusMessage < Post
 
   after_create :create_mentions
 
+  scope :where_person_is_mentioned, lambda{|person| joins(:mentions).where(:mentions => {:person_id => person.id})}
+
   def text(opts = {})
     self.formatted_message(opts)
   end

@@ -35,7 +35,9 @@ class Post < ActiveRecord::Base
   scope :all_public, where(:public => true, :pending => false)
 
   def self.for_a_stream(max_time, order)
-    where("#{order} < ?", max_time).order("#{order} desc").includes({:author => :profile}, :mentions).limit(15)
+    where("posts.#{order} < ?", max_time).order("posts.#{order} desc").
+    includes({:author => :profile}, :mentions => {:person => :profile}).
+    limit(15)
   end
 
   def diaspora_handle

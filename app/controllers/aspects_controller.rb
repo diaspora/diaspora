@@ -138,18 +138,4 @@ class AspectsController < ApplicationController
   end
 
   private
-  def save_sort_order
-    if params[:sort_order].present?
-      session[:sort_order] = (params[:sort_order] == 'created_at') ? 'created_at' : 'updated_at'
-    elsif session[:sort_order].blank?
-      session[:sort_order] = 'created_at'
-    else
-      session[:sort_order] = (session[:sort_order] == 'created_at') ? 'created_at' : 'updated_at'
-    end
-  end
-
-  def sort_order
-    is_mobile_device? ? 'created_at' : session[:sort_order]
-  end
-
 end

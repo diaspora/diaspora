@@ -20,8 +20,7 @@
   = render 'aspects/no_contacts_message'
 
 #main_stream.stream{:data => {:guids => stream.aspect_ids.join(',')}}
-  - if stream.ajax_stream? 
-  - elsif stream.posts.length > 0
+  - if !stream.ajax_stream? && stream.posts.length > 0
     = render 'shared/stream', :posts => stream.posts
   #pagination
-    =link_to(t('more'), next_page_path(:ajax_stream => stream.ajax_stream?, :class => 'paginate')
+    =link_to(t('more'), next_page_path(:ajax_stream => stream.ajax_stream?), :class => 'paginate')

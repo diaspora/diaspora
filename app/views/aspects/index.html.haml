@@ -22,7 +22,9 @@
     = render 'aspects/aspect_listings'
 
   .section
-    = link_to "Mentions", mentions_path
+    %ul.left_nav
+      .li
+        %b= link_to t('.mentions'), mentions_path, :class => 'home_selector'
 
   .section#followed_tags_listing
     = render 'tags/followed_tags_listings'

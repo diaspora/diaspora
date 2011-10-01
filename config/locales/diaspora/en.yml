@@ -106,6 +106,7 @@ en:
       done_editing: "done editing"
     aspect_stream:
       stream: "Stream"
+      mentions: "Mentions"
       recently: "recently:"
       commented_on: "commented on"
       posted: "posted"
@@ -155,6 +156,7 @@ en:
       acquaintances: "Acquaintances"
       friends: "Friends"
     index: 
+      mentions: "Mentions"
       donate: "Donate"
       keep_us_running: "Keep %{pod} running fast and buy servers their coffee fix with a monthly donation!"
       your_aspects: "Your Aspects"
@@ -824,7 +826,15 @@ en:
     index:
       revoke_access: "Revoke Access"
       no_applications: "You haven't registered any applications yet."
-      
+  
+  streams:
+    mentions:
+      title: "Your Mentions"   
+      contacts_title: "People who mentioned you"
+    tags:
+      title: "Posts tagged: %{tags}"
+      contacts_title: "People who dig these tags" 
+
 
   users:
     logged_out:

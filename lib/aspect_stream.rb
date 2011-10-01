@@ -2,9 +2,8 @@
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
-class AspectStream
-
-  attr_reader :max_time, :order
+class AspectStream < BaseStream
+  TYPES_OF_POST_IN_STREAM = ['StatusMessage', 'Reshare', 'ActivityStreams::Photo']
 
   # @param user [User]
   # @param inputted_aspect_ids [Array<Integer>] Ids of aspects for given stream
@@ -13,10 +12,8 @@ class AspectStream
   # @opt order [String] Order of posts (i.e. 'created_at', 'updated_at')
   # @return [void]
   def initialize(user, inputted_aspect_ids, opts={})
-    @user = user
+    super(user, opts)
     @inputted_aspect_ids = inputted_aspect_ids
-    @max_time = opts[:max_time]
-    @order = opts[:order]
   end
 
   # Filters aspects given the stream's aspect ids on initialization and the user.
@@ -43,10 +40,10 @@ class AspectStream
   def posts
     # NOTE(this should be something like Post.all_for_stream(@user, aspect_ids, {}) that calls visible_posts
     @posts ||= @user.visible_posts(:by_members_of => aspect_ids,
-                                   :type => ['StatusMessage', 'Reshare', 'ActivityStreams::Photo'],
+                                   :type => TYPES_OF_POST_IN_STREAM,
                                    :order => "#{@order} DESC",
                                    :max_time => @max_time
-                   ).includes(:mentions => {:person => :profile}, :author => :profile)
+                   ).for_a_stream(max_time, order)
   end
 
   # @return [ActiveRecord::Association<Person>] AR association of people within stream's given aspects
@@ -73,7 +70,7 @@ class AspectStream
 
   def title
     if self.for_all_aspects?
-      I18n.t('.stream')
+      I18n.t('aspects.aspect_stream.stream')
     else 
       self.aspects.to_sentence
     end    

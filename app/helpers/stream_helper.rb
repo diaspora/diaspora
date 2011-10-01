@@ -22,7 +22,7 @@ module StreamHelper
   end
 
   def time_for_scroll(ajax_stream, stream)
-    if ajax_stream
+    if ajax_stream || stream.posts.empty?
       (Time.now() + 1).to_i
     else
       stream.posts.last.send(stream.order.to_sym).to_i
