@@ -26,21 +26,18 @@ Feature: posting from the main page
       Then I should see "I am eating a yogurt" within ".stream_element"
 
     Scenario: post a text-only message to just one aspect
-      When I follow "PostingTo"
-      And I wait for the ajax to finish
+      When I select "PostingTo" aspect
       And I expand the publisher
       And I fill in "status_message_fake_text" with "I am eating a yogurt"
       And I press "Share"
       And I wait for the ajax to finish
 
       When I am on the aspects page
-      And I follow "PostingTo" within "#aspect_nav"
-      And I wait for the ajax to finish
+      And I select "PostingTo" aspect
       Then I should see "I am eating a yogurt"
 
       When I am on the aspects page
-      And I follow "NotPostingThingsHere" within "#aspect_nav"
-      And I wait for the ajax to finish
+      And I select "NotPostingThingsHere" aspect
       Then I should not see "I am eating a yogurt"
 
     Scenario: post a photo with text
