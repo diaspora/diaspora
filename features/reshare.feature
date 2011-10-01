@@ -47,6 +47,7 @@ Feature: public repost
     And I wait for the ajax to finish
 
     And I go to the home page
+    And I wait for the ajax to finish
     Then I should see a ".reshare"
     And I follow "Your Aspects"
     Then I should see "reshare this!" 
@@ -80,6 +81,7 @@ Feature: public repost
   Scenario: I can see the number of reshares
     Given "bob@bob.bob" has a public post with text "reshare this!"
     And I sign in as "alice@alice.alice"
+    And I wait for the ajax to finish
     And I preemptively confirm the alert
     And I follow "Reshare"
     And I wait for the ajax to finish
