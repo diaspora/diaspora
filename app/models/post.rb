@@ -42,7 +42,7 @@ class Post < ActiveRecord::Base
     limit(15)
   end
 
-  def by_max_time(max_time, order='created_at')
+  def self.by_max_time(max_time, order='created_at')
     where("posts.#{order} < ?", max_time).order("posts.#{order} desc")
   end
   #############

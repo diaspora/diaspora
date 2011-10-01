@@ -54,7 +54,7 @@ class TagsController < ApplicationController
       @posts = StatusMessage.all_public
     end
 
-    @posts = @posts.tagged_with(params[:name]).for_a_stream(max_time)
+    @posts = @posts.tagged_with(params[:name]).for_a_stream(max_time, 'created_at')
 
     @commenting_disabled = true
     params[:prefill] = "##{params[:name]} "
