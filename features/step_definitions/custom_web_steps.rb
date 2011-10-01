@@ -111,7 +111,11 @@ end
 
 Then /^(?:|I )should not see a "([^\"]*)"(?: within "([^\"]*)")?$/ do |selector, scope_selector|
   with_scope(scope_selector) do
-    page.has_css?(selector).should be_false
+    if page.has_css?(selector)
+      find(:css, selector).visible?.should be_false
+    else
+      page.has_css?(selector).should be_false
+    end
   end
 end
 
@@ -202,3 +206,10 @@ Then /^I follow Edit Profile in the same window$/ do
   And %(I follow "Edit Profile")
 end
 
+Then 'I should see an image attached to the post' do
+  Then %{I should see a "img" within ".stream_element div.photo_attachments"}
+end
+
+Then 'I press the attached image' do
+  Then %{I press the 1st "img" within ".stream_element div.photo_attachments"}
+end
