@@ -138,4 +138,10 @@ describe AspectStream do
       @stream.ajax_stream?.should be_false
     end
   end
+  describe 'shared behaviors' do
+    before do
+      @stream = AspectStream.new(alice, alice.aspects.map(&:id))
+    end
+    it_should_behave_like 'it is a stream'
+  end
 end
