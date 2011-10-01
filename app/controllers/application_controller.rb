@@ -150,4 +150,8 @@ class ApplicationController < ActionController::Base
   def sort_order
     is_mobile_device? ? 'created_at' : session[:sort_order]
   end
+
+  def max_time
+    params[:max_time] ? Time.at(params[:max_time].to_i) : Time.now
+  end
 end

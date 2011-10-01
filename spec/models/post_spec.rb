@@ -10,6 +10,20 @@ describe Post do
     @aspect = @user.aspects.create(:name => "winners")
   end
 
+  describe 'scopes' do
+    describe '.for_a_stream' do
+      it 'returns the posts ordered and limited by unix time'
+      it 'includes everything in .includes_for_a_stream'
+      it 'is limited to 15 posts'
+    end
+
+    describe 'includes for a stream' do
+      it 'inclues author profile and mentions' 
+      it 'should include photos and root of reshares(but does not)'
+    end
+  end
+
+
   describe 'validations' do
     it 'validates uniqueness of guid and does not throw a db error' do
       message = Factory(:status_message)

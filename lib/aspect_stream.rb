@@ -1,7 +1,7 @@
 #   Copyright (c) 2010-2011, Diaspora Inc.  This file is
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
-
+require 'base_stream'
 class AspectStream < BaseStream
   TYPES_OF_POST_IN_STREAM = ['StatusMessage', 'Reshare', 'ActivityStreams::Photo']
 
@@ -41,14 +41,14 @@ class AspectStream < BaseStream
     # NOTE(this should be something like Post.all_for_stream(@user, aspect_ids, {}) that calls visible_posts
     @posts ||= @user.visible_posts(:by_members_of => aspect_ids,
                                    :type => TYPES_OF_POST_IN_STREAM,
-                                   :order => "#{@order} DESC",
-                                   :max_time => @max_time
+                                   :order => "#{order} DESC",
+                                   :max_time => max_time
                    ).for_a_stream(max_time, order)
   end
 
   # @return [ActiveRecord::Association<Person>] AR association of people within stream's given aspects
   def people
-    @people ||= Person.all_from_aspects(aspect_ids, @user).includes(:profile)
+    @people ||= Person.all_from_aspects(aspect_ids, user).includes(:profile)
   end
 
   def link(opts={})
@@ -96,7 +96,7 @@ class AspectStream < BaseStream
     if for_all_aspects? || aspect_ids.size > 1
       Rails.application.routes.url_helpers.contacts_path
     else
-      Rails.application.routes.url_helpers.contacts_path(:a_id => @stream.aspect.id)
+      Rails.application.routes.url_helpers.contacts_path(:a_id => aspect.id)
     end
   end
 end

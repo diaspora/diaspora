@@ -26,7 +26,18 @@ class StatusMessage < Post
 
   after_create :create_mentions
 
+  #scopes
   scope :where_person_is_mentioned, lambda{|person| joins(:mentions).where(:mentions => {:person_id => person.id})}
+
+  def self.owned_or_visible_by_user(user)
+    joins("LEFT OUTER JOIN post_visibilities ON post_visibilities.post_id = posts.id").
+    joins("LEFT OUTER JOIN contacts ON contacts.id = post_visibilities.contact_id").
+    where(Contact.arel_table[:user_id].eq(user.id).or(
+      StatusMessage.arel_table[:public].eq(true).or(
+        StatusMessage.arel_table[:author_id].eq(user.person.id)
+      )
+    )).select('DISTINCT posts.*')
+  end
 
   def text(opts = {})
     self.formatted_message(opts)

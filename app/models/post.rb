@@ -33,10 +33,11 @@ class Post < ActiveRecord::Base
   validates :guid, :uniqueness => true
 
   scope :all_public, where(:public => true, :pending => false)
+  scope :includes_for_a_stream,  includes({:author => :profile}, :mentions => {:person => :profile}) #note should include root and photos, but i think those are both on status_message
 
-  def self.for_a_stream(max_time, order)
+  def self.for_a_stream(max_time, order='created_at')
     where("posts.#{order} < ?", max_time).order("posts.#{order} desc").
-    includes({:author => :profile}, :mentions => {:person => :profile}).
+    includes_for_a_stream. 
     limit(15)
   end
 

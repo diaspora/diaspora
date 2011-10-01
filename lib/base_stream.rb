@@ -1,6 +1,4 @@
 class BaseStream
-
-  
   attr_accessor :max_time, :order, :user
 
   def initialize(user, opts={})

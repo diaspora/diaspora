@@ -2,7 +2,7 @@
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
-require 'aspect_stream'
+require 'spec_helper'
 
 describe AspectStream do
   describe '#aspects' do
@@ -70,7 +70,7 @@ describe AspectStream do
 
     it 'respects max_time' do
       stream = AspectStream.new(@alice, [1,2], :max_time => 123)
-      @alice.should_receive(:visible_posts).with(hash_including(:max_time => 123)).and_return(stub.as_null_object)
+      @alice.should_receive(:visible_posts).with(hash_including(:max_time => instance_of(Time))).and_return(stub.as_null_object)
       stream.posts
     end
   end

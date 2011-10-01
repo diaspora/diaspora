@@ -17,6 +17,16 @@ describe StatusMessage do
     @aspect = @user.aspects.first
   end
 
+  describe 'scopes' do
+    describe '.where_person_is_mentioned' do
+      it 'returns status messages where the given person is mentioned'
+    end
+
+    describe '.owned_or_visible_by_user' do
+      it 'scopes status_messages based on posts visisble via contacts or public' 
+    end
+  end
+
   describe '.before_create' do
     it 'calls build_tags' do
       status = Factory.build(:status_message)
