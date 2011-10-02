@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110930182048) do
+ActiveRecord::Schema.define(:version => 20111002013921) do
 
   create_table "aspect_memberships", :force => true do |t|
     t.integer  "aspect_id",  :null => false
@@ -278,7 +278,7 @@ ActiveRecord::Schema.define(:version => 20110930182048) do
     t.integer  "image_width"
     t.string   "provider_display_name"
     t.string   "actor_url"
-    t.integer  "objectId"
+    t.string   "objectId"
     t.string   "root_guid",             :limit => 30
     t.string   "status_message_guid"
     t.integer  "likes_count",                         :default => 0
