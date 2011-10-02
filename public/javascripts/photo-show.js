@@ -51,6 +51,12 @@ $(document).ready(function() {
     $("img[data-person_id='" + person_id + "']").fadeTo(200, 1);
   });
 
+  //cancel edit
+  $("#cancel_edit").bind('click', function(evt) {
+    evt.preventDefault();
+    $("#photo_edit_options").toggle();
+  });
+
   // right/left hotkeys
   $(document).keyup(function(e){
     if(!$(e.target).hasClass('comment_box')){
