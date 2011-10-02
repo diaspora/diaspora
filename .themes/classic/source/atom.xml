@@ -4,21 +4,21 @@ layout: nil
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title>{{ site.title }}</title>
+  <title>{{ site.title | xml_escape }}</title>
   <link href="{{ site.url }}/atom.xml" rel="self"/>
   <link href="{{ site.url }}/"/>
   <updated>{{ site.time | date_to_xmlschema }}</updated>
   <id>{{ site.url }}/</id>
   <author>
-    <name>{{ site.author }}</name>
+    <name>{{ site.author | xml_escape }}</name>
     {% if site.email %}
-      <email>{{ site.email }}</email>
+      <email>{{ site.email | xml_escape }}</email>
     {% endif %}
   </author>
 
   {% for post in site.posts limit: 20 %}
   <entry>
-    <title>{{ post.title }}</title>
+    <title>{{ post.title | xml_escape }}</title>
     <link href="{{ site.url }}{{ post.url }}"/>
     <updated>{{ post.date | date_to_xmlschema }}</updated>
     <id>{{ site.url }}{{ post.id }}</id>
