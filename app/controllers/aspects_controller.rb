@@ -2,7 +2,7 @@
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
-require File.join(Rails.root, "lib", "aspect_stream")
+require File.join(Rails.root, "lib", 'streams', "aspect_stream")
 
 class AspectsController < ApplicationController
   before_filter :authenticate_user!

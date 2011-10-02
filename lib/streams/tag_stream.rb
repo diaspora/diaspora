@@ -2,6 +2,7 @@
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
+require 'base_stream'
 class TagStream < BaseStream
 
   def link(opts={})

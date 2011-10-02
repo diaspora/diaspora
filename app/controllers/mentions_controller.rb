@@ -1,4 +1,9 @@
-require File.join(Rails.root, '/lib/mention_stream')
+#   Copyright (c) 2010-2011, Diaspora Inc.  This file is
+#   licensed under the Affero General Public License version 3 or later.  See
+#   the COPYRIGHT file.
+
+require File.join(Rails.root, 'lib','streams', 'mention_stream')
+
 class MentionsController < ApplicationController
   before_filter :authenticate_user!
   before_filter :save_sort_order, :only => :index
