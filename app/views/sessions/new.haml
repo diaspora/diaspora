@@ -45,7 +45,7 @@
         = f.submit t('devise.sessions.new.sign_in'), :tabindex => 4
 
 
-      - if !AppConfig[:registrations_closed] && devise_mapping.registerable? && controller_name != 'registrations'
+      - if should_display_registration_link?
         %br
         %br
         %br

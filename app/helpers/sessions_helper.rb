@@ -7,4 +7,8 @@ module SessionsHelper
       nil
     end
   end
+
+  def should_display_registration_link?
+    !AppConfig[:registrations_closed] && devise_mapping.registerable? && controller_name != 'registrations'
+  end
 end
