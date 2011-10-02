@@ -184,13 +184,14 @@ task :update_source, :theme do |t, args|
     puts "## Removed existing #{source_dir}.old directory"
     rm_r "#{source_dir}.old", :secure=>true
   end
+  mkdir "#{source_dir}.old"
   cp_r "#{source_dir}/.", "#{source_dir}.old"
   puts "## Copied #{source_dir} into #{source_dir}.old/"
   cp_r "#{themes_dir}/"+theme+"/source/.", source_dir, :remove_destination=>true
   cp_r "#{source_dir}.old/_includes/custom/.", "#{source_dir}/_includes/custom/", :remove_destination=>true
   cp "#{source_dir}.old/favicon.png", source_dir
   mv "#{source_dir}/index.html", "#{blog_index_dir}", :force=>true if blog_index_dir != source_dir
-  cp "#{source_dir}.old/index.html", source_dir if blog_index_dir != source_dir
+  cp "#{source_dir}.old/index.html", source_dir if blog_index_dir != source_dir && File.exists?("#{source_dir}.old/index.html")
   puts "## Updated #{source_dir} ##"
 end
 
