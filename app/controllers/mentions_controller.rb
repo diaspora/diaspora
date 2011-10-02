@@ -2,7 +2,7 @@
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
-require File.join(Rails.root, 'lib','streams', 'mention_stream')
+require File.join(Rails.root, 'lib','stream', 'mention_stream')
 
 class MentionsController < ApplicationController
   before_filter :authenticate_user!

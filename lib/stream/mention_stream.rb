@@ -1,17 +1,8 @@
 #   Copyright (c) 2010-2011, Diaspora Inc.  This file is
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
-require 'base_stream'
+
 class MentionStream< BaseStream
-
-
-  # @param user [User]
-  # @param inputted_aspect_ids [Array<Integer>] Ids of aspects for given stream
-  # @param aspect_ids [Array<Integer>] Aspects this stream is responsible for
-  # @opt max_time [Integer] Unix timestamp of stream's post ceiling
-  # @opt order [String] Order of posts (i.e. 'created_at', 'updated_at')
-  # @return [void]
-
   def link(opts={})
     Rails.application.routes.url_helpers.mentions_path(opts)
   end
