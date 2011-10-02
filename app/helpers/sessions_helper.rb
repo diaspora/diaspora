@@ -8,7 +8,11 @@ module SessionsHelper
     end
   end
 
-  def should_display_registration_link?
+  def display_registration_link?
     !AppConfig[:registrations_closed] && devise_mapping.registerable? && controller_name != 'registrations'
+  end
+
+  def display_password_reset_link?
+    devise_mapping.recoverable? && controller_name != 'passwords'
   end
 end
