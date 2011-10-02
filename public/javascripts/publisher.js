@@ -375,11 +375,11 @@ var Publisher = {
     }
   },
   onSuccess: function(data, json, xhr){
-    if(Publisher.bookmarklet == false){
-      var isPostVisible = AspectFilters.selectedGUIDS.length == 0;
+    if (Publisher.bookmarklet == false) {
+      var isPostVisible = Diaspora.page.aspectNavigation.selectedAspects().length == 0;
       var postedTo = Publisher.selectedAspectIds();
-      $.each(AspectFilters.selectedGUIDS, function(index, value){
-        if(postedTo.indexOf(parseInt(value))>-1)
+      $.each(Diaspora.page.aspectNavigation.selectedAspects(), function(index, value) {
+        if (postedTo.indexOf(parseInt(value)) > -1)
           isPostVisible = true;
       });
 

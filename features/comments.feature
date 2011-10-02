@@ -62,8 +62,7 @@ Feature: commenting
     When I focus the comment field
     Then the first comment field should be open
 
-    When I follow "Besties"
-    And I wait for the ajax to finish
+    When I select "Besties" aspect
     Then I should see "Look at this dog"
     Then the first comment field should be closed
     When I focus the comment field

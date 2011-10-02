@@ -53,3 +53,7 @@ en:
         hide: "hide comments"
       reshares:
         duplicate: "You've already reshared that post!"
+      aspect_navigation:
+        select_all: "Select all"
+        deselect_all: "Deselect all"
+        no_aspects: "No aspects selected"
