@@ -13,9 +13,6 @@ class ApplicationController < ActionController::Base
   before_filter :set_git_header if (AppConfig[:git_update] && AppConfig[:git_revision])
   before_filter :set_grammatical_gender
 
-  before_filter do
-    puts params.inspect
-  end
   prepend_before_filter :clear_gc_stats
 
   inflection_method :grammatical_gender => :gender
