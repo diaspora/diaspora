@@ -146,6 +146,10 @@ Devise.setup do |config|
   # config.navigational_formats = [:html, :iphone]
   config.navigational_formats = [:"*/*", "*/*", :html, :mobile]
 
+  # Looks up user emails ignoring case
+  # for forgot password, sign up, sign in, etc
+  config.case_insensitive_keys = [:email]
+
   # ==> Warden configuration
   # If you want to use other strategies, that are not (yet) supported by Devise,
   # you can configure them inside the config.warden block. The example below
