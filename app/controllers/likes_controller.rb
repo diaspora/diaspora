@@ -21,7 +21,7 @@ class LikesController < ApplicationController
           format.js { render 'likes/update', :status => 201 }
           format.html { render :nothing => true, :status => 201 }
           format.mobile { redirect_to post_path(@like.post_id) }
-          format.json { render :nothing => true, :status => 201 }
+          format.json { render :json => {"id" => @like.id}, :status => 201 }
         end
       else
         render :nothing => true, :status => 422
