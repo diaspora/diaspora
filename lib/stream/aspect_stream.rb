@@ -23,7 +23,7 @@ class AspectStream < BaseStream
   # @return [ActiveRecord::Association<Aspect>] Filtered aspects given the stream's user
   def aspects
     @aspects ||= lambda do
-      a = @user.aspects
+      a = user.aspects
       a = a.where(:id => @inputted_aspect_ids) if @inputted_aspect_ids.length > 0
       a
     end.call
@@ -39,7 +39,7 @@ class AspectStream < BaseStream
   # @return [ActiveRecord::Association<Post>] AR association of posts
   def posts
     # NOTE(this should be something like Post.all_for_stream(@user, aspect_ids, {}) that calls visible_posts
-    @posts ||= @user.visible_posts(:by_members_of => aspect_ids,
+    @posts ||= user.visible_posts(:by_members_of => aspect_ids,
                                    :type => TYPES_OF_POST_IN_STREAM,
                                    :order => "#{order} DESC",
                                    :max_time => max_time
@@ -81,7 +81,7 @@ class AspectStream < BaseStream
   #
   # @return [Boolean]
   def for_all_aspects?
-    @all_aspects ||= aspect_ids.length == @user.aspects.size
+    @all_aspects ||= aspect_ids.length == user.aspects.size
   end
 
   def contacts_title
