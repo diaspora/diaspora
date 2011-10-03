@@ -86,7 +86,6 @@ Factory.define(:photo) do |p|
   p.sequence(:random_string) {|n| ActiveSupport::SecureRandom.hex(10) }
   p.after_build do |p|
     p.unprocessed_image.store! File.open(File.join(File.dirname(__FILE__), 'fixtures', 'button.png'))
-    p.process
     p.update_remote_path
   end
 end
