@@ -1,4 +1,7 @@
 #author_info
+  .navigation
+    = link_to t('people.show.profile'), person
+    = link_to t('people.show.photos'), person_photos_path(person)
   .right
     - if user_signed_in? && current_user.person != person
       = aspect_membership_dropdown(contact, person, 'right')
