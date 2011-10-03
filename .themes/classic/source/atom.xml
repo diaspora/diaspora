@@ -15,6 +15,7 @@ layout: nil
       <email>{{ site.email | xml_escape }}</email>
     {% endif %}
   </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
 
   {% for post in site.posts limit: 20 %}
   <entry>
