@@ -8,7 +8,7 @@ module Diaspora
       include ActionView::Helpers::TagHelper
 
       def autolink(link, type)
-        auto_link(link, :link => :urls )
+        auto_link(link, :link => :urls, :html => { :target => "_blank" })
       end
     end
   end
