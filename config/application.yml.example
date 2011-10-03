@@ -54,7 +54,7 @@ defaults: &defaults
   open_invitations: true
 
   # Set this to true if you don't want your users to follow the diasporahq@joindiaspora.com
-  # account on account creation.  The diasporahq account helps users start with some 
+  # account on account creation.  The diasporahq account helps users start with some
   # activity in their stream and get news about Diaspora, but if you don't want your server
   # to contact joindiaspora.com, set this to true:
   no_follow_diasporahq: false
@@ -133,7 +133,7 @@ defaults: &defaults
   smtp_openssl_verify_mode:
 
   # Domain of smtp server.
-  # This should match the common name of the certificate 
+  # This should match the common name of the certificate
   # the SMTP server sends. If he sends one
   smtp_domain: 'example.com'
 
@@ -167,7 +167,7 @@ defaults: &defaults
   paypal_hosted_button_id: ""
 
   # Mount resque-web into routes
-  # This allows an administrator to see info about the workers 
+  # This allows an administrator to see info about the workers
   mount_resque_web: true
 
 #
@@ -197,7 +197,7 @@ integration_1:
   <<: *defaults
   pod_url: "http://localhost:45789"
   enable_splunk_logging: false
-  
+
 integration_2:
   <<: *defaults
   pod_url: "http://localhost:34658"
