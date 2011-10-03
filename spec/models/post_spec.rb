@@ -12,15 +12,42 @@ describe Post do
 
   describe 'scopes' do
     describe '.for_a_stream' do
-      it 'returns the posts ordered and limited by unix time'
-      it 'includes everything in .includes_for_a_stream'
-      it 'is limited to 15 posts'
+      before do
+        time_interval = 1000
+        time_past = 1000000
+        @posts = (1..3).map do |n|
+          aspect_to_post = alice.aspects.where(:name => "generic").first
+          post = alice.post :status_message, :text => "#{alice.username} - #{n}", :to => aspect_to_post.id
+          post.created_at = (post.created_at-time_past) - time_interval
+          post.updated_at = (post.updated_at-time_past) + time_interval
+          post.save
+          time_interval += 1000
+          post
+        end
+      end
+
+      it 'returns the posts ordered and limited by unix time' do
+        Post.for_a_stream(Time.now + 1, "created_at").should == @posts
+        Post.for_a_stream(Time.now + 1, "updated_at").should == @posts.reverse
+      end
+
+      it 'includes everything in .includes_for_a_stream' do
+        Post.should_receive(:includes_for_a_stream)
+        Post.for_a_stream(Time.now + 1, "created_at")
+      end
+      it 'is limited to 15 posts' do
+        Post.stub(:by_max_time).and_return(Post)
+        Post.stub(:includes_for_a_stream).and_return(Post)
+        Post.should_receive(:limit)
+        Post.for_a_stream(Time.now + 1, "created_at")
+      end
     end
 
     describe 'includes for a stream' do
       it 'inclues author profile and mentions' 
       it 'should include photos and root of reshares(but does not)'
     end
+
   end
 
 
