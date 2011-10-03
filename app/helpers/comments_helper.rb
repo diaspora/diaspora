@@ -30,4 +30,13 @@ module CommentsHelper
       nil
     end
   end
+
+  def commenting_disabled?
+    return true unless user_signed_in?
+    if defined?(@commenting_disabled)
+      return @commenting_disabled
+    else
+      false
+    end
+  end
 end

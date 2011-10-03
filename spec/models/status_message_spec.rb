@@ -69,7 +69,7 @@ describe StatusMessage do
 
   it 'should require status messages to be less than 10000 characters' do
     message = ''
-    10001.times do message = message +'1';end
+    10001.times{message = message +'1'}
     status = Factory.build(:status_message, :text => message)
 
     status.should_not be_valid

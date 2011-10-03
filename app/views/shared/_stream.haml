@@ -5,5 +5,5 @@
 = render :partial => 'shared/stream_element',
          :collection => posts,
          :as => :post,
-         :locals => { :commenting_disabled => defined?(@commenting_disabled)}
+         :locals => { :commenting_disabled => commenting_disabled?}
 
