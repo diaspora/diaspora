@@ -2,9 +2,8 @@
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
-class AspectStream
-
-  attr_reader :max_time, :order
+class AspectStream < BaseStream
+  TYPES_OF_POST_IN_STREAM = ['StatusMessage', 'Reshare', 'ActivityStreams::Photo']
 
   # @param user [User]
   # @param inputted_aspect_ids [Array<Integer>] Ids of aspects for given stream
@@ -13,10 +12,8 @@ class AspectStream
   # @opt order [String] Order of posts (i.e. 'created_at', 'updated_at')
   # @return [void]
   def initialize(user, inputted_aspect_ids, opts={})
-    @user = user
+    super(user, opts)
     @inputted_aspect_ids = inputted_aspect_ids
-    @max_time = opts[:max_time]
-    @order = opts[:order]
   end
 
   # Filters aspects given the stream's aspect ids on initialization and the user.
@@ -26,7 +23,7 @@ class AspectStream
   # @return [ActiveRecord::Association<Aspect>] Filtered aspects given the stream's user
   def aspects
     @aspects ||= lambda do
-      a = @user.aspects
+      a = user.aspects
       a = a.where(:id => @inputted_aspect_ids) if @inputted_aspect_ids.length > 0
       a
     end.call
@@ -42,16 +39,20 @@ class AspectStream
   # @return [ActiveRecord::Association<Post>] AR association of posts
   def posts
     # NOTE(this should be something like Post.all_for_stream(@user, aspect_ids, {}) that calls visible_posts
-    @posts ||= @user.visible_posts(:by_members_of => aspect_ids,
-                                   :type => ['StatusMessage', 'Reshare', 'ActivityStreams::Photo'],
-                                   :order => "#{@order} DESC",
-                                   :max_time => @max_time
-                   ).includes(:mentions => {:person => :profile}, :author => :profile)
+    @posts ||= user.visible_posts(:by_members_of => aspect_ids,
+                                   :type => TYPES_OF_POST_IN_STREAM,
+                                   :order => "#{order} DESC",
+                                   :max_time => max_time
+                   ).for_a_stream(max_time, order)
   end
 
   # @return [ActiveRecord::Association<Person>] AR association of people within stream's given aspects
   def people
-    @people ||= Person.all_from_aspects(aspect_ids, @user).includes(:profile)
+    @people ||= Person.all_from_aspects(aspect_ids, user).includes(:profile)
+  end
+
+  def link(opts={})
+    Rails.application.routes.url_helpers.aspects_path(opts.merge(:a_ids => aspect_ids))
   end
 
   # The first aspect in #aspects, given the stream is not for all aspects, or #aspects size is 1
@@ -67,11 +68,35 @@ class AspectStream
     for_all_aspects?
   end
 
+  def title
+    if self.for_all_aspects?
+      I18n.t('aspects.aspect_stream.stream')
+    else 
+      self.aspects.to_sentence
+    end    
+  end
+
   # Determine whether or not the stream is displaying across
   # all of the user's aspects.
   #
   # @return [Boolean]
   def for_all_aspects?
-    @all_aspects ||= aspect_ids.length == @user.aspects.size
+    @all_aspects ||= aspect_ids.length == user.aspects.size
+  end
+
+  def contacts_title
+    if self.for_all_aspects? || self.aspect_ids.size > 1
+      I18n.t('_contacts')
+    else
+     "#{self.aspect.name}(#{self.people.size})"
+    end
+  end
+
+  def contacts_link
+    if for_all_aspects? || aspect_ids.size > 1
+      Rails.application.routes.url_helpers.contacts_path
+    else
+      Rails.application.routes.url_helpers.contacts_path(:a_id => aspect.id)
+    end
   end
 end

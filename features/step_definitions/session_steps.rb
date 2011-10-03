@@ -25,6 +25,7 @@ When /^I sign in as "([^"]*)"$/ do |email|
   @me = User.find_by_email(email)
   @me.password ||= 'password'
   Given 'I am signed in'
+  And 'I wait for the ajax to finish'
 end
 
 When /^I sign in with password "([^"]*)"$/ do |password|
