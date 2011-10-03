@@ -21,6 +21,7 @@ defaults: &defaults
   # Setting the root certificate bundle (this is operating system specific). Defaults:
   # CentOS: '/etc/pki/tls/certs/ca-bundle.crt'
   # Debian: '/etc/ssl/certs/ca-certificates.crt'
+  # Gentoo: '/etc/ssl/certs/ca-certificates.crt'
   ca_file: '/etc/pki/tls/certs/ca-bundle.crt'
 
   # Secure websocket confguration (wss://).
