@@ -73,6 +73,14 @@ describe AspectStream do
       @alice.should_receive(:visible_posts).with(hash_including(:max_time => instance_of(Time))).and_return(stub.as_null_object)
       stream.posts
     end
+
+    it 'passes for_all_aspects to visible posts' do
+      stream = AspectStream.new(@alice, [1,2], :max_time => 123)
+      all_aspects = mock
+      stream.stub(:for_all_aspects?).and_return(all_aspects)
+      @alice.should_receive(:visible_posts).with(hash_including(:all_aspects? => all_aspects)).and_return(stub.as_null_object)
+      stream.posts
+    end
   end
 
   describe '#people' do

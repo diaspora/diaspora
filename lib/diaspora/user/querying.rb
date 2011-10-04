@@ -24,7 +24,7 @@ module Diaspora
       def visible_post_ids(opts={})
         opts = prep_opts(opts)
 
-        if AppConfig[:redis_cache] && RedisCache.supported_order?(opts[:order_field])
+        if AppConfig[:redis_cache] && RedisCache.supported_order?(opts[:order_field]) && opts[:all_aspects?].present?
           cache = RedisCache.new(self, opts[:order_field])
 
           cache.ensure_populated!

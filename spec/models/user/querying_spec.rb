@@ -88,7 +88,7 @@ describe User do
     context "RedisCache" do
       before do
         AppConfig[:redis_cache] = true
-        @opts = {:order => "created_at DESC"}
+        @opts = {:order => "created_at DESC", :all_aspects? => true}
       end
 
       after do
@@ -101,6 +101,12 @@ describe User do
         cache.should_receive(:ensure_populated!)
 
         alice.visible_post_ids(@opts)
+      end
+
+      it 'does not get used if if all_aspects? option is not present' do
+        RedisCache.should_not_receive(:new)
+
+        alice.visible_post_ids(@opts.merge({:all_aspects? => false}))
       end
 
       describe "#ensure_populated_cache" do
