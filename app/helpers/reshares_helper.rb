@@ -25,7 +25,7 @@ module ResharesHelper
         :remote => true,
         :confirm => t('reshares.reshare.reshare_confirmation', :author => post.root.author.name)
     else
-      link_to t("reshares.reshare.reshare_original"),
+      link_to t('shared.reshare.reshare'),
                 reshares_path(:root_guid => post.guid),
                 :method => :post,
                 :remote => true,
