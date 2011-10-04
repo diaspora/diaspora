@@ -2,7 +2,7 @@
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
-require 'lib/diaspora/redis_cache'
+require File.join(Rails.root, 'lib', 'diaspora', 'redis_cache')
 
 module Diaspora
   module UserModules
