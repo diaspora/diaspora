@@ -161,5 +161,17 @@ describe RedisCache do
     end
   end
 
+  describe '.cache_setup?' do
+    it 'returns true if configuration is properly set' do
+      AppConfig[:redis_cache] = true
+      RedisCache.should be_configured
+    end
+
+    it 'returns false if configuration is not present' do
+      AppConfig[:redis_cache] = false
+      RedisCache.should_not be_configured
+    end
+  end
+
   describe "#remove"
 end

@@ -14,8 +14,8 @@ class Postzord::Receiver
 
   # @return [Boolean]
   def cache?
-    self.respond_to?(:update_cache!) && AppConfig[:redis_cache] &&
-    @object.respond_to?(:triggers_caching?) && @object.triggers_caching?
+    self.respond_to?(:update_cache!) && RedisCache.configured? &&
+      @object.respond_to?(:triggers_caching?) && @object.triggers_caching?
   end
 end
 

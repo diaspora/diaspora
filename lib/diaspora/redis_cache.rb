@@ -13,6 +13,13 @@ class RedisCache
     @order_field = order_field.to_s
   end
 
+  # Checks to see if the necessary redis cache variables are set in application.yml
+  #
+  # @return [Boolean]
+  def self.configured?
+    AppConfig[:redis_cache].present?
+  end
+
   # @return [Boolean]
   def cache_exists?
     self.size != 0
@@ -72,7 +79,15 @@ class RedisCache
   protected
   # @return [Redis]
   def redis
-    @redis ||= Redis.new
+    @redis ||= Redis.new(:host => RedisCache.redis_host, :port => RedisCache.redis_port)
+  end
+
+  def self.redis_host
+    (AppConfig[:redis_location].blank?) ? nil : AppConfig[:redis_location]
+  end
+
+  def self.redis_port
+    (AppConfig[:redis_port].blank?) ? nil : AppConfig[:redis_port]
   end
 
   # @return [String]
