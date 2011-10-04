@@ -80,6 +80,7 @@ class AuthorizationsController < ApplicationController
   def index
     @authorizations = current_user.authorizations
     @applications = current_user.applications
+    @clients = OAuth2::Provider::Models::ActiveRecord::Client.all
   end
 
   def destroy

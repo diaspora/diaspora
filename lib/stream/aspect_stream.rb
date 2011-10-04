@@ -39,12 +39,18 @@ class AspectStream < BaseStream
   # @return [ActiveRecord::Association<Post>] AR association of posts
   def posts
     # NOTE(this should be something like Post.all_for_stream(@user, aspect_ids, {}) that calls visible_posts
-    @posts ||= user.visible_posts(:all_aspects? => for_all_aspects?,
-                                   :by_members_of => aspect_ids,
-                                   :type => TYPES_OF_POST_IN_STREAM,
-                                   :order => "#{order} DESC",
-                                   :max_time => max_time
-                   ).for_a_stream(max_time, order)
+    @posts ||= user.visible_posts(
+      :all_aspects?  => for_all_aspects?,
+      :by_members_of => aspect_ids,
+      :type          => TYPES_OF_POST_IN_STREAM,
+      :order         => "#{order} DESC",
+      :max_time      => max_time
+    ).for_a_stream(
+      max_time,
+      order
+    ).reject { |post|
+      user.blocking_oauth_client? post.provider_display_name
+    }
   end
 
   # @return [ActiveRecord::Association<Person>] AR association of people within stream's given aspects

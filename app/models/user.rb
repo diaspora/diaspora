@@ -472,7 +472,13 @@ class User < ActiveRecord::Base
     self
   end
 
-  def blocking_oauth_client?(client)
-    !! application_blocks.detect { |b| b.client_id == client.id }
+  def blocking_oauth_client?(client_name)
+    client = OAuth2::Provider::Models::ActiveRecord::Client.find_by_name(client_name)
+    if client
+      client_id = client.id
+      !! application_blocks.detect { |b|
+        b.client_id == client_id
+      }
+    end
   end
 end
