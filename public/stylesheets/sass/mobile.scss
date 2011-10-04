@@ -614,17 +614,24 @@ footer {
   width: 24px;
   padding: 5px;
   margin: {
-    left: 5px; }; }
+    left: 5px; };
 
-.like_action {
-  &.inactive{
-    background-image: url("/images/icons/heart_mobile_grey.png");
-  }
-  &.active {
-    background-image: url("/images/icons/heart_mobile_red.png");
-  }
   &.loading {
     background-image: url("/images/mobile-spinner.gif");
+  }
+}
+
+.reshare_action {
+  background-image: url("/images/icons/reshare_mobile.png");
+  &.active {
+    background-image: url("/images/icons/reshare_mobile_active.png");
+  }
+}
+
+.like_action {
+  background-image: url("/images/icons/heart_mobile_grey.png");
+  &.active {
+    background-image: url("/images/icons/heart_mobile_red.png");
   }
 }
 
@@ -632,9 +639,6 @@ footer {
   background-image: url("/images/icons/pencil_mobile_grey_active.png");
   &.inactive {
     background-image: url("/images/icons/pencil_mobile_grey.png");
-  }
-  &.loading {
-    background-image: url("/images/mobile-spinner.gif");
   }
 }
 

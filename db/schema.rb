@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111002013921) do
+ActiveRecord::Schema.define(:version => 20111003232053) do
 
   create_table "aspect_memberships", :force => true do |t|
     t.integer  "aspect_id",  :null => false
@@ -285,6 +285,7 @@ ActiveRecord::Schema.define(:version => 20111002013921) do
     t.integer  "comments_count",                      :default => 0
   end
 
+  add_index "posts", ["author_id", "root_guid"], :name => "index_posts_on_author_id_and_root_guid", :unique => true
   add_index "posts", ["author_id"], :name => "index_posts_on_person_id"
   add_index "posts", ["guid"], :name => "index_posts_on_guid", :unique => true
   add_index "posts", ["root_guid"], :name => "index_posts_on_root_guid"

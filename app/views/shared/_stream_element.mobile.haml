@@ -17,6 +17,17 @@
 
   .bottom_bar
     .floater
+
+      - if (post.public? || reshare?(post)) && post.author != current_user.person
+
+        - if reshare?(post)
+          - root = post.root
+        - else
+          - root = post
+
+        - reshare = Reshare.where(:author_id => current_user.person.id, :root_guid => root.guid).first ? "active" : "inactive"
+        = link_to '', reshares_path(:root_guid => root.guid), :title => t('reshares.reshare.reshare_confirmation', :author => root.author.name), :class => "image_link reshare_action #{reshare}"
+
       = link_to '', new_post_comment_path(post), :class => "image_link comment_action inactive"
 
       - if current_user && current_user.liked?(post)
@@ -33,6 +44,10 @@
     - if defined?(expanded_info) && expanded_info
       .comment_container
         .post_stats
+          - if @post.public?
+            %span.comment_count
+              = @post.reshares.size
+
           %span.comment_count
             = @post.comments.size
 
