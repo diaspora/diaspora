@@ -88,7 +88,7 @@ class AspectStream < BaseStream
     if self.for_all_aspects? || self.aspect_ids.size > 1
       I18n.t('_contacts')
     else
-     "#{self.aspect.name}(#{self.people.size})"
+     "#{self.aspect.name} (#{self.people.size})"
     end
   end
 
