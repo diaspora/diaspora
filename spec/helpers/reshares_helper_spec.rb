@@ -36,7 +36,7 @@ describe ResharesHelper do
           @post.reshare_count.should == 1
         end
 
-        it 'has "Reshare original" as the English text' do
+        it 'has "Reshare" as the English text' do
           reshare_link(@post).should =~ %r{>Reshare</a>}
         end
 
