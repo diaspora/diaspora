@@ -54,7 +54,7 @@ class Post < ActiveRecord::Base
   end
 
   def reshare_count
-    @reshare_count ||= Post.where(:root_guid => self.guid).count
+    @reshare_count ||= Post.find_all_by_root_guid(self.guid).count
   end
 
   # @return Returns true if this Post will accept updates (i.e. updates to the caption of a photo).
