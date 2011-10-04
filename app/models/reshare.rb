@@ -36,7 +36,7 @@ class Reshare < Post
   def notification_type(user, person)
     Notifications::Reshared if root.author == user.person
   end
-  
+
   private
 
   def after_parse
@@ -71,7 +71,7 @@ class Reshare < Post
 
   def root_must_be_public
     if self.root && !self.root.public
-      errors[:base] << "you must reshare public posts"
+      errors[:base] << "Only posts which are public may be reshared."
       return false
     end
   end
