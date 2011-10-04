@@ -39,7 +39,8 @@ class AspectStream < BaseStream
   # @return [ActiveRecord::Association<Post>] AR association of posts
   def posts
     # NOTE(this should be something like Post.all_for_stream(@user, aspect_ids, {}) that calls visible_posts
-    @posts ||= user.visible_posts(:by_members_of => aspect_ids,
+    @posts ||= user.visible_posts(:all_aspects? => for_all_aspects?,
+                                   :by_members_of => aspect_ids,
                                    :type => TYPES_OF_POST_IN_STREAM,
                                    :order => "#{order} DESC",
                                    :max_time => max_time
@@ -51,6 +52,7 @@ class AspectStream < BaseStream
     @people ||= Person.all_from_aspects(aspect_ids, user).includes(:profile)
   end
 
+  # @return [String] URL
   def link(opts={})
     Rails.application.routes.url_helpers.aspects_path(opts.merge(:a_ids => aspect_ids))
   end
@@ -64,16 +66,26 @@ class AspectStream < BaseStream
     end
   end
 
+  # Only ajax in the stream if all aspects are present.
+  # In this case, we know we're on the first page of the stream,
+  # as the default view for aspects/index is showing posts from
+  # all a user's aspects.
+  #
+  # @return [Boolean] see #for_all_aspects?
   def ajax_stream?
     for_all_aspects?
   end
 
+  # The title that will display at the top of the stream's
+  # publisher box.
+  #
+  # @return [String]
   def title
     if self.for_all_aspects?
       I18n.t('aspects.aspect_stream.stream')
-    else 
+    else
       self.aspects.to_sentence
-    end    
+    end
   end
 
   # Determine whether or not the stream is displaying across
@@ -84,6 +96,9 @@ class AspectStream < BaseStream
     @all_aspects ||= aspect_ids.length == user.aspects.size
   end
 
+  # Provides a translated title for contacts box on the right pane.
+  #
+  # @return [String]
   def contacts_title
     if self.for_all_aspects? || self.aspect_ids.size > 1
       I18n.t('_contacts')
@@ -92,6 +107,10 @@ class AspectStream < BaseStream
     end
   end
 
+  # Provides a link to the user to the contacts page that corresponds with
+  # the stream's active aspects.
+  #
+  # @return [String] Link to contacts
   def contacts_link
     if for_all_aspects? || aspect_ids.size > 1
       Rails.application.routes.url_helpers.contacts_path

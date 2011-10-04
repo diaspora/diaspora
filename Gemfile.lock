@@ -256,6 +256,7 @@ GEM
     mobile-fu (0.2.1)
       rack-mobile-detect
       rails
+    mock_redis (0.2.0)
     moneta (0.6.0)
     mongrel (1.1.5)
       cgi_multipart_eof_fix (>= 2.4)
@@ -506,6 +507,7 @@ DEPENDENCIES
   linecache (= 0.43)
   mini_magick (= 3.2)
   mobile-fu
+  mock_redis
   mongrel
   mysql2 (= 0.2.13)
   newrelic_rpm

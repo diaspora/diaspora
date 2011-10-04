@@ -47,7 +47,7 @@ describe Postzord::Receiver::Private do
     end
   end
 
-  describe '#perform' do
+  describe '#receive!' do
     before do
       @zord = Postzord::Receiver::Private.new(@user, :salmon_xml => @salmon_xml)
       @salmon = @zord.instance_variable_get(:@salmon)
@@ -56,25 +56,25 @@ describe Postzord::Receiver::Private do
     context 'returns nil' do
       it 'if the salmon author does not exist' do
         @zord.instance_variable_set(:@sender, nil)
-        @zord.perform.should be_nil
+        @zord.perform!.should be_nil
       end
 
       it 'if the author does not match the signature' do
         @zord.instance_variable_set(:@sender, Factory(:person))
-        @zord.perform.should be_nil
+        @zord.perform!.should be_nil
       end
     end
 
     context 'returns the sent object' do
       it 'returns the received object on success' do
-        object = @zord.perform
-        object.should respond_to(:to_diaspora_xml)
+        @zord.perform!
+        @zord.instance_variable_get(:@object).should respond_to(:to_diaspora_xml)
       end
     end
 
     it 'parses the salmon object' do
       Diaspora::Parser.should_receive(:from_xml).with(@salmon.parsed_data).and_return(@original_post)
-      @zord.perform
+      @zord.perform!
     end
   end
 
@@ -86,7 +86,7 @@ describe Postzord::Receiver::Private do
 
     it 'calls Notification.notify if object responds to notification_type' do
       cm = Comment.new
-      cm.stub!(:receive).and_return(cm)
+      cm.stub(:receive).and_return(cm)
 
       Notification.should_receive(:notify).with(@user, cm, @person2)
       zord = Postzord::Receiver::Private.new(@user, :person => @person2, :object => cm)
@@ -101,6 +101,20 @@ describe Postzord::Receiver::Private do
     it 'calls receive on @object' do
       obj = @zord.instance_variable_get(:@object).should_receive(:receive)
       @zord.receive_object
+    end
+  end
+
+  describe '#update_cache!' do
+    it 'adds to redis cache for the given user' do
+      @original_post.save!
+
+      @zord = Postzord::Receiver::Private.new(@user, :person => @person2, :object => @original_post)
+
+      sort_order = "created_at"
+      cache = RedisCache.new(@user, sort_order)
+      RedisCache.should_receive(:new).with(@user, sort_order).and_return(cache)
+      cache.should_receive(:add).with(@original_post.created_at.to_i, @original_post.id)
+      @zord.update_cache!
     end
   end
 end

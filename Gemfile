@@ -126,6 +126,7 @@ group :test do
   gem "selenium-webdriver", "~> 2.7.0"
   gem 'webmock', :require => false
   gem 'sqlite3'
+  gem 'mock_redis'
 end
 
 group :development do
