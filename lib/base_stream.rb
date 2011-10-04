@@ -14,6 +14,10 @@ class BaseStream
     Rails.application.routes.url_helpers.mentions_path(opts)
   end
 
+  def can_comment?(post)
+    true
+  end
+
   def title
     'a title'
   end

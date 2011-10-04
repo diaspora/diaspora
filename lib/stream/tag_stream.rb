@@ -14,22 +14,28 @@ class TagStream < BaseStream
 
   # @return [ActiveRecord::Association<Post>] AR association of posts
   def posts
-    if tag_string.empty?
-      []
-    else
-      @posts ||= StatusMessage.owned_or_visible_by_user(user).
-        joins(:tags).where(:tags => {:name => tag_array}).
-        for_a_stream(@max_time, @order)
-    end
+    return [] if tag_string.empty?
+    @posts ||= StatusMessage.owned_or_visible_by_user(user).
+                joins(:tags).where(:tags => {:name => tag_array}).
+                for_a_stream(@max_time, @order)
   end
 
-  # @return [ActiveRecord::Association<Person>] AR association of people within stream's given aspects
   def people
     @people ||= posts.map{|p| p.author}.uniq 
   end
 
   def contacts_title
     I18n.translate('streams.tags.contacts_title')
+  end
+
+  def can_comment_on?(post)
+    @can_comment_cache ||= {}
+    @can_comment_cache[post.id] ||= contacts_in_stream.find{|contact| contact.person_id == post.author.id}.present?
+    @can_comment_cache[post.id]
+  end
+
+  def contacts_in_stream
+    @contacts_in_stream ||= Contact.where(:user => user, :person => people).all
   end
 
   private

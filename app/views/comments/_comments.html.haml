@@ -13,6 +13,6 @@
     -else
       = render :partial => 'comments/comment', :collection => post.comments, :locals => {:post => post}
 
-  - unless commenting_disabled?
+  - unless commenting_disabled?(post)
     .new_comment_form_wrapper{:class => comment_form_wrapper_class(post)}
       = new_comment_form(post.id, current_user)
