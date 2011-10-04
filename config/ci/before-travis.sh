@@ -6,7 +6,8 @@ export RUBY_GC_MALLOC_LIMIT=1000000000
 export RUBY_HEAP_FREE_MIN=500000
 
 # Start xvfb in preparation for cucumber & jasmine
-echo "Starting Xvfb"
+echo "Installing and starting Xvfb"
+sudo aptitude --quiet=2 --without-recommends --assume-yes install xvfb
 sudo cp config/ci/xvfb /etc/init.d/xvfb
 sh -e /etc/init.d/xvfb start
 
