@@ -45,6 +45,7 @@ class User < ActiveRecord::Base
 
   has_many :authorizations, :class_name => 'OAuth2::Provider::Models::ActiveRecord::Authorization', :foreign_key => :resource_owner_id
   has_many :applications, :through => :authorizations, :source => :client
+  has_many :application_blocks, :class_name => 'OauthClientBlocks'
 
   before_save :guard_unconfirmed_email,
               :save_person!
@@ -469,5 +470,9 @@ class User < ActiveRecord::Base
   def infer_email_from_invitation_provider
     self.email = self.invitation_identifier if self.invitation_service == 'email'
     self
+  end
+
+  def blocking_oauth_client?(client)
+    !! application_blocks.detect { |b| b.client_id == client.id }
   end
 end
