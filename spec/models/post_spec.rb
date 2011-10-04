@@ -90,4 +90,45 @@ describe Post do
       @post.reload.updated_at.to_i.should == old_time.to_i
     end
   end
+
+  describe '#reshare_count' do
+    before :each do
+      @post = @user.post :status_message, :text => "hello", :to => @aspect.id, :public => true
+      @post.reshares.size.should == 0
+    end
+
+    describe 'when post has not been reshared' do
+      it 'returns zero' do
+        @post.reshare_count.should == 0
+      end
+    end
+
+    describe 'when post has been reshared exactly 1 time' do
+      before :each do
+        @post.reshares.size.should == 0
+        @reshare = Factory.create(:reshare, :root => @post)
+        @post.reload
+        @post.reshares.size.should == 1
+      end
+
+      it 'returns 1' do
+        @post.reshare_count.should == 1
+      end
+    end
+
+    describe 'when post has been reshared more than once' do
+      before :each do
+        @post.reshares.size.should == 0
+        Factory.create(:reshare, :root => @post)
+        Factory.create(:reshare, :root => @post)
+        Factory.create(:reshare, :root => @post)
+        @post.reload
+        @post.reshares.size.should == 3
+      end
+
+      it 'returns the number of reshares' do
+        @post.reshare_count.should == 3
+      end
+    end
+  end
 end

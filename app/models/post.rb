@@ -29,7 +29,7 @@ class Post < ActiveRecord::Base
   has_many :resharers, :class_name => 'Person', :through => :reshares, :source => :author
 
   belongs_to :author, :class_name => 'Person'
-  
+
   validates :guid, :uniqueness => true
 
   scope :all_public, where(:public => true, :pending => false)
@@ -47,7 +47,7 @@ class Post < ActiveRecord::Base
   end
 
   def reshare_count
-    @reshare_count ||= Post.where(:root_guid => self.guid).count
+    @reshare_count ||= Post.find_all_by_root_guid(self.guid).count
   end
 
   def diaspora_handle= nd
