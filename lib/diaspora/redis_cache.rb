@@ -45,7 +45,7 @@ class RedisCache
 
   def populate!
     # user executes query and gets back hashes
-    sql = @user.visible_posts_sql(:limit => CACHE_LIMIT, :order => self.order)
+    sql = @user.visible_posts_sql(:type => AspectStream::TYPES_OF_POST_IN_STREAM, :limit => CACHE_LIMIT, :order => self.order)
     hashes = Post.connection.select_all(sql)
 
     # hashes are inserted into set in a single transaction
