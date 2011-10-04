@@ -173,5 +173,12 @@ describe RedisCache do
     end
   end
 
+  describe '.acceptable_types' do
+    #exposing the need to tie cache to a stream
+    it 'returns the types from the aspect stream' do
+      RedisCache.acceptable_types.should =~ AspectStream::TYPES_OF_POST_IN_STREAM
+    end
+  end
+
   describe "#remove"
 end

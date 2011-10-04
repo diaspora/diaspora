@@ -40,7 +40,9 @@ describe Postzord::Receiver do
     before do
       @receiver.stub(:respond_to?).with(:update_cache!).and_return(true)
       AppConfig[:redis_cache] = true
-      @receiver.instance_variable_set(:@object, mock(:triggers_caching? => true))
+
+      RedisCache.stub(:acceptable_types).and_return(["StatusMessage"])
+      @receiver.instance_variable_set(:@object, mock(:triggers_caching? => true, :type => "StatusMessage"))
     end
 
     it 'returns true if the receiver responds to update_cache and the application has caching enabled' do
@@ -66,6 +68,11 @@ describe Postzord::Receiver do
       @receiver.instance_variable_set(:@object, mock(:triggers_caching? => false))
       @receiver.cache?.should be_false
     end 
+
+    it 'returns false if the object is not of acceptable type for the cache' do
+      @receiver.instance_variable_set(:@object, mock(:triggers_caching? => true, :type => "Photo"))
+      @receiver.cache?.should be_false
+    end
   end
 end
 

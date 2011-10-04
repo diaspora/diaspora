@@ -45,7 +45,7 @@ class RedisCache
 
   def populate!
     # user executes query and gets back hashes
-    sql = @user.visible_posts_sql(:type => AspectStream::TYPES_OF_POST_IN_STREAM, :limit => CACHE_LIMIT, :order => self.order)
+    sql = @user.visible_posts_sql(:type => RedisCache.acceptable_types, :limit => CACHE_LIMIT, :order => self.order)
     hashes = Post.connection.select_all(sql)
 
     # hashes are inserted into set in a single transaction
@@ -74,6 +74,12 @@ class RedisCache
     return unless self.cache_exists?
     self.redis.zadd(set_key, score.to_i, id)
     self.trim!
+  end
+
+  # exposing the need to tie cache to a stream
+  # @return [Array<String>] Acceptable Post types for the given cache
+  def self.acceptable_types
+    AspectStream::TYPES_OF_POST_IN_STREAM
   end
 
   protected
