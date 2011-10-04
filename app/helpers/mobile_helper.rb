@@ -5,7 +5,7 @@ module MobileHelper
   end
 
   def mobile_reshare_icon(post)
-    if (post.public? || reshare?(post)) && post.author != current_user.person
+    if (post.public? || reshare?(post)) && (user_signed_in? && post.author != current_user.person)
       root = reshare?(post) ? post.root : post
 
       if root.author != current_user.person.id
