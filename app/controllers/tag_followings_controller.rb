@@ -10,7 +10,6 @@ class TagFollowingsController < ApplicationController
 
   def index
     @stream = TagStream.new(current_user, :max_time => params[:max_time], :order => sort_order)
-
     if params[:only_posts]
       render :partial => 'shared/stream', :locals => {:posts => @stream.posts}
     else

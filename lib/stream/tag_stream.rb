@@ -18,8 +18,7 @@ class TagStream < BaseStream
       []
     else
       @posts ||= StatusMessage.owned_or_visible_by_user(user).
-        tagged_with([tag_string], :any => true).
-        where(:public => true).
+        joins(:tags).where(:tags => {:name => tag_array}).
         for_a_stream(@max_time, @order)
     end
   end
@@ -37,6 +36,10 @@ class TagStream < BaseStream
 
   def tag_string
     @tag_string ||= tags.join(', '){|tag| tag.name}.to_s
+  end
+
+  def tag_array
+    tags.map{|x| x.name}
   end
 
   def tags
