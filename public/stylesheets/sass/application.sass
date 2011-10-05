@@ -1788,7 +1788,7 @@ ul#request_result
       @include box-shadow(0, 1px, 5px, #ccc)
       :background
         :color #fff
-
+      :float left
       :overflow-x hidden
       :overflow-y hidden
 
@@ -1808,9 +1808,11 @@ ul#request_result
       :padding 5px
       :border 1px solid #999
 
-      > .right
-        :right -5px
-        :bottom 2px
+      > .name
+        :white-space nowrap 
+      // > .right
+      //   :right -5px
+      //   :bottom 2px
 
       &.remote_friend
         :width 285px
