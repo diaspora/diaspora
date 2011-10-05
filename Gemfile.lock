@@ -56,12 +56,6 @@ GIT
       addressable (>= 2.1.1)
       eventmachine (>= 0.12.9)
 
-GIT
-  remote: https://github.com/messagebus/messagebus_ruby_api.git
-  revision: 02b3d04730f3a72f636c0b4ddbbcd660bba6a75e
-  specs:
-    messagebus_ruby_api (0.4.8)
-
 GEM
   remote: http://rubygems.org/
   specs:
@@ -251,6 +245,7 @@ GEM
       i18n (>= 0.4.0)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
+    messagebus_ruby_api (0.4.0)
     mime-types (1.16)
     mini_magick (3.2)
       subexec (~> 0.0.4)
@@ -511,7 +506,7 @@ DEPENDENCIES
   json (= 1.4.6)
   jwt (= 0.1.3)
   linecache (= 0.43)
-  messagebus_ruby_api!
+  messagebus_ruby_api (= 0.4.0)
   mini_magick (= 3.2)
   mobile-fu
   mock_redis

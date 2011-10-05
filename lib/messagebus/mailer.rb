@@ -2,7 +2,7 @@ module Messagebus
   class Mailer
 
     def initialize(api_key)
-      @client = MessagebusRubyApi::Client.new(api_key)
+      @client = MessagebusRubyApi::Client.new(AppConfig[:messagebus_api_key])
     end
 
     attr_accessor :settings
@@ -18,7 +18,7 @@ module Messagebus
     private
 
     def deliver(message)
-      puts "dslkfjasd;lfkjasd;lkfjasd;lkfjasd;lkfjasd;lfjkasd;lkfjasd;lfkjasd;lfkjasd;lkfjas;ldkfj;alsdkjf;lasdjkf;lasdkjf;alsdjkfls"
+      # here we want  = {:fromEmail => message['from'].to_s}
       @client.common_info = {:fromEmail => message.from.first}
       message.to.each do |addressee|
         m = {:toEmail => addressee, :subject => message.subject}
@@ -40,7 +40,5 @@ module Messagebus
       end
 
     end
-    
   end
-
 end

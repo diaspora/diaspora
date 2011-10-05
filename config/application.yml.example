@@ -114,7 +114,7 @@ defaults: &defaults
   smtp_port: '587'
 
   # This chooses which mailer should be used. 'smtp' for a smtp
-  # connection or 'sendmail' to use the sendmail binary.
+  # connection or 'sendmail' to use the sendmail binary, or messagebus, to use the messagebus service
   mailer_method: 'smtp'
 
   # The path to the sendmail binary. Ignored if mailer_method is not set to sendmail
