@@ -1,7 +1,6 @@
 #   Copyright (c) 2010-2011, Diaspora Inc.  This file is
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
-
 Diaspora::Application.configure do
   # Settings specified here will take precedence over those in config/environment.rb
 
@@ -17,6 +16,7 @@ Diaspora::Application.configure do
   config.consider_all_requests_local       = true
   config.action_controller.perform_caching = false
 
+  
   # Don't care if the mailer can't send
   config.action_mailer.raise_delivery_errors = false
   config.active_support.deprecation = :log
