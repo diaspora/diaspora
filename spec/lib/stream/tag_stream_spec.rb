@@ -10,11 +10,4 @@ describe TagStream do
   describe 'shared behaviors' do
     it_should_behave_like 'it is a stream'
   end
-
-
-  describe 'posts' do
-    it 'explains the query' do
-      puts @stream.posts.to_sql
-    end
-  end
 end
