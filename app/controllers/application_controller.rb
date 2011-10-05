@@ -141,7 +141,7 @@ class ApplicationController < ActionController::Base
     if params[:sort_order].present?
       session[:sort_order] = (params[:sort_order] == 'created_at') ? 'created_at' : 'updated_at'
     elsif session[:sort_order].blank?
-      session[:sort_order] = 'updated_at'
+      session[:sort_order] = 'created_at'
     else
       session[:sort_order] = (session[:sort_order] == 'created_at') ? 'created_at' : 'updated_at'
     end
