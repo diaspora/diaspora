@@ -1,0 +1,13 @@
+= form_for 'user', :url => user_path, :html => { :method => :put, :id => 'blocked_applications' } do |f|
+  %h3 Blocked Applications
+
+  = f.error_messages
+
+  #application_blocks
+    = fields_for 'application_blocks' do |ab|
+      - @clients.each do |client|
+        %p.checkbox_select
+          = ab.label client.name
+          = ab.check_box "#{client.id}", { :checked => current_user.blocking_oauth_client?(client.name) }
+
+  = f.submit t('authorizations.index.update'), :id => 'yothere'

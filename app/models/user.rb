@@ -45,7 +45,7 @@ class User < ActiveRecord::Base
 
   has_many :authorizations, :class_name => 'OAuth2::Provider::Models::ActiveRecord::Authorization', :foreign_key => :resource_owner_id
   has_many :applications, :through => :authorizations, :source => :client
-  has_many :application_blocks, :class_name => 'OauthClientBlocks'
+  has_many :application_blocks, :class_name => 'OauthClientBlocks', :dependent => :destroy
 
   before_save :guard_unconfirmed_email,
               :save_person!

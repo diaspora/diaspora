@@ -7,7 +7,7 @@
     = t('settings')
   = render 'shared/settings_nav'
 
-.span-19.prepend-5.last
+.span-19.prepend-5
   #applications_stream.stream
     - if @applications.count > 0
       - for app in @applications
@@ -25,3 +25,6 @@
 
     - else
       = t('.no_applications')
+
+.span-19.prepend-5.last
+  = render 'application_blocks/application_blocks'

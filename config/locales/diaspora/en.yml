@@ -826,7 +826,8 @@ en:
     index:
       revoke_access: "Revoke Access"
       no_applications: "You haven't registered any applications yet."
-  
+      update: "Update"
+
   streams:
     mentions:
       title: "Your Mentions"
@@ -919,6 +920,7 @@ en:
       email_notifications_changed: "Email notifications changed"
       unconfirmed_email_changed: "Email changed. Needs activation."
       unconfirmed_email_not_changed: "Email change failed"
+      application_blocks_updated: "Application blocks updated."
     public:
       does_not_exist: "User %{username} does not exist!"
     confirm_email:
