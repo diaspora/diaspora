@@ -151,7 +151,7 @@ describe User do
         alice.username =  "hexagooooooooooooooooooooooooooon"
         alice.should_not be_valid
       end
-      
+
       it "cannot be one of the blacklist names" do
         ['hostmaster', 'postmaster', 'root', 'webmaster'].each do |username|
           alice.username =  username
@@ -975,6 +975,35 @@ describe User do
 
       it 'performs the retraction' do
         pending
+      end
+    end
+  end
+
+  describe '#blocking_oauth_client?' do
+    before do
+      @app = Factory(:app)
+      @app.name.should_not be_empty
+      @user = Factory(:user)
+    end
+
+    context 'with an app that is not blocked' do
+      it 'returns false' do
+        @user.blocking_oauth_client?(@app.name).should == false
+      end
+    end
+
+    context 'with a blocked app' do
+      before do
+        @user.application_blocks.create :client_id => @app.id, :user_id => @user.id
+      end
+      it 'returns true' do
+        @user.blocking_oauth_client?(@app.name).should == true
+      end
+    end
+
+    context "with an app that doesn't exist" do
+      it 'returns nil' do
+        @user.blocking_oauth_client?('no app with this name').should be_nil
       end
     end
   end
