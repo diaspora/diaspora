@@ -81,10 +81,18 @@ class RedisCache
     ::AspectStream::TYPES_OF_POST_IN_STREAM
   end
 
+  # Instantiate a redis connection
+  #
+  # @return [Redis]
+  def self.redis_connection
+    Redis.new(:host => RedisCache.redis_host, :port => RedisCache.redis_port)
+  end
+
   protected
+  # @see .redis_connection
   # @return [Redis]
   def redis
-    @redis ||= Redis.new(:host => RedisCache.redis_host, :port => RedisCache.redis_port)
+    @redis ||= RedisCache.redis_connection
   end
 
   def self.redis_host
@@ -96,7 +104,12 @@ class RedisCache
   end
 
   # @return [String]
+  def self.cache_prefix
+    "cache_stream"
+  end
+
+  # @return [String]
   def set_key
-    @set_key ||= "cache_stream_#{@user.id}_#{@order_field}"
+    @set_key ||= "#{RedisCache.cache_prefix}_#{@user.id}_#{@order_field}"
   end
 end

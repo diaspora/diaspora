@@ -161,6 +161,14 @@ describe RedisCache do
     end
   end
 
+  describe "#set_key" do
+    it 'uses the correct prefix and order' do
+      user = @cache.instance_variable_get(:@user)
+      order_field = @cache.instance_variable_get(:@order_field)
+      @cache.send(:set_key).should == "#{RedisCache.cache_prefix}_#{user.id}_#{order_field}"
+    end
+  end
+
   describe '.cache_setup?' do
     it 'returns true if configuration is properly set' do
       AppConfig[:redis_cache] = true
