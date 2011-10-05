@@ -481,4 +481,28 @@ class User < ActiveRecord::Base
       }
     end
   end
+
+  def set_oauth_client_blocks( hash )
+    return  if ! ( hash.respond_to?(:keys) && hash.respond_to?(:fetch) )
+
+    # A little complicated here because we're trying to gracefully
+    # handle all manner of possible inputs from the form submission,
+    # including possibly malicious input.
+    hash.keys.each do |client_id_s|
+      client_id = client_id_s.to_i
+      ab = application_blocks.find_by_client_id(client_id)
+
+      case hash.fetch(client_id_s)
+      when '0'
+        ab.delete  if ab
+      when '1'
+        if ab.nil?
+          client = OAuth2::Provider::Models::ActiveRecord::Client.find(client_id)
+          if client
+            application_blocks.create :client_id => client.id, :user_id => self.id
+          end
+        end
+      end
+    end
+  end
 end
