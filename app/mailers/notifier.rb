@@ -5,10 +5,7 @@ class Notifier < ActionMailer::Base
 
   default :from => AppConfig[:smtp_sender_address]
 
-  include ActionView::Helpers::TextHelper
   include NotifierHelper
-
-  TRUNCATION_LEN = 70
 
   def self.admin(string, recipients, opts = {})
     mails = []
@@ -27,133 +24,71 @@ class Notifier < ActionMailer::Base
   end
 
   def started_sharing(recipient_id, sender_id)
-    @receiver = User.find_by_id(recipient_id)
-    @sender = Person.find_by_id(sender_id)
+    @notification = NotificationMailers::StartedSharing.new(recipient_id, sender_id)
 
-    log_mail(recipient_id, sender_id, 'started_sharing')
-
-    I18n.with_locale(@receiver.language) do
-      mail(:to => "\"#{@receiver.name}\" <#{@receiver.email}>",
-           :subject => I18n.t('notifier.started_sharing.subject', :name => @sender.name), :host => AppConfig[:pod_uri].host)
+    with_recipient_locale do
+      mail(@notification.headers)
     end
   end
 
   def liked(recipient_id, sender_id, like_id)
-    @receiver = User.find_by_id(recipient_id)
-    @sender = Person.find_by_id(sender_id)
-    @like = Like.find(like_id)
+    @notification = NotificationMailers::Liked.new(recipient_id, sender_id, like_id)
 
-    log_mail(recipient_id, sender_id, 'liked')
-
-    I18n.with_locale(@receiver.language) do
-      mail(:to => "\"#{@receiver.name}\" <#{@receiver.email}>",
-           :subject => I18n.t('notifier.liked.liked', :name => @sender.name), :host => AppConfig[:pod_uri].host)
+    with_recipient_locale do
+      mail(@notification.headers)
     end
   end
 
   def reshared(recipient_id, sender_id, reshare_id)
-    @receiver = User.find_by_id(recipient_id)
-    @sender = Person.find_by_id(sender_id)
-    @reshare = Reshare.find(reshare_id)
+    @notification = NotificationMailers::Reshared.new(recipient_id, sender_id, reshare_id)
 
-    log_mail(recipient_id, sender_id, 'reshared')
-
-    I18n.with_locale(@receiver.language) do
-      mail(:to => "\"#{@receiver.name}\" <#{@receiver.email}>",
-           :subject => I18n.t('notifier.reshared.reshared', :name => @sender.name), :host => AppConfig[:pod_uri].host)
+    with_recipient_locale do
+      mail(@notification.headers)
     end
   end
 
   def mentioned(recipient_id, sender_id, target_id)
-    @receiver = User.find_by_id(recipient_id)
-    @sender = Person.find_by_id(sender_id)
-    @post = Mention.find_by_id(target_id).post
+    @notification = NotificationMailers::Mentioned.new(recipient_id, sender_id, target_id)
 
-    log_mail(recipient_id, sender_id, 'mentioned')
-
-    I18n.with_locale(@receiver.language) do
-      mail(:to => "\"#{@receiver.name}\" <#{@receiver.email}>",
-           :subject => I18n.t('notifier.mentioned.subject', :name => @sender.name), :host => AppConfig[:pod_uri].host)
+    with_recipient_locale do
+      mail(@notification.headers)
     end
   end
 
   def comment_on_post(recipient_id, sender_id, comment_id)
-    @receiver = User.find_by_id(recipient_id)
-    @sender   = Person.find_by_id(sender_id)
-    @comment  = Comment.find_by_id(comment_id)
+    @notification = NotificationMailers::CommentOnPost.new(recipient_id, sender_id, comment_id)
 
-    log_mail(recipient_id, sender_id, 'comment_on_post')
-
-    I18n.with_locale(@receiver.language) do
-      mail(:from => "\"#{@sender.name} (Diaspora)\" <#{AppConfig[:smtp_sender_address]}>",
-           :to => "\"#{@receiver.name}\" <#{@receiver.email}>",
-           :subject => "Re: #{comment_email_subject}")
+    with_recipient_locale do
+      mail(@notification.headers)
     end
   end
 
   def also_commented(recipient_id, sender_id, comment_id)
-    @receiver = User.find_by_id(recipient_id)
-    @sender   = Person.find_by_id(sender_id)
-    @comment  = Comment.find_by_id(comment_id)
+    @notification = NotificationMailers::AlsoCommented.new(recipient_id, sender_id, comment_id)
 
-    if @receiver && @sender && @comment
-      @post_author_name = @comment.post.author.name
-
-
-      log_mail(recipient_id, sender_id, 'comment_on_post')
-
-      I18n.with_locale(@receiver.language) do
-        mail(:from => "\"#{@sender.name} (Diaspora)\" <#{AppConfig[:smtp_sender_address]}>",
-             :to => "\"#{@receiver.name}\" <#{@receiver.email}>",
-             :subject => "Re: #{comment_email_subject}")
-      end
+    with_recipient_locale do
+      mail(@notification.headers) if @notification.mail?
     end
-  end
-
-  def comment_email_subject
-    truncate(@comment.parent.comment_email_subject, :length => TRUNCATION_LEN)
   end
 
   def private_message(recipient_id, sender_id, message_id)
-    @receiver = User.find_by_id(recipient_id)
-    @sender   = Person.find_by_id(sender_id)
-    @message  = Message.find_by_id(message_id)
-    @conversation = @message.conversation
-    @participants = @conversation.participants
+    @notification = NotificationMailers::PrivateMessage.new(recipient_id, sender_id, message_id)
 
-
-    log_mail(recipient_id, sender_id, 'private_message')
-
-    subject = @conversation.subject.strip
-    subject = "Re: #{subject}" if @conversation.messages.size > 1
-
-
-    I18n.with_locale(@receiver.language) do
-      mail(:from => "\"#{@sender.name} (Diaspora)\" <#{AppConfig[:smtp_sender_address]}>",
-           :to => "\"#{@receiver.name}\" <#{@receiver.email}>",
-           :subject => subject)
+    with_recipient_locale do
+      mail(@notification.headers)
     end
   end
 
-  def confirm_email(receiver_id)
-    @receiver = User.find_by_id(receiver_id)
+  def confirm_email(recipient_id)
+    @notification = NotificationMailers::ConfirmEmail.new(recipient_id)
 
-    I18n.with_locale(@receiver.language) do
-      mail(:to => "\"#{@receiver.name}\" <#{@receiver.unconfirmed_email}>",
-           :subject => I18n.t('notifier.confirm_email.subject', :unconfirmed_email => @receiver.unconfirmed_email),
-           :host => AppConfig[:pod_uri].host)
+    with_recipient_locale do
+      mail(@notification.headers)
     end
   end
-
 
   private
-  def log_mail recipient_id, sender_id, type
-    log_string = "event=mail mail_type=#{type} recipient_id=#{recipient_id} sender_id=#{sender_id}"
-    if @receiver && @sender
-      log_string << "models_found=true sender_handle=#{@sender.diaspora_handle} recipient_handle=#{@receiver.diaspora_handle}"
-    else
-      log_string << "models_found=false"
-    end
-    Rails.logger.info log_string
+  def with_recipient_locale(&block)
+    I18n.with_locale(@notification.recipient.language, &block)
   end
 end

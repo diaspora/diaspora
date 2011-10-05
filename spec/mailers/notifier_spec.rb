@@ -172,8 +172,7 @@ describe Notifier do
     end
 
     it "FROM: contains the sender's name" do
-      pending
-      @mail.from.should == "\"#{person.name} (Diaspora)\" <#{AppConfig[:smtp_sender_address]}>"
+      @mail.from.should == "[#{@cnv.author.name} (Diaspora)] <#{AppConfig[:smtp_sender_address]}>"
     end
 
     it 'SUBJECT: has a snippet of the post contents' do
@@ -208,8 +207,7 @@ describe Notifier do
       end
 
       it "FROM: contains the sender's name" do
-        pending
-        comment_mail.from.should == "\"#{person.name} (Diaspora)\" <#{AppConfig[:smtp_sender_address]}>"
+        comment_mail.from.should == "[#{eve.name} (Diaspora)] <#{AppConfig[:smtp_sender_address]}>"
       end
 
       it 'SUBJECT: has a snippet of the post contents' do
@@ -243,15 +241,14 @@ describe Notifier do
     end
 
     describe ".also_commented" do
-      let(:comment_mail) {Notifier.also_commented(bob.id, person.id, comment.id)}
+      let(:comment_mail) { Notifier.also_commented(bob.id, person.id, comment.id) }
 
       it 'TO: goes to the right person' do
         comment_mail.to.should == [bob.email]
       end
 
       it 'FROM: has the name of person commenting as the sender' do
-        pending
-        comment_mail.from.should == "\"#{person.name} (Diaspora)\" <#{AppConfig[:smtp_sender_address]}>"
+        comment_mail.from.should == "[#{eve.name} (Diaspora)] <#{AppConfig[:smtp_sender_address]}>"
       end
 
       it 'SUBJECT: has a snippet of the post contents' do

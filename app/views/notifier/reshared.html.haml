@@ -1,8 +1,8 @@
 %p
-  = "#{t('.reshared', :name => "#{@sender.name}")}:"
+  = "#{t('.reshared', :name => "#{@notification.sender.name}")}:"
 
 %p{:style => "font-style:italic;color:#666"}
-  = post_message(@reshare.root, :process_newlines => true)
+  = post_message(@notification.reshare.root, :process_newlines => true)
 
 %p
-  = link_to t('.view_post'), post_url(@reshare)
+  = link_to t('.view_post'), post_url(@notification.reshare)
