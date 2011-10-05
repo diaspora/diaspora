@@ -28,14 +28,15 @@ class TagStream < BaseStream
     I18n.translate('streams.tags.contacts_title')
   end
 
-  def can_comment_on?(post)
+  def can_comment?(post)
     @can_comment_cache ||= {}
     @can_comment_cache[post.id] ||= contacts_in_stream.find{|contact| contact.person_id == post.author.id}.present?
+    @can_comment_cache[post.id] ||= user.person.id == post.author.id
     @can_comment_cache[post.id]
   end
 
   def contacts_in_stream
-    @contacts_in_stream ||= Contact.where(:user => user, :person => people).all
+    @contacts_in_stream ||= Contact.where(:user_id => user.id, :person_id => people.map{|x| x.id}).all
   end
 
   private
