@@ -19,7 +19,7 @@
 - if current_user.contacts.size < 2
   = render 'aspects/no_contacts_message'
 
-#main_stream.stream{:data => {:guids => stream.aspect_ids.join(',')}}
+#main_stream.stream{:data => {:guids => stream.aspect_ids.join(','), :time_for_scroll => time_for_scroll(stream.ajax_stream?, stream)}}
   - if !stream.ajax_stream? && stream.posts.length > 0
     = render 'shared/stream', :posts => stream.posts
   #pagination
