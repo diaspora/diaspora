@@ -225,7 +225,7 @@ en:
     other: "%{count} reactions"
 
   contacts:
-    zero: "no contacts"
+    zero: "contacts"
     one: "1 contact"
     two: "%{count} contacts"
     few: "%{count} contacts"
@@ -236,12 +236,13 @@ en:
     sharing:
       people_sharing: "People sharing with you:"
     index:
-      edit_aspect: "Edit %{name}"
+      add_to_aspect: "Add contacts to %{name}"
       start_a_conversation: "Start a conversation"
       add_a_new_aspect: "Add a new aspect"
       title: "Contacts"
       your_contacts: "Your Contacts"
-      no_contacts: "No contacts."
+      no_contacts: "Looks like you need to add some contacts!"
+      check_out: "Check out"
       my_contacts: "My Contacts"
       all_contacts: "All Contacts"
       only_sharing_with_me: "Only sharing with me"
