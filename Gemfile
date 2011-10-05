@@ -77,6 +77,9 @@ gem 'SystemTimer', '1.2.1', :platforms => :ruby_18
 gem 'hoptoad_notifier'
 gem 'newrelic_rpm', :require => false
 
+#mail
+gem 'messagebus_ruby_api', :git => 'https://github.com/messagebus/messagebus_ruby_api.git'
+
 # tags
 
 gem 'acts-as-taggable-on', :git => 'git://github.com/diaspora/acts-as-taggable-on.git'
