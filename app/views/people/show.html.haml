@@ -31,7 +31,7 @@
         = render 'photos/index', :photos => @posts
       - else
         #main_stream.stream
-          = render 'shared/stream', :posts => @posts, :commenting_disabled => commenting_disabled? 
+          = render 'shared/stream', :posts => @posts
           #pagination
             =link_to(t('more'), next_page_path, :class => 'paginate')
 

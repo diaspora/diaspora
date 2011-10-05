@@ -9,7 +9,6 @@ class TagFollowingsController < ApplicationController
   before_filter :save_sort_order, :only => :index
 
   def index
-    @commenting_disabled = true
     @stream = TagStream.new(current_user, :max_time => params[:max_time], :order => sort_order)
     if params[:only_posts]
       render :partial => 'shared/stream', :locals => {:posts => @stream.posts}

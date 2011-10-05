@@ -40,6 +40,10 @@ describe 'Streams' do
         @stream.order=nil
         @stream.order.should == 'created_at'
       end
+
+      it 'should have can_comment?(post)' do
+        @stream.can_comment?(Factory(:status_message)).should_not be_nil
+      end
     end
   end
 end
