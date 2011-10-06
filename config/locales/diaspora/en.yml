@@ -129,7 +129,7 @@ en:
       manage_your_aspects: "Manage your aspects."
 
     new:
-      name: "Name (only visibile to you)"
+      name: "Name (only visible to you)"
       create: "Create"
     create:
       success: "Your new aspect %{name} was created"
