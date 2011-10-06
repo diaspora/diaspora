@@ -8,6 +8,13 @@ class BaseStream
   end
 
 
+  def random_featured_user
+    Person.find_by_diaspora_handle(featured_diaspora_id)
+  end
+
+  def has_featured_users?
+    featured_diaspora_id.present?
+  end
   
   #requied to implement said stream
   def link(opts={})
@@ -74,5 +81,10 @@ class BaseStream
   def order=(order_string)
     @order = order_string
     @order ||= 'created_at'
+  end
+
+  private
+  def featured_diaspora_id
+    @featured_diaspora_id ||= AppConfig[:featured_users].sample(1)
   end
 end

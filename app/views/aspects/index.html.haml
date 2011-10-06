@@ -26,11 +26,6 @@
       .li
         %b= link_to t('.mentions'), mentions_path, :class => 'home_selector'
 
-  .section
-    %ul.left_nav
-      .li
-        %b= link_to t('.featured_users'), featured_path, :class => 'home_selector'
-
   .section#followed_tags_listing
     = render 'tags/followed_tags_listings'
 

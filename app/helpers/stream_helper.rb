@@ -29,7 +29,6 @@ module StreamHelper
     else
       stream.posts.last.send(stream.order.to_sym).to_i
     end
-
   end
 
   def time_for_sort post

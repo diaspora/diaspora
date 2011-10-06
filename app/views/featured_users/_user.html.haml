@@ -1,0 +1,13 @@
+.user_card
+  = person_image_link(person, :size => :thumb_large)
+  %h4
+    = person.name
+
+  .tags
+    - person.profile.tags.each do |tg|
+      = "##{tg}"
+
+  .add_user_to_aspect
+    = render :partial => 'people/relationship_action',
+             :locals => { :person => person, :contact => current_user.contact_for(person),
+                          :current_user => current_user }
