@@ -11,7 +11,7 @@
       - for aspect in all_aspects
         %li{:data => {:aspect_id => aspect.id}, :class => ("active" if params["a_id"].to_i == aspect.id)}
           .edit
-            = link_to image_tag("icons/pencil.svg", :height => 12, :title => t('contacts.index.edit_aspect', :name => aspect.name)), edit_aspect_path(aspect), :rel => "facebox"
+            = link_to image_tag("icons/pencil.svg", :height => 12, :title => t('.edit_aspect', :name => aspect.name)), edit_aspect_path(aspect), :rel => "facebox"
 
           %a.aspect_selector{:href => aspects_path("a_ids[]" => aspect.id), :class => "aspect_selector name hard_aspect_link", 'data-guid' => aspect.id}
             = aspect
