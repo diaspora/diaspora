@@ -18,7 +18,7 @@ class User < ActiveRecord::Base
 
   before_validation :strip_and_downcase_username
   before_validation :set_current_language, :on => :create
-  
+
   validates :username, :presence => true, :uniqueness => true
   validates_format_of :username, :with => /\A[A-Za-z0-9_]+\z/
   validates_length_of :username, :maximum => 32
@@ -45,6 +45,7 @@ class User < ActiveRecord::Base
 
   has_many :authorizations, :class_name => 'OAuth2::Provider::Models::ActiveRecord::Authorization', :foreign_key => :resource_owner_id
   has_many :applications, :through => :authorizations, :source => :client
+  has_many :application_blocks, :class_name => 'OauthClientBlocks', :dependent => :destroy
 
   before_save :guard_unconfirmed_email,
               :save_person!
@@ -70,12 +71,12 @@ class User < ActiveRecord::Base
     identifier = invitation.identifier
 
     if service == 'email'
-      existing_user = User.where(:email => identifier).first 
+      existing_user = User.where(:email => identifier).first
     else
       existing_user = User.joins(:services).where(:services => {:type => "Services::#{service.titleize}", :uid => identifier}).first
     end
-   
-   if existing_user.nil? 
+
+   if existing_user.nil?
     i = Invitation.where(:service => service, :identifier => identifier).first
     existing_user = i.recipient if i
    end
@@ -332,7 +333,7 @@ class User < ActiveRecord::Base
       self.invitation_token = nil
       self.password              = opts[:password]
       self.password_confirmation = opts[:password_confirmation]
-      
+
       self.save
       return unless self.errors.empty?
 
@@ -469,5 +470,39 @@ class User < ActiveRecord::Base
   def infer_email_from_invitation_provider
     self.email = self.invitation_identifier if self.invitation_service == 'email'
     self
+  end
+
+  def blocking_oauth_client?(client_name)
+    client = OAuth2::Provider::Models::ActiveRecord::Client.find_by_name(client_name)
+    if client
+      client_id = client.id
+      !! application_blocks.detect { |b|
+        b.client_id == client_id
+      }
+    end
+  end
+
+  def set_oauth_client_blocks( hash )
+    return  if ! ( hash.respond_to?(:keys) && hash.respond_to?(:fetch) )
+
+    # A little complicated here because we're trying to gracefully
+    # handle all manner of possible inputs from the form submission,
+    # including possibly malicious input.
+    hash.keys.each do |client_id_s|
+      client_id = client_id_s.to_i
+      ab = application_blocks.find_by_client_id(client_id)
+
+      case hash.fetch(client_id_s)
+      when '0'
+        ab.delete  if ab
+      when '1'
+        if ab.nil?
+          client = OAuth2::Provider::Models::ActiveRecord::Client.find(client_id)
+          if client
+            application_blocks.create :client_id => client.id, :user_id => self.id
+          end
+        end
+      end
+    end
   end
 end

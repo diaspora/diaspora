@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111003232053) do
+ActiveRecord::Schema.define(:version => 20111004175630) do
 
   create_table "aspect_memberships", :force => true do |t|
     t.integer  "aspect_id",  :null => false
@@ -205,6 +205,15 @@ ActiveRecord::Schema.define(:version => 20111003232053) do
   end
 
   add_index "oauth_authorizations", ["resource_owner_id", "resource_owner_type", "client_id"], :name => "index_oauth_authorizations_on_resource_owner_and_client_id", :unique => true
+
+  create_table "oauth_client_blocks", :force => true do |t|
+    t.integer  "client_id",  :null => false
+    t.integer  "user_id",    :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "oauth_client_blocks", ["client_id", "user_id"], :name => "index_oauth_client_blocks_on_client_id_and_user_id", :unique => true
 
   create_table "oauth_clients", :force => true do |t|
     t.string "name",                 :limit => 127, :null => false

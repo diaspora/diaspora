@@ -151,7 +151,7 @@ describe User do
         alice.username =  "hexagooooooooooooooooooooooooooon"
         alice.should_not be_valid
       end
-      
+
       it "cannot be one of the blacklist names" do
         ['hostmaster', 'postmaster', 'root', 'webmaster'].each do |username|
           alice.username =  username
@@ -975,6 +975,89 @@ describe User do
 
       it 'performs the retraction' do
         pending
+      end
+    end
+  end
+
+  describe '#blocking_oauth_client?' do
+    before do
+      @app = Factory(:app)
+      @app.name.should_not be_empty
+      @user = Factory(:user)
+    end
+
+    context 'with an app that is not blocked' do
+      it 'returns false' do
+        @user.blocking_oauth_client?(@app.name).should == false
+      end
+    end
+
+    context 'with a blocked app' do
+      before do
+        @user.application_blocks.create :client_id => @app.id, :user_id => @user.id
+      end
+      it 'returns true' do
+        @user.blocking_oauth_client?(@app.name).should == true
+      end
+    end
+
+    context "with an app that doesn't exist" do
+      it 'returns nil' do
+        @user.blocking_oauth_client?('no app with this name').should be_nil
+      end
+    end
+  end
+
+  describe '#set_oauth_client_blocks' do
+    before do
+      @app1 = Factory(:app)
+      @app2 = Factory(:app)
+      @app3 = Factory(:app)
+      @user = Factory(:user)
+      @user.application_blocks.create :client_id => @app1.id, :user_id => @user.id
+    end
+
+    it 'sets and unsets blockage' do
+      @user.blocking_oauth_client?(@app1.name).should == true
+      @user.blocking_oauth_client?(@app2.name).should == false
+      @user.blocking_oauth_client?(@app3.name).should == false
+
+      @user.set_oauth_client_blocks  @app1.id.to_s => '0', @app2.id.to_s => '1', @app3.id.to_s => '0'
+
+      @user.reload
+      @user.blocking_oauth_client?(@app1.name).should == false
+      @user.blocking_oauth_client?(@app2.name).should == true
+      @user.blocking_oauth_client?(@app3.name).should == false
+
+      @user.set_oauth_client_blocks  @app2.id.to_s => '0'
+
+      @user.reload
+      @user.blocking_oauth_client?(@app2.name).should == false
+    end
+
+    context 'with bad input' do
+      it 'does not change things' do
+        @user.blocking_oauth_client?(@app1.name).should == true
+        @user.blocking_oauth_client?(@app2.name).should == false
+        @user.blocking_oauth_client?(@app3.name).should == false
+
+        expect {
+          @user.set_oauth_client_blocks 'garbage'
+          @user.set_oauth_client_blocks ''
+          @user.set_oauth_client_blocks nil
+          @user.set_oauth_client_blocks Hash.new
+          @user.set_oauth_client_blocks Array.new
+          @user.set_oauth_client_blocks [ @app1.id.to_s, '0' ]
+          @user.set_oauth_client_blocks @app1.id.to_s => 0
+          @user.set_oauth_client_blocks @app2.id.to_s => 1
+          @user.set_oauth_client_blocks @app1.id.to_s => false
+          @user.set_oauth_client_blocks @app2.id.to_s => true
+        }.not_to raise_exception
+
+        @user.reload
+        @user.blocking_oauth_client?(@app1.name).should == true
+        @user.blocking_oauth_client?(@app2.name).should == false
+        @user.blocking_oauth_client?(@app3.name).should == false
       end
     end
   end

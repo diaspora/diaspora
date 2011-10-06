@@ -59,11 +59,24 @@ class UsersController < ApplicationController
       end
     elsif aspect_order = params[:reorder_aspects]
       @user.reorder_aspects(aspect_order)
+    elsif application_blocks = params['application_blocks']
+      @user.set_oauth_client_blocks application_blocks
+      flash[:notice] = I18n.t('users.update.application_blocks_updated')
     end
 
     respond_to do |format|
       format.js   { render :nothing => true, :status => 204 }
-      format.all  { redirect_to password_changed ? new_user_session_path : edit_user_path }
+      format.all  {
+        if password_changed
+          dest = new_user_session_path
+        elsif application_blocks
+          dest = authorizations_path
+        else
+          dest = edit_user_path
+        end
+
+        redirect_to dest
+      }
     end
   end
 
@@ -128,7 +141,7 @@ class UsersController < ApplicationController
   def user_photo
     username = params[:username].split('@')[0]
     user = User.find_by_username(username)
-    if user.present? 
+    if user.present?
       redirect_to user.profile.image_url
     else
       render :nothing => true, :status => 404
