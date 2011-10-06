@@ -7,7 +7,7 @@
     - if @stream.people.size > 0
       - for person in @stream.people.sample(15)
         = person_image_link(person)
-      = link_to t('.view_all_contacts'), @stream.contacts_link, :id => "view_all_contacts_link"
+      = link_to @stream.contacts_link_title, @stream.contacts_link, :id => "view_all_contacts_link"
     - else
       = t('.no_contacts')
       = link_to t('.manage_your_aspects'), contacts_link

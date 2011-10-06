@@ -6,7 +6,6 @@ module Messagebus
 
     def initialize(api_key)
       @client = MessagebusRubyApi::Client.new(api_key)
-      
     end
 
     attr_accessor :settings

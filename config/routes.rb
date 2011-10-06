@@ -4,6 +4,7 @@
 
 Diaspora::Application.routes.draw do
 
+
   # Posting and Reading
 
   resources :reshares
@@ -107,7 +108,11 @@ Diaspora::Application.routes.draw do
   resources :aspect_memberships, :only   => [:destroy, :create, :update]
   resources :post_visibilities,  :only   => [:update]
 
-  get 'featured' => "contacts#featured", :as => 'featured_users'
+  get 'featured' => 'featured_users#index', :as => 'featured'
+
+  get 'featured_users' => "contacts#featured", :as => 'featured_users'
+
+
   resources :people, :except => [:edit, :update] do
     resources :status_messages
     resources :photos
@@ -120,7 +125,6 @@ Diaspora::Application.routes.draw do
   end
   get '/u/:username' => 'people#show', :as => 'user_profile'
   get '/u/:username/profile_photo' => 'users#user_photo'
-
   # Federation
 
   controller :publics do

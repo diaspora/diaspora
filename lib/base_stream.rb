@@ -30,6 +30,10 @@ class BaseStream
     []
   end
 
+  def contacts_link_title
+    I18n.translate('aspects.selected_contacts.view_all_contacts')
+  end
+
   def contacts_title
     "title for a stream"
   end

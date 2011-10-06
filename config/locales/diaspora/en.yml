@@ -122,8 +122,8 @@ en:
     aspect_listings:
       edit_aspect: "Edit %{name}"
       add_an_aspect: "+ Add an aspect"
-
     selected_contacts:
+      view_all_featured_users: "See all Featured Users"
       view_all_contacts: "View all contacts"
       no_contacts: "You don't have any contacts here yet."
       manage_your_aspects: "Manage your aspects."
@@ -158,6 +158,7 @@ en:
       friends: "Friends"
     index: 
       mentions: "Mentions"
+      featured_users: "Featured Users"
       donate: "Donate"
       keep_us_running: "Keep %{pod} running fast and buy servers their coffee fix with a monthly donation!"
       your_aspects: "Your Aspects"
