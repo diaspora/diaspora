@@ -1,6 +1,7 @@
   #   Copyright (c) 2010-2011, Diaspora Inc.  This file is
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
+require File.join(Rails.root, 'lib', 'stream', 'public_stream')
 
 class PublicsController < ApplicationController
   require File.join(Rails.root, '/lib/diaspora/parser')
@@ -13,6 +14,7 @@ class PublicsController < ApplicationController
   skip_before_filter :set_grammatical_gender
   before_filter :allow_cross_origin, :only => [:hcard, :host_meta, :webfinger]
   before_filter :check_for_xml, :only => [:receive, :receive_public]
+  before_filter :authenticate_user!, :only => [:index]
 
   respond_to :html
   respond_to :xml, :only => :post

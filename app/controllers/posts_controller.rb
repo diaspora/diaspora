@@ -2,6 +2,8 @@
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
+require File.join(Rails.root, 'lib', 'stream', 'public_stream')
+
 class PostsController < ApplicationController
   before_filter :authenticate_user!, :except => :show
   before_filter :set_format_if_malformed_from_status_net, :only => :show
@@ -57,6 +59,10 @@ class PostsController < ApplicationController
       Rails.logger.info "event=post_destroy status=failure user=#{current_user.diaspora_handle} reason='User does not own post'"
       render :nothing => true, :status => 404
     end
+  end
+
+  def index
+    default_stream_action(PublicStream)
   end
 
   def set_format_if_malformed_from_status_net

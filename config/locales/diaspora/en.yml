@@ -839,7 +839,8 @@ en:
     tags:
       title: "Posts tagged: %{tags}"
       contacts_title: "People who dig these tags" 
-
+    public:
+      title: "Public Activity"
 
   users:
     logged_out:

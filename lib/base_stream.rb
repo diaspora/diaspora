@@ -1,4 +1,5 @@
 class BaseStream
+  TYPES_OF_POST_IN_STREAM = ['StatusMessage', 'Reshare', 'ActivityStreams::Photo']
   attr_accessor :max_time, :order, :user
 
   def initialize(user, opts={})
@@ -6,7 +7,6 @@ class BaseStream
     self.max_time = opts[:max_time]
     self.order = opts[:order] 
   end
-
 
   def random_featured_user
     Person.find_by_diaspora_handle(featured_diaspora_id)
