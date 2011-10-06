@@ -5,9 +5,7 @@ module Messagebus
       end
 
     def initialize(api_key)
-      puts "yayayayaayayay"
       @client = MessagebusRubyApi::Client.new(api_key)
-      puts @client.inspect
       
     end
 
