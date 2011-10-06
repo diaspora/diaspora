@@ -21,7 +21,7 @@
         = link_to t('aspects.aspect_listings.add_an_aspect'), new_aspect_path, :class => "new_aspect", :rel => "facebox"
 
   %li.all_contacts{:class => ("active" if params["set"] == "all" || params["set"] == "only_sharing")}
-    %a.aspect_selector{:href => contacts_path(:set => "all"), :class => ("sub_selected" if params["set"] == "only_sharing")}
+    %a.home_selector{:href => contacts_path(:set => "all"), :class => ("sub_selected" if params["set"] == "only_sharing")}
       .contact_count
         = all_contacts_count
       = t('contacts.index.all_contacts')
