@@ -139,7 +139,7 @@ GEM
       uuidtools
     childprocess (0.2.2)
       ffi (~> 1.0.6)
-    closure-compiler (1.1.3)
+    closure-compiler (1.1.4)
     cloudfiles (1.4.10)
       mime-types (>= 1.16)
     columnize (0.3.4)
@@ -199,7 +199,7 @@ GEM
       nokogiri (~> 1.4.3.1)
       ruby-hmac
     foreigner (0.9.1)
-    foreman (0.22.0)
+    foreman (0.24.0)
       term-ansicolor (~> 1.0.5)
       thor (>= 0.13.6)
     formatador (0.2.1)
@@ -245,7 +245,7 @@ GEM
       i18n (>= 0.4.0)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
-    messagebus_ruby_api (0.4.0)
+    messagebus_ruby_api (0.4.8)
     mime-types (1.16)
     mini_magick (3.2)
       subexec (~> 0.0.4)
@@ -325,10 +325,10 @@ GEM
       oa-more (= 0.2.6)
       oa-oauth (= 0.2.6)
       oa-openid (= 0.2.6)
-    open4 (1.1.0)
+    open4 (1.2.0)
     orm_adapter (0.0.5)
     parallel (0.5.9)
-    parallel_tests (0.6.4)
+    parallel_tests (0.6.7)
       parallel
     polyglot (0.3.2)
     pyu-ruby-sasl (0.0.3.3)
@@ -422,9 +422,9 @@ GEM
       rubyzip
     settingslogic (2.0.6)
     simple_oauth (0.1.5)
-    sinatra (1.2.6)
+    sinatra (1.2.7)
       rack (~> 1.1)
-      tilt (< 2.0, >= 1.2.2)
+      tilt (>= 1.2.2, < 2.0)
     sqlite3 (1.3.4)
     subexec (0.0.4)
     systemu (2.4.0)
@@ -449,7 +449,7 @@ GEM
     typhoeus (0.2.4)
       mime-types
       mime-types
-    tzinfo (0.3.29)
+    tzinfo (0.3.30)
     uuidtools (2.1.2)
     vegas (0.1.8)
       rack (>= 1.0.0)
@@ -506,7 +506,7 @@ DEPENDENCIES
   json (= 1.4.6)
   jwt (= 0.1.3)
   linecache (= 0.43)
-  messagebus_ruby_api (= 0.4.0)
+  messagebus_ruby_api (= 0.4.8)
   mini_magick (= 3.2)
   mobile-fu
   mock_redis

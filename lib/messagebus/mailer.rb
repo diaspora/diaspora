@@ -1,8 +1,14 @@
 module Messagebus
   class Mailer
+      unless defined?(MessagebusRubyApi::VERSION)
+        MessagebusRubyApi::VERSION = '0.4.8'
+      end
 
     def initialize(api_key)
-      @client = MessagebusRubyApi::Client.new(AppConfig[:messagebus_api_key])
+      puts "yayayayaayayay"
+      @client = MessagebusRubyApi::Client.new(api_key)
+      puts @client.inspect
+      
     end
 
     attr_accessor :settings
@@ -15,13 +21,18 @@ module Messagebus
       deliver(message)
     end
 
+    def message_parse(string)
+      puts string
+     string.split('<')[0] 
+    end
+
     private
 
     def deliver(message)
       # here we want  = {:fromEmail => message['from'].to_s}
-      @client.common_info = {:fromEmail => message.from.first}
+      @client.send_common_info = {:fromEmail => message.from.first, :customHeaders => {"sender"=> message['from'].to_s}}
       message.to.each do |addressee|
-        m = {:toEmail => addressee, :subject => message.subject}
+        m = {:toEmail => addressee, :subject => message.subject, :fromName => message_parse(message['from'].to_s)}
 
         if message.multipart?
           m[:plaintextBody] = message.text_part.body.to_s if message.text_part
@@ -33,12 +44,10 @@ module Messagebus
         @client.add_message(m)
       end
 
-      status = @client.flush
-
       if status[:failureCount] && status[:failureCount] > 0
+        puts "DOHHHHHHHHHHH"
         raise "Messagebus failure.  failureCount=#{failureCount}, message=#{message.inspect}"
       end
-
     end
   end
 end

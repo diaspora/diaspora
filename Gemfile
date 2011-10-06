@@ -78,7 +78,7 @@ gem 'hoptoad_notifier'
 gem 'newrelic_rpm', :require => false
 
 #mail
-gem 'messagebus_ruby_api', '0.4.0'
+gem 'messagebus_ruby_api', '0.4.8'
 
 # tags
 
