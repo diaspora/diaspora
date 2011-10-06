@@ -159,7 +159,7 @@ en:
     index: 
       mentions: "Mentions"
       featured_users: "Featured Users"
-      community_members: "Cool Diaspora* members"
+      community_members: "Featured Diaspora* members"
       see_more_from_us: "See more of the D* community."
       donate: "Donate"
       keep_us_running: "Keep %{pod} running fast and buy servers their coffee fix with a monthly donation!"
