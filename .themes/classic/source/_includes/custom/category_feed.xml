@@ -4,7 +4,6 @@ layout: nil
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title>{{ page.title | xml_escape }} | {{ site.title | xml_escape }}</title>
   <title><![CDATA[{{ page.title }} | {{ site.title }}]]></title>
   <link href="{{ site.url }}/{{ page.feed_url }}" rel="self"/>
   <link href="{{ site.url }}/"/>
