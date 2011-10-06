@@ -49,8 +49,10 @@ class Postzord::Receiver::Private < Postzord::Receiver
   end
 
   def update_cache!
-    cache = RedisCache.new(@user, "created_at")
-    cache.add(@object.created_at.to_i, @object.id)
+    if @user.contact_for(@author).aspect_memberships.size > 0
+      cache = RedisCache.new(@user, "created_at")
+      cache.add(@object.created_at.to_i, @object.id)
+    end
   end
 
   protected
