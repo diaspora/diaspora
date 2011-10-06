@@ -3,7 +3,6 @@
 #   the COPYRIGHT file.
 
 class PublicStream < BaseStream
-
   def link(opts={})
     Rails.application.routes.url_helpers.public_stream_path(opts)
   end
@@ -12,19 +11,14 @@ class PublicStream < BaseStream
     I18n.translate("streams.public.title")
   end
 
-
   # @return [ActiveRecord::Association<Post>] AR association of posts
   def posts
     @posts ||= Post.all_public.for_a_stream(max_time, order) 
   end
 
-  # @return [ActiveRecord::Association<Person>] AR association of people within stream's given aspects
-  def people
-    @people ||= posts.map{|p| p.author}.uniq 
-  end
 
   def contacts_title
-   "The last 15 people in this stream" 
+    I18n.translate("streams.public.contacts_title")
   end
 
   def can_comment?(post)

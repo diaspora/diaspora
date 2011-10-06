@@ -20,10 +20,6 @@ class TagStream < BaseStream
                 for_a_stream(@max_time, @order)
   end
 
-  def people
-    @people ||= posts.map{|p| p.author}.uniq 
-  end
-
   def contacts_title
     I18n.translate('streams.tags.contacts_title')
   end

@@ -7,6 +7,7 @@ require File.join(Rails.root, 'lib', 'stream', 'public_stream')
 class PostsController < ApplicationController
   before_filter :authenticate_user!, :except => :show
   before_filter :set_format_if_malformed_from_status_net, :only => :show
+  before_filter :redirect_unless_admin, :only => :index
 
   respond_to :html,
              :mobile,

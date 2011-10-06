@@ -148,7 +148,6 @@ class ApplicationController < ActionController::Base
   end
 
   def default_stream_action(stream_klass)
-    puts "yah"
     authenticate_user!
     save_sort_order
     @stream = stream_klass.new(current_user, :max_time => params[:max_time], :order => sort_order)

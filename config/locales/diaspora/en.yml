@@ -841,6 +841,7 @@ en:
       contacts_title: "People who dig these tags" 
     public:
       title: "Public Activity"
+      contacts_title: "Recent Posters"
 
   users:
     logged_out:
