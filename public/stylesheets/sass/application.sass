@@ -269,7 +269,7 @@ ul.dropdown
 
 //////////////////////////////////
 //hacks for tagging plugin...
-ul.as-selections 
+ul.as-selections
   :width 100% !important
   >li.as-original
     :width 100% !important
@@ -609,7 +609,7 @@ ul.show_comments,
       :height 250px
       :width 400px
 
-      
+
   .content
     :margin
       :top 0px
@@ -622,7 +622,10 @@ ul.show_comments,
       :margin
         :bottom 0
         :top 0
-    .ltr 
+    p + p
+      :margin
+        :top 1em
+    .ltr
       ol, ul
         padding-left: 2em
         li
@@ -898,7 +901,7 @@ label
     textarea
       :resize none
       :width 455px
-      :height 50px 
+      :height 50px
       :margin 0
 
   &.mention_popup
@@ -1809,7 +1812,7 @@ ul#request_result
       :border 1px solid #999
 
       > .name
-        :white-space nowrap 
+        :white-space nowrap
       // > .right
       //   :right -5px
       //   :bottom 2px
@@ -3112,7 +3115,7 @@ ul.left_nav
     :padding 15px
 
   .notification_element
-    :padding 10px 
+    :padding 10px
     :min-height 30px
 
     > img
@@ -3227,7 +3230,7 @@ ul#getting_started
 
       .content h3
         :text
-          :decoration line-through 
+          :decoration line-through
 
   .profile
     :min-height 170px
@@ -3279,7 +3282,7 @@ ul#getting_started
   :min-height 70px
 
   .add_to_aspect
-    :padding 10px 0 
+    :padding 10px 0
 
   .avatar
     :float left
@@ -3316,7 +3319,7 @@ ul#getting_started
 .profile .profile_field
   :background
     :image url('/images/icons/monotone_question.png')
-    :position center left 
+    :position center left
     :repeat no-repeat
 
   :padding
@@ -3329,16 +3332,16 @@ ul#getting_started
 .featured_tag
   :background
     //:image url('/images/icons/check_yes_ok.png')
-    :position center left 
+    :position center left
     :repeat no-repeat
     :display none
 
   :padding
     :left 20px
- 
+
   &.followed
     :background
-      :image url('/images/icons/check_yes_ok.png') 
+      :image url('/images/icons/check_yes_ok.png')
 
   &:hover,
     :background
