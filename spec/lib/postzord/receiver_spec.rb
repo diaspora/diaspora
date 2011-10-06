@@ -13,7 +13,7 @@ describe Postzord::Receiver do
 
   describe "#perform!" do
     before do
-      @receiver.stub(:receive!)
+      @receiver.stub(:receive!).and_return(true)
     end
 
     it 'calls receive!' do
@@ -22,14 +22,23 @@ describe Postzord::Receiver do
     end
 
     context 'update_cache!' do
-      it "gets called if cache?" do
+      before do
         @receiver.stub(:cache?).and_return(true)
+      end
+
+      it "gets called if cache?" do
         @receiver.should_receive(:update_cache!)
         @receiver.perform!
       end
 
       it "doesn't get called if !cache?" do
         @receiver.stub(:cache?).and_return(false)
+        @receiver.should_not_receive(:update_cache!)
+        @receiver.perform!
+      end
+
+      it 'does not get called if receive! is false' do
+        @receiver.stub(:receive!).and_return(false)
         @receiver.should_not_receive(:update_cache!)
         @receiver.perform!
       end

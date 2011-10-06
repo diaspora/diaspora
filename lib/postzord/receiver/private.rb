@@ -23,7 +23,7 @@ class Postzord::Receiver::Private < Postzord::Receiver
       parse_and_receive(salmon.parsed_data)
     else
       Rails.logger.info("event=receive status=abort recipient=#{@user.diaspora_handle} sender=#{@salmon.author_id} reason='not_verified for key'")
-      nil
+      false
     end
   end
 

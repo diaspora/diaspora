@@ -53,28 +53,28 @@ describe Postzord::Receiver::Private do
       @salmon = @zord.instance_variable_get(:@salmon)
     end
 
-    context 'returns nil' do
+    context 'returns false' do
       it 'if the salmon author does not exist' do
         @zord.instance_variable_set(:@sender, nil)
-        @zord.perform!.should be_nil
+        @zord.receive!.should == false
       end
 
       it 'if the author does not match the signature' do
         @zord.instance_variable_set(:@sender, Factory(:person))
-        @zord.perform!.should be_nil
+        @zord.receive!.should == false
       end
     end
 
     context 'returns the sent object' do
       it 'returns the received object on success' do
-        @zord.perform!
+        @zord.receive!
         @zord.instance_variable_get(:@object).should respond_to(:to_diaspora_xml)
       end
     end
 
     it 'parses the salmon object' do
       Diaspora::Parser.should_receive(:from_xml).with(@salmon.parsed_data).and_return(@original_post)
-      @zord.perform!
+      @zord.receive!
     end
   end
 

@@ -199,9 +199,83 @@ describe Post do
       @post.should_cache_for_author?.should be_false
     end
   end
+  
+  describe "#receive" do
+    it 'returns false if the post does not verify' do
+      @post = Factory(:status_message, :author => bob.person)
+      @post.should_receive(:verify_persisted_post).and_return(false)
+      @post.receive(bob, eve.person).should == false
+    end
+  end
 
- #user exists,
- #  cache configured,
- #  triggers caching,
- #  of the cachable type
+  describe "#receive_persisted" do
+    before do
+      @post = Factory.build(:status_message, :author => bob.person)
+      @known_post = Post.new
+      bob.stub(:contact_for).with(eve.person).and_return(stub(:receive_post => true))
+    end
+
+    context "user knows about the post" do
+      before do
+        bob.stub(:find_visible_post_by_id).and_return(@known_post)
+      end
+
+      it 'updates attributes only if mutable' do
+        @known_post.stub(:mutable?).and_return(true)
+        @known_post.should_receive(:update_attributes)
+        @post.send(:receive_persisted, bob, eve.person, @known_post).should == true
+      end
+      
+      it 'returns false if trying to update a non-mutable object' do
+        @known_post.stub(:mutable?).and_return(false)
+        @known_post.should_not_receive(:update_attributes)
+        @post.send(:receive_persisted, bob, eve.person, @known_post).should == false
+      end
+    end
+
+    context "the user does not know about the post" do
+      before do
+        bob.stub(:find_visible_post_by_id).and_return(nil)
+        bob.stub(:notify_if_mentioned).and_return(true)
+      end
+
+      it "receives the post from the contact of the author" do
+        @post.send(:receive_persisted, bob, eve.person, @known_post).should == true
+      end
+      
+      it 'notifies the user if they are mentioned' do
+        bob.stub(:contact_for).with(eve.person).and_return(stub(:receive_post => true))
+        bob.should_receive(:notify_if_mentioned).and_return(true)
+
+        @post.send(:receive_persisted, bob, eve.person, @known_post).should == true
+      end
+    end
+  end
+
+  describe '#receive_non_persisted' do
+    context "the user does not know about the post" do
+      before do
+        @post = Factory.build(:status_message, :author => bob.person)
+        bob.stub(:find_visible_post_by_id).and_return(nil)
+        bob.stub(:notify_if_mentioned).and_return(true)
+      end
+
+      it "it receives the post from the contact of the author" do
+        bob.should_receive(:contact_for).with(eve.person).and_return(stub(:receive_post => true))
+        @post.send(:receive_non_persisted, bob, eve.person).should == true
+      end
+      
+      it 'notifies the user if they are mentioned' do
+        bob.stub(:contact_for).with(eve.person).and_return(stub(:receive_post => true))
+        bob.should_receive(:notify_if_mentioned).and_return(true)
+
+        @post.send(:receive_non_persisted, bob, eve.person).should == true
+      end
+
+      it 'returns false if the post does not save' do
+        @post.stub(:save).and_return(false)
+        @post.send(:receive_non_persisted, bob, eve.person).should == false
+      end
+    end
+  end
 end

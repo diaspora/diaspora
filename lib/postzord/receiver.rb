@@ -8,8 +8,9 @@ class Postzord::Receiver
   require File.join(Rails.root, 'lib/postzord/receiver/public')
 
   def perform!
-    receive!
-    update_cache! if cache?
+    if self.receive!
+      self.update_cache! if cache?
+    end
   end
 
   # @return [Boolean]

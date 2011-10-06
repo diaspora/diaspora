@@ -44,6 +44,11 @@ describe Postzord::Receiver::Public do
       @receiver.perform!
     end
 
+    it 'returns false if signature is not verified' do
+      @receiver.should_receive(:verified_signature?).and_return(false)
+      @receiver.perform!.should be_false
+    end
+
     context 'if signature is valid' do
       it 'calls recipient_user_ids' do
         @receiver.should_receive(:recipient_user_ids)

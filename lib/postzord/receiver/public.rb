@@ -19,12 +19,13 @@ class Postzord::Receiver::Public < Postzord::Receiver
   # @return [void]
   def receive!
     return false unless verified_signature?
-    return unless save_object
+    return false unless save_object
 
     if @object.respond_to?(:relayable?)
       receive_relayable
     else
       Resque.enqueue(Jobs::ReceiveLocalBatch, @object.class.to_s, @object.id, self.recipient_user_ids)
+      true
     end
   end
 
