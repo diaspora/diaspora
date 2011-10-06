@@ -22,7 +22,6 @@ module Messagebus
     end
 
     def message_parse(string)
-      puts string
      string.split('<')[0] 
     end
 
@@ -39,13 +38,13 @@ module Messagebus
           m[:htmlBody]      = message.html_part.body.to_s if message.html_part
         else
           m[:plaintextBody] = message.body.to_s
+          m[:htmlBody] = message.body.to_s
         end
 
         @client.add_message(m)
       end
-
+      status = @client.flush
       if status[:failureCount] && status[:failureCount] > 0
-        puts "DOHHHHHHHHHHH"
         raise "Messagebus failure.  failureCount=#{failureCount}, message=#{message.inspect}"
       end
     end
