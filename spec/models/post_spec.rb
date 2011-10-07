@@ -37,7 +37,7 @@ describe Post do
       end
       it 'is limited to 15 posts' do
         Post.stub(:by_max_time).and_return(Post)
-        Post.stub(:includes_for_a_stream).and_return(Post)
+        Post.stub(:includes_for_a_stream).and_return(stub(:where => Post))
         Post.should_receive(:limit)
         Post.for_a_stream(Time.now + 1, "created_at")
       end
