@@ -15,6 +15,10 @@ da:
         other: "I {{count}} aspekter"
         two: "I {{count}} aspekter"
         zero: "Tilføj til aspekt"
+    aspect_navigation:
+      select_all: "Vælg alle"
+      deselect_all: "Afvælg alle"
+      no_aspects: "Ingen valgte aspekter"
     comments: 
       hide: "Skjul kommentarer"
       show: "Vis alle kommentarer"
@@ -28,7 +32,7 @@ da:
       limited: "Begrænset - dit indlæg vil kun være synligt for folk du deler med"
       public: "Offentlig - dit indlæg vil være synligt for alle og blive fundet af søgemaskiner"
     reshares: 
-      duplicate: "You've already reshared that post!"
+      duplicate: "Du har allerede delt det indlæg!"
     search_for: "Søg efter {{name}}"
     show_more: "Vis mere"
     timeago: 
