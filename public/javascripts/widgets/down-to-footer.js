@@ -21,8 +21,11 @@
 
     this.toggleVisibility = function() {
         self.button.animate({
+        zIndex: (self.body.scrollTop() == 0)
+          ? 50
+          : 48 ,
         opacity: (self.body.scrollTop() == 0)
-          ? 0.5
+          ? 0.3
           : 0
       });
     };
