@@ -1,28 +1,28 @@
 (function() {
   var DownToFooter = function() {
     var self = this;
-
     this.subscribe("widget/ready", function(evt, button) {
       $.extend(self, {
         button: button,
         body: $("html, body"),
-        window: $(window)
+        window: $(window),
       });
 
       self.button.click(self.downToFooter);
       self.window.debounce("scroll", self.toggleVisibility, 250);
+      self.toggleVisibility();
     });
 
     this.downToFooter = function(evt) {
       evt.preventDefault();
-
-      self.body.animate({scrollBottom: 30000});
+      self.window.infinitescroll("pause");
+      self.body.animate({scrollTop: self.body.height()});
     };
 
     this.toggleVisibility = function() {
-      self.button.animate({
-        opacity: (self.body.scrollTop() < 100)
-          ? 0.2
+        self.button.animate({
+        opacity: (self.body.scrollTop() == 0)
+          ? 0.5
           : 0
       });
     };

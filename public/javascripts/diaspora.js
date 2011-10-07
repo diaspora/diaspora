@@ -60,7 +60,7 @@
     $.extend(this, Diaspora.BaseWidget);
     $.extend(this, {
       backToTop: this.instantiate("BackToTop", body.find("#back-to-top")),
-      downToFooter: this.instantinate("DownToFooter", body.find("#down-to-footer")),
+      downToFooter: this.instantiate("DownToFooter", body.find("#down-to-footer")),
       directionDetector: this.instantiate("DirectionDetector"),
       events: function() { return Diaspora.page.eventsContainer.data("events"); },
       flashMessages: this.instantiate("FlashMessages"),
