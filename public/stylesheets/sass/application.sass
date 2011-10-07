@@ -2847,6 +2847,23 @@ ul.left_nav
     :position relative
     :width 100%
 
+  li.active
+    > a:not(.sub_selected)
+      :color #333
+      :font
+        :weight 700
+
+      .contact_count
+        :font
+          :weight 700
+        :color #666
+
+    > a.aspect_selector
+      :background
+        :image url(../images/icons/check_yes_ok.png)
+        :position 3px 50%
+        :repeat no-repeat
+
   a.aspect_selector,
   a.home_selector,
   a.tag_selector,
@@ -2874,49 +2891,23 @@ ul.left_nav
   a.element_selector
     &:hover
       @include border-radius(2px)
-
       :background
         :color lighten($blue,45%)
       :text
         :decoration none
 
-  li.active
-    > a:not(.sub_selected)
-      :color #333
-      :font
-        :weight 700
-
-      .contact_count
-        :font
-          :weight 700
-        :color #666
-
-    > a.aspect_selector
-      :background
-        :image url(../images/icons/check_yes_ok.png)
-        :position 3px 50%
-        :repeat no-repeat
-
-  .contact_count
-    :float right
-
   .edit,
   .unfollow_icon
+    :margin-top 4px
     @include transition(opacity)
     @include opacity(0.3)
     :float right
     :display none
-
     &:hover
       @include opacity(1)
 
-  .unfollow_icon
-    :margin-top 4px
-
-  .edit
-    :margin-top 4px
-
   .contact_count
+    :float right
     @include border-radius(4px)
     :margin-top 1px
     :color #999
@@ -2968,6 +2959,7 @@ ul.left_nav
 
   .user_card
     :margin-left 8px
+
 .stream_container
   :min-height 500px
 
