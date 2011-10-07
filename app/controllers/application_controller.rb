@@ -147,6 +147,18 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def default_stream_action(stream_klass)
+    authenticate_user!
+    save_sort_order
+    @stream = stream_klass.new(current_user, :max_time => params[:max_time], :order => sort_order)
+
+    if params[:only_posts]
+      render :partial => 'shared/stream', :locals => {:posts => @stream.posts}
+    else
+      render 'aspects/index'
+    end
+  end
+
   def sort_order
     is_mobile_device? ? 'created_at' : session[:sort_order]
   end

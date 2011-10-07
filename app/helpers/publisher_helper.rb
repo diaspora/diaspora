@@ -4,7 +4,7 @@
 
 module PublisherHelper
   def public_value
-    params[:controller] == "tags"
+    params[:controller] == "tags" || params[:controller] == "posts"
   end
 
   def remote?

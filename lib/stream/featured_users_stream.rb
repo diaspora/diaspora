@@ -20,7 +20,7 @@ class FeaturedUsersStream < BaseStream
   end
 
   def posts
-    Post.all_public.where(:author_id => people.map{|x| x.id}, :type => AspectStream::TYPES_OF_POST_IN_STREAM).for_a_stream(max_time, order)
+    Post.all_public.where(:author_id => people.map{|x| x.id}).for_a_stream(max_time, order)
   end
 
   def people

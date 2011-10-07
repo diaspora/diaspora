@@ -1,4 +1,5 @@
 class BaseStream
+  TYPES_OF_POST_IN_STREAM = ['StatusMessage', 'Reshare', 'ActivityStreams::Photo']
   attr_accessor :max_time, :order, :user
 
   def initialize(user, opts={})
@@ -7,18 +8,17 @@ class BaseStream
     self.order = opts[:order] 
   end
 
-
   def random_featured_user
-    Person.find_by_diaspora_handle(featured_diaspora_id)
+    @random_featured_user ||= Person.find_by_diaspora_handle(featured_diaspora_id)
   end
 
   def has_featured_users?
-    featured_diaspora_id.present?
+    random_featured_user.present?
   end
   
   #requied to implement said stream
   def link(opts={})
-    Rails.application.routes.url_helpers.mentions_path(opts)
+    'change me in lib/base_stream.rb!'
   end
 
   def can_comment?(post)
@@ -26,15 +26,17 @@ class BaseStream
   end
 
   def title
-    'a title'
+    'change me in lib/base_stream.rb!'
   end
 
   def posts
     []
   end
 
+  # @return [ActiveRecord::Association<Person>] AR association of people within stream's given aspects
   def people
-    []
+    people_ids = posts.map{|x| x.author_id}
+    Person.where(:id => people_ids).includes(:profile)
   end
 
   def contacts_link_title
@@ -42,11 +44,11 @@ class BaseStream
   end
 
   def contacts_title
-    "title for a stream"
+    'change me in lib/base_stream.rb!'
   end
 
   def contacts_link
-    '#'
+    'change me in lib/base_stream.rb!'
   end
 
   #helpers

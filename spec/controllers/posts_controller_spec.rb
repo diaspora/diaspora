@@ -146,4 +146,23 @@ describe PostsController do
       StatusMessage.exists?(message.id).should be_true
     end
   end
+
+  describe '#index' do
+    before do
+      sign_in alice
+    end
+    
+    it 'will succeed if admin' do
+      AppConfig[:admins] = [alice.username]
+      get :index
+      response.should be_success
+    end
+
+    it 'will redirect if not' do
+      AppConfig[:admins] = []
+      get :index
+      response.should be_redirect
+    end
+
+  end
 end

@@ -3,7 +3,6 @@
 #   the COPYRIGHT file.
 
 class AspectStream < BaseStream
-  TYPES_OF_POST_IN_STREAM = ['StatusMessage', 'Reshare', 'ActivityStreams::Photo']
 
   # @param user [User]
   # @param inputted_aspect_ids [Array<Integer>] Ids of aspects for given stream

@@ -20,7 +20,7 @@ Diaspora::Application.routes.draw do
     resources :comments, :only => [:new, :create, :destroy, :index]
   end
   get 'p/:id' => 'posts#show', :as => 'short_post'
-
+  get 'public_stream' => 'posts#index', :as => 'public_stream'
   # roll up likes into a nested resource above
   resources :comments, :only => [:create, :destroy] do
     resources :likes, :only => [:create, :destroy, :index]
@@ -135,6 +135,7 @@ Diaspora::Application.routes.draw do
     post 'receive/public'       => :receive_public
     get 'hub'                   => :hub
   end
+
 
 
   # External
