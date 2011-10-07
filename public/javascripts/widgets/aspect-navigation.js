@@ -134,6 +134,9 @@
         });
 
         self.globalPublish("stream/reloaded");
+        if( post !== "" ) {
+          Publisher.open();
+        }
         self.fadeIn();
       });
     };
