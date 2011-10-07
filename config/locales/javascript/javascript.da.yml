@@ -7,13 +7,13 @@ da:
   javascripts: 
     aspect_dropdown: 
       add_to_aspect: "Tilføj til aspekt"
-      all_aspects: "All aspects"
+      all_aspects: "Alle aspekter"
       toggle: 
         few: "I {{count}} aspekter"
         many: "I {{count}} aspekter"
         one: "I {{count}} aspekt"
         other: "I {{count}} aspekter"
-        two: "In {{count}} aspects"
+        two: "I {{count}} aspekter"
         zero: "Tilføj til aspekt"
     comments: 
       hide: "Skjul kommentarer"
@@ -25,8 +25,8 @@ da:
       no_more: "Ikke flere poster."
     publisher: 
       at_least_one_aspect: "Du skal dele med mindst et aspekt"
-      limited: "Limited - your post will only be seen by people you are sharing with"
-      public: "Public - your post will be visible to everyone and found by search engines"
+      limited: "Begrænset - dit indlæg vil kun være synligt for folk du deler med"
+      public: "Offentlig - dit indlæg vil være synligt for alle og blive fundet af søgemaskiner"
     reshares: 
       duplicate: "You've already reshared that post!"
     search_for: "Søg efter {{name}}"
@@ -51,4 +51,4 @@ da:
       unknown: "Ukendt video type"
       watch: "Se denne video på {{provider}}"
     web_sockets: 
-      disconnected: "Forbindelse er lukket; post vil ikke længere blive opdateret live."
+      disconnected: "Forbindelse er lukket; indlæg vil ikke længere blive opdateret live."

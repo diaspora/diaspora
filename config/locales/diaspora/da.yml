@@ -92,15 +92,15 @@ da:
       remove: "slet"
     index: 
       cubbies: 
-        explanation: "Cubbi.es is the first Diaspora application under development."
-        heading: "Connect to Cubbi.es"
+        explanation: "Cubbi.es er det første Diaspora program under udvikling."
+        heading: "Forbind til Cubbi.es"
         learn_more: "Learn more"
       diaspora_id: 
         content_1: "Dit Diaspora ID er:"
-        content_2: "Give it to anyone and they'll be able to find you on Diaspora."
+        content_2: "Giv det til nogen og de vil kunne finde dig på Diaspora."
         heading: "Diaspora ID"
       donate: "Donate"
-      handle_explanation: "Dette er dit diaspora handle. Som med en e-mail-adresse, kan du give denne til folk, så de kan kontakte dig."
+      handle_explanation: "Dette er dit Diaspora ID. Som med en e-mail-adresse, kan du give denne til folk, så de kan kontakte dig."
       help: 
         did_you: "Did you:"
         feature_suggestion: "... have a %{link} suggestion?"
@@ -116,8 +116,8 @@ da:
       people_sharing_with_you: "Personer der deler med dig"
       post_a_message: "skriv et indlæg >>"
       services: 
-        content: "You can connect the following services to Diaspora:"
-        heading: "Connect Services"
+        content: "Din kan forbinde de følgende tjenester til Diaspora:"
+        heading: "Forbind tjenester"
       tags_following: "Followed Tags"
       unfollow_tag: "Stop following #%{tag}"
       your_aspects: "Dine aspekter"
@@ -133,10 +133,10 @@ da:
       featured_users: "featured users"
       or_featured: "Or you can share with %{link}"
       try_adding_some_more_contacts: "You can search (top) or invite (right) more contacts."
-      you_should_add_some_more_contacts: "You should add some more contacts!"
+      you_should_add_some_more_contacts: "Du burde tilføje nogle flere kontakter!"
     no_posts_message: 
       start_talking: "Ingen har sagt noget endnu. Start samtalen!"
-    one: "1 aspekt"
+    one: "Ét aspekt"
     other: "%{count} aspekter"
     seed: 
       acquaintances: "Bekendte"
@@ -172,7 +172,7 @@ da:
     new_comment: 
       comment: "Kommentér"
       commenting: "Sender..."
-    one: "1 kommentar"
+    one: "En kommentar"
     other: "%{count} kommentarer"
     two: "%{count} kommentarer"
     zero: "ingen kommentarer"
@@ -187,7 +187,7 @@ da:
       all_contacts: "Alle kontakter"
       edit_aspect: "Redigér %{name}"
       many_people_are_you_sure: "Are you sure you want to start a private conversation with more than %{suggested_limit} contacts? Posting to this aspect may be a better way to contact them."
-      my_contacts: "Mine kontrakter"
+      my_contacts: "Mine kontakter"
       no_contacts: "Ingen kontakter."
       only_sharing_with_me: "Only sharing with me"
       remove_person_from_aspect: "Fjern %{person_name} fra \"%{aspect_name}\""
@@ -203,7 +203,7 @@ da:
     zero: "Ingen kontakter"
   conversations: 
     create: 
-      fail: "Invalid message"
+      fail: "Fejl i meddelse"
       sent: "Meddelelse sendt"
     destroy: 
       success: "Samtale slettet med succes"
@@ -211,7 +211,7 @@ da:
       new_messages: 
         few: "%{count} nye beskeder"
         many: "%{count} nye beskeder"
-        one: "1 ny besked"
+        one: "Én ny besked"
         other: "%{count} nye beskeder"
         two: "%{count} new messages"
         zero: "ingen nye beskeder"
@@ -263,19 +263,19 @@ da:
       tagline_first_half: "Del hvad du vil,"
       tagline_second_half: "med hvem du vil."
   invitations: 
-    a_facebook_user: "A Facebook user"
+    a_facebook_user: "En Facebook-bruger"
     check_token: 
       not_found: "Invitationstoken ikke fundet"
     create: 
       already_contacts: "Du er allerede forbundet med denne person"
       already_sent: "Du har allerede inviteret denne person."
       no_more: "Du har ikke flere invitationer."
-      own_address: "You can't send an invitation to your own address."
+      own_address: "Du kan ikke sende en invitation til din egen adresse."
       rejected: "Der var problemer med de følgende e-mail adresser: "
       sent: "Din invitation er blevet sendt til:"
     edit: 
-      accept_your_invitation: "Accept your invitation"
-      your_account_awaits: "Your account awaits!"
+      accept_your_invitation: "Acceptér din invitation"
+      your_account_awaits: "Din konto venter på dig!"
     new: 
       already_invited: "Allerede inviteret"
       aspect: "Aspekt"
@@ -309,14 +309,14 @@ da:
       people_dislike_this: 
         few: "%{count} personer kunne ikke lide det"
         many: "%{count} personer kunne ikke lide det"
-        one: "1 person kunne ikke lide det"
+        one: "Én person kunne ikke lide det"
         other: "%{count} personer kunne ikke lide det"
         two: "%{count} dislikes"
         zero: "ingen personer kunne ikke lide det"
       people_like_this: 
         few: "%{count} personer kunne lide det"
         many: "%{count} personer kunne lide det"
-        one: "1 person kunne lide det"
+        one: "Én person kunne lide det"
         other: "%{count} personer kunne lide det"
         two: "%{count} likes"
         zero: "ingen personer kunne lide det"
@@ -333,12 +333,12 @@ da:
   no_results: "Ingen resultater fundet"
   notifications: 
     also_commented: 
-      few: "%{actors} also commented on %{post_author}'s %{post_link}."
-      many: "%{actors} also commented on %{post_author}'s %{post_link}."
-      one: "%{actors} also commented on %{post_author}'s %{post_link}."
-      other: "%{actors} also commented on %{post_author}'s %{post_link}."
-      two: "%{actors} also commented on %{post_author}'s %{post_link}."
-      zero: "%{actors} also commented on %{post_author}'s %{post_link}."
+      few: "%{actors} har også kommenteret %{post_author}'s %{post_link}."
+      many: "%{actors} har også kommenteret %{post_author}'s %{post_link}."
+      one: "%{actors} har også kommenteret %{post_author}'s %{post_link}."
+      other: "%{actors} har også kommenteret %{post_author}'s %{post_link}."
+      two: "%{actors} har også kommenteret %{post_author}'s %{post_link}."
+      zero: "%{actors} har også kommenteret %{post_author}'s %{post_link}."
     also_commented_deleted: 
       few: "%{actors} commented on a deleted post."
       many: "%{actors} commented on a deleted post."
