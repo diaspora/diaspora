@@ -8,7 +8,7 @@ var AspectsDropdown = {
         selectedAspects = dropdown.children(".selected").length,
         allAspects = dropdown.children('li[data-aspect_id]').length,
         replacement,
-        toggleButtonReplacement = Diaspora.I18n.t("aspect_dropdown.toggle_selection.no_aspects");
+        toggleButtonReplacement = Diaspora.I18n.t("aspect_navigation.deselect_all");
     
     var toggleButton = dropdown.children('.toggleSelection');
 
@@ -21,7 +21,7 @@ var AspectsDropdown = {
         replacement = Diaspora.I18n.t("aspect_dropdown.add_to_aspect");
       }
       
-      toggleButtonReplacement = Diaspora.I18n.t("aspect_dropdown.toggle_selection.all_aspects");
+      toggleButtonReplacement = Diaspora.I18n.t("aspect_navigation.select_all");
     }else if (selectedAspects == allAspects) {
       replacement = Diaspora.I18n.t('aspect_dropdown.all_aspects');
     }else if (number == 1) {

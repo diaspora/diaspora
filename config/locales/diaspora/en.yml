@@ -91,6 +91,8 @@ en:
     other: "%{count} aspects"
     contacts_visible: "Contacts in this aspect will be able to see each other."
     contacts_not_visible: "Contacts in this aspect will not be able to see each other."
+    select_all: "Select all"
+    deselect_all: "Deselect all"
     edit:
       make_aspect_list_visible: "make contacts in this aspect visible to each other?"
       remove_aspect: "Delete this aspect"
@@ -244,9 +246,6 @@ en:
       add_to_aspect: "Add contacts to %{name}"
       start_a_conversation: "Start a conversation"
       add_a_new_aspect: "Add a new aspect"
-      toggle_selection:
-        all_aspects: "Select all aspects"
-        no_aspects: "Select no aspects"
       title: "Contacts"
       your_contacts: "Your Contacts"
       no_contacts: "Looks like you need to add some contacts!"

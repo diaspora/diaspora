@@ -15,12 +15,12 @@
   .wrapper
     %ul.dropdown_list{:unSelectable => 'on', 'data-person_id' => (person.id if defined?(person) && person), 'data-service_uid' => (service_uid if defined?(service_uid))}
       - if (defined?(dropdown_may_toggle_selection) && dropdown_may_toggle_selection)
-        %li.toggleSelection.newItem
+        %li.newItem
           %span
             - if selected_aspects.size == 0
-              = t('contacts.index.toggle_selection.all_aspects')
+              = t('aspects.select_all')
             - else
-              = t('contacts.index.toggle_selection.no_aspects')
+              = t('aspects.deselect_all')
       - for aspect in all_aspects
         = aspect_dropdown_list_item(aspect, selected_aspects.include?(aspect) )
 
