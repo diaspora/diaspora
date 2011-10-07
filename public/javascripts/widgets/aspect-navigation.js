@@ -113,6 +113,10 @@
       self.abortAjax();
       self.fadeOut();
 
+      if (typeof(history.pushState) == 'function') {
+        history.pushState(null, document.title, newURL);
+      }
+
       self.jXHR = $.getScript(newURL, function(data) {
         var textarea = $("#publisher textarea"),
           photozone = $("#photodropzone");
