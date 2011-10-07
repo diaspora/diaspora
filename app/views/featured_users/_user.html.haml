@@ -4,8 +4,8 @@
     = person.name
 
   .tags
-    - person.profile.tags.each do |tg|
-      = "##{tg}"
+    - person.profile.tags.each do |tag|
+      = link_to "##{tag}", tag_path(tag)
 
   .add_user_to_aspect
     = render :partial => 'people/relationship_action',
