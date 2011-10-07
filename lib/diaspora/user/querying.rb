@@ -27,7 +27,7 @@ module Diaspora
         if RedisCache.configured? && RedisCache.supported_order?(opts[:order_field]) && opts[:all_aspects?].present?
           cache = RedisCache.new(self, opts[:order_field])
 
-          cache.ensure_populated!
+          cache.ensure_populated!(opts)
           post_ids = cache.post_ids(opts[:max_time], opts[:limit])
         end
 
@@ -126,8 +126,8 @@ module Diaspora
       # @return [Hash]
       def prep_opts(opts)
         defaults = {
-          :type => ['StatusMessage', 'Photo'],
-          :order => 'updated_at DESC',
+          :type => AspectStream::TYPES_OF_POST_IN_STREAM, 
+          :order => 'created_at DESC',
           :limit => 15,
           :hidden => false
         }

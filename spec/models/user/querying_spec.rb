@@ -53,7 +53,7 @@ describe User do
 
     it "respects the :type option" do
       photo = bob.post(:photo, :pending => false, :user_file=> File.open(photo_fixture_name), :to => @bobs_aspect)
-      alice.visible_post_ids.should include(photo.id)
+      alice.visible_post_ids(:type => "Photo").should include(photo.id)
       alice.visible_post_ids(:type => 'StatusMessage').should_not include(photo.id)
     end
 
@@ -96,9 +96,10 @@ describe User do
       end
 
       it "gets populated with latest 100 posts" do
-        cache = mock(:cache_exists? => true, :ensure_populated! => mock, :post_ids => [])
+        cache = mock(:cache_exists? => true, :supported_order? => true, :ensure_populated! => mock, :post_ids => [])
         RedisCache.stub(:new).and_return(cache)
-        cache.should_receive(:ensure_populated!)
+        @opts = alice.send(:prep_opts, @opts)
+        cache.should_receive(:ensure_populated!).with(hash_including(@opts))
 
         alice.visible_post_ids(@opts)
       end
@@ -160,7 +161,9 @@ describe User do
       it 'works' do # The set up takes a looong time, so to save time we do several tests in one
         bob.visible_posts.length.should == 15 #it returns 15 by default
         bob.visible_posts.should == bob.visible_posts(:by_members_of => bob.aspects.map { |a| a.id }) # it is the same when joining through aspects
-        bob.visible_posts.sort_by { |p| p.updated_at }.map { |p| p.id }.should == bob.visible_posts.map { |p| p.id }.reverse #it is sorted updated_at desc by default
+
+        # checks the default sort order
+        bob.visible_posts.sort_by { |p| p.created_at }.map { |p| p.id }.should == bob.visible_posts.map { |p| p.id }.reverse #it is sorted updated_at desc by default
 
         # It should respect the order option
         opts = {:order => 'created_at DESC'}
@@ -174,21 +177,21 @@ describe User do
         opts = {:limit => 40}
         bob.visible_posts(opts).length.should == 40
         bob.visible_posts(opts).should == bob.visible_posts(opts.merge(:by_members_of => bob.aspects.map { |a| a.id }))
-        bob.visible_posts(opts).sort_by { |p| p.updated_at }.map { |p| p.id }.should == bob.visible_posts(opts).map { |p| p.id }.reverse
+        bob.visible_posts(opts).sort_by { |p| p.created_at }.map { |p| p.id }.should == bob.visible_posts(opts).map { |p| p.id }.reverse
 
         # It should paginate using a datetime timestamp
-        last_time_of_last_page = bob.visible_posts.last.updated_at
+        last_time_of_last_page = bob.visible_posts.last.created_at
         opts = {:max_time => last_time_of_last_page}
         bob.visible_posts(opts).length.should == 15
         bob.visible_posts(opts).map { |p| p.id }.should == bob.visible_posts(opts.merge(:by_members_of => bob.aspects.map { |a| a.id })).map { |p| p.id }
-        bob.visible_posts(opts).sort_by { |p| p.updated_at }.map { |p| p.id }.should == bob.visible_posts(opts).map { |p| p.id }.reverse
+        bob.visible_posts(opts).sort_by { |p| p.created_at}.map { |p| p.id }.should == bob.visible_posts(opts).map { |p| p.id }.reverse
         bob.visible_posts(opts).map { |p| p.id }.should == bob.visible_posts(:limit => 40)[15...30].map { |p| p.id } #pagination should return the right posts
 
         # It should paginate using an integer timestamp
         opts = {:max_time => last_time_of_last_page.to_i}
         bob.visible_posts(opts).length.should == 15
         bob.visible_posts(opts).map { |p| p.id }.should == bob.visible_posts(opts.merge(:by_members_of => bob.aspects.map { |a| a.id })).map { |p| p.id }
-        bob.visible_posts(opts).sort_by { |p| p.updated_at }.map { |p| p.id }.should == bob.visible_posts(opts).map { |p| p.id }.reverse
+        bob.visible_posts(opts).sort_by { |p| p.created_at}.map { |p| p.id }.should == bob.visible_posts(opts).map { |p| p.id }.reverse
         bob.visible_posts(opts).map { |p| p.id }.should == bob.visible_posts(:limit => 40)[15...30].map { |p| p.id } #pagination should return the right posts
       end
     end

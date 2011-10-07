@@ -67,18 +67,20 @@ describe RedisCache do
     end
 
     it 'clears and poplulates if the cache is not populated' do
+      opts = {:here_is => "something"}
       @cache.stub(:cache_exists?).and_return(false)
-      @cache.should_receive(:repopulate!)
+      @cache.should_receive(:repopulate!).with(opts)
 
-      @cache.ensure_populated!
+      @cache.ensure_populated!(opts)
     end
   end
 
   describe "#repopulate!" do
     it 'populates' do
+      opts = {:here_is => "something"}
       @cache.stub(:trim!).and_return(true)
-      @cache.should_receive(:populate!).and_return(true)
-      @cache.repopulate!
+      @cache.should_receive(:populate!).with(opts).and_return(true)
+      @cache.repopulate!(opts)
     end
 
     it 'trims' do
@@ -94,7 +96,8 @@ describe RedisCache do
       order = "created_at DESC"
       @cache.should_receive(:order).and_return(order)
       bob.should_receive(:visible_posts_sql).with(hash_including(
-                                                    :limit => 100,
+                                                    :type => RedisCache.acceptable_types,
+                                                    :limit => RedisCache::CACHE_LIMIT,
                                                     :order => order)).
                                              and_return(sql)
 
