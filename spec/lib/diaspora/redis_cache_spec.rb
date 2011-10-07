@@ -160,7 +160,27 @@ describe RedisCache do
       @cache.stub(:cache_exists?).and_return(false)
 
       @redis.should_not_receive(:zadd)
-      @cache.add(@score, @id).should be_false
+      @cache.add(@score, @id)
+    end
+  end
+
+  describe "#remove" do
+    before do
+      @id = 1
+    end
+
+    it "doesn't add if the cache does not exist" do
+      @cache.stub(:cache_exists?).and_return(false)
+
+      @redis.should_not_receive(:zrem)
+      @cache.remove(@id).should be_false
+    end
+
+    it "removes a given id" do
+      @cache.stub(:cache_exists?).and_return(true)
+
+      @redis.should_receive(:zrem).with(@cache.send(:set_key), @id)
+      @cache.remove(@id)
     end
   end
 
@@ -190,6 +210,4 @@ describe RedisCache do
       RedisCache.acceptable_types.should =~ AspectStream::TYPES_OF_POST_IN_STREAM
     end
   end
-
-  describe "#remove"
 end

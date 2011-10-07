@@ -81,6 +81,11 @@ class RedisCache
     self.trim!
   end
 
+  def remove(id)
+    return unless self.cache_exists?
+    self.redis.zrem(set_key, id)
+  end
+
   # exposing the need to tie cache to a stream
   # @return [Array<String>] Acceptable Post types for the given cache
   def self.acceptable_types
