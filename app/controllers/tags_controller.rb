@@ -49,7 +49,7 @@ class TagsController < ApplicationController
     params[:name].downcase!
     @aspect = :tag
     @tag = ActsAsTaggableOn::Tag.find_by_name(params[:name])
-    @tag_follow_count = @tag.followed_count
+    @tag_follow_count = @tag.try(:followed_count).to_i
 
     if current_user
       @posts = StatusMessage.owned_or_visible_by_user(current_user)
