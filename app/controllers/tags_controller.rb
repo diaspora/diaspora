@@ -1,6 +1,7 @@
 #   Copyright (c) 2010-2011, Diaspora Inc.  This file is
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
+require File.join(Rails.root, 'app', 'models', 'acts_as_taggable_on_tag')
 
 class TagsController < ApplicationController
   skip_before_filter :which_action_and_user
@@ -47,6 +48,8 @@ class TagsController < ApplicationController
   def show
     params[:name].downcase!
     @aspect = :tag
+    @tag = ActsAsTaggableOn::Tag.find_by_name(params[:name])
+    @tag_follow_count = @tag.followed_count
 
     if current_user
       @posts = StatusMessage.owned_or_visible_by_user(current_user)
@@ -74,5 +77,4 @@ class TagsController < ApplicationController
    end
    @tag_followed
  end
-
 end

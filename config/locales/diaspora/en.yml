@@ -804,7 +804,7 @@ en:
       follow: "Follow #%{tag}"
       following: "Following #%{tag}"
       stop_following: "Stop Following #%{tag}"
-
+      followed_by: 'followed by'
   tag_followings:
     create:
       success: "Successfully following: #%{name}"
