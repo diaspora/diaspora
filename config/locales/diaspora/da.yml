@@ -29,7 +29,7 @@ da:
         reshare: 
           attributes: 
             root_guid: 
-              taken: "You've already reshared that post!"
+              taken: "Du har allerede delt det indlæg!"
         user: 
           attributes: 
             email: 
@@ -409,19 +409,19 @@ da:
       two: "%{actors} sent you a message."
       zero: "%{actors} sent you a message."
     reshared: 
-      few: "%{actors} has reshared your %{post_link}."
-      many: "%{actors} has reshared your %{post_link}."
-      one: "%{actors} has reshared your %{post_link}."
-      other: "%{actors} has reshared your %{post_link}."
-      two: "%{actors} has reshared your %{post_link}."
-      zero: "%{actors} has reshared your %{post_link}."
+      few: "%{actors} har delt dit %{post_link}."
+      many: "%{actors} har delt dit %{post_link}."
+      one: "%{actors} har delt dit %{post_link}."
+      other: "%{actors} har delt dit %{post_link}."
+      two: "%{actors} har delt dit %{post_link}."
+      zero: "%{actors} har delt dit %{post_link}."
     reshared_post_deleted: 
-      few: "%{actors} reshared your deleted post."
-      many: "%{actors} reshared your deleted post."
-      one: "%{actors} reshared your deleted post."
-      other: "%{actors} reshared your deleted post."
-      two: "%{actors} reshared your deleted post."
-      zero: "%{actors} reshared your deleted post."
+      few: "%{actors} har delt dit slettede indlæg."
+      many: "%{actors} har delt dit slettede indlæg."
+      one: "%{actors} har delt dit slettede indlæg."
+      other: "%{actors} har delt dit slettede indlæg."
+      two: "%{actors} har delt dit slettede indlæg."
+      zero: "%{actors} har delt dit slettede indlæg."
     started_sharing: 
       few: "%{actors} started sharing with you."
       many: "%{actors} started sharing with you."
