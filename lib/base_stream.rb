@@ -87,6 +87,6 @@ class BaseStream
 
   private
   def featured_diaspora_id
-    @featured_diaspora_id ||= AppConfig[:featured_users].sample(1)
+    @featured_diaspora_id ||= AppConfig[:featured_users].try(:sample, 1)
   end
 end
