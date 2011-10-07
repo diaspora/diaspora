@@ -126,7 +126,7 @@ module Diaspora
       # @return [Hash]
       def prep_opts(opts)
         defaults = {
-          :type => AspectStream::TYPES_OF_POST_IN_STREAM, 
+          :type => BaseStream::TYPES_OF_POST_IN_STREAM, 
           :order => 'created_at DESC',
           :limit => 15,
           :hidden => false

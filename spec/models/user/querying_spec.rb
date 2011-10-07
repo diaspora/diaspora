@@ -140,6 +140,22 @@ describe User do
     end
   end
   
+  describe "#prep_opts" do
+    it "defaults the opts" do
+      time = Time.now
+      Time.stub(:now).and_return(time)
+      alice.send(:prep_opts, {}).should == {
+        :type => BaseStream::TYPES_OF_POST_IN_STREAM, 
+        :order => 'created_at DESC',
+        :limit => 15,
+        :hidden => false,
+        :order_field => :created_at,
+        :order_with_table => "posts.created_at DESC",
+        :max_time => time + 1
+      }
+    end
+  end
+
   describe "#visible_posts" do
     context 'with many posts' do
       before do
