@@ -11,7 +11,7 @@ Feature: infinite scroll
       And I wait for the ajax to finish
 
     Scenario: on the main stream by activity
-      And I follow "commented on"
+      When I follow "commented on"
       And I wait for the ajax to finish
       Then I should see 15 posts
       And I should see "alice - 26 - #seeded"
