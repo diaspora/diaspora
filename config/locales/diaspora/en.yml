@@ -471,7 +471,7 @@ en:
     helper:
       new_notifications:
         zero: "No new notifications"
-        one: "1 new notifications"
+        one: "1 new notification"
         two: "%{count} new notifications"
         few: "%{count} new notifications"
         many: "%{count} new notifications"
