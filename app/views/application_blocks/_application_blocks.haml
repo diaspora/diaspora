@@ -1,4 +1,4 @@
-= form_for 'user', :url => oauth_client_blocks_path, :html => { :method => :put, :id => 'blocked_applications' } do |f|
+= form_for 'nothing', :url => oauth_client_block_path(:id => -1), :html => { :method => :put, :id => 'blocked_applications' } do |f|
   %h3 Blocked Applications
 
   = f.error_messages
