@@ -81,47 +81,6 @@ describe AspectStream do
       @alice.should_receive(:visible_posts).with(hash_including(:all_aspects? => all_aspects)).and_return(stub.as_null_object)
       stream.posts
     end
-
-    context 'for a given application' do
-      before do
-        @user = Factory(:user_with_aspect)
-        @app = Factory(:app)
-        @aspect = @user.aspects[0]
-        @stream = AspectStream.new(@user, [@aspect.id])
-        @post = @user.post(:status_message, :text => "not via app", :to => @aspect.id)
-      end
-
-      context 'when there is a post made via that app' do
-        before do
-          @post_app = @user.post(:status_message, :text => "via app", :to => @aspect.id, :provider_display_name => @app.name)
-        end
-
-        context 'when the user is not blocking that app' do
-          it 'includes the post not made via the application' do
-            @stream.posts.should include(@post)
-          end
-
-          it 'includes the post made via the application' do
-            @stream.posts.should include(@post_app)
-          end
-        end
-
-        context 'when the user is blocking that app' do
-          before do
-            @user.application_blocks.create :client_id => @app.id, :user_id => @user.id
-          end
-
-          it 'includes the post not made via the application' do
-            @stream.posts.should include(@post)
-          end
-
-          it 'does not include the post made via the application' do
-            @stream.posts.should_not include(@post_app)
-          end
-        end
-      end
-    end
-
   end
 
   describe '#people' do

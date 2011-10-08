@@ -138,17 +138,26 @@ describe User do
       end
     end
   end
-  
+
   describe "#visible_posts" do
     context 'with many posts' do
       before do
         bob.move_contact(eve.person, @bobs_aspect, bob.aspects.create(:name => 'new aspect'))
         time_interval = 1000
         time_past = 1000000
-        (1..25).each do |n|
+        @app = Factory(:app)
+
+        eve.move_contact(bob.person, @eves_aspect, eve.aspects.create(:name => 'new aspect'))
+        eve.application_blocks.create :client_id => @app.id, :user_id => eve.id
+
+        (0..24).each do |n|
           [alice, bob, eve].each do |u|
             aspect_to_post = u.aspects.where(:name => "generic").first
-            post = u.post :status_message, :text => "#{u.username} - #{n}", :to => aspect_to_post.id
+            if n % 5 == 0
+              post = u.post :status_message, :text => "#{u.username} - #{n} via app", :to => aspect_to_post.id, :provider_display_name => @app.name
+            else
+              post = u.post :status_message, :text => "#{u.username} - #{n}", :to => aspect_to_post.id
+            end
             post.created_at = (post.created_at-time_past) - time_interval
             post.updated_at = (post.updated_at-time_past) + time_interval
             post.save
@@ -169,7 +178,7 @@ describe User do
         # It should respect the order option
         opts = {:order => 'updated_at DESC'}
         bob.visible_posts(opts).first.updated_at.should > bob.visible_posts(opts).last.updated_at
-        
+
         # It should respect the limit option
         opts = {:limit => 40}
         bob.visible_posts(opts).length.should == 40
@@ -190,6 +199,23 @@ describe User do
         bob.visible_posts(opts).map { |p| p.id }.should == bob.visible_posts(opts.merge(:by_members_of => bob.aspects.map { |a| a.id })).map { |p| p.id }
         bob.visible_posts(opts).sort_by { |p| p.updated_at }.map { |p| p.id }.should == bob.visible_posts(opts).map { |p| p.id }.reverse
         bob.visible_posts(opts).map { |p| p.id }.should == bob.visible_posts(:limit => 40)[15...30].map { |p| p.id } #pagination should return the right posts
+
+        # It should filter out blocked applications
+        p3 = bob.visible_posts[11]
+        p3.provider_display_name.should be_nil
+        p3.text.should == "alice - 21"
+        p4 = bob.visible_posts[12]
+        p4.provider_display_name.should == @app.name
+        p4.text.should == "eve - 20 via app"
+        bob.visible_posts.detect { |p| p.provider_display_name == @app.name }.should_not be_nil
+
+        p3 = eve.visible_posts[7]
+        p3.provider_display_name.should be_nil
+        p3.text.should == "bob - 21"
+        p4 = eve.visible_posts[8]
+        p4.provider_display_name.should be_nil
+        p4.text.should == "eve - 19"
+        eve.visible_posts.detect { |p| p.provider_display_name == @app.name }.should be_nil
       end
     end
   end
