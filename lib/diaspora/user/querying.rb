@@ -57,8 +57,20 @@ module Diaspora
           posts_from_self = posts_from_self.joins(:aspect_visibilities).where(:aspect_visibilities => {:aspect_id => opts[:by_members_of]})
         end
 
-        posts_from_others = posts_from_others.select(select_clause).order(opts[:order_with_table]).where(Post.arel_table[opts[:order_field]].lt(opts[:max_time]))
-        posts_from_self = posts_from_self.select(select_clause).order(opts[:order_with_table]).where(Post.arel_table[opts[:order_field]].lt(opts[:max_time]))
+        posts_from_others = posts_from_others.
+          select(select_clause).
+          order(opts[:order_with_table]).
+          where(
+            Post.arel_table[opts[:order_field]].
+              lt(opts[:max_time])
+          )
+        posts_from_self = posts_from_self.
+          select(select_clause).
+          order(opts[:order_with_table]).
+          where(
+            Post.arel_table[opts[:order_field]].
+              lt(opts[:max_time])
+          )
 
         "(#{posts_from_others.to_sql} LIMIT #{opts[:limit]}) UNION ALL (#{posts_from_self.to_sql} LIMIT #{opts[:limit]}) ORDER BY #{opts[:order]} LIMIT #{opts[:limit]}"
       end
