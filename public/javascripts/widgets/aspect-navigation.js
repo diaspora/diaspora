@@ -76,7 +76,7 @@
     };
 
     this.generateURL = function() {
-      var baseURL = location.href.split("?")[0];
+      var baseURL = 'aspects';
 
       // generate new url
       baseURL = baseURL.replace('#','');
