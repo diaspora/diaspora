@@ -920,7 +920,9 @@ en:
       email_notifications_changed: "Email notifications changed"
       unconfirmed_email_changed: "Email changed. Needs activation."
       unconfirmed_email_not_changed: "Email change failed"
-      application_blocks_updated: "Application blocks updated."
+      application_blocks_update:
+        success: "Application blocks updated."
+        failure: "Failed to update application blocks."
     public:
       does_not_exist: "User %{username} does not exist!"
     confirm_email:

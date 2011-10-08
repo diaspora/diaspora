@@ -157,39 +157,6 @@ describe UsersController do
         }.should change(@user.user_preferences, :count).by(-1)
       end
     end
-
-    describe 'application blocks' do
-      before do
-        @app1 = Factory(:app)
-        @app2 = Factory(:app)
-        @app3 = Factory(:app)
-        @user.application_blocks.create :client_id => @app2.id, :user_id => @user.id
-      end
-
-      it 'lets the user change application blocks' do
-        @user.blocking_oauth_client?(@app1.name).should == false
-        @user.blocking_oauth_client?(@app2.name).should == true
-        @user.blocking_oauth_client?(@app3.name).should == false
-
-        put(
-          :update,
-          :id => @user.id,
-          'application_blocks' => {
-            @app1.id.to_s => '1',
-            @app2.id.to_s => '0',
-            @app3.id.to_s => '1',
-          }
-        )
-
-        response.should redirect_to(authorizations_path)
-        flash[:notice].should == 'Application blocks updated.'
-
-        @user.reload
-        @user.blocking_oauth_client?(@app1.name).should == true
-        @user.blocking_oauth_client?(@app2.name).should == false
-        @user.blocking_oauth_client?(@app3.name).should == true
-      end
-    end
   end
 
   describe '#edit' do

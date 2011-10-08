@@ -101,11 +101,12 @@ Diaspora::Application.routes.draw do
 
   resource :profile, :only => [:edit, :update]
 
-  resources :contacts,           :except => [:update, :create] do
+  resources :contacts,            :except => [:update, :create] do
     get :sharing, :on => :collection
   end
-  resources :aspect_memberships, :only   => [:destroy, :create, :update]
-  resources :post_visibilities,  :only   => [:update]
+  resources :aspect_memberships,  :only   => [:destroy, :create, :update]
+  resources :post_visibilities,   :only   => [:update]
+  resources :oauth_client_blocks, :only   => [:update,]
 
   get 'featured' => "contacts#featured", :as => 'featured_users'
   resources :people, :except => [:edit, :update] do
@@ -165,7 +166,7 @@ Diaspora::Application.routes.draw do
 
   #Protocol Url
   get 'protocol' => redirect("https://github.com/diaspora/diaspora/wiki/Diaspora%27s-federation-protocol")
-  
+
   # Resque web
   if AppConfig[:mount_resque_web]
     mount Resque::Server.new, :at => '/resque-jobs', :as => "resque_web"

@@ -490,14 +490,14 @@ class User < ActiveRecord::Base
     # including possibly malicious input.
     hash.keys.each do |client_id_s|
       client_id = client_id_s.to_i
-      ab = application_blocks.find_by_client_id(client_id)
+      ab = application_blocks.find_by_client_id_and_user_id( client_id, self.id )
 
       case hash.fetch(client_id_s)
       when '0'
         ab.delete  if ab
       when '1'
         if ab.nil?
-          client = OAuth2::Provider::Models::ActiveRecord::Client.find(client_id)
+          client = OAuth2::Provider::Models::ActiveRecord::Client.find_by_id(client_id)
           if client
             application_blocks.create :client_id => client.id, :user_id => self.id
           end
