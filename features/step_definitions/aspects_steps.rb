@@ -5,7 +5,7 @@ When /^I click on "([^"]*)" aspect edit icon$/ do |aspect_name|
   end
 end
 
-When /^I select "([^"]*)" aspect$/ do |aspect_name|
+When /^I select only "([^"]*)" aspect$/ do |aspect_name|
   within('#aspect_nav') do
     click_link 'Deselect all'
     click_link aspect_name

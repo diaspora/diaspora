@@ -62,7 +62,7 @@ Feature: commenting
     When I focus the comment field
     Then the first comment field should be open
 
-    When I select "Besties" aspect
+    When I select only "Besties" aspect
     Then I should see "Look at this dog"
     Then the first comment field should be closed
     When I focus the comment field
