@@ -100,7 +100,7 @@
     };
 
     this.performAjax = function() {
-      var post = $("#publisher textarea").val(),
+      var post = $("#publisher textarea#status_message_fake_text").val(),
         newURL = self.generateURL(),
         photos = {};
 
@@ -118,7 +118,7 @@
       }
 
       self.jXHR = $.getScript(newURL, function(data) {
-        var textarea = $("#publisher textarea"),
+        var textarea = $("#publisher textarea#status_message_fake_text"),
           photozone = $("#photodropzone");
 
         if( post !== "" ) {
