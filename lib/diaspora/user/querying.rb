@@ -58,8 +58,15 @@ module Diaspora
         end
 
         where_clause_blocks = %{
-          posts.provider_display_name IS NULL
-          OR posts.provider_display_name NOT IN (
+          COALESCE(
+            posts.provider_display_name,
+            (
+              SELECT reshared.provider_display_name
+              FROM posts AS reshared
+              WHERE reshared.guid = posts.root_guid
+            ),
+            ''
+          ) NOT IN (
             SELECT
               oc.name
             FROM

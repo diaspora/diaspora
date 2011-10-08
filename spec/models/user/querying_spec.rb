@@ -154,9 +154,9 @@ describe User do
           [alice, bob, eve].each do |u|
             aspect_to_post = u.aspects.where(:name => "generic").first
             if n % 5 == 0
-              post = u.post :status_message, :text => "#{u.username} - #{n} via app", :to => aspect_to_post.id, :provider_display_name => @app.name
+              post = u.post :status_message, :text => "#{u.username} - #{n} via app", :to => aspect_to_post.id, :provider_display_name => @app.name, :public => true
             else
-              post = u.post :status_message, :text => "#{u.username} - #{n}", :to => aspect_to_post.id
+              post = u.post :status_message, :text => "#{u.username} - #{n}", :to => aspect_to_post.id, :public => ( n%2 == 0 )
             end
             post.created_at = (post.created_at-time_past) - time_interval
             post.updated_at = (post.updated_at-time_past) + time_interval
@@ -164,6 +164,24 @@ describe User do
             time_interval += 1000
           end
         end
+
+        post_non_app = alice.posts.detect { |p|
+          p.public? &&
+          p.provider_display_name != @app.name
+        }
+        @reshare_not_from_app = bob.post(:reshare, :root_guid => post_non_app.guid, :to => @bobs_aspect)
+        # @reshare_not_from_app.created_at = (@reshare_not_from_app.created_at-time_past) - time_interval
+        # @reshare_not_from_app.updated_at = (@reshare_not_from_app.updated_at-time_past) + time_interval
+        # @reshare_not_from_app.save
+
+        post_app = alice.posts.detect { |p|
+          p.public? &&
+          p.provider_display_name == @app.name
+        }
+        @reshare_from_app = bob.post(:reshare, :root_guid => post_app.guid, :to => @bobs_aspect)
+        # @reshare_from_app.created_at = (@reshare_from_app.created_at-time_past) - time_interval - 1000
+        # @reshare_from_app.updated_at = (@reshare_from_app.updated_at-time_past) + time_interval + 1000
+        # @reshare_from_app.save
       end
 
       it 'works' do # The set up takes a looong time, so to save time we do several tests in one
@@ -207,7 +225,6 @@ describe User do
         p4 = bob.visible_posts[12]
         p4.provider_display_name.should == @app.name
         p4.text.should == "eve - 20 via app"
-        bob.visible_posts.detect { |p| p.provider_display_name == @app.name }.should_not be_nil
 
         p3 = eve.visible_posts[7]
         p3.provider_display_name.should be_nil
@@ -216,6 +233,10 @@ describe User do
         p4.provider_display_name.should be_nil
         p4.text.should == "eve - 19"
         eve.visible_posts.detect { |p| p.provider_display_name == @app.name }.should be_nil
+
+        # It should even filter out reshares of blocked applications
+        eve.visible_posts(:type => ['StatusMessage', 'Photo','Reshare']).should include(@reshare_not_from_app)
+        eve.visible_posts(:type => ['StatusMessage', 'Photo','Reshare']).should_not include(@reshare_from_app)
       end
     end
   end
