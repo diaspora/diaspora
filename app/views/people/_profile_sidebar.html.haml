@@ -37,10 +37,10 @@
             = person.profile.gender
 
         %li
-          - unless person.profile.birthday.blank?
+          - unless person.profile.birthday.blank? || person.profile.birthday_hidden?
             %h4
-              =t('.born')
-            = birthday_format(person.profile.birthday)
+              = birthday_title(person.profile)
+            = birthday_format(person.profile)
 
           %br
           %br

@@ -562,6 +562,7 @@ en:
       location: "location"
       gender: "gender"
       born: "birthday"
+      age: "age"
       in_aspects: "in aspects"
       remove_from: "Remove %{name} from %{aspect}?"
     helper:
@@ -627,6 +628,7 @@ en:
       last_name: "Last name"
       your_gender: "Your gender"
       your_birthday: "Your birthday"
+      display_birthday_as: "Display birthday as"
       your_tags: "Describe yourself in 5 words"
 
       your_tags_placeholder: "like #movies #kittens #travel #teacher #newyork"
@@ -637,6 +639,10 @@ en:
       update_profile: "Update Profile"
       allow_search: "Allow for people to search for you within Diaspora"
       edit_profile: "Edit profile"
+      birthday:
+        full: "Full date"
+        age: "Age only"
+        none: "Don't show"
     update:
       updated: "Profile updated"
       failed: "Failed to update profile"

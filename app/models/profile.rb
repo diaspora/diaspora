@@ -39,7 +39,7 @@ class Profile < ActiveRecord::Base
   validate :valid_birthday
 
   attr_accessible :first_name, :last_name, :image_url, :image_url_medium,
-    :image_url_small, :birthday, :gender, :bio, :location, :searchable, :date, :tag_string
+    :image_url_small, :birthday, :birthday_display, :gender, :bio, :location, :searchable, :date, :tag_string
 
   belongs_to :person
   before_validation do
@@ -138,12 +138,17 @@ class Profile < ActiveRecord::Base
       rows.inject(""){|string, row| string << "##{row[1]} " }
     end
   end
-
+  
   # Constructs a full name by joining #first_name and #last_name
   # @return [String] A full name
   def construct_full_name
     self.full_name = [self.first_name, self.last_name].join(' ').downcase.strip
     self.full_name
+  end
+
+  def birthday_hidden?
+    return true if birthday_display == "none"
+    false
   end
 
   protected
