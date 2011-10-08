@@ -43,6 +43,10 @@
 
         self.deletePostLink.toggleClass("hidden");
         self.hidePostLoader.toggleClass("hidden");
+        window.setTimeout(function() {
+          self.deletePostLink.toggleClass("hidden");
+          self.hidePostLoader.toggleClass("hidden");
+        }, 5000);
       });
 
       self.focusCommentLink.click(function(evt) {

@@ -207,3 +207,11 @@ end
 Then 'I press the attached image' do
   Then %{I press the 1st "img" within ".stream_element div.photo_attachments"}
 end
+
+Then /^I should see first post deletion link$/ do
+  wait_until(30) { page.evaluate_script("$('.stream_element_delete').first().css('display')") == "inline" }
+end
+
+Then /^I should not see ajax loader on deletion link place$/ do
+  wait_until(30) { page.evaluate_script("$('.hide_loader').first().css('display')") == "none" }
+end
