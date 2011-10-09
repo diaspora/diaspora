@@ -44,7 +44,7 @@ var AspectsDropdown = {
   toggleSelection: function(dropdown) {
     dropdown.children('li[data-aspect_id]').toggleClass(
       'selected',
-      dropdown.children('li.selected[data-aspect_id]').length == 0
+      dropdown.children('li.selected[data-aspect_id]').length !== dropdown.children('li[data-aspect_id]').length
     );
   },
   
