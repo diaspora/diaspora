@@ -9,7 +9,7 @@
     %ul.sub_nav
       %a.toggle_selector{:href => '#'}
       - for aspect in all_aspects
-        %li{:data => {:aspect_id => aspect.id}, :class => ("active" if params["a_id"].to_i == aspect.id)}
+        %li{:data => {:aspect_id => aspect.id}, :class => ("active" if defined?(selected_aspects) && selected_aspects.include?(aspect.id))}
           .edit
             = link_to image_tag("icons/pencil.svg", :height => 12, :title => t('.edit_aspect', :name => aspect.name)), edit_aspect_path(aspect), :rel => "facebox"
 

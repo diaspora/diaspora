@@ -19,7 +19,7 @@
           = link_to "Welcome", getting_started_path, :class => "home_selector"
 
   .section
-    = render 'aspects/aspect_listings'
+    = render 'aspects/aspect_listings', :selected_aspects => @stream.aspect_ids
 
   .section
     %ul.left_nav
