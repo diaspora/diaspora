@@ -11,7 +11,7 @@
     -if post.comments.size > 3 && !comments_expanded
       = render :partial => 'comments/comment', :collection => post.last_three_comments, :locals => {:post => post}
     -else
-      = render :partial => 'comments/comment', :collection => post.comments, :locals => {:post => post}
+      = render :partial => 'comments/comment', :collection => post.comments.order('created_at'), :locals => {:post => post}
 
   - unless commenting_disabled?(post)
     .new_comment_form_wrapper{:class => comment_form_wrapper_class(post)}
