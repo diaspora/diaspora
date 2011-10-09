@@ -1,0 +1,940 @@
+#   Copyright (c) 2010-2011, Diaspora Inc.  This file is
+#   licensed under the Affero General Public License version 3 or later.  See
+#   the COPYRIGHT file.
+
+# Sample localization file for English. Add more files in this directory for other locales.
+# See http://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
+
+en:
+  settings: "53771NG5"
+  profile: "PR0F1L3"
+  account: "4CC0UN7"
+  _services: "53RV1C35"
+  _applications: "4PPL1C4710N5"
+  _photos: "P1CZ"
+  ok: "K"
+  cancel: "C4NC3L"
+  delete: "D3L373"
+  hide: "PWN?"
+  undo: "UND0?"
+  or: "0R"
+  ago: "%{time} 4G0"
+  username: "N1CKN4M3"
+  email: "M41L"
+  password: "*****"
+  password_confirmation: "***** C0NF1RM4710N"
+  are_you_sure: "4R3 U 5UR3?"
+  fill_me_out: "F1LL M3 0U7!"
+  back: "<-"
+  public: "PUBL1C"
+  limited: "V1P"
+  search: "534RCH"
+  find_people: "F1ND N00B5 0R #74G5"
+  _home: "127.0.0.1"
+  more: "M0R3"
+  next: "N3X7"
+  previous: "PR3V10U5"
+  _comments: "5P4M"
+  all_aspects: "4LL 45P3C75"
+  no_results: "N07H1NG F0UND!"
+  _contacts: "N00B5"
+
+
+  #for reference translation, the real activerecord english transations are actually
+  #in en-US, en-GB, and en-AU yml files
+  activerecord:
+    errors:
+      models:
+        user:
+          attributes:
+            person:
+              invalid: "15 1NV4L1D"
+            username:
+              taken: "15 4LR34DY PWND"
+              invalid: "415 - 0NLY U53 L3773R5, NUMB3R5 & UND3R5C0R35!"
+            email:
+              taken: "15 4LR34DY 74K3N!"
+        person:
+          attributes:
+            diaspora_handle:
+              taken: "N1CK 4LR34DY 74K3N"
+        contact:
+          attributes:
+            person_id:
+              taken: "MU57 B3 UN1QU3!"
+        request:
+          attributes:
+            from_id:
+              taken: "DUPL1C473 -> D0N7 5P4M!"
+        reshare:
+          attributes:
+            root_guid:
+              taken: "U JU57 5P4MM3D 7H15 P057!"
+  error_messages:
+    helper:
+      invalid_fields: "1NV4L1D F13LD5!"
+      correct_the_following_errors_and_try_again: "C0RR3C7 Y0UR 3RR0R5 4ND 7RY 4G41N!"
+
+
+  application:
+    helper:
+      unknown_person: "4N0NYM0U5 N00B!"
+      video_title:
+        unknown: "UNK0WN PR0N 717L3"
+      diaspora_alpha: "D145P0R4* 4LPH4"
+  aspects:
+    zero: "N0 45P3C75"
+    one: "1 45P3C7"
+    two: "%{count} 45P3C75"
+    few: "%{count} 45P3C75"
+    many: "%{count} 45P3C75"
+    other: "%{count} 45P3C75"
+    contacts_visible: "N00B5 1N 7H15 45P3C7 W1LL KN0W 34CH 07H3R!"
+    contacts_not_visible: "N00B5 1N 7H15 45P3C7 W0N7 KN0W 34CH 07H3R!"
+    edit:
+      make_aspect_list_visible: "M4K3 N00B5 V151BL3 2 34CH 07H3R?"
+      remove_aspect: "D3L373 7H15 45P3C7!"
+      confirm_remove_aspect: "5UR3?"
+      add_existing: "4DD 4 KN0WN N00B"
+      done: "K"
+      rename: "R3N4M3"
+      aspect_list_is_visible: "45P3C7 L157 15 V151BL3 2 07H3R5 1N 45P3C7!"
+      aspect_list_is_not_visible: "45P3C7 L157 15 H1DD3N 2 07H3R5 1N 45P3C7!"
+      update: "UPD473"
+      updating: "UPD471NG..."
+    aspect_contacts:
+      done_editing: "D0N3 3D171NG!"
+    aspect_stream:
+      stream: "57R34M"
+      mentions: "M3N710N5"
+      recently: "R3C3N7LY:"
+      commented_on: "C0MM3N73D 0N"
+      posted: "5P4MM3D"
+    show:
+      edit_aspect: "3D17 45P3C7"
+    no_posts_message:
+      start_talking: "N0B0DY 5P4MM3D 4NY7H1NG..."
+    no_contacts_message:
+      you_should_add_some_more_contacts: "U 5H0ULD G37 50M3 N00B5!"
+      try_adding_some_more_contacts: "U C4N 534RCH (70P) 0R 1NV173 50M3 N00B5 (R1GH7)"
+      or_featured:  "0R U C4N 5H4R3 W17H %{link}"
+      featured_users: "PR0G4M3R"
+    aspect_listings:
+      edit_aspect: "3D17 %{name}"
+      add_an_aspect: "+ 4DD 4N 45P3C7"
+    selected_contacts:
+      view_all_featured_users: "533 4LL PR0G4M3R5!"
+      view_all_contacts: "V13W 4LL N00B5!"
+      no_contacts: "U D0N7 H4V3 4NY N00B5 H3R3!"
+      manage_your_aspects: "M4N4G3 Y0UR 45P3C75!"
+
+    new:
+      name: "N4M3 (JU57 F0R U)"
+      create: "CR3473"
+    create:
+      success: "N3W 45P3C7 %{name} W45 CR4F73D!"
+      failure: "45P3C7 CR34710N F41L3D!"
+    destroy:
+      success: "%{name} G07 5UCC35FULLY PWND!"
+      failure: "%{name} N07 3MP7Y -> F41L!"
+    update:
+      success: "45P3C7 %{name} H45 B33N 5UCC35FULLY 3D173D!"
+      failure: "45P3C7 %{name} H4D 2 L0NG N4M3 -> F41L!"
+    move_contact:
+      failure: "PWND %{inspect}"
+      success: "N00B M0V3D 2 N3W 45P3C7!"
+      error: "3RR0R M0V1NG N00B: %{inspect}"
+    add_to_aspect:
+      failure: "F41L3D 2 4DD N00B!"
+      success: "N00B 4DD3D"
+    helper:
+      remove: "R3M0V3"
+      aspect_not_empty: "45P3C7 N07 3MP7Y!"
+      are_you_sure: "5UR3?"
+    seed:
+      family: "RL"
+      work: "RL-N00B5"
+      acquaintances: "PR05"
+      friends: "N00B5"
+    index: 
+      mentions: "M3N710N5"
+      featured_users: "PR0G4M3R"
+      community_members: "F347UR3D D* M3MB3R5"
+      see_more_from_us: "533 M0R3 0F 7H3 C0MMUN17Y!"
+      donate: "D0N473!"
+      keep_us_running: "K33P %{pod} UP BY D0N471NG 3V3RY M0N7H!"
+      your_aspects: "Y0UR 45P3C75"
+      tags_following: "F0LL0W3D #74G5"
+      no_tags: "+ F1ND 4 #74G 2 F0LL0W"
+      unfollow_tag: "570P F0LL0W1NG #%{tag}"
+      handle_explanation: "7H15 15 Y0UR D* 1D, N00B5 C4N F1ND U U51NG 17!"
+      no_contacts: "N0 N00B5"
+      post_a_message: "5P4M 50M37H1NG >>"
+      people_sharing_with_you: "N00B5 5H4R1NG W17H U!"
+      help:
+        need_help: "N33D H3LP?"
+        here_to_help: "45K PR0G4M3R5!"
+        do_you: "D0 U:"
+        have_a_question: "... H4V3 4 %{link}?"
+        find_a_bug: "... F0UND 4 %{link}?"
+        feature_suggestion: "... H4V3 4 %{link} 5UGG35710N?"
+
+        tutorials_and_wiki: "%{tutorial} & %{wiki}: 7U70R14L5, H0W705, N3W5, 37C..."
+
+        feature_and_forum: "%{gs} & %{forum}: 5UPP0R7 & F347UR3 R3QU3575!"
+
+        satisfaction: "%{link}: C0MMUN17Y-P0W3R3D 5UPP0R7!"
+        email_feedback: "%{link} Y0UR F33DB4CK!"
+      cubbies:
+        heading: "C0NN3C7 70 CUBB1.35"
+        explanation: "CUBB1.35 15 7H3 F1R57 4PP F0R D*!"
+        learn_more: "Learn more"
+      diaspora_id:
+        heading: "D* 1D"
+        content_1: "Y0UR D* 1D 15:"
+        content_2: "G1V3 7H3M 2 N00B5 4ND 7H3Y W1LL F1ND U!"
+      services:
+        heading: "C0NN3C7 53RV1C35"
+        content: "U C4N C0NN3C7 7H3 F0LL0W1NG 53RV1C35 2 D*:"
+  aspect_memberships:
+    destroy:
+      success: "PWND 7H47 N00B!"
+      failure: "F41L3D 2 PWN 7H47 N00B!"
+      no_membership: "N00B N07 F0UND!"
+
+  bookmarklet:
+    heading: "B00KM4RKL37"
+    post_success: "5P4MM3D! CL051NG!"
+    post_something: "5P4M 50M37H1NG 2 D*"
+    explanation: "5P4M FR0M 4NYWH3R3, 4NY71M3! %{link}."
+    explanation_link_text: "7H15 L1NK"
+
+  comments:
+    zero: "N0 5P4M5"
+    one: "1 5P4M"
+    two: "%{count} 5P4M5"
+    few: "%{count} 5P4M5"
+    many: "%{count} 5P4M5"
+    other: "%{count} 5P4M5"
+    new_comment:
+      comment: "5P4M"
+      commenting: "5P4MM1NG..."
+
+  reactions:
+    zero: "0 R34C710N5"
+    one: "1 R34C710N"
+    two: "%{count} R34C710N5"
+    few: "%{count} R34C710N5"
+    many: "%{count} R34C710N5"
+    other: "%{count} R34C710N5"
+
+  contacts:
+    zero: "N00B5"
+    one: "1 N00B"
+    two: "%{count} N00B5"
+    few: "%{count} N00B5"
+    many: "%{count} N00B5"
+    other: "%{count} N00B5"
+    create:
+      failure: "F41L3D 2 CR3473 C0N74C7!"
+    sharing:
+      people_sharing: "N00B5 5H4R1NG W17H U:"
+    index:
+      add_to_aspect: "4DD N00B5 2: %{name}"
+      start_a_conversation: "574R7 4 N3W C0NV3R54710N!"
+      add_a_new_aspect: "4DD 4 N3W 45P3C7!"
+      title: "N00B5"
+      your_contacts: "Y0UR N00B5"
+      no_contacts: "L00K5 L1K3 U N33D 70 PWN M0R3 N00B5!"
+      check_out: "CH3CK 0U7"
+      my_contacts: "Y0UR N00B5"
+      all_contacts: "4LL N00B5"
+      only_sharing_with_me: "0NLY 5H4R1NG W17H U"
+      remove_person_from_aspect: "R3M0V3 %{person_name} FR0M \"%{aspect_name}\""
+      many_people_are_you_sure: "R34LLY W4NN4 5P4M %{suggested_limit} N00B5? 5P4MM1NG 7H31R 45P3C7 M4Y B3 M0R3 1N73LL1G3N7!" 
+    featured:
+      featured_users: "PR0G4M3R"
+
+  conversations:
+    index:
+      message_inbox: "M3554G3 1NB0X"
+      new_message: "N3W 5P4M"
+      no_conversation_selected: "N0 C0NV3R54710N 53L3C73D!"
+      create_a_new_message: "5P4M 50M30N3!"
+      no_messages: "N0 5P4M5"
+      inbox: "1NB0X"
+    show:
+      reply: "R3PLY"
+      replying: "R3PLY1NG..."
+      delete: "PWN 7H47 C0NV3R54710N!"
+    new:
+      to: "2"
+      subject: "N00B"
+      send: "5P4M"
+      sending: "5P4MM1NG..."
+      abandon_changes: "D0N7 54V3?"
+    helper:
+      new_messages: 
+        zero: "N0 N3W M3554G35"
+        one: "1 N3W M3554G3"
+        two: "%{count} N3W M3554G35"
+        few: "%{count} N3W M3554G35"
+        many: "%{count} N3W M3554G35"
+        other: "%{count} N3W M3554G35"
+    create:
+      sent: "M3554G3 53N7!"
+      fail: "1NV4L1D M3554G3!"
+    new_message:
+      fail: "1NV4L1D M3554G3!"
+    destroy:
+      success: "C0NV3R54710N PWND!"
+
+  date:
+    formats:
+      fullmonth_day: "%B %d"
+      birthday: "%B %d"
+      birthday_with_year: "%B %d %Y"
+
+  home:
+    show:
+      share_what_you_want: "5P4M WH0 U W4N7, W17H WH47 U W4N7!"
+      tagline_first_half: "5P4M WH0 U W4N7,"
+      tagline_second_half: "W17H WH47 U W4N7!"
+      already_account: "4LR34DY H4V3 4N 4CC0UN7?"
+      login_here: "L0G 1N H3R3!"
+      choice: "CH01C3"
+      choice_explanation: "D* L375 U 50R7 Y0UR N00B5 1N GR0UP5 C4LL3D 45P3C75! UN1QU3 70 D*, 45P3C75 3N5UR3 7H47 Y0UR 74RG375, J0K35 4ND PR0N 4R3 5H4R3D 0NLY W17H 7H3 N00B5 U W4N7 2!"
+      ownership: "0WN(3R5H1P)"
+      ownership_explanation: "U 0WN Y0UR PR0N, 4ND U 5H0ULDN7 H4V3 2 G1V3 7H47 UP JU57 2 5H4R3 17! U M41N741N 0WN3R5H1P 0N 3V3RY7H1NG U 5H4R3 0N D*, G1V1NG U FULL C0N7R0L 0V3R H0W 175 C0N7R1BU73D!"
+      simplicity: "51MPL1C17Y"
+      simplicity_explanation: "D* M4K35 5H4R1NG CL34N 4ND 345Y F0R N00B5 – 4ND 7H15 G035 F0R PR1V4CY 2! 1NH3R3N7LY PR1V473, D* D035N7 M4K3 U W4D3 7HR0UGH P5G35 0F 53771NG5 4ND 0P710N5 JU57 2 K33P Y0UR PR0F1L3 53CUR3!"
+      learn_about_host: "L34RN 4B0U7 H0W 2 H057 Y0UR 0WN D* 53RV3R!"
+
+  invitations:
+    create:
+      sent: "1NV174710N5 H4V3 B33N 53N7 2: "
+      rejected: "7H3 F0LL0W1NG M41L5 H4D PR0BL3M5: "
+      no_more: "U H4V3 N0 M0R3 1NV174710N5!"
+      already_sent: "U 4LR34DY 1NV173D 7H15 N00B!"
+      already_contacts: "U 4R3 4LR34DY C0NN3C73D W17H 7H15 N00B!"
+      own_address: "U C4N7 5P4M Y0UR 0WN M41L!"
+    new:
+      invite_someone_to_join: "5P4M 50M30N3 2 J01N D*!"
+      if_they_accept_info: "1F 7H3Y 4CC3P7, 7H3Y W1LL B3 4DD3D 2 7H3 45P3C7 U 1NV173D 7H3M!"
+      comma_seperated_plz: "U C4N 5P4M MUL71PL3 M41L5, 53P3R473 7H3M BY 4 C0MM4!"
+      to: "7o"
+      personal_message: "P3R50N4L M3554G3"
+      send_an_invitation: "53ND 4 5P4M!"
+      send_invitation: "53ND 5P4M!"
+      aspect: "45P3C7"
+      already_invited: "7H3 F0LL0W1NG N00B5 F4C3P4LM3D 7H3M53LV35:"
+      resend: "R35P4M!"
+    check_token:
+      not_found: "1NV4L1D 1NV174710N 70K3N!"
+    edit:
+      your_account_awaits: "Y0UR 4CC0UN7 W4175!"
+      accept_your_invitation: "4CC3P7 Y0UR 1NV174710N!"
+    a_facebook_user: "4 F4C3B00K N00B!"
+
+  layouts:
+    header:
+      profile: "PR0F1L3"
+      settings: "53771NG5"
+      logout: "K7HXB41"
+      blog: "BL0G"
+      login: "L0G 1N"
+      code: "C0D3"
+      admin: "G0DM0D3!"
+      view_all: "V13W 4LL!"
+      recent_notifications: "R3C3N7 N071F1C4710N5!"
+    application:
+      powered_by: "P0W3R3D BY D*"
+      whats_new: "WH475 N3W?"
+      toggle: "70GGL3 M0B1L3"
+      public_feed: "PUBL1C D* F33D F0R %{name}"
+      your_aspects: "Y0UR 45P3C75"
+
+  likes:
+    likes:
+      people_like_this:
+        zero: "N0 <3"
+        one: "%{count} <3"
+        two: "%{count} <3"
+        few: "%{count} <3"
+        many: "%{count} <3"
+        other: "%{count} <3"
+      people_like_this_comment:
+        zero: "N0 <3"
+        one: "%{count} <3"
+        two: "%{count} <3"
+        few: "%{count} <3"
+        many: "%{count} <3"
+        other: "%{count} <3"
+      people_dislike_this:
+        zero: "N0 </3"
+        one: "%{count} </3"
+        two: "%{count} </3"
+        few: "%{count} </3"
+        many: "%{count} </3"
+        other: "%{count} </3"
+
+ notifications:
+    started_sharing:
+      zero: "%{actors} 574R73D 5H4R1NG W17H U."
+      one: "%{actors} 574R73D 5H4R1NG W17H U."
+      two: "%{actors} 574R73D 5H4R1NG W17H U."
+      few: "%{actors} 574R73D 5H4R1NG W17H U."
+      many: "%{actors} 574R73D 5H4R1NG W17H U."
+      other: "%{actors} 574R73D 5H4R1NG W17H U."
+    private_message:
+      zero: "%{actors} 53N7 U 4 M3554G3."
+      one: "%{actors} 53N7 U 4 M3554G3."
+      two: "%{actors} 53N7 U 4 M3554G3."
+      few: "%{actors} 53N7 U 4 M3554G3."
+      many: "%{actors} 53N7 U 4 M3554G3."
+      other: "%{actors} 53N7 U 4 M3554G3."
+    comment_on_post:
+      zero: "%{actors} C0MM3N73D 0N Y0UR %{post_link}."
+      one: "%{actors} C0MM3N73D 0N Y0UR %{post_link}."
+      two: "%{actors} C0MM3N73D 0N Y0UR %{post_link}."
+      few: "%{actors} C0MM3N73D 0N Y0UR %{post_link}."
+      many: "%{actors} C0MM3N73D 0N Y0UR %{post_link}."
+      other: "%{actors} C0MM3N73D 0N Y0UR %{post_link}."
+    also_commented:
+      zero: "%{actors} 4L50 C0MM3N73D 0N %{post_author}'s %{post_link}."
+      one: "%{actors} 4L50 C0MM3N73D 0N %{post_author}'s %{post_link}."
+      two: "%{actors} 4L50 C0MM3N73D 0N %{post_author}'s %{post_link}."
+      few: "%{actors} 4L50 C0MM3N73D 0N %{post_author}'s %{post_link}."
+      many: "%{actors} 4L50 C0MM3N73D 0N %{post_author}'s %{post_link}."
+      other: "%{actors} 4L50 C0MM3N73D 0N %{post_author}'s %{post_link}."
+    mentioned:
+      zero: "%{actors} H45 M3N710N3D U 1N 4 %{post_link}."
+      one: "%{actors} H45 M3N710N3D U 1N 4 %{post_link}."
+      two: "%{actors} H45 M3N710N3D U 1N 4 %{post_link}."
+      few: "%{actors} H45 M3N710N3D U 1N 4 %{post_link}."
+      many: "%{actors} H45 M3N710N3D U 1N 4 %{post_link}."
+      other: "%{actors} H45 M3N710N3D U 1N 4 %{post_link}."
+    liked:
+      zero: "%{actors} H45 JU57 <3 Y0UR %{post_link}."
+      one: "%{actors} H45 JU57 <3 Y0UR %{post_link}."
+      two: "%{actors} H45 JU57 <3 Y0UR %{post_link}."
+      few: "%{actors} H45 JU57 <3 Y0UR %{post_link}."
+      many: "%{actors} H45 JU57 <3 Y0UR %{post_link}."
+      other: "%{actors} H45 JU57 <3 Y0UR %{post_link}."
+    reshared:
+      zero: "%{actors} H45 R35H4R3D Y0UR %{post_link}."
+      one: "%{actors} H45 R35H4R3D Y0UR %{post_link}."
+      two: "%{actors} H45 R35H4R3D Y0UR %{post_link}."
+      few: "%{actors} H45 R35H4R3D Y0UR %{post_link}."
+      many: "%{actors} H45 R35H4R3D Y0UR %{post_link}."
+      other: "%{actors} H45 R35H4R3D Y0UR %{post_link}."
+    post: "post"
+    also_commented_deleted:
+      zero: "%{actors} C0MM3N73D 0N 4 D3L373D P057."
+      one: "%{actors} C0MM3N73D 0N 4 D3L373D P057."
+      two: "%{actors} C0MM3N73D 0N 4 D3L373D P057."
+      few: "%{actors} C0MM3N73D 0N 4 D3L373D P057."
+      many: "%{actors} C0MM3N73D 0N 4 D3L373D P057."
+      other: "%{actors} C0MM3N73D 0N 4 D3L373D P057."
+    liked_post_deleted:
+      zero: "%{actors} <3 Y0UR D3L373D P057."
+      one: "%{actors} <3 Y0UR D3L373D P057."
+      two: "%{actors} <3 Y0UR D3L373D P057."
+      few: "%{actors} <3 Y0UR D3L373D P057."
+      many: "%{actors} <3 Y0UR D3L373D P057."
+      other: "%{actors} <3 Y0UR D3L373D P057."
+    reshared_post_deleted:
+      zero: "%{actors} R35H4R3D Y0UR D3L373D P057."
+      one: "%{actors} R35H4R3D Y0UR D3L373D P057."
+      two: "%{actors} R35H4R3D Y0UR D3L373D P057."
+      few: "%{actors} R35H4R3D Y0UR D3L373D P057."
+      many: "%{actors} R35H4R3D Y0UR D3L373D P057."
+      other: "%{actors} R35H4R3D Y0UR D3L373D P057."
+    mentioned_deleted:
+      zero: "%{actors} M3N710N3D U 1N 4 D3L373D P057."
+      one: "%{actors} M3N710N3D U 1N 4 D3L373D P057."
+      two: "%{actors} M3N710N3D U 1N 4 D3L373D P057."
+      few: "%{actors} M3N710N3D U 1N 4 D3L373D P057."
+      many: "%{actors} M3N710N3D U 1N 4 D3L373D P057."
+      other: "%{actors} M3N710N3D U 1N 4 D3L373D P057."
+    index:
+      notifications: "N071F1C4710N5"
+      mark_all_as_read: "M4RK 4LL 45 R34D"
+      and_others: 
+        zero: "4ND N0B0DY 3l53"
+        one: "4ND 0N3 M0R3"
+        two: "4ND %{count} 07H3R5"
+        few: "4ND %{count} 07H3R5"
+        many: "4ND %{count} 07H3R5"
+        other: "4ND %{count} 07H3R5"
+      and: '4ND'
+    helper:
+      new_notifications:
+        zero: "N0 N3W N071F1C4710N5"
+        one: "1 N3W N071F1C4710N"
+        two: "%{count} N3W N071F1C4710N5"
+        few: "%{count} N3W N071F1C4710N5"
+        many: "%{count} N3W N071F1C4710N5"
+        other: "%{count} N3W N071F1C4710N5"
+
+  notifier:
+    a_post_you_shared: "4 P057!"
+    email_sent_by_diaspora: "7H15 M41L W45 53N7 BY D*!  1F U W0ULD L1K3 2 510P G3771NG M41L5 L1K3 7H15,"
+    click_here: "CL1CK H3R3"
+    hello: "H3LL0 %{name}!"
+    thanks: "7HX, "
+    to_change_your_notification_settings: "2 CH4NG3 Y0UR N071F1C4710N 53771NG5"
+    single_admin:
+        subject: "4 M3554G3 4B0U7 Y0UR D* 4CC0UN7:"
+        admin: "Y0UR D* 4DM1M"
+    started_sharing:
+        subject: "%{name} 574R73D 5H4R1NG W17H U 0N D*!"
+        sharing: "H45 574R73D 5H4R1NG W17H U!"
+        view_profile: "V13W %{name}'s PR0F1L3"
+    comment_on_post:
+        reply: "R3PLY 0R V13W %{name}'s 5P4M >"
+    mentioned:
+        subject: "%{name} H45 M3N710N3D U 0N D*!"
+        mentioned: "M3N710N3D U 1N 4 5P4M:"
+    private_message:
+        reply_to_or_view: "R3PLY 2 0R V13W 7H15 C0NV3R54710N >"
+    liked:
+        liked: "%{name} JU57 <3 Y0UR 5P4M!"
+        view_post: "V13W 5P4M >"
+    reshared:
+        reshared: "%{name} JU57 R35P4MM3D Y0UR 5P4M!"
+        view_post: "V13W 5P4M >"
+    confirm_email:
+        subject: "Please activate your new email address %{unconfirmed_email}"
+        click_link: "2 4C71V473 Y0UR N3W M41L %{unconfirmed_email}, PLZ F0LL0W 7H15 L1NK:"
+  people:
+    zero: "N0 N00B5"
+    one: "1 N00B"
+    two: "%{count} N00B5"
+    few: "%{count} N00B5"
+    many: "%{count} N00B5"
+    other: "%{count} N00B5"
+    person:
+      pending_request: "P3ND1NG R3QU357"
+      already_connected: "4LR34DY C0NN3C73D!"
+      thats_you: "7H475 U!"
+      add_contact: "4DD N00B"
+    index:
+      results_for: "534RCH R35UL75 F0R"
+      no_results: "H3Y! U N33D 2 534RCH F0R 50M37H1NG!"
+      couldnt_find_them_send_invite: "C0ULDN7 F1ND 7H3M?  53ND 4N 1NV173 5P4M!"
+      no_one_found: "...4ND N0 0N3 W45 F0UND!"
+    webfinger:
+      fail: "%{handle} != 3X1571NG"
+    show:
+      has_not_shared_with_you_yet: "%{name} H45 N07 5H4R3D 4NY 5P4M W17H U!"
+      incoming_request: "%{name} W4N75 2 5H4R3 W17H U!"
+      return_to_aspects: "R37URN 2 Y0UR 45P3C75 P4G3"
+      to_accept_or_ignore: "2 4CC3P7 0R PWN 7H15 N00B"
+      does_not_exist: "N00B != 3X1571NG"
+      not_connected: "U 4R3 N07 5H4R1NG W17H 7H15 P3R50N!"
+      recent_posts: "R3C3N7 5P4M"
+      recent_public_posts: "R3C3N7 PUBL1C 5P4M"
+      see_all: "533 4LL"
+      start_sharing: "475R7 5H4R1NG"
+      message: "5P4M"
+      mention: "M3N710N"
+    sub_header:
+      you_have_no_tags: "U H4V3 N0 74G5!"
+      add_some: "4DD 50M3"
+      edit: "3D17"
+    profile_sidebar:
+      remove_contact: "PWN N00B"
+      edit_my_profile: "3D17 MY PR0F1L3"
+      bio: "B10"
+      location: "1P"
+      gender: "G3ND3R"
+      born: "B-D4Y"
+      in_aspects: "1N 45P3C75"
+      remove_from: "R3M0V3 %{name} FR0M %{aspect}?"
+    helper:
+      results_for: " R35UL75 F0R %{params}"
+      people_on_pod_are_aware_of: " N00B5 0N P0D 4R3 4W4R3 0F"
+    aspect_list:
+      edit_membership: "3D17 45P3C7 M3MB3R5H1P"
+    add_contact_small:
+      add_contact_from_tag: "4DD N00B FR0M 74G"
+
+  photos:
+    show:
+      delete_photo: "D3L373 P1C"
+      make_profile_photo: "M4K3 PR0F1L3 P1C"
+      update_photo: "UPD473 P1C"
+      edit: "3D17"
+      edit_delete_photo: "3D17 P1C D35CR1P710N / D3L373 P1C"
+      collection_permalink: "C0LL3C710N P3RM4L1NK"
+      show_original_post: "5H0W 0R1G1N4L 5P4M!"
+    edit:
+      editing: "3D171NG"
+    photo:
+      view_all: "V13W 4LL 0F %{name}'s PR0N"
+    new:
+      new_photo: "N3W PH070!"
+      back_to_list: "B4CK 2 L157"
+      post_it: "5P4M 17!"
+    create:
+      runtime_error: "PR0N UPL04D F41L3D!  4R3 U 5UR3 7H47 Y0UR 5347B3L7 15 F4573N3D?"
+      integrity_error: "PR0N UPL04D F41L3D! 4R3 U 5UR3 7H47 W45 4N 1M5G3?"
+      type_error: "PR0N UPL04D F41L3D! 4R3 U 5UR3 4N 1M4G3 W45 4DD3D?"
+    update:
+      notice: "P1C 5UCC35FULLY UPD473D!"
+      error: "F41L3D 2 3D17 P1C!"
+    destroy:
+      notice: "PR0N D3L373D!"
+    new_photo:
+      invalid_ext: "{file} H45 1NV4L1D 3X73N510N! 0NLY {extensions} 4R3 4LL0W3D!"
+      size_error: "{file} 15 2 L4RG3, M4X1MUM F1L3 51Z3 15 {sizeLimit}."
+      empty: "{file} 15 3MP7Y, PLZ 53L3C7 F1L35 4G41N W17H0U7 17!"
+    new_profile_photo:
+      upload: "UPL04D 4 N3W PR0F1L3 P1C!"
+      or_select_one: "0R 53L3C7 0N3 FR0M Y0UR 4LR34DY 3X1571NG!"
+    comment_email_subject: "%{name}'s PR0N"
+
+  posts:
+    show:
+      destroy: "D3L373"
+      permalink: "P3RM4L1NK"
+      not_found: "50RRY, W3 C0ULDN7 F1ND 7H47 5P4M!"
+
+  post_visibilites:
+    update:
+      post_hidden_and_muted: "%{name}'s 5P4M H45 B33N PWND, 4ND N071F1C4710N5 2!"
+      see_it_on_their_profile: "1F U W4N7 2 533 UPD4735 0N 7H15 5P4M, V1517 %{name}'s PR0F1L3 P4G3!"
+
+  profiles:
+    edit:
+      your_public_profile: "Y0UR PUBL1C PR0F1L3"
+      your_private_profile: "Y0UR PR1V473 PR0F1L3"
+      your_name: "Y0UR N4M3"
+      first_name: "F1R57 N4M3"
+      last_name: "L457 N4M3"
+      your_gender: "Y0UR G3ND3R"
+      your_birthday: "Y0UR B-D4Y"
+      your_tags: "D35CR1B3 Y0UR53LF 1N 5 W0RD5"
+      your_tags_placeholder: "L1K3 #4N0N #W0W #G33K #4N0NYM0U5 #1RC"
+      your_bio: "Y0UR B10"
+      your_location: "Y0UR 1P"
+      your_photo: "Y0UR PR0N"
+      update_profile: "UPD473 PR0F1L3"
+      allow_search: "4LL0W N00B5 2 534RCH F0R U!"
+      edit_profile: "3D17 PR0F1L3"
+    update:
+      updated: "PR0F1L3 UPD473D"
+      failed: "F41L3D 2 UPD473 PR0F1L3!"
+
+  registrations:
+    new:
+      create_my_account: "CR3473 MY 4CC0UN7!"
+
+      join_the_movement: "J01N 7H3 M0V3M3N7!"
+      sign_up_today: "51GN UP 2 D4Y!"
+
+      enter_email: "3N73R 4N 3M41L!"
+      enter_username: "P1CK 4 N1CK (0NLY L3773R5 NUMB3R5 4ND UND3R5C0R35!)"
+      enter_password: "3N73R *****"
+      enter_password_again: "3N73R 17 4G41N!"
+    create:
+      success: "U H4V3 J01N3D D*"
+    edit:
+      edit: "3D17 %{name}"
+      leave_blank: "(L34V3 BL4NK 1F U D0N7 W4N7 2 CH4NG3 17)"
+      password_to_confirm: "(W3 N33D Y0UR CURR3N7 ***** 2 C0NF1RM CH4NG35!)"
+      unhappy: "UNH4PPY?"
+      update: "UPD473"
+      cancel_my_account: "PWN MY 4CC0UN7!"
+    closed: "51GNUP5 4R3 CL053D 0N 7H15 D* P0D!"
+
+  requests:
+    manage_aspect_contacts:
+      manage_within: "M4N4G3 N00B5 W17H1N"
+      existing: "3X1571NG N00B5"
+    destroy:
+      success: "U 4R3 N0W 5H4R1NG"
+      error: "PL3453 53L3C7 4N 45P3C7!"
+      ignore: "PWND N00B R3QU357"
+    create:
+      sending: "5P4MM1NG"
+      sent: "U H4V3 45K3D 2 5H4R3 W17H %{name}.  7H3Y 50ULD 533 17 N3X7 71M3 7H3Y V1517 D*!"
+    new_request_to_person:
+      sent: "5P4MM3D!"
+    helper:
+      new_requests:
+        zero: "N0 N3W R3QU3575!"
+        one: "N3W R3QU357"
+        two: "%{count} N3W R3QU3575!"
+        few: "%{count} N3W R3QU3575!"
+        many: "%{count} N3W R3QU3575!"
+        other: "%{count} N3W R3QU3575!"
+  reshares:
+    reshare:
+      reshared_via: "R35P4MM3D V14"
+      reshare_original: "R35P4M 0R1G1N4L"
+      reshare:
+        zero: "R35P4M"
+        one: "1 R35P4M"
+        two: "%{count} R35P4M5"
+        few: "%{count} R35P4M5"
+        many: "%{count} R35P4M5"
+        other: "%{count} R35P4M5"
+      show_original: "5H0W 0R1G1N4L"
+      reshare_confirmation: "R35P4M %{author}'s 5P4M?"
+      deleted: "0R1G1N4L 5P4M PWND BY 4U7H0R!"
+    create:
+      failure: "R35P4MM1NG F41L3D!"
+    comment_email_subject: "%{resharer}'s R35P4M 0F %{author}'s 5P4M"
+  services:
+    index:
+      logged_in_as: "L0GG3D 1N 45"
+      disconnect: "D15C0NN3C7"
+      really_disconnect: "D15C0NN3C7 %{service}?"
+      connect_to_twitter: "C0NN3C7 2 7W1773R"
+      connect_to_facebook: "C0NN3C7 2 FB"
+      connect_to_tumblr: "C0NN3C7 2 7UMBLR"
+      edit_services: "3D17 53RV1C35!"
+      no_services: 'U H4V3 N07 C0NN3C73D 4NY 53RV1C35 Y37!'
+    create:
+      success: "4U7H3N71F1C4710N 5UCC355FULL"
+    destroy:
+      success: "5UCC35FULLY D3L373D 4U7H3N71F1C4710N!"
+    failure:
+      error: "3RR0R C0NN3C71NG 7H47 53RV1C3!"
+    inviter:
+      join_me_on_diaspora: "J01N M3 0N D*"
+      click_link_to_accept_invitation: "F0LL0W 7H15 L1NK 2 4CC3P7 Y0UR 1NV174710N!"
+    finder:
+      service_friends: "%{service} N00B5"
+      no_friends: "N0 FB N00B5 F0UND!"
+    remote_friend:
+      resend: "R35P4M"
+      invite: "1NV173"
+      not_on_diaspora: "N07 Y37 0N D*!"
+
+  shared:
+    aspect_dropdown:
+      add_to_aspect: "4DD N00B"
+      toggle:
+        zero: "4DD N00B"
+        one: "1N %{count} 45P3C7"
+        two: "1N %{count} 45P3C75"
+        few: "1N %{count} 45P3C75"
+        many: "1N %{count} 45P3C75"
+        other: "1N %{count} 45P3C75"
+    publisher:
+      posting: "5P4MM1NG..."
+      share: "5P4M"
+      post_a_message_to: "5P4M 7H15 45P3C7: %{aspect}"
+      make_public: "M4K3 PUBL1C"
+      all: "4LL"
+      upload_photos: "UPL04D P1C5"
+      all_contacts: "4LL N00B5"
+      share_with: "5H4R3 W17H"
+      whats_on_your_mind: "WH475 0N Y0UR M1ND?"
+      publishing_to: "PUBL15H1NG 2: "
+      click_to_share_with: "CL1CK 2 5H4R3 W17H: "
+      discard_post: "D15C4RD P057"
+    add_contact:
+      enter_a_diaspora_username: "3N73R 4 D* N1CK:"
+      your_diaspora_username_is: "Y0UR D* N1CK 15: %{diaspora_handle}"
+      create_request: "F1ND BY D* 1D"
+      diaspora_handle: "N1CK@P0D.0RG"
+      know_email: "KN0W 7H31R M41L? U 5H0ULD 1NV173 7H3M!"
+      add_new_contact: "4DD 4 N3W N00B"
+    invitations:
+      invites: "1NV1735"
+      invite_someone: "1NV173 50M30N3!"
+      invitations_left: "%{count} L3F7"
+      dont_have_now: "U D0N7 H4V3 4NY R1GH7 N0W, BU7 M0R3 1NV1735 4R3 C0M1NG 500N!"
+      invites_closed: "1NV1735 4R3 CURR3N7LY CL053D 0N 7H15 P0D!"
+      invite_your_friends: "1NV173 Y0UR FR13ND5!"
+      from_facebook: "FR0M FB"
+      by_email: "BY M41L"
+    reshare:
+      reshare: "R35P4M"
+    public_explain:
+      title: "537 UP C0NN3C73D 53RV1C35"
+      outside: "PUBL1C 5P4M5 W1LL B3 4V14BL3 2 07H3R5 0U751D3 0F D* 2 533!"
+      logged_in: "L0GG3D 1N 2 %{service}"
+      manage: "M4N4G3 C0NN3C73D 53RV1C35"
+    notification:
+      new: "N3W %{type} FR0M %{from}"
+    contact_list:
+      all_contacts: "4LL C0N74C75"
+    stream_element:
+      viewable_to_anyone: "7H15 5P4M 15 V13W4BL3 2 4NY0N3 1N 7H3 W3B!"
+      via: "V14 %{link}"
+      hide_and_mute: "H1D3 4ND PWN"
+      like: "<3"
+      unlike: "</3"
+      dislike: "PWN"
+      shared_with: "5H4R3D W17H: %{aspect_names}"
+    footer:
+      logged_in_as: "CURR3N7 N1CK: %{name}"
+      your_aspects: "Y0UR 45P3C75"
+  status_messages:
+    new:
+      mentioning: "M3N710N1NG: %{person}"
+    create:
+      success: "5UCC355FULLY M3N710N3D: %{names}"
+    helper:
+      no_message_to_display: "N0 5P4M 2 D15PL4Y!"
+    destroy:
+      failure: "F41L3D 2 PWN 4 5P4M!"
+    too_long:
+      zero: "PL3453 M4K3 Y0UR 5P4M5 L355 7H3N %{count} CH4R4C73R5"
+      one: PL3453 M4K3 Y0UR 5P4M5 L355 7H3N %{count} CH4R4C73R"
+      two: "PL3453 M4K3 Y0UR 5P4M5 L355 7H3N %{count} CH4R4C73R5"
+      few: "PL3453 M4K3 Y0UR 5P4M5 L355 7H3N %{count} CH4R4C73R5"
+      many: "PL3453 M4K3 Y0UR 5P4M5 L355 7H3N %{count} CH4R4C73R5"
+      other: "PL3453 M4K3 Y0UR 5P4M5 L355 7H3N %{count} CH4R4C73R5"
+
+  stream_helper:
+    show_more_comments: "5H0W %{number} M0R3 5P4M5"
+    hide_comments: "H1D3 4LL 5P4M5!"
+
+  tags:
+    show:
+      posts_tagged_with: "5P4M 74GG3D W17H #%{tag}"
+      nobody_talking: "N0B0DY 5P4MM3D 4B0U7 %{tag} Y37!"
+      people_tagged_with: "N00B5 74GG3D W17H %{tag}"
+      follow: "F0LL0W #%{tag}"
+      following: "F0LL0W1NG #%{tag}"
+      stop_following: "570P F0LL0W1NG #%{tag}"
+
+  tag_followings:
+    create:
+      success: "5UCC35FULLY F0LL0W1NG: #%{name}"
+      failure: "F41L3D 2 F0LL0W: #%{name}"
+    destroy:
+      success: "5UCC35FULLY PWND: #%{name}"
+      failure: "F41L3D 2 570P F0LL0W1NG: #%{name}"
+
+  tokens:
+    show:
+      connect_to_cubbies: "C0NN3C7 2 CUBB1.35!"
+      what_is_cubbies: "CUBB135 15 7H3 W0RLD5 F1R57 D* 4PPL1C4710N! 175 4L50 7H3 B357 W4Y 2 C0LL3C7 P1C5 0NL1N3!"
+      love_to_try: W3D L0V3 F0R U 2 7RY 11 0U7!"
+      sign_up_today: "51GN UP 2D4Y!"
+      screenshot_explanation: "%{link1}.  7H15 P4R71CUL4R CUBB13 15 L1NK3D 2 %{link2}."
+      typical_userpage: "4 7YP1C4L CUBB135 N00B P4G3"
+      daniels_account: "D4N13L5 D* 4CC0UN7"
+      making_the_connection: "M4K1NG 7H3 C0NN3C710N"
+      connecting_is_simple: "C0NN3C71NG Y0UR D* 4CC0UN7 15 51MPL3! JU57 3N73R Y0UR D* 1D (<b>%{diaspora_id}</b>) FR0M Y0UR CUBB135 <a href='%{href_link}'>settings page</a> 4ND H17 C0NN3C7!"
+      log_in_with_diaspora_is_comming: "PR377Y 500N U W1LL B3 4BL3 2 C0NN3C7 2 4 N3W 4PP W17H0U7 CR3471NG 4 53PP3R473 4CC0UN7!"
+      via: "(V14 %{link})"
+
+  authorizations:
+    index:
+      revoke_access: "R3V0K3 4CC355"
+      no_applications: "U H4V3N7 R3G1573R3D 4NY 4PP Y37!"
+  
+  streams:
+    mentions:
+      title: "Y0UR M3N710N5"   
+      contacts_title: "N00B5 WH0 M3N710N3D U"
+    tags:
+      title: "5P4M 74GG3D: %{tags}"
+      contacts_title: "N00B5 WH0 D1G 7H353 74G5" 
+    public:
+      title: "PUBL1C 4C71V17Y"
+      contacts_title: "R3C3N7 5P4MM3R5"
+
+  users:
+    logged_out:
+      signed_out: "U H4V3 51GN3D 0U7 0F D*!"
+      go_mobile: "N0W G0 M0B1L3!"
+      simply_visit: "51MPLY V1517"
+      on_your_mobile_device: "0N Y0UR M0B1L3 D3V1C3 2 4CC355 D* M0B1L3!"
+      works_on_modern: "W0RK5 0N 4LL M0D3RN 5M4R7PH0N35!"
+    edit:
+      export_data: "3XP0R7 D474"
+      close_account: "CL053 4CC0UN7"
+      change_language: "CH4NG3 L4NGU4G3"
+      change_password: "CH4NG3 *****"
+      change_email: "CH4NG3 M41L"
+      new_password: "N3W *****"
+      current_password: "CURR3N7 *****"
+      download_xml: "D0WNL04D MY XML"
+      download_photos: "D0WNL04D MY PR0N"
+      your_handle: "Y0UR D* 1D"
+      your_email: "Y0UR M41L"
+      edit_account: "H4CK Y0UR 4CC0UN7"
+      receive_email_notifications: "R3C13V3 5P4M WH3N..."
+      also_commented: "...50M30N3 4L50 5P4M5 0N 4 N00B5 5P4M?"
+      comment_on_post: "...50M30N3 5P4M5 Y0UR 5P4M?"
+      mentioned: "...U 4R3 M3N710N3D 1N 4 5P4M?"
+      started_sharing: "...50M30N3 574R75 5H4R1NG W17H U?"
+      private_message: "...U R3C13V3 4 PN?"
+      liked: "...50M30N3 L1K35 Y0UR 5P4M?"
+      reshared: "...50M30N3 R35H4R35 Y0UR 5P4M?"
+      change: "CH4NG3"
+      email_awaiting_confirmation: "4C71V4510N L1NK 53N7 2 %{unconfirmed_email}. UN71L U F0LL0W 7H3 L1NK W3 W1LL C0N71NU3 2 U53 Y0UR 0R1G1N4L M41L %{email}."
+    destroy: "Y0UR 4CC0N7 G07 PWND. 17 M4Y 74K3 U5 20 M1NU735 70 D3L373 17. 7HX F0R 7RY1NG D*!"
+    getting_started:
+      welcome: "W3LC0M3!"
+      welcome_with_name: "W3LC0M3, %{name}!"
+      community_welcome: "7H3 D* C0MMUN17Y 15 H4PPY 2 H4V3 U 4B04RD!"
+      not_mandatory: "C0MPL371NG 7H3 F0LL0W1NG 573P5 W1LL 1MPR0V3 Y0UR D* 3XP3R13NC3, BU7 7H3Y 4R3 N07 M4ND470RY!"
+
+      finished: "F1N15H3D!"
+
+      fill_out_your_profile: "F1LL 0U7 Y0UR PR0F1L3!"
+      profile_description: "M4K3 17 34513R F0R N00B5 2 F1ND U BY F1LL1NG 0U7 Y0UR PR0F1L3 1NF0RM4710N!"
+      profile_fields:
+        name: "N1CK"
+        birthday: "B1R7HD4Y"
+        bio: "B10"
+        tags: "74G5"
+        photo: "PR0N"
+        gender: "G3ND3R"
+        location: "1P"
+
+      connect_to_your_other_social_networks: "C0NN3C7 2 Y0UR 07H3R 50C14L N37W0RK5!"
+      connect_to_your_other_social_networks_explanation_p1: "C0NN3C71NG 2 53RV1C35 W1LL 4LL0W U 2 PUBL15H 0U7 2 7H353 53RV1C35!"
+      connect_to_your_other_social_networks_explanation_p2: "W17H F4C3B00K, U 4L50 B3 4BL3 2 F1ND FR13ND5 4LR34DY 0N D* 4ND 1NV173 07H3R5!"
+      
+
+      connect_with_people: "Connect with cool people"
+      connect_with_people_explanation_pt1: "C0NN3C7 W17H N00B5 BY PL4C1NG 7H3M 1N2 1 0R M0R3 0F Y0UR %{bold}."
+      bold: "45P3C75"
+      edit_profile: "3D17 PR0F1L3"
+      search_for_hashtags: "534RCH F0R #H45H74G5"
+      search_for_people: "534RCH F0R N00B5"
+      connect_with_people_explanation_pt2: "45P3C75 4R3 4N 1N7U171V3 W4Y 2 GR0UP N3W 4ND F4M1L14R F4C35, PR1V473 2 U, 4LL0W1NG U 2 F1L73R D0WN 0R 5H4R3 5UB5375 0F YUR C0N74C75 3451LY!"
+      featured_users: "F347UR3D U53R5"
+
+      follow_your_interests: "F0LL0W Y0UR 1N73R3575!"
+      connect_to: "C0NN3C7 2"
+
+      find_friends_from_facebook: "F1ND N00B5 FR0M F4C3B00K!"
+      featured_tags: "F0LL0W F347UR3D 74G5!"
+      find_friends: "F1ND N00B5"
+      see_all_featured_users: "533 4LL PR0G4M3R5!"
+      get_updates_from_core: "G37 N3W5 5B0U7 D* FR0M 7H3 C0R3 734M!"
+
+      hashtag_explanation: "H45H74G5 4LL0W U 2 74LK 4B0U7 4ND F0LL0W Y0UR 1N73R3575! 7H3YR3 4L50 4 GR347 W4Y 2 F1ND N3W N00B5 0N D*!"
+
+    update:
+      password_changed: "***** CH4NG3D!"
+      password_not_changed: "***** CH4NG3 F41L3D!"
+      language_changed: "L4NGU4G3 CH4NG3D!"
+      language_not_changed: "7URN 0FF 1337? -> F41L!"
+      email_notifications_changed: "M41L 5P4M CH4NG3D!"
+      unconfirmed_email_changed: "M41L CH4NG3D, N33D5 4C71V4710N!"
+      unconfirmed_email_not_changed: "M41L CH4NG3 F41L3D!"
+    public:
+      does_not_exist: "U53R %{username} D035 N07 3X157!"
+    confirm_email:
+      email_confirmed: "M41L %{email} 4C71V473D!"
+      email_not_confirmed: "M41L C0ULD N07 B3 4C71V473D, WR0NG L1NK?"
+
+  webfinger:
+    fetch_failed: "F41L3D 70 F37CH W3BF1NG3R PR0F1L3 F0R %{profile_url}!"
+    hcard_fetch_failed: "3RR0R WH1L3 F37CH1NG HDC4RD F0R %{account}!"
+    xrd_fetch_failed: "3RR0R G3771NG XRD F0R %{account}!"
+    not_enabled: "W3BF1NG3R D035 N07 533M 70 B3 3N4BL3D F0R %{account}'s H057!"
+    no_person_constructed: "N0 P3R50N C0ULD B3 C0N57RUC73D FR0M 7H15 HC4RD!"
