@@ -7,6 +7,7 @@ require File.join(Rails.root, "lib", 'stream', "aspect_stream")
 class AspectsController < ApplicationController
   before_filter :authenticate_user!
   before_filter :save_sort_order, :only => :index
+  before_filter :save_selected_aspects, :only => :index
   before_filter :ensure_page, :only => :index
 
   respond_to :html, :js
@@ -15,7 +16,7 @@ class AspectsController < ApplicationController
   helper_method :selected_people
 
   def index
-    aspect_ids = (params[:a_ids] ? params[:a_ids] : [])
+    aspect_ids = (session[:a_ids] ? session[:a_ids] : [])
     @stream = AspectStream.new(current_user, aspect_ids,
                                :order => sort_order,
                                :max_time => params[:max_time].to_i)
@@ -138,4 +139,10 @@ class AspectsController < ApplicationController
   end
 
   private
+
+  def save_selected_aspects
+    if params[:a_ids].present?
+      session[:a_ids] = params[:a_ids]
+    end
+  end
 end

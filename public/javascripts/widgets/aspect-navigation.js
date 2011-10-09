@@ -100,11 +100,11 @@
       self.abortAjax();
       self.fadeOut();
 
-      if (typeof(history.pushState) == 'function') {
-        history.pushState(null, document.title, newURL);
-      }
-
       self.jXHR = $.getScript(newURL, function(data) {
+        if (typeof(history.pushState) == 'function') {
+          history.pushState(null, document.title, newURL);
+        }
+
         var textarea = $("#publisher textarea#status_message_fake_text"),
           photozone = $("#photodropzone");
 
