@@ -1,5 +1,5 @@
 %p
-  = t('notifier.hello', :name => @notification.recipient_name)
+  = t('notifier.hello', :name => @notification.recipient.profile.first_name)
 %p
   != t('notifier.confirm_email.click_link', :unconfirmed_email => @notification.recipient.unconfirmed_email)
   %br

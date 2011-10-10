@@ -2,17 +2,16 @@ module NotificationMailers
   TRUNCATION_LEN = 70
 
   class Base
-    attr_accessor :recipient, :recipient_name, :sender
+    attr_accessor :recipient, :sender
 
     def initialize(recipient_id, sender_id=nil, *args)
       @headers = {}
       @recipient = User.find_by_id(recipient_id)
-      @recipient_name = @recipient.profile.first_name
       @sender = Person.find_by_id(sender_id) if sender_id.present?
 
       log_mail(recipient_id, sender_id, self.class.to_s.underscore)
 
-      with_locale do
+      with_recipient_locale do
         set_headers(*args)
       end
     end
@@ -22,19 +21,19 @@ module NotificationMailers
     end
 
     private
-
     def default_headers
       headers = {
+        :from => AppConfig[:smtp_sender_address],
         :host => "#{AppConfig[:pod_uri]}",
         :to => "\"#{@recipient.name}\" <#{@recipient.email}>"
       }
 
-      headers[:from] = "\"#{@sender.name} (Diaspora)\" <#{AppConfig[:smtp_sender_address]}>" if @sender.present?
+      headers[:from] = "\"#{@sender.name} (Diaspora*)\" <#{AppConfig[:smtp_sender_address]}>" if @sender.present?
 
       headers
     end
 
-    def with_locale(&block)
+    def with_recipient_locale(&block)
       I18n.with_locale(@recipient.language, &block)
     end
 

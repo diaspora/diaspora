@@ -48,7 +48,7 @@ describe Notifier do
   end
 
   describe ".started_sharing" do
-    let!(:request_mail) {Notifier.started_sharing(bob.id, person.id)}
+    let!(:request_mail) { Notifier.started_sharing(bob.id, person.id) }
 
     it 'goes to the right person' do
       request_mail.to.should == [bob.email]
@@ -172,7 +172,7 @@ describe Notifier do
     end
 
     it "FROM: contains the sender's name" do
-      @mail.from.should == "[#{@cnv.author.name} (Diaspora)] <#{AppConfig[:smtp_sender_address]}>"
+      @mail["From"].to_s.should == "[#{@cnv.author.name} (Diaspora*)] <#{AppConfig[:smtp_sender_address]}>"
     end
 
     it 'SUBJECT: has a snippet of the post contents' do
@@ -207,7 +207,7 @@ describe Notifier do
       end
 
       it "FROM: contains the sender's name" do
-        comment_mail.from.should == "[#{eve.name} (Diaspora)] <#{AppConfig[:smtp_sender_address]}>"
+        comment_mail["From"].to_s.should == "[#{eve.name} (Diaspora*)] <#{AppConfig[:smtp_sender_address]}>"
       end
 
       it 'SUBJECT: has a snippet of the post contents' do
@@ -248,7 +248,7 @@ describe Notifier do
       end
 
       it 'FROM: has the name of person commenting as the sender' do
-        comment_mail.from.should == "[#{eve.name} (Diaspora)] <#{AppConfig[:smtp_sender_address]}>"
+        comment_mail["From"].to_s.should == "[#{eve.name} (Diaspora*)] <#{AppConfig[:smtp_sender_address]}>"
       end
 
       it 'SUBJECT: has a snippet of the post contents' do
