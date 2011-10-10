@@ -4,7 +4,8 @@ require 'lib/statistics'
 describe Statistics do
 
   before do
-    @stats = Statistics.new(time, time - 1.week)
+    @time = Time.now
+    @stats = Statistics.new#(@time, @time - 1.week)
     @result = [{"id" => alice.id , "count" => 0 },
                  {"id" => bob.id , "count" => 1 },
                  {"id" => eve.id , "count" => 0 },
@@ -59,11 +60,9 @@ describe Statistics do
   describe "#correlation_hash" do
 
     it 'it returns a hash of including start and end time' do
-      time = Time.now
-
       hash = @stats.correlation_hash
-      hash[:starrt_time].should == time
-      hash[:end_time].should == time - 1.week
+      hash[:starrt_time].should == @time
+      hash[:end_time].should == @time - 1.week
     end
 
     it 'returns the post count (and sign_in_count) correlation' do
@@ -72,6 +71,26 @@ describe Statistics do
       @stats.generate_correlations[:posts_count].should == 0.5
     end
   end
+  
+  describe "#post_count_correlation" do
+    it 'calls correlation with post' do
+      User.connection.should_receive(:select_all).and_return([{"id"=> 1, "count" => 7},
+                                                            {"id" => 2, "count" => 8},
+                                                            {"id" => 3, "count" => 9}],
+                                                            [{"id"=> 1, "count" => 17},
+                                                            {"id" => 3, "count" => 19}]
+                                                            )
+
+      @stats.should_receive(:correlation).with([7,9],[17,19]).and_return(0.5)
+      @stats.posts_count_correlation.should == 0.5
+    end
+  end
+
+
+
+
+
+
 
   context 'todos' do
     before do

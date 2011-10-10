@@ -55,15 +55,21 @@ SQL
 SQL
   end
 
-  def posts_count_correlation
+  def post_count_correlation
 
     # [{"id" => 1 , "count" => 123}]
-    post_count_array = User.connection.select_all(self.posts_count_sql)
-    
-    post_count_hash = {}
-    post_count_array.each{ |h| post_count_hash[h[id]] = h["count"]}
 
+    x_array = []
+    y_array = []
 
+    post_count_hash.keys.each do |k| 
+      if val = sign_in_count_hash[k]
+        x_array << post_count_hash[k]
+        y_array << val
+      end
+    end
+
+    correlation(x_array, y_array)
   end
 
 
@@ -93,4 +99,23 @@ SQL
     User.where("username IS NOT NULL").where("created_at > ? and created_at < ?", Time.now - (n+1).weeks, Time.now - n.weeks)
   end
 
+  def post_count_hash
+    unless @post_count_hash
+      post_count_array = User.connection.select_all(self.posts_count_sql)
+
+      @post_count_hash = {}
+      post_count_array.each{ |h| @post_count_hash[h['id']] = h["count"]}
+    end
+    @post_count_hash
+  end
+
+  def sign_in_count_hash
+    unless @sign_in_count_hash
+      sign_in_count_array = User.connection.select_all(self.sign_in_count_sql)
+
+      @sign_in_count_hash = {}
+      sign_in_count_array.each{ |h| @sign_in_count_hash[h['id']] = h["count"]}
+    end
+    @sign_in_count_hash
+  end
 end

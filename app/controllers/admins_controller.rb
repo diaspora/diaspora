@@ -66,18 +66,7 @@ class AdminsController < ApplicationController
   end
 
   def correlations
-
-
-    @correlations = Statistics.generate_correlations(params[:number_of_weeks])
-
-    5.times.inject({}) do |stats, n|
-      week_start = (Time.now - n.weeks).beginning_of_week
-      week_end = week_start - 1.week
-      stats[week_start] = Statistics.new(week_start, week_end).generate_correlations
-    end
-
-
-
+    @post_count_correlation = Statistics.new.post_count_correlation
   end
 
   private
