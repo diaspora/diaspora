@@ -17,20 +17,8 @@ class TagsController < ApplicationController
     if params[:q] && params[:q].length > 1 && request.format.json?
       params[:q].gsub!("#", "")
       params[:limit] = !params[:limit].blank? ? params[:limit].to_i : 10
-      @tags = ActsAsTaggableOn::Tag.named_like(params[:q]).limit(params[:limit] - 1)
-      @tags.map! do |obj|
-        { :name => ("#"+obj.name),
-          :value => ("#"+obj.name),
-          :url => tag_path(obj.name)
-        }
-      end
-
-      @tags << {
-        :name => ('#' + params[:q]),
-        :value => ("#" + params[:q]),
-        :url => tag_path(params[:q].downcase)
-      }
-      @tags.uniq!
+      @tags = ActsAsTaggableOn::Tag.autocomplete(params[:q]).limit(params[:limit] - 1)
+      prep_tags_for_javascript
 
       respond_to do |format|
         format.json{
@@ -77,4 +65,20 @@ class TagsController < ApplicationController
    end
    @tag_followed
  end
+
+  def prep_tags_for_javascript
+    @tags.map! do |obj|
+        { :name => ("#"+obj.name),
+          :value => ("#"+obj.name),
+          :url => tag_path(obj.name)
+        }
+      end
+
+      @tags << {
+        :name => ('#' + params[:q]),
+        :value => ("#" + params[:q]),
+        :url => tag_path(params[:q].downcase)
+      }
+      @tags.uniq!
+  end
 end

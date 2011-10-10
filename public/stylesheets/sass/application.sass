@@ -275,11 +275,6 @@ ul.dropdown
 //hacks for tagging plugin...
 ul.as-selections
   :width 100% !important
-  >li.as-original
-    :width 100% !important
-    >input
-      :width 100% !important
-      :color #999
 //////////////////////////////////
 
 .unread
@@ -835,7 +830,7 @@ a.paginate, #infscr-loading
       :size 16px
     :color #333
 
-input:not([type='submit']):not([type='reset']):not([type='hidden']),
+input:not([type='submit']):not([type='reset']):not([type='hidden']):not(.as-input),
 textarea
   @include border-radius(2px)
 
