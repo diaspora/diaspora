@@ -4,7 +4,7 @@
 
 module Jobs
   class Base
-    Dir["#{Rails.root}/app/models/jobs/mail/*.rb"].each {|file| require file }
+    Dir["#{Rails.root}/app/models/jobs/mailers/*.rb"].each {|file| require file }
     extend ResqueJobLogging
   end
 end

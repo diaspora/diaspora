@@ -2,9 +2,8 @@
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
-
 module Jobs
-  module Mail
+  module Mailers
     class InviteUserByEmail < Base
       @queue = :mail
       def self.perform(invite_id)

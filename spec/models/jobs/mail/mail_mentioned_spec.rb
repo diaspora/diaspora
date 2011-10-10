@@ -4,7 +4,7 @@
 
 require 'spec_helper'
 
-describe Jobs::Mail::Mentioned do
+describe Jobs::Mailers::Mentioned do
   describe '#perfom' do
     it 'should call .deliver on the notifier object' do
       user = alice
@@ -15,7 +15,7 @@ describe Jobs::Mail::Mentioned do
       mail_mock.should_receive(:deliver)
       Notifier.should_receive(:mentioned).with(user.id, sm.author.id, m.id).and_return(mail_mock)
 
-      Jobs::Mail::Mentioned.perform(user.id, sm.author.id, m.id)
+      Jobs::Mailers::Mentioned.perform(user.id, sm.author.id, m.id)
     end
   end
 end
