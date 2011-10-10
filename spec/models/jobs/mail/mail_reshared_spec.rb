@@ -4,7 +4,7 @@
 
 require 'spec_helper'
 
-describe Jobs::Mailers::Reshared do
+describe Jobs::Mail::Reshared do
   describe '#perfom' do
     it 'should call .deliver on the notifier object' do
       sm = Factory(:status_message, :author => bob.person, :public => true)
@@ -14,7 +14,7 @@ describe Jobs::Mailers::Reshared do
       mail_mock.should_receive(:deliver)
       Notifier.should_receive(:reshared).with(bob.id, reshare.author.id, reshare.id).and_return(mail_mock)
 
-      Jobs::Mailers::Reshared.perform(bob.id, reshare.author.id, reshare.id)
+      Jobs::Mail::Reshared.perform(bob.id, reshare.author.id, reshare.id)
     end
   end
 end

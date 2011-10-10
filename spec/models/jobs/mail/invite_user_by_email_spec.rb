@@ -1,10 +1,6 @@
-#   Copyright (c) 2010-2011, Diaspora Inc.  This file is
-#   licensed under the Affero General Public License version 3 or later.  See
-#   the COPYRIGHT file.
-
 require 'spec_helper'
 
-describe Jobs::Mailers::InviteUserByEmail do
+describe Jobs::Mail::InviteUserByEmail do
   before do
     @sender = alice
     @email = 'bob@bob.com'
@@ -16,6 +12,6 @@ describe Jobs::Mailers::InviteUserByEmail do
     invitation = Invitation.create(:sender => @sender, :identifier => @email, :service => "email", :aspect => @aspect, :message => @message)
     invitation.should_receive(:send!)
     Invitation.stub(:find).and_return(invitation)
-    Jobs::Mailers::InviteUserByEmail.perform(invitation.id)
+    Jobs::Mail::InviteUserByEmail.perform(invitation.id)
   end
 end

@@ -267,15 +267,15 @@ class User < ActiveRecord::Base
 
   ######### Mailer #######################
   def mail(job, *args)
-    pref = job.to_s.gsub('Jobs::Mailers::', '').underscore
+    pref = job.to_s.gsub('Jobs::Mail::', '').underscore
     if(self.disable_mail == false && !self.user_preferences.exists?(:email_type => pref))
       Resque.enqueue(job, *args)
     end
   end
 
-    def mail_confirm_email
+  def mail_confirm_email
     return false if unconfirmed_email.blank?
-    Resque.enqueue(Jobs::Mailers::ConfirmEmail, id)
+    Resque.enqueue(Jobs::Mail::ConfirmEmail, id)
     true
   end
 

@@ -2,13 +2,15 @@
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
+
 module Jobs
-  module Mailers
-    class Mentioned < Base
+  module Mail
+    class StartedSharing < Base
       @queue = :mail
-      def self.perform(recipient_id, actor_id, target_id)
-        Notifier.mentioned( recipient_id, actor_id, target_id).deliver
+      def self.perform(recipient_id, sender_id, target_id)
+        Notifier.started_sharing(recipient_id, sender_id).deliver
       end
     end
   end
 end
+

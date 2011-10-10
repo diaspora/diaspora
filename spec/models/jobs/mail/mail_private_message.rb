@@ -4,7 +4,7 @@
 
 require 'spec_helper'
 
-describe Jobs::Mailers::PrivateMessage do
+describe Jobs::Mail::PrivateMessage do
   describe '#perfom_delegate' do
     it 'should call .deliver on the notifier object' do
       user1 = alice
@@ -21,7 +21,7 @@ describe Jobs::Mailers::PrivateMessage do
       mail_mock.should_receive(:deliver)
       Notifier.should_receive(:mentioned).with(user2.id, user1.person.id, message.id).and_return(mail_mock)
 
-      Jobs::Mailers::Mentioned.perform(user2.id, user1.person.id, message.id)
+      Jobs::Mail::Mentioned.perform(user2.id, user1.person.id, message.id)
     end
   end
 end

@@ -136,7 +136,7 @@ describe UsersController do
       end
 
       it 'sends out activation email on success' do
-        Resque.should_receive(:enqueue).with(Jobs::Mailers::ConfirmEmail, @user.id).once
+        Resque.should_receive(:enqueue).with(Jobs::Mail::ConfirmEmail, @user.id).once
         put(:update, :id => @user.id, :user => { :email => "my@newemail.com"})
       end
     end

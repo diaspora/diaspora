@@ -2,12 +2,13 @@
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
+
 module Jobs
-  module Mailers
-    class ConfirmEmail < Base
+  module Mail
+    class PrivateMessage < Base
       @queue = :mail
-      def self.perform(user_id)
-        Notifier.confirm_email(user_id).deliver
+      def self.perform(recipient_id, actor_id, target_id)
+        Notifier.private_message( recipient_id, actor_id, target_id).deliver
       end
     end
   end
