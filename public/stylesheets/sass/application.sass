@@ -1011,7 +1011,6 @@ label
       @include opacity(0.5)
 
 #publisher_textarea_wrapper
-
   #hide_publisher
     @include opacity(0.3)
     :padding 3px
@@ -1546,6 +1545,11 @@ ul.aspects
     :left 0
     :height 100px
     :width 100px
+
+    &.avatar
+      @include transition(opacity, 0.5s)
+      &.loading
+        @include opacity(0.3)
 
   :padding
     :left 120px
@@ -2627,7 +2631,6 @@ h1.tag
   &:hover
     :border
       :bottom 2px dotted $blue
-
 
 .info
   .tag
