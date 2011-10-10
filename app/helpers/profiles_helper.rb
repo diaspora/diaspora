@@ -27,9 +27,10 @@ module ProfilesHelper
   # list of birthday display options
   def available_birthday_options
     options = [
-      [I18n.t('profiles.edit.birthday.full'), :full],
-      [I18n.t('profiles.edit.birthday.age'),  :age ],
-      [I18n.t('profiles.edit.birthday.none'), :none],
+      [I18n.t('profiles.edit.birthday.full'),      :full     ],
+	  [I18n.t('profiles.edit.birthday.month_day'), :month_day],
+      [I18n.t('profiles.edit.birthday.age'),       :age      ],
+      [I18n.t('profiles.edit.birthday.none'),      :none     ],
     ]
   end
 

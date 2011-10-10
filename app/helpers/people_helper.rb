@@ -21,21 +21,20 @@ module PeopleHelper
   end
 
   def birthday_title(profile)
-    if profile.birthday_display == "full"
-      I18n.t('people.profile_sidebar.born')
-    elsif profile.birthday_display == "age"
+    if profile.birthday_display == "age"
       I18n.t('people.profile_sidebar.age')
+    else
+      I18n.t('people.profile_sidebar.born')
     end
   end
 
   def birthday_format(profile)
-    if profile.birthday_display == "full"
-      bday = profile.birthday
-      if bday.year == 1000
-        I18n.l bday, :format => I18n.t('date.formats.birthday')
-      else
-        I18n.l bday, :format => I18n.t('date.formats.birthday_with_year')
-      end
+    bday = profile.birthday
+    
+	if bday.year == 1000 || profile.birthday_display == "month_day"
+      I18n.l bday, :format => I18n.t('date.formats.birthday')
+	elsif profile.birthday_display == "full"
+	  I18n.l bday, :format => I18n.t('date.formats.birthday_with_year')
     elsif profile.birthday_display == "age"
       age(profile.birthday)
     else

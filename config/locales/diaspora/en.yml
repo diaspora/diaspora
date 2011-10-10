@@ -641,6 +641,7 @@ en:
       edit_profile: "Edit profile"
       birthday:
         full: "Full date"
+        month_day: "Month and Day"
         age: "Age only"
         none: "Don't show"
     update:
