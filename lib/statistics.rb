@@ -72,6 +72,17 @@ SQL
 SQL
   end
 
+  def fb_connected_distribution_sql
+    <<SQL
+      SELECT users.id AS id, users.sign_in_count AS count, count(services.id) AS connected
+        FROM users
+          LEFT OUTER JOIN services on services.user_id = users.id
+            AND services.type = 'Services::Facebook'
+          #{self.where_clause_sql}
+          GROUP BY users.id
+SQL
+  end
+
   def sign_in_count_sql
     <<SQL
       SELECT users.id AS id, users.sign_in_count AS count

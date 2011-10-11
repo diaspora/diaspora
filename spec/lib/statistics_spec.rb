@@ -83,6 +83,26 @@ describe Statistics do
     end
   end
 
+  describe "#fb_connected_distribution_sql" do
+    it "pulls back an array of sign_in_counts, connected, uids" do
+      bob.sign_in_count = 1
+      bob.services << Factory(:service, :type => "Services::Facebook", :user => bob)
+      bob.save!
+
+      eve.services << Factory(:service, :type => "Services::Facebook", :user => eve)
+      eve.save!
+
+
+      @result = [{"id" => alice.id , "count" => 0, "connected" => 0 },
+                 {"id" => bob.id , "count" => 1, "connected" => 1 },
+                 {"id" => eve.id , "count" => 0, "connected" => 1 },
+                 {"id" => local_luke.id , "count" => 0, "connected" => 0 },
+                 {"id" => local_leia.id , "count" => 0, "connected" => 0 }]
+
+      User.connection.select_all(@stats.fb_connected_distribution_sql).should =~ @result
+    end
+  end
+
   ["posts_count", "comments_count", "invites_sent_count", "tags_followed_count",
     "mentions_count", "sign_in_count", "contacts_sharing_with_count" ].each do |method|
 
@@ -100,6 +120,7 @@ describe Statistics do
       end
     end
   end
+
 
   describe "#correlation" do
     it 'returns the correlation coefficient' do
