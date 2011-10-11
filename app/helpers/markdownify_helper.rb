@@ -17,6 +17,7 @@ module MarkdownifyHelper
     }
 
     render_options[:filter_html] = true
+    render_options[:hard_wrap] ||= true
 
 
     # This ugly little hack basically means 
