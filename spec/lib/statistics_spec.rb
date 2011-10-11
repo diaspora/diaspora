@@ -3,6 +3,16 @@ require 'lib/statistics'
 
 describe Statistics do
 
+  def result_should_equal( actual )
+    actual.count.should == @result.count
+    @result.each do |expected_hash|
+      actual.find { |actual_hash|
+        actual_hash['id'].to_i == expected_hash['id'].to_i &&
+        actual_hash['count'].to_i == expected_hash['count'].to_i
+      }.should_not be_nil
+    end
+  end
+
   before do
     @time = Time.now
     @stats = Statistics.new#(@time, @time - 1.week)
@@ -16,7 +26,7 @@ describe Statistics do
   describe '#posts_count_sql' do
     it "pulls back an array of post counts and ids" do
       Factory.create(:status_message, :author => bob.person)
-      User.connection.select_all(@stats.posts_count_sql).should =~ @result
+      result_should_equal User.connection.select_all(@stats.posts_count_sql)
     end
   end
 
@@ -24,7 +34,7 @@ describe Statistics do
     it "pulls back an array of post counts and ids" do
       sm = Factory.create(:status_message, :author => alice.person)
       bob.comment("sup", :post => sm)
-      User.connection.select_all(@stats.comments_count_sql).should =~ @result
+      result_should_equal User.connection.select_all(@stats.comments_count_sql)
     end
   end
 
@@ -32,14 +42,14 @@ describe Statistics do
   describe '#invites_sent_count_sql' do
     it "pulls back an array of invite counts and ids" do
       Invitation.batch_invite(["a@a.com"], :sender => bob, :aspect => bob.aspects.first, :service => 'email')
-      User.connection.select_all(@stats.invites_sent_count_sql).should =~ @result
+      result_should_equal User.connection.select_all(@stats.invites_sent_count_sql)
     end
   end
 
   describe '#tags_followed_count_sql' do
     it "pulls back an array of tag following counts and ids" do
       TagFollowing.create!(:user => bob, :tag_id => 1)
-      User.connection.select_all(@stats.tags_followed_count_sql).should =~ @result
+      result_should_equal User.connection.select_all(@stats.tags_followed_count_sql)
     end
   end
 
@@ -47,7 +57,7 @@ describe Statistics do
     it "pulls back an array of mentions following counts and ids" do
       post = Factory.create(:status_message, :author => bob.person)
       Mention.create(:post => post, :person => bob.person)
-      User.connection.select_all(@stats.mentions_count_sql).should =~ @result
+      result_should_equal User.connection.select_all(@stats.mentions_count_sql)
     end
   end
 
@@ -61,7 +71,7 @@ describe Statistics do
                  {"id" => local_luke.id , "count" => 2 },
                  {"id" => local_leia.id , "count" => 2 }]
 
-      User.connection.select_all(@stats.contacts_sharing_with_count_sql).should =~ @result
+      result_should_equal User.connection.select_all(@stats.contacts_sharing_with_count_sql)
     end
   end
 
@@ -69,7 +79,7 @@ describe Statistics do
     it "pulls back an array of sign_in_counts and ids" do
       bob.sign_in_count = 1
       bob.save!
-      User.connection.select_all(@stats.sign_in_count_sql).should =~ @result
+      result_should_equal User.connection.select_all(@stats.sign_in_count_sql)
     end
   end
 
