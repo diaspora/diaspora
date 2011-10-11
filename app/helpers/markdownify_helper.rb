@@ -31,14 +31,7 @@ module MarkdownifyHelper
 
     return '' if message.blank?
 
-    #renderer = Redcarpet::Render::HTML.new(render_options)
-    if render_options[:oembed]
-      puts "oembed"
-      renderer = Diaspora::Markdownify::HTMLwithOEmbed.new(render_options)
-    else
-      puts "not oembed"
-      renderer = Diaspora::Markdownify::HTML.new(render_options)
-    end
+    renderer = Diaspora::Markdownify::HTML.new(render_options)
     markdown = Redcarpet::Markdown.new(renderer, markdown_options)
 
     message = markdown.render(message).html_safe

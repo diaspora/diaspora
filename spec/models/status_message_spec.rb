@@ -312,4 +312,12 @@ STR
       @status_message.after_dispatch(alice)
     end
   end
+  
+  describe '#contains_url_in_text?' do
+    it 'returns an array of all urls found in the raw message' do
+      sm = Factory(:status_message, :text => 'http://youtube.com is so cool.  so is https://joindiaspora.com')
+      sm.contains_oembed_url_in_text?.should_not be_nil
+      sm.oembed_url.should == 'http://youtube.com'
+    end
+  end
 end

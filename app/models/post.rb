@@ -28,6 +28,8 @@ class Post < ActiveRecord::Base
   has_many :reshares, :class_name => "Reshare", :foreign_key => :root_guid, :primary_key => :guid
   has_many :resharers, :class_name => 'Person', :through => :reshares, :source => :author
 
+  has_one :o_embed_cache
+
   belongs_to :author, :class_name => 'Person'
   
   validates :guid, :uniqueness => true
@@ -64,11 +66,6 @@ class Post < ActiveRecord::Base
 
   def reshare_count
     @reshare_count ||= Post.where(:root_guid => self.guid).count
-  end
-
-  def text= nd
-    Resque.enqueue(Jobs::GatherOEmbedData, nd)
-    write_attribute(:text, nd)
   end
 
   def diaspora_handle= nd

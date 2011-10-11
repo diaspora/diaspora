@@ -25,24 +25,11 @@ module Diaspora
         url = auto_link(link, :link => :urls).scan(/href=["']?((?:.(?!["']?\s+(?:\S+)=|[>"']))+.)["']?/).first.first
         url = CGI::unescapeHTML(url)
 
-        # SECURITY NOTICE! CROSS-SITE SCRIPTING!
-        # these endpoints may inject html code into our page
-        secure_endpoints = [::OEmbed::Providers::Youtube.endpoint,
-                            ::OEmbed::Providers::Viddler.endpoint,
-                            ::OEmbed::Providers::Qik.endpoint,
-                            ::OEmbed::Providers::Revision3.endpoint,
-                            ::OEmbed::Providers::Hulu.endpoint,
-                            ::OEmbed::Providers::Vimeo.endpoint,
-                            'http://soundcloud.com/oembed',
-                           ]
-
-        # note that 'trusted_endpoint_url' is the only information
-        # in OEmbed that we can trust. anything else may be spoofed!
         cache = OEmbedCache.find_by_url(url)
         if not cache.nil? and cache.data.has_key?('type')
           case cache.data['type']
           when 'video', 'rich'
-              if secure_endpoints.include?(cache.data['trusted_endpoint_url']) and cache.data.has_key?('html')
+              if SECURE_ENDPOINTS.include?(cache.data['trusted_endpoint_url']) and cache.data.has_key?('html')
                 rep = raw(cache.data['html'])
               elsif cache.data.has_key?('thumbnail_url')
                 img_options = {}
