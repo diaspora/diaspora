@@ -16,7 +16,6 @@ describe TagsController do
     it 'responds with json' do
       get :index, :q => "ra", :format => 'json'
       #parse json
-      response.body.should include("#diaspora")
       response.body.should include("#rad")
     end
 

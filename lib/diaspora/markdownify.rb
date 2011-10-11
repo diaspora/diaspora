@@ -3,7 +3,6 @@ require 'erb'
 module Diaspora
   module Markdownify
     class HTML < Redcarpet::Render::HTML
-
       include ActionView::Helpers::TextHelper
       include ActionView::Helpers::TagHelper
 

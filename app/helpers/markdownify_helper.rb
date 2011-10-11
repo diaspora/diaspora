@@ -19,7 +19,6 @@ module MarkdownifyHelper
     render_options[:filter_html] = true
     render_options[:hard_wrap] ||= true
 
-
     # This ugly little hack basically means 
     #   "Give me the rawest contents of target available"
     if target.respond_to?(:raw_message)
@@ -32,7 +31,6 @@ module MarkdownifyHelper
 
     return '' if message.blank?
 
-    #renderer = Redcarpet::Render::HTML.new(render_options)
     renderer = Diaspora::Markdownify::HTML.new(render_options)
     markdown = Redcarpet::Markdown.new(renderer, markdown_options)
 
