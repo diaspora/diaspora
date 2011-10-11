@@ -207,3 +207,7 @@ end
 Then 'I press the attached image' do
   Then %{I press the 1st "img" within ".stream_element div.photo_attachments"}
 end
+
+When /^(.*) (\d+) times$/ do |step, number|
+    number.to_i.times { When step }
+end

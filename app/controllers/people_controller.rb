@@ -86,6 +86,8 @@ class PeopleController < ApplicationController
     @aspect = :profile
     @share_with = (params[:share_with] == 'true')
 
+    types = ["StatusMessage", "Reshare", "ActivityStreams::Photo", "Note"]
+
     max_time = params[:max_time] ? Time.at(params[:max_time].to_i) : Time.now
     @profile = @person.profile
 
@@ -110,10 +112,11 @@ class PeopleController < ApplicationController
         else
           @commenting_disabled = false
         end
-        @posts = current_user.posts_from(@person).where(:type => ["StatusMessage", "Reshare", "ActivityStreams::Photo"]).includes(:comments).limit(15).where(StatusMessage.arel_table[:created_at].lt(max_time))
+
+        @posts = current_user.posts_from(@person).where(:type => types).includes(:comments).limit(15).where(Post.arel_table[:created_at].lt(max_time))
       else
         @commenting_disabled = true
-        @posts = @person.posts.where(:type => ["StatusMessage", "Reshare", "ActivityStreams::Photo"], :public => true).includes(:comments).limit(15).where(StatusMessage.arel_table[:created_at].lt(max_time)).order('posts.created_at DESC')
+        @posts = @person.posts.where(:type => types, :public => true).includes(:comments).limit(15).where(Post.arel_table[:created_at].lt(max_time)).order('posts.created_at DESC')
       end
       @posts.includes(:author => :profile)
     end

@@ -57,6 +57,8 @@ Diaspora::Application.routes.draw do
   get "tag_followings" => "tag_followings#index", :as => 'tag_followings'
   resources :mentions, :only => [:index]
 
+  resources :notes, :only => [:index]
+
   get 'tags/:name' => 'tags#show', :as => 'tag'
 
   resources :apps, :only => [:show]

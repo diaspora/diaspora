@@ -37,7 +37,11 @@
       - elsif reshare?(post)
         = render 'reshares/reshare', :reshare => post, :post => post.root
       - else
-        = render 'status_messages/status_message', :post => post, :photos => post.photos
+        - full_note = (note?(post) and request.path == post_path(post))
+        = render 'status_messages/status_message', :post => post, :photos => post.photos, :full_note => full_note
+
+      - if note?(post) and post.note_extension and request.path != post_path(post)
+        = link_to t('.read_more'), post_path(post)
 
       .info
         %span.via

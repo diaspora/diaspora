@@ -139,6 +139,7 @@ describe StatusMessagesController do
         @hash[:photos] = [@photo1.id.to_s, @photo2.id.to_s]
       end
       it "will post a photo without text" do
+        # TODO: this should probably be @hash[:status_message].delete :text, no?
         @hash.delete :text
         post :create, @hash
         response.should be_redirect
@@ -151,6 +152,32 @@ describe StatusMessagesController do
         post :create, @hash
         @photo1.reload.pending.should be_false
         @photo2.reload.pending.should be_false
+      end
+    end
+
+    context 'is note' do
+      before do
+        @hash = status_message_hash
+        @hash[:status_message][:type] = 'Note'
+      end
+      it "will post a note" do
+        post :create, @hash
+        response.should be_redirect
+        Note.all.count.should == 1
+      end
+      it "will post a long note" do
+        full_text = @hash[:status_message][:text]
+        1010.times do
+          full_text += ' more text'
+        end
+        full_text.length.should >= 10000
+        @hash[:status_message][:text] = full_text
+        post :create, @hash
+        response.should be_redirect
+        NoteExtension.all.count.should == 1
+        note = Note.first
+        note.text.length.should <= 10000
+        note.full_text.should == full_text
       end
     end
   end
