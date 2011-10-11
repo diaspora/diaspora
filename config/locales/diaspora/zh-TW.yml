@@ -1,4 +1,4 @@
-#   Copyright (c) 2011, Diaspora Inc.  This file is
+#   Copyright (c) 2010-2011, Diaspora Inc.  This file is
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
@@ -61,8 +61,10 @@ zh-TW:
       done_editing: "編輯完成"
     aspect_listings: 
       add_an_aspect: "+ 新增面向"
+      edit_aspect: "編輯%{name}"
     aspect_stream: 
       commented_on: "有意見的"
+      mentions: "指指點點"
       posted: "發表的"
       recently: "最近:"
       stream: "事件流"
@@ -80,7 +82,7 @@ zh-TW:
       aspect_list_is_visible: "面向中的其他人可以看見聯絡人列表"
       confirm_remove_aspect: "你確定要刪除這個面向?"
       done: "完成"
-      make_aspect_list_visible: "是否讓其他人可以看見面向的聯絡人列表?"
+      make_aspect_list_visible: "讓面向中的聯絡人可以互相看得到?"
       remove_aspect: "刪除這個面向"
       rename: "改名"
       update: "更新"
@@ -91,6 +93,7 @@ zh-TW:
       aspect_not_empty: "面向不是空的"
       remove: "刪除"
     index: 
+      community_members: "Featured Diaspora* members"
       cubbies: 
         explanation: "Cubbi.es 是 Diaspora 的第一個應用程式, 目前正在開發中."
         heading: "與 Cubbi.es 連結"
@@ -100,21 +103,26 @@ zh-TW:
         content_2: "把它給任何人,讓他/她們可以在 Diaspora 找到你."
         heading: "Diaspora 識別碼"
       donate: "捐獻"
+      featured_users: "明星使用者"
       handle_explanation: "這是你的 diaspora 識別碼. 就像電子信箱一樣, 你可以把它給想聯絡你的人."
       help: 
-        did_you: "Did you:"
-        feature_suggestion: "... have a %{link} suggestion?"
-        find_a_bug: "... find a %{link}?"
-        have_a_question: "... have a %{link}?"
-        here_to_help: "Diaspora community is here to help!"
-        more_support: "For more support, you should also check out %{link}."
-        need_help: "Need Help?"
-        tutorials: "For tutorials, check out %{link}."
+        do_you: "你是否:"
+        email_feedback: "也可以%{link}你的意見來"
+        feature_and_forum: "%{gs}與%{forum}: 社群支援的客服與需求系統網站"
+        feature_suggestion: "...想建議%{link}?"
+        find_a_bug: "...找到一個%{link}?"
+        have_a_question: "...有個%{link}?"
+        here_to_help: "Diaspora 社群就在這裡!"
+        need_help: "要幫忙嗎?"
+        satisfaction: "%{link}: 社群支援的客服網站"
+        tutorials_and_wiki: "%{tutorial} 和 %{wiki}: 社群支援的新手入門, 操作指南, 以及最新消息"
       keep_us_running: "為了讓 %{pod} 高速奔馳, 用每月捐款來提供些咖啡存量給我們的伺服器吧!"
+      mentions: "指指點點"
       no_contacts: "沒有任何聯絡人"
       no_tags: "+ 找個標籤來追蹤"
       people_sharing_with_you: "跟你分享的人"
       post_a_message: "貼訊息 >>"
+      see_more_from_us: "See more of the D* community."
       services: 
         content: "你可以連結以下服務至 Diaspora:"
         heading: "連結服務"
@@ -128,9 +136,9 @@ zh-TW:
       success: "聯絡人已移至新的面向"
     new: 
       create: "建立"
-      name: "名字"
+      name: "名字(只有你自己看得到)"
     no_contacts_message: 
-      featured_users: "特色使用者"
+      featured_users: "明星使用者"
       or_featured: "或者你也可以和 %{link} 分享"
       try_adding_some_more_contacts: "你可以搜尋(從上方)或邀請(從右方)更多聯絡人."
       you_should_add_some_more_contacts: "新增更多聯絡人吧!"
@@ -147,6 +155,7 @@ zh-TW:
       manage_your_aspects: "管理你的面向."
       no_contacts: "你在這裡還沒有任何聯絡人."
       view_all_contacts: "檢視所有聯絡人"
+      view_all_featured_users: "看所有的明星使用者"
     show: 
       edit_aspect: "編輯面向"
     two: "%{count}個面向"
@@ -180,15 +189,16 @@ zh-TW:
     create: 
       failure: "建立聯繫失敗"
     featured: 
-      featured_users: "特色使用者"
+      featured_users: "明星使用者"
     few: "%{count}個聯絡人"
     index: 
       add_a_new_aspect: "加入新面向"
-      all_contacts: "全部聯絡人"
-      edit_aspect: "編輯%{name}"
+      add_to_aspect: "加聯絡人到%{name}"
+      all_contacts: "所有聯絡人"
+      check_out: "看看"
       many_people_are_you_sure: "你確定要進行跟%{suggested_limit}個聯絡人的私人對話? 貼文到該面向可能是跟他們聯絡比較好的方式."
       my_contacts: "我的聯絡人"
-      no_contacts: "沒有聯絡人."
+      no_contacts: "你好像應該要多加點聯絡人!"
       only_sharing_with_me: "和我分享的人"
       remove_person_from_aspect: "將 %{person_name} 從\"%{aspect_name}\"中移除"
       start_a_conversation: "開始對話"
@@ -200,7 +210,7 @@ zh-TW:
     sharing: 
       people_sharing: "跟你分享的人:"
     two: "%{count}個聯絡人"
-    zero: "沒有任何聯絡人"
+    zero: "聯絡人"
   conversations: 
     create: 
       fail: "無效的訊息"
@@ -291,7 +301,7 @@ zh-TW:
     application: 
       powered_by: "強力配置 DIASPORA*"
       public_feed: "%{name} 的 Diaspora 公開資訊源"
-      toggle: "行動網站切換"
+      toggle: "行動切換"
       whats_new: "有什麼新消息?"
       your_aspects: "你的面向"
     header: 
@@ -370,7 +380,7 @@ zh-TW:
         other: "和其他%{count}個人"
         two: "以及其他%{count}個"
         zero: "以外沒有其他人"
-      mark_all_as_read: "全部標示為已讀"
+      mark_all_as_read: "全部標示為已看過"
       notifications: "消息"
     liked: 
       few: "%{actors}剛才說你的%{post_link}很讚."
@@ -387,19 +397,19 @@ zh-TW:
       two: "%{actors} 說你刪掉的貼文很讚."
       zero: "%{actors}說你刪掉了的貼文很讚."
     mentioned: 
-      few: "%{actors}在%{post_link}中提到了你."
-      many: "%{actors}在%{post_link}中提到了你."
-      one: "%{actors}在%{post_link}中提到了你."
-      other: "%{actors}在%{post_link}中提到了你."
-      two: "%{actors} 在%{post_link}中提到了你."
-      zero: "%{actors}在%{post_link}中提到了你."
+      few: "%{actors}在%{post_link}中點到了你."
+      many: "%{actors}在%{post_link}中點到了你."
+      one: "%{actors}在%{post_link}中點到了你."
+      other: "%{actors}在%{post_link}中點到了你."
+      two: "%{actors} 在%{post_link}中點到了你."
+      zero: "%{actors}在%{post_link}中點到了你."
     mentioned_deleted: 
-      few: "%{actors}在已刪掉的貼文中提到了你."
-      many: "%{actors}在已刪掉的貼文中提到了你."
-      one: "%{actors}在已刪掉的貼文中提到了你."
-      other: "%{actors}在已刪掉的貼文中提到了你."
-      two: "%{actors} 在刪掉的貼文中提到了你."
-      zero: "%{actors}在已刪掉的貼文中提到了你."
+      few: "%{actors}在已刪掉的貼文中點到了你."
+      many: "%{actors}在已刪掉的貼文中點到了你."
+      one: "%{actors}在已刪掉的貼文中點到了你."
+      other: "%{actors}在已刪掉的貼文中點到了你."
+      two: "%{actors} 在刪掉的貼文中點到了你."
+      zero: "%{actors}在已刪掉的貼文中點到了你."
     post: "貼文"
     private_message: 
       few: "%{actors}寫了訊息給你."
@@ -443,8 +453,8 @@ zh-TW:
       liked: "%{name}剛剛說你的貼文讚"
       view_post: "看貼文 >"
     mentioned: 
-      mentioned: "在貼文中提到你:"
-      subject: "%{name} 在 Diaspora* 提到你"
+      mentioned: "在貼文中點到了你:"
+      subject: "%{name} 在 Diaspora* 點到了你"
     private_message: 
       reply_to_or_view: "回或看這次對話 >"
     reshared: 
@@ -498,7 +508,7 @@ zh-TW:
       does_not_exist: "聯絡人不存在!"
       has_not_shared_with_you_yet: "%{name} 尚未跟你分享任何貼文!"
       incoming_request: "%{name} 希望能和你分享"
-      mention: "提及"
+      mention: "指指點點"
       message: "送訊息"
       not_connected: "你不跟這個人分享"
       recent_posts: "最近貼文"
@@ -519,7 +529,7 @@ zh-TW:
     comment_email_subject: "%{name} 的相片"
     create: 
       integrity_error: "相片上傳失敗. 你確定它是圖片嗎?"
-      runtime_error: "相片上傳失敗. 你確定有扣安全帶嗎?"
+      runtime_error: "相片上傳失敗. 你確定安全帶有扣上嗎?"
       type_error: "相片上傳失敗. 你確定有加入任何圖片嗎?"
     destroy: 
       notice: "已刪除相片."
@@ -581,6 +591,13 @@ zh-TW:
       failed: "個人檔案更新失敗"
       updated: "已更新個人檔案"
   public: "公開"
+  reactions: 
+    few: "有%{count}次反應"
+    many: "有%{count}次反應"
+    one: "有1次反應"
+    other: "有%{count}次反應"
+    two: "有%{count}次反應"
+    zero: "沒有反應"
   registrations: 
     closed: "本 Diaspora pod 不開放登記."
     create: 
@@ -636,6 +653,7 @@ zh-TW:
         zero: "轉貼"
       reshare_confirmation: "要轉貼 %{author} 的貼文嗎?"
       reshare_original: "轉貼原文"
+      reshared_via: "轉貼來自"
       show_original: "顯示原文"
   search: "搜尋"
   services: 
@@ -654,7 +672,7 @@ zh-TW:
       connect_to_twitter: "與 Twitter 連結"
       disconnect: "切斷連結"
       edit_services: "編輯服務"
-      logged_in_as: "登入為"
+      logged_in_as: "已登入為"
       no_services: "你還沒有任何已連結的服務."
       really_disconnect: "切斷與 %{service} 的連結?"
     inviter: 
@@ -674,16 +692,16 @@ zh-TW:
       know_email: "知道他們的電子信箱嗎? 你應該邀請他們來"
       your_diaspora_username_is: "你的 Diaspora 使用者名稱是: %{diaspora_handle}"
     aspect_dropdown: 
-      add_to_aspect: "加入至面向"
+      add_to_aspect: "加聯絡人"
       toggle: 
         few: "在%{count}個面向中"
         many: "在%{count}個面向中"
         one: "在%{count}個面向中"
         other: "在%{count}個面向中"
         two: "在%{count}個面向中"
-        zero: "加入至面向"
+        zero: "加聯絡人"
     contact_list: 
-      all_contacts: "全部聯絡人"
+      all_contacts: "所有聯絡人"
     footer: 
       logged_in_as: "已用 %{name} 登入"
       your_aspects: "你的面向"
@@ -705,7 +723,7 @@ zh-TW:
       title: "設定連線服務"
     publisher: 
       all: "全部"
-      all_contacts: "全部聯絡人"
+      all_contacts: "所有聯絡人"
       click_to_share_with: "點一下以一起分享: "
       discard_post: "捨棄貼文"
       make_public: "公開"
@@ -734,7 +752,7 @@ zh-TW:
     helper: 
       no_message_to_display: "沒有訊息可顯示."
     new: 
-      mentioning: "提及發表中: %{person}"
+      mentioning: "指指點點中: %{person}"
     too_long: 
       few: "請限制狀態訊息在%{count}個字內"
       many: "請限制狀態訊息在%{count}個字內"
@@ -745,6 +763,16 @@ zh-TW:
   stream_helper: 
     hide_comments: "隱藏所有意見"
     show_more_comments: "顯示下面 %{number} 個意見"
+  streams: 
+    mentions: 
+      contacts_title: "對你指指點點過的人"
+      title: "對你指指點點的紀錄"
+    public: 
+      contacts_title: "Recent Posters"
+      title: "Public Activity"
+    tags: 
+      contacts_title: "這些標籤的粉絲"
+      title: "有以下標籤的貼文: %{tags}"
   tag_followings: 
     create: 
       failure: "追蹤失敗: #%{name}"
@@ -755,6 +783,7 @@ zh-TW:
   tags: 
     show: 
       follow: "追蹤#%{tag}"
+      followed_by: "followed by"
       following: "正在追蹤#%{tag}"
       nobody_talking: "尚還沒有人在討論 %{tag}."
       people_tagged_with: "標記為 %{tag} 的人"
@@ -794,8 +823,8 @@ zh-TW:
       edit_account: "編輯帳號"
       email_awaiting_confirmation: "我們已經將啟用連結寄到 %{unconfirmed_email} 給你. 在你使用該連結啟用新的位址前, 我們還會繼續使用你原來的位址, 也就是 %{email}."
       export_data: "資料匯出"
-      liked: "...有人對你的貼文說讚時?"
-      mentioned: "...當貼文中提到你時?"
+      liked: "...當有人對你的貼文說讚時?"
+      mentioned: "...當貼文中點到你時?"
       new_password: "新的密碼"
       private_message: "...當收到私人訊息時?"
       receive_email_notifications: "是否要在以下時機透過電子郵件接收消息..."
@@ -805,20 +834,25 @@ zh-TW:
       your_handle: "你的 diaspora 識別碼"
     getting_started: 
       bold: "面向"
+      community_welcome: "Diaspora 的社群歡迎你的到來!"
       connect_to: "連結至"
       connect_to_your_other_social_networks: "與其他社交網站連結"
+      connect_to_your_other_social_networks_explanation_p1: "與服務連結後你就可以發布內容到這些服務."
+      connect_to_your_other_social_networks_explanation_p2: "若連結至 Facebook, 你還可以找到已經使用 Diaspora 的朋友, 並且邀請其他人來."
       connect_with_people: "與酷咖連結"
       connect_with_people_explanation_pt1: "將別人放進你的任何一個或多個%{bold}中來與他們建立聯繫."
       connect_with_people_explanation_pt2: "面向是區分新人或熟人的直覺方式, 並且只有你自己知道, 讓你可以輕易過濾他們, 或只和部份聯絡人分享."
       edit_profile: "編輯個人檔案"
-      featured_tags: "特色標籤"
-      featured_users: "特色使用者"
+      featured_tags: "追蹤明星標籤"
+      featured_users: "明星使用者"
       fill_out_your_profile: "填寫個人檔案"
       find_friends: "找朋友"
       find_friends_from_facebook: "從 Facebook 找朋友"
       finished: "完成了"
       follow_your_interests: "追蹤你的興趣"
+      get_updates_from_core: "從核心團隊得到專案的最新變動."
       hashtag_explanation: "標籤讓你可以討論及追蹤你的興趣. 並且也是在 Diaspora 找到新朋友的好方法."
+      not_mandatory: "完成接下來的步驟可以提昇你在 Diaspora 體驗, 不過都是非必要的項目."
       profile_description: "填寫好個人檔案可以讓其他人更容易找到你."
       profile_fields: 
         bio: "經歷"
@@ -830,9 +864,15 @@ zh-TW:
         tags: "標籤"
       search_for_hashtags: "搜尋\"#雜湊標籤\""
       search_for_people: "搜尋人"
-      see_all_featured_users: "看所有的特色使用者"
+      see_all_featured_users: "看所有的明星使用者"
       welcome: "歡迎光臨!"
       welcome_with_name: "歡迎光臨, %{name}!"
+    logged_out: 
+      go_mobile: "開始行動瀏覽."
+      on_your_mobile_device: "就可以使用 Diaspora* 行動版."
+      signed_out: "你已經登出 Diaspora* 了"
+      simply_visit: "只要在你的行動設備上輸入"
+      works_on_modern: "適用於所有新潮的智慧型手機"
     public: 
       does_not_exist: "不存在 %{username} 這個使用者!"
     update: 

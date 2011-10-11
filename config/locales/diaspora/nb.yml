@@ -1,4 +1,4 @@
-#   Copyright (c) 2011, Diaspora Inc.  This file is
+#   Copyright (c) 2010-2011, Diaspora Inc.  This file is
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
@@ -61,8 +61,10 @@ nb:
       done_editing: "fullfør"
     aspect_listings: 
       add_an_aspect: "+ Add an aspect"
+      edit_aspect: "Edit %{name}"
     aspect_stream: 
       commented_on: "commented on"
+      mentions: "Mentions"
       posted: "posted"
       recently: "recently:"
       stream: "Stream"
@@ -91,6 +93,7 @@ nb:
       aspect_not_empty: "Aspektet er ikke tomt"
       remove: "fjern"
     index: 
+      community_members: "Featured Diaspora* members"
       cubbies: 
         explanation: "Cubbi.es is the first Diaspora application under development."
         heading: "Connect to Cubbi.es"
@@ -100,21 +103,26 @@ nb:
         content_2: "Give it to anyone and they'll be able to find you on Diaspora."
         heading: "Diaspora ID"
       donate: "Doner"
+      featured_users: "Featured Users"
       handle_explanation: "This is your diaspora handle.  Like an email address, you can give this to people to reach you."
       help: 
-        did_you: "Did you:"
+        do_you: "Do you:"
+        email_feedback: "%{link} your feedback, if you prefer"
+        feature_and_forum: "%{gs} & %{forum}: Community-powered support and feature requests"
         feature_suggestion: "... have a %{link} suggestion?"
         find_a_bug: "... find a %{link}?"
         have_a_question: "... have a %{link}?"
         here_to_help: "Diaspora community is here to help!"
-        more_support: "For more support, you should also check out %{link}."
         need_help: "Trenger du hjelp?"
-        tutorials: "For tutorials, check out %{link}."
+        satisfaction: "%{link}: Community-powered support"
+        tutorials_and_wiki: "%{tutorial} & %{wiki}: Community-powered tutorials, how-to, and news"
       keep_us_running: "Keep %{pod} running fast, buy our servers their monthly coffee fix!"
+      mentions: "Mentions"
       no_contacts: "Ingen kontakter"
       no_tags: "No tags"
       people_sharing_with_you: "Folk som deler med deg"
       post_a_message: "legg ut en melding >>"
+      see_more_from_us: "See more of the D* community."
       services: 
         content: "You can connect the following services to Diaspora:"
         heading: "Connect Services"
@@ -147,6 +155,7 @@ nb:
       manage_your_aspects: "Manage your aspects."
       no_contacts: "Du har ingen kontakter her enda."
       view_all_contacts: "Vis alle kontakter"
+      view_all_featured_users: "See all Featured Users"
     show: 
       edit_aspect: "endre aspekt"
     two: "%{count} aspects"
@@ -184,8 +193,9 @@ nb:
     few: "%{count} kontakter"
     index: 
       add_a_new_aspect: "Add a new aspect"
+      add_to_aspect: "Add contacts to %{name}"
       all_contacts: "Alle kontakter"
-      edit_aspect: "Edit %{name}"
+      check_out: "Check out"
       many_people_are_you_sure: "Are you sure you want to start a private conversation with more than %{suggested_limit} contacts? Posting to this aspect may be a better way to contact them."
       my_contacts: "Mine kontakter"
       no_contacts: "Ingen kontakter."
@@ -340,12 +350,12 @@ nb:
       two: "%{actors} also commented on %{post_author}'s %{post_link}."
       zero: "%{actors} also commented on %{post_author}'s %{post_link}."
     also_commented_deleted: 
-      few: "%{actors} commented on a deleted post."
-      many: "%{actors} commented on a deleted post."
-      one: "%{actors} commented on a deleted post."
-      other: "%{actors} commented on a deleted post."
+      few: "%{actors} kommenterte på en slettet post."
+      many: "%{actors} kommenterte på en slettet post."
+      one: "%{actors} kommenterte på en slettet post."
+      other: "%{actors} kommenterte på en slettet post."
       two: "%{actors} commented on a deleted post."
-      zero: "%{actors} commented on a deleted post."
+      zero: "%{actors} kommenterte på en slettet post."
     comment_on_post: 
       few: "%{actors} commented on your %{post_link}."
       many: "%{actors} commented on your %{post_link}."
@@ -387,19 +397,19 @@ nb:
       two: "%{actors} liked your deleted post."
       zero: "%{actors} liked your deleted post."
     mentioned: 
-      few: "%{actors} has mentioned you in a %{post_link}."
+      few: "%{actors} har nevnt deg i en %{post_link}."
       many: "%{actors} har nevnt deg i et %{post_link}."
-      one: "%{actors} has mentioned you in a %{post_link}."
+      one: "%{actors} har nevnt deg i en %{post_link}."
       other: "%{actors} has mentioned you in a %{post_link}."
       two: "%{actors} has mentioned you in a %{post_link}."
       zero: "%{actors} has mentioned you in a %{post_link}."
     mentioned_deleted: 
-      few: "%{actors} mentioned you in a deleted post."
-      many: "%{actors} mentioned you in a deleted post."
-      one: "%{actors} mentioned you in a deleted post."
-      other: "%{actors} mentioned you in a deleted post."
+      few: "%{actors} nevnte deg i en slettet post."
+      many: "%{actors} nevnte deg i en slettet post."
+      one: "%{actors} nevnte deg i en slettet post."
+      other: "%{actors} nevnte deg i en slettet post."
       two: "%{actors} mentioned you in a deleted post."
-      zero: "%{actors} mentioned you in a deleted post."
+      zero: "%{actors} nevnte deg i en slettet post."
     post: "innlegg"
     private_message: 
       few: "%{actors} sendte deg en melding."
@@ -581,6 +591,13 @@ nb:
       failed: "Kunne ikke oppdatere profil"
       updated: "Profil oppdatert"
   public: "Public"
+  reactions: 
+    few: "%{count} reactions"
+    many: "%{count} reactions"
+    one: "1 reaction"
+    other: "%{count} reactions"
+    two: "%{count} reactions"
+    zero: "0 reactions"
   registrations: 
     closed: "Registreringer er stengt på denne Diaspora poden."
     create: 
@@ -636,6 +653,7 @@ nb:
         zero: "Reshare"
       reshare_confirmation: "Reshare %{author} - %{text}?"
       reshare_original: "Reshare orignial"
+      reshared_via: "reshared via"
       show_original: "Show Original"
   search: "Søk"
   services: 
@@ -745,6 +763,16 @@ nb:
   stream_helper: 
     hide_comments: "skjul kommentarer"
     show_more_comments: "Show %{number} more comments"
+  streams: 
+    mentions: 
+      contacts_title: "People who mentioned you"
+      title: "Your Mentions"
+    public: 
+      contacts_title: "Recent Posters"
+      title: "Public Activity"
+    tags: 
+      contacts_title: "People who dig these tags"
+      title: "Posts tagged: %{tags}"
   tag_followings: 
     create: 
       failure: "Failed to follow: #%{name}"
@@ -755,6 +783,7 @@ nb:
   tags: 
     show: 
       follow: "Follow #%{tag}"
+      followed_by: "followed by"
       following: "Following #%{tag}"
       nobody_talking: "Ingen snakker om %{tag} ennå."
       people_tagged_with: "Personer tagget med %{tag}"
@@ -805,8 +834,11 @@ nb:
       your_handle: "Ditt Diaspora brukernavn"
     getting_started: 
       bold: "aspects"
+      community_welcome: "Diaspora's community is happy to have you aboard!"
       connect_to: "Connect to"
       connect_to_your_other_social_networks: "Connect to your other social networks"
+      connect_to_your_other_social_networks_explanation_p1: "Connecting to services will allow you to publish out to these services."
+      connect_to_your_other_social_networks_explanation_p2: "With Facebook, you also be able to find friends already on Diaspora and invite others."
       connect_with_people: "Connect with cool people"
       connect_with_people_explanation_pt1: "Connect with people by placing them into one or more of your"
       connect_with_people_explanation_pt2: "Aspects are an intuitive way to group new and familar faces, private to you, allowing you to filter down or share with subsets of your contacts easily."
@@ -818,7 +850,9 @@ nb:
       find_friends_from_facebook: "finn venner fra Facebook"
       finished: "Ferdig!"
       follow_your_interests: "Follow your interests"
+      get_updates_from_core: "Get updates about the project from the core team."
       hashtag_explanation: "Hashtags allow you to talk about and follow your interests.  They're also a great way to find new people on Diaspora."
+      not_mandatory: "Completing the following steps will improve your Diaspora experience, but they are not mandatory."
       profile_description: "Make it easier for people to find you by filling out your profile information."
       profile_fields: 
         bio: "Bio"
@@ -833,6 +867,12 @@ nb:
       see_all_featured_users: "See all featured users"
       welcome: "Velkommen til Diaspora!"
       welcome_with_name: "Velkommen %{name}!"
+    logged_out: 
+      go_mobile: "Now go mobile."
+      on_your_mobile_device: "on your mobile device to access Diaspora* mobile."
+      signed_out: "You've signed out of Diaspora*"
+      simply_visit: "Simply visit"
+      works_on_modern: "Works on all modern smartphones"
     public: 
       does_not_exist: "Bruker %{username} finnes ikke!"
     update: 

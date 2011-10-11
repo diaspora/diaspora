@@ -1,4 +1,4 @@
-#   Copyright (c) 2011, Diaspora Inc.  This file is
+#   Copyright (c) 2010-2011, Diaspora Inc.  This file is
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
@@ -7,7 +7,7 @@ cs:
   _applications: "Aplikace"
   _comments: "Komentáře"
   _contacts: "Kontakty"
-  _home: "Doma"
+  _home: "Domů"
   _photos: "fotky"
   _services: "Služby"
   account: "Účet"
@@ -61,8 +61,10 @@ cs:
       done_editing: "ukončit úpravy"
     aspect_listings: 
       add_an_aspect: "+ Přidat aspekt"
+      edit_aspect: "Upravit %{name}"
     aspect_stream: 
       commented_on: "komentováno"
+      mentions: "Mentions"
       posted: "publikováno"
       recently: "v poslední době:"
       stream: "Stream"
@@ -80,7 +82,7 @@ cs:
       aspect_list_is_visible: "seznam kontaktů je viditelný pro ostatní v aspektu"
       confirm_remove_aspect: "Opravdu chcete odstranit tento aspekt?"
       done: "Hotovo"
-      make_aspect_list_visible: "zviditelnit seznam kontaktů?"
+      make_aspect_list_visible: "zpřístupnit seznam kontaktů v tomto aspektu ostatním?"
       remove_aspect: "Odstranit tento aspekt"
       rename: "přejmenovat"
       update: "aktualizovat"
@@ -91,6 +93,7 @@ cs:
       aspect_not_empty: "Aspekt není prázdný"
       remove: "odebrat"
     index: 
+      community_members: "Featured Diaspora* members"
       cubbies: 
         explanation: "Cubbi.es je první Diaspora aplikace ve vývoji."
         heading: "Připojit se na Cubbi.es"
@@ -100,21 +103,26 @@ cs:
         content_2: "Dejte to někomu a bude vás moci najít na Diaspoře."
         heading: "Diaspora ID"
       donate: "Přispějte"
+      featured_users: "Featured Users"
       handle_explanation: "Toto je vaše Diaspora ID. Podobně jako e-mailovou adresu ho můžete dál lidem a budete na něm dostupní."
       help: 
-        did_you: "Did you:"
-        feature_suggestion: "... have a %{link} suggestion?"
-        find_a_bug: "... find a %{link}?"
-        have_a_question: "... have a %{link}?"
-        here_to_help: "Diaspora community is here to help!"
-        more_support: "For more support, you should also check out %{link}."
-        need_help: "Need Help?"
-        tutorials: "For tutorials, check out %{link}."
+        do_you: "Do you:"
+        email_feedback: "%{link} your feedback, if you prefer"
+        feature_and_forum: "%{gs} & %{forum}: Community-powered support and feature requests"
+        feature_suggestion: "... vymyslel jste novou %{link}?"
+        find_a_bug: "... našli jste %{link}?"
+        have_a_question: "... máte nějakou %{link}?"
+        here_to_help: "Komunita Diaspory je tu pro vás!"
+        need_help: "Potřebujete pomoct?"
+        satisfaction: "%{link}: Community-powered support"
+        tutorials_and_wiki: "%{tutorial} & %{wiki}: Community-powered tutorials, how-to, and news"
       keep_us_running: "Pomozte %{pod} udržet rychlý, kupte našim serverům dávku kávy."
+      mentions: "Mentions"
       no_contacts: "Žádné kontakty"
       no_tags: "+ Najít nějaký štítek ke sledování"
       people_sharing_with_you: "Lidé, kteří s vámi sdílí"
       post_a_message: "odeslat příspěvek >>"
+      see_more_from_us: "See more of the D* community."
       services: 
         content: "Můžete připojit následující služby na Diasporu:"
         heading: "Připojit služby"
@@ -147,6 +155,7 @@ cs:
       manage_your_aspects: "Spravovat vaše aspekty."
       no_contacts: "Nemáte zde dosud žádné kontakty."
       view_all_contacts: "Zobrazit všechny kontakty"
+      view_all_featured_users: "See all Featured Users"
     show: 
       edit_aspect: "upravit aspekt"
     two: "%{count} aspekty"
@@ -160,7 +169,7 @@ cs:
       revoke_access: "Zrušit přístup"
   back: "Zpět"
   bookmarklet: 
-    explanation: "Příspěvek na Diasporu odkudkoliv pomocí %{link}."
+    explanation: "Pište na Diasporu odkudkoliv pomocí %{link}."
     explanation_link_text: "tohoto odkazu"
     heading: "Bookmarklet"
     post_something: "Poslat něco na Diasporu"
@@ -184,11 +193,12 @@ cs:
     few: "%{count} kontaktů"
     index: 
       add_a_new_aspect: "Přidat nový aspekt"
+      add_to_aspect: "Přidat kontakty do %{name}"
       all_contacts: "Všechny kontakty"
-      edit_aspect: "Upravit %{name}"
+      check_out: "Check out"
       many_people_are_you_sure: "Jste si jisti, že chcete začít soukromý rozhovor s více než %{suggested_limit} kontakty? Posílání zpráv do tohoto aspektu může být lepší způsob, jak s nimi spojit."
       my_contacts: "Moje kontakty"
-      no_contacts: "Žádné kontakty."
+      no_contacts: "Zdá se, že si potřebujete přidat nějaké kontakty."
       only_sharing_with_me: "Pouze sdílení se mnou"
       remove_person_from_aspect: "Odstranit %{person_name} z \"%{aspect_name}\""
       start_a_conversation: "Zahájit konverzaci"
@@ -373,12 +383,12 @@ cs:
       mark_all_as_read: "Označit vše jako přečtené"
       notifications: "Oznámení"
     liked: 
-      few: "%{actors} si právě oblíbili váš %{post_link}."
-      many: "%{actors} si právě oblíbili váš %{post_link}."
-      one: "%{actors} si právě oblíbil váš %{post_link}."
-      other: "%{actors} si právě oblíbili váš %{post_link}."
-      two: "%{actors} si právě oblíbili váš %{post_link}."
-      zero: "%{actors} si právě oblíbili váš %{post_link}."
+      few: "%{actors} se zalíbil váš %{post_link}."
+      many: "%{actors} se zalíbil váš %{post_link}."
+      one: "%{actors} se zalíbil váš %{post_link}."
+      other: "%{actors} se zalíbil váš %{post_link}."
+      two: "%{actors} se zalíbil váš %{post_link}."
+      zero: "%{actors} se zalíbil váš %{post_link}."
     liked_post_deleted: 
       few: "%{actors} se líbil váš odstraněný příspěvek."
       many: "%{actors} se líbil váš odstraněný příspěvek."
@@ -435,12 +445,12 @@ cs:
     comment_on_post: 
       reply: "Zobrazit zprávu od %{name} nebo na ni odpovědět >"
     confirm_email: 
-      click_link: "To activate your new e-mail address %{unconfirmed_email}, please click this link:"
-      subject: "Please activate your new e-mail address %{unconfirmed_email}"
+      click_link: "K aktivaci vaší nové e-mailové adresy %{unconfirmed_email}, použijte prosím tento odkaz:"
+      subject: "Prosím aktivujte si svou novou e-mailovou adresu %{unconfirmed_email}"
     email_sent_by_diaspora: "Tento e-mail odeslala Diaspora. Pokud si nepřejete nadále dostávat takovéto e-maily,"
     hello: "Vítej %{name}!"
     liked: 
-      liked: "%{name} si právě oblíbil váš příspěvek: "
+      liked: "%{name} si právě oblíbil váš příspěvek"
       view_post: "Zobrazit zprávu >"
     mentioned: 
       mentioned: "zmínil jste v příspěvku:"
@@ -581,6 +591,13 @@ cs:
       failed: "Nepodařilo se aktualizovat profil"
       updated: "Profil aktualizován"
   public: "Veřejné"
+  reactions: 
+    few: "%{count} reactions"
+    many: "%{count} reactions"
+    one: "1 reaction"
+    other: "%{count} reactions"
+    two: "%{count} reactions"
+    zero: "0 reactions"
   registrations: 
     closed: "Zápisy jsou aktuálně uzavřeny na tomto Diasporu podu."
     create: 
@@ -636,6 +653,7 @@ cs:
         zero: "Reshare"
       reshare_confirmation: "Reshare %{author} - %{text}?"
       reshare_original: "Reshare orignial"
+      reshared_via: "reshared via"
       show_original: "Show Original"
   search: "Hledat"
   services: 
@@ -676,11 +694,11 @@ cs:
     aspect_dropdown: 
       add_to_aspect: "Přidat do aspektu"
       toggle: 
-        few: "In %{count} aspects"
-        many: "In %{count} aspects"
+        few: "Ve %{count} aspektech"
+        many: "V %{count} aspektech"
         one: "V %{count} aspektu"
         other: "V %{count} aspektech"
-        two: "In %{count} aspects"
+        two: "Ve %{count} aspektech"
         zero: "Přidat do aspektu"
     contact_list: 
       all_contacts: "Všechny kontakty"
@@ -736,25 +754,36 @@ cs:
     new: 
       mentioning: "Zmínka: %{person}"
     too_long: 
-      few: "vaše stavové zprávy musí mít méně než %{count} znaků"
-      many: "vaše stavové zprávy musí mít méně než %{count} znaků"
-      one: "vaše stavové zprávy musí mít méně než %{count} znak"
-      other: "vaše stavové zprávy musí mít méně než %{count} znaků"
-      two: "please make your status messages less than %{count} characters"
-      zero: "vaše stavové zprávy musí mít méně než %{count} znaků"
+      few: "prosím zkraťte vaši zprávu na méně než %{count} znaky"
+      many: "prosím zkraťte vaši zprávu na méně než %{count} znaků"
+      one: "prosím zkraťte vaši zprávu na méně než %{count} znak"
+      other: "prosím zkraťte vaši zprávu na méně než %{count} znaků"
+      two: "prosím zkraťte vaši zprávu na méně než %{count} znaky"
+      zero: "prosím zkraťte vaši zprávu na méně než %{count} znaků"
   stream_helper: 
     hide_comments: "Skrýt všechny komentáře"
     show_more_comments: "Zobrazit %{number} dalších komentářů"
+  streams: 
+    mentions: 
+      contacts_title: "People who mentioned you"
+      title: "Your Mentions"
+    public: 
+      contacts_title: "Recent Posters"
+      title: "Public Activity"
+    tags: 
+      contacts_title: "People who dig these tags"
+      title: "Posts tagged: %{tags}"
   tag_followings: 
     create: 
       failure: "Nepodařilo se následovat: #%{name}"
-      success: "Úspěšně následujete: #%{name}"
+      success: "Začal jste sledovat: #%{name}"
     destroy: 
       failure: "Nepodařilo se ukončit sledování: #%{name}"
       success: "Sledování #%{name} bylo úspěšně ukončeno"
   tags: 
     show: 
       follow: "Sledovat #%{tag}"
+      followed_by: "followed by"
       following: "Sledujete #%{tag}"
       nobody_talking: "Nikdo dosud nemluví o %{tag}."
       people_tagged_with: "Lidé označení %{tag}"
@@ -772,13 +801,13 @@ cs:
       sign_up_today: "Registrujte se ještě dnes!"
       typical_userpage: "Typická uživatelská stránka na cubbi.es"
       via: "(přes %{link})"
-      what_is_cubbies: "Cubbi.es je celosvětově první aplikace Diaspory. Je to také nejlepší způsob, jak shromáždit fotografie online."
+      what_is_cubbies: "Cubbi.es je celosvětově první aplikace Diaspory. Je to také nejlepší způsob, jak shromažďovat fotografie online."
   undo: "Vrátit?"
   username: "Uživatelské jméno"
   users: 
     confirm_email: 
-      email_confirmed: "E-Mail %{email} activated"
-      email_not_confirmed: "E-Mail could not be activated. Wrong link?"
+      email_confirmed: "E-mail %{email} aktivován"
+      email_not_confirmed: "E-mail nemohl být aktivován. Špatný odkaz?"
     destroy: "Váš účet byl uzamčen. Dokončení uzavření vašeho účtu může trvat 20 minut. Děkujeme vám za vyzkoušení Diaspory."
     edit: 
       also_commented: "...někdo komentoval váš příspěvek?"
@@ -805,20 +834,25 @@ cs:
       your_handle: "Vaše Diaspora ID"
     getting_started: 
       bold: "aspektů"
+      community_welcome: "Diaspora's community is happy to have you aboard!"
       connect_to: "Připojit ke"
       connect_to_your_other_social_networks: "Připojit k dalším sociálním sítím"
+      connect_to_your_other_social_networks_explanation_p1: "Connecting to services will allow you to publish out to these services."
+      connect_to_your_other_social_networks_explanation_p2: "With Facebook, you also be able to find friends already on Diaspora and invite others."
       connect_with_people: "Spojte se s lidmi"
       connect_with_people_explanation_pt1: "Spojte se s lidmi jejich umístěním do jednoho nebo více z vašich %{bold}."
       connect_with_people_explanation_pt2: "Apekty jsou snadný způsob, jak seskupovat nové a známé tváře. Dovolují jednoduše sdílet s podmnožinami vašich kontaktů."
-      edit_profile: "Upravit váš profil"
+      edit_profile: "Upravit profil"
       featured_tags: "Featured tags"
       featured_users: "Sledujte, co vás zajímá"
       fill_out_your_profile: "Vyplňte si svůj profil"
       find_friends: "Najít přátele"
       find_friends_from_facebook: "najít přátele z Facebooku"
-      finished: "Dokončeno!"
+      finished: "Dokončeno"
       follow_your_interests: "Sledujte, co vás zajímá"
+      get_updates_from_core: "Get updates about the project from the core team."
       hashtag_explanation: "Štítky vám dovolují sledovat, o co se zajímáte, a diskutovat. Je to také skvělý způsob, jak najít nové lidi na Diaspoře."
+      not_mandatory: "Completing the following steps will improve your Diaspora experience, but they are not mandatory."
       profile_description: "Zjednodušte ostatním vás najít vyplněním informací ve vašem profilu."
       profile_fields: 
         bio: "Něco o vás"
@@ -831,17 +865,23 @@ cs:
       search_for_hashtags: "Vyhledat #štítky"
       search_for_people: "Vyhledat lidi"
       see_all_featured_users: "See all featured users"
-      welcome: "Vítejte na Diaspoře!"
+      welcome: "Vítejte!"
       welcome_with_name: "Vítejte, %{name}!"
+    logged_out: 
+      go_mobile: "Now go mobile."
+      on_your_mobile_device: "on your mobile device to access Diaspora* mobile."
+      signed_out: "You've signed out of Diaspora*"
+      simply_visit: "Simply visit"
+      works_on_modern: "Works on all modern smartphones"
     public: 
       does_not_exist: "Uživatel %{username} neexistuje!"
     update: 
       email_notifications_changed: "Oznámení e-mailem změněno"
       language_changed: "Jazyk změněn"
       language_not_changed: "Změna jazyka selhala"
-      password_changed: "Heslo bylo změněno. Nyní se můžete přihlásit s novým heslem."
+      password_changed: "Heslo bylo změněno. Nyní se můžete přihlásit s vaším novým heslem."
       password_not_changed: "Změna hesla selhala"
-      unconfirmed_email_changed: "E-Mail Changed. Needs activation."
+      unconfirmed_email_changed: "E-mail změněn. Vyžaduje aktivaci."
       unconfirmed_email_not_changed: "Změna e-mailu selhala"
   webfinger: 
     fetch_failed: "Selhalo načtení webfinger profilu pro %{profile_url}"

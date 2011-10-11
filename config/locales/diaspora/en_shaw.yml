@@ -1,4 +1,4 @@
-#   Copyright (c) 2011, Diaspora Inc.  This file is
+#   Copyright (c) 2010-2011, Diaspora Inc.  This file is
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
@@ -61,8 +61,10 @@ en_shaw:
       done_editing: "𐑛𐑳𐑯 𐑧𐑛𐑦𐑑𐑦𐑙"
     aspect_listings: 
       add_an_aspect: "+ 𐑨𐑛 𐑩𐑯 𐑨𐑕𐑐𐑧𐑒𐑑"
+      edit_aspect: "Edit %{name}"
     aspect_stream: 
       commented_on: "𐑒𐑪𐑥𐑩𐑯𐑑𐑩𐑛 𐑪𐑯"
+      mentions: "Mentions"
       posted: "𐑐𐑴𐑕𐑑𐑩𐑛"
       recently: "𐑮𐑰𐑕𐑩𐑯𐑑𐑤𐑦:"
       stream: "𐑕𐑑𐑮𐑰𐑥"
@@ -91,6 +93,7 @@ en_shaw:
       aspect_not_empty: "𐑨𐑕𐑐𐑧𐑒𐑑 𐑯𐑪𐑑 𐑧𐑥𐑐𐑑𐑦"
       remove: "𐑮𐑦𐑥𐑵𐑝"
     index: 
+      community_members: "Featured Diaspora* members"
       cubbies: 
         explanation: "Cubbi.es 𐑦𐑟 𐑞 𐑓𐑻𐑕𐑑 ·𐑛𐑦𐑨𐑕𐑐𐑹𐑩 𐑨𐑐𐑤𐑦𐑒𐑱𐑖𐑩𐑯 𐑳𐑯𐑛𐑼 𐑛𐑦𐑝𐑧𐑤𐑩𐑐𐑥𐑧𐑯𐑑."
         heading: "𐑒𐑩𐑯𐑧𐑒𐑑 𐑑 Cubbi.es"
@@ -100,21 +103,26 @@ en_shaw:
         content_2: "𐑜𐑦𐑝 𐑦𐑑 𐑑 𐑧𐑯𐑦𐑢𐑩𐑯 𐑯 𐑞𐑱𐑤 𐑚𐑰 𐑱𐑚𐑩𐑤 𐑑 𐑓𐑲𐑯𐑛 𐑿 𐑪𐑯 ·𐑛𐑦𐑨𐑕𐑐𐑹𐑩."
         heading: "·𐑛𐑦𐑨𐑕𐑐𐑹𐑩 𐑲𐑛𐑧𐑯𐑑𐑦𐑓𐑦𐑒𐑱𐑖𐑩𐑯"
       donate: "𐑛𐑴𐑯𐑱𐑑"
+      featured_users: "Featured Users"
       handle_explanation: "𐑞𐑦𐑕 𐑦𐑟 𐑿𐑼 ·𐑛𐑦𐑨𐑕𐑐𐑹𐑩 𐑲𐑛𐑧𐑯𐑑𐑦𐑓𐑦𐑒𐑱𐑖𐑩𐑯. 𐑤𐑲𐑒 𐑩𐑯 𐑦-𐑥𐑱𐑤 𐑨𐑛𐑮𐑧𐑕, 𐑿 𐑒𐑨𐑯 𐑜𐑦𐑝 𐑞𐑦𐑕 𐑑 𐑐𐑰𐑐𐑩𐑤 𐑑 𐑮𐑰𐑗 𐑿."
       help: 
-        did_you: "Did you:"
+        do_you: "Do you:"
+        email_feedback: "%{link} your feedback, if you prefer"
+        feature_and_forum: "%{gs} & %{forum}: Community-powered support and feature requests"
         feature_suggestion: "... have a %{link} suggestion?"
         find_a_bug: "... find a %{link}?"
         have_a_question: "... have a %{link}?"
         here_to_help: "Diaspora community is here to help!"
-        more_support: "For more support, you should also check out %{link}."
         need_help: "Need Help?"
-        tutorials: "For tutorials, check out %{link}."
+        satisfaction: "%{link}: Community-powered support"
+        tutorials_and_wiki: "%{tutorial} & %{wiki}: Community-powered tutorials, how-to, and news"
       keep_us_running: "𐑒𐑰𐑐 %{pod} 𐑮𐑳𐑯𐑦𐑙 𐑓𐑨𐑕𐑑, 𐑚𐑲 𐑬𐑮 𐑕𐑻𐑝𐑼𐑟 𐑞𐑺 𐑥𐑳𐑯𐑔𐑤𐑦 𐑒𐑪𐑓𐑦 𐑓𐑦𐑒𐑕!"
+      mentions: "Mentions"
       no_contacts: "𐑯𐑴 𐑒𐑪𐑯𐑑𐑨𐑒𐑑𐑕"
       no_tags: "𐑯𐑴 𐑑𐑨𐑜𐑟"
       people_sharing_with_you: "𐑐𐑰𐑐𐑩𐑤 𐑖𐑺𐑦𐑙 𐑢𐑦𐑞 𐑿"
       post_a_message: "𐑐𐑴𐑕𐑑 𐑩 𐑥𐑧𐑕𐑩𐑡 >>"
+      see_more_from_us: "See more of the D* community."
       services: 
         content: "𐑿 𐑒𐑨𐑯 𐑒𐑩𐑯𐑧𐑒𐑑 𐑞 𐑓𐑪𐑤𐑴𐑦𐑙 𐑕𐑻𐑝𐑦𐑕𐑩𐑟 𐑑 ·𐑛𐑦𐑨𐑕𐑐𐑹𐑩:"
         heading: "𐑒𐑩𐑯𐑧𐑒𐑑 𐑕𐑻𐑝𐑦𐑕𐑩𐑟"
@@ -147,6 +155,7 @@ en_shaw:
       manage_your_aspects: "𐑥𐑨𐑯𐑩𐑡 𐑿𐑼 𐑨𐑕𐑐𐑧𐑒𐑑𐑕."
       no_contacts: "𐑿 𐑛𐑴𐑯𐑑 𐑣𐑨𐑝 𐑧𐑯𐑦 𐑒𐑪𐑯𐑑𐑨𐑒𐑑𐑕 𐑣𐑽 𐑘𐑧𐑑."
       view_all_contacts: "𐑝𐑿 𐑷𐑤 𐑒𐑪𐑯𐑑𐑨𐑒𐑑𐑕"
+      view_all_featured_users: "See all Featured Users"
     show: 
       edit_aspect: "𐑧𐑛𐑦𐑑 𐑨𐑕𐑐𐑧𐑒𐑑"
     two: "%{count} aspects"
@@ -184,8 +193,9 @@ en_shaw:
     few: "%{count} 𐑒𐑪𐑯𐑑𐑨𐑒𐑑𐑕"
     index: 
       add_a_new_aspect: "𐑨𐑛 𐑯𐑿 𐑨𐑕𐑐𐑧𐑒𐑑"
+      add_to_aspect: "Add contacts to %{name}"
       all_contacts: "𐑷𐑤 𐑒𐑪𐑯𐑑𐑨𐑒𐑑𐑕"
-      edit_aspect: "𐑧𐑛𐑦𐑑 %{name}"
+      check_out: "Check out"
       many_people_are_you_sure: "𐑸 𐑿 𐑖𐑻 𐑿 𐑢𐑳𐑯𐑑 𐑑 𐑕𐑑𐑸𐑑 𐑩 𐑐𐑮𐑲𐑝𐑩𐑑 𐑒𐑪𐑯𐑝𐑼𐑕𐑱𐑖𐑩𐑯 𐑢𐑦𐑞 𐑥𐑹 𐑞𐑨𐑯 %{suggested_limit} 𐑒𐑪𐑯𐑑𐑨𐑒𐑑𐑕? 𐑐𐑴𐑕𐑑𐑦𐑙 𐑑 𐑞𐑦𐑕 𐑨𐑕𐑐𐑧𐑒𐑑 𐑥𐑱 𐑚𐑰 𐑩 𐑚𐑧𐑑𐑼 𐑢𐑱 𐑑 𐑒𐑪𐑯𐑑𐑨𐑒𐑑 𐑞𐑧𐑥."
       my_contacts: "𐑥𐑲 𐑒𐑪𐑯𐑑𐑨𐑒𐑑𐑕"
       no_contacts: "𐑯𐑴 𐑒𐑪𐑯𐑑𐑨𐑒𐑑𐑕."
@@ -496,7 +506,7 @@ en_shaw:
       remove_from: "𐑮𐑦𐑥𐑵𐑝 %{name} 𐑓𐑮𐑪𐑥 %{aspect}?"
     show: 
       does_not_exist: "𐑐𐑻𐑕𐑩𐑯 𐑛𐑳𐑟 𐑯𐑪𐑑 𐑧𐑜𐑟𐑦𐑕𐑑!"
-      has_not_shared_with_you_yet: "%{name} has not shared any posts with you yet!"
+      has_not_shared_with_you_yet: "%{name} 𐑣𐑨𐑟 𐑯𐑪𐑑 𐑖𐑺𐑛 𐑧𐑯𐑦 𐑐𐑴𐑕𐑑𐑕 𐑢𐑦𐑞 𐑿 𐑘𐑧𐑑!"
       incoming_request: "%{name} 𐑢𐑳𐑯𐑑𐑕 𐑑 𐑖𐑺 𐑢𐑦𐑞 𐑿"
       mention: "𐑥𐑧𐑯𐑖𐑩𐑯"
       message: "𐑥𐑧𐑕𐑩𐑡"
@@ -581,6 +591,13 @@ en_shaw:
       failed: "𐑓𐑱𐑤𐑛 𐑑 𐑳𐑐𐑛𐑱𐑑 𐑐𐑮𐑴𐑓𐑲𐑤"
       updated: "𐑐𐑮𐑴𐑓𐑲𐑤 𐑳𐑐𐑛𐑱𐑑𐑩𐑛"
   public: "𐑐𐑳𐑚𐑤𐑦𐑒"
+  reactions: 
+    few: "%{count} reactions"
+    many: "%{count} reactions"
+    one: "1 reaction"
+    other: "%{count} reactions"
+    two: "%{count} reactions"
+    zero: "0 reactions"
   registrations: 
     closed: "𐑕𐑲𐑯𐑩𐑐𐑕 𐑸 𐑒𐑤𐑴𐑟𐑛 𐑪𐑯 𐑞𐑦𐑕 ·𐑛𐑦𐑨𐑕𐑐𐑹𐑩 𐑐𐑪𐑛."
     create: 
@@ -636,6 +653,7 @@ en_shaw:
         zero: "𐑮𐑦𐑖𐑺"
       reshare_confirmation: "𐑮𐑦𐑖𐑺 %{author} - %{text}?"
       reshare_original: "𐑮𐑦𐑖𐑺 𐑩𐑮𐑦𐑡𐑩𐑯𐑩𐑤"
+      reshared_via: "reshared via"
       show_original: "𐑖𐑴 𐑩𐑮𐑦𐑡𐑩𐑯𐑩𐑤"
   search: "𐑕𐑻𐑗"
   services: 
@@ -745,6 +763,16 @@ en_shaw:
   stream_helper: 
     hide_comments: "𐑣𐑲𐑛 𐑷𐑤 𐑒𐑪𐑥𐑩𐑯𐑑𐑕"
     show_more_comments: "𐑖𐑴 %{number} 𐑥𐑹 𐑒𐑪𐑥𐑩𐑯𐑑𐑕"
+  streams: 
+    mentions: 
+      contacts_title: "People who mentioned you"
+      title: "Your Mentions"
+    public: 
+      contacts_title: "Recent Posters"
+      title: "Public Activity"
+    tags: 
+      contacts_title: "People who dig these tags"
+      title: "Posts tagged: %{tags}"
   tag_followings: 
     create: 
       failure: "𐑓𐑱𐑤𐑛 𐑑 𐑓𐑪𐑤𐑴: #%{name}"
@@ -755,6 +783,7 @@ en_shaw:
   tags: 
     show: 
       follow: "𐑓𐑪𐑤𐑴 #%{tag}"
+      followed_by: "followed by"
       following: "𐑓𐑪𐑤𐑴𐑦𐑙 #%{tag}"
       nobody_talking: "𐑯𐑴𐑚𐑩𐑛𐑦 𐑦𐑟 𐑑𐑷𐑒𐑦𐑙 𐑩𐑚𐑬𐑑 %{tag} 𐑘𐑧𐑑."
       people_tagged_with: "𐑐𐑰𐑐𐑩𐑤 𐑑𐑨𐑜𐑛 𐑢𐑦𐑞 %{tag}"
@@ -805,34 +834,45 @@ en_shaw:
       your_handle: "𐑿𐑼 ·𐑛𐑦𐑨𐑕𐑐𐑹𐑩 𐑲𐑛𐑧𐑯𐑑𐑦𐑓𐑦𐑒𐑱𐑖𐑩𐑯"
     getting_started: 
       bold: "aspects"
-      connect_to: "Connect to"
-      connect_to_your_other_social_networks: "Connect to your other social networks"
-      connect_with_people: "Connect with cool people"
+      community_welcome: "Diaspora's community is happy to have you aboard!"
+      connect_to: "𐑒𐑩𐑯𐑧𐑒𐑑 𐑑"
+      connect_to_your_other_social_networks: "𐑒𐑩𐑯𐑧𐑒𐑑 𐑑 𐑿𐑼 𐑳𐑞𐑼 𐑕𐑴𐑖𐑩𐑤 𐑯𐑧𐑑𐑢𐑼𐑒𐑕"
+      connect_to_your_other_social_networks_explanation_p1: "Connecting to services will allow you to publish out to these services."
+      connect_to_your_other_social_networks_explanation_p2: "With Facebook, you also be able to find friends already on Diaspora and invite others."
+      connect_with_people: "𐑒𐑩𐑯𐑧𐑒𐑑 𐑢𐑦𐑞 𐑒𐑵𐑤 𐑐𐑰𐑐𐑩𐑤"
       connect_with_people_explanation_pt1: "Connect with people by placing them into one or more of your"
       connect_with_people_explanation_pt2: "Aspects are an intuitive way to group new and familar faces, private to you, allowing you to filter down or share with subsets of your contacts easily."
       edit_profile: "𐑧𐑛𐑦𐑑 𐑿𐑼 𐑐𐑮𐑴𐑓𐑲𐑤"
       featured_tags: "Featured tags"
-      featured_users: "Featured users"
-      fill_out_your_profile: "Fill out your profile"
-      find_friends: "Find friends"
-      find_friends_from_facebook: "find friends from Facebook"
+      featured_users: "𐑓𐑰𐑗𐑼𐑛 𐑿𐑟𐑼𐑟"
+      fill_out_your_profile: "𐑓𐑦𐑤 𐑬𐑑 𐑿𐑼 𐑐𐑮𐑴𐑓𐑲𐑤"
+      find_friends: "𐑓𐑲𐑯𐑛 𐑓𐑮𐑧𐑯𐑛𐑟"
+      find_friends_from_facebook: "𐑓𐑲𐑯𐑛 𐑓𐑮𐑧𐑯𐑛𐑟 𐑓𐑮𐑳𐑥 ·𐑓𐑱𐑕𐑚𐑫𐑒"
       finished: "𐑓𐑦𐑯𐑦𐑖𐑑!"
-      follow_your_interests: "Follow your interests"
-      hashtag_explanation: "Hashtags allow you to talk about and follow your interests.  They're also a great way to find new people on Diaspora."
+      follow_your_interests: "𐑓𐑪𐑤𐑴 𐑿𐑼 𐑦𐑯𐑑𐑮𐑧𐑕𐑑𐑕"
+      get_updates_from_core: "Get updates about the project from the core team."
+      hashtag_explanation: "𐑣𐑨𐑖𐑑𐑨𐑜𐑟 𐑩𐑤𐑬 𐑿 𐑑 𐑑𐑷𐑒 𐑩𐑚𐑬𐑑 𐑯 𐑓𐑪𐑤𐑴 𐑿𐑼 𐑦𐑯𐑑𐑮𐑧𐑕𐑑𐑕.  𐑞𐑺 𐑷𐑤𐑕𐑴 𐑩 𐑜𐑮𐑱𐑑 𐑢𐑱 𐑑 𐑓𐑲𐑯𐑛 𐑯𐑿 𐑐𐑰𐑐𐑩𐑤 𐑪𐑯 ·𐑛𐑦𐑨𐑕𐑐𐑹𐑩."
+      not_mandatory: "Completing the following steps will improve your Diaspora experience, but they are not mandatory."
       profile_description: "Make it easier for people to find you by filling out your profile information."
       profile_fields: 
-        bio: "Bio"
-        birthday: "Birthday"
-        gender: "Gender"
-        location: "Location"
-        name: "Name"
-        photo: "Photo"
-        tags: "Tags"
+        bio: "𐑚𐑲𐑴"
+        birthday: "𐑚𐑻𐑔𐑛𐑱"
+        gender: "𐑡𐑧𐑯𐑛𐑼"
+        location: "𐑤𐑴𐑒𐑱𐑖𐑩𐑯"
+        name: "𐑯𐑱𐑥"
+        photo: "𐑓𐑴𐑑𐑴"
+        tags: "𐑑𐑨𐑜𐑟"
       search_for_hashtags: "Search for #hashtags"
       search_for_people: "Search for people"
-      see_all_featured_users: "See all featured users"
+      see_all_featured_users: "𐑕𐑰 𐑷𐑤 𐑓𐑰𐑗𐑼𐑛 𐑿𐑟𐑼𐑟"
       welcome: "𐑢𐑧𐑤𐑒𐑩𐑥 𐑑 ·𐑛𐑦𐑨𐑕𐑐𐑹𐑩!"
-      welcome_with_name: "Welcome, %{name}!"
+      welcome_with_name: "𐑢𐑧𐑤𐑒𐑩𐑥, %{name}!"
+    logged_out: 
+      go_mobile: "Now go mobile."
+      on_your_mobile_device: "on your mobile device to access Diaspora* mobile."
+      signed_out: "You've signed out of Diaspora*"
+      simply_visit: "Simply visit"
+      works_on_modern: "Works on all modern smartphones"
     public: 
       does_not_exist: "𐑿𐑟𐑼 %{username} 𐑛𐑳𐑟 𐑯𐑪𐑑 𐑧𐑜𐑟𐑦𐑕𐑑!"
     update: 

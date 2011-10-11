@@ -1,4 +1,4 @@
-#   Copyright (c) 2011, Diaspora Inc.  This file is
+#   Copyright (c) 2010-2011, Diaspora Inc.  This file is
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
@@ -6,49 +6,53 @@
 sk: 
   javascripts: 
     aspect_dropdown: 
-      add_to_aspect: "Add to aspect"
-      all_aspects: "All aspects"
+      add_to_aspect: "Pridať kontakt"
+      all_aspects: "Všetky kategórie"
       toggle: 
-        few: "In {{count}} aspects"
-        many: "In {{count}} aspects"
-        one: "In {{count}} aspect"
-        other: "In {{count}} aspects"
-        two: "In {{count}} aspects"
-        zero: "Add to aspect"
+        few: "V(o) {{count}} kategóriách"
+        many: "V(o) {{count}} kategóriách"
+        one: "V {{count}} kategórii"
+        other: "V(o) {{count}} kategóriách"
+        two: "V(o) {{count}} kategóriách"
+        zero: "Pridať kontakt"
+    aspect_navigation: 
+      deselect_all: "Odznačiť všetky"
+      no_aspects: "Nevybrali ste žiadne kategórie"
+      select_all: "Označiť všetky"
     comments: 
-      hide: "skyť komentáre"
-      show: "show all comments"
+      hide: "Skryť komentáre"
+      show: "Zobraziť všetky komentáre"
     confirm_dialog: "Ste si istý?"
-    failed_to_like: "Failed to like!"
-    failed_to_post_message: "Failed to post message!"
+    failed_to_like: "Nepodarilo sa označiť, že sa vám to páči!"
+    failed_to_post_message: "Správu sa nepodarilo poslať!"
     infinite_scroll: 
-      no_more: "No more posts."
+      no_more: "Žiadne ďalšie príspevky."
     publisher: 
-      at_least_one_aspect: "You must publish to at least one aspect"
-      limited: "Limited - your post will only be seen by people you are sharing with"
-      public: "Public - your post will be visible to everyone and found by search engines"
+      at_least_one_aspect: "Musíte publikovať aspoň jednu kategóriu"
+      limited: "Obmedzené - váš príspevok uvidia len ľudia, s ktorými sa oň podelíte"
+      public: "Verejný - váš príspevok pomocou vyhľadávačov uvidí a nájde každý"
     reshares: 
-      duplicate: "You've already reshared that post!"
+      duplicate: "O tento príspevok ste sa už raz znova podelili!"
     search_for: "Hľadať {{name}}"
-    show_more: "show more"
+    show_more: "Zobraziť viac"
     timeago: 
       day: "včera"
-      days: "%d dni"
-      hour: "hodinou"
-      hours: "%d hodinami"
-      minute: "minútou"
+      days: "%d dňami"
+      hour: "hodinou, asi"
+      hours: "%d hodinami, asi"
+      minute: "asi pred minútou"
       minutes: "%d minútami"
-      month: "mesiacom"
+      month: "mesiacom, asi"
       months: "%d mesiacmi"
-      prefixAgo: "pred"
-      prefixFromNow: ""
-      seconds: "menej než minúta"
+      prefixAgo: ""
+      prefixFromNow: "pred"
+      seconds: "menej ako minútou"
       suffixAgo: ""
       suffixFromNow: ""
-      year: "rokom"
-      years: "%d roky"
+      year: "rokom, asi"
+      years: "%d rokmi"
     videos: 
       unknown: "Neznámy typ videa"
-      watch: "Pozrite sa na toto video na {{provider}}"
+      watch: "Pozrite sa na toto video na sieti {{provider}}"
     web_sockets: 
-      disconnected: "The websocket is closed; posts will no longer be streamed live."
+      disconnected: "Webová zásuvka (websocket) je odpojená; príspevky sa už viac nebudú spracúvať v reálnom čase."

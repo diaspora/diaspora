@@ -1,4 +1,4 @@
-#   Copyright (c) 2011, Diaspora Inc.  This file is
+#   Copyright (c) 2010-2011, Diaspora Inc.  This file is
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
@@ -61,8 +61,10 @@ pl:
       done_editing: "edycja zakończona"
     aspect_listings: 
       add_an_aspect: "+ Dodaj do aspektu"
+      edit_aspect: "Edit %{name}"
     aspect_stream: 
       commented_on: "skomentowano na"
+      mentions: "Mentions"
       posted: "opublikowano"
       recently: "aktualnie:"
       stream: "Stream"
@@ -91,6 +93,7 @@ pl:
       aspect_not_empty: "Aspekt nie jest pusty"
       remove: "usuń"
     index: 
+      community_members: "Featured Diaspora* members"
       cubbies: 
         explanation: "Cubbi.es to pierwsza aplikacja dedykowana projektowi Diaspora."
         heading: "Połącz z Cubbi.es"
@@ -100,21 +103,26 @@ pl:
         content_2: "Dzięki temu każdy będzie mógł cię znaleźć na Diasporze."
         heading: "Diaspora ID"
       donate: "Wspomóż"
+      featured_users: "Featured Users"
       handle_explanation: "To jest Twój identyfikator w Diasporze. Podobnie jak adresu e-mailowy, możesz podawać go innym, aby mogli się z Tobą skontaktować."
       help: 
-        did_you: "Czy:"
+        do_you: "Do you:"
+        email_feedback: "%{link} your feedback, if you prefer"
+        feature_and_forum: "%{gs} & %{forum}: Community-powered support and feature requests"
         feature_suggestion: "... masz %{link} sugestie?"
         find_a_bug: "... znalazłeś błąd %{link}?"
         have_a_question: "... czy masz pytanie %{link}?"
         here_to_help: "Społeczność Diaspory jest tu by pomóc!"
-        more_support: "Gdy potrzebujesz więcej informacji, sprawdź również %{link}."
         need_help: "Potrzebujesz pomocy?"
-        tutorials: "Jeśli potrzebujesz pomocy, naciśnij ten link %{link}."
+        satisfaction: "%{link}: Community-powered support"
+        tutorials_and_wiki: "%{tutorial} & %{wiki}: Community-powered tutorials, how-to, and news"
       keep_us_running: "Aby %{pod} działała szybko, wspomóż nasze serwery dawką kofeiny!"
+      mentions: "Mentions"
       no_contacts: "Brak kontaktów"
       no_tags: "No tags"
       people_sharing_with_you: "Osoby dzielące się z tobą"
       post_a_message: "napisz wiadomość >>"
+      see_more_from_us: "See more of the D* community."
       services: 
         content: "Nie możesz połączyć tych usług z Diasporą:"
         heading: "Zintegrowane usługi"
@@ -147,6 +155,7 @@ pl:
       manage_your_aspects: "Zarządzaj aspektami."
       no_contacts: "Nie masz jeszcze żadnych kontaktów."
       view_all_contacts: "Zobacz wszystkie kontakty"
+      view_all_featured_users: "See all Featured Users"
     show: 
       edit_aspect: "edytuj aspekt"
     two: "%{count} aspects"
@@ -184,8 +193,9 @@ pl:
     few: "%{count} kontakty"
     index: 
       add_a_new_aspect: "Dodaj nowy aspekt"
+      add_to_aspect: "Add contacts to %{name}"
       all_contacts: "Wszystkie Kontakty"
-      edit_aspect: "Zmień %{name}"
+      check_out: "Check out"
       many_people_are_you_sure: "Czy jesteś pewien, iż chcesz rozpocząć prywatną rozmowę z więcej niż %{suggested_limit} osobami? Możesz po prostu opublikować swoją wiadomość w tej grupie. "
       my_contacts: "Moi Znajomi"
       no_contacts: "Brak kontaktów."
@@ -581,6 +591,13 @@ pl:
       failed: "Nie udało się zaktualizować profilu"
       updated: "Profil został pomyślnie zaktualizowany"
   public: "Publiczne"
+  reactions: 
+    few: "%{count} reactions"
+    many: "%{count} reactions"
+    one: "1 reaction"
+    other: "%{count} reactions"
+    two: "%{count} reactions"
+    zero: "0 reactions"
   registrations: 
     closed: "Na tym podzie Diaspory rejestracja jest zamknięta"
     create: 
@@ -636,6 +653,7 @@ pl:
         zero: "Przekaż dalej"
       reshare_confirmation: "Prze%{author} - %{text}?"
       reshare_original: "Przekaż dalej"
+      reshared_via: "reshared via"
       show_original: "Pokaż oryginał"
   search: "Szukaj"
   services: 
@@ -745,6 +763,16 @@ pl:
   stream_helper: 
     hide_comments: "ukryj komentarze"
     show_more_comments: "Pokaż kolejne %{number} komentarze"
+  streams: 
+    mentions: 
+      contacts_title: "People who mentioned you"
+      title: "Your Mentions"
+    public: 
+      contacts_title: "Recent Posters"
+      title: "Public Activity"
+    tags: 
+      contacts_title: "People who dig these tags"
+      title: "Posts tagged: %{tags}"
   tag_followings: 
     create: 
       failure: "Nie udało się dodać do obserwowanych: #%{name}"
@@ -755,6 +783,7 @@ pl:
   tags: 
     show: 
       follow: "Obserwuj #%{tag}"
+      followed_by: "followed by"
       following: "Obserwowane #%{tag}"
       nobody_talking: "Nikt jeszcze nie rozmawia o %{tag}."
       people_tagged_with: "Osoby opisane poprzez %{tag}"
@@ -805,8 +834,11 @@ pl:
       your_handle: "Twój identyfikator w Diasporze"
     getting_started: 
       bold: "obszary"
+      community_welcome: "Diaspora's community is happy to have you aboard!"
       connect_to: "Połącz z"
       connect_to_your_other_social_networks: "Połącz z innymi serwisami społecznościowymi"
+      connect_to_your_other_social_networks_explanation_p1: "Connecting to services will allow you to publish out to these services."
+      connect_to_your_other_social_networks_explanation_p2: "With Facebook, you also be able to find friends already on Diaspora and invite others."
       connect_with_people: "Nawiąż kontakt z ciekawymi osobami"
       connect_with_people_explanation_pt1: "Connect with people by placing them into one or more of your"
       connect_with_people_explanation_pt2: "Aspekty to intuicyjnie prosty sposób grupowania znanych ci osób i tych nowo poznanych w odpowiednie obszary (tzw. aspekty). Dzięki nim możesz kontrolować to, z kim podzielisz się swoimi wpisami. "
@@ -818,7 +850,9 @@ pl:
       find_friends_from_facebook: "znajdź znajomych z Facebooka"
       finished: "Gotowe!"
       follow_your_interests: "Poszukaj swoich zainteresowań"
+      get_updates_from_core: "Get updates about the project from the core team."
       hashtag_explanation: "Znaczniki pozwalają łatwo odnaleźć interesujące cię tematy. Są także świetnym sposobem na odkrywanie nowych ludzi na Diasporze."
+      not_mandatory: "Completing the following steps will improve your Diaspora experience, but they are not mandatory."
       profile_description: "Aby innym łatwiej było cię odnaleźć wystarczy wypełnić pola informacyjne w twoim profilu."
       profile_fields: 
         bio: "Nota biograficzna"
@@ -833,6 +867,12 @@ pl:
       see_all_featured_users: "Zobacz wszystkich aktywnych użytkowników"
       welcome: "Witaj w Diasporze!"
       welcome_with_name: "Witaj, %{name}!"
+    logged_out: 
+      go_mobile: "Now go mobile."
+      on_your_mobile_device: "on your mobile device to access Diaspora* mobile."
+      signed_out: "You've signed out of Diaspora*"
+      simply_visit: "Simply visit"
+      works_on_modern: "Works on all modern smartphones"
     public: 
       does_not_exist: "Użytkownik %{username} nie istnieje!"
     update: 

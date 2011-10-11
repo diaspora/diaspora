@@ -1,4 +1,4 @@
-#   Copyright (c) 2011, Diaspora Inc.  This file is
+#   Copyright (c) 2010-2011, Diaspora Inc.  This file is
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
@@ -61,8 +61,10 @@ bg:
       done_editing: "готово"
     aspect_listings: 
       add_an_aspect: "+ Създаване на аспект"
+      edit_aspect: "Редактиране на \"%{name}\""
     aspect_stream: 
       commented_on: "коментирани"
+      mentions: "Споменавания"
       posted: "публикувани"
       recently: "наскоро:"
       stream: "Поток"
@@ -70,7 +72,7 @@ bg:
     contacts_visible: "Контактите в аспекта ще бъдат видими един за друг."
     create: 
       failure: "Аспектът не бе създаден."
-      success: "Новият аспект %{name} бе създаден"
+      success: "Новият аспект \"%{name}\" бе създаден"
     destroy: 
       failure: "%{name} не е празен, затова не може да бъде изтрит."
       success: "%{name} бе изтрит."
@@ -91,6 +93,7 @@ bg:
       aspect_not_empty: "Аспектът не е празен"
       remove: "премахване"
     index: 
+      community_members: "Featured Diaspora* members"
       cubbies: 
         explanation: "Cubbi.es е първото приложение за Diaspora и все още се разработва."
         heading: "Свързване с Cubbi.es"
@@ -100,21 +103,26 @@ bg:
         content_2: "Споделете го с който и да е и той ще ви намери в Diaspora."
         heading: "Адрес в Diaspora"
       donate: "Дарете"
+      featured_users: "Избрани потребители"
       handle_explanation: "Това е вашият адрес в Diaspora. Наподобява адрес на ел. поща - давате го на хора, за да се свържат с вас."
       help: 
-        did_you: "Вие:"
-        feature_suggestion: "... имате предложение за нова %{link} (функция)?"
-        find_a_bug: "... сте открили %{link} (грешка)?"
-        have_a_question: "... имате %{link} (въпрос)?"
+        do_you: "Вие:"
+        email_feedback: "Ако предпочитате можете да изпратите отзив по ел. поща (%{link})"
+        feature_and_forum: "%{gs} и %{forum}: Предложения за нови функции и поддръжка осигурена от общността"
+        feature_suggestion: "... имате предложение за нова функция (%{link})?"
+        find_a_bug: "... сте открили грешка (%{link})?"
+        have_a_question: "... имате въпрос (%{link})?"
         here_to_help: "Общността е готова да помогне!"
-        more_support: "За допълнителна помощ посетете %{link}."
         need_help: "Нуждаетесе от помощ?"
-        tutorials: "За ръководства посетете %{link}."
+        satisfaction: "%{link}: Поддръжка осигурена от общността"
+        tutorials_and_wiki: "%{tutorial} и %{wiki}: Ръководства, съвети и новини от общността"
       keep_us_running: "Осигурете бързата работа на %{pod} като дарите пари за месечната издръжка на сървърите!"
+      mentions: "Споменавания"
       no_contacts: "Няма контакти"
-      no_tags: "+ Намиране на тагове"
+      no_tags: "+ Намиране на марки"
       people_sharing_with_you: "Хора споделящи с вас"
       post_a_message: "публикуване на съобщение >>"
+      see_more_from_us: "See more of the D* community."
       services: 
         content: "Можете да свържете следните услуги към Diaspora:"
         heading: "Свързване към услуги"
@@ -128,9 +136,9 @@ bg:
       success: "Лицето е преместено в нов аспект"
     new: 
       create: "Създаване"
-      name: "Име"
+      name: "Име (видимо е само за вас)"
     no_contacts_message: 
-      featured_users: "отличените потребители"
+      featured_users: "избрани потребители"
       or_featured: "Пожелаете ли можете да започнете да споделяте с %{link}"
       try_adding_some_more_contacts: "Можете да търсите (в кутията отгоре) или да поканите хора (отдясно)."
       you_should_add_some_more_contacts: "Добавете няколко контакта!"
@@ -147,12 +155,13 @@ bg:
       manage_your_aspects: "Управление на аспектите."
       no_contacts: "Все още не сте добавили контакти."
       view_all_contacts: "Показване на всички контакти"
+      view_all_featured_users: "Показване на всички избрани потребители"
     show: 
       edit_aspect: "редактиране на аспекта"
     two: "%{count} аспекта"
     update: 
-      failure: "Аспектът %{name} има твърде дълго име. Не може да бъде запаметен."
-      success: "Аспектът %{name} е успешно редактиран."
+      failure: "Аспектът \"%{name}\" има твърде дълго име. Не може да бъде запаметен."
+      success: "Аспектът \"%{name}\" е успешно редактиран."
     zero: "няма аспекти"
   authorizations: 
     index: 
@@ -180,15 +189,16 @@ bg:
     create: 
       failure: "Контактът не бе създаден"
     featured: 
-      featured_users: "Отличени потребители"
+      featured_users: "избраните потребители"
     few: "%{count} контакта"
     index: 
       add_a_new_aspect: "Създаване на аспект"
+      add_to_aspect: "добавете някой от контактите си към \"%{name}\""
       all_contacts: "Всички контакти"
-      edit_aspect: "Редактиране на \"%{name}\""
+      check_out: "Прегледайте"
       many_people_are_you_sure: "Наистина ли желаете да започнете частен разговор с повече от %{suggested_limit} контакта? Публикация в аспекта е по-подходящ начин за свързване с толкова хора."
       my_contacts: "Моите контакти"
-      no_contacts: "Няма контакти."
+      no_contacts: "Изглежда трябва да добавите контакти!"
       only_sharing_with_me: "Само споделящите с мен"
       remove_person_from_aspect: "Премахване на %{person_name} от \"%{aspect_name}\""
       start_a_conversation: "Начало на разговор"
@@ -200,7 +210,7 @@ bg:
     sharing: 
       people_sharing: "Хора споделящи с вас:"
     two: "%{count} контакта"
-    zero: "няма контакти"
+    zero: "контакти"
   conversations: 
     create: 
       fail: "Невалидно съобщение"
@@ -246,7 +256,7 @@ bg:
       correct_the_following_errors_and_try_again: "Поправете следните грешки и опитайте отново."
       invalid_fields: "Невалидни полета"
   fill_me_out: "Попълнете ме"
-  find_people: "Намерете хора или #тагове"
+  find_people: "Намерете хора или #марки"
   hide: "Скриване"
   home: 
     show: 
@@ -508,13 +518,13 @@ bg:
       start_sharing: "започнете да споделяте"
       to_accept_or_ignore: "to accept or ignore it."
     sub_header: 
-      add_some: "add some"
+      add_some: "добавете няколко"
       edit: "редактиране"
-      you_have_no_tags: "you have no tags!"
+      you_have_no_tags: "не сте добавили марки към профила си!"
     two: "%{count} човека"
     webfinger: 
       fail: "За съжаление %{handle} не може да бъде намерен."
-    zero: "няма хора"
+    zero: "никой"
   photos: 
     comment_email_subject: "%{name}'s photo"
     create: 
@@ -545,7 +555,7 @@ bg:
       edit_delete_photo: "Редактиране на описанието / изтриване"
       make_profile_photo: "ползване като профилна снимка"
       show_original_post: "Оригиналната публикация"
-      update_photo: "Update Photo"
+      update_photo: "Актуализиране на снимката"
     update: 
       error: "Снимката не бе изтрита."
       notice: "Снимката е обновена."
@@ -575,12 +585,19 @@ bg:
       your_photo: "Снимка"
       your_private_profile: "Вашият личен профил"
       your_public_profile: "Вашият публичен профил"
-      your_tags: "Опишете се с до 5 #думи (тагове)"
+      your_tags: "Опишете се с до 5 #думи (марки)"
       your_tags_placeholder: "например: #България #diaspora #фитнес #музика #котки"
     update: 
       failed: "Профилът не бе обновен"
       updated: "Профилът е обновен"
   public: "Публична"
+  reactions: 
+    few: "%{count} отзива"
+    many: "%{count} отзива"
+    one: "1 отзив"
+    other: "%{count} отзива"
+    two: "%{count} отзива"
+    zero: "0 отзива"
   registrations: 
     closed: "Signups are closed on this Diaspora pod."
     create: 
@@ -636,6 +653,7 @@ bg:
         zero: "Споделяне"
       reshare_confirmation: "Споделяне публикацията на %{author}?"
       reshare_original: "Споделяне на оригинала"
+      reshared_via: "споделено чрез"
       show_original: "Оригиналът"
   search: "Търсене"
   services: 
@@ -681,7 +699,7 @@ bg:
         one: "В %{count} аспект"
         other: "В %{count} аспекта"
         two: "В %{count} аспекта"
-        zero: "Добавяне в аспект"
+        zero: "Добавете контакт"
     contact_list: 
       all_contacts: "Всички контакти"
     footer: 
@@ -745,6 +763,16 @@ bg:
   stream_helper: 
     hide_comments: "Скриване на коментарите"
     show_more_comments: "Показване на още %{number} коментара"
+  streams: 
+    mentions: 
+      contacts_title: "Хора, които са ви споменали"
+      title: "Your Mentions"
+    public: 
+      contacts_title: "Recent Posters"
+      title: "Public Activity"
+    tags: 
+      contacts_title: "Хора, които харесват тези марки"
+      title: "Публикации маркирани с \"%{tags}\""
   tag_followings: 
     create: 
       failure: "Не започнахте да следите \"#%{name}\""
@@ -755,6 +783,7 @@ bg:
   tags: 
     show: 
       follow: "Следете #%{tag}"
+      followed_by: "followed by"
       following: "Следите #%{tag}"
       nobody_talking: "Никой не е говорил за %{tag}."
       people_tagged_with: "Хора маркирани с %{tag}"
@@ -805,20 +834,25 @@ bg:
       your_handle: "Вашият адрес в Diaspora"
     getting_started: 
       bold: "аспекти"
+      community_welcome: "Общността Diaspora с радост ви приветства в този pod!"
       connect_to: "Свържете профила си с"
       connect_to_your_other_social_networks: "Свържете профила си с други социални мрежи"
+      connect_to_your_other_social_networks_explanation_p1: "Connecting to services will allow you to publish out to these services."
+      connect_to_your_other_social_networks_explanation_p2: "With Facebook, you also be able to find friends already on Diaspora and invite others."
       connect_with_people: "Свържете се с интересни хора"
       connect_with_people_explanation_pt1: "Свържете се с хора поставяйки ги в един или няколко от вашите %{bold}."
       connect_with_people_explanation_pt2: "Групирането на контактите в аспекти ще ви позволи да споделяте/филтрирате информация само с/от определена подгрупа от контактите ви."
       edit_profile: "Редактиране на профила"
-      featured_tags: "Отличени тагове"
-      featured_users: "Отличени потребители"
+      featured_tags: "Следете избрани марки"
+      featured_users: "Следете избрани потребители"
       fill_out_your_profile: "Попълнете профила си"
       find_friends: "Намерете приятели"
       find_friends_from_facebook: "намерете приятелите си от Facebook"
       finished: "Готово"
       follow_your_interests: "Следете интересите си"
-      hashtag_explanation: "Диез таговете (#име–на-тага) ви позволяват да коментирате и следите интересни за вас теми.  Улесняват и откриване на хора със сходни интереси в Diaspora."
+      get_updates_from_core: "Get updates about the project from the core team."
+      hashtag_explanation: "Диез марките (#име–на-марката) ви позволяват да коментирате и следите интересни за вас теми.  Улесняват и откриване на хора със сходни интереси в Diaspora."
+      not_mandatory: "Следващите стъпки не са задължителни, но изпълнението им ще подобри работата ви в Diaspora."
       profile_description: "Улеснето хората, които ви търсят като попълните полетата на профила си."
       profile_fields: 
         bio: "Биографични данни"
@@ -828,11 +862,17 @@ bg:
         name: "Име"
         photo: "Снимка"
         tags: "Тагове"
-      search_for_hashtags: "Търсене за #диез таговете"
+      search_for_hashtags: "Търсене за #диез марки"
       search_for_people: "Търсене за хора"
-      see_all_featured_users: "Показване на всички отличени потребители"
+      see_all_featured_users: "Показване на всички избрани потребители"
       welcome: "Добре дошли!"
       welcome_with_name: "Здравейте, %{name}!"
+    logged_out: 
+      go_mobile: "Пробвайте и версията за мобилни устройства."
+      on_your_mobile_device: "от вашето мобилно устройство за достъп до мобилната версия на Diaspora*."
+      signed_out: "Отписахте се от Diaspora*"
+      simply_visit: "Просто посетете"
+      works_on_modern: "Съвместима е с всеки съвременен смартфон"
     public: 
       does_not_exist: "Потребителят %{username} не съществува!"
     update: 

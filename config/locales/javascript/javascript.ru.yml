@@ -1,4 +1,4 @@
-#   Copyright (c) 2011, Diaspora Inc.  This file is
+#   Copyright (c) 2010-2011, Diaspora Inc.  This file is
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
@@ -6,7 +6,7 @@
 ru: 
   javascripts: 
     aspect_dropdown: 
-      add_to_aspect: "Добавить к аспектам"
+      add_to_aspect: "Добавить контакт"
       all_aspects: "Все аспекты"
       toggle: 
         few: "В {{count}} аспектах"
@@ -14,11 +14,15 @@ ru:
         one: "В {{count}} аспектах"
         other: "В {{count}} аспектах"
         two: "В {{count}} аспектах"
-        zero: "Добавить к аспектам"
+        zero: "Добавить контакт"
+    aspect_navigation: 
+      deselect_all: "Выключить все"
+      no_aspects: "Аспект не выбран"
+      select_all: "Включить все"
     comments: 
       hide: "скрыть комментарии"
       show: "Показать все комментарии"
-    confirm_dialog: "Вы уверенны? "
+    confirm_dialog: "Вы уверены? "
     failed_to_like: "Не удалось!"
     failed_to_post_message: "Не удалось отправить сообщение!"
     infinite_scroll: 

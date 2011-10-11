@@ -1,4 +1,4 @@
-#   Copyright (c) 2011, Diaspora Inc.  This file is
+#   Copyright (c) 2010-2011, Diaspora Inc.  This file is
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
@@ -8,88 +8,88 @@ sk:
     confirmations: 
       confirmed: "Váš účet bol úspešne potvrdený. Teraz ste prihlásený."
       new: 
-        resend_confirmation: "Zaslať inštrukcie na potvrdenie"
-      send_instructions: "Behom niekoľkých minút obdržíte e-mail s inštrukciami k potvrdeniu Vášho účtu."
+        resend_confirmation: "Zaslať pokyny na potvrdenie"
+      send_instructions: "O niekoľko minút dostanete e-mail s pokynmi na potvrdenie svojho účtu."
     failure: 
       inactive: "Váš účet ešte nebol aktivovaný."
-      invalid: "Neplatný e-mail alebo heslo."
+      invalid: "Neplatné používateľské meno alebo heslo."
       invalid_token: "Neplatný autentifikačný token."
       locked: "Váš účet je zamknutý."
-      timeout: "Vaše sedenie vypršalo, pre pokračovanie sa prosím znovu prihláste."
-      unauthenticated: "Pre pokračovanie sa musíte prihlásiť, alebo sa zaregistrovať."
-      unconfirmed: "Pred pokračovaním musíte potvrdiť Váš účet."
+      timeout: "Čas vášho sedenia uplynul; ak chcete pokračovať, znovu sa prihláste, prosím."
+      unauthenticated: "Ak chcete pokračovať, musíte sa prihlásiť, alebo zaregistrovať."
+      unconfirmed: "Predtým, ako budete môcť pokračovať, musíte potvrdiť svoj účet."
     invitations: 
       invitation_token_invalid: "Vami zadaný token je neplatný!"
       send_instructions: "Vaša pozvánka bola odoslaná."
       updated: "Vaše heslo bolo úspešné zmenené. Teraz ste prihlásený."
     mailer: 
       confirmation_instructions: 
-        confirm: "Potvrdiť môj účet"
-        subject: "Informácie na potvrdenie"
-        you_can_confirm: "Váš účet môžete potvrdiť kliknutím na tento odkaz :"
-      hello: "Zdravím %{email}!"
+        confirm: "Potvrdiť svoj účet"
+        subject: "Pokyny na potvrdenie"
+        you_can_confirm: "Svoj účet môžete potvrdiť kliknutím na tento odkaz:"
+      hello: "Ahoj, %{email}!"
       invitation_instructions: 
-        accept: "Accept invitation"
-        ignore: "If you don't want to accept the invitation, please ignore this email."
-        no_account_till: "Your account won't be created until you access the link above and sign up."
-        subject: "You've been invited to join Diaspora!"
+        accept: "Prijať pozvanie"
+        ignore: "Ak nechcete prijať toto pozvanie, ignorujte, prosím, tento e-mail."
+        no_account_till: "Váš účet sa nevytvorí, kým nekliknete na odkaz vyššie a nezaregistrujete sa."
+        subject: "Pozvali vás na Diasporu!"
       inviter: 
-        accept_at: "at %{url}, you can accept it through the link below."
+        accept_at: "Kliknutím na odkaz na stránku %{url} ho môžete prijať."
         has_invited_you: "%{name}"
-        have_invited_you: "%{names} have invited you to join Diaspora"
+        have_invited_you: "%{names} vás pozvali na Diasporu"
       reset_password_instructions: 
-        change: "Zmeniť moje heslo"
-        ignore: "Ak ste o to nežiadali, prosím tento e-mail ignorujte."
-        someone_requested: "Vyžiadali ste si zmenu hesla, môžete to urobiť kliknutím na odkaz."
-        subject: "Inštrukcie k zmene hesla"
-        wont_change: "Vaše heslo nie je možné zmeniť, kým nekliknete na uvedený odkaz a nevytvoríte si nové."
+        change: "Zmeniť si heslo"
+        ignore: "Ak ste o to nežiadali, tento e-mail, prosím, ignorujte."
+        someone_requested: "Požiadali ste o zmenu hesla, môžete to urobiť kliknutím na tento odkaz."
+        subject: "Pokyny na zmenu hesla"
+        wont_change: "Vaše heslo sa nedá zmeniť, kým nekliknete na uvedený odkaz a nevytvoríte si nové."
       unlock_instructions: 
         account_locked: "Váš účet bol zablokovaný kvôli vysokému počtu neúspešných prihlásení."
-        click_to_unlock: "Kliknutím na uvedený link odomknete svoj účet :"
-        subject: "Inštrukcie k odomknutiu účtu."
+        click_to_unlock: "Kliknite na tento odkaz a váš účet sa odomkne:"
+        subject: "Pokyny na odomknutie účtu"
         unlock: "Odomknúť môj účet"
-      welcome: "Vitajte %{email}!"
+      welcome: "Vitajte, %{email}!"
     passwords: 
       edit: 
-        change_password: "Zmeniť heslo"
+        change_password: "Zmeniť moje heslo"
       new: 
         forgot_password: "Zabudli ste heslo?"
-        no_account: "K tomuto e-mailu nie je priradený žiadny účet. Ak čakáte na pozvánku, mala by Vám prísť každú chvíľu."
-        send_password_instructions: "Zaslať inštrukcie k zaslaniu nového hesla."
-      send_instructions: "Behom niekoľkých minút obdržíte e-mail s inštrukciami o zresetovaní hesla."
-      updated: "Vaše heslo bolo úspešne zmenené. Teraz ste prihlásený."
+        no_account: "Takúto e-mailovú adresu nemá žiaden účet. Ak čakáte na pozvánku, mala by vám prísť každú chvíľu."
+        send_password_instructions: "Pošlite mi pokyny na zmenu hesla"
+      send_instructions: "O niekoľko minút dostanete e-mail s pokynmi, ako si zmeniť heslo."
+      updated: "Vaše heslo bolo úspešne zmenené. Teraz ste prihlásení."
     registrations: 
-      destroyed: "Zbohom! Váš účet bol úspešne zrušený. Dúfame, že Vás čoskoro znovu uvidíme."
-      signed_up: "Úspešne ste vytvorili účet. Bol Vám zaslaný potvrdzovací email."
-      updated: "Úspešne ste upravili Váš účet."
+      destroyed: "Dovidenia! Váš účet bol úspešne zrušený. Dúfame, že vás čoskoro znova uvidíme."
+      signed_up: "Úspešne ste sa zaregistrovali. Ak je táto možnosť aktivovaná, e-mailom vám to potvrdíme."
+      updated: "Úspešne ste si aktualizovali účet."
     sessions: 
       new: 
-        alpha_software: "Používate testovaciu verziu."
+        alpha_software: "Chystáte sa použiť alfa verziu programu."
         bugs_and_feedback: "Tlačidlom Feedback na pravej strane prehliadača upozornite prosím na chyby, ktoré pri používaní objavíte. Budeme sa ich snažiť odstrániť tak skoro, ako to len pôjde."
         bugs_and_feedback_mobile: "Je možné, že občas narazíte na chyby. Ak nám ich nahlásite, budeme sa ich snažiť čo najrýchlejšie opraviť."
         login: "Prihlasovacie meno"
-        modern_browsers: "podporuje moderné prehliadače."
+        modern_browsers: "podporuje len moderné prehliadače."
         password: "Heslo"
-        remember_me: "Zapamätať si ma"
-        sign_in: "Prihlásiť"
-        username: "Meno používateľa"
-      signed_in: "Prihlásenie prebehlo úspešne."
-      signed_out: "Odhlásenie prebehlo úspešne."
+        remember_me: "Pamätať si ma"
+        sign_in: "Prihlásiť sa"
+        username: "Používateľské meno"
+      signed_in: "Úspešne ste sa prihlásili."
+      signed_out: "Úspešne ste sa odhlásili."
     shared: 
       links: 
         forgot_your_password: "Zabudli ste heslo?"
-        receive_confirmation: "Neobdržali ste inštrukcie na potvrdenie?"
-        receive_unlock: "Neobdržali ste inštrukcie na odblokovanie?"
-        sign_in: "Prihlásiť"
-        sign_up: "Zaregistrovať"
+        receive_confirmation: "Nedostali ste pokyny na potvrdenie?"
+        receive_unlock: "Nedostali ste pokyny na odomknutie účtu?"
+        sign_in: "Prihlásiť sa"
+        sign_up: "Zaregistrovať sa"
         sign_up_closed: "Momentálne sú ďalšie registrácie pozastavené."
       mail_signup_form: 
-        sign_up_for_an_invite: "Požidať o pozvánku!"
+        sign_up_for_an_invite: "Požiadať o pozvánku!"
     unlocks: 
       new: 
-        resend_unlock: "Zaslať návod na odblokovanie"
-      send_instructions: "Behom niekoľkých minút obdržíte e-mail s inštrukciami k odomknutiu Vášho účtu."
-      unlocked: "Váš účet bol úspešne odomknutý. Teraz ste prihlásený."
+        resend_unlock: "Znova poslať pokyny na odomknutie účtu"
+      send_instructions: "O niekoľko minút dostanete e-mail s pokynmi, ako si odomknúť svoj účet."
+      unlocked: "Váš účet bol úspešne odomknutý. Teraz ste prihlásení."
   errors: 
     messages: 
       already_confirmed: "už bol potvrdený"
