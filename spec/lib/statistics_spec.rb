@@ -20,6 +20,15 @@ describe Statistics do
     end
   end
 
+  describe '#comments_count_sql' do
+    it "pulls back an array of post counts and ids" do
+      sm = Factory.create(:status_message, :author => alice.person)
+      bob.comment("sup", :post => sm)
+      User.connection.select_all(@stats.comments_count_sql).should =~ @result
+    end
+  end
+
+
   describe '#invites_sent_count_sql' do
     it "pulls back an array of invite counts and ids" do
       Invitation.batch_invite(["a@a.com"], :sender => bob, :aspect => bob.aspects.first, :service => 'email')
@@ -64,7 +73,7 @@ describe Statistics do
     end
   end
 
-  ["posts_count", "invites_sent_count", "tags_followed_count", 
+  ["posts_count", "comments_count", "invites_sent_count", "tags_followed_count", 
     "mentions_count", "sign_in_count", "contacts_sharing_with_count" ].each do |method|
     
     it "#{method}_sql calls where_sql" do

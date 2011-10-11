@@ -21,6 +21,17 @@ class Statistics
 SQL
   end
 
+  def comments_count_sql
+    <<SQL
+      SELECT users.id AS id, count(comments.id) AS count
+        FROM users
+          JOIN people ON people.owner_id = users.id
+          LEFT OUTER JOIN comments ON people.id = comments.author_id
+          #{self.where_clause_sql}
+          GROUP BY users.id
+SQL
+  end
+
   def invites_sent_count_sql
     <<SQL
       SELECT users.id AS id, count(invitations.id) AS count
@@ -90,13 +101,12 @@ SQL
 
   def generate_correlations
     result = {}
-    [:posts_count, :invites_sent_count, #:tags_followed_count,
+    [:posts_count, :comments_count, :invites_sent_count, #:tags_followed_count,
      :mentions_count, :contacts_sharing_with_count].each do |metric|
       result[metric] = self.correlate(metric,:sign_in_count)
      end
     result
   end
-  
 
   def correlation(x_array, y_array)
     x = x_array.to_scale
