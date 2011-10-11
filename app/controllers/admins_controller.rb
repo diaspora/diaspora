@@ -66,7 +66,7 @@ class AdminsController < ApplicationController
   end
 
   def correlations
-    @post_count_correlation = Statistics.new.post_count_correlation
+    @correlations_hash = Statistics.new.generate_correlations
   end
 
   private

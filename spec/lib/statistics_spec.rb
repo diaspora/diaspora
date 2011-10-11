@@ -57,22 +57,25 @@ describe Statistics do
       @stats.correlation([1,2,1,2],[1,1,2,2]).to_s.should == 0.0.to_s
     end
   end
-  describe "#correlation_hash" do
+  describe "#generate_correlations" do
 
     it 'it returns a hash of including start and end time' do
+      pending
       hash = @stats.correlation_hash
-      hash[:starrt_time].should == @time
+      hash[:start_time].should == @time
       hash[:end_time].should == @time - 1.week
     end
 
     it 'returns the post count (and sign_in_count) correlation' do
-      @stats.stub(:posts_count_correlation).and_return(0.5)
+      bob.sign_in_count = 1
+      bob.post(:status_message, :text => "here is a message")
+      bob.save!
 
-      @stats.generate_correlations[:posts_count].should == 0.5
+      @stats.generate_correlations[:posts_count].to_s.should == "1.0"
     end
   end
   
-  describe "#post_count_correlation" do
+  describe "#correlate" do
     it 'calls correlation with post' do
       User.connection.should_receive(:select_all).and_return([{"id"=> 1, "count" => 7},
                                                             {"id" => 2, "count" => 8},
@@ -82,7 +85,7 @@ describe Statistics do
                                                             )
 
       @stats.should_receive(:correlation).with([7,9],[17,19]).and_return(0.5)
-      @stats.posts_count_correlation.should == 0.5
+      @stats.correlate(:posts_count,:sign_in_count).should == 0.5
     end
   end
 

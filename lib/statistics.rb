@@ -55,16 +55,16 @@ SQL
 SQL
   end
 
-  def post_count_correlation
+  def correlate(first_metric, second_metric)
 
     # [{"id" => 1 , "count" => 123}]
 
     x_array = []
     y_array = []
 
-    post_count_hash.keys.each do |k| 
-      if val = sign_in_count_hash[k]
-        x_array << post_count_hash[k]
+    self.result_hash(first_metric).keys.each do |k| 
+      if val = self.result_hash(second_metric)[k]
+        x_array << self.result_hash(first_metric)[k]
         y_array << val
       end
     end
@@ -72,15 +72,15 @@ SQL
     correlation(x_array, y_array)
   end
 
-
-  ###\
-  #def correlate(thing)
-  #  sql = self.send("#{thing}_count_sql".to_sym)
-  #  self.correlation(User.connection.select_all(sql), 
-  #end
-
-
-  ###
+  def generate_correlations
+    result = {}
+    [:posts_count, :invites_sent_count, :tags_followed_count,
+     :mentions_count].each do |metric|
+      result[metric] = self.correlate(metric,:sign_in_count)
+     end
+    result
+  end
+  
 
   def correlation(x_array, y_array)
     x = x_array.to_scale
@@ -99,23 +99,17 @@ SQL
     User.where("username IS NOT NULL").where("created_at > ? and created_at < ?", Time.now - (n+1).weeks, Time.now - n.weeks)
   end
 
-  def post_count_hash
-    unless @post_count_hash
-      post_count_array = User.connection.select_all(self.posts_count_sql)
+  #@param [Symbol] input type
+  #@returns [Hash] of resulting query
+  def result_hash(type)
+    instance_hash = self.instance_variable_get("@#{type.to_s}_hash".to_sym)
+    unless instance_hash
+      post_count_array = User.connection.select_all(self.send("#{type.to_s}_sql".to_sym))
 
-      @post_count_hash = {}
-      post_count_array.each{ |h| @post_count_hash[h['id']] = h["count"]}
+      instance_hash = {}
+      post_count_array.each{ |h| instance_hash[h['id']] = h["count"]}
+      self.instance_variable_set("@#{type.to_s}_hash".to_sym, instance_hash)
     end
-    @post_count_hash
-  end
-
-  def sign_in_count_hash
-    unless @sign_in_count_hash
-      sign_in_count_array = User.connection.select_all(self.sign_in_count_sql)
-
-      @sign_in_count_hash = {}
-      sign_in_count_array.each{ |h| @sign_in_count_hash[h['id']] = h["count"]}
-    end
-    @sign_in_count_hash
+    instance_hash
   end
 end
