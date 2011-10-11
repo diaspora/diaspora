@@ -16,7 +16,7 @@ class Post < ActiveRecord::Base
   xml_attr :public
   xml_attr :created_at
 
-  has_many :comments, :dependent => :destroy
+  has_many :comments, :order => 'created_at', :dependent => :destroy
 
   has_many :aspect_visibilities
   has_many :aspects, :through => :aspect_visibilities
@@ -107,11 +107,6 @@ class Post < ActiveRecord::Base
 
   def comment_email_subject
     I18n.t('notifier.a_post_you_shared')
-  end
-
-  # @return [Array<Comment>]
-  def last_three_comments
-    self.comments.order('created_at DESC').limit(3).includes(:author => :profile).reverse
   end
 
   # @return [Integer]

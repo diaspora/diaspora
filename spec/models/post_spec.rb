@@ -106,15 +106,33 @@ describe Post do
     end
   end
 
-  describe '#last_three_comments' do
-    it 'returns the last three comments of a post' do
+  describe '#comments' do
+    it 'returns the comments of a post in created_at order' do
       post = bob.post :status_message, :text => "hello", :to => 'all'
       created_at = Time.now - 100
-      comments = [alice, eve, bob, alice].map do |u|
-        created_at = created_at + 10
-        u.comment("hey", :post => post, :created_at => created_at)
-      end
-      post.last_three_comments.map{|c| c.id}.should == comments[1,3].map{|c| c.id}
+
+      # Posts are created out of time order.
+      # i.e. id order is not created_at order
+      alice.comment 'comment a', :post => post, :created_at => created_at + 10
+      eve.comment   'comment d', :post => post, :created_at => created_at + 50
+      bob.comment   'comment b', :post => post, :created_at => created_at + 30
+      alice.comment 'comment e', :post => post, :created_at => created_at + 90
+      eve.comment   'comment c', :post => post, :created_at => created_at + 40
+
+      post.comments.map(&:text).should == [
+        'comment a',
+        'comment b',
+        'comment c',
+        'comment d',
+        'comment e',
+      ]
+      post.comments.map(&:author).should == [
+        alice.person,
+        bob.person,
+        eve.person,
+        eve.person,
+        alice.person,
+      ]
     end
   end
 
