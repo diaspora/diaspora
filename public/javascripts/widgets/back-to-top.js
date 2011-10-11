@@ -15,7 +15,6 @@
 
     this.backToTop = function(evt) {
       evt.preventDefault();
-
       self.body.animate({scrollTop: 0});
     };
 
