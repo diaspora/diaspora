@@ -44,7 +44,7 @@ describe Post do
     end
 
     describe 'includes for a stream' do
-      it 'inclues author profile and mentions' 
+      it 'inclues author profile and mentions'
       it 'should include photos and root of reshares(but does not)'
     end
 
@@ -199,7 +199,7 @@ describe Post do
       @post.should_cache_for_author?.should be_false
     end
   end
-  
+
   describe "#receive" do
     it 'returns false if the post does not verify' do
       @post = Factory(:status_message, :author => bob.person)
@@ -225,7 +225,7 @@ describe Post do
         @known_post.should_receive(:update_attributes)
         @post.send(:receive_persisted, bob, eve.person, @known_post).should == true
       end
-      
+
       it 'returns false if trying to update a non-mutable object' do
         @known_post.stub(:mutable?).and_return(false)
         @known_post.should_not_receive(:update_attributes)
@@ -242,7 +242,7 @@ describe Post do
       it "receives the post from the contact of the author" do
         @post.send(:receive_persisted, bob, eve.person, @known_post).should == true
       end
-      
+
       it 'notifies the user if they are mentioned' do
         bob.stub(:contact_for).with(eve.person).and_return(stub(:receive_post => true))
         bob.should_receive(:notify_if_mentioned).and_return(true)
@@ -264,7 +264,7 @@ describe Post do
         bob.should_receive(:contact_for).with(eve.person).and_return(stub(:receive_post => true))
         @post.send(:receive_non_persisted, bob, eve.person).should == true
       end
-      
+
       it 'notifies the user if they are mentioned' do
         bob.stub(:contact_for).with(eve.person).and_return(stub(:receive_post => true))
         bob.should_receive(:notify_if_mentioned).and_return(true)

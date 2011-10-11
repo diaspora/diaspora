@@ -29,7 +29,7 @@ class Post < ActiveRecord::Base
   has_many :resharers, :class_name => 'Person', :through => :reshares, :source => :author
 
   belongs_to :author, :class_name => 'Person'
-  
+
   validates :guid, :uniqueness => true
 
   after_create :cache_for_author
