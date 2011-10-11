@@ -38,7 +38,7 @@ class Post < ActiveRecord::Base
 
   #scopes
   scope :all_public, where(:public => true, :pending => false)
-  scope :includes_for_a_stream,  includes({:author => :profile}, :mentions => {:person => :profile}) #note should include root and photos, but i think those are both on status_message
+  scope :includes_for_a_stream,  includes(:o_embed_cache, {:author => :profile}, :mentions => {:person => :profile}) #note should include root and photos, but i think those are both on status_message
 
   def self.for_a_stream(max_time, order)
     by_max_time(max_time, order).

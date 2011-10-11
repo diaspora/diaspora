@@ -406,6 +406,7 @@ GEM
       linecache19 (>= 0.5.11)
       ruby-debug-base19 (>= 0.11.19)
     ruby-hmac (0.4.0)
+    ruby-oembed (0.8.3)
     ruby-openid (2.1.8)
     ruby-openid-apps-discovery (1.2.0)
       ruby-openid (>= 2.1.7)
@@ -532,6 +533,7 @@ DEPENDENCIES
   rspec-rails (>= 2.0.0)
   ruby-debug
   ruby-debug19
+  ruby-oembed
   sass (= 3.1.7)
   selenium-webdriver (~> 2.7.0)
   settingslogic (= 2.0.6)
