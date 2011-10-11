@@ -5,7 +5,7 @@
 module StreamHelper
   def next_page_path(opts ={})
     if controller.instance_of?(TagsController)
-      tag_path(@tag, :max_time => @posts.last.created_at.to_i)
+      tag_path(:name => @tag.name, :max_time => @posts.last.created_at.to_i)
     elsif controller.instance_of?(AppsController)
       "/apps/1?#{{:max_time => @posts.last.created_at.to_i}.to_param}"
     elsif controller.instance_of?(PeopleController)
