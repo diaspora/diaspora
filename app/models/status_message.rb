@@ -157,7 +157,7 @@ class StatusMessage < Post
   end
 
   def queue_gather_oembed_data
-    Resque.enqueue(Jobs::GatherOEmbedData, self.oembed_url)
+    Resque.enqueue(Jobs::GatherOEmbedData, self.id, self.oembed_url)
   end 
   
   def contains_oembed_url_in_text?
