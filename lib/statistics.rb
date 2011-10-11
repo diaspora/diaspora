@@ -1,5 +1,3 @@
-require 'statsample'
-
 class Statistics
 
   attr_reader :start_time,
@@ -109,10 +107,36 @@ SQL
   end
 
   def correlation(x_array, y_array)
-    x = x_array.to_scale
-    y = y_array.to_scale
-    pearson = Statsample::Bivariate::Pearson.new(x,y)
-    pearson.r
+    sum = 0.0
+    x_array.each_index do |i|
+      sum = sum + x_array[i]*y_array[i]
+    end
+    x_y_mean = sum/x_array.length.to_f
+    x_mean = mean(x_array)
+    y_mean = mean(y_array)
+
+    st_dev_x = standard_deviation(x_array)
+    st_dev_y = standard_deviation(y_array)
+
+    (x_y_mean - (x_mean*y_mean))/(st_dev_x * st_dev_y)
+  end
+
+  def mean(array)
+    sum = array.inject(0.0) do |sum, val|
+      sum += val
+    end
+    sum / array.length
+  end
+
+  def standard_deviation(array)
+    variance = lambda do
+      m = mean(array)
+      sum = 0.0
+      array.each{ |v| sum += (v-m)**2 }
+      sum/array.length.to_f
+    end.call
+
+    Math.sqrt(variance)
   end
 
   ### % of cohort came back last week

@@ -77,10 +77,6 @@ gem 'SystemTimer', '1.2.1', :platforms => :ruby_18
 gem 'hoptoad_notifier'
 gem 'newrelic_rpm', :require => false
 
-# statistics
-
-gem 'statsample', :require => false
-
 #mail
 
 gem 'messagebus_ruby_api', '0.4.8'
