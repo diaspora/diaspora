@@ -73,8 +73,8 @@ describe Statistics do
       @stats.send("#{method}_sql".to_sym)
     end
     
-    if method != "sign_in_count"
-      it "#generate_correlations calss correlate with #{method} and sign_in_count" do
+    if !["sign_in_count", "tags_followed_count"].include?(method)
+      it "#generate_correlations calls correlate with #{method} and sign_in_count" do
         @stats.stub(:correlate).and_return(0.5)
         @stats.should_receive(:correlate).with(method.to_sym,:sign_in_count).and_return(0.75)
         @stats.generate_correlations

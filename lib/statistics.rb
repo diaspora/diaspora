@@ -90,7 +90,7 @@ SQL
 
   def generate_correlations
     result = {}
-    [:posts_count, :invites_sent_count, :tags_followed_count,
+    [:posts_count, :invites_sent_count, #:tags_followed_count,
      :mentions_count, :contacts_sharing_with_count].each do |metric|
       result[metric] = self.correlate(metric,:sign_in_count)
      end
