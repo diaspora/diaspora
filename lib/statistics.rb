@@ -16,6 +16,7 @@ class Statistics
         FROM users
           JOIN people ON people.owner_id = users.id
           LEFT OUTER JOIN posts ON people.id = posts.author_id
+          #{self.where_clause_sql}
           GROUP BY users.id
 SQL
   end
@@ -25,6 +26,7 @@ SQL
       SELECT users.id AS id, count(invitations.id) AS count
         FROM users
           LEFT OUTER JOIN invitations ON users.id = invitations.sender_id
+          #{self.where_clause_sql}
           GROUP BY users.id
 SQL
   end
@@ -34,6 +36,7 @@ SQL
       SELECT users.id AS id, count(tag_followings.id) AS count
         FROM users
           LEFT OUTER JOIN tag_followings on users.id = tag_followings.user_id
+          #{self.where_clause_sql}
           GROUP BY users.id
 SQL
   end
@@ -44,6 +47,18 @@ SQL
         FROM users
           JOIN people on users.id = people.owner_id
           LEFT OUTER JOIN mentions on people.id = mentions.person_id
+          #{self.where_clause_sql}
+          GROUP BY users.id
+SQL
+  end
+
+  def contacts_sharing_with_count_sql
+    <<SQL
+      SELECT users.id AS id, count(contacts.id) AS count
+        FROM users
+          JOIN contacts on contacts.user_id = users.id
+          JOIN aspect_memberships on aspect_memberships.contact_id = contacts.id
+          #{self.where_clause_sql}
           GROUP BY users.id
 SQL
   end
@@ -52,6 +67,7 @@ SQL
     <<SQL
       SELECT users.id AS id, users.sign_in_count AS count
         FROM users
+        #{self.where_clause_sql}
 SQL
   end
 
@@ -75,7 +91,7 @@ SQL
   def generate_correlations
     result = {}
     [:posts_count, :invites_sent_count, :tags_followed_count,
-     :mentions_count].each do |metric|
+     :mentions_count, :contacts_sharing_with_count].each do |metric|
       result[metric] = self.correlate(metric,:sign_in_count)
      end
     result
@@ -95,6 +111,10 @@ SQL
   end
 
   protected
+  def where_clause_sql
+    "where users.created_at > FROM_UNIXTIME(#{(Time.now - 1.month).to_i})"
+  end
+
   def week_created(n)
     User.where("username IS NOT NULL").where("created_at > ? and created_at < ?", Time.now - (n+1).weeks, Time.now - n.weeks)
   end

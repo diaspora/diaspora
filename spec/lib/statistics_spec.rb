@@ -10,8 +10,7 @@ describe Statistics do
                  {"id" => bob.id , "count" => 1 },
                  {"id" => eve.id , "count" => 0 },
                  {"id" => local_luke.id , "count" => 0 },
-                 {"id" => local_leia.id , "count" => 0 },
-      ]
+                 {"id" => local_leia.id , "count" => 0 }]
   end
 
   describe '#posts_count_sql' do
@@ -43,11 +42,43 @@ describe Statistics do
     end
   end
 
+  describe '#contacts_sharing_with_count_sql' do
+    it "pulls back an array of mentions following counts and ids" do
+      # bob is sharing with alice and eve in the spec setup
+      alice.share_with(eve.person, alice.aspects.first)
+      @result = [{"id" => alice.id , "count" => 2 },
+                 {"id" => bob.id , "count" => 2 },
+                 {"id" => eve.id , "count" => 1 },
+                 {"id" => local_luke.id , "count" => 2 },
+                 {"id" => local_leia.id , "count" => 2 }]
+
+      User.connection.select_all(@stats.contacts_sharing_with_count_sql).should =~ @result
+    end
+  end
+
   describe '#sign_in_count_sql' do
     it "pulls back an array of sign_in_counts and ids" do
       bob.sign_in_count = 1
       bob.save!
       User.connection.select_all(@stats.sign_in_count_sql).should =~ @result
+    end
+  end
+
+  ["posts_count", "invites_sent_count", "tags_followed_count", 
+    "mentions_count", "sign_in_count", "contacts_sharing_with_count" ].each do |method|
+    
+    it "#{method}_sql calls where_sql" do
+      @stats.should_receive(:where_clause_sql)
+
+      @stats.send("#{method}_sql".to_sym)
+    end
+    
+    if method != "sign_in_count"
+      it "#generate_correlations calss correlate with #{method} and sign_in_count" do
+        @stats.stub(:correlate).and_return(0.5)
+        @stats.should_receive(:correlate).with(method.to_sym,:sign_in_count).and_return(0.75)
+        @stats.generate_correlations
+      end
     end
   end
 
@@ -88,9 +119,6 @@ describe Statistics do
       @stats.correlate(:posts_count,:sign_in_count).should == 0.5
     end
   end
-
-
-
 
 
 
