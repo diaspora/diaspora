@@ -4,7 +4,7 @@
 
 require 'spec_helper'
 require File.join(Rails.root,  'lib/diaspora/ostatus_builder')
-
+require 'nokogiri/xml'
 
 describe Diaspora::OstatusBuilder do
 
@@ -45,6 +45,17 @@ describe Diaspora::OstatusBuilder do
     builder = Diaspora::OstatusBuilder.new(alice, messages)
     director.build( builder )
     report_hash["Person"].should be_nil #No people should have been instantiated
+  end
+
+  it 'produces a valid atom feed' do
+    alice.person #Preload user.person
+    ActiveRecord::Base.reset_instance_type_count
+    director = Diaspora::Director.new
+    messages = StatusMessage.where(:author_id => alice.person.id, :public => true)
+    builder = Diaspora::OstatusBuilder.new(alice, messages)
+    feed = Nokogiri::XML(director.build( builder ))
+    feed_schema = Nokogiri::XML::RelaxNG(File.open(File.join(Rails.root,'spec/lib/diaspora/atom.rng')))
+    feed_schema.validate(feed).should be_empty
   end
 end
 
