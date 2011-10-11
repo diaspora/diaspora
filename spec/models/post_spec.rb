@@ -68,17 +68,6 @@ describe Post do
     end
   end
 
-  describe 'oEmbed' do
-    it 'should gather oEmbed data' do
-      stub_request(:get, "http://gdata.youtube.com/feeds/api/videos/M3r2XDceM6A?v=2").to_return(:status => 200, :body => "")
-
-      text = 'http://youtube.com/watch?v=M3r2XDceM6A&format=json'
-      Resque.should_receive(:enqueue).with(Jobs::GatherOEmbedData, text)
-      post = Factory.create(:status_message, :author => @user.person, :text => text)
-      post.save!
-    end
-  end
-
   describe 'serialization' do
     it 'should serialize the handle and not the sender' do
       post = @user.post :status_message, :text => "hello", :to => @aspect.id

@@ -1,9 +1,10 @@
 module OEmbedHelper
   def o_embed_html(cache)
     data = cache.data
-    title = data.fetch('title', 'an awesome post')
-    html ||= link_to(title, cache.url, :target => '_blank') 
-    return nil unless data.has_key?('type')
+    data = {} if data.blank?
+    title = data.fetch('title', cache.url)
+    html = link_to(title, cache.url, :target => '_blank') 
+    return html unless data.has_key?('type')
     case data['type']
     when 'video', 'rich'
       if cache.is_trusted_and_has_html?
@@ -27,6 +28,6 @@ module OEmbedHelper
   end
   
   def oembed_image_tag(cache, prefix)
-    image_tag(cache.data[prefix + 'url'], cache.image_options_hash(prefix))
+    image_tag(cache.data[prefix + 'url'], cache.options_hash(prefix))
   end
 end

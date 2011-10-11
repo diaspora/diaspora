@@ -320,4 +320,12 @@ STR
       sm.oembed_url.should == 'http://youtube.com'
     end
   end
+
+  describe 'oembed' do
+    it 'should queue a GatherOembedData if it includes a link' do
+      sm = Factory.build(:status_message, :text => 'http://youtube.com is so cool.  so is https://joindiaspora.com')
+      Resque.should_receive(:enqueue).with(Jobs::GatherOEmbedData, instance_of(Fixnum), instance_of(String)) 
+      sm.save
+    end
+  end
 end
