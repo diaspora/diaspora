@@ -33,20 +33,21 @@
 
   %br
 
-  %h4.span-7.append-1
-    = t('profiles.edit.your_birthday')
-  = select_date profile.birthday, :prompt => true,
-    :default => true, :order => t('date.order'), :start_year => 2000, :end_year => 1930, :prefix => 'profile[date]'
+  .span-7.append-1
+    %h4
+      = t('profiles.edit.your_birthday')
+    = select_date profile.birthday, :prompt => true,
+      :default => true, :order => t('date.order'), :start_year => 2000, :end_year => 1930, :prefix => 'profile[date]'
 
-  %br
-  %br
-
-  %h4.span-4.last
-    = t('profiles.edit.display_birthday_as')
-    %br
+  .span-4.last
+    %h4
+      = t('profiles.edit.display_birthday_as')
     = select_tag 'profile[birthday_display]', options_for_select(available_birthday_options, profile.birthday_display)
-  
-  %h4.clear
+
+  %br.clear
+  %br
+
+  %h4
     = t('search')
 
   %p{:class=>"checkbox_select"}
