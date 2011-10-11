@@ -73,15 +73,15 @@ describe Statistics do
     end
   end
 
-  ["posts_count", "comments_count", "invites_sent_count", "tags_followed_count", 
+  ["posts_count", "comments_count", "invites_sent_count", "tags_followed_count",
     "mentions_count", "sign_in_count", "contacts_sharing_with_count" ].each do |method|
-    
+
     it "#{method}_sql calls where_sql" do
       @stats.should_receive(:where_clause_sql)
 
       @stats.send("#{method}_sql".to_sym)
     end
-    
+
     if !["sign_in_count", "tags_followed_count"].include?(method)
       it "#generate_correlations calls correlate with #{method} and sign_in_count" do
         @stats.stub(:correlate).and_return(0.5)
@@ -114,7 +114,7 @@ describe Statistics do
       @stats.generate_correlations[:posts_count].to_s.should == "1.0"
     end
   end
-  
+
   describe "#correlate" do
     it 'calls correlation with post' do
       User.connection.should_receive(:select_all).and_return([{"id"=> 1, "count" => 7},

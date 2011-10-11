@@ -87,7 +87,7 @@ SQL
     x_array = []
     y_array = []
 
-    self.result_hash(first_metric).keys.each do |k| 
+    self.result_hash(first_metric).keys.each do |k|
       if val = self.result_hash(second_metric)[k]
         x_array << self.result_hash(first_metric)[k]
         y_array << val
