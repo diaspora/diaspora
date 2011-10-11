@@ -97,6 +97,7 @@ Diaspora::Application.routes.draw do
     match :user_search
     get   :admin_inviter
     get   :weekly_user_stats
+    get   :correlations
     get   :stats, :as => 'pod_stats'
   end
 

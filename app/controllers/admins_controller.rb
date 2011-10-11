@@ -65,6 +65,10 @@ class AdminsController < ApplicationController
 
   end
 
+  def correlations
+    @correlations_hash = Statistics.new.generate_correlations
+  end
+
   private
   def percent_change(today, yesterday)
     sprintf( "%0.02f", ((today-yesterday) / yesterday.to_f)*100).to_f
