@@ -115,7 +115,7 @@ blockquote {
   }
 }
 
-.has-pullquote:before {
+.has-pullquote:before, .has-pullquoteleft:before {
   /* Reset metrics. */
   padding: 0;
   border: none;
@@ -134,6 +134,15 @@ blockquote {
   font-size: 1.4em;
   line-height: 1.45em;
 }
+
+.has-pullquoteleft:before {
+
+  /* Make left pullquotes align properly. */
+  float: left;
+  margin: .5em 1.5em 1em 0;
+
+}
+
 /* @extend this to force long lines of continuous text to wrap */
 .force-wrap {
   white-space: -moz-pre-wrap;
