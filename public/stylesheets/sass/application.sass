@@ -139,7 +139,7 @@ form
     :margin 0
 
 header
-  @include box-shadow(0,0px,2px,#777)
+  @include box-shadow(0,1px,2px,rgba(0,0,0,0.5))
   @include linear-gradient(rgba(35,30,30,0.95),rgba(35,30,30,1))
 
   :z-index 50
@@ -152,6 +152,9 @@ header
   :width 100%
   :top 0
   :left 0
+
+  :border
+    :bottom 1px solid rgb(4,0,0)
 
   &.fixit
     :position fixed
@@ -285,9 +288,9 @@ ul.as-selections
 
 .diaspora_header_logo
   :position relative
-  :top 5px
+  :top 4px
   :margin
-    :right 49px
+    :right 26px
   &:active
     :top 5px
 
@@ -1153,7 +1156,7 @@ header #global_search
         :top 1px solid #111
 
       :font
-        :size 12px
+        :size 13px
 
       :border 1px solid #000
 
@@ -1624,7 +1627,7 @@ h3 span.current_gs_step
   :display inline-block
   :min-width 170px
   :top 3px
-  :left 460px
+  :left 440px
   :margin
     :left 20px
 

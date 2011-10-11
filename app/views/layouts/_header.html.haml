@@ -26,10 +26,6 @@
         = link_to aspects_path, :title => t('_home') do
           = image_tag 'icons/home_grey.svg', :height => 16, :alt => t('_home')
 
-      #contacts_badge.badge
-        = link_to contacts_link, :title => t('_contacts') do
-          = image_tag 'icons/contacts_grey.svg', :height => 16, :alt => t('_contacts')
-
       #notification_badge.badge
         = link_to notifications_path, :title => new_notification_text(@notification_count) do
           = image_tag 'icons/notifications_grey.svg', :height => 16, :id => "notification-flag", :alt => new_notification_text(@notification_count)
@@ -79,6 +75,7 @@
           = owner_image_tag(:thumb_small)
         = link_to current_user.name, '#', :title => current_user.diaspora_handle
       %li= link_to t('.profile'), current_user.person
+      %li= link_to t('_contacts'), contacts_link
       %li= link_to t('.settings'), edit_user_path
       -if current_user.admin?
         %li= link_to t('.admin'), user_search_path

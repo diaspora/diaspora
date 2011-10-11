@@ -338,9 +338,9 @@ en:
 
   layouts:
     header:
-      profile: "profile"
-      settings: "settings"
-      logout: "log out"
+      profile: "Profile"
+      settings: "Settings"
+      logout: "Log out"
       blog: "blog"
       login: "log in"
       code: "code"
