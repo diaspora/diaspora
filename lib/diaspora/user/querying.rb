@@ -41,7 +41,7 @@ module Diaspora
       # @return [Array<Integer>]
       def visible_ids_from_sql(opts={})
         opts = prep_opts(opts)
-        Post.connection.select_values(visible_posts_sql(opts))
+        Post.connection.select_values(visible_posts_sql(opts)).map { |id| id.to_i }
       end
 
       def visible_posts_sql(opts={})
