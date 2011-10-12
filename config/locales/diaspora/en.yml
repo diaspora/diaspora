@@ -120,6 +120,8 @@ en:
       or_featured:  "Or you can share with %{link}"
       featured_users: "featured users"
     aspect_listings:
+      select_all: "Select all"
+      deselect_all: "Deselect all"
       edit_aspect: "Edit %{name}"
       add_an_aspect: "+ Add an aspect"
     selected_contacts:

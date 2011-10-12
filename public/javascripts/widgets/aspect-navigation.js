@@ -15,7 +15,6 @@
         toggleSelector: aspectNavigation.find("a.toggle_selector")
       });
 
-      self.calculateToggleText();
       self.aspectSelectors.click(self.toggleAspect);
       self.toggleSelector.click(self.toggleAll);
     });
