@@ -115,7 +115,7 @@ blockquote {
   }
 }
 
-.has-pullquote:before, .has-pullquoteleft:before {
+.pullquote-right:before, .pullquote-left:before {
   /* Reset metrics. */
   padding: 0;
   border: none;
@@ -135,7 +135,7 @@ blockquote {
   line-height: 1.45em;
 }
 
-.has-pullquoteleft:before {
+.pullquote-left:before {
 
   /* Make left pullquotes align properly. */
   float: left;
