@@ -44,7 +44,7 @@ describe Post do
     end
 
     describe 'includes for a stream' do
-      it 'inclues author profile and mentions' 
+      it 'inclues author profile and mentions'
       it 'should include photos and root of reshares(but does not)'
     end
 
@@ -106,15 +106,33 @@ describe Post do
     end
   end
 
-  describe '#last_three_comments' do
-    it 'returns the last three comments of a post' do
+  describe '#comments' do
+    it 'returns the comments of a post in created_at order' do
       post = bob.post :status_message, :text => "hello", :to => 'all'
       created_at = Time.now - 100
-      comments = [alice, eve, bob, alice].map do |u|
-        created_at = created_at + 10
-        u.comment("hey", :post => post, :created_at => created_at)
-      end
-      post.last_three_comments.map{|c| c.id}.should == comments[1,3].map{|c| c.id}
+
+      # Posts are created out of time order.
+      # i.e. id order is not created_at order
+      alice.comment 'comment a', :post => post, :created_at => created_at + 10
+      eve.comment   'comment d', :post => post, :created_at => created_at + 50
+      bob.comment   'comment b', :post => post, :created_at => created_at + 30
+      alice.comment 'comment e', :post => post, :created_at => created_at + 90
+      eve.comment   'comment c', :post => post, :created_at => created_at + 40
+
+      post.comments.map(&:text).should == [
+        'comment a',
+        'comment b',
+        'comment c',
+        'comment d',
+        'comment e',
+      ]
+      post.comments.map(&:author).should == [
+        alice.person,
+        bob.person,
+        eve.person,
+        eve.person,
+        alice.person,
+      ]
     end
   end
 
@@ -199,7 +217,7 @@ describe Post do
       @post.should_cache_for_author?.should be_false
     end
   end
-  
+
   describe "#receive" do
     it 'returns false if the post does not verify' do
       @post = Factory(:status_message, :author => bob.person)
@@ -225,7 +243,7 @@ describe Post do
         @known_post.should_receive(:update_attributes)
         @post.send(:receive_persisted, bob, eve.person, @known_post).should == true
       end
-      
+
       it 'returns false if trying to update a non-mutable object' do
         @known_post.stub(:mutable?).and_return(false)
         @known_post.should_not_receive(:update_attributes)
@@ -242,7 +260,7 @@ describe Post do
       it "receives the post from the contact of the author" do
         @post.send(:receive_persisted, bob, eve.person, @known_post).should == true
       end
-      
+
       it 'notifies the user if they are mentioned' do
         bob.stub(:contact_for).with(eve.person).and_return(stub(:receive_post => true))
         bob.should_receive(:notify_if_mentioned).and_return(true)
@@ -264,7 +282,7 @@ describe Post do
         bob.should_receive(:contact_for).with(eve.person).and_return(stub(:receive_post => true))
         @post.send(:receive_non_persisted, bob, eve.person).should == true
       end
-      
+
       it 'notifies the user if they are mentioned' do
         bob.stub(:contact_for).with(eve.person).and_return(stub(:receive_post => true))
         bob.should_receive(:notify_if_mentioned).and_return(true)
