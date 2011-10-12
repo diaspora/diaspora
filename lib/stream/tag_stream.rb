@@ -9,7 +9,7 @@ class TagStream < BaseStream
   end
 
   def title
-    tags_titleized
+    I18n.t('aspects.index.tags_following')
   end
 
   # @return [ActiveRecord::Association<Post>] AR association of posts
@@ -47,9 +47,5 @@ class TagStream < BaseStream
 
   def tags
     @tags = user.followed_tags
-  end
-
-  def tags_titleized
-    tag_string.split(',').map{|x| "##{x.strip}"}.to_sentence
   end
 end
