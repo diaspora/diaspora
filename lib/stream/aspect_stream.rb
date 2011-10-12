@@ -53,7 +53,7 @@ class AspectStream < BaseStream
 
   # @return [String] URL
   def link(opts={})
-    Rails.application.routes.url_helpers.aspects_path(opts.merge(:a_ids => aspect_ids))
+    Rails.application.routes.url_helpers.aspects_path(opts)
   end
 
   # The first aspect in #aspects, given the stream is not for all aspects, or #aspects size is 1
