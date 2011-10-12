@@ -158,7 +158,7 @@ en:
       work: "Work"
       acquaintances: "Acquaintances"
       friends: "Friends"
-    index: 
+    index:
       mentions: "Mentions"
       featured_users: "Featured Users"
       community_members: "Featured Diaspora* members"
@@ -253,7 +253,7 @@ en:
       all_contacts: "All Contacts"
       only_sharing_with_me: "Only sharing with me"
       remove_person_from_aspect: "Remove %{person_name} from \"%{aspect_name}\""
-      many_people_are_you_sure: "Are you sure you want to start a private conversation with more than %{suggested_limit} contacts? Posting to this aspect may be a better way to contact them." 
+      many_people_are_you_sure: "Are you sure you want to start a private conversation with more than %{suggested_limit} contacts? Posting to this aspect may be a better way to contact them."
     featured:
       featured_users: "Featured Users"
 
@@ -276,7 +276,7 @@ en:
       sending: "Sending..."
       abandon_changes: "Abandon changes?"
     helper:
-      new_messages: 
+      new_messages:
         zero: "No new messages"
         one: "1 new messages"
         two: "%{count} new messages"
@@ -462,7 +462,7 @@ en:
     index:
       notifications: "Notifications"
       mark_all_as_read: "Mark All as Read"
-      and_others: 
+      and_others:
         zero: "and nobody else"
         one: "and one more"
         two: "and %{count} others"
@@ -833,14 +833,14 @@ en:
     index:
       revoke_access: "Revoke Access"
       no_applications: "You haven't registered any applications yet."
-  
+
   streams:
     mentions:
-      title: "Your Mentions"   
+      title: "Your Mentions"
       contacts_title: "People who mentioned you"
     tags:
       title: "Posts tagged: %{tags}"
-      contacts_title: "People who dig these tags" 
+      contacts_title: "People who dig these tags"
     public:
       title: "Public Activity"
       contacts_title: "Recent Posters"
@@ -898,7 +898,7 @@ en:
       connect_to_your_other_social_networks: "Connect to your other social networks"
       connect_to_your_other_social_networks_explanation_p1: "Connecting to services will allow you to publish out to these services."
       connect_to_your_other_social_networks_explanation_p2: "With Facebook, you also be able to find friends already on Diaspora and invite others."
-      
+
 
       connect_with_people: "Connect with cool people"
       connect_with_people_explanation_pt1: "Connect with people by placing them into one or more of your %{bold}."
