@@ -76,6 +76,7 @@ Feature: User manages contacts
     And I have 0 contacts
     And I am on the home page
 
+    And I click on my name in the header
     When I follow "Contacts"
     Then I should see "Featured Users" within ".span-18"
 
@@ -92,5 +93,6 @@ Feature: User manages contacts
     And I have 2 contacts
     And I am on the home page
 
+    And I click on my name in the header
     When I follow "Contacts"
     Then I should not see "Featured Users" within "#section_header"

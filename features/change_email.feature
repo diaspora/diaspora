@@ -4,7 +4,7 @@ Feature: Change email
   Scenario: Change my email
   	Given I am signed in
     And I click on my name in the header
-    And I follow "settings"
+    And I follow "Settings"
     Then I should be on my account settings page
     When I fill in "user_email" with "new_email@newplac.es"
     And I press "Change email"
