@@ -13,8 +13,6 @@ class AspectsController < ApplicationController
   respond_to :html, :js
   respond_to :json, :only => [:show, :create]
 
-  helper_method :selected_people
-
   def index
     aspect_ids = (session[:a_ids] ? session[:a_ids] : [])
     @stream = AspectStream.new(current_user, aspect_ids,
