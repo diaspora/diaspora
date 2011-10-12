@@ -718,7 +718,7 @@ en:
     aspect_dropdown:
       add_to_aspect: "Add contact"
       toggle:
-        zero: "Add contact"
+        zero: "Select aspects"
         one: "In %{count} aspect"
         two: "In %{count} aspects"
         few: "In %{count} aspects"
