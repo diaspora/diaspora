@@ -11,10 +11,14 @@ var AspectsDropdown = {
 
     if (number == 0) {
       button.removeClass(inAspectClass);
-      replacement = Diaspora.I18n.t("aspect_dropdown.toggle.zero");
+      if( dropdown.closest('#publisher').length ) {
+        replacement = Diaspora.I18n.t("aspect_dropdown.select_aspects");
+      } else {
+        replacement = Diaspora.I18n.t("aspect_dropdown.add_to_aspect");
+      }
     }else if (selectedAspects == allAspects) {
       replacement = Diaspora.I18n.t('aspect_dropdown.all_aspects');
-    }else if (number == 1) { 
+    }else if (number == 1) {
       button.addClass(inAspectClass);
       replacement = dropdown.find(".selected").first().text();
     }else if (number < 3) {
@@ -28,7 +32,7 @@ var AspectsDropdown = {
 
     button.text(replacement + ' ▼');
   },
-  
+
   toggleCheckbox: function(check) {
     check.toggleClass('selected');
   }
