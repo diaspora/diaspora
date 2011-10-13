@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111011193702) do
+ActiveRecord::Schema.define(:version => 20111012215141) do
 
   create_table "aspect_memberships", :force => true do |t|
     t.integer  "aspect_id",  :null => false
@@ -32,6 +32,8 @@ ActiveRecord::Schema.define(:version => 20111011193702) do
   end
 
   add_index "aspect_visibilities", ["aspect_id"], :name => "index_aspect_visibilities_on_aspect_id"
+  add_index "aspect_visibilities", ["shareable_id", "shareable_type", "aspect_id"], :name => "shareable_and_aspect_id"
+  add_index "aspect_visibilities", ["shareable_id", "shareable_type"], :name => "index_aspect_visibilities_on_shareable_id_and_shareable_type"
 
   create_table "aspects", :force => true do |t|
     t.string   "name",                               :null => false
@@ -242,6 +244,24 @@ ActiveRecord::Schema.define(:version => 20111011193702) do
   add_index "people", ["guid"], :name => "index_people_on_guid", :unique => true
   add_index "people", ["owner_id"], :name => "index_people_on_owner_id", :unique => true
 
+  create_table "photos", :force => true do |t|
+    t.integer  "author_id",                              :null => false
+    t.boolean  "public",              :default => false, :null => false
+    t.string   "diaspora_handle"
+    t.string   "guid",                                   :null => false
+    t.boolean  "pending",             :default => false, :null => false
+    t.text     "text"
+    t.text     "remote_photo_path"
+    t.string   "remote_photo_name"
+    t.string   "random_string"
+    t.string   "processed_image"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "unprocessed_image"
+    t.string   "status_message_guid"
+    t.integer  "comments_count"
+  end
+
   create_table "pods", :force => true do |t|
     t.string   "host"
     t.boolean  "ssl"
@@ -350,6 +370,8 @@ ActiveRecord::Schema.define(:version => 20111011193702) do
   end
 
   add_index "share_visibilities", ["contact_id"], :name => "index_post_visibilities_on_contact_id"
+  add_index "share_visibilities", ["shareable_id", "shareable_type", "contact_id"], :name => "shareable_and_contact_id"
+  add_index "share_visibilities", ["shareable_id", "shareable_type", "hidden", "contact_id"], :name => "shareable_and_hidden_and_contact_id"
   add_index "share_visibilities", ["shareable_id"], :name => "index_post_visibilities_on_post_id"
 
   create_table "tag_followings", :force => true do |t|

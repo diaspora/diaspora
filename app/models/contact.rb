@@ -54,9 +54,9 @@ class Contact < ActiveRecord::Base
                 :into => aspects.first)
   end
 
-  def receive_post(post)
-    ShareVisibility.create!(:shareable_id => post.id, :shareable_type => 'Post', :contact_id => self.id)
-    post.socket_to_user(self.user, :aspect_ids => self.aspect_ids) if post.respond_to? :socket_to_user
+  def receive_shareable(shareable)
+    ShareVisibility.create!(:shareable_id => shareable.id, :shareable_type => shareable.class.base_class.to_s, :contact_id => self.id)
+    shareable.socket_to_user(self.user, :aspect_ids => self.aspect_ids) if shareable.respond_to? :socket_to_user
   end
 
   def contacts

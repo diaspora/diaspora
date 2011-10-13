@@ -25,7 +25,7 @@ describe "attack vectors" do
         zord.perform!
       }.should raise_error /not a valid object/
 
-      bob.visible_posts.include?(post_from_non_contact).should be_false
+      bob.visible_shareables(Post).include?(post_from_non_contact).should be_false
       Post.count.should == post_count
     end
   end
@@ -42,7 +42,7 @@ describe "attack vectors" do
       zord.perform!
     }.should raise_error /not a valid object/
 
-    alice.reload.visible_posts.should_not include(StatusMessage.find(original_message.id))
+    alice.reload.visible_shareables(Post).should_not include(StatusMessage.find(original_message.id))
   end
 
   context 'malicious contact attack vector' do
@@ -78,11 +78,11 @@ describe "attack vectors" do
           zord.perform!
 
         }.should_not change{
-          bob.reload.visible_posts.count
+          bob.reload.visible_shareables(Post).count
         }
 
         original_message.reload.text.should == "store this!"
-        bob.visible_posts.first.text.should == "store this!"
+        bob.visible_shareables(Post).first.text.should == "store this!"
       end
     end
 
@@ -111,7 +111,7 @@ describe "attack vectors" do
       zord = Postzord::Receiver::Private.new(bob, :salmon_xml => salmon_xml)
       zord.perform!
 
-      bob.visible_posts.count.should == 1
+      bob.visible_shareables(Post).count.should == 1
       StatusMessage.count.should == 1
 
       ret = Retraction.new
@@ -124,7 +124,7 @@ describe "attack vectors" do
       zord.perform!
 
       StatusMessage.count.should == 1
-      bob.visible_posts.count.should == 1
+      bob.visible_shareables(Post).count.should == 1
     end
 
     it "disregards retractions for non-existent posts that are from someone other than the post's author" do
@@ -154,7 +154,7 @@ describe "attack vectors" do
       zord = Postzord::Receiver::Private.new(bob, :salmon_xml => salmon_xml)
       zord.perform!
 
-      bob.visible_posts.count.should == 1
+      bob.visible_shareables(Post).count.should == 1
 
       ret = Retraction.new
       ret.post_guid = original_message.guid
@@ -167,7 +167,7 @@ describe "attack vectors" do
         zord.perform!
       }.should raise_error /not a valid object/
 
-      bob.reload.visible_posts.count.should == 1
+      bob.reload.visible_shareables(Post).count.should == 1
     end
 
     it 'it should not allow you to send retractions for other people' do
