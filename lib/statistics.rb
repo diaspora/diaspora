@@ -83,6 +83,16 @@ SQL
 SQL
   end
 
+  def fb_connected_distribution
+    User.connection.select_all(fb_connected_distribution_sql).map { |row|
+      Hash[
+        row.map { |k,v|
+          [k, v.to_i]
+        }
+      ]
+    }
+  end
+
   def sign_in_count_sql
     <<SQL
       SELECT users.id AS id, users.sign_in_count AS count

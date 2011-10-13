@@ -99,7 +99,7 @@ describe Statistics do
                  {"id" => local_luke.id , "count" => 0, "connected" => 0 },
                  {"id" => local_leia.id , "count" => 0, "connected" => 0 }]
 
-      User.connection.select_all(@stats.fb_connected_distribution_sql).should =~ @result
+      @stats.fb_connected_distribution.should =~ @result
     end
   end
 
