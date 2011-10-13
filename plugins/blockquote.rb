@@ -71,7 +71,7 @@ module Jekyll
       else
         "#{quote}<footer>#{author}</footer>"
       end
-      "<blockquote class='citation'>#{blockquote}</blockquote>"
+      "<blockquote>#{blockquote}</blockquote>"
     end
 
     def paragraphize(input)
