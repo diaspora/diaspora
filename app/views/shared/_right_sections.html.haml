@@ -73,9 +73,8 @@
   .section
     .title.no_icon
       %h5
-        =t('aspects.index.community_members')
+        =t('aspects.index.community_spotlight')
     .content#featured_users
-      = render 'featured_users/user', :person => @stream.random_featured_user
       = link_to t('aspects.index.see_more_from_us'), featured_path, :id => 'view_all_contacts_link'
 
 - unless AppConfig[:paypal_hosted_button_id].blank?

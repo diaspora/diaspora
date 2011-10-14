@@ -60,7 +60,7 @@
         %br
         %br
         = t('.check_out')
-        = link_to t('contacts.featured.featured_users'), featured_users_path
+        = link_to t('contacts.spotlight.community_spotlight'), featured_users_path
         - if @aspect
           or
           = link_to t('.add_to_aspect', :name => @aspect.name).downcase, edit_aspect_path(@aspect), :rel => "facebox"
