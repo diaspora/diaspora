@@ -42,8 +42,9 @@ h1
 ul > li
   :list-style none
 
-.content ul li
-  :list-style disc
+.content, #preview-result
+  ul li
+    :list-style disc
 
 form
   :position relative
@@ -1114,13 +1115,14 @@ label
 
 #preview-modal
   :display none
-  :border 2px solid black
+  :border 1px solid #666666
   :padding 1em
   :position fixed
   :top 200px
   :background white
   :z-index 1
   :width 400px
+  :color #000000
 
 #preview-hide
   :float right
