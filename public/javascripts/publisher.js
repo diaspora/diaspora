@@ -421,7 +421,7 @@ var Publisher = {
       });
       Publisher.close();
     });
- 
+
     Publisher.autocompletion.initialize();
     Publisher.hiddenInput().val(Publisher.input().val());
     Publisher.input().autoResize();
@@ -431,6 +431,22 @@ var Publisher = {
     Publisher.form().find("textarea").bind("focus", function(evt) {
       Publisher.open();
     });
+
+    $('#preview.button').live( 'click', function(evt) {
+      evt.preventDefault();
+
+      $.post('/preview.json', {
+        text: $('#status_message_fake_text').val()
+      }, function(data){
+        $('#preview-result').html( data.result );
+        $('#preview-modal').fadeIn();
+      });
+    } );
+
+    $('#preview-hide').live( 'click', function(evt) {
+      evt.preventDefault();
+      $('#preview-modal').fadeOut();
+    } );
   }
 };
 
