@@ -441,13 +441,15 @@ var Publisher = {
         $('#preview-result').html( data.result );
         $('#preview-modal').fadeIn('fast');
         $('#preview-overlay').fadeIn('fast');
+        $('#file-upload').hide();
       });
     } );
 
     $('#preview-hide, #preview-overlay').live( 'click', function(evt) {
       evt.preventDefault();
-      $('#preview-modal').fadeOut('fast');
+      $('#file-upload').show();
       $('#preview-overlay').fadeOut('fast');
+      $('#preview-modal').fadeOut('fast');
     } );
   }
 };
