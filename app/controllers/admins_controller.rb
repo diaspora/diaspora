@@ -1,3 +1,5 @@
+require File.join(Rails.root, 'lib','statistics')
+
 class AdminsController < ApplicationController
   before_filter :authenticate_user!
   before_filter :redirect_unless_admin
@@ -63,6 +65,10 @@ class AdminsController < ApplicationController
     #@posts[:new_public] = Post.where(:type => ['StatusMessage','ActivityStreams::Photo'],
     #                                 :public => true).order('created_at DESC').limit(15).all
 
+  end
+
+  def correlations
+    @correlations_hash = Statistics.new.generate_correlations
   end
 
   private

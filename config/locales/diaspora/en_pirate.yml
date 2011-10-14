@@ -1,4 +1,4 @@
-#   Copyright (c) 2011, Diaspora Inc.  This file is
+#   Copyright (c) 2010-2011, Diaspora Inc.  This file is
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
@@ -61,8 +61,10 @@ en_pirate:
       done_editing: "done editing"
     aspect_listings: 
       add_an_aspect: "+ Add a crew"
+      edit_aspect: "Edit %{name}"
     aspect_stream: 
       commented_on: "commented on"
+      mentions: "Mentions"
       posted: "posted"
       recently: "recently:"
       stream: "The Sea"
@@ -91,6 +93,7 @@ en_pirate:
       aspect_not_empty: "Aspect not empty"
       remove: "remove"
     index: 
+      community_members: "Featured Diaspora* members"
       cubbies: 
         explanation: "Cubbi.es is the first Diaspora application under development."
         heading: "Connect to Cubbi.es"
@@ -100,21 +103,26 @@ en_pirate:
         content_2: "Give it to anyone and they'll be able to find you on Diaspora."
         heading: "Diaspora ID"
       donate: "Donate"
+      featured_users: "Featured Users"
       handle_explanation: "This is your diaspora id. Like an email address, you can give this to people to reach you."
       help: 
-        did_you: "Did you:"
+        do_you: "Do you:"
+        email_feedback: "%{link} your feedback, if you prefer"
+        feature_and_forum: "%{gs} & %{forum}: Community-powered support and feature requests"
         feature_suggestion: "... have a %{link} suggestion?"
         find_a_bug: "... find a %{link}?"
         have_a_question: "... have a %{link}?"
         here_to_help: "Diaspora community is here to help!"
-        more_support: "For more support, you should also check out %{link}."
         need_help: "Need Help?"
-        tutorials: "For tutorials, check out %{link}."
+        satisfaction: "%{link}: Community-powered support"
+        tutorials_and_wiki: "%{tutorial} & %{wiki}: Community-powered tutorials, how-to, and news"
       keep_us_running: "Keep %{pod} running fast, buy our servers their monthly coffee fix!"
+      mentions: "Mentions"
       no_contacts: "No mateys"
       no_tags: "+ Find a tag to follow"
       people_sharing_with_you: "People sharing with you"
       post_a_message: "post a message >>"
+      see_more_from_us: "See more of the D* community."
       services: 
         content: "You can connect the following services to Diaspora:"
         heading: "Connect Services"
@@ -147,6 +155,7 @@ en_pirate:
       manage_your_aspects: "Manage your aspects."
       no_contacts: "You don't have any contacts here yet."
       view_all_contacts: "View all contacts"
+      view_all_featured_users: "See all Featured Users"
     show: 
       edit_aspect: "edit aspect"
     two: "%{count} aspects"
@@ -184,8 +193,9 @@ en_pirate:
     few: "%{count} contacts"
     index: 
       add_a_new_aspect: "Add a new aspect"
+      add_to_aspect: "Add contacts to %{name}"
       all_contacts: "All yer mateys"
-      edit_aspect: "Edit %{name}"
+      check_out: "Check out"
       many_people_are_you_sure: "Are you sure you want to start a private conversation with more than %{suggested_limit} contacts? Posting to this aspect may be a better way to contact them."
       my_contacts: "My Contacts"
       no_contacts: "No contacts."
@@ -581,6 +591,13 @@ en_pirate:
       failed: "Failed to update profile"
       updated: "Profile updated"
   public: "Public"
+  reactions: 
+    few: "%{count} reactions"
+    many: "%{count} reactions"
+    one: "1 reaction"
+    other: "%{count} reactions"
+    two: "%{count} reactions"
+    zero: "0 reactions"
   registrations: 
     closed: "Signups are closed on this Diaspora pod."
     create: 
@@ -636,6 +653,7 @@ en_pirate:
         zero: "Reshare"
       reshare_confirmation: "Reshare %{author}'s post?"
       reshare_original: "Reshare original"
+      reshared_via: "reshared via"
       show_original: "Show original"
   search: "Search"
   services: 
@@ -745,6 +763,16 @@ en_pirate:
   stream_helper: 
     hide_comments: "Hide all comments"
     show_more_comments: "Show %{number} more comments"
+  streams: 
+    mentions: 
+      contacts_title: "People who mentioned you"
+      title: "Your Mentions"
+    public: 
+      contacts_title: "Recent Posters"
+      title: "Public Activity"
+    tags: 
+      contacts_title: "People who dig these tags"
+      title: "Posts tagged: %{tags}"
   tag_followings: 
     create: 
       failure: "Failed to follow: #%{name}"
@@ -755,6 +783,7 @@ en_pirate:
   tags: 
     show: 
       follow: "Follow #%{tag}"
+      followed_by: "followed by"
       following: "Following #%{tag}"
       nobody_talking: "Nobody is talking about %{tag} yet."
       people_tagged_with: "People tagged with %{tag}"
@@ -805,8 +834,11 @@ en_pirate:
       your_handle: "Your diaspora id"
     getting_started: 
       bold: "aspects"
+      community_welcome: "Diaspora's community is happy to have you aboard!"
       connect_to: "Connect to"
       connect_to_your_other_social_networks: "Connect to your other social networks"
+      connect_to_your_other_social_networks_explanation_p1: "Connecting to services will allow you to publish out to these services."
+      connect_to_your_other_social_networks_explanation_p2: "With Facebook, you also be able to find friends already on Diaspora and invite others."
       connect_with_people: "Connect with cool people"
       connect_with_people_explanation_pt1: "Connect with people by placing them into one or more of your"
       connect_with_people_explanation_pt2: "Aspects are an intuitive way to group new and familar faces, private to you, allowing you to filter down or share with subsets of your contacts easily."
@@ -818,7 +850,9 @@ en_pirate:
       find_friends_from_facebook: "find friends from Facebook"
       finished: "Finished"
       follow_your_interests: "Follow your interests"
+      get_updates_from_core: "Get updates about the project from the core team."
       hashtag_explanation: "Hashtags allow you to talk about and follow your interests.  They're also a great way to find new people on Diaspora."
+      not_mandatory: "Completing the following steps will improve your Diaspora experience, but they are not mandatory."
       profile_description: "Make it easier for people to find you by filling out your profile information."
       profile_fields: 
         bio: "Bio"
@@ -833,6 +867,12 @@ en_pirate:
       see_all_featured_users: "See all featured users"
       welcome: "Welcome!"
       welcome_with_name: "Welcome, %{name}!"
+    logged_out: 
+      go_mobile: "Now go mobile."
+      on_your_mobile_device: "on your mobile device to access Diaspora* mobile."
+      signed_out: "You've signed out of Diaspora*"
+      simply_visit: "Simply visit"
+      works_on_modern: "Works on all modern smartphones"
     public: 
       does_not_exist: "User %{username} does not exist!"
     update: 

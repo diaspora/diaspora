@@ -48,12 +48,8 @@ class Photo < Post
     photo
   end
 
-  def not_processed?
-    processed_image.path.nil?
-  end
-
   def processed?
-    !processed_image.path.nil?
+    processed_image.path.present?
   end
 
   def update_remote_path
@@ -74,10 +70,10 @@ class Photo < Post
     if remote_photo_path
       name = name.to_s + '_' if name
       remote_photo_path + name.to_s + remote_photo_name
-    elsif not_processed?
-      unprocessed_image.url(name)
-    else
+    elsif processed?
       processed_image.url(name)
+    else
+      unprocessed_image.url(name)
     end
   end
 
@@ -95,12 +91,6 @@ class Photo < Post
 
   def queue_processing_job
     Resque.enqueue(Jobs::ProcessPhoto, self.id)
-  end
-
-  def process
-    return false if self.processed? || (!unprocessed_image.path.nil? && unprocessed_image.path.include?('.gif'))
-    processed_image.store!(unprocessed_image) #Ultra naive
-    save!
   end
 
   def mutable?

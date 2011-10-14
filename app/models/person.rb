@@ -146,7 +146,7 @@ class Person < ActiveRecord::Base
   end
 
   def self.name_from_attrs(first_name, last_name, diaspora_handle)
-    first_name.blank? ? diaspora_handle : "#{first_name.to_s} #{last_name.to_s}"
+    first_name.blank? ? diaspora_handle : "#{first_name.to_s.strip} #{last_name.to_s.strip}"
   end
 
   def first_name

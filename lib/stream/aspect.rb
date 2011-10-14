@@ -2,9 +2,7 @@
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
-class AspectStream
-
-  attr_reader :max_time, :order
+class Stream::Aspect< Stream::Base
 
   # @param user [User]
   # @param inputted_aspect_ids [Array<Integer>] Ids of aspects for given stream
@@ -13,10 +11,8 @@ class AspectStream
   # @opt order [String] Order of posts (i.e. 'created_at', 'updated_at')
   # @return [void]
   def initialize(user, inputted_aspect_ids, opts={})
-    @user = user
+    super(user, opts)
     @inputted_aspect_ids = inputted_aspect_ids
-    @max_time = opts[:max_time]
-    @order = opts[:order]
   end
 
   # Filters aspects given the stream's aspect ids on initialization and the user.
@@ -26,8 +22,8 @@ class AspectStream
   # @return [ActiveRecord::Association<Aspect>] Filtered aspects given the stream's user
   def aspects
     @aspects ||= lambda do
-      a = @user.aspects
-      a = a.where(:id => @inputted_aspect_ids) if @inputted_aspect_ids.length > 0
+      a = user.aspects
+      a = a.where(:id => @inputted_aspect_ids) if @inputted_aspect_ids.any?
       a
     end.call
   end
@@ -42,16 +38,22 @@ class AspectStream
   # @return [ActiveRecord::Association<Post>] AR association of posts
   def posts
     # NOTE(this should be something like Post.all_for_stream(@user, aspect_ids, {}) that calls visible_posts
-    @posts ||= @user.visible_posts(:by_members_of => aspect_ids,
-                                   :type => ['StatusMessage', 'Reshare', 'ActivityStreams::Photo'],
-                                   :order => "#{@order} DESC",
-                                   :max_time => @max_time
-                   ).includes(:mentions => {:person => :profile}, :author => :profile)
+    @posts ||= user.visible_posts(:all_aspects? => for_all_aspects?,
+                                   :by_members_of => aspect_ids,
+                                   :type => TYPES_OF_POST_IN_STREAM,
+                                   :order => "#{order} DESC",
+                                   :max_time => max_time
+                   ).for_a_stream(max_time, order)
   end
 
   # @return [ActiveRecord::Association<Person>] AR association of people within stream's given aspects
   def people
-    @people ||= Person.all_from_aspects(aspect_ids, @user).includes(:profile)
+    @people ||= Person.all_from_aspects(aspect_ids, user).includes(:profile)
+  end
+
+  # @return [String] URL
+  def link(opts={})
+    Rails.application.routes.url_helpers.aspects_path(opts)
   end
 
   # The first aspect in #aspects, given the stream is not for all aspects, or #aspects size is 1
@@ -63,8 +65,26 @@ class AspectStream
     end
   end
 
+  # Only ajax in the stream if all aspects are present.
+  # In this case, we know we're on the first page of the stream,
+  # as the default view for aspects/index is showing posts from
+  # all a user's aspects.
+  #
+  # @return [Boolean] see #for_all_aspects?
   def ajax_stream?
     for_all_aspects?
+  end
+
+  # The title that will display at the top of the stream's
+  # publisher box.
+  #
+  # @return [String]
+  def title
+    if self.for_all_aspects?
+      I18n.t('aspects.aspect_stream.stream')
+    else
+      self.aspects.to_sentence
+    end
   end
 
   # Determine whether or not the stream is displaying across
@@ -72,6 +92,29 @@ class AspectStream
   #
   # @return [Boolean]
   def for_all_aspects?
-    @all_aspects ||= aspect_ids.length == @user.aspects.size
+    @all_aspects ||= aspect_ids.length == user.aspects.size
+  end
+
+  # Provides a translated title for contacts box on the right pane.
+  #
+  # @return [String]
+  def contacts_title
+    if self.for_all_aspects? || self.aspect_ids.size > 1
+      I18n.t('_contacts')
+    else
+     "#{self.aspect.name} (#{self.people.size})"
+    end
+  end
+
+  # Provides a link to the user to the contacts page that corresponds with
+  # the stream's active aspects.
+  #
+  # @return [String] Link to contacts
+  def contacts_link
+    if for_all_aspects? || aspect_ids.size > 1
+      Rails.application.routes.url_helpers.contacts_path
+    else
+      Rails.application.routes.url_helpers.contacts_path(:a_id => aspect.id)
+    end
   end
 end

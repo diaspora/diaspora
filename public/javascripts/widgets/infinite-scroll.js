@@ -20,9 +20,7 @@
         	lastTime = $('#main_stream .stream_element').last().find(".time").attr("integer");
 
         if(lastTime === undefined){
-          var currentTime = new Date,
-          unixtimeMs = currentTime.getTime(),
-          lastTime = parseInt(unixtimeMs / 1000);
+        	lastTime = $('#main_stream').data('time_for_scroll');
         }
 
         return newPath.replace(/max_time=\d+/, "max_time=" + lastTime);

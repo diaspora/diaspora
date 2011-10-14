@@ -40,7 +40,7 @@
 
     .span-8.last
       %p
-        = markdownify(photo.status_message)
+        = markdownify(photo.status_message, :oembed => true)
       %span{:style=>'font-size:smaller'}
         =link_to t('.collection_permalink'), post_path(photo.status_message)
       %br

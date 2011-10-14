@@ -12,49 +12,49 @@ describe User do
     @bobs_aspect = bob.aspects.where(:name => "generic").first
   end
 
-  describe "#visible_posts" do
+  describe "#visible_post_ids" do
     it "contains your public posts" do
       public_post = alice.post(:status_message, :text => "hi", :to => @alices_aspect.id, :public => true)
-      alice.visible_posts.should include(public_post)
+      alice.visible_post_ids.should include(public_post.id)
     end
 
     it "contains your non-public posts" do
       private_post = alice.post(:status_message, :text => "hi", :to => @alices_aspect.id, :public => false)
-      alice.visible_posts.should include(private_post)
+      alice.visible_post_ids.should include(private_post.id)
     end
 
     it "contains public posts from people you're following" do
       dogs = bob.aspects.create(:name => "dogs")
       bobs_public_post = bob.post(:status_message, :text => "hello", :public => true, :to => dogs.id)
-      alice.visible_posts.should include(bobs_public_post)
+      alice.visible_post_ids.should include(bobs_public_post.id)
     end
 
     it "contains non-public posts from people who are following you" do
       bobs_post = bob.post(:status_message, :text => "hello", :to => @bobs_aspect.id)
-      alice.visible_posts.should include(bobs_post)
+      alice.visible_post_ids.should include(bobs_post.id)
     end
 
     it "does not contain non-public posts from aspects you're not in" do
       dogs = bob.aspects.create(:name => "dogs")
       invisible_post = bob.post(:status_message, :text => "foobar", :to => dogs.id)
-      alice.visible_posts.should_not include(invisible_post)
+      alice.visible_post_ids.should_not include(invisible_post.id)
     end
 
     it "does not contain pending posts" do
       pending_post = bob.post(:status_message, :text => "hey", :public => true, :to => @bobs_aspect.id, :pending => true)
       pending_post.should be_pending
-      alice.visible_posts.should_not include pending_post
+      alice.visible_post_ids.should_not include pending_post.id
     end
 
     it "does not contain pending photos" do
       pending_photo = bob.post(:photo, :pending => true, :user_file=> File.open(photo_fixture_name), :to => @bobs_aspect)
-      alice.visible_posts.should_not include pending_photo
+      alice.visible_post_ids.should_not include pending_photo.id
     end
 
     it "respects the :type option" do
       photo = bob.post(:photo, :pending => false, :user_file=> File.open(photo_fixture_name), :to => @bobs_aspect)
-      alice.visible_posts.should include(photo)
-      alice.visible_posts(:type => 'StatusMessage').should_not include(photo)
+      alice.visible_post_ids(:type => "Photo").should include(photo.id)
+      alice.visible_post_ids(:type => 'StatusMessage').should_not include(photo.id)
     end
 
     it "does not contain duplicate posts" do
@@ -64,8 +64,8 @@ describe User do
 
       bobs_post = bob.post(:status_message, :text => "hai to all my people", :to => [@bobs_aspect.id, bobs_other_aspect.id])
 
-      alice.visible_posts.length.should == 1
-      alice.visible_posts.should include(bobs_post)
+      alice.visible_post_ids.length.should == 1
+      alice.visible_post_ids.should include(bobs_post.id)
     end
 
     describe 'hidden posts' do
@@ -76,15 +76,87 @@ describe User do
       end
 
       it "pulls back non hidden posts" do
-        alice.visible_posts.include?(@status).should be_true
+        alice.visible_post_ids.include?(@status.id).should be_true
       end
 
       it "does not pull back hidden posts" do
         @vis.update_attributes(:hidden => true)
-        alice.visible_posts.include?(@status).should be_false
+        alice.visible_post_ids.include?(@status.id).should be_false
       end
     end
 
+    context "RedisCache" do
+      before do
+        AppConfig[:redis_cache] = true
+        @opts = {:order => "created_at DESC", :all_aspects? => true}
+      end
+
+      after do
+        AppConfig[:redis_cache] = nil
+      end
+
+      it "gets populated with latest 100 posts" do
+        cache = mock(:cache_exists? => true, :supported_order? => true, :ensure_populated! => mock, :post_ids => [])
+        RedisCache.stub(:new).and_return(cache)
+        @opts = alice.send(:prep_opts, @opts)
+        cache.should_receive(:ensure_populated!).with(hash_including(@opts))
+
+        alice.visible_post_ids(@opts)
+      end
+
+      it 'does not get used if if all_aspects? option is not present' do
+        RedisCache.should_not_receive(:new)
+
+        alice.visible_post_ids(@opts.merge({:all_aspects? => false}))
+      end
+
+      describe "#ensure_populated_cache" do
+        it 'does nothing if the cache is already populated'
+        it 're-populates the cache with the latest posts (in hashes)'
+      end
+
+      context 'populated cache' do
+        before do
+          @cache = mock(:cache_exists? => true, :ensure_populated! => mock)
+          RedisCache.stub(:new).and_return(@cache)
+        end
+
+        it "reads from the cache" do
+          @cache.should_receive(:post_ids).and_return([1,2,3])
+
+          alice.visible_post_ids(@opts.merge({:limit => 3})).should == [1,2,3]
+        end
+
+        it "queries if maxtime is later than the last cached post" do
+          @cache.stub(:post_ids).and_return([])
+          alice.should_receive(:visible_ids_from_sql)
+
+          alice.visible_post_ids(@opts)
+        end
+
+        it "does not get repopulated" do
+        end
+      end
+    end
+  end
+  
+  describe "#prep_opts" do
+    it "defaults the opts" do
+      time = Time.now
+      Time.stub(:now).and_return(time)
+      alice.send(:prep_opts, {}).should == {
+        :type => Stream::Base::TYPES_OF_POST_IN_STREAM, 
+        :order => 'created_at DESC',
+        :limit => 15,
+        :hidden => false,
+        :order_field => :created_at,
+        :order_with_table => "posts.created_at DESC",
+        :max_time => time + 1
+      }
+    end
+  end
+
+  describe "#visible_posts" do
     context 'with many posts' do
       before do
         bob.move_contact(eve.person, @bobs_aspect, bob.aspects.create(:name => 'new aspect'))
@@ -101,10 +173,13 @@ describe User do
           end
         end
       end
+
       it 'works' do # The set up takes a looong time, so to save time we do several tests in one
         bob.visible_posts.length.should == 15 #it returns 15 by default
         bob.visible_posts.should == bob.visible_posts(:by_members_of => bob.aspects.map { |a| a.id }) # it is the same when joining through aspects
-        bob.visible_posts.sort_by { |p| p.updated_at }.map { |p| p.id }.should == bob.visible_posts.map { |p| p.id }.reverse #it is sorted updated_at desc by default
+
+        # checks the default sort order
+        bob.visible_posts.sort_by { |p| p.created_at }.map { |p| p.id }.should == bob.visible_posts.map { |p| p.id }.reverse #it is sorted updated_at desc by default
 
         # It should respect the order option
         opts = {:order => 'created_at DESC'}
@@ -118,21 +193,21 @@ describe User do
         opts = {:limit => 40}
         bob.visible_posts(opts).length.should == 40
         bob.visible_posts(opts).should == bob.visible_posts(opts.merge(:by_members_of => bob.aspects.map { |a| a.id }))
-        bob.visible_posts(opts).sort_by { |p| p.updated_at }.map { |p| p.id }.should == bob.visible_posts(opts).map { |p| p.id }.reverse
+        bob.visible_posts(opts).sort_by { |p| p.created_at }.map { |p| p.id }.should == bob.visible_posts(opts).map { |p| p.id }.reverse
 
         # It should paginate using a datetime timestamp
-        last_time_of_last_page = bob.visible_posts.last.updated_at
+        last_time_of_last_page = bob.visible_posts.last.created_at
         opts = {:max_time => last_time_of_last_page}
         bob.visible_posts(opts).length.should == 15
         bob.visible_posts(opts).map { |p| p.id }.should == bob.visible_posts(opts.merge(:by_members_of => bob.aspects.map { |a| a.id })).map { |p| p.id }
-        bob.visible_posts(opts).sort_by { |p| p.updated_at }.map { |p| p.id }.should == bob.visible_posts(opts).map { |p| p.id }.reverse
+        bob.visible_posts(opts).sort_by { |p| p.created_at}.map { |p| p.id }.should == bob.visible_posts(opts).map { |p| p.id }.reverse
         bob.visible_posts(opts).map { |p| p.id }.should == bob.visible_posts(:limit => 40)[15...30].map { |p| p.id } #pagination should return the right posts
 
         # It should paginate using an integer timestamp
         opts = {:max_time => last_time_of_last_page.to_i}
         bob.visible_posts(opts).length.should == 15
         bob.visible_posts(opts).map { |p| p.id }.should == bob.visible_posts(opts.merge(:by_members_of => bob.aspects.map { |a| a.id })).map { |p| p.id }
-        bob.visible_posts(opts).sort_by { |p| p.updated_at }.map { |p| p.id }.should == bob.visible_posts(opts).map { |p| p.id }.reverse
+        bob.visible_posts(opts).sort_by { |p| p.created_at}.map { |p| p.id }.should == bob.visible_posts(opts).map { |p| p.id }.reverse
         bob.visible_posts(opts).map { |p| p.id }.should == bob.visible_posts(:limit => 40)[15...30].map { |p| p.id } #pagination should return the right posts
       end
     end

@@ -334,7 +334,7 @@ describe 'a user receives a post' do
       salmon_xml = salmon.xml_for(bob.person)
 
       zord = Postzord::Receiver::Private.new(bob, :salmon_xml => salmon_xml)
-      zord.perform
+      zord.perform!
 
       bob.visible_posts.include?(post).should be_true
     end

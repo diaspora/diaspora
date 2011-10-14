@@ -22,7 +22,7 @@ describe "attack vectors" do
 
       zord = Postzord::Receiver::Private.new(bob, :salmon_xml => salmon_xml)
       expect {
-        zord.perform
+        zord.perform!
       }.should raise_error /not a valid object/
 
       bob.visible_posts.include?(post_from_non_contact).should be_false
@@ -39,7 +39,7 @@ describe "attack vectors" do
     salmon_xml = bob.salmon(original_message).xml_for(alice.person)
     zord = Postzord::Receiver::Private.new(bob, :salmon_xml => salmon_xml)
     expect {
-      zord.perform
+      zord.perform!
     }.should raise_error /not a valid object/
 
     alice.reload.visible_posts.should_not include(StatusMessage.find(original_message.id))
@@ -53,12 +53,12 @@ describe "attack vectors" do
         salmon_xml = eve.salmon(original_message).xml_for(bob.person)
 
         zord = Postzord::Receiver::Private.new(bob, :salmon_xml => salmon_xml)
-        zord.perform
+        zord.perform!
 
         malicious_message = Factory.build(:status_message, :id => original_message.id, :text => 'BAD!!!', :author => alice.person)
         salmon_xml = alice.salmon(malicious_message).xml_for(bob.person)
         zord = Postzord::Receiver::Private.new(bob, :salmon_xml => salmon_xml)
-        zord.perform
+        zord.perform!
 
         original_message.reload.text.should == "store this!"
       end
@@ -68,14 +68,14 @@ describe "attack vectors" do
 
         salmon_xml =  eve.salmon(original_message).xml_for(bob.person)
         zord = Postzord::Receiver::Private.new(bob, :salmon_xml => salmon_xml)
-        zord.perform
+        zord.perform!
 
         lambda {
           malicious_message = Factory.build( :status_message, :id => original_message.id, :text => 'BAD!!!', :author => eve.person)
 
           salmon_xml2 = alice.salmon(malicious_message).xml_for(bob.person)
           zord = Postzord::Receiver::Private.new(bob, :salmon_xml => salmon_xml)
-          zord.perform
+          zord.perform!
 
         }.should_not change{
           bob.reload.visible_posts.count
@@ -97,7 +97,7 @@ describe "attack vectors" do
 
       zord = Postzord::Receiver::Private.new(bob, :salmon_xml => salmon_xml)
       expect {
-        zord.perform
+        zord.perform!
       }.should raise_error /not a valid object/
 
       eve.reload.profile.first_name.should == first_name
@@ -109,7 +109,7 @@ describe "attack vectors" do
 
       salmon_xml = eve.salmon(original_message).xml_for(bob.person)
       zord = Postzord::Receiver::Private.new(bob, :salmon_xml => salmon_xml)
-      zord.perform
+      zord.perform!
 
       bob.visible_posts.count.should == 1
       StatusMessage.count.should == 1
@@ -121,7 +121,7 @@ describe "attack vectors" do
 
       salmon_xml = alice.salmon(ret).xml_for(bob.person)
       zord = Postzord::Receiver::Private.new(bob, :salmon_xml => salmon_xml)
-      zord.perform
+      zord.perform!
 
       StatusMessage.count.should == 1
       bob.visible_posts.count.should == 1
@@ -143,7 +143,7 @@ describe "attack vectors" do
       proc {
         salmon_xml = alice.salmon(ret).xml_for(bob.person)
         zord = Postzord::Receiver::Private.new(bob, :salmon_xml => salmon_xml)
-        zord.perform
+        zord.perform!
       }.should_not raise_error
     end
 
@@ -152,7 +152,7 @@ describe "attack vectors" do
 
       salmon_xml = eve.salmon(original_message).xml_for(bob.person)
       zord = Postzord::Receiver::Private.new(bob, :salmon_xml => salmon_xml)
-      zord.perform
+      zord.perform!
 
       bob.visible_posts.count.should == 1
 
@@ -164,7 +164,7 @@ describe "attack vectors" do
       salmon_xml = alice.salmon(ret).xml_for(bob.person)
       zord = Postzord::Receiver::Private.new(bob, :salmon_xml => salmon_xml)
       expect {
-        zord.perform
+        zord.perform!
       }.should raise_error /not a valid object/
 
       bob.reload.visible_posts.count.should == 1
@@ -180,7 +180,7 @@ describe "attack vectors" do
         salmon_xml = alice.salmon(ret).xml_for(bob.person)
 
         zord = Postzord::Receiver::Private.new(bob, :salmon_xml => salmon_xml)
-        zord.perform
+        zord.perform!
 
       }.should_not change{bob.reload.contacts.count}
     end
@@ -196,7 +196,7 @@ describe "attack vectors" do
       salmon_xml = alice.salmon(ret).xml_for(bob.person)
       zord = Postzord::Receiver::Private.new(bob, :salmon_xml => salmon_xml)
       expect {
-        zord.perform
+        zord.perform!
       }.should raise_error /not a valid object/
 
       bob.reload.contacts.count.should == 2
@@ -207,7 +207,7 @@ describe "attack vectors" do
 
       salmon_xml = eve.salmon(original_message).xml_for(bob.person)
       zord = Postzord::Receiver::Private.new(bob, :salmon_xml => salmon_xml)
-      zord.perform
+      zord.perform!
 
       original_message.diaspora_handle = alice.diaspora_handle
       original_message.text= "bad bad bad"
@@ -215,7 +215,7 @@ describe "attack vectors" do
       salmon_xml = alice.salmon(original_message).xml_for(bob.person)
 
       zord = Postzord::Receiver::Private.new(bob, :salmon_xml => salmon_xml)
-      zord.perform
+      zord.perform!
 
       original_message.reload.text.should == "store this!"
     end

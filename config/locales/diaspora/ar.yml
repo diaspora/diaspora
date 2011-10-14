@@ -1,4 +1,4 @@
-#   Copyright (c) 2011, Diaspora Inc.  This file is
+#   Copyright (c) 2010-2011, Diaspora Inc.  This file is
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
@@ -61,8 +61,10 @@ ar:
       done_editing: "اتمام التغييرات"
     aspect_listings: 
       add_an_aspect: "+ أضف فئة جديدة"
+      edit_aspect: "Edit %{name}"
     aspect_stream: 
       commented_on: "علق عليها"
+      mentions: "Mentions"
       posted: "أُرسِلت"
       recently: "مؤخرًا:"
       stream: "البث"
@@ -91,6 +93,7 @@ ar:
       aspect_not_empty: "الفئة ليست فارغة"
       remove: "حذف"
     index: 
+      community_members: "Featured Diaspora* members"
       cubbies: 
         explanation: "Cubbi.es هو أول تطبيق تحت التطوير لديسبورا."
         heading: "صِل حسابك بـ Cubbi.es"
@@ -100,21 +103,26 @@ ar:
         content_2: "أعطه لأي شخص وسيتمكن من إيجادك على ديسبورا."
         heading: "وسيط ديسبورا"
       donate: "تبرّع"
+      featured_users: "Featured Users"
       handle_explanation: "هذا وسيط دياسبرا. مثل البريد الالكتروني، يمكنك منحه للأصدقاء حتى تستطيع التواصل معهم."
       help: 
-        did_you: "هل:"
+        do_you: "Do you:"
+        email_feedback: "%{link} your feedback, if you prefer"
+        feature_and_forum: "%{gs} & %{forum}: Community-powered support and feature requests"
         feature_suggestion: "... تملك %{link} اقتراحا؟"
         find_a_bug: "... وجدت %{link}?"
         have_a_question: "... تملك %{link}?"
         here_to_help: "مجتمع دياسبرا متأهب للمساعدة"
-        more_support: "لمزيد من الاستعلامات، يرجى مراجعة %{link}."
         need_help: "تحتاج للمساعدة؟"
-        tutorials: "لمزيد من الشروحات، راجع %{link}."
+        satisfaction: "%{link}: Community-powered support"
+        tutorials_and_wiki: "%{tutorial} & %{wiki}: Community-powered tutorials, how-to, and news"
       keep_us_running: "حافظ على %{pod} سريعا عبر تبرع شهري لصيانة السيرفرات "
+      mentions: "Mentions"
       no_contacts: "لا أعضاء"
       no_tags: "+ جِـد وسما لمتابعته"
       people_sharing_with_you: "أعضاء يتشاركون معك"
       post_a_message: "انشر رسالة >>"
+      see_more_from_us: "See more of the D* community."
       services: 
         content: "يمكنك وصل حساب ديسبورا الخاص بك بالخدمات الآتية:"
         heading: "صل حسابك بالخدمات"
@@ -147,6 +155,7 @@ ar:
       manage_your_aspects: "أَدِر فئاتك."
       no_contacts: "لا تملك أية جهات اتصال هنا بعد."
       view_all_contacts: "أظهر كل جهات الاتصال"
+      view_all_featured_users: "See all Featured Users"
     show: 
       edit_aspect: "تحرير الفئة"
     two: "%{count} فئتان"
@@ -184,8 +193,9 @@ ar:
     few: "%{count} أعضاء"
     index: 
       add_a_new_aspect: "أضف فئة جديدة"
+      add_to_aspect: "Add contacts to %{name}"
       all_contacts: "كل جهات الاتصال"
-      edit_aspect: "عدل %{name}"
+      check_out: "Check out"
       many_people_are_you_sure: "هل أنت متأكد من بدأ هذه المحادثة الخاصة مع أكثر من %{suggested_limit} جهات اتصال? من الأفضل إرسال مشاركة لهذه الفئة لتتصل بهم."
       my_contacts: "جهات الاتصال الخاصة بي"
       no_contacts: "لا توجد جهات اتصال."
@@ -581,6 +591,13 @@ ar:
       failed: "فشل في تحديث صفحتك الشخصية"
       updated: "حُدِّثَت صفحتِك الشخصية"
   public: "عام"
+  reactions: 
+    few: "%{count} reactions"
+    many: "%{count} reactions"
+    one: "1 reaction"
+    other: "%{count} reactions"
+    two: "%{count} reactions"
+    zero: "0 reactions"
   registrations: 
     closed: "التسجيلات مغلقة على هذه المنصة"
     create: 
@@ -636,6 +653,7 @@ ar:
         zero: "أَعِد النشر"
       reshare_confirmation: "هل أُعِيد نشر مشاركة %{author} ؟"
       reshare_original: "أعد نشر المشاركة الأصلية"
+      reshared_via: "reshared via"
       show_original: "اعرض الأصلية"
   search: "بحث"
   services: 
@@ -745,6 +763,16 @@ ar:
   stream_helper: 
     hide_comments: "أخْفِ كل التعليقات"
     show_more_comments: "أظهر %{number} من التعليقات"
+  streams: 
+    mentions: 
+      contacts_title: "People who mentioned you"
+      title: "Your Mentions"
+    public: 
+      contacts_title: "Recent Posters"
+      title: "Public Activity"
+    tags: 
+      contacts_title: "People who dig these tags"
+      title: "Posts tagged: %{tags}"
   tag_followings: 
     create: 
       failure: "فشل في متابعة: #%{name}"
@@ -755,6 +783,7 @@ ar:
   tags: 
     show: 
       follow: "تابع #%{tag}"
+      followed_by: "followed by"
       following: "أنت تتابع #%{tag}"
       nobody_talking: "لم يتحدث أحدٌ عن %{tag} بعد"
       people_tagged_with: "أشخاص موسومون بـ %{tag}"
@@ -805,8 +834,11 @@ ar:
       your_handle: "وسيط ديسبورا الخاص بك"
     getting_started: 
       bold: "فئات"
+      community_welcome: "Diaspora's community is happy to have you aboard!"
       connect_to: "إتصل بـ"
       connect_to_your_other_social_networks: "إتصل بشبكات اجتماعية أخرى"
+      connect_to_your_other_social_networks_explanation_p1: "Connecting to services will allow you to publish out to these services."
+      connect_to_your_other_social_networks_explanation_p2: "With Facebook, you also be able to find friends already on Diaspora and invite others."
       connect_with_people: "إتصل بأحلى ناس"
       connect_with_people_explanation_pt1: "إتصل مع الآخرين فقط بوضعهم في إحدى أو عديد %{bold}."
       connect_with_people_explanation_pt2: "الفئات وسيلة ذكية لتصنيف مراسليك حسب رغبتك وخيارك وتمنحك امكانية المشاركة مع مجموعة من الأصدقاء دون أخرى."
@@ -818,7 +850,9 @@ ar:
       find_friends_from_facebook: "جـِدْ أصدقائك بفايسبوك"
       finished: "تم"
       follow_your_interests: "تابع اهتماماتك"
+      get_updates_from_core: "Get updates about the project from the core team."
       hashtag_explanation: "الوسوم تسمح لك بالحديث عن اهتماماتك ومتابعتها.  وهي أيضا طريقة عبقرية للعثور على أناس جدد بدياسبرا."
+      not_mandatory: "Completing the following steps will improve your Diaspora experience, but they are not mandatory."
       profile_description: "سَـهِّل مهمة العثور عليك عبر ملأ بياناتك الشخصية."
       profile_fields: 
         bio: "سيرة ذاتية"
@@ -833,6 +867,12 @@ ar:
       see_all_featured_users: "شاهِد جميع المستخدمين الشرفِيّين"
       welcome: "السلام عليكم ورحمة الله تعالى وبركاته"
       welcome_with_name: "مرحبا، %{name}!"
+    logged_out: 
+      go_mobile: "Now go mobile."
+      on_your_mobile_device: "on your mobile device to access Diaspora* mobile."
+      signed_out: "You've signed out of Diaspora*"
+      simply_visit: "Simply visit"
+      works_on_modern: "Works on all modern smartphones"
     public: 
       does_not_exist: "هذا المستخدم %{username} غير موجود"
     update: 

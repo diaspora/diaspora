@@ -1,4 +1,4 @@
-#   Copyright (c) 2011, Diaspora Inc.  This file is
+#   Copyright (c) 2010-2011, Diaspora Inc.  This file is
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
@@ -6,7 +6,7 @@
 zh-TW: 
   javascripts: 
     aspect_dropdown: 
-      add_to_aspect: "加入面向"
+      add_to_aspect: "加聯絡人"
       all_aspects: "所有面向"
       toggle: 
         few: "在{{count}}個面向中"
@@ -14,7 +14,11 @@ zh-TW:
         one: "在{{count}}個面向中"
         other: "在{{count}}個面向中"
         two: "在{{count}}個面向中"
-        zero: "加入面向"
+        zero: "加聯絡人"
+    aspect_navigation: 
+      deselect_all: "全不選"
+      no_aspects: "沒選任何一個面向"
+      select_all: "全選"
     comments: 
       hide: "隱藏意見"
       show: "顯示所有意見"

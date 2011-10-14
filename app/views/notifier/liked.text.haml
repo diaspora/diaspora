@@ -1,3 +1,3 @@
-!= "#{t('notifier.liked.liked', :name => "#{@sender.name}")}:"
-!=post_message(@like.target)
+!= "#{t('notifier.liked.liked', :name => "#{@notification.sender.name}")}:"
+!=post_message(@notification.like.target)
 

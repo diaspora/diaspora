@@ -4,6 +4,7 @@
 
 Diaspora::Application.routes.draw do
 
+
   # Posting and Reading
 
   resources :reshares
@@ -19,7 +20,7 @@ Diaspora::Application.routes.draw do
     resources :comments, :only => [:new, :create, :destroy, :index]
   end
   get 'p/:id' => 'posts#show', :as => 'short_post'
-
+  get 'public_stream' => 'posts#index', :as => 'public_stream'
   # roll up likes into a nested resource above
   resources :comments, :only => [:create, :destroy] do
     resources :likes, :only => [:create, :destroy, :index]
@@ -53,7 +54,8 @@ Diaspora::Application.routes.draw do
   end
 
 
-  # get "tag_followings" => "tag_followings#index", :as => 'tag_followings'
+  get "tag_followings" => "tag_followings#index", :as => 'tag_followings'
+  resources :mentions, :only => [:index]
 
   get 'tags/:name' => 'tags#show', :as => 'tag'
 
@@ -95,6 +97,7 @@ Diaspora::Application.routes.draw do
     match :user_search
     get   :admin_inviter
     get   :weekly_user_stats
+    get   :correlations
     get   :stats, :as => 'pod_stats'
   end
 
@@ -106,7 +109,12 @@ Diaspora::Application.routes.draw do
   resources :aspect_memberships, :only   => [:destroy, :create, :update]
   resources :post_visibilities,  :only   => [:update]
 
-  get 'featured' => "contacts#featured", :as => 'featured_users'
+  get 'featured' => 'featured_users#index', :as => 'featured'
+
+  get 'featured_users' => "contacts#featured", :as => 'featured_users'
+
+  get 'soup' => "soups#index", :as => 'soup'
+
   resources :people, :except => [:edit, :update] do
     resources :status_messages
     resources :photos
@@ -119,7 +127,6 @@ Diaspora::Application.routes.draw do
   end
   get '/u/:username' => 'people#show', :as => 'user_profile'
   get '/u/:username/profile_photo' => 'users#user_photo'
-
   # Federation
 
   controller :publics do
@@ -130,6 +137,7 @@ Diaspora::Application.routes.draw do
     post 'receive/public'       => :receive_public
     get 'hub'                   => :hub
   end
+
 
 
   # External

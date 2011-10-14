@@ -1,4 +1,4 @@
-#   Copyright (c) 2011, Diaspora Inc.  This file is
+#   Copyright (c) 2010-2011, Diaspora Inc.  This file is
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
@@ -15,6 +15,10 @@ el:
         other: "Σε {{count}} πτυχές"
         two: "Σε {{count}} πτυχές"
         zero: "Προσθήκη σε πτυχή"
+    aspect_navigation: 
+      deselect_all: "Deselect all"
+      no_aspects: "No aspects selected"
+      select_all: "Select all"
     comments: 
       hide: "απόκρυψη σχολίων"
       show: "προβολή όλων των σχολίων"

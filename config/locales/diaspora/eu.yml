@@ -1,4 +1,4 @@
-#   Copyright (c) 2011, Diaspora Inc.  This file is
+#   Copyright (c) 2010-2011, Diaspora Inc.  This file is
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
@@ -61,8 +61,10 @@ eu:
       done_editing: "aldaketak gauzatu"
     aspect_listings: 
       add_an_aspect: "+ Alderdi berria sortu"
+      edit_aspect: "Edit %{name}"
     aspect_stream: 
       commented_on: "iruzkindua"
+      mentions: "Mentions"
       posted: "bidalita"
       recently: "oraintsu:"
       stream: "Kronologia"
@@ -91,6 +93,7 @@ eu:
       aspect_not_empty: "Alderdi ez hutsa"
       remove: "ezabatu"
     index: 
+      community_members: "Featured Diaspora* members"
       cubbies: 
         explanation: "Cubbi.es garapenean dagoen lehenengo Diaspora aplikazioa da."
         heading: "Cubbi.esera lotu"
@@ -100,21 +103,26 @@ eu:
         content_2: "Emaiozu edonori eta Diasporan aurkituko zaituzte hura erabiliz."
         heading: "Diaspora IDa"
       donate: "Donatu"
+      featured_users: "Featured Users"
       handle_explanation: "Hau da zure Diaspora IDa. E-posta helbidea bezalakoa da, zure adiskideei emaiezu zu aurkitzearren."
       help: 
-        did_you: "Did you:"
+        do_you: "Do you:"
+        email_feedback: "%{link} your feedback, if you prefer"
+        feature_and_forum: "%{gs} & %{forum}: Community-powered support and feature requests"
         feature_suggestion: "... have a %{link} suggestion?"
         find_a_bug: "... find a %{link}?"
         have_a_question: "... have a %{link}?"
         here_to_help: "Diaspora community is here to help!"
-        more_support: "For more support, you should also check out %{link}."
         need_help: "Need Help?"
-        tutorials: "For tutorials, check out %{link}."
+        satisfaction: "%{link}: Community-powered support"
+        tutorials_and_wiki: "%{tutorial} & %{wiki}: Community-powered tutorials, how-to, and news"
       keep_us_running: "Keep %{pod} running fast, buy our servers their monthly coffee fix!"
+      mentions: "Mentions"
       no_contacts: "Adiskiderik ez"
       no_tags: "No tags"
       people_sharing_with_you: "Zurekin harremanetan dagoen jendea"
       post_a_message: "mezu bat bidali >>"
+      see_more_from_us: "See more of the D* community."
       services: 
         content: "Honako zerbitzuak lotu ditzakezu Diasporara:"
         heading: "Zerbitzuak Lotu"
@@ -147,6 +155,7 @@ eu:
       manage_your_aspects: "Zure alderdiak kudeatu."
       no_contacts: "Ez duzu adiskiderik hemen oraindik."
       view_all_contacts: "Adiskide guztiak ikusi"
+      view_all_featured_users: "See all Featured Users"
     show: 
       edit_aspect: "alderdia aldatu"
     two: "%{count} aspects"
@@ -184,8 +193,9 @@ eu:
     few: "%{count} adiskide"
     index: 
       add_a_new_aspect: "Alderdi berria gehitu"
+      add_to_aspect: "Add contacts to %{name}"
       all_contacts: "Adiskide Guztiak"
-      edit_aspect: "Aldatu %{name}"
+      check_out: "Check out"
       many_people_are_you_sure: "Ziur al zaude elkarrizketa pribatu bat hasi nahi duzula %{suggested_limit} baino adiskide gehiagorekin? Alderdi horretan mezu bat bidaltzea beharbada haiekin harremanetan egoteko modu hobea izan daiteke."
       my_contacts: "Nire Adiskideak"
       no_contacts: "Adiskiderik ez."
@@ -581,6 +591,13 @@ eu:
       failed: "Huts profila eguneratzean"
       updated: "Profila eguneratu duzu."
   public: "Publikoa"
+  reactions: 
+    few: "%{count} reactions"
+    many: "%{count} reactions"
+    one: "1 reaction"
+    other: "%{count} reactions"
+    two: "%{count} reactions"
+    zero: "0 reactions"
   registrations: 
     closed: "Izen emateak itxirik daude Diaspora zerbitzari hontan."
     create: 
@@ -636,6 +653,7 @@ eu:
         zero: "Birpartekatu"
       reshare_confirmation: "Reshare %{author} - %{text}?"
       reshare_original: "Reshare orignial"
+      reshared_via: "reshared via"
       show_original: "Show Original"
   search: "Bilatu"
   services: 
@@ -745,6 +763,16 @@ eu:
   stream_helper: 
     hide_comments: "Iruzkin guztiak ezkutatu"
     show_more_comments: "Erakutsi %{number} iruzkin gehiago"
+  streams: 
+    mentions: 
+      contacts_title: "People who mentioned you"
+      title: "Your Mentions"
+    public: 
+      contacts_title: "Recent Posters"
+      title: "Public Activity"
+    tags: 
+      contacts_title: "People who dig these tags"
+      title: "Posts tagged: %{tags}"
   tag_followings: 
     create: 
       failure: "Huts #%{name} jarraitzean"
@@ -755,6 +783,7 @@ eu:
   tags: 
     show: 
       follow: "Jarraitu #%{tag}"
+      followed_by: "followed by"
       following: "#%{tag} jarraitzen"
       nobody_talking: "Inor ez du %{tag}(r)i buruz hitz egin oraindik."
       people_tagged_with: "%{tag} etiketadun jendea"
@@ -805,8 +834,11 @@ eu:
       your_handle: "Zure Diaspora IDa"
     getting_started: 
       bold: "aspects"
+      community_welcome: "Diaspora's community is happy to have you aboard!"
       connect_to: "Connect to"
       connect_to_your_other_social_networks: "Connect to your other social networks"
+      connect_to_your_other_social_networks_explanation_p1: "Connecting to services will allow you to publish out to these services."
+      connect_to_your_other_social_networks_explanation_p2: "With Facebook, you also be able to find friends already on Diaspora and invite others."
       connect_with_people: "Connect with cool people"
       connect_with_people_explanation_pt1: "Connect with people by placing them into one or more of your"
       connect_with_people_explanation_pt2: "Aspects are an intuitive way to group new and familar faces, private to you, allowing you to filter down or share with subsets of your contacts easily."
@@ -818,7 +850,9 @@ eu:
       find_friends_from_facebook: "find friends from Facebook"
       finished: "Bukatua!"
       follow_your_interests: "Follow your interests"
+      get_updates_from_core: "Get updates about the project from the core team."
       hashtag_explanation: "Hashtags allow you to talk about and follow your interests.  They're also a great way to find new people on Diaspora."
+      not_mandatory: "Completing the following steps will improve your Diaspora experience, but they are not mandatory."
       profile_description: "Make it easier for people to find you by filling out your profile information."
       profile_fields: 
         bio: "Bio"
@@ -833,6 +867,12 @@ eu:
       see_all_featured_users: "See all featured users"
       welcome: "Ongi Etorri Diasporara!"
       welcome_with_name: "Welcome, %{name}!"
+    logged_out: 
+      go_mobile: "Now go mobile."
+      on_your_mobile_device: "on your mobile device to access Diaspora* mobile."
+      signed_out: "You've signed out of Diaspora*"
+      simply_visit: "Simply visit"
+      works_on_modern: "Works on all modern smartphones"
     public: 
       does_not_exist: "%{username} erabiltzailerik ez dago!"
     update: 

@@ -5,17 +5,14 @@ Feature: posting from the main page
     I want to tell the world I am eating a yogurt
     
     Background:
-      Given I am on the home page
-      And a user with username "bob"
+      Given a user with username "bob"
       And a user with username "alice"
-
-      When I sign in as "bob@bob.bob"
+      And I sign in as "bob@bob.bob"
       And a user with username "bob" is connected with "alice"
       And I have an aspect called "PostingTo"
       And I have an aspect called "NotPostingThingsHere"
       And I have user with username "alice" in an aspect called "PostingTo"
       And I have user with username "alice" in an aspect called "NotPostingThingsHere"
-
       And I am on the home page
 
     Scenario: post a text-only message to all aspects
@@ -26,30 +23,30 @@ Feature: posting from the main page
       Then I should see "I am eating a yogurt" within ".stream_element"
 
     Scenario: post a text-only message to just one aspect
-      When I select "PostingTo" aspect
+      When I select only "PostingTo" aspect
       And I expand the publisher
       And I fill in "status_message_fake_text" with "I am eating a yogurt"
       And I press "Share"
       And I wait for the ajax to finish
 
       When I am on the aspects page
-      And I select "PostingTo" aspect
+      And I select only "PostingTo" aspect
       Then I should see "I am eating a yogurt"
 
       When I am on the aspects page
-      And I select "NotPostingThingsHere" aspect
+      And I select only "NotPostingThingsHere" aspect
       Then I should not see "I am eating a yogurt"
 
     Scenario: post a photo with text
       Given I expand the publisher
-      And I attach the file "spec/fixtures/button.png" to hidden element "file" within "#file-upload"
+      When I attach the file "spec/fixtures/button.png" to hidden element "file" within "#file-upload"
       And I fill in "status_message_fake_text" with "Look at this dog"
       And I press "Share"
       And I wait for the ajax to finish
       And I go to the aspects page
       Then I should see a "img" within ".stream_element div.photo_attachments"
       And I should see "Look at this dog" within ".stream_element"
-      Then I log out
+      When I log out
       And I sign in as "alice@alice.alice"
       And I go to "bob@bob.bob"'s page
       Then I should see a "img" within ".stream_element div.photo_attachments"
@@ -57,14 +54,14 @@ Feature: posting from the main page
 
     Scenario: post a photo without text 
       Given I expand the publisher
-      And I attach the file "spec/fixtures/button.png" to hidden element "file" within "#file-upload"
+      When I attach the file "spec/fixtures/button.png" to hidden element "file" within "#file-upload"
       And I wait for the ajax to finish
       Then I should see an uploaded image within the photo drop zone
-      And I press "Share"
+      When I press "Share"
       And I wait for the ajax to finish
       And I go to the aspects page
       Then I should see a "img" within ".stream_element div.photo_attachments"
-      Then I log out
+      When I log out
       And I sign in as "alice@alice.alice"
       And I go to "bob@bob.bob"'s page
       Then I should see a "img" within ".stream_element div.photo_attachments"
@@ -118,19 +115,36 @@ Feature: posting from the main page
       And I wait for the ajax to finish
       And I go to "bob@bob.bob"'s page
       Then I should not see "Here is a post for you to hide"
-      And I am on the aspects page
+      When I am on the aspects page
       Then I should not see "Here is a post for you to hide"
 
     Scenario: delete one of my posts
-      When I expand the publisher
-      And I fill in "status_message_fake_text" with "I am eating a yogurt"
+      Given I expand the publisher
+      When I fill in "status_message_fake_text" with "I am eating a yogurt"
       And I press "Share"
       And I wait for the ajax to finish
-
-      When I go to the aspects page
+      And I go to the aspects page
       And I hover over the ".stream_element"
       And I preemptively confirm the alert
       And I click to delete the first post
       And I wait for the ajax to finish
       And I go to the aspects page
       Then I should not see "I am eating a yogurt"
+
+    Scenario: change aspects in the middle of the post writing
+      When I select only "NotPostingThingsHere" aspect
+      And I expand the publisher
+      And I fill in "status_message_fake_text" with "I am eating a yogurt"
+      And I follow "PostingTo" within "#aspect_nav"
+      And I follow "NotPostingThingsHere" within "#aspect_nav"
+      And I wait for the ajax to finish
+      Then the publisher should be expanded
+      When I append " and also cornflakes" to the publisher
+      And I press "Share"
+      And I wait for the ajax to finish
+      And I am on the aspects page
+      And I select only "PostingTo" aspect
+      Then I should see "I am eating a yogurt and also cornflakes"
+      When I am on the aspects page
+      And I select only "NotPostingThingsHere" aspect
+      Then I should not see "I am eating a yogurt and also cornflakes"

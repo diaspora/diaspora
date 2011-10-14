@@ -1,4 +1,4 @@
-#   Copyright (c) 2011, Diaspora Inc.  This file is
+#   Copyright (c) 2010-2011, Diaspora Inc.  This file is
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
@@ -61,8 +61,10 @@ el:
       done_editing: "ολοκλήρωση επεξεργασίας"
     aspect_listings: 
       add_an_aspect: "+ Προσθέστε μια πτυχή"
+      edit_aspect: "Επεξεργασία %{name}"
     aspect_stream: 
       commented_on: "σχολιάστηκε"
+      mentions: "Mentions"
       posted: "δημοσιεύτηκε"
       recently: "πρόσφατα:"
       stream: "Stream"
@@ -91,6 +93,7 @@ el:
       aspect_not_empty: "Η πτυχή δεν είναι άδεια"
       remove: "αφαίρεση"
     index: 
+      community_members: "Featured Diaspora* members"
       cubbies: 
         explanation: "Το Cubbi.es είναι η πρώτη εφαρμογή του Diaspora υπό κατασκευή."
         heading: "Συνδεθείτε στο Cubbi.es"
@@ -100,21 +103,26 @@ el:
         content_2: "Δώστε το σε κάποιον και θα μπορεί να σας βρει στο Diaspora."
         heading: "Αναγνωριστικό Diaspora (ID)"
       donate: "Κάντε Δωρεά"
+      featured_users: "Featured Users"
       handle_explanation: "Αυτό είναι το αναγνωριστικό σας στο Diaspora (ID). Όπως και με μια διεύθυνση ηλεκτρονικού ταχυδρομείου, μπορείτε να το δώσετε σε άλλους για να σας βρουν."
       help: 
-        did_you: "Έχεις:"
+        do_you: "Μήπως.."
+        email_feedback: "%{link} your feedback, if you prefer"
+        feature_and_forum: "%{gs} & %{forum}: Community-powered support and feature requests"
         feature_suggestion: "... έχεις μια %{link} πρόταση?"
         find_a_bug: "... βρες %{link}?"
         have_a_question: "... έχεις ένα %{link}?"
         here_to_help: "Η κοινότητα του Diaspora είναι εδώ για να σε βοηθήσει!"
-        more_support: "Για περισσότερη βοήθεια, θα πρέπει να ελέγξετε %{link}."
         need_help: "Χρειάζεστε βοήθεια;"
-        tutorials: "Για οδηγούς, ελέγξτε %{link}."
+        satisfaction: "%{link}: Community-powered support"
+        tutorials_and_wiki: "%{tutorial} & %{wiki}: Community-powered tutorials, how-to, and news"
       keep_us_running: "Διατηρείστε τη καλή λειτουργία του %{pod}, παρέχοντας στους servers μας τη καφείνη τους!"
+      mentions: "Mentions"
       no_contacts: "Καμία επαφή"
       no_tags: "+ Βρείτε μια ετικέτα να ακολουθείτε"
       people_sharing_with_you: "Άτομα που μοιράζονται μαζί σας"
       post_a_message: "δημοσιεύστε ένα μήνυμα >>"
+      see_more_from_us: "See more of the D* community."
       services: 
         content: "Μπορείτε να συνδέσετε τις παρακάτω υπηρεσίες στο Diaspora:"
         heading: "Συνδέστε Υπηρεσίες"
@@ -147,6 +155,7 @@ el:
       manage_your_aspects: "Διαχείριση των πτυχών."
       no_contacts: "Δεν έχετε ακόμα κάποια επαφή εδώ."
       view_all_contacts: "Προβολή όλων των επαφών"
+      view_all_featured_users: "See all Featured Users"
     show: 
       edit_aspect: "επεξεργασία πτυχής"
     two: "%{count} πτυχές"
@@ -184,8 +193,9 @@ el:
     few: "%{count} επαφές"
     index: 
       add_a_new_aspect: "Προσθέστε μια νέα πτυχή"
+      add_to_aspect: "Add contacts to %{name}"
       all_contacts: "Όλες οι Επαφές"
-      edit_aspect: "Επεξεργασία %{name}"
+      check_out: "Check out"
       many_people_are_you_sure: "Είστε σίγουρος/η ότι θέλετε να ξεκινήσετε μια ιδιωτική συνομιλία με περισσότερες από %{suggested_limit} επαφές? Η δημοσίευση σε αυτή την πτυχή ίσως είναι ένας καλύτερος τρόπος για να επικοινωνήσετε μαζί τους."
       my_contacts: "Οι Επαφές μου"
       no_contacts: "Καμία Επαφή"
@@ -581,6 +591,13 @@ el:
       failed: "Αποτυχία ενημέρωσης προφίλ"
       updated: "Το προφίλ ενημερώθηκε"
   public: "Δημόσιο"
+  reactions: 
+    few: "%{count} reactions"
+    many: "%{count} reactions"
+    one: "1 reaction"
+    other: "%{count} reactions"
+    two: "%{count} reactions"
+    zero: "0 reactions"
   registrations: 
     closed: "Οι εγγραφές είναι κλειστές σε αυτό το pod του Diaspora."
     create: 
@@ -636,6 +653,7 @@ el:
         zero: "Κοινοποίηση"
       reshare_confirmation: "Κοινοποίηση της δημοσίευσης του χρήστη %{author};"
       reshare_original: "Κοινοποίηση αρχικής"
+      reshared_via: "reshared via"
       show_original: "Προεπισκόπηση αρχικού"
   search: "Αναζήτηση"
   services: 
@@ -745,6 +763,16 @@ el:
   stream_helper: 
     hide_comments: "Απόκρυψη όλων των σχολίων"
     show_more_comments: "Προβολή %{number} ακόμα σχολίων"
+  streams: 
+    mentions: 
+      contacts_title: "People who mentioned you"
+      title: "Your Mentions"
+    public: 
+      contacts_title: "Recent Posters"
+      title: "Public Activity"
+    tags: 
+      contacts_title: "People who dig these tags"
+      title: "Posts tagged: %{tags}"
   tag_followings: 
     create: 
       failure: "Η προσπάθεια σας να ακολουθήσετε την ετικέτα #%{name} απέτυχε. "
@@ -755,6 +783,7 @@ el:
   tags: 
     show: 
       follow: "Ακολουθήστε την ετικέτα #%{tag}"
+      followed_by: "followed by"
       following: "Ακολουθείτε την ετικέτα #%{tag}"
       nobody_talking: "Κανένας δεν μιλάει ακόμα για την ετικέτα %{tag}."
       people_tagged_with: "Άτομα με την ετικέτα %{tag}"
@@ -805,8 +834,11 @@ el:
       your_handle: "Το αναγνωριστικό σας στο diaspora"
     getting_started: 
       bold: "πτυχές"
+      community_welcome: "Diaspora's community is happy to have you aboard!"
       connect_to: "Συνδεθείτε με"
       connect_to_your_other_social_networks: "Συνδεθείτε με άλλα κοινωνικά δίκτυα"
+      connect_to_your_other_social_networks_explanation_p1: "Connecting to services will allow you to publish out to these services."
+      connect_to_your_other_social_networks_explanation_p2: "With Facebook, you also be able to find friends already on Diaspora and invite others."
       connect_with_people: "Συνδεθείτε με ενδιαφέροντα άτομα"
       connect_with_people_explanation_pt1: "Συνδεθείτε με άτομα τοποθετώντας τα σε μία ή περισσότερες από τις %{bold}"
       connect_with_people_explanation_pt2: "Οι Πτυχές είναι ενας τρόπος οργάνωσης, των προσωπικών σου, καινούργιων και γνωστών σου προσώπων, επιτρέποντας σου να διαχωρίσεις η να μοιραστέις με υποκατηγοριές των επαφών σου πιο εύκολα."
@@ -818,7 +850,9 @@ el:
       find_friends_from_facebook: "βρείτε φίλους από το Facebook"
       finished: "Τέλος!"
       follow_your_interests: "Ακολουθείστε τα ενδιαφέροντα σας"
+      get_updates_from_core: "Get updates about the project from the core team."
       hashtag_explanation: "Τα hashtags σας επιτρέπουν να συζητάτε και να ακολουθείτε συγκεκριμένα ενδιαφέροντα. Είναι ακόμα ένας ωραίος τρόπος για να γνωρίσετε νέα άτομα στο Diaspora."
+      not_mandatory: "Completing the following steps will improve your Diaspora experience, but they are not mandatory."
       profile_description: "Διευκολύνετε άλλους χρήστες να σας βρουν συμπληρώνοντας τις προσωπικές σας πληροφορίες."
       profile_fields: 
         bio: "Βιογραφικό"
@@ -833,6 +867,12 @@ el:
       see_all_featured_users: "Δείτε όλους τους αξιόλογους χρήστες"
       welcome: "Καλώς ήλθατε!"
       welcome_with_name: "Καλώς ήρθες, %{name}!"
+    logged_out: 
+      go_mobile: "Now go mobile."
+      on_your_mobile_device: "on your mobile device to access Diaspora* mobile."
+      signed_out: "You've signed out of Diaspora*"
+      simply_visit: "Simply visit"
+      works_on_modern: "Works on all modern smartphones"
     public: 
       does_not_exist: "Ο χρήστης %{username} δεν υπάρχει!"
     update: 

@@ -6,8 +6,15 @@
 module Jobs
   class ProcessPhoto < Base
     @queue = :photos
-    def self.perform(photo_id)
-      Photo.find(photo_id).process
+    def self.perform(id)
+      photo = Photo.find(id)
+      unprocessed_image = photo.unprocessed_image
+
+      return false if photo.processed? || unprocessed_image.path.try(:include?, ".gif")
+
+      photo.processed_image.store!(unprocessed_image)
+
+      photo.save!
     end
   end
 end

@@ -27,6 +27,7 @@ module Diaspora
 
     # @return [String]
     def parent_guid
+      return nil unless parent.present?
       self.parent.guid
     end
 

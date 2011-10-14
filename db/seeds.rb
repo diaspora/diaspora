@@ -57,6 +57,9 @@ require 'spec/support/fake_resque'
 require 'spec/support/fake_redis'
 require 'spec/support/user_methods'
 
+old_cache_setting = AppConfig[:redis_cache]
+AppConfig[:redis_cache] = false
+
 print "Seeding post data..."
 time_interval = 1000
 (1..25).each do |n|
@@ -78,6 +81,9 @@ time_interval = 1000
   end
 end
 puts " done!"
+
+AppConfig[:redis_cache] = old_cache_setting
+
 puts "Successfully seeded the db with users eve, bob, and alice (password: 'evankorth')"
 puts ""
 

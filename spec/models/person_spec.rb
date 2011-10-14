@@ -164,11 +164,18 @@ describe Person do
     end
   end
 
-  context '#name' do
+  describe '#name' do
     it 'calls Person.name_from_attrs' do
       profile = alice.person.profile
       Person.should_receive(:name_from_attrs).with(profile.first_name, profile.last_name, profile.person.diaspora_handle)
       alice.name
+    end
+
+    it "strips endline whitespace" do
+      profile = alice.person.profile
+      profile.first_name = "maxwell "
+      profile.last_name = "salzberg "
+      alice.name.should == "maxwell salzberg"
     end
   end
 

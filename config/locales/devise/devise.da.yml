@@ -1,4 +1,4 @@
-#   Copyright (c) 2011, Diaspora Inc.  This file is
+#   Copyright (c) 2010-2011, Diaspora Inc.  This file is
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
@@ -34,9 +34,9 @@ da:
         no_account_till: "Din konto vil ikke blive oprettet før du har klikket ind på ovenstående link, og skriver dig op."
         subject: "Du er blevet inviteret til at bruge Diaspora!"
       inviter: 
-        accept_at: "at %{url}, you can accept it through the link below."
+        accept_at: "på %{url}, du kan acceptere ved at følge linket nedenunder."
         has_invited_you: "%{name}"
-        have_invited_you: "%{names} have invited you to join Diaspora"
+        have_invited_you: "%{names} har inviteret dig til at deltage i Diaspora."
       reset_password_instructions: 
         change: "Skift min adgangskode"
         ignore: "Hvis du ikke har anmodet om dette, bedes du ignorere denne e-mail."

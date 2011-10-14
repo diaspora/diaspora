@@ -64,6 +64,7 @@ gem 'rails-i18n'
 gem 'nokogiri'
 gem 'redcarpet', "2.0.0b5"
 gem 'roxml', :git => 'git://github.com/Empact/roxml.git', :ref => '7ea9a9ffd2338aaef5b0'
+gem 'ruby-oembed'
 
 # queue
 
@@ -76,6 +77,10 @@ gem 'SystemTimer', '1.2.1', :platforms => :ruby_18
 
 gem 'hoptoad_notifier'
 gem 'newrelic_rpm', :require => false
+
+#mail
+
+gem 'messagebus_ruby_api', '0.4.8'
 
 # tags
 
@@ -126,6 +131,7 @@ group :test do
   gem "selenium-webdriver", "~> 2.7.0"
   gem 'webmock', :require => false
   gem 'sqlite3'
+  gem 'mock_redis'
 end
 
 group :development do

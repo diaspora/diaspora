@@ -57,6 +57,9 @@
             = button_to t('.following', :tag => params[:name]), tag_tag_followings_path(:name => params[:name]), :method => :delete,   :class => 'button red_on_hover tag_following in_aspects take_action'
       %h2
         = "##{params[:name]}"
+        %small
+          = t('.followed_by')
+          = t('people', :count => @tag_follow_count)
 
     - if current_user
       = render 'shared/publisher', :selected_aspects => all_aspects.map{|a| a.id}, :aspect_ids => all_aspects.map{|a| a.id}, :for_all_aspects => true, :aspect => all_aspects.first

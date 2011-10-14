@@ -1,8 +1,8 @@
 %p
-  = "#{t('.liked', :name => "#{@sender.name}")}:"
+  = "#{t('.liked', :name => "#{@notification.sender.name}")}:"
 
 %p{:style => "font-style:italic;color:#666"}
-  = post_message(@like.target, :process_newlines => true)
+  = post_message(@notification.like.target, :process_newlines => true)
 
 %p
-  = link_to t('.view_post'), post_url(@like.target)
+  = link_to t('.view_post'), post_url(@notification.like.target)

@@ -1,4 +1,4 @@
-#   Copyright (c) 2011, Diaspora Inc.  This file is
+#   Copyright (c) 2010-2011, Diaspora Inc.  This file is
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
@@ -15,6 +15,10 @@ zh-CN:
         other: "在{{count}}个视图中"
         two: "In {{count}} aspects"
         zero: "添加到视图"
+    aspect_navigation: 
+      deselect_all: "Deselect all"
+      no_aspects: "No aspects selected"
+      select_all: "Select all"
     comments: 
       hide: "隐藏评论"
       show: "显示所有评论"

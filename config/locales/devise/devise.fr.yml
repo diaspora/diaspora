@@ -1,4 +1,4 @@
-#   Copyright (c) 2011, Diaspora Inc.  This file is
+#   Copyright (c) 2010-2011, Diaspora Inc.  This file is
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
@@ -26,7 +26,7 @@ fr:
       confirmation_instructions: 
         confirm: "Confirmer mon compte"
         subject: "Instructions de confirmation"
-        you_can_confirm: "Vous pouvez confirmer votre compte à travers le lien ci-dessous :"
+        you_can_confirm: "Vous pouvez confirmer votre compte en cliquant sur le lien ci-dessous :"
       hello: "Bonjour %{email} !"
       invitation_instructions: 
         accept: "Accepter l'invitation"
@@ -40,7 +40,7 @@ fr:
       reset_password_instructions: 
         change: "Changer mon mot de passe"
         ignore: "Si vous n'avez pas demandé cela, merci d'ignorer cet e-mail."
-        someone_requested: "Quelqu'un a demandé un lien pour changer votre mot de passe, vous pouvez effectuer cela à travers le lien ci-dessous."
+        someone_requested: "Quelqu'un a demandé un lien pour changer votre mot de passe, vous pouvez effectuer cela en cliquant sur le lien ci-dessous."
         subject: "Instructions de réinitialisation de mot de passe"
         wont_change: "Votre mot de passe ne changera pas avant que vous n'en créiez un nouveau en accédant au lien ci-dessus. "
       unlock_instructions: 

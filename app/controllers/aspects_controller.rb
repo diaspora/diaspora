@@ -2,21 +2,20 @@
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
-require File.join(Rails.root, "lib", "aspect_stream")
+require File.join(Rails.root, "lib", 'stream', "aspect")
 
 class AspectsController < ApplicationController
   before_filter :authenticate_user!
   before_filter :save_sort_order, :only => :index
+  before_filter :save_selected_aspects, :only => :index
   before_filter :ensure_page, :only => :index
 
   respond_to :html, :js
   respond_to :json, :only => [:show, :create]
 
-  helper_method :selected_people
-
   def index
-    aspect_ids = (params[:a_ids] ? params[:a_ids] : [])
-    @stream = AspectStream.new(current_user, aspect_ids,
+    aspect_ids = (session[:a_ids] ? session[:a_ids] : [])
+    @stream = Stream::Aspect.new(current_user, aspect_ids,
                                :order => sort_order,
                                :max_time => params[:max_time].to_i)
 
@@ -138,18 +137,10 @@ class AspectsController < ApplicationController
   end
 
   private
-  def save_sort_order
-    if params[:sort_order].present?
-      session[:sort_order] = (params[:sort_order] == 'created_at') ? 'created_at' : 'updated_at'
-    elsif session[:sort_order].blank?
-      session[:sort_order] = 'created_at'
-    else
-      session[:sort_order] = (session[:sort_order] == 'created_at') ? 'created_at' : 'updated_at'
+
+  def save_selected_aspects
+    if params[:a_ids].present?
+      session[:a_ids] = params[:a_ids]
     end
   end
-
-  def sort_order
-    is_mobile_device? ? 'created_at' : session[:sort_order]
-  end
-
 end

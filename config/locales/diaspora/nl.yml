@@ -1,4 +1,4 @@
-#   Copyright (c) 2011, Diaspora Inc.  This file is
+#   Copyright (c) 2010-2011, Diaspora Inc.  This file is
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
@@ -61,8 +61,10 @@ nl:
       done_editing: "klaar met bewerken"
     aspect_listings: 
       add_an_aspect: "+ Voeg aspect toe"
+      edit_aspect: "Edit %{name}"
     aspect_stream: 
       commented_on: "op gereageerd"
+      mentions: "Mentions"
       posted: "geplaatst"
       recently: "laatst:"
       stream: "Stream"
@@ -91,6 +93,7 @@ nl:
       aspect_not_empty: "Aspect niet leeg"
       remove: "verwijderen"
     index: 
+      community_members: "Featured Diaspora* members"
       cubbies: 
         explanation: "Cubbi.es is de eerste Diaspora applicatie in ontwikkeling."
         heading: "Verbind met Cubbie.es"
@@ -100,21 +103,26 @@ nl:
         content_2: "Geef deze aan mensen zodat ze je op Diaspora kunnen vinden."
         heading: "Diaspora ID"
       donate: "Doneer"
+      featured_users: "Featured Users"
       handle_explanation: "Dit is jouw Diaspora id. Deze kun je aan mensen geven zodat ze je kunnen bereiken, net als een e-mailadres."
       help: 
-        did_you: "Heb je:"
+        do_you: "Do you:"
+        email_feedback: "%{link} your feedback, if you prefer"
+        feature_and_forum: "%{gs} & %{forum}: Community-powered support and feature requests"
         feature_suggestion: "... een %{link} suggestie?"
         find_a_bug: "... een %{link} bug gevonden?"
         have_a_question: "... een %{link} vraag?"
         here_to_help: "De Diaspora community staat voor je klaar!"
-        more_support: "Voor meer support, kijk ook eens op %{link}."
         need_help: "Hulp nodig?"
-        tutorials: "Voor handleidingen, check %{link}."
+        satisfaction: "%{link}: Community-powered support"
+        tutorials_and_wiki: "%{tutorial} & %{wiki}: Community-powered tutorials, how-to, and news"
       keep_us_running: "Houd %{pod} snel door bij te dragen aan de maandelijkse koffie kosten!"
+      mentions: "Mentions"
       no_contacts: "Geen contacten"
       no_tags: "+ Vind een tag"
       people_sharing_with_you: "Mensen die met jou delen"
       post_a_message: "plaats een bericht >>"
+      see_more_from_us: "See more of the D* community."
       services: 
         content: "Je kunt de volgende service met Diaspora verbinden:"
         heading: "Verbind Services"
@@ -147,6 +155,7 @@ nl:
       manage_your_aspects: "Beheer je aspecten."
       no_contacts: "Je hebt hier momenteel nog geen contacten."
       view_all_contacts: "Bekijk alle contacten"
+      view_all_featured_users: "See all Featured Users"
     show: 
       edit_aspect: "bewerk aspect"
     two: "%{count} aspecten"
@@ -184,8 +193,9 @@ nl:
     few: "%{count} contacten"
     index: 
       add_a_new_aspect: "Voeg een aspect toe"
+      add_to_aspect: "Add contacts to %{name}"
       all_contacts: "Alle Contacten"
-      edit_aspect: "Bewerk %{name}"
+      check_out: "Check out"
       many_people_are_you_sure: "Weet je zeker dat je een privégesprek wil starten met meer dan %{suggested_limit} contacten? Een bericht plaatsen in dit aspect is waarschijnlijk een betere manier om met hen te communiceren."
       my_contacts: "Mijn Contacten"
       no_contacts: "Geen contacten."
@@ -581,6 +591,13 @@ nl:
       failed: "Profiel bijwerken mislukt"
       updated: "Profiel bijgewerkt"
   public: "Openbaar"
+  reactions: 
+    few: "%{count} reactions"
+    many: "%{count} reactions"
+    one: "1 reaction"
+    other: "%{count} reactions"
+    two: "%{count} reactions"
+    zero: "0 reactions"
   registrations: 
     closed: "Registratie is gesloten op deze Diaspora pod."
     create: 
@@ -636,6 +653,7 @@ nl:
         zero: "Doorgeven"
       reshare_confirmation: "Geef %{author}'s post door?"
       reshare_original: "Origineel doorgeven"
+      reshared_via: "reshared via"
       show_original: "Toon origineel"
   search: "Zoek"
   services: 
@@ -745,6 +763,16 @@ nl:
   stream_helper: 
     hide_comments: "Verberg alle reacties"
     show_more_comments: "Toon %{number} meer reacties"
+  streams: 
+    mentions: 
+      contacts_title: "People who mentioned you"
+      title: "Your Mentions"
+    public: 
+      contacts_title: "Recent Posters"
+      title: "Public Activity"
+    tags: 
+      contacts_title: "People who dig these tags"
+      title: "Posts tagged: %{tags}"
   tag_followings: 
     create: 
       failure: "Volgen mislukt: #%{name}"
@@ -755,6 +783,7 @@ nl:
   tags: 
     show: 
       follow: "Volg #%{tag}"
+      followed_by: "followed by"
       following: "Volgt #%{tag}"
       nobody_talking: "Nog niemand heeft het over %{tag}."
       people_tagged_with: "Personen gemerkt met %{tag}"
@@ -805,8 +834,11 @@ nl:
       your_handle: "Jouw Diaspora ID"
     getting_started: 
       bold: "aspecten"
+      community_welcome: "Diaspora's community is happy to have you aboard!"
       connect_to: "Verbind met"
       connect_to_your_other_social_networks: "Verbind met je andere sociale netwerken"
+      connect_to_your_other_social_networks_explanation_p1: "Connecting to services will allow you to publish out to these services."
+      connect_to_your_other_social_networks_explanation_p2: "With Facebook, you also be able to find friends already on Diaspora and invite others."
       connect_with_people: "Maak kennis met interessante mensen"
       connect_with_people_explanation_pt1: "Verbind met mensen door ze toe te voegen aan één of meer van je %{bold}."
       connect_with_people_explanation_pt2: "Aspecten zijn een intuïtieve manier om nieuwe en bekende gezichten te groeperen, alleen zichtbaar voor jou, waardoor je makkelijk content kan filteren en met specifieke groepen kunt delen."
@@ -818,7 +850,9 @@ nl:
       find_friends_from_facebook: "vind vrienden via Facebook"
       finished: "Klaar"
       follow_your_interests: "Volg je interesses"
+      get_updates_from_core: "Get updates about the project from the core team."
       hashtag_explanation: "Hashtags laten je gemakkelijk jou interesses volgen. Bovendien kunnen ze je helpen bij het vinden van nieuwe contacten op Diaspora."
+      not_mandatory: "Completing the following steps will improve your Diaspora experience, but they are not mandatory."
       profile_description: "Maak het makkelijker voor mensen om je te vinden door je profiel aan te vullen."
       profile_fields: 
         bio: "Bio"
@@ -833,6 +867,12 @@ nl:
       see_all_featured_users: "Bekijk alle aanbevolen gebruikers"
       welcome: "Welkom!"
       welcome_with_name: "Welkom, %{name}!"
+    logged_out: 
+      go_mobile: "Now go mobile."
+      on_your_mobile_device: "on your mobile device to access Diaspora* mobile."
+      signed_out: "You've signed out of Diaspora*"
+      simply_visit: "Simply visit"
+      works_on_modern: "Works on all modern smartphones"
     public: 
       does_not_exist: "Gebruiker %{username} bestaat niet!"
     update: 

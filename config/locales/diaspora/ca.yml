@@ -111,6 +111,7 @@ ca:
       done_editing: "finalitza l'edició"
     aspect_stream:
       stream: "Flux"
+      mentions: "Mencions"
       recently: "recentment:"
       commented_on: "comentat"
       posted: "publicat"
@@ -159,6 +160,7 @@ ca:
       acquaintances: "Coneguts"
       friends: "Amistats"
     index:
+      mentions: "Mencions"
       donate: "Doneu"
       keep_us_running: "Mantingueu %{pod} en marxa i compreu-li als nostres servidors la seva dosi de cafeïna amb una donació mensual!"
       your_aspects: "Els vostres aspectes"
@@ -172,12 +174,13 @@ ca:
       help:
         need_help: "Necessiteu ajuda?"
         here_to_help: "La comunitat del Diàspora és aquí per ajudar-vos!"
-        did_you: "Potser…"
+        do_you: "Potser…"
         # Aquests missatges estan malament, però de moment, així es queda.
         have_a_question: "… teniu alguna %{link}"
         find_a_bug: "… heu trobat una %{link}"
         feature_suggestion: "…teniu alguna proposta de %{link}"
-        tutorials: "%{link}: Tutorials, guies i notícies mantinguts per la comunitat."
+        tutorials_and_wiki: "%{tutorial} i %{wiki}: Tutorials, guies i notícies mantinguts per la comunitat"
+        feature_and_forum: "%{gs} i %{forum}: Suport i propostes de la comunitat"
         satisfaction: "%{link}: Suport de la comunitat"
         email_feedback: "%{link} els vostres comentaris, si ho preferiu"
       cubbies:
@@ -863,6 +866,15 @@ També és la millor forma de coŀleccionar fotos en línia."
       no_applications: "Encara no heu registrat cap aplicació."
 
 
+  streams:
+    mentions:
+      title: "Les vostres mencions"
+      contacts_title: "Gent que us ha mencionat"
+    tags:
+      title: "Publicacions etiquetades: %{tags}"
+      contacts_title: "Gent que empra aquestes etiquetes"
+
+
   users:
     logged_out: "Heu sortit del Diàspora*"
     go_mobile: "Aneu al lloc per dispositius mòbils."
@@ -914,8 +926,8 @@ També és la millor forma de coŀleccionar fotos en línia."
         location: "Ubicació"
 
       connect_to_your_other_social_networks: "Connecteu amb les vostres altres xarxes socials"
-      connect_to_your_other_social_networks_p1: "Connectar a serveis us permetrà publicar en aquests serveis."
-      connect_to_your_other_social_networks_p2: "Amb el Facebook, també podreu cercar amics que ja siguen al Diàspora i convidar als altres."
+      connect_to_your_other_social_networks_explanation_p1: "Connectar a serveis us permetrà publicar en aquests serveis."
+      connect_to_your_other_social_networks_explanation_p2: "Amb el Facebook, també podreu cercar amics que ja siguen al Diàspora i convidar als altres."
 
 
       connect_with_people: "Connecteu amb gent interessant"

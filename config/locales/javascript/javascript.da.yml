@@ -1,4 +1,4 @@
-#   Copyright (c) 2011, Diaspora Inc.  This file is
+#   Copyright (c) 2010-2011, Diaspora Inc.  This file is
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
@@ -6,15 +6,19 @@
 da: 
   javascripts: 
     aspect_dropdown: 
-      add_to_aspect: "Tilføj til aspekt"
-      all_aspects: "All aspects"
+      add_to_aspect: "Tilføj kontakt"
+      all_aspects: "Alle aspekter"
       toggle: 
         few: "I {{count}} aspekter"
         many: "I {{count}} aspekter"
         one: "I {{count}} aspekt"
         other: "I {{count}} aspekter"
-        two: "In {{count}} aspects"
-        zero: "Tilføj til aspekt"
+        two: "I {{count}} aspekter"
+        zero: "Tilføj kontakt"
+    aspect_navigation: 
+      deselect_all: "Fravælg alle"
+      no_aspects: "Ingen valgte aspekter"
+      select_all: "Vælg alle"
     comments: 
       hide: "Skjul kommentarer"
       show: "Vis alle kommentarer"
@@ -25,10 +29,10 @@ da:
       no_more: "Ikke flere poster."
     publisher: 
       at_least_one_aspect: "Du skal dele med mindst et aspekt"
-      limited: "Limited - your post will only be seen by people you are sharing with"
-      public: "Public - your post will be visible to everyone and found by search engines"
+      limited: "Begrænset - dit indlæg vil kun blive set af dem du deler med"
+      public: "Offentlig - dit indlæg vil være synligt for alle, og kan findes af søgemaskinerne"
     reshares: 
-      duplicate: "You've already reshared that post!"
+      duplicate: "Du har allerede delt dét indlæg!"
     search_for: "Søg efter {{name}}"
     show_more: "Vis mere"
     timeago: 

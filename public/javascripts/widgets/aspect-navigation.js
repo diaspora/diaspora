@@ -15,26 +15,12 @@
         toggleSelector: aspectNavigation.find("a.toggle_selector")
       });
 
-      self.initializeSelectedAspects();
-      self.calculateToggleText();
       self.aspectSelectors.click(self.toggleAspect);
       self.toggleSelector.click(self.toggleAll);
     });
 
     this.selectedAspects = function() {
       return self.aspectNavigation.find("li.active[data-aspect_id]").map(function() { return $(this).data('aspect_id') });
-    };
-
-    this.initializeSelectedAspects = function() {
-      if (location.href.search("a_ids..=") == -1) {
-        self.aspectLis.addClass("active");
-      } else {
-        self.aspectSelectors.each(function() {
-          guid = $(this).data('guid');
-          if (guid && location.href.search("a_ids..=" + guid + "(#|&|$)") != -1)
-            $(this).parent().addClass('active');
-        });
-      }
     };
 
     this.toggleAspect = function(evt) {
@@ -76,7 +62,7 @@
     };
 
     this.generateURL = function() {
-      var baseURL = location.href.split("?")[0];
+      var baseURL = 'aspects';
 
       // generate new url
       baseURL = baseURL.replace('#','');
@@ -100,7 +86,7 @@
     };
 
     this.performAjax = function() {
-      var post = $("#publisher textarea").val(),
+      var post = $("#publisher textarea#status_message_fake_text").val(),
         newURL = self.generateURL(),
         photos = {};
 
@@ -114,7 +100,7 @@
       self.fadeOut();
 
       self.jXHR = $.getScript(newURL, function(data) {
-        var textarea = $("#publisher textarea"),
+        var textarea = $("#publisher textarea#status_message_fake_text"),
           photozone = $("#photodropzone");
 
         if( post !== "" ) {
@@ -130,6 +116,9 @@
         });
 
         self.globalPublish("stream/reloaded");
+        if( post !== "" ) {
+          Publisher.open();
+        }
         self.fadeIn();
       });
     };

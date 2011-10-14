@@ -22,13 +22,13 @@
             %h4
               =t('.bio')
             %div{ :class => direction_for(person.profile.bio) }
-              = markdownify(person.profile.bio, :newlines => true)
+              = markdownify(person.profile.bio, :oembed => true, :newlines => true)
         - unless person.profile.location.blank?
           %li
             %h4
               =t('.location')
             %div{ :class => direction_for(person.profile.location) }
-              = markdownify(person.profile.location, :newlines => true)
+              = markdownify(person.profile.location, :oembed => true, :newlines => true)
 
         %li
           - unless person.profile.gender.blank?

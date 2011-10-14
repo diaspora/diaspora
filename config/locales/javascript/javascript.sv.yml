@@ -1,4 +1,4 @@
-#   Copyright (c) 2011, Diaspora Inc.  This file is
+#   Copyright (c) 2010-2011, Diaspora Inc.  This file is
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
@@ -6,7 +6,7 @@
 sv: 
   javascripts: 
     aspect_dropdown: 
-      add_to_aspect: "Lägg till i aspekt"
+      add_to_aspect: "Lägg till kontakt"
       all_aspects: "Alla aspekter"
       toggle: 
         few: "I {{count}} aspekter"
@@ -14,12 +14,16 @@ sv:
         one: "I {{count}} aspekt"
         other: "I {{count}} aspekter"
         two: "I {{count}} aspekter"
-        zero: "Lägg till i aspekt"
+        zero: "Lägg till kontakt"
+    aspect_navigation: 
+      deselect_all: "Visa ingen"
+      no_aspects: "Ingen aspekt är vald"
+      select_all: "Visa alla"
     comments: 
       hide: "dölj kommentarer"
       show: "visa alla kommentarer"
     confirm_dialog: "Är du säker?"
-    failed_to_like: "Failed to like!"
+    failed_to_like: "Misslyckades med att gilla!"
     failed_to_post_message: "Misslyckades att posta meddelande!"
     infinite_scroll: 
       no_more: "Inga fler inlägg."

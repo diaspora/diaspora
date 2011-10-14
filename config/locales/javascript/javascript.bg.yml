@@ -1,4 +1,4 @@
-#   Copyright (c) 2011, Diaspora Inc.  This file is
+#   Copyright (c) 2010-2011, Diaspora Inc.  This file is
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
@@ -15,6 +15,10 @@ bg:
         other: "В {{count}} аспекта"
         two: "В {{count}} аспекта"
         zero: "Добавяне в аспект"
+    aspect_navigation: 
+      deselect_all: "Никой"
+      no_aspects: "Няма избран аспект"
+      select_all: "Всички"
     comments: 
       hide: "скриване на коментарите"
       show: "показване на коментарите"

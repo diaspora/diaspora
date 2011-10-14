@@ -1,4 +1,4 @@
 %p
-  = post_message(@post, :process_newlines => true, :length => 600)
+  = post_message(@notification.post, :process_newlines => true, :length => 600)
 %p
-  = link_to t('notifier.comment_on_post.reply', :name => @post.author.name), post_url(@post)
+  = link_to t('notifier.comment_on_post.reply', :name => @notification.post.author.name), post_url(@notification.post)

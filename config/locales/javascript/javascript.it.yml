@@ -1,4 +1,4 @@
-#   Copyright (c) 2011, Diaspora Inc.  This file is
+#   Copyright (c) 2010-2011, Diaspora Inc.  This file is
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
@@ -6,7 +6,7 @@
 it: 
   javascripts: 
     aspect_dropdown: 
-      add_to_aspect: "Aggiungi ad un aspetto"
+      add_to_aspect: "Aggiungi"
       all_aspects: "Tutti gli aspetti"
       toggle: 
         few: "In {{count}} aspetti"
@@ -14,7 +14,11 @@ it:
         one: "In {{count}} aspetto"
         other: "In {{count}} aspetti"
         two: "In {{count}} aspetti"
-        zero: "Aggiungi ad un aspetto"
+        zero: "Aggiungi"
+    aspect_navigation: 
+      deselect_all: "Deseleziona tutti"
+      no_aspects: "Nessun aspetto selezionato"
+      select_all: "Seleziona tutti"
     comments: 
       hide: "nascondi i commenti"
       show: "mostra tutti i commenti"

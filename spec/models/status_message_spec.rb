@@ -17,6 +17,51 @@ describe StatusMessage do
     @aspect = @user.aspects.first
   end
 
+  describe 'scopes' do
+    describe '.where_person_is_mentioned' do
+      it 'returns status messages where the given person is mentioned' do
+        @bo = bob.person 
+        @test_string = "@{Daniel; #{@bo.diaspora_handle}} can mention people like Raph"
+
+       Factory.create(:status_message, :text => @test_string )
+       Factory.create(:status_message, :text => @test_string )
+       Factory(:status_message)
+      
+       StatusMessage.where_person_is_mentioned(@bo).count.should == 2
+      end
+    end
+
+    describe '.owned_or_visible_by_user' do
+      before do
+        @you = bob
+        @public_post = Factory(:status_message, :public => true)
+        @your_post = Factory(:status_message, :author => @you.person)
+        @post_from_contact = eve.post(:status_message, :text => 'wooo', :to => eve.aspects.where(:name => 'generic').first)
+        @post_from_stranger = Factory(:status_message, :public => false)
+      end
+
+      it 'returns post from your contacts' do
+        StatusMessage.owned_or_visible_by_user(@you).should include(@post_from_contact)
+      end
+
+      it 'returns your posts' do 
+        StatusMessage.owned_or_visible_by_user(@you).should include(@your_post)
+      end
+
+      it 'returns public posts' do
+        StatusMessage.owned_or_visible_by_user(@you).should include(@public_post)
+      end
+
+      it 'does not return non contacts, non-public post' do
+        StatusMessage.owned_or_visible_by_user(@you).should_not include(@post_from_stranger)
+      end
+
+      it 'should return the three visible posts' do
+        StatusMessage.owned_or_visible_by_user(@you).count.should == 3
+      end
+    end
+  end
+
   describe '.before_create' do
     it 'calls build_tags' do
       status = Factory.build(:status_message)
@@ -69,7 +114,7 @@ describe StatusMessage do
 
   it 'should require status messages to be less than 10000 characters' do
     message = ''
-    10001.times do message = message +'1';end
+    10001.times{message = message +'1'}
     status = Factory.build(:status_message, :text => message)
 
     status.should_not be_valid
@@ -265,6 +310,22 @@ STR
     it 'dispatches any attached photos' do
       alice.should_receive(:dispatch_post).twice
       @status_message.after_dispatch(alice)
+    end
+  end
+  
+  describe '#contains_url_in_text?' do
+    it 'returns an array of all urls found in the raw message' do
+      sm = Factory(:status_message, :text => 'http://youtube.com is so cool.  so is https://joindiaspora.com')
+      sm.contains_oembed_url_in_text?.should_not be_nil
+      sm.oembed_url.should == 'http://youtube.com'
+    end
+  end
+
+  describe 'oembed' do
+    it 'should queue a GatherOembedData if it includes a link' do
+      sm = Factory.build(:status_message, :text => 'http://youtube.com is so cool.  so is https://joindiaspora.com')
+      Resque.should_receive(:enqueue).with(Jobs::GatherOEmbedData, instance_of(Fixnum), instance_of(String)) 
+      sm.save
     end
   end
 end

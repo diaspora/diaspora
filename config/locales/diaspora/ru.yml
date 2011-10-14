@@ -1,4 +1,4 @@
-#   Copyright (c) 2011, Diaspora Inc.  This file is
+#   Copyright (c) 2010-2011, Diaspora Inc.  This file is
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
@@ -61,8 +61,10 @@ ru:
       done_editing: "редактирование завершено"
     aspect_listings: 
       add_an_aspect: "+ Добавить аспект"
+      edit_aspect: "Редактировать %{name}"
     aspect_stream: 
       commented_on: "прокомментированные"
+      mentions: "Упоминания"
       posted: "опубликованные"
       recently: "последние:"
       stream: "Лента"
@@ -79,8 +81,8 @@ ru:
       aspect_list_is_not_visible: "список аспектов скрыт от других пользователей"
       aspect_list_is_visible: "список аспектов виден другим пользователям"
       confirm_remove_aspect: "Вы уверены, что хотите удалить этот аспект?"
-      done: "Выполнено"
-      make_aspect_list_visible: "сделать список аспектов видимым?"
+      done: "Готово"
+      make_aspect_list_visible: "сделать контакты в этом аспекте видимыми друг другу?"
       remove_aspect: "Удалить этот аспект"
       rename: "переименовать"
       update: "изменение"
@@ -91,6 +93,7 @@ ru:
       aspect_not_empty: "Аспект не пуст"
       remove: "удалить"
     index: 
+      community_members: "Featured Diaspora* members"
       cubbies: 
         explanation: "Cubbi.es это первая программа по развитию диаспоры."
         heading: "Подключение к Cubbi.es"
@@ -100,21 +103,26 @@ ru:
         content_2: "По нему любой сможет найти вас в Диаспоре."
         heading: "Идентификатор в Диаспоре"
       donate: "Пожертвовать"
+      featured_users: "Рекомендуемые пользователи"
       handle_explanation: "Это ваш идентификатор в Диаспоре. Как и адрес электронной почты, вы можете дать его людям для связи с вами."
       help: 
-        did_you: "Вы:"
+        do_you: "Вы:"
+        email_feedback: "%{link} ваши отзывы"
+        feature_and_forum: "%{gs} и %{forum}: осуществляемая сообществом поддержка и прием предложений"
         feature_suggestion: "... хотите предложить что-то новое (%{link})?"
         find_a_bug: "... нашли ошибку (%{link})?"
         have_a_question: "... хотите задать вопрос (%{link})?"
-        here_to_help: "Сообщество Диаспоры готово помочь!"
-        more_support: "За дополнительной поддержкой обращайтесь в %{link}."
+        here_to_help: "Сообщество Диаспоры к вашим услугам!"
         need_help: "Нужна помощь?"
-        tutorials: "Справочные пособия (на английском): %{link}."
+        satisfaction: "%{link}: осуществляемая сообществом поддержка"
+        tutorials_and_wiki: "%{tutorial} и %{wiki}: создающиеся сообществом руководства, инструкции и новости"
       keep_us_running: "Помогите %{pod} работать быстро — купите нашим серверам дозу кофе, сделав ежемесячное пожертвование!"
+      mentions: "Упоминания"
       no_contacts: "Контакты отсутствуют"
       no_tags: "+ Найти метку"
       people_sharing_with_you: "Люди делятся с вами"
       post_a_message: "новая запись >>"
+      see_more_from_us: "See more of the D* community."
       services: 
         content: "Вы можете подключить к Диаспоре следующие службы:"
         heading: "Подключенные службы"
@@ -128,7 +136,7 @@ ru:
       success: "Персона перемещена в новый аспект"
     new: 
       create: "Создать"
-      name: "Имя"
+      name: "Имя (видно только вам)"
     no_contacts_message: 
       featured_users: "рекомендуемые пользователи"
       or_featured: "Или вы можете поделиться с %{link}"
@@ -147,6 +155,7 @@ ru:
       manage_your_aspects: "Управление аспектами."
       no_contacts: "У вас здесь пока нет ни одного контакта."
       view_all_contacts: "Все контакты"
+      view_all_featured_users: "Все рекомендуемые пользователи"
     show: 
       edit_aspect: "редактировать аспект"
     two: "%{count} аспектов"
@@ -184,11 +193,12 @@ ru:
     few: "%{count} контакт[-а, -ов]"
     index: 
       add_a_new_aspect: "Новый аспект"
+      add_to_aspect: "Добавить контакты в %{name}"
       all_contacts: "Все контакты"
-      edit_aspect: "Редактировать аспект %{name}"
+      check_out: "Check out"
       many_people_are_you_sure: "Вы уверены, что хотите начать приватную беседу с числом контактов более %{suggested_limit}? Возможно, лучше просто написать сообщение в этот аспект."
       my_contacts: "Мои контакты"
-      no_contacts: "Контактов нет."
+      no_contacts: "Похоже, вам надо добавить несколько контактов!"
       only_sharing_with_me: "Только делящиеся со мной"
       remove_person_from_aspect: "Удалить %{person_name} из \"%{aspect_name}\""
       start_a_conversation: "Начать беседу"
@@ -200,7 +210,7 @@ ru:
     sharing: 
       people_sharing: "делятся с вами:"
     two: "%{count} контакта"
-    zero: "ни одного контакта"
+    zero: "контактов"
   conversations: 
     create: 
       fail: "Неверное сообщение"
@@ -291,8 +301,8 @@ ru:
     application: 
       powered_by: "ПОДДЕРЖИВАЕТСЯ ДИАСПОРОЙ*"
       public_feed: "Общественный канал диаспоры для %{name}"
-      toggle: "обычный/мобильный сайт"
-      whats_new: "Что нового?"
+      toggle: "обычный/мобильный"
+      whats_new: "что нового?"
       your_aspects: "Ваши аспекты"
     header: 
       admin: "админ"
@@ -340,12 +350,12 @@ ru:
       two: "%{actors} также прокомментировали %{post_link} %{post_author}."
       zero: "%{actors} также прокомментировали %{post_link} %{post_author}."
     also_commented_deleted: 
-      few: "%{actors} комментировали ваше удаленое сообщение."
+      few: "%{actors} комментировали ваше удаленное сообщение."
       many: "%{actors} комментировали ваше удаленое сообщение."
-      one: "%{actors} комментировали ваше удаленое сообщение."
-      other: "%{actors} комментировали ваше удаленое сообщение."
+      one: "%{actors} комментировали ваше удаленное сообщение."
+      other: "%{actors} комментировали ваше удаленное сообщение."
       two: "%{actors} комментировали удаленое сообщение."
-      zero: "%{actors} комментировали ваше удаленое сообщение."
+      zero: "%{actors} комментировали ваше удаленное сообщение."
     comment_on_post: 
       few: "%{actors} прокомментировали вашу %{post_link}."
       many: "%{actors} прокомментировали вашу %{post_link}."
@@ -397,9 +407,9 @@ ru:
       few: "%{actors} упомянули вас в удаленом сообщение."
       many: "%{actors} упомянули вас в удаленом сообщение."
       one: "%{actors} упомянули вас в удаленом сообщение."
-      other: "%{actors} упомянули вас в удаленом сообщение."
+      other: "%{actors} упомянули вас в удаленном сообщении."
       two: "%{actors} упомянули вас в удаленной записи."
-      zero: "%{actors} упомянули вас в удаленом сообщение."
+      zero: "%{actors} упомянули вас в удаленном сообщении."
     post: "запись"
     private_message: 
       few: "%{actors} послали вам сообщение."
@@ -581,6 +591,13 @@ ru:
       failed: "Не удалось обновить профиль"
       updated: "Профиль обновлен"
   public: "Публичная"
+  reactions: 
+    few: "Отзывы: %{count}"
+    many: "Отзывы: %{count}"
+    one: "Отзывы: 1"
+    other: "Отзывы: %{count}"
+    two: "Отзывы: %{count}"
+    zero: "Отзывы: 0"
   registrations: 
     closed: "В этой части Диаспоры регистрация закрыта"
     create: 
@@ -590,7 +607,7 @@ ru:
       edit: "Редактировать %{name}"
       leave_blank: "(Оставьте пустым, если не хотите менять)"
       password_to_confirm: "(введите ваш текущий пароль для подтверждения изменений)"
-      unhappy: "Несчастны?"
+      unhappy: "Недовольны?"
       update: "Обновить"
     new: 
       create_my_account: "Создать мой аккаунт"
@@ -636,6 +653,7 @@ ru:
         zero: "Поделиться"
       reshare_confirmation: "Поделиться записью %{author}?"
       reshare_original: "Поделиться исходной записью"
+      reshared_via: "поделился пользователь"
       show_original: "Показать исходную запись"
   search: "Поиск"
   services: 
@@ -674,14 +692,14 @@ ru:
       know_email: "Знаете их email адреса? Вы должны предложить им присоединится к Диаспоре "
       your_diaspora_username_is: "Ваше имя пользователя Диаспоры: %{diaspora_handle}"
     aspect_dropdown: 
-      add_to_aspect: "Добавить в аспект"
+      add_to_aspect: "Добавить контакт"
       toggle: 
         few: "В %{count} аспектах"
         many: "В %{count} аспектах"
         one: "В %{count} аспекте"
         other: "В %{count} аспектах"
         two: "В %{count} аспекте[ах]"
-        zero: "Добавить в аспект"
+        zero: "Добавить контакт"
     contact_list: 
       all_contacts: "Все контакты"
     footer: 
@@ -744,7 +762,17 @@ ru:
       zero: "сократите, пожалуйста, ваше сообщение до %{count} символов"
   stream_helper: 
     hide_comments: "Скрыть все комментарии"
-    show_more_comments: "Все комментарии (%{number})"
+    show_more_comments: "Остальные комментарии (%{number})"
+  streams: 
+    mentions: 
+      contacts_title: "Люди, упомянувшие вас"
+      title: "Ваши упоминания"
+    public: 
+      contacts_title: "Recent Posters"
+      title: "Public Activity"
+    tags: 
+      contacts_title: "Люди, которым нравятся эти метки"
+      title: "Записи, отмеченные: %{tags}"
   tag_followings: 
     create: 
       failure: "Failed to follow: #%{name}"
@@ -755,6 +783,7 @@ ru:
   tags: 
     show: 
       follow: "Следить за меткой #%{tag}"
+      followed_by: "followed by"
       following: "Вы следите за меткой #%{tag}"
       nobody_talking: "Никто пока не говорил о %{tag}."
       people_tagged_with: "Люди с меткой %{tag}"
@@ -805,20 +834,25 @@ ru:
       your_handle: "Ваш идентификатор в Диаспоре"
     getting_started: 
       bold: "аспектов"
+      community_welcome: "Сообщество Диаспоры радо приветствовать вас!"
       connect_to: "Подключитесь к"
       connect_to_your_other_social_networks: "Подключитесь к другим вашим социальным сетям"
+      connect_to_your_other_social_networks_explanation_p1: "Подключение к службам позволит вам публиковать записи на этих сервисах."
+      connect_to_your_other_social_networks_explanation_p2: "Подключившись к Facebook, вы также сможете найти друзей, уже зарегистрированных в Диаспоре, и пригласить остальных."
       connect_with_people: "Знакомьтесь с интересными людьми"
       connect_with_people_explanation_pt1: "Общайтесь с людьми, добавляя их в один или несколько ваших %{bold}."
       connect_with_people_explanation_pt2: "Аспекты - это интуитивно понятный способ организации новых и уже знакомых собеседников, невидимый никому, кроме вас и позволяющий легко делиться только с нужными группами людей."
       edit_profile: "Редактировать профиль"
-      featured_tags: "Рекомендуемые метки"
+      featured_tags: "Следить за рекомендуемыми метками"
       featured_users: "Рекомендуемые пользователи"
       fill_out_your_profile: "Заполните ваш профиль"
       find_friends: "Найти друзей"
       find_friends_from_facebook: "найти друзей из Facebook"
       finished: "Завершенно"
       follow_your_interests: "Следите за интересующими вас темами"
+      get_updates_from_core: "Получайте новости проекта от команды разработчиков."
       hashtag_explanation: "Метки позволяют вам обсуждать и следить за интересующими вас темами. Это также отличный способ поиска единомышленников в Диаспоре."
+      not_mandatory: "Выполнение следующих действий расширит ваши возможности в Диаспоре, но это не является обязательным."
       profile_description: "Помогите другим найти вас, заполнив ваш профиль."
       profile_fields: 
         bio: "Биография"
@@ -833,10 +867,16 @@ ru:
       see_all_featured_users: "Посмотреть всех рекомендуемых пользователей"
       welcome: "Добро пожаловать!"
       welcome_with_name: "Добро пожаловать, %{name}!"
+    logged_out: 
+      go_mobile: "Заходите с мобильного!"
+      on_your_mobile_device: "на вашем устройстве для доступа к мобильной версии Диаспоры."
+      signed_out: "Вы вышли из Диаспоры*"
+      simply_visit: "Просто зайдите на"
+      works_on_modern: "Работает на всех современных смартфонах"
     public: 
       does_not_exist: "Пользователя %{username} не существует!"
     update: 
-      email_notifications_changed: "Уведомления по электронной почте изменены"
+      email_notifications_changed: "Настройки уведомлений сохранены"
       language_changed: "Язык изменён"
       language_not_changed: "Не удалось изменить язык"
       password_changed: "Пароль изменён. Теперь вы можете войти в систему с новым паролем."

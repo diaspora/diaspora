@@ -17,22 +17,19 @@
 
   .bottom_bar
     .floater
-      = link_to '', new_post_comment_path(post), :class => "image_link comment_action inactive"
+      = mobile_reshare_icon(post)
+      = mobile_comment_icon(post)
+      = mobile_like_icon(post)
 
-      - if current_user && current_user.liked?(post)
-        = link_to '', post_like_path(post.id, current_user.like_for(post).id), :class => "image_link like_action active"
-      - else
-        = link_to '', post_likes_path(post.id), :class => "image_link like_action inactive"
-
-    - if post.comments.length + post.likes_count > 0
-      = link_to "#{t('reactions', :count => (post.comments.length + post.likes_count))}", post_comments_path(post, :format => "mobile"), :class => 'show_comments'
-    - else
-      %span.show_comments
-        = "#{t('reactions', :count => (post.comments.length + post.likes_count))}"
+    != reactions_link(post)
 
     - if defined?(expanded_info) && expanded_info
       .comment_container
         .post_stats
+          - if @post.public?
+            %span.comment_count
+              = @post.reshares.size
+
           %span.comment_count
             = @post.comments.size
 

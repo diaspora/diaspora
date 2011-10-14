@@ -1,4 +1,4 @@
-#   Copyright (c) 2011, Diaspora Inc.  This file is
+#   Copyright (c) 2010-2011, Diaspora Inc.  This file is
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
@@ -61,8 +61,10 @@ tr:
       done_editing: "düzenleme başarılı"
     aspect_listings: 
       add_an_aspect: "+ Yeni yön ekle"
+      edit_aspect: "Düzenle %{name}"
     aspect_stream: 
       commented_on: "yorumlanan"
+      mentions: "Bahsedenler"
       posted: "gönderi"
       recently: "son zamanlarda:"
       stream: "Akış"
@@ -91,6 +93,7 @@ tr:
       aspect_not_empty: "Yön boş değil"
       remove: "çıkar"
     index: 
+      community_members: "Featured Diaspora* members"
       cubbies: 
         explanation: "İlk Diaspora uygulaması Cubbi.es geliştirilme aşamasındadır."
         heading: "Cubbi.es Bağlan"
@@ -100,21 +103,26 @@ tr:
         content_2: "Give it to anyone and they'll be able to find you on Diaspora."
         heading: "Diaspora ID"
       donate: "Bağış yap"
+      featured_users: "Önerilen Kullanıcılar"
       handle_explanation: "Bu Diaspora kimliği. Bir e-posta adresi gibi, bunu insanlara size ulaşması için verebilirsiniz."
       help: 
-        did_you: "Sen misin:"
+        do_you: "Do you:"
+        email_feedback: "%{link} your feedback, if you prefer"
+        feature_and_forum: "%{gs} & %{forum}: Community-powered support and feature requests"
         feature_suggestion: "... bir %{link} önerin var mı?"
         find_a_bug: "... bulabilir misin %{link}?"
         have_a_question: "... bir %{link} var mı?"
         here_to_help: "Diaspora topluluğu olarak yardım etmek için buradayız!"
-        more_support: "Daha fazla destek için, bağlantıyı kontrol etmelisin %{link}."
         need_help: "Yardıma mı ihtiyacın var?"
-        tutorials: "Öğreticileri için,%{link} kontrol edin."
+        satisfaction: "%{link}: Topluluk desteği"
+        tutorials_and_wiki: "%{tutorial} & %{wiki}: Community-powered tutorials, how-to, and news"
       keep_us_running: "Keep %{pod} running fast, buy our servers their monthly coffee fix!"
+      mentions: "Bahsedenler"
       no_contacts: "Kişi yok"
       no_tags: "+ Bir etiket bul"
       people_sharing_with_you: "Kişi sizinle paylaşıma başladı"
       post_a_message: "mesaj gönder >>"
+      see_more_from_us: "See more of the D* community."
       services: 
         content: "Diaspora'ya aşağıdaki hizmetleri bağlayabilirsiniz:"
         heading: "Servislere Bağlan"
@@ -147,6 +155,7 @@ tr:
       manage_your_aspects: "Yönleri yönetir."
       no_contacts: "You don't have any contacts here yet."
       view_all_contacts: "Tüm kişileri görüntüle"
+      view_all_featured_users: "Tüm Önerilen Kullanıcıları gör"
     show: 
       edit_aspect: "yön düzenle"
     two: "%{count} yön"
@@ -156,7 +165,7 @@ tr:
     zero: "yön yok"
   authorizations: 
     index: 
-      no_applications: "Henüz bir uygulama kayıtlı değildir."
+      no_applications: "Henüz kayıtlı bir uygulama yok."
       revoke_access: "Erişimi Kaldır"
   back: "Geri"
   bookmarklet: 
@@ -184,8 +193,9 @@ tr:
     few: "%{count} kişi"
     index: 
       add_a_new_aspect: "Yeni yön ekle"
+      add_to_aspect: "Add contacts to %{name}"
       all_contacts: "Tüm Kişiler"
-      edit_aspect: "Düzenle %{name}"
+      check_out: "Kontrol et"
       many_people_are_you_sure: "Are you sure you want to start a private conversation with more than %{suggested_limit} contacts? Posting to this aspect may be a better way to contact them."
       my_contacts: "Kişilerim"
       no_contacts: "Hiç kişi yok."
@@ -214,7 +224,7 @@ tr:
         one: "1 yeni mesaj"
         other: "%{count} yeni mesaj"
         two: "%{count} yeni mesaj"
-        zero: "no new messages"
+        zero: "Yeni mesaj yok"
     index: 
       create_a_new_message: "yeni mesaj oluştur"
       inbox: "Gelen Kutusu"
@@ -240,7 +250,7 @@ tr:
       birthday_with_year: "%B %d %Y"
       fullmonth_day: "%B %d"
   delete: "Sil"
-  email: "E-Posta"
+  email: "E-posta"
   error_messages: 
     helper: 
       correct_the_following_errors_and_try_again: "Alttaki yanlıșları düzeltin ve tekrar deneyin."
@@ -252,12 +262,12 @@ tr:
     show: 
       already_account: "Zaten bir hesabınız var mı?"
       choice: "Seçim"
-      choice_explanation: "Diaspora allows you to sort your connections into groups called Aspects. Unique to Diaspora, Aspects ensure your photos, stories and jokes are shared with only the people you want them to be."
-      learn_about_host: "Learn about how to host your own Diaspora server"
+      choice_explanation: "Diaspora bağlantılarınızı yön adı verilen gruplar halinde sıralamanızı sağlar. Diaspora'ya özgü olarak, yönleri, fotoğrafları, hikayeleri ve şakaları sadece istediğiniz insanlarla paylaşırsınız."
+      learn_about_host: "Sunucunuzda Diaspora'ya sahip olmak hakkında bilgi edinin"
       login_here: "buradan oturum açın"
       ownership: "Sahiplik"
       ownership_explanation: "You own your pictures, and you shouldn’t have to give that up just in order to share them. You maintain ownership of everything you share on Diaspora, giving you full control over how it is distributed."
-      share_what_you_want: "Share what you want, with whom you want."
+      share_what_you_want: "İstediğinizle,istediğinizi paylaşın."
       simplicity: "Sadelik"
       simplicity_explanation: "Diaspora makes sharing clean and easy – this goes doubly so for privacy. Innherently private, Diaspora doesn’t have pages of settings and options to wade through to keep your profile secure and to your liking."
       tagline_first_half: "İstediğiniz ne ise paylaşın,"
@@ -267,7 +277,7 @@ tr:
     check_token: 
       not_found: "Davetiye bulunamadı."
     create: 
-      already_contacts: "You are already connected with this person"
+      already_contacts: "Zaten bu kişi ile bağlı."
       already_sent: "Zaten bu kişi davet edilmiş."
       no_more: "Başka davetiyeniz bulunmamaktadır."
       own_address: "Kendi adresinize davetiye gönderemezsiniz."
@@ -292,14 +302,14 @@ tr:
       powered_by: "GELİŞTİRİCİ DIASPORA*"
       public_feed: "Genel Diaspora Beslemesi %{name}"
       toggle: "mobil site'ye git"
-      whats_new: "Neler yeni?"
+      whats_new: "neler yeni?"
       your_aspects: "sizin yönleriniz"
     header: 
       admin: "yönetici"
       blog: "blog"
       code: "kod"
-      login: "login"
-      logout: "Çıkış"
+      login: "giriş yap"
+      logout: "çıkış yap"
       profile: "profil"
       recent_notifications: "Son bildirimler"
       settings: "ayarlar"
@@ -314,9 +324,9 @@ tr:
         two: "%{count} beğenmeme"
         zero: "hiç kimse beğenmedi"
       people_like_this: 
-        few: "%{count} people liked this"
-        many: "%{count} people liked this"
-        one: "1 person liked this"
+        few: "%{count} kişi beğendi"
+        many: "%{count} kişi beğendi"
+        one: "1 kişi beğendi"
         other: "%{count} kişi beğendi"
         two: "%{count} kişi beğendi"
         zero: "beğenme yok"
@@ -351,7 +361,7 @@ tr:
       many: "%{actors} yorumladı %{post_link}."
       one: "%{actors} yorumladı %{post_link}."
       other: "%{actors} yorumladı %{post_link}."
-      two: "%{actors} commented on your %{post_link}."
+      two: "%{actors} yorumladı %{post_link}."
       zero: "%{actors} yorumladı %{post_link}."
     helper: 
       new_notifications: 
@@ -360,16 +370,16 @@ tr:
         one: "1 yeni bildirim"
         other: "%{count} yeni bildirim"
         two: "%{count} yeni bildirim"
-        zero: "no new notifications"
+        zero: "Yeni bildirim yok"
     index: 
       and: "ve"
       and_others: 
-        few: "and %{count} others"
-        many: "and %{count} others"
-        one: "and one more"
-        other: "and %{count} others"
+        few: "ve %{count} diğer kişi"
+        many: "ve %{count} diğer kişi"
+        one: "ve bir kişi daha"
+        other: "ve %{count} diğer kişi"
         two: "ve %{count} diğer kişi"
-        zero: "and nobody else"
+        zero: "ve başka hiç kimse"
       mark_all_as_read: "Tümünü Okundu Olarak İşaretle"
       notifications: "Bildirimler"
     liked: 
@@ -377,8 +387,8 @@ tr:
       many: "%{actors} %{post_link} gönderini beğendi."
       one: "%{actors} %{post_link} gönderini beğendi."
       other: "%{actors} %{post_link} gönderini beğendi."
-      two: "%{actors} has just liked your %{post_link}."
-      zero: "%{actors} has just liked your %{post_link}."
+      two: "%{actors} beğendi %{post_link}."
+      zero: "%{actors} senin gönderini beğendi %{post_link}."
     liked_post_deleted: 
       few: "%{actors} silinmiş gönderinizi beğendi."
       many: "%{actors} silinmiş gönderinizi beğendi."
@@ -400,7 +410,7 @@ tr:
       other: "%{actors} silinmiş gönderide senden bahsetti."
       two: "%{actors} silinmiş bir gönderiden bahsetti."
       zero: "%{actors} silinmiş gönderide senden bahsetti."
-    post: "post"
+    post: "gönderi"
     private_message: 
       few: "%{actors} mesaj gönderdi."
       many: "%{actors} mesaj gönderdi."
@@ -409,19 +419,19 @@ tr:
       two: "%{actors} size bir mesaj gönderdi."
       zero: "%{actors} mesaj gönderdi."
     reshared: 
-      few: "%{actors} %{post_link} gönderisini yeniden paylaştı."
-      many: "%{actors} %{post_link} gönderisini yeniden paylaştı."
-      one: "%{actors} has reshared your %{post_link}."
-      other: "%{actors} %{post_link} gönderisini yeniden paylaştı."
-      two: "%{actors} yeniden paylaştı %{post_link}."
-      zero: "%{actors} %{post_link} gönderisini yeniden paylaştı."
+      few: "%{actors} %{post_link} gönderisini tekrar paylaştı."
+      many: "%{actors} %{post_link} gönderisini tekrar paylaştı."
+      one: "%{actors} tekrar paylaştı %{post_link}."
+      other: "%{actors} %{post_link} gönderisini tekrar paylaştı."
+      two: "%{actors} tekrar paylaştı %{post_link}."
+      zero: "%{actors} %{post_link} gönderisini tekrar paylaştı."
     reshared_post_deleted: 
-      few: "%{actors} silenen gönderiyi yeniden paylaştı."
-      many: "%{actors} reshared your deleted post."
-      one: "%{actors} silenen gönderiyi yeniden paylaştı."
-      other: "%{actors} silenen gönderiyi yeniden paylaştı."
-      two: "%{actors} silinmiş gönderi yeniden paylaşılamaz."
-      zero: "%{actors} silenen gönderiyi yeniden paylaştı."
+      few: "%{actors} silenen gönderiyi tekrar paylaştı."
+      many: "%{actors} silinen gönderiyi tekrar paylaştı."
+      one: "%{actors} silenen gönderiyi tekrar paylaştı."
+      other: "%{actors} silenen gönderiyi tekrar paylaştı."
+      two: "%{actors} silinmiş gönderiyi tekrar paylaştı."
+      zero: "%{actors} silenen gönderiyi tekrar paylaştı."
     started_sharing: 
       few: "%{actors} sizinle paylaşıma başladı."
       many: "%{actors} sizinle paylaşıma başladı."
@@ -440,19 +450,19 @@ tr:
     email_sent_by_diaspora: "Bu e-posta Diaspora tarafından gönderildi. Bu gibi e-postalar almak istemiyorsanız,"
     hello: "Merhaba %{name}!"
     liked: 
-      liked: "%{name} has just liked your post: "
+      liked: "%{name} gönderinizi beğendi:"
       view_post: "Gönderiyi görüntüle >"
     mentioned: 
-      mentioned: "gönderide senden bahsetti:"
+      mentioned: "gönderisinde senden bahsetti:"
       subject: "%{name} sana Diaspora*'da özel mesaj gönderdi "
     private_message: 
       reply_to_or_view: "Yanıtla ya da konuşmayı görüntüle >"
     reshared: 
-      reshared: "%{name} just reshared your post"
+      reshared: "%{name} gönderiyi tekrar paylaştı"
       view_post: "Gönderiyi görüntüle>"
     single_admin: 
       admin: "Diaspora yönetici"
-      subject: "A message from your Diaspora administrator:"
+      subject: "Diaspora hesabı hakkında bir mesaj:"
     started_sharing: 
       sharing: "sizinle paylaşıma başladı!"
       subject: "%{name} has started sharing with you on Diaspora*"
@@ -465,7 +475,7 @@ tr:
   password_confirmation: "Parola doğrulama"
   people: 
     add_contact_small: 
-      add_contact_from_tag: "add contact from tag"
+      add_contact_from_tag: "kişi etiketle"
     aspect_list: 
       edit_membership: "yön üyelik düzenle"
     few: "%{count} kişi"
@@ -476,15 +486,15 @@ tr:
       couldnt_find_them_send_invite: "Onları bulmak istemez misin? O zaman bir davet gönderin!"
       no_one_found: "...ve hiç kimse bulunamadı."
       no_results: "Hey! Bir şey aramak gerekir."
-      results_for: "için arama sonuçları"
+      results_for: "arama sonuçları"
     many: "%{count} kişi"
     one: "1 kişi"
     other: "%{count} kişi"
     person: 
       add_contact: "kişi ekle"
       already_connected: "Zaten bağlı"
-      pending_request: "bekletilen rica"
-      thats_you: "bu sensin!"
+      pending_request: "Bekletilen istek"
+      thats_you: "Bu sensin!"
     profile_sidebar: 
       bio: "hakkında"
       born: "doğum günü"
@@ -493,10 +503,10 @@ tr:
       in_aspects: "yönleriyle"
       location: "yer"
       remove_contact: "kişiyi kaldır"
-      remove_from: "Remove %{name} from %{aspect}?"
+      remove_from: "%{name} kişisi %{aspect} yönünden kaldırılsın mı?"
     show: 
       does_not_exist: "Kişi yok!"
-      has_not_shared_with_you_yet: "%{name} has not shared any posts with you yet!"
+      has_not_shared_with_you_yet: "%{name} henüz bir şey paylaşmamış!"
       incoming_request: "You have an incoming request from this person."
       mention: "Bahset"
       message: "Mesaj"
@@ -534,7 +544,7 @@ tr:
       invalid_ext: "{file} geçersiz uzantıya sahip. {extensions} uzantılarına izin verilir."
       size_error: "{file} çok büyük, en büyük dosya boyutu {sizeLimit}."
     new_profile_photo: 
-      or_select_one: "or select one from your already existing"
+      or_select_one: "ya da varolanlardan birini seç"
       upload: "Yeni bir profil fotoğrafı yükle!"
     photo: 
       view_all: "%{name}'in bütün fotoğraflarını göster"
@@ -551,18 +561,18 @@ tr:
       notice: "Fotoğraf başarıyla eklendi."
   post_visibilites: 
     update: 
-      post_hidden_and_muted: "%{name}'s post has been hidden, and notifications have been muted."
+      post_hidden_and_muted: "%{name} kişisinin gönderileri gizlendi, bildirim alımı durduruldu."
       see_it_on_their_profile: "Bu gönderiye yapılan güncellemeleri görmek istiyorsan,%{name} kişisinin profilini ziyaret etmelisin."
   posts: 
     show: 
       destroy: "Sil"
-      not_found: "Sorry, we couldn't find that post."
-      permalink: "permalink"
+      not_found: "Üzgünüz, bu gönderi bulamadı."
+      permalink: "kalıcı bağlantı"
   previous: "önceki"
   profile: "Profil"
   profiles: 
     edit: 
-      allow_search: "Diaspora içinde arama yapmaya izin verin"
+      allow_search: "Diaspora aramaları içinde bulunmaya izin ver"
       edit_profile: "Profil düzenle"
       first_name: "Ad"
       last_name: "Soyadı"
@@ -575,12 +585,19 @@ tr:
       your_photo: "Fotoğraf"
       your_private_profile: "Özel profilin"
       your_public_profile: "Genel profilin"
-      your_tags: "You: in 5 #tags"
+      your_tags: "Seni tanıtan 5 etiket"
       your_tags_placeholder: "i.e. #diaspora #ironing #kittens #music"
     update: 
       failed: "Profil güncelleme başarısız"
       updated: "Profil güncellendi"
   public: "Genel"
+  reactions: 
+    few: "%{count} reactions"
+    many: "%{count} reactions"
+    one: "1 reaction"
+    other: "%{count} reactions"
+    two: "%{count} reactions"
+    zero: "0 reactions"
   registrations: 
     closed: "Üyelik bu Diaspora'da kapandı."
     create: 
@@ -594,7 +611,7 @@ tr:
       update: "Güncelle"
     new: 
       create_my_account: "Hesabımı oluştur"
-      enter_email: "Enter an e-mail"
+      enter_email: "Bir e-posta girin"
       enter_password: "Bir parola girin"
       enter_password_again: "Daha önce olduğu gibi aynı parolayı girin."
       enter_username: "Bir kullanıcı adı seçin (sadece harfler, rakamlar ve alt çizgi)"
@@ -622,7 +639,7 @@ tr:
     new_request_to_person: 
       sent: "yollandı!"
   reshares: 
-    comment_email_subject: "%{resharer} , %{author} kişisinin gönderisini yeniden paylaştı"
+    comment_email_subject: "%{resharer} , %{author} kişisinin gönderisini tekrar paylaştı"
     create: 
       failure: "Bu gönderi tekrar paylaşılırken hata oluştu."
     reshare: 
@@ -632,22 +649,23 @@ tr:
         many: "%{count} Reshares"
         one: "1 Reshare"
         other: "%{count} Reshares"
-        two: "%{count} yeniden paylaşım"
+        two: "%{count} tekrar paylaşım"
         zero: "Tekrar paylaş"
-      reshare_confirmation: "Reshare %{author} - %{text}?"
-      reshare_original: "Reshare orignial"
-      show_original: "Show Original"
+      reshare_confirmation: "Tekrar paylaş %{author} - %{text}?"
+      reshare_original: "Orijinali tekrar paylaş"
+      reshared_via: "reshared via"
+      show_original: "Orjinali görüntüle"
   search: "Ara"
   services: 
     create: 
       success: "Doğrulama başarılı."
     destroy: 
-      success: "Başarılı bir şekilde doğrulama yokedildi."
+      success: "Doğrulama başarılı bir şekilde kaldırıldı."
     failure: 
       error: "there was an error connecting that service"
     finder: 
       no_friends: "Hiç Facebook arkadaşı bulunamadı."
-      service_friends: "%{service} Arkadaş"
+      service_friends: "%{service} Arkadaşları"
     index: 
       connect_to_facebook: "Facebook'u Bağla"
       connect_to_tumblr: "Tumblr'ı Bağla"
@@ -656,9 +674,9 @@ tr:
       edit_services: "Servisleri düzenle"
       logged_in_as: "olarak bağlandınız"
       no_services: "Bağlanmış servis bulunmuyor."
-      really_disconnect: "disconnect %{service}?"
+      really_disconnect: "bağlantı kesilsin mi %{service}?"
     inviter: 
-      click_link_to_accept_invitation: "Click this link to accept your invitation"
+      click_link_to_accept_invitation: "Daveti kabul etmek bu bağlantıya tıklayın"
       join_me_on_diaspora: "DIASPORA* Katılın"
     remote_friend: 
       invite: "davet et"
@@ -668,10 +686,10 @@ tr:
   shared: 
     add_contact: 
       add_new_contact: "Yeni kişi ekle"
-      create_request: "Find by Diaspora handle"
-      diaspora_handle: "Diaspora handle"
+      create_request: "Diaspora ID bul"
+      diaspora_handle: "diaspora@pod.org"
       enter_a_diaspora_username: "Diaspora kullanıcı adınızı giriniz:"
-      know_email: "E-posta adresini biliyor musunuz? O zaman onu davet et"
+      know_email: "E-posta adresini biliyor musun? O zaman onu davet et"
       your_diaspora_username_is: "Diaspora kullanıcı adınız: %{diaspora_handle}"
     aspect_dropdown: 
       add_to_aspect: "Yönüne ekle"
@@ -701,7 +719,7 @@ tr:
     public_explain: 
       logged_in: "%{service} , bağlandınız."
       manage: "bağlı servisleri yönetin"
-      outside: "Umumi mesajlar Diaspora'nın dışından olanlar için görünür olucak."
+      outside: "Genel mesajlar Diaspora'nın dışındakiler içinde görünür olucak."
       title: "Herkese görünür bir mesaj göndermek üzeresiniz!"
     publisher: 
       all: "hepsi"
@@ -719,9 +737,9 @@ tr:
     reshare: 
       reshare: "Yeniden Paylaş"
     stream_element: 
-      dislike: "I dislike this"
+      dislike: "Beğenme"
       hide_and_mute: "Gizle ve Sessiz"
-      like: "I like this"
+      like: "Beğen"
       shared_with: "Paylaşılan: %{aspect_names}"
       unlike: "Beğenme"
       via: "tarafından %{link}"
@@ -745,6 +763,16 @@ tr:
   stream_helper: 
     hide_comments: "yorumları gizle"
     show_more_comments: "%{number} daha fazla yorum göster"
+  streams: 
+    mentions: 
+      contacts_title: "People who mentioned you"
+      title: "Senden Bahsedenler"
+    public: 
+      contacts_title: "Recent Posters"
+      title: "Public Activity"
+    tags: 
+      contacts_title: "People who dig these tags"
+      title: "Gönderi etiketlendi: %{tags}"
   tag_followings: 
     create: 
       failure: "Takip etmek başarısız: #%{name}"
@@ -755,6 +783,7 @@ tr:
   tags: 
     show: 
       follow: "Takip Et #%{tag}"
+      followed_by: "followed by"
       following: "Takip Ediliyor #%{tag}"
       nobody_talking: "Nobody is talking about %{tag} yet."
       people_tagged_with: "Kişi etiketlendi %{tag}"
@@ -771,42 +800,45 @@ tr:
       screenshot_explanation: "%{link1}.  This particular cubby is linked to %{link2}."
       sign_up_today: "Bugün kaydolun!"
       typical_userpage: "Tipik bir cubbi.es kullanıcı sayfası"
-      via: "(via %{link})"
+      via: "(%{link} aracılığıyla)"
       what_is_cubbies: "Cubbi.es is the world's first Diaspora application.  It's also the best way to collect photos online."
   undo: "Geri Al?"
   username: "Kullanıcı Adı"
   users: 
     confirm_email: 
-      email_confirmed: "E-Mail %{email} activated"
+      email_confirmed: "E-posta %{email} doğrulandı"
       email_not_confirmed: "E-Mail could not be activated. Wrong link?"
     destroy: "Hesap başarıyla kapatıldı"
     edit: 
-      also_commented: "...someone also comments on your contact's post?"
+      also_commented: "...birisi gönderime yorum yazdığında?"
       change: "Değiştir"
-      change_email: "E-posta Değiştir"
-      change_language: "Dili Değiştir"
-      change_password: "Parolamı Değiştir"
+      change_email: "E-posta değiştir"
+      change_language: "Dili değiştir"
+      change_password: "Parolamı değiştir"
       close_account: "Hesabımı Kapat"
-      comment_on_post: "...someone comments on your post?"
+      comment_on_post: "...yorum yazdığında?"
       current_password: "Mevcut parola"
       download_photos: "fotoğraflarımı indir"
       download_xml: "xml dosyamı indir"
       edit_account: "Hesap düzenle"
       email_awaiting_confirmation: "We have sent you an activation link to %{unconfirmed_email}. Till you follow this link and activate the new address, we will continue to use your original address %{email}."
       export_data: "Bilgilerimi Dışarı taşı"
-      liked: "...birileri sizin gönderilerinizi beğeniyor mu?"
-      mentioned: "...you are mentioned in a post?"
-      new_password: "Yeni Parola"
-      private_message: "...you receive a private message?"
-      receive_email_notifications: "Receive email notificaions?"
-      reshared: "...someone reshares your post?"
-      started_sharing: "... birisi sizinle paylaşıma mı başladı?"
-      your_email: "E-postan"
+      liked: "...birisi gönderimi beğendiğinde?"
+      mentioned: "...benden bahsettiğinde?"
+      new_password: "Yeni parola"
+      private_message: "...özel mesaj gönderdiğinde?"
+      receive_email_notifications: "E-posta bildirimleri almak ..."
+      reshared: "...birisi benim gönderimi tekrar paylaştığında?"
+      started_sharing: "...birisi benimle paylaşıma başladığında?"
+      your_email: "E-posta"
       your_handle: "Diaspora ID"
     getting_started: 
       bold: "yönler"
+      community_welcome: "Diaspora's community is happy to have you aboard!"
       connect_to: "Bağlan"
       connect_to_your_other_social_networks: "Diğer sosyal ağlara bağlanın"
+      connect_to_your_other_social_networks_explanation_p1: "Connecting to services will allow you to publish out to these services."
+      connect_to_your_other_social_networks_explanation_p2: "With Facebook, you also be able to find friends already on Diaspora and invite others."
       connect_with_people: "Harika insanlarla bağlantı kurun"
       connect_with_people_explanation_pt1: "Connect with people by placing them into one or more of your"
       connect_with_people_explanation_pt2: "Aspects are an intuitive way to group new and familar faces, private to you, allowing you to filter down or share with subsets of your contacts easily."
@@ -816,9 +848,11 @@ tr:
       fill_out_your_profile: "Profilinizi doldurun"
       find_friends: "Arkadaş bul"
       find_friends_from_facebook: "Facebook arkadaşlarınızı bulun"
-      finished: "Finished!"
+      finished: "Bitti"
       follow_your_interests: "İlginçlikleri izleyin"
+      get_updates_from_core: "Get updates about the project from the core team."
       hashtag_explanation: "Etiketler, hakkında konuşmak ve ilgi alanlarını takip etmenize izin verir. Ayrıca yeni insanları Diaspora üzerinde bulmak için harika bir yoldur."
+      not_mandatory: "Completing the following steps will improve your Diaspora experience, but they are not mandatory."
       profile_description: "Profil bilgilerinizi doldurmak insanlar tarafından bulunmayı kolaylaştırır."
       profile_fields: 
         bio: "Hakkında"
@@ -833,12 +867,18 @@ tr:
       see_all_featured_users: "Tüm önerilen kullanıcıları gör"
       welcome: "Diaspora'ya hoşgeldin!"
       welcome_with_name: "Hoşgeldin, %{name}!"
+    logged_out: 
+      go_mobile: "Şimdi mobil olun."
+      on_your_mobile_device: "mobil cihazınız üzerinden diaspora* mobile erişim."
+      signed_out: "You've signed out of Diaspora*"
+      simply_visit: "Simply visit"
+      works_on_modern: "Works on all modern smartphones"
     public: 
       does_not_exist: "%{username} kullanıcısı bulunmamaktadır!"
     update: 
       email_notifications_changed: "E-posta bildirimleri değişti"
-      language_changed: "Dil Değişti"
-      language_not_changed: "Dil Değişikliği Başarılamadı"
+      language_changed: "Dil değişti"
+      language_not_changed: "Dil değişikliği başarısız"
       password_changed: "Parola Değişti"
       password_not_changed: "Parola değiştirilemedi"
       unconfirmed_email_changed: "E-posta değişti. Aktivasyon gerekli."

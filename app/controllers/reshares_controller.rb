@@ -1,6 +1,6 @@
 class ResharesController < ApplicationController
   before_filter :authenticate_user!
-  respond_to :js
+  respond_to :js, :json
 
   def create
     @reshare = current_user.build_post(:reshare, :root_guid => params[:root_guid])

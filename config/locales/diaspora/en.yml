@@ -106,6 +106,7 @@ en:
       done_editing: "done editing"
     aspect_stream:
       stream: "Stream"
+      mentions: "Mentions"
       recently: "recently:"
       commented_on: "commented on"
       posted: "posted"
@@ -119,15 +120,18 @@ en:
       or_featured:  "Or you can share with %{link}"
       featured_users: "featured users"
     aspect_listings:
+      select_all: "Select all"
+      deselect_all: "Deselect all"
+      edit_aspect: "Edit %{name}"
       add_an_aspect: "+ Add an aspect"
-
     selected_contacts:
+      view_all_featured_users: "See all Featured Users"
       view_all_contacts: "View all contacts"
       no_contacts: "You don't have any contacts here yet."
       manage_your_aspects: "Manage your aspects."
 
     new:
-      name: "Name (only visibile to you)"
+      name: "Name (only visible to you)"
       create: "Create"
     create:
       success: "Your new aspect %{name} was created"
@@ -154,7 +158,10 @@ en:
       work: "Work"
       acquaintances: "Acquaintances"
       friends: "Friends"
-    index: 
+    index:
+      mentions: "Mentions"
+      community_spotlight: "Community Spotlight"
+      see_more_from_us: "See more of the D* community."
       donate: "Donate"
       keep_us_running: "Keep %{pod} running fast and buy servers their coffee fix with a monthly donation!"
       your_aspects: "Your Aspects"
@@ -223,7 +230,7 @@ en:
     other: "%{count} reactions"
 
   contacts:
-    zero: "no contacts"
+    zero: "contacts"
     one: "1 contact"
     two: "%{count} contacts"
     few: "%{count} contacts"
@@ -234,19 +241,20 @@ en:
     sharing:
       people_sharing: "People sharing with you:"
     index:
-      edit_aspect: "Edit %{name}"
+      add_to_aspect: "Add contacts to %{name}"
       start_a_conversation: "Start a conversation"
       add_a_new_aspect: "Add a new aspect"
       title: "Contacts"
       your_contacts: "Your Contacts"
-      no_contacts: "No contacts."
+      no_contacts: "Looks like you need to add some contacts!"
+      check_out: "Check out"
       my_contacts: "My Contacts"
       all_contacts: "All Contacts"
       only_sharing_with_me: "Only sharing with me"
       remove_person_from_aspect: "Remove %{person_name} from \"%{aspect_name}\""
-      many_people_are_you_sure: "Are you sure you want to start a private conversation with more than %{suggested_limit} contacts? Posting to this aspect may be a better way to contact them." 
-    featured:
-      featured_users: "Featured Users"
+      many_people_are_you_sure: "Are you sure you want to start a private conversation with more than %{suggested_limit} contacts? Posting to this aspect may be a better way to contact them."
+    spotlight:
+      community_spotlight: "Community Spotlight"
 
   conversations:
     index:
@@ -267,7 +275,7 @@ en:
       sending: "Sending..."
       abandon_changes: "Abandon changes?"
     helper:
-      new_messages: 
+      new_messages:
         zero: "No new messages"
         one: "1 new messages"
         two: "%{count} new messages"
@@ -331,9 +339,9 @@ en:
 
   layouts:
     header:
-      profile: "profile"
-      settings: "settings"
-      logout: "log out"
+      profile: "Profile"
+      settings: "Settings"
+      logout: "Log out"
       blog: "blog"
       login: "log in"
       code: "code"
@@ -453,7 +461,7 @@ en:
     index:
       notifications: "Notifications"
       mark_all_as_read: "Mark All as Read"
-      and_others: 
+      and_others:
         zero: "and nobody else"
         one: "and one more"
         two: "and %{count} others"
@@ -464,7 +472,7 @@ en:
     helper:
       new_notifications:
         zero: "No new notifications"
-        one: "1 new notifications"
+        one: "1 new notification"
         two: "%{count} new notifications"
         few: "%{count} new notifications"
         many: "%{count} new notifications"
@@ -797,7 +805,7 @@ en:
       follow: "Follow #%{tag}"
       following: "Following #%{tag}"
       stop_following: "Stop Following #%{tag}"
-
+      followed_by: 'followed by'
   tag_followings:
     create:
       success: "Successfully following: #%{name}"
@@ -824,7 +832,20 @@ en:
     index:
       revoke_access: "Revoke Access"
       no_applications: "You haven't registered any applications yet."
-      
+
+  streams:
+    mentions:
+      title: "Your Mentions"
+      contacts_title: "People who mentioned you"
+    tags:
+      title: "Posts tagged: %{tags}"
+      contacts_title: "People who dig these tags"
+    public:
+      title: "Public Activity"
+      contacts_title: "Recent Posters"
+    soup:
+      titile: "The Soup"
+      contacts_title: "People in your Soup"
 
   users:
     logged_out:
@@ -879,7 +900,7 @@ en:
       connect_to_your_other_social_networks: "Connect to your other social networks"
       connect_to_your_other_social_networks_explanation_p1: "Connecting to services will allow you to publish out to these services."
       connect_to_your_other_social_networks_explanation_p2: "With Facebook, you also be able to find friends already on Diaspora and invite others."
-      
+
 
       connect_with_people: "Connect with cool people"
       connect_with_people_explanation_pt1: "Connect with people by placing them into one or more of your %{bold}."

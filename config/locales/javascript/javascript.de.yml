@@ -1,4 +1,4 @@
-#   Copyright (c) 2011, Diaspora Inc.  This file is
+#   Copyright (c) 2010-2011, Diaspora Inc.  This file is
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
@@ -15,6 +15,10 @@ de:
         other: "In {{count}} Aspekten"
         two: "In {{count}} Aspekten"
         zero: "Zu Aspekt hinzufügen"
+    aspect_navigation: 
+      deselect_all: "Deselect all"
+      no_aspects: "No aspects selected"
+      select_all: "Select all"
     comments: 
       hide: "Kommentare verbergen"
       show: "Alle Kommentare zeigen"

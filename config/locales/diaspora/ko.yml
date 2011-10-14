@@ -1,4 +1,4 @@
-#   Copyright (c) 2011, Diaspora Inc.  This file is
+#   Copyright (c) 2010-2011, Diaspora Inc.  This file is
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
@@ -61,8 +61,10 @@ ko:
       done_editing: "고치기 완료"
     aspect_listings: 
       add_an_aspect: "+ 애스펙 추가"
+      edit_aspect: "Edit %{name}"
     aspect_stream: 
       commented_on: "댓글 달린 순"
+      mentions: "멘션"
       posted: "올린 순"
       recently: "최근에"
       stream: "스트림"
@@ -91,6 +93,7 @@ ko:
       aspect_not_empty: "애스펙이 비어있지 않습니다"
       remove: "지우기"
     index: 
+      community_members: "Featured Diaspora* members"
       cubbies: 
         explanation: "Cubbi.es는 개발중인 최초의 디아스포라 어플입니다."
         heading: "Cubbi.es에 연결하기"
@@ -100,25 +103,30 @@ ko:
         content_2: "내 ID를 주면 누구든지 디아스포라에서 날 찾을수 있습니다."
         heading: "디아스포라 ID"
       donate: "기부하기"
+      featured_users: "추천 사용자"
       handle_explanation: "이 디아스포라 핸들은 이메일 주소처럼 남에게 건넬 수 있습니다."
       help: 
-        did_you: "Did you:"
+        do_you: "Do you:"
+        email_feedback: "%{link} your feedback, if you prefer"
+        feature_and_forum: "%{gs} & %{forum}: Community-powered support and feature requests"
         feature_suggestion: "... have a %{link} suggestion?"
         find_a_bug: "... find a %{link}?"
         have_a_question: "... have a %{link}?"
         here_to_help: "Diaspora community is here to help!"
-        more_support: "For more support, you should also check out %{link}."
         need_help: "Need Help?"
-        tutorials: "For tutorials, check out %{link}."
+        satisfaction: "%{link}: Community-powered support"
+        tutorials_and_wiki: "%{tutorial} & %{wiki}: Community-powered tutorials, how-to, and news"
       keep_us_running: "Keep %{pod} running fast, buy our servers their monthly coffee fix!"
+      mentions: "멘션"
       no_contacts: "컨택 없음"
       no_tags: "태그 없음"
       people_sharing_with_you: "나와 공유하는 사람들"
       post_a_message: "새 메시지 올리기 >>"
+      see_more_from_us: "See more of the D* community."
       services: 
         content: "다음의 여러 서비스를 디아스포라에 연결할 수 있습니다"
         heading: "서비스 연결"
-      tags_following: "팔로우된 태그들"
+      tags_following: "팔로우한 태그"
       unfollow_tag: "#%{tag} 태그 팔로우 멈추기"
       your_aspects: "내 애스펙"
     many: "애스펙 %{count}개"
@@ -147,6 +155,7 @@ ko:
       manage_your_aspects: "내 애스펙 관리하기."
       no_contacts: "아직 컨택이 없습니다."
       view_all_contacts: "모든 컨택 보기"
+      view_all_featured_users: "추천 사용자 모두 보기"
     show: 
       edit_aspect: "애스펙 고치기"
     two: "애스펙 %{count}개"
@@ -184,8 +193,9 @@ ko:
     few: "컨택 %{count}명"
     index: 
       add_a_new_aspect: "새 애스펙 추가"
+      add_to_aspect: "%{name} 애스펙에 새 컨택 추가하기"
       all_contacts: "모든 컨택"
-      edit_aspect: "%{name} 고치기"
+      check_out: ""
       many_people_are_you_sure: "컨택 %{suggested_limit}명보다 많은 사람들에게 쪽지를 보내려 하십니까? 해당 애스펙에 공유물을 공유하는게 연락하기에 더 나은 방법입니다."
       my_contacts: "내 컨택"
       no_contacts: "컨택 없음."
@@ -581,6 +591,13 @@ ko:
       failed: "프로필 갱신 실패"
       updated: "프로필을 갱신했습니다"
   public: "공개"
+  reactions: 
+    few: "%{count} reactions"
+    many: "%{count} reactions"
+    one: "1 reaction"
+    other: "%{count} reactions"
+    two: "%{count} reactions"
+    zero: "0 reactions"
   registrations: 
     closed: "우리 디아스포라 팓은 가입이 닫혀있습니다."
     create: 
@@ -636,6 +653,7 @@ ko:
         zero: "재공유"
       reshare_confirmation: "%{author}님의 %{text} 공유물을 재공유합니까?"
       reshare_original: "원본 재공유"
+      reshared_via: "reshared via"
       show_original: "원본 보기"
   search: "검색"
   services: 
@@ -745,6 +763,16 @@ ko:
   stream_helper: 
     hide_comments: "댓글 감추기"
     show_more_comments: "댓글 %{number}개 더 보기"
+  streams: 
+    mentions: 
+      contacts_title: "나를 멘션한 사람들"
+      title: "내 멘션"
+    public: 
+      contacts_title: "Recent Posters"
+      title: "Public Activity"
+    tags: 
+      contacts_title: "People who dig these tags"
+      title: "태그: %{tags}"
   tag_followings: 
     create: 
       failure: "팔로우를 실패하였습니다: #%{name}"
@@ -755,6 +783,7 @@ ko:
   tags: 
     show: 
       follow: "#%{tag} 태그 팔로우하기"
+      followed_by: "followed by"
       following: "#%{tag} 태그 팔로우중"
       nobody_talking: "아직 %{tag} 태그가 달린 공유물이 없습니다."
       people_tagged_with: "%{tag} 태그가 달린 사람들"
@@ -805,8 +834,11 @@ ko:
       your_handle: "디아스포라 핸들"
     getting_started: 
       bold: "애스펙"
+      community_welcome: "디아스포라 커뮤니티는 귀하의 승선을 환영합니다!"
       connect_to: "연결하기:"
-      connect_to_your_other_social_networks: "다른 소셜 네트워크와 연결하기"
+      connect_to_your_other_social_networks: "다른 소셜 네트워크에 연결하기"
+      connect_to_your_other_social_networks_explanation_p1: "서비스에 연결하면 해당 서비스에도 공유물을 게시할 수 있습니다."
+      connect_to_your_other_social_networks_explanation_p2: "페이스북을 이용하면, 디아스포라에 이미 가입한 친구들을 찾거나 다른 친구들을 초대할 수 있습니다."
       connect_with_people: "멋진 사람들과 연결하기"
       connect_with_people_explanation_pt1: "누군가를 한 개 이상의 애스펙으로 분류하면"
       connect_with_people_explanation_pt2: "애스펙은 새로운 컨택, 낯익은 컨택, 사적인 컨택을 분류하여 일부와만 공유하거나 일부를 거를 수 있게하는 쉽고 직관적인 방법입니다."
@@ -818,7 +850,9 @@ ko:
       find_friends_from_facebook: "페이스북에서 친구 찾기"
       finished: "완료!"
       follow_your_interests: "내 관심사 팔로우하기"
+      get_updates_from_core: "코어 팀으로부터 프로젝트에 대한 소식을 받습니다."
       hashtag_explanation: "해시태그로 내 관심사에 대해 말하거나 팔로우할 수 있습니다. 디아스포라에서 새로운 사람들을 찾을 수 있는 또 하나의 훌륭한 방법입니다."
+      not_mandatory: "다음 단계를 마치면 디아스포라를 더 나은 환경에서 사용할 수 있지만, 필수는 아닙니다."
       profile_description: "프로필을 채우면 누군가가 나를 더 쉽게 찾을 수 있습니다."
       profile_fields: 
         bio: "자기소개"
@@ -833,6 +867,12 @@ ko:
       see_all_featured_users: "모든 추천 사용자 보기"
       welcome: "환영합니다!"
       welcome_with_name: "%{name}님 환영합니다!"
+    logged_out: 
+      go_mobile: "이제 모바일로 즐기세요."
+      on_your_mobile_device: "에 접속하면 디아스포라* 모바일을 쓸 수 있습니다."
+      signed_out: "디아스포라*에서 로그아웃되었습니다."
+      simply_visit: "모바일 기기로"
+      works_on_modern: "모든 최신 스마트폰에서 작동합니다"
     public: 
       does_not_exist: "%{username}님을 찾을 수 없습니다!"
     update: 

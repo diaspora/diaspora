@@ -9,10 +9,10 @@
 
   %ul.comments{:class => ('loaded' if post.comments.size <= 3)}
     -if post.comments.size > 3 && !comments_expanded
-      = render :partial => 'comments/comment', :collection => post.last_three_comments, :locals => {:post => post}
+      = render :partial => 'comments/comment', :collection => post.comments.last(3), :locals => {:post => post}
     -else
       = render :partial => 'comments/comment', :collection => post.comments, :locals => {:post => post}
 
-  - unless !user_signed_in? || @commenting_disabled
+  - unless commenting_disabled?(post)
     .new_comment_form_wrapper{:class => comment_form_wrapper_class(post)}
       = new_comment_form(post.id, current_user)
