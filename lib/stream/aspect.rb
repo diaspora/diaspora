@@ -117,4 +117,13 @@ class Stream::Aspect< Stream::Base
       Rails.application.routes.url_helpers.contacts_path(:a_id => aspect.id)
     end
   end
+
+  # This is perfomance optimization, as everyone in your aspect stream you have
+  # a contact.
+  #
+  # @param post [Post]
+  # @return [Boolean]
+  def can_comment?(post)
+    true
+  end
 end
