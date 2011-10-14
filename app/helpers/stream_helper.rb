@@ -16,6 +16,8 @@ module StreamHelper
       featured_path(:max_time => time_for_scroll(opts[:ajax_stream], @stream), :sort_order => session[:sort_order])
     elsif controller.instance_of?(MentionsController) 
       mentions_path(:max_time => time_for_scroll(opts[:ajax_stream], @stream), :sort_order => session[:sort_order])
+    elsif controller.instance_of?(SoupsController) 
+      soup_path(:max_time => time_for_scroll(opts[:ajax_stream], @stream), :sort_order => session[:sort_order])
     elsif controller.instance_of?(PostsController) 
       public_stream_path(:max_time => time_for_scroll(opts[:ajax_stream], @stream), :sort_order => session[:sort_order])
     elsif controller.instance_of?(AspectsController)

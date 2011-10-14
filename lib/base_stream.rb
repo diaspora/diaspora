@@ -26,7 +26,7 @@ class BaseStream
   end
 
   def title
-    'change me in lib/base_stream.rb!'
+    'a title'
   end
 
   def posts
@@ -48,7 +48,7 @@ class BaseStream
   end
 
   def contacts_link
-    'change me in lib/base_stream.rb!'
+    '#'
   end
 
   #helpers

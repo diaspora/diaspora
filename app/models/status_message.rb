@@ -42,6 +42,12 @@ class StatusMessage < Post
     )).select('DISTINCT posts.*')
   end
 
+  def self.tag_stream(user, tag_array, max_time, order)
+    owned_or_visible_by_user(user).
+      joins(:tags).where(:tags => {:name => tag_array}).
+      for_a_stream(max_time, order)
+  end
+
   def text(opts = {})
     self.formatted_message(opts)
   end

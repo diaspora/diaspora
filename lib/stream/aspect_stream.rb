@@ -23,7 +23,7 @@ class AspectStream < BaseStream
   def aspects
     @aspects ||= lambda do
       a = user.aspects
-      a = a.where(:id => @inputted_aspect_ids) if @inputted_aspect_ids.length > 0
+      a = a.where(:id => @inputted_aspect_ids) if @inputted_aspect_ids.any?
       a
     end.call
   end
