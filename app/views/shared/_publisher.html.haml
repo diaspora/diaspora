@@ -23,7 +23,7 @@
 
             #file-upload{:title => t('.upload_photos')}
               = image_tag 'icons/camera.svg', :height => 14
-
+          #preview-result
 
       - for aspect_id in aspect_ids
         = hidden_field_tag 'aspect_ids[]', aspect_id.to_s
@@ -40,7 +40,9 @@
                 = image_tag "social_media_logos/#{service.provider}-16x16.png", :title => service.provider.titleize, :class => "service_icon dim", :id =>"#{service.provider}", :maxchar => "#{service.class::MAX_CHARACTERS}"
             = link_to (image_tag "icons/monotone_wrench_settings.png"), "#question_mark_pane", :class => 'question_mark', :rel => 'facebox', :title => t('shared.public_explain.manage')
           = render "shared/aspect_dropdown", :selected_aspects => selected_aspects, :hang => 'left'
-          = status.submit t('.share'), :disable_with => t('.posting'), :class => 'button creation', :tabindex => 2
+          = link_to t('.preview'), '#', :id => 'preview', :class => 'button', :tabindex => 2
+          = link_to t('.edit'), '#', :id => 'preview-edit', :class => 'button'
+          = status.submit t('.share'), :id => 'publisher-share', :disable_with => t('.posting'), :class => 'button creation', :tabindex => 3
 
           .facebox_content
             #question_mark_pane
@@ -50,4 +52,3 @@
 
     #publisher_photo_upload
       = render 'photos/new_photo', :aspect_ids => aspect_ids.join(',')
-

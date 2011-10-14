@@ -42,8 +42,9 @@ h1
 ul > li
   :list-style none
 
-.content ul li
-  :list-style disc
+.content, #preview-result
+  ul li
+    :list-style disc
 
 form
   :position relative
@@ -1111,6 +1112,19 @@ label
   #publisher_textarea_wrapper
     #hide_publisher
       :display none
+
+#preview-result
+  :display none
+  :border 1px solid #666666
+  :background white
+  :color #000000
+  :clear both
+  :padding 1em
+  :overflow auto
+  :margin 0px
+
+#preview-edit
+  :display none
 
 .dim
   @include opacity(0.3)
