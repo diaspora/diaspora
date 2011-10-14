@@ -171,6 +171,24 @@ defaults: &defaults
   # This allows an administrator to see info about the workers
   mount_resque_web: true
 
+  # Enable the cache layer (Redis)
+  # If you expect to have thousands of users on your pod,
+  # we *highly* suggest you enable this.
+  #
+  # By default, the cache layer will piggyback off of the Redis
+  # database used by your Resque workers.
+  redis_cache: false
+
+  # The location of your redis cache.
+  # IMPORTANT: DO NOT CHANGE THIS IF YOU DO NOT KNOW WHAT YOU ARE DOING!
+  # 
+  # Leave this blank to use the same Redis database
+  # that your Resque workers use (happy path).
+  # 
+  # This takes an ip (or DNS record).  It assumes that your Redis database
+  # is running on the default Redis port.
+  redis_location: ''
+
 #
 # Use this section to override default settings in specific environments
 #
