@@ -1,7 +1,7 @@
   #   Copyright (c) 2010-2011, Diaspora Inc.  This file is
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
-require File.join(Rails.root, 'lib', 'stream', 'public_stream')
+require File.join(Rails.root, 'lib', 'stream', 'public')
 
 class PublicsController < ApplicationController
   require File.join(Rails.root, '/lib/diaspora/parser')

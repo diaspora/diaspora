@@ -2,10 +2,10 @@
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
-require File.join(Rails.root, 'lib','stream', 'mention_stream')
+require File.join(Rails.root, 'lib','stream', 'mention')
 
 class MentionsController < ApplicationController
   def index
-    default_stream_action(MentionStream)
+    default_stream_action(Stream::Mention)
   end
 end

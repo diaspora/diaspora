@@ -89,7 +89,7 @@ class RedisCache
   # exposing the need to tie cache to a stream
   # @return [Array<String>] Acceptable Post types for the given cache
   def self.acceptable_types
-    BaseStream::TYPES_OF_POST_IN_STREAM
+    Stream::Base::TYPES_OF_POST_IN_STREAM
   end
 
   # Instantiate a redis connection

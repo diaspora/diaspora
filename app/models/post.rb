@@ -43,7 +43,7 @@ class Post < ActiveRecord::Base
   def self.for_a_stream(max_time, order)
     by_max_time(max_time, order).
     includes_for_a_stream.
-    where(:type => BaseStream::TYPES_OF_POST_IN_STREAM).
+    where(:type => Stream::Base::TYPES_OF_POST_IN_STREAM).
     limit(15)
   end
 

@@ -1,4 +1,4 @@
-require File.join(Rails.root, 'lib', 'stream', 'soup_stream')
+require File.join(Rails.root, 'lib', 'stream', 'soup')
 
 class SoupsController < ApplicationController
   before_filter :redirect_unless_admin

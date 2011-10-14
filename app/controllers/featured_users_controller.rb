@@ -1,7 +1,7 @@
-require File.join(Rails.root, 'lib', 'stream', 'featured_users_stream')
+require File.join(Rails.root, 'lib', 'stream', 'featured_users')
 
 class FeaturedUsersController < ApplicationController
   def index
-    default_stream_action(FeaturedUsersStream)
+    default_stream_action(Stream::FeaturedUsers)
   end
 end

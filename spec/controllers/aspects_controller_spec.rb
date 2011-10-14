@@ -68,8 +68,9 @@ describe AspectsController do
   describe "#index" do
     context 'jasmine fixtures' do
       before do
-        AspectStream.any_instance.stub(:ajax_stream?).and_return(false)
+        Stream::Aspect.any_instance.stub(:ajax_stream?).and_return(false)
       end
+
       it "generates a jasmine fixture", :fixture => true do
         get :index
         save_fixture(html_for("body"), "aspects_index")
@@ -152,26 +153,26 @@ describe AspectsController do
       response.should render_template('shared/_stream')
     end
 
-    it 'assigns an AspectStream' do
+    it 'assigns an Stream::Aspect' do
       get :index
-      assigns(:stream).class.should == AspectStream
+      assigns(:stream).class.should == Stream::Aspect
     end
 
     describe 'filtering by aspect' do
       before do
         @aspect1 = alice.aspects.create(:name => "test aspect")
-        @stream = AspectStream.new(alice, [])
+        @stream = Stream::Aspect.new(alice, [])
         @stream.stub(:posts).and_return([])
       end
 
       it 'respects a single aspect' do
-        AspectStream.should_receive(:new).with(alice, [@aspect1.id], anything).and_return(@stream)
+        Stream::Aspect.should_receive(:new).with(alice, [@aspect1.id], anything).and_return(@stream)
         get :index, :a_ids => [@aspect1.id]
       end
 
       it 'respects multiple aspects' do
         aspect2 = alice.aspects.create(:name => "test aspect two")
-        AspectStream.should_receive(:new).with(alice, [@aspect1.id, aspect2.id], anything).and_return(@stream)
+        Stream::Aspect.should_receive(:new).with(alice, [@aspect1.id, aspect2.id], anything).and_return(@stream)
         get :index, :a_ids => [@aspect1.id, aspect2.id]
       end
     end

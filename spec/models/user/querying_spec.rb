@@ -145,7 +145,7 @@ describe User do
       time = Time.now
       Time.stub(:now).and_return(time)
       alice.send(:prep_opts, {}).should == {
-        :type => BaseStream::TYPES_OF_POST_IN_STREAM, 
+        :type => Stream::Base::TYPES_OF_POST_IN_STREAM, 
         :order => 'created_at DESC',
         :limit => 15,
         :hidden => false,

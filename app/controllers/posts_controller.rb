@@ -2,7 +2,7 @@
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
-require File.join(Rails.root, 'lib', 'stream', 'public_stream')
+require File.join(Rails.root, 'lib', 'stream', 'public')
 
 class PostsController < ApplicationController
   before_filter :authenticate_user!, :except => :show
@@ -63,7 +63,7 @@ class PostsController < ApplicationController
   end
 
   def index
-    default_stream_action(PublicStream)
+    default_stream_action(Stream::Public)
   end
 
   def set_format_if_malformed_from_status_net
