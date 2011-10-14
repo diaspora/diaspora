@@ -72,8 +72,11 @@ class Stream::Aspect< Stream::Base
   #
   # @return [Boolean] see #for_all_aspects?
   def ajax_stream?
-    #for_all_aspects?
-    false
+    if AppConfig[:redis_cache]
+      true
+    else
+      false
+    end
   end
 
   # The title that will display at the top of the stream's
