@@ -439,13 +439,15 @@ var Publisher = {
         text: $('#status_message_fake_text').val()
       }, function(data){
         $('#preview-result').html( data.result );
-        $('#preview-modal').fadeIn();
+        $('#preview-modal').fadeIn('fast');
+        $('#preview-overlay').fadeIn('fast');
       });
     } );
 
-    $('#preview-hide').live( 'click', function(evt) {
+    $('#preview-hide, #preview-overlay').live( 'click', function(evt) {
       evt.preventDefault();
-      $('#preview-modal').fadeOut();
+      $('#preview-modal').fadeOut('fast');
+      $('#preview-overlay').fadeOut('fast');
     } );
   }
 };
