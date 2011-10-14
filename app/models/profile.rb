@@ -21,6 +21,7 @@ class Profile < ActiveRecord::Base
   xml_attr :image_url_small
   xml_attr :image_url_medium
   xml_attr :birthday
+  xml_attr :birthday_display
   xml_attr :gender
   xml_attr :bio
   xml_attr :location
@@ -147,7 +148,7 @@ class Profile < ActiveRecord::Base
   end
 
   def birthday_hidden?
-    return true if birthday_display == "none"
+    return true if self.birthday_display.to_sym == :none
     false
   end
 

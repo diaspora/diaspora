@@ -242,6 +242,43 @@ describe Profile do
     end
   end
 
+  describe '#birthday_hidden?' do
+    before do
+      @person = Factory.create(:person)
+    end
+
+    it 'returns false as default' do
+      profile = @person.profile
+      profile.birthday_hidden?.should == false
+    end
+
+    it 'returns true if user does not want to show birthdate' do
+      profile = @person.profile
+      profile.birthday_display = :none
+      profile.save!
+
+      profile.birthday_hidden?.should == true
+    end
+
+    it 'returns false if user wants to show full birthdate' do
+      profile = @person.profile
+      profile.birthday_display = :full
+      profile.birthday_hidden?.should == false
+    end
+
+    it 'returns false if user wants to show birthdate month and day' do
+      profile = @person.profile
+      profile.birthday_display = :month_day
+      profile.birthday_hidden?.should == false
+    end
+
+    it 'returns false if user wants to show age only' do
+      profile = @person.profile
+      profile.birthday_display = :age
+      profile.birthday_hidden?.should == false
+    end
+  end
+  
   describe 'tags' do
     before do
       person = Factory.create(:person)

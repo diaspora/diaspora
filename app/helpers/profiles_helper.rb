@@ -28,19 +28,13 @@ module ProfilesHelper
   def available_birthday_options
     options = [
       [I18n.t('profiles.edit.birthday.full'),      :full     ],
-	  [I18n.t('profiles.edit.birthday.month_day'), :month_day],
+      [I18n.t('profiles.edit.birthday.month_day'), :month_day],
       [I18n.t('profiles.edit.birthday.age'),       :age      ],
       [I18n.t('profiles.edit.birthday.none'),      :none     ],
     ]
   end
 
-  # found here: http://stackoverflow.com/questions/819263/get-persons-age-in-ruby/2357790#2357790
-  def age(birthday)
-    now = Time.now.utc.to_date
-    now.year - birthday.year - ((now.month > birthday.month || (now.month == birthday.month && now.day >= birthday.day)) ? 0 : 1)
-  end
-
-
+  
   private
 
   # @param [Profile, Symbol] Profile and field in question
