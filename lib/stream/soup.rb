@@ -17,6 +17,10 @@ class Stream::Soup < Stream::Base
     Post.where(:id => post_ids).for_a_stream(max_time, order)
   end
 
+  def ajax_stream?
+    true
+  end
+
   private
 
   def aspect_posts_ids

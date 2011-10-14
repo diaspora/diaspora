@@ -844,7 +844,7 @@ en:
       title: "Public Activity"
       contacts_title: "Recent Posters"
     soup:
-      titile: "The Soup"
+      title: "The Soup"
       contacts_title: "People in your Soup"
 
   users:
