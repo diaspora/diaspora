@@ -72,7 +72,8 @@ class Stream::Aspect< Stream::Base
   #
   # @return [Boolean] see #for_all_aspects?
   def ajax_stream?
-    for_all_aspects?
+    #for_all_aspects?
+    false
   end
 
   # The title that will display at the top of the stream's
