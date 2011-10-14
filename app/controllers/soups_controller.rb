@@ -4,6 +4,6 @@ class SoupsController < ApplicationController
   before_filter :redirect_unless_admin
 
   def index 
-    default_stream_action(SoupStream)
+    default_stream_action(Stream::Soup)
   end
 end
