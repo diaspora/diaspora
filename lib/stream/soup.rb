@@ -24,7 +24,7 @@ class Stream::Soup < Stream::Base
   end
 
   def followed_tag_ids
-    StatusMessage.tag_stream(user, tag_array, max_time, order).map{|x| x.id}
+    ids(StatusMessage.tag_stream(user, tag_array, max_time, order))
   end
 
   def mentioned_post_ids
@@ -37,14 +37,14 @@ class Stream::Soup < Stream::Base
 
   #worthless helpers
   def featured_user_ids
-    ids(Person.featured_users)
+    Person.featured_users.select('id').map{|x| x.id}
   end
 
   def tag_array
-    user.followed_tags.map{|x| x.name}
+    user.followed_tags.select('name').map{|x| x.name}
   end
   
   def ids(enumerable)
-    enumerable.map{|x| x.id}
+    Post.connection.select_values(enumerable.select('posts.id').to_sql)
   end
 end
