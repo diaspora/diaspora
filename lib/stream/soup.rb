@@ -14,7 +14,7 @@ class Stream::Soup < Stream::Base
   def posts
     @posts ||= lambda do
       post_ids = aspect_posts_ids + followed_tag_ids + mentioned_post_ids
-      post_ids += featured_user_post_ids
+      post_ids += featured_user_post_ids if include_featured_users?
       Post.where(:id => post_ids).for_a_stream(max_time, order)
     end.call
   end
@@ -24,6 +24,10 @@ class Stream::Soup < Stream::Base
   end
 
   private
+
+  def include_featured_users?
+    false
+  end
 
   def aspect_posts_ids
     @aspect_posts_ids ||= user.visible_post_ids(:limit => 15, :order => "#{order} DESC", :max_time => max_time, :all_aspects? => true, :by_members_of => aspect_ids)
