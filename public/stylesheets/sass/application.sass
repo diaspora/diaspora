@@ -3198,6 +3198,9 @@ ul#getting_started
   :padding 0
   :margin 0
 
+  li
+    :list-style none
+
   > li
     :position relative
     :border
@@ -3208,86 +3211,18 @@ ul#getting_started
 
     .content
       :padding
-        :left 30px
+        :left 35px
 
     input[type='search']
       :width 210px
 
-    &.completed
-      @include opacity(0.4)
-      @include transition(opacity, 0.2s)
-
-      &:hover,
-      &:active
-        @include opacity(1)
-
-      .content h3
-        :text
-          :decoration line-through
-
   .profile
-    :min-height 170px
-
-#getting_started_profile_photo
-  :float right
-  .avatar
-    :height 150px
-    :width 150px
-    :margin
-      :left 5px
-
-#edit_profile_button_div
-  :padding
-    :top 90px
-    :bottom 20px
-
-#getting_started_service_icons
-  :text-align center
-
-  :padding
-    :bottom 20px
-    :top 10px
-
-  .service
-    :margin
-      :right 48px
-    :position relative
-
-    .service_image
-      :position relative
-
-    .checkmark
-      :position absolute
-      img
-        :height 36px
-        :width 36px
-      :left 25px
-      :top -15px
+    :min-height 260px
 
 #right_service_icons
   :text-align center
   :padding 10px
     :bottom 0
-
-#diaspora_hq_pane
-  :padding
-    :bottom 20px
-  :min-height 70px
-
-  .add_to_aspect
-    :padding 10px 0
-
-  .avatar
-    :float left
-    :margin
-      :right 10px
-
-    :height 70px
-    :width 70px
-
-  .name
-    :font
-      :weight bold
 
 .cubbies_images
   :margin-left 15px
@@ -3322,28 +3257,7 @@ ul#getting_started
     :background
       :image url('/images/icons/check_yes_ok.png') !important
 
-.featured_tag
-  :background
-    //:image url('/images/icons/check_yes_ok.png')
-    :position center left
-    :repeat no-repeat
-    :display none
-
-  :padding
-    :left 20px
-
-  &.followed
-    :background
-      :image url('/images/icons/check_yes_ok.png')
-
-  &:hover,
-    :background
-      :image url('/images/icons/check_yes_ok_lighter.png')
-
-
-
-
-#community_spotlight_pane
+#featured_users_pane
   :padding 10px 0
 
   .featured_user_card_small
