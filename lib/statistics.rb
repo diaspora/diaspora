@@ -79,8 +79,18 @@ SQL
           LEFT OUTER JOIN services on services.user_id = users.id
             AND services.type = 'Services::Facebook'
           #{self.where_clause_sql}
-          GROUP BY users.id
+          GROUP BY users.id, users.sign_in_count
 SQL
+  end
+
+  def fb_connected_distribution
+    User.connection.select_all(fb_connected_distribution_sql).map { |row|
+      Hash[
+        row.map { |k,v|
+          [k, v.to_i]
+        }
+      ]
+    }
   end
 
   def sign_in_count_sql
