@@ -1,5 +1,5 @@
 require 'spec_helper'
-require 'lib/statistics'
+require File.join(Rails.root, 'lib/statistics')
 
 describe Statistics do
 
