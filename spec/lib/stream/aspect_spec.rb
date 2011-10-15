@@ -143,6 +143,7 @@ describe Stream::Aspect do
     end
 
     it 'is false if it is not for all aspects' do
+      pending
       @stream.stub(:for_all_aspects?).and_return(false)
       @stream.ajax_stream?.should be_false
     end
