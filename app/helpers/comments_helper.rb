@@ -42,4 +42,8 @@ module CommentsHelper
       false
     end
   end
+
+  def all_comments?
+    defined?(request_parameters) && !! params['all_comments']
+  end
 end
