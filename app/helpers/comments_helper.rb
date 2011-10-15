@@ -44,6 +44,6 @@ module CommentsHelper
   end
 
   def all_comments?
-    defined?(request_parameters) && !! params['all_comments']
+    !! params['all_comments']
   end
 end

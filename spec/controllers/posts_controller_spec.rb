@@ -76,6 +76,26 @@ describe PostsController do
           response.body.should == @status.to_diaspora_xml
         end
 
+        context 'with more than 3 comments' do
+          before do
+            (1..5).each do |i|
+              alice.comment  "comment #{i}", :post => @status
+            end
+          end
+
+          it 'shows all comments of a public post' do
+            get :show, :id => @status.id
+
+            response.body.should =~ /comment 3/
+            response.body.should_not =~ /comment 2/
+
+            get :show, :id => @status.id, 'all_comments' => '1'
+
+            response.body.should =~ /comment 3/
+            response.body.should =~ /comment 2/
+          end
+        end
+
       end
 
       it 'shows a public photo' do
