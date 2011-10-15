@@ -8,6 +8,7 @@ eo:
     aspect_dropdown: 
       add_to_aspect: "Aldoni al aspekto"
       all_aspects: "Ĉiuj aspektoj"
+      select_aspects: "Select aspects"
       toggle: 
         few: "En {{count}} aspektoj"
         many: "En {{count}} aspektoj"

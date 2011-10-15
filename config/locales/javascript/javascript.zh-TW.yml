@@ -8,6 +8,7 @@ zh-TW:
     aspect_dropdown: 
       add_to_aspect: "加聯絡人"
       all_aspects: "所有面向"
+      select_aspects: "Select aspects"
       toggle: 
         few: "在{{count}}個面向中"
         many: "在{{count}}個面向中"

@@ -61,7 +61,9 @@ cs:
       done_editing: "ukončit úpravy"
     aspect_listings: 
       add_an_aspect: "+ Přidat aspekt"
+      deselect_all: "Deselect all"
       edit_aspect: "Upravit %{name}"
+      select_all: "Select all"
     aspect_stream: 
       commented_on: "komentováno"
       mentions: "Mentions"
@@ -93,7 +95,7 @@ cs:
       aspect_not_empty: "Aspekt není prázdný"
       remove: "odebrat"
     index: 
-      community_members: "Featured Diaspora* members"
+      community_spotlight: "Community Spotlight"
       cubbies: 
         explanation: "Cubbi.es je první Diaspora aplikace ve vývoji."
         heading: "Připojit se na Cubbi.es"
@@ -103,16 +105,15 @@ cs:
         content_2: "Dejte to někomu a bude vás moci najít na Diaspoře."
         heading: "Diaspora ID"
       donate: "Přispějte"
-      featured_users: "Featured Users"
       handle_explanation: "Toto je vaše Diaspora ID. Podobně jako e-mailovou adresu ho můžete dál lidem a budete na něm dostupní."
       help: 
         do_you: "Do you:"
-        email_feedback: "%{link} your feedback, if you prefer"
+        email_feedback: "Můžete také poslat %{link}."
         feature_and_forum: "%{gs} & %{forum}: Community-powered support and feature requests"
         feature_suggestion: "... vymyslel jste novou %{link}?"
         find_a_bug: "... našli jste %{link}?"
         have_a_question: "... máte nějakou %{link}?"
-        here_to_help: "Komunita Diaspory je tu pro vás!"
+        here_to_help: "Komunita Diaspory je tu!"
         need_help: "Potřebujete pomoct?"
         satisfaction: "%{link}: Community-powered support"
         tutorials_and_wiki: "%{tutorial} & %{wiki}: Community-powered tutorials, how-to, and news"
@@ -188,8 +189,6 @@ cs:
   contacts: 
     create: 
       failure: "Nepodařilo se vytvořit kontakt"
-    featured: 
-      featured_users: "Featured Users"
     few: "%{count} kontaktů"
     index: 
       add_a_new_aspect: "Přidat nový aspekt"
@@ -209,6 +208,8 @@ cs:
     other: "%{count} kontaktů"
     sharing: 
       people_sharing: "Lidé, kteří s vámi sdílí:"
+    spotlight: 
+      community_spotlight: "Community Spotlight"
     two: "%{count} kontakty"
     zero: "žádné kontakty"
   conversations: 
@@ -770,6 +771,9 @@ cs:
     public: 
       contacts_title: "Recent Posters"
       title: "Public Activity"
+    soup: 
+      contacts_title: "People in your Soup"
+      title: "The Soup"
     tags: 
       contacts_title: "People who dig these tags"
       title: "Posts tagged: %{tags}"

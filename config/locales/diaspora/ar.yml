@@ -61,7 +61,9 @@ ar:
       done_editing: "اتمام التغييرات"
     aspect_listings: 
       add_an_aspect: "+ أضف فئة جديدة"
+      deselect_all: "Deselect all"
       edit_aspect: "Edit %{name}"
+      select_all: "Select all"
     aspect_stream: 
       commented_on: "علق عليها"
       mentions: "Mentions"
@@ -93,7 +95,7 @@ ar:
       aspect_not_empty: "الفئة ليست فارغة"
       remove: "حذف"
     index: 
-      community_members: "Featured Diaspora* members"
+      community_spotlight: "Community Spotlight"
       cubbies: 
         explanation: "Cubbi.es هو أول تطبيق تحت التطوير لديسبورا."
         heading: "صِل حسابك بـ Cubbi.es"
@@ -103,7 +105,6 @@ ar:
         content_2: "أعطه لأي شخص وسيتمكن من إيجادك على ديسبورا."
         heading: "وسيط ديسبورا"
       donate: "تبرّع"
-      featured_users: "Featured Users"
       handle_explanation: "هذا وسيط دياسبرا. مثل البريد الالكتروني، يمكنك منحه للأصدقاء حتى تستطيع التواصل معهم."
       help: 
         do_you: "Do you:"
@@ -188,8 +189,6 @@ ar:
   contacts: 
     create: 
       failure: "فشل في إنشاء الإتصال"
-    featured: 
-      featured_users: "المستخدمون الشَّرفِيون"
     few: "%{count} أعضاء"
     index: 
       add_a_new_aspect: "أضف فئة جديدة"
@@ -209,6 +208,8 @@ ar:
     other: "%{count} أعضاء"
     sharing: 
       people_sharing: "أعضاء يتشاركون معك:"
+    spotlight: 
+      community_spotlight: "Community Spotlight"
     two: "%{count} عضوان"
     zero: "لا يوجد أعضاء"
   conversations: 
@@ -770,6 +771,9 @@ ar:
     public: 
       contacts_title: "Recent Posters"
       title: "Public Activity"
+    soup: 
+      contacts_title: "People in your Soup"
+      title: "The Soup"
     tags: 
       contacts_title: "People who dig these tags"
       title: "Posts tagged: %{tags}"

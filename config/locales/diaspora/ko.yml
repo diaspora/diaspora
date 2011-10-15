@@ -61,7 +61,9 @@ ko:
       done_editing: "고치기 완료"
     aspect_listings: 
       add_an_aspect: "+ 애스펙 추가"
+      deselect_all: "Deselect all"
       edit_aspect: "Edit %{name}"
+      select_all: "Select all"
     aspect_stream: 
       commented_on: "댓글 달린 순"
       mentions: "멘션"
@@ -93,7 +95,7 @@ ko:
       aspect_not_empty: "애스펙이 비어있지 않습니다"
       remove: "지우기"
     index: 
-      community_members: "Featured Diaspora* members"
+      community_spotlight: "Community Spotlight"
       cubbies: 
         explanation: "Cubbi.es는 개발중인 최초의 디아스포라 어플입니다."
         heading: "Cubbi.es에 연결하기"
@@ -103,7 +105,6 @@ ko:
         content_2: "내 ID를 주면 누구든지 디아스포라에서 날 찾을수 있습니다."
         heading: "디아스포라 ID"
       donate: "기부하기"
-      featured_users: "추천 사용자"
       handle_explanation: "이 디아스포라 핸들은 이메일 주소처럼 남에게 건넬 수 있습니다."
       help: 
         do_you: "Do you:"
@@ -188,8 +189,6 @@ ko:
   contacts: 
     create: 
       failure: "컨택을 만들 수 없습니다"
-    featured: 
-      featured_users: "추천 사용자"
     few: "컨택 %{count}명"
     index: 
       add_a_new_aspect: "새 애스펙 추가"
@@ -209,6 +208,8 @@ ko:
     other: "컨택 %{count}명"
     sharing: 
       people_sharing: "나와 공유하는 사람들:"
+    spotlight: 
+      community_spotlight: "Community Spotlight"
     two: "컨택 %{count}명"
     zero: "컨택 없음"
   conversations: 
@@ -770,6 +771,9 @@ ko:
     public: 
       contacts_title: "Recent Posters"
       title: "Public Activity"
+    soup: 
+      contacts_title: "People in your Soup"
+      title: "The Soup"
     tags: 
       contacts_title: "People who dig these tags"
       title: "태그: %{tags}"

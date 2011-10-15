@@ -8,6 +8,7 @@ da:
     aspect_dropdown: 
       add_to_aspect: "Tilføj kontakt"
       all_aspects: "Alle aspekter"
+      select_aspects: "Select aspects"
       toggle: 
         few: "I {{count}} aspekter"
         many: "I {{count}} aspekter"

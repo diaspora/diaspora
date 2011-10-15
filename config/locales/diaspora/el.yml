@@ -61,10 +61,12 @@ el:
       done_editing: "ολοκλήρωση επεξεργασίας"
     aspect_listings: 
       add_an_aspect: "+ Προσθέστε μια πτυχή"
+      deselect_all: "Deselect all"
       edit_aspect: "Επεξεργασία %{name}"
+      select_all: "Select all"
     aspect_stream: 
       commented_on: "σχολιάστηκε"
-      mentions: "Mentions"
+      mentions: "Αναφορές"
       posted: "δημοσιεύτηκε"
       recently: "πρόσφατα:"
       stream: "Stream"
@@ -82,7 +84,7 @@ el:
       aspect_list_is_visible: "η λίστα σας είναι ορατή στους άλλους στην πτυχή"
       confirm_remove_aspect: "Είστε σίγουρος/η πως θέλετε να διαγράψετε αυτή την πτυχή;"
       done: "Ολοκληρώθηκε"
-      make_aspect_list_visible: "θέλετε να ορίσετε τη λίστα των πτυχών σας ορατή;"
+      make_aspect_list_visible: "θέλετε οι επαφές αυτής της πτυχής να είναι ορατές μεταξύ τους;"
       remove_aspect: "Διαγραφή αυτής της πτυχής"
       rename: "μετονομασία"
       update: "ενημέρωση"
@@ -93,7 +95,7 @@ el:
       aspect_not_empty: "Η πτυχή δεν είναι άδεια"
       remove: "αφαίρεση"
     index: 
-      community_members: "Featured Diaspora* members"
+      community_spotlight: "Community Spotlight"
       cubbies: 
         explanation: "Το Cubbi.es είναι η πρώτη εφαρμογή του Diaspora υπό κατασκευή."
         heading: "Συνδεθείτε στο Cubbi.es"
@@ -103,7 +105,6 @@ el:
         content_2: "Δώστε το σε κάποιον και θα μπορεί να σας βρει στο Diaspora."
         heading: "Αναγνωριστικό Diaspora (ID)"
       donate: "Κάντε Δωρεά"
-      featured_users: "Featured Users"
       handle_explanation: "Αυτό είναι το αναγνωριστικό σας στο Diaspora (ID). Όπως και με μια διεύθυνση ηλεκτρονικού ταχυδρομείου, μπορείτε να το δώσετε σε άλλους για να σας βρουν."
       help: 
         do_you: "Μήπως.."
@@ -117,12 +118,12 @@ el:
         satisfaction: "%{link}: Community-powered support"
         tutorials_and_wiki: "%{tutorial} & %{wiki}: Community-powered tutorials, how-to, and news"
       keep_us_running: "Διατηρείστε τη καλή λειτουργία του %{pod}, παρέχοντας στους servers μας τη καφείνη τους!"
-      mentions: "Mentions"
+      mentions: "Αναφορές"
       no_contacts: "Καμία επαφή"
       no_tags: "+ Βρείτε μια ετικέτα να ακολουθείτε"
       people_sharing_with_you: "Άτομα που μοιράζονται μαζί σας"
       post_a_message: "δημοσιεύστε ένα μήνυμα >>"
-      see_more_from_us: "See more of the D* community."
+      see_more_from_us: "Δείτε περισσότερα από τη κοινότητα D*."
       services: 
         content: "Μπορείτε να συνδέσετε τις παρακάτω υπηρεσίες στο Diaspora:"
         heading: "Συνδέστε Υπηρεσίες"
@@ -136,7 +137,7 @@ el:
       success: "Το άτομο μετακινήθηκε σε νέα πτυχή"
     new: 
       create: "Δημιουργία"
-      name: "Όνομα"
+      name: "Όνομα (εμφανίζετε μόνο σε εσάς)"
     no_contacts_message: 
       featured_users: "αξιόλογοι χρήστες"
       or_featured: "Ή μπορείτε να μοιραστείτε μέσω %{link}"
@@ -155,7 +156,7 @@ el:
       manage_your_aspects: "Διαχείριση των πτυχών."
       no_contacts: "Δεν έχετε ακόμα κάποια επαφή εδώ."
       view_all_contacts: "Προβολή όλων των επαφών"
-      view_all_featured_users: "See all Featured Users"
+      view_all_featured_users: "Δείτε όλους τους Αξιόλογους Χρήστες"
     show: 
       edit_aspect: "επεξεργασία πτυχής"
     two: "%{count} πτυχές"
@@ -188,17 +189,15 @@ el:
   contacts: 
     create: 
       failure: "Αποτυχία δημιουργίας επαφής"
-    featured: 
-      featured_users: "Αξιόλογοι Χρήστες"
     few: "%{count} επαφές"
     index: 
       add_a_new_aspect: "Προσθέστε μια νέα πτυχή"
-      add_to_aspect: "Add contacts to %{name}"
+      add_to_aspect: "Προσθέστε επαφές στο %{name}"
       all_contacts: "Όλες οι Επαφές"
       check_out: "Check out"
       many_people_are_you_sure: "Είστε σίγουρος/η ότι θέλετε να ξεκινήσετε μια ιδιωτική συνομιλία με περισσότερες από %{suggested_limit} επαφές? Η δημοσίευση σε αυτή την πτυχή ίσως είναι ένας καλύτερος τρόπος για να επικοινωνήσετε μαζί τους."
       my_contacts: "Οι Επαφές μου"
-      no_contacts: "Καμία Επαφή"
+      no_contacts: "Φαίνεται πως χρειάζεται να προσθέσετε μερικές επαφές! "
       only_sharing_with_me: "Μοιράζονται μόνο με εμένα"
       remove_person_from_aspect: "Μετακίνηση του χρήστη %{person_name} από την πτυχή \"%{aspect_name}\""
       start_a_conversation: "Ξεκινήστε μια συζήτηση"
@@ -209,8 +208,10 @@ el:
     other: "%{count} επαφές"
     sharing: 
       people_sharing: "Άτομα που διαμοιράζονται μαζί σας: "
+    spotlight: 
+      community_spotlight: "Community Spotlight"
     two: "%{count} επαφές"
-    zero: "καμία επαφή"
+    zero: "επαφές"
   conversations: 
     create: 
       fail: "Μη έγκυρο μήνυμα"
@@ -592,12 +593,12 @@ el:
       updated: "Το προφίλ ενημερώθηκε"
   public: "Δημόσιο"
   reactions: 
-    few: "%{count} reactions"
-    many: "%{count} reactions"
-    one: "1 reaction"
-    other: "%{count} reactions"
-    two: "%{count} reactions"
-    zero: "0 reactions"
+    few: "%{count} αντιδράσεις"
+    many: "%{count} αντιδράσεις"
+    one: "1 αντίδραση"
+    other: "%{count} αντιδράσεις"
+    two: "%{count} αντιδράσεις"
+    zero: "0 αντιδράσεις"
   registrations: 
     closed: "Οι εγγραφές είναι κλειστές σε αυτό το pod του Diaspora."
     create: 
@@ -653,7 +654,7 @@ el:
         zero: "Κοινοποίηση"
       reshare_confirmation: "Κοινοποίηση της δημοσίευσης του χρήστη %{author};"
       reshare_original: "Κοινοποίηση αρχικής"
-      reshared_via: "reshared via"
+      reshared_via: "διαμοιράστηκε μέσω"
       show_original: "Προεπισκόπηση αρχικού"
   search: "Αναζήτηση"
   services: 
@@ -692,14 +693,14 @@ el:
       know_email: "Ξέρετε τις ηλεκτρονικές τους διευθύνσεις; Τότε πρέπει να τους προσκαλέσετε"
       your_diaspora_username_is: "Το όνομα χρήστη σας στο Diaspora είναι: %{diaspora_handle}"
     aspect_dropdown: 
-      add_to_aspect: "Προσθήκη σε πτυχή"
+      add_to_aspect: "Προσθήκη επαφής"
       toggle: 
         few: "Σε %{count} πτυχές"
         many: "Σε %{count} πτυχές"
         one: "Σε %{count} πτυχές"
         other: "Σε %{count} πτυχές"
         two: "Σε %{count} πτυχές"
-        zero: "Προσθήκη σε πτυχή"
+        zero: "Προσθήκη επαφής"
     contact_list: 
       all_contacts: "Όλες οι επαφές"
     footer: 
@@ -765,14 +766,17 @@ el:
     show_more_comments: "Προβολή %{number} ακόμα σχολίων"
   streams: 
     mentions: 
-      contacts_title: "People who mentioned you"
-      title: "Your Mentions"
+      contacts_title: "Άτομα που σας έχουν αναφέρει"
+      title: "Οι Αναφορές σας"
     public: 
-      contacts_title: "Recent Posters"
-      title: "Public Activity"
+      contacts_title: "Πρόσφατες Αφίσες"
+      title: "Δημόσια Δραστηριότητα"
+    soup: 
+      contacts_title: "People in your Soup"
+      title: "The Soup"
     tags: 
-      contacts_title: "People who dig these tags"
-      title: "Posts tagged: %{tags}"
+      contacts_title: "Άτομα που τους αρέσουν αυτές οι ετικέτες"
+      title: "Δημοσιοποιήσεις με ετικέτα: %{tags}"
   tag_followings: 
     create: 
       failure: "Η προσπάθεια σας να ακολουθήσετε την ετικέτα #%{name} απέτυχε. "
@@ -783,7 +787,7 @@ el:
   tags: 
     show: 
       follow: "Ακολουθήστε την ετικέτα #%{tag}"
-      followed_by: "followed by"
+      followed_by: "ακολουθείται από"
       following: "Ακολουθείτε την ετικέτα #%{tag}"
       nobody_talking: "Κανένας δεν μιλάει ακόμα για την ετικέτα %{tag}."
       people_tagged_with: "Άτομα με την ετικέτα %{tag}"
@@ -834,25 +838,25 @@ el:
       your_handle: "Το αναγνωριστικό σας στο diaspora"
     getting_started: 
       bold: "πτυχές"
-      community_welcome: "Diaspora's community is happy to have you aboard!"
+      community_welcome: "Η κοινότητα του Diaspora είναι χαρούμενη να σας έχει μαζί!"
       connect_to: "Συνδεθείτε με"
       connect_to_your_other_social_networks: "Συνδεθείτε με άλλα κοινωνικά δίκτυα"
-      connect_to_your_other_social_networks_explanation_p1: "Connecting to services will allow you to publish out to these services."
-      connect_to_your_other_social_networks_explanation_p2: "With Facebook, you also be able to find friends already on Diaspora and invite others."
+      connect_to_your_other_social_networks_explanation_p1: "Η σύνδεση σε άλλες υπηρεσίες σας δίνει τη δυνατότητα να δημοσιοποιήσετε σε αυτές τις υπηρεσίες."
+      connect_to_your_other_social_networks_explanation_p2: "Μέσω του Facebook, θα μπορέσετε να βρείτε φίλους που χρησιμοποιούν ήδη το Diaspora και να προσκαλέσετε και άλλους."
       connect_with_people: "Συνδεθείτε με ενδιαφέροντα άτομα"
       connect_with_people_explanation_pt1: "Συνδεθείτε με άτομα τοποθετώντας τα σε μία ή περισσότερες από τις %{bold}"
       connect_with_people_explanation_pt2: "Οι Πτυχές είναι ενας τρόπος οργάνωσης, των προσωπικών σου, καινούργιων και γνωστών σου προσώπων, επιτρέποντας σου να διαχωρίσεις η να μοιραστέις με υποκατηγοριές των επαφών σου πιο εύκολα."
       edit_profile: "Επεξεργασία Προφίλ"
-      featured_tags: "Αξιόλογες ετικέτες"
+      featured_tags: "Ακολουθείστε αξιόλογες ετικέτες"
       featured_users: "Αξιόλογοι χρήστες"
       fill_out_your_profile: "Συμπληρώστε το προφίλ σας "
       find_friends: "Βρείτε φίλους"
       find_friends_from_facebook: "βρείτε φίλους από το Facebook"
       finished: "Τέλος!"
       follow_your_interests: "Ακολουθείστε τα ενδιαφέροντα σας"
-      get_updates_from_core: "Get updates about the project from the core team."
+      get_updates_from_core: "Λάβετε ενημερώσεις σχετικά με το σχέδιο από την κεντρική ομάδα."
       hashtag_explanation: "Τα hashtags σας επιτρέπουν να συζητάτε και να ακολουθείτε συγκεκριμένα ενδιαφέροντα. Είναι ακόμα ένας ωραίος τρόπος για να γνωρίσετε νέα άτομα στο Diaspora."
-      not_mandatory: "Completing the following steps will improve your Diaspora experience, but they are not mandatory."
+      not_mandatory: "Ακολουθώντας τα επόμενα βήματα θα εξοικειωθείτε περισσότερο με το Diaspora, χωρίς να είναι βέβαια υποχρεωτικά."
       profile_description: "Διευκολύνετε άλλους χρήστες να σας βρουν συμπληρώνοντας τις προσωπικές σας πληροφορίες."
       profile_fields: 
         bio: "Βιογραφικό"
@@ -868,11 +872,11 @@ el:
       welcome: "Καλώς ήλθατε!"
       welcome_with_name: "Καλώς ήρθες, %{name}!"
     logged_out: 
-      go_mobile: "Now go mobile."
-      on_your_mobile_device: "on your mobile device to access Diaspora* mobile."
-      signed_out: "You've signed out of Diaspora*"
-      simply_visit: "Simply visit"
-      works_on_modern: "Works on all modern smartphones"
+      go_mobile: "Εναλλαγή σε κινητό."
+      on_your_mobile_device: "στη κινητή συσκευή σας για να έχετε πρόσβαση στη κινητή έκδοση του Diaspora*."
+      signed_out: "Έχετε αποσυνδεθεί από το Diaspora*"
+      simply_visit: "Απλά επισκεφθείτε "
+      works_on_modern: "Δουλεύει σε όλα τα μοντέρνα smartphones"
     public: 
       does_not_exist: "Ο χρήστης %{username} δεν υπάρχει!"
     update: 

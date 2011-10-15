@@ -8,6 +8,7 @@ es:
     aspect_dropdown: 
       add_to_aspect: "Añadir contacto"
       all_aspects: "Todos los aspectos"
+      select_aspects: "Select aspects"
       toggle: 
         few: "En {{count}} aspectos"
         many: "En {{count}} aspectos"
@@ -29,12 +30,12 @@ es:
       no_more: "No hay más publicaciones."
     publisher: 
       at_least_one_aspect: "Debes publicarlo en al menos un aspecto"
-      limited: "Limitado - tu publicación será visible solo para la gente con la que lo compartas"
-      public: "Público - tu publicación será visible para todos e indexado por buscadores"
+      limited: "Limitado - tu publicación solo será visible para las personas con quien compartes"
+      public: "Público - tu publicación será visible para todos, incluyendo buscadores"
     reshares: 
-      duplicate: "¡Ya has vuelto a compartir esa publicación!"
+      duplicate: "¡Ya compartiste esa publicación!"
     search_for: "Buscar a {{name}}"
-    show_more: "ver más"
+    show_more: "mostrar más"
     timeago: 
       day: "un día"
       days: "%d días"
@@ -55,4 +56,4 @@ es:
       unknown: "Tipo de video desconocido"
       watch: "Ver este video con {{provider}}"
     web_sockets: 
-      disconnected: "El canal está cerrado; los comentarios no serán actualizados al momento."
+      disconnected: "El canal está cerrado; las publicaciones no serán actualizadas al momento."

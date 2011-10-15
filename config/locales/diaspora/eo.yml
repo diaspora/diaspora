@@ -61,7 +61,9 @@ eo:
       done_editing: "finita redakti"
     aspect_listings: 
       add_an_aspect: "+ Aldoni aspekton"
+      deselect_all: "Deselect all"
       edit_aspect: "Redakti %{name}-n"
+      select_all: "Select all"
     aspect_stream: 
       commented_on: " komentis pri "
       mentions: "Mencioj"
@@ -93,7 +95,7 @@ eo:
       aspect_not_empty: "Aspekto ne malplenas"
       remove: "forigi"
     index: 
-      community_members: "Featured Diaspora* members"
+      community_spotlight: "Community Spotlight"
       cubbies: 
         explanation: "Cubbi.es estas la unua DIASPORA* aplikaĵo developata."
         heading: "Konekti al Cubbi.es"
@@ -103,7 +105,6 @@ eo:
         content_2: "Donu ĝin al iu ajn, kaj tiu povos trovi vin ĉe DIASPORA*."
         heading: "DIASPORA* uzantnomo"
       donate: "Donaci"
-      featured_users: "Prezentataj Uzantoj"
       handle_explanation: "Tiu ĉi estas via DIASPORA* uzantnomo.  Kiel retpoŝtadreso, vi povas doni tiun ĉi al homoj, por ke ili vin kontaktu."
       help: 
         do_you: "Ĉu vi:"
@@ -188,8 +189,6 @@ eo:
   contacts: 
     create: 
       failure: "Ne povis krei kontakton"
-    featured: 
-      featured_users: "Prezentataj Uzantoj"
     few: "%{count} kontaktoj"
     index: 
       add_a_new_aspect: "Aldoni novan aspekton"
@@ -209,6 +208,8 @@ eo:
     other: "%{count} kontaktoj"
     sharing: 
       people_sharing: "Homoj, kiuj konigas kun vi:"
+    spotlight: 
+      community_spotlight: "Community Spotlight"
     two: "%{count} kontaktoj"
     zero: "kontaktoj"
   conversations: 
@@ -770,6 +771,9 @@ eo:
     public: 
       contacts_title: "Recent Posters"
       title: "Public Activity"
+    soup: 
+      contacts_title: "People in your Soup"
+      title: "The Soup"
     tags: 
       contacts_title: "Homoj, al kiuj tiuj ĉi etikedoj plaĉas"
       title: "Afiŝoj etikeditaj: %{tags}"

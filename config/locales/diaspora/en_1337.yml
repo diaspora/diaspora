@@ -61,7 +61,9 @@ en_1337:
       done_editing: "D0N3 3D171NG!"
     aspect_listings: 
       add_an_aspect: "+ 4DD 4N 45P3C7"
+      deselect_all: "Deselect all"
       edit_aspect: "3D17 %{name}"
+      select_all: "Select all"
     aspect_stream: 
       commented_on: "C0MM3N73D 0N"
       mentions: "M3N710N5"
@@ -93,7 +95,7 @@ en_1337:
       aspect_not_empty: "45P3C7 N07 3MP7Y!"
       remove: "R3M0V3"
     index: 
-      community_members: "Featured Diaspora* members"
+      community_spotlight: "Community Spotlight"
       cubbies: 
         explanation: "CUBB1.35 15 7H3 F1R57 4PP F0R D*!"
         heading: "C0NN3C7 70 CUBB1.35"
@@ -103,7 +105,6 @@ en_1337:
         content_2: "G1V3 7H3M 2 N00B5 4ND 7H3Y W1LL F1ND U!"
         heading: "D* 1D"
       donate: "D0N473!"
-      featured_users: "PR0G4M3R"
       handle_explanation: "7H15 15 Y0UR D* 1D, N00B5 C4N F1ND U U51NG 17!"
       help: 
         do_you: "D0 U:"
@@ -188,8 +189,6 @@ en_1337:
   contacts: 
     create: 
       failure: "F41L3D 2 CR3473 C0N74C7!"
-    featured: 
-      featured_users: "PR0G4M3R"
     few: "%{count} N00B5"
     index: 
       add_a_new_aspect: "4DD 4 N3W 45P3C7!"
@@ -209,6 +208,8 @@ en_1337:
     other: "%{count} N00B5"
     sharing: 
       people_sharing: "N00B5 5H4R1NG W17H U:"
+    spotlight: 
+      community_spotlight: "Community Spotlight"
     two: "%{count} N00B5"
     zero: "N00B5"
   conversations: 
@@ -770,6 +771,9 @@ en_1337:
     public: 
       contacts_title: "Recent Posters"
       title: "Public Activity"
+    soup: 
+      contacts_title: "People in your Soup"
+      title: "The Soup"
     tags: 
       contacts_title: "N00B5 WH0 D1G 7H353 74G5"
       title: "5P4M 74GG3D: %{tags}"

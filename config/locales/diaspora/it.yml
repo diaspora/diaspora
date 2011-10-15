@@ -61,10 +61,12 @@ it:
       done_editing: "modifica eseguita"
     aspect_listings: 
       add_an_aspect: "+ Aggiungi un aspetto"
+      deselect_all: "Deselect all"
       edit_aspect: "Modifica %{name}"
+      select_all: "Select all"
     aspect_stream: 
       commented_on: "commenti"
-      mentions: "Mentions"
+      mentions: "Menzioni"
       posted: "post"
       recently: "ordina per:"
       stream: "Stream"
@@ -93,7 +95,7 @@ it:
       aspect_not_empty: "Aspetto non vuoto"
       remove: "rimuovi"
     index: 
-      community_members: "Featured Diaspora* members"
+      community_spotlight: "Community Spotlight"
       cubbies: 
         explanation: "Cubbi.es è la prima applicazione in sviluppo per Diaspora."
         heading: "Connettiti a Cubbi.es"
@@ -103,7 +105,6 @@ it:
         content_2: "Chi lo conosce potrà trovarti facilmente su Diaspora, spargi la voce!"
         heading: "ID Diaspora"
       donate: "Fai una donazione"
-      featured_users: "Utenti in evidenza"
       handle_explanation: "Questo è il tuo ID su Diaspora. Lo puoi dare alle persone per farti trovare, come un indirizzo email."
       help: 
         do_you: "Vuoi..."
@@ -117,12 +118,12 @@ it:
         satisfaction: "%{link}: Per avere supporto dalla comunità"
         tutorials_and_wiki: "%{tutorial} & %{wiki}: Per le ultime notizie, le guide e i suggerimenti della comunità"
       keep_us_running: "Mantieni %{pod} veloce e scattante, la tua donazione mensile sarà il caffè per i nostri server!"
-      mentions: "Mentions"
+      mentions: "Menzioni"
       no_contacts: "Nessun contatto"
       no_tags: "+ Cerca tag da seguire"
       people_sharing_with_you: "Persone in condivisione con te"
       post_a_message: "invia un messaggio >>"
-      see_more_from_us: "See more of the D* community."
+      see_more_from_us: "Scopri gli altri della comunità."
       services: 
         content: "Puoi collegare i seguenti servizi a Diaspora:"
         heading: "Servizi connessi"
@@ -188,8 +189,6 @@ it:
   contacts: 
     create: 
       failure: "Impossibile creare il contatto"
-    featured: 
-      featured_users: "Utenti in evidenza"
     few: "%{count} contatti"
     index: 
       add_a_new_aspect: "Aggiungi un aspetto"
@@ -209,6 +208,8 @@ it:
     other: "%{count} contatti"
     sharing: 
       people_sharing: "Persone che condividono con te:"
+    spotlight: 
+      community_spotlight: "Community Spotlight"
     two: "%{count} contatti"
     zero: "contatti"
   conversations: 
@@ -241,7 +242,7 @@ it:
     new_message: 
       fail: "Messaggio non valido"
     show: 
-      delete: "cancella e blocca la conversazione"
+      delete: "elimina e blocca la conversazione"
       reply: "rispondi"
       replying: "Invio risposta..."
   date: 
@@ -352,10 +353,10 @@ it:
     also_commented_deleted: 
       few: "%{actors} hanno commentato il messaggio che hai eliminato."
       many: "%{actors} hanno commentato il messaggio che hai eliminato."
-      one: "%{actors} ha commentato su un post cancellato."
-      other: "%{actors} ha commentato su un post cancellato."
-      two: "%{actors} hanno commentato il post che hai rimosso."
-      zero: "%{actors} ha commentato su un post cancellato."
+      one: "%{actors} ha commentato su un post che è stato eliminato."
+      other: "%{actors} ha commentato su un post che è stato eliminato."
+      two: "%{actors} hanno commentato il post che hai eliminato."
+      zero: "%{actors} ha commentato su un post che è stato eliminato."
     comment_on_post: 
       few: "%{actors} hanno commentato il tuo %{post_link}."
       many: "%{actors} hanno commentato il tuo %{post_link}."
@@ -367,7 +368,7 @@ it:
       new_notifications: 
         few: "%{count} nuove notifiche"
         many: "%{count} nuove notifiche"
-        one: "una nuova notifica"
+        one: "1 nuova notifica"
         other: "%{count} nuove notifiche"
         two: "%{count} nuove notifiche"
         zero: "Nessuna nuova notifica"
@@ -394,22 +395,22 @@ it:
       many: "A %{actors} piaceva il messaggio che hai eliminato."
       one: "A %{actors} piaceva il messaggio che hai eliminato."
       other: "A %{actors} piaceva il messaggio che hai eliminato."
-      two: "A %{actors} piaceva il post che hai rimosso."
+      two: "A %{actors} piaceva il post che hai eliminato."
       zero: "A %{actors} piaceva il messaggio che hai eliminato."
     mentioned: 
       few: "%{actors} ti hanno menzionato in un %{post_link}."
       many: "%{actors} ti hanno menzionato in un %{post_link}."
       one: "%{actors} ti ha menzionato in un %{post_link}."
       other: "%{actors} ti ha menzionato in un %{post_link}."
-      two: "%{actors} ti hanno nominato in un %{post_link}."
+      two: "%{actors} ti hanno menzionato in un %{post_link}."
       zero: "%{actors} ti ha menzionato in un %{post_link}."
     mentioned_deleted: 
-      few: "%{actors} ti hanno menzionato in un post cancellato."
-      many: "%{actors} ti hanno menzionato in un post cancellato."
-      one: "%{actors} ti ha menzionato in un post cancellato."
-      other: "%{actors} ti ha menzionato in un post cancellato."
-      two: "%{actors} ti hanno nominato in un post che è stato rimosso."
-      zero: "%{actors} ti ha menzionato in un post cancellato."
+      few: "%{actors} ti hanno menzionato in un post che è stato eliminato."
+      many: "%{actors} ti hanno menzionato in un post che è stato eliminato."
+      one: "%{actors} ti ha menzionato in un post che è stato eliminato."
+      other: "%{actors} ti ha menzionato in un post che è stato eliminato."
+      two: "%{actors} ti hanno menzionato in un post che è stato eliminato."
+      zero: "%{actors} ti ha menzionato in un post che è stato eliminato."
     post: "post"
     private_message: 
       few: "%{actors} ti hanno inviato un messaggio."
@@ -426,12 +427,12 @@ it:
       two: "%{actors} hanno condiviso il tuo %{post_link}."
       zero: "%{actors} hanno condiviso il tuo %{post_link}."
     reshared_post_deleted: 
-      few: "%{actors} hanno condiviso il post che hai cancellato."
-      many: "%{actors} hanno condiviso il post che hai cancellato."
-      one: "%{actors} ha condiviso il post che hai cancellato."
-      other: "%{actors} hanno condiviso il post che hai cancellato."
-      two: "%{actors} hanno condiviso il post che hai rimosso."
-      zero: "%{actors} hanno condiviso il post che hai cancellato."
+      few: "%{actors} hanno condiviso il post che hai eliminato."
+      many: "%{actors} hanno condiviso il post che hai eliminato."
+      one: "%{actors} ha condiviso il post che hai eliminato."
+      other: "%{actors} hanno condiviso il post che hai eliminato."
+      two: "%{actors} hanno condiviso il post che hai eliminato."
+      zero: "%{actors} hanno condiviso il post che hai eliminato."
     started_sharing: 
       few: "%{actors} hanno iniziato a condividere con te."
       many: "%{actors} hanno iniziato a condividere con te."
@@ -766,10 +767,13 @@ it:
   streams: 
     mentions: 
       contacts_title: "Persone che ti hanno menzionato"
-      title: "Your Mentions"
+      title: "Le tue menzioni"
     public: 
-      contacts_title: "Recent Posters"
-      title: "Public Activity"
+      contacts_title: "Chi ha postato di recente"
+      title: "Attività Pubblica"
+    soup: 
+      contacts_title: "People in your Soup"
+      title: "The Soup"
     tags: 
       contacts_title: "Persone con questi tag"
       title: "Post con tag: %{tags}"
@@ -783,7 +787,7 @@ it:
   tags: 
     show: 
       follow: "Segui #%{tag}"
-      followed_by: "followed by"
+      followed_by: "seguito da"
       following: "Stai seguendo #%{tag}"
       nobody_talking: "Nessuno sta ancora parlando di %{tag}."
       people_tagged_with: "Persone etichettate come %{tag}"

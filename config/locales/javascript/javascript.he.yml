@@ -8,6 +8,7 @@ he:
     aspect_dropdown: 
       add_to_aspect: "הוספה להיבט"
       all_aspects: "כל ההיבטים"
+      select_aspects: "Select aspects"
       toggle: 
         few: "ב־{{count}} היבטים"
         many: "ב־{{count}} היבטים"

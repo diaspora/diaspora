@@ -8,6 +8,7 @@ fr:
     aspect_dropdown: 
       add_to_aspect: "Ajouter le contact"
       all_aspects: "Tous les aspects"
+      select_aspects: "Select aspects"
       toggle: 
         few: "Dans {{count}} aspects"
         many: "Dans {{count}} aspects"

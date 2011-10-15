@@ -8,6 +8,7 @@ uk:
     aspect_dropdown: 
       add_to_aspect: "Додати контакт"
       all_aspects: "Усі аспекти"
+      select_aspects: "Select aspects"
       toggle: 
         few: "У {{count}} аспектах"
         many: "У {{count}} аспектах"

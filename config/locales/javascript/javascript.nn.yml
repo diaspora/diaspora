@@ -6,19 +6,20 @@
 nn: 
   javascripts: 
     aspect_dropdown: 
-      add_to_aspect: "Legg til aspektet"
+      add_to_aspect: "Legg til kontakt"
       all_aspects: "Alle aspekta"
+      select_aspects: "Select aspects"
       toggle: 
         few: "I {{count}} aspekt"
         many: "I {{count}} aspekt"
         one: "I {{count}} aspekt"
         other: "I {{count}} aspekt"
         two: "I {{count}} aspekt"
-        zero: "Legg til aspektet"
+        zero: "Legg til kontakt"
     aspect_navigation: 
-      deselect_all: "Deselect all"
-      no_aspects: "No aspects selected"
-      select_all: "Select all"
+      deselect_all: "Vel vekk alle"
+      no_aspects: "Ingen aspekt er valde"
+      select_all: "Vel alle"
     comments: 
       hide: "gøym merknader"
       show: "syn alle merknadene"

@@ -8,6 +8,7 @@ sk:
     aspect_dropdown: 
       add_to_aspect: "Pridať kontakt"
       all_aspects: "Všetky kategórie"
+      select_aspects: "Select aspects"
       toggle: 
         few: "V(o) {{count}} kategóriách"
         many: "V(o) {{count}} kategóriách"

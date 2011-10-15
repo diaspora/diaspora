@@ -6,15 +6,16 @@
 bg: 
   javascripts: 
     aspect_dropdown: 
-      add_to_aspect: "Добавяне в аспект"
-      all_aspects: "Всички аспекти"
+      add_to_aspect: "Избиране на аспект(и)"
+      all_aspects: "Във всеки аспект"
+      select_aspects: "Select aspects"
       toggle: 
         few: "В {{count}} аспекта"
         many: "В {{count}} аспекта"
         one: "В {{count}} аспект"
         other: "В {{count}} аспекта"
         two: "В {{count}} аспекта"
-        zero: "Добавяне в аспект"
+        zero: "Избиране на аспект(и)"
     aspect_navigation: 
       deselect_all: "Никой"
       no_aspects: "Няма избран аспект"

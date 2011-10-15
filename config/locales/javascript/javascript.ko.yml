@@ -8,6 +8,7 @@ ko:
     aspect_dropdown: 
       add_to_aspect: "애스펙에 넣기"
       all_aspects: "All aspects"
+      select_aspects: "Select aspects"
       toggle: 
         few: "애스펙 {{count}}개 안에 있습니다"
         many: "애스펙 {{count}}개 안에 있습니다"

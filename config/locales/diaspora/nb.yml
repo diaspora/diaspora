@@ -61,7 +61,9 @@ nb:
       done_editing: "fullfør"
     aspect_listings: 
       add_an_aspect: "+ Add an aspect"
+      deselect_all: "Deselect all"
       edit_aspect: "Edit %{name}"
+      select_all: "Select all"
     aspect_stream: 
       commented_on: "commented on"
       mentions: "Mentions"
@@ -93,7 +95,7 @@ nb:
       aspect_not_empty: "Aspektet er ikke tomt"
       remove: "fjern"
     index: 
-      community_members: "Featured Diaspora* members"
+      community_spotlight: "Community Spotlight"
       cubbies: 
         explanation: "Cubbi.es is the first Diaspora application under development."
         heading: "Connect to Cubbi.es"
@@ -103,7 +105,6 @@ nb:
         content_2: "Give it to anyone and they'll be able to find you on Diaspora."
         heading: "Diaspora ID"
       donate: "Doner"
-      featured_users: "Featured Users"
       handle_explanation: "This is your diaspora handle.  Like an email address, you can give this to people to reach you."
       help: 
         do_you: "Do you:"
@@ -188,8 +189,6 @@ nb:
   contacts: 
     create: 
       failure: "Kunne ikke opprette kontakt"
-    featured: 
-      featured_users: "Featured Users"
     few: "%{count} kontakter"
     index: 
       add_a_new_aspect: "Add a new aspect"
@@ -209,6 +208,8 @@ nb:
     other: "%{count} kontakter"
     sharing: 
       people_sharing: "Folk som deler med deg:"
+    spotlight: 
+      community_spotlight: "Community Spotlight"
     two: "%{count} kontakter"
     zero: "ingen kontakter"
   conversations: 
@@ -770,6 +771,9 @@ nb:
     public: 
       contacts_title: "Recent Posters"
       title: "Public Activity"
+    soup: 
+      contacts_title: "People in your Soup"
+      title: "The Soup"
     tags: 
       contacts_title: "People who dig these tags"
       title: "Posts tagged: %{tags}"

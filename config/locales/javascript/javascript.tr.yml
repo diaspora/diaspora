@@ -8,6 +8,7 @@ tr:
     aspect_dropdown: 
       add_to_aspect: "Yönüne ekle"
       all_aspects: "Tüm yönler"
+      select_aspects: "Select aspects"
       toggle: 
         few: "{{count}} yön"
         many: "{{count}} yön"
@@ -16,9 +17,9 @@ tr:
         two: "{{count}} yön"
         zero: "Yönüne ekle"
     aspect_navigation: 
-      deselect_all: "Deselect all"
-      no_aspects: "No aspects selected"
-      select_all: "Select all"
+      deselect_all: "Tümünü kaldır"
+      no_aspects: "Hiç yön seçilmedi"
+      select_all: "Tümünü seç"
     comments: 
       hide: "yorumları gizle"
       show: "tüm yorumları görüntüle"

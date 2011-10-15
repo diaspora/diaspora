@@ -61,7 +61,9 @@ sk:
       done_editing: "úpravy dokončené"
     aspect_listings: 
       add_an_aspect: "+ Pridať kategóriu"
+      deselect_all: "Deselect all"
       edit_aspect: "Upraviť %{name}"
+      select_all: "Select all"
     aspect_stream: 
       commented_on: "okomentoval(a)"
       mentions: "Zmienky"
@@ -93,7 +95,7 @@ sk:
       aspect_not_empty: "Kategória nie je prázdna"
       remove: "odstrániť"
     index: 
-      community_members: "Featured Diaspora* members"
+      community_spotlight: "Community Spotlight"
       cubbies: 
         explanation: "Cubbi.es je prvá aplikácia, ktorá sa vyvíja v Diaspore."
         heading: "Pripojiť sa ku Cubbi.es"
@@ -103,7 +105,6 @@ sk:
         content_2: "Dajte ho hocikomu a bude vás môcť nájsť na Diaspore."
         heading: "ID na Diasporu"
       donate: "Prispieť"
-      featured_users: "Navrhovaní používatelia"
       handle_explanation: "Toto je vaše id na Diasporu. Môžete ju dať ostatným ľuďom ako e-mailovú adresu, aby sa s vami mohli spojiť."
       help: 
         do_you: "Už:"
@@ -122,7 +123,7 @@ sk:
       no_tags: "+ Nájdite štítok, ktorý budete sledovať"
       people_sharing_with_you: "Ľudia, s ktorými ste sa s niečim podelili"
       post_a_message: "Poslať správu >>"
-      see_more_from_us: "See more of the D* community."
+      see_more_from_us: "Zobraziť viac z komunity D*."
       services: 
         content: "S Diasporou môžete prepojiť tieto služby:"
         heading: "Pripojiť sa k službám"
@@ -188,8 +189,6 @@ sk:
   contacts: 
     create: 
       failure: "Nepodarilo sa vytvoriť kontakt"
-    featured: 
-      featured_users: "Navrhovaní používatelia"
     few: "kontakty (%{count})"
     index: 
       add_a_new_aspect: "Pridať novú kategóriu"
@@ -209,6 +208,8 @@ sk:
     other: "kontakty (%{count})"
     sharing: 
       people_sharing: "Ľudia, ktorí sa s vami podelili:"
+    spotlight: 
+      community_spotlight: "Community Spotlight"
     two: "%{count} kontakty"
     zero: "kontakty"
   conversations: 
@@ -768,8 +769,11 @@ sk:
       contacts_title: "Ľudia, ktorí vás spomenuli"
       title: "Vaše zmienky/Zmienky o vás"
     public: 
-      contacts_title: "Recent Posters"
-      title: "Public Activity"
+      contacts_title: "Autori najnovších príspevkov"
+      title: "Verejná aktivita"
+    soup: 
+      contacts_title: "People in your Soup"
+      title: "The Soup"
     tags: 
       contacts_title: "Ľudia, ktorí hľadajú tieto štítky"
       title: "Príspevky so štítkami: %{tags}"
@@ -783,7 +787,7 @@ sk:
   tags: 
     show: 
       follow: "Sledovať #%{tag}"
-      followed_by: "followed by"
+      followed_by: "sleduje"
       following: "Sledujete #%{tag}"
       nobody_talking: "Niekto ešte nehovorí o téme %{tag}."
       people_tagged_with: "Ľudia označení s %{tag}"

@@ -61,7 +61,9 @@ uk:
       done_editing: "редагування завершене"
     aspect_listings: 
       add_an_aspect: "+ Додати аспект"
+      deselect_all: "Deselect all"
       edit_aspect: "Редагувати %{name}"
+      select_all: "Select all"
     aspect_stream: 
       commented_on: "прокоментовані"
       mentions: "Згадування"
@@ -93,7 +95,7 @@ uk:
       aspect_not_empty: "Аспект не порожній"
       remove: "видалити"
     index: 
-      community_members: "Featured Diaspora* members"
+      community_spotlight: "Community Spotlight"
       cubbies: 
         explanation: "Cubbi.es це перша програма з розвитку діаспори."
         heading: "Підключення до Cubbi.es"
@@ -103,29 +105,28 @@ uk:
         content_2: "По ньому будь-хто зможе знайти вас в Діаспорі."
         heading: "Ідентифікатор в Діаспорі"
       donate: "Пожертвувати"
-      featured_users: "Рекомендовані користувачі"
       handle_explanation: "Це ваш ідентифікатор в Діаспорі. Як і адреса електронної пошти, ви можете дати його людям для зв'язку з вами."
       help: 
         do_you: "Ви:"
         email_feedback: "%{link} ваші відгуки"
-        feature_and_forum: "%{gs} і %{forum}: здійснювана співтовариством підтримка і прийом пропозицій"
+        feature_and_forum: "%{gs} і %{forum}: здійснювана товариством підтримка і прийом пропозицій"
         feature_suggestion: "...  хочете запропонувати щось нове (%{link})?"
         find_a_bug: "... знайшли помилку (%{link})?"
         have_a_question: "...  хочете поставити питання (%{link})?"
-        here_to_help: "Співтовариство Діаспори до ваших послуг!"
+        here_to_help: "Товариство Діаспори до ваших послуг!"
         need_help: "Потрібна допомога?"
-        satisfaction: "%{link}: здійснювана співтовариством підтримка"
-        tutorials_and_wiki: "%{tutorial} і %{wiki}: посібники, що створюються співтовариством, інструкції і новини"
+        satisfaction: "%{link}: здійснювана товариством підтримка"
+        tutorials_and_wiki: "%{tutorial} і %{wiki}: посібники, що створюються товариством, інструкції і новини"
       keep_us_running: "Допоможіть %{pod} працювати швидко - купіть нашим серверам дозу кави, зробивши щомісячне пожертвування!"
-      mentions: "Знадування"
+      mentions: "Згадування"
       no_contacts: "Контакти відсутні"
       no_tags: "+ Знайти мітку"
       people_sharing_with_you: "Люди діляться з вами"
       post_a_message: "новий запис >>"
-      see_more_from_us: "See more of the D* community."
+      see_more_from_us: "Більше  від Д* товариства."
       services: 
         content: "Ви можете підключити до Діаспори наступні служби:"
-        heading: "Підключені служби"
+        heading: "Підключення служб"
       tags_following: "Відстежувані мітки"
       unfollow_tag: "Не стежити за міткою #%{tag}"
       your_aspects: "Ваші аспекти"
@@ -188,8 +189,6 @@ uk:
   contacts: 
     create: 
       failure: "Не вдалося створити контакт"
-    featured: 
-      featured_users: "Рекомендовані користувачі"
     few: "%{count} контакт[-у, -iв]"
     index: 
       add_a_new_aspect: "Новий аспект"
@@ -209,6 +208,8 @@ uk:
     other: "%{count} контакт[-у, -iв]"
     sharing: 
       people_sharing: "діляться з вами:"
+    spotlight: 
+      community_spotlight: "Community Spotlight"
     two: "%{count} контакту"
     zero: "контактів"
   conversations: 
@@ -508,7 +509,7 @@ uk:
       does_not_exist: "Персони не існує!"
       has_not_shared_with_you_yet: "%{name} ще не ділився записами з вами!"
       incoming_request: "%{name} хоче поділитися з вами"
-      mention: "Згадка"
+      mention: "Згадати"
       message: "Повідомлення"
       not_connected: "Ви не ділитеся з цією людиною"
       recent_posts: "Останні записи"
@@ -692,14 +693,14 @@ uk:
       know_email: "Знаєте їх email адреси? Ви повинні запропонувати їм приєднається до Діаспори"
       your_diaspora_username_is: "Ваше ім'я користувача Діаспори : %{diaspora_handle}"
     aspect_dropdown: 
-      add_to_aspect: "Додати контакт"
+      add_to_aspect: "Додати аспект"
       toggle: 
-        few: "У %{count} аспекті[ах]"
+        few: "У %{count} аспектах"
         many: "У %{count} аспектах"
         one: "У %{count} аспекті[ах]"
-        other: "У %{count} аспекті[ах]"
+        other: "У %{count} аспектах"
         two: "У %{count} аспектах"
-        zero: "Додати контакт"
+        zero: "Додати аспект"
     contact_list: 
       all_contacts: "Усі контакти"
     footer: 
@@ -752,7 +753,7 @@ uk:
     helper: 
       no_message_to_display: "Нових повідомлень немає."
     new: 
-      mentioning: "Згадка: %{person}"
+      mentioning: "Згадати: %{person}"
     too_long: 
       few: "скоротіть, будь ласка, ваше повідомлення до %{count} символів"
       many: "зробіть ваше повідомлення менше, ніж %{count} символів"
@@ -768,8 +769,11 @@ uk:
       contacts_title: "Люди, що згадали вас"
       title: "Ваші згадування"
     public: 
-      contacts_title: "Recent Posters"
-      title: "Public Activity"
+      contacts_title: "Нещодавно написали"
+      title: "Публічна Активність"
+    soup: 
+      contacts_title: "People in your Soup"
+      title: "The Soup"
     tags: 
       contacts_title: "Люди, яким подобаються ці мітки"
       title: "Записи, відмічені : %{tags}"
@@ -783,7 +787,7 @@ uk:
   tags: 
     show: 
       follow: "Стежити за міткою #%{tag}"
-      followed_by: "followed by"
+      followed_by: "Спостерігають"
       following: "Ви стежите за міткою #%{tag}"
       nobody_talking: "Ніхто доки не говорив про %{tag}."
       people_tagged_with: "Люди з міткою %{tag}"
@@ -834,7 +838,7 @@ uk:
       your_handle: "Ваш ідентифікатор в Діаспорі"
     getting_started: 
       bold: "аспекти"
-      community_welcome: "Співтовариство Діаспори раде вітати вас!"
+      community_welcome: "Товариство Діаспори раде вітати вас!"
       connect_to: "Підключіться до"
       connect_to_your_other_social_networks: "Підключіться до інших ваших соціальних мереж"
       connect_to_your_other_social_networks_explanation_p1: "Підключення до служб дозволить вам публікувати записи на цих сервісах."

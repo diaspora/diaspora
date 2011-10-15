@@ -61,7 +61,9 @@ pl:
       done_editing: "edycja zakończona"
     aspect_listings: 
       add_an_aspect: "+ Dodaj do aspektu"
+      deselect_all: "Deselect all"
       edit_aspect: "Edit %{name}"
+      select_all: "Select all"
     aspect_stream: 
       commented_on: "skomentowano na"
       mentions: "Mentions"
@@ -93,7 +95,7 @@ pl:
       aspect_not_empty: "Aspekt nie jest pusty"
       remove: "usuń"
     index: 
-      community_members: "Featured Diaspora* members"
+      community_spotlight: "Community Spotlight"
       cubbies: 
         explanation: "Cubbi.es to pierwsza aplikacja dedykowana projektowi Diaspora."
         heading: "Połącz z Cubbi.es"
@@ -103,7 +105,6 @@ pl:
         content_2: "Dzięki temu każdy będzie mógł cię znaleźć na Diasporze."
         heading: "Diaspora ID"
       donate: "Wspomóż"
-      featured_users: "Featured Users"
       handle_explanation: "To jest Twój identyfikator w Diasporze. Podobnie jak adresu e-mailowy, możesz podawać go innym, aby mogli się z Tobą skontaktować."
       help: 
         do_you: "Do you:"
@@ -188,8 +189,6 @@ pl:
   contacts: 
     create: 
       failure: "Nie udało się utworzyć kontaktu"
-    featured: 
-      featured_users: "Interesujący użytkownicy"
     few: "%{count} kontakty"
     index: 
       add_a_new_aspect: "Dodaj nowy aspekt"
@@ -209,6 +208,8 @@ pl:
     other: "%{count} kontaktów"
     sharing: 
       people_sharing: "Osoby dzielące się z tobą:"
+    spotlight: 
+      community_spotlight: "Community Spotlight"
     two: "%{count} contacts"
     zero: "brak kontaktów"
   conversations: 
@@ -770,6 +771,9 @@ pl:
     public: 
       contacts_title: "Recent Posters"
       title: "Public Activity"
+    soup: 
+      contacts_title: "People in your Soup"
+      title: "The Soup"
     tags: 
       contacts_title: "People who dig these tags"
       title: "Posts tagged: %{tags}"

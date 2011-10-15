@@ -8,6 +8,7 @@ es-AR:
     aspect_dropdown: 
       add_to_aspect: "Agregar al aspecto"
       all_aspects: "All aspects"
+      select_aspects: "Select aspects"
       toggle: 
         few: "En {{count}} aspectos"
         many: "En {{count}} aspectos"
@@ -32,7 +33,7 @@ es-AR:
       limited: "Limited - your post will only be seen by people you are sharing with"
       public: "Public - your post will be visible to everyone and found by search engines"
     reshares: 
-      duplicate: "You've already reshared that post!"
+      duplicate: "Ya compartiste esa publicación!"
     search_for: "Buscar a {{name}}"
     show_more: "mostrar más"
     timeago: 

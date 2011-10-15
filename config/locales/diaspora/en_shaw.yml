@@ -61,7 +61,9 @@ en_shaw:
       done_editing: "𐑛𐑳𐑯 𐑧𐑛𐑦𐑑𐑦𐑙"
     aspect_listings: 
       add_an_aspect: "+ 𐑨𐑛 𐑩𐑯 𐑨𐑕𐑐𐑧𐑒𐑑"
+      deselect_all: "Deselect all"
       edit_aspect: "Edit %{name}"
+      select_all: "Select all"
     aspect_stream: 
       commented_on: "𐑒𐑪𐑥𐑩𐑯𐑑𐑩𐑛 𐑪𐑯"
       mentions: "Mentions"
@@ -93,7 +95,7 @@ en_shaw:
       aspect_not_empty: "𐑨𐑕𐑐𐑧𐑒𐑑 𐑯𐑪𐑑 𐑧𐑥𐑐𐑑𐑦"
       remove: "𐑮𐑦𐑥𐑵𐑝"
     index: 
-      community_members: "Featured Diaspora* members"
+      community_spotlight: "Community Spotlight"
       cubbies: 
         explanation: "Cubbi.es 𐑦𐑟 𐑞 𐑓𐑻𐑕𐑑 ·𐑛𐑦𐑨𐑕𐑐𐑹𐑩 𐑨𐑐𐑤𐑦𐑒𐑱𐑖𐑩𐑯 𐑳𐑯𐑛𐑼 𐑛𐑦𐑝𐑧𐑤𐑩𐑐𐑥𐑧𐑯𐑑."
         heading: "𐑒𐑩𐑯𐑧𐑒𐑑 𐑑 Cubbi.es"
@@ -103,7 +105,6 @@ en_shaw:
         content_2: "𐑜𐑦𐑝 𐑦𐑑 𐑑 𐑧𐑯𐑦𐑢𐑩𐑯 𐑯 𐑞𐑱𐑤 𐑚𐑰 𐑱𐑚𐑩𐑤 𐑑 𐑓𐑲𐑯𐑛 𐑿 𐑪𐑯 ·𐑛𐑦𐑨𐑕𐑐𐑹𐑩."
         heading: "·𐑛𐑦𐑨𐑕𐑐𐑹𐑩 𐑲𐑛𐑧𐑯𐑑𐑦𐑓𐑦𐑒𐑱𐑖𐑩𐑯"
       donate: "𐑛𐑴𐑯𐑱𐑑"
-      featured_users: "Featured Users"
       handle_explanation: "𐑞𐑦𐑕 𐑦𐑟 𐑿𐑼 ·𐑛𐑦𐑨𐑕𐑐𐑹𐑩 𐑲𐑛𐑧𐑯𐑑𐑦𐑓𐑦𐑒𐑱𐑖𐑩𐑯. 𐑤𐑲𐑒 𐑩𐑯 𐑦-𐑥𐑱𐑤 𐑨𐑛𐑮𐑧𐑕, 𐑿 𐑒𐑨𐑯 𐑜𐑦𐑝 𐑞𐑦𐑕 𐑑 𐑐𐑰𐑐𐑩𐑤 𐑑 𐑮𐑰𐑗 𐑿."
       help: 
         do_you: "Do you:"
@@ -188,8 +189,6 @@ en_shaw:
   contacts: 
     create: 
       failure: "𐑓𐑱𐑤𐑛 𐑑 𐑒𐑮𐑦𐑱𐑑 𐑒𐑪𐑯𐑑𐑨𐑒𐑑"
-    featured: 
-      featured_users: "𐑓𐑰𐑗𐑼𐑛 𐑿𐑟𐑼𐑟"
     few: "%{count} 𐑒𐑪𐑯𐑑𐑨𐑒𐑑𐑕"
     index: 
       add_a_new_aspect: "𐑨𐑛 𐑯𐑿 𐑨𐑕𐑐𐑧𐑒𐑑"
@@ -209,6 +208,8 @@ en_shaw:
     other: "%{count} 𐑒𐑪𐑯𐑑𐑨𐑒𐑑𐑕"
     sharing: 
       people_sharing: "𐑐𐑰𐑐𐑩𐑤 𐑖𐑺𐑦𐑙 𐑢𐑦𐑞 𐑿:"
+    spotlight: 
+      community_spotlight: "Community Spotlight"
     two: "%{count} contacts"
     zero: "𐑯𐑴 𐑒𐑪𐑯𐑑𐑨𐑒𐑑𐑕"
   conversations: 
@@ -770,6 +771,9 @@ en_shaw:
     public: 
       contacts_title: "Recent Posters"
       title: "Public Activity"
+    soup: 
+      contacts_title: "People in your Soup"
+      title: "The Soup"
     tags: 
       contacts_title: "People who dig these tags"
       title: "Posts tagged: %{tags}"

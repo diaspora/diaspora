@@ -8,6 +8,7 @@ en_shaw:
     aspect_dropdown: 
       add_to_aspect: "𐑨𐑛 𐑑 𐑨𐑕𐑐𐑧𐑒𐑑"
       all_aspects: "All aspects"
+      select_aspects: "Select aspects"
       toggle: 
         few: "𐑦𐑯 {{count}} 𐑨𐑕𐑐𐑧𐑒𐑑𐑕"
         many: "𐑦𐑯 {{count}} 𐑨𐑕𐑐𐑧𐑒𐑑𐑕"

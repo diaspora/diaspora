@@ -6,19 +6,20 @@
 hu: 
   javascripts: 
     aspect_dropdown: 
-      add_to_aspect: "Hozzáadás egy csoporthoz"
+      add_to_aspect: "Hozzáadás a csoporthoz"
       all_aspects: "Összes csoport"
+      select_aspects: "Select aspects"
       toggle: 
         few: "{{count}} csoportban"
         many: "{{count}} csoportban"
         one: "{{count}} csoportban"
         other: "{{count}} csoportban"
-        two: "In {{count}} aspects"
-        zero: "Hozzáadás egy csoporthoz"
+        two: "{{count}} csoportban"
+        zero: "Hozzáadás a csoporthoz"
     aspect_navigation: 
-      deselect_all: "Deselect all"
-      no_aspects: "No aspects selected"
-      select_all: "Select all"
+      deselect_all: "Összes kijelölés megszüntetése"
+      no_aspects: "Nincs csoport kiválasztva"
+      select_all: "Mindent kijelöl"
     comments: 
       hide: "hozzászólások elrejtése"
       show: "összes hozzászólás"

@@ -8,6 +8,7 @@ fi:
     aspect_dropdown: 
       add_to_aspect: "Lisää näkymään"
       all_aspects: "Kaikki näkymät"
+      select_aspects: "Select aspects"
       toggle: 
         few: "{{count}}:ssa näkymässä"
         many: "{{count}}:ssa näkymässä"

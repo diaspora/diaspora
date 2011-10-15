@@ -35,7 +35,7 @@ bg:
             email: 
               taken: "е вече зает."
             person: 
-              invalid: "is invalid."
+              invalid: "не е валидно."
             username: 
               invalid: "не е валидно. Разрешени са само букви, цифри и долна черта."
               taken: "е вече заето."
@@ -46,7 +46,7 @@ bg:
       diaspora_alpha: "DIASPORA* ALPHA"
       unknown_person: "непознато лице"
       video_title: 
-        unknown: "Unknown Video Title"
+        unknown: "Видеото е с незвестно заглавие"
   are_you_sure: "Сигурни ли сте?"
   aspect_memberships: 
     destroy: 
@@ -61,7 +61,9 @@ bg:
       done_editing: "готово"
     aspect_listings: 
       add_an_aspect: "+ Създаване на аспект"
+      deselect_all: "Deselect all"
       edit_aspect: "Редактиране на \"%{name}\""
+      select_all: "Select all"
     aspect_stream: 
       commented_on: "коментирани"
       mentions: "Споменавания"
@@ -82,7 +84,7 @@ bg:
       aspect_list_is_visible: "списъкът на аспекта е видим за останалите в аспекта"
       confirm_remove_aspect: "Наистина ли желаете аспектът да бъде премахнат?"
       done: "Готово"
-      make_aspect_list_visible: "нека аспектът бъде видим"
+      make_aspect_list_visible: "нека контактите в аспекта се виждад един друг"
       remove_aspect: "Изтриване на аспекта"
       rename: "преименуване"
       update: "обнови"
@@ -93,7 +95,7 @@ bg:
       aspect_not_empty: "Аспектът не е празен"
       remove: "премахване"
     index: 
-      community_members: "Featured Diaspora* members"
+      community_spotlight: "Community Spotlight"
       cubbies: 
         explanation: "Cubbi.es е първото приложение за Diaspora и все още се разработва."
         heading: "Свързване с Cubbi.es"
@@ -103,30 +105,29 @@ bg:
         content_2: "Споделете го с който и да е и той ще ви намери в Diaspora."
         heading: "Адрес в Diaspora"
       donate: "Дарете"
-      featured_users: "Избрани потребители"
       handle_explanation: "Това е вашият адрес в Diaspora. Наподобява адрес на ел. поща - давате го на хора, за да се свържат с вас."
       help: 
         do_you: "Вие:"
-        email_feedback: "Ако предпочитате можете да изпратите отзив по ел. поща (%{link})"
-        feature_and_forum: "%{gs} и %{forum}: Предложения за нови функции и поддръжка осигурена от общността"
+        email_feedback: "Ако предпочитате изпратете отзив по ел. поща (%{link})"
+        feature_and_forum: "%{gs} и %{forum}: предложения за нови функции и поддръжка от общността"
         feature_suggestion: "... имате предложение за нова функция (%{link})?"
         find_a_bug: "... сте открили грешка (%{link})?"
         have_a_question: "... имате въпрос (%{link})?"
         here_to_help: "Общността е готова да помогне!"
         need_help: "Нуждаетесе от помощ?"
         satisfaction: "%{link}: Поддръжка осигурена от общността"
-        tutorials_and_wiki: "%{tutorial} и %{wiki}: Ръководства, съвети и новини от общността"
+        tutorials_and_wiki: "%{tutorial} и %{wiki}: ръководства, съвети и новини от общността"
       keep_us_running: "Осигурете бързата работа на %{pod} като дарите пари за месечната издръжка на сървърите!"
       mentions: "Споменавания"
       no_contacts: "Няма контакти"
       no_tags: "+ Намиране на марки"
       people_sharing_with_you: "Хора споделящи с вас"
       post_a_message: "публикуване на съобщение >>"
-      see_more_from_us: "See more of the D* community."
+      see_more_from_us: "Повече от общността на D*."
       services: 
         content: "Можете да свържете следните услуги към Diaspora:"
         heading: "Свързване към услуги"
-      tags_following: "Тагове, които следите"
+      tags_following: "Марки, които следите"
       unfollow_tag: "Прекратяване следенето на #%{tag}"
       your_aspects: "Вашите аспекти"
     many: "%{count} аспекта"
@@ -188,8 +189,6 @@ bg:
   contacts: 
     create: 
       failure: "Контактът не бе създаден"
-    featured: 
-      featured_users: "избраните потребители"
     few: "%{count} контакта"
     index: 
       add_a_new_aspect: "Създаване на аспект"
@@ -209,6 +208,8 @@ bg:
     other: "%{count} контакта"
     sharing: 
       people_sharing: "Хора споделящи с вас:"
+    spotlight: 
+      community_spotlight: "Community Spotlight"
     two: "%{count} контакта"
     zero: "контакти"
   conversations: 
@@ -305,14 +306,14 @@ bg:
       whats_new: "какво ново?"
       your_aspects: "вашите аспекти"
     header: 
-      admin: "администриране"
+      admin: "Администриране"
       blog: "блог"
       code: "код"
       login: "вписване"
-      logout: "отписване"
-      profile: "профил"
+      logout: "Отписване"
+      profile: "Профил"
       recent_notifications: "Скорошни известия"
-      settings: "настройки"
+      settings: "Настройки"
       view_all: "Показване на всички"
   likes: 
     likes: 
@@ -475,7 +476,7 @@ bg:
   password_confirmation: "Потвърждаване на паролата"
   people: 
     add_contact_small: 
-      add_contact_from_tag: "add contact from tag"
+      add_contact_from_tag: "добавяне на контакт от марка"
     aspect_list: 
       edit_membership: "принадлежност към аспекти"
     few: "%{count} човека"
@@ -526,7 +527,7 @@ bg:
       fail: "За съжаление %{handle} не може да бъде намерен."
     zero: "никой"
   photos: 
-    comment_email_subject: "%{name}'s photo"
+    comment_email_subject: "Снимка на %{name}"
     create: 
       integrity_error: "Снимката не бе качена. Сигурни ли сте, че сте избрали изображение?"
       runtime_error: "Снимката не бе качена. Сигурни ли сте, че сте закопчали колана си?"
@@ -599,7 +600,7 @@ bg:
     two: "%{count} отзива"
     zero: "0 отзива"
   registrations: 
-    closed: "Signups are closed on this Diaspora pod."
+    closed: "Нови регистрации не са възможни на този pod на Diaspora."
     create: 
       success: "Вие се присъединихте към Diaspora!"
     edit: 
@@ -620,7 +621,7 @@ bg:
   requests: 
     create: 
       sending: "Изпращане"
-      sent: "You've asked to share with %{name}.  They should see it next time they log in to Diaspora."
+      sent: "Изпратили сте покана до %{name} за да започнете да споделяте - щом се впишат в Diaspora ще видят поканата."
     destroy: 
       error: "Моля, изберете аспект!"
       ignore: "Ignored contact request."
@@ -639,7 +640,7 @@ bg:
     new_request_to_person: 
       sent: "изпратена!"
   reshares: 
-    comment_email_subject: "%{resharer}'s reshare of %{author}'s post"
+    comment_email_subject: "Споделена публикация от %{resharer} с автор %{author}'"
     create: 
       failure: "Възникна грешка при споделянето на публикацията."
     reshare: 
@@ -713,9 +714,9 @@ bg:
       invite_someone: "Поканете някого"
       invite_your_friends: "Поканете приятелите си"
       invites: "Покани"
-      invites_closed: "Invites are currently closed on this Diaspora pod"
+      invites_closed: "Издаването на покани за този pod на Diaspora за момента е прекратено"
     notification: 
-      new: "New %{type} from %{from}"
+      new: "Ново %{type} от %{from}"
     public_explain: 
       logged_in: "вписани сте в %{service}"
       manage: "управление на свързаните услуги"
@@ -766,10 +767,13 @@ bg:
   streams: 
     mentions: 
       contacts_title: "Хора, които са ви споменали"
-      title: "Your Mentions"
+      title: "Споменаване"
     public: 
-      contacts_title: "Recent Posters"
-      title: "Public Activity"
+      contacts_title: "Скоро публикували"
+      title: "Публична активност"
+    soup: 
+      contacts_title: "People in your Soup"
+      title: "The Soup"
     tags: 
       contacts_title: "Хора, които харесват тези марки"
       title: "Публикации маркирани с \"%{tags}\""
@@ -783,7 +787,7 @@ bg:
   tags: 
     show: 
       follow: "Следете #%{tag}"
-      followed_by: "followed by"
+      followed_by: "следи се от"
       following: "Следите #%{tag}"
       nobody_talking: "Никой не е говорил за %{tag}."
       people_tagged_with: "Хора маркирани с %{tag}"
@@ -837,8 +841,8 @@ bg:
       community_welcome: "Общността Diaspora с радост ви приветства в този pod!"
       connect_to: "Свържете профила си с"
       connect_to_your_other_social_networks: "Свържете профила си с други социални мрежи"
-      connect_to_your_other_social_networks_explanation_p1: "Connecting to services will allow you to publish out to these services."
-      connect_to_your_other_social_networks_explanation_p2: "With Facebook, you also be able to find friends already on Diaspora and invite others."
+      connect_to_your_other_social_networks_explanation_p1: "Свържете ли се към дадена услуга/сайт ще можете да публикувате и в тях."
+      connect_to_your_other_social_networks_explanation_p2: "Конкретно за Facebook можете да откриете приятелите си, които вече са се регистрирали в Diaspora и да поканите останалите."
       connect_with_people: "Свържете се с интересни хора"
       connect_with_people_explanation_pt1: "Свържете се с хора поставяйки ги в един или няколко от вашите %{bold}."
       connect_with_people_explanation_pt2: "Групирането на контактите в аспекти ще ви позволи да споделяте/филтрирате информация само с/от определена подгрупа от контактите ви."
@@ -850,7 +854,7 @@ bg:
       find_friends_from_facebook: "намерете приятелите си от Facebook"
       finished: "Готово"
       follow_your_interests: "Следете интересите си"
-      get_updates_from_core: "Get updates about the project from the core team."
+      get_updates_from_core: "Нови относно проекта директно от екипа разработчици."
       hashtag_explanation: "Диез марките (#име–на-марката) ви позволяват да коментирате и следите интересни за вас теми.  Улесняват и откриване на хора със сходни интереси в Diaspora."
       not_mandatory: "Следващите стъпки не са задължителни, но изпълнението им ще подобри работата ви в Diaspora."
       profile_description: "Улеснето хората, които ви търсят като попълните полетата на профила си."
@@ -861,7 +865,7 @@ bg:
         location: "Местоположение"
         name: "Име"
         photo: "Снимка"
-        tags: "Тагове"
+        tags: "Марки"
       search_for_hashtags: "Търсене за #диез марки"
       search_for_people: "Търсене за хора"
       see_all_featured_users: "Показване на всички избрани потребители"

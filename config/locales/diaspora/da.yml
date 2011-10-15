@@ -61,7 +61,9 @@ da:
       done_editing: "afslut redigering"
     aspect_listings: 
       add_an_aspect: "+ Tilføj et aspekt"
+      deselect_all: "Deselect all"
       edit_aspect: "Redigér %{navn}"
+      select_all: "Select all"
     aspect_stream: 
       commented_on: "kommenter på"
       mentions: "Omtaler"
@@ -93,7 +95,7 @@ da:
       aspect_not_empty: "Aspektet er ikke tomt"
       remove: "slet"
     index: 
-      community_members: "Featured Diaspora* members"
+      community_spotlight: "Community Spotlight"
       cubbies: 
         explanation: "Cubbi.es er den første Diaspora applikation under udvikling."
         heading: "Tilslut til Cubbi.es"
@@ -103,7 +105,6 @@ da:
         content_2: "Giv det til hvem som helst og de vil kunne finde dig på Diaspora."
         heading: "Diaspora ID"
       donate: "Donér"
-      featured_users: "Udvalgte brugere"
       handle_explanation: "Dette er din Diaspora ID. Som med en e-mail-adresse, kan du give denne til folk, så de kan kontakte dig."
       help: 
         do_you: "Har du:"
@@ -122,7 +123,7 @@ da:
       no_tags: "+ Find et tag for at følge"
       people_sharing_with_you: "Personer der deler med dig"
       post_a_message: "post en besked >>"
-      see_more_from_us: "See more of the D* community."
+      see_more_from_us: "Se mere af D* fællesskabet."
       services: 
         content: "Du kan tilslutte følgende tjenester til Diaspora:"
         heading: "Tilslut tjenester"
@@ -180,7 +181,7 @@ da:
     many: "%{count} kommentarer"
     new_comment: 
       comment: "Kommentér"
-      commenting: "Kommentering ..."
+      commenting: "Kommenterer ..."
     one: "1 kommentar"
     other: "%{count} kommentarer"
     two: "%{count} aspekter"
@@ -188,8 +189,6 @@ da:
   contacts: 
     create: 
       failure: "Kunne ikke oprette kontakt"
-    featured: 
-      featured_users: "Udvalgte brugere"
     few: "%{count} kontaktpersoner"
     index: 
       add_a_new_aspect: "Tilføj nyt aspekt"
@@ -209,6 +208,8 @@ da:
     other: "%{count} kontaktpersoner"
     sharing: 
       people_sharing: "Personer der deler med dig:"
+    spotlight: 
+      community_spotlight: "Community Spotlight"
     two: "%{count} kontakter"
     zero: "kontakter"
   conversations: 
@@ -768,8 +769,11 @@ da:
       contacts_title: "Mennesker der har nævnt dig"
       title: "Dine omtaler"
     public: 
-      contacts_title: "Recent Posters"
-      title: "Public Activity"
+      contacts_title: "Seneste indlæg"
+      title: "Offentlig Aktivitet"
+    soup: 
+      contacts_title: "People in your Soup"
+      title: "The Soup"
     tags: 
       contacts_title: "Folk der graver disse tags"
       title: "Indlæg tagget med: %{tags}"
@@ -783,7 +787,7 @@ da:
   tags: 
     show: 
       follow: "Følg #%{tag}"
-      followed_by: "followed by"
+      followed_by: "fulgt af"
       following: "Følger #%{tag}"
       nobody_talking: "Ingen har talt om %{tag} endnu."
       people_tagged_with: "Personer tagged med %{tag}"

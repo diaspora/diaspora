@@ -34,7 +34,7 @@ es:
         no_account_till: "Tu cuenta no será creada hasta que no accedas al enlace de arriba para registrarte."
         subject: "¡Has sido invitado a unirte a Diaspora*!"
       inviter: 
-        accept_at: "en %{url}, puedes aceptar en el siguiente enlace."
+        accept_at: "en %{url}, puedes aceptar en el enlace más abajo."
         has_invited_you: "%{name}"
         have_invited_you: "%{names} te ha invitado a unirte a Diaspora*"
       reset_password_instructions: 
@@ -59,7 +59,7 @@ es:
       send_instructions: "Recibirás un correo con instrucciones para cambiar tu contraseña en pocos minutos."
       updated: "Tu contraseña ha sido modificada. Ya has accedido a tu cuenta."
     registrations: 
-      destroyed: "!Adiós! Tu cuenta ha sido cancelada. Esperamos volver a verte pronto."
+      destroyed: "¡Adiós! Tu cuenta ha sido cancelada. Esperamos volver a verte pronto."
       signed_up: "Te has registrado correctamente. Consulta el mensaje de confirmación que te hemos enviado a tu correo."
       updated: "Has actualizado tu cuenta correctamente."
     sessions: 
@@ -67,7 +67,7 @@ es:
         alpha_software: "Estás a punto de utilizar software en versión alpha."
         bugs_and_feedback: "Ten en cuenta que puedes sufrir errores. ¡Te animamos a que utilices el botón de Feedback situado a la derecha de tu navegador para informar cualquier fallo! Trabajaremos tan rápido como nos sea posible para resolver cualquier problema que nos remitas."
         bugs_and_feedback_mobile: "Ten en cuenta que puedes sufrir errores. ¡Te animamos a informar de cualquier fallo! Trabajaremos tan rápido como nos sea posible para resolver cualquier problema que nos remitas."
-        login: "Iniciar sesión"
+        login: "Acceder"
         modern_browsers: "Sólo es compatible con navegadores modernos."
         password: "Contraseña"
         remember_me: "Recordarme"

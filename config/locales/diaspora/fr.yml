@@ -61,7 +61,9 @@ fr:
       done_editing: "fin de la modification"
     aspect_listings: 
       add_an_aspect: "+ Ajouter un aspect"
+      deselect_all: "Deselect all"
       edit_aspect: "Éditer %{name}"
+      select_all: "Select all"
     aspect_stream: 
       commented_on: "a/ont commenté"
       mentions: "Mentions"
@@ -93,7 +95,7 @@ fr:
       aspect_not_empty: "L’aspect n’est pas vide"
       remove: "supprimer"
     index: 
-      community_members: "Featured Diaspora* members"
+      community_spotlight: "Community Spotlight"
       cubbies: 
         explanation: "Cubbi.es est la première application Diaspora en cours de développement."
         heading: "Connectez-vous à Cubbi.es"
@@ -103,7 +105,6 @@ fr:
         content_2: "Communiquez-le à tout le monde et ils pourront vous trouver sur Diaspora."
         heading: "Identifiant Diaspora"
       donate: "Faire un don"
-      featured_users: "Utilisateurs recommandés"
       handle_explanation: "Ceci est votre identifiant diaspora. Comme une adresse de courrier électronique, vous pouvez le communiquer à d'autres personnes pour leur permettre de vous joindre."
       help: 
         do_you: "Avez-vous :"
@@ -112,7 +113,7 @@ fr:
         feature_suggestion: "... une suggestion (%{link}) ?"
         find_a_bug: "... trouvé un %{link} ?"
         have_a_question: "... une %{link} ?"
-        here_to_help: "La communauté de Diaspora est là !"
+        here_to_help: "La communauté Diaspora est là !"
         need_help: "Besoin d'aide ?"
         satisfaction: "%{link} : Support par la communauté"
         tutorials_and_wiki: "%{tutorial} & %{wiki}: Tutoriels, notes et actualité de la comunauté"
@@ -122,7 +123,7 @@ fr:
       no_tags: "+ Trouver un tag à suivre"
       people_sharing_with_you: "Personnes partageant avec vous"
       post_a_message: "publier un message >>"
-      see_more_from_us: "See more of the D* community."
+      see_more_from_us: "Voir plus de la communauté D*."
       services: 
         content: "Vous pouvez connecter les services suivants à Diaspora :"
         heading: "Services connectés"
@@ -188,8 +189,6 @@ fr:
   contacts: 
     create: 
       failure: "Impossible de créer le contact"
-    featured: 
-      featured_users: "Utilisateurs recommandés"
     few: "%{count} contacts"
     index: 
       add_a_new_aspect: "Ajouter un nouvel aspect"
@@ -209,6 +208,8 @@ fr:
     other: "%{count} contacts"
     sharing: 
       people_sharing: "Personnes partageant avec vous :"
+    spotlight: 
+      community_spotlight: "Community Spotlight"
     two: "%{count} contacts"
     zero: "contact"
   conversations: 
@@ -768,8 +769,11 @@ fr:
       contacts_title: "Personnes qui vous ont mentionné"
       title: "Vos mentions"
     public: 
-      contacts_title: "Recent Posters"
-      title: "Public Activity"
+      contacts_title: "Posteurs récents"
+      title: "Activité publique"
+    soup: 
+      contacts_title: "People in your Soup"
+      title: "The Soup"
     tags: 
       contacts_title: "Personnes qui suivent ces tags"
       title: "Messages tagués : %{tags}"
@@ -783,7 +787,7 @@ fr:
   tags: 
     show: 
       follow: "Suivre #%{tag}"
-      followed_by: "followed by"
+      followed_by: "suivi par"
       following: "Suivre #%{tag}"
       nobody_talking: "Personne ne parle encore de %{tag}."
       people_tagged_with: "Personnes taguées avec %{tag}"

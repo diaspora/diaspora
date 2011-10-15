@@ -61,7 +61,9 @@ eu:
       done_editing: "aldaketak gauzatu"
     aspect_listings: 
       add_an_aspect: "+ Alderdi berria sortu"
+      deselect_all: "Deselect all"
       edit_aspect: "Edit %{name}"
+      select_all: "Select all"
     aspect_stream: 
       commented_on: "iruzkindua"
       mentions: "Mentions"
@@ -93,7 +95,7 @@ eu:
       aspect_not_empty: "Alderdi ez hutsa"
       remove: "ezabatu"
     index: 
-      community_members: "Featured Diaspora* members"
+      community_spotlight: "Community Spotlight"
       cubbies: 
         explanation: "Cubbi.es garapenean dagoen lehenengo Diaspora aplikazioa da."
         heading: "Cubbi.esera lotu"
@@ -103,7 +105,6 @@ eu:
         content_2: "Emaiozu edonori eta Diasporan aurkituko zaituzte hura erabiliz."
         heading: "Diaspora IDa"
       donate: "Donatu"
-      featured_users: "Featured Users"
       handle_explanation: "Hau da zure Diaspora IDa. E-posta helbidea bezalakoa da, zure adiskideei emaiezu zu aurkitzearren."
       help: 
         do_you: "Do you:"
@@ -188,8 +189,6 @@ eu:
   contacts: 
     create: 
       failure: "Akatsa adiskide berria sortzean"
-    featured: 
-      featured_users: "Featured Users"
     few: "%{count} adiskide"
     index: 
       add_a_new_aspect: "Alderdi berria gehitu"
@@ -209,6 +208,8 @@ eu:
     other: "%{count} adiskide"
     sharing: 
       people_sharing: "Zurekin harremanetan daudenak:"
+    spotlight: 
+      community_spotlight: "Community Spotlight"
     two: "%{count} contacts"
     zero: "adiskiderik ez"
   conversations: 
@@ -770,6 +771,9 @@ eu:
     public: 
       contacts_title: "Recent Posters"
       title: "Public Activity"
+    soup: 
+      contacts_title: "People in your Soup"
+      title: "The Soup"
     tags: 
       contacts_title: "People who dig these tags"
       title: "Posts tagged: %{tags}"

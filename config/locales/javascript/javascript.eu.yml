@@ -8,6 +8,7 @@ eu:
     aspect_dropdown: 
       add_to_aspect: "Alderdira gehitu"
       all_aspects: "All aspects"
+      select_aspects: "Select aspects"
       toggle: 
         few: "{{count}} alderdietan"
         many: "{{count}} alderdietan"

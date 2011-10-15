@@ -61,7 +61,9 @@ pt-PT:
       done_editing: "finalizar edição"
     aspect_listings: 
       add_an_aspect: "+ Adicionar um aspecto"
+      deselect_all: "Deselect all"
       edit_aspect: "Edit %{name}"
+      select_all: "Select all"
     aspect_stream: 
       commented_on: "comentou em"
       mentions: "Mentions"
@@ -93,7 +95,7 @@ pt-PT:
       aspect_not_empty: "Aspecto não vazio"
       remove: "remover"
     index: 
-      community_members: "Featured Diaspora* members"
+      community_spotlight: "Community Spotlight"
       cubbies: 
         explanation: "Cubbi.es é a primeira aplicação do Diaspora sobre desenvolvimento."
         heading: "Ligar ao Cubbi.es"
@@ -103,7 +105,6 @@ pt-PT:
         content_2: "Dê-a a alguém para que o encontre no Diaspora."
         heading: "Identificação do Diaspora"
       donate: "Doar"
-      featured_users: "Featured Users"
       handle_explanation: "Esta é a sua identificação do Diaspora. Tal como um endereço de email, pode dá-la a quem deseja que o contacte."
       help: 
         do_you: "Do you:"
@@ -112,7 +113,7 @@ pt-PT:
         feature_suggestion: "... uma sugestão de %{link}?"
         find_a_bug: "... um %{link} para relatar?"
         have_a_question: "... uma %{link}?"
-        here_to_help: "A comunidade do Diaspora está aqui para ajudar!"
+        here_to_help: "A comunidade do Diaspora está aqui!"
         need_help: "Precisa de ajuda?"
         satisfaction: "%{link}: Community-powered support"
         tutorials_and_wiki: "%{tutorial} & %{wiki}: Community-powered tutorials, how-to, and news"
@@ -188,8 +189,6 @@ pt-PT:
   contacts: 
     create: 
       failure: "Erro ao criar contacto"
-    featured: 
-      featured_users: "Utilizadores Destacados"
     few: "%{count} contactos"
     index: 
       add_a_new_aspect: "Adicionar um novo aspecto"
@@ -209,6 +208,8 @@ pt-PT:
     other: "%{count} contactos"
     sharing: 
       people_sharing: "Pessoas a partilhar consigo:"
+    spotlight: 
+      community_spotlight: "Community Spotlight"
     two: "%{count} contactos"
     zero: "contactos"
   conversations: 
@@ -692,14 +693,14 @@ pt-PT:
       know_email: "Sabe os seus endereços de email? Deveria convidá-los"
       your_diaspora_username_is: "O seu nome de utilizador do Diaspora é: %{diaspora_handle}"
     aspect_dropdown: 
-      add_to_aspect: "Adicionar ao aspecto"
+      add_to_aspect: "Adicionar contacto"
       toggle: 
         few: "Em %{count} aspectos"
         many: "Em %{count} aspectos"
         one: "Em %{count} aspecto"
         other: "Em %{count} aspectos"
         two: "Em %{count} aspectos"
-        zero: "Adicionar ao aspecto"
+        zero: "Adicionar contacto"
     contact_list: 
       all_contacts: "Todos os contactos"
     footer: 
@@ -770,6 +771,9 @@ pt-PT:
     public: 
       contacts_title: "Recent Posters"
       title: "Public Activity"
+    soup: 
+      contacts_title: "People in your Soup"
+      title: "The Soup"
     tags: 
       contacts_title: "People who dig these tags"
       title: "Posts tagged: %{tags}"
@@ -843,7 +847,7 @@ pt-PT:
       connect_with_people_explanation_pt1: "Ligue-se a pessoas ao colocá-las em um ou mais dos seus %{bold}."
       connect_with_people_explanation_pt2: "Aspectos são uma forma intuitiva de agrupar rostos novos e familiares, de forma privada, permitindo-lhe filtrar ou partilhar com subconjuntos dos seus contactos facilmente."
       edit_profile: "Editar o Perfil"
-      featured_tags: "Tags destacadas"
+      featured_tags: "Seguir tags destacadas"
       featured_users: "Utilizadores destacados"
       fill_out_your_profile: "Preencha o seu perfil"
       find_friends: "Encontrar amigos"

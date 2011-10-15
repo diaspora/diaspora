@@ -61,7 +61,9 @@ zh-TW:
       done_editing: "編輯完成"
     aspect_listings: 
       add_an_aspect: "+ 新增面向"
+      deselect_all: "Deselect all"
       edit_aspect: "編輯%{name}"
+      select_all: "Select all"
     aspect_stream: 
       commented_on: "有意見的"
       mentions: "指指點點"
@@ -93,7 +95,7 @@ zh-TW:
       aspect_not_empty: "面向不是空的"
       remove: "刪除"
     index: 
-      community_members: "Featured Diaspora* members"
+      community_spotlight: "Community Spotlight"
       cubbies: 
         explanation: "Cubbi.es 是 Diaspora 的第一個應用程式, 目前正在開發中."
         heading: "與 Cubbi.es 連結"
@@ -103,7 +105,6 @@ zh-TW:
         content_2: "把它給任何人,讓他/她們可以在 Diaspora 找到你."
         heading: "Diaspora 識別碼"
       donate: "捐獻"
-      featured_users: "明星使用者"
       handle_explanation: "這是你的 diaspora 識別碼. 就像電子信箱一樣, 你可以把它給想聯絡你的人."
       help: 
         do_you: "你是否:"
@@ -122,7 +123,7 @@ zh-TW:
       no_tags: "+ 找個標籤來追蹤"
       people_sharing_with_you: "跟你分享的人"
       post_a_message: "貼訊息 >>"
-      see_more_from_us: "See more of the D* community."
+      see_more_from_us: "看看更多 D* 社群成員."
       services: 
         content: "你可以連結以下服務至 Diaspora:"
         heading: "連結服務"
@@ -188,8 +189,6 @@ zh-TW:
   contacts: 
     create: 
       failure: "建立聯繫失敗"
-    featured: 
-      featured_users: "明星使用者"
     few: "%{count}個聯絡人"
     index: 
       add_a_new_aspect: "加入新面向"
@@ -209,6 +208,8 @@ zh-TW:
     other: "%{count}個聯絡人"
     sharing: 
       people_sharing: "跟你分享的人:"
+    spotlight: 
+      community_spotlight: "Community Spotlight"
     two: "%{count}個聯絡人"
     zero: "聯絡人"
   conversations: 
@@ -768,8 +769,11 @@ zh-TW:
       contacts_title: "對你指指點點過的人"
       title: "對你指指點點的紀錄"
     public: 
-      contacts_title: "Recent Posters"
-      title: "Public Activity"
+      contacts_title: "最新貼文者"
+      title: "公開活動"
+    soup: 
+      contacts_title: "People in your Soup"
+      title: "The Soup"
     tags: 
       contacts_title: "這些標籤的粉絲"
       title: "有以下標籤的貼文: %{tags}"
@@ -783,7 +787,7 @@ zh-TW:
   tags: 
     show: 
       follow: "追蹤#%{tag}"
-      followed_by: "followed by"
+      followed_by: "追蹤者:"
       following: "正在追蹤#%{tag}"
       nobody_talking: "尚還沒有人在討論 %{tag}."
       people_tagged_with: "標記為 %{tag} 的人"
