@@ -30,7 +30,7 @@ class Stream::Soup < Stream::Base
   end
 
   def aspect_posts_ids
-    @aspect_posts_ids ||= user.visible_post_ids(:limit => 15, :order => "#{order} DESC", :max_time => max_time, :all_aspects? => true, :by_members_of => aspect_ids)
+    @aspect_posts_ids ||= user.visible_shareable_ids(Post, :limit => 15, :order => "#{order} DESC", :max_time => max_time, :all_aspects? => true, :by_members_of => aspect_ids)
   end
 
   def followed_tag_ids

@@ -19,7 +19,10 @@ class StatusMessage < Post
   xml_attr :raw_message
 
   has_many :photos, :dependent => :destroy, :foreign_key => :status_message_guid, :primary_key => :guid
-  validate :presence_of_content
+
+  # TODO: disabling presence_of_content() (and its specs in status_message_controller_spec.rb:125) is a quick and dirty fix for federation
+  # a StatusMessage is federated before its photos are so presence_of_content() fails erroneously if no text is present
+  #validate :presence_of_content
 
   attr_accessible :text, :provider_display_name
   attr_accessor :oembed_url

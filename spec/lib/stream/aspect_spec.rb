@@ -57,19 +57,19 @@ describe Stream::Aspect do
     end
 
     it 'is called with 3 types' do
-      stream = AspectStream.new(@alice, [1,2], :order => 'created_at')
+      stream = Stream::Aspect.new(@alice, [1,2], :order => 'created_at')
       @alice.should_receive(:visible_shareables).with(Post, hash_including(:type=> ['StatusMessage', 'Reshare', 'ActivityStreams::Photo'])).and_return(stub.as_null_object)
       stream.posts
     end
 
     it 'respects ordering' do 
-      stream = AspectStream.new(@alice, [1,2], :order => 'created_at')
+      stream = Stream::Aspect.new(@alice, [1,2], :order => 'created_at')
       @alice.should_receive(:visible_shareables).with(Post, hash_including(:order => 'created_at DESC')).and_return(stub.as_null_object)
       stream.posts
     end
 
     it 'respects max_time' do
-      stream = AspectStream.new(@alice, [1,2], :max_time => 123)
+      stream = Stream::Aspect.new(@alice, [1,2], :max_time => 123)
       @alice.should_receive(:visible_shareables).with(Post, hash_including(:max_time => instance_of(Time))).and_return(stub.as_null_object)
       stream.posts
     end
