@@ -125,9 +125,13 @@ ca:
       or_featured: "O podeu compartir amb %{link}"
       featured_users: "usuaris destacats"
     aspect_listings:
+      select_all: "Selecciona'ls tots"
+      deselect_all: "Desselecciona'ls tots"
+      edit_aspect: "Edita %{name}"
       add_an_aspect: "+ Afegeix un aspecte"
 
     selected_contacts:
+      view_all_featured_users: "Vegeu tots els usuaris destacats"
       view_all_contacts: "Mostra tots els contactes"
       no_contacts: "Encara no teniu cap contacte aquí."
       manage_your_aspects: "Gestioneu els vostres aspectes."
@@ -161,6 +165,8 @@ ca:
       friends: "Amistats"
     index:
       mentions: "Mencions"
+      community_spotlight: "Usuaris destacats"
+      see_more_from_us: "Vegeu més membres de la comunitat del Diàspora*."
       donate: "Doneu"
       keep_us_running: "Mantingueu %{pod} en marxa i compreu-li als nostres servidors la seva dosi de cafeïna amb una donació mensual!"
       your_aspects: "Els vostres aspectes"
@@ -234,7 +240,7 @@ ca:
 
 
   contacts:
-    zero: "cap contacte"
+    zero: "contactes"
     one: "1 contacte"
     two: "%{count} contactes"
     few: "%{count} contactes"
@@ -245,19 +251,20 @@ ca:
     sharing:
       people_sharing: "Gent que comparteix amb vosaltres:"
     index:
-      edit_aspect: "Edita %{name}"
+      add_to_aspect: "Afegeix contactes a %{name}"
       start_a_conversation: "Inicia una conversa nova"
       add_a_new_aspect: "Afegeix un aspecte nou"
       title: "Contactes"
       your_contacts: "Els vostres contactes"
-      no_contacts: "Cap contacte."
+      no_contacts: "Sembla que necessiteu afegir alguns contactes!"
+      check_out: "Pegueu una ullada"
       my_contacts: "Els meus contactes"
       all_contacts: "Tots els contactes"
       only_sharing_with_me: "Només compartint amb mi"
       remove_person_from_aspect: "Suprimeix a %{person_name} de l'aspecte «%{aspect_name}»"
       many_people_are_you_sure: "Esteu segur que voleu iniciar una conversa privada amb més de %{suggested_limit} contactes? Publicar a aquest aspecte pot ser una forma millor de contactar amb ells."
-    featured:
-      featured_users: "Usuaris destacats"
+    spotlight:
+      community_spotlight: "Usuaris destacats"
 
 
   conversations:
@@ -347,9 +354,9 @@ ca:
 
   layouts:
     header:
-      profile: "perfil"
-      settings: "paràmetres"
-      logout: "surt"
+      profile: "Perfil"
+      settings: "Paràmetres"
+      logout: "Surt"
       blog: "bloc"
       login: "entra"
       code: "codi"
@@ -833,6 +840,7 @@ ca:
       follow: "Segueix #%{tag}"
       following: "Esteu seguint #%{tag}"
       stop_following: "Deixa de seguir #%{tag}"
+      followed_by: "seguit per"
 
 
   tag_followings:
@@ -873,6 +881,12 @@ També és la millor forma de coŀleccionar fotos en línia."
     tags:
       title: "Publicacions etiquetades: %{tags}"
       contacts_title: "Gent que empra aquestes etiquetes"
+    public:
+      title: "Activitat pública"
+      contacts_title: "Publicadors recents"
+    soup:
+      title: "La sopa"
+      contacts_title: "Gent a la vostra sopa"
 
 
   users:
