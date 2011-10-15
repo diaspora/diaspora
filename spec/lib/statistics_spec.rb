@@ -142,7 +142,7 @@ describe Statistics do
       bob.post(:status_message, :text => "here is a message")
       bob.save!
 
-      @stats.generate_correlations[:posts_count].to_s.should == "1.0"
+      c = @stats.generate_correlations[:posts_count].round(1).should == 1.0
     end
   end
 
