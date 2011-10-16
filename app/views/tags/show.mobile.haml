@@ -3,11 +3,11 @@
 -#   the COPYRIGHT file.
 
 %h1
-  = "##{params[:name]}"
+  = @stream.display_tag_name
 
 #main_stream.stream
-  = render 'shared/stream', :posts => @posts
-  -if @posts.length > 0
+  = render 'shared/stream', :posts => @stream.posts
+  -if @stream.posts.length > 0
     #pagination
       %a.more-link.paginate{:href => next_page_path}
         %h1

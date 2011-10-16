@@ -62,6 +62,11 @@ describe TagsController do
         get :show, :name => 'hellyes'
         response.status.should == 200
       end
+
+      it 'succeeds with mobile' do 
+        get :show, :name => 'foo', :format => :mobile
+        response.should be_success
+      end
     end
   end
 
