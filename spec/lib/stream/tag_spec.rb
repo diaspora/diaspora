@@ -55,13 +55,21 @@ describe Stream::Tag do
     end
   end
 
-  describe 'people' do
-    it "assigns the right set of people" do
+  describe "people" do
+    it "assigns the set of people who authored a post containing the tag" do
+      alice.post(:status_message, :text => "#what", :public => true, :to => 'all')
+      stream = Stream::Tag.new(nil, "what")
+      stream.people.should == [alice.person]
+    end
+  end
+
+  describe 'tagged_people' do
+    it "assigns the set of people who have that tag in their profile tags" do
       stream = Stream::Tag.new(bob, "whatevs")
       alice.profile.tag_string = "#whatevs"
       alice.profile.build_tags
       alice.profile.save!
-      stream.people.should == [alice.person]
+      stream.tagged_people.should == [alice.person]
     end
   end
 
