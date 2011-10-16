@@ -50,7 +50,7 @@ class RedisCache
       :order => self.order
     })
 
-    sql = @user.visible_shareables_sql(Post, opts)
+    sql = @user.visible_shareable_sql(Post, opts)
     hashes = Post.connection.select_all(sql)
 
     # hashes are inserted into set in a single transaction
