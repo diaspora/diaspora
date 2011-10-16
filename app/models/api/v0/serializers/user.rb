@@ -1,8 +1,9 @@
-class Api::V0::Serializers::User
-  attr_accessor :user
+#   Copyright (c) 2010-2011, Diaspora Inc.  This file is
+#   licensed under the Affero General Public License version 3 or later.  See
+#   the COPYRIGHT file.
 
+class Api::V0::Serializers::User
   def initialize(user)
-    @user = user
     @person = user.person
     @profile = @person.profile
   end

@@ -168,6 +168,7 @@ Diaspora::Application.routes.draw do
   namespace :api do
     namespace :v0 do
       get "/users/:username" => 'users#show', :as => 'user'
+      get "/tags/:name" => 'tags#show', :as => 'tag'
     end
   end
 
