@@ -134,20 +134,38 @@ describe Stream::Aspect do
 
   describe '.ajax_stream?' do
     before do
+      @original_value = AppConfig[:redis_cache] 
       @stream = Stream::Aspect.new(stub, stub)
     end
-    it 'is true stream is for all aspects?' do
-      pending
-      @stream.stub(:for_all_aspects?).and_return(true)
-      @stream.ajax_stream?.should be_true
+
+    after do
+      AppConfig[:redis_cache] = @original_value
     end
 
-    it 'is false if it is not for all aspects' do
-      pending
-      @stream.stub(:for_all_aspects?).and_return(false)
-      @stream.ajax_stream?.should be_false
+    context 'if we are not caching with redis' do
+      before do
+        AppConfig[:redis_cache] = false
+      end
+
+      it 'is true if stream is for all aspects?' do
+        @stream.stub(:for_all_aspects?).and_return(true)
+        @stream.ajax_stream?.should be_true
+      end
+
+      it 'is false if it is not for all aspects' do
+        @stream.stub(:for_all_aspects?).and_return(false)
+        @stream.ajax_stream?.should be_false
+      end
+    end
+
+    context 'if we are caching with redis' do
+      it 'returns false' do
+        AppConfig[:redis_cache] = true
+        @stream.ajax_stream?.should be_false
+      end
     end
   end
+
   describe 'shared behaviors' do
     before do
       @stream = Stream::Aspect.new(alice, alice.aspects.map(&:id))
