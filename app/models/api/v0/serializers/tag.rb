@@ -11,7 +11,7 @@ class Api::V0::Serializers::Tag
   def as_json(opts={})
     {
       "name" => @stream.tag_name,
-      "person_count" => @stream.people_count,
+      "person_count" => @stream.tagged_people_count,
       "followed_count" => @stream.tag_follow_count,
       "posts" => []
     }
