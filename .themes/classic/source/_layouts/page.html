@@ -6,7 +6,7 @@ layout: default
 <article role="article">
   {% if page.title %}
   <header>
-    <h1 class="entry-title">{{ page.title | titlecase }}</h1>
+    <h1 class="entry-title">{% if site.titlecase %}{{ page.title | titlecase }}{% else %}{{ page.title }}{% endif %}</h1>
     {% if page.date %}<p class="meta">{% include post/date.html %}{{ time }}</p>{% endif %}
   </header>
   {% endif %}
