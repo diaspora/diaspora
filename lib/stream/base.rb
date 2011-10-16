@@ -120,7 +120,7 @@ class Stream::Base
   def post_is_from_contact?(post)
     @can_comment_cache ||= {}
     @can_comment_cache[post.id] ||= contacts_in_stream.find{|contact| contact.person_id == post.author.id}.present?
-    @can_comment_cache[post.id] ||= user.person.id == post.author.id
+    @can_comment_cache[post.id] ||= (user.person.id == post.author.id)
     @can_comment_cache[post.id]
   end
 end

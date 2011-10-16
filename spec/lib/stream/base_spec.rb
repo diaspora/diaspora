@@ -11,22 +11,22 @@ describe Stream::Base do
       @stream.stub(:people).and_return([bob.person, eve.person, @person])
     end
 
-    it 'returns true if user is a contact of the post author' do
+    it 'allows me to comment on my local contacts post' do
       post = Factory(:status_message, :author => bob.person)
       @stream.can_comment?(post).should be_true
     end
 
-    it 'returns true if a user is the author of the post' do
+    it 'allows me to comment on my own post' do
       post = Factory(:status_message, :author => alice.person)
       @stream.can_comment?(post).should be_true
     end
 
-    it 'returns true if the author of the post is local' do
+    it 'allows me to comment on any local public post' do
       post = Factory(:status_message, :author => eve.person)
       @stream.can_comment?(post).should be_true
     end
 
-    it 'returns true if person is remote and is a contact' do
+    it 'allows me to comment on a remote contacts post' do
       Contact.create!(:user => @stream.user, :person => @person)
       post = Factory(:status_message, :author => @person)
       @stream.can_comment?(post).should be_true
