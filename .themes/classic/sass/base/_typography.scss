@@ -115,7 +115,8 @@ blockquote {
   }
 }
 
-.pullquote-right:before, .pullquote-left:before {
+.pullquote-right:before,
+.pullquote-left:before {
   /* Reset metrics. */
   padding: 0;
   border: none;
@@ -136,11 +137,9 @@ blockquote {
 }
 
 .pullquote-left:before {
-
   /* Make left pullquotes align properly. */
   float: left;
   margin: .5em 1.5em 1em 0;
-
 }
 
 /* @extend this to force long lines of continuous text to wrap */
