@@ -18,7 +18,7 @@ class PostsController < ApplicationController
     key = params[:id].to_s.length <= 8 ? :id : :guid
 
     if user_signed_in?
-      @post = current_user.find_visible_post_by_id(params[:id], :key => key)
+      @post = current_user.find_visible_shareable_by_id(Post, params[:id], :key => key)
     else
       @post = Post.where(key => params[:id], :public => true).includes(:author, :comments => :author).first
     end

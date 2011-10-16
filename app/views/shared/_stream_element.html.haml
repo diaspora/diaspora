@@ -8,15 +8,15 @@
     - if current_user && post.author.owner_id == current_user.id
       = link_to image_tag('deletelabel.png'), post_path(post), :confirm => t('are_you_sure'), :method => :delete, :remote => true, :class => "delete stream_element_delete", :title => t('delete')
     - else
-      = link_to image_tag('deletelabel.png'), post_visibility_path(:id => "42", :post_id => post.id), :method => :put, :remote => true, :class => "delete stream_element_delete vis_hide", :title => t('.hide_and_mute')
+      = link_to image_tag('deletelabel.png'), share_visibility_path(:id => "42", :post_id => post.id), :method => :put, :remote => true, :class => "delete stream_element_delete vis_hide", :title => t('.hide_and_mute')
     = image_tag 'ajax-loader.gif', :class => "hide_loader hidden"
 
   .undo_text.hidden
     %p
-      = t('post_visibilites.update.post_hidden_and_muted', :name => person_link(post.author)).html_safe
+      = t('share_visibilites.update.post_hidden_and_muted', :name => person_link(post.author)).html_safe
     %p
-      = t('post_visibilites.update.see_it_on_their_profile', :name => person_link(post.author)).html_safe
-    = link_to t('undo'), post_visibility_path(:id => "42", :post_id => post.id), :method => :put, :remote => true
+      = t('share_visibilites.update.see_it_on_their_profile', :name => person_link(post.author)).html_safe
+    = link_to t('undo'), share_visibility_path(:id => "42", :post_id => post.id), :method => :put, :remote => true
 
   .sm_body
     = person_image_link(post.author, :size => :thumb_small)

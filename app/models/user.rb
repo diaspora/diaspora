@@ -30,7 +30,7 @@ class User < ActiveRecord::Base
   validates_associated :person
 
   has_one :person, :foreign_key => :owner_id
-  delegate :public_key, :posts, :owns?, :diaspora_handle, :name, :public_url, :profile, :first_name, :last_name, :to => :person
+  delegate :public_key, :posts, :photos, :owns?, :diaspora_handle, :name, :public_url, :profile, :first_name, :last_name, :to => :person
 
   has_many :invitations_from_me, :class_name => 'Invitation', :foreign_key => :sender_id, :dependent => :destroy
   has_many :invitations_to_me, :class_name => 'Invitation', :foreign_key => :recipient_id, :dependent => :destroy
@@ -207,7 +207,7 @@ class User < ActiveRecord::Base
   def add_to_streams(post, aspects_to_insert)
     post.socket_to_user(self, :aspect_ids => aspects_to_insert.map{|x| x.id}) if post.respond_to? :socket_to_user
     aspects_to_insert.each do |aspect|
-      aspect.posts << post
+      aspect << post
     end
   end
 

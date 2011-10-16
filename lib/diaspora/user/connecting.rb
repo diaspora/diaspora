@@ -23,20 +23,20 @@ module Diaspora
           notification.update_attributes(:unread=>false)
         end
 
-        register_post_visibilities(contact)
+        register_share_visibilities(contact)
         contact
       end
 
       # This puts the last 100 public posts by the passed in contact into the user's stream.
       # @param [Contact] contact
       # @return [void]
-      def register_post_visibilities(contact)
+      def register_share_visibilities(contact)
         #should have select here, but proven hard to test
         posts = Post.where(:author_id => contact.person_id, :public => true).limit(100)
         p = posts.map do |post|
-          PostVisibility.new(:contact_id => contact.id, :post_id => post.id)
+          ShareVisibility.new(:contact_id => contact.id, :shareable_id => post.id, :shareable_type => 'Post')
         end
-        PostVisibility.import(p) unless posts.empty?
+        ShareVisibility.import(p) unless posts.empty?
         nil
       end
 
