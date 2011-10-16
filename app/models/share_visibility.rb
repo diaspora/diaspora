@@ -14,7 +14,7 @@ class ShareVisibility < ActiveRecord::Base
   def self.batch_import(contact_ids, share)
     if postgres?
       contact_ids.each do |contact_id|
-        ShareVisibility.find_or_create_by_contact_id_and_shareable_id_and_shareable_type(contact_id, share.id, share.type)
+        ShareVisibility.find_or_create_by_contact_id_and_shareable_id_and_shareable_type(contact_id, share.id, share.class.base_class.to_s)
       end
     else
        new_share_visibilities_data = contact_ids.map do |contact_id|
