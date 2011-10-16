@@ -59,10 +59,10 @@ class LikesController < ApplicationController
 
   def target
     @target ||= if params[:post_id]
-      current_user.find_visible_post_by_id(params[:post_id])
+      current_user.find_visible_shareable_by_id(Post, params[:post_id])
     else
       comment = Comment.find(params[:comment_id])
-      comment = nil unless current_user.find_visible_post_by_id(comment.post_id)
+      comment = nil unless current_user.find_visible_shareable_by_id(Post, comment.commentable_id)
       comment
     end
   end

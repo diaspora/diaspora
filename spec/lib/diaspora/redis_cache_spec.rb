@@ -95,11 +95,12 @@ describe RedisCache do
       sql = "long_sql"
       order = "created_at DESC"
       @cache.should_receive(:order).and_return(order)
-      bob.should_receive(:visible_posts_sql).with(hash_including(
-                                                    :type => RedisCache.acceptable_types,
-                                                    :limit => RedisCache::CACHE_LIMIT,
-                                                    :order => order)).
-                                             and_return(sql)
+      bob.should_receive(:visible_shareables_sql).with(Post,
+                                                       hash_including(
+                                                                      :type => RedisCache.acceptable_types,
+                                                                      :limit => RedisCache::CACHE_LIMIT,
+                                                                      :order => order)).
+                                                                     and_return(sql)
 
       Post.connection.should_receive(:select_all).with(sql).and_return([])
 

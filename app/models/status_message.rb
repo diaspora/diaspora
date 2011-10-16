@@ -19,7 +19,10 @@ class StatusMessage < Post
   xml_attr :raw_message
 
   has_many :photos, :dependent => :destroy, :foreign_key => :status_message_guid, :primary_key => :guid
-  validate :presence_of_content
+
+  # TODO: disabling presence_of_content() (and its specs in status_message_controller_spec.rb:125) is a quick and dirty fix for federation
+  # a StatusMessage is federated before its photos are so presence_of_content() fails erroneously if no text is present
+  #validate :presence_of_content
 
   attr_accessible :text, :provider_display_name
   attr_accessor :oembed_url
@@ -33,8 +36,8 @@ class StatusMessage < Post
   scope :where_person_is_mentioned, lambda{|person| joins(:mentions).where(:mentions => {:person_id => person.id})}
 
   def self.owned_or_visible_by_user(user)
-    joins("LEFT OUTER JOIN post_visibilities ON post_visibilities.post_id = posts.id").
-    joins("LEFT OUTER JOIN contacts ON contacts.id = post_visibilities.contact_id").
+    joins("LEFT OUTER JOIN share_visibilities ON share_visibilities.shareable_id = posts.id AND share_visibilities.shareable_type = 'Post'").
+    joins("LEFT OUTER JOIN contacts ON contacts.id = share_visibilities.contact_id").
     where(Contact.arel_table[:user_id].eq(user.id).or(
       StatusMessage.arel_table[:public].eq(true).or(
         StatusMessage.arel_table[:author_id].eq(user.person.id)

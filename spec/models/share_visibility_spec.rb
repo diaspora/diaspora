@@ -4,7 +4,7 @@
 
 require 'spec_helper'
 
-describe PostVisibility do
+describe ShareVisibility do
   describe '.batch_import' do
     before do
       @post = Factory(:status_message, :author => alice.person)
@@ -13,16 +13,16 @@ describe PostVisibility do
 
     it 'creates a visibility for each user' do
       lambda {
-        PostVisibility.batch_import([@contact.id], @post)
+        ShareVisibility.batch_import([@contact.id], @post)
       }.should change {
-        PostVisibility.exists?(:contact_id => @contact.id, :post_id => @post.id)
+        ShareVisibility.exists?(:contact_id => @contact.id, :shareable_id => @post.id, :shareable_type => 'Post')
       }.from(false).to(true)
     end
 
     it 'does not raise if a visibility already exists' do
-      PostVisibility.create!(:contact_id => @contact.id, :post_id => @post.id)
+      ShareVisibility.create!(:contact_id => @contact.id, :shareable_id => @post.id, :shareable_type => 'Post')
       lambda {
-        PostVisibility.batch_import([@contact.id], @post)
+        ShareVisibility.batch_import([@contact.id], @post)
       }.should_not raise_error
     end
   end

@@ -8,67 +8,76 @@ module Diaspora
   module UserModules
     module Querying
 
-      def find_visible_post_by_id( id, opts={} )
+      def find_visible_shareable_by_id(klass, id, opts={} )
         key = opts.delete(:key) || :id
-        post = Post.where(key => id).joins(:contacts).where(:contacts => {:user_id => self.id}).where(opts).select("posts.*").first
-        post ||= Post.where(key => id, :author_id => self.person.id).where(opts).first
-        post ||= Post.where(key => id, :public => true).where(opts).first
+        post = klass.where(key => id).joins(:contacts).where(:contacts => {:user_id => self.id}).where(opts).select(klass.table_name+".*").first
+        post ||= klass.where(key => id, :author_id => self.person.id).where(opts).first
+        post ||= klass.where(key => id, :public => true).where(opts).first
       end
 
-      def visible_posts(opts={})
-        opts = prep_opts(opts)
-        post_ids = visible_post_ids(opts)
-        Post.where(:id => post_ids).select('DISTINCT posts.*').limit(opts[:limit]).order(opts[:order_with_table])
+      def visible_shareables(klass, opts={})
+        opts = prep_opts(klass, opts)
+        shareable_ids = visible_shareable_ids(klass, opts)
+        klass.where(:id => shareable_ids).select('DISTINCT '+klass.to_s.tableize+'.*').limit(opts[:limit]).order(opts[:order_with_table])
       end
 
-      def visible_post_ids(opts={})
-        opts = prep_opts(opts)
+      def visible_shareable_ids(klass, opts={})
+        opts = prep_opts(klass, opts)
 
         if RedisCache.configured? && RedisCache.supported_order?(opts[:order_field]) && opts[:all_aspects?].present?
           cache = RedisCache.new(self, opts[:order_field])
 
           cache.ensure_populated!(opts)
-          post_ids = cache.post_ids(opts[:max_time], opts[:limit])
+          name = klass.to_s.downcase
+          shareable_ids = cache.send(name+"_ids", opts[:max_time], opts[:limit])
         end
 
-        if post_ids.blank? || post_ids.length < opts[:limit]
-          visible_ids_from_sql(opts)
+        if shareable_ids.blank? || shareable_ids.length < opts[:limit]
+          visible_ids_from_sql(klass, opts)
         else
-          post_ids
+          shareable_ids
         end
       end
 
       # @return [Array<Integer>]
-      def visible_ids_from_sql(opts={})
-        opts = prep_opts(opts)
-        Post.connection.select_values(visible_posts_sql(opts)).map { |id| id.to_i }
+      def visible_ids_from_sql(klass, opts={})
+        opts = prep_opts(klass, opts)
+        klass.connection.select_values(visible_shareable_sql(klass, opts)).map { |id| id.to_i }
       end
 
-      def visible_posts_sql(opts={})
-        opts = prep_opts(opts)
-        select_clause ='DISTINCT posts.id, posts.updated_at AS updated_at, posts.created_at AS created_at'
+      def visible_shareable_sql(klass, opts={})
+        table = klass.table_name
+        opts = prep_opts(klass, opts)
+        select_clause ='DISTINCT %s.id, %s.updated_at AS updated_at, %s.created_at AS created_at' % [klass.table_name, klass.table_name, klass.table_name]
 
-        posts_from_others = Post.joins(:contacts).where( :pending => false, :type => opts[:type], :post_visibilities => {:hidden => opts[:hidden]}, :contacts => {:user_id => self.id})
-        posts_from_self = self.person.posts.where(:pending => false, :type => opts[:type])
+        conditions = {:pending => false, :share_visibilities => {:hidden => opts[:hidden]}, :contacts => {:user_id => self.id} }
+        conditions[:type] = opts[:type] if opts.has_key?(:type)
+        shareable_from_others = klass.joins(:contacts).where(conditions)
+
+        conditions = {:pending => false }
+        conditions[:type] = opts[:type] if opts.has_key?(:type)
+        shareable_from_self = self.person.send(klass.to_s.tableize).where(conditions)
 
         if opts[:by_members_of]
-          posts_from_others = posts_from_others.joins(:contacts => :aspect_memberships).where(
+          shareable_from_others = shareable_from_others.joins(:contacts => :aspect_memberships).where(
             :aspect_memberships => {:aspect_id => opts[:by_members_of]})
-          posts_from_self = posts_from_self.joins(:aspect_visibilities).where(:aspect_visibilities => {:aspect_id => opts[:by_members_of]})
+          shareable_from_self = shareable_from_self.joins(:aspect_visibilities).where(:aspect_visibilities => {:aspect_id => opts[:by_members_of]})
         end
 
-        posts_from_others = posts_from_others.select(select_clause).order(opts[:order_with_table]).where(Post.arel_table[opts[:order_field]].lt(opts[:max_time]))
-        posts_from_self = posts_from_self.select(select_clause).order(opts[:order_with_table]).where(Post.arel_table[opts[:order_field]].lt(opts[:max_time]))
+        shareable_from_others = shareable_from_others.select(select_clause).order(opts[:order_with_table]).where(klass.arel_table[opts[:order_field]].lt(opts[:max_time]))
+        shareable_from_self = shareable_from_self.select(select_clause).order(opts[:order_with_table]).where(klass.arel_table[opts[:order_field]].lt(opts[:max_time]))
 
-        "(#{posts_from_others.to_sql} LIMIT #{opts[:limit]}) UNION ALL (#{posts_from_self.to_sql} LIMIT #{opts[:limit]}) ORDER BY #{opts[:order]} LIMIT #{opts[:limit]}"
+        "(#{shareable_from_others.to_sql} LIMIT #{opts[:limit]}) UNION ALL (#{shareable_from_self.to_sql} LIMIT #{opts[:limit]}) ORDER BY #{opts[:order]} LIMIT #{opts[:limit]}"
       end
 
       def contact_for(person)
         return nil unless person
         contact_for_person_id(person.id)
       end
-      def aspects_with_post(post_id)
-        self.aspects.joins(:aspect_visibilities).where(:aspect_visibilities => {:post_id => post_id})
+      def aspects_with_shareable(base_class_name_or_class, shareable_id)
+        base_class_name = base_class_name_or_class
+        base_class_name = base_class_name_or_class.base_class.to_s if base_class_name_or_class.is_a?(Class)
+        self.aspects.joins(:aspect_visibilities).where(:aspect_visibilities => {:shareable_id => shareable_id, :shareable_type => base_class_name})
       end
 
       def contact_for_person_id(person_id)
@@ -105,36 +114,44 @@ module Diaspora
       end
 
       def posts_from(person)
-        return self.person.posts.where(:pending => false).order("created_at DESC") if person == self.person
+        self.shareables_from(Post, person)
+      end
+
+      def photos_from(person)
+        self.shareables_from(Photo, person)
+      end
+
+      def shareables_from(klass, person)
+        return self.person.send(klass.table_name).where(:pending => false).order("created_at DESC") if person == self.person
         con = Contact.arel_table
-        p = Post.arel_table
-        post_ids = []
+        p = klass.arel_table
+        shareable_ids = []
         if contact = self.contact_for(person)
-          post_ids = Post.connection.select_values(
-            contact.post_visibilities.where(:hidden => false).select('post_visibilities.post_id').to_sql
+          shareable_ids = klass.connection.select_values(
+            contact.share_visibilities.where(:hidden => false, :shareable_type => klass.to_s).select('share_visibilities.shareable_id').to_sql
           )
         end
-        post_ids += Post.connection.select_values(
-          person.posts.where(:public => true).select('posts.id').to_sql
+        shareable_ids += klass.connection.select_values(
+          person.send(klass.table_name).where(:public => true).select(klass.table_name+'.id').to_sql
         )
 
-        Post.where(:id => post_ids, :pending => false).select('DISTINCT posts.*').order("posts.created_at DESC")
+        klass.where(:id => shareable_ids, :pending => false).select('DISTINCT '+klass.table_name+'.*').order(klass.table_name+".created_at DESC")
       end
 
       protected
 
       # @return [Hash]
-      def prep_opts(opts)
+      def prep_opts(klass, opts)
         defaults = {
-          :type => Stream::Base::TYPES_OF_POST_IN_STREAM, 
           :order => 'created_at DESC',
           :limit => 15,
           :hidden => false
         }
+        defaults[:type] = Stream::Base::TYPES_OF_POST_IN_STREAM if klass == Post
         opts = defaults.merge(opts)
 
         opts[:order_field] = opts[:order].split.first.to_sym
-        opts[:order_with_table] = 'posts.' + opts[:order]
+        opts[:order_with_table] = klass.table_name + '.' + opts[:order]
 
         opts[:max_time] = Time.at(opts[:max_time]) if opts[:max_time].is_a?(Integer)
         opts[:max_time] ||= Time.now + 1

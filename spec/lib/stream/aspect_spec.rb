@@ -52,25 +52,25 @@ describe Stream::Aspect do
     it 'calls visible posts for the given user' do
       stream = Stream::Aspect.new(@alice, [1,2])
 
-      @alice.should_receive(:visible_posts).and_return(stub.as_null_object)
+      @alice.should_receive(:visible_shareables).and_return(stub.as_null_object)
       stream.posts
     end
 
     it 'is called with 3 types' do
       stream = Stream::Aspect.new(@alice, [1,2], :order => 'created_at')
-      @alice.should_receive(:visible_posts).with(hash_including(:type=> ['StatusMessage', 'Reshare', 'ActivityStreams::Photo'])).and_return(stub.as_null_object)
+      @alice.should_receive(:visible_shareables).with(Post, hash_including(:type=> ['StatusMessage', 'Reshare', 'ActivityStreams::Photo'])).and_return(stub.as_null_object)
       stream.posts
     end
 
     it 'respects ordering' do 
       stream = Stream::Aspect.new(@alice, [1,2], :order => 'created_at')
-      @alice.should_receive(:visible_posts).with(hash_including(:order => 'created_at DESC')).and_return(stub.as_null_object)
+      @alice.should_receive(:visible_shareables).with(Post, hash_including(:order => 'created_at DESC')).and_return(stub.as_null_object)
       stream.posts
     end
 
     it 'respects max_time' do
       stream = Stream::Aspect.new(@alice, [1,2], :max_time => 123)
-      @alice.should_receive(:visible_posts).with(hash_including(:max_time => instance_of(Time))).and_return(stub.as_null_object)
+      @alice.should_receive(:visible_shareables).with(Post, hash_including(:max_time => instance_of(Time))).and_return(stub.as_null_object)
       stream.posts
     end
 
@@ -78,7 +78,7 @@ describe Stream::Aspect do
       stream = Stream::Aspect.new(@alice, [1,2], :max_time => 123)
       all_aspects = mock
       stream.stub(:for_all_aspects?).and_return(all_aspects)
-      @alice.should_receive(:visible_posts).with(hash_including(:all_aspects? => all_aspects)).and_return(stub.as_null_object)
+      @alice.should_receive(:visible_shareables).with(Post, hash_including(:all_aspects? => all_aspects)).and_return(stub.as_null_object)
       stream.posts
     end
   end
