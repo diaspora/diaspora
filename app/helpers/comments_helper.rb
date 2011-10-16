@@ -30,15 +30,4 @@ module CommentsHelper
       nil
     end
   end
-
-  def commenting_disabled?(post)
-    return true unless user_signed_in?
-    if defined?(@commenting_disabled)
-      @commenting_disabled
-    elsif defined?(@stream)
-      !@stream.can_comment?(post)
-    else 
-      false
-    end
-  end
 end
