@@ -2,7 +2,7 @@
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
-class Stream::Aspect< Stream::Base
+class Stream::Aspect < Stream::Base
 
   # @param user [User]
   # @param inputted_aspect_ids [Array<Integer>] Ids of aspects for given stream

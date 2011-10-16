@@ -165,6 +165,12 @@ Diaspora::Application.routes.draw do
     get :me
   end
 
+  namespace :api do
+    namespace :v0 do
+      get "/users/:username" => 'users#show', :as => 'user'
+    end
+  end
+
 
   # Mobile site
 

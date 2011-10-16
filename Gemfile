@@ -117,6 +117,7 @@ end
 group :test do
   gem 'capybara', '~> 0.3.9'
   gem 'cucumber-rails', '0.3.2'
+  gem 'cucumber-api-steps', :require => false
   gem 'database_cleaner', '0.6.0'
   gem 'diaspora-client', :git => 'git://github.com/diaspora/diaspora-client.git'
                           #"0.1.0", #:path => '~/workspace/diaspora-client'
