@@ -19,11 +19,11 @@ class Stream::Tag < Stream::Base
     @display_tag_name ||= "##{tag_name}"
   end
 
-  def people
+  def tagged_people
     @people ||= Person.profile_tagged_with(tag_name).paginate(:page => people_page, :per_page => 15)
   end
 
-  def people_count
+  def tagge_people_count
     @people_count ||= Person.profile_tagged_with(tag_name).count
   end
 

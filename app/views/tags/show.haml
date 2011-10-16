@@ -36,10 +36,10 @@
 
 .span-6.tags_people
   %h3
-    = t('people', :count => @stream.people_count)
+    = t('people', :count => @stream.tagge_people_count)
 
   .side_stream.stream
-    = render :partial => 'people/index', :locals => {:people => @stream.people}
+    = render :partial => 'people/index', :locals => {:people => @stream.tagged_people}
 
   %br
 
