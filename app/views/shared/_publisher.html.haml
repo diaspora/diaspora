@@ -18,7 +18,7 @@
           #publisher_textarea_wrapper
             = link_to( image_tag('deletelabel.png'), "#", :id => "hide_publisher", :title => t('.discard_post'))
             %ul#photodropzone
-            = status.text_area :fake_text, :rows => 2, :value => h(params[:prefill]), :tabindex => 1, :placeholder => t('.whats_on_your_mind')
+            = status.text_area :fake_text, :rows => 2, :value => h(publisher_prefill_text), :tabindex => 1, :placeholder => t('.whats_on_your_mind')
             = status.hidden_field :text, :value => '', :class => 'clear_on_submit'
 
             #file-upload{:title => t('.upload_photos')}

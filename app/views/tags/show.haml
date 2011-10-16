@@ -4,8 +4,8 @@
 
 
 - content_for :page_title do
-  - if params[:name]
-    = "##{params[:name]}"
+  - if @stream.tag_name
+    = @stream.display_tag_name
   - else
     = t('.whatup', :pod => @pod_url)
 
@@ -17,12 +17,12 @@
       $(".button.tag_following").hover(function(){
         $this = $(this);
         $this.removeClass("in_aspects");
-        $this.val("#{t('.stop_following', :tag => params[:name])}");
+        $this.val("#{t('.stop_following', :tag => @stream.tag_name)}");
       },
       function(){
         $this = $(this);
         $this.addClass("in_aspects");
-        $this.val("#{t('.following', :tag => params[:name])}");
+        $this.val("#{t('.following', :tag => @stream.tag_name)}");
       });
     });
     $(".people_stream .pagination a").live("click", function() {
@@ -36,10 +36,10 @@
 
 .span-6.tags_people
   %h3
-    = t('people', :count => @people_count)
+    = t('people', :count => @stream.people_count)
 
   .side_stream.stream
-    = render :partial => 'people/index', :locals => {:people => @people}
+    = render :partial => 'people/index', :locals => {:people => @stream.people}
 
   %br
 
@@ -49,28 +49,28 @@
 .span-15.last
   .stream_container
     #author_info
-      - if user_signed_in? && current_user.person != @person
+      - if user_signed_in?
         .right
           - unless tag_followed?
-            = button_to t('.follow', :tag => params[:name]), tag_tag_followings_path(:name => params[:name]), :method => :post,   :class => 'button take_action'
+            = button_to t('.follow', :tag => @stream.tag_name), tag_tag_followings_path(:name => @stream.tag_name), :method => :post,   :class => 'button take_action'
           - else
-            = button_to t('.following', :tag => params[:name]), tag_tag_followings_path(:name => params[:name]), :method => :delete,   :class => 'button red_on_hover tag_following in_aspects take_action'
+            = button_to t('.following', :tag => @stream.tag_name), tag_tag_followings_path(:name => @stream.tag_name), :method => :delete,   :class => 'button red_on_hover tag_following in_aspects take_action'
       %h2
-        = "##{params[:name]}"
+        = @stream.display_tag_name
         %small
           = t('.followed_by')
-          = t('people', :count => @tag_follow_count)
+          = t('people', :count => @stream.tag_follow_count)
 
     - if current_user
-      = render 'shared/publisher', :selected_aspects => all_aspects.map{|a| a.id}, :aspect_ids => all_aspects.map{|a| a.id}, :for_all_aspects => true, :aspect => all_aspects.first
+      = render 'shared/publisher', :selected_aspects => @stream.aspect_ids, :aspect_ids => @stream.aspect_ids, :for_all_aspects => true, :aspect => @stream.aspect
 
     %hr
 
     #main_stream.stream
-      - if @posts.length > 0
-        = render 'shared/stream', :posts => @posts
+      - if @stream.posts.length > 0
+        = render 'shared/stream', :posts => @stream.posts
         #pagination
           =link_to(t('more'), next_page_path, :class => 'paginate')
       - else
-        = t('.nobody_talking', :tag => "##{params[:name]}")
+        = t('.nobody_talking', :tag => @stream.display_tag_name)
 
