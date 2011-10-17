@@ -91,6 +91,8 @@ en:
     other: "%{count} aspects"
     contacts_visible: "Contacts in this aspect will be able to see each other."
     contacts_not_visible: "Contacts in this aspect will not be able to see each other."
+    select_all: "Select all"
+    deselect_all: "Deselect all"
     edit:
       make_aspect_list_visible: "make contacts in this aspect visible to each other?"
       remove_aspect: "Delete this aspect"
