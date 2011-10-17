@@ -26,8 +26,8 @@ FROM posts
 WHERE type = 'Photo'
 SQL
 
-    execute "UPDATE aspect_visibilities AS av, photos SET av.shareable_type='Photo' WHERE av.shareable_id=photos.id"
-    execute "UPDATE share_visibilities AS sv, photos SET sv.shareable_type='Photo' WHERE sv.shareable_id=photos.id"
+    execute "UPDATE aspect_visibilities SET shareable_type='Photo' WHERE EXISTS (SELECT 1 FROM photos WHERE photos.id=shareable_id)"
+    execute "UPDATE share_visibilities SET shareable_type='Photo' WHERE EXISTS (SELECT 1 FROM photos WHERE photos.id=shareable_id)"
 
     # all your base are belong to us!
     execute "DELETE FROM posts WHERE type='Photo'"
