@@ -14,6 +14,8 @@ class PostsController < ApplicationController
              :json,
              :xml
 
+  include MarkdownifyHelper
+
   def show
     key = params[:id].to_s.length <= 8 ? :id : :guid
 
@@ -32,7 +34,7 @@ class PostsController < ApplicationController
 
       respond_to do |format|
         format.xml{ render :xml => @post.to_diaspora_xml }
-        format.mobile{render 'posts/show.mobile.haml'}	
+        format.mobile{render 'posts/show.mobile.haml'}
         format.any{render 'posts/show.html.haml'}
       end
 
@@ -64,5 +66,11 @@ class PostsController < ApplicationController
 
   def set_format_if_malformed_from_status_net
    request.format = :html if request.format == 'application/html+xml'
+  end
+
+  def preview
+    render :json => {
+      'result' => markdownify( params['text'], :oembed => true )
+    }
   end
 end

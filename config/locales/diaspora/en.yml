@@ -727,6 +727,8 @@ en:
         other: "In %{count} aspects"
     publisher:
       posting: "Posting..."
+      preview: "Preview"
+      edit: "Edit"
       share: "Share"
       post_a_message_to: "Post a message to %{aspect}"
       make_public: "make public"
@@ -738,6 +740,7 @@ en:
       publishing_to: "publishing to: "
       click_to_share_with: "Click to share with: "
       discard_post: "Discard post"
+      preview_hide: "Close preview"
     add_contact:
       enter_a_diaspora_username: "Enter a Diaspora username:"
       your_diaspora_username_is: "Your Diaspora username is: %{diaspora_handle}"

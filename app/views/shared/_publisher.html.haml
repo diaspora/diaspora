@@ -40,7 +40,8 @@
                 = image_tag "social_media_logos/#{service.provider}-16x16.png", :title => service.provider.titleize, :class => "service_icon dim", :id =>"#{service.provider}", :maxchar => "#{service.class::MAX_CHARACTERS}"
             = link_to (image_tag "icons/monotone_wrench_settings.png"), "#question_mark_pane", :class => 'question_mark', :rel => 'facebox', :title => t('shared.public_explain.manage')
           = render "shared/aspect_dropdown", :selected_aspects => selected_aspects, :hang => 'left'
-          = status.submit t('.share'), :disable_with => t('.posting'), :class => 'button creation', :tabindex => 2
+          = link_to t('.preview'), '#', :id => 'preview', :class => 'button', :tabindex => 2
+          = status.submit t('.share'), :disable_with => t('.posting'), :class => 'button creation', :tabindex => 3
 
           .facebox_content
             #question_mark_pane
@@ -50,4 +51,11 @@
 
     #publisher_photo_upload
       = render 'photos/new_photo', :aspect_ids => aspect_ids.join(',')
+
+  #preview-modal
+    #preview-header
+      Post Preview
+      = link_to  image_tag('deletelabel.png'), "#", :id => 'preview-hide', :title => t('.preview_hide')
+    #preview-result
+    = link_to t('.edit'), '#', :id => 'preview-edit', :class => 'button'
 

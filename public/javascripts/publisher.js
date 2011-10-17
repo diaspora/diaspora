@@ -421,7 +421,7 @@ var Publisher = {
       });
       Publisher.close();
     });
- 
+
     Publisher.autocompletion.initialize();
     Publisher.hiddenInput().val(Publisher.input().val());
     Publisher.input().autoResize();
@@ -431,6 +431,32 @@ var Publisher = {
     Publisher.form().find("textarea").bind("focus", function(evt) {
       Publisher.open();
     });
+
+    $('#preview.button').live( 'click', function(evt) {
+      evt.preventDefault();
+
+      $.post('/preview.json', {
+        text: $('#status_message_fake_text').val()
+      }, function(data){
+        $('#preview-result')
+          .height( $('#publisher').height() - 58 )
+          .html( data.result )
+        ;
+
+        $('#preview-modal')
+          .height( $('#publisher').height() + $('#preview').height() + 24 )
+          .width( $('#publisher').width() )
+          .fadeIn('fast')
+        ;
+        $('#file-upload').hide();
+      });
+    } );
+
+    $('#preview-hide, #preview-edit').live( 'click', function(evt) {
+      evt.preventDefault();
+      $('#file-upload').show();
+      $('#preview-modal').fadeOut('fast');
+    } );
   }
 };
 

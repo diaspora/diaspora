@@ -21,6 +21,7 @@ Diaspora::Application.routes.draw do
   end
   get 'p/:id' => 'posts#show', :as => 'short_post'
   get 'public_stream' => 'posts#index', :as => 'public_stream'
+  post 'preview' => 'posts#preview'
   # roll up likes into a nested resource above
   resources :comments, :only => [:create, :destroy] do
     resources :likes, :only => [:create, :destroy, :index]
@@ -179,7 +180,7 @@ Diaspora::Application.routes.draw do
 
   #Protocol Url
   get 'protocol' => redirect("https://github.com/diaspora/diaspora/wiki/Diaspora%27s-federation-protocol")
-  
+
   # Resque web
   if AppConfig[:mount_resque_web]
     mount Resque::Server.new, :at => '/resque-jobs', :as => "resque_web"
