@@ -438,7 +438,10 @@ var Publisher = {
       $.post('/preview.json', {
         text: $('#status_message_fake_text').val()
       }, function(data){
-        $('#preview-result').html( data.result );
+        $('#preview-result')
+          .height( $('#publisher').height() - 58 )
+          .html( data.result )
+        ;
 
         $('#preview-modal')
           .height( $('#publisher').height() + $('#preview').height() + 24 )
@@ -450,7 +453,7 @@ var Publisher = {
       });
     } );
 
-    $('#preview-hide, #preview-overlay').live( 'click', function(evt) {
+    $('#preview-hide, #preview-overlay, #preview-edit').live( 'click', function(evt) {
       evt.preventDefault();
       $('#file-upload').show();
       $('#preview-overlay').fadeOut('fast');
