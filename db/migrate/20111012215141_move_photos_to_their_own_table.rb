@@ -89,8 +89,7 @@ SQL
       execute <<SQL
 INSERT INTO posts
   SELECT NULL AS id, author_id, public, diaspora_handle, guid, pending, 'Photo' AS type, text, remote_photo_path, remote_photo_name, random_string,
-    processed_image, NULL AS youtube_titles, created_at, updated_at, unprocessed_image, NULL AS object_url, NULL AS image_url, NULL AS image_height, NULL AS image_width
- NULL AS provider_display_name,
+    processed_image, NULL AS youtube_titles, created_at, updated_at, unprocessed_image, NULL AS object_url, NULL AS image_url, NULL AS image_height, NULL AS image_width, NULL AS provider_display_name,
     NULL AS actor_url, NULL AS objectId, NULL AS root_guid, status_message_guid, 0 AS likes_count, comments_count, NULL AS o_embed_cache_id
   FROM photos
 SQL
