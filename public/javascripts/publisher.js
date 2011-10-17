@@ -439,7 +439,12 @@ var Publisher = {
         text: $('#status_message_fake_text').val()
       }, function(data){
         $('#preview-result').html( data.result );
-        $('#preview-modal').fadeIn('fast');
+
+        $('#preview-modal')
+          .height( $('#publisher').height() + $('#preview').height() + 24 )
+          .width( $('#publisher').width() )
+          .fadeIn('fast')
+        ;
         $('#preview-overlay').fadeIn('fast');
         $('#file-upload').hide();
       });
