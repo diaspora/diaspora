@@ -448,15 +448,13 @@ var Publisher = {
           .width( $('#publisher').width() )
           .fadeIn('fast')
         ;
-        $('#preview-overlay').fadeIn('fast');
         $('#file-upload').hide();
       });
     } );
 
-    $('#preview-hide, #preview-overlay, #preview-edit').live( 'click', function(evt) {
+    $('#preview-hide, #preview-edit').live( 'click', function(evt) {
       evt.preventDefault();
       $('#file-upload').show();
-      $('#preview-overlay').fadeOut('fast');
       $('#preview-modal').fadeOut('fast');
     } );
   }
