@@ -8,9 +8,20 @@ end
 When /^I select only "([^"]*)" aspect$/ do |aspect_name|
   within('#aspect_nav') do
     click_link 'Select all' if has_link? 'Select all'
-    click_link 'Deselect all'
+  end
+
+  And %{I wait for the ajax to finish}
+
+  within('#aspect_nav') do
+    click_link 'Select all' if has_link? 'Select all'
+  end
+
+  And %{I wait for the ajax to finish}
+
+  within('#aspect_nav') do
     click_link aspect_name
   end
+
   And %{I wait for the ajax to finish}
 end
 
