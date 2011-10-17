@@ -43,28 +43,43 @@ describe("Publisher", function() {
       Publisher.initialize();
       expect(Publisher.bindAspectToggles).toHaveBeenCalled();
     });
-   
-    it('toggles removed only on the clicked icon', function(){
+
+    it('correctly initializes an all_aspects state', function(){
       Publisher.initialize();
 
-      expect($("#publisher .dropdown .dropdown_list li").first().hasClass("selected")).toBeTruthy();
-      expect($("#publihser .dropdown .dropdown_list li").last().hasClass("selected")).toBeFalsy();
+      expect($("#publisher .dropdown .dropdown_list li.radio").first().hasClass("selected")).toBeFalsy();
+      expect($("#publisher .dropdown .dropdown_list li.radio").last().hasClass("selected")).toBeTruthy();
 
-      Publisher.bindAspectToggles();
-      $("#publisher .dropdown .dropdown_list li").last().click();
-
-      expect($("#publisher .dropdown .dropdown_list li").first().hasClass("selected")).toBeTruthy();
-      expect($("#publisher .dropdown .dropdown_list li").last().hasClass("selected")).toBeTruthy();
+      $.each($("#publihser .dropdown .dropdown_list li.aspect_selector"), function(index, element){
+        expect($(element).hasClass("selected")).toBeFalsy();
+      });
     });
 
-    it('binds to the services icons and toggles the hidden field', function(){
+    it('toggles removed only on the clicked icon', function(){
+      Publisher.initialize();
+      Publisher.bindAspectToggles();
+
+      $("#publisher .dropdown .dropdown_list li.aspect_selector").last().click();
+
+      $.each($("#publihser .dropdown .dropdown_list li.radio"), function(index, element){
+        expect($(element).hasClass("selected")).toBeFalsy();
+      });
+
+      expect($("#publisher .dropdown .dropdown_list li.aspect_selector").first().hasClass("selected")).toBeFalsy();
+      expect($("#publisher .dropdown .dropdown_list li.aspect_selector").last().hasClass("selected")).toBeTruthy();
+    });
+
+    it('is called with the correct element', function(){
       spyOn(Publisher, 'toggleAspectIds');
       Publisher.bindAspectToggles();
+
       var aspBadge = $("#publisher .dropdown .dropdown_list li").last();
-      var aspNum = aspBadge.attr('data-aspect_id');
+
+      console.log(aspBadge);
+
       aspBadge.click();
 
-      expect(Publisher.toggleAspectIds).toHaveBeenCalledWith(aspNum);
+      expect(Publisher.toggleAspectIds).toHaveBeenCalledWith(aspBadge);
     });
 
   });
@@ -72,68 +87,38 @@ describe("Publisher", function() {
   describe('toggleAspectIds', function(){
     beforeEach( function(){
       spec.loadFixture('status_message_new');
+      li = $("<li data-aspect_id=42></li>");
     });
 
     it('adds a hidden field to the form if there is not one already', function(){
-      expect($('#publisher [name="aspect_ids[]"]').length).toBe(2);
-      Publisher.toggleAspectIds(42);
-      expect($('#publisher [name="aspect_ids[]"]').length).toBe(3);
+      expect($('#publisher [name="aspect_ids[]"]').length).toBe(1);
+      expect($('#publisher [name="aspect_ids[]"]').last().attr('value')).toBe('all_aspects');
+      Publisher.toggleAspectIds(li);
+      expect($('#publisher [name="aspect_ids[]"]').length).toBe(1);
       expect($('#publisher [name="aspect_ids[]"]').last().attr('value')).toBe('42');
     });
 
     it('removes the hidden field if its already there', function() {
-      Publisher.toggleAspectIds(42);
-      expect($('#publisher [name="aspect_ids[]"]').length).toBe(3);
+      expect($('#publisher [name="aspect_ids[]"]').length).toBe(1);
 
-      Publisher.toggleAspectIds(42);
-      expect($('#publisher [name="aspect_ids[]"]').length).toBe(2);
+      Publisher.toggleAspectIds(li);
+      expect($('#publisher [name="aspect_ids[]"]').length).toBe(1);
+
+      Publisher.toggleAspectIds(li);
+      expect($('#publisher [name="aspect_ids[]"]').length).toBe(0);
     });
 
     it('does not remove a hidden field with a different value', function() {
-      Publisher.toggleAspectIds(42);
-      expect($('#publisher [name="aspect_ids[]"]').length).toBe(3);
+      var li2 = $("<li data-aspect_id=99></li>");
 
-      Publisher.toggleAspectIds(99);
-      expect($('#publisher [name="aspect_ids[]"]').length).toBe(4);
+      Publisher.toggleAspectIds(li);
+      expect($('#publisher [name="aspect_ids[]"]').length).toBe(1);
+
+      Publisher.toggleAspectIds(li2);
+      expect($('#publisher [name="aspect_ids[]"]').length).toBe(2);
     });
   });
 
-  describe("bindPublicIcon", function() {
-    beforeEach( function(){
-      spec.loadFixture('aspects_index_services');
-      Diaspora.I18n.loadLocale(
-        { 'publisher' :
-          { 'public' : 'is public', 'limited' : 'is limited' } }, 'en');
-    });
-
-    it('gets called on initialize', function(){
-      spyOn(Publisher, 'bindPublicIcon');
-      Publisher.initialize();
-      expect(Publisher.bindPublicIcon).toHaveBeenCalled();
-    });
-    it('toggles dim only on the clicked icon', function(){
-      expect($(".public_icon").hasClass("dim")).toBeTruthy();
-
-      Publisher.bindPublicIcon();
-      $(".public_icon").click();
-
-      expect($(".public_icon").hasClass("dim")).toBeFalsy();
-    });
-    it('toggles the hidden field', function(){
-      Publisher.bindPublicIcon();
-      expect($('#publisher #status_message_public').val()).toBe('false');
-
-      $(".public_icon").click();
-      expect($('#publisher #status_message_public').val()).toBe('true');
-    });
-    it('toggles the tooltip on the clicked icon', function(){
-      Publisher.bindPublicIcon();
-      $(".public_icon").click();
-      expect($(".public_icon")).toHaveAttr('original-title', 'is public');
-      $(".public_icon").click();
-      expect($(".public_icon")).toHaveAttr('original-title', 'is limited');
-    });
-  });
   describe("bindServiceIcons", function() {
     beforeEach( function(){
       spec.loadFixture('aspects_index_services');

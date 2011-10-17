@@ -5,18 +5,21 @@
 
 //TODO: make this a widget
 var Publisher = {
+
   bookmarklet : false,
   close: function(){
     Publisher.form().addClass('closed');
     Publisher.form().find("#publisher_textarea_wrapper").removeClass('active');
     Publisher.form().find("textarea.ac_input").css('min-height', '');
   },
+
   open: function(){
     Publisher.form().removeClass('closed');
     Publisher.form().find("#publisher_textarea_wrapper").addClass('active');
     Publisher.form().find("textarea.ac_input").css('min-height', '42px');
     Publisher.determineSubmitAvailability();
   },
+
   cachedForm : false,
   form: function(){
     if(!Publisher.cachedForm){
@@ -24,6 +27,7 @@ var Publisher = {
     }
     return Publisher.cachedForm;
   },
+
   cachedInput : false,
   input: function(){
     if(!Publisher.cachedInput){
@@ -237,8 +241,7 @@ var Publisher = {
 
     },
 
-    searchTermFromValue: function(value, cursorIndex)
-    {
+    searchTermFromValue: function(value, cursorIndex) {
       var stringLoc = Publisher.autocompletion.findStringToReplace(value, cursorIndex);
       if(stringLoc[0] <= 2){
         stringLoc[0] = 0;
@@ -266,44 +269,32 @@ var Publisher = {
       );
     }
   },
+
   determineSubmitAvailability: function(){
-    var onlyWhitespaces = (Publisher.input().val().trim() === '');
-    var isSubmitDisabled = Publisher.submit().attr('disabled');
-    var isPhotoAttached = ($("#photodropzone").children().length > 0);
+    var onlyWhitespaces = (Publisher.input().val().trim() === ''),
+        isSubmitDisabled = Publisher.submit().attr('disabled'),
+        isPhotoAttached = ($("#photodropzone").children().length > 0);
+
     if ((onlyWhitespaces &&  !isPhotoAttached) && !isSubmitDisabled) {
       Publisher.submit().attr('disabled', true);
     } else if ((!onlyWhitespaces || isPhotoAttached) && isSubmitDisabled) {
       Publisher.submit().removeAttr('disabled');
     }
   },
+
   clear: function(){
     this.autocompletion.mentionList.clear();
     $("#photodropzone").find('li').remove();
     $("#publisher textarea").removeClass("with_attachments").css('paddingBottom', '');
   },
+
   bindServiceIcons: function(){
     $(".service_icon").bind("click", function(evt){
       $(this).toggleClass("dim");
       Publisher.toggleServiceField($(this));
     });
   },
-  bindPublicIcon: function(){
-    $(".public_icon").bind("click", function(evt){
-      $(this).toggleClass("dim");
-      var public_field = $("#publisher #status_message_public");
 
-      if (public_field.val() == 'false') {
-        public_field.val('true');
-        $(this).attr('title', Diaspora.I18n.t('publisher.public'));
-      } else {
-        public_field.val('false');
-        $(this).attr('title', Diaspora.I18n.t('publisher.limited'));
-      }
-
-      $(this).tipsy(true).fixTitle();
-      $(this).tipsy(true).show();
-    });
-  },
   toggleServiceField: function(service){
     Publisher.createCounter(service);
 
@@ -346,12 +337,11 @@ var Publisher = {
     var aspectId = li.attr('data-aspect_id'),
         hiddenFields = $('#publisher [name="aspect_ids[]"]'),
         appendId = function(){
-          console.log(aspectId);
           $("#publisher .content_creation form").append(
           '<input id="aspect_ids_" name="aspect_ids[]" type="hidden" value="'+aspectId+'">');
         };
 
-    console.log(aspectId);
+    console.log(li);
 
     if(li.hasClass('radio')){
       $.each(hiddenFields, function(index, value){
@@ -389,6 +379,7 @@ var Publisher = {
       $('#status_message_fake_text').charCount({allowed: min, warning: min/10 });
     }
   },
+
   bindAspectToggles: function() {
     $('#publisher .dropdown .dropdown_list li').bind("click", function(evt){
       var li = $(this),
@@ -462,12 +453,12 @@ var Publisher = {
     Publisher.form().bind('ajax:failure', Publisher.onFailure);
     Publisher.form().bind('ajax:success', Publisher.onSuccess);
   },
+
   initialize: function() {
     Publisher.cachedForm = Publisher.cachedSubmit =
       Publisher.cachedInput = Publisher.cachedHiddenInput = false;
 
     Publisher.bindServiceIcons();
-    Publisher.bindPublicIcon();
     Publisher.bindAspectToggles();
 
     /* close text area */
@@ -477,7 +468,7 @@ var Publisher = {
       });
       Publisher.close();
     });
- 
+
     Publisher.autocompletion.initialize();
     Publisher.hiddenInput().val(Publisher.input().val());
     Publisher.input().autoResize();
