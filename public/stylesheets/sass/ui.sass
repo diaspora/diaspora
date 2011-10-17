@@ -11,7 +11,6 @@ $button-border-color: #aaa
 
 .button
   @include border-radius(3px)
-  @include linear-gradient(rgb(248,250,250),rgb(228,223,223))
   @include button-gradient($light-grey)
   @include box-shadow(0,1px,1px,#cfcfcf)
   @include transition(border)
@@ -96,10 +95,11 @@ input.button
 
   .wrapper
     @include box-shadow(0, 2px, 5px, #666)
+    @include opacity(0)
+    @include transition(opacity)
 
     :z-index 20
     :position absolute
-    :display none
     :width 140px
     :padding 4px 0
     :margin-top 2px
@@ -166,20 +166,20 @@ input.button
       @include border-radius(0, 3px, 3px, 3px)
       :left 0px
 
+  .selected
+    :font-weight bold
+
   &.active
     .wrapper
-      :display block
+      @include opacity(1)
 
     .button
       @include border-radius(3px, 3px, 0, 0)
       :border 1px solid #444
 
-    .selected
-      :font-weight bold
-
     .button
       :background #666
-    
+
     .button,
     .wrapper ul > li:hover
       :background
@@ -195,6 +195,10 @@ input.button
       :padding
         :top 2px
         :bottom 2px
+
+      &.divider
+        :padding
+          :bottom 3px
 
       a
         :color #ccc

@@ -316,19 +316,63 @@ var Publisher = {
       '<input id="services_" name="services[]" type="hidden" value="'+provider+'">');
     }
   },
+
+  isPublicPost: function(){
+    return $('#publisher [name="aspect_ids[]"]').first().val() == "public";
+  },
+
+  isToAllAspects: function(){
+    return $('#publisher [name="aspect_ids[]"]').first().val() == "all_aspects";
+  },
+
   selectedAspectIds: function() {
     var aspects = $('#publisher [name="aspect_ids[]"]');
     var aspectIds = [];
     aspects.each(function() { aspectIds.push( parseInt($(this).attr('value'))); });
     return aspectIds;
   },
-  toggleAspectIds: function(aspectId) {
-    var hidden_field = $('#publisher [name="aspect_ids[]"][value="'+aspectId+'"]');
-    if(hidden_field.length > 0){
-      hidden_field.remove();
+
+  removeRadioSelection: function(hiddenFields){
+    $.each(hiddenFields, function(index, value){
+      var el = $(value);
+
+      if(el.val() == "all_aspects" || el.val() == "public") {
+        el.remove();
+      }
+    });
+  },
+
+  toggleAspectIds: function(li) {
+    var aspectId = li.attr('data-aspect_id'),
+        hiddenFields = $('#publisher [name="aspect_ids[]"]'),
+        appendId = function(){
+          console.log(aspectId);
+          $("#publisher .content_creation form").append(
+          '<input id="aspect_ids_" name="aspect_ids[]" type="hidden" value="'+aspectId+'">');
+        };
+
+    console.log(aspectId);
+
+    if(li.hasClass('radio')){
+      $.each(hiddenFields, function(index, value){
+        $(value).remove();
+      });
+      appendId();
+
+      // close dropdown after selecting a binary option
+      li.closest('.dropdown').removeClass('active');
+
     } else {
-      $("#publisher .content_creation form").append(
-      '<input id="aspect_ids_" name="aspect_ids[]" type="hidden" value="'+aspectId+'">');
+      var hiddenField = $('#publisher [name="aspect_ids[]"][value="'+aspectId+'"]');
+
+      // remove all radio selections
+      Publisher.removeRadioSelection(hiddenFields);
+
+      if(hiddenField.length > 0){
+        hiddenField.remove();
+      } else {
+        appendId();
+      }
     }
   },
   createCounter: function(service){
@@ -350,10 +394,15 @@ var Publisher = {
       var li = $(this),
           button = li.parent('.dropdown').find('.button');
 
-      AspectsDropdown.toggleCheckbox(li);
+      if(li.hasClass('radio')){
+        AspectsDropdown.toggleRadio(li);
+      } else {
+        AspectsDropdown.toggleCheckbox(li);
+      }
+
       AspectsDropdown.updateNumber(li.closest(".dropdown_list"), null, li.parent().find('li.selected').length, '');
 
-      Publisher.toggleAspectIds(li.attr('data-aspect_id'));
+      Publisher.toggleAspectIds(li);
     });
   },
   beforeSubmit: function(){
@@ -378,10 +427,17 @@ var Publisher = {
     if (Publisher.bookmarklet == false) {
       var isPostVisible = Diaspora.page.aspectNavigation.selectedAspects().length == 0;
       var postedTo = Publisher.selectedAspectIds();
-      $.each(Diaspora.page.aspectNavigation.selectedAspects(), function(index, value) {
-        if (postedTo.indexOf(parseInt(value)) > -1)
-          isPostVisible = true;
-      });
+
+
+      if(Publisher.isPublicPost() || Publisher.isToAllAspects()){
+        isPostVisible = true;
+
+      } else {
+        $.each(Diaspora.page.aspectNavigation.selectedAspects(), function(index, value) {
+          if (postedTo.indexOf(parseInt(value)) > -1)
+            isPostVisible = true;
+        });
+      }
 
       if(isPostVisible) {
         ContentUpdater.addPostToStream(json.html);

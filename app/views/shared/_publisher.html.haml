@@ -25,21 +25,43 @@
               = image_tag 'icons/camera.svg', :height => 14
 
 
-      - for aspect_id in aspect_ids
-        = hidden_field_tag 'aspect_ids[]', aspect_id.to_s
+      - if all_aspects_selected?(selected_aspects)
+        = hidden_field_tag 'aspect_ids[]', "all_aspects"
+      - else
+        - for aspect_id in aspect_ids
+          = hidden_field_tag 'aspect_ids[]', aspect_id.to_s
 
       .options_and_submit
         .public_toggle
           %span#publisher_service_icons
-            = t("shared.publisher.click_to_share_with")
-            - if((defined?(for_all_aspects) && for_all_aspects) || aspect == :profile)
-              = status.hidden_field(:public, :value => public_value )
-              = image_tag "icons/globe.png", :title => public_helper_text, :class => "public_icon #{'dim' if !public_value}", :width => 16, :height => 16
             - if current_user.services
               - for service in current_user.services
                 = image_tag "social_media_logos/#{service.provider}-16x16.png", :title => service.provider.titleize, :class => "service_icon dim", :id =>"#{service.provider}", :maxchar => "#{service.class::MAX_CHARACTERS}"
             = link_to (image_tag "icons/monotone_wrench_settings.png"), "#question_mark_pane", :class => 'question_mark', :rel => 'facebox', :title => t('shared.public_explain.manage')
-          = render "shared/aspect_dropdown", :selected_aspects => selected_aspects, :hang => 'left'
+
+
+          // NOTE(dropdown special casing to DRY up -- taken from the aspect_dropdown partial)
+          .dropdown{:class => "hang_right"}
+            .button.toggle.publisher
+              - if selected_aspects.size == all_aspects.size
+                = t('all_aspects')
+              - elsif selected_aspects.size == 1
+                = selected_aspects.first.name
+              - else
+                = t('.toggle', :count => selected_aspects.size)
+              &#9660;
+
+            .wrapper
+              %ul.dropdown_list{:unSelectable => 'on', 'data-person_id' => (person.id if defined?(person) && person), 'data-service_uid' => (service_uid if defined?(service_uid))}
+                %li.public.radio{"data-aspect_id" => "public"}
+                  Public
+
+                %li.divider.all_aspects.radio{:style => "border-bottom: 1px solid #ddd;", "data-aspect_id" => "all_aspects", :class => ("selected" if all_aspects_selected?(selected_aspects))}
+                  All Aspects
+
+                - for aspect in all_aspects
+                  = aspect_dropdown_list_item(aspect, !all_aspects_selected?(selected_aspects) && selected_aspects.include?(aspect) )
+
           = status.submit t('.share'), :disable_with => t('.posting'), :class => 'button creation', :tabindex => 2
 
           .facebox_content
