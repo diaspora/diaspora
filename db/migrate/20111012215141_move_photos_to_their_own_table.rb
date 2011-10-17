@@ -48,7 +48,35 @@ INSERT INTO posts
   FROM photos
 SQL
 
-    execute <<SQL
+    if postgres?
+      execute %{
+        UPDATE
+          aspect_visibilities
+        SET
+            shareable_id=posts.id
+          , shareable_type='Post'
+        FROM
+            posts
+          , photos
+        WHERE
+          posts.guid=photos.guid
+          AND photos.id=aspect_visibilities.shareable_id
+        }
+      execute %{
+        UPDATE
+          share_visibilities
+        SET
+            shareable_id=posts.id
+          , shareable_type='Post'
+        FROM
+            posts
+          , photos
+        WHERE
+          posts.guid=photos.guid
+          AND photos.id=share_visibilities.shareable_id
+        }
+    else
+      execute <<SQL
 UPDATE aspect_visibilities, posts, photos
 SET
 aspect_visibilities.shareable_id=posts.id,
@@ -58,7 +86,7 @@ posts.guid=photos.guid AND
 photos.id=aspect_visibilities.shareable_id
 SQL
 
-    execute <<SQL
+      execute <<SQL
 UPDATE share_visibilities, posts, photos
 SET
 share_visibilities.shareable_id=posts.id,
@@ -67,6 +95,7 @@ WHERE
 posts.guid=photos.guid AND
 photos.id=share_visibilities.shareable_id
 SQL
+      end
 
     execute "DROP TABLE photos"
   end
