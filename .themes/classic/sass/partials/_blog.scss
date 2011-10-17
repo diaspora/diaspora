@@ -123,14 +123,12 @@ article + article {
   display: inline-block;
 }
 
-#content nav.pagination {
+#content div.pagination {
   text-align: center;
   font-size: .95em;
-  div {
-    position: relative;
-    background: $img-border top left repeat-x;
-    padding: {top: 1.5em; bottom: 1.5em;}
-  }
+  position: relative;
+  background: $img-border top left repeat-x;
+  padding: {top: 1.5em; bottom: 1.5em;}
   a {
     text-decoration: none;
     color: $text-color-light;

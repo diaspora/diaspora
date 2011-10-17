@@ -44,7 +44,7 @@ body {
   max-width: $max-width;
   position: relative;
   margin: 0 auto;
-  > header, > nav, > footer, #content > article, #content > div > article, #content > div > section, nav.pagination {
+  > header, > nav, > footer, #content > article, #content > div > article, #content > div > section {
     @extend .group;
     padding-left: $pad-min;
     padding-right: $pad-min;
@@ -59,6 +59,23 @@ body {
     @media only screen and (min-width: 992px) {
       padding-left: $pad-wide;
       padding-right: $pad-wide;
+    }
+  }
+  div.pagination {
+    @extend .group;
+    margin-left: $pad-min;
+    margin-right: $pad-min;
+    @media only screen and (min-width: 480px) {
+      margin-left: $pad-narrow;
+      margin-right: $pad-narrow;
+    }
+    @media only screen and (min-width: 768px) {
+      margin-left: $pad-medium;
+      margin-right: $pad-medium;
+    }
+    @media only screen and (min-width: 992px) {
+      margin-left: $pad-wide;
+      margin-right: $pad-wide;
     }
   }
   > header {
