@@ -29,6 +29,22 @@ describe Profile do
       end
     end
 
+    describe 'from_omniauth_hash' do
+      before do
+        @from_omniauth = {'first_name' => 'bob', 'last_name' => 'jones', 'description' => 'this is my bio', 'location' => 'sf', 'image' => 'http://cats.com/gif.gif'}
+      end
+
+      it 'outputs a hash that can update a diaspora profile' do
+        profile = Profile.new
+        profile.from_omniauth_hash(@from_omniauth)['first_name'].should == 'bob'
+      end
+
+      it 'does not overwrite any exsisting profile fields' do
+        profile = Profile.new(:first_name => 'maxwell')
+        profile.from_omniauth_hash(@from_omniauth)['first_name'].should == 'maxwell'
+      end
+    end
+
     describe '#contruct_full_name' do
       it 'generates a full name given only first name' do
         profile = Factory(:person).profile

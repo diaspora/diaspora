@@ -309,6 +309,7 @@ class User < ActiveRecord::Base
       params[:image_url_medium] = photo.url(:thumb_medium)
       params[:image_url_small] = photo.url(:thumb_small)
     end
+
     if self.person.profile.update_attributes(params)
       Postzord::Dispatcher.build(self, profile).post
       true
