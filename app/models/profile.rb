@@ -86,8 +86,10 @@ class Profile < ActiveRecord::Base
                'location' =>  'location',
                'name' => 'full_name'
                 }
-    if omniauth_user_hash['first_name'].blank? || omniauth_user_hash['last_name'].blank?
-      omniauth_user_hash['first_name'], omniauth_user_hash['last_name'] = omniauth_user_hash['name'].split
+    if(omniauth_user_hash['first_name'].blank? || omniauth_user_hash['last_name'].blank?) && omniauth_user_hash['name'].present?
+      first, last = omniauth_user_hash['name'].split
+      omniauth_user_hash['first_name'] ||= first
+      omniauth_user_hash['last_name'] ||= last
     end
 
     update_hash = Hash[omniauth_user_hash.map {|k, v| [mappings[k], v] }]
