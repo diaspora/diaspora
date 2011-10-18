@@ -23,7 +23,7 @@
 
             #file-upload{:title => t('.upload_photos')}
               = image_tag 'icons/camera.svg', :height => 14
-
+          #preview-result
 
       - for aspect_id in aspect_ids
         = hidden_field_tag 'aspect_ids[]', aspect_id.to_s
@@ -52,6 +52,3 @@
 
     #publisher_photo_upload
       = render 'photos/new_photo', :aspect_ids => aspect_ids.join(',')
-
-  #preview-modal
-    #preview-result
