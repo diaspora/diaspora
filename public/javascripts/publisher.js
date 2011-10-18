@@ -361,6 +361,7 @@ var Publisher = {
       alert(Diaspora.I18n.t('publisher.at_least_one_aspect'));
       return false;
     }
+    Publisher.hidePreview();
   },
   onSubmit: function(data, json, xhr){
     $("#photodropzone").find('li').remove();
@@ -405,6 +406,13 @@ var Publisher = {
     Publisher.form().bind('ajax:loading', Publisher.onSubmit);
     Publisher.form().bind('ajax:failure', Publisher.onFailure);
     Publisher.form().bind('ajax:success', Publisher.onSuccess);
+  },
+  hidePreview: function() {
+    $('#preview-edit').hide();
+    $('#preview-result').hide();
+    $('#preview').show();
+    $('#publisher_textarea_wrapper').show();
+    $('#file-upload').show();
   },
   initialize: function() {
     Publisher.cachedForm = Publisher.cachedSubmit =
@@ -456,11 +464,7 @@ var Publisher = {
 
     $('#preview-edit').live( 'click', function(evt) {
       evt.preventDefault();
-      $('#preview-edit').hide();
-      $('#preview-result').hide();
-      $('#preview').show();
-      $('#publisher_textarea_wrapper').show();
-      $('#file-upload').show();
+      Publisher.hidePreview();
     } );
   }
 };
