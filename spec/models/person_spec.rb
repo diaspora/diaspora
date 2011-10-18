@@ -151,13 +151,25 @@ describe Person do
       @profile = @person.profile
     end
 
-    context 'with first name' do
-      it 'should return their name for name' do
-        Person.name_from_attrs(@profile.first_name, @profile.last_name, @profile.diaspora_handle).should match /#{@profile.first_name}|#{@profile.last_name}/
+    context 'with only first name' do
+      it 'should return their first name for name' do
+        Person.name_from_attrs(@profile.first_name, nil, @profile.diaspora_handle).should == @profile.first_name.strip
       end
     end
 
-    context 'without first name' do
+    context 'with only last name' do
+      it 'should return their last name for name' do
+        Person.name_from_attrs(nil, @profile.last_name, @profile.diaspora_handle).should == @profile.last_name.strip
+      end
+    end
+
+    context 'with both first and last name' do
+      it 'should return their composed name for name' do
+        Person.name_from_attrs(@profile.first_name, @profile.last_name, @profile.diaspora_handle).should == "#{@profile.first_name.strip} #{@profile.last_name.strip}"
+      end
+    end
+
+    context 'without first nor last name' do
       it 'should display their diaspora handle' do
         Person.name_from_attrs(nil, nil, @profile.diaspora_handle).should == @profile.diaspora_handle
       end
