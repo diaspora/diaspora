@@ -54,7 +54,7 @@ class ShareAnything < ActiveRecord::Migration
     #end
 
     sql << "CHANGE COLUMN post_id shareable_id int NOT NULL"
-    sql << "ADD shareable_type varchar(255) NOT NULL DEFAULT 'Post'"
+    sql << "ADD shareable_type varchar(60) NOT NULL DEFAULT 'Post'"
 
     #add_index :share_visibilities, [:shareable_id, :shareable_type, :contact_id], :name => 'shareable_and_contact_id'
     #add_index :share_visibilities, [:shareable_id, :shareable_type, :hidden, :contact_id], :name => 'shareable_and_hidden_and_contact_id'

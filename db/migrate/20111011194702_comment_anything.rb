@@ -4,7 +4,7 @@ class CommentAnything < ActiveRecord::Migration
     remove_index :comments, :post_id
     change_table :comments do |t|
       t.rename :post_id, :commentable_id
-      t.string :commentable_type, :default => 'Post', :null => false
+      t.string :commentable_type, :default => 'Post', :null => false, :limit => 60
     end
   end
 

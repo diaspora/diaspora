@@ -48,17 +48,17 @@ ActiveRecord::Schema.define(:version => 20111018010003) do
   add_index "aspects", ["user_id"], :name => "index_aspects_on_user_id"
 
   create_table "comments", :force => true do |t|
-    t.text     "text",                                        :null => false
-    t.integer  "commentable_id",                              :null => false
-    t.integer  "author_id",                                   :null => false
-    t.string   "guid",                                        :null => false
+    t.text     "text",                                                      :null => false
+    t.integer  "commentable_id",                                            :null => false
+    t.integer  "author_id",                                                 :null => false
+    t.string   "guid",                                                      :null => false
     t.text     "author_signature"
     t.text     "parent_author_signature"
     t.text     "youtube_titles"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "likes_count",             :default => 0,      :null => false
-    t.string   "commentable_type",        :default => "Post", :null => false
+    t.integer  "likes_count",                           :default => 0,      :null => false
+    t.string   "commentable_type",        :limit => 60, :default => "Post", :null => false
   end
 
   add_index "comments", ["author_id"], :name => "index_comments_on_person_id"
@@ -364,12 +364,12 @@ ActiveRecord::Schema.define(:version => 20111018010003) do
   add_index "services", ["user_id"], :name => "index_services_on_user_id"
 
   create_table "share_visibilities", :force => true do |t|
-    t.integer  "shareable_id",                       :null => false
+    t.integer  "shareable_id",                                     :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.boolean  "hidden",         :default => false,  :null => false
-    t.integer  "contact_id",                         :null => false
-    t.string   "shareable_type", :default => "Post", :null => false
+    t.boolean  "hidden",                       :default => false,  :null => false
+    t.integer  "contact_id",                                       :null => false
+    t.string   "shareable_type", :limit => 60, :default => "Post", :null => false
   end
 
   add_index "share_visibilities", ["contact_id"], :name => "index_post_visibilities_on_contact_id"
