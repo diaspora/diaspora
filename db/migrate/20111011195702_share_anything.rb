@@ -1,30 +1,67 @@
 class ShareAnything < ActiveRecord::Migration
   def self.up
     remove_foreign_key :aspect_visibilities, :posts
-    remove_index :aspect_visibilities, :post_id_and_aspect_id
-    remove_index :aspect_visibilities, :post_id
 
-    change_table :aspect_visibilities do |t|
-      t.rename :post_id, :shareable_id
-      t.string :shareable_type, :default => 'Post', :null => false
-    end
+    start_sql = "ALTER TABLE aspect_visibilities " 
+    sql = []
 
-    add_index :aspect_visibilities, [:shareable_id, :shareable_type, :aspect_id], :name => 'shareable_and_aspect_id'
-    add_index :aspect_visibilities, [:shareable_id, :shareable_type]
+    #remove_index :aspect_visibilities, :post_id_and_aspect_id
+    sql << "DROP INDEX `index_aspect_visibilities_on_post_id_and_aspect_id`"
+    
+    #remove_index :aspect_visibilities, :post_id
+    sql << "DROP INDEX `index_aspect_visibilities_on_post_id`"
+
+
+
+    # change_table :aspect_visibilities do |t|
+
+    #   t.rename :post_id, :shareable_id
+    #   t.string :shareable_type, :default => 'Post', :null => false
+    # end
+
+    sql << "CHANGE COLUMN post_id shareable_id int NOT NULL"
+    sql << "ADD shareable_type varchar(255) NOT NULL DEFAULT 'Post'"
+
+
+    # add_index :aspect_visibilities, [:shareable_id, :shareable_type, :aspect_id], :name => 'shareable_and_aspect_id'
+    # add_index :aspect_visibilities, [:shareable_id, :shareable_type]
+    
+    sql << "add index `shareable_and_aspect_id` (`shareable_id`, `shareable_type`, `aspect_id`)"
+    sql << "add index `index_aspect_visibilities_on_shareable_id_and_shareable_type` (`shareable_id`, `shareable_type`)"
+
+
+    execute(start_sql + sql.join(', ') + ';')
+
 
 
     remove_foreign_key :post_visibilities, :posts
-    remove_index :post_visibilities, :contact_id_and_post_id
-    remove_index :post_visibilities, :post_id_and_hidden_and_contact_id
-
-    change_table :post_visibilities do |t|
-      t.rename :post_id, :shareable_id
-      t.string :shareable_type, :default => 'Post', :null => false
-    end
-
     rename_table :post_visibilities, :share_visibilities
-    add_index :share_visibilities, [:shareable_id, :shareable_type, :contact_id], :name => 'shareable_and_contact_id'
-    add_index :share_visibilities, [:shareable_id, :shareable_type, :hidden, :contact_id], :name => 'shareable_and_hidden_and_contact_id'
+
+    start_sql = "ALTER TABLE share_visibilities " 
+    sql = []
+
+    #remove_index :post_visibilities, :contact_id_and_post_id
+    #remove_index :post_visibilities, :post_id_and_hidden_and_contact_id
+
+    sql << "DROP INDEX `index_post_visibilities_on_contact_id_and_post_id`"
+    sql << "DROP INDEX `index_post_visibilities_on_post_id_and_hidden_and_contact_id`"
+
+    #change_table :post_visibilities do |t|
+    #  t.rename :post_id, :shareable_id
+    #  t.string :shareable_type, :default => 'Post', :null => false
+    #end
+
+    sql << "CHANGE COLUMN post_id shareable_id int NOT NULL"
+    sql << "ADD shareable_type varchar(60) NOT NULL DEFAULT 'Post'"
+
+    #add_index :share_visibilities, [:shareable_id, :shareable_type, :contact_id], :name => 'shareable_and_contact_id'
+    #add_index :share_visibilities, [:shareable_id, :shareable_type, :hidden, :contact_id], :name => 'shareable_and_hidden_and_contact_id'
+
+    sql << "add index `shareable_and_contact_id` (`shareable_id`, `shareable_type`, `contact_id`)"
+    sql << "add index `shareable_and_hidden_and_contact_id` (`shareable_id`, `shareable_type`, `hidden`, `contact_id`)"
+
+    execute(start_sql + sql.join(', ') + ';')
+
   end
 
 
