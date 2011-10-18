@@ -10,7 +10,7 @@ class CommentAnything < ActiveRecord::Migration
 
   def self.down
     rename_column :comments, :commentable_id, :post_id
-    add_foreign_key :comments, :posts
+    add_foreign_key :comments, :posts, :dependent => :delete
     add_index :comments, :post_id
 
     remove_column :comments, :commentable_type

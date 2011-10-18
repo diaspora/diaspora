@@ -38,9 +38,9 @@ class ShareAnything < ActiveRecord::Migration
       t.rename :shareable_id, :post_id
     end
 
-    add_index :post_visibilities, [:post_id, :hidden, :contact_id]
-    add_index :post_visibilities, [:contact_id, :post_id]
-    add_foreign_key :post_visibilities, :posts
+    add_index :post_visibilities, [:post_id, :hidden, :contact_id], :unique => true
+    add_index :post_visibilities, [:contact_id, :post_id], :unique => true
+    add_foreign_key :post_visibilities, :posts, :dependent => :delete
 
 
     remove_index :aspect_visibilities, [:shareable_id, :shareable_type]
@@ -52,7 +52,8 @@ class ShareAnything < ActiveRecord::Migration
     end
 
     add_index :aspect_visibilities, :post_id
-    add_index :aspect_visibilities, [:post_id, :aspect_id]
-    add_foreign_key :aspect_visibilities, :posts
+    add_index :aspect_visibilities, [:post_id, :aspect_id], :unique => true
+    add_foreign_key :aspect_visibilities, :posts, :dependent => :delete
+
   end
 end
