@@ -55,6 +55,10 @@
 #profile_photo_upload
   = owner_image_tag(:thumb_medium)
 
+  -if !aspect.nil? && aspect == :getting_started
+    %br
+    %br
+
   #file-upload.button
     =t('.upload')
 

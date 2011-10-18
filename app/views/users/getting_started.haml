@@ -74,12 +74,18 @@
               = link_to "hooking up your Facebook account", "auth/facebook?callback_url=#{getting_started_url}"
               to Diaspora.  We can pull your name and photo, and enable cross-positng.
 
-          .span-6
+          .span-12
             = form_for current_user.person.profile do |profile|
-              = profile.text_field :first_name
+              .span-5
+                = profile.text_field :first_name, :placeholder => t('profiles.edit.first_name')
+
+              .span-7.last
+                = render 'photos/new_profile_photo', :aspect => :getting_started, :person => current_user.person
 
               %br
-              = render 'photos/new_profile_photo', :aspect => :getting_started, :person => current_user.person
+              .span-6.prepend-6.last
+                .right
+                  = profile.submit "Save"
 
       %li.follow_interests
         .getting_started_number
