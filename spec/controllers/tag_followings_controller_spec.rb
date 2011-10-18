@@ -102,4 +102,26 @@ describe TagFollowingsController do
     end
   end
 
+  describe "#create_multiple" do
+    it "adds multiple tags" do
+      lambda{
+        post :create_multiple, :tags => "#tags,#cats,#bats,"
+      }.should change{
+        bob.followed_tags.count
+      }.by(3)
+    end
+
+    it "adds non-followed tags" do
+      TagFollowing.create!(:tag => @tag, :user => bob )
+
+      lambda{
+        post :create_multiple, :tags => "#partytimeexcellent,#cats,#bats,"
+      }.should change{
+        bob.followed_tags.count
+      }.by(2)
+
+      response.should be_redirect
+    end
+  end
+
 end

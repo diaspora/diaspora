@@ -78,14 +78,11 @@
             = form_for current_user.person.profile do |profile|
               .span-5
                 = profile.text_field :first_name, :placeholder => t('profiles.edit.first_name')
+                %br
+                = profile.submit "Save"
 
               .span-7.last
                 = render 'photos/new_profile_photo', :aspect => :getting_started, :person => current_user.person
-
-              %br
-              .span-6.prepend-6.last
-                .right
-                  = profile.submit "Save"
 
       %li.follow_interests
         .getting_started_number
@@ -99,7 +96,7 @@
             = t('.hashtag_explanation')
 
           .span-9
-            = form_tag(tags_path, :method => 'get', :class => "tag_input search_form") do
+            = form_tag(multiple_tag_followings_path, :method => 'post', :class => "tag_input search_form") do
               = text_field_tag 'follow_tags', nil
 
           .clearfix
@@ -107,5 +104,5 @@
 
       %li{:style => 'text-align:center;'}
         %p
-          = link_to t('.awesome_take_me_to_diaspora'), getting_started_completed_path, :class => "button"
+          = link_to t('.awesome_take_me_to_diaspora'), "#", :class => "button", :onClick => "$('.tag_input').submit();"
 
