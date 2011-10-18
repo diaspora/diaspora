@@ -6,34 +6,34 @@
 nb: 
   javascripts: 
     aspect_dropdown: 
-      add_to_aspect: "Add to aspect"
-      all_aspects: "All aspects"
-      select_aspects: "Select aspects"
+      add_to_aspect: "Legg til kategori"
+      all_aspects: "Alle kategorier"
+      select_aspects: "Velg kategori"
       toggle: 
-        few: "In {{count}} aspects"
-        many: "In {{count}} aspects"
-        one: "In {{count}} aspect"
-        other: "In {{count}} aspects"
-        two: "In {{count}} aspects"
-        zero: "Add to aspect"
+        few: "I {{count}} kategorier"
+        many: "I {{count}} kategorier"
+        one: "I {{count}} kategori"
+        other: "I {{count}} kategorier"
+        two: "I {{count}} kategorier"
+        zero: "Legg til kategori"
     aspect_navigation: 
-      deselect_all: "Deselect all"
-      no_aspects: "No aspects selected"
-      select_all: "Select all"
+      deselect_all: "Avmerk alle"
+      no_aspects: "Ingen kategorier valgt"
+      select_all: "Merk alle"
     comments: 
       hide: "skjul kommentarer"
       show: "vis alle kommentarer"
     confirm_dialog: "Er du sikker?"
-    failed_to_like: "Failed to like!"
-    failed_to_post_message: "Failed to post message!"
+    failed_to_like: "Klarte ikke å like!"
+    failed_to_post_message: "Klarte ikke å publisere post!"
     infinite_scroll: 
       no_more: "Ingen flere innlegg."
     publisher: 
       at_least_one_aspect: "Du må poste til minst ett aspekt"
-      limited: "Limited - your post will only be seen by people you are sharing with"
-      public: "Public - your post will be visible to everyone and found by search engines"
+      limited: "Begrenset - posten din vil bare være synlig for de du deler med"
+      public: "Offentlig - posten din vil være synlig for alle og kan bli funnet av søkemotorer"
     reshares: 
-      duplicate: "You've already reshared that post!"
+      duplicate: "du har allerede delt denne posten!"
     search_for: "Søk etter {{name}}"
     show_more: "vis mer"
     timeago: 
@@ -45,7 +45,7 @@ nb:
       minutes: "%d minutter"
       month: "ca. en måned"
       months: "%d måneder"
-      prefixAgo: ""
+      prefixAgo: "for"
       prefixFromNow: "om"
       seconds: "under ett minutt"
       suffixAgo: "siden"

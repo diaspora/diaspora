@@ -725,7 +725,6 @@ nb:
     publisher: 
       all: "alle"
       all_contacts: "alle kontakter"
-      click_to_share_with: "Klikk for å dele:"
       discard_post: "Discard post"
       make_public: "gjør offentlig"
       post_a_message_to: "Post et innlegg til %{aspect}"

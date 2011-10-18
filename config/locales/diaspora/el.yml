@@ -725,7 +725,6 @@ el:
     publisher: 
       all: "όλα"
       all_contacts: "όλες οι επαφές"
-      click_to_share_with: "Πατήστε για να μοιραστείτε με:"
       discard_post: "Απομάκρυνση δημοσίευσης"
       make_public: "Δημοσιοποίησε το"
       post_a_message_to: "Αναρτήστε ένα μήνυμα στην πτυχή %{aspect}"

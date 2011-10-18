@@ -8,7 +8,7 @@ fr:
   _comments: "Commentaires"
   _contacts: "Contacts"
   _home: "Accueil"
-  _photos: "photos"
+  _photos: "Photos"
   _services: "Services"
   account: "Compte"
   activerecord: 
@@ -61,9 +61,9 @@ fr:
       done_editing: "fin de la modification"
     aspect_listings: 
       add_an_aspect: "+ Ajouter un aspect"
-      deselect_all: "Deselect all"
+      deselect_all: "Tout désélectionner"
       edit_aspect: "Éditer %{name}"
-      select_all: "Select all"
+      select_all: "Tout sélectionner"
     aspect_stream: 
       commented_on: "a/ont commenté"
       mentions: "Mentions"
@@ -310,10 +310,10 @@ fr:
       blog: "blog"
       code: "code"
       login: "connexion"
-      logout: "déconnexion"
-      profile: "profil"
+      logout: "Déconnexion"
+      profile: "Profil"
       recent_notifications: "Notifications récentes"
-      settings: "paramètres"
+      settings: "Paramètres"
       view_all: "Tout afficher"
   likes: 
     likes: 
@@ -681,7 +681,7 @@ fr:
       join_me_on_diaspora: "Rejoignez-moi sur DIASPORA*"
     remote_friend: 
       invite: "inviter"
-      not_on_diaspora: "Pas encore sur Disapora"
+      not_on_diaspora: "Pas encore sur Diaspora"
       resend: "envoyer à nouveau"
   settings: "Options"
   shared: 
@@ -725,7 +725,6 @@ fr:
     publisher: 
       all: "tous"
       all_contacts: "tous les contacts"
-      click_to_share_with: "Cliquez pour partager avec : "
       discard_post: "Supprimer la publication"
       make_public: "rendre public"
       post_a_message_to: "Publier un message dans %{aspect}"
@@ -757,7 +756,7 @@ fr:
     too_long: 
       few: "merci de bien vouloir écrire des messages de moins de %{count} caractères"
       many: "merci de bien vouloir écrire des messages de moins de %{count} caractères"
-      one: "merci de bien vouloir écrire des messages de moins de %{count} caractère"
+      one: "merci de bien vouloir écrire des messages de moins de %{count} caractères"
       other: "merci de bien vouloir écrire des messages de moins de %{count} caractères"
       two: "votre statut doit faire moins de %{count} caractères"
       zero: "merci de bien vouloir écrire des messages de moins de %{count} caractères"

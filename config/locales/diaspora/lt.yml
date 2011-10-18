@@ -725,7 +725,6 @@ lt:
     publisher: 
       all: "viskas"
       all_contacts: "visi kontaktai"
-      click_to_share_with: "Click to share with: "
       discard_post: "Discard post"
       make_public: "paviešinti"
       post_a_message_to: "Parašyti žinutę į aspektą \"%{aspect}\""

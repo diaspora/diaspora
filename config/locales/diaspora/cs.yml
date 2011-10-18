@@ -725,7 +725,6 @@ cs:
     publisher: 
       all: "všechny"
       all_contacts: "všechny kontakty"
-      click_to_share_with: "Klikněte pro sdílení s:"
       discard_post: "Zahodit příspěvek"
       make_public: "vytvořit veřejnou"
       post_a_message_to: "Poslat zprávu do %{aspect}"

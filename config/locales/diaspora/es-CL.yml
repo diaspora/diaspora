@@ -725,7 +725,6 @@ es-CL:
     publisher: 
       all: "todo"
       all_contacts: "todos los contactos"
-      click_to_share_with: "Click para compartir con: "
       discard_post: "Descartar post"
       make_public: "hacer público"
       post_a_message_to: "Postear un mensaje a %{aspect}"

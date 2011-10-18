@@ -61,9 +61,9 @@ zh-TW:
       done_editing: "編輯完成"
     aspect_listings: 
       add_an_aspect: "+ 新增面向"
-      deselect_all: "Deselect all"
+      deselect_all: "全不選"
       edit_aspect: "編輯%{name}"
-      select_all: "Select all"
+      select_all: "全選"
     aspect_stream: 
       commented_on: "有意見的"
       mentions: "指指點點"
@@ -95,7 +95,7 @@ zh-TW:
       aspect_not_empty: "面向不是空的"
       remove: "刪除"
     index: 
-      community_spotlight: "Community Spotlight"
+      community_spotlight: "社群焦點"
       cubbies: 
         explanation: "Cubbi.es 是 Diaspora 的第一個應用程式, 目前正在開發中."
         heading: "與 Cubbi.es 連結"
@@ -209,7 +209,7 @@ zh-TW:
     sharing: 
       people_sharing: "跟你分享的人:"
     spotlight: 
-      community_spotlight: "Community Spotlight"
+      community_spotlight: "社群焦點"
     two: "%{count}個聯絡人"
     zero: "聯絡人"
   conversations: 
@@ -725,7 +725,6 @@ zh-TW:
     publisher: 
       all: "全部"
       all_contacts: "所有聯絡人"
-      click_to_share_with: "點一下以一起分享: "
       discard_post: "捨棄貼文"
       make_public: "公開"
       post_a_message_to: "在 %{aspect} 發表訊息"

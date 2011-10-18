@@ -725,7 +725,6 @@ ar:
     publisher: 
       all: "الجميع"
       all_contacts: "جميع الفئات"
-      click_to_share_with: "إضغط للمشاركة مع: "
       discard_post: "تجاهل المشاركة"
       make_public: "عَمِّمْهَا"
       post_a_message_to: "انشر رسالة إلى %{aspect}"

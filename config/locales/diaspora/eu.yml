@@ -725,7 +725,6 @@ eu:
     publisher: 
       all: "guztiak"
       all_contacts: "adiskide guztiak"
-      click_to_share_with: "Sakatu zerbitzu hauetara bidaltzeko:"
       discard_post: "Mezua baztertu"
       make_public: "publikoa egin"
       post_a_message_to: "%{aspect}(e)n mezu bat partekatu"

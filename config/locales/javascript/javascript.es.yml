@@ -8,14 +8,14 @@ es:
     aspect_dropdown: 
       add_to_aspect: "Añadir contacto"
       all_aspects: "Todos los aspectos"
-      select_aspects: "Select aspects"
+      select_aspects: "Elige los aspectos"
       toggle: 
         few: "En {{count}} aspectos"
         many: "En {{count}} aspectos"
         one: "En {{count}} aspecto"
         other: "En {{count}} aspectos"
         two: "En {{count}} aspectos"
-        zero: "Añadir contacto"
+        zero: "Elige los aspectos"
     aspect_navigation: 
       deselect_all: "Desmarcar todos"
       no_aspects: "No hay aspectos seleccionados"

@@ -725,7 +725,6 @@ zh-CN:
     publisher: 
       all: "全部"
       all_contacts: "全部的好友"
-      click_to_share_with: "点击后就可以分享: "
       discard_post: "Discard post"
       make_public: "公开"
       post_a_message_to: "在 %{aspect} 发布讯息"

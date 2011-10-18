@@ -725,7 +725,6 @@ ko:
     publisher: 
       all: "모두"
       all_contacts: "모든 컨택"
-      click_to_share_with: "공유할 대상을 클릭:"
       discard_post: "공유물 삭제"
       make_public: "공개하기"
       post_a_message_to: "%{aspect}에 공유물 올리기"

@@ -61,13 +61,13 @@ es:
       done_editing: "editado"
     aspect_listings: 
       add_an_aspect: "+ Añadir un aspecto"
-      deselect_all: "Deselect all"
+      deselect_all: "Desmarcar todos"
       edit_aspect: "Editar %{name}"
-      select_all: "Select all"
+      select_all: "Marcar todos"
     aspect_stream: 
       commented_on: "comentarios"
       mentions: "Menciones"
-      posted: "publicado"
+      posted: "publicaciones"
       recently: "ordenar por:"
       stream: "Novedades"
     contacts_not_visible: "Los contactos de este aspecto no podrán verse."
@@ -95,7 +95,7 @@ es:
       aspect_not_empty: "El aspecto no está vacío"
       remove: "eliminar"
     index: 
-      community_spotlight: "Community Spotlight"
+      community_spotlight: "Centro de atención de la Comunidad"
       cubbies: 
         explanation: "Cubbi.es es la primera aplicación de Diaspora* en desarrollo."
         heading: "Conecta con Cubbi.es"
@@ -112,7 +112,7 @@ es:
         feature_and_forum: "%{gs} y %{forum}: Soporte impulsado por la Comunidad y recepción de propuestas"
         feature_suggestion: "...plantees sugerencias? %{link}"
         find_a_bug: "...encontraste errores? %{link}"
-        have_a_question: "...tienes preguntas? %{link}"
+        have_a_question: "...tengas preguntas? %{link}"
         here_to_help: "¡La comunidad Diaspora está aquí!"
         need_help: "¿Necesitas ayuda?"
         satisfaction: "%{link}: Soporte de la Comunidad"
@@ -209,7 +209,7 @@ es:
     sharing: 
       people_sharing: "Comparten contigo:"
     spotlight: 
-      community_spotlight: "Community Spotlight"
+      community_spotlight: "Centro de atención de la Comunidad"
     two: "%{count} contactos"
     zero: "no hay contactos"
   conversations: 
@@ -310,10 +310,10 @@ es:
       blog: "blog"
       code: "código"
       login: "acceder"
-      logout: "salir"
-      profile: "perfil"
+      logout: "Salir"
+      profile: "Perfil"
       recent_notifications: "Notificaciones recientes"
-      settings: "configuración"
+      settings: "Configuración"
       view_all: "Ver todo"
   likes: 
     likes: 
@@ -646,11 +646,11 @@ es:
     reshare: 
       deleted: "La publicación original fue eliminada por su autor."
       reshare: 
-        few: "compartido %{count} veces"
-        many: "compartido %{count} veces"
-        one: "compartido 1 vez"
-        other: "compartido %{count} veces"
-        two: "Republicado %{count} veces"
+        few: "Compartido %{count} veces"
+        many: "Compartido %{count} veces"
+        one: "Compartido 1 vez"
+        other: "Compartido %{count} veces"
+        two: "Compartido %{count} veces"
         zero: "Compartir"
       reshare_confirmation: "¿Compartir la publicación de %{author}?"
       reshare_original: "Compartir original"
@@ -725,7 +725,6 @@ es:
     publisher: 
       all: "todo"
       all_contacts: "todos los contactos"
-      click_to_share_with: "Selecciona para compartir con:"
       discard_post: "Descartar publicación"
       make_public: "hacer público"
       post_a_message_to: "Publicar un mensaje en %{aspect}"
@@ -772,8 +771,8 @@ es:
       contacts_title: "Publicadores recientes"
       title: "Actividad Pública"
     soup: 
-      contacts_title: "People in your Soup"
-      title: "The Soup"
+      contacts_title: "Personas en tu Sopa"
+      title: "La Sopa"
     tags: 
       contacts_title: "Personas que siguen estas etiquetas"
       title: "Publicaciones etiquetadas: %{tags}"

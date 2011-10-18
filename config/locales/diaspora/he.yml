@@ -37,7 +37,7 @@ he:
             person: 
               invalid: "שגוי."
             username: 
-              invalid: "שגוי. אנו מרשים להשתמש באותיות, מספרים וקווים תחתיים בלבד"
+              invalid: "שגוי. אנו מרשים להשתמש באותיות, מספרים וקווים תחתיים בלבד."
               taken: "כבר תפוס."
   ago: "%{time} עברו"
   all_aspects: "כל ההיבטים"
@@ -84,7 +84,7 @@ he:
       aspect_list_is_visible: "רשימת ההיבטים גלויה לאחרים בהיבט"
       confirm_remove_aspect: "האם אכן ברצונך למחוק את ההיבט?"
       done: "בוצע"
-      make_aspect_list_visible: "האם להפוך את רשימת ההיבטים לגלויה?"
+      make_aspect_list_visible: "האם לאפשר לאנשי הקשר בהיבט זה לראות זה את זה?"
       remove_aspect: "מחיקת היבט זה"
       rename: "שינוי שם"
       update: "עדכון"
@@ -102,9 +102,9 @@ he:
         learn_more: "מידע נוסף"
       diaspora_id: 
         content_1: "המזהה שלך בדיאספורה הוא:"
-        content_2: "Give it to anyone and they'll be able to find you on Diaspora."
+        content_2: "באמצעות מזהה זה כל אחד יוכל למצוא אותך בדיאספורה."
         heading: "מזהה בדיאספורה"
-      donate: "Donate"
+      donate: "תרומה"
       handle_explanation: "זהו שם המשתמש שלך בדיאספורה. בדיוק כמו כתובת דואר אלקטרוני, ניתן לחלוק אותו עם אנשים כדי שיגיעו אליך."
       help: 
         do_you: "Do you:"
@@ -113,11 +113,11 @@ he:
         feature_suggestion: "... have a %{link} suggestion?"
         find_a_bug: "... find a %{link}?"
         have_a_question: "... have a %{link}?"
-        here_to_help: "Diaspora community is here to help!"
+        here_to_help: "קהילת דיאספורה לרשותך!"
         need_help: "Need Help?"
         satisfaction: "%{link}: Community-powered support"
         tutorials_and_wiki: "%{tutorial} & %{wiki}: Community-powered tutorials, how-to, and news"
-      keep_us_running: "Keep %{pod} running fast, buy our servers their monthly coffee fix!"
+      keep_us_running: "כדי שהפוד %{pod} ימשיך לפעול במהירות ולרכוש שרתים נוספים שימו כמה דולרים כל חודש כדי לממן להם איזה כוס קפה!"
       mentions: "Mentions"
       no_contacts: "אין אנשי קשר"
       no_tags: "+ חיפוש תגית למעקב"
@@ -137,7 +137,7 @@ he:
       success: "האדם הועבר להיבט חדש"
     new: 
       create: "יצירה"
-      name: "שם"
+      name: "שם (מופיע בפניך בלבד)"
     no_contacts_message: 
       featured_users: "משתמשים מומלצים"
       or_featured: "או שבאפשרותך לשתף עם %{link}"
@@ -148,9 +148,9 @@ he:
     one: "היבט אחד"
     other: "%{count} היבטים"
     seed: 
-      acquaintances: "Acquaintances"
+      acquaintances: "מכרים"
       family: "משפחה"
-      friends: "Friends"
+      friends: "חברים"
       work: "עבודה"
     selected_contacts: 
       manage_your_aspects: "ניהול ההיבטים שלך."
@@ -172,7 +172,7 @@ he:
   bookmarklet: 
     explanation: "פרסום ישירות לדיאספורה מכל מקום על ידי הוספת %{link} לסימניות."
     explanation_link_text: "קישור זה"
-    heading: "סימנייה של דיאספורה"
+    heading: "סימנייה"
     post_something: "פרסום משהו לתוך דיאספורה"
     post_success: "פורסם! נסגר!"
   cancel: "ביטול"
@@ -195,9 +195,9 @@ he:
       add_to_aspect: "Add contacts to %{name}"
       all_contacts: "כל אנשי הקשר"
       check_out: "Check out"
-      many_people_are_you_sure: "Are you sure you want to start a private conversation with more than %{suggested_limit} contacts? Posting to this aspect may be a better way to contact them."
+      many_people_are_you_sure: "האם אכן ברצונך לפתוח בשיחה פרטית עם למעלה מ־%{suggested_limit} אנשי קשר? פרסום להיבט זה הוא רעיון מוצלח יותר ליצירת קשר אתם."
       my_contacts: "אנשי הקשר שלי"
-      no_contacts: "אין אנשי קשר."
+      no_contacts: "נראה כאילו עליך להוסיף עוד קצת אנשי קשר!"
       only_sharing_with_me: "רק אלו המשתפים אתי"
       remove_person_from_aspect: "הסרת %{person_name} מההיבט \"%{aspect_name}\""
       start_a_conversation: "התחלת דיון"
@@ -211,7 +211,7 @@ he:
     spotlight: 
       community_spotlight: "Community Spotlight"
     two: "%{count} contacts"
-    zero: "אין אנשי קשר"
+    zero: "אנשי קשר"
   conversations: 
     create: 
       fail: "הודעה שגויה"
@@ -236,7 +236,7 @@ he:
     new: 
       abandon_changes: "האם להתעלם מהשינויים?"
       send: "שליחה"
-      sending: "Sending..."
+      sending: "בשליחה..."
       subject: "נושא"
       to: "אל"
     new_message: 
@@ -257,7 +257,7 @@ he:
       correct_the_following_errors_and_try_again: "יש לתקן את השגיאות הבאות ולנסות שוב."
       invalid_fields: "שדות שגויים"
   fill_me_out: "נא לרשום אותי"
-  find_people: "Find people"
+  find_people: "חיפוש אנשים או #תגיות"
   hide: "הסתרה"
   home: 
     show: 
@@ -334,10 +334,10 @@ he:
       people_like_this_comment: 
         few: "%{count} אהבו זאת"
         many: "%{count} אהבו זאת"
-        one: "%{count} like"
-        other: "%{count} likes"
+        one: "%{count} אהב/ה"
+        other: "%{count} אהבו"
         two: "%{count} likes"
-        zero: "no likes"
+        zero: "אף אחד לא אהב"
   limited: "מוגבל"
   more: "המשך"
   next: "הבאה"
@@ -420,8 +420,8 @@ he:
       two: "%{actors} sent you a message."
       zero: "%{actors} שלחו לך הודעה."
     reshared: 
-      few: "%{actors} has reshared your %{post_link}."
-      many: "%{actors} has reshared your %{post_link}."
+      few: "%{actors} שיתפו את ה־%{post_link} שלך."
+      many: "%{actors} שיתף/ה את ה־%{post_link} שלך."
       one: "%{actors} has reshared your %{post_link}."
       other: "%{actors} has reshared your %{post_link}."
       two: "%{actors} has reshared your %{post_link}."
@@ -446,8 +446,8 @@ he:
     comment_on_post: 
       reply: "שליחת תגובה או צפייה ברשומה של %{name} >"
     confirm_email: 
-      click_link: "To activate your new e-mail address %{unconfirmed_email}, please click this link:"
-      subject: "Please activate your new e-mail address %{unconfirmed_email}"
+      click_link: "כדי להפעיל את כתובת הדוא״ל החדשה שלך: %{unconfirmed_email}, יש לעקוב אחר הקישור הבא:"
+      subject: "נא להפעיל את כתובת הדוא״ל החדשה שלך: %{unconfirmed_email}"
     email_sent_by_diaspora: "הודעת דוא״ל זו נשלחה על ידי דיאספורה.  אם אין לך עניין בקבלת הודעות כגון זו,"
     hello: "שלום %{name}!"
     liked: 
@@ -507,7 +507,7 @@ he:
       remove_from: "האם להסיר את %{name} מההיבט %{aspect}?"
     show: 
       does_not_exist: "אדם זה אינו קיים!"
-      has_not_shared_with_you_yet: "%{name} has not shared any posts with you yet!"
+      has_not_shared_with_you_yet: "%{name} עדיין לא שיתף אתך רשומות כלל!"
       incoming_request: "ברצונו/ה של %{name} לשתף אתך"
       mention: "אזכור"
       message: "הודעה"
@@ -519,9 +519,9 @@ he:
       start_sharing: "התחלת השיתוף"
       to_accept_or_ignore: "כדי לקבל או לדחות אותה."
     sub_header: 
-      add_some: "add some"
-      edit: "edit"
-      you_have_no_tags: "you have no tags!"
+      add_some: "הוספת כמה"
+      edit: "עריכה"
+      you_have_no_tags: "אין לך תגיות כלל!"
     two: "%{count} people"
     webfinger: 
       fail: "לא ניתן למצוא את %{handle}, עמך הסליחה."
@@ -646,16 +646,16 @@ he:
     reshare: 
       deleted: "הרשומה המקורית נמחקה על ידי הכותב."
       reshare: 
-        few: "%{count} Reshares"
-        many: "%{count} Reshares"
-        one: "1 Reshare"
-        other: "%{count} Reshares"
+        few: "%{count} שיתופים"
+        many: "%{count} שיתופים"
+        one: "שיתוף אחד"
+        other: "%{count} שיתופים"
         two: "%{count} reshares"
         zero: "שיתוף מחדש"
-      reshare_confirmation: "Reshare %{author} - %{text}?"
+      reshare_confirmation: "האם לשתף את הרשומה של %{author}?"
       reshare_original: "שיתוף המקור מחדש"
       reshared_via: "reshared via"
-      show_original: "Show Original"
+      show_original: "הצגת המקור"
   search: "חיפוש"
   services: 
     create: 
@@ -693,14 +693,14 @@ he:
       know_email: "כתובת הדוא״ל שלהם ידועה לך? עליך להזמין אותם"
       your_diaspora_username_is: "שם המשתמש שלך בדיאספורה הוא: %{diaspora_handle}"
     aspect_dropdown: 
-      add_to_aspect: "Add to aspect"
+      add_to_aspect: "הוספת איש הקשר"
       toggle: 
-        few: "In %{count} aspects"
-        many: "In %{count} aspects"
-        one: "In %{count} aspect"
-        other: "In %{count} aspects"
+        few: "ב־%{count} היבטים"
+        many: "ב־%{count} היבטים"
+        one: "באחד מההיבטים"
+        other: "ב־%{count} היבטים"
         two: "In %{count} aspects"
-        zero: "Add to aspect"
+        zero: "הוספת איש הקשר"
     contact_list: 
       all_contacts: "כל אנשי הקשר"
     footer: 
@@ -725,7 +725,6 @@ he:
     publisher: 
       all: "הכול"
       all_contacts: "כל אנשי הקשר"
-      click_to_share_with: "יש ללחוץ כדי לשתף עם:"
       discard_post: "התעלמות מרשומה"
       make_public: "הפיכה לציבורי"
       post_a_message_to: "פרסום הודעה אל %{aspect}"
@@ -796,9 +795,9 @@ he:
   tokens: 
     show: 
       connect_to_cubbies: "התחברות ל־Cubbi.es"
-      connecting_is_simple: "חיבור חשבון הדיאספורה שלך הנה משימה פשוטה של מילוי שני שדות בחשבון ה־Cubbi.es שלך."
+      connecting_is_simple: "חיבור חשבון הדיאספורה שלך הנה משימה פשוטה! עליך להכניס את המזהה שלך בדיאספורה (<b>%{diaspora_id}</b>) ב<a href='%{href_link}'>עמוד ההגדרות</a> בחשבון ה־cubbies שלך וללחוץ על התחברות."
       daniels_account: "חשבון הדיאספורה של דניאל"
-      log_in_with_diaspora_is_comming: "Pretty soon, you'll be able to connect to a new application without creating an account separate from your one on Diaspora."
+      log_in_with_diaspora_is_comming: "ממש בקרוב, תהיה לך האפשרות להתחבר ליישום חדש מבלי ליצור חשבון נפרד מחשבונך בדיאספורה."
       love_to_try: "נשמח אם תנסו זאת."
       making_the_connection: "יצירת הקשר"
       screenshot_explanation: "%{link1}.  ה־cubby המסוים הזה מקושר שלך %{link2}."
@@ -810,13 +809,13 @@ he:
   username: "שם משתמש"
   users: 
     confirm_email: 
-      email_confirmed: "E-Mail %{email} activated"
-      email_not_confirmed: "E-Mail could not be activated. Wrong link?"
+      email_confirmed: "כתובת הדוא״ל %{email} מופעלת"
+      email_not_confirmed: "לא ניתן להפעיל את כתובת הדוא״ל. קישור שגוי?"
     destroy: "חשבונך ננעל. סגירת חשבונך עלולה להימשך כ־20 דקות. תודה על שהתנסית בדיאספורה."
     edit: 
       also_commented: "...מישהו הגיב גם על הרשומה של איש הקשר שלך?"
       change: "שינוי"
-      change_email: "Change E-Mail"
+      change_email: "החלפת כתובת הדוא״ל"
       change_language: "החלפת השפה"
       change_password: "החלפת הססמה"
       close_account: "סגירת החשבון"
@@ -825,7 +824,7 @@ he:
       download_photos: "הורדת התמונות שלי"
       download_xml: "הורדת ה־xml שלי"
       edit_account: "עריכת החשבון"
-      email_awaiting_confirmation: "We have sent you an activation link to %{unconfirmed_email}. Till you follow this link and activate the new address, we will continue to use your original address %{email}."
+      email_awaiting_confirmation: "שלחנו אליך קישור הפעלה לכתובת %{unconfirmed_email}.עד שתעקוב אחר קישור זה ותפעיל את הכתובת החדשה, אנו נמשיך להשתמש בכתובת המקורית שלך: %{email}."
       export_data: "יצוא הנתונים"
       liked: "...מישהו אהב את הרשומה שלך?"
       mentioned: "...מישהו ציין אותך ברשומה?"
@@ -837,25 +836,25 @@ he:
       your_email: "כתובת הדוא״ל שלך"
       your_handle: "שם המשתמש שלך בדיאספורה"
     getting_started: 
-      bold: "aspects"
+      bold: "היבטים"
       community_welcome: "Diaspora's community is happy to have you aboard!"
       connect_to: "התחברות אל"
-      connect_to_your_other_social_networks: "Connect to your other social networks"
+      connect_to_your_other_social_networks: "התחברות לרשתות החברתיות הנוספות שלך"
       connect_to_your_other_social_networks_explanation_p1: "Connecting to services will allow you to publish out to these services."
       connect_to_your_other_social_networks_explanation_p2: "With Facebook, you also be able to find friends already on Diaspora and invite others."
       connect_with_people: "התחברות לאנשים מגניבים"
-      connect_with_people_explanation_pt1: "Connect with people by placing them into one or more of your"
+      connect_with_people_explanation_pt1: "ניתן ליצור קשר עם אנשים על ידי הצבתם באחד או יותר מה%{bold} שלך."
       connect_with_people_explanation_pt2: "Aspects are an intuitive way to group new and familar faces, private to you, allowing you to filter down or share with subsets of your contacts easily."
-      edit_profile: "עריכת הפרופיל שלך"
-      featured_tags: "Featured tags"
-      featured_users: "Featured users"
-      fill_out_your_profile: "Fill out your profile"
+      edit_profile: "עריכת הפרופיל"
+      featured_tags: "מעקב אחר תגיות מומלצות"
+      featured_users: "משתמשים מומלצים"
+      fill_out_your_profile: "מומלץ למלא את הפרופיל שלך"
       find_friends: "חיפוש חברים"
-      find_friends_from_facebook: "find friends from Facebook"
+      find_friends_from_facebook: "חיפוש חברים מפייסבוק"
       finished: "הסתיים"
-      follow_your_interests: "Follow your interests"
+      follow_your_interests: "מעקב אחר התחומים המעניינים אותך"
       get_updates_from_core: "Get updates about the project from the core team."
-      hashtag_explanation: "Hashtags allow you to talk about and follow your interests.  They're also a great way to find new people on Diaspora."
+      hashtag_explanation: "תגיות מאפשרות לך לשוחח על ולעקוב אחר תחומי העניין שלך. זוהי גם דרך מצוינת למצוא אנשים בדיאספורה."
       not_mandatory: "Completing the following steps will improve your Diaspora experience, but they are not mandatory."
       profile_description: "כדי לדאוג שלאנשים יהיה קל יותר לאתר אותך מומלץ למלא את פרטי הפרופיל שלך."
       profile_fields: 

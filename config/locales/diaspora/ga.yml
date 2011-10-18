@@ -725,7 +725,6 @@ ga:
     publisher: 
       all: "gach rud"
       all_contacts: "gach teagmháil"
-      click_to_share_with: "Click to share with: "
       discard_post: "Discard post"
       make_public: "dean phoiblí"
       post_a_message_to: "Chuir teachtaireach chuig %{aspect}"

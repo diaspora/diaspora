@@ -725,7 +725,6 @@ tr:
     publisher: 
       all: "hepsi"
       all_contacts: "bütün kişiler"
-      click_to_share_with: "Paylaşmak için tıklayın:"
       discard_post: "Gönderi atın"
       make_public: "herkese görünür yap"
       post_a_message_to: "Mesaj gönder %{aspect}"

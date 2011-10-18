@@ -725,7 +725,6 @@ sq:
     publisher: 
       all: "all"
       all_contacts: "all contacts"
-      click_to_share_with: "Click to share with: "
       discard_post: "Discard post"
       make_public: "make public"
       post_a_message_to: "Post a message to %{aspect}"

@@ -725,7 +725,6 @@ is:
     publisher: 
       all: "allt"
       all_contacts: "Allir tengiliðir"
-      click_to_share_with: "Click to share with: "
       discard_post: "Discard post"
       make_public: "gera almennt"
       post_a_message_to: "Skrifa skilaboð til %{aspect}"

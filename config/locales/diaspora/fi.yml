@@ -725,7 +725,6 @@ fi:
     publisher: 
       all: "kaikki"
       all_contacts: "kaikki kontaktit"
-      click_to_share_with: "Jakomenetelmät:"
       discard_post: "Hylkää viesti"
       make_public: "tee julkiseksi"
       post_a_message_to: "Lähetä viesti näkymään %{aspect}"

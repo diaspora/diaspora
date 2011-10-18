@@ -8,14 +8,14 @@ nn:
     aspect_dropdown: 
       add_to_aspect: "Legg til kontakt"
       all_aspects: "Alle aspekta"
-      select_aspects: "Select aspects"
+      select_aspects: "Vel aspekt"
       toggle: 
         few: "I {{count}} aspekt"
         many: "I {{count}} aspekt"
         one: "I {{count}} aspekt"
         other: "I {{count}} aspekt"
         two: "I {{count}} aspekt"
-        zero: "Legg til kontakt"
+        zero: "Vel aspekt"
     aspect_navigation: 
       deselect_all: "Vel vekk alle"
       no_aspects: "Ingen aspekt er valde"

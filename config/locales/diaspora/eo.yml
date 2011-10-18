@@ -725,7 +725,6 @@ eo:
     publisher: 
       all: "ĉiuj"
       all_contacts: "ĉiuj kontaktoj"
-      click_to_share_with: "Kliki por konigi kun:"
       discard_post: "Forlasi afiŝon"
       make_public: "publikigi"
       post_a_message_to: "Afiŝi al %{aspect}"

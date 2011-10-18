@@ -725,7 +725,6 @@ pa:
     publisher: 
       all: "ਸਭ"
       all_contacts: "ਸਭ ਸੰਪਰਕਾਂ ਨਾਲ"
-      click_to_share_with: "Click to share with: "
       discard_post: "Discard post"
       make_public: "ਪਬਲਿਕ ਬਣਾਓ"
       post_a_message_to: "Post a message to %{aspect}"

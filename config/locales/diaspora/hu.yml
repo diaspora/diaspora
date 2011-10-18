@@ -61,9 +61,9 @@ hu:
       done_editing: "szerkesztés kész"
     aspect_listings: 
       add_an_aspect: "+ Csoport hozzáadása"
-      deselect_all: "Deselect all"
+      deselect_all: "Összes kijelölés törlése"
       edit_aspect: "Szerkesztés %{name}"
-      select_all: "Select all"
+      select_all: "Mindent kijelöl"
     aspect_stream: 
       commented_on: "hozzászólt"
       mentions: "Említések"
@@ -95,7 +95,7 @@ hu:
       aspect_not_empty: "A csoport nem üres"
       remove: "eltávolítás"
     index: 
-      community_spotlight: "Community Spotlight"
+      community_spotlight: "A figyelem középpontjában"
       cubbies: 
         explanation: "Cubbi.es az első fejlesztés alatt álló Diaspora applikáció."
         heading: "Kapcsolódás: Cubbi.es"
@@ -209,7 +209,7 @@ hu:
     sharing: 
       people_sharing: "Ismerőseid:"
     spotlight: 
-      community_spotlight: "Community Spotlight"
+      community_spotlight: "A figyelem középpontjában"
     two: "%{count} ismerős"
     zero: "nincs ismerős"
   conversations: 
@@ -310,10 +310,10 @@ hu:
       blog: "blog"
       code: "kód"
       login: "bejelentkezés"
-      logout: "kijelentkezés"
-      profile: "profil"
+      logout: "Kijelentkezés"
+      profile: "Profil"
       recent_notifications: "Legújabb jelzések"
-      settings: "beállítások"
+      settings: "Beállítások"
       view_all: "Az összes megtekintése"
   likes: 
     likes: 
@@ -725,7 +725,6 @@ hu:
     publisher: 
       all: "összes"
       all_contacts: "összes kapcsolat"
-      click_to_share_with: "Kattints, hogy megoszd vele:"
       discard_post: "Bejegyzés elvetése"
       make_public: "nyilvánossá tesz"
       post_a_message_to: "Bejegyzés küldése ennek a csoportnak: %{aspect}"
@@ -772,8 +771,8 @@ hu:
       contacts_title: "Friss poszterek"
       title: "Publikus tevékenység"
     soup: 
-      contacts_title: "People in your Soup"
-      title: "The Soup"
+      contacts_title: "Emberek a levesedben"
+      title: "A leves"
     tags: 
       contacts_title: "Emberek, akik ezeket a címkéket keresték"
       title: "Bejegyzés megjelölve: %{tags}"

@@ -8,14 +8,14 @@ sk:
     aspect_dropdown: 
       add_to_aspect: "Pridať kontakt"
       all_aspects: "Všetky kategórie"
-      select_aspects: "Select aspects"
+      select_aspects: "Vyberte si kategórie"
       toggle: 
         few: "V(o) {{count}} kategóriách"
         many: "V(o) {{count}} kategóriách"
         one: "V {{count}} kategórii"
         other: "V(o) {{count}} kategóriách"
         two: "V(o) {{count}} kategóriách"
-        zero: "Pridať kontakt"
+        zero: "Vyberte si kategórie"
     aspect_navigation: 
       deselect_all: "Odznačiť všetky"
       no_aspects: "Nevybrali ste žiadne kategórie"

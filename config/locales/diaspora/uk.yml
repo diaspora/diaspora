@@ -725,7 +725,6 @@ uk:
     publisher: 
       all: "усі"
       all_contacts: "всі контакти"
-      click_to_share_with: "Натисніть, щоб поділитися з:"
       discard_post: "Відмінити запис"
       make_public: "зробити публічним"
       post_a_message_to: "Опублікувати повідомлення для %{aspect}"

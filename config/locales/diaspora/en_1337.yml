@@ -725,7 +725,6 @@ en_1337:
     publisher: 
       all: "4LL"
       all_contacts: "4LL N00B5"
-      click_to_share_with: "CL1CK 2 5H4R3 W17H: "
       discard_post: "D15C4RD P057"
       make_public: "M4K3 PUBL1C"
       post_a_message_to: "5P4M 7H15 45P3C7: %{aspect}"

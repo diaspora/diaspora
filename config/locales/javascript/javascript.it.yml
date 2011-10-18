@@ -8,14 +8,14 @@ it:
     aspect_dropdown: 
       add_to_aspect: "Aggiungi"
       all_aspects: "Tutti gli aspetti"
-      select_aspects: "Select aspects"
+      select_aspects: "Scegli gli aspetti"
       toggle: 
         few: "In {{count}} aspetti"
         many: "In {{count}} aspetti"
         one: "In {{count}} aspetto"
         other: "In {{count}} aspetti"
         two: "In {{count}} aspetti"
-        zero: "Aggiungi"
+        zero: "Scegli gli aspetti"
     aspect_navigation: 
       deselect_all: "Deseleziona tutti"
       no_aspects: "Nessun aspetto selezionato"

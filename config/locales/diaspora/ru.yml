@@ -62,7 +62,7 @@ ru:
     aspect_listings: 
       add_an_aspect: "+ Добавить аспект"
       deselect_all: "Выключить все"
-      edit_aspect: "Редактировать %{name}"
+      edit_aspect: "Редактировать аспект «%{name}»"
       select_all: "Включить все"
     aspect_stream: 
       commented_on: "прокомментированные"
@@ -97,7 +97,7 @@ ru:
     index: 
       community_spotlight: "В центре внимания"
       cubbies: 
-        explanation: "Cubbi.es это первая программа по развитию диаспоры."
+        explanation: "Cubbi.es — это первое приложение, разрабатываемое для Диаспоры."
         heading: "Подключение к Cubbi.es"
         learn_more: "Узнать больше"
       diaspora_id: 
@@ -113,7 +113,7 @@ ru:
         feature_suggestion: "... хотите предложить что-то новое (%{link})?"
         find_a_bug: "... нашли ошибку (%{link})?"
         have_a_question: "... хотите задать вопрос (%{link})?"
-        here_to_help: "Сообщество Диаспоры к вашим услугам!"
+        here_to_help: "Сообщество Диаспоры всегда рядом!"
         need_help: "Нужна помощь?"
         satisfaction: "%{link}: осуществляемая сообществом поддержка"
         tutorials_and_wiki: "%{tutorial} и %{wiki}: создающиеся сообществом руководства, инструкции и новости"
@@ -123,7 +123,7 @@ ru:
       no_tags: "+ Найти метку"
       people_sharing_with_you: "Люди делятся с вами"
       post_a_message: "новая запись >>"
-      see_more_from_us: "Другие рекомендуемые"
+      see_more_from_us: "Лента рекомендуемых пользователей"
       services: 
         content: "Вы можете подключить к Диаспоре следующие службы:"
         heading: "Подключенные службы"
@@ -154,7 +154,7 @@ ru:
       work: "Работа"
     selected_contacts: 
       manage_your_aspects: "Управление аспектами."
-      no_contacts: "У вас здесь пока нет ни одного контакта."
+      no_contacts: "Здесь пока нет ни одного контакта."
       view_all_contacts: "Все контакты"
       view_all_featured_users: "Все рекомендуемые пользователи"
     show: 
@@ -211,7 +211,7 @@ ru:
     spotlight: 
       community_spotlight: "В центре внимания"
     two: "%{count} контакта"
-    zero: "контактов"
+    zero: "0 контактов"
   conversations: 
     create: 
       fail: "Неверное сообщение"
@@ -725,7 +725,6 @@ ru:
     publisher: 
       all: "все"
       all_contacts: "все контакты"
-      click_to_share_with: "Нажмите, чтобы поделиться с:"
       discard_post: "Отменить запись"
       make_public: "сделать публичным"
       post_a_message_to: "Опубликовать сообщение для %{aspect}"

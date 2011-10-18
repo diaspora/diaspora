@@ -8,14 +8,14 @@ ru:
     aspect_dropdown: 
       add_to_aspect: "Добавить контакт"
       all_aspects: "Все аспекты"
-      select_aspects: "Select aspects"
+      select_aspects: "Выбрать аспекты"
       toggle: 
         few: "В {{count}} аспектах"
         many: "В {{count}} аспектах"
         one: "В {{count}} аспектах"
         other: "В {{count}} аспектах"
         two: "В {{count}} аспектах"
-        zero: "Добавить контакт"
+        zero: "Выбрать аспекты"
     aspect_navigation: 
       deselect_all: "Выключить все"
       no_aspects: "Аспект не выбран"

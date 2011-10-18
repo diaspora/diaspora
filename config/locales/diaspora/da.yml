@@ -61,14 +61,14 @@ da:
       done_editing: "afslut redigering"
     aspect_listings: 
       add_an_aspect: "+ Tilføj et aspekt"
-      deselect_all: "Deselect all"
+      deselect_all: "Fravælg alle"
       edit_aspect: "Redigér %{navn}"
-      select_all: "Select all"
+      select_all: "Vælg alle"
     aspect_stream: 
-      commented_on: "kommenter på"
+      commented_on: "Kommenteret"
       mentions: "Omtaler"
       posted: "indsendt"
-      recently: "for nylig:"
+      recently: "Nyligt: "
       stream: "Strøm"
     contacts_not_visible: "Kontakter i dette aspekt vil ikke være i stand til at se hinanden."
     contacts_visible: "Kontakter i dette aspekt vil være i stand til at se hinanden."
@@ -139,7 +139,7 @@ da:
       create: "Opret"
       name: "Navn (kun synligt for dig)"
     no_contacts_message: 
-      featured_users: "udvalgte brugere"
+      featured_users: "fremhævede brugere"
       or_featured: "Eller du kan dele med %{link}"
       try_adding_some_more_contacts: "Du kan søge (øverst) eller invitere (til højre) flere kontakter."
       you_should_add_some_more_contacts: "Du bør tilføje nogle flere kontakter!"
@@ -153,10 +153,10 @@ da:
       friends: "Venner"
       work: "Arbejde"
     selected_contacts: 
-      manage_your_aspects: "Administrer dine aspekter."
+      manage_your_aspects: "Administrér dine aspekter."
       no_contacts: "Du har ingen kontakter her endnu."
       view_all_contacts: "Vis alle kontakter"
-      view_all_featured_users: "Se alle udvalgte brugere"
+      view_all_featured_users: "Se alle fremhævede brugere"
     show: 
       edit_aspect: "redigér aspekt"
     two: "%{count} aspekter"
@@ -311,9 +311,9 @@ da:
       code: "kode"
       login: "Log ind"
       logout: "Log ud"
-      profile: "profil"
+      profile: "Profil"
       recent_notifications: "Seneste meddelelser"
-      settings: "indstillinger"
+      settings: "Indstillinger"
       view_all: "Se alle"
   likes: 
     likes: 
@@ -327,17 +327,17 @@ da:
       people_like_this: 
         few: "%{count} synes om"
         many: "%{count} synes om"
-        one: "Én person synes om"
+        one: "Én synes om"
         other: "%{count} synes om"
-        two: "%{count} kan lide"
+        two: "%{count} synes om"
         zero: "ingen synes om"
       people_like_this_comment: 
-        few: "%{count} kan lide"
-        many: "%{count} kan lide"
-        one: "%{count} kan lide"
-        other: "%{count} kan lide"
-        two: "%{count} kan lide"
-        zero: "ingen kan lide"
+        few: "%{count} synes om"
+        many: "%{count} synes om"
+        one: "%{count} synes om"
+        other: "%{count} synes om"
+        two: "%{count} synes om"
+        zero: "ingen synes om"
   limited: "Begrænset"
   more: "Mere"
   next: "Næste"
@@ -358,12 +358,12 @@ da:
       two: "%{actors} kommenterede på et slettet indlæg."
       zero: "%{actors} kommenterede et slettet indlæg."
     comment_on_post: 
-      few: "%{actors} kommenterede din %{post_link}."
-      many: "%{actors} kommenterede din %{post_link}."
-      one: "%{actors} kommenterede din %{post_link}."
-      other: "%{actors} kommenterede din %{post_link}."
+      few: "%{actors} kommenterede dit %{post_link}."
+      many: "%{actors} kommenterede dit %{post_link}."
+      one: "%{actors} kommenterede dit %{post_link}."
+      other: "%{actors} kommenterede dit %{post_link}."
       two: "%{actors} kommenterede dit %{post_link}."
-      zero: "%{actors} kommenterede din %{post_link}."
+      zero: "%{actors} kommenterede dit %{post_link}."
     helper: 
       new_notifications: 
         few: "%{count} nye notifikationer"
@@ -398,9 +398,9 @@ da:
       two: "%{actors} syntes om dit slettede indlæg."
       zero: "%{actors} syntes om dit slettede indlæg."
     mentioned: 
-      few: "%{actors} har nævnt dig i en %{post_link}."
-      many: "%{actors} har nævnt dig i en %{post_link}."
-      one: "%{actors} har nævnt dig i en besked %{post_link}."
+      few: "%{actors} har nævnt dig i et %{post_link}."
+      many: "%{actors} har nævnt dig i et %{post_link}."
+      one: "%{actors} har nævnt dig i et indlæg %{post_link}."
       other: "%{actors} har nævnt dig i en besked %{post_link}."
       two: "%{actors} har nævnt dig i %{post_link}."
       zero: "%{actors} har nævnt dig i en %{post_link}."
@@ -446,15 +446,15 @@ da:
     comment_on_post: 
       reply: "Besvar eller se %{navn}s indlæg>"
     confirm_email: 
-      click_link: "For at aktivere din nye email adresse %{unconfirmed_email}, skal du følge dette link:"
-      subject: "Aktiver venligst din nye email adresse %{unconfirmed_email}"
+      click_link: "For at aktivere din nye e-mail adresse %{unconfirmed_email}, skal du følge dette link:"
+      subject: "Aktiver venligst din nye e-mail adresse %{unconfirmed_email}"
     email_sent_by_diaspora: "Denne e-mail blev sendt af Diaspora. Hvis du gerne vil holde op med at få e-mails som denne,"
     hello: "Hej %{name}!"
     liked: 
-      liked: "%{name} har lige syntes om din post"
+      liked: "%{name} har lige syntes om dit indlæg"
       view_post: "Vis indlæg >"
     mentioned: 
-      mentioned: "omtalte dig i en post:"
+      mentioned: "omtalte dig i et indlæg:"
       subject: "%{name} har omtalt dig på Diaspora*"
     private_message: 
       reply_to_or_view: "Besvar eller se denne samtale >"
@@ -522,7 +522,7 @@ da:
       add_some: "tilføje nogle"
       edit: "redigér"
       you_have_no_tags: "du har ingen tags!"
-    two: "%{count} mennesker"
+    two: "%{count} personer"
     webfinger: 
       fail: "Undskyld, vi kunne ikke finde %{handle}."
     zero: "ingen personer"
@@ -612,7 +612,7 @@ da:
       update: "Opdatér"
     new: 
       create_my_account: "Opret min konto"
-      enter_email: "Indtast email"
+      enter_email: "Indtast e-mail"
       enter_password: "Indtast en adgangskode"
       enter_password_again: "Indtast den samme adgangskode som før"
       enter_username: "Vælg et brugernavn (kun bogstaver, tal og understreg)"
@@ -707,12 +707,12 @@ da:
       logged_in_as: "logget ind som %{name}"
       your_aspects: "Dine aspekter"
     invitations: 
-      by_email: "vha. email"
+      by_email: "via e-mail"
       dont_have_now: "Du har ikke nogen lige nu, men der kommer snart flere invitationer!"
       from_facebook: "Fra Facebook"
       invitations_left: "%{count} tilbage"
       invite_someone: "Invitér en person"
-      invite_your_friends: "Inviter dine venner"
+      invite_your_friends: "Invitér dine venner"
       invites: "Invitationer"
       invites_closed: "Invitationer er i øjeblikket lukkede på denne Diaspora seed"
     notification: 
@@ -725,7 +725,6 @@ da:
     publisher: 
       all: "alle"
       all_contacts: "alle kontaktpersoner"
-      click_to_share_with: "Klik for at dele med:"
       discard_post: "Kassér indlæg"
       make_public: "offentliggør"
       post_a_message_to: "Send en besked til %{aspect}"
@@ -734,7 +733,7 @@ da:
       share: "Del"
       share_with: "Del med"
       upload_photos: "Upload fotos"
-      whats_on_your_mind: "Hvad har du på hjerte?"
+      whats_on_your_mind: "Hvad har du på hjertet?"
     reshare: 
       reshare: "Del igen"
     stream_element: 
@@ -742,7 +741,7 @@ da:
       hide_and_mute: "Skjul og Dæmp"
       like: "Synes om"
       shared_with: "Delt med: %{aspect_names}"
-      unlike: "Synes ikke godt om"
+      unlike: "Synes ikke om"
       via: "via %{link}"
       viewable_to_anyone: "Dette indlæg er synlig for alle på internettet"
   status_messages: 
@@ -766,7 +765,7 @@ da:
     show_more_comments: "Vis %{number} kommentarer mere"
   streams: 
     mentions: 
-      contacts_title: "Mennesker der har nævnt dig"
+      contacts_title: "Personer der har nævnt dig"
       title: "Dine omtaler"
     public: 
       contacts_title: "Seneste indlæg"
@@ -775,7 +774,7 @@ da:
       contacts_title: "People in your Soup"
       title: "The Soup"
     tags: 
-      contacts_title: "Folk der graver disse tags"
+      contacts_title: "Folk der følger disse tags"
       title: "Indlæg tagget med: %{tags}"
   tag_followings: 
     create: 
@@ -791,7 +790,7 @@ da:
       following: "Følger #%{tag}"
       nobody_talking: "Ingen har talt om %{tag} endnu."
       people_tagged_with: "Personer tagged med %{tag}"
-      posts_tagged_with: "Poster tagged med #%{tag}"
+      posts_tagged_with: "Indlæg tagged med #%{tag}"
       stop_following: "Hold op med at følge #%{tag}"
   tokens: 
     show: 
@@ -810,26 +809,26 @@ da:
   username: "Brugernavn"
   users: 
     confirm_email: 
-      email_confirmed: "Email %{email} aktiveret"
-      email_not_confirmed: "Email kunne ikke aktiveres. Forkert link?"
+      email_confirmed: "E-mail %{email} aktiveret"
+      email_not_confirmed: "E-mail kunne ikke aktiveres. Forkert link?"
     destroy: "Kontoen er nu lukket. Det kan tage 20 minutter for os at lukke din konto helt. Tak fordi du prøvede Diaspora."
     edit: 
-      also_commented: "...en eller anden har også kommenteret på din kontakts post?"
+      also_commented: "...nogen har kommenteret på en af dine kontakters indlæg?"
       change: "Skift"
-      change_email: "Skift email"
+      change_email: "Skift e-mail"
       change_language: "Skift sprog"
-      change_password: "Skift kodeord"
+      change_password: "Skift adgangskode"
       close_account: "Luk konto"
-      comment_on_post: "...en eller anden har kommenteret på din post?"
-      current_password: "Nuværende password"
+      comment_on_post: "...nogen har kommenteret dit indlæg?"
+      current_password: "Nuværende adgangskode"
       download_photos: "Download mine billeder"
       download_xml: "Download min XML"
       edit_account: "Rediger konto"
       email_awaiting_confirmation: "Vi har sendt dig et aktiveringslink til %{unconfirmed_email}. Indtil du følger dette link og aktiverer den nye adresse, vil vi fortsætte med at bruge din oprindelige adresse %{email}."
       export_data: "Exportér data"
-      liked: "...nogen synes godt om din post?"
-      mentioned: "...du er nævnt i en post?"
-      new_password: "Nyt kodeord"
+      liked: "...nogen synes om dit indlæg?"
+      mentioned: "...du er nævnt i et indlæg?"
+      new_password: "Nyt adgangskode"
       private_message: "...du har modtaget en besked?"
       receive_email_notifications: "Modtag e-mail notifikation når..."
       reshared: "... nogen deler dit indlæg?"
@@ -843,12 +842,12 @@ da:
       connect_to_your_other_social_networks: "Opret forbindelse til dine andre sociale netværk"
       connect_to_your_other_social_networks_explanation_p1: "Tilslutning til tjenester vil give dig mulighed for at publicere ud til disse tjenester."
       connect_to_your_other_social_networks_explanation_p2: "Med Facebook kan du også finde venner allerede på Diaspora og invitere andre."
-      connect_with_people: "Forbind med seje mennesker"
-      connect_with_people_explanation_pt1: "Forbind til mennesker ved at placere dem i en eller flere af dine %{bold}."
+      connect_with_people: "Forbind med seje personer"
+      connect_with_people_explanation_pt1: "Forbind til personer ved at placere dem i en eller flere af dine %{bold}."
       connect_with_people_explanation_pt2: "Aspekter er en intuitiv måde at gruppere nye og bekendte ansigter som er personlige for dig, så du kan filtrere eller dele med grupper af dine kontakter nemt."
       edit_profile: "Redigér profil"
-      featured_tags: "Følg udvalgte tags"
-      featured_users: "Udvalgte brugere"
+      featured_tags: "Følg fremhævede tags"
+      featured_users: "Fremhævede brugere"
       fill_out_your_profile: "Udfyld din profil"
       find_friends: "Find venner"
       find_friends_from_facebook: "finde venner fra Facebook"
@@ -868,7 +867,7 @@ da:
         tags: "Tags"
       search_for_hashtags: "Søg efter #hashtags"
       search_for_people: "Søg efter personer"
-      see_all_featured_users: "Se alle udvalgte brugere"
+      see_all_featured_users: "Se alle fremhævede brugere"
       welcome: "Velkommen!"
       welcome_with_name: "Velkommen, %{name}!"
     logged_out: 
@@ -883,10 +882,10 @@ da:
       email_notifications_changed: "E-mail notifikation ændret"
       language_changed: "Sprog ændret"
       language_not_changed: "Kunne ikke ændre sprog"
-      password_changed: "Kodeord ændret"
-      password_not_changed: "Kunne ikke ændre kodeord"
-      unconfirmed_email_changed: "Email ændret. Kræver aktivering."
-      unconfirmed_email_not_changed: "Email ændring mislykkedes"
+      password_changed: "Adgangskode ændret"
+      password_not_changed: "Kunne ikke ændre adgangskode"
+      unconfirmed_email_changed: "E-mail ændret. Kræver aktivering."
+      unconfirmed_email_not_changed: "E-mail ændring mislykkedes"
   webfinger: 
     fetch_failed: "kunne ikke hente webfinger profil for %{profile_url}"
     hcard_fetch_failed: "der opstod et problem i forbindelse med hentning af hcard for %{account}"

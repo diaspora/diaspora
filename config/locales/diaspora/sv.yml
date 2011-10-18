@@ -725,7 +725,6 @@ sv:
     publisher: 
       all: "alla"
       all_contacts: "alla kontakter"
-      click_to_share_with: "Klicka för att dela med: "
       discard_post: "Släng inlägg"
       make_public: "gör publik"
       post_a_message_to: "Skicka ett meddelande till %{aspect}"

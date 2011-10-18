@@ -61,9 +61,9 @@ sk:
       done_editing: "úpravy dokončené"
     aspect_listings: 
       add_an_aspect: "+ Pridať kategóriu"
-      deselect_all: "Deselect all"
+      deselect_all: "Odznačiť všetky"
       edit_aspect: "Upraviť %{name}"
-      select_all: "Select all"
+      select_all: "Označiť všetky"
     aspect_stream: 
       commented_on: "okomentoval(a)"
       mentions: "Zmienky"
@@ -95,7 +95,7 @@ sk:
       aspect_not_empty: "Kategória nie je prázdna"
       remove: "odstrániť"
     index: 
-      community_spotlight: "Community Spotlight"
+      community_spotlight: "Aktuality z komunity"
       cubbies: 
         explanation: "Cubbi.es je prvá aplikácia, ktorá sa vyvíja v Diaspore."
         heading: "Pripojiť sa ku Cubbi.es"
@@ -209,7 +209,7 @@ sk:
     sharing: 
       people_sharing: "Ľudia, ktorí sa s vami podelili:"
     spotlight: 
-      community_spotlight: "Community Spotlight"
+      community_spotlight: "Aktuality z komunity"
     two: "%{count} kontakty"
     zero: "kontakty"
   conversations: 
@@ -310,10 +310,10 @@ sk:
       blog: "Blog"
       code: "kód"
       login: "prihlásenie"
-      logout: "odhlásiť sa"
-      profile: "profil"
+      logout: "Odhlásiť sa"
+      profile: "Profil"
       recent_notifications: "Najnovšie oznamy"
-      settings: "nastavenia"
+      settings: "Nastavenia"
       view_all: "Zobraziť všetko"
   likes: 
     likes: 
@@ -725,7 +725,6 @@ sk:
     publisher: 
       all: "všetko"
       all_contacts: "Všetky kontakty"
-      click_to_share_with: "Kliknite a podeľte sa s použ.: "
       discard_post: "Vymazať príspevok"
       make_public: "Zverejniť"
       post_a_message_to: "Poslať správu na %{aspect}"
@@ -772,8 +771,8 @@ sk:
       contacts_title: "Autori najnovších príspevkov"
       title: "Verejná aktivita"
     soup: 
-      contacts_title: "People in your Soup"
-      title: "The Soup"
+      contacts_title: "Ľudia vo vašej Polievke"
+      title: "Polievka"
     tags: 
       contacts_title: "Ľudia, ktorí hľadajú tieto štítky"
       title: "Príspevky so štítkami: %{tags}"

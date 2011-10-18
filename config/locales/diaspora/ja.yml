@@ -725,7 +725,6 @@ ja:
     publisher: 
       all: "すべて"
       all_contacts: "全ての連絡先"
-      click_to_share_with: "クリックして次のアスペクトに共有："
       discard_post: "Discard post"
       make_public: "公開にする"
       post_a_message_to: "%{aspect}に投稿する"

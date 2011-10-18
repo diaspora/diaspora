@@ -61,9 +61,9 @@ it:
       done_editing: "modifica eseguita"
     aspect_listings: 
       add_an_aspect: "+ Aggiungi un aspetto"
-      deselect_all: "Deselect all"
+      deselect_all: "Deseleziona tutti"
       edit_aspect: "Modifica %{name}"
-      select_all: "Select all"
+      select_all: "Seleziona tutti"
     aspect_stream: 
       commented_on: "commenti"
       mentions: "Menzioni"
@@ -95,7 +95,7 @@ it:
       aspect_not_empty: "Aspetto non vuoto"
       remove: "rimuovi"
     index: 
-      community_spotlight: "Community Spotlight"
+      community_spotlight: "In evidenza dalla comunità"
       cubbies: 
         explanation: "Cubbi.es è la prima applicazione in sviluppo per Diaspora."
         heading: "Connettiti a Cubbi.es"
@@ -209,7 +209,7 @@ it:
     sharing: 
       people_sharing: "Persone che condividono con te:"
     spotlight: 
-      community_spotlight: "Community Spotlight"
+      community_spotlight: "In evidenza dalla comunità"
     two: "%{count} contatti"
     zero: "contatti"
   conversations: 
@@ -310,10 +310,10 @@ it:
       blog: "blog"
       code: "codice"
       login: "accedi"
-      logout: "esci"
-      profile: "profilo"
+      logout: "Esci"
+      profile: "Profilo"
       recent_notifications: "Notifiche recenti"
-      settings: "impostazioni"
+      settings: "Impostazioni"
       view_all: "Elenco completo"
   likes: 
     likes: 
@@ -725,7 +725,6 @@ it:
     publisher: 
       all: "tutti"
       all_contacts: "tutti i contatti"
-      click_to_share_with: "Clicca per condividere con:"
       discard_post: "Elimina il post"
       make_public: "rendi pubblico"
       post_a_message_to: "Invia un messaggio a %{aspect}"
@@ -772,8 +771,8 @@ it:
       contacts_title: "Chi ha postato di recente"
       title: "Attività Pubblica"
     soup: 
-      contacts_title: "People in your Soup"
-      title: "The Soup"
+      contacts_title: "Persone nella tua Zuppa"
+      title: "La Zuppa"
     tags: 
       contacts_title: "Persone con questi tag"
       title: "Post con tag: %{tags}"

@@ -8,14 +8,14 @@ da:
     aspect_dropdown: 
       add_to_aspect: "Tilføj kontakt"
       all_aspects: "Alle aspekter"
-      select_aspects: "Select aspects"
+      select_aspects: "Vælg aspekter"
       toggle: 
         few: "I {{count}} aspekter"
         many: "I {{count}} aspekter"
         one: "I {{count}} aspekt"
         other: "I {{count}} aspekter"
         two: "I {{count}} aspekter"
-        zero: "Tilføj kontakt"
+        zero: "Vælg aspekter"
     aspect_navigation: 
       deselect_all: "Fravælg alle"
       no_aspects: "Ingen valgte aspekter"
@@ -24,14 +24,14 @@ da:
       hide: "Skjul kommentarer"
       show: "Vis alle kommentarer"
     confirm_dialog: "Er du sikker?"
-    failed_to_like: "Kunne ikke synes godt om!"
-    failed_to_post_message: "Kunne ikke poste besked!"
+    failed_to_like: "Kunne ikke synes om!"
+    failed_to_post_message: "Kunne ikke indsende besked!"
     infinite_scroll: 
-      no_more: "Ikke flere poster."
+      no_more: "Ikke flere indlæg."
     publisher: 
       at_least_one_aspect: "Du skal dele med mindst et aspekt"
       limited: "Begrænset - dit indlæg vil kun blive set af dem du deler med"
-      public: "Offentlig - dit indlæg vil være synligt for alle, og kan findes af søgemaskinerne"
+      public: "Offentlig - dit indlæg vil være synligt for alle og kan findes af søgemaskiner"
     reshares: 
       duplicate: "Du har allerede delt dét indlæg!"
     search_for: "Søg efter {{name}}"
@@ -56,4 +56,4 @@ da:
       unknown: "Ukendt video type"
       watch: "Se denne video på {{provider}}"
     web_sockets: 
-      disconnected: "Forbindelse er lukket; post vil ikke længere blive opdateret live."
+      disconnected: "Forbindelse er lukket; indlæg vil ikke længere blive opdateret live."

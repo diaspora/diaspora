@@ -725,7 +725,6 @@ mk:
     publisher: 
       all: "сите"
       all_contacts: "сите контакти"
-      click_to_share_with: "Click to share with: "
       discard_post: "Discard post"
       make_public: "направи јавен"
       post_a_message_to: "Додај порака во %{aspect}"

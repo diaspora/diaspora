@@ -84,7 +84,7 @@ de:
       aspect_list_is_visible: "Die Aspektliste ist für andere im Aspekt sichtbar"
       confirm_remove_aspect: "Bist du dir sicher, dass du diesen Aspekt löschen möchtest?"
       done: "Fertig"
-      make_aspect_list_visible: "Aspekteliste öffentlich machen?"
+      make_aspect_list_visible: "Kontakte aus diesem Aspekt öffentlich machen?"
       remove_aspect: "Diesen Aspekt löschen"
       rename: "umbenennen"
       update: "Ändern"
@@ -95,7 +95,7 @@ de:
       aspect_not_empty: "Aspekt ist nicht leer"
       remove: "entfernen"
     index: 
-      community_spotlight: "Community Spotlight"
+      community_spotlight: "Gemeinschaft Rampenlicht"
       cubbies: 
         explanation: "Cubbi.es ist die erste Diaspora Anwendung."
         heading: "Mit Cubbi.es verbinden"
@@ -108,15 +108,15 @@ de:
       handle_explanation: "Das ist deine Diaspora ID. Du kannst sie wie eine E-Mail-Adresse weitergeben, damit andere Nutzer mit dir Kontakt aufnehmen können."
       help: 
         do_you: "Hast du:"
-        email_feedback: "%{link} your feedback, if you prefer"
-        feature_and_forum: "%{gs} & %{forum}: Community-powered support and feature requests"
+        email_feedback: "%{link} Ihr Feedback, wenn Sie es mögen"
+        feature_and_forum: "%{gs} & %{forum}: Gemeinschaft-Unterstützung und Sonderzugriffe"
         feature_suggestion: "… einen %{link} Vorschlag?"
         find_a_bug: "… einen %{link} gefunden?"
         have_a_question: "… eine %{link}?"
         here_to_help: "Die Diaspora-Community ist hier!"
         need_help: "Benötigst du Hilfe?"
-        satisfaction: "%{link}: Community-powered support"
-        tutorials_and_wiki: "%{tutorial} & %{wiki}: Community-powered tutorials, how-to, and news"
+        satisfaction: "%{link}: Gemeinschaft-Unterstützung"
+        tutorials_and_wiki: "%{tutorial} & %{wiki}: Gemeinschaft betriebene Tutorials, Anleitungen, und Nachrichten"
       keep_us_running: "Hilf %{pod} schnell zu laufen und kaufe unseren Servern ihren monatlichen Schuss Kaffee!"
       mentions: "Erwähnungen"
       no_contacts: "Keine Kontakte"
@@ -194,7 +194,7 @@ de:
       add_a_new_aspect: "Einen neuen Aspekt hinzufügen"
       add_to_aspect: "Füge Kontakte zu %{name} hinzu"
       all_contacts: "Alle Kontakte"
-      check_out: "Check out"
+      check_out: "Abmelden"
       many_people_are_you_sure: "Bist du dir sicher, dass du eine private Unterhaltung mit mehr als %{suggested_limit} Kontakten beginnen möchtest? Einen Beitrag in diesen Aspekt zu schreiben könnte ein besserer Weg sein, um sie zu kontaktieren."
       my_contacts: "Meine Kontakte"
       no_contacts: "Sieht so aus als müsstest du einige Kontakte hinzufügen!"
@@ -209,7 +209,7 @@ de:
     sharing: 
       people_sharing: "Leute, die mit dir teilen:"
     spotlight: 
-      community_spotlight: "Community Spotlight"
+      community_spotlight: "Gemeinschaft Rampenlicht"
     two: "%{count} Kontakte"
     zero: "Kontakte"
   conversations: 
@@ -396,7 +396,7 @@ de:
       one: "%{actors} gefällt dein gelöschter Beitrag."
       other: "%{actors} gefällt dein gelöschter Beitrag."
       two: "%{actors} gefällt dein gelöschter Beitrag."
-      zero: "Niemand gefällt dein gelöschter Beitrag."
+      zero: "Niemandem gefällt dein gelöschter Beitrag."
     mentioned: 
       few: "%{actors} haben dich in einem %{post_link} erwähnt."
       many: "%{actors} haben dich in einem %{post_link} erwähnt."
@@ -725,7 +725,6 @@ de:
     publisher: 
       all: "alle"
       all_contacts: "Alle Kontakte"
-      click_to_share_with: "Klicke, um zu teilen mit:"
       discard_post: "Beitrag verwerfen"
       make_public: "veröffentlichen"
       post_a_message_to: "Sende eine Nachricht an %{aspect}"
@@ -769,13 +768,13 @@ de:
       contacts_title: "Personen, die dich erwähnt haben"
       title: "Deine Erwähnungen"
     public: 
-      contacts_title: "Recent Posters"
-      title: "Public Activity"
+      contacts_title: "Aktuelle Poster"
+      title: "Öffentliche Aktivität"
     soup: 
-      contacts_title: "Leute in deiner Soup"
-      title: "The Soup"
+      contacts_title: "Leute in deiner Suppe"
+      title: "Die Suppe"
     tags: 
-      contacts_title: "People who dig these tags"
+      contacts_title: "Menschen, die diese Tags nutzen"
       title: "Getaggte Beiträge: %{tags}"
   tag_followings: 
     create: 
@@ -787,7 +786,7 @@ de:
   tags: 
     show: 
       follow: "#%{tag} folgen"
-      followed_by: "followed by"
+      followed_by: "gefolgt von"
       following: "#%{tag} folgen"
       nobody_talking: "Niemand hat schon etwas über %{tag} gesagt."
       people_tagged_with: "Personen, die mit %{tag} getagt sind"

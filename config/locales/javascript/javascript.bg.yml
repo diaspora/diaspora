@@ -8,7 +8,7 @@ bg:
     aspect_dropdown: 
       add_to_aspect: "Избиране на аспект(и)"
       all_aspects: "Във всеки аспект"
-      select_aspects: "Select aspects"
+      select_aspects: "Избиране на аспект(и)"
       toggle: 
         few: "В {{count}} аспекта"
         many: "В {{count}} аспекта"

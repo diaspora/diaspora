@@ -725,7 +725,6 @@ nl:
     publisher: 
       all: "al"
       all_contacts: "alle contacten"
-      click_to_share_with: "Klik om te delen met: "
       discard_post: "Maak veld leeg"
       make_public: "maak openbaar"
       post_a_message_to: "Plaats een bericht aan %{aspect}"

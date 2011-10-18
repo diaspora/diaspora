@@ -61,9 +61,9 @@ bg:
       done_editing: "готово"
     aspect_listings: 
       add_an_aspect: "+ Създаване на аспект"
-      deselect_all: "Deselect all"
+      deselect_all: "Никой"
       edit_aspect: "Редактиране на \"%{name}\""
-      select_all: "Select all"
+      select_all: "Всички"
     aspect_stream: 
       commented_on: "коментирани"
       mentions: "Споменавания"
@@ -95,7 +95,7 @@ bg:
       aspect_not_empty: "Аспектът не е празен"
       remove: "премахване"
     index: 
-      community_spotlight: "Community Spotlight"
+      community_spotlight: "В центъра на вниманието"
       cubbies: 
         explanation: "Cubbi.es е първото приложение за Diaspora и все още се разработва."
         heading: "Свързване с Cubbi.es"
@@ -123,7 +123,7 @@ bg:
       no_tags: "+ Намиране на марки"
       people_sharing_with_you: "Хора споделящи с вас"
       post_a_message: "публикуване на съобщение >>"
-      see_more_from_us: "Повече от общността на D*."
+      see_more_from_us: "Повече от общността на D*"
       services: 
         content: "Можете да свържете следните услуги към Diaspora:"
         heading: "Свързване към услуги"
@@ -209,7 +209,7 @@ bg:
     sharing: 
       people_sharing: "Хора споделящи с вас:"
     spotlight: 
-      community_spotlight: "Community Spotlight"
+      community_spotlight: "В центъра на вниманието"
     two: "%{count} контакта"
     zero: "контакти"
   conversations: 
@@ -725,7 +725,6 @@ bg:
     publisher: 
       all: "всички"
       all_contacts: "всички контакти"
-      click_to_share_with: "Кликнете, за да споделите: "
       discard_post: "Отхвърляне на публикацията"
       make_public: "направете публично"
       post_a_message_to: "Публикувайте публично съобщение в %{aspect}"
