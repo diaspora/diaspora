@@ -45,8 +45,8 @@ class OEmbedCache < ActiveRecord::Base
     if ['video', 'rich'].include? self.data['type'] and self.is_trusted_and_has_html?
       subs = [
         # youtube
-        { :from => /("http:\/\/www\.youtube\.com\/embed\/.{11})(")/,
-          :to   => '\1?wmode=transparent\2' },
+        { :from => /("http:\/\/www\.youtube\.com\/embed\/.{11}\?)/,
+          :to   => '\1wmode=transparent&' },
         # soundcloud
         { :from => /(<object height=".+" width=".+">\s*)(<param name="movie" value="http:\/\/player\.soundcloud\.com\/player\.swf)/,
           :to   => '\1<param name="wmode" value="transparent"></param>\2' },
