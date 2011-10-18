@@ -452,7 +452,7 @@ var Publisher = {
       });
     } );
 
-    $('#preview-hide, #preview-edit').live( 'click', function(evt) {
+    $('#preview-edit').live( 'click', function(evt) {
       evt.preventDefault();
       $('#file-upload').show();
       $('#preview-modal').fadeOut('fast');

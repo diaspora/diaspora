@@ -53,9 +53,6 @@
       = render 'photos/new_photo', :aspect_ids => aspect_ids.join(',')
 
   #preview-modal
-    #preview-header
-      Post Preview
-      = link_to  image_tag('deletelabel.png'), "#", :id => 'preview-hide', :title => t('.preview_hide')
     #preview-result
     #preview-buttons
       = link_to t('.edit'), '#', :id => 'preview-edit', :class => 'button'
