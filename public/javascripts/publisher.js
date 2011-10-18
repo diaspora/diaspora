@@ -457,6 +457,13 @@ var Publisher = {
       $('#file-upload').show();
       $('#preview-modal').fadeOut('fast');
     } );
+
+    $('#preview-share').live( 'click', function(evt) {
+      evt.preventDefault();
+      $('#file-upload').show();
+      $('#preview-modal').fadeOut('fast');
+      $('#publisher-share').click();
+    } );
   }
 };
 
