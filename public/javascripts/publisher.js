@@ -438,13 +438,16 @@ var Publisher = {
       $.post('/preview.json', {
         text: $('#status_message_fake_text').val()
       }, function(data){
+        $('#preview').hide();
+        $('#preview-edit').show();
+
         $('#preview-result')
-          .height( $('#publisher').height() - 28 )
+          /* explicit height so that scrollbars appear when needed */
+          .height( $('#publisher_textarea_wrapper').height() - 21 )
           .html( data.result )
         ;
 
         $('#preview-modal')
-          .height( $('#publisher').height() + $('#preview').height() )
           .width( $('#publisher').width() )
           .fadeIn('fast')
         ;
@@ -454,15 +457,10 @@ var Publisher = {
 
     $('#preview-edit').live( 'click', function(evt) {
       evt.preventDefault();
+      $('#preview-edit').hide();
+      $('#preview').show();
       $('#file-upload').show();
       $('#preview-modal').fadeOut('fast');
-    } );
-
-    $('#preview-share').live( 'click', function(evt) {
-      evt.preventDefault();
-      $('#file-upload').show();
-      $('#preview-modal').fadeOut('fast');
-      $('#publisher-share').click();
     } );
   }
 };

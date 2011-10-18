@@ -41,6 +41,7 @@
             = link_to (image_tag "icons/monotone_wrench_settings.png"), "#question_mark_pane", :class => 'question_mark', :rel => 'facebox', :title => t('shared.public_explain.manage')
           = render "shared/aspect_dropdown", :selected_aspects => selected_aspects, :hang => 'left'
           = link_to t('.preview'), '#', :id => 'preview', :class => 'button', :tabindex => 2
+          = link_to t('.edit'), '#', :id => 'preview-edit', :class => 'button'
           = status.submit t('.share'), :id => 'publisher-share', :disable_with => t('.posting'), :class => 'button creation', :tabindex => 3
 
           .facebox_content
@@ -54,7 +55,3 @@
 
   #preview-modal
     #preview-result
-    #preview-buttons
-      = link_to t('.edit'), '#', :id => 'preview-edit', :class => 'button'
-      = link_to t('.share'), '#', :id => 'preview-share', :class => 'button creation'
-
