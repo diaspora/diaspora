@@ -61,6 +61,11 @@ Please do not rebase our tree into yours.
 See [here](http://www.mail-archive.com/dri-devel@lists.sourceforge.net/msg39091.html)
 for when to rebase.
 
+**IF YOU ARE SUBMITTING A PULL REQUEST WITH ANY DESTRUCTIVE MIGRATIONS,
+PLEASE GET APPROVAL FROM THE CORE TEAM BEFORE MERGEING**
+
+Thank you
+
 We need you to fill out a
 [contributor agreement form](https://spreadsheets.google.com/a/joindiaspora.com/spreadsheet/viewform?formkey=dFdRTnY0TGtfaklKQXZNUndsMlJ2eGc6MQ)
 before we can accept your patches.  This dual license agreement allows
