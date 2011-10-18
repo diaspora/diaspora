@@ -439,12 +439,12 @@ var Publisher = {
         text: $('#status_message_fake_text').val()
       }, function(data){
         $('#preview-result')
-          .height( $('#publisher').height() - 58 )
+          .height( $('#publisher').height() - 28 )
           .html( data.result )
         ;
 
         $('#preview-modal')
-          .height( $('#publisher').height() + $('#preview').height() + 24 )
+          .height( $('#publisher').height() + $('#preview').height() )
           .width( $('#publisher').width() )
           .fadeIn('fast')
         ;
