@@ -95,9 +95,10 @@ input.button
 
   .wrapper
     @include box-shadow(0, 2px, 5px, #666)
-    @include opacity(0)
+    //@include opacity(0)
     @include transition(opacity)
 
+    :display none
     :z-index 20
     :position absolute
     :width 140px
@@ -171,7 +172,8 @@ input.button
 
   &.active
     .wrapper
-      @include opacity(1)
+      //@include opacity(1)
+      :display block
 
     .button
       @include border-radius(3px, 3px, 0, 0)

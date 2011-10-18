@@ -72,16 +72,10 @@ describe("Publisher", function() {
     it('is called with the correct element', function(){
       spyOn(Publisher, 'toggleAspectIds');
       Publisher.bindAspectToggles();
-
       var aspBadge = $("#publisher .dropdown .dropdown_list li").last();
-
-      console.log(aspBadge);
-
       aspBadge.click();
-
       expect(Publisher.toggleAspectIds).toHaveBeenCalledWith(aspBadge);
     });
-
   });
 
   describe('toggleAspectIds', function(){
