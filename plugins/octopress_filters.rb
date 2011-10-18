@@ -2,6 +2,7 @@
 require './plugins/backtick_code_block'
 require './plugins/post_filters'
 require './plugins/raw'
+require './plugins/date'
 require 'rubypants'
 
 module OctopressFilters
@@ -33,6 +34,8 @@ end
 
 
 module OctopressLiquidFilters
+  include Octopress::Date
+
   # Used on the blog index to split posts on the <!--more--> marker
   def excerpt(input)
     if input.index(/<!--\s*more\s*-->/i)
@@ -96,33 +99,6 @@ module OctopressLiquidFilters
     input.titlecase
   end
 
-  # Returns a datetime if the input is a string
-  def datetime(date)
-    if date.class == String
-      date = Time.parse(date)
-    end
-    date
-  end
-
-  # Returns an ordidinal date eg July 22 2007 -> July 22nd 2007
-  def ordinalize(date)
-    date = datetime(date)
-    "#{date.strftime('%b')} #{ordinal(date.strftime('%e').to_i)}, #{date.strftime('%Y')}"
-  end
-
-  # Returns an ordinal number. 13 -> 13th, 21 -> 21st etc.
-  def ordinal(number)
-    if (11..13).include?(number.to_i % 100)
-      "#{number}<span>th</span>"
-    else
-      case number.to_i % 10
-      when 1; "#{number}<span>st</span>"
-      when 2; "#{number}<span>nd</span>"
-      when 3; "#{number}<span>rd</span>"
-      else    "#{number}<span>th</span>"
-      end
-    end
-  end
 end
 Liquid::Template.register_filter OctopressLiquidFilters
 
