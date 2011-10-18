@@ -9,12 +9,17 @@ class ShareAnything < ActiveRecord::Migration
     sql = []
 
     #remove_index :aspect_visibilities, :post_id_and_aspect_id
-    sql << "remove index `index_post_id_and_aspect_id`"
+    sql << "DROP INDEX `index_post_id_and_aspect_id` on #{quote_table_name(:aspect_visibilities)}"
     
     #remove_index :aspect_visibilities, :post_id
-    sql << "remove index `index_aspect_visibilities_on_post_id`"
+    sql << "DROP INDEX `index_aspect_visibilities_on_post_id` on #{quote_table_name(:aspect_visibilities)}"
 
+
+
+    execute(start_sql + sql.join(', ') + ';')
+    sql = []
     # change_table :aspect_visibilities do |t|
+
     #   t.rename :post_id, :shareable_id
     #   t.string :shareable_type, :default => 'Post', :null => false
     # end
@@ -22,14 +27,20 @@ class ShareAnything < ActiveRecord::Migration
     sql << "RENAME COLUMN post_id shareable_id"
     sql << "ADD shareable_type varchar(255) NOT NULL DEFAULT `Post`"
 
+
+    execute(start_sql + sql.join(', ') + ';')
+    sql = []
     # add_index :aspect_visibilities, [:shareable_id, :shareable_type, :aspect_id], :name => 'shareable_and_aspect_id'
     # add_index :aspect_visibilities, [:shareable_id, :shareable_type]
     
     sql << "add index `shareable_and_aspect_id` (`shareable_id`, `shareable_type`, `aspect_id`)"
     sql << "add index `index_aspect_visibilities_on_shareable_id_and_shareable_type` (`shareable_id`, `shareable_type`)"
 
+
     execute(start_sql + sql.join(', ') + ';')
-    
+    sql = []
+
+
     remove_index :post_visibilities, :contact_id_and_post_id
     remove_index :post_visibilities, :post_id_and_hidden_and_contact_id
 

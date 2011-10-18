@@ -1,0 +1,6 @@
+==  ShareAnything: migrating ==================================================
+-- quote_table_name(:aspect_visibilities)
+   -> 0.0001s
+-- quote_table_name(:aspect_visibilities)
+   -> 0.0001s
+-- execute("ALTER TABLE aspect_visibilities DROP INDEX `index_post_id_and_aspect_id` on `aspect_visibilities`, DROP INDEX `index_aspect_visibilities_on_post_id` on `aspect_visibilities`;")
