@@ -77,6 +77,13 @@ module Resque
   end
 end
 
+# Patch aspect stream to not ajax in itself
+class Stream::Aspect
+  def ajax_stream?
+    false
+  end
+end
+
 Before('@localserver') do
   TestServerFixture.start_if_needed
   CapybaraSettings.instance.save
