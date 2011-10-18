@@ -1,10 +1,7 @@
 class ShareAnything < ActiveRecord::Migration
   def self.up
-    # add_column :comments, :name, :string
-    # add_column :comments, :user_id, :integer, :null => false
-    # add_index :comments, :user_id
-    # becomes
-    # execute "ALTER TABLE comments add name varchar(255), add user_id int NOT NULL, add index `index_comments_on_user_id` (`user_id`);"
+    remove_foreign_key :aspect_visibilities, :posts
+
     start_sql = "ALTER TABLE aspect_visibilities " 
     sql = []
 
@@ -37,6 +34,7 @@ class ShareAnything < ActiveRecord::Migration
 
 
 
+    remove_foreign_key :post_visibilities, :posts
     rename_table :post_visibilities, :share_visibilities
 
     start_sql = "ALTER TABLE share_visibilities " 
