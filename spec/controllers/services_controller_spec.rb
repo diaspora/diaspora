@@ -47,7 +47,7 @@ describe ServicesController do
       @user.getting_started = true
       request.env['omniauth.auth'] = omniauth_auth
       post :create, :provider => 'twitter'
-      response.should redirect_to getting_started_path(:step => 3)
+      response.should redirect_to getting_started_path
     end
 
     it 'redirects to services url' do
