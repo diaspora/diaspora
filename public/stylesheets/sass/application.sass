@@ -3221,12 +3221,19 @@ ul#getting_started
     #profile_photo_upload
       :padding
         :left 30px
-      img
+      .avatar
         :position relative
         :float right
+
+      #file-upload-spinner
+        :position relative
+        :top -120px
+        :left 140px
+
       .button
         :top 10px
         :left 69px
+    
     .button
       :top 20px
 
@@ -3235,6 +3242,10 @@ ul#getting_started
         :position relative
         :top 4px
         :right 2px
+
+    input.active_input 
+      :background
+        :color lighten(#FFD700, 40%)
         
 
 #right_service_icons

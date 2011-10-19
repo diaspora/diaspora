@@ -25,5 +25,19 @@ Diaspora.Pages.UsersGettingStarted = function() {
       $('#form_spinner').removeClass("hidden");
 
     });
+
+    $("#profile_first_name").bind("blur", function(){
+      $(this).removeClass("active_input");
+    });
+
+    $("#profile_first_name").bind("focus", function(){
+      $(this).addClass("active_input");
+    });
+
+    $("#awesome_button").bind("click", function(evt){
+      evt.preventDefault();
+      $('#awesome_spinner').removeClass("hidden");
+      $('.tag_input').submit();
+    });
   });
 };
