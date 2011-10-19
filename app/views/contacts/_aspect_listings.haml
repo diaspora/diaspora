@@ -5,31 +5,31 @@
 %ul#aspect_nav.left_nav
   %li.all_aspects{:class => ("active" if params["set"] != "all" && params["set"] != "only_sharing" && !@featured && !@finder)}
     %a.home_selector{:href => contacts_path, :class => ("sub_selected" if params["a_id"])}
+      = t('contacts.index.my_contacts')
       .contact_count
         = my_contacts_count
-      = t('contacts.index.my_contacts')
 
     %ul.sub_nav
       - for aspect in all_aspects
         %li{:data => {:aspect_id => aspect.id}, :class => ("active" if params["a_id"].to_i == aspect.id)}
           %a.aspect_selector{:href => contacts_path(:a_id => aspect.id)}
+            = aspect
             .contact_count
               = aspect.contacts.size
-            = aspect
 
       %li
         = link_to t('aspects.aspect_listings.add_an_aspect'), new_aspect_path, :class => "new_aspect", :rel => "facebox"
 
   %li.all_contacts{:class => ("active" if params["set"] == "all" || params["set"] == "only_sharing")}
     %a.home_selector{:href => contacts_path(:set => "all"), :class => ("sub_selected" if params["set"] == "only_sharing")}
+      = t('contacts.index.all_contacts')
       .contact_count
         = all_contacts_count
-      = t('contacts.index.all_contacts')
 
     %ul.sub_nav
       %li{:class => ("active" if params["set"] == "only_sharing")}
         %a.aspect_selector{:href => contacts_path(:set => "only_sharing")}
+          = t('contacts.index.only_sharing_with_me')
           .contact_count
             = only_sharing_count
-          = t('contacts.index.only_sharing_with_me')
 
