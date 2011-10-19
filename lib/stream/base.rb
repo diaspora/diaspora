@@ -1,3 +1,4 @@
+require File.join(Rails.root, "lib", "publisher")
 class Stream::Base
   TYPES_OF_POST_IN_STREAM = ['StatusMessage', 'Reshare', 'ActivityStreams::Photo']
   attr_accessor :max_time, :order, :user
@@ -104,6 +105,10 @@ class Stream::Base
   def order=(order_string)
     @order = order_string
     @order ||= 'created_at'
+  end
+
+  def publisher
+    @publisher ||= Publisher.new(self.user)
   end
 
   private

@@ -61,6 +61,6 @@ class TagFollowingsController < ApplicationController
       @tag_following = current_user.tag_followings.create(:tag_id => @tag.id)
     end
 
-    redirect_to aspects_path
+    redirect_to aspects_path(:welcome => true)
   end
 end

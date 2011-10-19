@@ -40,6 +40,10 @@ describe 'Streams' do
         @stream.order=nil
         @stream.order.should == 'created_at'
       end
+
+      it 'initializes a publisher' do
+        @stream.publisher.should be_a(Publisher)
+      end
     end
   end
 end

@@ -22,7 +22,8 @@ class ApplicationController < ActionController::Base
                 :my_contacts_count,
                 :only_sharing_count,
                 :tag_followings,
-                :tags
+                :tags,
+                :open_publisher
 
   def ensure_http_referer_is_set
     request.env['HTTP_REFERER'] ||= '/aspects'
