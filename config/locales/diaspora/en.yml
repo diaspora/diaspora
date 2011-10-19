@@ -903,6 +903,8 @@ en:
       what_are_you_in_to: "What are you in to?"
       hashtag_explanation: "Hashtags allow you to talk about and follow your interests.  They're also a great way to find new people on Diaspora."
 
+      saved: "Saved!"
+
     update:
       password_changed: "Password changed.  You can now log in with your new password."
       password_not_changed: "Password change failed"
