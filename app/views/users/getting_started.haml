@@ -75,11 +75,17 @@
               to Diaspora.  We can pull your name and photo, and enable cross-positng.
 
           .span-12
-            = form_for current_user.person.profile do |profile|
+            /= form_for(current_user.person.profile, :remote => true) do |profile|
+
+            = form_tag profile_path, :method => :put, :remote => true, :id => 'edit_profile' do |profile|
               .span-5
-                = profile.text_field :first_name, :placeholder => t('profiles.edit.first_name')
-                %br
-                = profile.submit "Save"
+                = text_field_tag 'profile[first_name]', current_user.person.profile.first_name, :placeholder => t('profiles.edit.first_name')
+                = image_tag 'ajax-loader.gif', :id => "form_spinner", :class => "hidden"
+                %span.saved{:class => "hidden"}
+                  Saved!
+
+                /%br
+                /= submit_tag "Save"
 
               .span-7.last
                 = render 'photos/new_profile_photo', :aspect => :getting_started, :person => current_user.person

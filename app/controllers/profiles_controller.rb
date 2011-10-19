@@ -38,30 +38,30 @@ class ProfilesController < ApplicationController
                                            :id => params[:photo_id]).first if params[:photo_id]
 
     if current_user.update_profile params[:profile]
-      flash[:notice] = I18n.t 'profiles.update.updated'
-      if current_user.getting_started?
-        respond_to do |format|
-          format.js { render :nothing => true, :status => 200 }
-          format.html { redirect_to getting_started_path }
-        end
-      else
-        respond_to do |format|
-          format.js { render :nothing => true, :status => 200 }
-          format.html { redirect_to edit_profile_path }
-        end
+      respond_to do |format|
+        format.js { render :nothing => true, :status => 200 }
+        format.html {
+          flash[:notice] = I18n.t 'profiles.update.updated'
+          if current_user.getting_started?
+
+            redirect_to getting_started_path
+          else
+            redirect_to edit_profile_path
+          end
+        }
       end
+
     else
-      flash[:error] = I18n.t 'profiles.update.failed'
-      if params[:getting_started]
-        respond_to do |format|
-          format.js { render :nothing => true, :status => 409 }
-          format.html { redirect_to getting_started_path(:step => params[:getting_started]) }
-        end
-      else
-        respond_to do |format|
-          format.js { render :nothing => true, :status => 409 }
-          format.html { redirect_to edit_profile_path }
-        end
+      respond_to do |format|
+        format.js { render :nothing => true, :status => 200 }
+        format.html {
+          flash[:error] = I18n.t 'profiles.update.failed'
+          if params[:getting_started]
+            redirect_to getting_started_path(:step => params[:getting_started]) 
+          else
+            redirect_to edit_profile_path
+          end
+        }
       end
     end
 
