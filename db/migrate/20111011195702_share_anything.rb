@@ -2,12 +2,12 @@ class ShareAnything < ActiveRecord::Migration
   def self.up
     remove_foreign_key :aspect_visibilities, :posts
 
-    start_sql = "ALTER TABLE aspect_visibilities " 
+    start_sql = "ALTER TABLE aspect_visibilities "
     sql = []
 
     #remove_index :aspect_visibilities, :post_id_and_aspect_id
     sql << "DROP INDEX `index_aspect_visibilities_on_post_id_and_aspect_id`"
-    
+
     #remove_index :aspect_visibilities, :post_id
     sql << "DROP INDEX `index_aspect_visibilities_on_post_id`"
 
@@ -25,7 +25,7 @@ class ShareAnything < ActiveRecord::Migration
 
     # add_index :aspect_visibilities, [:shareable_id, :shareable_type, :aspect_id], :name => 'shareable_and_aspect_id'
     # add_index :aspect_visibilities, [:shareable_id, :shareable_type]
-    
+
     sql << "add index `shareable_and_aspect_id` (`shareable_id`, `shareable_type`, `aspect_id`)"
     sql << "add index `index_aspect_visibilities_on_shareable_id_and_shareable_type` (`shareable_id`, `shareable_type`)"
 
@@ -37,7 +37,7 @@ class ShareAnything < ActiveRecord::Migration
     remove_foreign_key :post_visibilities, :posts
     rename_table :post_visibilities, :share_visibilities
 
-    start_sql = "ALTER TABLE share_visibilities " 
+    start_sql = "ALTER TABLE share_visibilities "
     sql = []
 
     #remove_index :post_visibilities, :contact_id_and_post_id
@@ -68,7 +68,7 @@ class ShareAnything < ActiveRecord::Migration
   def self.down
     remove_index :share_visibilities, :name => 'shareable_and_hidden_and_contact_id'
     remove_index :share_visibilities, :name => 'shareable_and_contact_id'
-    rename_table :share_visibilities, :post_visibilities 
+    rename_table :share_visibilities, :post_visibilities
 
     change_table :post_visibilities do |t|
       t.remove :shareable_type
