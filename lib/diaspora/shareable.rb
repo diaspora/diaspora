@@ -25,6 +25,28 @@ module Diaspora
         #scopes
         scope :all_public, where(:public => true, :pending => false)
 
+        def self.owned_or_visible_by_user(user)
+          self.joins("LEFT OUTER JOIN share_visibilities ON share_visibilities.shareable_id = posts.id AND share_visibilities.shareable_type = 'Post'").
+               joins("LEFT OUTER JOIN contacts ON contacts.id = share_visibilities.contact_id").
+               where(Contact.arel_table[:user_id].eq(user.id).or(
+                 self.arel_table[:public].eq(true).or(
+                   self.arel_table[:author_id].eq(user.person.id)
+                   )
+                 )
+               ).
+               select("DISTINCT #{self.table_name}.*")
+        end
+
+        def self.for_visible_shareable_sql(max_time, order, limit = 15, types = Stream::Base::TYPES_OF_POST_IN_STREAM)
+          by_max_time(max_time, order).
+          where(:type => types).
+          limit(limit)
+        end
+
+        def self.by_max_time(max_time, order='created_at')
+          where("#{self.table_name}.#{order} < ?", max_time).order("#{self.table_name}.#{order} desc")
+        end
+
         xml_attr :diaspora_handle
         xml_attr :public
         xml_attr :created_at

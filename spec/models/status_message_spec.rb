@@ -26,38 +26,8 @@ describe StatusMessage do
        Factory.create(:status_message, :text => @test_string )
        Factory.create(:status_message, :text => @test_string )
        Factory(:status_message)
-      
+
        StatusMessage.where_person_is_mentioned(@bo).count.should == 2
-      end
-    end
-
-    describe '.owned_or_visible_by_user' do
-      before do
-        @you = bob
-        @public_post = Factory(:status_message, :public => true)
-        @your_post = Factory(:status_message, :author => @you.person)
-        @post_from_contact = eve.post(:status_message, :text => 'wooo', :to => eve.aspects.where(:name => 'generic').first)
-        @post_from_stranger = Factory(:status_message, :public => false)
-      end
-
-      it 'returns post from your contacts' do
-        StatusMessage.owned_or_visible_by_user(@you).should include(@post_from_contact)
-      end
-
-      it 'returns your posts' do 
-        StatusMessage.owned_or_visible_by_user(@you).should include(@your_post)
-      end
-
-      it 'returns public posts' do
-        StatusMessage.owned_or_visible_by_user(@you).should include(@public_post)
-      end
-
-      it 'does not return non contacts, non-public post' do
-        StatusMessage.owned_or_visible_by_user(@you).should_not include(@post_from_stranger)
-      end
-
-      it 'should return the three visible posts' do
-        StatusMessage.owned_or_visible_by_user(@you).count.should == 3
       end
     end
   end

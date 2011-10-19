@@ -24,8 +24,10 @@ describe User do
     end
 
     it "contains public posts from people you're following" do
+      pending
       dogs = bob.aspects.create(:name => "dogs")
-      bobs_public_post = bob.post(:status_message, :text => "hello", :public => true, :to => dogs.id)
+      bobs_public_post = Factory(:status_message, :text => "hello", :public => true, :author => bob.person)
+
       alice.visible_shareable_ids(Post).should include(bobs_public_post.id)
     end
 
@@ -158,6 +160,10 @@ describe User do
   end
 
   describe "#visible_shareables" do
+    it 'never contains posts from people not in your aspects' do
+      Factory(:status_message, :public => true)
+      bob.visible_shareables(Post).count.should == 0
+    end
     context 'with many posts' do
       before do
         bob.move_contact(eve.person, @bobs_aspect, bob.aspects.create(:name => 'new aspect'))
@@ -177,7 +183,7 @@ describe User do
 
       it 'works' do # The set up takes a looong time, so to save time we do several tests in one
         bob.visible_shareables(Post).length.should == 15 #it returns 15 by default
-        bob.visible_shareables(Post).should == bob.visible_shareables(Post, :by_members_of => bob.aspects.map { |a| a.id }) # it is the same when joining through aspects
+        bob.visible_shareables(Post).map(&:id).should == bob.visible_shareables(Post, :by_members_of => bob.aspects.map { |a| a.id }).map(&:id) # it is the same when joining through aspects
 
         # checks the default sort order
         bob.visible_shareables(Post).sort_by { |p| p.created_at }.map { |p| p.id }.should == bob.visible_shareables(Post).map { |p| p.id }.reverse #it is sorted updated_at desc by default
@@ -193,7 +199,7 @@ describe User do
         # It should respect the limit option
         opts = {:limit => 40}
         bob.visible_shareables(Post, opts).length.should == 40
-        bob.visible_shareables(Post, opts).should == bob.visible_shareables(Post, opts.merge(:by_members_of => bob.aspects.map { |a| a.id }))
+        bob.visible_shareables(Post, opts).map(&:id).should == bob.visible_shareables(Post, opts.merge(:by_members_of => bob.aspects.map { |a| a.id })).map(&:id)
         bob.visible_shareables(Post, opts).sort_by { |p| p.created_at }.map { |p| p.id }.should == bob.visible_shareables(Post, opts).map { |p| p.id }.reverse
 
         # It should paginate using a datetime timestamp

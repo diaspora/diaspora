@@ -35,16 +35,6 @@ class StatusMessage < Post
   #scopes
   scope :where_person_is_mentioned, lambda{|person| joins(:mentions).where(:mentions => {:person_id => person.id})}
 
-  def self.owned_or_visible_by_user(user)
-    joins("LEFT OUTER JOIN share_visibilities ON share_visibilities.shareable_id = posts.id AND share_visibilities.shareable_type = 'Post'").
-    joins("LEFT OUTER JOIN contacts ON contacts.id = share_visibilities.contact_id").
-    where(Contact.arel_table[:user_id].eq(user.id).or(
-      StatusMessage.arel_table[:public].eq(true).or(
-        StatusMessage.arel_table[:author_id].eq(user.person.id)
-      )
-    )).select('DISTINCT posts.*')
-  end
-
   def self.tag_stream(user, tag_array, max_time, order)
     owned_or_visible_by_user(user).
       joins(:tags).where(:tags => {:name => tag_array}).

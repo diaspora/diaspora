@@ -11,7 +11,56 @@ describe Post do
   end
 
   describe 'scopes' do
+    describe '.owned_or_visible_by_user' do
+      before do
+        @you = bob
+        @public_post = Factory(:status_message, :public => true)
+        @your_post = Factory(:status_message, :author => @you.person)
+        @post_from_contact = eve.post(:status_message, :text => 'wooo', :to => eve.aspects.where(:name => 'generic').first)
+        @post_from_stranger = Factory(:status_message, :public => false)
+      end
+
+      it 'returns post from your contacts' do
+        StatusMessage.owned_or_visible_by_user(@you).should include(@post_from_contact)
+      end
+
+      it 'returns your posts' do 
+        StatusMessage.owned_or_visible_by_user(@you).should include(@your_post)
+      end
+
+      it 'returns public posts' do
+        StatusMessage.owned_or_visible_by_user(@you).should include(@public_post)
+      end
+
+      it 'returns public post from your contact' do
+        sm = Factory(:status_message, :author => eve.person, :public => true)
+
+        StatusMessage.owned_or_visible_by_user(@you).should include(sm)
+      end
+
+      it 'does not return non contacts, non-public post' do
+        StatusMessage.owned_or_visible_by_user(@you).should_not include(@post_from_stranger)
+      end
+
+      it 'should return the three visible posts' do
+        StatusMessage.owned_or_visible_by_user(@you).count.should == 3
+      end
+    end
+
     describe '.for_a_stream' do
+      it 'calls #for_visible_shareable_sql' do
+        time, order = stub, stub
+        Post.should_receive(:for_visible_shareable_sql).with(time, order).and_return(Post)
+        Post.for_a_stream(time, order)
+      end
+
+      it 'calls includes_for_a_stream' do
+        Post.should_receive(:includes_for_a_stream)
+        Post.for_a_stream(stub, stub)
+      end
+    end
+
+    context 'having some posts' do
       before do
         time_interval = 1000
         time_past = 1000000
@@ -26,28 +75,41 @@ describe Post do
         end
       end
 
-      it 'returns the posts ordered and limited by unix time' do
-        Post.for_a_stream(Time.now + 1, "created_at").should == @posts
-        Post.for_a_stream(Time.now + 1, "updated_at").should == @posts.reverse
+      describe '.by_max_time' do
+        it 'respects time and order' do
+        end
+
+        it 'returns the posts ordered and limited by unix time' do
+          Post.for_a_stream(Time.now + 1, "created_at").should == @posts
+          Post.for_a_stream(Time.now + 1, "updated_at").should == @posts.reverse
+        end
       end
 
-      it 'includes everything in .includes_for_a_stream' do
-        Post.should_receive(:includes_for_a_stream)
-        Post.for_a_stream(Time.now + 1, "created_at")
+
+      describe '.for_visible_shareable_sql' do
+        it 'calls max_time' do
+          time = Time.now + 1
+          Post.should_receive(:by_max_time).with(time, 'created_at').and_return(Post)
+          Post.for_visible_shareable_sql(time, 'created_at')
+        end
+
+        it 'defaults to 15 posts' do
+          chain = stub.as_null_object
+
+          Post.stub(:by_max_time).and_return(chain)
+          chain.should_receive(:limit).with(15).and_return(Post)
+          Post.for_visible_shareable_sql(Time.now + 1, "created_at")
+        end
+
+        it 'respects the type option'
       end
-      it 'is limited to 15 posts' do
-        Post.stub(:by_max_time).and_return(Post)
-        Post.stub(:includes_for_a_stream).and_return(stub(:where => Post))
-        Post.should_receive(:limit)
-        Post.for_a_stream(Time.now + 1, "created_at")
+
+      describe 'includes for a stream' do
+        it 'inclues author profile and mentions'
+        it 'should include photos and root of reshares(but does not)'
       end
+
     end
-
-    describe 'includes for a stream' do
-      it 'inclues author profile and mentions'
-      it 'should include photos and root of reshares(but does not)'
-    end
-
   end
 
 

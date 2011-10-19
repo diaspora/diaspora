@@ -48,26 +48,43 @@ module Diaspora
       def visible_shareable_sql(klass, opts={})
         table = klass.table_name
         opts = prep_opts(klass, opts)
-        select_clause ='DISTINCT %s.id, %s.updated_at AS updated_at, %s.created_at AS created_at' % [klass.table_name, klass.table_name, klass.table_name]
+        opts[:klass] = klass
 
-        conditions = {:pending => false, :share_visibilities => {:hidden => opts[:hidden]}, :contacts => {:user_id => self.id} }
-        conditions[:type] = opts[:type] if opts.has_key?(:type)
-        shareable_from_others = klass.joins(:contacts).where(conditions)
-
-        conditions = {:pending => false }
-        conditions[:type] = opts[:type] if opts.has_key?(:type)
-        shareable_from_self = self.person.send(klass.to_s.tableize).where(conditions)
-
-        if opts[:by_members_of]
-          shareable_from_others = shareable_from_others.joins(:contacts => :aspect_memberships).where(
-            :aspect_memberships => {:aspect_id => opts[:by_members_of]})
-          shareable_from_self = shareable_from_self.joins(:aspect_visibilities).where(:aspect_visibilities => {:aspect_id => opts[:by_members_of]})
-        end
-
-        shareable_from_others = shareable_from_others.select(select_clause).order(opts[:order_with_table]).where(klass.arel_table[opts[:order_field]].lt(opts[:max_time]))
-        shareable_from_self = shareable_from_self.select(select_clause).order(opts[:order_with_table]).where(klass.arel_table[opts[:order_field]].lt(opts[:max_time]))
+        shareable_from_others = construct_shareable_from_others_query(opts)
+        shareable_from_self = construct_shareable_from_self_query(opts)
 
         "(#{shareable_from_others.to_sql} LIMIT #{opts[:limit]}) UNION ALL (#{shareable_from_self.to_sql} LIMIT #{opts[:limit]}) ORDER BY #{opts[:order]} LIMIT #{opts[:limit]}"
+      end
+
+      def ugly_select_clause(query, opts)
+        klass = opts[:klass]
+        select_clause ='DISTINCT %s.id, %s.updated_at AS updated_at, %s.created_at AS created_at' % [klass.table_name, klass.table_name, klass.table_name]
+        query.select(select_clause).order(opts[:order_with_table]).where(klass.arel_table[opts[:order_field]].lt(opts[:max_time]))
+      end
+
+      def construct_shareable_from_others_query(opts)
+        conditions = {:pending => false, :share_visibilities => {:hidden => opts[:hidden]}, :contacts => {:user_id => self.id} }
+        conditions[:type] = opts[:type] if opts.has_key?(:type)
+        query = opts[:klass].joins(:contacts).where(conditions)
+
+        if opts[:by_members_of]
+          query = query.joins(:contacts => :aspect_memberships).where(
+            :aspect_memberships => {:aspect_id => opts[:by_members_of]})
+        end
+
+        ugly_select_clause(query, opts)
+      end
+
+      def construct_shareable_from_self_query(opts)
+        conditions = {:pending => false }
+        conditions[:type] = opts[:type] if opts.has_key?(:type)
+        query = self.person.send(opts[:klass].to_s.tableize).where(conditions)
+
+        if opts[:by_members_of]
+          query = query.joins(:aspect_visibilities).where(:aspect_visibilities => {:aspect_id => opts[:by_members_of]})
+        end
+
+        ugly_select_clause(query, opts)
       end
 
       def contact_for(person)

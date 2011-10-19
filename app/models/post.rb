@@ -24,15 +24,10 @@ class Post < ActiveRecord::Base
   scope :includes_for_a_stream,  includes(:o_embed_cache, {:author => :profile}, :mentions => {:person => :profile}) #note should include root and photos, but i think those are both on status_message
 
   def self.for_a_stream(max_time, order)
-    by_max_time(max_time, order).
-    includes_for_a_stream.
-    where(:type => Stream::Base::TYPES_OF_POST_IN_STREAM).
-    limit(15)
+    self.for_visible_shareable_sql(max_time, order).
+    includes_for_a_stream
   end
 
-  def self.by_max_time(max_time, order='created_at')
-    where("posts.#{order} < ?", max_time).order("posts.#{order} desc")
-  end
   #############
 
   def self.diaspora_initialize params
