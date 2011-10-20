@@ -91,4 +91,12 @@ describe Stream::Tag do
       stream.tag_name.should == 'what'
     end
   end
+  
+  describe "#publisher" do
+    it 'creates a publisher with the tag prefill' do
+      Publisher.should_receive(:new).with(anything(), hash_including(:prefill => "#what "))
+      @stream = Stream::Tag.new(alice, "what")
+      @stream.publisher
+    end
+  end
 end

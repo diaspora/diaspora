@@ -172,4 +172,67 @@ describe Stream::Aspect do
     end
     it_should_behave_like 'it is a stream'
   end
+
+  describe "#publisher" do
+    before do
+      @stream = Stream::Aspect.new(alice, alice.aspects.map(&:id))
+      @stream.stub(:welcome?).and_return(false)
+    end
+
+    it 'does not use prefill text by default' do
+      @stream.should_not_receive(:publisher_prefill)
+
+      @stream.publisher
+    end
+
+    it 'checks welcome?' do
+      @stream.should_receive(:welcome?).and_return(true)
+
+      @stream.publisher
+    end
+
+    it 'creates a welcome publisher for new user' do
+      @stream.stub(:welcome?).and_return(true)
+      @stream.should_receive(:publisher_prefill).and_return("abc")
+
+      Publisher.should_receive(:new).with(alice, hash_including(:open => true, :prefill => "abc", :public => true))
+      @stream.publisher
+    end
+
+    it 'creates a default publisher for returning users' do
+      Publisher.should_receive(:new).with(alice)
+      @stream.publisher
+    end
+  end
+
+  describe "#publisher_prefill" do
+    before do
+      @tag = ActsAsTaggableOn::Tag.find_or_create_by_name("cats")
+      @tag_following = alice.tag_followings.create(:tag_id => @tag.id)
+
+      @stream = Stream::Aspect.new(alice, alice.aspects.map(&:id))
+    end
+    
+    it 'returns includes new user hashtag' do
+      @stream.send(:publisher_prefill).include?("#newhere").should be_true
+    end
+
+    it 'includes followed hashtags' do
+      @stream.send(:publisher_prefill).include?("#cats").should be_true
+    end
+  end
+
+  describe "#welcome?" do
+    it 'returns true if user is getting started' do
+      alice.getting_started = true
+
+      Stream::Aspect.new(alice, alice.aspects.map(&:id)).send(:welcome?).should be_true
+    end
+
+    it 'returns false if user is getting started' do
+      alice.getting_started = false
+
+      Stream::Aspect.new(alice, alice.aspects.map(&:id)).send(:welcome?).should be_false
+    end
+  end
 end

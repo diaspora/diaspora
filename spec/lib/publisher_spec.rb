@@ -21,11 +21,11 @@ describe Publisher do
 
   describe "#prefill" do
     it 'defaults to nothing' do
-      @publisher.prefill_text.should be_blank
+      @publisher.prefill.should be_blank
     end
 
     it 'is settable' do
-      Publisher.new(alice, :prefill_text => "party!").prefill_text.should == "party!"
+      Publisher.new(alice, :prefill => "party!").prefill.should == "party!"
     end
   end
 

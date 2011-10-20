@@ -1,10 +1,10 @@
 class Publisher
-  attr_accessor :user, :open, :prefill_text, :public
+  attr_accessor :user, :open, :prefill, :public
 
   def initialize(user, opts={})
     self.user = user
     self.open = (opts[:open] == true)? true : false
-    self.prefill_text = opts[:prefill_text]
+    self.prefill = opts[:prefill]
     self.public = (opts[:public] == true)? true : false
   end
 

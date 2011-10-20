@@ -35,12 +35,12 @@ class Stream::Tag < Stream::Base
     @posts ||= construct_post_query
   end
 
-  def publisher_prefill_text
-    display_tag_name + ' '
-  end
-
   def tag_name=(tag_name)
     @tag_name = tag_name.downcase.gsub('#', '')
+  end
+
+  def publisher
+    @publisher ||= Publisher.new(self.user, :prefill => "#{display_tag_name} ")
   end
 
   private

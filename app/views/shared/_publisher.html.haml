@@ -9,6 +9,13 @@
     $(".public_icon").tipsy({trigger: 'hover', gravity: 'n'});
   });
 
+- if publisher_open
+  :javascript
+    $(document).ready(function() 
+      {
+        Publisher.open();
+        });
+
 #publisher.closed{:class => ((aspect == :profile)? 'mention_popup' : nil )}
   .content_creation
     = form_for(StatusMessage.new, :remote => remote?, :html => {"data-type" => "json"}) do |status|
