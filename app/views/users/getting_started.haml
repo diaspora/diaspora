@@ -16,7 +16,7 @@
         asHtmlID: "tags",
         neverSubmit: true,
         retriveLimit: 10,
-        selectionLimit: 5,
+        selectionLimit: false,
         minChars: 2,
         keyDelay: 200,
         startText: "",
@@ -72,14 +72,14 @@
             %p
               We can speed things up a bit by 
               = link_to "hooking up your Facebook account", "auth/facebook?callback_url=#{getting_started_url}"
-              to Diaspora.  We can pull your name and photo, and enable cross-positng.
+              to Diaspora. This will pull your name and photo, and enable cross-positng.
 
           .span-12
             /= form_for(current_user.person.profile, :remote => true) do |profile|
 
             = form_tag profile_path, :method => :put, :remote => true, :id => 'edit_profile' do |profile|
               .span-5
-                = text_field_tag 'profile[first_name]', current_user.person.profile.first_name, :placeholder => t('profiles.edit.first_name')
+                = text_field_tag 'profile[first_name]', current_user.person.profile.first_name, :placeholder => t('profiles.edit.your_name')
                 = image_tag 'ajax-loader.gif', :id => "form_spinner", :class => "hidden"
                 %span.saved{:class => "hidden"}
                   = image_tag 'icons/check_yes_ok.png'

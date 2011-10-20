@@ -24,9 +24,14 @@
         $("#publisher .dropdown").tipsy("show");
         $("#publisher .dropdown").bind("click", function(){$(this).tipsy("hide")});
 
-        $("#publisher #status_message_fake_text").tipsy({trigger: 'manual', gravity: 'w', id: "first_message_explain"});
+        $("#publisher #status_message_fake_text").tipsy({trigger: 'manual', gravity: 'e', id: "first_message_explain"});
         $("#publisher #status_message_fake_text").tipsy("show");
         $("#publisher #status_message_fake_text").bind("click", function(){$(this).tipsy("hide")});
+
+        $("#publisher .button.creation").bind("click", function(){
+           $("#publisher .dropdown").tipsy("hide");
+           $("#publisher #status_message_fake_text").tipsy("hide");
+        });
         });
 
 #publisher.closed{:class => ((aspect == :profile)? 'mention_popup' : nil )}
