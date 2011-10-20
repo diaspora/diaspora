@@ -361,6 +361,7 @@ var Publisher = {
       alert(Diaspora.I18n.t('publisher.at_least_one_aspect'));
       return false;
     }
+    $('#preview').addClass('dim');
     Publisher.hidePreview();
   },
   onSubmit: function(data, json, xhr){
@@ -368,6 +369,7 @@ var Publisher = {
     $("#publisher textarea").removeClass("with_attachments").css('paddingBottom', '');
   },
   onFailure: function(data, json, xhr){
+    $('#preview').removeClass('dim');
     json = $.parseJSON(json.responseText);
     if(json.errors.length !== 0){
       Diaspora.Alert.show(json.errors);
@@ -395,6 +397,7 @@ var Publisher = {
         });
       }
     }
+    $('#preview').removeClass('dim');
     //collapse publisher
     Publisher.close();
     Publisher.clear();
@@ -440,8 +443,10 @@ var Publisher = {
       Publisher.open();
     });
 
-    $('#preview.button').live( 'click', function(evt) {
+    $('#preview.button:not(.dim)').live( 'click', function(evt) {
       evt.preventDefault();
+
+      $('#preview').addClass('dim');
 
       $.post('/preview.json', {
         text: $('#status_message_fake_text').val()
@@ -464,6 +469,7 @@ var Publisher = {
 
     $('#preview-edit').live( 'click', function(evt) {
       evt.preventDefault();
+      $('#preview').removeClass('dim');
       Publisher.hidePreview();
     } );
   }
