@@ -30,6 +30,7 @@ Feature: Choose birthday display
     And I should see "birthday"
     And I should see "July"
     And I should see "26"
+	And I should not see "1990"
     
   Scenario: User enters birthday and selects to display month and day only
     When select "Month and Day" from "profile_birthday_display"
