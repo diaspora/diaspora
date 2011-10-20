@@ -630,7 +630,7 @@ en:
 
   registrations:
     new:
-      create_my_account: "Create my account"
+      create_my_account: "Create my account!"
 
       join_the_movement: "Join the movement!"
       sign_up_today: "Sign up today"

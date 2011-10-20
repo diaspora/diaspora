@@ -10,6 +10,7 @@ javascripts:
   jquery:
     - public/javascripts/vendor/jquery162.min.js
   main:
+    - public/javascripts/rails.validations.js
     - public/javascripts/rails.js
     - public/javascripts/vendor/jquery.tipsy.js
     - public/javascripts/vendor/jquery.hotkeys.js

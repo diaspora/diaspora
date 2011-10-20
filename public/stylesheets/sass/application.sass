@@ -3462,3 +3462,29 @@ ul#getting_started
     :align center
   :border
     :bottom 1px solid #ddd
+
+.field_with_errors
+  :position relative
+
+  input
+    @include box-shadow(0,0,8px,lighten(#D00,30%))
+    :border 1px solid #D00 !important
+
+.field_with_errors .message
+  :color #D00
+  :font-size 12px
+  :position absolute
+  :top 4px
+  :right 10px
+  :left auto
+
+.accept_invitation_form fieldset
+  @include border-radius(3px)
+
+  :background
+    :color #fff
+    :color rgba(255,255,255,0.95)
+
+  .submit_field
+    :margin
+      :top 15px

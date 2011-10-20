@@ -139,6 +139,7 @@ GEM
       uuidtools
     childprocess (0.2.2)
       ffi (~> 1.0.6)
+    client_side_validations (3.1.0)
     closure-compiler (1.1.4)
     cloudfiles (1.4.10)
       mime-types (>= 1.16)
@@ -486,6 +487,7 @@ DEPENDENCIES
   capybara (~> 0.3.9)
   carrierwave (= 0.5.2)
   chef (= 0.9.12)
+  client_side_validations
   cloudfiles (= 1.4.10)
   cucumber-api-steps
   cucumber-rails (= 0.3.2)

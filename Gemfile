@@ -97,6 +97,7 @@ gem 'haml', '3.1.2'
 gem 'mobile-fu'
 gem 'sass', '3.1.7'
 gem 'will_paginate', '3.0.pre2'
+gem 'client_side_validations'
 
 # web
 

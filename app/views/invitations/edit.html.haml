@@ -1,43 +1,45 @@
 = javascript_include_tag "validation"
 = javascript_tag "Diaspora.Page = 'InvitationsEdit';"
 
-:javascript
-  $(function() {
-    $("#user_username").focus();
-  });
-
 .span-7.append-1.prepend-3
   %br
   %br
   %br
   %br
-  %h2
-    = t('.your_account_awaits')
+  %h1
+    = t('users.getting_started.welcome')
   %h3.accept_invitation_text
     = t('.accept_your_invitation')
   - flash.each do |name, msg|
     %p{:class => "login_#{name}"}= msg
+
+  = image_tag 'diaspora_collage.png', :style => "margin-left:-50px;"
 
 .span-10
   %br
   %br
   %br
   %br
-  = form_for(resource, :as => resource_name, :url => invitation_path(resource_name), :html => {:method => :put, :class => 'accept_invitation_form'}) do |f|
-    %p
-      = f.label :username , t('username')
-      = f.text_field :username, :title => t('registrations.new.enter_username')
-    %p  
-      = f.label :email , t('email')
-      = f.email_field :email, :title => t('registrations.new.enter_email')
-    %p
-      = f.label :password , t('password')
-      = f.password_field :password, :title => t('registrations.new.enter_password') 
-    %p
-      = f.label :password_confirmation , t('password_confirmation')
-      = f.password_field :password_confirmation, :title => t('registrations.new.enter_password_again') 
-      = f.hidden_field :invitation_token
+  = form_for(resource, :as => resource_name, :url => invitation_path(resource_name), :html => {:method => :put, :class => 'accept_invitation_form'}, :validate => true) do |f|
+    %fieldset
+      .clearfix
+        %b
+          = t('username')
+        = f.text_field :username, :title => t('registrations.new.enter_username')
+      .clearfix
+        %b
+          = t('email')
+        = f.email_field :email, :title => t('registrations.new.enter_email')
+      .clearfix
+        %b
+          = t('password')
+        = f.password_field :password, :title => t('registrations.new.enter_password') 
+      .clearfix
+        %b
+          = t('password_confirmation')
+        = f.password_field :password_confirmation, :title => t('registrations.new.enter_password_again') 
+        = f.hidden_field :invitation_token
 
-    .submit_field
-      = f.submit t('registrations.new.create_my_account')
+      .submit_field
+        = f.submit t('registrations.new.create_my_account'), :class => 'in_aspects'
 
