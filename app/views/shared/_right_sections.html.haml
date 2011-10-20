@@ -77,15 +77,13 @@
     .content#community_spotlight
       = link_to t('aspects.index.see_more_from_us'), spotlight_path, :id => 'view_all_contacts_link'
 
-- unless AppConfig[:paypal_hosted_button_id].blank?
-  .section
-    .title
-      = image_tag('/images/icons/coffee.png')
-      %h5
-        = t('aspects.index.donate')
-    .content
-      = t('aspects.index.keep_us_running', :pod => URI.parse(AppConfig[:pod_url]).host)
-      %br
-      = render 'shared/donate'
-
+.section
+  .title
+    = image_tag('/images/icons/coffee.png')
+    %h5
+      = t('aspects.index.donate')
+  .content
+    = t('aspects.index.keep_us_running', :pod => URI.parse(AppConfig[:pod_url]).host)
+    %br
+    = render 'shared/donate'
 

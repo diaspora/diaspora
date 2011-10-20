@@ -110,6 +110,13 @@ describe User do
         alice.should_not be_valid
       end
 
+      it 'requires uniqueness also amount Person objects with diaspora handle' do
+        p = Factory(:person, :diaspora_handle => "jimmy@#{AppConfig[:pod_uri].host}")
+        alice.username = 'jimmy'
+        alice.should_not be_valid
+
+      end
+
       it "downcases username" do
         user = Factory.build(:user, :username => "WeIrDcAsE")
         user.should be_valid

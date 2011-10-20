@@ -28,6 +28,7 @@ class User < ActiveRecord::Base
 
   validates_presence_of :person, :unless => proc {|user| user.invitation_token.present?}
   validates_associated :person
+  validate :no_person_with_same_username
 
   has_one :person, :foreign_key => :owner_id
   delegate :public_key, :posts, :photos, :owns?, :diaspora_handle, :name, :public_url, :profile, :first_name, :last_name, :to => :person
@@ -470,5 +471,12 @@ class User < ActiveRecord::Base
   def infer_email_from_invitation_provider
     self.email = self.invitation_identifier if self.invitation_service == 'email'
     self
+  end
+
+  def no_person_with_same_username
+    diaspora_id = "#{self.username}@#{AppConfig[:pod_uri].host}"
+    if self.username_changed? && Person.exists?(:diaspora_handle => diaspora_id)
+      errors[:base] << 'That username has already been taken'
+    end
   end
 end
