@@ -9,15 +9,7 @@ describe Publisher do
     @publisher = Publisher.new(alice)
   end
 
-  describe '#open?' do
-    it 'defaults to closed' do
-      @publisher.open?.should be_false
-    end
 
-    it 'listens to the opts' do
-      Publisher.new(alice, :open => true).open?.should be_true
-    end
-  end
 
   describe "#prefill" do
     it 'defaults to nothing' do
@@ -29,13 +21,17 @@ describe Publisher do
     end
   end
 
-  describe "#public?" do
-    it 'defaults to false' do
-      @publisher.public?.should be_false
-    end
 
-    it 'listens to the opts' do
-      Publisher.new(alice, :public => true).public?.should be_true
+  ["open", "public", "explain"].each do |property|
+    describe "##{property}?" do
+      it 'defaults to closed' do
+        @publisher.send("#{property}?".to_sym).should be_false
+      end
+
+      it 'listens to the opts' do
+        Publisher.new(alice, {property.to_sym => true}).send("#{property}?".to_sym).should be_true
+      end
     end
   end
+
 end

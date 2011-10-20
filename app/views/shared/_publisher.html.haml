@@ -16,6 +16,19 @@
         Publisher.open();
         });
 
+-if publisher_explain
+  :javascript
+    $(document).ready(function() 
+      {
+        $("#publisher .dropdown").tipsy({trigger: 'manual', gravity: 'n'});
+        $("#publisher .dropdown").tipsy("show");
+        $("#publisher .dropdown").bind("click", function(){$(this).tipsy("hide")});
+
+        $("#publisher #status_message_fake_text").tipsy({trigger: 'manual', gravity: 'w', id: "first_message_explain"});
+        $("#publisher #status_message_fake_text").tipsy("show");
+        $("#publisher #status_message_fake_text").bind("click", function(){$(this).tipsy("hide")});
+        });
+
 #publisher.closed{:class => ((aspect == :profile)? 'mention_popup' : nil )}
   .content_creation
     = form_for(StatusMessage.new, :remote => remote?, :html => {"data-type" => "json"}) do |status|
@@ -25,14 +38,16 @@
           #publisher_textarea_wrapper
             = link_to( image_tag('deletelabel.png'), "#", :id => "hide_publisher", :title => t('.discard_post'))
             %ul#photodropzone
-            = status.text_area :fake_text, :rows => 2, :value => h(publisher_prefill_text), :tabindex => 1, :placeholder => t('.whats_on_your_mind')
+            = status.text_area :fake_text, :rows => 2, :value => h(publisher_prefill_text), :tabindex => 1, :placeholder => t('.whats_on_your_mind'), :title => t('shared.public_explain.new_user_welcome_message')
             = status.hidden_field :text, :value => '', :class => 'clear_on_submit'
 
             #file-upload{:title => t('.upload_photos')}
               = image_tag 'icons/camera.svg', :height => 14
 
 
-      - if all_aspects_selected?(selected_aspects)
+      - if publisher_public
+        = hidden_field_tag 'aspect_ids[]', "public"
+      - elsif all_aspects_selected?(selected_aspects)
         = hidden_field_tag 'aspect_ids[]', "all_aspects"
       - else
         - for aspect_id in aspect_ids
@@ -48,9 +63,11 @@
 
 
           // NOTE(dropdown special casing to DRY up -- taken from the aspect_dropdown partial)
-          .dropdown{:class => "hang_right"}
+          .dropdown{:class => "hang_right", :title => t('shared.public_explain.visibility_dropdown')}
             .button.toggle.publisher
-              - if selected_aspects.size == all_aspects.size
+              - if publisher_public
+                = t('public')
+              - elsif all_aspects_selected?(selected_aspects)
                 = t('all_aspects')
               - elsif selected_aspects.size == 1
                 = selected_aspects.first.name
@@ -60,11 +77,11 @@
 
             .wrapper
               %ul.dropdown_list{:unSelectable => 'on', 'data-person_id' => (person.id if defined?(person) && person), 'data-service_uid' => (service_uid if defined?(service_uid))}
-                %li.public.radio{"data-aspect_id" => "public"}
+                %li.public.radio{"data-aspect_id" => "public", :class => ("selected" if publisher_public)}
                   Public
 
-                %li.divider.all_aspects.radio{:style => "border-bottom: 1px solid #ddd;", "data-aspect_id" => "all_aspects", :class => ("selected" if all_aspects_selected?(selected_aspects))}
-                  All Aspects
+                %li.divider.all_aspects.radio{:style => "border-bottom: 1px solid #ddd;", "data-aspect_id" => "all_aspects", :class => ("selected" if (!publisher_public && all_aspects_selected?(selected_aspects)))}
+                  = t('all_aspects')
 
                 - for aspect in all_aspects
                   = aspect_dropdown_list_item(aspect, !all_aspects_selected?(selected_aspects) && selected_aspects.include?(aspect) )

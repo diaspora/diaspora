@@ -4,6 +4,8 @@
 
 class StatusMessagesController < ApplicationController
   before_filter :authenticate_user!
+  
+  before_filter :remove_getting_started, :only => [:create]
 
   respond_to :html
   respond_to :mobile
@@ -94,6 +96,13 @@ class StatusMessagesController < ApplicationController
 
   helper_method :comments_expanded
   def comments_expanded
+    true
+  end
+
+  def remove_getting_started
+    if current_user.getting_started == true
+      current_user.update_attributes(:getting_started => false)
+    end
     true
   end
 end

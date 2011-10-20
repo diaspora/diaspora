@@ -141,11 +141,10 @@ class Stream::Aspect < Stream::Base
   #
   # @return [String]
   def publisher_prefill
-    prefill = "Hi, I'm #newhere."
-
+    prefill = I18n.t("shared.publisher.new_user_prefill.hello", :new_user_tag => "newHere")
     if self.user.followed_tags.size > 0
-      tag_string = self.user.followed_tags.map{|t| "##{t.name}"}.join(", ")
-      prefill << "I like #{tag_string}."
+      tag_string = self.user.followed_tags.map{|t| "##{t.name}"}.to_sentence
+      prefill << I18n.t("shared.publisher.new_user_prefill.i_like", :tags => tag_string)
     end
 
     prefill

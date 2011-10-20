@@ -10,6 +10,8 @@ module InterimStreamHackinessHelper
     end
   end
 
+  ##### These methods need to go away once we pass publisher object into the partial ######
+  
   def publisher_prefill_text
     if params[:prefill].present?
       params[:prefill]
@@ -39,6 +41,22 @@ module InterimStreamHackinessHelper
   def publisher_open
     if defined?(@stream)
       @stream.publisher.open?
+    else
+      false
+    end
+  end
+
+  def publisher_public
+    if defined?(@stream)
+      @stream.publisher.public?
+    else
+      false
+    end
+  end
+
+  def publisher_explain
+    if defined?(@stream)
+      @stream.publisher.public?
     else
       false
     end
