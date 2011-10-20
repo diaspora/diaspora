@@ -14,7 +14,7 @@ class Stream::Soup < Stream::Base
   def posts
     @posts ||= lambda do
       post_ids = aspect_posts_ids + followed_tag_ids + mentioned_post_ids
-      post_ids += featured_user_post_ids if include_featured_users?
+      post_ids += community_spotlight_post_ids if include_community_spotlight?
       Post.where(:id => post_ids).for_a_stream(max_time, order)
     end.call
   end
@@ -25,7 +25,7 @@ class Stream::Soup < Stream::Base
 
   private
 
-  def include_featured_users?
+  def include_community_spotlight?
     false
   end
 
@@ -41,13 +41,13 @@ class Stream::Soup < Stream::Base
     @mentioned_post_ids ||= ids(StatusMessage.where_person_is_mentioned(user.person).for_a_stream(max_time, order))
   end
 
-  def featured_user_post_ids
-    @featured_user_post_ids ||= ids(Post.all_public.where(:author_id => featured_user_ids).for_a_stream(max_time, order))
+  def community_spotlight_post_ids
+    @community_spotlight_post_ids ||= ids(Post.all_public.where(:author_id => community_spotlight_person_ids).for_a_stream(max_time, order))
   end
 
   #worthless helpers
-  def featured_user_ids
-    Person.featured_users.select('id').map{|x| x.id}
+  def community_spotlight_person_ids
+    Person.community_spotlight.select('id').map{|x| x.id}
   end
 
   def tag_array

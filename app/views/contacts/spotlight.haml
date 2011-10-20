@@ -19,7 +19,7 @@
     = t('contacts.spotlight.community_spotlight')
   %br
 
-  #featured_users
+  #community_spotlight
     - unless @people.blank?
       - @people.each do |person|
-        = render 'featured_users/user', :person => person
+        = render 'community_spotlight/user', :person => person

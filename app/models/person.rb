@@ -61,8 +61,8 @@ class Person < ActiveRecord::Base
 
   scope :profile_tagged_with, lambda{|tag_name| joins(:profile => :tags).where(:profile => {:tags => {:name => tag_name}}).where('profiles.searchable IS TRUE') }
 
-  def self.featured_users
-    AppConfig[:featured_users].present? ? Person.where(:diaspora_handle => AppConfig[:featured_users]) : []
+  def self.community_spotlight
+    AppConfig[:community_spotlight].present? ? Person.where(:diaspora_handle => AppConfig[:community_spotlight]) : []
   end
 
   # Set a default of an empty profile when a new Person record is instantiated.

@@ -8,9 +8,9 @@
   %hr
 
   %ul.left_nav
-    - if AppConfig[:featured_users]
-      %li{:class => ("active" if @featured)}
-        = link_to t('users.getting_started.featured_users'), featured_users_path, :class => "element_selector"
+    - if AppConfig[:community_spotlight]
+      %li{:class => ("active" if @spotlight)}
+        = link_to t('users.getting_started.community_spotlight'), community_spotlight_path, :class => "element_selector"
     %li{:class => ("active" if @finder)}
       = link_to "Facebook Friends", friend_finder_path('facebook'), :class => "element_selector"
 

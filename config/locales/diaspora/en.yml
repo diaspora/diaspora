@@ -117,15 +117,15 @@ en:
     no_contacts_message:
       you_should_add_some_more_contacts: "You should add some more contacts!"
       try_adding_some_more_contacts: "You can search (top) or invite (right) more contacts."
-      or_featured:  "Or you can share with %{link}"
-      featured_users: "featured users"
+      or_spotlight:  "Or you can share with %{link}"
+      community_spotlight: "community spotlight"
     aspect_listings:
       select_all: "Select all"
       deselect_all: "Deselect all"
       edit_aspect: "Edit %{name}"
       add_an_aspect: "+ Add an aspect"
     selected_contacts:
-      view_all_featured_users: "See all Featured Users"
+      view_all_communtiy_spotlight: "See all community spotlight"
       view_all_contacts: "View all contacts"
       no_contacts: "You don't have any contacts here yet."
       manage_your_aspects: "Manage your aspects."
@@ -908,7 +908,7 @@ en:
       search_for_hashtags: "Search for #hashtags"
       search_for_people: "Search for people"
       connect_with_people_explanation_pt2: "Aspects are an intuitive way to group new and familar faces, private to you, allowing you to filter down or share with subsets of your contacts easily."
-      featured_users: "Featured users"
+      community_spotlight: "Community spotlight"
 
       follow_your_interests: "Follow your interests"
       connect_to: "Connect to"
@@ -916,7 +916,7 @@ en:
       find_friends_from_facebook: "find friends from Facebook"
       featured_tags: "Follow featured tags"
       find_friends: "Find friends"
-      see_all_featured_users: "See all featured users"
+      see_all_community_spotlight: "See all community spotlight"
       get_updates_from_core: "Get updates about the project from the core team."
 
       hashtag_explanation: "Hashtags allow you to talk about and follow your interests.  They're also a great way to find new people on Diaspora."

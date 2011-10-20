@@ -479,17 +479,17 @@ describe Person do
     end
   end
 
-  describe '.featured_users' do
-    describe "when the pod owner hasn't set up any featured users" do
+  describe '.community_spotlight' do
+    describe "when the pod owner hasn't set up any community spotlight members" do
       before do
-        @existing_featured_users = AppConfig[:featured_users]
-        AppConfig[:featured_users] = nil
+        @existing_community_spotlight = AppConfig[:community_spotlight]
+        AppConfig[:community_spotlight] = nil
       end
       after do
-        AppConfig[:featured_users] = @existing_featured_users
+        AppConfig[:community_spotlight] = @existing_community_spotlight
       end
       it "returns an empty array" do
-        Person.featured_users.should == []
+        Person.community_spotlight.should == []
       end
     end
   end

@@ -60,9 +60,9 @@ defaults: &defaults
   # to contact joindiaspora.com, set this to true:
   no_follow_diasporahq: false
 
-  # Featured users
+  # Community Spotlight
   # (expressed as an array of Diaspora IDs)
-  featured_users:
+  community_spotlight:
     - 'diasporahq@joindiaspora.com'
 
   # List of users who have admin privileges

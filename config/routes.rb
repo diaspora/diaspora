@@ -109,9 +109,9 @@ Diaspora::Application.routes.draw do
   resources :aspect_memberships, :only   => [:destroy, :create, :update]
   resources :share_visibilities,  :only   => [:update]
 
-  get 'featured' => 'featured_users#index', :as => 'featured'
+  get 'spotlight' => 'community_spotlight#index', :as => 'spotlight'
 
-  get 'featured_users' => "contacts#featured", :as => 'featured_users'
+  get 'community_spotlight' => "contacts#spotlight", :as => 'community_spotlight'
 
   get 'soup' => "soups#index", :as => 'soup'
 

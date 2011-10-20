@@ -106,12 +106,12 @@
                                   :contact => current_user.contact_for(diasporahq),
                                   :current_user => current_user }
 
-          #featured_users_pane
+          #community_spotlight_pane
             %h4
-              = t('.featured_users')
+              = t('.community_spotlight')
 
             %div
-              - Person.featured_users[0..5].each do |person|
+              - Person.community_spotlight[0..5].each do |person|
                 .featured_user_card_small
                   .right
                     .add_to_aspect
@@ -125,7 +125,7 @@
                     - person.profile.tags[0..2].each do |tg|
                       = link_to "##{tg}", tag_path(tg.name), :target => "_blank"
 
-            = link_to "#{t('.see_all_featured_users')} ->", featured_users_path, :target => "_blank"
+            = link_to "#{t('.see_all_community_spotlight')} ->", community_spotlight_path, :target => "_blank"
 
           %br
           #find_friends_pane
