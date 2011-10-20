@@ -64,6 +64,8 @@ defaults: &defaults
   # (expressed as an array of Diaspora IDs)
   community_spotlight:
     - 'diasporahq@joindiaspora.com'
+  # Email to send spotlight suggestions to
+  spotlight_suggest_email: ''
 
   # List of users who have admin privileges
   # (expressed as an array of local usernames)
