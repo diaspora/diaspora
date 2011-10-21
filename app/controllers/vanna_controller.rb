@@ -16,8 +16,13 @@ class VannaController < Vanna::Base
   layout "application"
   include ActionController::Flash
   default_url_options[:host] = "localhost"
+
+  # heinous hack: since loading the full MobileFu method breaks the mobile Notifications view, I just copied the contents of has_mobile_fu here
   include ActionController::MobileFu::InstanceMethods
   helper_method :is_mobile_device?
+  helper_method :in_mobile_view?
+  helper_method :is_device?
+  helper_method :mobile_device
 
   protect_from_forgery :except => :receive
 
