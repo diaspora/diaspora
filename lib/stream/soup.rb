@@ -26,7 +26,7 @@ class Stream::Soup < Stream::Base
   #emits an enum of the groups which the post appeared
   # :spotlight, :aspects, :tags, :mentioned
   def post_from_group(post)
-    [:community_spotlight, :aspects, :followed_tags, :mentioned].collect do |source| 
+    [:mentioned, :aspects, :followed_tags, :community_spotlight].collect do |source| 
       is_in?(source, post)
     end.compact
   end
