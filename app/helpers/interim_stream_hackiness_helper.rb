@@ -21,10 +21,10 @@ module InterimStreamHackinessHelper
   end
 
   def from_group(post)
-    if params[:controller]== 'soups'
+    if defined?(@stream) && params[:controller]== 'soups'
       @stream.post_from_group(post)
     else
-      nil
+     [] 
     end
   end
 

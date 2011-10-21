@@ -30,7 +30,7 @@ class Stream::Base
   end
 
   def post_from_group(post)
-    nil
+    []
   end
 
   # @return [String]
