@@ -41,12 +41,20 @@ class UsersController < ApplicationController
         else
           flash[:error] = I18n.t 'users.update.password_not_changed'
         end
-      elsif u[:language]
-        if @user.update_attributes(:language => u[:language])
-          I18n.locale = @user.language
-          flash[:notice] = I18n.t 'users.update.language_changed'
+      elsif u[:show_community_spotlight_in_stream]
+        if @user.update_attributes(u)
+          flash[:notice] = I18n.t 'users.update.settings_updated'
+          redirect_to soup_path
+          return
         else
-          flash[:error] = I18n.t 'users.update.language_not_changed'
+          flash[:notice] = I18n.t 'users.update.settings_not_updated'
+        end
+      elsif u[:language]
+        if @user.update_attributes(u)
+          I18n.locale = @user.language
+          flash[:notice] = I18n.t 'users.update.language_updated'
+        else
+          flash[:error] = I18n.t 'users.update.language_not_updated'
         end
       elsif u[:email]
         @user.unconfirmed_email = u[:email]

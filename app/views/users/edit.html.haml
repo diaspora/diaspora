@@ -71,6 +71,24 @@
   %br
   %br
   %hr
+
+  %br
+
+  %h3#stream-preferences
+    = t('.stream_preferences')
+  = form_for current_user, :url => user_path, :html => { :method => :put } do |f|
+    = f.error_messages
+
+    %p.checkbox_select
+      = f.label t('.show_community_spotlight')
+      = f.check_box :show_community_spotlight_in_stream
+
+    %br
+    = f.submit t('.change'), :class => 'button'
+
+  %br
+  %br
+  %hr
   %br
 
   %h3 

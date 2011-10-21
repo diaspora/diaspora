@@ -5,7 +5,7 @@ module InterimStreamHackinessHelper
       @commenting_disabled
     elsif defined?(@stream)
       !@stream.can_comment?(post)
-    else 
+    else
       false
     end
   end
@@ -30,5 +30,9 @@ module InterimStreamHackinessHelper
 
   def what_soup_sentence(post)
     from_group(post).map{|x| x.to_s.gsub("_soup", '').gsub('_',' ').titleize}.to_sentence
+  end
+
+  def stream_settings_link(post)
+    link_to "", "#{edit_user_path}#stream-preferences"
   end
 end

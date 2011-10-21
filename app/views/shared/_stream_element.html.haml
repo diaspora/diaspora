@@ -17,7 +17,10 @@
     %p
       = t('share_visibilites.update.see_it_on_their_profile', :name => person_link(post.author)).html_safe
     = link_to t('undo'), share_visibility_path(:id => "42", :post_id => post.id), :method => :put, :remote => true
+
   .indicator{:title => "from #{what_soup_sentence(post)}"}
+    = stream_settings_link(post)
+
   .sm_body
     = person_image_link(post.author, :size => :thumb_small)
     .content

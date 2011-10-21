@@ -40,7 +40,7 @@ class Stream::Soup < Stream::Base
   end
 
   def include_community_spotlight?
-    false
+    user.show_community_spotlight_in_stream?
   end
 
   def aspects_post_ids
