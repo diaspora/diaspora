@@ -111,7 +111,11 @@ end
 
 Then /^(?:|I )should not see a "([^\"]*)"(?: within "([^\"]*)")?$/ do |selector, scope_selector|
   with_scope(scope_selector) do
-    page.has_css?(selector).should be_false
+    if page.has_css?(selector)
+      find(:css, selector).visible?.should be_false
+    else
+      page.has_css?(selector).should be_false
+    end
   end
 end
 
@@ -177,6 +181,7 @@ And /^I scroll down$/ do
   evaluate_script("window.scrollBy(0,3000000)")
   sleep 1
   wait_until(30) { evaluate_script('$("#infscr-loading:visible").length') == 0 }
+  And "I wait for the ajax to finish"
 end
 
 Then /^the notification dropdown should be visible$/ do
@@ -189,16 +194,16 @@ When /^I resize my window to 800x600$/ do
   JS
 end
 
-When /^I click on "([^"]*)" aspect edit icon$/ do |aspect_name|
-  When %{I hover over the "ul.sub_nav > li:contains('#{aspect_name}')"}
-  within("#aspect_nav") do
-    find(:xpath, "//a[@rel='facebox'][.//img[@title='Edit #{aspect_name}']]").click
-  end
-end
-
 Then /^I follow Edit Profile in the same window$/ do 
   page.execute_script("$('a[href=\"#{edit_profile_path}\"]').removeAttr('target')")
 
   And %(I follow "Edit Profile")
 end
 
+Then 'I should see an image attached to the post' do
+  Then %{I should see a "img" within ".stream_element div.photo_attachments"}
+end
+
+Then 'I press the attached image' do
+  Then %{I press the 1st "img" within ".stream_element div.photo_attachments"}
+end

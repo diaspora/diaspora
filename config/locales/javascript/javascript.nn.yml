@@ -1,4 +1,4 @@
-#   Copyright (c) 2011, Diaspora Inc.  This file is
+#   Copyright (c) 2010-2011, Diaspora Inc.  This file is
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
@@ -6,15 +6,20 @@
 nn: 
   javascripts: 
     aspect_dropdown: 
-      add_to_aspect: "Legg til aspektet"
+      add_to_aspect: "Legg til kontakt"
       all_aspects: "Alle aspekta"
+      select_aspects: "Vel aspekt"
       toggle: 
         few: "I {{count}} aspekt"
         many: "I {{count}} aspekt"
         one: "I {{count}} aspekt"
         other: "I {{count}} aspekt"
         two: "I {{count}} aspekt"
-        zero: "Legg til aspektet"
+        zero: "Vel aspekt"
+    aspect_navigation: 
+      deselect_all: "Vel vekk alle"
+      no_aspects: "Ingen aspekt er valde"
+      select_all: "Vel alle"
     comments: 
       hide: "gøym merknader"
       show: "syn alle merknadene"

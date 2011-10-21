@@ -470,8 +470,9 @@ header {
   z-index: 10;
   top: 0;
 
-  /* force hardware acceleration on webkit browsers */
-  -webkit-transform: translateZ(0);
+  /* force hardware acceleration on webkit browsers 
+     10/17/2011 - removed for now, causes ghost doubles of links on some Android browsers */
+  /*-webkit-transform: translateZ(0);*/
 
   border: {
     bottom: 1px solid #222;
@@ -481,8 +482,9 @@ header {
     float: right; } }
 
 .stream_element {
-  /* force hardware acceleration on webkit browsers */
-  -webkit-transform: translateZ(0);
+  /* force hardware acceleration on webkit browsers 
+     10/17/2011 - removed for now, causes ghost doubles of links on some Android browsers */
+  /*-webkit-transform: translateZ(0);*/
 }
 
 footer {
@@ -614,28 +616,31 @@ footer {
   width: 24px;
   padding: 5px;
   margin: {
-    left: 5px; }; }
+    left: 5px; };
 
-.like_action {
-  &.inactive{
-    background-image: url("/images/icons/heart_mobile_grey.png");
-  }
-  &.active {
-    background-image: url("/images/icons/heart_mobile_red.png");
-  }
   &.loading {
     background-image: url("/images/mobile-spinner.gif");
   }
 }
 
+.reshare_action {
+  background-image: url("/images/icons/reshare_mobile.png");
+  &.active {
+    background-image: url("/images/icons/reshare_mobile_active.png");
+  }
+}
+
+.like_action {
+  background-image: url("/images/icons/heart_mobile_grey.png");
+  &.active {
+    background-image: url("/images/icons/heart_mobile_red.png");
+  }
+}
+
 .comment_action.image_link {
   background-image: url("/images/icons/pencil_mobile_grey_active.png");
-
   &.inactive {
     background-image: url("/images/icons/pencil_mobile_grey.png");
-  }
-  &.loading {
-    background-image: url("/images/mobile-spinner.gif");
   }
 }
 

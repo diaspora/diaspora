@@ -77,16 +77,16 @@ describe ContactsController do
     end
   end
 
-  describe '#featured' do
+  describe '#spotlight' do
     it 'succeeds' do
-      get :featured
+      get :spotlight
       response.should be_success
     end
 
     it 'gets queries for users in the app config' do
-      AppConfig[:featured_users] = [alice.diaspora_handle]
+      AppConfig[:community_spotlight] = [alice.diaspora_handle]
 
-      get :featured
+      get :spotlight
       assigns[:people].should == [alice.person]
     end
   end

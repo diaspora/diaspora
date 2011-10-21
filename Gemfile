@@ -64,6 +64,7 @@ gem 'rails-i18n'
 gem 'nokogiri'
 gem 'redcarpet', "2.0.0b5"
 gem 'roxml', :git => 'git://github.com/Empact/roxml.git', :ref => '7ea9a9ffd2338aaef5b0'
+gem 'ruby-oembed'
 
 # queue
 
@@ -77,6 +78,10 @@ gem 'SystemTimer', '1.2.1', :platforms => :ruby_18
 gem 'hoptoad_notifier'
 gem 'newrelic_rpm', :require => false
 
+#mail
+
+gem 'messagebus_ruby_api', '0.4.8'
+
 # tags
 
 gem 'acts-as-taggable-on', :git => 'git://github.com/diaspora/acts-as-taggable-on.git'
@@ -89,10 +94,10 @@ gem 'http_accept_language', :git => 'git://github.com/iain/http_accept_language.
 # views
 
 gem 'haml', '3.1.2'
-gem 'kaminari'
 gem 'mobile-fu'
-gem 'sass', '3.1.4'
+gem 'sass', '3.1.7'
 gem 'will_paginate', '3.0.pre2'
+gem 'client_side_validations'
 
 # web
 
@@ -113,6 +118,7 @@ end
 group :test do
   gem 'capybara', '~> 0.3.9'
   gem 'cucumber-rails', '0.3.2'
+  gem 'cucumber-api-steps', :require => false
   gem 'database_cleaner', '0.6.0'
   gem 'diaspora-client', :git => 'git://github.com/diaspora/diaspora-client.git'
                           #"0.1.0", #:path => '~/workspace/diaspora-client'
@@ -126,6 +132,8 @@ group :test do
   gem 'rspec-rails', '>= 2.0.0'
   gem "selenium-webdriver", "~> 2.7.0"
   gem 'webmock', :require => false
+  gem 'sqlite3'
+  gem 'mock_redis'
 end
 
 group :development do

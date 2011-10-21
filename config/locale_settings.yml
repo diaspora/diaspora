@@ -10,6 +10,7 @@ available:
   de: "Deutsch"
   el: "Ελληνικά"
   en: "English"
+  en_1337: "3n6l15h (English 1337)"
   en_pirate: "English (Pirate)"
   en_shaw: "𐑦𐑙𐑤𐑦𐑖"
   eo: "Esperanto"
@@ -39,10 +40,12 @@ available:
   pt-BR: "Português"
   ro: "Română"
   ru: "Русский"
-  sl: "Slovenščina"
   sk: "Slovenčina"
+  sl: "Slovenščina"
+  sq: "gjuha shqipe"
   sv: "Svenska"
   tr: "Türk"
+  uk: "украї́нська мо́ва"
   ur-PK: "اُردو (پاکستان)"
   zh-CN: "中文"
   zh-TW: "台灣中文"
@@ -56,6 +59,10 @@ fallbacks:
     - :en-GB
     - :en-US
   en_pirate:
+    - :en
+    - :en-GB
+    - :en-US
+  en_1337:
     - :en
     - :en-GB
     - :en-US

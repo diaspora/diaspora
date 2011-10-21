@@ -12,5 +12,5 @@
         = how_long_ago(message)
 
     %div{ :class => direction_for(message.text) }
-      = markdownify(message)
+      = markdownify(message, :oembed => true)
 

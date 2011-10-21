@@ -23,7 +23,8 @@ class Comment < ActiveRecord::Base
   xml_attr :text
   xml_attr :diaspora_handle
 
-  belongs_to :post
+  belongs_to :commentable, :touch => true, :polymorphic => true
+  alias_attribute :post, :commentable
   belongs_to :author, :class_name => 'Person'
 
   validates :text, :presence => true, :length => { :maximum => 2500 }

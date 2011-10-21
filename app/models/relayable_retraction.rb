@@ -21,6 +21,7 @@ class RelayableRetraction < SignedRetraction
   end
 
   def parent
+    return nil unless self.target.present?
     self.target.parent
   end
 

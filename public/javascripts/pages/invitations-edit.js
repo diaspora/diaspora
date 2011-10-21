@@ -3,5 +3,6 @@ Diaspora.Pages.InvitationsEdit = function() {
 
   this.subscribe("page/ready", function(evt, body) {
     $('#user_username').tipsy({trigger: 'select', gravity: 'w'});
+
   });
 };

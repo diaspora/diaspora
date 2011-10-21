@@ -45,6 +45,7 @@ class Profile < ActiveRecord::Base
   before_validation do
     self.tag_string = self.tag_string.split[0..4].join(' ')
   end
+
   before_save do
     self.build_tags
     self.construct_full_name
@@ -75,6 +76,25 @@ class Profile < ActiveRecord::Base
                self[:image_url]
              end
     result || '/images/user/default.png'
+  end
+
+  def from_omniauth_hash(omniauth_user_hash)
+    mappings = {"description" => "bio",
+               'image' => 'image_url', 
+               'first_name' => 'first_name',  
+               'last_name' => 'last_name', 
+               'location' =>  'location',
+               'name' => 'full_name'
+                }
+    if(omniauth_user_hash['first_name'].blank? || omniauth_user_hash['last_name'].blank?) && omniauth_user_hash['name'].present?
+      first, last = omniauth_user_hash['name'].split
+      omniauth_user_hash['first_name'] ||= first
+      omniauth_user_hash['last_name'] ||= last
+    end
+
+    update_hash = Hash[omniauth_user_hash.map {|k, v| [mappings[k], v] }]
+    
+    self.attributes.merge(update_hash){|key, old, new| old.blank? ? new : old}
   end
 
   def image_url= url

@@ -1,4 +1,4 @@
-#   Copyright (c) 2011, Diaspora Inc.  This file is
+#   Copyright (c) 2010-2011, Diaspora Inc.  This file is
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
@@ -8,6 +8,7 @@ en_shaw:
     aspect_dropdown: 
       add_to_aspect: "𐑨𐑛 𐑑 𐑨𐑕𐑐𐑧𐑒𐑑"
       all_aspects: "All aspects"
+      select_aspects: "Select aspects"
       toggle: 
         few: "𐑦𐑯 {{count}} 𐑨𐑕𐑐𐑧𐑒𐑑𐑕"
         many: "𐑦𐑯 {{count}} 𐑨𐑕𐑐𐑧𐑒𐑑𐑕"
@@ -15,6 +16,10 @@ en_shaw:
         other: "𐑦𐑯 {{count}} 𐑨𐑕𐑐𐑧𐑒𐑑𐑕"
         two: "In {{count}} aspects"
         zero: "𐑨𐑛 𐑑 𐑨𐑕𐑐𐑧𐑒𐑑"
+    aspect_navigation: 
+      deselect_all: "Deselect all"
+      no_aspects: "No aspects selected"
+      select_all: "Select all"
     comments: 
       hide: "𐑣𐑲𐑛 𐑒𐑪𐑥𐑩𐑯𐑑𐑕"
       show: "𐑖𐑴 𐑷𐑤 𐑒𐑪𐑥𐑩𐑯𐑑𐑕"

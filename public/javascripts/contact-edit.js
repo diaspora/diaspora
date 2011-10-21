@@ -18,7 +18,7 @@ var ContactEdit = {
     if (number == 0) {
       button.removeClass("in_aspects");
       replacement = Diaspora.I18n.t("aspect_dropdown.toggle.zero");
-    }else if (number == 1) { 
+    }else if (number == 1) {
       button.addClass("in_aspects");
       replacement = dropdown.find(".selected").first().text();
     }else if (number < 3) {

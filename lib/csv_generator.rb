@@ -113,6 +113,14 @@ SQL
     ActiveRecord::Base.connection.execute(sql)
   end
 
+  def self.non_backers_logged_in
+    file = self.filename("v2_non_backers.csv")
+    sql = self.select_fragment(file, "#{self.has_email} AND #{self.non_backer_email_condition} " +
+                                "AND #{self.unsubscribe_email_condition} AND #{self.has_username}")
+
+    ActiveRecord::Base.connection.execute(sql)
+  end
+
   # ---------------- QUERY METHODS & NOTES -------------------------
   def self.select_fragment(file, where_clause)
     sql = <<SQL
@@ -129,6 +137,10 @@ SQL
 SQL
   end
 
+  def self.has_username
+    '`users`.`username` IS NOT NULL'
+  end
+  
   def self.has_invitation_token
     '`users`.`invitation_token` IS NOT NULL'
   end

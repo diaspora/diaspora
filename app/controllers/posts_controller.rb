@@ -2,9 +2,12 @@
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
+require File.join(Rails.root, 'lib', 'stream', 'public')
+
 class PostsController < ApplicationController
   before_filter :authenticate_user!, :except => :show
   before_filter :set_format_if_malformed_from_status_net, :only => :show
+  before_filter :redirect_unless_admin, :only => :index
 
   respond_to :html,
              :mobile,
@@ -15,7 +18,7 @@ class PostsController < ApplicationController
     key = params[:id].to_s.length <= 8 ? :id : :guid
 
     if user_signed_in?
-      @post = current_user.find_visible_post_by_id(params[:id], :key => key)
+      @post = current_user.find_visible_shareable_by_id(Post, params[:id], :key => key)
     else
       @post = Post.where(key => params[:id], :public => true).includes(:author, :comments => :author).first
     end
@@ -25,10 +28,6 @@ class PostsController < ApplicationController
       if user_signed_in? && notification = Notification.where(:recipient_id => current_user.id, :target_id => @post.id).first
         notification.unread = false
         notification.save
-      end
-
-      if is_mobile_device?
-        @comments = @post.comments
       end
 
       respond_to do |format|
@@ -57,6 +56,10 @@ class PostsController < ApplicationController
       Rails.logger.info "event=post_destroy status=failure user=#{current_user.diaspora_handle} reason='User does not own post'"
       render :nothing => true, :status => 404
     end
+  end
+
+  def index
+    default_stream_action(Stream::Public)
   end
 
   def set_format_if_malformed_from_status_net

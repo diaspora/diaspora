@@ -27,9 +27,10 @@ Feature: Unfollowing
 
   Scenario: stop following someone while on the aspect edit page
     When I go to the home page
+    And I click on my name in the header
     And I follow "Contacts"
     And I follow "Besties"
-    And I follow "Edit Besties"
+    And I follow "Add contacts to Besties"
     And I wait for the ajax to finish
 
     And I preemptively confirm the alert

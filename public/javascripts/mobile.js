@@ -1,58 +1,89 @@
 $(document).ready(function(){
-  $(".stream").delegate(".like_action.inactive", "tap click", function(evt){
+
+  var showLoader = function(link){
+    link.addClass('loading');
+  };
+
+  var removeLoader = function(link){
+    link.removeClass('loading')
+         .toggleClass('active')
+         .toggleClass('inactive');
+  };
+
+  /* Heart toggle */
+  $(".like_action", ".stream").bind("tap click", function(evt){
     evt.preventDefault();
     var link = $(this),
         likeCounter = $(this).closest(".stream_element").find("like_count"),
-        postId = link.closest(".stream_element").data("post-guid");
+        href = link.attr("href");
 
-    $.ajax({
-      url: link.attr("href"),
-      dataType: 'json',
-      type: 'POST',
-      beforeSend: function(){
-        link.removeClass('inactive')
-              .addClass('loading');
-      },
-      complete: function(data){
-        link.removeClass('loading')
-             .removeClass('inactive')
-             .addClass('active')
-             .data('post-id', postId);
+    if(!link.hasClass("loading")){
+      if(link.hasClass('inactive')) {
+        $.ajax({
+          url: href,
+          dataType: 'json',
+          type: 'POST',
+          beforeSend: showLoader(link),
+          success: function(data){
+            removeLoader(link);
+            link.attr("href", href + "/" + data["id"]);
 
-        if(likeCounter){
-          likeCounter.text(parseInt(likeCounter.text) + 1);
-        }
+            if(likeCounter){
+              likeCounter.text(parseInt(likeCounter.text) + 1);
+            }
+          }
+        });
       }
-    });
+      else if(link.hasClass("active")){
+        $.ajax({
+          url: link.attr("href"),
+          dataType: 'json',
+          type: 'DELETE',
+          beforeSend: showLoader(link),
+          complete: function(data){
+            removeLoader(link);
+            link.attr("href", href.replace(/\/\d+$/, ''));
+
+            if(likeCounter){
+              likeCounter.text(parseInt(likeCounter.text) - 1);
+            }
+          }
+        });
+      }
+    }
   });
 
-  $(".stream").delegate(".like_action.active", "tap click", function(evt){
+  /* Reshare */
+  $(".reshare_action", ".stream").bind("tap click", function(evt){
     evt.preventDefault();
-    var link = $(this);
-        likeCounter = $(this).closest(".stream_element").find("like_count");
 
-    $.ajax({
-      url: link.attr("href"),
-      dataType: 'json',
-      type: 'DELETE',
-      beforeSend: function(){
-        link.removeClass('active')
-              .addClass('loading');
-      },
-      complete: function(data){
-        link.removeClass('loading')
-              .removeClass('active')
-              .addClass('inactive')
-              .data('like-id', '');
+    var link = $(this),
+        href = link.attr("href"),
+        confirmText = link.attr('title');
 
-        if(likeCounter){
-          likeCounter.text(parseInt(likeCounter.text) - 1);
+    if(!link.hasClass("loading")) {
+      if(link.hasClass('inactive')) {
+        if(confirm(confirmText)) {
+          $.ajax({
+            url: href + "&provider_display_name=mobile",
+            dataType: 'json',
+            type: 'POST',
+            beforeSend: showLoader(link),
+            success: function(data){
+              removeLoader(link);
+            },
+            error: function(data){
+              removeLoader(link);
+              alert("Failed to reshare!");
+            }
+          });
         }
       }
-    });
+    }
   });
 
-  $(".stream").delegate(".show_comments", "tap click", function(evt){
+  /* Show comments */
+  $(".show_comments", ".stream").bind("tap click", function(evt){
     evt.preventDefault();
     var link = $(this),
         parent = link.closest(".bottom_bar").first(),

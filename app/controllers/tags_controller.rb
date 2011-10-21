@@ -1,6 +1,8 @@
 #   Copyright (c) 2010-2011, Diaspora Inc.  This file is
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
+require File.join(Rails.root, 'app', 'models', 'acts_as_taggable_on_tag')
+require File.join(Rails.root, 'lib', 'stream', 'tag')
 
 class TagsController < ApplicationController
   skip_before_filter :which_action_and_user
@@ -16,20 +18,8 @@ class TagsController < ApplicationController
     if params[:q] && params[:q].length > 1 && request.format.json?
       params[:q].gsub!("#", "")
       params[:limit] = !params[:limit].blank? ? params[:limit].to_i : 10
-      @tags = ActsAsTaggableOn::Tag.named_like(params[:q]).limit(params[:limit] - 1)
-      @tags.map! do |obj|
-        { :name => ("#"+obj.name),
-          :value => ("#"+obj.name),
-          :url => tag_path(obj.name)
-        }
-      end
-
-      @tags << {
-        :name => ('#' + params[:q]),
-        :value => ("#" + params[:q]),
-        :url => tag_path(params[:q].downcase)
-      }
-      @tags.uniq!
+      @tags = ActsAsTaggableOn::Tag.autocomplete(params[:q]).limit(params[:limit] - 1)
+      prep_tags_for_javascript
 
       respond_to do |format|
         format.json{
@@ -45,43 +35,34 @@ class TagsController < ApplicationController
   end
 
   def show
-    params[:name].downcase!
-    @aspect = :tag
-    if current_user
-      @posts = StatusMessage.
-        joins("LEFT OUTER JOIN post_visibilities ON post_visibilities.post_id = posts.id").
-        joins("LEFT OUTER JOIN contacts ON contacts.id = post_visibilities.contact_id").
-        where(Contact.arel_table[:user_id].eq(current_user.id).or(
-          StatusMessage.arel_table[:public].eq(true).or(
-            StatusMessage.arel_table[:author_id].eq(current_user.person.id)
-          )
-        )).select('DISTINCT posts.*')
-    else
-      @posts = StatusMessage.all_public
-    end
-
-    params[:prefill] = "##{params[:name]} "
-    @posts = @posts.tagged_with(params[:name])
-
-    max_time = params[:max_time] ? Time.at(params[:max_time].to_i) : Time.now
-    @posts = @posts.where(StatusMessage.arel_table[:created_at].lt(max_time))
-    @posts = @posts.includes({:author => :profile}, :comments, :photos).order('posts.created_at DESC').limit(15)
-
-    @commenting_disabled = true
+    @stream = Stream::Tag.new(current_user, params[:name], :max_time => max_time, :page => params[:page])
 
     if params[:only_posts]
-      render :partial => 'shared/stream', :locals => {:posts => @posts}
-    else
-      profiles = Profile.tagged_with(params[:name]).where(:searchable => true).select('profiles.id, profiles.person_id')
-      @people = Person.where(:id => profiles.map{|p| p.person_id}).paginate(:page => params[:page], :per_page => 15)
-      @people_count = Person.where(:id => profiles.map{|p| p.person_id}).count
+      render :partial => 'shared/stream', :locals => {:posts => @stream.posts}
+      return
     end
   end
 
  def tag_followed?
    if @tag_followed.nil?
-     @tag_followed = TagFollowing.joins(:tag).where(:tags => {:name => params[:name]}, :user_id => current_user.id).exists? #,
+     @tag_followed = TagFollowing.joins(:tag).where(:tags => {:name => params[:name]}, :user_id => current_user.id).exists?
    end
    @tag_followed
  end
+
+  def prep_tags_for_javascript
+    @tags.map! do |obj|
+        { :name => ("#"+obj.name),
+          :value => ("#"+obj.name),
+          :url => tag_path(obj.name)
+        }
+      end
+
+      @tags << {
+        :name => ('#' + params[:q]),
+        :value => ("#" + params[:q]),
+        :url => tag_path(params[:q].downcase)
+      }
+      @tags.uniq!
+  end
 end

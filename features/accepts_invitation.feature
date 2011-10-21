@@ -4,10 +4,10 @@ Feature: invitation acceptance
       Given I have been invited by an admin
       And I am on my acceptance form page
       And I fill in the following:
-        | Username              | ohai           |
-        | Email                 | woot@sweet.com |
+        | user_username              | ohai           |
+        | user_email                 | woot@sweet.com |
         | user_password         | secret         |
-        | Password confirmation | secret         |
+        | user_password_confirmation | secret         |
       And I press "Create my account"
       Then I should be on the getting started page
       And I should see "Welcome"
@@ -28,10 +28,10 @@ Feature: invitation acceptance
       Given I have been invited by a user
       And I am on my acceptance form page
       And I fill in the following:
-        | Username              | ohai           |
-        | Email                 | woot@sweet.com |
+        | user_username              | ohai           |
+        | user_email                 | woot@sweet.com |
         | user_password         | secret         |
-        | Password confirmation | secret         |
+        | user_password_confirmation | secret         |
       And I press "Create my account"
       Then I should be on the getting started page
       And I should see "Welcome"

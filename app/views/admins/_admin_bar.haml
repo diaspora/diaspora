@@ -5,6 +5,7 @@
       %li= link_to 'User Search', user_search_path
       %li= link_to 'Weekly User Stats', weekly_user_stats_path
       %li= link_to 'Pod Stats', pod_stats_path
+      %li= link_to 'Correlations', correlations_path
       - if AppConfig[:mount_resque_web]
         %li= link_to 'Resque Overview', resque_web_path
 

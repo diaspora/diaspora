@@ -28,7 +28,8 @@ Feature: following and being followed
     And I am on the home page
     And I expand the publisher
     And I fill in "status_message_fake_text" with "I am ALICE"
-    And I press the first ".public_icon" within "#publisher"
+    And I press the first ".toggle" within "#publisher"
+    And I press the first ".public" within "#publisher"
     And I press "Share"
     And I go to the destroy user session page
 
@@ -47,7 +48,6 @@ Feature: following and being followed
     And I add the person to my "Unicorns" aspect
 
     When I go to the home page
-    When I follow "Your Aspects"
 
     Then I should have 1 contact in "Unicorns"
     Then I should have 1 contact in "Besties"
@@ -59,7 +59,6 @@ Feature: following and being followed
     Then I go to the destroy user session page
 
     When I sign in as "bob@bob.bob"
-    When I follow "Your Aspects"
     Then I should have 1 contacts in "Besties"
 
     When I am on the home page

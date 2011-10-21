@@ -24,7 +24,13 @@ describe MarkdownifyHelper do
     end
 
     it 'autolinks standard url links' do
-      markdownify("http://joindiaspora.com/").should match /<p><a href="http:\/\/joindiaspora.com\/">http:\/\/joindiaspora.com\/<\/a><\/p>/
+      markdownified = markdownify("http://joindiaspora.com/")
+
+      doc = Nokogiri.parse(markdownified)
+
+      link = doc.css("a")
+
+      link.attr("href").value.should == "http://joindiaspora.com/"
     end
 
     context 'when formatting status messages' do

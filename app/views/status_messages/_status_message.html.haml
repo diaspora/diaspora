@@ -17,3 +17,5 @@
 
 %div{:class => direction_for(post.text)}
   != markdownify(post, :youtube_maps => post[:youtube_titles])
+  - if post.o_embed_cache_id.present?
+    = o_embed_html(post.o_embed_cache)

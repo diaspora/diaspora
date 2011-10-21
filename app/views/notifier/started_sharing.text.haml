@@ -1,4 +1,4 @@
-!= "#{@sender.name}"
+!= "#{@notification.sender.name}"
 != t('notifier.started_sharing.sharing')
-!= t('.view_profile', :name => @sender.first_name)
-!= person_url(@sender)
+!= t('.view_profile', :name => @notification.sender.first_name)
+!= person_url(@notification.sender)

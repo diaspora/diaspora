@@ -10,6 +10,7 @@ javascripts:
   jquery:
     - public/javascripts/vendor/jquery162.min.js
   main:
+    - public/javascripts/rails.validations.js
     - public/javascripts/rails.js
     - public/javascripts/vendor/jquery.tipsy.js
     - public/javascripts/vendor/jquery.hotkeys.js
@@ -55,7 +56,6 @@ javascripts:
     - public/javascripts/friend-finder.js
   home:
     - public/javascripts/publisher.js
-    - public/javascripts/aspect-filters.js
     - public/javascripts/aspect-edit-pane.js
     - public/javascripts/fileuploader-custom.js
   people:

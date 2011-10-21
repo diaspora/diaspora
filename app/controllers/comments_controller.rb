@@ -14,7 +14,7 @@ class CommentsController < ApplicationController
   end
 
   def create
-    target = current_user.find_visible_post_by_id params[:post_id]
+    target = current_user.find_visible_shareable_by_id Post, params[:post_id]
     text = params[:text]
 
     if target
@@ -55,7 +55,7 @@ class CommentsController < ApplicationController
   end
 
   def index
-    @post = current_user.find_visible_post_by_id(params[:post_id])
+    @post = current_user.find_visible_shareable_by_id(Post, params[:post_id])
     if @post
       @comments = @post.comments.includes(:author => :profile).order('created_at ASC')
       render :layout => false
