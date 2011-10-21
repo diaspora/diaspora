@@ -7,6 +7,6 @@ Diaspora.Pages.SoupsIndex = function() {
     self.infiniteScroll = self.instantiate("InfiniteScroll");
 
 
-  $('.indicator').tipsy({fade: true});
+  $('.indicator').tipsy({fade: true, live:true});
   });
 };
