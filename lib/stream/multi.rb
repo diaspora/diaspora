@@ -1,14 +1,14 @@
-class Stream::Soup < Stream::Base
+class Stream::Multi < Stream::Base
   def link(opts)
-    Rails.application.routes.url_helpers.soup_path
+    Rails.application.routes.url_helpers.multi_path
   end
 
   def title
-    I18n.t('streams.soup.title')
+    I18n.t('streams.multi.title')
   end
 
   def contacts_title
-    I18n.t('streams.soup.contacts_title')
+    I18n.t('streams.multi.contacts_title')
   end
 
   def posts
@@ -35,7 +35,7 @@ class Stream::Soup < Stream::Base
 
   def is_in?(sym, post)
     if self.send("#{sym.to_s}_post_ids").find{|x| x == post.id}
-      "#{sym.to_s}_soup".to_sym
+      "#{sym.to_s}_stream".to_sym
     end
   end
 

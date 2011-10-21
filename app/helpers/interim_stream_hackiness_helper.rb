@@ -21,15 +21,15 @@ module InterimStreamHackinessHelper
   end
 
   def from_group(post)
-    if defined?(@stream) && params[:controller]== 'soups'
+    if defined?(@stream) && params[:controller] == 'multis'
       @stream.post_from_group(post)
     else
      [] 
     end
   end
 
-  def what_soup_sentence(post)
-    from_group(post).map{|x| x.to_s.gsub("_soup", '').gsub('_',' ').titleize}.to_sentence
+  def what_stream_sentence(post)
+    from_group(post).map{|x| I18n.t("streams.#{x.to_s}")}.to_sentence
   end
 
   def stream_settings_link(post)

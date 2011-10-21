@@ -81,7 +81,7 @@ class Stream::Aspect < Stream::Base
   # @return [String]
   def title
     if self.for_all_aspects?
-      I18n.t('aspects.aspect_stream.stream')
+      I18n.t('streams.aspects.title')
     else
       self.aspects.to_sentence
     end

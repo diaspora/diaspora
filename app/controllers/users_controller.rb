@@ -44,7 +44,7 @@ class UsersController < ApplicationController
       elsif u[:show_community_spotlight_in_stream]
         if @user.update_attributes(u)
           flash[:notice] = I18n.t 'users.update.settings_updated'
-          redirect_to soup_path
+          redirect_to multi_path
           return
         else
           flash[:notice] = I18n.t 'users.update.settings_not_updated'

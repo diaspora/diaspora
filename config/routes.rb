@@ -113,7 +113,7 @@ Diaspora::Application.routes.draw do
 
   get 'community_spotlight' => "contacts#spotlight", :as => 'community_spotlight'
 
-  get 'soup' => "soups#index", :as => 'soup'
+  get 'stream' => "multis#index", :as => 'multi'
 
   resources :people, :except => [:edit, :update] do
     resources :status_messages

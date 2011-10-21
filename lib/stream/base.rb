@@ -5,7 +5,7 @@ class Stream::Base
   def initialize(user, opts={})
     self.user = user
     self.max_time = opts[:max_time]
-    self.order = opts[:order] 
+    self.order = opts[:order]
   end
 
   # @return [Person]

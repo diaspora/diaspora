@@ -104,12 +104,6 @@ en:
       updating: "updating"
     aspect_contacts:
       done_editing: "done editing"
-    aspect_stream:
-      stream: "Stream"
-      mentions: "Mentions"
-      recently: "recently:"
-      commented_on: "commented on"
-      posted: "posted"
     show:
       edit_aspect: "edit aspect"
     no_posts_message:
@@ -129,7 +123,6 @@ en:
       view_all_contacts: "View all contacts"
       no_contacts: "You don't have any contacts here yet."
       manage_your_aspects: "Manage your aspects."
-
     new:
       name: "Name (only visible to you)"
       create: "Create"
@@ -159,13 +152,12 @@ en:
       acquaintances: "Acquaintances"
       friends: "Friends"
     index:
-      mentions: "Mentions"
+      welcome: "Welcome"
       community_spotlight: "Community Spotlight"
       see_more_from_us: "See more of the D* community."
       donate: "Donate"
       keep_us_running: "Keep %{pod} running fast and buy servers their coffee fix with a monthly donation!"
       your_aspects: "Your Aspects"
-      tags_following: "Followed Tags"
       no_tags: "+ Find a tag to follow"
       unfollow_tag: "Stop following #%{tag}"
       handle_explanation: "This is your diaspora id. Like an email address, you can give this to people to reach you."
@@ -833,18 +825,36 @@ en:
       no_applications: "You haven't registered any applications yet."
 
   streams:
+    recently: "recently:"
+    commented_on: "commented on"
+    posted: "posted"
+    community_spotlight_stream: "Community Spotlight" 
+    aspects_stream: "Aspects"
+    mentioned_stream: "@Mentions"
+    followed_tags_stream: "#Followed Tags"
+
     mentions:
-      title: "Your Mentions"
+      title: "@Mentions"
       contacts_title: "People who mentioned you"
+
+    followed_tag:
+      title: "#Followed Tags"
+      contacts_title: "People who dig these tags"
+
     tags:
       title: "Posts tagged: %{tags}"
-      contacts_title: "People who dig these tags"
+      contacts_title: "People who dig this tag"
+
     public:
       title: "Public Activity"
       contacts_title: "Recent Posters"
-    soup:
-      title: "The Soup"
-      contacts_title: "People in your Soup"
+
+    multi:
+      title: "Stream"
+      contacts_title: "People in your Stream"
+
+    aspects:
+      title: "Your Aspects"
 
   users:
     logged_out:
