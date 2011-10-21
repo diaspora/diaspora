@@ -19,8 +19,12 @@
 
     / Social Media Icons are by Paul Robert Lloyd @ http://paulrobertlloyd.com/2009/06/social_media_icons
 
-    = stylesheet_link_tag "blueprint/screen", :media => 'screen'
-    = stylesheet_link_tag "blueprint/print", :media => 'print'
+    / bootstrap/blueprint switch
+    - if @aspect == :getting_started
+      = stylesheet_link_tag "bootstrap.min.css"
+    - else
+      = stylesheet_link_tag "blueprint/screen", :media => 'screen'
+      = stylesheet_link_tag "blueprint/print", :media => 'print'
 
     = stylesheet_link_tag "login", :media => 'screen'
 

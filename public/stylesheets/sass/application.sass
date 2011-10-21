@@ -8,6 +8,11 @@ body
   :margin 0
     :top 33px
   :background-color $background
+
+  :font
+    :family "Helvetica Neue",Helvetica,Arial,sans-serif
+    :size 13px
+
 a
   :color $blue
   :text
@@ -47,11 +52,6 @@ ul > li
 
 form
   :position relative
-  input,
-  textarea,
-  label
-    :font
-      :size auto
 
 .rtl
   :direction rtl
@@ -868,7 +868,7 @@ form p.checkbox_select
     :position relative
     :top 6px
 
-label
+label:not(.bootstrapped)
   :font
     :weight normal
   :color #999
@@ -3194,66 +3194,6 @@ a.toggle_selector
   :right 5px
   :position absolute
 
-ul#getting_started
-  :padding 0
-  :margin 0
-
-  li
-    :list-style none
-
-  > li
-    :position relative
-    :border
-      :bottom 1px solid #ddd
-    :padding
-      :top 25px
-      :bottom 5px
-
-    .content
-      :padding
-        :left 35px
-
-    input[type='search']
-      :width 210px
-
-  .profile
-    :min-height 235px
-    #profile_photo_upload
-      :padding
-        :left 30px
-      .avatar
-        :position relative
-        :float right
-
-      #file-upload-spinner
-        :position relative
-        :top -120px
-        :left 140px
-
-      #fileInfo
-        :position absolute
-        :left 1px
-        :top 80px
-        :overflow hidden
-
-      .button
-        :top 10px
-        :left 69px
-    
-    .button
-      :top 20px
-
-    .saved
-      img
-        :position relative
-        :top 4px
-        :right 2px
-
-    input.active_input 
-      :background
-        :color lighten(#FFD700, 40%)
-        
-
 #right_service_icons
   :text-align center
   :padding 10px
@@ -3265,32 +3205,6 @@ ul#getting_started
 .cubbies_user_page_small
   :position absolute
   :left 270px
-
-.getting_started_number
-  :position absolute
-  :left 0
-
-  h3
-    :display inline
-    :background
-      :color #eee
-    :padding 3px 7px
-
-    :margin
-      :right 8px
-
-.profile .profile_field
-  :background
-    :image url('/images/icons/monotone_question.png')
-    :position center left
-    :repeat no-repeat
-
-  :padding
-    :left 20px
-
-  &.completed
-    :background
-      :image url('/images/icons/check_yes_ok.png') !important
 
 #featured_users_pane
   :padding 10px 0
@@ -3468,3 +3382,12 @@ ul#getting_started
 .mentioned_stream
   .indicator
     :background-color #E3E856
+
+.center
+  :text-align center
+
+.nostrap,
+.nostrap:focus
+  :-webkit-box-shadow none
+  :-moz-box-shadow none
+  :box-shadow none
