@@ -33,4 +33,8 @@ class Services::Twitter < Service
   def public_message(post, url)
     super(post, MAX_CHARACTERS,  url)
   end
+
+  def profile_photo_url
+    "http://api.twitter.com/1/users/profile_image?screen_name=#{nickname}&size=bigger"
+  end
 end

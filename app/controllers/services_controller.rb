@@ -28,6 +28,10 @@ class ServicesController < ApplicationController
 
     current_user.update_profile(current_user.person.profile.from_omniauth_hash(user))
 
+    pp "YAY"
+    debugger
+    Resque.enqueue(Jobs::FetchProfilePhoto, current_user.id, service.id)
+
     flash[:notice] = I18n.t 'services.create.success'
     if current_user.getting_started
       redirect_to  getting_started_path

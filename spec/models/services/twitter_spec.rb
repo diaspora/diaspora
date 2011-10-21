@@ -27,4 +27,12 @@ describe Services::Twitter do
       @service.post(@post, url)
     end
   end
+
+  describe "#profile_photo_url" do
+    it 'returns the bigger profile photo' do
+      @service.nickname = "joindiaspora"
+      @service.profile_photo_url.should == 
+      "http://api.twitter.com/1/users/profile_image?screen_name=joindiaspora&size=bigger"
+    end
+  end
 end

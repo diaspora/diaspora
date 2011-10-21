@@ -64,6 +64,17 @@ describe ServicesController do
       post :create, :provider => 'twitter'
       @user.reload.services.first.class.name.should == "Services::Twitter"
     end
+
+    it 'queues a job to save user photo' do
+      request.env['omniauth.auth'] = omniauth_auth
+
+      post :create, :provider => 'twitter'
+
+      #service_stub = stub.as_null_object
+      Services::Twitter.any_instance.stub(:profile_photo_url).and_return("http://api.service.com/profile_photo.jpeg")
+      #Services::Twitter.should_receive(:new).and_return(service_stub)
+      Resque.should_receive(:enqueue).with(Jobs::FetchProfilePhoto, @user.id, "http://api.service.com/profile_photo.jpeg")
+    end
   end
 
   describe '#destroy' do
