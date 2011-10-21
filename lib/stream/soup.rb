@@ -13,7 +13,7 @@ class Stream::Soup < Stream::Base
 
   def posts
     @posts ||= lambda do
-      post_ids = aspect_posts_ids + followed_tag_ids + mentioned_post_ids
+      post_ids = aspects_post_ids + followed_tags_post_ids + mentioned_post_ids
       post_ids += community_spotlight_post_ids if include_community_spotlight?
       Post.where(:id => post_ids).for_a_stream(max_time, order)
     end.call
@@ -23,18 +23,32 @@ class Stream::Soup < Stream::Base
     false
   end
 
+  #emits an enum of the groups which the post appeared
+  # :spotlight, :aspects, :tags, :mentioned
+  def post_from_group(post)
+    [:community_spotlight, :aspects, :followed_tags, :mentioned].collect do |source| 
+      is_in?(source, post)
+    end.compact
+  end
+
   private
+
+  def is_in?(sym, post)
+    if self.send("#{sym.to_s}_post_ids").find{|x| x == post.id}
+      "#{sym.to_s}_soup".to_sym
+    end
+  end
 
   def include_community_spotlight?
     false
   end
 
-  def aspect_posts_ids
-    @aspect_posts_ids ||= user.visible_shareable_ids(Post, :limit => 15, :order => "#{order} DESC", :max_time => max_time, :all_aspects? => true, :by_members_of => aspect_ids)
+  def aspects_post_ids
+    @aspects_post_ids ||= user.visible_shareable_ids(Post, :limit => 15, :order => "#{order} DESC", :max_time => max_time, :all_aspects? => true, :by_members_of => aspect_ids)
   end
 
-  def followed_tag_ids
-    @followed_tag_ids ||= ids(StatusMessage.tag_stream(user, tag_array, max_time, order))
+  def followed_tags_post_ids
+    @followed_tags_ids ||= ids(StatusMessage.tag_stream(user, tag_array, max_time, order))
   end
 
   def mentioned_post_ids
@@ -47,7 +61,7 @@ class Stream::Soup < Stream::Base
 
   #worthless helpers
   def community_spotlight_person_ids
-    Person.community_spotlight.select('id').map{|x| x.id}
+    @community_spotlight_person_ids ||= Person.community_spotlight.select('id').map{|x| x.id}
   end
 
   def tag_array

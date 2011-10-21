@@ -29,6 +29,10 @@ class Stream::Base
     post_is_from_contact?(post)
   end
 
+  def post_from_group(post)
+    nil
+  end
+
   # @return [String]
   def title
     'a title'

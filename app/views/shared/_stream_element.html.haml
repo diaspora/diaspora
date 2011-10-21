@@ -3,7 +3,7 @@
 -#   the COPYRIGHT file.
 
 
-.stream_element{:id => post.guid}
+.stream_element{:id => post.guid, :class => from_group(post)}
   .right.controls
     - if current_user && post.author.owner_id == current_user.id
       = link_to image_tag('deletelabel.png'), post_path(post), :confirm => t('are_you_sure'), :method => :delete, :remote => true, :class => "delete stream_element_delete", :title => t('delete')
@@ -17,10 +17,9 @@
     %p
       = t('share_visibilites.update.see_it_on_their_profile', :name => person_link(post.author)).html_safe
     = link_to t('undo'), share_visibility_path(:id => "42", :post_id => post.id), :method => :put, :remote => true
-
+  .indicator{:title => "from #{what_soup_sentence(post)}"}
   .sm_body
     = person_image_link(post.author, :size => :thumb_small)
-
     .content
       %div.post_initial_info
         %span.from

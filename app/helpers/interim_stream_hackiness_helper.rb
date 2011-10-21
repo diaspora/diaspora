@@ -19,4 +19,16 @@ module InterimStreamHackinessHelper
       nil
     end
   end
+
+  def from_group(post)
+    if params[:controller]== 'soups'
+      @stream.post_from_group(post)
+    else
+      nil
+    end
+  end
+
+  def what_soup_sentence(post)
+    from_group(post).map{|x| x.to_s.gsub("_soup", '').gsub('_',' ').titleize}.to_sentence
+  end
 end
