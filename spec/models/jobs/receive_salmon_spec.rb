@@ -15,7 +15,7 @@ describe Jobs::ReceiveEncryptedSalmon do
   it 'calls receive_salmon' do
     zord = mock
 
-    zord.should_receive(:perform)
+    zord.should_receive(:perform!)
     Postzord::Receiver::Private.should_receive(:new).with(@user, hash_including(:salmon_xml => @xml)).and_return(zord)
 
     Jobs::ReceiveEncryptedSalmon.perform(@user.id, @xml)

@@ -4,7 +4,7 @@
 
 module PublisherHelper
   def public_value
-    params[:controller] == "tags"
+    params[:controller] == "tags" || params[:controller] == "posts"
   end
 
   def remote?
@@ -13,5 +13,9 @@ module PublisherHelper
 
   def public_helper_text
     (public_value)? t('javascripts.publisher.public'): t('javascripts.publisher.limited')
+  end
+
+  def all_aspects_selected?(selected_aspects)
+    @all_aspects_selected ||= all_aspects.size == selected_aspects.size
   end
 end

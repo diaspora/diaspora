@@ -1,20 +1,11 @@
 module Diaspora::WebSocket
   def self.redis
-    FakeRedis.new
+    MockRedis.new
   end
 end
 
-class FakeRedis
-  def rpop(*args)
-    true
-  end
-  def llen(*args)
-    true
-  end
-  def lpush(*args)
-    true
-  end
-  def sismember(*args)
-    false
+class RedisCache
+  def self.redis_connection
+    MockRedis.new
   end
 end

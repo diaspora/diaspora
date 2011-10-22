@@ -78,9 +78,15 @@ namespace :deploy do
     run "svc -d /service/thin*"
     run "svc -d /service/resque_worker*"
   end
+
+  desc 'Copy resque-web assets to public folder'
+  task :copy_resque_assets do
+    target = "#{release_path}/public/resque-jobs"
+    run "cp -r `cd #{release_path} && bundle show resque`/lib/resque/server/public #{target}"
+  end
 end
 
-after "deploy:symlink", "deploy:symlink_config_files", "deploy:symlink_cookie_secret", "deploy:bundle_static_assets"
+after "deploy:symlink", "deploy:symlink_config_files", "deploy:symlink_cookie_secret", "deploy:bundle_static_assets", 'deploy:copy_resque_assets'
 
         require './config/boot'
         require 'hoptoad_notifier/capistrano'

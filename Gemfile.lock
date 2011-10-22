@@ -31,9 +31,9 @@ GIT
 
 GIT
   remote: git://github.com/diaspora/diaspora-client.git
-  revision: dcc944e9bacd8fcc8a746c2bd21924a2a1213971
+  revision: a1b6c480fa3caa8ce24912dda471579de842aa51
   specs:
-    diaspora-client (0.1.0)
+    diaspora-client (0.1.1)
       activerecord
       faraday
       jwt (>= 0.1.3)
@@ -104,7 +104,7 @@ GEM
       xml-simple
     bcrypt-ruby (2.1.4)
     builder (2.1.2)
-    bunny (0.7.4)
+    bunny (0.7.8)
     capistrano (2.5.19)
       highline
       net-scp (>= 1.0.0)
@@ -128,28 +128,32 @@ GEM
       erubis
       extlib
       highline
-      json (<= 1.4.6, >= 1.4.4)
+      json (>= 1.4.4, <= 1.4.6)
       mixlib-authentication (>= 1.1.0)
       mixlib-cli (>= 1.1.0)
       mixlib-config (>= 1.1.2)
       mixlib-log (>= 1.2.0)
       moneta
       ohai (>= 0.5.7)
-      rest-client (< 1.7.0, >= 1.0.4)
+      rest-client (>= 1.0.4, < 1.7.0)
       uuidtools
     childprocess (0.2.2)
       ffi (~> 1.0.6)
-    closure-compiler (1.1.3)
+    client_side_validations (3.1.0)
+    closure-compiler (1.1.4)
     cloudfiles (1.4.10)
       mime-types (>= 1.16)
     columnize (0.3.4)
-    crack (0.1.8)
-    cucumber (1.0.2)
+    crack (0.3.1)
+    cucumber (1.1.0)
       builder (>= 2.1.2)
       diff-lcs (>= 1.1.2)
-      gherkin (~> 2.4.5)
+      gherkin (~> 2.5.0)
       json (>= 1.4.6)
-      term-ansicolor (>= 1.0.5)
+      term-ansicolor (>= 1.0.6)
+    cucumber-api-steps (0.6)
+      cucumber (>= 0.8.3)
+      jsonpath (>= 0.1.2)
     cucumber-rails (0.3.2)
       cucumber (>= 0.8.0)
     culerity (0.2.15)
@@ -161,7 +165,7 @@ GEM
       warden (~> 1.0.3)
     devise_invitable (0.5.0)
       devise (~> 1.3.1)
-      rails (<= 3.2, >= 3.0.0)
+      rails (>= 3.0.0, <= 3.2)
     diff-lcs (1.1.3)
     em-synchrony (0.2.0)
       eventmachine (>= 0.12.9)
@@ -170,14 +174,15 @@ GEM
     eventmachine (0.12.10)
     excon (0.2.4)
     extlib (0.9.15)
-    factory_girl (2.1.0)
+    factory_girl (2.1.2)
+      activesupport
     factory_girl_rails (1.2.0)
       factory_girl (~> 2.1.0)
       railties (>= 3.0.0)
     faraday (0.6.1)
       addressable (~> 2.2.4)
       multipart-post (~> 1.1.0)
-      rack (< 2, >= 1.1.0)
+      rack (>= 1.1.0, < 2)
     faraday-stack (0.1.3)
       faraday (~> 0.6)
     faraday_middleware (0.6.5)
@@ -198,7 +203,7 @@ GEM
       nokogiri (~> 1.4.3.1)
       ruby-hmac
     foreigner (0.9.1)
-    foreman (0.20.0)
+    foreman (0.24.0)
       term-ansicolor (~> 1.0.5)
       thor (>= 0.13.6)
     formatador (0.2.1)
@@ -207,7 +212,7 @@ GEM
       rspec-instafail (~> 0.1.8)
       ruby-progressbar (~> 0.0.10)
     gem_plugin (0.2.3)
-    gherkin (2.4.18)
+    gherkin (2.5.2)
       json (>= 1.4.6)
     haml (3.1.2)
     hashie (1.0.0)
@@ -231,14 +236,13 @@ GEM
       rack (>= 1.1)
       rspec (>= 1.3.1)
       selenium-webdriver (>= 0.1.3)
-    jasmine-core (1.1.0.rc4)
+    jasmine-core (1.2.0.rc1)
     json (1.4.6)
-    json_pure (1.5.4)
-      spruz (~> 0.2.8)
+    json_pure (1.6.1)
+    jsonpath (0.4.2)
+      multi_json
     jwt (0.1.3)
       json (>= 1.2.4)
-    kaminari (0.12.4)
-      rails (>= 3.0.0)
     linecache (0.43)
     linecache19 (0.5.12)
       ruby_core_source (>= 0.1.4)
@@ -247,17 +251,19 @@ GEM
       i18n (>= 0.4.0)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
+    messagebus_ruby_api (0.4.8)
     mime-types (1.16)
     mini_magick (3.2)
       subexec (~> 0.0.4)
     mixlib-authentication (1.1.4)
       mixlib-log
-    mixlib-cli (1.2.0)
+    mixlib-cli (1.2.2)
     mixlib-config (1.1.2)
     mixlib-log (1.3.0)
     mobile-fu (0.2.1)
       rack-mobile-detect
       rails
+    mock_redis (0.2.0)
     moneta (0.6.0)
     mongrel (1.1.5)
       cgi_multipart_eof_fix (>= 2.4)
@@ -276,7 +282,7 @@ GEM
     net-ssh (2.0.24)
     net-ssh-gateway (1.1.0)
       net-ssh (>= 1.99.1)
-    newrelic_rpm (3.1.1)
+    newrelic_rpm (3.2.0)
     nokogiri (1.4.3.1)
     oa-basic (0.2.6)
       oa-core (= 0.2.6)
@@ -313,7 +319,7 @@ GEM
       addressable (~> 2.2)
     ohai (0.5.8)
       extlib
-      json (<= 1.4.6, >= 1.4.4)
+      json (>= 1.4.4, <= 1.4.6)
       mixlib-cli
       mixlib-config
       mixlib-log
@@ -325,14 +331,14 @@ GEM
       oa-more (= 0.2.6)
       oa-oauth (= 0.2.6)
       oa-openid (= 0.2.6)
-    open4 (1.1.0)
+    open4 (1.2.0)
     orm_adapter (0.0.5)
     parallel (0.5.9)
-    parallel_tests (0.6.1)
+    parallel_tests (0.6.7)
       parallel
     polyglot (0.3.2)
     pyu-ruby-sasl (0.0.3.3)
-    rack (1.2.3)
+    rack (1.2.4)
     rack-mobile-detect (0.3.0)
       rack
     rack-mount (0.6.14)
@@ -350,7 +356,7 @@ GEM
       activesupport (= 3.0.10)
       bundler (~> 1.0)
       railties (= 3.0.10)
-    rails-i18n (0.1.8)
+    rails-i18n (0.1.10)
       i18n (~> 0.5)
     railties (3.0.10)
       actionpack (= 3.0.10)
@@ -361,7 +367,8 @@ GEM
     rake (0.9.2)
     rash (0.3.0)
       hashie (~> 1.0.0)
-    rdoc (3.9.4)
+    rdoc (3.10)
+      json (~> 1.4)
     redcarpet (2.0.0b5)
     redis (2.2.2)
     redis-namespace (0.8.0)
@@ -406,6 +413,7 @@ GEM
       linecache19 (>= 0.5.11)
       ruby-debug-base19 (>= 0.11.19)
     ruby-hmac (0.4.0)
+    ruby-oembed (0.8.3)
     ruby-openid (2.1.8)
     ruby-openid-apps-discovery (1.2.0)
       ruby-openid (>= 2.1.7)
@@ -414,21 +422,21 @@ GEM
       archive-tar-minitar (>= 0.5.2)
     rubyntlm (0.1.1)
     rubyzip (0.9.4)
-    sass (3.1.4)
-    selenium-webdriver (2.4.0)
+    sass (3.1.7)
+    selenium-webdriver (2.7.0)
       childprocess (>= 0.2.1)
       ffi (>= 1.0.7)
       json_pure
       rubyzip
     settingslogic (2.0.6)
     simple_oauth (0.1.5)
-    sinatra (1.2.6)
+    sinatra (1.2.7)
       rack (~> 1.1)
-      tilt (< 2.0, >= 1.2.2)
-    spruz (0.2.13)
+      tilt (>= 1.2.2, < 2.0)
+    sqlite3 (1.3.4)
     subexec (0.0.4)
-    systemu (2.3.0)
-    term-ansicolor (1.0.6)
+    systemu (2.4.0)
+    term-ansicolor (1.0.7)
     thin (1.2.11)
       daemons (>= 1.0.9)
       eventmachine (>= 0.12.6)
@@ -449,17 +457,17 @@ GEM
     typhoeus (0.2.4)
       mime-types
       mime-types
-    tzinfo (0.3.29)
+    tzinfo (0.3.30)
     uuidtools (2.1.2)
     vegas (0.1.8)
       rack (>= 1.0.0)
-    warden (1.0.5)
+    warden (1.0.6)
       rack (>= 1.0)
     webmock (1.6.2)
       addressable (>= 2.2.2)
       crack (>= 0.1.7)
     will_paginate (3.0.pre2)
-    xml-simple (1.1.0)
+    xml-simple (1.1.1)
     yard (0.7.2)
     yui-compressor (0.9.6)
       POpen4 (>= 0.1.4)
@@ -479,7 +487,9 @@ DEPENDENCIES
   capybara (~> 0.3.9)
   carrierwave (= 0.5.2)
   chef (= 0.9.12)
+  client_side_validations
   cloudfiles (= 1.4.10)
+  cucumber-api-steps
   cucumber-rails (= 0.3.2)
   database_cleaner (= 0.6.0)
   devise (~> 1.3.1)
@@ -505,10 +515,11 @@ DEPENDENCIES
   jasmine (= 1.1.0.rc3)
   json (= 1.4.6)
   jwt (= 0.1.3)
-  kaminari
   linecache (= 0.43)
+  messagebus_ruby_api (= 0.4.8)
   mini_magick (= 3.2)
   mobile-fu
+  mock_redis
   mongrel
   mysql2 (= 0.2.13)
   newrelic_rpm
@@ -531,10 +542,12 @@ DEPENDENCIES
   rspec-rails (>= 2.0.0)
   ruby-debug
   ruby-debug19
-  sass (= 3.1.4)
-  selenium-webdriver (= 2.4)
+  ruby-oembed
+  sass (= 3.1.7)
+  selenium-webdriver (~> 2.7.0)
   settingslogic (= 2.0.6)
   sod!
+  sqlite3
   thin (= 1.2.11)
   twitter (= 1.5.0)
   typhoeus

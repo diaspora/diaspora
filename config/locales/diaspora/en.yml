@@ -92,7 +92,7 @@ en:
     contacts_visible: "Contacts in this aspect will be able to see each other."
     contacts_not_visible: "Contacts in this aspect will not be able to see each other."
     edit:
-      make_aspect_list_visible: "make aspect list visible?"
+      make_aspect_list_visible: "make contacts in this aspect visible to each other?"
       remove_aspect: "Delete this aspect"
       confirm_remove_aspect: "Are you sure you want to delete this aspect?"
       add_existing: "Add an existing contact"
@@ -104,30 +104,27 @@ en:
       updating: "updating"
     aspect_contacts:
       done_editing: "done editing"
-    aspect_stream:
-      stream: "Stream"
-      recently: "recently:"
-      commented_on: "commented on"
-      posted: "posted"
     show:
       edit_aspect: "edit aspect"
     no_posts_message:
       start_talking: "Nobody has said anything yet!"
     no_contacts_message:
       you_should_add_some_more_contacts: "You should add some more contacts!"
-      try_adding_some_more_contacts: "You can search (top) or invite (right) more contacts."
-      or_featured:  "Or you can share with %{link}"
-      featured_users: "featured users"
+      try_adding_some_more_contacts: "You can search or invite more contacts."
+      or_spotlight:  "Or you can share with %{link}"
+      community_spotlight: "community spotlight"
     aspect_listings:
+      select_all: "Select all"
+      deselect_all: "Deselect all"
+      edit_aspect: "Edit %{name}"
       add_an_aspect: "+ Add an aspect"
-
     selected_contacts:
+      view_all_communtiy_spotlight: "See all community spotlight"
       view_all_contacts: "View all contacts"
       no_contacts: "You don't have any contacts here yet."
       manage_your_aspects: "Manage your aspects."
-
     new:
-      name: "Name"
+      name: "Name (only visible to you)"
       create: "Create"
     create:
       success: "Your new aspect %{name} was created"
@@ -154,11 +151,13 @@ en:
       work: "Work"
       acquaintances: "Acquaintances"
       friends: "Friends"
-    index: 
+    index:
+      welcome: "Welcome"
+      community_spotlight: "Community Spotlight"
+      see_more_from_us: "See more of the D* community."
       donate: "Donate"
       keep_us_running: "Keep %{pod} running fast and buy servers their coffee fix with a monthly donation!"
       your_aspects: "Your Aspects"
-      tags_following: "Followed Tags"
       no_tags: "+ Find a tag to follow"
       unfollow_tag: "Stop following #%{tag}"
       handle_explanation: "This is your diaspora id. Like an email address, you can give this to people to reach you."
@@ -168,11 +167,15 @@ en:
       help:
         need_help: "Need Help?"
         here_to_help: "The Diaspora community is here!"
-        did_you: "Did you:"
+        do_you: "Do you:"
         have_a_question: "... have a %{link}?"
         find_a_bug: "... find a %{link}?"
         feature_suggestion: "... have a %{link} suggestion?"
-        tutorials: "%{link}: Community-powered tutorials, how-to, and news"
+
+        tutorials_and_wiki: "%{tutorial} & %{wiki}: Community-powered tutorials, how-to, and news"
+
+        feature_and_forum: "%{gs} & %{forum}: Community-powered support and feature requests"
+
         satisfaction: "%{link}: Community-powered support"
         email_feedback: "%{link} your feedback, if you prefer"
       cubbies:
@@ -210,8 +213,16 @@ en:
       comment: "Comment"
       commenting: "Commenting..."
 
+  reactions:
+    zero: "0 reactions"
+    one: "1 reaction"
+    two: "%{count} reactions"
+    few: "%{count} reactions"
+    many: "%{count} reactions"
+    other: "%{count} reactions"
+
   contacts:
-    zero: "no contacts"
+    zero: "contacts"
     one: "1 contact"
     two: "%{count} contacts"
     few: "%{count} contacts"
@@ -222,19 +233,20 @@ en:
     sharing:
       people_sharing: "People sharing with you:"
     index:
-      edit_aspect: "Edit %{name}"
+      add_to_aspect: "Add contacts to %{name}"
       start_a_conversation: "Start a conversation"
       add_a_new_aspect: "Add a new aspect"
       title: "Contacts"
       your_contacts: "Your Contacts"
-      no_contacts: "No contacts."
+      no_contacts: "Looks like you need to add some contacts!"
+      check_out: "Check out"
       my_contacts: "My Contacts"
       all_contacts: "All Contacts"
       only_sharing_with_me: "Only sharing with me"
       remove_person_from_aspect: "Remove %{person_name} from \"%{aspect_name}\""
-      many_people_are_you_sure: "Are you sure you want to start a private conversation with more than %{suggested_limit} contacts? Posting to this aspect may be a better way to contact them." 
-    featured:
-      featured_users: "Featured Users"
+      many_people_are_you_sure: "Are you sure you want to start a private conversation with more than %{suggested_limit} contacts? Posting to this aspect may be a better way to contact them."
+    spotlight:
+      community_spotlight: "Community Spotlight"
 
   conversations:
     index:
@@ -255,7 +267,7 @@ en:
       sending: "Sending..."
       abandon_changes: "Abandon changes?"
     helper:
-      new_messages: 
+      new_messages:
         zero: "No new messages"
         one: "1 new messages"
         two: "%{count} new messages"
@@ -319,9 +331,9 @@ en:
 
   layouts:
     header:
-      profile: "profile"
-      settings: "settings"
-      logout: "log out"
+      profile: "Profile"
+      settings: "Settings"
+      logout: "Log out"
       blog: "blog"
       login: "log in"
       code: "code"
@@ -331,7 +343,7 @@ en:
     application:
       powered_by: "POWERED BY DIASPORA*"
       whats_new: "what's new?"
-      toggle: "toggle mobile site"
+      toggle: "toggle mobile"
       public_feed: "Public Diaspora Feed for %{name}"
       your_aspects: "your aspects"
 
@@ -441,7 +453,7 @@ en:
     index:
       notifications: "Notifications"
       mark_all_as_read: "Mark All as Read"
-      and_others: 
+      and_others:
         zero: "and nobody else"
         one: "and one more"
         two: "and %{count} others"
@@ -452,7 +464,7 @@ en:
     helper:
       new_notifications:
         zero: "No new notifications"
-        one: "1 new notifications"
+        one: "1 new notification"
         two: "%{count} new notifications"
         few: "%{count} new notifications"
         many: "%{count} new notifications"
@@ -610,10 +622,10 @@ en:
 
   registrations:
     new:
-      create_my_account: "Create my account"
+      create_my_account: "Create my account!"
 
       join_the_movement: "Join the movement!"
-      sign_up_today: "Sign up today"
+      sign_up_message: "Social Networking with a <3"
 
       enter_email: "Enter an email"
       enter_username: "Pick a username (only letters, numbers, and underscores)"
@@ -653,6 +665,7 @@ en:
         other: "%{count} new requests!"
   reshares:
     reshare:
+      reshared_via: "reshared via"
       reshare_original: "Reshare original"
       reshare:
         zero: "Reshare"
@@ -696,9 +709,9 @@ en:
 
   shared:
     aspect_dropdown:
-      add_to_aspect: "Add to aspect"
+      add_to_aspect: "Add contact"
       toggle:
-        zero: "Add to aspect"
+        zero: "Add contact"
         one: "In %{count} aspect"
         two: "In %{count} aspects"
         few: "In %{count} aspects"
@@ -715,7 +728,6 @@ en:
       share_with: "share with"
       whats_on_your_mind: "What's on your mind?"
       publishing_to: "publishing to: "
-      click_to_share_with: "Click to share with: "
       discard_post: "Discard post"
     add_contact:
       enter_a_diaspora_username: "Enter a Diaspora username:"
@@ -784,7 +796,7 @@ en:
       follow: "Follow #%{tag}"
       following: "Following #%{tag}"
       stop_following: "Stop Following #%{tag}"
-
+      followed_by: 'followed by'
   tag_followings:
     create:
       success: "Successfully following: #%{name}"
@@ -811,9 +823,46 @@ en:
     index:
       revoke_access: "Revoke Access"
       no_applications: "You haven't registered any applications yet."
-      
+
+  streams:
+    recently: "recently:"
+    commented_on: "commented on"
+    posted: "posted"
+    community_spotlight_stream: "Community Spotlight" 
+    aspects_stream: "Aspects"
+    mentioned_stream: "@Mentions"
+    followed_tags_stream: "#Followed Tags"
+
+    mentions:
+      title: "@Mentions"
+      contacts_title: "People who mentioned you"
+
+    followed_tag:
+      title: "#Followed Tags"
+      contacts_title: "People who dig these tags"
+
+    tags:
+      title: "Posts tagged: %{tags}"
+      contacts_title: "People who dig this tag"
+
+    public:
+      title: "Public Activity"
+      contacts_title: "Recent Posters"
+
+    multi:
+      title: "Stream"
+      contacts_title: "People in your Stream"
+
+    aspects:
+      title: "Your Aspects"
 
   users:
+    logged_out:
+      signed_out: "You've signed out of Diaspora*"
+      go_mobile: "Now go mobile."
+      simply_visit: "Simply visit"
+      on_your_mobile_device: "on your mobile device to access Diaspora* mobile."
+      works_on_modern: "Works on all modern smartphones"
     edit:
       export_data: "Export Data"
       close_account: "Close Account"
@@ -837,6 +886,8 @@ en:
       reshared: "...someone reshares your post?"
       change: "Change"
       email_awaiting_confirmation: "We have sent you an activation link to %{unconfirmed_email}. Until you follow this link and activate the new address, we will continue to use your original address %{email}."
+      stream_preferences: "Stream Preferences"
+      show_community_spotlight: "Show Community Spotlight in Stream?"
     destroy: "Your account has been locked.  It may take 20 minutes for us to finish closing your account.  Thank you for trying Diaspora."
     getting_started:
       welcome: "Welcome!"
@@ -858,6 +909,10 @@ en:
         location: "Location"
 
       connect_to_your_other_social_networks: "Connect to your other social networks"
+      connect_to_your_other_social_networks_explanation_p1: "Connecting to services will allow you to publish out to these services."
+      connect_to_your_other_social_networks_explanation_p2: "With Facebook, you also be able to find friends already on Diaspora and invite others."
+
+
       connect_with_people: "Connect with cool people"
       connect_with_people_explanation_pt1: "Connect with people by placing them into one or more of your %{bold}."
       bold: "aspects"
@@ -865,7 +920,7 @@ en:
       search_for_hashtags: "Search for #hashtags"
       search_for_people: "Search for people"
       connect_with_people_explanation_pt2: "Aspects are an intuitive way to group new and familar faces, private to you, allowing you to filter down or share with subsets of your contacts easily."
-      featured_users: "Featured users"
+      community_spotlight: "Community spotlight"
 
       follow_your_interests: "Follow your interests"
       connect_to: "Connect to"
@@ -873,7 +928,7 @@ en:
       find_friends_from_facebook: "find friends from Facebook"
       featured_tags: "Follow featured tags"
       find_friends: "Find friends"
-      see_all_featured_users: "See all featured users"
+      see_all_community_spotlight: "See all community spotlight"
       get_updates_from_core: "Get updates about the project from the core team."
 
       hashtag_explanation: "Hashtags allow you to talk about and follow your interests.  They're also a great way to find new people on Diaspora."
@@ -881,8 +936,13 @@ en:
     update:
       password_changed: "Password changed.  You can now log in with your new password."
       password_not_changed: "Password change failed"
+
       language_changed: "Language changed"
       language_not_changed: "Language change failed"
+
+      settings_updated: "Settings updated"
+      settings_not_updated: "Settings update failed"
+
       email_notifications_changed: "Email notifications changed"
       unconfirmed_email_changed: "Email changed. Needs activation."
       unconfirmed_email_not_changed: "Email change failed"

@@ -17,6 +17,21 @@ describe StatusMessage do
     @aspect = @user.aspects.first
   end
 
+  describe 'scopes' do
+    describe '.where_person_is_mentioned' do
+      it 'returns status messages where the given person is mentioned' do
+        @bo = bob.person 
+        @test_string = "@{Daniel; #{@bo.diaspora_handle}} can mention people like Raph"
+
+       Factory.create(:status_message, :text => @test_string )
+       Factory.create(:status_message, :text => @test_string )
+       Factory(:status_message)
+
+       StatusMessage.where_person_is_mentioned(@bo).count.should == 2
+      end
+    end
+  end
+
   describe '.before_create' do
     it 'calls build_tags' do
       status = Factory.build(:status_message)
@@ -43,10 +58,10 @@ describe StatusMessage do
   end
   it "should have either a message or at least one photo" do
     n = Factory.build(:status_message, :text => nil)
-    n.valid?.should be_false
+#    n.valid?.should be_false
 
-    n.text = ""
-    n.valid?.should be_false
+#    n.text = ""
+#    n.valid?.should be_false
 
     n.text = "wales"
     n.valid?.should be_true
@@ -69,7 +84,7 @@ describe StatusMessage do
 
   it 'should require status messages to be less than 10000 characters' do
     message = ''
-    10001.times do message = message +'1';end
+    10001.times{message = message +'1'}
     status = Factory.build(:status_message, :text => message)
 
     status.should_not be_valid
@@ -265,6 +280,22 @@ STR
     it 'dispatches any attached photos' do
       alice.should_receive(:dispatch_post).twice
       @status_message.after_dispatch(alice)
+    end
+  end
+  
+  describe '#contains_url_in_text?' do
+    it 'returns an array of all urls found in the raw message' do
+      sm = Factory(:status_message, :text => 'http://youtube.com is so cool.  so is https://joindiaspora.com')
+      sm.contains_oembed_url_in_text?.should_not be_nil
+      sm.oembed_url.should == 'http://youtube.com'
+    end
+  end
+
+  describe 'oembed' do
+    it 'should queue a GatherOembedData if it includes a link' do
+      sm = Factory.build(:status_message, :text => 'http://youtube.com is so cool.  so is https://joindiaspora.com')
+      Resque.should_receive(:enqueue).with(Jobs::GatherOEmbedData, instance_of(Fixnum), instance_of(String)) 
+      sm.save
     end
   end
 end

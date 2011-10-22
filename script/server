@@ -7,7 +7,8 @@
 #
 
 # ensure right directory
-cd $(dirname $(readlink -e $0))/..
+realpath=$( ruby -e "puts File.expand_path(\"$0\")")
+cd $(dirname $realpath)/..
 
 # Check if script_server.yml exists
 if [ ! -e 'config/script_server.yml' ]; then

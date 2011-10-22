@@ -1,0 +1,13 @@
+
+.span-24
+  = render :partial => 'admins/admin_bar.haml'
+%br
+%br
+
+.span-24.last
+  %h1
+    = "Correlations with Sign In Count:"
+  %ul
+    - @correlations_hash.keys.each do |k|
+      %li
+        = "#{k.to_s}, #{@correlations_hash[k]}"

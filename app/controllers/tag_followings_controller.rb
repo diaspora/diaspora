@@ -1,12 +1,16 @@
-require File.join(Rails.root, '/lib/tag_stream')
+#   Copyright (c) 2010-2011, Diaspora Inc.  This file is
+#   licensed under the Affero General Public License version 3 or later.  See
+#   the COPYRIGHT file.
+#
+require File.join(Rails.root, 'lib', 'stream', 'followed_tag')
+
 class TagFollowingsController < ApplicationController
   before_filter :authenticate_user!
 
   def index
-    @stream = TagStream.new(current_user)
-
-    render 'aspects/index', :locals => {:posts => @stream.posts}
+    default_stream_action(Stream::FollowedTag)
   end
+
   # POST /tag_followings
   # POST /tag_followings.xml
   def create

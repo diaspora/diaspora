@@ -1,0 +1,15 @@
+-#   Copyright (c) 2010-2011, Diaspora Inc.  This file is
+-#   licensed under the Affero General Public License version 3 or later.  See
+-#   the COPYRIGHT file.
+
+%h1
+  = @stream.display_tag_name
+
+#main_stream.stream
+  = render 'shared/stream', :posts => @stream.posts
+  -if @stream.posts.length > 0
+    #pagination
+      %a.more-link.paginate{:href => next_page_path}
+        %h1
+          = t("more")
+

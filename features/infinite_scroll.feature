@@ -8,23 +8,10 @@ Feature: infinite scroll
       Given many posts from alice for bob
       And I resize my window to 800x600
       And I sign in as "bob@bob.bob"
+      And I wait for the ajax to finish
 
     Scenario: on the main stream by activity
-      Then I should see 15 posts
-      And I should see "alice - 26 - #seeded"
-
-      When I scroll down
-      Then I should see 30 posts
-      And I should see "alice - 11 - #seeded"
-
-      When I scroll down
-      Then I should see 40 posts
-      And I should see "alice - 1 - #seeded"
-
-      When I scroll down
-      Then I should see "No more"
-
-      When I follow "generic"
+      When I follow "commented on"
       And I wait for the ajax to finish
       Then I should see 15 posts
       And I should see "alice - 26 - #seeded"
@@ -41,22 +28,7 @@ Feature: infinite scroll
       Then I should see "No more"
 
     Scenario: on the main stream post created time
-      When I follow "posted"
-      Then I should see 15 posts
-      And I should see "alice - 15 - #seeded"
-
-      When I scroll down
-      Then I should see 30 posts
-      And I should see "alice - 30 - #seeded"
-
-      When I scroll down
-      Then I should see 40 posts
-      And I should see "alice - 40 - #seeded"
-
-      When I scroll down
-      Then I should see "No more"
-
-      When I follow "generic"
+      And I go to the home page
       And I wait for the ajax to finish
       Then I should see 15 posts
       And I should see "alice - 15 - #seeded"

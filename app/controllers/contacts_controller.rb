@@ -38,9 +38,9 @@ class ContactsController < ApplicationController
     render :layout => false
   end
 
-  def featured
-    @featured = true
-    @people = Person.featured_users
+  def spotlight
+    @spotlight = true
+    @people = Person.community_spotlight
   end
 
   private

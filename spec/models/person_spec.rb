@@ -151,24 +151,43 @@ describe Person do
       @profile = @person.profile
     end
 
-    context 'with first name' do
-      it 'should return their name for name' do
-        Person.name_from_attrs(@profile.first_name, @profile.last_name, @profile.diaspora_handle).should match /#{@profile.first_name}|#{@profile.last_name}/
+    context 'with only first name' do
+      it 'should return their first name for name' do
+        Person.name_from_attrs(@profile.first_name, nil, @profile.diaspora_handle).should == @profile.first_name.strip
       end
     end
 
-    context 'without first name' do
+    context 'with only last name' do
+      it 'should return their last name for name' do
+        Person.name_from_attrs(nil, @profile.last_name, @profile.diaspora_handle).should == @profile.last_name.strip
+      end
+    end
+
+    context 'with both first and last name' do
+      it 'should return their composed name for name' do
+        Person.name_from_attrs(@profile.first_name, @profile.last_name, @profile.diaspora_handle).should == "#{@profile.first_name.strip} #{@profile.last_name.strip}"
+      end
+    end
+
+    context 'without first nor last name' do
       it 'should display their diaspora handle' do
         Person.name_from_attrs(nil, nil, @profile.diaspora_handle).should == @profile.diaspora_handle
       end
     end
   end
 
-  context '#name' do
+  describe '#name' do
     it 'calls Person.name_from_attrs' do
       profile = alice.person.profile
       Person.should_receive(:name_from_attrs).with(profile.first_name, profile.last_name, profile.person.diaspora_handle)
       alice.name
+    end
+
+    it "strips endline whitespace" do
+      profile = alice.person.profile
+      profile.first_name = "maxwell "
+      profile.last_name = "salzberg "
+      alice.name.should == "maxwell salzberg"
     end
   end
 
@@ -460,17 +479,17 @@ describe Person do
     end
   end
 
-  describe '.featured_users' do
-    describe "when the pod owner hasn't set up any featured users" do
+  describe '.community_spotlight' do
+    describe "when the pod owner hasn't set up any community spotlight members" do
       before do
-        @existing_featured_users = AppConfig[:featured_users]
-        AppConfig[:featured_users] = nil
+        @existing_community_spotlight = AppConfig[:community_spotlight]
+        AppConfig[:community_spotlight] = nil
       end
       after do
-        AppConfig[:featured_users] = @existing_featured_users
+        AppConfig[:community_spotlight] = @existing_community_spotlight
       end
       it "returns an empty array" do
-        Person.featured_users.should == []
+        Person.community_spotlight.should == []
       end
     end
   end

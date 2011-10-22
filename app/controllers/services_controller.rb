@@ -26,9 +26,11 @@ class ServicesController < ApplicationController
                                                                :uid => auth['uid'])
     current_user.services << service
 
+    current_user.update_profile(current_user.person.profile.from_omniauth_hash(user))
+
     flash[:notice] = I18n.t 'services.create.success'
     if current_user.getting_started
-      redirect_to  getting_started_path(:step => 3)
+      redirect_to  getting_started_path
     else
       redirect_to services_url
     end

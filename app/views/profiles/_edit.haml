@@ -13,32 +13,42 @@
   %h3
     = t('profiles.edit.your_private_profile')
 
+
   %h4
     = t('profiles.edit.your_bio')
-    = text_area_tag 'profile[bio]', profile.bio, :rows => 5, :placeholder => t('fill_me_out')
+  = text_area_tag 'profile[bio]', profile.bio, :rows => 5, :placeholder => t('fill_me_out')
+
+  %br
 
   %h4
     = t('profiles.edit.your_location')
-    %br
-    = text_field_tag 'profile[location]', profile.location, :placeholder => t('fill_me_out')
-  
+  = text_field_tag 'profile[location]', profile.location, :placeholder => t('fill_me_out')
+
+
+  %br
+
   %h4
     = t('profiles.edit.your_gender')
-    %br
-    = text_field_tag 'profile[gender]', profile.gender, :placeholder => t("fill_me_out")
+  = text_field_tag 'profile[gender]', profile.gender, :placeholder => t("fill_me_out")
+
+  %br
 
   %h4
     = t('profiles.edit.your_birthday')
-    %br
-    = select_date profile.birthday, :prompt => true,
-      :default => true, :order => t('date.order'), :start_year => 2000, :end_year => 1930, :prefix => 'profile[date]'
+  = select_date profile.birthday, :prompt => true,
+    :default => true, :order => t('date.order'), :start_year => 2000, :end_year => 1930, :prefix => 'profile[date]'
+
+  %br
+  %br
 
   %h4
     = t('search')
-    %p{:class=>"checkbox_select"}
-      = label_tag 'profile[searchable]', t('profiles.edit.allow_search')
-      = check_box_tag 'profile[searchable]', true, profile.searchable
 
+  %p{:class=>"checkbox_select"}
+    = label_tag 'profile[searchable]', t('profiles.edit.allow_search')
+    = check_box_tag 'profile[searchable]', true, profile.searchable
+
+  %br
   %br
 
   .submit_block

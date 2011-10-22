@@ -10,8 +10,6 @@
     var data = $.parseJSON( '#{@tags_array.to_json.gsub("'", "\\\\'")}' ),
         autocompleteInput = $("#profile_tag_string");
 
-
-    
     autocompleteInput.autoSuggest("#{tags_path}", {
       selectedItemProp: "name",
       searchObjProps: "name",
@@ -21,20 +19,20 @@
       selectionLimit: 5,
       minChars: 2,
       keyDelay: 200,
-      startText: "#{t('profiles.edit.your_tags_placeholder')}",
+      startText: "",
       emptyText: "#{t('no_results')}",
       preFill: data
       });
 
     autocompleteInput.bind('keydown', function(evt){
       if(evt.keyCode == 13 || evt.keyCode == 9 || evt.keyCode == 32){
+        evt.preventDefault();
         if( $('li.as-result-item.active').length == 0 ){
           $('li.as-result-item').first().click();
         }
       }
     });
   });
-
 
 %h3
   = t('profiles.edit.your_public_profile')
@@ -43,13 +41,23 @@
 
 %h4
   = t('profiles.edit.your_name')
-  = text_field_tag 'profile[first_name]', profile.first_name, :placeholder => t('profiles.edit.first_name')
-  = text_field_tag 'profile[last_name]', profile.last_name, :placeholder => t('profiles.edit.last_name')
+= text_field_tag 'profile[first_name]', profile.first_name, :placeholder => t('profiles.edit.first_name')
+= text_field_tag 'profile[last_name]', profile.last_name, :placeholder => t('profiles.edit.last_name')
+
+%br
 
 %h4
   = t('profiles.edit.your_tags')
-  = text_field_tag 'profile[tag_string]', ""
+
+= text_field_tag 'profile[tag_string]', ""
+%p{:style => "color:#777;font-style:italic"}
+  = t('profiles.edit.your_tags_placeholder')
+
+%br
+
 %h4
   = t('profiles.edit.your_photo')
-  = render 'photos/new_profile_photo', :aspect => aspect, :person => person
-  %br
+
+= render 'photos/new_profile_photo', :aspect => aspect, :person => person
+
+%br

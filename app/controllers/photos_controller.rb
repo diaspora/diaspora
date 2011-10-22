@@ -29,7 +29,7 @@ class PhotosController < ApplicationController
         @contacts_of_contact_count = 0
       end
 
-      @posts = current_user.posts_from(@person).where(:type => 'Photo').paginate(:page => params[:page])
+      @posts = current_user.photos_from(@person).paginate(:page => params[:page])
 
       render 'people/show'
 
@@ -119,7 +119,7 @@ class PhotosController < ApplicationController
   end
 
   def destroy
-    photo = current_user.posts.where(:id => params[:id]).first
+    photo = current_user.photos.where(:id => params[:id]).first
 
     if photo
       current_user.retract(photo)
@@ -149,7 +149,7 @@ class PhotosController < ApplicationController
   end
 
   def edit
-    if @photo = current_user.posts.where(:id => params[:id]).first
+    if @photo = current_user.photos.where(:id => params[:id]).first
       respond_with @photo
     else
       redirect_to person_photos_path(current_user.person)
@@ -157,7 +157,7 @@ class PhotosController < ApplicationController
   end
 
   def update
-    photo = current_user.posts.where(:id => params[:id]).first
+    photo = current_user.photos.where(:id => params[:id]).first
     if photo
       if current_user.update_post( photo, params[:photo] )
         flash.now[:notice] = I18n.t 'photos.update.notice'
@@ -188,7 +188,7 @@ class PhotosController < ApplicationController
   end
 
   def photo
-    @photo ||= current_user.find_visible_post_by_id(params[:id], :type => 'Photo')
+    @photo ||= current_user.find_visible_shareable_by_id(Photo, params[:id])
   end
 
   def additional_photos

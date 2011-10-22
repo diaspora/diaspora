@@ -22,8 +22,8 @@ describe User do
     it 'saves post into visible post ids' do
       lambda {
         alice.add_to_streams(@post, @aspects)
-      }.should change{alice.visible_posts(:by_members_of => @aspects).length}.by(1)
-      alice.visible_posts(:by_members_of => @aspects).should include @post
+      }.should change{alice.visible_shareables(Post, :by_members_of => @aspects).length}.by(1)
+      alice.visible_shareables(Post, :by_members_of => @aspects).should include @post
     end
 
     it 'saves post into each aspect in aspect_ids' do

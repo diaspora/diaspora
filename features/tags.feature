@@ -11,6 +11,11 @@ Feature: Interacting with tags
     Then I should be on the tag page for "rockstar"
     And I should see "Samuel Beckett"
 
+  Scenario: Searching for a tag keeps the search term in the search field
+    When I search for "#rockstar"
+    Then I should be on the tag page for "rockstar"
+    And the "q" field within "#global_search" should contain "#rockstar"
+
   @wip
   Scenario: adding a contact from a tag page
     When I search for "#rockstar"

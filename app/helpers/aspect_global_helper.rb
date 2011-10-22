@@ -5,7 +5,7 @@
 module AspectGlobalHelper
   def aspects_with_post(aspects, post)
     aspects.select do |aspect|
-      AspectVisibility.exists?(:aspect_id => aspect.id, :post_id => post.id)
+      AspectVisibility.exists?(:aspect_id => aspect.id, :shareable_id => post.id, :shareable_type => 'Post')
     end
   end
 
@@ -21,7 +21,7 @@ module AspectGlobalHelper
     str = "<span class='aspect_badge single'>"
     link = opts.delete(:link)
     if !link
-      str << link_to(aspect.name, "#", 'data-guid' => aspect.id, :class => 'hard_aspect_link').html_safe
+      str << link_to(aspect.name, "#", 'data-guid' => aspect.id).html_safe
     else
       str << link_for_aspect(aspect).html_safe
     end
@@ -32,7 +32,7 @@ module AspectGlobalHelper
     str = ""
     aspects.each do |aspect|
       str << '<li>'
-      str << link_for_aspect(aspect, :params => opts, 'data-guid' => aspect.id, :class => 'hard_aspect_link').html_safe
+      str << link_for_aspect(aspect, :params => opts, 'data-guid' => aspect.id).html_safe
       str << '</li>'
     end
     str.html_safe
@@ -42,8 +42,6 @@ module AspectGlobalHelper
     opts[:params] ||= {}
     params ||= {}
     opts[:params] = opts[:params].merge("a_ids[]" => aspect.id, :created_at => params[:created_at])
-    opts[:class] ||= ""
-    opts[:class] << " hard_aspect_link"
     opts['data-guid'] = aspect.id
 
     link_to aspect.name, aspects_path( opts[:params] ), opts
@@ -71,7 +69,7 @@ module AspectGlobalHelper
     klass = checked ? "selected" : ""
 
     str = <<LISTITEM
-<li data-aspect_id=#{aspect.id} class='#{klass}'>
+<li data-aspect_id=#{aspect.id} class='#{klass} aspect_selector'>
   #{aspect.name}
 </li>
 LISTITEM
@@ -79,6 +77,6 @@ LISTITEM
   end
 
   def dropdown_may_create_new_aspect
-    @aspect == :profile || @aspect == :tag || @aspect == :search || @aspect == :notification
+    @aspect == :profile || @aspect == :tag || @aspect == :search || @aspect == :notification || params[:action] == "getting_started"
   end
 end

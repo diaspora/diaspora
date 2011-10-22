@@ -1,0 +1,37 @@
+-#   Copyright (c) 2010-2011, Diaspora Inc.  This file is
+-#   licensed under the Affero General Public License version 3 or later.  See
+-#   the COPYRIGHT file.
+
+#grey_header
+  .container{:style => 'text-align:center;'}
+    %h2
+      = t('.signed_out')
+
+    %h1
+      = t('.go_mobile')
+
+.container{:style => 'text-align:center;'}
+  %br
+  %br
+  %br
+  %br
+  %br
+  %br
+  %br
+  %br
+  %br
+
+  = image_tag 'mobile.jpg', :width => 150, :height => 294
+
+  %br
+  %br
+  %br
+
+  %h4
+    = t('.simply_visit')
+    %strong
+      = link_to AppConfig[:pod_url], root_url
+    = t('.on_your_mobile_device')
+
+  %p.dull
+    = t('.works_on_modern')

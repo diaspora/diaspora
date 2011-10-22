@@ -36,10 +36,11 @@ en:
       web_sockets:
         disconnected: "The websocket is closed; posts will no longer be streamed live."
       aspect_dropdown:
-        add_to_aspect: "Add to aspect"
+        add_to_aspect: "Add contact"
+        select_aspects: "Select aspects"
         all_aspects: "All aspects"
         toggle:
-          zero: "Add to aspect"
+          zero: "Select aspects"
           one: "In {{count}} aspect"
           two: "In {{count}} aspects"
           few: "In {{count}} aspects"
@@ -53,3 +54,7 @@ en:
         hide: "hide comments"
       reshares:
         duplicate: "You've already reshared that post!"
+      aspect_navigation:
+        select_all: "Select all"
+        deselect_all: "Deselect all"
+        no_aspects: "No aspects selected"

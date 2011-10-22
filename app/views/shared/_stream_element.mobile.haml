@@ -3,27 +3,42 @@
 -#   the COPYRIGHT file.
 
 .stream_element{:data=>{:guid=>post.id}}
-  = person_image_link(post.author, :size => :thumb_small)
+
+  - if post.is_a?(Reshare)
+    = render 'reshares/reshare', :reshare => post, :post => post.root
+
+  = render 'shared/photo_area', :post => post
 
   .content
-    .from
-      = person_link(post.author)
+    = render 'shared/post_info', :post => post
 
-    - if post.activity_streams?
-      = image_tag post.image_url
-    - elsif reshare?(post)
-      = render 'reshares/reshare', :reshare => post, :post => post.root
-    - else
+    - if post.is_a?(StatusMessage)
       = render 'status_messages/status_message', :post => post, :photos => post.photos
 
-    .info
-      %span.time{:integer => post.created_at.to_i}
-        = t('ago', :time => time_ago_in_words(post.created_at))
-      %span.via
-        - if post.activity_streams?
-          = t('.via', :link => link_to("#{post.provider_display_name}", post.actor_url)).html_safe
+  .bottom_bar
+    .floater
+      = mobile_reshare_icon(post)
+      = mobile_comment_icon(post)
+      = mobile_like_icon(post)
 
-      = link_to "#{t('comments', :count => post.comments.length)} →", post_path(post), :class => 'comment_link right'
-      - if post.activity_streams?
-        %br
+    != reactions_link(post)
+
+    - if defined?(expanded_info) && expanded_info
+      .comment_container
+        .post_stats
+          - if post.public?
+            %span.comment_count
+              = post.reshares.size
+
+          %span.comment_count
+            = post.comments.size
+
+          %span.like_count
+            = post.likes.size
+
+        %ul.comments
+          = render :partial => 'comments/comment', :collection => post.comments, :locals => {:post => post}
+
+          %li.comment.add_comment_bottom_link_container
+            = link_to "Add a comment", new_post_comment_path(post), :class => 'add_comment_bottom_link btn comment_action inactive'
 

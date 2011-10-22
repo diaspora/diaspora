@@ -16,7 +16,7 @@ ul.as-selections {
 }
 
 ul.as-selections.loading {
-	background-color: #eee;
+  background: url("/images/ajax-loader.gif") right center no-repeat;
 }
 
 ul.as-selections li {

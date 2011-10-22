@@ -2,10 +2,18 @@
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
+require File.join(Rails.root, 'lib/messagebus/mailer')
 Diaspora::Application.configure do
   config.action_mailer.default_url_options = {:host => AppConfig[:pod_uri].authority }
+
   unless Rails.env == 'test' || AppConfig[:mailer_on] != true
-    if AppConfig[:mailer_method] == "sendmail"
+    if AppConfig[:mailer_method] == 'messagebus'
+      if AppConfig[:messagebus_api_key].present?
+        config.action_mailer.delivery_method = Messagebus::Mailer.new(AppConfig[:messagebus_api_key])
+      else
+        puts "You need to set your messagebus api key if you are going to use the message bus service. no mailer is now configured"
+      end
+    elsif AppConfig[:mailer_method] == "sendmail"
       config.action_mailer.delivery_method = :sendmail
       config.action_mailer.sendmail_settings = {
         :location => AppConfig[:sendmail_location]
@@ -34,4 +42,5 @@ Diaspora::Application.configure do
       end
     end
   end
+
 end

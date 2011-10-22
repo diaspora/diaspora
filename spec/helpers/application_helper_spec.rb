@@ -18,9 +18,9 @@ describe ApplicationHelper do
       end
     end
 
-    it 'links to featured users' do
+    it 'links to community spotlight' do
       @current_user = Factory(:user)
-      contacts_link.should == featured_users_path
+      contacts_link.should == community_spotlight_path
     end
 
     it 'links to contacts#index' do

@@ -97,7 +97,7 @@ ca:
     contacts_visible: "Els contactes en aquest aspecte es podran veure entre ells."
     contacts_not_visible: "Els contactes en aquest aspecte no es podran veure entre ells."
     edit:
-      make_aspect_list_visible: "voleu fer visible aquest aspecte?"
+      make_aspect_list_visible: "voleu fer que els contactes d'aquest aspecte siguin visibles entre ells?"
       remove_aspect: "Suprimeix aquest aspecte"
       confirm_remove_aspect: "Esteu segur de voler suprimir aquest aspecte?"
       add_existing: "Afegeix un contacte existent"
@@ -111,6 +111,7 @@ ca:
       done_editing: "finalitza l'edició"
     aspect_stream:
       stream: "Flux"
+      mentions: "Mencions"
       recently: "recentment:"
       commented_on: "comentat"
       posted: "publicat"
@@ -124,14 +125,18 @@ ca:
       or_featured: "O podeu compartir amb %{link}"
       featured_users: "usuaris destacats"
     aspect_listings:
+      select_all: "Selecciona'ls tots"
+      deselect_all: "Desselecciona'ls tots"
+      edit_aspect: "Edita %{name}"
       add_an_aspect: "+ Afegeix un aspecte"
 
     selected_contacts:
+      view_all_featured_users: "Vegeu tots els usuaris destacats"
       view_all_contacts: "Mostra tots els contactes"
       no_contacts: "Encara no teniu cap contacte aquí."
       manage_your_aspects: "Gestioneu els vostres aspectes."
     new:
-      name: "Nom"
+      name: "Nom (només visible per vosaltres)"
       create: "Crea'l"
     create:
       success: "S'ha creat el vostre aspecte nou %{name}"
@@ -159,8 +164,11 @@ ca:
       acquaintances: "Coneguts"
       friends: "Amistats"
     index:
+      mentions: "Mencions"
+      community_spotlight: "Usuaris destacats"
+      see_more_from_us: "Vegeu més membres de la comunitat del Diàspora*."
       donate: "Doneu"
-      keep_us_running: "Mantingueu $(pod} en marxa, compreu-li als nostres servidors la seva dosi de cafeïna!"
+      keep_us_running: "Mantingueu %{pod} en marxa i compreu-li als nostres servidors la seva dosi de cafeïna amb una donació mensual!"
       your_aspects: "Els vostres aspectes"
       tags_following: "Etiquetes que seguiu"
       no_tags: "+ Cerqueu una etiqueta per seguir-la"
@@ -169,6 +177,18 @@ ca:
       no_contacts: "Cap contacte"
       post_a_message: "publica un missatge »"
       people_sharing_with_you: "Gent amb qui compartiu"
+      help:
+        need_help: "Necessiteu ajuda?"
+        here_to_help: "La comunitat del Diàspora és aquí per ajudar-vos!"
+        do_you: "Potser…"
+        # Aquests missatges estan malament, però de moment, així es queda.
+        have_a_question: "… teniu alguna %{link}"
+        find_a_bug: "… heu trobat una %{link}"
+        feature_suggestion: "…teniu alguna proposta de %{link}"
+        tutorials_and_wiki: "%{tutorial} i %{wiki}: Tutorials, guies i notícies mantinguts per la comunitat"
+        feature_and_forum: "%{gs} i %{forum}: Suport i propostes de la comunitat"
+        satisfaction: "%{link}: Suport de la comunitat"
+        email_feedback: "%{link} els vostres comentaris, si ho preferiu"
       cubbies:
         heading: "Connecteu a Cubbi.es"
         explanation: "Cubbi.es és la primera aplicació Diàspora sota desenvolupament."
@@ -210,8 +230,17 @@ ca:
       commenting: "S'està comentant…"
 
 
+  reactions:
+    zero: "Cap reacció"
+    one: "1 reacció"
+    two: "%{count} reaccions"
+    few: "%{count} reaccions"
+    many: "%{count} reaccions"
+    other: "%{count} reaccions"
+
+
   contacts:
-    zero: "cap contacte"
+    zero: "contactes"
     one: "1 contacte"
     two: "%{count} contactes"
     few: "%{count} contactes"
@@ -222,19 +251,20 @@ ca:
     sharing:
       people_sharing: "Gent que comparteix amb vosaltres:"
     index:
-      edit_aspect: "Edita %{name}"
+      add_to_aspect: "Afegeix contactes a %{name}"
       start_a_conversation: "Inicia una conversa nova"
       add_a_new_aspect: "Afegeix un aspecte nou"
       title: "Contactes"
       your_contacts: "Els vostres contactes"
-      no_contacts: "Cap contacte."
+      no_contacts: "Sembla que necessiteu afegir alguns contactes!"
+      check_out: "Pegueu una ullada"
       my_contacts: "Els meus contactes"
       all_contacts: "Tots els contactes"
       only_sharing_with_me: "Només compartint amb mi"
       remove_person_from_aspect: "Suprimeix a %{person_name} de l'aspecte «%{aspect_name}»"
       many_people_are_you_sure: "Esteu segur que voleu iniciar una conversa privada amb més de %{suggested_limit} contactes? Publicar a aquest aspecte pot ser una forma millor de contactar amb ells."
-    featured:
-      featured_users: "Usuaris destacats"
+    spotlight:
+      community_spotlight: "Usuaris destacats"
 
 
   conversations:
@@ -324,9 +354,9 @@ ca:
 
   layouts:
     header:
-      profile: "perfil"
-      settings: "paràmetres"
-      logout: "surt"
+      profile: "Perfil"
+      settings: "Paràmetres"
+      logout: "Surt"
       blog: "bloc"
       login: "entra"
       code: "codi"
@@ -671,6 +701,7 @@ ca:
 
   reshares:
     reshare:
+      reshared_via: "Compartit via"
       reshare_original: "Torna a compartir l'original"
       reshare:
         zero: "Torna a compartir"
@@ -705,7 +736,7 @@ ca:
       error: "s'ha produït un error en connectar a aquell servei"
     inviter:
       join_me_on_diaspora: "Uneix-te a mi al DIÀSPORA*"
-      click_link_to_accept_invitation: "Feu clic en aquest enllaç per a acceptar la invitació"
+      click_link_to_accept_invitation: "Seguiu aquest enllaç per a acceptar la invitació"
     finder:
       service_friends: "Amics del %{service}"
       no_friends: "No s'ha trobat cap amic del Facebook."
@@ -717,9 +748,9 @@ ca:
 
   shared:
     aspect_dropdown:
-      add_to_aspect: "Afegeix a un aspecte"
+      add_to_aspect: "Afegeix el contacte"
       toggle:
-        zero: "Afegeix a aspectes"
+        zero: "Afegeix el contacte"
         one: "En %{count} aspecte"
         two: "En %{count} aspectes"
         few: "En %{count} aspectes"
@@ -809,6 +840,7 @@ ca:
       follow: "Segueix #%{tag}"
       following: "Esteu seguint #%{tag}"
       stop_following: "Deixa de seguir #%{tag}"
+      followed_by: "seguit per"
 
 
   tag_followings:
@@ -842,7 +874,27 @@ També és la millor forma de coŀleccionar fotos en línia."
       no_applications: "Encara no heu registrat cap aplicació."
 
 
+  streams:
+    mentions:
+      title: "Les vostres mencions"
+      contacts_title: "Gent que us ha mencionat"
+    tags:
+      title: "Publicacions etiquetades: %{tags}"
+      contacts_title: "Gent que empra aquestes etiquetes"
+    public:
+      title: "Activitat pública"
+      contacts_title: "Publicadors recents"
+    soup:
+      title: "La sopa"
+      contacts_title: "Gent a la vostra sopa"
+
+
   users:
+    logged_out: "Heu sortit del Diàspora*"
+    go_mobile: "Aneu al lloc per dispositius mòbils."
+    simply_visit: "Només heu de visitar"
+    on_your_mobile_device: "al vostre dispositiu mòbil per accedir al Diàspora* mòbil."
+    works_on_modern: "Funciona amb tots els telèfons moderns"
     edit:
       export_data: "Exporta les dades"
       close_account: "Tanca el compte"
@@ -870,6 +922,8 @@ També és la millor forma de coŀleccionar fotos en línia."
     getting_started:
       welcome: "Benvingut/da"
       welcome_with_name: "Benvingut/da, %{name}!"
+      community_welcome: "La comunitat del Diàspora s'alegra de tenir-vos a bord!"
+      not_mandatory: "Si completeu els següents pasos millorarà la vostra experiència al Diàspora, però no és requerit."
 
       finished: "Fet"
 
@@ -886,6 +940,10 @@ També és la millor forma de coŀleccionar fotos en línia."
         location: "Ubicació"
 
       connect_to_your_other_social_networks: "Connecteu amb les vostres altres xarxes socials"
+      connect_to_your_other_social_networks_explanation_p1: "Connectar a serveis us permetrà publicar en aquests serveis."
+      connect_to_your_other_social_networks_explanation_p2: "Amb el Facebook, també podreu cercar amics que ja siguen al Diàspora i convidar als altres."
+
+
       connect_with_people: "Connecteu amb gent interessant"
       connect_with_people_explanation_pt1: "Connecteu amb gent, inserint-los en un o més dels vostres %{bold}."
       bold: "aspectes"
@@ -899,9 +957,10 @@ També és la millor forma de coŀleccionar fotos en línia."
       connect_to: "Connecteu a"
 
       find_friends_from_facebook: "Cerqueu amics des del Facebook"
-      featured_tags: "Etiquetes destacades"
+      featured_tags: "Seguiu les etiquetes destacades"
       find_friends: "Cerqueu amics"
       see_all_featured_users: "Vegeu els usuaris destacats"
+      get_updates_from_core: "Obteniu notícies sobre el projecte a través de l'equip principal."
 
       hashtag_explanation: "Les etiquetes us permeten parlar i seguir els vostres interesos. També són una bona manera de trobar gent nova al Diàspora."
 

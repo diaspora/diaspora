@@ -19,12 +19,27 @@ class StatusMessage < Post
   xml_attr :raw_message
 
   has_many :photos, :dependent => :destroy, :foreign_key => :status_message_guid, :primary_key => :guid
-  validate :presence_of_content
 
-  attr_accessible :text
+  # TODO: disabling presence_of_content() (and its specs in status_message_controller_spec.rb:125) is a quick and dirty fix for federation
+  # a StatusMessage is federated before its photos are so presence_of_content() fails erroneously if no text is present
+  #validate :presence_of_content
+
+  attr_accessible :text, :provider_display_name
+  attr_accessor :oembed_url
   serialize :youtube_titles, Hash
 
   after_create :create_mentions
+
+  after_create :queue_gather_oembed_data, :if => :contains_oembed_url_in_text?
+
+  #scopes
+  scope :where_person_is_mentioned, lambda{|person| joins(:mentions).where(:mentions => {:person_id => person.id})}
+
+  def self.tag_stream(user, tag_array, max_time, order)
+    owned_or_visible_by_user(user).
+      joins(:tags).where(:tags => {:name => tag_array}).
+      for_a_stream(max_time, order)
+  end
 
   def text(opts = {})
     self.formatted_message(opts)
@@ -138,6 +153,16 @@ class StatusMessage < Post
 
   def text_and_photos_blank?
     self.text.blank? && self.photos.blank?
+  end
+
+  def queue_gather_oembed_data
+    Resque.enqueue(Jobs::GatherOEmbedData, self.id, self.oembed_url)
+  end 
+  
+  def contains_oembed_url_in_text?
+    require 'uri'
+    urls = URI.extract(self.raw_message, ['http', 'https'])
+    self.oembed_url = urls.find{|url| ENDPOINT_HOSTS_STRING.match(URI.parse(url).host)}
   end
 
   protected

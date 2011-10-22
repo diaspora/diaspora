@@ -19,6 +19,10 @@
         var newPath = pathStr.replace("?", "?only_posts=true&"),
         	lastTime = $('#main_stream .stream_element').last().find(".time").attr("integer");
 
+        if(lastTime === undefined){
+        	lastTime = $('#main_stream').data('time_for_scroll');
+        }
+
         return newPath.replace(/max_time=\d+/, "max_time=" + lastTime);
       }
     };

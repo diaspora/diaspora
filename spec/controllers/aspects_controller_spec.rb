@@ -67,6 +67,10 @@ describe AspectsController do
 
   describe "#index" do
     context 'jasmine fixtures' do
+      before do
+        Stream::Aspect.any_instance.stub(:ajax_stream?).and_return(false)
+      end
+
       it "generates a jasmine fixture", :fixture => true do
         get :index
         save_fixture(html_for("body"), "aspects_index")
@@ -107,9 +111,28 @@ describe AspectsController do
       end
 
       it "generates a jasmine fixture with a post containing a video", :fixture => true do
-        stub_request(:get, "http://gdata.youtube.com/feeds/api/videos/UYrkQL1bX4A?v=2").
-            with(:headers => {'Accept'=>'*/*'}).
-            to_return(:status => 200, :body => "<title>LazyTown song - Cooking By The Book</title>", :headers => {})
+        stub_request(
+          :get,
+          "http://gdata.youtube.com/feeds/api/videos/UYrkQL1bX4A?v=2"
+        ).with(
+          :headers => {'Accept'=>'*/*'}
+        ).to_return(
+          :status  => 200,
+          :body    => "<title>LazyTown song - Cooking By The Book</title>",
+          :headers => {}
+        )
+
+        stub_request(
+          :get,
+          "http://www.youtube.com/oembed?format=json&frame=1&iframe=1&maxheight=420&maxwidth=420&url=http://www.youtube.com/watch?v=UYrkQL1bX4A"
+        ).with(
+          :headers => {'Accept'=>'*/*'}
+        ).to_return(
+          :status  => 200,
+          :body    => "{ title: 'LazyTown song - Cooking By The Book' }",
+          :headers => {}
+        )
+
         alice.post(:status_message, :text => "http://www.youtube.com/watch?v=UYrkQL1bX4A", :to => @alices_aspect_2.id)
         get :index
         save_fixture(html_for("body"), "aspects_index_with_video_post")
@@ -130,39 +153,27 @@ describe AspectsController do
       response.should render_template('shared/_stream')
     end
 
-    it 'assigns an AspectStream' do
+    it 'assigns an Stream::Aspect' do
       get :index
-      assigns(:stream).class.should == AspectStream
+      assigns(:stream).class.should == Stream::Aspect
     end
 
     describe 'filtering by aspect' do
       before do
         @aspect1 = alice.aspects.create(:name => "test aspect")
-        @stream = AspectStream.new(alice, [])
+        @stream = Stream::Aspect.new(alice, [])
         @stream.stub(:posts).and_return([])
       end
 
       it 'respects a single aspect' do
-        AspectStream.should_receive(:new).with(alice, [@aspect1.id], anything).and_return(@stream)
+        Stream::Aspect.should_receive(:new).with(alice, [@aspect1.id], anything).and_return(@stream)
         get :index, :a_ids => [@aspect1.id]
       end
 
       it 'respects multiple aspects' do
         aspect2 = alice.aspects.create(:name => "test aspect two")
-        AspectStream.should_receive(:new).with(alice, [@aspect1.id, aspect2.id], anything).and_return(@stream)
+        Stream::Aspect.should_receive(:new).with(alice, [@aspect1.id, aspect2.id], anything).and_return(@stream)
         get :index, :a_ids => [@aspect1.id, aspect2.id]
-      end
-    end
-
-    context "mobile" do
-      it "renders a share button when you don't pass aspect IDs" do
-        get :index, :format => :mobile
-        response.body.should =~ /#{Regexp.escape('id="status_message_submit"')}/
-      end
-      
-      it "renders a share button when you pass aspect IDs" do
-        get :index, :a_ids => [@alices_aspect_1], :format => :mobile
-        response.body.should =~ /#{Regexp.escape('id="status_message_submit"')}/
       end
     end
 
@@ -259,7 +270,7 @@ describe AspectsController do
 
   describe '#edit' do
     before do
-      eve.profile.first_name = nil
+      eve.profile.first_name = eve.profile.last_name = nil
       eve.profile.save
       eve.save
 
@@ -357,7 +368,6 @@ describe AspectsController do
     it 'should not 500' do
       get :index, :format => :mobile
       response.should be_success
-
     end
   end
 end

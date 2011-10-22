@@ -6,7 +6,7 @@ class CommentsController < ApplicationController
   include ApplicationHelper
   before_filter :authenticate_user!
 
-  respond_to :html, :mobile, :only => [:create, :destroy]
+  respond_to :html, :mobile, :except => :show
   respond_to :js, :only => [:index]
 
   rescue_from ActiveRecord::RecordNotFound do
@@ -14,7 +14,7 @@ class CommentsController < ApplicationController
   end
 
   def create
-    target = current_user.find_visible_post_by_id params[:post_id]
+    target = current_user.find_visible_shareable_by_id Post, params[:post_id]
     text = params[:text]
 
     if target
@@ -28,7 +28,7 @@ class CommentsController < ApplicationController
         respond_to do |format|
           format.js{ render(:create, :status => 201)}
           format.html{ render :nothing => true, :status => 201 }
-          format.mobile{ redirect_to post_url(@comment.post) }
+          format.mobile{ render :partial => 'comment', :locals => {:post => @comment.post, :comment => @comment} }
         end
       else
         render :nothing => true, :status => 422
@@ -55,7 +55,7 @@ class CommentsController < ApplicationController
   end
 
   def index
-    @post = current_user.find_visible_post_by_id(params[:post_id])
+    @post = current_user.find_visible_shareable_by_id(Post, params[:post_id])
     if @post
       @comments = @post.comments.includes(:author => :profile).order('created_at ASC')
       render :layout => false
@@ -64,4 +64,7 @@ class CommentsController < ApplicationController
     end
   end
 
+  def new
+    render :layout => false
+  end
 end

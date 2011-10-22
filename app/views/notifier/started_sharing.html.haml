@@ -1,5 +1,5 @@
 %p
-  = @sender.name
+  = @notification.sender.name
   = t('.sharing')
 %p
-  = link_to t('.view_profile', :name => @sender.first_name), person_url(@sender)
+  = link_to t('.view_profile', :name => @notification.sender.first_name), person_url(@notification.sender)

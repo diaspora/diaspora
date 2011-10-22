@@ -21,6 +21,7 @@ defaults: &defaults
   # Setting the root certificate bundle (this is operating system specific). Defaults:
   # CentOS: '/etc/pki/tls/certs/ca-bundle.crt'
   # Debian: '/etc/ssl/certs/ca-certificates.crt'
+  # Gentoo: '/etc/ssl/certs/ca-certificates.crt'
   ca_file: '/etc/pki/tls/certs/ca-bundle.crt'
 
   # Secure websocket confguration (wss://).
@@ -54,17 +55,20 @@ defaults: &defaults
   open_invitations: true
 
   # Set this to true if you don't want your users to follow the diasporahq@joindiaspora.com
-  # account on account creation.  The diasporahq account helps users start with some 
+  # account on account creation.  The diasporahq account helps users start with some
   # activity in their stream and get news about Diaspora, but if you don't want your server
   # to contact joindiaspora.com, set this to true:
   no_follow_diasporahq: false
 
-  # Featured users
+  # Community Spotlight
   # (expressed as an array of Diaspora IDs)
-  featured_users:
+  community_spotlight:
     - 'diasporahq@joindiaspora.com'
+  # Email to send spotlight suggestions to
+  spotlight_suggest_email: ''
 
   # List of users who have admin privileges
+  # (expressed as an array of local usernames)
   admins:
     - 'example_user1dsioaioedfhgoiesajdigtoearogjaidofgjo'
 
@@ -112,7 +116,7 @@ defaults: &defaults
   smtp_port: '587'
 
   # This chooses which mailer should be used. 'smtp' for a smtp
-  # connection or 'sendmail' to use the sendmail binary.
+  # connection or 'sendmail' to use the sendmail binary, or messagebus, to use the messagebus service
   mailer_method: 'smtp'
 
   # The path to the sendmail binary. Ignored if mailer_method is not set to sendmail
@@ -132,7 +136,7 @@ defaults: &defaults
   smtp_openssl_verify_mode:
 
   # Domain of smtp server.
-  # This should match the common name of the certificate 
+  # This should match the common name of the certificate
   # the SMTP server sends. If he sends one
   smtp_domain: 'example.com'
 
@@ -166,7 +170,26 @@ defaults: &defaults
   paypal_hosted_button_id: ""
 
   # Mount resque-web into routes
+  # This allows an administrator to see info about the workers
   mount_resque_web: true
+
+  # Enable the cache layer (Redis)
+  # If you expect to have thousands of users on your pod,
+  # we *highly* suggest you enable this.
+  #
+  # By default, the cache layer will piggyback off of the Redis
+  # database used by your Resque workers.
+  redis_cache: false
+
+  # The location of your redis cache.
+  # IMPORTANT: DO NOT CHANGE THIS IF YOU DO NOT KNOW WHAT YOU ARE DOING!
+  # 
+  # Leave this blank to use the same Redis database
+  # that your Resque workers use (happy path).
+  # 
+  # This takes an ip (or DNS record).  It assumes that your Redis database
+  # is running on the default Redis port.
+  redis_location: ''
 
 #
 # Use this section to override default settings in specific environments
@@ -195,7 +218,7 @@ integration_1:
   <<: *defaults
   pod_url: "http://localhost:45789"
   enable_splunk_logging: false
-  
+
 integration_2:
   <<: *defaults
   pod_url: "http://localhost:34658"

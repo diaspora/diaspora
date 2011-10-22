@@ -26,6 +26,7 @@ $(document).ready(function(){
       });
     }
 
+    jQuery("abbr.timeago").timeago();
     return false;
   });
 

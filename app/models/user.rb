@@ -22,14 +22,16 @@ class User < ActiveRecord::Base
   validates :username, :presence => true, :uniqueness => true
   validates_format_of :username, :with => /\A[A-Za-z0-9_]+\z/
   validates_length_of :username, :maximum => 32
+  validates_exclusion_of :username, :in => USERNAME_BLACKLIST
   validates_inclusion_of :language, :in => AVAILABLE_LANGUAGE_CODES
   validates_format_of :unconfirmed_email, :with  => Devise.email_regexp, :allow_blank => true
 
   validates_presence_of :person, :unless => proc {|user| user.invitation_token.present?}
   validates_associated :person
+  validate :no_person_with_same_username
 
   has_one :person, :foreign_key => :owner_id
-  delegate :public_key, :posts, :owns?, :diaspora_handle, :name, :public_url, :profile, :first_name, :last_name, :to => :person
+  delegate :public_key, :posts, :photos, :owns?, :diaspora_handle, :name, :public_url, :profile, :first_name, :last_name, :to => :person
 
   has_many :invitations_from_me, :class_name => 'Invitation', :foreign_key => :sender_id, :dependent => :destroy
   has_many :invitations_to_me, :class_name => 'Invitation', :foreign_key => :recipient_id, :dependent => :destroy
@@ -40,7 +42,7 @@ class User < ActiveRecord::Base
   has_many :services, :dependent => :destroy
   has_many :user_preferences, :dependent => :destroy
   has_many :tag_followings, :dependent => :destroy
-  has_many :followed_tags, :through => :tag_followings, :source => :tag
+  has_many :followed_tags, :through => :tag_followings, :source => :tag, :order => 'tags.name'
 
   has_many :authorizations, :class_name => 'OAuth2::Provider::Models::ActiveRecord::Authorization', :foreign_key => :resource_owner_id
   has_many :applications, :through => :authorizations, :source => :client
@@ -56,7 +58,8 @@ class User < ActiveRecord::Base
                   :language,
                   :disable_mail,
                   :invitation_service,
-                  :invitation_identifier
+                  :invitation_identifier,
+                  :show_community_spotlight_in_stream
 
 
   def self.all_sharing_with_person(person)
@@ -206,7 +209,7 @@ class User < ActiveRecord::Base
   def add_to_streams(post, aspects_to_insert)
     post.socket_to_user(self, :aspect_ids => aspects_to_insert.map{|x| x.id}) if post.respond_to? :socket_to_user
     aspects_to_insert.each do |aspect|
-      aspect.posts << post
+      aspect << post
     end
   end
 
@@ -308,6 +311,7 @@ class User < ActiveRecord::Base
       params[:image_url_medium] = photo.url(:thumb_medium)
       params[:image_url_small] = photo.url(:thumb_small)
     end
+
     if self.person.profile.update_attributes(params)
       Postzord::Dispatcher.build(self, profile).post
       true
@@ -468,5 +472,12 @@ class User < ActiveRecord::Base
   def infer_email_from_invitation_provider
     self.email = self.invitation_identifier if self.invitation_service == 'email'
     self
+  end
+
+  def no_person_with_same_username
+    diaspora_id = "#{self.username}@#{AppConfig[:pod_uri].host}"
+    if self.username_changed? && Person.exists?(:diaspora_handle => diaspora_id)
+      errors[:base] << 'That username has already been taken'
+    end
   end
 end

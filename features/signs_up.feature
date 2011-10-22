@@ -3,10 +3,10 @@ Feature: new user registration
 
   Background:
     When I go to the new user registration page
-    And I fill in "Username" with "ohai"
-    And I fill in "Email" with "ohai@example.com"
+    And I fill in "user_username" with "ohai"
+    And I fill in "user_email" with "ohai@example.com"
     And I fill in "user_password" with "secret"
-    And I fill in "Password confirmation" with "secret"
+    And I fill in "user_password_confirmation" with "secret"
     And I press "Create my account"
     Then I should be on the getting started page
     And I should see "Welcome"

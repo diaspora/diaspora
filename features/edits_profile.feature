@@ -4,7 +4,7 @@ Feature: editing your profile
   Background:
     Given I am signed in
     And I click on my name in the header
-    And I follow "profile"
+    And I follow "Profile"
     And I follow "Edit my profile"
     Then I should be on my edit profile page
 

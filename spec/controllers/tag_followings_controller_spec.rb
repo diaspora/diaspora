@@ -16,12 +16,9 @@ describe TagFollowingsController do
   end
 
   describe 'index' do
-    before do
-      pending
-    end
     it 'assings new TagStream' do
       get :index
-      assigns[:stream].should be_a TagStream
+      assigns[:stream].should be_a Stream::FollowedTag
     end
 
     it 'renders a view' do

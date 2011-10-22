@@ -1,4 +1,4 @@
-#   Copyright (c) 2011, Diaspora Inc.  This file is
+#   Copyright (c) 2010-2011, Diaspora Inc.  This file is
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
@@ -6,15 +6,20 @@
 it: 
   javascripts: 
     aspect_dropdown: 
-      add_to_aspect: "Aggiungi ad un aspetto"
+      add_to_aspect: "Aggiungi"
       all_aspects: "Tutti gli aspetti"
+      select_aspects: "Scegli gli aspetti"
       toggle: 
         few: "In {{count}} aspetti"
         many: "In {{count}} aspetti"
         one: "In {{count}} aspetto"
         other: "In {{count}} aspetti"
         two: "In {{count}} aspetti"
-        zero: "Aggiungi ad un aspetto"
+        zero: "Scegli gli aspetti"
+    aspect_navigation: 
+      deselect_all: "Deseleziona tutti"
+      no_aspects: "Nessun aspetto selezionato"
+      select_all: "Seleziona tutti"
     comments: 
       hide: "nascondi i commenti"
       show: "mostra tutti i commenti"
@@ -24,13 +29,13 @@ it:
     infinite_scroll: 
       no_more: "Non ci sono altri post."
     publisher: 
-      at_least_one_aspect: "Devi condividere almeno con un aspetto"
+      at_least_one_aspect: "Devi condividere con almeno un aspetto"
       limited: "Non pubblico - il tuo post sarà visibile solamente a coloro con cui lo condividi"
-      public: "Pubblico - il tuo post sarà visibile a tutti inclusi i motori di ricerca"
+      public: "Pubblico - il tuo post sarà visibile a tutti, inclusi i motori di ricerca"
     reshares: 
       duplicate: "Hai già condiviso questo post!"
     search_for: "Ricerca per {{name}}"
-    show_more: "mostra altro"
+    show_more: "continua..."
     timeago: 
       day: "un giorno"
       days: "%d giorni"

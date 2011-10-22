@@ -4,7 +4,7 @@ Feature: Change password
   Scenario: Change my password
   	Given I am signed in
     And I click on my name in the header
-    And I follow "settings"
+    And I follow "Settings"
     Then I should be on my account settings page
     When I put in my password in "user_current_password" 
     And I fill in "user_password" with "newsecret"
@@ -18,7 +18,7 @@ Feature: Change password
   Scenario: Reset my password
     Given a user with email "forgetful@users.net"
     Given I am on the new user password page
-    And I fill in "Email" with "forgetful@users.net"
+    And I fill in "Email" with "Forgetful@users.net"
     And I press "Send me reset password instructions"
     Then I should see "You will receive an email with instructions"
     And I follow the "Change my password" link from the last sent email

@@ -1,39 +1,48 @@
 = javascript_include_tag "validation"
+-# = javascript_include_tag 'vendor/jquery.ghostInput'
 
-:javascript
-  $(function() {
-    $("#user_username").focus();
-  });
-
+= javascript_tag "Diaspora.Page = 'InvitationsEdit';"
 .span-7.append-1.prepend-3
   %br
   %br
   %br
   %br
-  %h2
-    = t('.join_the_movement')
+  %h1
+    = t('users.getting_started.welcome')
   %h3.accept_invitation_text
-    = t('.sign_up_today')
+    = t('.sign_up_message')
+  - flash.each do |name, msg|
+    %p{:class => "login_#{name}"}= msg
+
+  = image_tag 'diaspora_collage.png', :style => "margin-left:-50px;"
 
 .span-10
   %br
   %br
   %br
   %br
-  = form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => {:class => 'sign_up_form'}) do |f|
-    %p
-      = f.label :username , t('username')
-      = f.text_field :username, :title => t('.enter_username')
-    %p  
-      = f.label :email , t('email')
-      = f.text_field :email, :title => t('.enter_email')
-    
-    %p
-      = f.label :password , t('password')
-      = f.password_field :password, :title => t('.enter_password') 
-    %p
-      = f.label :password_confirmation , t('password_confirmation')
-      = f.password_field :password_confirmation, :title => t('.enter_password_again') 
+  = form_for(resource, :as => resource_name, :html => {:class => 'new_user_form'}, :url => registration_path(resource_name), :validate => true) do |f|
+    %fieldset
+      .clearfix
+        %b
+          = t('username')
+        = f.text_field :username, :title => t('registrations.new.enter_username')
+        %span.host_uri
+          = "@#{AppConfig[:pod_uri].host}"
+      .clearfix
+        %b
+          = t('email')
+        = f.email_field :email, :title => t('registrations.new.enter_email')
+      .clearfix
+        %b
+          = t('password')
+        = f.password_field :password, :title => t('registrations.new.enter_password') 
+      .clearfix
+        %b
+          = t('password_confirmation')
+        = f.password_field :password_confirmation, :title => t('registrations.new.enter_password_again') 
 
-    = f.submit t('.create_my_account')
+      .submit_field
+        = f.submit t('registrations.new.create_my_account'), :class => 'in_aspects'
+
 

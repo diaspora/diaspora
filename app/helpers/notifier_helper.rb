@@ -19,7 +19,7 @@ module NotifierHelper
   # @return [String] The truncated and formatted comment.
   def comment_message(comment, opts={})
     opts[:length] ||= 600
-    text = truncate(@comment.text, :length => opts[:length])
+    text = truncate(comment.text, :length => opts[:length])
     text = process_newlines(text) if opts[:process_newlines]
     text
   end
