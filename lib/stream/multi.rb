@@ -1,12 +1,16 @@
 class Stream::Multi < Stream::Base
+
+  # @return [String] URL
   def link(opts)
     Rails.application.routes.url_helpers.multi_path
   end
 
+  # @return [String]
   def title
     I18n.t('streams.multi.title')
   end
 
+  # @return [String]
   def contacts_title
     I18n.t('streams.multi.contacts_title')
   end
@@ -19,6 +23,7 @@ class Stream::Multi < Stream::Base
     end.call
   end
 
+  # @return [Boolean]
   def ajax_stream?
     false
   end
@@ -26,21 +31,32 @@ class Stream::Multi < Stream::Base
   #emits an enum of the groups which the post appeared
   # :spotlight, :aspects, :tags, :mentioned
   def post_from_group(post)
-    [:mentioned, :aspects, :followed_tags, :community_spotlight].collect do |source| 
+    streams_included.collect do |source| 
       is_in?(source, post)
     end.compact
   end
 
   private
 
+  # @return [Array<Symbol>]
+  def streams_included
+    @streams_included ||= lambda do
+      array = [:mentioned, :aspects, :followed_tags]
+      array << :community_spotlight if include_community_spotlight?
+      array
+    end.call
+  end
+
+  # @return [Symbol]
   def is_in?(sym, post)
     if self.send("#{sym.to_s}_post_ids").find{|x| x == post.id}
       "#{sym.to_s}_stream".to_sym
     end
   end
 
+  # @return [Boolean]
   def include_community_spotlight?
-    user.show_community_spotlight_in_stream?
+    AppConfig[:community_spotlight].present? && user.show_community_spotlight_in_stream?
   end
 
   def aspects_post_ids
