@@ -6,6 +6,19 @@
 - content_for :head do
   = include_javascripts :home
 
+#welcome-to-diaspora
+  .container
+    %h1
+      Welcome to Diaspora, #{current_user.first_name}!
+
+    %h3
+      This is your stream, with some explainer text
+%br
+%br
+%br
+%br
+%br
+
 .span-5.leftNavBar
   #home_user_badge
     = owner_image_link

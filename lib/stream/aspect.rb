@@ -126,31 +126,4 @@ class Stream::Aspect < Stream::Base
   def can_comment?(post)
     true
   end
-
-  def publisher
-    if welcome?
-      @publisher ||= Publisher.new(self.user, :open => true, :prefill => publisher_prefill,
-                                              :public => true)
-    else
-      super
-    end
-  end
-
-  private
-  # Generates the prefill for the publisher
-  #
-  # @return [String]
-  def publisher_prefill
-    prefill = I18n.t("shared.publisher.new_user_prefill.hello", :new_user_tag => "newhere")
-    if self.user.followed_tags.size > 0
-      tag_string = self.user.followed_tags.map{|t| "##{t.name}"}.to_sentence
-      prefill << I18n.t("shared.publisher.new_user_prefill.i_like", :tags => tag_string)
-    end
-
-    prefill
-  end
-
-  def welcome?
-    self.user.getting_started
-  end
 end

@@ -52,7 +52,6 @@
       = javascript_include_tag 'web-socket-receiver'
       = render 'js/websocket_js'
 
-
     = yield(:head)
 
     -unless Rails.env == "production" 
@@ -83,7 +82,6 @@
         piwikTracker.trackPageView();
         piwikTracker.enableLinkTracking();
         } catch( err ) {}
-
 
     - if @person
       %link{:rel => "alternate", :href => "#{@person.public_url}.atom", :type => "application/atom+xml", :title => "#{t('.public_feed', :name => @person.name)}"}

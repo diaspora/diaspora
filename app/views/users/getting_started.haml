@@ -5,35 +5,6 @@
 - content_for :head do
   = include_javascripts :profile
 
-  :javascript
-    $(document).ready(function () {
-      var data = $.parseJSON( '#{@tags_array.to_json.gsub("'", "\\\\'")}' ),
-          autocompleteInput = $("#follow_tags");
-
-      autocompleteInput.autoSuggest("#{tags_path}", {
-        selectedItemProp: "name",
-        searchObjProps: "name",
-        asHtmlID: "tags",
-        neverSubmit: true,
-        retriveLimit: 10,
-        selectionLimit: false,
-        minChars: 2,
-        keyDelay: 200,
-        startText: "",
-        emptyText: "#{t('no_results')}",
-        preFill: data
-        });
-
-      autocompleteInput.bind('keydown', function(evt){
-        if(evt.keyCode == 13 || evt.keyCode == 9 || evt.keyCode == 32){
-          evt.preventDefault();
-          if( $('li.as-result-item.active').length == 0 ){
-            $('li.as-result-item').first().click();
-          }
-        }
-      });
-    });
-
 %br
 
 %section#hello-there

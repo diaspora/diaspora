@@ -753,8 +753,8 @@ en:
     reshare:
       reshare: "Reshare"
     public_explain:
-      new_user_welcome_message: "Welcome aboard! If you want, this can be your first message."
-      visibility_dropdown: "Use this dropdown to change visibility of your post"
+      new_user_welcome_message: "Use #hashtags to classify you posts and find people who share your interests.  Call out awesome people with @Mentions"
+      visibility_dropdown: "Use this dropdown to change visibility of your post.  (We suggest you make this one public)"
       title: "Set up connected services"
       outside: "Public messages will be available for others outside of Diaspora to see."
       logged_in: "logged in to %{service}"
