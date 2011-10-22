@@ -52,7 +52,7 @@ SQL
     if postgres?
       execute %{
         INSERT INTO posts (
-          tmp_old_id AS id, author_id, public, diaspora_handle, guid, pending, type, text,
+          tmp_old_id, author_id, public, diaspora_handle, guid, pending, type, text,
           remote_photo_path, remote_photo_name, random_string, processed_image,
           youtube_titles, created_at, updated_at, unprocessed_image,
           object_url, image_url, image_height, image_width,
