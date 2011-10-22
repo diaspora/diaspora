@@ -16,13 +16,13 @@
     .section
       %ul.left_nav
         %li
-          = link_to "Welcome", getting_started_path, :class => "home_selector"
+          = link_to t(".welcome"), getting_started_path, :class => "home_selector"
 
   .section
     %ul.left_nav
       %li
         %b
-          = link_to "Soup", soup_path, :class => 'home_selector'
+          = link_to t("streams.multi.title"), multi_path, :class => 'home_selector'
 
   .section
     = render 'aspects/aspect_listings', :stream => @stream
@@ -31,7 +31,7 @@
     %ul.left_nav
       %li
         %b
-          = link_to t('.mentions'), mentions_path, :class => 'home_selector'
+          = link_to t('streams.mentions.title'), mentions_path, :class => 'home_selector'
 
   .section#followed_tags_listing
     = render 'tags/followed_tags_listings'

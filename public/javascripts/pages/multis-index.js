@@ -1,4 +1,4 @@
-Diaspora.Pages.SoupsIndex = function() {
+Diaspora.Pages.MultisIndex = function() {
   var self = this;
 
   this.subscribe("page/ready", function(evt, document) {
