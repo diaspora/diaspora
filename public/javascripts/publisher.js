@@ -452,6 +452,27 @@ var Publisher = {
     Publisher.form().bind('ajax:success', Publisher.onSuccess);
   },
 
+  triggerGettingStarted: function(){
+    Publisher.setUpPopovers("#publisher .dropdown", {trigger: 'manual', offset: 10, placement:'below'}, 1000);
+    Publisher.setUpPopovers("#publisher #status_message_fake_text", {trigger: 'manual', placement: 'right', offset: 30, id: "first_message_explain"}, 600);
+    Publisher.setUpPopovers("#gs-shim", {trigger: 'manual', placement: 'left', offset: -5}, 1400);
+
+    $("#publisher .button.creation").bind("click", function(){
+       $("#publisher .dropdown").popover("hide");
+       $("#publisher #status_message_fake_text").popover("hide");
+    });
+  },
+
+  setUpPopovers: function(selector, options, timeout){
+    var selection = $(selector);
+    selection.popover(options);
+    selection.bind("click", function(){$(this).popover("hide")});
+
+    setTimeout(function(){
+      selection.popover("show");
+    }, timeout);
+  },
+
   initialize: function() {
     Publisher.cachedForm = Publisher.cachedSubmit =
       Publisher.cachedInput = Publisher.cachedHiddenInput = false;
