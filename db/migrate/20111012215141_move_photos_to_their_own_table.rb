@@ -20,16 +20,49 @@ class MovePhotosToTheirOwnTable < ActiveRecord::Migration
     end
 
     if postgres?
-      execute <<SQL
-INSERT INTO photos
-SELECT id AS tmp_old_id, author_id, public, diaspora_handle, guid, pending, text, remote_photo_path, remote_photo_name, random_string, processed_image,
-created_at, updated_at, unprocessed_image, status_message_guid, comments_count
-FROM posts
-WHERE type = 'Photo'
-SQL
+      execute %{
+INSERT INTO photos (
+tmp_old_id
+, author_id
+, public
+, diaspora_handle
+, guid
+, pending
+, text
+, remote_photo_path
+, remote_photo_name
+, random_string
+, processed_image
+, created_at
+, updated_at
+, unprocessed_image
+, status_message_guid
+, comments_count
+) SELECT
+id
+, author_id
+, public
+, diaspora_handle
+, guid
+, pending
+, text
+, remote_photo_path
+, remote_photo_name
+, random_string
+, processed_image
+, created_at
+, updated_at
+, unprocessed_image
+, status_message_guid
+, comments_count
+FROM
+posts
+WHERE
+type = 'Photo'
+}
 
-      execute "UPDATE aspect_visibilities AS av SET shareable_type='Photo' FROM photos WHERE av.shareable_id=photos.id"
-      execute "UPDATE share_visibilities AS sv SET shareable_type='Photo' FROM photos WHERE sv.shareable_id=photos.id"
+      execute "UPDATE aspect_visibilities SET shareable_type='Photo' FROM photos WHERE shareable_id=photos.id"
+      execute "UPDATE share_visibilities SET shareable_type='Photo' FROM photos WHERE shareable_id=photos.id"
     else
       execute <<SQL
 INSERT INTO photos
