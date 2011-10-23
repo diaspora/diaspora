@@ -80,7 +80,7 @@
     = f.error_messages
 
     %p.checkbox_select
-      = f.label t('.show_community_spotlight')
+      = f.label :show_community_spotlight_in_stream, t('.show_community_spotlight')
       = f.check_box :show_community_spotlight_in_stream
 
     %br
@@ -99,38 +99,38 @@
     = f.fields_for :email_preferences do |type|
       #email_prefs
         %p.checkbox_select
-          = type.label t('.also_commented')
-          = type.check_box :also_commented, {:checked =>  @email_prefs['also_commented']}, false, true 
+          = type.label :also_commented, t('.also_commented')
+          = type.check_box :also_commented, {:checked =>  @email_prefs['also_commented']}, false, true
         %br
         %p.checkbox_select
-          = type.label t('.mentioned') 
-          = type.check_box :mentioned, {:checked =>  @email_prefs['mentioned']}, false, true 
+          = type.label :mentioned, t('.mentioned') 
+          = type.check_box :mentioned, {:checked =>  @email_prefs['mentioned']}, false, true
 
 
         %br
         %p.checkbox_select
-          = type.label t('.comment_on_post') 
-          = type.check_box :comment_on_post, {:checked =>  @email_prefs['comment_on_post']}, false, true 
-        
-        %br
-        %p.checkbox_select
-          = type.label t('.private_message')
-          = type.check_box :private_message, {:checked =>  @email_prefs['private_message']}, false, true 
-          
-        %br
-        %p.checkbox_select
-          = type.label t('.started_sharing') 
-          = type.check_box :started_sharing, {:checked =>  @email_prefs['started_sharing']}, false, true 
+          = type.label :comment_on_post, t('.comment_on_post')
+          = type.check_box :comment_on_post, {:checked =>  @email_prefs['comment_on_post']}, false, true
 
         %br
         %p.checkbox_select
-          = type.label t('.liked') 
-          = type.check_box :liked, {:checked =>  @email_prefs['liked']}, false, true 
+          = type.label :private_message, t('.private_message')
+          = type.check_box :private_message, {:checked =>  @email_prefs['private_message']}, false, true
 
         %br
         %p.checkbox_select
-          = type.label t('.reshared') 
-          = type.check_box :reshared, {:checked =>  @email_prefs['reshared']}, false, true 
+          = type.label :started_sharing, t('.started_sharing')
+          = type.check_box :started_sharing, {:checked =>  @email_prefs['started_sharing']}, false, true
+
+        %br
+        %p.checkbox_select
+          = type.label :liked, t('.liked')
+          = type.check_box :liked, {:checked =>  @email_prefs['liked']}, false, true
+
+        %br
+        %p.checkbox_select
+          = type.label :reshared, t('.reshared')
+          = type.check_box :reshared, {:checked =>  @email_prefs['reshared']}, false, true
     %br
     = f.submit t('.change')
 
