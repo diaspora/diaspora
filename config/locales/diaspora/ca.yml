@@ -109,21 +109,15 @@ ca:
       updating: "s'està actualitzant"
     aspect_contacts:
       done_editing: "finalitza l'edició"
-    aspect_stream:
-      stream: "Flux"
-      mentions: "Mencions"
-      recently: "recentment:"
-      commented_on: "comentat"
-      posted: "publicat"
     show:
       edit_aspect: "edita l'aspecte"
     no_posts_message:
       start_talking:  "Ningú no ha dit res encara!"
     no_contacts_message:
       you_should_add_some_more_contacts: "Hauríeu d'afegir alguns contactes més!"
-      try_adding_some_more_contacts: "Podeu cercar (dalt) o convidar (dreta) altres contactes."
-      or_featured: "O podeu compartir amb %{link}"
-      featured_users: "usuaris destacats"
+      try_adding_some_more_contacts: "Podeu cercar o convidar altres contactes."
+      or_spotlight: "O podeu compartir amb %{link}"
+      community_spotlight: "usuaris destacats"
     aspect_listings:
       select_all: "Selecciona'ls tots"
       deselect_all: "Desselecciona'ls tots"
@@ -131,7 +125,7 @@ ca:
       add_an_aspect: "+ Afegeix un aspecte"
 
     selected_contacts:
-      view_all_featured_users: "Vegeu tots els usuaris destacats"
+      view_all_community_spotlight: "Vegeu tots els usuaris destacats"
       view_all_contacts: "Mostra tots els contactes"
       no_contacts: "Encara no teniu cap contacte aquí."
       manage_your_aspects: "Gestioneu els vostres aspectes."
@@ -164,13 +158,12 @@ ca:
       acquaintances: "Coneguts"
       friends: "Amistats"
     index:
-      mentions: "Mencions"
+      welcome: "Benvingut/da"
       community_spotlight: "Usuaris destacats"
       see_more_from_us: "Vegeu més membres de la comunitat del Diàspora*."
       donate: "Doneu"
       keep_us_running: "Mantingueu %{pod} en marxa i compreu-li als nostres servidors la seva dosi de cafeïna amb una donació mensual!"
       your_aspects: "Els vostres aspectes"
-      tags_following: "Etiquetes que seguiu"
       no_tags: "+ Cerqueu una etiqueta per seguir-la"
       unfollow_tag: "Deixa de seguir #%{tag}"
       handle_explanation: "Aquest és el vostre identificador de Diàspora. Com les adreces de correu, podeu donar això a la gent per a que us contacte."
@@ -655,10 +648,11 @@ ca:
 
   registrations:
     new:
-      create_my_account: "Crea el meu compte"
+      create_my_account: "Crea el meu compte!"
 
       join_the_movement: "Uniu-vos al moviment!"
-      sign_up_today: "Registreu-vos ara"
+      # L'original diu "amb <3", però jo he hagut de buscar això a la WP
+      sign_up_message: "Una xarxa social amb ♥"
 
       enter_email: "Introduïu una adreça de correu electrònic"
       enter_username: "Trieu un nom d'usuari (només amb lletres, números i subratllats)"
@@ -767,7 +761,6 @@ ca:
       share_with: "comparteix amb"
       whats_on_your_mind: "Què us passa pel cap?"
       publishing_to: "s'està publicant a: "
-      click_to_share_with: "Feu clic per compartir amb: "
       discard_post: "Descarta la publicació"
     add_contact:
       enter_a_diaspora_username: "Introduïu un nom d'usuari de Diàspora:"
@@ -875,26 +868,34 @@ També és la millor forma de coŀleccionar fotos en línia."
 
 
   streams:
+    recently: "recentment:"
+    commented_on: "comentat"
+    posted: "publicat"
+    community_spotlight_stream: "Flux dels usuaris destacats"
+    aspects_stream: "Aspectes"
+    mentioned_stream: "@Mencions"
+    followed_tags_stream: "#Etiquetes que seguiu"
+
     mentions:
-      title: "Les vostres mencions"
+      title: "@Mencions"
       contacts_title: "Gent que us ha mencionat"
+    followed_tag:
+      title: "#Etiquetes que seguiu"
+      contacts_title: "Gent que empra aquestes etiquetes"
     tags:
       title: "Publicacions etiquetades: %{tags}"
-      contacts_title: "Gent que empra aquestes etiquetes"
+      contacts_title: "Gent que empra aquesta etiqueta"
     public:
       title: "Activitat pública"
       contacts_title: "Publicadors recents"
-    soup:
-      title: "La sopa"
-      contacts_title: "Gent a la vostra sopa"
-
+    multi:
+      title: "Flux"
+      contacts_title: "Gent al vostre flux"
+    aspects:
+      title: "Els vostres aspectes"
 
   users:
     logged_out: "Heu sortit del Diàspora*"
-    go_mobile: "Aneu al lloc per dispositius mòbils."
-    simply_visit: "Només heu de visitar"
-    on_your_mobile_device: "al vostre dispositiu mòbil per accedir al Diàspora* mòbil."
-    works_on_modern: "Funciona amb tots els telèfons moderns"
     edit:
       export_data: "Exporta les dades"
       close_account: "Tanca el compte"
@@ -918,6 +919,8 @@ També és la millor forma de coŀleccionar fotos en línia."
       reshared: "… algú torna a compartir una publicació vostra?"
       change: "Canvia"
       email_awaiting_confirmation: "Us hem enviat un enllaç d'activació per a %{unconfirmed_email}. Fins que no seguiu aquest enllaç i activeu l'adreça nova, continuarem emprant la vostra adreça original %{email}."
+      stream_preferences: "Preferències del flux"
+      show_community_spotlight: "Voleu veure els usuaris destacats al flux?"
     destroy: "S'ha blocat el vostre compte. Trigarem fins a 20 minuts en tancar el compte. Moltes gràcies per provar Diàspora."
     getting_started:
       welcome: "Benvingut/da"
@@ -951,7 +954,7 @@ També és la millor forma de coŀleccionar fotos en línia."
       search_for_hashtags: "Cerca #etiquetes"
       search_for_people: "Cerca persones"
       connect_with_people_explanation_pt2: "Els aspectes són una manera intuitiva d'agrupar cares noves i conegudes, permeten-vos filtrar o compartir fàcilment amb subconjunts dels vostres contactes."
-      featured_users: "Usuaris destacats"
+      community_spotlight: "Usuaris destacats"
 
       follow_your_interests: "Seguiu els vostres interesos"
       connect_to: "Connecteu a"
@@ -959,7 +962,7 @@ També és la millor forma de coŀleccionar fotos en línia."
       find_friends_from_facebook: "Cerqueu amics des del Facebook"
       featured_tags: "Seguiu les etiquetes destacades"
       find_friends: "Cerqueu amics"
-      see_all_featured_users: "Vegeu els usuaris destacats"
+      see_all_community_spotlight: "Vegeu els usuaris destacats"
       get_updates_from_core: "Obteniu notícies sobre el projecte a través de l'equip principal."
 
       hashtag_explanation: "Les etiquetes us permeten parlar i seguir els vostres interesos. També són una bona manera de trobar gent nova al Diàspora."
@@ -968,8 +971,13 @@ També és la millor forma de coŀleccionar fotos en línia."
       password_changed: "S'ha canviat la contrasenya. Ara podeu entrar amb
 la contrasenya nova."
       password_not_changed: "Ha fallat el canvi de contrasenya"
+
       language_changed: "S'ha canviat la llengua"
       language_not_changed: "Ha fallat el canvi de llengua"
+
+      settings_updated: "S'han actualitzat els paràmetres"
+      settings_not_updated: "Ha fallat l'actualització dels paràmetres"
+
       email_notifications_changed: "S'han canviat les notificacions per correu"
       unconfirmed_email_changed: "S'ha canviat l'adreça de correu electrònic. Necessita activació."
       unconfirmed_email_not_changed: "Ha fallat el canvi d'adreça de correu electrònic"
