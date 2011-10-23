@@ -119,7 +119,7 @@ en:
       edit_aspect: "Edit %{name}"
       add_an_aspect: "+ Add an aspect"
     selected_contacts:
-      view_all_communtiy_spotlight: "See all community spotlight"
+      view_all_community_spotlight: "See all community spotlight"
       view_all_contacts: "View all contacts"
       no_contacts: "You don't have any contacts here yet."
       manage_your_aspects: "Manage your aspects."
