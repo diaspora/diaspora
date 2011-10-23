@@ -64,12 +64,6 @@ br:
       deselect_all: "Deselect all"
       edit_aspect: "Edit %{name}"
       select_all: "Select all"
-    aspect_stream: 
-      commented_on: "commented on"
-      mentions: "Mentions"
-      posted: "posted"
-      recently: "recently:"
-      stream: "Stream"
     contacts_not_visible: "Contacts in this aspect will not be able to see each other."
     contacts_visible: "Contacts in this aspect will be able to see each other."
     create: 
@@ -118,7 +112,6 @@ br:
         satisfaction: "%{link}: Community-powered support"
         tutorials_and_wiki: "%{tutorial} & %{wiki}: Community-powered tutorials, how-to, and news"
       keep_us_running: "Keep %{pod} running fast, buy our servers their monthly coffee fix!"
-      mentions: "Mentions"
       no_contacts: "Darempred ebet"
       no_tags: "No tags"
       people_sharing_with_you: "People sharing with you"
@@ -127,8 +120,8 @@ br:
       services: 
         content: "You can connect the following services to Diaspora:"
         heading: "Connect Services"
-      tags_following: "Followed Tags"
       unfollow_tag: "Stop following #%{tag}"
+      welcome: "Welcome"
       your_aspects: "Your Aspects"
     many: "%{count} arvez"
     move_contact: 
@@ -139,8 +132,8 @@ br:
       create: "Create"
       name: "Name"
     no_contacts_message: 
-      featured_users: "featured users"
-      or_featured: "Or you can share with %{link}"
+      community_spotlight: "community spotlight"
+      or_spotlight: "Or you can share with %{link}"
       try_adding_some_more_contacts: "You can search (top) or invite (right) more contacts."
       you_should_add_some_more_contacts: "You should add some more contacts!"
     no_posts_message: 
@@ -155,8 +148,8 @@ br:
     selected_contacts: 
       manage_your_aspects: "Manage your aspects."
       no_contacts: "You don't have any contacts here yet."
+      view_all_community_spotlight: "See all community spotlight"
       view_all_contacts: "View all contacts"
-      view_all_featured_users: "See all Featured Users"
     show: 
       edit_aspect: "edit aspect"
     two: "%{count} aspects"
@@ -617,7 +610,7 @@ br:
       enter_password_again: "Skrivit ar memes ger-kuzh hag a-raok"
       enter_username: "Dibabit un anv-implijer (lizherennoù, niverennoù hag isbarennoù nemetken)"
       join_the_movement: "Join the movement!"
-      sign_up_today: "Sign up today"
+      sign_up_message: "Social Networking with a <3"
   requests: 
     create: 
       sending: "O kas"
@@ -764,15 +757,27 @@ br:
     hide_comments: "kuzhaat an embannoù"
     show_more_comments: "Show %{number} more comments"
   streams: 
+    aspects: 
+      title: "Your Aspects"
+    aspects_stream: "Aspects"
+    commented_on: "commented on"
+    community_spotlight_stream: "Community Spotlight"
+    followed_tag: 
+      contacts_title: "People who dig these tags"
+      title: "#Followed Tags"
+    followed_tags_stream: "#Followed Tags"
+    mentioned_stream: "@Mentions"
     mentions: 
       contacts_title: "People who mentioned you"
       title: "Your Mentions"
+    multi: 
+      contacts_title: "People in your Stream"
+      title: "Stream"
+    posted: "posted"
     public: 
       contacts_title: "Recent Posters"
       title: "Public Activity"
-    soup: 
-      contacts_title: "People in your Soup"
-      title: "The Soup"
+    recently: "recently:"
     tags: 
       contacts_title: "People who dig these tags"
       title: "Posts tagged: %{tags}"
@@ -832,11 +837,14 @@ br:
       private_message: "...you receive a private message?"
       receive_email_notifications: "Receive email notifications when..."
       reshared: "...someone reshares your post?"
+      show_community_spotlight: "Show Community Spotlight in Stream?"
       started_sharing: "...someone starts sharing with you?"
+      stream_preferences: "Stream Preferences"
       your_email: "Ho postel"
       your_handle: "Ho skor diaspora"
     getting_started: 
       bold: "aspects"
+      community_spotlight: "Community spotlight"
       community_welcome: "Diaspora's community is happy to have you aboard!"
       connect_to: "Connect to"
       connect_to_your_other_social_networks: "Connect to your other social networks"
@@ -847,7 +855,6 @@ br:
       connect_with_people_explanation_pt2: "Aspects are an intuitive way to group new and familar faces, private to you, allowing you to filter down or share with subsets of your contacts easily."
       edit_profile: "Edit Profile"
       featured_tags: "Featured tags"
-      featured_users: "Featured users"
       fill_out_your_profile: "Fill out your profile"
       find_friends: "Find friends"
       find_friends_from_facebook: "find friends from Facebook"
@@ -867,7 +874,7 @@ br:
         tags: "Tags"
       search_for_hashtags: "Search for #hashtags"
       search_for_people: "Search for people"
-      see_all_featured_users: "See all featured users"
+      see_all_community_spotlight: "See all community spotlight"
       welcome: "Degemer mat e-barzh Diaspora!"
       welcome_with_name: "Welcome, %{name}!"
     logged_out: 
@@ -884,6 +891,8 @@ br:
       language_not_changed: "Kudennoù zo bet o cheñch ar yezh"
       password_changed: "Ger-Kuzh Cheñchet"
       password_not_changed: "Ur gudenn zo bet o cheñch ar ger-kuzh"
+      settings_not_updated: "Settings update failed"
+      settings_updated: "Settings updated"
       unconfirmed_email_changed: "E-Mail Changed. Needs activation."
       unconfirmed_email_not_changed: "E-Mail Change Failed"
   webfinger: 

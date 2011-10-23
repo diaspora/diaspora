@@ -64,12 +64,6 @@ eo:
       deselect_all: "Deselect all"
       edit_aspect: "Redakti %{name}-n"
       select_all: "Select all"
-    aspect_stream: 
-      commented_on: " komentis pri "
-      mentions: "Mencioj"
-      posted: "afiŝita"
-      recently: "antaŭ nelonge:"
-      stream: "Novaĵlisto"
     contacts_not_visible: "Kontaktoj en tiu aspekto ne povos vidi unu la aliajn."
     contacts_visible: "Kontaktoj en tiu aspekto povos vidi unu la alian."
     create: 
@@ -118,7 +112,6 @@ eo:
         satisfaction: "%{link}: Komunuma helpo"
         tutorials_and_wiki: "%{tutorial} & %{wiki}: Komunumaj lerniloj, instruadoj, kaj novaĵoj"
       keep_us_running: "Helpu %{pod} rapide funkcii kaj aĉetu por niaj servkomputiloj ilian kaforiparon per ĉiumonata donatado!"
-      mentions: "Mencioj"
       no_contacts: "Nul kontaktoj"
       no_tags: "+ Trovi etikedon aboni"
       people_sharing_with_you: "Homoj, kiuj konigas kun vi"
@@ -127,8 +120,8 @@ eo:
       services: 
         content: "Vi povas konekti la postajn servojn kun DIASPORA*:"
         heading: "Konekti Servojn"
-      tags_following: "Abonitaj Etikedoj"
       unfollow_tag: "Ne plu abonas #%{tag}."
+      welcome: "Welcome"
       your_aspects: "Viaj Aspektoj"
     many: "%{count} aspektoj"
     move_contact: 
@@ -139,8 +132,8 @@ eo:
       create: "Krei"
       name: "Nomo (nur vidateblas de vi)"
     no_contacts_message: 
-      featured_users: "prezentantaj uzantoj"
-      or_featured: "Aŭ vi povas partopreni per %{link}"
+      community_spotlight: "community spotlight"
+      or_spotlight: "Or you can share with %{link}"
       try_adding_some_more_contacts: "Vi povas serĉi (supre) aŭ inviti (dekstre) pli kontaktojn."
       you_should_add_some_more_contacts: "Vi devus aldoni pli kontaktojn!"
     no_posts_message: 
@@ -155,8 +148,8 @@ eo:
     selected_contacts: 
       manage_your_aspects: "Redakti viajn aspektojn."
       no_contacts: "Vi ne jam havas iujn ajn kontaktojn tie ĉi."
+      view_all_community_spotlight: "See all community spotlight"
       view_all_contacts: "Vidi ĉiujn kontaktojn"
-      view_all_featured_users: "Vidi ĉiujn Prezentatajn Uzantojn"
     show: 
       edit_aspect: "redakti aspekton"
     two: "%{count} aspektoj"
@@ -617,7 +610,7 @@ eo:
       enter_password_again: "Enskribu la saman pasvorton, kiel antaŭe"
       enter_username: "Elekti uzantnomon (nur literojn, nombrojn, kaj substrekojn)"
       join_the_movement: "Aniĝu je la movado!"
-      sign_up_today: "Registriĝu hodiaŭ"
+      sign_up_message: "Social Networking with a <3"
   requests: 
     create: 
       sending: "Sendanta"
@@ -764,15 +757,27 @@ eo:
     hide_comments: "kaŝi ĉiujn komentojn"
     show_more_comments: "Videbligi %{number} pli komentojn"
   streams: 
+    aspects: 
+      title: "Your Aspects"
+    aspects_stream: "Aspects"
+    commented_on: "commented on"
+    community_spotlight_stream: "Community Spotlight"
+    followed_tag: 
+      contacts_title: "People who dig these tags"
+      title: "#Followed Tags"
+    followed_tags_stream: "#Followed Tags"
+    mentioned_stream: "@Mentions"
     mentions: 
       contacts_title: "Homoj, kiuj menciis vin"
       title: "Viaj Mencioj"
+    multi: 
+      contacts_title: "People in your Stream"
+      title: "Stream"
+    posted: "posted"
     public: 
       contacts_title: "Recent Posters"
       title: "Public Activity"
-    soup: 
-      contacts_title: "People in your Soup"
-      title: "The Soup"
+    recently: "recently:"
     tags: 
       contacts_title: "Homoj, al kiuj tiuj ĉi etikedoj plaĉas"
       title: "Afiŝoj etikeditaj: %{tags}"
@@ -832,11 +837,14 @@ eo:
       private_message: "...vi ricevas malpublikan poŝton?"
       receive_email_notifications: "Ĉu ricevi retpoŝtajn sciigojn, kiam..."
       reshared: "...iu repartoprenas vian afiŝon?"
+      show_community_spotlight: "Show Community Spotlight in Stream?"
       started_sharing: "...iu komencis konigi kun vi?"
+      stream_preferences: "Stream Preferences"
       your_email: "Via retpoŝtadreso"
       your_handle: "Via DIASPORA* uzantnomo"
     getting_started: 
       bold: "aspektoj"
+      community_spotlight: "Community spotlight"
       community_welcome: "La komunumo de DIASPORA* feliĉas, ke vi aniĝis!"
       connect_to: "Ligi al"
       connect_to_your_other_social_networks: "Ligi al viaj aliaj sociaj retoj"
@@ -847,7 +855,6 @@ eo:
       connect_with_people_explanation_pt2: "Aspektojn estas facilkomprenita metodo arigi novajn kaj familiarajn homojn, malpublike al vi, lasante, ke vi filtras aŭ partoprenas kun subaroj el viaj kontaktojn facile."
       edit_profile: "Redakti Profilon"
       featured_tags: "Alboni prezentatajn etikedojn"
-      featured_users: "Prezentataj uzantoj"
       fill_out_your_profile: "Kompletigu vian profilon"
       find_friends: "Trovi amikojn"
       find_friends_from_facebook: "trovi amikojn per Facebook"
@@ -867,7 +874,7 @@ eo:
         tags: "Etikedoj"
       search_for_hashtags: "Serĉi por #etikedoj"
       search_for_people: "Serĉi por homoj"
-      see_all_featured_users: "Vidi ĉiujn prezentatajn uzantojn"
+      see_all_community_spotlight: "See all community spotlight"
       welcome: "Bonvenon!"
       welcome_with_name: "Bonvenon, %{name}!"
     logged_out: 
@@ -884,6 +891,8 @@ eo:
       language_not_changed: "Ne povis ŝanĝi lingvon"
       password_changed: "Pasvorto ŝanĝita.  Vi nun povas ensaluti per via nova pasvorto."
       password_not_changed: "Ne povis ŝanĝi pasvorton"
+      settings_not_updated: "Settings update failed"
+      settings_updated: "Settings updated"
       unconfirmed_email_changed: "Retpoŝtadreso ŝanĝiĝis.  Devas aktivigadon."
       unconfirmed_email_not_changed: "Ne povis ŝanĝigis retpoŝtadreson."
   webfinger: 

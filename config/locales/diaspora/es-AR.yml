@@ -61,15 +61,9 @@ es-AR:
       done_editing: "aceptar"
     aspect_listings: 
       add_an_aspect: "+ Agregar un aspecto"
-      deselect_all: "Deselect all"
+      deselect_all: "De-seleccionar todo"
       edit_aspect: "Editar %{name}"
-      select_all: "Select all"
-    aspect_stream: 
-      commented_on: "comentó en"
-      mentions: "Menciones"
-      posted: "publicado"
-      recently: "recientemente:"
-      stream: "Stream"
+      select_all: "Seleccionar todo"
     contacts_not_visible: "Los contactos en este aspecto no van a poder verse entre ellos."
     contacts_visible: "Los contactos en este aspecto van a poder verse entre ellos."
     create: 
@@ -84,7 +78,7 @@ es-AR:
       aspect_list_is_visible: "la lista de contactos del aspecto es visible"
       confirm_remove_aspect: "¿Estás seguro de que querés eliminar este aspecto?"
       done: "Listo"
-      make_aspect_list_visible: "¿Hacer visible la lista de contactos del aspecto?"
+      make_aspect_list_visible: "¿Hacer visible los contactos del aspecto entre ellos?"
       remove_aspect: "Eliminar este aspecto"
       rename: "renombrar"
       update: "actualizar"
@@ -105,7 +99,7 @@ es-AR:
         content_2: "Dáselo a cualquiera y podrá encontrarte en Diáspora."
         heading: "ID de Diáspora"
       donate: "Donar"
-      handle_explanation: "Ésta es tu dirección de Diáspora*. Es como una dirección de correo electrónico, podés dársela a la gente para que te encuentren."
+      handle_explanation: "Ésta es tu identificación de Diáspora*. Es como una dirección de correo electrónico, podes dársela a la gente para que te encuentren."
       help: 
         do_you: "Do you:"
         email_feedback: "%{link} tu feedback, si preferís"
@@ -118,7 +112,6 @@ es-AR:
         satisfaction: "%{link}: Community-powered support"
         tutorials_and_wiki: "%{tutorial} & %{wiki}: Community-powered tutorials, how-to, and news"
       keep_us_running: "Keep %{pod} running fast, buy our servers their monthly coffee fix!"
-      mentions: "Menciones"
       no_contacts: "No hay contactos"
       no_tags: "No tags"
       people_sharing_with_you: "Comparten con vos"
@@ -127,8 +120,8 @@ es-AR:
       services: 
         content: "Podés conectar los siguientes servicios a Diáspora:"
         heading: "Conectar Servicios"
-      tags_following: "Tags que seguís"
       unfollow_tag: "Dejar de seguir #%{tag}"
+      welcome: "Welcome"
       your_aspects: "Tus Aspectos"
     many: "%{count} aspectos"
     move_contact: 
@@ -139,12 +132,12 @@ es-AR:
       create: "Crear"
       name: "Nombre"
     no_contacts_message: 
-      featured_users: "usuarios destacados"
-      or_featured: "O podés compartir con %{link}"
+      community_spotlight: "community spotlight"
+      or_spotlight: "Or you can share with %{link}"
       try_adding_some_more_contacts: "Podés buscar (arriba) o invitar (derecha) más contactos."
       you_should_add_some_more_contacts: "Deberías agregar más contactos!"
     no_posts_message: 
-      start_talking: "Nadie dijo algo todavía. ¡Iniciá la conversación!"
+      start_talking: "Nadie dijo nada todavía. ¡Inicia la conversación!"
     one: "1 aspecto"
     other: "%{count} aspectos"
     seed: 
@@ -155,8 +148,8 @@ es-AR:
     selected_contacts: 
       manage_your_aspects: "Administra tus aspectos."
       no_contacts: "Todavía no tenés ningún contacto aquí."
+      view_all_community_spotlight: "See all community spotlight"
       view_all_contacts: "Ver todos los contactos"
-      view_all_featured_users: "Ver todos los Usuarios Destacados"
     show: 
       edit_aspect: "editar aspecto"
     two: "%{count} aspectos"
@@ -617,7 +610,7 @@ es-AR:
       enter_password_again: "Repetí la misma contraseña"
       enter_username: "Elegí un nombre de usuario (sólo letras, números y guión bajo)"
       join_the_movement: "Unite al movimiento!"
-      sign_up_today: "Registrate hoy"
+      sign_up_message: "Social Networking with a <3"
   requests: 
     create: 
       sending: "Enviando"
@@ -647,7 +640,7 @@ es-AR:
       deleted: "La publicación original fue eliminada por su autor."
       reshare: 
         few: "%{count} Reshares"
-        many: "%{count} Reshares"
+        many: "%{count} Re-compartido"
         one: "1 Reshare"
         other: "%{count} Reshares"
         two: "%{count} compartidos"
@@ -655,7 +648,7 @@ es-AR:
       reshare_confirmation: "Reshare %{author} - %{text}?"
       reshare_original: "Reshare orignial"
       reshared_via: "compartido a través de"
-      show_original: "Show Original"
+      show_original: "Mostrar original "
   search: "Buscar"
   services: 
     create: 
@@ -764,15 +757,27 @@ es-AR:
     hide_comments: "ocultar los comentarios"
     show_more_comments: "Mostrar %{number} comentarios más"
   streams: 
+    aspects: 
+      title: "Your Aspects"
+    aspects_stream: "Aspects"
+    commented_on: "commented on"
+    community_spotlight_stream: "Community Spotlight"
+    followed_tag: 
+      contacts_title: "People who dig these tags"
+      title: "#Followed Tags"
+    followed_tags_stream: "#Followed Tags"
+    mentioned_stream: "@Mentions"
     mentions: 
       contacts_title: "Gente que te mencionó"
       title: "Tus Menciones"
+    multi: 
+      contacts_title: "People in your Stream"
+      title: "Stream"
+    posted: "posted"
     public: 
       contacts_title: "Recent Posters"
       title: "Actividad Pública"
-    soup: 
-      contacts_title: "People in your Soup"
-      title: "The Soup"
+    recently: "recently:"
     tags: 
       contacts_title: "People who dig these tags"
       title: "Mensajes taggeados: %{tags}"
@@ -809,13 +814,13 @@ es-AR:
   username: "Nombre de usuario"
   users: 
     confirm_email: 
-      email_confirmed: "E-Mail %{email} activated"
-      email_not_confirmed: "E-Mail could not be activated. Wrong link?"
+      email_confirmed: "E-Mail %{email} activado"
+      email_not_confirmed: "El E-Mail no pudo ser activado. Link equivocado?"
     destroy: "Cuenta cerrada satisfactoriamente."
     edit: 
       also_commented: "...alguien también comenta en una publicación en la que comentaste?"
       change: "Cambiar"
-      change_email: "Change E-Mail"
+      change_email: "Cambiar E-Mail"
       change_language: "Cambiar idioma"
       change_password: "Cambiar contraseña"
       close_account: "Cerrar cuenta"
@@ -824,7 +829,7 @@ es-AR:
       download_photos: "descargar mis fotos"
       download_xml: "decargar mi XML"
       edit_account: "Editar cuenta"
-      email_awaiting_confirmation: "We have sent you an activation link to %{unconfirmed_email}. Till you follow this link and activate the new address, we will continue to use your original address %{email}."
+      email_awaiting_confirmation: "Te hemos enviado un link de activación a %{unconfirmed_email}. Hasta que sigas este link y actives la nueva dirección, continuaremos utilizando tu dirección original %{email}."
       export_data: "Exportar datos"
       liked: "...a alguien le gusta una publicación tuya?"
       mentioned: "...te mencionan en una publicación?"
@@ -832,11 +837,14 @@ es-AR:
       private_message: "...recibís un mensaje privado?"
       receive_email_notifications: "¿Recibir notificaciones por correo electrónico cuando..."
       reshared: "...alguien compartió tu publicación?"
+      show_community_spotlight: "Show Community Spotlight in Stream?"
       started_sharing: "...alguien comienza a compartir con vos?"
+      stream_preferences: "Stream Preferences"
       your_email: "Tu correo electrónico"
-      your_handle: "Tu dirección Diáspora*"
+      your_handle: "Tu identificación de  Diáspora*"
     getting_started: 
       bold: "aspectos"
+      community_spotlight: "Community spotlight"
       community_welcome: "La comunidad de Diáspora está feliz de tenerte a bordo!"
       connect_to: "Conectar a"
       connect_to_your_other_social_networks: "Conectate con tus otras redes sociales"
@@ -847,7 +855,6 @@ es-AR:
       connect_with_people_explanation_pt2: "Los Aspectos son una forma intuitiva de agrupar caras nuevas y familiares, privados para vos, permitiéndote filtrar o compartir fácilmente con subgrupos de tus contactos."
       edit_profile: "Editá tu perfil"
       featured_tags: "Featured tags"
-      featured_users: "Usuarios destacados"
       fill_out_your_profile: "Completá tu perfil"
       find_friends: "Encontrar amigos"
       find_friends_from_facebook: "encontrá tus amigos de Facebook"
@@ -867,7 +874,7 @@ es-AR:
         tags: "Etiquetas"
       search_for_hashtags: "Buscar #hashtags"
       search_for_people: "Buscar gente"
-      see_all_featured_users: "Ver todos los usuarios destacados"
+      see_all_community_spotlight: "See all community spotlight"
       welcome: "¡Bienvenido!"
       welcome_with_name: "¡Bienvenido, %{name}!"
     logged_out: 
@@ -884,8 +891,10 @@ es-AR:
       language_not_changed: "No pudo cambiarse el idioma"
       password_changed: "Tu contraseña se cambió.  Ya podés conectarte con tu nueva contraseña."
       password_not_changed: "No pudo cambiarse tu contraseña"
-      unconfirmed_email_changed: "E-Mail Changed. Needs activation."
-      unconfirmed_email_not_changed: "E-Mail Change Failed"
+      settings_not_updated: "Settings update failed"
+      settings_updated: "Settings updated"
+      unconfirmed_email_changed: "E-Mail Cambiado. Activación necesaria."
+      unconfirmed_email_not_changed: "El cambio de E-Mail fallo"
   webfinger: 
     fetch_failed: "No pudo encontrarse el perfil webfinger de %{profile_url}"
     hcard_fetch_failed: "Hubo un problema al buscar el 'hcard' de %{account}"

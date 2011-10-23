@@ -64,12 +64,6 @@ bg:
       deselect_all: "Никой"
       edit_aspect: "Редактиране на \"%{name}\""
       select_all: "Всички"
-    aspect_stream: 
-      commented_on: "коментирани"
-      mentions: "Споменавания"
-      posted: "публикувани"
-      recently: "наскоро:"
-      stream: "Поток"
     contacts_not_visible: "Контактите в аспекта няма да бъдат видими един за друг."
     contacts_visible: "Контактите в аспекта ще бъдат видими един за друг."
     create: 
@@ -118,7 +112,6 @@ bg:
         satisfaction: "%{link}: Поддръжка осигурена от общността"
         tutorials_and_wiki: "%{tutorial} и %{wiki}: ръководства, съвети и новини от общността"
       keep_us_running: "Осигурете бързата работа на %{pod} като дарите пари за месечната издръжка на сървърите!"
-      mentions: "Споменавания"
       no_contacts: "Няма контакти"
       no_tags: "+ Намиране на марки"
       people_sharing_with_you: "Хора споделящи с вас"
@@ -127,8 +120,8 @@ bg:
       services: 
         content: "Можете да свържете следните услуги към Diaspora:"
         heading: "Свързване към услуги"
-      tags_following: "Марки, които следите"
       unfollow_tag: "Прекратяване следенето на #%{tag}"
+      welcome: "Welcome"
       your_aspects: "Вашите аспекти"
     many: "%{count} аспекта"
     move_contact: 
@@ -139,8 +132,8 @@ bg:
       create: "Създаване"
       name: "Име (видимо е само за вас)"
     no_contacts_message: 
-      featured_users: "избрани потребители"
-      or_featured: "Пожелаете ли можете да започнете да споделяте с %{link}"
+      community_spotlight: "community spotlight"
+      or_spotlight: "Or you can share with %{link}"
       try_adding_some_more_contacts: "Можете да търсите (в кутията отгоре) или да поканите хора (отдясно)."
       you_should_add_some_more_contacts: "Добавете няколко контакта!"
     no_posts_message: 
@@ -155,8 +148,8 @@ bg:
     selected_contacts: 
       manage_your_aspects: "Управление на аспектите."
       no_contacts: "Все още не сте добавили контакти."
+      view_all_community_spotlight: "See all community spotlight"
       view_all_contacts: "Показване на всички контакти"
-      view_all_featured_users: "Показване на всички избрани потребители"
     show: 
       edit_aspect: "редактиране на аспекта"
     two: "%{count} аспекта"
@@ -617,7 +610,7 @@ bg:
       enter_password_again: "Въведете отново същата парола"
       enter_username: "Изберете си потребителско име (само букви, цифри и долна черта)"
       join_the_movement: "Присъединете се към движението!"
-      sign_up_today: "Регистрирайте се днес"
+      sign_up_message: "Social Networking with a <3"
   requests: 
     create: 
       sending: "Изпращане"
@@ -764,15 +757,27 @@ bg:
     hide_comments: "Скриване на коментарите"
     show_more_comments: "Показване на още %{number} коментара"
   streams: 
+    aspects: 
+      title: "Your Aspects"
+    aspects_stream: "Aspects"
+    commented_on: "commented on"
+    community_spotlight_stream: "Community Spotlight"
+    followed_tag: 
+      contacts_title: "People who dig these tags"
+      title: "#Followed Tags"
+    followed_tags_stream: "#Followed Tags"
+    mentioned_stream: "@Mentions"
     mentions: 
       contacts_title: "Хора, които са ви споменали"
       title: "Споменаване"
+    multi: 
+      contacts_title: "People in your Stream"
+      title: "Stream"
+    posted: "posted"
     public: 
       contacts_title: "Скоро публикували"
       title: "Публична активност"
-    soup: 
-      contacts_title: "People in your Soup"
-      title: "The Soup"
+    recently: "recently:"
     tags: 
       contacts_title: "Хора, които харесват тези марки"
       title: "Публикации маркирани с \"%{tags}\""
@@ -832,11 +837,14 @@ bg:
       private_message: "...получите лично съобщение?"
       receive_email_notifications: "Получаване на известие по ел. поща когато..."
       reshared: "...някой сподели ваша публикация?"
+      show_community_spotlight: "Show Community Spotlight in Stream?"
       started_sharing: "...някой започне да споделя с вас?"
+      stream_preferences: "Stream Preferences"
       your_email: "Вашата ел. поща"
       your_handle: "Вашият адрес в Diaspora"
     getting_started: 
       bold: "аспекти"
+      community_spotlight: "Community spotlight"
       community_welcome: "Общността Diaspora с радост ви приветства в този pod!"
       connect_to: "Свържете профила си с"
       connect_to_your_other_social_networks: "Свържете профила си с други социални мрежи"
@@ -847,7 +855,6 @@ bg:
       connect_with_people_explanation_pt2: "Групирането на контактите в аспекти ще ви позволи да споделяте/филтрирате информация само с/от определена подгрупа от контактите ви."
       edit_profile: "Редактиране на профила"
       featured_tags: "Следете избрани марки"
-      featured_users: "Следете избрани потребители"
       fill_out_your_profile: "Попълнете профила си"
       find_friends: "Намерете приятели"
       find_friends_from_facebook: "намерете приятелите си от Facebook"
@@ -867,7 +874,7 @@ bg:
         tags: "Марки"
       search_for_hashtags: "Търсене за #диез марки"
       search_for_people: "Търсене за хора"
-      see_all_featured_users: "Показване на всички избрани потребители"
+      see_all_community_spotlight: "See all community spotlight"
       welcome: "Добре дошли!"
       welcome_with_name: "Здравейте, %{name}!"
     logged_out: 
@@ -884,6 +891,8 @@ bg:
       language_not_changed: "Езикът не бе сменен"
       password_changed: "Паролата е променена. Можете да се впишете с новата парола."
       password_not_changed: "Паролата не бе променена"
+      settings_not_updated: "Settings update failed"
+      settings_updated: "Settings updated"
       unconfirmed_email_changed: "Ел. поща е променена. Необходимо е да я активирате."
       unconfirmed_email_not_changed: "Ел. поща не бе променена"
   webfinger: 

@@ -7,19 +7,19 @@ ko:
   javascripts: 
     aspect_dropdown: 
       add_to_aspect: "애스펙에 넣기"
-      all_aspects: "All aspects"
-      select_aspects: "Select aspects"
+      all_aspects: "모든 에스팩"
+      select_aspects: "에스팩 선택"
       toggle: 
         few: "애스펙 {{count}}개 안에 있습니다"
         many: "애스펙 {{count}}개 안에 있습니다"
         one: "애스펙 한 개 안에 있습니다"
         other: "애스펙 {{count}}개 안에 있습니다"
-        two: "In {{count}} aspects"
+        two: "{{count}}개의 에스팩에서"
         zero: "애스펙에 넣기"
     aspect_navigation: 
-      deselect_all: "Deselect all"
-      no_aspects: "No aspects selected"
-      select_all: "Select all"
+      deselect_all: "선택 해제"
+      no_aspects: "에스팩이 선택되지 않았음"
+      select_all: "모두 선택"
     comments: 
       hide: "댓글 감추기"
       show: "모든 댓글 보기"
@@ -45,11 +45,11 @@ ko:
       minutes: "%d분"
       month: "약 한 달"
       months: "%d개월"
-      prefixAgo: ""
+      prefixAgo: "javascripts:timeago:prefixAgo"
       prefixFromNow: "지금부터"
       seconds: "방금"
       suffixAgo: "전"
-      suffixFromNow: ""
+      suffixFromNow: "지금으로 부터"
       year: "한 해"
       years: "%d년"
     videos: 

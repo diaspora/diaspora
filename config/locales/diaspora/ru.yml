@@ -64,12 +64,6 @@ ru:
       deselect_all: "Выключить все"
       edit_aspect: "Редактировать аспект «%{name}»"
       select_all: "Включить все"
-    aspect_stream: 
-      commented_on: "прокомментированные"
-      mentions: "Упоминания"
-      posted: "опубликованные"
-      recently: "последние:"
-      stream: "Лента"
     contacts_not_visible: "Контакты в этом аспекте не смогут видеть друг друга."
     contacts_visible: "Контакты в этом аспекте могут видеть друг друга"
     create: 
@@ -118,7 +112,6 @@ ru:
         satisfaction: "%{link}: осуществляемая сообществом поддержка"
         tutorials_and_wiki: "%{tutorial} и %{wiki}: создающиеся сообществом руководства, инструкции и новости"
       keep_us_running: "Помогите %{pod} работать быстро — купите нашим серверам дозу кофе, сделав ежемесячное пожертвование!"
-      mentions: "Упоминания"
       no_contacts: "Контакты отсутствуют"
       no_tags: "+ Найти метку"
       people_sharing_with_you: "Люди делятся с вами"
@@ -127,8 +120,8 @@ ru:
       services: 
         content: "Вы можете подключить к Диаспоре следующие службы:"
         heading: "Подключенные службы"
-      tags_following: "Отслеживаемые метки"
       unfollow_tag: "Не следить за меткой #%{tag}"
+      welcome: "Добро пожаловать"
       your_aspects: "Ваши аспекты"
     many: "%{count} аспект[-а, -ов]"
     move_contact: 
@@ -139,9 +132,9 @@ ru:
       create: "Создать"
       name: "Имя (видно только вам)"
     no_contacts_message: 
-      featured_users: "рекомендуемых пользователей"
-      or_featured: "Или познакомьтесь со списком %{link}"
-      try_adding_some_more_contacts: "Вы можете найти (сверху) или пригласить (справа) других пользователей."
+      community_spotlight: "рекомендуемыми пользователями"
+      or_spotlight: "Или вы можете делиться с %{link}"
+      try_adding_some_more_contacts: "Вы можете найти или пригласить других пользователей."
       you_should_add_some_more_contacts: "Добавьте больше контактов!"
     no_posts_message: 
       start_talking: "Здесь ещё никто ничего не сказал."
@@ -155,8 +148,8 @@ ru:
     selected_contacts: 
       manage_your_aspects: "Управление аспектами."
       no_contacts: "Здесь пока нет ни одного контакта."
+      view_all_community_spotlight: "See all community spotlight"
       view_all_contacts: "Все контакты"
-      view_all_featured_users: "Все рекомендуемые пользователи"
     show: 
       edit_aspect: "редактировать аспект"
     two: "%{count} аспектов"
@@ -611,13 +604,13 @@ ru:
       unhappy: "Недовольны?"
       update: "Обновить"
     new: 
-      create_my_account: "Создать мой аккаунт"
+      create_my_account: "Создать мой аккаунт!"
       enter_email: "Введите email"
       enter_password: "Введите пароль"
       enter_password_again: "Повторите пароль"
       enter_username: "Выберите имя пользователя (разрешены только латинские буквы, цифры и подчеркивание)"
       join_the_movement: "Присоединяйтесь к движению!"
-      sign_up_today: "Зарегистрируйтесь сегодня"
+      sign_up_message: "Социальная сеть с <3"
   requests: 
     create: 
       sending: "Отправка"
@@ -764,17 +757,29 @@ ru:
     hide_comments: "Скрыть все комментарии"
     show_more_comments: "Остальные комментарии (%{number})"
   streams: 
+    aspects: 
+      title: "Ваши аспекты"
+    aspects_stream: "Аспекты"
+    commented_on: "обсуждаемые"
+    community_spotlight_stream: "В центре внимания"
+    followed_tag: 
+      contacts_title: "Люди, интересующиеся этими метками"
+      title: "#Отслеживаемые метки"
+    followed_tags_stream: "#Отслеживаемые метки"
+    mentioned_stream: "@Упоминания"
     mentions: 
       contacts_title: "Упоминавшие вас люди"
-      title: "Ваши упоминания"
+      title: "@Упоминания"
+    multi: 
+      contacts_title: "Люди в вашем Потоке"
+      title: "Поток"
+    posted: "опубликованные"
     public: 
       contacts_title: "Последние публиковавшие"
       title: "Публичная активность"
-    soup: 
-      contacts_title: "Люди в вашем Супе"
-      title: "Суп"
+    recently: "последние:"
     tags: 
-      contacts_title: "Люди, которым нравятся эти метки"
+      contacts_title: "Люди, которым нравятся эта метка"
       title: "Записи, отмеченные: %{tags}"
   tag_followings: 
     create: 
@@ -832,11 +837,14 @@ ru:
       private_message: "... вы получаете личное сообщение?"
       receive_email_notifications: "Получать уведомление по электронной почте, когда..."
       reshared: "...кто-то делится вашей записью?"
+      show_community_spotlight: "Показывать рекомендуемых пользователей в Потоке?"
       started_sharing: "...кто-то начинает делиться с вами?"
+      stream_preferences: "Настройки Потока"
       your_email: "Ваш адрес электронной почты"
       your_handle: "Ваш идентификатор в Диаспоре"
     getting_started: 
       bold: "аспектов"
+      community_spotlight: "В центре внимания"
       community_welcome: "Сообщество Диаспоры радо приветствовать вас!"
       connect_to: "Подключитесь к"
       connect_to_your_other_social_networks: "Подключитесь к другим вашим социальным сетям"
@@ -847,7 +855,6 @@ ru:
       connect_with_people_explanation_pt2: "Аспекты - это интуитивно понятный способ организации новых и уже знакомых собеседников, видимый только вам и позволяющий легко делиться только с нужными группами людей."
       edit_profile: "Редактировать профиль"
       featured_tags: "Следить за рекомендуемыми метками"
-      featured_users: "Рекомендуемые пользователи"
       fill_out_your_profile: "Заполните ваш профиль"
       find_friends: "Найти друзей"
       find_friends_from_facebook: "найти друзей из Facebook"
@@ -867,7 +874,7 @@ ru:
         tags: "Метки"
       search_for_hashtags: "Искать по #меткам"
       search_for_people: "Искать людей"
-      see_all_featured_users: "Посмотреть всех рекомендуемых пользователей"
+      see_all_community_spotlight: "Посмотреть всех рекомендуемых пользователей"
       welcome: "Добро пожаловать!"
       welcome_with_name: "Добро пожаловать, %{name}!"
     logged_out: 
@@ -884,6 +891,8 @@ ru:
       language_not_changed: "Не удалось изменить язык"
       password_changed: "Пароль изменён. Теперь вы можете войти в систему с новым паролем."
       password_not_changed: "Изменить пароль не удалось"
+      settings_not_updated: "Ошибка при обновлении настроек"
+      settings_updated: "Настройки сохранены"
       unconfirmed_email_changed: "Email изменился. Нужна активация."
       unconfirmed_email_not_changed: "Ошибка изменения Email"
   webfinger: 

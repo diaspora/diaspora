@@ -64,12 +64,6 @@ zh-TW:
       deselect_all: "全不選"
       edit_aspect: "編輯%{name}"
       select_all: "全選"
-    aspect_stream: 
-      commented_on: "有意見的"
-      mentions: "指指點點"
-      posted: "發表的"
-      recently: "最近:"
-      stream: "事件流"
     contacts_not_visible: "此面向中的聯絡人無法看見彼此."
     contacts_visible: "此面向中的聯絡人可以看見彼此."
     create: 
@@ -118,7 +112,6 @@ zh-TW:
         satisfaction: "%{link}: 社群支援的客服網站"
         tutorials_and_wiki: "%{tutorial} 和 %{wiki}: 社群支援的新手入門, 操作指南, 以及最新消息"
       keep_us_running: "為了讓 %{pod} 高速奔馳, 用每月捐款來提供些咖啡存量給我們的伺服器吧!"
-      mentions: "指指點點"
       no_contacts: "沒有任何聯絡人"
       no_tags: "+ 找個標籤來追蹤"
       people_sharing_with_you: "跟你分享的人"
@@ -127,8 +120,8 @@ zh-TW:
       services: 
         content: "你可以連結以下服務至 Diaspora:"
         heading: "連結服務"
-      tags_following: "追蹤的標籤"
       unfollow_tag: "停止追蹤#%{tag}"
+      welcome: "歡迎光臨"
       your_aspects: "你的面向"
     many: "%{count}個面向"
     move_contact: 
@@ -139,9 +132,9 @@ zh-TW:
       create: "建立"
       name: "名字(只有你自己看得到)"
     no_contacts_message: 
-      featured_users: "明星使用者"
-      or_featured: "或者你也可以和 %{link} 分享"
-      try_adding_some_more_contacts: "你可以搜尋(從上方)或邀請(從右方)更多聯絡人."
+      community_spotlight: "社群焦點"
+      or_spotlight: "或者你也可以和 %{link} 分享"
+      try_adding_some_more_contacts: "你可以搜尋或邀請更多聯絡人."
       you_should_add_some_more_contacts: "新增更多聯絡人吧!"
     no_posts_message: 
       start_talking: "都還沒有人出聲!"
@@ -155,8 +148,8 @@ zh-TW:
     selected_contacts: 
       manage_your_aspects: "管理你的面向."
       no_contacts: "你在這裡還沒有任何聯絡人."
+      view_all_community_spotlight: "See all community spotlight"
       view_all_contacts: "檢視所有聯絡人"
-      view_all_featured_users: "看所有的明星使用者"
     show: 
       edit_aspect: "編輯面向"
     two: "%{count}個面向"
@@ -611,13 +604,13 @@ zh-TW:
       unhappy: "不滿意?"
       update: "更新"
     new: 
-      create_my_account: "開我的帳號"
+      create_my_account: "開我的帳號!"
       enter_email: "輸入電子信箱"
       enter_password: "輸入密碼"
       enter_password_again: "輸入與前面相同的密碼"
       enter_username: "選個使用者名稱(名稱只能包含拉丁字母,數字,以及底線字元)"
       join_the_movement: "參加這個行動!"
-      sign_up_today: "今天就來註冊"
+      sign_up_message: "讓你 <3 的社交網路"
   requests: 
     create: 
       sending: "傳送中"
@@ -764,17 +757,29 @@ zh-TW:
     hide_comments: "隱藏所有意見"
     show_more_comments: "顯示下面 %{number} 個意見"
   streams: 
+    aspects: 
+      title: "你的面向"
+    aspects_stream: "面向"
+    commented_on: "有意見的"
+    community_spotlight_stream: "社群焦點"
+    followed_tag: 
+      contacts_title: "這些標籤的粉絲"
+      title: "#已追蹤的標籤"
+    followed_tags_stream: "#已追蹤的標籤"
+    mentioned_stream: "@指指點點"
     mentions: 
       contacts_title: "對你指指點點過的人"
-      title: "對你指指點點的紀錄"
+      title: "@指指點點"
+    multi: 
+      contacts_title: "出現在流水帳中的人"
+      title: "流水帳"
+    posted: "發表的"
     public: 
       contacts_title: "最新貼文者"
       title: "公開活動"
-    soup: 
-      contacts_title: "People in your Soup"
-      title: "The Soup"
+    recently: "最近:"
     tags: 
-      contacts_title: "這些標籤的粉絲"
+      contacts_title: "這個標籤的粉絲"
       title: "有以下標籤的貼文: %{tags}"
   tag_followings: 
     create: 
@@ -832,11 +837,14 @@ zh-TW:
       private_message: "...當收到私人訊息時?"
       receive_email_notifications: "是否要在以下時機透過電子郵件接收消息..."
       reshared: "...有人轉貼你的貼文時?"
+      show_community_spotlight: "是否在流水帳中顯示社群焦點?"
       started_sharing: "...當有人開始和你分享時?"
+      stream_preferences: "流水帳偏好設定"
       your_email: "你的電子郵件"
       your_handle: "你的 diaspora 識別碼"
     getting_started: 
       bold: "面向"
+      community_spotlight: "社群焦點"
       community_welcome: "Diaspora 的社群歡迎你的到來!"
       connect_to: "連結至"
       connect_to_your_other_social_networks: "與其他社交網站連結"
@@ -847,7 +855,6 @@ zh-TW:
       connect_with_people_explanation_pt2: "面向是區分新人或熟人的直覺方式, 並且只有你自己知道, 讓你可以輕易過濾他們, 或只和部份聯絡人分享."
       edit_profile: "編輯個人檔案"
       featured_tags: "追蹤明星標籤"
-      featured_users: "明星使用者"
       fill_out_your_profile: "填寫個人檔案"
       find_friends: "找朋友"
       find_friends_from_facebook: "從 Facebook 找朋友"
@@ -867,7 +874,7 @@ zh-TW:
         tags: "標籤"
       search_for_hashtags: "搜尋\"#雜湊標籤\""
       search_for_people: "搜尋人"
-      see_all_featured_users: "看所有的明星使用者"
+      see_all_community_spotlight: "看所有的社群焦點"
       welcome: "歡迎光臨!"
       welcome_with_name: "歡迎光臨, %{name}!"
     logged_out: 
@@ -884,6 +891,8 @@ zh-TW:
       language_not_changed: "語言更改失敗"
       password_changed: "已更改密碼. 現在起你可以用新的密碼登入了."
       password_not_changed: "密碼更改失敗"
+      settings_not_updated: "設定更新失敗"
+      settings_updated: "設定已更新"
       unconfirmed_email_changed: "已更改E-Mail. 必須要啟動使用."
       unconfirmed_email_not_changed: "E-Mail更改失敗"
   webfinger: 

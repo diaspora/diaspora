@@ -64,12 +64,6 @@ nb:
       deselect_all: "Deselect all"
       edit_aspect: "Edit %{name}"
       select_all: "Select all"
-    aspect_stream: 
-      commented_on: "commented on"
-      mentions: "Mentions"
-      posted: "posted"
-      recently: "recently:"
-      stream: "Stream"
     contacts_not_visible: "Kontakter i dette aspektet vil ikke kunne se hverandre."
     contacts_visible: "Kontakter i dette aspektet vil kunne se hverandre."
     create: 
@@ -118,7 +112,6 @@ nb:
         satisfaction: "%{link}: Community-powered support"
         tutorials_and_wiki: "%{tutorial} & %{wiki}: Community-powered tutorials, how-to, and news"
       keep_us_running: "Keep %{pod} running fast, buy our servers their monthly coffee fix!"
-      mentions: "Mentions"
       no_contacts: "Ingen kontakter"
       no_tags: "No tags"
       people_sharing_with_you: "Folk som deler med deg"
@@ -127,8 +120,8 @@ nb:
       services: 
         content: "You can connect the following services to Diaspora:"
         heading: "Connect Services"
-      tags_following: "Followed Tags"
       unfollow_tag: "Stop following #%{tag}"
+      welcome: "Welcome"
       your_aspects: "Your Aspects"
     many: "%{count} aspekter"
     move_contact: 
@@ -139,8 +132,8 @@ nb:
       create: "Opprett"
       name: "Navn"
     no_contacts_message: 
-      featured_users: "featured users"
-      or_featured: "Or you can share with %{link}"
+      community_spotlight: "community spotlight"
+      or_spotlight: "Or you can share with %{link}"
       try_adding_some_more_contacts: "You can search (top) or invite (right) more contacts."
       you_should_add_some_more_contacts: "You should add some more contacts!"
     no_posts_message: 
@@ -155,8 +148,8 @@ nb:
     selected_contacts: 
       manage_your_aspects: "Manage your aspects."
       no_contacts: "Du har ingen kontakter her enda."
+      view_all_community_spotlight: "See all community spotlight"
       view_all_contacts: "Vis alle kontakter"
-      view_all_featured_users: "See all Featured Users"
     show: 
       edit_aspect: "endre aspekt"
     two: "%{count} aspects"
@@ -617,7 +610,7 @@ nb:
       enter_password_again: "Skriv inn samme passord som før"
       enter_username: "Velg et brukernavn (kun bokstaver, nummer og understreker)"
       join_the_movement: "Join the movement!"
-      sign_up_today: "Sign up today"
+      sign_up_message: "Social Networking with a <3"
   requests: 
     create: 
       sending: "Sending..."
@@ -764,15 +757,27 @@ nb:
     hide_comments: "skjul kommentarer"
     show_more_comments: "Show %{number} more comments"
   streams: 
+    aspects: 
+      title: "Your Aspects"
+    aspects_stream: "Aspects"
+    commented_on: "commented on"
+    community_spotlight_stream: "Community Spotlight"
+    followed_tag: 
+      contacts_title: "People who dig these tags"
+      title: "#Followed Tags"
+    followed_tags_stream: "#Followed Tags"
+    mentioned_stream: "@Mentions"
     mentions: 
       contacts_title: "People who mentioned you"
       title: "Your Mentions"
+    multi: 
+      contacts_title: "People in your Stream"
+      title: "Stream"
+    posted: "posted"
     public: 
       contacts_title: "Recent Posters"
       title: "Public Activity"
-    soup: 
-      contacts_title: "People in your Soup"
-      title: "The Soup"
+    recently: "recently:"
     tags: 
       contacts_title: "People who dig these tags"
       title: "Posts tagged: %{tags}"
@@ -832,11 +837,14 @@ nb:
       private_message: " du mottar en privat melding?"
       receive_email_notifications: "Motta varsler på epost når:"
       reshared: "...someone reshares your post?"
+      show_community_spotlight: "Show Community Spotlight in Stream?"
       started_sharing: "... noen begynner å dele med deg?"
+      stream_preferences: "Stream Preferences"
       your_email: "Din epost"
       your_handle: "Ditt Diaspora brukernavn"
     getting_started: 
       bold: "aspects"
+      community_spotlight: "Community spotlight"
       community_welcome: "Diaspora's community is happy to have you aboard!"
       connect_to: "Connect to"
       connect_to_your_other_social_networks: "Connect to your other social networks"
@@ -847,7 +855,6 @@ nb:
       connect_with_people_explanation_pt2: "Aspects are an intuitive way to group new and familar faces, private to you, allowing you to filter down or share with subsets of your contacts easily."
       edit_profile: "Rediger profilen"
       featured_tags: "Featured tags"
-      featured_users: "Featured users"
       fill_out_your_profile: "Fill out your profile"
       find_friends: "Finn venner"
       find_friends_from_facebook: "finn venner fra Facebook"
@@ -867,7 +874,7 @@ nb:
         tags: "Tags"
       search_for_hashtags: "Search for #hashtags"
       search_for_people: "Search for people"
-      see_all_featured_users: "See all featured users"
+      see_all_community_spotlight: "See all community spotlight"
       welcome: "Velkommen til Diaspora!"
       welcome_with_name: "Velkommen %{name}!"
     logged_out: 
@@ -884,6 +891,8 @@ nb:
       language_not_changed: "Endring av språk mislyktes"
       password_changed: "Passord Endret"
       password_not_changed: "Endring av Passord mislyktes"
+      settings_not_updated: "Settings update failed"
+      settings_updated: "Settings updated"
       unconfirmed_email_changed: "E-Mail Changed. Needs activation."
       unconfirmed_email_not_changed: "E-Mail Change Failed"
   webfinger: 

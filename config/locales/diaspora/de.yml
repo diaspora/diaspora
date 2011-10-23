@@ -64,12 +64,6 @@ de:
       deselect_all: "Auswahl aufheben"
       edit_aspect: "Bearbeite %{name}"
       select_all: "Alle auswählen"
-    aspect_stream: 
-      commented_on: "kommentiert"
-      mentions: "Erwähnungen"
-      posted: "geschrieben"
-      recently: "vor Kurzem:"
-      stream: "Stream"
     contacts_not_visible: "Kontakte in diesem Aspekt sind nicht in der Lage einander zu sehen."
     contacts_visible: "Kontakte in diesem Aspekt können sich untereinander sehen."
     create: 
@@ -118,7 +112,6 @@ de:
         satisfaction: "%{link}: Gemeinschaft-Unterstützung"
         tutorials_and_wiki: "%{tutorial} & %{wiki}: Gemeinschaft betriebene Tutorials, Anleitungen, und Nachrichten"
       keep_us_running: "Hilf %{pod} schnell zu laufen und kaufe unseren Servern ihren monatlichen Schuss Kaffee!"
-      mentions: "Erwähnungen"
       no_contacts: "Keine Kontakte"
       no_tags: "+ Finde einen #Tag zum folgen"
       people_sharing_with_you: "Leute, die mit dir teilen"
@@ -127,8 +120,8 @@ de:
       services: 
         content: "Du kannst die folgenden Dienste mit Diaspora verbinden:"
         heading: "Verbinde Dienste"
-      tags_following: "Tags, denen du folgst"
       unfollow_tag: "#%{tag} nicht mehr folgen"
+      welcome: "Welcome"
       your_aspects: "Deine Aspekte"
     many: "%{count} Aspekte"
     move_contact: 
@@ -139,8 +132,8 @@ de:
       create: "Erstellen"
       name: "Name (nur für dich sichtbar)"
     no_contacts_message: 
-      featured_users: "Vorgestellte Nutzer"
-      or_featured: "Oder fang an mit %{link} zu teilen."
+      community_spotlight: "community spotlight"
+      or_spotlight: "Or you can share with %{link}"
       try_adding_some_more_contacts: "Du kannst nach Kontakten suchen (oben) oder welche einladen (rechts)."
       you_should_add_some_more_contacts: "Du solltest ein paar neue Kontakte hinzufügen!"
     no_posts_message: 
@@ -155,8 +148,8 @@ de:
     selected_contacts: 
       manage_your_aspects: "Verwalte deine Aspekte."
       no_contacts: "Du hast hier noch keine Kontakte."
+      view_all_community_spotlight: "See all community spotlight"
       view_all_contacts: "Zeige alle Kontakte"
-      view_all_featured_users: "Alle vorgestellten Nutzer ansehen"
     show: 
       edit_aspect: "Aspekt bearbeiten"
     two: "%{count} Aspekte"
@@ -617,7 +610,7 @@ de:
       enter_password_again: "Gib das gleiche Passwort wie zuvor ein"
       enter_username: "Wähle einen Nutzernamen (nur Buchstaben, Nummern und Unterstriche)"
       join_the_movement: "Trete der Bewegung bei!"
-      sign_up_today: "Jetzt registrieren"
+      sign_up_message: "Social Networking with a <3"
   requests: 
     create: 
       sending: "Senden …"
@@ -764,15 +757,27 @@ de:
     hide_comments: "Alle Kommentare verbergen"
     show_more_comments: "Zeige %{number} weitere Kommentare"
   streams: 
+    aspects: 
+      title: "Your Aspects"
+    aspects_stream: "Aspects"
+    commented_on: "commented on"
+    community_spotlight_stream: "Community Spotlight"
+    followed_tag: 
+      contacts_title: "People who dig these tags"
+      title: "#Followed Tags"
+    followed_tags_stream: "#Followed Tags"
+    mentioned_stream: "@Mentions"
     mentions: 
       contacts_title: "Personen, die dich erwähnt haben"
       title: "Deine Erwähnungen"
+    multi: 
+      contacts_title: "People in your Stream"
+      title: "Stream"
+    posted: "posted"
     public: 
       contacts_title: "Aktuelle Poster"
       title: "Öffentliche Aktivität"
-    soup: 
-      contacts_title: "Leute in deiner Suppe"
-      title: "Die Suppe"
+    recently: "recently:"
     tags: 
       contacts_title: "Menschen, die diese Tags nutzen"
       title: "Getaggte Beiträge: %{tags}"
@@ -832,11 +837,14 @@ de:
       private_message: "… du eine private Nachricht erhältst?"
       receive_email_notifications: "E-Mail-Benachrichtigungen empfangen, wenn …"
       reshared: "… jemand deinen Beitrag weitersagt?"
+      show_community_spotlight: "Show Community Spotlight in Stream?"
       started_sharing: "… jemand mit dir zu teilen anfängt?"
+      stream_preferences: "Stream Preferences"
       your_email: "Deine E-Mail-Adresse"
       your_handle: "Deine Diaspora ID"
     getting_started: 
       bold: "Aspekten"
+      community_spotlight: "Community spotlight"
       community_welcome: "Diaspora's Community ist froh Dich an Bord zu haben!"
       connect_to: "Verbinde dich mit"
       connect_to_your_other_social_networks: "Verbinde dich mit deinen anderen sozialen Netzwerken"
@@ -847,7 +855,6 @@ de:
       connect_with_people_explanation_pt2: "Aspekte sind ein intuitiver Weg, um neue und bekannte Gesichter für dich allein zu gruppieren. Diese erlauben es dir, einfach Teile deiner Kontakte zu filtern oder mit ihnen Beiträge zu teilen."
       edit_profile: "Profil bearbeiten"
       featured_tags: "Folge empfohlenen Tags"
-      featured_users: "Vorgestellte Nutzer"
       fill_out_your_profile: "Fülle dein Profil aus"
       find_friends: "Finde Freunde"
       find_friends_from_facebook: "Finde Freunde von Facebook"
@@ -867,7 +874,7 @@ de:
         tags: "Tags"
       search_for_hashtags: "Suche nach #Hashtags"
       search_for_people: "Suche nach Leuten"
-      see_all_featured_users: "Alle vorgestellten Nutzer ansehen"
+      see_all_community_spotlight: "See all community spotlight"
       welcome: "Herzlich willkommen!"
       welcome_with_name: "Herzlich willkommen, %{name}!"
     logged_out: 
@@ -884,6 +891,8 @@ de:
       language_not_changed: "Fehler beim Ändern der Sprache."
       password_changed: "Passwort geändert. Du kannst dich nun mit deinem neuen Passwort anmelden."
       password_not_changed: "Fehler beim Ändern des Passworts."
+      settings_not_updated: "Settings update failed"
+      settings_updated: "Settings updated"
       unconfirmed_email_changed: "E-Mail-Adresse geändert. Braucht Aktivierung."
       unconfirmed_email_not_changed: "Fehler bei E-Mail-Adressen-Änderung"
   webfinger: 

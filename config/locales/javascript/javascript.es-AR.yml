@@ -7,19 +7,19 @@ es-AR:
   javascripts: 
     aspect_dropdown: 
       add_to_aspect: "Agregar al aspecto"
-      all_aspects: "All aspects"
-      select_aspects: "Select aspects"
+      all_aspects: "Todos los aspectos"
+      select_aspects: "Selecciona aspectos"
       toggle: 
         few: "En {{count}} aspectos"
         many: "En {{count}} aspectos"
         one: "En {{count}} aspecto"
         other: "En {{count}} aspectos"
-        two: "In {{count}} aspects"
+        two: "En {{count}} aspectos"
         zero: "Agregar a un aspecto"
     aspect_navigation: 
-      deselect_all: "Deselect all"
-      no_aspects: "No aspects selected"
-      select_all: "Select all"
+      deselect_all: "De-seleccionar todo"
+      no_aspects: "No hay aspectos seleccionados"
+      select_all: "Seleccionar todo"
     comments: 
       hide: "ocultar los comentarios"
       show: "mostrar todos los comentarios"
@@ -30,8 +30,8 @@ es-AR:
       no_more: "No hay más publicaciones."
     publisher: 
       at_least_one_aspect: "Tenés que publicarlo en, por lo menos, un aspecto"
-      limited: "Limited - your post will only be seen by people you are sharing with"
-      public: "Public - your post will be visible to everyone and found by search engines"
+      limited: "Limitada - tu publicación sera vista solo por la gente con quien la compartes "
+      public: "Publica - tu publicación sera visible para cualquiera y los buscadores podrán encontrarla"
     reshares: 
       duplicate: "Ya compartiste esa publicación!"
     search_for: "Buscar a {{name}}"

@@ -8,14 +8,14 @@ hu:
     aspect_dropdown: 
       add_to_aspect: "Hozzáadás a csoporthoz"
       all_aspects: "Összes csoport"
-      select_aspects: "Select aspects"
+      select_aspects: "Csoportok kiválasztása"
       toggle: 
         few: "{{count}} csoportban"
         many: "{{count}} csoportban"
         one: "{{count}} csoportban"
         other: "{{count}} csoportban"
         two: "{{count}} csoportban"
-        zero: "Hozzáadás a csoporthoz"
+        zero: "Csoportok kiválasztása"
     aspect_navigation: 
       deselect_all: "Összes kijelölés megszüntetése"
       no_aspects: "Nincs csoport kiválasztva"
@@ -45,7 +45,7 @@ hu:
       minutes: "%d perccel"
       month: "körülbelül egy hónappal"
       months: "%d hónappal"
-      prefixAgo: ""
+      prefixAgo: "javascripts:timeago:prefixAgo"
       prefixFromNow: ""
       seconds: "kevesebb mint egy perccel"
       suffixAgo: "ezelőtt"

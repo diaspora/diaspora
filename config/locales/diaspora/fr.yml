@@ -64,12 +64,6 @@ fr:
       deselect_all: "Tout désélectionner"
       edit_aspect: "Éditer %{name}"
       select_all: "Tout sélectionner"
-    aspect_stream: 
-      commented_on: "a/ont commenté"
-      mentions: "Mentions"
-      posted: "publié"
-      recently: "récemment :"
-      stream: "Flux"
     contacts_not_visible: "Les contacts dans cet aspect ne se verront pas les uns les autres."
     contacts_visible: "Les contacts dans cet aspect pourront se voir entre eux."
     create: 
@@ -95,7 +89,7 @@ fr:
       aspect_not_empty: "L’aspect n’est pas vide"
       remove: "supprimer"
     index: 
-      community_spotlight: "Community Spotlight"
+      community_spotlight: "Actualités de la communauté"
       cubbies: 
         explanation: "Cubbi.es est la première application Diaspora en cours de développement."
         heading: "Connectez-vous à Cubbi.es"
@@ -118,7 +112,6 @@ fr:
         satisfaction: "%{link} : Support par la communauté"
         tutorials_and_wiki: "%{tutorial} & %{wiki}: Tutoriels, notes et actualité de la comunauté"
       keep_us_running: "Permettez à %{pod} de fonctionner rapidement et achetez une dose de café par mois à nos serveurs !"
-      mentions: "Mentions"
       no_contacts: "Aucun contact"
       no_tags: "+ Trouver un tag à suivre"
       people_sharing_with_you: "Personnes partageant avec vous"
@@ -127,8 +120,8 @@ fr:
       services: 
         content: "Vous pouvez connecter les services suivants à Diaspora :"
         heading: "Services connectés"
-      tags_following: "Tags Suivis"
       unfollow_tag: "Arrêter de suivre #%{tag}"
+      welcome: "Bienvenue"
       your_aspects: "Vos aspects"
     many: "%{count} aspects"
     move_contact: 
@@ -139,9 +132,9 @@ fr:
       create: "Créer"
       name: "Nom (uniquement visible par vous)"
     no_contacts_message: 
-      featured_users: "utilisateurs recommandés"
-      or_featured: "Ou vous pouvez partager avec %{link}"
-      try_adding_some_more_contacts: "Vous pouvez rechercher (en haut) ou inviter (à droite) plus de contacts."
+      community_spotlight: "actualités de la communauté"
+      or_spotlight: "Ou vous pouvez partager avec %{link}"
+      try_adding_some_more_contacts: "Vous pouvez rechercher ou inviter plus de contacts."
       you_should_add_some_more_contacts: "Vous devez ajouter un peu plus de contacts !"
     no_posts_message: 
       start_talking: "Personne n’a encore rien dit !"
@@ -155,8 +148,8 @@ fr:
     selected_contacts: 
       manage_your_aspects: "Gérer vos aspects."
       no_contacts: "Vous n'avez encore aucun contact."
+      view_all_community_spotlight: "See all community spotlight"
       view_all_contacts: "Afficher tous les contacts"
-      view_all_featured_users: "Voir tous les utilisateurs recommandés"
     show: 
       edit_aspect: "modifier l'aspect"
     two: "%{count} aspects"
@@ -209,7 +202,7 @@ fr:
     sharing: 
       people_sharing: "Personnes partageant avec vous :"
     spotlight: 
-      community_spotlight: "Community Spotlight"
+      community_spotlight: "Actualités de la communauté"
     two: "%{count} contacts"
     zero: "contact"
   conversations: 
@@ -539,7 +532,7 @@ fr:
     new: 
       back_to_list: "Retourner à la liste"
       new_photo: "Nouvelle photo"
-      post_it: "publiez-le !"
+      post_it: "Publiez-le !"
     new_photo: 
       empty: "{file} est vide, merci de sélectionner d'autres fichiers."
       invalid_ext: "{file} a une extension invalide. Seules {extensions} sont autorisées."
@@ -611,13 +604,13 @@ fr:
       unhappy: "Insatisfait(e) ?"
       update: "Mettre à jour"
     new: 
-      create_my_account: "Créer mon compte"
+      create_my_account: "Créer mon compte !"
       enter_email: "Saisissez une adresse de courrier électronique"
       enter_password: "Saisissez un mot de passe"
       enter_password_again: "Saisissez à nouveau le même mot de passe"
       enter_username: "Choisissez un nom d'utilisateur (uniquement des lettres, chiffres et caractères de soulignement)"
       join_the_movement: "Rejoignez le mouvement !"
-      sign_up_today: "Inscrivez-vous aujourd'hui"
+      sign_up_message: "Social Networking with a <3"
   requests: 
     create: 
       sending: "En cours d'envoi"
@@ -764,17 +757,29 @@ fr:
     hide_comments: "Masquer tous les commentaires"
     show_more_comments: "Afficher %{number} commentaires supplémentaires"
   streams: 
+    aspects: 
+      title: "Vos Aspects"
+    aspects_stream: "Aspects"
+    commented_on: "commented on"
+    community_spotlight_stream: "Actualités de la communauté"
+    followed_tag: 
+      contacts_title: "Personnes qui suivent ces tags"
+      title: "#Tags Suivis"
+    followed_tags_stream: "#Tags Suivis"
+    mentioned_stream: "@Mentions"
     mentions: 
       contacts_title: "Personnes qui vous ont mentionné"
-      title: "Vos mentions"
+      title: "@Mentions"
+    multi: 
+      contacts_title: "Personnes dans votre Flux"
+      title: "Flux"
+    posted: "posté"
     public: 
       contacts_title: "Posteurs récents"
       title: "Activité publique"
-    soup: 
-      contacts_title: "People in your Soup"
-      title: "The Soup"
+    recently: "récemment :"
     tags: 
-      contacts_title: "Personnes qui suivent ces tags"
+      contacts_title: "Personnes qui suivent ce tag"
       title: "Messages tagués : %{tags}"
   tag_followings: 
     create: 
@@ -832,11 +837,14 @@ fr:
       private_message: "…vous recevez un message privé ?"
       receive_email_notifications: "Recevoir des notifications par courrier électronique lorsque…"
       reshared: "...quelqu'un a partagé votre message ?"
+      show_community_spotlight: "Afficher les actualités de la communauté dans votre Flux ?"
       started_sharing: "...quelqu'un commence à partager avec vous ?"
+      stream_preferences: "Préférences du Flux"
       your_email: "Votre adresse électronique"
       your_handle: "Votre identifiant diaspora"
     getting_started: 
       bold: "aspects"
+      community_spotlight: "Actualités de la communauté"
       community_welcome: "La communauté Diaspora* est heureuse de vous avoir à bord !"
       connect_to: "Connectez-vous à"
       connect_to_your_other_social_networks: "Connectez-vous à vos autres réseaux sociaux"
@@ -847,7 +855,6 @@ fr:
       connect_with_people_explanation_pt2: "Les aspects sont un moyen intuitif de grouper les visages familiers et nouveaux, privés, vous permettant de filtrer ou partager avec des sous-ensembles de vos contacts facilement."
       edit_profile: "Editer le profil"
       featured_tags: "Suivre des tags recommandés"
-      featured_users: "Utilisateurs recommandés"
       fill_out_your_profile: "Remplissez votre profil"
       find_friends: "Trouver des amis"
       find_friends_from_facebook: "trouver des amis de Facebook"
@@ -867,7 +874,7 @@ fr:
         tags: "Tags"
       search_for_hashtags: "Chercher #tag"
       search_for_people: "Rechercher des personnes"
-      see_all_featured_users: "Voir tous les utilisateurs recommandés"
+      see_all_community_spotlight: "Voir toutes les actualités de la communauté"
       welcome: "Bienvenue !"
       welcome_with_name: "Bienvenue, %{name} !"
     logged_out: 
@@ -884,6 +891,8 @@ fr:
       language_not_changed: "Échec lors de la mise à jour de la langue"
       password_changed: "Mot de passe mis à jour. Vous pouvez maintenant vous identifier avec votre nouveau mot de passe."
       password_not_changed: "Échec de la mise à jour du mot de passe"
+      settings_not_updated: "La mise à jour des paramètre a échouée"
+      settings_updated: "Mise à jour des paramètres"
       unconfirmed_email_changed: "Email changé. Nécessite l'activation."
       unconfirmed_email_not_changed: "Le changement de courriel a échoué"
   webfinger: 

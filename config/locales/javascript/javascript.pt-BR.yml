@@ -8,18 +8,18 @@ pt-BR:
     aspect_dropdown: 
       add_to_aspect: "Adicione para aspecto"
       all_aspects: "Todos aspectos"
-      select_aspects: "Select aspects"
+      select_aspects: "Selecione os aspectos"
       toggle: 
         few: "Em {{count}} aspectos"
         many: "Em {{count}} aspectos"
         one: "Em {{count}} aspecto"
         other: "Em {{count}} aspectos"
-        two: "In {{count}} aspects"
+        two: "Em {{count}} aspectos"
         zero: "Adicione para aspecto"
     aspect_navigation: 
-      deselect_all: "Deselect all"
-      no_aspects: "No aspects selected"
-      select_all: "Select all"
+      deselect_all: "Desmarcar tudo"
+      no_aspects: "Sem aspecto selecionado"
+      select_all: "Marcar tudo"
     comments: 
       hide: "ocultar comentários"
       show: "mostrar todos comentários"

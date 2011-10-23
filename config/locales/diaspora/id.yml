@@ -8,9 +8,9 @@ id:
   _comments: "Comments"
   _contacts: "Contacts"
   _home: "Home"
-  _photos: "photos"
-  _services: "Services"
-  account: "Account"
+  _photos: "foto"
+  _services: "Layanan"
+  account: "Akun"
   activerecord: 
     errors: 
       models: 
@@ -39,7 +39,7 @@ id:
             username: 
               invalid: "is invalid. We only allow letters, numbers, and underscores"
               taken: "is already taken."
-  ago: "%{time} ago"
+  ago: "%{time} yang lalu"
   all_aspects: "All aspects"
   application: 
     helper: 
@@ -64,12 +64,6 @@ id:
       deselect_all: "Deselect all"
       edit_aspect: "Edit %{name}"
       select_all: "Select all"
-    aspect_stream: 
-      commented_on: "commented on"
-      mentions: "Mentions"
-      posted: "posted"
-      recently: "recently:"
-      stream: "Stream"
     contacts_not_visible: "Contacts in this aspect will not be able to see each other."
     contacts_visible: "Contacts in this aspect will be able to see each other."
     create: 
@@ -118,7 +112,6 @@ id:
         satisfaction: "%{link}: Community-powered support"
         tutorials_and_wiki: "%{tutorial} & %{wiki}: Community-powered tutorials, how-to, and news"
       keep_us_running: "Keep %{pod} running fast, buy our servers their monthly coffee fix!"
-      mentions: "Mentions"
       no_contacts: "No contacts"
       no_tags: "No tags"
       people_sharing_with_you: "People sharing with you"
@@ -127,8 +120,8 @@ id:
       services: 
         content: "You can connect the following services to Diaspora:"
         heading: "Connect Services"
-      tags_following: "Followed Tags"
       unfollow_tag: "Stop following #%{tag}"
+      welcome: "Welcome"
       your_aspects: "Your Aspects"
     many: "%{count} aspects"
     move_contact: 
@@ -139,8 +132,8 @@ id:
       create: "Create"
       name: "Name"
     no_contacts_message: 
-      featured_users: "featured users"
-      or_featured: "Or you can share with %{link}"
+      community_spotlight: "community spotlight"
+      or_spotlight: "Or you can share with %{link}"
       try_adding_some_more_contacts: "You can search (top) or invite (right) more contacts."
       you_should_add_some_more_contacts: "You should add some more contacts!"
     no_posts_message: 
@@ -155,8 +148,8 @@ id:
     selected_contacts: 
       manage_your_aspects: "Manage your aspects."
       no_contacts: "You don't have any contacts here yet."
+      view_all_community_spotlight: "See all community spotlight"
       view_all_contacts: "View all contacts"
-      view_all_featured_users: "See all Featured Users"
     show: 
       edit_aspect: "edit aspect"
     two: "%{count} aspects"
@@ -175,7 +168,7 @@ id:
     heading: "Diaspora Bookmarklet"
     post_something: "Post something to Diaspora"
     post_success: "Posted! Closing!"
-  cancel: "Cancel"
+  cancel: "Batal"
   comments: 
     few: "%{count} comments"
     many: "%{count} comments"
@@ -250,8 +243,8 @@ id:
       birthday: "%B %d"
       birthday_with_year: "%B %d %Y"
       fullmonth_day: "%B %d"
-  delete: "Delete"
-  email: "Email"
+  delete: "Hapus"
+  email: "E-mail"
   error_messages: 
     helper: 
       correct_the_following_errors_and_try_again: "Perbaiki kesalahan berikut dan coba lagi."
@@ -268,7 +261,7 @@ id:
       login_here: "log in here"
       ownership: "Ownership"
       ownership_explanation: "You own your pictures, and you shouldn’t have to give that up just in order to share them. You maintain ownership of everything you share on Diaspora, giving you full control over how it is distributed."
-      share_what_you_want: "Share what you want, with whom you want."
+      share_what_you_want: "Bagikan apa yang anda ingin bagikan, pada orang yang anda kehendaki."
       simplicity: "Simplicity"
       simplicity_explanation: "Diaspora makes sharing clean and easy – this goes doubly so for privacy. Innherently private, Diaspora doesn’t have pages of settings and options to wade through to keep your profile secure and to your liking."
       tagline_first_half: "Share what you want,"
@@ -276,14 +269,14 @@ id:
   invitations: 
     a_facebook_user: "A Facebook user"
     check_token: 
-      not_found: "Invitation token not found"
+      not_found: "Token undangan tidak ditemukan"
     create: 
       already_contacts: "You are already connected with this person"
       already_sent: "You already invited this person."
-      no_more: "You have no more invitations."
+      no_more: "Anda tidak dapat memberikan undangan lagi."
       own_address: "You can't send an invitation to your own address."
       rejected: "The following email addresses had problems: "
-      sent: "Your invitation has been sent."
+      sent: "Undangan telah dikirimkan ke:"
     edit: 
       accept_your_invitation: "Accept your invitation"
       your_account_awaits: "Your account awaits!"
@@ -292,12 +285,12 @@ id:
       aspect: "Aspect"
       comma_seperated_plz: "You can enter multiple email addresses separated by commas."
       if_they_accept_info: "if they accept, they will be added to the aspect you invited them."
-      invite_someone_to_join: "Invite someone to join Diaspora!"
+      invite_someone_to_join: "Undang seseorang untuk bergabung di Diaspora!"
       personal_message: "Personal message"
       resend: "Resend"
-      send_an_invitation: "Send an invitation"
-      send_invitation: "Send invitation"
-      to: "To"
+      send_an_invitation: "Kirim sebuah undangan"
+      send_invitation: "Kirim undangan"
+      to: "Ke"
   layouts: 
     application: 
       powered_by: "POWERED BY DIASPORA*"
@@ -449,7 +442,7 @@ id:
       click_link: "To activate your new e-mail address %{unconfirmed_email}, please click this link:"
       subject: "Please activate your new e-mail address %{unconfirmed_email}"
     email_sent_by_diaspora: "This email was sent by Diaspora.  If you'd like to stop getting emails like this,"
-    hello: "Hello %{name}!"
+    hello: "Halo %{name}!"
     liked: 
       liked: "%{name} has just liked your post: "
       view_post: "View post >"
@@ -470,10 +463,10 @@ id:
       view_profile: "View %{name}'s profile"
     thanks: "Thanks,"
     to_change_your_notification_settings: "to change your notification settings"
-  ok: "OK"
-  or: "or"
-  password: "Password"
-  password_confirmation: "Password confirmation"
+  ok: "Oke"
+  or: "atau"
+  password: "Kata sandi"
+  password_confirmation: "Pengesahan kata sandi"
   people: 
     add_contact_small: 
       add_contact_from_tag: "add contact from tag"
@@ -487,7 +480,7 @@ id:
       couldnt_find_them_send_invite: "Couldn't find them?  Send an invite!"
       no_one_found: "...and no one was found."
       no_results: "Hey! You need to search for something."
-      results_for: "search results for"
+      results_for: "hasil pencarian untuk"
     many: "%{count} people"
     one: "1 person"
     other: "%{count} people"
@@ -495,18 +488,18 @@ id:
       add_contact: "add contact"
       already_connected: "Already connected"
       pending_request: "permintaan tertunda"
-      thats_you: "thats you!"
+      thats_you: "Itu anda!"
     profile_sidebar: 
       bio: "bio"
       born: "born"
-      edit_my_profile: "Edit my profile"
+      edit_my_profile: "Sunting profil saya"
       gender: "gender"
       in_aspects: "in aspects"
       location: "location"
       remove_contact: "remove contact"
       remove_from: "Remove %{name} from %{aspect}?"
     show: 
-      does_not_exist: "Person does not exist!"
+      does_not_exist: "Orang tidak ada!"
       has_not_shared_with_you_yet: "%{name} has not shared any posts with you yet!"
       incoming_request: "You have an incoming request from this person."
       mention: "Mention"
@@ -554,7 +547,7 @@ id:
       delete_photo: "Hapus Foto"
       edit: "edit"
       edit_delete_photo: "Edit photo description / delete photo"
-      make_profile_photo: "make profile photo"
+      make_profile_photo: "membuat foto profil"
       show_original_post: "Show original post"
       update_photo: "Update Photo"
     update: 
@@ -617,7 +610,7 @@ id:
       enter_password_again: "Enter the same password as before"
       enter_username: "Pick a username (only letters, numbers, and underscores)"
       join_the_movement: "Join the movement!"
-      sign_up_today: "Sign up today"
+      sign_up_message: "Social Networking with a <3"
   requests: 
     create: 
       sending: "Sending..."
@@ -673,7 +666,7 @@ id:
       connect_to_twitter: "Connect to twitter"
       disconnect: "disconnect"
       edit_services: "Edit services"
-      logged_in_as: "logged in as"
+      logged_in_as: "telah masuk sebagai"
       no_services: "You have not connected any services yet."
       really_disconnect: "disconnect %{service}?"
     inviter: 
@@ -716,7 +709,7 @@ id:
       invites: "Invites"
       invites_closed: "Invites are currently closed on this Diaspora seed"
     notification: 
-      new: "New %{type} from %{from}"
+      new: "%{type} baru dari %{from}"
     public_explain: 
       logged_in: "logged in to %{service}"
       manage: "manage connected services"
@@ -764,15 +757,27 @@ id:
     hide_comments: "hide comments"
     show_more_comments: "Show %{number} more comments"
   streams: 
+    aspects: 
+      title: "Your Aspects"
+    aspects_stream: "Aspects"
+    commented_on: "commented on"
+    community_spotlight_stream: "Community Spotlight"
+    followed_tag: 
+      contacts_title: "People who dig these tags"
+      title: "#Followed Tags"
+    followed_tags_stream: "#Followed Tags"
+    mentioned_stream: "@Mentions"
     mentions: 
       contacts_title: "People who mentioned you"
       title: "Your Mentions"
+    multi: 
+      contacts_title: "People in your Stream"
+      title: "Stream"
+    posted: "posted"
     public: 
       contacts_title: "Recent Posters"
       title: "Public Activity"
-    soup: 
-      contacts_title: "People in your Soup"
-      title: "The Soup"
+    recently: "recently:"
     tags: 
       contacts_title: "People who dig these tags"
       title: "Posts tagged: %{tags}"
@@ -821,8 +826,8 @@ id:
       close_account: "Close Account"
       comment_on_post: "...someone comments on your post?"
       current_password: "Current password"
-      download_photos: "download my photos"
-      download_xml: "download my xml"
+      download_photos: "Unduh foto-fotoku"
+      download_xml: "Unduh xmlku"
       edit_account: "Edit account"
       email_awaiting_confirmation: "We have sent you an activation link to %{unconfirmed_email}. Till you follow this link and activate the new address, we will continue to use your original address %{email}."
       export_data: "Export Data"
@@ -832,11 +837,14 @@ id:
       private_message: "...you receive a private message?"
       receive_email_notifications: "Receive email notificaions?"
       reshared: "...someone reshares your post?"
+      show_community_spotlight: "Show Community Spotlight in Stream?"
       started_sharing: "...someone starts sharing with you?"
+      stream_preferences: "Stream Preferences"
       your_email: "Your email"
       your_handle: "Your diaspora handle"
     getting_started: 
       bold: "aspects"
+      community_spotlight: "Community spotlight"
       community_welcome: "Diaspora's community is happy to have you aboard!"
       connect_to: "Connect to"
       connect_to_your_other_social_networks: "Connect to your other social networks"
@@ -847,7 +855,6 @@ id:
       connect_with_people_explanation_pt2: "Aspects are an intuitive way to group new and familar faces, private to you, allowing you to filter down or share with subsets of your contacts easily."
       edit_profile: "Edit Profile"
       featured_tags: "Featured tags"
-      featured_users: "Featured users"
       fill_out_your_profile: "Fill out your profile"
       find_friends: "Find friends"
       find_friends_from_facebook: "find friends from Facebook"
@@ -867,7 +874,7 @@ id:
         tags: "Tags"
       search_for_hashtags: "Search for #hashtags"
       search_for_people: "Search for people"
-      see_all_featured_users: "See all featured users"
+      see_all_community_spotlight: "See all community spotlight"
       welcome: "Welcome to Diaspora!"
       welcome_with_name: "Welcome, %{name}!"
     logged_out: 
@@ -884,6 +891,8 @@ id:
       language_not_changed: "Language Change Failed"
       password_changed: "Password Changed"
       password_not_changed: "Password Change Failed"
+      settings_not_updated: "Settings update failed"
+      settings_updated: "Settings updated"
       unconfirmed_email_changed: "E-Mail Changed. Needs activation."
       unconfirmed_email_not_changed: "E-Mail Change Failed"
   webfinger: 

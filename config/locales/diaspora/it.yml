@@ -64,12 +64,6 @@ it:
       deselect_all: "Deseleziona tutti"
       edit_aspect: "Modifica %{name}"
       select_all: "Seleziona tutti"
-    aspect_stream: 
-      commented_on: "commenti"
-      mentions: "Menzioni"
-      posted: "post"
-      recently: "ordina per:"
-      stream: "Stream"
     contacts_not_visible: "I contatti in questo aspetto non potranno vedersi tra loro."
     contacts_visible: "I contatti in questo aspetto potranno vedersi tra loro."
     create: 
@@ -118,7 +112,6 @@ it:
         satisfaction: "%{link}: Per avere supporto dalla comunità"
         tutorials_and_wiki: "%{tutorial} & %{wiki}: Per le ultime notizie, le guide e i suggerimenti della comunità"
       keep_us_running: "Mantieni %{pod} veloce e scattante, la tua donazione mensile sarà il caffè per i nostri server!"
-      mentions: "Menzioni"
       no_contacts: "Nessun contatto"
       no_tags: "+ Cerca tag da seguire"
       people_sharing_with_you: "Persone in condivisione con te"
@@ -127,8 +120,8 @@ it:
       services: 
         content: "Puoi collegare i seguenti servizi a Diaspora:"
         heading: "Servizi connessi"
-      tags_following: "Tag che segui"
       unfollow_tag: "Smetti di seguire #%{tag}"
+      welcome: "Welcome"
       your_aspects: "I tuoi aspetti"
     many: "%{count} aspetti"
     move_contact: 
@@ -139,8 +132,8 @@ it:
       create: "Crea"
       name: "Nome (visibile solo a te)"
     no_contacts_message: 
-      featured_users: "gli utenti in evidenza"
-      or_featured: "Oppure puoi seguire %{link}"
+      community_spotlight: "community spotlight"
+      or_spotlight: "Or you can share with %{link}"
       try_adding_some_more_contacts: "Puoi cercare (in alto) o invitare altri contatti (a destra)."
       you_should_add_some_more_contacts: "Dovresti aggiungere qualche altro contatto!"
     no_posts_message: 
@@ -155,8 +148,8 @@ it:
     selected_contacts: 
       manage_your_aspects: "Amministra gli aspetti della tua vita"
       no_contacts: "Ancora non hai contatti."
+      view_all_community_spotlight: "See all community spotlight"
       view_all_contacts: "Visualizza tutti i contatti"
-      view_all_featured_users: "Tutti gli utenti in evidenza"
     show: 
       edit_aspect: "modifica aspetto"
     two: "%{count} aspetti"
@@ -476,7 +469,7 @@ it:
   password_confirmation: "Conferma password"
   people: 
     add_contact_small: 
-      add_contact_from_tag: "aggiungi contatto da etichetta"
+      add_contact_from_tag: "aggiungi contatto dal #tag"
     aspect_list: 
       edit_membership: "modifica appartenenza all'aspetto"
     few: "%{count} persone"
@@ -586,7 +579,7 @@ it:
       your_photo: "La tua foto"
       your_private_profile: "Il tuo profilo privato"
       your_public_profile: "Il tuo profilo pubblico"
-      your_tags: "Descriviti con 5 parole"
+      your_tags: "Descriviti con 5 #tag"
       your_tags_placeholder: "per esempio #cinema #viaggiare #gattini #musica"
     update: 
       failed: "Aggiornamento del profilo non riuscito"
@@ -617,7 +610,7 @@ it:
       enter_password_again: "Inserisci la stessa password di prima"
       enter_username: "Scegli un nome utente (inserisci solo lettere, numeri e trattino basso)"
       join_the_movement: "Partecipa al movimento!"
-      sign_up_today: "Iscriviti adesso"
+      sign_up_message: "Social Networking with a <3"
   requests: 
     create: 
       sending: "Invio in corso..."
@@ -764,15 +757,27 @@ it:
     hide_comments: "Nascondi i commenti"
     show_more_comments: "Mostra gli altri %{number} commenti"
   streams: 
+    aspects: 
+      title: "Your Aspects"
+    aspects_stream: "Aspects"
+    commented_on: "commented on"
+    community_spotlight_stream: "Community Spotlight"
+    followed_tag: 
+      contacts_title: "People who dig these tags"
+      title: "#Followed Tags"
+    followed_tags_stream: "#Followed Tags"
+    mentioned_stream: "@Mentions"
     mentions: 
       contacts_title: "Persone che ti hanno menzionato"
       title: "Le tue menzioni"
+    multi: 
+      contacts_title: "People in your Stream"
+      title: "Stream"
+    posted: "posted"
     public: 
       contacts_title: "Chi ha postato di recente"
       title: "Attività Pubblica"
-    soup: 
-      contacts_title: "Persone nella tua Zuppa"
-      title: "La Zuppa"
+    recently: "recently:"
     tags: 
       contacts_title: "Persone con questi tag"
       title: "Post con tag: %{tags}"
@@ -789,8 +794,8 @@ it:
       followed_by: "seguito da"
       following: "Stai seguendo #%{tag}"
       nobody_talking: "Nessuno sta ancora parlando di %{tag}."
-      people_tagged_with: "Persone etichettate come %{tag}"
-      posts_tagged_with: "Post etichettati come #%{tag}"
+      people_tagged_with: "Persone con il tag %{tag}"
+      posts_tagged_with: "Post con il tag #%{tag}"
       stop_following: "Smetti di seguire #%{tag}"
   tokens: 
     show: 
@@ -832,11 +837,14 @@ it:
       private_message: "...hai ricevuto un messaggio privato?"
       receive_email_notifications: "Ricevi notifiche via email quando..."
       reshared: "...qualcuno condivide un tuo post?"
+      show_community_spotlight: "Show Community Spotlight in Stream?"
       started_sharing: "...qualcuno vuole condividere con te?"
+      stream_preferences: "Stream Preferences"
       your_email: "La tua email"
       your_handle: "Il tuo ID"
     getting_started: 
       bold: "aspetti"
+      community_spotlight: "Community spotlight"
       community_welcome: "La comunità di Diaspora ti dà il benvenuto a bordo!"
       connect_to: "Connettiti a"
       connect_to_your_other_social_networks: "Connetti altri social network"
@@ -847,7 +855,6 @@ it:
       connect_with_people_explanation_pt2: "Gli aspetti sono un sistema intuitivo per raggruppare vecchie e nuove conoscenze in modo riservato, così potrai filtrare o condividere i contenuti con chi vuoi e con facilità."
       edit_profile: "Modifica il Profilo"
       featured_tags: "Segui i tag in evidenza"
-      featured_users: "Utenti in evidenza"
       fill_out_your_profile: "Riempi il tuo profilo"
       find_friends: "Cerca degli amici"
       find_friends_from_facebook: "cerca gli amici da Facebook"
@@ -867,7 +874,7 @@ it:
         tags: "Tag"
       search_for_hashtags: "Cerca #tag"
       search_for_people: "Cerca persone"
-      see_all_featured_users: "Guarda tutti gli utenti in evidenza"
+      see_all_community_spotlight: "See all community spotlight"
       welcome: "Benvenuto!"
       welcome_with_name: "Ciao %{name}!"
     logged_out: 
@@ -884,6 +891,8 @@ it:
       language_not_changed: "Il cambio di lingua è fallito"
       password_changed: "Password cambiata. Ora puoi effettuare l'accesso con la tua nuova password."
       password_not_changed: "Il cambio di password è fallito"
+      settings_not_updated: "Settings update failed"
+      settings_updated: "Settings updated"
       unconfirmed_email_changed: "L'email è cambiata. E' necessario attivare l'indirizzo."
       unconfirmed_email_not_changed: "Il cambio di email è fallito"
   webfinger: 
