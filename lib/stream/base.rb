@@ -14,10 +14,10 @@ class Stream::Base
   end
 
   # @return [Boolean]
-  def has_communtiy_spotlight?
+  def has_community_spotlight?
     random_community_spotlight_member.present?
   end
-  
+
   #requied to implement said stream
   def link(opts={})
     'change me in lib/base_stream.rb!'
