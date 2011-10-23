@@ -27,7 +27,7 @@ class ServicesController < ApplicationController
     current_user.services << service
 
     if service.persisted?
-      fetch_photo = current_user.person.profile.image_url.blank?
+      fetch_photo = current_user.person.profile[:image_url].blank?
 
       current_user.update_profile(current_user.person.profile.from_omniauth_hash(user))
       Resque.enqueue(Jobs::FetchProfilePhoto, current_user.id, service.id, user["image"]) if fetch_photo
@@ -40,6 +40,7 @@ class ServicesController < ApplicationController
         flash[:error] <<  I18n.t('services.create.already_authorized',
                                     :diaspora_id => existing_service.user.person.profile.diaspora_handle,
                                     :service_name => provider.camelize )
+:A
       end
     end
 

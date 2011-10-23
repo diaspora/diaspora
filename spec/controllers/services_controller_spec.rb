@@ -87,8 +87,10 @@ describe ServicesController do
         request.env['omniauth.auth'] = omniauth_auth
       end
 
-      it 'does not queue a job if the profile photo is not updated' do
-        @user.person.profile.stub(:image_url).and_return("/some/image_url.jpg")
+      it 'does not queue a job if the profile photo is set' do
+        profile = @user.person.profile
+        profile[:image_url] = "/non/default/image.jpg"
+        profile.save
 
         Resque.should_not_receive(:enqueue)
 
@@ -96,7 +98,9 @@ describe ServicesController do
       end
 
       it 'queues a job to save user photo if the photo does not exist' do
-        @user.person.profile.stub(:image_url).and_return(nil)
+        profile = @user.person.profile
+        profile[:image_url] = nil
+        profile.save
 
         Resque.should_receive(:enqueue).with(Jobs::FetchProfilePhoto, @user.id, anything(), "https://service.com/fallback_lowres.jpg")
 
