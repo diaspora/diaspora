@@ -37,6 +37,8 @@ var View = {
     $(this.dropdowns.selector)
       .live('click', this.dropdowns.click);
 
+    /* Avatars */
+    $(this.avatars.selector).error(this.avatars.fallback);
 
     /* Clear forms after successful submit */
     $('form[data-remote]').live('ajax:success', function (e) {
@@ -159,6 +161,13 @@ var View = {
     },
     selector: ".dropdown > .toggle",
     parentSelector: ".dropdown > .wrapper"
+  },
+
+  avatars: {
+    fallback: function(evt) {
+      $(this).attr("src", "/images/user/default.png");
+    },
+    selector: "img.avatar"
   }
 };
 
