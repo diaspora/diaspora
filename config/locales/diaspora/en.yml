@@ -408,12 +408,12 @@ en:
       many: "%{actors} has mentioned you in a %{post_link}."
       other: "%{actors} has mentioned you in a %{post_link}."
     liked:
-      zero: "%{actors} has just liked your %{post_link}."
-      one: "%{actors} has just liked your %{post_link}."
-      two: "%{actors} has just liked your %{post_link}."
-      few: "%{actors} has just liked your %{post_link}."
-      many: "%{actors} has just liked your %{post_link}."
-      other: "%{actors} has just liked your %{post_link}."
+      zero: "%{actors} have just liked your %{post_link}."
+      one: "%{actors} have just liked your %{post_link}."
+      two: "%{actors} have just liked your %{post_link}."
+      few: "%{actors} have just liked your %{post_link}."
+      many: "%{actors} have just liked your %{post_link}."
+      other: "%{actors} have just liked your %{post_link}."
     reshared:
       zero: "%{actors} has reshared your %{post_link}."
       one: "%{actors} has reshared your %{post_link}."
