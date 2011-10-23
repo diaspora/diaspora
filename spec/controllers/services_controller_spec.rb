@@ -65,15 +65,43 @@ describe ServicesController do
       @user.reload.services.first.class.name.should == "Services::Twitter"
     end
 
-    it 'queues a job to save user photo' do
+    it 'returns error if the service is connected with that uid' do
       request.env['omniauth.auth'] = omniauth_auth
+
+      Services::Twitter.create!(:nickname => omniauth_auth["user_info"]['nickname'],
+                                           :access_token => omniauth_auth['credentials']['token'],
+                                           :access_secret => omniauth_auth['credentials']['secret'],
+                                           :uid => omniauth_auth['uid'],
+                                           :user => bob)
 
       post :create, :provider => 'twitter'
 
-      #service_stub = stub.as_null_object
-      Services::Twitter.any_instance.stub(:profile_photo_url).and_return("http://api.service.com/profile_photo.jpeg")
-      #Services::Twitter.should_receive(:new).and_return(service_stub)
-      Resque.should_receive(:enqueue).with(Jobs::FetchProfilePhoto, @user.id, "http://api.service.com/profile_photo.jpeg")
+      flash[:error].include?(bob.person.profile.diaspora_handle).should be_true
+    end
+
+    context "photo fetching" do
+      before do
+        omniauth_auth
+        omniauth_auth["user_info"].merge!({"image" => "https://service.com/fallback_lowres.jpg"})
+
+        request.env['omniauth.auth'] = omniauth_auth
+      end
+
+      it 'does not queue a job if the profile photo is not updated' do
+        @user.person.profile.stub(:image_url).and_return("/some/image_url.jpg")
+
+        Resque.should_not_receive(:enqueue)
+
+        post :create, :provider => 'twitter'
+      end
+
+      it 'queues a job to save user photo if the photo does not exist' do
+        @user.person.profile.stub(:image_url).and_return(nil)
+
+        Resque.should_receive(:enqueue).with(Jobs::FetchProfilePhoto, @user.id, anything(), "https://service.com/fallback_lowres.jpg")
+
+        post :create, :provider => 'twitter'
+      end
     end
   end
 

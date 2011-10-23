@@ -40,7 +40,7 @@ gem 'sqlite3' if ENV['DB'] == 'all' || ENV['DB'] == 'sqlite'
 # file uploading
 
 gem 'aws', '2.3.32' # upgrade to 2.4 breaks 1.8 >.<
-gem 'carrierwave', '0.5.2'
+gem 'carrierwave', '0.5.3'
 gem 'excon', '0.2.4'
 gem 'fastercsv', '1.5.4', :require => false
 gem 'fog', '0.3.25'

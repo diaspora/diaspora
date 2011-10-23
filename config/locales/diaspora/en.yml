@@ -692,6 +692,8 @@ en:
       no_services: 'You have not connected any services yet.'
     create:
       success: "Authentication successful."
+      failure: "Authentication failed."
+      already_authorized: "A user with diaspora id %{diaspora_id} already authorized that %{service_name} account."
     destroy:
       success: "Successfully deleted authentication."
     failure:

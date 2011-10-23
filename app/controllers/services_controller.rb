@@ -26,13 +26,23 @@ class ServicesController < ApplicationController
                                                                :uid => auth['uid'])
     current_user.services << service
 
-    current_user.update_profile(current_user.person.profile.from_omniauth_hash(user))
+    if service.persisted?
+      fetch_photo = current_user.person.profile.image_url.blank?
 
-    pp "YAY"
-    debugger
-    Resque.enqueue(Jobs::FetchProfilePhoto, current_user.id, service.id)
+      current_user.update_profile(current_user.person.profile.from_omniauth_hash(user))
+      Resque.enqueue(Jobs::FetchProfilePhoto, current_user.id, service.id, user["image"]) if fetch_photo
 
-    flash[:notice] = I18n.t 'services.create.success'
+      flash[:notice] = I18n.t 'services.create.success'
+    else
+      flash[:error] = I18n.t 'services.create.failure'
+
+      if existing_service = Service.where(:type => service.type.to_s, :uid => service.uid).first
+        flash[:error] <<  I18n.t('services.create.already_authorized',
+                                    :diaspora_id => existing_service.user.person.profile.diaspora_handle,
+                                    :service_name => provider.camelize )
+      end
+    end
+
     if current_user.getting_started
       redirect_to  getting_started_path
     else

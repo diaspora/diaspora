@@ -6,15 +6,17 @@
 module Jobs
   class FetchProfilePhoto < Base
     @queue = :photos
-    def self.perform(user_id, service_id)
-      user = User.find(user_id)
+    def self.perform(user_id, service_id, fallback_image_url = nil)
       service = Service.find(service_id)
 
-      @photo = Photo.new
-      @photo.author = user.person
-      @photo.diaspora_handle = user.person.diaspora_handle
-      @photo.random_string = ActiveSupport::SecureRandom.hex(10)
-      @photo.remote_unprocessed_image_url = service.profile_photo_url
+      image_url = service.profile_photo_url
+      image_url ||= fallback_image_url
+
+      return unless image_url
+
+      user = User.find(user_id)
+
+      @photo = Photo.diaspora_initialize(:author => user.person, :image_url => image_url, :pending => true)
       @photo.save!
       
       profile_params = {:image_url => @photo.url(:thumb_large),
