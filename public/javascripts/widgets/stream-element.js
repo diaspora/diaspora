@@ -8,7 +8,6 @@
       $.extend(self, {
         commentForm: self.instantiate("CommentForm", element.find("form.new_comment")),
         commentStream: self.instantiate("CommentStream", element.find(".comment_stream")),
-        embedder: self.instantiate("Embedder", element.find("div.content")),
         likes: self.instantiate("Likes", element.find(".likes.on_post .likes_container:first")),
         lightBox: self.instantiate("Lightbox", element),
         timeAgo: self.instantiate("TimeAgo", element.find(".timeago a abbr.timeago")),
