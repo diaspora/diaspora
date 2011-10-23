@@ -21,45 +21,45 @@ class MovePhotosToTheirOwnTable < ActiveRecord::Migration
 
     if postgres?
       execute %{
-INSERT INTO photos (
-tmp_old_id
-, author_id
-, public
-, diaspora_handle
-, guid
-, pending
-, text
-, remote_photo_path
-, remote_photo_name
-, random_string
-, processed_image
-, created_at
-, updated_at
-, unprocessed_image
-, status_message_guid
-, comments_count
-) SELECT
-id
-, author_id
-, public
-, diaspora_handle
-, guid
-, pending
-, text
-, remote_photo_path
-, remote_photo_name
-, random_string
-, processed_image
-, created_at
-, updated_at
-, unprocessed_image
-, status_message_guid
-, comments_count
-FROM
-posts
-WHERE
-type = 'Photo'
-}
+        INSERT INTO photos (
+            tmp_old_id
+          , author_id
+          , public
+          , diaspora_handle
+          , guid
+          , pending
+          , text
+          , remote_photo_path
+          , remote_photo_name
+          , random_string
+          , processed_image
+          , created_at
+          , updated_at
+          , unprocessed_image
+          , status_message_guid
+          , comments_count
+        ) SELECT
+            id
+          , author_id
+          , public
+          , diaspora_handle
+          , guid
+          , pending
+          , text
+          , remote_photo_path
+          , remote_photo_name
+          , random_string
+          , processed_image
+          , created_at
+          , updated_at
+          , unprocessed_image
+          , status_message_guid
+          , comments_count
+        FROM
+          posts
+        WHERE
+          type = 'Photo'
+      }
 
       execute "UPDATE aspect_visibilities SET shareable_type='Photo' FROM photos WHERE shareable_id=photos.id"
       execute "UPDATE share_visibilities SET shareable_type='Photo' FROM photos WHERE shareable_id=photos.id"
@@ -85,7 +85,7 @@ SQL
     if postgres?
       execute %{
         INSERT INTO posts (
-          tmp_old_id, author_id, public, diaspora_handle, guid, pending, type, text,
+          id, author_id, public, diaspora_handle, guid, pending, type, text,
           remote_photo_path, remote_photo_name, random_string, processed_image,
           youtube_titles, created_at, updated_at, unprocessed_image,
           object_url, image_url, image_height, image_width,
@@ -95,8 +95,7 @@ SQL
           tmp_old_id, author_id, public, diaspora_handle, guid, pending, 'Photo', text,
           remote_photo_path, remote_photo_name, random_string, processed_image,
           NULL, created_at, updated_at, unprocessed_image, NULL, NULL, NULL, NULL,
-          NULL, NULL, NULL, NULL,
-          status_message_guid, 0, comments_count, NULL
+          NULL, NULL, NULL, NULL, status_message_guid, 0, comments_count, NULL
         FROM photos
       }
 
