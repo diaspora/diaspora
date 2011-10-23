@@ -31,28 +31,6 @@ describe Jobs::HttpMulti do
     Jobs::HttpMulti.perform(bob.id, @post_xml, people_ids, "Postzord::Dispatcher::Private")
   end
 
-  it 'retries' do
-    person = @people[0]
-
-    @hydra.stub(:post, person.receive_url).and_return(@failed_response)
-
-    Typhoeus::Hydra.stub!(:new).and_return(@hydra)
-
-    Resque.should_receive(:enqueue).with(Jobs::HttpMulti, bob.id, @post_xml, [person.id], anything, 1).once
-    Jobs::HttpMulti.perform(bob.id, @post_xml, [person.id], "Postzord::Dispatcher::Private")
-  end
-
-  it 'max retries' do
-    person = @people[0]
-
-    @hydra.stub(:post, person.receive_url).and_return(@failed_response)
-
-    Typhoeus::Hydra.stub!(:new).and_return(@hydra)
-
-    Resque.should_not_receive(:enqueue)
-    Jobs::HttpMulti.perform(bob.id, @post_xml, [person.id], "Postzord::Dispatcher::Private", 3)
-  end
-
   it 'generates encrypted xml for people' do
     person = @people[0]
 
@@ -76,7 +54,12 @@ describe Jobs::HttpMulti do
 
     Typhoeus::Hydra.stub!(:new).and_return(@hydra)
 
-    Jobs::HttpMulti.perform(bob.id, @post_xml, [person.id], "Postzord::Dispatcher::Private")
+    begin
+      Jobs::HttpMulti.perform(bob.id, @post_xml, [person.id], "Postzord::Dispatcher::Private")
+    rescue RuntimeError => e
+      e.message == 'retry'
+    end
+
     person.reload
     person.url.should == "https://remote.net/"
   end

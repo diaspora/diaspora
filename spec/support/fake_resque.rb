@@ -1,7 +1,11 @@
 module Resque
   def enqueue(klass, *args)
     if $process_queue
-      klass.send(:perform, *args)
+      begin
+        klass.send(:perform, *args)
+      rescue RuntimeError => e
+        e.message == 'retry'
+      end
     else
       true
     end
