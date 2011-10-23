@@ -409,7 +409,7 @@ en:
       other: "%{actors} has mentioned you in a %{post_link}."
     liked:
       zero: "%{actors} have just liked your %{post_link}."
-      one: "%{actors} have just liked your %{post_link}."
+      one: "%{actors} has just liked your %{post_link}."
       two: "%{actors} have just liked your %{post_link}."
       few: "%{actors} have just liked your %{post_link}."
       many: "%{actors} have just liked your %{post_link}."
