@@ -1,3 +1,4 @@
+# encoding: UTF-8
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -246,6 +247,7 @@ ActiveRecord::Schema.define(:version => 20111021184041) do
   add_index "people", ["owner_id"], :name => "index_people_on_owner_id", :unique => true
 
   create_table "photos", :force => true do |t|
+    t.integer  "tmp_old_id"
     t.integer  "author_id",                              :null => false
     t.boolean  "public",              :default => false, :null => false
     t.string   "diaspora_handle"
