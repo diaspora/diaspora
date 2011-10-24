@@ -38,7 +38,7 @@ en:
   all_aspects: "All Aspects"
   no_results: "No Results Found"
   _contacts: "Contacts"
-
+  welcome: "Welcome!"
 
   #for reference translation, the real activerecord english transations are actually
   #in en-US, en-GB, and en-AU yml files
