@@ -1,6 +1,6 @@
 require 'resque'
 
-Resque::Plugins::Timeout.timeout = 120
+Resque::Plugins::Timeout.timeout = 300
 
 if !AppConfig.single_process_mode?
   if redis_to_go = ENV["REDISTOGO_URL"]
