@@ -23,6 +23,8 @@ $type-border: #ddd !default;
 
 /* Navigation */
 $nav-bg: #ccc !default;
+$nav-bg-front: image-url('noise.png');
+$nav-bg-back: linear-gradient(lighten($nav-bg, 8), $nav-bg, darken($nav-bg, 11));
 $nav-color: darken($nav-bg, 38) !default;
 $nav-color-hover: darken($nav-color, 25) !default;
 $nav-placeholder: desaturate(darken($nav-bg, 10), 15) !default;
@@ -46,6 +48,8 @@ $twitter-status-link: lighten($sidebar-link-color-subdued, 15) !default;
 
 $footer-color: #888 !default;
 $footer-bg: #ccc !default;
+$footer-bg-front: image-url('noise.png');
+$footer-bg-back: linear-gradient(lighten($footer-bg, 8), $footer-bg, darken($footer-bg, 11));
 $footer-color: darken($footer-bg, 38) !default;
 $footer-color-hover: darken($footer-color, 10) !default;
 $footer-border-top: lighten($footer-bg, 15) !default;

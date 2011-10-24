@@ -5,9 +5,14 @@
 //$header-bg: #263347;
 //$subtitle-color: lighten($header-bg, 58);
 //$nav-bg: desaturate(lighten(#8fc17a, 18), 5);
+//$nav-bg-front: image-url('noise.png');
+//$nav-bg-back: linear-gradient(lighten($nav-bg, 8), $nav-bg, darken($nav-bg, 11));
 //$sidebar-bg: desaturate(#eceff5, 8);
 //$sidebar-link-color: saturate(#526f9a, 10);
 //$sidebar-link-color-hover: darken(#7ab662, 9);
+//$footer-bg: #ccc !default;
+//$footer-bg-front: image-url('noise.png');
+//$footer-bg-back: linear-gradient(lighten($footer-bg, 8), $footer-bg, darken($footer-
 
 
 /* To use the light Solarized highlighting theme uncomment the following line */

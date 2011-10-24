@@ -4,7 +4,7 @@ body > footer {
   color: $footer-color;
   text-shadow: lighten($footer-bg, 5) 0 1px;
   background-color: $footer-bg;
-  @include background(image-url('noise.png'), linear-gradient(lighten($footer-bg, 8), $footer-bg, darken($footer-bg, 11)));
+  @include background($footer-bg-front, $footer-bg-back);
   border-top: 1px solid $footer-border-top;
   position: relative;
   padding-top: 1em;

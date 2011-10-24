@@ -1,7 +1,7 @@
 body > nav {
   position: relative;
   background-color: $nav-bg;
-  @include background(image-url('noise.png'), linear-gradient(lighten($nav-bg, 8), $nav-bg, darken($nav-bg, 11)));
+  @include background($nav-bg-front, $nav-bg-back);
   border: {
     top: 1px solid $nav-border-top;
     bottom: 1px solid $nav-border-bottom; }
