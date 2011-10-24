@@ -27,4 +27,15 @@ describe Services::Twitter do
       @service.post(@post, url)
     end
   end
+
+  describe "#profile_photo_url" do
+    it 'returns the original profile photo url' do
+      stub_request(:get, "https://api.twitter.com/1/users/profile_image/joindiaspora.json?size=original").
+        to_return(:status => 302, :body => "", :headers => {:location => "http://a2.twimg.com/profile_images/uid/avatar.png"})
+
+      @service.nickname = "joindiaspora"
+      @service.profile_photo_url.should == 
+      "http://a2.twimg.com/profile_images/uid/avatar.png"
+    end
+  end
 end

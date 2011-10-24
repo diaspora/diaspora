@@ -120,7 +120,7 @@ GEM
       rack (>= 1.0.0)
       rack-test (>= 0.5.4)
       selenium-webdriver (>= 0.0.3)
-    carrierwave (0.5.2)
+    carrierwave (0.5.3)
       activesupport (~> 3.0)
     cgi_multipart_eof_fix (2.5.0)
     chef (0.9.12)
@@ -485,7 +485,7 @@ DEPENDENCIES
   capistrano (= 2.5.19)
   capistrano-ext (= 1.2.1)
   capybara (~> 0.3.9)
-  carrierwave (= 0.5.2)
+  carrierwave (= 0.5.3)
   chef (= 0.9.12)
   client_side_validations
   cloudfiles (= 1.4.10)

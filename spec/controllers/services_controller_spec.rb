@@ -64,6 +64,49 @@ describe ServicesController do
       post :create, :provider => 'twitter'
       @user.reload.services.first.class.name.should == "Services::Twitter"
     end
+
+    it 'returns error if the service is connected with that uid' do
+      request.env['omniauth.auth'] = omniauth_auth
+
+      Services::Twitter.create!(:nickname => omniauth_auth["user_info"]['nickname'],
+                                           :access_token => omniauth_auth['credentials']['token'],
+                                           :access_secret => omniauth_auth['credentials']['secret'],
+                                           :uid => omniauth_auth['uid'],
+                                           :user => bob)
+
+      post :create, :provider => 'twitter'
+
+      flash[:error].include?(bob.person.profile.diaspora_handle).should be_true
+    end
+
+    context "photo fetching" do
+      before do
+        omniauth_auth
+        omniauth_auth["user_info"].merge!({"image" => "https://service.com/fallback_lowres.jpg"})
+
+        request.env['omniauth.auth'] = omniauth_auth
+      end
+
+      it 'does not queue a job if the profile photo is set' do
+        profile = @user.person.profile
+        profile[:image_url] = "/non/default/image.jpg"
+        profile.save
+
+        Resque.should_not_receive(:enqueue)
+
+        post :create, :provider => 'twitter'
+      end
+
+      it 'queues a job to save user photo if the photo does not exist' do
+        profile = @user.person.profile
+        profile[:image_url] = nil
+        profile.save
+
+        Resque.should_receive(:enqueue).with(Jobs::FetchProfilePhoto, @user.id, anything(), "https://service.com/fallback_lowres.jpg")
+
+        post :create, :provider => 'twitter'
+      end
+    end
   end
 
   describe '#destroy' do

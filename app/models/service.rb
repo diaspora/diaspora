@@ -16,6 +16,11 @@ class Service < ActiveRecord::Base
     truncated = "#{truncated} #{url}" unless url.blank?
     return truncated
   end
+
+  def profile_photo_url
+    nil
+  end
+
 end
 require File.join(Rails.root, 'app/models/services/facebook')
 require File.join(Rails.root, 'app/models/services/twitter')
