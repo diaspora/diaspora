@@ -10,8 +10,7 @@
 %section#hello-there
   .hero-unit
     %h1.center
-      /= welcome_text
-      Well, hello there!
+      = t('.well_hello_there')
     %p.center
       = t(".community_welcome")
 
@@ -26,9 +25,10 @@
 
       .row
         %p
+          = t('.we_can_speed_things_up')
           We can speed things up a bit by 
-          = link_to "hooking up your Facebook account", "auth/facebook?callback_url=#{getting_started_url}"
-          to Diaspora. This will pull your name and photo, and enable cross-positng.
+          = link_to t('.hooking_up_fb'), "auth/facebook?callback_url=#{getting_started_url}"
+          = t('.what_facebook_does')
 
       .row
         .span6
@@ -76,5 +76,6 @@
               %br
               .input
                 = link_to "#{t('.awesome_take_me_to_diaspora')} »", "#", :id => "awesome_button", :class => "btn primary"
+
       = image_tag 'ajax-loader.gif', :id => "awesome_spinner", :class => "hidden"
 

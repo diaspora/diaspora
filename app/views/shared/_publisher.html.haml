@@ -56,12 +56,11 @@
             = link_to( image_tag('deletelabel.png'), "#", :id => "hide_publisher", :title => t('.discard_post'))
             %ul#photodropzone
             = status.text_area :fake_text, :rows => 2, :value => h(publisher_prefill_text), :tabindex => 1, :placeholder => t('.whats_on_your_mind'),
-              :title => "1. Share", 'data-content' => t('shared.public_explain.new_user_welcome_message')
+              :title => "1. #{t('shared.public_explain.share')}", 'data-content' => t('shared.public_explain.new_user_welcome_message')
             = status.hidden_field :text, :value => '', :class => 'clear_on_submit'
 
             #file-upload{:title => t('.upload_photos')}
               = image_tag 'icons/camera.svg', :height => 14
-
 
       - if publisher_public
         = hidden_field_tag 'aspect_ids[]', "public"
@@ -80,7 +79,7 @@
             = link_to (image_tag "icons/monotone_wrench_settings.png"), "#question_mark_pane", :class => 'question_mark', :rel => 'facebox', :title => t('shared.public_explain.manage')
 
           // NOTE(dropdown special casing to DRY up -- taken from the aspect_dropdown partial)
-          .dropdown{:class => "hang_right", :title => '2. Control your Audience', 'data-content'=> t('shared.public_explain.visibility_dropdown')}
+          .dropdown{:class => "hang_right", :title => "2. #{t('shared.public_explain.control_your_audience')}", 'data-content'=> t('shared.public_explain.visibility_dropdown')}
             .button.toggle.publisher
               - if publisher_public
                 = t('public')
