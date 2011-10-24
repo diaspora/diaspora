@@ -49,7 +49,7 @@ class Stream::Multi < Stream::Base
 
   # @return [Symbol]
   def is_in?(sym, post)
-    if self.send("#{sym.to_s}_post_ids").find{|x| x == post.id}
+    if self.send("#{sym.to_s}_post_ids").find{|x| x.to_s == post.id.to_s}
       "#{sym.to_s}_stream".to_sym
     end
   end
