@@ -5,10 +5,10 @@
 class Stream::Tag < Stream::Base
   attr_accessor :tag_name, :people_page
 
-  def initialize(user, tag_name, opts={}) 
-    super(user, opts)
+  def initialize(user, tag_name, opts={})
     self.tag_name = tag_name
-    @people_page = opts[:page] || 1
+    self.people_page = opts[:page] || 1
+    super(user, opts)
   end
 
   def tag
@@ -39,11 +39,11 @@ class Stream::Tag < Stream::Base
     @tag_name = tag_name.downcase.gsub('#', '')
   end
 
-  def publisher
-    @publisher ||= Publisher.new(self.user, :prefill => "#{display_tag_name} ")
-  end
-
   private
+  # @return [Hash]
+  def publisher_opts
+    {:prefill => "#{display_tag_name} "}
+  end
 
   def construct_post_query
     posts = StatusMessage

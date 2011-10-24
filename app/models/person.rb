@@ -155,7 +155,7 @@ class Person < ActiveRecord::Base
     @first_name ||= if profile.nil? || profile.first_name.nil? || profile.first_name.blank?
                 self.diaspora_handle.split('@').first
               else
-                profile.first_name.to_s
+                profile.first_name.to_s.split(/\s/).first
               end
   end
 

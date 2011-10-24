@@ -36,17 +36,15 @@ class Stream::Multi < Stream::Base
     end.compact
   end
 
-  # @return [Publisher]
-  def publisher
+  private
+  def publisher_opts
     if welcome?
-      @publisher ||= Publisher.new(self.user, :open => true, :prefill => publisher_prefill,
-                                              :public => true)
+      {:open => true, :prefill => publisher_prefill, :public => true}
     else
       super
     end
   end
 
-  private
   # Generates the prefill for the publisher
   #
   # @return [String]

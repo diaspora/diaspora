@@ -9,7 +9,7 @@ Feature: new user registration
     And I fill in "user_password_confirmation" with "secret"
     And I press "Create my account"
     Then I should be on the getting started page
-    And I should see "Welcome"
+    And I should see "Well, hello there!"
     And I should see "Who are you?"
     And I should see "What are you into?"
 
@@ -18,7 +18,7 @@ Feature: new user registration
       | profile_first_name | O             |
     And I follow "awesome_button"
 
-    Then I should be on the aspects page
+    Then I should be on the multi page
     And I should not see "awesome_button"
 
   Scenario: new user skips the setup wizard

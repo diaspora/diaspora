@@ -1,12 +1,14 @@
 require File.join(Rails.root, "lib", "publisher")
 class Stream::Base
   TYPES_OF_POST_IN_STREAM = ['StatusMessage', 'Reshare', 'ActivityStreams::Photo']
-  attr_accessor :max_time, :order, :user
+
+  attr_accessor :max_time, :order, :user, :publisher
 
   def initialize(user, opts={})
     self.user = user
     self.max_time = opts[:max_time]
     self.order = opts[:order]
+    self.publisher = Publisher.new(self.user, publisher_opts)
   end
 
   # @return [Person]
@@ -76,7 +78,6 @@ class Stream::Base
     true
   end
 
-
   #NOTE: MBS bad bad methods the fact we need these means our views are foobared. please kill them and make them 
   #private methods on the streams that need them
   def aspects
@@ -87,7 +88,7 @@ class Stream::Base
   def aspect
     aspects.first
   end
-  
+
   def aspect_ids
     aspects.map{|x| x.id} 
   end
@@ -102,12 +103,11 @@ class Stream::Base
     @order ||= 'created_at'
   end
 
-  # @return [Publisher]
-  def publisher
-    @publisher ||= Publisher.new(self.user)
-  end
-
   private
+  # @return [Hash]
+  def publisher_opts
+    {}
+  end
 
   # Memoizes all Contacts present in the Stream
   #

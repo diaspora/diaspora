@@ -10,7 +10,11 @@
   #welcome-to-diaspora
     .container
       %h1
-        Welcome to Diaspora, #{current_user.first_name}!
+        = t('.welcome_to_diaspora', :name => current_user.first_name)
+      %h3
+        = t('.time_to_introduce_yourself')
+  %br
+  %br
   %br
   %br
   %br

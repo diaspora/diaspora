@@ -12,22 +12,6 @@ describe GettingStartedHelper do
     @current_user
   end
 
-  describe "#has_completed_profile?" do
-    it 'returns true if the current user has filled out all 7 suggested fields (from getting started)' do
-      profile = @current_user.person.profile
-      profile.update_attributes!(
-        {:first_name => "alice", :last_name => "smith", :image_url => "abcd.jpg", :birthday => Time.now,
-         :gender => "cow", :location => "san fran", :tag_string => "#sup", :bio => "holler" })
-      has_completed_profile?.should be_true
-    end
-
-    it 'returns false if the current user has not filled out all 7 suggested fields (from getting started)' do
-      @current_user.update_attributes(:person => {:profile =>
-        {:first_name => nil, :last_name => nil, :birthday => nil, :gender => nil }})
-      has_completed_profile?.should be_false
-    end
-  end
-
   describe "#has_connected_services?" do
     before do
       AppConfig[:configured_services] = ['fake_service']
@@ -100,21 +84,6 @@ describe GettingStartedHelper do
       @current_user.getting_started = true
       @current_user.save
       has_completed_getting_started?.should be_false
-    end
-  end
-
-  describe "#welcome_text" do
-    it 'returns "Welcome" without a name if first_name is not set' do
-      profile = @current_user.person.profile
-      profile.first_name = ""
-      profile.save
-      @current_user.person.instance_variable_set(:@first_name, nil)
-      
-      welcome_text.should == "Welcome!"
-    end
-
-    it 'returns "Welcome, {first_name}" if first_name is set' do
-      welcome_text.should == "Welcome, #{current_user.first_name}!"
     end
   end
 end

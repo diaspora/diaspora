@@ -163,6 +163,10 @@ en:
       no_contacts: "No contacts"
       post_a_message: "post a message >>"
       people_sharing_with_you: "People sharing with you"
+
+      welcome_to_diaspora: "Welcome to Diaspora, %{name}!"
+      time_to_introduce_yourself: "Time to introduce yourself."
+
       help:
         need_help: "Need Help?"
         here_to_help: "The Diaspora community is here!"
@@ -237,7 +241,7 @@ en:
     sharing:
       people_sharing: "People sharing with you:"
     index:
-      add_to_aspect: "Add contacts to %{name}"
+      add_to_aspect: "add contacts to %{name}"
       start_a_conversation: "Start a conversation"
       add_a_new_aspect: "Add a new aspect"
       title: "Contacts"
@@ -613,7 +617,9 @@ en:
       your_gender: "Your gender"
       your_birthday: "Your birthday"
       your_tags: "Describe yourself in 5 words"
+
       your_tags_placeholder: "like #movies #kittens #travel #teacher #newyork"
+
       your_bio: "Your bio"
       your_location: "Your location"
       your_photo: "Your photo"
@@ -916,6 +922,7 @@ en:
 
       what_are_you_in_to: "What are you into?"
       hashtag_explanation: "Hashtags allow you to talk about and follow your interests.  They're also a great way to find new people on Diaspora."
+      hashtag_suggestions: "Try following tags like #art, #movies, #gif, etc."
 
       saved: "Saved!"
 

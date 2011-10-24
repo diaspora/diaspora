@@ -15,6 +15,10 @@ describe 'Streams' do
         @stream.people.should_not be_nil
       end
 
+      it '#publisher_opts' do
+        @stream.send(:publisher_opts).should_not be_nil
+      end
+
       it 'has a #contacts title' do
         @stream.contacts_title.should_not be_nil
       end

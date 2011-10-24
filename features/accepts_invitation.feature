@@ -10,7 +10,7 @@ Feature: invitation acceptance
         | user_password_confirmation | secret         |
       And I press "Create my account"
       Then I should be on the getting started page
-      And I should see "Welcome"
+      And I should see "Well, hello there!"
       And I fill in the following:
         | profile_first_name | O             |
 
@@ -27,7 +27,7 @@ Feature: invitation acceptance
         | user_password_confirmation | secret         |
       And I press "Create my account"
       Then I should be on the getting started page
-      And I should see "Welcome"
+      And I should see "Well, hello there!"
       And I fill in the following:
         | profile_first_name | O             |
 

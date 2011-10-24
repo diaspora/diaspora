@@ -32,7 +32,7 @@
 
       .row
         .span6
-          = form_tag profile_path, :method => :put, :remote => true, :id => 'edit_profile' do |profile|
+          = form_tag profile_path, :method => :put, :remote => true, :id => 'edit_profile' do
             %fieldset
               .clearfix
                 = label_tag 'profile[first_name]', "Your name", :class => "bootstrapped"
@@ -47,7 +47,6 @@
             .clearfix
               = label_tag :your_photo, "Your photo", :class => "bootstrapped"
               .input{:style => "position:relative;"}
-
                 = render 'photos/new_profile_photo', :aspect => :getting_started, :person => current_user.person
       %br
       %br
@@ -60,6 +59,8 @@
       .row
         %p
           = t('.hashtag_explanation')
+          %i
+            = t('.hashtag_suggestions')
 
       .row
         .span13
