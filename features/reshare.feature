@@ -39,7 +39,11 @@ Feature: public repost
 
     When I go to the destroy user session page
     And I sign in as "bob@bob.bob"
+
+    # NOTE(why do we need this to make this work?)
+    And I wait for 2 seconds
     And I go to the home page
+
     Then I should see "reshare this!"
     And I should not see "Reshare original"
 
@@ -50,7 +54,10 @@ Feature: public repost
     And I follow "Reshare"
     And I wait for the ajax to finish
 
+    # NOTE(why do we need this to make this work?)
+    And I wait for 2 seconds
     And I go to the home page
+
     Then I should see a ".reshare"
     And I should see "reshare this!"
     And I should see "Bob"
@@ -77,7 +84,10 @@ Feature: public repost
     And I follow "Reshare"
     And I wait for the ajax to finish
 
+    # NOTE(why do we need this to make this work?)
+    And I wait for 2 seconds
     And I go to the home page
+
     And I wait for the ajax to finish
     Then I should see a ".reshare"
     And I should see "reshare this!"
@@ -90,7 +100,10 @@ Feature: public repost
     And I follow "Reshare"
     And I wait for the ajax to finish
 
+    # NOTE(why do we need this to make this work?)
+    And I wait for 2 seconds
     And I go to the home page
+
     Then I should see a ".reshare"
     And I should see "reshare this!"
     And I should see "Bob"
@@ -110,12 +123,16 @@ Feature: public repost
     And I wait for the ajax to finish
     And I preemptively confirm the alert
     And I follow "Reshare"
-    And I wait for the ajax to finish
 
+    # NOTE(why do we need this to make this work?)
+    And I wait for 2 seconds
     When I go to the home page
+
     Then I should see a ".reshare"
     And I should see "reshare this!"
     And I should see "Bob"
 
+    # NOTE(why do we need this to make this work?)
+    And I wait for 2 seconds
     When I go to the home page
     Then I should see "1 reshare"

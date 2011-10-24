@@ -27,9 +27,9 @@ Feature: new user registration
     And I should see "Welcome"
     And I follow "Finished"
 
-    Then I should be on the aspects page
+    Then I should be on the multi page
     And I should not see "Finished"
 
   Scenario: new user skips the setup wizard
     When I follow "Finished"
-    Then I should be on the aspects page
+    Then I should be on the multi page

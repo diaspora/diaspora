@@ -22,7 +22,7 @@ Feature: invitation acceptance
       And I press "Update Profile"
 			And I should see "Welcome"
 		  When I follow "Finished"
-		  Then I should be on the aspects page
+		  Then I should be on the multi page
 
     Scenario: accept invitation from user
       Given I have been invited by a user
@@ -46,7 +46,7 @@ Feature: invitation acceptance
       And I press "Update Profile"
 			And I should see "Welcome"
 		  When I follow "Finished"
-		  Then I should be on the aspects page
+		  Then I should be on the multi page
 
     Scenario: sends an invitation
       Given a user with email "bob@bob.bob"

@@ -55,9 +55,9 @@ Feature: Notifications
     And I wait for the ajax to finish
     Then the notification dropdown should be visible
     And I wait for the ajax to finish
-    Then I should see "just liked your post"
+    Then I should see "liked your post"
     When I follow "View all"
-    Then I should see "just liked your post"
+    Then I should see "liked your post"
     And I should have 1 email delivery
 
   Scenario: someone comments on my post
