@@ -61,7 +61,7 @@ describe("Publisher", function() {
 
       $("#publisher .dropdown .dropdown_list li.aspect_selector").last().click();
 
-      $.each($("#publihser .dropdown .dropdown_list li.radio"), function(index, element){
+      $.each($("#publisher .dropdown .dropdown_list li.radio"), function(index, element){
         expect($(element).hasClass("selected")).toBeFalsy();
       });
 
@@ -72,9 +72,9 @@ describe("Publisher", function() {
     it('is called with the correct element', function(){
       spyOn(Publisher, 'toggleAspectIds');
       Publisher.bindAspectToggles();
-      var aspBadge = $("#publisher .dropdown .dropdown_list li").last();
-      aspBadge.click();
-      expect(Publisher.toggleAspectIds).toHaveBeenCalledWith(aspBadge);
+      var aspectBadge = $("#publisher .dropdown .dropdown_list li").last();
+      aspectBadge.click();
+      expect(Publisher.toggleAspectIds).toHaveBeenCalledWith(aspectBadge);
     });
   });
 

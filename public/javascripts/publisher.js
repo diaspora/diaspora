@@ -341,8 +341,6 @@ var Publisher = {
           '<input id="aspect_ids_" name="aspect_ids[]" type="hidden" value="'+aspectId+'">');
         };
 
-    console.log(li);
-
     if(li.hasClass('radio')){
       $.each(hiddenFields, function(index, value){
         $(value).remove();
