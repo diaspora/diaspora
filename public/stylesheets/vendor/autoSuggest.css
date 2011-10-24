@@ -104,6 +104,7 @@ ul.as-selections li.as-selection-item a:active.as-close {
 
 ul.as-selections li.as-original {
 	margin-left: 0;
+  list-style: none;
 }
 
 ul.as-selections li.as-original input {
