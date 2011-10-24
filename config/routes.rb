@@ -69,6 +69,7 @@ Diaspora::Application.routes.draw do
   # Users and people
 
   resource :user, :only => [:edit, :update, :destroy], :shallow => true do
+    get :getting_started_completed
     get :export
     get :export_photos
   end

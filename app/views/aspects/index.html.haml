@@ -8,11 +8,14 @@
 
 - if current_user.getting_started?
   #welcome-to-diaspora
-    .container
-      %h1
-        = t('.welcome_to_diaspora', :name => current_user.first_name)
-      %h3
-        = t('.time_to_introduce_yourself')
+    .container{:style => "position: relative;"}
+      .right
+        = link_to image_tag('deletelabel.png'), getting_started_completed_path
+      .span-23
+        %h1
+          = t('.welcome_to_diaspora', :name => current_user.first_name)
+        %h3
+          = t('.time_to_introduce_yourself')
   %br
   %br
   %br
