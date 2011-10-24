@@ -165,7 +165,7 @@ en:
       people_sharing_with_you: "People sharing with you"
 
       welcome_to_diaspora: "Welcome to Diaspora, %{name}!"
-      time_to_introduce_yourself: "Time to introduce yourself."
+      introduce_yourself: "This is your stream.  Jump in and introduce yourself."
 
       help:
         need_help: "Need Help?"
@@ -195,7 +195,7 @@ en:
 
     aspect_stream:
       stay_updated: "Stay Updated"
-      stay_updated_explanation: "Your main stream is populated with all of your contacts, tags you follow, and curated members from the community."
+      stay_updated_explanation: "Your main stream is populated with all of your contacts, tags you follow, and posts from some creative members of the community."
 
   aspect_memberships:
     destroy:
@@ -766,7 +766,7 @@ en:
 
       control_your_audience: "Control your Audience"
       new_user_welcome_message: "Use #hashtags to classify your posts and find people who share your interests.  Call out awesome people with @Mentions"
-      visibility_dropdown: "Use this dropdown to change visibility of your post.  (We suggest you make this one public)"
+      visibility_dropdown: "Use this dropdown to change visibility of your post.  (We suggest you make this first one public.)"
       title: "Set up connected services"
       share: "Share"
       outside: "Public messages will be available for others outside of Diaspora to see."
