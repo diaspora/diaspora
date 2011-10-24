@@ -36,12 +36,19 @@ describe Profile do
 
       it 'outputs a hash that can update a diaspora profile' do
         profile = Profile.new
-        profile.from_omniauth_hash(@from_omniauth)['first_name'].should == 'bob'
+        profile.from_omniauth_hash(@from_omniauth)['bio'].should == 'this is my bio'
       end
 
       it 'does not overwrite any exsisting profile fields' do
         profile = Profile.new(:first_name => 'maxwell')
         profile.from_omniauth_hash(@from_omniauth)['first_name'].should == 'maxwell'
+      end
+
+      it 'sets full name to first name' do
+        @from_omniauth = {'name' => 'bob jones', 'description' => 'this is my bio', 'location' => 'sf', 'image' => 'http://cats.com/gif.gif'}
+        
+        profile = Profile.new
+        profile.from_omniauth_hash(@from_omniauth)['first_name'].should == 'bob jones'
       end
     end
 
