@@ -122,6 +122,14 @@ var View = {
       }
     },
 
+    contacts_on_side: {
+      bind: function() {
+        $("#selected_aspect_contacts .avatar").twipsy({
+          live: true
+        });
+      }
+    },
+
     bindAll: function() {
       for(var element in this) {
         if(element !== "bindAll") {
