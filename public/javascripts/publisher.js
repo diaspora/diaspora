@@ -271,7 +271,7 @@ var Publisher = {
   },
 
   determineSubmitAvailability: function(){
-    var onlyWhitespaces = (Publisher.input().val().trim() === ''),
+    var onlyWhitespaces = ($.trim(Publisher.input().val()) === ''),
         isSubmitDisabled = Publisher.submit().attr('disabled'),
         isPhotoAttached = ($("#photodropzone").children().length > 0);
 

@@ -55,9 +55,8 @@ describe("Publisher", function() {
       });
     });
 
-    it('toggles removed only on the clicked icon', function(){
+    it('toggles selected only on the clicked icon', function(){
       Publisher.initialize();
-      Publisher.bindAspectToggles();
 
       $("#publisher .dropdown .dropdown_list li.aspect_selector").last().click();
 
@@ -69,12 +68,12 @@ describe("Publisher", function() {
       expect($("#publisher .dropdown .dropdown_list li.aspect_selector").last().hasClass("selected")).toBeTruthy();
     });
 
-    it('is called with the correct element', function(){
+    it('calls toggleAspectIds with the clicked element', function(){
       spyOn(Publisher, 'toggleAspectIds');
       Publisher.bindAspectToggles();
       var aspectBadge = $("#publisher .dropdown .dropdown_list li").last();
       aspectBadge.click();
-      expect(Publisher.toggleAspectIds).toHaveBeenCalledWith(aspectBadge);
+      expect(Publisher.toggleAspectIds.mostRecentCall.args[0].get(0)).toEqual(aspectBadge.get(0));
     });
   });
 
