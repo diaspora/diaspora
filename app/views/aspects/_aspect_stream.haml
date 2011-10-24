@@ -16,6 +16,8 @@
 = render 'shared/publisher', :selected_aspects => stream.aspects, :aspect_ids => stream.aspect_ids, :for_all_aspects => stream.for_all_aspects?, :aspect => stream.aspect
 = render 'aspects/no_posts_message'
 
+#gs-shim{:title => "3. #{t('.stay_updated')}", 'data-content' => t('.stay_updated_explanation')}
+
 #main_stream.stream{:data => {:guids => stream.aspect_ids.join(','), :time_for_scroll => time_for_scroll(stream.ajax_stream?, stream)}}
   - if !stream.ajax_stream? && stream.posts.length > 0
     = render 'shared/stream', :posts => stream.posts

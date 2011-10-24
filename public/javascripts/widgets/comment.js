@@ -12,7 +12,7 @@
       });
 
       self.deleteCommentLink.click(self.removeComment);
-      self.deleteCommentLink.tipsy({ trigger: "hover" });
+      self.deleteCommentLink.twipsy({ trigger: "hover" });
 
       // self.content.expander({
       //   slicePoint: 200,

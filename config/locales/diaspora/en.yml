@@ -152,7 +152,6 @@ en:
       acquaintances: "Acquaintances"
       friends: "Friends"
     index:
-      welcome: "Welcome"
       community_spotlight: "Community Spotlight"
       see_more_from_us: "See more of the D* community."
       donate: "Donate"
@@ -164,6 +163,10 @@ en:
       no_contacts: "No contacts"
       post_a_message: "post a message >>"
       people_sharing_with_you: "People sharing with you"
+
+      welcome_to_diaspora: "Welcome to Diaspora, %{name}!"
+      time_to_introduce_yourself: "Time to introduce yourself."
+
       help:
         need_help: "Need Help?"
         here_to_help: "The Diaspora community is here!"
@@ -189,6 +192,11 @@ en:
       services:
         heading: "Connect Services"
         content: "You can connect the following services to Diaspora:"
+
+    aspect_stream:
+      stay_updated: "Stay Updated"
+      stay_updated_explanation: "Your main stream is populated with all of your contacts, tags you follow, and curated members from the community."
+
   aspect_memberships:
     destroy:
       success: "Successfully removed person from aspect"
@@ -233,7 +241,7 @@ en:
     sharing:
       people_sharing: "People sharing with you:"
     index:
-      add_to_aspect: "Add contacts to %{name}"
+      add_to_aspect: "add contacts to %{name}"
       start_a_conversation: "Start a conversation"
       add_a_new_aspect: "Add a new aspect"
       title: "Contacts"
@@ -609,7 +617,9 @@ en:
       your_gender: "Your gender"
       your_birthday: "Your birthday"
       your_tags: "Describe yourself in 5 words"
+
       your_tags_placeholder: "like #movies #kittens #travel #teacher #newyork"
+
       your_bio: "Your bio"
       your_location: "Your location"
       your_photo: "Your photo"
@@ -731,6 +741,9 @@ en:
       whats_on_your_mind: "What's on your mind?"
       publishing_to: "publishing to: "
       discard_post: "Discard post"
+      new_user_prefill:
+        hello: "Hey everyone, I'm #%{new_user_tag}. "
+        i_like: "I like %{tags}."
     add_contact:
       enter_a_diaspora_username: "Enter a Diaspora username:"
       your_diaspora_username_is: "Your Diaspora username is: %{diaspora_handle}"
@@ -750,7 +763,12 @@ en:
     reshare:
       reshare: "Reshare"
     public_explain:
+
+      control_your_audience: "Control your Audience"
+      new_user_welcome_message: "Use #hashtags to classify your posts and find people who share your interests.  Call out awesome people with @Mentions"
+      visibility_dropdown: "Use this dropdown to change visibility of your post.  (We suggest you make this one public)"
       title: "Set up connected services"
+      share: "Share"
       outside: "Public messages will be available for others outside of Diaspora to see."
       logged_in: "logged in to %{service}"
       manage: "manage connected services"
@@ -892,48 +910,21 @@ en:
       show_community_spotlight: "Show Community Spotlight in Stream?"
     destroy: "Your account has been locked.  It may take 20 minutes for us to finish closing your account.  Thank you for trying Diaspora."
     getting_started:
-      welcome: "Welcome!"
-      welcome_with_name: "Welcome, %{name}!"
+      well_hello_there: "Well, hello there!"
       community_welcome: "Diaspora's community is happy to have you aboard!"
-      not_mandatory: "Completing the following steps will improve your Diaspora experience, but they are not mandatory."
 
-      finished: "Finished"
+      awesome_take_me_to_diaspora: "Awesome! Take me to Diaspora*"
 
-      fill_out_your_profile: "Fill out your profile"
-      profile_description: "Make it easier for people to find you by filling out your profile information."
-      profile_fields:
-        name: "Name"
-        birthday: "Birthday"
-        bio: "Bio"
-        tags: "Tags"
-        photo: "Photo"
-        gender: "Gender"
-        location: "Location"
+      who_are_you: "Who are you?"
+      we_can_speed_things_up: "We can speed things up a bit by"
+      hooking_up_fb: "hooking up your Facebook account"
+      what_facebook_does: "to Diaspora. This will pull your name and photo, and enable cross-positng."
 
-      connect_to_your_other_social_networks: "Connect to your other social networks"
-      connect_to_your_other_social_networks_explanation_p1: "Connecting to services will allow you to publish out to these services."
-      connect_to_your_other_social_networks_explanation_p2: "With Facebook, you also be able to find friends already on Diaspora and invite others."
-
-
-      connect_with_people: "Connect with cool people"
-      connect_with_people_explanation_pt1: "Connect with people by placing them into one or more of your %{bold}."
-      bold: "aspects"
-      edit_profile: "Edit Profile"
-      search_for_hashtags: "Search for #hashtags"
-      search_for_people: "Search for people"
-      connect_with_people_explanation_pt2: "Aspects are an intuitive way to group new and familar faces, private to you, allowing you to filter down or share with subsets of your contacts easily."
-      community_spotlight: "Community spotlight"
-
-      follow_your_interests: "Follow your interests"
-      connect_to: "Connect to"
-
-      find_friends_from_facebook: "find friends from Facebook"
-      featured_tags: "Follow featured tags"
-      find_friends: "Find friends"
-      see_all_community_spotlight: "See all community spotlight"
-      get_updates_from_core: "Get updates about the project from the core team."
-
+      what_are_you_in_to: "What are you into?"
       hashtag_explanation: "Hashtags allow you to talk about and follow your interests.  They're also a great way to find new people on Diaspora."
+      hashtag_suggestions: "Try following tags like #art, #movies, #gif, etc."
+
+      saved: "Saved!"
 
     update:
       password_changed: "Password changed.  You can now log in with your new password."

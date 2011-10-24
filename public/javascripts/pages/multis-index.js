@@ -6,7 +6,6 @@ Diaspora.Pages.MultisIndex = function() {
     self.stream = self.instantiate("Stream", document.find("#aspect_stream_container"));
     self.infiniteScroll = self.instantiate("InfiniteScroll");
 
-
-  $('.indicator').tipsy({fade: true, live:true});
+    $('.indicator').twipsy({placement:'below', live:true});
   });
 };

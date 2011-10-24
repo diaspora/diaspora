@@ -2,189 +2,81 @@
 -#   licensed under the Affero General Public License version 3 or later.  See
 -#   the COPYRIGHT file.
 
-.span-5.leftNavBar
-  #home_user_badge
-    = owner_image_link
-    %h3
-      = current_user.first_name
+- content_for :head do
+  = include_javascripts :profile
 
-  - unless has_completed_getting_started?
-    .section
-      %ul.left_nav
-        %li
-          = link_to t(".welcome"), getting_started_path, :class => "home_selector active"
+%br
 
-  .section
-    = render 'aspects/aspect_listings'
-
-  .section
-    = render 'tags/followed_tags_listings'
-
-.span-13.append-1
-  .stream_container
-    %h2
-      = welcome_text
-    %h4
+%section#hello-there
+  .hero-unit
+    %h1.center
+      = t('.well_hello_there')
+    %p.center
       = t(".community_welcome")
-    %p
-      = t(".not_mandatory")
 
-    %ul#getting_started
-      %li.profile{:class => ("completed" if has_completed_profile?)}
-        .getting_started_number
-          %h3
-            = @step += 1
-        .content
-          %h3
-            = t(".fill_out_your_profile")
-          #getting_started_profile_photo
-            = person_image_link(current_user.person, :size => :thumb_medium)
-          %p
-            = t(".profile_description")
-          .span-8.fields
-            - [:full_name, :image_url, :birthday, :gender, :bio, :location, :tag_string].each do |attr|
-              .span-4.last
-                = profile_field_tag(current_user.person.profile, attr)
+    .clearfix
+      %br
+      %br
 
-          #edit_profile_button_div
-            = link_to t(".edit_profile"), edit_profile_path, :class => "button", :target => "_blank"
+    .clearfix
+      .row
+        %h2
+          = t(".who_are_you")
 
-      - unless AppConfig[:configured_services].blank?
-        %li.services{:class => ("completed" if has_connected_services?)}
-          .getting_started_number
-            %h3
-              = @step += 1
-          .content
-            %h3
-              = t('.connect_to_your_other_social_networks')
-
-            %p
-              = t('.connect_to_your_other_social_networks_explanation_p1')
-              - if AppConfig[:configured_services].detect{|s| s == "facebook"}
-                = t('.connect_to_your_other_social_networks_explanation_p2')
-
-          #getting_started_service_icons
-            - AppConfig.configured_services.each do |service|
-              - unless current_user.services.any?{|x| x.provider == service}
-                %span.service
-                  %span.service_image
-                    = link_to(image_tag("social_media_logos/#{service.to_s.downcase}-48x48.png", :title => service.to_s.titleize), "/auth/#{service}")
-              - else
-                %span.service
-                  %span.service_image
-                    = image_tag( "social_media_logos/#{service.to_s.downcase}-48x48.png", :title => service.to_s.titleize, :class => "dim")
-                  %span.checkmark
-                    = image_tag( "icons/check_yes_ok.png")
-
-      %li.connect_with_people{:class => ("completed" if has_few_contacts?)}
-        .getting_started_number
-          %h3
-            = @step += 1
-        .content
-          %h3
-            = t('.connect_with_people')
-
-          %p
-
-            = t('.connect_with_people_explanation_pt1', :bold => content_tag(:b, t('.bold'))).html_safe
-            = t('.connect_with_people_explanation_pt2')
-
-          -unless AppConfig[:no_follow_diasporahq]
-            #diaspora_hq_pane
-              - if diasporahq = Person.find_by_diaspora_handle("diasporahq@joindiaspora.com")
-                = person_image_link(diasporahq, :size => :thumb_medium)
-
-                .name
-                  = person_link(diasporahq)
-
-                .info
-                  = t('.get_updates_from_core')
-
-                .add_to_aspect
-                  = render :partial => 'people/relationship_action',
-                    :locals => { :person => diasporahq,
-                                  :contact => current_user.contact_for(diasporahq),
-                                  :current_user => current_user }
-
-          #community_spotlight_pane
-            %h4
-              = t('.community_spotlight')
-
-            %div
-              - Person.community_spotlight[0..5].each do |person|
-                .featured_user_card_small
-                  .right
-                    .add_to_aspect
-                      = render :partial => 'people/relationship_action',
-                        :locals => { :person => person,
-                                      :contact => current_user.contact_for(person),
-                                      :current_user => current_user }
-                  = person_image_link(person, :target => "_blank")
-                  = person_link(person, :class => "hovercardable", :target => "_blank")
-                  .tags
-                    - person.profile.tags[0..2].each do |tg|
-                      = link_to "##{tg}", tag_path(tg.name), :target => "_blank"
-
-            = link_to "#{t('.see_all_community_spotlight')} ->", community_spotlight_path, :target => "_blank"
-
-          %br
-          #find_friends_pane
-            %h4
-              = t('.find_friends')
-            .span-5.append-1
-              = form_tag(people_path, :method => 'get', :class => "people search_form") do
-                = text_field_tag 'q', nil, :placeholder => t(".search_for_people"), :type => 'search', :results => 5
-            .span-5.last{:style => "height:30px;"}
-              %h4{:style => "margin-top:7px;"}
-                or
-                = link_to t('.find_friends_from_facebook'), friend_finder_path('facebook'), :target => "_blank"
-            .clearfix
-            %br
-
-      %li.follow_interests{:class => ("completed" if has_few_followed_tags?)}
-        .getting_started_number
-          %h3
-            = @step += 1
-        .content
-          %h3
-            = t('.follow_your_interests')
-
-          %p
-            = t('.hashtag_explanation')
-
-          .span-5.append-1
-            = form_tag(tags_path, :method => 'get', :class => "tag_input search_form") do
-              = text_field_tag 'q', nil, :placeholder => t(".search_for_hashtags"), :type => 'search', :results => 5
-          .span-5.last
-            %h4{:style => "margin-top:7px;"}
-              = t('.featured_tags')
-            %p
-              - ["diaspora", "art", "gif", "french"].each do |tag_name|
-                = tag_link(tag_name)
-                %br
-          .clearfix
-            %br
-          %br
-
-      %li.cubbies{:class => ("completed" if has_connected_cubbies?)}
-        .getting_started_number
-          %h3
-            = @step += 1
-        .content
-          %h3
-            = t(".connect_to")
-            = link_to "Cubbi.es", "http://cubbi.es/", :target => "_blank"
-          %p
-            = t('tokens.show.what_is_cubbies')
-
-          .cubbies_images
-            = image_tag '/images/cubbies_collage.png', :width => 422, :height => 159, :class => "cubbies_collage_small"
-            = image_tag '/images/cubbies_screenshot2.png', :height => 151, :width => 200, :class => "cubbies_user_page_small"
-
-      %li{:style => 'text-align:center;'}
+      .row
         %p
-          = link_to t('.finished'), getting_started_completed_path, :class => "button"
+          = t('.we_can_speed_things_up')
+          We can speed things up a bit by 
+          = link_to t('.hooking_up_fb'), "auth/facebook?callback_url=#{getting_started_url}"
+          = t('.what_facebook_does')
 
-/.span-5.rightBar.last
-/  = render 'selected_contacts', :people => @selected_people.sample(20), :count => @contact_count
-/  = render 'shared/right_sections'
+      .row
+        .span6
+          = form_tag profile_path, :method => :put, :remote => true, :id => 'edit_profile' do
+            %fieldset
+              .clearfix
+                = label_tag 'profile[first_name]', "Your name", :class => "bootstrapped"
+                .input
+                  = text_field_tag 'profile[first_name]', current_user.person.profile.first_name
+                  = image_tag 'ajax-loader.gif', :id => "form_spinner", :class => "hidden"
+
+              %span.saved{:class => "hidden"}
+                = image_tag 'icons/check_yes_ok.png'
+                = t(".saved")
+
+            .clearfix
+              = label_tag :your_photo, "Your photo", :class => "bootstrapped"
+              .input{:style => "position:relative;"}
+                = render 'photos/new_profile_photo', :aspect => :getting_started, :person => current_user.person
+      %br
+      %br
+
+    .clearfix
+      .row
+        %h2
+          = t('.what_are_you_in_to')
+
+      .row
+        %p
+          = t('.hashtag_explanation')
+          %i
+            = t('.hashtag_suggestions')
+
+      .row
+        .span13
+          = form_tag(multiple_tag_followings_path, :method => 'post', :class => "tag_input search_form") do
+            %fieldset
+              .clearfix
+                = label_tag 'follow_tags', "Follow tags", :class => "bootstrapped"
+                .input
+                  = text_field_tag 'follow_tags', nil, :class => "nostrap"
+
+            .clearfix
+              %br
+              %br
+              %br
+              .input
+                = link_to "#{t('.awesome_take_me_to_diaspora')} »", "#", :id => "awesome_button", :class => "btn primary"
+
+      = image_tag 'ajax-loader.gif', :id => "awesome_spinner", :class => "hidden"
+

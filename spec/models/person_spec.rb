@@ -271,6 +271,18 @@ describe Person do
     end
   end
 
+  describe "#first_name" do
+    it 'returns username if first_name is not present in profile' do
+      alice.person.profile.update_attributes(:first_name => "")
+      alice.person.first_name.should == alice.username
+    end
+
+    it 'returns first word in first_name if first_name is present' do
+      alice.person.profile.update_attributes(:first_name => "Alice Smith")
+      alice.person.first_name.should == "Alice"
+    end
+  end
+
   describe '.search' do
     before do
       Person.delete_all

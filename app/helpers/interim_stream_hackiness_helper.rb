@@ -10,11 +10,12 @@ module InterimStreamHackinessHelper
     end
   end
 
+  ##### These methods need to go away once we pass publisher object into the partial ######
   def publisher_prefill_text
     if params[:prefill].present?
       params[:prefill]
     elsif defined?(@stream)
-      @stream.publisher_prefill_text
+      @stream.publisher.prefill
     else
       nil
     end
@@ -24,7 +25,7 @@ module InterimStreamHackinessHelper
     if defined?(@stream) && params[:controller] == 'multis'
       @stream.post_from_group(post)
     else
-     [] 
+     []
     end
   end
 
@@ -34,5 +35,29 @@ module InterimStreamHackinessHelper
 
   def stream_settings_link(post)
     link_to "", "#{edit_user_path}#stream-preferences"
+  end
+
+  def publisher_open
+    if defined?(@stream)
+      @stream.publisher.open?
+    else
+      false
+    end
+  end
+
+  def publisher_public
+    if defined?(@stream)
+      @stream.publisher.public?
+    else
+      false
+    end
+  end
+
+  def publisher_explain
+    if defined?(@stream)
+      @stream.publisher.public?
+    else
+      false
+    end
   end
 end

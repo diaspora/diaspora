@@ -6,17 +6,24 @@
 - content_for :head do
   = include_javascripts :home
 
+- if current_user.getting_started?
+  #welcome-to-diaspora
+    .container
+      %h1
+        = t('.welcome_to_diaspora', :name => current_user.first_name)
+      %h3
+        = t('.time_to_introduce_yourself')
+  %br
+  %br
+  %br
+  %br
+  %br
+
 .span-5.leftNavBar
   #home_user_badge
     = owner_image_link
     %h3
       = current_user.first_name
-
-  - unless has_completed_getting_started?
-    .section
-      %ul.left_nav
-        %li
-          = link_to t(".welcome"), getting_started_path, :class => "home_selector"
 
   .section
     %ul.left_nav

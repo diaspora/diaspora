@@ -53,6 +53,7 @@ Diaspora::Application.routes.draw do
     delete "tag_followings" => "tag_followings#destroy"
   end
 
+  post   "multiple_tag_followings" => "tag_followings#create_multiple", :as => 'multiple_tag_followings'
 
   get "tag_followings" => "tag_followings#index", :as => 'tag_followings'
   resources :mentions, :only => [:index]

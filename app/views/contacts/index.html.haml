@@ -23,9 +23,8 @@
         - conv_opts[:title] = t('.many_people_are_you_sure', :suggested_limit => suggested_limit) if @contacts.size > suggested_limit
 
         = link_to t('.start_a_conversation'), new_conversation_path(:aspect_id => @aspect.id, :name => @aspect.name), conv_opts
-        - if @contacts.size > suggested_limit
-          = javascript_tag "$('.conversation_button').tipsy({trigger: 'hover', gravity: 'n'});"
-        = link_to t('.add_to_aspect', :name => @aspect.name), edit_aspect_path(@aspect), :rel => "facebox"
+        - if @contacts.size
+          = link_to t('.add_to_aspect', :name => @aspect.name), edit_aspect_path(@aspect), :rel => "facebox"
 
     - if @contacts.size > 0
       - for contact in @contacts
@@ -63,6 +62,6 @@
         = link_to t('contacts.spotlight.community_spotlight'), community_spotlight_path
         - if @aspect
           or
-          = link_to t('.add_to_aspect', :name => @aspect.name).downcase, edit_aspect_path(@aspect), :rel => "facebox"
+          = link_to t('.add_to_aspect', :name => @aspect.name), edit_aspect_path(@aspect), :rel => "facebox"
 
 

@@ -10,19 +10,12 @@ Feature: invitation acceptance
         | user_password_confirmation | secret         |
       And I press "Create my account"
       Then I should be on the getting started page
-      And I should see "Welcome"
-      Then I follow Edit Profile in the same window
+      And I should see "Well, hello there!"
       And I fill in the following:
         | profile_first_name | O             |
-        | profile_last_name  | Hai           |
-        | tags               | #beingawesome |
-        | profile_bio        | swagger       |
-        | profile_location   | new york, ny  |
-        | profile_gender     | diasporian    |
-      And I press "Update Profile"
-			And I should see "Welcome"
-		  When I follow "Finished"
-		  Then I should be on the multi page
+
+      When I follow "awesome_button"
+      Then I should be on the multi page
 
     Scenario: accept invitation from user
       Given I have been invited by a user
@@ -34,19 +27,12 @@ Feature: invitation acceptance
         | user_password_confirmation | secret         |
       And I press "Create my account"
       Then I should be on the getting started page
-      And I should see "Welcome"
-      Then I follow Edit Profile in the same window
+      And I should see "Well, hello there!"
       And I fill in the following:
         | profile_first_name | O             |
-        | profile_last_name  | Hai           |
-        | tags               | #beingawesome |
-        | profile_bio        | swagger       |
-        | profile_location   | new york, ny  |
-        | profile_gender     | diasporian    |
-      And I press "Update Profile"
-			And I should see "Welcome"
-		  When I follow "Finished"
-		  Then I should be on the multi page
+
+      When I follow "awesome_button"
+      Then I should be on the multi page
 
     Scenario: sends an invitation
       Given a user with email "bob@bob.bob"

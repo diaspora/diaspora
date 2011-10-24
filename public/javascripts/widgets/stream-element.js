@@ -21,9 +21,9 @@
         postScope: element.find("span.post_scope")
       });
 
-      // tipsy tooltips
-      self.deletePostLink.tipsy({ trigger: "hover" });
-      self.postScope.tipsy({ trigger: "hover" });
+      // twipsy tooltips
+      self.deletePostLink.twipsy();
+      self.postScope.twipsy();
 
       // collapse long posts
       // self.content.expander({

@@ -12,7 +12,6 @@ javascripts:
   main:
     - public/javascripts/rails.validations.js
     - public/javascripts/rails.js
-    - public/javascripts/vendor/jquery.tipsy.js
     - public/javascripts/vendor/jquery.hotkeys.js
     - public/javascripts/vendor/jquery.autoresize.min.js
     - public/javascripts/vendor/jquery-ui-1.8.9.custom.min.js
@@ -40,6 +39,10 @@ javascripts:
     - public/javascripts/contact-edit.js
     - public/javascripts/contact-list.js
     - public/javascripts/aspect-sorting.js
+
+    - public/javascripts/vendor/bootstrap/bootstrap-twipsy.js
+    - public/javascripts/vendor/bootstrap/bootstrap-popover.js
+
   login:
     - public/javascripts/login.js
   mobile:
@@ -79,8 +82,8 @@ stylesheets:
     - public/stylesheets/hovercard.css
     - public/stylesheets/vendor/facebox.css
     - public/stylesheets/vendor/fileuploader.css
-    - public/stylesheets/vendor/tipsy.css
     - public/stylesheets/vendor/autoSuggest.css
+    - public/stylesheets/interim-bootstrap.css
   rtl:
     - public/stylesheets/rtl.css
 
