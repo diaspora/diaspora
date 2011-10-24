@@ -4,6 +4,11 @@ describe Stream::Base do
   before do
     @stream = Stream::Base.new(alice)
   end
+  describe '#contacts_link' do
+    it 'should default to your contacts page' do
+      @stream.contacts_link.should =~ /contacts/
+    end
+  end
 
   describe '.can_comment?' do
     before do

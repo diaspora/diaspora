@@ -66,7 +66,7 @@ class Stream::Base
 
   # @return [String]
   def contacts_link
-    '#'
+    Rails.application.routes.url_helpers.contacts_path
   end
 
   #helpers
