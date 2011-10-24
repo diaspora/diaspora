@@ -3410,3 +3410,10 @@ a.toggle_selector
 #gs-shim
   :position absolute
   :top 380px
+
+#gs-skip-x
+  @include opacity(0.5)
+  @include transition(opacity)
+
+  &:hover
+    @include opacity(1)
