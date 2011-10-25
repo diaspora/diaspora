@@ -152,8 +152,6 @@ en:
       acquaintances: "Acquaintances"
       friends: "Friends"
     index:
-      community_spotlight: "Community Spotlight"
-      see_more_from_us: "See more of the D* community."
       donate: "Donate"
       keep_us_running: "Keep %{pod} running fast and buy servers their coffee fix with a monthly donation!"
       your_aspects: "Your Aspects"

@@ -69,14 +69,6 @@
   .content
     != t('bookmarklet.explanation', :link => link_to(t('bookmarklet.explanation_link_text'), bookmarklet))
 
-- if @stream.has_community_spotlight?
-  .section
-    .title.no_icon
-      %h5
-        =t('aspects.index.community_spotlight')
-    .content#community_spotlight
-      = link_to t('aspects.index.see_more_from_us'), spotlight_path, :id => 'view_all_contacts_link'
-
 .section
   .title
     = image_tag('/images/icons/coffee.png')
