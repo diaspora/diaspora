@@ -110,6 +110,7 @@ class UsersController < ApplicationController
   end
 
   def logged_out
+    @page = :logged_out
     if user_signed_in?
       redirect_to root_path
     end

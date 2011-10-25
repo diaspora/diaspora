@@ -20,7 +20,7 @@
     / Social Media Icons are by Paul Robert Lloyd @ http://paulrobertlloyd.com/2009/06/social_media_icons
 
     / bootstrap/blueprint switch
-    - if @aspect == :getting_started
+    - if @aspect == :getting_started || @page == :logged_out
       = stylesheet_link_tag "bootstrap.min.css"
     - else
       = stylesheet_link_tag "blueprint/screen", :media => 'screen'
@@ -92,17 +92,22 @@
         &#8679;
 
       #notifications
-      - flash.each do |name, msg|
-        %div{:id => "flash_#{name}"}
-          .message
-            = msg
+
+      - unless @page == :logged_out
+        - flash.each do |name, msg|
+          %div{:id => "flash_#{name}"}
+            .message
+              = msg
 
     %header{:class=>('landing' unless current_user)}
       = render 'layouts/header'
 
     .container{:style=> "#{yield(:break_the_mold)}"}
-      .span-24.last{:style=> "#{yield(:break_the_mold)}"}
+      - if @aspsect == :getting_started || @page == :logged_out
         = yield
+      - else
+        .span-24.last{:style=> "#{yield(:break_the_mold)}"}
+          = yield
 
     %footer
       .container
