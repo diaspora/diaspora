@@ -23,13 +23,14 @@ describe PostsController do
       it 'succeeds' do
         get :show, "id" => @message.id
         response.should be_success
+        doc.should have_link('Like')
+        doc.should have_link('Comment')
       end
 
       it 'succeeds on mobile' do
         get :show, "id" => @message.id
         response.should be_success
       end
-
 
       it 'succeeds on mobile with a reshare' do
         get :show, "id" => Factory(:reshare, :author => alice.person).id, :format => :mobile
@@ -130,6 +131,120 @@ describe PostsController do
           Post.should_receive(:where).with(hash_including(:guid => @status.guid)).and_return(Post)
           get :show, :id => @status.guid
           response.status= 200
+        end
+      end
+    end
+
+    context 'when a post is public' do
+      before do
+        @post = alice.post( :status_message, :public => true, :to => alice.aspects, :text => 'abc 123' )
+      end
+
+      context 'and visitor is not signed in' do
+        it 'does not show social links' do
+          get :show, 'id' => @post.id
+
+          doc.should have_content('abc 123')
+          doc.should_not have_link('Like')
+          doc.should_not have_link('Comment')
+          doc.should_not have_link('Reshare')
+        end
+      end
+
+      context 'and signed in as poster' do
+        before do
+          sign_in alice
+        end
+
+        it 'does not show a reshare link' do
+          get :show, 'id' => @post.id
+
+          doc.should have_content('abc 123')
+          doc.should have_link('Like')
+          doc.should have_link('Comment')
+          doc.should_not have_link('Reshare')
+        end
+
+        context 'a reshare of the post' do
+          before do
+            @reshare = bob.post( :reshare, :public => true, :root_guid => @post.guid, :to => bob.aspects )
+          end
+
+          it 'does not show a reshare link' do
+            get :show, 'id' => @reshare.id
+
+            doc.should have_content('abc 123')
+            doc.should have_link('Like')
+            doc.should have_link('Comment')
+            doc.should_not have_link('Reshare')
+            doc.should_not have_link('Reshare original')
+            doc.should_not have_link('1 reshare')
+          end
+        end
+      end
+
+      context 'and signed in as someone other than the poster' do
+        before do
+          sign_in bob
+        end
+
+        it 'shows reshare link' do
+          get :show, 'id' => @post.id
+
+          doc.should have_content('abc 123')
+          doc.should have_link('Like')
+          doc.should have_link('Comment')
+          doc.should have_link('Reshare')
+        end
+      end
+
+      context 'and signed in as the resharer of the post' do
+        context 'a reshare of the post' do
+          before do
+            @reshare = bob.post( :reshare, :public => true, :root_guid => @post.guid, :to => bob.aspects )
+            # Don't know why this is needed, but this spec fails without it
+            sign_in bob
+          end
+
+          it 'does not show any reshare link' do
+            get :show, 'id' => @reshare.id
+
+            doc.should have_content('abc 123')
+            doc.should have_link('Like')
+            doc.should have_link('Comment')
+            doc.should_not have_link('1 reshare')
+            doc.should_not have_link('Reshare')
+          end
+        end
+      end
+
+      context 'and signed in as neither the poster nor the resharer of the post' do
+        before do
+          sign_in eve
+        end
+
+        it 'shows reshare link' do
+          get :show, 'id' => @post.id
+
+          doc.should have_content('abc 123')
+          doc.should have_link('Like')
+          doc.should have_link('Comment')
+          doc.should have_link('Reshare')
+        end
+
+        context 'a reshare of the post' do
+          before do
+            @reshare = bob.post( :reshare, :public => true, :root_guid => @post.guid, :to => bob.aspects )
+          end
+
+          it 'shows a reshare link' do
+            get :show, 'id' => @reshare.id
+
+            doc.should have_content('abc 123')
+            doc.should have_link('Like')
+            doc.should have_link('Comment')
+            doc.should have_link('Reshare original')
+          end
         end
       end
     end
