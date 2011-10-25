@@ -154,7 +154,9 @@ class Person < ActiveRecord::Base
                 self.diaspora_handle.split('@').first
               else
                 names = profile.first_name.to_s.split(/\s/)
-                names[0...-1].join(' ')
+                str = names[0...-1].join(' ')
+                str = names[0] if str.blank?
+                str
               end
   end
 
