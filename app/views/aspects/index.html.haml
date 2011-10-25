@@ -25,8 +25,8 @@
 .span-5.leftNavBar
   #home_user_badge
     = owner_image_link
-    %h3
-      = current_user.first_name
+    %h4
+      = link_to current_user.first_name, "/u/#{current_user.username}"
 
   .section
     %ul.left_nav

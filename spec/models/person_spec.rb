@@ -283,11 +283,6 @@ describe Person do
     end
 
     it 'returns first word in first_name if first_name is present' do
-      alice.person.profile.update_attributes(:first_name => "Alice Smith")
-      alice.person.first_name.should == "Alice"
-    end
-
-    it 'returns first word in first_name if first_name is present' do
       alice.person.profile.update_attributes(:first_name => "Alice")
       alice.person.first_name.should == "Alice"
     end
