@@ -91,6 +91,22 @@
   %hr
   %br
 
+  %h3#getting-started-preferences
+    = t('.show_getting_started') 
+  = form_for current_user, :url => user_path, :html => { :method => :put } do |f|
+    = f.error_messages
+
+    %p.checkbox_select
+      = f.label :getting_started, t('.show_getting_started')
+      = f.check_box :getting_started
+
+    %br
+    = f.submit t('.change'), :class => 'button'
+
+  %br
+  %br
+  %hr
+  %br
   %h3 
     = t('.receive_email_notifications')
   = form_for 'user', :url => user_path, :html => { :method => :put } do |f|

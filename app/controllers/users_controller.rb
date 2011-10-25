@@ -41,7 +41,7 @@ class UsersController < ApplicationController
         else
           flash[:error] = I18n.t 'users.update.password_not_changed'
         end
-      elsif u[:show_community_spotlight_in_stream]
+      elsif u[:show_community_spotlight_in_stream] || u[:getting_started]
         if @user.update_attributes(u)
           flash[:notice] = I18n.t 'users.update.settings_updated'
           redirect_to multi_path

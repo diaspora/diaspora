@@ -908,6 +908,8 @@ en:
       email_awaiting_confirmation: "We have sent you an activation link to %{unconfirmed_email}. Until you follow this link and activate the new address, we will continue to use your original address %{email}."
       stream_preferences: "Stream Preferences"
       show_community_spotlight: "Show Community Spotlight in Stream?"
+      show_getting_started: 'Re-enable Getting Started'
+      getting_started: 'New User Prefrences'
     destroy: "Your account has been locked.  It may take 20 minutes for us to finish closing your account.  Thank you for trying Diaspora."
     getting_started:
       well_hello_there: "Well, hello there!"
