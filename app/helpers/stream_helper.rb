@@ -9,7 +9,7 @@ module StreamHelper
     elsif controller.instance_of?(AppsController)
       "/apps/1?#{{:max_time => @posts.last.created_at.to_i}.to_param}"
     elsif controller.instance_of?(PeopleController)
-      person_path(@person, :max_time => @posts.last.created_at.to_i)
+      person_path(@person, :max_time => time_for_scroll(opts[:ajax_stream], @stream))
     elsif controller.instance_of?(TagFollowingsController) 
       tag_followings_path(:max_time => time_for_scroll(opts[:ajax_stream], @stream), :sort_order => session[:sort_order])
     elsif controller.instance_of?(CommunitySpotlightController) 

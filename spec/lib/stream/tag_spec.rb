@@ -39,7 +39,6 @@ describe Stream::Tag do
       Factory(:comment, :text => "#what", :post => other_post)
       @stream.posts.should == [other_post]
     end
-
   end
 
   context 'without a user' do
