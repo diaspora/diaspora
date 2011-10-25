@@ -10,7 +10,7 @@
       var flashMessages = $("#flash_notice, #flash_error, #flash_alert");
       flashMessages.animate({
         top: 0
-      }).delay(2000).animate({
+      }).delay(4000).animate({
         top: -100
       }, flashMessages.remove);
     };

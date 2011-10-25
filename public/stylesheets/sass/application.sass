@@ -73,36 +73,42 @@ form
 #flash_notice,
 #flash_error,
 #flash_alert
-  @include box-shadow(0, 1px, 2px, #333)
-  :z-index 100
+  :z-index 999
   :position fixed
-  :color #fff
-
+  :color #666
   :top -100px
+
   :left 0
 
   :width 100%
-  :padding 1em
 
   :font
     :weight bold
+  :text
+    :align center
+
+  .message
+    @include border-radius(6px)
+    @include box-shadow(0, 1px, 5px, rgba(0,0,0,0.4))
+    :display inline-block
+    :width 400px
+    :padding
+      :top 45px
+      :bottom 8px
 
 #flash_notice
-  :background
-    :color rgb(126,240,77)
-    :color rgba(126,240,77,0.98)
-  :text
-    :shadow 0 1px #6C6
+  .message
+    :background
+      :color #F4F899
+    :border 1px solid darken(#F4F899, 40%)
 
 #flash_error,
 #flash_alert
-  :background
-    :color rgb(208,49,43)
-    :color rgba(208,49,43,0.98)
-  :border
-    :bottom solid 1px #C66
-  :text
-    :shadow 0 1px #C66
+  .message
+    :color #fff
+    :background
+      :color #CA410B
+    :border 1px solid darken(#CA410B, 10%)
 
 .login_error,
 .login_alert
