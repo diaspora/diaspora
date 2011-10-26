@@ -12,7 +12,7 @@
         lightBox: self.instantiate("Lightbox", element),
         timeAgo: self.instantiate("TimeAgo", element.find(".timeago a abbr.timeago")),
 
-        content: element.find(".content p"),
+        content: element.find(".content .collapsible"),
         deletePostLink: element.find("a.stream_element_delete"),
         focusCommentLink: element.find("a.focus_comment_textarea"),
         hidePostLoader: element.find("img.hide_loader"),
@@ -26,12 +26,12 @@
       self.postScope.twipsy();
 
       // collapse long posts
-      // self.content.expander({
-      //   slicePoint: 400,
-      //   widow: 12,
-      //   expandText: Diaspora.I18n.t("show_more"),
-      //   userCollapse: false
-      // });
+      self.content.expander({
+        slicePoint: 400,
+        widow: 12,
+        expandText: Diaspora.I18n.t("show_more"),
+        userCollapse: false
+      });
 
       self.globalSubscribe("likes/" + self.postGuid + "/updated", function() {
         self.likes = self.instantiate("Likes", self.post.find(".likes_container:first"));
