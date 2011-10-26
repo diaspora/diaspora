@@ -22,7 +22,7 @@
         id: result.success ? "flash_notice" : "flash_error"
       })
       .html($("<div/>", {
-        class: "message"
+        'class': "message"
         })
         .html(result.notice))
       .prependTo(document.body);
