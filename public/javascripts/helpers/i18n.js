@@ -12,8 +12,9 @@
    },
 
    t: function(item, views) {
-    var translatedMessage,
-		  items = item.split(".");
+    var items = item.split("."),
+      translatedMessage,
+      nextNamespace;
 
     while(nextNamespace = items.shift()) {
       translatedMessage = (translatedMessage)
@@ -25,6 +26,16 @@
       }
     }
 
-    return $.mustache(translatedMessage, views || { });
+    if(views && typeof views.count !== "undefined") {
+      if(views.count == 0) { nextNamespace = "zero"; } else
+      if(views.count == 1) { nextNamespace = "one";  } else
+      if(views.count <= 3) { nextNamespace = "few";  } else
+      if(views.count > 3)  { nextNamespace = "many"; }
+      else { nextNamespace = "other"; }
+
+      translatedMessage = translatedMessage[nextNamespace];
+    }
+
+    return $.mustache(translatedMessage, views || {});
    }
  };
