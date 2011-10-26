@@ -40,7 +40,10 @@
 
     #notification_dropdown
       .header
-        = link_to t('.view_all'), notifications_path, :id => "view_all_notifications"
+        .right
+          = link_to t('notifications.index.mark_all_as_read'), read_all_notifications_path
+          \|
+          = link_to t('.view_all'), notifications_path, :id => "view_all_notifications"
         %h4
           = t('.recent_notifications')
       .notifications
