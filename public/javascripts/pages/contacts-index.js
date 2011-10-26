@@ -3,5 +3,7 @@ Diaspora.Pages.ContactsIndex = function() {
 
   this.subscribe("page/ready", function(evt, document) {
     self.infiniteScroll = self.instantiate("InfiniteScroll");
+
+    $('.conversation_button').twipsy({position: 'below'});
   });
 };

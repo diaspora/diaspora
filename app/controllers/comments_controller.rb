@@ -14,7 +14,7 @@ class CommentsController < ApplicationController
   end
 
   def create
-    target = current_user.find_visible_post_by_id params[:post_id]
+    target = current_user.find_visible_shareable_by_id Post, params[:post_id]
     text = params[:text]
 
     if target
@@ -56,7 +56,7 @@ class CommentsController < ApplicationController
 
   def index
     if user_signed_in?
-      @post = current_user.find_visible_post_by_id(params[:post_id])
+      @post = current_user.find_visible_shareable_by_id(Post, params[:post_id])
     else
       @post = Post.where(:id => params[:post_id], :public => true).includes(:author, :comments => :author).first
     end

@@ -34,9 +34,9 @@ ko:
         no_account_till: "계정은 가입하지 않는 한 만들어지지 않습니다."
         subject: "디아스포라로 초대합니다!"
       inviter: 
-        accept_at: "at %{url}, you can accept it through the link below."
+        accept_at: "%{URL}에서, 아래의 링크를 통해 확인할 수 있습니다."
         has_invited_you: "%{name}"
-        have_invited_you: "%{names} have invited you to join Diaspora"
+        have_invited_you: "%{names} 님이 당신을 디아스포라로 초대했습니다"
       reset_password_instructions: 
         change: "암호 바꾸기"
         ignore: "암호 초기화를 요청하지 않았다면 이 메일을 무시하세요."
@@ -94,4 +94,4 @@ ko:
     messages: 
       already_confirmed: ": 이미 확인되었습니다"
       not_found: ": 찾을 수 없습니다"
-      not_locked: ": 잠겨있지 읺습니다"
+      not_locked: ": 잠겨있지 않습니다"

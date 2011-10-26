@@ -1,5 +1,5 @@
 require 'spec_helper'
-require 'lib/statistics'
+require File.join(Rails.root, 'lib/statistics')
 
 describe Statistics do
 
@@ -99,7 +99,7 @@ describe Statistics do
                  {"id" => local_luke.id , "count" => 0, "connected" => 0 },
                  {"id" => local_leia.id , "count" => 0, "connected" => 0 }]
 
-      User.connection.select_all(@stats.fb_connected_distribution_sql).should =~ @result
+      @stats.fb_connected_distribution.should =~ @result
     end
   end
 
@@ -142,7 +142,7 @@ describe Statistics do
       bob.post(:status_message, :text => "here is a message")
       bob.save!
 
-      @stats.generate_correlations[:posts_count].to_s.should == "1.0"
+      c = @stats.generate_correlations[:posts_count].round(1).should == 1.0
     end
   end
 

@@ -8,6 +8,7 @@ ro:
     aspect_dropdown: 
       add_to_aspect: "Adaugă la aspect"
       all_aspects: "All aspects"
+      select_aspects: "Select aspects"
       toggle: 
         few: "În {{count}} aspecte"
         many: "În {{count}} aspecte"

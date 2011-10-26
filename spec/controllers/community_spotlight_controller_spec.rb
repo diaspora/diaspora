@@ -1,7 +1,6 @@
 require 'spec_helper'
 
-describe FeaturedUsersController do
-
+describe CommunitySpotlightController do
   describe "GET 'index'" do
     it "should be successful" do
       sign_in alice
@@ -9,5 +8,4 @@ describe FeaturedUsersController do
       response.should be_success
     end
   end
-
 end

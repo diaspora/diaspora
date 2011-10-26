@@ -19,8 +19,12 @@
 
     / Social Media Icons are by Paul Robert Lloyd @ http://paulrobertlloyd.com/2009/06/social_media_icons
 
-    = stylesheet_link_tag "blueprint/screen", :media => 'screen'
-    = stylesheet_link_tag "blueprint/print", :media => 'print'
+    / bootstrap/blueprint switch
+    - if @aspect == :getting_started || @page == :logged_out
+      = stylesheet_link_tag "bootstrap.min.css"
+    - else
+      = stylesheet_link_tag "blueprint/screen", :media => 'screen'
+      = stylesheet_link_tag "blueprint/print", :media => 'print'
 
     = stylesheet_link_tag "login", :media => 'screen'
 
@@ -47,7 +51,6 @@
       = include_javascripts :flash_socket #unless modern_browser?
       = javascript_include_tag 'web-socket-receiver'
       = render 'js/websocket_js'
-
 
     = yield(:head)
 
@@ -80,7 +83,6 @@
         piwikTracker.enableLinkTracking();
         } catch( err ) {}
 
-
     - if @person
       %link{:rel => "alternate", :href => "#{@person.public_url}.atom", :type => "application/atom+xml", :title => "#{t('.public_feed', :name => @person.name)}"}
 
@@ -91,15 +93,21 @@
 
       #notifications
 
-      - flash.each do |name, msg|
-        %div{:id => "flash_#{name}"}= msg
+      - unless @page == :logged_out
+        - flash.each do |name, msg|
+          %div{:id => "flash_#{name}"}
+            .message
+              = msg
 
     %header{:class=>('landing' unless current_user)}
       = render 'layouts/header'
 
     .container{:style=> "#{yield(:break_the_mold)}"}
-      .span-24.last{:style=> "#{yield(:break_the_mold)}"}
+      - if @aspsect == :getting_started || @page == :logged_out
         = yield
+      - else
+        .span-24.last{:style=> "#{yield(:break_the_mold)}"}
+          = yield
 
     %footer
       .container

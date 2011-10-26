@@ -8,6 +8,7 @@ de:
     aspect_dropdown: 
       add_to_aspect: "Zu Aspekt hinzufügen"
       all_aspects: "Alle Aspekte"
+      select_aspects: "Wähle Aspekte aus"
       toggle: 
         few: "In {{count}} Aspekten"
         many: "In {{count}} Aspekten"
@@ -16,9 +17,9 @@ de:
         two: "In {{count}} Aspekten"
         zero: "Zu Aspekt hinzufügen"
     aspect_navigation: 
-      deselect_all: "Deselect all"
-      no_aspects: "No aspects selected"
-      select_all: "Select all"
+      deselect_all: "Auswahl aufheben"
+      no_aspects: "Keine Aspekte ausgewählt"
+      select_all: "Alle auswählen"
     comments: 
       hide: "Kommentare verbergen"
       show: "Alle Kommentare zeigen"

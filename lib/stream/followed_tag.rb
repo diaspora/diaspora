@@ -9,7 +9,7 @@ class Stream::FollowedTag < Stream::Base
   end
 
   def title
-    I18n.t('aspects.index.tags_following')
+    I18n.t('streams.followed_tag.title')
   end
 
   # @return [ActiveRecord::Association<Post>] AR association of posts
@@ -19,10 +19,8 @@ class Stream::FollowedTag < Stream::Base
   end
 
   def contacts_title
-    I18n.translate('streams.tags.contacts_title')
+    I18n.translate('streams.followed_tag.contacts_title')
   end
-
-
 
   private
 

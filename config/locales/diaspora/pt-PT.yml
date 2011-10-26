@@ -61,13 +61,9 @@ pt-PT:
       done_editing: "finalizar edição"
     aspect_listings: 
       add_an_aspect: "+ Adicionar um aspecto"
+      deselect_all: "Deselect all"
       edit_aspect: "Edit %{name}"
-    aspect_stream: 
-      commented_on: "comentou em"
-      mentions: "Mentions"
-      posted: "publicado"
-      recently: "recentemente:"
-      stream: "Transmissão"
+      select_all: "Select all"
     contacts_not_visible: "Contactos neste aspecto não se verão uns aos outros."
     contacts_visible: "Contactos neste aspecto ver-se-ão uns aos outros."
     create: 
@@ -93,7 +89,7 @@ pt-PT:
       aspect_not_empty: "Aspecto não vazio"
       remove: "remover"
     index: 
-      community_members: "Featured Diaspora* members"
+      community_spotlight: "Community Spotlight"
       cubbies: 
         explanation: "Cubbi.es é a primeira aplicação do Diaspora sobre desenvolvimento."
         heading: "Ligar ao Cubbi.es"
@@ -103,7 +99,6 @@ pt-PT:
         content_2: "Dê-a a alguém para que o encontre no Diaspora."
         heading: "Identificação do Diaspora"
       donate: "Doar"
-      featured_users: "Featured Users"
       handle_explanation: "Esta é a sua identificação do Diaspora. Tal como um endereço de email, pode dá-la a quem deseja que o contacte."
       help: 
         do_you: "Do you:"
@@ -112,12 +107,11 @@ pt-PT:
         feature_suggestion: "... uma sugestão de %{link}?"
         find_a_bug: "... um %{link} para relatar?"
         have_a_question: "... uma %{link}?"
-        here_to_help: "A comunidade do Diaspora está aqui para ajudar!"
+        here_to_help: "A comunidade do Diaspora está aqui!"
         need_help: "Precisa de ajuda?"
         satisfaction: "%{link}: Community-powered support"
         tutorials_and_wiki: "%{tutorial} & %{wiki}: Community-powered tutorials, how-to, and news"
       keep_us_running: "Mantenha o %{pod} a funcionar rapidamente e compre aos servidores a sua dose de café com uma doação mensal!"
-      mentions: "Mentions"
       no_contacts: "Não há contactos"
       no_tags: "+ Encontre uma tag para seguir"
       people_sharing_with_you: "Pessoas a partilhar consigo"
@@ -126,8 +120,8 @@ pt-PT:
       services: 
         content: "Pode conectar os seguintes serviços ao Diaspora:"
         heading: "Conectar Serviços"
-      tags_following: "Tags Seguidas"
       unfollow_tag: "Deixar de seguir #%{tag}"
+      welcome: "Welcome"
       your_aspects: "Os Seus Aspectos"
     many: "%{count} aspectos"
     move_contact: 
@@ -138,8 +132,8 @@ pt-PT:
       create: "Create"
       name: "Nome (apenas visível para si)"
     no_contacts_message: 
-      featured_users: "utilizadores destacados"
-      or_featured: "Ou pode partilhar com %{link}"
+      community_spotlight: "community spotlight"
+      or_spotlight: "Or you can share with %{link}"
       try_adding_some_more_contacts: "Pode pesquisar (acima) ou convidar (à direita) mais contactos."
       you_should_add_some_more_contacts: "Devia adicionar mais alguns contactos!"
     no_posts_message: 
@@ -154,8 +148,8 @@ pt-PT:
     selected_contacts: 
       manage_your_aspects: "Gerir os seus aspectos"
       no_contacts: "Ainda não tem quaisquer aspectos aqui."
+      view_all_community_spotlight: "See all community spotlight"
       view_all_contacts: "Ver todos os contactos"
-      view_all_featured_users: "See all Featured Users"
     show: 
       edit_aspect: "editar aspecto"
     two: "%{count} aspecto"
@@ -188,8 +182,6 @@ pt-PT:
   contacts: 
     create: 
       failure: "Erro ao criar contacto"
-    featured: 
-      featured_users: "Utilizadores Destacados"
     few: "%{count} contactos"
     index: 
       add_a_new_aspect: "Adicionar um novo aspecto"
@@ -209,6 +201,8 @@ pt-PT:
     other: "%{count} contactos"
     sharing: 
       people_sharing: "Pessoas a partilhar consigo:"
+    spotlight: 
+      community_spotlight: "Community Spotlight"
     two: "%{count} contactos"
     zero: "contactos"
   conversations: 
@@ -616,7 +610,7 @@ pt-PT:
       enter_password_again: "Introduza de novo a mesma palavra-passe"
       enter_username: "Escolha um nome de utilizador (apenas letras, números e underscores)"
       join_the_movement: "Junte-se ao movimento!"
-      sign_up_today: "Registe-se hoje"
+      sign_up_message: "Social Networking with a <3"
   requests: 
     create: 
       sending: "A enviar"
@@ -692,14 +686,14 @@ pt-PT:
       know_email: "Sabe os seus endereços de email? Deveria convidá-los"
       your_diaspora_username_is: "O seu nome de utilizador do Diaspora é: %{diaspora_handle}"
     aspect_dropdown: 
-      add_to_aspect: "Adicionar ao aspecto"
+      add_to_aspect: "Adicionar contacto"
       toggle: 
         few: "Em %{count} aspectos"
         many: "Em %{count} aspectos"
         one: "Em %{count} aspecto"
         other: "Em %{count} aspectos"
         two: "Em %{count} aspectos"
-        zero: "Adicionar ao aspecto"
+        zero: "Adicionar contacto"
     contact_list: 
       all_contacts: "Todos os contactos"
     footer: 
@@ -724,7 +718,6 @@ pt-PT:
     publisher: 
       all: "tudo"
       all_contacts: "todos os contactos"
-      click_to_share_with: "Clique para partilhar com: "
       discard_post: "Rejeitar a publicação"
       make_public: "tornar público"
       post_a_message_to: "Publicar uma mensagem em %{aspect}"
@@ -764,12 +757,27 @@ pt-PT:
     hide_comments: "Ocultar todos comentários"
     show_more_comments: "Mostrar %{number} mais contactos"
   streams: 
+    aspects: 
+      title: "Your Aspects"
+    aspects_stream: "Aspects"
+    commented_on: "commented on"
+    community_spotlight_stream: "Community Spotlight"
+    followed_tag: 
+      contacts_title: "People who dig these tags"
+      title: "#Followed Tags"
+    followed_tags_stream: "#Followed Tags"
+    mentioned_stream: "@Mentions"
     mentions: 
       contacts_title: "People who mentioned you"
       title: "Your Mentions"
+    multi: 
+      contacts_title: "People in your Stream"
+      title: "Stream"
+    posted: "posted"
     public: 
       contacts_title: "Recent Posters"
       title: "Public Activity"
+    recently: "recently:"
     tags: 
       contacts_title: "People who dig these tags"
       title: "Posts tagged: %{tags}"
@@ -829,11 +837,14 @@ pt-PT:
       private_message: "...recebe uma mensagem privada?"
       receive_email_notifications: "Receber notificações por email quando..."
       reshared: "...alguém repartilha a sua publicação?"
+      show_community_spotlight: "Show Community Spotlight in Stream?"
       started_sharing: "...alguém começa a partilhar consigo?"
+      stream_preferences: "Stream Preferences"
       your_email: "O seu endereço de email"
       your_handle: "A sua identificação do Diaspora"
     getting_started: 
       bold: "aspectos"
+      community_spotlight: "Community spotlight"
       community_welcome: "Diaspora's community is happy to have you aboard!"
       connect_to: "Conectar a"
       connect_to_your_other_social_networks: "Conecte-se às suas outras redes sociais"
@@ -843,8 +854,7 @@ pt-PT:
       connect_with_people_explanation_pt1: "Ligue-se a pessoas ao colocá-las em um ou mais dos seus %{bold}."
       connect_with_people_explanation_pt2: "Aspectos são uma forma intuitiva de agrupar rostos novos e familiares, de forma privada, permitindo-lhe filtrar ou partilhar com subconjuntos dos seus contactos facilmente."
       edit_profile: "Editar o Perfil"
-      featured_tags: "Tags destacadas"
-      featured_users: "Utilizadores destacados"
+      featured_tags: "Seguir tags destacadas"
       fill_out_your_profile: "Preencha o seu perfil"
       find_friends: "Encontrar amigos"
       find_friends_from_facebook: "encontre amigos do Facebook"
@@ -864,7 +874,7 @@ pt-PT:
         tags: "Tags"
       search_for_hashtags: "Procurar #hashtags"
       search_for_people: "Procurar pessoas"
-      see_all_featured_users: "Ver todos os utilizadores destacados"
+      see_all_community_spotlight: "See all community spotlight"
       welcome: "Bem-vindo(a)!"
       welcome_with_name: "Bem-vindo(a), %{name}!"
     logged_out: 
@@ -881,6 +891,8 @@ pt-PT:
       language_not_changed: "Falha ao alterar o idioma"
       password_changed: "A palavra-passe foi alterada. Já pode iniciar sessão com a sua nova palavra-passe."
       password_not_changed: "Falhou ao alterar a palavra-passe"
+      settings_not_updated: "Settings update failed"
+      settings_updated: "Settings updated"
       unconfirmed_email_changed: "O endereço de email foi alterado. É necessária activação."
       unconfirmed_email_not_changed: "A mudança de email falhou"
   webfinger: 

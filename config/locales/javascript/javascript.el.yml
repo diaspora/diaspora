@@ -8,17 +8,18 @@ el:
     aspect_dropdown: 
       add_to_aspect: "Προσθήκη σε πτυχή"
       all_aspects: "Όλες οι πτυχές"
+      select_aspects: "Select aspects"
       toggle: 
         few: "Σε {{count}} πτυχές"
         many: "Σε {{count}} πτυχές"
         one: "Σε {{count}} πτυχές"
         other: "Σε {{count}} πτυχές"
         two: "Σε {{count}} πτυχές"
-        zero: "Προσθήκη σε πτυχή"
+        zero: "Προσθήκη επαφής"
     aspect_navigation: 
-      deselect_all: "Deselect all"
-      no_aspects: "No aspects selected"
-      select_all: "Select all"
+      deselect_all: "Εξαίρεση όλων"
+      no_aspects: "Καμία Πτυχή δεν έχει επιλεγεί "
+      select_all: "Επιλογή όλων"
     comments: 
       hide: "απόκρυψη σχολίων"
       show: "προβολή όλων των σχολίων"

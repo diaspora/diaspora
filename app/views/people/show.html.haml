@@ -26,12 +26,13 @@
   .stream_container
     = render 'people/sub_header', :person => @person, :contact => @contact
 
-    - if @posts.length > 0
+    / hackity hack until we get a photo stream
+    - if (@posts && @posts.length > 0) || @stream.posts.length > 0
       -if @post_type == :photos
         = render 'photos/index', :photos => @posts
       - else
         #main_stream.stream
-          = render 'shared/stream', :posts => @posts
+          = render 'shared/stream', :posts => @stream.posts
           #pagination
             =link_to(t('more'), next_page_path, :class => 'paginate')
 

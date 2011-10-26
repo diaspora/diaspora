@@ -8,6 +8,7 @@ zh-CN:
     aspect_dropdown: 
       add_to_aspect: "添加到视图"
       all_aspects: "All aspects"
+      select_aspects: "Select aspects"
       toggle: 
         few: "在{{count}}个视图中"
         many: "在{{count}}个视图中"

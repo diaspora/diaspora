@@ -28,7 +28,8 @@ Feature: following and being followed
     And I am on the home page
     And I expand the publisher
     And I fill in "status_message_fake_text" with "I am ALICE"
-    And I press the first ".public_icon" within "#publisher"
+    And I press the first ".toggle" within "#publisher"
+    And I press the first ".public" within "#publisher"
     And I press "Share"
     And I go to the destroy user session page
 

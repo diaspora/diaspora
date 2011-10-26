@@ -5,34 +5,33 @@
 - content_for :head do
   = include_javascripts :profile
 
-:javascript
-  $(document).ready(function () {
-    var data = $.parseJSON( '#{@tags_array.to_json.gsub("'", "\\\\'")}' ),
-        autocompleteInput = $("#profile_tag_string");
+  :javascript
+    $(document).ready(function () {
+      var data = $.parseJSON( '#{@tags_array.to_json.gsub("'", "\\\\'")}' ),
+          autocompleteInput = $("#profile_tag_string");
 
-    autocompleteInput.autoSuggest("#{tags_path}", {
-      selectedItemProp: "name",
-      searchObjProps: "name",
-      asHtmlID: "tags",
-      neverSubmit: true,
-      retriveLimit: 10,
-      selectionLimit: 5,
-      minChars: 2,
-      keyDelay: 200,
-      startText: "",
-      emptyText: "#{t('no_results')}",
-      preFill: data
-      });
+      autocompleteInput.autoSuggest("#{tags_path}", {
+        selectedItemProp: "name",
+        searchObjProps: "name",
+        asHtmlID: "tags",
+        neverSubmit: true,
+        retriveLimit: 10,
+        minChars: 2,
+        keyDelay: 200,
+        startText: "",
+        emptyText: "#{t('no_results')}",
+        preFill: data
+        });
 
-    autocompleteInput.bind('keydown', function(evt){
-      if(evt.keyCode == 13 || evt.keyCode == 9 || evt.keyCode == 32){
-        evt.preventDefault();
-        if( $('li.as-result-item.active').length == 0 ){
-          $('li.as-result-item').first().click();
+      autocompleteInput.bind('keydown', function(evt){
+        if(evt.keyCode == 13 || evt.keyCode == 9 || evt.keyCode == 32){
+          evt.preventDefault();
+          if( $('li.as-result-item.active').length == 0 ){
+            $('li.as-result-item').first().click();
+          }
         }
-      }
+      });
     });
-  });
 
 %h3
   = t('profiles.edit.your_public_profile')

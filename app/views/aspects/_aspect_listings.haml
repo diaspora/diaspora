@@ -3,7 +3,7 @@
 -#   the COPYRIGHT file.
 
 %ul#aspect_nav.left_nav
-  %li.all_aspects{:class => ("active" if params["set"] != "all" && params["set"] != "only_sharing" && !@featured && !@finder)}
+  %li.all_aspects
     .root_element= link_to t('aspects.index.your_aspects'), aspects_path
 
     %ul.sub_nav
@@ -14,8 +14,7 @@
         %li{:data => {:aspect_id => aspect.id}, :class => ("active" if defined?(stream) && stream.aspect_ids.include?(aspect.id))}
           .edit
             = link_to image_tag("icons/pencil.svg", :height => 12, :title => t('.edit_aspect', :name => aspect.name)), edit_aspect_path(aspect), :rel => "facebox"
-
-          %a.aspect_selector{:href => aspects_path("a_ids[]" => aspect.id), :class => "aspect_selector name hard_aspect_link", 'data-guid' => aspect.id}
+          %a.aspect_selector{:href => aspects_path("a_ids[]" => aspect.id), :class => "name", 'data-guid' => aspect.id}
             = aspect
 
       %li

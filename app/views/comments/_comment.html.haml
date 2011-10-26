@@ -5,7 +5,7 @@
 %li.comment.posted{:id => comment.guid, :class => ("hidden" if(defined? hidden))}
   - if current_user && (current_user.owns?(comment) || current_user.owns?(post))
     .right.controls
-      = link_to image_tag('deletelabel.png'), post_comment_path(comment.post_id, comment), :class => "delete comment_delete", :title => t('delete')
+      = link_to image_tag('deletelabel.png'), post_comment_path(comment.commentable_id, comment), :class => "delete comment_delete", :title => t('delete')
   = person_image_link(comment.author, :size => :thumb_small)
   .content
     %span.from

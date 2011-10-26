@@ -12,20 +12,10 @@ describe HomeController do
       response.should_not be_redirect
     end
 
-    it 'redirects to aspects index if user is logged in' do
+    it 'redirects to multis index if user is logged in' do
       sign_in alice
       get :show, :home => true
-      response.should redirect_to( :controller => 'aspects', :action => 'index')
-    end
-
-    it 'redirects to aspects index with stored aspects' do
-      sign_in alice
-      @aspect0 = alice.aspects.all[0]
-      @aspect1 = alice.aspects.create(:name => "Yeaaaah!")
-      @index_params = {:a_ids => [@aspect0.id.to_s, @aspect1.id.to_s]}
-      alice.save
-      get :show
-      response.should redirect_to( :controller => 'aspects', :action => 'index')
+      response.should redirect_to(multi_path)
     end
 
     describe "custom logging on success" do

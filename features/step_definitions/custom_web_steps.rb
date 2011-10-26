@@ -17,7 +17,7 @@ end
 
 And /^I toggle the aspect "([^"]*)"$/ do |aspect_name|
   aspect = @me.aspects.where(:name => aspect_name).first
-  find("li[data-aspect_id='#{aspect.id}']").click
+  find(".dropdown li[data-aspect_id='#{aspect.id}']").click
 end
 
 Then /^the publisher should be collapsed$/ do

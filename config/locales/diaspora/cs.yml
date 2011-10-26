@@ -61,13 +61,9 @@ cs:
       done_editing: "ukončit úpravy"
     aspect_listings: 
       add_an_aspect: "+ Přidat aspekt"
+      deselect_all: "Deselect all"
       edit_aspect: "Upravit %{name}"
-    aspect_stream: 
-      commented_on: "komentováno"
-      mentions: "Mentions"
-      posted: "publikováno"
-      recently: "v poslední době:"
-      stream: "Stream"
+      select_all: "Select all"
     contacts_not_visible: "Kontakty v tomto aspektu se nebudou schopni vidět mezi sebou."
     contacts_visible: "Kontakty v tomto aspektu se budou moci vidět mezi sebou."
     create: 
@@ -93,7 +89,7 @@ cs:
       aspect_not_empty: "Aspekt není prázdný"
       remove: "odebrat"
     index: 
-      community_members: "Featured Diaspora* members"
+      community_spotlight: "Community Spotlight"
       cubbies: 
         explanation: "Cubbi.es je první Diaspora aplikace ve vývoji."
         heading: "Připojit se na Cubbi.es"
@@ -103,21 +99,19 @@ cs:
         content_2: "Dejte to někomu a bude vás moci najít na Diaspoře."
         heading: "Diaspora ID"
       donate: "Přispějte"
-      featured_users: "Featured Users"
       handle_explanation: "Toto je vaše Diaspora ID. Podobně jako e-mailovou adresu ho můžete dál lidem a budete na něm dostupní."
       help: 
         do_you: "Do you:"
-        email_feedback: "%{link} your feedback, if you prefer"
+        email_feedback: "Můžete také poslat %{link}."
         feature_and_forum: "%{gs} & %{forum}: Community-powered support and feature requests"
         feature_suggestion: "... vymyslel jste novou %{link}?"
         find_a_bug: "... našli jste %{link}?"
         have_a_question: "... máte nějakou %{link}?"
-        here_to_help: "Komunita Diaspory je tu pro vás!"
+        here_to_help: "Komunita Diaspory je tu!"
         need_help: "Potřebujete pomoct?"
         satisfaction: "%{link}: Community-powered support"
         tutorials_and_wiki: "%{tutorial} & %{wiki}: Community-powered tutorials, how-to, and news"
       keep_us_running: "Pomozte %{pod} udržet rychlý, kupte našim serverům dávku kávy."
-      mentions: "Mentions"
       no_contacts: "Žádné kontakty"
       no_tags: "+ Najít nějaký štítek ke sledování"
       people_sharing_with_you: "Lidé, kteří s vámi sdílí"
@@ -126,8 +120,8 @@ cs:
       services: 
         content: "Můžete připojit následující služby na Diasporu:"
         heading: "Připojit služby"
-      tags_following: "Sledované štítky"
       unfollow_tag: "Přestat sledovat #%{tag}"
+      welcome: "Welcome"
       your_aspects: "Vaše aspekty"
     many: "%{count} aspektů"
     move_contact: 
@@ -138,8 +132,8 @@ cs:
       create: "Vytvořit"
       name: "Název"
     no_contacts_message: 
-      featured_users: "featured users"
-      or_featured: "Nebo můžete sdílet s %{link}"
+      community_spotlight: "community spotlight"
+      or_spotlight: "Or you can share with %{link}"
       try_adding_some_more_contacts: "Nové kontakty můžete vyhledávat (nahoře) nebo někoho pozvat (vpravo)."
       you_should_add_some_more_contacts: "Přidejte si více kontaktů!"
     no_posts_message: 
@@ -154,8 +148,8 @@ cs:
     selected_contacts: 
       manage_your_aspects: "Spravovat vaše aspekty."
       no_contacts: "Nemáte zde dosud žádné kontakty."
+      view_all_community_spotlight: "See all community spotlight"
       view_all_contacts: "Zobrazit všechny kontakty"
-      view_all_featured_users: "See all Featured Users"
     show: 
       edit_aspect: "upravit aspekt"
     two: "%{count} aspekty"
@@ -188,8 +182,6 @@ cs:
   contacts: 
     create: 
       failure: "Nepodařilo se vytvořit kontakt"
-    featured: 
-      featured_users: "Featured Users"
     few: "%{count} kontaktů"
     index: 
       add_a_new_aspect: "Přidat nový aspekt"
@@ -209,6 +201,8 @@ cs:
     other: "%{count} kontaktů"
     sharing: 
       people_sharing: "Lidé, kteří s vámi sdílí:"
+    spotlight: 
+      community_spotlight: "Community Spotlight"
     two: "%{count} kontakty"
     zero: "žádné kontakty"
   conversations: 
@@ -309,10 +303,10 @@ cs:
       blog: "blog"
       code: "kód"
       login: "přihlásit"
-      logout: "odhlásit"
-      profile: "profil"
+      logout: "Odhlásit se"
+      profile: "Profil"
       recent_notifications: "Nejnovější oznámení"
-      settings: "nastavení"
+      settings: "Nastavení"
       view_all: "Zobrazit všechno"
   likes: 
     likes: 
@@ -616,7 +610,7 @@ cs:
       enter_password_again: "Zadejte stejné heslo jako předtím"
       enter_username: "Vyberte si uživatelské jméno (pouze písmena, číslice a podtržítka)"
       join_the_movement: "Připojte se k nám!"
-      sign_up_today: "Zaregistrujte se ještě dnes"
+      sign_up_message: "Social Networking with a <3"
   requests: 
     create: 
       sending: "Odesílání"
@@ -724,7 +718,6 @@ cs:
     publisher: 
       all: "všechny"
       all_contacts: "všechny kontakty"
-      click_to_share_with: "Klikněte pro sdílení s:"
       discard_post: "Zahodit příspěvek"
       make_public: "vytvořit veřejnou"
       post_a_message_to: "Poslat zprávu do %{aspect}"
@@ -764,12 +757,27 @@ cs:
     hide_comments: "Skrýt všechny komentáře"
     show_more_comments: "Zobrazit %{number} dalších komentářů"
   streams: 
+    aspects: 
+      title: "Your Aspects"
+    aspects_stream: "Aspects"
+    commented_on: "commented on"
+    community_spotlight_stream: "Community Spotlight"
+    followed_tag: 
+      contacts_title: "People who dig these tags"
+      title: "#Followed Tags"
+    followed_tags_stream: "#Followed Tags"
+    mentioned_stream: "@Mentions"
     mentions: 
       contacts_title: "People who mentioned you"
       title: "Your Mentions"
+    multi: 
+      contacts_title: "People in your Stream"
+      title: "Stream"
+    posted: "posted"
     public: 
       contacts_title: "Recent Posters"
       title: "Public Activity"
+    recently: "recently:"
     tags: 
       contacts_title: "People who dig these tags"
       title: "Posts tagged: %{tags}"
@@ -829,11 +837,14 @@ cs:
       private_message: "...obdržíte soukromou zprávu?"
       receive_email_notifications: "Přijímat oznámení e-mailem když..."
       reshared: "...someone reshares your post?"
+      show_community_spotlight: "Show Community Spotlight in Stream?"
       started_sharing: "...někdo začne sdílet s vámi?"
+      stream_preferences: "Stream Preferences"
       your_email: "Váš e-mail"
       your_handle: "Vaše Diaspora ID"
     getting_started: 
       bold: "aspektů"
+      community_spotlight: "Community spotlight"
       community_welcome: "Diaspora's community is happy to have you aboard!"
       connect_to: "Připojit ke"
       connect_to_your_other_social_networks: "Připojit k dalším sociálním sítím"
@@ -844,7 +855,6 @@ cs:
       connect_with_people_explanation_pt2: "Apekty jsou snadný způsob, jak seskupovat nové a známé tváře. Dovolují jednoduše sdílet s podmnožinami vašich kontaktů."
       edit_profile: "Upravit profil"
       featured_tags: "Featured tags"
-      featured_users: "Sledujte, co vás zajímá"
       fill_out_your_profile: "Vyplňte si svůj profil"
       find_friends: "Najít přátele"
       find_friends_from_facebook: "najít přátele z Facebooku"
@@ -864,7 +874,7 @@ cs:
         tags: "Štítky"
       search_for_hashtags: "Vyhledat #štítky"
       search_for_people: "Vyhledat lidi"
-      see_all_featured_users: "See all featured users"
+      see_all_community_spotlight: "See all community spotlight"
       welcome: "Vítejte!"
       welcome_with_name: "Vítejte, %{name}!"
     logged_out: 
@@ -881,6 +891,8 @@ cs:
       language_not_changed: "Změna jazyka selhala"
       password_changed: "Heslo bylo změněno. Nyní se můžete přihlásit s vaším novým heslem."
       password_not_changed: "Změna hesla selhala"
+      settings_not_updated: "Settings update failed"
+      settings_updated: "Settings updated"
       unconfirmed_email_changed: "E-mail změněn. Vyžaduje aktivaci."
       unconfirmed_email_not_changed: "Změna e-mailu selhala"
   webfinger: 

@@ -22,7 +22,8 @@ class ApplicationController < ActionController::Base
                 :my_contacts_count,
                 :only_sharing_count,
                 :tag_followings,
-                :tags
+                :tags,
+                :open_publisher
 
   def ensure_http_referer_is_set
     request.env['HTTP_REFERER'] ||= '/aspects'
@@ -121,7 +122,7 @@ class ApplicationController < ActionController::Base
   end
 
   def after_sign_in_path_for(resource)
-    stored_location_for(:user) || (current_user.getting_started? ? getting_started_path : aspects_path)
+    stored_location_for(:user) || (current_user.getting_started? ? getting_started_path : multi_path)
   end
 
   def tag_followings
@@ -150,7 +151,7 @@ class ApplicationController < ActionController::Base
   def default_stream_action(stream_klass)
     authenticate_user!
     save_sort_order
-    @stream = stream_klass.new(current_user, :max_time => params[:max_time], :order => sort_order)
+    @stream = stream_klass.new(current_user, :max_time => max_time, :order => sort_order)
 
     if params[:only_posts]
       render :partial => 'shared/stream', :locals => {:posts => @stream.posts}

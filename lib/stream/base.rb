@@ -1,23 +1,26 @@
+require File.join(Rails.root, "lib", "publisher")
 class Stream::Base
   TYPES_OF_POST_IN_STREAM = ['StatusMessage', 'Reshare', 'ActivityStreams::Photo']
-  attr_accessor :max_time, :order, :user
+
+  attr_accessor :max_time, :order, :user, :publisher
 
   def initialize(user, opts={})
     self.user = user
     self.max_time = opts[:max_time]
-    self.order = opts[:order] 
+    self.order = opts[:order]
+    self.publisher = Publisher.new(self.user, publisher_opts)
   end
 
   # @return [Person]
-  def random_featured_user
-    @random_featured_user ||= Person.find_by_diaspora_handle(featured_diaspora_id)
+  def random_community_spotlight_member
+    @random_community_spotlight_member ||= Person.find_by_diaspora_handle(spotlight_diaspora_id)
   end
 
   # @return [Boolean]
-  def has_featured_users?
-    random_featured_user.present?
+  def has_community_spotlight?
+    random_community_spotlight_member.present?
   end
-  
+
   #requied to implement said stream
   def link(opts={})
     'change me in lib/base_stream.rb!'
@@ -27,6 +30,10 @@ class Stream::Base
   def can_comment?(post)
     return true if post.author.local?
     post_is_from_contact?(post)
+  end
+
+  def post_from_group(post)
+    []
   end
 
   # @return [String]
@@ -57,7 +64,7 @@ class Stream::Base
 
   # @return [String]
   def contacts_link
-    '#'
+    Rails.application.routes.url_helpers.contacts_path
   end
 
   #helpers
@@ -71,7 +78,6 @@ class Stream::Base
     true
   end
 
-
   #NOTE: MBS bad bad methods the fact we need these means our views are foobared. please kill them and make them 
   #private methods on the streams that need them
   def aspects
@@ -82,7 +88,7 @@ class Stream::Base
   def aspect
     aspects.first
   end
-  
+
   def aspect_ids
     aspects.map{|x| x.id} 
   end
@@ -98,6 +104,10 @@ class Stream::Base
   end
 
   private
+  # @return [Hash]
+  def publisher_opts
+    {}
+  end
 
   # Memoizes all Contacts present in the Stream
   #
@@ -106,8 +116,8 @@ class Stream::Base
     @contacts_in_stream ||= Contact.where(:user_id => user.id, :person_id => people.map{|x| x.id}).all
   end
 
-  def featured_diaspora_id
-    @featured_diaspora_id ||= AppConfig[:featured_users].try(:sample, 1)
+  def spotlight_diaspora_id
+    @spotlight_diaspora_id ||= AppConfig[:community_spotlight].try(:sample, 1)
   end
 
   # @param post [Post]
@@ -115,7 +125,7 @@ class Stream::Base
   def post_is_from_contact?(post)
     @can_comment_cache ||= {}
     @can_comment_cache[post.id] ||= contacts_in_stream.find{|contact| contact.person_id == post.author.id}.present?
-    @can_comment_cache[post.id] ||= user.person.id == post.author.id
+    @can_comment_cache[post.id] ||= (user.person.id == post.author.id)
     @can_comment_cache[post.id]
   end
 end

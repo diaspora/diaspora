@@ -61,13 +61,9 @@ sv:
       done_editing: "dölj"
     aspect_listings: 
       add_an_aspect: "+ Lägg till en aspekt"
+      deselect_all: "Deselect all"
       edit_aspect: "Ändra %{name}"
-    aspect_stream: 
-      commented_on: "kommenterade"
-      mentions: "Omnämnd"
-      posted: "inlägget"
-      recently: "senaste:"
-      stream: "Flöde"
+      select_all: "Select all"
     contacts_not_visible: "Kontakterna på den här aspekten kommer inte kunna se varandra."
     contacts_visible: "Kontakterna på den här aspekten kommer kunna se varandra."
     create: 
@@ -93,7 +89,7 @@ sv:
       aspect_not_empty: "Aspekten är inte tom"
       remove: "ta bort"
     index: 
-      community_members: "Featured Diaspora* members"
+      community_spotlight: "Community Spotlight"
       cubbies: 
         explanation: "Cubbi.es är den första Diaspora applikationen under utveckling."
         heading: "Anslut till Cubbi.es"
@@ -103,7 +99,6 @@ sv:
         content_2: "Med hjälp av det kan alla hitta dig på Diaspora."
         heading: "Diaspora-ID"
       donate: "Donera"
-      featured_users: "Utvalda Användare"
       handle_explanation: "Det här är ditt Diaspora ID. Det är det här du ska ge till dina vänner om du vill att de ska lägga till dig på Diaspora."
       help: 
         do_you: "Har du:"
@@ -117,17 +112,16 @@ sv:
         satisfaction: "%{link}: Support ifrån communityn"
         tutorials_and_wiki: "%{tutorial} & %{wiki}: Guider, instruktioner och nyheter ifrån communityn"
       keep_us_running: "Håll farten hos %{pod} uppe och köp kaffe till servrarna genom en månadsdonation!"
-      mentions: "Omnämnd"
       no_contacts: "Inga kontakter"
       no_tags: "+ Hitta en tag att följa"
       people_sharing_with_you: "Personer som delar med dig"
       post_a_message: "skriv ett inlägg >>"
-      see_more_from_us: "See more of the D* community."
+      see_more_from_us: "Se mer av D* communityn."
       services: 
         content: "Du kan koppla ihop Diaspora med följande tjänster:"
         heading: "Ihopkopplade tjänster"
-      tags_following: "Taggar som följs"
       unfollow_tag: "Sluta följa #%{tag}"
+      welcome: "Welcome"
       your_aspects: "Dina aspekter"
     many: "%{count} aspekter"
     move_contact: 
@@ -138,8 +132,8 @@ sv:
       create: "Skapa"
       name: "Namn (endast synligt för dig)"
     no_contacts_message: 
-      featured_users: "utvalda användare"
-      or_featured: "Eller så kan du dela med %{link}"
+      community_spotlight: "community spotlight"
+      or_spotlight: "Or you can share with %{link}"
       try_adding_some_more_contacts: "Du kan söka efter (längst upp) eller bjuda in (till höger) fler personer."
       you_should_add_some_more_contacts: "Du bör lägga till några fler kontakter!"
     no_posts_message: 
@@ -154,8 +148,8 @@ sv:
     selected_contacts: 
       manage_your_aspects: "Hantera dina aspekter."
       no_contacts: "Du har ännu inte några kontakter här."
+      view_all_community_spotlight: "See all community spotlight"
       view_all_contacts: "Se alla kontakter"
-      view_all_featured_users: "Se alla Utvalda Användare"
     show: 
       edit_aspect: "ändra aspekt"
     two: "%{count} aspekter"
@@ -188,8 +182,6 @@ sv:
   contacts: 
     create: 
       failure: "Misslyckades med att skapa kontakt"
-    featured: 
-      featured_users: "Utvalda användare"
     few: "%{count} kontakter"
     index: 
       add_a_new_aspect: "Lägg till en ny aspekt"
@@ -209,6 +201,8 @@ sv:
     other: "%{count} kontakter"
     sharing: 
       people_sharing: "Personer delar med dig:"
+    spotlight: 
+      community_spotlight: "Community Spotlight"
     two: "%{count} kontakter"
     zero: "kontakter"
   conversations: 
@@ -616,7 +610,7 @@ sv:
       enter_password_again: "Skriv in samma lösenord som tidigare"
       enter_username: "Välj ett användarnamn (endast bokstäver, nummer eller understreck)"
       join_the_movement: "Join the movement!"
-      sign_up_today: "Skapa ett konto idag"
+      sign_up_message: "Social Networking with a <3"
   requests: 
     create: 
       sending: "Skickar"
@@ -724,7 +718,6 @@ sv:
     publisher: 
       all: "alla"
       all_contacts: "alla kontakter"
-      click_to_share_with: "Klicka för att dela med: "
       discard_post: "Släng inlägg"
       make_public: "gör publik"
       post_a_message_to: "Skicka ett meddelande till %{aspect}"
@@ -764,12 +757,27 @@ sv:
     hide_comments: "Dölj alla kommentarer"
     show_more_comments: "Visa %{number} kommentarer till"
   streams: 
+    aspects: 
+      title: "Your Aspects"
+    aspects_stream: "Aspects"
+    commented_on: "commented on"
+    community_spotlight_stream: "Community Spotlight"
+    followed_tag: 
+      contacts_title: "People who dig these tags"
+      title: "#Followed Tags"
+    followed_tags_stream: "#Followed Tags"
+    mentioned_stream: "@Mentions"
     mentions: 
       contacts_title: "Personer som omnämnt dig"
       title: "Du är omnämnd"
+    multi: 
+      contacts_title: "People in your Stream"
+      title: "Stream"
+    posted: "posted"
     public: 
-      contacts_title: "Recent Posters"
-      title: "Public Activity"
+      contacts_title: "Postade nyligen"
+      title: "Offentlig Aktivitet"
+    recently: "recently:"
     tags: 
       contacts_title: "Människor som gillar de här taggarna"
       title: "Postade taggar: %{tags}"
@@ -783,7 +791,7 @@ sv:
   tags: 
     show: 
       follow: "Följ #%{tag}"
-      followed_by: "followed by"
+      followed_by: "följs av"
       following: "Följer #%{tag}"
       nobody_talking: "Ingen talar om %{tag} än."
       people_tagged_with: "Personer taggade med %{tag}"
@@ -829,11 +837,14 @@ sv:
       private_message: "...du mottar ett privat meddelande?"
       receive_email_notifications: "Skicka notiser via e-post när..."
       reshared: "...sprider någon mina inlägg vidare?"
+      show_community_spotlight: "Show Community Spotlight in Stream?"
       started_sharing: "...någon börjar dela med dig?"
+      stream_preferences: "Stream Preferences"
       your_email: "Din epost"
       your_handle: "Ditt Diaspora ID"
     getting_started: 
       bold: "aspekter"
+      community_spotlight: "Community spotlight"
       community_welcome: "Vi i Diasporas community är glada att ha dig här!"
       connect_to: "Anslut till"
       connect_to_your_other_social_networks: "Anslut till dina andra sociala nätverk"
@@ -844,7 +855,6 @@ sv:
       connect_with_people_explanation_pt2: "Aspekter är ett innovativt sätt att gruppera nya och välkända ansikten, endast synligt för dig, och gör det möjligt för dig att gruppera och dela endast med utvalda kontakter på ett enkelt sätt."
       edit_profile: "Redigera profil"
       featured_tags: "Följ utvalda taggar"
-      featured_users: "Utvalda användare"
       fill_out_your_profile: "Fyll i din profil"
       find_friends: "Hitta vänner"
       find_friends_from_facebook: "hitta Facebook-vänner"
@@ -864,7 +874,7 @@ sv:
         tags: "Taggar"
       search_for_hashtags: "Sök efter #hashtaggar"
       search_for_people: "Leta efter människor"
-      see_all_featured_users: "See all featured users"
+      see_all_community_spotlight: "See all community spotlight"
       welcome: "Välkommen!"
       welcome_with_name: "Välkommen, %{name}!"
     logged_out: 
@@ -881,6 +891,8 @@ sv:
       language_not_changed: "Språket kunde inte ändras"
       password_changed: "Lösenordet är nu ändrat och klart att användas."
       password_not_changed: "Lösenordet kunde inte ändras"
+      settings_not_updated: "Settings update failed"
+      settings_updated: "Settings updated"
       unconfirmed_email_changed: "E-postadressen har ändrats och behöver aktiveras."
       unconfirmed_email_not_changed: "Byte av e-postadress misslyckades"
   webfinger: 

@@ -31,7 +31,7 @@ fr:
       invitation_instructions: 
         accept: "Accepter l'invitation"
         ignore: "Si vous ne voulez pas accepter l'invitation, merci d'ignorer ce courriel."
-        no_account_till: "Votre compte ne sera pas que lorsque vous irez sur le lien ci-dessus et que vous vous inscrirez."
+        no_account_till: "Votre compte ne sera créé que lorsque vous irez sur le lien ci-dessus et que vous vous inscrirez."
         subject: "Vous avez été invité à rejoindre Diaspora!"
       inviter: 
         accept_at: "à %{url}, vous pouvez l'accepter à travers le lien ci-dessous."

@@ -7,6 +7,15 @@ module ResharesHelper
     end
   end
 
+  def resharable?(post)
+    if reshare?(post)
+      # Reshare post is resharable if you're not the original author nor the resharer
+      post.root.present? && post.root.author_id != current_user.person.id && post.author_id != current_user.person.id
+    else
+      post.author_id != current_user.person.id && post.public?
+    end
+  end
+
   def reshare_link(post)
     if reshare?(post)
       return unless post.root

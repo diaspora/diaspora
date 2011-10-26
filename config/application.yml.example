@@ -60,10 +60,12 @@ defaults: &defaults
   # to contact joindiaspora.com, set this to true:
   no_follow_diasporahq: false
 
-  # Featured users
+  # Community Spotlight
   # (expressed as an array of Diaspora IDs)
-  featured_users:
+  community_spotlight:
     - 'diasporahq@joindiaspora.com'
+  # Email to send spotlight suggestions to
+  spotlight_suggest_email: ''
 
   # List of users who have admin privileges
   # (expressed as an array of local usernames)

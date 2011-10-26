@@ -34,7 +34,25 @@ var AspectsDropdown = {
   },
 
   toggleCheckbox: function(check) {
+    if(!check.hasClass('radio')){
+      var selectedAspects = check.closest(".dropdown").find("li.radio");
+      AspectsDropdown.uncheckGroup(selectedAspects);
+    }
+
     check.toggleClass('selected');
+  },
+
+  toggleRadio: function(check) {
+    var selectedAspects = check.closest(".dropdown").find("li");
+
+    AspectsDropdown.uncheckGroup(selectedAspects);
+    AspectsDropdown.toggleCheckbox(check);
+  },
+
+  uncheckGroup: function(elements){
+    $.each(elements, function(index, value) {
+      $(value).removeClass('selected');
+    });
   }
 };
 

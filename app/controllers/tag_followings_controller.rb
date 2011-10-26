@@ -51,4 +51,16 @@ class TagFollowingsController < ApplicationController
       redirect_to tag_path(:name => params[:name])
     end
   end
+
+  def create_multiple
+    tags = params[:tags].split(",")
+    tags.each do |tag|
+      tag_name = tag.gsub(/^#/,"")
+
+      @tag = ActsAsTaggableOn::Tag.find_or_create_by_name(tag_name)
+      @tag_following = current_user.tag_followings.create(:tag_id => @tag.id)
+    end
+
+    redirect_to multi_path
+  end
 end

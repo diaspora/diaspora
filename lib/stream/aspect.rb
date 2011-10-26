@@ -2,7 +2,7 @@
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
-class Stream::Aspect< Stream::Base
+class Stream::Aspect < Stream::Base
 
   # @param user [User]
   # @param inputted_aspect_ids [Array<Integer>] Ids of aspects for given stream
@@ -37,12 +37,12 @@ class Stream::Aspect< Stream::Base
 
   # @return [ActiveRecord::Association<Post>] AR association of posts
   def posts
-    # NOTE(this should be something like Post.all_for_stream(@user, aspect_ids, {}) that calls visible_posts
-    @posts ||= user.visible_posts(:all_aspects? => for_all_aspects?,
-                                   :by_members_of => aspect_ids,
-                                   :type => TYPES_OF_POST_IN_STREAM,
-                                   :order => "#{order} DESC",
-                                   :max_time => max_time
+    # NOTE(this should be something like Post.all_for_stream(@user, aspect_ids, {}) that calls visible_shareables
+    @posts ||= user.visible_shareables(Post, :all_aspects? => for_all_aspects?,
+                                             :by_members_of => aspect_ids,
+                                             :type => TYPES_OF_POST_IN_STREAM,
+                                             :order => "#{order} DESC",
+                                             :max_time => max_time
                    ).for_a_stream(max_time, order)
   end
 
@@ -72,11 +72,7 @@ class Stream::Aspect< Stream::Base
   #
   # @return [Boolean] see #for_all_aspects?
   def ajax_stream?
-    if AppConfig[:redis_cache]
-      true
-    else
-      false
-    end
+    !AppConfig[:redis_cache] && for_all_aspects?
   end
 
   # The title that will display at the top of the stream's
@@ -85,7 +81,7 @@ class Stream::Aspect< Stream::Base
   # @return [String]
   def title
     if self.for_all_aspects?
-      I18n.t('aspects.aspect_stream.stream')
+      I18n.t('streams.aspects.title')
     else
       self.aspects.to_sentence
     end

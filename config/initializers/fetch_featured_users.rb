@@ -1,8 +1,13 @@
 #this breaks seed scripts
 
-unless !ActiveRecord::Base.connection.table_exists?('people') || Rails.env == 'test' || AppConfig[:featured_users].nil? || AppConfig[:featured_users].count == Person.featured_users.count
-  print "Fetching featured users from remote servers"
-  AppConfig[:featured_users].each do |x|
+if AppConfig[:featured_users].present? && AppConfig[:community_spotlight].blank?
+  AppConfig[:community_spotlight] = AppConfig[:featured_users]
+  puts "DEPRICATION WARNING (10/21/11): Please change `featured_users` in your applicaiton.yml to `community_spotlight`.  Thanks!"
+end
+
+unless !ActiveRecord::Base.connection.table_exists?('people') || Rails.env == 'test' || AppConfig[:community_spotlight].nil? || AppConfig[:community_spotlight].count == Person.community_spotlight.count
+  print "Fetching community spotlight users from remote servers"
+  AppConfig[:community_spotlight].each do |x|
     Webfinger.new(x).fetch
     print "."
   end
