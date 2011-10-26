@@ -39,6 +39,8 @@ en:
         add_to_aspect: "Add contact"
         select_aspects: "Select aspects"
         all_aspects: "All aspects"
+        stopped_sharing_with: "You have stopped sharing with {{name}}."
+        started_sharing_with: "You have started sharing with {{name}}!"
         toggle:
           zero: "Select aspects"
           one: "In {{count}} aspect"

@@ -87,17 +87,18 @@
       %link{:rel => "alternate", :href => "#{@person.public_url}.atom", :type => "application/atom+xml", :title => "#{t('.public_feed', :name => @person.name)}"}
 
   %body{:class => "#{yield(:body_class)}"}
+
+    - unless @page == :logged_out
+      - flash.each do |name, msg|
+        %div{:id => "flash_#{name}"}
+          .message
+            = msg
+
     - unless @landing_page
       %a{:id=>"back-to-top", :title=>"Back to top", :href=>"#"}
         &#8679;
 
       #notifications
-
-      - unless @page == :logged_out
-        - flash.each do |name, msg|
-          %div{:id => "flash_#{name}"}
-            .message
-              = msg
 
     %header{:class=>('landing' unless current_user)}
       = render 'layouts/header'

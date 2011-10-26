@@ -13,7 +13,7 @@
     &#9660;
 
   .wrapper
-    %ul.dropdown_list{:unSelectable => 'on', 'data-person_id' => (person.id if defined?(person) && person), 'data-service_uid' => (service_uid if defined?(service_uid))}
+    %ul.dropdown_list{:unSelectable => 'on', 'data-person_id' => (person.id if defined?(person) && person), 'data-service_uid' => (service_uid if defined?(service_uid)), 'data-person-short-name' => (person.first_name if defined?(person) && person)}
       - for aspect in all_aspects
         = aspect_dropdown_list_item(aspect, selected_aspects.include?(aspect) )
 
