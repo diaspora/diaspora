@@ -32,7 +32,7 @@ class PostsController < ApplicationController
 
       respond_to do |format|
         format.xml{ render :xml => @post.to_diaspora_xml }
-        format.mobile{render 'posts/show.mobile.haml'}	
+        format.mobile{render 'posts/show.mobile.haml'}
         format.any{render 'posts/show.html.haml'}
       end
 
