@@ -9,8 +9,6 @@ var AspectsDropdown = {
         allAspects = dropdown.children().length,
         replacement;
 
-    console.log(dropdown);
-
     if (number == 0) {
       button.removeClass(inAspectClass);
       if( dropdown.closest('#publisher').length ) {
@@ -31,13 +29,8 @@ var AspectsDropdown = {
         var message = Diaspora.I18n.t("aspect_dropdown.started_sharing_with", {name: dropdown.data('person-short-name')});
         Diaspora.page.flashMessages.render({success: true, notice: message});
       }
-    }else if (number < 3) {
-      replacement = Diaspora.I18n.t('aspect_dropdown.toggle.few', { count: number.toString()})
-    }else if (number > 3) {
-      replacement = Diaspora.I18n.t('aspect_dropdown.toggle.many', { count: number.toString()})
     }else {
-      //the above one are a tautology, but I want to have them here once for once we figure out a neat way i18n them
-      replacement = Diaspora.I18n.t('aspect_dropdown.toggle.other', { count: number.toString()})
+      replacement = Diaspora.I18n.t('aspect_dropdown.toggle', { count: number.toString()})
     }
 
     button.text(replacement + ' ▼');
