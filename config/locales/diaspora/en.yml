@@ -776,6 +776,8 @@ en:
       all_contacts: "All contacts"
     stream_element:
       viewable_to_anyone: "This post is viewable to anyone on the web"
+      federated_account: "Remote users who you are not connected to can not currently receive your likes and comments"
+      currently_unavailable: 'currently unavailable'
       via: "via %{link}"
       hide_and_mute: "Hide and Mute"
       like: "Like"
