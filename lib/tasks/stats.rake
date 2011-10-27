@@ -3,6 +3,7 @@ require File.join(Rails.root, 'lib', 'statistics' )
 namespace :stats do
   desc 'Emails recent engagement statistics the admins'
   task :email_retention => :environment do
+    require File.join(Rails.root, 'app', 'mailers', 'notifier' )
 
     return unless AppConfig[:admins].present? 
 
@@ -16,6 +17,7 @@ namespace :stats do
       end
     end
 
-    Notifier.admin(string, admins, {:subject => "retention numbers #{Time.now.to_s}"})
+    emails = Notifier.admin(string, admins, {:subject => "retention numbers #{Time.now.to_s}"})
+    emails.each {|e| e.deliver!} 
   end
 end
