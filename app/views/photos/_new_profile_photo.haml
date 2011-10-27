@@ -35,6 +35,11 @@
           $("#file-upload-spinner").addClass("hidden");
           $('#fileInfo').text(fileName + ' completed').fadeOut(2000);
           $('#file-upload').removeClass("loading");
+
+          /* flash message prompt */
+          var message = Diaspora.I18n.t("photo_uploader.looking_good");
+          Diaspora.page.flashMessages.render({success: true, notice: message});
+
           var id = responseJSON.data.photo.id;
           var url = responseJSON.data.photo.unprocessed_image.url;
           var oldPhoto = $('#photo_id');

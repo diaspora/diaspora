@@ -15,13 +15,16 @@ Diaspora.Pages.UsersGettingStarted = function() {
     $('#edit_profile').bind('ajax:complete', function(evt, xhr, status){
       var firstNameField = $("#profile_first_name");
       firstNameField.val(firstNameField.data("cachedValue"));
+
+      /* flash message prompt */
+      var message = Diaspora.I18n.t("getting_started.hey", {'name': $("#profile_first_name").val()});
+      Diaspora.page.flashMessages.render({success: true, notice: message});
     });
 
     $("#profile_first_name").bind("change", function(){
       $(this).data("cachedValue", $(this).val());
       $('#edit_profile').submit();
       $('#form_spinner').removeClass("hidden");
-
     });
 
     $("#profile_first_name").bind("blur", function(){
@@ -34,8 +37,21 @@ Diaspora.Pages.UsersGettingStarted = function() {
 
     $("#awesome_button").bind("click", function(evt){
       evt.preventDefault();
-      $('#awesome_spinner').removeClass("hidden");
-      $('.tag_input').submit();
+
+      var confirmMessage = Diaspora.I18n.t("getting_started.no_tags");
+
+      if(($("#as-selections-tags").find(".as-selection-item").length > 0) || confirm(confirmMessage)) {
+        $('#awesome_spinner').removeClass("hidden");
+        $('.tag_input').submit();
+
+        /* flash message prompt */
+        var message = Diaspora.I18n.t("getting_started.preparing_your_stream");
+        Diaspora.page.flashMessages.render({success: true, notice: message});
+      } else {
+        /* flash message prompt */
+        var message = Diaspora.I18n.t("getting_started.alright_ill_wait");
+        Diaspora.page.flashMessages.render({success: true, notice: message});
+      }
     });
 
     /* ------ */
