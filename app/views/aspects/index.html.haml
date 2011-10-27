@@ -6,25 +6,42 @@
 - content_for :head do
   = include_javascripts :home
 
+- if current_user.getting_started?
+  #welcome-to-diaspora
+    .container{:style => "position: relative;"}
+      .right
+        = link_to image_tag('deletelabel.png'), getting_started_completed_path, :id => "gs-skip-x"
+      .span-23
+        %h1
+          = t('.welcome_to_diaspora', :name => current_user.first_name)
+        %h3
+          = t('.introduce_yourself')
+  %br
+  %br
+  %br
+  %br
+  %br
+
 .span-5.leftNavBar
   #home_user_badge
     = owner_image_link
-    %h3
-      = current_user.first_name
+    %h4
+      = link_to current_user.first_name, "/u/#{current_user.username}"
 
-  - unless has_completed_getting_started?
-    .section
-      %ul.left_nav
-        %li
-          = link_to "Welcome", getting_started_path, :class => "home_selector"
+  .section
+    %ul.left_nav
+      %li
+        %b
+          = link_to t("streams.multi.title"), multi_path, :class => 'home_selector'
 
   .section
     = render 'aspects/aspect_listings', :stream => @stream
 
   .section
     %ul.left_nav
-      .li
-        %b= link_to t('.mentions'), mentions_path, :class => 'home_selector'
+      %li
+        %b
+          = link_to t('streams.mentions.title'), mentions_path, :class => 'home_selector'
 
   .section#followed_tags_listing
     = render 'tags/followed_tags_listings'

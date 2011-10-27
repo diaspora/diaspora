@@ -5,18 +5,21 @@
 
 //TODO: make this a widget
 var Publisher = {
+
   bookmarklet : false,
   close: function(){
     Publisher.form().addClass('closed');
     Publisher.form().find("#publisher_textarea_wrapper").removeClass('active');
     Publisher.form().find("textarea.ac_input").css('min-height', '');
   },
+
   open: function(){
     Publisher.form().removeClass('closed');
     Publisher.form().find("#publisher_textarea_wrapper").addClass('active');
     Publisher.form().find("textarea.ac_input").css('min-height', '42px');
     Publisher.determineSubmitAvailability();
   },
+
   cachedForm : false,
   form: function(){
     if(!Publisher.cachedForm){
@@ -24,6 +27,7 @@ var Publisher = {
     }
     return Publisher.cachedForm;
   },
+
   cachedInput : false,
   input: function(){
     if(!Publisher.cachedInput){
@@ -237,8 +241,7 @@ var Publisher = {
 
     },
 
-    searchTermFromValue: function(value, cursorIndex)
-    {
+    searchTermFromValue: function(value, cursorIndex) {
       var stringLoc = Publisher.autocompletion.findStringToReplace(value, cursorIndex);
       if(stringLoc[0] <= 2){
         stringLoc[0] = 0;
@@ -266,44 +269,32 @@ var Publisher = {
       );
     }
   },
+
   determineSubmitAvailability: function(){
-    var onlyWhitespaces = (Publisher.input().val().trim() === '');
-    var isSubmitDisabled = Publisher.submit().attr('disabled');
-    var isPhotoAttached = ($("#photodropzone").children().length > 0);
+    var onlyWhitespaces = ($.trim(Publisher.input().val()) === ''),
+        isSubmitDisabled = Publisher.submit().attr('disabled'),
+        isPhotoAttached = ($("#photodropzone").children().length > 0);
+
     if ((onlyWhitespaces &&  !isPhotoAttached) && !isSubmitDisabled) {
       Publisher.submit().attr('disabled', true);
     } else if ((!onlyWhitespaces || isPhotoAttached) && isSubmitDisabled) {
       Publisher.submit().removeAttr('disabled');
     }
   },
+
   clear: function(){
     this.autocompletion.mentionList.clear();
     $("#photodropzone").find('li').remove();
     $("#publisher textarea").removeClass("with_attachments").css('paddingBottom', '');
   },
+
   bindServiceIcons: function(){
     $(".service_icon").bind("click", function(evt){
       $(this).toggleClass("dim");
       Publisher.toggleServiceField($(this));
     });
   },
-  bindPublicIcon: function(){
-    $(".public_icon").bind("click", function(evt){
-      $(this).toggleClass("dim");
-      var public_field = $("#publisher #status_message_public");
 
-      if (public_field.val() == 'false') {
-        public_field.val('true');
-        $(this).attr('title', Diaspora.I18n.t('publisher.public'));
-      } else {
-        public_field.val('false');
-        $(this).attr('title', Diaspora.I18n.t('publisher.limited'));
-      }
-
-      $(this).tipsy(true).fixTitle();
-      $(this).tipsy(true).show();
-    });
-  },
   toggleServiceField: function(service){
     Publisher.createCounter(service);
 
@@ -316,19 +307,60 @@ var Publisher = {
       '<input id="services_" name="services[]" type="hidden" value="'+provider+'">');
     }
   },
+
+  isPublicPost: function(){
+    return $('#publisher [name="aspect_ids[]"]').first().val() == "public";
+  },
+
+  isToAllAspects: function(){
+    return $('#publisher [name="aspect_ids[]"]').first().val() == "all_aspects";
+  },
+
   selectedAspectIds: function() {
     var aspects = $('#publisher [name="aspect_ids[]"]');
     var aspectIds = [];
     aspects.each(function() { aspectIds.push( parseInt($(this).attr('value'))); });
     return aspectIds;
   },
-  toggleAspectIds: function(aspectId) {
-    var hidden_field = $('#publisher [name="aspect_ids[]"][value="'+aspectId+'"]');
-    if(hidden_field.length > 0){
-      hidden_field.remove();
+
+  removeRadioSelection: function(hiddenFields){
+    $.each(hiddenFields, function(index, value){
+      var el = $(value);
+
+      if(el.val() == "all_aspects" || el.val() == "public") {
+        el.remove();
+      }
+    });
+  },
+
+  toggleAspectIds: function(li) {
+    var aspectId = li.attr('data-aspect_id'),
+        hiddenFields = $('#publisher [name="aspect_ids[]"]'),
+        appendId = function(){
+          $("#publisher .content_creation form").append(
+          '<input id="aspect_ids_" name="aspect_ids[]" type="hidden" value="'+aspectId+'">');
+        };
+
+    if(li.hasClass('radio')){
+      $.each(hiddenFields, function(index, value){
+        $(value).remove();
+      });
+      appendId();
+
+      // close dropdown after selecting a binary option
+      li.closest('.dropdown').removeClass('active');
+
     } else {
-      $("#publisher .content_creation form").append(
-      '<input id="aspect_ids_" name="aspect_ids[]" type="hidden" value="'+aspectId+'">');
+      var hiddenField = $('#publisher [name="aspect_ids[]"][value="'+aspectId+'"]');
+
+      // remove all radio selections
+      Publisher.removeRadioSelection(hiddenFields);
+
+      if(hiddenField.length > 0){
+        hiddenField.remove();
+      } else {
+        appendId();
+      }
     }
   },
   createCounter: function(service){
@@ -345,15 +377,21 @@ var Publisher = {
       $('#status_message_fake_text').charCount({allowed: min, warning: min/10 });
     }
   },
+
   bindAspectToggles: function() {
     $('#publisher .dropdown .dropdown_list li').bind("click", function(evt){
       var li = $(this),
           button = li.parent('.dropdown').find('.button');
 
-      AspectsDropdown.toggleCheckbox(li);
+      if(li.hasClass('radio')){
+        AspectsDropdown.toggleRadio(li);
+      } else {
+        AspectsDropdown.toggleCheckbox(li);
+      }
+
       AspectsDropdown.updateNumber(li.closest(".dropdown_list"), null, li.parent().find('li.selected').length, '');
 
-      Publisher.toggleAspectIds(li.attr('data-aspect_id'));
+      Publisher.toggleAspectIds(li);
     });
   },
   beforeSubmit: function(){
@@ -381,10 +419,17 @@ var Publisher = {
     if (Publisher.bookmarklet == false) {
       var isPostVisible = Diaspora.page.aspectNavigation.selectedAspects().length == 0;
       var postedTo = Publisher.selectedAspectIds();
-      $.each(Diaspora.page.aspectNavigation.selectedAspects(), function(index, value) {
-        if (postedTo.indexOf(parseInt(value)) > -1)
-          isPostVisible = true;
-      });
+
+
+      if(Publisher.isPublicPost() || Publisher.isToAllAspects()){
+        isPostVisible = true;
+
+      } else {
+        $.each(Diaspora.page.aspectNavigation.selectedAspects(), function(index, value) {
+          if (postedTo.indexOf(parseInt(value)) > -1)
+            isPostVisible = true;
+        });
+      }
 
       if(isPostVisible) {
         ContentUpdater.addPostToStream(json.html);
@@ -417,12 +462,33 @@ var Publisher = {
     $('#publisher_textarea_wrapper').show();
     $('#file-upload').show();
   },
+
+  triggerGettingStarted: function(){
+    Publisher.setUpPopovers("#publisher .dropdown", {trigger: 'manual', offset: 10, placement:'below'}, 1000);
+    Publisher.setUpPopovers("#publisher #status_message_fake_text", {trigger: 'manual', placement: 'right', offset: 30, id: "first_message_explain"}, 600);
+    Publisher.setUpPopovers("#gs-shim", {trigger: 'manual', placement: 'left', offset: -5}, 1400);
+
+    $("#publisher .button.creation").bind("click", function(){
+       $("#publisher .dropdown").popover("hide");
+       $("#publisher #status_message_fake_text").popover("hide");
+    });
+  },
+
+  setUpPopovers: function(selector, options, timeout){
+    var selection = $(selector);
+    selection.popover(options);
+    selection.bind("click", function(){$(this).popover("hide")});
+
+    setTimeout(function(){
+      selection.popover("show");
+    }, timeout);
+  },
+
   initialize: function() {
     Publisher.cachedForm = Publisher.cachedSubmit =
       Publisher.cachedInput = Publisher.cachedHiddenInput = false;
 
     Publisher.bindServiceIcons();
-    Publisher.bindPublicIcon();
     Publisher.bindAspectToggles();
 
     /* close text area */

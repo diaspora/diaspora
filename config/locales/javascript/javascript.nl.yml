@@ -8,6 +8,7 @@ nl:
     aspect_dropdown: 
       add_to_aspect: "Voeg toe aan aspect"
       all_aspects: "Alle aspecten"
+      select_aspects: "Select aspects"
       toggle: 
         few: "In {{count}} aspecten"
         many: "In {{count}} aspecten"

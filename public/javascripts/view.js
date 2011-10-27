@@ -37,6 +37,8 @@ var View = {
     $(this.dropdowns.selector)
       .live('click', this.dropdowns.click);
 
+    /* Avatars */
+    $(this.avatars.selector).error(this.avatars.fallback);
 
     /* Clear forms after successful submit */
     $('form[data-remote]').live('ajax:success', function (e) {
@@ -112,17 +114,33 @@ var View = {
   },
 
   tooltips: {
-    public_badge: {
+    conversation_participants: {
       bind: function() {
-        $(".public_badge img").tipsy({
+        $(".conversation_participants img").twipsy({
           live: true
         });
       }
     },
 
-    conversation_participants: {
+    commenting_disabled: {
       bind: function() {
-        $(".conversation_participants img").tipsy({
+        $('.federated_person').twipsy({
+          live: true
+        });
+      }
+    },
+
+    contacts_on_side: {
+      bind: function() {
+        $("#selected_aspect_contacts .avatar").twipsy({
+          live: true
+        });
+      }
+    },
+
+    like_avatars: {
+      bind: function() {
+        $(".likes_list .avatar").twipsy({
           live: true
         });
       }
@@ -159,6 +177,13 @@ var View = {
     },
     selector: ".dropdown > .toggle",
     parentSelector: ".dropdown > .wrapper"
+  },
+
+  avatars: {
+    fallback: function(evt) {
+      $(this).attr("src", "/images/user/default.png");
+    },
+    selector: "img.avatar"
   }
 };
 

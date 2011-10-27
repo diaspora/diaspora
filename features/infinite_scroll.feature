@@ -8,6 +8,7 @@ Feature: infinite scroll
       Given many posts from alice for bob
       And I resize my window to 800x600
       And I sign in as "bob@bob.bob"
+      And I follow "Your Aspects"
       And I wait for the ajax to finish
 
     Scenario: on the main stream by activity

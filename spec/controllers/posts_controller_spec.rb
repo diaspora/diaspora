@@ -55,18 +55,47 @@ describe PostsController do
 
     context 'user not signed in' do
 
-      it 'shows a public post' do
-        status = alice.post(:status_message, :text => "hello", :public => true, :to => 'all')
+      context 'given a public post' do
+        before :each do
+          @status = alice.post(:status_message, :text => "hello", :public => true, :to => 'all')
+        end
 
-        get :show, :id => status.id
-        response.status.should == 200
-      end
+        it 'shows a public post' do
+          get :show, :id => @status.id
+          response.status.should == 200
+        end
 
-      it 'succeeds for statusnet' do
-        status = alice.post(:status_message, :text => "hello", :public => true, :to => 'all')
-        @request.env["HTTP_ACCEPT"] = "application/html+xml,text/html"
-        get :show, :id => status.id
-        response.should be_success
+        it 'succeeds for statusnet' do
+          @request.env["HTTP_ACCEPT"] = "application/html+xml,text/html"
+          get :show, :id => @status.id
+          response.should be_success
+        end
+
+        it 'responds with diaspora xml if format is xml' do
+          get :show, :id => @status.guid, :format => :xml
+          response.body.should == @status.to_diaspora_xml
+        end
+
+        context 'with more than 3 comments' do
+          before do
+            (1..5).each do |i|
+              alice.comment  "comment #{i}", :post => @status
+            end
+          end
+
+          it 'shows all comments of a public post' do
+            get :show, :id => @status.id
+
+            response.body.should =~ /comment 3/
+            response.body.should_not =~ /comment 2/
+
+            get :show, :id => @status.id, 'all_comments' => '1'
+
+            response.body.should =~ /comment 3/
+            response.body.should =~ /comment 2/
+          end
+        end
+
       end
 
       it 'shows a public photo' do
@@ -81,12 +110,6 @@ describe PostsController do
         status = alice.post(:status_message, :text => "hello", :public => false, :to => 'all')
         get :show, :id => status.id
         response.status = 302
-      end
-
-      it 'responds with diaspora xml if format is xml' do
-        status = alice.post(:status_message, :text => "hello", :public => true, :to => 'all')
-        get :show, :id => status.guid, :format => :xml
-        response.body.should == status.to_diaspora_xml
       end
 
       # We want to be using guids from now on for this post route, but do not want to break
@@ -151,7 +174,7 @@ describe PostsController do
     before do
       sign_in alice
     end
-    
+
     it 'will succeed if admin' do
       AppConfig[:admins] = [alice.username]
       get :index

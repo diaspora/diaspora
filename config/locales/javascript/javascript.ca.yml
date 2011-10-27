@@ -39,9 +39,10 @@ ca:
         disconnected: "S'ha tancat el sòcol web. Les publicacions ja no es mostraran en temps real."
       aspect_dropdown:
         add_to_aspect: "Afegeix el contacte"
+        select_aspects: "Selecciona els aspectes"
         all_aspects: "Tots els aspectes"
         toggle:
-          zero: "Afegeix el contacte"
+          zero: "Selecciona els aspectes"
           one: "En {{count}} aspecte"
           two: "En {{count}} aspectes"
           few: "En {{count}} aspectes"

@@ -26,19 +26,19 @@
     - if defined?(expanded_info) && expanded_info
       .comment_container
         .post_stats
-          - if @post.public?
+          - if post.public?
             %span.comment_count
-              = @post.reshares.size
+              = post.reshares.size
 
           %span.comment_count
-            = @post.comments.size
+            = post.comments.size
 
           %span.like_count
-            = @post.likes.size
+            = post.likes.size
 
         %ul.comments
-          = render :partial => 'comments/comment', :collection => @comments, :locals => {:post => @post}
+          = render :partial => 'comments/comment', :collection => post.comments, :locals => {:post => post}
 
           %li.comment.add_comment_bottom_link_container
-            = link_to "Add a comment", new_post_comment_path(@post), :class => 'add_comment_bottom_link btn comment_action inactive'
+            = link_to "Add a comment", new_post_comment_path(post), :class => 'add_comment_bottom_link btn comment_action inactive'
 

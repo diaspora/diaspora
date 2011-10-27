@@ -61,13 +61,9 @@ ja:
       done_editing: "編集完了"
     aspect_listings: 
       add_an_aspect: "+ Add an aspect"
+      deselect_all: "Deselect all"
       edit_aspect: "Edit %{name}"
-    aspect_stream: 
-      commented_on: "commented on"
-      mentions: "Mentions"
-      posted: "posted"
-      recently: "recently:"
-      stream: "Stream"
+      select_all: "Select all"
     contacts_not_visible: "このアスペクトの連絡先はお互いの存在が確認できません。"
     contacts_visible: "このアスペクトの連絡先はお互いの存在が確認できます。"
     create: 
@@ -93,7 +89,7 @@ ja:
       aspect_not_empty: "アスペクトは空ではありません。"
       remove: "削除"
     index: 
-      community_members: "Featured Diaspora* members"
+      community_spotlight: "Community Spotlight"
       cubbies: 
         explanation: "Cubbi.es is the first Diaspora application under development."
         heading: "Connect to Cubbi.es"
@@ -103,7 +99,6 @@ ja:
         content_2: "Give it to anyone and they'll be able to find you on Diaspora."
         heading: "Diaspora ID"
       donate: "Donate"
-      featured_users: "Featured Users"
       handle_explanation: "これがあなたのハンドル名です。メールアドレスと同じようにほかの人に教えて、ダイアスポラで連絡を取り合うことができます。"
       help: 
         do_you: "Do you:"
@@ -117,7 +112,6 @@ ja:
         satisfaction: "%{link}: Community-powered support"
         tutorials_and_wiki: "%{tutorial} & %{wiki}: Community-powered tutorials, how-to, and news"
       keep_us_running: "Keep %{pod} running fast, buy our servers their monthly coffee fix!"
-      mentions: "Mentions"
       no_contacts: "連絡先無し"
       no_tags: "No tags"
       people_sharing_with_you: "People sharing with you"
@@ -126,8 +120,8 @@ ja:
       services: 
         content: "You can connect the following services to Diaspora:"
         heading: "Connect Services"
-      tags_following: "Followed Tags"
       unfollow_tag: "Stop following #%{tag}"
+      welcome: "Welcome"
       your_aspects: "Your Aspects"
     many: "アスペクト%{count}集"
     move_contact: 
@@ -138,8 +132,8 @@ ja:
       create: "Create"
       name: "Name"
     no_contacts_message: 
-      featured_users: "featured users"
-      or_featured: "Or you can share with %{link}"
+      community_spotlight: "community spotlight"
+      or_spotlight: "Or you can share with %{link}"
       try_adding_some_more_contacts: "You can search (top) or invite (right) more contacts."
       you_should_add_some_more_contacts: "You should add some more contacts!"
     no_posts_message: 
@@ -154,8 +148,8 @@ ja:
     selected_contacts: 
       manage_your_aspects: "Manage your aspects."
       no_contacts: "You don't have any contacts here yet."
+      view_all_community_spotlight: "See all community spotlight"
       view_all_contacts: "View all contacts"
-      view_all_featured_users: "See all Featured Users"
     show: 
       edit_aspect: "アスペクトを編集する"
     two: "%{count} aspects"
@@ -188,8 +182,6 @@ ja:
   contacts: 
     create: 
       failure: "連絡先を作成するのに失敗しました。"
-    featured: 
-      featured_users: "Featured Users"
     few: "連絡先%{count}件"
     index: 
       add_a_new_aspect: "Add a new aspect"
@@ -209,6 +201,8 @@ ja:
     other: "連絡先%{count}件"
     sharing: 
       people_sharing: "People sharing with you:"
+    spotlight: 
+      community_spotlight: "Community Spotlight"
     two: "%{count} contacts"
     zero: "連絡先無し"
   conversations: 
@@ -616,7 +610,7 @@ ja:
       enter_password_again: "もう一度同じパスワードを入力してください。"
       enter_username: "ユーザ名を選択してください。（半角英数字とアンダーバーのみ）"
       join_the_movement: "Join the movement!"
-      sign_up_today: "Sign up today"
+      sign_up_message: "Social Networking with a <3"
   requests: 
     create: 
       sending: "送信中"
@@ -724,7 +718,6 @@ ja:
     publisher: 
       all: "すべて"
       all_contacts: "全ての連絡先"
-      click_to_share_with: "クリックして次のアスペクトに共有："
       discard_post: "Discard post"
       make_public: "公開にする"
       post_a_message_to: "%{aspect}に投稿する"
@@ -764,12 +757,27 @@ ja:
     hide_comments: "コメントを非表示にする"
     show_more_comments: "Show %{number} more comments"
   streams: 
+    aspects: 
+      title: "Your Aspects"
+    aspects_stream: "Aspects"
+    commented_on: "commented on"
+    community_spotlight_stream: "Community Spotlight"
+    followed_tag: 
+      contacts_title: "People who dig these tags"
+      title: "#Followed Tags"
+    followed_tags_stream: "#Followed Tags"
+    mentioned_stream: "@Mentions"
     mentions: 
       contacts_title: "People who mentioned you"
       title: "Your Mentions"
+    multi: 
+      contacts_title: "People in your Stream"
+      title: "Stream"
+    posted: "posted"
     public: 
       contacts_title: "Recent Posters"
       title: "Public Activity"
+    recently: "recently:"
     tags: 
       contacts_title: "People who dig these tags"
       title: "Posts tagged: %{tags}"
@@ -829,11 +837,14 @@ ja:
       private_message: "非公開メッセージが届いたとき"
       receive_email_notifications: "通知メールの送信設定"
       reshared: "...someone reshares your post?"
+      show_community_spotlight: "Show Community Spotlight in Stream?"
       started_sharing: "...someone starts sharing with you?"
+      stream_preferences: "Stream Preferences"
       your_email: "メールアドレス"
       your_handle: "ダイアスポラのユーザ名"
     getting_started: 
       bold: "aspects"
+      community_spotlight: "Community spotlight"
       community_welcome: "Diaspora's community is happy to have you aboard!"
       connect_to: "Connect to"
       connect_to_your_other_social_networks: "Connect to your other social networks"
@@ -844,7 +855,6 @@ ja:
       connect_with_people_explanation_pt2: "Aspects are an intuitive way to group new and familar faces, private to you, allowing you to filter down or share with subsets of your contacts easily."
       edit_profile: "プロフィールを編集する"
       featured_tags: "Featured tags"
-      featured_users: "Featured users"
       fill_out_your_profile: "Fill out your profile"
       find_friends: "Find friends"
       find_friends_from_facebook: "find friends from Facebook"
@@ -860,11 +870,11 @@ ja:
         gender: "Gender"
         location: "Location"
         name: "Name"
-        photo: "Photo"
+        photo: "写真"
         tags: "Tags"
       search_for_hashtags: "Search for #hashtags"
       search_for_people: "Search for people"
-      see_all_featured_users: "See all featured users"
+      see_all_community_spotlight: "See all community spotlight"
       welcome: "ダイアスポラへようこそ！"
       welcome_with_name: "Welcome, %{name}!"
     logged_out: 
@@ -881,6 +891,8 @@ ja:
       language_not_changed: "言語の選択に失敗しました"
       password_changed: "パスワードを変更しました"
       password_not_changed: "パスワードの変更に失敗しました"
+      settings_not_updated: "Settings update failed"
+      settings_updated: "Settings updated"
       unconfirmed_email_changed: "E-Mail Changed. Needs activation."
       unconfirmed_email_not_changed: "E-Mail Change Failed"
   webfinger: 

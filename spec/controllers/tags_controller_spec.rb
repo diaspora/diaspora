@@ -41,89 +41,31 @@ describe TagsController do
         sign_in :user, alice
       end
 
-      it 'displays your own post' do
-        my_post = alice.post(:status_message, :text => "#what", :to => 'all')
-        get :show, :name => 'what'
-        assigns(:posts).should == [my_post]
-        response.status.should == 200
+      it 'assigns a Stream::Tag object with the current_user' do
+        get :show, :name => 'yes'
+        assigns[:stream].user.should == alice
       end
 
-      it "displays a friend's post" do
-        other_post = bob.post(:status_message, :text => "#hello", :to => 'all')
-        get :show, :name => 'hello'
-        assigns(:posts).should == [other_post]
-        response.status.should == 200
-      end
-
-      it 'displays a public post' do
-        other_post = eve.post(:status_message, :text => "#hello", :public => true, :to => 'all')
-        get :show, :name => 'hello'
-        assigns(:posts).should == [other_post]
-        response.status.should == 200
-      end
-
-      it 'displays a public post that was sent to no one' do
-        stranger = Factory(:user_with_aspect)
-        stranger_post = stranger.post(:status_message, :text => "#hello", :public => true, :to => 'all')
-        get :show, :name => 'hello'
-        assigns(:posts).should == [stranger_post]
-      end
-
-      it 'displays a post with a comment containing the tag search' do
-        pending "toooo slow"
-        bob.post(:status_message, :text => "other post y'all", :to => 'all')
-        other_post = bob.post(:status_message, :text => "sup y'all", :to => 'all')
-        Factory(:comment, :text => "#hello", :post => other_post)
-        get :show, :name => 'hello'
-        assigns(:posts).should == [other_post]
-        response.status.should == 200
-      end
-
-      it 'succeeds without posts' do
+      it 'succeeds' do
         get :show, :name => 'hellyes'
         response.status.should == 200
       end
     end
 
     context "not signed in" do
-      context "when there are people to display" do
-        before do
-          alice.profile.tag_string = "#whatevs"
-          alice.profile.build_tags
-          alice.profile.save!
-          get :show, :name => "whatevs"
-        end
-
-        it "succeeds" do
-          response.should be_success
-        end
-
-        it "assigns the right set of people" do
-          assigns(:people).should == [alice.person]
-        end
+      it 'assigns a Stream::Tag object with no user' do
+        get :show, :name => 'yes'
+        assigns[:stream].user.should be_nil
       end
 
-      context "when there are posts to display" do
-        before do
-          @post = alice.post(:status_message, :text => "#what", :public => true, :to => 'all')
-          alice.post(:status_message, :text => "#hello", :public => true, :to => 'all')
-        end
+      it 'succeeds' do
+        get :show, :name => 'hellyes'
+        response.status.should == 200
+      end
 
-        it "succeeds" do
-          get :show, :name => 'what'
-          response.should be_success
-        end
-
-        it "assigns the right set of posts" do
-          get :show, :name => 'what'
-          assigns[:posts].should == [@post]
-        end
-
-        it 'succeeds with comments' do
-          alice.comment('what WHAT!', :post => @post)
-          get :show, :name => 'what'
-          response.should be_success
-        end
+      it 'succeeds with mobile' do 
+        get :show, :name => 'foo', :format => :mobile
+        response.should be_success
       end
     end
   end

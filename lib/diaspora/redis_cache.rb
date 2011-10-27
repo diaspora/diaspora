@@ -50,7 +50,7 @@ class RedisCache
       :order => self.order
     })
 
-    sql = @user.visible_posts_sql(opts)
+    sql = @user.visible_shareable_sql(Post, opts)
     hashes = Post.connection.select_all(sql)
 
     # hashes are inserted into set in a single transaction
@@ -89,7 +89,7 @@ class RedisCache
   # exposing the need to tie cache to a stream
   # @return [Array<String>] Acceptable Post types for the given cache
   def self.acceptable_types
-    BaseStream::TYPES_OF_POST_IN_STREAM
+    Stream::Base::TYPES_OF_POST_IN_STREAM
   end
 
   # Instantiate a redis connection

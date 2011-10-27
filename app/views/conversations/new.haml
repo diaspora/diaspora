@@ -4,7 +4,7 @@
 
 :javascript
   $(document).ready(function () {
-    var data = $.parseJSON( "#{@contacts_json}" ),
+    var data = $.parseJSON( "#{escape_javascript(@contacts_json)}" ),
         autocompleteInput = $("#contact_autocomplete");
 
     autocompleteInput.autoSuggest(data, {

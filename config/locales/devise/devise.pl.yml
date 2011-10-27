@@ -6,47 +6,47 @@
 pl: 
   devise: 
     confirmations: 
-      confirmed: "Twoje konto zostało potwierdzone. Zalogowano Cię w Diasporze."
+      confirmed: "Konto zostało aktywowane. Zalogowano Cię w Diasporze."
       new: 
-        resend_confirmation: "Prześlij ponownie instrukcje aktywacji"
-      send_instructions: "W ciągu kilku minut otrzymasz e-maila zawierającego instrukcje dotyczące aktywacji konta."
+        resend_confirmation: "Wyślij ponownie instrukcję aktywacji"
+      send_instructions: "W ciągu kilku minut otrzymasz wiadomość zawierającą instrukcję aktywacji konta."
     failure: 
       inactive: "Twoje konto nie zostało jeszcze aktywowane."
-      invalid: "Nieprawidłowy adres email lub hasło."
-      invalid_token: "Nieprawidłowy kod identyfikacyjny."
+      invalid: "Nieprawidłowa nazwa użytkownika lub hasło."
+      invalid_token: "Nieprawidłowy token uwierzytelnienia."
       locked: "Twoje konto jest zablokowane."
-      timeout: "Twoja sesja wygasła, zaloguj się ponownie by kontynuować."
-      unauthenticated: "By kontynuować musisz się zalogować lub zarejestrować."
+      timeout: "Sesja wygasła, aby kontynuować zaloguj się ponownie."
+      unauthenticated: "Przed kontynuacją musisz się zalogować lub zarejestrować."
       unconfirmed: "Musisz aktywować swoje konto."
     invitations: 
-      invitation_token_invalid: "Podany klucz zaproszenia jest niepoprawny!"
-      send_instructions: "Twoje zaproszenie zostało wysłane."
+      invitation_token_invalid: "Token zaproszenia jest nieprawidłowy!"
+      send_instructions: "Zaproszenie zostało wysłane."
       updated: "Hasło zostało pomyślnie zmienione. Zalogowano."
     mailer: 
       confirmation_instructions: 
-        confirm: "Aktywuj moje konto"
-        subject: "Instrukcje aktywacji"
-        you_can_confirm: "Możesz aktywować swoje konto klikając poniższy odnośnik:"
+        confirm: "Aktywuj konto"
+        subject: "Instrukcja aktywacji"
+        you_can_confirm: "Możesz aktywować swoje konto klikając poniższe łącze:"
       hello: "Cześć %{email}!"
       invitation_instructions: 
         accept: "Przyjmij zaproszenie"
-        ignore: "Zignoruj tę wiadomość jeśli nie chcesz akceptować tego zaproszenia."
-        no_account_till: "Twoje konto nie zostanie utworzone dopóki nie zalogujesz się na stronie powyżej."
-        subject: "Zostałeś zaproszony do projektu Diaspora!"
+        ignore: "Zignoruj tę wiadomość jeśli nie chcesz zaakceptować tego zaproszenia."
+        no_account_till: "Konto nie zostanie utworzone dopóki nie zalogujesz się na stronie powyżej."
+        subject: "Zapraszamy do dołączenia do Diaspory!"
       inviter: 
-        accept_at: "na %{url}, możesz je zaakceptować używając odnośnika poniżej."
+        accept_at: "na %{url}, możesz je zaakceptować używając poniższego łącza."
         has_invited_you: "%{name}"
-        have_invited_you: "%{names} zaprosili cię do projektu Diaspora"
+        have_invited_you: "%{names} zaprosili Cię do Diaspory"
       reset_password_instructions: 
-        change: "Zmień moje hasło"
-        ignore: "Jeśli nie chcesz zresetować hasła, zignoruj ten e-mail."
+        change: "Zmiana hasła"
+        ignore: "Jeśli nie chcesz zmienić hasła, zignoruj tę wiadomość."
         someone_requested: "Odebraliśmy zgłoszenie zmiany hasła, jeśli chcesz to zrobić kliknij poniższy odnośnik:"
-        subject: "Instrukcje zmiany hasła"
-        wont_change: "Twoje hasło zostanie zmienione dopiero, gdy klikniesz odnośnik i podasz nowe hasło."
+        subject: "Instrukcja resetowania hasła"
+        wont_change: "Hasło nie zostanie zmienione do momentu kliknięcia powyższego łącza i utworzenia nowego."
       unlock_instructions: 
-        account_locked: "Twoje konto zostało zablokowane, ponieważ przekroczono limit nieudanych prób logowania."
+        account_locked: "Konto zostało zablokowane, ponieważ przekroczono limit nieudanych prób logowania."
         click_to_unlock: "Kliknij poniższy link, aby odblokować konto:"
-        subject: "Instrukcje odblokowywania"
+        subject: "Instrukcja odblokowania"
         unlock: "Odblokuj moje konto"
       welcome: "Witaj %{email}!"
     passwords: 
@@ -54,18 +54,18 @@ pl:
         change_password: "Zmień hasło"
       new: 
         forgot_password: "Nie pamiętasz hasła?"
-        no_account: "Konto o takim emailu nie istnieje. Jeżeli czekasz na nowe zaproszenia, wydajemy je tak szybko, jak to tylko możliwe."
+        no_account: "Konto z przypisanym podanym adresem e-mail nie istnieje. Jeżeli czekasz na nowe zaproszenia, wysyłamy je tak szybko, jak to tylko możliwe."
         send_password_instructions: "Wyślij mi instrukcje resetowania hasła"
       send_instructions: "W ciągu kilku minut otrzymasz e-maila zawierającego instrukcjie dotyczące zresetowania hasła."
-      updated: "Twoje hasło zostało zmienione. Zalogowano pomyślnie."
+      updated: "Hasło zostało zmienione. Zalogowano pomyślnie."
     registrations: 
-      destroyed: "Żegnaj! Twoje konto zostało usunięte."
-      signed_up: "Twoja rejestracja przebiegła pomyślnie. Jeśli aktywowano odpowiednią opcję, wyślemy do Ciebie e-mail potwierdzający ten fakt."
-      updated: "Pomyślnie zaktualizowano informacje o Twoim koncie."
+      destroyed: "Do widzenia! Konto zostało pomyślnie zamknięte. Mamy nadzieję, że wkrótce zobaczymy Cię ponownie!"
+      signed_up: "Rejestracja przebiegła pomyślnie. Jeśli aktywowano odpowiednią opcję, wyślemy do Ciebie e-mail potwierdzający ten fakt."
+      updated: "Pomyślnie zaktualizowano konto."
     sessions: 
       new: 
-        alpha_software: "Pamiętaj, że będziesz używać programu we wczesnym stadium rozwoju (alfa)."
-        bugs_and_feedback: "Miej świadomość, że doświadczysz błędów. Zachęcamy do korzystania z przycisku Feedback umieszczonego po prawej stronie okna przeglądarki, aby sygnalizować wszelkie problemy. Pracujemy najszybciej jak się da, aby rozwiązać wszelkie zgłaszane kłopoty."
+        alpha_software: "Masz zamiar korzystać z oprogramowania w wersji alfa."
+        bugs_and_feedback: "Miej świadomość, że napotkasz na błędy. Zachęcamy do korzystania z łącza \"Feedback\" umieszczonego po prawej stronie okna przeglądarki, aby zgłaszać wszelkie problemy. Pracujemy najszybciej jak się da, aby rozwiązać wszystkie zgłaszane problemy."
         bugs_and_feedback_mobile: "Informujemy o możliwości występowania błędów.  Zachęcamy do informowania o nich! Postaramy się jak najszybciej je zlikwidować. "
         login: "Login"
         modern_browsers: "obsługuje wyłącznie nowoczesne przeglądarki."
@@ -74,7 +74,7 @@ pl:
         sign_in: "Zaloguj się"
         username: "Nazwa użytkownika"
       signed_in: "Zalogowano pomyślnie."
-      signed_out: "Wylogowano."
+      signed_out: "Pomyślnie wylogowano."
     shared: 
       links: 
         forgot_your_password: "Nie pamiętasz hasła?"
@@ -88,10 +88,10 @@ pl:
     unlocks: 
       new: 
         resend_unlock: "Wyślij ponownie instrukcje odblokowywania"
-      send_instructions: "W ciągu kilku minut otrzymasz e-mail z instrukcjami odblokowywania konta."
-      unlocked: "Twoje konto zostało odblokowane. Zalogowano pomyślnie."
+      send_instructions: "W ciągu kilku minut otrzymasz wiadomość z instrukcją odblokowania konta."
+      unlocked: "Konto zostało pomyślnie odblokowane. Pomyślnie zalogowano."
   errors: 
     messages: 
-      already_confirmed: "potwierdzono wcześniej"
+      already_confirmed: "już potwierdzone"
       not_found: "nie znaleziono"
-      not_locked: "nie był zablokowany"
+      not_locked: "nie był(a) zablokowany/a"

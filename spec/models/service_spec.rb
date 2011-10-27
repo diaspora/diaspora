@@ -26,4 +26,8 @@ describe Service do
       @service.destroy
     }.should change(ServiceUser, :count).by(-1)
   end
+
+  it 'by default has no profile photo url' do
+    Service.new.profile_photo_url.should == nil
+  end
 end

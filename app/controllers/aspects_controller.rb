@@ -2,7 +2,7 @@
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
-require File.join(Rails.root, "lib", 'stream', "aspect_stream")
+require File.join(Rails.root, "lib", 'stream', "aspect")
 
 class AspectsController < ApplicationController
   before_filter :authenticate_user!
@@ -15,7 +15,7 @@ class AspectsController < ApplicationController
 
   def index
     aspect_ids = (session[:a_ids] ? session[:a_ids] : [])
-    @stream = AspectStream.new(current_user, aspect_ids,
+    @stream = Stream::Aspect.new(current_user, aspect_ids,
                                :order => sort_order,
                                :max_time => params[:max_time].to_i)
 

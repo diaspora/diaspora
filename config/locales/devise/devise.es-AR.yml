@@ -34,9 +34,9 @@ es-AR:
         no_account_till: "Tu cuenta no será creada hasta que accedas al anterior enlace y te registres."
         subject: "¡Te invitaron a unirte a Diáspora*!"
       inviter: 
-        accept_at: "at %{url}, you can accept it through the link below."
-        has_invited_you: "%{name}"
-        have_invited_you: "%{names} have invited you to join Diaspora"
+        accept_at: "en %{url}, podes aceptarlo desde el link  de abajo "
+        has_invited_you: "%{name} te ha invitado a unirte a Diaspora"
+        have_invited_you: "%{names} te han invitado a unirte a Diaspora"
       reset_password_instructions: 
         change: "Cambiar mi contraseña"
         ignore: "Si vos no hiciste la solicitud, por favor ignorá este correo."

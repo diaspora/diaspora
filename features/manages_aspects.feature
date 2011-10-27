@@ -24,7 +24,7 @@ Feature: User manages contacts
     And I have an aspect called "People"
     When I am on the contacts page
     And I follow "People"
-    And I follow "Add contacts to People"
+    And I follow "add contacts to People"
     And I wait for the ajax to finish
     And I preemptively confirm the alert
     And I press "Delete" in the modal window
@@ -48,7 +48,7 @@ Feature: User manages contacts
     And I have an aspect called "Cat People"
     When I am on the contacts page
     And I follow "Cat People"
-    And I follow "Add contacts to Cat People"
+    And I follow "add contacts to Cat People"
     And I wait for the ajax to finish
     And I press the first ".contact_list .button"
     And I wait for the ajax to finish
@@ -78,7 +78,7 @@ Feature: User manages contacts
 
     And I click on my name in the header
     When I follow "Contacts"
-    Then I should see "Featured Users" within ".span-18"
+    Then I should see "Community Spotlight" within ".span-18"
 
   Scenario: clicking on the manage aspects link in the right nav with zero contacts directs a user to the featured users page
     Given I am signed in
@@ -86,7 +86,7 @@ Feature: User manages contacts
     And I am on the home page
 
     When I follow "Manage your aspects."
-    Then I should see "Featured Users" within ".span-18"
+    Then I should see "Community Spotlight" within ".span-18"
 
   Scenario: clicking on the contacts link in the header with contacts does not send a user to the featured users page
     Given I am signed in

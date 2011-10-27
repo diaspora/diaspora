@@ -8,6 +8,7 @@ cs:
     aspect_dropdown: 
       add_to_aspect: "Přidat do aspektu"
       all_aspects: "Všechny aspekty"
+      select_aspects: "Select aspects"
       toggle: 
         few: "Ve {{count}} aspektech"
         many: "V {{count}} aspektech"

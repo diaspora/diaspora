@@ -2,8 +2,12 @@
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
-class Photo < Post
+class Photo < ActiveRecord::Base
   require 'carrierwave/orm/activerecord'
+
+  include Diaspora::Commentable
+  include Diaspora::Shareable
+
   mount_uploader :processed_image, ProcessedImage
   mount_uploader :unprocessed_image, UnprocessedImage
 
@@ -40,11 +44,25 @@ class Photo < Post
   end
 
   def self.diaspora_initialize(params = {})
-    photo = super(params)
-    image_file = params.delete(:user_file)
+    photo = self.new params.to_hash
+    photo.author = params[:author]
+    photo.public = params[:public] if params[:public]
+    photo.pending = params[:pending] if params[:pending]
+    photo.diaspora_handle = photo.author.diaspora_handle
+
     photo.random_string = ActiveSupport::SecureRandom.hex(10)
-    photo.unprocessed_image.store! image_file
+
+    if params[:user_file]
+      image_file = params.delete(:user_file)
+      photo.unprocessed_image.store! image_file
+
+    elsif params[:image_url]
+      photo.remote_unprocessed_image_url = params[:image_url]
+      photo.unprocessed_image.store!
+    end
+
     photo.update_remote_path
+
     photo
   end
 

@@ -84,10 +84,10 @@ ca:
         accept: "Accepta la invitació"
         ignore: "Si no voleu acceptar la invitació, ignoreu aquest correu electrònic."
         no_account_till: "No es crearà el vostre compte fins que no accediu l'enllaç anterior i us registreu."
-      inviters:
-        has_invited_you: "%{name} us ha convidat a unir-vos a Diàspora"
+      inviter:
+        has_invited_you: "%{name}"
         have_invited_you: "%{names} us han convidat a unir-vos a Diàspora"
-        accept_at: ", a %{url}, podeu acceptar-ho mitjançant l'enllaç següent."
+        accept_at: "a %{url}, podeu acceptar-ho mitjançant l'enllaç següent."
     shared:
       mail_signup_form:
         sign_up_for_an_invite: "Registreu-vos per a rebre una invitació!"

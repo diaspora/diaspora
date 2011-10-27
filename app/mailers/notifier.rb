@@ -6,17 +6,23 @@ class Notifier < ActionMailer::Base
   def self.admin(string, recipients, opts = {})
     mails = []
     recipients.each do |rec|
-      mail = single_admin(string, rec)
+      mail = single_admin(string, rec, opts)
       mails << mail
     end
     mails
   end
 
-  def single_admin(string, recipient)
+  def single_admin(string, recipient, opts={})
     @receiver = recipient
     @string = string.html_safe
-    mail(:to => @receiver.email,
-         :subject => I18n.t('notifier.single_admin.subject'), :host => AppConfig[:pod_uri].host)
+
+    default_opts = {:to => @receiver.email,
+         :from => AppConfig[:smtp_sender_address],
+         :subject => I18n.t('notifier.single_admin.subject'),  :host => AppConfig[:pod_uri].host}
+    default_opts.merge!(opts)
+
+
+    mail(default_opts)
   end
 
   def started_sharing(recipient_id, sender_id)

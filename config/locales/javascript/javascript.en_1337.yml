@@ -8,6 +8,7 @@ en_1337:
     aspect_dropdown: 
       add_to_aspect: "4DD N00B"
       all_aspects: "4LL 45P3C75"
+      select_aspects: "Select aspects"
       toggle: 
         few: "1N {{count}} 45P3C75"
         many: "1N {{count}} 45P3C75"

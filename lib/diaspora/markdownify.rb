@@ -9,6 +9,7 @@ module Diaspora
       def autolink(link, type)
         auto_link(link, :link => :urls, :html => { :target => "_blank" })
       end
+
     end
   end
 end
