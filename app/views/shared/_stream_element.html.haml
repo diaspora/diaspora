@@ -72,7 +72,7 @@
 
         - if commenting_disabled?(post)
           %span.federated_person{:title => "#{t('.federated_account')}"}
-            =t('.currently_unavailable')
+            ="[#{t('.currently_unavailable')}]"
         - else
           %span.like_action
             = like_action(post, current_user)

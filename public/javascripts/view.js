@@ -122,6 +122,13 @@ var View = {
       }
     },
 
+    commenting_disabled: {
+      bind: function() {
+        $('.federated_person').twipsy({
+          live: true
+        });
+      }
+    },
     contacts_on_side: {
       bind: function() {
         $("#selected_aspect_contacts .avatar").twipsy({
