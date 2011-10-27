@@ -132,7 +132,8 @@ var View = {
     contacts_on_side: {
       bind: function() {
         $("#selected_aspect_contacts .avatar").twipsy({
-          live: true
+          live: true,
+          placement: 'right'
         });
       }
     },
