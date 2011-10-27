@@ -129,11 +129,19 @@ var View = {
         });
       }
     },
+
     contacts_on_side: {
       bind: function() {
         $("#selected_aspect_contacts .avatar").twipsy({
-          live: true,
-          placement: 'right'
+          live: true
+        });
+      }
+    },
+
+    like_avatars: {
+      bind: function() {
+        $(".likes_list .avatar").twipsy({
+          live: true
         });
       }
     },
