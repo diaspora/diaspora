@@ -1,7 +1,7 @@
-namespace :db do
+namespace :oembed do
 
   desc "Fix cached oembed objects to stop them from overlapping on the top bar"
-  task :oembed_fix => :environment do
+  task :update => :environment do
     print "Fetching cached oembed responses that need fixing..."
     caches = OEmbedCache.where('url LIKE :youtube OR url LIKE :soundcloud',
                                 { :youtube => "%youtube.com%",
