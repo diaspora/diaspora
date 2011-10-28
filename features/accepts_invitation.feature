@@ -14,7 +14,8 @@ Feature: invitation acceptance
       And I fill in the following:
         | profile_first_name | O             |
 
-      When I follow "awesome_button"
+      And I preemptively confirm the alert
+      And I follow "awesome_button"
       Then I should be on the multi page
 
     Scenario: accept invitation from user
@@ -31,7 +32,8 @@ Feature: invitation acceptance
       And I fill in the following:
         | profile_first_name | O             |
 
-      When I follow "awesome_button"
+      And I preemptively confirm the alert
+      And I follow "awesome_button"
       Then I should be on the multi page
 
     Scenario: sends an invitation

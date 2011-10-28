@@ -14,13 +14,15 @@ Feature: new user registration
     And I should see "What are you into?"
 
   Scenario: new user goes through the setup wizard
-    And I fill in the following:
+    When I fill in the following:
       | profile_first_name | O             |
+    And I preemptively confirm the alert
     And I follow "awesome_button"
 
     Then I should be on the multi page
     And I should not see "awesome_button"
 
   Scenario: new user skips the setup wizard
-    When I follow "awesome_button"
+    When I preemptively confirm the alert
+    And I follow "awesome_button"
     Then I should be on the multi page
