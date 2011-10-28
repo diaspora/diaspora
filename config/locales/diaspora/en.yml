@@ -69,7 +69,7 @@ en:
         reshare:
           attributes:
             root_guid:
-              taken: "You've already reshared that post!"
+              taken: "That good, huh?  You've already reshared that post!"
   error_messages:
     helper:
       invalid_fields: "Invalid Fields"
