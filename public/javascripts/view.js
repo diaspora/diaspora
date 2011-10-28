@@ -62,6 +62,12 @@ var View = {
 //    Diaspora.Page.subscribe("stream/scrolled", startAutoResize)
 //    Diaspora.Page.subscribe("stream/reloaded", startAutoResize)
 
+    /* photo exporting in the works */
+    $("#photo-export-button").bind("click", function(evt){
+      evt.preventDefault();
+      alert($(this).attr('title'));
+    });
+
     $(document.body)
       .click(this.dropdowns.removeFocus)
       .click(this.reshareButton.removeFocus);

@@ -23,7 +23,7 @@
       = f.error_messages
       %p
         = f.text_field :email, :value => @user.unconfirmed_email || @user.email
-        = f.submit t('.change_email')
+        = f.submit t('.change_email'), :class => "button"
     %br
     - if @user.unconfirmed_email.present?
       %p= t('.email_awaiting_confirmation', :email => @user.email, :unconfirmed_email => @user.unconfirmed_email)
@@ -52,7 +52,7 @@
     .submit_block
       = link_to t('cancel'), edit_user_path
       = t('or')
-      = f.submit t('.change_password')
+      = f.submit t('.change_password'), :class => "button"
 
   %br
   %br
@@ -66,7 +66,7 @@
 
     %p
       = f.select :language, available_language_options
-      = f.submit t('.change_language')
+      = f.submit t('.change_language'), :class => "button"
 
   %br
   %br
@@ -148,7 +148,7 @@
           = type.label :reshared, t('.reshared')
           = type.check_box :reshared, {:checked =>  @email_prefs['reshared']}, false, true
     %br
-    = f.submit t('.change')
+    = f.submit t('.change'), :class => "button"
 
   %br
   %br
@@ -161,7 +161,7 @@
       = t('.export_data')
     = link_to t('.download_xml'), export_user_path, :class => "button"
     %br
-    = link_to t('.download_photos'), export_photos_user_path, :class => "button"
+    = link_to t('.download_photos'), "#", :class => "button", :id => "photo-export-button", :title => t('.photo_export_unavailable')
 
   .span-5.last
     %h3 
