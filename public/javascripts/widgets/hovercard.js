@@ -24,7 +24,7 @@
       $(document.body).delegate("a.hovercardable:not(.self)", "hover", self.handleHoverEvent);
       self.hoverCard.tip.hover(self.hoverCardHover, self.clearTimeout);
 
-      self.globalSubscribe("aspectDropdown/updated", function(evt, personId, dropdownHtml) {
+      self.subscribe("aspectDropdown/updated aspectDropdown/blurred", function(evt, personId, dropdownHtml) {
         self.dropdownCache.cache["/people/" + personId + "/aspect_membership_button"] = $(dropdownHtml).removeClass("active").get(0).outerHTML;
       });
     });
@@ -79,7 +79,6 @@
 
       self.dropdownCache.get(self.target.attr("data-hovercard") + "/aspect_membership_button", function(dropdown) {
         self.hoverCard.dropdownContainer.html(dropdown);
-        self.hoverCard.dropdownWidget = self.instantiate("AspectsDropdown", self.hoverCard.dropdownContainer.children());
         self.hoverCard.tip.fadeIn(140);
       });
     };
