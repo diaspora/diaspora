@@ -1,4 +1,6 @@
 %p
-  = post_message(@notification.post, :process_newlines => true, :length => 600)
+  = @notification.text_owner.user_preferences.exists?(:email_type => 'silent') ? "#{t('notifier.mentioned.silenced', :name => "#{@notification.sender.name}")}" : post_message(@notification.post, :process_newlines => true, :length => 600)
 %p
   = link_to t('notifier.comment_on_post.reply', :name => @notification.post.author.name), post_url(@notification.post)
+
+

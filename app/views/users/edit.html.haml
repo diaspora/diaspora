@@ -147,6 +147,14 @@
         %p.checkbox_select
           = type.label :reshared, t('.reshared')
           = type.check_box :reshared, {:checked =>  @email_prefs['reshared']}, false, true
+
+
+        %br
+        %br
+        %br
+        %p.checkbox_select
+          = type.label t('.silenced')
+          = type.check_box :silent, {:checked => @email_prefs['silent']}, false, true
     %br
     = f.submit t('.change'), :class => "button"
 

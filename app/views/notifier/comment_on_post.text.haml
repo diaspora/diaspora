@@ -1,1 +1,3 @@
-!= comment_message(@notification.comment)
+!= @notification.text_owner.user_preferences.exists?(:email_type => 'silent') ? "#{t('notifier.comment_on_post.silenced', :name => "#{@notification.sender.name}")}" : comment_message(@notification.comment)
+
+

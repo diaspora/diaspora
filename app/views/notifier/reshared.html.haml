@@ -2,7 +2,9 @@
   = "#{t('.reshared', :name => "#{@notification.sender.name}")}:"
 
 %p{:style => "font-style:italic;color:#666"}
-  = post_message(@notification.reshare.root, :process_newlines => true)
+  = @notification.text_owner.user_preferences.exists?(:email_type => 'silent') ? "#{t('notifier.reshared.silenced')}" : post_message(@notification.reshare.root, :process_newlines => true)
 
 %p
   = link_to t('.view_post'), post_url(@notification.reshare)
+
+
