@@ -64,6 +64,9 @@ ru:
       deselect_all: "Выключить все"
       edit_aspect: "Редактировать аспект «%{name}»"
       select_all: "Включить все"
+    aspect_stream: 
+      stay_updated: "Будьте в курсе"
+      stay_updated_explanation: "Ваш основной поток наполняется вашими контактами, метками, за которыми вы следите и записями нескольких популярных членов сообщества."
     contacts_not_visible: "Контакты в этом аспекте не смогут видеть друг друга."
     contacts_visible: "Контакты в этом аспекте могут видеть друг друга"
     create: 
@@ -89,7 +92,6 @@ ru:
       aspect_not_empty: "Аспект не пуст"
       remove: "удалить"
     index: 
-      community_spotlight: "В центре внимания"
       cubbies: 
         explanation: "Cubbi.es — это первое приложение, разрабатываемое для Диаспоры."
         heading: "Подключение к Cubbi.es"
@@ -111,18 +113,18 @@ ru:
         need_help: "Нужна помощь?"
         satisfaction: "%{link}: осуществляемая сообществом поддержка"
         tutorials_and_wiki: "%{tutorial} и %{wiki}: создающиеся сообществом руководства, инструкции и новости"
+      introduce_yourself: "Это ваш поток. Ныряйте и осваивайтесь."
       keep_us_running: "Помогите %{pod} работать быстро — купите нашим серверам дозу кофе, сделав ежемесячное пожертвование!"
       no_contacts: "Контакты отсутствуют"
       no_tags: "+ Найти метку"
       people_sharing_with_you: "Люди делятся с вами"
       post_a_message: "новая запись >>"
-      see_more_from_us: "Лента рекомендуемых пользователей"
       services: 
         content: "Вы можете подключить к Диаспоре следующие службы:"
         heading: "Подключенные службы"
       unfollow_tag: "Не следить за меткой #%{tag}"
-      welcome: "Добро пожаловать"
-      your_aspects: "Ваши аспекты"
+      welcome_to_diaspora: "Добро пожаловать в Диаспору, %{name}!"
+      your_aspects: "Аспекты"
     many: "%{count} аспект[-а, -ов]"
     move_contact: 
       error: "Ошибка при перемещении контакта: %{inspect}"
@@ -148,7 +150,7 @@ ru:
     selected_contacts: 
       manage_your_aspects: "Управление аспектами."
       no_contacts: "Здесь пока нет ни одного контакта."
-      view_all_community_spotlight: "See all community spotlight"
+      view_all_community_spotlight: "Посмотреть всех рекомендуемых"
       view_all_contacts: "Все контакты"
     show: 
       edit_aspect: "редактировать аспект"
@@ -168,7 +170,7 @@ ru:
     heading: "Букмарклет Диаспоры"
     post_something: "Сообщите что-нибудь Диаспоре"
     post_success: "Опубликовано! Закрытие!"
-  cancel: "Отмена"
+  cancel: "Отменить"
   comments: 
     few: "%{count} комментариев"
     many: "%{count} комментариев"
@@ -185,7 +187,7 @@ ru:
     few: "%{count} контакт[-а, -ов]"
     index: 
       add_a_new_aspect: "Новый аспект"
-      add_to_aspect: "Добавить контакты в %{name}"
+      add_to_aspect: "добавить контакты в %{name}"
       all_contacts: "Все контакты"
       check_out: "Оцените"
       many_people_are_you_sure: "Вы уверены, что хотите начать приватную беседу с числом контактов более %{suggested_limit}? Возможно, лучше просто написать сообщение в этот аспект."
@@ -444,7 +446,7 @@ ru:
     email_sent_by_diaspora: "Это письмо было послано Диаспорой. Если вы не хотите получать подобные письма,"
     hello: "Привет, %{name}!"
     liked: 
-      liked: "%{name} понравилось Ваше сообщение"
+      liked: "%{name} понравилось ваше сообщение"
       view_post: "Посмотреть запись >"
     mentioned: 
       mentioned: "упомянул вас в сообщении:"
@@ -452,7 +454,7 @@ ru:
     private_message: 
       reply_to_or_view: "Ответить или посмотреть эту беседу >"
     reshared: 
-      reshared: "%{name} только что поделился(лась) вашей записью"
+      reshared: "%{name} поделился(лась) вашей записью"
       view_post: "Посмотреть запись >"
     single_admin: 
       admin: "Ваш администратор Диаспоры"
@@ -652,6 +654,8 @@ ru:
   search: "Поиск"
   services: 
     create: 
+      already_authorized: "Пользователь с идентификатором %{diaspora_id} уже авторизовал эту учетную запись %{service_name}."
+      failure: "Ошибка авторизации."
       success: "Проверка подлинности прошла успешно."
     destroy: 
       success: "Идентификация успешно удалена."
@@ -711,15 +715,22 @@ ru:
     notification: 
       new: "Новый %{type} из %{from}"
     public_explain: 
+      control_your_audience: "Выбирайте свою аудиторию"
       logged_in: "вошли в %{service}"
       manage: "управление подключенными сервисами"
-      outside: "Публичные сообщения доступны для чтения всем, даже за пределами вашей Диаспоры."
+      new_user_welcome_message: "Используйте #метки для классификации своих записей и поиска людей со схожими интересами. Привлекайте внимание интересных людей с помощью @упоминаний"
+      outside: "Публичные сообщения доступны для чтения всем, даже за пределами Диаспоры."
+      share: "Делитесь"
       title: "Настройка подключенных услуг"
+      visibility_dropdown: "Используйте это выпадающее меню для смены видимости вашей записи (мы предлагаем вам сделать первую запись публичной)."
     publisher: 
       all: "все"
       all_contacts: "все контакты"
       discard_post: "Отменить запись"
       make_public: "сделать публичным"
+      new_user_prefill: 
+        hello: "Привет всем, я тут #%{new_user_tag}."
+        i_like: "Я интересуюсь %{tags}."
       post_a_message_to: "Опубликовать сообщение для %{aspect}"
       posting: "Отправка..."
       publishing_to: "публикация в:"
@@ -730,6 +741,8 @@ ru:
     reshare: 
       reshare: "Поделиться повторно"
     stream_element: 
+      connect_to_comment: "Connect to this user to comment on their post"
+      currently_unavailable: "commenting currently unavailable"
       dislike: "Не нравится"
       hide_and_mute: "Скрыть и отключить уведомления"
       like: "Мне нравится"
@@ -758,20 +771,22 @@ ru:
     show_more_comments: "Остальные комментарии (%{number})"
   streams: 
     aspects: 
-      title: "Ваши аспекты"
+      title: "Аспекты"
     aspects_stream: "Аспекты"
     commented_on: "обсуждаемые"
     community_spotlight_stream: "В центре внимания"
     followed_tag: 
-      contacts_title: "Люди, интересующиеся этими метками"
-      title: "#Отслеживаемые метки"
-    followed_tags_stream: "#Отслеживаемые метки"
+      add_a_tag: "Add a tag"
+      contacts_title: "Интересуются этими метками"
+      follow: "Follow"
+      title: "#Метки"
+    followed_tags_stream: "#Метки"
     mentioned_stream: "@Упоминания"
     mentions: 
       contacts_title: "Упоминавшие вас люди"
       title: "@Упоминания"
     multi: 
-      contacts_title: "Люди в вашем Потоке"
+      contacts_title: "В вашем потоке"
       title: "Поток"
     posted: "опубликованные"
     public: 
@@ -831,52 +846,32 @@ ru:
       edit_account: "Редактировать аккаунт"
       email_awaiting_confirmation: "Мы послали ссылку для активации на %{unconfirmed_email}. Пока вы не пройдете по ней и не активируете новый адрес, мы будем использовать ваш прежний ящик %{email}."
       export_data: "Экспорт информации"
+      getting_started: "Новые пользовательские настройки"
       liked: "...кому-нибудь нравится ваше сообщение?"
       mentioned: "... вы упомянуты в сообщении?"
       new_password: "Новый пароль"
+      photo_export_unavailable: "Photo exporting currently unavailable"
       private_message: "... вы получаете личное сообщение?"
       receive_email_notifications: "Получать уведомление по электронной почте, когда..."
       reshared: "...кто-то делится вашей записью?"
       show_community_spotlight: "Показывать рекомендуемых пользователей в Потоке?"
+      show_getting_started: "Вернуть информацию для начинающих"
       started_sharing: "...кто-то начинает делиться с вами?"
-      stream_preferences: "Настройки Потока"
+      stream_preferences: "Настройки потока"
       your_email: "Ваш адрес электронной почты"
       your_handle: "Ваш идентификатор в Диаспоре"
     getting_started: 
-      bold: "аспектов"
-      community_spotlight: "В центре внимания"
+      awesome_take_me_to_diaspora: "Чудесно! Пустите меня в Диаспору*"
       community_welcome: "Сообщество Диаспоры радо приветствовать вас!"
-      connect_to: "Подключитесь к"
-      connect_to_your_other_social_networks: "Подключитесь к другим вашим социальным сетям"
-      connect_to_your_other_social_networks_explanation_p1: "Подключение к службам позволит вам публиковать записи на этих сервисах."
-      connect_to_your_other_social_networks_explanation_p2: "Подключившись к Facebook, вы также сможете найти друзей, уже зарегистрированных в Диаспоре, и пригласить остальных."
-      connect_with_people: "Знакомьтесь с интересными людьми"
-      connect_with_people_explanation_pt1: "Общайтесь с людьми, добавляя их в один или несколько ваших %{bold}."
-      connect_with_people_explanation_pt2: "Аспекты - это интуитивно понятный способ организации новых и уже знакомых собеседников, видимый только вам и позволяющий легко делиться только с нужными группами людей."
-      edit_profile: "Редактировать профиль"
-      featured_tags: "Следить за рекомендуемыми метками"
-      fill_out_your_profile: "Заполните ваш профиль"
-      find_friends: "Найти друзей"
-      find_friends_from_facebook: "найти друзей из Facebook"
-      finished: "Готово"
-      follow_your_interests: "Следите за интересующими вас темами"
-      get_updates_from_core: "Получайте новости проекта от команды разработчиков."
       hashtag_explanation: "Метки позволяют вам обсуждать и следить за интересующими вас темами. Это также отличный способ поиска единомышленников в Диаспоре."
-      not_mandatory: "Выполнение следующих действий не является обязательным, но расширит ваши возможности в Диаспоре."
-      profile_description: "Помогите другим найти вас, заполнив ваш профиль."
-      profile_fields: 
-        bio: "Биография"
-        birthday: "День рождения"
-        gender: "Пол"
-        location: "Местоположение"
-        name: "Имя"
-        photo: "Фото"
-        tags: "Метки"
-      search_for_hashtags: "Искать по #меткам"
-      search_for_people: "Искать людей"
-      see_all_community_spotlight: "Посмотреть всех рекомендуемых пользователей"
-      welcome: "Добро пожаловать!"
-      welcome_with_name: "Добро пожаловать, %{name}!"
+      hashtag_suggestions: "Попробуйте следующие метки, например #искусство, #кино, #gif и т. п."
+      hooking_up_fb: "подключив вашу учетную запись Facebook"
+      saved: "Сохранено!"
+      we_can_speed_things_up: "Регистрацию можно ускорить"
+      well_hello_there: "Приветствуем вас!"
+      what_are_you_in_to: "Чем вы интересуетесь?"
+      what_facebook_does: "к Диаспоре. Это автоматически заполнит ваше имя и фотографию, а также вы сможете отправлять туда копии своих записей."
+      who_are_you: "Кто вы?"
     logged_out: 
       go_mobile: "Заходите с мобильного!"
       on_your_mobile_device: "на вашем устройстве для доступа к мобильной версии Диаспоры."
@@ -901,3 +896,4 @@ ru:
     no_person_constructed: "Ни одно лицо не может быть собрано из этой hcard."
     not_enabled: "webfinger не будет включен для хоста %{account}'s"
     xrd_fetch_failed: "Произошла ошибка при получении xrd с %{account}"
+  welcome: "Добро пожаловать!"

@@ -9,6 +9,8 @@ uk:
       add_to_aspect: "Додати контакт"
       all_aspects: "Усі аспекти"
       select_aspects: "Вибрати аспекти"
+      started_sharing_with: "You have started sharing with {{name}}!"
+      stopped_sharing_with: "You have stopped sharing with {{name}}."
       toggle: 
         few: "У {{count}} аспектах"
         many: "У {{count}} аспектах"
@@ -26,8 +28,15 @@ uk:
     confirm_dialog: "Ви упевнені?"
     failed_to_like: "Не вдалося!"
     failed_to_post_message: "Не вдалося відправити повідомлення!"
+    getting_started: 
+      alright_ill_wait: "Alright, I'll wait."
+      hey: "Hey, {{name}}!"
+      no_tags: "Hey, you haven't followed any tags!  Continue anyway?"
+      preparing_your_stream: "Preparing your personialized stream..."
     infinite_scroll: 
       no_more: "Повідомлень більше немає."
+    photo_uploader: 
+      looking_good: "OMG, you look awesome!"
     publisher: 
       at_least_one_aspect: "Вам потрібно створити мінімум один аспект"
       limited: "Обмежена - ваш запис буде видний тільки вказаним вами людям"
@@ -36,6 +45,8 @@ uk:
       duplicate: "Ви вже поділилися цим записом!"
     search_for: "Шукати {{name}}"
     show_more: "показати більше"
+    tags: 
+      wasnt_that_interesting: "OK, I suppose #{{tagName}} wasn't all that interesting..."
     timeago: 
       day: "день"
       days: "%d днів[-я]"

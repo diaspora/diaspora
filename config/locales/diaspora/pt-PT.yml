@@ -61,9 +61,12 @@ pt-PT:
       done_editing: "finalizar edição"
     aspect_listings: 
       add_an_aspect: "+ Adicionar um aspecto"
-      deselect_all: "Deselect all"
-      edit_aspect: "Edit %{name}"
-      select_all: "Select all"
+      deselect_all: "Anular todos"
+      edit_aspect: "Alterar %{name}"
+      select_all: "Seleccionar todos"
+    aspect_stream: 
+      stay_updated: "Mantenha-se Actualizado"
+      stay_updated_explanation: "Na sua stream geral pode encontrar todos os seus contactos, as tags que segue e publicações de alguns membros criativos da comunidade."
     contacts_not_visible: "Contactos neste aspecto não se verão uns aos outros."
     contacts_visible: "Contactos neste aspecto ver-se-ão uns aos outros."
     create: 
@@ -89,7 +92,6 @@ pt-PT:
       aspect_not_empty: "Aspecto não vazio"
       remove: "remover"
     index: 
-      community_spotlight: "Community Spotlight"
       cubbies: 
         explanation: "Cubbi.es é a primeira aplicação do Diaspora sobre desenvolvimento."
         heading: "Ligar ao Cubbi.es"
@@ -101,27 +103,27 @@ pt-PT:
       donate: "Doar"
       handle_explanation: "Esta é a sua identificação do Diaspora. Tal como um endereço de email, pode dá-la a quem deseja que o contacte."
       help: 
-        do_you: "Do you:"
-        email_feedback: "%{link} your feedback, if you prefer"
-        feature_and_forum: "%{gs} & %{forum}: Community-powered support and feature requests"
+        do_you: "Quer:"
+        email_feedback: "%{link} o teu feedback, se preferires"
+        feature_and_forum: "%{gs} & %{forum}: Apoio da Comunidade e pedidos de novos recursos"
         feature_suggestion: "... uma sugestão de %{link}?"
         find_a_bug: "... um %{link} para relatar?"
         have_a_question: "... uma %{link}?"
         here_to_help: "A comunidade do Diaspora está aqui!"
         need_help: "Precisa de ajuda?"
-        satisfaction: "%{link}: Community-powered support"
-        tutorials_and_wiki: "%{tutorial} & %{wiki}: Community-powered tutorials, how-to, and news"
+        satisfaction: "%{link}: Apoio da comunidade"
+        tutorials_and_wiki: "%{tutorial} & %{wiki}: Tutoriais da comunidade, how-to, e notícias"
+      introduce_yourself: "Este é o seu stream.  Venha daí e apresente-se."
       keep_us_running: "Mantenha o %{pod} a funcionar rapidamente e compre aos servidores a sua dose de café com uma doação mensal!"
       no_contacts: "Não há contactos"
       no_tags: "+ Encontre uma tag para seguir"
       people_sharing_with_you: "Pessoas a partilhar consigo"
       post_a_message: "publicar uma mensagem >>"
-      see_more_from_us: "See more of the D* community."
       services: 
         content: "Pode conectar os seguintes serviços ao Diaspora:"
         heading: "Conectar Serviços"
       unfollow_tag: "Deixar de seguir #%{tag}"
-      welcome: "Welcome"
+      welcome_to_diaspora: "Bem-vindo ao Diaspora, %{name}!"
       your_aspects: "Os Seus Aspectos"
     many: "%{count} aspectos"
     move_contact: 
@@ -132,8 +134,8 @@ pt-PT:
       create: "Create"
       name: "Nome (apenas visível para si)"
     no_contacts_message: 
-      community_spotlight: "community spotlight"
-      or_spotlight: "Or you can share with %{link}"
+      community_spotlight: "destaque da comunidade"
+      or_spotlight: "Ou podes partilhar com %{link}"
       try_adding_some_more_contacts: "Pode pesquisar (acima) ou convidar (à direita) mais contactos."
       you_should_add_some_more_contacts: "Devia adicionar mais alguns contactos!"
     no_posts_message: 
@@ -148,7 +150,7 @@ pt-PT:
     selected_contacts: 
       manage_your_aspects: "Gerir os seus aspectos"
       no_contacts: "Ainda não tem quaisquer aspectos aqui."
-      view_all_community_spotlight: "See all community spotlight"
+      view_all_community_spotlight: "Ver todos os destaques da comunidade"
       view_all_contacts: "Ver todos os contactos"
     show: 
       edit_aspect: "editar aspecto"
@@ -185,9 +187,9 @@ pt-PT:
     few: "%{count} contactos"
     index: 
       add_a_new_aspect: "Adicionar um novo aspecto"
-      add_to_aspect: "Add contacts to %{name}"
+      add_to_aspect: "Adicionar contactos a %{name}"
       all_contacts: "Todos os Contactos"
-      check_out: "Check out"
+      check_out: "Veja"
       many_people_are_you_sure: "Tem a certeza de que deseja começar um conversa privada com mais de %{suggested_limit} contactos? Publicar para este aspecto pode ser uma forma melhor de os contactar."
       my_contacts: "Os Meus Contactos"
       no_contacts: "Parece que precisa de adicionar alguns contactos."
@@ -202,7 +204,7 @@ pt-PT:
     sharing: 
       people_sharing: "Pessoas a partilhar consigo:"
     spotlight: 
-      community_spotlight: "Community Spotlight"
+      community_spotlight: "Destaque da Comunidade"
     two: "%{count} contactos"
     zero: "contactos"
   conversations: 
@@ -586,12 +588,12 @@ pt-PT:
       updated: "Perfil actualizado"
   public: "Público"
   reactions: 
-    few: "%{count} reactions"
-    many: "%{count} reactions"
-    one: "1 reaction"
-    other: "%{count} reactions"
-    two: "%{count} reactions"
-    zero: "0 reactions"
+    few: "%{count} reacções"
+    many: "%{count} reacções"
+    one: "1 reacção"
+    other: "%{count} reacções"
+    two: "%{count} reacções"
+    zero: "0 reacções"
   registrations: 
     closed: "Os registos estão encerrados neste pod do Diaspora."
     create: 
@@ -610,7 +612,7 @@ pt-PT:
       enter_password_again: "Introduza de novo a mesma palavra-passe"
       enter_username: "Escolha um nome de utilizador (apenas letras, números e underscores)"
       join_the_movement: "Junte-se ao movimento!"
-      sign_up_message: "Social Networking with a <3"
+      sign_up_message: "A Rede Social com <3"
   requests: 
     create: 
       sending: "A enviar"
@@ -647,11 +649,13 @@ pt-PT:
         zero: "Repartilhar"
       reshare_confirmation: "Repartilhar a publicação de %{author}?"
       reshare_original: "Repartilha original"
-      reshared_via: "reshared via"
+      reshared_via: "repartilhar via"
       show_original: "Mostrar original"
   search: "Procurar"
   services: 
     create: 
+      already_authorized: "Um utilizador com o id diaspora %{diaspora_id} já autorizou essa %{service_name} conta."
+      failure: "Autenticação falhada. "
       success: "A autentificação foi bem sucedida."
     destroy: 
       success: "A autentificação foi destruída com sucesso."
@@ -711,15 +715,22 @@ pt-PT:
     notification: 
       new: "Novo %{type} de %{from}"
     public_explain: 
+      control_your_audience: "Controle o seu Público"
       logged_in: "Sessão iniciada em %{service}"
       manage: "gerir serviços conectados"
+      new_user_welcome_message: "Utilize #hashtags para classificar as suas publicações e encontrar pessoas que partilham dos mesmos interesses.  Chame por outras pessoas através de @Mentions"
       outside: "As mensagens públicas ficarão visíveis a pessoas fora do Diaspora."
+      share: "Partilhar"
       title: "Configurar serviços conectados"
+      visibility_dropdown: "Utilize esta lista para alterar as opções de visibilidade da sua publicação.  (Sugerimos que a sua primeira seja pública.)"
     publisher: 
       all: "tudo"
       all_contacts: "todos os contactos"
       discard_post: "Rejeitar a publicação"
       make_public: "tornar público"
+      new_user_prefill: 
+        hello: "Olá a todos, o meu nome é #%{new_user_tag}. "
+        i_like: "Estou interessado em %{tags}."
       post_a_message_to: "Publicar uma mensagem em %{aspect}"
       posting: "A publicar..."
       publishing_to: "publicando para:"
@@ -730,6 +741,8 @@ pt-PT:
     reshare: 
       reshare: "Voltar a partilhar"
     stream_element: 
+      connect_to_comment: "Connect to this user to comment on their post"
+      currently_unavailable: "commenting currently unavailable"
       dislike: "Não gosto"
       hide_and_mute: "Esconder e Silenciar"
       like: "Gosto"
@@ -758,29 +771,31 @@ pt-PT:
     show_more_comments: "Mostrar %{number} mais contactos"
   streams: 
     aspects: 
-      title: "Your Aspects"
-    aspects_stream: "Aspects"
-    commented_on: "commented on"
-    community_spotlight_stream: "Community Spotlight"
+      title: "Os Teus Aspectos"
+    aspects_stream: "Aspectos"
+    commented_on: "comentou no"
+    community_spotlight_stream: "Destaque da Comunidade"
     followed_tag: 
-      contacts_title: "People who dig these tags"
+      add_a_tag: "Add a tag"
+      contacts_title: "Pessoas que gostam destas marcações"
+      follow: "Follow"
       title: "#Followed Tags"
     followed_tags_stream: "#Followed Tags"
     mentioned_stream: "@Mentions"
     mentions: 
-      contacts_title: "People who mentioned you"
+      contacts_title: "Pessoas que o mencionaram"
       title: "Your Mentions"
     multi: 
-      contacts_title: "People in your Stream"
+      contacts_title: "Pessoas no seu Stream"
       title: "Stream"
-    posted: "posted"
+    posted: "publicado"
     public: 
-      contacts_title: "Recent Posters"
-      title: "Public Activity"
-    recently: "recently:"
+      contacts_title: "Cartazes Recentes"
+      title: "Actividade Geral"
+    recently: "recentemente:"
     tags: 
       contacts_title: "People who dig these tags"
-      title: "Posts tagged: %{tags}"
+      title: "Publicações marcadas: %{tags}"
   tag_followings: 
     create: 
       failure: "Falhou ao seguir: #%{name}"
@@ -791,7 +806,7 @@ pt-PT:
   tags: 
     show: 
       follow: "Seguir #%{tag}"
-      followed_by: "followed by"
+      followed_by: "seguido por"
       following: "A seguir #%{tag}"
       nobody_talking: "Ainda ninguém está a falar sobre %{tag}."
       people_tagged_with: "Pessoas com a %{tag}"
@@ -831,58 +846,38 @@ pt-PT:
       edit_account: "Editar conta"
       email_awaiting_confirmation: "Enviámos-lhe uma hiperligação de activação para %{unconfirmed_email}. Até que siga esta hiperligação e active o novo endereço, continuaremos a utilizar o seu endereço original %{email}."
       export_data: "Exportar Dados"
+      getting_started: "Novas Preferências de Utilizador"
       liked: "...alguém gosta da sua publicação?"
       mentioned: "...é mencionado numa publicação?"
       new_password: "Nova palavra-passe"
+      photo_export_unavailable: "Photo exporting currently unavailable"
       private_message: "...recebe uma mensagem privada?"
       receive_email_notifications: "Receber notificações por email quando..."
       reshared: "...alguém repartilha a sua publicação?"
-      show_community_spotlight: "Show Community Spotlight in Stream?"
+      show_community_spotlight: "Mostrar Destaque da Comunidade no Stream?"
+      show_getting_started: "Re- activar Como Começar"
       started_sharing: "...alguém começa a partilhar consigo?"
-      stream_preferences: "Stream Preferences"
+      stream_preferences: "Preferências de Stream"
       your_email: "O seu endereço de email"
       your_handle: "A sua identificação do Diaspora"
     getting_started: 
-      bold: "aspectos"
-      community_spotlight: "Community spotlight"
-      community_welcome: "Diaspora's community is happy to have you aboard!"
-      connect_to: "Conectar a"
-      connect_to_your_other_social_networks: "Conecte-se às suas outras redes sociais"
-      connect_to_your_other_social_networks_explanation_p1: "Connecting to services will allow you to publish out to these services."
-      connect_to_your_other_social_networks_explanation_p2: "With Facebook, you also be able to find friends already on Diaspora and invite others."
-      connect_with_people: "Ligue-se a pessoas interessantes"
-      connect_with_people_explanation_pt1: "Ligue-se a pessoas ao colocá-las em um ou mais dos seus %{bold}."
-      connect_with_people_explanation_pt2: "Aspectos são uma forma intuitiva de agrupar rostos novos e familiares, de forma privada, permitindo-lhe filtrar ou partilhar com subconjuntos dos seus contactos facilmente."
-      edit_profile: "Editar o Perfil"
-      featured_tags: "Seguir tags destacadas"
-      fill_out_your_profile: "Preencha o seu perfil"
-      find_friends: "Encontrar amigos"
-      find_friends_from_facebook: "encontre amigos do Facebook"
-      finished: "Terminado"
-      follow_your_interests: "Siga os seus interesses"
-      get_updates_from_core: "Get updates about the project from the core team."
+      awesome_take_me_to_diaspora: "Excelente! Quero ir para o Diaspora*"
+      community_welcome: "A comunidade do Diaspora está feliz por o ter consigo!"
       hashtag_explanation: "Hashtags permitem-lhe falar sobre e seguir os seus interesses.  Também são uma óptima forma de conhecer novas pessoas no Diaspora."
-      not_mandatory: "Completing the following steps will improve your Diaspora experience, but they are not mandatory."
-      profile_description: "Ajude as pessoas a encontrá-lo preenchendo a sua informação de perfil."
-      profile_fields: 
-        bio: "Biografia"
-        birthday: "Data de nascimento"
-        gender: "Sexo"
-        location: "Localização"
-        name: "Nome"
-        photo: "Fotografia"
-        tags: "Tags"
-      search_for_hashtags: "Procurar #hashtags"
-      search_for_people: "Procurar pessoas"
-      see_all_community_spotlight: "See all community spotlight"
-      welcome: "Bem-vindo(a)!"
-      welcome_with_name: "Bem-vindo(a), %{name}!"
+      hashtag_suggestions: "Siga tage como #arte, #cinema, #gif, etc."
+      hooking_up_fb: "ligar à sua conta de Facebook"
+      saved: "Guardado!"
+      we_can_speed_things_up: "Podemos acelerar as coisas um pouco mais ao"
+      well_hello_there: "Oh, olá!"
+      what_are_you_in_to: "O que gostas mais?"
+      what_facebook_does: "para o Diaspora. Isto irá buscar o seu nome e fotografia, e activar a publicação automática noutras plataformas."
+      who_are_you: "Quem és tu?"
     logged_out: 
-      go_mobile: "Now go mobile."
-      on_your_mobile_device: "on your mobile device to access Diaspora* mobile."
-      signed_out: "You've signed out of Diaspora*"
-      simply_visit: "Simply visit"
-      works_on_modern: "Works on all modern smartphones"
+      go_mobile: "Agora no seu telemóvel."
+      on_your_mobile_device: "no seu dispositivo móvel para aceder ao Diaspora* mobile."
+      signed_out: "Você saiu do Diaspora*"
+      simply_visit: "Visite"
+      works_on_modern: "Funciona em todos os recentes smartphones"
     public: 
       does_not_exist: "O utilizador %{username} não existe!"
     update: 
@@ -891,8 +886,8 @@ pt-PT:
       language_not_changed: "Falha ao alterar o idioma"
       password_changed: "A palavra-passe foi alterada. Já pode iniciar sessão com a sua nova palavra-passe."
       password_not_changed: "Falhou ao alterar a palavra-passe"
-      settings_not_updated: "Settings update failed"
-      settings_updated: "Settings updated"
+      settings_not_updated: "Actualização das configurações falhada"
+      settings_updated: "Configurações actualizadas"
       unconfirmed_email_changed: "O endereço de email foi alterado. É necessária activação."
       unconfirmed_email_not_changed: "A mudança de email falhou"
   webfinger: 
@@ -901,3 +896,4 @@ pt-PT:
     no_person_constructed: "Nenhuma pessoa pôde ser construída através deste hcard."
     not_enabled: "webfinger parece não estar activado para o anfitrião de %{account}"
     xrd_fetch_failed: "ocorreu um erro ao obter o xrd da conta %{account}"
+  welcome: "Bem-vindo(a)!"

@@ -9,6 +9,8 @@ eo:
       add_to_aspect: "Aldoni al aspekto"
       all_aspects: "Ĉiuj aspektoj"
       select_aspects: "Select aspects"
+      started_sharing_with: "You have started sharing with {{name}}!"
+      stopped_sharing_with: "You have stopped sharing with {{name}}."
       toggle: 
         few: "En {{count}} aspektoj"
         many: "En {{count}} aspektoj"
@@ -26,8 +28,15 @@ eo:
     confirm_dialog: "ĉu vi certas?"
     failed_to_like: "Ne povis ŝati!"
     failed_to_post_message: "Ne povis afiŝi mesaĝon!"
+    getting_started: 
+      alright_ill_wait: "Alright, I'll wait."
+      hey: "Hey, {{name}}!"
+      no_tags: "Hey, you haven't followed any tags!  Continue anyway?"
+      preparing_your_stream: "Preparing your personialized stream..."
     infinite_scroll: 
       no_more: "Ne pli afiŝoj."
+    photo_uploader: 
+      looking_good: "OMG, you look awesome!"
     publisher: 
       at_least_one_aspect: "Vi devus eldoni al almenaŭ unu aspekto"
       limited: "Malpublika - via afiŝo nur vidoteblos de homoj, kun kiuj vi partoprenas"
@@ -36,6 +45,8 @@ eo:
       duplicate: "Vi jam repartoprenis tiun afiŝon!"
     search_for: "Serĉi por {{name}}"
     show_more: "vidi plu"
+    tags: 
+      wasnt_that_interesting: "OK, I suppose #{{tagName}} wasn't all that interesting..."
     timeago: 
       day: "unu tago"
       days: "%d tagoj"

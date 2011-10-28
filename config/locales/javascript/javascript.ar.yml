@@ -9,6 +9,8 @@ ar:
       add_to_aspect: "أضف إلى فئة"
       all_aspects: "جميع الفئات"
       select_aspects: "Select aspects"
+      started_sharing_with: "You have started sharing with {{name}}!"
+      stopped_sharing_with: "You have stopped sharing with {{name}}."
       toggle: 
         few: "في {{count}} فئات"
         many: "في {{count}} فئات"
@@ -26,8 +28,15 @@ ar:
     confirm_dialog: "هل أنت متأكد؟"
     failed_to_like: "فشل في [أعجبني]"
     failed_to_post_message: "فشل في نشر رسالة!"
+    getting_started: 
+      alright_ill_wait: "Alright, I'll wait."
+      hey: "Hey, {{name}}!"
+      no_tags: "Hey, you haven't followed any tags!  Continue anyway?"
+      preparing_your_stream: "Preparing your personialized stream..."
     infinite_scroll: 
       no_more: "لا توجد أية رسائل أخرى"
+    photo_uploader: 
+      looking_good: "OMG, you look awesome!"
     publisher: 
       at_least_one_aspect: "حدد فئة واحدة على الأقل"
       limited: "محدودة - مشاركتك ستكون متاحة لجهات إتصالك فقط"
@@ -36,6 +45,8 @@ ar:
       duplicate: "أعدت نشر هذه المشاركة مسبقا!"
     search_for: "إبحث عن {{name}}"
     show_more: "المزيد"
+    tags: 
+      wasnt_that_interesting: "OK, I suppose #{{tagName}} wasn't all that interesting..."
     timeago: 
       day: "منذ يوم"
       days: "منذ %d أيام"

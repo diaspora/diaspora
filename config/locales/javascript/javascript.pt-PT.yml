@@ -6,36 +6,47 @@
 pt-PT: 
   javascripts: 
     aspect_dropdown: 
-      add_to_aspect: "Adicionar ao aspecto"
+      add_to_aspect: "Adicionar contacto"
       all_aspects: "Todos os aspectos"
-      select_aspects: "Select aspects"
+      select_aspects: "Seleccionar aspectos"
+      started_sharing_with: "You have started sharing with {{name}}!"
+      stopped_sharing_with: "You have stopped sharing with {{name}}."
       toggle: 
         few: "Em {{count}} aspectos"
         many: "Em {{count}} aspectos"
         one: "Em {{count}} aspecto"
         other: "Em {{count}} aspectos"
         two: "Em {{count}} aspectos"
-        zero: "Adicionar ao aspecto"
+        zero: "Seleccione os aspectos"
     aspect_navigation: 
-      deselect_all: "Deselect all"
-      no_aspects: "No aspects selected"
-      select_all: "Select all"
+      deselect_all: "Anular todos"
+      no_aspects: "Nenhuns aspectos seleccionados"
+      select_all: "Seleccionar todos"
     comments: 
       hide: "esconder comentários"
       show: "mostrar todos os comentários"
     confirm_dialog: "Tem a certeza?"
     failed_to_like: "Falhou ao gostar!"
     failed_to_post_message: "Falhou ao publicar a mensagem!"
+    getting_started: 
+      alright_ill_wait: "Alright, I'll wait."
+      hey: "Hey, {{name}}!"
+      no_tags: "Hey, you haven't followed any tags!  Continue anyway?"
+      preparing_your_stream: "Preparing your personialized stream..."
     infinite_scroll: 
       no_more: "Não há mais publicações."
+    photo_uploader: 
+      looking_good: "OMG, you look awesome!"
     publisher: 
-      at_least_one_aspect: "Tem de publicar para pelo menos um aspecto"
-      limited: "Limitado - a sua publicação só será vista pelas pessoas com as quais a está partilhar"
-      public: "Público - A sua publicação vai ser visível para todos e encontrada por motores de busca"
+      at_least_one_aspect: "Tem de publicar em pelo menos um aspecto"
+      limited: "Limitado - a sua publicação só será vista pelas pessoas com as quais está partilhar"
+      public: "Público - A sua publicação será visível para todos e encontrada por motores de busca"
     reshares: 
       duplicate: "Já republicou essa publicação!"
     search_for: "Procurar por {{name}}"
     show_more: "mostrar mais"
+    tags: 
+      wasnt_that_interesting: "OK, I suppose #{{tagName}} wasn't all that interesting..."
     timeago: 
       day: "um dia"
       days: "%d dias"
@@ -53,7 +64,7 @@ pt-PT:
       year: "cerca de um ano"
       years: "%d anos"
     videos: 
-      unknown: "Tipo de vídeo desconhecido"
-      watch: "Assista a este vídeo em {{provider}}"
+      unknown: "Formato de vídeo desconhecido"
+      watch: "Visualize este vídeo no {{provider}}"
     web_sockets: 
       disconnected: "A websocket está fechada; as publicações não serão distribuídas em directo."

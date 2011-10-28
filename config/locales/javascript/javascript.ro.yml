@@ -9,6 +9,8 @@ ro:
       add_to_aspect: "Adaugă la aspect"
       all_aspects: "All aspects"
       select_aspects: "Select aspects"
+      started_sharing_with: "You have started sharing with {{name}}!"
+      stopped_sharing_with: "You have stopped sharing with {{name}}."
       toggle: 
         few: "În {{count}} aspecte"
         many: "În {{count}} aspecte"
@@ -26,8 +28,15 @@ ro:
     confirm_dialog: "Sunteţi sigur?"
     failed_to_like: "Failed to like!"
     failed_to_post_message: "Failed to post message!"
+    getting_started: 
+      alright_ill_wait: "Alright, I'll wait."
+      hey: "Hey, {{name}}!"
+      no_tags: "Hey, you haven't followed any tags!  Continue anyway?"
+      preparing_your_stream: "Preparing your personialized stream..."
     infinite_scroll: 
       no_more: "Nu mai sunt posturi."
+    photo_uploader: 
+      looking_good: "OMG, you look awesome!"
     publisher: 
       at_least_one_aspect: "Trebuie sa publici pe cel puţin un aspect"
       limited: "Limited - your post will only be seen by people you are sharing with"
@@ -36,6 +45,8 @@ ro:
       duplicate: "You've already reshared that post!"
     search_for: "Caută {{name}}"
     show_more: "show more"
+    tags: 
+      wasnt_that_interesting: "OK, I suppose #{{tagName}} wasn't all that interesting..."
     timeago: 
       day: "o zi"
       days: "%d zile"

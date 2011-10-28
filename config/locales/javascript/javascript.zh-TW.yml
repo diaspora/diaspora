@@ -9,6 +9,8 @@ zh-TW:
       add_to_aspect: "加聯絡人"
       all_aspects: "所有面向"
       select_aspects: "選面向"
+      started_sharing_with: "You have started sharing with {{name}}!"
+      stopped_sharing_with: "You have stopped sharing with {{name}}."
       toggle: 
         few: "在{{count}}個面向中"
         many: "在{{count}}個面向中"
@@ -26,8 +28,15 @@ zh-TW:
     confirm_dialog: "你確定嗎?"
     failed_to_like: "說讚失敗!"
     failed_to_post_message: "貼文失敗!"
+    getting_started: 
+      alright_ill_wait: "Alright, I'll wait."
+      hey: "Hey, {{name}}!"
+      no_tags: "Hey, you haven't followed any tags!  Continue anyway?"
+      preparing_your_stream: "Preparing your personialized stream..."
     infinite_scroll: 
       no_more: "沒有貼文了."
+    photo_uploader: 
+      looking_good: "OMG, you look awesome!"
     publisher: 
       at_least_one_aspect: "發表時請至少選擇一個面向"
       limited: "限制 - 只有你想分享的人才看得到你的貼文"
@@ -36,6 +45,8 @@ zh-TW:
       duplicate: "你已經轉貼過該篇貼文了!"
     search_for: "搜尋 {{name}}"
     show_more: "顯示更多"
+    tags: 
+      wasnt_that_interesting: "OK, I suppose #{{tagName}} wasn't all that interesting..."
     timeago: 
       day: "一天"
       days: "%d天"

@@ -9,6 +9,8 @@ eu:
       add_to_aspect: "Alderdira gehitu"
       all_aspects: "All aspects"
       select_aspects: "Select aspects"
+      started_sharing_with: "You have started sharing with {{name}}!"
+      stopped_sharing_with: "You have stopped sharing with {{name}}."
       toggle: 
         few: "{{count}} alderdietan"
         many: "{{count}} alderdietan"
@@ -26,8 +28,15 @@ eu:
     confirm_dialog: "Ziur al zaude?"
     failed_to_like: "Huts gustoko egitean!"
     failed_to_post_message: "Huts egin du mezuaren bidalketak!"
+    getting_started: 
+      alright_ill_wait: "Alright, I'll wait."
+      hey: "Hey, {{name}}!"
+      no_tags: "Hey, you haven't followed any tags!  Continue anyway?"
+      preparing_your_stream: "Preparing your personialized stream..."
     infinite_scroll: 
       no_more: "Mezu gehiagorik ez dago."
+    photo_uploader: 
+      looking_good: "OMG, you look awesome!"
     publisher: 
       at_least_one_aspect: "Gutxienez alderdi batean partekatu behar duzu"
       limited: "Mugatua - zure mezua aukeratu duzun jendeak bakarrik ikusiko du"
@@ -36,6 +45,8 @@ eu:
       duplicate: "Dagoeneko birpartekatu duzu mezu hori!"
     search_for: "Bilatu {{name}}"
     show_more: "erakutsi gehiago"
+    tags: 
+      wasnt_that_interesting: "OK, I suppose #{{tagName}} wasn't all that interesting..."
     timeago: 
       day: "egun bat"
       days: "%d egun"

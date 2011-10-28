@@ -9,6 +9,8 @@ it:
       add_to_aspect: "Aggiungi"
       all_aspects: "Tutti gli aspetti"
       select_aspects: "Scegli gli aspetti"
+      started_sharing_with: "You have started sharing with {{name}}!"
+      stopped_sharing_with: "You have stopped sharing with {{name}}."
       toggle: 
         few: "In {{count}} aspetti"
         many: "In {{count}} aspetti"
@@ -26,8 +28,15 @@ it:
     confirm_dialog: "Sei sicuro?"
     failed_to_like: "Valutazione fallita!"
     failed_to_post_message: "Invio messaggio fallito!"
+    getting_started: 
+      alright_ill_wait: "Alright, I'll wait."
+      hey: "Hey, {{name}}!"
+      no_tags: "Hey, you haven't followed any tags!  Continue anyway?"
+      preparing_your_stream: "Preparing your personialized stream..."
     infinite_scroll: 
       no_more: "Non ci sono altri post."
+    photo_uploader: 
+      looking_good: "OMG, you look awesome!"
     publisher: 
       at_least_one_aspect: "Devi condividere con almeno un aspetto"
       limited: "Non pubblico - il tuo post sarà visibile solamente a coloro con cui lo condividi"
@@ -36,6 +45,8 @@ it:
       duplicate: "Hai già condiviso questo post!"
     search_for: "Ricerca per {{name}}"
     show_more: "continua..."
+    tags: 
+      wasnt_that_interesting: "OK, I suppose #{{tagName}} wasn't all that interesting..."
     timeago: 
       day: "un giorno"
       days: "%d giorni"

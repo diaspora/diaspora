@@ -9,6 +9,8 @@ cs:
       add_to_aspect: "Přidat do aspektu"
       all_aspects: "Všechny aspekty"
       select_aspects: "Select aspects"
+      started_sharing_with: "You have started sharing with {{name}}!"
+      stopped_sharing_with: "You have stopped sharing with {{name}}."
       toggle: 
         few: "Ve {{count}} aspektech"
         many: "V {{count}} aspektech"
@@ -26,8 +28,15 @@ cs:
     confirm_dialog: "Jste si jisti?"
     failed_to_like: "Oblíbení se nezdařilo!"
     failed_to_post_message: "Odeslání příspěvku se nezdařilo!"
+    getting_started: 
+      alright_ill_wait: "Alright, I'll wait."
+      hey: "Hey, {{name}}!"
+      no_tags: "Hey, you haven't followed any tags!  Continue anyway?"
+      preparing_your_stream: "Preparing your personialized stream..."
     infinite_scroll: 
       no_more: "Žádné další příspěvky."
+    photo_uploader: 
+      looking_good: "OMG, you look awesome!"
     publisher: 
       at_least_one_aspect: "Musíte publikovat alespoň do jednoho aspektu"
       limited: "Omezený - váše zpráva bude přístupná pouze lidem z vybraných aspektů"
@@ -36,6 +45,8 @@ cs:
       duplicate: "Tato zprávu už sdílíte!"
     search_for: "Hledat {{name}}"
     show_more: "zobrazit více"
+    tags: 
+      wasnt_that_interesting: "OK, I suppose #{{tagName}} wasn't all that interesting..."
     timeago: 
       day: "1 dnem"
       days: "%d dny"

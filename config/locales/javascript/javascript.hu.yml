@@ -9,6 +9,8 @@ hu:
       add_to_aspect: "Hozzáadás a csoporthoz"
       all_aspects: "Összes csoport"
       select_aspects: "Csoportok kiválasztása"
+      started_sharing_with: "You have started sharing with {{name}}!"
+      stopped_sharing_with: "You have stopped sharing with {{name}}."
       toggle: 
         few: "{{count}} csoportban"
         many: "{{count}} csoportban"
@@ -26,8 +28,15 @@ hu:
     confirm_dialog: "Biztos vagy benne?"
     failed_to_like: "Hiba"
     failed_to_post_message: "Üzenet elküldése sikertelen!"
+    getting_started: 
+      alright_ill_wait: "Alright, I'll wait."
+      hey: "Hey, {{name}}!"
+      no_tags: "Hey, you haven't followed any tags!  Continue anyway?"
+      preparing_your_stream: "Preparing your personialized stream..."
     infinite_scroll: 
       no_more: "Nincs több bejegyzés."
+    photo_uploader: 
+      looking_good: "OMG, you look awesome!"
     publisher: 
       at_least_one_aspect: "Minimum 1 csoportnak meg kell osztanod!"
       limited: "Korlátozott - csak az ismerőseid láthatják ezt a bejegyzést"
@@ -36,6 +45,8 @@ hu:
       duplicate: "Már újraosztottad ezt a bejegyzést!"
     search_for: "{{name}} keresése."
     show_more: "tovább"
+    tags: 
+      wasnt_that_interesting: "OK, I suppose #{{tagName}} wasn't all that interesting..."
     timeago: 
       day: "egy nappal"
       days: "%d nappal"

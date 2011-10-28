@@ -9,6 +9,8 @@ es:
       add_to_aspect: "Añadir contacto"
       all_aspects: "Todos los aspectos"
       select_aspects: "Elige los aspectos"
+      started_sharing_with: "You have started sharing with {{name}}!"
+      stopped_sharing_with: "You have stopped sharing with {{name}}."
       toggle: 
         few: "En {{count}} aspectos"
         many: "En {{count}} aspectos"
@@ -26,8 +28,15 @@ es:
     confirm_dialog: "¿Estás seguro?"
     failed_to_like: "¡Ha fallado tu aprobación!"
     failed_to_post_message: "¡Fallo al publicar el mensaje!"
+    getting_started: 
+      alright_ill_wait: "Alright, I'll wait."
+      hey: "Hey, {{name}}!"
+      no_tags: "Hey, you haven't followed any tags!  Continue anyway?"
+      preparing_your_stream: "Preparing your personialized stream..."
     infinite_scroll: 
       no_more: "No hay más publicaciones."
+    photo_uploader: 
+      looking_good: "OMG, you look awesome!"
     publisher: 
       at_least_one_aspect: "Debes publicarlo en al menos un aspecto"
       limited: "Limitado - tu publicación solo será visible para las personas con quien compartes"
@@ -36,6 +45,8 @@ es:
       duplicate: "¡Ya compartiste esa publicación!"
     search_for: "Buscar a {{name}}"
     show_more: "mostrar más"
+    tags: 
+      wasnt_that_interesting: "OK, I suppose #{{tagName}} wasn't all that interesting..."
     timeago: 
       day: "un día"
       days: "%d días"

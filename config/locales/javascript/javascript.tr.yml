@@ -8,14 +8,16 @@ tr:
     aspect_dropdown: 
       add_to_aspect: "Yönüne ekle"
       all_aspects: "Tüm yönler"
-      select_aspects: "Select aspects"
+      select_aspects: "Yönleri seç"
+      started_sharing_with: "{{name}} sizinle paylaşıma başladı!"
+      stopped_sharing_with: "{{name}} sizinle paylaşımı durdurdu."
       toggle: 
         few: "{{count}} yön"
         many: "{{count}} yön"
         one: "{{count}} yön"
         other: "{{count}} yön"
         two: "{{count}} yön"
-        zero: "Yönüne ekle"
+        zero: "Yön seç"
     aspect_navigation: 
       deselect_all: "Tümünü kaldır"
       no_aspects: "Hiç yön seçilmedi"
@@ -26,16 +28,25 @@ tr:
     confirm_dialog: "Emin misiniz?"
     failed_to_like: "Beğenme başarısız oldu!"
     failed_to_post_message: "Gönderi başarısız oldu!"
+    getting_started: 
+      alright_ill_wait: "Tamam, ben bekleyeceğim."
+      hey: "Merhaba, {{name}}!"
+      no_tags: "Hey, hiç etiket takip etmiyorsunuz! Gerçekten devam etmek istiyor musun?"
+      preparing_your_stream: "Kişiselleştirilmiş akışınız hazırlanıyor ..."
     infinite_scroll: 
       no_more: "Daha fazla gönderi yok."
+    photo_uploader: 
+      looking_good: "OMG, harika görünüyorsun!"
     publisher: 
       at_least_one_aspect: "En az bir yönünün yayınlanması zorunludur"
       limited: "Sınırlı - gönderi sadece paylaşılan kişiler tarafından görünür"
       public: "Genel - gönderi herkes tarafından görünür ve arama motorları tarafından bulunur olacak"
     reshares: 
-      duplicate: "Zaten bu gönderiyi tekrar paylaştın!"
+      duplicate: "Bu iyi, değil mi? Zaten bu gönderiyi tekrar paylaştın!"
     search_for: "{{name}} Ara"
     show_more: "daha fazlasını göster"
+    tags: 
+      wasnt_that_interesting: "Tamam, benim #{{tagName}} o kadar da ilginç değil..."
     timeago: 
       day: "1 gün"
       days: "%d gün"

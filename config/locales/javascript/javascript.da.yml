@@ -9,6 +9,8 @@ da:
       add_to_aspect: "Tilføj kontakt"
       all_aspects: "Alle aspekter"
       select_aspects: "Vælg aspekter"
+      started_sharing_with: "You have started sharing with {{name}}!"
+      stopped_sharing_with: "You have stopped sharing with {{name}}."
       toggle: 
         few: "I {{count}} aspekter"
         many: "I {{count}} aspekter"
@@ -26,8 +28,15 @@ da:
     confirm_dialog: "Er du sikker?"
     failed_to_like: "Kunne ikke synes om!"
     failed_to_post_message: "Kunne ikke indsende besked!"
+    getting_started: 
+      alright_ill_wait: "Alright, I'll wait."
+      hey: "Hey, {{name}}!"
+      no_tags: "Hey, you haven't followed any tags!  Continue anyway?"
+      preparing_your_stream: "Preparing your personialized stream..."
     infinite_scroll: 
       no_more: "Ikke flere indlæg."
+    photo_uploader: 
+      looking_good: "OMG, you look awesome!"
     publisher: 
       at_least_one_aspect: "Du skal dele med mindst et aspekt"
       limited: "Begrænset - dit indlæg vil kun blive set af dem du deler med"
@@ -36,6 +45,8 @@ da:
       duplicate: "Du har allerede delt dét indlæg!"
     search_for: "Søg efter {{name}}"
     show_more: "Vis mere"
+    tags: 
+      wasnt_that_interesting: "OK, I suppose #{{tagName}} wasn't all that interesting..."
     timeago: 
       day: "en dag"
       days: "%d dage"

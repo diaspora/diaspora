@@ -64,6 +64,9 @@ nl:
       deselect_all: "Deselect all"
       edit_aspect: "Edit %{name}"
       select_all: "Select all"
+    aspect_stream: 
+      stay_updated: "Stay Updated"
+      stay_updated_explanation: "Your main stream is populated with all of your contacts, tags you follow, and posts from some creative members of the community."
     contacts_not_visible: "Contacten in dit aspect zullen elkaar niet kunnen zien."
     contacts_visible: "Contacten in dit aspect zullen elkaar kunnen zien."
     create: 
@@ -89,7 +92,6 @@ nl:
       aspect_not_empty: "Aspect niet leeg"
       remove: "verwijderen"
     index: 
-      community_spotlight: "Community Spotlight"
       cubbies: 
         explanation: "Cubbi.es is de eerste Diaspora applicatie in ontwikkeling."
         heading: "Verbind met Cubbie.es"
@@ -111,17 +113,17 @@ nl:
         need_help: "Hulp nodig?"
         satisfaction: "%{link}: Community-powered support"
         tutorials_and_wiki: "%{tutorial} & %{wiki}: Community-powered tutorials, how-to, and news"
+      introduce_yourself: "This is your stream.  Jump in and introduce yourself."
       keep_us_running: "Houd %{pod} snel door bij te dragen aan de maandelijkse koffie kosten!"
       no_contacts: "Geen contacten"
       no_tags: "+ Vind een tag"
       people_sharing_with_you: "Mensen die met jou delen"
       post_a_message: "plaats een bericht >>"
-      see_more_from_us: "See more of the D* community."
       services: 
         content: "Je kunt de volgende service met Diaspora verbinden:"
         heading: "Verbind Services"
       unfollow_tag: "Stop met volgen van #%{tag}"
-      welcome: "Welcome"
+      welcome_to_diaspora: "Welcome to Diaspora, %{name}!"
       your_aspects: "Jouw Aspecten"
     many: "%{count} aspecten"
     move_contact: 
@@ -586,12 +588,12 @@ nl:
       updated: "Profiel bijgewerkt"
   public: "Openbaar"
   reactions: 
-    few: "%{count} reactions"
-    many: "%{count} reactions"
-    one: "1 reaction"
-    other: "%{count} reactions"
+    few: "%{count} reacties"
+    many: "%{count} reacties"
+    one: "1 reactie"
+    other: "%{count} reacties"
     two: "%{count} reactions"
-    zero: "0 reactions"
+    zero: "0 reacties"
   registrations: 
     closed: "Registratie is gesloten op deze Diaspora pod."
     create: 
@@ -652,6 +654,8 @@ nl:
   search: "Zoek"
   services: 
     create: 
+      already_authorized: "A user with diaspora id %{diaspora_id} already authorized that %{service_name} account."
+      failure: "Authentication failed."
       success: "Authenticatie succesvol."
     destroy: 
       success: "Authenticatie succesvol vernietigd."
@@ -711,15 +715,22 @@ nl:
     notification: 
       new: "Nieuw %{type} van %{from}"
     public_explain: 
+      control_your_audience: "Control your Audience"
       logged_in: "verbonden met %{service}"
       manage: "beheer verbonden services"
+      new_user_welcome_message: "Use #hashtags to classify your posts and find people who share your interests.  Call out awesome people with @Mentions"
       outside: "Openbare berichten zijn zichtbaar voor mensen buiten Diaspora."
+      share: "Share"
       title: "Stel verbonden services in"
+      visibility_dropdown: "Use this dropdown to change visibility of your post.  (We suggest you make this first one public.)"
     publisher: 
       all: "al"
       all_contacts: "alle contacten"
       discard_post: "Maak veld leeg"
       make_public: "maak openbaar"
+      new_user_prefill: 
+        hello: "Hey everyone, I'm #%{new_user_tag}. "
+        i_like: "I'm interested in %{tags}."
       post_a_message_to: "Plaats een bericht aan %{aspect}"
       posting: "Plaatsen..."
       publishing_to: "delen met: "
@@ -730,6 +741,8 @@ nl:
     reshare: 
       reshare: "Herdeel"
     stream_element: 
+      connect_to_comment: "Connect to this user to comment on their post"
+      currently_unavailable: "commenting currently unavailable"
       dislike: "Vind ik niet meer leuk"
       hide_and_mute: "Verberg en blokkeer"
       like: "Vind ik leuk"
@@ -763,12 +776,14 @@ nl:
     commented_on: "commented on"
     community_spotlight_stream: "Community Spotlight"
     followed_tag: 
+      add_a_tag: "Add a tag"
       contacts_title: "People who dig these tags"
+      follow: "Follow"
       title: "#Followed Tags"
     followed_tags_stream: "#Followed Tags"
     mentioned_stream: "@Mentions"
     mentions: 
-      contacts_title: "People who mentioned you"
+      contacts_title: "Mensen die jou hebben genoemd"
       title: "Your Mentions"
     multi: 
       contacts_title: "People in your Stream"
@@ -780,7 +795,7 @@ nl:
     recently: "recently:"
     tags: 
       contacts_title: "People who dig these tags"
-      title: "Posts tagged: %{tags}"
+      title: "Posts getagged: %{tags}"
   tag_followings: 
     create: 
       failure: "Volgen mislukt: #%{name}"
@@ -831,52 +846,32 @@ nl:
       edit_account: "Bewerk account"
       email_awaiting_confirmation: "We hebben een activatielink verzonden naar %{unconfirmed_email}. Totdat je het adres geactiveerd hebt zullen we je originele adress blijven gebruiken %{email}."
       export_data: "Exporteer data"
+      getting_started: "New User Prefrences"
       liked: "... iemand je post leuk vind?"
       mentioned: "...je genoemd word in een post?"
       new_password: "Nieuw wachtwoord"
+      photo_export_unavailable: "Photo exporting currently unavailable"
       private_message: "...je een privébericht ontvangt?"
       receive_email_notifications: "Ontvang e-mail notificaties wanneer..."
       reshared: "...iemand je post doorgeeft?"
       show_community_spotlight: "Show Community Spotlight in Stream?"
+      show_getting_started: "Re-enable Getting Started"
       started_sharing: "...iemand met je begint te delen?"
       stream_preferences: "Stream Preferences"
       your_email: "Jouw e-mail"
       your_handle: "Jouw Diaspora ID"
     getting_started: 
-      bold: "aspecten"
-      community_spotlight: "Community spotlight"
-      community_welcome: "Diaspora's community is happy to have you aboard!"
-      connect_to: "Verbind met"
-      connect_to_your_other_social_networks: "Verbind met je andere sociale netwerken"
-      connect_to_your_other_social_networks_explanation_p1: "Connecting to services will allow you to publish out to these services."
-      connect_to_your_other_social_networks_explanation_p2: "With Facebook, you also be able to find friends already on Diaspora and invite others."
-      connect_with_people: "Maak kennis met interessante mensen"
-      connect_with_people_explanation_pt1: "Verbind met mensen door ze toe te voegen aan één of meer van je %{bold}."
-      connect_with_people_explanation_pt2: "Aspecten zijn een intuïtieve manier om nieuwe en bekende gezichten te groeperen, alleen zichtbaar voor jou, waardoor je makkelijk content kan filteren en met specifieke groepen kunt delen."
-      edit_profile: "Bewerk profiel"
-      featured_tags: "Aanbevolen tags"
-      fill_out_your_profile: "Vul je profiel aan"
-      find_friends: "Vind vrienden"
-      find_friends_from_facebook: "vind vrienden via Facebook"
-      finished: "Klaar"
-      follow_your_interests: "Volg je interesses"
-      get_updates_from_core: "Get updates about the project from the core team."
+      awesome_take_me_to_diaspora: "Awesome! Take me to Diaspora*"
+      community_welcome: "De Diaspora gemeenschap is verheugd je aan boord te hebben!"
       hashtag_explanation: "Hashtags laten je gemakkelijk jou interesses volgen. Bovendien kunnen ze je helpen bij het vinden van nieuwe contacten op Diaspora."
-      not_mandatory: "Completing the following steps will improve your Diaspora experience, but they are not mandatory."
-      profile_description: "Maak het makkelijker voor mensen om je te vinden door je profiel aan te vullen."
-      profile_fields: 
-        bio: "Bio"
-        birthday: "Geboortedatum"
-        gender: "Geslacht"
-        location: "Locatie"
-        name: "Naam"
-        photo: "Foto"
-        tags: "Tags"
-      search_for_hashtags: "Zoek #hashtags"
-      search_for_people: "Zoek mensen"
-      see_all_community_spotlight: "See all community spotlight"
-      welcome: "Welkom!"
-      welcome_with_name: "Welkom, %{name}!"
+      hashtag_suggestions: "Try following tags like #art, #movies, #gif, etc."
+      hooking_up_fb: "hooking up your Facebook account"
+      saved: "Saved!"
+      we_can_speed_things_up: "We can speed things up a bit by"
+      well_hello_there: "Well, hello there!"
+      what_are_you_in_to: "What are you into?"
+      what_facebook_does: "to Diaspora. This will pull your name and photo, and enable cross-positng."
+      who_are_you: "Who are you?"
     logged_out: 
       go_mobile: "Now go mobile."
       on_your_mobile_device: "on your mobile device to access Diaspora* mobile."
@@ -901,3 +896,4 @@ nl:
     no_person_constructed: "Er kon geen persoon worden gemaakt van deze hcard."
     not_enabled: "webfinger lijkt niet aan te staan voor %{account}'s provider"
     xrd_fetch_failed: "er was een probleem bij het verkrijgen van de xrd van het account %{account}"
+  welcome: "Welcome!"
