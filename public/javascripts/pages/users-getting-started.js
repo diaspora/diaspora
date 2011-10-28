@@ -6,7 +6,7 @@ Diaspora.Pages.UsersGettingStarted = function() {
     self.tagSearch = self.instantiate("Search", body.find("form.tag_input.search_form"));
 
     $('#edit_profile').bind('ajax:success', function(evt, data, status, xhr){
-      $('#form_spinner').addClass("hidden");
+      $('#gs-name-form-spinner').addClass("hidden");
       $('.profile .saved').show();
       $('.profile .saved').fadeOut(2000);
     });
@@ -24,7 +24,7 @@ Diaspora.Pages.UsersGettingStarted = function() {
     $("#profile_first_name").bind("change", function(){
       $(this).data("cachedValue", $(this).val());
       $('#edit_profile').submit();
-      $('#form_spinner').removeClass("hidden");
+      $('#gs-name-form-spinner').removeClass("hidden");
     });
 
     $("#profile_first_name").bind("blur", function(){
@@ -41,7 +41,6 @@ Diaspora.Pages.UsersGettingStarted = function() {
       var confirmMessage = Diaspora.I18n.t("getting_started.no_tags");
 
       if(($("#as-selections-tags").find(".as-selection-item").length > 0) || confirm(confirmMessage)) {
-        $('#awesome_spinner').removeClass("hidden");
         $('.tag_input').submit();
 
         /* flash message prompt */
