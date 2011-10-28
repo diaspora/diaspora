@@ -425,6 +425,49 @@ body {
   margin: {
     top: -2px; }; }
 
+#show_content {
+  padding: 12px;
+  padding-bottom: 24px;
+  border: {
+    bottom: 1px solid #bbb; };
+  background: {
+    color: #fff; };
+
+  font: {
+    size: larger; };
+
+  img {
+    max-width: 100%; }
+
+  .photo {
+    text-align: center; }
+
+  .controls {
+    font: {
+      size: smaller; };
+  }
+
+  &.photo {
+    background: {
+      color: #000; };
+  }
+}
+
+#photo_controls {
+  margin: {
+    bottom: -42px; };
+}
+
+.arrow {
+  color: white !important;
+  font: {
+    size: 26pt; };
+  text: {
+    shadow: 0 1px 2px #333;
+    decoration: none; };
+  padding: 0;
+}
+
 #author_info.profile {
   box-shadow: inset 0 -1px 3px #111;
   margin-top: -10px;
