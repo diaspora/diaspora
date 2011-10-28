@@ -66,6 +66,11 @@ describe TagFollowingsController do
         flash[:error].should == "Failed to follow: ##{valid_attributes[:name]}"
       end
 
+      it 'squashes the tag' do
+        post :create, :name => "some stuff"
+        assigns[:tag].name.should == "somestuff"
+      end
+
       it 'downcases the tag name' do
         pending "THIS CAUSES A 500 WE NEED TO FIX IT"
         post "tags/#{valid_attributes[:name].upcase}/tag_followings"

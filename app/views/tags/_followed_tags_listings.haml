@@ -10,7 +10,7 @@
       %ul.sub_nav
         - if tags.size > 0
           - for tg in tags
-            %li.unfollow{:id => tg.name}
+            %li.unfollow{:id => "tag-following-#{tg.name}"}
               .unfollow_icon.hidden
                 = link_to image_tag("icons/monotone_close_exit_delete.png", :height => 16, :title => t('aspects.index.unfollow_tag', :tag => tg.name)), tag_tag_followings_path(:name => tg.name, :remote => true), :confirm => t('are_you_sure'), :method => :delete, :remote => true, :id => "unfollow_" + tg.name
               = link_to "##{tg.name}", tag_path(:name => tg.name), :class => "tag_selector"

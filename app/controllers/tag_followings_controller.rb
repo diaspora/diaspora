@@ -14,13 +14,13 @@ class TagFollowingsController < ApplicationController
   # POST /tag_followings
   # POST /tag_followings.xml
   def create
-    @tag = ActsAsTaggableOn::Tag.find_or_create_by_name(params[:name])
+    @tag = ActsAsTaggableOn::Tag.find_or_create_by_name(tag_name)
     @tag_following = current_user.tag_followings.new(:tag_id => @tag.id)
 
     if @tag_following.save
-      flash[:notice] = I18n.t('tag_followings.create.success', :name => params[:name])
+      flash[:notice] = I18n.t('tag_followings.create.success', :name => tag_name)
     else
-      flash[:error] = I18n.t('tag_followings.create.failure', :name => params[:name])
+      flash[:error] = I18n.t('tag_followings.create.failure', :name => tag_name)
     end
 
     redirect_to :back
@@ -62,5 +62,10 @@ class TagFollowingsController < ApplicationController
     end
 
     redirect_to multi_path
+  end
+
+  private
+  def tag_name
+    @tag_name ||= params[:name].gsub(/\s/,'') if params[:name]
   end
 end

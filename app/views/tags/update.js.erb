@@ -1,1 +1,3 @@
-$("#followed_tags_listing").first().html("<%= escape_javascript(render('tags/followed_tags_listings')) =%>");
+var tagName = "<%= escape_javascript(@tag.name) %>"
+$("#followed_tags_listing").find("#tag-following-"+tagName).slideUp(100);
+Diaspora.page.flashMessages.render({success: true, notice: Diaspora.I18n.t("tags.wasnt_that_interesting", {tagName: tagName})});

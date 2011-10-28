@@ -819,8 +819,8 @@ en:
       followed_by: 'followed by'
   tag_followings:
     create:
-      success: "Successfully following: #%{name}"
-      failure: "Failed to follow: #%{name}"
+      success: "Horray!  You're now following #%{name}."
+      failure: "Failed to follow #%{name}.  Are you already following it?"
     destroy:
       success: "Successfully stopped following: #%{name}"
       failure: "Failed to stop following: #%{name}"
