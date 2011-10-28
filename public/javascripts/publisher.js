@@ -379,21 +379,12 @@ var Publisher = {
   },
 
   bindAspectToggles: function() {
-    $('#publisher .dropdown .dropdown_list li').bind("click", function(evt){
-      var li = $(this),
-          button = li.parent('.dropdown').find('.button');
-
-      if(li.hasClass('radio')){
-        AspectsDropdown.toggleRadio(li);
-      } else {
-        AspectsDropdown.toggleCheckbox(li);
-      }
-
-      AspectsDropdown.updateNumber(li.closest(".dropdown_list"), null, li.parent().find('li.selected').length, '');
-
-      Publisher.toggleAspectIds(li);
+    Publisher.aspectsDropdown = Diaspora.BaseWidget.instantiate("AspectsDropdown", $("#publisher .dropdown"));
+    Publisher.aspectsDropdown.aspectSelectors.click(function() {
+      Publisher.toggleAspectIds($(this));
     });
   },
+  
   beforeSubmit: function(){
     if($("#publisher .content_creation form #aspect_ids_").length == 0){
       alert(Diaspora.I18n.t('publisher.at_least_one_aspect'));

@@ -67,4 +67,6 @@ en:
       photo_uploader:
         looking_good: "OMG, you look awesome!"
       tags:
-        wasnt_that_interesting: "OK, I suppose #{{tagName}} wasn't all that interesting..."
+        wasnt_that_interesting: "OK, I suppose #{{tagName}} wasn't all that interesting..."        
+      inviter:
+        sending: "sending, please wait..."
