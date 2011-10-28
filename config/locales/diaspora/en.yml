@@ -860,6 +860,8 @@ en:
     followed_tag:
       title: "#Followed Tags"
       contacts_title: "People who dig these tags"
+      add_a_tag: "Add a tag"
+      follow: "Follow"
 
     tags:
       title: "Posts tagged: %{tags}"

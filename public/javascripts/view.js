@@ -46,6 +46,12 @@ var View = {
       $(this).focusout();
     });
 
+    /* tag following */
+    $("#new_tag_following .tag_input").bind('focus', function(evt){
+      $(this).siblings("#tag_following_submit").removeClass('hidden');
+    }).bind('blur', function(evt){
+      $(this).siblings("#tag_following_submit").addClass('hidden');
+    });
 
     /* Autoexpand textareas */
     var startAutoResize = function() {
