@@ -270,7 +270,7 @@ describe AspectsController do
 
   describe '#edit' do
     before do
-      eve.profile.first_name = nil
+      eve.profile.first_name = eve.profile.last_name = nil
       eve.profile.save
       eve.save
 

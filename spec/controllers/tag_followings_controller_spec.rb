@@ -16,12 +16,9 @@ describe TagFollowingsController do
   end
 
   describe 'index' do
-    before do
-      pending
-    end
     it 'assings new TagStream' do
       get :index
-      assigns[:stream].should be_a TagStream
+      assigns[:stream].should be_a Stream::FollowedTag
     end
 
     it 'renders a view' do
@@ -59,14 +56,19 @@ describe TagFollowingsController do
       it "flashes success to the tag page" do
         post :create, valid_attributes
 
-        flash[:notice].should == "Successfully following: ##{valid_attributes[:name]}"
+        flash[:notice].should == "Horray!  You're now following ##{valid_attributes[:name]}."
       end
 
       it "flashes error if you already have a tag" do
         TagFollowing.any_instance.stub(:save).and_return(false)
         post :create, valid_attributes
 
-        flash[:error].should == "Failed to follow: ##{valid_attributes[:name]}"
+        flash[:error].should include("Failed")
+      end
+
+      it 'squashes the tag' do
+        post :create, :name => "some stuff"
+        assigns[:tag].name.should == "somestuff"
       end
 
       it 'downcases the tag name' do
@@ -102,6 +104,28 @@ describe TagFollowingsController do
 
       response.should redirect_to(tag_path(:name => valid_attributes[:name]))
       flash[:error].should == "Failed to stop following: ##{valid_attributes[:name]}"
+    end
+  end
+
+  describe "#create_multiple" do
+    it "adds multiple tags" do
+      lambda{
+        post :create_multiple, :tags => "#tags,#cats,#bats,"
+      }.should change{
+        bob.followed_tags.count
+      }.by(3)
+    end
+
+    it "adds non-followed tags" do
+      TagFollowing.create!(:tag => @tag, :user => bob )
+
+      lambda{
+        post :create_multiple, :tags => "#partytimeexcellent,#cats,#bats,"
+      }.should change{
+        bob.followed_tags.count
+      }.by(2)
+
+      response.should be_redirect
     end
   end
 

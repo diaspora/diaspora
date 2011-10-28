@@ -64,7 +64,7 @@ module ApplicationHelper
     if current_user.contacts.size > 0
       contacts_path
     else
-      featured_users_path
+      community_spotlight_path
     end
   end
 

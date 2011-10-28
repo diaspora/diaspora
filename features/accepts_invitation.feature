@@ -4,49 +4,37 @@ Feature: invitation acceptance
       Given I have been invited by an admin
       And I am on my acceptance form page
       And I fill in the following:
-        | Username              | ohai           |
-        | Email                 | woot@sweet.com |
+        | user_username              | ohai           |
+        | user_email                 | woot@sweet.com |
         | user_password         | secret         |
-        | Password confirmation | secret         |
+        | user_password_confirmation | secret         |
       And I press "Create my account"
       Then I should be on the getting started page
-      And I should see "Welcome"
-      Then I follow Edit Profile in the same window
+      And I should see "Well, hello there!"
       And I fill in the following:
         | profile_first_name | O             |
-        | profile_last_name  | Hai           |
-        | tags               | #beingawesome |
-        | profile_bio        | swagger       |
-        | profile_location   | new york, ny  |
-        | profile_gender     | diasporian    |
-      And I press "Update Profile"
-			And I should see "Welcome"
-		  When I follow "Finished"
-		  Then I should be on the aspects page
+
+      And I preemptively confirm the alert
+      And I follow "awesome_button"
+      Then I should be on the multi page
 
     Scenario: accept invitation from user
       Given I have been invited by a user
       And I am on my acceptance form page
       And I fill in the following:
-        | Username              | ohai           |
-        | Email                 | woot@sweet.com |
+        | user_username              | ohai           |
+        | user_email                 | woot@sweet.com |
         | user_password         | secret         |
-        | Password confirmation | secret         |
+        | user_password_confirmation | secret         |
       And I press "Create my account"
       Then I should be on the getting started page
-      And I should see "Welcome"
-      Then I follow Edit Profile in the same window
+      And I should see "Well, hello there!"
       And I fill in the following:
         | profile_first_name | O             |
-        | profile_last_name  | Hai           |
-        | tags               | #beingawesome |
-        | profile_bio        | swagger       |
-        | profile_location   | new york, ny  |
-        | profile_gender     | diasporian    |
-      And I press "Update Profile"
-			And I should see "Welcome"
-		  When I follow "Finished"
-		  Then I should be on the aspects page
+
+      And I preemptively confirm the alert
+      And I follow "awesome_button"
+      Then I should be on the multi page
 
     Scenario: sends an invitation
       Given a user with email "bob@bob.bob"

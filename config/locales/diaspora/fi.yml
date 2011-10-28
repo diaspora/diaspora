@@ -61,13 +61,12 @@ fi:
       done_editing: "muokkaus valmis"
     aspect_listings: 
       add_an_aspect: "+ Lisää näkymä"
+      deselect_all: "Deselect all"
       edit_aspect: "Edit %{name}"
+      select_all: "Select all"
     aspect_stream: 
-      commented_on: "kommentoitu"
-      mentions: "Mentions"
-      posted: "lähetetty"
-      recently: "äskettäin:"
-      stream: "Uutisvirta"
+      stay_updated: "Stay Updated"
+      stay_updated_explanation: "Your main stream is populated with all of your contacts, tags you follow, and posts from some creative members of the community."
     contacts_not_visible: "Kontaktit tässä näkymässä eivät voi nähdä toisiaan."
     contacts_visible: "Kontaktit tässä näkymässä voivat nähdä toisensa."
     create: 
@@ -93,7 +92,6 @@ fi:
       aspect_not_empty: "Näkymä ei ole tyhjä"
       remove: "poista"
     index: 
-      community_members: "Featured Diaspora* members"
       cubbies: 
         explanation: "Cubbi.es on ensimmäinen kehitettävä Diaspora -sovellus."
         heading: "Yhdistä Cubbi.es:iin"
@@ -103,7 +101,6 @@ fi:
         content_2: "Anna se toisille ihmisille, jotta he voivat löytää sinut Diasporasta."
         heading: "Diaspora ID"
       donate: "Lahjoita"
-      featured_users: "Featured Users"
       handle_explanation: "Tämä on Diaspora-osoitteesi. Voit käyttää sitä kuten sähköpostiosoitettasi. Sen avulla sinut tavoitetaan Diasporasta."
       help: 
         do_you: "Do you:"
@@ -116,18 +113,17 @@ fi:
         need_help: "Need Help?"
         satisfaction: "%{link}: Community-powered support"
         tutorials_and_wiki: "%{tutorial} & %{wiki}: Community-powered tutorials, how-to, and news"
+      introduce_yourself: "This is your stream.  Jump in and introduce yourself."
       keep_us_running: "Keep %{pod} running fast, buy our servers their monthly coffee fix!"
-      mentions: "Mentions"
       no_contacts: "Ei kontakteja"
       no_tags: "No tags"
       people_sharing_with_you: "Ihmiset jotka jakavat kanssasi"
       post_a_message: "lähetä viesti >>"
-      see_more_from_us: "See more of the D* community."
       services: 
         content: "Voit yhdistää Diasporaan seuraavat palvelut:"
         heading: "Yhdistä palveluihin"
-      tags_following: "Seuratut Tagit"
       unfollow_tag: "Stop following #%{tag}"
+      welcome_to_diaspora: "Welcome to Diaspora, %{name}!"
       your_aspects: "Näkymäsi"
     many: "%{count} näkymää"
     move_contact: 
@@ -138,8 +134,8 @@ fi:
       create: "Luo"
       name: "Nimi"
     no_contacts_message: 
-      featured_users: "featured users"
-      or_featured: "Or you can share with %{link}"
+      community_spotlight: "community spotlight"
+      or_spotlight: "Or you can share with %{link}"
       try_adding_some_more_contacts: "You can search (top) or invite (right) more contacts."
       you_should_add_some_more_contacts: "You should add some more contacts!"
     no_posts_message: 
@@ -154,8 +150,8 @@ fi:
     selected_contacts: 
       manage_your_aspects: "Hallitse näkymiä."
       no_contacts: "Sinulla ei vielä ole kontakteja."
+      view_all_community_spotlight: "See all community spotlight"
       view_all_contacts: "Näytä kaikki kontaktit"
-      view_all_featured_users: "See all Featured Users"
     show: 
       edit_aspect: "muokkaa näkymää"
     two: "%{count} aspects"
@@ -188,8 +184,6 @@ fi:
   contacts: 
     create: 
       failure: "Kontaktin luonti epäonnistui"
-    featured: 
-      featured_users: "Valikoidut käyttäjät"
     few: "%{count} kontaktia"
     index: 
       add_a_new_aspect: "Lisää näkymä"
@@ -209,6 +203,8 @@ fi:
     other: "%{count} kontaktia"
     sharing: 
       people_sharing: "Ihmiset jotka jakavat kanssasi:"
+    spotlight: 
+      community_spotlight: "Community Spotlight"
     two: "%{count} contacts"
     zero: "ei kontakteja"
   conversations: 
@@ -616,7 +612,7 @@ fi:
       enter_password_again: "Syötä sama salasana kuin edellä"
       enter_username: "Valitse käyttäjänimi (vain kirjaimet, numerot ja alaviivat sallittuja)"
       join_the_movement: "Join the movement!"
-      sign_up_today: "Sign up today"
+      sign_up_message: "Social Networking with a <3"
   requests: 
     create: 
       sending: "Lähetetään..."
@@ -658,6 +654,8 @@ fi:
   search: "Etsi"
   services: 
     create: 
+      already_authorized: "A user with diaspora id %{diaspora_id} already authorized that %{service_name} account."
+      failure: "Authentication failed."
       success: "Tunnistus onnistui."
     destroy: 
       success: "Tunnistuksen poisto onnistui."
@@ -717,16 +715,22 @@ fi:
     notification: 
       new: "Uusi %{type} henkilöltä %{from}"
     public_explain: 
+      control_your_audience: "Control your Audience"
       logged_in: "sisäänkirjautunut palveluun %{service}"
       manage: "hallitse yhdistettyjä palveluita"
+      new_user_welcome_message: "Use #hashtags to classify your posts and find people who share your interests.  Call out awesome people with @Mentions"
       outside: "Julkiset viestit näkyvät Diasporan ulkopuolelle."
+      share: "Share"
       title: "Olet lähettämässä julkista viestiä!"
+      visibility_dropdown: "Use this dropdown to change visibility of your post.  (We suggest you make this first one public.)"
     publisher: 
       all: "kaikki"
       all_contacts: "kaikki kontaktit"
-      click_to_share_with: "Jakomenetelmät:"
       discard_post: "Hylkää viesti"
       make_public: "tee julkiseksi"
+      new_user_prefill: 
+        hello: "Hey everyone, I'm #%{new_user_tag}. "
+        i_like: "I'm interested in %{tags}."
       post_a_message_to: "Lähetä viesti näkymään %{aspect}"
       posting: "Lähetetään..."
       publishing_to: "Julkaistaan: "
@@ -737,6 +741,8 @@ fi:
     reshare: 
       reshare: "Jaa uudelleen"
     stream_element: 
+      connect_to_comment: "Connect to this user to comment on their post"
+      currently_unavailable: "commenting currently unavailable"
       dislike: "En tykkää"
       hide_and_mute: "Hide and Mute"
       like: "Tykkää"
@@ -764,12 +770,29 @@ fi:
     hide_comments: "piilota kommentit"
     show_more_comments: "Näytä kaikki (%{number}) kommentit"
   streams: 
+    aspects: 
+      title: "Your Aspects"
+    aspects_stream: "Aspects"
+    commented_on: "commented on"
+    community_spotlight_stream: "Community Spotlight"
+    followed_tag: 
+      add_a_tag: "Add a tag"
+      contacts_title: "People who dig these tags"
+      follow: "Follow"
+      title: "#Followed Tags"
+    followed_tags_stream: "#Followed Tags"
+    mentioned_stream: "@Mentions"
     mentions: 
       contacts_title: "People who mentioned you"
       title: "Your Mentions"
+    multi: 
+      contacts_title: "People in your Stream"
+      title: "Stream"
+    posted: "posted"
     public: 
       contacts_title: "Recent Posters"
       title: "Public Activity"
+    recently: "recently:"
     tags: 
       contacts_title: "People who dig these tags"
       title: "Posts tagged: %{tags}"
@@ -823,50 +846,32 @@ fi:
       edit_account: "Muokkaa käyttäjätiliä"
       email_awaiting_confirmation: "We have sent you an activation link to %{unconfirmed_email}. Till you follow this link and activate the new address, we will continue to use your original address %{email}."
       export_data: "Vie tietoja"
+      getting_started: "New User Prefrences"
       liked: "...tykkää kirjoituksistasi?"
       mentioned: "...sinut mainitaan viestissä?"
       new_password: "Uusi salasana"
+      photo_export_unavailable: "Photo exporting currently unavailable"
       private_message: "...saat uuden viestin?"
       receive_email_notifications: "Vastaanota sähköposti-ilmoituksia, kun.."
       reshared: "...someone reshares your post?"
+      show_community_spotlight: "Show Community Spotlight in Stream?"
+      show_getting_started: "Re-enable Getting Started"
       started_sharing: "...aloittaa jakamaan kanssasi?"
+      stream_preferences: "Stream Preferences"
       your_email: "Sähköpostiosoitteesi"
       your_handle: "Diaspora-tunnuksesi"
     getting_started: 
-      bold: "aspects"
+      awesome_take_me_to_diaspora: "Awesome! Take me to Diaspora*"
       community_welcome: "Diaspora's community is happy to have you aboard!"
-      connect_to: "Yhdistä"
-      connect_to_your_other_social_networks: "Yhdistä muihin sosiaalisen median verkostoihisi"
-      connect_to_your_other_social_networks_explanation_p1: "Connecting to services will allow you to publish out to these services."
-      connect_to_your_other_social_networks_explanation_p2: "With Facebook, you also be able to find friends already on Diaspora and invite others."
-      connect_with_people: "Connect with cool people"
-      connect_with_people_explanation_pt1: "Connect with people by placing them into one or more of your"
-      connect_with_people_explanation_pt2: "Aspects are an intuitive way to group new and familar faces, private to you, allowing you to filter down or share with subsets of your contacts easily."
-      edit_profile: "Muokkaa profiiliasi"
-      featured_tags: "Valikoidut tagit"
-      featured_users: "Valikoidut käyttäjät"
-      fill_out_your_profile: "Täytä profiilisi"
-      find_friends: "Etsi ystäviä"
-      find_friends_from_facebook: "find friends from Facebook"
-      finished: "Valmis!"
-      follow_your_interests: "Seuraa mielenkiinnon kohteitasi"
-      get_updates_from_core: "Get updates about the project from the core team."
       hashtag_explanation: "Hashtagit mahdollistavat kiinnostuksen kohteistasi keskustelun ja niiden seuraamisen. Ne ovat myös hyvä keino ihmisten löytämiseen Diasporassa."
-      not_mandatory: "Completing the following steps will improve your Diaspora experience, but they are not mandatory."
-      profile_description: "Täytä profiilisi, että ihmisten on helpompi löytää sinut."
-      profile_fields: 
-        bio: "Bio"
-        birthday: "Syntymäpäivä"
-        gender: "Sukupuoli"
-        location: "Sijainti"
-        name: "Nimi"
-        photo: "Kuva"
-        tags: "Tagit"
-      search_for_hashtags: "Search for #hashtags"
-      search_for_people: "Search for people"
-      see_all_featured_users: "See all featured users"
-      welcome: "Tervetuloa Diasporaan!"
-      welcome_with_name: "Tervetuloa, %{name}!"
+      hashtag_suggestions: "Try following tags like #art, #movies, #gif, etc."
+      hooking_up_fb: "hooking up your Facebook account"
+      saved: "Saved!"
+      we_can_speed_things_up: "We can speed things up a bit by"
+      well_hello_there: "Well, hello there!"
+      what_are_you_in_to: "What are you into?"
+      what_facebook_does: "to Diaspora. This will pull your name and photo, and enable cross-positng."
+      who_are_you: "Who are you?"
     logged_out: 
       go_mobile: "Now go mobile."
       on_your_mobile_device: "on your mobile device to access Diaspora* mobile."
@@ -881,6 +886,8 @@ fi:
       language_not_changed: "Kielen vaihtaminen epäonnistui"
       password_changed: "Salasana vaihdettu. Voit nyt kirjautua uudella salasanallasi."
       password_not_changed: "Salasanan vaihto epäonnistui"
+      settings_not_updated: "Settings update failed"
+      settings_updated: "Settings updated"
       unconfirmed_email_changed: "E-Mail Changed. Needs activation."
       unconfirmed_email_not_changed: "E-Mail Change Failed"
   webfinger: 
@@ -889,3 +896,4 @@ fi:
     no_person_constructed: "Yhtäkään henkilöä ei pystytty kokoamaan tältä hcard:ilta."
     not_enabled: "webfinger-palvelua ei ilmeisesti ole aktivoitu tilin, %{account}, isännälle"
     xrd_fetch_failed: "tapahtui virhe haettaessa xrd:tä käyttäjätilille %{account}"
+  welcome: "Welcome!"

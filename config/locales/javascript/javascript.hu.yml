@@ -6,27 +6,37 @@
 hu: 
   javascripts: 
     aspect_dropdown: 
-      add_to_aspect: "Hozzáadás egy csoporthoz"
+      add_to_aspect: "Hozzáadás a csoporthoz"
       all_aspects: "Összes csoport"
+      select_aspects: "Csoportok kiválasztása"
+      started_sharing_with: "You have started sharing with {{name}}!"
+      stopped_sharing_with: "You have stopped sharing with {{name}}."
       toggle: 
         few: "{{count}} csoportban"
         many: "{{count}} csoportban"
         one: "{{count}} csoportban"
         other: "{{count}} csoportban"
-        two: "In {{count}} aspects"
-        zero: "Hozzáadás egy csoporthoz"
+        two: "{{count}} csoportban"
+        zero: "Csoportok kiválasztása"
     aspect_navigation: 
-      deselect_all: "Deselect all"
-      no_aspects: "No aspects selected"
-      select_all: "Select all"
+      deselect_all: "Összes kijelölés megszüntetése"
+      no_aspects: "Nincs csoport kiválasztva"
+      select_all: "Mindent kijelöl"
     comments: 
       hide: "hozzászólások elrejtése"
       show: "összes hozzászólás"
     confirm_dialog: "Biztos vagy benne?"
     failed_to_like: "Hiba"
     failed_to_post_message: "Üzenet elküldése sikertelen!"
+    getting_started: 
+      alright_ill_wait: "Alright, I'll wait."
+      hey: "Hey, {{name}}!"
+      no_tags: "Hey, you haven't followed any tags!  Continue anyway?"
+      preparing_your_stream: "Preparing your personialized stream..."
     infinite_scroll: 
       no_more: "Nincs több bejegyzés."
+    photo_uploader: 
+      looking_good: "OMG, you look awesome!"
     publisher: 
       at_least_one_aspect: "Minimum 1 csoportnak meg kell osztanod!"
       limited: "Korlátozott - csak az ismerőseid láthatják ezt a bejegyzést"
@@ -35,6 +45,8 @@ hu:
       duplicate: "Már újraosztottad ezt a bejegyzést!"
     search_for: "{{name}} keresése."
     show_more: "tovább"
+    tags: 
+      wasnt_that_interesting: "OK, I suppose #{{tagName}} wasn't all that interesting..."
     timeago: 
       day: "egy nappal"
       days: "%d nappal"
@@ -44,7 +56,7 @@ hu:
       minutes: "%d perccel"
       month: "körülbelül egy hónappal"
       months: "%d hónappal"
-      prefixAgo: ""
+      prefixAgo: "javascripts:timeago:prefixAgo"
       prefixFromNow: ""
       seconds: "kevesebb mint egy perccel"
       suffixAgo: "ezelőtt"

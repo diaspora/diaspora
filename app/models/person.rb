@@ -28,6 +28,7 @@ class Person < ActiveRecord::Base
 
   has_many :contacts, :dependent => :destroy # Other people's contacts for this person
   has_many :posts, :foreign_key => :author_id, :dependent => :destroy # This person's own posts
+  has_many :photos, :foreign_key => :author_id, :dependent => :destroy # This person's own photos
   has_many :comments, :foreign_key => :author_id, :dependent => :destroy # This person's own comments
 
   belongs_to :owner, :class_name => 'User'
@@ -58,8 +59,10 @@ class Person < ActiveRecord::Base
          select("DISTINCT people.*")
   }
 
-  def self.featured_users
-    AppConfig[:featured_users].present? ? Person.where(:diaspora_handle => AppConfig[:featured_users]) : []
+  scope :profile_tagged_with, lambda{|tag_name| joins(:profile => :tags).where(:profile => {:tags => {:name => tag_name}}).where('profiles.searchable IS TRUE') }
+
+  def self.community_spotlight
+    AppConfig[:community_spotlight].present? ? Person.where(:diaspora_handle => AppConfig[:community_spotlight]) : []
   end
 
   # Set a default of an empty profile when a new Person record is instantiated.
@@ -75,7 +78,6 @@ class Person < ActiveRecord::Base
     super
     self.profile ||= Profile.new unless profile_set
   end
-  
   
   def self.find_from_id_or_username(params)
     p = if params[:id].present?
@@ -136,8 +138,6 @@ class Person < ActiveRecord::Base
     Person.searchable.where(sql, *tokens)
   end
 
-
-
   def name(opts = {})
     if self.profile.nil?
       fix_profile
@@ -146,14 +146,17 @@ class Person < ActiveRecord::Base
   end
 
   def self.name_from_attrs(first_name, last_name, diaspora_handle)
-    first_name.blank? ? diaspora_handle : "#{first_name.to_s.strip} #{last_name.to_s.strip}"
+    first_name.blank? && last_name.blank? ? diaspora_handle : "#{first_name.to_s.strip} #{last_name.to_s.strip}".strip
   end
 
   def first_name
     @first_name ||= if profile.nil? || profile.first_name.nil? || profile.first_name.blank?
                 self.diaspora_handle.split('@').first
               else
-                profile.first_name.to_s
+                names = profile.first_name.to_s.split(/\s/)
+                str = names[0...-1].join(' ')
+                str = names[0] if str.blank?
+                str
               end
   end
 
@@ -248,7 +251,7 @@ class Person < ActiveRecord::Base
   end
 
   def has_photos?
-    self.posts.where(:type => "Photo").exists?
+    self.photos.exists?
   end
 
   def as_json( opts = {} )
@@ -272,6 +275,8 @@ class Person < ActiveRecord::Base
       person.update_url(url)
     end 
   end
+
+  
   
   # @param person [Person]
   # @param url [String]

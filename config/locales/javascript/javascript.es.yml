@@ -8,13 +8,16 @@ es:
     aspect_dropdown: 
       add_to_aspect: "Añadir contacto"
       all_aspects: "Todos los aspectos"
+      select_aspects: "Elige los aspectos"
+      started_sharing_with: "You have started sharing with {{name}}!"
+      stopped_sharing_with: "You have stopped sharing with {{name}}."
       toggle: 
         few: "En {{count}} aspectos"
         many: "En {{count}} aspectos"
         one: "En {{count}} aspecto"
         other: "En {{count}} aspectos"
         two: "En {{count}} aspectos"
-        zero: "Añadir contacto"
+        zero: "Elige los aspectos"
     aspect_navigation: 
       deselect_all: "Desmarcar todos"
       no_aspects: "No hay aspectos seleccionados"
@@ -25,16 +28,25 @@ es:
     confirm_dialog: "¿Estás seguro?"
     failed_to_like: "¡Ha fallado tu aprobación!"
     failed_to_post_message: "¡Fallo al publicar el mensaje!"
+    getting_started: 
+      alright_ill_wait: "Alright, I'll wait."
+      hey: "Hey, {{name}}!"
+      no_tags: "Hey, you haven't followed any tags!  Continue anyway?"
+      preparing_your_stream: "Preparing your personialized stream..."
     infinite_scroll: 
       no_more: "No hay más publicaciones."
+    photo_uploader: 
+      looking_good: "OMG, you look awesome!"
     publisher: 
       at_least_one_aspect: "Debes publicarlo en al menos un aspecto"
-      limited: "Limitado - tu publicación será visible solo para la gente con la que lo compartas"
-      public: "Público - tu publicación será visible para todos e indexado por buscadores"
+      limited: "Limitado - tu publicación solo será visible para las personas con quien compartes"
+      public: "Público - tu publicación será visible para todos, incluyendo buscadores"
     reshares: 
-      duplicate: "¡Ya has vuelto a compartir esa publicación!"
+      duplicate: "¡Ya compartiste esa publicación!"
     search_for: "Buscar a {{name}}"
-    show_more: "ver más"
+    show_more: "mostrar más"
+    tags: 
+      wasnt_that_interesting: "OK, I suppose #{{tagName}} wasn't all that interesting..."
     timeago: 
       day: "un día"
       days: "%d días"
@@ -55,4 +67,4 @@ es:
       unknown: "Tipo de video desconocido"
       watch: "Ver este video con {{provider}}"
     web_sockets: 
-      disconnected: "El canal está cerrado; los comentarios no serán actualizados al momento."
+      disconnected: "El canal está cerrado; las publicaciones no serán actualizadas al momento."

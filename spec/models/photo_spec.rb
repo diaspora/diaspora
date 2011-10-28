@@ -55,17 +55,52 @@ describe Photo do
 
   describe '#diaspora_initialize' do
     before do
-      image = File.open(@fixture_name)
+      @image = File.open(@fixture_name)
       @photo = Photo.diaspora_initialize(
-                :author => @user.person, :user_file => image)
+                :author => @user.person, :user_file => @image)
     end
+    
     it 'sets the persons diaspora handle' do
-      @photo2.diaspora_handle.should == @user.person.diaspora_handle
+      @photo.diaspora_handle.should == @user.person.diaspora_handle
     end
-    it 'builds the photo without saving' do
-      @photo.created_at.nil?.should be_true
-      @photo.unprocessed_image.read.nil?.should be_false
+
+    it 'sets the random prefix' do
+      photo_stub = stub.as_null_object
+      photo_stub.should_receive(:random_string=)
+      Photo.stub(:new).and_return(photo_stub)
+
+      Photo.diaspora_initialize(
+        :author => @user.person, :user_file => @image)
     end
+
+    context "with user file" do
+      it 'builds the photo without saving' do
+        @photo.created_at.nil?.should be_true
+        @photo.unprocessed_image.read.nil?.should be_false
+      end
+    end
+
+    context "with a url" do
+      it 'saves the photo' do
+        url = "https://service.com/user/profile_image"
+        
+        photo_stub = stub.as_null_object
+        photo_stub.should_receive(:remote_unprocessed_image_url=).with(url)
+        Photo.stub(:new).and_return(photo_stub)
+
+        Photo.diaspora_initialize(
+                :author => @user.person, :image_url => url)
+      end
+
+      context "with neither" do
+        it 'does not return a valid object' do
+          pending
+          Photo.diaspora_initialize(
+                  :author => @user.person).valid?.should be_false
+        end
+      end
+    end
+
   end
 
   describe '#update_remote_path' do

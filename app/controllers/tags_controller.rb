@@ -2,6 +2,7 @@
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 require File.join(Rails.root, 'app', 'models', 'acts_as_taggable_on_tag')
+require File.join(Rails.root, 'lib', 'stream', 'tag')
 
 class TagsController < ApplicationController
   skip_before_filter :which_action_and_user
@@ -34,34 +35,17 @@ class TagsController < ApplicationController
   end
 
   def show
-    params[:name].downcase!
-    @aspect = :tag
-    @tag = ActsAsTaggableOn::Tag.find_by_name(params[:name])
-    @tag_follow_count = @tag.try(:followed_count).to_i
-
-    if current_user
-      @posts = StatusMessage.owned_or_visible_by_user(current_user)
-    else
-      @posts = StatusMessage.all_public
-    end
-
-    @posts = @posts.tagged_with(params[:name]).for_a_stream(max_time, 'created_at')
-
-    @commenting_disabled = true
-    params[:prefill] = "##{params[:name]} "
+    @stream = Stream::Tag.new(current_user, params[:name], :max_time => max_time, :page => params[:page])
 
     if params[:only_posts]
-      render :partial => 'shared/stream', :locals => {:posts => @posts}
-    else
-      profiles = Profile.tagged_with(params[:name]).where(:searchable => true).select('profiles.id, profiles.person_id')
-      @people = Person.where(:id => profiles.map{|p| p.person_id}).paginate(:page => params[:page], :per_page => 15)
-      @people_count = Person.where(:id => profiles.map{|p| p.person_id}).count
+      render :partial => 'shared/stream', :locals => {:posts => @stream.posts}
+      return
     end
   end
 
  def tag_followed?
    if @tag_followed.nil?
-     @tag_followed = TagFollowing.joins(:tag).where(:tags => {:name => params[:name]}, :user_id => current_user.id).exists? #,
+     @tag_followed = TagFollowing.joins(:tag).where(:tags => {:name => params[:name]}, :user_id => current_user.id).exists?
    end
    @tag_followed
  end

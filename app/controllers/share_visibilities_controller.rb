@@ -3,18 +3,21 @@
 #   the COPYRIGHT file.
 #
 
-class PostVisibilitiesController < ApplicationController
+class ShareVisibilitiesController < ApplicationController
   before_filter :authenticate_user!
 
   def update
     #note :id references a postvisibility
+    params[:shareable_id] ||= params[:post_id]
+    params[:shareable_type] ||= 'Post'
 
     @post = accessible_post
     @contact = current_user.contact_for(@post.author)
 
-    if @contact && @vis = PostVisibility.where(:contact_id => @contact.id,
-                                               :post_id => params[:post_id]).first
-      @vis.hidden = !@vis.hidden 
+    if @contact && @vis = ShareVisibility.where(:contact_id => @contact.id,
+                                                :shareable_id => params[:shareable_id],
+                                                :shareable_type => params[:shareable_type]).first
+      @vis.hidden = !@vis.hidden
       if @vis.save
         update_cache(@vis)
         render 'update'

@@ -2,6 +2,8 @@
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
+require File.join(Rails.root, "lib", 'stream', "person")
+
 class PeopleController < ApplicationController
   before_filter :authenticate_user!, :except => [:show]
 
@@ -86,7 +88,9 @@ class PeopleController < ApplicationController
     @aspect = :profile
     @share_with = (params[:share_with] == 'true')
 
-    max_time = params[:max_time] ? Time.at(params[:max_time].to_i) : Time.now
+    @stream = Stream::Person.new(current_user, @person,
+                                 :max_time => max_time)
+
     @profile = @person.profile
 
     unless params[:format] == "json" # hovercard
@@ -104,22 +108,11 @@ class PeopleController < ApplicationController
           @contacts_of_contact_count = 0
           @contacts_of_contact = []
         end
-
-        if (@person != current_user.person) && !@contact.persisted?
-          @commenting_disabled = true
-        else
-          @commenting_disabled = false
-        end
-        @posts = current_user.posts_from(@person).where(:type => ["StatusMessage", "Reshare", "ActivityStreams::Photo"]).includes(:comments).limit(15).where(StatusMessage.arel_table[:created_at].lt(max_time))
-      else
-        @commenting_disabled = true
-        @posts = @person.posts.where(:type => ["StatusMessage", "Reshare", "ActivityStreams::Photo"], :public => true).includes(:comments).limit(15).where(StatusMessage.arel_table[:created_at].lt(max_time)).order('posts.created_at DESC')
       end
-      @posts.includes(:author => :profile)
     end
 
     if params[:only_posts]
-      render :partial => 'shared/stream', :locals => {:posts => @posts}
+      render :partial => 'shared/stream', :locals => {:posts => @stream.posts}
     else
       respond_to do |format|
         format.all { respond_with @person, :locals => {:post_type => :all} }

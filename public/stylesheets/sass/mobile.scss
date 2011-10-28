@@ -470,8 +470,9 @@ header {
   z-index: 10;
   top: 0;
 
-  /* force hardware acceleration on webkit browsers */
-  -webkit-transform: translateZ(0);
+  /* force hardware acceleration on webkit browsers 
+     10/17/2011 - removed for now, causes ghost doubles of links on some Android browsers */
+  /*-webkit-transform: translateZ(0);*/
 
   border: {
     bottom: 1px solid #222;
@@ -481,8 +482,9 @@ header {
     float: right; } }
 
 .stream_element {
-  /* force hardware acceleration on webkit browsers */
-  -webkit-transform: translateZ(0);
+  /* force hardware acceleration on webkit browsers 
+     10/17/2011 - removed for now, causes ghost doubles of links on some Android browsers */
+  /*-webkit-transform: translateZ(0);*/
 }
 
 footer {

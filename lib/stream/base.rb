@@ -1,34 +1,47 @@
+require File.join(Rails.root, "lib", "publisher")
 class Stream::Base
   TYPES_OF_POST_IN_STREAM = ['StatusMessage', 'Reshare', 'ActivityStreams::Photo']
-  attr_accessor :max_time, :order, :user
+
+  attr_accessor :max_time, :order, :user, :publisher
 
   def initialize(user, opts={})
     self.user = user
     self.max_time = opts[:max_time]
-    self.order = opts[:order] 
+    self.order = opts[:order]
+    self.publisher = Publisher.new(self.user, publisher_opts)
   end
 
-  def random_featured_user
-    @random_featured_user ||= Person.find_by_diaspora_handle(featured_diaspora_id)
+  # @return [Person]
+  def random_community_spotlight_member
+    @random_community_spotlight_member ||= Person.find_by_diaspora_handle(spotlight_diaspora_id)
   end
 
-  def has_featured_users?
-    random_featured_user.present?
+  # @return [Boolean]
+  def has_community_spotlight?
+    random_community_spotlight_member.present?
   end
-  
+
   #requied to implement said stream
   def link(opts={})
     'change me in lib/base_stream.rb!'
   end
 
+  # @return [Boolean]
   def can_comment?(post)
-    true
+    return true if post.author.local?
+    post_is_from_contact?(post)
   end
 
+  def post_from_group(post)
+    []
+  end
+
+  # @return [String]
   def title
     'a title'
   end
 
+  # @return [ActiveRecord::Relation<Post>]
   def posts
     []
   end
@@ -39,38 +52,43 @@ class Stream::Base
     Person.where(:id => people_ids).includes(:profile)
   end
 
+  # @return [String]
   def contacts_link_title
     I18n.translate('aspects.selected_contacts.view_all_contacts')
   end
 
+  # @return [String]
   def contacts_title
     'change me in lib/base_stream.rb!'
   end
 
+  # @return [String]
   def contacts_link
-    '#'
+    Rails.application.routes.url_helpers.contacts_path
   end
 
   #helpers
+  # @return [Boolean]
   def ajax_stream?
     false
   end
-  
+
+  # @return [Boolean]
   def for_all_aspects?
     true
   end
 
-
   #NOTE: MBS bad bad methods the fact we need these means our views are foobared. please kill them and make them 
   #private methods on the streams that need them
   def aspects
-    @user.aspects
+    user.aspects
   end
 
+  # @return [Aspect] The first aspect in #aspects
   def aspect
     aspects.first
   end
-  
+
   def aspect_ids
     aspects.map{|x| x.id} 
   end
@@ -86,7 +104,28 @@ class Stream::Base
   end
 
   private
-  def featured_diaspora_id
-    @featured_diaspora_id ||= AppConfig[:featured_users].try(:sample, 1)
+  # @return [Hash]
+  def publisher_opts
+    {}
+  end
+
+  # Memoizes all Contacts present in the Stream
+  #
+  # @return [Array<Contact>]
+  def contacts_in_stream
+    @contacts_in_stream ||= Contact.where(:user_id => user.id, :person_id => people.map{|x| x.id}).all
+  end
+
+  def spotlight_diaspora_id
+    @spotlight_diaspora_id ||= AppConfig[:community_spotlight].try(:sample, 1)
+  end
+
+  # @param post [Post]
+  # @return [Boolean]
+  def post_is_from_contact?(post)
+    @can_comment_cache ||= {}
+    @can_comment_cache[post.id] ||= contacts_in_stream.find{|contact| contact.person_id == post.author.id}.present?
+    @can_comment_cache[post.id] ||= (user.person.id == post.author.id)
+    @can_comment_cache[post.id]
   end
 end

@@ -151,13 +151,25 @@ describe Person do
       @profile = @person.profile
     end
 
-    context 'with first name' do
-      it 'should return their name for name' do
-        Person.name_from_attrs(@profile.first_name, @profile.last_name, @profile.diaspora_handle).should match /#{@profile.first_name}|#{@profile.last_name}/
+    context 'with only first name' do
+      it 'should return their first name for name' do
+        Person.name_from_attrs(@profile.first_name, nil, @profile.diaspora_handle).should == @profile.first_name.strip
       end
     end
 
-    context 'without first name' do
+    context 'with only last name' do
+      it 'should return their last name for name' do
+        Person.name_from_attrs(nil, @profile.last_name, @profile.diaspora_handle).should == @profile.last_name.strip
+      end
+    end
+
+    context 'with both first and last name' do
+      it 'should return their composed name for name' do
+        Person.name_from_attrs(@profile.first_name, @profile.last_name, @profile.diaspora_handle).should == "#{@profile.first_name.strip} #{@profile.last_name.strip}"
+      end
+    end
+
+    context 'without first nor last name' do
       it 'should display their diaspora handle' do
         Person.name_from_attrs(nil, nil, @profile.diaspora_handle).should == @profile.diaspora_handle
       end
@@ -256,6 +268,23 @@ describe Person do
       @user2.contacts.create(:person => @person, :aspects => [@aspect2])
 
       lambda { @user.disconnect(@user.contact_for(@person)) }.should_not change(Person, :count)
+    end
+  end
+
+  describe "#first_name" do
+    it 'returns username if first_name is not present in profile' do
+      alice.person.profile.update_attributes(:first_name => "")
+      alice.person.first_name.should == alice.username
+    end
+
+    it 'returns first words in first_name if first_name is present' do
+      alice.person.profile.update_attributes(:first_name => "First Mid Last")
+      alice.person.first_name.should == "First Mid"
+    end
+
+    it 'returns first word in first_name if first_name is present' do
+      alice.person.profile.update_attributes(:first_name => "Alice")
+      alice.person.first_name.should == "Alice"
     end
   end
 
@@ -467,17 +496,17 @@ describe Person do
     end
   end
 
-  describe '.featured_users' do
-    describe "when the pod owner hasn't set up any featured users" do
+  describe '.community_spotlight' do
+    describe "when the pod owner hasn't set up any community spotlight members" do
       before do
-        @existing_featured_users = AppConfig[:featured_users]
-        AppConfig[:featured_users] = nil
+        @existing_community_spotlight = AppConfig[:community_spotlight]
+        AppConfig[:community_spotlight] = nil
       end
       after do
-        AppConfig[:featured_users] = @existing_featured_users
+        AppConfig[:community_spotlight] = @existing_community_spotlight
       end
       it "returns an empty array" do
-        Person.featured_users.should == []
+        Person.community_spotlight.should == []
       end
     end
   end

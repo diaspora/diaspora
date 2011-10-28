@@ -6,27 +6,37 @@
 nn: 
   javascripts: 
     aspect_dropdown: 
-      add_to_aspect: "Legg til aspektet"
+      add_to_aspect: "Legg til kontakt"
       all_aspects: "Alle aspekta"
+      select_aspects: "Vel aspekt"
+      started_sharing_with: "You have started sharing with {{name}}!"
+      stopped_sharing_with: "You have stopped sharing with {{name}}."
       toggle: 
         few: "I {{count}} aspekt"
         many: "I {{count}} aspekt"
         one: "I {{count}} aspekt"
         other: "I {{count}} aspekt"
         two: "I {{count}} aspekt"
-        zero: "Legg til aspektet"
+        zero: "Vel aspekt"
     aspect_navigation: 
-      deselect_all: "Deselect all"
-      no_aspects: "No aspects selected"
-      select_all: "Select all"
+      deselect_all: "Vel vekk alle"
+      no_aspects: "Ingen aspekt er valde"
+      select_all: "Vel alle"
     comments: 
       hide: "gøym merknader"
       show: "syn alle merknadene"
     confirm_dialog: "Er du sikker?"
     failed_to_like: "Like-funksjonen feila."
     failed_to_post_message: "Klarte ikkje å senda meldinga."
+    getting_started: 
+      alright_ill_wait: "Alright, I'll wait."
+      hey: "Hey, {{name}}!"
+      no_tags: "Hey, you haven't followed any tags!  Continue anyway?"
+      preparing_your_stream: "Preparing your personialized stream..."
     infinite_scroll: 
       no_more: "Ingen fleire meldingar."
+    photo_uploader: 
+      looking_good: "OMG, you look awesome!"
     publisher: 
       at_least_one_aspect: "Du må offentleggjera til minst eitt aspekt"
       limited: "Avgrensa - berre personar du deler med vil kunna sjå meldinga"
@@ -35,6 +45,8 @@ nn:
       duplicate: "Du har allereie delt den meldinga."
     search_for: "Leit etter {{name}}"
     show_more: "syn meir"
+    tags: 
+      wasnt_that_interesting: "OK, I suppose #{{tagName}} wasn't all that interesting..."
     timeago: 
       day: "om dagen"
       days: "%d dagar"

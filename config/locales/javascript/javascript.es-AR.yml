@@ -7,34 +7,46 @@ es-AR:
   javascripts: 
     aspect_dropdown: 
       add_to_aspect: "Agregar al aspecto"
-      all_aspects: "All aspects"
+      all_aspects: "Todos los aspectos"
+      select_aspects: "Selecciona aspectos"
+      started_sharing_with: "You have started sharing with {{name}}!"
+      stopped_sharing_with: "You have stopped sharing with {{name}}."
       toggle: 
         few: "En {{count}} aspectos"
         many: "En {{count}} aspectos"
         one: "En {{count}} aspecto"
         other: "En {{count}} aspectos"
-        two: "In {{count}} aspects"
+        two: "En {{count}} aspectos"
         zero: "Agregar a un aspecto"
     aspect_navigation: 
-      deselect_all: "Deselect all"
-      no_aspects: "No aspects selected"
-      select_all: "Select all"
+      deselect_all: "De-seleccionar todo"
+      no_aspects: "No hay aspectos seleccionados"
+      select_all: "Seleccionar todo"
     comments: 
       hide: "ocultar los comentarios"
       show: "mostrar todos los comentarios"
     confirm_dialog: "¿Estás seguro?"
     failed_to_like: "¡No pudo marcarse como 'Me gusta'!"
     failed_to_post_message: "¡No pudo publicarse el mensaje!"
+    getting_started: 
+      alright_ill_wait: "Alright, I'll wait."
+      hey: "Hey, {{name}}!"
+      no_tags: "Hey, you haven't followed any tags!  Continue anyway?"
+      preparing_your_stream: "Preparing your personialized stream..."
     infinite_scroll: 
       no_more: "No hay más publicaciones."
+    photo_uploader: 
+      looking_good: "OMG, you look awesome!"
     publisher: 
       at_least_one_aspect: "Tenés que publicarlo en, por lo menos, un aspecto"
-      limited: "Limited - your post will only be seen by people you are sharing with"
-      public: "Public - your post will be visible to everyone and found by search engines"
+      limited: "Limitada - tu publicación sera vista solo por la gente con quien la compartes "
+      public: "Publica - tu publicación sera visible para cualquiera y los buscadores podrán encontrarla"
     reshares: 
-      duplicate: "You've already reshared that post!"
+      duplicate: "Ya compartiste esa publicación!"
     search_for: "Buscar a {{name}}"
     show_more: "mostrar más"
+    tags: 
+      wasnt_that_interesting: "OK, I suppose #{{tagName}} wasn't all that interesting..."
     timeago: 
       day: "un día"
       days: "%d días"

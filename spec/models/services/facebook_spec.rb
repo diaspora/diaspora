@@ -122,4 +122,13 @@ JSON
       end
     end
   end
+  
+  describe "#profile_photo_url" do
+    it 'returns a large profile photo url' do
+      @service.uid = "abc123"
+      @service.access_token = "token123"
+      @service.profile_photo_url.should == 
+      "https://graph.facebook.com/abc123/picture?type=large&access_token=token123"
+    end
+  end
 end

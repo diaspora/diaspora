@@ -1,0 +1,25 @@
+#   Copyright (c) 2010-2011, Diaspora Inc.  This file is
+#   licensed under the Affero General Public License version 3 or later.  See
+#   the COPYRIGHT file.
+
+class Stream::Person < Stream::Base
+
+  attr_accessor :person
+
+  def initialize(user, person, opts={})
+    self.person = person
+    super(user, opts)
+  end
+
+  # @return [ActiveRecord::Association<Post>] AR association of posts
+  def posts
+    @posts ||= lambda do
+      if user
+        posts = self.user.posts_from(@person).for_a_stream(max_time, order)
+      else
+        posts = @person.posts.where(:public => true).for_a_stream(max_time, order)
+      end
+      posts
+    end.call
+  end
+end

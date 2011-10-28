@@ -35,10 +35,14 @@
           $("#file-upload-spinner").addClass("hidden");
           $('#fileInfo').text(fileName + ' completed').fadeOut(2000);
           $('#file-upload').removeClass("loading");
+
+          /* flash message prompt */
+          var message = Diaspora.I18n.t("photo_uploader.looking_good");
+          Diaspora.page.flashMessages.render({success: true, notice: message});
+
           var id = responseJSON.data.photo.id;
           var url = responseJSON.data.photo.unprocessed_image.url;
           var oldPhoto = $('#photo_id');
-          console.log(responseJSON);
           if(oldPhoto.length == 0) {
             $('#update_profile_form').prepend("<input type='hidden' value='" + id + "' id='photo_id' name='photo_id'/>");
           }else{
@@ -47,6 +51,7 @@
 
           $("#profile_photo_upload").find(".avatar").removeClass('loading');
           $("#profile_photo_upload").find(".avatar").attr("src",url);
+          $(".avatar[data-person_id=#{current_user.person.id}]").attr("src",url);
          }
      });
     }
@@ -54,6 +59,10 @@
 
 #profile_photo_upload
   = owner_image_tag(:thumb_medium)
+
+  -if !aspect.nil? && aspect == :getting_started
+    %br
+    %br
 
   #file-upload.button
     =t('.upload')

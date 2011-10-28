@@ -21,7 +21,6 @@ Feature: photos
     And I follow "edit_photo_toggle"
     And I preemptively confirm the alert
     And I press "Delete Photo"
-    And I wait for the ajax to finish
     And I go to the home page
 
     Then I should see 0 posts

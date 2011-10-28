@@ -2,6 +2,9 @@
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
+#Excon needs to see the CA Cert Bundle file
+ENV["SSL_CERT_FILE"] = AppConfig[:ca_file]
+
 CarrierWave.configure do |config|
   if AppConfig[:s3_key] && AppConfig[:s3_secret] && AppConfig[:s3_bucket] && AppConfig[:s3_region]
     config.storage = :s3

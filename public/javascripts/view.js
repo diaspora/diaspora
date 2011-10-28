@@ -37,6 +37,8 @@ var View = {
     $(this.dropdowns.selector)
       .live('click', this.dropdowns.click);
 
+    /* Avatars */
+    $(this.avatars.selector).error(this.avatars.fallback);
 
     /* Clear forms after successful submit */
     $('form[data-remote]').live('ajax:success', function (e) {
@@ -44,6 +46,10 @@ var View = {
       $(this).focusout();
     });
 
+    /* tag following */
+    $("#new_tag_following .tag_input").bind('focus', function(evt){
+      $(this).siblings("#tag_following_submit").removeClass('hidden');
+    });
 
     /* Autoexpand textareas */
     var startAutoResize = function() {
@@ -59,6 +65,12 @@ var View = {
     }
 //    Diaspora.Page.subscribe("stream/scrolled", startAutoResize)
 //    Diaspora.Page.subscribe("stream/reloaded", startAutoResize)
+
+    /* photo exporting in the works */
+    $("#photo-export-button").bind("click", function(evt){
+      evt.preventDefault();
+      alert($(this).attr('title'));
+    });
 
     $(document.body)
       .click(this.dropdowns.removeFocus)
@@ -112,17 +124,33 @@ var View = {
   },
 
   tooltips: {
-    public_badge: {
+    conversation_participants: {
       bind: function() {
-        $(".public_badge img").tipsy({
+        $(".conversation_participants img").twipsy({
           live: true
         });
       }
     },
 
-    conversation_participants: {
+    commenting_disabled: {
       bind: function() {
-        $(".conversation_participants img").tipsy({
+        $('.federated_person').twipsy({
+          live: true
+        });
+      }
+    },
+
+    contacts_on_side: {
+      bind: function() {
+        $("#selected_aspect_contacts .avatar").twipsy({
+          live: true
+        });
+      }
+    },
+
+    like_avatars: {
+      bind: function() {
+        $(".likes_list .avatar").twipsy({
           live: true
         });
       }
@@ -159,6 +187,13 @@ var View = {
     },
     selector: ".dropdown > .toggle",
     parentSelector: ".dropdown > .wrapper"
+  },
+
+  avatars: {
+    fallback: function(evt) {
+      $(this).attr("src", "/images/user/default.png");
+    },
+    selector: "img.avatar"
   }
 };
 

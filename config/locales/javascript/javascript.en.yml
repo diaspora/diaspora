@@ -5,7 +5,6 @@
 
 en:
   javascripts:
-
       confirm_dialog: "Are you sure?"
       timeago:
         prefixAgo: ""
@@ -39,6 +38,8 @@ en:
         add_to_aspect: "Add contact"
         select_aspects: "Select aspects"
         all_aspects: "All aspects"
+        stopped_sharing_with: "You have stopped sharing with {{name}}."
+        started_sharing_with: "You have started sharing with {{name}}!"
         toggle:
           zero: "Select aspects"
           one: "In {{count}} aspect"
@@ -53,8 +54,17 @@ en:
         show: "show all comments"
         hide: "hide comments"
       reshares:
-        duplicate: "You've already reshared that post!"
+        duplicate: "That good, huh?  You've already reshared that post!"
       aspect_navigation:
         select_all: "Select all"
         deselect_all: "Deselect all"
         no_aspects: "No aspects selected"
+      getting_started:
+        hey: "Hey, {{name}}!"
+        no_tags: "Hey, you haven't followed any tags!  Continue anyway?"
+        alright_ill_wait: "Alright, I'll wait."
+        preparing_your_stream: "Preparing your personialized stream..."
+      photo_uploader:
+        looking_good: "OMG, you look awesome!"
+      tags:
+        wasnt_that_interesting: "OK, I suppose #{{tagName}} wasn't all that interesting..."
