@@ -56,14 +56,14 @@ describe TagFollowingsController do
       it "flashes success to the tag page" do
         post :create, valid_attributes
 
-        flash[:notice].should == "Successfully following: ##{valid_attributes[:name]}"
+        flash[:notice].should == "Horray!  You're now following ##{valid_attributes[:name]}."
       end
 
       it "flashes error if you already have a tag" do
         TagFollowing.any_instance.stub(:save).and_return(false)
         post :create, valid_attributes
 
-        flash[:error].should == "Failed to follow: ##{valid_attributes[:name]}"
+        flash[:error].should include("Failed")
       end
 
       it 'squashes the tag' do
