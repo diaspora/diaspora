@@ -56,14 +56,14 @@ describe TagFollowingsController do
       it "flashes success to the tag page" do
         post :create, valid_attributes
 
-        flash[:notice].should == "Horray!  You're now following ##{valid_attributes[:name]}."
+        flash[:notice].should include(valid_attributes[:name])
       end
 
       it "flashes error if you already have a tag" do
         TagFollowing.any_instance.stub(:save).and_return(false)
         post :create, valid_attributes
 
-        flash[:error].should include("Failed")
+        flash[:error].should include(valid_attributes[:name])
       end
 
       it 'squashes the tag' do
@@ -95,7 +95,7 @@ describe TagFollowingsController do
       delete :destroy, valid_attributes
 
       response.should redirect_to(tag_path(:name => valid_attributes[:name]))
-      flash[:notice].should == "Successfully stopped following: ##{valid_attributes[:name]}"
+      flash[:notice].should include(valid_attributes[:name])
     end
 
     it "redirects and flashes error if you already don't follow the tag" do
@@ -103,7 +103,7 @@ describe TagFollowingsController do
       delete :destroy, valid_attributes
 
       response.should redirect_to(tag_path(:name => valid_attributes[:name]))
-      flash[:error].should == "Failed to stop following: ##{valid_attributes[:name]}"
+      flash[:error].should include(valid_attributes[:name])
     end
   end
 
