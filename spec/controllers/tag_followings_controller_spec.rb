@@ -16,14 +16,14 @@ describe TagFollowingsController do
   end
 
   describe 'index' do
-    it 'assings new TagStream' do
+    it 'succeeds' do
       get :index
-      assigns[:stream].should be_a Stream::FollowedTag
+      response.should be_success
     end
 
-    it 'renders a view' do
+    it 'assigns a stream' do
       get :index
-      response.body.should_not be_blank
+      assigns[:stream].should be_a Stream::FollowedTag
     end
   end
 
@@ -35,19 +35,29 @@ describe TagFollowingsController do
         }.to change(TagFollowing, :count).by(1)
       end
 
+      it "associates the tag following with the currently-signed-in user" do
+        expect {
+          post :create, valid_attributes
+        }.to change(bob.tag_followings, :count).by(1)
+      end
+
       it "assigns a newly created tag_following as @tag_following" do
         post :create, valid_attributes
         assigns(:tag_following).should be_a(TagFollowing)
         assigns(:tag_following).should be_persisted
       end
 
-      it 'creates the tag if it does not already exist' do
+      it "creates the tag IFF it doesn't already exist" do
         expect {
           post :create, :name => "tomcruisecontrol"
         }.to change(ActsAsTaggableOn::Tag, :count).by(1)
-      end
 
-      it 'does not create the tag following for non signed in user' do
+        expect {
+          post :create, :name => "tomcruisecontrol"
+        }.to change(ActsAsTaggableOn::Tag, :count).by(0)
+      end
+      
+      it "will only create a tag following for the currently-signed-in user" do
         expect {
           post :create, valid_attributes.merge(:user_id => alice.id)
         }.to_not change(alice.tag_followings, :count).by(1)
@@ -55,14 +65,12 @@ describe TagFollowingsController do
 
       it "flashes success to the tag page" do
         post :create, valid_attributes
-
         flash[:notice].should include(valid_attributes[:name])
       end
 
       it "flashes error if you already have a tag" do
         TagFollowing.any_instance.stub(:save).and_return(false)
         post :create, valid_attributes
-
         flash[:error].should include(valid_attributes[:name])
       end
 
@@ -72,9 +80,8 @@ describe TagFollowingsController do
       end
 
       it 'downcases the tag name' do
-        pending "THIS CAUSES A 500 WE NEED TO FIX IT"
-        post "tags/#{valid_attributes[:name].upcase}/tag_followings"
-        assigns[:tag].should == @tag
+        post :create, :name => "SOMESTUFF"
+        assigns[:tag].name.should == "somestuff"
       end
     end
   end
