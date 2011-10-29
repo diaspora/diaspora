@@ -1,10 +1,3 @@
-# adjust GC settings for REE
-export RUBY_HEAP_MIN_SLOTS=1000000
-export RUBY_HEAP_SLOTS_INCREMENT=1000000
-export RUBY_HEAP_SLOTS_GROWTH_FACTOR=1
-export RUBY_GC_MALLOC_LIMIT=1000000000
-export RUBY_HEAP_FREE_MIN=500000
-
 # Install firefox & Xvfb, in preparation for cucumber & jasmine
 #echo "Installing Firefox and Xvfb"
 #sudo aptitude --quiet=2 --without-recommends --assume-yes install firefox xvfb
