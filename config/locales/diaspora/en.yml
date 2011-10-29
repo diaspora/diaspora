@@ -318,6 +318,7 @@ en:
       already_contacts: "You are already connected with this person"
       own_address: "You can't send an invitation to your own address."
     new:
+      language: "Language"
       invite_someone_to_join: "Invite someone to join Diaspora!"
       if_they_accept_info: "if they accept, they will be added to the aspect you invited them."
       comma_seperated_plz: "You can enter multiple email addresses separated by commas."

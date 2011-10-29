@@ -13,13 +13,14 @@ describe Invitation do
   end
   describe 'validations' do
     before do
-      @invitation = Factory.build(:invitation, :sender => user, :recipient => nil, :aspect => user.aspects.first)
+      @invitation = Factory.build(:invitation, :sender => user, :recipient => nil, :aspect => user.aspects.first, :language => "de")
     end
 
     it 'is valid' do
       @invitation.sender.should == user
       @invitation.recipient.should == nil
       @invitation.aspect.should == user.aspects.first
+      @invitation.language.should == "de"
       @invitation.should be_valid
     end
 
@@ -29,20 +30,30 @@ describe Invitation do
     end
   end
 
+  describe '#language' do  
+    it 'returns the correct language if the language is set' do
+      @invitation = Factory.build(:invitation, :sender => user, :recipient => eve, :aspect => user.aspects.first, :language => "de")
+      @invitation.language.should == "de"
+    end  
+
+    it 'returns en if no language is set' do
+      @invitation = Factory.build(:invitation, :sender => user, :recipient => eve, :aspect => user.aspects.first)
+      @invitation.language.should == "en"
+    end
+  end
+
   it 'has a message' do
-    @invitation = Factory.build(:invitation, :sender => user, :recipient => eve, :aspect => user.aspects.first)
+    @invitation = Factory.build(:invitation, :sender => user, :recipient => eve, :aspect => user.aspects.first, :language => user.language)
     @invitation.message = "!"
     @invitation.message.should == "!"
   end
-
-
 
   describe 'the invite process' do
     before do
     end
 
     it 'works for a new user' do
-      invite = Invitation.new(:sender => alice, :aspect => alice.aspects.first, :service => 'email', :identifier => 'foo@bar.com')
+      invite = Invitation.new(:sender => alice, :aspect => alice.aspects.first, :service => 'email', :identifier => 'foo@bar.com', :language => alice.language)
       lambda {
         invite.save
         invite.send!
@@ -50,7 +61,7 @@ describe Invitation do
     end
 
     it 'works for a current user(with the right email)' do
-      invite = Invitation.create(:sender => alice, :aspect => alice.aspects.first, :service => 'email', :identifier => bob.email)
+      invite = Invitation.create(:sender => alice, :aspect => alice.aspects.first, :service => 'email', :identifier => bob.email, :language => alice.language)
       lambda {
         invite.send!
       }.should_not change(User, :count)
@@ -80,7 +91,7 @@ describe Invitation do
   describe '.batch_invite' do
     before do
       @emails = ['max@foo.com', 'bob@mom.com']
-      @opts = {:aspect => eve.aspects.first, :sender => eve, :service => 'email'}
+      @opts = {:aspect => eve.aspects.first, :sender => eve, :service => 'email', :language => eve.language}
     end
 
     it 'returns an array of invites based on the emails passed in' do
@@ -102,7 +113,7 @@ describe Invitation do
 
   describe 'send' do
     before do
-      @invitation = Factory(:invitation, :sender => alice, :aspect => alice.aspects.first, :service => 'email', :identifier => 'a@a.com')
+      @invitation = Factory(:invitation, :sender => alice, :aspect => alice.aspects.first, :service => 'email', :identifier => 'a@a.com' , :language => alice.language)
     end
 
     it 'sends an email' do
@@ -133,7 +144,7 @@ describe Invitation do
   describe '#recipient_identifier' do
     it 'calls email if the invitation_service is email' do
       email = 'abc@abc.com'
-      invitation = Factory(:invitation, :sender => alice, :service => 'email', :identifier => email, :aspect => alice.aspects.first)
+      invitation = Factory(:invitation, :sender => alice, :service => 'email', :identifier => email, :aspect => alice.aspects.first, :language => alice.language)
       invitation.recipient_identifier.should == email
     end
 

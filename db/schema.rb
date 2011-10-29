@@ -109,6 +109,7 @@ ActiveRecord::Schema.define(:version => 20111026173547) do
     t.string   "service"
     t.string   "identifier"
     t.boolean  "admin",        :default => false
+    t.string   "language",     :default => "en"
   end
 
   add_index "invitations", ["aspect_id"], :name => "index_invitations_on_aspect_id"
