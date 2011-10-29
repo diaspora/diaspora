@@ -3,7 +3,7 @@
 <head>
   <title><%=invite_email_title %></title>
 </head>
-<p style="background-color: rgb(255, 255, 255); text-align: center; font-size: 11px;">Email not displaying correctly? <a href="<%=invite_email_url(:invitation_token => @resource.invitation_token) %>" style="color: #3F8FBA; text-decoration: none;">View it</a> in your browser</p>
+<p style="background-color: rgb(255, 255, 255); text-align: center; font-size: 11px;"><%= t('.displaying_correctly', :link => link_to(t('.view_in'), invite_email_url(:invitation_token => @resource.invitation_token), :style => "color: #3F8FBA; text-decoration: none;")).html_safe %> </p>
 
 <table border="0" cellpadding="0" cellspacing="0" width="100%"><tbody><tr><td style="padding: 30px 15px 0pt; background-color: rgb(221, 221, 221);">
         <table style="font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; font-size: 16px; color: rgb(51, 51, 51);" align="center" border="0" cellpadding="0" cellspacing="0" width="600">
@@ -20,7 +20,7 @@
 
             <tr>
               <td style="padding: 10px 0pt 0px 20px; background: rgb(255, 255, 255) none repeat scroll 0%; -moz-background-clip: -moz-initial; -moz-background-origin: -moz-initial; -moz-background-inline-policy: -moz-initial; font-size: 44px; font-weight: bold; color: rgb(0, 0, 0);">
-               Finally -  it's here.<br>
+               <%= t('.finally') %><br>
               </td>
             </tr>
 
@@ -30,10 +30,10 @@
 
 
             <tr><td style="padding: 0pt 30px; background: rgb(255, 255, 255) none repeat scroll 0%; -moz-background-clip: -moz-initial; -moz-background-origin: -moz-initial; -moz-background-inline-policy: -moz-initial; line-height: 20px;">
-                The social network you have been waiting for has arrived.  Revamped, more secure, and more fun, <strong>DIASPORA*</strong> is ready to help you share and explore the web in a whole new way. 
+                <%= t('.arrived', :strong_diaspora => content_tag(:strong, "DIASPORA*")).html_safe %> 
                 <br>
                 <br>
-                <a style="color: #3F8FBA; text-decoration: underline; font-weight: bold; font-size: 20px;" href="<%= accept_invitation_url(@resource, :invitation_token => @resource.invitation_token)%>"  target="_blank">Sign up now &rarr;</a>
+                <%= link_to(t('.sign_up_now').html_safe, accept_invitation_url(@resource, :invitation_token => @resource.invitation_token), :style => "color: #3F8FBA; text-decoration: underline; font-weight: bold; font-size: 20px;", :target => "_blank").html_safe %>
             </td></tr>
 
 
@@ -43,7 +43,7 @@
                 <tr>
                   <td style="padding: 10px 0pt 0px 20px; background: rgb(255, 255, 255) none repeat scroll 0%; -moz-background-clip: -moz-initial; -moz-background-origin: -moz-initial; -moz-background-inline-policy: -moz-initial; font-size: 24px; font-weight: bold; color: rgb(0, 0, 0);">
                     <br>
-                    What your friends are saying...<br>
+                    <%= t('.friends_saying') %><br>
                   </td>
                 </tr>
 
@@ -59,7 +59,7 @@
                 <tr>
                   <td style="padding: 10px 0pt 0px 20px; background: rgb(255, 255, 255) none repeat scroll 0%; -moz-background-clip: -moz-initial; -moz-background-origin: -moz-initial; -moz-background-inline-policy: -moz-initial; font-size: 24px; font-weight: bold; color: rgb(0, 0, 0);">
                     <br>
-                    Even more people are excited to see you!<br>
+                    <%= t('.more_people') %><br>
                   </td>
                 </tr>
 
@@ -77,7 +77,7 @@
 
 
             <tr><td style="padding: 20px 20px 0px; background: rgb(255, 255, 255) none repeat scroll 0%; -moz-background-clip: -moz-initial; -moz-background-origin: -moz-initial; -moz-background-inline-policy: -moz-initial; font-size: 44px; font-weight: bold; color: rgb(0, 0, 0);">
-                1. Get Connected</td></tr>
+                1. <%= t('.get_connected') %></td></tr>
             <tr><td>
                 <table style="padding: 0pt 20px; background: rgb(255, 255, 255) none repeat scroll 0%; font-size: 16px; color: rgb(51, 51, 51); -moz-background-clip: -moz-initial; -moz-background-origin: -moz-initial; -moz-background-inline-policy: -moz-initial;" align="center" border="0" cellpadding="0" cellspacing="0" width="600">
                   <tbody><tr>
@@ -85,7 +85,7 @@
                         <a href="<%=accept_invitation_url(@resource, :invitation_token => @resource.invitation_token) %>" target="_blank"><img style="border: 0pt none ; padding: 0pt 10px 0px 5px; display: block;" src="https://joindiaspora.s3.amazonaws.com/uploads/images/scaled_full_c7506ec0b3ae6694c64d.gif" height="156" width="200"></a>
                       </td>
                       <td style="line-height: 20px; width: 360px;">
-                        An international movement with a shared vision for a better web, DIASPORA*'s #1 feature is its community. Meet new people, connect with friends, and join the fun.
+                        <%= t('.get_connected_paragraph', :strong_diaspora => content_tag(:strong, "DIASPORA*")).html_safe %>
                         <br>
                         <!-- <a style="color: #3F8FBA; text-decoration: underline; font-weight: bold; font-size: 20px;" href="https://joindiaspora.com/channels" target="_blank">Tune in to your favorite Channels</a>-->
                       </td>
@@ -94,14 +94,14 @@
             </td></tr>
 
             <tr><td style="padding: 20px 20px 0px; background: rgb(255, 255, 255) none repeat scroll 0%; -moz-background-clip: -moz-initial; -moz-background-origin: -moz-initial; -moz-background-inline-policy: -moz-initial; font-size: 44px; font-weight: bold; color: rgb(0, 0, 0);">
-                2. Be Yourself</td></tr>
+                2. <%= t('.be_yourself') %></td></tr>
             <tr><td>
                 <table style="padding: 0pt 20px; background: rgb(255, 255, 255) none repeat scroll 0%; font-size: 16px; color: rgb(51, 51, 51); -moz-background-clip: -moz-initial; -moz-background-origin: -moz-initial; -moz-background-inline-policy: -moz-initial;" align="center" border="0" cellpadding="0" cellspacing="0" width="600">
                   <tbody><tr>
                       <td style="line-height: 20px; width: 360px;">
 
-                        The Internet has created unique new ways for us to express ourselves.
-                        <strong>DIASPORA*</strong> lets you be yourself and share however you want, with or without your real name.
+                        <%= t('.be_yourself_paragraph', :strong_diaspora => content_tag(:strong, "DIASPORA*")).html_safe %>
+
                         <br>
                         <!-- <a style="color: #3F8FBA; text-decoration: underline; font-weight: bold; font-size: 20px;" href="#" target="_blank">Watch all the bumpers</a>-->
                       </td>
@@ -115,7 +115,7 @@
 
 
             <tr><td style="padding: 20px 20px 0px; background: rgb(255, 255, 255) none repeat scroll 0%; -moz-background-clip: -moz-initial; -moz-background-origin: -moz-initial; -moz-background-inline-policy: -moz-initial; font-size: 44px; font-weight: bold; color: rgb(0, 0, 0);">
-                3. Have Fun</td></tr>
+                3. <%= t('.have_fun') %></td></tr>
             <tr><td>
                 <table style="padding: 0pt 20px; background: rgb(255, 255, 255) none repeat scroll 0%; font-size: 16px; color: rgb(51, 51, 51); -moz-background-clip: -moz-initial; -moz-background-origin: -moz-initial; -moz-background-inline-policy: -moz-initial;" align="center" border="0" cellpadding="0" cellspacing="0" width="600">
                   <tbody><tr>
@@ -123,11 +123,8 @@
                         <a href="<%= accept_invitation_url(@resource, :invitation_token => @resource.invitation_token)%>" target="_blank"><img style="border: 0pt none ; padding: 0pt 5px; display: block;" src="http://joindiaspora.com/images/cubbies_screenshot2.png" height="151" width="200"></a>
                       </td>
                       <td style="line-height: 20px; width: 360px;">
-                        <strong>DIASPORA*</strong> is all about discovering amazing new content and people online. 
-
-                        <a style="color: #3F8FBA; text-decoration: underline; font-weight: bold; font-size: 20px;" href="https://cubbi.es" target="_blank">Cubbi.es</a>,
-                        the world's first <strong>DIASPORA*</strong> application is just the begining.
-                        Collect and share the web in all of its glory.
+            
+                        <%= t('.have_fun_paragraph', :strong_diaspora => content_tag(:strong, "DIASPORA*"), :link => link_to(t('.cubbies'), "https://cubbi.es", :style => "color: #3F8FBA; text-decoration: underline; font-weight: bold; font-size: 20px;", :target => "_blank")).html_safe %> 
                         <!-- <a style="color: #3F8FBA; text-decoration: underline; font-weight: bold; font-size: 20px;" href="#" target="_blank">Watch all the bumpers</a>-->
                       </td>
                     </tr>
@@ -139,7 +136,7 @@
                   <tbody>
                     <tr>
                       <td style="padding: 40px 20px 20px; background: rgb(255, 255, 255) none repeat scroll 0%; -moz-background-clip: -moz-initial; -moz-background-origin: -moz-initial; -moz-background-inline-policy: -moz-initial;">
-                        <a style="color: #3F8FBA; text-decoration: underline; font-weight: bold; font-size: 20px;" href="<%=accept_invitation_url(@resource, :invitation_token => @resource.invitation_token)%>" target="_blank">Sign up now &rarr;</a>
+                        <%= link_to(t('.sign_up_now').html_safe, accept_invitation_url(@resource, :invitation_token => @resource.invitation_token), :style => "color: #3F8FBA; text-decoration: underline; font-weight: bold; font-size: 20px;", :target => "_blank").html_safe %>
                       </td> 
                     </tr>
                 </tbody>
@@ -151,9 +148,8 @@
                   <tbody>
                     <tr>
                       <td style="padding: 20px 20px 0px; background: rgb(255, 255, 255) none repeat scroll 0%; -moz-background-clip: -moz-initial; -moz-background-origin: -moz-initial; -moz-background-inline-policy: -moz-initial;">
-                        <strong>DIASPORA*</strong> is made by people who love the Internet as much as you do.  
-                        <a style="color: #3F8FBA; text-decoration: underline; font-weight: bold; font-size: 18px;" href="https://github.com/diaspora/diaspora/wiki/Become-a-Contributor" target="_blank">Join our team</a>, or
-                        <a style="color: #3F8FBA; text-decoration: underline; font-weight: bold; font-size: 18px;" href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=QG4L6VYD8YGPU" target="_blank">help fund Diaspora</a>!
+                        <%= t('.made_by_people', :strong_diaspora => content_tag(:strong, "DIASPORA*"), :jointeam => link_to(t('.join_team'), "https://github.com/diaspora/diaspora/wiki/Become-a-Contributor", :style =>"color: #3F8FBA; text-decoration: underline; font-weight: bold; font-size: 18px;", :target => "_blank"), :helpfund => link_to(t('.help_fund'), "https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=QG4L6VYD8YGPU", :style =>"color: #3F8FBA; text-decoration: underline; font-weight: bold; font-size: 18px;", :target => "_blank")).html_safe %>  
+                        
                       </td> 
                     </tr>
                 </tbody>
@@ -161,12 +157,14 @@
             </td></tr>
 
             <tr><td style="padding: 35px 20px 20px; background: rgb(255, 255, 255) none repeat scroll 0%; -moz-background-clip: -moz-initial; -moz-background-origin: -moz-initial; -moz-background-inline-policy: -moz-initial;">
-                Love,<br>
-                Team Diaspora<br>
+                <%= t('.love') %><br>
+                <%= t('.team_diaspora') %><br>
             </td></tr>
             <tr><td style="padding: 35px 40px; font-size: 11px; color: rgb(102, 102, 102); line-height: 16px;">
-                To unsubscribe please click <a style="color: #3F8FBA; text-decoration: none;" href="http://joindiaspora.us1.list-manage.com/unsubscribe?u=d759919b94f9cdcf39d204f3f&id=7b5ceb2f8b">here</a>.
-                For general inquiries or support with your Diaspora account, please email us at <a style="color: #3F8FBA; text-decoration: none;" href="mailto:questions@joindiaspora.com">questions@joindiaspora.com</a>.
+            <% if AppConfig[:pod_uri].host.match(/joindiaspora.com/) %>
+                <%= t('.unsubscribe', :link => link_to(t('.here'), "http://joindiaspora.us1.list-manage.com/unsubscribe?u=d759919b94f9cdcf39d204f3f&id=7b5ceb2f8b", :style => "color: #3F8FBA; text-decoration: none;")).html_safe %>
+            <% end %>     
+                <%= t('.email_us', :email => link_to(t('.email_address'), "mailto:questions@joindiaspora.com", :style => "color: #3F8FBA; text-decoration: none;")).html_safe %> 
             </td></tr>
           </tbody>
         </table>
