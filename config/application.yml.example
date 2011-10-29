@@ -67,6 +67,9 @@ defaults: &defaults
   # Email to send spotlight suggestions to
   spotlight_suggest_email: ''
 
+  # Set this to true to remove the donation request form in the right sidebar
+  do_not_request_donations: false
+
   # List of users who have admin privileges
   # (expressed as an array of local usernames)
   admins:
@@ -183,10 +186,10 @@ defaults: &defaults
 
   # The location of your redis cache.
   # IMPORTANT: DO NOT CHANGE THIS IF YOU DO NOT KNOW WHAT YOU ARE DOING!
-  # 
+  #
   # Leave this blank to use the same Redis database
   # that your Resque workers use (happy path).
-  # 
+  #
   # This takes an ip (or DNS record).  It assumes that your Redis database
   # is running on the default Redis port.
   redis_location: ''
