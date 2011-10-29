@@ -819,11 +819,11 @@ en:
       followed_by: 'followed by'
   tag_followings:
     create:
-      success: "Horray!  You're now following #%{name}."
+      success: "Hooray!  You're now following #%{name}."
       failure: "Failed to follow #%{name}.  Are you already following it?"
     destroy:
-      success: "Successfully stopped following: #%{name}"
-      failure: "Failed to stop following: #%{name}"
+      success: "Alas! You aren't following #%{name} anymore."
+      failure: "Failed to stop following #%{name}. Maybe you already stopped following it?"
 
   tokens:
     show:
