@@ -3,9 +3,9 @@ namespace :backup do
   require File.join(Rails.root, 'config', 'initializers', '_load_app_config.rb')
   require 'cloudfiles'
 
-  task :mysql do
+  task :database do
     NUMBER_OF_DAYS = 3
-    puts("event=backup status=start type=mysql")
+    puts("event=backup status=start type=database")
     db = YAML::load(File.open(File.join(File.dirname(__FILE__), '..','..', 'config', 'database.yml')))
     user = db['production']['username']
     password = db['production']['password']
@@ -20,30 +20,45 @@ namespace :backup do
     puts "Logging into Cloud Files"
 
     cf = CloudFiles::Connection.new(:username => AppConfig[:cloudfiles_username], :api_key => AppConfig[:cloudfiles_api_key])
-    mysql_container = cf.container("MySQL Backup")
 
-    puts "Dumping Mysql at #{Time.now.to_s}"
-    `mkdir -p /tmp/backup/mysql`
-    `nice mysqldump --single-transaction --quick --user=#{user} --password=#{password} #{database} > /tmp/backup/mysql/backup.txt `
+    if db['production']['adapter'] == 'postgresql'
+      container = cf.container("PostgreSQL Backup")
 
-    puts "Gzipping dump at #{Time.now.to_s}"
-    tar_name = "mysql_#{Time.now.to_i}.tar"
-    `nice tar cfPz /tmp/backup/#{tar_name} /tmp/backup/mysql`
+      puts "Dumping PostgreSQL at #{Time.now.to_s}"
+      `mkdir -p /tmp/backup/postgres`
+      `PGPASSFILE=/etc/pgpass.conf nice pg_dump -h localhost -p 5432 -U #{user} #{database} > /tmp/backup/postgres/backup.txt `
 
-    file = mysql_container.create_object(tar_name)
+      puts "Gzipping dump at #{Time.now.to_s}"
+      tar_name = "postgres_#{Time.now.to_i}.tar"
+      `nice tar cfPz /tmp/backup/#{tar_name} /tmp/backup/postgres`
+
+      file = container.create_object(tar_name)
+    elsif db['production']['adapter'] == 'mysql2'
+      container = cf.container("MySQL Backup")
+
+      puts "Dumping Mysql at #{Time.now.to_s}"
+      `mkdir -p /tmp/backup/mysql`
+      `nice mysqldump --single-transaction --quick --user=#{user} --password=#{password} #{database} > /tmp/backup/mysql/backup.txt `
+
+      puts "Gzipping dump at #{Time.now.to_s}"
+      tar_name = "mysql_#{Time.now.to_i}.tar"
+      `nice tar cfPz /tmp/backup/#{tar_name} /tmp/backup/mysql`
+
+      file = container.create_object(tar_name)
+    end
 
     puts "Uploading archive at #{Time.now.to_s}"
     if file.write File.open("/tmp/backup/" + tar_name)
-      puts("event=backup status=success type=mysql")
+      puts("event=backup status=success type=database")
       `rm /tmp/backup/#{tar_name}`
 
-      files = mysql_container.objects
+      files = container.objects
       files.sort!.pop(NUMBER_OF_DAYS * 24)
       files.each do |file|
-        mysql_container.delete_object(file)
+        container.delete_object(file)
       end
     else
-      puts("event=backup status=failure type=mysql")
+      puts("event=backup status=failure type=database")
     end
   end
 
