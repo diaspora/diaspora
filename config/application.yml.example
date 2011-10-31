@@ -122,6 +122,9 @@ defaults: &defaults
   # connection or 'sendmail' to use the sendmail binary, or messagebus, to use the messagebus service
   mailer_method: 'smtp'
 
+  #API key if you are using message bus
+  message_bus_api_key: ''
+
   # The path to the sendmail binary. Ignored if mailer_method is not set to sendmail
   sendmail_location: '/usr/sbin/sendmail'
 
