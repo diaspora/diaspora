@@ -2,7 +2,8 @@ class OEmbedCache < ActiveRecord::Base
   serialize :data
   attr_accessible :url
 
-  has_many :posts
+  has_many :embeddings
+  has_many :posts, :through => :embeddings
 
   def self.find_or_create_by_url(url)
    cache = OEmbedCache.find_or_initialize_by_url(url)
