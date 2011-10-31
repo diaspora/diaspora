@@ -9,8 +9,8 @@ bg:
       add_to_aspect: "Избиране на аспект(и)"
       all_aspects: "Във всеки аспект"
       select_aspects: "Избиране на аспект(и)"
-      started_sharing_with: "You have started sharing with {{name}}!"
-      stopped_sharing_with: "You have stopped sharing with {{name}}."
+      started_sharing_with: "Започнахте да споделяте с {{name}}!"
+      stopped_sharing_with: "Престанахте да споделяте с {{name}}."
       toggle: 
         few: "В {{count}} аспекта"
         many: "В {{count}} аспекта"
@@ -29,14 +29,14 @@ bg:
     failed_to_like: "Публикацията не бе харесана!"
     failed_to_post_message: "Съобщението не бе публикувано!"
     getting_started: 
-      alright_ill_wait: "Alright, I'll wait."
-      hey: "Hey, {{name}}!"
-      no_tags: "Hey, you haven't followed any tags!  Continue anyway?"
-      preparing_your_stream: "Preparing your personialized stream..."
+      alright_ill_wait: "Добре, ще изчакам."
+      hey: "Здравейте, {{name}}!"
+      no_tags: "Не следите нито една марка!  Желаете ли да продължите въпрекит това?"
+      preparing_your_stream: "Вашият персонализиран поток се подготвя..."
     infinite_scroll: 
       no_more: "Няма повече публикации."
     photo_uploader: 
-      looking_good: "OMG, you look awesome!"
+      looking_good: "Леле, изглеждате страхотно!"
     publisher: 
       at_least_one_aspect: "Трябва да публикувате в поне един аспект"
       limited: "Ограничено - публикацията ще бъде видима само за хората, с които я споделите"
@@ -46,7 +46,7 @@ bg:
     search_for: "Търсене за {{name}}"
     show_more: "покажи още"
     tags: 
-      wasnt_that_interesting: "OK, I suppose #{{tagName}} wasn't all that interesting..."
+      wasnt_that_interesting: "Е, вероятно марката #{{tagName}} не е чак толкова интересна..."
     timeago: 
       day: "ден"
       days: "%d дни"

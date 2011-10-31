@@ -3,14 +3,14 @@
 #   the COPYRIGHT file.
 
 
-de: 
+de_formal: 
   javascripts: 
     aspect_dropdown: 
       add_to_aspect: "Kontakt hinzufügen"
       all_aspects: "Alle Aspekte"
-      select_aspects: "Wähle Aspekte aus"
-      started_sharing_with: "Du hast angefangen, mit {{name}} zu teilen!"
-      stopped_sharing_with: "Du hast aufgehört, mit {{name}} zu teilen!"
+      select_aspects: "Wählen Sie Aspekte aus"
+      started_sharing_with: "Sie haben angefangen, mit {{name}} zu teilen!"
+      stopped_sharing_with: "Sie haben aufgehört, mit {{name}} zu teilen!"
       toggle: 
         few: "In {{count}} Aspekten"
         many: "In {{count}} Aspekten"
@@ -25,24 +25,24 @@ de:
     comments: 
       hide: "Kommentare verbergen"
       show: "Alle Kommentare zeigen"
-    confirm_dialog: "Bist du dir sicher?"
+    confirm_dialog: "Sind Sie sich sicher?"
     failed_to_like: "Gefällt mir fehlgeschlagen."
     failed_to_post_message: "Konnte Beitrag nicht senden!"
     getting_started: 
       alright_ill_wait: "Alles klar, ich warte."
       hey: "Hey, {{name}}!"
-      no_tags: "Hey, du folgst noch keinen Tags! Trotzdem weitermachen?"
-      preparing_your_stream: "Dein personalisierter Stream wird zusammengestellt..."
+      no_tags: "Hey, Sie folgen noch keinen Tags! Trotzdem weitermachen?"
+      preparing_your_stream: "Ihr personalisierter Stream wird zusammengestellt..."
     infinite_scroll: 
       no_more: "Keine weiteren Beiträge."
     photo_uploader: 
-      looking_good: "OMG, du siehst toll aus!"
+      looking_good: "OMG, Sie sehen toll aus!"
     publisher: 
-      at_least_one_aspect: "Du musst zumindest zu einem Aspekt posten"
-      limited: "Eingeschränkt - dein Beitrag wird nur Leuten sichtbar sein, mit denen du teilst"
-      public: "Öffentlich - dein Beitrag ist für alle sichtbar und kann von Suchmaschinen gefunden werden"
+      at_least_one_aspect: "Sie müssen zumindest zu einem Aspekt posten"
+      limited: "Eingeschränkt - Ihr Beitrag wird nur Leuten sichtbar sein, mit denen Sie teilen"
+      public: "Öffentlich - Ihr Beitrag ist für alle sichtbar und kann von Suchmaschinen gefunden werden"
     reshares: 
-      duplicate: "Du hast diesen Beitrag bereits weitergesagt!"
+      duplicate: "Sie haben diesen Beitrag bereits weitergesagt!"
     search_for: "Nach {{name}} suchen"
     show_more: "Mehr zeigen"
     tags: 

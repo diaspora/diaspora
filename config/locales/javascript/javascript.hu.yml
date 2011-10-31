@@ -9,8 +9,8 @@ hu:
       add_to_aspect: "Hozzáadás a csoporthoz"
       all_aspects: "Összes csoport"
       select_aspects: "Csoportok kiválasztása"
-      started_sharing_with: "You have started sharing with {{name}}!"
-      stopped_sharing_with: "You have stopped sharing with {{name}}."
+      started_sharing_with: "Mostantól megosztassz vele: {{name}}!"
+      stopped_sharing_with: "Nem osztassz meg többé vele: {{name}}."
       toggle: 
         few: "{{count}} csoportban"
         many: "{{count}} csoportban"
@@ -29,24 +29,24 @@ hu:
     failed_to_like: "Hiba"
     failed_to_post_message: "Üzenet elküldése sikertelen!"
     getting_started: 
-      alright_ill_wait: "Alright, I'll wait."
-      hey: "Hey, {{name}}!"
-      no_tags: "Hey, you haven't followed any tags!  Continue anyway?"
-      preparing_your_stream: "Preparing your personialized stream..."
+      alright_ill_wait: "Rendben, várok!"
+      hey: "Szia {{name}}!"
+      no_tags: "Hékás, nem követtél egy #címkét sem! Így is folytatod?"
+      preparing_your_stream: "Személyre szabott hírfolyamod előkészítése..."
     infinite_scroll: 
       no_more: "Nincs több bejegyzés."
     photo_uploader: 
-      looking_good: "OMG, you look awesome!"
+      looking_good: "Azta! Remekül nézek ki!"
     publisher: 
       at_least_one_aspect: "Minimum 1 csoportnak meg kell osztanod!"
       limited: "Korlátozott - csak az ismerőseid láthatják ezt a bejegyzést"
       public: "Nyilvános - ezt a bejegyzést bárki láthatja az interneten."
     reshares: 
-      duplicate: "Már újraosztottad ezt a bejegyzést!"
+      duplicate: "Jó mi? De már egyszer megosztottad ezt a bejegyzést!"
     search_for: "{{name}} keresése."
     show_more: "tovább"
     tags: 
-      wasnt_that_interesting: "OK, I suppose #{{tagName}} wasn't all that interesting..."
+      wasnt_that_interesting: "Oké, azt hiszem a #{{tagName}} nem volt annyira érdekes."
     timeago: 
       day: "egy nappal"
       days: "%d nappal"

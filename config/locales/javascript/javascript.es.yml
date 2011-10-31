@@ -9,8 +9,8 @@ es:
       add_to_aspect: "Añadir contacto"
       all_aspects: "Todos los aspectos"
       select_aspects: "Elige los aspectos"
-      started_sharing_with: "You have started sharing with {{name}}!"
-      stopped_sharing_with: "You have stopped sharing with {{name}}."
+      started_sharing_with: "¡Has empezado a compartir con {{name}}!"
+      stopped_sharing_with: "Ya no compartes más con {{name}}."
       toggle: 
         few: "En {{count}} aspectos"
         many: "En {{count}} aspectos"
@@ -29,24 +29,24 @@ es:
     failed_to_like: "¡Ha fallado tu aprobación!"
     failed_to_post_message: "¡Fallo al publicar el mensaje!"
     getting_started: 
-      alright_ill_wait: "Alright, I'll wait."
-      hey: "Hey, {{name}}!"
-      no_tags: "Hey, you haven't followed any tags!  Continue anyway?"
-      preparing_your_stream: "Preparing your personialized stream..."
+      alright_ill_wait: "Está bien, esperaré."
+      hey: "¡Hola, {{name}}!"
+      no_tags: "Oye,¡aún no sigues ninguna etiqueta! ¿Quieres continuar de todas formas?"
+      preparing_your_stream: "Preparando sus novedades personales..."
     infinite_scroll: 
       no_more: "No hay más publicaciones."
     photo_uploader: 
-      looking_good: "OMG, you look awesome!"
+      looking_good: "¡La Virgen, está increíble!"
     publisher: 
       at_least_one_aspect: "Debes publicarlo en al menos un aspecto"
       limited: "Limitado - tu publicación solo será visible para las personas con quien compartes"
       public: "Público - tu publicación será visible para todos, incluyendo buscadores"
     reshares: 
-      duplicate: "¡Ya compartiste esa publicación!"
+      duplicate: "Que bien, ¿eh? ¡Has compartido esa publicación!"
     search_for: "Buscar a {{name}}"
     show_more: "mostrar más"
     tags: 
-      wasnt_that_interesting: "OK, I suppose #{{tagName}} wasn't all that interesting..."
+      wasnt_that_interesting: "OK, supongo que #{{tagName}} no era tan interesante..."
     timeago: 
       day: "un día"
       days: "%d días"

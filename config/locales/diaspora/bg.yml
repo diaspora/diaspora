@@ -110,7 +110,7 @@ bg:
         find_a_bug: "... сте открили грешка (%{link})?"
         have_a_question: "... имате въпрос (%{link})?"
         here_to_help: "Общността е готова да помогне!"
-        need_help: "Нуждаетесе от помощ?"
+        need_help: "Нуждаете се от помощ?"
         satisfaction: "%{link}: Поддръжка осигурена от общността"
         tutorials_and_wiki: "%{tutorial} и %{wiki}: ръководства, съвети и новини от общността"
       introduce_yourself: "Това е вашият поток.  Включете се и се представете."
@@ -612,7 +612,7 @@ bg:
       enter_password_again: "Въведете отново същата парола"
       enter_username: "Изберете си потребителско име (само букви, цифри и долна черта)"
       join_the_movement: "Присъединете се към движението!"
-      sign_up_message: "социалната мрежа със <3"
+      sign_up_message: "социалната мрежа със ♥"
   requests: 
     create: 
       sending: "Изпращане"
@@ -741,8 +741,8 @@ bg:
     reshare: 
       reshare: "споделяне с"
     stream_element: 
-      connect_to_comment: "Connect to this user to comment on their post"
-      currently_unavailable: "commenting currently unavailable"
+      connect_to_comment: "Свържете се с потребителя, за да коментирате публикацията му"
+      currently_unavailable: "временно не е възможно да коментирате"
       dislike: "Не ми харесва"
       hide_and_mute: "Скриване и прекратяване на известяването"
       like: "Харесва ми"
@@ -776,9 +776,9 @@ bg:
     commented_on: "коментирани"
     community_spotlight_stream: "В центъра на вниманието"
     followed_tag: 
-      add_a_tag: "Add a tag"
+      add_a_tag: "Добавете още"
       contacts_title: "Хора, които харесват марките"
-      follow: "Follow"
+      follow: "Добавяне"
       title: "#Марки, които следите"
     followed_tags_stream: "##Марки, които следите"
     mentioned_stream: "@Кой ви спомена"
@@ -798,8 +798,8 @@ bg:
       title: "Публикации маркирани с \"%{tags}\""
   tag_followings: 
     create: 
-      failure: "Не започнахте да следите \"#%{name}\""
-      success: "Започнахте да следите \"#%{name}\""
+      failure: "Не започнахте да следите \"#%{name}\". Да не би вече да следите марката?"
+      success: "Ура! Започнахте да следите \"#%{name}\"."
     destroy: 
       failure: "Следенето на \"#%{name}\" не е прекратено"
       success: "Следенето на \"#%{name}\" е прекратено"
@@ -850,7 +850,7 @@ bg:
       liked: "...някой хареса ваша публикация?"
       mentioned: "...бъдете споменат в публикация?"
       new_password: "Нова парола"
-      photo_export_unavailable: "Photo exporting currently unavailable"
+      photo_export_unavailable: "За момента свалянето на снимки не е възможно"
       private_message: "...получите лично съобщение?"
       receive_email_notifications: "Получаване на известие по ел. поща когато..."
       reshared: "...някой сподели ваша публикация?"

@@ -29,7 +29,7 @@ da:
         reshare: 
           attributes: 
             root_guid: 
-              taken: "Du har allerede delt det indlæg!"
+              taken: "Du har allerede delt indlægget!"
         user: 
           attributes: 
             email: 
@@ -66,7 +66,7 @@ da:
       select_all: "Vælg alle"
     aspect_stream: 
       stay_updated: "Hold dig opdateret"
-      stay_updated_explanation: "Your main stream is populated with all of your contacts, tags you follow, and posts from some creative members of the community."
+      stay_updated_explanation: "Din hovedstrøm er befolket med dine kontakter, de tags du følger og indlæg fra kreative medlemmer af diaspora-samfundet. (Dette kan justeres i dine præferencer)"
     contacts_not_visible: "Kontakter i dette aspekt vil ikke være i stand til at se hinanden."
     contacts_visible: "Kontakter i dette aspekt vil være i stand til at se hinanden."
     create: 
@@ -134,7 +134,7 @@ da:
       create: "Opret"
       name: "Navn (kun synligt for dig)"
     no_contacts_message: 
-      community_spotlight: "community spotlight"
+      community_spotlight: "kreative medlemmer"
       or_spotlight: "Eller du kan dele med %{link}"
       try_adding_some_more_contacts: "Du kan søge (øverst) eller invitere (til højre) flere kontakter."
       you_should_add_some_more_contacts: "Du bør tilføje nogle flere kontakter!"
@@ -150,7 +150,7 @@ da:
     selected_contacts: 
       manage_your_aspects: "Administrér dine aspekter."
       no_contacts: "Du har ingen kontakter her endnu."
-      view_all_community_spotlight: "See all community spotlight"
+      view_all_community_spotlight: "Se alle kreative medlemmer"
       view_all_contacts: "Vis alle kontakter"
     show: 
       edit_aspect: "redigér aspekt"
@@ -204,7 +204,7 @@ da:
     sharing: 
       people_sharing: "Personer der deler med dig:"
     spotlight: 
-      community_spotlight: "Community Spotlight"
+      community_spotlight: "Kreative medlemmer"
     two: "%{count} kontakter"
     zero: "kontakter"
   conversations: 
@@ -715,14 +715,14 @@ da:
     notification: 
       new: "Ny %{type} fra %{from}"
     public_explain: 
-      control_your_audience: "Control your Audience"
+      control_your_audience: "Kontrollér dit publikum"
       logged_in: "Log ind til %{service}"
       manage: "Administrér tilsluttede tjenester"
-      new_user_welcome_message: "Use #hashtags to classify your posts and find people who share your interests.  Call out awesome people with @Mentions"
+      new_user_welcome_message: "Brug #tags til at klassificere dine indlæg og til at finde personer der deler dine interesser. Nævn folk ved at kalde dem ved @Navn"
       outside: "Offentlige meddelelser vil være tilgængelige for andre uden for Diaspora."
       share: "Del"
       title: "Opsæt tilsluttede tjenester"
-      visibility_dropdown: "Use this dropdown to change visibility of your post.  (We suggest you make this first one public.)"
+      visibility_dropdown: "Brug denne dropdown til at ændre synligheden af ​​dit indlæg. (Vi foreslår, at du gør dette første indlæg offentligt.)"
     publisher: 
       all: "alle"
       all_contacts: "alle kontaktpersoner"
@@ -741,8 +741,8 @@ da:
     reshare: 
       reshare: "Del igen"
     stream_element: 
-      connect_to_comment: "Connect to this user to comment on their post"
-      currently_unavailable: "commenting currently unavailable"
+      connect_to_comment: "Forbind til denne bruger for at kommentere på deres indlæg"
+      currently_unavailable: "Det er i øjeblikket ikke muligt at kommentere"
       dislike: "Synes ikke om"
       hide_and_mute: "Skjul indlæg og kommentarer"
       like: "Synes om"
@@ -774,13 +774,13 @@ da:
       title: "Dine aspekter"
     aspects_stream: "Aspekter"
     commented_on: "kommenteret"
-    community_spotlight_stream: "Community Spotlight"
+    community_spotlight_stream: "Kreative medlemmer"
     followed_tag: 
-      add_a_tag: "Add a tag"
+      add_a_tag: "Tilføj et tag"
       contacts_title: "Personer der følger disse tags"
-      follow: "Follow"
-      title: "#Fulgte Tags"
-    followed_tags_stream: "#Fulgte Tags"
+      follow: "Følg"
+      title: "#Fulgte tags"
+    followed_tags_stream: "#Fulgte tags"
     mentioned_stream: "@Omtaler"
     mentions: 
       contacts_title: "Personer der har nævnt dig"
@@ -846,32 +846,32 @@ da:
       edit_account: "Rediger konto"
       email_awaiting_confirmation: "Vi har sendt dig et aktiveringslink til %{unconfirmed_email}. Indtil du følger dette link og aktiverer den nye adresse, vil vi fortsætte med at bruge din oprindelige adresse %{email}."
       export_data: "Exportér data"
-      getting_started: "New User Prefrences"
+      getting_started: "Ny bruger opsætning"
       liked: "...nogen synes om dit indlæg?"
       mentioned: "...du er nævnt i et indlæg?"
       new_password: "Nyt adgangskode"
-      photo_export_unavailable: "Photo exporting currently unavailable"
+      photo_export_unavailable: "Følg"
       private_message: "...du har modtaget en besked?"
       receive_email_notifications: "Modtag e-mail notifikation når..."
       reshared: "... nogen deler dit indlæg?"
-      show_community_spotlight: "Show Community Spotlight in Stream?"
-      show_getting_started: "Re-enable Getting Started"
+      show_community_spotlight: "Hvis Kreative medlemmer i hovedstrøm?"
+      show_getting_started: "Genaktivér 'Kom godt i gang'"
       started_sharing: "...nogen er begyndt at dele med dig?"
       stream_preferences: "Strøm opsætning"
       your_email: "Din e-mail"
       your_handle: "Dit Diaspora ID"
     getting_started: 
-      awesome_take_me_to_diaspora: "Awesome! Take me to Diaspora*"
+      awesome_take_me_to_diaspora: "Fedest! Tag mig til Diaspora*"
       community_welcome: "Diasporas samfund er glad for at have dig ombord!"
       hashtag_explanation: "Hashtags giver dig mulighed for at tale om og følge dine interesser. De er også en fantastisk måde at finde nye folk på diaspora."
-      hashtag_suggestions: "Try following tags like #art, #movies, #gif, etc."
-      hooking_up_fb: "hooking up your Facebook account"
+      hashtag_suggestions: "Prøv med følgende tags som #kunst, #film, #gif, osv."
+      hooking_up_fb: "forbind din Facebook-konto"
       saved: "Gemt!"
-      we_can_speed_things_up: "We can speed things up a bit by"
-      well_hello_there: "Well, hello there!"
-      what_are_you_in_to: "What are you into?"
-      what_facebook_does: "to Diaspora. This will pull your name and photo, and enable cross-positng."
-      who_are_you: "Who are you?"
+      we_can_speed_things_up: "Vi kan gøre det hele lidt hurtigere ved at"
+      well_hello_there: "Hejsa!"
+      what_are_you_in_to: "Hvad er dine interesser?"
+      what_facebook_does: "til diaspora. Dette vil hente dit navn og foto, samt gøre det muligt at skrive indlæg på tværs af platforme."
+      who_are_you: "Hvem er du?"
     logged_out: 
       go_mobile: "Bliv mobil nu."
       on_your_mobile_device: "på din mobile enhed til at få adgang til Diaspora* mobil."

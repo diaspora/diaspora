@@ -29,7 +29,7 @@ nn:
         reshare: 
           attributes: 
             root_guid: 
-              taken: "Du har allereie delt innlegget."
+              taken: "Var det så bra? Du har allereie delt innlegget."
         user: 
           attributes: 
             email: 
@@ -114,7 +114,7 @@ nn:
         satisfaction: "%{link}: Community-powered support"
         tutorials_and_wiki: "%{tutorial} & %{wiki}: Community-powered tutorials, how-to, and news"
       introduce_yourself: "This is your stream.  Jump in and introduce yourself."
-      keep_us_running: "Sjå til at %{pod} kjører raskt. Gjev tenarane ein kveik ved å donera månadleg."
+      keep_us_running: "Sjå til at %{pod} kjører raskt. Gjev tenarane ein kveik ved å gje ein månadleg donasjon."
       no_contacts: "Ingen kontaktar"
       no_tags: "+ Finn ein etikett du vil følgja"
       people_sharing_with_you: "Folk som deler med deg"
@@ -187,7 +187,7 @@ nn:
     few: "%{count} kontaktar"
     index: 
       add_a_new_aspect: "Legg til eit nytt aspekt"
-      add_to_aspect: "Add contacts to %{name}"
+      add_to_aspect: "legg kontaktar til %{name}"
       all_contacts: "Alle kontaktane"
       check_out: "Check out"
       many_people_are_you_sure: "Are you sure you want to start a private conversation with more than %{suggested_limit} contacts? Posting to this aspect may be a better way to contact them."
@@ -612,7 +612,7 @@ nn:
       enter_password_again: "Skriv passordet éin gong til"
       enter_username: "Vel eit brukarnamn (berre bokstavar, tal og understrekingsteikn)"
       join_the_movement: "Vert med i rørsla!"
-      sign_up_message: "Social Networking with a <3"
+      sign_up_message: "Sosialt nettverk med eit <3"
   requests: 
     create: 
       sending: "Sender"
@@ -798,8 +798,8 @@ nn:
       title: "Posts tagged: %{tags}"
   tag_followings: 
     create: 
-      failure: "Klarte ikkje å følgja: #%{name}"
-      success: "Successfully following: #%{name}"
+      failure: "Klarte ikkje å følgja: #%{name}. Følgjer du allereie?"
+      success: "Bra! No følgjer du: #%{name}."
     destroy: 
       failure: "Failed to stop following: #%{name}"
       success: "Successfully stopped following: #%{name}"
@@ -870,7 +870,7 @@ nn:
       we_can_speed_things_up: "We can speed things up a bit by"
       well_hello_there: "Well, hello there!"
       what_are_you_in_to: "What are you into?"
-      what_facebook_does: "to Diaspora. This will pull your name and photo, and enable cross-positng."
+      what_facebook_does: "til Diaspora. Dette vil henta namnet og biletet ditt og slå på kryssposting."
       who_are_you: "Who are you?"
     logged_out: 
       go_mobile: "Now go mobile."
@@ -893,7 +893,7 @@ nn:
   webfinger: 
     fetch_failed: "failed to fetch webfinger profile for %{profile_url}"
     hcard_fetch_failed: "there was a problem fetching the hcard for %{account}"
-    no_person_constructed: "No person could be constructed from this hcard."
+    no_person_constructed: "Klarte ikkje å laga nokon person frå hcard-fila."
     not_enabled: "webfinger does not seem to be enabled for %{account}'s host"
     xrd_fetch_failed: "there was an error getting the xrd from account %{account}"
   welcome: "Welcome!"

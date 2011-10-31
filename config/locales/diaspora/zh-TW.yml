@@ -29,7 +29,7 @@ zh-TW:
         reshare: 
           attributes: 
             root_guid: 
-              taken: "你已經轉貼過該篇貼文了!"
+              taken: "很棒對吧? 你已經轉貼過該篇貼文了!"
         user: 
           attributes: 
             email: 
@@ -106,9 +106,9 @@ zh-TW:
         do_you: "你是否:"
         email_feedback: "也可以%{link}你的意見來"
         feature_and_forum: "%{gs}與%{forum}: 社群支援的客服與需求系統網站"
-        feature_suggestion: "...想建議%{link}?"
-        find_a_bug: "...找到一個%{link}?"
-        have_a_question: "...有個%{link}?"
+        feature_suggestion: "...想建議 %{link}?"
+        find_a_bug: "...找到一隻 %{link}?"
+        have_a_question: "...有個 %{link}?"
         here_to_help: "Diaspora 社群就在這裡!"
         need_help: "要幫忙嗎?"
         satisfaction: "%{link}: 社群支援的客服網站"
@@ -122,7 +122,7 @@ zh-TW:
       services: 
         content: "你可以連結以下服務至 Diaspora:"
         heading: "連結服務"
-      unfollow_tag: "停止追蹤#%{tag}"
+      unfollow_tag: "停止追蹤 #%{tag}"
       welcome_to_diaspora: "歡迎來到 Diaspora, %{name}!"
       your_aspects: "你的面向"
     many: "%{count}個面向"
@@ -252,7 +252,7 @@ zh-TW:
       correct_the_following_errors_and_try_again: "修正以下錯誤後再試一次."
       invalid_fields: "欄位無效"
   fill_me_out: "填寫我"
-  find_people: "找人或\"#標籤\""
+  find_people: "找人或 #標籤"
   hide: "隱藏"
   home: 
     show: 
@@ -353,12 +353,12 @@ zh-TW:
       two: "%{actors} 回應了已刪掉的貼文."
       zero: "%{actors} 回應了已刪掉的貼文."
     comment_on_post: 
-      few: "%{actors}對你的%{post_link}發表了意見."
-      many: "%{actors}對你的%{post_link}發表了意見."
-      one: "%{actors}對你的%{post_link}發表了意見."
-      other: "%{actors}對你的%{post_link}發表了意見."
+      few: "%{actors} 對你的%{post_link}發表了意見."
+      many: "%{actors} 對你的%{post_link}發表了意見."
+      one: "%{actors} 對你的%{post_link}發表了意見."
+      other: "%{actors} 對你的%{post_link}發表了意見."
       two: "%{actors} 回應了你的%{post_link}."
-      zero: "%{actors}對你的%{post_link}發表了意見."
+      zero: "%{actors} 對你的%{post_link}發表了意見."
     helper: 
       new_notifications: 
         few: "%{count}個新消息"
@@ -612,7 +612,7 @@ zh-TW:
       enter_password_again: "輸入與前面相同的密碼"
       enter_username: "選個使用者名稱(名稱只能包含拉丁字母,數字,以及底線字元)"
       join_the_movement: "參加這個行動!"
-      sign_up_message: "有 <3 的社交網路"
+      sign_up_message: "有♥的社交網路"
   requests: 
     create: 
       sending: "傳送中"
@@ -718,7 +718,7 @@ zh-TW:
       control_your_audience: "控制你的聽眾"
       logged_in: "已登入至 %{service}"
       manage: "管理已連線的服務"
-      new_user_welcome_message: "用\"#雜湊標籤\"來區分你的貼文, 並且找到跟你有共同興趣的人. 用\"@指指點點\"來呼叫正點的人."
+      new_user_welcome_message: "用 #雜湊標籤 來區分你的貼文, 並且找到跟你有共同興趣的人. 用 @指指點點 來叫出帥氣的人."
       outside: "不使用 Diaspora 的人也能看到公開訊息."
       share: "分享"
       title: "設定連線服務"
@@ -729,8 +729,8 @@ zh-TW:
       discard_post: "捨棄貼文"
       make_public: "公開"
       new_user_prefill: 
-        hello: "大家好, 我是#%{new_user_tag}. "
-        i_like: "我對%{tags}有興趣."
+        hello: "大家好, 我是 #%{new_user_tag}. "
+        i_like: "我對 %{tags} 有興趣."
       post_a_message_to: "在 %{aspect} 發表訊息"
       posting: "發表中..."
       publishing_to: "發表至: "
@@ -741,8 +741,8 @@ zh-TW:
     reshare: 
       reshare: "轉貼"
     stream_element: 
-      connect_to_comment: "Connect to this user to comment on their post"
-      currently_unavailable: "commenting currently unavailable"
+      connect_to_comment: "要回應貼文請先和作者建立聯繫"
+      currently_unavailable: "目前無法回應"
       dislike: "遜"
       hide_and_mute: "隱藏且消音"
       like: "讚"
@@ -776,9 +776,9 @@ zh-TW:
     commented_on: "有意見的"
     community_spotlight_stream: "社群焦點"
     followed_tag: 
-      add_a_tag: "Add a tag"
+      add_a_tag: "新增標籤"
       contacts_title: "這些標籤的粉絲"
-      follow: "Follow"
+      follow: "追蹤"
       title: "#追蹤中的標籤"
     followed_tags_stream: "#追蹤中的標籤"
     mentioned_stream: "@指指點點"
@@ -798,20 +798,20 @@ zh-TW:
       title: "有以下標籤的貼文: %{tags}"
   tag_followings: 
     create: 
-      failure: "追蹤失敗: #%{name}"
-      success: "追蹤成功: #%{name}"
+      failure: "追蹤 #%{name} 失敗. 是否已經在追蹤了?"
+      success: "喔耶! 你已經在追蹤 #%{name} 了."
     destroy: 
       failure: "停止追蹤失敗: #%{name}"
       success: "停止追蹤成功: #%{name}"
   tags: 
     show: 
-      follow: "追蹤#%{tag}"
+      follow: "追蹤 #%{tag}"
       followed_by: "追蹤者:"
-      following: "正在追蹤#%{tag}"
+      following: "正在追蹤 #%{tag}"
       nobody_talking: "尚還沒有人在討論 %{tag}."
       people_tagged_with: "標記為 %{tag} 的人"
       posts_tagged_with: "標記為 #%{tag} 的貼文"
-      stop_following: "停止追蹤#%{tag}"
+      stop_following: "停止追蹤 #%{tag}"
   tokens: 
     show: 
       connect_to_cubbies: "與 Cubbi.es 連結"
@@ -850,7 +850,7 @@ zh-TW:
       liked: "...當有人對你的貼文說讚時?"
       mentioned: "...當貼文中點到你時?"
       new_password: "新的密碼"
-      photo_export_unavailable: "Photo exporting currently unavailable"
+      photo_export_unavailable: "相片目前無法匯出"
       private_message: "...當收到私人訊息時?"
       receive_email_notifications: "是否要在以下時機透過電子郵件接收消息..."
       reshared: "...有人轉貼你的貼文時?"
@@ -864,7 +864,7 @@ zh-TW:
       awesome_take_me_to_diaspora: "帥! 帶我去 Diaspora*"
       community_welcome: "Diaspora 的社群歡迎你的到來!"
       hashtag_explanation: "標籤讓你可以討論及追蹤你的興趣. 並且也是在 Diaspora 找到新朋友的好方法."
-      hashtag_suggestions: "試試看追蹤像是#藝術, #電影, #gif 等標籤."
+      hashtag_suggestions: "試試看追蹤像是 #藝術, #電影, #gif 等標籤."
       hooking_up_fb: "連接你的 Facebook 帳號"
       saved: "存好了!"
       we_can_speed_things_up: "我們可以藉由"

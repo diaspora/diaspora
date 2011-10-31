@@ -9,8 +9,8 @@ da:
       add_to_aspect: "Tilføj kontakt"
       all_aspects: "Alle aspekter"
       select_aspects: "Vælg aspekter"
-      started_sharing_with: "You have started sharing with {{name}}!"
-      stopped_sharing_with: "You have stopped sharing with {{name}}."
+      started_sharing_with: "Du er begyndt at dele med {{name}}!"
+      stopped_sharing_with: "Du deler ikke længere med {{name}}."
       toggle: 
         few: "I {{count}} aspekter"
         many: "I {{count}} aspekter"
@@ -29,24 +29,24 @@ da:
     failed_to_like: "Kunne ikke synes om!"
     failed_to_post_message: "Kunne ikke indsende besked!"
     getting_started: 
-      alright_ill_wait: "Alright, I'll wait."
-      hey: "Hey, {{name}}!"
-      no_tags: "Hey, you haven't followed any tags!  Continue anyway?"
-      preparing_your_stream: "Preparing your personialized stream..."
+      alright_ill_wait: "Okay, jeg venter."
+      hey: "Hej {{name}}!"
+      no_tags: "Du har ikke fulgt nogen tags! Vil du fortsætte alligevel?"
+      preparing_your_stream: "Forbereder din personlige strøm..."
     infinite_scroll: 
       no_more: "Ikke flere indlæg."
     photo_uploader: 
-      looking_good: "OMG, you look awesome!"
+      looking_good: "OMG, du ser sej ud!"
     publisher: 
       at_least_one_aspect: "Du skal dele med mindst et aspekt"
       limited: "Begrænset - dit indlæg vil kun blive set af dem du deler med"
       public: "Offentlig - dit indlæg vil være synligt for alle og kan findes af søgemaskiner"
     reshares: 
-      duplicate: "Du har allerede delt dét indlæg!"
+      duplicate: "Du har allerede delt indlægget!"
     search_for: "Søg efter {{name}}"
     show_more: "Vis mere"
     tags: 
-      wasnt_that_interesting: "OK, I suppose #{{tagName}} wasn't all that interesting..."
+      wasnt_that_interesting: "OK, jeg formoder #{{tagName}} var ikke så spændende ..."
     timeago: 
       day: "en dag"
       days: "%d dage"

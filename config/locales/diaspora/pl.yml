@@ -29,7 +29,7 @@ pl:
         reshare: 
           attributes: 
             root_guid: 
-              taken: "Już udostępniłeś(aś) ponownie ten wpis!"
+              taken: "Przekaza@{m:łeś|f:łaś|n:no} już ten wpis dalej!"
         user: 
           attributes: 
             email: 
@@ -116,7 +116,7 @@ pl:
       introduce_yourself: "Oto Twoj strumień. Wskocz do niego i przedstaw się."
       keep_us_running: "Aby %{pod} działał szybko podaruj serwerom dawkę kofeiny w postaci miesięcznej darowizny!"
       no_contacts: "Brak kontaktów"
-      no_tags: "+ Znajdź tag do obserwowania"
+      no_tags: "+ Znajdź znacznik do obserwowania"
       people_sharing_with_you: "Osoby udostępniające Tobie"
       post_a_message: "napisz wiadomość >>"
       services: 
@@ -252,7 +252,7 @@ pl:
       correct_the_following_errors_and_try_again: "Popraw poniższe błędy i spróbuj ponownie."
       invalid_fields: "Pola z błędami"
   fill_me_out: "Wypełnij mnie"
-  find_people: "Znajdź osoby lub #tagi"
+  find_people: "Znajdź osoby lub #znaczniki"
   hide: "Ukryj"
   home: 
     show: 
@@ -471,7 +471,7 @@ pl:
   password_confirmation: "Potwierdzenie hasła"
   people: 
     add_contact_small: 
-      add_contact_from_tag: "Dodaj znajomego z tagu"
+      add_contact_from_tag: "Dodaj znajomego ze znacznika"
     aspect_list: 
       edit_membership: "edycja przynależności do aspektów"
     few: "Osoby: %{count}"
@@ -516,7 +516,7 @@ pl:
     sub_header: 
       add_some: "dodaj"
       edit: "edycja"
-      you_have_no_tags: "nie masz tagów!"
+      you_have_no_tags: "nie masz znaczników!"
     two: "Osoby: %{count}"
     webfinger: 
       fail: "Nie odnaleziono %{handle}."
@@ -612,7 +612,7 @@ pl:
       enter_password_again: "Wprowadź ponownie to samo hasło"
       enter_username: "Wybierz nazwę użytkownika (możliwe litery, cyfry i podkreślniki)"
       join_the_movement: "Dołącz do ruchu!"
-      sign_up_message: "Sieci społecznościowe z <3"
+      sign_up_message: "Social Networking z ♥"
   requests: 
     create: 
       sending: "Wysyłanie"
@@ -741,8 +741,8 @@ pl:
     reshare: 
       reshare: "Podziel się ponownie"
     stream_element: 
-      connect_to_comment: "Connect to this user to comment on their post"
-      currently_unavailable: "commenting currently unavailable"
+      connect_to_comment: "Połącz się z tym użytkownikiem, aby komentować jego wpisy"
+      currently_unavailable: "dodawanie komentarzy jest aktualnie niemożliwe"
       dislike: "Nie lubię"
       hide_and_mute: "Ukryj i wycisz"
       like: "Lubię"
@@ -776,11 +776,11 @@ pl:
     commented_on: "komentowane"
     community_spotlight_stream: "W centrum uwagi społeczności"
     followed_tag: 
-      add_a_tag: "Add a tag"
-      contacts_title: "Osoby które wykopały te tagi"
-      follow: "Follow"
-      title: "#Obserwowane tagi"
-    followed_tags_stream: "#Obserwowane tagi"
+      add_a_tag: "Dodaj znacznik"
+      contacts_title: "Osoby które wykopały te znaczniki"
+      follow: "Obserwuj"
+      title: "#Obserwowane znaczniki"
+    followed_tags_stream: "#Obserwowane znaczniki"
     mentioned_stream: "@Wzmianki"
     mentions: 
       contacts_title: "Wspomnieli o Tobie"
@@ -795,13 +795,13 @@ pl:
     recently: "ostatnio:"
     tags: 
       contacts_title: "Osoby, które wykopały te tagi"
-      title: "Otagowane wpisy: %{tags}"
+      title: "Oznaczone wpisy: %{tags}"
   tag_followings: 
     create: 
-      failure: "Nie udało się dodać do obserwowanych: #%{name}"
-      success: "Obserwujesz: #%{name}"
+      failure: "Nie udało się dodać do obserwowanych #%{name}. Może już to obserwujesz?"
+      success: "Brawo! Od teraz obserwujesz #%{name}."
     destroy: 
-      failure: "Nie udało się zatrzymać obserwowania: #%{name}"
+      failure: "Nie udało się zatrzymać obserwowania: #% {name}"
       success: "Nie obserwujesz już: #%{name}"
   tags: 
     show: 
@@ -809,7 +809,7 @@ pl:
       followed_by: "obserwowane przez"
       following: "Obserwowanie #%{tag}"
       nobody_talking: "Nikt jeszcze nie rozmawia o %{tag}."
-      people_tagged_with: "Osoby otagowane przez #%{tag}"
+      people_tagged_with: "Osoby oznaczone jako #%{tag}"
       posts_tagged_with: "Wpisy oznaczone jako #%{tag}"
       stop_following: "Przestań obserwować #%{tag}"
   tokens: 
@@ -850,7 +850,7 @@ pl:
       liked: "...ktoś polubił mój wpis"
       mentioned: "...ktoś o mnie wspomniał we wpisie"
       new_password: "Nowe hasło"
-      photo_export_unavailable: "Photo exporting currently unavailable"
+      photo_export_unavailable: "Eksportowanie zdjęć jest aktualnie niedostępne"
       private_message: "...otrzymam prywatną wiadomość"
       receive_email_notifications: "Wysyłaj powiadomienia e-mail jeśli..."
       reshared: "...ktoś ponownie udostępnił mój post"
@@ -863,14 +863,14 @@ pl:
     getting_started: 
       awesome_take_me_to_diaspora: "Świetnie! Zabierz mnie do Diaspory*"
       community_welcome: "Społeczności Diaspory cieszy się, że ​​jesteś na pokładzie!"
-      hashtag_explanation: "Tagi pozwalają łatwo odnaleźć interesujące Cię tematy. Są także świetnym sposobem na nawiązywanie znajomości na Diasporze."
+      hashtag_explanation: "Znaczniki pozwalają łatwo odnaleźć interesujące Cię tematy. Są także świetnym sposobem na nawiązywanie znajomości na Diasporze."
       hashtag_suggestions: "Spróbuj obserwować znaczniki takie jak #sztuka, #filmy, #gif, itd."
       hooking_up_fb: "podpinanie Twojego konta na Facebooku"
       saved: "Zapisano!"
       we_can_speed_things_up: "Możemy przyspieszyć nieco dzięki"
       well_hello_there: "No, witam!"
       what_are_you_in_to: "Czym się interesujesz?"
-      what_facebook_does: "do Diaspory. Zostanie pobrane Twoje imię, nazwisko i zdjęcie, oraz zostanie uruchomione wzajemne publikowanie."
+      what_facebook_does: "do diaspory. Zostanie pobrane imię i nazwiskiem , zdjęcie oraz włączone wzajemne publikowanie."
       who_are_you: "Kim jesteś?"
     logged_out: 
       go_mobile: "Teraz na urządzeniach przenośnych."

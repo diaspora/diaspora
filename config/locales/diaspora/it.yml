@@ -29,7 +29,7 @@ it:
         reshare: 
           attributes: 
             root_guid: 
-              taken: "Hai già condiviso quel post!"
+              taken: "Bello eh? Ma hai già condiviso quel post!"
         user: 
           attributes: 
             email: 
@@ -612,7 +612,7 @@ it:
       enter_password_again: "Inserisci la stessa password di prima"
       enter_username: "Scegli un nome utente (inserisci solo lettere, numeri e trattino basso)"
       join_the_movement: "Partecipa al movimento!"
-      sign_up_message: "Il Social Network con il <3"
+      sign_up_message: "Il Social Network con il ♥"
   requests: 
     create: 
       sending: "Invio in corso..."
@@ -741,8 +741,8 @@ it:
     reshare: 
       reshare: "Condividi"
     stream_element: 
-      connect_to_comment: "Connect to this user to comment on their post"
-      currently_unavailable: "commenting currently unavailable"
+      connect_to_comment: "Connettiti con questo utente per commentare il post"
+      currently_unavailable: "al momento non è possibile commentare"
       dislike: "Non mi piace"
       hide_and_mute: "Nascondi e Disattiva le notifiche"
       like: "Mi piace"
@@ -776,9 +776,9 @@ it:
     commented_on: "commenti"
     community_spotlight_stream: "In evidenza dalla comunità"
     followed_tag: 
-      add_a_tag: "Add a tag"
+      add_a_tag: "Aggiungi un tag"
       contacts_title: "Persone con questi tag"
-      follow: "Follow"
+      follow: "Segui"
       title: "#Tag che segui"
     followed_tags_stream: "#Tag che segui"
     mentioned_stream: "@Menzioni"
@@ -798,8 +798,8 @@ it:
       title: "Post con tag: %{tags}"
   tag_followings: 
     create: 
-      failure: "Errore nel tentativo di seguire: #%{name}"
-      success: "Hai iniziato a seguire: #%{name}"
+      failure: "Errore nel tentativo di seguire: #%{name}. Lo stai già seguendo?"
+      success: "Fantastico! Hai iniziato a seguire: #%{name}"
     destroy: 
       failure: "Non è stato possibile smettere di seguire: #%{name}"
       success: "Hai smesso di seguire: #%{name}"
@@ -850,7 +850,7 @@ it:
       liked: "...a qualcuno piace un tuo post?"
       mentioned: "...sei menzionato in un post?"
       new_password: "Nuova password"
-      photo_export_unavailable: "Photo exporting currently unavailable"
+      photo_export_unavailable: "Al momento l'esportazione delle foto non è disponibile "
       private_message: "...hai ricevuto un messaggio privato?"
       receive_email_notifications: "Ricevi notifiche via email quando..."
       reshared: "...qualcuno condivide un tuo post?"

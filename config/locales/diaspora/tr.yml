@@ -61,7 +61,7 @@ tr:
       done_editing: "düzenleme sonlandırıldı"
     aspect_listings: 
       add_an_aspect: "+ Yeni yön ekle"
-      deselect_all: "Tümünün işaretini kaldır"
+      deselect_all: "Tümünü kaldır"
       edit_aspect: "Düzenle %{name}"
       select_all: "Tümünü seç"
     aspect_stream: 
@@ -226,7 +226,7 @@ tr:
       inbox: "Gelen Kutusu"
       message_inbox: "Mesaj Kutusu"
       new_message: "Yeni Mesaj"
-      no_conversation_selected: "Hiçbir konuşma seçilmedi."
+      no_conversation_selected: "hiç ileti seçilmedi"
       no_messages: "mesaj yok"
     new: 
       abandon_changes: "Değişiklikler silinsin mi?"
@@ -504,7 +504,7 @@ tr:
       does_not_exist: "Kişi yok!"
       has_not_shared_with_you_yet: "%{name} seninle henüz bir şey paylaşmamış!"
       incoming_request: "You have an incoming request from this person."
-      mention: "Bunlardan bahset"
+      mention: "Bahset"
       message: "Mesaj"
       not_connected: "You are not connected with this person"
       recent_posts: "Son Gönderiler"
@@ -573,15 +573,15 @@ tr:
       first_name: "Ad"
       last_name: "Soyad"
       update_profile: "Profili Güncelle"
-      your_bio: "Tanıtımın"
+      your_bio: "Hakkında"
       your_birthday: "Doğum günün"
       your_gender: "Cinsiyetin"
       your_location: "Bulunduğun yer"
       your_name: "Adın"
       your_photo: "Fotoğrafın"
-      your_private_profile: "Özel profilin"
-      your_public_profile: "Genel profilin"
-      your_tags: "Kendini 5 kelimede anlat"
+      your_private_profile: "Özel profil"
+      your_public_profile: "Genel profil"
+      your_tags: "Kendini 5 kelime ile anlat"
       your_tags_placeholder: "#diaspora #ironing #kittens #music gibi"
     update: 
       failed: "Profil güncellemesi başarısız"
@@ -702,7 +702,7 @@ tr:
       all_contacts: "Bütün kişiler"
     footer: 
       logged_in_as: "%{name} adıyla giriş yapıldı"
-      your_aspects: "yönleriniz"
+      your_aspects: "Yönler"
     invitations: 
       by_email: "E-posta ile"
       dont_have_now: "Şu an davetiyen yok, ama yakında gelir!"
@@ -773,7 +773,7 @@ tr:
     aspects: 
       title: "Yönleriniz"
     aspects_stream: "Yönler"
-    commented_on: "yorumladı"
+    commented_on: "yorumlanan"
     community_spotlight_stream: "Topluluk Spotlight"
     followed_tag: 
       add_a_tag: "Etiket ekle"
@@ -786,9 +786,9 @@ tr:
       contacts_title: "Kişi senden bahsetti"
       title: "@Bahsedenler"
     multi: 
-      contacts_title: "Kişi akışı"
+      contacts_title: "Kişiler"
       title: "Akış"
-    posted: "gönderildi"
+    posted: "gönderi"
     public: 
       contacts_title: "Yeni Düzen"
       title: "Genel Aktiviteler"
@@ -859,7 +859,7 @@ tr:
       started_sharing: "...birisi benimle birşey paylaştığında?"
       stream_preferences: "Akış Tercihleri"
       your_email: "E-posta"
-      your_handle: "Diaspora ID'in (kimliğin)"
+      your_handle: "Diaspora ID"
     getting_started: 
       awesome_take_me_to_diaspora: "Harika! Diaspora* Git"
       community_welcome: "Diaspora topluluğunda seni aramızda görmekten mutluyuz!"

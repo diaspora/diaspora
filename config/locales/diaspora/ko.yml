@@ -665,9 +665,9 @@ ko:
       no_friends: "페이스북 친구를 찾을 수 없습니다."
       service_friends: "%{service} 친구"
     index: 
-      connect_to_facebook: "페이스북에 연결"
+      connect_to_facebook: "페이스북에 연결하기"
       connect_to_tumblr: "Tumblr에 연결하기"
-      connect_to_twitter: "트위터에 연결"
+      connect_to_twitter: "트위터에 연결하기"
       disconnect: "끊기"
       edit_services: "서비스 설정"
       logged_in_as: "로그인 중: "
@@ -741,14 +741,14 @@ ko:
     reshare: 
       reshare: "재공유"
     stream_element: 
-      connect_to_comment: "Connect to this user to comment on their post"
-      currently_unavailable: "commenting currently unavailable"
+      connect_to_comment: "이 사용자의 공유물에 댓글을 달고 싶다면 컨택으로 추가하세요"
+      currently_unavailable: "지금은 댓글을 달 수 없습니다"
       dislike: "싪어요"
       hide_and_mute: "숨기고 알림 끄기"
       like: "좋아요"
       shared_with: "공유된 애스펙: %{aspect_names}"
       unlike: "좋아요 취소"
-      via: "%{link}를 통해"
+      via: "via %{link}"
       viewable_to_anyone: "이 공유물은 웹의 누구든지 볼 수 있습니다"
   status_messages: 
     create: 
@@ -776,9 +776,9 @@ ko:
     commented_on: "댓글 달린 순"
     community_spotlight_stream: "커뮤니티 스포트라이트"
     followed_tag: 
-      add_a_tag: "Add a tag"
+      add_a_tag: "태그 추가"
       contacts_title: "People who dig these tags"
-      follow: "Follow"
+      follow: "팔로우"
       title: "#팔로우한 태그"
     followed_tags_stream: "#팔로우한 태그"
     mentioned_stream: "@멘션"
@@ -850,7 +850,7 @@ ko:
       liked: "누군가가 내 공유물을 좋아할 때"
       mentioned: "내가 멘션되었을 때"
       new_password: "새 암호"
-      photo_export_unavailable: "Photo exporting currently unavailable"
+      photo_export_unavailable: "지금은 사진을 뽑아낼 수 없습니다"
       private_message: "쪽지를 받았을 때"
       receive_email_notifications: "이럴 때 이메일 알림을 받겠습니다"
       reshared: "누군가 내 공유물을 재공유할 때"

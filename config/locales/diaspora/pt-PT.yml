@@ -741,8 +741,8 @@ pt-PT:
     reshare: 
       reshare: "Voltar a partilhar"
     stream_element: 
-      connect_to_comment: "Connect to this user to comment on their post"
-      currently_unavailable: "commenting currently unavailable"
+      connect_to_comment: "Ligue-se a este utilizador para comentar o seu post"
+      currently_unavailable: "comentar actualmente indisponível"
       dislike: "Não gosto"
       hide_and_mute: "Esconder e Silenciar"
       like: "Gosto"
@@ -776,15 +776,15 @@ pt-PT:
     commented_on: "comentou no"
     community_spotlight_stream: "Destaque da Comunidade"
     followed_tag: 
-      add_a_tag: "Add a tag"
+      add_a_tag: "Adicionar uma etiqueta"
       contacts_title: "Pessoas que gostam destas marcações"
-      follow: "Follow"
+      follow: "Seguir"
       title: "#Followed Tags"
     followed_tags_stream: "#Followed Tags"
     mentioned_stream: "@Mentions"
     mentions: 
       contacts_title: "Pessoas que o mencionaram"
-      title: "Your Mentions"
+      title: "Suas Menções"
     multi: 
       contacts_title: "Pessoas no seu Stream"
       title: "Stream"
@@ -794,7 +794,7 @@ pt-PT:
       title: "Actividade Geral"
     recently: "recentemente:"
     tags: 
-      contacts_title: "People who dig these tags"
+      contacts_title: "Pessoas que gostam desta etiqueta"
       title: "Publicações marcadas: %{tags}"
   tag_followings: 
     create: 
@@ -850,7 +850,7 @@ pt-PT:
       liked: "...alguém gosta da sua publicação?"
       mentioned: "...é mencionado numa publicação?"
       new_password: "Nova palavra-passe"
-      photo_export_unavailable: "Photo exporting currently unavailable"
+      photo_export_unavailable: "Exportação de fotografias actualmente indisponível"
       private_message: "...recebe uma mensagem privada?"
       receive_email_notifications: "Receber notificações por email quando..."
       reshared: "...alguém repartilha a sua publicação?"
@@ -864,7 +864,7 @@ pt-PT:
       awesome_take_me_to_diaspora: "Excelente! Quero ir para o Diaspora*"
       community_welcome: "A comunidade do Diaspora está feliz por o ter consigo!"
       hashtag_explanation: "Hashtags permitem-lhe falar sobre e seguir os seus interesses.  Também são uma óptima forma de conhecer novas pessoas no Diaspora."
-      hashtag_suggestions: "Siga tage como #arte, #cinema, #gif, etc."
+      hashtag_suggestions: "Siga etiquetas como #arte, #cinema, #gif, etc."
       hooking_up_fb: "ligar à sua conta de Facebook"
       saved: "Guardado!"
       we_can_speed_things_up: "Podemos acelerar as coisas um pouco mais ao"

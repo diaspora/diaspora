@@ -9,8 +9,8 @@ zh-TW:
       add_to_aspect: "加聯絡人"
       all_aspects: "所有面向"
       select_aspects: "選面向"
-      started_sharing_with: "You have started sharing with {{name}}!"
-      stopped_sharing_with: "You have stopped sharing with {{name}}."
+      started_sharing_with: "你開始和 {{name}} 分享了!"
+      stopped_sharing_with: "你停止和 {{name}} 分享了."
       toggle: 
         few: "在{{count}}個面向中"
         many: "在{{count}}個面向中"
@@ -29,24 +29,24 @@ zh-TW:
     failed_to_like: "說讚失敗!"
     failed_to_post_message: "貼文失敗!"
     getting_started: 
-      alright_ill_wait: "Alright, I'll wait."
-      hey: "Hey, {{name}}!"
-      no_tags: "Hey, you haven't followed any tags!  Continue anyway?"
-      preparing_your_stream: "Preparing your personialized stream..."
+      alright_ill_wait: "好吧, 以後再說."
+      hey: "嘿, {{name}}!"
+      no_tags: "嘿, 你還沒有追蹤任何標籤! 要往下一步嗎?"
+      preparing_your_stream: "整理你個人的流水帳..."
     infinite_scroll: 
       no_more: "沒有貼文了."
     photo_uploader: 
-      looking_good: "OMG, you look awesome!"
+      looking_good: "天啊, 你看起來真帥!"
     publisher: 
       at_least_one_aspect: "發表時請至少選擇一個面向"
       limited: "限制 - 只有你想分享的人才看得到你的貼文"
       public: "公開 - 所有人都能看到你的貼文, 包括搜尋引擎"
     reshares: 
-      duplicate: "你已經轉貼過該篇貼文了!"
+      duplicate: "很棒對吧? 你已經轉貼過該篇貼文了!"
     search_for: "搜尋 {{name}}"
     show_more: "顯示更多"
     tags: 
-      wasnt_that_interesting: "OK, I suppose #{{tagName}} wasn't all that interesting..."
+      wasnt_that_interesting: "OK, 我想 #{{tagName}} 大概沒那麼有趣..."
     timeago: 
       day: "一天"
       days: "%d天"

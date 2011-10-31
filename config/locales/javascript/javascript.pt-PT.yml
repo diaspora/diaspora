@@ -9,8 +9,8 @@ pt-PT:
       add_to_aspect: "Adicionar contacto"
       all_aspects: "Todos os aspectos"
       select_aspects: "Seleccionar aspectos"
-      started_sharing_with: "You have started sharing with {{name}}!"
-      stopped_sharing_with: "You have stopped sharing with {{name}}."
+      started_sharing_with: "Começou a partilhar com {{name}}!"
+      stopped_sharing_with: "Deixou de partilhar com {{name}}."
       toggle: 
         few: "Em {{count}} aspectos"
         many: "Em {{count}} aspectos"
@@ -29,14 +29,14 @@ pt-PT:
     failed_to_like: "Falhou ao gostar!"
     failed_to_post_message: "Falhou ao publicar a mensagem!"
     getting_started: 
-      alright_ill_wait: "Alright, I'll wait."
-      hey: "Hey, {{name}}!"
-      no_tags: "Hey, you haven't followed any tags!  Continue anyway?"
-      preparing_your_stream: "Preparing your personialized stream..."
+      alright_ill_wait: "Tudo bem, eu esperarei."
+      hey: "Ei, {{name}}!"
+      no_tags: "Ei, não está a seguir nenhuma etiqueta! Continuar mesmo assim?"
+      preparing_your_stream: "A preparar o seu Stream personalizado..."
     infinite_scroll: 
       no_more: "Não há mais publicações."
     photo_uploader: 
-      looking_good: "OMG, you look awesome!"
+      looking_good: "OMD, tu estás fantástico(a)!"
     publisher: 
       at_least_one_aspect: "Tem de publicar em pelo menos um aspecto"
       limited: "Limitado - a sua publicação só será vista pelas pessoas com as quais está partilhar"
@@ -46,7 +46,7 @@ pt-PT:
     search_for: "Procurar por {{name}}"
     show_more: "mostrar mais"
     tags: 
-      wasnt_that_interesting: "OK, I suppose #{{tagName}} wasn't all that interesting..."
+      wasnt_that_interesting: "OK, suponho que #{{tagName}} não era assim tão interessante..."
     timeago: 
       day: "um dia"
       days: "%d dias"

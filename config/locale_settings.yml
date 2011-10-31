@@ -8,6 +8,7 @@ available:
   cy: "Cymraeg"
   da: "Dansk"
   de: "Deutsch"
+  de_formal: "Deutsch (Sie)"
   el: "Ελληνικά"
   en: "English"
   en_1337: "3n6l15h (English 1337)"
@@ -47,6 +48,7 @@ available:
   tr: "Türk"
   uk: "украї́нська мо́ва"
   ur-PK: "اُردو (پاکستان)"
+  vi: "Tiếng Việt"
   zh-CN: "中文"
   zh-TW: "台灣中文"
 fallbacks:
@@ -81,6 +83,8 @@ fallbacks:
     - :zh-TW
   ur-PK:
     - :ur
+  de_formal:
+    - :de
 rtl:
   - :ar
   - :he

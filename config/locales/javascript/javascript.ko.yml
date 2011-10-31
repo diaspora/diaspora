@@ -9,8 +9,8 @@ ko:
       add_to_aspect: "애스펙에 넣기"
       all_aspects: "모든 에스팩"
       select_aspects: "에스팩 선택"
-      started_sharing_with: "You have started sharing with {{name}}!"
-      stopped_sharing_with: "You have stopped sharing with {{name}}."
+      started_sharing_with: "{{name}}님과의 공유를 시작합니다!"
+      stopped_sharing_with: "{{name}}님과의 공유를 멈췄습니다."
       toggle: 
         few: "애스펙 {{count}}개 안에 있습니다"
         many: "애스펙 {{count}}개 안에 있습니다"
@@ -30,13 +30,13 @@ ko:
     failed_to_post_message: "공유물 올리기를 실패했습니다!"
     getting_started: 
       alright_ill_wait: "Alright, I'll wait."
-      hey: "Hey, {{name}}!"
-      no_tags: "Hey, you haven't followed any tags!  Continue anyway?"
-      preparing_your_stream: "Preparing your personialized stream..."
+      hey: "{{name}}님 안녕하세요?"
+      no_tags: "태그를 팔로우하지 않았습니다. 그래도 계속하시겠습니까?"
+      preparing_your_stream: "개인화 스트림 준비중···"
     infinite_scroll: 
       no_more: "공유물이 더 없습니다."
     photo_uploader: 
-      looking_good: "OMG, you look awesome!"
+      looking_good: "와! 멋져요!"
     publisher: 
       at_least_one_aspect: "공유하려면 적어도 한 애스펙을 골라야 합니다."
       limited: "제한됨 - 내 공유물을 나와 공유하고 있는 사람들만 볼 수 있습니다"
@@ -46,7 +46,7 @@ ko:
     search_for: "{{name}} 검색"
     show_more: "더 보기"
     tags: 
-      wasnt_that_interesting: "OK, I suppose #{{tagName}} wasn't all that interesting..."
+      wasnt_that_interesting: "처리했습니다. #{{tagName}} 태그는 흥미롭지 않았군요?"
     timeago: 
       day: "하루"
       days: "%d일"

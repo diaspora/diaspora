@@ -9,8 +9,8 @@ pl:
       add_to_aspect: "Dodaj kontakt"
       all_aspects: "Wszystkie aspekty"
       select_aspects: "Wybierz aspekty"
-      started_sharing_with: "You have started sharing with {{name}}!"
-      stopped_sharing_with: "You have stopped sharing with {{name}}."
+      started_sharing_with: "Od teraz dzielisz się z {{name}}!"
+      stopped_sharing_with: "Nie dzielisz się już z {{name}}."
       toggle: 
         few: "W {{count}} aspektach"
         many: "W {{count}} aspektach"
@@ -29,24 +29,24 @@ pl:
     failed_to_like: "Nie udało się polubić!"
     failed_to_post_message: "Nie można wysłać wiadomości!"
     getting_started: 
-      alright_ill_wait: "Alright, I'll wait."
-      hey: "Hey, {{name}}!"
-      no_tags: "Hey, you haven't followed any tags!  Continue anyway?"
-      preparing_your_stream: "Preparing your personialized stream..."
+      alright_ill_wait: "Dobrze, poczekam."
+      hey: "Hej, {{name}}!"
+      no_tags: "Hej, nie obserwujesz żadnych znaczników! Kontynuować mimo to?"
+      preparing_your_stream: "Przygotowanie spersonalizowanego strumienia..."
     infinite_scroll: 
       no_more: "Nie ma więcej wpisów."
     photo_uploader: 
-      looking_good: "OMG, you look awesome!"
+      looking_good: "O rety! Świetnie wyglądasz!"
     publisher: 
       at_least_one_aspect: "Musisz udostępnić dla co najmniej jednego aspektu"
       limited: "Ograniczony - wpis będzie widoczny tylko dla wybranej grupy osób"
       public: "Publiczny - wpis będzie widoczny dla wszystkich i można go znaleźć przez wyszukiwarki"
     reshares: 
-      duplicate: "Już udostępni@{m:łeś|f:łaś|n:ono} ponownie ten wpis!"
+      duplicate: "Już przekaza@{m:łeś|f:łaś|n:no} dalej ten wpis!"
     search_for: "Znajdź: {{name}}"
     show_more: "wyświetl więcej"
     tags: 
-      wasnt_that_interesting: "OK, I suppose #{{tagName}} wasn't all that interesting..."
+      wasnt_that_interesting: "OK, przypuszczam, że #{{tagName}} nie był, aż tak interesujący..."
     timeago: 
       day: "dzień"
       days: "%d dni"

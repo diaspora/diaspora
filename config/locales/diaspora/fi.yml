@@ -79,7 +79,7 @@ fi:
       add_existing: "Lisää olemassa oleva kontakti"
       aspect_list_is_not_visible: "näkymälista on piilotettu muilta näkymässä olevilta"
       aspect_list_is_visible: "näkymälista näkyy muille näkymässä oleville"
-      confirm_remove_aspect: "Oletko varma että haluat poistaa tämän näkymän?"
+      confirm_remove_aspect: "Oletko varma, että haluat poistaa tämän näkymän?"
       done: "Valmis"
       make_aspect_list_visible: "tee näkymälistasta näkyvä?"
       remove_aspect: "Poista näkymä"
@@ -93,13 +93,13 @@ fi:
       remove: "poista"
     index: 
       cubbies: 
-        explanation: "Cubbi.es on ensimmäinen kehitettävä Diaspora -sovellus."
+        explanation: "Cubbi.es on ensimmäinen kehitettävä Diaspora-sovellus."
         heading: "Yhdistä Cubbi.es:iin"
         learn_more: "Lue lisää"
       diaspora_id: 
-        content_1: "Diaspora ID:si on:"
+        content_1: "Diaspora-ID:si on:"
         content_2: "Anna se toisille ihmisille, jotta he voivat löytää sinut Diasporasta."
-        heading: "Diaspora ID"
+        heading: "Diaspora-ID"
       donate: "Lahjoita"
       handle_explanation: "Tämä on Diaspora-osoitteesi. Voit käyttää sitä kuten sähköpostiosoitettasi. Sen avulla sinut tavoitetaan Diasporasta."
       help: 
@@ -296,7 +296,7 @@ fi:
   layouts: 
     application: 
       powered_by: "PALVELUN TARJOAA DIASPORA*"
-      public_feed: "Käyttäjän %{name} julkinen Diaspora uutisvirta"
+      public_feed: "Käyttäjän %{name} julkinen Diaspora-uutisvirta"
       toggle: "vaihda mobiili sivustoon"
       whats_new: "Uutta"
       your_aspects: "näkymäsi"
@@ -443,7 +443,7 @@ fi:
     confirm_email: 
       click_link: "To activate your new e-mail address %{unconfirmed_email}, please click this link:"
       subject: "Please activate your new e-mail address %{unconfirmed_email}"
-    email_sent_by_diaspora: "Tämä sähköposti lähetettiin Diasporan kautta. Jos ei halua saada samanlaisia sähköposteja jatkossa, tykkää tästä,"
+    email_sent_by_diaspora: "Diaspora lähetti tämän sähköpostin. Jos et halua saada tällaisia sähköposteja jatkossa,"
     hello: "Hei %{name}!"
     liked: 
       liked: "%{name} tykkäsi kirjoituksestasi: "
@@ -490,7 +490,7 @@ fi:
       add_contact: "lisää kontakti"
       already_connected: "Yhteys jo olemassa"
       pending_request: "Odottaa vastausta"
-      thats_you: "Olet sinä!"
+      thats_you: "Se olet sinä!"
     profile_sidebar: 
       bio: "Biografia"
       born: "Syntymäpäivä"
@@ -512,7 +512,7 @@ fi:
       return_to_aspects: "Palaa näkymiin"
       see_all: "Näytä kaikki"
       start_sharing: "aloita jakamaan"
-      to_accept_or_ignore: "hyväksyäksesi, tai hylätäksesi sen."
+      to_accept_or_ignore: "hyväksyäksesi tai hylätäksesi sen."
     sub_header: 
       add_some: "add some"
       edit: "edit"
@@ -578,7 +578,7 @@ fi:
       your_gender: "Sukupuolesi"
       your_location: "Sijaintisi"
       your_name: "Nimesi"
-      your_photo: "Profiili kuva"
+      your_photo: "Profiilikuva"
       your_private_profile: "Yksityinen profiilisi"
       your_public_profile: "Julkinen profiilisi"
       your_tags: "Sinä 5:llä #tagilla"
@@ -688,7 +688,7 @@ fi:
       diaspora_handle: "diaspora@handle.org"
       enter_a_diaspora_username: "Anna Diaspora-käyttäjätunnus:"
       know_email: "Tiedätkö heidän sähköpostiosoitteitansa? Kutsu heidät!"
-      your_diaspora_username_is: "Diaspora käyttäjätunnuksesi on: %{diaspora_handle}"
+      your_diaspora_username_is: "Diaspora-käyttäjätunnuksesi on: %{diaspora_handle}"
     aspect_dropdown: 
       add_to_aspect: "Add to aspect"
       toggle: 
@@ -808,7 +808,7 @@ fi:
       follow: "Seuraa #%{tag} "
       followed_by: "followed by"
       following: "Seurataan #%{tag}"
-      nobody_talking: "Kukaan ei keskustele %{tag} tagista vielä."
+      nobody_talking: "Kukaan ei vielä keskustele tagista %{tag}."
       people_tagged_with: "Ihmiset merkitty %{tag} tagilla"
       posts_tagged_with: "Viestit merkitty #%{tag} tagilla"
       stop_following: "Lopeta #%{tag} seuraaminen"
@@ -816,15 +816,15 @@ fi:
     show: 
       connect_to_cubbies: "Yhdistä kohteeseen Cubbi.es"
       connecting_is_simple: "Connecting your Diaspora account is as simple as filling out two fields on your Cubbi.es account page."
-      daniels_account: "Daniel:in Diaspora käyttäjätili"
+      daniels_account: "Danielin Diaspora-käyttäjätili"
       log_in_with_diaspora_is_comming: "Pian voit lisätä uuden sovelluksen luomatta uutta käyttäjätiliä nykyisen tilisi lisäksi."
       love_to_try: "Kokeile sinäkin."
       making_the_connection: "Yhteyttä muodostetaan"
       screenshot_explanation: "%{link1}. Tämä tila on linkitetty tänne: %{link2}."
       sign_up_today: "Liity tänään!"
-      typical_userpage: "Esimerkki cubbi.es käyttäjäsivusta"
+      typical_userpage: "Esimerkki cubbi.es-käyttäjäsivusta"
       via: "(%{link} kautta)"
-      what_is_cubbies: "Cubbi.es on maailman ensimmäinen Diaspora sovellus, joka on myös paras tapa kerätä valokuvia verkkoon."
+      what_is_cubbies: "Cubbi.es on maailman ensimmäinen Diaspora-sovellus. Se on myös paras tapa kerätä valokuvia verkossa."
   undo: "Peruuta?"
   username: "Käyttäjätunnus"
   users: 

@@ -6,7 +6,7 @@
 cs: 
   javascripts: 
     aspect_dropdown: 
-      add_to_aspect: "Přidat do aspektu"
+      add_to_aspect: "Přidat kontakt"
       all_aspects: "Všechny aspekty"
       select_aspects: "Select aspects"
       started_sharing_with: "You have started sharing with {{name}}!"
@@ -17,7 +17,7 @@ cs:
         one: "V {{count}} aspektu"
         other: "Ve {{count}} aspektech"
         two: "Ve {{count}} aspektech"
-        zero: "Přidat do aspektu"
+        zero: "Vybrat aspekty"
     aspect_navigation: 
       deselect_all: "Deselect all"
       no_aspects: "No aspects selected"

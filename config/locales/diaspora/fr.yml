@@ -612,7 +612,7 @@ fr:
       enter_password_again: "Saisissez à nouveau le même mot de passe"
       enter_username: "Choisissez un nom d'utilisateur (uniquement des lettres, chiffres et caractères de soulignement)"
       join_the_movement: "Rejoignez le mouvement !"
-      sign_up_message: "Le réseau social avec un <3"
+      sign_up_message: "Le réseau social avec un ♥"
   requests: 
     create: 
       sending: "En cours d'envoi"

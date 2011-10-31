@@ -9,8 +9,8 @@ fr:
       add_to_aspect: "Ajouter le contact"
       all_aspects: "Tous les aspects"
       select_aspects: "Choisir les aspects"
-      started_sharing_with: "You have started sharing with {{name}}!"
-      stopped_sharing_with: "You have stopped sharing with {{name}}."
+      started_sharing_with: "Vous avez commencé à partager avec {{name}} !"
+      stopped_sharing_with: "Vous avez arrêté de partager avec {{name}}."
       toggle: 
         few: "Dans {{count}} aspects"
         many: "Dans {{count}} aspects"
@@ -29,24 +29,24 @@ fr:
     failed_to_like: "Impossible d'aimer !"
     failed_to_post_message: "Impossible de partager le message !"
     getting_started: 
-      alright_ill_wait: "Alright, I'll wait."
-      hey: "Hey, {{name}}!"
-      no_tags: "Hey, you haven't followed any tags!  Continue anyway?"
-      preparing_your_stream: "Preparing your personialized stream..."
+      alright_ill_wait: "Bon, je vais attendre."
+      hey: "Hey, {{name}} !"
+      no_tags: "Hey, Vous ne suivez aucun tag !  Continuer quand même ?"
+      preparing_your_stream: "Préparation de votre flux personnalisé..."
     infinite_scroll: 
       no_more: "Pas d'autres messages."
     photo_uploader: 
-      looking_good: "OMG, you look awesome!"
+      looking_good: "Oh mon dieu, vous avez un super look !"
     publisher: 
       at_least_one_aspect: "Vous devez créer au moins un aspect"
       limited: "Limité - votre message ne sera vu que par des gens avec qui vous partagez"
       public: "Public - votre message sera visible de tous et trouvé par les moteurs de recherche"
     reshares: 
-      duplicate: "Vous avez déjà repartagé ce message !"
+      duplicate: "C'est bon, hein ? Vous avez déjà repartagé ce message !"
     search_for: "Chercher {{name}}"
     show_more: "Voir plus"
     tags: 
-      wasnt_that_interesting: "OK, I suppose #{{tagName}} wasn't all that interesting..."
+      wasnt_that_interesting: "D'accord, je suppose que #{{tagName}} n'est pas la seule chose qui vous intéresse..."
     timeago: 
       day: "environ un jour"
       days: "environ %d jours"

@@ -29,7 +29,7 @@ ru:
         reshare: 
           attributes: 
             root_guid: 
-              taken: "Вы уже поделились этой записью!"
+              taken: "Настолько круто, да? Вы уже поделились этой записью!"
         user: 
           attributes: 
             email: 
@@ -612,7 +612,7 @@ ru:
       enter_password_again: "Повторите пароль"
       enter_username: "Выберите имя пользователя (разрешены только латинские буквы, цифры и подчеркивание)"
       join_the_movement: "Присоединяйтесь к движению!"
-      sign_up_message: "Социальная сеть с <3"
+      sign_up_message: "Социальная сеть с ♥"
   requests: 
     create: 
       sending: "Отправка"
@@ -741,8 +741,8 @@ ru:
     reshare: 
       reshare: "Поделиться повторно"
     stream_element: 
-      connect_to_comment: "Connect to this user to comment on their post"
-      currently_unavailable: "commenting currently unavailable"
+      connect_to_comment: "Подключитесь к этому пользователю, чтобы комментировать его записи"
+      currently_unavailable: "комментирование сейчас недоступно"
       dislike: "Не нравится"
       hide_and_mute: "Скрыть и отключить уведомления"
       like: "Мне нравится"
@@ -776,9 +776,9 @@ ru:
     commented_on: "обсуждаемые"
     community_spotlight_stream: "В центре внимания"
     followed_tag: 
-      add_a_tag: "Add a tag"
+      add_a_tag: "Добавить метку"
       contacts_title: "Интересуются этими метками"
-      follow: "Follow"
+      follow: "Следить"
       title: "#Метки"
     followed_tags_stream: "#Метки"
     mentioned_stream: "@Упоминания"
@@ -798,8 +798,8 @@ ru:
       title: "Записи, отмеченные: %{tags}"
   tag_followings: 
     create: 
-      failure: "Ошибка отслеживания #%{name}"
-      success: "Начинаем следить за: #%{name}"
+      failure: "Ошибка отслеживания метки #%{name}. Возможно, вы уже следите за ней?"
+      success: "Ура! Теперь вы следите за меткой #%{name}."
     destroy: 
       failure: "Не вышло перестать следить за: #%{name}"
       success: "Вы успешно перестали следить за: #%{name}"
@@ -850,7 +850,7 @@ ru:
       liked: "...кому-нибудь нравится ваше сообщение?"
       mentioned: "... вы упомянуты в сообщении?"
       new_password: "Новый пароль"
-      photo_export_unavailable: "Photo exporting currently unavailable"
+      photo_export_unavailable: "Экспорт фотографий сейчас недоступен"
       private_message: "... вы получаете личное сообщение?"
       receive_email_notifications: "Получать уведомление по электронной почте, когда..."
       reshared: "...кто-то делится вашей записью?"
@@ -870,7 +870,7 @@ ru:
       we_can_speed_things_up: "Регистрацию можно ускорить"
       well_hello_there: "Приветствуем вас!"
       what_are_you_in_to: "Чем вы интересуетесь?"
-      what_facebook_does: "к Диаспоре. Это автоматически заполнит ваше имя и фотографию, а также вы сможете отправлять туда копии своих записей."
+      what_facebook_does: "к Диаспоре. Мы заполним ваше имя и фотографию, а вы сможете отправлять туда копии своих записей."
       who_are_you: "Кто вы?"
     logged_out: 
       go_mobile: "Заходите с мобильного!"

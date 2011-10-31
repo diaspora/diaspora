@@ -9,8 +9,8 @@ it:
       add_to_aspect: "Aggiungi"
       all_aspects: "Tutti gli aspetti"
       select_aspects: "Scegli gli aspetti"
-      started_sharing_with: "You have started sharing with {{name}}!"
-      stopped_sharing_with: "You have stopped sharing with {{name}}."
+      started_sharing_with: "Hai iniziato a condividere con {{name}}!"
+      stopped_sharing_with: "Hai smesso di condividere con {{name}}."
       toggle: 
         few: "In {{count}} aspetti"
         many: "In {{count}} aspetti"
@@ -29,24 +29,24 @@ it:
     failed_to_like: "Valutazione fallita!"
     failed_to_post_message: "Invio messaggio fallito!"
     getting_started: 
-      alright_ill_wait: "Alright, I'll wait."
-      hey: "Hey, {{name}}!"
-      no_tags: "Hey, you haven't followed any tags!  Continue anyway?"
-      preparing_your_stream: "Preparing your personialized stream..."
+      alright_ill_wait: "Perfetto, aspetterò."
+      hey: "Ciao, {{name}}!"
+      no_tags: "Non hai scelto di seguire alcun tag, vuoi continuare comunque?"
+      preparing_your_stream: "Sto preparando il tuo stream personalizzato..."
     infinite_scroll: 
       no_more: "Non ci sono altri post."
     photo_uploader: 
-      looking_good: "OMG, you look awesome!"
+      looking_good: "Accidenti, sei in splendida forma!"
     publisher: 
-      at_least_one_aspect: "Devi condividere con almeno un aspetto"
+      at_least_one_aspect: "Devi scegliere almeno un aspetto"
       limited: "Non pubblico - il tuo post sarà visibile solamente a coloro con cui lo condividi"
       public: "Pubblico - il tuo post sarà visibile a tutti, inclusi i motori di ricerca"
     reshares: 
-      duplicate: "Hai già condiviso questo post!"
+      duplicate: "Bello eh? Ma hai già condiviso quel post!"
     search_for: "Ricerca per {{name}}"
     show_more: "continua..."
     tags: 
-      wasnt_that_interesting: "OK, I suppose #{{tagName}} wasn't all that interesting..."
+      wasnt_that_interesting: "OK, immagino che #{{tagName}} non fosse così interessante..."
     timeago: 
       day: "un giorno"
       days: "%d giorni"
