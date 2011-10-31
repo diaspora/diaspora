@@ -18,6 +18,7 @@ require 'rails/all'
 Bundler.require(:default, Rails.env) if defined?(Bundler)
 
 # use newrelic if configured via config/newrelic.yml
+require 'rpm_contrib' if File.exists?(File.expand_path('../newrelic.yml', __FILE__))
 require 'newrelic_rpm' if File.exists?(File.expand_path('../newrelic.yml', __FILE__))
 
 module Diaspora
