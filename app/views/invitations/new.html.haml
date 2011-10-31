@@ -24,6 +24,13 @@
         %br
 
         %h4
+          = t('.language')	
+        = invite.select(:language, available_language_options, :selected => current_user.language)
+
+        %br
+        %br
+
+        %h4
           = t('.personal_message')
         = invite.text_area :invite_messages, :rows => 3, :value => ""
 
