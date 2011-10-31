@@ -385,8 +385,6 @@ GEM
       resque (~> 1.0)
     rest-client (1.6.1)
       mime-types (>= 1.16)
-    rpm_contrib (2.1.4)
-      newrelic_rpm (>= 3.1.1)
     rspec (2.6.0)
       rspec-core (~> 2.6.0)
       rspec-expectations (~> 2.6.0)
@@ -538,7 +536,6 @@ DEPENDENCIES
   resque-timeout (= 1.0.0)
   rest-client (= 1.6.1)
   roxml!
-  rpm_contrib
   rspec (>= 2.0.0)
   rspec-core (= 2.6.0)
   rspec-instafail (>= 0.1.7)
