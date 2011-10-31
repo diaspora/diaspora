@@ -33,3 +33,15 @@ if AppConfig[:mount_resque_web]
   require File.join(Rails.root, 'lib/admin_rack')
   Resque::Server.use AdminRack
 end
+
+if AppConfig[:hoptoad_api_key].present?
+  require 'resque/failure/multiple'
+  require 'resque/failure/hoptoad'
+  require 'resque/failure/redis'
+  Resque::Failure::Hoptoad.configure do |config|
+    config.api_key = AppConfig[:hoptoad_api_key]
+    config.secure = true
+  end
+  Resque::Failure::Multiple.classes = [Resque::Failure::Redis, Resque::Failure::Hoptoad]
+  Resque::Failure.backend = Resque::Failure::Multiple
+end
