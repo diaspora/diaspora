@@ -45,6 +45,11 @@ describe Notifier do
       mail = Notifier.single_admin("Welcome to bureaucracy!", bob)
       mail.body.encoded.should match /change your notification settings/
     end
+
+    it 'has an optional attachment' do
+      mail = Notifier.single_admin("Welcome to bureaucracy!", bob, :attachments => [{:name => "retention stats", :file => "here is some file content"}])
+      mail.attachments.length.should == 1
+    end
   end
 
   describe ".started_sharing" do

@@ -17,7 +17,7 @@ namespace :stats do
       end
     end
 
-    emails = Notifier.admin(string, admins, {:subject => "retention numbers #{Time.now.to_s}"})
+    emails = Notifier.admin( "here are some retention stats", admins, {:subject => "retention numbers #{Time.now.to_s}", :attachments => [:name => "retention_numbers_#{Time.now.to_s}.csv", :file => string]})
     emails.each {|e| e.deliver!} 
   end
 end
