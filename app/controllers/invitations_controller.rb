@@ -22,8 +22,10 @@ class InvitationsController < Devise::InvitationsController
     emails = params[:user][:email].to_s.gsub(/\s/, '').split(/, */)
     #NOTE should we try and find users by email here? probs
     aspect = current_user.aspects.find(aspect_id)
+    
+    language = params[:user][:language]
 
-    invites = Invitation.batch_invite(emails, :message => message, :sender => current_user, :aspect => aspect, :service => 'email')
+    invites = Invitation.batch_invite(emails, :message => message, :sender => current_user, :aspect => aspect, :service => 'email', :language => language)
 
     flash[:notice] = extract_messages(invites)
 
