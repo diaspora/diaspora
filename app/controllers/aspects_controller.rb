@@ -6,7 +6,6 @@ require File.join(Rails.root, "lib", 'stream', "aspect")
 
 class AspectsController < ApplicationController
   before_filter :authenticate_user!
-  before_filter :save_sort_order, :only => :index
   before_filter :save_selected_aspects, :only => :index
   before_filter :ensure_page, :only => :index
 

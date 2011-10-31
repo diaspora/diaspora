@@ -138,19 +138,8 @@ class ApplicationController < ActionController::Base
     @tags ||= current_user.followed_tags
   end
 
-  def save_sort_order
-    if params[:sort_order].present?
-      session[:sort_order] = (params[:sort_order] == 'created_at') ? 'created_at' : 'updated_at'
-    elsif session[:sort_order].blank?
-      session[:sort_order] = 'created_at'
-    else
-      session[:sort_order] = (session[:sort_order] == 'created_at') ? 'created_at' : 'updated_at'
-    end
-  end
-
   def default_stream_action(stream_klass)
     authenticate_user!
-    save_sort_order
     @stream = stream_klass.new(current_user, :max_time => max_time, :order => sort_order)
 
     if params[:only_posts]

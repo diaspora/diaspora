@@ -3,13 +3,6 @@
 -#   the COPYRIGHT file.
 
 #aspect_stream_header
-  #sort_by
-    = t('streams.recently')
-    %span.controls
-      = link_to_if(session[:sort_order] == 'created_at', t('streams.commented_on'), stream.link(:sort_order => 'updated_at'))
-      ·
-      = link_to_if(session[:sort_order] == 'updated_at', t('streams.posted'), stream.link(:sort_order => 'created_at' ))
-
   %h3
     = stream.title
 
