@@ -8,17 +8,20 @@ module MarkdownifyHelper
   def markdownify(target, render_options={})
 
     markdown_options = {
-      :autolink            => true,
-      :fenced_code_blocks  => true,
-      :space_after_headers => true,
-      :strikethrough       => true,
-      :superscript         => true,
-      :tables              => true,
-      :no_intra_emphasis   => true,
+      :autolink               => true,
+      :fenced_code_blocks     => true,
+      :space_after_headers    => true,
+      :strikethrough          => true,
+      :superscript            => true,
+      :tables                 => true,
+      :no_intra_emphasis      => true,
+      :localize_diaspora_urls => true,
     }
 
     render_options[:filter_html] = true
     render_options[:hard_wrap] ||= true
+    render_options[:localize_diaspora_urls] ||= true
+    render_options[:remote_pod_url] = target.author.pod_url if target.respond_to?(:author) and render_options[:localize_diaspora_urls]
 
     # This ugly little hack basically means
     #   "Give me the rawest contents of target available"

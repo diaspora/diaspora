@@ -276,7 +276,9 @@ class Person < ActiveRecord::Base
     end 
   end
 
-  
+  def pod_url
+    diaspora_handle.split('@')[1]
+  end
   
   # @param person [Person]
   # @param url [String]

@@ -14,7 +14,7 @@
           %span.details
             –
             %span.timeago
-              = link_to(how_long_ago(post), post_path(post))
+              = link_to(how_long_ago(post), post_path(post.guid))
             –
             = t("reshares.reshare.reshare", :count => post.reshare_count)
 

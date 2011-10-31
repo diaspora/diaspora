@@ -85,5 +85,39 @@ describe MarkdownifyHelper do
         formatted.should == %{<p>Test <a href="/tags/tag" class="tag">#tag</a>?<br>\n<a href="https://joindiaspora.com" target="_blank">https://joindiaspora.com</a></p>\n}
       end
     end
+    
+    context "when formating post links of remote pods" do
+      before do
+        @remote_person = Factory(:person, :diaspora_handle => 'maxwell@joindiaspora.com')
+        @linked_message = Factory.create(:status_message, 
+                                 :author => @remote_person,
+                                 :text => "Please link me")
+      end
+
+      it "should adjust posts for guids" do
+        remote_link = "https://joindiaspora.com/posts/#{@linked_message.guid}"
+        message = Factory.create(:status_message,
+                                 :author => @remote_person,
+                                 :text => "check this out: #{remote_link} or [this](#{remote_link})")
+
+        formatted = markdownify(message)
+        local_link = "https://#{AppConfig[:pod_url]}/posts/#{@linked_message.guid}"
+
+        formatted.should =~ /#{local_link}/
+        formatted.should_not =~ /#{remote_link}/
+      end
+
+      it "should not adjust posts for ids" do
+        remote_link = "https://joindiaspora.com/posts/#{@linked_message.id}"
+        message = Factory.create(:status_message,
+                                 :author => @remote_person,
+                                 :text => "check this out: #{remote_link} or [this](#{remote_link})")
+
+        formatted = markdownify(message)
+        local_link = "https://#{AppConfig[:pod_url]}/posts/#{@linked_message.id}"
+        formatted.should_not =~ /#{local_link}/
+        formatted.should =~ /#{remote_link}/
+      end
+    end
   end
 end
