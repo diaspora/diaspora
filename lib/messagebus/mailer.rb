@@ -38,7 +38,11 @@ module Messagebus
           m[:htmlBody] = message.body.to_s
         end
 
-        @client.add_message(m)
+        begin
+          @client.add_message(m)
+        rescue Exception => e
+          raise "Message bus error with email #{m.inspect}"
+        end
       end
       status = @client.flush
       if status[:failureCount] && status[:failureCount] > 0
