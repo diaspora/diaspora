@@ -23,8 +23,9 @@ module Diaspora
 
       def visible_shareable_ids(klass, opts={})
         opts = prep_opts(klass, opts)
+        cache = nil
 
-        if RedisCache.configured? && RedisCache.supported_order?(opts[:order_field]) && opts[:all_aspects?].present?
+        if use_cache?(opts)
           cache = RedisCache.new(self, opts[:order_field])
 
           cache.ensure_populated!(opts)
@@ -32,7 +33,7 @@ module Diaspora
           shareable_ids = cache.send(name+"_ids", opts[:max_time], opts[:limit])
         end
 
-        if shareable_ids.blank? || shareable_ids.length < opts[:limit]
+        if perform_db_query?(shareable_ids, cache, opts)
           visible_ids_from_sql(klass, opts)
         else
           shareable_ids
@@ -91,6 +92,7 @@ module Diaspora
         return nil unless person
         contact_for_person_id(person.id)
       end
+
       def aspects_with_shareable(base_class_name_or_class, shareable_id)
         base_class_name = base_class_name_or_class
         base_class_name = base_class_name_or_class.base_class.to_s if base_class_name_or_class.is_a?(Class)
@@ -156,6 +158,17 @@ module Diaspora
       end
 
       protected
+      # @return [Boolean]
+      def use_cache?(opts)
+        RedisCache.configured? && RedisCache.supported_order?(opts[:order_field]) && opts[:all_aspects?].present?
+      end
+
+      # @return [Boolean]
+      def perform_db_query?(shareable_ids, cache, opts)
+        return true if cache == nil
+        return false if cache.size <= opts[:limit]
+        shareable_ids.blank? || shareable_ids.length < opts[:limit]
+      end
 
       # @return [Hash]
       def prep_opts(klass, opts)
