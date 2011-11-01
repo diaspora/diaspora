@@ -10,7 +10,7 @@
         searchInputName: searchForm.find("input[type='search']").attr("name"),
         options: {
           cacheLength : 15,
-          delay : 200,
+          delay : 800,
           extraParams : {limit : 4},
           formatItem : self.formatItem,
           formatResult : self.formatResult,
