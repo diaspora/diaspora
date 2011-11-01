@@ -4,8 +4,6 @@
 
 module Diaspora
   module Taggable
-    VALID_TAG_BODY = /[^_,\s#*\[\]()\@\/"'\.%]+\b/
-
     def self.included(model)
       model.class_eval do
         cattr_accessor :field_with_tags
@@ -43,10 +41,16 @@ module Diaspora
       return text  if opts[:plain_text]
 
       text = ERB::Util.h(text) unless opts[:no_escape]
-      regex = /(^|\s|>)#(#{VALID_TAG_BODY})/
+      regex = /(^|\s|>)#([\w-]+|&lt;3)/
 
       text.to_str.gsub(regex) { |matched_string|
-        %{#{$1}<a href="/tags/#{$2}" class="tag">##{$2}</a>}
+        pre, url_bit, clickable = $1, $2, "##{$2}"
+        if $2 == '&lt;3'
+          # Special case for love, because the world needs more love.
+          url_bit = '<3'
+        end
+
+        %{#{pre}<a href="/tags/#{url_bit}" class="tag">#{clickable}</a>}
       }.html_safe
     end
   end
