@@ -1,19 +1,37 @@
 namespace :backup do
-  desc "Backup Mysql"
+  desc "Backup Tasks"
   require File.join(Rails.root, 'config', 'initializers', '_load_app_config.rb')
   require 'cloudfiles'
+  require 'fileutils'
+
+  tmp_backup_dir = "./tmp/backup"
+  tmp_sql_file = "backup.sql"
+  tmp_db_dir = "db"
+
+  task :all => [:database, :photos]
+
+  task :mysql => [:database]
+
+  task :postgresql => [:database]
 
   task :database do
-    NUMBER_OF_DAYS = 3
     puts("event=backup status=start type=database")
+    tmp_pass_file = ".pgpass.conf.tmp"
     db = YAML::load(File.open(File.join(File.dirname(__FILE__), '..','..', 'config', 'database.yml')))
+    host = db['production']['host']
+    port = db['production']['port'].to_s
     user = db['production']['username']
     password = db['production']['password']
     database = db['production']['database']
-    unless AppConfig[:cloudfiles_username] && AppConfig[:cloudfiles_api_key] && !user.blank?
+
+    unless AppConfig[:cloudfiles_username] && AppConfig[:cloudfiles_api_key] && AppConfig[:cloudfiles_db_container] && 
+        AppConfig[:backup_retention_days] && !user.blank?
+
       puts "Cloudfiles username needed" unless AppConfig[:cloudfiles_username]
       puts "Cloudfiles api_key needed" unless AppConfig[:cloudfiles_api_key]
-      puts "DB auth data needed" if user.blank?
+      puts "Cloudfiles database container needed" unless AppConfig[:cloudfiles_db_container]
+      puts "Retention period needed" unless AppConfig[:backup_retention_days]
+      puts "Database auth data needed" if user.blank?
       Process.exit
     end
 
@@ -21,41 +39,54 @@ namespace :backup do
 
     cf = CloudFiles::Connection.new(:username => AppConfig[:cloudfiles_username], :api_key => AppConfig[:cloudfiles_api_key])
 
+    FileUtils.mkdir_p(tmp_backup_dir + "/" + tmp_db_dir)
+    container = cf.container(AppConfig[:cloudfiles_db_container])
+
     if db['production']['adapter'] == 'postgresql'
-      container = cf.container("PostgreSQL Backup")
+      file = File.new(tmp_backup_dir + "/" + tmp_pass_file, 'w')
+      file.chmod( 0600 )
+      file.write(host + ":" + 
+                 port + ":" + 
+                 database + ":" + 
+                 user + ":" + 
+                 password + "\n")
+      file.close
 
       puts "Dumping PostgreSQL at #{Time.now.to_s}"
-      `mkdir -p /tmp/backup/postgres`
-      `PGPASSFILE=/etc/pgpass.conf nice pg_dump -h localhost -p 5432 -U #{user} #{database} > /tmp/backup/postgres/backup.txt `
+      `PGPASSFILE=#{tmp_backup_dir}/#{tmp_pass_file} nice pg_dump -h #{host} -p #{port} -U #{user} #{database} > #{tmp_backup_dir}/#{tmp_db_dir}/#{tmp_sql_file} `
 
       puts "Gzipping dump at #{Time.now.to_s}"
-      tar_name = "postgres_#{Time.now.to_i}.tar"
-      `nice tar cfPz /tmp/backup/#{tar_name} /tmp/backup/postgres`
-
-      file = container.create_object(tar_name)
+      tar_name = "postgresql_#{Time.now.to_i}.tar"
+      `nice tar cfPz #{tmp_backup_dir}/#{tar_name} #{tmp_backup_dir}/#{tmp_db_dir}`
     elsif db['production']['adapter'] == 'mysql2'
-      container = cf.container("MySQL Backup")
-
       puts "Dumping Mysql at #{Time.now.to_s}"
-      `mkdir -p /tmp/backup/mysql`
-      `nice mysqldump --single-transaction --quick --user=#{user} --password=#{password} #{database} > /tmp/backup/mysql/backup.txt `
+      `nice mysqldump --single-transaction --quick --user=#{user} --password=#{password} #{database} > #{tmp_backup_dir}/#{tmp_db_dir}/#{tmp_sql_file} `
 
       puts "Gzipping dump at #{Time.now.to_s}"
       tar_name = "mysql_#{Time.now.to_i}.tar"
-      `nice tar cfPz /tmp/backup/#{tar_name} /tmp/backup/mysql`
-
-      file = container.create_object(tar_name)
+      `nice tar cfPz /tmp/backup/#{tar_name} #{tmp_backup_dir}/#{tmp_db_dir}`
     end
 
-    puts "Uploading archive at #{Time.now.to_s}"
-    if file.write File.open("/tmp/backup/" + tar_name)
-      puts("event=backup status=success type=database")
-      `rm /tmp/backup/#{tar_name}`
+    file = container.create_object(tar_name)
 
+    puts "Uploading archive at #{Time.now.to_s}"
+    if file.write File.open(tmp_backup_dir + "/" + tar_name)
+      puts("event=backup status=success type=database")
+
+      File.delete(tmp_backup_dir + "/" + tar_name)
+      File.delete(tmp_backup_dir + "/" + tmp_pass_file)
+      File.delete(tmp_backup_dir + "/" + tmp_db_dir + "/" + tmp_sql_file)
+      Dir.delete(tmp_backup_dir + "/" + tmp_db_dir)
+      Dir.delete(tmp_backup_dir)
+
+      puts("Deleting Cloud Files objects that are older than specified retention period")
       files = container.objects
-      files.sort!.pop(NUMBER_OF_DAYS * 24)
       files.each do |file|
-        container.delete_object(file)
+        object = container.object(file)
+        if object.last_modified < (Time.now - (AppConfig[:backup_retention_days] * 24 * 60 * 60))
+          puts("Deleting expired Cloud Files object: " + file)
+          container.delete_object(file)
+        end
       end
     else
       puts("event=backup status=failure type=database")
@@ -65,19 +96,20 @@ namespace :backup do
   task :photos do
     puts("event=backup status=start type=photos")
 
-    if AppConfig[:cloudfiles_username] && AppConfig[:cloudfiles_api_key]
+    if AppConfig[:cloudfiles_username] && AppConfig[:cloudfiles_api_key] && AppConfig[:cloudfiles_images_container]
       puts "Logging into Cloud Files"
 
       cf = CloudFiles::Connection.new(:username => AppConfig[:cloudfiles_username], :api_key => AppConfig[:cloudfiles_api_key])
-      photo_container = cf.container("Photo Backup")
+      container = cf.container(AppConfig[:cloudfiles_images_container])
 
+      FileUtils.mkdir_p(tmp_backup_dir)
       tar_name = "photos_#{Time.now.to_i}.tar"
-      `tar cfPz /dev/stdout /usr/local/app/diaspora/public/uploads/images/ | split -d -b 4831838208 - /tmp/backup/#{tar_name}`
+      `tar cfPz /dev/stdout /usr/local/app/diaspora/public/uploads/images/ | split -d -b 4831838208 - #{tmp_backup_dir}/#{tar_name}`
 
       (0..99).each do |n|
         padded_str = n.to_s.rjust(2,'0')
-        file = photo_container.create_object(tar_name + padded_str)
-        file_path = "/tmp/backup/" + tar_name + padded_str
+        file = container.create_object(tar_name + padded_str)
+        file_path = tmp_backup_dir + "/" + tar_name + padded_str
 
         if File.exists?(file_path)
           if file.write File.open(file_path)
@@ -85,10 +117,21 @@ namespace :backup do
           else
             puts("event=backup status=failure type=photos")
           end
-          `rm #{file_path}`
+          File.delete(file_path)
         end
       end
 
+      Dir.delete(tmp_backup_dir)
+
+      puts("Deleting Cloud Files objects that are older than specified retention period")
+      files = container.objects
+      files.each do |file|
+        object = container.object(file)
+        if object.last_modified < (Time.now - (AppConfig[:backup_retention_days] * 24 * 60 * 60))
+          puts("Deleting expired Cloud Files object: " + file)
+          container.delete_object(file)
+        end
+      end
     else
       puts "Cloudfiles username and api key needed"
     end
