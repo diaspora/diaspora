@@ -23,9 +23,19 @@ class Post < ActiveRecord::Base
   #scopes
   scope :includes_for_a_stream,  includes(:o_embed_cache, {:author => :profile}, :mentions => {:person => :profile}) #note should include root and photos, but i think those are both on status_message
 
-  def self.for_a_stream(max_time, order)
-    self.for_visible_shareable_sql(max_time, order).
-    includes_for_a_stream
+  def self.excluding_blocks(user)
+    people = user.blocks.map { |x| x.person_id }
+
+    where("posts.author_id NOT IN (?)", people)
+  end
+
+  def self.for_a_stream(max_time, order, user=nil)
+    scope = self.for_visible_shareable_sql(max_time, order).
+      includes_for_a_stream
+
+    scope = scope.excluding_blocks(user) if user.present?
+
+    scope
   end
 
   #############

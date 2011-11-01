@@ -111,6 +111,7 @@ Diaspora::Application.routes.draw do
   end
   resources :aspect_memberships, :only   => [:destroy, :create, :update]
   resources :share_visibilities,  :only   => [:update]
+  resources :blocks, :only => :create
 
   get 'spotlight' => 'community_spotlight#index', :as => 'spotlight'
 

@@ -26,3 +26,7 @@ end
 When /^The user deletes their first post$/ do
   @me.posts.first.destroy
 end
+
+When /^I click on bob's block button/ do
+  find(".block_button").first.click
+end
