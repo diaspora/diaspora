@@ -4,8 +4,6 @@
 
 module Diaspora
   module Taggable
-    VALID_TAG_BODY = /[^_,\s#*\[\]()\@\/"'\.%]+\b/
-
     def self.included(model)
       model.class_eval do
         cattr_accessor :field_with_tags
@@ -27,10 +25,11 @@ module Diaspora
     end
 
     def tag_strings
-      regex = /(?:^|\s)#(#{VALID_TAG_BODY})/
-      matches = self.send(self.class.field_with_tags).scan(regex).map do |match|
-        match.last
-      end
+      regex = /(?:^|\s)#([\w-]+|<3)/
+      matches = self.
+        send( self.class.field_with_tags ).
+        scan(regex).
+        map { |match| match[0] }
       unique_matches = matches.inject(Hash.new) do |h,element|
         h[element.downcase] = element unless h[element.downcase]
         h
@@ -39,13 +38,20 @@ module Diaspora
     end
 
     def self.format_tags(text, opts={})
-      return text if opts[:plain_text]
+      return text  if opts[:plain_text]
+
       text = ERB::Util.h(text) unless opts[:no_escape]
-      regex = /(^|\s|>)#(#{VALID_TAG_BODY})/
-      form_message = text.to_str.gsub(regex) do |matched_string|
-        "#{$~[1]}<a href=\"/tags/#{$~[2]}\" class=\"tag\">##{$~[2]}</a>"
-      end
-      form_message.html_safe
+      regex = /(^|\s|>)#([\w-]+|&lt;3)/
+
+      text.to_str.gsub(regex) { |matched_string|
+        pre, url_bit, clickable = $1, $2, "##{$2}"
+        if $2 == '&lt;3'
+          # Special case for love, because the world needs more love.
+          url_bit = '<3'
+        end
+
+        %{#{pre}<a href="/tags/#{url_bit}" class="tag">#{clickable}</a>}
+      }.html_safe
     end
   end
 end
