@@ -45,7 +45,7 @@ module Messagebus
       begin
         status = @client.flush
       rescue Exception => e
-        raise "message bus failure: #{e.message} #{@things.map{|x| x[:fromEmail]}.inspect}"
+        raise "message bus failures: #{e.message} #{@things.map{|x| x[:fromEmail]}.inspect}, #{message['from']}"
       end
       if status[:failureCount] && status[:failureCount] > 0
         raise "Messagebus failure.  failureCount=#{failureCount}, message=#{message.inspect}"
