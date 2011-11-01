@@ -25,7 +25,7 @@ class Stream::Multi < Stream::Base
 
   # @return [Boolean]
   def ajax_stream?
-    true
+    false
   end
 
   #emits an enum of the groups which the post appeared
