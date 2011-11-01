@@ -40,11 +40,11 @@ module Messagebus
 
         begin
           @client.add_message(m)
+          status = @client.flush
         rescue Exception => e
           raise "Message bus error with email #{m.inspect}"
         end
       end
-      status = @client.flush
       if status[:failureCount] && status[:failureCount] > 0
         raise "Messagebus failure.  failureCount=#{failureCount}, message=#{message.inspect}"
       end
