@@ -9,8 +9,6 @@ describe Publisher do
     @publisher = Publisher.new(alice)
   end
 
-
-
   describe "#prefill" do
     it 'defaults to nothing' do
       @publisher.prefill.should be_blank
@@ -21,6 +19,13 @@ describe Publisher do
     end
   end
 
+  describe '#text' do
+    it 'is a formatted version of the prefill' do
+      p = Publisher.new(alice, :prefill => "@{ alice ; alice@pod.com }")
+
+      p.text.should == "alice"
+    end
+  end
 
   ["open", "public", "explain"].each do |property|
     describe "##{property}?" do

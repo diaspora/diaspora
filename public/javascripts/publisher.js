@@ -489,7 +489,10 @@ var Publisher = {
     });
 
     Publisher.autocompletion.initialize();
-    Publisher.hiddenInput().val(Publisher.input().val());
+
+    if(Publisher.hiddenInput().val() === "") {
+      Publisher.hiddenInput().val(Publisher.input().val());
+    }
     Publisher.input().autoResize();
     Publisher.input().keydown(Publisher.autocompletion.keyDownHandler);
     Publisher.input().keyup(Publisher.autocompletion.keyUpHandler);

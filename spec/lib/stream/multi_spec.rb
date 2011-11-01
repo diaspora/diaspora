@@ -44,11 +44,25 @@ describe Stream::Multi do
     end
 
     it 'returns includes new user hashtag' do
-      @stream.send(:publisher_prefill).include?("#NewHere").should be_true
+      @stream.send(:publisher_prefill).should include("#NewHere")
     end
 
     it 'includes followed hashtags' do
-      @stream.send(:publisher_prefill).include?("#cats").should be_true
+      @stream.send(:publisher_prefill).should include("#cats")
+    end
+
+    context 'when invited by another user' do
+      before do
+        @user = Factory(:user, :invited_by => alice)
+        @inviter = alice.person
+
+        @stream = Stream::Multi.new(@user)
+      end
+
+      it 'includes a mention of the inviter' do
+        mention = "@{#{@inviter.name} ; #{@inviter.diaspora_handle}}"
+        @stream.send(:publisher_prefill).should include(mention)
+      end
     end
   end
 

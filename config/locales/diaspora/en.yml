@@ -742,7 +742,8 @@ en:
       discard_post: "Discard post"
       new_user_prefill:
         hello: "Hey everyone, I'm #%{new_user_tag}. "
-        i_like: "I'm interested in %{tags}."
+        i_like: "I'm interested in %{tags}. "
+        invited_by: "Thanks for the invite, "
     add_contact:
       enter_a_diaspora_username: "Enter a Diaspora username:"
       your_diaspora_username_is: "Your Diaspora username is: %{diaspora_handle}"
