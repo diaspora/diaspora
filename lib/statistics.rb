@@ -162,7 +162,16 @@ SQL
 
   ### % of cohort came back last week
   def retention(n)
-    week_created(n).where("current_sign_in_at > ?", Time.now - 1.week).count.to_f/week_created(n).count
+    users_by_week(n).count.to_f/week_created(n).count
+  end
+
+  def top_active_users(n)
+    ten_percent_lim = (users_by_week(n).count.to_f * 0.3).ceil
+    users_by_week(n).order("sign_in_count DESC").limit(ten_percent_lim).select('email, username, sign_in_count')
+  end
+
+  def users_by_week(n)
+    week_created(n).where("current_sign_in_at > ?", Time.now - 1.week)
   end
 
   protected

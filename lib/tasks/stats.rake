@@ -21,4 +21,20 @@ namespace :stats do
                             :attachments => [{:name => "retention_numbers_#{Time.now.to_s}.csv", :file => string}]})
     emails.each {|e| e.deliver} 
   end
+
+  task :top_actives => :environment do
+
+    require 'fastercsv'
+
+    string = FasterCSV.generate do |csv|
+      (0..32).each do |i|
+        actives = ActiveRecord::Base.connection.select_all(Statistics.new.top_active_users(i).to_sql)
+        actives.each do |a|
+          csv << [i.to_s, a['email'], a['username'], a['sign_in_count']]
+        end
+      end
+    end
+
+    File.open("#{Rails.root}/tmp/top_actives.csv", 'w') {|f| f.write(string) }
+  end
 end
