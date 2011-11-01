@@ -30,7 +30,7 @@ namespace :stats do
       (0..32).each do |i|
         actives = ActiveRecord::Base.connection.select_all(Statistics.new.top_active_users(i).to_sql)
         actives.each do |a|
-          csv << [i.to_s, a['email'], a['username'], a['sign_in_count']]
+          csv << [i.to_s, a['email'], a['username'], a['first_name'], a['sign_in_count']]
         end
       end
     end

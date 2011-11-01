@@ -167,7 +167,7 @@ SQL
 
   def top_active_users(n)
     ten_percent_lim = (users_by_week(n).count.to_f * 0.3).ceil
-    users_by_week(n).order("sign_in_count DESC").limit(ten_percent_lim).select('email, username, sign_in_count')
+    users_by_week(n).joins(:person => :profile).where('users.sign_in_count > 4').order("users.sign_in_count DESC").limit(ten_percent_lim).select('users.email, users.username, profiles.first_name, users.sign_in_count')
   end
 
   def users_by_week(n)
@@ -186,7 +186,7 @@ SQL
   end
 
   def week_created(n)
-    User.where("username IS NOT NULL").where("created_at > ? and created_at < ?", Time.now - (n+1).weeks, Time.now - n.weeks)
+    User.where("username IS NOT NULL").where("users.created_at > ? and users.created_at < ?", Time.now - (n+1).weeks, Time.now - n.weeks)
   end
 
   #@param [Symbol] input type
