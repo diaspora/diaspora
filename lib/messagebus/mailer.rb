@@ -29,6 +29,7 @@ module Messagebus
       @client.send_common_info = {:fromEmail => message.from.first, :customHeaders => {"sender"=> message['from'].to_s}}
       message.to.each do |addressee|
         m = {:toEmail => addressee, :subject => message.subject, :fromName => message_parse(message['from'].to_s)}
+        @things = []
 
         if message.multipart?
           m[:plaintextBody] = message.text_part.body.to_s if message.text_part
@@ -38,12 +39,14 @@ module Messagebus
           m[:htmlBody] = message.body.to_s
         end
 
-        begin
-          @client.add_message(m)
-          status = @client.flush
-        rescue Exception => e
-          raise "Message bus error with email #{e.message}: #{m[:toEmail]}, #{m[:fromName]}, #{m[:fromEmail]}"
-        end
+        @client.add_message(m)
+        @things << m
+      end
+      begin
+        status = @client.flush
+      rescue Exception => e
+        raise "message bus failure: #{e.message} #{@things.map{|x| x[:fromEmail]}.inspect}"
+
       end
       if status[:failureCount] && status[:failureCount] > 0
         raise "Messagebus failure.  failureCount=#{failureCount}, message=#{message.inspect}"
