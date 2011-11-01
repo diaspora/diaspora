@@ -6,7 +6,7 @@ class Notifier < ActionMailer::Base
   def self.admin(string, recipients, opts = {})
     mails = []
     recipients.each do |rec|
-      mail = single_admin(string, rec, opts)
+      mail = single_admin(string, rec, opts.dup)
       mails << mail
     end
     mails
