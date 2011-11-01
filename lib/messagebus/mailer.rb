@@ -42,7 +42,7 @@ module Messagebus
           @client.add_message(m)
           status = @client.flush
         rescue Exception => e
-          raise "Message bus error with email #{m.inspect}"
+          raise "Message bus error with email #{e.message}: #{m[:toEmail]}, #{m[:fromName]}, #{m[:fromEmail]}"
         end
       end
       if status[:failureCount] && status[:failureCount] > 0
