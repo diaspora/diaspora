@@ -19,14 +19,17 @@ describe Diaspora::Taggable do
         @object.build_tags
         @object.save!
       end
+
       it 'links the tag to /p' do
         link = link_to('#vöglein', '/tags/vöglein', :class => 'tag')
         Diaspora::Taggable.format_tags(@str).should include(link)
       end
+
       it 'responds to plain_text' do
         Diaspora::Taggable.format_tags(@str, :plain_text => true).should == @str
       end
     end
+
     describe '#build_tags' do
       it 'builds the tags' do
         @object.send(@object.class.field_with_tags_setter, '#what')
@@ -37,6 +40,7 @@ describe Diaspora::Taggable do
         }.should change{@object.tags.count}.by(1)
       end
     end
+
     describe '#tag_strings' do
       it 'returns a string for every #thing' do
         str = '#what #hey #that"smybike. #@hey ##boo # #THATWASMYBIKE #vöglein #hey#there #135440we #abc/23 ### #h!gh #ok? #see: #re:publica'
@@ -45,6 +49,7 @@ describe Diaspora::Taggable do
         @object.send(@object.class.field_with_tags_setter, str)
         @object.tag_strings.should =~ arr
       end
+
       it 'returns no duplicates' do
         str = '#what #what #what #whaaaaaaaaaat'
         arr = ['what','whaaaaaaaaaat']
@@ -52,6 +57,7 @@ describe Diaspora::Taggable do
         @object.send(@object.class.field_with_tags_setter, str)
         @object.tag_strings.should =~ arr
       end
+
       it 'is case insensitive' do
         str = '#what #wHaT #WHAT'
         arr = ['what']
