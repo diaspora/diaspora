@@ -27,10 +27,11 @@ module Diaspora
     end
 
     def tag_strings
-      regex = /(?:^|\s)#(#{VALID_TAG_BODY})/
-      matches = self.send(self.class.field_with_tags).scan(regex).map do |match|
-        match.last
-      end
+      regex = /(?:^|\s)#([\w-]+|<3)/
+      matches = self.
+        send( self.class.field_with_tags ).
+        scan(regex).
+        map { |match| match[0] }
       unique_matches = matches.inject(Hash.new) do |h,element|
         h[element.downcase] = element unless h[element.downcase]
         h
