@@ -165,6 +165,11 @@ en:
       welcome_to_diaspora: "Welcome to Diaspora, %{name}!"
       introduce_yourself: "This is your stream.  Jump in and introduce yourself."
 
+      new_here:
+        title: "Welcome New Users"
+        follow: "Follow %{link} and welcome new users to Diaspora*!"
+        learn_more: "Learn more"
+
       help:
         need_help: "Need Help?"
         here_to_help: "The Diaspora community is here!"
@@ -173,9 +178,8 @@ en:
         find_a_bug: "... find a %{link}?"
         feature_suggestion: "... have a %{link} suggestion?"
 
-        tutorials_and_wiki: "%{tutorial} & %{wiki}: Community-powered tutorials, how-to, and news"
+        tutorials_wiki_and_forum: "%{tutorial} & %{wiki} & %{forum}: Community-powered tutorials, how-to, and news"
 
-        feature_and_forum: "%{gs} & %{forum}: Community-powered support and feature requests"
 
         satisfaction: "%{link}: Community-powered support"
         email_feedback: "%{link} your feedback, if you prefer"

@@ -21,6 +21,15 @@
     .content
       = t('aspects.index.cubbies.explanation')
       = link_to t('aspects.index.cubbies.learn_more'), token_path
+.section
+  .title
+    = image_tag('/images/icons/heart.png')
+    %h5
+      = t('aspects.index.new_here.title')
+  .content
+    != t('aspects.index.new_here.follow', :link => link_to('#NewHere', tag_path(:name => "NewHere")))
+    %br
+    = link_to(t('aspects.index.new_here.learn_more'), "https://github.com/diaspora/diaspora/wiki/Welcoming-Committee")
 
 .section
   .title
@@ -40,11 +49,9 @@
     %br
     %br
     %p
-      != t('aspects.index.help.feature_and_forum', :gs=> link_to("GetSatisfaction", "http://getsatisfaction.com/diaspora", :target => '_blank'), :forum => link_to("Forum", "http://www.diasporaforum.org/", :target => '_blank'))
+      != t('aspects.index.help.tutorials_wiki_and_forum', :tutorial => link_to("Diasporial" , "http://diasporial.com/tutorials", :target => '_blank'), :wiki => link_to('Wiki','http://github.com/diaspora/diaspora/wiki', :target => '_blank'), :forum => link_to("Forum", "http://www.diasporaforum.org/", :target => '_blank'))
     %p
-      != t('aspects.index.help.tutorials_and_wiki', :tutorial => link_to("Diasporial" , "http://diasporial.com/tutorials", :target => '_blank'), :wiki => link_to('Wiki','http://github.com/diaspora/diaspora/wiki', :target => '_blank'))
-    %p
-      != t('aspects.index.help.email_feedback', :link => link_to("Email" , "mailto:yosem@joindiaspora.com"))
+      != t('aspects.index.help.email_feedback', :link => link_to("Email" , "mailto:feedback@joindiaspora.com"))
 
 - unless AppConfig.configured_services.blank? || all_services_connected?
   .section
