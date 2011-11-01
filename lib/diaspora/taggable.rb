@@ -40,13 +40,14 @@ module Diaspora
     end
 
     def self.format_tags(text, opts={})
-      return text if opts[:plain_text]
+      return text  if opts[:plain_text]
+
       text = ERB::Util.h(text) unless opts[:no_escape]
       regex = /(^|\s|>)#(#{VALID_TAG_BODY})/
-      form_message = text.to_str.gsub(regex) do |matched_string|
-        "#{$~[1]}<a href=\"/tags/#{$~[2]}\" class=\"tag\">##{$~[2]}</a>"
-      end
-      form_message.html_safe
+
+      text.to_str.gsub(regex) { |matched_string|
+        %{#{$1}<a href="/tags/#{$2}" class="tag">##{$2}</a>}
+      }.html_safe
     end
   end
 end
