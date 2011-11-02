@@ -42,6 +42,24 @@ describe MarkdownifyHelper do
         formatted.should =~ %r{<a href="/tags/markdown" class="tag">#markdown</a>}
       end
 
+      it 'should leave multi-underscore tags intact' do
+        message = Factory.create(
+          :status_message,
+          :author => alice.person,
+          :text => "Here is a #multi_word tag"
+        )
+        formatted = markdownify(message)
+        formatted.should =~ %r{Here is a <a href="/tags/multi_word" class="tag">#multi_word</a> tag}
+
+        message = Factory.create(
+          :status_message,
+          :author => alice.person,
+          :text => "Here is a #multi_word_tag yo"
+        )
+        formatted = markdownify(message)
+        formatted.should =~ %r{Here is a <a href="/tags/multi_word_tag" class="tag">#multi_word_tag</a> yo}
+      end
+
       it "should leave mentions intact" do
         message = Factory.create(:status_message,
                                  :author => alice.person,

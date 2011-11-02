@@ -13,7 +13,8 @@ module MarkdownifyHelper
       :space_after_headers => true,
       :strikethrough       => true,
       :superscript         => true,
-      :tables              => true
+      :tables              => true,
+      :no_intra_emphasis   => true,
     }
 
     render_options[:filter_html] = true
