@@ -105,16 +105,19 @@ it:
       help: 
         do_you: "Vuoi..."
         email_feedback: "Se preferisci, manda un feedback via %{link}"
-        feature_and_forum: "%{gs} & %{forum}: Per proporre idee e avere supporto dalla comunità"
         feature_suggestion: "...proporre un'idea? %{link}"
         find_a_bug: "...segnalare un problema? %{link}"
         have_a_question: "...fare una domanda? %{link}"
         here_to_help: "La comunità di Diaspora è qui!"
         need_help: "Hai bisogno di aiuto?"
         satisfaction: "%{link}: Per avere supporto dalla comunità"
-        tutorials_and_wiki: "%{tutorial} & %{wiki}: Per le ultime notizie, le guide e i suggerimenti della comunità"
-      introduce_yourself: "Questo è il tuo stream. Sali a bordo e presentati."
+        tutorials_wiki_and_forum: "%{tutorial} & %{wiki} & %{forum}: Community-powered tutorials, how-to, and news"
+      introduce_yourself: "Questo è il tuo stream. Sali a bordo e presentati!"
       keep_us_running: "Mantieni %{pod} veloce e scattante, la tua donazione mensile sarà il caffè per i nostri server!"
+      new_here: 
+        follow: "Follow %{link} and welcome new users to Diaspora*!"
+        learn_more: "Learn more"
+        title: "Welcome New Users"
       no_contacts: "Nessun contatto"
       no_tags: "+ Cerca tag da seguire"
       people_sharing_with_you: "Persone in condivisione con te"
@@ -288,6 +291,7 @@ it:
       comma_seperated_plz: "Puoi inserire più indirizzi email separati da virgole."
       if_they_accept_info: "se loro accettano, saranno aggiunti all'aspetto in cui li hai invitati."
       invite_someone_to_join: "Invita qualcuno ad entrare in Diaspora!"
+      language: "Language"
       personal_message: "Messaggio privato"
       resend: "Invia di nuovo"
       send_an_invitation: "Invia un invito"
@@ -731,6 +735,7 @@ it:
       new_user_prefill: 
         hello: "Ciao a tutti, eccomi qui! Hey everyone, I'm #%{new_user_tag}"
         i_like: "I miei interessi sono %{tags}."
+        invited_by: "Thanks for the invite, "
       post_a_message_to: "Invia un messaggio a %{aspect}"
       posting: "Invio in corso..."
       publishing_to: "stai condividendo con: "
@@ -744,7 +749,7 @@ it:
       connect_to_comment: "Connettiti con questo utente per commentare il post"
       currently_unavailable: "al momento non è possibile commentare"
       dislike: "Non mi piace"
-      hide_and_mute: "Nascondi e Disattiva le notifiche"
+      hide_and_mute: "Nascondi e disattiva le notifiche"
       like: "Mi piace"
       shared_with: "Condiviso con: %{aspect_names}"
       unlike: "Annulla"
@@ -771,7 +776,7 @@ it:
     show_more_comments: "Mostra gli altri %{number} commenti"
   streams: 
     aspects: 
-      title: "I tuoi Aspetti"
+      title: "I tuoi aspetti"
     aspects_stream: "Aspetti"
     commented_on: "commenti"
     community_spotlight_stream: "In evidenza dalla comunità"
@@ -786,12 +791,12 @@ it:
       contacts_title: "Persone che ti hanno menzionato"
       title: "@Menzioni"
     multi: 
-      contacts_title: "Persone nel tuo Stream"
+      contacts_title: "Persone nel tuo stream"
       title: "Stream"
     posted: "post"
     public: 
       contacts_title: "Chi ha postato di recente"
-      title: "Attività Pubblica"
+      title: "Attività pubblica"
     recently: "ordina per:"
     tags: 
       contacts_title: "Persone con questo tag"

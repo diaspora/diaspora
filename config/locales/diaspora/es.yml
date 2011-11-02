@@ -60,7 +60,7 @@ es:
     aspect_contacts: 
       done_editing: "editado"
     aspect_listings: 
-      add_an_aspect: "+ Añadir un aspecto"
+      add_an_aspect: "+ Añade un aspecto"
       deselect_all: "Desmarcar todos"
       edit_aspect: "Editar %{name}"
       select_all: "Marcar todos"
@@ -76,12 +76,12 @@ es:
       failure: "El aspecto %{name} no está vacío y no pudo ser borrado."
       success: "%{name} fue eliminado con éxito."
     edit: 
-      add_existing: "Añadir un contacto existente"
+      add_existing: "Añade un contacto existente"
       aspect_list_is_not_visible: "la lista de contactos del aspecto está ocultada"
       aspect_list_is_visible: "la lista de contactos del aspecto es visible"
       confirm_remove_aspect: "¿Seguro que quieres eliminar este aspecto?"
       done: "Listo"
-      make_aspect_list_visible: "¿Quieres hacer visibles los contactos en este aspecto para los demás contactos?"
+      make_aspect_list_visible: "Permitir que estos contactos puedan ver quien más hay en este aspecto."
       remove_aspect: "Eliminar este aspecto"
       rename: "renombrar"
       update: "actualizar"
@@ -105,16 +105,19 @@ es:
       help: 
         do_you: "Tal vez:"
         email_feedback: "Si lo prefieres, envía tus comentarios a este %{link}."
-        feature_and_forum: "%{gs} y %{forum}: Soporte impulsado por la Comunidad y recepción de propuestas"
         feature_suggestion: "...plantees sugerencias? %{link}"
         find_a_bug: "...encontraste errores? %{link}"
         have_a_question: "...tengas preguntas? %{link}"
         here_to_help: "¡La comunidad Diaspora está aquí!"
         need_help: "¿Necesitas ayuda?"
         satisfaction: "%{link}: Soporte de la Comunidad"
-        tutorials_and_wiki: "%{tutorial} y %{wiki}: Tutoriales, explicaciones paso a paso y noticias de la Comunidad"
+        tutorials_wiki_and_forum: "%{tutorial} & %{wiki} & %{forum}: Tutoriales, wiki y noticias"
       introduce_yourself: "Esta es tu entrada de novedades. Adelante, preséntate..."
       keep_us_running: "Haz que %{pod} vaya más rápido, ¡compra a nuestros servidores sus dosis de café mensual!"
+      new_here: 
+        follow: "¡Sigue %{link} y da la bienvenida a los usuarios nuevos de Diaspora*!"
+        learn_more: "Más información"
+        title: "Bienvenida a los usuarios nuevos"
       no_contacts: "No hay contactos"
       no_tags: "+ Encuentra una etiqueta a seguir"
       people_sharing_with_you: "Comparten contigo"
@@ -186,7 +189,7 @@ es:
       failure: "No se pudo crear el contacto"
     few: "%{count} contactos"
     index: 
-      add_a_new_aspect: "Añadir un nuevo aspecto"
+      add_a_new_aspect: "Añade un nuevo aspecto"
       add_to_aspect: "añadir contactos a %{name}"
       all_contacts: "Todos los contactos"
       check_out: "Echa un vistazo"
@@ -288,6 +291,7 @@ es:
       comma_seperated_plz: "Puedes escribir múltiples direcciones de email separadas por comas."
       if_they_accept_info: "Si aceptan, serán añadidos al aspecto que selecciones."
       invite_someone_to_join: "¡Invita a alguien a unirse a Diaspora*!"
+      language: "Idioma"
       personal_message: "Mensaje personal"
       resend: "Reenviado"
       send_an_invitation: "Enviar una invitación"
@@ -683,7 +687,7 @@ es:
   settings: "Configuración"
   shared: 
     add_contact: 
-      add_new_contact: "Añadir un nuevo contacto"
+      add_new_contact: "Añade un nuevo contacto"
       create_request: "Encontrar por la dirección Diaspora*"
       diaspora_handle: "diaspora@pod.org"
       enter_a_diaspora_username: "Introduce un nombre de usuario Diaspora*:"
@@ -701,7 +705,7 @@ es:
     contact_list: 
       all_contacts: "Todos los contactos"
     footer: 
-      logged_in_as: "conectadx como %{name}"
+      logged_in_as: "accediste como %{name}"
       your_aspects: "tus aspectos"
     invitations: 
       by_email: "Por Email"
@@ -729,8 +733,9 @@ es:
       discard_post: "Descartar publicación"
       make_public: "hacer público"
       new_user_prefill: 
-        hello: "Hola a todos, soy #%{new_user_tag}."
+        hello: "Eih, hola a todos. I'm #%{new_user_tag}."
         i_like: "Tengo interés en %{tags}."
+        invited_by: "Gracias por la invitación, "
       post_a_message_to: "Publicar un mensaje en %{aspect}"
       posting: "Publicando..."
       publishing_to: "publicar en:"
@@ -776,7 +781,7 @@ es:
     commented_on: "comentado"
     community_spotlight_stream: "Comunidad Creativa"
     followed_tag: 
-      add_a_tag: "Añadir una etiqueta"
+      add_a_tag: "Añade una etiqueta"
       contacts_title: "Gente que sigue esas etiquetas"
       follow: "Seguir"
       title: "#Etiquetas seguidas"
@@ -799,10 +804,10 @@ es:
   tag_followings: 
     create: 
       failure: "Error al seguir a #%{name}. ¿Estás siguiéndolo ya?"
-      success: "¡Ya! Ahora sigues #%{name}"
+      success: "¡Bien! Ahora ya sigues #%{name}."
     destroy: 
-      failure: "Error al dejar de seguir a #%{name}"
-      success: "Ya no sigues más a #%{name}"
+      failure: "Error al dejar de seguir #%{name}. ¿Tal vez ya lo hiciste?"
+      success: "¡Ay! Ya no sigues más #%{name}."
   tags: 
     show: 
       follow: "Seguir #%{tag}"
@@ -817,7 +822,7 @@ es:
       connect_to_cubbies: "Conecta con Cubbi.es"
       connecting_is_simple: "Conectar tu cuenta de Diaspora* es sencillo. Solo introduce tu identidad Diaspora*(<b>%{diaspora_id}</b>) en la página de <a href='%{href_link}'>configuración</a> de tu cuenta cubbi.es y darle a conectar."
       daniels_account: "La cuenta de Diaspora de Daniel"
-      log_in_with_diaspora_is_comming: "Muy pronto podrás conectar a una nueva aplicación sin tener que crearte un nueva cuenta aparte de la de Diaspora*."
+      log_in_with_diaspora_is_comming: "Muy pronto podrás conectar a una nueva aplicación sin tener que crear una cuenta aparte de Diaspora*."
       love_to_try: "Nos encantaría que lo pruebes."
       making_the_connection: "Creando la conexión"
       screenshot_explanation: "%{link1}. Este cubby en particular está conectado con %{link2}."
@@ -876,7 +881,7 @@ es:
       go_mobile: "Ahora tecnología móvil."
       on_your_mobile_device: "en tu móvil para acceder a Diaspora* mobile."
       signed_out: "Saliste de Diaspora*"
-      simply_visit: "Basta con visitar"
+      simply_visit: "Simplemente visita"
       works_on_modern: "Funciona en todos los smartphones modernos"
     public: 
       does_not_exist: "¡El usuario %{username} no existe!"

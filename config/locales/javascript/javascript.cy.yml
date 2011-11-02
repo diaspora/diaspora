@@ -7,21 +7,21 @@ cy:
   javascripts: 
     aspect_dropdown: 
       add_to_aspect: "Ychwanegu cysylltiad"
-      all_aspects: "All aspects"
-      select_aspects: "Select aspects"
-      started_sharing_with: "You have started sharing with {{name}}!"
-      stopped_sharing_with: "You have stopped sharing with {{name}}."
+      all_aspects: "Agweddau i gŷd"
+      select_aspects: "Dewis agweddau"
+      started_sharing_with: "Rydych chi'n rhannu gyda {{name}}!"
+      stopped_sharing_with: "Dydych chi ddim yn rhannu nawr gyda {{name}}."
       toggle: 
-        few: "Yn {{count}} aspectiau"
-        many: "Yn {{count}} aspectiau"
-        one: "Yn {{count}} aspect"
-        other: "Yn {{count}} aspectiau"
-        two: "Yn {{count}} aspectiau"
-        zero: "Dewiswch aspectiau"
+        few: "Mewn {{count}} agweddau"
+        many: "Mewn {{count}} agweddau"
+        one: "Mewn {{count}} agwedd"
+        other: "Mewn {{count}} agweddau"
+        two: "Mewn {{count}} agweddau"
+        zero: "Dewiswch agweddau"
     aspect_navigation: 
       deselect_all: "Deselect all"
       no_aspects: "No aspects selected"
-      select_all: "Select all"
+      select_all: "Dewis i gŷd"
     comments: 
       hide: "cuddio sylwadau"
       show: "ddangos sylwadau i gŷd"
@@ -31,12 +31,12 @@ cy:
     getting_started: 
       alright_ill_wait: "O'r gorau - 'dwi'n aros..."
       hey: "Hei, {{name}}!"
-      no_tags: "Hei, nad ydych chi wedi dilyn unrhyw tagiau! Dal ymlaen beth bynnag?"
-      preparing_your_stream: "Preparing your personalized stream..."
+      no_tags: "Hei, dydych chi ddim yn dilyn unrhyw tagiau! Dal ymlaen beth bynnag?"
+      preparing_your_stream: "Preparing your personalised stream..."
     infinite_scroll: 
       no_more: "Dim mwy o swyddi."
     photo_uploader: 
-      looking_good: "OMG, you look awesome!"
+      looking_good: "OMG, rydych chi'n ymddangos yn neis iawn!"
     publisher: 
       at_least_one_aspect: "You must publish to at least one aspect"
       limited: "Limited - your post will only be seen by people you are sharing with"
@@ -48,20 +48,20 @@ cy:
     tags: 
       wasnt_that_interesting: "OK, mae'n debyg nad #{{tagName}}  nid yn ddiddorol iawn..."
     timeago: 
-      day: "a day"
+      day: "diwrnod"
       days: "%d diwrnod"
       hour: "awr"
       hours: "%d awr"
-      minute: "about a minute"
-      minutes: "%d minud"
+      minute: "tua funud"
+      minutes: "%d munud"
       month: "mis"
       months: "%d mis"
       prefixAgo: ""
       prefixFromNow: ""
-      seconds: "less than a minute"
-      suffixAgo: "ago"
-      suffixFromNow: "from now"
-      year: "about a year"
+      seconds: "rhai na munud"
+      suffixAgo: "yn ôl"
+      suffixFromNow: "o hŷd"
+      year: "tua flwyddyn"
       years: "%d blyddynoedd"
     videos: 
       unknown: "Math o fideo anhysbys"

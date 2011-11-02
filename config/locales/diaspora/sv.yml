@@ -105,16 +105,19 @@ sv:
       help: 
         do_you: "Har du:"
         email_feedback: "%{link} din feedback, om du föredrar det"
-        feature_and_forum: "%{gs} & %{forum}: Support ifrån communityn och förslag till funktioner"
         feature_suggestion: "... ett %{link} förslag?"
         find_a_bug: "... hittat en %{link}?"
         have_a_question: "... en %{link}?"
         here_to_help: "Diaspora communityn finns här!"
         need_help: "Behöver du hjälp?"
         satisfaction: "%{link}: Support ifrån communityn"
-        tutorials_and_wiki: "%{tutorial} & %{wiki}: Guider, instruktioner och nyheter ifrån communityn"
+        tutorials_wiki_and_forum: "%{tutorial} & %{wiki} & %{forum}: Community-powered tutorials, how-to, and news"
       introduce_yourself: "This is your stream.  Jump in and introduce yourself."
       keep_us_running: "Håll farten hos %{pod} uppe och köp kaffe till servrarna genom en månadsdonation!"
+      new_here: 
+        follow: "Follow %{link} and welcome new users to Diaspora*!"
+        learn_more: "Learn more"
+        title: "Welcome New Users"
       no_contacts: "Inga kontakter"
       no_tags: "+ Hitta en tag att följa"
       people_sharing_with_you: "Personer som delar med dig"
@@ -288,6 +291,7 @@ sv:
       comma_seperated_plz: "Du kan ange flera e-postadresser separerade av kommatecken."
       if_they_accept_info: "om de accepterar, kommer de bli med på den sida du har bjudit in dem till."
       invite_someone_to_join: "Bjud in en vän till Diaspora!"
+      language: "Language"
       personal_message: "Personligt meddelande"
       resend: "Skicka igen"
       send_an_invitation: "Skicka en inbjudan"
@@ -446,7 +450,7 @@ sv:
     email_sent_by_diaspora: "Detta e-mail har skickats av Diaspora. Vill du inte har några mer liknade e-mail,"
     hello: "Hej %{name}!"
     liked: 
-      liked: "%{name} har precis gillat ditt inlägg "
+      liked: "%{name} gillar ditt inlägg "
       view_post: "Se inlägg >"
     mentioned: 
       mentioned: "nämnde dig i ett inlägg:"
@@ -731,6 +735,7 @@ sv:
       new_user_prefill: 
         hello: "Hey everyone, I'm #%{new_user_tag}. "
         i_like: "I'm interested in %{tags}."
+        invited_by: "Thanks for the invite, "
       post_a_message_to: "Skicka ett meddelande till %{aspect}"
       posting: "Skickar..."
       publishing_to: "publicerar till: "

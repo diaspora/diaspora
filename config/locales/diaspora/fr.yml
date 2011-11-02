@@ -105,16 +105,19 @@ fr:
       help: 
         do_you: "Avez-vous :"
         email_feedback: "%{link} l'impression, si vous préférez"
-        feature_and_forum: "%{gs} & %{forum} : Support et impressions de la communauté"
         feature_suggestion: "... une suggestion (%{link}) ?"
         find_a_bug: "... trouvé un %{link} ?"
         have_a_question: "... une %{link} ?"
         here_to_help: "La communauté Diaspora est là !"
         need_help: "Besoin d'aide ?"
         satisfaction: "%{link} : Support par la communauté"
-        tutorials_and_wiki: "%{tutorial} & %{wiki}: Tutoriels, notes et actualité de la comunauté"
+        tutorials_wiki_and_forum: "%{tutorial} & %{wiki} & %{forum}: Community-powered tutorials, how-to, and news"
       introduce_yourself: "Ceci est votre flux. Rejoignez-nous et présentez-vous."
       keep_us_running: "Permettez à %{pod} de fonctionner rapidement et achetez une dose de café par mois à nos serveurs !"
+      new_here: 
+        follow: "Follow %{link} and welcome new users to Diaspora*!"
+        learn_more: "Learn more"
+        title: "Welcome New Users"
       no_contacts: "Aucun contact"
       no_tags: "+ Trouver un tag à suivre"
       people_sharing_with_you: "Personnes partageant avec vous"
@@ -288,6 +291,7 @@ fr:
       comma_seperated_plz: "Vous pouvez entrer plusieurs adresses de courrier électronique séparées par des virgules."
       if_they_accept_info: "s'ils acceptent, ils seront ajoutés à l'aspect dans lequel vous les avez invités."
       invite_someone_to_join: "Inviter quelqu'un à rejoindre Diaspora !"
+      language: "Language"
       personal_message: "Message personnel"
       resend: "Envoyer à nouveau"
       send_an_invitation: "Envoyer une invitation"
@@ -649,7 +653,7 @@ fr:
         zero: "Repartager"
       reshare_confirmation: "Partager le message d'%{author} ?"
       reshare_original: "Partager l'original"
-      reshared_via: "partager via"
+      reshared_via: "repartagé par"
       show_original: "Afficher l'original"
   search: "Rechercher"
   services: 
@@ -731,6 +735,7 @@ fr:
       new_user_prefill: 
         hello: "Bonjour tout le monde, je suis #%{new_user_tag}. "
         i_like: "Je suis intéressé par %{tags}."
+        invited_by: "Thanks for the invite, "
       post_a_message_to: "Publier un message dans %{aspect}"
       posting: "Publication…"
       publishing_to: "publication vers : "
@@ -799,7 +804,7 @@ fr:
   tag_followings: 
     create: 
       failure: "Erreur lors de la demande de suivi de #%{name}. Le suivez-vous déjà ?"
-      success: "Yep ! Vous suivez maintenant #% {name}."
+      success: "Yep ! Vous suivez maintenant #%{name}."
     destroy: 
       failure: "Erreur lors de la demande d'arrêt du suivit de : #%{name}"
       success: "L'arrêt du suivit de #%{name} est un succès"

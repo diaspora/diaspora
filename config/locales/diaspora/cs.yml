@@ -61,9 +61,9 @@ cs:
       done_editing: "ukončit úpravy"
     aspect_listings: 
       add_an_aspect: "+ Přidat aspekt"
-      deselect_all: "Deselect all"
+      deselect_all: "Zrušit výběr"
       edit_aspect: "Upravit %{name}"
-      select_all: "Select all"
+      select_all: "Vybrat vše"
     aspect_stream: 
       stay_updated: "Stay Updated"
       stay_updated_explanation: "Your main stream is populated with all of your contacts, tags you follow, and posts from some creative members of the community."
@@ -105,16 +105,19 @@ cs:
       help: 
         do_you: "Do you:"
         email_feedback: "Můžete také poslat %{link}."
-        feature_and_forum: "%{gs} & %{forum}: Community-powered support and feature requests"
         feature_suggestion: "... vymyslel jste novou %{link}?"
         find_a_bug: "... našli jste %{link}?"
         have_a_question: "... máte nějakou %{link}?"
         here_to_help: "Komunita Diaspory je tu!"
         need_help: "Potřebujete pomoct?"
         satisfaction: "%{link}: Community-powered support"
-        tutorials_and_wiki: "%{tutorial} & %{wiki}: Community-powered tutorials, how-to, and news"
+        tutorials_wiki_and_forum: "%{tutorial} & %{wiki} & %{forum}: Community-powered tutorials, how-to, and news"
       introduce_yourself: "This is your stream.  Jump in and introduce yourself."
       keep_us_running: "Pomozte %{pod} udržet rychlý, kupte našim serverům dávku kávy."
+      new_here: 
+        follow: "Follow %{link} and welcome new users to Diaspora*!"
+        learn_more: "Learn more"
+        title: "Welcome New Users"
       no_contacts: "Žádné kontakty"
       no_tags: "+ Najít nějaký štítek ke sledování"
       people_sharing_with_you: "Lidé, kteří s vámi sdílí"
@@ -286,8 +289,9 @@ cs:
       already_invited: "Následující lidé nepřijali vaše pozvání:"
       aspect: "Aspekt"
       comma_seperated_plz: "Můžete zadat více e-mailových adres oddělených čárkami."
-      if_they_accept_info: "pokud přijmou, budou přidáni do aspektu, do kterého byly pozváni."
+      if_they_accept_info: "pokud bude pozvání přijato, kontak bude přidán do aspektu, do kterého byl pozván."
       invite_someone_to_join: "Pozvěte někoho na Diasporu!"
+      language: "Jazyk"
       personal_message: "Osobní zpráva"
       resend: "Znovu odeslat"
       send_an_invitation: "Odeslat pozvánku"
@@ -474,7 +478,7 @@ cs:
       add_contact_from_tag: "přidat kontakt ze štítku"
     aspect_list: 
       edit_membership: "upravit člena aspektu"
-    few: "%{count} lidi"
+    few: "%{count} lidmi"
     helper: 
       people_on_pod_are_aware_of: " lidé na podu jsou si vědomi"
       results_for: " výsledky pro %{params}"
@@ -483,9 +487,9 @@ cs:
       no_one_found: "... a nikdo nebyl nalezen."
       no_results: "Hej! Musíte něco hledat."
       results_for: "výsledky hledání"
-    many: "%{count} lidí"
-    one: "1 osoba"
-    other: "%{count} lidí"
+    many: "%{count} lidmi"
+    one: "1 člověkem"
+    other: "%{count} lidmi"
     person: 
       add_contact: "přidat kontakt"
       already_connected: "Již připojen"
@@ -517,10 +521,10 @@ cs:
       add_some: "přidat nějaké"
       edit: "upravit"
       you_have_no_tags: "nemáš žádný štítek!"
-    two: "%{count} lidé"
+    two: "%{count} lidmi"
     webfinger: 
       fail: "Omlouváme se, ale %{handle} nebyl nalezen."
-    zero: "žádní lidé"
+    zero: "nikým"
   photos: 
     comment_email_subject: "%{name}'s photo"
     create: 
@@ -731,6 +735,7 @@ cs:
       new_user_prefill: 
         hello: "Hey everyone, I'm #%{new_user_tag}. "
         i_like: "I'm interested in %{tags}."
+        invited_by: "Thanks for the invite, "
       post_a_message_to: "Poslat zprávu do %{aspect}"
       posting: "Odesílání..."
       publishing_to: "publikování na:"
@@ -771,16 +776,16 @@ cs:
     show_more_comments: "Zobrazit %{number} dalších komentářů"
   streams: 
     aspects: 
-      title: "Your Aspects"
-    aspects_stream: "Aspects"
+      title: "Vaše aspekty"
+    aspects_stream: "Aspekty"
     commented_on: "commented on"
     community_spotlight_stream: "Community Spotlight"
     followed_tag: 
-      add_a_tag: "Add a tag"
+      add_a_tag: "Přidat štítek"
       contacts_title: "People who dig these tags"
       follow: "Follow"
-      title: "#Followed Tags"
-    followed_tags_stream: "#Followed Tags"
+      title: "#Sledované štítky"
+    followed_tags_stream: "#Sledované štítky"
     mentioned_stream: "@Mentions"
     mentions: 
       contacts_title: "People who mentioned you"
@@ -806,7 +811,7 @@ cs:
   tags: 
     show: 
       follow: "Sledovat #%{tag}"
-      followed_by: "followed by"
+      followed_by: "sledováno"
       following: "Sledujete #%{tag}"
       nobody_talking: "Nikdo dosud nemluví o %{tag}."
       people_tagged_with: "Lidé označení %{tag}"
@@ -887,7 +892,7 @@ cs:
       password_changed: "Heslo bylo změněno. Nyní se můžete přihlásit s vaším novým heslem."
       password_not_changed: "Změna hesla selhala"
       settings_not_updated: "Settings update failed"
-      settings_updated: "Settings updated"
+      settings_updated: "Nastavení uloženo"
       unconfirmed_email_changed: "E-mail změněn. Vyžaduje aktivaci."
       unconfirmed_email_not_changed: "Změna e-mailu selhala"
   webfinger: 

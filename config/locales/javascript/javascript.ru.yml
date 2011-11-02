@@ -9,8 +9,8 @@ ru:
       add_to_aspect: "Добавить контакт"
       all_aspects: "Все аспекты"
       select_aspects: "Выбрать аспекты"
-      started_sharing_with: "You have started sharing with {{name}}!"
-      stopped_sharing_with: "You have stopped sharing with {{name}}."
+      started_sharing_with: "Вы начали делиться с {{name}}!"
+      stopped_sharing_with: "Вы перестали делиться с {{name}}."
       toggle: 
         few: "В {{count}} аспектах"
         many: "В {{count}} аспектах"
@@ -29,24 +29,24 @@ ru:
     failed_to_like: "Не удалось!"
     failed_to_post_message: "Не удалось отправить сообщение!"
     getting_started: 
-      alright_ill_wait: "Alright, I'll wait."
-      hey: "Hey, {{name}}!"
-      no_tags: "Hey, you haven't followed any tags!  Continue anyway?"
-      preparing_your_stream: "Preparing your personialized stream..."
+      alright_ill_wait: "Хорошо, я подожду."
+      hey: "Привет, {{name}}!"
+      no_tags: "Вы не следите ни за одной меткой! Все равно продолжить?"
+      preparing_your_stream: "Подготовка вашего личного потока..."
     infinite_scroll: 
       no_more: "Сообщений больше нет."
     photo_uploader: 
-      looking_good: "OMG, you look awesome!"
+      looking_good: "Боже мой, вы выглядите потрясающе!"
     publisher: 
       at_least_one_aspect: "Вам надо минимум один аспект создать"
       limited: "Ограниченная - ваша запись будет видна только указанным вами людям"
       public: "Публичная - ваша запись будет видна всем, включая поисковые системы"
     reshares: 
-      duplicate: "Вы уже поделились этой записью!"
+      duplicate: "Настолько круто, да? Вы уже поделились этой записью!"
     search_for: "Искать {{name}}"
     show_more: "показать больше"
     tags: 
-      wasnt_that_interesting: "OK, I suppose #{{tagName}} wasn't all that interesting..."
+      wasnt_that_interesting: "OK, видимо, следить за меткой #{{tagName}} было не так уж интересно..."
     timeago: 
       day: "день"
       days: "%d дней[-я]"

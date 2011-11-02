@@ -29,16 +29,16 @@ de:
         reshare: 
           attributes: 
             root_guid: 
-              taken: "Du hast diesen Beitrag bereits weitergesagt!"
+              taken: "Ziemlich gut, was? Du hast diesen Beitrag bereits weitergesagt!"
         user: 
           attributes: 
             email: 
-              taken: "wird schon benutzt."
+              taken: "ist schon vergeben."
             person: 
               invalid: "ist ungültig."
             username: 
               invalid: "ist ungültig. Wir erlauben nur Buchstaben, Zahlen und Unterstriche."
-              taken: "wird schon benutzt."
+              taken: "ist schon vergeben."
   ago: "Vor %{time}"
   all_aspects: "Alle Aspekte"
   application: 
@@ -67,7 +67,7 @@ de:
     aspect_stream: 
       stay_updated: "Bleibe auf dem Laufenden"
       stay_updated_explanation: "Dein Stream ist gefüllt mit all deinen Kontakten, Tags, denen du folgst, sowie Beiträgen einiger kreativer Mitglieder der Gemeinschaft."
-    contacts_not_visible: "Kontakte in diesem Aspekt sind nicht in der Lage einander zu sehen."
+    contacts_not_visible: "Kontakte in diesem Aspekt können einander nicht sehen."
     contacts_visible: "Kontakte in diesem Aspekt können sich untereinander sehen."
     create: 
       failure: "Fehler beim Erstellen des Aspekts."
@@ -93,28 +93,31 @@ de:
       remove: "entfernen"
     index: 
       cubbies: 
-        explanation: "Cubbi.es ist die erste Diaspora Anwendung."
+        explanation: "Cubbi.es ist die erste momentan entwickelte Diaspora Anwendung."
         heading: "Mit Cubbi.es verbinden"
         learn_more: "Mehr erfahren"
       diaspora_id: 
-        content_1: "Deine Diaspora ID ist:"
+        content_1: "Deine Diaspora-ID ist:"
         content_2: "Gib diese weiter und sei somit auf Diaspora leicht zu finden."
-        heading: "Diaspora ID"
+        heading: "Diaspora-ID"
       donate: "Spenden"
-      handle_explanation: "Das ist deine Diaspora ID. Du kannst sie wie eine E-Mail-Adresse weitergeben, damit andere Nutzer mit dir Kontakt aufnehmen können."
+      handle_explanation: "Das ist deine Diaspora-ID. Du kannst sie wie eine E-Mail-Adresse weitergeben, damit andere Nutzer mit dir Kontakt aufnehmen können."
       help: 
         do_you: "Hast du:"
-        email_feedback: "%{link} Dein Feedback für Diaspora"
-        feature_and_forum: "%{gs} & %{forum}: Unterstützung durch die Gemeinschaft und Anfragen für neue Features"
-        feature_suggestion: "… einen %{link} Vorschlag?"
+        email_feedback: "Dein Feedback für Diaspora per %{link}"
+        feature_suggestion: "… einen %{link}-Vorschlag?"
         find_a_bug: "… einen %{link} gefunden?"
         have_a_question: "… eine %{link}?"
-        here_to_help: "Die Diaspora-Community ist hier!"
+        here_to_help: "Die Diaspora-Gemeinschaft ist hier!"
         need_help: "Benötigst du Hilfe?"
         satisfaction: "%{link}: Unterstützung durch die Gemeinschaft"
-        tutorials_and_wiki: "%{tutorial} & %{wiki}: Von der Gemeinschaft erstellte Tutorials, Anleitungen, und Nachrichten"
+        tutorials_wiki_and_forum: "%{tutorial} & %{wiki} & %{forum}: Von der Gemeinschaft erstellte Tutorials, Anleitungen und Nachrichten"
       introduce_yourself: "Das ist dein Stream. Leg' los und stell dich vor."
       keep_us_running: "Hilf %{pod} schnell zu arbeiten und kaufe unseren Servern ihren monatlichen Schuss Kaffee!"
+      new_here: 
+        follow: "Folge %{link} und begrüße neue Benutzer bei Diaspora*!"
+        learn_more: "mehr erfahren"
+        title: "Begrüße neue Benutzer"
       no_contacts: "Keine Kontakte"
       no_tags: "+ Finde einen #Tag zum folgen"
       people_sharing_with_you: "Leute, die mit dir teilen"
@@ -136,7 +139,7 @@ de:
     no_contacts_message: 
       community_spotlight: "Gemeinschafts-Schaukasten"
       or_spotlight: "Du kannst auch mit %{link} teilen"
-      try_adding_some_more_contacts: "Du kannst nach Kontakten suchen oder welche einladen."
+      try_adding_some_more_contacts: "Du kannst weitere Kontakte suchen oder welche einladen."
       you_should_add_some_more_contacts: "Du solltest ein paar neue Kontakte hinzufügen!"
     no_posts_message: 
       start_talking: "Niemand hat bisher etwas gesagt!"
@@ -165,7 +168,7 @@ de:
       revoke_access: "Zugriff widerrufen"
   back: "Zurück"
   bookmarklet: 
-    explanation: "Erstelle einen Beitrag in Diaspora von überall, in dem du %{link} als Lesezeichen speicherst."
+    explanation: "Erstelle von überall einen Beitrag in Diaspora, indem du %{link} als Lesezeichen speicherst."
     explanation_link_text: "diesen Link"
     heading: "Bookmarklet"
     post_something: "Erstelle einen Beitrag in Diaspora"
@@ -195,7 +198,7 @@ de:
       no_contacts: "Sieht so aus, als müsstest du einige Kontakte hinzufügen!"
       only_sharing_with_me: "Nur mit dir Teilende"
       remove_person_from_aspect: "Entferne %{person_name} aus \"%{aspect_name}\""
-      start_a_conversation: "Starte eine Unterhaltung"
+      start_a_conversation: "Beginne eine Unterhaltung"
       title: "Kontakte"
       your_contacts: "Deine Kontakte"
     many: "%{count} Kontakte"
@@ -269,7 +272,7 @@ de:
       tagline_first_half: "Teile was du willst,"
       tagline_second_half: "mit wem du willst."
   invitations: 
-    a_facebook_user: "Ein Facebook Nutzer"
+    a_facebook_user: "Ein Facebook-Nutzer"
     check_token: 
       not_found: "Einladungstoken nicht gefunden"
     create: 
@@ -288,6 +291,7 @@ de:
       comma_seperated_plz: "Du kannst mehrere E-Mail-Adressen durch Trennen mit Kommata eintragen."
       if_they_accept_info: "Wenn sie akzeptieren, werden sie zu dem Aspekt hinzugefügt, in den du sie eingeladen hast."
       invite_someone_to_join: "Lade jemanden zu Diaspora ein!"
+      language: "Sprache"
       personal_message: "Persönliche Nachricht"
       resend: "Erneut senden"
       send_an_invitation: "Eine Einladung senden"
@@ -331,7 +335,7 @@ de:
         many: "Gefällt %{count}"
         one: "Gefällt %{count}"
         other: "Gefällt %{count}"
-        two: "%{count} Personen gefällt das"
+        two: "Gefällt %{count}"
         zero: "Gefällt niemandem"
   limited: "Begrenzt"
   more: "Mehr"
@@ -350,7 +354,7 @@ de:
       many: "%{actors} haben einen inzwischen gelöschten Beitrag kommentiert."
       one: "%{actors} hat einen inzwischen gelöschten Beitrag kommentiert."
       other: "%{actors} haben einen inzwischen gelöschten Beitrag kommentiert."
-      two: "%{actors} haben deinen inzwischen gelöschten Beitrag kommentiert."
+      two: "%{actors} haben einen inzwischen gelöschten Beitrag kommentiert."
       zero: "Niemand hat einen inzwischen gelöschten Beitrag kommentiert."
     comment_on_post: 
       few: "%{actors} haben deinen %{post_link} kommentiert."
@@ -484,7 +488,7 @@ de:
       no_results: "Hey! Du musst nach etwas suchen."
       results_for: "Suchergebnisse für"
     many: "%{count} Personen"
-    one: "Eine Person"
+    one: "einer Person"
     other: "%{count} Personen"
     person: 
       add_contact: "Kontakt hinzufügen"
@@ -520,7 +524,7 @@ de:
     two: "%{count} Personen"
     webfinger: 
       fail: "Entschuldigung, wir konnten %{handle} nicht finden."
-    zero: "Keine Personen"
+    zero: "keiner Person"
   photos: 
     comment_email_subject: "%{name}s Foto"
     create: 
@@ -647,7 +651,7 @@ de:
         other: "%{count} mal weitergesagt"
         two: "%{count} mal weitergesagt"
         zero: "Weitersagen"
-      reshare_confirmation: "%{author}'s Beitrag weitersagen?"
+      reshare_confirmation: "%{author}s Beitrag weitersagen?"
       reshare_original: "Original weitersagen"
       reshared_via: "weitergesagt durch"
       show_original: "Original anzeigen"
@@ -731,6 +735,7 @@ de:
       new_user_prefill: 
         hello: "Hallo zusammen, ich bin #%{new_user_tag}. "
         i_like: "Ich interessiere mich für %{tags}."
+        invited_by: "Danke für die Einladung,"
       post_a_message_to: "Sende eine Nachricht an %{aspect}"
       posting: "Senden …"
       publishing_to: "Veröffentlichen an: "
@@ -784,7 +789,7 @@ de:
     mentioned_stream: "@Erwähnungen"
     mentions: 
       contacts_title: "Personen, die dich erwähnt haben"
-      title: "Deine Erwähnungen"
+      title: "@Erwähnungen"
     multi: 
       contacts_title: "Personen in deinem Stream"
       title: "Stream"
@@ -799,7 +804,7 @@ de:
   tag_followings: 
     create: 
       failure: "Fehler beim Folgen von: #%{name}. Folgst du #%{name} bereits?"
-      success: "Du folgst nun: #%{name}"
+      success: "Hurra! Du folgst nun: #%{name}"
     destroy: 
       failure: "Fehler beim Beenden des Folgens von: #%{name}"
       success: "Du folgst #%{name} nicht mehr"
@@ -815,7 +820,7 @@ de:
   tokens: 
     show: 
       connect_to_cubbies: "Mit Cubbi.es verbinden"
-      connecting_is_simple: "Dein Diaspora Konto mit Cubbi.es zu verbinden ist einfach! Trage einfach deine Diaspora ID in der Cubbi.es <a href='%{href_link}'>Einstellungsseite</a> ein und verbinde die Konten!"
+      connecting_is_simple: "Dein Diaspora Konto mit Cubbi.es zu verbinden ist einfach! Trage einfach deine Diaspora ID (<b>%{diaspora_id}</b>) in der Cubbi.es <a href='%{href_link}'>Einstellungsseite</a> ein und verbinde die Konten!"
       daniels_account: "Daniels Diaspora Konto"
       log_in_with_diaspora_is_comming: "Schon bald wirst du in der Lage sein, eine Verbindung zu einer neuen Anwendung herzustellen, ohne ein seperates Konto neben deinem Konto auf Diaspora anzulegen."
       love_to_try: "Es wäre toll, wenn du es ausprobieren würdest."
@@ -855,7 +860,7 @@ de:
       receive_email_notifications: "E-Mail-Benachrichtigungen empfangen, wenn …"
       reshared: "… jemand deinen Beitrag weitersagt?"
       show_community_spotlight: "Gemeinschafts-Schaukasten im Stream anzeigen?"
-      show_getting_started: "Einstieg reaktivieren"
+      show_getting_started: "Einstiegshinweise wieder aktivieren"
       started_sharing: "… jemand mit dir zu teilen anfängt?"
       stream_preferences: "Stream-Einstellungen"
       your_email: "Deine E-Mail-Adresse"

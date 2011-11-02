@@ -105,16 +105,19 @@ pl:
       help: 
         do_you: "Czy:"
         email_feedback: "%{link} swoje zgłoszenie, jeśli chcesz"
-        feature_and_forum: "%{gs} & %{forum}: Strona wsparcia społeczności i propozycje zmian"
         feature_suggestion: "... masz %{link} sugestie?"
         find_a_bug: "... znal@{m:azłeś|f:azłaś|n:eziono} %{link}?"
         have_a_question: "... masz %{link}?"
         here_to_help: "Społeczności Diaspory jest tutaj!"
         need_help: "Potrzebujesz pomocy?"
         satisfaction: "%{link}: Strona wsparcia społeczności"
-        tutorials_and_wiki: "%{tutorial} & %{wiki}: Przewodnik po serwisie i najnowsze informacje"
+        tutorials_wiki_and_forum: "%{tutorial} & %{wiki} & %{forum}: Samouczki, instrukcje i aktualności dostarczane przez Społeczność"
       introduce_yourself: "Oto Twoj strumień. Wskocz do niego i przedstaw się."
       keep_us_running: "Aby %{pod} działał szybko podaruj serwerom dawkę kofeiny w postaci miesięcznej darowizny!"
+      new_here: 
+        follow: "Obserwuj %{link} i powitaj nowych użytkowników Diaspory*!"
+        learn_more: "Dowiedz się więcej"
+        title: "Powitaj nowych użytkowników"
       no_contacts: "Brak kontaktów"
       no_tags: "+ Znajdź znacznik do obserwowania"
       people_sharing_with_you: "Osoby udostępniające Tobie"
@@ -288,6 +291,7 @@ pl:
       comma_seperated_plz: "Możesz podać kilka adresów e-mail, oddzielając je przecinkami."
       if_they_accept_info: "Jeśli wybrana osoba przyjmie zaproszenie, zostanie dodana do aspektów, do których ją zapros@{m:iłeś|f:iłaś|n:zono}."
       invite_someone_to_join: "Zaproś kogoś do Diaspory!"
+      language: "Język"
       personal_message: "Dodatkowa wiadomość"
       resend: "Wyślij ponownie"
       send_an_invitation: "Wyślij zaproszenie"
@@ -332,7 +336,7 @@ pl:
         one: "%{count} osoba to lubi"
         other: "%{count} os. to lubi"
         two: "%{count} ososby to lubią"
-        zero: "nikt tego nie polubił"
+        zero: "nikt nie lubi"
   limited: "Ograniczone"
   more: "Więcej"
   next: "dalej"
@@ -384,14 +388,14 @@ pl:
       one: "%{actors} polubi@{m:ł|f:ła|n:ł} Twój %{post_link}."
       other: "%{actors} polubi@{m:ł|f:ła|n:ł} Twój %{post_link}."
       two: "%{actors} polubili Twój %{post_link}."
-      zero: "%{actors} polubił Twój %{post_link}."
+      zero: "%{actors} polubi@{m:ł|f:ła|n:ło} Twój wpis."
     liked_post_deleted: 
-      few: "%{actors} polubiły twój usunięty wpis."
+      few: "%{actors} polubili Twój usunięty wpis."
       many: "%{actors} lubią twój już usunięty wpis."
-      one: "%{actors} polubił(a) twój usunięty wpis."
-      other: "%{actors} polubił twój usunięty wpis."
-      two: "%{actors} polubiło twój usunięty wpis."
-      zero: "%{actors} polubił twój usunięty wpis."
+      one: "%{actors} polubi@{m:ł|f:ła|n:ło} Twój usunięty wpis."
+      other: "%{actors} polubi@{m:ł|f:ła|n:ło} Twój usunięty wpis."
+      two: "%{actors} polubili Twój usunięty wpis."
+      zero: "%{actors} polubi@{m:ł|f:ła|n:ło} Twój usunięty wpis."
     mentioned: 
       few: "%{actors} wspomnieli o Tobie w %{post_link}."
       many: "%{actors} wspomnieli o Tobie w %{post_link}."
@@ -550,7 +554,7 @@ pl:
       edit: "edycja"
       edit_delete_photo: "Edycja opisu zdjęcia / usuwanie zdjęcia"
       make_profile_photo: "ustaw jako zdjęcie profilowe"
-      show_original_post: "Pokaż oryginalny post"
+      show_original_post: "Wyświetl oryginalny wpis"
       update_photo: "Aktualizacja zdjęcia"
     update: 
       error: "Błąd podczas edycji zdjęcia."
@@ -731,6 +735,7 @@ pl:
       new_user_prefill: 
         hello: "Witajcie wszyscy, jestem #%{new_user_tag}. "
         i_like: "Interesują mnie %{tags}."
+        invited_by: "Dzięki za zaproszenie,"
       post_a_message_to: "Wyślij wiadomość do %{aspect}"
       posting: "Publikowanie..."
       publishing_to: "publikuj na:"
@@ -788,7 +793,7 @@ pl:
     multi: 
       contacts_title: "Osoby w Twoim Strumieniu"
       title: "Strumień"
-    posted: "opublikowano"
+    posted: "opublikowane"
     public: 
       contacts_title: "Ostatnio dodawali"
       title: "Działalność publiczna"
@@ -801,7 +806,7 @@ pl:
       failure: "Nie udało się dodać do obserwowanych #%{name}. Może już to obserwujesz?"
       success: "Brawo! Od teraz obserwujesz #%{name}."
     destroy: 
-      failure: "Nie udało się zatrzymać obserwowania: #% {name}"
+      failure: "Nie udało się zatrzymać obserwowania: #% {name}. Może już tego nie obserwujesz?"
       success: "Nie obserwujesz już: #%{name}"
   tags: 
     show: 

@@ -105,16 +105,19 @@ bg:
       help: 
         do_you: "Вие:"
         email_feedback: "Ако предпочитате изпратете отзив по ел. поща (%{link})"
-        feature_and_forum: "%{gs} и %{forum}: предложения за нови функции и поддръжка от общността"
         feature_suggestion: "... имате предложение за нова функция (%{link})?"
         find_a_bug: "... сте открили грешка (%{link})?"
         have_a_question: "... имате въпрос (%{link})?"
         here_to_help: "Общността е готова да помогне!"
         need_help: "Нуждаете се от помощ?"
         satisfaction: "%{link}: Поддръжка осигурена от общността"
-        tutorials_and_wiki: "%{tutorial} и %{wiki}: ръководства, съвети и новини от общността"
+        tutorials_wiki_and_forum: "%{tutorial}, %{wiki} и %{forum}: Ръководства, съвети и новини от общността"
       introduce_yourself: "Това е вашият поток.  Включете се и се представете."
       keep_us_running: "Осигурете бързата работа на %{pod} като дарите пари за месечната издръжка на сървърите!"
+      new_here: 
+        follow: "Следете %{link} и приветствайте новите потребители на Diaspora*!"
+        learn_more: "Научете повече"
+        title: "Поздравете новодошлите"
       no_contacts: "Няма контакти"
       no_tags: "+ Намиране на марки"
       people_sharing_with_you: "Хора споделящи с вас"
@@ -288,6 +291,7 @@ bg:
       comma_seperated_plz: "Можете да въведете повече от една ел. поща като ги разделяте със запетаи."
       if_they_accept_info: "ако приемат поканата ще бъдат добавени към аспекта в който сте ги поканили."
       invite_someone_to_join: "Поканете някой в Diaspora!"
+      language: "Език"
       personal_message: "Лично съобщение"
       resend: "Повторно изпращане"
       send_an_invitation: "Изпращане на поканата"
@@ -731,6 +735,7 @@ bg:
       new_user_prefill: 
         hello: "Привет на всички, аз съм #%{new_user_tag}."
         i_like: "Интересува ме %{tags}."
+        invited_by: "Благодаря за поканата, "
       post_a_message_to: "Публикувайте публично съобщение в %{aspect}"
       posting: "Публикуване..."
       publishing_to: "публикуване в: "
@@ -801,8 +806,8 @@ bg:
       failure: "Не започнахте да следите \"#%{name}\". Да не би вече да следите марката?"
       success: "Ура! Започнахте да следите \"#%{name}\"."
     destroy: 
-      failure: "Следенето на \"#%{name}\" не е прекратено"
-      success: "Следенето на \"#%{name}\" е прекратено"
+      failure: "Следенето на \"#%{name}\" не е прекратено."
+      success: "Следенето на \"#%{name}\" е прекратено."
   tags: 
     show: 
       follow: "Следете #%{tag}"

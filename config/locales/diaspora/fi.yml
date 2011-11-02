@@ -105,16 +105,19 @@ fi:
       help: 
         do_you: "Do you:"
         email_feedback: "%{link} your feedback, if you prefer"
-        feature_and_forum: "%{gs} & %{forum}: Community-powered support and feature requests"
         feature_suggestion: "... have a %{link} suggestion?"
         find_a_bug: "... find a %{link}?"
         have_a_question: "... have a %{link}?"
         here_to_help: "Diaspora community is here to help!"
         need_help: "Need Help?"
         satisfaction: "%{link}: Community-powered support"
-        tutorials_and_wiki: "%{tutorial} & %{wiki}: Community-powered tutorials, how-to, and news"
+        tutorials_wiki_and_forum: "%{tutorial} & %{wiki} & %{forum}: Community-powered tutorials, how-to, and news"
       introduce_yourself: "This is your stream.  Jump in and introduce yourself."
       keep_us_running: "Keep %{pod} running fast, buy our servers their monthly coffee fix!"
+      new_here: 
+        follow: "Follow %{link} and welcome new users to Diaspora*!"
+        learn_more: "Learn more"
+        title: "Welcome New Users"
       no_contacts: "Ei kontakteja"
       no_tags: "No tags"
       people_sharing_with_you: "Ihmiset jotka jakavat kanssasi"
@@ -252,7 +255,7 @@ fi:
       correct_the_following_errors_and_try_again: "Korjaa seuraavat virheet ja yritä uudelleen."
       invalid_fields: "Vialliset arvot"
   fill_me_out: "Täytä tiedot"
-  find_people: "Find people"
+  find_people: "Etsi ihmisiä tai #tageja"
   hide: "Piilota"
   home: 
     show: 
@@ -288,6 +291,7 @@ fi:
       comma_seperated_plz: "Voit syöttää useita sähköpostiosoitteita pilkuilla erotettuna."
       if_they_accept_info: "jos he hyväksyvät kutsun, heidät lisätään siihen näkymään, johon heidät kutsuit."
       invite_someone_to_join: "Kutsu joku Diasporan käyttäjäksi!"
+      language: "Language"
       personal_message: "Henkilökohtainen viesti"
       resend: "Lähetä uudelleen"
       send_an_invitation: "Lähetä kutsu"
@@ -305,7 +309,7 @@ fi:
       blog: "blogi"
       code: "lähdekoodi"
       login: "kirjaudu sisään"
-      logout: "kirjaudu ulos"
+      logout: "Kirjaudu ulos"
       profile: "Profiili"
       recent_notifications: "Viimeaikaiset ilmoitukset"
       settings: "Asetukset"
@@ -731,6 +735,7 @@ fi:
       new_user_prefill: 
         hello: "Hey everyone, I'm #%{new_user_tag}. "
         i_like: "I'm interested in %{tags}."
+        invited_by: "Thanks for the invite, "
       post_a_message_to: "Lähetä viesti näkymään %{aspect}"
       posting: "Lähetetään..."
       publishing_to: "Julkaistaan: "
@@ -776,7 +781,7 @@ fi:
     commented_on: "commented on"
     community_spotlight_stream: "Community Spotlight"
     followed_tag: 
-      add_a_tag: "Add a tag"
+      add_a_tag: "Lisää tagi"
       contacts_title: "People who dig these tags"
       follow: "Follow"
       title: "#Followed Tags"
@@ -792,7 +797,7 @@ fi:
     public: 
       contacts_title: "Recent Posters"
       title: "Public Activity"
-    recently: "recently:"
+    recently: "äskettäin:"
     tags: 
       contacts_title: "People who dig these tags"
       title: "Posts tagged: %{tags}"

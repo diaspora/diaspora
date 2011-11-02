@@ -46,7 +46,7 @@ fr:
     search_for: "Chercher {{name}}"
     show_more: "Voir plus"
     tags: 
-      wasnt_that_interesting: "D'accord, je suppose que #{{tagName}} n'est pas la seule chose qui vous intéresse..."
+      wasnt_that_interesting: "Ok, je suppose que #{{tagName}} n'est pas la seule chose qui vous intéresse..."
     timeago: 
       day: "environ un jour"
       days: "environ %d jours"
