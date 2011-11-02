@@ -19,7 +19,7 @@ module MarkdownifyHelper
     render_options[:filter_html] = true
     render_options[:hard_wrap] ||= true
 
-    # This ugly little hack basically means 
+    # This ugly little hack basically means
     #   "Give me the rawest contents of target available"
     if target.respond_to?(:raw_message)
       message = target.raw_message
@@ -39,7 +39,7 @@ module MarkdownifyHelper
     if target.respond_to?(:format_mentions)
       message = target.format_mentions(message)
     end
-    
+
     message = Diaspora::Taggable.format_tags(message, :no_escape => true)
 
     return message.html_safe
