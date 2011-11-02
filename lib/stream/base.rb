@@ -43,7 +43,11 @@ class Stream::Base
 
   # @return [ActiveRecord::Relation<Post>]
   def posts
-    []
+    Post.scoped
+  end
+
+  def stream_posts
+    self.posts.for_a_stream(max_time, order, user)
   end
 
   # @return [ActiveRecord::Association<Person>] AR association of people within stream's given aspects

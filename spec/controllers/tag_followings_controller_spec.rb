@@ -13,6 +13,7 @@ describe TagFollowingsController do
   before do
     @tag = ActsAsTaggableOn::Tag.create!(:name => "partytimeexcellent")
     sign_in :user, bob
+    bob.followed_tags.create(:name => "testing")
   end
 
   describe 'index' do

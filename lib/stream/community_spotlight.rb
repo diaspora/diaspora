@@ -20,7 +20,7 @@ class Stream::CommunitySpotlight < Stream::Base
   end
 
   def posts
-    Post.all_public.where(:author_id => people.map{|x| x.id}).for_a_stream(max_time, order)
+    Post.all_public.where(:author_id => people.map{|x| x.id})
   end
 
   def people

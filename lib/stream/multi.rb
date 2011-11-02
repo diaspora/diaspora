@@ -19,7 +19,7 @@ class Stream::Multi < Stream::Base
     @posts ||= lambda do
       post_ids = aspects_post_ids + followed_tags_post_ids + mentioned_post_ids
       post_ids += community_spotlight_post_ids if include_community_spotlight?
-      Post.where(:id => post_ids).for_a_stream(max_time, order, user)
+      Post.where(:id => post_ids)
     end.call
   end
 

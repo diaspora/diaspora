@@ -52,6 +52,6 @@ class Stream::Tag < Stream::Base
     else
       posts = posts.all_public
     end
-    posts.tagged_with(tag_name).for_a_stream(max_time, 'created_at')
+    posts.tagged_with(tag_name)
   end
 end

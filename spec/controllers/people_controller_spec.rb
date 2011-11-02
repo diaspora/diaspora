@@ -242,7 +242,7 @@ describe PeopleController do
 
         it 'is sorted by created_at desc' do
           get :show, :id => @person.id
-          assigns[:stream].posts.should == @public_posts.sort_by{|p| p.created_at}.reverse
+          assigns[:stream].stream_posts.should == @public_posts.sort_by{|p| p.created_at}.reverse
         end
       end
 
