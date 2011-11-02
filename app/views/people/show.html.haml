@@ -27,7 +27,7 @@
     = render 'people/sub_header', :person => @person, :contact => @contact
 
     / hackity hack until we get a photo stream
-    - if (@posts && @posts.length > 0) || @stream.posts.length > 0
+    - if (@posts && @posts.length > 0) || (defined?(@stream) && @stream.posts.length > 0)
       -if @post_type == :photos
         = render 'photos/index', :photos => @posts
       - else
