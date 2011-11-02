@@ -47,6 +47,11 @@ describe StatusMessagesController do
         },
       :aspect_ids => [@aspect1.id.to_s] }
     }
+    
+    it 'removes getting started from new users' do
+      @controller.should_receive(:remove_getting_started)
+      post :create, status_message_hash
+    end
 
     context 'js requests' do
       it 'responds' do
@@ -153,6 +158,26 @@ describe StatusMessagesController do
         @photo1.reload.pending.should be_false
         @photo2.reload.pending.should be_false
       end
+    end
+  end
+
+  describe '#remove_getting_started' do
+    it 'removes the getting started flag from new users' do
+      alice.getting_started = true
+      alice.save
+      expect{
+        @controller.remove_getting_started 
+      }.should change{
+        alice.reload.getting_started
+      }.from(true).to(false)
+    end
+
+    it 'does nothing for returning users' do
+      expect{
+        @controller.remove_getting_started 
+      }.should_not change{
+        alice.reload.getting_started
+      }
     end
   end
 end

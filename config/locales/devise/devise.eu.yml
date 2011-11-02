@@ -34,9 +34,9 @@ eu:
         no_account_till: "Zure kontua ez da sortuko hemengo esteka jarraitu eta izena eman arte."
         subject: "Diasporara batzera gonbidatua izan zara!"
       inviter: 
-        accept_at: "at %{url}, you can accept it through the link below."
+        accept_at: "%{url}(e)n, onartu dezakezu beheko esteka jarraituz."
         has_invited_you: "%{name}"
-        have_invited_you: "%{names} have invited you to join Diaspora"
+        have_invited_you: "%{names}(e)k Diasporara batzera gonbidatu zaituzte"
       reset_password_instructions: 
         change: "Pasahitza aldatu"
         ignore: "Hau eskatu ez bazenuen, mesedez gutxietsi mezu hau."

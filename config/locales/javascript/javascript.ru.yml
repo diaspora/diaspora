@@ -9,6 +9,8 @@ ru:
       add_to_aspect: "Добавить контакт"
       all_aspects: "Все аспекты"
       select_aspects: "Выбрать аспекты"
+      started_sharing_with: "You have started sharing with {{name}}!"
+      stopped_sharing_with: "You have stopped sharing with {{name}}."
       toggle: 
         few: "В {{count}} аспектах"
         many: "В {{count}} аспектах"
@@ -26,8 +28,15 @@ ru:
     confirm_dialog: "Вы уверены? "
     failed_to_like: "Не удалось!"
     failed_to_post_message: "Не удалось отправить сообщение!"
+    getting_started: 
+      alright_ill_wait: "Alright, I'll wait."
+      hey: "Hey, {{name}}!"
+      no_tags: "Hey, you haven't followed any tags!  Continue anyway?"
+      preparing_your_stream: "Preparing your personialized stream..."
     infinite_scroll: 
       no_more: "Сообщений больше нет."
+    photo_uploader: 
+      looking_good: "OMG, you look awesome!"
     publisher: 
       at_least_one_aspect: "Вам надо минимум один аспект создать"
       limited: "Ограниченная - ваша запись будет видна только указанным вами людям"
@@ -36,6 +45,8 @@ ru:
       duplicate: "Вы уже поделились этой записью!"
     search_for: "Искать {{name}}"
     show_more: "показать больше"
+    tags: 
+      wasnt_that_interesting: "OK, I suppose #{{tagName}} wasn't all that interesting..."
     timeago: 
       day: "день"
       days: "%d дней[-я]"

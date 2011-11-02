@@ -271,7 +271,7 @@ var Publisher = {
   },
 
   determineSubmitAvailability: function(){
-    var onlyWhitespaces = (Publisher.input().val().trim() === ''),
+    var onlyWhitespaces = ($.trim(Publisher.input().val()) === ''),
         isSubmitDisabled = Publisher.submit().attr('disabled'),
         isPhotoAttached = ($("#photodropzone").children().length > 0);
 
@@ -340,8 +340,6 @@ var Publisher = {
           $("#publisher .content_creation form").append(
           '<input id="aspect_ids_" name="aspect_ids[]" type="hidden" value="'+aspectId+'">');
         };
-
-    console.log(li);
 
     if(li.hasClass('radio')){
       $.each(hiddenFields, function(index, value){
@@ -454,6 +452,27 @@ var Publisher = {
     Publisher.form().bind('ajax:success', Publisher.onSuccess);
   },
 
+  triggerGettingStarted: function(){
+    Publisher.setUpPopovers("#publisher .dropdown", {trigger: 'manual', offset: 10, placement:'below'}, 1000);
+    Publisher.setUpPopovers("#publisher #status_message_fake_text", {trigger: 'manual', placement: 'right', offset: 30, id: "first_message_explain"}, 600);
+    Publisher.setUpPopovers("#gs-shim", {trigger: 'manual', placement: 'left', offset: -5}, 1400);
+
+    $("#publisher .button.creation").bind("click", function(){
+       $("#publisher .dropdown").popover("hide");
+       $("#publisher #status_message_fake_text").popover("hide");
+    });
+  },
+
+  setUpPopovers: function(selector, options, timeout){
+    var selection = $(selector);
+    selection.popover(options);
+    selection.bind("click", function(){$(this).popover("hide")});
+
+    setTimeout(function(){
+      selection.popover("show");
+    }, timeout);
+  },
+
   initialize: function() {
     Publisher.cachedForm = Publisher.cachedSubmit =
       Publisher.cachedInput = Publisher.cachedHiddenInput = false;
@@ -470,7 +489,10 @@ var Publisher = {
     });
 
     Publisher.autocompletion.initialize();
-    Publisher.hiddenInput().val(Publisher.input().val());
+
+    if(Publisher.hiddenInput().val() === "") {
+      Publisher.hiddenInput().val(Publisher.input().val());
+    }
     Publisher.input().autoResize();
     Publisher.input().keydown(Publisher.autocompletion.keyDownHandler);
     Publisher.input().keyup(Publisher.autocompletion.keyUpHandler);

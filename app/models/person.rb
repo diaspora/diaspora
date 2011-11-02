@@ -138,8 +138,6 @@ class Person < ActiveRecord::Base
     Person.searchable.where(sql, *tokens)
   end
 
-
-
   def name(opts = {})
     if self.profile.nil?
       fix_profile
@@ -155,7 +153,10 @@ class Person < ActiveRecord::Base
     @first_name ||= if profile.nil? || profile.first_name.nil? || profile.first_name.blank?
                 self.diaspora_handle.split('@').first
               else
-                profile.first_name.to_s
+                names = profile.first_name.to_s.split(/\s/)
+                str = names[0...-1].join(' ')
+                str = names[0] if str.blank?
+                str
               end
   end
 

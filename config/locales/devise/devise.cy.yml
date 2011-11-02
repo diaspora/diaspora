@@ -20,12 +20,12 @@ cy:
       unconfirmed: "Rhaid i chi gadarnhau eich cyfrif cyn parhau."
     invitations: 
       invitation_token_invalid: "The invitation token provided is not valid!"
-      send_instructions: "Your invitation has been sent."
+      send_instructions: "Mae eich gwahoddiad wedi cael ei anfon."
       updated: "Your password was set successfully. You are now signed in."
     mailer: 
       confirmation_instructions: 
         confirm: "Confirm my account"
-        subject: "Confirmation instructions"
+        subject: "Cyfarwyddiadau Cadarnhad"
         you_can_confirm: "You can confirm your account through the link below:"
       hello: "Hello %{email}!"
       invitation_instructions: 
@@ -48,13 +48,13 @@ cy:
         click_to_unlock: "Click the link below to unlock your account:"
         subject: "Unlock Instructions"
         unlock: "Unlock my account"
-      welcome: "Welcome %{email}!"
+      welcome: "Croeso %{email}!"
     passwords: 
       edit: 
         change_password: "Change my password"
       new: 
-        forgot_password: "Forgot your password?"
-        no_account: "No account with this email exsists.  If you are waiting for an invite, we are rolling them out as soon as possible"
+        forgot_password: "Wedi anghofio eich cyfrinair?"
+        no_account: "Dim cyfrif gyda e-bost hwn yn bodoli. Os ydych yn aros am wahodd, rhaid i chi aros hwyrach bach..."
         send_password_instructions: "Send me reset password instructions"
       send_instructions: "Byddwch yn derbyn e-bost â chyfarwyddiadau ar sut i gadarnhau eich cyfrif mewn ychydig funudau."
       updated: "Newidiwyd eich cyfrinair yn llwyddiannus. Rydych chi wedi arwyddo i fewn."
@@ -67,21 +67,21 @@ cy:
         alpha_software: "You are about to use alpha software."
         bugs_and_feedback: "Be advised, you will experience bugs.  We encourage you to use the Feedback button on the right hand side of your browser to report any hiccups!  We will work as fast as we can to resolve any issues you report."
         bugs_and_feedback_mobile: "Be advised, you will experience bugs.  We encourage you to report any hiccups!  We will work as fast as we can to resolve any issues you report."
-        login: "Login"
+        login: "Mewngofnodi"
         modern_browsers: "only supports modern browsers."
-        password: "Password"
+        password: "Cyfrinair"
         remember_me: "Remember me"
-        sign_in: "Sign in"
-        username: "Username"
+        sign_in: "Mewngofnodi"
+        username: "Enw Defnyddiwr"
       signed_in: "Arwyddwyd i fewn yn llwyddiannus."
       signed_out: "Arwyddwyd allan yn llwyddiannus."
     shared: 
       links: 
-        forgot_your_password: "Forgot your password?"
+        forgot_your_password: "Wedi anghofio eich cyfrinair?"
         receive_confirmation: "Didn't receive confirmation instructions?"
         receive_unlock: "Didn't receive unlock instructions?"
-        sign_in: "Sign in"
-        sign_up: "Sign up"
+        sign_in: "Mewngofnodi"
+        sign_up: "Cofrestrwch"
         sign_up_closed: "Open signups are closed at this time."
       mail_signup_form: 
         sign_up_for_an_invite: "Sign up for an invite!"

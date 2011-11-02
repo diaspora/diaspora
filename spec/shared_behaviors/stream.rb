@@ -15,6 +15,10 @@ describe 'Streams' do
         @stream.people.should_not be_nil
       end
 
+      it '#publisher_opts' do
+        @stream.send(:publisher_opts).should_not be_nil
+      end
+
       it 'has a #contacts title' do
         @stream.contacts_title.should_not be_nil
       end
@@ -39,6 +43,10 @@ describe 'Streams' do
       it 'should default order to created_at' do
         @stream.order=nil
         @stream.order.should == 'created_at'
+      end
+
+      it 'initializes a publisher' do
+        @stream.publisher.should be_a(Publisher)
       end
     end
   end

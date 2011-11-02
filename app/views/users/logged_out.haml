@@ -2,36 +2,31 @@
 -#   licensed under the Affero General Public License version 3 or later.  See
 -#   the COPYRIGHT file.
 
+- content_for :head do
+  :css
+    body {
+      margin-top: 220px;
+    }
+
+
 #grey_header
-  .container{:style => 'text-align:center;'}
-    %h2
+  .row
+    %h3
       = t('.signed_out')
 
     %h1
       = t('.go_mobile')
 
 .container{:style => 'text-align:center;'}
-  %br
-  %br
-  %br
-  %br
-  %br
-  %br
-  %br
-  %br
-  %br
+  .row.mobile_row
+    = image_tag 'diaspora_mobile_screens.png', :width => 480, :height => 300
 
-  = image_tag 'mobile.jpg', :width => 150, :height => 294
+  .row
+    %h4
+      = t('.simply_visit')
+      %strong
+        = link_to AppConfig[:pod_url], root_url
+      = t('.on_your_mobile_device')
 
-  %br
-  %br
-  %br
-
-  %h4
-    = t('.simply_visit')
-    %strong
-      = link_to AppConfig[:pod_url], root_url
-    = t('.on_your_mobile_device')
-
-  %p.dull
-    = t('.works_on_modern')
+    %p.dull
+      = t('.works_on_modern')

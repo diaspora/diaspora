@@ -9,7 +9,7 @@ describe MarkdownifyHelper do
   describe "#markdownify" do
     describe "not doing something dumb" do
       it "strips out script tags" do
-        markdownify("<script>alert('XSS is evil')</script>").should == 
+        markdownify("<script>alert('XSS is evil')</script>").should ==
           "<p>alert(&#39;XSS is evil&#39;)</p>\n"
       end
 
@@ -35,15 +35,33 @@ describe MarkdownifyHelper do
 
     context 'when formatting status messages' do
       it "should leave tags intact" do
-        message = Factory.create(:status_message, 
+        message = Factory.create(:status_message,
                                  :author => alice.person,
                                  :text => "I love #markdown")
         formatted = markdownify(message)
         formatted.should =~ %r{<a href="/tags/markdown" class="tag">#markdown</a>}
       end
 
+      it 'should leave multi-underscore tags intact' do
+        message = Factory.create(
+          :status_message,
+          :author => alice.person,
+          :text => "Here is a #multi_word tag"
+        )
+        formatted = markdownify(message)
+        formatted.should =~ %r{Here is a <a href="/tags/multi_word" class="tag">#multi_word</a> tag}
+
+        message = Factory.create(
+          :status_message,
+          :author => alice.person,
+          :text => "Here is a #multi_word_tag yo"
+        )
+        formatted = markdownify(message)
+        formatted.should =~ %r{Here is a <a href="/tags/multi_word_tag" class="tag">#multi_word_tag</a> yo}
+      end
+
       it "should leave mentions intact" do
-        message = Factory.create(:status_message, 
+        message = Factory.create(:status_message,
                                  :author => alice.person,
                                  :text => "Hey @{Bob; #{bob.diaspora_handle}}!")
         formatted = markdownify(message)
@@ -52,11 +70,19 @@ describe MarkdownifyHelper do
 
       it "should leave mentions intact for real diaspora handles" do
         new_person = Factory(:person, :diaspora_handle => 'maxwell@joindiaspora.com')
-        message = Factory.create(:status_message, 
+        message = Factory.create(:status_message,
                                  :author => alice.person,
                                  :text => "Hey @{maxwell@joindiaspora.com; #{new_person.diaspora_handle}}!")
         formatted = markdownify(message)
         formatted.should =~ /hovercard/
+      end
+
+      it 'should process text with both a hashtag and a link' do
+        message = Factory.create(:status_message,
+                                 :author => alice.person,
+                                 :text => "Test #tag?\nhttps://joindiaspora.com\n")
+        formatted = markdownify(message)
+        formatted.should == %{<p>Test <a href="/tags/tag" class="tag">#tag</a>?<br>\n<a href="https://joindiaspora.com" target="_blank">https://joindiaspora.com</a></p>\n}
       end
     end
   end

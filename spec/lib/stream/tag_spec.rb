@@ -39,7 +39,6 @@ describe Stream::Tag do
       Factory(:comment, :text => "#what", :post => other_post)
       @stream.posts.should == [other_post]
     end
-
   end
 
   context 'without a user' do
@@ -89,6 +88,13 @@ describe Stream::Tag do
     it 'removes #es' do
       stream = Stream::Tag.new(nil, "#WHAT")
       stream.tag_name.should == 'what'
+    end
+  end
+  
+  describe "#publisher" do
+    it 'creates a publisher with the tag prefill' do
+      Publisher.should_receive(:new).with(anything(), {:prefill => "#what "})
+      @stream = Stream::Tag.new(alice, "what")
     end
   end
 end

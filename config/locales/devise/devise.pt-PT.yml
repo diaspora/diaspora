@@ -17,7 +17,7 @@ pt-PT:
       locked: "A sua conta foi bloqueada."
       timeout: "A sua sessão expirou, por favor inicie sessão novamente para continuar."
       unauthenticated: "É necessário iniciar sessão ou registar-se antes de continuar."
-      unconfirmed: "Precisa confirmar a sua conta antes de continuar."
+      unconfirmed: "Precisa de confirmar a sua conta antes de continuar."
     invitations: 
       invitation_token_invalid: "O código de convite que introduziu não é válido!"
       send_instructions: "O seu convite foi enviado."

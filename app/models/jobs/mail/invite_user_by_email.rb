@@ -9,7 +9,9 @@ module Jobs
       @queue = :mail
       def self.perform(invite_id)
         invite = Invitation.find(invite_id)
-        invite.send!
+        I18n.with_locale(invite.language) do
+          invite.send!
+        end
       end
     end
   end

@@ -1,0 +1,70 @@
+#   Copyright (c) 2010-2011, Diaspora Inc.  This file is
+#   licensed under the Affero General Public License version 3 or later.  See
+#   the COPYRIGHT file.
+
+
+cy: 
+  javascripts: 
+    aspect_dropdown: 
+      add_to_aspect: "Ychwanegu cysylltiad"
+      all_aspects: "All aspects"
+      select_aspects: "Select aspects"
+      started_sharing_with: "You have started sharing with {{name}}!"
+      stopped_sharing_with: "You have stopped sharing with {{name}}."
+      toggle: 
+        few: "Yn {{count}} aspectiau"
+        many: "Yn {{count}} aspectiau"
+        one: "Yn {{count}} aspect"
+        other: "Yn {{count}} aspectiau"
+        two: "Yn {{count}} aspectiau"
+        zero: "Dewiswch aspectiau"
+    aspect_navigation: 
+      deselect_all: "Deselect all"
+      no_aspects: "No aspects selected"
+      select_all: "Select all"
+    comments: 
+      hide: "cuddio sylwadau"
+      show: "ddangos sylwadau i gŷd"
+    confirm_dialog: "Chi'n siwr?"
+    failed_to_like: "Wedi methu i hoffi!"
+    failed_to_post_message: "Methwyd i bostio neges!"
+    getting_started: 
+      alright_ill_wait: "O'r gorau - 'dwi'n aros..."
+      hey: "Hei, {{name}}!"
+      no_tags: "Hei, nad ydych chi wedi dilyn unrhyw tagiau! Dal ymlaen beth bynnag?"
+      preparing_your_stream: "Preparing your personalized stream..."
+    infinite_scroll: 
+      no_more: "Dim mwy o swyddi."
+    photo_uploader: 
+      looking_good: "OMG, you look awesome!"
+    publisher: 
+      at_least_one_aspect: "You must publish to at least one aspect"
+      limited: "Limited - your post will only be seen by people you are sharing with"
+      public: "Public - your post will be visible to everyone and found by search engines"
+    reshares: 
+      duplicate: "Mae hynny'n dda, eh? Rydych chi wedi rhannu'r bost eisoes!"
+    search_for: "Chwilio am {{name}}"
+    show_more: "dangos mwy"
+    tags: 
+      wasnt_that_interesting: "OK, mae'n debyg nad #{{tagName}}  nid yn ddiddorol iawn..."
+    timeago: 
+      day: "a day"
+      days: "%d diwrnod"
+      hour: "awr"
+      hours: "%d awr"
+      minute: "about a minute"
+      minutes: "%d minud"
+      month: "mis"
+      months: "%d mis"
+      prefixAgo: ""
+      prefixFromNow: ""
+      seconds: "less than a minute"
+      suffixAgo: "ago"
+      suffixFromNow: "from now"
+      year: "about a year"
+      years: "%d blyddynoedd"
+    videos: 
+      unknown: "Math o fideo anhysbys"
+      watch: "Gwyliwch y fideo ar {{provider}}"
+    web_sockets: 
+      disconnected: "The websocket is closed; posts will no longer be streamed live."

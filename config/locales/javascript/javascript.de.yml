@@ -6,16 +6,18 @@
 de: 
   javascripts: 
     aspect_dropdown: 
-      add_to_aspect: "Zu Aspekt hinzufügen"
+      add_to_aspect: "Kontakt hinzufügen"
       all_aspects: "Alle Aspekte"
       select_aspects: "Wähle Aspekte aus"
+      started_sharing_with: "Du hast angefangen, mit {{name}} zu teilen!"
+      stopped_sharing_with: "Du hast aufgehört, mit {{name}} zu teilen!"
       toggle: 
         few: "In {{count}} Aspekten"
         many: "In {{count}} Aspekten"
         one: "In einem Aspekt"
         other: "In {{count}} Aspekten"
         two: "In {{count}} Aspekten"
-        zero: "Zu Aspekt hinzufügen"
+        zero: "Aspekt auswählen"
     aspect_navigation: 
       deselect_all: "Auswahl aufheben"
       no_aspects: "Keine Aspekte ausgewählt"
@@ -26,16 +28,25 @@ de:
     confirm_dialog: "Bist du dir sicher?"
     failed_to_like: "Gefällt mir fehlgeschlagen."
     failed_to_post_message: "Konnte Beitrag nicht senden!"
+    getting_started: 
+      alright_ill_wait: "Alles klar, ich warte."
+      hey: "Hey, {{name}}!"
+      no_tags: "Hey, du folgst noch keinen Tags! Trotzdem weitermachen?"
+      preparing_your_stream: "Dein personalisierter Stream wird zusammengestellt..."
     infinite_scroll: 
       no_more: "Keine weiteren Beiträge."
+    photo_uploader: 
+      looking_good: "OMG, du siehst toll aus!"
     publisher: 
       at_least_one_aspect: "Du musst zumindest zu einem Aspekt posten"
-      limited: "Eingeschränkt - dein Beitrag wird nur Leuten, mit denen du teilst, sichtbar sein"
+      limited: "Eingeschränkt - dein Beitrag wird nur Leuten sichtbar sein, mit denen du teilst"
       public: "Öffentlich - dein Beitrag ist für alle sichtbar und kann von Suchmaschinen gefunden werden"
     reshares: 
-      duplicate: "Du hast diesen Beitrag bereits wiederholt!"
+      duplicate: "Du hast diesen Beitrag bereits weitergesagt!"
     search_for: "Nach {{name}} suchen"
     show_more: "Mehr zeigen"
+    tags: 
+      wasnt_that_interesting: "OK, ich nehme an, #{{tagName}} war nicht so interessant..."
     timeago: 
       day: "einem Tag"
       days: "%d Tagen"

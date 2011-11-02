@@ -29,7 +29,7 @@ da:
         reshare: 
           attributes: 
             root_guid: 
-              taken: "Du har allerede delt det indlæg!"
+              taken: "Du har allerede delt indlægget!"
         user: 
           attributes: 
             email: 
@@ -65,11 +65,8 @@ da:
       edit_aspect: "Redigér %{navn}"
       select_all: "Vælg alle"
     aspect_stream: 
-      commented_on: "Kommenteret"
-      mentions: "Omtaler"
-      posted: "indsendt"
-      recently: "Nyligt: "
-      stream: "Strøm"
+      stay_updated: "Hold dig opdateret"
+      stay_updated_explanation: "Din hovedstrøm er befolket med dine kontakter, de tags du følger og indlæg fra kreative medlemmer af diaspora-samfundet. (Dette kan justeres i dine præferencer)"
     contacts_not_visible: "Kontakter i dette aspekt vil ikke være i stand til at se hinanden."
     contacts_visible: "Kontakter i dette aspekt vil være i stand til at se hinanden."
     create: 
@@ -95,7 +92,6 @@ da:
       aspect_not_empty: "Aspektet er ikke tomt"
       remove: "slet"
     index: 
-      community_spotlight: "Community Spotlight"
       cubbies: 
         explanation: "Cubbi.es er den første Diaspora applikation under udvikling."
         heading: "Tilslut til Cubbi.es"
@@ -117,18 +113,17 @@ da:
         need_help: "Brug for hjælp?"
         satisfaction: "%{link}: Samfunds-drevet support"
         tutorials_and_wiki: "%{tutorial} & %{wiki}: Samfunds-drevne vejledninger, how-tos, og nyheder"
+      introduce_yourself: "Dette er din strøm. Hop ud i det og introducér dig selv."
       keep_us_running: "Hold %{pod} kørende hurtigt og køb serverne deres kaffe fix med en månedlig donation!"
-      mentions: "Omtaler"
       no_contacts: "Ingen kontakter"
       no_tags: "+ Find et tag for at følge"
       people_sharing_with_you: "Personer der deler med dig"
       post_a_message: "post en besked >>"
-      see_more_from_us: "Se mere af D* fællesskabet."
       services: 
         content: "Du kan tilslutte følgende tjenester til Diaspora:"
         heading: "Tilslut tjenester"
-      tags_following: "Fulgte tags"
       unfollow_tag: "Hold op med at følge #%{tag}"
+      welcome_to_diaspora: "Velkommen til Diaspora %{name}!"
       your_aspects: "Dine aspekter"
     many: "%{count} aspekter"
     move_contact: 
@@ -139,8 +134,8 @@ da:
       create: "Opret"
       name: "Navn (kun synligt for dig)"
     no_contacts_message: 
-      featured_users: "fremhævede brugere"
-      or_featured: "Eller du kan dele med %{link}"
+      community_spotlight: "kreative medlemmer"
+      or_spotlight: "Eller du kan dele med %{link}"
       try_adding_some_more_contacts: "Du kan søge (øverst) eller invitere (til højre) flere kontakter."
       you_should_add_some_more_contacts: "Du bør tilføje nogle flere kontakter!"
     no_posts_message: 
@@ -155,8 +150,8 @@ da:
     selected_contacts: 
       manage_your_aspects: "Administrér dine aspekter."
       no_contacts: "Du har ingen kontakter her endnu."
+      view_all_community_spotlight: "Se alle kreative medlemmer"
       view_all_contacts: "Vis alle kontakter"
-      view_all_featured_users: "Se alle fremhævede brugere"
     show: 
       edit_aspect: "redigér aspekt"
     two: "%{count} aspekter"
@@ -209,7 +204,7 @@ da:
     sharing: 
       people_sharing: "Personer der deler med dig:"
     spotlight: 
-      community_spotlight: "Community Spotlight"
+      community_spotlight: "Kreative medlemmer"
     two: "%{count} kontakter"
     zero: "kontakter"
   conversations: 
@@ -386,7 +381,7 @@ da:
     liked: 
       few: "%{actors} har lige syntes om dit %{post_link}."
       many: "%{actors} har lige syntes om dit %{post_link}."
-      one: "%{actors} har syntes om dit indlæg %{post_link}."
+      one: "%{actors} har syntes om dit %{post_link}."
       other: "%{actors} har syntes om dit %{post_link}."
       two: "%{actors} har lige syntes om dit %{post_link}."
       zero: "%{actors} har lige syntes om dit %{post_link}."
@@ -401,9 +396,9 @@ da:
       few: "%{actors} har nævnt dig i et %{post_link}."
       many: "%{actors} har nævnt dig i et %{post_link}."
       one: "%{actors} har nævnt dig i et indlæg %{post_link}."
-      other: "%{actors} har nævnt dig i en besked %{post_link}."
+      other: "%{actors} har nævnt dig i et %{post_link}."
       two: "%{actors} har nævnt dig i %{post_link}."
-      zero: "%{actors} har nævnt dig i en %{post_link}."
+      zero: "%{actors} har nævnt dig i et %{post_link}."
     mentioned_deleted: 
       few: "%{actors} har nævnt dig i et slettet indlæg."
       many: "%{actors} har nævnt dig i et slettet indlæg."
@@ -617,7 +612,7 @@ da:
       enter_password_again: "Indtast den samme adgangskode som før"
       enter_username: "Vælg et brugernavn (kun bogstaver, tal og understreg)"
       join_the_movement: "Deltag i bevægelsen!"
-      sign_up_today: "Tilmeld dig i dag"
+      sign_up_message: "Socialt netværk med et <3"
   requests: 
     create: 
       sending: "Sender"
@@ -659,6 +654,8 @@ da:
   search: "Søg"
   services: 
     create: 
+      already_authorized: "En bruger med diaspora ID %{diaspora_id} har allerede godkendt den %{service_name} konto."
+      failure: "Godkendelse mislykkedes."
       success: "Godkendelse lykkedes."
     destroy: 
       success: "Godkendelsen er nu blevet slettet."
@@ -718,15 +715,22 @@ da:
     notification: 
       new: "Ny %{type} fra %{from}"
     public_explain: 
+      control_your_audience: "Kontrollér dit publikum"
       logged_in: "Log ind til %{service}"
       manage: "Administrér tilsluttede tjenester"
+      new_user_welcome_message: "Brug #tags til at klassificere dine indlæg og til at finde personer der deler dine interesser. Nævn folk ved at kalde dem ved @Navn"
       outside: "Offentlige meddelelser vil være tilgængelige for andre uden for Diaspora."
+      share: "Del"
       title: "Opsæt tilsluttede tjenester"
+      visibility_dropdown: "Brug denne dropdown til at ændre synligheden af ​​dit indlæg. (Vi foreslår, at du gør dette første indlæg offentligt.)"
     publisher: 
       all: "alle"
       all_contacts: "alle kontaktpersoner"
       discard_post: "Kassér indlæg"
       make_public: "offentliggør"
+      new_user_prefill: 
+        hello: "Hej allesammen, jeg er #%{new_user_tag}. "
+        i_like: "Jeg interesserer mig for %{tags}."
       post_a_message_to: "Send en besked til %{aspect}"
       posting: "Sender..."
       publishing_to: "del med: "
@@ -737,8 +741,10 @@ da:
     reshare: 
       reshare: "Del igen"
     stream_element: 
+      connect_to_comment: "Forbind til denne bruger for at kommentere på deres indlæg"
+      currently_unavailable: "Det er i øjeblikket ikke muligt at kommentere"
       dislike: "Synes ikke om"
-      hide_and_mute: "Skjul og Dæmp"
+      hide_and_mute: "Skjul indlæg og kommentarer"
       like: "Synes om"
       shared_with: "Delt med: %{aspect_names}"
       unlike: "Synes ikke om"
@@ -758,21 +764,35 @@ da:
       many: "Din status besked skal være mindre en %{count} tegn"
       one: "Status opdateringen skal  være mindre end %{count} tegn"
       other: "Lav venligst en meddelse på under %{count} tegn"
-      two: "vær' venlig at skrive din status besked mindre end %{count} tegn"
+      two: "vær venlig at skrive din status besked mindre end %{count} tegn"
       zero: "vær' venlig at lave din status besked mindre end %{count} tegn"
   stream_helper: 
     hide_comments: "Skjul alle kommentarer"
     show_more_comments: "Vis %{number} kommentarer mere"
   streams: 
+    aspects: 
+      title: "Dine aspekter"
+    aspects_stream: "Aspekter"
+    commented_on: "kommenteret"
+    community_spotlight_stream: "Kreative medlemmer"
+    followed_tag: 
+      add_a_tag: "Tilføj et tag"
+      contacts_title: "Personer der følger disse tags"
+      follow: "Følg"
+      title: "#Fulgte tags"
+    followed_tags_stream: "#Fulgte tags"
+    mentioned_stream: "@Omtaler"
     mentions: 
       contacts_title: "Personer der har nævnt dig"
       title: "Dine omtaler"
+    multi: 
+      contacts_title: "Personer i din Strøm"
+      title: "Strøm"
+    posted: "indsendt"
     public: 
       contacts_title: "Seneste indlæg"
       title: "Offentlig Aktivitet"
-    soup: 
-      contacts_title: "People in your Soup"
-      title: "The Soup"
+    recently: "for nylig:"
     tags: 
       contacts_title: "Folk der følger disse tags"
       title: "Indlæg tagget med: %{tags}"
@@ -826,50 +846,32 @@ da:
       edit_account: "Rediger konto"
       email_awaiting_confirmation: "Vi har sendt dig et aktiveringslink til %{unconfirmed_email}. Indtil du følger dette link og aktiverer den nye adresse, vil vi fortsætte med at bruge din oprindelige adresse %{email}."
       export_data: "Exportér data"
+      getting_started: "Ny bruger opsætning"
       liked: "...nogen synes om dit indlæg?"
       mentioned: "...du er nævnt i et indlæg?"
       new_password: "Nyt adgangskode"
+      photo_export_unavailable: "Følg"
       private_message: "...du har modtaget en besked?"
       receive_email_notifications: "Modtag e-mail notifikation når..."
       reshared: "... nogen deler dit indlæg?"
+      show_community_spotlight: "Hvis Kreative medlemmer i hovedstrøm?"
+      show_getting_started: "Genaktivér 'Kom godt i gang'"
       started_sharing: "...nogen er begyndt at dele med dig?"
+      stream_preferences: "Strøm opsætning"
       your_email: "Din e-mail"
       your_handle: "Dit Diaspora ID"
     getting_started: 
-      bold: "aspekter"
+      awesome_take_me_to_diaspora: "Fedest! Tag mig til Diaspora*"
       community_welcome: "Diasporas samfund er glad for at have dig ombord!"
-      connect_to: "Forbind til"
-      connect_to_your_other_social_networks: "Opret forbindelse til dine andre sociale netværk"
-      connect_to_your_other_social_networks_explanation_p1: "Tilslutning til tjenester vil give dig mulighed for at publicere ud til disse tjenester."
-      connect_to_your_other_social_networks_explanation_p2: "Med Facebook kan du også finde venner allerede på Diaspora og invitere andre."
-      connect_with_people: "Forbind med seje personer"
-      connect_with_people_explanation_pt1: "Forbind til personer ved at placere dem i en eller flere af dine %{bold}."
-      connect_with_people_explanation_pt2: "Aspekter er en intuitiv måde at gruppere nye og bekendte ansigter som er personlige for dig, så du kan filtrere eller dele med grupper af dine kontakter nemt."
-      edit_profile: "Redigér profil"
-      featured_tags: "Følg fremhævede tags"
-      featured_users: "Fremhævede brugere"
-      fill_out_your_profile: "Udfyld din profil"
-      find_friends: "Find venner"
-      find_friends_from_facebook: "finde venner fra Facebook"
-      finished: "Færdig"
-      follow_your_interests: "Følg dine interesser"
-      get_updates_from_core: "Få opdateringer om projektet fra core holdet."
       hashtag_explanation: "Hashtags giver dig mulighed for at tale om og følge dine interesser. De er også en fantastisk måde at finde nye folk på diaspora."
-      not_mandatory: "Færdiggørelse af følgende trin vil forbedre din Diaspora oplevelse, men de er ikke obligatorisk."
-      profile_description: "Gør det lettere for folk at finde dig ved at udfylde din profil oplysninger."
-      profile_fields: 
-        bio: "Om"
-        birthday: "Fødselsdag"
-        gender: "Køn"
-        location: "Placering"
-        name: "Navn"
-        photo: "Billede"
-        tags: "Tags"
-      search_for_hashtags: "Søg efter #hashtags"
-      search_for_people: "Søg efter personer"
-      see_all_featured_users: "Se alle fremhævede brugere"
-      welcome: "Velkommen!"
-      welcome_with_name: "Velkommen, %{name}!"
+      hashtag_suggestions: "Prøv med følgende tags som #kunst, #film, #gif, osv."
+      hooking_up_fb: "forbind din Facebook-konto"
+      saved: "Gemt!"
+      we_can_speed_things_up: "Vi kan gøre det hele lidt hurtigere ved at"
+      well_hello_there: "Hejsa!"
+      what_are_you_in_to: "Hvad er dine interesser?"
+      what_facebook_does: "til diaspora. Dette vil hente dit navn og foto, samt gøre det muligt at skrive indlæg på tværs af platforme."
+      who_are_you: "Hvem er du?"
     logged_out: 
       go_mobile: "Bliv mobil nu."
       on_your_mobile_device: "på din mobile enhed til at få adgang til Diaspora* mobil."
@@ -884,6 +886,8 @@ da:
       language_not_changed: "Kunne ikke ændre sprog"
       password_changed: "Adgangskode ændret"
       password_not_changed: "Kunne ikke ændre adgangskode"
+      settings_not_updated: "Der opstod en fejl ved opdatering af indstillinger"
+      settings_updated: "Indstillingerne blev opdateret"
       unconfirmed_email_changed: "E-mail ændret. Kræver aktivering."
       unconfirmed_email_not_changed: "E-mail ændring mislykkedes"
   webfinger: 
@@ -892,3 +896,4 @@ da:
     no_person_constructed: "Ingen person kunne konstrueres fra dette hcard."
     not_enabled: "det ser ikke ud til at webfinger er aktiveret på %{account}s domæne"
     xrd_fetch_failed: "der opstod en fejl i forbindelse med hentning af xrd fra kontoen %{account}"
+  welcome: "Velkommen!"

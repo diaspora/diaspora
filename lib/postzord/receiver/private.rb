@@ -72,12 +72,12 @@ class Postzord::Receiver::Private < Postzord::Receiver
   end
 
   def validate_object
-    return false if contact_required_unless_request
-    return false if relayable_without_parent?
+    raise "Contact required unless request" if contact_required_unless_request
+    raise "Relayable object, but no parent object found" if relayable_without_parent?
 
     assign_sender_handle_if_request
 
-    return false if author_does_not_match_xml_author?
+    raise "Author does not match XML author" if author_does_not_match_xml_author?
 
     @object
   end

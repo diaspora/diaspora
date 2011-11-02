@@ -9,6 +9,8 @@ he:
       add_to_aspect: "הוספה להיבט"
       all_aspects: "כל ההיבטים"
       select_aspects: "Select aspects"
+      started_sharing_with: "You have started sharing with {{name}}!"
+      stopped_sharing_with: "You have stopped sharing with {{name}}."
       toggle: 
         few: "ב־{{count}} היבטים"
         many: "ב־{{count}} היבטים"
@@ -26,8 +28,15 @@ he:
     confirm_dialog: "בבטחה?"
     failed_to_like: "הסימון ב'אהבתי' נכשל!"
     failed_to_post_message: "פרסום ההודעה נכשל!"
+    getting_started: 
+      alright_ill_wait: "Alright, I'll wait."
+      hey: "Hey, {{name}}!"
+      no_tags: "Hey, you haven't followed any tags!  Continue anyway?"
+      preparing_your_stream: "Preparing your personialized stream..."
     infinite_scroll: 
       no_more: "אין רשומות נוספות."
+    photo_uploader: 
+      looking_good: "OMG, you look awesome!"
     publisher: 
       at_least_one_aspect: "עליך לפרסם היבט אחד לפחות"
       limited: "מוגבל - הרשומה שלך תהיה גלויה אך ורק לאנשים אתם בחרת לשתף"
@@ -36,6 +45,8 @@ he:
       duplicate: "כבר שיתפת רשומה זו מחדש!"
     search_for: "חיפוש אחר {{name}}"
     show_more: "הצגת עוד"
+    tags: 
+      wasnt_that_interesting: "OK, I suppose #{{tagName}} wasn't all that interesting..."
     timeago: 
       day: "יום"
       days: "%d ימים"

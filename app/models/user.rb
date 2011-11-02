@@ -58,7 +58,8 @@ class User < ActiveRecord::Base
                   :language,
                   :disable_mail,
                   :invitation_service,
-                  :invitation_identifier
+                  :invitation_identifier,
+                  :show_community_spotlight_in_stream
 
 
   def self.all_sharing_with_person(person)

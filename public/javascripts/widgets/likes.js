@@ -21,8 +21,10 @@
 
         $.get(self.expander.attr('href'), function(data) {
           self.loadingImage.fadeOut(100, function() {
-            self.likesList.html(data)
-              .fadeToggle(100);
+            self.expander.fadeOut(100, function(){
+              self.likesList.html(data)
+                .fadeToggle(100);
+            });
           });
         });
       }

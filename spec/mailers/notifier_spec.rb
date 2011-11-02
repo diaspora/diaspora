@@ -18,18 +18,31 @@ describe Notifier do
       mail.body.encoded.should match /Welcome to bureaucracy!/
       mail.body.encoded.should match /#{bob.username}/
     end
-    it 'mails a bunch of users' do
-      users = []
-      5.times do
-        users << Factory.create(:user)
+
+    context 'mails a bunch of users' do
+      before do
+        @users = []
+        5.times do
+          @users << Factory.create(:user)
+        end
       end
-      mails = Notifier.admin("Welcome to bureaucracy!", users)
-      mails.length.should == 5
-      mails.each{|mail|
-        this_user = users.detect{|u| mail.to == [u.email]}
-        mail.body.encoded.should match /Welcome to bureaucracy!/
-        mail.body.encoded.should match /#{this_user.username}/
-      }
+      it 'has a body' do
+        mails = Notifier.admin("Welcome to bureaucracy!", @users)
+        mails.length.should == 5
+        mails.each{|mail|
+          this_user = @users.detect{|u| mail.to == [u.email]}
+          mail.body.encoded.should match /Welcome to bureaucracy!/
+          mail.body.encoded.should match /#{this_user.username}/
+        }
+      end
+
+      it "has attachments" do
+        mails = Notifier.admin("Welcome to bureaucracy!", @users, :attachments => [{:name => "retention stats", :file => "here is some file content"}])
+        mails.length.should == 5
+        mails.each{|mail|
+          mail.attachments.count.should == 1
+        }
+      end
     end
   end
 
@@ -44,6 +57,11 @@ describe Notifier do
     it 'has the layout' do
       mail = Notifier.single_admin("Welcome to bureaucracy!", bob)
       mail.body.encoded.should match /change your notification settings/
+    end
+
+    it 'has an optional attachment' do
+      mail = Notifier.single_admin("Welcome to bureaucracy!", bob, :attachments => [{:name => "retention stats", :file => "here is some file content"}])
+      mail.attachments.length.should == 1
     end
   end
 

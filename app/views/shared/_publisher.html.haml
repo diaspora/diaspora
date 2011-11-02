@@ -4,10 +4,48 @@
 
 :javascript
   $(function() {
-    $(".question_mark").tipsy({trigger: 'hover', gravity: 'n'});
-    $(".service_icon").tipsy({trigger: 'hover', gravity: 'n'});
-    $(".public_icon").tipsy({trigger: 'hover', gravity: 'n'});
+    $(".question_mark").twipsy({trigger: 'hover', placement: 'bottom'});
+    $(".service_icon").twipsy({trigger: 'hover', placement: 'bottom'});
+    $(".public_icon").twipsy({trigger: 'hover', placement: 'bottom'});
   });
+
+- if publisher_open
+  :javascript
+    $(document).ready(function() {
+        Publisher.open();
+      });
+
+-if publisher_explain
+  :javascript
+    $(document).ready(function() 
+      {
+        $("#publisher .dropdown").popover({trigger: 'manual', offset: 10, placement:'below'});
+        $("#publisher .dropdown").bind("click", function(){$(this).popover("hide")});
+
+        $("#publisher #status_message_fake_text").popover({trigger: 'manual', placement: 'right', offset: 30, id: "first_message_explain"});
+        $("#publisher #status_message_fake_text").bind("click", function(){$(this).popover("hide")});
+
+        $("#gs-shim").popover({trigger: 'manual', placement: 'left', offset: -5});
+        $("#gs-shim").bind("click", function(){$(this).popover("hide")});
+
+        setTimeout(function(){
+          $("#publisher #status_message_fake_text").popover("show");
+        }, 600);
+
+        setTimeout(function(){
+          $("#publisher .dropdown").popover("show");
+        }, 1000);
+
+        setTimeout(function(){
+          $("#gs-shim").popover("show");
+        }, 1400);
+
+        $("#publisher .button.creation").bind("click", function(){
+           $("#publisher .dropdown").popover("hide");
+           $("#publisher #status_message_fake_text").popover("hide");
+           $("#gs-shim").popover("hide");
+        });
+      });
 
 #publisher.closed{:class => ((aspect == :profile)? 'mention_popup' : nil )}
   .content_creation
@@ -18,14 +56,16 @@
           #publisher_textarea_wrapper
             = link_to( image_tag('deletelabel.png'), "#", :id => "hide_publisher", :title => t('.discard_post'))
             %ul#photodropzone
-            = status.text_area :fake_text, :rows => 2, :value => h(publisher_prefill_text), :tabindex => 1, :placeholder => t('.whats_on_your_mind')
-            = status.hidden_field :text, :value => '', :class => 'clear_on_submit'
+            = status.text_area :fake_text, :rows => 2, :value => h(publisher_formatted_text), :tabindex => 1, :placeholder => t('.whats_on_your_mind'),
+              :title => "1. #{t('shared.public_explain.share')}", 'data-content' => t('shared.public_explain.new_user_welcome_message')
+            = status.hidden_field :text, :value => h(publisher_hidden_text), :class => 'clear_on_submit'
 
             #file-upload{:title => t('.upload_photos')}
               = image_tag 'icons/camera.svg', :height => 14
 
-
-      - if all_aspects_selected?(selected_aspects)
+      - if publisher_public
+        = hidden_field_tag 'aspect_ids[]', "public"
+      - elsif all_aspects_selected?(selected_aspects)
         = hidden_field_tag 'aspect_ids[]', "all_aspects"
       - else
         - for aspect_id in aspect_ids
@@ -39,11 +79,12 @@
                 = image_tag "social_media_logos/#{service.provider}-16x16.png", :title => service.provider.titleize, :class => "service_icon dim", :id =>"#{service.provider}", :maxchar => "#{service.class::MAX_CHARACTERS}"
             = link_to (image_tag "icons/monotone_wrench_settings.png"), "#question_mark_pane", :class => 'question_mark', :rel => 'facebox', :title => t('shared.public_explain.manage')
 
-
           // NOTE(dropdown special casing to DRY up -- taken from the aspect_dropdown partial)
-          .dropdown{:class => "hang_right"}
+          .dropdown{:class => "hang_right", :title => "2. #{t('shared.public_explain.control_your_audience')}", 'data-content'=> t('shared.public_explain.visibility_dropdown')}
             .button.toggle.publisher
-              - if selected_aspects.size == all_aspects.size
+              - if publisher_public
+                = t('public')
+              - elsif all_aspects_selected?(selected_aspects)
                 = t('all_aspects')
               - elsif selected_aspects.size == 1
                 = selected_aspects.first.name
@@ -53,11 +94,11 @@
 
             .wrapper
               %ul.dropdown_list{:unSelectable => 'on', 'data-person_id' => (person.id if defined?(person) && person), 'data-service_uid' => (service_uid if defined?(service_uid))}
-                %li.public.radio{"data-aspect_id" => "public"}
+                %li.public.radio{"data-aspect_id" => "public", :class => ("selected" if publisher_public)}
                   Public
 
-                %li.divider.all_aspects.radio{:style => "border-bottom: 1px solid #ddd;", "data-aspect_id" => "all_aspects", :class => ("selected" if all_aspects_selected?(selected_aspects))}
-                  All Aspects
+                %li.divider.all_aspects.radio{:style => "border-bottom: 1px solid #ddd;", "data-aspect_id" => "all_aspects", :class => ("selected" if (!publisher_public && all_aspects_selected?(selected_aspects)))}
+                  = t('all_aspects')
 
                 - for aspect in all_aspects
                   = aspect_dropdown_list_item(aspect, !all_aspects_selected?(selected_aspects) && selected_aspects.include?(aspect) )

@@ -10,17 +10,22 @@
       var flashMessages = $("#flash_notice, #flash_error, #flash_alert");
       flashMessages.animate({
         top: 0
-      }).delay(2000).animate({
+      }, 400).delay(4000).animate({
         top: -100
-      }, flashMessages.remove);
+      }, 400, function(){
+        $(this).remove();
+      });
     };
 
     this.render = function(result) {
       $("<div/>", {
-				id: (result.success) ? "flash_notice" : "flash_error"
+        id: result.success ? "flash_notice" : "flash_error"
       })
-      	.prependTo(document.body)
-      	.html(result.notice);
+      .html($("<div/>", {
+        'class': "message"
+        })
+        .html(result.notice))
+      .prependTo(document.body);
 
       self.animateMessages();
     };

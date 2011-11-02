@@ -9,11 +9,7 @@ OEmbed::Providers.register_fallback(OEmbed::ProviderDiscovery)
 # note that 'trusted_endpoint_url' is the only information
 # in OEmbed that we can trust. anything else may be spoofed!
 SECURE_ENDPOINTS = [::OEmbed::Providers::Youtube.endpoint,
-                    ::OEmbed::Providers::Viddler.endpoint,
-                    ::OEmbed::Providers::Qik.endpoint,
-                    ::OEmbed::Providers::Revision3.endpoint,
-                    ::OEmbed::Providers::Hulu.endpoint,
-                    ::OEmbed::Providers::Vimeo.endpoint,
+                    ::OEmbed::Providers::Flickr.endpoint,
                     'http://soundcloud.com/oembed',
                     'http://cubbi.es/oembed'
                    ]

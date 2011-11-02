@@ -80,10 +80,14 @@ class Postzord::Dispatcher
   end
 
   # Enqueues a job in Resque
-  # @abstract
   # @param remote_people [Array<Person>] Recipients of the post on other pods
+  # @return [void]
   def queue_remote_delivery_job(remote_people)
-    raise "You need to specify a remote delivery job"
+    Resque.enqueue(Jobs::HttpMulti, 
+                   @sender.id, 
+                   Base64.encode64s(@object.to_diaspora_xml), 
+                   remote_people.map{|p| p.id}, 
+                   self.class.to_s)
   end
 
   # @param people [Array<Person>] Recipients of the post
@@ -144,13 +148,6 @@ class Postzord::Dispatcher
     users.each do |user|
       @object.socket_to_user(user)
     end
-  end
-
-  # Enqueues a job in Resque
-  # @param remote_people [Array<Person>] Recipients of the post on other pods
-  # @return [void]
-  def queue_remote_delivery_job(remote_people)
-    Resque.enqueue(Jobs::HttpMulti, @sender.id, Base64.encode64s(@object.to_diaspora_xml), remote_people.map{|p| p.id}, self.class.to_s) 
   end
 end
 

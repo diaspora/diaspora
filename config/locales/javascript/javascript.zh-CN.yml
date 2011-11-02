@@ -9,6 +9,8 @@ zh-CN:
       add_to_aspect: "添加到视图"
       all_aspects: "All aspects"
       select_aspects: "Select aspects"
+      started_sharing_with: "You have started sharing with {{name}}!"
+      stopped_sharing_with: "You have stopped sharing with {{name}}."
       toggle: 
         few: "在{{count}}个视图中"
         many: "在{{count}}个视图中"
@@ -26,8 +28,15 @@ zh-CN:
     confirm_dialog: "你确定吗？"
     failed_to_like: "表示喜欢失败！"
     failed_to_post_message: "发布消息失败！"
+    getting_started: 
+      alright_ill_wait: "Alright, I'll wait."
+      hey: "Hey, {{name}}!"
+      no_tags: "Hey, you haven't followed any tags!  Continue anyway?"
+      preparing_your_stream: "Preparing your personialized stream..."
     infinite_scroll: 
       no_more: "没有更多的内容了。"
+    photo_uploader: 
+      looking_good: "OMG, you look awesome!"
     publisher: 
       at_least_one_aspect: "发布时请选择至少一个情景"
       limited: "Limited - your post will only be seen by people you are sharing with"
@@ -36,6 +45,8 @@ zh-CN:
       duplicate: "You've already reshared that post!"
     search_for: "搜索 {{name}}"
     show_more: "查看更多"
+    tags: 
+      wasnt_that_interesting: "OK, I suppose #{{tagName}} wasn't all that interesting..."
     timeago: 
       day: "1天"
       days: "%d天"

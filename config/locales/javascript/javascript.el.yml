@@ -8,7 +8,9 @@ el:
     aspect_dropdown: 
       add_to_aspect: "Προσθήκη σε πτυχή"
       all_aspects: "Όλες οι πτυχές"
-      select_aspects: "Select aspects"
+      select_aspects: "Επιλογή πτυχών"
+      started_sharing_with: "You have started sharing with {{name}}!"
+      stopped_sharing_with: "You have stopped sharing with {{name}}."
       toggle: 
         few: "Σε {{count}} πτυχές"
         many: "Σε {{count}} πτυχές"
@@ -26,8 +28,15 @@ el:
     confirm_dialog: "Είστε σίγουρος/η;"
     failed_to_like: "Αποτυχία!"
     failed_to_post_message: "Αποτυχία δημοσίευσης μηνύματος!"
+    getting_started: 
+      alright_ill_wait: "Alright, I'll wait."
+      hey: "Hey, {{name}}!"
+      no_tags: "Hey, you haven't followed any tags!  Continue anyway?"
+      preparing_your_stream: "Preparing your personialized stream..."
     infinite_scroll: 
       no_more: "Δεν υπάρχουν άλλες δημοσιεύσεις."
+    photo_uploader: 
+      looking_good: "OMG, you look awesome!"
     publisher: 
       at_least_one_aspect: "Πρέπει να κάνετε δημοσίευση σε τουλάχιστον μια πτυχή"
       limited: "Περιορισμένο - οι δημοσιεύσεις σας θα είναι ορατές μόνο από τα άτομα με τα οποία διαμοιράζεστε. "
@@ -36,6 +45,8 @@ el:
       duplicate: "Έχετε ήδη κοινοποιήσει αυτή τη δημοσίευση!"
     search_for: "Αναζήτηση για {{name}}"
     show_more: "Προβολή περισσότερων"
+    tags: 
+      wasnt_that_interesting: "OK, I suppose #{{tagName}} wasn't all that interesting..."
     timeago: 
       day: "μία μέρα"
       days: "%d μέρες"

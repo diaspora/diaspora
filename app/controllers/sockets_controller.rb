@@ -8,6 +8,7 @@ class SocketsController < ApplicationController
   include Rails.application.routes.url_helpers
   helper_method :all_aspects
   helper_method :current_user
+  helper_method 'all_comments?'
 
   def incoming(msg)
     Rails.logger.info("Socket received connection to: #{msg}")
@@ -43,6 +44,11 @@ class SocketsController < ApplicationController
 
   def all_aspects
     @all_aspects ||= user.aspects
+  end
+
+  # Override of CommentsHelper#all_comments? .
+  def all_comments?
+    false
   end
 
   class SocketRequest < ActionDispatch::Request

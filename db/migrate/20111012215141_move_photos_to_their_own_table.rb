@@ -1,6 +1,7 @@
 class MovePhotosToTheirOwnTable < ActiveRecord::Migration
   def self.up
     create_table "photos", :force => true do |t|
+      t.integer  "tmp_old_id", :null => true
       t.integer  "author_id", :null => false
       t.boolean  "public", :default => false, :null => false
       t.string   "diaspora_handle"
@@ -18,18 +19,59 @@ class MovePhotosToTheirOwnTable < ActiveRecord::Migration
       t.integer  "comments_count"
     end
 
-    execute <<SQL
+    if postgres?
+      execute %{
+        INSERT INTO photos (
+            tmp_old_id
+          , author_id
+          , public
+          , diaspora_handle
+          , guid
+          , pending
+          , text
+          , remote_photo_path
+          , remote_photo_name
+          , random_string
+          , processed_image
+          , created_at
+          , updated_at
+          , unprocessed_image
+          , status_message_guid
+          , comments_count
+        ) SELECT
+            id
+          , author_id
+          , public
+          , diaspora_handle
+          , guid
+          , pending
+          , text
+          , remote_photo_path
+          , remote_photo_name
+          , random_string
+          , processed_image
+          , created_at
+          , updated_at
+          , unprocessed_image
+          , status_message_guid
+          , comments_count
+        FROM
+          posts
+        WHERE
+          type = 'Photo'
+      }
+
+      execute "UPDATE aspect_visibilities SET shareable_type='Photo' FROM photos WHERE shareable_id=photos.id"
+      execute "UPDATE share_visibilities SET shareable_type='Photo' FROM photos WHERE shareable_id=photos.id"
+    else
+      execute <<SQL
 INSERT INTO photos
-SELECT id, author_id, public, diaspora_handle, guid, pending, text, remote_photo_path, remote_photo_name, random_string, processed_image,
+SELECT NULL as id, id AS tmp_old_id, author_id, public, diaspora_handle, guid, pending, text, remote_photo_path, remote_photo_name, random_string, processed_image,
 created_at, updated_at, unprocessed_image, status_message_guid, comments_count
 FROM posts
 WHERE type = 'Photo'
 SQL
 
-    if postgres?
-      execute "UPDATE aspect_visibilities AS av SET shareable_type='Photo' FROM photos WHERE av.shareable_id=photos.id"
-      execute "UPDATE share_visibilities AS sv SET shareable_type='Photo' FROM photos WHERE sv.shareable_id=photos.id"
-    else
       execute "UPDATE aspect_visibilities AS av, photos SET av.shareable_type='Photo' WHERE av.shareable_id=photos.id"
       execute "UPDATE share_visibilities AS sv, photos SET sv.shareable_type='Photo' WHERE sv.shareable_id=photos.id"
     end
@@ -43,18 +85,17 @@ SQL
     if postgres?
       execute %{
         INSERT INTO posts (
-          author_id, public, diaspora_handle, guid, pending, type, text,
+          id, author_id, public, diaspora_handle, guid, pending, type, text,
           remote_photo_path, remote_photo_name, random_string, processed_image,
           youtube_titles, created_at, updated_at, unprocessed_image,
           object_url, image_url, image_height, image_width,
           provider_display_name, actor_url, "objectId", root_guid,
           status_message_guid, likes_count, comments_count, o_embed_cache_id
         ) SELECT
-          author_id, public, diaspora_handle, guid, pending, 'Photo', text,
+          tmp_old_id, author_id, public, diaspora_handle, guid, pending, 'Photo', text,
           remote_photo_path, remote_photo_name, random_string, processed_image,
           NULL, created_at, updated_at, unprocessed_image, NULL, NULL, NULL, NULL,
-          NULL, NULL, NULL, NULL,
-          status_message_guid, 0, comments_count, NULL
+          NULL, NULL, NULL, NULL, status_message_guid, 0, comments_count, NULL
         FROM photos
       }
 
@@ -68,7 +109,7 @@ SQL
             posts
           , photos
         WHERE
-          posts.guid=photos.guid
+          posts.id=photos.tmp_old_id
           AND photos.id=aspect_visibilities.shareable_id
         }
 
@@ -82,13 +123,13 @@ SQL
             posts
           , photos
         WHERE
-          posts.guid=photos.guid
+          posts.id=photos.tmp_old_id
           AND photos.id=share_visibilities.shareable_id
         }
     else
       execute <<SQL
 INSERT INTO posts
-  SELECT NULL AS id, author_id, public, diaspora_handle, guid, pending, 'Photo' AS type, text, remote_photo_path, remote_photo_name, random_string,
+  SELECT tmp_old_id AS id, author_id, public, diaspora_handle, guid, pending, 'Photo' AS type, text, remote_photo_path, remote_photo_name, random_string,
     processed_image, NULL AS youtube_titles, created_at, updated_at, unprocessed_image, NULL AS object_url, NULL AS image_url, NULL AS image_height, NULL AS image_width, NULL AS provider_display_name,
     NULL AS actor_url, NULL AS objectId, NULL AS root_guid, status_message_guid, 0 AS likes_count, comments_count, NULL AS o_embed_cache_id
   FROM photos
@@ -100,7 +141,7 @@ SET
 aspect_visibilities.shareable_id=posts.id,
 aspect_visibilities.shareable_type='Post'
 WHERE
-posts.guid=photos.guid AND
+posts.id=photos.tmp_old_id AND
 photos.id=aspect_visibilities.shareable_id
 SQL
 
@@ -110,7 +151,7 @@ SET
 share_visibilities.shareable_id=posts.id,
 share_visibilities.shareable_type='Post'
 WHERE
-posts.guid=photos.guid AND
+posts.id=photos.tmp_old_id AND
 photos.id=share_visibilities.shareable_id
 SQL
       end

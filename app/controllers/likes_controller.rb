@@ -51,6 +51,7 @@ class LikesController < ApplicationController
   def index
     if target
       @likes = target.likes.includes(:author => :profile)
+      @people = @likes.map{|x| x.author}
       render :layout => false
     else
       render :nothing => true, :status => 404

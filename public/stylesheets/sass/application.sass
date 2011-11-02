@@ -8,6 +8,11 @@ body
   :margin 0
     :top 33px
   :background-color $background
+
+  :font
+    :family "Helvetica Neue",Helvetica,Arial,sans-serif
+    :size 13px
+
 a
   :color $blue
   :text
@@ -47,11 +52,6 @@ ul > li
 
 form
   :position relative
-  input,
-  textarea,
-  label
-    :font
-      :size auto
 
 .rtl
   :direction rtl
@@ -73,36 +73,43 @@ form
 #flash_notice,
 #flash_error,
 #flash_alert
-  @include box-shadow(0, 1px, 2px, #333)
-  :z-index 100
+  :z-index 999
   :position fixed
-  :color #fff
-
+  :color #666
   :top -100px
+
   :left 0
 
   :width 100%
-  :padding 1em
 
   :font
     :weight bold
+  :text
+    :align center
+
+  .message
+    @include border-radius(6px)
+    @include box-shadow(0, 1px, 5px, rgba(0,0,0,0.4))
+    :display inline-block
+    :min-width 400px
+    :max-width 800px
+    :padding
+      :top 45px
+      :bottom 8px
 
 #flash_notice
-  :background
-    :color rgb(126,240,77)
-    :color rgba(126,240,77,0.98)
-  :text
-    :shadow 0 1px #6C6
+  .message
+    :background
+      :color #F4F899
+    :border 1px solid darken(#F4F899, 40%)
 
 #flash_error,
 #flash_alert
-  :background
-    :color rgb(208,49,43)
-    :color rgba(208,49,43,0.98)
-  :border
-    :bottom solid 1px #C66
-  :text
-    :shadow 0 1px #C66
+  .message
+    :color #fff
+    :background
+      :color #CA410B
+    :border 1px solid darken(#CA410B, 10%)
 
 .login_error,
 .login_alert
@@ -142,7 +149,7 @@ header
   @include box-shadow(0,1px,2px,rgba(0,0,0,0.5))
   @include linear-gradient(rgba(35,30,30,0.95),rgba(35,30,30,1))
 
-  :z-index 50
+  :z-index 1001
   :padding 6px 0
   :color #CCC
   :height 26px
@@ -743,7 +750,6 @@ form.new_comment
     :margin
       :left 5px
 
-
 .stream.show
   ul.comments
     li
@@ -868,7 +874,7 @@ form p.checkbox_select
     :position relative
     :top 6px
 
-label
+label:not(.bootstrapped)
   :font
     :weight normal
   :color #999
@@ -885,15 +891,15 @@ label
     :cursor pointer
 
 #publisher
-
   :z-index 1
   :color #999
   :position relative
   :margin
-    :bottom 10px
     :top 0
+    :bottom 0
   :padding 12px
     :top 0
+    :bottom 22px
   :top 0
 
   :border
@@ -2252,8 +2258,6 @@ ul.show_comments,
     :color #999
 
 .likes_container
-  :margin
-    :bottom -4px
   :padding 4px
 
 ul.show_comments,
@@ -2332,11 +2336,14 @@ ul.show_comments,
     :position absolute
     :left 0
 
-  h3
+  h4
     :position relative
-    :top 13px
+    :top 14px
     :padding
       :bottom 5px
+
+    a
+      :color inherit
 
   :margin
     :bottom 54px
@@ -3066,14 +3073,6 @@ a.toggle_selector
   :position absolute
   :left 0
 
-#view_all_notifications
-  :float right
-  :margin
-    :right 3px
-  :font
-    :weight bold
-
-
 #notification_dropdown
   @include dropdown-shadow
 
@@ -3086,6 +3085,13 @@ a.toggle_selector
   :display none
 
   :color #444
+
+  .right
+    :font-size smaller
+    :right 10px
+    :top 13px
+    :font
+      :weight bold
 
   a
     :color $blue
@@ -3194,100 +3200,10 @@ a.toggle_selector
   :right 5px
   :position absolute
 
-ul#getting_started
-  :padding 0
-  :margin 0
-
-  > li
-    :position relative
-    :border
-      :bottom 1px solid #ddd
-    :padding
-      :top 25px
-      :bottom 5px
-
-    .content
-      :padding
-        :left 30px
-
-    input[type='search']
-      :width 210px
-
-    &.completed
-      @include opacity(0.4)
-      @include transition(opacity, 0.2s)
-
-      &:hover,
-      &:active
-        @include opacity(1)
-
-      .content h3
-        :text
-          :decoration line-through
-
-  .profile
-    :min-height 170px
-
-#getting_started_profile_photo
-  :float right
-  .avatar
-    :height 150px
-    :width 150px
-    :margin
-      :left 5px
-
-#edit_profile_button_div
-  :padding
-    :top 90px
-    :bottom 20px
-
-#getting_started_service_icons
-  :text-align center
-
-  :padding
-    :bottom 20px
-    :top 10px
-
-  .service
-    :margin
-      :right 48px
-    :position relative
-
-    .service_image
-      :position relative
-
-    .checkmark
-      :position absolute
-      img
-        :height 36px
-        :width 36px
-      :left 25px
-      :top -15px
-
 #right_service_icons
   :text-align center
   :padding 10px
     :bottom 0
-
-#diaspora_hq_pane
-  :padding
-    :bottom 20px
-  :min-height 70px
-
-  .add_to_aspect
-    :padding 10px 0
-
-  .avatar
-    :float left
-    :margin
-      :right 10px
-
-    :height 70px
-    :width 70px
-
-  .name
-    :font
-      :weight bold
 
 .cubbies_images
   :margin-left 15px
@@ -3296,54 +3212,7 @@ ul#getting_started
   :position absolute
   :left 270px
 
-.getting_started_number
-  :position absolute
-  :left 0
-
-  h3
-    :display inline
-    :background
-      :color #eee
-    :padding 3px 7px
-
-    :margin
-      :right 8px
-
-.profile .profile_field
-  :background
-    :image url('/images/icons/monotone_question.png')
-    :position center left
-    :repeat no-repeat
-
-  :padding
-    :left 20px
-
-  &.completed
-    :background
-      :image url('/images/icons/check_yes_ok.png') !important
-
-.featured_tag
-  :background
-    //:image url('/images/icons/check_yes_ok.png')
-    :position center left
-    :repeat no-repeat
-    :display none
-
-  :padding
-    :left 20px
-
-  &.followed
-    :background
-      :image url('/images/icons/check_yes_ok.png')
-
-  &:hover,
-    :background
-      :image url('/images/icons/check_yes_ok_lighter.png')
-
-
-
-
-#community_spotlight_pane
+#featured_users_pane
   :padding 10px 0
 
   .featured_user_card_small
@@ -3463,6 +3332,10 @@ ul#getting_started
   :border
     :bottom 1px solid #ddd
 
+.mobile_row
+  :margin
+    :bottom 50px
+
 .field_with_errors
   :position relative
 
@@ -3493,3 +3366,88 @@ ul#getting_started
     :margin-top -28px
     :color #999
     :padding-right 9px
+
+.indicator
+  :margin-top -15px
+  :width 14px
+  :height 4px
+  :float right
+
+  a
+    :display block
+    :height 100%
+    :width 100%
+    :padding 0
+    :margin 0
+
+.community_spotlight_stream
+  .indicator
+    :background-color #DE5099
+.followed_tags_stream
+  .indicator
+    :background-color $blue
+.aspects_stream
+  .indicator
+    :background-color $green
+.mentioned_stream
+  .indicator
+    :background-color #E3E856
+
+.center
+  :text-align center
+
+.nostrap,
+.nostrap:focus
+  :-webkit-box-shadow none
+  :-moz-box-shadow none
+  :box-shadow none
+
+#welcome-to-diaspora
+  :-webkit-box-shadow inset 0 -2px 10px rgba(0,0,0,0.35)
+  :-moz-box-shadow inset 0 -2px 10px rgba(0,0,0,0.35)
+
+  :position absolute
+  :width 100%
+  :left 0
+  :top 0
+  :padding
+    :top 50px
+    :bottom 10px
+  h1,h3
+    :color #fff
+  :background orange
+
+#gs-shim
+  :position absolute
+  :top 380px
+
+#gs-skip-x
+  @include opacity(0.5)
+  @include transition(opacity)
+
+  &:hover
+    @include opacity(1)
+
+.likes_list
+  .avatar
+    :float none
+    :height 20px
+    :width 20px
+
+#gs-name-form-spinner
+  :position absolute
+  :top 24px
+  :right -33px
+
+.left_nav
+  #new_tag_following
+    :margin
+      :left 24px
+
+    input[type='text']
+      :font
+        :size 13px
+
+  #tag_following_submit
+    &.hidden
+      :display none

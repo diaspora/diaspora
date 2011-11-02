@@ -5,6 +5,7 @@
 ENV["RAILS_ENV"] ||= 'test'
 require File.join(File.dirname(__FILE__), '..', 'config', 'environment') unless defined?(Rails)
 require 'helper_methods'
+require 'spec-doc'
 require 'rspec/rails'
 require 'webmock/rspec'
 require 'factory_girl'

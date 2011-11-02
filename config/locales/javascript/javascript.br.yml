@@ -9,6 +9,8 @@ br:
       add_to_aspect: "Add to aspect"
       all_aspects: "All aspects"
       select_aspects: "Select aspects"
+      started_sharing_with: "You have started sharing with {{name}}!"
+      stopped_sharing_with: "You have stopped sharing with {{name}}."
       toggle: 
         few: "In {{count}} aspects"
         many: "In {{count}} aspects"
@@ -26,8 +28,15 @@ br:
     confirm_dialog: "Emaoc'h sur?"
     failed_to_like: "Failed to like!"
     failed_to_post_message: "Failed to post message!"
+    getting_started: 
+      alright_ill_wait: "Alright, I'll wait."
+      hey: "Hey, {{name}}!"
+      no_tags: "Hey, you haven't followed any tags!  Continue anyway?"
+      preparing_your_stream: "Preparing your personialized stream..."
     infinite_scroll: 
       no_more: "No more posts."
+    photo_uploader: 
+      looking_good: "OMG, you look awesome!"
     publisher: 
       at_least_one_aspect: "Dav eo deoc'h embann un arvez da'n nebeutañ"
       limited: "Limited - your post will only be seen by people you are sharing with"
@@ -36,6 +45,8 @@ br:
       duplicate: "You've already reshared that post!"
     search_for: "Klask war-lerc'h {{name}}"
     show_more: "show more"
+    tags: 
+      wasnt_that_interesting: "OK, I suppose #{{tagName}} wasn't all that interesting..."
     timeago: 
       day: "un devezh"
       days: "%d a zevezhioù"

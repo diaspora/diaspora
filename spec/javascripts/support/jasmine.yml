@@ -13,6 +13,8 @@
 src_files:
   - public/javascripts/vendor/jquery162.min.js
   - public/javascripts/vendor/jquery-ui-1.8.9.custom.min.js
+  - public/javascripts/vendor/bootstrap/bootstrap-popover.js
+  - public/javascripts/vendor/bootstrap/bootstrap-twipsy.js
   - public/javascripts/vendor/jquery.tipsy.js
   - public/javascripts/vendor/jquery.infinitescroll.min.js
   - public/javascripts/vendor/jquery.autoresize.min.js

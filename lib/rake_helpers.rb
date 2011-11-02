@@ -20,7 +20,7 @@ module RakeHelpers
       end
       churn_through = n
       backer_name = backers[n+offset][1].to_s.strip
-      backer_email = backers[n+offset][0].to_s.strip
+      backer_email = backers[n+offset][0].to_s.strip.downcase
       
       possible_user = User.find_by_email(backer_email)
       possible_invite = Invitation.find_by_identifier(backer_email)

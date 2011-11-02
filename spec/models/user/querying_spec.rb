@@ -91,7 +91,7 @@ describe User do
     context "RedisCache" do
       before do
         AppConfig[:redis_cache] = true
-        @opts = {:order => "created_at DESC", :all_aspects? => true}
+        @opts = {:order => "created_at DESC", :order_field => "created_at", :all_aspects? => true}
       end
 
       after do
@@ -99,7 +99,7 @@ describe User do
       end
 
       it "gets populated with latest 100 posts" do
-        cache = mock(:cache_exists? => true, :supported_order? => true, :ensure_populated! => mock, :post_ids => [])
+        cache = mock(:cache_exists? => true, :supported_order? => true, :size => 0, :ensure_populated! => mock, :post_ids => [])
         RedisCache.stub(:new).and_return(cache)
         @opts = alice.send(:prep_opts, Post, @opts)
         cache.should_receive(:ensure_populated!).with(hash_including(@opts))
@@ -118,9 +118,51 @@ describe User do
         it 're-populates the cache with the latest posts (in hashes)'
       end
 
+      describe '#use_cache?' do
+        before do
+          cache = mock(:cache_exists? => true, :supported_order? => true, :ensure_populated! => mock, :post_ids => [])
+          RedisCache.stub(:new).and_return(cache)
+        end
+
+        it 'returns true if redis cache is set' do
+          AppConfig[:redis_cache] = true
+          alice.send(:use_cache?, @opts).should be_true
+        end
+
+        it 'returns false if redis cache is set' do
+          AppConfig[:redis_cache] = nil
+          alice.send(:use_cache?, @opts).should be_false
+        end
+      end
+
+      describe '#perform_db_query?' do
+        before do
+          @opts = {:limit => 15}
+        end
+
+        it 'returns true if cache is nil' do
+          alice.send(:perform_db_query?, [1,2,3], nil, @opts).should be_true
+        end
+
+        it 'returns true if cache shareable_ids is blank' do
+          cache = mock(:size => 100)
+          alice.send(:perform_db_query?, [], cache, @opts).should be_true
+        end
+
+        it 'returns true if cache shareable_ids length is less than opts[:limit]' do
+          cache = mock(:size => 100)
+          alice.send(:perform_db_query?, [1,2,3], cache, @opts).should be_true
+        end
+
+        it 'returns false if cache size is less than opts[:limit]' do
+          cache = mock(:size => 10)
+          alice.send(:perform_db_query?, [1,2,3], cache, @opts).should be_false
+        end
+      end
+
       context 'populated cache' do
         before do
-          @cache = mock(:cache_exists? => true, :ensure_populated! => mock)
+          @cache = mock(:cache_exists? => true, :size => 100, :ensure_populated! => mock)
           RedisCache.stub(:new).and_return(@cache)
         end
 
@@ -137,12 +179,11 @@ describe User do
           alice.visible_shareable_ids(Post, @opts)
         end
 
-        it "does not get repopulated" do
-        end
+        it "does not get repopulated"
       end
     end
   end
-  
+
   describe "#prep_opts" do
     it "defaults the opts" do
       time = Time.now

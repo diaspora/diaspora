@@ -9,6 +9,8 @@ sk:
       add_to_aspect: "Pridať kontakt"
       all_aspects: "Všetky kategórie"
       select_aspects: "Vyberte si kategórie"
+      started_sharing_with: "You have started sharing with {{name}}!"
+      stopped_sharing_with: "You have stopped sharing with {{name}}."
       toggle: 
         few: "V(o) {{count}} kategóriách"
         many: "V(o) {{count}} kategóriách"
@@ -26,8 +28,15 @@ sk:
     confirm_dialog: "Ste si istý?"
     failed_to_like: "Nepodarilo sa označiť, že sa vám to páči!"
     failed_to_post_message: "Správu sa nepodarilo poslať!"
+    getting_started: 
+      alright_ill_wait: "Alright, I'll wait."
+      hey: "Hey, {{name}}!"
+      no_tags: "Hey, you haven't followed any tags!  Continue anyway?"
+      preparing_your_stream: "Preparing your personialized stream..."
     infinite_scroll: 
       no_more: "Žiadne ďalšie príspevky."
+    photo_uploader: 
+      looking_good: "OMG, you look awesome!"
     publisher: 
       at_least_one_aspect: "Musíte publikovať aspoň jednu kategóriu"
       limited: "Obmedzené - váš príspevok uvidia len ľudia, s ktorými sa oň podelíte"
@@ -36,6 +45,8 @@ sk:
       duplicate: "O tento príspevok ste sa už raz znova podelili!"
     search_for: "Hľadať {{name}}"
     show_more: "Zobraziť viac"
+    tags: 
+      wasnt_that_interesting: "OK, I suppose #{{tagName}} wasn't all that interesting..."
     timeago: 
       day: "včera"
       days: "%d dňami"

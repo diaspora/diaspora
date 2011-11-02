@@ -9,6 +9,8 @@ sv:
       add_to_aspect: "Lägg till kontakt"
       all_aspects: "Alla aspekter"
       select_aspects: "Select aspects"
+      started_sharing_with: "You have started sharing with {{name}}!"
+      stopped_sharing_with: "You have stopped sharing with {{name}}."
       toggle: 
         few: "I {{count}} aspekter"
         many: "I {{count}} aspekter"
@@ -26,8 +28,15 @@ sv:
     confirm_dialog: "Är du säker?"
     failed_to_like: "Misslyckades med att gilla!"
     failed_to_post_message: "Misslyckades att posta meddelande!"
+    getting_started: 
+      alright_ill_wait: "Alright, I'll wait."
+      hey: "Hey, {{name}}!"
+      no_tags: "Hey, you haven't followed any tags!  Continue anyway?"
+      preparing_your_stream: "Preparing your personialized stream..."
     infinite_scroll: 
       no_more: "Inga fler inlägg."
+    photo_uploader: 
+      looking_good: "OMG, you look awesome!"
     publisher: 
       at_least_one_aspect: "Du måste publicera till minst en aspekt."
       limited: "Begränsad - ditt inlägg visas endast för personer som du delar med"
@@ -36,6 +45,8 @@ sv:
       duplicate: "You've already reshared that post!"
     search_for: "Sök efter {{name}}"
     show_more: "visa mer"
+    tags: 
+      wasnt_that_interesting: "OK, I suppose #{{tagName}} wasn't all that interesting..."
     timeago: 
       day: "en dag"
       days: "%d dagar"

@@ -15,19 +15,22 @@ var AspectsDropdown = {
         replacement = Diaspora.I18n.t("aspect_dropdown.select_aspects");
       } else {
         replacement = Diaspora.I18n.t("aspect_dropdown.add_to_aspect");
+        /* flash message prompt */
+        var message = Diaspora.I18n.t("aspect_dropdown.stopped_sharing_with", {name: dropdown.data('person-short-name')});
+        Diaspora.page.flashMessages.render({success: true, notice: message});
       }
     }else if (selectedAspects == allAspects) {
       replacement = Diaspora.I18n.t('aspect_dropdown.all_aspects');
     }else if (number == 1) {
       button.addClass(inAspectClass);
       replacement = dropdown.find(".selected").first().text();
-    }else if (number < 3) {
-      replacement = Diaspora.I18n.t('aspect_dropdown.toggle.few', { count: number.toString()})
-    }else if (number > 3) {
-      replacement = Diaspora.I18n.t('aspect_dropdown.toggle.many', { count: number.toString()})
+      /* flash message prompt */
+      if( dropdown.closest('#publisher').length == 0 ) {
+        var message = Diaspora.I18n.t("aspect_dropdown.started_sharing_with", {name: dropdown.data('person-short-name')});
+        Diaspora.page.flashMessages.render({success: true, notice: message});
+      }
     }else {
-      //the above one are a tautology, but I want to have them here once for once we figure out a neat way i18n them
-      replacement = Diaspora.I18n.t('aspect_dropdown.toggle.other', { count: number.toString()})
+      replacement = Diaspora.I18n.t('aspect_dropdown.toggle', { count: number.toString()})
     }
 
     button.text(replacement + ' ▼');

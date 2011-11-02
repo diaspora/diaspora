@@ -9,6 +9,8 @@ nb:
       add_to_aspect: "Legg til kategori"
       all_aspects: "Alle kategorier"
       select_aspects: "Velg kategori"
+      started_sharing_with: "You have started sharing with {{name}}!"
+      stopped_sharing_with: "You have stopped sharing with {{name}}."
       toggle: 
         few: "I {{count}} kategorier"
         many: "I {{count}} kategorier"
@@ -26,8 +28,15 @@ nb:
     confirm_dialog: "Er du sikker?"
     failed_to_like: "Klarte ikke å like!"
     failed_to_post_message: "Klarte ikke å publisere post!"
+    getting_started: 
+      alright_ill_wait: "Alright, I'll wait."
+      hey: "Hey, {{name}}!"
+      no_tags: "Hey, you haven't followed any tags!  Continue anyway?"
+      preparing_your_stream: "Preparing your personialized stream..."
     infinite_scroll: 
       no_more: "Ingen flere innlegg."
+    photo_uploader: 
+      looking_good: "OMG, you look awesome!"
     publisher: 
       at_least_one_aspect: "Du må poste til minst ett aspekt"
       limited: "Begrenset - posten din vil bare være synlig for de du deler med"
@@ -36,6 +45,8 @@ nb:
       duplicate: "du har allerede delt denne posten!"
     search_for: "Søk etter {{name}}"
     show_more: "vis mer"
+    tags: 
+      wasnt_that_interesting: "OK, I suppose #{{tagName}} wasn't all that interesting..."
     timeago: 
       day: "en dag"
       days: "%d dager"

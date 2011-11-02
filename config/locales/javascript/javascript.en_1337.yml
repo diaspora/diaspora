@@ -9,6 +9,8 @@ en_1337:
       add_to_aspect: "4DD N00B"
       all_aspects: "4LL 45P3C75"
       select_aspects: "Select aspects"
+      started_sharing_with: "You have started sharing with {{name}}!"
+      stopped_sharing_with: "You have stopped sharing with {{name}}."
       toggle: 
         few: "1N {{count}} 45P3C75"
         many: "1N {{count}} 45P3C75"
@@ -26,8 +28,15 @@ en_1337:
     confirm_dialog: "5UR3?"
     failed_to_like: "F41L3D 2 <3!"
     failed_to_post_message: "F41L3D 2 53ND 5P4M!"
+    getting_started: 
+      alright_ill_wait: "Alright, I'll wait."
+      hey: "Hey, {{name}}!"
+      no_tags: "Hey, you haven't followed any tags!  Continue anyway?"
+      preparing_your_stream: "Preparing your personialized stream..."
     infinite_scroll: 
       no_more: "EOF"
+    photo_uploader: 
+      looking_good: "OMG, you look awesome!"
     publisher: 
       at_least_one_aspect: "Y0U MU57 70 PUBL15CH 47 L3457 1 4SP3C7"
       limited: "L1M173D - Y0UR 5P4M W1LL 0NLY B33 533N BY N00B5 U 4R3 5H4R1NG W17H!"
@@ -36,6 +45,8 @@ en_1337:
       duplicate: "U H4V3 4LR34DY R35P4MM3D 7HI5!"
     search_for: "S34RCH F0R {{name}}"
     show_more: "5H0W M0R3!"
+    tags: 
+      wasnt_that_interesting: "OK, I suppose #{{tagName}} wasn't all that interesting..."
     timeago: 
       day: "4 D4Y"
       days: "%d D4Y5"
