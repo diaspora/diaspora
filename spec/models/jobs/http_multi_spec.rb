@@ -28,7 +28,18 @@ describe Jobs::HttpMulti do
     Typhoeus::Hydra.stub!(:new).and_return(@hydra)
 
     people_ids = @people.map{ |p| p.id }
-    Jobs::HttpMulti.perform(bob.id, @post_xml, people_ids, "Postzord::Dispatcher::Private")
+    lambda {
+      Jobs::HttpMulti.perform(bob.id, @post_xml, people_ids, "Postzord::Dispatcher::Private")
+    }.should_not raise_error
+  end
+
+  it 'retries' do
+    person = @people[0]
+    @hydra.stub(:post, person.receive_url).and_return(@failed_response)
+    Typhoeus::Hydra.stub!(:new).and_return(@hydra)
+    lambda {
+      Jobs::HttpMulti.perform(bob.id, @post_xml, [person.id], "Postzord::Dispatcher::Private")
+    }.should raise_error /retry/
   end
 
   it 'generates encrypted xml for people' do
