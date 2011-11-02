@@ -13,6 +13,10 @@ Then /^I should not see an uploaded image within the photo drop zone$/ do
   find("#photodropzone img").should be_nil
 end
 
+Then /^I should not see any posts in my stream$/ do
+  find(".stream_element").should be_nil 
+end
+
 Given /^"([^"]*)" has a public post with text "([^"]*)"$/ do |email, text|
   user = User.find_by_email(email)
   user.post(:status_message, :text => text, :public => true, :to => user.aspects)
@@ -27,6 +31,6 @@ When /^The user deletes their first post$/ do
   @me.posts.first.destroy
 end
 
-When /^I click on bob's block button/ do
-  find(".block_button").first.click
+When /^I click on the first block button/ do
+  find(".block_button").click
 end

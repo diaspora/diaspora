@@ -26,7 +26,11 @@ class Post < ActiveRecord::Base
   def self.excluding_blocks(user)
     people = user.blocks.map { |x| x.person_id }
 
-    where("posts.author_id NOT IN (?)", people)
+    if people.present?
+      where("posts.author_id NOT IN (?)", people)
+    else
+      scoped
+    end
   end
 
   def self.for_a_stream(max_time, order, user=nil)

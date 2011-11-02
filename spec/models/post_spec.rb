@@ -81,6 +81,10 @@ describe Post do
       it 'includes not blocked users posts' do
         Post.excluding_blocks(bob).should include(@other_post)
       end
+
+      it 'returns posts if you dont have any blocks' do
+        Post.excluding_blocks(alice).count.should == 2
+      end
     end
 
     context 'having some posts' do
