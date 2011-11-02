@@ -23,7 +23,7 @@ module Messagebus
     end
 
     def from_header_parse(message)
-     message['from'].to_s || AppConfig[:smtp_sender_address]
+     AppConfig[:smtp_sender_address]
     end
 
     private
