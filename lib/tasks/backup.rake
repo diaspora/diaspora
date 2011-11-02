@@ -102,9 +102,10 @@ namespace :backup do
       cf = CloudFiles::Connection.new(:username => AppConfig[:cloudfiles_username], :api_key => AppConfig[:cloudfiles_api_key])
       container = cf.container(AppConfig[:cloudfiles_images_container])
 
+      images_dir = File.join(File.dirname(__FILE__), '..', '..', 'public/uploads/images/')
       FileUtils.mkdir_p(tmp_backup_dir)
       tar_name = "photos_#{Time.now.to_i}.tar"
-      `tar cfPz /dev/stdout /usr/local/app/diaspora/public/uploads/images/ | split -d -b 4831838208 - #{tmp_backup_dir}/#{tar_name}`
+      `tar cfPz /dev/stdout #{images_dir} | split -d -b 4831838208 - #{tmp_backup_dir}/#{tar_name}`
 
       (0..99).each do |n|
         padded_str = n.to_s.rjust(2,'0')
