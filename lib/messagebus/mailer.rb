@@ -26,9 +26,11 @@ module Messagebus
 
     def deliver(message)
       # here we want  = {:fromEmail => message['from'].to_s}
-      @client.send_common_info = {:fromEmail => message.from.first, :customHeaders => {"sender"=> message['from'].to_s}}
+      #this is required due to weird bug in action mailer
+      from_header = message['from'].to_s
+      @client.send_common_info = {:fromEmail => from_header, :customHeaders => {"sender"=> from_header}}
       message.to.each do |addressee|
-        m = {:toEmail => addressee, :subject => message.subject, :fromName => message_parse(message['from'].to_s)}
+        m = {:toEmail => addressee, :subject => message.subject, :fromName => message_parse(from_header)}
         @things = []
 
         if message.multipart?
