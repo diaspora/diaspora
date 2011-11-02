@@ -75,7 +75,13 @@ javascripts:
   profile:
     - public/javascripts/vendor/jquery.autoSuggest.custom.js
   chat_ui:
+    - public/javascripts/vendor/jquery.timers.js
+    - public/javascripts/vendor/jsjac.js
+    - public/javascripts/vendor/common.js
+    - public/javascripts/vendor/date.js
+    - public/javascripts/vendor/browser-detect.js
     - public/javascripts/chatui.js
+
 stylesheets:
   default:
     - public/stylesheets/application.css
