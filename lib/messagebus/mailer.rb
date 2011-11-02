@@ -24,6 +24,7 @@ module Messagebus
 
     def from_header_parse(message)
      AppConfig[:smtp_sender_address]
+     'no-reply@joindiaspora.com'
     end
 
     private
