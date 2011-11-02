@@ -22,15 +22,20 @@ module Messagebus
      string.split('<')[0] 
     end
 
+    def from_header_parse(message)
+     message['from'].to_s || AppConfig[:smtp_sender_address]
+    end
+
     private
 
     def deliver(message)
       # here we want  = {:fromEmail => message['from'].to_s}
       #this is required due to weird bug in action mailer
-      from_header = message['from'].to_s
+      from_header = from_header_parse(message)
+
       @client.send_common_info = {:fromEmail => from_header, :customHeaders => {"sender"=> from_header}}
       message.to.each do |addressee|
-        m = {:toEmail => addressee, :subject => message.subject, :fromName => message_parse(from_header)}
+        m = {:toEmail => addressee, :fromEmail => from_header, :subject => message.subject, :fromName => message_parse(from_header)}
         @things = []
 
         if message.multipart?
