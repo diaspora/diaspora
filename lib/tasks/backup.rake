@@ -64,7 +64,7 @@ namespace :backup do
 
       puts "Gzipping dump at #{Time.now.to_s}"
       tar_name = "mysql_#{Time.now.to_i}.tar"
-      `nice tar cfPz /tmp/backup/#{tar_name} #{tmp_backup_dir}/#{tmp_db_dir}`
+      `nice tar cfPz #{tmp_backup_dir}/#{tar_name} #{tmp_backup_dir}/#{tmp_db_dir}`
     end
 
     file = container.create_object(tar_name)
