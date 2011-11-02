@@ -1,4 +1,6 @@
 require 'resque'
+require 'resque_scheduler'
+require 'resque/scheduler'
 
 Resque::Plugins::Timeout.timeout = 300
 
