@@ -73,7 +73,6 @@ javascripts:
   profile:
     - public/javascripts/vendor/jquery.autoSuggest.custom.js
   chat_ui:
-<<<<<<< HEAD
     - public/javascripts/vendor/jquery.timers.js
     - public/javascripts/vendor/jsjac.js
     - public/javascripts/vendor/common.js
@@ -81,9 +80,6 @@ javascripts:
     - public/javascripts/vendor/browser-detect.js
     - public/javascripts/chatui.js
 
-=======
-    - public/javascripts/chatui.js
->>>>>>> 06636f111b0e39a7c14b06914ac8fb977802f8a2
 stylesheets:
   default:
     - public/stylesheets/application.css
