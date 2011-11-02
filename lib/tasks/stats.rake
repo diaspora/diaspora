@@ -2,7 +2,7 @@ require File.join(Rails.root, 'lib', 'statistics' )
 
 namespace :stats do
   desc 'Emails recent engagement statistics the admins'
-  task :email_retention => :environment do
+  task :save_retention => :environment do
     require File.join(Rails.root, 'app', 'mailers', 'notifier' )
 
     return unless AppConfig[:admins].present? 
@@ -17,9 +17,9 @@ namespace :stats do
       end
     end
 
-    emails = Notifier.admin( "here are some retention stats", admins, {:subject => "retention numbers #{Time.now.to_s}",
-                            :attachments => [{:name => "retention_numbers_#{Time.now.to_s}.csv", :file => string}]})
-    emails.each {|e| e.deliver} 
+    File.open(File.join(Rails.root, "tmp", "retention_stats_#{Time.now.strftime("%Y-%m-%d-%H:%M:%S-%Z")}.txt"), "w") do |file|
+      file << string
+    end
   end
 
   task :top_actives => :environment do
