@@ -58,6 +58,14 @@ describe MarkdownifyHelper do
         formatted = markdownify(message)
         formatted.should =~ /hovercard/
       end
+
+      it 'should process text with both a hashtag and a link' do
+        message = Factory.create(:status_message,
+                                 :author => alice.person,
+                                 :text => "Test #tag?\nhttps://joindiaspora.com\n")
+        formatted = markdownify(message)
+        formatted.should == %{<p>Test <a href="/tags/tag" class="tag">#tag</a>?<br>\n<a href="https://joindiaspora.com" target="_blank">https://joindiaspora.com</a></p>\n}
+      end
     end
   end
 end
