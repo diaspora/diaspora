@@ -8,7 +8,8 @@ class SpecDoc
   end
 
   def has_content?(string)
-    @html.xpath("//*[contains(text(), '#{string}')]").any?
+    escaped = string.gsub("'", "\\'")
+    @html.xpath("//*[contains(text(), '#{escaped}')]").any?
   end
   def has_no_content?(string)
     ! has_content?(string)

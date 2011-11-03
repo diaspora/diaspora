@@ -14,13 +14,14 @@ class TagFollowingsController < ApplicationController
   # POST /tag_followings
   # POST /tag_followings.xml
   def create
-    @tag = ActsAsTaggableOn::Tag.find_or_create_by_name(tag_name)
+    name_normalized = ActsAsTaggableOn::Tag.normalize( params['name'] )
+    @tag = ActsAsTaggableOn::Tag.find_or_create_by_name(name_normalized)
     @tag_following = current_user.tag_followings.new(:tag_id => @tag.id)
 
     if @tag_following.save
-      flash[:notice] = I18n.t('tag_followings.create.success', :name => tag_name)
+      flash[:notice] = I18n.t('tag_followings.create.success', :name => name_normalized)
     else
-      flash[:error] = I18n.t('tag_followings.create.failure', :name => tag_name)
+      flash[:error] = I18n.t('tag_followings.create.failure', :name => name_normalized)
     end
 
     redirect_to :back
@@ -53,19 +54,12 @@ class TagFollowingsController < ApplicationController
   end
 
   def create_multiple
-    tags = params[:tags].split(",")
-    tags.each do |tag|
-      tag_name = tag.gsub(/^#/,"")
-
-      @tag = ActsAsTaggableOn::Tag.find_or_create_by_name(tag_name)
+    params[:tags].split(",").each do |name|
+      name_normalized = ActsAsTaggableOn::Tag.normalize(name)
+      @tag = ActsAsTaggableOn::Tag.find_or_create_by_name(name_normalized)
       @tag_following = current_user.tag_followings.create(:tag_id => @tag.id)
     end
 
     redirect_to multi_path
-  end
-
-  private
-  def tag_name
-    @tag_name ||= params[:name].gsub(/\s/,'') if params[:name]
   end
 end

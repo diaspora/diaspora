@@ -74,6 +74,40 @@ describe TagFollowingsController do
         post :create, :name => "SOMESTUFF"
         assigns[:tag].name.should == "somestuff"
       end
+
+      it 'strips invalid characters from the tag name' do
+        {
+          'node.js'                        => 'nodejs',
+          '#unneeded-hash'                 => 'unneeded-hash',
+          'hash#inside'                    => 'hashinside',
+          '.dotatstart'                    => 'dotatstart',
+          'f!u@n#k$y%-c^h&a*r(a)c{t}e[r]s' => 'funky-characters',
+          'how about spaces'               => 'howaboutspaces',
+        }.each do |invalid, normalized|
+          ActsAsTaggableOn::Tag.find_by_name(invalid).should be_nil
+          ActsAsTaggableOn::Tag.find_by_name(normalized).should be_nil
+
+          post :create, :name => invalid
+
+          ActsAsTaggableOn::Tag.find_by_name(invalid).should be_nil
+          ActsAsTaggableOn::Tag.find_by_name(normalized).should_not be_nil, "Expected #{normalized.inspect} not to be nil"
+          bob.reload
+          bob.followed_tags.map(&:name).should include(normalized)
+          bob.followed_tags.map(&:name).should_not include(invalid)
+        end
+      end
+
+      it 'follows love' do
+        name = '<3'
+
+        ActsAsTaggableOn::Tag.find_by_name(name).should be_nil
+
+        post :create, :name => name
+
+        ActsAsTaggableOn::Tag.find_by_name(name).should_not be_nil
+        bob.reload
+        bob.followed_tags.map(&:name).should include(name)
+      end
     end
 
     describe 'fails to' do
@@ -146,6 +180,28 @@ describe TagFollowingsController do
       }.by(2)
 
       response.should be_redirect
+    end
+
+    it 'strips invalid characters from the tag name' do
+      {
+        'node.js' => 'nodejs',
+        '#unneeded-hash' => 'unneeded-hash',
+        'hash#inside' => 'hashinside',
+        '.dotatstart' => 'dotatstart',
+        'f!u@n#k$y%-c^h&a*r(a)c{t}e[r]s' => 'funky-characters',
+        'how about spaces' => 'howaboutspaces',
+      }.each do |invalid, normalized|
+        ActsAsTaggableOn::Tag.find_by_name(invalid).should be_nil
+        ActsAsTaggableOn::Tag.find_by_name(normalized).should be_nil
+
+        post :create_multiple, :tags => invalid
+
+        ActsAsTaggableOn::Tag.find_by_name(invalid).should be_nil
+        ActsAsTaggableOn::Tag.find_by_name(normalized).should_not be_nil
+        bob.reload
+        bob.followed_tags.map(&:name).should include(normalized)
+        bob.followed_tags.map(&:name).should_not include(invalid)
+      end
     end
   end
 
