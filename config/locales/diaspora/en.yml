@@ -543,6 +543,8 @@ en:
       start_sharing: "start sharing"
       message: "Message"
       mention: "Mention"
+      profile: "Profile"
+      photos: "Photos"
     sub_header:
       you_have_no_tags: "you have no tags!"
       add_some: "add some"
