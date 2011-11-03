@@ -47,7 +47,7 @@ class Stream::Base
   end
 
   def stream_posts
-    self.posts.for_a_stream(max_time, order, user)
+    self.posts.for_a_stream(max_time, order, self.user)
   end
 
   # @return [ActiveRecord::Association<Person>] AR association of people within stream's given aspects

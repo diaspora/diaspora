@@ -252,6 +252,7 @@ ActiveRecord::Schema.define(:version => 20111101202137) do
   add_index "people", ["owner_id"], :name => "index_people_on_owner_id", :unique => true
 
   create_table "photos", :force => true do |t|
+    t.integer  "tmp_old_id"
     t.integer  "author_id",                              :null => false
     t.boolean  "public",              :default => false, :null => false
     t.string   "diaspora_handle"

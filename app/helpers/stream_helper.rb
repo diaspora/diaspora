@@ -28,15 +28,14 @@ module StreamHelper
   end
 
   def time_for_scroll(ajax_stream, stream)
-    if ajax_stream || stream.posts.empty?
+    if ajax_stream || stream.stream_posts.empty?
       (Time.now() + 1).to_i
     else
-      stream.posts.last.send(stream.order.to_sym).to_i
+      stream.stream_posts.last.send(stream.order.to_sym).to_i
     end
-
   end
 
-  def time_for_sort post
+  def time_for_sort(post)
     if controller.instance_of?(AspectsController)
       post.send(session[:sort_order].to_sym)
     else

@@ -159,6 +159,13 @@ describe UsersController do
     end
   end
 
+  describe '#privacy_settings' do
+    it "returns a 200" do
+      get 'privacy_settings'
+      response.status.should == 200
+    end
+  end
+
   describe '#edit' do
     it "returns a 200" do
       get 'edit', :id => @user.id
@@ -220,15 +227,13 @@ describe UsersController do
 
   describe 'getting_started' do
     it 'does not fail miserably' do
-    get :getting_started
-    response.should be_success
-
+      get :getting_started
+      response.should be_success
     end
 
     it 'does not fail miserably on mobile' do
-    get :getting_started, :format => :mobile
-    response.should be_success
-
+      get :getting_started, :format => :mobile
+      response.should be_success
     end
   end
 end

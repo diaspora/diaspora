@@ -158,7 +158,7 @@ describe User do
         alice.username =  "hexagooooooooooooooooooooooooooon"
         alice.should_not be_valid
       end
-      
+
       it "cannot be one of the blacklist names" do
         ['hostmaster', 'postmaster', 'root', 'webmaster'].each do |username|
           alice.username =  username
@@ -382,9 +382,7 @@ describe User do
     end
   end
 
-  describe '.find_or_create_by_invitation' do
-
-  end
+  describe '.find_or_create_by_invitation'
 
   describe '.create_from_invitation!' do
     before do
@@ -400,7 +398,6 @@ describe User do
     it 'sets the email if the service is email' do
       @user.email.should == @inv.identifier
     end
-
   end
 
   describe 'update_user_preferences' do
@@ -550,7 +547,6 @@ describe User do
         alice.should_receive(:disconnect_everyone)
         alice.remove_all_traces
       end
-
 
       it 'should remove mentions' do
         alice.should_receive(:remove_mentions)

@@ -20,6 +20,10 @@ class UsersController < ApplicationController
     end
   end
 
+  def privacy_settings
+    @blocks = current_user.blocks.includes(:person)
+  end
+
   def update
     password_changed = false
     @user = current_user

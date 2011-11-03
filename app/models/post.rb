@@ -21,13 +21,13 @@ class Post < ActiveRecord::Base
   after_create :cache_for_author
 
   #scopes
-  scope :includes_for_a_stream,  includes(:o_embed_cache, {:author => :profile}, :mentions => {:person => :profile}) #note should include root and photos, but i think those are both on status_message
+  scope :includes_for_a_stream, includes(:o_embed_cache, {:author => :profile}, :mentions => {:person => :profile}) #note should include root and photos, but i think those are both on status_message
 
   def self.excluding_blocks(user)
-    people = user.blocks.map { |x| x.person_id }
+    people = user.blocks.includes(:person).map{|b| b.person}
 
     if people.present?
-      where("posts.author_id NOT IN (?)", people)
+      where("posts.author_id NOT IN (?)", people.map { |person| person.id })
     else
       scoped
     end

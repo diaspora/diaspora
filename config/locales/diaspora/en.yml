@@ -9,6 +9,7 @@ en:
   settings: "Settings"
   profile: "Profile"
   account: "Account"
+  privacy: "Privacy"
   _services: "Services"
   _applications: "Applications"
   _photos: "photos"
@@ -605,7 +606,7 @@ en:
       permalink: "permalink"
       not_found: "Sorry, we couldn't find that post."
 
-  post_visibilites:
+  share_visibilites:
     update:
       post_hidden_and_muted: "%{name}'s post has been hidden, and notifications have been muted."
       see_it_on_their_profile: "If you want to see updates on this post, visit %{name}'s profile page."
@@ -891,6 +892,7 @@ en:
       simply_visit: "Simply visit"
       on_your_mobile_device: "on your mobile device to access Diaspora* mobile."
       works_on_modern: "Works on all modern smartphones"
+
     edit:
       export_data: "Export Data"
       photo_export_unavailable: "Photo exporting currently unavailable"
@@ -919,6 +921,12 @@ en:
       show_community_spotlight: "Show Community Spotlight in Stream?"
       show_getting_started: 'Re-enable Getting Started'
       getting_started: 'New User Prefrences'
+
+    privacy_settings:
+      title: "Privacy Settings"
+      blocked_users: "Blocked Users"
+      unblock: "Unblock"
+
     destroy: "Your account has been locked.  It may take 20 minutes for us to finish closing your account.  Thank you for trying Diaspora."
     getting_started:
       well_hello_there: "Well, hello there!"
