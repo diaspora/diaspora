@@ -109,7 +109,7 @@ gem 'faraday-stack'
 # web sockets
 
 gem 'em-synchrony', :platforms => :ruby_19
-gem 'em-websocket', :git => 'git://github.com/igrigorik/em-websocket', :ref => 'e278f5a1c4db60be7485'
+gem 'em-websocket'
 
 ### GROUPS ####
 

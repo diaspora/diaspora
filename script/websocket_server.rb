@@ -62,10 +62,10 @@ begin
         begin
           debug_pp ws.request
 
-          cookies = ws.request["Cookie"].split(';')
+          cookies = ws.request["cookie"].split(';')
           session_key = "_diaspora_session="
           enc_diaspora_cookie = cookies.detect{|c| c.include?(session_key)}.gsub(session_key,'')
-          cookie = Marshal.load(enc_diaspora_cookie.unpack("m*").first)
+          cookie = Marshal.load(enc_diaspora_cookie.strip.unpack("m*").first)
 
           debug_pp cookie
 

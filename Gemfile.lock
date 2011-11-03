@@ -47,15 +47,6 @@ GIT
   specs:
     http_accept_language (1.0.1)
 
-GIT
-  remote: git://github.com/igrigorik/em-websocket
-  revision: e278f5a1c4db60be7485859520a069e08bfe1247
-  ref: e278f5a1c4db60be7485
-  specs:
-    em-websocket (0.2.0)
-      addressable (>= 2.1.1)
-      eventmachine (>= 0.12.9)
-
 GEM
   remote: http://rubygems.org/
   specs:
@@ -168,6 +159,9 @@ GEM
       rails (>= 3.0.0, <= 3.2)
     diff-lcs (1.1.3)
     em-synchrony (0.2.0)
+      eventmachine (>= 0.12.9)
+    em-websocket (0.3.5)
+      addressable (>= 2.1.1)
       eventmachine (>= 0.12.9)
     erubis (2.6.6)
       abstract (>= 1.0.0)
@@ -505,7 +499,7 @@ DEPENDENCIES
   devise_invitable (= 0.5.0)
   diaspora-client!
   em-synchrony
-  em-websocket!
+  em-websocket
   excon (= 0.2.4)
   factory_girl_rails
   faraday
