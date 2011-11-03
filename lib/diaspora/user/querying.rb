@@ -141,7 +141,7 @@ module Diaspora
       end
 
       def shareables_from(klass, person)
-        return self.person.send(klass.table_name).where(:pending => false).order("created_at DESC") if person == self.person
+        return self.person.send(klass.table_name).where(:pending => false).order("#{klass.table_name}.created_at DESC") if person == self.person
         con = Contact.arel_table
         p = klass.arel_table
         shareable_ids = []

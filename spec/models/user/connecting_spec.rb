@@ -52,8 +52,8 @@ describe Diaspora::UserModules::Connecting do
       it 'calls remove contact' do
         contact = bob.contact_for(alice.person)
 
-        bob.should_receive(:remove_contact).with(contact)
-        bob.disconnect contact
+        bob.should_receive(:remove_contact).with(contact, {})
+        bob.disconnect(contact)
       end
 
       it 'dispatches a retraction' do

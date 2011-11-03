@@ -12,13 +12,12 @@
 
 .span-12.prepend-5.last
   %h3
-    = t('.blocked_users')
+    = t('.ignored_users')
 
   - @blocks.each do |block|
     = block.person.name
     \-
-    = link_to t('.unblock'), block_path(block),
-      :confirm => t('are_you_sure'),
+    = link_to t('.stop_ignoring'), block_path(block),
       :method => :delete
     %br
 

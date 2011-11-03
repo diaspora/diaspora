@@ -19,7 +19,8 @@ class Contact < ActiveRecord::Base
 
   validates_uniqueness_of :person_id, :scope => :user_id
 
-  before_destroy :destroy_notifications
+  before_destroy :destroy_notifications,
+                 :repopulate_cache!
 
   # contact.sharing is true when contact.person is sharing with contact.user
   scope :sharing, lambda {
@@ -39,7 +40,14 @@ class Contact < ActiveRecord::Base
     Notification.where(:target_type => "Person",
                        :target_id => person_id,
                        :recipient_id => user_id,
-                      :type => "Notifications::StartedSharing").delete_all
+                       :type => "Notifications::StartedSharing").delete_all
+  end
+
+  def repopulate_cache!
+    if RedisCache.configured?
+      cache = RedisCache.new(self.user)
+      cache.repopulate!
+    end
   end
 
   def dispatch_request

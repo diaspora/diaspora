@@ -725,11 +725,11 @@ en:
 
   blocks:
     create:
-      success: "Alright, you won't see them again. #niceblock!"
-      failure: "I couldn't block that user.  #evasion"
+      success: "Alright, you won't see that user in your stream again. #silencio!"
+      failure: "I couldn't ignore that user.  #evasion"
     destroy:
-      success: "User unblocked! #combobreaker"
-      failure: "I couldn't unblock that user.  #evasion"
+      success: "Let's see what they have to say! #sayhello"
+      failure: "I couldn't stop ignoring that user.  #evasion"
 
   shared:
     aspect_dropdown:
@@ -793,7 +793,8 @@ en:
       connect_to_comment: "Connect to this user to comment on their post"
       currently_unavailable: 'commenting currently unavailable'
       via: "via %{link}"
-      block_user: "Block %{name}"
+      ignore_user: "Ignore %{name}"
+      ignore_user_description: "Ignore and remove user from all aspects?"
       hide_and_mute: "Hide and mute post"
       like: "Like"
       unlike: "Unlike"
@@ -932,8 +933,8 @@ en:
 
     privacy_settings:
       title: "Privacy Settings"
-      blocked_users: "Blocked Users"
-      unblock: "Unblock"
+      ignored_users: "Ignored Users"
+      stop_ignoring: "Stop ignoring"
 
     destroy: "Your account has been locked.  It may take 20 minutes for us to finish closing your account.  Thank you for trying Diaspora."
     getting_started:
