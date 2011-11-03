@@ -1,6 +1,7 @@
-  #   Copyright (c) 2010-2011, Diaspora Inc.  This file is
+#   Copyright (c) 2010-2011, Diaspora Inc.  This file is
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
+
 require File.join(Rails.root, 'lib', 'stream', 'public')
 
 class PublicsController < ApplicationController
@@ -8,6 +9,8 @@ class PublicsController < ApplicationController
   require File.join(Rails.root, '/lib/postzord/receiver/public')
   require File.join(Rails.root, '/lib/postzord/receiver/private')
   include Diaspora::Parser
+
+  newrelic_ignore
 
   skip_before_filter :set_header_data
   skip_before_filter :which_action_and_user
