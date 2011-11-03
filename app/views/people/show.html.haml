@@ -39,5 +39,8 @@
     - else
       #main_stream
         %div{:style=>"text-align:center;", :class => "dull"}
-          = t('.has_not_shared_with_you_yet', :name => @person.first_name)
+          - if @block.present?
+            = t('.ignoring', :name => @person.first_name)
+          - else
+            = t('.has_not_shared_with_you_yet', :name => @person.first_name)
 

@@ -6,7 +6,6 @@ var ContactEdit = {
   init: function(){
     $.extend(ContactEdit, AspectsDropdown);
     $('.dropdown.aspect_membership .dropdown_list > li, .dropdown.inviter .dropdown_list > li').live('click', function(evt){
-
       ContactEdit.processClick($(this), evt);
     });
    },
@@ -64,7 +63,10 @@ var ContactEdit = {
   },
 
   toggleAspectMembership: function(li, evt) {
-    var button = li.find('.button');
+    var button = li.find('.button'),
+        dropdown = li.closest('.dropdown'),
+        dropdownList = li.parent('.dropdown_list');
+
     if(button.hasClass('disabled') || li.hasClass('newItem')){ return; }
 
     var selected = li.hasClass("selected"),
@@ -75,12 +77,19 @@ var ContactEdit = {
       "person_id": li.parent().data("person_id"),
       "_method": (selected) ? "DELETE" : "POST"
     }, function(aspectMembership) {
-      li.removeClass("loading");
       ContactEdit.toggleCheckbox(li);
       ContactEdit.updateNumber(li.closest(".dropdown_list"), li.parent().data("person_id"), aspectMembership.aspect_ids.length, 'in_aspects');
 
       Diaspora.page.publish("aspectDropdown/updated", [li.parent().data("person_id"), li.parents(".dropdown").parent(".right").html()]);
-    });
+    })
+      .error(function() {
+        var message = Diaspora.I18n.t("aspect_dropdown.error", {name: dropdownList.data('person-short-name')});
+        Diaspora.page.flashMessages.render({success: false, notice: message});
+        dropdown.removeClass('active');
+      })
+      .complete(function() {
+        li.removeClass("loading");
+      });
   }
 };
 

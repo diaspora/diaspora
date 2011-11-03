@@ -199,4 +199,27 @@ describe Contact do
       @contact.destroy
     end
   end
+
+  describe "#not_blocked_user" do
+    before do
+      @contact = alice.contact_for(bob.person)
+    end
+
+    it "is called on validate" do
+      @contact.should_receive(:not_blocked_user)
+      @contact.valid?
+    end
+
+    it "adds to errors if potential contact is blocked by user" do
+      person = eve.person
+      block = alice.blocks.create(:person => person)
+      bad_contact = alice.contacts.create(:person => person)
+
+      bad_contact.send(:not_blocked_user).should be_false
+    end
+
+    it "does not add to errors" do
+      @contact.send(:not_blocked_user).should be_true
+    end
+  end
 end

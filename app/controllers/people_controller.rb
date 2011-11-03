@@ -95,6 +95,7 @@ class PeopleController < ApplicationController
 
     unless params[:format] == "json" # hovercard
       if current_user
+        @block = current_user.blocks.where(:person_id => @person.id).first
         @contact = current_user.contact_for(@person)
         @aspects_with_person = []
         if @contact && !params[:only_posts]

@@ -544,6 +544,7 @@ en:
       start_sharing: "start sharing"
       message: "Message"
       mention: "Mention"
+      ignoring: "You are ignoring all posts from %{name}."
     sub_header:
       you_have_no_tags: "you have no tags!"
       add_some: "add some"

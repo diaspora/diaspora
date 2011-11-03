@@ -11,6 +11,8 @@ module Diaspora
       # @return [Contact] The newly made contact for the passed in person.
       def share_with(person, aspect)
         contact = self.contacts.find_or_initialize_by_person_id(person.id)
+        return false unless contact.valid?
+
         unless contact.receiving?
           contact.dispatch_request
           contact.receiving = true

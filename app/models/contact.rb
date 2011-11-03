@@ -15,7 +15,8 @@ class Contact < ActiveRecord::Base
   has_many :share_visibilities, :source => :shareable, :source_type => 'Post'
   has_many :posts, :through => :share_visibilities, :source => :shareable, :source_type => 'Post'
 
-  validate :not_contact_for_self
+  validate :not_contact_for_self,
+           :not_blocked_user
 
   validates_uniqueness_of :person_id, :scope => :user_id
 
@@ -96,6 +97,15 @@ class Contact < ActiveRecord::Base
   def not_contact_for_self
     if person_id && person.owner == user
       errors[:base] << 'Cannot create self-contact'
+    end
+  end
+
+  def not_blocked_user
+    if user.blocks.where(:person_id => person_id).exists?
+      errors[:base] << 'Cannot connect to an ignored user'
+      false
+    else
+      true
     end
   end
 end
