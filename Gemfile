@@ -16,6 +16,10 @@ gem 'oauth2-provider', '0.0.16'
 gem 'omniauth', '0.2.6'
 gem 'twitter', '1.5.0'
 
+# administration
+
+gem 'activeadmin'
+
 # backups
 
 gem 'cloudfiles', '1.4.10', :require => false
