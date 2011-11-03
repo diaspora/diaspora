@@ -58,6 +58,33 @@ describe Post do
         Post.should_receive(:includes_for_a_stream)
         Post.for_a_stream(stub, stub)
       end
+
+      it 'calls excluding_blocks if a user is present' do
+        user = stub
+        Post.should_receive(:excluding_blocks).with(user)
+        Post.for_a_stream(stub, stub, user)
+      end
+    end
+
+    describe '.excluding_blocks' do
+      before do
+        @post = Factory(:status_message, :author => alice.person)
+        @other_post = Factory(:status_message, :author => eve.person)
+
+        bob.blocks.create(:person => alice.person)
+      end
+
+      it 'does not included blocked users posts' do
+        Post.excluding_blocks(bob).should_not include(@post)
+      end
+
+      it 'includes not blocked users posts' do
+        Post.excluding_blocks(bob).should include(@other_post)
+      end
+
+      it 'returns posts if you dont have any blocks' do
+        Post.excluding_blocks(alice).count.should == 2
+      end
     end
 
     context 'having some posts' do

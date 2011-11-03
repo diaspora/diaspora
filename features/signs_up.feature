@@ -7,7 +7,7 @@ Feature: new user registration
     And I fill in "user_email" with "ohai@example.com"
     And I fill in "user_password" with "secret"
     And I fill in "user_password_confirmation" with "secret"
-    And I press "Create my account"
+    And I press "Create my account!"
     Then I should be on the getting started page
     And I should see "Well, hello there!"
     And I should see "Who are you?"

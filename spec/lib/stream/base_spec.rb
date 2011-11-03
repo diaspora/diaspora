@@ -43,6 +43,13 @@ describe Stream::Base do
     end
   end
 
+  describe '#people' do
+    it 'excludes blocked people' do
+      @stream.should_receive(:stream_posts).and_return(stub.as_null_object)
+      @stream.people
+    end
+  end
+
   describe 'shared behaviors' do
     it_should_behave_like 'it is a stream'
   end

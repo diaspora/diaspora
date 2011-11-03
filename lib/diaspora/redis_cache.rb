@@ -4,10 +4,10 @@
 
 class RedisCache
 
-  SUPPORTED_CACHES = [:created_at] #['updated_at', 
+  SUPPORTED_CACHES = [:created_at]
   CACHE_LIMIT = 100
 
-  def initialize(user, order_field)
+  def initialize(user, order_field=:created_at)
     @user = user
     @order_field = order_field.to_s
   end

@@ -38,7 +38,7 @@ class TagsController < ApplicationController
     @stream = Stream::Tag.new(current_user, params[:name], :max_time => max_time, :page => params[:page])
 
     if params[:only_posts]
-      render :partial => 'shared/stream', :locals => {:posts => @stream.posts}
+      render :partial => 'shared/stream', :locals => {:posts => @stream.stream_posts}
       return
     end
   end

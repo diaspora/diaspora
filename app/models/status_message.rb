@@ -37,8 +37,7 @@ class StatusMessage < Post
 
   def self.tag_stream(user, tag_array, max_time, order)
     owned_or_visible_by_user(user).
-      joins(:tags).where(:tags => {:name => tag_array}).
-      for_a_stream(max_time, order)
+      joins(:tags).where(:tags => {:name => tag_array})
   end
 
   def text(opts = {})

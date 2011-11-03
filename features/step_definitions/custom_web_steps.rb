@@ -58,7 +58,7 @@ And /^I hover over the "([^"]+)"$/ do |element|
 end
 
 When /^I click to delete the first post$/ do
-  page.execute_script('$(".stream_element").first().find(".stream_element_delete").first().click()')
+  page.execute_script('$(".stream_element").first().find(".remove_post").first().click()')
 end
 
 When /^I click to delete the first comment$/ do

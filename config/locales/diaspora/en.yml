@@ -9,6 +9,7 @@ en:
   settings: "Settings"
   profile: "Profile"
   account: "Account"
+  privacy: "Privacy"
   _services: "Services"
   _applications: "Applications"
   _photos: "photos"
@@ -543,6 +544,7 @@ en:
       start_sharing: "start sharing"
       message: "Message"
       mention: "Mention"
+      ignoring: "You are ignoring all posts from %{name}."
     sub_header:
       you_have_no_tags: "you have no tags!"
       add_some: "add some"
@@ -605,7 +607,7 @@ en:
       permalink: "permalink"
       not_found: "Sorry, we couldn't find that post."
 
-  post_visibilites:
+  share_visibilites:
     update:
       post_hidden_and_muted: "%{name}'s post has been hidden, and notifications have been muted."
       see_it_on_their_profile: "If you want to see updates on this post, visit %{name}'s profile page."
@@ -722,6 +724,14 @@ en:
       invite: "invite"
       not_on_diaspora: "Not yet on Diaspora"
 
+  blocks:
+    create:
+      success: "Alright, you won't see that user in your stream again. #silencio!"
+      failure: "I couldn't ignore that user.  #evasion"
+    destroy:
+      success: "Let's see what they have to say! #sayhello"
+      failure: "I couldn't stop ignoring that user.  #evasion"
+
   shared:
     aspect_dropdown:
       add_to_aspect: "Add contact"
@@ -767,7 +777,6 @@ en:
     reshare:
       reshare: "Reshare"
     public_explain:
-
       control_your_audience: "Control your Audience"
       new_user_welcome_message: "Use #hashtags to classify your posts and find people who share your interests.  Call out awesome people with @Mentions"
       visibility_dropdown: "Use this dropdown to change visibility of your post.  (We suggest you make this first one public.)"
@@ -785,7 +794,9 @@ en:
       connect_to_comment: "Connect to this user to comment on their post"
       currently_unavailable: 'commenting currently unavailable'
       via: "via %{link}"
-      hide_and_mute: "Hide and Mute"
+      ignore_user: "Ignore %{name}"
+      ignore_user_description: "Ignore and remove user from all aspects?"
+      hide_and_mute: "Hide and mute post"
       like: "Like"
       unlike: "Unlike"
       dislike: "Dislike"
@@ -891,6 +902,7 @@ en:
       simply_visit: "Simply visit"
       on_your_mobile_device: "on your mobile device to access Diaspora* mobile."
       works_on_modern: "Works on all modern smartphones"
+
     edit:
       export_data: "Export Data"
       photo_export_unavailable: "Photo exporting currently unavailable"
@@ -919,6 +931,12 @@ en:
       show_community_spotlight: "Show Community Spotlight in Stream?"
       show_getting_started: 'Re-enable Getting Started'
       getting_started: 'New User Prefrences'
+
+    privacy_settings:
+      title: "Privacy Settings"
+      ignored_users: "Ignored Users"
+      stop_ignoring: "Stop ignoring"
+
     destroy: "Your account has been locked.  It may take 20 minutes for us to finish closing your account.  Thank you for trying Diaspora."
     getting_started:
       well_hello_there: "Well, hello there!"

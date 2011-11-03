@@ -27,17 +27,20 @@
     = render 'people/sub_header', :person => @person, :contact => @contact
 
     / hackity hack until we get a photo stream
-    - if (@posts && @posts.length > 0) || (defined?(@stream) && @stream.posts.length > 0)
+    - if (@posts && @posts.length > 0) || @stream.stream_posts.length > 0
       -if @post_type == :photos
         = render 'photos/index', :photos => @posts
       - else
         #main_stream.stream
-          = render 'shared/stream', :posts => @stream.posts
+          = render 'shared/stream', :posts => @stream.stream_posts
           #pagination
             =link_to(t('more'), next_page_path, :class => 'paginate')
 
     - else
       #main_stream
         %div{:style=>"text-align:center;", :class => "dull"}
-          = t('.has_not_shared_with_you_yet', :name => @person.first_name)
+          - if @block.present?
+            = t('.ignoring', :name => @person.first_name)
+          - else
+            = t('.has_not_shared_with_you_yet', :name => @person.first_name)
 

@@ -95,6 +95,7 @@ class PeopleController < ApplicationController
 
     unless params[:format] == "json" # hovercard
       if current_user
+        @block = current_user.blocks.where(:person_id => @person.id).first
         @contact = current_user.contact_for(@person)
         @aspects_with_person = []
         if @contact && !params[:only_posts]
@@ -112,7 +113,7 @@ class PeopleController < ApplicationController
     end
 
     if params[:only_posts]
-      render :partial => 'shared/stream', :locals => {:posts => @stream.posts}
+      render :partial => 'shared/stream', :locals => {:posts => @stream.stream_posts}
     else
       respond_to do |format|
         format.all { respond_with @person, :locals => {:post_type => :all} }

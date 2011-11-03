@@ -1,0 +1,23 @@
+-#   Copyright (c) 2010-2011, Diaspora Inc.  This file is
+-#   licensed under the Affero General Public License version 3 or later.  See
+-#   the COPYRIGHT file.
+
+- content_for :page_title do
+  = t('.title')
+
+#section_header
+  %h2
+    = t('privacy')
+  = render 'shared/settings_nav'
+
+.span-12.prepend-5.last
+  %h3
+    = t('.ignored_users')
+
+  - @blocks.each do |block|
+    = block.person.name
+    \-
+    = link_to t('.stop_ignoring'), block_path(block),
+      :method => :delete
+    %br
+

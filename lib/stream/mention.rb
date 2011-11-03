@@ -13,7 +13,7 @@ class Stream::Mention < Stream::Base
 
   # @return [ActiveRecord::Association<Post>] AR association of posts
   def posts
-    @posts ||= StatusMessage.where_person_is_mentioned(self.user.person).for_a_stream(max_time, order)
+    @posts ||= StatusMessage.where_person_is_mentioned(self.user.person)
   end
 
   def contacts_title

@@ -43,13 +43,19 @@ class Stream::Base
 
   # @return [ActiveRecord::Relation<Post>]
   def posts
-    []
+    Post.scoped
+  end
+
+  # @return [ActiveRecord::Relation<Post>]
+  def stream_posts
+    self.posts.for_a_stream(max_time, order, self.user)
   end
 
   # @return [ActiveRecord::Association<Person>] AR association of people within stream's given aspects
   def people
-    people_ids = posts.map{|x| x.author_id}
-    Person.where(:id => people_ids).includes(:profile)
+    people_ids = self.stream_posts.map{|x| x.author_id}
+    Person.where(:id => people_ids).
+      includes(:profile)
   end
 
   # @return [String]

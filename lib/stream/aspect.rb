@@ -43,7 +43,7 @@ class Stream::Aspect < Stream::Base
                                              :type => TYPES_OF_POST_IN_STREAM,
                                              :order => "#{order} DESC",
                                              :max_time => max_time
-                   ).for_a_stream(max_time, order)
+                   )
   end
 
   # @return [ActiveRecord::Association<Person>] AR association of people within stream's given aspects

@@ -46,12 +46,11 @@ class AspectMembershipsController < ApplicationController
     @aspect = current_user.aspects.where(:id => params[:aspect_id]).first
 
     if @contact = current_user.share_with(@person, @aspect)
-      flash.now[:notice] =  I18n.t 'aspects.add_to_aspect.success'
+      flash.now[:notice] =  I18n.t('aspects.add_to_aspect.success')
       respond_with AspectMembership.where(:contact_id => @contact.id, :aspect_id => @aspect.id).first
     else
-      flash[:error] = I18n.t 'contacts.create.failure'
-      #TODO(dan) take this out once the .js template is removed
-      render :nothing => true
+      flash.now[:error] = I18n.t('contacts.create.failure')
+      render :nothing => true, :status => 409
     end
   end
 

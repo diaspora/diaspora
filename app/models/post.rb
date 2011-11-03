@@ -21,11 +21,25 @@ class Post < ActiveRecord::Base
   after_create :cache_for_author
 
   #scopes
-  scope :includes_for_a_stream,  includes(:o_embed_cache, {:author => :profile}, :mentions => {:person => :profile}) #note should include root and photos, but i think those are both on status_message
+  scope :includes_for_a_stream, includes(:o_embed_cache, {:author => :profile}, :mentions => {:person => :profile}) #note should include root and photos, but i think those are both on status_message
 
-  def self.for_a_stream(max_time, order)
-    self.for_visible_shareable_sql(max_time, order).
-    includes_for_a_stream
+  def self.excluding_blocks(user)
+    people = user.blocks.includes(:person).map{|b| b.person}
+
+    if people.present?
+      where("posts.author_id NOT IN (?)", people.map { |person| person.id })
+    else
+      scoped
+    end
+  end
+
+  def self.for_a_stream(max_time, order, user=nil)
+    scope = self.for_visible_shareable_sql(max_time, order).
+      includes_for_a_stream
+
+    scope = scope.excluding_blocks(user) if user.present?
+
+    scope
   end
 
   #############

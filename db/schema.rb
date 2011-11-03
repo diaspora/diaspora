@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111026173547) do
+ActiveRecord::Schema.define(:version => 20111101202137) do
 
   create_table "aspect_memberships", :force => true do |t|
     t.integer  "aspect_id",  :null => false
@@ -46,6 +46,11 @@ ActiveRecord::Schema.define(:version => 20111026173547) do
 
   add_index "aspects", ["user_id", "contacts_visible"], :name => "index_aspects_on_user_id_and_contacts_visible"
   add_index "aspects", ["user_id"], :name => "index_aspects_on_user_id"
+
+  create_table "blocks", :force => true do |t|
+    t.integer "user_id"
+    t.integer "person_id"
+  end
 
   create_table "comments", :force => true do |t|
     t.text     "text",                                                      :null => false

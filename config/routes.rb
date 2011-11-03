@@ -76,10 +76,11 @@ Diaspora::Application.routes.draw do
   end
 
   controller :users do
-    get 'public/:username'          => :public,          :as => 'users_public'
-    match 'getting_started'         => :getting_started, :as => 'getting_started'
+    get 'public/:username'          => :public,           :as => 'users_public'
+    match 'getting_started'         => :getting_started,  :as => 'getting_started'
+    match 'privacy'                 => :privacy_settings, :as => 'privacy_settings'
     get 'getting_started_completed' => :getting_started_completed
-    get 'confirm_email/:token'      => :confirm_email,   :as => 'confirm_email'
+    get 'confirm_email/:token'      => :confirm_email,    :as => 'confirm_email'
   end
 
   # This is a hack to overide a route created by devise.
@@ -109,8 +110,9 @@ Diaspora::Application.routes.draw do
   resources :contacts,           :except => [:update, :create] do
     get :sharing, :on => :collection
   end
-  resources :aspect_memberships, :only   => [:destroy, :create, :update]
-  resources :share_visibilities,  :only   => [:update]
+  resources :aspect_memberships, :only  => [:destroy, :create, :update]
+  resources :share_visibilities,  :only => [:update]
+  resources :blocks, :only => [:create, :destroy]
 
   get 'spotlight' => 'community_spotlight#index', :as => 'spotlight'
 

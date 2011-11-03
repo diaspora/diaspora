@@ -15,11 +15,13 @@ class Contact < ActiveRecord::Base
   has_many :share_visibilities, :source => :shareable, :source_type => 'Post'
   has_many :posts, :through => :share_visibilities, :source => :shareable, :source_type => 'Post'
 
-  validate :not_contact_for_self
+  validate :not_contact_for_self,
+           :not_blocked_user
 
   validates_uniqueness_of :person_id, :scope => :user_id
 
-  before_destroy :destroy_notifications
+  before_destroy :destroy_notifications,
+                 :repopulate_cache!
 
   # contact.sharing is true when contact.person is sharing with contact.user
   scope :sharing, lambda {
@@ -39,7 +41,14 @@ class Contact < ActiveRecord::Base
     Notification.where(:target_type => "Person",
                        :target_id => person_id,
                        :recipient_id => user_id,
-                      :type => "Notifications::StartedSharing").delete_all
+                       :type => "Notifications::StartedSharing").delete_all
+  end
+
+  def repopulate_cache!
+    if RedisCache.configured?
+      cache = RedisCache.new(self.user)
+      cache.repopulate!
+    end
   end
 
   def dispatch_request
@@ -88,6 +97,15 @@ class Contact < ActiveRecord::Base
   def not_contact_for_self
     if person_id && person.owner == user
       errors[:base] << 'Cannot create self-contact'
+    end
+  end
+
+  def not_blocked_user
+    if user.blocks.where(:person_id => person_id).exists?
+      errors[:base] << 'Cannot connect to an ignored user'
+      false
+    else
+      true
     end
   end
 end

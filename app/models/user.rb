@@ -18,7 +18,7 @@ class User < ActiveRecord::Base
 
   before_validation :strip_and_downcase_username
   before_validation :set_current_language, :on => :create
-  
+
   validates :username, :presence => true, :uniqueness => true
   validates_format_of :username, :with => /\A[A-Za-z0-9_]+\z/
   validates_length_of :username, :maximum => 32
@@ -43,6 +43,7 @@ class User < ActiveRecord::Base
   has_many :user_preferences, :dependent => :destroy
   has_many :tag_followings, :dependent => :destroy
   has_many :followed_tags, :through => :tag_followings, :source => :tag, :order => 'tags.name'
+  has_many :blocks
 
   has_many :authorizations, :class_name => 'OAuth2::Provider::Models::ActiveRecord::Authorization', :foreign_key => :resource_owner_id
   has_many :applications, :through => :authorizations, :source => :client

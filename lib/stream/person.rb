@@ -15,9 +15,9 @@ class Stream::Person < Stream::Base
   def posts
     @posts ||= lambda do
       if user
-        posts = self.user.posts_from(@person).for_a_stream(max_time, order)
+        posts = self.user.posts_from(@person)
       else
-        posts = @person.posts.where(:public => true).for_a_stream(max_time, order)
+        posts = @person.posts.where(:public => true)
       end
       posts
     end.call

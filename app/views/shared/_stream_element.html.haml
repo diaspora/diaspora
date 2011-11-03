@@ -5,10 +5,9 @@
 
 .stream_element{:id => post.guid, :class => from_group(post)}
   .right.controls
-    - if current_user && post.author.owner_id == current_user.id
-      = link_to image_tag('deletelabel.png'), post_path(post), :confirm => t('are_you_sure'), :method => :delete, :remote => true, :class => "delete stream_element_delete", :title => t('delete')
-    - else
-      = link_to image_tag('deletelabel.png'), share_visibility_path(:id => "42", :post_id => post.id), :method => :put, :remote => true, :class => "delete stream_element_delete vis_hide", :title => t('.hide_and_mute')
+    = block_user_control(post.author)
+    = delete_or_hide_button(post)
+
     = image_tag 'ajax-loader.gif', :class => "hide_loader hidden"
 
   .undo_text.hidden
