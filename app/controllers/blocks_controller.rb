@@ -5,6 +5,7 @@ class BlocksController < ApplicationController
     block = current_user.blocks.new(params[:block])
 
     if block.save
+      disconnect_if_contact(block.person)
       notice = {:notice => t('blocks.create.success')}
     else
       notice = {:error => t('blocks.create.failure')}
@@ -19,5 +20,13 @@ class BlocksController < ApplicationController
       notice = {:error => t('blocks.destroy.failure')}
     end
     redirect_to :back, notice
+  end
+
+  protected
+
+  def disconnect_if_contact(person)
+    if contact = current_user.contact_for(person)
+      current_user.disconnect(contact, :force => true)
+    end
   end
 end

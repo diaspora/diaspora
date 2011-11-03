@@ -56,7 +56,7 @@ module Diaspora
         end
       end
 
-      def disconnect(bad_contact)
+      def disconnect(bad_contact, opts={})
         person = bad_contact.person
         Rails.logger.info("event=disconnect user=#{diaspora_handle} target=#{person.diaspora_handle}")
         retraction = Retraction.for(self)
@@ -64,7 +64,7 @@ module Diaspora
         Postzord::Dispatcher.build(self, retraction).post
 
         AspectMembership.where(:contact_id => bad_contact.id).delete_all
-        remove_contact(bad_contact)
+        remove_contact(bad_contact, opts)
       end
 
       def disconnected_by(person)
