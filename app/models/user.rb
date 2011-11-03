@@ -44,6 +44,7 @@ class User < ActiveRecord::Base
   has_many :tag_followings, :dependent => :destroy
   has_many :followed_tags, :through => :tag_followings, :source => :tag, :order => 'tags.name'
   has_many :blocks
+  has_many :notifications, :foreign_key => :recipient_id
 
   has_many :authorizations, :class_name => 'OAuth2::Provider::Models::ActiveRecord::Authorization', :foreign_key => :resource_owner_id
   has_many :applications, :through => :authorizations, :source => :client

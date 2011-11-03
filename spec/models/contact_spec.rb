@@ -81,6 +81,16 @@ describe Contact do
         }.by(2)
       end
     end
+    
+    describe "all_contacts_of_person" do
+      it 'returns all contacts where the person is the passed in person' do
+        person = Factory.create(:person)
+        contact1 = Factory(:contact, :person => person)
+        contact2 = Factory(:contact)
+        contacts = Contact.all_contacts_of_person(person)
+        contacts.should == [contact1]
+      end
+    end
   end
 
   describe '#contacts' do

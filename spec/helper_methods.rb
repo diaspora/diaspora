@@ -61,4 +61,15 @@ module HelperMethods
     fixture_name = File.join(File.dirname(__FILE__), 'fixtures', fixture_filename)
     File.open(fixture_name)
   end
+
+  def create_conversation_with_message(sender, recipient, subject, text)
+    create_hash = {
+      :author => sender.person,
+      :participant_ids => [sender.person.id, recipient.person.id],
+      :subject => subject,
+      :messages_attributes => [ {:author => sender.person, :text => text} ]
+    }
+
+    Conversation.create!(create_hash)
+  end
 end

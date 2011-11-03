@@ -166,3 +166,22 @@ end
 Factory.define(:oauth_access_token, :class => OAuth2::Provider.access_token_class) do |a|
   a.association(:authorization, :factory => :oauth_authorization)
 end
+
+Factory.define(:tag, :class => ActsAsTaggableOn::Tag) do |t|
+  t.name "partytimeexcellent"
+end
+
+Factory.define(:tag_following) do |a|
+  a.association(:tag, :factory => :tag)
+  a.association(:user, :factory => :user)
+end
+
+Factory.define(:contact) do |c|
+  c.association(:person, :factory => :person)
+  c.association(:user, :factory => :user)
+end
+
+Factory.define(:mention) do |c|
+  c.association(:person, :factory => :person)
+  c.association(:post, :factory => :status_message)
+end
