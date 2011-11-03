@@ -28,7 +28,7 @@ describe TagFollowingsController do
   end
 
   describe "create" do
-    describe "with valid params" do
+    describe "successfully" do
       it "creates a new TagFollowing" do
         expect {
           post :create, valid_attributes
@@ -48,19 +48,10 @@ describe TagFollowingsController do
       end
 
       it "creates the tag IFF it doesn't already exist" do
+        ActsAsTaggableOn::Tag.find_by_name('tomcruisecontrol').should be_nil
         expect {
           post :create, :name => "tomcruisecontrol"
         }.to change(ActsAsTaggableOn::Tag, :count).by(1)
-
-        expect {
-          post :create, :name => "tomcruisecontrol"
-        }.to change(ActsAsTaggableOn::Tag, :count).by(0)
-      end
-      
-      it "will only create a tag following for the currently-signed-in user" do
-        expect {
-          post :create, valid_attributes.merge(:user_id => alice.id)
-        }.to_not change(alice.tag_followings, :count).by(1)
       end
 
       it "flashes success to the tag page" do
@@ -82,6 +73,28 @@ describe TagFollowingsController do
       it 'downcases the tag name' do
         post :create, :name => "SOMESTUFF"
         assigns[:tag].name.should == "somestuff"
+      end
+    end
+
+    describe 'fails to' do
+      it "create the tag IFF already exists" do
+        ActsAsTaggableOn::Tag.find_by_name('tomcruisecontrol').should be_nil
+        expect {
+          post :create, :name => "tomcruisecontrol"
+        }.to change(ActsAsTaggableOn::Tag, :count).by(1)
+
+        ActsAsTaggableOn::Tag.find_by_name('tomcruisecontrol').should_not be_nil
+        expect {
+          post :create, :name => "tomcruisecontrol"
+        }.to change(ActsAsTaggableOn::Tag, :count).by(0)
+      end
+
+      it "create a tag following for a user other than the currently signed in user" do
+        expect {
+          expect {
+            post :create, valid_attributes.merge(:user_id => alice.id)
+          }.not_to change(alice.tag_followings, :count).by(1)
+        }.to change(bob.tag_followings, :count).by(1)
       end
     end
   end
