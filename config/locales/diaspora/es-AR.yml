@@ -167,6 +167,13 @@ es-AR:
       no_applications: "No registraste ninguna aplicación todavía."
       revoke_access: "Revocar Acceso"
   back: "Atrás"
+  blocks: 
+    create: 
+      failure: "I couldn't ignore that user.  #evasion"
+      success: "Alright, you won't see that user in your stream again. #silencio!"
+    destroy: 
+      failure: "I couldn't stop ignoring that user.  #evasion"
+      success: "Let's see what they have to say! #sayhello"
   bookmarklet: 
     explanation: "Publicá algo en Diáspora* desde donde quieras agregando %{link} al marcador."
     explanation_link_text: "este enlace"
@@ -179,7 +186,7 @@ es-AR:
     many: "%{count} comentarios"
     new_comment: 
       comment: "Comentar"
-      commenting: "Comentando..."
+      commenting: Comentando...
     one: "1 comentario"
     other: "%{count} comentarios"
     two: "%{count} comentarios"
@@ -234,7 +241,7 @@ es-AR:
     new: 
       abandon_changes: "Abandonar los cambios?"
       send: "Enviar"
-      sending: "Enviando..."
+      sending: Enviando...
       subject: "asunto"
       to: "para"
     new_message: 
@@ -242,7 +249,7 @@ es-AR:
     show: 
       delete: "eliminar y bloquear conversación"
       reply: "responder"
-      replying: "Contestando..."
+      replying: Contestando...
   date: 
     formats: 
       birthday: "%d de %B"
@@ -499,7 +506,7 @@ es-AR:
       bio: "biografía"
       born: "nacimiento"
       edit_my_profile: "Editar mi perfil"
-      gender: "género/sexo"
+      gender: género/sexo
       in_aspects: "en aspectos"
       location: "ubicación"
       remove_contact: "eliminar contacto"
@@ -507,6 +514,7 @@ es-AR:
     show: 
       does_not_exist: "¡Ese usuario no existe!"
       has_not_shared_with_you_yet: "¡%{name} no compartió ninguna publicación con vos todavía!"
+      ignoring: "You are ignoring all posts from %{name}."
       incoming_request: "%{name} quiere compartir con vos"
       mention: "Mención"
       message: "Mensaje"
@@ -538,7 +546,7 @@ es-AR:
     new: 
       back_to_list: "Volver a la lista"
       new_photo: "Foto nueva"
-      post_it: "¡Publicalo!"
+      post_it: ¡Publicalo!
     new_photo: 
       empty: "{file} está vacío, por favor seleccioná archivos sin él."
       invalid_ext: "{file} tiene una extensión incorrecta. Sólo se permiten {extensions}."
@@ -559,16 +567,13 @@ es-AR:
     update: 
       error: "Error al editar la foto."
       notice: "La foto se subió correctamente."
-  post_visibilites: 
-    update: 
-      post_hidden_and_muted: "El mensaje de %{name} ha sido escondido, y las notificaciones se han silenciado."
-      see_it_on_their_profile: "Si querés ver actualizaciones de este mensaje, visitá el perfil de %{name}."
   posts: 
     show: 
       destroy: "Eliminar"
       not_found: "No se pudo encontrar la publicación."
       permalink: "permalink"
   previous: "anterior"
+  privacy: "Privacy"
   profile: "Perfil"
   profiles: 
     edit: 
@@ -607,7 +612,7 @@ es-AR:
       edit: "Editar %{name}"
       leave_blank: "(dejalo en blanco si no querés cambiarlo)"
       password_to_confirm: "(necesitamos tu contraseña actual para confirmar los cambios)"
-      unhappy: "¿Insatisfecho?"
+      unhappy: ¿Insatisfecho?
       update: "Actualizar"
     new: 
       create_my_account: "Crear mi cuenta"
@@ -637,7 +642,7 @@ es-AR:
       existing: "Contactos existentes"
       manage_within: "Gestioná tus contactos"
     new_request_to_person: 
-      sent: "¡Enviado!"
+      sent: ¡Enviado!
   reshares: 
     comment_email_subject: "%{resharer} compartió una publicación de %{author}"
     create: 
@@ -685,11 +690,15 @@ es-AR:
       not_on_diaspora: "Todavía no está en Diáspora"
       resend: "reenviar"
   settings: "Configuración"
+  share_visibilites: 
+    update: 
+      post_hidden_and_muted: "%{name}'s post has been hidden, and notifications have been muted."
+      see_it_on_their_profile: "If you want to see updates on this post, visit %{name}'s profile page."
   shared: 
     add_contact: 
       add_new_contact: "Añadir contacto"
       create_request: "Buscar por la dirección Diáspora*"
-      diaspora_handle: "direcc@diasp.org"
+      diaspora_handle: direcc@diasp.org
       enter_a_diaspora_username: "Ingresá el nombre de usuario de Diáspora*:"
       know_email: "¿Conocés sus direcciones de correo? ¡Podés invitarlos a unirse!"
       your_diaspora_username_is: "Tu nombre de usuario de Diáspora* es: %{diaspora_handle}"
@@ -737,7 +746,7 @@ es-AR:
         i_like: "I'm interested in %{tags}."
         invited_by: "Thanks for the invite, "
       post_a_message_to: "Publicar un mensaje en %{aspect}"
-      posting: "Publicando..."
+      posting: Publicando...
       publishing_to: "publicar en: "
       share: "Compartir"
       share_with: "compartir con"
@@ -750,6 +759,8 @@ es-AR:
       currently_unavailable: "commenting currently unavailable"
       dislike: "Me disgusta"
       hide_and_mute: "Esconder y Silenciar"
+      ignore_user: "Ignore %{name}"
+      ignore_user_description: "Ignore and remove user from all aspects?"
       like: "Me gusta"
       shared_with: "Compartido con: %{aspect_names}"
       unlike: "No me gusta"
@@ -830,7 +841,7 @@ es-AR:
       typical_userpage: "Una típica página de usuario de cubbi.es"
       via: "(vía %{link})"
       what_is_cubbies: "Cubbi.es es la primera aplicación de Diáspora*. Es, también, la mejor forma de coleccionar fotos en línea."
-  undo: "¿Deshacer?"
+  undo: ¿Deshacer?
   username: "Nombre de usuario"
   users: 
     confirm_email: 
@@ -871,7 +882,7 @@ es-AR:
       hashtag_explanation: "Los hashtags te permiten seguir y hablar sobre tus intereses. También son una gran manera de encontrar gente nueva en Diáspora."
       hashtag_suggestions: "Try following tags like #art, #movies, #gif, etc."
       hooking_up_fb: "hooking up your Facebook account"
-      saved: "Saved!"
+      saved: Saved!
       we_can_speed_things_up: "We can speed things up a bit by"
       well_hello_there: "Well, hello there!"
       what_are_you_in_to: "What are you into?"
@@ -883,6 +894,10 @@ es-AR:
       signed_out: "Te desconectaste de Diáspora*"
       simply_visit: "Simply visit"
       works_on_modern: "Works on all modern smartphones"
+    privacy_settings: 
+      ignored_users: "Ignored Users"
+      stop_ignoring: "Stop ignoring"
+      title: "Privacy Settings"
     public: 
       does_not_exist: "¡El usuariuo %{username} no existe!"
     update: 
@@ -901,4 +916,4 @@ es-AR:
     no_person_constructed: "No pudo crearse ninguna persona a partir de esta 'hcard'."
     not_enabled: "Parece que webfinger no está habilitado para el servidor de %{account}"
     xrd_fetch_failed: "Hubo un error al buscar el 'xrd' de %{account}"
-  welcome: "Welcome!"
+  welcome: Welcome!

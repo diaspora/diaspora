@@ -167,6 +167,13 @@ en_shaw:
       no_applications: "You haven't registered any applications yet."
       revoke_access: "𐑮𐑦𐑝𐑴𐑒 𐑨𐑒𐑕𐑧𐑕"
   back: "𐑚𐑨𐑒"
+  blocks: 
+    create: 
+      failure: "I couldn't ignore that user.  #evasion"
+      success: "Alright, you won't see that user in your stream again. #silencio!"
+    destroy: 
+      failure: "I couldn't stop ignoring that user.  #evasion"
+      success: "Let's see what they have to say! #sayhello"
   bookmarklet: 
     explanation: "𐑐𐑴𐑕𐑑 𐑑 ·𐑛𐑦𐑨𐑕𐑐𐑹𐑩 𐑓𐑮𐑳𐑥 𐑨𐑯𐑦𐑢𐑺 𐑚𐑲 𐑚𐑫𐑒𐑥𐑸𐑒𐑦𐑙 %{link}."
     explanation_link_text: "𐑞𐑦𐑕 𐑤𐑦𐑙𐑒"
@@ -179,7 +186,7 @@ en_shaw:
     many: "%{count} 𐑒𐑪𐑥𐑩𐑯𐑑𐑕"
     new_comment: 
       comment: "𐑒𐑪𐑥𐑩𐑯𐑑"
-      commenting: "𐑒𐑪𐑥𐑩𐑯𐑑𐑦𐑙..."
+      commenting: 𐑒𐑪𐑥𐑩𐑯𐑑𐑦𐑙...
     one: "1 𐑒𐑪𐑥𐑩𐑯𐑑"
     other: "%{count} 𐑒𐑪𐑥𐑩𐑯𐑑𐑕"
     two: "%{count} comments"
@@ -234,7 +241,7 @@ en_shaw:
     new: 
       abandon_changes: "𐑩𐑚𐑨𐑯𐑛𐑩𐑯 𐑗𐑱𐑯𐑡𐑩𐑟?"
       send: "𐑕𐑧𐑯𐑛"
-      sending: "𐑕𐑧𐑯𐑛𐑦𐑙..."
+      sending: 𐑕𐑧𐑯𐑛𐑦𐑙...
       subject: "𐑕𐑳𐑚𐑡𐑧𐑒𐑑"
       to: "𐑑"
     new_message: 
@@ -242,14 +249,14 @@ en_shaw:
     show: 
       delete: "𐑛𐑦𐑤𐑰𐑑 𐑯 𐑚𐑤𐑪𐑒 𐑒𐑪𐑯𐑝𐑼𐑕𐑱𐑖𐑩𐑯"
       reply: "𐑮𐑦𐑐𐑤𐑲"
-      replying: "Replying..."
+      replying: Replying...
   date: 
     formats: 
       birthday: "%B %d"
       birthday_with_year: "%B %d %Y"
       fullmonth_day: "%B %d"
   delete: "𐑛𐑦𐑤𐑰𐑑"
-  email: "𐑦-𐑥𐑱𐑤"
+  email: 𐑦-𐑥𐑱𐑤
   error_messages: 
     helper: 
       correct_the_following_errors_and_try_again: "𐑒𐑩𐑮𐑧𐑒𐑑 𐑞 𐑓𐑪𐑤𐑴𐑦𐑙 𐑺𐑼𐑟 𐑯 𐑑𐑮𐑲 𐑩𐑜𐑧𐑯."
@@ -507,6 +514,7 @@ en_shaw:
     show: 
       does_not_exist: "𐑐𐑻𐑕𐑩𐑯 𐑛𐑳𐑟 𐑯𐑪𐑑 𐑧𐑜𐑟𐑦𐑕𐑑!"
       has_not_shared_with_you_yet: "%{name} 𐑣𐑨𐑟 𐑯𐑪𐑑 𐑖𐑺𐑛 𐑧𐑯𐑦 𐑐𐑴𐑕𐑑𐑕 𐑢𐑦𐑞 𐑿 𐑘𐑧𐑑!"
+      ignoring: "You are ignoring all posts from %{name}."
       incoming_request: "%{name} 𐑢𐑳𐑯𐑑𐑕 𐑑 𐑖𐑺 𐑢𐑦𐑞 𐑿"
       mention: "𐑥𐑧𐑯𐑖𐑩𐑯"
       message: "𐑥𐑧𐑕𐑩𐑡"
@@ -559,16 +567,13 @@ en_shaw:
     update: 
       error: "𐑓𐑱𐑤𐑛 𐑑 𐑧𐑛𐑦𐑑 𐑓𐑴𐑑𐑴."
       notice: "𐑓𐑴𐑑𐑴 𐑕𐑩𐑒𐑕𐑧𐑕𐑓𐑫𐑤𐑦 𐑳𐑐𐑛𐑱𐑑𐑩𐑛."
-  post_visibilites: 
-    update: 
-      post_hidden_and_muted: "%{name}'s post has been hidden, and notifications have been muted."
-      see_it_on_their_profile: "If you want to see updates on this post, visit %{name}'s profile page."
   posts: 
     show: 
       destroy: "𐑛𐑦𐑤𐑰𐑑"
       not_found: "𐑕𐑪𐑮𐑦, 𐑢𐑰 𐑒𐑫𐑛𐑯𐑑 𐑓𐑲𐑯𐑛 𐑞𐑨𐑑 𐑐𐑴𐑕𐑑."
       permalink: "𐑐𐑻𐑥𐑩𐑤𐑦𐑙𐑒"
   previous: "𐑐𐑮𐑰𐑝𐑾𐑕"
+  privacy: "Privacy"
   profile: "𐑐𐑮𐑴𐑓𐑲𐑤"
   profiles: 
     edit: 
@@ -607,7 +612,7 @@ en_shaw:
       edit: "𐑧𐑛𐑦𐑑 %{name}"
       leave_blank: "(𐑤𐑰𐑝 𐑚𐑤𐑱𐑙𐑒 𐑦𐑓 𐑿 𐑛𐑴𐑯𐑑 𐑢𐑳𐑯𐑑 𐑑 𐑗𐑱𐑯𐑡 𐑦𐑑)"
       password_to_confirm: "(𐑢𐑰 𐑯𐑰𐑛 𐑿𐑼 𐑒𐑻𐑩𐑯𐑑 𐑐𐑨𐑕𐑢𐑼𐑛 𐑑 𐑒𐑩𐑯𐑓𐑻𐑥 𐑿𐑼 𐑗𐑱𐑯𐑡𐑩𐑟)"
-      unhappy: "𐑩𐑯𐑣𐑨𐑐𐑦?"
+      unhappy: 𐑩𐑯𐑣𐑨𐑐𐑦?
       update: "𐑳𐑐𐑛𐑱𐑑"
     new: 
       create_my_account: "Create my account"
@@ -637,7 +642,7 @@ en_shaw:
       existing: "𐑧𐑜𐑟𐑦𐑕𐑑𐑦𐑙 𐑒𐑪𐑯𐑑𐑨𐑒𐑑𐑕"
       manage_within: "𐑥𐑨𐑯𐑩𐑡 𐑒𐑪𐑯𐑑𐑨𐑒𐑑𐑕 𐑢𐑦𐑞𐑦𐑯"
     new_request_to_person: 
-      sent: "𐑕𐑧𐑯𐑑!"
+      sent: 𐑕𐑧𐑯𐑑!
   reshares: 
     comment_email_subject: "%{resharer}'s reshare of %{author}'s post"
     create: 
@@ -685,11 +690,15 @@ en_shaw:
       not_on_diaspora: "Not yet on Diaspora"
       resend: "𐑮𐑦𐑕𐑧𐑯𐑛"
   settings: "𐑕𐑧𐑑𐑦𐑙𐑟"
+  share_visibilites: 
+    update: 
+      post_hidden_and_muted: "%{name}'s post has been hidden, and notifications have been muted."
+      see_it_on_their_profile: "If you want to see updates on this post, visit %{name}'s profile page."
   shared: 
     add_contact: 
       add_new_contact: "𐑨𐑛 𐑯𐑿 𐑒𐑪𐑯𐑑𐑨𐑒𐑑"
       create_request: "𐑓𐑲𐑯𐑛 𐑚𐑲·𐑛𐑦𐑨𐑕𐑐𐑹𐑩 𐑲𐑛𐑧𐑯𐑑𐑦𐑓𐑦𐑒𐑱𐑖𐑩𐑯"
-      diaspora_handle: "diaspora@handle.org"
+      diaspora_handle: diaspora@handle.org
       enter_a_diaspora_username: "𐑧𐑯𐑑𐑼 𐑩 ·𐑛𐑦𐑨𐑕𐑐𐑹𐑩 𐑿𐑟𐑼𐑯𐑱𐑥:"
       know_email: "𐑯𐑴 𐑞𐑺 𐑦-𐑥𐑱𐑤 𐑩𐑛𐑮𐑧𐑕? 𐑿 𐑖𐑫𐑛 𐑦𐑯𐑝𐑲𐑑 𐑞𐑧𐑥"
       your_diaspora_username_is: "𐑿𐑼 ·𐑛𐑦𐑨𐑕𐑐𐑹𐑩 𐑿𐑟𐑼𐑯𐑱𐑥 𐑦𐑟: %{diaspora_handle}"
@@ -737,7 +746,7 @@ en_shaw:
         i_like: "I'm interested in %{tags}."
         invited_by: "Thanks for the invite, "
       post_a_message_to: "𐑐𐑴𐑕𐑑 𐑩 𐑥𐑧𐑕𐑩𐑡 𐑑 %{aspect}"
-      posting: "𐑐𐑴𐑕𐑑𐑦𐑙..."
+      posting: 𐑐𐑴𐑕𐑑𐑦𐑙...
       publishing_to: "𐑐𐑳𐑚𐑤𐑦𐑖𐑦𐑙 𐑑: "
       share: "𐑖𐑺"
       share_with: "𐑖𐑺 𐑢𐑦𐑞 %{aspect}"
@@ -750,6 +759,8 @@ en_shaw:
       currently_unavailable: "commenting currently unavailable"
       dislike: "𐑛𐑦𐑕𐑤𐑲𐑒"
       hide_and_mute: "Hide and Mute"
+      ignore_user: "Ignore %{name}"
+      ignore_user_description: "Ignore and remove user from all aspects?"
       like: "𐑤𐑲𐑒"
       shared_with: "𐑖𐑺𐑛 𐑢𐑦𐑞: %{aspect_names}"
       unlike: "𐑩𐑯𐑤𐑲𐑒"
@@ -830,7 +841,7 @@ en_shaw:
       typical_userpage: "𐑩 𐑑𐑦𐑐𐑦𐑒𐑩𐑤 cubbi.es 𐑿𐑟𐑼𐑐𐑱𐑡"
       via: "(𐑝𐑾 %{link})"
       what_is_cubbies: "Cubbi.es 𐑦𐑟 𐑞 𐑢𐑻𐑤𐑛𐑟 𐑓𐑻𐑕𐑑 ·𐑛𐑦𐑨𐑕𐑐𐑹𐑩 𐑨𐑐𐑤𐑦𐑒𐑱𐑖𐑩𐑯.  𐑦𐑑𐑕 𐑷𐑤𐑕𐑴 𐑞 𐑚𐑧𐑕𐑑 𐑢𐑱 𐑑 𐑒𐑩𐑤𐑧𐑒𐑑 𐑓𐑴𐑑𐑴𐑟 𐑪𐑯𐑤𐑲𐑯."
-  undo: "𐑩𐑯𐑛𐑵?"
+  undo: 𐑩𐑯𐑛𐑵?
   username: "𐑿𐑟𐑼𐑯𐑱𐑥"
   users: 
     confirm_email: 
@@ -871,7 +882,7 @@ en_shaw:
       hashtag_explanation: "𐑣𐑨𐑖𐑑𐑨𐑜𐑟 𐑩𐑤𐑬 𐑿 𐑑 𐑑𐑷𐑒 𐑩𐑚𐑬𐑑 𐑯 𐑓𐑪𐑤𐑴 𐑿𐑼 𐑦𐑯𐑑𐑮𐑧𐑕𐑑𐑕.  𐑞𐑺 𐑷𐑤𐑕𐑴 𐑩 𐑜𐑮𐑱𐑑 𐑢𐑱 𐑑 𐑓𐑲𐑯𐑛 𐑯𐑿 𐑐𐑰𐑐𐑩𐑤 𐑪𐑯 ·𐑛𐑦𐑨𐑕𐑐𐑹𐑩."
       hashtag_suggestions: "Try following tags like #art, #movies, #gif, etc."
       hooking_up_fb: "hooking up your Facebook account"
-      saved: "Saved!"
+      saved: Saved!
       we_can_speed_things_up: "We can speed things up a bit by"
       well_hello_there: "Well, hello there!"
       what_are_you_in_to: "What are you into?"
@@ -883,6 +894,10 @@ en_shaw:
       signed_out: "You've signed out of Diaspora*"
       simply_visit: "Simply visit"
       works_on_modern: "Works on all modern smartphones"
+    privacy_settings: 
+      ignored_users: "Ignored Users"
+      stop_ignoring: "Stop ignoring"
+      title: "Privacy Settings"
     public: 
       does_not_exist: "𐑿𐑟𐑼 %{username} 𐑛𐑳𐑟 𐑯𐑪𐑑 𐑧𐑜𐑟𐑦𐑕𐑑!"
     update: 
@@ -901,4 +916,4 @@ en_shaw:
     no_person_constructed: "𐑯𐑴 𐑐𐑻𐑕𐑩𐑯 𐑒𐑫𐑛 𐑚𐑰 𐑒𐑩𐑯𐑕𐑑𐑮𐑳𐑒𐑑𐑩𐑛 𐑓𐑮𐑪𐑥 𐑞𐑦𐑕 𐑣-𐑒𐑸𐑛."
     not_enabled: "𐑢𐑧𐑚𐑓𐑦𐑙𐑜𐑼 𐑛𐑳𐑟 𐑯𐑪𐑑 𐑕𐑰𐑥 𐑑 𐑚𐑰 𐑦𐑯𐑱𐑚𐑩𐑤𐑛 𐑓𐑹 %{account}𐑟 𐑣𐑴𐑕𐑑"
     xrd_fetch_failed: "there was an error getting the xrd from account %{account}"
-  welcome: "Welcome!"
+  welcome: Welcome!

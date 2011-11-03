@@ -111,13 +111,13 @@ fr:
         here_to_help: "La communauté Diaspora est là !"
         need_help: "Besoin d'aide ?"
         satisfaction: "%{link} : Support par la communauté"
-        tutorials_wiki_and_forum: "%{tutorial} & %{wiki} & %{forum}: Community-powered tutorials, how-to, and news"
+        tutorials_wiki_and_forum: "%{tutorial} & %{wiki} & %{forum}: Tutoriels créés par la communauté, how-to, et infos"
       introduce_yourself: "Ceci est votre flux. Rejoignez-nous et présentez-vous."
       keep_us_running: "Permettez à %{pod} de fonctionner rapidement et achetez une dose de café par mois à nos serveurs !"
       new_here: 
-        follow: "Follow %{link} and welcome new users to Diaspora*!"
-        learn_more: "Learn more"
-        title: "Welcome New Users"
+        follow: "Suivez %{link} et souhaitez la bienvenue aux nouveaux utilisateurs de Diaspora*!"
+        learn_more: "En savoir plus"
+        title: "Bienvenue Nouvel Utilisateur"
       no_contacts: "Aucun contact"
       no_tags: "+ Trouver un tag à suivre"
       people_sharing_with_you: "Personnes partageant avec vous"
@@ -167,6 +167,13 @@ fr:
       no_applications: "Vous n'avez pas encore enregistré d'application."
       revoke_access: "Révoquer l'accès"
   back: "Retour"
+  blocks: 
+    create: 
+      failure: "Je ne pouvais pas ignorer cet utilisateur.  #evasion"
+      success: "Très bien, vous ne verrez plus cet utilisateur dans votre flux. #silencio!"
+    destroy: 
+      failure: "I couldn't stop ignoring that user.  #evasion"
+      success: "Voyons ce qu'ils ont à dire ! #sayhello"
   bookmarklet: 
     explanation: "Publier sur Diaspora depuis n'importe où en ajoutant %{link} à vos marque-pages."
     explanation_link_text: "ce lien"
@@ -249,12 +256,12 @@ fr:
       birthday_with_year: "%d %B %Y"
       fullmonth_day: "%d %B"
   delete: "Supprimer"
-  email: "E-mail"
+  email: E-mail
   error_messages: 
     helper: 
       correct_the_following_errors_and_try_again: "Corrigez les erreurs suivantes, puis réessayez."
       invalid_fields: "Champs invalides"
-  fill_me_out: "Remplissez-moi"
+  fill_me_out: Remplissez-moi
   find_people: "Rechercher des personnes ou des #tags"
   hide: "Masquer"
   home: 
@@ -291,7 +298,7 @@ fr:
       comma_seperated_plz: "Vous pouvez entrer plusieurs adresses de courrier électronique séparées par des virgules."
       if_they_accept_info: "s'ils acceptent, ils seront ajoutés à l'aspect dans lequel vous les avez invités."
       invite_someone_to_join: "Inviter quelqu'un à rejoindre Diaspora !"
-      language: "Language"
+      language: "Langage"
       personal_message: "Message personnel"
       resend: "Envoyer à nouveau"
       send_an_invitation: "Envoyer une invitation"
@@ -507,6 +514,7 @@ fr:
     show: 
       does_not_exist: "Cette personne n'existe pas !"
       has_not_shared_with_you_yet: "%{name} n'as pas encore partagé de messages avec vous !"
+      ignoring: "Vous ignorez tous les messages de %{name}."
       incoming_request: "%{name} désire partager avec vous"
       mention: "Mentionner"
       message: "Message"
@@ -559,16 +567,13 @@ fr:
     update: 
       error: "La modification de la photo a échoué."
       notice: "La photo a été mise à jour."
-  post_visibilites: 
-    update: 
-      post_hidden_and_muted: "Le message de %{name} a été masqué, et les notifications mises en sourdine."
-      see_it_on_their_profile: "Si vous voulez voir les mises à jour de ce message, visitez la page de profil de %{name}."
   posts: 
     show: 
       destroy: "Supprimer"
       not_found: "Désolé, nous n'avons pas pu trouver ce message."
       permalink: "lien permanent"
   previous: "précédent"
+  privacy: "Privacy"
   profile: "Profil"
   profiles: 
     edit: 
@@ -637,7 +642,7 @@ fr:
       existing: "Contacts existants"
       manage_within: "Gérer les contacts de"
     new_request_to_person: 
-      sent: "envoyée !"
+      sent: envoyée !
   reshares: 
     comment_email_subject: "Partage par %{resharer} d'un message de %{author}"
     create: 
@@ -685,11 +690,15 @@ fr:
       not_on_diaspora: "Pas encore sur Diaspora"
       resend: "envoyer à nouveau"
   settings: "Options"
+  share_visibilites: 
+    update: 
+      post_hidden_and_muted: "%{name}'s post has been hidden, and notifications have been muted."
+      see_it_on_their_profile: "Si vous souhaitez voir des mises à jour de ce message, visitez la page de profil de %{name}."
   shared: 
     add_contact: 
       add_new_contact: "Ajouter un nouveau contact"
       create_request: "Rechercher par identifiant Diaspora"
-      diaspora_handle: "diaspora@pod.org"
+      diaspora_handle: diaspora@pod.org
       enter_a_diaspora_username: "Entrez un nom d'utilisateur Diaspora :"
       know_email: "Vous connaissez leur adresse de courrier électronique ? Vous devriez les inviter"
       your_diaspora_username_is: "Votre nom d'utilisateur Diaspora est : %{diaspora_handle}"
@@ -735,14 +744,14 @@ fr:
       new_user_prefill: 
         hello: "Bonjour tout le monde, je suis #%{new_user_tag}. "
         i_like: "Je suis intéressé par %{tags}."
-        invited_by: "Thanks for the invite, "
+        invited_by: "Merci pour l'invitation, "
       post_a_message_to: "Publier un message dans %{aspect}"
-      posting: "Publication…"
+      posting: Publication…
       publishing_to: "publication vers : "
       share: "Partager"
       share_with: "Partager avec"
       upload_photos: "Envoyer des photos"
-      whats_on_your_mind: "exprimez-vous"
+      whats_on_your_mind: exprimez-vous
     reshare: 
       reshare: "Repartager"
     stream_element: 
@@ -750,7 +759,9 @@ fr:
       currently_unavailable: "les commentaires sont actuellement indisponible"
       dislike: "Je n'aime pas"
       hide_and_mute: "Masquer et mettre en sourdine"
-      like: "J'aime"
+      ignore_user: "Ignorez %{name}"
+      ignore_user_description: "Ignorez et supprimer l'utilisateur de tous les aspects ?"
+      like: J'aime
       shared_with: "Partagé avec : %{aspect_names}"
       unlike: "Je n'aime plus"
       via: "via %{link}"
@@ -883,6 +894,10 @@ fr:
       signed_out: "Vous vous êtes déconnecté de Diaspora*"
       simply_visit: "Il suffit de visiter"
       works_on_modern: "Fonctionne sur tous les smartphones modernes"
+    privacy_settings: 
+      ignored_users: "Utilisateurs ignorés"
+      stop_ignoring: "Stop ignoring"
+      title: "Paramètres de confidentialité"
     public: 
       does_not_exist: "L'utilisateur %{username} n'existe pas !"
     update: 

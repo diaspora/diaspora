@@ -8,6 +8,7 @@ nn:
     aspect_dropdown: 
       add_to_aspect: "Legg til kontakt"
       all_aspects: "Alle aspekta"
+      error: "Couldn't start sharing with {{name}}.  Are you ignoring them?"
       select_aspects: "Vel aspekt"
       started_sharing_with: "Du har byrja å dela med {{name}}."
       stopped_sharing_with: "Du deler ikkje lenger med {{name}}."

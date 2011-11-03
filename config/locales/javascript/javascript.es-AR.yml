@@ -8,6 +8,7 @@ es-AR:
     aspect_dropdown: 
       add_to_aspect: "Agregar al aspecto"
       all_aspects: "Todos los aspectos"
+      error: "Couldn't start sharing with {{name}}.  Are you ignoring them?"
       select_aspects: "Selecciona aspectos"
       started_sharing_with: "You have started sharing with {{name}}!"
       stopped_sharing_with: "You have stopped sharing with {{name}}."

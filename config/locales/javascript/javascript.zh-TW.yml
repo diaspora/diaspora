@@ -8,6 +8,7 @@ zh-TW:
     aspect_dropdown: 
       add_to_aspect: "加聯絡人"
       all_aspects: "所有面向"
+      error: "Couldn't start sharing with {{name}}.  Are you ignoring them?"
       select_aspects: "選面向"
       started_sharing_with: "你開始和 {{name}} 分享了!"
       stopped_sharing_with: "你停止和 {{name}} 分享了."
@@ -25,16 +26,16 @@ zh-TW:
     comments: 
       hide: "隱藏意見"
       show: "顯示所有意見"
-    confirm_dialog: "你確定嗎?"
-    failed_to_like: "說讚失敗!"
-    failed_to_post_message: "貼文失敗!"
+    confirm_dialog: 你確定嗎?
+    failed_to_like: 說讚失敗!
+    failed_to_post_message: 貼文失敗!
     getting_started: 
       alright_ill_wait: "好吧, 以後再說."
       hey: "嘿, {{name}}!"
       no_tags: "嘿, 你還沒有追蹤任何標籤! 要往下一步嗎?"
-      preparing_your_stream: "整理你個人的流水帳..."
+      preparing_your_stream: 整理你個人的流水帳...
     infinite_scroll: 
-      no_more: "沒有貼文了."
+      no_more: 沒有貼文了.
     photo_uploader: 
       looking_good: "天啊, 你看起來真帥!"
     publisher: 
@@ -51,7 +52,7 @@ zh-TW:
       day: "一天"
       days: "%d天"
       hour: "約一小時"
-      hours: "約%d小時"
+      hours: 約%d小時
       minute: "約一分鐘"
       minutes: "%d分鐘"
       month: "約一個月"

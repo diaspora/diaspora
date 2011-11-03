@@ -167,6 +167,13 @@ cs:
       no_applications: "Nemáte registrovanou žádnou aplikaci."
       revoke_access: "Zrušit přístup"
   back: "Zpět"
+  blocks: 
+    create: 
+      failure: "I couldn't ignore that user.  #evasion"
+      success: "Alright, you won't see that user in your stream again. #silencio!"
+    destroy: 
+      failure: "I couldn't stop ignoring that user.  #evasion"
+      success: "Let's see what they have to say! #sayhello"
   bookmarklet: 
     explanation: "Pište na Diasporu odkudkoliv pomocí %{link}."
     explanation_link_text: "tohoto odkazu"
@@ -179,7 +186,7 @@ cs:
     many: "%{count} komentářů"
     new_comment: 
       comment: "komentář"
-      commenting: "Komentování..."
+      commenting: Komentování...
     one: "1 komentář"
     other: "%{count} komentářů"
     two: "%{count} komentáře"
@@ -234,7 +241,7 @@ cs:
     new: 
       abandon_changes: "Zamítnout změny?"
       send: "Poslat"
-      sending: "Posílám..."
+      sending: Posílám...
       subject: "předmět"
       to: "pro"
     new_message: 
@@ -242,14 +249,14 @@ cs:
     show: 
       delete: "smazat a blokovat konverzaci"
       reply: "odpověď"
-      replying: "Odpovídám..."
+      replying: Odpovídám...
   date: 
     formats: 
       birthday: "%B %d"
       birthday_with_year: "%B %d %Y"
       fullmonth_day: "%B %d"
   delete: "Smazat"
-  email: "E-mail"
+  email: E-mail
   error_messages: 
     helper: 
       correct_the_following_errors_and_try_again: "Opravte následující chyby a zkuste to znovu."
@@ -478,7 +485,7 @@ cs:
       add_contact_from_tag: "přidat kontakt ze štítku"
     aspect_list: 
       edit_membership: "upravit člena aspektu"
-    few: "%{count} lidmi"
+    few: "%{count} lidi"
     helper: 
       people_on_pod_are_aware_of: " lidé na podu jsou si vědomi"
       results_for: " výsledky pro %{params}"
@@ -487,9 +494,9 @@ cs:
       no_one_found: "... a nikdo nebyl nalezen."
       no_results: "Hej! Musíte něco hledat."
       results_for: "výsledky hledání"
-    many: "%{count} lidmi"
-    one: "1 člověkem"
-    other: "%{count} lidmi"
+    many: "%{count} lidí"
+    one: "1 člověk"
+    other: "%{count} lidí"
     person: 
       add_contact: "přidat kontakt"
       already_connected: "Již připojen"
@@ -507,6 +514,7 @@ cs:
     show: 
       does_not_exist: "Osoba neexistuje!"
       has_not_shared_with_you_yet: "%{name} s vámi zatím žádnou zprávu nesdílí!"
+      ignoring: "You are ignoring all posts from %{name}."
       incoming_request: "%{name} s vámi chce sdílet"
       mention: "Zmínka"
       message: "Zpráva"
@@ -521,10 +529,10 @@ cs:
       add_some: "přidat nějaké"
       edit: "upravit"
       you_have_no_tags: "nemáš žádný štítek!"
-    two: "%{count} lidmi"
+    two: "%{count} lidi"
     webfinger: 
       fail: "Omlouváme se, ale %{handle} nebyl nalezen."
-    zero: "nikým"
+    zero: "nikdo"
   photos: 
     comment_email_subject: "%{name}'s photo"
     create: 
@@ -538,7 +546,7 @@ cs:
     new: 
       back_to_list: "Zpět na seznam"
       new_photo: "Nová fotka"
-      post_it: "poslat!"
+      post_it: poslat!
     new_photo: 
       empty: "{file} je prázdný, prosím vyberte soubory znovu bez něho."
       invalid_ext: "{file} má chybnou příponu. Jsou povoleny pouze {extensions}."
@@ -559,16 +567,13 @@ cs:
     update: 
       error: "Nepodařilo se upravit fotku."
       notice: "Fotka úspěšně aktualizována."
-  post_visibilites: 
-    update: 
-      post_hidden_and_muted: "%{name}'s post has been hidden, and notifications have been muted."
-      see_it_on_their_profile: "If you want to see updates on this post, visit %{name}'s profile page."
   posts: 
     show: 
       destroy: "Smazat"
       not_found: "Tento příspěvek nelze bohužel najít."
       permalink: "trvalý odkaz"
   previous: "předchozí"
+  privacy: "Privacy"
   profile: "Profil"
   profiles: 
     edit: 
@@ -607,7 +612,7 @@ cs:
       edit: "Upravit %{name}"
       leave_blank: "(nechte prázdné pokud nechcete provést změnu)"
       password_to_confirm: "(potřebujeme vaše současné heslo pro potvrzení změn)"
-      unhappy: "Nešťastný?"
+      unhappy: Nešťastný?
       update: "Aktualizovat"
     new: 
       create_my_account: "Vytvořit účet"
@@ -637,7 +642,7 @@ cs:
       existing: "Existující kontakty"
       manage_within: "Spravovat kontakty uvnitř"
     new_request_to_person: 
-      sent: "odesláno!"
+      sent: odesláno!
   reshares: 
     comment_email_subject: "%{resharer}'s reshare of %{author}'s post"
     create: 
@@ -685,11 +690,15 @@ cs:
       not_on_diaspora: "Ještě není na Diaspoře"
       resend: "přeposlat"
   settings: "Nastavení"
+  share_visibilites: 
+    update: 
+      post_hidden_and_muted: "%{name}'s post has been hidden, and notifications have been muted."
+      see_it_on_their_profile: "If you want to see updates on this post, visit %{name}'s profile page."
   shared: 
     add_contact: 
       add_new_contact: "Přidat nový kontakt"
       create_request: "Hledat podle Diaspora ID"
-      diaspora_handle: "diaspora@pod.org"
+      diaspora_handle: diaspora@pod.org
       enter_a_diaspora_username: "Zadejte uživatelské jméno na Diaspoře:"
       know_email: "Znáte jejich e-mailové adresy? Můžete je pozvat"
       your_diaspora_username_is: "Vaše uživatelské jméno na Diaspoře: %{diaspora_handle}"
@@ -708,7 +717,7 @@ cs:
       logged_in_as: "přihlášen jako %{name}"
       your_aspects: "vaše aspekty"
     invitations: 
-      by_email: "e-mailem"
+      by_email: e-mailem
       dont_have_now: "Již nemáte žádné, ale další brzy přibudou!"
       from_facebook: "z Facebooku"
       invitations_left: "%{count} zbývá"
@@ -737,7 +746,7 @@ cs:
         i_like: "I'm interested in %{tags}."
         invited_by: "Thanks for the invite, "
       post_a_message_to: "Poslat zprávu do %{aspect}"
-      posting: "Odesílání..."
+      posting: Odesílání...
       publishing_to: "publikování na:"
       share: "Sdělit"
       share_with: "sdílet s"
@@ -750,6 +759,8 @@ cs:
       currently_unavailable: "commenting currently unavailable"
       dislike: "to se mi nelíbí"
       hide_and_mute: "Hide and Mute"
+      ignore_user: "Ignore %{name}"
+      ignore_user_description: "Ignore and remove user from all aspects?"
       like: "to se mi líbí"
       shared_with: "Sdíleno s: %{aspect_names}"
       unlike: "to se mi už nelíbí"
@@ -811,7 +822,7 @@ cs:
   tags: 
     show: 
       follow: "Sledovat #%{tag}"
-      followed_by: "sledováno"
+      followed_by: "sleduje"
       following: "Sledujete #%{tag}"
       nobody_talking: "Nikdo dosud nemluví o %{tag}."
       people_tagged_with: "Lidé označení %{tag}"
@@ -830,7 +841,7 @@ cs:
       typical_userpage: "Typická uživatelská stránka na cubbi.es"
       via: "(přes %{link})"
       what_is_cubbies: "Cubbi.es je celosvětově první aplikace Diaspory. Je to také nejlepší způsob, jak shromažďovat fotografie online."
-  undo: "Vrátit?"
+  undo: Vrátit?
   username: "Uživatelské jméno"
   users: 
     confirm_email: 
@@ -871,7 +882,7 @@ cs:
       hashtag_explanation: "Štítky vám dovolují sledovat, o co se zajímáte, a diskutovat. Je to také skvělý způsob, jak najít nové lidi na Diaspoře."
       hashtag_suggestions: "Try following tags like #art, #movies, #gif, etc."
       hooking_up_fb: "hooking up your Facebook account"
-      saved: "Saved!"
+      saved: Saved!
       we_can_speed_things_up: "We can speed things up a bit by"
       well_hello_there: "Well, hello there!"
       what_are_you_in_to: "What are you into?"
@@ -883,6 +894,10 @@ cs:
       signed_out: "You've signed out of Diaspora*"
       simply_visit: "Simply visit"
       works_on_modern: "Works on all modern smartphones"
+    privacy_settings: 
+      ignored_users: "Ignored Users"
+      stop_ignoring: "Stop ignoring"
+      title: "Privacy Settings"
     public: 
       does_not_exist: "Uživatel %{username} neexistuje!"
     update: 
@@ -901,4 +916,4 @@ cs:
     no_person_constructed: "Z této hcard nemůže být vytvořena žádná osoba."
     not_enabled: "Vypadá to, že webfinger nemůže být povolen pro hosta účtu %{account}"
     xrd_fetch_failed: "vyskytl se problém při získání xrd z účtu %{account}"
-  welcome: "Welcome!"
+  welcome: Welcome!

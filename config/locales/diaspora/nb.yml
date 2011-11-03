@@ -167,6 +167,13 @@ nb:
       no_applications: "You haven't registered any applications yet."
       revoke_access: "Revoke Access"
   back: "Tilbake"
+  blocks: 
+    create: 
+      failure: "I couldn't ignore that user.  #evasion"
+      success: "Alright, you won't see that user in your stream again. #silencio!"
+    destroy: 
+      failure: "I couldn't stop ignoring that user.  #evasion"
+      success: "Let's see what they have to say! #sayhello"
   bookmarklet: 
     explanation: "%{link} fra hvor som helst ved å bokmerke denne linken."
     explanation_link_text: "Post på Diaspora"
@@ -179,7 +186,7 @@ nb:
     many: "%{count} kommentarer"
     new_comment: 
       comment: "Kommentér"
-      commenting: "Kommenterer..."
+      commenting: Kommenterer...
     one: "1 kommentar"
     other: "%{count} kommentarer"
     two: "%{count} comments"
@@ -234,7 +241,7 @@ nb:
     new: 
       abandon_changes: "Abandon changes?"
       send: "Send"
-      sending: "Sending..."
+      sending: Sending...
       subject: "emne"
       to: "til"
     new_message: 
@@ -242,7 +249,7 @@ nb:
     show: 
       delete: "slett og blokkér samtalen"
       reply: "svar"
-      replying: "Svarer..."
+      replying: Svarer...
   date: 
     formats: 
       birthday: "%B %d"
@@ -507,6 +514,7 @@ nb:
     show: 
       does_not_exist: "Personen eksisterer ikke!"
       has_not_shared_with_you_yet: "%{name} has not shared any posts with you yet!"
+      ignoring: "You are ignoring all posts from %{name}."
       incoming_request: "You have an incoming request from this person."
       mention: "Nevn"
       message: "Melding"
@@ -559,16 +567,13 @@ nb:
     update: 
       error: "Greide ikke å endre bildet."
       notice: "Bildet er oppdatert."
-  post_visibilites: 
-    update: 
-      post_hidden_and_muted: "%{name}'s post has been hidden, and notifications have been muted."
-      see_it_on_their_profile: "If you want to see updates on this post, visit %{name}'s profile page."
   posts: 
     show: 
       destroy: "Delete"
       not_found: "Sorry, we couldn't find that post."
       permalink: "permalink"
   previous: "forrige"
+  privacy: "Privacy"
   profile: "Profil"
   profiles: 
     edit: 
@@ -607,7 +612,7 @@ nb:
       edit: "Endre %{name}"
       leave_blank: "(La stå tom hvis du ikke ønsker å endre det)"
       password_to_confirm: "(vi trenger ditt nåværende passord for å bekrefte endringene)"
-      unhappy: "Ulykkelig?"
+      unhappy: Ulykkelig?
       update: "Oppdater"
     new: 
       create_my_account: "Create my account"
@@ -619,7 +624,7 @@ nb:
       sign_up_message: "Social Networking with a <3"
   requests: 
     create: 
-      sending: "Sending..."
+      sending: Sending...
       sent: "Du har bedt om å dele med %{name}.  De burde se det neste gang de logger inn på Diaspora"
     destroy: 
       error: "Velg et aspekt først!"
@@ -637,7 +642,7 @@ nb:
       existing: "Eksisterende kontakter"
       manage_within: "Administrer kontakter innen"
     new_request_to_person: 
-      sent: "sendt!"
+      sent: sendt!
   reshares: 
     comment_email_subject: "%{resharer}'s reshare of %{author}'s post"
     create: 
@@ -685,6 +690,10 @@ nb:
       not_on_diaspora: "Not yet on Diaspora"
       resend: "send på nytt"
   settings: "Innstillinger"
+  share_visibilites: 
+    update: 
+      post_hidden_and_muted: "%{name}'s post has been hidden, and notifications have been muted."
+      see_it_on_their_profile: "If you want to see updates on this post, visit %{name}'s profile page."
   shared: 
     add_contact: 
       add_new_contact: "Legg til en ny kontakt"
@@ -737,7 +746,7 @@ nb:
         i_like: "I'm interested in %{tags}."
         invited_by: "Thanks for the invite, "
       post_a_message_to: "Post et innlegg til %{aspect}"
-      posting: "Poster..."
+      posting: Poster...
       publishing_to: "publiserer til:"
       share: "Del"
       share_with: "del med"
@@ -750,6 +759,8 @@ nb:
       currently_unavailable: "commenting currently unavailable"
       dislike: "Liker ikke"
       hide_and_mute: "Hide and Mute"
+      ignore_user: "Ignore %{name}"
+      ignore_user_description: "Ignore and remove user from all aspects?"
       like: "Liker"
       shared_with: "Shared with: %{aspect_names}"
       unlike: "Liker ikke"
@@ -830,7 +841,7 @@ nb:
       typical_userpage: "En typisk cubbi.es brukerside"
       via: "(via %{link})"
       what_is_cubbies: "Cubbi.es er verdens første Diasporaapplikasjon. Det er også den beste måten å samle bilder på nettet."
-  undo: "Angre?"
+  undo: Angre?
   username: "Brukernavn"
   users: 
     confirm_email: 
@@ -871,7 +882,7 @@ nb:
       hashtag_explanation: "Hashtags allow you to talk about and follow your interests.  They're also a great way to find new people on Diaspora."
       hashtag_suggestions: "Try following tags like #art, #movies, #gif, etc."
       hooking_up_fb: "hooking up your Facebook account"
-      saved: "Saved!"
+      saved: Saved!
       we_can_speed_things_up: "We can speed things up a bit by"
       well_hello_there: "Well, hello there!"
       what_are_you_in_to: "What are you into?"
@@ -883,6 +894,10 @@ nb:
       signed_out: "You've signed out of Diaspora*"
       simply_visit: "Simply visit"
       works_on_modern: "Works on all modern smartphones"
+    privacy_settings: 
+      ignored_users: "Ignored Users"
+      stop_ignoring: "Stop ignoring"
+      title: "Privacy Settings"
     public: 
       does_not_exist: "Bruker %{username} finnes ikke!"
     update: 
@@ -901,4 +916,4 @@ nb:
     no_person_constructed: "Ingen personer kunne konstrueres fra dette hCard."
     not_enabled: "det virker ikke som webfinger er aktivert for % {account}'s vert"
     xrd_fetch_failed: "kunne ikke få xrd fra kontoen %{account}"
-  welcome: "Welcome!"
+  welcome: Welcome!

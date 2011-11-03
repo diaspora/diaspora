@@ -167,6 +167,13 @@ ro:
       no_applications: "You haven't registered any applications yet."
       revoke_access: "Revoke Access"
   back: "Înapoi"
+  blocks: 
+    create: 
+      failure: "I couldn't ignore that user.  #evasion"
+      success: "Alright, you won't see that user in your stream again. #silencio!"
+    destroy: 
+      failure: "I couldn't stop ignoring that user.  #evasion"
+      success: "Let's see what they have to say! #sayhello"
   bookmarklet: 
     explanation: "%{link} from anywhere by bookmarking this link."
     explanation_link_text: "Post to Diaspora"
@@ -179,7 +186,7 @@ ro:
     many: "%{count} comments"
     new_comment: 
       comment: "Comentariu"
-      commenting: "Comentând..."
+      commenting: Comentând...
     one: "1 comment"
     other: "%{count} comments"
     two: "%{count} comments"
@@ -234,7 +241,7 @@ ro:
     new: 
       abandon_changes: "Abandon changes?"
       send: "Trimite"
-      sending: "Trimitere..."
+      sending: Trimitere...
       subject: "subiect"
       to: "către"
     new_message: 
@@ -242,19 +249,19 @@ ro:
     show: 
       delete: "delete and block conversation"
       reply: "reply"
-      replying: "Replying..."
+      replying: Replying...
   date: 
     formats: 
       birthday: "%B %d"
       birthday_with_year: "%B %d %Y"
       fullmonth_day: "%B %d"
   delete: "Şterge"
-  email: "E-mail"
+  email: E-mail
   error_messages: 
     helper: 
       correct_the_following_errors_and_try_again: "Corectaţi următoarele erori şi încercaţi din nou."
       invalid_fields: "Câmpuri invalide"
-  fill_me_out: "Umple-mă"
+  fill_me_out: Umple-mă
   find_people: "Find people"
   hide: "Ascunde"
   home: 
@@ -507,6 +514,7 @@ ro:
     show: 
       does_not_exist: "Persoana nu există!"
       has_not_shared_with_you_yet: "%{name} has not shared any posts with you yet!"
+      ignoring: "You are ignoring all posts from %{name}."
       incoming_request: "You have an incoming request from this person."
       mention: "Mention"
       message: "Message"
@@ -538,7 +546,7 @@ ro:
     new: 
       back_to_list: "Înapoi la Listă"
       new_photo: "Nouă Fotografie"
-      post_it: "postează!"
+      post_it: postează!
     new_photo: 
       empty: "{file} is empty, please select files again without it."
       invalid_ext: "{file} are o extensie invalidă. Doar extensiile {extensions} sunt permise."
@@ -559,16 +567,13 @@ ro:
     update: 
       error: "Nu s-a reuşit editarea fotografiii."
       notice: "Fotografia a fost actualizată cu succes."
-  post_visibilites: 
-    update: 
-      post_hidden_and_muted: "%{name}'s post has been hidden, and notifications have been muted."
-      see_it_on_their_profile: "If you want to see updates on this post, visit %{name}'s profile page."
   posts: 
     show: 
       destroy: "Şterge"
       not_found: "Sorry, we couldn't find that post."
       permalink: "permalink"
   previous: "anterioare"
+  privacy: "Privacy"
   profile: "Profil"
   profiles: 
     edit: 
@@ -607,7 +612,7 @@ ro:
       edit: "Editează %{name}"
       leave_blank: "(lăsaţi necompletat dacă nu doriţi să o schimbaţi)"
       password_to_confirm: "(avem nevoie de parola curentă pentru a confirma modificările)"
-      unhappy: "Nefericit?"
+      unhappy: Nefericit?
       update: "Actualizează"
     new: 
       create_my_account: "Create my account"
@@ -619,7 +624,7 @@ ro:
       sign_up_message: "Social Networking with a <3"
   requests: 
     create: 
-      sending: "Trimitere..."
+      sending: Trimitere...
       sent: "You've asked to share with %{name}.  They should see it next time they log in to Diaspora."
     destroy: 
       error: "Vă rugăm să selectaţi un aspect!"
@@ -637,7 +642,7 @@ ro:
       existing: "Contactele existente"
       manage_within: "Manage contacts within"
     new_request_to_person: 
-      sent: "trimis!"
+      sent: trimis!
   reshares: 
     comment_email_subject: "%{resharer}'s reshare of %{author}'s post"
     create: 
@@ -685,6 +690,10 @@ ro:
       not_on_diaspora: "Not yet on Diaspora"
       resend: "resend"
   settings: "Setări"
+  share_visibilites: 
+    update: 
+      post_hidden_and_muted: "%{name}'s post has been hidden, and notifications have been muted."
+      see_it_on_their_profile: "If you want to see updates on this post, visit %{name}'s profile page."
   shared: 
     add_contact: 
       add_new_contact: "Adaugă un nou contact"
@@ -737,7 +746,7 @@ ro:
         i_like: "I'm interested in %{tags}."
         invited_by: "Thanks for the invite, "
       post_a_message_to: "Post a message to %{aspect}"
-      posting: "Publicare..."
+      posting: Publicare...
       publishing_to: "publishing to: "
       share: "Distribuie"
       share_with: "Share with %{aspect}"
@@ -750,6 +759,8 @@ ro:
       currently_unavailable: "commenting currently unavailable"
       dislike: "I dislike this"
       hide_and_mute: "Hide and Mute"
+      ignore_user: "Ignore %{name}"
+      ignore_user_description: "Ignore and remove user from all aspects?"
       like: "I like this"
       shared_with: "Shared with: %{aspect_names}"
       unlike: "Nu ȋmi place"
@@ -830,7 +841,7 @@ ro:
       typical_userpage: "A typical cubbi.es userpage"
       via: "(via %{link})"
       what_is_cubbies: "Cubbi.es este prima aplicaţie Diaspora din lume.  Este cea mai bună metodă de a colecta imagini online."
-  undo: "Undo?"
+  undo: Undo?
   username: "Nume de utilizator"
   users: 
     confirm_email: 
@@ -871,7 +882,7 @@ ro:
       hashtag_explanation: "Hashtags allow you to talk about and follow your interests.  They're also a great way to find new people on Diaspora."
       hashtag_suggestions: "Try following tags like #art, #movies, #gif, etc."
       hooking_up_fb: "hooking up your Facebook account"
-      saved: "Saved!"
+      saved: Saved!
       we_can_speed_things_up: "We can speed things up a bit by"
       well_hello_there: "Well, hello there!"
       what_are_you_in_to: "What are you into?"
@@ -883,6 +894,10 @@ ro:
       signed_out: "You've signed out of Diaspora*"
       simply_visit: "Simply visit"
       works_on_modern: "Works on all modern smartphones"
+    privacy_settings: 
+      ignored_users: "Ignored Users"
+      stop_ignoring: "Stop ignoring"
+      title: "Privacy Settings"
     public: 
       does_not_exist: "Utilizatorul %{username} nu există!"
     update: 
@@ -901,4 +916,4 @@ ro:
     no_person_constructed: "No person could be constructed from this hcard."
     not_enabled: "webfinger does not seem to be enabled for %{account}'s host"
     xrd_fetch_failed: "there was an error getting the xrd from account %{account}"
-  welcome: "Welcome!"
+  welcome: Welcome!

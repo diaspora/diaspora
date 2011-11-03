@@ -167,6 +167,13 @@ es-CL:
       no_applications: "Todavía no has registrado ninguna aplicación."
       revoke_access: "Revocar el Acceso"
   back: "Atrás"
+  blocks: 
+    create: 
+      failure: "I couldn't ignore that user.  #evasion"
+      success: "Alright, you won't see that user in your stream again. #silencio!"
+    destroy: 
+      failure: "I couldn't stop ignoring that user.  #evasion"
+      success: "Let's see what they have to say! #sayhello"
   bookmarklet: 
     explanation: "%{link} donde sea agregando a marcadores este link."
     explanation_link_text: "Postea en Diaspora"
@@ -179,7 +186,7 @@ es-CL:
     many: "%{count} comentarios"
     new_comment: 
       comment: "Comentar"
-      commenting: "Comentando..."
+      commenting: Comentando...
     one: "1 comentario"
     other: "%{count} comentarios"
     two: "%{count} comentarios"
@@ -234,7 +241,7 @@ es-CL:
     new: 
       abandon_changes: "Descartar los cambios?"
       send: "Enviar"
-      sending: "Enviando..."
+      sending: Enviando...
       subject: "asunto"
       to: "para"
     new_message: 
@@ -242,7 +249,7 @@ es-CL:
     show: 
       delete: "Eliminar y bloquear conversación"
       reply: "responder"
-      replying: "Respondiendo..."
+      replying: Respondiendo...
   date: 
     formats: 
       birthday: "%B %d"
@@ -507,6 +514,7 @@ es-CL:
     show: 
       does_not_exist: "¡La persona no existe!"
       has_not_shared_with_you_yet: "%{name} todavía no ha compartido ningún post contigo!"
+      ignoring: "You are ignoring all posts from %{name}."
       incoming_request: "Tienes una solicitud pendiente de %{name}"
       mention: "Mencionar"
       message: "Mensaje"
@@ -538,7 +546,7 @@ es-CL:
     new: 
       back_to_list: "Volver a la lista"
       new_photo: "Nueva Foto"
-      post_it: "¡postéalo!"
+      post_it: ¡postéalo!
     new_photo: 
       empty: "{file} está vacío, por favor, seleccione los archivos nuevamente sin éste último"
       invalid_ext: "{file} tiene una extensión no válida. Solo están permitidas {extensions}."
@@ -559,16 +567,13 @@ es-CL:
     update: 
       error: "Error al editar foto."
       notice: "Foto actualizada correctamente."
-  post_visibilites: 
-    update: 
-      post_hidden_and_muted: "El post de %{name} se ha ocultado, y las notificaciones se han silenciado."
-      see_it_on_their_profile: "Si quieres ver las actualizaciones de este post, visita el perfil de %{name}."
   posts: 
     show: 
       destroy: "ELiminar"
       not_found: "Lo sentimos, no pudimos encontrar ese post."
       permalink: "permalink"
   previous: "Anterior"
+  privacy: "Privacy"
   profile: "Perfil"
   profiles: 
     edit: 
@@ -607,7 +612,7 @@ es-CL:
       edit: "Editar %{name}"
       leave_blank: "(déjalo en blanco si no quieres cambiarlo)"
       password_to_confirm: "(necesitamos tu contraseña actual para confirmar los cambios)"
-      unhappy: "¿Triste?"
+      unhappy: ¿Triste?
       update: "Actualizar"
     new: 
       create_my_account: "Crear mi cuenta"
@@ -637,7 +642,7 @@ es-CL:
       existing: "Los contactos existen"
       manage_within: "Manejar los contactos en"
     new_request_to_person: 
-      sent: "¡enviado!"
+      sent: ¡enviado!
   reshares: 
     comment_email_subject: "%{resharer} compartió el post de %{author}"
     create: 
@@ -685,11 +690,15 @@ es-CL:
       not_on_diaspora: "Aun no en Diaspora"
       resend: "reenviar"
   settings: "Configuración"
+  share_visibilites: 
+    update: 
+      post_hidden_and_muted: "%{name}'s post has been hidden, and notifications have been muted."
+      see_it_on_their_profile: "If you want to see updates on this post, visit %{name}'s profile page."
   shared: 
     add_contact: 
       add_new_contact: "Agregar un nuevo contacto"
       create_request: "Encontrar por el ID de Diaspora"
-      diaspora_handle: "diaspora@pod.org"
+      diaspora_handle: diaspora@pod.org
       enter_a_diaspora_username: "Ingresa tu nombre de usuario Diaspora:"
       know_email: "¿Conoces sus direcciones de correo? Deberías invitarlos"
       your_diaspora_username_is: "Tu nombre de usuario Diaspora es: %{diaspora_handle}"
@@ -737,7 +746,7 @@ es-CL:
         i_like: "I'm interested in %{tags}."
         invited_by: "Thanks for the invite, "
       post_a_message_to: "Postear un mensaje a %{aspect}"
-      posting: "Posteando..."
+      posting: Posteando...
       publishing_to: "publicar en: "
       share: "Compartir"
       share_with: "Compartir con "
@@ -750,6 +759,8 @@ es-CL:
       currently_unavailable: "commenting currently unavailable"
       dislike: "No me gusta esto"
       hide_and_mute: "Ocultar y silenciar"
+      ignore_user: "Ignore %{name}"
+      ignore_user_description: "Ignore and remove user from all aspects?"
       like: "Me gusta esto"
       shared_with: "Compartir con: %{aspect_names}"
       unlike: "No me gusta"
@@ -830,7 +841,7 @@ es-CL:
       typical_userpage: "Una tipica pagina de usuario de cubbi.es "
       via: "(via %{link})"
       what_is_cubbies: "Cubbi.es es la primera aplicación en el mundo de Diaspora.  Es también la mejor manera de coleccionar fotos online."
-  undo: "Deshacer?"
+  undo: Deshacer?
   username: "Nombre de usuario"
   users: 
     confirm_email: 
@@ -871,7 +882,7 @@ es-CL:
       hashtag_explanation: "Los Hashtags te permiten hablar y seguir sobre tus intereses. También son una manera genial de encontrar nuevas personas en Diaspora."
       hashtag_suggestions: "Try following tags like #art, #movies, #gif, etc."
       hooking_up_fb: "hooking up your Facebook account"
-      saved: "Saved!"
+      saved: Saved!
       we_can_speed_things_up: "We can speed things up a bit by"
       well_hello_there: "Well, hello there!"
       what_are_you_in_to: "What are you into?"
@@ -883,6 +894,10 @@ es-CL:
       signed_out: "Te has desconectado de Diaspora*"
       simply_visit: "Simplemente visita"
       works_on_modern: "Funciona en todos los smartphones modernos"
+    privacy_settings: 
+      ignored_users: "Ignored Users"
+      stop_ignoring: "Stop ignoring"
+      title: "Privacy Settings"
     public: 
       does_not_exist: "¡El usuario %{username} no existe!"
     update: 
@@ -901,4 +916,4 @@ es-CL:
     no_person_constructed: "Ninguna persona puede ser construida a partir de ésta hcard"
     not_enabled: "el webfinger parece no estar disponible para el host de %{account}"
     xrd_fetch_failed: "hubo un error al recibir el crd desde la cuenta %{account}"
-  welcome: "Welcome!"
+  welcome: Welcome!

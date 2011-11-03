@@ -8,6 +8,7 @@ it:
     aspect_dropdown: 
       add_to_aspect: "Aggiungi"
       all_aspects: "Tutti gli aspetti"
+      error: "Couldn't start sharing with {{name}}.  Are you ignoring them?"
       select_aspects: "Scegli gli aspetti"
       started_sharing_with: "Hai iniziato a condividere con {{name}}!"
       stopped_sharing_with: "Hai smesso di condividere con {{name}}."
@@ -44,7 +45,7 @@ it:
     reshares: 
       duplicate: "Bello eh? Ma hai già condiviso quel post!"
     search_for: "Ricerca per {{name}}"
-    show_more: "continua..."
+    show_more: continua...
     tags: 
       wasnt_that_interesting: "OK, immagino che #{{tagName}} non fosse così interessante..."
     timeago: 

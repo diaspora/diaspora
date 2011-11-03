@@ -8,6 +8,7 @@ uk:
     aspect_dropdown: 
       add_to_aspect: "Додати контакт"
       all_aspects: "Усі аспекти"
+      error: "Couldn't start sharing with {{name}}.  Are you ignoring them?"
       select_aspects: "Вибрати аспекти"
       started_sharing_with: "You have started sharing with {{name}}!"
       stopped_sharing_with: "You have stopped sharing with {{name}}."

@@ -167,6 +167,13 @@ da:
       no_applications: "Du har ikke registreret nogen applikationer endnu."
       revoke_access: "Fjern adgang"
   back: "Tilbage"
+  blocks: 
+    create: 
+      failure: "I couldn't ignore that user.  #evasion"
+      success: "Alright, you won't see that user in your stream again. #silencio!"
+    destroy: 
+      failure: "I couldn't stop ignoring that user.  #evasion"
+      success: "Let's see what they have to say! #sayhello"
   bookmarklet: 
     explanation: "Skriv indlæg på Diaspora fra hvor som helst ved at bookmarke %{link}."
     explanation_link_text: "dette link"
@@ -234,7 +241,7 @@ da:
     new: 
       abandon_changes: "Opgiv ændringer?"
       send: "Send"
-      sending: "Sender..."
+      sending: Sender...
       subject: "emne"
       to: "til"
     new_message: 
@@ -242,14 +249,14 @@ da:
     show: 
       delete: "slet og bloker samtalen"
       reply: "Svar"
-      replying: "Svarer..."
+      replying: Svarer...
   date: 
     formats: 
       birthday: "%d %B"
       birthday_with_year: "%d %B %Y"
       fullmonth_day: "%d %B"
   delete: "Slet"
-  email: "E-mail"
+  email: E-mail
   error_messages: 
     helper: 
       correct_the_following_errors_and_try_again: "Ret følgende fejl og prøv igen."
@@ -507,6 +514,7 @@ da:
     show: 
       does_not_exist: "Personen findes ikke!"
       has_not_shared_with_you_yet: "%{name} har ikke delt nogen indlæg med dig endnu!"
+      ignoring: "You are ignoring all posts from %{name}."
       incoming_request: "%{name} vil gerne dele med dig."
       mention: "Nævn"
       message: "Besked"
@@ -559,16 +567,13 @@ da:
     update: 
       error: "Kunne ikke redigere billede."
       notice: "Billedet blev opdateret."
-  post_visibilites: 
-    update: 
-      post_hidden_and_muted: "%{name}s indlæg er blevet skjult, og meddelelser er blevet dæmpet."
-      see_it_on_their_profile: "Hvis du ønsker at se opdateringer om dette indlæg, kan du besøge %{name}s profil side."
   posts: 
     show: 
       destroy: "Slet"
       not_found: "Vi kunne desværre ikke finde dette indlæg."
       permalink: "permalink"
   previous: "Forrige"
+  privacy: "Privacy"
   profile: "Profil"
   profiles: 
     edit: 
@@ -607,7 +612,7 @@ da:
       edit: "Redigér %{name}"
       leave_blank: "(Lad være tom hvis du ikke ønsker at ændre det)"
       password_to_confirm: "(Vi har brug for din nuværende adgangskode for at bekræfte dine ændringer)"
-      unhappy: "Ulykkelig?"
+      unhappy: Ulykkelig?
       update: "Opdatér"
     new: 
       create_my_account: "Opret min konto"
@@ -637,7 +642,7 @@ da:
       existing: "Eksisterende kontaktpersoner"
       manage_within: "Administrér kontaktpersoner indenfor"
     new_request_to_person: 
-      sent: "afsendt!"
+      sent: afsendt!
   reshares: 
     comment_email_subject: "%{resharer}s deling af %{author}s indlæg"
     create: 
@@ -685,11 +690,15 @@ da:
       not_on_diaspora: "Endnu ikke på diaspora"
       resend: "Send igen"
   settings: "Indstillinger"
+  share_visibilites: 
+    update: 
+      post_hidden_and_muted: "%{name}'s post has been hidden, and notifications have been muted."
+      see_it_on_their_profile: "If you want to see updates on this post, visit %{name}'s profile page."
   shared: 
     add_contact: 
       add_new_contact: "Tilføj en ny kontakt"
       create_request: "Find med Diaspora ID"
-      diaspora_handle: "diaspora@pod.org"
+      diaspora_handle: diaspora@pod.org
       enter_a_diaspora_username: "Indtast et Diaspora handle:"
       know_email: "Kender du deres e-mail addresse? Du burde invitere dem"
       your_diaspora_username_is: "Dit Diaspora handle er: %{diaspora_handle}"
@@ -737,7 +746,7 @@ da:
         i_like: "Jeg interesserer mig for %{tags}."
         invited_by: "Thanks for the invite, "
       post_a_message_to: "Send en besked til %{aspect}"
-      posting: "Sender..."
+      posting: Sender...
       publishing_to: "del med: "
       share: "Del"
       share_with: "Del med"
@@ -750,6 +759,8 @@ da:
       currently_unavailable: "Det er i øjeblikket ikke muligt at kommentere"
       dislike: "Synes ikke om"
       hide_and_mute: "Skjul indlæg og kommentarer"
+      ignore_user: "Ignore %{name}"
+      ignore_user_description: "Ignore and remove user from all aspects?"
       like: "Synes om"
       shared_with: "Delt med: %{aspect_names}"
       unlike: "Synes ikke om"
@@ -830,7 +841,7 @@ da:
       typical_userpage: "En typisk cubbi.es brugerside"
       via: "(via %{link})"
       what_is_cubbies: "Cubbi.es er verdens første Diaspora applikation. Det er også den bedste måde at samle billeder på nettet."
-  undo: "Fortryd?"
+  undo: Fortryd?
   username: "Brugernavn"
   users: 
     confirm_email: 
@@ -871,9 +882,9 @@ da:
       hashtag_explanation: "Hashtags giver dig mulighed for at tale om og følge dine interesser. De er også en fantastisk måde at finde nye folk på diaspora."
       hashtag_suggestions: "Prøv med følgende tags som #kunst, #film, #gif, osv."
       hooking_up_fb: "forbind din Facebook-konto"
-      saved: "Gemt!"
+      saved: Gemt!
       we_can_speed_things_up: "Vi kan gøre det hele lidt hurtigere ved at"
-      well_hello_there: "Hejsa!"
+      well_hello_there: Hejsa!
       what_are_you_in_to: "Hvad er dine interesser?"
       what_facebook_does: "til diaspora. Dette vil hente dit navn og foto, samt gøre det muligt at skrive indlæg på tværs af platforme."
       who_are_you: "Hvem er du?"
@@ -883,6 +894,10 @@ da:
       signed_out: "Du er logget ud af Diaspora*"
       simply_visit: "Du skal blot besøge"
       works_on_modern: "Virker på alle moderne smartphones"
+    privacy_settings: 
+      ignored_users: "Ignored Users"
+      stop_ignoring: "Stop ignoring"
+      title: "Privacy Settings"
     public: 
       does_not_exist: "Brugeren %{username} findes ikke!"
     update: 
@@ -901,4 +916,4 @@ da:
     no_person_constructed: "Ingen person kunne konstrueres fra dette hcard."
     not_enabled: "det ser ikke ud til at webfinger er aktiveret på %{account}s domæne"
     xrd_fetch_failed: "der opstod en fejl i forbindelse med hentning af xrd fra kontoen %{account}"
-  welcome: "Velkommen!"
+  welcome: Velkommen!

@@ -5,12 +5,12 @@
 
 pa: 
   _applications: "Applications"
-  _comments: "ਟਿੱਪਣੀਆਂ"
-  _contacts: "ਸੰਪਰਕ"
+  _comments: ਟਿੱਪਣੀਆਂ
+  _contacts: ਸੰਪਰਕ
   _home: "ਘਰ"
-  _photos: "ਫੋਟੋ"
-  _services: "ਸਰਵਿਸਾਂ"
-  account: "ਅਕਾਊਂਟ"
+  _photos: ਫੋਟੋ
+  _services: ਸਰਵਿਸਾਂ
+  account: ਅਕਾਊਂਟ
   activerecord: 
     errors: 
       models: 
@@ -83,14 +83,14 @@ pa:
       done: "Done"
       make_aspect_list_visible: "make aspect list visible to others in aspect"
       remove_aspect: "Delete this aspect"
-      rename: "ਨਾਂ-ਬਦਲੋ"
+      rename: ਨਾਂ-ਬਦਲੋ
       update: "update"
       updating: "updating"
     few: "%{count} aspects"
     helper: 
       are_you_sure: "Are you sure you want to delete this aspect?"
       aspect_not_empty: "Aspect not empty"
-      remove: "ਹਟਾਓ"
+      remove: ਹਟਾਓ
     index: 
       cubbies: 
         explanation: "Cubbi.es is the first Diaspora application under development."
@@ -147,9 +147,9 @@ pa:
     other: "%{count} aspects"
     seed: 
       acquaintances: "Acquaintances"
-      family: "ਪਰਿਵਾਰ"
+      family: ਪਰਿਵਾਰ
       friends: "Friends"
-      work: "ਕੰਮ"
+      work: ਕੰਮ
     selected_contacts: 
       manage_your_aspects: "Manage your aspects."
       no_contacts: "You don't have any contacts here yet."
@@ -166,7 +166,14 @@ pa:
     index: 
       no_applications: "You haven't registered any applications yet."
       revoke_access: "Revoke Access"
-  back: "ਪਿੱਛੇ"
+  back: ਪਿੱਛੇ
+  blocks: 
+    create: 
+      failure: "I couldn't ignore that user.  #evasion"
+      success: "Alright, you won't see that user in your stream again. #silencio!"
+    destroy: 
+      failure: "I couldn't stop ignoring that user.  #evasion"
+      success: "Let's see what they have to say! #sayhello"
   bookmarklet: 
     explanation: "%{link} from anywhere by bookmarking this link."
     explanation_link_text: "Post to Diaspora"
@@ -178,7 +185,7 @@ pa:
     few: "%{count} comments"
     many: "%{count} comments"
     new_comment: 
-      comment: "ਟਿੱਪਣੀ"
+      comment: ਟਿੱਪਣੀ
       commenting: "ਟਿੱਪਣੀ ਕੀਤੀ ਜਾ ਰਹੀ ਹੈ..."
     one: "1 comment"
     other: "%{count} comments"
@@ -234,7 +241,7 @@ pa:
     new: 
       abandon_changes: "Abandon changes?"
       send: "Send"
-      sending: "Sending..."
+      sending: Sending...
       subject: "subject"
       to: "to"
     new_message: 
@@ -242,14 +249,14 @@ pa:
     show: 
       delete: "delete and block conversation"
       reply: "reply"
-      replying: "Replying..."
+      replying: Replying...
   date: 
     formats: 
       birthday: "%B %d"
       birthday_with_year: "%B %d %Y"
       fullmonth_day: "%B %d"
-  delete: "ਹਟਾਓ"
-  email: "ਈਮੇਲ"
+  delete: ਹਟਾਓ
+  email: ਈਮੇਲ
   error_messages: 
     helper: 
       correct_the_following_errors_and_try_again: "Correct the following errors and try again."
@@ -306,10 +313,10 @@ pa:
       your_aspects: "your aspects"
     header: 
       admin: "admin"
-      blog: "ਬਲੌਗ"
-      code: "ਕੋਡ"
-      login: "ਲਾਗਇਨ"
-      logout: "ਲਾਗਆਉਟ"
+      blog: ਬਲੌਗ
+      code: ਕੋਡ
+      login: ਲਾਗਇਨ
+      logout: ਲਾਗਆਉਟ
       profile: "profile"
       recent_notifications: "Recent notifications"
       settings: "settings"
@@ -338,8 +345,8 @@ pa:
         two: "%{count} likes"
         zero: "no likes"
   limited: "Limited"
-  more: "ਹੋਰ"
-  next: "ਅੱਗੇ"
+  more: ਹੋਰ
+  next: ਅੱਗੇ
   no_results: "No Results Found"
   notifications: 
     also_commented: 
@@ -410,7 +417,7 @@ pa:
       other: "%{actors} mentioned you in a deleted post."
       two: "%{actors} mentioned you in a deleted post."
       zero: "%{actors} mentioned you in a deleted post."
-    post: "ਪੋਸਟ"
+    post: ਪੋਸਟ
     private_message: 
       few: "%{actors} sent you a message."
       many: "%{actors} sent you a message."
@@ -470,8 +477,8 @@ pa:
     thanks: "Thanks,"
     to_change_your_notification_settings: "to change your notification settings"
   ok: "ਠੀਕ ਹੈ"
-  or: "ਜਾਂ"
-  password: "ਪਾਸਵਰਡ"
+  or: ਜਾਂ
+  password: ਪਾਸਵਰਡ
   password_confirmation: "ਪਾਸਵਰਡ ਪੁਸ਼ਟੀ"
   people: 
     add_contact_small: 
@@ -507,6 +514,7 @@ pa:
     show: 
       does_not_exist: "Person does not exist!"
       has_not_shared_with_you_yet: "%{name} has not shared any posts with you yet!"
+      ignoring: "You are ignoring all posts from %{name}."
       incoming_request: "%{name} wants to share with you"
       mention: "Mention"
       message: "Message"
@@ -559,16 +567,13 @@ pa:
     update: 
       error: "Failed to edit photo."
       notice: "Photo successfully updated."
-  post_visibilites: 
-    update: 
-      post_hidden_and_muted: "%{name}'s post has been hidden, and notifications have been muted."
-      see_it_on_their_profile: "If you want to see updates on this post, visit %{name}'s profile page."
   posts: 
     show: 
       destroy: "Delete"
       not_found: "Sorry, we couldn't find that post."
       permalink: "permalink"
-  previous: "ਪਿੱਛੇ"
+  previous: ਪਿੱਛੇ
+  privacy: "Privacy"
   profile: "Profile"
   profiles: 
     edit: 
@@ -608,7 +613,7 @@ pa:
       leave_blank: "(leave blank if you don't want to change it)"
       password_to_confirm: "(we need your current password to confirm your changes)"
       unhappy: "ਖੁਸ਼ ਨਹੀਂ?"
-      update: "ਅੱਪਡੇਟ"
+      update: ਅੱਪਡੇਟ
     new: 
       create_my_account: "Create my account"
       enter_email: "ਈਮੇਲ ਦਿਓ"
@@ -637,7 +642,7 @@ pa:
       existing: "Existing contacts"
       manage_within: "Manage contacts within"
     new_request_to_person: 
-      sent: "ਭੇਜਿਆ!"
+      sent: ਭੇਜਿਆ!
   reshares: 
     comment_email_subject: "%{resharer}'s reshare of %{author}'s post"
     create: 
@@ -655,7 +660,7 @@ pa:
       reshare_original: "Reshare orignial"
       reshared_via: "reshared via"
       show_original: "Show Original"
-  search: "ਖੋਜ"
+  search: ਖੋਜ
   services: 
     create: 
       already_authorized: "A user with diaspora id %{diaspora_id} already authorized that %{service_name} account."
@@ -681,15 +686,19 @@ pa:
       click_link_to_accept_invitation: "Click this link to accept your invitation"
       join_me_on_diaspora: "Join me on DIASPORA*"
     remote_friend: 
-      invite: "ਸੱਦਾ"
+      invite: ਸੱਦਾ
       not_on_diaspora: "Not yet on Diaspora"
-      resend: "ਮੁੜ-ਭੇਜੋ"
+      resend: ਮੁੜ-ਭੇਜੋ
   settings: "Settings"
+  share_visibilites: 
+    update: 
+      post_hidden_and_muted: "%{name}'s post has been hidden, and notifications have been muted."
+      see_it_on_their_profile: "If you want to see updates on this post, visit %{name}'s profile page."
   shared: 
     add_contact: 
       add_new_contact: "Add a new contact"
       create_request: "Find by Diaspora handle"
-      diaspora_handle: "diaspora@handle.org"
+      diaspora_handle: diaspora@handle.org
       enter_a_diaspora_username: "Enter a Diaspora username:"
       know_email: "Know their email address? You should invite them"
       your_diaspora_username_is: "Your Diaspora username is: %{diaspora_handle}"
@@ -750,6 +759,8 @@ pa:
       currently_unavailable: "commenting currently unavailable"
       dislike: "I dislike this"
       hide_and_mute: "Hide and Mute"
+      ignore_user: "Ignore %{name}"
+      ignore_user_description: "Ignore and remove user from all aspects?"
       like: "I like this"
       shared_with: "Shared with: %{aspect_names}"
       unlike: "Unlike"
@@ -830,7 +841,7 @@ pa:
       typical_userpage: "A typical cubbi.es userpage"
       via: "(via %{link})"
       what_is_cubbies: "Cubbi.es is the world's first Diaspora application.  It's also the best way to collect photos online."
-  undo: "Undo?"
+  undo: Undo?
   username: "ਯੂਜ਼ਰ ਨਾਂ"
   users: 
     confirm_email: 
@@ -871,7 +882,7 @@ pa:
       hashtag_explanation: "Hashtags allow you to talk about and follow your interests.  They're also a great way to find new people on Diaspora."
       hashtag_suggestions: "Try following tags like #art, #movies, #gif, etc."
       hooking_up_fb: "hooking up your Facebook account"
-      saved: "Saved!"
+      saved: Saved!
       we_can_speed_things_up: "We can speed things up a bit by"
       well_hello_there: "Well, hello there!"
       what_are_you_in_to: "What are you into?"
@@ -883,6 +894,10 @@ pa:
       signed_out: "You've signed out of Diaspora*"
       simply_visit: "Simply visit"
       works_on_modern: "Works on all modern smartphones"
+    privacy_settings: 
+      ignored_users: "Ignored Users"
+      stop_ignoring: "Stop ignoring"
+      title: "Privacy Settings"
     public: 
       does_not_exist: "User %{username} does not exist!"
     update: 
@@ -901,4 +916,4 @@ pa:
     no_person_constructed: "No person could be constructed from this hcard."
     not_enabled: "webfinger does not seem to be enabled for %{account}'s host"
     xrd_fetch_failed: "there was an error getting the xrd from account %{account}"
-  welcome: "Welcome!"
+  welcome: Welcome!

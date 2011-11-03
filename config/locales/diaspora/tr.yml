@@ -35,7 +35,7 @@ tr:
             email: 
               taken: "önceden alınmış."
             person: 
-              invalid: "geçersiz."
+              invalid: geçersiz.
             username: 
               invalid: "geçersiz. Sadece harf,sayı ve alt çizgi"
               taken: "önceden alınmış."
@@ -167,6 +167,13 @@ tr:
       no_applications: "Henüz kayıtlı bir uygulama yok."
       revoke_access: "Erişimi Kaldır"
   back: "Geri"
+  blocks: 
+    create: 
+      failure: "I couldn't ignore that user.  #evasion"
+      success: "Alright, you won't see that user in your stream again. #silencio!"
+    destroy: 
+      failure: "I couldn't stop ignoring that user.  #evasion"
+      success: "Let's see what they have to say! #sayhello"
   bookmarklet: 
     explanation: "%{link} yer imleri çubuğuna sürükleyin."
     explanation_link_text: "Diaspoara Gönder"
@@ -179,7 +186,7 @@ tr:
     many: "%{count} yorum"
     new_comment: 
       comment: "Yorum yaz"
-      commenting: "Yorumlanıyor..."
+      commenting: Yorumlanıyor...
     one: "1 yorum"
     other: "%{count} yorum"
     two: "%{count} yorum"
@@ -234,7 +241,7 @@ tr:
     new: 
       abandon_changes: "Değişiklikler silinsin mi?"
       send: "Gönder"
-      sending: "Gönderiliyor..."
+      sending: Gönderiliyor...
       subject: "konu"
       to: "kime"
     new_message: 
@@ -242,14 +249,14 @@ tr:
     show: 
       delete: "iletişimi sil ya da engelle"
       reply: "yanıtla"
-      replying: "Yanıtlanıyor..."
+      replying: Yanıtlanıyor...
   date: 
     formats: 
       birthday: "%B %d"
       birthday_with_year: "%B %d %Y"
       fullmonth_day: "%B %d"
   delete: "Sil"
-  email: "E-posta"
+  email: E-posta
   error_messages: 
     helper: 
       correct_the_following_errors_and_try_again: "Alttaki yanlıșları düzeltin ve tekrar deneyin."
@@ -270,7 +277,7 @@ tr:
       simplicity: "Sadelik"
       simplicity_explanation: "Diaspora, sadeliğe,kolay paylaşıma ve gizliliklere önem verir. Doğal olarak özeldir, Diaspora Java ayarları sayfalarıyla saklama yapmaz.Bu yüzden güvenlidir."
       tagline_first_half: "İstediğiniz ne ise paylaşın,"
-      tagline_second_half: "istediğiniz."
+      tagline_second_half: istediğiniz.
   invitations: 
     a_facebook_user: "Bir Facebook kullanıcısı"
     check_token: 
@@ -507,6 +514,7 @@ tr:
     show: 
       does_not_exist: "Kişi yok!"
       has_not_shared_with_you_yet: "%{name} seninle henüz bir şey paylaşmamış!"
+      ignoring: "You are ignoring all posts from %{name}."
       incoming_request: "You have an incoming request from this person."
       mention: "Bahset"
       message: "Mesaj"
@@ -538,7 +546,7 @@ tr:
     new: 
       back_to_list: "Listeye geri dön"
       new_photo: "Yeni Fotoğraf"
-      post_it: "gönder!"
+      post_it: gönder!
     new_photo: 
       empty: "{file} boş bir dosya, bu olmadan dosyaları tekrar seçin."
       invalid_ext: "{file} geçersiz uzantıya sahip. sadece {extensions} uzantılarına izin verilir."
@@ -559,16 +567,13 @@ tr:
     update: 
       error: "Fotoğraf düzeltme başarısız oldu."
       notice: "Fotoğraf başarıyla güncellendi."
-  post_visibilites: 
-    update: 
-      post_hidden_and_muted: "%{name} kişisinin gönderileri gizlendi, bildirim alımı durduruldu."
-      see_it_on_their_profile: "Bu gönderiye yapılan güncellemeleri görmek istiyorsan, %{name} kişisinin profilini ziyaret et."
   posts: 
     show: 
       destroy: "Sil"
       not_found: "Üzgünüz, bu gönderi bulamadı."
       permalink: "kalıcı bağlantı"
   previous: "önceki"
+  privacy: "Privacy"
   profile: "Profil"
   profiles: 
     edit: 
@@ -607,7 +612,7 @@ tr:
       edit: "Düzenle %{name}"
       leave_blank: "(Eğer değiştirmek istemiyorsanız boş bırakın.)"
       password_to_confirm: "(Değişikliklerin onaylanması için şu anki parolanız gerekmektedir)"
-      unhappy: "Mutsuz?"
+      unhappy: Mutsuz?
       update: "Güncelle"
     new: 
       create_my_account: "Hesabımı oluştur!"
@@ -619,7 +624,7 @@ tr:
       sign_up_message: "Sosyal Ağ <3"
   requests: 
     create: 
-      sending: "Gönderiliyor..."
+      sending: Gönderiliyor...
       sent: "You've asked to share with %{name}.  They should see it next time they log in to Diaspora."
     destroy: 
       error: "Lütfen bir yön seçiniz!"
@@ -637,7 +642,7 @@ tr:
       existing: "Mevcut rehber"
       manage_within: "Kişileri yönetin"
     new_request_to_person: 
-      sent: "yollandı!"
+      sent: yollandı!
   reshares: 
     comment_email_subject: "%{resharer}, %{author} kişisinin gönderisini tekrar paylaştı"
     create: 
@@ -685,11 +690,15 @@ tr:
       not_on_diaspora: "Henüz Diaspora'da değil"
       resend: "tekrar gönder"
   settings: "Ayarlar"
+  share_visibilites: 
+    update: 
+      post_hidden_and_muted: "%{name}'s post has been hidden, and notifications have been muted."
+      see_it_on_their_profile: "If you want to see updates on this post, visit %{name}'s profile page."
   shared: 
     add_contact: 
       add_new_contact: "Yeni kişi ekle"
       create_request: "Diaspora ID ile bul"
-      diaspora_handle: "diaspora@pod.org"
+      diaspora_handle: diaspora@pod.org
       enter_a_diaspora_username: "Diaspora kullanıcı adınızı giriniz:"
       know_email: "E-posta adresini biliyor musun? O zaman onu davet et"
       your_diaspora_username_is: "Diaspora kullanıcı adın: %{diaspora_handle}"
@@ -710,7 +719,7 @@ tr:
     invitations: 
       by_email: "E-posta ile"
       dont_have_now: "Şu an davetiyen yok, ama yakında gelir!"
-      from_facebook: "Facebook'dan"
+      from_facebook: Facebook'dan
       invitations_left: "%{count} kaldı"
       invite_someone: "Birisini davet et"
       invite_your_friends: "Arkadaşlarını davet et"
@@ -737,7 +746,7 @@ tr:
         i_like: "I'm interested in %{tags}."
         invited_by: "Thanks for the invite, "
       post_a_message_to: "%{aspect} yönüne mesaj gönder "
-      posting: "Gönderiliyor..."
+      posting: Gönderiliyor...
       publishing_to: "buraya yayınlanıyor:"
       share: "Paylaş"
       share_with: "paylaş"
@@ -750,6 +759,8 @@ tr:
       currently_unavailable: "yorum kullanılamıyor"
       dislike: "Beğenme"
       hide_and_mute: "Gizle"
+      ignore_user: "Ignore %{name}"
+      ignore_user_description: "Ignore and remove user from all aspects?"
       like: "Beğen"
       shared_with: "%{aspect_names} ile paylaşıldı"
       unlike: "Beğenme"
@@ -863,7 +874,7 @@ tr:
       show_getting_started: "Başlarken etkin"
       started_sharing: "...birisi benimle birşey paylaştığında?"
       stream_preferences: "Akış Tercihleri"
-      your_email: "E-posta"
+      your_email: E-posta
       your_handle: "Diaspora ID"
     getting_started: 
       awesome_take_me_to_diaspora: "Harika! Diaspora* Git"
@@ -871,9 +882,9 @@ tr:
       hashtag_explanation: "Etiketler, hakkında konuşmak ve ilgi alanlarını takip etmenize izin verir. Ayrıca yeni insanları Diaspora üzerinde bulmak için harika bir yoldur."
       hashtag_suggestions: "Sevdiğiniz etiketleri takip etmeyi denyin #resim, #film, #gif, vb."
       hooking_up_fb: "Facebook hesabıza bağlanın"
-      saved: "Kaydedildi!"
+      saved: Kaydedildi!
       we_can_speed_things_up: "Biz şeyler için biraz hız"
-      well_hello_there: "Merhaba!"
+      well_hello_there: Merhaba!
       what_are_you_in_to: "What are you into?"
       what_facebook_does: "Diaspora için. Bu adınızı girin ve fotoğrafınızı çekin."
       who_are_you: "Sen kimsin?"
@@ -883,6 +894,10 @@ tr:
       signed_out: "Diaspora'dan çıkış yaptınız*"
       simply_visit: "Basitçe ziyaret"
       works_on_modern: "Tüm modern akıllı telefonlarda çalışır"
+    privacy_settings: 
+      ignored_users: "Ignored Users"
+      stop_ignoring: "Stop ignoring"
+      title: "Privacy Settings"
     public: 
       does_not_exist: "%{username} kullanıcısı bulunmamaktadır!"
     update: 

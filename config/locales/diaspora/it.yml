@@ -103,7 +103,7 @@ it:
       donate: "Fai una donazione"
       handle_explanation: "Questo è il tuo ID su Diaspora. Lo puoi dare alle persone per farti trovare, come un indirizzo email."
       help: 
-        do_you: "Vuoi..."
+        do_you: Vuoi...
         email_feedback: "Se preferisci, manda un feedback via %{link}"
         feature_suggestion: "...proporre un'idea? %{link}"
         find_a_bug: "...segnalare un problema? %{link}"
@@ -111,13 +111,13 @@ it:
         here_to_help: "La comunità di Diaspora è qui!"
         need_help: "Hai bisogno di aiuto?"
         satisfaction: "%{link}: Per avere supporto dalla comunità"
-        tutorials_wiki_and_forum: "%{tutorial} & %{wiki} & %{forum}: Community-powered tutorials, how-to, and news"
+        tutorials_wiki_and_forum: "%{tutorial} & %{wiki} & %{forum}: Per le ultime notizie, le guide e i suggerimenti della comunità"
       introduce_yourself: "Questo è il tuo stream. Sali a bordo e presentati!"
       keep_us_running: "Mantieni %{pod} veloce e scattante, la tua donazione mensile sarà il caffè per i nostri server!"
       new_here: 
-        follow: "Follow %{link} and welcome new users to Diaspora*!"
-        learn_more: "Learn more"
-        title: "Welcome New Users"
+        follow: "Segui %{link} per dare il benvenuto ai nuovi iscritti su Diaspora*!"
+        learn_more: "Scopri i dettagli"
+        title: "Saluta i nuovi arrivati"
       no_contacts: "Nessun contatto"
       no_tags: "+ Cerca tag da seguire"
       people_sharing_with_you: "Persone in condivisione con te"
@@ -167,6 +167,13 @@ it:
       no_applications: "Non hai ancora autorizzato nessuna applicazione."
       revoke_access: "Revoca l'autorizzazione"
   back: "Indietro"
+  blocks: 
+    create: 
+      failure: "I couldn't ignore that user.  #evasion"
+      success: "Alright, you won't see that user in your stream again. #silencio!"
+    destroy: 
+      failure: "I couldn't stop ignoring that user.  #evasion"
+      success: "Let's see what they have to say! #sayhello"
   bookmarklet: 
     explanation: "Condividi su Diaspora in qualsiasi momento aggiungendo come segnalibro %{link}."
     explanation_link_text: "questo link"
@@ -291,7 +298,7 @@ it:
       comma_seperated_plz: "Puoi inserire più indirizzi email separati da virgole."
       if_they_accept_info: "se loro accettano, saranno aggiunti all'aspetto in cui li hai invitati."
       invite_someone_to_join: "Invita qualcuno ad entrare in Diaspora!"
-      language: "Language"
+      language: "Lingua"
       personal_message: "Messaggio privato"
       resend: "Invia di nuovo"
       send_an_invitation: "Invia un invito"
@@ -507,6 +514,7 @@ it:
     show: 
       does_not_exist: "La persona non esiste!"
       has_not_shared_with_you_yet: "%{name} non ha ancora condiviso nessun post con te!"
+      ignoring: "You are ignoring all posts from %{name}."
       incoming_request: "%{name} vuole condividere con te"
       mention: "Menziona"
       message: "Messaggio"
@@ -538,7 +546,7 @@ it:
     new: 
       back_to_list: "Torna all'elenco"
       new_photo: "Nuova foto"
-      post_it: "condividi!"
+      post_it: condividi!
     new_photo: 
       empty: "{file} è vuoto, per favore seleziona di nuovo i file senza di esso."
       invalid_ext: "{file} ha un'estensione non valida. Sono permesse soltanto {extensions}."
@@ -559,16 +567,13 @@ it:
     update: 
       error: "Modifica della foto fallita."
       notice: "Foto aggiornata con successo."
-  post_visibilites: 
-    update: 
-      post_hidden_and_muted: "Il post di %{name} è stato nascosto e le notifiche disattivate."
-      see_it_on_their_profile: "Se vuoi vedere i nuovi commenti su questo post, visita il profilo di %{name}."
   posts: 
     show: 
       destroy: "Elimina"
       not_found: "Ci scusiamo, non possiamo trovare il post."
       permalink: "permalink"
   previous: "precedente"
+  privacy: "Privacy"
   profile: "Profilo"
   profiles: 
     edit: 
@@ -607,7 +612,7 @@ it:
       edit: "Modifica %{name}"
       leave_blank: "(lascialo bianco se non vuoi modificarlo)"
       password_to_confirm: "(abbiamo bisogno della tua password attuale per confermare le tue modifiche)"
-      unhappy: "Triste?"
+      unhappy: Triste?
       update: "Aggiorna"
     new: 
       create_my_account: "Crea il mio account!"
@@ -685,11 +690,15 @@ it:
       not_on_diaspora: "Non ancora su Diaspora"
       resend: "reinvia"
   settings: "Impostazioni"
+  share_visibilites: 
+    update: 
+      post_hidden_and_muted: "%{name}'s post has been hidden, and notifications have been muted."
+      see_it_on_their_profile: "If you want to see updates on this post, visit %{name}'s profile page."
   shared: 
     add_contact: 
       add_new_contact: "Aggiungi un nuovo contatto"
       create_request: "Cerca per ID"
-      diaspora_handle: "diaspora@pod.org"
+      diaspora_handle: diaspora@pod.org
       enter_a_diaspora_username: "Inserisci un nome utente Diaspora"
       know_email: "Conosci i loro indirizzi email? Dovresti invitarli"
       your_diaspora_username_is: "Il tuo ID è: %{diaspora_handle}"
@@ -735,7 +744,7 @@ it:
       new_user_prefill: 
         hello: "Ciao a tutti, eccomi qui! Hey everyone, I'm #%{new_user_tag}"
         i_like: "I miei interessi sono %{tags}."
-        invited_by: "Thanks for the invite, "
+        invited_by: "Grazie per l'invito, "
       post_a_message_to: "Invia un messaggio a %{aspect}"
       posting: "Invio in corso..."
       publishing_to: "stai condividendo con: "
@@ -750,6 +759,8 @@ it:
       currently_unavailable: "al momento non è possibile commentare"
       dislike: "Non mi piace"
       hide_and_mute: "Nascondi e disattiva le notifiche"
+      ignore_user: "Ignore %{name}"
+      ignore_user_description: "Ignore and remove user from all aspects?"
       like: "Mi piace"
       shared_with: "Condiviso con: %{aspect_names}"
       unlike: "Annulla"
@@ -804,10 +815,10 @@ it:
   tag_followings: 
     create: 
       failure: "Errore nel tentativo di seguire: #%{name}. Lo stai già seguendo?"
-      success: "Fantastico! Hai iniziato a seguire: #%{name}"
+      success: "Fantastico! Hai iniziato a seguire #%{name}."
     destroy: 
-      failure: "Non è stato possibile smettere di seguire: #%{name}"
-      success: "Hai smesso di seguire: #%{name}"
+      failure: "Non è stato possibile smettere di seguire #%{name}. Avevi già smesso di seguirlo?"
+      success: "Peccato! Hai appena smesso di seguire #%{name}."
   tags: 
     show: 
       follow: "Segui #%{tag}"
@@ -830,7 +841,7 @@ it:
       typical_userpage: "Una tipica pagina utente di cubbi.es"
       via: "(via %{link})"
       what_is_cubbies: "Cubbi.es è la prima applicazione Diaspora nel mondo.  E' anche il miglior modo di raccogliere le foto online."
-  undo: "Annullare?"
+  undo: Annullare?
   username: "Nome Utente"
   users: 
     confirm_email: 
@@ -871,9 +882,9 @@ it:
       hashtag_explanation: "I tag ti permettono di parlare dei tuoi interessi e di seguirli. Sono anche un ottimo sistema per trovare nuove persone su Diaspora."
       hashtag_suggestions: "Prova a seguire tag tipo #art, #movies, #gif, ecc."
       hooking_up_fb: "abbinando il tuo account Facebook"
-      saved: "Salvato!"
+      saved: Salvato!
       we_can_speed_things_up: "Possiamo velocizzare le cose"
-      well_hello_there: "Ciao!"
+      well_hello_there: Ciao!
       what_are_you_in_to: "Di cosa ti interessi?"
       what_facebook_does: "a Diaspora. Così scaricherai nome e foto, oltre ad abilitare l'invio dei post anche verso l'altro social network."
       who_are_you: "Chi sei?"
@@ -883,6 +894,10 @@ it:
       signed_out: "Hai appena lasciato Diaspora*"
       simply_visit: "Visita semplicemente"
       works_on_modern: "Funziona su tutti i moderni smartphone"
+    privacy_settings: 
+      ignored_users: "Ignored Users"
+      stop_ignoring: "Stop ignoring"
+      title: "Privacy Settings"
     public: 
       does_not_exist: "L'utente %{username} non esiste!"
     update: 
@@ -901,4 +916,4 @@ it:
     no_person_constructed: "Non si può risalire a neanche una persona da questa hcard."
     not_enabled: "webfinger non attivo sull'host di %{account}"
     xrd_fetch_failed: "impossibile recuperare il xrd dall'account %{account}"
-  welcome: "Benvenuto!"
+  welcome: Benvenuto!

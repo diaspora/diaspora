@@ -167,6 +167,13 @@ sk:
       no_applications: "Ešte ste nezaregistrovali žiadne aplikácie."
       revoke_access: "Zamedziť prístup"
   back: "Späť"
+  blocks: 
+    create: 
+      failure: "I couldn't ignore that user.  #evasion"
+      success: "Alright, you won't see that user in your stream again. #silencio!"
+    destroy: 
+      failure: "I couldn't stop ignoring that user.  #evasion"
+      success: "Let's see what they have to say! #sayhello"
   bookmarklet: 
     explanation: "Píšte na Diasporu z hocikiaľ tak, že si pridáte do záložiek odkaz %{link}."
     explanation_link_text: "tento odkaz"
@@ -249,7 +256,7 @@ sk:
       birthday_with_year: "%e. %B %Y"
       fullmonth_day: "%e. %B "
   delete: "Zmazať"
-  email: "E-mail"
+  email: E-mail
   error_messages: 
     helper: 
       correct_the_following_errors_and_try_again: "Opravte nasledujúce chyby a skúste znova."
@@ -440,7 +447,7 @@ sk:
       two: "%{actors} sa začali s vami deliť o rôzne veci."
       zero: "%{actors} sa s vami začalo deliť o rôzne veci."
   notifier: 
-    a_post_you_shared: "príspevok."
+    a_post_you_shared: príspevok.
     click_here: "Kliknite sem"
     comment_on_post: 
       reply: "Zobraziť príspevok použ. %{name} alebo naň odpovedať >"
@@ -507,6 +514,7 @@ sk:
     show: 
       does_not_exist: "Osoba neexistuje!"
       has_not_shared_with_you_yet: "%{name} sa s vami ešte nepodelil(a) o žiadne príspevky!"
+      ignoring: "You are ignoring all posts from %{name}."
       incoming_request: "%{name} sa s vami chce o niečo podeliť"
       mention: "Zmienka"
       message: "Správa"
@@ -559,16 +567,13 @@ sk:
     update: 
       error: "Nepodarilo sa upraviť fotku."
       notice: "Fotka bola úspešne aktualizovaná."
-  post_visibilites: 
-    update: 
-      post_hidden_and_muted: "Príspevok použ. %{name} sa skryl a oznamy boli vypnuté."
-      see_it_on_their_profile: "Ak chcete vidieť aktualizácie tohto príspevku, navštívte stránku s profilom použ. %{name}."
   posts: 
     show: 
       destroy: "Odstrániť"
       not_found: "Prepáčte, tento príspevok sa nepodarilo nájsť."
       permalink: "trvalý odkaz"
   previous: "Predchádzajúce"
+  privacy: "Privacy"
   profile: "Profil"
   profiles: 
     edit: 
@@ -607,7 +612,7 @@ sk:
       edit: "Upraviť %{name}"
       leave_blank: "(ak to nechcete zmeniť, nevypĺňajte, prosím, toto pole)"
       password_to_confirm: "(na potvrdenie zmien budeme potrebovať Vaše heslo)"
-      unhappy: "Nešťastný?"
+      unhappy: Nešťastný?
       update: "Aktualizovať"
     new: 
       create_my_account: "Založte si účet!"
@@ -637,7 +642,7 @@ sk:
       existing: "Existujúce kontakty"
       manage_within: "Spravovať kontakty v"
     new_request_to_person: 
-      sent: "Poslané!"
+      sent: Poslané!
   reshares: 
     comment_email_subject: "%{resharer} sa znova podelil(a) o príspevok použ. %{author}"
     create: 
@@ -685,11 +690,15 @@ sk:
       not_on_diaspora: "Ešte nie je na Diaspore"
       resend: "preposlať"
   settings: "Nastavenia"
+  share_visibilites: 
+    update: 
+      post_hidden_and_muted: "%{name}'s post has been hidden, and notifications have been muted."
+      see_it_on_their_profile: "If you want to see updates on this post, visit %{name}'s profile page."
   shared: 
     add_contact: 
       add_new_contact: "Pridať nový kontakt"
       create_request: "Nájsť podľa ID na Diasporu"
-      diaspora_handle: "diaspora@pod.org"
+      diaspora_handle: diaspora@pod.org
       enter_a_diaspora_username: "Zadajte používateľské meno na Diasporu:"
       know_email: "Poznáte túto adresu? Môžete na ňu poslať pozvánku."
       your_diaspora_username_is: "Vaše používateľské meno na Diaspore je %{diaspora_handle}"
@@ -708,7 +717,7 @@ sk:
       logged_in_as: "prihlásili ste sa ako %{name}"
       your_aspects: "vaše kategórie"
     invitations: 
-      by_email: "E-mailom"
+      by_email: E-mailom
       dont_have_now: "Momentálne už nemáte žiadnu, ale ďalšie čoskoro prídu!"
       from_facebook: "Z Facebooku"
       invitations_left: "ostáva(jú) %{count} "
@@ -750,6 +759,8 @@ sk:
       currently_unavailable: "commenting currently unavailable"
       dislike: "Nepáči sa mi to"
       hide_and_mute: "Schovať a vypnúť"
+      ignore_user: "Ignore %{name}"
+      ignore_user_description: "Ignore and remove user from all aspects?"
       like: "Páči sa mi to"
       shared_with: "Zdieľa sa s kategóriami: %{aspect_names}"
       unlike: "Odznačiť"
@@ -871,7 +882,7 @@ sk:
       hashtag_explanation: "Hashtagy vám umožňujú hovoriť o tom, čo vás zaujíma a sledovať diskusie o takýchto veciach.   Je to aj skvelý spôsob, ako nájsť nových ľudí na Diaspore."
       hashtag_suggestions: "Skúste štítky ako napr. #art, #movies, #gif, atď."
       hooking_up_fb: "prepojíte svoj účet na Facebooku"
-      saved: "Uložené!"
+      saved: Uložené!
       we_can_speed_things_up: "Môžeme veci urýchliť, ak"
       well_hello_there: "Nuž, ahoj!"
       what_are_you_in_to: "Čo vás baví?"
@@ -883,6 +894,10 @@ sk:
       signed_out: "Odhlásili ste sa z Diaspory*"
       simply_visit: "Jednoducho navštívte"
       works_on_modern: "Funguje na všetkých moderných smartfónoch"
+    privacy_settings: 
+      ignored_users: "Ignored Users"
+      stop_ignoring: "Stop ignoring"
+      title: "Privacy Settings"
     public: 
       does_not_exist: "Používateľ %{username} neexistuje!"
     update: 
@@ -901,4 +916,4 @@ sk:
     no_person_constructed: "Žiadna osoba nemôže byť vytvorená z tejto hcard."
     not_enabled: "Zdá sa, že webfinger nie je povolený pre hostiteľa účtu %{account}"
     xrd_fetch_failed: "Pri získavaní xrd z účtu %{account} nastala chyba"
-  welcome: "Vitajte!"
+  welcome: Vitajte!

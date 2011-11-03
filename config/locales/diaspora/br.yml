@@ -167,6 +167,13 @@ br:
       no_applications: "You haven't registered any applications yet."
       revoke_access: "Revoke Access"
   back: "Distreiñ"
+  blocks: 
+    create: 
+      failure: "I couldn't ignore that user.  #evasion"
+      success: "Alright, you won't see that user in your stream again. #silencio!"
+    destroy: 
+      failure: "I couldn't stop ignoring that user.  #evasion"
+      success: "Let's see what they have to say! #sayhello"
   bookmarklet: 
     explanation: "%{link} adalek pep lec'h dre lakaat al liamm-se e-barzh ho sinedoù."
     explanation_link_text: "Embann e-barzh Diaspora"
@@ -226,7 +233,7 @@ br:
         zero: "kemenadenn nevez ebet"
     index: 
       create_a_new_message: "sevel ur gemennadenn nevez"
-      inbox: "Boest-lizhiri"
+      inbox: Boest-lizhiri
       message_inbox: "Message Inbox"
       new_message: "Kemennadenn Nevez"
       no_conversation_selected: "no conversation selected"
@@ -234,7 +241,7 @@ br:
     new: 
       abandon_changes: "Abandon changes?"
       send: "Kaset"
-      sending: "Sending..."
+      sending: Sending...
       subject: "sujed"
       to: "da"
     new_message: 
@@ -242,7 +249,7 @@ br:
     show: 
       delete: "delete and block conversation"
       reply: "respont"
-      replying: "Replying..."
+      replying: Replying...
   date: 
     formats: 
       birthday: "%B %d"
@@ -338,7 +345,7 @@ br:
         two: "%{count} likes"
         zero: "no likes"
   limited: "Limited"
-  more: "Muioc'h"
+  more: Muioc'h
   next: "next"
   no_results: "Disoc'h Ebet"
   notifications: 
@@ -471,7 +478,7 @@ br:
     to_change_your_notification_settings: "to change your notification settings"
   ok: "MAT EO"
   or: "pe"
-  password: "Ger-kuzh"
+  password: Ger-kuzh
   password_confirmation: "Kadarnaat ar ger-kuzh"
   people: 
     add_contact_small: 
@@ -497,7 +504,7 @@ br:
       thats_you: "That's you!"
     profile_sidebar: 
       bio: "buhez"
-      born: "deiziad-ganidigezh"
+      born: deiziad-ganidigezh
       edit_my_profile: "Edit my profile"
       gender: "reizh"
       in_aspects: "in aspects"
@@ -507,6 +514,7 @@ br:
     show: 
       does_not_exist: "Person does not exist!"
       has_not_shared_with_you_yet: "%{name} has not shared any posts with you yet!"
+      ignoring: "You are ignoring all posts from %{name}."
       incoming_request: "%{name} wants to share with you"
       mention: "Mention"
       message: "Kemmenadenn"
@@ -538,7 +546,7 @@ br:
     new: 
       back_to_list: "Distreiñ da'r rollad"
       new_photo: "Foto Nevez"
-      post_it: "postit!"
+      post_it: postit!
     new_photo: 
       empty: "{file} is empty, please select files again without it."
       invalid_ext: "{file} has invalid extension. Only {extensions} are allowed."
@@ -559,23 +567,20 @@ br:
     update: 
       error: "Failed to edit photo."
       notice: "Foto bet kaset mat."
-  post_visibilites: 
-    update: 
-      post_hidden_and_muted: "%{name}'s post has been hidden, and notifications have been muted."
-      see_it_on_their_profile: "If you want to see updates on this post, visit %{name}'s profile page."
   posts: 
     show: 
       destroy: "Delete"
       not_found: "Sorry, we couldn't find that post."
       permalink: "permalink"
-  previous: "war-raok"
+  previous: war-raok
+  privacy: "Privacy"
   profile: "Patrom"
   profiles: 
     edit: 
       allow_search: "Allow for people to search for you within Diaspora"
       edit_profile: "Kempenn ar patrom"
       first_name: "First name"
-      last_name: "Anv-familh"
+      last_name: Anv-familh
       update_profile: "Update Profile"
       your_bio: "Ho puhez"
       your_birthday: "Ho teiziad-ganidigezh"
@@ -607,7 +612,7 @@ br:
       edit: "Edit %{name}"
       leave_blank: "(laoskit goullo m'ho peus ket c'hoant cheñch an dra-se)"
       password_to_confirm: "(ho ker-kuzh zo ret a-benn kadarnaat ar cheñchamantoù)"
-      unhappy: "Unhappy?"
+      unhappy: Unhappy?
       update: "Update"
     new: 
       create_my_account: "Create my account"
@@ -637,7 +642,7 @@ br:
       existing: "Existing contacts"
       manage_within: "Manage contacts within"
     new_request_to_person: 
-      sent: "kaset!"
+      sent: kaset!
   reshares: 
     comment_email_subject: "%{resharer}'s reshare of %{author}'s post"
     create: 
@@ -685,11 +690,15 @@ br:
       not_on_diaspora: "Not yet on Diaspora"
       resend: "resend"
   settings: "Settings"
+  share_visibilites: 
+    update: 
+      post_hidden_and_muted: "%{name}'s post has been hidden, and notifications have been muted."
+      see_it_on_their_profile: "If you want to see updates on this post, visit %{name}'s profile page."
   shared: 
     add_contact: 
       add_new_contact: "Add a new contact"
       create_request: "Klask diwar ar skor Diaspora"
-      diaspora_handle: "diaspora@handle.org"
+      diaspora_handle: diaspora@handle.org
       enter_a_diaspora_username: "Enter a Diaspora username:"
       know_email: "Know their email address? You should invite them"
       your_diaspora_username_is: "Setu hoc'h anv-implijer war Diaspora: %{diaspora_handle}"
@@ -750,6 +759,8 @@ br:
       currently_unavailable: "commenting currently unavailable"
       dislike: "Ne blij ket din"
       hide_and_mute: "Hide and Mute"
+      ignore_user: "Ignore %{name}"
+      ignore_user_description: "Ignore and remove user from all aspects?"
       like: "Plij' ra din"
       shared_with: "Shared with: %{aspect_names}"
       unlike: "Unlike"
@@ -831,7 +842,7 @@ br:
       via: "(via %{link})"
       what_is_cubbies: "Cubbi.es is the world's first Diaspora application.  It's also the best way to collect photos online."
   undo: "Mont war-gil?"
-  username: "Anv-implijer"
+  username: Anv-implijer
   users: 
     confirm_email: 
       email_confirmed: "E-Mail %{email} activated"
@@ -871,7 +882,7 @@ br:
       hashtag_explanation: "Hashtags allow you to talk about and follow your interests.  They're also a great way to find new people on Diaspora."
       hashtag_suggestions: "Try following tags like #art, #movies, #gif, etc."
       hooking_up_fb: "hooking up your Facebook account"
-      saved: "Saved!"
+      saved: Saved!
       we_can_speed_things_up: "We can speed things up a bit by"
       well_hello_there: "Well, hello there!"
       what_are_you_in_to: "What are you into?"
@@ -883,6 +894,10 @@ br:
       signed_out: "You've signed out of Diaspora*"
       simply_visit: "Simply visit"
       works_on_modern: "Works on all modern smartphones"
+    privacy_settings: 
+      ignored_users: "Ignored Users"
+      stop_ignoring: "Stop ignoring"
+      title: "Privacy Settings"
     public: 
       does_not_exist: "User %{username} does not exist!"
     update: 
@@ -901,4 +916,4 @@ br:
     no_person_constructed: "No person could be constructed from this hcard."
     not_enabled: "webfinger does not seem to be enabled for %{account}'s host"
     xrd_fetch_failed: "there was an error getting the xrd from account %{account}"
-  welcome: "Welcome!"
+  welcome: Welcome!

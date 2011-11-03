@@ -167,19 +167,26 @@ bg:
       no_applications: "Все още не сте регистрирали нито едно приложение."
       revoke_access: "Прекратяване на достъпа"
   back: "Назад"
+  blocks: 
+    create: 
+      failure: "Потребителят не може да бъде игнориран.  #evasion"
+      success: "Няма да виждате повече потребителя в потока си. #silencio!"
+    destroy: 
+      failure: "Игнорирането на потребителя не бе прекратено.  #evasion"
+      success: "Какво ли ще кажат! #sayhello"
   bookmarklet: 
     explanation: "Публикувайте в Diaspora от където и да е, запаметявайки %{link} като отметка."
     explanation_link_text: "тази връзка"
     heading: "Bookmarklet"
     post_something: "Публикуване в Diaspora"
-    post_success: "Публикувано!"
+    post_success: Публикувано!
   cancel: "Отказ"
   comments: 
     few: "%{count} коментара"
     many: "%{count} коментара"
     new_comment: 
       comment: "Коментар"
-      commenting: "Коментиране..."
+      commenting: Коментиране...
     one: "1 коментар"
     other: "%{count} коментара"
     two: "%{count} коментара"
@@ -234,7 +241,7 @@ bg:
     new: 
       abandon_changes: "Отказвате се от промените?"
       send: "Изпращане"
-      sending: "Изпращане..."
+      sending: Изпращане...
       subject: "тема"
       to: "до"
     new_message: 
@@ -440,7 +447,7 @@ bg:
       two: "%{actors} започнаха да споделят с вас."
       zero: "%{actors} започна да споделя с вас."
   notifier: 
-    a_post_you_shared: "публикация."
+    a_post_you_shared: публикация.
     click_here: "кликнете тук"
     comment_on_post: 
       reply: "Отговорете или прегледайте публикацията на %{name} >"
@@ -507,6 +514,7 @@ bg:
     show: 
       does_not_exist: "Лицето не съществува!"
       has_not_shared_with_you_yet: "%{name} все още не е споделил нито една публикация с вас!"
+      ignoring: "Всички публикации на %{name} биват игнорирани."
       incoming_request: "%{name} желае да споделя с вас"
       mention: "Споменете"
       message: "Съобщение"
@@ -538,7 +546,7 @@ bg:
     new: 
       back_to_list: "Назад към списъка"
       new_photo: "Нова снимка"
-      post_it: "публикуване!"
+      post_it: публикуване!
     new_photo: 
       empty: "{file} е празен. Моля, изберете наново файловете без празния."
       invalid_ext: "{file} е с невалидно разширение. Позволени са само: {extensions}."
@@ -559,16 +567,13 @@ bg:
     update: 
       error: "Снимката не бе изтрита."
       notice: "Снимката е обновена."
-  post_visibilites: 
-    update: 
-      post_hidden_and_muted: "Публикацията на %{name} е скрита и няма да получавате известия за нея."
-      see_it_on_their_profile: "Ако желаете да прегледате новините относно публикацията посетете профила на %{name}."
   posts: 
     show: 
       destroy: "Изтриване"
       not_found: "За съжаление публикацията не може да бъде намерена."
       permalink: "постоянен адрес"
   previous: "предишна"
+  privacy: "Privacy"
   profile: "Профил"
   profiles: 
     edit: 
@@ -637,7 +642,7 @@ bg:
       existing: "Съществуващи контакти"
       manage_within: "Manage contacts within"
     new_request_to_person: 
-      sent: "изпратена!"
+      sent: изпратена!
   reshares: 
     comment_email_subject: "Споделена публикация от %{resharer} с автор %{author}'"
     create: 
@@ -685,11 +690,15 @@ bg:
       not_on_diaspora: "Все още не е в Diaspora"
       resend: "повторно изпращане"
   settings: "Настройки"
+  share_visibilites: 
+    update: 
+      post_hidden_and_muted: "Публикацията на %{name} е скрита, а получаването на известия за нея - прекратено."
+      see_it_on_their_profile: "Ако желаете да прегледате новините относно публикацията на %{name} можете да посетите профила му."
   shared: 
     add_contact: 
       add_new_contact: "Добавяне на контакт"
       create_request: "Търси по адрес в Diaspora"
-      diaspora_handle: "diaspora@pod.org"
+      diaspora_handle: diaspora@pod.org
       enter_a_diaspora_username: "Въведете потребителско име от Diaspora:"
       know_email: "Знаете адресите на ел. им поща? Трябва да ги поканите"
       your_diaspora_username_is: "Вашето потребителско име в Diaspora е %{diaspora_handle}"
@@ -737,7 +746,7 @@ bg:
         i_like: "Интересува ме %{tags}."
         invited_by: "Благодаря за поканата, "
       post_a_message_to: "Публикувайте публично съобщение в %{aspect}"
-      posting: "Публикуване..."
+      posting: Публикуване...
       publishing_to: "публикуване в: "
       share: "Споделете"
       share_with: "споделяне с"
@@ -749,7 +758,9 @@ bg:
       connect_to_comment: "Свържете се с потребителя, за да коментирате публикацията му"
       currently_unavailable: "временно не е възможно да коментирате"
       dislike: "Не ми харесва"
-      hide_and_mute: "Скриване и прекратяване на известяването"
+      hide_and_mute: "Скриване и прекратяване на известяването за публикацията"
+      ignore_user: "Игнориране на %{name}"
+      ignore_user_description: "Игнориране и премахване на потребителя от всички аспекти?"
       like: "Харесва ми"
       shared_with: "Споделена с: %{aspect_names}"
       unlike: "Не ми харесва"
@@ -779,19 +790,19 @@ bg:
       title: "Вашите аспекти"
     aspects_stream: "Аспекти"
     commented_on: "коментирани"
-    community_spotlight_stream: "В центъра на вниманието"
+    community_spotlight_stream: "От \"В центъра на вниманието\""
     followed_tag: 
       add_a_tag: "Добавете още"
-      contacts_title: "Хора, които харесват марките"
+      contacts_title: "Същите марки са харесани от:"
       follow: "Добавяне"
       title: "#Марки, които следите"
-    followed_tags_stream: "##Марки, които следите"
+    followed_tags_stream: "От #Марка, която следите"
     mentioned_stream: "@Кой ви спомена"
     mentions: 
       contacts_title: "Хора, които са ви споменали"
       title: "@Кой ви е споменал"
     multi: 
-      contacts_title: "Хора от аспектите ви"
+      contacts_title: "Хора от потока ви"
       title: "Поток"
     posted: "публикувани"
     public: 
@@ -830,7 +841,7 @@ bg:
       typical_userpage: "Типична потребителска страница от cubbi.es"
       via: "(чрез %{link})"
       what_is_cubbies: "Cubbi.es е първото приложение за Diaspora. Също така е и най-добрият начин за събиране на изображения."
-  undo: "Отмяна?"
+  undo: Отмяна?
   username: "Потребителско име"
   users: 
     confirm_email: 
@@ -871,9 +882,9 @@ bg:
       hashtag_explanation: "Диез марките (#име–на-марката) ви позволяват да коментирате и следите интересни за вас теми.  Улесняват и откриване на хора със сходни интереси в Diaspora."
       hashtag_suggestions: "Пробвайте да следвате няколко марки като #art, #movies, #gif и др."
       hooking_up_fb: "да свържете акаунта си от Facebook"
-      saved: "Записано!"
+      saved: Записано!
       we_can_speed_things_up: "Ако желаете можете"
-      well_hello_there: "Здравейте!"
+      well_hello_there: Здравейте!
       what_are_you_in_to: "От какво се интересувате?"
       what_facebook_does: "с Diaspora. Така някои данни (име и снимка) ще бъдат попълнени автоматично и ще можете да публикувате съобщения във Facebook от Diaspora."
       who_are_you: "Кой сте вие?"
@@ -883,6 +894,10 @@ bg:
       signed_out: "Отписахте се от Diaspora*"
       simply_visit: "Просто посетете"
       works_on_modern: "Съвместима е с всеки съвременен смартфон"
+    privacy_settings: 
+      ignored_users: "Игнорирани поотребители"
+      stop_ignoring: "Прекратяване на игнорирането"
+      title: "Privacy Settings"
     public: 
       does_not_exist: "Потребителят %{username} не съществува!"
     update: 

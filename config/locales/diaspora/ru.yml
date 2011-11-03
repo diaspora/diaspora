@@ -35,7 +35,7 @@ ru:
             email: 
               taken: "уже занято."
             person: 
-              invalid: "недействительно."
+              invalid: недействительно.
             username: 
               invalid: "не подходит. Можно использовать только буквы, цифры и знак подчеркивания."
               taken: "уже занято."
@@ -111,13 +111,13 @@ ru:
         here_to_help: "Сообщество Диаспоры всегда рядом!"
         need_help: "Нужна помощь?"
         satisfaction: "%{link}: осуществляемая сообществом поддержка"
-        tutorials_wiki_and_forum: "%{tutorial} & %{wiki} & %{forum}: Community-powered tutorials, how-to, and news"
+        tutorials_wiki_and_forum: "%{tutorial}, %{wiki} и %{forum}: составляемые сообществом справочные пособия, инструкции и новости."
       introduce_yourself: "Это ваш поток. Ныряйте и осваивайтесь здесь."
       keep_us_running: "Помогите %{pod} работать быстро — купите нашим серверам дозу кофе, сделав ежемесячное пожертвование!"
       new_here: 
-        follow: "Follow %{link} and welcome new users to Diaspora*!"
-        learn_more: "Learn more"
-        title: "Welcome New Users"
+        follow: "Следите за меткой %{link} и приветствуйте новых пользователей в Диаспоре*!"
+        learn_more: "Узнать больше"
+        title: "Приветствуйте новичков"
       no_contacts: "Контакты отсутствуют"
       no_tags: "+ Найти метку"
       people_sharing_with_you: "Люди делятся с вами"
@@ -167,6 +167,13 @@ ru:
       no_applications: "Вы еще не зарегистрировали ни одного приложения."
       revoke_access: "Отменить доступ"
   back: "Назад"
+  blocks: 
+    create: 
+      failure: "I couldn't ignore that user.  #evasion"
+      success: "Alright, you won't see that user in your stream again. #silencio!"
+    destroy: 
+      failure: "I couldn't stop ignoring that user.  #evasion"
+      success: "Let's see what they have to say! #sayhello"
   bookmarklet: 
     explanation: "Пишите в Диаспору с любой страницы с помощью %{link}."
     explanation_link_text: "этой закладки"
@@ -179,7 +186,7 @@ ru:
     many: "%{count} комментариев"
     new_comment: 
       comment: "Комментировать"
-      commenting: "Комментирование..."
+      commenting: Комментирование...
     one: "1 комментарий"
     other: "%{count} комментариев"
     two: "%{count} комментариев"
@@ -234,7 +241,7 @@ ru:
     new: 
       abandon_changes: "Отказаться от изменений?"
       send: "Отправить"
-      sending: "Отправка..."
+      sending: Отправка...
       subject: "тема"
       to: "кому"
     new_message: 
@@ -242,7 +249,7 @@ ru:
     show: 
       delete: "удалить и заблокировать разговор"
       reply: "ответить"
-      replying: "Ответ..."
+      replying: Ответ...
   date: 
     formats: 
       birthday: "%d %B"
@@ -291,7 +298,7 @@ ru:
       comma_seperated_plz: "Вы можете ввести несколько адресов электронной почты через запятую."
       if_they_accept_info: "после согласия с их стороны, они будут добавлены в предложенный вами аспект."
       invite_someone_to_join: "Пригласить кого-либо в Диаспору!"
-      language: "Language"
+      language: "Язык"
       personal_message: "Личное сообщение"
       resend: "Ещё раз послать"
       send_an_invitation: "Отправить приглашение"
@@ -301,7 +308,7 @@ ru:
     application: 
       powered_by: "ПОДДЕРЖИВАЕТСЯ ДИАСПОРОЙ*"
       public_feed: "Общественный канал диаспоры для %{name}"
-      toggle: "обычный/мобильный"
+      toggle: обычный/мобильный
       whats_new: "что нового?"
       your_aspects: "Ваши аспекты"
     header: 
@@ -440,7 +447,7 @@ ru:
       two: "%{actors} начал(а) делиться с вами."
       zero: "%{actors} начали делиться с вами."
   notifier: 
-    a_post_you_shared: "запись."
+    a_post_you_shared: запись.
     click_here: "нажмите сюда,"
     comment_on_post: 
       reply: "Ответить или посмотреть запись %{name} >"
@@ -507,6 +514,7 @@ ru:
     show: 
       does_not_exist: "Персоны не существует!"
       has_not_shared_with_you_yet: "%{name} еще не делился записями с вами!"
+      ignoring: "You are ignoring all posts from %{name}."
       incoming_request: "%{name} хочет поделиться с вами"
       mention: "Упоминание"
       message: "Сообщение"
@@ -538,7 +546,7 @@ ru:
     new: 
       back_to_list: "Вернуться к списку"
       new_photo: "Новая фотография"
-      post_it: "Опубликовать!"
+      post_it: Опубликовать!
     new_photo: 
       empty: "{file} пуст, выберите пожалуйста файл повторно."
       invalid_ext: "{file} имеет недопустимое расширение. Разрешены только {extensions}."
@@ -559,16 +567,13 @@ ru:
     update: 
       error: "Не удалось изменить фотографию."
       notice: "Фотография успешно загружена."
-  post_visibilites: 
-    update: 
-      post_hidden_and_muted: "Запись пользователя %{name} была скрыта вместе с уведомлениями."
-      see_it_on_their_profile: "Если вы хотите видеть обновления этой записи, посетите профиль пользователя %{name}."
   posts: 
     show: 
       destroy: "Удалить"
       not_found: "Извините, мы не смогли найти эту запись."
       permalink: "постоянная ссылка"
   previous: "предыдущая"
+  privacy: "Privacy"
   profile: "Профиль"
   profiles: 
     edit: 
@@ -607,7 +612,7 @@ ru:
       edit: "Редактировать %{name}"
       leave_blank: "(Оставьте пустым, если не хотите менять)"
       password_to_confirm: "(введите ваш текущий пароль для подтверждения изменений)"
-      unhappy: "Недовольны?"
+      unhappy: Недовольны?
       update: "Обновить"
     new: 
       create_my_account: "Создать мой аккаунт!"
@@ -637,7 +642,7 @@ ru:
       existing: "Существующие контакты"
       manage_within: "Управление контактами в"
     new_request_to_person: 
-      sent: "отправлено!"
+      sent: отправлено!
   reshares: 
     comment_email_subject: "Перепост %{resharer} записи %{author}"
     create: 
@@ -685,11 +690,15 @@ ru:
       not_on_diaspora: "Еще нет в Диаспоре"
       resend: "отправить повторно"
   settings: "Настройки"
+  share_visibilites: 
+    update: 
+      post_hidden_and_muted: "%{name}'s post has been hidden, and notifications have been muted."
+      see_it_on_their_profile: "If you want to see updates on this post, visit %{name}'s profile page."
   shared: 
     add_contact: 
       add_new_contact: "Добавить контакт"
       create_request: "Поиск по идентификатору в Диаспоре"
-      diaspora_handle: "diaspora@pod.org"
+      diaspora_handle: diaspora@pod.org
       enter_a_diaspora_username: "Введите имя пользователя Диаспоры:"
       know_email: "Знаете их email адреса? Вы должны предложить им присоединится к Диаспоре "
       your_diaspora_username_is: "Ваше имя пользователя Диаспоры: %{diaspora_handle}"
@@ -735,9 +744,9 @@ ru:
       new_user_prefill: 
         hello: "Привет всем, я тут #%{new_user_tag}."
         i_like: "Я интересуюсь %{tags}."
-        invited_by: "Thanks for the invite, "
+        invited_by: "Спасибо за приглашение, "
       post_a_message_to: "Опубликовать сообщение для %{aspect}"
-      posting: "Отправка..."
+      posting: Отправка...
       publishing_to: "публикация в:"
       share: "Поделиться"
       share_with: "поделиться с"
@@ -750,6 +759,8 @@ ru:
       currently_unavailable: "комментирование недоступно"
       dislike: "Не нравится"
       hide_and_mute: "Скрыть и отключить уведомления"
+      ignore_user: "Ignore %{name}"
+      ignore_user_description: "Ignore and remove user from all aspects?"
       like: "Мне нравится"
       shared_with: "Для аспектов: %{aspect_names}"
       unlike: "Не нравится"
@@ -806,8 +817,8 @@ ru:
       failure: "Ошибка отслеживания метки #%{name}. Возможно, вы уже следите за ней?"
       success: "Ура! Теперь вы следите за меткой #%{name}."
     destroy: 
-      failure: "Не вышло перестать следить за: #%{name}"
-      success: "Вы успешно перестали следить за: #%{name}"
+      failure: "Не вышло перестать следить за меткой #%{name}. Возможно, вы уже отписались от нее?"
+      success: "Увы! Вы больше не следите за меткой #%{name}."
   tags: 
     show: 
       follow: "Следить за меткой #%{tag}"
@@ -830,7 +841,7 @@ ru:
       typical_userpage: "Типичная cubbi.es страница"
       via: "(via %{link})"
       what_is_cubbies: "Cubbi.es - это первое в мире приложение для Диаспоры. Кроме того, это лучший способ создания коллекции фотографий в Интернете."
-  undo: "Отменить?"
+  undo: Отменить?
   username: "Имя пользователя"
   users: 
     confirm_email: 
@@ -871,7 +882,7 @@ ru:
       hashtag_explanation: "Метки позволяют вам обсуждать и следить за интересующими вас темами. Это также отличный способ поиска единомышленников в Диаспоре."
       hashtag_suggestions: "Попробуйте следующие метки, например #искусство, #кино, #gif и т. п."
       hooking_up_fb: "подключив вашу учетную запись Facebook"
-      saved: "Сохранено!"
+      saved: Сохранено!
       we_can_speed_things_up: "Регистрацию можно ускорить"
       well_hello_there: "Приветствуем вас!"
       what_are_you_in_to: "Чем вы интересуетесь?"
@@ -883,6 +894,10 @@ ru:
       signed_out: "Вы вышли из Диаспоры*"
       simply_visit: "Просто зайдите на"
       works_on_modern: "Работает на всех современных смартфонах"
+    privacy_settings: 
+      ignored_users: "Ignored Users"
+      stop_ignoring: "Stop ignoring"
+      title: "Privacy Settings"
     public: 
       does_not_exist: "Пользователя %{username} не существует!"
     update: 

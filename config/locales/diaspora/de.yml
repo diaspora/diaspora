@@ -99,7 +99,7 @@ de:
       diaspora_id: 
         content_1: "Deine Diaspora-ID ist:"
         content_2: "Gib diese weiter und sei somit auf Diaspora leicht zu finden."
-        heading: "Diaspora-ID"
+        heading: Diaspora-ID
       donate: "Spenden"
       handle_explanation: "Das ist deine Diaspora-ID. Du kannst sie wie eine E-Mail-Adresse weitergeben, damit andere Nutzer mit dir Kontakt aufnehmen können."
       help: 
@@ -137,7 +137,7 @@ de:
       create: "Erstellen"
       name: "Name (nur für dich sichtbar)"
     no_contacts_message: 
-      community_spotlight: "Gemeinschafts-Schaukasten"
+      community_spotlight: Gemeinschafts-Schaukasten
       or_spotlight: "Du kannst auch mit %{link} teilen"
       try_adding_some_more_contacts: "Du kannst weitere Kontakte suchen oder welche einladen."
       you_should_add_some_more_contacts: "Du solltest ein paar neue Kontakte hinzufügen!"
@@ -167,6 +167,13 @@ de:
       no_applications: "Du hast noch keine Anwendung registriert."
       revoke_access: "Zugriff widerrufen"
   back: "Zurück"
+  blocks: 
+    create: 
+      failure: "Ich konnte diesen Benutzer nicht ignorieren. #evasion"
+      success: "Alles klar, Du wirst diesen Benutzer nicht mehr in deinem Stream sehen. #silencio!"
+    destroy: 
+      failure: "Ich konnte das Ignorieren dieses Benutzers nicht beenden.  #evasion"
+      success: "Mal sehen was sie zu sagen haben! #sayhello"
   bookmarklet: 
     explanation: "Erstelle von überall einen Beitrag in Diaspora, indem du %{link} als Lesezeichen speicherst."
     explanation_link_text: "diesen Link"
@@ -207,7 +214,7 @@ de:
     sharing: 
       people_sharing: "Leute, die mit dir teilen:"
     spotlight: 
-      community_spotlight: "Gemeinschafts-Schaukasten"
+      community_spotlight: Gemeinschafts-Schaukasten
     two: "%{count} Kontakte"
     zero: "Kontakte"
   conversations: 
@@ -249,7 +256,7 @@ de:
       birthday_with_year: "%d. %B %Y"
       fullmonth_day: "%d. %B"
   delete: "Löschen"
-  email: "E-Mail"
+  email: E-Mail
   error_messages: 
     helper: 
       correct_the_following_errors_and_try_again: "Korrigiere die folgenden Fehler und versuche es erneut."
@@ -472,7 +479,7 @@ de:
   ok: "OK"
   or: "oder"
   password: "Kennwort"
-  password_confirmation: "Kennwort-Bestätigung"
+  password_confirmation: Kennwort-Bestätigung
   people: 
     add_contact_small: 
       add_contact_from_tag: "Füge Kontakt über einen Hashtag hinzu"
@@ -507,6 +514,7 @@ de:
     show: 
       does_not_exist: "Diese Person existiert nicht!"
       has_not_shared_with_you_yet: "%{name} hat bisher noch keine Beiträge mit dir geteilt!"
+      ignoring: "Du ignorierst alle Beiträge von %{name}."
       incoming_request: "Du hast eine eingehende Anfrage von %{name}."
       mention: "Erwähnen"
       message: "Nachricht"
@@ -538,7 +546,7 @@ de:
     new: 
       back_to_list: "Zurück zur Liste"
       new_photo: "Neues Foto"
-      post_it: "Teilen!"
+      post_it: Teilen!
     new_photo: 
       empty: "{file} ist leer, bitte wähle erneut Dateien aus."
       invalid_ext: "{file} hat keine gültige Erweiterung. Nur {extensions} sind erlaubt."
@@ -559,16 +567,13 @@ de:
     update: 
       error: "Bearbeiten des Fotos fehlgeschlagen."
       notice: "Foto erfolgreich aktualisiert."
-  post_visibilites: 
-    update: 
-      post_hidden_and_muted: "%{name}s Beitrag wurde ausgeblendet und Benachrichtigungen abgeschaltet."
-      see_it_on_their_profile: "Wenn Du Neuigkeiten zu diesem Beitrag sehen willst, besuche %{name}s Profilseite."
   posts: 
     show: 
       destroy: "Löschen"
       not_found: "Entschuldige, wir konnten den Beitrag leider nicht finden."
       permalink: "Permanentlink"
   previous: "Vorherige"
+  privacy: "Privatsphäre"
   profile: "Profil"
   profiles: 
     edit: 
@@ -607,7 +612,7 @@ de:
       edit: "%{name} bearbeiten"
       leave_blank: "(Du willst nichts ändern? Einfach leer lassen.)"
       password_to_confirm: "(wir brauchen dein aktuelles Kennwort, um deine Änderungen zu bestätigen)"
-      unhappy: "Unglücklich?"
+      unhappy: Unglücklich?
       update: "Aktualisieren"
     new: 
       create_my_account: "Konto erstellen!"
@@ -637,7 +642,7 @@ de:
       existing: "Bestehende Kontakte"
       manage_within: "Kontakte verwalten in"
     new_request_to_person: 
-      sent: "Gesendet!"
+      sent: Gesendet!
   reshares: 
     comment_email_subject: "%{resharer}'s Version von %{author}'s Beitrag"
     create: 
@@ -685,11 +690,15 @@ de:
       not_on_diaspora: "Noch nicht auf Diaspora"
       resend: "Erneut senden"
   settings: "Einstellungen"
+  share_visibilites: 
+    update: 
+      post_hidden_and_muted: "%{name}'s Beitrag wurde ausgeblendet und die Benachrichtigungen abgeschaltet."
+      see_it_on_their_profile: "Wenn du Updates zu diesem Beitrag sehen möchtest, besuche %{name}'s Profil."
   shared: 
     add_contact: 
       add_new_contact: "Einen neuen Kontakt hinzufügen"
       create_request: "Finde mittels Diaspora ID"
-      diaspora_handle: "diaspora@beispiel.org"
+      diaspora_handle: diaspora@beispiel.org
       enter_a_diaspora_username: "Gib einen Diaspora-Benutzernamen ein:"
       know_email: "Du kennst die E-Mail-Adresse? Sende eine Einladung!"
       your_diaspora_username_is: "Dein Diaspora Nutzername ist: %{diaspora_handle}"
@@ -749,7 +758,9 @@ de:
       connect_to_comment: "Verbinde dich mit diesem Benutzer, um seinen Beitrag zu kommentieren"
       currently_unavailable: "Kommentieren derzeit nicht verfügbar"
       dislike: "Gefällt mir nicht"
-      hide_and_mute: "Verbergen und stummschalten"
+      hide_and_mute: "Beitrag verbergen und stummschalten"
+      ignore_user: "Ignoriere %{name}"
+      ignore_user_description: "Benutzer ignorieren und aus allen Aspekten entfernen?"
       like: "Gefällt mir"
       shared_with: "Geteilt mit: %{aspect_names}"
       unlike: "Gefällt mir nicht mehr"
@@ -779,7 +790,7 @@ de:
       title: "Deine Aspekte"
     aspects_stream: "Aspekte"
     commented_on: "kommentiert"
-    community_spotlight_stream: "Gemeinschafts-Schaukasten"
+    community_spotlight_stream: Gemeinschafts-Schaukasten
     followed_tag: 
       add_a_tag: "Füge einen Tag hinzu"
       contacts_title: "Leute, denen diese Tags gefallen"
@@ -806,7 +817,7 @@ de:
       failure: "Fehler beim Folgen von: #%{name}. Folgst du #%{name} bereits?"
       success: "Hurra! Du folgst nun: #%{name}"
     destroy: 
-      failure: "Fehler beim Beenden des Folgens von: #%{name}"
+      failure: "Fehler beim Beenden des Folgens von: #%{name}. Vielleicht hast du schon aufgehört zu folgen?"
       success: "Du folgst #%{name} nicht mehr"
   tags: 
     show: 
@@ -862,7 +873,7 @@ de:
       show_community_spotlight: "Gemeinschafts-Schaukasten im Stream anzeigen?"
       show_getting_started: "Einstiegshinweise wieder aktivieren"
       started_sharing: "… jemand mit dir zu teilen anfängt?"
-      stream_preferences: "Stream-Einstellungen"
+      stream_preferences: Stream-Einstellungen
       your_email: "Deine E-Mail-Adresse"
       your_handle: "Deine Diaspora ID"
     getting_started: 
@@ -871,7 +882,7 @@ de:
       hashtag_explanation: "Hashtags ermöglichen dir, über deine Interessen zu reden und ihnen zu folgen. Sie sind auch ein guter Weg, neue Leute bei Diaspora zu treffen!"
       hashtag_suggestions: "Probier mal Tags wie #kunst, #musik oder #gif zu folgen."
       hooking_up_fb: "du deinen Facebook-Account"
-      saved: "Gespeichert!"
+      saved: Gespeichert!
       we_can_speed_things_up: "Wir können die Dinge ein wenig beschleunigen wenn"
       well_hello_there: "Also, Hallöchen!"
       what_are_you_in_to: "Was machst du so?"
@@ -883,6 +894,10 @@ de:
       signed_out: "Du hast dich aus Diaspora* ausgeloggt"
       simply_visit: "Besuche einfach"
       works_on_modern: "Funktioniert auf allen modernen Smartphones"
+    privacy_settings: 
+      ignored_users: "Ignorierte Benutzer"
+      stop_ignoring: "Aufhören zu ignorieren"
+      title: Privatsphären-Einstellungen
     public: 
       does_not_exist: "Benutzer %{username} existiert nicht!"
     update: 
@@ -901,4 +916,4 @@ de:
     no_person_constructed: "Konnte keine Person aus dieser hcard erstellen."
     not_enabled: "Webfinger scheint nicht für den Server von %{account} verfügbar zu sein."
     xrd_fetch_failed: "Die XRD-Datei von %{account} konnte nicht heruntergeladen werden."
-  welcome: "Willkommen!"
+  welcome: Willkommen!

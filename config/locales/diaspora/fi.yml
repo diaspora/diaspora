@@ -99,7 +99,7 @@ fi:
       diaspora_id: 
         content_1: "Diaspora-ID:si on:"
         content_2: "Anna se toisille ihmisille, jotta he voivat löytää sinut Diasporasta."
-        heading: "Diaspora-ID"
+        heading: Diaspora-ID
       donate: "Lahjoita"
       handle_explanation: "Tämä on Diaspora-osoitteesi. Voit käyttää sitä kuten sähköpostiosoitettasi. Sen avulla sinut tavoitetaan Diasporasta."
       help: 
@@ -167,6 +167,13 @@ fi:
       no_applications: "You haven't registered any applications yet."
       revoke_access: "Estä pääsy"
   back: "Takaisin"
+  blocks: 
+    create: 
+      failure: "I couldn't ignore that user.  #evasion"
+      success: "Alright, you won't see that user in your stream again. #silencio!"
+    destroy: 
+      failure: "I couldn't stop ignoring that user.  #evasion"
+      success: "Let's see what they have to say! #sayhello"
   bookmarklet: 
     explanation: "%{link} from anywhere by bookmarking this link."
     explanation_link_text: "Post to Diaspora"
@@ -179,7 +186,7 @@ fi:
     many: "%{count} kommenttia"
     new_comment: 
       comment: "Kommentoi"
-      commenting: "Kommentoidaan..."
+      commenting: Kommentoidaan...
     one: "1 kommentti"
     other: "%{count} kommenttia"
     two: "%{count} comments"
@@ -234,7 +241,7 @@ fi:
     new: 
       abandon_changes: "Hylkää muutokset?"
       send: "Lähetä"
-      sending: "Sending..."
+      sending: Sending...
       subject: "aihe"
       to: "vastaanottaja"
     new_message: 
@@ -242,7 +249,7 @@ fi:
     show: 
       delete: "poista ja estä tämä keskustelu"
       reply: "vastaa"
-      replying: "Replying..."
+      replying: Replying...
   date: 
     formats: 
       birthday: "%B %d"
@@ -410,7 +417,7 @@ fi:
       other: "%{actors} mainitsi sinut poistetussa viestissä."
       two: "%{actors} mentioned you in a deleted post."
       zero: "%{actors} mainitsi sinut poistetussa viestissä."
-    post: "viesti."
+    post: viesti.
     private_message: 
       few: "%{actors} lähetti sinulle viestin."
       many: "%{actors} lähetti sinulle viestin."
@@ -507,6 +514,7 @@ fi:
     show: 
       does_not_exist: "Henkilöä ei ole olemassa!"
       has_not_shared_with_you_yet: "%{name} ei ole jakanut vielä yhtään postausta kanssasi!"
+      ignoring: "You are ignoring all posts from %{name}."
       incoming_request: "Tämä henkilö on lähettänyt sinulle pyynnön."
       mention: "Mainitse"
       message: "Viesti"
@@ -538,7 +546,7 @@ fi:
     new: 
       back_to_list: "Takaisin listaan"
       new_photo: "Uusi kuva"
-      post_it: "lähetä!"
+      post_it: lähetä!
     new_photo: 
       empty: "{file} on tyhjä, valitse tiedostot uudelleen ilman kyseistä tiedostoa."
       invalid_ext: "{file} sisältää viallisen tiedostopäätteen. Tuetut muodot ovat {extensions}."
@@ -559,16 +567,13 @@ fi:
     update: 
       error: "Kuvan muokkaus epäonnistui."
       notice: "Kuva päivitettiin onnistuneesti."
-  post_visibilites: 
-    update: 
-      post_hidden_and_muted: "%{name}'s post has been hidden, and notifications have been muted."
-      see_it_on_their_profile: "If you want to see updates on this post, visit %{name}'s profile page."
   posts: 
     show: 
       destroy: "Poista"
       not_found: "Valitettavasti viestiä ei löytynyt."
       permalink: "pysyvä linkki"
   previous: "edellinen"
+  privacy: "Privacy"
   profile: "Profiili"
   profiles: 
     edit: 
@@ -607,7 +612,7 @@ fi:
       edit: "Muokkaa %{name}"
       leave_blank: "(jätä tyhjäksi, mikäli et halua muuttaa)"
       password_to_confirm: "(tarvitsemme nykyisen salasanasi muutosten varmistusta varten)"
-      unhappy: "Epäonnellinen?"
+      unhappy: Epäonnellinen?
       update: "Päivitä"
     new: 
       create_my_account: "Create my account"
@@ -619,7 +624,7 @@ fi:
       sign_up_message: "Social Networking with a <3"
   requests: 
     create: 
-      sending: "Lähetetään..."
+      sending: Lähetetään...
       sent: "Haluat jakaa %{name} kanssa. Heidän pitäisi nähdä se kirjautuessaan seuraavan kerran Diasporaan."
     destroy: 
       error: "Ole hyvä, valitse näkymä!"
@@ -637,7 +642,7 @@ fi:
       existing: "Olemassa olevat kontaktit"
       manage_within: "Muokkaa kontakteja näkymässä"
     new_request_to_person: 
-      sent: "lähetetty!"
+      sent: lähetetty!
   reshares: 
     comment_email_subject: "%{resharer}'s reshare of %{author}'s post"
     create: 
@@ -685,11 +690,15 @@ fi:
       not_on_diaspora: "Not yet on Diaspora"
       resend: "lähetä uudelleen"
   settings: "Asetukset"
+  share_visibilites: 
+    update: 
+      post_hidden_and_muted: "%{name}'s post has been hidden, and notifications have been muted."
+      see_it_on_their_profile: "If you want to see updates on this post, visit %{name}'s profile page."
   shared: 
     add_contact: 
       add_new_contact: "Lisää uusi kontakti"
       create_request: "Etsi Diaspora-tunnuksella"
-      diaspora_handle: "diaspora@handle.org"
+      diaspora_handle: diaspora@handle.org
       enter_a_diaspora_username: "Anna Diaspora-käyttäjätunnus:"
       know_email: "Tiedätkö heidän sähköpostiosoitteitansa? Kutsu heidät!"
       your_diaspora_username_is: "Diaspora-käyttäjätunnuksesi on: %{diaspora_handle}"
@@ -737,7 +746,7 @@ fi:
         i_like: "I'm interested in %{tags}."
         invited_by: "Thanks for the invite, "
       post_a_message_to: "Lähetä viesti näkymään %{aspect}"
-      posting: "Lähetetään..."
+      posting: Lähetetään...
       publishing_to: "Julkaistaan: "
       share: "Jaa"
       share_with: "Jaa"
@@ -750,6 +759,8 @@ fi:
       currently_unavailable: "commenting currently unavailable"
       dislike: "En tykkää"
       hide_and_mute: "Hide and Mute"
+      ignore_user: "Ignore %{name}"
+      ignore_user_description: "Ignore and remove user from all aspects?"
       like: "Tykkää"
       shared_with: "Jaa heidän kanssa: %{aspect_names}"
       unlike: "En tykkää"
@@ -824,13 +835,13 @@ fi:
       daniels_account: "Danielin Diaspora-käyttäjätili"
       log_in_with_diaspora_is_comming: "Pian voit lisätä uuden sovelluksen luomatta uutta käyttäjätiliä nykyisen tilisi lisäksi."
       love_to_try: "Kokeile sinäkin."
-      making_the_connection: "Yhteyttä muodostetaan"
+      making_the_connection: "Yhteyden muodostaminen"
       screenshot_explanation: "%{link1}. Tämä tila on linkitetty tänne: %{link2}."
       sign_up_today: "Liity tänään!"
       typical_userpage: "Esimerkki cubbi.es-käyttäjäsivusta"
       via: "(%{link} kautta)"
       what_is_cubbies: "Cubbi.es on maailman ensimmäinen Diaspora-sovellus. Se on myös paras tapa kerätä valokuvia verkossa."
-  undo: "Peruuta?"
+  undo: Peruuta?
   username: "Käyttäjätunnus"
   users: 
     confirm_email: 
@@ -864,14 +875,14 @@ fi:
       started_sharing: "...aloittaa jakamaan kanssasi?"
       stream_preferences: "Stream Preferences"
       your_email: "Sähköpostiosoitteesi"
-      your_handle: "Diaspora-tunnuksesi"
+      your_handle: Diaspora-tunnuksesi
     getting_started: 
       awesome_take_me_to_diaspora: "Awesome! Take me to Diaspora*"
       community_welcome: "Diaspora's community is happy to have you aboard!"
       hashtag_explanation: "Hashtagit mahdollistavat kiinnostuksen kohteistasi keskustelun ja niiden seuraamisen. Ne ovat myös hyvä keino ihmisten löytämiseen Diasporassa."
       hashtag_suggestions: "Try following tags like #art, #movies, #gif, etc."
       hooking_up_fb: "hooking up your Facebook account"
-      saved: "Saved!"
+      saved: Saved!
       we_can_speed_things_up: "We can speed things up a bit by"
       well_hello_there: "Well, hello there!"
       what_are_you_in_to: "What are you into?"
@@ -883,6 +894,10 @@ fi:
       signed_out: "You've signed out of Diaspora*"
       simply_visit: "Simply visit"
       works_on_modern: "Works on all modern smartphones"
+    privacy_settings: 
+      ignored_users: "Ignored Users"
+      stop_ignoring: "Stop ignoring"
+      title: "Privacy Settings"
     public: 
       does_not_exist: "Käyttäjää %{username} ei ole olemassa!"
     update: 
@@ -901,4 +916,4 @@ fi:
     no_person_constructed: "Yhtäkään henkilöä ei pystytty kokoamaan tältä hcard:ilta."
     not_enabled: "webfinger-palvelua ei ilmeisesti ole aktivoitu tilin, %{account}, isännälle"
     xrd_fetch_failed: "tapahtui virhe haettaessa xrd:tä käyttäjätilille %{account}"
-  welcome: "Welcome!"
+  welcome: Welcome!

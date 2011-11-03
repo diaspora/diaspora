@@ -167,6 +167,13 @@ ur-PK:
       no_applications: "آپ نے ابھی تک کسی بھی ایپلیکیشن کا اندرج نہیں کیا ہے۔"
       revoke_access: "رسائی منسوخ کیجیے"
   back: "واپس"
+  blocks: 
+    create: 
+      failure: "I couldn't ignore that user.  #evasion"
+      success: "Alright, you won't see that user in your stream again. #silencio!"
+    destroy: 
+      failure: "I couldn't stop ignoring that user.  #evasion"
+      success: "Let's see what they have to say! #sayhello"
   bookmarklet: 
     explanation: "Post to Diaspora from anywhere by bookmarking %{link}."
     explanation_link_text: "this link"
@@ -179,7 +186,7 @@ ur-PK:
     many: "%{count} comments"
     new_comment: 
       comment: "Comment"
-      commenting: "Commenting..."
+      commenting: Commenting...
     one: "1 comment"
     other: "%{count} comments"
     two: "%{count} comments"
@@ -234,7 +241,7 @@ ur-PK:
     new: 
       abandon_changes: "Abandon changes?"
       send: "Send"
-      sending: "Sending..."
+      sending: Sending...
       subject: "subject"
       to: "to"
     new_message: 
@@ -242,7 +249,7 @@ ur-PK:
     show: 
       delete: "delete and block conversation"
       reply: "reply"
-      replying: "Replying..."
+      replying: Replying...
   date: 
     formats: 
       birthday: "%B %d"
@@ -507,6 +514,7 @@ ur-PK:
     show: 
       does_not_exist: "Person does not exist!"
       has_not_shared_with_you_yet: "%{name} has not shared any posts with you yet!"
+      ignoring: "You are ignoring all posts from %{name}."
       incoming_request: "%{name} wants to share with you"
       mention: "Mention"
       message: "Message"
@@ -559,16 +567,13 @@ ur-PK:
     update: 
       error: "Failed to edit photo."
       notice: "Photo successfully updated."
-  post_visibilites: 
-    update: 
-      post_hidden_and_muted: "%{name}'s post has been hidden, and notifications have been muted."
-      see_it_on_their_profile: "If you want to see updates on this post, visit %{name}'s profile page."
   posts: 
     show: 
       destroy: "Delete"
       not_found: "Sorry, we couldn't find that post."
       permalink: "permalink"
   previous: "previous"
+  privacy: "Privacy"
   profile: "Profile"
   profiles: 
     edit: 
@@ -607,7 +612,7 @@ ur-PK:
       edit: "Edit %{name}"
       leave_blank: "(leave blank if you don't want to change it)"
       password_to_confirm: "(we need your current password to confirm your changes)"
-      unhappy: "Unhappy?"
+      unhappy: Unhappy?
       update: "Update"
     new: 
       create_my_account: "Create my account"
@@ -637,7 +642,7 @@ ur-PK:
       existing: "Existing contacts"
       manage_within: "Manage contacts within"
     new_request_to_person: 
-      sent: "sent!"
+      sent: sent!
   reshares: 
     comment_email_subject: "%{resharer}'s reshare of %{author}'s post"
     create: 
@@ -685,11 +690,15 @@ ur-PK:
       not_on_diaspora: "Not yet on Diaspora"
       resend: "resend"
   settings: "Settings"
+  share_visibilites: 
+    update: 
+      post_hidden_and_muted: "%{name}'s post has been hidden, and notifications have been muted."
+      see_it_on_their_profile: "If you want to see updates on this post, visit %{name}'s profile page."
   shared: 
     add_contact: 
       add_new_contact: "Add a new contact"
       create_request: "Find by Diaspora ID"
-      diaspora_handle: "diaspora@pod.org"
+      diaspora_handle: diaspora@pod.org
       enter_a_diaspora_username: "Enter a Diaspora username:"
       know_email: "Know their email address? You should invite them"
       your_diaspora_username_is: "Your Diaspora username is: %{diaspora_handle}"
@@ -737,7 +746,7 @@ ur-PK:
         i_like: "I'm interested in %{tags}."
         invited_by: "Thanks for the invite, "
       post_a_message_to: "Post a message to %{aspect}"
-      posting: "Posting..."
+      posting: Posting...
       publishing_to: "publishing to: "
       share: "Share"
       share_with: "share with"
@@ -750,6 +759,8 @@ ur-PK:
       currently_unavailable: "commenting currently unavailable"
       dislike: "Dislike"
       hide_and_mute: "Hide and Mute"
+      ignore_user: "Ignore %{name}"
+      ignore_user_description: "Ignore and remove user from all aspects?"
       like: "Like"
       shared_with: "Shared with: %{aspect_names}"
       unlike: "Unlike"
@@ -830,7 +841,7 @@ ur-PK:
       typical_userpage: "A typical cubbi.es userpage"
       via: "(via %{link})"
       what_is_cubbies: "Cubbi.es is the world's first Diaspora application.  It's also the best way to collect photos online."
-  undo: "Undo?"
+  undo: Undo?
   username: "Username"
   users: 
     confirm_email: 
@@ -871,7 +882,7 @@ ur-PK:
       hashtag_explanation: "Hashtags allow you to talk about and follow your interests.  They're also a great way to find new people on Diaspora."
       hashtag_suggestions: "Try following tags like #art, #movies, #gif, etc."
       hooking_up_fb: "hooking up your Facebook account"
-      saved: "Saved!"
+      saved: Saved!
       we_can_speed_things_up: "We can speed things up a bit by"
       well_hello_there: "Well, hello there!"
       what_are_you_in_to: "What are you into?"
@@ -883,6 +894,10 @@ ur-PK:
       signed_out: "You've signed out of Diaspora*"
       simply_visit: "Simply visit"
       works_on_modern: "Works on all modern smartphones"
+    privacy_settings: 
+      ignored_users: "Ignored Users"
+      stop_ignoring: "Stop ignoring"
+      title: "Privacy Settings"
     public: 
       does_not_exist: "User %{username} does not exist!"
     update: 
@@ -901,4 +916,4 @@ ur-PK:
     no_person_constructed: "No person could be constructed from this hcard."
     not_enabled: "webfinger does not seem to be enabled for %{account}'s host"
     xrd_fetch_failed: "there was an error getting the xrd from account %{account}"
-  welcome: "Welcome!"
+  welcome: Welcome!

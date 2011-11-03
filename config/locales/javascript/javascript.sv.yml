@@ -8,6 +8,7 @@ sv:
     aspect_dropdown: 
       add_to_aspect: "Lägg till kontakt"
       all_aspects: "Alla aspekter"
+      error: "Couldn't start sharing with {{name}}.  Are you ignoring them?"
       select_aspects: "Select aspects"
       started_sharing_with: "You have started sharing with {{name}}!"
       stopped_sharing_with: "You have stopped sharing with {{name}}."

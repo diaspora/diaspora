@@ -103,7 +103,7 @@ el:
       donate: "Κάντε Δωρεά"
       handle_explanation: "Αυτό είναι το αναγνωριστικό σας στο Diaspora (ID). Όπως και με μια διεύθυνση ηλεκτρονικού ταχυδρομείου, μπορείτε να το δώσετε σε άλλους για να σας βρουν."
       help: 
-        do_you: "Μήπως.."
+        do_you: Μήπως..
         email_feedback: "%{link} your feedback, if you prefer"
         feature_suggestion: "... έχεις μια %{link} πρόταση?"
         find_a_bug: "... βρες %{link}?"
@@ -167,6 +167,13 @@ el:
       no_applications: "Δεν έχετε εσισάγει καμία εφαρμογή ακόμα. "
       revoke_access: "Ανάκληση Πρόσβασης"
   back: "Πίσω"
+  blocks: 
+    create: 
+      failure: "I couldn't ignore that user.  #evasion"
+      success: "Alright, you won't see that user in your stream again. #silencio!"
+    destroy: 
+      failure: "I couldn't stop ignoring that user.  #evasion"
+      success: "Let's see what they have to say! #sayhello"
   bookmarklet: 
     explanation: "Δημοσιεύστε στο Diaspora από οπουδήποτε προσθέτοντας %{link}."
     explanation_link_text: "αυτόν τον σύνδεσμο"
@@ -179,7 +186,7 @@ el:
     many: "%{count} σχόλια"
     new_comment: 
       comment: "Σχολιάστε"
-      commenting: "Σχολιάζει..."
+      commenting: Σχολιάζει...
     one: "1 σχόλιο"
     other: "%{count} σχόλια"
     two: "%{count} σχόλια"
@@ -234,7 +241,7 @@ el:
     new: 
       abandon_changes: "Απόρριψη αλλαγών?"
       send: "Αποστολή"
-      sending: "Αποστολή..."
+      sending: Αποστολή...
       subject: "θέμα"
       to: "στον"
     new_message: 
@@ -242,7 +249,7 @@ el:
     show: 
       delete: "διαγραφή και φραγή συζήτησης"
       reply: "απάντηση"
-      replying: "Απάντηση..."
+      replying: Απάντηση...
   date: 
     formats: 
       birthday: "%B %d"
@@ -507,6 +514,7 @@ el:
     show: 
       does_not_exist: "Ο/Η χρήστης δεν υπάρχει!"
       has_not_shared_with_you_yet: "Ο χρήστης %{name} δεν μοιράζεται ακόμα κάποια δημοσίευση μαζί σας!"
+      ignoring: "You are ignoring all posts from %{name}."
       incoming_request: "Ο/Η %{name} θέλει να μοιραστεί μαζί σας"
       mention: "Αναφορά"
       message: "Μήνυμα"
@@ -559,16 +567,13 @@ el:
     update: 
       error: "Αποτυχία επεξεργασίας φωτογραφίας."
       notice: "Η φωτογραφία ενημερώθηκε επιτυχώς."
-  post_visibilites: 
-    update: 
-      post_hidden_and_muted: "Οι αναρτήσεις από τον/την %{name} έχουν γίνει κρυφές, και οι ειδοποιήσεις έχουν απενεργοποιηθεί."
-      see_it_on_their_profile: "Εάν θέλετε να δείτε τις ενημερώσεις αυτής της δημοσίευσης, επισκεφθείτε το προφίλ του χρήστη %{name}. "
   posts: 
     show: 
       destroy: "Διαγραφή"
       not_found: "Λυπούμαστε, δεν καταφέραμε να βρούμε αυτή τη δημοσίευση."
       permalink: "permalink"
   previous: "προηγούμενο"
+  privacy: "Privacy"
   profile: "Προφίλ"
   profiles: 
     edit: 
@@ -637,7 +642,7 @@ el:
       existing: "Υφιστάμενες επαφές"
       manage_within: "Διαχειριστείτε τις επαφές της πτυχής"
     new_request_to_person: 
-      sent: "εστάλη!"
+      sent: εστάλη!
   reshares: 
     comment_email_subject: "κοινοποίηση της δημοσίευσης του %{author} από τον %{resharer}"
     create: 
@@ -685,11 +690,15 @@ el:
       not_on_diaspora: "Όχι ακόμα στο Diaspora"
       resend: "αποστολή ξανά"
   settings: "Ρυθμίσεις"
+  share_visibilites: 
+    update: 
+      post_hidden_and_muted: "%{name}'s post has been hidden, and notifications have been muted."
+      see_it_on_their_profile: "If you want to see updates on this post, visit %{name}'s profile page."
   shared: 
     add_contact: 
       add_new_contact: "Προσθέστε μια νέα επαφή"
       create_request: "Εύρεση βάσει Diaspora ID"
-      diaspora_handle: "diaspora@pod.org"
+      diaspora_handle: diaspora@pod.org
       enter_a_diaspora_username: "Εισάγετε όνομα χρήστη Diaspora:"
       know_email: "Ξέρετε τις ηλεκτρονικές τους διευθύνσεις; Τότε πρέπει να τους προσκαλέσετε"
       your_diaspora_username_is: "Το όνομα χρήστη σας στο Diaspora είναι: %{diaspora_handle}"
@@ -737,7 +746,7 @@ el:
         i_like: "Με ενδιαφέρουν οι ετικέτες %{tags}."
         invited_by: "Thanks for the invite, "
       post_a_message_to: "Αναρτήστε ένα μήνυμα στην πτυχή %{aspect}"
-      posting: "Ανάρτηση..."
+      posting: Ανάρτηση...
       publishing_to: "δημοσίευση στο: "
       share: "Μοιράσου"
       share_with: "Μοιράσου με"
@@ -750,6 +759,8 @@ el:
       currently_unavailable: "commenting currently unavailable"
       dislike: "Δεν μ' αρέσει"
       hide_and_mute: "Απόκρυψη και Σίγαση "
+      ignore_user: "Ignore %{name}"
+      ignore_user_description: "Ignore and remove user from all aspects?"
       like: "Μου αρέσει"
       shared_with: "Διαμοιρασμένο με: %{aspect_names}"
       unlike: "Δεν μου αρέσει"
@@ -830,7 +841,7 @@ el:
       typical_userpage: "Μία τυπική cubbi.es σελίδα χρήστη"
       via: "(μέσω %{link})"
       what_is_cubbies: "Το Cubbi.es είναι παγκοσμίως η πρώτη εφαρμογή για το Diaspora. Είναι επίσης ο καλύτερος τρόπος συλλογής φωτογραφιών στο διαδίκτυο."
-  undo: "Αναίρεση;"
+  undo: Αναίρεση;
   username: "Όνομα Χρήστη"
   users: 
     confirm_email: 
@@ -871,7 +882,7 @@ el:
       hashtag_explanation: "Τα hashtags σας επιτρέπουν να συζητάτε και να ακολουθείτε συγκεκριμένα ενδιαφέροντα. Είναι ακόμα ένας ωραίος τρόπος για να γνωρίσετε νέα άτομα στο Diaspora."
       hashtag_suggestions: "Try following tags like #art, #movies, #gif, etc."
       hooking_up_fb: "hooking up your Facebook account"
-      saved: "Saved!"
+      saved: Saved!
       we_can_speed_things_up: "We can speed things up a bit by"
       well_hello_there: "Well, hello there!"
       what_are_you_in_to: "What are you into?"
@@ -883,6 +894,10 @@ el:
       signed_out: "Έχετε αποσυνδεθεί από το Diaspora*"
       simply_visit: "Απλά επισκεφθείτε "
       works_on_modern: "Δουλεύει σε όλα τα μοντέρνα smartphones"
+    privacy_settings: 
+      ignored_users: "Ignored Users"
+      stop_ignoring: "Stop ignoring"
+      title: "Privacy Settings"
     public: 
       does_not_exist: "Ο χρήστης %{username} δεν υπάρχει!"
     update: 
@@ -901,4 +916,4 @@ el:
     no_person_constructed: "Κανένα άτομο δεν μπορούσε να κατασκευαστεί απο αυτό το hcard."
     not_enabled: "το webfinger φαίνεται να μην είναι ενεργοποιημέο για τον host του %{account}"
     xrd_fetch_failed: "υπήρξε ένα πρόβλημα στη λήψη του xrd απο το λογαριασμό %{account}"
-  welcome: "Καλωσήρθατε!"
+  welcome: Καλωσήρθατε!

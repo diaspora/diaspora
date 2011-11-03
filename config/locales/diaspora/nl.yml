@@ -8,7 +8,7 @@ nl:
   _comments: "Reacties"
   _contacts: "Contacten"
   _home: "Home"
-  _photos: "foto's"
+  _photos: foto's
   _services: "Services"
   account: "Account"
   activerecord: 
@@ -167,19 +167,26 @@ nl:
       no_applications: "Je hebt nog geen applicaties geregistreerd."
       revoke_access: "Toegang Terugdraaien"
   back: "Terug"
+  blocks: 
+    create: 
+      failure: "I couldn't ignore that user.  #evasion"
+      success: "Alright, you won't see that user in your stream again. #silencio!"
+    destroy: 
+      failure: "I couldn't stop ignoring that user.  #evasion"
+      success: "Let's see what they have to say! #sayhello"
   bookmarklet: 
     explanation: "Post vanaf overal naar Diaspora door %{link} op te slaan."
     explanation_link_text: "deze link"
     heading: "Bookmarklet"
     post_something: "Post iets naar Diaspora"
-    post_success: "Gepost!"
+    post_success: Gepost!
   cancel: "Annuleren"
   comments: 
     few: "%{count} reacties"
     many: "%{count} reacties"
     new_comment: 
       comment: "Reactie"
-      commenting: "Reageren..."
+      commenting: Reageren...
     one: "1 reactie"
     other: "%{count} reacties"
     two: "%{count} reacties"
@@ -234,7 +241,7 @@ nl:
     new: 
       abandon_changes: "Wijzigingen annuleren?"
       send: "Verstuur"
-      sending: "Verzenden..."
+      sending: Verzenden...
       subject: "onderwerp"
       to: "aan"
     new_message: 
@@ -242,14 +249,14 @@ nl:
     show: 
       delete: "verwijder en blokkeer conversatie"
       reply: "beantwoord"
-      replying: "Beantwoorden..."
+      replying: Beantwoorden...
   date: 
     formats: 
       birthday: "%B %d"
       birthday_with_year: "%B %d %Y"
       fullmonth_day: "%B %d"
   delete: "Verwijderen"
-  email: "E-mail"
+  email: E-mail
   error_messages: 
     helper: 
       correct_the_following_errors_and_try_again: "Corrigeer de volgende fouten en probeer opnieuw."
@@ -507,6 +514,7 @@ nl:
     show: 
       does_not_exist: "Die persoon bestaat niet!"
       has_not_shared_with_you_yet: "%{name} heeft nog geen posts met je gedeeld!"
+      ignoring: "You are ignoring all posts from %{name}."
       incoming_request: "%{name} wil met je delen"
       mention: "Noemen"
       message: "Bericht"
@@ -559,16 +567,13 @@ nl:
     update: 
       error: "Foto veranderen niet gelukt."
       notice: "Foto succesvol veranderd."
-  post_visibilites: 
-    update: 
-      post_hidden_and_muted: "%{name}'s post is verborgen en notificaties zijn geblokkeerd."
-      see_it_on_their_profile: "Als je updates wilt zien op dit bericht, bezoek %{name}'s profiel pagina."
   posts: 
     show: 
       destroy: "Verwijder"
       not_found: "Sorry, die post konden we niet vinden."
       permalink: "permalink"
   previous: "vorige"
+  privacy: "Privacy"
   profile: "Profiel"
   profiles: 
     edit: 
@@ -607,7 +612,7 @@ nl:
       edit: "Bewerk %{name}"
       leave_blank: "(leeg laten als je niets wilt wijzigen)"
       password_to_confirm: "(we hebben je huidige wachtwoord nodig om de wijzigingen te bevestigen)"
-      unhappy: "Ontevreden?"
+      unhappy: Ontevreden?
       update: "Update"
     new: 
       create_my_account: "Maak mijn account aan"
@@ -619,7 +624,7 @@ nl:
       sign_up_message: "Social Networking with a <3"
   requests: 
     create: 
-      sending: "Versturen..."
+      sending: Versturen...
       sent: "Je hebt gevraagd te delen met %{name}. Hij of zij zou het moeten zien eerstvolgende keer dat hij of zij inlogt op Diaspora."
     destroy: 
       error: "Selecteer een aspect!"
@@ -637,7 +642,7 @@ nl:
       existing: "Bestaande contacten"
       manage_within: "Beheer contacten in"
     new_request_to_person: 
-      sent: "verzonden!"
+      sent: verzonden!
   reshares: 
     comment_email_subject: "%{resharer}'s doorgifte van %{author}'s post"
     create: 
@@ -685,11 +690,15 @@ nl:
       not_on_diaspora: "Nog niet op Diaspora"
       resend: "herstuur"
   settings: "Instellingen"
+  share_visibilites: 
+    update: 
+      post_hidden_and_muted: "%{name}'s post has been hidden, and notifications have been muted."
+      see_it_on_their_profile: "If you want to see updates on this post, visit %{name}'s profile page."
   shared: 
     add_contact: 
       add_new_contact: "Voeg een contact toe"
       create_request: "Vind door middel van Diaspora ID"
-      diaspora_handle: "gebruikersnaam@pod.org"
+      diaspora_handle: gebruikersnaam@pod.org
       enter_a_diaspora_username: "Vul een Diaspora gebruikersnaam in:"
       know_email: "Weet je hun e-mailadres? Je zou ze uit moeten nodigen"
       your_diaspora_username_is: "Jouw Diaspora gebruikersnaam is: %{diaspora_handle}"
@@ -737,7 +746,7 @@ nl:
         i_like: "I'm interested in %{tags}."
         invited_by: "Thanks for the invite, "
       post_a_message_to: "Plaats een bericht aan %{aspect}"
-      posting: "Plaatsen..."
+      posting: Plaatsen...
       publishing_to: "delen met: "
       share: "Delen"
       share_with: "deel met"
@@ -750,6 +759,8 @@ nl:
       currently_unavailable: "commenting currently unavailable"
       dislike: "Vind ik niet meer leuk"
       hide_and_mute: "Verberg en blokkeer"
+      ignore_user: "Ignore %{name}"
+      ignore_user_description: "Ignore and remove user from all aspects?"
       like: "Vind ik leuk"
       shared_with: "Gedeeld met: %{aspect_names}"
       unlike: "vind ik niet meer leuk"
@@ -871,7 +882,7 @@ nl:
       hashtag_explanation: "Hashtags laten je gemakkelijk jou interesses volgen. Bovendien kunnen ze je helpen bij het vinden van nieuwe contacten op Diaspora."
       hashtag_suggestions: "Try following tags like #art, #movies, #gif, etc."
       hooking_up_fb: "hooking up your Facebook account"
-      saved: "Saved!"
+      saved: Saved!
       we_can_speed_things_up: "We can speed things up a bit by"
       well_hello_there: "Well, hello there!"
       what_are_you_in_to: "What are you into?"
@@ -883,6 +894,10 @@ nl:
       signed_out: "You've signed out of Diaspora*"
       simply_visit: "Simply visit"
       works_on_modern: "Works on all modern smartphones"
+    privacy_settings: 
+      ignored_users: "Ignored Users"
+      stop_ignoring: "Stop ignoring"
+      title: "Privacy Settings"
     public: 
       does_not_exist: "Gebruiker %{username} bestaat niet!"
     update: 
@@ -901,4 +916,4 @@ nl:
     no_person_constructed: "Er kon geen persoon worden gemaakt van deze hcard."
     not_enabled: "webfinger lijkt niet aan te staan voor %{account}'s provider"
     xrd_fetch_failed: "er was een probleem bij het verkrijgen van de xrd van het account %{account}"
-  welcome: "Welcome!"
+  welcome: Welcome!

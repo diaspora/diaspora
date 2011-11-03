@@ -8,6 +8,7 @@ cs:
     aspect_dropdown: 
       add_to_aspect: "Přidat kontakt"
       all_aspects: "Všechny aspekty"
+      error: "Couldn't start sharing with {{name}}.  Are you ignoring them?"
       select_aspects: "Select aspects"
       started_sharing_with: "You have started sharing with {{name}}!"
       stopped_sharing_with: "You have stopped sharing with {{name}}."

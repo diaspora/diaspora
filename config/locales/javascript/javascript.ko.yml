@@ -8,6 +8,7 @@ ko:
     aspect_dropdown: 
       add_to_aspect: "애스펙에 넣기"
       all_aspects: "모든 에스팩"
+      error: "Couldn't start sharing with {{name}}.  Are you ignoring them?"
       select_aspects: "에스팩 선택"
       started_sharing_with: "{{name}}님과의 공유를 시작합니다!"
       stopped_sharing_with: "{{name}}님과의 공유를 멈췄습니다."
@@ -25,7 +26,7 @@ ko:
     comments: 
       hide: "댓글 감추기"
       show: "모든 댓글 보기"
-    confirm_dialog: "확실합니까?"
+    confirm_dialog: 확실합니까?
     failed_to_like: "좋아요를 실패했습니다!"
     failed_to_post_message: "공유물 올리기를 실패했습니다!"
     getting_started: 

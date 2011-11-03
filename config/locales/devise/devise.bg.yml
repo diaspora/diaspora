@@ -33,9 +33,9 @@ bg:
         arrived: "Социалната мрежа, която сте очаквали е вече реалност. Подобрена, по-сигурна и развлекателна, %{strong_diaspora} е насреща когато желаете да споделяте и изследвате мрежата по нов начин."
         be_yourself: "Бъдете себе си"
         be_yourself_paragraph: "Internet предоставя уникални възможности за изразяване. %{strong_diaspora} ви позволява да бъдете себе си и да споделяте както желаете, с когото пожелаете, ползвайки или не името си."
-        cubbies: "Cubbi.es"
+        cubbies: Cubbi.es
         displaying_correctly: "Съдържанието не се визуализира правилно? %{link} във вашия браузър"
-        email_address: "questions@joindiaspora.com"
+        email_address: questions@joindiaspora.com
         email_us: "За общи запитвания и поддръжка на вашия акаунт в Diaspora моля пишете ни на %{email}."
         finally: "Най-накрая е тук"
         friends_saying: "Какво казват приятелите ви..."

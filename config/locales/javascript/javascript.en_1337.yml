@@ -8,6 +8,7 @@ en_1337:
     aspect_dropdown: 
       add_to_aspect: "4DD N00B"
       all_aspects: "4LL 45P3C75"
+      error: "Couldn't start sharing with {{name}}.  Are you ignoring them?"
       select_aspects: "Select aspects"
       started_sharing_with: "You have started sharing with {{name}}!"
       stopped_sharing_with: "You have stopped sharing with {{name}}."
@@ -25,7 +26,7 @@ en_1337:
     comments: 
       hide: "H1D3 5P4M5!"
       show: "5H0W 4LL 5P4M5!"
-    confirm_dialog: "5UR3?"
+    confirm_dialog: 5UR3?
     failed_to_like: "F41L3D 2 <3!"
     failed_to_post_message: "F41L3D 2 53ND 5P4M!"
     getting_started: 
@@ -67,4 +68,4 @@ en_1337:
       unknown: "UNK0WN V1D30 7YP3"
       watch: "W47CH 7H15 V1D30 0N {{provider}}"
     web_sockets: 
-      disconnected: "D15C0NN3C73D!"
+      disconnected: D15C0NN3C73D!

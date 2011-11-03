@@ -99,7 +99,7 @@ nn:
       diaspora_id: 
         content_1: "Diaspora-ID-en din er:"
         content_2: "Gje han til kven som helst så kan dei finna deg på Diaspora."
-        heading: "Diaspora-ID"
+        heading: Diaspora-ID
       donate: "Doner"
       handle_explanation: "Dette er Diaspora-ID-en din. Nett som ei e-postadresse kan du gje han til folk slik at dei kan nå deg."
       help: 
@@ -167,6 +167,13 @@ nn:
       no_applications: "Du har enno ikkje registrert nokon applikasjonar."
       revoke_access: "Trekk attende tilgangen"
   back: "Attende"
+  blocks: 
+    create: 
+      failure: "I couldn't ignore that user.  #evasion"
+      success: "Alright, you won't see that user in your stream again. #silencio!"
+    destroy: 
+      failure: "I couldn't stop ignoring that user.  #evasion"
+      success: "Let's see what they have to say! #sayhello"
   bookmarklet: 
     explanation: "Send til Diaspora frå kor som helst ved å lagra %{link} som bokmerke."
     explanation_link_text: "denne lenkja"
@@ -494,7 +501,7 @@ nn:
       add_contact: "legg til kontakt"
       already_connected: "Allereie tilkopla"
       pending_request: "Ventande førespurnad"
-      thats_you: "Deg!"
+      thats_you: Deg!
     profile_sidebar: 
       bio: "livshistorie"
       born: "fødselsdag"
@@ -507,6 +514,7 @@ nn:
     show: 
       does_not_exist: "Personen finst ikkje."
       has_not_shared_with_you_yet: "%{name} har enno ikkje delt noko innlegg med deg."
+      ignoring: "You are ignoring all posts from %{name}."
       incoming_request: "%{name} ønskjer å dela med deg"
       mention: "Omtale"
       message: "Melding"
@@ -559,16 +567,13 @@ nn:
     update: 
       error: "Klarte ikkje å endra biletet."
       notice: "Biletet vart oppdatert."
-  post_visibilites: 
-    update: 
-      post_hidden_and_muted: "Innlegget til %{name} er vorte gøymt og varsel er slått av."
-      see_it_on_their_profile: "Besøk %{name} si profilside om du vil sjå oppdateringane til dette innlegget."
   posts: 
     show: 
       destroy: "Sletta"
       not_found: "Vi klarte dessverre ikkje å finna innlegget."
       permalink: "permlenkje"
   previous: "førre"
+  privacy: "Privacy"
   profile: "Profil"
   profiles: 
     edit: 
@@ -607,7 +612,7 @@ nn:
       edit: "Endra %{name}"
       leave_blank: "(lat vera tomt om du ikkje vil endra)"
       password_to_confirm: "(vi treng det gjeldande passordet ditt for å kunna stadfesta endringane)"
-      unhappy: "Ulukkeleg?"
+      unhappy: Ulukkeleg?
       update: "Oppdater"
     new: 
       create_my_account: "Lag kontoen min."
@@ -685,11 +690,15 @@ nn:
       not_on_diaspora: "Enno ikkje på Diaspora"
       resend: "send på nytt"
   settings: "Innstillingar"
+  share_visibilites: 
+    update: 
+      post_hidden_and_muted: "%{name}'s post has been hidden, and notifications have been muted."
+      see_it_on_their_profile: "If you want to see updates on this post, visit %{name}'s profile page."
   shared: 
     add_contact: 
       add_new_contact: "Legg til ein ny kontakt"
       create_request: "Finn ved hjelp av Diaspora-id-en"
-      diaspora_handle: "diaspora@pod.org"
+      diaspora_handle: diaspora@pod.org
       enter_a_diaspora_username: "Skriv inn eit Diaspora-brukarnamn:"
       know_email: "Kjenner du epostadressene deira? Du burde invitera dei"
       your_diaspora_username_is: "Diaspora-brukarnamnet ditt er: %{diaspora_handle}"
@@ -750,6 +759,8 @@ nn:
       currently_unavailable: "commenting currently unavailable"
       dislike: "Mislik"
       hide_and_mute: "Gøym og demp"
+      ignore_user: "Ignore %{name}"
+      ignore_user_description: "Ignore and remove user from all aspects?"
       like: "Lik"
       shared_with: "Delt med: %{aspect_names}"
       unlike: "Lik ikkje lenger"
@@ -871,7 +882,7 @@ nn:
       hashtag_explanation: "Grindmerke (#) gjer at du kan tala om og følgja interessene dine. Dei er òg ein fin måte å finna nye Diaspora-brukarar på."
       hashtag_suggestions: "Try following tags like #art, #movies, #gif, etc."
       hooking_up_fb: "hooking up your Facebook account"
-      saved: "Saved!"
+      saved: Saved!
       we_can_speed_things_up: "We can speed things up a bit by"
       well_hello_there: "Well, hello there!"
       what_are_you_in_to: "What are you into?"
@@ -883,6 +894,10 @@ nn:
       signed_out: "You've signed out of Diaspora*"
       simply_visit: "Simply visit"
       works_on_modern: "Works on all modern smartphones"
+    privacy_settings: 
+      ignored_users: "Ignored Users"
+      stop_ignoring: "Stop ignoring"
+      title: "Privacy Settings"
     public: 
       does_not_exist: "Brukaren %{username} finst ikkje."
     update: 
@@ -901,4 +916,4 @@ nn:
     no_person_constructed: "Klarte ikkje å laga nokon person frå hcard-fila."
     not_enabled: "webfinger does not seem to be enabled for %{account}'s host"
     xrd_fetch_failed: "there was an error getting the xrd from account %{account}"
-  welcome: "Welcome!"
+  welcome: Welcome!

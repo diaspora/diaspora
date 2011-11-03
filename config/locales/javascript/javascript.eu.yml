@@ -8,6 +8,7 @@ eu:
     aspect_dropdown: 
       add_to_aspect: "Adiskidea gehitu"
       all_aspects: "Alderdi guztiak"
+      error: "Couldn't start sharing with {{name}}.  Are you ignoring them?"
       select_aspects: "Alderdiak aukeratu"
       started_sharing_with: "{{name}}(r)ekin harremanetan hasi zara!"
       stopped_sharing_with: "Jada ez zaude {{name}}(r)ekin harremanetan."

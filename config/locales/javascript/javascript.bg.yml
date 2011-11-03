@@ -8,6 +8,7 @@ bg:
     aspect_dropdown: 
       add_to_aspect: "Избиране на аспект(и)"
       all_aspects: "Във всеки аспект"
+      error: "Не е възможно започване на споделяне с {{name}}.  Вероятно ги игнорирате?"
       select_aspects: "Избиране на аспект(и)"
       started_sharing_with: "Започнахте да споделяте с {{name}}!"
       stopped_sharing_with: "Престанахте да споделяте с {{name}}."

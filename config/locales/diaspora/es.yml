@@ -50,9 +50,9 @@ es:
   are_you_sure: "¿Estás seguro?"
   aspect_memberships: 
     destroy: 
-      failure: "No se pudo eliminar a la persona del aspecto"
+      failure: "No se pudo quitar a la persona del aspecto"
       no_membership: "No se pudo encontrar a la persona seleccionada en ese aspecto"
-      success: "Persona eliminada con éxito del aspecto"
+      success: "Se ha quitado con éxito a la persona del aspecto"
   aspects: 
     add_to_aspect: 
       failure: "Error añadiendo el contacto al aspecto."
@@ -115,9 +115,9 @@ es:
       introduce_yourself: "Esta es tu entrada de novedades. Adelante, preséntate..."
       keep_us_running: "Haz que %{pod} vaya más rápido, ¡compra a nuestros servidores sus dosis de café mensual!"
       new_here: 
-        follow: "¡Sigue %{link} y da la bienvenida a los usuarios nuevos de Diaspora*!"
+        follow: "¡Sigue %{link} y da la bienvenida a Diaspora* a los nuevos usuarios!"
         learn_more: "Más información"
-        title: "Bienvenida a los usuarios nuevos"
+        title: "Bienvenida de nuevos usuarios"
       no_contacts: "No hay contactos"
       no_tags: "+ Encuentra una etiqueta a seguir"
       people_sharing_with_you: "Comparten contigo"
@@ -146,7 +146,7 @@ es:
     one: "1 aspecto"
     other: "%{count} aspectos"
     seed: 
-      acquaintances: "Conocid@s"
+      acquaintances: Conocid@s
       family: "Familia"
       friends: "Amigos"
       work: "Trabajo"
@@ -167,6 +167,13 @@ es:
       no_applications: "Aún no tienes registrada ninguna aplicación."
       revoke_access: "Revocar acceso"
   back: "Atrás"
+  blocks: 
+    create: 
+      failure: "No podría ignorar a ese usuario. #evasion"
+      success: "Bien, tú no verás a ese usuario en tus novedades otra vez. #silencio!"
+    destroy: 
+      failure: "No podría dejar de ignorar a ese usuario.  #evasion"
+      success: "¡Vamos a ver qué tiene que decir! #sayhello"
   bookmarklet: 
     explanation: "Publica en Diaspora* desde donde quieras agregando a tus marcadores %{link}."
     explanation_link_text: "este enlace"
@@ -179,7 +186,7 @@ es:
     many: "%{count} comentarios"
     new_comment: 
       comment: "Comentar"
-      commenting: "Comentando..."
+      commenting: Comentando...
     one: "1 comentario"
     other: "%{count} comentarios"
     two: "%{count} comentarios"
@@ -234,7 +241,7 @@ es:
     new: 
       abandon_changes: "¿Descartar los cambios?"
       send: "Enviar"
-      sending: "Enviando..."
+      sending: Enviando...
       subject: "asunto"
       to: "para"
     new_message: 
@@ -242,7 +249,7 @@ es:
     show: 
       delete: "Eliminar y bloquear conversación"
       reply: "responder"
-      replying: "Respondiendo..."
+      replying: Respondiendo...
   date: 
     formats: 
       birthday: "%d %B "
@@ -502,11 +509,12 @@ es:
       gender: "Género"
       in_aspects: "en aspectos"
       location: "Ubicación "
-      remove_contact: "eliminar contacto"
+      remove_contact: "quitar contacto"
       remove_from: "¿Eliminar a %{name} de %{aspect}?"
     show: 
       does_not_exist: "¡El usuario no existe!"
       has_not_shared_with_you_yet: "¡%{name} todavía no ha compartido ninguna publicación contigo!"
+      ignoring: "Estás ignorando todas las publicaciones de %{name}."
       incoming_request: "%{name} quisiera compartir contigo"
       mention: "Mención"
       message: "Mensaje"
@@ -538,7 +546,7 @@ es:
     new: 
       back_to_list: "Volver a la lista"
       new_photo: "Nueva foto"
-      post_it: "¡Publícalo!"
+      post_it: ¡Publícalo!
     new_photo: 
       empty: "{file} está vacío, por favor selecciona otros archivos."
       invalid_ext: "{file} tiene una extensión inválida. Sólo {extensions} están permitidas."
@@ -559,16 +567,13 @@ es:
     update: 
       error: "Error editando la foto."
       notice: "Foto actualizada con éxito."
-  post_visibilites: 
-    update: 
-      post_hidden_and_muted: "Las publicaciones de %{name} han sido ocultadas, y sus notificaciones silenciadas."
-      see_it_on_their_profile: "Si quieres ver novedades sobre esta publicación visita la página principal de %{name}."
   posts: 
     show: 
       destroy: "Eliminar"
       not_found: "Lo sentimos, no podemos encontrar ese comentario."
       permalink: "enlace permanente"
   previous: "anterior"
+  privacy: "Privacidad"
   profile: "Perfil"
   profiles: 
     edit: 
@@ -607,7 +612,7 @@ es:
       edit: "Editar %{name}"
       leave_blank: "(déjalo en blanco si no quieres cambiarlo)"
       password_to_confirm: "(necesitamos tu contraseña actual para confirmar los cambios)"
-      unhappy: "¿Triste?"
+      unhappy: ¿Triste?
       update: "Actualizar"
     new: 
       create_my_account: "¡Crear mi cuenta!"
@@ -637,7 +642,7 @@ es:
       existing: "Contactos existentes"
       manage_within: "Gestión de contactos"
     new_request_to_person: 
-      sent: "¡Enviado!"
+      sent: ¡Enviado!
   reshares: 
     comment_email_subject: "%{resharer} compartió la publicación de %{author}"
     create: 
@@ -685,11 +690,15 @@ es:
       not_on_diaspora: "Aún no en Diaspora*"
       resend: "reenviar"
   settings: "Configuración"
+  share_visibilites: 
+    update: 
+      post_hidden_and_muted: "La publicación de %{name} ha sido ocultada, y las notificaciones desactivadas."
+      see_it_on_their_profile: "Si quieres ver actualizaciones sobre esta publicación, visita el perfil de %{name}."
   shared: 
     add_contact: 
       add_new_contact: "Añade un nuevo contacto"
       create_request: "Encontrar por la dirección Diaspora*"
-      diaspora_handle: "diaspora@pod.org"
+      diaspora_handle: diaspora@pod.org
       enter_a_diaspora_username: "Introduce un nombre de usuario Diaspora*:"
       know_email: "¿Conoces sus direcciones de email? Podrías invitarles"
       your_diaspora_username_is: "Su nombre de usuario Diaspora* es: %{diaspora_handle}"
@@ -733,11 +742,11 @@ es:
       discard_post: "Descartar publicación"
       make_public: "hacer público"
       new_user_prefill: 
-        hello: "Eih, hola a todos. I'm #%{new_user_tag}."
+        hello: "Hola a todos, soy nuevo aquí. I'm #%{new_user_tag}."
         i_like: "Tengo interés en %{tags}."
         invited_by: "Gracias por la invitación, "
       post_a_message_to: "Publicar un mensaje en %{aspect}"
-      posting: "Publicando..."
+      posting: Publicando...
       publishing_to: "publicar en:"
       share: "Compartir"
       share_with: "compartir con"
@@ -749,7 +758,9 @@ es:
       connect_to_comment: "Conecta con este usuario para comentar en su publicación"
       currently_unavailable: "comentarios actualmente no disponibles"
       dislike: "No me gusta"
-      hide_and_mute: "Ocultado y Silenciado"
+      hide_and_mute: "Ocultar y silenciar publicación"
+      ignore_user: "Ignorar a %{name}"
+      ignore_user_description: "¿Ignorar y quitar al usuario de todos los aspectos?"
       like: "Me gusta"
       shared_with: "Compartir con: %{aspect_names}"
       unlike: "No me gusta"
@@ -804,7 +815,7 @@ es:
   tag_followings: 
     create: 
       failure: "Error al seguir a #%{name}. ¿Estás siguiéndolo ya?"
-      success: "¡Bien! Ahora ya sigues #%{name}."
+      success: "¡Sí! Ahora sigues #%{name}."
     destroy: 
       failure: "Error al dejar de seguir #%{name}. ¿Tal vez ya lo hiciste?"
       success: "¡Ay! Ya no sigues más #%{name}."
@@ -830,7 +841,7 @@ es:
       typical_userpage: "Una típica pagina de usuario de cubbi.es"
       via: "(vía %{link})"
       what_is_cubbies: "Cubbi.es es la primera aplicación de Diaspora en el mundo.  Es también la mejor forma de coleccionar fotos en línea."
-  undo: "¿Deshacer?"
+  undo: ¿Deshacer?
   username: "Nombre de usuario"
   users: 
     confirm_email: 
@@ -871,7 +882,7 @@ es:
       hashtag_explanation: "Las etiquetas te permiten hablar sobre tus intereses así como seguirlos. Además es una forma genial de encontrar gente nueva en Diaspora. "
       hashtag_suggestions: "Prueba a seguir etiquetas como #art, #cine, #gif, etc."
       hooking_up_fb: "conecta tu cuenta de Facebook"
-      saved: "¡Guardado!"
+      saved: ¡Guardado!
       we_can_speed_things_up: "Podemos acelerar las cosas un poquito mediante"
       well_hello_there: "Bueno, ¿qué tal?"
       what_are_you_in_to: "¿Qué andas haciendo?"
@@ -883,6 +894,10 @@ es:
       signed_out: "Saliste de Diaspora*"
       simply_visit: "Simplemente visita"
       works_on_modern: "Funciona en todos los smartphones modernos"
+    privacy_settings: 
+      ignored_users: "Usuarios Ignorados"
+      stop_ignoring: "Dejar de ignorar"
+      title: "Configuración de Privacidad"
     public: 
       does_not_exist: "¡El usuario %{username} no existe!"
     update: 
@@ -901,4 +916,4 @@ es:
     no_person_constructed: "Ninguna persona pudo ser creada a partir de este hcard."
     not_enabled: "El webfinger parece no estar habilitado para el host de %{account}"
     xrd_fetch_failed: "Hubo un error al recibir el xrd desde la cuenta %{account}"
-  welcome: "¡Bienvenid@!"
+  welcome: ¡Bienvenid@!

@@ -8,6 +8,7 @@ el:
     aspect_dropdown: 
       add_to_aspect: "Προσθήκη σε πτυχή"
       all_aspects: "Όλες οι πτυχές"
+      error: "Couldn't start sharing with {{name}}.  Are you ignoring them?"
       select_aspects: "Επιλογή πτυχών"
       started_sharing_with: "You have started sharing with {{name}}!"
       stopped_sharing_with: "You have stopped sharing with {{name}}."
@@ -26,7 +27,7 @@ el:
       hide: "απόκρυψη σχολίων"
       show: "προβολή όλων των σχολίων"
     confirm_dialog: "Είστε σίγουρος/η;"
-    failed_to_like: "Αποτυχία!"
+    failed_to_like: Αποτυχία!
     failed_to_post_message: "Αποτυχία δημοσίευσης μηνύματος!"
     getting_started: 
       alright_ill_wait: "Alright, I'll wait."

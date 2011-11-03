@@ -167,6 +167,13 @@ pt-PT:
       no_applications: "Ainda não registou nenhuma aplicação."
       revoke_access: "Revogar o Acesso"
   back: "Voltar"
+  blocks: 
+    create: 
+      failure: "I couldn't ignore that user.  #evasion"
+      success: "Alright, you won't see that user in your stream again. #silencio!"
+    destroy: 
+      failure: "I couldn't stop ignoring that user.  #evasion"
+      success: "Let's see what they have to say! #sayhello"
   bookmarklet: 
     explanation: "Publique no Diaspora de qualquer lado ao adicionar %{link} como marcador."
     explanation_link_text: "esta hiperligação"
@@ -254,7 +261,7 @@ pt-PT:
     helper: 
       correct_the_following_errors_and_try_again: "Corrija os seguintes erros e volte a tentar."
       invalid_fields: "Campos Inválidos"
-  fill_me_out: "Informe-me"
+  fill_me_out: Informe-me
   find_people: "Encontrar pessoas ou #tags"
   hide: "Esconder"
   home: 
@@ -471,7 +478,7 @@ pt-PT:
     to_change_your_notification_settings: "para alterar as suas definições de notificação"
   ok: "OK"
   or: "ou"
-  password: "Palavra-passe"
+  password: Palavra-passe
   password_confirmation: "Confirmação de palavra-passe"
   people: 
     add_contact_small: 
@@ -507,6 +514,7 @@ pt-PT:
     show: 
       does_not_exist: "Essa pessoa não existe!"
       has_not_shared_with_you_yet: "%{name} ainda não partilhou quaisquer publicações consigo!"
+      ignoring: "You are ignoring all posts from %{name}."
       incoming_request: "%{name} quer partilhar consigo"
       mention: "Mencionar"
       message: "Mensagem"
@@ -538,7 +546,7 @@ pt-PT:
     new: 
       back_to_list: "Voltar à Lista"
       new_photo: "Nova Fotografia"
-      post_it: "Publique!"
+      post_it: Publique!
     new_photo: 
       empty: "{file} está vazio, por favor seleccione de novo os ficheiros sem este último."
       invalid_ext: "{file} tem uma extensão inválida. Apenas são permitidas as extensões {extensions}."
@@ -559,16 +567,13 @@ pt-PT:
     update: 
       error: "Falha ao editar a fotografia"
       notice: "Fotografia actualizada com sucesso."
-  post_visibilites: 
-    update: 
-      post_hidden_and_muted: "A publicação de %{name} foi escondida, e as notificações foram silenciadas."
-      see_it_on_their_profile: "Se deseja ver as actualizações desta publicação, visite a página de perfil de %{name}."
   posts: 
     show: 
       destroy: "Apagar"
       not_found: "Lamentamos muito, mas não foi possível encontrar essa publicação."
       permalink: "permalink"
   previous: "anterior"
+  privacy: "Privacy"
   profile: "Perfil"
   profiles: 
     edit: 
@@ -607,7 +612,7 @@ pt-PT:
       edit: "Editar %{name}"
       leave_blank: "(deixe em branco se não quiser modificar)"
       password_to_confirm: "(necessitamos da sua palavra-passe actual para confirmar as modificações)"
-      unhappy: "Descontente?"
+      unhappy: Descontente?
       update: "Actualizar"
     new: 
       create_my_account: "Criar a minha conta"
@@ -637,7 +642,7 @@ pt-PT:
       existing: "Contactos existentes"
       manage_within: "Gerir contactos dentro de"
     new_request_to_person: 
-      sent: "enviado!"
+      sent: enviado!
   reshares: 
     comment_email_subject: "repartilha de %{resharer} da publicação de %{author}"
     create: 
@@ -685,11 +690,15 @@ pt-PT:
       not_on_diaspora: "Ainda não no Diaspora"
       resend: "reenviar"
   settings: "Definições"
+  share_visibilites: 
+    update: 
+      post_hidden_and_muted: "%{name}'s post has been hidden, and notifications have been muted."
+      see_it_on_their_profile: "If you want to see updates on this post, visit %{name}'s profile page."
   shared: 
     add_contact: 
       add_new_contact: "Adicionar um novo contacto"
       create_request: "Encontrar através da identificação do Diaspora"
-      diaspora_handle: "diaspora@pod.org"
+      diaspora_handle: diaspora@pod.org
       enter_a_diaspora_username: "Introduza um nome de utilizador do Diaspora:"
       know_email: "Sabe os seus endereços de email? Deveria convidá-los"
       your_diaspora_username_is: "O seu nome de utilizador do Diaspora é: %{diaspora_handle}"
@@ -750,6 +759,8 @@ pt-PT:
       currently_unavailable: "comentar actualmente indisponível"
       dislike: "Não gosto"
       hide_and_mute: "Esconder e Silenciar"
+      ignore_user: "Ignore %{name}"
+      ignore_user_description: "Ignore and remove user from all aspects?"
       like: "Gosto"
       shared_with: "Partilhado com: %{aspect_names}"
       unlike: "Não Gosto"
@@ -830,7 +841,7 @@ pt-PT:
       typical_userpage: "Uma típica página de utilizador do cubbi.es"
       via: "(via %{link})"
       what_is_cubbies: "O Cubbi.es é a primeira aplicação Diaspora do mundo.  É também a melhor forma de coleccionar fotografias online."
-  undo: "Anular?"
+  undo: Anular?
   username: "Nome de utilizador"
   users: 
     confirm_email: 
@@ -871,7 +882,7 @@ pt-PT:
       hashtag_explanation: "Hashtags permitem-lhe falar sobre e seguir os seus interesses.  Também são uma óptima forma de conhecer novas pessoas no Diaspora."
       hashtag_suggestions: "Siga etiquetas como #arte, #cinema, #gif, etc."
       hooking_up_fb: "ligar à sua conta de Facebook"
-      saved: "Guardado!"
+      saved: Guardado!
       we_can_speed_things_up: "Podemos acelerar as coisas um pouco mais ao"
       well_hello_there: "Oh, olá!"
       what_are_you_in_to: "O que gostas mais?"
@@ -883,6 +894,10 @@ pt-PT:
       signed_out: "Você saiu do Diaspora*"
       simply_visit: "Visite"
       works_on_modern: "Funciona em todos os recentes smartphones"
+    privacy_settings: 
+      ignored_users: "Ignored Users"
+      stop_ignoring: "Stop ignoring"
+      title: "Privacy Settings"
     public: 
       does_not_exist: "O utilizador %{username} não existe!"
     update: 
@@ -901,4 +916,4 @@ pt-PT:
     no_person_constructed: "Nenhuma pessoa pôde ser construída através deste hcard."
     not_enabled: "webfinger parece não estar activado para o anfitrião de %{account}"
     xrd_fetch_failed: "ocorreu um erro ao obter o xrd da conta %{account}"
-  welcome: "Bem-vindo(a)!"
+  welcome: Bem-vindo(a)!

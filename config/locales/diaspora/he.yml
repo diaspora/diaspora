@@ -35,7 +35,7 @@ he:
             email: 
               taken: "כבר תפוס."
             person: 
-              invalid: "שגוי."
+              invalid: שגוי.
             username: 
               invalid: "שגוי. אנו מרשים להשתמש באותיות, מספרים וקווים תחתיים בלבד."
               taken: "כבר תפוס."
@@ -47,7 +47,7 @@ he:
       unknown_person: "אדם לא ידוע"
       video_title: 
         unknown: "כותרת הווידאו אינה ידועה"
-  are_you_sure: "בבטחה?"
+  are_you_sure: בבטחה?
   aspect_memberships: 
     destroy: 
       failure: "אירע כשל בהסרת המשתמש מההיבט"
@@ -167,6 +167,13 @@ he:
       no_applications: "You haven't registered any applications yet."
       revoke_access: "שלילת הגישה"
   back: "חזרה"
+  blocks: 
+    create: 
+      failure: "I couldn't ignore that user.  #evasion"
+      success: "Alright, you won't see that user in your stream again. #silencio!"
+    destroy: 
+      failure: "I couldn't stop ignoring that user.  #evasion"
+      success: "Let's see what they have to say! #sayhello"
   bookmarklet: 
     explanation: "פרסום ישירות לדיאספורה מכל מקום על ידי הוספת %{link} לסימניות."
     explanation_link_text: "קישור זה"
@@ -234,7 +241,7 @@ he:
     new: 
       abandon_changes: "האם להתעלם מהשינויים?"
       send: "שליחה"
-      sending: "בשליחה..."
+      sending: בשליחה...
       subject: "נושא"
       to: "אל"
     new_message: 
@@ -242,14 +249,14 @@ he:
     show: 
       delete: "מחיקה וחסימת הדיון"
       reply: "תגובה"
-      replying: "Replying..."
+      replying: Replying...
   date: 
     formats: 
       birthday: "ה־%d ב%B"
       birthday_with_year: "ה־%d ב%B %Y"
       fullmonth_day: "ה־%d ב%B"
   delete: "מחיקה"
-  email: "דוא״ל"
+  email: דוא״ל
   error_messages: 
     helper: 
       correct_the_following_errors_and_try_again: "יש לתקן את השגיאות הבאות ולנסות שוב."
@@ -440,7 +447,7 @@ he:
       two: "%{actors} started sharing with you."
       zero: "%{actors} החלו לשתף אתך."
   notifier: 
-    a_post_you_shared: "רשומה."
+    a_post_you_shared: רשומה.
     click_here: "יש ללחוץ כאן"
     comment_on_post: 
       reply: "שליחת תגובה או צפייה ברשומה של %{name} >"
@@ -507,6 +514,7 @@ he:
     show: 
       does_not_exist: "אדם זה אינו קיים!"
       has_not_shared_with_you_yet: "%{name} עדיין לא שיתף אתך רשומות כלל!"
+      ignoring: "You are ignoring all posts from %{name}."
       incoming_request: "ברצונו/ה של %{name} לשתף אתך"
       mention: "אזכור"
       message: "הודעה"
@@ -538,7 +546,7 @@ he:
     new: 
       back_to_list: "חזרה לרשימה"
       new_photo: "תמונה חדשה"
-      post_it: "פרסום!"
+      post_it: פרסום!
     new_photo: 
       empty: "הקובץ {file} ריק, נא לבחור שוב קבצים אבל בלעדיו."
       invalid_ext: "לקובץ {file} יש סיומת בלתי מוכרת. רק הסיומות {extensions} מותרות לשימוש."
@@ -559,16 +567,13 @@ he:
     update: 
       error: "אירע כשל בעריכת התמונה."
       notice: "התמונה עודכנה בהצלחה."
-  post_visibilites: 
-    update: 
-      post_hidden_and_muted: "%{name}'s post has been hidden, and notifications have been muted."
-      see_it_on_their_profile: "If you want to see updates on this post, visit %{name}'s profile page."
   posts: 
     show: 
       destroy: "מחיקה"
       not_found: "לא ניתן למצוא רשומה זו, עמך הסליחה."
       permalink: "קישור קבוע"
   previous: "הקודמת"
+  privacy: "Privacy"
   profile: "פרופיל"
   profiles: 
     edit: 
@@ -607,7 +612,7 @@ he:
       edit: "עריכת %{name}"
       leave_blank: "(יש להשאיר ריק אם אין ברצונך לשנות זאת)"
       password_to_confirm: "(נזדקק לססמה הנוכחית שלך כדי לאמת את השינויים)"
-      unhappy: "בבאסה?"
+      unhappy: בבאסה?
       update: "עדכון"
     new: 
       create_my_account: "יצירת החשבון שלי"
@@ -637,7 +642,7 @@ he:
       existing: "אנשי הקשר הקיימים"
       manage_within: "ניהול אנשי קשר בתוך"
     new_request_to_person: 
-      sent: "נשלחה!"
+      sent: נשלחה!
   reshares: 
     comment_email_subject: "שיתוף מחדש על ידי %{resharer} לרשומה של %{author}"
     create: 
@@ -685,11 +690,15 @@ he:
       not_on_diaspora: "עדיין לא בדיאספורה"
       resend: "שליחה שוב"
   settings: "הגדרות"
+  share_visibilites: 
+    update: 
+      post_hidden_and_muted: "%{name}'s post has been hidden, and notifications have been muted."
+      see_it_on_their_profile: "If you want to see updates on this post, visit %{name}'s profile page."
   shared: 
     add_contact: 
       add_new_contact: "הוספת איש קשר חדש"
       create_request: "חיפוש לפי שם משתמש בדיאספורה"
-      diaspora_handle: "diaspora@pod.org"
+      diaspora_handle: diaspora@pod.org
       enter_a_diaspora_username: "נא להזין שם משתמש בדיאספורה:"
       know_email: "כתובת הדוא״ל שלהם ידועה לך? עליך להזמין אותם"
       your_diaspora_username_is: "שם המשתמש שלך בדיאספורה הוא: %{diaspora_handle}"
@@ -708,9 +717,9 @@ he:
       logged_in_as: "נכנסת בשם %{name}"
       your_aspects: "ההיבטים שלך"
     invitations: 
-      by_email: "בדוא״ל"
+      by_email: בדוא״ל
       dont_have_now: "אין לך כרגע, אך יתווספו לך הזמנות בקרוב!"
-      from_facebook: "מ־Facebook"
+      from_facebook: מ־Facebook
       invitations_left: "%{count} נותרו"
       invite_someone: "שליחת הזמנה"
       invite_your_friends: "הזמנת החברים שלך"
@@ -737,7 +746,7 @@ he:
         i_like: "I'm interested in %{tags}."
         invited_by: "Thanks for the invite, "
       post_a_message_to: "פרסום הודעה אל %{aspect}"
-      posting: "פרסום..."
+      posting: פרסום...
       publishing_to: "פרסום אל:"
       share: "שיתוף"
       share_with: "שיתוף עם"
@@ -750,6 +759,8 @@ he:
       currently_unavailable: "commenting currently unavailable"
       dislike: "לא אהבתי את זה"
       hide_and_mute: "Hide and Mute"
+      ignore_user: "Ignore %{name}"
+      ignore_user_description: "Ignore and remove user from all aspects?"
       like: "אהבתי"
       shared_with: "משותף עם: %{aspect_names}"
       unlike: "לא אהבתי"
@@ -871,7 +882,7 @@ he:
       hashtag_explanation: "תגיות מאפשרות לך לשוחח על ולעקוב אחר תחומי העניין שלך. זוהי גם דרך מצוינת למצוא אנשים בדיאספורה."
       hashtag_suggestions: "Try following tags like #art, #movies, #gif, etc."
       hooking_up_fb: "hooking up your Facebook account"
-      saved: "Saved!"
+      saved: Saved!
       we_can_speed_things_up: "We can speed things up a bit by"
       well_hello_there: "Well, hello there!"
       what_are_you_in_to: "What are you into?"
@@ -883,6 +894,10 @@ he:
       signed_out: "You've signed out of Diaspora*"
       simply_visit: "Simply visit"
       works_on_modern: "Works on all modern smartphones"
+    privacy_settings: 
+      ignored_users: "Ignored Users"
+      stop_ignoring: "Stop ignoring"
+      title: "Privacy Settings"
     public: 
       does_not_exist: "המשתמש %{username} אינו קיים!"
     update: 
@@ -901,4 +916,4 @@ he:
     no_person_constructed: "לא ניתן להרכיב איש קשר מ־hcard זה."
     not_enabled: "נראה כי webfinger אינו פעיל עבור המארח של %{account}"
     xrd_fetch_failed: "אירעה שגיאה בקבלת ה־xrd מהחשבון %{account}"
-  welcome: "Welcome!"
+  welcome: Welcome!

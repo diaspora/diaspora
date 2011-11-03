@@ -8,6 +8,7 @@ ja:
     aspect_dropdown: 
       add_to_aspect: "Add to aspect"
       all_aspects: "All aspects"
+      error: "Couldn't start sharing with {{name}}.  Are you ignoring them?"
       select_aspects: "Select aspects"
       started_sharing_with: "You have started sharing with {{name}}!"
       stopped_sharing_with: "You have stopped sharing with {{name}}."
@@ -25,7 +26,7 @@ ja:
     comments: 
       hide: "hide comments"
       show: "show all comments"
-    confirm_dialog: "本当にいいですか。"
+    confirm_dialog: 本当にいいですか。
     failed_to_like: "Failed to like!"
     failed_to_post_message: "Failed to post message!"
     getting_started: 
@@ -34,11 +35,11 @@ ja:
       no_tags: "Hey, you haven't followed any tags!  Continue anyway?"
       preparing_your_stream: "Preparing your personialized stream..."
     infinite_scroll: 
-      no_more: "投稿はこれ以上ありません。"
+      no_more: 投稿はこれ以上ありません。
     photo_uploader: 
       looking_good: "OMG, you look awesome!"
     publisher: 
-      at_least_one_aspect: "アスペクトを選択してから投稿してください。"
+      at_least_one_aspect: アスペクトを選択してから投稿してください。
       limited: "Limited - your post will only be seen by people you are sharing with"
       public: "Public - your post will be visible to everyone and found by search engines"
     reshares: 
@@ -51,7 +52,7 @@ ja:
       day: "1日"
       days: "%d日"
       hour: "大体1時間"
-      hours: "大体%d時間"
+      hours: 大体%d時間
       minute: "約1分"
       minutes: "%d分"
       month: "大体1ヶ月"
@@ -67,4 +68,4 @@ ja:
       unknown: "動画の種類が不明です"
       watch: "{{provider}}で動画を視聴する"
     web_sockets: 
-      disconnected: "接続が解除されました。投稿のリアルタイム更新を中断します。"
+      disconnected: 接続が解除されました。投稿のリアルタイム更新を中断します。

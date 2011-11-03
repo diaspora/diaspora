@@ -99,7 +99,7 @@ sv:
       diaspora_id: 
         content_1: "Ditt Diaspora-ID är:"
         content_2: "Med hjälp av det kan alla hitta dig på Diaspora."
-        heading: "Diaspora-ID"
+        heading: Diaspora-ID
       donate: "Donera"
       handle_explanation: "Det här är ditt Diaspora ID. Det är det här du ska ge till dina vänner om du vill att de ska lägga till dig på Diaspora."
       help: 
@@ -167,6 +167,13 @@ sv:
       no_applications: "Du har inte registrerat några applikationer än."
       revoke_access: "Neka tillträde"
   back: "Tillbaka"
+  blocks: 
+    create: 
+      failure: "I couldn't ignore that user.  #evasion"
+      success: "Alright, you won't see that user in your stream again. #silencio!"
+    destroy: 
+      failure: "I couldn't stop ignoring that user.  #evasion"
+      success: "Let's see what they have to say! #sayhello"
   bookmarklet: 
     explanation: "Bokmärk %{link} för att posta på Diaspora ifrån varsomhelst. "
     explanation_link_text: "denna länk"
@@ -179,7 +186,7 @@ sv:
     many: "%{count} kommentarer"
     new_comment: 
       comment: "Kommentera"
-      commenting: "Kommenterar..."
+      commenting: Kommenterar...
     one: "1 kommentar"
     other: "%{count} kommentarer"
     two: "Två kommentarer"
@@ -234,7 +241,7 @@ sv:
     new: 
       abandon_changes: "Förkasta ändringar?"
       send: "Skicka"
-      sending: "Skickar..."
+      sending: Skickar...
       subject: "ämne"
       to: "till"
     new_message: 
@@ -242,14 +249,14 @@ sv:
     show: 
       delete: "ta bort och blockera konversation"
       reply: "svara"
-      replying: "Svarar..."
+      replying: Svarar...
   date: 
     formats: 
       birthday: "%B %d"
       birthday_with_year: "%B %d %Y"
       fullmonth_day: "%B %d"
   delete: "Ta bort"
-  email: "E-post"
+  email: E-post
   error_messages: 
     helper: 
       correct_the_following_errors_and_try_again: "Rätta till följande fel och försök igen."
@@ -507,6 +514,7 @@ sv:
     show: 
       does_not_exist: "Den här personen finns inte!"
       has_not_shared_with_you_yet: "%{name} har inte delat några inlägg med dig än!"
+      ignoring: "You are ignoring all posts from %{name}."
       incoming_request: "%{name} vill dela med dig"
       mention: "Nämna"
       message: "Meddelande"
@@ -538,7 +546,7 @@ sv:
     new: 
       back_to_list: "Tillbaka till listan"
       new_photo: "Nytt foto"
-      post_it: "skicka!"
+      post_it: skicka!
     new_photo: 
       empty: "{file} är tom, välj om filerna utan att välja denna."
       invalid_ext: "{file} har en ogiltig filändelse. Endast {extensions} är tillåtna."
@@ -559,16 +567,13 @@ sv:
     update: 
       error: "Misslyckades med att ändra fotot."
       notice: "Fotot är nu uppdaterat."
-  post_visibilites: 
-    update: 
-      post_hidden_and_muted: "%{name}s inlägg har dolts, och alla notiser kommer att ignoreras."
-      see_it_on_their_profile: "Om du vill de alla uppdateringar i detta inlägg, besök %{name}s sida."
   posts: 
     show: 
       destroy: "Ta bort"
       not_found: "Tyvärr, men vi kan inte hitta det inlägget."
       permalink: "permalänk"
   previous: "föregående"
+  privacy: "Privacy"
   profile: "Profil"
   profiles: 
     edit: 
@@ -607,7 +612,7 @@ sv:
       edit: "Ändra %{name}"
       leave_blank: "(lämna tomt om du inte vill ändra det)"
       password_to_confirm: "(det nuvarande lösenordet krävs för att bekräfta ändringarna)"
-      unhappy: "Missnöjd?"
+      unhappy: Missnöjd?
       update: "Uppdatera"
     new: 
       create_my_account: "Skapa mitt konto"
@@ -637,7 +642,7 @@ sv:
       existing: "Befintliga kontakter"
       manage_within: "Hantera kontakter i "
     new_request_to_person: 
-      sent: "skickat!"
+      sent: skickat!
   reshares: 
     comment_email_subject: "%{resharer}s vidarespridning av %{author}s inlägg."
     create: 
@@ -685,11 +690,15 @@ sv:
       not_on_diaspora: "Ännu inte på Diaspora"
       resend: "skicka igen"
   settings: "Inställningar"
+  share_visibilites: 
+    update: 
+      post_hidden_and_muted: "%{name}'s post has been hidden, and notifications have been muted."
+      see_it_on_their_profile: "If you want to see updates on this post, visit %{name}'s profile page."
   shared: 
     add_contact: 
       add_new_contact: "Lägg till en ny kontakt"
       create_request: "Sök på Diaspora ID"
-      diaspora_handle: "diaspora@pod.org"
+      diaspora_handle: diaspora@pod.org
       enter_a_diaspora_username: "Ange ett Diaspora-användarnamn:"
       know_email: "Vet du deras e-post adress? Du borde bjuda in dem"
       your_diaspora_username_is: "Ditt Diaspora-användarnamn är: %{diaspora_handle}"
@@ -737,7 +746,7 @@ sv:
         i_like: "I'm interested in %{tags}."
         invited_by: "Thanks for the invite, "
       post_a_message_to: "Skicka ett meddelande till %{aspect}"
-      posting: "Skickar..."
+      posting: Skickar...
       publishing_to: "publicerar till: "
       share: "Dela"
       share_with: "dela med"
@@ -750,6 +759,8 @@ sv:
       currently_unavailable: "commenting currently unavailable"
       dislike: "Jag ogillar det här"
       hide_and_mute: "Dölj och ignorera"
+      ignore_user: "Ignore %{name}"
+      ignore_user_description: "Ignore and remove user from all aspects?"
       like: "Jag gillar det här"
       shared_with: "Delas med: %{aspect_names}"
       unlike: "Sluta gilla"
@@ -830,7 +841,7 @@ sv:
       typical_userpage: "En typisk cubbi.es sida"
       via: "(via %{link})"
       what_is_cubbies: "Cubbi.es är världens först Diaspora applikation. Den är också bäst på att samla ihop dina online fotografier."
-  undo: "Ångra?"
+  undo: Ångra?
   username: "Användarnamn"
   users: 
     confirm_email: 
@@ -858,7 +869,7 @@ sv:
       photo_export_unavailable: "Photo exporting currently unavailable"
       private_message: "...du mottar ett privat meddelande?"
       receive_email_notifications: "Skicka notiser via e-post när..."
-      reshared: "...sprider någon mina inlägg vidare?"
+      reshared: "...någon sprider mina inlägg vidare?"
       show_community_spotlight: "Show Community Spotlight in Stream?"
       show_getting_started: "Re-enable Getting Started"
       started_sharing: "...någon börjar dela med dig?"
@@ -871,7 +882,7 @@ sv:
       hashtag_explanation: "Hashtaggar gör det möjligt att diskutera och följa dina intressen. Det är också ett bra sätt att lära känna nya människor på Diaspora."
       hashtag_suggestions: "Try following tags like #art, #movies, #gif, etc."
       hooking_up_fb: "hooking up your Facebook account"
-      saved: "Saved!"
+      saved: Saved!
       we_can_speed_things_up: "We can speed things up a bit by"
       well_hello_there: "Well, hello there!"
       what_are_you_in_to: "What are you into?"
@@ -883,6 +894,10 @@ sv:
       signed_out: "Du har loggat ut ifrån Diaspora*"
       simply_visit: "Besök helt enkelt"
       works_on_modern: "Fungerar på alla moderna smartphones"
+    privacy_settings: 
+      ignored_users: "Ignored Users"
+      stop_ignoring: "Stop ignoring"
+      title: "Privacy Settings"
     public: 
       does_not_exist: "Användaren %{username} finns inte!"
     update: 
@@ -901,4 +916,4 @@ sv:
     no_person_constructed: "Den här personen kunde inte hittas (hcard-fel)."
     not_enabled: "Webfinger verkar inte vara påslaget på %{account}'s server"
     xrd_fetch_failed: "kunde inte hämta xrd-fil från kontot %{account}"
-  welcome: "Welcome!"
+  welcome: Welcome!

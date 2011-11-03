@@ -1,4 +1,4 @@
-#   Copyright (c) 2011, Diaspora Inc.  This file is
+#   Copyright (c) 2010-2011, Diaspora Inc.  This file is
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
@@ -6,49 +6,84 @@
 sl: 
   javascripts: 
     aspect_dropdown: 
-      add_to_aspect: "Add to aspect"
-      all_aspects: "All aspects"
+      add_to_aspect: "Dodaj pogledu"
+      all_aspects: "Vsi pogledi"
+      error: "Couldn't start sharing with {{name}}.  Are you ignoring them?"
+      select_aspects: "Select aspects"
+      started_sharing_with: "You have started sharing with {{name}}!"
+      stopped_sharing_with: "You have stopped sharing with {{name}}."
       toggle: 
-        few: "In {{count}} aspects"
-        many: "In {{count}} aspects"
-        one: "In {{count}} aspect"
-        other: "In {{count}} aspects"
-        two: "In {{count}} aspects"
-        zero: "Add to aspect"
+        few: "V {{count}} pogledih"
+        many: "V {{count}} pogledih"
+        one: "V {{count}} pogledu"
+        other: "V {{count}} pogledih"
+        two: "V {{count}} pogledih"
+        zero: "Dodaj pogledu"
+    aspect_navigation: 
+      deselect_all: "Deselect all"
+      no_aspects: "No aspects selected"
+      select_all: "Select all"
     comments: 
-      hide: "hide comments"
-      show: "show all comments"
-    confirm_dialog: "Are you sure?"
-    failed_to_like: "Failed to like!"
-    failed_to_post_message: "Failed to post message!"
+      hide: "skrij komentarje"
+      show: !binary |
+          cHJpa2GeaSB2c2Uga29tZW50YXJqZQ==
+    confirm_dialog: !binary |
+        U3RlIHByZXByaehhbmk=
+    failed_to_like: !binary |
+        T3puYehldmFuamUgbmkgdXNwZWxvIQ==
+    failed_to_post_message: "Objava ni uspela!"
+    getting_started: 
+      alright_ill_wait: "Alright, I'll wait."
+      hey: "Hey, {{name}}!"
+      no_tags: "Hey, you haven't followed any tags!  Continue anyway?"
+      preparing_your_stream: "Preparing your personialized stream..."
     infinite_scroll: 
-      no_more: "No more posts."
+      no_more: "Konec objav."
+    photo_uploader: 
+      looking_good: "OMG, you look awesome!"
     publisher: 
-      at_least_one_aspect: "You must publish to at least one aspect"
-      limited: "Limited - your post will only be seen by people you are sharing with"
-      public: "Public - your post will be visible to everyone and found by search engines"
+      at_least_one_aspect: "Objaviti morate v vsaj enem pogledu"
+      limited: !binary |
+          T21lamVubyAtIFZhmmEgb2JqYXZhIGJvIHZpZG5hIGxlIGxqdWRlbSwgcyBr
+          YXRlcmltaSBkZWxpdGU=
+      public: !binary |
+          SmF2bm8gLSBWYZphIG9iamF2YSBibyB2aWRuYSB2c2VtLCBwcmlrYXphbmEg
+          Ym8gdHVkaSB2IHNwbGV0bmloICBpc2thbG5pa2lo
     reshares: 
-      duplicate: "You've already reshared that post!"
-    search_for: "Search for {{name}}"
-    show_more: "show more"
+      duplicate: !binary |
+          VG8gb2JqYXZvIHN0ZSCeZSBwb25vdm5vIGRlbGlsaQ==
+    search_for: !binary |
+        SZroaSB7e25hbWV9fQ==
+    show_more: !binary |
+        cG9rYZ5pIHZl6A==
+    tags: 
+      wasnt_that_interesting: "OK, I suppose #{{tagName}} wasn't all that interesting..."
     timeago: 
-      day: "a day"
-      days: "%d days"
-      hour: "about an hour"
-      hours: "about %d hours"
-      minute: "about a minute"
-      minutes: "%d minutes"
-      month: "about a month"
-      months: "%d months"
+      day: !binary |
+          duhlcmFq
+      days: "pred %d dnem"
+      hour: !binary |
+          cHJlZCBwcmlibGmebm8gdXJv
+      hours: !binary |
+          cHJlZCBwcmlibGmebm8gJWQgdXJhbWk=
+      minute: !binary |
+          cHJlZHByaWJsaZ5ubyBtaW51dG8=
+      minutes: "pred %d minutami"
+      month: !binary |
+          cHJlZCBwcmlibGmebm8gbWVzZWNlbQ==
+      months: "pred %d meseci"
       prefixAgo: ""
       prefixFromNow: ""
-      seconds: "less than a minute"
-      suffixAgo: "ago"
-      suffixFromNow: "from now"
-      year: "about a year"
-      years: "%d years"
+      seconds: "pred manj kot minuto"
+      suffixAgo: ""
+      suffixFromNow: ""
+      year: !binary |
+          cHJlZCBwcmlibGmebm8gbGV0b20gZG5p
+      years: "pred %d leti"
     videos: 
-      unknown: "Unknown video type"
-      watch: "Watch this video on {{provider}}"
+      unknown: "Neznan tip videa"
+      watch: "Glej ta video na {{provider}}"
     web_sockets: 
-      disconnected: "The websocket is closed; posts will no longer be streamed live."
+      disconnected: !binary |
+          VGEgd2Vic29ja2V0IGplIHphcHJ0OyBvYmphdmUgc2UgbmUgYm9kbyB2Zegg
+          cHJlbmGaYWxlIHYgIJ5pdm8u

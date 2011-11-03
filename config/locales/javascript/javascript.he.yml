@@ -8,6 +8,7 @@ he:
     aspect_dropdown: 
       add_to_aspect: "הוספה להיבט"
       all_aspects: "כל ההיבטים"
+      error: "Couldn't start sharing with {{name}}.  Are you ignoring them?"
       select_aspects: "Select aspects"
       started_sharing_with: "You have started sharing with {{name}}!"
       stopped_sharing_with: "You have stopped sharing with {{name}}."
@@ -25,7 +26,7 @@ he:
     comments: 
       hide: "הסתרת תגובות"
       show: "הצגת כל התגובות"
-    confirm_dialog: "בבטחה?"
+    confirm_dialog: בבטחה?
     failed_to_like: "הסימון ב'אהבתי' נכשל!"
     failed_to_post_message: "פרסום ההודעה נכשל!"
     getting_started: 

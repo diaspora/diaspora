@@ -1,4 +1,4 @@
-#   Copyright (c) 2011, Diaspora Inc.  This file is
+#   Copyright (c) 2010-2011, Diaspora Inc.  This file is
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
@@ -6,302 +6,440 @@
 sl: 
   _applications: "Applications"
   _comments: "Komentarji"
-  _contacts: "Contacts"
+  _contacts: "Stiki"
   _home: "Domov"
   _photos: "slike"
-  _services: "Servisi"
-  account: "Uporabniški račun"
+  _services: "Storitve"
+  account: "Uporabniki raun"
   activerecord: 
     errors: 
       models: 
         contact: 
           attributes: 
             person_id: 
-              taken: "must be unique among this user's contacts."
+              taken: "ne sme biti enak drugim stikom te osebe."
         person: 
           attributes: 
             diaspora_handle: 
-              taken: "is already taken."
+              taken: !binary |
+                  amUgnmUgemFzZWRlbi4=
         request: 
           attributes: 
             from_id: 
-              taken: "is a duplicate of a pre-existing request."
+              taken: !binary |
+                  amUgZHZvam5payB2bG9nZSwga2kgnmUgb2JzdGFqYS4=
         reshare: 
           attributes: 
             root_guid: 
-              taken: "You've already reshared that post!"
+              taken: !binary |
+                  VG8gb2JqYXZvIHN0ZSCeZSBkZWxpbGkh
         user: 
           attributes: 
             email: 
-              taken: "is already taken."
+              taken: !binary |
+                  amUgnmUgemFzZWRlbi4=
             person: 
-              invalid: "is invalid."
+              invalid: "je neveljaven."
             username: 
-              invalid: "is invalid. We only allow letters, numbers, and underscores"
-              taken: "is already taken."
+              invalid: !binary |
+                  amUgbmV2ZWxqYXZlbi4gRG92b2xqZW5hIGplIHVwb3JhYmEgbGUg6HJrLCCa
+                  dGV2aWxrIGluICBwb2TocnRhamV2
+              taken: !binary |
+                  amUgnmUgemFzZWRlbi4=
   ago: "%{time} nazaj"
-  all_aspects: "Vse skupine"
+  all_aspects: "Vsi pogledi"
   application: 
     helper: 
       diaspora_alpha: "DIASPORA* ALPHA"
       unknown_person: "neznana oseba"
       video_title: 
-        unknown: "Neznani video naslov"
-  are_you_sure: "Ste prepričani?"
+        unknown: "Neznani naslov videa"
+  are_you_sure: !binary |
+      U3RlIHByZXByaehhbmk/
   aspect_memberships: 
     destroy: 
-      failure: "Failed to remove person from aspect"
-      no_membership: "Could not find the selected person in that aspect"
-      success: "Successfully removed person from aspect"
+      failure: !binary |
+          T2RzdHJhbml0ZXYgb3NlYmUgaXogcG9nbGVkYSBuaSBiaWxhIHVzcGWabmE=
+      no_membership: "Oseba ni bila najdena znotraj tega pogleda"
+      success: !binary |
+          T3NlYmEgamUgYmlsYSBpeiBwb2dsZWRhIHVzcGWabm8gb2RzdHJhbmplbmE=
   aspects: 
     add_to_aspect: 
-      failure: "Dodajanje stika v skupino ni uspelo."
-      success: "Dodajanje stika v skupino je uspelo."
+      failure: "Dodajanje stika v pogled ni uspelo."
+      success: "Dodajanje stika v pogled je uspelo."
     aspect_contacts: 
-      done_editing: "zaključi urejanje"
+      done_editing: !binary |
+          emFrbGp16GkgdXJlamFuamU=
     aspect_listings: 
-      add_an_aspect: "+ Add an aspect"
+      add_an_aspect: "+ Dodaj pogled"
+      deselect_all: "Deselect all"
+      edit_aspect: "Edit %{name}"
+      select_all: "Select all"
     aspect_stream: 
-      commented_on: "commented on"
-      posted: "posted"
-      recently: "recently:"
-      stream: "Stream"
-    contacts_not_visible: "Stiki v tej skupini drug drugega ne bodo videli."
-    contacts_visible: "Stiki v tej skupini drug drugega lahko vidijo."
+      stay_updated: "Stay Updated"
+      stay_updated_explanation: "Your main stream is populated with all of your contacts, tags you follow, and posts from some creative members of the community."
+    contacts_not_visible: "Stiki v tem pogledu drug drugega ne bodo videli."
+    contacts_visible: "Stiki v tem pogledu drug drugega lahko vidijo."
     create: 
-      failure: "Ustvarjanje skupine ni uspelo."
-      success: "Skupina %{name} je ustvarjena"
+      failure: "Ustvarjanje pogleda ni uspelo."
+      success: "Pogled %{name} je ustvarjena"
     destroy: 
-      failure: "%{name} is not empty and could not be removed."
-      success: "%{name} je uspešno odstranjen."
+      failure: !binary |
+          JXtuYW1lfSBuaSBwcmF6ZW4gaW4gZ2EgbmkgbW9nb+hlIG9kc3RyYW5pdGku
+      success: !binary |
+          JXtuYW1lfSBqZSB1c3Blmm5vIG9kc3RyYW5qZW4u
     edit: 
-      add_existing: "Dodaj obstoječ kontakt"
-      aspect_list_is_not_visible: "aspect list is hidden to others in aspect"
-      aspect_list_is_visible: "aspect list is visible to others in aspect"
-      confirm_remove_aspect: "Ste prepričani, da bi radi izbrisali ta vidik?"
-      done: "Done"
-      make_aspect_list_visible: "make aspect list visible?"
-      remove_aspect: "Izbriši ta vidik"
+      add_existing: !binary |
+          RG9kYWogb2JzdG9qZeggc3Rpaw==
+      aspect_list_is_not_visible: "seznam pogledov ni viden drugim stikom  pogleda"
+      aspect_list_is_visible: "seznam pogledov je viden drugim stikom pogleda"
+      confirm_remove_aspect: !binary |
+          U3RlIHByZXByaehhbmksIGRhIGJpIHJhZGkgaXpicmlzYWxpIHRhIHBvZ2xl
+          ZD8=
+      done: !binary |
+          S29u6GFubw==
+      make_aspect_list_visible: !binary |
+          b3puYehpIHNlem5hbSBwb2dsZWRvdiBrb3QgdmlkZW4/
+      remove_aspect: !binary |
+          SXpicmmaaSB0YSBwb2dsZWQ=
       rename: "preimenuj"
-      update: "update"
-      updating: "updating"
-    few: "%{count} aspects"
+      update: "posodobi"
+      updating: "posodabljam"
+    few: "%{count} pogledov"
     helper: 
-      are_you_sure: "Ste prepričani, da želite izbrisati skupino?"
-      aspect_not_empty: "Skupina vsebuje stike"
+      are_you_sure: !binary |
+          U3RlIHByZXByaehhbmksIGRhIJ5lbGl0ZSBpemJyaXNhdGkgdGEgcG9nbGVk
+          Pw==
+      aspect_not_empty: "Pogled vsebuje stike"
       remove: "odstrani"
     index: 
       cubbies: 
-        explanation: "Cubbi.es is the first Diaspora application under development."
-        heading: "Connect to Cubbi.es"
-        learn_more: "Learn more"
+        explanation: "Cubbi.es je prva Diaspora aplikacija v razvoju."
+        heading: !binary |
+            UG92ZZ5pIHNlIHogQ3ViYmkuZXM=
+        learn_more: !binary |
+            VmXoIGluZm9ybWFjaWo=
       diaspora_id: 
-        content_1: "Your Diaspora ID is:"
-        content_2: "Give it to anyone and they'll be able to find you on Diaspora."
+        content_1: !binary |
+            VmGaIERpYXNwb3JhIElEIGplOg==
+        content_2: !binary |
+            U3ZvaiBEaWFzcG9yYSBJRCBkZWxpdGUgeiBkcnVnaW1pLCBkYSB2YXMgYm9k
+            byBsYWhrbyBuYZpsaS4=
         heading: "Diaspora ID"
-      donate: "Donate"
-      handle_explanation: "To je vaš diaspora naslov. Tako kot vaš e-naslov, ga lahko uporabite kot naslov s pomočjo katerega drugi stopijo v stik z vami."
+      donate: "Prispevaj"
+      handle_explanation: !binary |
+          VG8gamUgdmGaIERpYXNwb3JhIElEIG5hc2xvdi4gVGFrbyBrb3QgdmGaIGUt
+          bmFzbG92LCAgZ2EgbGFoa28gdXBvcmFiaXRlIGtvdCBuYXNsb3YgcyBwb21v
+          6GpvIGthdGVyZWdhIGRydWdpIHN0b3Bpam8gdiBzdGlrIHogdmFtaS4=
       help: 
-        did_you: "Did you:"
-        feature_suggestion: "... have a %{link} suggestion?"
-        find_a_bug: "... find a %{link}?"
-        have_a_question: "... have a %{link}?"
-        here_to_help: "Diaspora community is here to help!"
-        more_support: "For more support, you should also check out %{link}."
-        need_help: "Need Help?"
-        tutorials: "For tutorials, check out %{link}."
-      keep_us_running: "Keep %{pod} running fast, buy our servers their monthly coffee fix!"
-      no_contacts: "Ni kontaktov"
-      no_tags: "No tags"
-      people_sharing_with_you: "People sharing with you"
-      post_a_message: "post a message >>"
+        do_you: "Do you:"
+        email_feedback: "%{link} your feedback, if you prefer"
+        feature_suggestion: "... imeli %{link} predlog?"
+        find_a_bug: !binary |
+            Li4uIG5hmmxpICV7bGlua30/
+        have_a_question: "... imeli %{link}?"
+        here_to_help: "Diaspora skupnost je tukaj, da vam pomaga!"
+        need_help: !binary |
+            UG90cmVidWpldGUgcG9tb+g/
+        satisfaction: "%{link}: Community-powered support"
+        tutorials_wiki_and_forum: "%{tutorial} & %{wiki} & %{forum}: Community-powered tutorials, how-to, and news"
+      introduce_yourself: "This is your stream.  Jump in and introduce yourself."
+      keep_us_running: !binary |
+          UG9tYWdhanRlICV7cG9kfSwgZGEgYm8gdGVrZWwgaGl0cmVqZSwga3VwaXRl
+          IG5hmmltICBzdHJlnm5pa29tIG1lc2Xobm8gZG96byBrYXZlIQ==
+      new_here: 
+        follow: "Follow %{link} and welcome new users to Diaspora*!"
+        learn_more: "Learn more"
+        title: "Welcome New Users"
+      no_contacts: "Ni stikov"
+      no_tags: "Ni oznak"
+      people_sharing_with_you: "Ljudje, ki delijo z vami"
+      post_a_message: !binary |
+          b2JqYXZpIHNwb3Jv6GlsbyA+Pg==
       services: 
-        content: "You can connect the following services to Diaspora:"
-        heading: "Connect Services"
-      tags_following: "Followed Tags"
-      unfollow_tag: "Stop following #%{tag}"
-      your_aspects: "Your Aspects"
-    many: "%{count} aspects"
+        content: !binary |
+            WiB2YZppbSBEaWFzcG9yYSBuYXNsb3ZvbSBsYWhrbyBwb3ZlnmV0ZSBuYXNs
+            ZWRuamUgc3Rvcml0dmU=
+        heading: !binary |
+            UG92ZZ5pIHN0b3JpdHZl
+      unfollow_tag: "Nehaj slediti #%{tag}"
+      welcome_to_diaspora: "Welcome to Diaspora, %{name}!"
+      your_aspects: !binary |
+          VmGaaSBwb2dsZWRp
+    many: "%{count} pogledov"
     move_contact: 
-      error: "Prestavljanje stika neuspešno: %{inspect}"
+      error: !binary |
+          UHJlc3RhdmxqYW5qZSBzdGlrYSBuZXVzcGWabm86ICV7aW5zcGVjdH0=
       failure: "ni uspelo %{inspect}"
       success: "Oseba je prestavljena v novo skupino"
     new: 
-      create: "Create"
-      name: "Name"
+      create: "Ustvari"
+      name: "Ime"
     no_contacts_message: 
-      featured_users: "featured users"
-      or_featured: "Or you can share with %{link}"
-      try_adding_some_more_contacts: "You can search (top) or invite (right) more contacts."
-      you_should_add_some_more_contacts: "You should add some more contacts!"
+      community_spotlight: "community spotlight"
+      or_spotlight: "Or you can share with %{link}"
+      try_adding_some_more_contacts: !binary |
+          WiB6Z29ybmppbSBva25vbSBsYWhrbyBwb2ma6GV0ZSwgeiBkZXNuaW0gIHBh
+          IHBvdmFiaXRlIHZl6CBzdGlrb3Yu
+      you_should_add_some_more_contacts: !binary |
+          TGFoa28gYmkgZG9kYWxpIJplIGtha5pubyBvc2VibyE=
     no_posts_message: 
-      start_talking: "Trenutno še brez objav. Začnite s prvo objavo!"
-    one: "1 aspect"
-    other: "%{count} aspects"
+      start_talking: !binary |
+          VHJlbnV0bm8gbmkgmmUgbmlo6GUgbmnoZXNhciBvYmphdmlsLiBaYehuaXRl
+          IHZpIQ==
+    one: "1 pogled"
+    other: "%{count} pogledov"
     seed: 
-      acquaintances: "Acquaintances"
-      family: "Družina"
-      friends: "Friends"
-      work: "Služba"
+      acquaintances: "Poznanstva"
+      family: !binary |
+          RHJ1nmluYQ==
+      friends: "Prijatelji"
+      work: !binary |
+          U2x1nmJh
     selected_contacts: 
-      manage_your_aspects: "Manage your aspects."
-      no_contacts: "You don't have any contacts here yet."
-      view_all_contacts: "View all contacts"
+      manage_your_aspects: "Urejanje pogledov."
+      no_contacts: !binary |
+          WmFlbmtyYXQgc3RlIJplIGJyZXogc3Rpa292Lg==
+      view_all_community_spotlight: "See all community spotlight"
+      view_all_contacts: "Poglej vse stike"
     show: 
-      edit_aspect: "uredi skupino"
-    two: "%{count} aspects"
+      edit_aspect: "uredi pogled"
+    two: "%{count} pogledov"
     update: 
-      failure: "Skupina %{name} ima predolgo ime, zato je ni mogoče shraniti."
-      success: "Vaša skupina %{name} je bila uspešno posodobljena."
-    zero: "no aspects"
+      failure: !binary |
+          UG9nbGVkICV7bmFtZX0gaW1hIHByZWRvbGdvIGltZSwgemF0byBnYSBuaSBt
+          b2dv6GUgc2hyYW5pdGku
+      success: !binary |
+          VmGaIHBvZ2xlZCAle25hbWV9IGplIGJpbGEgdXNwZZpubyBwb3NvZG9ibGpl
+          bi4=
+    zero: "brez pogledov"
   authorizations: 
     index: 
-      no_applications: "You haven't registered any applications yet."
-      revoke_access: "Revoke Access"
+      no_applications: !binary |
+          TmlzdGUgcG92ZXphbGkgmmUgbm9iZW5lIGFwbGlrYWNpamUu
+      revoke_access: !binary |
+          UHJla2xp6GkgZG9zdG9w
   back: "Nazaj"
+  blocks: 
+    create: 
+      failure: "I couldn't ignore that user.  #evasion"
+      success: "Alright, you won't see that user in your stream again. #silencio!"
+    destroy: 
+      failure: "I couldn't stop ignoring that user.  #evasion"
+      success: "Let's see what they have to say! #sayhello"
   bookmarklet: 
-    explanation: "%{link} from anywhere by bookmarking this link."
-    explanation_link_text: "Post to Diaspora"
-    heading: "Diaspora Bookmarklet"
-    post_something: "Post something to Diaspora"
-    post_success: "Posted! Closing!"
-  cancel: "Prekliči"
+    explanation: "%{link} od kjerkoli - dodajte to povezavo med priljubljene."
+    explanation_link_text: "Objavi na Diaspora"
+    heading: "Diaspora zaznamek"
+    post_something: "Objavite kaj na Diaspora"
+    post_success: "Objavljeno! Zapiram!"
+  cancel: !binary |
+      UHJla2xp6Gk=
   comments: 
-    few: "%{count} comments"
-    many: "%{count} comments"
+    few: "%{count} komentarjev"
+    many: "%{count} komentarjev"
     new_comment: 
       comment: "komentiraj"
-      commenting: "komentiraj..."
-    one: "1 comment"
-    other: "%{count} comments"
-    two: "%{count} comments"
-    zero: "no comments"
+      commenting: komentiranje...
+    one: "1 komentar"
+    other: "%{count} komentarjev"
+    two: "%{count} komentarja"
+    zero: "brez komentarjev"
   contacts: 
     create: 
-      failure: "Failed to create contact"
-    featured: 
-      featured_users: "Featured Users"
-    few: "število stikov %{count}"
+      failure: !binary |
+          VXN0dmFyamFuamUgc3Rpa2EgbmkgYmlsbyBtb2dv6GU=
+    few: "%{count} stikov"
     index: 
-      add_a_new_aspect: "Add a new aspect"
-      all_contacts: "All Contacts"
-      edit_aspect: "Edit %{name}"
-      many_people_are_you_sure: "Are you sure you want to start a private conversation with more than %{suggested_limit} contacts? Posting to this aspect may be a better way to contact them."
-      my_contacts: "My Contacts"
-      no_contacts: "No contacts."
-      only_sharing_with_me: "Only sharing with me"
-      remove_person_from_aspect: "Remove %{person_name} from \"%{aspect_name}\""
-      start_a_conversation: "Start a conversation"
-      title: "Contacts"
-      your_contacts: "Your Contacts"
-    many: "%{count} contacts"
+      add_a_new_aspect: "Dodaj nov pogled"
+      add_to_aspect: "Add contacts to %{name}"
+      all_contacts: "Vsi stiki"
+      check_out: "Check out"
+      many_people_are_you_sure: !binary |
+          U3RlIHByZXByaehhbmksIGRhIJ5lbGl0ZSB6YehldGkgemFzZWJuaSAgcG9n
+          b3ZvciB6IHZl6CBrb3QgJXtzdWdnZXN0ZWRfbGltaXR9IHN0aWtpPyBNb3Jk
+          YSBiaSBiaWxvIGJvbGplLCBkYSBiaSAgc3Bvcm/oaWxvIG9iamF2aWxpIHYg
+          cG9nbGVkdS4=
+      my_contacts: "Moji stiki"
+      no_contacts: "Ni stikov."
+      only_sharing_with_me: "Delijo samo z mano"
+      remove_person_from_aspect: "Odstrani %{person_name} iz \"%{aspect_name}\""
+      start_a_conversation: !binary |
+          WmHobmkgcG9nb3Zvcg==
+      title: "Stiki"
+      your_contacts: !binary |
+          VmGaaSBzdGlraQ==
+    many: "%{count} stikov"
     one: "1 stik"
-    other: "število stikov %{count}"
+    other: "%{count} stikov"
     sharing: 
-      people_sharing: "People sharing with you:"
-    two: "%{count} contacts"
-    zero: "brez stikov"
+      people_sharing: "Ljudje, ki delijo z vami:"
+    spotlight: 
+      community_spotlight: "Community Spotlight"
+    two: "%{count} stikov"
+    zero: "ni stikov"
   conversations: 
     create: 
-      fail: "Invalid message"
-      sent: "Message sent"
+      fail: !binary |
+          TmV2ZWxqYXZubyBzcG9yb+hpbG8=
+      sent: !binary |
+          U3Bvcm/oaWxvIHBvc2xhbm8=
     destroy: 
-      success: "Conversation successfully removed"
+      success: !binary |
+          UG9nb3ZvciB1c3Blmm5vIG9kc3RyYW5qZW4=
     helper: 
       new_messages: 
-        few: "%{count} new messages"
-        many: "%{count} new messages"
-        one: "1 new messages"
-        other: "%{count} new messages"
-        two: "%{count} new messages"
-        zero: "no new messages"
+        few: !binary |
+            JXtjb3VudH0gbm92aWggc3Bvcm/oaWw=
+        many: !binary |
+            JXtjb3VudH0gbm92aWggc3Bvcm/oaWw=
+        one: !binary |
+            MSBub3ZvIHNwb3Jv6Glsbw==
+        other: !binary |
+            JXtjb3VudH0gbm92aWggc3Bvcm/oaWw=
+        two: !binary |
+            JXtjb3VudH0gbm92aSBzcG9yb+hpbGk=
+        zero: !binary |
+            bmkgbm92aWggc3Bvcm/oaWw=
     index: 
-      create_a_new_message: "create a new message"
-      inbox: "Inbox"
-      message_inbox: "Message Inbox"
-      new_message: "New Message"
-      no_conversation_selected: "no conversation selected"
-      no_messages: "no messages"
+      create_a_new_message: !binary |
+          dXN0dmFyaSBub3ZvIHNwb3Jv6Glsbw==
+      inbox: "Prejeto"
+      message_inbox: !binary |
+          UHJlamV0YSBzcG9yb+hpbGE=
+      new_message: !binary |
+          Tm92byBzcG9yb+hpbG8=
+      no_conversation_selected: !binary |
+          b3puYehlbiBuaSBiaWwgbm9iZW4gcG9nb3Zvcg==
+      no_messages: !binary |
+          bmkgc3Bvcm/oaWw=
     new: 
-      abandon_changes: "Abandon changes?"
-      send: "Send"
-      sending: "Sending..."
-      subject: "subject"
-      to: "to"
+      abandon_changes: "Opusti spremembe?"
+      send: !binary |
+          UG+abGpp
+      sending: !binary |
+          UG+aaWxqYW0uLi4=
+      subject: "zadeva"
+      to: "za"
     new_message: 
-      fail: "Invalid message"
+      fail: !binary |
+          TmV2ZWxqYXZubyBzcG9yb+hpbG8=
     show: 
-      delete: "delete and block conversation"
-      reply: "reply"
-      replying: "Replying..."
+      delete: !binary |
+          aXpicmmaaSBpbiBibG9raXJhaiBwb2dvdm9y
+      reply: "odgovori"
+      replying: Odgovarjam...
   date: 
     formats: 
       birthday: "%B %d"
       birthday_with_year: "%B %d %Y"
       fullmonth_day: "%B %d"
-  delete: "Izbriši"
-  email: "E-pošta"
+  delete: !binary |
+      SXpicmmaaQ==
+  email: !binary |
+      RS1wb5p0YQ==
   error_messages: 
     helper: 
-      correct_the_following_errors_and_try_again: "Popravite naslednje napake in poskusite znova."
+      correct_the_following_errors_and_try_again: "Popravite naslednje napake  in poskusite znova."
       invalid_fields: "Neveljavna polja"
   fill_me_out: "Izpolni me"
   find_people: "Find people"
-  hide: "Hide"
+  hide: "Skrij"
   home: 
     show: 
-      already_account: "ali že imate uporabniški račun?"
+      already_account: !binary |
+          nmUgaW1hdGUgdXBvcmFibmmaa2kgcmHodW4/
       choice: "Izbira"
-      choice_explanation: "V Diaspori lahko vaše stike razvrščate s pomočjo skupin. Skupine kot takšne so unikatne in vam omogočajo, da so vaše slike, zgodbe in šale dostopne le osebam katerim ste jih namenili."
-      learn_about_host: "Preberite več o tem, kako gostiti lasten Diaspora strežnik."
-      login_here: "tukaj se prijavite"
-      ownership: "Lastništvo"
-      ownership_explanation: "Slike so vaša last in zato je prav, da jih lahko delite, ne da bi jih s tem komerkoli posredovali. Vsebina, ki jo delite v Diaspori, se ohrani v vaši lasti, kot tudi kontrola nad distribucijo le-te."
-      share_what_you_want: "Delite kar želite, s komerkoli želite."
+      choice_explanation: !binary |
+          ViBvbXJlnmp1IERpYXNwb3JhIGxhaGtvIHZhmmUgc3Rpa2UgcmF6dnKa6GF0
+          ZSBzIHBvbW/oam8gcG9nbGVkb3YuIFBvZ2xlZGkga290IHRha5puaSBzbyB1
+          bmlrYXRuaSBpbiB2YW0gb21vZ2/oYWpvLCBkYSBzbyB2YZplIHNsaWtlLCB6
+          Z29kYmUgaW4gmmFsZSBkb3N0b3BuZSBsZSBvc2ViYW0ga2F0ZXJpbSBzdGUg
+          amloIG5hbWVuaWxpLg==
+      learn_about_host: !binary |
+          UHJlYmVyaXRlIHZl6CBvIHRlbSwga2FrbyBnb3N0aXRpIGxhc3RlbiBEaWFz
+          cG9yYSAgc3RyZZ5uaWsu
+      login_here: "prijavite se tukaj"
+      ownership: !binary |
+          TGFzdG5pmnR2bw==
+      ownership_explanation: !binary |
+          VmGaZSBzbGlrZSBzbyB2YZphIGxhc3QgaW4gemF0byBqZSBwcmF2LCBkYSBq
+          aWggbGFoa28gZGVsaXRlLCBuZSBkYSBiaSBqaWggcyB0ZW0ga29tZXJrb2xp
+          IHBvc3JlZG92YWxpLiBWc2ViaW5hLCBraSBqbyBkZWxpdGUgdiAgb21yZZ5q
+          dSBEaWFzcG9yYSwgc2Ugb2hyYW5pIHYgdmGaaSBsYXN0aSwga290IHR1ZGkg
+          a29udHJvbGEgbmFkIGRpc3RyaWJ1Y2lqbyBsZS10ZS4=
+      share_what_you_want: !binary |
+          RGVsaXRlIGthciCeZWxpdGUsIHMga29tZXJrb2xpIJ5lbGl0ZS4=
       simplicity: "Preprostost"
-      simplicity_explanation: "Diaspora omogoča preprosto izmenjavo in upošteva vašo zasebnost. Za ohranjanje zasebnosti v Diaspori ni potrebno skozi goro različnih nastavitev in možnosti."
-      tagline_first_half: "Delite kar želite,"
-      tagline_second_half: "s komerkoli želite."
+      simplicity_explanation: !binary |
+          RGlhc3BvcmEgb21vZ2/oYSBwcmVwcm9zdG8gaXptZW5qYXZvIHogdXBvmnRl
+          dmFuamVtIHZhmmUgemFzZWJub3N0aS4gWmEgb2hyYW5qYW5qZSB6YXNlYm5v
+          c3RpIHYgRGlhc3BvcmkgbmkgcG90cmVibm8gc2tvemkgbmVza29u6GVuIHNl
+          em5hbSByYXpsaehuaWggbmFzdGF2aXRldiBpbiBtb55ub3N0aS4=
+      tagline_first_half: !binary |
+          RGVsaXRlIGthciCeZWxpdGUs
+      tagline_second_half: !binary |
+          cyBrb21lcmtvbGkgnmVsaXRlLg==
   invitations: 
-    a_facebook_user: "A Facebook user"
+    a_facebook_user: "Facebook uporabnik"
     check_token: 
       not_found: "Povabilo ni bilo najdeno"
     create: 
-      already_contacts: "S to osebo ste že povezani"
-      already_sent: "To osebo ste že povabili."
-      no_more: "Nimate več povabil."
-      own_address: "You can't send an invitation to your own address."
-      rejected: "Naslednji e-naslovi imajo težave z dostavo povabila: "
+      already_contacts: !binary |
+          UyB0byBvc2VibyBzdGUgnmUgcG92ZXphbmk=
+      already_sent: !binary |
+          VG8gb3NlYm8gc3RlIJ5lIHBvdmFiaWxpLg==
+      no_more: !binary |
+          TmltYXRlIHZl6CBwb3ZhYmlsLg==
+      own_address: "Povabila ne morete poslati na lasten e-naslov."
+      rejected: !binary |
+          TmFzbGVkbmppIGUtbmFzbG92aSBpbWFqbyB0ZZ5hdmUgeiBkb3N0YXZvIHBv
+          dmFiaWxhOiA=
       sent: "Povabila so bila poslana naslednjim: "
     edit: 
-      accept_your_invitation: "Accept your invitation"
-      your_account_awaits: "Your account awaits!"
+      accept_your_invitation: !binary |
+          U3ByZWptaXRlIHZhmmUgcG92YWJpbG8=
+      your_account_awaits: !binary |
+          VmGaIHJh6HVuIHZhcyCeZSDoYWthIQ==
     new: 
-      already_invited: "Že povabljeni"
-      aspect: "Skupina"
-      comma_seperated_plz: "Vnesete lahko več e-naslovov, ki jih med sabo ločite z vejico."
-      if_they_accept_info: "v kolikor sprejmejo vaše povabilo, bodo samodejno dodani skupinam v katere ste jih povabili."
-      invite_someone_to_join: "Povabi druge, da se pridružijo v Diasporo!"
-      personal_message: "Osebno sporočilo"
+      already_invited: !binary |
+          nmUgcG92YWJsamVuaQ==
+      aspect: "Pogled"
+      comma_seperated_plz: !binary |
+          Vm5lc2V0ZSBsYWhrbyB2ZeggZS1uYXNsb3Zvdiwga2kgbmFqIGJvZG8gbWVk
+          IHNlYm9qIGxv6GVuaSB6IHZlamljby4=
+      if_they_accept_info: !binary |
+          diBrb2xpa29yIHNwcmVqbWVqbyB2YZplIHBvdmFiaWxvLCBib2RvIHNhbW9k
+          ZWpubyAgZG9kYW5pIHBvZ2xlZG9tIHYga2F0ZXJlIHN0ZSBqaWggcG92YWJp
+          bGku
+      invite_someone_to_join: !binary |
+          UG92YWJpdGUgbmVrb2dhIHYgb21yZZ5qZSBEaWFzcG9yYSE=
+      language: "Language"
+      personal_message: !binary |
+          T3NlYm5vIHNwb3Jv6Glsbw==
       resend: "Resend"
-      send_an_invitation: "Pošlji povabilo"
-      send_invitation: "Pošlji povabilo"
+      send_an_invitation: !binary |
+          UG+abGppIHBvdmFiaWxv
+      send_invitation: !binary |
+          UG+abGppIHBvdmFiaWxv
       to: "Za"
   layouts: 
     application: 
       powered_by: "STRAN POGANJA DIASPORA*"
-      public_feed: "Public Diaspora Feed for %{name}"
-      toggle: "toggle mobile site"
+      public_feed: "Javne Diaspora objave za %{name}"
+      toggle: "vklop/izklop mobilne strani"
       whats_new: "kaj je novega?"
-      your_aspects: "vaše skupine"
+      your_aspects: !binary |
+          dmGaZSBza3VwaW5l
     header: 
       admin: "admin"
       blog: "blog"
-      code: "koda"
+      code: !binary |
+          mmlmcmE=
       login: "prijava"
       logout: "odjavi me"
-      profile: "profile"
-      recent_notifications: "Recent notifications"
+      profile: "profil"
+      recent_notifications: "Nedavna obvestila"
       settings: "settings"
       view_all: "View all"
   likes: 
@@ -328,7 +466,8 @@ sl:
         two: "%{count} likes"
         zero: "no likes"
   limited: "Limited"
-  more: "Več"
+  more: !binary |
+      VmXo
   next: "naslednja"
   no_results: "No Results Found"
   notifications: 
@@ -370,8 +509,10 @@ sl:
         other: "and %{count} others"
         two: "and %{count} others"
         zero: "and nobody else"
-      mark_all_as_read: "Označi vse kot prebrano"
-      notifications: "Sporočila"
+      mark_all_as_read: !binary |
+          T3puYehpIHZzZSBrb3QgcHJlYnJhbm8=
+      notifications: !binary |
+          U3Bvcm/oaWxh
     liked: 
       few: "%{actors} has just liked your %{post_link}."
       many: "%{actors} has just liked your %{post_link}."
@@ -435,9 +576,9 @@ sl:
     comment_on_post: 
       reply: "Reply or view %{name}'s post >"
     confirm_email: 
-      click_link: "To activate your new e-mail address %{unconfirmed_email}, please click this link:"
+      click_link: "To activate your new e-mail address %{unconfirmed_email},  please click this link:"
       subject: "Please activate your new e-mail address %{unconfirmed_email}"
-    email_sent_by_diaspora: "This email was sent by Diaspora.  If you'd like to stop getting emails like this,"
+    email_sent_by_diaspora: "This email was sent by Diaspora.  If you'd like to  stop getting emails like this,"
     hello: "Pozdravljeni %{name}!"
     liked: 
       liked: "%{name} has just liked your post: "
@@ -451,8 +592,10 @@ sl:
       reshared: "%{name} just reshared your post"
       view_post: "View post >"
     single_admin: 
-      admin: "Vaš administrator Diaspore"
-      subject: "Sporočilo o vašem Diaspora računu:"
+      admin: !binary |
+          VmGaIGFkbWluaXN0cmF0b3IgRGlhc3BvcmU=
+      subject: !binary |
+          U3Bvcm/oaWxvIG8gdmGaZW0gRGlhc3BvcmEgcmHodW51Og==
     started_sharing: 
       sharing: "has started sharing with you!"
       subject: "%{name} has started sharing with you on Diaspora*"
@@ -467,14 +610,17 @@ sl:
     add_contact_small: 
       add_contact_from_tag: "add contact from tag"
     aspect_list: 
-      edit_membership: "uredi člane skupin"
+      edit_membership: !binary |
+          dXJlZGkg6GxhbmUgc2t1cGlu
     few: "%{count} people"
     helper: 
       people_on_pod_are_aware_of: " ljudje v 'podu' so seznanjeni o"
       results_for: "zadetkov za %{params}"
     index: 
-      couldnt_find_them_send_invite: "Jih niste našli? Pošljite povabilo!"
-      no_one_found: "...nikogar ni bilo mogoče najti."
+      couldnt_find_them_send_invite: !binary |
+          SmloIG5pc3RlIG5hmmxpPyBQb5psaml0ZSBwb3ZhYmlsbyE=
+      no_one_found: !binary |
+          Li4ubmlrb2dhciBuaSBiaWxvIG1vZ2/oZSBuYWp0aS4=
       no_results: "Ja, halo! Za iskanje je potrebno vpisati pogoj."
       results_for: "rezultati iskanja za"
     many: "%{count} people"
@@ -482,11 +628,14 @@ sl:
     other: "%{count} people"
     person: 
       add_contact: "dodaj stik"
-      already_connected: "Ste že povezani"
-      pending_request: "Čakajoče zahteve"
+      already_connected: !binary |
+          U3RlIJ5lIHBvdmV6YW5p
+      pending_request: !binary |
+          xIxha2Fqb+hlIHphaHRldmU=
       thats_you: "To ste vi!"
     profile_sidebar: 
-      bio: "življenjepis"
+      bio: !binary |
+          nml2bGplbmplcGlz
       born: "datum rojstva"
       edit_my_profile: "Uredi moj profil"
       gender: "spol"
@@ -496,16 +645,20 @@ sl:
       remove_from: "Ali odstranim %{name} iz skupine %{aspect}?"
     show: 
       does_not_exist: "Oseba ne obstaja!"
-      has_not_shared_with_you_yet: "%{name} has not shared any posts with you yet!"
-      incoming_request: "%{name} želi deliti z vami."
+      has_not_shared_with_you_yet: "%{name} has not shared any posts with you  yet!"
+      ignoring: "You are ignoring all posts from %{name}."
+      incoming_request: !binary |
+          JXtuYW1lfSCeZWxpIGRlbGl0aSB6IHZhbWku
       mention: "Mention"
       message: "Message"
       not_connected: "S to osebo ne delite"
       recent_posts: "Zadnje objave"
       recent_public_posts: "Zadnje javne objave"
-      return_to_aspects: "Vrnite se na vašo stran s skupinami"
+      return_to_aspects: !binary |
+          VnJuaXRlIHNlIG5hIHZhmm8gc3RyYW4gcyBza3VwaW5hbWk=
       see_all: "See all"
-      start_sharing: "začni deliti"
+      start_sharing: !binary |
+          emHobmkgZGVsaXRp
       to_accept_or_ignore: "sprejmite ali zavrnite."
     sub_header: 
       add_some: "add some"
@@ -513,14 +666,19 @@ sl:
       you_have_no_tags: "you have no tags!"
     two: "%{count} people"
     webfinger: 
-      fail: "Žal ni bilo mogoče najti %{handle}."
+      fail: !binary |
+          nmFsIG5pIGJpbG8gbW9nb+hlIG5hanRpICV7aGFuZGxlfS4=
     zero: "no people"
   photos: 
     comment_email_subject: "%{name}'s photo"
     create: 
-      integrity_error: "Nalaganje slike ni uspelo. Ste prepričani, da je bila izbrana slika?"
+      integrity_error: !binary |
+          TmFsYWdhbmplIHNsaWtlIG5pIHVzcGVsby4gU3RlIHByZXByaehhbmksIGRh
+          IGplIGJpbGEgIGl6YnJhbmEgc2xpa2E/
       runtime_error: "Nalaganje slike ni uspelo. Imate pripet varnostni pas?"
-      type_error: "Nalaganje slike ni uspelo. Ste prepričani, da je bila dodana slika?"
+      type_error: !binary |
+          TmFsYWdhbmplIHNsaWtlIG5pIHVzcGVsby4gU3RlIHByZXByaehhbmksIGRh
+          IGplIGJpbGEgZG9kYW5hICBzbGlrYT8=
     destroy: 
       notice: "Slika izbrisana."
     edit: 
@@ -528,37 +686,42 @@ sl:
     new: 
       back_to_list: "Nazaj na seznam"
       new_photo: "Nova slika"
-      post_it: "objavi!"
+      post_it: objavi!
     new_photo: 
-      empty: "Datoteka {file} je prazna, prosimo ponovno izberite datoteke brez nje."
-      invalid_ext: "Datoteka {file} ni veljavna. Dovoljene so samo naslednje vrste datotek {extensions}."
-      size_error: "Datoteka {file} je prevelika, največja dovoljena velikost je {sizeLimit}."
+      empty: "Datoteka {file} je prazna, prosimo ponovno izberite datoteke brez  nje."
+      invalid_ext: "Datoteka {file} ni veljavna. Dovoljene so samo naslednje  vrste datotek {extensions}."
+      size_error: !binary |
+          RGF0b3Rla2Ege2ZpbGV9IGplIHByZXZlbGlrYSwgbmFqdmXoamEgZG92b2xq
+          ZW5hIHZlbGlrb3N0IGplICB7c2l6ZUxpbWl0fS4=
     new_profile_photo: 
-      or_select_one: "ali izberite eno od vaših obstoječih"
-      upload: "Naloži novo sliko profila!"
+      or_select_one: !binary |
+          YWxpIGl6YmVyaXRlIGVubyBvZCB2YZppaCBvYnN0b2pl6Glo
+      upload: !binary |
+          TmFsb55pIG5vdm8gc2xpa28gcHJvZmlsYSE=
     photo: 
       view_all: "ogled vseh slik osebe %{name}"
     show: 
       collection_permalink: "collection permalink"
-      delete_photo: "Izbriši sliko"
+      delete_photo: !binary |
+          SXpicmmaaSBzbGlrbw==
       edit: "uredi"
-      edit_delete_photo: "Dodaj opis slike ali izbriši sliko"
+      edit_delete_photo: !binary |
+          RG9kYWogb3BpcyBzbGlrZSBhbGkgaXpicmmaaSBzbGlrbw==
       make_profile_photo: "uporabi sliko za moj profil"
       show_original_post: "Show original post"
       update_photo: "Posodobi sliko"
     update: 
       error: "Urejanje slike ni uspelo."
-      notice: "Slika uspešno posodobljena."
-  post_visibilites: 
-    update: 
-      post_hidden_and_muted: "%{name}'s post has been hidden, and notifications have been muted."
-      see_it_on_their_profile: "If you want to see updates on this post, visit %{name}'s profile page."
+      notice: !binary |
+          U2xpa2EgdXNwZZpubyBwb3NvZG9ibGplbmEu
   posts: 
     show: 
       destroy: "Delete"
       not_found: "Sorry, we couldn't find that post."
       permalink: "permalink"
-  previous: "prejšnja"
+  previous: !binary |
+      cHJlappuamE=
+  privacy: "Privacy"
   profile: "Profil"
   profiles: 
     edit: 
@@ -581,32 +744,57 @@ sl:
       failed: "Failed to update profile"
       updated: "Profile updated"
   public: "Public"
+  reactions: 
+    few: "%{count} reactions"
+    many: "%{count} reactions"
+    one: "1 reaction"
+    other: "%{count} reactions"
+    two: "%{count} reactions"
+    zero: "0 reactions"
   registrations: 
-    closed: "Za ta 'Diaspora pod' registracije trentno niso omogočene."
+    closed: !binary |
+        WmEgdGEgJ0RpYXNwb3JhIHBvZCcgcmVnaXN0cmFjaWplIHRyZW50bm8gbmlz
+        byBvbW9nb+hlbmUu
     create: 
-      success: "Pridružili ste se v Diasporo!"
+      success: !binary |
+          UHJpZHJ1nmlsaSBzdGUgc2UgdiBEaWFzcG9ybyE=
     edit: 
-      cancel_my_account: "Prekliči moj uporabniški račun"
+      cancel_my_account: !binary |
+          UHJla2xp6GkgbW9qIHVwb3JhYm5pmmtpIHJh6HVu
       edit: "Uredi %{name}"
-      leave_blank: "(v kolikor ne želite spremeniti pustite prazno)"
-      password_to_confirm: "(spremembo je potrebno potrditi z vašim trenutnim geslom)"
+      leave_blank: !binary |
+          KHYga29saWtvciBuZSCeZWxpdGUgc3ByZW1lbml0aSBwdXN0aXRlIHByYXpu
+          byk=
+      password_to_confirm: !binary |
+          KHNwcmVtZW1ibyBqZSBwb3RyZWJubyBwb3RyZGl0aSB6IHZhmmltIHRyZW51
+          dG5pbSAgZ2VzbG9tKQ==
       unhappy: "Ste nezadovoljni?"
       update: "Posodobi"
     new: 
       create_my_account: "Create my account"
-      enter_email: "Vpišite e-naslov"
-      enter_password: "Vpišite geslo"
-      enter_password_again: "Ponovno vpišite isto geslo"
-      enter_username: "Izberite uporabniško ime (samo črke, številke in podčrtaji)"
+      enter_email: !binary |
+          VnBpmml0ZSBlLW5hc2xvdg==
+      enter_password: !binary |
+          VnBpmml0ZSBnZXNsbw==
+      enter_password_again: !binary |
+          UG9ub3ZubyB2cGmaaXRlIGlzdG8gZ2VzbG8=
+      enter_username: !binary |
+          SXpiZXJpdGUgdXBvcmFibmmaa28gaW1lIChzYW1vIOhya2UsIJp0ZXZpbGtl
+          IGluICBwb2TocnRhamkp
       join_the_movement: "Join the movement!"
-      sign_up_today: "Sign up today"
+      sign_up_message: "Social Networking with a <3"
   requests: 
     create: 
-      sending: "Pošiljam"
-      sent: "%{name} ste vprašali, če bi delili z vami. Vaše vprašanje bodo videli, ko se bodo prijavili v Diasporo."
+      sending: !binary |
+          UG+aaWxqYW0=
+      sent: !binary |
+          JXtuYW1lfSBzdGUgdnByYZphbGksIOhlIGJpIGRlbGlsaSB6IHZhbWkuIFZh
+          mmUgdnByYZphbmplIGJvZG8gIHZpZGVsaSwga28gc2UgYm9kbyBwcmlqYXZp
+          bGkgdiBEaWFzcG9yby4=
     destroy: 
       error: "Prosim izberite skupino!"
-      ignore: "Prošnja za stik je zavrnjena."
+      ignore: !binary |
+          UHJvmm5qYSB6YSBzdGlrIGplIHphdnJuamVuYS4=
       success: "Zdaj sta prijatelja."
     helper: 
       new_requests: 
@@ -617,10 +805,11 @@ sl:
         two: "%{count} new requests!"
         zero: "no new requests"
     manage_aspect_contacts: 
-      existing: "Obstoječi stiki"
+      existing: !binary |
+          T2JzdG9qZehpIHN0aWtp
       manage_within: "Uredi stike znotraj"
     new_request_to_person: 
-      sent: "poslano!"
+      sent: poslano!
   reshares: 
     comment_email_subject: "%{resharer}'s reshare of %{author}'s post"
     create: 
@@ -636,43 +825,64 @@ sl:
         zero: "Reshare"
       reshare_confirmation: "Reshare %{author} - %{text}?"
       reshare_original: "Reshare orignial"
+      reshared_via: "reshared via"
       show_original: "Show Original"
   search: "Najdi"
   services: 
     create: 
+      already_authorized: "A user with diaspora id %{diaspora_id} already authorized that %{service_name} account."
+      failure: "Authentication failed."
       success: "Preverjanje istovetnosti je uspelo."
     destroy: 
-      success: "Preverjanje istovetnosti je uspešno izbrisano."
+      success: !binary |
+          UHJldmVyamFuamUgaXN0b3ZldG5vc3RpIGplIHVzcGWabm8gaXpicmlzYW5v
+          Lg==
     failure: 
-      error: "pri povezovanju s servisom je prišlo do napake"
+      error: !binary |
+          cHJpIHBvdmV6b3Zhbmp1IHMgc2Vydmlzb20gamUgcHJpmmxvIGRvIG5hcGFr
+          ZQ==
     finder: 
       no_friends: "No Facebook friends found."
       service_friends: "%{service} Friends"
     index: 
-      connect_to_facebook: "Poveži se s facebook"
+      connect_to_facebook: !binary |
+          UG92ZZ5pIHNlIHMgZmFjZWJvb2s=
       connect_to_tumblr: "Connect to Tumblr"
-      connect_to_twitter: "Poveži se s twitter"
+      connect_to_twitter: !binary |
+          UG92ZZ5pIHNlIHMgdHdpdHRlcg==
       disconnect: "povezava prekinjena"
       edit_services: "Uredi servise"
       logged_in_as: "prijavljeni ste kot"
       no_services: "You have not connected any services yet."
       really_disconnect: "prekinem povezavo s servisom %{service}?"
     inviter: 
-      click_link_to_accept_invitation: "Kliknite na povezavo za potrditev vašega povabila"
-      join_me_on_diaspora: "Pridruži se mi na DIASPORI*"
+      click_link_to_accept_invitation: !binary |
+          S2xpa25pdGUgbmEgcG92ZXphdm8gemEgcG90cmRpdGV2ICB2YZplZ2EgcG92
+          YWJpbGE=
+      join_me_on_diaspora: !binary |
+          UHJpZHJ1nmkgc2UgbWkgbmEgRElBU1BPUkkq
     remote_friend: 
       invite: "povabi"
       not_on_diaspora: "Not yet on Diaspora"
-      resend: "pošlji ponovno"
+      resend: !binary |
+          cG+abGppIHBvbm92bm8=
   settings: "Nastavitve"
+  share_visibilites: 
+    update: 
+      post_hidden_and_muted: "%{name}'s post has been hidden, and notifications have been muted."
+      see_it_on_their_profile: "If you want to see updates on this post, visit %{name}'s profile page."
   shared: 
     add_contact: 
       add_new_contact: "Add a new contact"
-      create_request: "Poišči po Diaspora imenu"
-      diaspora_handle: "diaspora@handle.org"
-      enter_a_diaspora_username: "Vpišite Diaspora uporabniško ime:"
+      create_request: !binary |
+          UG9pmuhpIHBvIERpYXNwb3JhIGltZW51
+      diaspora_handle: diaspora@handle.org
+      enter_a_diaspora_username: !binary |
+          VnBpmml0ZSBEaWFzcG9yYSB1cG9yYWJuaZprbyBpbWU6
       know_email: "Ali poznate njihove naslove e-naslove? Povabite jih"
-      your_diaspora_username_is: "Vaše Diaspora uporabniško ime je: %{diaspora_handle}"
+      your_diaspora_username_is: !binary |
+          VmGaZSBEaWFzcG9yYSB1cG9yYWJuaZprbyBpbWUgamU6ICAle2RpYXNwb3Jh
+          X2hhbmRsZX0=
     aspect_dropdown: 
       add_to_aspect: "Add to aspect"
       toggle: 
@@ -688,39 +898,62 @@ sl:
       logged_in_as: "logged in as %{name}"
       your_aspects: "your aspects"
     invitations: 
-      by_email: "po e-pošti"
-      dont_have_now: "Trenutno nimate povabil, vendar jih lahko v kratkem pričakujete!"
+      by_email: !binary |
+          cG8gZS1wb5p0aQ==
+      dont_have_now: !binary |
+          VHJlbnV0bm8gbmltYXRlIHBvdmFiaWwsIHZlbmRhciBqaWggbGFoa28gdiBr
+          cmF0a2VtICBwcmnoYWt1amV0ZSE=
       from_facebook: "iz Facebook-a"
-      invitations_left: "(še %{count})"
+      invitations_left: !binary |
+          KJplICV7Y291bnR9KQ==
       invite_someone: "Povabi osebo"
       invite_your_friends: "Povabi prijatelje"
       invites: "Povabila"
-      invites_closed: "Za ta 'Diaspora pod' so povabila trenutno onemogočena."
+      invites_closed: !binary |
+          WmEgdGEgJ0RpYXNwb3JhIHBvZCcgc28gcG92YWJpbGEgdHJlbnV0bm8gb25l
+          bW9nb+hlbmEu
     notification: 
       new: "Novo %{type} od %{from}"
     public_explain: 
+      control_your_audience: "Control your Audience"
       logged_in: "prijavljeni ste v %{service}"
       manage: "uredi povezane servise"
-      outside: "Javna sporočila bodo na ogled tudi osebam izven Diaspore."
-      title: "Objavili boste javno sporočilo!"
+      new_user_welcome_message: "Use #hashtags to classify your posts and find people who share your interests.  Call out awesome people with @Mentions"
+      outside: !binary |
+          SmF2bmEgc3Bvcm/oaWxhIGJvZG8gbmEgb2dsZWQgdHVkaSBvc2ViYW0gaXp2
+          ZW4gRGlhc3BvcmUu
+      share: "Share"
+      title: !binary |
+          T2JqYXZpbGkgYm9zdGUgamF2bm8gc3Bvcm/oaWxvIQ==
+      visibility_dropdown: "Use this dropdown to change visibility of your post.  (We suggest you make this first one public.)"
     publisher: 
       all: "vsi"
       all_contacts: "vsi stiki"
-      click_to_share_with: "Click to share with: "
       discard_post: "Discard post"
       make_public: "objavi kot javno"
-      post_a_message_to: "Objavi sporočilo v %{aspect}"
-      posting: "Objavljam..."
+      new_user_prefill: 
+        hello: "Hey everyone, I'm #%{new_user_tag}. "
+        i_like: "I'm interested in %{tags}."
+        invited_by: "Thanks for the invite, "
+      post_a_message_to: !binary |
+          T2JqYXZpIHNwb3Jv6GlsbyB2ICV7YXNwZWN0fQ==
+      posting: Objavljam...
       publishing_to: "publishing to: "
       share: "Objavi"
       share_with: "deli s/z"
       upload_photos: "Upload photos"
-      whats_on_your_mind: "bi kaj želeli sporočiti?"
+      whats_on_your_mind: !binary |
+          Ymkga2FqIJ5lbGVsaSBzcG9yb+hpdGk/
     reshare: 
-      reshare: "Objavi še v"
+      reshare: !binary |
+          T2JqYXZpIJplIHY=
     stream_element: 
+      connect_to_comment: "Connect to this user to comment on their post"
+      currently_unavailable: "commenting currently unavailable"
       dislike: "I dislike this"
       hide_and_mute: "Hide and Mute"
+      ignore_user: "Ignore %{name}"
+      ignore_user_description: "Ignore and remove user from all aspects?"
       like: "I like this"
       shared_with: "Shared with: %{aspect_names}"
       unlike: "Unlike"
@@ -732,7 +965,8 @@ sl:
     destroy: 
       failure: "Failed to delete post"
     helper: 
-      no_message_to_display: "Ni sporočil."
+      no_message_to_display: !binary |
+          Tmkgc3Bvcm/oaWwu
     new: 
       mentioning: "Mentioning: %{person}"
     too_long: 
@@ -745,6 +979,33 @@ sl:
   stream_helper: 
     hide_comments: "skrij komentarje"
     show_more_comments: "Show %{number} more comments"
+  streams: 
+    aspects: 
+      title: "Your Aspects"
+    aspects_stream: "Aspects"
+    commented_on: "commented on"
+    community_spotlight_stream: "Community Spotlight"
+    followed_tag: 
+      add_a_tag: "Add a tag"
+      contacts_title: "People who dig these tags"
+      follow: "Follow"
+      title: "#Followed Tags"
+    followed_tags_stream: "#Followed Tags"
+    mentioned_stream: "@Mentions"
+    mentions: 
+      contacts_title: "People who mentioned you"
+      title: "Your Mentions"
+    multi: 
+      contacts_title: "People in your Stream"
+      title: "Stream"
+    posted: "posted"
+    public: 
+      contacts_title: "Recent Posters"
+      title: "Public Activity"
+    recently: "recently:"
+    tags: 
+      contacts_title: "People who dig these tags"
+      title: "Posts tagged: %{tags}"
   tag_followings: 
     create: 
       failure: "Failed to follow: #%{name}"
@@ -755,6 +1016,7 @@ sl:
   tags: 
     show: 
       follow: "Follow #%{tag}"
+      followed_by: "followed by"
       following: "Following #%{tag}"
       nobody_talking: "Nobody is talking about %{tag} yet."
       people_tagged_with: "People tagged with %{tag}"
@@ -763,89 +1025,106 @@ sl:
   tokens: 
     show: 
       connect_to_cubbies: "Connect to Cubbi.es"
-      connecting_is_simple: "Connecting your Diaspora account is as simple as filling out two fields on your Cubbi.es account page."
+      connecting_is_simple: "Connecting your Diaspora account is as simple as  filling out two fields on your Cubbi.es account page."
       daniels_account: "Daniel's Diaspora account"
-      log_in_with_diaspora_is_comming: "Pretty soon, you'll be able to connect to a new application without creating an account separate from your one on Diaspora."
+      log_in_with_diaspora_is_comming: "Pretty soon, you'll be able to connect  to a new application without creating an account separate from your one on  Diaspora."
       love_to_try: "We'd love for you to try it out."
       making_the_connection: "Making the Connection"
-      screenshot_explanation: "%{link1}.  This particular cubby is linked to %{link2}."
+      screenshot_explanation: "%{link1}.  This particular cubby is linked to  %{link2}."
       sign_up_today: "Sign up today!"
       typical_userpage: "A typical cubbi.es userpage"
       via: "(via %{link})"
-      what_is_cubbies: "Cubbi.es is the world's first Diaspora application.  It's also the best way to collect photos online."
-  undo: "Undo?"
-  username: "Uporabniško ime"
+      what_is_cubbies: "Cubbi.es is the world's first Diaspora application.   It's also the best way to collect photos online."
+  undo: Undo?
+  username: !binary |
+      VXBvcmFibmmaa28gaW1l
   users: 
     confirm_email: 
       email_confirmed: "E-Mail %{email} activated"
       email_not_confirmed: "E-Mail could not be activated. Wrong link?"
-    destroy: "Uporabniški račun je uspešno zaprt."
+    destroy: !binary |
+        VXBvcmFibmmaa2kgcmHodW4gamUgdXNwZZpubyB6YXBydC4=
     edit: 
       also_commented: "...someone also comments on your contact's post?"
       change: "Spremeni"
       change_email: "Change E-Mail"
       change_language: "Spremeni jezik"
       change_password: "Spremeni geslo"
-      close_account: "Zapri uporabniški račun"
+      close_account: !binary |
+          WmFwcmkgdXBvcmFibmmaa2kgcmHodW4=
       comment_on_post: "...someone comments on your post?"
       current_password: "Trenutno geslo"
       download_photos: "prenesi slike"
       download_xml: "prenesi v xml"
-      edit_account: "Uredi uporabniški račun"
-      email_awaiting_confirmation: "We have sent you an activation link to %{unconfirmed_email}. Till you follow this link and activate the new address, we will continue to use your original address %{email}."
+      edit_account: "Uredi uporabniki raun"
+      email_awaiting_confirmation: "We have sent you an activation link to  %{unconfirmed_email}. Till you follow this link and activate the new address,  we will continue to use your original address %{email}."
       export_data: "Izvozi podatke"
+      getting_started: "New User Prefrences"
       liked: "...someone likes your post?"
       mentioned: "...you are mentioned in a post?"
       new_password: "Novo geslo"
+      photo_export_unavailable: "Photo exporting currently unavailable"
       private_message: "...you receive a private message?"
-      receive_email_notifications: "Želite prejemati obvestila po e-pošti, ko..."
+      receive_email_notifications: !binary |
+          nmVsaXRlIHByZWplbWF0aSBvYnZlc3RpbGEgcG8gZS1wb5p0aSwga28uLi4g
       reshared: "...someone reshares your post?"
+      show_community_spotlight: "Show Community Spotlight in Stream?"
+      show_getting_started: "Re-enable Getting Started"
       started_sharing: "...someone starts sharing with you?"
-      your_email: "Vaš e-naslov"
-      your_handle: "Vaš diaspora naslov"
+      stream_preferences: "Stream Preferences"
+      your_email: !binary |
+          VmGaIGUtbmFzbG92
+      your_handle: !binary |
+          VmGaIGRpYXNwb3JhIG5hc2xvdg==
     getting_started: 
-      bold: "aspects"
-      connect_to: "Connect to"
-      connect_to_your_other_social_networks: "Connect to your other social networks"
-      connect_with_people: "Connect with cool people"
-      connect_with_people_explanation_pt1: "Connect with people by placing them into one or more of your"
-      connect_with_people_explanation_pt2: "Aspects are an intuitive way to group new and familar faces, private to you, allowing you to filter down or share with subsets of your contacts easily."
-      edit_profile: "Uredite vaš profil"
-      featured_tags: "Featured tags"
-      featured_users: "Featured users"
-      fill_out_your_profile: "Fill out your profile"
-      find_friends: "Find friends"
-      find_friends_from_facebook: "find friends from Facebook"
-      finished: "Končano!"
-      follow_your_interests: "Follow your interests"
-      hashtag_explanation: "Hashtags allow you to talk about and follow your interests.  They're also a great way to find new people on Diaspora."
-      profile_description: "Make it easier for people to find you by filling out your profile information."
-      profile_fields: 
-        bio: "Bio"
-        birthday: "Birthday"
-        gender: "Gender"
-        location: "Location"
-        name: "Name"
-        photo: "Photo"
-        tags: "Tags"
-      search_for_hashtags: "Search for #hashtags"
-      search_for_people: "Search for people"
-      see_all_featured_users: "See all featured users"
-      welcome: "Dobrodošli v Diasporo!"
-      welcome_with_name: "Welcome, %{name}!"
+      awesome_take_me_to_diaspora: "Awesome! Take me to Diaspora*"
+      community_welcome: "Diaspora's community is happy to have you aboard!"
+      hashtag_explanation: "Hashtags allow you to talk about and follow your  interests.  They're also a great way to find new people on Diaspora."
+      hashtag_suggestions: "Try following tags like #art, #movies, #gif, etc."
+      hooking_up_fb: "hooking up your Facebook account"
+      saved: Saved!
+      we_can_speed_things_up: "We can speed things up a bit by"
+      well_hello_there: "Well, hello there!"
+      what_are_you_in_to: "What are you into?"
+      what_facebook_does: "to Diaspora. This will pull your name and photo, and enable cross-positng."
+      who_are_you: "Who are you?"
+    logged_out: 
+      go_mobile: "Now go mobile."
+      on_your_mobile_device: "on your mobile device to access Diaspora* mobile."
+      signed_out: "You've signed out of Diaspora*"
+      simply_visit: "Simply visit"
+      works_on_modern: "Works on all modern smartphones"
+    privacy_settings: 
+      ignored_users: "Ignored Users"
+      stop_ignoring: "Stop ignoring"
+      title: "Privacy Settings"
     public: 
       does_not_exist: "Uporabnik %{username} ne obstaja!"
     update: 
-      email_notifications_changed: "Obveščanje po e-pošti spremenjeno"
+      email_notifications_changed: !binary |
+          T2J2ZZroYW5qZSBwbyBlLXBvmnRpIHNwcmVtZW5qZW5v
       language_changed: "Jezik spremenjen"
       language_not_changed: "Sprememba jezika ni uspela"
       password_changed: "Geslo spremenjeno"
       password_not_changed: "Sprememba gesla ni uspela"
+      settings_not_updated: "Settings update failed"
+      settings_updated: "Settings updated"
       unconfirmed_email_changed: "E-Mail Changed. Needs activation."
       unconfirmed_email_not_changed: "E-Mail Change Failed"
   webfinger: 
-    fetch_failed: "'webfinger' profil ni bilo mogoče prenesti za %{profile_url}"
-    hcard_fetch_failed: "prišlo je do težave pri prenosu 'hCard' kartice za %{account}"
-    no_person_constructed: "Iz te 'hCard' kartice ni bilo mogoče razpoznati osebe."
-    not_enabled: "račun gostitelja (host) %{account} se ne odziva na 'webfinger' protokol"
-    xrd_fetch_failed: "pri pridobivanju 'XRD' iz uporabniškega računa %{account} je prišlo do napake"
+    fetch_failed: !binary |
+        J3dlYmZpbmdlcicgcHJvZmlsIG5pIGJpbG8gbW9nb+hlIHByZW5lc3RpIHph
+        ICV7cHJvZmlsZV91cmx9
+    hcard_fetch_failed: !binary |
+        cHJpmmxvIGplIGRvIHRlnmF2ZSBwcmkgcHJlbm9zdSAnaENhcmQnIGthcnRp
+        Y2UgemEgICV7YWNjb3VudH0=
+    no_person_constructed: !binary |
+        SXogdGUgJ2hDYXJkJyBrYXJ0aWNlIG5pIGJpbG8gbW9nb+hlIHJhenBvem5h
+        dGkgIG9zZWJlLg==
+    not_enabled: !binary |
+        cmHodW4gZ29zdGl0ZWxqYSAoaG9zdCkgJXthY2NvdW50fSBzZSBuZSBvZHpp
+        dmEgbmEgICd3ZWJmaW5nZXInIHByb3Rva29s
+    xrd_fetch_failed: !binary |
+        cHJpIHByaWRvYml2YW5qdSAnWFJEJyBpeiB1cG9yYWJuaZprZWdhIHJh6HVu
+        YSAgJXthY2NvdW50fSBqZSBwcmmabG8gZG8gbmFwYWtl
+  welcome: Welcome!
