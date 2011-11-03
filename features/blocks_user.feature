@@ -10,6 +10,7 @@ Feature: Blocking a user from the stream
   Scenario: Blocking a user
     When I sign in as "bob@bob.bob"
     And I am on the home page
+    And I preemptively confirm the alert
     And I wait for the ajax to finish
     When I click on the first block button
     And I am on the home page

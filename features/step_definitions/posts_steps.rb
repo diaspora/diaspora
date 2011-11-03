@@ -32,5 +32,5 @@ When /^The user deletes their first post$/ do
 end
 
 When /^I click on the first block button/ do
-  find(".block_button").click
+  find(".block_user").click
 end
