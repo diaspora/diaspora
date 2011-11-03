@@ -84,8 +84,8 @@ begin
               debug_pp "Could not unsubscribe socket for #{user_id}"
             end
           }
-        rescue RuntimeError => e
-          debug_pp "Could not open socket for request with cookie: #{ws.request["Cookie"]}"
+        rescue RuntimeError, ArgumentError => e
+          debug_pp "Could not open socket for request with cookie: #{ws.request["cookie"]}"
           debug_pp "Error was: "
           debug_pp e
         end
