@@ -1,10 +1,10 @@
 module StreamElementHelper
   def block_user_control(author)
-    if user_signed_in?
+    if user_signed_in? && current_user.person.id != author.id
       link_to image_tag('deletelabel.png'), blocks_path(:block => {:person_id => author.id}),
         :class => 'block_user delete',
         :confirm => t('are_you_sure'),
-        :title => 'block user',
+        :title => t('.block_user', :name => author.first_name),
         :method => :post
     end
   end

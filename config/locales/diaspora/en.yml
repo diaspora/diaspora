@@ -723,6 +723,14 @@ en:
       invite: "invite"
       not_on_diaspora: "Not yet on Diaspora"
 
+  blocks:
+    create:
+      success: "Alright, you won't see them again. #niceblock!"
+      failure: "I couldn't block that user.  #evasion"
+    destroy:
+      success: "User unblocked! #combobreaker"
+      failure: "I couldn't unblock that user.  #evasion"
+
   shared:
     aspect_dropdown:
       add_to_aspect: "Add contact"
@@ -768,7 +776,6 @@ en:
     reshare:
       reshare: "Reshare"
     public_explain:
-
       control_your_audience: "Control your Audience"
       new_user_welcome_message: "Use #hashtags to classify your posts and find people who share your interests.  Call out awesome people with @Mentions"
       visibility_dropdown: "Use this dropdown to change visibility of your post.  (We suggest you make this first one public.)"
@@ -786,7 +793,8 @@ en:
       connect_to_comment: "Connect to this user to comment on their post"
       currently_unavailable: 'commenting currently unavailable'
       via: "via %{link}"
-      hide_and_mute: "Hide and Mute"
+      block_user: "Block %{name}"
+      hide_and_mute: "Hide and mute post"
       like: "Like"
       unlike: "Unlike"
       dislike: "Dislike"

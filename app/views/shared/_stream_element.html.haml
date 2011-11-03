@@ -5,8 +5,8 @@
 
 .stream_element{:id => post.guid, :class => from_group(post)}
   .right.controls
-    = delete_or_hide_button(post)
     = block_user_control(post.author)
+    = delete_or_hide_button(post)
 
     = image_tag 'ajax-loader.gif', :class => "hide_loader hidden"
 
