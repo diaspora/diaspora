@@ -46,6 +46,7 @@ class Stream::Base
     Post.scoped
   end
 
+  # @return [ActiveRecord::Relation<Post>]
   def stream_posts
     self.posts.for_a_stream(max_time, order, self.user)
   end

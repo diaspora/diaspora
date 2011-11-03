@@ -20,7 +20,7 @@ class AspectsController < ApplicationController
                                :max_time => params[:max_time].to_i)
 
     if params[:only_posts]
-      render :partial => 'shared/stream', :locals => {:posts => @stream.posts}
+      render :partial => 'shared/stream', :locals => {:posts => @stream.stream_posts}
     end
   end
 
