@@ -17,7 +17,7 @@
 
 -if publisher_explain
   :javascript
-    $(document).ready(function()
+    $(document).ready(function() 
       {
         $("#publisher .dropdown").popover({trigger: 'manual', offset: 10, placement:'below'});
         $("#publisher .dropdown").bind("click", function(){$(this).popover("hide")});
@@ -61,7 +61,7 @@
             = status.hidden_field :text, :value => h(publisher_hidden_text), :class => 'clear_on_submit'
 
             #file-upload{:title => t('.upload_photos')}
-              = image_tag 'icons/camera.png'
+              = image_tag 'icons/camera.svg', :height => 14
 
       - if publisher_public
         = hidden_field_tag 'aspect_ids[]', "public"
