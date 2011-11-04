@@ -30,7 +30,7 @@ class Services::Facebook < Service
 
   def finder(opts = {})
     Rails.logger.debug("event=friend_finder type=facebook sender_id=#{self.user_id}")
-    prevent_service_users_from_being_empty
+    #prevent_service_users_from_being_empty
     result = if opts[:local]
                self.service_users.with_local_people
              elsif opts[:remote]
@@ -81,9 +81,6 @@ class Services::Facebook < Service
   OVERRIDE_FIELDS_ON_FB_UPDATE = [:contact_id, :person_id, :request_id, :invitation_id, :photo_url, :name, :username]
 
   def prevent_service_users_from_being_empty
-    if self.service_users.blank?
-      self.save_friends
-      self.service_users.reload
-    end
+    Resque.enqueue(Jobs::UpdateServiceUsers, self.id)
   end
 end
