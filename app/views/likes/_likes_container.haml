@@ -3,7 +3,7 @@
 -#   the COPYRIGHT file.
 
 - if likes_count > 0
-  = image_tag('icons/heart.svg')
+  = image_tag('icons/heart.png')
   - if target_type == "Comment"
     = link_to t('likes.likes.people_like_this_comment', :count => likes_count), comment_likes_path(target_id), :class => "expand_likes"
   - else
