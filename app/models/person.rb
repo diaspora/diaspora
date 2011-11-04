@@ -288,6 +288,13 @@ class Person < ActiveRecord::Base
     self.update_attributes(:url => newuri)
   end
 
+  def close_account!
+    self.profile.tombstone!
+    self.closed_account = true
+    self.save
+    self
+  end
+
   protected
 
   def clean_url

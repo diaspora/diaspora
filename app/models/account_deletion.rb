@@ -17,6 +17,7 @@ class AccountDeletion
     delete_contacts_of_me
     disconnect_contacts
     delete_posts
+    tombstone_person_and_profile
   end
 
   #user deletions
@@ -58,6 +59,12 @@ class AccountDeletion
 
 # def comments
 # end
+  #
+  def remove_share_visibilities
+    #my_contacts = user.contacts.map{|x| x.id}
+    #others_contacts = person.contacts{|x| x.id}
+    #ShareVisibility.where(:contact_id => my_contacts + others_contacts)
+  end
 
 # def delete_notification_actors
 # end
@@ -74,12 +81,11 @@ class AccountDeletion
     self.person.mentions.delete_all
   end
 
-# def reset_profile
-# end
+  def tombstone_person_and_profile
+    self.person.close_account!
+  end
 
   def delete_contacts_of_me
     Contact.all_contacts_of_person(self.person).delete_all
   end
-  #private
-  
 end

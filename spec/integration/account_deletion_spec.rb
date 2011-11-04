@@ -30,6 +30,7 @@ describe 'deleteing your account' do
 
   it 'deletes all of @bob2s share visiblites' do
     ShareVisibility.where(:contact_id => @bobs_contact_ids).should be_empty
+    ShareVisibility.where(:contact_id => bob.person.contacts.map(&:id)).should be_empty
   end
 
   it 'deletes all photos' do
@@ -46,6 +47,12 @@ describe 'deleteing your account' do
 
   it 'deletes all contacts' do
     @bob2.contacts.should be_empty
+  end
+
+  it 'sets the person object as closed and the profile is cleared' do
+    @bob2.person.reload.closed_account.should  be_true
+
+    @bob2.person.profile.reload.first_name.should  be_blank
   end
 
   it 'deletes the converersation visibilities' do

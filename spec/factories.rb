@@ -13,7 +13,16 @@ end
 Factory.define :profile do |p|
   p.sequence(:first_name) { |n| "Robert#{n}#{r_str}" }
   p.sequence(:last_name)  { |n| "Grimm#{n}#{r_str}" }
+  p.bio "I am a cat lover and I love to run"
+  p.gender "robot"
+  p.location "Earth"
   p.birthday Date.today
+end
+
+Factory.define :profile_with_image_url, :parent => :profile do |p|
+  p.image_url "http://example.com/image.jpg"
+  p.image_url_medium "http://example.com/image_mid.jpg"
+  p.image_url_small "http://example.com/image_small.jpg"
 end
 
 Factory.define :person do |p|

@@ -10,10 +10,6 @@ describe AccountDeletion do
     @account_deletion.user = bob
   end
 
-  it 'works' do
-    pending
-  end
-
   it "attaches the user" do
     AccountDeletion.new(bob.person.diaspora_handle).user.should == bob
     AccountDeletion.new(remote_raphael.diaspora_handle).user.should == nil
@@ -49,6 +45,11 @@ describe AccountDeletion do
       @account_deletion.should_receive(:delete_posts)
       @account_deletion.perform!
     end
+
+    it 'calls tombstone_person_and_profile' do
+      @account_deletion.should_receive(:tombstone_person_and_profile)
+      @account_deletion.perform!
+    end
   end
   
   describe "#delete_standard_associations" do
@@ -75,7 +76,7 @@ describe AccountDeletion do
   describe '#delete_photos' do
     it 'deletes all photos' do
       @account_deletion.person.photos.should_receive(:delete_all)
-      @account_deletion.delete_posts
+      @account_deletion.delete_photos
     end
   end
 
@@ -118,6 +119,13 @@ describe AccountDeletion do
         Contact.should_receive(:all_contacts_of_person).with(bob.person).and_return(contacts)
         contacts.should_receive(:delete_all)
         @account_deletion.delete_contacts_of_me
+      end
+    end
+
+    describe '#tombstone_person_and_profile' do
+      it 'calls close_account! on person' do
+        @account_deletion.person.should_receive(:close_account!)
+        @account_deletion.tombstone_person_and_profile
       end
     end
   end

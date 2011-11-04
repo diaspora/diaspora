@@ -6,6 +6,13 @@ class ShareVisibility < ActiveRecord::Base
   belongs_to :contact
   belongs_to :shareable, :polymorphic => :true
 
+  scope :for_a_users_contacts, lambda { |user| 
+    where(:contact_id => user.contacts.map {|c| c.id})
+  }
+
+  alias :for_a_users_contacts :for_contacts_of_a_person
+    
+
   # Perform a batch import, given a set of contacts and a shareable
   # @note performs a bulk insert in mySQL; performs linear insertions in postgres
   # @param contacts [Array<Contact>] Recipients
