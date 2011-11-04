@@ -66,8 +66,8 @@ class ServicesController < ApplicationController
 
   def finder
     @finder = true
-    service = current_user.services.where(:type => "Services::#{params[:provider].titleize}").first
-    @friends = service ? service.finder(:remote => params[:remote]).paginate( :page => params[:page], :per_page => 15) : []
+    @service = current_user.services.where(:type => "Services::#{params[:provider].titleize}").first
+    @friends = @service ? @service.finder(:remote => params[:remote]).paginate( :page => params[:page], :per_page => 15) : []
   end
 
   def inviter
