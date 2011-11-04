@@ -4,7 +4,6 @@
 
 class Contact < ActiveRecord::Base
   belongs_to :user
-  validates_presence_of :user
 
   belongs_to :person
   validates :person, :presence => true
@@ -18,6 +17,7 @@ class Contact < ActiveRecord::Base
   validate :not_contact_for_self,
            :not_blocked_user
 
+  validates_presence_of :user
   validates_uniqueness_of :person_id, :scope => :user_id
 
   before_destroy :destroy_notifications,
@@ -101,7 +101,7 @@ class Contact < ActiveRecord::Base
   end
 
   def not_blocked_user
-    if user.blocks.where(:person_id => person_id).exists?
+    if user && user.blocks.where(:person_id => person_id).exists?
       errors[:base] << 'Cannot connect to an ignored user'
       false
     else
