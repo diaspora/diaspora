@@ -15,7 +15,7 @@ class Stream::FollowedTag < Stream::Base
   # @return [ActiveRecord::Association<Post>] AR association of posts
   def posts
     return [] if tag_string.empty?
-    @posts ||= StatusMessage.tag_stream(user, tag_array, max_time, order)
+    @posts ||= StatusMessage.tag_stream(user, tag_ids, max_time, order)
   end
 
   def contacts_title
@@ -28,8 +28,8 @@ class Stream::FollowedTag < Stream::Base
     @tag_string ||= tags.join(', '){|tag| tag.name}.to_s
   end
 
-  def tag_array
-    tags.map{|x| x.name}
+  def tag_ids
+    tags.map{|x| x.id}
   end
 
   def tags

@@ -3,7 +3,7 @@
 #   the COPYRIGHT file.
 
 class PhotosController < ApplicationController
-  before_filter :authenticate_user!
+  before_filter :authenticate_user!, :except => :show
 
   helper_method :parent, :photo, :additional_photos, :next_photo, :previous_photo, :ownership
 
@@ -140,8 +140,14 @@ class PhotosController < ApplicationController
   end
 
   def show
-    if photo
-      respond_with photo
+    if user_signed_in?
+      @photo = current_user.find_visible_shareable_by_id(Photo, params[:id])
+    else
+      @photo = Photo.where(id => params[:id], :public => true)
+    end
+
+    if @photo
+      respond_with @photo
     else
       redirect_to :back
     end
