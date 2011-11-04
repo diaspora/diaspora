@@ -35,9 +35,9 @@ class StatusMessage < Post
   #scopes
   scope :where_person_is_mentioned, lambda{|person| joins(:mentions).where(:mentions => {:person_id => person.id})}
 
-  def self.tag_stream(user, tag_array, max_time, order)
+  def self.tag_stream(user, tag_ids, max_time, order)
     owned_or_visible_by_user(user).
-      joins(:tags).where(:tags => {:name => tag_array})
+      joins(:tags).where(:tags => {:id => tag_ids})
   end
 
   def text(opts = {})

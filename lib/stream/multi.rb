@@ -94,7 +94,7 @@ class Stream::Multi < Stream::Base
   end
 
   def followed_tags_post_ids
-    @followed_tags_ids ||= ids(StatusMessage.tag_stream(user, tag_array, max_time, order))
+    @followed_tags_ids ||= ids(StatusMessage.tag_stream(user, tag_ids, max_time, order))
   end
 
   def mentioned_post_ids
@@ -110,8 +110,8 @@ class Stream::Multi < Stream::Base
     @community_spotlight_person_ids ||= Person.community_spotlight.select('id').map{|x| x.id}
   end
 
-  def tag_array
-    user.followed_tags.select('name').map{|x| x.name}
+  def tag_ids
+    user.followed_tags.map{|x| x.id}
   end
 
   def ids(enumerable)
