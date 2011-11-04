@@ -187,13 +187,18 @@ describe UsersController do
   end
 
   describe '#destroy' do
+    it 'does nothing if the password does not match' do
+      Resque.should_not_receive(:enqueue)
+      delete :destroy, :password => "stuff"
+    end
+
     it 'enqueues a delete job' do
       Resque.should_receive(:enqueue).with(Jobs::DeleteAccount, alice.id)
-      delete :destroy
+      delete :destroy, :password => "bluepin7"
     end
 
     it 'locks the user out' do
-      delete :destroy
+      delete :destroy, :password => "bluepin7"
       alice.reload.access_locked?.should be_true
     end
   end

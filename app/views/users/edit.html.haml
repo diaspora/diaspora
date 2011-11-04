@@ -166,6 +166,11 @@
   .span-5.last
     %h3 
       = t('.close_account')
-    = link_to t('.close_account'), user_path,
-      :confirm => t('are_you_sure'), :method => :delete,
-        :class => "button"
+    = form_for 'user', :url => user_path, :html => { :method => :delete } do |f|
+      = f.error_messages
+
+      %p
+        = f.label :current_password, t('.current_password')
+        = f.password_field :current_password
+      %p
+        = f.submit t('.close_account'), :confirm => t('are_you_sure')

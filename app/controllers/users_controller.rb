@@ -80,11 +80,15 @@ class UsersController < ApplicationController
   end
 
   def destroy
-    Resque.enqueue(Jobs::DeleteAccount, current_user.id)
-    current_user.lock_access!
-    sign_out current_user
-    flash[:notice] = I18n.t 'users.destroy'
-    redirect_to root_path
+    if params[:user][:current_password] && current_user.valid_password?(params[:user][:current_password])
+      Resque.enqueue(Jobs::DeleteAccount, current_user.id)
+      current_user.lock_access!
+      sign_out current_user
+      flash[:notice] = I18n.t 'users.destroy'
+      redirect_to root_path
+    else
+      redirect_to :back
+    end
   end
 
   def public
