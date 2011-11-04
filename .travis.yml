@@ -1,6 +1,6 @@
 branches:
   only:
-    - 'master'
+    - 'serendipitous'
 
 rvm:
   - 1.8.7
