@@ -29,12 +29,16 @@ module Octopress
       end
     end
 
+    # Formats date either as ordinal or by given date format
+    # Adds %o as ordinal representation of the day
     def format_date(date, format)
       date = datetime(date)
       if format.nil? || format.empty? || format == "ordinal"
         date_formatted = ordinalize(date)
       else
+        format.gsub!(/%o/, '%%o')
         date_formatted = date.strftime(format)
+        date_formatted.gsub!(/%o/, ordinal(date.strftime('%e').to_i))
       end
       date_formatted
     end
