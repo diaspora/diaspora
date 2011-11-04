@@ -9,7 +9,8 @@
     .from
       = person_link(message.author, :class => 'author')
       %time.timeago{:datetime => message.created_at}
-        = how_long_ago(message)
+        = how_long_ago(message) %p ago
+          
 
     %div{ :class => direction_for(message.text) }
       = markdownify(message, :oembed => true)
