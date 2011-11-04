@@ -9,7 +9,7 @@
 
   %ul.comments{:class => ('loaded' if post.comments.size <= 3)}
     -if post.comments.size > 3 && !comments_expanded && ! all_comments?
-      = render :partial => 'comments/comment', :collection => post.comments.last(3).including_author, :locals => {:post => post}
+      = render :partial => 'comments/comment', :collection => post.comments.including_author.last(3), :locals => {:post => post}
     -else
       = render :partial => 'comments/comment', :collection => post.comments.including_author, :locals => {:post => post}
 
