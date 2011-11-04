@@ -96,6 +96,14 @@ describe AspectsController do
         save_fixture(html_for("body"), "aspects_index_with_posts")
       end
 
+      it 'generates a jasmine fixture with only posts', :fixture => true do
+        2.times { bob.post(:status_message, :text => "Is anyone out there?", :to => @bob.aspects.where(:name => "generic").first.id) }
+
+        get :index, :only_posts => true
+
+        save_fixture(response.body, "aspects_index_only_posts")
+      end
+
       it "generates a jasmine fixture with a post with comments", :fixture => true do
         message = bob.post(:status_message, :text => "HALO WHIRLED", :to => @bob.aspects.where(:name => "generic").first.id)
         5.times { bob.comment("what", :post => message) }
