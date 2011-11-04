@@ -454,7 +454,7 @@ var Publisher = {
 
   triggerGettingStarted: function(){
     Publisher.setUpPopovers("#publisher .dropdown", {trigger: 'manual', offset: 10, placement:'below'}, 1000);
-    Publisher.setUpPopovers("#publisher #status_message_fake_text", {trigger: 'manual', placement: 'right', offset: 30, id: "first_message_explain"}, 600);
+    Publisher.setUpPopovers("#publisher #status_message_fake_text", {trigger: 'manual', placement: 'right', offset: 30, id: "first_message_explain", html:true}, 600);
     Publisher.setUpPopovers("#gs-shim", {trigger: 'manual', placement: 'left', offset: -5}, 1400);
 
     $("#publisher .button.creation").bind("click", function(){
