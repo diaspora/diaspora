@@ -16,6 +16,8 @@ class Notification < ActiveRecord::Base
   end
 
   def self.notify(recipient, target, actor)
+    return false if recipient.person == actor #never notify someone if they are the actor, derp
+
     if target.respond_to? :notification_type
       if note_type = target.notification_type(recipient, actor)
         if(target.is_a? Comment) || (target.is_a? Like) 
