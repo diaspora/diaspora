@@ -94,7 +94,7 @@ class Stream::Multi < Stream::Base
   end
 
   def followed_tags_post_ids
-    @followed_tags_ids ||= ids(StatusMessage.tag_stream(user, tag_ids, max_time, order).for_a_stream(max_time, order))
+    @followed_tags_ids ||= ids(StatusMessage.public_tag_stream(tag_ids).for_a_stream(max_time, order))
   end
 
   def mentioned_post_ids

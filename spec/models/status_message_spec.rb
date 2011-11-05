@@ -30,6 +30,38 @@ describe StatusMessage do
        StatusMessage.where_person_is_mentioned(@bo).count.should == 2
       end
     end
+
+    context "tag_streams" do
+      before do
+        @sm1 = Factory.create(:status_message, :text => "#hashtag" , :public => true)
+        @sm2 = Factory.create(:status_message, :text => "#hashtag" )
+        @sm3 = Factory.create(:status_message, :text => "hashtags are #awesome", :public => true )
+        @sm4 = Factory.create(:status_message, :text => "hashtags are #awesome" )
+
+        @tag_id = ActsAsTaggableOn::Tag.where(:name => "hashtag").first.id
+      end
+
+      describe '.tag_steam' do
+        it 'returns status messages tagged with the tag' do
+          StatusMessage.send(:tag_stream, [@tag_id]).should == [@sm1, @sm2]
+        end
+      end
+
+      describe '.public_tag_stream' do
+        it 'returns public status messages tagged with the tag' do
+          StatusMessage.public_tag_stream([@tag_id]).should == [@sm1]
+        end
+      end
+
+      describe '.user_tag_stream' do
+        it 'returns tag stream thats owned or visibile by' do
+          StatusMessage.should_receive(:owned_or_visible_by_user).with(bob).and_return(StatusMessage)
+          StatusMessage.should_receive(:tag_stream).with([@tag_id])
+
+          StatusMessage.user_tag_stream(bob, [@tag_id])
+        end
+      end
+    end
   end
 
   describe '.before_create' do
