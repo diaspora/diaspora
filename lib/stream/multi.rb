@@ -117,4 +117,5 @@ class Stream::Multi < Stream::Base
   def ids(query)
     Post.connection.select_values(query.for_a_stream(max_time, order).select('posts.id').to_sql)
   end
+
 end
