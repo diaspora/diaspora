@@ -47,15 +47,15 @@ describe Diaspora::OstatusBuilder do
     report_hash["Person"].should be_nil #No people should have been instantiated
   end
 
-  #it 'produces a valid atom feed' do
-  #  alice.person #Preload user.person
-  #  ActiveRecord::Base.reset_instance_type_count
-  #  director = Diaspora::Director.new
-  #  messages = StatusMessage.where(:author_id => alice.person.id, :public => true)
-  #  builder = Diaspora::OstatusBuilder.new(alice, messages)
-  #  feed = Nokogiri::XML(director.build( builder ))
-  #  feed_schema = Nokogiri::XML::RelaxNG(File.open(File.join(Rails.root,'spec/fixtures/atom.rng')))
-  #  feed_schema.validate(feed).should be_empty
-  #end
+  it 'produces a valid atom feed' do
+    alice.person #Preload user.person
+    ActiveRecord::Base.reset_instance_type_count
+    director = Diaspora::Director.new
+    messages = StatusMessage.where(:author_id => alice.person.id, :public => true)
+    builder = Diaspora::OstatusBuilder.new(alice, messages)
+    feed = Nokogiri::XML(director.build( builder ))
+    feed_schema = Nokogiri::XML::RelaxNG(File.open(File.join(Rails.root,'spec/fixtures/atom.rng')))
+    feed_schema.validate(feed).should be_empty
+  end
 end
 
