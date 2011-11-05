@@ -11,14 +11,9 @@ module Jobs
     extend Resque::Plugins::ExponentialBackoff
 
     @queue = :http
-    @backoff_strategy = [10.seconds,
-                          1.minute,
-                         10.minutes,
-                          1.hour,
+    @backoff_strategy =   [10.minutes,
                           3.hours,
-                          6.hours,
                          12.hours,
-                          1.day,
                           2.days]
 
     def self.args_for_retry(user_id, encoded_object_xml, person_ids, dispatcher_class_as_string)

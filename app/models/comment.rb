@@ -32,6 +32,8 @@ class Comment < ActiveRecord::Base
 
   serialize :youtube_titles, Hash
 
+  scope :including_author, includes(:author => :profile)
+
   before_save do
     self.text.strip! unless self.text.nil?
   end
