@@ -40,6 +40,25 @@ def process_message
   end
 end
 
+$cookie_parser = Rack::Builder.new do
+  use ActionDispatch::Cookies
+  use ActionDispatch::Session::CookieStore, :key => "_diaspora_session"
+  use Warden::Manager do |warden|
+    warden.default_scope = :user
+  end
+  
+  run Proc.new {|env| [0, {}, env['warden'].user]}
+end
+
+def get_user_from_request(request)
+  user = $cookie_parser.call(request.merge(
+    {"HTTP_COOKIE" => request['cookie'], 
+    "action_dispatch.secret_token" => Rails.application.config.secret_token}
+  ))[2]
+  raise ArgumentError, "user not authenticated" unless user
+  user
+end
+
 begin
   EM.run {
     Diaspora::WebSocket.initialize_channels
@@ -61,38 +80,27 @@ begin
       ws.onopen {
         begin
           debug_pp ws.request
+          
+          user =  get_user_from_request(ws.request)
+          user_id = user.id
 
-          cookies = ws.request["cookie"].split(';')
-          session_key = "_diaspora_session="
-          enc_diaspora_cookie = cookies.detect{|c| c.include?(session_key)}
-          raise IndexError, "No session cookie available" unless enc_diaspora_cookie
-          enc_diaspora_cookie.gsub(session_key,'')
-          cookie = Marshal.load(enc_diaspora_cookie.strip.unpack("m*").first)
-
-          debug_pp cookie
-
-          user_id = cookie["warden.user.user.key"][1].first
-
-          debug_pp "In WSS, suscribing user: #{User.find(user_id).name} with id: #{user_id}"
+          debug_pp "In WSS, suscribing user: #{user.name} with id: #{user_id}"
           sid = Diaspora::WebSocket.subscribe(user_id, ws)
 
           ws.onmessage { |msg| SocketsController.new.incoming(msg) }
 
           ws.onclose {
             begin
-              debug_pp "In WSS, unsuscribing user: #{User.find(user_id).name} with id: #{user_id}"
+              debug_pp "In WSS, unsuscribing user: #{user.name} with id: #{user_id}"
               Diaspora::WebSocket.unsubscribe(user_id, sid)
             rescue
               debug_pp "Could not unsubscribe socket for #{user_id}"
             end
           }
-        rescue RuntimeError, ArgumentError, TypeError => e
+        rescue ArgumentError => e
+          raise e unless e.message.include?("not authenticated")
           debug_pp "Could not open socket for request with cookie: #{ws.request["cookie"]}"
-          debug_pp "Error was: "
-          debug_pp e
-        rescue IndexError => e
-          debug_pp e
-          debug_pp "Cookie was: #{ws.request["cookie"]}"
+          debug_pp "Looks like the cookie is invalid or the user isn't signed in"
         end
       }
     end
