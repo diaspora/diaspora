@@ -659,6 +659,14 @@ footer {
 
   fieldset {
     padding: 10px;
+
+    .service_icon {
+      cursor: pointer;
+
+      &.dim {
+        @include opacity(0.6);
+      }
+    }
   }
 
   #message_container {

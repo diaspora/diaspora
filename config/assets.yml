@@ -47,6 +47,7 @@ javascripts:
     - public/javascripts/login.js
   mobile:
     - public/javascripts/vendor/jquery162.min.js
+    - public/javascripts/vendor/jquery.charcount.js
     - public/javascripts/rails.js # we only include this to hijack ajax requests
     - public/javascripts/vendor/mbp-helper.js
     - public/javascripts/mobile.js
