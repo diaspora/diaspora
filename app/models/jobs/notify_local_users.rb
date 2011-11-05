@@ -16,6 +16,7 @@ module Jobs
       return if (object.author.diaspora_handle == 'diasporahq@joindiaspora.com' || (object.respond_to?(:relayable?) && object.parent.author.diaspora_handle == 'diasporahq@joindiaspora.com'))
       #end hax
 
+      #this is really terrible
       users = User.where(:id => user_ids)
       person = Person.find_by_id(person_id)
 
