@@ -33,7 +33,7 @@ de:
       alright_ill_wait: "Alles klar, ich warte."
       hey: "Hey, {{name}}!"
       no_tags: "Hey, du folgst noch keinen Tags! Trotzdem weitermachen?"
-      preparing_your_stream: "Dein personalisierter Stream wird zusammengestellt..."
+      preparing_your_stream: "Dein persönlicher Stream wird zusammengestellt …"
     infinite_scroll: 
       no_more: "Keine weiteren Beiträge."
     photo_uploader: 

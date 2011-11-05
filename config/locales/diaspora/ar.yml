@@ -671,6 +671,7 @@ ar:
     failure: 
       error: "خطأ خلال محاولة الإتصال بالخدمة"
     finder: 
+      fetching_contacts: "Diaspora is populating your %{service} friends please check back in a few minutes."
       no_friends: "لم يُعثَر على أصدقاء فايسبوك."
       service_friends: "%{service} الأصدقاء"
     index: 
@@ -847,7 +848,10 @@ ar:
     confirm_email: 
       email_confirmed: "فُعِّل البريد الإلكتروني %{email} بنجاح"
       email_not_confirmed: "لا يمكن تفعيل البريد الإلكتروني، أهو رابط خاطئ؟"
-    destroy: "أُغلِق حسابك بنجاح. قد يستغرق إغلاق الحساب تمامًا 20 دقيقة. شكرًا لتجريبك ديسبورا."
+    destroy: 
+      no_password: "Please enter your current password to close your account."
+      success: "Your account has been locked.  It may take 20 minutes for us to finish closing your account.  Thank you for trying Diaspora."
+      wrong_password: "The entered password didn't match your current password."
     edit: 
       also_commented: "...علق أحدهم على منشور مراسلك"
       change: "تغيير"

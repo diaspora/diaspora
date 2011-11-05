@@ -671,6 +671,7 @@ da:
     failure: 
       error: "der opstod en fejl i at forbinde til den service"
     finder: 
+      fetching_contacts: "Diaspora is populating your %{service} friends please check back in a few minutes."
       no_friends: "Ingen Facebook-venner fundet."
       service_friends: "%{service} Venner"
     index: 
@@ -847,7 +848,10 @@ da:
     confirm_email: 
       email_confirmed: "E-mail %{email} aktiveret"
       email_not_confirmed: "E-mail kunne ikke aktiveres. Forkert link?"
-    destroy: "Kontoen er nu lukket. Det kan tage 20 minutter for os at lukke din konto helt. Tak fordi du prøvede Diaspora."
+    destroy: 
+      no_password: "Please enter your current password to close your account."
+      success: "Your account has been locked.  It may take 20 minutes for us to finish closing your account.  Thank you for trying Diaspora."
+      wrong_password: "The entered password didn't match your current password."
     edit: 
       also_commented: "...nogen har kommenteret på en af dine kontakters indlæg?"
       change: "Skift"

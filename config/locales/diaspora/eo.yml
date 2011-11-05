@@ -29,7 +29,7 @@ eo:
         reshare: 
           attributes: 
             root_guid: 
-              taken: "Vi jam repartoprenis tiun afiŝon!"
+              taken: "Ho, ĉu tiom bone? Vi jam rekonigis tiun afiŝon!"
         user: 
           attributes: 
             email: 
@@ -65,8 +65,8 @@ eo:
       edit_aspect: "Redakti %{name}-n"
       select_all: "Selektu ĉion"
     aspect_stream: 
-      stay_updated: "Stay Updated"
-      stay_updated_explanation: "Your main stream is populated with all of your contacts, tags you follow, and posts from some creative members of the community."
+      stay_updated: "Restu ĝisdatigata"
+      stay_updated_explanation: "Via precipa torento enhavas ĉiujn viajn kontaktojn, sekvatajn etikedojn kaj afiŝoj de kelkaj kreemaj anoj de la komunumo."
     contacts_not_visible: "Kontaktoj en tiu aspekto ne povos vidi unu la aliajn."
     contacts_visible: "Kontaktoj en tiu aspekto povos vidi unu la alian."
     create: 
@@ -109,10 +109,10 @@ eo:
         find_a_bug: "... trovas %{link}?"
         have_a_question: "... havas %{link}?"
         here_to_help: "Jen la DIASPORA* komunumo!"
-        need_help: "Ĉu Devas Helpon?"
+        need_help: "Ĉu Vi Bezonas Helpon?"
         satisfaction: "%{link}: Komunuma helpo"
-        tutorials_wiki_and_forum: "%{tutorial} & %{wiki} & %{forum}: Community-powered tutorials, how-to, and news"
-      introduce_yourself: "This is your stream.  Jump in and introduce yourself."
+        tutorials_wiki_and_forum: "%{tutorial} & %{wiki} & %{forum}: Instruiloj, lerniloj kaj novaĵoj funkciigitaj de la komunumo"
+      introduce_yourself: "Tio estas via torento. Ensaltu kaj prezentu vin mem."
       keep_us_running: "Helpu %{pod} rapide funkcii kaj aĉetu por niaj servkomputiloj ilian kaforiparon per ĉiumonata donatado!"
       new_here: 
         follow: "Sekvu %{link} kaj bonvenu novajn uzantojn al Diaspora*!"
@@ -126,7 +126,7 @@ eo:
         content: "Vi povas konekti la postajn servojn kun DIASPORA*:"
         heading: "Konekti Servojn"
       unfollow_tag: "Ne plu abonas #%{tag}."
-      welcome_to_diaspora: "Welcome to Diaspora, %{name}!"
+      welcome_to_diaspora: "Bonvenon al Diaspora, %{name}!"
       your_aspects: "Viaj Aspektoj"
     many: "%{count} aspektoj"
     move_contact: 
@@ -139,7 +139,7 @@ eo:
     no_contacts_message: 
       community_spotlight: "komunuma reflektoro"
       or_spotlight: "Aŭ vi povas dividi kun %{link}"
-      try_adding_some_more_contacts: "Vi povas serĉi (supre) aŭ inviti (dekstre) pli kontaktojn."
+      try_adding_some_more_contacts: "Vi povas serĉi aŭ inviti pli kontaktojn."
       you_should_add_some_more_contacts: "Vi devus aldoni pli kontaktojn!"
     no_posts_message: 
       start_talking: "Ankoraŭ neniu diris iun ajn!"
@@ -169,11 +169,11 @@ eo:
   back: "Antaŭen"
   blocks: 
     create: 
-      failure: "I couldn't ignore that user.  #evasion"
-      success: "Alright, you won't see that user in your stream again. #silencio!"
+      failure: "Mi ne povis ignori tiun uzanton. #evasion"
+      success: "Bone, vi ne revidos tiun uzanton en via torento. #silencio!"
     destroy: 
-      failure: "I couldn't stop ignoring that user.  #evasion"
-      success: "Let's see what they have to say! #sayhello"
+      failure: "Mi ne povis ĉesi ignori tiun uzanton. #evasion"
+      success: "Ni vidu kion ili emas diri! #sayhello"
   bookmarklet: 
     explanation: "Vi povas afiŝi al DIASPORA* el ĉie per paĝosigno montranta al %{link}."
     explanation_link_text: "ĉi tiu ligilo"
@@ -197,7 +197,7 @@ eo:
     few: "%{count} kontaktoj"
     index: 
       add_a_new_aspect: "Aldoni novan aspekton"
-      add_to_aspect: "Aldoni kontaktojn al %{name}"
+      add_to_aspect: "aldoni kontaktojn al %{name}"
       all_contacts: "Ĉiuj kontaktoj"
       check_out: "Vidu"
       many_people_are_you_sure: "Ĉu vi certas, ke vi volas mesaĝi pli ol {suggested_limit} homojn? Afiŝi al tiu ĉi aspekto eble estas pli bona metodo kontakti ilin."
@@ -308,7 +308,7 @@ eo:
     application: 
       powered_by: "FUNKCIAS PER DIASPORA*"
       public_feed: "Publika DIASPORA* Afiŝostrio de %{name}"
-      toggle: "baskuligu poŝtelefona versio"
+      toggle: "baskuligi poŝtelefona versio"
       whats_new: "kio estas nova?"
       your_aspects: "viaj aspektoj"
     header: 
@@ -316,7 +316,7 @@ eo:
       blog: "blogo"
       code: "kodo"
       login: "ensaluti"
-      logout: "elsaluti"
+      logout: "Elsaluti"
       profile: "Profilo"
       recent_notifications: "Freŝaj sciigoj"
       settings: "Agordoj"
@@ -430,8 +430,8 @@ eo:
       many: "%{actors} rekonigis vian %{post_link}."
       one: "%{actors} repartoprenis vian %{post_link}."
       other: "%{actors} rekonigis vian %{post_link}."
-      two: "%{actors} repartoprenis vian %{post_link}."
-      zero: "%{actors} repartoprenis vian %{post_link}."
+      two: "%{actors} rekonigis vian %{post_link}."
+      zero: "%{actors} rekonigis vian %{post_link}."
     reshared_post_deleted: 
       few: "%{actors} repartoprenis vian foritan afiŝon."
       many: "%{actors} repartoprenis vian foritan afiŝon."
@@ -514,7 +514,7 @@ eo:
     show: 
       does_not_exist: "Persono ne ekzistas!"
       has_not_shared_with_you_yet: "%{name} ne jam partoprenis iuj ajn afiŝojn kun vi!"
-      ignoring: "You are ignoring all posts from %{name}."
+      ignoring: "Vi estas ignoranta ĉiujn afiŝojn de %{name}."
       incoming_request: "%{name} volas konigi kun vi"
       mention: "Mencii"
       message: "Mesaĝo"
@@ -573,7 +573,7 @@ eo:
       not_found: "Ni bedaŭras, sed ni ne povis trovi tiun afiŝon."
       permalink: "malŝanĝantligilo"
   previous: "antaŭa"
-  privacy: "Privacy"
+  privacy: "Privateco"
   profile: "Profilo"
   profiles: 
     edit: 
@@ -615,13 +615,13 @@ eo:
       unhappy: "ĉu malfeliĉas?"
       update: "Ĝisdatigi"
     new: 
-      create_my_account: "Krei mian konton"
+      create_my_account: "Krei mian konton!"
       enter_email: "Enskribu retpoŝtadreson"
       enter_password: "Enskribu pasvorton"
       enter_password_again: "Enskribu la saman pasvorton, kiel antaŭe"
       enter_username: "Elektu uzantnomon (nur literojn, nombrojn, kaj substrekojn)"
       join_the_movement: "Aniĝu je la movado!"
-      sign_up_message: "Interkona retkonektadi kun <3"
+      sign_up_message: "Interkona retkonektado kun ♥"
   requests: 
     create: 
       sending: "Sendanta"
@@ -663,7 +663,7 @@ eo:
   search: "Serĉi"
   services: 
     create: 
-      already_authorized: "A user with diaspora id %{diaspora_id} already authorized that %{service_name} account."
+      already_authorized: "Uzanto kun Diaspora nomo %{diaspora_id} jam sankciis tiun %{service_name} konton."
       failure: "Aŭtentigo malsukcesis."
       success: "Aŭtentokontrolo sukcesis."
     destroy: 
@@ -671,6 +671,7 @@ eo:
     failure: 
       error: "estis eraro, kiam ni provis konekti tiun servon"
     finder: 
+      fetching_contacts: "Diaspora is populating your %{service} friends please check back in a few minutes."
       no_friends: "Neniuj Facebook amikoj trovitaj."
       service_friends: "%{service} Amikoj"
     index: 
@@ -692,8 +693,8 @@ eo:
   settings: "Agordoj"
   share_visibilites: 
     update: 
-      post_hidden_and_muted: "%{name}'s post has been hidden, and notifications have been muted."
-      see_it_on_their_profile: "If you want to see updates on this post, visit %{name}'s profile page."
+      post_hidden_and_muted: "La afiŝo de %{name} kaŝiĝis kaj sciigoj mutiĝis."
+      see_it_on_their_profile: "Se vi volas vidi ĝisdatigoj pri tiu afiŝo, vizitu la profilon de %{name}."
   shared: 
     add_contact: 
       add_new_contact: "Aldoni novan kontakton"
@@ -728,22 +729,22 @@ eo:
     notification: 
       new: "Nova %{type} de %{from}"
     public_explain: 
-      control_your_audience: "Control your Audience"
+      control_your_audience: "Kontrolu vian spektantaron"
       logged_in: "ensalutinta al %{service}"
       manage: "administri ligitajn servojn"
-      new_user_welcome_message: "Use #hashtags to classify your posts and find people who share your interests.  Call out awesome people with @Mentions"
+      new_user_welcome_message: "Uzu #kradoetikedon por klasifiki viajn afiŝojn kaj por trovi homojn kiuj havas kun vi komunajn interesojn. Alvoku iun malaĉan per @mencio."
       outside: "Publikaj afiŝoj estos videblaj al aliaj, kiuj estas ekster DIASPORA*."
-      share: "Share"
+      share: "Dividi"
       title: "Agordi ligitajn servojn"
-      visibility_dropdown: "Use this dropdown to change visibility of your post.  (We suggest you make this first one public.)"
+      visibility_dropdown: "Uzu tiun falliston por ŝanĝi videblecon de via afiŝo. (Ni sugestas, ke vi faru publika tiun unuan afiŝon.)"
     publisher: 
       all: "ĉiuj"
       all_contacts: "ĉiuj kontaktoj"
       discard_post: "Forviŝi afiŝon"
       make_public: "publikigi"
       new_user_prefill: 
-        hello: "Hey everyone, I'm #%{new_user_tag}. "
-        i_like: "I'm interested in %{tags}."
+        hello: "Saluton al ĉiu, mi estas #%{new_user_tag}. "
+        i_like: "Mi interesiĝas pri %{tags}."
         invited_by: "Dankon pro la invito,"
       post_a_message_to: "Afiŝi al %{aspect}"
       posting: Afiŝanta...
@@ -758,9 +759,9 @@ eo:
       connect_to_comment: "konektu al tiu uzanto por komenti al lia afiŝo"
       currently_unavailable: "komentado intertempe ne eblas"
       dislike: "Malŝati"
-      hide_and_mute: "Malvidebligi kaj malsciiĝi"
-      ignore_user: "Ignore %{name}"
-      ignore_user_description: "Ignore and remove user from all aspects?"
+      hide_and_mute: "Kaŝi kaj muti afiŝon"
+      ignore_user: "Ignori %{name}"
+      ignore_user_description: "Ignori kaj forigi uzanton de ĉiuj aspektoj?"
       like: "Ŝati"
       shared_with: "Partoprenita kun: %{aspect_names}"
       unlike: "Ne plu ŝati"
@@ -790,10 +791,10 @@ eo:
       title: "Viaj Aspektoj"
     aspects_stream: "Aspektoj"
     commented_on: "komentis pri"
-    community_spotlight_stream: "Community Spotlight"
+    community_spotlight_stream: "Komunuma Reflektoro"
     followed_tag: 
       add_a_tag: "Aldoni etikedon"
-      contacts_title: "People who dig these tags"
+      contacts_title: "homoj kiuj frandas tiujn etikedojn"
       follow: "Sekvi"
       title: "#Sekvataj etikedoj"
     followed_tags_stream: "#Sekvataj etikedoj"
@@ -814,11 +815,11 @@ eo:
       title: "Afiŝoj etikeditaj: %{tags}"
   tag_followings: 
     create: 
-      failure: "Ne povis aboni: #%{name}"
-      success: "Sukcese abonis: #%{name}"
+      failure: "Malsukcesis aboni je #%{name}. Ĉu vi jam sekvas ĝin?"
+      success: "Hura! Vi nun sekvas je #%{name}."
     destroy: 
-      failure: "Ne povis malaboni: #%{name}"
-      success: "Sukcese malabonis: #%{name}"
+      failure: "Ne povis malaboni je #%{name}. Ĉu eble vi jam malabonis?"
+      success: "Nu! Vi ne plu sekvas je #%{name}."
   tags: 
     show: 
       follow: "Aboni al #%{tag}"
@@ -847,7 +848,10 @@ eo:
     confirm_email: 
       email_confirmed: "Retpoŝtadreso %{email} aktiviĝis"
       email_not_confirmed: "Retpoŝtadreso ne povis aktiviĝi. Ĉu malĝusta ligilo?"
-    destroy: "Via konto ŝlosiĝis. Povas daŭri 20 minutoj antaŭ ni forigado de via konto finiĝos. Dankon por via provado de DIASPORA*."
+    destroy: 
+      no_password: "Please enter your current password to close your account."
+      success: "Your account has been locked.  It may take 20 minutes for us to finish closing your account.  Thank you for trying Diaspora."
+      wrong_password: "The entered password didn't match your current password."
     edit: 
       also_commented: "...iu ankaŭ komentis pri la afiŝo de via kontakto?"
       change: "Ŝanĝi"
@@ -862,7 +866,7 @@ eo:
       edit_account: "Redakti konton"
       email_awaiting_confirmation: "Ni poŝtis al vin aktivigadan ligilon ĉe %{unconfirmed_email}.  Ĝis vi klikos tiun ĉi ligilo kaj aktivigos la novan repoŝtadreson, ni uzados vian malŝanĝitan retpoŝtadreson %{email}."
       export_data: "Eksporti datumojn"
-      getting_started: "New User Prefrences"
+      getting_started: "Novaj uzanto-agordoj"
       liked: "...iu ŝatis vian afiŝon?"
       mentioned: "...vi estas menciita en afiŝo?"
       new_password: "Nova pasvorto"
@@ -877,17 +881,17 @@ eo:
       your_email: "Via retpoŝtadreso"
       your_handle: "Via DIASPORA* uzantnomo"
     getting_started: 
-      awesome_take_me_to_diaspora: "Awesome! Take me to Diaspora*"
+      awesome_take_me_to_diaspora: "Malaĉe! Gvidu min al Diaspora*"
       community_welcome: "La komunumo de DIASPORA* feliĉas, ke vi aniĝis!"
       hashtag_explanation: "Etikedoj lasu vin pridiri kaj aboni viajn interesigojn.  Ili ankaŭ estas bona metodo trovi novajn homojn ĉe DIASPORA*."
       hashtag_suggestions: "Provu sekvi etikedojn kiel #arto, #filmoj, #gif, ktp."
-      hooking_up_fb: "hooking up your Facebook account"
-      saved: Saved!
+      hooking_up_fb: "alkroĉi vian Facebook konton"
+      saved: Konservita!
       we_can_speed_things_up: "Ni povas iomete rapidigi ĝin per"
-      well_hello_there: "Well, hello there!"
-      what_are_you_in_to: "What are you into?"
-      what_facebook_does: "to Diaspora. This will pull your name and photo, and enable cross-positng."
-      who_are_you: "Who are you?"
+      well_hello_there: "Bone, saluton tie!"
+      what_are_you_in_to: "Pri kio vi ŝatokupiĝas?"
+      what_facebook_does: "al Diaspora. Tio tiros vian nomon kaj foton, kaj ebligos krucreferencadon."
+      who_are_you: "Kiu vi estas?"
     logged_out: 
       go_mobile: "Nun uzu poŝtelefonan!"
       on_your_mobile_device: "per via poŝtelefono uzi DIASPORA* poŝtelefonan."
@@ -895,9 +899,9 @@ eo:
       simply_visit: "Nur iru al"
       works_on_modern: "Funkcias per ĉiuj modernaj poŝtelefonoj"
     privacy_settings: 
-      ignored_users: "Ignored Users"
-      stop_ignoring: "Stop ignoring"
-      title: "Privacy Settings"
+      ignored_users: "Ignoritaj Uzantoj"
+      stop_ignoring: "Ĉesi ignori"
+      title: "Privatecaj Agordoj"
     public: 
       does_not_exist: "Uzanto %{username} ne ekzistas!"
     update: 

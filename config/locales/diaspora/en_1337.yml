@@ -671,6 +671,7 @@ en_1337:
     failure: 
       error: "3RR0R C0NN3C71NG 7H47 53RV1C3!"
     finder: 
+      fetching_contacts: "Diaspora is populating your %{service} friends please check back in a few minutes."
       no_friends: "N0 FB N00B5 F0UND!"
       service_friends: "%{service} N00B5"
     index: 
@@ -847,7 +848,10 @@ en_1337:
     confirm_email: 
       email_confirmed: "M41L %{email} 4C71V473D!"
       email_not_confirmed: "M41L C0ULD N07 B3 4C71V473D, WR0NG L1NK?"
-    destroy: "Y0UR 4CC0N7 G07 PWND. 17 M4Y 74K3 U5 20 M1NU735 70 D3L373 17. 7HX F0R 7RY1NG D*!"
+    destroy: 
+      no_password: "Please enter your current password to close your account."
+      success: "Your account has been locked.  It may take 20 minutes for us to finish closing your account.  Thank you for trying Diaspora."
+      wrong_password: "The entered password didn't match your current password."
     edit: 
       also_commented: "...50M30N3 4L50 5P4M5 0N 4 N00B5 5P4M?"
       change: "CH4NG3"

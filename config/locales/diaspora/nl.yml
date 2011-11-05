@@ -671,6 +671,7 @@ nl:
     failure: 
       error: "er ging iets mis bij het verbinden met die service"
     finder: 
+      fetching_contacts: "Diaspora is populating your %{service} friends please check back in a few minutes."
       no_friends: "Geen Facebook vrienden gevonden."
       service_friends: "%{service} Vrienden"
     index: 
@@ -847,7 +848,10 @@ nl:
     confirm_email: 
       email_confirmed: "E-mail %{email} geactiveerd"
       email_not_confirmed: "E-mail kon niet worden geactiveerd. Verkeerde link?"
-    destroy: "Je account is geblokkeerd. Het sluiten van je account kan twintig minuten in beslag nemen. Bedankt voor je interesse in Diaspora."
+    destroy: 
+      no_password: "Please enter your current password to close your account."
+      success: "Your account has been locked.  It may take 20 minutes for us to finish closing your account.  Thank you for trying Diaspora."
+      wrong_password: "The entered password didn't match your current password."
     edit: 
       also_commented: "...iemand na jou op de post van jouw contact reageert?"
       change: "Verander"

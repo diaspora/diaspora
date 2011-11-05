@@ -8,7 +8,7 @@ es:
     aspect_dropdown: 
       add_to_aspect: "Añadir contacto"
       all_aspects: "Todos los aspectos"
-      error: "Couldn't start sharing with {{name}}.  Are you ignoring them?"
+      error: "No podría empezar a compartir con {{name}}.  ¿Vas a ignonarl@?"
       select_aspects: "Elige los aspectos"
       started_sharing_with: "¡Has empezado a compartir con {{name}}!"
       stopped_sharing_with: "Ya no compartes más con {{name}}."

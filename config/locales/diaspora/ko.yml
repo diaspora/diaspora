@@ -93,7 +93,7 @@ ko:
       remove: "지우기"
     index: 
       cubbies: 
-        explanation: "Cubbi.es는 개발중인 최초의 디아스포라 어플입니다."
+        explanation: "Cubbi.es는 개발중인 첫 디아스포라 애플리케이션입니다."
         heading: "Cubbi.es에 연결하세요"
         learn_more: "자세히 알아보기"
       diaspora_id: 
@@ -164,15 +164,15 @@ ko:
     zero: "애스펙 없음"
   authorizations: 
     index: 
-      no_applications: "아직 어플을 등록하지 않았습니다."
+      no_applications: "아직 애플리케이션을 등록하지 않았습니다."
       revoke_access: "접속권한 취소"
   back: "돌아가기"
   blocks: 
     create: 
-      failure: "I couldn't ignore that user.  #evasion"
-      success: "Alright, you won't see that user in your stream again. #silencio!"
+      failure: "그 사용자를 무시할 수 없었습니다. #evasion"
+      success: "이제 내 스트림에서 그 사용자를 볼 수 없습니다.  #silencio!"
     destroy: 
-      failure: "I couldn't stop ignoring that user.  #evasion"
+      failure: "그 사용자를 무시하는 걸 멈출 수 없었습니다.  #evasion"
       success: "Let's see what they have to say! #sayhello"
   bookmarklet: 
     explanation: "%{link} 링크를 북마크로 추가하세요."
@@ -514,7 +514,7 @@ ko:
     show: 
       does_not_exist: "없는 사람입니다!"
       has_not_shared_with_you_yet: "%{name}님은 아직 나와 아무것도 공유하지 않았습니다!"
-      ignoring: "You are ignoring all posts from %{name}."
+      ignoring: "%{name}님의 모든 공유물을 무시하고 있습니다."
       incoming_request: "%{name}님이 나와 공유하길 원합니다"
       mention: "멘션"
       message: "쪽지"
@@ -573,7 +573,7 @@ ko:
       not_found: "해당 공유물을 찾을 수 없습니다."
       permalink: "영구 링크"
   previous: "이전"
-  privacy: "Privacy"
+  privacy: "개인정보보호"
   profile: "프로필"
   profiles: 
     edit: 
@@ -671,6 +671,7 @@ ko:
     failure: 
       error: "서비스 연결중 에러가 발생했습니다."
     finder: 
+      fetching_contacts: "Diaspora is populating your %{service} friends please check back in a few minutes."
       no_friends: "페이스북 친구를 찾을 수 없습니다."
       service_friends: "%{service} 친구"
     index: 
@@ -692,8 +693,8 @@ ko:
   settings: "설정"
   share_visibilites: 
     update: 
-      post_hidden_and_muted: "%{name}'s post has been hidden, and notifications have been muted."
-      see_it_on_their_profile: "If you want to see updates on this post, visit %{name}'s profile page."
+      post_hidden_and_muted: "%{name}님의 공유물이 감춰졌고, 알림이 되지 않습니다."
+      see_it_on_their_profile: "%{name}님의 프로필 페이지를 방문하면 이 공유물의 최신 상태를 볼 수 있습니다."
   shared: 
     add_contact: 
       add_new_contact: "새 컨택 추가"
@@ -742,7 +743,7 @@ ko:
       discard_post: "공유물 삭제"
       make_public: "공개하기"
       new_user_prefill: 
-        hello: "#%{new_user_tag} 반갑습니다! 새로 가입했습니다."
+        hello: "반갑습니다! 새로 가입했습니다. #%{new_user_tag}!"
         i_like: "제 관심사는 %{tags} 입니다."
         invited_by: "초대해주셔서 고맙습니다,"
       post_a_message_to: "%{aspect}에 공유물 올리기"
@@ -759,8 +760,8 @@ ko:
       currently_unavailable: "지금은 댓글을 달 수 없습니다"
       dislike: "싪어요"
       hide_and_mute: "숨기고 알림 끄기"
-      ignore_user: "Ignore %{name}"
-      ignore_user_description: "Ignore and remove user from all aspects?"
+      ignore_user: "%{name}님 무시하기"
+      ignore_user_description: "이 사용자를 무시한 뒤 모든 애스펙에서 지우시겠습니까?"
       like: "좋아요"
       shared_with: "공유된 애스펙: %{aspect_names}"
       unlike: "좋아요 취소"
@@ -840,14 +841,17 @@ ko:
       sign_up_today: "지금 가입하세요!"
       typical_userpage: "전형적인 cubbi.es 사용자 페이지"
       via: "(via %{link})"
-      what_is_cubbies: "Cubbi.es 는 세계 최초의 디아스포라 어플입니다.  온라인으로 사진을 모을 수 있는 가장 좋은 방법이기도 합니다."
+      what_is_cubbies: "Cubbi.es 는 세계 최초의 디아스포라 애플리케이션입니다. 온라인으로 사진을 모을 수 있는 가장 좋은 방법이기도 합니다."
   undo: 돌이키겠습니까?
   username: "사용자명"
   users: 
     confirm_email: 
       email_confirmed: "%{email} 이메일이 활성화되었습니다"
       email_not_confirmed: "이메일을 활성화할 수 없습니다. 링크를 확인해주세요."
-    destroy: "계정을 성공적으로 없앴습니다."
+    destroy: 
+      no_password: "Please enter your current password to close your account."
+      success: "Your account has been locked.  It may take 20 minutes for us to finish closing your account.  Thank you for trying Diaspora."
+      wrong_password: "The entered password didn't match your current password."
     edit: 
       also_commented: "댓글 달았던 공유물에 내 컨택도 댓글을 달았을 때"
       change: "바꾸기"
@@ -895,9 +899,9 @@ ko:
       simply_visit: "모바일 기기로"
       works_on_modern: "모든 최신 스마트폰에서 작동합니다"
     privacy_settings: 
-      ignored_users: "Ignored Users"
-      stop_ignoring: "Stop ignoring"
-      title: "Privacy Settings"
+      ignored_users: "내가 무시한 사용자"
+      stop_ignoring: "무시하지 않기"
+      title: "개인정보보호 설정"
     public: 
       does_not_exist: "%{username}님을 찾을 수 없습니다!"
     update: 

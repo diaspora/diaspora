@@ -21,7 +21,7 @@ cy:
         zero: "Dewiswch agweddau"
     aspect_navigation: 
       deselect_all: "Deselect all"
-      no_aspects: "No aspects selected"
+      no_aspects: "Dydych chi ddim wedi dewis unrhyw agweddau"
       select_all: "Dewis i gŷd"
     comments: 
       hide: "cuddio sylwadau"

@@ -8,7 +8,7 @@ zh-TW:
     aspect_dropdown: 
       add_to_aspect: "加聯絡人"
       all_aspects: "所有面向"
-      error: "Couldn't start sharing with {{name}}.  Are you ignoring them?"
+      error: "無法開始和 {{name}} 分享. 你還在忽視他們嗎?"
       select_aspects: "選面向"
       started_sharing_with: "你開始和 {{name}} 分享了!"
       stopped_sharing_with: "你停止和 {{name}} 分享了."
@@ -33,7 +33,7 @@ zh-TW:
       alright_ill_wait: "好吧, 以後再說."
       hey: "嘿, {{name}}!"
       no_tags: "嘿, 你還沒有追蹤任何標籤! 要往下一步嗎?"
-      preparing_your_stream: 整理你個人的流水帳...
+      preparing_your_stream: 整理你個人的流水帳中...
     infinite_scroll: 
       no_more: 沒有貼文了.
     photo_uploader: 
