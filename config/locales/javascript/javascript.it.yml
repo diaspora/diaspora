@@ -8,7 +8,7 @@ it:
     aspect_dropdown: 
       add_to_aspect: "Aggiungi"
       all_aspects: "Tutti gli aspetti"
-      error: "Couldn't start sharing with {{name}}.  Are you ignoring them?"
+      error: "Non è possibile condividere con {{name}}. E' tra gli utenti ignorati?"
       select_aspects: "Scegli gli aspetti"
       started_sharing_with: "Hai iniziato a condividere con {{name}}!"
       stopped_sharing_with: "Hai smesso di condividere con {{name}}."

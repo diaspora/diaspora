@@ -671,6 +671,7 @@ el:
     failure: 
       error: "εμφανίστηκε ένα σφάλμα κατά τη σύνδεση με αυτή την υπηρεσία"
     finder: 
+      fetching_contacts: "Diaspora is populating your %{service} friends please check back in a few minutes."
       no_friends: "Δεν βρέθηκαν φίλοι στο Facebook. "
       service_friends: "%{service} Φίλοι"
     index: 
@@ -847,7 +848,10 @@ el:
     confirm_email: 
       email_confirmed: "Η διεύθυνση ηλεκτρονικού ταχυδρομείου %{email} ενεργοποιήθηκε"
       email_not_confirmed: "Η διεύθυνση ηλεκτρονικού ταχυδρομείου δεν ενεργοποιήθηκε. Μήπως ήταν λάθος ο σύνδεσμος;"
-    destroy: "Ο λογαριασμός σας έχει κλειδωθεί. Μπορεί να διαρκέσει μέχρι και 20 λεπτά για να τελειώσουμε το κλείσιμο του λογαριασμού. Σας ευχαριστούμε που δοκιμάσατε το Diaspora."
+    destroy: 
+      no_password: "Please enter your current password to close your account."
+      success: "Your account has been locked.  It may take 20 minutes for us to finish closing your account.  Thank you for trying Diaspora."
+      wrong_password: "The entered password didn't match your current password."
     edit: 
       also_commented: "...κάποιος επίσης σχολίασε σε δημοσίευση επαφής σας;"
       change: "Αλλαγή"

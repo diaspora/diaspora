@@ -671,6 +671,7 @@ bg:
     failure: 
       error: "възникна грешка при свързването с услугата"
     finder: 
+      fetching_contacts: "Diaspora копира приятелите ви от %{service}. Моля, пробвайте отново след няколко минути."
       no_friends: "Няма намерени приятели от Facebook."
       service_friends: "Приятели от %{service}"
     index: 
@@ -678,7 +679,7 @@ bg:
       connect_to_tumblr: "Свързване с tumblr"
       connect_to_twitter: "Свързване с twitter"
       disconnect: "изключване"
-      edit_services: "Редактиране на услуги"
+      edit_services: "Редактиране на услугите"
       logged_in_as: "вписани сте като"
       no_services: "Все още не сте свързали нито една услуга."
       really_disconnect: "Наистина ли желаете свързаността с %{service} да бъде изключена?"
@@ -847,7 +848,10 @@ bg:
     confirm_email: 
       email_confirmed: "Ел. поща %{email} е активирана"
       email_not_confirmed: "Ел. поща не може да бъде активирана. Грешна връзка?"
-    destroy: "Акаунтът ви в Diaspora е заключен. Затварянето може да отнеме до 20 минути. Благодарим ви, че пробвахте Diaspora."
+    destroy: 
+      no_password: "Моля, въведете паролата си, за да бъде затворен акаунта."
+      success: "Акаунтът ви е заключен.  Затварянето на акаунт изисква около 20 минути.  Благодарим ви, че пробвахте Diaspora."
+      wrong_password: "Въведената парола не съвпада с текущата парола на акаунта."
     edit: 
       also_commented: "...някой коментира публикация на ваш контакт?"
       change: "Промяна"
@@ -895,7 +899,7 @@ bg:
       simply_visit: "Просто посетете"
       works_on_modern: "Съвместима е с всеки съвременен смартфон"
     privacy_settings: 
-      ignored_users: "Игнорирани поотребители"
+      ignored_users: "Игнорирани потребители"
       stop_ignoring: "Прекратяване на игнорирането"
       title: "Privacy Settings"
     public: 

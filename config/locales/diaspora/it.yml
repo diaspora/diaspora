@@ -169,11 +169,11 @@ it:
   back: "Indietro"
   blocks: 
     create: 
-      failure: "I couldn't ignore that user.  #evasion"
-      success: "Alright, you won't see that user in your stream again. #silencio!"
+      failure: "Non posso ignorare quell'utente. #evasion"
+      success: "Ok, non vedrai più quell'utente nel tuo stream. #silencio!"
     destroy: 
-      failure: "I couldn't stop ignoring that user.  #evasion"
-      success: "Let's see what they have to say! #sayhello"
+      failure: "Non posso smettere di ignorare l'utente. #evasion"
+      success: "Vediamo cosa hanno da dire! #sayhello"
   bookmarklet: 
     explanation: "Condividi su Diaspora in qualsiasi momento aggiungendo come segnalibro %{link}."
     explanation_link_text: "questo link"
@@ -514,7 +514,7 @@ it:
     show: 
       does_not_exist: "La persona non esiste!"
       has_not_shared_with_you_yet: "%{name} non ha ancora condiviso nessun post con te!"
-      ignoring: "You are ignoring all posts from %{name}."
+      ignoring: "Stai ignorando tutti i post di %{name}."
       incoming_request: "%{name} vuole condividere con te"
       mention: "Menziona"
       message: "Messaggio"
@@ -671,6 +671,7 @@ it:
     failure: 
       error: "si è verificato un errore durante la connessione a quel servizio"
     finder: 
+      fetching_contacts: "Diaspora is populating your %{service} friends please check back in a few minutes."
       no_friends: "Non ho trovato amici su Facebook."
       service_friends: "Amici su %{service}"
     index: 
@@ -692,8 +693,8 @@ it:
   settings: "Impostazioni"
   share_visibilites: 
     update: 
-      post_hidden_and_muted: "%{name}'s post has been hidden, and notifications have been muted."
-      see_it_on_their_profile: "If you want to see updates on this post, visit %{name}'s profile page."
+      post_hidden_and_muted: "Il post di %{name} è stato nascosto e le notifiche disattivate."
+      see_it_on_their_profile: "Se vuoi vedere gli aggiornamenti di questi post, visita il profilo di %{name}."
   shared: 
     add_contact: 
       add_new_contact: "Aggiungi un nuovo contatto"
@@ -758,9 +759,9 @@ it:
       connect_to_comment: "Connettiti con questo utente per commentare il post"
       currently_unavailable: "al momento non è possibile commentare"
       dislike: "Non mi piace"
-      hide_and_mute: "Nascondi e disattiva le notifiche"
-      ignore_user: "Ignore %{name}"
-      ignore_user_description: "Ignore and remove user from all aspects?"
+      hide_and_mute: "Nascondi il post e disattiva le notifiche"
+      ignore_user: "Ignora %{name}"
+      ignore_user_description: "Vuoi ignorare questo utente e rimuoverlo da tutti gli aspetti?"
       like: "Mi piace"
       shared_with: "Condiviso con: %{aspect_names}"
       unlike: "Annulla"
@@ -847,7 +848,10 @@ it:
     confirm_email: 
       email_confirmed: "Email %{email} attivata"
       email_not_confirmed: "L'email non è stata attivata. C'è un errore nel link?"
-    destroy: "Il tuo account è stato bloccato. Potrebbero occorrerci 20 minuti per terminare la chiusura del tuo account. Grazie per aver provato Diaspora."
+    destroy: 
+      no_password: "Please enter your current password to close your account."
+      success: "Your account has been locked.  It may take 20 minutes for us to finish closing your account.  Thank you for trying Diaspora."
+      wrong_password: "The entered password didn't match your current password."
     edit: 
       also_commented: "...qualcuno commenta un post dopo di te?"
       change: "Cambia"
@@ -895,9 +899,9 @@ it:
       simply_visit: "Visita semplicemente"
       works_on_modern: "Funziona su tutti i moderni smartphone"
     privacy_settings: 
-      ignored_users: "Ignored Users"
-      stop_ignoring: "Stop ignoring"
-      title: "Privacy Settings"
+      ignored_users: "Utenti ignorati"
+      stop_ignoring: "Smetti di ignorare"
+      title: "Impostazioni privacy"
     public: 
       does_not_exist: "L'utente %{username} non esiste!"
     update: 

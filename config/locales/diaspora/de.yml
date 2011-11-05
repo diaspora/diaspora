@@ -113,7 +113,7 @@ de:
         satisfaction: "%{link}: Unterstützung durch die Gemeinschaft"
         tutorials_wiki_and_forum: "%{tutorial} & %{wiki} & %{forum}: Von der Gemeinschaft erstellte Tutorials, Anleitungen und Nachrichten"
       introduce_yourself: "Das ist dein Stream. Leg' los und stell dich vor."
-      keep_us_running: "Hilf %{pod} schnell zu arbeiten und kaufe unseren Servern ihren monatlichen Schuss Kaffee!"
+      keep_us_running: "Hilf %{pod}, schnell zu arbeiten und spendiere unseren Servern ihre Tasse Kaffee mit einer monatlichen Spende!"
       new_here: 
         follow: "Folge %{link} und begrüße neue Benutzer bei Diaspora*!"
         learn_more: "mehr erfahren"
@@ -532,7 +532,7 @@ de:
     two: "%{count} Personen"
     webfinger: 
       fail: "Entschuldigung, wir konnten %{handle} nicht finden."
-    zero: "keiner Person"
+    zero: "niemand"
   photos: 
     comment_email_subject: "%{name}s Foto"
     create: 
@@ -552,8 +552,8 @@ de:
       invalid_ext: "{file} hat keine gültige Erweiterung. Nur {extensions} sind erlaubt."
       size_error: "{file} ist zu groß. Die maximale Dateigröße beträgt {sizeLimit}."
     new_profile_photo: 
-      or_select_one: "oder wähle eins aus deinen bereits bestehenden"
-      upload: "Lade ein neues Profilfoto hoch!"
+      or_select_one: "oder eins deiner bereits verfügbaren Fotos auswählen"
+      upload: "Ein neues Profilfoto hochladen"
     photo: 
       view_all: "zeige alle Fotos von %{name}"
     show: 
@@ -671,6 +671,7 @@ de:
     failure: 
       error: "Es gab einen Fehler der Verbindung mit dem Dienst."
     finder: 
+      fetching_contacts: "Deine %{service}-Freunde werden momentan eingeladen. Schau bitte in ein paar Minuten noch mal vorbei!"
       no_friends: "Keine Facebook-Freunde gefunden."
       service_friends: "%{service}-Freunde"
     index: 
@@ -818,7 +819,7 @@ de:
       success: "Hurra! Du folgst nun: #%{name}"
     destroy: 
       failure: "Fehler beim Beenden des Folgens von: #%{name}. Vielleicht hast du schon aufgehört zu folgen?"
-      success: "Du folgst #%{name} nicht mehr"
+      success: "Schade! Du folgst #%{name} nun nicht mehr."
   tags: 
     show: 
       follow: "#%{tag} folgen"
@@ -847,7 +848,10 @@ de:
     confirm_email: 
       email_confirmed: "E-Mail %{email} wurde aktiviert"
       email_not_confirmed: "Die E-Mail-Adresse konnte nicht aktiviert werden. Falscher Link?"
-    destroy: "Dein Konto wurde gesperrt. Es kann 20 Minuten dauern, bis wir die Schließung deines Kontos abgeschlossen haben. Vielen Dank, dass du Diaspora ausprobiert hast."
+    destroy: 
+      no_password: "Bitte gib dein Kennwort ein, um deinen Account zu schließen."
+      success: "Dein Account wurde gesperrt. Es kann 20 Minuten dauern, bis dein Account geschlossen ist.  Danke, dass du Diaspora ausprobiert hast."
+      wrong_password: "Das eingegebene Kennwort stimmt nicht mit deinem aktuellen Kennwort überein."
     edit: 
       also_commented: "… jemand ebenfalls den Beitrag eines Kontaktes kommentiert?"
       change: "Ändern"
@@ -890,7 +894,7 @@ de:
       who_are_you: "Wer bist Du?"
     logged_out: 
       go_mobile: "Jetzt mobil werden."
-      on_your_mobile_device: "auf deinem mobilem Gerät, um die mobile Seite von Diaspora* zu benutzen."
+      on_your_mobile_device: "auf deinem mobilen Gerät, um die mobile Seite von Diaspora* aufzurufen."
       signed_out: "Du hast dich aus Diaspora* ausgeloggt"
       simply_visit: "Besuche einfach"
       works_on_modern: "Funktioniert auf allen modernen Smartphones"

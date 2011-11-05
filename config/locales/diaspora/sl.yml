@@ -842,6 +842,7 @@ sl:
           cHJpIHBvdmV6b3Zhbmp1IHMgc2Vydmlzb20gamUgcHJpmmxvIGRvIG5hcGFr
           ZQ==
     finder: 
+      fetching_contacts: "Diaspora is populating your %{service} friends please check back in a few minutes."
       no_friends: "No Facebook friends found."
       service_friends: "%{service} Friends"
     index: 
@@ -1042,8 +1043,10 @@ sl:
     confirm_email: 
       email_confirmed: "E-Mail %{email} activated"
       email_not_confirmed: "E-Mail could not be activated. Wrong link?"
-    destroy: !binary |
-        VXBvcmFibmmaa2kgcmHodW4gamUgdXNwZZpubyB6YXBydC4=
+    destroy: 
+      no_password: "Please enter your current password to close your account."
+      success: "Your account has been locked.  It may take 20 minutes for us to finish closing your account.  Thank you for trying Diaspora."
+      wrong_password: "The entered password didn't match your current password."
     edit: 
       also_commented: "...someone also comments on your contact's post?"
       change: "Spremeni"

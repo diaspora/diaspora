@@ -115,9 +115,9 @@ de_formal:
       introduce_yourself: "Das ist ihr Stream. Legen Sie los und stellen Sie sich vor."
       keep_us_running: "Helfen Sie, %{pod} schnell zu arbeiten und kaufen Sie unseren Servern ihren monatlichen Schuss Kaffee!"
       new_here: 
-        follow: "Follow %{link} and welcome new users to Diaspora*!"
-        learn_more: "Learn more"
-        title: "Welcome New Users"
+        follow: "Folgen Sie %{link} und heißen Sie neue Benutzer auf Diaspora* willkommen!"
+        learn_more: "Mehr erfahren"
+        title: "Willkommen, neuer Benutzer"
       no_contacts: "Keine Kontakte"
       no_tags: "+ Finden Sie einen #Tag zum folgen"
       people_sharing_with_you: "Leute, die mit Ihnen teilen"
@@ -169,11 +169,11 @@ de_formal:
   back: "Zurück"
   blocks: 
     create: 
-      failure: "I couldn't ignore that user.  #evasion"
-      success: "Alright, you won't see that user in your stream again. #silencio!"
+      failure: "Konnte diesen Benutzer nicht ignorieren.  #evasion"
+      success: "Alles klar, Sie werden diesen Benutzer nicht mehr in ihrem Stream sehen. #silencio!"
     destroy: 
-      failure: "I couldn't stop ignoring that user.  #evasion"
-      success: "Let's see what they have to say! #sayhello"
+      failure: "Konnte das Ignorieren dieses Benutzers nicht aufheben.  #evasion"
+      success: "Sehen Sie, was diese zu sagen haben! #sayhello"
   bookmarklet: 
     explanation: "Erstellen Sie einen Beitrag in Diaspora von überall, in dem Sie %{link} als Lesezeichen speichern."
     explanation_link_text: "diesen Link"
@@ -298,7 +298,7 @@ de_formal:
       comma_seperated_plz: "Sie können mehrere E-Mail-Adressen durch Trennen mit Kommata eintragen."
       if_they_accept_info: "Wenn sie akzeptieren, werden sie zu dem Aspekt hinzugefügt, in den Sie sie eingeladen haben."
       invite_someone_to_join: "Laden Sie jemanden zu Diaspora ein!"
-      language: "Language"
+      language: "Sprache"
       personal_message: "Persönliche Nachricht"
       resend: "Erneut senden"
       send_an_invitation: "Eine Einladung senden"
@@ -514,7 +514,7 @@ de_formal:
     show: 
       does_not_exist: "Diese Person existiert nicht!"
       has_not_shared_with_you_yet: "%{name} hat bisher noch keine Beiträge mit Ihnen geteilt!"
-      ignoring: "You are ignoring all posts from %{name}."
+      ignoring: "Sie ignorieren sämtliche Beiträge von %{name}."
       incoming_request: "Sie haben eine eingehende Anfrage von %{name}."
       mention: "Erwähnen"
       message: "Nachricht"
@@ -573,7 +573,7 @@ de_formal:
       not_found: "Entschuldigen Sie, wir konnten den Beitrag leider nicht finden."
       permalink: "Permanentlink"
   previous: "Vorherige"
-  privacy: "Privacy"
+  privacy: "Privatsphäre"
   profile: "Profil"
   profiles: 
     edit: 
@@ -671,6 +671,7 @@ de_formal:
     failure: 
       error: "Es gab einen Fehler der Verbindung mit dem Dienst."
     finder: 
+      fetching_contacts: "Diaspora is populating your %{service} friends please check back in a few minutes."
       no_friends: "Keine Facebook-Freunde gefunden."
       service_friends: "%{service}-Freunde"
     index: 
@@ -692,8 +693,8 @@ de_formal:
   settings: "Einstellungen"
   share_visibilites: 
     update: 
-      post_hidden_and_muted: "%{name}'s post has been hidden, and notifications have been muted."
-      see_it_on_their_profile: "If you want to see updates on this post, visit %{name}'s profile page."
+      post_hidden_and_muted: "%{name}s Beitrag wurde versteckt und Benachrichtigungen stumm geschaltet."
+      see_it_on_their_profile: "Wenn Sie Aktualisierungen dieses Beitrags sehen wollen, besuchen Sie %{name}s Profil."
   shared: 
     add_contact: 
       add_new_contact: "Einen neuen Kontakt hinzufügen"
@@ -744,7 +745,7 @@ de_formal:
       new_user_prefill: 
         hello: "Hallo zusammen, ich bin #%{new_user_tag}. "
         i_like: "Ich interessiere mich für %{tags}."
-        invited_by: "Thanks for the invite, "
+        invited_by: "Danke für die Einladung, "
       post_a_message_to: "Senden Sie eine Nachricht an %{aspect}"
       posting: "Senden …"
       publishing_to: "Veröffentlichen an: "
@@ -759,8 +760,8 @@ de_formal:
       currently_unavailable: "Kommentieren derzeit nicht verfügbar"
       dislike: "Gefällt mir nicht"
       hide_and_mute: "Verbergen und stummschalten"
-      ignore_user: "Ignore %{name}"
-      ignore_user_description: "Ignore and remove user from all aspects?"
+      ignore_user: "%{name} ignorieren"
+      ignore_user_description: "Benutzer ignorieren und aus allen Aspekten entfernen?"
       like: "Gefällt mir"
       shared_with: "Geteilt mit: %{aspect_names}"
       unlike: "Gefällt mir nicht mehr"
@@ -847,7 +848,10 @@ de_formal:
     confirm_email: 
       email_confirmed: "E-Mail %{email} wurde aktiviert"
       email_not_confirmed: "Die E-Mail-Adresse konnte nicht aktiviert werden. Falscher Link?"
-    destroy: "Ihr Konto wurde gesperrt. Es kann 20 Minuten dauern, bis wir die Schließung Ihres Kontos abgeschlossen haben. Vielen Dank, dass Sie Diaspora ausprobiert haben."
+    destroy: 
+      no_password: "Please enter your current password to close your account."
+      success: "Your account has been locked.  It may take 20 minutes for us to finish closing your account.  Thank you for trying Diaspora."
+      wrong_password: "The entered password didn't match your current password."
     edit: 
       also_commented: "… jemand ebenfalls den Beitrag eines Kontaktes kommentiert?"
       change: "Ändern"
@@ -895,9 +899,9 @@ de_formal:
       simply_visit: "Besuchen Sie einfach"
       works_on_modern: "Funktioniert auf allen modernen Smartphones"
     privacy_settings: 
-      ignored_users: "Ignored Users"
-      stop_ignoring: "Stop ignoring"
-      title: "Privacy Settings"
+      ignored_users: "Ignorierte Benutzer"
+      stop_ignoring: "Ignorieren beenden"
+      title: Privatsphären-Einstellungen
     public: 
       does_not_exist: "Benutzer %{username} existiert nicht!"
     update: 

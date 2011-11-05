@@ -671,6 +671,7 @@ cs:
     failure: 
       error: "nastala chyba při připojení ke službě"
     finder: 
+      fetching_contacts: "Diaspora is populating your %{service} friends please check back in a few minutes."
       no_friends: "Žádní přátelé z Facebooku nenalezeni."
       service_friends: "%{service} Friends"
     index: 
@@ -847,7 +848,10 @@ cs:
     confirm_email: 
       email_confirmed: "E-mail %{email} aktivován"
       email_not_confirmed: "E-mail nemohl být aktivován. Špatný odkaz?"
-    destroy: "Váš účet byl uzamčen. Dokončení uzavření vašeho účtu může trvat 20 minut. Děkujeme vám za vyzkoušení Diaspory."
+    destroy: 
+      no_password: "Please enter your current password to close your account."
+      success: "Your account has been locked.  It may take 20 minutes for us to finish closing your account.  Thank you for trying Diaspora."
+      wrong_password: "The entered password didn't match your current password."
     edit: 
       also_commented: "...někdo komentoval váš příspěvek?"
       change: "Změnit"

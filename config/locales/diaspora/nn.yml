@@ -671,6 +671,7 @@ nn:
     failure: 
       error: "klarte ikkje å kopla til tenesta"
     finder: 
+      fetching_contacts: "Diaspora is populating your %{service} friends please check back in a few minutes."
       no_friends: "Fann ingen Facebook-vener."
       service_friends: "%{service}-vener"
     index: 
@@ -847,7 +848,10 @@ nn:
     confirm_email: 
       email_confirmed: "E-post %{email} teken i bruk"
       email_not_confirmed: "Klarte ikkje å slå på bruk av e-post. Feil lenkje?"
-    destroy: "Kontoen din er vorten låst. Det kan ta inntil 20 minutt for oss å verta ferdig med lukka han. Takk for at du prøvde Diaspora."
+    destroy: 
+      no_password: "Please enter your current password to close your account."
+      success: "Your account has been locked.  It may take 20 minutes for us to finish closing your account.  Thank you for trying Diaspora."
+      wrong_password: "The entered password didn't match your current password."
     edit: 
       also_commented: "… nokon òg kommenterer kontakten din sitt innlegg?"
       change: "Endra"

@@ -61,12 +61,12 @@ fi:
       done_editing: "muokkaus valmis"
     aspect_listings: 
       add_an_aspect: "+ Lisää näkymä"
-      deselect_all: "Deselect all"
-      edit_aspect: "Edit %{name}"
-      select_all: "Select all"
+      deselect_all: "Poista valinta kaikista"
+      edit_aspect: "Muokkaa näkymää %{name}"
+      select_all: "Valitse kaikki"
     aspect_stream: 
-      stay_updated: "Stay Updated"
-      stay_updated_explanation: "Your main stream is populated with all of your contacts, tags you follow, and posts from some creative members of the community."
+      stay_updated: "Pysy ajan tasalla"
+      stay_updated_explanation: "Sinun päävirrassasi näkyvät kaikki kontaktisi, seuraamasi tagit ja eräiden yhteisön luovien jäsenten viestit."
     contacts_not_visible: "Kontaktit tässä näkymässä eivät voi nähdä toisiaan."
     contacts_visible: "Kontaktit tässä näkymässä voivat nähdä toisensa."
     create: 
@@ -112,7 +112,7 @@ fi:
         need_help: "Need Help?"
         satisfaction: "%{link}: Community-powered support"
         tutorials_wiki_and_forum: "%{tutorial} & %{wiki} & %{forum}: Community-powered tutorials, how-to, and news"
-      introduce_yourself: "This is your stream.  Jump in and introduce yourself."
+      introduce_yourself: "Tämä on virtasi. Hyppää sekaan ja esittele itsesi."
       keep_us_running: "Keep %{pod} running fast, buy our servers their monthly coffee fix!"
       new_here: 
         follow: "Follow %{link} and welcome new users to Diaspora*!"
@@ -125,8 +125,8 @@ fi:
       services: 
         content: "Voit yhdistää Diasporaan seuraavat palvelut:"
         heading: "Yhdistä palveluihin"
-      unfollow_tag: "Stop following #%{tag}"
-      welcome_to_diaspora: "Welcome to Diaspora, %{name}!"
+      unfollow_tag: "Lopeta tagin #%{tag} seuraaminen"
+      welcome_to_diaspora: "Tervetuloa Diasporaan, %{name}!"
       your_aspects: "Näkymäsi"
     many: "%{count} näkymää"
     move_contact: 
@@ -135,14 +135,14 @@ fi:
       success: "Henkilö siirretty uuteen näkymään"
     new: 
       create: "Luo"
-      name: "Nimi"
+      name: "Nimi (näkyy vain sinulle)"
     no_contacts_message: 
-      community_spotlight: "community spotlight"
+      community_spotlight: "yhteisön valokeila"
       or_spotlight: "Or you can share with %{link}"
-      try_adding_some_more_contacts: "You can search (top) or invite (right) more contacts."
+      try_adding_some_more_contacts: "Voit etsiä (ylhäällä) tai kutsua (oikealla) lisää kontakteja."
       you_should_add_some_more_contacts: "You should add some more contacts!"
     no_posts_message: 
-      start_talking: "Kukaan ei ole sanonut vielä mitään. Aloita keskustelu!"
+      start_talking: "Kukaan ei ole sanonut vielä mitään!"
     one: "1 näkymä"
     other: "%{count} näkymää"
     seed: 
@@ -164,7 +164,7 @@ fi:
     zero: "ei näkymiä"
   authorizations: 
     index: 
-      no_applications: "You haven't registered any applications yet."
+      no_applications: "Et ole rekisteröinyt vielä yhtäkään sovellusta."
       revoke_access: "Estä pääsy"
   back: "Takaisin"
   blocks: 
@@ -177,7 +177,7 @@ fi:
   bookmarklet: 
     explanation: "%{link} from anywhere by bookmarking this link."
     explanation_link_text: "Post to Diaspora"
-    heading: "Diaspora Bookmarklet"
+    heading: "Sovelluskirjanmerkki"
     post_something: "Kirjoita jotain Diasporaan"
     post_success: "Lähetetty! Suljetaan!"
   cancel: "Peruuta"
@@ -189,7 +189,7 @@ fi:
       commenting: Kommentoidaan...
     one: "1 kommentti"
     other: "%{count} kommenttia"
-    two: "%{count} comments"
+    two: "%{count} kommenttia"
     zero: "ei kommentteja"
   contacts: 
     create: 
@@ -197,7 +197,7 @@ fi:
     few: "%{count} kontaktia"
     index: 
       add_a_new_aspect: "Lisää näkymä"
-      add_to_aspect: "Add contacts to %{name}"
+      add_to_aspect: "lisää kontakteja näkymään %{name}"
       all_contacts: "Kaikki kontaktit"
       check_out: "Check out"
       many_people_are_you_sure: "Are you sure you want to start a private conversation with more than %{suggested_limit} contacts? Posting to this aspect may be a better way to contact them."
@@ -214,8 +214,8 @@ fi:
     sharing: 
       people_sharing: "Ihmiset jotka jakavat kanssasi:"
     spotlight: 
-      community_spotlight: "Community Spotlight"
-    two: "%{count} contacts"
+      community_spotlight: "Yhteisön valokeila"
+    two: "%{count} kontaktia"
     zero: "ei kontakteja"
   conversations: 
     create: 
@@ -229,8 +229,8 @@ fi:
         many: "%{count} uutta viestiä"
         one: "1 uusi viesti"
         other: "%{count} uutta viestiä"
-        two: "%{count} new messages"
-        zero: "ei uusia viestejä"
+        two: "%{count} uutta viestiä"
+        zero: "Ei uusia viestejä"
     index: 
       create_a_new_message: "tee uusi viesti"
       inbox: "Uudet viestit"
@@ -241,7 +241,7 @@ fi:
     new: 
       abandon_changes: "Hylkää muutokset?"
       send: "Lähetä"
-      sending: Sending...
+      sending: Lähetetään...
       subject: "aihe"
       to: "vastaanottaja"
     new_message: 
@@ -249,14 +249,14 @@ fi:
     show: 
       delete: "poista ja estä tämä keskustelu"
       reply: "vastaa"
-      replying: Replying...
+      replying: Vastataan...
   date: 
     formats: 
       birthday: "%B %d"
       birthday_with_year: "%B %d %Y"
       fullmonth_day: "%B %d"
   delete: "Poista"
-  email: "Sähköposti"
+  email: "Sähköpostiosoite"
   error_messages: 
     helper: 
       correct_the_following_errors_and_try_again: "Korjaa seuraavat virheet ja yritä uudelleen."
@@ -279,7 +279,7 @@ fi:
       tagline_first_half: "Jaa mitä haluat,"
       tagline_second_half: "kenen kanssa haluat."
   invitations: 
-    a_facebook_user: "A Facebook user"
+    a_facebook_user: Facebook-käyttäjä
     check_token: 
       not_found: "Kutsun tunnusta ei löytynyt"
     create: 
@@ -298,7 +298,7 @@ fi:
       comma_seperated_plz: "Voit syöttää useita sähköpostiosoitteita pilkuilla erotettuna."
       if_they_accept_info: "jos he hyväksyvät kutsun, heidät lisätään siihen näkymään, johon heidät kutsuit."
       invite_someone_to_join: "Kutsu joku Diasporan käyttäjäksi!"
-      language: "Language"
+      language: "Kieli"
       personal_message: "Henkilökohtainen viesti"
       resend: "Lähetä uudelleen"
       send_an_invitation: "Lähetä kutsu"
@@ -335,15 +335,15 @@ fi:
         many: "%{count} tykkää"
         one: "%{count} tykkää"
         other: "%{count} tykkää"
-        two: "%{count} likes"
+        two: "%{count} tykkää"
         zero: "ei tykkäyksiä"
       people_like_this_comment: 
-        few: "%{count} likes"
-        many: "%{count} likes"
-        one: "%{count} like"
-        other: "%{count} likes"
-        two: "%{count} likes"
-        zero: "no likes"
+        few: "%{count} tykkää"
+        many: "%{count} tykkää"
+        one: "%{count} tykkää"
+        other: "%{count} tykkää"
+        two: "%{count} tykkää"
+        zero: "ei tykkäyksiä"
   limited: "Rajoitettu"
   more: "Lisää"
   next: "seuraava"
@@ -377,7 +377,7 @@ fi:
         one: "1 uusi ilmoitus"
         other: "%{count} uutta ilmoitusta"
         two: "%{count} new notifications"
-        zero: "ei uusia ilmoituksia"
+        zero: "Ei uusia ilmoituksia"
     index: 
       and: "ja"
       and_others: 
@@ -450,30 +450,30 @@ fi:
     a_post_you_shared: "a post."
     click_here: "klikkaa tästä"
     comment_on_post: 
-      reply: "Vastaa tai katso %{name}:n viesti >"
+      reply: "Vastaa tai katso käyttäjän %{name} viesti >"
     confirm_email: 
-      click_link: "To activate your new e-mail address %{unconfirmed_email}, please click this link:"
-      subject: "Please activate your new e-mail address %{unconfirmed_email}"
+      click_link: "Aktivoi uusi sähköpostiosoitteesi %{unconfirmed_email} napsauttamalla tätä linkkiä:"
+      subject: "Aktivoi uusi sähköpostiosoitteesi %{unconfirmed_email}"
     email_sent_by_diaspora: "Diaspora lähetti tämän sähköpostin. Jos et halua saada tällaisia sähköposteja jatkossa,"
     hello: "Hei %{name}!"
     liked: 
-      liked: "%{name} tykkäsi kirjoituksestasi: "
+      liked: "%{name} tykkäsi kirjoituksestasi"
       view_post: "Katso viesti >"
     mentioned: 
       mentioned: "mainitsi sinut viestissään:"
-      subject: "%{name} on maininnut sinut Diaspora*:ssa"
+      subject: "%{name} on maininnut sinut Diasporassa"
     private_message: 
       reply_to_or_view: "Lue tai osallistu keskusteluun >"
     reshared: 
       reshared: "%{name} just reshared your post"
-      view_post: "View post >"
+      view_post: "Näytä viesti >"
     single_admin: 
-      admin: "Diasporasi ylläpitäjä"
+      admin: "Sinun Diaspora-ylläpitäjäsi"
       subject: "Viesti Diaspora-käyttäjätilistäsi:"
     started_sharing: 
-      sharing: "on aloittanut jakamaan kanssasi!"
-      subject: "%{name} has started sharing with you on Diaspora*"
-      view_profile: "Näytä %{name}:n profiiili"
+      sharing: "on alkanut jakaa kanssasi!"
+      subject: "%{name} on alkanut jakaa kanssasi Diasporassa"
+      view_profile: "Näytä käyttäjän %{name} profiiili"
     thanks: "Kiitos,"
     to_change_your_notification_settings: "vaihtaaksesi ilmoitusasetuksia"
   ok: "OK"
@@ -513,7 +513,7 @@ fi:
       remove_from: "Poista %{name} näkymästä %{aspect}?"
     show: 
       does_not_exist: "Henkilöä ei ole olemassa!"
-      has_not_shared_with_you_yet: "%{name} ei ole jakanut vielä yhtään postausta kanssasi!"
+      has_not_shared_with_you_yet: "%{name} ei ole jakanut vielä yhtään viestiä kanssasi!"
       ignoring: "You are ignoring all posts from %{name}."
       incoming_request: "Tämä henkilö on lähettänyt sinulle pyynnön."
       mention: "Mainitse"
@@ -526,9 +526,9 @@ fi:
       start_sharing: "aloita jakamaan"
       to_accept_or_ignore: "hyväksyäksesi tai hylätäksesi sen."
     sub_header: 
-      add_some: "add some"
-      edit: "edit"
-      you_have_no_tags: "you have no tags!"
+      add_some: "lisää niitä"
+      edit: "muokkaa"
+      you_have_no_tags: "sinulla ei ole tageja!"
     two: "%{count} people"
     webfinger: 
       fail: "Valitettavasti tunnusta %{handle} ei löytynyt."
@@ -573,7 +573,7 @@ fi:
       not_found: "Valitettavasti viestiä ei löytynyt."
       permalink: "pysyvä linkki"
   previous: "edellinen"
-  privacy: "Privacy"
+  privacy: "Yksityisyys"
   profile: "Profiili"
   profiles: 
     edit: 
@@ -636,7 +636,7 @@ fi:
         many: "%{count} uutta pyyntöä!"
         one: "uusi pyyntö!"
         other: "%{count} uutta pyyntöä!"
-        two: "%{count} new requests!"
+        two: "%{count} uutta pyyntöä!"
         zero: "ei uusia pyyntöjä"
     manage_aspect_contacts: 
       existing: "Olemassa olevat kontaktit"
@@ -671,12 +671,13 @@ fi:
     failure: 
       error: "palvelun yhdistämisessä tapahtui virhe"
     finder: 
-      no_friends: "No Facebook friends found."
-      service_friends: "%{service} Friends"
+      fetching_contacts: "Diaspora is populating your %{service} friends please check back in a few minutes."
+      no_friends: "Facebook-kavereita ei löytynyt."
+      service_friends: "%{service}-kaverit"
     index: 
-      connect_to_facebook: "Yhdistä palveluun facebook"
-      connect_to_tumblr: "Yhdistä Tumblr:iin"
-      connect_to_twitter: "Yhdistä palveluun twitter"
+      connect_to_facebook: "Yhdistä Facebookiin"
+      connect_to_tumblr: "Yhdistä Tumblriin"
+      connect_to_twitter: "Yhdistä Twitteriin"
       disconnect: "katkaise"
       edit_services: "Muokkaa palveluita"
       logged_in_as: "kirjautunut käyttäjänä"
@@ -687,7 +688,7 @@ fi:
       join_me_on_diaspora: "DIASPORA* kutsuu!"
     remote_friend: 
       invite: "kutsu"
-      not_on_diaspora: "Not yet on Diaspora"
+      not_on_diaspora: "Ei vielä Diasporassa"
       resend: "lähetä uudelleen"
   settings: "Asetukset"
   share_visibilites: 
@@ -698,19 +699,19 @@ fi:
     add_contact: 
       add_new_contact: "Lisää uusi kontakti"
       create_request: "Etsi Diaspora-tunnuksella"
-      diaspora_handle: diaspora@handle.org
+      diaspora_handle: diaspora@pod.org
       enter_a_diaspora_username: "Anna Diaspora-käyttäjätunnus:"
       know_email: "Tiedätkö heidän sähköpostiosoitteitansa? Kutsu heidät!"
       your_diaspora_username_is: "Diaspora-käyttäjätunnuksesi on: %{diaspora_handle}"
     aspect_dropdown: 
-      add_to_aspect: "Add to aspect"
+      add_to_aspect: "Lisää kontakti"
       toggle: 
         few: "In %{count} aspects"
         many: "In %{count} aspects"
         one: "In %{count} aspect"
         other: "In %{count} aspects"
         two: "In %{count} aspects"
-        zero: "Add to aspect"
+        zero: "Lisää kontakti"
     contact_list: 
       all_contacts: "Kaikki kontaktit"
     footer: 
@@ -720,7 +721,7 @@ fi:
       by_email: "Sähköpostilla"
       dont_have_now: "Sinulla ei ole yhtään kutsua jäljellä, mutta lisää tulee pian!"
       from_facebook: "Facebookista"
-      invitations_left: "(%{count} jäljellä)"
+      invitations_left: "%{count} jäljellä"
       invite_someone: "Kutsu joku"
       invite_your_friends: "Kutsu kavereitasi"
       invites: "Kutsut"
@@ -728,14 +729,20 @@ fi:
     notification: 
       new: "Uusi %{type} henkilöltä %{from}"
     public_explain: 
-      control_your_audience: "Control your Audience"
+      control_your_audience: "Hallitse yleisöäsi"
       logged_in: "sisäänkirjautunut palveluun %{service}"
       manage: "hallitse yhdistettyjä palveluita"
-      new_user_welcome_message: "Use #hashtags to classify your posts and find people who share your interests.  Call out awesome people with @Mentions"
+      new_user_welcome_message: |-
+          Käytä #hashtageja luokitellaksesi viestisi ja löytääksesi ihmisiä, jotka jakavat kiinnostuksen kohteesi. Kutsu upeita ihmisiä paikalle @Maininnoilla.
+          
+          Use #hashtags to classify your posts and find people who share your interests.  Call out awesome people with @Mentions
       outside: "Julkiset viestit näkyvät Diasporan ulkopuolelle."
-      share: "Share"
+      share: "Jaa"
       title: "Olet lähettämässä julkista viestiä!"
-      visibility_dropdown: "Use this dropdown to change visibility of your post.  (We suggest you make this first one public.)"
+      visibility_dropdown: |-
+          Muuta tästä pudotusvalikosta viestisi näkyvyyttä. (Suosittelemme, että teet tästä ensimmäisestä viestistäsi julkisen.)
+          
+          Use this dropdown to change visibility of your post.  (We suggest you make this first one public.)
     publisher: 
       all: "kaikki"
       all_contacts: "kaikki kontaktit"
@@ -762,7 +769,7 @@ fi:
       ignore_user: "Ignore %{name}"
       ignore_user_description: "Ignore and remove user from all aspects?"
       like: "Tykkää"
-      shared_with: "Jaa heidän kanssa: %{aspect_names}"
+      shared_with: "Jaettu heidän kanssaan: %{aspect_names}"
       unlike: "En tykkää"
       via: "%{link} kautta"
       viewable_to_anyone: "Kuka tahansa verkossa näkee tämän viestin"
@@ -780,31 +787,31 @@ fi:
       many: "Ole hyvä ja kirjoita tilaasi vähemmän kuin %{count} merkkiä"
       one: "viestin merkkimäärä voi olla maksimissaan %{count}"
       other: "viestin merkkimäärä voi olla maksimissaan %{count}"
-      two: "please make your status messages less than %{count} characters"
+      two: "statusviestisi voi olla korkeintaan %{count} merkin pituinen"
       zero: "viestin merkkimäärä voi olla maksimissaan %{count}"
   stream_helper: 
-    hide_comments: "piilota kommentit"
+    hide_comments: "Piilota kaikki kommentit"
     show_more_comments: "Näytä kaikki (%{number}) kommentit"
   streams: 
     aspects: 
-      title: "Your Aspects"
-    aspects_stream: "Aspects"
-    commented_on: "commented on"
-    community_spotlight_stream: "Community Spotlight"
+      title: "Näkymäsi"
+    aspects_stream: "Näkymät"
+    commented_on: "kommentoidut"
+    community_spotlight_stream: "Yhteisön valokeila"
     followed_tag: 
       add_a_tag: "Lisää tagi"
       contacts_title: "People who dig these tags"
-      follow: "Follow"
-      title: "#Followed Tags"
-    followed_tags_stream: "#Followed Tags"
-    mentioned_stream: "@Mentions"
+      follow: "Seuraa"
+      title: "#Seuratut tagit"
+    followed_tags_stream: "#Seuratut tagit"
+    mentioned_stream: "@Maininnat"
     mentions: 
-      contacts_title: "People who mentioned you"
-      title: "Your Mentions"
+      contacts_title: "Sinut maininneet ihmiset"
+      title: "@Maininnat"
     multi: 
-      contacts_title: "People in your Stream"
-      title: "Stream"
-    posted: "posted"
+      contacts_title: "Ihmiset sinun virrassasi"
+      title: "Virta"
+    posted: "lähetetyt"
     public: 
       contacts_title: "Recent Posters"
       title: "Public Activity"
@@ -821,13 +828,13 @@ fi:
       success: "Onnistuneesti lopetettiin #%{name}:n seuraaminen"
   tags: 
     show: 
-      follow: "Seuraa #%{tag} "
-      followed_by: "followed by"
-      following: "Seurataan #%{tag}"
+      follow: "Seuraa tagia #%{tag} "
+      followed_by: "tagia seuraa"
+      following: "Seurataan tagia #%{tag}"
       nobody_talking: "Kukaan ei vielä keskustele tagista %{tag}."
       people_tagged_with: "Ihmiset merkitty %{tag} tagilla"
       posts_tagged_with: "Viestit merkitty #%{tag} tagilla"
-      stop_following: "Lopeta #%{tag} seuraaminen"
+      stop_following: "Lopeta tagin #%{tag} seuraaminen"
   tokens: 
     show: 
       connect_to_cubbies: "Yhdistä kohteeseen Cubbi.es"
@@ -847,11 +854,14 @@ fi:
     confirm_email: 
       email_confirmed: "E-Mail %{email} activated"
       email_not_confirmed: "E-Mail could not be activated. Wrong link?"
-    destroy: "Käyttäjätilin sulkeminen onnistui."
+    destroy: 
+      no_password: "Syötä nykyinen salasanasi sulkeaksesi tilisi."
+      success: "Tilisi on lukittu. Meiltä voi mennä 20 minuuttia tilisi sulkemiseen. Kiitos, kun kokeilit Diasporaa."
+      wrong_password: "Syötetty salasana ei vastannut nykyistä salasanaasi."
     edit: 
       also_commented: "...joku myös kommentoi kontaktisi viestiin?"
       change: "Vaihda"
-      change_email: "Change E-Mail"
+      change_email: "Vaihda sähköpostiosoite"
       change_language: "Vaihda kieli"
       change_password: "Vaihda salasana"
       close_account: "Sulje käyttäjätili"
@@ -870,10 +880,10 @@ fi:
       private_message: "...saat uuden viestin?"
       receive_email_notifications: "Vastaanota sähköposti-ilmoituksia, kun.."
       reshared: "...someone reshares your post?"
-      show_community_spotlight: "Show Community Spotlight in Stream?"
-      show_getting_started: "Re-enable Getting Started"
+      show_community_spotlight: "Näytetäänkö Yhteisön valokeila virrassa?"
+      show_getting_started: "Ota aloitusohjeet uudelleen käyttöön"
       started_sharing: "...aloittaa jakamaan kanssasi?"
-      stream_preferences: "Stream Preferences"
+      stream_preferences: "Virran asetukset"
       your_email: "Sähköpostiosoitteesi"
       your_handle: Diaspora-tunnuksesi
     getting_started: 
@@ -906,8 +916,8 @@ fi:
       language_not_changed: "Kielen vaihtaminen epäonnistui"
       password_changed: "Salasana vaihdettu. Voit nyt kirjautua uudella salasanallasi."
       password_not_changed: "Salasanan vaihto epäonnistui"
-      settings_not_updated: "Settings update failed"
-      settings_updated: "Settings updated"
+      settings_not_updated: "Asetusten päivittäminen epäonnistui"
+      settings_updated: "Asetukset päivitetty"
       unconfirmed_email_changed: "E-Mail Changed. Needs activation."
       unconfirmed_email_not_changed: "E-Mail Change Failed"
   webfinger: 
@@ -916,4 +926,4 @@ fi:
     no_person_constructed: "Yhtäkään henkilöä ei pystytty kokoamaan tältä hcard:ilta."
     not_enabled: "webfinger-palvelua ei ilmeisesti ole aktivoitu tilin, %{account}, isännälle"
     xrd_fetch_failed: "tapahtui virhe haettaessa xrd:tä käyttäjätilille %{account}"
-  welcome: Welcome!
+  welcome: Tervetuloa!

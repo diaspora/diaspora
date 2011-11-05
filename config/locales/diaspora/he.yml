@@ -671,6 +671,7 @@ he:
     failure: 
       error: "אירעה שגיאה בעת ההתחברות לשירות זה"
     finder: 
+      fetching_contacts: "Diaspora is populating your %{service} friends please check back in a few minutes."
       no_friends: "לא נמצאו חברי פייסבוק."
       service_friends: "חברים ב־%{service}"
     index: 
@@ -847,7 +848,10 @@ he:
     confirm_email: 
       email_confirmed: "כתובת הדוא״ל %{email} מופעלת"
       email_not_confirmed: "לא ניתן להפעיל את כתובת הדוא״ל. קישור שגוי?"
-    destroy: "חשבונך ננעל. סגירת חשבונך עלולה להימשך כ־20 דקות. תודה על שהתנסית בדיאספורה."
+    destroy: 
+      no_password: "Please enter your current password to close your account."
+      success: "Your account has been locked.  It may take 20 minutes for us to finish closing your account.  Thank you for trying Diaspora."
+      wrong_password: "The entered password didn't match your current password."
     edit: 
       also_commented: "...מישהו הגיב גם על הרשומה של איש הקשר שלך?"
       change: "שינוי"

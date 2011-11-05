@@ -116,8 +116,8 @@ zh-TW:
       keep_us_running: "為了讓 %{pod} 高速奔馳, 用每月捐款來提供些咖啡存量給我們的伺服器吧!"
       new_here: 
         follow: "Follow %{link} and welcome new users to Diaspora*!"
-        learn_more: "Learn more"
-        title: "Welcome New Users"
+        learn_more: "了解詳情"
+        title: "歡迎新使用者"
       no_contacts: "沒有任何聯絡人"
       no_tags: "+ 找個標籤來追蹤"
       people_sharing_with_you: "跟你分享的人"
@@ -298,7 +298,7 @@ zh-TW:
       comma_seperated_plz: "你可以輸入多個電子信箱, 只要以逗號分隔即可."
       if_they_accept_info: "如果他們接受, 就會被加入至你所邀請的面向中."
       invite_someone_to_join: "邀請某人來加入 Diaspora!"
-      language: "Language"
+      language: "語言"
       personal_message: "個人訊息"
       resend: "重寄"
       send_an_invitation: "寄出邀請函"
@@ -573,7 +573,7 @@ zh-TW:
       not_found: "抱歉,找不到該則貼文."
       permalink: "靜態連結"
   previous: "前面"
-  privacy: "Privacy"
+  privacy: "隱私"
   profile: "個人檔案"
   profiles: 
     edit: 
@@ -671,6 +671,7 @@ zh-TW:
     failure: 
       error: "與該服務連結時有錯誤"
     finder: 
+      fetching_contacts: "Diaspora is populating your %{service} friends please check back in a few minutes."
       no_friends: "沒有 Facebook 朋友."
       service_friends: "%{service} 朋友"
     index: 
@@ -758,7 +759,7 @@ zh-TW:
       connect_to_comment: "要回應貼文請先和作者建立聯繫"
       currently_unavailable: "目前無法回應"
       dislike: "遜"
-      hide_and_mute: "隱藏且消音"
+      hide_and_mute: "將貼文隱藏且消音"
       ignore_user: "Ignore %{name}"
       ignore_user_description: "Ignore and remove user from all aspects?"
       like: "讚"
@@ -815,10 +816,10 @@ zh-TW:
   tag_followings: 
     create: 
       failure: "追蹤 #%{name} 失敗. 是否已經在追蹤了?"
-      success: "喔耶! 你已經在追蹤 #%{name} 了."
+      success: "喔耶! 你已經開始追蹤 #%{name} 了."
     destroy: 
-      failure: "停止追蹤失敗: #%{name}"
-      success: "停止追蹤成功: #%{name}"
+      failure: "停止追蹤標籤 #%{name} 失敗. 也許你已經沒在追蹤了?"
+      success: "唉! 你從此不再追蹤標籤 #%{name} 了."
   tags: 
     show: 
       follow: "追蹤 #%{tag}"
@@ -847,7 +848,10 @@ zh-TW:
     confirm_email: 
       email_confirmed: "E-Mail %{email} 已經啟用了"
       email_not_confirmed: "無法啟用E-Mail. 連結有誤嗎?"
-    destroy: "帳號已經鎖定了. 關閉帳號可能需要20分鐘才能完成. 感謝你試用 Diaspora."
+    destroy: 
+      no_password: "Please enter your current password to close your account."
+      success: "Your account has been locked.  It may take 20 minutes for us to finish closing your account.  Thank you for trying Diaspora."
+      wrong_password: "The entered password didn't match your current password."
     edit: 
       also_commented: "...當有人也對你的聯絡人的貼文發表意見時?"
       change: "更改"
