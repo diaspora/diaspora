@@ -123,6 +123,13 @@ module Diaspora
       end.call
     end
 
+    def participant_users
+      @participant_users ||= lambda do
+        user_ids = participants.map{|x| x.owner_id}.compact
+        User.where(:id => user_ids)
+      end.call
+    end
+
     protected
 
     # @return [Shareable,void]

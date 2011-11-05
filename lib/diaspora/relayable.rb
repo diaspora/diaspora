@@ -50,6 +50,10 @@ module Diaspora
       self.parent.participants
     end
 
+    def participant_users
+      self.parent.participant_users
+    end
+
     def receive(user, person=nil)
       comment_or_like = self.class.where(:guid => self.guid).first || self
 
