@@ -9,6 +9,7 @@ class Postzord::Receiver::LocalBatch < Postzord::Receiver
   def initialize(object, recipient_user_ids)
     @object = object
     @recipient_user_ids = recipient_user_ids
+    #this is a nightmare
     @users = User.where(:id => @recipient_user_ids)
   end
 

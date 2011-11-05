@@ -195,6 +195,22 @@ describe Post do
     end
   end
 
+  describe '#participants' do
+    it 'includes the post author' do
+      status = Factory(:status_message, :author => bob.person, :public => true)
+      status.participants.map(&:id).should == [bob.person.id]
+    end
+
+    it 'only returns the people that commented and liked the post' do
+      status = Factory(:status_message, :author => bob.person, :public => true)
+      alice.comment('too', :post => status)
+      eve.like(true, :target => status)
+
+      status.participants.map(&:id).should =~ [alice, eve, bob].map{|x| x.person.id}
+    end
+
+  end
+
   describe '#comments' do
     it 'returns the comments of a post in created_at order' do
       post = bob.post :status_message, :text => "hello", :to => 'all'
