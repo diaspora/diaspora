@@ -196,17 +196,12 @@ describe Post do
   end
 
   describe '#participants' do
-    it 'includes the post author' do
-      status = Factory(:status_message, :author => bob.person, :public => true)
-      status.participants.map(&:id).should == [bob.person.id]
-    end
-
     it 'only returns the people that commented and liked the post' do
       status = Factory(:status_message, :author => bob.person, :public => true)
       alice.comment('too', :post => status)
       eve.like(true, :target => status)
 
-      status.participants.map(&:id).should =~ [alice, eve, bob].map{|x| x.person.id}
+      status.participants.map(&:id).should =~ [alice, eve].map{|x| x.person.id}
     end
 
   end

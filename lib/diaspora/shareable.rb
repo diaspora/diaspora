@@ -111,7 +111,7 @@ module Diaspora
     def participants
       @participants ||= lambda do
         share_type = self.class.base_class.to_s
-        people = [self.author]
+        people = []
         if self.respond_to? :comments
           people += Person.joins(:comments).where(:comments => {:commentable_id => self.id, :commentable_type => share_type}).all
         end
