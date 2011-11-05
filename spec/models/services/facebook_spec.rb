@@ -97,7 +97,7 @@ JSON
 
     describe '#finder' do
       it 'does a synchronous call if it has not been called before' do
-        @service.should_receive(:save_friends)
+        Resque.should_receive(:enqueue).with(Jobs::UpdateServiceUsers, @service.id)
         @service.finder
       end
       context 'opts' do
