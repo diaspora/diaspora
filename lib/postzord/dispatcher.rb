@@ -139,15 +139,7 @@ class Postzord::Dispatcher
   # @param services [Array<User>]
   def notify_users(users)
     return unless users.present? && @object.respond_to?(:persisted?)
-
-    #temp hax
-    unless object_is_related_to_diaspora_hq?
-      Resque.enqueue(Jobs::NotifyLocalUsers, users.map{|u| u.id}, @object.class.to_s, @object.id, @object.author.id)
-    end
-  end
-
-  def object_is_related_to_diaspora_hq?
-    (@object.author.diaspora_handle == 'diasporahq@joindiaspora.com' || (@object.respond_to?(:relayable?) && @object.parent.author.diaspora_handle == 'diasporahq@joindiaspora.com'))
+    Resque.enqueue(Jobs::NotifyLocalUsers, users.map{|u| u.id}, @object.class.to_s, @object.id, @object.author.id)
   end
 
   # @param services [Array<User>]
