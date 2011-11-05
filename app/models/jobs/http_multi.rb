@@ -22,6 +22,8 @@ module Jobs
 
     def self.perform(user_id, encoded_object_xml, person_ids, dispatcher_class_as_string)
       user = User.find(user_id)
+
+      #could be bad here
       people = Person.where(:id => person_ids)
 
       dispatcher = dispatcher_class_as_string.constantize

@@ -94,15 +94,15 @@ class Stream::Multi < Stream::Base
   end
 
   def followed_tags_post_ids
-    @followed_tags_ids ||= ids(StatusMessage.tag_stream(user, tag_ids, max_time, order).for_a_stream(max_time, order))
+    @followed_tags_ids ||= ids(StatusMessage.public_tag_stream(tag_ids))
   end
 
   def mentioned_post_ids
-    @mentioned_post_ids ||= ids(StatusMessage.where_person_is_mentioned(user.person).for_a_stream(max_time, order))
+    @mentioned_post_ids ||= ids(StatusMessage.where_person_is_mentioned(user.person))
   end
 
   def community_spotlight_post_ids
-    @community_spotlight_post_ids ||= ids(Post.all_public.where(:author_id => community_spotlight_person_ids).for_a_stream(max_time, order))
+    @community_spotlight_post_ids ||= ids(Post.all_public.where(:author_id => community_spotlight_person_ids))
   end
 
   #worthless helpers
@@ -114,7 +114,7 @@ class Stream::Multi < Stream::Base
     user.followed_tags.map{|x| x.id}
   end
 
-  def ids(enumerable)
-    Post.connection.select_values(enumerable.select('posts.id').to_sql)
+  def ids(query)
+    Post.connection.select_values(query.for_a_stream(max_time, order).select('posts.id').to_sql)
   end
 end

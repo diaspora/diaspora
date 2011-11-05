@@ -64,7 +64,9 @@ begin
 
           cookies = ws.request["cookie"].split(';')
           session_key = "_diaspora_session="
-          enc_diaspora_cookie = cookies.detect{|c| c.include?(session_key)}.gsub(session_key,'')
+          enc_diaspora_cookie = cookies.detect{|c| c.include?(session_key)}
+          raise IndexError, "No session cookie available" unless enc_diaspora_cookie
+          enc_diaspora_cookie.gsub(session_key,'')
           cookie = Marshal.load(enc_diaspora_cookie.strip.unpack("m*").first)
 
           debug_pp cookie
@@ -84,10 +86,13 @@ begin
               debug_pp "Could not unsubscribe socket for #{user_id}"
             end
           }
-        rescue RuntimeError, ArgumentError => e
+        rescue RuntimeError, ArgumentError, TypeError => e
           debug_pp "Could not open socket for request with cookie: #{ws.request["cookie"]}"
           debug_pp "Error was: "
           debug_pp e
+        rescue IndexError => e
+          debug_pp e
+          debug_pp "Cookie was: #{ws.request["cookie"]}"
         end
       }
     end

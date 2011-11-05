@@ -107,6 +107,28 @@ module Diaspora
       end
     end
 
+    # @return [Array<Person>] The list of participants to this shareable
+    def participants
+      @participants ||= lambda do
+        share_type = self.class.base_class.to_s
+        people = []
+        if self.respond_to? :comments
+          people += Person.joins(:comments).where(:comments => {:commentable_id => self.id, :commentable_type => share_type}).all
+        end
+
+        if self.respond_to? :likes
+         people += Person.joins(:likes).where(:likes => {:target_id => self.id, :target_type => share_type}).all
+        end
+        people
+      end.call
+    end
+
+    def participant_users
+      @participant_users ||= lambda do
+        user_ids = participants.map{|x| x.owner_id}.compact
+        User.where(:id => user_ids)
+      end.call
+    end
 
     protected
 

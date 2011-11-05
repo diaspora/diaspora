@@ -35,9 +35,14 @@ class StatusMessage < Post
   #scopes
   scope :where_person_is_mentioned, lambda{|person| joins(:mentions).where(:mentions => {:person_id => person.id})}
 
-  def self.tag_stream(user, tag_ids, max_time, order)
+  def self.user_tag_stream(user, tag_ids)
     owned_or_visible_by_user(user).
-      joins(:tags).where(:tags => {:id => tag_ids})
+      tag_stream(tag_ids)
+  end
+
+  def self.public_tag_stream(tag_ids)
+    all_public.
+      tag_stream(tag_ids)
   end
 
   def text(opts = {})
@@ -165,11 +170,16 @@ class StatusMessage < Post
   end
 
   protected
-
   def presence_of_content
     if text_and_photos_blank?
       errors[:base] << 'Status message requires a message or at least one photo'
     end
   end
+
+  private
+  def self.tag_stream(tag_ids)
+    joins(:tags).where(:tags => {:id => tag_ids})
+  end
+
 end
 

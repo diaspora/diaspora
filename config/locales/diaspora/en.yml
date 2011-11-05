@@ -938,7 +938,10 @@ en:
       ignored_users: "Ignored Users"
       stop_ignoring: "Stop ignoring"
 
-    destroy: "Your account has been locked.  It may take 20 minutes for us to finish closing your account.  Thank you for trying Diaspora."
+    destroy:
+      success: "Your account has been locked.  It may take 20 minutes for us to finish closing your account.  Thank you for trying Diaspora."
+      no_password: "Please enter your current password to close your account."
+      wrong_password: "The entered password didn't match your current password."
     getting_started:
       well_hello_there: "Well, hello there!"
       community_welcome: "Diaspora's community is happy to have you aboard!"

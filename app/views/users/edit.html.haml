@@ -170,7 +170,7 @@
       = f.error_messages
 
       %p
-        = f.label :current_password, t('.current_password')
-        = f.password_field :current_password
+        = f.label :close_account_password, t('.current_password'), :for => :close_account_password
+        = f.password_field :current_password, :id => :close_account_password
       %p
         = f.submit t('.close_account'), :confirm => t('are_you_sure')

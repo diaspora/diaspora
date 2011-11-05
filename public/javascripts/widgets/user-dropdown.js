@@ -17,6 +17,10 @@
       evt.stopPropagation();
 
       self.menuElement.toggleClass("active");
+
+      if ( $.browser.msie ) {
+        $('header').toggleClass('ie-user-menu-active');
+      }
     };
 
     this.hideDropdown = function() {

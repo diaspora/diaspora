@@ -6,12 +6,15 @@ require 'spec_helper'
 
 describe Jobs::NotifyLocalUsers do
   describe '#perfom' do
-    it 'should call Notification.notify for each user' do
+    it 'should call Notification.notify for each participant user' do
       person = Factory :person
-      object = Factory :status_message
+      post = Factory :status_message
 
+      StatusMessage.should_receive(:find_by_id).with(post.id).and_return(post)
+      post.should_receive(:participant_users).and_return([alice, eve])
       Notification.should_receive(:notify).with(instance_of(User), instance_of(StatusMessage), instance_of(Person)).twice
-      Jobs::NotifyLocalUsers.perform([alice.id, eve.id], object.class.to_s, object.id, person.id)
+
+      Jobs::NotifyLocalUsers.perform([alice.id, eve.id], post.class.to_s, post.id, person.id)
     end
   end
 end
