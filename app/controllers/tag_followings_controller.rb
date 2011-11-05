@@ -14,7 +14,7 @@ class TagFollowingsController < ApplicationController
   # POST /tag_followings
   # POST /tag_followings.xml
   def create
-    name_normalized = ActsAsTaggableOn::Tag.normalize( params['name'] )
+    name_normalized = ActsAsTaggableOn::Tag.normalize(params['name'])
     @tag = ActsAsTaggableOn::Tag.find_or_create_by_name(name_normalized)
     @tag_following = current_user.tag_followings.new(:tag_id => @tag.id)
 
@@ -40,8 +40,8 @@ class TagFollowingsController < ApplicationController
 
     if params[:remote]
       respond_to do |format|
-        format.all{}
-        format.js{ render 'tags/update' }
+        format.all {}
+        format.js { render 'tags/update' }
       end
     else
       if @tag_unfollowed
@@ -54,12 +54,13 @@ class TagFollowingsController < ApplicationController
   end
 
   def create_multiple
-    params[:tags].split(",").each do |name|
-      name_normalized = ActsAsTaggableOn::Tag.normalize(name)
-      @tag = ActsAsTaggableOn::Tag.find_or_create_by_name(name_normalized)
-      @tag_following = current_user.tag_followings.create(:tag_id => @tag.id)
+    if params[:tags].present?
+      params[:tags].split(",").each do |name|
+        name_normalized = ActsAsTaggableOn::Tag.normalize(name)
+        @tag = ActsAsTaggableOn::Tag.find_or_create_by_name(name_normalized)
+        @tag_following = current_user.tag_followings.create(:tag_id => @tag.id)
+      end
     end
-
     redirect_to multi_path
   end
 end

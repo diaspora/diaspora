@@ -38,7 +38,7 @@ module Diaspora
     end
 
     def self.format_tags(text, opts={})
-      return text  if opts[:plain_text]
+      return text if opts[:plain_text]
 
       text = ERB::Util.h(text) unless opts[:no_escape]
       regex = /(^|\s|>)#([\w-]+|&lt;3)/
