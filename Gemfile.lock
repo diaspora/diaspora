@@ -206,6 +206,7 @@ GEM
       rspec-instafail (~> 0.1.8)
       ruby-progressbar (~> 0.0.10)
     gem_plugin (0.2.3)
+    geocoder (1.0.5)
     gherkin (2.5.2)
       json (>= 1.4.6)
     haml (3.1.2)
@@ -510,6 +511,7 @@ DEPENDENCIES
   foreigner (= 0.9.1)
   foreman
   fuubar
+  geocoder
   haml (= 3.1.2)
   hoptoad_notifier
   http_accept_language!

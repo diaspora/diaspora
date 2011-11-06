@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111101202137) do
+ActiveRecord::Schema.define(:version => 20111106033438) do
 
   create_table "aspect_memberships", :force => true do |t|
     t.integer  "aspect_id",  :null => false
@@ -53,18 +53,25 @@ ActiveRecord::Schema.define(:version => 20111101202137) do
     t.integer "person_id"
   end
 
+  create_table "check_ins", :force => true do |t|
+    t.integer  "location_id"
+    t.integer  "post_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "comments", :force => true do |t|
-    t.text     "text",                                        :null => false
-    t.integer  "commentable_id",                              :null => false
-    t.integer  "author_id",                                   :null => false
-    t.string   "guid",                                        :null => false
+    t.text     "text",                                                      :null => false
+    t.integer  "commentable_id",                                            :null => false
+    t.integer  "author_id",                                                 :null => false
+    t.string   "guid",                                                      :null => false
     t.text     "author_signature"
     t.text     "parent_author_signature"
     t.text     "youtube_titles"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "likes_count",             :default => 0,      :null => false
-    t.string   "commentable_type",        :default => "Post", :null => false
+    t.integer  "likes_count",                           :default => 0,      :null => false
+    t.string   "commentable_type",        :limit => 60, :default => "Post", :null => false
   end
 
   add_index "comments", ["author_id"], :name => "index_comments_on_person_id"
@@ -138,6 +145,14 @@ ActiveRecord::Schema.define(:version => 20111101202137) do
   add_index "likes", ["guid"], :name => "index_likes_on_guid", :unique => true
   add_index "likes", ["target_id", "author_id", "target_type"], :name => "index_likes_on_target_id_and_author_id_and_target_type", :unique => true
   add_index "likes", ["target_id"], :name => "index_likes_on_post_id"
+
+  create_table "locations", :force => true do |t|
+    t.float    "longitude"
+    t.float    "latitude"
+    t.string   "address"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "mentions", :force => true do |t|
     t.integer "post_id",   :null => false
@@ -253,6 +268,7 @@ ActiveRecord::Schema.define(:version => 20111101202137) do
   add_index "people", ["owner_id"], :name => "index_people_on_owner_id", :unique => true
 
   create_table "photos", :force => true do |t|
+    t.integer  "tmp_old_id"
     t.integer  "author_id",                              :null => false
     t.boolean  "public",              :default => false, :null => false
     t.string   "diaspora_handle"
@@ -371,12 +387,12 @@ ActiveRecord::Schema.define(:version => 20111101202137) do
   add_index "services", ["user_id"], :name => "index_services_on_user_id"
 
   create_table "share_visibilities", :force => true do |t|
-    t.integer  "shareable_id",                       :null => false
+    t.integer  "shareable_id",                                     :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.boolean  "hidden",         :default => false,  :null => false
-    t.integer  "contact_id",                         :null => false
-    t.string   "shareable_type", :default => "Post", :null => false
+    t.boolean  "hidden",                       :default => false,  :null => false
+    t.integer  "contact_id",                                       :null => false
+    t.string   "shareable_type", :limit => 60, :default => "Post", :null => false
   end
 
   add_index "share_visibilities", ["contact_id"], :name => "index_post_visibilities_on_contact_id"

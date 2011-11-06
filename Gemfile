@@ -59,6 +59,10 @@ gem 'vanna', :git => 'git://github.com/MikeSofaer/vanna.git'
 gem 'i18n-inflector-rails', '~> 1.0'
 gem 'rails-i18n'
 
+# location services
+
+gem 'geocoder'
+
 # parsing
 
 gem 'nokogiri'
