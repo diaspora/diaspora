@@ -98,24 +98,13 @@ describe User do
         AppConfig[:redis_cache] = nil
       end
 
-      it "gets populated with latest 100 posts" do
-        cache = mock(:cache_exists? => true, :supported_order? => true, :size => 0, :ensure_populated! => mock, :post_ids => [])
-        RedisCache.stub(:new).and_return(cache)
-        @opts = alice.send(:prep_opts, Post, @opts)
-        cache.should_receive(:ensure_populated!).with(hash_including(@opts))
-
-        alice.visible_shareable_ids(Post, @opts)
+      it "kicks off a job that will populate the latest 100 posts" do
+        pending "we need a job for this - ensure_populated! is too costly to do synchronously for new users"
       end
 
       it 'does not get used if if all_aspects? option is not present' do
         RedisCache.should_not_receive(:new)
-
         alice.visible_shareable_ids(Post, @opts.merge({:all_aspects? => false}))
-      end
-
-      describe "#ensure_populated_cache" do
-        it 'does nothing if the cache is already populated'
-        it 're-populates the cache with the latest posts (in hashes)'
       end
 
       describe '#use_cache?' do
