@@ -107,6 +107,9 @@ describe Reshare do
         before do
           @root_object = @reshare.root
           @root_object.delete
+          @response = mock
+          @response.stub(:status).and_return(200)
+          @response.stub(:success?).and_return(true)
         end
 
         it 'fetches the root author from root_diaspora_id' do
@@ -120,19 +123,38 @@ describe Reshare do
           wf_prof_mock = mock
           wf_prof_mock.should_receive(:fetch).and_return(@original_author)
           Webfinger.should_receive(:new).and_return(wf_prof_mock)
+          
+          @response.stub(:body).and_return(@root_object.to_diaspora_xml)
 
-          response = mock
-          response.stub(:body).and_return(@root_object.to_diaspora_xml)
-
-          Faraday.default_connection.should_receive(:get).with(@original_author.url + short_post_path(@root_object.guid, :format => "xml")).and_return(response)
+          Faraday.default_connection.should_receive(:get).with(@original_author.url + short_post_path(@root_object.guid, :format => "xml")).and_return(@response)
           Reshare.from_xml(@xml)
+        end
+
+        context "fetching post" do
+          it "doesn't error out if the post is not found" do
+            @response.stub(:status).and_return(404)
+            Faraday.default_connection.should_receive(:get).and_return(@response)
+            
+            expect {
+              Reshare.from_xml(@xml)
+            }.to_not raise_error
+          end
+          
+          it "raises if there's another error receiving the post" do
+            @response.stub(:status).and_return(500)
+            @response.stub(:success?).and_return(false)
+            Faraday.default_connection.should_receive(:get).and_return(@response)
+            
+            expect {
+              Reshare.from_xml(@xml)
+            }.to raise_error RuntimeError
+          end
         end
 
         context 'saving the post' do
           before do
-            response = mock
-            response.stub(:body).and_return(@root_object.to_diaspora_xml)
-            Faraday.default_connection.stub(:get).with(@reshare.root.author.url + short_post_path(@root_object.guid, :format => "xml")).and_return(response)
+            @response.stub(:body).and_return(@root_object.to_diaspora_xml)
+            Faraday.default_connection.stub(:get).with(@reshare.root.author.url + short_post_path(@root_object.guid, :format => "xml")).and_return(@response)
           end
 
           it 'fetches the root post from root_guid' do
