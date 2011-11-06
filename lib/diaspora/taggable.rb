@@ -25,7 +25,7 @@ module Diaspora
     end
 
     def tag_strings
-      regex = /(?:^|\s)#([\w-]+|<3)/
+      regex = /(?:^|\s)#([#{ActsAsTaggableOn::Tag.tag_text_regexp}]+|<3)/u
       matches = self.
         send( self.class.field_with_tags ).
         scan(regex).
@@ -41,7 +41,7 @@ module Diaspora
       return text if opts[:plain_text]
 
       text = ERB::Util.h(text) unless opts[:no_escape]
-      regex = /(^|\s|>)#([\w-]+|&lt;3)/
+      regex =/(^|\s|>)#([#{ActsAsTaggableOn::Tag.tag_text_regexp}]+|&lt;3)/u
 
       text.to_str.gsub(regex) { |matched_string|
         pre, url_bit, clickable = $1, $2, "##{$2}"

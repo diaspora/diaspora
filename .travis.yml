@@ -7,6 +7,7 @@ rvm:
 
 env:
   - DB=postgres BUILD_TYPE=cucumber
+  - DB=postgres BUILD_TYPE=oauth-cucumber
   - DB=postgres BUILD_TYPE=other
 
 bundler_args: "--without development production"
