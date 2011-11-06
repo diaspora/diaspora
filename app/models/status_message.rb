@@ -178,7 +178,7 @@ class StatusMessage < Post
 
   private
   def self.tag_stream(tag_ids)
-    joins(:tags).where(:tags => {:id => tag_ids})
+    joins(:tags).where(:tags => {:id => tag_ids}).order("created_at")
   end
 
 end
