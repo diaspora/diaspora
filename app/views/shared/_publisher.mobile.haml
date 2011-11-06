@@ -15,6 +15,7 @@
   #message_container
     = status.hidden_field :provider_display_name, :value => 'mobile'
     = status.text_area :text, :placeholder => t('.whats_on_your_mind'), :style => "width:300px", :rows => 4, :autofocus => "autofocus"
+    = request.location ? ("Location: " + request.location.city + ", " + request.location.country_code) : ""
 
   %fieldset
     %span#publisher_service_icons

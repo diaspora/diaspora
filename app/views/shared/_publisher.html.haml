@@ -59,7 +59,6 @@
             = status.text_area :fake_text, :rows => 2, :value => h(publisher_formatted_text), :tabindex => 1, :placeholder => t('.whats_on_your_mind'),
               :title => "1. #{t('shared.public_explain.share')}", 'data-content' => t('shared.public_explain.new_user_welcome_message')
             = status.hidden_field :text, :value => h(publisher_hidden_text), :class => 'clear_on_submit'
-
             #file-upload{:title => t('.upload_photos')}
               = image_tag 'icons/camera.svg', :height => 14
 
@@ -72,6 +71,11 @@
           = hidden_field_tag 'aspect_ids[]', aspect_id.to_s
 
       .options_and_submit
+        #location_services
+          = form_for :location do |f|
+            = f.check_box t('.include_location')
+            = f.text_field t('.location'), :value => current_location(request.remote_ip), :style => "width:200px;"
+
         .public_toggle
           %span#publisher_service_icons
             - if current_user.services

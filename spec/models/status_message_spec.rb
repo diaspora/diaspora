@@ -232,6 +232,22 @@ STR
     it_should_behave_like 'it is taggable'
   end
 
+  describe 'location data' do
+    before(:each) do
+      WebMock.allow_net_connect!
+      @message = Factory.create(:status_message, :text => "I love WALRUSES!", :author => @user.person)
+      @location = Location.create!(:address => "Boston, Massachusetts, USA")
+    end
+
+    it 'should be writable' do
+      @message.locations << @location
+    end
+
+    it 'should not be required' do
+      @message.should be_valid
+    end
+  end
+
   describe "XML" do
     before do
       @message = Factory.create(:status_message, :text => "I hate WALRUSES!", :author => @user.person)

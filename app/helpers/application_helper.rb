@@ -40,6 +40,23 @@ module ApplicationHelper
     image_tag 'icons/monotone_question.png', :class => 'what_is_this', :title => text
   end
 
+  def current_location(ip)
+    search = Geocoder.search(ip).first.data
+    city = search['city']
+    region_code = search['region_code']
+    country_code = search['country_code']
+    (city ? city + ", " : "") + (region_code ? region_code + ", " : "") + country_code
+  end
+
+  def convert_location(name, locale)
+    xml = Nokogiri::XML(open("http://api.openstreetmap.org/" + CGI.escape("*[name=#{name}][name:#{locale}=*]")))
+    if xml.xpath("//tag").empty?
+      name
+    else
+      xml.xpath("//tag").find { |tag| tag.attributes["k"].value == "name:#{locale}" }.attributes["v"].value
+    end
+  end
+
   def get_javascript_strings_for(language)
     defaults = I18n.t('javascripts', :locale => DEFAULT_LANGUAGE)
 

@@ -755,6 +755,8 @@ en:
       whats_on_your_mind: "What's on your mind?"
       publishing_to: "publishing to: "
       discard_post: "Discard post"
+      location: "Location"
+      include_location: "Include location?"
       new_user_prefill:
         hello: "Hey everyone, I'm #%{new_user_tag}. "
         i_like: "I'm interested in %{tags}. "

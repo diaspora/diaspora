@@ -47,6 +47,12 @@ GIT
   specs:
     http_accept_language (1.0.1)
 
+GIT
+  remote: https://github.com/alexreisner/geocoder.git
+  revision: 6dfed89111415082c6725fdd98db726dad8a58ff
+  specs:
+    geocoder (1.0.5)
+
 GEM
   remote: http://rubygems.org/
   specs:
@@ -510,6 +516,7 @@ DEPENDENCIES
   foreigner (= 0.9.1)
   foreman
   fuubar
+  geocoder!
   haml (= 3.1.2)
   hoptoad_notifier
   http_accept_language!
