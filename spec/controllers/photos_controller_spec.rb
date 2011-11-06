@@ -35,6 +35,12 @@ describe PhotosController do
   end
 
   describe '#index' do
+    it "succeeds without any available pictures" do
+      get :index, :person_id => Factory(:person).id.to_s
+      
+      response.should be_success
+    end
+    
     it "displays the logged in user's pictures" do
       get :index, :person_id => alice.person.id.to_s
       assigns[:person].should == alice.person
