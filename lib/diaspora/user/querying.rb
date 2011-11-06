@@ -28,7 +28,7 @@ module Diaspora
         if use_cache?(opts)
           cache = RedisCache.new(self, opts[:order_field])
 
-          cache.ensure_populated!(opts)
+          #cache.ensure_populated!(opts)
           name = klass.to_s.downcase
           shareable_ids = cache.send(name+"_ids", opts[:max_time], opts[:limit])
         end
