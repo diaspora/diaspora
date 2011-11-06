@@ -9,7 +9,7 @@ network.
 **TL;DR**
 
 ## Are you a user?
-You can get an account on any Diaspora pod(http://podup.sargodarya.de or http://dspr.tk/a for a list of pods), or sign up for an invite
+You can get an account on any Diaspora pod(http://podupti.me or http://dspr.tk/a for a list of pods), or sign up for an invite
 at the pod run by the original development team at https://joindiaspora.com
 
 ## Are you a developer?
@@ -21,7 +21,7 @@ Read on for how to get started.
 
 ## Want an invite?
 
-Diaspora is decentralized. You don't need an invite to joindiaspora.com to fully participate. Just choose your pod for example at http://podup.sargodarya.de or http://dspr.tk/a If you still want one have a look at https://github.com/diaspora/diaspora/wiki/Invitations Or setup your own pod 
+Diaspora is decentralized. You don't need an invite to joindiaspora.com to fully participate. Just choose your pod for example at http://podupti.me or http://dspr.tk/a If you still want one have a look at https://github.com/diaspora/diaspora/wiki/Invitations Or setup your own pod 
 
 Even if you're not a programmer, we'd love for you to give Diaspora a spin; all suggestions and comments welcome!
 
