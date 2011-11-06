@@ -48,6 +48,15 @@ module ApplicationHelper
     (city ? city + ", " : "") + (region_code ? region_code + ", " : "") + country_code
   end
 
+  def convert_location(name, locale)
+    xml = Nokogiri::XML(open("http://api.openstreetmap.org/" + CGI.escape("*[name=#{name}][name:#{locale}=*]")))
+    if xml.xpath("//tag").empty?
+      name
+    else
+      xml.xpath("//tag").find { |tag| tag.attributes["k"].value == "name:#{locale}" }.attributes["v"].value
+    end
+  end
+
   def get_javascript_strings_for(language)
     defaults = I18n.t('javascripts', :locale => DEFAULT_LANGUAGE)
 
