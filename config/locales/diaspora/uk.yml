@@ -671,6 +671,7 @@ uk:
     failure: 
       error: "Сталася помилка при підключенні цього сервісу"
     finder: 
+      fetching_contacts: "Diaspora is populating your %{service} friends please check back in a few minutes."
       no_friends: "Не знайдено друзів з Facebook."
       service_friends: "Друзі з %{service}"
     index: 
@@ -847,7 +848,10 @@ uk:
     confirm_email: 
       email_confirmed: "Адреса %{email} активована"
       email_not_confirmed: "Адреса не може бути активована. Невірне посилання?"
-    destroy: "Ваш аккаунт заблокований. Приблизно через 20 хвилин аккаунт буде остаточно закритий. Дякуємо Вам за використання Діаспори."
+    destroy: 
+      no_password: "Please enter your current password to close your account."
+      success: "Your account has been locked.  It may take 20 minutes for us to finish closing your account.  Thank you for trying Diaspora."
+      wrong_password: "The entered password didn't match your current password."
     edit: 
       also_commented: "... хтось коментував повідомлення ваших контактів?"
       change: "Змінити"

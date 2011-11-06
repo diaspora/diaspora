@@ -169,11 +169,11 @@ pl:
   back: "Powrót"
   blocks: 
     create: 
-      failure: "I couldn't ignore that user.  #evasion"
-      success: "Alright, you won't see that user in your stream again. #silencio!"
+      failure: "Nie mogę zignorować tego użytkownika. #evasion"
+      success: "Dobra, ten użytkownik nie pojawi się ponownie w Twoim strumieniu. #silencio!"
     destroy: 
-      failure: "I couldn't stop ignoring that user.  #evasion"
-      success: "Let's see what they have to say! #sayhello"
+      failure: "Nie mogę przestać ignorować tego użytkownika.  #evasion"
+      success: "Zobaczmy co mają do powiedzenia! #sayhello"
   bookmarklet: 
     explanation: "Publikuj w Disporze z każdego miejsca dodając do zakładek %{link}."
     explanation_link_text: "te łącze"
@@ -426,19 +426,19 @@ pl:
       two: "%{actors} wysłało ci wiadomość."
       zero: "%{actors} wysłał ci wiadomość."
     reshared: 
-      few: "%{actors} udostępnili ponownie Twój %{post_link}."
-      many: "%{actors} udostępnili ponownie Twój %{post_link}."
+      few: "%{actors} przekazali dalej Twój %{post_link}."
+      many: "%{actors} przekazali dalej Twój %{post_link}."
       one: "%{actors} podzielił się twoim wpisem %{post_link}."
-      other: "%{actors} udostępnili ponownie Twój %{post_link}."
-      two: "%{actors} udostępnili ponownie Twój %{post_link}."
-      zero: "%{actors} udostępniło ponownie Twój %{post_link}."
+      other: "%{actors} przekazali dalej Twój %{post_link}."
+      two: "%{actors} przekazali dalej Twój %{post_link}."
+      zero: "%{actors} przekazał dalej Twój %{post_link}."
     reshared_post_deleted: 
-      few: "%{actors} udostępniło ponownie Twój usunięty wpis."
-      many: "%{actors} udostępnili ponownie Twój usunięty wpis."
-      one: "%{actors} udostępnił(a) ponownie Twój usunięty wpis."
-      other: "%{actors} udostępnili ponownie Twój usunięty wpis."
-      two: "%{actors} ponownie udostępnili Twój usunięty wpis."
-      zero: "%{actors} udostępnili ponownie Twój usunięty wpis."
+      few: "%{actors} przekazali dalej Twój usunięty wpis."
+      many: "%{actors} przekazali dalej Twój usunięty wpis."
+      one: "%{actors} przekaza@{m:ł|f:ła|n:ło} dalej Twój usunięty wpis."
+      other: "%{actors} przekazali ponownie Twój usunięty wpis."
+      two: "%{actors} przekazali dalej Twój usunięty wpis."
+      zero: "%{actors} przekazali dalej Twój usunięty wpis."
     started_sharing: 
       few: "%{actors} zaczęli Ci udostępniać."
       many: "%{actors} zaczęli Ci udostępniać."
@@ -465,7 +465,7 @@ pl:
     private_message: 
       reply_to_or_view: "Odpowiedz lub wyświetl wątek >"
     reshared: 
-      reshared: "%{name} udostępni@{m:ł|f:ła|n:ł} ponownie Twój wpis"
+      reshared: "%{name} przekaza@{m:ł|f:ła|n:ł} ponownie Twój wpis"
       view_post: "Wyświetl wpis >"
     single_admin: 
       admin: "Administrator Diaspory"
@@ -514,7 +514,7 @@ pl:
     show: 
       does_not_exist: "Osoba nie istnieje!"
       has_not_shared_with_you_yet: "%{name} nie udostępnia Ci jeszcze żadnych wpisów!"
-      ignoring: "You are ignoring all posts from %{name}."
+      ignoring: "Ignorujesz wszystkie wpisy od %{name}."
       incoming_request: "%{name} chce Ci udostępniać"
       mention: "Wspomnij"
       message: "Wiadomość"
@@ -573,7 +573,7 @@ pl:
       not_found: "Nie można odnaleźć wskazanego wpisu."
       permalink: "permalink"
   previous: "poprzedni"
-  privacy: "Privacy"
+  privacy: "Prywatność"
   profile: "Profil"
   profiles: 
     edit: 
@@ -650,14 +650,14 @@ pl:
     reshare: 
       deleted: "Oryginał został usunięty przez autora."
       reshare: 
-        few: "%{count} ponownych udostępnień"
-        many: " %{count} ponownych udostępnień"
-        one: "1 ponowne udostępnienie"
+        few: "Przekazano dalej: %{count}"
+        many: "Przekazano dalej: %{count}"
+        one: "Przekazano dalej: 1"
         other: "%{count} ponowne udostępnienia"
-        two: " %{count} ponowne udostępnienia"
+        two: "Przekazano dalej: %{count}"
         zero: "Ponownie udostępnij"
-      reshare_confirmation: "Udostępnić ponownie wpis użytkownika %{author}?"
-      reshare_original: "Udostępnij ponownie oryginał"
+      reshare_confirmation: "Przekazać dalej wpis użytkownika %{author}?"
+      reshare_original: "Przekaż dalej oryginał"
       reshared_via: "Ponownie udostępniony przez"
       show_original: "Wyświetl oryginał"
   search: "Znajdź"
@@ -671,6 +671,7 @@ pl:
     failure: 
       error: "wystąpił błąd podczas łączenia z tą usługą"
     finder: 
+      fetching_contacts: "Diaspora is populating your %{service} friends please check back in a few minutes."
       no_friends: "Nie znaleziono znajomych z Facebooka."
       service_friends: "Znajomi z %{service} "
     index: 
@@ -692,8 +693,8 @@ pl:
   settings: "Ustawienia"
   share_visibilites: 
     update: 
-      post_hidden_and_muted: "%{name}'s post has been hidden, and notifications have been muted."
-      see_it_on_their_profile: "If you want to see updates on this post, visit %{name}'s profile page."
+      post_hidden_and_muted: "Wpisy użytkownika %{name} zostały ukryte, a powiadomienia wyciszone."
+      see_it_on_their_profile: "Jeśli chcesz zobaczyć aktualizacje tego wpisu, odwiedź profil użytkownika %{name}."
   shared: 
     add_contact: 
       add_new_contact: "Dodaj nowy kontakt"
@@ -753,14 +754,14 @@ pl:
       upload_photos: "Prześlij zdjęcia"
       whats_on_your_mind: "O czym myślisz?"
     reshare: 
-      reshare: "Podziel się ponownie"
+      reshare: "Przekaż dalej"
     stream_element: 
       connect_to_comment: "Połącz się z tym użytkownikiem, aby komentować jego wpisy"
       currently_unavailable: "dodawanie komentarzy jest aktualnie niemożliwe"
       dislike: "Nie lubię"
-      hide_and_mute: "Ukryj i wycisz"
-      ignore_user: "Ignore %{name}"
-      ignore_user_description: "Ignore and remove user from all aspects?"
+      hide_and_mute: "Ukryj i wycisz wpis"
+      ignore_user: "Ignoruj - %{name}"
+      ignore_user_description: "Dodać użytkownika do listy ignorowanych i usunąć ze wszystkich aspektów?"
       like: "Lubię"
       shared_with: "Opublikowano w: %{aspect_names}"
       unlike: "Nie lubię"
@@ -847,7 +848,10 @@ pl:
     confirm_email: 
       email_confirmed: "Adres e-mail %{email} został aktywowany"
       email_not_confirmed: "Nie można aktywować adresu e-mail. Nieprawidłowe łącze?"
-    destroy: "Konto zostało zablokowane. Dokończenie zamykania konta może nam zająć do 20 minut. Dziękujemy za wypróbowanie Diaspory."
+    destroy: 
+      no_password: "Wpisz hasło, aby zamknąć konto."
+      success: "Konto zostało zablokowane. Zakończenie zamykania konta może zająć do 20 minut. Dziękujemy za wypróbowanie Diaspory."
+      wrong_password: "Wprowadzone hasło nie jest zgodne z aktualnym hasłem."
     edit: 
       also_commented: "...ktoś także skomentuje wpis jednego z z moich kontaktów"
       change: "Zmień"
@@ -869,7 +873,7 @@ pl:
       photo_export_unavailable: "Eksportowanie zdjęć jest aktualnie niedostępne"
       private_message: "...otrzymam prywatną wiadomość"
       receive_email_notifications: "Wysyłaj powiadomienia e-mail jeśli..."
-      reshared: "...ktoś ponownie udostępnił mój post"
+      reshared: "...ktoś przekazał dalej mój wpis"
       show_community_spotlight: "Wyświetlić osoby w centrum uwagi społeczności w Strumieniu?"
       show_getting_started: "Ponownie włącz - Pierwsze kroki"
       started_sharing: "...ktoś zaczął mi coś udostępniać"
@@ -895,9 +899,9 @@ pl:
       simply_visit: "Wystarczy odwiedzić"
       works_on_modern: "Działa na wszystkich nowoczesnych smartfonach"
     privacy_settings: 
-      ignored_users: "Ignored Users"
-      stop_ignoring: "Stop ignoring"
-      title: "Privacy Settings"
+      ignored_users: "Ignorowani użytkownicy"
+      stop_ignoring: "Przestań ignorować"
+      title: "Ustawienia prywatności"
     public: 
       does_not_exist: "Użytkownik %{username} nie istnieje!"
     update: 

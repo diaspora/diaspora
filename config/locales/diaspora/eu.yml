@@ -671,6 +671,7 @@ eu:
     failure: 
       error: "huts zerbitzu hori konektatzean"
     finder: 
+      fetching_contacts: "Diaspora is populating your %{service} friends please check back in a few minutes."
       no_friends: "Ez dira Facebookeko lagunak aurkitu."
       service_friends: "%{service}(e)ko Lagunak"
     index: 
@@ -847,7 +848,10 @@ eu:
     confirm_email: 
       email_confirmed: "E-MPosta %{email} gaitua"
       email_not_confirmed: "E-MPosta ezin izan da gaitu. Esteka baliogabea agian?"
-    destroy: "Zure kontua giltzapetuta dago. 20 minutu eraman dezake kontua ezabatzeak. Eskerrik asko Diaspora erabiltzeagatik."
+    destroy: 
+      no_password: "Please enter your current password to close your account."
+      success: "Your account has been locked.  It may take 20 minutes for us to finish closing your account.  Thank you for trying Diaspora."
+      wrong_password: "The entered password didn't match your current password."
     edit: 
       also_commented: "...beste norbaitek zure adiskide baten mezua iruzkintzen duenean?"
       change: "Aldatu"

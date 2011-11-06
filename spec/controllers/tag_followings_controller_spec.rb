@@ -76,38 +76,9 @@ describe TagFollowingsController do
         assigns[:tag].name.should == "somestuff"
       end
 
-      it 'strips invalid characters from the tag name' do
-        {
-          'node.js'                        => 'nodejs',
-          '#unneeded-hash'                 => 'unneeded-hash',
-          'hash#inside'                    => 'hashinside',
-          '.dotatstart'                    => 'dotatstart',
-          'f!u@n#k$y%-c^h&a*r(a)c{t}e[r]s' => 'funky-characters',
-          'how about spaces'               => 'howaboutspaces',
-        }.each do |invalid, normalized|
-          ActsAsTaggableOn::Tag.find_by_name(invalid).should be_nil
-          ActsAsTaggableOn::Tag.find_by_name(normalized).should be_nil
-
-          post :create, :name => invalid
-
-          ActsAsTaggableOn::Tag.find_by_name(invalid).should be_nil
-          ActsAsTaggableOn::Tag.find_by_name(normalized).should_not be_nil, "Expected #{normalized.inspect} not to be nil"
-          bob.reload
-          bob.followed_tags.map(&:name).should include(normalized)
-          bob.followed_tags.map(&:name).should_not include(invalid)
-        end
-      end
-
-      it 'follows love' do
-        name = '<3'
-
-        ActsAsTaggableOn::Tag.find_by_name(name).should be_nil
-
-        post :create, :name => name
-
-        ActsAsTaggableOn::Tag.find_by_name(name).should_not be_nil
-        bob.reload
-        bob.followed_tags.map(&:name).should include(name)
+      it "normalizes the tag name" do
+        post :create, :name => "foo:bar"
+        assigns[:tag].name.should == "foobar"
       end
     end
 
@@ -163,47 +134,28 @@ describe TagFollowingsController do
   end
 
   describe "#create_multiple" do
+    it "redirects" do
+      post :create_multiple, :tags => "#foo,#bar"
+      response.should be_redirect
+    end
+
+    it "handles no tags parameter" do
+      expect { post :create_multiple, :name => 'not tags' }.to_not raise_exception
+    end
+
     it "adds multiple tags" do
-      lambda{
-        post :create_multiple, :tags => "#tags,#cats,#bats,"
-      }.should change{
-        bob.followed_tags.count
-      }.by(3)
+      expect { post :create_multiple, :tags => "#tags,#cats,#bats," }.to change{ bob.followed_tags.count }.by(3)
     end
 
     it "adds non-followed tags" do
       TagFollowing.create!(:tag => @tag, :user => bob )
-
-      lambda{
-        post :create_multiple, :tags => "#partytimeexcellent,#cats,#bats,"
-      }.should change{
-        bob.followed_tags.count
-      }.by(2)
-
-      response.should be_redirect
+      expect { post :create_multiple, :tags => "#partytimeexcellent,#a,#b," }.to change{ bob.followed_tags.count }.by(2)
     end
 
-    it 'strips invalid characters from the tag name' do
-      {
-        'node.js' => 'nodejs',
-        '#unneeded-hash' => 'unneeded-hash',
-        'hash#inside' => 'hashinside',
-        '.dotatstart' => 'dotatstart',
-        'f!u@n#k$y%-c^h&a*r(a)c{t}e[r]s' => 'funky-characters',
-        'how about spaces' => 'howaboutspaces',
-      }.each do |invalid, normalized|
-        ActsAsTaggableOn::Tag.find_by_name(invalid).should be_nil
-        ActsAsTaggableOn::Tag.find_by_name(normalized).should be_nil
-
-        post :create_multiple, :tags => invalid
-
-        ActsAsTaggableOn::Tag.find_by_name(invalid).should be_nil
-        ActsAsTaggableOn::Tag.find_by_name(normalized).should_not be_nil
-        bob.reload
-        bob.followed_tags.map(&:name).should include(normalized)
-        bob.followed_tags.map(&:name).should_not include(invalid)
-      end
+    it "normalizes the tag names" do
+      bob.followed_tags.delete_all
+      post :create_multiple, :tags => "#foo:bar,#bar#foo"
+      bob.followed_tags(true).map(&:name).should =~ ["foobar", "barfoo"]
     end
   end
-
 end

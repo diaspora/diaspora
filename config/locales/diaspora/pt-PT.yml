@@ -671,6 +671,7 @@ pt-PT:
     failure: 
       error: "ocorreu um erro ao ligar a esse serviço"
     finder: 
+      fetching_contacts: "Diaspora is populating your %{service} friends please check back in a few minutes."
       no_friends: "Nenhum amigo do Facebook foi encontrado."
       service_friends: "Amigos do %{service}"
     index: 
@@ -847,7 +848,10 @@ pt-PT:
     confirm_email: 
       email_confirmed: "Email %{email} activado"
       email_not_confirmed: "O email não pode ser activado. Hiperligação errada?"
-    destroy: "A sua conta foi encerrada. Pode demorar até 20 minutos para que terminemos o processo de encerramento da sua conta. Obrigado por experimentar o Diaspora."
+    destroy: 
+      no_password: "Please enter your current password to close your account."
+      success: "Your account has been locked.  It may take 20 minutes for us to finish closing your account.  Thank you for trying Diaspora."
+      wrong_password: "The entered password didn't match your current password."
     edit: 
       also_commented: "...alguém também comenta na publicação do seu contacto?"
       change: "Alterar"

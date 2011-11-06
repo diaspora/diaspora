@@ -154,7 +154,7 @@ cy:
       manage_your_aspects: "Manage your aspects."
       no_contacts: "You don't have any contacts here yet."
       view_all_community_spotlight: "See all community spotlight"
-      view_all_contacts: "View all contacts"
+      view_all_contacts: "Gweld cysylltiadau i gŷd"
     show: 
       edit_aspect: "edit aspect"
     two: "%{count} agweddau"
@@ -320,7 +320,7 @@ cy:
       profile: "profile"
       recent_notifications: "Recent notifications"
       settings: "settings"
-      view_all: "View all"
+      view_all: "Gweld popeth"
   likes: 
     likes: 
       people_dislike_this: 
@@ -350,26 +350,26 @@ cy:
   no_results: "No Results Found"
   notifications: 
     also_commented: 
-      few: "%{actors} also commented on %{post_author}'s %{post_link}."
-      many: "%{actors} also commented on %{post_author}'s %{post_link}."
-      one: "%{actors} also commented on %{post_author}'s %{post_link}."
-      other: "%{actors} also commented on %{post_author}'s %{post_link}."
-      two: "%{actors} also commented on %{post_author}'s %{post_link}."
-      zero: "%{actors} also commented on %{post_author}'s %{post_link}."
+      few: "Mae %{actors} hefyd wedi sylwi ar %{post_link} %{post_author}."
+      many: "Mae %{actors} hefyd wedi sylwi ar %{post_link} %{post_author}."
+      one: "Mae %{actors} hefyd wedi sylwi ar %{post_link} %{post_author}."
+      other: "Mae %{actors} hefyd wedi sylwi ar %{post_link} %{post_author}."
+      two: "Mae %{actors} hefyd wedi sylwi ar %{post_link} %{post_author}."
+      zero: "Mae %{actors} hefyd wedi sylwi ar %{post_link} %{post_author}."
     also_commented_deleted: 
-      few: "%{actors} commented on a deleted post."
-      many: "%{actors} commented on a deleted post."
-      one: "%{actors} commented on a deleted post."
-      other: "%{actors} commented on a deleted post."
-      two: "%{actors} commented on a deleted post."
-      zero: "%{actors} commented on a deleted post."
+      few: "Mae %{actors} wedi sylwad ar bost dileuwyd"
+      many: "Mae %{actors} wedi sylwad ar bost dileuwyd"
+      one: "Mae %{actors} wedi sylwad ar bost dileuwyd"
+      other: "Mae %{actors} wedi sylwad ar bost dileuwyd"
+      two: "Mae %{actors} wedi sylwad ar bost dileuwyd"
+      zero: "Mae %{actors} wedi sylwad ar bost dileuwyd"
     comment_on_post: 
-      few: "%{actors} commented on your %{post_link}."
-      many: "%{actors} commented on your %{post_link}."
-      one: "%{actors} commented on your %{post_link}."
-      other: "%{actors} commented on your %{post_link}."
-      two: "%{actors} commented on your %{post_link}."
-      zero: "%{actors} commented on your %{post_link}."
+      few: "%{actors} sylwadau ar eich %{post_link}."
+      many: "%{actors} sylwadau ar eich %{post_link}."
+      one: "%{actors} sylwadau ar eich %{post_link}."
+      other: "%{actors} sylwadau ar eich %{post_link}."
+      two: "%{actors} sylwadau ar eich %{post_link}."
+      zero: "%{actors} sylwadau ar eich %{post_link}."
     helper: 
       new_notifications: 
         few: "%{count} hysbysiadau newydd"
@@ -527,7 +527,7 @@ cy:
       to_accept_or_ignore: "to accept or ignore it."
     sub_header: 
       add_some: "add some"
-      edit: "edit"
+      edit: "golygu"
       you_have_no_tags: "you have no tags!"
     two: "%{count} people"
     webfinger: 
@@ -671,6 +671,7 @@ cy:
     failure: 
       error: "there was an error connecting that service"
     finder: 
+      fetching_contacts: "Diaspora is populating your %{service} friends please check back in a few minutes."
       no_friends: "Dim ffrindiau Facebook wedi darganfod."
       service_friends: "Ffrindiau %{service}"
     index: 
@@ -789,7 +790,7 @@ cy:
     aspects: 
       title: "Eich Agweddau"
     aspects_stream: "Aspects"
-    commented_on: "commented on"
+    commented_on: "wedi sylwad ar"
     community_spotlight_stream: "Community Spotlight"
     followed_tag: 
       add_a_tag: "Add a tag"
@@ -824,7 +825,7 @@ cy:
       follow: "Follow #%{tag}"
       followed_by: "followed by"
       following: "Following #%{tag}"
-      nobody_talking: "Nobody is talking about %{tag} yet."
+      nobody_talking: "Does neb yn siarad am %{tag} eto."
       people_tagged_with: "People tagged with %{tag}"
       posts_tagged_with: "Posts tagged with #%{tag}"
       stop_following: "Stop Following #%{tag}"
@@ -847,7 +848,10 @@ cy:
     confirm_email: 
       email_confirmed: "E-Mail %{email} activated"
       email_not_confirmed: "E-Mail could not be activated. Wrong link?"
-    destroy: "Mae eich cyfrif wedi'i gloi. Gall gymryd 20 munud er mwyn i ni orffen gau eich cyfrif. Diolch i chi am ddefnyddio Diaspora."
+    destroy: 
+      no_password: "Please enter your current password to close your account."
+      success: "Your account has been locked.  It may take 20 minutes for us to finish closing your account.  Thank you for trying Diaspora."
+      wrong_password: "The entered password didn't match your current password."
     edit: 
       also_commented: "...someone also comments on your contact's post?"
       change: "Change"

@@ -671,6 +671,7 @@ ja:
     failure: 
       error: サービスへ接続中にエラーが発生しました。
     finder: 
+      fetching_contacts: "Diaspora is populating your %{service} friends please check back in a few minutes."
       no_friends: "No Facebook friends found."
       service_friends: "%{service} Friends"
     index: 
@@ -847,7 +848,10 @@ ja:
     confirm_email: 
       email_confirmed: "E-Mail %{email} activated"
       email_not_confirmed: "E-Mail could not be activated. Wrong link?"
-    destroy: アカウント閉鎖に成功しました。
+    destroy: 
+      no_password: "Please enter your current password to close your account."
+      success: "Your account has been locked.  It may take 20 minutes for us to finish closing your account.  Thank you for trying Diaspora."
+      wrong_password: "The entered password didn't match your current password."
     edit: 
       also_commented: "他の人も連絡先の投稿にコメントしたとき"
       change: "変更"

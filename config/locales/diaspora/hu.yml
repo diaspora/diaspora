@@ -671,6 +671,7 @@ hu:
     failure: 
       error: "Hiba történt a szolgáltatáshoz kapcsolódás közben"
     finder: 
+      fetching_contacts: "Diaspora is populating your %{service} friends please check back in a few minutes."
       no_friends: "Nincs Facebook ismerősöd"
       service_friends: "%{service} ismerős"
     index: 
@@ -849,7 +850,10 @@ hu:
     confirm_email: 
       email_confirmed: "E-Mail (%{email}) aktiválva"
       email_not_confirmed: "Email cím aktiválása sikertelen. Rossz a link?"
-    destroy: "Fiók sikeresen lezárult. Körülbelül 20 perc míg végleg lezárjuk a fiókodat. Köszönjük, hogy kipróbáltad a Diaspora-t."
+    destroy: 
+      no_password: "Please enter your current password to close your account."
+      success: "Your account has been locked.  It may take 20 minutes for us to finish closing your account.  Thank you for trying Diaspora."
+      wrong_password: "The entered password didn't match your current password."
     edit: 
       also_commented: "...más is hozzászólt az ismerősöd bejegyzéséhez?"
       change: "Módosítás"

@@ -169,11 +169,11 @@ ru:
   back: "Назад"
   blocks: 
     create: 
-      failure: "I couldn't ignore that user.  #evasion"
-      success: "Alright, you won't see that user in your stream again. #silencio!"
+      failure: "Я не могу заблокировать этого пользователя.  #evasion"
+      success: "Хорошо, вы больше не увидете этого пользователя в своем потоке. #silencio!"
     destroy: 
-      failure: "I couldn't stop ignoring that user.  #evasion"
-      success: "Let's see what they have to say! #sayhello"
+      failure: "Не могу прекратить блокировать этого пользователя.  #evasion"
+      success: "Посмотрим, что они скажут! #sayhello"
   bookmarklet: 
     explanation: "Пишите в Диаспору с любой страницы с помощью %{link}."
     explanation_link_text: "этой закладки"
@@ -514,7 +514,7 @@ ru:
     show: 
       does_not_exist: "Персоны не существует!"
       has_not_shared_with_you_yet: "%{name} еще не делился записями с вами!"
-      ignoring: "You are ignoring all posts from %{name}."
+      ignoring: "Вы блокируете все записи пользователя %{name}."
       incoming_request: "%{name} хочет поделиться с вами"
       mention: "Упоминание"
       message: "Сообщение"
@@ -573,7 +573,7 @@ ru:
       not_found: "Извините, мы не смогли найти эту запись."
       permalink: "постоянная ссылка"
   previous: "предыдущая"
-  privacy: "Privacy"
+  privacy: "Приватность"
   profile: "Профиль"
   profiles: 
     edit: 
@@ -628,7 +628,7 @@ ru:
       sent: "Вы просили поделиться с %{name}. Они должны увидеть это при следующем входе в Диаспору."
     destroy: 
       error: "Выберите, пожалуйста, один аспект!"
-      ignore: "Игнорированые запросы на дружбу."
+      ignore: "Проигнорированные запросы на дружбу."
       success: "Теперь вы друзья."
     helper: 
       new_requests: 
@@ -671,6 +671,7 @@ ru:
     failure: 
       error: "Произошла ошибка при подключении этого сервиса"
     finder: 
+      fetching_contacts: "Диаспора добавляет ваших друзей из %{service}. Пожалуйста, подождите пару минут."
       no_friends: "Не найдено друзей из Facebook."
       service_friends: "Друзья из %{service}"
     index: 
@@ -692,8 +693,8 @@ ru:
   settings: "Настройки"
   share_visibilites: 
     update: 
-      post_hidden_and_muted: "%{name}'s post has been hidden, and notifications have been muted."
-      see_it_on_their_profile: "If you want to see updates on this post, visit %{name}'s profile page."
+      post_hidden_and_muted: "Запись пользователя %{name} была скрыта, а уведомления отключены."
+      see_it_on_their_profile: "Если вы хотите видеть обновления этой записи, посетите профиль пользователя %{name}."
   shared: 
     add_contact: 
       add_new_contact: "Добавить контакт"
@@ -731,19 +732,19 @@ ru:
       control_your_audience: "Выбирайте свою аудиторию"
       logged_in: "вошли в %{service}"
       manage: "управление подключенными сервисами"
-      new_user_welcome_message: "Используйте #метки для классификации своих записей и поиска людей со схожими интересами. Привлекайте внимание интересных людей с помощью @упоминаний"
+      new_user_welcome_message: "Используйте #метки для классификации своих записей и поиска людей со схожими интересами. Привлекайте внимание интересных людей с помощью @упоминаний."
       outside: "Публичные сообщения доступны для чтения всем, даже за пределами Диаспоры."
       share: "Делитесь"
       title: "Настройка подключенных услуг"
-      visibility_dropdown: "Используйте это выпадающее меню для смены видимости вашей записи (мы предлагаем вам сделать первую запись публичной)."
+      visibility_dropdown: "Используйте это выпадающее меню для смены видимости вашей записи (мы предлагаем вам сделать эту первую запись публичной)."
     publisher: 
       all: "все"
       all_contacts: "все контакты"
       discard_post: "Отменить запись"
       make_public: "сделать публичным"
       new_user_prefill: 
-        hello: "Привет всем, я тут #%{new_user_tag}."
-        i_like: "Я интересуюсь %{tags}."
+        hello: "Привет всем, я тут новенький (#%{new_user_tag})."
+        i_like: "Мне интересны метки %{tags}."
         invited_by: "Спасибо за приглашение, "
       post_a_message_to: "Опубликовать сообщение для %{aspect}"
       posting: Отправка...
@@ -759,8 +760,8 @@ ru:
       currently_unavailable: "комментирование недоступно"
       dislike: "Не нравится"
       hide_and_mute: "Скрыть и отключить уведомления"
-      ignore_user: "Ignore %{name}"
-      ignore_user_description: "Ignore and remove user from all aspects?"
+      ignore_user: "Блокировать пользователя %{name}"
+      ignore_user_description: "Блокировать и удалить пользователя из всех аспектов?"
       like: "Мне нравится"
       shared_with: "Для аспектов: %{aspect_names}"
       unlike: "Не нравится"
@@ -847,7 +848,10 @@ ru:
     confirm_email: 
       email_confirmed: "Адрес %{email} активирован"
       email_not_confirmed: "Адрес не может быть активирован. Неверная ссылка?"
-    destroy: "Ваш аккаунт заблокирован. Примерно через 20 минут аккаунт будет окончательно закрыт. Благодарим Вас за использование Диаспоры."
+    destroy: 
+      no_password: "Пожалуйста, введите пароль, чтобы закрыть свою учетную запись."
+      success: "Ваша учетная запись заблокирована. На полное закрытие вашей учетной записи может уйти до 20 минут. Спасибо, что были вместе с нами."
+      wrong_password: "Введенный вами пароль не совпадает с вашим текущим паролем."
     edit: 
       also_commented: "... кто-то комментировал сообщения ваших контактов?"
       change: "Изменить"
@@ -895,9 +899,9 @@ ru:
       simply_visit: "Просто зайдите на"
       works_on_modern: "Работает на всех современных смартфонах"
     privacy_settings: 
-      ignored_users: "Ignored Users"
-      stop_ignoring: "Stop ignoring"
-      title: "Privacy Settings"
+      ignored_users: "Заблокированные пользователи"
+      stop_ignoring: "Прекратить блокирование"
+      title: "Настройки приватности"
     public: 
       does_not_exist: "Пользователя %{username} не существует!"
     update: 

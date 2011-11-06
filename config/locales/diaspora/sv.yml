@@ -671,6 +671,7 @@ sv:
     failure: 
       error: "Det blev ett fel vid anslutning till tjänsten"
     finder: 
+      fetching_contacts: "Diaspora is populating your %{service} friends please check back in a few minutes."
       no_friends: "Hittade inga vänner ifrån Facebook."
       service_friends: "%{service}-vänner"
     index: 
@@ -847,7 +848,10 @@ sv:
     confirm_email: 
       email_confirmed: "E-mail %{email} aktiverad"
       email_not_confirmed: "E-mail kunde inte aktiveras. Fel länk?"
-    destroy: "Ditt konto är nu låst. Det kan ta upp till 20 minuter att stänga kontot. Tack för att du provade Diaspora."
+    destroy: 
+      no_password: "Please enter your current password to close your account."
+      success: "Your account has been locked.  It may take 20 minutes for us to finish closing your account.  Thank you for trying Diaspora."
+      wrong_password: "The entered password didn't match your current password."
     edit: 
       also_commented: "...någon har också kommenterat på din kontakts post?"
       change: "Ändra"

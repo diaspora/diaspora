@@ -671,6 +671,7 @@ en_shaw:
     failure: 
       error: "𐑞𐑺 𐑢𐑪𐑟 𐑩𐑯 𐑺𐑼 𐑒𐑩𐑯𐑧𐑒𐑑𐑦𐑙 𐑞𐑨𐑑 𐑕𐑻𐑝𐑩𐑕"
     finder: 
+      fetching_contacts: "Diaspora is populating your %{service} friends please check back in a few minutes."
       no_friends: "No Facebook friends found."
       service_friends: "%{service} Friends"
     index: 
@@ -847,7 +848,10 @@ en_shaw:
     confirm_email: 
       email_confirmed: "𐑦-𐑥𐑱𐑤 %{email} 𐑨𐑒𐑑𐑦𐑝𐑱𐑑𐑩𐑛"
       email_not_confirmed: "𐑦-𐑥𐑱𐑤 𐑒𐑫𐑛 𐑯𐑪𐑑 𐑚𐑰 𐑨𐑒𐑑𐑦𐑝𐑱𐑑𐑩𐑛. 𐑮𐑪𐑙 𐑤𐑦𐑙𐑒?"
-    destroy: "𐑿𐑼 𐑩𐑒𐑬𐑯𐑑 𐑣𐑨𐑟 𐑚𐑧𐑯 𐑤𐑪𐑒𐑑. 𐑦𐑑 𐑥𐑱 𐑑𐑱𐑒 20 𐑥𐑦𐑯𐑩𐑑𐑕 𐑓𐑹 𐑳𐑕 𐑑 𐑓𐑦𐑯𐑦𐑖 𐑒𐑤𐑴𐑟𐑦𐑙 𐑿𐑼 𐑩𐑒𐑬𐑯𐑑. 𐑔𐑱𐑙𐑒 𐑿 𐑓𐑹 𐑑𐑮𐑲𐑦𐑙 ·𐑛𐑦𐑨𐑕𐑐𐑹𐑩."
+    destroy: 
+      no_password: "Please enter your current password to close your account."
+      success: "Your account has been locked.  It may take 20 minutes for us to finish closing your account.  Thank you for trying Diaspora."
+      wrong_password: "The entered password didn't match your current password."
     edit: 
       also_commented: "...𐑕𐑳𐑥𐑢𐑩𐑯 𐑷𐑤𐑕𐑴 𐑒𐑪𐑥𐑩𐑯𐑑𐑕 𐑪𐑯 𐑿𐑼 𐑒𐑪𐑯𐑑𐑨𐑒𐑑𐑕 𐑐𐑴𐑕𐑑?"
       change: "𐑗𐑱𐑯𐑡"
