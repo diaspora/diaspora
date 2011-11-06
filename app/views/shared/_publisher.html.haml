@@ -71,17 +71,18 @@
           = hidden_field_tag 'aspect_ids[]', aspect_id.to_s
 
       .options_and_submit
+        #location_services
+          = form_for :location do |f|
+            = f.check_box "include_location"
+            = f.text_field "location", :value => current_location(request.remote_ip), :style => "width:200px;"
+
         .public_toggle
           %span#publisher_service_icons
             - if current_user.services
               - for service in current_user.services
                 = image_tag "social_media_logos/#{service.provider}-16x16.png", :title => service.provider.titleize, :class => "service_icon dim", :id =>"#{service.provider}", :maxchar => "#{service.class::MAX_CHARACTERS}"
             = link_to (image_tag "icons/monotone_wrench_settings.png"), "#question_mark_pane", :class => 'question_mark', :rel => 'facebox', :title => t('shared.public_explain.manage')
-          #location_services
-            = form_for :location do |f|
-              = f.check_box "include_location"
-              %br
-              = f.label current_location(request.remote_ip)
+
           // NOTE(dropdown special casing to DRY up -- taken from the aspect_dropdown partial)
           .dropdown{:class => "hang_right", :title => "2. #{t('shared.public_explain.control_your_audience')}", 'data-content'=> t('shared.public_explain.visibility_dropdown')}
             .button.toggle.publisher

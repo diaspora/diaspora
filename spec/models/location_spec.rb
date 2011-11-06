@@ -6,6 +6,10 @@ describe Location do
   end
 
   describe 'valid location data' do
+    before(:each) do
+      @location_invalid = Location.new
+    end
+
     describe 'based on address' do
       before(:each) do
         @location = Location.create!(:address => "Boston, Massachusetts, USA")
