@@ -216,8 +216,14 @@ describe User do
 
       it "should save with current language if blank" do
         I18n.locale = :fr
-        user = Factory(:user, :language => nil)
+        user = User.build(:username => 'max', :email => 'foo@bar.com', :password => 'password', :password_confirmation => 'password')
         user.language.should == 'fr'
+      end
+
+      it "should save with language what is set" do
+        I18n.locale = :fr
+        user = User.build(:username => 'max', :email => 'foo@bar.com', :password => 'password', :password_confirmation => 'password', :language => 'de')
+        user.language.should == 'de'
       end
     end
   end
