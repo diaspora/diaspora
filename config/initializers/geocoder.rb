@@ -1,0 +1,1 @@
+Geocoder::Configuration.lookup = :nominatim

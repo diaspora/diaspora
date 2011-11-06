@@ -16,6 +16,9 @@ class Post < ActiveRecord::Base
   has_many :reshares, :class_name => "Reshare", :foreign_key => :root_guid, :primary_key => :guid
   has_many :resharers, :class_name => 'Person', :through => :reshares, :source => :author
 
+  has_many :check_ins, :foreign_key => 'post_id'
+  has_many :locations, :through => :check_ins
+
   belongs_to :o_embed_cache
 
   after_create :cache_for_author

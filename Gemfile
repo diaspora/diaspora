@@ -61,7 +61,7 @@ gem 'rails-i18n'
 
 # location services
 
-gem 'geocoder'
+gem 'geocoder', :git => "https://github.com/alexreisner/geocoder.git"
 
 # parsing
 

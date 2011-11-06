@@ -1,8 +1,10 @@
 class Location < ActiveRecord::Base
   has_many :check_ins
 
-  reverse_geocoded_by :longitude, :latitude
   geocoded_by :address
+  reverse_geocoded_by :latitude, :longitude
 
-  after_validation :geocode, :reverse_geocode
+  after_validation :geocode
+
+  after_validation :reverse_geocode, :if => lambda { |object| object.address.nil? }
 end
