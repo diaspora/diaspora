@@ -76,7 +76,7 @@
   .content
     != t('bookmarklet.explanation', :link => link_to(t('bookmarklet.explanation_link_text'), bookmarklet))
 
-- if ! AppConfig['do_not_request_donations']
+- if AppConfig[:paypal_hosted_button_id].present?
   .section
     .title
       = image_tag('/images/icons/coffee.png')
