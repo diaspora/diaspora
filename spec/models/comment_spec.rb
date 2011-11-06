@@ -36,12 +36,6 @@ describe Comment do
         @comment.notification_type(alice, alice.person).should == Notifications::AlsoCommented
       end
     end
-
-    it 'should not return if you are author of the object being commented on' do
-     p = Factory(:status_message, :author => bob.person)
-     c = bob.comment("dfs", :post => p)
-     c.notification_type(bob, bob.person).should be_false
-    end
   end
 
   describe 'User#comment' do

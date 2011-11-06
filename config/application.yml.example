@@ -18,11 +18,10 @@ defaults: &defaults
   # Websocket port - should normally be 8080 or 8081.
   socket_port: 8080
 
-  # Setting the root certificate bundle (this is operating system specific). Defaults:
-  # CentOS: '/etc/pki/tls/certs/ca-bundle.crt'
-  # Debian: '/etc/ssl/certs/ca-certificates.crt'
-  # Gentoo: '/etc/ssl/certs/ca-certificates.crt'
-  ca_file: '/etc/pki/tls/certs/ca-bundle.crt'
+  # Setting the root certificate bundle (this is operating system specific). Examples, uncomment one:
+  ca_file: '/etc/pki/tls/certs/ca-bundle.crt' # CentOS
+  #ca_file: '/etc/ssl/certs/ca-certificates.crt' # Debian
+  #ca_file: '/etc/ssl/certs/ca-certificates.crt' # Gentoo
 
   # Secure websocket confguration (wss://).
   # Requires SSL cert and key

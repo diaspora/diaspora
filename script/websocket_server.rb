@@ -45,6 +45,7 @@ $cookie_parser = Rack::Builder.new do
   use ActionDispatch::Session::CookieStore, :key => "_diaspora_session"
   use Warden::Manager do |warden|
     warden.default_scope = :user
+    warden.failure_app = Proc.new {|env| [0, {}, nil]}
   end
   
   run Proc.new {|env| [0, {}, env['warden'].user]}
