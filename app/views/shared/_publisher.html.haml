@@ -63,6 +63,7 @@
             #file-upload{:title => t('.upload_photos')}
               = image_tag 'icons/camera.svg', :height => 14
           #preview-result
+            .content
 
       - if publisher_public
         = hidden_field_tag 'aspect_ids[]', "public"

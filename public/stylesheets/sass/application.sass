@@ -404,7 +404,7 @@ ul.as-selections
     :text
       :decoration none
 
-.stream_element
+.stream_element, #preview-result
   :position relative
   :word-wrap break-word
   :color #555
@@ -1124,9 +1124,14 @@ label:not(.bootstrapped)
   :background white
   :color #000000
   :clear both
-  :padding 1em
+  :padding 0px
   :overflow auto
   :margin 0px
+
+  @include border-radius(2px)
+
+  .content
+    :padding 1em
 
 #preview-edit
   :display none

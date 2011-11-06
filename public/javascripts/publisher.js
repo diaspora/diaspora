@@ -521,11 +521,11 @@ var Publisher = {
         $('#publisher_textarea_wrapper').hide();
         $('#preview-edit').show();
 
+        $('#preview-result .content').html( data.result );
         $('#preview-result')
           /* explicit height so that scrollbars appear when needed */
-          .height( $('#publisher_textarea_wrapper').height() - 24 )
-          .width( $('#publisher_textarea_wrapper').width() - 4 )
-          .html( data.result )
+          .height( $('#publisher_textarea_wrapper').height() )
+          .width( $('#publisher_textarea_wrapper').width() + 20 )
           .show()
         ;
 
