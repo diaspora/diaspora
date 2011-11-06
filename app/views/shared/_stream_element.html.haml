@@ -87,5 +87,9 @@
       .likes.on_post
         .likes_container
           = render "likes/likes_container", :target_id => post.id, :likes_count => post.likes_count, :current_user => current_user, :target_type => "Post"
+      - if user_signed_in? && post.author.owner_id == current_user.id && post.reshare_count > 0
+        .reshares.on_post
+          = image_tag('icons/reshare.svg')
+          = t("reshares.reshare.reshare", :count => post.reshare_count)
 
       = render "comments/comments", :post => post, :current_user => current_user, :commenting_disabled => commenting_disabled?(post)
