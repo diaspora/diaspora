@@ -69,8 +69,9 @@ defaults: &defaults
   # Set this to true to remove the donation request form in the right sidebar
   do_not_request_donations: false
 
-  # List of users who have admin privileges
+  # List of users who have admin privileges 
   # (expressed as an array of local usernames)
+  # Warning: change this example username or anyone can create an account with this name and have admin acccess
   admins:
     - 'example_user1dsioaioedfhgoiesajdigtoearogjaidofgjo'
 
