@@ -20,7 +20,7 @@
     %span#publisher_service_icons
       - if current_user.services
         - for service in current_user.services
-          = image_tag "social_media_logos/#{service.provider}-16x16.png", :title => service.provider.titleize, :class => "service_icon dim", :id =>"#{service.provider}", :maxchar => "#{service.class::MAX_CHARACTERS}"
+          = image_tag "social_media_logos/#{service.provider}-32x32.png", :title => service.provider.titleize, :class => "service_icon dim", :id =>"#{service.provider}", :maxchar => "#{service.class::MAX_CHARACTERS}"
 
     %select{:id => "aspect_ids_", :name => "aspect_ids[]", :style => "float:right;"}
       %option{:value => 'public'}
