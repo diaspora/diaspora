@@ -176,8 +176,11 @@ en:
         here_to_help: "The Diaspora community is here!"
         do_you: "Do you:"
         have_a_question: "... have a %{link}?"
+        tag_question: "question"
         find_a_bug: "... find a %{link}?"
+        tag_bug: "bug"
         feature_suggestion: "... have a %{link} suggestion?"
+        tag_feature: "feature"
 
         tutorials_wiki_and_forum: "%{tutorial} & %{wiki} & %{forum}: Community-powered tutorials, how-to, and news"
 
@@ -598,7 +601,7 @@ en:
       empty: "{file} is empty, please select files again without it."
     new_profile_photo:
       upload: "Upload a new profile photo!"
-      or_select_one: "or select one from your already existing"
+      or_select_one_existing: "or select one from your already existing %{photos}"
     comment_email_subject: "%{name}'s photo"
 
   posts:

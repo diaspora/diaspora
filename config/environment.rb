@@ -33,7 +33,7 @@ end
 
 # Blacklist of usernames
 USERNAME_BLACKLIST = ['admin', 'administrator', 'hostmaster', 'info', 'postmaster', 'root', 'ssladmin', 
-  'ssladministrator', 'sslwebmaster', 'sysadmin', 'webmaster', 'support', 'contact']
+  'ssladministrator', 'sslwebmaster', 'sysadmin', 'webmaster', 'support', 'contact', 'example_user1dsioaioedfhgoiesajdigtoearogjaidofgjo']
 
 # Initialize the rails application
 Diaspora::Application.initialize!

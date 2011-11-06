@@ -1,3 +1,7 @@
+#   Copyright (c) 2010-2011, Diaspora Inc.  This file is
+#   licensed under the Affero General Public License version 3 or later.  See
+#   the COPYRIGHT file.
+
 class Reshare < Post
 
   belongs_to :root, :class_name => 'Post', :foreign_key => :root_guid, :primary_key => :guid
@@ -42,21 +46,26 @@ class Reshare < Post
     return if Post.exists?(:guid => self.root_guid)
 
     fetched_post = self.class.fetch_post(root_author, self.root_guid)
+    
+    if fetched_post
+      #Why are we checking for this?
+      if root_author.diaspora_handle != fetched_post.diaspora_handle
+        raise "Diaspora ID (#{fetched_post.diaspora_handle}) in the root does not match the Diaspora ID (#{root_author.diaspora_handle}) specified in the reshare!"
+      end
 
-    #Why are we checking for this?
-    if root_author.diaspora_handle != fetched_post.diaspora_handle
-      raise "Diaspora ID (#{fetched_post.diaspora_handle}) in the root does not match the Diaspora ID (#{root_author.diaspora_handle}) specified in the reshare!"
+      fetched_post.save!
     end
-
-    fetched_post.save!
   end
 
   # Fetch a remote public post, used for receiving reshares of unknown posts
   # @param [Person] author the remote post's author
   # @param [String] guid the remote post's guid
-  # @return [Post] an unsaved remote post
+  # @return [Post] an unsaved remote post or false if the post was not found
   def self.fetch_post author, guid
-    response = Faraday.get(author.url + "/p/#{guid}.xml")
+    url = author.url + "/p/#{guid}.xml"
+    response = Faraday.get(url)
+    return false if response.status == 404 # Old pod, friendika
+    raise "Failed to get #{url}" unless response.success? # Other error, N/A for example
     Diaspora::Parser.from_xml(response.body)
   end
 

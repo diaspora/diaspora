@@ -41,11 +41,11 @@
     %br
     = t('aspects.index.help.do_you')
     %br
-    != t('aspects.index.help.have_a_question', :link => link_to("#question" , tag_path(:name => "question")))
+    != t('aspects.index.help.have_a_question', :link => link_to("#"+t('aspects.index.help.tag_question'), tag_path(:name => t('aspects.index.help.tag_question'))))
     %br
-    != t('aspects.index.help.find_a_bug', :link => link_to("#bug" , tag_path(:name => "bug")))
+    != t('aspects.index.help.find_a_bug', :link => link_to("#"+t('aspects.index.help.tag_bug'), tag_path(:name => t('aspects.index.help.tag_bug'))))
     %br
-    != t('aspects.index.help.feature_suggestion', :link => link_to("#feature" , tag_path(:name => "feature")))
+    != t('aspects.index.help.feature_suggestion', :link => link_to("#"+t('aspects.index.help.tag_feature'), tag_path(:name => t('aspects.index.help.tag_feature'))))
     %br
     %br
     %p
