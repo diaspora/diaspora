@@ -1,4 +1,4 @@
-@javascript @no-ci
+@javascript @oauth-group
 Feature: oauth
   Exchanging oauth credentials
 

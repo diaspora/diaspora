@@ -8,7 +8,7 @@ namespace :ci do
       raise "Cucumber failed!" unless $?.exitstatus == 0
     elsif ENV['BUILD_TYPE'] == 'oauth-cucumber'
       puts "Running oauth cucumber features..."
-      system("export DISPLAY=:99.0 && CI=true bundle exec rake cucumber")
+      system("export DISPLAY=:99.0 && GROUP=oauth bundle exec rake cucumber")
       raise "OAuth cucumber failed!" unless $?.exitstatus == 0
     else
       ["rspec spec", "rake jasmine:ci"].each do |cmd|
