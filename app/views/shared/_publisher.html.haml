@@ -55,7 +55,7 @@
             = link_to (image_tag "icons/monotone_wrench_settings.png"), "#question_mark_pane", :class => 'question_mark', :rel => 'facebox', :title => t('shared.public_explain.manage')
 
           // NOTE(dropdown special casing to DRY up -- taken from the aspect_dropdown partial)
-          .dropdown{:class => "hang_right", :title => "2. #{t('shared.public_explain.control_your_audience')}", 'data-content'=> t('shared.public_explain.visibility_dropdown')}
+          .dropdown{:class => "hang_right", :title => popover_with_close_html("2. #{t('shared.public_explain.control_your_audience')}"), 'data-content'=> t('shared.public_explain.visibility_dropdown')}
             .button.toggle.publisher
               - if publisher_public
                 = t('public')

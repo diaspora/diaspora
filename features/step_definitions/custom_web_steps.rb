@@ -207,3 +207,15 @@ end
 Then 'I press the attached image' do
   Then %{I press the 1st "img" within ".stream_element div.photo_attachments"}
 end
+
+And "I wait for the popovers to appear" do
+  wait_until(30) { evaluate_script('$(".popover").length') == 3 }
+end
+
+And /^I click close on all the popovers$/ do
+  page.execute_script("var time = 400; $('.popover .close').each( 
+          function(index, element){ setTimeout(function(){ $(element).click()},time);
+          time += 800;
+ });")
+end
+
