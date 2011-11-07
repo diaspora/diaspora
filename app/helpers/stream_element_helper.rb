@@ -1,7 +1,7 @@
 module StreamElementHelper
   def block_user_control(author)
     if user_signed_in? && current_user.person.id != author.id
-      link_to image_tag('/images/icons/ignoreuser.svg', :height => 14), blocks_path(:block => {:person_id => author.id}),
+      link_to image_tag('icons/ignoreuser.png'), blocks_path(:block => {:person_id => author.id}),
         :class => 'block_user control_icon',
         :confirm => t('.ignore_user_description'),
         :title => t('.ignore_user', :name => author.first_name),
