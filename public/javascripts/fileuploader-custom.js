@@ -1017,6 +1017,7 @@ qq.extend(qq.UploadHandlerForm.prototype, {
         var iframe = this._createIframe(id);
         var form = this._createForm(iframe, params);
         form.appendChild(input);
+        $(form).append($('<input type="hidden" name="authenticity_token" value="'+$("meta[name='csrf-token']").attr("content")+'"/>'));
 
         var self = this;
         this._attachLoadEvent(iframe, function(){
