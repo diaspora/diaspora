@@ -75,7 +75,6 @@ describe User do
       before do
         aspect_to_post = bob.aspects.where(:name => "generic").first
         @status = bob.post(:status_message, :text=> "hello", :to => aspect_to_post)
-        @vis = @status.share_visibilities(Post).first
       end
 
       it "pulls back non hidden posts" do
@@ -83,7 +82,8 @@ describe User do
       end
 
       it "does not pull back hidden posts" do
-        @vis.update_attributes(:hidden => true)
+        visibility = @status.share_visibilities(Post).where(:contact_id => alice.contact_for(bob.person).id).first
+        visibility.update_attributes(:hidden => true)
         alice.visible_shareable_ids(Post).include?(@status.id).should be_false
       end
     end
