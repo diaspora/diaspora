@@ -24,11 +24,14 @@ describe User do
     end
 
     it "contains public posts from people you're following" do
-      pending
-      dogs = bob.aspects.create(:name => "dogs")
-      bobs_public_post = Factory(:status_message, :text => "hello", :public => true, :author => bob.person)
+      # Alice follows Eve, but Eve does not follow Alice
+      alice.share_with(eve.person, @alices_aspect)
 
-      alice.visible_shareable_ids(Post).should include(bobs_public_post.id)
+      # Eve posts a public status message
+      eves_public_post = eve.post(:status_message, :text => "hello", :to => 'all', :public => true)
+
+      # Alice should see it
+      alice.visible_shareable_ids(Post).should include(eves_public_post.id)
     end
 
     it "contains non-public posts from people who are following you" do
@@ -167,8 +170,6 @@ describe User do
 
           alice.visible_shareable_ids(Post, @opts)
         end
-
-        it "does not get repopulated"
       end
     end
   end
