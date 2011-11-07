@@ -375,13 +375,6 @@ GEM
     resque-ensure-connected (0.1.0)
       activerecord (>= 2.3.5)
       resque (~> 1.10.0)
-    resque-retry (0.1.0)
-      resque (>= 1.8.0)
-      resque-scheduler (>= 1.8.0)
-    resque-scheduler (1.9.9)
-      redis (>= 2.0.1)
-      resque (>= 1.8.0)
-      rufus-scheduler
     resque-timeout (1.0.0)
       resque (~> 1.0)
     rest-client (1.6.1)
@@ -423,8 +416,6 @@ GEM
       archive-tar-minitar (>= 0.5.2)
     rubyntlm (0.1.1)
     rubyzip (0.9.4)
-    rufus-scheduler (2.0.11)
-      tzinfo (>= 0.3.23)
     sass (3.1.7)
     selenium-webdriver (2.7.0)
       childprocess (>= 0.2.1)
@@ -536,8 +527,6 @@ DEPENDENCIES
   redcarpet (= 2.0.0b5)
   resque (= 1.10.0)
   resque-ensure-connected
-  resque-retry
-  resque-scheduler
   resque-timeout (= 1.0.0)
   rest-client (= 1.6.1)
   roxml!
