@@ -39,7 +39,12 @@ class RedisCache
   end
 
   def repopulate!(opts = {})
+    self.purge!
     self.populate!(opts) && self.trim!
+  end
+
+  def purge!
+    self.redis.del(set_key)
   end
 
   def populate!(opts = {})

@@ -63,7 +63,7 @@ describe RedisCache do
       @cache.ensure_populated!
     end
 
-    it 'clears and poplulates if the cache is not populated' do
+    it 'calls #repopulate' do
       opts = {:here_is => "something"}
       @cache.stub(:cache_exists?).and_return(false)
       @cache.should_receive(:repopulate!).with(opts)
@@ -73,6 +73,11 @@ describe RedisCache do
   end
 
   describe "#repopulate!" do
+    it 'calls #purge!' do
+      @cache.should_receive(:purge!)
+      @cache.repopulate!
+    end
+
     it 'populates' do
       opts = {:here_is => "something"}
       @cache.stub(:trim!).and_return(true)
@@ -84,6 +89,14 @@ describe RedisCache do
       @cache.stub(:populate!).and_return(true)
       @cache.should_receive(:trim!)
       @cache.repopulate!
+    end
+  end
+
+  describe '#purge!' do
+    it 'clears the set in redis' do
+      @cache.stub(:redis).and_return(@redis)
+      @redis.should_receive(:del).with(@cache.send(:set_key))
+      @cache.purge!
     end
   end
 
