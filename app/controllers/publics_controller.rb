@@ -3,7 +3,7 @@
 #   the COPYRIGHT file.
 
 require File.join(Rails.root, 'lib', 'stream', 'public')
-require 'newrelic_rpm' if File.exists?(File.expand_path('../newrelic.yml', __FILE__))
+require 'newrelic_rpm' if File.exists?(File.expand_path("#{Rails.root}/config/newrelic.yml", __FILE__))
 
 class PublicsController < ApplicationController
   require File.join(Rails.root, '/lib/diaspora/parser')
@@ -11,7 +11,7 @@ class PublicsController < ApplicationController
   require File.join(Rails.root, '/lib/postzord/receiver/private')
   include Diaspora::Parser
 
-  newrelic_ignore if File.exists?(File.expand_path('../newrelic.yml', __FILE__))
+  newrelic_ignore if File.exists?(File.expand_path("#{Rails.root}/config/newrelic.yml", __FILE__))
 
   skip_before_filter :set_header_data
   skip_before_filter :which_action_and_user
