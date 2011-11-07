@@ -71,6 +71,7 @@ class PhotosController < ApplicationController
 
         respond_to do |format|
           format.json{ render(:layout => false , :json => {"success" => true, "data" => @photo}.to_json )}
+          format.html{ render(:layout => false , :json => {"success" => true, "data" => @photo}.to_json )}
         end
       else
         respond_with @photo, :location => photos_path, :error => message
@@ -214,6 +215,11 @@ class PhotosController < ApplicationController
   private
 
   def file_handler(params)
+    # For XHR file uploads, request.params[:qqfile] will be the path to the temporary file
+    # For regular form uploads (such as those made by Opera), request.params[:qqfile] will be an UploadedFile which can be returned unaltered.
+    if not request.params[:qqfile].is_a?(String)
+      params[:qqfile]
+    else
       ######################## dealing with local files #############
       # get file name
       file_name = params[:qqfile]
@@ -235,5 +241,6 @@ class PhotosController < ApplicationController
       Tempfile.send(:define_method, "content_type") {return att_content_type}
       Tempfile.send(:define_method, "original_filename") {return file_name}
       file
+    end
   end
 end
