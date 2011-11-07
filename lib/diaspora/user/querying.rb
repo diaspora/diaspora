@@ -30,7 +30,7 @@ module Diaspora
 
           #cache.ensure_populated!(opts)
           name = klass.to_s.downcase
-          shareable_ids = cache.send(name+"_ids", opts[:max_time], opts[:limit])
+          shareable_ids = cache.send(name+"_ids", opts[:max_time], opts[:limit] +1)
         end
 
         if perform_db_query?(shareable_ids, cache, opts)
