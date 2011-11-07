@@ -111,6 +111,9 @@ sk:
         here_to_help: "Komunita Diaspory je tu!"
         need_help: "Potrebujete pomoc?"
         satisfaction: "%{link}: podpora od ostatných používateľov"
+        tag_bug: "#bug"
+        tag_feature: "#feature"
+        tag_question: "#question"
         tutorials_wiki_and_forum: "%{tutorial} & %{wiki} & %{forum}: Community-powered tutorials, how-to, and news"
       introduce_yourself: "Toto je vaša nástenka.  Poďte sa predstaviť."
       keep_us_running: "Na udržanie %{pod} v dobrej kondícii kúpte svojím príspevkom našim serverom ich mesačnú dávku kávy vo forme opráv!"
@@ -552,7 +555,7 @@ sk:
       invalid_ext: "{file} má neplatnú príponu. Povolené sú len prípony {extensions}."
       size_error: "{file} je príliš veľký, maximálna povolená veľkosť je {sizeLimit}."
     new_profile_photo: 
-      or_select_one: "alebo vyberte jeden z tých, ktoré už existujú"
+      or_select_one_existing: "or select one from your already existing %{photos}"
       upload: "Nahrať novú profilovú fotku!"
     photo: 
       view_all: "zobraziť všetky fotky použ. %{name}"

@@ -111,6 +111,9 @@ pt-BR:
         here_to_help: "Diaspora community is here to help!"
         need_help: "Quer Ajuda?"
         satisfaction: "%{link}: Comunidade de suporte"
+        tag_bug: "#bug"
+        tag_feature: "#feature"
+        tag_question: "#question"
         tutorials_wiki_and_forum: "%{tutorial} & %{wiki} & %{forum}: Community-powered tutorials, how-to, and news"
       introduce_yourself: "This is your stream.  Jump in and introduce yourself."
       keep_us_running: "Mantenha %{pod} rodando mais rápido, comprando nossos servidores e garantindo o nosso café mensal!"
@@ -552,7 +555,7 @@ pt-BR:
       invalid_ext: "{file} possui uma extensão inválida. Somente {extensions} são permitidos."
       size_error: "{file} é muito grande, o tamanho máximo para arquivos é {sizeLimit}."
     new_profile_photo: 
-      or_select_one: "ou escolha uma das que você já possui"
+      or_select_one_existing: "or select one from your already existing %{photos}"
       upload: "Envie uma foto nova para o perfil!"
     photo: 
       view_all: "Ver todas as fotos do(a) %{name}"

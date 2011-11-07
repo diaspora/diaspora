@@ -51,7 +51,7 @@ fi:
         made_by_people: "%{strong_diaspora} is made by people who love the Internet as much as you do. %{jointeam}, or %{helpfund}!"
         more_people: "Even more people are excited to see you!"
         no_account_till: "Käyttäjätilisi luodaan vasta, kun rekisteröidyt yllä olevan linkin kautta. "
-        or: "or"
+        or: "tai"
         sign_up_now: "Sign up now &rarr;"
         subject: "Sinut on kutsuttu käyttämään Diasporaa!"
         team_diaspora: "Team Diaspora"

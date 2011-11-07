@@ -111,6 +111,9 @@ ja:
         here_to_help: "Diaspora community is here to help!"
         need_help: "Need Help?"
         satisfaction: "%{link}: Community-powered support"
+        tag_bug: "#bug"
+        tag_feature: "#feature"
+        tag_question: "#question"
         tutorials_wiki_and_forum: "%{tutorial} & %{wiki} & %{forum}: Community-powered tutorials, how-to, and news"
       introduce_yourself: "This is your stream.  Jump in and introduce yourself."
       keep_us_running: "Keep %{pod} running fast, buy our servers their monthly coffee fix!"
@@ -552,7 +555,7 @@ ja:
       invalid_ext: "{file}のファイル名は不正です。{extensions}以外の拡張子は使えません。"
       size_error: "{file}は大きすぎます。ファイルサイズの上限は{sizeLimit}です。"
     new_profile_photo: 
-      or_select_one: "或いは既存のから選択する"
+      or_select_one_existing: "or select one from your already existing %{photos}"
       upload: 新しいプロフィール写真をアップロードする！
     photo: 
       view_all: "%{name}の写真をすべてみる"

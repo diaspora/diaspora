@@ -111,6 +111,9 @@ en_1337:
         here_to_help: "45K PR0G4M3R5!"
         need_help: "N33D H3LP?"
         satisfaction: "%{link}: C0MMUN17Y-P0W3R3D 5UPP0R7!"
+        tag_bug: "#bug"
+        tag_feature: "#feature"
+        tag_question: "#question"
         tutorials_wiki_and_forum: "%{tutorial} & %{wiki} & %{forum}: Community-powered tutorials, how-to, and news"
       introduce_yourself: "This is your stream.  Jump in and introduce yourself."
       keep_us_running: "K33P %{pod} UP BY D0N471NG 3V3RY M0N7H!"
@@ -552,7 +555,7 @@ en_1337:
       invalid_ext: "{file} H45 1NV4L1D 3X73N510N! 0NLY {extensions} 4R3 4LL0W3D!"
       size_error: "{file} 15 2 L4RG3, M4X1MUM F1L3 51Z3 15 {sizeLimit}."
     new_profile_photo: 
-      or_select_one: "0R 53L3C7 0N3 FR0M Y0UR 4LR34DY 3X1571NG!"
+      or_select_one_existing: "or select one from your already existing %{photos}"
       upload: "UPL04D 4 N3W PR0F1L3 P1C!"
     photo: 
       view_all: "V13W 4LL 0F %{name}'s PR0N"

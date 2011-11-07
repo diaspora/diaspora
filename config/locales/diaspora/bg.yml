@@ -111,6 +111,9 @@ bg:
         here_to_help: "Общността е готова да помогне!"
         need_help: "Нуждаете се от помощ?"
         satisfaction: "%{link}: Поддръжка осигурена от общността"
+        tag_bug: "бъг"
+        tag_feature: "функция"
+        tag_question: "въпрос"
         tutorials_wiki_and_forum: "%{tutorial}, %{wiki} и %{forum}: Ръководства, съвети и новини от общността"
       introduce_yourself: "Това е вашият поток.  Включете се и се представете."
       keep_us_running: "Осигурете бързата работа на %{pod} като дарите пари за месечната издръжка на сървърите!"
@@ -552,7 +555,7 @@ bg:
       invalid_ext: "{file} е с невалидно разширение. Позволени са само: {extensions}."
       size_error: "{file} е твърде голям. Максималният разрешен размер е {sizeLimit}."
     new_profile_photo: 
-      or_select_one: "или изберете от вече качените"
+      or_select_one_existing: "или изберете от вече качените %{photos}"
       upload: "Качете нова снимка за профила!"
     photo: 
       view_all: "всички снимки на %{name}"

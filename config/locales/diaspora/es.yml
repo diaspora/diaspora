@@ -105,12 +105,15 @@ es:
       help: 
         do_you: "Tal vez:"
         email_feedback: "Si lo prefieres, envía tus comentarios a este %{link}."
-        feature_suggestion: "...plantees sugerencias? %{link}"
-        find_a_bug: "...encontraste errores? %{link}"
-        have_a_question: "...tengas preguntas? %{link}"
+        feature_suggestion: "- Plantees sugerencias. %{link}"
+        find_a_bug: "- Encuentres errores. %{link}"
+        have_a_question: "- Tengas preguntas. %{link}"
         here_to_help: "¡La comunidad Diaspora está aquí!"
-        need_help: "¿Necesitas ayuda?"
+        need_help: "Ayuda"
         satisfaction: "%{link}: Soporte de la Comunidad"
+        tag_bug: "bug"
+        tag_feature: "feature"
+        tag_question: "question"
         tutorials_wiki_and_forum: "%{tutorial} & %{wiki} & %{forum}: Tutoriales, wiki y noticias"
       introduce_yourself: "Esta es tu entrada de novedades. Adelante, preséntate..."
       keep_us_running: "Haz que %{pod} vaya más rápido, ¡compra a nuestros servidores sus dosis de café mensual!"
@@ -124,7 +127,7 @@ es:
       post_a_message: "publica un mensaje >>"
       services: 
         content: "Puedes conectar los siguientes servicios a Diaspora*:"
-        heading: "Servicios conectados"
+        heading: "Servicios"
       unfollow_tag: "Dejar de seguir a #%{tag}"
       welcome_to_diaspora: "¡Bienvenid@ a Diaspora, %{name}!"
       your_aspects: "Tus Aspectos"
@@ -532,7 +535,7 @@ es:
     two: "%{count} personas"
     webfinger: 
       fail: "Perdona, no pudimos encontrar %{handle}"
-    zero: "ninguna persona"
+    zero: "0 personas"
   photos: 
     comment_email_subject: "fotografía de %{name}"
     create: 
@@ -552,7 +555,7 @@ es:
       invalid_ext: "{file} tiene una extensión inválida. Sólo {extensions} están permitidas."
       size_error: "{file} es demasiado largo, el tamaño máximo por archivo es de {sizeLimit}."
     new_profile_photo: 
-      or_select_one: "o selecciona alguna de las ya subidas"
+      or_select_one_existing: "o selecciona alguna de las %{photos} ya existentes"
       upload: "¡Sube una foto nueva de perfil!"
     photo: 
       view_all: "ver todas las fotos de %{name}"
@@ -759,7 +762,7 @@ es:
       connect_to_comment: "Conecta con esta persona para comentar en su publicación"
       currently_unavailable: "comentarios actualmente no disponibles"
       dislike: "No me gusta"
-      hide_and_mute: "Ocultar publicación y desactivar notificaciones"
+      hide_and_mute: "Ignorar la publicación"
       ignore_user: "Ignorar a %{name}"
       ignore_user_description: "¿Ignorar y quitar a esa persona de todos los aspectos?"
       like: "Me gusta"
@@ -788,7 +791,7 @@ es:
     show_more_comments: "Mostrar %{number} comentarios más"
   streams: 
     aspects: 
-      title: "Tus Aspectos"
+      title: "Aspectos"
     aspects_stream: "Aspectos"
     commented_on: "comentado"
     community_spotlight_stream: "Comunidad Creativa"
@@ -796,7 +799,7 @@ es:
       add_a_tag: "Añade una etiqueta"
       contacts_title: "Gente que sigue esas etiquetas"
       follow: "Seguir"
-      title: "#Etiquetas seguidas"
+      title: "#Etiquetas"
     followed_tags_stream: "#Etiquetas seguidas"
     mentioned_stream: "@Menciones"
     mentions: 
@@ -899,7 +902,7 @@ es:
       simply_visit: "Simplemente visita"
       works_on_modern: "Funciona en todos los smartphones modernos"
     privacy_settings: 
-      ignored_users: "Usuarios Ignorados"
+      ignored_users: "Personas Ignoradas"
       stop_ignoring: "Dejar de ignorar"
       title: "Configuración de Privacidad"
     public: 

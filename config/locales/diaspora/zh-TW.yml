@@ -111,11 +111,14 @@ zh-TW:
         here_to_help: "Diaspora 社群就在這裡!"
         need_help: 要幫忙嗎?
         satisfaction: "%{link}: 社群支援的客服網站"
-        tutorials_wiki_and_forum: "%{tutorial} & %{wiki} & %{forum}: Community-powered tutorials, how-to, and news"
+        tag_bug: "臭蟲"
+        tag_feature: "特色"
+        tag_question: "問題"
+        tutorials_wiki_and_forum: "%{tutorial} 和 %{wiki} 和 %{forum}: 社群運作的入門, 指南, 與新聞網站"
       introduce_yourself: "這是你的流水帳. 跳進來介紹你自己吧."
       keep_us_running: "為了讓 %{pod} 高速奔馳, 用每月捐款來提供些咖啡存量給我們的伺服器吧!"
       new_here: 
-        follow: "Follow %{link} and welcome new users to Diaspora*!"
+        follow: "追蹤 %{link} 來歡迎 Diaspora* 的新使用者!"
         learn_more: "了解詳情"
         title: "歡迎新使用者"
       no_contacts: "沒有任何聯絡人"
@@ -514,7 +517,7 @@ zh-TW:
     show: 
       does_not_exist: 聯絡人不存在!
       has_not_shared_with_you_yet: "%{name} 尚未跟你分享任何貼文!"
-      ignoring: "You are ignoring all posts from %{name}."
+      ignoring: "你目前會忽視 %{name} 的所有貼文."
       incoming_request: "%{name} 希望能和你分享"
       mention: "指指點點"
       message: "送訊息"
@@ -552,7 +555,7 @@ zh-TW:
       invalid_ext: "檔案 {file} 的副檔名不合格. 只接受{extensions}."
       size_error: "檔案 {file} 太大了, 上限是{sizeLimit}."
     new_profile_photo: 
-      or_select_one: "或從既有相片中挑選一張"
+      or_select_one_existing: "或從你既有的%{photos}中挑選一張"
       upload: 上傳新的個人照!
     photo: 
       view_all: "檢視 %{name} 所有的相片"
@@ -671,7 +674,7 @@ zh-TW:
     failure: 
       error: "與該服務連結時有錯誤"
     finder: 
-      fetching_contacts: "Diaspora is populating your %{service} friends please check back in a few minutes."
+      fetching_contacts: "Diaspora 正在取得你在 %{service} 的朋友資料, 請幾分鐘後再來看看."
       no_friends: "沒有 Facebook 朋友."
       service_friends: "%{service} 朋友"
     index: 
@@ -693,8 +696,8 @@ zh-TW:
   settings: "設定"
   share_visibilites: 
     update: 
-      post_hidden_and_muted: "%{name}'s post has been hidden, and notifications have been muted."
-      see_it_on_their_profile: "If you want to see updates on this post, visit %{name}'s profile page."
+      post_hidden_and_muted: "%{name} 的貼文已經隱藏了, 異動時也不會有消息通知."
+      see_it_on_their_profile: "如果你想看這篇貼文的更新, 請到 %{name} 的個人頁面."
   shared: 
     add_contact: 
       add_new_contact: "加入新聯絡人"
@@ -745,7 +748,7 @@ zh-TW:
       new_user_prefill: 
         hello: "大家好, 我是 #%{new_user_tag}. "
         i_like: "我對 %{tags} 有興趣."
-        invited_by: "Thanks for the invite, "
+        invited_by: "謝謝你的邀請, "
       post_a_message_to: "在 %{aspect} 發表訊息"
       posting: 發表中...
       publishing_to: "發表至: "
@@ -760,8 +763,8 @@ zh-TW:
       currently_unavailable: "目前無法回應"
       dislike: "遜"
       hide_and_mute: "將貼文隱藏且消音"
-      ignore_user: "Ignore %{name}"
-      ignore_user_description: "Ignore and remove user from all aspects?"
+      ignore_user: "忽視 %{name}"
+      ignore_user_description: "是否要忽視該使用者, 並將其從所有面向中移除?"
       like: "讚"
       shared_with: "分享給: %{aspect_names}"
       unlike: "收回讚"
@@ -833,7 +836,7 @@ zh-TW:
     show: 
       connect_to_cubbies: "與 Cubbi.es 連結"
       connecting_is_simple: "跟 Diapora 帳號連結很簡單! 只要從 cubbies <a href='%{href_link}'>設定頁面</a>輸入你的 Diaspora 識別碼, 再按下\"連結\"就可以了."
-      daniels_account: "Daniel的 Diaspora 帳號"
+      daniels_account: "Daniel 的 Diaspora 帳號"
       log_in_with_diaspora_is_comming: "很快你就可以使用 Diaspora 帳號連線至新的應用程式, 而不用另外再開新的帳號了."
       love_to_try: 希望你能試試看.
       making_the_connection: "建立連結"
@@ -849,9 +852,9 @@ zh-TW:
       email_confirmed: "E-Mail %{email} 已經啟用了"
       email_not_confirmed: "無法啟用E-Mail. 連結有誤嗎?"
     destroy: 
-      no_password: "Please enter your current password to close your account."
-      success: "Your account has been locked.  It may take 20 minutes for us to finish closing your account.  Thank you for trying Diaspora."
-      wrong_password: "The entered password didn't match your current password."
+      no_password: 請輸入你目前的密碼來關閉帳號.
+      success: "你的帳號已經鎖定了. 完成關閉帳號大約還需要 20 分鐘的時間. 感謝你試用 Diaspora."
+      wrong_password: 輸入的密碼與你目前的密碼不符.
     edit: 
       also_commented: "...當有人也對你的聯絡人的貼文發表意見時?"
       change: "更改"
@@ -899,9 +902,9 @@ zh-TW:
       simply_visit: "只要在你的行動設備上輸入"
       works_on_modern: "適用於所有新潮的智慧型手機"
     privacy_settings: 
-      ignored_users: "Ignored Users"
-      stop_ignoring: "Stop ignoring"
-      title: "Privacy Settings"
+      ignored_users: "忽視的使用者"
+      stop_ignoring: "停止忽視"
+      title: "隱私設定"
     public: 
       does_not_exist: "不存在 %{username} 這個使用者!"
     update: 

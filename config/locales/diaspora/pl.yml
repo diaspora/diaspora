@@ -105,12 +105,15 @@ pl:
       help: 
         do_you: "Czy:"
         email_feedback: "%{link} swoje zgłoszenie, jeśli chcesz"
-        feature_suggestion: "... masz %{link} sugestie?"
+        feature_suggestion: "... masz propozycję (%{link})?"
         find_a_bug: "... znal@{m:azłeś|f:azłaś|n:eziono} %{link}?"
         have_a_question: "... masz %{link}?"
         here_to_help: "Społeczności Diaspory jest tutaj!"
         need_help: "Potrzebujesz pomocy?"
         satisfaction: "%{link}: Strona wsparcia społeczności"
+        tag_bug: "#błąd"
+        tag_feature: "funkcja"
+        tag_question: "#pytanie"
         tutorials_wiki_and_forum: "%{tutorial} & %{wiki} & %{forum}: Samouczki, instrukcje i aktualności dostarczane przez Społeczność"
       introduce_yourself: "Oto Twoj strumień. Wskocz do niego i przedstaw się."
       keep_us_running: "Aby %{pod} działał szybko podaruj serwerom dawkę kofeiny w postaci miesięcznej darowizny!"
@@ -552,7 +555,7 @@ pl:
       invalid_ext: "Plik {file} ma niewłaściwe rozszerzenie. Akceptowane rozszerzenia: {extensions}"
       size_error: "Plik {file} jest zbyt duży, maksymalny rozmiar to {sizeLimit}."
     new_profile_photo: 
-      or_select_one: "lub wybierz jeden z już istniejących"
+      or_select_one_existing: "lub wybierz któreś z istniejących %{photos}"
       upload: "Prześlij nowe zdjęcie profilowe!"
     photo: 
       view_all: "wyświetl wszystkie zdjęcia należące do: %{name}"
@@ -671,7 +674,7 @@ pl:
     failure: 
       error: "wystąpił błąd podczas łączenia z tą usługą"
     finder: 
-      fetching_contacts: "Diaspora is populating your %{service} friends please check back in a few minutes."
+      fetching_contacts: "Diaspora zaprasza Twoich znajomych z  %{service}, wróć ponownie za kilka minut."
       no_friends: "Nie znaleziono znajomych z Facebooka."
       service_friends: "Znajomi z %{service} "
     index: 

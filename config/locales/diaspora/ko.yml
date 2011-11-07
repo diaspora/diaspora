@@ -111,6 +111,9 @@ ko:
         here_to_help: "디아스포라 커뮤니티가 도와드립니다!"
         need_help: "도움이 필요하세요?"
         satisfaction: "%{link}: 커뮤니티 지원"
+        tag_bug: "#bug"
+        tag_feature: "#feature"
+        tag_question: "#question"
         tutorials_wiki_and_forum: "%{tutorial}과 %{wiki}와  %{forum}: 커뮤니티가 운영하는 튜토리얼, 사용 방법과 소식"
       introduce_yourself: "내 스트림에서 스스로를 나타내십시오."
       keep_us_running: "Keep %{pod} running fast, buy our servers their monthly coffee fix!"
@@ -552,7 +555,7 @@ ko:
       invalid_ext: "{file} 파일은 유효하지 않은 형식입니다. {extensions} 형식의 파일을 올려주세요."
       size_error: "{file} 파일이 {sizeLimit} 보다 큽니다"
     new_profile_photo: 
-      or_select_one: "올려둔 사진 가운데 고르기"
+      or_select_one_existing: "or select one from your already existing %{photos}"
       upload: "새 프로필 사진 업로드하기!"
     photo: 
       view_all: "%{name}님의 모든 사진 보기"
@@ -671,7 +674,7 @@ ko:
     failure: 
       error: "서비스 연결중 에러가 발생했습니다."
     finder: 
-      fetching_contacts: "Diaspora is populating your %{service} friends please check back in a few minutes."
+      fetching_contacts: "디아스포라가 %{service} 서비스의 친구들을 채우고 있습니다. 몇 분 뒤에 다시 확인하시기 바랍니다."
       no_friends: "페이스북 친구를 찾을 수 없습니다."
       service_friends: "%{service} 친구"
     index: 
@@ -849,9 +852,9 @@ ko:
       email_confirmed: "%{email} 이메일이 활성화되었습니다"
       email_not_confirmed: "이메일을 활성화할 수 없습니다. 링크를 확인해주세요."
     destroy: 
-      no_password: "Please enter your current password to close your account."
-      success: "Your account has been locked.  It may take 20 minutes for us to finish closing your account.  Thank you for trying Diaspora."
-      wrong_password: "The entered password didn't match your current password."
+      no_password: "계정을 없애기 위해 현재 암호를 입력하시기 바랍니다."
+      success: "내 계정이 잠겼습니다. 계정을 없애기까지 20분 정도 걸릴 수 있습니다. 디아스포라를 이용해 주셔서 고맙습니다."
+      wrong_password: "입력하신 암호가 현재 암호와 맞지 않습니다."
     edit: 
       also_commented: "댓글 달았던 공유물에 내 컨택도 댓글을 달았을 때"
       change: "바꾸기"

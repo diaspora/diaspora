@@ -111,6 +111,9 @@ de_formal:
         here_to_help: "Die Diaspora-Community ist hier!"
         need_help: "Benötigen Sie Hilfe?"
         satisfaction: "%{link}: Unterstützung durch die Gemeinschaft"
+        tag_bug: "#bug"
+        tag_feature: "#feature"
+        tag_question: "#question"
         tutorials_wiki_and_forum: "%{tutorial} & %{wiki} & %{forum}: Community-powered tutorials, how-to, and news"
       introduce_yourself: "Das ist ihr Stream. Legen Sie los und stellen Sie sich vor."
       keep_us_running: "Helfen Sie, %{pod} schnell zu arbeiten und kaufen Sie unseren Servern ihren monatlichen Schuss Kaffee!"
@@ -552,7 +555,7 @@ de_formal:
       invalid_ext: "{file} hat keine gültige Erweiterung. Nur {extensions} sind erlaubt."
       size_error: "{file} ist zu groß. Die maximale Dateigröße beträgt {sizeLimit}."
     new_profile_photo: 
-      or_select_one: "oder wählen Sie eins aus Ihren bereits bestehenden"
+      or_select_one_existing: "or select one from your already existing %{photos}"
       upload: "Laden Sie ein neues Profilfoto hoch!"
     photo: 
       view_all: "zeige alle Fotos von %{name}"

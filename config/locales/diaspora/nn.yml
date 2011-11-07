@@ -111,6 +111,9 @@ nn:
         here_to_help: "Diaspora-felleskapen er her!"
         need_help: "Need Help?"
         satisfaction: "%{link}: Community-powered support"
+        tag_bug: "#bug"
+        tag_feature: "#feature"
+        tag_question: "#question"
         tutorials_wiki_and_forum: "%{tutorial} & %{wiki} & %{forum}: Community-powered tutorials, how-to, and news"
       introduce_yourself: "This is your stream.  Jump in and introduce yourself."
       keep_us_running: "Sjå til at %{pod} kjører raskt. Gjev tenarane ein kveik ved å gje ein månadleg donasjon."
@@ -552,7 +555,7 @@ nn:
       invalid_ext: "{file} har ein ugyldig filtype. Berre {extensions} er tillatne."
       size_error: "{file} er for stor, kan ikkje vera større enn {sizeLimit}."
     new_profile_photo: 
-      or_select_one: "eller vel eitt frå dei du allereie har"
+      or_select_one_existing: "or select one from your already existing %{photos}"
       upload: "Last opp eit nytt profilbilete."
     photo: 
       view_all: "syn alle bileta til %{name} "

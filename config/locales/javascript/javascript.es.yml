@@ -10,7 +10,7 @@ es:
       all_aspects: "Todos los aspectos"
       error: "No podría empezar a compartir con {{name}}.  ¿Vas a ignonarl@?"
       select_aspects: "Elige los aspectos"
-      started_sharing_with: "¡Has empezado a compartir con {{name}}!"
+      started_sharing_with: "¡Ahora sigues los mensajes públicos de {{name}}!"
       stopped_sharing_with: "Ya no compartes más con {{name}}."
       toggle: 
         few: "En {{count}} aspectos"

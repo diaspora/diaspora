@@ -111,6 +111,9 @@ en_shaw:
         here_to_help: "Diaspora community is here to help!"
         need_help: "Need Help?"
         satisfaction: "%{link}: Community-powered support"
+        tag_bug: "#bug"
+        tag_feature: "#feature"
+        tag_question: "#question"
         tutorials_wiki_and_forum: "%{tutorial} & %{wiki} & %{forum}: Community-powered tutorials, how-to, and news"
       introduce_yourself: "This is your stream.  Jump in and introduce yourself."
       keep_us_running: "𐑒𐑰𐑐 %{pod} 𐑮𐑳𐑯𐑦𐑙 𐑓𐑨𐑕𐑑, 𐑚𐑲 𐑬𐑮 𐑕𐑻𐑝𐑼𐑟 𐑞𐑺 𐑥𐑳𐑯𐑔𐑤𐑦 𐑒𐑪𐑓𐑦 𐑓𐑦𐑒𐑕!"
@@ -552,7 +555,7 @@ en_shaw:
       invalid_ext: "{file} 𐑣𐑨𐑟 𐑦𐑯𐑝𐑨𐑤𐑦𐑛 𐑧𐑒𐑕𐑑𐑧𐑯𐑖𐑩𐑯. 𐑴𐑯𐑤𐑦 {extensions} 𐑸 𐑩𐑤𐑬𐑛."
       size_error: "{file} 𐑦𐑟 𐑑𐑵 𐑤𐑸𐑡, 𐑥𐑨𐑒𐑕𐑦𐑥𐑩𐑥 𐑓𐑲𐑤 𐑕𐑲𐑟 𐑦𐑟 {sizeLimit}."
     new_profile_photo: 
-      or_select_one: "𐑹 𐑕𐑩𐑤𐑧𐑒𐑑 𐑢𐑳𐑯 𐑓𐑮𐑳𐑥 𐑘𐑹 𐑷𐑤𐑮𐑧𐑛𐑦 𐑧𐑜𐑟𐑦𐑕𐑑𐑦𐑙"
+      or_select_one_existing: "or select one from your already existing %{photos}"
       upload: "𐑩𐑐𐑤𐑴𐑛 𐑩 𐑯𐑿 𐑐𐑮𐑴𐑓𐑲𐑤 𐑓𐑴𐑑𐑴!"
     photo: 
       view_all: "𐑝𐑿 𐑷𐑤 𐑝 %{name}𐑟 𐑓𐑴𐑑𐑴𐑟"

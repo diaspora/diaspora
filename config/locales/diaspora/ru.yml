@@ -111,6 +111,9 @@ ru:
         here_to_help: "Сообщество Диаспоры всегда рядом!"
         need_help: "Нужна помощь?"
         satisfaction: "%{link}: осуществляемая сообществом поддержка"
+        tag_bug: "bug"
+        tag_feature: "feature"
+        tag_question: "question"
         tutorials_wiki_and_forum: "%{tutorial}, %{wiki} и %{forum}: составляемые сообществом справочные пособия, инструкции и новости."
       introduce_yourself: "Это ваш поток. Ныряйте и осваивайтесь здесь."
       keep_us_running: "Помогите %{pod} работать быстро — купите нашим серверам дозу кофе, сделав ежемесячное пожертвование!"
@@ -552,7 +555,7 @@ ru:
       invalid_ext: "{file} имеет недопустимое расширение. Разрешены только {extensions}."
       size_error: "{file} слишком большой, максимальный размер файла {sizeLimit}."
     new_profile_photo: 
-      or_select_one: "или выбрать одну из загруженных"
+      or_select_one_existing: "или выберете одну из уже загруженных %{photos}"
       upload: "Загрузить новое фото для профиля!"
     photo: 
       view_all: "Посмотреть все фотографии %{name}"
@@ -874,7 +877,7 @@ ru:
       private_message: "... вы получаете личное сообщение?"
       receive_email_notifications: "Получать уведомление по электронной почте, когда..."
       reshared: "...кто-то делится вашей записью?"
-      show_community_spotlight: "Показывать рекомендуемых пользователей в Потоке?"
+      show_community_spotlight: "Показывать рекомендуемых пользователей в потоке?"
       show_getting_started: "Вернуть информацию для начинающих"
       started_sharing: "...кто-то начинает делиться с вами?"
       stream_preferences: "Настройки потока"

@@ -111,6 +111,9 @@ uk:
         here_to_help: "Товариство Діаспори до ваших послуг!"
         need_help: "Потрібна допомога?"
         satisfaction: "%{link}: здійснювана товариством підтримка"
+        tag_bug: "#bug"
+        tag_feature: "#feature"
+        tag_question: "#question"
         tutorials_wiki_and_forum: "%{tutorial}, %{wiki} і %{forum}: довідкові посібники, що складаються товариством, інструкції та новини."
       introduce_yourself: "Це ваш потік. Пірнайте і освоюйтеся."
       keep_us_running: "Допоможіть %{pod} працювати швидко - купіть нашим серверам дозу кави, зробивши щомісячне пожертвування!"
@@ -552,7 +555,7 @@ uk:
       invalid_ext: "{file} має неприпустиме розширення. Дозволені тільки {extensions}."
       size_error: "{file} занадто великий, максимальний розмір файлу {sizeLimit}."
     new_profile_photo: 
-      or_select_one: "чи вибрати одну із завантажених"
+      or_select_one_existing: "or select one from your already existing %{photos}"
       upload: "Завантажити нове фото для профілю!"
     photo: 
       view_all: "Подивитися усі фотографії %{name}"
