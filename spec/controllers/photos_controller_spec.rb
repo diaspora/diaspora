@@ -16,7 +16,13 @@ describe PhotosController do
 
   describe '#create' do
     before do
-      @params = {:photo => {:aspect_ids => "all"}, :qqfile => Rack::Test::UploadedFile.new("spec/fixtures/button.png", "image/png") }
+      @params = {
+        :photo => {:aspect_ids => "all"},
+        :qqfile => Rack::Test::UploadedFile.new(
+          File.join( Rails.root, "spec/fixtures/button.png" ),
+          "image/png"
+        )
+      }
     end
 
     it 'accepts a photo from a regular form submission' do
