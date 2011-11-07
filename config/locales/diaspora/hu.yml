@@ -111,6 +111,9 @@ hu:
         here_to_help: "A Diaspora közösség megérkezett!"
         need_help: "Segítségre van szüksége?"
         satisfaction: "%{link}: Közösségi támogatás"
+        tag_bug: "#bug"
+        tag_feature: "#feature"
+        tag_question: "#question"
         tutorials_wiki_and_forum: "%{tutorial} & %{wiki} & %{forum}: Közösségi leckék, módszerek, hírek"
       introduce_yourself: "Ez a te Hírfolyamod. Kezdd is el gyorsan egy bemutatkozással."
       keep_us_running: "Hogy gyors maradjon ez a pod (%{pod}), kérlek adományozz pénzt."
@@ -552,7 +555,7 @@ hu:
       invalid_ext: "{file} érvénytelen kiterjesztés. Csak {extensions} kiterjesztések megengedettek."
       size_error: "{file} túl nagy, maximum fájlméret {sizeLimit}."
     new_profile_photo: 
-      or_select_one: "vagy válassz a már feltöltött"
+      or_select_one_existing: "or select one from your already existing %{photos}"
       upload: "Új profilkép feltöltése!"
     photo: 
       view_all: "%{name} összes képének megtekintése"

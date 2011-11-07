@@ -111,6 +111,9 @@ ga:
         here_to_help: "Diaspora community is here to help!"
         need_help: "Need Help?"
         satisfaction: "%{link}: Community-powered support"
+        tag_bug: "#bug"
+        tag_feature: "#feature"
+        tag_question: "#question"
         tutorials_wiki_and_forum: "%{tutorial} & %{wiki} & %{forum}: Community-powered tutorials, how-to, and news"
       introduce_yourself: "This is your stream.  Jump in and introduce yourself."
       keep_us_running: "Keep %{pod} running fast, buy our servers their monthly coffee fix!"
@@ -552,7 +555,7 @@ ga:
       invalid_ext: "Tá iarmhír míbhaillí ag {file}. Níl ag {extensions} ceadaithe."
       size_error: "Tá {file} ró-mhór, tá an méid is mó {sizeLimit}."
     new_profile_photo: 
-      or_select_one: "nó pioc cean ó do cinn ann cheanna féin"
+      or_select_one_existing: "or select one from your already existing %{photos}"
       upload: "Úaslódáil pictiúr próifíl nua!"
     photo: 
       view_all: "feach ar gach pictiúr %{name}"

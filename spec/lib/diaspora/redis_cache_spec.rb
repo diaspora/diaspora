@@ -104,8 +104,6 @@ describe RedisCache do
 
       @cache.populate!
     end
-
-    it 'adds the post from the hash to the cache'
   end
 
   describe "#trim!" do

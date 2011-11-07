@@ -24,11 +24,14 @@ describe User do
     end
 
     it "contains public posts from people you're following" do
-      pending
-      dogs = bob.aspects.create(:name => "dogs")
-      bobs_public_post = Factory(:status_message, :text => "hello", :public => true, :author => bob.person)
+      # Alice follows Eve, but Eve does not follow Alice
+      alice.share_with(eve.person, @alices_aspect)
 
-      alice.visible_shareable_ids(Post).should include(bobs_public_post.id)
+      # Eve posts a public status message
+      eves_public_post = eve.post(:status_message, :text => "hello", :to => 'all', :public => true)
+
+      # Alice should see it
+      alice.visible_shareable_ids(Post).should include(eves_public_post.id)
     end
 
     it "contains non-public posts from people who are following you" do
@@ -75,7 +78,6 @@ describe User do
       before do
         aspect_to_post = bob.aspects.where(:name => "generic").first
         @status = bob.post(:status_message, :text=> "hello", :to => aspect_to_post)
-        @vis = @status.share_visibilities(Post).first
       end
 
       it "pulls back non hidden posts" do
@@ -83,7 +85,8 @@ describe User do
       end
 
       it "does not pull back hidden posts" do
-        @vis.update_attributes(:hidden => true)
+        visibility = @status.share_visibilities(Post).where(:contact_id => alice.contact_for(bob.person).id).first
+        visibility.update_attributes(:hidden => true)
         alice.visible_shareable_ids(Post).include?(@status.id).should be_false
       end
     end
@@ -98,24 +101,13 @@ describe User do
         AppConfig[:redis_cache] = nil
       end
 
-      it "gets populated with latest 100 posts" do
-        cache = mock(:cache_exists? => true, :supported_order? => true, :size => 0, :ensure_populated! => mock, :post_ids => [])
-        RedisCache.stub(:new).and_return(cache)
-        @opts = alice.send(:prep_opts, Post, @opts)
-        cache.should_receive(:ensure_populated!).with(hash_including(@opts))
-
-        alice.visible_shareable_ids(Post, @opts)
+      it "kicks off a job that will populate the latest 100 posts" do
+        pending "we need a job for this - ensure_populated! is too costly to do synchronously for new users"
       end
 
       it 'does not get used if if all_aspects? option is not present' do
         RedisCache.should_not_receive(:new)
-
         alice.visible_shareable_ids(Post, @opts.merge({:all_aspects? => false}))
-      end
-
-      describe "#ensure_populated_cache" do
-        it 'does nothing if the cache is already populated'
-        it 're-populates the cache with the latest posts (in hashes)'
       end
 
       describe '#use_cache?' do
@@ -178,8 +170,6 @@ describe User do
 
           alice.visible_shareable_ids(Post, @opts)
         end
-
-        it "does not get repopulated"
       end
     end
   end

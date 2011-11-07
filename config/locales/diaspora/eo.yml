@@ -111,6 +111,9 @@ eo:
         here_to_help: "Jen la DIASPORA* komunumo!"
         need_help: "Ĉu Vi Bezonas Helpon?"
         satisfaction: "%{link}: Komunuma helpo"
+        tag_bug: "#bug"
+        tag_feature: "#feature"
+        tag_question: "#question"
         tutorials_wiki_and_forum: "%{tutorial} & %{wiki} & %{forum}: Instruiloj, lerniloj kaj novaĵoj funkciigitaj de la komunumo"
       introduce_yourself: "Tio estas via torento. Ensaltu kaj prezentu vin mem."
       keep_us_running: "Helpu %{pod} rapide funkcii kaj aĉetu por niaj servkomputiloj ilian kaforiparon per ĉiumonata donatado!"
@@ -552,7 +555,7 @@ eo:
       invalid_ext: "{file} havas malvalidan sufikson. Nur {extensions} estas validaj."
       size_error: "{file} estas tro granda; la maksimuma dosiergrandeco estas {sizeLimit}."
     new_profile_photo: 
-      or_select_one: "aŭ elektu unu el via jam ekzistanta"
+      or_select_one_existing: "or select one from your already existing %{photos}"
       upload: "Alŝutu novan profilbildon!"
     photo: 
       view_all: "Vidi ĉiujn bildojn de %{name}"

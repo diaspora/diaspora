@@ -111,6 +111,9 @@ da:
         here_to_help: "Diaspora samfundet er her!"
         need_help: "Brug for hjælp?"
         satisfaction: "%{link}: Samfunds-drevet support"
+        tag_bug: "#bug"
+        tag_feature: "#feature"
+        tag_question: "#question"
         tutorials_wiki_and_forum: "%{tutorial} & %{wiki} & %{forum}: Community-powered tutorials, how-to, and news"
       introduce_yourself: "Dette er din strøm. Hop ud i det og introducér dig selv."
       keep_us_running: "Hold %{pod} kørende hurtigt og køb serverne deres kaffe fix med en månedlig donation!"
@@ -552,7 +555,7 @@ da:
       invalid_ext: "{file} har en ugyldig filtype. Kun {udvidelser} er tilladt."
       size_error: "{File} er for stor. Maksimal filstørrelse er {sizeLimit}."
     new_profile_photo: 
-      or_select_one: "eller vælge en fra dit allerede eksisterende"
+      or_select_one_existing: "or select one from your already existing %{photos}"
       upload: "Upload et nyt profilbillede!"
     photo: 
       view_all: "se alle %{name}s billeder"
@@ -657,9 +660,9 @@ da:
         two: "%{count} delinger"
         zero: "Del"
       reshare_confirmation: "Del %{author} - %{text}?"
-      reshare_original: "Del orginal"
+      reshare_original: "Del original"
       reshared_via: "delt via"
-      show_original: "Vis orginal"
+      show_original: "Vis original"
   search: "Søg"
   services: 
     create: 
@@ -760,7 +763,7 @@ da:
       currently_unavailable: "Det er i øjeblikket ikke muligt at kommentere"
       dislike: "Synes ikke om"
       hide_and_mute: "Skjul indlæg og kommentarer"
-      ignore_user: "Ignore %{name}"
+      ignore_user: "Ignorer %{name}"
       ignore_user_description: "Ignore and remove user from all aspects?"
       like: "Synes om"
       shared_with: "Delt med: %{aspect_names}"

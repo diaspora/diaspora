@@ -74,17 +74,6 @@ describe HydraWrapper do
 
   end
 
-  describe '#insert_job' do
-    it 'creates a new request object'
-    it 'calls #prepare_request! on a new request object'
-    it 'adds request to the hydra queue'
-  end
-
-  describe '#prepare_request!' do
-    it 'calls Pod.find_or_create_by_url'
-    it 'calls Person.url_batch_update'
-  end
-
   describe '#redirecting_to_https?!' do
     it 'does not execute unless response has a 3xx code' do
       resp = stub(:code => 200)

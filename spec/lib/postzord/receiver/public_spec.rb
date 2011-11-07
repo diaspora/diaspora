@@ -99,8 +99,6 @@ describe Postzord::Receiver::Public do
       @receiver = Postzord::Receiver::Public.new(xml)
     end
 
-    it 'raises if parent object does not exist'
-
     it 'receives only for the parent author if he is local to the pod' do
       comment = stub.as_null_object
       @receiver.instance_variable_set(:@object, comment)

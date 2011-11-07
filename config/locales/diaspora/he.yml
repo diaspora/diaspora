@@ -111,6 +111,9 @@ he:
         here_to_help: "קהילת דיאספורה לרשותך!"
         need_help: "Need Help?"
         satisfaction: "%{link}: Community-powered support"
+        tag_bug: "#bug"
+        tag_feature: "#feature"
+        tag_question: "#question"
         tutorials_wiki_and_forum: "%{tutorial} & %{wiki} & %{forum}: Community-powered tutorials, how-to, and news"
       introduce_yourself: "This is your stream.  Jump in and introduce yourself."
       keep_us_running: "כדי שהפוד %{pod} ימשיך לפעול במהירות ולרכוש שרתים נוספים שימו כמה דולרים כל חודש כדי לממן להם איזה כוס קפה!"
@@ -552,7 +555,7 @@ he:
       invalid_ext: "לקובץ {file} יש סיומת בלתי מוכרת. רק הסיומות {extensions} מותרות לשימוש."
       size_error: "הקובץ {file} גדול מדי, גודל הקובץ המרבי הוא {sizeLimit}."
     new_profile_photo: 
-      or_select_one: "או לבחור באחת הקיימות"
+      or_select_one_existing: "or select one from your already existing %{photos}"
       upload: "העלאת תמונת פרופיל חדש!"
     photo: 
       view_all: "צפייה בכל התמונות של %{name}"

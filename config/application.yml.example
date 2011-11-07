@@ -66,13 +66,14 @@ defaults: &defaults
   # Email to send spotlight suggestions to
   spotlight_suggest_email: ''
 
-  # Set this to true to remove the donation request form in the right sidebar
-  do_not_request_donations: false
-
   # List of users who have admin privileges
   # (expressed as an array of local usernames)
   admins:
     - 'example_user1dsioaioedfhgoiesajdigtoearogjaidofgjo'
+
+  # Mount resque-web into routes
+  # This allows an administrator to see info about the workers
+  mount_resque_web: true
 
   # Logging setup
 
@@ -153,30 +154,7 @@ defaults: &defaults
   # Sender address in Diaspora's outgoing mail.
   smtp_sender_address: 'no-reply@joindiaspora.com'
 
-  # Web tracking
-
-  # google analytics key - if false, no javascript included
-  google_a_site: false
-
-  # piwik integration - if not set, no javascript included
-  piwik_id:
-  # the site url in raw format (e.g. pikwik.examplehost.com)
-  piwik_url:
-
-  # Backups
-
-  # cloudfiles username and api-key - used for backups
-  cloudfiles_username: 'example'
-  cloudfiles_api_key:  'abc123'
-
-  # Donations
-
-  # Use paypal for recurring donations
-  paypal_hosted_button_id: ""
-
-  # Mount resque-web into routes
-  # This allows an administrator to see info about the workers
-  mount_resque_web: true
+  # Redis cache
 
   # Enable the cache layer (Redis)
   # If you expect to have thousands of users on your pod,
@@ -195,6 +173,29 @@ defaults: &defaults
   # This takes an ip (or DNS record).  It assumes that your Redis database
   # is running on the default Redis port.
   redis_location: ''
+
+
+  # Web tracking
+
+  # google analytics key - if false, no javascript included
+  google_a_site: false
+
+  # piwik integration - if not set, no javascript included
+  piwik_id:
+  # the site url in raw format (e.g. pikwik.examplehost.com)
+  piwik_url:
+
+  # Backups
+
+  # cloudfiles username and api-key - used for backups
+  cloudfiles_username: 'example'
+  cloudfiles_api_key:  'abc123'
+
+  # Donations
+  
+  # Leave this blank to not show the request for donations
+  # Use paypal for recurring donations
+  paypal_hosted_button_id: ""
 
 #
 # Use this section to override default settings in specific environments

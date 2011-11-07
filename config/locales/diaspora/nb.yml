@@ -111,6 +111,9 @@ nb:
         here_to_help: "Diaspora community is here to help!"
         need_help: "Trenger du hjelp?"
         satisfaction: "%{link}: Community-powered support"
+        tag_bug: "#bug"
+        tag_feature: "#feature"
+        tag_question: "#question"
         tutorials_wiki_and_forum: "%{tutorial} & %{wiki} & %{forum}: Community-powered tutorials, how-to, and news"
       introduce_yourself: "This is your stream.  Jump in and introduce yourself."
       keep_us_running: "Keep %{pod} running fast, buy our servers their monthly coffee fix!"
@@ -440,9 +443,9 @@ nb:
       two: "%{actors} reshared your deleted post."
       zero: "%{actors} reshared your deleted post."
     started_sharing: 
-      few: "%{actors} started sharing with you."
-      many: "%{actors} started sharing with you."
-      one: "%{actors} started sharing with you."
+      few: "%{actors} har begynt å dele med deg."
+      many: "%{actors} har begynt å dele med deg."
+      one: "%{actors} har begynt å dele med deg."
       other: "%{actors} started sharing with you."
       two: "%{actors} started sharing with you."
       zero: "%{actors} started sharing with you."
@@ -552,7 +555,7 @@ nb:
       invalid_ext: "{file} er en ugyldig filtype. Bare {extensions} er tillatt."
       size_error: "{file} er for stor, maks filstørrelse er {sizeLimit}."
     new_profile_photo: 
-      or_select_one: "eller velg fra dine allerede eksisterende"
+      or_select_one_existing: "or select one from your already existing %{photos}"
       upload: "Last opp et nytt profilbilde!"
     photo: 
       view_all: "se alle bildene til %{name}"

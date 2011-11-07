@@ -99,14 +99,6 @@ describe PostsController do
 
       end
 
-      it 'shows a public photo' do
-        pending
-        status = Factory(:status_message_with_photo, :public => true, :author => alice.person)
-        photo = status.photos.first
-        get :show, :id => photo.id
-        response.status.should == 200
-      end
-
       it 'does not show a private post' do
         status = alice.post(:status_message, :text => "hello", :public => false, :to => 'all')
         get :show, :id => status.id

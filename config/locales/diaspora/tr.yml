@@ -111,6 +111,9 @@ tr:
         here_to_help: "Diaspora topluluğu olarak yardım etmek için buradayız!"
         need_help: "Yardıma mı ihtiyacın var?"
         satisfaction: "%{link}: Topluluk desteği"
+        tag_bug: "#bug"
+        tag_feature: "#feature"
+        tag_question: "#question"
         tutorials_wiki_and_forum: "%{tutorial} & %{wiki} & %{forum}: Community-powered tutorials, how-to, and news"
       introduce_yourself: "Bu sizin akışınızdır. Atla ve kendini tanıt."
       keep_us_running: "%{pod} ağının daha hızlı ve hatasız olması için geliştiricilere aylık kahve ısmarlayın!"
@@ -552,7 +555,7 @@ tr:
       invalid_ext: "{file} geçersiz uzantıya sahip. sadece {extensions} uzantılarına izin verilir."
       size_error: "{file} çok büyük, en büyük dosya boyutu {sizeLimit}."
     new_profile_photo: 
-      or_select_one: "ya da varolanlardan birini seç"
+      or_select_one_existing: "or select one from your already existing %{photos}"
       upload: "Yeni bir profil fotoğrafı yükle!"
     photo: 
       view_all: "%{name}'in bütün fotoğraflarını göster"

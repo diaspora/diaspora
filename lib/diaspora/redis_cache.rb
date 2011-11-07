@@ -21,7 +21,7 @@ class RedisCache
 
   # @return [Boolean]
   def cache_exists?
-    self.size != 0
+    self.redis.exists(set_key)
   end
 
   # @return [Integer] the cardinality of the redis set

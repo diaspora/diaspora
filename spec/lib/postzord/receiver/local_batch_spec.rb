@@ -23,12 +23,6 @@ describe Postzord::Receiver::LocalBatch do
       receiver.receive!
     end
 
-    it 'sockets to users' do
-      pending 'not currently socketing'
-      receiver.should_receive(:socket_to_users)
-      receiver.receive!
-    end
-
     it 'notifies mentioned users' do
       receiver.should_receive(:notify_mentioned_users)
       receiver.receive!
@@ -100,11 +94,6 @@ describe Postzord::Receiver::LocalBatch do
       receiver.perform!
     end
 
-    it 'calls socket_to_users' do
-      pending 'not currently socketing'
-      receiver.should_receive(:socket_to_users)
-      receiver.perform!
-    end
     it 'does not call create_visibilities and notify_mentioned_users' do
       receiver.should_not_receive(:notify_mentioned_users)
       receiver.should_not_receive(:create_share_visibilities)

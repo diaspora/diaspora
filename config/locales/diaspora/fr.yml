@@ -111,6 +111,9 @@ fr:
         here_to_help: "La communauté Diaspora est là !"
         need_help: "Besoin d'aide ?"
         satisfaction: "%{link} : Support par la communauté"
+        tag_bug: "#bug"
+        tag_feature: "#feature"
+        tag_question: "#question"
         tutorials_wiki_and_forum: "%{tutorial} & %{wiki} & %{forum}: Tutoriels créés par la communauté, how-to, et infos"
       introduce_yourself: "Ceci est votre flux. Rejoignez-nous et présentez-vous."
       keep_us_running: "Permettez à %{pod} de fonctionner rapidement et achetez une dose de café par mois à nos serveurs !"
@@ -552,7 +555,7 @@ fr:
       invalid_ext: "{file} a une extension invalide. Seules {extensions} sont autorisées."
       size_error: "{file} est trop grand, la taille maximum pour un fichier est {sizeLimit}."
     new_profile_photo: 
-      or_select_one: "ou faites votre choix parmi vos"
+      or_select_one_existing: "ou choisissez parmi vos photos existantes %{photos}"
       upload: "Mettre une nouvelle photo de profil !"
     photo: 
       view_all: "voir toute les photos de %{name}"
@@ -573,7 +576,7 @@ fr:
       not_found: "Désolé, nous n'avons pas pu trouver ce message."
       permalink: "lien permanent"
   previous: "précédent"
-  privacy: "Privacy"
+  privacy: "Vie privée"
   profile: "Profil"
   profiles: 
     edit: 
@@ -693,7 +696,7 @@ fr:
   settings: "Options"
   share_visibilites: 
     update: 
-      post_hidden_and_muted: "%{name}'s post has been hidden, and notifications have been muted."
+      post_hidden_and_muted: "La publication de %{name} a été masquée ainsi que les notifications."
       see_it_on_their_profile: "Si vous souhaitez voir des mises à jour de ce message, visitez la page de profil de %{name}."
   shared: 
     add_contact: 
@@ -818,8 +821,8 @@ fr:
       failure: "Erreur lors de la demande de suivi de #%{name}. Le suivez-vous déjà ?"
       success: "Yep ! Vous suivez maintenant #%{name}."
     destroy: 
-      failure: "Erreur lors de la demande d'arrêt du suivit de : #%{name}"
-      success: "L'arrêt du suivit de #%{name} est un succès"
+      failure: "Erreur lors de la demande d'arrêt du suivi de : #%{name}"
+      success: "L'arrêt du suivi de #%{name} est un succès"
   tags: 
     show: 
       follow: "Suivre #%{tag}"
@@ -849,9 +852,9 @@ fr:
       email_confirmed: "Email %{email} activé"
       email_not_confirmed: "L'email n'a pas pu être activé. Lien erroné ?"
     destroy: 
-      no_password: "Please enter your current password to close your account."
-      success: "Your account has been locked.  It may take 20 minutes for us to finish closing your account.  Thank you for trying Diaspora."
-      wrong_password: "The entered password didn't match your current password."
+      no_password: "Veuillez introduire votre mot de passe actuel pour fermer votre compte."
+      success: "Votre compte a été bloqué. 20 minutes pourraient être nécessaires pour la finalisation de sa fermeture. Merci d'avoir essayé d'utiliser Diaspora."
+      wrong_password: "Le mot de passe introduit ne correspond pas à  votre mot de passe actuel."
     edit: 
       also_commented: "…quelqu'un d'autre commente une publication de votre contact ?"
       change: "Modifier"
@@ -900,7 +903,7 @@ fr:
       works_on_modern: "Fonctionne sur tous les smartphones modernes"
     privacy_settings: 
       ignored_users: "Utilisateurs ignorés"
-      stop_ignoring: "Stop ignoring"
+      stop_ignoring: "Arrêter d'ignorer."
       title: "Paramètres de confidentialité"
     public: 
       does_not_exist: "L'utilisateur %{username} n'existe pas !"

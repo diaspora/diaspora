@@ -111,6 +111,9 @@ it:
         here_to_help: "La comunità di Diaspora è qui!"
         need_help: "Hai bisogno di aiuto?"
         satisfaction: "%{link}: Per avere supporto dalla comunità"
+        tag_bug: "#bug"
+        tag_feature: "#funzionalità"
+        tag_question: "#domanda"
         tutorials_wiki_and_forum: "%{tutorial} & %{wiki} & %{forum}: Per le ultime notizie, le guide e i suggerimenti della comunità"
       introduce_yourself: "Questo è il tuo stream. Sali a bordo e presentati!"
       keep_us_running: "Mantieni %{pod} veloce e scattante, la tua donazione mensile sarà il caffè per i nostri server!"
@@ -552,7 +555,7 @@ it:
       invalid_ext: "{file} ha un'estensione non valida. Sono permesse soltanto {extensions}."
       size_error: "{file} è troppo grande, la dimensione massima è {sizeLimit}."
     new_profile_photo: 
-      or_select_one: "oppure selezionane uno da quelli già esistenti"
+      or_select_one_existing: "oppure seleziona una delle %{photos} che hai caricato"
       upload: "Carica una nuova foto profilo!"
     photo: 
       view_all: "guarda tutte le foto di %{name}"
@@ -671,7 +674,7 @@ it:
     failure: 
       error: "si è verificato un errore durante la connessione a quel servizio"
     finder: 
-      fetching_contacts: "Diaspora is populating your %{service} friends please check back in a few minutes."
+      fetching_contacts: "Diaspora sta importando i tuoi amici di %{service}, il risultato sarà visibile tra alcuni minuti."
       no_friends: "Non ho trovato amici su Facebook."
       service_friends: "Amici su %{service}"
     index: 
@@ -849,9 +852,9 @@ it:
       email_confirmed: "Email %{email} attivata"
       email_not_confirmed: "L'email non è stata attivata. C'è un errore nel link?"
     destroy: 
-      no_password: "Please enter your current password to close your account."
-      success: "Your account has been locked.  It may take 20 minutes for us to finish closing your account.  Thank you for trying Diaspora."
-      wrong_password: "The entered password didn't match your current password."
+      no_password: "Per favore inserisci la password per chiudere l'account."
+      success: "Il tuo account è stato bloccato. Il processo di chiusura dovrebbe essere completato in circa 20 minuti. Grazie per aver provato Diaspora."
+      wrong_password: "Hai inserito una password che non corrisponde a quella attuale."
     edit: 
       also_commented: "...qualcuno commenta un post dopo di te?"
       change: "Cambia"

@@ -981,10 +981,6 @@ describe User do
 
         bob.retract(@post)
       end
-
-      it 'performs the retraction' do
-        pending
-      end
     end
   end
 end

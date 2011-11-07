@@ -6,204 +6,116 @@
 sl: 
   devise: 
     confirmations: 
-      confirmed: !binary |
-          VmGaIHVwb3JhYm5pmmtpIHJh6HVuIGplIHVzcGWabm8gcG90cmplbi4gWmRh
-          aiBzdGUgcHJpamF2bGplbmku
+      confirmed: "Vaš uporabniški račun je uspešno potrjen. Zdaj ste prijavljeni."
       new: 
-        resend_confirmation: !binary |
-            UG9ub3ZubyBwb5psamkgbmF2b2RpbGEgemEgcG90cmRpdGV2IHVwb3JhYm5p
-            mmtlZ2EgcmHodW5h
-      send_instructions: !binary |
-          ViBuYXNsZWRuamloIG5la2FqIG1pbnV0YWggYm9zdGUgcHJlamVsaSBlLXBv
-          mnRvIHogIG5hdm9kaWxpLCBrYWtvIHBvdHJkaXRpIHZhmiB1cG9yYWJuaZpr
-          aSByYeh1bi4=
+        resend_confirmation: "Ponovno pošlji navodila za potrditev uporabniškega računa"
+      send_instructions: "V naslednjih nekaj minutah boste prejeli e-pošto z  navodili, kako potrditi vaš uporabniški račun."
     failure: 
-      inactive: !binary |
-          VmGaIHJh6HVuIJplIG5pIGFrdGl2aXJhbi4=
-      invalid: !binary |
-          TmFwYehubyB1cG9yYWJuaZprbyBpbWUgYWxpIGdlc2xvLg==
-      invalid_token: !binary |
-          UHJldmVyamFuamUgcHJpc3Rub3N0aSBuaSBtb2dv6GUu
-      locked: !binary |
-          VmGaIHJh6HVuIGplIHpha2xlbmplbi4=
-      timeout: !binary |
-          VmGaYSBzZWphIGplIHBvdGVrbGEuIFphIG5hZGFsamV2YW5qZSBzZSBwb25v
-          dm5vIHByaWphdml0ZS4=
+      inactive: "Vaš račun še ni aktiviran."
+      invalid: "Napačno uporabniško ime ali geslo."
+      invalid_token: "Preverjanje pristnosti ni mogoče."
+      locked: "Vaš račun je zaklenjen."
+      timeout: "Vaša seja je potekla. Za nadaljevanje se ponovno prijavite."
       unauthenticated: "Za nadaljevanje se prijavite ali registrirajte."
-      unconfirmed: !binary |
-          WmEgbmFkYWxqZXZhbmplIHBvdHJkaXRlIHZhmiByYeh1bi4=
+      unconfirmed: "Za nadaljevanje potrdite vaš račun."
     invitations: 
       invitation_token_invalid: "Povabilo ni veljavno!"
-      send_instructions: !binary |
-          VmGaZSBwb3ZhYmlsbyBqZSBwb3NsYW5vLg==
-      updated: !binary |
-          VmGaZSBnZXNsbyBqZSB1c3Blmm5vIHNwcmVtZW5qZW5vLiBaZGFqIHN0ZSBw
-          cmlqYXZsamVuaS4=
+      send_instructions: "Vaše povabilo je poslano."
+      updated: "Vaše geslo je uspešno spremenjeno. Zdaj ste prijavljeni."
     mailer: 
       confirmation_instructions: 
-        confirm: !binary |
-            UG90cmRpIHVwb3JhYm5pmmtpIHJh6HVu
-        subject: !binary |
-            TmF2b2RpbGEgemEgcG90cmRpdGV2IHVwb3JhYm5pmmtlZ2EgcmHodW5h
-        you_can_confirm: !binary |
-            VmGaIHVwb3JhYm5pmmtpIHJh6HVuIGxhaGtvIHBvdHJkaXRlIHMgcG9tb+hq
-            byBzcG9kbmplIHBvdmV6YXZlOg==
+        confirm: "Potrdi uporabniški račun"
+        subject: "Navodila za potrditev uporabniškega računa"
+        you_can_confirm: "Vaš uporabniški račun lahko potrdite s pomočjo spodnje povezave:"
       hello: "Pozdravljeni %{email}!"
       invitation_instructions: 
         accept: "Sprejmi povabilo"
-        arrived: "The social network you have been waiting for has arrived. Revamped, more secure, and more fun, %{strong_diaspora} is ready to help you share and explore the web in a whole new way."
-        be_yourself: "Be Yourself"
-        be_yourself_paragraph: "The Internet has created unique new ways for us to express ourselves. %{strong_diaspora} lets you be yourself and share however you want, with or without your real name."
+        arrived: "Socialno omrežje, ki ste ga že čakali je prispelo. Prenovljeno, varnejše in bolj zabavo, %{strong_diaspora} je pripravljena, da vam pomaga deliti in raziskati splet na povsem nov način."
+        be_yourself: "Bodi to kar si"
+        be_yourself_paragraph: "Internet je ustvaril edinstvene nove načine za nas, da se izražamo. %{strong_diaspora} vam omogoča, da ste to kar ste in da delite kakor sami želite z ali brez vašega pravega imena."
         cubbies: Cubbi.es
-        displaying_correctly: "Email not displaying correctly? %{link} in your browser"
+        displaying_correctly: "E-pošta se ne prikazuje pravilno? %{link} v vašem brskalniku"
         email_address: questions@joindiaspora.com
-        email_us: "For general inquiries or support with your Diaspora account, please email us at %{email}."
-        finally: "Finally - it's here"
-        friends_saying: "What your friends are saying..."
-        get_connected: "Get Connected"
+        email_us: "Za splošna vprašanja ali pomoč z računom Diaspore, nam pišite na %{email}."
+        finally: "Končno je tukaj"
+        friends_saying: "Kar vaši prijatelji pravijo ..."
+        get_connected: "Povežite se"
         get_connected_paragraph: "An international movement with a shared vision for a better web, %{strong_diaspora}'s #1 feature is its community. Meet new people, connect with friends, and join the fun."
-        have_fun: "Have Fun"
-        have_fun_paragraph: "%{strong_diaspora} is all about discovering amazing new content and people online. %{link}, the world's first %{strong_diaspora} application is just the begining. Collect and share the web in all of its glory."
-        help_fund: "help fund Diaspora"
-        here: "here"
-        ignore: !binary |
-            yGUgcG92YWJpbGEgbmUgnmVsaXRlIHNwcmVqZXRpLCBwcm9zaW1vIGplbWxq
-            aXRlIHRvIGUtcG+adG8ga290IGJyZXpwcmVkbWV0bm8u
-        join_team: "Join our Team"
+        have_fun: "Uživajte"
+        have_fun_paragraph: "%{strong_diaspora} je vse o odkrivanju nove vsebine in ljudi na spletu.%{link}, prva aplikacija %{strong_diaspora} je šele začetek. Zberite in delite splet v vsej njeni slavi."
+        help_fund: "pomagaj pri financiranju Diaspore"
+        here: "tukaj"
+        ignore: "Če povabila ne želite sprejeti, prosimo jemljite to e-pošto kot brezpredmetno."
+        join_team: "Pridruži se našemu timu"
         love: "Love,"
-        made_by_people: "%{strong_diaspora} is made by people who love the Internet as much as you do. %{jointeam}, or %{helpfund}!"
-        more_people: "Even more people are excited to see you!"
-        no_account_till: !binary |
-            VmGaIHJh6HVuIG5lIGJvIHVzdHZhcmplbiwgZG9rbGVyIG5lIGJvc3RlIG9i
-            aXNrYWxpICBwb3ZlemF2ZSB6Z29yYWogaW4gc2UgdnBpc2FsaS4=
-        or: "or"
-        sign_up_now: "Sign up now &rarr;"
-        subject: !binary |
-            UG92YWJsamVuaSBzdGUsIGRhIHNlIHByaWRydZ5pdGUgb21yZZ5qdSBEaWFz
-            cG9yYSE=
-        team_diaspora: "Team Diaspora"
-        unsubscribe: "To unsubscribe please click %{link}."
-        view_in: "View in"
+        made_by_people: "%{strong_diaspora} je narejena s pomočjo ljudi, ki ljubijo internet toliko kot ti. %{jointeam}, ali %{helpfund}!"
+        more_people: "Celo več ljudi je navdušenih, da te vidijo!"
+        no_account_till: "Vaš račun ne bo ustvarjen, dokler ne boste obiskali  povezave zgoraj in se vpisali."
+        or: "ali"
+        sign_up_now: "Registriraj se zdaj &rarr;"
+        subject: "Povabljeni ste, da se pridružite omrežju Diaspora!"
+        team_diaspora: "Tim Diaspore"
+        unsubscribe: "Za odjavo kliknite %{link}."
+        view_in: "Poglej v"
       inviter: 
         accept_at: "na %{url}, sprejmete lahko preko spodnje povezave."
         has_invited_you: "%{name}"
-        have_invited_you: !binary |
-            JXtuYW1lc30gc28gdmFzIHBvdmFiaWxpIHYgb21yZZ5qZSBEaWFzcG9yYQ==
+        have_invited_you: "%{names} so vas povabili v omrežje Diaspora"
       reset_password_instructions: 
         change: "Spremeni geslo"
-        ignore: !binary |
-            ViBrb2xpa29yIHRlZ2EgbmlzdGUgemFodGV2YWxpLCBqZW1saml0ZSB0byBl
-            LXBvmnRvIGtvdCBicmV6cHJlZG1ldG5vLg==
-        someone_requested: !binary |
-            TmVrZG8gamUgemFodGV2YWwgcG92ZXphdm8gemEgc3ByZW1lbWJvIHZhmmVn
-            YSBnZXNsYSwga2FyIGxhaGtvIHN0b3JpdGUgcyBwb21v6GpvIHNwb2RuamUg
-            cG92ZXphdmUu
+        ignore: "V kolikor tega niste zahtevali, jemljite to e-pošto kot brezpredmetno."
+        someone_requested: "Nekdo je zahteval povezavo za spremembo vašega gesla, kar lahko storite s pomočjo spodnje povezave."
         subject: "Navodila za ponastavitev gesla"
-        wont_change: !binary |
-            VmGaZSBnZXNsbyBsYWhrbyBzcHJlbWVuaXRlIHMgcG9tb+hqbyB6Z29ybmpl
-            IHBvdmV6YXZlIHRlciB6IHZwaXNvbSBub3ZlZ2EgZ2VzbGEu
+        wont_change: "Vaše geslo lahko spremenite s pomočjo zgornje povezave ter z vpisom novega gesla."
       unlock_instructions: 
-        account_locked: !binary |
-            WmFyYWRpIHZl6GtyYXRuZSBuZXVzcGWabmUgcHJpamF2ZSBzZSBqZSB2YZog
-            dXBvcmFibmmaa2kgcmHodW4gemFrbGVuaWwu
-        click_to_unlock: !binary |
-            T2RrbGVuaXRlIHZhmiB1cG9yYWJuaZpraSByYeh1biBzIGtsaWtvbSBuYSBz
-            cG9kbmpvIHBvdmV6YXZvOg==
-        subject: !binary |
-            TmF2b2RpbGEgemEgb2RrbGVwYW5qZSB1cG9yYWJuaZprZWdhIHJh6HVuYQ==
-        unlock: !binary |
-            T2RrbGVuaSB1cG9yYWJuaZpraSByYeh1bg==
-      welcome: !binary |
-          RG9icm9kb5psaSAle2VtYWlsfSE=
+        account_locked: "Zaradi večkratne neuspešne prijave se je vaš uporabniški račun zaklenil."
+        click_to_unlock: "Odklenite vaš uporabniški račun s klikom na spodnjo povezavo:"
+        subject: "Navodila za odklepanje uporabniškega računa"
+        unlock: "Odkleni uporabniški račun"
+      welcome: "Dobrodošli %{email}!"
     passwords: 
       edit: 
         change_password: "Spremeni geslo"
       new: 
         forgot_password: "Ste pozabili geslo?"
-        no_account: !binary |
-            VXBvcmFibmmaa2kgcmHodW4gcyB0ZW0gZS1uYXNsb3ZvbSBuZSBvYnN0YWph
-            LiBWIGtvbGlrb3IgmmUg6GFrYXRlIG5hIHBvdmFiaWxvLCB2YXMgcHJvc2lt
-            byB6YSBwb3RycGxqZW5qZS4=
-        send_password_instructions: !binary |
-            UG+abGppIG5hdm9kaWxhIHphIHBvbmFzdGF2aXRldiBnZXNsYQ==
-      send_instructions: !binary |
-          ViBuZWthaiBtaW51dGFoIGJvc3RlIHByZWplbGkgZS1wb5p0byB6IG5hdm9k
-          aWxpIHphIHBvbmFzdGF2aXRldiB2YZplZ2EgZ2VzbGEu
-      updated: !binary |
-          VmGaZSBnZXNsbyBqZSBiaWxvIHVzcGWabm8gc3ByZW1lbmplbm8uIFpkYWog
-          c3RlIHByaWphdmxqZW5pLg==
+        no_account: "Uporabniški račun s tem e-naslovom ne obstaja. V kolikor še čakate na povabilo, vas prosimo za potrpljenje."
+        send_password_instructions: "Pošlji navodila za ponastavitev gesla"
+      send_instructions: "V nekaj minutah boste prejeli e-pošto z navodili za ponastavitev vašega gesla."
+      updated: "Vaše geslo je bilo uspešno spremenjeno. Zdaj ste prijavljeni."
     registrations: 
-      destroyed: !binary |
-          TmFzdmlkZW5qZSEgVmGaIHVwb3JhYm5pmmtpIHJh6HVuIGplIHVzcGWabm8g
-          cHJla2xpY2FuLiBWbGp1ZG5vIHZhcyB2YWJpbW8sIGRhIG5hcyBwb25vdm5v
-          IG9iaZroZXRlLg==
-      signed_up: !binary |
-          VmGaYSByZWdpc3RyYWNpamEgamUgdXNwZZpuYS4gViBrb2xpa29yIGplIG9t
-          b2dv6GVubywgc3RlIHYgdmGabyBlLXBvmnRvIHByZWplbGkgc3Bvcm/oaWxv
-          IHphIHBvdHJkaXRldiByYeh1bmEu
-      updated: !binary |
-          VmGaIHVwb3JhYm5pmmtpIHJh6HVuIGplIHVzcGWabm8gcG9zb2RvYmxqZW4u
+      destroyed: "Nasvidenje! Vaš uporabniški račun je uspešno preklican. Vljudno vas vabimo, da nas ponovno obiščete."
+      signed_up: "Vaša registracija je uspešna. V kolikor je omogočeno, ste v vašo e-pošto prejeli sporočilo za potrditev računa."
+      updated: "Vaš uporabniški račun je uspešno posodobljen."
     sessions: 
       new: 
-        alpha_software: !binary |
-            VXBvcmFiaWxpIGJvc3RlIGFscGhhIHJhemxp6GljbyBwcm9ncmFtYS4=
-        bugs_and_feedback: !binary |
-            T3BvemFyamFtbyB2YXMsIGRhIGxhaGtvIG5hbGV0aXRlIG5hIGhyb5roZS4g
-            VmVzZWxpIGJvbW8gdnNha2UgcHJpamF2bGplbmUgbmFwYWtlLCBraSBqbyBs
-            YWhrbyBvZGRhdGUgcyBwb21v6GpvICdGZWVkYmFjaycgZ3VtYmEgbmEgZGVz
-            bmkgc3RyYW5pIHNwbGV0bmVnYSBicnNrYWxuaWthLiBQbyBuYWpib2xqmmlo
-            IG1v6GVoIHNlIGJvbW8gcG90cnVkaWxpLCBkYSBwcmlqYXZsamVubyBuYXBh
-            a28gb2JyYXZuYXZhbW8gaW4gb2RwcmF2aW1vIHYgbmFqa3JhapplbSBtb55u
-            ZW0g6GFzdS4=
-        bugs_and_feedback_mobile: !binary |
-            T3BvemFyamFtbyB2YXMsIGRhIGxhaGtvIG5hbGV0aXRlIG5hIG5hcGFrZS4g
-            IFZlc2VsaSBib21vIHZzYWtlIHZhmmUgcHJpamF2bGplbmUgbmFwYWtlLCBr
-            aSBqbyBib21vIHBvc2t1c2lsaSBvYnJhdm5hdmF0aSBpbiByZZppdGkgdiBu
-            YWprcmFqmmVtIG1vnm5lbSDoYXN1Lg==
+        alpha_software: "Uporabili boste alpha različico programa."
+        bugs_and_feedback: "Opozarjamo vas, da lahko naletite na hrošče. Veseli bomo vsake prijavljene napake, ki jo lahko oddate s pomočjo 'Feedback' gumba na desni strani spletnega brskalnika. Po najboljših močeh se bomo potrudili, da prijavljeno napako obravnavamo in odpravimo v najkrajšem možnem času."
+        bugs_and_feedback_mobile: "Opozarjamo vas, da lahko naletite na napake.  Veseli bomo vsake vaše prijavljene napake, ki jo bomo poskusili obravnavati in rešiti v najkrajšem možnem času."
         login: "Prijava"
-        modern_browsers: !binary |
-            cG9kcGlyYSBsZSBub3ZlapplIHNwbGV0bmUgYnJza2FsbmlrZS4=
+        modern_browsers: "podpira le novejše spletne brskalnike."
         password: "Geslo"
         remember_me: "Zapomni si me"
         sign_in: "Prijavi se"
-        username: !binary |
-            VXBvcmFibmmaa28gaW1l
-      signed_in: !binary |
-          VmGaYSBwcmlqYXZhIGplIHVzcGWabmEu
-      signed_out: !binary |
-          VmGaYSBvZGphdmEgamUgdXNwZZpuYS4=
+        username: "Uporabniško ime"
+      signed_in: "Vaša prijava je uspešna."
+      signed_out: "Vaša odjava je uspešna."
     shared: 
       links: 
         forgot_your_password: "Ste pozabili geslo?"
-        receive_confirmation: !binary |
-            U3RlIHByZWplbGkgbmF2b2RpbGEgemEgcG90cmRpdGV2IHVwb3JhYm5pmmtl
-            Z2EgcmHodW5hPw==
-        receive_unlock: !binary |
-            U3RlIHByZWplbGkgbmF2b2RpbGEgemEgb2RrbGVwYW5qZSB1cG9yYWJuaZpr
-            ZWdhIHJh6HVuYT8=
+        receive_confirmation: "Ste prejeli navodila za potrditev uporabniškega računa?"
+        receive_unlock: "Ste prejeli navodila za odklepanje uporabniškega računa?"
         sign_in: "Prijava"
         sign_up: "Vpis"
-        sign_up_closed: !binary |
-            VnBpcyB0cmVudXRubyBuaSBvbW9nb+hlbi4=
+        sign_up_closed: "Vpis trenutno ni omogočen."
       mail_signup_form: 
-        sign_up_for_an_invite: !binary |
-            UHJpamF2YSBuYSDoYWthbG5vIGxpc3RvIHphIHBvdmFiaWxhIQ==
+        sign_up_for_an_invite: "Prijava na čakalno listo za povabila!"
     unlocks: 
       new: 
-        resend_unlock: !binary |
-            UG9ub3ZubyBwb5psamkgbmF2b2RpbGEgemEgb2RrbGVwYW5qZSB1cG9yYWJu
-            aZprZWdhIHJh6HVuYQ==
-      send_instructions: !binary |
-          ViBuZWthaiBtaW51dGFoIGJvc3RlIHByZWplbGkgZS1wb5p0byB6IG5hdm9k
-          aWxpIHphIG9ka2xlcGFuamUgdmGaZWdhIHVwb3JhYm5pmmtlZ2EgcmHodW5h
-          Lg==
-      unlocked: !binary |
-          VmGaIHVwb3JhYm5pmmtpIHJh6HVuIGplIGJpbCB1c3Blmm5vIG9ka2xlbmpl
-          bi4gWmRhaiBzdGUgcHJpamF2bGplbmku
+        resend_unlock: "Ponovno pošlji navodila za odklepanje uporabniškega računa"
+      send_instructions: "V nekaj minutah boste prejeli e-pošto z navodili za odklepanje vašega uporabniškega računa."
+      unlocked: "Vaš uporabniški račun je bil uspešno odklenjen. Zdaj ste prijavljeni."
   errors: 
     messages: 
-      already_confirmed: !binary |
-          amUgnmUgYmlsbyBwb3RyamVubw==
-      not_found: !binary |
-          bmkgYmlsbyBtb2dv6GUgbmFqdGk=
+      already_confirmed: "je že bilo potrjeno"
+      not_found: "ni bilo mogoče najti"
       not_locked: "ni bilo zaklenjeno"

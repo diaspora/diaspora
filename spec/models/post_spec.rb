@@ -128,14 +128,7 @@ describe Post do
           Post.for_visible_shareable_sql(Time.now + 1, "created_at")
         end
 
-        it 'respects the type option'
       end
-
-      describe 'includes for a stream' do
-        it 'inclues author profile and mentions'
-        it 'should include photos and root of reshares(but does not)'
-      end
-
     end
   end
 

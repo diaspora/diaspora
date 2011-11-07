@@ -111,6 +111,9 @@ es-CL:
         here_to_help: "La comunidad de Diaspora esta aquí!"
         need_help: "Necesitas ayuda?"
         satisfaction: "%{link}: Soporte impulsado por la comunidad"
+        tag_bug: "#bug"
+        tag_feature: "#feature"
+        tag_question: "#question"
         tutorials_wiki_and_forum: "%{tutorial} & %{wiki} & %{forum}: Community-powered tutorials, how-to, and news"
       introduce_yourself: "This is your stream.  Jump in and introduce yourself."
       keep_us_running: "Mantén %{pod} rápido, !compra a nuestros servidores su dosis mensual de café!"
@@ -552,7 +555,7 @@ es-CL:
       invalid_ext: "{file} tiene una extensión no válida. Solo están permitidas {extensions}."
       size_error: "{file} es demasiado grande, el tamaño máximo por archivo es {sizeLimit}."
     new_profile_photo: 
-      or_select_one: "o selecciona uno de los que ya existen"
+      or_select_one_existing: "or select one from your already existing %{photos}"
       upload: "¡Sube una nueva foto de perfil!"
     photo: 
       view_all: "ver todas las fotos de %{name}"

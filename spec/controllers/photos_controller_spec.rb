@@ -16,6 +16,34 @@ describe PhotosController do
 
   describe '#create' do
     before do
+      @params = {
+        :photo => {:aspect_ids => "all"},
+        :qqfile => Rack::Test::UploadedFile.new(
+          File.join( Rails.root, "spec/fixtures/button.png" ),
+          "image/png"
+        )
+      }
+    end
+
+    it 'accepts a photo from a regular form submission' do
+      lambda {
+        post :create, @params
+      }.should change(Photo, :count).by(1)
+    end
+
+    it 'returns application/json when possible' do
+      request.env['HTTP_ACCEPT'] = 'application/json'
+      post(:create, @params).headers['Content-Type'].should match 'application/json.*'
+    end
+
+    it 'returns text/html by default' do
+      request.env['HTTP_ACCEPT'] = 'text/html,*/*'
+      post(:create, @params).headers['Content-Type'].should match 'text/html.*'
+    end
+  end
+
+  describe '#create' do
+    before do
       @controller.stub!(:file_handler).and_return(uploaded_photo)
       @params = {:photo => {:user_file => uploaded_photo, :aspect_ids => "all"} }
     end
@@ -37,10 +65,10 @@ describe PhotosController do
   describe '#index' do
     it "succeeds without any available pictures" do
       get :index, :person_id => Factory(:person).id.to_s
-      
+
       response.should be_success
     end
-    
+
     it "displays the logged in user's pictures" do
       get :index, :person_id => alice.person.id.to_s
       assigns[:person].should == alice.person
@@ -139,7 +167,7 @@ describe PhotosController do
         it "succeeds" do
           response.should be_success
         end
-        
+
         it "assigns the photo" do
           assigns[:photo].should == @photo
         end

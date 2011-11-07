@@ -111,6 +111,9 @@ sv:
         here_to_help: "Diaspora communityn finns här!"
         need_help: "Behöver du hjälp?"
         satisfaction: "%{link}: Support ifrån communityn"
+        tag_bug: "#bug"
+        tag_feature: "#feature"
+        tag_question: "#question"
         tutorials_wiki_and_forum: "%{tutorial} & %{wiki} & %{forum}: Community-powered tutorials, how-to, and news"
       introduce_yourself: "This is your stream.  Jump in and introduce yourself."
       keep_us_running: "Håll farten hos %{pod} uppe och köp kaffe till servrarna genom en månadsdonation!"
@@ -552,7 +555,7 @@ sv:
       invalid_ext: "{file} har en ogiltig filändelse. Endast {extensions} är tillåtna."
       size_error: "{file} är för stor, maximal tillåten filstorlek är {sizeLimit}."
     new_profile_photo: 
-      or_select_one: "eller välj en av dina befintliga"
+      or_select_one_existing: "or select one from your already existing %{photos}"
       upload: "Ladda upp en ny profilbild!"
     photo: 
       view_all: "visa alla foton som %{name} laddat upp"

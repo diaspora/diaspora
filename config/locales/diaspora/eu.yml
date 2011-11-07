@@ -111,6 +111,9 @@ eu:
         here_to_help: "Diaspora komunitatea hemen dago!"
         need_help: "Laguntza Behar Duzu?"
         satisfaction: "%{link}: Komunitateak mantendutako laguntza"
+        tag_bug: "#bug"
+        tag_feature: "#feature"
+        tag_question: "#question"
         tutorials_wiki_and_forum: "%{tutorial} & %{wiki} & %{forum}: Community-powered tutorials, how-to, and news"
       introduce_yourself: "Hau zure kronologia da.  Animatu eta zure burua aurkeztu."
       keep_us_running: "Mantendu %{pod} azkar izaten, erosiezu gure ostalariei hilabeteroko kafe-konponketa!"
@@ -552,7 +555,7 @@ eu:
       invalid_ext: "{file}(r)en luzapena ez da onartu. {extensions} dira onartuak soilik."
       size_error: "{file} pisutsuegia da, fitxategi baten gehiengo pisua {sizeLimit} da."
     new_profile_photo: 
-      or_select_one: "edo aukeratu dagoeneko badagoen bat"
+      or_select_one_existing: "or select one from your already existing %{photos}"
       upload: "Igo ezazu profil argazki berri bat!"
     photo: 
       view_all: "%{aspect}(r)en argazki guztiak ikusi"

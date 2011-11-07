@@ -74,18 +74,6 @@ describe Invitation do
         invite.send!
       }.should_not change(User, :count)
     end
-
-    it 'handles the case when that user has an invite but not a user' do
-      pending
-    end
-
-    it 'handles the case where that user has an invite but has not yet accepted' do
-      pending
-    end
-
-    it 'generate the invitation token and pass it to the user' do
-      pending
-    end
   end
  
   describe '.batch_invite' do
