@@ -7,11 +7,6 @@ require 'spec_helper'
 describe Diaspora::Relayable do
   shared_examples_for "it is relayable" do
 
-    context 'validation' do
-      it 'ensures an valid associated parent'
-      it 'ensures the presence of an author'
-    end
-
     context 'encryption' do
       describe '#parent_author_signature' do
         it 'should sign the object if the user is the post author' do

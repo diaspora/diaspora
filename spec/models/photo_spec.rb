@@ -91,16 +91,7 @@ describe Photo do
         Photo.diaspora_initialize(
                 :author => @user.person, :image_url => url)
       end
-
-      context "with neither" do
-        it 'does not return a valid object' do
-          pending
-          Photo.diaspora_initialize(
-                  :author => @user.person).valid?.should be_false
-        end
-      end
     end
-
   end
 
   describe '#update_remote_path' do

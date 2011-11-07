@@ -1,25 +1,21 @@
 require 'spec_helper' 
 
-describe 'dispatching' do
-  before do
-    pending "TEST POLUTION HERE :("
-     @luke, @leia, @raph = set_up_friends
-  end
-  
-  context "lukes' comment on luke's public post gets retracted" do
-   it 'should not trigger a public dispatch' do
-    #luke has a public post and comments on it
-     p = Factory(:status_message, :public => true, :author => @luke.person)
-     c = @luke.comment("awesomesauseum", :post => p)
+describe "Dispatching" do
+  context "a comment retraction on a public post" do
+    it "should trigger a private dispatch" do
+      pending "Running this causes test failures in the relayable specs. If you can figure out why, you'll be OUR HERO. <3 <3"
+      luke, leia, raph = set_up_friends
 
+      # Luke has a public post and comments on it
+      p = Factory(:status_message, :public => true, :author => luke.person)
+      c = luke.comment("awesomesauseum", :post => p)
 
-     Postzord::Dispatcher::Public.should_not_receive(:new)
-     Postzord::Dispatcher::Private.should_receive(:new).and_return(stub(:post => true))
-     #luke now retracts his comment
+      # Luke now retracts his comment
+      Postzord::Dispatcher::Public.should_not_receive(:new)
+      Postzord::Dispatcher::Private.should_receive(:new).and_return(stub(:post => true))
       fantasy_resque do
-        @luke.retract(c)
+        luke.retract(c)
       end 
-   end
+    end
   end
-  
 end

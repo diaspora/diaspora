@@ -155,13 +155,6 @@ describe ServicesController do
       @invite_params = {:provider => 'facebook', :uid => @uid, :aspect_id => @user.aspects.first.id}
     end
 
-    it 'enqueues an invite job if the fb user has a username' do
-      pending
-      @invite_params[:provider] = "email"
-      @invite_params[:uid] = "username@facebook.com"
-      put :inviter, @invite_params
-    end
-
     it 'redirects to a prefilled facebook message url' do
       put :inviter, @invite_params
       response.location.should match(/https:\/\/www\.facebook\.com\/\?compose=1&id=.*&subject=.*&message=.*&sk=messages/)

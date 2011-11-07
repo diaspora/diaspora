@@ -129,14 +129,6 @@ describe Statistics do
     end
   end
   describe "#generate_correlations" do
-
-    it 'it returns a hash of including start and end time' do
-      pending
-      hash = @stats.correlation_hash
-      hash[:start_time].should == @time
-      hash[:end_time].should == @time - 1.week
-    end
-
     it 'returns the post count (and sign_in_count) correlation' do
       bob.sign_in_count = 1
       bob.post(:status_message, :text => "here is a message")
