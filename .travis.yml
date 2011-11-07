@@ -9,10 +9,8 @@ rvm:
 
 env:
   - DB=postgres BUILD_TYPE=cucumber
-  - DB=postgres BUILD_TYPE=oauth-cucumber
   - DB=postgres BUILD_TYPE=other
   - DB=mysql BUILD_TYPE=cucumber
-  - DB=mysql BUILD_TYPE=oauth-cucumber
   - DB=mysql BUILD_TYPE=other
 
 
