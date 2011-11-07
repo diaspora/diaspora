@@ -64,7 +64,7 @@ module Diaspora
       end
 
       def construct_shareable_from_others_query(opts)
-        conditions = {:pending => false, :share_visibilities => {:hidden => opts[:hidden]}, :contacts => {:user_id => self.id} }
+        conditions = {:pending => false, :share_visibilities => {:hidden => opts[:hidden]}, :contacts => {:user_id => self.id, :receiving => true} }
         conditions[:type] = opts[:type] if opts.has_key?(:type)
         query = opts[:klass].joins(:contacts).where(conditions)
 
