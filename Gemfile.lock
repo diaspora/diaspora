@@ -417,9 +417,9 @@ GEM
     rubyntlm (0.1.1)
     rubyzip (0.9.4)
     sass (3.1.7)
-    selenium-webdriver (2.7.0)
+    selenium-webdriver (2.10.0)
       childprocess (>= 0.2.1)
-      ffi (>= 1.0.7)
+      ffi (= 1.0.9)
       json_pure
       rubyzip
     settingslogic (2.0.6)
@@ -538,7 +538,7 @@ DEPENDENCIES
   ruby-debug19
   ruby-oembed
   sass (= 3.1.7)
-  selenium-webdriver (~> 2.7.0)
+  selenium-webdriver (~> 2.10.0)
   settingslogic (= 2.0.6)
   sod!
   sqlite3
