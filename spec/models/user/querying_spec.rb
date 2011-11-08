@@ -102,8 +102,10 @@ describe User do
         AppConfig[:redis_cache] = nil
       end
 
-      it "kicks off a job that will populate the latest 100 posts" do
-        pending "we need a job for this - ensure_populated! is too costly to do synchronously for new users"
+      it "populates the cache if the user has a mutual contact" do
+        RedisCache.any_instance.should_receive(:ensure_populated!)
+        alice.stub(:use_cache?).and_return(true)
+        alice.visible_shareable_ids(Post)
       end
 
       it 'does not get used if if all_aspects? option is not present' do

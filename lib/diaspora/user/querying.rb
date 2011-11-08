@@ -28,7 +28,11 @@ module Diaspora
         if use_cache?(opts)
           cache = RedisCache.new(self, opts[:order_field])
 
-          #cache.ensure_populated!(opts)
+          #total hax
+          if self.contacts.where(:sharing => true, :receiving => true).count > 0 
+            cache.ensure_populated!(opts)
+          end
+
           name = klass.to_s.downcase
           shareable_ids = cache.send(name+"_ids", opts[:max_time], opts[:limit] +1)
         end
@@ -159,6 +163,7 @@ module Diaspora
 
       protected
       # @return [Boolean]
+
       def use_cache?(opts)
         RedisCache.configured? && RedisCache.supported_order?(opts[:order_field]) && opts[:all_aspects?].present?
       end
