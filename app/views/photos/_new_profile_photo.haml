@@ -78,7 +78,7 @@
     %br
     %br
     %p
-      \...#{t('.or_select_one_existing', :photos => link_to(t('_photos'), person_photos_path(person)))}
+      \...#{t('.or_select_one_existing', :photos => link_to(t('_photos'), person_photos_path(person))).html_safe}
 
   #publisher_photo_upload
 
