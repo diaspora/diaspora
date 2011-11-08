@@ -555,7 +555,7 @@ eo:
       invalid_ext: "{file} havas malvalidan sufikson. Nur {extensions} estas validaj."
       size_error: "{file} estas tro granda; la maksimuma dosiergrandeco estas {sizeLimit}."
     new_profile_photo: 
-      or_select_one_existing: "or select one from your already existing %{photos}"
+      or_select_one_existing: "aŭ elektu unu el viaj jam ekzistantaj %{photos}"
       upload: "Alŝutu novan profilbildon!"
     photo: 
       view_all: "Vidi ĉiujn bildojn de %{name}"
@@ -852,9 +852,9 @@ eo:
       email_confirmed: "Retpoŝtadreso %{email} aktiviĝis"
       email_not_confirmed: "Retpoŝtadreso ne povis aktiviĝi. Ĉu malĝusta ligilo?"
     destroy: 
-      no_password: "Please enter your current password to close your account."
-      success: "Your account has been locked.  It may take 20 minutes for us to finish closing your account.  Thank you for trying Diaspora."
-      wrong_password: "The entered password didn't match your current password."
+      no_password: "Bonvolu entajpi vian nunan pasvorton por fermi vian konton."
+      success: "Via konto ŝlosiĝis. Povas daŭri 20 minutoj ĝis ĝi via konto fine estos fermita. Dankon por elprovi Diasporan."
+      wrong_password: "La entajpita pasvoroto ne kongruis kun la nuna pasvorto."
     edit: 
       also_commented: "...iu ankaŭ komentis pri la afiŝo de via kontakto?"
       change: "Ŝanĝi"

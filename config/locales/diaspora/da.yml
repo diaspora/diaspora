@@ -119,7 +119,7 @@ da:
       keep_us_running: "Hold %{pod} kørende hurtigt og køb serverne deres kaffe fix med en månedlig donation!"
       new_here: 
         follow: "Follow %{link} and welcome new users to Diaspora*!"
-        learn_more: "Learn more"
+        learn_more: "Lær mere"
         title: "Welcome New Users"
       no_contacts: "Ingen kontakter"
       no_tags: "+ Find et tag for at følge"
@@ -301,7 +301,7 @@ da:
       comma_seperated_plz: "Du kan indtaste flere e-mailadresser adskilt med komma."
       if_they_accept_info: "hvis de accepterer, vil de blive tilføjet til det aspekt du inviterede dem til."
       invite_someone_to_join: "Invitér en person til Diaspora!"
-      language: "Language"
+      language: "Sprog"
       personal_message: "Personlig besked"
       resend: "Send igen"
       send_an_invitation: "Send en invitation"
@@ -517,7 +517,7 @@ da:
     show: 
       does_not_exist: "Personen findes ikke!"
       has_not_shared_with_you_yet: "%{name} har ikke delt nogen indlæg med dig endnu!"
-      ignoring: "You are ignoring all posts from %{name}."
+      ignoring: "Du ignorerer alle indlæg fra %{name}."
       incoming_request: "%{name} vil gerne dele med dig."
       mention: "Nævn"
       message: "Besked"
@@ -704,7 +704,7 @@ da:
       create_request: "Find med Diaspora ID"
       diaspora_handle: diaspora@pod.org
       enter_a_diaspora_username: "Indtast et Diaspora handle:"
-      know_email: "Kender du deres e-mail addresse? Du burde invitere dem"
+      know_email: "Kender du deres e-mail adresse? Du burde invitere dem"
       your_diaspora_username_is: "Dit Diaspora handle er: %{diaspora_handle}"
     aspect_dropdown: 
       add_to_aspect: "Tilføj kontakt"

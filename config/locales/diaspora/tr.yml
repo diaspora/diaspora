@@ -116,11 +116,11 @@ tr:
         tag_question: "#question"
         tutorials_wiki_and_forum: "%{tutorial} & %{wiki} & %{forum}: Community-powered tutorials, how-to, and news"
       introduce_yourself: "Bu sizin akışınızdır. Atla ve kendini tanıt."
-      keep_us_running: "%{pod} ağının daha hızlı ve hatasız olması için geliştiricilere aylık kahve ısmarlayın!"
+      keep_us_running: "%{pod} ağının daha hızlı ve hatasız olması için geliştiricilere kahve ısmarlayın!"
       new_here: 
         follow: "Follow %{link} and welcome new users to Diaspora*!"
-        learn_more: "Learn more"
-        title: "Welcome New Users"
+        learn_more: "Daha fazla bilgi"
+        title: "Yenilere Hoş Geldin Deyin"
       no_contacts: "Kişi yok"
       no_tags: "+ Takip etmek için bir etiket bul"
       people_sharing_with_you: "Seninle paylaşımda bulunanlar"
@@ -130,7 +130,7 @@ tr:
         heading: "Servisleri ilişkilendir"
       unfollow_tag: "#%{tag}'i takip etmeyi bırak"
       welcome_to_diaspora: "Diaspora'ya Hoş Geldin, %{name}!"
-      your_aspects: "Yönlerin"
+      your_aspects: "Yönleriniz"
     many: "%{count} yön"
     move_contact: 
       error: "Kişi taşıma problemi: %{inspect}"
@@ -155,7 +155,7 @@ tr:
       work: "İş"
     selected_contacts: 
       manage_your_aspects: "Yönleri düzenle."
-      no_contacts: "You don't have any contacts here yet."
+      no_contacts: "Henüz biriyle iletişim yok."
       view_all_community_spotlight: "Tüm topluluk spotlight bakın"
       view_all_contacts: "Tüm kişileri görüntüle"
     show: 
@@ -555,7 +555,7 @@ tr:
       invalid_ext: "{file} geçersiz uzantıya sahip. sadece {extensions} uzantılarına izin verilir."
       size_error: "{file} çok büyük, en büyük dosya boyutu {sizeLimit}."
     new_profile_photo: 
-      or_select_one_existing: "or select one from your already existing %{photos}"
+      or_select_one_existing: "ya da varolan fotoğraflardan seç %{photos}"
       upload: "Yeni bir profil fotoğrafı yükle!"
     photo: 
       view_all: "%{name}'in bütün fotoğraflarını göster"
@@ -576,7 +576,7 @@ tr:
       not_found: "Üzgünüz, bu gönderi bulamadı."
       permalink: "kalıcı bağlantı"
   previous: "önceki"
-  privacy: "Privacy"
+  privacy: "Gizlilik"
   profile: "Profil"
   profiles: 
     edit: 
@@ -803,7 +803,7 @@ tr:
     followed_tags_stream: "#Takip Edilen Etiketler"
     mentioned_stream: "@Bahsedenler"
     mentions: 
-      contacts_title: "Kişi senden bahsetti"
+      contacts_title: "Senden Bahsedenler"
       title: "@Bahsedenler"
     multi: 
       contacts_title: "Kişiler"
@@ -902,9 +902,9 @@ tr:
       simply_visit: "Basitçe ziyaret"
       works_on_modern: "Tüm modern akıllı telefonlarda çalışır"
     privacy_settings: 
-      ignored_users: "Ignored Users"
+      ignored_users: "Gözardı Edilen Kullanıcılar"
       stop_ignoring: "Stop ignoring"
-      title: "Privacy Settings"
+      title: "Gizlilik Ayarları"
     public: 
       does_not_exist: "%{username} kullanıcısı bulunmamaktadır!"
     update: 

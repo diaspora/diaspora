@@ -100,7 +100,7 @@ ko:
         content_1: "내 디아스포라 ID:"
         content_2: "내 ID를 주면 누구든지 디아스포라에서 날 찾을수 있습니다."
         heading: "디아스포라 ID"
-      donate: "기부해주세요"
+      donate: "기부"
       handle_explanation: "이 디아스포라 핸들은 이메일 주소처럼 남에게 건넬 수 있습니다."
       help: 
         do_you: "해시태그:"
@@ -111,9 +111,9 @@ ko:
         here_to_help: "디아스포라 커뮤니티가 도와드립니다!"
         need_help: "도움이 필요하세요?"
         satisfaction: "%{link}: 커뮤니티 지원"
-        tag_bug: "#bug"
-        tag_feature: "#feature"
-        tag_question: "#question"
+        tag_bug: "bug"
+        tag_feature: "feature"
+        tag_question: "question"
         tutorials_wiki_and_forum: "%{tutorial}과 %{wiki}와  %{forum}: 커뮤니티가 운영하는 튜토리얼, 사용 방법과 소식"
       introduce_yourself: "내 스트림에서 스스로를 나타내십시오."
       keep_us_running: "Keep %{pod} running fast, buy our servers their monthly coffee fix!"
@@ -555,7 +555,7 @@ ko:
       invalid_ext: "{file} 파일은 유효하지 않은 형식입니다. {extensions} 형식의 파일을 올려주세요."
       size_error: "{file} 파일이 {sizeLimit} 보다 큽니다"
     new_profile_photo: 
-      or_select_one_existing: "or select one from your already existing %{photos}"
+      or_select_one_existing: "이미 올려둔 사진 가운데 고를 수도 있습니다 %{photos}"
       upload: "새 프로필 사진 업로드하기!"
     photo: 
       view_all: "%{name}님의 모든 사진 보기"
@@ -661,7 +661,7 @@ ko:
         zero: "재공유"
       reshare_confirmation: "%{author}님의 %{text} 공유물을 재공유합니까?"
       reshare_original: "원본 재공유"
-      reshared_via: "재공유함 via"
+      reshared_via: "재공유 via"
       show_original: "원본 보기"
   search: "검색"
   services: 
