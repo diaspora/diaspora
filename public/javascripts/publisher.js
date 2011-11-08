@@ -453,9 +453,9 @@ var Publisher = {
   },
 
   triggerGettingStarted: function(){
-    Publisher.setUpPopovers("#publisher .dropdown", {trigger: 'manual', offset: 10, placement:'below'}, 1000);
-    Publisher.setUpPopovers("#publisher #status_message_fake_text", {trigger: 'manual', placement: 'right', offset: 30, id: "first_message_explain"}, 600);
-    Publisher.setUpPopovers("#gs-shim", {trigger: 'manual', placement: 'left', offset: -5}, 1400);
+    Publisher.setUpPopovers("#publisher .dropdown", {trigger: 'manual', offset: 10, id: "message_visibility_explain", placement:'below', html:true}, 1000);
+    Publisher.setUpPopovers("#publisher #status_message_fake_text", {trigger: 'manual', placement: 'right', offset: 30, id: "first_message_explain", html:true}, 600);
+    Publisher.setUpPopovers("#gs-shim", {trigger: 'manual', placement: 'left', id:"stream_explain", offset: -5, html:true}, 1400);
 
     $("#publisher .button.creation").bind("click", function(){
        $("#publisher .dropdown").popover("hide");
@@ -468,8 +468,20 @@ var Publisher = {
     selection.popover(options);
     selection.bind("click", function(){$(this).popover("hide")});
 
+
+
     setTimeout(function(){
       selection.popover("show");
+
+      var popup = selection.data('popover').$tip[0],
+          closeIcon = $(popup).find(".close");
+
+      closeIcon.bind("click",function(){
+        if($(".popover").length == 1){
+          $.get("/getting_started_completed");
+        };
+        selection.popover("hide");
+      });
     }, timeout);
   },
 
