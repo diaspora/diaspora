@@ -10,7 +10,7 @@
   #welcome-to-diaspora
     .container{:style => "position: relative;"}
       .right
-        = link_to image_tag('deletelabel.png'), getting_started_completed_path, :id => "gs-skip-x"
+        = link_to image_tag('close_label.png'), getting_started_completed_path, :id => "gs-skip-x"
       .span-23
         %h1
           = t('.welcome_to_diaspora', :name => current_user.first_name)
