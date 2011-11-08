@@ -4,6 +4,7 @@
 
 module TagsHelper
   def tag_page_link(tag)
-    link_to("##{tag}", tag_path(:name => tag))
+    tag_name = ActsAsTaggableOn::Tag.normalize(tag)
+    link_to("##{tag_name}", tag_path(:name => tag_name))
   end
 end

@@ -18,9 +18,12 @@
       =t('.results_for')
       %span.term
         = params[:q]
-      %small
-        = t('.looking_for', :tag_link => tag_page_link(params[:q])).html_safe 
-
+  %h4
+    %small
+      = t('.looking_for', :tag_link => tag_page_link(params[:q])).html_safe 
+.span-15
+  %hr
+.clearfix
 .span-15.append-1
   #people_stream.stream
     - if @hashes.empty?
