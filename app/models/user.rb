@@ -33,15 +33,15 @@ class User < ActiveRecord::Base
   has_one :person, :foreign_key => :owner_id
   delegate :public_key, :posts, :photos, :owns?, :diaspora_handle, :name, :public_url, :profile, :first_name, :last_name, :to => :person
 
-  has_many :invitations_from_me, :class_name => 'Invitation', :foreign_key => :sender_id, :dependent => :destroy
-  has_many :invitations_to_me, :class_name => 'Invitation', :foreign_key => :recipient_id, :dependent => :destroy
+  has_many :invitations_from_me, :class_name => 'Invitation', :foreign_key => :sender_id
+  has_many :invitations_to_me, :class_name => 'Invitation', :foreign_key => :recipient_id
   has_many :aspects, :order => 'order_id ASC'
   has_many :aspect_memberships, :through => :aspects
   has_many :contacts
   has_many :contact_people, :through => :contacts, :source => :person
-  has_many :services, :dependent => :destroy
-  has_many :user_preferences, :dependent => :destroy
-  has_many :tag_followings, :dependent => :destroy
+  has_many :services
+  has_many :user_preferences
+  has_many :tag_followings
   has_many :followed_tags, :through => :tag_followings, :source => :tag, :order => 'tags.name'
   has_many :blocks
   has_many :notifications, :foreign_key => :recipient_id

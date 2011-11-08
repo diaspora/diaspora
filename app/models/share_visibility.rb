@@ -9,9 +9,9 @@ class ShareVisibility < ActiveRecord::Base
   scope :for_a_users_contacts, lambda { |user| 
     where(:contact_id => user.contacts.map {|c| c.id})
   }
-
-  alias :for_a_users_contacts :for_contacts_of_a_person
-    
+  scope :for_contacts_of_a_person, lambda { |person| 
+    where(:contact_id => person.contacts.map {|c| c.id})
+  }
 
   # Perform a batch import, given a set of contacts and a shareable
   # @note performs a bulk insert in mySQL; performs linear insertions in postgres
