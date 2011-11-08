@@ -3,6 +3,18 @@
 #   the COPYRIGHT file.
 
 class AccountDeletion
+
+  # Things that are not removed from the database:
+  # - Comments
+  # - Likes
+  # - Messages
+  # - NotificationActors
+  #
+  # Given that the User in question will be tombstoned, all of the
+  # above will come from an anonomized account (via the UI).
+  # The deleted user will appear as "Deleted Account" in
+  # the interface.
+
   attr_accessor :person, :user
 
   def initialize(diaspora_id)

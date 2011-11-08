@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe 'deleteing your account' do
-  before :all do
+  before do
     @bob2 = bob
     @bobs_person_id = @bob2.person.id
     @alices_post = alice.post(:status_message, :text => "@{@bob2 Grimn; #{@bob2.person.diaspora_handle}} you are silly", :to => alice.aspects.find_by_name('generic'))
@@ -11,6 +11,8 @@ describe 'deleteing your account' do
     #@bob2's own content
     @bob2.post(:status_message, :text => 'asldkfjs', :to => @bob2.aspects.first)
     f = Factory(:photo, :author => @bob2.person)
+
+    @aspect_vis = AspectVisibility.where(:aspect_id => @bob2.aspects.map(&:id))
 
     #objects on post
     @bob2.like(true, :target => @alices_post)
@@ -44,6 +46,9 @@ describe 'deleteing your account' do
     # block
     @block = @bob2.blocks.create!(:person => eve.person)
 
+    #authorization
+    @authorization = Factory.create(:oauth_authorization, :resource_owner => @bob2)
+
     AccountDeletion.new(@bob2.person.diaspora_handle).perform!
     @bob2.reload
   end
@@ -73,6 +78,10 @@ describe 'deleteing your account' do
     ShareVisibility.where(:id => @persons_sv.map{|sv| sv.id}).should be_empty
   end
 
+  it 'deletes all of @bob2s aspect visiblites' do
+    AspectVisibility.where(:id => @aspect_vis.map(&:id)).should be_empty
+  end
+
   it 'deletes all photos' do
     Photo.where(:author_id => @bobs_person_id).should be_empty
   end
@@ -87,6 +96,10 @@ describe 'deleteing your account' do
 
   it 'deletes all contacts' do
     @bob2.contacts.should be_empty
+  end
+
+  it 'deletes all the authorizations' do
+    OAuth2::Provider.authorization_class.where(:id => @authorization.id).should be_empty
   end
 
   it 'sets the person object as closed and the profile is cleared' do
