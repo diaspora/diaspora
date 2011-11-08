@@ -3418,17 +3418,27 @@ a.toggle_selector
   h1,h3
     :color #fff
   :background orange
+  &:hover
+    #gs-skip-x
+      @include opacity(0.4)
+      @include transition(opacity, 0.25s)
+
+      &:hover
+        @include opacity(1)
 
 #gs-shim
   :position absolute
   :top 380px
 
 #gs-skip-x
-  @include opacity(0.5)
-  @include transition(opacity)
+  @include opacity(0)
+  @include transition(opacity, 0.25s)
 
-  &:hover
-    @include opacity(1)
+  img
+    :position relative
+    :right 4px
+    :height 20px
+
 
 .likes_list
   .avatar
@@ -3453,3 +3463,20 @@ a.toggle_selector
   #tag_following_submit
     &.hidden
       :display none
+
+.popover
+  .close
+    @include opacity(0)
+    @include transition(opacity, 0.2s)
+
+    :float right
+    :position relative
+    :top -9px
+    :right -5px
+
+  &:hover
+    .close
+      @include opacity(0.5)
+
+      &:hover
+        @include opacity(1)

@@ -33,7 +33,9 @@ class StatusMessage < Post
   after_create :queue_gather_oembed_data, :if => :contains_oembed_url_in_text?
 
   #scopes
-  scope :where_person_is_mentioned, lambda{|person| joins(:mentions).where(:mentions => {:person_id => person.id})}
+  scope :where_person_is_mentioned, lambda { |person|
+    joins(:mentions).where(:mentions => {:person_id => person.id})
+  }
 
   def self.user_tag_stream(user, tag_ids)
     owned_or_visible_by_user(user).

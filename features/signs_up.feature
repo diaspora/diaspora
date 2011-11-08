@@ -26,3 +26,14 @@ Feature: new user registration
     When I preemptively confirm the alert
     And I follow "awesome_button"
     Then I should be on the multi page
+
+  Scenario: closing a popover clears getting started
+    When I preemptively confirm the alert
+    And I follow "awesome_button"
+    Then I should be on the multi page
+    And I have turned off jQuery effects
+    And I wait for the popovers to appear
+    And I click close on all the popovers
+    And I wait for 3 seconds
+    And I go to the home page
+    Then I should not see "Welcome to Diaspora"

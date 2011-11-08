@@ -100,7 +100,7 @@ es:
         content_1: "Tu identidad Diaspora* es:"
         content_2: "Compártela con quien quieras que te encuentre rápidamente."
         heading: "Identidad Diaspora*"
-      donate: "Donar"
+      donate: "Donaciones"
       handle_explanation: "Ésta es tu dirección Diaspora*. Como una dirección de email, puedes dársela a la gente para que te encuentre."
       help: 
         do_you: "Tal vez:"
@@ -118,7 +118,7 @@ es:
       introduce_yourself: "Esta es tu entrada de novedades. Adelante, preséntate..."
       keep_us_running: "Haz que %{pod} vaya más rápido, ¡compra a nuestros servidores sus dosis de café mensual!"
       new_here: 
-        follow: "¡Sigue %{link} y da la bienvenida a Diaspora* a la gente nueva!"
+        follow: "¡Sigue %{link} y da la bienvenida a Diaspora* a los nuevos usuarios!"
         learn_more: "Más información"
         title: "Bienvenida"
       no_contacts: "No hay contactos"
@@ -130,7 +130,7 @@ es:
         heading: "Servicios"
       unfollow_tag: "Dejar de seguir a #%{tag}"
       welcome_to_diaspora: "¡Bienvenid@ a Diaspora, %{name}!"
-      your_aspects: "Tus Aspectos"
+      your_aspects: "Aspectos"
     many: "%{count} aspectos"
     move_contact: 
       error: "Error moviendo el contacto: %{inspect}"
@@ -353,10 +353,10 @@ es:
   no_results: "No hay resultados"
   notifications: 
     also_commented: 
-      few: "%{actors} también comentó la %{post_link} de %{post_author}."
-      many: "%{actors} también comentó la %{post_link} de %{post_author}."
+      few: "%{actors} también comentaron la %{post_link} de %{post_author}."
+      many: "%{actors} también comentaron la %{post_link} de %{post_author}."
       one: "%{actors} también comentó la %{post_link} de %{post_author}."
-      other: "%{actors} también comentó la %{post_link} de %{post_author}."
+      other: "%{actors} también comentaron la %{post_link} de %{post_author}."
       two: "%{actors} también comentaron la %{post_link} de %{post_author}."
       zero: "%{actors} también comentó la %{post_link} de %{post_author}."
     also_commented_deleted: 
@@ -364,14 +364,14 @@ es:
       many: "%{actors} comentaron una publicación eliminada."
       one: "%{actors} comentó una publicación eliminada."
       other: "%{actors} comentaron una publicación eliminada."
-      two: "%{actors} comentó una publicación eliminada."
+      two: "%{actors} comentaron una publicación eliminada."
       zero: "%{actors} comentó una publicación eliminada."
     comment_on_post: 
       few: "%{actors} comentaron tu %{post_link}."
       many: "%{actors} comentaron tu %{post_link}."
       one: "%{actors} comentó tu %{post_link}."
       other: "%{actors} comentaron tu %{post_link}."
-      two: "%{actors} comentó tu %{post_link}."
+      two: "%{actors} comentaron tu %{post_link}."
       zero: "%{actors} comentó tu %{post_link}."
     helper: 
       new_notifications: 
@@ -397,7 +397,7 @@ es:
       many: "A %{actors} les gustó tu %{post_link}."
       one: "A %{actors} le gustó tu %{post_link}."
       other: "A %{actors} les gustó tu %{post_link}."
-      two: "A %{actors} le gustó tu %{post_link}."
+      two: "A %{actors} les gustó tu %{post_link}."
       zero: "A %{actors} le gustó tu %{post_link}."
     liked_post_deleted: 
       few: "%{actors} les gustó una publicación eliminada."

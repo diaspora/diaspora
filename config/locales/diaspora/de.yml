@@ -105,14 +105,14 @@ de:
       help: 
         do_you: "Hast du:"
         email_feedback: "Dein Feedback für Diaspora per %{link}"
-        feature_suggestion: "… einen %{link}-Vorschlag?"
+        feature_suggestion: "… eine Idee für eine %{link}?"
         find_a_bug: "… ein %{link}?"
         have_a_question: "… eine %{link}?"
         here_to_help: "Die Diaspora-Gemeinschaft ist für dich da!"
         need_help: "Benötigst du Hilfe?"
         satisfaction: "%{link}: Unterstützung durch die Gemeinschaft"
         tag_bug: "problem"
-        tag_feature: "feature"
+        tag_feature: "verbesserung"
         tag_question: "frage"
         tutorials_wiki_and_forum: "%{tutorial} & %{wiki} & %{forum}: Von der Gemeinschaft erstellte Tutorials, Anleitungen und Nachrichten"
       introduce_yourself: "Das ist dein Stream. Leg' los und stell dich vor."
@@ -763,8 +763,8 @@ de:
       currently_unavailable: "Kommentieren derzeit nicht verfügbar"
       dislike: "Gefällt mir nicht"
       hide_and_mute: "Beitrag verbergen und stummschalten"
-      ignore_user: "Ignoriere %{name}"
-      ignore_user_description: "Benutzer ignorieren und aus allen Aspekten entfernen?"
+      ignore_user: "%{name} ignorieren"
+      ignore_user_description: "Diesen Benutzer ignorieren und aus allen Aspekten entfernen?"
       like: "Gefällt mir"
       shared_with: "Geteilt mit: %{aspect_names}"
       unlike: "Gefällt mir nicht mehr"
@@ -853,7 +853,7 @@ de:
       email_not_confirmed: "Die E-Mail-Adresse konnte nicht aktiviert werden. Falscher Link?"
     destroy: 
       no_password: "Bitte gib dein Kennwort ein, um deinen Account zu schließen."
-      success: "Dein Account wurde gesperrt. Es kann 20 Minuten dauern, bis dein Account geschlossen ist.  Danke, dass du Diaspora ausprobiert hast."
+      success: "Dein Account wurde gesperrt. Es kann 20 Minuten dauern, bis dein Account geschlossen ist. Danke, dass du Diaspora ausprobiert hast."
       wrong_password: "Das eingegebene Kennwort stimmt nicht mit deinem aktuellen Kennwort überein."
     edit: 
       also_commented: "… jemand ebenfalls den Beitrag eines Kontaktes kommentiert?"
@@ -902,8 +902,8 @@ de:
       simply_visit: "Besuche einfach"
       works_on_modern: "Funktioniert auf allen modernen Smartphones"
     privacy_settings: 
-      ignored_users: "Ignorierte Benutzer"
-      stop_ignoring: "Aufhören zu ignorieren"
+      ignored_users: "Benutzer, die ignoriert werden"
+      stop_ignoring: "Aufhören, zu ignorieren"
       title: Privatsphären-Einstellungen
     public: 
       does_not_exist: "Benutzer %{username} existiert nicht!"

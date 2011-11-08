@@ -34,9 +34,10 @@ describe User do
       alice.visible_shareable_ids(Post).should include(eves_public_post.id)
     end
 
-    it "contains non-public posts from people who are following you" do
-      bobs_post = bob.post(:status_message, :text => "hello", :to => @bobs_aspect.id)
-      alice.visible_shareable_ids(Post).should include(bobs_post.id)
+    it "does not contain non-public posts from people who are following you" do
+      eve.share_with(alice.person, @eves_aspect)
+      eves_post = eve.post(:status_message, :text => "hello", :to => @eves_aspect.id)
+      alice.visible_shareable_ids(Post).should_not include(eves_post.id)
     end
 
     it "does not contain non-public posts from aspects you're not in" do
@@ -101,8 +102,10 @@ describe User do
         AppConfig[:redis_cache] = nil
       end
 
-      it "kicks off a job that will populate the latest 100 posts" do
-        pending "we need a job for this - ensure_populated! is too costly to do synchronously for new users"
+      it "populates the cache if the user has a mutual contact" do
+        RedisCache.any_instance.should_receive(:ensure_populated!)
+        alice.stub(:use_cache?).and_return(true)
+        alice.visible_shareable_ids(Post)
       end
 
       it 'does not get used if if all_aspects? option is not present' do

@@ -31,14 +31,14 @@ nl:
       invitation_instructions: 
         accept: "Accepteer uitnodiging"
         arrived: "The social network you have been waiting for has arrived. Revamped, more secure, and more fun, %{strong_diaspora} is ready to help you share and explore the web in a whole new way."
-        be_yourself: "Be Yourself"
-        be_yourself_paragraph: "The Internet has created unique new ways for us to express ourselves. %{strong_diaspora} lets you be yourself and share however you want, with or without your real name."
+        be_yourself: "Wees jezelf"
+        be_yourself_paragraph: "Het Internet heeft unieke nieuwe manieren mogelijk gemaakt om onszelf te uiten. %{strong_diaspora} laat jou jezelf zijn en laat jou delen hoe je dat wilt, met of zonder je echte naam."
         cubbies: Cubbi.es
-        displaying_correctly: "Email not displaying correctly? %{link} in your browser"
+        displaying_correctly: "Ziet deze e-mail er niet goed uit? %{link} in jouw browser"
         email_address: questions@joindiaspora.com
-        email_us: "For general inquiries or support with your Diaspora account, please email us at %{email}."
-        finally: "Finally - it's here"
-        friends_saying: "What your friends are saying..."
+        email_us: "Voor algemene vragen of hulp met je Diaspora account kun je een e-mail sturen naar %{email}."
+        finally: "Eindelijk - het is er"
+        friends_saying: "Wat je vrienden zeggen..."
         get_connected: "Get Connected"
         get_connected_paragraph: "An international movement with a shared vision for a better web, %{strong_diaspora}'s #1 feature is its community. Meet new people, connect with friends, and join the fun."
         have_fun: "Have Fun"

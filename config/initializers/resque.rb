@@ -1,8 +1,4 @@
 require 'resque'
-require 'resque_scheduler'
-require 'resque/scheduler'
-require 'resque-retry'
-require 'resque/failure/redis'
 
 Resque::Plugins::Timeout.timeout = 300
 
@@ -13,9 +9,6 @@ if !AppConfig.single_process_mode?
   elsif AppConfig[:redis_url]
     Resque.redis = Redis.new(:host => AppConfig[:redis_url], :port => 6379)
   end
-  
-  Resque::Failure::MultipleWithRetrySuppression.classes = [Resque::Failure::Redis]
-  Resque::Failure.backend = Resque::Failure::MultipleWithRetrySuppression
 end
 
 if AppConfig.single_process_mode?

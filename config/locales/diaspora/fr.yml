@@ -44,7 +44,7 @@ fr:
   application: 
     helper: 
       diaspora_alpha: "DIASPORA* ALPHA"
-      unknown_person: "personne inconnue"
+      unknown_person: "Personne inconnue"
       video_title: 
         unknown: "Titre de vidéo inconnu"
   are_you_sure: "Êtes-vous certain ?"
@@ -104,7 +104,7 @@ fr:
       handle_explanation: "Ceci est votre identifiant diaspora. Comme une adresse de courrier électronique, vous pouvez le communiquer à d'autres personnes pour leur permettre de vous joindre."
       help: 
         do_you: "Avez-vous :"
-        email_feedback: "%{link} l'impression, si vous préférez"
+        email_feedback: "Envoyez vos impressions par %{link} , si vous préférez."
         feature_suggestion: "... une suggestion (%{link}) ?"
         find_a_bug: "... trouvé un %{link} ?"
         have_a_question: "... une %{link} ?"
@@ -175,13 +175,13 @@ fr:
       failure: "Je ne pouvais pas ignorer cet utilisateur.  #evasion"
       success: "Très bien, vous ne verrez plus cet utilisateur dans votre flux. #silencio!"
     destroy: 
-      failure: "I couldn't stop ignoring that user.  #evasion"
+      failure: "Je ne pouvais plus cesser d'ignorer cet utilisateur.  #evasion"
       success: "Voyons ce qu'ils ont à dire ! #sayhello"
   bookmarklet: 
-    explanation: "Publier sur Diaspora depuis n'importe où en ajoutant %{link} à vos marque-pages."
+    explanation: "Publiez sur Diaspora depuis n'importe où en ajoutant %{link} à vos marque-pages."
     explanation_link_text: "ce lien"
     heading: "Bookmarklet"
-    post_something: "Publier quelque chose sur Diaspora"
+    post_something: "Publiez quelque chose sur Diaspora"
     post_success: "Publié ! Fermeture !"
   cancel: "Annuler"
   comments: 
@@ -506,10 +506,10 @@ fr:
       pending_request: "Requête en attente"
       thats_you: "C'est vous !"
     profile_sidebar: 
-      bio: "bio"
-      born: "anniversaire"
+      bio: "Bio"
+      born: "Anniversaire"
       edit_my_profile: "Modifier mon profil"
-      gender: "sexe"
+      gender: "Sexe"
       in_aspects: "dans les aspects"
       location: "localisation"
       remove_contact: "supprimer ce contact"
@@ -558,7 +558,7 @@ fr:
       or_select_one_existing: "ou choisissez parmi vos photos existantes %{photos}"
       upload: "Mettre une nouvelle photo de profil !"
     photo: 
-      view_all: "voir toute les photos de %{name}"
+      view_all: "Voir toute les photos de %{name}"
     show: 
       collection_permalink: "Lien permanent à la collection"
       delete_photo: "Supprimer la photo"
@@ -674,7 +674,7 @@ fr:
     failure: 
       error: "une erreur s'est produite lors de la connexion avec ce service"
     finder: 
-      fetching_contacts: "Diaspora is populating your %{service} friends please check back in a few minutes."
+      fetching_contacts: "Diaspora est en train de peupler vos amis %{service}. Revenez vérifier dans quelques minutes."
       no_friends: "Pas d'amis Facebook trouvés."
       service_friends: "Amis %{service}"
     index: 
@@ -704,7 +704,7 @@ fr:
       create_request: "Rechercher par identifiant Diaspora"
       diaspora_handle: diaspora@pod.org
       enter_a_diaspora_username: "Entrez un nom d'utilisateur Diaspora :"
-      know_email: "Vous connaissez leur adresse de courrier électronique ? Vous devriez les inviter"
+      know_email: "Connaissez-vous leur adresse de courrier électronique ? Vous devriez les inviter"
       your_diaspora_username_is: "Votre nom d'utilisateur Diaspora est : %{diaspora_handle}"
     aspect_dropdown: 
       add_to_aspect: "Ajouter le contact"

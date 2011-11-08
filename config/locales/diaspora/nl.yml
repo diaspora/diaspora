@@ -460,7 +460,7 @@ nl:
     email_sent_by_diaspora: "Deze mail is gestuurd door Diaspora.  Als je dit soort email's niet meer wilt ontvangen,"
     hello: "Hoi %{name}!"
     liked: 
-      liked: "%{name} vind je post leuk"
+      liked: "%{name} vindt je post leuk"
       view_post: "Bekijk post >"
     mentioned: 
       mentioned: "heeft jou genoemd in een post:"

@@ -6,11 +6,7 @@ require File.join(Rails.root, 'lib/postzord/receiver/public')
 
 module Jobs
   class ReceiveUnencryptedSalmon < Base
-    extend Resque::Plugins::ExponentialBackoff
-    
     @queue = :receive
-    @backoff_strategy = [20.minutes,
-                         1.day]
 
     def self.perform(xml)
       receiver = Postzord::Receiver::Public.new(xml)

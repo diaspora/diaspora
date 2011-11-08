@@ -22,14 +22,11 @@ module ResqueJobLogging
       backtrace = application_trace(error)
       log_string << "app_backtrace='#{backtrace.join(";")}' "
       notify_hoptoad(error, args) if AppConfig[:hoptoad_api_key].present?
-
-      do_log = !self.respond_to?('retry_limit_reached?') || self.retry_limit_reached?
     else
       log_string += "status=complete "
-      do_log = true
     end
 
-    Rails.logger.info(log_string) if do_log
+    Rails.logger.info(log_string)
     raise error if error
   end
 

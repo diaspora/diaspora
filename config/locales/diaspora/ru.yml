@@ -746,7 +746,7 @@ ru:
       discard_post: "Отменить запись"
       make_public: "сделать публичным"
       new_user_prefill: 
-        hello: "Привет всем, я тут новенький (#%{new_user_tag})."
+        hello: "Всем привет, я #%{new_user_tag}."
         i_like: "Мне интересны метки %{tags}."
         invited_by: "Спасибо за приглашение, "
       post_a_message_to: "Опубликовать сообщение для %{aspect}"

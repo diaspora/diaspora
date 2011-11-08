@@ -43,7 +43,9 @@ describe StatusMessage do
 
       describe '.tag_steam' do
         it 'returns status messages tagged with the tag' do
-          StatusMessage.send(:tag_stream, [@tag_id]).should == [@sm1, @sm2]
+          tag_stream = StatusMessage.send(:tag_stream, [@tag_id])
+          tag_stream.should include @sm1
+          tag_stream.should include @sm2
         end
       end
 
