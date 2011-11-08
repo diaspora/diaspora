@@ -3,4 +3,7 @@
 #   the COPYRIGHT file.
 
 module TagsHelper
+  def tag_page_link(tag)
+    link_to("##{tag}", tag_path(:name => tag))
+  end
 end
