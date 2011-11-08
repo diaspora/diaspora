@@ -40,7 +40,7 @@ class Person < ActiveRecord::Base
 
   before_destroy :remove_all_traces
   before_validation :clean_url
-  
+
   validates :url, :presence => true
   validates :profile, :presence => true
   validates :serialized_public_key, :presence => true
@@ -78,7 +78,7 @@ class Person < ActiveRecord::Base
     super
     self.profile ||= Profile.new unless profile_set
   end
-  
+
   def self.find_from_id_or_username(params)
     p = if params[:id].present?
           Person.where(:id => params[:id]).first
@@ -90,7 +90,6 @@ class Person < ActiveRecord::Base
     raise ActiveRecord::RecordNotFound unless p.present?
     p
   end
-
 
   def self.search_query_string(query)
     query = query.downcase
@@ -276,8 +275,6 @@ class Person < ActiveRecord::Base
     end 
   end
 
-  
-  
   # @param person [Person]
   # @param url [String]
   def update_url(url)

@@ -33,6 +33,7 @@ class AccountDeletion
     delete_photos
     delete_posts
     tombstone_person_and_profile
+    tombstone_user
   end
 
   #user deletions
@@ -87,6 +88,10 @@ class AccountDeletion
 
   def tombstone_person_and_profile
     self.person.close_account!
+  end
+
+  def tombstone_user
+    self.user.close_account!
   end
 
   def delete_contacts_of_me

@@ -488,4 +488,16 @@ class User < ActiveRecord::Base
       errors[:base] << 'That username has already been taken'
     end
   end
+
+  def close_account!
+    clearable_fields.each do |field|
+      self[field] = nil
+    end
+    self.save
+  end
+
+  private
+  def clearable_fields
+    self.attributes.keys - ["username", "encrypted_password", "created_at", "updated_at"]
+  end
 end

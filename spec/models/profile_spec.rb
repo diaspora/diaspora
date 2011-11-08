@@ -264,7 +264,6 @@ describe Profile do
   end
 
   describe '#receive' do
-    
     it 'updates the profile in place' do
       local_luke, local_leia, remote_raphael = set_up_friends
       new_profile = Factory.build :profile
@@ -281,8 +280,8 @@ describe Profile do
       @profile = bob.person.profile
     end
     it "clears the profile fields" do
-      attributes = @profile.send(:clearable_profile_fields)
-      
+      attributes = @profile.send(:clearable_fields)
+
       @profile.tombstone!
       @profile.reload
       attributes.each{ |attr|
@@ -296,10 +295,10 @@ describe Profile do
     end
   end
 
-  describe "#clearable_profile_fields" do
+  describe "#clearable_fields" do
     it 'returns the current profile fields' do
       profile = Factory.build :profile
-      profile.send(:clearable_profile_fields).sort.should == 
+      profile.send(:clearable_fields).sort.should == 
       ["diaspora_handle",
       "first_name",
       "last_name",

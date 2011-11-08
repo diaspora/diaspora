@@ -1003,6 +1003,60 @@ describe User do
       user = Factory :user
       Resque.should_receive(:enqueue).with(Jobs::ResetPassword, user.id)
       user.send_reset_password_instructions
+
+  context "close account" do
+    before do
+      @user = bob
+    end
+
+    describe "#close_account!" do
+      it 'resets the password to a random string' do
+        random_pass = "12345678909876543210"
+        ActiveSupport::SecureRandom.should_receive(:hex).and_return(random_pass)
+        @user.close_account!
+        @user.valid_password?(random_pass)
+      end
+
+      it 'clears all the clearable fields' do
+        attributes = @user.send(:clearable_fields)
+        @user.close_account!
+
+        attributes.each do |attr|
+          @user.send(attr.to_sym).should be_blank
+        end
+      end
+    end
+
+    describe "#clearable_attributes" do
+      it 'has all the attributes' do
+        user = Factory.build :user
+        user.send(:clearable_fields).sort.should == %w{
+          serialized_private_key
+          getting_started
+          disable_mail
+          language
+          email
+          invitation_token
+          invitation_sent_at
+          reset_password_token
+          remember_token
+          remember_created_at
+          sign_in_count
+          current_sign_in_at
+          last_sign_in_at
+          current_sign_in_ip
+          last_sign_in_ip
+          invitation_service
+          invitation_identifier
+          invitation_limit
+          invited_by_id
+          invited_by_type
+          authentication_token
+          unconfirmed_email
+          confirm_email_token
+          locked_at
+          show_community_spotlight_in_stream
+        }.sort
+      end
     end
   end
-end

@@ -30,7 +30,8 @@ describe AccountDeletion do
      :delete_posts,
      :tombstone_person_and_profile,
      :remove_share_visibilities,
-     :remove_conversation_visibilities].each do |method|
+     :remove_conversation_visibilities,
+     :tombstone_user].each do |method|
 
       it "calls ##{method.to_s}" do
         @account_deletion.should_receive(method)
@@ -138,6 +139,13 @@ describe AccountDeletion do
       pending
       ShareVisibility.should_receive(:for_a_users_contacts).with(bob).and_return(@s_vis)
       @s_vis.should_receive(:destroy_all)
+    end
+  end
+
+  describe "#tombstone_user" do
+    it 'calls strip_model on user' do
+      bob.should_receive(:close_account!)
+      @account_deletion.tombstone_user
     end
   end
 

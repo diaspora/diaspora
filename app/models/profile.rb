@@ -148,7 +148,7 @@ class Profile < ActiveRecord::Base
 
   def tombstone!
     self.taggings.delete_all
-    clearable_profile_fields.each do |field|
+    clearable_fields.each do |field|
       self[field] = nil
     end
     self.save
@@ -174,7 +174,7 @@ class Profile < ActiveRecord::Base
   end
 
   private
-  def clearable_profile_fields
+  def clearable_fields
     self.attributes.keys - Profile.protected_attributes.to_a - ["created_at", "updated_at", "person_id"]
   end
 
