@@ -159,7 +159,6 @@ if [ "$(bundle exec ruby ./script/get_config.rb 'single_process_mode?')" != "tru
     redis-server config/redis.conf &>log/redis-console.log &
 
     QUEUE=* bundle exec rake resque:work&
-    bundle exec rake resque:scheduler&
 
     bundle exec ruby ./script/websocket_server.rb&
 fi
