@@ -2,7 +2,7 @@
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
-class AccountDeletion
+class AccountDeleter
 
   # Things that are not removed from the database:
   # - Comments
@@ -23,17 +23,21 @@ class AccountDeletion
   end
 
   def perform!
-    delete_standard_associations
-    disassociate_invitations
-    delete_mentions
-    delete_contacts_of_me
-    remove_share_visibilities
+    #person
+    delete_standard_person_associations
     remove_conversation_visibilities
-    disconnect_contacts
-    delete_photos
-    delete_posts
+    remove_share_visibilities_on_persons_posts
+    delete_contacts_of_me
     tombstone_person_and_profile
-    tombstone_user
+    
+    if self.user
+      #user deletion methods
+      remove_share_visibilities_on_contacts_posts
+      delete_standard_user_associations
+      disassociate_invitations
+      disconnect_contacts
+      tombstone_user
+    end
   end
 
   #user deletions
@@ -49,9 +53,15 @@ class AccountDeletion
     [:followed_tags, :invited_by, :contact_people, :applications, :aspect_memberships]
   end
 
-  def delete_standard_associations
+  def delete_standard_user_associations
     normal_ar_user_associates_to_delete.each do |asso|
-      user.send(asso).destroy_all
+      self.user.send(asso).each{|model| model.delete}
+    end
+  end
+
+  def delete_standard_person_associations
+    normal_ar_person_associates_to_delete.each do |asso|
+      self.person.send(asso).delete_all
     end
   end
 
@@ -65,25 +75,18 @@ class AccountDeletion
     user.contacts.destroy_all
   end
 
-  def remove_share_visibilities
-    ShareVisibility.for_a_users_contacts(user).destroy_all
+  # Currently this would get deleted due to the db foreign key constrainsts,
+  # but we'll keep this method here for completeness
+  def remove_share_visibilities_on_persons_posts
     ShareVisibility.for_contacts_of_a_person(person).destroy_all
+  end
+
+  def remove_share_visibilities_on_contacts_posts
+    ShareVisibility.for_a_users_contacts(user).destroy_all
   end
 
   def remove_conversation_visibilities
     ConversationVisibility.where(:person_id => person.id).destroy_all
-  end
-
-  def delete_posts
-    self.person.posts.destroy_all
-  end
-
-  def delete_photos
-    self.person.photos.destroy_all
-  end
-
-  def delete_mentions
-    self.person.mentions.destroy_all
   end
 
   def tombstone_person_and_profile
@@ -96,5 +99,13 @@ class AccountDeletion
 
   def delete_contacts_of_me
     Contact.all_contacts_of_person(self.person).destroy_all
+  end
+  
+  def normal_ar_person_associates_to_delete
+    [:posts, :photos, :mentions]
+  end
+
+  def ignored_or_special_ar_person_associations
+    [:comments, :contacts, :notification_actors, :notifications, :owner, :profile ]
   end
 end

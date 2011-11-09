@@ -1010,6 +1010,9 @@ describe User do
     end
 
     describe "#close_account!" do
+      before do
+        @user = Factory.create(:user)
+      end
       it 'resets the password to a random string' do
         random_pass = "12345678909876543210"
         ActiveSupport::SecureRandom.should_receive(:hex).and_return(random_pass)
@@ -1018,9 +1021,11 @@ describe User do
       end
 
       it 'clears all the clearable fields' do
+        @user.reload
         attributes = @user.send(:clearable_fields)
         @user.close_account!
 
+        @user.reload
         attributes.each do |attr|
           @user.send(attr.to_sym).should be_blank
         end
@@ -1028,8 +1033,8 @@ describe User do
     end
 
     describe "#clearable_attributes" do
-      it 'has all the attributes' do
-        user = Factory.build :user
+      it 'returns the clearable fields' do
+        user = Factory.create :user
         user.send(:clearable_fields).sort.should == %w{
           serialized_private_key
           getting_started

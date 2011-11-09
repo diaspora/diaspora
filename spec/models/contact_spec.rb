@@ -44,6 +44,15 @@ describe Contact do
       contact.person = person
       contact.should_not be_valid
     end
+
+    it "validates that the person's account is not closed" do
+      person = Factory.create(:person, :closed_account => true)
+
+      contact = alice.contacts.new(:person=>person)
+
+      contact.should_not be_valid
+      contact.errors.full_messages.should include "Cannot be in contact with a closed account"
+    end
   end
 
   context 'scope' do

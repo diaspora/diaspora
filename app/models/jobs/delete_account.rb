@@ -8,8 +8,7 @@ module Jobs
     @queue = :delete_account
     def self.perform(user_id)
       user = User.find(user_id)
-      user.remove_all_traces
-      user.destroy
+      AccountDeleter.new(user.person.diaspora_handle).perform!
     end
   end
 end

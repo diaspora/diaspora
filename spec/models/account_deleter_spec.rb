@@ -4,64 +4,95 @@
 
 require 'spec_helper'
 
-describe AccountDeletion do
+describe AccountDeleter do
   before do
-    @account_deletion = AccountDeletion.new(bob.person.diaspora_handle)
+    @account_deletion = AccountDeleter.new(bob.person.diaspora_handle)
     @account_deletion.user = bob
   end
 
   it "attaches the user" do
-    AccountDeletion.new(bob.person.diaspora_handle).user.should == bob
-    AccountDeletion.new(remote_raphael.diaspora_handle).user.should == nil
+    AccountDeleter.new(bob.person.diaspora_handle).user.should == bob
+    AccountDeleter.new(remote_raphael.diaspora_handle).user.should == nil
   end
 
   describe '#perform' do
-    after do
-      @account_deletion.perform!
-    end
 
-    [:delete_standard_associations,
+
+    user_removal_methods = [:delete_standard_user_associations,
      :disassociate_invitations,
-     :delete_standard_associations,
-     :delete_contacts_of_me,
-     :delete_mentions,
+     :remove_share_visibilities_on_contacts_posts,
      :disconnect_contacts,
-     :delete_photos,
-     :delete_posts,
-     :tombstone_person_and_profile,
-     :remove_share_visibilities,
-     :remove_conversation_visibilities,
-     :tombstone_user].each do |method|
+     :tombstone_user]
 
-      it "calls ##{method.to_s}" do
-        @account_deletion.should_receive(method)
+    person_removal_methods = [:delete_contacts_of_me,
+     :delete_standard_person_associations,
+     :tombstone_person_and_profile,
+     :remove_share_visibilities_on_persons_posts,
+     :remove_conversation_visibilities]
+
+    context "user deletion" do
+      after do
+        @account_deletion.perform!
+      end
+
+      (user_removal_methods + person_removal_methods).each do |method|
+
+        it "calls ##{method.to_s}" do
+          @account_deletion.should_receive(method)
+        end
       end
     end
+
+    context "person deletion" do
+      before do
+        @person_deletion = AccountDeleter.new(remote_raphael.diaspora_handle)
+      end
+
+      after do
+        @person_deletion.perform!
+      end
+
+      (user_removal_methods).each do |method|
+
+        it "does not call ##{method.to_s}" do
+          @person_deletion.should_not_receive(method)
+        end
+      end
+
+      (person_removal_methods).each do |method|
+
+        it "calls ##{method.to_s}" do
+          @person_deletion.should_receive(method)
+        end
+      end
+    end
+
   end
 
-  describe "#delete_standard_associations" do
+  describe "#delete_standard_user_associations" do
     it 'removes all standard user associaltions' do
       @account_deletion.normal_ar_user_associates_to_delete.each do |asso|
         association_mock = mock
-        association_mock.should_receive(:destroy_all)
-        bob.should_receive(asso).and_return(association_mock)
+        association_mock.should_receive(:delete)
+        bob.should_receive(asso).and_return([association_mock])
       end
 
-      @account_deletion.delete_standard_associations
+      @account_deletion.delete_standard_user_associations
     end
   end
 
-  describe '#delete_posts' do
-    it 'deletes all posts' do
-      @account_deletion.person.posts.should_receive(:destroy_all)
-      @account_deletion.delete_posts
+  describe "#delete_standard_person_associations" do
+    before do
+      @account_deletion.person = bob.person
     end
-  end
+    it 'removes all standard person associaltions' do
+      @account_deletion.normal_ar_person_associates_to_delete.each do |asso|
+        association_mock = mock
+        association_mock.should_receive(:delete_all)
+        bob.person.should_receive(asso).and_return(association_mock)
+      end
 
-  describe '#delete_photos' do
-    it 'deletes all photos' do
-      @account_deletion.person.photos.should_receive(:destroy_all)
-      @account_deletion.delete_photos
+      @account_deletion.delete_standard_person_associations
     end
   end
 
@@ -75,15 +106,6 @@ describe AccountDeletion do
   end
 
   context 'person associations' do
-    describe '#delete mentions' do
-      it 'deletes the mentions for people' do
-        mentions = mock
-        @account_deletion.person.should_receive(:mentions).and_return(mentions)
-        mentions.should_receive(:destroy_all)
-        @account_deletion.delete_mentions
-      end
-    end
-
     describe '#disconnect_contacts' do
       it "deletes all of user's contacts" do
         bob.contacts.should_receive(:destroy_all)
@@ -116,29 +138,23 @@ describe AccountDeletion do
     end
   end
 
-  describe "#remove_share_visibilities" do
-    before do
-      @s_vis = stub
-    end
-
-    after do
-      @account_deletion.remove_share_visibilities
-    end
-
+  describe "#remove_person_share_visibilities" do
     it 'removes the share visibilities for a person ' do
+      @s_vis = stub
       ShareVisibility.should_receive(:for_contacts_of_a_person).with(bob.person).and_return(@s_vis)
       @s_vis.should_receive(:destroy_all)
-    end
 
+      @account_deletion.remove_share_visibilities_on_persons_posts
+    end
+  end
+
+  describe "#remove_share_visibilities_by_contacts_of_user" do
     it 'removes the share visibilities for a user' do
+      @s_vis = stub
       ShareVisibility.should_receive(:for_a_users_contacts).with(bob).and_return(@s_vis)
       @s_vis.should_receive(:destroy_all)
-    end
 
-    it 'does not remove share visibilities for a user if the user is not present' do
-      pending
-      ShareVisibility.should_receive(:for_a_users_contacts).with(bob).and_return(@s_vis)
-      @s_vis.should_receive(:destroy_all)
+      @account_deletion.remove_share_visibilities_on_contacts_posts
     end
   end
 
@@ -152,6 +168,11 @@ describe AccountDeletion do
   it 'has all user association keys accounted for' do
     all_keys = (@account_deletion.normal_ar_user_associates_to_delete + @account_deletion.special_ar_user_associations + @account_deletion.ignored_ar_user_associations)
     all_keys.sort{|x, y| x.to_s <=> y.to_s}.should == User.reflections.keys.sort{|x, y| x.to_s <=> y.to_s}
+  end
+
+  it 'has all person association keys accounted for' do
+    all_keys = (@account_deletion.normal_ar_person_associates_to_delete + @account_deletion.ignored_or_special_ar_person_associations)
+    all_keys.sort{|x, y| x.to_s <=> y.to_s}.should == Person.reflections.keys.sort{|x, y| x.to_s <=> y.to_s}
   end
 end
 

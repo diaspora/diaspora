@@ -32,6 +32,12 @@ class PublicsController < ApplicationController
 
   def hcard
     @person = Person.where(:guid => params[:guid]).first
+
+    if @person && @person.closed_account?
+      render :nothing => true, :status => 404
+      return
+    end
+
     unless @person.nil? || @person.owner.nil?
       render 'publics/hcard'
     else
@@ -45,6 +51,12 @@ class PublicsController < ApplicationController
 
   def webfinger
     @person = Person.local_by_account_identifier(params[:q]) if params[:q]
+
+    if @person && @person.closed_account?
+      render :nothing => true, :status => 404
+      return
+    end
+
     unless @person.nil?
       render 'webfinger', :content_type => 'application/xrd+xml'
     else

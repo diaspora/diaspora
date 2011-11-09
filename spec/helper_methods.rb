@@ -62,10 +62,10 @@ module HelperMethods
     File.open(fixture_name)
   end
 
-  def create_conversation_with_message(sender, recipient, subject, text)
+  def create_conversation_with_message(sender, recipient_person, subject, text)
     create_hash = {
       :author => sender.person,
-      :participant_ids => [sender.person.id, recipient.person.id],
+      :participant_ids => [sender.person.id, recipient_person.id],
       :subject => subject,
       :messages_attributes => [ {:author => sender.person, :text => text} ]
     }
