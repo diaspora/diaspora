@@ -12,7 +12,9 @@
         ajaxLoader: dropdown.find(".ajax_loader")
       });
 
-      self.badgeLink.toggle(self.showDropdown, self.hideDropdown);
+      if( ! $.browser.msie ) {
+        self.badgeLink.toggle(self.showDropdown, self.hideDropdown);
+      }
 
       self.dropdown.click(function(evt) {
         evt.stopPropagation();
