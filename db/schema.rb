@@ -10,7 +10,12 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111103184050) do
+ActiveRecord::Schema.define(:version => 20111109023618) do
+
+  create_table "account_deletion", :force => true do |t|
+    t.string  "diaspora_id"
+    t.integer "person_id"
+  end
 
   create_table "aspect_memberships", :force => true do |t|
     t.integer  "aspect_id",  :null => false
