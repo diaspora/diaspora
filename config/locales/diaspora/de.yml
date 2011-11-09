@@ -745,7 +745,8 @@ de:
       all_contacts: "Alle Kontakte"
       discard_post: "Beitrag verwerfen"
       make_public: "veröffentlichen"
-      new_user_prefill: 
+      new_user_prefill:
+        newhere: "NeuHier"
         hello: "Hallo zusammen, ich bin #%{new_user_tag}. "
         i_like: "Ich interessiere mich für %{tags}."
         invited_by: "Danke für die Einladung,"
