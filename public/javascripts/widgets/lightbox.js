@@ -31,7 +31,7 @@ jQuery.fn.center = (function() {
         body: $(document.body),
         window: $(window)
       });
-      
+
       self.post.delegate("a.stream-photo-link", "click", self.lightboxImageClicked);
       self.imageset.delegate("img", "click", self.imagesetImageClicked);
 
@@ -94,6 +94,12 @@ jQuery.fn.center = (function() {
         images = selectedImage.parents('.stream_element').find('img.stream-photo'),
         imageThumb;
 
+      if( $.browser.msie ) {
+        /* No fancy schmancy lightbox for IE, because it doesn't work in IE */
+        window.open(imageUrl);
+        return;
+      }
+
       self.imageset.html("");
       images.each(function(index, image) {
         image = $(image);
@@ -101,7 +107,7 @@ jQuery.fn.center = (function() {
           src: image.attr("data-small-photo"),
           "data-full-photo": image.attr("data-full-photo")
         });
-        
+
         if(image.attr("data-full-photo") == imageUrl) {
           imageThumb = thumb;
         };
@@ -114,7 +120,7 @@ jQuery.fn.center = (function() {
         .revealLightbox();
     };
 
-    this.imagesetImageClicked = function(evt) { 
+    this.imagesetImageClicked = function(evt) {
       evt.preventDefault();
       evt.stopPropagation();
 
