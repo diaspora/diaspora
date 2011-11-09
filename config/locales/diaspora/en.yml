@@ -827,7 +827,13 @@ en:
       other: "please make your status messages less than %{count} characters"
 
   stream_helper:
-    show_more_comments: "Show %{number} more comments"
+    show_comments:
+      zero: "No more comments"
+      one: "Show one more comment"
+      two: "Show two more comments"
+      few: "Show %{count} more comments"
+      many: "Show %{count} more comments"
+      other: "Show %{count} more comments"
     hide_comments: "Hide all comments"
 
   tags:
