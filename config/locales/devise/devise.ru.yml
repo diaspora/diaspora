@@ -3,14 +3,14 @@
 #   the COPYRIGHT file.
 
 
-ru: 
-  devise: 
-    confirmations: 
+ru:
+  devise:
+    confirmations:
       confirmed: "Ваш аккаунт подтверждён. Добро пожаловать."
-      new: 
+      new:
         resend_confirmation: "Выслать повторно инструкции по подтверждению"
       send_instructions: "Вы получите письмо с указаниями по подтверждению учётной записи в течение нескольких минут."
-    failure: 
+    failure:
       inactive: "Ваш аккаунт ещё не активирован."
       invalid: "Неверный email или пароль."
       invalid_token: "Неверная проверка подлинности."
@@ -18,17 +18,17 @@ ru:
       timeout: "Срок вашего сеанса истёк, пожалуйста войдите в систему вновь."
       unauthenticated: "Вы должны войти или зарегистрироваться, прежде чем продолжить."
       unconfirmed: "Вам необходимо подтвердить ваш аккаунт, прежде чем продолжить."
-    invitations: 
+    invitations:
       invitation_token_invalid: "Введённый вами код приглашения не действителен!"
       send_instructions: "Ваше приглашение отправлено."
       updated: "Пароль установлен. Добро пожаловать."
-    mailer: 
-      confirmation_instructions: 
+    mailer:
+      confirmation_instructions:
         confirm: "Подтвердить мой аккаунт"
         subject: "Инструкции по подтверждению"
         you_can_confirm: "Вы можете подтвердить ваш аккаунт перейдя по ссылке:"
       hello: "Привет %{email}!"
-      invitation_instructions: 
+      invitation_instructions:
         accept: "Принять приглашение"
         arrived: "Социальная сеть, которую вы так долго ждали, наконец, появилась. Обновленная, более защищенная и более дружелюбная, %{strong_diaspora} готова помочь вам делиться и исследовать Сеть по-новому."
         be_yourself: "Будьте собой"
@@ -57,37 +57,37 @@ ru:
         team_diaspora: "Команда Диаспоры"
         unsubscribe: "Чтобы отписаться, нажмите %{link}."
         view_in: "Открыть в"
-      inviter: 
+      inviter:
         accept_at: "в %{url}, вы можете принять его по ссылке ниже."
         has_invited_you: "%{name}"
         have_invited_you: "%{names} пригласил[а,и] вас присоединиться к диаспоре"
-      reset_password_instructions: 
+      reset_password_instructions:
         change: "Изменить пароль"
         ignore: "Если вы не совершали запрос, проигнорируйте это письмо."
         someone_requested: "Кто то создал запрос смены вашего пароля, и вы можете сделать это перейдя по ссылке ниже."
         subject: "Инструкции по сбросу пароля"
         wont_change: "Ваш пароль не изменится, пока вы не перейдёте по ссылке и не создадите новый."
-      unlock_instructions: 
+      unlock_instructions:
         account_locked: "Ваш аккаунт из-за чрезмерного количества неудачных попыток входа заблокирован."
         click_to_unlock: "Используйте ссылку, чтобы разблокировать аккаунт:"
         subject: "Инструкции по разблокированию"
         unlock: "Разблокировать мой аккаунт"
       welcome: "Добро пожаловать %{email}!"
-    passwords: 
-      edit: 
+    passwords:
+      edit:
         change_password: "Изменить пароль"
-      new: 
+      new:
         forgot_password: "Забыли пароль?"
         no_account: "Нет ни одного контакта с этим email. Если вы ожидаете приглашения, мы отправим их как можно скорее"
         send_password_instructions: "Отправить мне инструкции по сбросу пароля"
       send_instructions: "Вы получите email с инструкцией по сбросу пароля в течении нескольких минут."
       updated: "Ваш пароль изменён."
-    registrations: 
+    registrations:
       destroyed: "До свиданья! Ваш аккаунт удалён. Мы будем рады видеть вас вновь."
       signed_up: "Регистрация аккаунта завершена. Вам отправлен email с дальнейшими указаниями."
       updated: "Ваш аккаунт обновлён."
-    sessions: 
-      new: 
+    sessions:
+      new:
         alpha_software: "Вы собираетесь использовать альфа версию программного обеспечения."
         bugs_and_feedback: "Имейте в виду, вы будете сталкиваться с ошибками. Мы рекомендуем вам использовать кнопку Обратная связь с правой стороны браузера! Мы будем решать ошибки так быстро, как сможем."
         bugs_and_feedback_mobile: "Будьте готовый столкнуться с ошибками. О которых мы просим вас сообщать незамедлительно! Мы постараемся решить вашу проблему в кротчайшие сроки."
@@ -99,23 +99,23 @@ ru:
         username: "Имя пользователя"
       signed_in: Вошли.
       signed_out: Вышли.
-    shared: 
-      links: 
+    shared:
+      links:
         forgot_your_password: "Забыли пароль?"
         receive_confirmation: "Не получили инструкции по подтверждению?"
         receive_unlock: "Не получили инструкции по разблокированию?"
         sign_in: "Войти"
         sign_up: "Регистрация"
         sign_up_closed: "Регистрация на данный момент не доступна."
-      mail_signup_form: 
+      mail_signup_form:
         sign_up_for_an_invite: "Зарегистрируйтесь для приглашения!"
-    unlocks: 
-      new: 
+    unlocks:
+      new:
         resend_unlock: "Отправить инструкции по разблокированию повторно"
       send_instructions: "Вы получите email с указаниями по разблокированию учётной записи в течение нескольких минут."
       unlocked: "Ваш аккаунт разблокированна. С возвращением."
-  errors: 
-    messages: 
+  errors:
+    messages:
       already_confirmed: "уже подтверждено"
       not_found: "не найдено"
       not_locked: "не заблокирована"

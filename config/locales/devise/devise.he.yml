@@ -3,14 +3,14 @@
 #   the COPYRIGHT file.
 
 
-he: 
-  devise: 
-    confirmations: 
+he:
+  devise:
+    confirmations:
       confirmed: "חשבונך אומת בהצלחה. נכנסת כעת."
-      new: 
+      new:
         resend_confirmation: "שליחת הוראות אימות מחדש"
       send_instructions: "בעוד מספר דקות תתקבל לתיבת הדוא״ל שלך הודעה עם הנחיות כיצד לאמת את חשבונך."
-    failure: 
+    failure:
       inactive: "חשבונך לא הופעל עדיין."
       invalid: "שם המשתמש או הססמה שגויים."
       invalid_token: "אסימון האימות שגוי."
@@ -18,17 +18,17 @@ he:
       timeout: "ההפעלה שלך פגה, נא להיכנס שוב כדי להמשיך."
       unauthenticated: "עליך להיכנס או להירשם לפני המשך הפעילות."
       unconfirmed: "עליך לאמת את חשבונך לפי המשך הפעילות."
-    invitations: 
+    invitations:
       invitation_token_invalid: "אסימון ההזמנה שסופק אינו תקף!"
       send_instructions: "ההזמנה שלך נשלחה."
       updated: "הססמה שלך הוגדרה בהצלחה. נכנסת כעת."
-    mailer: 
-      confirmation_instructions: 
+    mailer:
+      confirmation_instructions:
         confirm: "אימות החשבון שלי"
         subject: "הנחיות לאימות"
         you_can_confirm: "באפשרותך לאמת את החשבון שלך באמצעות הקישור שלהלן:"
       hello: "שלום %{email}!"
-      invitation_instructions: 
+      invitation_instructions:
         accept: "אשר הזמנה"
         arrived: "The social network you have been waiting for has arrived. Revamped, more secure, and more fun, %{strong_diaspora} is ready to help you share and explore the web in a whole new way."
         be_yourself: "Be Yourself"
@@ -57,37 +57,37 @@ he:
         team_diaspora: "Team Diaspora"
         unsubscribe: "To unsubscribe please click %{link}."
         view_in: "View in"
-      inviter: 
+      inviter:
         accept_at: "בכתובת %{url}, באפשרותך לקבל זאת באמצעות הקישור שלהלן."
         has_invited_you: "%{name}"
         have_invited_you: "הוזמנת על-ידי %{names} להצטרף לדיאספורה"
-      reset_password_instructions: 
+      reset_password_instructions:
         change: "החלפת הססמה שלי"
         ignore: "אם לא ביקשת זאת, ניתן להתעלם מהודעה זו."
         someone_requested: "התקבלה בקשה לקישור לשינוי הססמה שלך, ניתן לעשות זאת דרך הקישור שלהלן."
         subject: "הנחיות לאיפוס הססמה"
         wont_change: "הססמה שלך לא תוחלף עד לכניסה לקישור שלהלן ויצירת אחת חדשה."
-      unlock_instructions: 
+      unlock_instructions:
         account_locked: "חשבונך ננעל עקב מספר רב של ניסיונות כניסה כושלים."
         click_to_unlock: "יש ללחוץ על הקישור שלהלן כדי לשחרר את חשבונך:"
         subject: "הנחיות לשחרור"
         unlock: "שחרור החשבון שלי"
       welcome: "ברוך בואך %{email}!"
-    passwords: 
-      edit: 
+    passwords:
+      edit:
         change_password: "החלפת הססמה שלי"
-      new: 
+      new:
         forgot_password: "שכחת את ססמתך?"
         no_account: "לא נמצא חשבון עם כתובת דוא״ל זו.  אם הנך בהמתנה להזמנה, אנו נשתדל להפיץ את ההזמנות במהירות האפשרית"
         send_password_instructions: "שליחת הנחיות איפוס הססמה אלי"
       send_instructions: "בעוד מספר דקות תתקבל לתיבת הדוא״ל שלך הודעה עם הנחיות כיצד לאפס את ססמתך."
       updated: "ססמתך הוחלפה בהצלחה. נכנסת כעת."
-    registrations: 
+    registrations:
       destroyed: "להתראות! חשבונך בוטל בהצלחה. מקווים לראותך שוב בקרוב."
       signed_up: "נרשמת בהצלחה. הודעת אימות תישלח אליך לדוא״ל במידה שהוגדרה."
       updated: "חשבונך עודכן בהצלחה."
-    sessions: 
-      new: 
+    sessions:
+      new:
         alpha_software: "התכנה בה ברצונך לעשות שימוש היא בשלב פיתוח אלפא."
         bugs_and_feedback: "לידיעתך, יתכן שיתרחשו תקלות במהלך ההפעלה. אנו ממליצים לך להשתמש בלחצן המשוב (Feedback) שבצדו הימני של הדפדפן שלך כדי לדווח על טעויות כלשהן! אנו נפעל במהירות האפשרית לתיקון התקלות שידווחו על ידיך."
         bugs_and_feedback_mobile: "לידיעתך, עלולים להופיע באגים.  אנו ממליצים לך לדווח על כל תקלה שהיא!  אנו נעבוד במהירות האפשרית לתיקון הבעיה עליה דיווחת."
@@ -99,23 +99,23 @@ he:
         username: "שם משתמש"
       signed_in: "נכנסת בהצלחה."
       signed_out: "יצאת בהצלחה."
-    shared: 
-      links: 
+    shared:
+      links:
         forgot_your_password: "שכחת את ססמתך?"
         receive_confirmation: "לא קיבלת הוראות אישור?"
         receive_unlock: "לא קיבלת הוראות שחרור?"
         sign_in: "כניסה"
         sign_up: "הרשמה"
         sign_up_closed: "לא ניתן להירשם באופן חופשי נכון לעכשיו."
-      mail_signup_form: 
+      mail_signup_form:
         sign_up_for_an_invite: "ניתן להירשם לקבלת הזמנה!"
-    unlocks: 
-      new: 
+    unlocks:
+      new:
         resend_unlock: "שליחת הוראות שחרור מחדש"
       send_instructions: "בעוד מספר דקות תתקבל לתיבת הדוא״ל שלך הודעה עם הנחיות כיצד לשחרר את חשבונך."
       unlocked: "חשבונך שוחרר בהצלחה. נכנסת כעת."
-  errors: 
-    messages: 
+  errors:
+    messages:
       already_confirmed: "כבר אושר"
       not_found: "לא נמצא"
       not_locked: "לא ננעל"

@@ -3,52 +3,52 @@
 #   the COPYRIGHT file.
 
 
-it: 
-  javascripts: 
-    aspect_dropdown: 
+it:
+  javascripts:
+    aspect_dropdown:
       add_to_aspect: "Aggiungi"
       all_aspects: "Tutti gli aspetti"
       error: "Non è possibile condividere con {{name}}. E' tra gli utenti ignorati?"
       select_aspects: "Scegli gli aspetti"
       started_sharing_with: "Hai iniziato a condividere con {{name}}!"
       stopped_sharing_with: "Hai smesso di condividere con {{name}}."
-      toggle: 
+      toggle:
         few: "In {{count}} aspetti"
         many: "In {{count}} aspetti"
         one: "In {{count}} aspetto"
         other: "In {{count}} aspetti"
         two: "In {{count}} aspetti"
         zero: "Scegli gli aspetti"
-    aspect_navigation: 
+    aspect_navigation:
       deselect_all: "Deseleziona tutti"
       no_aspects: "Nessun aspetto selezionato"
       select_all: "Seleziona tutti"
-    comments: 
+    comments:
       hide: "nascondi i commenti"
       show: "mostra tutti i commenti"
     confirm_dialog: "Sei sicuro?"
     failed_to_like: "Valutazione fallita!"
     failed_to_post_message: "Invio messaggio fallito!"
-    getting_started: 
+    getting_started:
       alright_ill_wait: "Perfetto, aspetterò."
       hey: "Ciao, {{name}}!"
       no_tags: "Non hai scelto di seguire alcun tag, vuoi continuare comunque?"
       preparing_your_stream: "Sto preparando il tuo stream personalizzato..."
-    infinite_scroll: 
+    infinite_scroll:
       no_more: "Non ci sono altri post."
-    photo_uploader: 
+    photo_uploader:
       looking_good: "Accidenti, sei in splendida forma!"
-    publisher: 
+    publisher:
       at_least_one_aspect: "Devi scegliere almeno un aspetto"
       limited: "Non pubblico - il tuo post sarà visibile solamente a coloro con cui lo condividi"
       public: "Pubblico - il tuo post sarà visibile a tutti, inclusi i motori di ricerca"
-    reshares: 
+    reshares:
       duplicate: "Bello eh? Ma hai già condiviso quel post!"
     search_for: "Ricerca per {{name}}"
     show_more: continua...
-    tags: 
+    tags:
       wasnt_that_interesting: "OK, immagino che #{{tagName}} non fosse così interessante..."
-    timeago: 
+    timeago:
       day: "un giorno"
       days: "%d giorni"
       hour: "circa un'ora"
@@ -64,8 +64,8 @@ it:
       suffixFromNow: ""
       year: "circa un anno"
       years: "%d anni"
-    videos: 
+    videos:
       unknown: "Tipo di video sconosciuto"
       watch: "Guarda questo video su {{provider}}"
-    web_sockets: 
+    web_sockets:
       disconnected: "Il websocket è chiuso; i post non saranno più aggiornati in tempo reale."

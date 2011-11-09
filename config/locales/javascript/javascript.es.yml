@@ -3,52 +3,52 @@
 #   the COPYRIGHT file.
 
 
-es: 
-  javascripts: 
-    aspect_dropdown: 
+es:
+  javascripts:
+    aspect_dropdown:
       add_to_aspect: "Añadir contacto"
       all_aspects: "Todos los aspectos"
       error: "No podría empezar a compartir con {{name}}.  ¿Vas a ignonarl@?"
       select_aspects: "Elige los aspectos"
       started_sharing_with: "¡Ahora sigues los mensajes públicos de {{name}}!"
       stopped_sharing_with: "Ya no compartes más con {{name}}."
-      toggle: 
+      toggle:
         few: "En {{count}} aspectos"
         many: "En {{count}} aspectos"
         one: "En {{count}} aspecto"
         other: "En {{count}} aspectos"
         two: "En {{count}} aspectos"
         zero: "Elige los aspectos"
-    aspect_navigation: 
+    aspect_navigation:
       deselect_all: "Desmarcar todos"
       no_aspects: "No hay aspectos seleccionados"
       select_all: "Marcar todos"
-    comments: 
+    comments:
       hide: "ocultar comentarios"
       show: "ver todos los comentarios"
     confirm_dialog: "¿Estás seguro?"
     failed_to_like: "¡Ha fallado tu aprobación!"
     failed_to_post_message: "¡Fallo al publicar el mensaje!"
-    getting_started: 
+    getting_started:
       alright_ill_wait: "Está bien, esperaré."
       hey: "¡Hola, {{name}}!"
       no_tags: "¡Eih, aún no sigues ninguna etiqueta! ¿Quieres continuar de todas formas?"
       preparing_your_stream: "Preparando tus novedades personalizadas..."
-    infinite_scroll: 
+    infinite_scroll:
       no_more: "No hay más publicaciones."
-    photo_uploader: 
+    photo_uploader:
       looking_good: "¡Guau, estás increíble!"
-    publisher: 
+    publisher:
       at_least_one_aspect: "Debes publicarlo al menos en un aspecto"
       limited: "Limitado - tu publicación solo es visible para gente con quien compartes"
       public: "Público - tu publicación es visible para todos, incluyendo buscadores"
-    reshares: 
+    reshares:
       duplicate: "Que bien, ¿eh? ¡Has compartido esa publicación!"
     search_for: "Buscar a {{name}}"
     show_more: "mostrar más"
-    tags: 
+    tags:
       wasnt_that_interesting: "OK, supongo que #{{tagName}} no era tan interesante..."
-    timeago: 
+    timeago:
       day: "1 día"
       days: "%d días"
       hour: "1 hora aproximadamente"
@@ -58,14 +58,14 @@ es:
       month: "1 mes aproximadamente"
       months: "%d meses"
       prefixAgo: "hace"
-      prefixFromNow: "javascripts:timeago:prefixFromNow"
+      prefixFromNow: "dentro de"
       seconds: "menos de 1 minuto"
       suffixAgo: ""
-      suffixFromNow: "desde ahora"
+      suffixFromNow: ""
       year: "1 año aproximadamente"
       years: "%d años"
-    videos: 
+    videos:
       unknown: "Tipo de video desconocido"
       watch: "Ver este video con {{provider}}"
-    web_sockets: 
+    web_sockets:
       disconnected: "El canal está cerrado; las publicaciones no serán actualizadas al momento."

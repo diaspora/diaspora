@@ -3,52 +3,52 @@
 #   the COPYRIGHT file.
 
 
-cs: 
-  javascripts: 
-    aspect_dropdown: 
+cs:
+  javascripts:
+    aspect_dropdown:
       add_to_aspect: "Přidat kontakt"
       all_aspects: "Všechny aspekty"
       error: "Couldn't start sharing with {{name}}.  Are you ignoring them?"
       select_aspects: "Select aspects"
       started_sharing_with: "You have started sharing with {{name}}!"
       stopped_sharing_with: "You have stopped sharing with {{name}}."
-      toggle: 
+      toggle:
         few: "Ve {{count}} aspektech"
         many: "V {{count}} aspektech"
         one: "V {{count}} aspektu"
         other: "Ve {{count}} aspektech"
         two: "Ve {{count}} aspektech"
         zero: "Vybrat aspekty"
-    aspect_navigation: 
+    aspect_navigation:
       deselect_all: "Deselect all"
       no_aspects: "No aspects selected"
       select_all: "Select all"
-    comments: 
+    comments:
       hide: "skrýt komentáře"
       show: "zobrazit všechny komentáře"
     confirm_dialog: "Jste si jisti?"
     failed_to_like: "Oblíbení se nezdařilo!"
     failed_to_post_message: "Odeslání příspěvku se nezdařilo!"
-    getting_started: 
+    getting_started:
       alright_ill_wait: "Alright, I'll wait."
       hey: "Hey, {{name}}!"
       no_tags: "Hey, you haven't followed any tags!  Continue anyway?"
       preparing_your_stream: "Preparing your personialized stream..."
-    infinite_scroll: 
+    infinite_scroll:
       no_more: "Žádné další příspěvky."
-    photo_uploader: 
+    photo_uploader:
       looking_good: "OMG, you look awesome!"
-    publisher: 
+    publisher:
       at_least_one_aspect: "Musíte publikovat alespoň do jednoho aspektu"
       limited: "Omezený - váše zpráva bude přístupná pouze lidem z vybraných aspektů"
       public: "Veřejné - váši zprávu si bude moci přečíst kdokoliv a může být nalezena vyhledávači"
-    reshares: 
+    reshares:
       duplicate: "Tato zprávu už sdílíte!"
     search_for: "Hledat {{name}}"
     show_more: "zobrazit více"
-    tags: 
+    tags:
       wasnt_that_interesting: "OK, I suppose #{{tagName}} wasn't all that interesting..."
-    timeago: 
+    timeago:
       day: "1 dnem"
       days: "%d dny"
       hour: "hodinou"
@@ -64,8 +64,8 @@ cs:
       suffixFromNow: ""
       year: "1 rokem"
       years: "%d roky"
-    videos: 
+    videos:
       unknown: "Neznámý typ videa"
       watch: "Podívejte se na tohle video na {{provider}}"
-    web_sockets: 
+    web_sockets:
       disconnected: "Websocket je uzavřen, příspěvky již nebude možno sledovat živě."

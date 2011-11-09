@@ -3,14 +3,14 @@
 #   the COPYRIGHT file.
 
 
-cs: 
-  devise: 
-    confirmations: 
+cs:
+  devise:
+    confirmations:
       confirmed: "Váš účet byl uspěšně potvrzen. Nyní jste přihlášeni."
-      new: 
+      new:
         resend_confirmation: "Zaslat instrukce o potvrzení"
       send_instructions: "Během několika minut obdržíte email s instrukcemi k potvrzení vašeho účtu."
-    failure: 
+    failure:
       inactive: "Váš účet ještě nebyl aktivován."
       invalid: "Neplatné uživatelské jméno nebo heslo."
       invalid_token: "Neplatný autentizační token."
@@ -18,17 +18,17 @@ cs:
       timeout: "Vaše sezení vypršelo, pro pokračování se prosím přihlašte znovu."
       unauthenticated: "Pro pokračování se musíte přihlásit nebo si vytvořit účet."
       unconfirmed: "Před pokračováním musíte potvrdit svůj účet."
-    invitations: 
+    invitations:
       invitation_token_invalid: "Pozvánka je neplatná!"
       send_instructions: "Vaše pozvánka byla odeslána."
       updated: "Vaše heslo bylo úspěšně změněno. Nyní jste přihlášen."
-    mailer: 
-      confirmation_instructions: 
+    mailer:
+      confirmation_instructions:
         confirm: "Potvrdit můj účet"
         subject: "Informace o potvrzení"
         you_can_confirm: "Váš účet můžete potvrdit kliknutím na tento odkaz:"
       hello: "Zdravím %{email}!"
-      invitation_instructions: 
+      invitation_instructions:
         accept: "Přijmout pozvání"
         arrived: "The social network you have been waiting for has arrived. Revamped, more secure, and more fun, %{strong_diaspora} is ready to help you share and explore the web in a whole new way."
         be_yourself: "Be Yourself"
@@ -57,37 +57,37 @@ cs:
         team_diaspora: "Team Diaspora"
         unsubscribe: "To unsubscribe please click %{link}."
         view_in: "View in"
-      inviter: 
+      inviter:
         accept_at: "at %{url}, you can accept it through the link below."
         has_invited_you: "%{name}"
         have_invited_you: "%{names} have invited you to join Diaspora"
-      reset_password_instructions: 
+      reset_password_instructions:
         change: "Změnit moje heslo"
         ignore: "Pokud nechcete potvrdit pozvání, tento e-mail prosím ignorujte."
         someone_requested: "Vyžádali jste si změnu hesla, kterou můžete provést kliknutím na níže uvedený odkaz."
         subject: "Instrukce ke změně hesla"
         wont_change: "Vaše heslo není možné změnit dokud nekliknete na uvedený odkaz a nevytvoříte si nové."
-      unlock_instructions: 
+      unlock_instructions:
         account_locked: "Váš účet byl zablokovaný kvůli vysokému počtu neúspěšných přihlášení."
         click_to_unlock: "Kliknutím na uvedený odkaz odemknete svůj účet:"
         subject: "Instrukce k odemknutí účtu."
         unlock: "Odemknout můj účet"
       welcome: "Vítej %{email}!"
-    passwords: 
-      edit: 
+    passwords:
+      edit:
         change_password: "Změnit heslo"
-      new: 
+      new:
         forgot_password: "Zapomněli jste heslo?"
         no_account: "S touto emailovou adresou neexistuje žádný účet. Pokud čekáte na pozvání, budeme je vydávat co nejdříve to bude možné"
         send_password_instructions: "Zaslat instrukce k zaslání nového hesla."
       send_instructions: "Běhěm několika minut obdržíte email s instrukcemi k resetnutí hesla."
       updated: "Vaše heslo bylo úspěšně změněno. Nyní jste přihlášeni"
-    registrations: 
+    registrations:
       destroyed: "Sbohem! Váš účet byl úspěšně zrušen. Brzy naviděnou."
       signed_up: "Úspěšně jste vytvořili účet. Pokud je tak server nastaven, byl vám zaslán potvrzovací email."
       updated: "Úspěšně jste upravili svůj účet."
-    sessions: 
-      new: 
+    sessions:
+      new:
         alpha_software: "Používáte testovací verzi."
         bugs_and_feedback: "Upozorňujeme na možnost výskytu chyb. Doporučujeme vám použít tlačítko Zpětná vazba na pravé straně vašeho prohlížeče pro nahlášení problémů! Budeme pracovat nejrychleji jak můžeme, abychom vyřešili nahlášené problémy."
         bugs_and_feedback_mobile: "Upozorňujeme na možnost výskytu chyb. Doporučujeme vám, abyste hlásili jakékoli problémy. Budeme pracovat nejrychleji jak můžeme, abychom vyřešili nahlášené problémy."
@@ -99,23 +99,23 @@ cs:
         username: "Uživatelské jméno"
       signed_in: "Přihlášení proběhlo úspěšně."
       signed_out: "Odhlášení proběhlo úspěšně."
-    shared: 
-      links: 
+    shared:
+      links:
         forgot_your_password: "Zapomněli jste heslo?"
         receive_confirmation: "Neobdrželi jste instrukce na potvrzení?"
         receive_unlock: "Neobdrželi jste instrukce na odblokování?"
         sign_in: "Přihlášení"
         sign_up: "Zapsat se"
         sign_up_closed: "Momentálně jsou další registrace pozastavené."
-      mail_signup_form: 
+      mail_signup_form:
         sign_up_for_an_invite: "Požádat o pozvánku!"
-    unlocks: 
-      new: 
+    unlocks:
+      new:
         resend_unlock: "Instrukce ke změně hesla"
       send_instructions: "Během několika minut obdržíte email s instrukcemi k odemknutí vašeho účtu."
       unlocked: "Váš účet byl úspěšně odemknut. Nyní jste přihlášeni."
-  errors: 
-    messages: 
+  errors:
+    messages:
       already_confirmed: "již bylo potvrzeno"
       not_found: "nenalezeno"
       not_locked: "nebylo zamčeno"

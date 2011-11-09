@@ -3,52 +3,52 @@
 #   the COPYRIGHT file.
 
 
-vi: 
-  javascripts: 
-    aspect_dropdown: 
+vi:
+  javascripts:
+    aspect_dropdown:
       add_to_aspect: "Add contact"
       all_aspects: "All aspects"
       error: "Couldn't start sharing with {{name}}.  Are you ignoring them?"
       select_aspects: "Select aspects"
       started_sharing_with: "Bạn đã bắt đầu chia sẻ với {{name}}!"
       stopped_sharing_with: "Bạn đã ngưng chia sẻ với {{name}}."
-      toggle: 
+      toggle:
         few: "In {{count}} aspects"
         many: "In {{count}} aspects"
         one: "In {{count}} aspect"
         other: "In {{count}} aspects"
         two: "In {{count}} aspects"
         zero: "Select aspects"
-    aspect_navigation: 
+    aspect_navigation:
       deselect_all: "Deselect all"
       no_aspects: "No aspects selected"
       select_all: "Select all"
-    comments: 
+    comments:
       hide: "ẩn các bình luận"
       show: "hiện tất cả bình luận"
     confirm_dialog: "Bạn có chắc không?"
     failed_to_like: "Failed to like!"
     failed_to_post_message: "Đăng tin thất bại!"
-    getting_started: 
+    getting_started:
       alright_ill_wait: "Alright, I'll wait."
       hey: "Này, {{name}}!"
       no_tags: "Hey, you haven't followed any tags!  Continue anyway?"
       preparing_your_stream: "Preparing your personialized stream..."
-    infinite_scroll: 
+    infinite_scroll:
       no_more: "No more posts."
-    photo_uploader: 
+    photo_uploader:
       looking_good: "OMG, you look awesome!"
-    publisher: 
+    publisher:
       at_least_one_aspect: "You must publish to at least one aspect"
       limited: "Limited - your post will only be seen by people you are sharing with"
       public: "Public - your post will be visible to everyone and found by search engines"
-    reshares: 
+    reshares:
       duplicate: "That good, huh?  You've already reshared that post!"
     search_for: "Tìm {{name}}"
     show_more: "hiện thêm"
-    tags: 
+    tags:
       wasnt_that_interesting: "OK, I suppose #{{tagName}} wasn't all that interesting..."
-    timeago: 
+    timeago:
       day: "một ngày"
       days: "%d ngày"
       hour: "khoảng một giờ"
@@ -64,8 +64,8 @@ vi:
       suffixFromNow: "kể từ bây giờ"
       year: "khoảng một năm"
       years: "%d năm"
-    videos: 
+    videos:
       unknown: "Chưa biết kiểu video"
       watch: "Xem video này trên {{provider}}"
-    web_sockets: 
+    web_sockets:
       disconnected: "The websocket is closed; posts will no longer be streamed live."

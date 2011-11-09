@@ -3,14 +3,14 @@
 #   the COPYRIGHT file.
 
 
-zh-TW: 
-  devise: 
-    confirmations: 
+zh-TW:
+  devise:
+    confirmations:
       confirmed: "帳號已確認成功. 你已經登入了."
-      new: 
+      new:
         resend_confirmation: "重送確認步驟"
       send_instructions: 幾分鐘內你會收到一封說明如何確認帳號的信件.
-    failure: 
+    failure:
       inactive: 你的帳號尚未開通.
       invalid: 用戶名稱或密碼有誤.
       invalid_token: 認證信物無效.
@@ -18,17 +18,17 @@ zh-TW:
       timeout: "工作階段已逾時, 若要繼續請重新登入."
       unauthenticated: 繼續之前你必須先登入或登記.
       unconfirmed: 你必須先確認帳號才能繼續.
-    invitations: 
+    invitations:
       invitation_token_invalid: 提供的邀請信物無效!
       send_instructions: 邀請函已寄出.
       updated: "密碼已設定成功. 你已經登入了."
-    mailer: 
-      confirmation_instructions: 
+    mailer:
+      confirmation_instructions:
         confirm: "帳號確認"
         subject: "確認步驟"
         you_can_confirm: "你可以使用以下連結確認帳號:"
       hello: "你好, %{email}!"
-      invitation_instructions: 
+      invitation_instructions:
         accept: "接受邀請"
         arrived: "你一直在等待的社交網路來了. 精心修整, 更安全, 也更好玩, %{strong_diaspora} 已經準備好要幫助你, 用一種嶄新的方式來分享與探索網路世界."
         be_yourself: "做自己"
@@ -57,37 +57,37 @@ zh-TW:
         team_diaspora: "Diaspora 團隊"
         unsubscribe: "要取消訂閱請按%{link}."
         view_in: "檢視看看"
-      inviter: 
+      inviter:
         accept_at: "於 %{url}, 你可以透過以下連結來接受."
         has_invited_you: "%{name}"
         have_invited_you: "%{names} 邀請你加入 Diaspora"
-      reset_password_instructions: 
+      reset_password_instructions:
         change: "更改密碼"
         ignore: "如果你沒請求過, 請忽略這封信件."
         someone_requested: "有人要求更改你的密碼, 若確定要這麼做, 請使用以下連結."
         subject: "密碼重設步驟"
         wont_change: "在使用以上連結設定新的密碼後, 你的密碼才會改變."
-      unlock_instructions: 
+      unlock_instructions:
         account_locked: 你的帳號因為登入失敗太多次而被鎖定了.
         click_to_unlock: "點一下以下連結以將你的帳號解鎖:"
         subject: "解鎖步驟"
         unlock: "帳號解鎖"
       welcome: "歡迎你, %{email}!"
-    passwords: 
-      edit: 
+    passwords:
+      edit:
         change_password: "更改密碼"
-      new: 
+      new:
         forgot_password: 忘記密碼?
         no_account: "無此電子信箱關聯的帳號. 如果你是在等邀請函, 我們會盡快寄出."
         send_password_instructions: "傳送密碼重設的步驟給我"
       send_instructions: 幾分鐘內你會收到一封說明如何重設密碼的信件.
       updated: "密碼更改成功. 你已經登入了."
-    registrations: 
+    registrations:
       destroyed: "再會! 你的帳號已經取消了. 希望不久後再見."
       signed_up: "你已經成功登記了. 如果有設定的話, 確認信會送到你的信箱."
       updated: 帳號更新成功.
-    sessions: 
-      new: 
+    sessions:
+      new:
         alpha_software: 你將要使用剛開發的軟體.
         bugs_and_feedback: "給你個忠告, 你將會遭遇到臭蟲. 遇到任何不順, 都請你使用瀏覽器右手邊的\"回饋\"按鈕向我們回報! 我們會盡快處理你回報的任何問題."
         bugs_and_feedback_mobile: "給你個忠告, 你將會遭遇到臭蟲. 遇到任何不順都請你向我們回報! 我們會盡快處理你回報的任何問題."
@@ -99,23 +99,23 @@ zh-TW:
         username: "用戶名稱"
       signed_in: 登入成功.
       signed_out: 登出成功.
-    shared: 
-      links: 
+    shared:
+      links:
         forgot_your_password: 忘記密碼?
         receive_confirmation: 沒收到確認步驟?
         receive_unlock: 沒收到解鎖步驟?
         sign_in: "登入"
         sign_up: "登記"
         sign_up_closed: 目前不開放公開登記.
-      mail_signup_form: 
+      mail_signup_form:
         sign_up_for_an_invite: 邀請函登記!
-    unlocks: 
-      new: 
+    unlocks:
+      new:
         resend_unlock: "重送解鎖步驟"
       send_instructions: 幾分鐘後你將收到一封說明如何將你的帳號解鎖的信件.
       unlocked: "帳號解鎖成功. 你已經登入了."
-  errors: 
-    messages: 
+  errors:
+    messages:
       already_confirmed: "已確認"
       not_found: "沒找到"
       not_locked: "沒鎖定"
