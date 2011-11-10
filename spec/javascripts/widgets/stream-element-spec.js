@@ -18,6 +18,7 @@ describe("Diaspora.Widgets.StreamElement", function() {
       expect(streamElement.hidePostLoader).toHaveClass("hidden");
       spyOn($, "ajax");
       streamElement.deletePostLink.click();
+      streamElement.hidePostLoader.triggerHandler('ajaxStart');
       jasmine.Clock.tick(200);
       expect($.ajax).toHaveBeenCalled();
       expect(streamElement.deletePostLink).toHaveClass("hidden");
