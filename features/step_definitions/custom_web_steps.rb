@@ -194,7 +194,7 @@ When /^I resize my window to 800x600$/ do
   JS
 end
 
-Then /^I follow Edit Profile in the same window$/ do 
+Then /^I follow Edit Profile in the same window$/ do
   page.execute_script("$('a[href=\"#{edit_profile_path}\"]').removeAttr('target')")
 
   And %(I follow "Edit Profile")
@@ -213,7 +213,7 @@ And "I wait for the popovers to appear" do
 end
 
 And /^I click close on all the popovers$/ do
-  page.execute_script("var time = 400; $('.popover .close').each( 
+  page.execute_script("var time = 400; $('.popover .close').each(
           function(index, element){ setTimeout(function(){ $(element).click()},time);
           time += 800;
  });")

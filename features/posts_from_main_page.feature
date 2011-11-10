@@ -53,7 +53,7 @@ Feature: posting from the main page
       Then I should see a "img" within ".stream_element div.photo_attachments"
       And I should see "Look at this dog" within ".stream_element"
 
-    Scenario: post a photo without text 
+    Scenario: post a photo without text
       Given I expand the publisher
       When I attach the file "spec/fixtures/button.png" to hidden element "file" within "#file-upload"
       And I wait for the ajax to finish
