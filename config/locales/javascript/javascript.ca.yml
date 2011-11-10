@@ -41,6 +41,9 @@ ca:
         add_to_aspect: "Afegeix el contacte"
         select_aspects: "Selecciona els aspectes"
         all_aspects: "Tots els aspectes"
+        stopped_sharing_with: "Heu deixat de compartir amb {{name}}."
+        started_sharing_with: "Heu començat a compartir amb {{name}}!"
+        error: "No s'ha pogut començar a compartir amb {{name}}. L'esteu ignorant?"
         toggle:
           zero: "Selecciona els aspectes"
           one: "En {{count}} aspecte"
@@ -55,4 +58,17 @@ ca:
         show: "mostra tots els comentaris"
         hide: "amaga els comentaris"
       reshares:
-        duplicate: "Ja heu tornat a compartir aquesta publicació!"
+        duplicate: "És bona, oi? Ja heu tornat a compartir aquesta publicació!"
+      aspect_navigation:
+        select_all: "Selecciona'ls tots"
+        deselect_all: "Desselecciona'ls tots"
+        no_aspects: "No heu seleccionat cap aspecte"
+      getting_started:
+        hey: "Ei, {{name}}!"
+        no_tags: "Ei, no heu seguit cap etiqueta! Voleu continuar igualment?"
+        alright_ill_wait: "D'acord, m'esperaré."
+        preparing_your_stream: "S'està preparant el vostre flux personalitzat…"
+      photo_uploader:
+        looking_good: "Vaja, teniu un aspecte fantàstic!"
+      tags:
+        wasnt_that_interesting: "D'acord, es possible que #{{tagName}} no fos tan interessant…"
