@@ -123,8 +123,13 @@ describe AccountDeleter do
     end
 
     describe '#tombstone_person_and_profile' do
-      it 'calls close_account! on person' do
-        @account_deletion.person.should_receive(:close_account!)
+      it 'calls clear_profile! on person' do
+        @account_deletion.person.should_receive(:clear_profile!)
+        @account_deletion.tombstone_person_and_profile
+      end
+
+      it 'calls lock_access! on person' do
+        @account_deletion.person.should_receive(:lock_access!)
         @account_deletion.tombstone_person_and_profile
       end
     end
@@ -160,7 +165,7 @@ describe AccountDeleter do
 
   describe "#tombstone_user" do
     it 'calls strip_model on user' do
-      bob.should_receive(:close_account!)
+      bob.should_receive(:clear_account!)
       @account_deletion.tombstone_user
     end
   end

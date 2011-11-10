@@ -61,6 +61,10 @@ class Person < ActiveRecord::Base
 
   scope :profile_tagged_with, lambda{|tag_name| joins(:profile => :tags).where(:profile => {:tags => {:name => tag_name}}).where('profiles.searchable IS TRUE') }
 
+  scope :who_have_reshared_a_users_posts, lambda{|user| 
+    joins(:posts).where(:posts => {:root_guid => StatusMessage.guids_for_author(user.person), :type => 'Reshare'} )
+  }
+
   def self.community_spotlight
     AppConfig[:community_spotlight].present? ? Person.where(:diaspora_handle => AppConfig[:community_spotlight]) : []
   end
@@ -285,10 +289,13 @@ class Person < ActiveRecord::Base
     self.update_attributes(:url => newuri)
   end
 
-  def close_account!
-    self.profile.tombstone!
+  def lock_access!
     self.closed_account = true
     self.save
+  end
+
+  def clear_profile!
+    self.profile.tombstone!
     self
   end
 

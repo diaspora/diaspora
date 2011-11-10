@@ -91,6 +91,14 @@ describe Person do
         Person.all_from_aspects(aspect_ids, bob).map(&:id).should == []
       end
     end
+
+    describe ".who_have_reshared a user's posts" do
+      it 'pulls back users who reshared the status message of a user' do
+        sm = Factory.create(:status_message, :author => alice.person, :public => true)
+        reshare = Factory.create(:reshare, :root => sm)
+        Person.who_have_reshared_a_users_posts(alice).should == [reshare.author]
+      end
+    end
   end
 
   describe "delegating" do
@@ -537,18 +545,21 @@ describe Person do
     end
   end
 
-  describe "#close_account!" do
+  describe '#lock_access!' do
+    it 'sets the closed_account flag' do
+      @person.lock_access!
+      @person.reload.closed_account.should be_true
+    end
+  end
+
+  describe "#clear_profile!!" do
     before do
       @person = Factory(:person)
-    end
-    it 'sets the closed_account flag' do
-      @person.close_account!
-      @person.reload.closed_account.should be_true
     end
 
     it 'calls Profile#tombstone!' do
       @person.profile.should_receive(:tombstone!)
-      @person.close_account!
+      @person.clear_profile!
     end
   end
 end

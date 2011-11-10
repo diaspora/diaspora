@@ -12,8 +12,8 @@
 
 ActiveRecord::Schema.define(:version => 20111109023618) do
 
-  create_table "account_deletion", :force => true do |t|
-    t.string  "diaspora_id"
+  create_table "account_deletions", :force => true do |t|
+    t.string  "diaspora_handle"
     t.integer "person_id"
   end
 

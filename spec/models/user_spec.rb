@@ -1010,20 +1010,35 @@ describe User do
     end
 
     describe "#close_account!" do
-      before do
-        @user = Factory.create(:user)
+      it 'locks the user out' do
+        @user.close_account!
+        @user.reload.access_locked?.should be_true
       end
+
+      it 'creates an account deletion' do
+        expect{
+          @user.close_account!
+        }.to change(AccountDeletion, :count).by(1)
+      end
+
+      it 'calls person#lock_access!' do
+        @user.person.should_receive(:lock_access!)
+        @user.close_account!
+      end
+    end
+
+    describe "#clear_account!" do
       it 'resets the password to a random string' do
         random_pass = "12345678909876543210"
         ActiveSupport::SecureRandom.should_receive(:hex).and_return(random_pass)
-        @user.close_account!
+        @user.clear_account!
         @user.valid_password?(random_pass)
       end
 
       it 'clears all the clearable fields' do
         @user.reload
         attributes = @user.send(:clearable_fields)
-        @user.close_account!
+        @user.clear_account!
 
         @user.reload
         attributes.each do |attr|
@@ -1059,7 +1074,6 @@ describe User do
           authentication_token
           unconfirmed_email
           confirm_email_token
-          locked_at
           show_community_spotlight_in_stream
         }.sort
       end

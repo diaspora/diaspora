@@ -5,10 +5,74 @@
 require 'spec_helper'
 
 describe AccountDeletion do
-
-  it 'gets initialized with diaspora_id' do
-    AccountDeletion.new(:diaspora_id => alice.person.diaspora_handle).should be_true
+  it 'assigns the diaspora_handle from the person object' do
+    a = AccountDeletion.new(:person => alice.person)
+    a.diaspora_handle.should == alice.person.diaspora_handle
   end
 
-  
+  it 'fires a resque job after creation'do
+    Resque.should_receive(:enqueue).with(Jobs::DeleteAccount, anything)
+
+    AccountDeletion.create(:person => alice.person)
+  end
+
+  describe "#perform!" do
+    before do
+      @ad = AccountDeletion.new(:person => alice.person)
+    end
+
+    it 'creates a deleter' do
+      AccountDeleter.should_receive(:new).with(alice.person.diaspora_handle).and_return(stub(:perform! => true))
+      @ad.perform!
+    end
+    
+    it 'dispatches the account deletion if the user exists' do
+      @ad.should_receive(:dispatch)
+      @ad.perform!
+    end
+
+    it 'does not dispatch an account deletion for non-local people' do
+      deletion =  AccountDeletion.new(:person => remote_raphael)
+      deletion.should_not_receive(:dispatch)
+      deletion.perform!
+    end
+  end
+
+  describe '#dispatch' do
+    it "sends the account deletion xml" do
+      @ad = AccountDeletion.new(:person => alice.person)
+      @ad.send(:dispatch)
+
+    end
+  end
+
+  describe "#subscribers" do
+    it 'includes all contacts' do
+      @ad = AccountDeletion.new(:person => alice.person)
+      @ad.person.owner.should_receive(:contact_people).and_return([remote_raphael])
+      @ad.subscribers(alice).should include(remote_raphael)
+    end
+
+    it 'includes resharers' do
+      @ad = AccountDeletion.new(:person => alice.person)
+      p = Factory(:person)
+      Person.should_receive(:who_have_reshared_a_users_posts).with(alice).and_return([p]) 
+      @ad.subscribers(alice).should include(p)
+    end
+  end
+
+  describe 'serialization' do
+    before do
+      account_deletion = AccountDeletion.new(:person => alice.person)
+      @xml = account_deletion.to_xml.to_s
+    end
+
+    it 'should have a diaspora_handle' do
+      @xml.include?(alice.person.diaspora_handle).should == true
+    end
+    
+    it 'marshals the xml' do
+      AccountDeletion.from_xml(@xml).should be_valid
+    end
+  end
 end

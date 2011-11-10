@@ -490,6 +490,12 @@ class User < ActiveRecord::Base
   end
 
   def close_account!
+    AccountDeletion.create(:person => self.person)
+    self.person.lock_access!
+    self.lock_access!
+  end
+
+  def clear_account!
     clearable_fields.each do |field|
       self[field] = nil
     end
@@ -502,6 +508,6 @@ class User < ActiveRecord::Base
 
   private
   def clearable_fields
-    self.attributes.keys - ["id", "username", "encrypted_password", "created_at", "updated_at"]
+    self.attributes.keys - ["id", "username", "encrypted_password", "created_at", "updated_at", "locked_at"]
   end
 end

@@ -17,8 +17,8 @@ class AccountDeleter
 
   attr_accessor :person, :user
 
-  def initialize(diaspora_id)
-    self.person = Person.where(:diaspora_handle => diaspora_id).first
+  def initialize(diaspora_handle)
+    self.person = Person.where(:diaspora_handle => diaspora_handle).first
     self.user = self.person.owner
   end
 
@@ -90,11 +90,12 @@ class AccountDeleter
   end
 
   def tombstone_person_and_profile
-    self.person.close_account!
+    self.person.lock_access!
+    self.person.clear_profile!
   end
 
   def tombstone_user
-    self.user.close_account!
+    self.user.clear_account!
   end
 
   def delete_contacts_of_me
