@@ -54,7 +54,7 @@ GEM
       Platform (>= 0.4.0)
       open4
     Platform (0.4.0)
-    SystemTimer (1.2.1)
+    SystemTimer (1.2.3)
     abstract (1.0.0)
     actionmailer (3.0.10)
       actionpack (= 3.0.10)
