@@ -220,7 +220,7 @@ And /^I click close on all the popovers$/ do
 end
 
 Then /^I should see first post deletion link$/ do
-  page.evaluate_script("$('.stream_element_delete').first().css('display')").should == "inline"
+  page.evaluate_script("$('.stream_element .delete').first().css('display')").should == "inline"
 end
 
 Then /^I should not see ajax loader on deletion link place$/ do
