@@ -49,7 +49,7 @@ class Stream::Multi < Stream::Base
   #
   # @return [String]
   def publisher_prefill
-    prefill = I18n.t("shared.publisher.new_user_prefill.hello", :new_user_tag => "NewHere")
+    prefill = I18n.t("shared.publisher.new_user_prefill.hello", :new_user_tag => I18n.t('shared.publisher.new_user_prefill.newhere'))
     if self.user.followed_tags.size > 0
       tag_string = self.user.followed_tags.map{|t| "##{t.name}"}.to_sentence
       prefill << I18n.t("shared.publisher.new_user_prefill.i_like", :tags => tag_string)
