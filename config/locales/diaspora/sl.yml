@@ -485,7 +485,7 @@ sl:
   password_confirmation: "Potrditev gesla"
   people:
     add_contact_small:
-      add_contact_from_tag: "dodaj osebo iz zaznamka"
+      add_contact_from_tag: "dodaj osebo iz oznake"
     aspect_list:
       edit_membership: "uredi člane skupin"
     few: "%{count} osebe"
@@ -494,7 +494,7 @@ sl:
       results_for: "zadetkov za %{params}"
     index:
       couldnt_find_them_send_invite: "Jih niste našli? Pošljite povabilo!"
-      looking_for: "Iščete morda objave z zaznamkom %{tag_link}?"
+      looking_for: "Iščete morda objave z oznako %{tag_link}?"
       no_one_found: "...nikogar ni bilo mogoče najti."
       no_results: "Ja, halo! Za iskanje je potrebno vpisati pogoj."
       results_for: "rezultati iskanja za"
@@ -808,8 +808,8 @@ sl:
       add_a_tag: "Dodaj oznako"
       contacts_title: "Ljudje, ki so izbrskali te oznake"
       follow: "Sledi"
-      title: "#Sledi zaznamkom"
-    followed_tags_stream: "#Sledene objave"
+      title: "#Sledene oznake"
+    followed_tags_stream: "#Sledene oznake"
     mentioned_stream: "@Mentions"
     mentions:
       contacts_title: "Ljudje, ki so vas omenili"
@@ -896,7 +896,7 @@ sl:
     getting_started:
       awesome_take_me_to_diaspora: "Popelji me v Diasporo*"
       community_welcome: "Skupnost Diaspora je vesela, da vas ima na krovu!"
-      hashtag_explanation: "Zaznamki vam omogočajo, da govorite in sledite vašim interesom. So tudi dober način za iskanje novih ljudi na Diaspori."
+      hashtag_explanation: "Oznake vam omogočajo, da govorite in sledite vašim interesom. So tudi dober način za iskanje novih ljudi na Diaspori."
       hashtag_suggestions: "Poskusite lahko oznake, kot so #art, #movies, #gif in podobno."
       hooking_up_fb: "povezavo vašega Facebook računa"
       saved: Shranjeno!

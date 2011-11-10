@@ -494,7 +494,7 @@ ko:
       results_for: "%{params} 결과"
     index:
       couldnt_find_them_send_invite: "못 찾았나요? 초대장을 보내세요!"
-      looking_for: "Looking for posts tagged %{tag_link}?"
+      looking_for: "%{tag_link} 태그가 달린 공유물을 찾고있나요?"
       no_one_found: "검색 결과가 없습니다"
       no_results: "검색 결과가 없습니다"
       results_for: "검색 결과:"
@@ -790,12 +790,12 @@ ko:
   stream_helper:
     hide_comments: "댓글 감추기"
     show_comments:
-      few: "Show %{count} more comments"
-      many: "Show %{count} more comments"
-      one: "Show one more comment"
-      other: "Show %{count} more comments"
-      two: "Show two more comments"
-      zero: "No more comments"
+      few: "댓글 %{count}개 더 보기"
+      many: "댓글 %{count}개 더 보기"
+      one: "댓글 한 개 더 보기"
+      other: "댓글 %{count}개 더 보기"
+      two: "댓글 두 개 더 보기"
+      zero: "댓글이 더 없습니다"
   streams:
     aspects:
       title: "내 애스펙"
@@ -822,7 +822,7 @@ ko:
     recently: "최근에"
     tags:
       contacts_title: "People who dig this tag"
-      tag_prefill_text: "The thing about %{tag_name} is... "
+      tag_prefill_text: "%{tag_name} 태그에 대한 것들···"
       title: "태그: %{tags}"
   tag_followings:
     create:

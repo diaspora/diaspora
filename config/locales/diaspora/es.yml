@@ -200,9 +200,9 @@ es:
     few: "%{count} contactos"
     index:
       add_a_new_aspect: "Añade un nuevo aspecto"
-      add_to_aspect: "añadir contactos a %{name}"
+      add_to_aspect: "añade contactos a %{name}"
       all_contacts: "Todos los contactos"
-      check_out: "Echa un vistazo"
+      check_out: "Echa un vistazo a la"
       many_people_are_you_sure: "¿Estás seguro que quieres comenzar una conversación privada con más de %{suggested_limit} contactos? Publicar en sus aspectos podría ser mejor para contactar con ellos."
       my_contacts: "Mis Contactos"
       no_contacts: "¡Parece que necesitas añadir algunos contactos!"
@@ -494,8 +494,8 @@ es:
       results_for: "resultados para %{params}"
     index:
       couldnt_find_them_send_invite: "¿No les puedes encontrar? ¡Envíales una invitación!"
-      looking_for: "Looking for posts tagged %{tag_link}?"
-      no_one_found: "...y no se ha encontrado nada."
+      looking_for: "¿Buscando publicaciones sobre %{tag_link}?"
+      no_one_found: "...y nadie fue encontrado."
       no_results: "¡Eh! Tienes que buscar algo."
       results_for: "buscar resultados para"
     many: "%{count} personas"
@@ -790,12 +790,12 @@ es:
   stream_helper:
     hide_comments: "Ocultar comentarios"
     show_comments:
-      few: "Show %{count} more comments"
-      many: "Show %{count} more comments"
-      one: "Show one more comment"
-      other: "Show %{count} more comments"
-      two: "Show two more comments"
-      zero: "No more comments"
+      few: "Mostrar %{count} comentarios más"
+      many: "Mostrar %{count} comentarios más"
+      one: "Mostrar 1 comentario más"
+      other: "Mostrar %{count} comentarios más"
+      two: "Mostrar 2 comentarios más"
+      zero: "No hay más comentarios"
   streams:
     aspects:
       title: "Aspectos"
@@ -822,7 +822,7 @@ es:
     recently: "recientemente:"
     tags:
       contacts_title: "Gente que sigue esta etiqueta"
-      tag_prefill_text: "The thing about %{tag_name} is... "
+      tag_prefill_text: "La cosa sobre %{tag_name} es... "
       title: "Publicaciones etiquetadas: %{tags}"
   tag_followings:
     create:

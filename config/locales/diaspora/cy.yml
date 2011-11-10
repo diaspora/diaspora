@@ -420,7 +420,7 @@ cy:
       other: "%{actors} mentioned you in a deleted post."
       two: "%{actors} mentioned you in a deleted post."
       zero: "%{actors} mentioned you in a deleted post."
-    post: "post"
+    post: "bost"
     private_message:
       few: "Mae %{actors} wedi anfon neges iddych chi."
       many: "Mae %{actors} wedi anfon neges iddych chi."

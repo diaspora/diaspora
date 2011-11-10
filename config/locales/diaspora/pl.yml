@@ -494,7 +494,7 @@ pl:
       results_for: "wyniki dla %{params}"
     index:
       couldnt_find_them_send_invite: "Nie możesz ich znaleźć? Wyślij zaproszenie!"
-      looking_for: "Looking for posts tagged %{tag_link}?"
+      looking_for: "Szukasz wpisów oznaczonych %{tag_link}?"
       no_one_found: "...i nikogo nie odnaleziono."
       no_results: "Hej! Musisz coś wpisać w pole wyszukiwarki!"
       results_for: "wyniki wyszukiwania dla"
@@ -790,12 +790,12 @@ pl:
   stream_helper:
     hide_comments: "Ukryj wszystkie komentarze"
     show_comments:
-      few: "Show %{count} more comments"
-      many: "Show %{count} more comments"
-      one: "Show one more comment"
-      other: "Show %{count} more comments"
-      two: "Show two more comments"
-      zero: "No more comments"
+      few: "Wyświetl %{count} więcej komentarzy"
+      many: "Wyświetl %{count} więcej komentarzy"
+      one: "Wyświetl jeden komentarz więcej"
+      other: "Wyświetl %{count} więcej komentarzy"
+      two: "Wyświetl dwa komentarze więcej"
+      zero: "Nie ma więcej komentarzy"
   streams:
     aspects:
       title: "Twoje Aspekty"
@@ -822,7 +822,7 @@ pl:
     recently: "ostatnio:"
     tags:
       contacts_title: "Osoby, które wykopały te tagi"
-      tag_prefill_text: "The thing about %{tag_name} is... "
+      tag_prefill_text: "Rzecz o %{tag_link} jest..."
       title: "Oznaczone wpisy: %{tags}"
   tag_followings:
     create:

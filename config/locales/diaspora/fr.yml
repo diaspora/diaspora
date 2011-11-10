@@ -259,7 +259,7 @@ fr:
       birthday_with_year: "%d %B %Y"
       fullmonth_day: "%d %B"
   delete: "Supprimer"
-  email: E-mail
+  email: "Courriel"
   error_messages:
     helper:
       correct_the_following_errors_and_try_again: "Corrigez les erreurs suivantes, puis réessayez."
@@ -455,8 +455,8 @@ fr:
     comment_on_post:
       reply: "Répondre ou voir le message de %{name} >"
     confirm_email:
-      click_link: "Pour activer votre nouvelle adresse email %{unconfirmed_email}, merci de suivre ce lien :"
-      subject: "Merci d'activer votre nouvelle adresse email %{unconfirmed_email}"
+      click_link: "Pour activer votre nouvelle adresse électronique %{unconfirmed_email}, merci de suivre ce lien :"
+      subject: "Merci d'activer votre nouvelle adresse électronique %{unconfirmed_email}"
     email_sent_by_diaspora: "Ce courriel a été envoyé par Diaspora. Si vous souhaitez cesser de recevoir des courriels de ce genre,"
     hello: "Bonjour %{name} !"
     liked:
@@ -857,8 +857,8 @@ fr:
   username: "Nom d'utilisateur"
   users:
     confirm_email:
-      email_confirmed: "Courriel %{email} activé"
-      email_not_confirmed: "L'email n'a pas pu être activé. Lien erroné ?"
+      email_confirmed: "Adresse électronique %{email} activé"
+      email_not_confirmed: "L'adresse électronique n'a pas pu être activé. Lien erroné ?"
     destroy:
       no_password: "Veuillez introduire votre mot de passe actuel pour fermer votre compte."
       success: "Votre compte a été bloqué. 20 minutes pourraient être nécessaires pour la finalisation de sa fermeture. Merci d'avoir essayé d'utiliser Diaspora."
@@ -866,7 +866,7 @@ fr:
     edit:
       also_commented: "…quelqu'un d'autre commente une publication de votre contact ?"
       change: "Modifier"
-      change_email: "Changer d'email"
+      change_email: "Changer d'adresse électronique"
       change_language: "Changer la langue"
       change_password: "Changer le mot de passe"
       close_account: "Clôturer le compte"
@@ -923,8 +923,8 @@ fr:
       password_not_changed: "Échec de la mise à jour du mot de passe"
       settings_not_updated: "La mise à jour des paramètre a échouée"
       settings_updated: "Mise à jour des paramètres"
-      unconfirmed_email_changed: "Email changé. Nécessite l'activation."
-      unconfirmed_email_not_changed: "Le changement de courriel a échoué"
+      unconfirmed_email_changed: "Adresse électronique changée. Nécessite l'activation."
+      unconfirmed_email_not_changed: "Le changement d'adresse électronique a échoué"
   webfinger:
     fetch_failed: "impossible de télécharger le profil webfinger pour %{profile_url}"
     hcard_fetch_failed: "une erreur est survenue lors du téléchargement de la hcard de %{account}"

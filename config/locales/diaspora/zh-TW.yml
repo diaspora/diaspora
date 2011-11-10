@@ -192,7 +192,7 @@ zh-TW:
       commenting: 意見發表中...
     one: "1則意見"
     other: "%{count}則意見"
-    two: "%{count}則回應"
+    two: "%{count}個意見"
     zero: "沒有意見"
   contacts:
     create:
@@ -252,7 +252,7 @@ zh-TW:
     show:
       delete: "刪除並中止對話"
       reply: "回覆"
-      replying: 回應中...
+      replying: 回覆中...
   date:
     formats:
       birthday: "%B %d"
@@ -357,21 +357,21 @@ zh-TW:
       many: "%{actors} 也對 %{post_author} 的%{post_link}發表了意見."
       one: "%{actors} 也對 %{post_author} 的%{post_link}發表了意見."
       other: "%{actors} 也對 %{post_author} 的%{post_link}發表了意見."
-      two: "%{actors} 也回應了 %{post_author} 的%{post_link}."
+      two: "%{actors} 也對 %{post_author} 的%{post_link}發表了意見."
       zero: "%{actors} 也對 %{post_author} 的%{post_link}發表了意見."
     also_commented_deleted:
-      few: "%{actors} 回應了已刪掉的貼文."
-      many: "%{actors} 回應了已刪掉的貼文."
-      one: "%{actors} 回應了已刪掉的貼文."
-      other: "%{actors} 回應了已刪掉的貼文."
-      two: "%{actors} 回應了已刪掉的貼文."
-      zero: "%{actors} 回應了已刪掉的貼文."
+      few: "%{actors} 對已刪掉的貼文發表了意見."
+      many: "%{actors} 對已刪掉的貼文發表了意見."
+      one: "%{actors} 對已刪掉的貼文發表了意見."
+      other: "%{actors} 對已刪掉的貼文發表了意見."
+      two: "%{actors} 對已刪掉的貼文發表了意見."
+      zero: "%{actors} 對已刪掉的貼文發表了意見."
     comment_on_post:
       few: "%{actors} 對你的%{post_link}發表了意見."
       many: "%{actors} 對你的%{post_link}發表了意見."
       one: "%{actors} 對你的%{post_link}發表了意見."
       other: "%{actors} 對你的%{post_link}發表了意見."
-      two: "%{actors} 回應了你的%{post_link}."
+      two: "%{actors} 對你的%{post_link}發表了意見."
       zero: "%{actors} 對你的%{post_link}發表了意見."
     helper:
       new_notifications:
@@ -494,7 +494,7 @@ zh-TW:
       results_for: "%{params}的搜尋結果"
     index:
       couldnt_find_them_send_invite: "找不到他們? 寄一封邀請函吧!"
-      looking_for: "Looking for posts tagged %{tag_link}?"
+      looking_for: "在找標記為 %{tag_link} 的貼文嗎?"
       no_one_found: "...找不到任何東西."
       no_results: "嘿! 搜尋要有目標."
       results_for: "搜尋結果:"
@@ -760,8 +760,8 @@ zh-TW:
     reshare:
       reshare: "轉貼"
     stream_element:
-      connect_to_comment: "要回應貼文請先和作者建立聯繫"
-      currently_unavailable: "目前無法回應"
+      connect_to_comment: "請先和作者建立聯繫才能對他們的貼文發表意見"
+      currently_unavailable: "目前無法發表意見"
       dislike: "遜"
       hide_and_mute: "隱藏貼文並消音"
       ignore_user: "忽視 %{name}"
@@ -790,12 +790,12 @@ zh-TW:
   stream_helper:
     hide_comments: "隱藏所有意見"
     show_comments:
-      few: "Show %{count} more comments"
-      many: "Show %{count} more comments"
-      one: "Show one more comment"
-      other: "Show %{count} more comments"
-      two: "Show two more comments"
-      zero: "No more comments"
+      few: "顯示另外 %{count} 個意見"
+      many: "顯示另外 %{count} 個意見"
+      one: "顯示另外一個意見"
+      other: "顯示另外 %{count} 個意見"
+      two: "顯示另外兩個意見"
+      zero: "沒有其它意見"
   streams:
     aspects:
       title: "你的面向"
@@ -822,7 +822,7 @@ zh-TW:
     recently: "最近:"
     tags:
       contacts_title: "這個標籤的粉絲"
-      tag_prefill_text: "The thing about %{tag_name} is... "
+      tag_prefill_text: "關於 %{tag_name} 的東西有... "
       title: "有以下標籤的貼文: %{tags}"
   tag_followings:
     create:
