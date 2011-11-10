@@ -1,0 +1,20 @@
+-#   Copyright (c) 2010-2011, Diaspora Inc.  This file is
+-#   licensed under the Affero General Public License version 3 or later.  See
+-#   the COPYRIGHT file.
+
+= include_javascripts :mobile
+
+:javascript
+  $(document).ready(function() 
+    {
+    var contents = "#{params[:title]} - #{params[:url]}";
+    if ("#{params[:notes]}".length > 0){
+      contents = contents + " - #{params[:notes]}";
+    }
+    if (contents.length > 0) {
+      $("#status_message_text").val(contents);
+    }
+  });
+
+= render :partial => 'shared/publisher', :locals => { :aspect => :profile, :selected_aspects => @aspects,  :aspect_ids => @aspect_ids }
+
