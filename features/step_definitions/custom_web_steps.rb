@@ -11,6 +11,10 @@ And /^I expand the publisher$/ do
     ')
 end
 
+When 'I click the aspects title' do
+  find('.home_selector').click
+end
+
 When /^I press the aspect dropdown$/ do
   find('.dropdown .button').click
 end

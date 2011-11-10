@@ -199,7 +199,7 @@ Feature: posting from the main page
       And I press "Share"
       And I wait for the ajax to finish
 
-      When I follow "Your Aspects"
+      When I click the aspects title
       And I hover over the ".stream_element"
       And I preemptively reject the alert
       And I click to delete the first post
