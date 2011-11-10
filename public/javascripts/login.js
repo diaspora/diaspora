@@ -21,9 +21,7 @@ $(document).ready( function(){
     $('#asterisk').addClass('rideSpinners');
     clearConnectionInfo();
     juser = username.val() + "@" + pod_url;
-    jpass = password.val();
     localStorage.setItem("user", juser);
-    localStorage.setItem("pass", jpass);
     forgotPass.addClass('hidden');
     controls.addClass('hidden');
   });

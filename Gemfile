@@ -1,7 +1,6 @@
 source 'http://rubygems.org'
 
 gem 'rails', '3.0.10'
-gem 'mysql2', '0.2.6'
 gem 'rails-dbi', :require => 'dbi'
 gem 'rails-dbd-mysql'
 gem 'foreigner', '0.9.1'
