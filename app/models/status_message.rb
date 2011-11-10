@@ -14,7 +14,7 @@ class StatusMessage < Post
   acts_as_taggable_on :tags
   extract_tags_from :raw_message
 
-  validates_length_of :text, :maximum => 10000, :message => I18n.t('status_messages.too_long', :count => 10000)
+  validates_length_of :text, :maximum => 65535, :message => I18n.t('status_messages.too_long', :count => 65535)
   xml_name :status_message
   xml_attr :raw_message
 
