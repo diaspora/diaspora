@@ -44,10 +44,10 @@
       self.deletePostLink.click(function(evt) {
         evt.preventDefault();
 
-        $([
-          self.deletePostLink,
-          self.hidePostLoader
-        ]).toggleClass("hidden");
+        self.hidePostLoader.ajaxStart( function() {
+          self.deletePostLink.addClass("hidden");
+          $(this).removeClass('hidden');
+        } );
       });
 
       self.focusCommentLink.click(function(evt) {
