@@ -141,11 +141,9 @@ group :development do
   gem 'capistrano-ext', '1.2.1', :require => false
   gem 'linecache', '0.43', :platforms => :mri_18
   gem 'parallel_tests'
-  unless ENV["CI"]
-    gem 'ruby-debug-base19', '0.11.23' if RUBY_VERSION.include? '1.9.1'
-    gem 'ruby-debug19', :platforms => :ruby_19
-    gem 'ruby-debug', :platforms => :mri_18
-  end
+  gem 'ruby-debug-base19', '0.11.23' if RUBY_VERSION.include? '1.9.1'
+  gem 'ruby-debug19', :platforms => :ruby_19
+  gem 'ruby-debug', :platforms => :mri_18
   gem 'sod', :git => 'git://github.com/MikeSofaer/sod.git', :require => false
   gem 'yard'
 end
