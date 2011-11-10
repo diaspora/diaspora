@@ -1,6 +1,6 @@
 var logout = 0;
 var MINI_TITLE = null;
-
+  
 // Unloading the page
 $(window).unload(function () {
   if (logout) {
@@ -76,14 +76,13 @@ $(document).ready(function () {
   } else {
 
     var user = localStorage.getItem("user");
-    var pass = localStorage.getItem("pass");
     localStorage.removeItem("user");
-    localStorage.removeItem("pass");
-
+    var cookie = unescape(document.cookie.split((escape("_diaspora_session") + '='))[1].split(';')[0]);
+	
     // Create HTML chat menu
     dom = '<div class="jm_position">' + '<div class="jm_conversations"></div>' + '<div class="jm_starter">' + '<div class="jm_roster">' + '<div class="jm_actions">' + '<a class="jm_logo jm_images" href="javascript:void(0)"></a>' + '<a class="jm_one-action jm_available jm_images" title="Go offline" href="javascript:void(0)"></a>' + '</div>' + '<div class="jm_buddies"></div>' + '</div>' + '<a class="jm_pane jm_button jm_images" href="#">' + '<span class="jm_counter jm_images">Please wait...</span>' + '</a>' + '</div>' + '</div>';
 
-    Chat.start(user, pass);
+    Chat.start(user, cookie);
   }
 
   // Create the DOM
@@ -119,7 +118,7 @@ $(document).ready(function () {
     }
   });
 
-  jQuery('#jappix_mini div.jm_actions a.jm_available').click(function () {
+  jQuery('#jappix_mini div.jm_actions a.jm_available, #jappix_mini div.jm_actions a.jm_unavailable').click(function () {
 	  if (Chat.presence == 0) {
 		Chat.offline();
 		jQuery(this).removeClass('jm_available');
@@ -133,6 +132,7 @@ $(document).ready(function () {
 	  }
   });
 
+  
   // Hides the roster when clicking away of Jappix Mini
   jQuery(document).click(
 

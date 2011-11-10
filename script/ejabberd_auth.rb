@@ -21,8 +21,6 @@ class EjabberdAuthentication
 
       operation, username, domain, password = STDIN.sysread(length).split(':')
 
-      #`echo "#{[operation, username, domain, password].join(' ')}" >> /home/lasek/Scrivania/foo.txt`
-
       response = case operation
       when "auth"
         auth username, password.chomp
@@ -32,22 +30,27 @@ class EjabberdAuthentication
         0
       end
 
+      `echo "#{[operation, username, domain, password, response].join(' ')}" >> /home/lasek/Scrivania/foo.txt`
+
       STDOUT.syswrite([2, response].pack('nn'))
     end
 
   rescue Exception => exception
-    pp "Exception #{exception.to_s}"
+    puts "Exception #{exception.to_s}"
   end
 
 
-  def auth(username, password)
-    r = $conn.post '/users/sign_in.json', {:user => {:username => username, :password => password}}, 'Content-Type' => 'application/json'
-    r.status == 201 ?  1 : 0 
+  def auth(username, pass_or_session)
+      $conn.headers['cookie'] = '_diaspora_session=' + pass_or_session
+      r = $conn.post '/users/sign_in.json', {:user => {:username => username, :password => pass_or_session}}, 'Content-Type' => 'application/json'
+      puts r.status
+      return (r.status == 401) ? 0 : 1
   end
 
   def isuser(username)
-    # ::User.find_by_username(username) ? 1 : 0
-    1	
+      r = $conn.get '/u/' + username, 'Content-Type' => 'text/html'
+      puts r.status
+      return (r.status == 404) ? 0 : 1
   end
 end
 
