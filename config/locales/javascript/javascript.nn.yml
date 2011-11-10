@@ -3,52 +3,52 @@
 #   the COPYRIGHT file.
 
 
-nn: 
-  javascripts: 
-    aspect_dropdown: 
+nn:
+  javascripts:
+    aspect_dropdown:
       add_to_aspect: "Legg til kontakt"
       all_aspects: "Alle aspekta"
       error: "Klarte ikkje å byrja å dela med {{name}}.  Ignorerer du dei?"
       select_aspects: "Vel aspekt"
       started_sharing_with: "Du har byrja å dela med {{name}}."
       stopped_sharing_with: "Du deler ikkje lenger med {{name}}."
-      toggle: 
+      toggle:
         few: "I {{count}} aspekt"
         many: "I {{count}} aspekt"
         one: "I {{count}} aspekt"
         other: "I {{count}} aspekt"
         two: "I {{count}} aspekt"
         zero: "Vel aspekt"
-    aspect_navigation: 
+    aspect_navigation:
       deselect_all: "Vel vekk alle"
       no_aspects: "Ingen aspekt er valde"
       select_all: "Vel alle"
-    comments: 
+    comments:
       hide: "gøym merknader"
       show: "syn alle merknadene"
     confirm_dialog: "Er du sikker?"
     failed_to_like: "Like-funksjonen feila."
     failed_to_post_message: "Klarte ikkje å senda meldinga."
-    getting_started: 
+    getting_started:
       alright_ill_wait: "Greitt, eg ventar."
       hey: "Hei, {{name}}!"
       no_tags: "Du har ikkje følgt nokon etikett. Vil du likevel halda fram?"
       preparing_your_stream: "Lagar den tilpassa straumen din …"
-    infinite_scroll: 
+    infinite_scroll:
       no_more: "Ingen fleire meldingar."
-    photo_uploader: 
+    photo_uploader:
       looking_good: "Du verda, du ser flott ut!"
-    publisher: 
+    publisher:
       at_least_one_aspect: "Du må offentleggjera til minst eitt aspekt"
       limited: "Avgrensa - berre personar du deler med vil kunna sjå meldinga"
       public: "Offentleg - alle kan sjå meldinga di og ho kan bli funnen av søkjemotorar"
-    reshares: 
+    reshares:
       duplicate: "Så bra, altså? Men du har allereie delt meldinga :-)"
     search_for: "Leit etter {{name}}"
     show_more: "syn meir"
-    tags: 
+    tags:
       wasnt_that_interesting: "Greitt, #{{tagName}} var vel kanskje ikkje så interessant …"
-    timeago: 
+    timeago:
       day: "om dagen"
       days: "%d dagar"
       hour: "om lag ein time"
@@ -64,8 +64,8 @@ nn:
       suffixFromNow: "frå no"
       year: "om lag eit år"
       years: "%d år"
-    videos: 
+    videos:
       unknown: "Ukjend videotype"
       watch: "Sjå denne videoen hos {{provider}}"
-    web_sockets: 
+    web_sockets:
       disconnected: "Nettendepunktet er lukka - meldingane vil ikkje lenger kunna strøymast direkte."

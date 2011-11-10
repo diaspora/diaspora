@@ -532,6 +532,7 @@ en:
       no_results: "Hey! You need to search for something."
       couldnt_find_them_send_invite: "Couldn't find them?  Send an invite!"
       no_one_found: "...and no one was found."
+      looking_for: "Looking for posts tagged %{tag_link}?"
     webfinger:
       fail: "Sorry, we couldn't find %{handle}."
     show:
@@ -759,6 +760,7 @@ en:
       publishing_to: "publishing to: "
       discard_post: "Discard post"
       new_user_prefill:
+        newhere: "NewHere"
         hello: "Hey everyone, I'm #%{new_user_tag}. "
         i_like: "I'm interested in %{tags}. "
         invited_by: "Thanks for the invite, "
@@ -826,7 +828,13 @@ en:
       other: "please make your status messages less than %{count} characters"
 
   stream_helper:
-    show_more_comments: "Show %{number} more comments"
+    show_comments:
+      zero: "No more comments"
+      one: "Show one more comment"
+      two: "Show two more comments"
+      few: "Show %{count} more comments"
+      many: "Show %{count} more comments"
+      other: "Show %{count} more comments"
     hide_comments: "Hide all comments"
 
   tags:
@@ -887,6 +895,7 @@ en:
     tags:
       title: "Posts tagged: %{tags}"
       contacts_title: "People who dig this tag"
+      tag_prefill_text: "The thing about %{tag_name} is... "
 
     public:
       title: "Public Activity"

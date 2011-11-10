@@ -3,14 +3,14 @@
 #   the COPYRIGHT file.
 
 
-ro: 
-  devise: 
-    confirmations: 
+ro:
+  devise:
+    confirmations:
       confirmed: "Contul dvs. a fost confirmat cu succes. Sunteți acum autentificat(ă)."
-      new: 
+      new:
         resend_confirmation: "Retrimite instrucţiunile de confirmare"
       send_instructions: "În scurt timp veți primi un email cu instrucțiuni pentru confirmarea contului."
-    failure: 
+    failure:
       inactive: "Contul dvs. încă nu a fost activat."
       invalid: "Email sau parolă incorectă."
       invalid_token: "Cheie de autentificare invalidă."
@@ -18,17 +18,17 @@ ro:
       timeout: "Sesiunea dvs. a expirat, autentificați-vă din nou pentru a continua."
       unauthenticated: "Pentru a continuna, înregistrați-vă."
       unconfirmed: "Pentru a continua, confirmați contul dvs."
-    invitations: 
+    invitations:
       invitation_token_invalid: "Invitaţia furnizată nu este valabilă!"
       send_instructions: "Invitaţia dvs. a fost trimisă."
       updated: "Parola dvs. a fost stabilită cu succes. Sunteţi acum logat"
-    mailer: 
-      confirmation_instructions: 
+    mailer:
+      confirmation_instructions:
         confirm: "Confirmă contul meu"
         subject: "Instrucţiuni de confirmare"
         you_can_confirm: "Puteţi confirma contul dvs. prin intermediul link-ul de mai jos:"
       hello: "Bună %{email}!"
-      invitation_instructions: 
+      invitation_instructions:
         accept: "Acceptă invitaţia"
         arrived: "The social network you have been waiting for has arrived. Revamped, more secure, and more fun, %{strong_diaspora} is ready to help you share and explore the web in a whole new way."
         be_yourself: "Be Yourself"
@@ -57,37 +57,37 @@ ro:
         team_diaspora: "Team Diaspora"
         unsubscribe: "To unsubscribe please click %{link}."
         view_in: "View in"
-      inviter: 
+      inviter:
         accept_at: "at %{url}, you can accept it through the link below."
         has_invited_you: "%{name}"
         have_invited_you: "%{names} have invited you to join Diaspora"
-      reset_password_instructions: 
+      reset_password_instructions:
         change: "Schimbă-mi parola"
         ignore: "Dacă nu aţi facut aceasta petiţie, vă rugăm să ignoraţi acest e-mail."
         someone_requested: "Cineva a solicitat un link pentru a schimba parola, puteţi face acest lucru prin intermediul link-ul de mai jos."
         subject: "Instrucţiuni pentru a reseta parola"
         wont_change: "Parola dvs. nu se va schimba până când nu veţi accesa linkul de mai sus şi veţi crea una nouă."
-      unlock_instructions: 
+      unlock_instructions:
         account_locked: "Contul dvs. a fost blocat din cauza unei cantitaţi excesive de încercări nereuşite de autentificare."
         click_to_unlock: "Clic pe link-ul de mai jos pentru a debloca contul dvs."
         subject: "Instrucţiuni pentru a debloca"
         unlock: "Deblochează-mi contul"
       welcome: "Bine ai revenit %{email}!"
-    passwords: 
-      edit: 
+    passwords:
+      edit:
         change_password: "Schimbă-mi parola"
-      new: 
+      new:
         forgot_password: "Aţi uitat parola?"
         no_account: "Nici un cont cu acest e-mail există. Dacă sunteţi în aşteptare pentru o invitaţie, le vom trimite cât mai curând posibil.\n"
         send_password_instructions: "Trimite-mi instrucţiunile pentru a reseta parola"
       send_instructions: "În scurt timp veți primi un email cu instrucțiuni pentru resetarea parolei."
       updated: "Parolă schimbată cu success. Sunteți acum autentificat(ă)."
-    registrations: 
+    registrations:
       destroyed: "La revedere! Contul dvs. a fost dezactivat cu succes. Sperăm să vă revedem în curând."
       signed_up: "Sunteți autentificat(ă). Dacă este cazul, un mesaj de confirmare a fost trimis pe email-ul dvs."
       updated: "Cont actualizat cu succes."
-    sessions: 
-      new: 
+    sessions:
+      new:
         alpha_software: "Sunteţi pe cale de a utiliza software alfa."
         bugs_and_feedback: "Aveţi grijă, puteţi experimenta probleme. Vă încurajăm să utilizaţi butonul Feedback de pe partea dreaptă a browser-ului pentru a raporta orice problemă! Vom lucra cât mai repede posibil pentru a rezolva orice dificultăţi veţi întâmpina."
         bugs_and_feedback_mobile: "Aveţi grijă, veţi experimenta probleme. Vă încurajăm să raportaţi orice problemă! Vom lucra cât mai repede posibil pentru a rezolva orice dificultăţi veţi întâmpina."
@@ -99,23 +99,23 @@ ro:
         username: "Nume de utilizator"
       signed_in: "Autentificare cu succes."
       signed_out: "Deconectare cu succes."
-    shared: 
-      links: 
+    shared:
+      links:
         forgot_your_password: "Aţi uitat parola?"
         receive_confirmation: "Nu aţi primit instrucţiunile de confirmare?"
         receive_unlock: "Nu aţi primit instrucţiunile de deblocare?"
         sign_in: "Autentificare"
         sign_up: Înregistrează-te
         sign_up_closed: "Înscrierile sunt închise în acest moment."
-      mail_signup_form: 
+      mail_signup_form:
         sign_up_for_an_invite: "Înscrie-te pentru o invitaţie!"
-    unlocks: 
-      new: 
+    unlocks:
+      new:
         resend_unlock: "Retrimite-mi instrucţiunile de deblocare"
       send_instructions: "În scurt timp veți primi un email cu instrucțiuni pentru deblocarea contului."
       unlocked: "Cont deblocat cu succes. Sunteți acum autentificat(ă)."
-  errors: 
-    messages: 
+  errors:
+    messages:
       already_confirmed: "a fost deja confirmat"
       not_found: "Inexistent"
       not_locked: "nu a fost blocat"

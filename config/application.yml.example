@@ -159,6 +159,7 @@ defaults: &defaults
   # Enable the cache layer (Redis)
   # If you expect to have thousands of users on your pod,
   # we *highly* suggest you enable this.
+  # IMPORTANT: THE CACHE REQUIRES REDIS 2.4 OR LATER.
   #
   # By default, the cache layer will piggyback off of the Redis
   # database used by your Resque workers.

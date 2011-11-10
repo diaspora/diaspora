@@ -3,52 +3,52 @@
 #   the COPYRIGHT file.
 
 
-tr: 
-  javascripts: 
-    aspect_dropdown: 
+tr:
+  javascripts:
+    aspect_dropdown:
       add_to_aspect: "Yönüne ekle"
       all_aspects: "Tüm yönler"
       error: "Couldn't start sharing with {{name}}.  Are you ignoring them?"
       select_aspects: "Yönleri seç"
       started_sharing_with: "{{name}} sizinle paylaşıma başladı!"
       stopped_sharing_with: "{{name}} sizinle paylaşımı durdurdu."
-      toggle: 
+      toggle:
         few: "{{count}} yön"
         many: "{{count}} yön"
         one: "{{count}} yön"
         other: "{{count}} yön"
         two: "{{count}} yön"
         zero: "Yön seç"
-    aspect_navigation: 
+    aspect_navigation:
       deselect_all: "Tümünü kaldır"
       no_aspects: "Hiç yön seçilmedi"
       select_all: "Tümünü seç"
-    comments: 
+    comments:
       hide: "yorumları gizle"
       show: "tüm yorumları görüntüle"
     confirm_dialog: "Emin misiniz?"
     failed_to_like: "Beğenme başarısız oldu!"
     failed_to_post_message: "Gönderi başarısız oldu!"
-    getting_started: 
+    getting_started:
       alright_ill_wait: "Tamam, ben bekleyeceğim."
       hey: "Merhaba, {{name}}!"
       no_tags: "Hey, hiç etiket takip etmiyorsunuz! Gerçekten devam etmek istiyor musun?"
       preparing_your_stream: "Kişiselleştirilmiş akışınız hazırlanıyor ..."
-    infinite_scroll: 
+    infinite_scroll:
       no_more: "Daha fazla gönderi yok."
-    photo_uploader: 
+    photo_uploader:
       looking_good: "OMG, harika görünüyorsun!"
-    publisher: 
+    publisher:
       at_least_one_aspect: "En az bir yönünün yayınlanması zorunludur"
       limited: "Sınırlı - gönderi sadece paylaşılan kişiler tarafından görünür"
       public: "Genel - gönderi herkes tarafından görünür ve arama motorları tarafından bulunur olacak"
-    reshares: 
+    reshares:
       duplicate: "Bu iyi, değil mi? Zaten bu gönderiyi tekrar paylaştın!"
     search_for: "{{name}} Ara"
     show_more: "daha fazlasını göster"
-    tags: 
+    tags:
       wasnt_that_interesting: "Tamam, benim #{{tagName}} o kadar da ilginç değil..."
-    timeago: 
+    timeago:
       day: "1 gün"
       days: "%d gün"
       hour: "yaklaşık 1 saat"
@@ -64,8 +64,8 @@ tr:
       suffixFromNow: "şimdi"
       year: "yaklaşık 1 yıl"
       years: "%d yıl"
-    videos: 
+    videos:
       unknown: "Bilinmeyen video tipi"
       watch: "Bu videoyu {{provider}}'da izle"
-    web_sockets: 
+    web_sockets:
       disconnected: "Websocket kapalı; gönderiler bundan sonra canlı akış olacak."

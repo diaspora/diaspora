@@ -3,14 +3,14 @@
 #   the COPYRIGHT file.
 
 
-sl: 
-  devise: 
-    confirmations: 
+sl:
+  devise:
+    confirmations:
       confirmed: "Vaš uporabniški račun je uspešno potrjen. Zdaj ste prijavljeni."
-      new: 
+      new:
         resend_confirmation: "Ponovno pošlji navodila za potrditev uporabniškega računa"
       send_instructions: "V naslednjih nekaj minutah boste prejeli e-pošto z  navodili, kako potrditi vaš uporabniški račun."
-    failure: 
+    failure:
       inactive: "Vaš račun še ni aktiviran."
       invalid: "Napačno uporabniško ime ali geslo."
       invalid_token: "Preverjanje pristnosti ni mogoče."
@@ -18,17 +18,17 @@ sl:
       timeout: "Vaša seja je potekla. Za nadaljevanje se ponovno prijavite."
       unauthenticated: "Za nadaljevanje se prijavite ali registrirajte."
       unconfirmed: "Za nadaljevanje potrdite vaš račun."
-    invitations: 
+    invitations:
       invitation_token_invalid: "Povabilo ni veljavno!"
       send_instructions: "Vaše povabilo je poslano."
       updated: "Vaše geslo je uspešno spremenjeno. Zdaj ste prijavljeni."
-    mailer: 
-      confirmation_instructions: 
+    mailer:
+      confirmation_instructions:
         confirm: "Potrdi uporabniški račun"
         subject: "Navodila za potrditev uporabniškega računa"
         you_can_confirm: "Vaš uporabniški račun lahko potrdite s pomočjo spodnje povezave:"
       hello: "Pozdravljeni %{email}!"
-      invitation_instructions: 
+      invitation_instructions:
         accept: "Sprejmi povabilo"
         arrived: "Socialno omrežje, ki ste ga že čakali je prispelo. Prenovljeno, varnejše in bolj zabavo, %{strong_diaspora} je pripravljena, da vam pomaga deliti in raziskati splet na povsem nov način."
         be_yourself: "Bodi to kar si"
@@ -57,37 +57,37 @@ sl:
         team_diaspora: "Tim Diaspore"
         unsubscribe: "Za odjavo kliknite %{link}."
         view_in: "Poglej v"
-      inviter: 
+      inviter:
         accept_at: "na %{url}, sprejmete lahko preko spodnje povezave."
         has_invited_you: "%{name}"
         have_invited_you: "%{names} so vas povabili v omrežje Diaspora"
-      reset_password_instructions: 
+      reset_password_instructions:
         change: "Spremeni geslo"
         ignore: "V kolikor tega niste zahtevali, jemljite to e-pošto kot brezpredmetno."
         someone_requested: "Nekdo je zahteval povezavo za spremembo vašega gesla, kar lahko storite s pomočjo spodnje povezave."
         subject: "Navodila za ponastavitev gesla"
         wont_change: "Vaše geslo lahko spremenite s pomočjo zgornje povezave ter z vpisom novega gesla."
-      unlock_instructions: 
+      unlock_instructions:
         account_locked: "Zaradi večkratne neuspešne prijave se je vaš uporabniški račun zaklenil."
         click_to_unlock: "Odklenite vaš uporabniški račun s klikom na spodnjo povezavo:"
         subject: "Navodila za odklepanje uporabniškega računa"
         unlock: "Odkleni uporabniški račun"
       welcome: "Dobrodošli %{email}!"
-    passwords: 
-      edit: 
+    passwords:
+      edit:
         change_password: "Spremeni geslo"
-      new: 
+      new:
         forgot_password: "Ste pozabili geslo?"
         no_account: "Uporabniški račun s tem e-naslovom ne obstaja. V kolikor še čakate na povabilo, vas prosimo za potrpljenje."
         send_password_instructions: "Pošlji navodila za ponastavitev gesla"
       send_instructions: "V nekaj minutah boste prejeli e-pošto z navodili za ponastavitev vašega gesla."
       updated: "Vaše geslo je bilo uspešno spremenjeno. Zdaj ste prijavljeni."
-    registrations: 
+    registrations:
       destroyed: "Nasvidenje! Vaš uporabniški račun je uspešno preklican. Vljudno vas vabimo, da nas ponovno obiščete."
       signed_up: "Vaša registracija je uspešna. V kolikor je omogočeno, ste v vašo e-pošto prejeli sporočilo za potrditev računa."
       updated: "Vaš uporabniški račun je uspešno posodobljen."
-    sessions: 
-      new: 
+    sessions:
+      new:
         alpha_software: "Uporabili boste alpha različico programa."
         bugs_and_feedback: "Opozarjamo vas, da lahko naletite na hrošče. Veseli bomo vsake prijavljene napake, ki jo lahko oddate s pomočjo 'Feedback' gumba na desni strani spletnega brskalnika. Po najboljših močeh se bomo potrudili, da prijavljeno napako obravnavamo in odpravimo v najkrajšem možnem času."
         bugs_and_feedback_mobile: "Opozarjamo vas, da lahko naletite na napake.  Veseli bomo vsake vaše prijavljene napake, ki jo bomo poskusili obravnavati in rešiti v najkrajšem možnem času."
@@ -99,23 +99,23 @@ sl:
         username: "Uporabniško ime"
       signed_in: "Vaša prijava je uspešna."
       signed_out: "Vaša odjava je uspešna."
-    shared: 
-      links: 
+    shared:
+      links:
         forgot_your_password: "Ste pozabili geslo?"
         receive_confirmation: "Ste prejeli navodila za potrditev uporabniškega računa?"
         receive_unlock: "Ste prejeli navodila za odklepanje uporabniškega računa?"
         sign_in: "Prijava"
         sign_up: "Vpis"
         sign_up_closed: "Vpis trenutno ni omogočen."
-      mail_signup_form: 
+      mail_signup_form:
         sign_up_for_an_invite: "Prijava na čakalno listo za povabila!"
-    unlocks: 
-      new: 
+    unlocks:
+      new:
         resend_unlock: "Ponovno pošlji navodila za odklepanje uporabniškega računa"
       send_instructions: "V nekaj minutah boste prejeli e-pošto z navodili za odklepanje vašega uporabniškega računa."
       unlocked: "Vaš uporabniški račun je bil uspešno odklenjen. Zdaj ste prijavljeni."
-  errors: 
-    messages: 
+  errors:
+    messages:
       already_confirmed: "je že bilo potrjeno"
       not_found: "ni bilo mogoče najti"
       not_locked: "ni bilo zaklenjeno"

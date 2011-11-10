@@ -3,52 +3,52 @@
 #   the COPYRIGHT file.
 
 
-pl: 
-  javascripts: 
-    aspect_dropdown: 
+pl:
+  javascripts:
+    aspect_dropdown:
       add_to_aspect: "Dodaj kontakt"
       all_aspects: "Wszystkie aspekty"
       error: "Nie można zacząć dzielić się z {{name}}. Może ich ignorujesz?"
       select_aspects: "Wybierz aspekty"
       started_sharing_with: "Od teraz dzielisz się z {{name}}!"
       stopped_sharing_with: "Nie dzielisz się już z {{name}}."
-      toggle: 
+      toggle:
         few: "W {{count}} aspektach"
         many: "W {{count}} aspektach"
         one: "W {{count}} aspekcie"
         other: "W {{count}} aspektach"
         two: "W {{count}} aspektach"
         zero: "Wybierz aspekty"
-    aspect_navigation: 
+    aspect_navigation:
       deselect_all: "Odznacz wszystkie"
       no_aspects: "Nie wybrano aspektów"
       select_all: "Zaznacz wszystkie"
-    comments: 
+    comments:
       hide: "ukryj komentarze"
       show: "wyświetl wszystkie komentarze"
     confirm_dialog: "Czy @{m,f:jesteś|n:na}{ pew}{m:ien|f:na|n:no}?"
     failed_to_like: "Nie udało się polubić!"
     failed_to_post_message: "Nie można wysłać wiadomości!"
-    getting_started: 
+    getting_started:
       alright_ill_wait: "Dobrze, poczekam."
       hey: "Hej, {{name}}!"
       no_tags: "Hej, nie obserwujesz żadnych znaczników! Kontynuować mimo to?"
       preparing_your_stream: "Przygotowanie spersonalizowanego strumienia..."
-    infinite_scroll: 
+    infinite_scroll:
       no_more: "Nie ma więcej wpisów."
-    photo_uploader: 
+    photo_uploader:
       looking_good: "O rety! Świetnie wyglądasz!"
-    publisher: 
+    publisher:
       at_least_one_aspect: "Musisz udostępnić dla co najmniej jednego aspektu"
       limited: "Ograniczony - wpis będzie widoczny tylko dla wybranej grupy osób"
       public: "Publiczny - wpis będzie widoczny dla wszystkich i można go znaleźć przez wyszukiwarki"
-    reshares: 
+    reshares:
       duplicate: "Już przekaza@{m:łeś|f:łaś|n:no} dalej ten wpis!"
     search_for: "Znajdź: {{name}}"
     show_more: "wyświetl więcej"
-    tags: 
+    tags:
       wasnt_that_interesting: "OK, przypuszczam, że #{{tagName}} nie był, aż tak interesujący..."
-    timeago: 
+    timeago:
       day: "dzień"
       days: "%d dni"
       hour: "około godziny"
@@ -64,8 +64,8 @@ pl:
       suffixFromNow: "od teraz"
       year: "około roku"
       years: "%d lat"
-    videos: 
+    videos:
       unknown: "Nieznany typ wideo"
       watch: "Zobacz ten film na {{provider}}"
-    web_sockets: 
+    web_sockets:
       disconnected: "Kanał komunikacji jest zamknięty; wpisy nie będą publikowane online."

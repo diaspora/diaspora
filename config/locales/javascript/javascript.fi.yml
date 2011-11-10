@@ -3,52 +3,52 @@
 #   the COPYRIGHT file.
 
 
-fi: 
-  javascripts: 
-    aspect_dropdown: 
-      add_to_aspect: "Lisää näkymään"
+fi:
+  javascripts:
+    aspect_dropdown:
+      add_to_aspect: "Lisää kontakti"
       all_aspects: "Kaikki näkymät"
       error: "Couldn't start sharing with {{name}}.  Are you ignoring them?"
-      select_aspects: "Select aspects"
-      started_sharing_with: "You have started sharing with {{name}}!"
-      stopped_sharing_with: "You have stopped sharing with {{name}}."
-      toggle: 
+      select_aspects: "Valitse näkymät"
+      started_sharing_with: "Olet alkanut jakaa käyttäjän {{name}} kanssa!"
+      stopped_sharing_with: "Olet lopettanut jakamisen käyttäjän {{name}} kanssa."
+      toggle:
         few: "{{count}}:ssa näkymässä"
         many: "{{count}}:ssa näkymässä"
         one: "{{count}}:ssa näkymässä"
         other: "{{count}}:ssa näkymässä"
         two: "{{count}}:ssa näkymässä"
-        zero: "Lisää näkymään"
-    aspect_navigation: 
-      deselect_all: "Deselect all"
-      no_aspects: "No aspects selected"
-      select_all: "Select all"
-    comments: 
+        zero: "Valitse näkymät"
+    aspect_navigation:
+      deselect_all: "Poista valinnat"
+      no_aspects: "Näkymiä ei ole valittu"
+      select_all: "Valitse kaikki"
+    comments:
       hide: "piilota kommentit"
       show: "näytä kaikki kommentit"
     confirm_dialog: "Oletko varma?"
     failed_to_like: "Tykkääminen epäonnistui!"
     failed_to_post_message: "Viestin lähetys epäonnistui!"
-    getting_started: 
-      alright_ill_wait: "Alright, I'll wait."
-      hey: "Hey, {{name}}!"
-      no_tags: "Hey, you haven't followed any tags!  Continue anyway?"
+    getting_started:
+      alright_ill_wait: "Okei, minä odotan."
+      hey: "Hei {{name}}!"
+      no_tags: "Hei, et seuraa yhtäkään tagia!  Jatketaanko silti?"
       preparing_your_stream: "Preparing your personialized stream..."
-    infinite_scroll: 
+    infinite_scroll:
       no_more: "Ei enempää viestejä."
-    photo_uploader: 
-      looking_good: "OMG, you look awesome!"
-    publisher: 
+    photo_uploader:
+      looking_good: "OMG, näytät upealta!"
+    publisher:
       at_least_one_aspect: "Sinun täytyy julkaista vähintään yhdelle näkymälle."
       limited: "Rajoitettu - viestisi näkyy vain ihmisille, joiden kanssa jaat"
       public: "Julkinen - viestisi näkyvät kaikille mukaan lukien hakukoneet ja niiden tulokset"
-    reshares: 
+    reshares:
       duplicate: "Olet jo uudelleenjakanut viesti!"
     search_for: "Etsi nimellä {{name}}"
     show_more: "näytä lisää"
-    tags: 
-      wasnt_that_interesting: "OK, I suppose #{{tagName}} wasn't all that interesting..."
-    timeago: 
+    tags:
+      wasnt_that_interesting: "OK, #{{tagName}} ei tainnut ollakaan kovin kiinnostava..."
+    timeago:
       day: "päivä"
       days: "%d päivää"
       hour: "noin tunti"
@@ -64,8 +64,8 @@ fi:
       suffixFromNow: "tästä alkaen"
       year: "noin vuosi"
       years: "%d vuotta"
-    videos: 
+    videos:
       unknown: "Tuntematon videomuoto"
       watch: "Katso video {{provider}} :ssa"
-    web_sockets: 
+    web_sockets:
       disconnected: "Yhteys on suljettu; viestejä ei enää esitetä reaaliaikaisesti."

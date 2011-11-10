@@ -11,8 +11,8 @@ var WSR = WebSocketReceiver = {
   onMessage: function(evt) {
     var message = $.parseJSON(evt.data);
 
-    if(message["class"].match(/^notifications$/)) {
-      Diaspora.page.notifications.showNotification(message);
+    if(message["class"].match(/^notifications/)) {
+      Diaspora.page.header.notifications.showNotification(message);
     }
     else {
       switch(message["class"]) {

@@ -3,7 +3,7 @@
 #   the COPYRIGHT file.
 
 
-zh-CN: 
+zh-CN:
   _applications: "Applications"
   _comments: "评论"
   _contacts: "Contacts"
@@ -11,71 +11,71 @@ zh-CN:
   _photos: "照片"
   _services: "服务"
   account: "帐号"
-  activerecord: 
-    errors: 
-      models: 
-        contact: 
-          attributes: 
-            person_id: 
+  activerecord:
+    errors:
+      models:
+        contact:
+          attributes:
+            person_id:
               taken: 在好友中必须是唯一的。
-        person: 
-          attributes: 
-            diaspora_handle: 
+        person:
+          attributes:
+            diaspora_handle:
               taken: 已被注册。
-        request: 
-          attributes: 
-            from_id: 
+        request:
+          attributes:
+            from_id:
               taken: 与已存在的请求重复。
-        reshare: 
-          attributes: 
-            root_guid: 
+        reshare:
+          attributes:
+            root_guid:
               taken: "You've already reshared that post!"
-        user: 
-          attributes: 
-            email: 
+        user:
+          attributes:
+            email:
               taken: 已被注册。
-            person: 
+            person:
               invalid: 不合法。
-            username: 
+            username:
               invalid: "is invalid. We only allow letters, numbers, and underscores"
               taken: 已被注册。
   ago: "%{time}前"
   all_aspects: "所有视图"
-  application: 
-    helper: 
+  application:
+    helper:
       diaspora_alpha: "DIASPORA* ALPHA"
       unknown_person: "未知用户"
-      video_title: 
+      video_title:
         unknown: "未知影片标题"
   are_you_sure: 你确定吗？
-  aspect_memberships: 
-    destroy: 
+  aspect_memberships:
+    destroy:
       failure: "从视图中移除好友失败"
       no_membership: "在视图中找不到选择的好友"
       success: "从视图中移除好友成功"
-  aspects: 
-    add_to_aspect: 
+  aspects:
+    add_to_aspect:
       failure: 将好友添加到视图失败。
       success: 将好友添加到视图成功。
-    aspect_contacts: 
+    aspect_contacts:
       done_editing: "编辑完成"
-    aspect_listings: 
+    aspect_listings:
       add_an_aspect: "+ Add an aspect"
       deselect_all: "Deselect all"
       edit_aspect: "Edit %{name}"
       select_all: "Select all"
-    aspect_stream: 
+    aspect_stream:
       stay_updated: "Stay Updated"
       stay_updated_explanation: "Your main stream is populated with all of your contacts, tags you follow, and posts from some creative members of the community."
     contacts_not_visible: 此视图中的好友相互不可见。
     contacts_visible: 此视图中的好友相互可见。
-    create: 
+    create:
       failure: 添加视图失败。
       success: "添加新视图 %{name} 成功"
-    destroy: 
+    destroy:
       failure: "无法删除 %{name} ，它不是空的。"
       success: "删除 %{name} 成功。"
-    edit: 
+    edit:
       add_existing: "添加好友"
       aspect_list_is_not_visible: "视图中的好友不能看见本视图的好友列表"
       aspect_list_is_visible: "视图中的好友能够看见本视图的好友列表"
@@ -87,22 +87,22 @@ zh-CN:
       update: "更新"
       updating: "更新中"
     few: "%{count}个视图"
-    helper: 
+    helper:
       are_you_sure: 您确定要删除这个视图？
       aspect_not_empty: "此视图不是空的"
       remove: "删除"
-    index: 
-      cubbies: 
+    index:
+      cubbies:
         explanation: "Cubbi.es is the first Diaspora application under development."
         heading: "Connect to Cubbi.es"
         learn_more: "Learn more"
-      diaspora_id: 
+      diaspora_id:
         content_1: "Your Diaspora ID is:"
         content_2: "Give it to anyone and they'll be able to find you on Diaspora."
         heading: "Diaspora ID"
       donate: "Donate"
       handle_explanation: "这是您的 diaspora 帐号， 就像是邮箱一样，你可以把它提供给想好友您的人。"
-      help: 
+      help:
         do_you: "Do you:"
         email_feedback: "%{link} your feedback, if you prefer"
         feature_suggestion: "... have a %{link} suggestion?"
@@ -117,7 +117,7 @@ zh-CN:
         tutorials_wiki_and_forum: "%{tutorial} & %{wiki} & %{forum}: Community-powered tutorials, how-to, and news"
       introduce_yourself: "This is your stream.  Jump in and introduce yourself."
       keep_us_running: "Keep %{pod} running fast, buy our servers their monthly coffee fix!"
-      new_here: 
+      new_here:
         follow: "Follow %{link} and welcome new users to Diaspora*!"
         learn_more: "Learn more"
         title: "Welcome New Users"
@@ -125,80 +125,80 @@ zh-CN:
       no_tags: "No tags"
       people_sharing_with_you: "与您分享的人"
       post_a_message: 发布站内信>>
-      services: 
+      services:
         content: "You can connect the following services to Diaspora:"
         heading: "Connect Services"
       unfollow_tag: "Stop following #%{tag}"
       welcome_to_diaspora: "Welcome to Diaspora, %{name}!"
       your_aspects: "Your Aspects"
     many: "%{count}个视图"
-    move_contact: 
+    move_contact:
       error: "好友移动错误：%{inspect}"
       failure: "%{inspect}没有成功"
       success: "好友成功添加到新视图"
-    new: 
+    new:
       create: "创建"
       name: "名字"
-    no_contacts_message: 
+    no_contacts_message:
       community_spotlight: "community spotlight"
       or_spotlight: "Or you can share with %{link}"
       try_adding_some_more_contacts: "You can search (top) or invite (right) more contacts."
       you_should_add_some_more_contacts: "You should add some more contacts!"
-    no_posts_message: 
+    no_posts_message:
       start_talking: 还没人发布过内容。你发布第一条吧！
     one: "1个视图"
     other: "%{count}个视图"
-    seed: 
+    seed:
       acquaintances: "Acquaintances"
       family: "家人"
       friends: "Friends"
       work: "同事"
-    selected_contacts: 
+    selected_contacts:
       manage_your_aspects: "Manage your aspects."
       no_contacts: "You don't have any contacts here yet."
       view_all_community_spotlight: "See all community spotlight"
       view_all_contacts: "View all contacts"
-    show: 
+    show:
       edit_aspect: "编辑视图"
     two: "%{count} aspects"
-    update: 
+    update:
       failure: "视图 %{name} 名称太长了，不能保存"
       success: "视图 %{name} 编辑成功。"
     zero: "没有视图"
-  authorizations: 
-    index: 
+  authorizations:
+    index:
       no_applications: "You haven't registered any applications yet."
       revoke_access: "Revoke Access"
   back: "后退"
-  blocks: 
-    create: 
+  blocks:
+    create:
       failure: "I couldn't ignore that user.  #evasion"
       success: "Alright, you won't see that user in your stream again. #silencio!"
-    destroy: 
+    destroy:
       failure: "I couldn't stop ignoring that user.  #evasion"
       success: "Let's see what they have to say! #sayhello"
-  bookmarklet: 
+  bookmarklet:
     explanation: "%{link} 收藏这个链接，即可随时发布新内容"
     explanation_link_text: "这个链接"
     heading: "Diaspora Bookmarklet"
     post_something: "发布些新内容到Diaspora"
     post_success: 发布完成！关闭中！
   cancel: "取消"
-  comments: 
+  comments:
     few: "%{count}条回复"
     many: "%{count}条回复"
-    new_comment: 
+    new_comment:
       comment: "发布回复"
       commenting: 回复发布中……
     one: "1条回复"
     other: "%{count}条回应"
     two: "%{count} comments"
     zero: "没有回复"
-  contacts: 
-    create: 
+  contacts:
+    create:
       failure: "添加好友失败"
     few: "%{count}个好友"
-    index: 
+    index:
       add_a_new_aspect: "Add a new aspect"
       add_to_aspect: "Add contacts to %{name}"
       all_contacts: "All Contacts"
@@ -214,61 +214,61 @@ zh-CN:
     many: "%{count}个好友"
     one: "1个好友"
     other: "%{count}个好友"
-    sharing: 
+    sharing:
       people_sharing: 与您分享的人：
-    spotlight: 
+    spotlight:
       community_spotlight: "Community Spotlight"
     two: "%{count} contacts"
     zero: "没有好友"
-  conversations: 
-    create: 
+  conversations:
+    create:
       fail: "Invalid message"
       sent: "消息发送成功"
-    destroy: 
+    destroy:
       success: "消息移除成功"
-    helper: 
-      new_messages: 
+    helper:
+      new_messages:
         few: "%{count}条新消息"
         many: "%{count}条新消息"
         one: "1条新消息"
         other: "%{count}条新消息"
         two: "%{count} new messages"
         zero: "没有新消息"
-    index: 
+    index:
       create_a_new_message: "发送一条新消息"
       inbox: "收件箱"
       message_inbox: "消息收件箱"
       new_message: "新消息"
       no_conversation_selected: "未选择任何对话"
       no_messages: "没消息"
-    new: 
+    new:
       abandon_changes: "Abandon changes?"
       send: "发送"
       sending: Sending...
       subject: "主题"
       to: "收件人"
-    new_message: 
+    new_message:
       fail: "Invalid message"
-    show: 
+    show:
       delete: "删除并中止对话"
       reply: "回复"
       replying: Replying...
-  date: 
-    formats: 
+  date:
+    formats:
       birthday: "%m-%d"
       birthday_with_year: "%Y-%m-%d"
       fullmonth_day: "%B%d日"
   delete: "删除"
   email: "电子邮件"
-  error_messages: 
-    helper: 
+  error_messages:
+    helper:
       correct_the_following_errors_and_try_again: 修正以下错误后重试。
       invalid_fields: "无效栏目"
   fill_me_out: "填写我"
   find_people: "Find people"
   hide: "隐藏"
-  home: 
-    show: 
+  home:
+    show:
       already_account: 已经有帐号了吗？
       choice: "选择"
       choice_explanation: "Diaspora 让你将您的关系分成多个视图，每个视图是您生活的不同部分。这是Diaspora首创，用来确保您的照片、经历和笑话，只与您所希望分享的人分享。"
@@ -281,21 +281,21 @@ zh-CN:
       simplicity_explanation: "Diaspora让分享变得干净而简单，对隐私设置也是这样。以隐私为出发点，Diaspora 让你不必千辛万苦的调整设置，就能保护您的个人信息安全。"
       tagline_first_half: 分享您想分享的内容，
       tagline_second_half: 给您想分享给的人。
-  invitations: 
+  invitations:
     a_facebook_user: "A Facebook user"
-    check_token: 
+    check_token:
       not_found: "找不到该邀请码"
-    create: 
+    create:
       already_contacts: "你已经将他加为好友了"
       already_sent: 你邀请过这个人了。
       no_more: 你没有邀请函了。
       own_address: 您不能发送邀请给自己。
       rejected: "下列电子信箱有问题: "
       sent: "邀请函已经寄给: "
-    edit: 
+    edit:
       accept_your_invitation: "Accept your invitation"
       your_account_awaits: "Your account awaits!"
-    new: 
+    new:
       already_invited: "已邀请过"
       aspect: "视图"
       comma_seperated_plz: 你可以输入多个邮箱，输入多个时以逗号分隔。
@@ -307,14 +307,14 @@ zh-CN:
       send_an_invitation: "发送邀请函"
       send_invitation: "发送邀请函"
       to: "收件人"
-  layouts: 
-    application: 
+  layouts:
+    application:
       powered_by: "Powered by DIASPORA*"
       public_feed: "%{name} 的 Diaspora RSS Feed"
       toggle: "切换为手机网页"
       whats_new: 有什么新内容？
       your_aspects: "您的视图"
-    header: 
+    header:
       admin: "管理员"
       blog: "博客"
       code: "源码"
@@ -324,23 +324,23 @@ zh-CN:
       recent_notifications: "Recent notifications"
       settings: "设置"
       view_all: "View all"
-  likes: 
-    likes: 
-      people_dislike_this: 
+  likes:
+    likes:
+      people_dislike_this:
         few: "有%{count}人觉得不好"
         many: "有%{count}人觉得不好"
         one: "有1个人觉得不好"
         other: "有%{count}个人觉得不好"
         two: "%{count} dislikes"
         zero: "没有人觉得不好"
-      people_like_this: 
+      people_like_this:
         few: "有%{count}个人觉得好"
         many: "有%{count}个人觉得好"
         one: "有1个人觉得好"
         other: "有%{count}个人觉得好"
         two: "%{count} likes"
         zero: "没有人觉得好"
-      people_like_this_comment: 
+      people_like_this_comment:
         few: "%{count} likes"
         many: "%{count} likes"
         one: "%{count} like"
@@ -351,39 +351,39 @@ zh-CN:
   more: "更多"
   next: "下一步"
   no_results: "没有找到符合条件的内容"
-  notifications: 
-    also_commented: 
+  notifications:
+    also_commented:
       few: "%{actors} also commented on %{post_author}'s %{post_link}."
       many: "%{actors} also commented on %{post_author}'s %{post_link}."
       one: "%{actors} also commented on %{post_author}'s %{post_link}."
       other: "%{actors} also commented on %{post_author}'s %{post_link}."
       two: "%{actors} also commented on %{post_author}'s %{post_link}."
       zero: "%{actors} also commented on %{post_author}'s %{post_link}."
-    also_commented_deleted: 
+    also_commented_deleted:
       few: "%{actors} commented on a deleted post."
       many: "%{actors} commented on a deleted post."
       one: "%{actors} commented on a deleted post."
       other: "%{actors} commented on a deleted post."
       two: "%{actors} commented on a deleted post."
       zero: "%{actors} commented on a deleted post."
-    comment_on_post: 
+    comment_on_post:
       few: "%{actors} commented on your %{post_link}."
       many: "%{actors} commented on your %{post_link}."
       one: "%{actors} commented on your %{post_link}."
       other: "%{actors} commented on your %{post_link}."
       two: "%{actors} commented on your %{post_link}."
       zero: "%{actors} commented on your %{post_link}."
-    helper: 
-      new_notifications: 
+    helper:
+      new_notifications:
         few: "%{count}个新消息"
         many: "%{count}个新消息"
         one: "1个新消息"
         other: "%{count}个新消息"
         two: "%{count} new notifications"
         zero: "没有新消息"
-    index: 
+    index:
       and: "和"
-      and_others: 
+      and_others:
         few: "and %{count} others"
         many: "and %{count} others"
         one: "and one more"
@@ -392,28 +392,28 @@ zh-CN:
         zero: "and nobody else"
       mark_all_as_read: "全部标示为已读"
       notifications: "消息"
-    liked: 
+    liked:
       few: "%{actors} has just liked your %{post_link}."
       many: "%{actors} has just liked your %{post_link}."
       one: "%{actors} has just liked your %{post_link}."
       other: "%{actors} has just liked your %{post_link}."
       two: "%{actors} has just liked your %{post_link}."
       zero: "%{actors} has just liked your %{post_link}."
-    liked_post_deleted: 
+    liked_post_deleted:
       few: "%{actors} liked your deleted post."
       many: "%{actors} liked your deleted post."
       one: "%{actors} liked your deleted post."
       other: "%{actors} liked your deleted post."
       two: "%{actors} liked your deleted post."
       zero: "%{actors} liked your deleted post."
-    mentioned: 
+    mentioned:
       few: "%{actors} has mentioned you in a %{post_link}."
       many: "%{actors} has mentioned you in a %{post_link}."
       one: "%{actors} has mentioned you in a %{post_link}."
       other: "%{actors} has mentioned you in a %{post_link}."
       two: "%{actors} has mentioned you in a %{post_link}."
       zero: "%{actors} has mentioned you in a %{post_link}."
-    mentioned_deleted: 
+    mentioned_deleted:
       few: "%{actors} mentioned you in a deleted post."
       many: "%{actors} mentioned you in a deleted post."
       one: "%{actors} mentioned you in a deleted post."
@@ -421,59 +421,59 @@ zh-CN:
       two: "%{actors} mentioned you in a deleted post."
       zero: "%{actors} mentioned you in a deleted post."
     post: 日志。
-    private_message: 
+    private_message:
       few: "%{actors} sent you a message."
       many: "%{actors} sent you a message."
       one: "%{actors} sent you a message."
       other: "%{actors} sent you a message."
       two: "%{actors} sent you a message."
       zero: "%{actors} sent you a message."
-    reshared: 
+    reshared:
       few: "%{actors} has reshared your %{post_link}."
       many: "%{actors} has reshared your %{post_link}."
       one: "%{actors} has reshared your %{post_link}."
       other: "%{actors} has reshared your %{post_link}."
       two: "%{actors} has reshared your %{post_link}."
       zero: "%{actors} has reshared your %{post_link}."
-    reshared_post_deleted: 
+    reshared_post_deleted:
       few: "%{actors} reshared your deleted post."
       many: "%{actors} reshared your deleted post."
       one: "%{actors} reshared your deleted post."
       other: "%{actors} reshared your deleted post."
       two: "%{actors} reshared your deleted post."
       zero: "%{actors} reshared your deleted post."
-    started_sharing: 
+    started_sharing:
       few: "%{actors} started sharing with you."
       many: "%{actors} started sharing with you."
       one: "%{actors} started sharing with you."
       other: "%{actors} started sharing with you."
       two: "%{actors} started sharing with you."
       zero: "%{actors} started sharing with you."
-  notifier: 
+  notifier:
     a_post_you_shared: "a post."
     click_here: "click here"
-    comment_on_post: 
+    comment_on_post:
       reply: "Reply or view %{name}'s post >"
-    confirm_email: 
+    confirm_email:
       click_link: "To activate your new e-mail address %{unconfirmed_email}, please click this link:"
       subject: "Please activate your new e-mail address %{unconfirmed_email}"
     email_sent_by_diaspora: "This email was sent by Diaspora.  If you'd like to stop getting emails like this,"
     hello: "您好 %{name}！"
-    liked: 
+    liked:
       liked: "%{name}刚说喜欢您发布的内容："
       view_post: "View post >"
-    mentioned: 
+    mentioned:
       mentioned: "在 Diaspora* 发布的内容中提到了您："
       subject: "%{name} 在 Diaspora* 上发布的内容中提到了您"
-    private_message: 
+    private_message:
       reply_to_or_view: "Reply to or view this conversation >"
-    reshared: 
+    reshared:
       reshared: "%{name} just reshared your post"
       view_post: "View post >"
-    single_admin: 
+    single_admin:
       admin: "为您服务的 Diaspora 管理员"
       subject: "关于您 Diaspora 帐号的信息:"
-    started_sharing: 
+    started_sharing:
       sharing: 刚开始与您分享！
       subject: "%{name}刚开始在Diaspora*与您分享"
       view_profile: "View %{name}'s profile"
@@ -483,29 +483,30 @@ zh-CN:
   or: "或"
   password: "密码"
   password_confirmation: "密码确认"
-  people: 
-    add_contact_small: 
+  people:
+    add_contact_small:
       add_contact_from_tag: "从标签添加好友"
-    aspect_list: 
+    aspect_list:
       edit_membership: "编辑所属视图"
     few: "%{count}个好友"
-    helper: 
+    helper:
       people_on_pod_are_aware_of: " Pod上已知的人"
       results_for: " %{params}的搜索结果"
-    index: 
+    index:
       couldnt_find_them_send_invite: 找不到他们？邀请他们加入Diaspora吧！
+      looking_for: "Looking for posts tagged %{tag_link}?"
       no_one_found: ……找不到任何内容。
       no_results: "嘿！ 搜索必须要有目标呀。"
       results_for: 搜索结果：
     many: "%{count}个好友"
     one: "1个好友"
     other: "%{count}个好友"
-    person: 
+    person:
       add_contact: "加为好友"
       already_connected: "已加为好友"
       pending_request: "请求等候中"
       thats_you: 这是你自己！
-    profile_sidebar: 
+    profile_sidebar:
       bio: "自我介绍"
       born: "生日"
       edit_my_profile: "编辑我的个人档案"
@@ -514,7 +515,7 @@ zh-CN:
       location: "位置"
       remove_contact: "解除好友关系"
       remove_from: "要从 %{aspect} 删除 %{name} 吗？"
-    show: 
+    show:
       does_not_exist: 好友不存在！
       has_not_shared_with_you_yet: "%{name} has not shared any posts with you yet!"
       ignoring: "You are ignoring all posts from %{name}."
@@ -528,38 +529,38 @@ zh-CN:
       see_all: "查看全部"
       start_sharing: "开始分享"
       to_accept_or_ignore: 接受或忽略它。
-    sub_header: 
+    sub_header:
       add_some: "add some"
       edit: "edit"
       you_have_no_tags: "you have no tags!"
     two: "%{count} people"
-    webfinger: 
+    webfinger:
       fail: "抱歉，找不到 %{handle}。"
     zero: "没有联络人"
-  photos: 
+  photos:
     comment_email_subject: "%{name}'s photo"
-    create: 
+    create:
       integrity_error: 照片上传失败。你确定它是图片吗？
       runtime_error: 照片上传失败。你确定有扣安全带吗？
       type_error: 照片上传失败。你确定有选择任何图片吗？
-    destroy: 
+    destroy:
       notice: 照片删除成功。
-    edit: 
+    edit:
       editing: "编辑中"
-    new: 
+    new:
       back_to_list: "回列表"
       new_photo: "新照片"
       post_it: 发布！
-    new_photo: 
+    new_photo:
       empty: "文件 {file} 是空的，请重新选择文件，并且不要选中它。"
       invalid_ext: "不支持文件 {file} 的格式。只接受{extensions}。"
       size_error: "文件 {file} 太大了，上限是 {sizeLimit}。"
-    new_profile_photo: 
+    new_profile_photo:
       or_select_one_existing: "or select one from your already existing %{photos}"
       upload: 上传新的头像！
-    photo: 
+    photo:
       view_all: "查看 %{name} 所有的照片"
-    show: 
+    show:
       collection_permalink: "相册的永久链接"
       delete_photo: "删除照片"
       edit: "编辑"
@@ -567,19 +568,19 @@ zh-CN:
       make_profile_photo: "选为个人头像"
       show_original_post: "Show original post"
       update_photo: "更新照片"
-    update: 
+    update:
       error: 照片更新失败。
       notice: 照片更新成功。
-  posts: 
-    show: 
+  posts:
+    show:
       destroy: "Delete"
       not_found: "Sorry, we couldn't find that post."
       permalink: "permalink"
   previous: "上一步"
   privacy: "Privacy"
   profile: "个人档案"
-  profiles: 
-    edit: 
+  profiles:
+    edit:
       allow_search: "允许别人在 Diaspora* 中搜索到你"
       edit_profile: "编辑个人档案"
       first_name: "名"
@@ -595,29 +596,29 @@ zh-CN:
       your_public_profile: "您的公开档案"
       your_tags: "你: 可以有5个“#标签”"
       your_tags_placeholder: "比如 #diaspora #烫发 #猫咪 #音乐"
-    update: 
+    update:
       failed: "个人档案更新失败"
       updated: "个人档案更新成功"
   public: "Public"
-  reactions: 
+  reactions:
     few: "%{count} reactions"
     many: "%{count} reactions"
     one: "1 reaction"
     other: "%{count} reactions"
     two: "%{count} reactions"
     zero: "0 reactions"
-  registrations: 
+  registrations:
     closed: "本 Diaspora pod 不开放注册。"
-    create: 
+    create:
       success: "你已成功加入 Diaspora 了！"
-    edit: 
+    edit:
       cancel_my_account: "取消我的帐号"
       edit: "编辑 %{name}"
       leave_blank: (不想变更时请留空)
       password_to_confirm: (我们需要您现在的密码以确认您要变更)
       unhappy: 不满意？
       update: "更新"
-    new: 
+    new:
       create_my_account: "Create my account"
       enter_email: "输入电子邮箱"
       enter_password: "输入密码"
@@ -625,34 +626,34 @@ zh-CN:
       enter_username: "选个帐号称(名称只能包含字母,数字和下划线“_”)"
       join_the_movement: "Join the movement!"
       sign_up_message: "Social Networking with a <3"
-  requests: 
-    create: 
+  requests:
+    create:
       sending: "发送中"
       sent: "您已经请求与 %{name} 分享。他们下次登入 Diaspora 时就会看见您的请求。"
-    destroy: 
+    destroy:
       error: 请选择一个视图！
       ignore: 忽略建立好友的请求。
       success: 你们现在互相分享了。
-    helper: 
-      new_requests: 
+    helper:
+      new_requests:
         few: "%{count}个新请求！"
         many: "%{count}个新请求！"
         one: 新的请求！
         other: "%{count}个新请求！"
         two: "%{count} new requests!"
         zero: "没有新请求"
-    manage_aspect_contacts: 
+    manage_aspect_contacts:
       existing: "当前好友"
       manage_within: 管理好友：
-    new_request_to_person: 
+    new_request_to_person:
       sent: 发送成功！
-  reshares: 
+  reshares:
     comment_email_subject: "%{resharer}'s reshare of %{author}'s post"
-    create: 
+    create:
       failure: "There was an error resharing this post."
-    reshare: 
+    reshare:
       deleted: "Original post deleted by author."
-      reshare: 
+      reshare:
         few: "%{count} Reshares"
         many: "%{count} Reshares"
         one: "1 Reshare"
@@ -664,20 +665,20 @@ zh-CN:
       reshared_via: "reshared via"
       show_original: "Show Original"
   search: "搜索"
-  services: 
-    create: 
+  services:
+    create:
       already_authorized: "A user with diaspora id %{diaspora_id} already authorized that %{service_name} account."
       failure: "Authentication failed."
       success: 验证成功。
-    destroy: 
+    destroy:
       success: 验证删除成功。
-    failure: 
+    failure:
       error: "与该服务连接时有错误"
-    finder: 
+    finder:
       fetching_contacts: "Diaspora is populating your %{service} friends please check back in a few minutes."
       no_friends: "No Facebook friends found."
       service_friends: "%{service} Friends"
-    index: 
+    index:
       connect_to_facebook: "与 facebook 连接"
       connect_to_tumblr: "Connect to Tumblr"
       connect_to_twitter: "与 twitter 连接"
@@ -686,41 +687,41 @@ zh-CN:
       logged_in_as: "登录为"
       no_services: "You have not connected any services yet."
       really_disconnect: "切断与 %{service} 的连接？"
-    inviter: 
+    inviter:
       click_link_to_accept_invitation: "点击这个链接以接受邀请"
       join_me_on_diaspora: "跟我一起加入 DIASPORA*"
-    remote_friend: 
+    remote_friend:
       invite: "邀请"
       not_on_diaspora: "Not yet on Diaspora"
       resend: "重新发送"
   settings: "设置"
-  share_visibilites: 
-    update: 
+  share_visibilites:
+    update:
       post_hidden_and_muted: "%{name}'s post has been hidden, and notifications have been muted."
       see_it_on_their_profile: "If you want to see updates on this post, visit %{name}'s profile page."
-  shared: 
-    add_contact: 
+  shared:
+    add_contact:
       add_new_contact: "Add a new contact"
       create_request: "用 Diaspora 帐号搜索"
       diaspora_handle: diaspora@handle.org
       enter_a_diaspora_username: "输入 Diaspora 帐号："
       know_email: "知道他们的电子信箱吗？ 你可以邀请他们加入。"
       your_diaspora_username_is: "您的 Diaspora 帐号是: %{diaspora_handle}"
-    aspect_dropdown: 
+    aspect_dropdown:
       add_to_aspect: "Add to aspect"
-      toggle: 
+      toggle:
         few: "In %{count} aspects"
         many: "In %{count} aspects"
         one: "In %{count} aspect"
         other: "In %{count} aspects"
         two: "In %{count} aspects"
         zero: "Add to aspect"
-    contact_list: 
+    contact_list:
       all_contacts: "全部好友"
-    footer: 
+    footer:
       logged_in_as: "已用 %{name} 登录"
       your_aspects: "您的视图"
-    invitations: 
+    invitations:
       by_email: "通过电子邮件"
       dont_have_now: 目前你还不能邀请任何人，但很快就可以了！
       from_facebook: "从 Facebook"
@@ -729,9 +730,9 @@ zh-CN:
       invite_your_friends: "邀请您的好友"
       invites: "邀请"
       invites_closed: "目前本 Diaspora pod 不开放邀请功能"
-    notification: 
+    notification:
       new: "%{from} 有新的 %{type}"
-    public_explain: 
+    public_explain:
       control_your_audience: "Control your Audience"
       logged_in: "成功登录到 %{service}"
       manage: "管理已连线的服务"
@@ -740,12 +741,12 @@ zh-CN:
       share: "Share"
       title: "设定连线服务"
       visibility_dropdown: "Use this dropdown to change visibility of your post.  (We suggest you make this first one public.)"
-    publisher: 
+    publisher:
       all: "全部"
       all_contacts: "全部的好友"
       discard_post: "Discard post"
       make_public: "公开"
-      new_user_prefill: 
+      new_user_prefill:
         hello: "Hey everyone, I'm #%{new_user_tag}. "
         i_like: "I'm interested in %{tags}."
         invited_by: "Thanks for the invite, "
@@ -756,9 +757,9 @@ zh-CN:
       share_with: 与他分享：
       upload_photos: "Upload photos"
       whats_on_your_mind: 你想到了什么？
-    reshare: 
+    reshare:
       reshare: "重新分享"
-    stream_element: 
+    stream_element:
       connect_to_comment: "Connect to this user to comment on their post"
       currently_unavailable: "commenting currently unavailable"
       dislike: "不喜欢"
@@ -770,61 +771,68 @@ zh-CN:
       unlike: "不喜欢"
       via: "通过 %{link}"
       viewable_to_anyone: "This post is viewable to anyone on the web"
-  status_messages: 
-    create: 
+  status_messages:
+    create:
       success: "成功推荐了: %{names}"
-    destroy: 
+    destroy:
       failure: "删除内容失败"
-    helper: 
+    helper:
       no_message_to_display: 没有信息可显示。
-    new: 
+    new:
       mentioning: "提及发布中: %{person}"
-    too_long: 
+    too_long:
       few: "请确认您的状态信息不超过%{count}个字符"
       many: "请确认您的状态信息不超过%{count}个字符"
       one: "请确认您的状态信息不超过%{count}个字符"
       other: "请确认您的状态信息不超过%{count}个字符"
       two: "please make your status messages less than %{count} characters"
       zero: "请确认您的状态信息不超过%{count}个字符"
-  stream_helper: 
+  stream_helper:
     hide_comments: "隐藏评论"
-    show_more_comments: "Show %{number} more comments"
-  streams: 
-    aspects: 
+    show_comments:
+      few: "Show %{count} more comments"
+      many: "Show %{count} more comments"
+      one: "Show one more comment"
+      other: "Show %{count} more comments"
+      two: "Show two more comments"
+      zero: "No more comments"
+  streams:
+    aspects:
       title: "Your Aspects"
     aspects_stream: "Aspects"
     commented_on: "commented on"
     community_spotlight_stream: "Community Spotlight"
-    followed_tag: 
+    followed_tag:
       add_a_tag: "Add a tag"
       contacts_title: "People who dig these tags"
       follow: "Follow"
       title: "#Followed Tags"
     followed_tags_stream: "#Followed Tags"
     mentioned_stream: "@Mentions"
-    mentions: 
+    mentions:
       contacts_title: "People who mentioned you"
       title: "Your Mentions"
-    multi: 
+    multi:
       contacts_title: "People in your Stream"
       title: "Stream"
     posted: "posted"
-    public: 
+    public:
       contacts_title: "Recent Posters"
       title: "Public Activity"
     recently: "recently:"
-    tags: 
+    tags:
       contacts_title: "People who dig these tags"
+      tag_prefill_text: "The thing about %{tag_name} is... "
       title: "Posts tagged: %{tags}"
-  tag_followings: 
-    create: 
+  tag_followings:
+    create:
       failure: "Failed to follow: #%{name}"
       success: "Successfully following: #%{name}"
-    destroy: 
+    destroy:
       failure: "Failed to stop following: #%{name}"
       success: "Successfully stopped following: #%{name}"
-  tags: 
-    show: 
+  tags:
+    show:
       follow: "Follow #%{tag}"
       followed_by: "followed by"
       following: "Following #%{tag}"
@@ -832,8 +840,8 @@ zh-CN:
       people_tagged_with: "标记为 %{tag} 的人"
       posts_tagged_with: "标记为 #%{tag} 的内容"
       stop_following: "Stop Following #%{tag}"
-  tokens: 
-    show: 
+  tokens:
+    show:
       connect_to_cubbies: "Connect to Cubbi.es"
       connecting_is_simple: "Connecting your Diaspora account is as simple as filling out two fields on your Cubbi.es account page."
       daniels_account: "Daniel's Diaspora account"
@@ -847,15 +855,15 @@ zh-CN:
       what_is_cubbies: "Cubbi.es is the world's first Diaspora application.  It's also the best way to collect photos online."
   undo: 撤消？
   username: "帐号"
-  users: 
-    confirm_email: 
+  users:
+    confirm_email:
       email_confirmed: "E-Mail %{email} activated"
       email_not_confirmed: "E-Mail could not be activated. Wrong link?"
-    destroy: 
+    destroy:
       no_password: "Please enter your current password to close your account."
       success: "Your account has been locked.  It may take 20 minutes for us to finish closing your account.  Thank you for trying Diaspora."
       wrong_password: "The entered password didn't match your current password."
-    edit: 
+    edit:
       also_commented: ……当有人也对您的好友的内容发表评论时？
       change: "更改"
       change_email: "Change E-Mail"
@@ -883,7 +891,7 @@ zh-CN:
       stream_preferences: "Stream Preferences"
       your_email: "您的电子邮箱"
       your_handle: "您的 diaspora 帐号"
-    getting_started: 
+    getting_started:
       awesome_take_me_to_diaspora: "Awesome! Take me to Diaspora*"
       community_welcome: "Diaspora's community is happy to have you aboard!"
       hashtag_explanation: "Hashtags allow you to talk about and follow your interests.  They're also a great way to find new people on Diaspora."
@@ -895,19 +903,19 @@ zh-CN:
       what_are_you_in_to: "What are you into?"
       what_facebook_does: "to Diaspora. This will pull your name and photo, and enable cross-positng."
       who_are_you: "Who are you?"
-    logged_out: 
+    logged_out:
       go_mobile: "Now go mobile."
       on_your_mobile_device: "on your mobile device to access Diaspora* mobile."
       signed_out: "You've signed out of Diaspora*"
       simply_visit: "Simply visit"
       works_on_modern: "Works on all modern smartphones"
-    privacy_settings: 
+    privacy_settings:
       ignored_users: "Ignored Users"
       stop_ignoring: "Stop ignoring"
       title: "Privacy Settings"
-    public: 
+    public:
       does_not_exist: "不存在 %{username} 这个用户！"
-    update: 
+    update:
       email_notifications_changed: "邮件通知更改成功"
       language_changed: "语言更改成功"
       language_not_changed: "语言更改失败"
@@ -917,7 +925,7 @@ zh-CN:
       settings_updated: "Settings updated"
       unconfirmed_email_changed: "E-Mail Changed. Needs activation."
       unconfirmed_email_not_changed: "E-Mail Change Failed"
-  webfinger: 
+  webfinger:
     fetch_failed: "获取 %{profile_url} 的 webfinger 个人档案失败"
     hcard_fetch_failed: "获取 %{account} 的 hcard 资料时发生错误"
     no_person_constructed: "从这份 hcard 资料无法组建出联络人。"

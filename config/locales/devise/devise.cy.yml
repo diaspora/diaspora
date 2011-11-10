@@ -3,14 +3,14 @@
 #   the COPYRIGHT file.
 
 
-cy: 
-  devise: 
-    confirmations: 
+cy:
+  devise:
+    confirmations:
       confirmed: "Cadarnhawyd eich cyfrif yn llwyddiannus. Rydych chi wedi arwyddo i fewn."
-      new: 
+      new:
         resend_confirmation: "Anfon eto cyfarwyddiadau am sut i gadarnhau eich cyfrif"
       send_instructions: "Byddwch yn derbyn e-bost â chyfarwyddiadau ar sut i gadarnhau eich cyfrif mewn ychydig funudau."
-    failure: 
+    failure:
       inactive: "Nid yw eich cyfrif wedi'i actifadu."
       invalid: "E-bost neu gyfrinair annilys."
       invalid_token: "Tocyn dilysu annilys."
@@ -18,17 +18,17 @@ cy:
       timeout: "Mae eich sesiwn wedi dod i ben, arwyddwch i mewn eto i barhau."
       unauthenticated: "Mae angen i chi arwyddo i mewn neu ymuno cyn parhau."
       unconfirmed: "Rhaid i chi gadarnhau eich cyfrif cyn parhau."
-    invitations: 
+    invitations:
       invitation_token_invalid: "The invitation token provided is not valid!"
       send_instructions: "Mae eich gwahoddiad wedi cael ei anfon."
       updated: "Your password was set successfully. You are now signed in."
-    mailer: 
-      confirmation_instructions: 
+    mailer:
+      confirmation_instructions:
         confirm: "Confirm my account"
         subject: "Cyfarwyddiadau Cadarnhad"
         you_can_confirm: "You can confirm your account through the link below:"
       hello: "Helo %{email}!"
-      invitation_instructions: 
+      invitation_instructions:
         accept: "Accept invitation"
         arrived: "The social network you have been waiting for has arrived. Revamped, more secure, and more fun, %{strong_diaspora} is ready to help you share and explore the web in a whole new way."
         be_yourself: "Be Yourself"
@@ -57,37 +57,37 @@ cy:
         team_diaspora: "Team Diaspora"
         unsubscribe: "To unsubscribe please click %{link}."
         view_in: "View in"
-      inviter: 
+      inviter:
         accept_at: "at %{url}, you can accept it through the link below."
         has_invited_you: "%{name}"
         have_invited_you: "%{names} have invited you to join Diaspora"
-      reset_password_instructions: 
+      reset_password_instructions:
         change: "Newid y cyfrinair"
         ignore: "If you didn't request this, please ignore this email."
         someone_requested: "Someone has requested a link to change your password, and you can do this through the link below."
         subject: "Reset password instructions"
         wont_change: "Your password won't change until you access the link above and create a new one."
-      unlock_instructions: 
+      unlock_instructions:
         account_locked: "Your account has been locked due to an excessive amount of unsuccessful sign in attempts."
         click_to_unlock: "Click the link below to unlock your account:"
-        subject: "Unlock Instructions"
-        unlock: "Unlock my account"
+        subject: "Cyfarwyddiadau i ddatgloi"
+        unlock: "Datgloi fy nghyfrif"
       welcome: "Croeso %{email}!"
-    passwords: 
-      edit: 
+    passwords:
+      edit:
         change_password: "Newid fy nghyfrinair"
-      new: 
+      new:
         forgot_password: "Wedi anghofio eich cyfrinair?"
         no_account: "Dim cyfrif gyda e-bost hwn yn bodoli. Os ydych yn aros am wahodd, rhaid i chi aros hwyrach bach..."
         send_password_instructions: "Send me reset password instructions"
       send_instructions: "Byddwch yn derbyn e-bost â chyfarwyddiadau ar sut i gadarnhau eich cyfrif mewn ychydig funudau."
       updated: "Newidiwyd eich cyfrinair yn llwyddiannus. Rydych chi wedi arwyddo i fewn."
-    registrations: 
+    registrations:
       destroyed: "Hwyl fawr! Canslwyd eich cyfrif yn llwyddiannus. Rydym yn gobeithio gweld chi eto yn fuan."
       signed_up: "Rydych chi wedi arwyddo i fyny yn llwyddiannus. Anfonwyd cadarnhad at eich e-bost os yw wedi'i alluogi."
       updated: "Diweddarwyd eich cyfrif yn llwyddiannus."
-    sessions: 
-      new: 
+    sessions:
+      new:
         alpha_software: "You are about to use alpha software."
         bugs_and_feedback: "Be advised, you will experience bugs.  We encourage you to use the Feedback button on the right hand side of your browser to report any hiccups!  We will work as fast as we can to resolve any issues you report."
         bugs_and_feedback_mobile: "Be advised, you will experience bugs.  We encourage you to report any hiccups!  We will work as fast as we can to resolve any issues you report."
@@ -99,23 +99,23 @@ cy:
         username: "Enw Defnyddiwr"
       signed_in: "Arwyddwyd i fewn yn llwyddiannus."
       signed_out: "Arwyddwyd allan yn llwyddiannus."
-    shared: 
-      links: 
+    shared:
+      links:
         forgot_your_password: "Wedi anghofio eich cyfrinair?"
         receive_confirmation: "Didn't receive confirmation instructions?"
         receive_unlock: "Didn't receive unlock instructions?"
         sign_in: "Mewngofnodi"
         sign_up: "Cofrestrwch"
         sign_up_closed: "Open signups are closed at this time."
-      mail_signup_form: 
+      mail_signup_form:
         sign_up_for_an_invite: "Sign up for an invite!"
-    unlocks: 
-      new: 
+    unlocks:
+      new:
         resend_unlock: "Resend unlock instructions"
       send_instructions: "Byddwch yn derbyn e-bost gyda cyfarwyddiadau ar sut i agor eich cyfrif mewn ychydig funudau."
       unlocked: "Datglowyd eich cyfrif yn llwyddiannus. Rydych chi wedi arwyddo i fewn."
-  errors: 
-    messages: 
+  errors:
+    messages:
       already_confirmed: "cadarnhawyd eisioes"
       not_found: "ni chanfuwyd"
       not_locked: "heb ei gloi"

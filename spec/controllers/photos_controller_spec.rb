@@ -137,6 +137,12 @@ describe PhotosController do
         get :show, :id => @photo.to_param
         response.should redirect_to(aspects_path)
       end
+      
+      it 'redirects to the sign in page if not logged in' do
+        controller.stub(:user_signed_in?).and_return(false) #sign_out :user doesn't work
+        get :show, :id => @photo.to_param
+        response.should redirect_to new_user_session_path
+      end
     end
 
     context "public photo" do

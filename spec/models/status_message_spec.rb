@@ -20,7 +20,7 @@ describe StatusMessage do
   describe 'scopes' do
     describe '.where_person_is_mentioned' do
       it 'returns status messages where the given person is mentioned' do
-        @bo = bob.person 
+        @bo = bob.person
         @test_string = "@{Daniel; #{@bo.diaspora_handle}} can mention people like Raph"
 
        Factory.create(:status_message, :text => @test_string )
@@ -116,12 +116,10 @@ describe StatusMessage do
     db_status.text.should == message
   end
 
-  it 'should require status messages to be less than 10000 characters' do
-    message = ''
-    10001.times{message = message +'1'}
-    status = Factory.build(:status_message, :text => message)
-
-    status.should_not be_valid
+  it 'should require status messages not be more than 65535 characters long' do
+    message = 'a' * (65535+1)
+    status_message = Factory.build(:status_message, :text => message)
+    status_message.should_not be_valid
   end
 
   describe 'mentions' do
@@ -316,7 +314,7 @@ STR
       @status_message.after_dispatch(alice)
     end
   end
-  
+
   describe '#contains_url_in_text?' do
     it 'returns an array of all urls found in the raw message' do
       sm = Factory(:status_message, :text => 'http://youtube.com is so cool.  so is https://joindiaspora.com')
@@ -328,7 +326,7 @@ STR
   describe 'oembed' do
     it 'should queue a GatherOembedData if it includes a link' do
       sm = Factory.build(:status_message, :text => 'http://youtube.com is so cool.  so is https://joindiaspora.com')
-      Resque.should_receive(:enqueue).with(Jobs::GatherOEmbedData, instance_of(Fixnum), instance_of(String)) 
+      Resque.should_receive(:enqueue).with(Jobs::GatherOEmbedData, instance_of(Fixnum), instance_of(String))
       sm.save
     end
   end

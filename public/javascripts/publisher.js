@@ -508,6 +508,7 @@ var Publisher = {
     Publisher.input().autoResize();
     Publisher.input().keydown(Publisher.autocompletion.keyDownHandler);
     Publisher.input().keyup(Publisher.autocompletion.keyUpHandler);
+    Publisher.input().mouseup(Publisher.autocompletion.keyUpHandler);
     Publisher.bindAjax();
     Publisher.form().find("textarea").bind("focus", function(evt) {
       Publisher.open();

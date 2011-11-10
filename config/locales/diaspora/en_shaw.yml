@@ -3,7 +3,7 @@
 #   the COPYRIGHT file.
 
 
-en_shaw: 
+en_shaw:
   _applications: "𐑨𐑐𐑤𐑦𐑒𐑱𐑖𐑩𐑯"
   _comments: "𐑒𐑪𐑥𐑩𐑯𐑑𐑕"
   _contacts: "𐑒𐑪𐑯𐑑𐑨𐑒𐑑𐑕"
@@ -11,71 +11,71 @@ en_shaw:
   _photos: "𐑓𐑴𐑑𐑴𐑟"
   _services: "Services"
   account: "𐑩𐑒𐑬𐑯𐑑"
-  activerecord: 
-    errors: 
-      models: 
-        contact: 
-          attributes: 
-            person_id: 
+  activerecord:
+    errors:
+      models:
+        contact:
+          attributes:
+            person_id:
               taken: "𐑥𐑳𐑕𐑑 𐑚𐑰 𐑿𐑯𐑰𐑒 𐑩𐑥𐑳𐑙 𐑞𐑦𐑕 𐑿𐑟𐑼𐑟 𐑒𐑪𐑯𐑑𐑨𐑒𐑑𐑕"
-        person: 
-          attributes: 
-            diaspora_handle: 
+        person:
+          attributes:
+            diaspora_handle:
               taken: "𐑦𐑟 𐑷𐑤𐑮𐑧𐑛𐑦 𐑑𐑱𐑒𐑩𐑯"
-        request: 
-          attributes: 
-            from_id: 
+        request:
+          attributes:
+            from_id:
               taken: "𐑦𐑟 𐑛𐑵𐑐𐑤𐑦𐑒𐑩𐑑 𐑝 𐑩 𐑐𐑮𐑦-𐑧𐑜𐑟𐑦𐑕𐑑𐑦𐑙 𐑮𐑦𐑒𐑢𐑧𐑕𐑑."
-        reshare: 
-          attributes: 
-            root_guid: 
+        reshare:
+          attributes:
+            root_guid:
               taken: "𐑿𐑝 𐑷𐑤𐑮𐑧𐑛𐑦 𐑮𐑦𐑖𐑺𐑛 𐑞𐑨𐑑 𐑐𐑴𐑕𐑑!"
-        user: 
-          attributes: 
-            email: 
+        user:
+          attributes:
+            email:
               taken: "𐑦𐑟 𐑷𐑤𐑮𐑧𐑛𐑦 𐑑𐑱𐑒𐑩𐑯."
-            person: 
+            person:
               invalid: "𐑦𐑟 𐑦𐑯𐑝𐑨𐑤𐑦𐑛."
-            username: 
+            username:
               invalid: "is invalid. We only allow letters, numbers, and underscores"
               taken: "𐑦𐑟 𐑷𐑤𐑮𐑧𐑛𐑦 𐑑𐑱𐑒𐑩𐑯."
   ago: "%{time} ago"
   all_aspects: "𐑷𐑤 𐑨𐑕𐑐𐑧𐑒𐑑𐑕"
-  application: 
-    helper: 
+  application:
+    helper:
       diaspora_alpha: "·𐑛𐑦𐑨𐑕𐑐𐑹𐑩* 𐑨𐑤𐑓𐑩"
       unknown_person: "𐑩𐑯𐑯𐑴𐑯 𐑐𐑻𐑕𐑩𐑯"
-      video_title: 
+      video_title:
         unknown: "𐑩𐑯𐑯𐑴𐑯 𐑝𐑦𐑛𐑦𐑴 𐑑𐑲𐑑𐑩𐑤"
   are_you_sure: "𐑸 𐑿 𐑖𐑻?"
-  aspect_memberships: 
-    destroy: 
+  aspect_memberships:
+    destroy:
       failure: "𐑓𐑱𐑤𐑛 𐑑 𐑮𐑦𐑥𐑵𐑝 𐑐𐑻𐑕𐑩𐑯 𐑓𐑮𐑪𐑥 𐑨𐑕𐑐𐑧𐑒𐑑"
       no_membership: "𐑒𐑫𐑛 𐑯𐑪𐑑 𐑓𐑲𐑯𐑛 𐑞 𐑕𐑦𐑤𐑧𐑒𐑑𐑩𐑛 𐑐𐑻𐑕𐑩𐑯 𐑦𐑯 𐑞𐑨𐑑 𐑨𐑕𐑐𐑧𐑒𐑑"
       success: "𐑕𐑩𐑒𐑕𐑧𐑕𐑓𐑫𐑤𐑦 𐑮𐑦𐑥𐑵𐑝𐑛 𐑐𐑻𐑕𐑩𐑯 𐑓𐑮𐑪𐑥 𐑨𐑕𐑐𐑧𐑒𐑑"
-  aspects: 
-    add_to_aspect: 
+  aspects:
+    add_to_aspect:
       failure: "𐑓𐑱𐑤𐑛 𐑑 𐑨𐑛 𐑒𐑪𐑯𐑑𐑨𐑒𐑑 𐑑 𐑨𐑕𐑐𐑧𐑒𐑑."
       success: "𐑕𐑩𐑒𐑕𐑧𐑕𐑓𐑫𐑤𐑦 𐑨𐑛𐑩𐑛 𐑒𐑪𐑯𐑑𐑨𐑒𐑑 𐑑 𐑨𐑕𐑐𐑧𐑒𐑑."
-    aspect_contacts: 
+    aspect_contacts:
       done_editing: "𐑛𐑳𐑯 𐑧𐑛𐑦𐑑𐑦𐑙"
-    aspect_listings: 
+    aspect_listings:
       add_an_aspect: "+ 𐑨𐑛 𐑩𐑯 𐑨𐑕𐑐𐑧𐑒𐑑"
       deselect_all: "Deselect all"
       edit_aspect: "Edit %{name}"
       select_all: "Select all"
-    aspect_stream: 
+    aspect_stream:
       stay_updated: "Stay Updated"
       stay_updated_explanation: "Your main stream is populated with all of your contacts, tags you follow, and posts from some creative members of the community."
     contacts_not_visible: "𐑒𐑪𐑯𐑑𐑨𐑒𐑑𐑕 𐑦𐑯 𐑞𐑦𐑕 𐑨𐑕𐑐𐑧𐑒𐑑 𐑢𐑦𐑤 𐑯𐑪𐑑 𐑚𐑰 𐑱𐑚𐑩𐑤 𐑑 𐑕𐑰 𐑰𐑗 𐑳𐑞𐑼."
     contacts_visible: "𐑒𐑪𐑯𐑑𐑨𐑒𐑑𐑕 𐑦𐑯 𐑞𐑦𐑕 𐑨𐑕𐑐𐑧𐑒𐑑 𐑢𐑦𐑤 𐑯𐑪𐑑 𐑚𐑰 𐑱𐑚𐑩𐑤 𐑑 𐑕𐑰 𐑰𐑗 𐑳𐑞𐑼."
-    create: 
+    create:
       failure: "𐑨𐑕𐑐𐑧𐑒𐑑 𐑒𐑮𐑦𐑱𐑖𐑩𐑯 𐑓𐑱𐑤𐑛."
       success: "𐑿𐑼 𐑯𐑿 𐑨𐑕𐑐𐑧𐑒𐑑 %{name} 𐑢𐑪𐑟 𐑒𐑮𐑦𐑱𐑑𐑩𐑛"
-    destroy: 
+    destroy:
       failure: "%{name} ez dago hutsik eta ezin izan da ezabatu."
       success: "%{name} 𐑢𐑪𐑟 𐑕𐑩𐑒𐑕𐑧𐑕𐑓𐑫𐑤𐑦 𐑮𐑦𐑥𐑵𐑝𐑛."
-    edit: 
+    edit:
       add_existing: "𐑨𐑛 𐑩𐑯 𐑧𐑜𐑟𐑦𐑕𐑑𐑦𐑙 𐑒𐑪𐑯𐑑𐑨𐑒𐑑"
       aspect_list_is_not_visible: "𐑨𐑕𐑐𐑧𐑒𐑑 𐑤𐑦𐑕𐑑 𐑦𐑟 𐑣𐑦𐑛𐑩𐑯 𐑑 𐑳𐑞𐑼𐑟 𐑦𐑯 𐑨𐑕𐑐𐑧𐑒𐑑"
       aspect_list_is_visible: "𐑨𐑕𐑐𐑧𐑒𐑑 𐑤𐑦𐑕𐑑 𐑦𐑟 𐑝𐑦𐑟𐑦𐑚𐑩𐑤 𐑑 𐑳𐑞𐑼𐑟 𐑦𐑯 𐑨𐑕𐑐𐑧𐑒𐑑"
@@ -87,22 +87,22 @@ en_shaw:
       update: "𐑳𐑐𐑛𐑱𐑑"
       updating: "𐑳𐑐𐑛𐑱𐑑𐑦𐑙"
     few: "%{count} 𐑨𐑕𐑐𐑧𐑒𐑑𐑕"
-    helper: 
+    helper:
       are_you_sure: "𐑸 𐑿 𐑖𐑻 𐑿 𐑢𐑳𐑯𐑑 𐑑 𐑛𐑦𐑤𐑰𐑑 𐑞𐑦𐑕 𐑨𐑕𐑐𐑧𐑒𐑑?"
       aspect_not_empty: "𐑨𐑕𐑐𐑧𐑒𐑑 𐑯𐑪𐑑 𐑧𐑥𐑐𐑑𐑦"
       remove: "𐑮𐑦𐑥𐑵𐑝"
-    index: 
-      cubbies: 
+    index:
+      cubbies:
         explanation: "Cubbi.es 𐑦𐑟 𐑞 𐑓𐑻𐑕𐑑 ·𐑛𐑦𐑨𐑕𐑐𐑹𐑩 𐑨𐑐𐑤𐑦𐑒𐑱𐑖𐑩𐑯 𐑳𐑯𐑛𐑼 𐑛𐑦𐑝𐑧𐑤𐑩𐑐𐑥𐑧𐑯𐑑."
         heading: "𐑒𐑩𐑯𐑧𐑒𐑑 𐑑 Cubbi.es"
         learn_more: "𐑤𐑻𐑯 𐑥𐑹"
-      diaspora_id: 
+      diaspora_id:
         content_1: "𐑿𐑼 ·𐑛𐑦𐑨𐑕𐑐𐑹𐑩 𐑲𐑛𐑧𐑯𐑑𐑦𐑓𐑦𐑒𐑱𐑖𐑯 𐑦𐑟:"
         content_2: "𐑜𐑦𐑝 𐑦𐑑 𐑑 𐑧𐑯𐑦𐑢𐑩𐑯 𐑯 𐑞𐑱𐑤 𐑚𐑰 𐑱𐑚𐑩𐑤 𐑑 𐑓𐑲𐑯𐑛 𐑿 𐑪𐑯 ·𐑛𐑦𐑨𐑕𐑐𐑹𐑩."
         heading: "·𐑛𐑦𐑨𐑕𐑐𐑹𐑩 𐑲𐑛𐑧𐑯𐑑𐑦𐑓𐑦𐑒𐑱𐑖𐑩𐑯"
       donate: "𐑛𐑴𐑯𐑱𐑑"
       handle_explanation: "𐑞𐑦𐑕 𐑦𐑟 𐑿𐑼 ·𐑛𐑦𐑨𐑕𐑐𐑹𐑩 𐑲𐑛𐑧𐑯𐑑𐑦𐑓𐑦𐑒𐑱𐑖𐑩𐑯. 𐑤𐑲𐑒 𐑩𐑯 𐑦-𐑥𐑱𐑤 𐑨𐑛𐑮𐑧𐑕, 𐑿 𐑒𐑨𐑯 𐑜𐑦𐑝 𐑞𐑦𐑕 𐑑 𐑐𐑰𐑐𐑩𐑤 𐑑 𐑮𐑰𐑗 𐑿."
-      help: 
+      help:
         do_you: "Do you:"
         email_feedback: "%{link} your feedback, if you prefer"
         feature_suggestion: "... have a %{link} suggestion?"
@@ -117,7 +117,7 @@ en_shaw:
         tutorials_wiki_and_forum: "%{tutorial} & %{wiki} & %{forum}: Community-powered tutorials, how-to, and news"
       introduce_yourself: "This is your stream.  Jump in and introduce yourself."
       keep_us_running: "𐑒𐑰𐑐 %{pod} 𐑮𐑳𐑯𐑦𐑙 𐑓𐑨𐑕𐑑, 𐑚𐑲 𐑬𐑮 𐑕𐑻𐑝𐑼𐑟 𐑞𐑺 𐑥𐑳𐑯𐑔𐑤𐑦 𐑒𐑪𐑓𐑦 𐑓𐑦𐑒𐑕!"
-      new_here: 
+      new_here:
         follow: "Follow %{link} and welcome new users to Diaspora*!"
         learn_more: "Learn more"
         title: "Welcome New Users"
@@ -125,80 +125,80 @@ en_shaw:
       no_tags: "𐑯𐑴 𐑑𐑨𐑜𐑟"
       people_sharing_with_you: "𐑐𐑰𐑐𐑩𐑤 𐑖𐑺𐑦𐑙 𐑢𐑦𐑞 𐑿"
       post_a_message: "𐑐𐑴𐑕𐑑 𐑩 𐑥𐑧𐑕𐑩𐑡 >>"
-      services: 
+      services:
         content: "𐑿 𐑒𐑨𐑯 𐑒𐑩𐑯𐑧𐑒𐑑 𐑞 𐑓𐑪𐑤𐑴𐑦𐑙 𐑕𐑻𐑝𐑦𐑕𐑩𐑟 𐑑 ·𐑛𐑦𐑨𐑕𐑐𐑹𐑩:"
         heading: "𐑒𐑩𐑯𐑧𐑒𐑑 𐑕𐑻𐑝𐑦𐑕𐑩𐑟"
       unfollow_tag: "Stop following #%{tag}"
       welcome_to_diaspora: "Welcome to Diaspora, %{name}!"
       your_aspects: "𐑿𐑼 𐑨𐑕𐑐𐑧𐑒𐑑𐑕"
     many: "%{count} 𐑨𐑕𐑐𐑧𐑒𐑑𐑕"
-    move_contact: 
+    move_contact:
       error: "𐑺𐑼 𐑥𐑵𐑝𐑦𐑙 𐑒𐑪𐑯𐑑𐑨𐑒𐑑: %{inspect}"
       failure: "𐑛𐑦𐑛𐑯𐑑 𐑢𐑻𐑒 %{inspect}"
       success: "𐑐𐑻𐑕𐑩𐑯 𐑥𐑵𐑝𐑛 𐑑 𐑯𐑿 𐑨𐑕𐑐𐑧𐑒𐑑"
-    new: 
+    new:
       create: "𐑒𐑮𐑦𐑱𐑑"
       name: "𐑯𐑱𐑥"
-    no_contacts_message: 
+    no_contacts_message:
       community_spotlight: "community spotlight"
       or_spotlight: "Or you can share with %{link}"
       try_adding_some_more_contacts: "You can search (top) or invite (right) more contacts."
       you_should_add_some_more_contacts: "You should add some more contacts!"
-    no_posts_message: 
+    no_posts_message:
       start_talking: "𐑯𐑴𐑚𐑩𐑛𐑦 𐑣𐑨𐑟 𐑕𐑧𐑛 𐑧𐑯𐑦𐑔𐑦𐑙 𐑘𐑧𐑑!"
     one: "1 𐑨𐑕𐑐𐑧𐑒𐑑"
     other: "%{count} 𐑨𐑕𐑐𐑧𐑒𐑑𐑕"
-    seed: 
+    seed:
       acquaintances: "𐑩𐑒𐑢𐑱𐑑𐑩𐑯𐑕𐑩𐑟"
       family: "𐑓𐑨𐑥𐑦𐑤𐑦"
       friends: "𐑓𐑮𐑧𐑯𐑛𐑟"
       work: "𐑢𐑻𐑒"
-    selected_contacts: 
+    selected_contacts:
       manage_your_aspects: "𐑥𐑨𐑯𐑩𐑡 𐑿𐑼 𐑨𐑕𐑐𐑧𐑒𐑑𐑕."
       no_contacts: "𐑿 𐑛𐑴𐑯𐑑 𐑣𐑨𐑝 𐑧𐑯𐑦 𐑒𐑪𐑯𐑑𐑨𐑒𐑑𐑕 𐑣𐑽 𐑘𐑧𐑑."
       view_all_community_spotlight: "See all community spotlight"
       view_all_contacts: "𐑝𐑿 𐑷𐑤 𐑒𐑪𐑯𐑑𐑨𐑒𐑑𐑕"
-    show: 
+    show:
       edit_aspect: "𐑧𐑛𐑦𐑑 𐑨𐑕𐑐𐑧𐑒𐑑"
     two: "%{count} aspects"
-    update: 
+    update:
       failure: "𐑿𐑼 𐑨𐑕𐑐𐑧𐑒𐑑, %{name}, 𐑣𐑨𐑛 𐑑𐑵 𐑤𐑪𐑙 𐑩 𐑯𐑱𐑥 𐑑 𐑚𐑰 𐑕𐑱𐑝𐑛."
       success: "𐑿𐑼 𐑨𐑕𐑐𐑧𐑒𐑑, %{name}, 𐑣𐑨𐑟 𐑚𐑧𐑯 𐑕𐑩𐑒𐑕𐑧𐑕𐑓𐑫𐑤𐑦 𐑧𐑛𐑦𐑑𐑩𐑛."
     zero: "𐑯𐑴 𐑨𐑕𐑐𐑧𐑒𐑑𐑕"
-  authorizations: 
-    index: 
+  authorizations:
+    index:
       no_applications: "You haven't registered any applications yet."
       revoke_access: "𐑮𐑦𐑝𐑴𐑒 𐑨𐑒𐑕𐑧𐑕"
   back: "𐑚𐑨𐑒"
-  blocks: 
-    create: 
+  blocks:
+    create:
       failure: "I couldn't ignore that user.  #evasion"
       success: "Alright, you won't see that user in your stream again. #silencio!"
-    destroy: 
+    destroy:
       failure: "I couldn't stop ignoring that user.  #evasion"
       success: "Let's see what they have to say! #sayhello"
-  bookmarklet: 
+  bookmarklet:
     explanation: "𐑐𐑴𐑕𐑑 𐑑 ·𐑛𐑦𐑨𐑕𐑐𐑹𐑩 𐑓𐑮𐑳𐑥 𐑨𐑯𐑦𐑢𐑺 𐑚𐑲 𐑚𐑫𐑒𐑥𐑸𐑒𐑦𐑙 %{link}."
     explanation_link_text: "𐑞𐑦𐑕 𐑤𐑦𐑙𐑒"
     heading: "𐑚𐑫𐑒𐑥𐑸𐑒𐑤𐑧𐑑"
     post_something: "𐑐𐑴𐑕𐑑 𐑕𐑳𐑥𐑔𐑦𐑙 𐑑 ·𐑛𐑦𐑨𐑕𐑐𐑹𐑩"
     post_success: "𐑐𐑴𐑕𐑑𐑩𐑛! 𐑒𐑤𐑴𐑟𐑦𐑙!"
   cancel: "𐑒𐑨𐑯𐑕𐑩𐑤"
-  comments: 
+  comments:
     few: "%{count} 𐑒𐑪𐑥𐑩𐑯𐑑𐑕"
     many: "%{count} 𐑒𐑪𐑥𐑩𐑯𐑑𐑕"
-    new_comment: 
+    new_comment:
       comment: "𐑒𐑪𐑥𐑩𐑯𐑑"
       commenting: 𐑒𐑪𐑥𐑩𐑯𐑑𐑦𐑙...
     one: "1 𐑒𐑪𐑥𐑩𐑯𐑑"
     other: "%{count} 𐑒𐑪𐑥𐑩𐑯𐑑𐑕"
     two: "%{count} comments"
     zero: "𐑯𐑴 𐑒𐑪𐑥𐑩𐑯𐑑𐑕"
-  contacts: 
-    create: 
+  contacts:
+    create:
       failure: "𐑓𐑱𐑤𐑛 𐑑 𐑒𐑮𐑦𐑱𐑑 𐑒𐑪𐑯𐑑𐑨𐑒𐑑"
     few: "%{count} 𐑒𐑪𐑯𐑑𐑨𐑒𐑑𐑕"
-    index: 
+    index:
       add_a_new_aspect: "𐑨𐑛 𐑯𐑿 𐑨𐑕𐑐𐑧𐑒𐑑"
       add_to_aspect: "Add contacts to %{name}"
       all_contacts: "𐑷𐑤 𐑒𐑪𐑯𐑑𐑨𐑒𐑑𐑕"
@@ -214,61 +214,61 @@ en_shaw:
     many: "%{count} 𐑒𐑪𐑯𐑑𐑨𐑒𐑑𐑕"
     one: "1 𐑒𐑪𐑯𐑑𐑨𐑒𐑑"
     other: "%{count} 𐑒𐑪𐑯𐑑𐑨𐑒𐑑𐑕"
-    sharing: 
+    sharing:
       people_sharing: "𐑐𐑰𐑐𐑩𐑤 𐑖𐑺𐑦𐑙 𐑢𐑦𐑞 𐑿:"
-    spotlight: 
+    spotlight:
       community_spotlight: "Community Spotlight"
     two: "%{count} contacts"
     zero: "𐑯𐑴 𐑒𐑪𐑯𐑑𐑨𐑒𐑑𐑕"
-  conversations: 
-    create: 
+  conversations:
+    create:
       fail: "Invalid message"
       sent: "𐑥𐑧𐑕𐑩𐑡 𐑕𐑧𐑯𐑑"
-    destroy: 
+    destroy:
       success: "𐑒𐑪𐑯𐑝𐑼𐑕𐑱𐑖𐑩𐑯 𐑕𐑩𐑒𐑕𐑧𐑕𐑓𐑫𐑤𐑦 𐑮𐑦𐑥𐑵𐑝𐑛"
-    helper: 
-      new_messages: 
+    helper:
+      new_messages:
         few: "%{count} 𐑯𐑿 𐑥𐑧𐑕𐑩𐑡𐑩𐑟"
         many: "%{count} 𐑯𐑿 𐑥𐑧𐑕𐑩𐑡𐑩𐑟"
         one: "1 𐑯𐑿 𐑥𐑧𐑕𐑩𐑡"
         other: "%{count} 𐑯𐑿 𐑥𐑧𐑕𐑩𐑡𐑩𐑟"
         two: "%{count} new messages"
         zero: "𐑯𐑴 𐑯𐑿 𐑥𐑧𐑕𐑩𐑡𐑩𐑟"
-    index: 
+    index:
       create_a_new_message: "𐑒𐑮𐑦𐑱𐑑 𐑩 𐑯𐑿 𐑥𐑧𐑕𐑩𐑡"
       inbox: "𐑦𐑯𐑚𐑪𐑒𐑕"
       message_inbox: "𐑥𐑧𐑕𐑩𐑡 𐑦𐑯𐑚𐑪𐑒𐑕"
       new_message: "𐑯𐑿 𐑥𐑧𐑕𐑩𐑡"
       no_conversation_selected: "𐑯𐑴 𐑒𐑪𐑯𐑝𐑼𐑕𐑱𐑖𐑩𐑯 𐑕𐑩𐑤𐑧𐑒𐑑𐑩𐑛"
       no_messages: "𐑯𐑴 𐑥𐑧𐑕𐑩𐑡𐑩𐑟"
-    new: 
+    new:
       abandon_changes: "𐑩𐑚𐑨𐑯𐑛𐑩𐑯 𐑗𐑱𐑯𐑡𐑩𐑟?"
       send: "𐑕𐑧𐑯𐑛"
       sending: 𐑕𐑧𐑯𐑛𐑦𐑙...
       subject: "𐑕𐑳𐑚𐑡𐑧𐑒𐑑"
       to: "𐑑"
-    new_message: 
+    new_message:
       fail: "Invalid message"
-    show: 
+    show:
       delete: "𐑛𐑦𐑤𐑰𐑑 𐑯 𐑚𐑤𐑪𐑒 𐑒𐑪𐑯𐑝𐑼𐑕𐑱𐑖𐑩𐑯"
       reply: "𐑮𐑦𐑐𐑤𐑲"
       replying: Replying...
-  date: 
-    formats: 
+  date:
+    formats:
       birthday: "%B %d"
       birthday_with_year: "%B %d %Y"
       fullmonth_day: "%B %d"
   delete: "𐑛𐑦𐑤𐑰𐑑"
   email: 𐑦-𐑥𐑱𐑤
-  error_messages: 
-    helper: 
+  error_messages:
+    helper:
       correct_the_following_errors_and_try_again: "𐑒𐑩𐑮𐑧𐑒𐑑 𐑞 𐑓𐑪𐑤𐑴𐑦𐑙 𐑺𐑼𐑟 𐑯 𐑑𐑮𐑲 𐑩𐑜𐑧𐑯."
       invalid_fields: "𐑦𐑯𐑝𐑨𐑤𐑦𐑛 𐑓𐑰𐑤𐑛𐑟"
   fill_me_out: "𐑓𐑦𐑤 𐑥𐑰 𐑬𐑑"
   find_people: "𐑓𐑲𐑯𐑛 𐑐𐑰𐑐𐑩𐑤"
   hide: "𐑣𐑲𐑛"
-  home: 
-    show: 
+  home:
+    show:
       already_account: "already have an account?"
       choice: "Choice"
       choice_explanation: "Diaspora lets you sort your connections into groups called aspects. Unique to Diaspora, aspects ensure that your photos, stories and jokes are shared only with the people you intend."
@@ -281,21 +281,21 @@ en_shaw:
       simplicity_explanation: "Diaspora makes sharing clean and easy – and this goes for privacy too. Inherently private, Diaspora doesn’t make you wade through pages of settings and options just to keep your profile secure."
       tagline_first_half: "Share what you want,"
       tagline_second_half: "with whom you want."
-  invitations: 
+  invitations:
     a_facebook_user: "A Facebook user"
-    check_token: 
+    check_token:
       not_found: "𐑦𐑯𐑝𐑦𐑑𐑱𐑖𐑩𐑯 𐑑𐑴𐑒𐑩𐑯 𐑯𐑪𐑑 𐑓𐑬𐑯𐑛"
-    create: 
+    create:
       already_contacts: "𐑿 𐑣𐑨𐑝 𐑷𐑤𐑮𐑧𐑛𐑦 𐑒𐑩𐑯𐑧𐑒𐑑𐑩𐑛 𐑢𐑦𐑞 𐑞𐑦𐑕 𐑐𐑻𐑕𐑩𐑯"
       already_sent: "𐑿 𐑷𐑤𐑮𐑧𐑛𐑦 𐑦𐑯𐑝𐑲𐑑𐑩𐑛 𐑞𐑦𐑕 𐑐𐑻𐑕𐑩𐑯."
       no_more: "𐑿 𐑣𐑨𐑝 𐑯𐑴 𐑥𐑹 𐑦𐑯𐑝𐑦𐑑𐑱𐑖𐑩𐑯𐑟."
       own_address: "𐑿 𐑒𐑨𐑯𐑑 𐑕𐑧𐑯𐑛 𐑩𐑯 𐑦𐑯𐑝𐑦𐑑𐑱𐑖𐑩𐑯 𐑑 𐑿𐑼 𐑴𐑯 𐑩𐑛𐑮𐑧𐑕."
       rejected: "𐑞 𐑓𐑪𐑤𐑴𐑦𐑙 𐑦-𐑥𐑱𐑤 𐑩𐑛𐑮𐑧𐑕 𐑣𐑨𐑛 𐑐𐑮𐑪𐑚𐑤𐑩𐑥𐑟: "
       sent: "𐑦𐑯𐑝𐑦𐑑𐑱𐑖𐑩𐑯𐑟 𐑣𐑨𐑝 𐑚𐑧𐑯 𐑕𐑧𐑯𐑑 𐑑: "
-    edit: 
+    edit:
       accept_your_invitation: "Accept your invitation"
       your_account_awaits: "Your account awaits!"
-    new: 
+    new:
       already_invited: "𐑞 𐑓𐑪𐑤𐑴𐑦𐑙 𐑐𐑰𐑐𐑩𐑤 𐑣𐑨𐑝 𐑯𐑪𐑑 𐑩𐑒𐑕𐑧𐑐𐑑𐑩𐑛 𐑿𐑼 𐑦𐑯𐑝𐑦𐑑𐑱𐑖𐑩𐑯:"
       aspect: "𐑨𐑕𐑐𐑧𐑒𐑑"
       comma_seperated_plz: "𐑿 𐑒𐑨𐑯 𐑧𐑯𐑑𐑼 𐑥𐑫𐑤𐑑𐑦𐑐𐑩𐑤 𐑦-𐑥𐑱𐑤 𐑩𐑛𐑮𐑧𐑕𐑩𐑟 𐑕𐑧𐑐𐑼𐑱𐑑𐑩𐑛 𐑚𐑲 𐑒𐑪𐑥𐑩𐑟."
@@ -307,14 +307,14 @@ en_shaw:
       send_an_invitation: "𐑕𐑧𐑯𐑛 𐑩𐑯 𐑦𐑯𐑝𐑦𐑑𐑱𐑖𐑩𐑯"
       send_invitation: "𐑕𐑧𐑯𐑛 𐑦𐑯𐑝𐑦𐑑𐑱𐑖𐑩𐑯"
       to: "𐑑"
-  layouts: 
-    application: 
+  layouts:
+    application:
       powered_by: "𐑐𐑬𐑮𐑛 𐑚𐑲 ·𐑛𐑦𐑨𐑕𐑐𐑹𐑩*"
       public_feed: "𐑐𐑳𐑚𐑤𐑦𐑒 ·𐑛𐑦𐑨𐑕𐑐𐑹𐑩 𐑓𐑰𐑛 𐑓𐑹 %{name}"
       toggle: "𐑑𐑪𐑜𐑩𐑤 𐑥𐑴𐑚𐑩𐑤 𐑕𐑲𐑑"
       whats_new: "𐑢𐑪𐑑𐑕 𐑯𐑿?"
       your_aspects: "𐑿𐑼 𐑨𐑕𐑒𐑐𐑧𐑒𐑑𐑕"
-    header: 
+    header:
       admin: "𐑩𐑛𐑥𐑦𐑯"
       blog: "𐑚𐑤𐑪𐑜"
       code: "𐑒𐑴𐑛"
@@ -324,23 +324,23 @@ en_shaw:
       recent_notifications: "𐑮𐑰𐑕𐑩𐑯𐑑 𐑯𐑴𐑑𐑦𐑓𐑦𐑒𐑱𐑖𐑩𐑯𐑟"
       settings: "𐑕𐑧𐑑𐑦𐑙𐑟"
       view_all: "𐑝𐑿 𐑷𐑤"
-  likes: 
-    likes: 
-      people_dislike_this: 
+  likes:
+    likes:
+      people_dislike_this:
         few: "%{count} 𐑛𐑦𐑕𐑤𐑲𐑒𐑕"
         many: "%{count} 𐑛𐑦𐑕𐑤𐑲𐑒𐑕"
         one: "%{count} 𐑛𐑦𐑕𐑤𐑲𐑒"
         other: "%{count} 𐑛𐑦𐑕𐑤𐑲𐑒𐑕"
         two: "%{count} dislikes"
         zero: "𐑯𐑴 𐑛𐑦𐑕𐑤𐑲𐑒𐑕"
-      people_like_this: 
+      people_like_this:
         few: "%{count} 𐑤𐑲𐑒𐑕"
         many: "%{count} 𐑤𐑲𐑒𐑕"
         one: "%{count} 𐑤𐑲𐑒"
         other: "%{count} 𐑤𐑲𐑒𐑕"
         two: "%{count} likes"
         zero: "𐑯𐑴 𐑤𐑲𐑒𐑕"
-      people_like_this_comment: 
+      people_like_this_comment:
         few: "%{count} 𐑤𐑲𐑒𐑕"
         many: "%{count} 𐑤𐑲𐑒𐑕"
         one: "%{count} 𐑤𐑲𐑒"
@@ -351,39 +351,39 @@ en_shaw:
   more: "𐑥𐑹"
   next: "𐑯𐑧𐑒𐑕𐑑"
   no_results: "𐑯𐑴 𐑮𐑦𐑟𐑫𐑤𐑑𐑕 𐑓𐑬𐑯𐑛"
-  notifications: 
-    also_commented: 
+  notifications:
+    also_commented:
       few: "%{actors} 𐑷𐑤𐑕𐑴 𐑒𐑪𐑥𐑩𐑯𐑑𐑩𐑛 𐑪𐑯 %{post_author}𐑟 %{post_link}."
       many: "%{actors} 𐑷𐑤𐑕𐑴 𐑒𐑪𐑥𐑩𐑯𐑑𐑩𐑛 𐑪𐑯 %{post_author}𐑟 %{post_link}."
       one: "%{actors} 𐑷𐑤𐑕𐑴 𐑒𐑪𐑥𐑩𐑯𐑑𐑩𐑛 𐑪𐑯 %{post_author}𐑟 %{post_link}."
       other: "%{actors} 𐑷𐑤𐑕𐑴 𐑒𐑪𐑥𐑩𐑯𐑑𐑩𐑛 𐑪𐑯 %{post_author}𐑟 %{post_link}."
       two: "%{actors} also commented on %{post_author}'s %{post_link}."
       zero: "%{actors} 𐑷𐑤𐑕𐑴 𐑒𐑪𐑥𐑩𐑯𐑑𐑩𐑛 𐑪𐑯 %{post_author}𐑟 %{post_link}."
-    also_commented_deleted: 
+    also_commented_deleted:
       few: "%{actors} 𐑒𐑪𐑥𐑩𐑯𐑑𐑩𐑛 𐑪𐑯 𐑩 𐑛𐑦𐑤𐑰𐑑𐑩𐑛 𐑐𐑴𐑕𐑑."
       many: "%{actors} 𐑒𐑪𐑥𐑩𐑯𐑑𐑩𐑛 𐑪𐑯 𐑩 𐑛𐑦𐑤𐑰𐑑𐑩𐑛 𐑐𐑴𐑕𐑑."
       one: "%{actors} 𐑒𐑪𐑥𐑩𐑯𐑑𐑩𐑛 𐑪𐑯 𐑩 𐑛𐑦𐑤𐑰𐑑𐑩𐑛 𐑐𐑴𐑕𐑑."
       other: "%{actors} 𐑒𐑪𐑥𐑩𐑯𐑑𐑩𐑛 𐑪𐑯 𐑩 𐑛𐑦𐑤𐑰𐑑𐑩𐑛 𐑐𐑴𐑕𐑑."
       two: "%{actors} commented on a deleted post."
       zero: "%{actors} 𐑒𐑪𐑥𐑩𐑯𐑑𐑩𐑛 𐑪𐑯 𐑩 𐑛𐑦𐑤𐑰𐑑𐑩𐑛 𐑐𐑴𐑕𐑑."
-    comment_on_post: 
+    comment_on_post:
       few: "%{actors} 𐑒𐑪𐑥𐑩𐑯𐑑𐑩𐑛 𐑪𐑯 𐑿𐑼 %{post_link}."
       many: "%{actors} 𐑒𐑪𐑥𐑩𐑯𐑑𐑩𐑛 𐑪𐑯 𐑿𐑼 %{post_link}."
       one: "%{actors} 𐑒𐑪𐑥𐑩𐑯𐑑𐑩𐑛 𐑪𐑯 𐑿𐑼 %{post_link}."
       other: "%{actors} 𐑒𐑪𐑥𐑩𐑯𐑑𐑩𐑛 𐑪𐑯 𐑿𐑼 %{post_link}."
       two: "%{actors} commented on your %{post_link}."
       zero: "%{actors} 𐑒𐑪𐑥𐑩𐑯𐑑𐑩𐑛 𐑪𐑯 𐑿𐑼 %{post_link}."
-    helper: 
-      new_notifications: 
+    helper:
+      new_notifications:
         few: "%{count} 𐑯𐑿 𐑯𐑴𐑑𐑦𐑓𐑦𐑒𐑱𐑖𐑩𐑯𐑟"
         many: "%{count} 𐑯𐑿 𐑯𐑴𐑑𐑦𐑓𐑦𐑒𐑱𐑖𐑩𐑯𐑟"
         one: "1 𐑯𐑿 𐑯𐑴𐑑𐑦𐑓𐑦𐑒𐑱𐑖𐑩𐑯"
         other: "%{count} 𐑯𐑿 𐑯𐑴𐑑𐑦𐑓𐑦𐑒𐑱𐑖𐑩𐑯𐑟"
         two: "%{count} new notifications"
         zero: "𐑯𐑴 𐑯𐑿 𐑯𐑴𐑑𐑦𐑓𐑦𐑒𐑱𐑖𐑩𐑯𐑟"
-    index: 
+    index:
       and: "𐑯"
-      and_others: 
+      and_others:
         few: "𐑯 %{count} 𐑳𐑞𐑼𐑟"
         many: "𐑯 %{count} 𐑳𐑞𐑼𐑟"
         one: "𐑯 𐑢𐑳𐑯 𐑥𐑹"
@@ -392,28 +392,28 @@ en_shaw:
         zero: "𐑯 𐑯𐑴𐑚𐑩𐑛𐑦 𐑧𐑤𐑕"
       mark_all_as_read: "𐑥𐑸𐑒 𐑷𐑤 𐑨𐑟 𐑮𐑧𐑛"
       notifications: "𐑯𐑴𐑑𐑦𐑓𐑦𐑒𐑱𐑖𐑩𐑯𐑟"
-    liked: 
+    liked:
       few: "%{actors} 𐑣𐑨𐑟 𐑡𐑩𐑕𐑑 𐑤𐑲𐑒𐑑 𐑿𐑼 %{post_link}."
       many: "%{actors} 𐑣𐑨𐑟 𐑡𐑩𐑕𐑑 𐑤𐑲𐑒𐑑 𐑿𐑼 %{post_link}."
       one: "%{actors} 𐑣𐑨𐑟 𐑡𐑩𐑕𐑑 𐑤𐑲𐑒𐑑 𐑿𐑼 %{post_link}."
       other: "%{actors} 𐑣𐑨𐑟 𐑡𐑩𐑕𐑑 𐑤𐑲𐑒𐑑 𐑿𐑼 %{post_link}."
       two: "%{actors} has just liked your %{post_link}."
       zero: "%{actors} 𐑣𐑨𐑟 𐑡𐑩𐑕𐑑 𐑤𐑲𐑒𐑑 𐑿𐑼 %{post_link}."
-    liked_post_deleted: 
+    liked_post_deleted:
       few: "%{actors} 𐑤𐑦𐑙𐑒𐑑 𐑑 𐑿𐑼 𐑛𐑦𐑤𐑰𐑑𐑩𐑛 𐑐𐑴𐑕𐑑."
       many: "%{actors} 𐑤𐑦𐑙𐑒𐑑 𐑿𐑼 𐑛𐑦𐑤𐑰𐑑𐑩𐑛 𐑐𐑴𐑕𐑑."
       one: "%{actors} 𐑤𐑦𐑙𐑒𐑑 𐑿𐑼 𐑛𐑦𐑤𐑰𐑑𐑩𐑛 𐑐𐑴𐑕𐑑."
       other: "%{actors} 𐑤𐑦𐑙𐑒𐑑 𐑑 𐑿𐑼 𐑛𐑦𐑤𐑰𐑑𐑩𐑛 𐑐𐑴𐑕𐑑."
       two: "%{actors} liked your deleted post."
       zero: "%{actors} 𐑤𐑦𐑙𐑒𐑑 𐑑 𐑿𐑼 𐑛𐑦𐑤𐑰𐑑𐑩𐑛 𐑐𐑴𐑕𐑑."
-    mentioned: 
+    mentioned:
       few: "%{actors} 𐑣𐑨𐑟 𐑥𐑧𐑯𐑖𐑩𐑯𐑛 𐑿 𐑦𐑯 𐑩 %{post_link}."
       many: "%{actors} 𐑣𐑨𐑟 𐑥𐑧𐑯𐑖𐑩𐑯𐑛 𐑿 𐑦𐑯 𐑩 %{post_link}."
       one: "%{actors} 𐑣𐑨𐑟 𐑥𐑧𐑯𐑖𐑩𐑯𐑛 𐑿 𐑦𐑯 𐑩 %{post_link}."
       other: "%{actors} 𐑣𐑨𐑟 𐑥𐑧𐑯𐑖𐑩𐑯𐑛 𐑿 𐑦𐑯 𐑩 %{post_link}."
       two: "%{actors} has mentioned you in a %{post_link}."
       zero: "%{actors} 𐑣𐑨𐑟 𐑥𐑧𐑯𐑖𐑩𐑯𐑛 𐑿 𐑦𐑯 𐑩 %{post_link}."
-    mentioned_deleted: 
+    mentioned_deleted:
       few: "%{actors} 𐑥𐑧𐑯𐑖𐑩𐑯𐑛 𐑿 𐑦𐑯 𐑩 𐑛𐑦𐑤𐑰𐑑𐑩𐑛 𐑐𐑴𐑕𐑑."
       many: "%{actors} 𐑥𐑧𐑯𐑖𐑩𐑯𐑛 𐑿 𐑦𐑯 𐑩 𐑛𐑦𐑤𐑰𐑑𐑩𐑛 𐑐𐑴𐑕𐑑."
       one: "%{actors} 𐑥𐑧𐑯𐑖𐑩𐑯𐑛 𐑿 𐑦𐑯 𐑩 𐑛𐑦𐑤𐑰𐑑𐑩𐑛 𐑐𐑴𐑕𐑑."
@@ -421,59 +421,59 @@ en_shaw:
       two: "%{actors} mentioned you in a deleted post."
       zero: "%{actors} 𐑥𐑧𐑯𐑖𐑩𐑯𐑛 𐑿 𐑦𐑯 𐑩 𐑛𐑦𐑤𐑰𐑑𐑩𐑛 𐑐𐑴𐑕𐑑."
     post: "𐑐𐑴𐑕𐑑"
-    private_message: 
+    private_message:
       few: "%{actors} 𐑕𐑧𐑯𐑑 𐑿 𐑩 𐑥𐑧𐑕𐑩𐑡."
       many: "%{actors} 𐑕𐑧𐑯𐑑 𐑿 𐑩 𐑥𐑧𐑕𐑩𐑡."
       one: "%{actors} 𐑕𐑧𐑯𐑑 𐑿 𐑩 𐑥𐑧𐑕𐑩𐑡."
       other: "%{actors} 𐑕𐑧𐑯𐑑 𐑿 𐑩 𐑥𐑧𐑕𐑩𐑡."
       two: "%{actors} sent you a message."
       zero: "%{actors} 𐑕𐑧𐑯𐑑 𐑿 𐑩 𐑥𐑧𐑕𐑩𐑡."
-    reshared: 
+    reshared:
       few: "%{actors} has reshared your %{post_link}."
       many: "%{actors} has reshared your %{post_link}."
       one: "%{actors} has reshared your %{post_link}."
       other: "%{actors} has reshared your %{post_link}."
       two: "%{actors} has reshared your %{post_link}."
       zero: "%{actors} has reshared your %{post_link}."
-    reshared_post_deleted: 
+    reshared_post_deleted:
       few: "%{actors} reshared your deleted post."
       many: "%{actors} reshared your deleted post."
       one: "%{actors} reshared your deleted post."
       other: "%{actors} reshared your deleted post."
       two: "%{actors} reshared your deleted post."
       zero: "%{actors} reshared your deleted post."
-    started_sharing: 
+    started_sharing:
       few: "%{actors} 𐑕𐑑𐑸𐑑𐑩𐑛 𐑖𐑺𐑦𐑙 𐑢𐑦𐑞 𐑿."
       many: "%{actors} 𐑕𐑑𐑸𐑑𐑩𐑛 𐑖𐑺𐑦𐑙 𐑢𐑦𐑞 𐑿."
       one: "%{actors} 𐑕𐑑𐑸𐑑𐑩𐑛 𐑖𐑺𐑦𐑙 𐑢𐑦𐑞 𐑿."
       other: "%{actors} 𐑕𐑑𐑸𐑑𐑩𐑛 𐑖𐑺𐑦𐑙 𐑢𐑦𐑞 𐑿."
       two: "%{actors} started sharing with you."
       zero: "%{actors} 𐑕𐑑𐑸𐑑𐑩𐑛 𐑖𐑺𐑦𐑙 𐑢𐑦𐑞 𐑿."
-  notifier: 
+  notifier:
     a_post_you_shared: "a post."
     click_here: "𐑒𐑤𐑦𐑒 𐑣𐑽"
-    comment_on_post: 
+    comment_on_post:
       reply: "𐑮𐑦𐑐𐑤𐑲 𐑹 𐑝𐑿 %{name}𐑟 𐑐𐑴𐑕𐑑 >"
-    confirm_email: 
+    confirm_email:
       click_link: "𐑑 𐑨𐑒𐑑𐑦𐑝𐑱𐑑 𐑿𐑼 𐑦-𐑥𐑱𐑤 𐑨𐑛𐑮𐑧𐑕 %{unconfirmed_email}, 𐑐𐑤𐑰𐑟 𐑒𐑤𐑦𐑒 𐑞𐑦𐑕 𐑤𐑦𐑙𐑒:"
       subject: "𐑐𐑤𐑰𐑟 𐑨𐑒𐑑𐑦𐑝𐑱𐑑 𐑿𐑼 𐑯𐑿 𐑦-𐑥𐑱𐑤 𐑨𐑛𐑮𐑧𐑕 %{unconfirmed_email}"
     email_sent_by_diaspora: "𐑞𐑦𐑕 𐑦-𐑥𐑱𐑤 𐑢𐑳𐑟 𐑕𐑧𐑯𐑑 𐑚𐑲 ·𐑛𐑦𐑨𐑕𐑐𐑹𐑩.  𐑦𐑓 𐑿𐑛 𐑤𐑲𐑒 𐑑 𐑕𐑑𐑪𐑐 𐑜𐑧𐑑𐑦𐑙 𐑦-𐑥𐑱𐑤𐑟 𐑤𐑲𐑒 𐑞𐑦𐑕,"
     hello: "𐑣𐑧𐑤𐑴 %{name}!"
-    liked: 
+    liked:
       liked: "%{name} 𐑡𐑳𐑕𐑑 𐑤𐑲𐑒𐑑 𐑿𐑼 𐑐𐑴𐑕𐑑"
       view_post: "𐑝𐑿 𐑐𐑴𐑕𐑑 >"
-    mentioned: 
+    mentioned:
       mentioned: "𐑥𐑧𐑯𐑖𐑩𐑯𐑛 𐑿 𐑦𐑯 𐑩 𐑐𐑴𐑕𐑑:"
       subject: "%{name} 𐑣𐑨𐑟 𐑥𐑧𐑯𐑖𐑩𐑯𐑛 𐑿 𐑪𐑯 ·𐑛𐑦𐑨𐑕𐑐𐑹𐑩*"
-    private_message: 
+    private_message:
       reply_to_or_view: "𐑮𐑦𐑐𐑤𐑲 𐑑 𐑹 𐑝𐑿 𐑞𐑦𐑕 𐑒𐑪𐑯𐑝𐑼𐑕𐑱𐑖𐑩𐑯 >"
-    reshared: 
+    reshared:
       reshared: "%{name} just reshared your post"
       view_post: "View post >"
-    single_admin: 
+    single_admin:
       admin: "𐑿𐑼 ·𐑛𐑦𐑨𐑕𐑐𐑹𐑩 𐑨𐑛𐑥𐑦𐑯𐑦𐑕𐑑𐑮𐑱𐑑𐑼"
       subject: "𐑩 𐑥𐑧𐑕𐑩𐑡 𐑑 𐑿𐑼 ·𐑛𐑦𐑨𐑕𐑐𐑹𐑩 𐑩𐑒𐑬𐑯𐑑:"
-    started_sharing: 
+    started_sharing:
       sharing: "𐑣𐑨𐑟 𐑕𐑑𐑸𐑑𐑩𐑛 𐑖𐑺𐑦𐑙 𐑢𐑦𐑞 𐑿!"
       subject: "%{name} 𐑕𐑑𐑸𐑑𐑩𐑛 𐑖𐑺𐑦𐑙 𐑢𐑦𐑞 𐑿 𐑪𐑯 ·𐑛𐑦𐑨𐑕𐑐𐑹𐑩*"
       view_profile: "𐑝𐑿 %{name}𐑟 𐑐𐑮𐑴𐑓𐑲𐑤"
@@ -483,29 +483,30 @@ en_shaw:
   or: "𐑹"
   password: "Password"
   password_confirmation: "𐑐𐑨𐑕𐑢𐑼𐑛 𐑒𐑪𐑯𐑓𐑼𐑥𐑱𐑖𐑩𐑯"
-  people: 
-    add_contact_small: 
+  people:
+    add_contact_small:
       add_contact_from_tag: "𐑨𐑛 𐑒𐑪𐑯𐑑𐑨𐑒𐑑 𐑓𐑮𐑪𐑥 𐑑𐑨𐑜"
-    aspect_list: 
+    aspect_list:
       edit_membership: "𐑧𐑛𐑦𐑑 𐑨𐑕𐑐𐑧𐑒𐑑 𐑥𐑧𐑥𐑚𐑼𐑖𐑦𐑐"
     few: "%{count} 𐑐𐑰𐑐𐑩𐑤"
-    helper: 
+    helper:
       people_on_pod_are_aware_of: " 𐑐𐑰𐑐𐑤 𐑪𐑯 𐑐𐑪𐑛 𐑸 𐑩𐑢𐑺 𐑝"
       results_for: " 𐑮𐑦𐑟𐑫𐑤𐑑 𐑓𐑹 %{params}"
-    index: 
+    index:
       couldnt_find_them_send_invite: "𐑒𐑫𐑛𐑯𐑑 𐑓𐑲𐑯𐑛 𐑞𐑧𐑥?  𐑕𐑧𐑯𐑛 𐑩𐑯 𐑦𐑯𐑝𐑲𐑑!"
+      looking_for: "Looking for posts tagged %{tag_link}?"
       no_one_found: "...𐑯 𐑯𐑴 𐑢𐑳𐑯 𐑢𐑪𐑟 𐑓𐑬𐑯𐑛."
       no_results: "𐑣𐑱! 𐑿 𐑯𐑰𐑛 𐑑 𐑕𐑻𐑗 𐑓𐑹 𐑕𐑳𐑥𐑔𐑦𐑙."
       results_for: "𐑕𐑻𐑗 𐑮𐑦𐑟𐑫𐑤𐑑𐑕 𐑓𐑹"
     many: "%{count} 𐑐𐑰𐑐𐑩𐑤"
     one: "1 𐑐𐑻𐑕𐑩𐑯"
     other: "%{count} 𐑐𐑰𐑐𐑩𐑤"
-    person: 
+    person:
       add_contact: "𐑨𐑛 𐑒𐑪𐑯𐑑𐑨𐑒𐑑"
       already_connected: "𐑷𐑤𐑮𐑧𐑛𐑦 𐑒𐑩𐑯𐑧𐑒𐑑𐑩𐑛"
       pending_request: "𐑐𐑧𐑯𐑛𐑦𐑙 𐑮𐑦𐑒𐑢𐑧𐑕𐑑"
       thats_you: "𐑞𐑨𐑑𐑕 𐑿!"
-    profile_sidebar: 
+    profile_sidebar:
       bio: "𐑚𐑲𐑴"
       born: "𐑚𐑻𐑔𐑛𐑱"
       edit_my_profile: "𐑧𐑛𐑦𐑑 𐑥𐑲 𐑐𐑮𐑴𐑓𐑲𐑤"
@@ -514,7 +515,7 @@ en_shaw:
       location: "𐑤𐑴𐑒𐑱𐑖𐑩𐑯"
       remove_contact: "𐑮𐑦𐑥𐑵𐑝 𐑒𐑪𐑯𐑑𐑨𐑒𐑑"
       remove_from: "𐑮𐑦𐑥𐑵𐑝 %{name} 𐑓𐑮𐑪𐑥 %{aspect}?"
-    show: 
+    show:
       does_not_exist: "𐑐𐑻𐑕𐑩𐑯 𐑛𐑳𐑟 𐑯𐑪𐑑 𐑧𐑜𐑟𐑦𐑕𐑑!"
       has_not_shared_with_you_yet: "%{name} 𐑣𐑨𐑟 𐑯𐑪𐑑 𐑖𐑺𐑛 𐑧𐑯𐑦 𐑐𐑴𐑕𐑑𐑕 𐑢𐑦𐑞 𐑿 𐑘𐑧𐑑!"
       ignoring: "You are ignoring all posts from %{name}."
@@ -528,38 +529,38 @@ en_shaw:
       see_all: "𐑕𐑰 𐑷𐑤"
       start_sharing: "𐑕𐑑𐑸𐑑 𐑖𐑺𐑦𐑙"
       to_accept_or_ignore: "𐑑 𐑩𐑒𐑕𐑧𐑐𐑑 𐑹 𐑦𐑜𐑯𐑹 𐑦𐑑."
-    sub_header: 
+    sub_header:
       add_some: "add some"
       edit: "edit"
       you_have_no_tags: "you have no tags!"
     two: "%{count} people"
-    webfinger: 
+    webfinger:
       fail: "𐑕𐑪𐑮𐑦, 𐑢𐑰 𐑒𐑫𐑛𐑯𐑑 𐑓𐑲𐑯𐑛 %{handle}."
     zero: "𐑯𐑴 𐑐𐑰𐑐𐑩𐑤"
-  photos: 
+  photos:
     comment_email_subject: "%{name}'s photo"
-    create: 
+    create:
       integrity_error: "𐑓𐑴𐑑𐑴 𐑳𐑐𐑤𐑴𐑛 𐑓𐑱𐑤𐑛.  𐑸 𐑿 𐑖𐑻 𐑞𐑨𐑑 𐑢𐑪𐑟 𐑩𐑯 𐑦𐑥𐑩𐑡?"
       runtime_error: "𐑓𐑴𐑑𐑴 𐑳𐑐𐑤𐑴𐑛 𐑓𐑱𐑤𐑛.  𐑸 𐑿 𐑖𐑻 𐑿𐑼 𐑕𐑰𐑑𐑚𐑧𐑤𐑑 𐑦𐑟 𐑓𐑨𐑕𐑩𐑯𐑛?"
       type_error: "𐑓𐑴𐑑𐑴 𐑩𐑐𐑤𐑴𐑛 𐑓𐑱𐑤𐑛.  𐑸 𐑿 𐑖𐑻 𐑩𐑯 𐑦𐑥𐑩𐑡 𐑢𐑪𐑟 𐑨𐑛𐑩𐑛?"
-    destroy: 
+    destroy:
       notice: "𐑓𐑴𐑑𐑴 𐑛𐑦𐑤𐑰𐑑𐑩𐑛."
-    edit: 
+    edit:
       editing: "𐑧𐑛𐑦𐑑𐑦𐑙"
-    new: 
+    new:
       back_to_list: "𐑚𐑨𐑒 𐑑 𐑤𐑦𐑕𐑑"
       new_photo: "𐑯𐑿 𐑓𐑴𐑑𐑴"
       post_it: "𐑐𐑴𐑕𐑑 𐑦𐑑!"
-    new_photo: 
+    new_photo:
       empty: "{file} 𐑦𐑟 𐑧𐑥𐑐𐑑𐑦, 𐑐𐑤𐑰𐑟 𐑕𐑩𐑤𐑧𐑒𐑑 𐑓𐑲𐑤𐑟 𐑩𐑜𐑧𐑯 𐑢𐑦𐑞𐑬𐑑 𐑦𐑑."
       invalid_ext: "{file} 𐑣𐑨𐑟 𐑦𐑯𐑝𐑨𐑤𐑦𐑛 𐑧𐑒𐑕𐑑𐑧𐑯𐑖𐑩𐑯. 𐑴𐑯𐑤𐑦 {extensions} 𐑸 𐑩𐑤𐑬𐑛."
       size_error: "{file} 𐑦𐑟 𐑑𐑵 𐑤𐑸𐑡, 𐑥𐑨𐑒𐑕𐑦𐑥𐑩𐑥 𐑓𐑲𐑤 𐑕𐑲𐑟 𐑦𐑟 {sizeLimit}."
-    new_profile_photo: 
+    new_profile_photo:
       or_select_one_existing: "or select one from your already existing %{photos}"
       upload: "𐑩𐑐𐑤𐑴𐑛 𐑩 𐑯𐑿 𐑐𐑮𐑴𐑓𐑲𐑤 𐑓𐑴𐑑𐑴!"
-    photo: 
+    photo:
       view_all: "𐑝𐑿 𐑷𐑤 𐑝 %{name}𐑟 𐑓𐑴𐑑𐑴𐑟"
-    show: 
+    show:
       collection_permalink: "𐑒𐑩𐑤𐑧𐑒𐑖𐑩𐑯 𐑐𐑻𐑥𐑩𐑤𐑦𐑙𐑒"
       delete_photo: "𐑛𐑦𐑤𐑰𐑑 𐑓𐑴𐑑𐑴"
       edit: "𐑧𐑛𐑦𐑑"
@@ -567,19 +568,19 @@ en_shaw:
       make_profile_photo: "𐑥𐑱𐑒 𐑐𐑮𐑴𐑓𐑲𐑤 𐑓𐑴𐑑𐑴"
       show_original_post: "Show original post"
       update_photo: "𐑩𐑐𐑛𐑱𐑑 𐑓𐑴𐑑𐑴"
-    update: 
+    update:
       error: "𐑓𐑱𐑤𐑛 𐑑 𐑧𐑛𐑦𐑑 𐑓𐑴𐑑𐑴."
       notice: "𐑓𐑴𐑑𐑴 𐑕𐑩𐑒𐑕𐑧𐑕𐑓𐑫𐑤𐑦 𐑳𐑐𐑛𐑱𐑑𐑩𐑛."
-  posts: 
-    show: 
+  posts:
+    show:
       destroy: "𐑛𐑦𐑤𐑰𐑑"
       not_found: "𐑕𐑪𐑮𐑦, 𐑢𐑰 𐑒𐑫𐑛𐑯𐑑 𐑓𐑲𐑯𐑛 𐑞𐑨𐑑 𐑐𐑴𐑕𐑑."
       permalink: "𐑐𐑻𐑥𐑩𐑤𐑦𐑙𐑒"
   previous: "𐑐𐑮𐑰𐑝𐑾𐑕"
   privacy: "Privacy"
   profile: "𐑐𐑮𐑴𐑓𐑲𐑤"
-  profiles: 
-    edit: 
+  profiles:
+    edit:
       allow_search: "𐑩𐑤𐑬 𐑓𐑹 𐑐𐑰𐑐𐑩𐑤 𐑑 𐑕𐑻𐑗 𐑓𐑹 𐑿 𐑢𐑦𐑞𐑦𐑯 ·𐑛𐑦𐑨𐑕𐑐𐑹𐑩"
       edit_profile: "𐑧𐑛𐑦𐑑 𐑐𐑮𐑴𐑓𐑲𐑤"
       first_name: "𐑓𐑻𐑕𐑑 𐑯𐑱𐑥"
@@ -595,29 +596,29 @@ en_shaw:
       your_public_profile: "𐑿𐑼 𐑐𐑳𐑚𐑤𐑦𐑒 𐑐𐑮𐑴𐑓𐑲𐑤"
       your_tags: "𐑛𐑦𐑕𐑒𐑮𐑲𐑚 𐑿𐑼𐑕𐑧𐑤𐑓 𐑦𐑯 5 𐑢𐑻𐑛𐑟"
       your_tags_placeholder: "𐑤𐑲𐑒 #diaspora #ironing #kittens #music #newyork"
-    update: 
+    update:
       failed: "𐑓𐑱𐑤𐑛 𐑑 𐑳𐑐𐑛𐑱𐑑 𐑐𐑮𐑴𐑓𐑲𐑤"
       updated: "𐑐𐑮𐑴𐑓𐑲𐑤 𐑳𐑐𐑛𐑱𐑑𐑩𐑛"
   public: "𐑐𐑳𐑚𐑤𐑦𐑒"
-  reactions: 
+  reactions:
     few: "%{count} reactions"
     many: "%{count} reactions"
     one: "1 reaction"
     other: "%{count} reactions"
     two: "%{count} reactions"
     zero: "0 reactions"
-  registrations: 
+  registrations:
     closed: "𐑕𐑲𐑯𐑩𐑐𐑕 𐑸 𐑒𐑤𐑴𐑟𐑛 𐑪𐑯 𐑞𐑦𐑕 ·𐑛𐑦𐑨𐑕𐑐𐑹𐑩 𐑐𐑪𐑛."
-    create: 
+    create:
       success: "𐑿'𐑝 𐑡𐑶𐑯𐑛 ·𐑛𐑦𐑨𐑕𐑐𐑹𐑩!"
-    edit: 
+    edit:
       cancel_my_account: "𐑒𐑨𐑯𐑕𐑩𐑤 𐑥𐑲 𐑩𐑒𐑬𐑯𐑑"
       edit: "𐑧𐑛𐑦𐑑 %{name}"
       leave_blank: "(𐑤𐑰𐑝 𐑚𐑤𐑱𐑙𐑒 𐑦𐑓 𐑿 𐑛𐑴𐑯𐑑 𐑢𐑳𐑯𐑑 𐑑 𐑗𐑱𐑯𐑡 𐑦𐑑)"
       password_to_confirm: "(𐑢𐑰 𐑯𐑰𐑛 𐑿𐑼 𐑒𐑻𐑩𐑯𐑑 𐑐𐑨𐑕𐑢𐑼𐑛 𐑑 𐑒𐑩𐑯𐑓𐑻𐑥 𐑿𐑼 𐑗𐑱𐑯𐑡𐑩𐑟)"
       unhappy: 𐑩𐑯𐑣𐑨𐑐𐑦?
       update: "𐑳𐑐𐑛𐑱𐑑"
-    new: 
+    new:
       create_my_account: "Create my account"
       enter_email: "𐑧𐑯𐑑𐑼 𐑩𐑯 𐑦-𐑥𐑱𐑤"
       enter_password: "𐑧𐑯𐑑𐑼 𐑩 𐑐𐑨𐑕𐑢𐑼𐑛"
@@ -625,34 +626,34 @@ en_shaw:
       enter_username: "𐑐𐑦𐑒 𐑩 𐑿𐑟𐑼𐑯𐑱𐑥 (𐑴𐑯𐑤𐑦 𐑤𐑧𐑑𐑼𐑟, 𐑯𐑳𐑥𐑚𐑼𐑟, 𐑯 𐑳𐑯𐑛𐑼𐑕𐑒𐑹𐑟)"
       join_the_movement: "Join the movement!"
       sign_up_message: "Social Networking with a <3"
-  requests: 
-    create: 
+  requests:
+    create:
       sending: "𐑕𐑧𐑯𐑛𐑦𐑙"
       sent: "𐑿'𐑝 𐑨𐑕𐑒𐑑 𐑑 𐑖𐑺 𐑢𐑦𐑞 %{name}.  𐑞𐑱 𐑖𐑫𐑛 𐑕𐑰 𐑦𐑑 𐑞 𐑯𐑧𐑒𐑕𐑑 𐑑𐑲𐑥 𐑞𐑱 𐑤𐑪𐑜 𐑦𐑯 𐑑 ·𐑛𐑦𐑨𐑕𐑐𐑹𐑩."
-    destroy: 
+    destroy:
       error: "𐑐𐑤𐑰𐑟 𐑕𐑩𐑤𐑧𐑒𐑑 𐑩𐑯 𐑨𐑕𐑐𐑧𐑒𐑑!"
       ignore: "𐑦𐑜𐑯𐑹𐑛 𐑒𐑪𐑯𐑑𐑨𐑒𐑑 𐑮𐑦𐑒𐑢𐑧𐑕𐑑."
       success: "𐑿 𐑸 𐑯𐑬 𐑖𐑺𐑦𐑙."
-    helper: 
-      new_requests: 
+    helper:
+      new_requests:
         few: "%{count} 𐑯𐑿 𐑮𐑦𐑒𐑢𐑧𐑕𐑑𐑕!"
         many: "%{count} 𐑯𐑿 𐑮𐑦𐑒𐑢𐑧𐑕𐑑𐑕!"
         one: "𐑯𐑿 𐑮𐑦𐑒𐑢𐑧𐑕𐑑!"
         other: "%{count} 𐑯𐑿 𐑮𐑦𐑒𐑢𐑧𐑕𐑑𐑕!"
         two: "%{count} new requests!"
         zero: "𐑯𐑴 𐑯𐑿 𐑮𐑦𐑒𐑢𐑧𐑕𐑑𐑕"
-    manage_aspect_contacts: 
+    manage_aspect_contacts:
       existing: "𐑧𐑜𐑟𐑦𐑕𐑑𐑦𐑙 𐑒𐑪𐑯𐑑𐑨𐑒𐑑𐑕"
       manage_within: "𐑥𐑨𐑯𐑩𐑡 𐑒𐑪𐑯𐑑𐑨𐑒𐑑𐑕 𐑢𐑦𐑞𐑦𐑯"
-    new_request_to_person: 
+    new_request_to_person:
       sent: 𐑕𐑧𐑯𐑑!
-  reshares: 
+  reshares:
     comment_email_subject: "%{resharer}'s reshare of %{author}'s post"
-    create: 
+    create:
       failure: "𐑞𐑺 𐑢𐑳𐑟 𐑩𐑯 𐑺𐑼 𐑮𐑦𐑖𐑺𐑦𐑙 𐑞𐑦𐑕 𐑐𐑴𐑕𐑑."
-    reshare: 
+    reshare:
       deleted: "𐑩𐑮𐑦𐑡𐑩𐑯𐑩𐑤 𐑐𐑴𐑕𐑑 𐑛𐑦𐑤𐑰𐑑𐑩𐑛 𐑚𐑲 𐑞 𐑷𐑔𐑼."
-      reshare: 
+      reshare:
         few: "%{count} 𐑮𐑦𐑖𐑺𐑟"
         many: "%{count} 𐑮𐑦𐑖𐑺𐑟"
         one: "1 𐑮𐑦𐑖𐑺"
@@ -664,20 +665,20 @@ en_shaw:
       reshared_via: "reshared via"
       show_original: "𐑖𐑴 𐑩𐑮𐑦𐑡𐑩𐑯𐑩𐑤"
   search: "𐑕𐑻𐑗"
-  services: 
-    create: 
+  services:
+    create:
       already_authorized: "A user with diaspora id %{diaspora_id} already authorized that %{service_name} account."
       failure: "Authentication failed."
       success: "𐑷𐑔𐑧𐑯𐑑𐑦𐑒𐑱𐑖𐑩𐑯 𐑕𐑩𐑒𐑕𐑧𐑕𐑓𐑫𐑤."
-    destroy: 
+    destroy:
       success: "𐑕𐑩𐑒𐑕𐑧𐑕𐑓𐑫𐑤𐑦 𐑛𐑦𐑤𐑰𐑑𐑩𐑛 𐑷𐑔𐑧𐑯𐑑𐑦𐑒𐑱𐑖𐑩𐑯."
-    failure: 
+    failure:
       error: "𐑞𐑺 𐑢𐑪𐑟 𐑩𐑯 𐑺𐑼 𐑒𐑩𐑯𐑧𐑒𐑑𐑦𐑙 𐑞𐑨𐑑 𐑕𐑻𐑝𐑩𐑕"
-    finder: 
+    finder:
       fetching_contacts: "Diaspora is populating your %{service} friends please check back in a few minutes."
       no_friends: "No Facebook friends found."
       service_friends: "%{service} Friends"
-    index: 
+    index:
       connect_to_facebook: "𐑒𐑩𐑯𐑧𐑒𐑑 𐑑 Facebook"
       connect_to_tumblr: "𐑒𐑩𐑯𐑧𐑒𐑑 𐑑 Tumblr"
       connect_to_twitter: "𐑒𐑩𐑯𐑧𐑒𐑑 𐑑 Twitter"
@@ -686,41 +687,41 @@ en_shaw:
       logged_in_as: "𐑤𐑪𐑜𐑛 𐑦𐑯 𐑨𐑟"
       no_services: "𐑿 𐑣𐑨𐑝 𐑯𐑪𐑑 𐑒𐑩𐑯𐑧𐑒𐑑𐑩𐑛 𐑑 𐑧𐑯𐑦 𐑕𐑻𐑝𐑦𐑕𐑩𐑟 𐑘𐑧𐑑."
       really_disconnect: "𐑛𐑦𐑕𐑒𐑩𐑯𐑧𐑒𐑑 %{service}?"
-    inviter: 
+    inviter:
       click_link_to_accept_invitation: "𐑒𐑤𐑦𐑒 𐑞𐑦𐑕 𐑤𐑦𐑙𐑒 𐑑 𐑩𐑒𐑕𐑧𐑐𐑑 𐑿𐑼 𐑦𐑯𐑝𐑦𐑑𐑱𐑖𐑩𐑯"
       join_me_on_diaspora: "𐑡𐑶𐑯 𐑥𐑰 𐑪𐑯 ·𐑛𐑦𐑨𐑕𐑐𐑹𐑩*"
-    remote_friend: 
+    remote_friend:
       invite: "𐑦𐑯𐑝𐑲𐑑"
       not_on_diaspora: "Not yet on Diaspora"
       resend: "𐑮𐑦𐑕𐑧𐑯𐑛"
   settings: "𐑕𐑧𐑑𐑦𐑙𐑟"
-  share_visibilites: 
-    update: 
+  share_visibilites:
+    update:
       post_hidden_and_muted: "%{name}'s post has been hidden, and notifications have been muted."
       see_it_on_their_profile: "If you want to see updates on this post, visit %{name}'s profile page."
-  shared: 
-    add_contact: 
+  shared:
+    add_contact:
       add_new_contact: "𐑨𐑛 𐑯𐑿 𐑒𐑪𐑯𐑑𐑨𐑒𐑑"
       create_request: "𐑓𐑲𐑯𐑛 𐑚𐑲·𐑛𐑦𐑨𐑕𐑐𐑹𐑩 𐑲𐑛𐑧𐑯𐑑𐑦𐑓𐑦𐑒𐑱𐑖𐑩𐑯"
       diaspora_handle: diaspora@handle.org
       enter_a_diaspora_username: "𐑧𐑯𐑑𐑼 𐑩 ·𐑛𐑦𐑨𐑕𐑐𐑹𐑩 𐑿𐑟𐑼𐑯𐑱𐑥:"
       know_email: "𐑯𐑴 𐑞𐑺 𐑦-𐑥𐑱𐑤 𐑩𐑛𐑮𐑧𐑕? 𐑿 𐑖𐑫𐑛 𐑦𐑯𐑝𐑲𐑑 𐑞𐑧𐑥"
       your_diaspora_username_is: "𐑿𐑼 ·𐑛𐑦𐑨𐑕𐑐𐑹𐑩 𐑿𐑟𐑼𐑯𐑱𐑥 𐑦𐑟: %{diaspora_handle}"
-    aspect_dropdown: 
+    aspect_dropdown:
       add_to_aspect: "Add to aspect"
-      toggle: 
+      toggle:
         few: "In %{count} aspects"
         many: "In %{count} aspects"
         one: "In %{count} aspect"
         other: "In %{count} aspects"
         two: "In %{count} aspects"
         zero: "Add to aspect"
-    contact_list: 
+    contact_list:
       all_contacts: "𐑷𐑤 𐑒𐑪𐑯𐑑𐑨𐑒𐑑𐑕"
-    footer: 
+    footer:
       logged_in_as: "𐑤𐑪𐑜𐑛 𐑦𐑯 𐑨𐑟 %{name}"
       your_aspects: "𐑿𐑼 𐑨𐑕𐑐𐑧𐑒𐑑𐑕"
-    invitations: 
+    invitations:
       by_email: "𐑚𐑲 𐑦-𐑥𐑱𐑤"
       dont_have_now: "𐑿 𐑛𐑴𐑯𐑑 𐑣𐑨𐑝 𐑨𐑯𐑦 𐑮𐑲𐑑 𐑯𐑬, 𐑚𐑳𐑑 𐑥𐑹 𐑦𐑥𐑝𐑲𐑑𐑕 𐑸 𐑒𐑳𐑥𐑦𐑙 𐑕𐑵𐑯!"
       from_facebook: "𐑓𐑮𐑪𐑥 ·𐑓𐑱𐑕𐑚𐑫𐑒"
@@ -729,9 +730,9 @@ en_shaw:
       invite_your_friends: "𐑦𐑯𐑝𐑲𐑑 𐑿𐑼 𐑓𐑮𐑧𐑯𐑛𐑟"
       invites: "𐑦𐑯𐑝𐑲𐑑𐑕"
       invites_closed: "𐑦𐑯𐑝𐑲𐑑𐑕 𐑸 𐑒𐑻𐑩𐑯𐑑𐑤𐑦 𐑒𐑤𐑴𐑟𐑛 𐑪𐑯 𐑞𐑦𐑕 ·𐑛𐑦𐑨𐑕𐑐𐑹𐑩 𐑐𐑪𐑛"
-    notification: 
+    notification:
       new: "𐑯𐑿 %{type} 𐑓𐑮𐑪𐑥 %{from}"
-    public_explain: 
+    public_explain:
       control_your_audience: "Control your Audience"
       logged_in: "𐑤𐑪𐑜𐑛 𐑦𐑯 𐑑 %{service}"
       manage: "𐑥𐑨𐑯𐑩𐑡 𐑒𐑩𐑯𐑧𐑒𐑑𐑩𐑛 𐑕𐑻𐑝𐑦𐑕𐑩𐑟"
@@ -740,12 +741,12 @@ en_shaw:
       share: "Share"
       title: "𐑕𐑧𐑑 𐑳𐑐 𐑒𐑩𐑯𐑧𐑒𐑑𐑩𐑛 𐑕𐑻𐑝𐑦𐑕𐑩𐑟"
       visibility_dropdown: "Use this dropdown to change visibility of your post.  (We suggest you make this first one public.)"
-    publisher: 
+    publisher:
       all: "𐑷𐑤"
       all_contacts: "𐑷𐑤 𐑒𐑪𐑯𐑑𐑨𐑒𐑑𐑕"
       discard_post: "𐑛𐑦𐑕𐑒𐑸𐑛 𐑐𐑴𐑕𐑑"
       make_public: "𐑥𐑱𐑒 𐑐𐑳𐑚𐑤𐑦𐑒"
-      new_user_prefill: 
+      new_user_prefill:
         hello: "Hey everyone, I'm #%{new_user_tag}. "
         i_like: "I'm interested in %{tags}."
         invited_by: "Thanks for the invite, "
@@ -756,9 +757,9 @@ en_shaw:
       share_with: "𐑖𐑺 𐑢𐑦𐑞 %{aspect}"
       upload_photos: "𐑳𐑐𐑤𐑴𐑛 𐑓𐑴𐑑𐑴𐑟"
       whats_on_your_mind: "𐑢𐑳𐑑𐑕 𐑪𐑯 𐑿𐑼 𐑥𐑲𐑯𐑛?"
-    reshare: 
+    reshare:
       reshare: "𐑮𐑦𐑖𐑺"
-    stream_element: 
+    stream_element:
       connect_to_comment: "Connect to this user to comment on their post"
       currently_unavailable: "commenting currently unavailable"
       dislike: "𐑛𐑦𐑕𐑤𐑲𐑒"
@@ -770,61 +771,68 @@ en_shaw:
       unlike: "𐑩𐑯𐑤𐑲𐑒"
       via: "𐑝𐑾 %{link}"
       viewable_to_anyone: "𐑞𐑦𐑕 𐑐𐑴𐑕𐑑 𐑦𐑟 𐑝𐑿𐑩𐑚𐑩𐑤 𐑑 𐑧𐑯𐑦𐑢𐑩𐑯 𐑪𐑯 𐑞 𐑢𐑧𐑚"
-  status_messages: 
-    create: 
+  status_messages:
+    create:
       success: "𐑕𐑩𐑒𐑕𐑧𐑕𐑓𐑫𐑤𐑦 𐑥𐑧𐑯𐑖𐑩𐑯𐑛: %{names}"
-    destroy: 
+    destroy:
       failure: "𐑓𐑱𐑤𐑛 𐑑 𐑛𐑦𐑤𐑰𐑑 𐑐𐑴𐑕𐑑"
-    helper: 
+    helper:
       no_message_to_display: "𐑯𐑴 𐑥𐑧𐑕𐑩𐑡 𐑑 𐑛𐑦𐑕𐑐𐑤𐑱."
-    new: 
+    new:
       mentioning: "𐑥𐑧𐑯𐑖𐑩𐑯𐑦𐑙: %{person}"
-    too_long: 
+    too_long:
       few: "𐑐𐑤𐑰𐑟 𐑥𐑱𐑒 𐑿𐑼 𐑕𐑑𐑨𐑑𐑩𐑕 𐑥𐑧𐑕𐑩𐑡𐑩𐑟 𐑤𐑧𐑕 𐑞𐑨𐑯 %{count} 𐑒𐑺𐑩𐑒𐑑𐑼𐑟"
       many: "𐑐𐑤𐑰𐑟 𐑥𐑱𐑒 𐑿𐑼 𐑕𐑑𐑨𐑑𐑩𐑕 𐑥𐑧𐑕𐑩𐑡𐑩𐑟 𐑤𐑧𐑕 𐑞𐑨𐑯 %{count} 𐑒𐑺𐑩𐑒𐑑𐑼𐑟"
       one: "𐑐𐑤𐑰𐑟 𐑥𐑱𐑒 𐑿𐑼 𐑕𐑑𐑨𐑑𐑩𐑕 𐑥𐑧𐑕𐑩𐑡𐑩𐑟 𐑤𐑧𐑕 𐑞𐑨𐑯 %{count} 𐑒𐑺𐑩𐑒𐑑𐑼"
       other: "𐑐𐑤𐑰𐑟 𐑥𐑱𐑒 𐑿𐑼 𐑕𐑑𐑨𐑑𐑩𐑕 𐑥𐑧𐑕𐑩𐑡𐑩𐑟 𐑤𐑧𐑕 𐑞𐑨𐑯 %{count} 𐑒𐑺𐑩𐑒𐑑𐑼𐑟"
       two: "please make your status messages less than %{count} characters"
       zero: "𐑐𐑤𐑰𐑟 𐑥𐑱𐑒 𐑿𐑼 𐑕𐑑𐑨𐑑𐑩𐑕 𐑥𐑧𐑕𐑩𐑡𐑩𐑟 𐑤𐑧𐑕 𐑞𐑨𐑯 %{count} 𐑒𐑺𐑩𐑒𐑑𐑼𐑟"
-  stream_helper: 
+  stream_helper:
     hide_comments: "𐑣𐑲𐑛 𐑷𐑤 𐑒𐑪𐑥𐑩𐑯𐑑𐑕"
-    show_more_comments: "𐑖𐑴 %{number} 𐑥𐑹 𐑒𐑪𐑥𐑩𐑯𐑑𐑕"
-  streams: 
-    aspects: 
+    show_comments:
+      few: "Show %{count} more comments"
+      many: "Show %{count} more comments"
+      one: "Show one more comment"
+      other: "Show %{count} more comments"
+      two: "Show two more comments"
+      zero: "No more comments"
+  streams:
+    aspects:
       title: "Your Aspects"
     aspects_stream: "Aspects"
     commented_on: "commented on"
     community_spotlight_stream: "Community Spotlight"
-    followed_tag: 
+    followed_tag:
       add_a_tag: "Add a tag"
       contacts_title: "People who dig these tags"
       follow: "Follow"
       title: "#Followed Tags"
     followed_tags_stream: "#Followed Tags"
     mentioned_stream: "@Mentions"
-    mentions: 
+    mentions:
       contacts_title: "People who mentioned you"
       title: "Your Mentions"
-    multi: 
+    multi:
       contacts_title: "People in your Stream"
       title: "Stream"
     posted: "posted"
-    public: 
+    public:
       contacts_title: "Recent Posters"
       title: "Public Activity"
     recently: "recently:"
-    tags: 
+    tags:
       contacts_title: "People who dig these tags"
+      tag_prefill_text: "The thing about %{tag_name} is... "
       title: "Posts tagged: %{tags}"
-  tag_followings: 
-    create: 
+  tag_followings:
+    create:
       failure: "𐑓𐑱𐑤𐑛 𐑑 𐑓𐑪𐑤𐑴: #%{name}"
       success: "𐑕𐑩𐑒𐑕𐑧𐑕𐑓𐑫𐑤𐑦 𐑓𐑪𐑤𐑴𐑦𐑙: #%{name}"
-    destroy: 
+    destroy:
       failure: "𐑓𐑱𐑤𐑛 𐑑 𐑕𐑑𐑪𐑐 𐑓𐑪𐑤𐑴𐑦𐑙: #%{name}"
       success: "𐑕𐑩𐑒𐑕𐑧𐑕𐑓𐑫𐑤𐑦 𐑕𐑑𐑪𐑐𐑑 𐑓𐑪𐑤𐑴𐑦𐑙: #%{name}"
-  tags: 
-    show: 
+  tags:
+    show:
       follow: "𐑓𐑪𐑤𐑴 #%{tag}"
       followed_by: "followed by"
       following: "𐑓𐑪𐑤𐑴𐑦𐑙 #%{tag}"
@@ -832,8 +840,8 @@ en_shaw:
       people_tagged_with: "𐑐𐑰𐑐𐑩𐑤 𐑑𐑨𐑜𐑛 𐑢𐑦𐑞 %{tag}"
       posts_tagged_with: "𐑐𐑴𐑕𐑑𐑕 𐑑𐑨𐑜𐑛 𐑢𐑦𐑞 #%{tag}"
       stop_following: "𐑕𐑑𐑪𐑐 𐑓𐑪𐑤𐑴𐑦𐑙 #%{tag}"
-  tokens: 
-    show: 
+  tokens:
+    show:
       connect_to_cubbies: "𐑒𐑩𐑯𐑧𐑒𐑑 𐑑 Cubbi.es"
       connecting_is_simple: "𐑒𐑩𐑯𐑧𐑒𐑑𐑦𐑙 𐑿𐑼 ·𐑛𐑦𐑨𐑕𐑐𐑹𐑩 𐑩𐑒𐑬𐑯𐑑 𐑦𐑟 𐑕𐑦𐑥𐑐𐑩𐑤! 𐑡𐑳𐑕𐑑 𐑧𐑯𐑑𐑼 𐑿𐑼 𐑲𐑛𐑧𐑯𐑑𐑦𐑓𐑦𐑒𐑱𐑖𐑩𐑯 (<b>%{diaspora_id}</b>) 𐑓𐑮𐑳𐑥 𐑿𐑼 𐑒𐑳𐑚𐑦𐑟 <a href='%{href_link}'>settings page</a> 𐑯 𐑣𐑦𐑑 𐑒𐑩𐑯𐑧𐑒𐑑."
       daniels_account: "·𐑛𐑨𐑯𐑘𐑩𐑤𐑟 ·𐑛𐑦𐑨𐑕𐑐𐑹𐑩 𐑩𐑒𐑬𐑯𐑑"
@@ -847,15 +855,15 @@ en_shaw:
       what_is_cubbies: "Cubbi.es 𐑦𐑟 𐑞 𐑢𐑻𐑤𐑛𐑟 𐑓𐑻𐑕𐑑 ·𐑛𐑦𐑨𐑕𐑐𐑹𐑩 𐑨𐑐𐑤𐑦𐑒𐑱𐑖𐑩𐑯.  𐑦𐑑𐑕 𐑷𐑤𐑕𐑴 𐑞 𐑚𐑧𐑕𐑑 𐑢𐑱 𐑑 𐑒𐑩𐑤𐑧𐑒𐑑 𐑓𐑴𐑑𐑴𐑟 𐑪𐑯𐑤𐑲𐑯."
   undo: 𐑩𐑯𐑛𐑵?
   username: "𐑿𐑟𐑼𐑯𐑱𐑥"
-  users: 
-    confirm_email: 
+  users:
+    confirm_email:
       email_confirmed: "𐑦-𐑥𐑱𐑤 %{email} 𐑨𐑒𐑑𐑦𐑝𐑱𐑑𐑩𐑛"
       email_not_confirmed: "𐑦-𐑥𐑱𐑤 𐑒𐑫𐑛 𐑯𐑪𐑑 𐑚𐑰 𐑨𐑒𐑑𐑦𐑝𐑱𐑑𐑩𐑛. 𐑮𐑪𐑙 𐑤𐑦𐑙𐑒?"
-    destroy: 
+    destroy:
       no_password: "Please enter your current password to close your account."
       success: "Your account has been locked.  It may take 20 minutes for us to finish closing your account.  Thank you for trying Diaspora."
       wrong_password: "The entered password didn't match your current password."
-    edit: 
+    edit:
       also_commented: "...𐑕𐑳𐑥𐑢𐑩𐑯 𐑷𐑤𐑕𐑴 𐑒𐑪𐑥𐑩𐑯𐑑𐑕 𐑪𐑯 𐑿𐑼 𐑒𐑪𐑯𐑑𐑨𐑒𐑑𐑕 𐑐𐑴𐑕𐑑?"
       change: "𐑗𐑱𐑯𐑡"
       change_email: "𐑗𐑱𐑯𐑡 𐑦-𐑥𐑱𐑤"
@@ -883,7 +891,7 @@ en_shaw:
       stream_preferences: "Stream Preferences"
       your_email: "𐑿𐑼 𐑦-𐑥𐑱𐑤"
       your_handle: "𐑿𐑼 ·𐑛𐑦𐑨𐑕𐑐𐑹𐑩 𐑲𐑛𐑧𐑯𐑑𐑦𐑓𐑦𐑒𐑱𐑖𐑩𐑯"
-    getting_started: 
+    getting_started:
       awesome_take_me_to_diaspora: "Awesome! Take me to Diaspora*"
       community_welcome: "Diaspora's community is happy to have you aboard!"
       hashtag_explanation: "𐑣𐑨𐑖𐑑𐑨𐑜𐑟 𐑩𐑤𐑬 𐑿 𐑑 𐑑𐑷𐑒 𐑩𐑚𐑬𐑑 𐑯 𐑓𐑪𐑤𐑴 𐑿𐑼 𐑦𐑯𐑑𐑮𐑧𐑕𐑑𐑕.  𐑞𐑺 𐑷𐑤𐑕𐑴 𐑩 𐑜𐑮𐑱𐑑 𐑢𐑱 𐑑 𐑓𐑲𐑯𐑛 𐑯𐑿 𐑐𐑰𐑐𐑩𐑤 𐑪𐑯 ·𐑛𐑦𐑨𐑕𐑐𐑹𐑩."
@@ -895,19 +903,19 @@ en_shaw:
       what_are_you_in_to: "What are you into?"
       what_facebook_does: "to Diaspora. This will pull your name and photo, and enable cross-positng."
       who_are_you: "Who are you?"
-    logged_out: 
+    logged_out:
       go_mobile: "Now go mobile."
       on_your_mobile_device: "on your mobile device to access Diaspora* mobile."
       signed_out: "You've signed out of Diaspora*"
       simply_visit: "Simply visit"
       works_on_modern: "Works on all modern smartphones"
-    privacy_settings: 
+    privacy_settings:
       ignored_users: "Ignored Users"
       stop_ignoring: "Stop ignoring"
       title: "Privacy Settings"
-    public: 
+    public:
       does_not_exist: "𐑿𐑟𐑼 %{username} 𐑛𐑳𐑟 𐑯𐑪𐑑 𐑧𐑜𐑟𐑦𐑕𐑑!"
-    update: 
+    update:
       email_notifications_changed: "𐑦-𐑥𐑱𐑤 𐑥𐑴𐑑𐑦𐑓𐑦𐑒𐑱𐑖𐑩𐑯𐑟 𐑗𐑱𐑯𐑡𐑛"
       language_changed: "𐑤𐑱𐑙𐑜𐑢𐑩𐑡 𐑗𐑱𐑯𐑡𐑛"
       language_not_changed: "𐑤𐑱𐑙𐑜𐑢𐑩𐑡 𐑗𐑱𐑯𐑡 𐑓𐑱𐑤𐑛"
@@ -917,7 +925,7 @@ en_shaw:
       settings_updated: "Settings updated"
       unconfirmed_email_changed: "𐑦-𐑥𐑱𐑤 𐑗𐑱𐑯𐑡. 𐑯𐑰𐑛𐑟 𐑨𐑒𐑑𐑦𐑝𐑱𐑖𐑩𐑯."
       unconfirmed_email_not_changed: "𐑦-𐑥𐑱𐑤 𐑗𐑱𐑯𐑡 𐑓𐑱𐑤𐑛"
-  webfinger: 
+  webfinger:
     fetch_failed: "failed to fetch webfinger profile for %{profile_url}"
     hcard_fetch_failed: "there was a problem fetching the hcard for %{account}"
     no_person_constructed: "𐑯𐑴 𐑐𐑻𐑕𐑩𐑯 𐑒𐑫𐑛 𐑚𐑰 𐑒𐑩𐑯𐑕𐑑𐑮𐑳𐑒𐑑𐑩𐑛 𐑓𐑮𐑪𐑥 𐑞𐑦𐑕 𐑣-𐑒𐑸𐑛."

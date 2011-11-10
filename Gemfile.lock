@@ -54,7 +54,7 @@ GEM
       Platform (>= 0.4.0)
       open4
     Platform (0.4.0)
-    SystemTimer (1.2.1)
+    SystemTimer (1.2.3)
     abstract (1.0.0)
     actionmailer (3.0.10)
       actionpack (= 3.0.10)
@@ -276,7 +276,7 @@ GEM
     net-ssh (2.0.24)
     net-ssh-gateway (1.1.0)
       net-ssh (>= 1.99.1)
-    newrelic_rpm (3.2.0)
+    newrelic_rpm (3.3.0)
     nokogiri (1.4.3.1)
     oa-basic (0.2.6)
       oa-core (= 0.2.6)
@@ -470,7 +470,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  SystemTimer (= 1.2.1)
+  SystemTimer (= 1.2.3)
   activerecord-import
   acts-as-taggable-on!
   addressable (= 2.2.4)

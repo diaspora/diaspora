@@ -3,7 +3,7 @@
 #   the COPYRIGHT file.
 
 
-he: 
+he:
   _applications: "יישומים"
   _comments: "תגובות"
   _contacts: "אנשי קשר"
@@ -11,71 +11,71 @@ he:
   _photos: "תמונות"
   _services: "שירותים"
   account: "חשבון"
-  activerecord: 
-    errors: 
-      models: 
-        contact: 
-          attributes: 
-            person_id: 
+  activerecord:
+    errors:
+      models:
+        contact:
+          attributes:
+            person_id:
               taken: "חייב להיות ייחודי בקרב אנשי הקשר של משתמש זה."
-        person: 
-          attributes: 
-            diaspora_handle: 
+        person:
+          attributes:
+            diaspora_handle:
               taken: "כבר תפוס."
-        request: 
-          attributes: 
-            from_id: 
+        request:
+          attributes:
+            from_id:
               taken: "הוא כפיל של בקשה שהתקבלה קודם לכן."
-        reshare: 
-          attributes: 
-            root_guid: 
+        reshare:
+          attributes:
+            root_guid:
               taken: "כבר שיתפת מחדש רשומה זו!"
-        user: 
-          attributes: 
-            email: 
+        user:
+          attributes:
+            email:
               taken: "כבר תפוס."
-            person: 
+            person:
               invalid: שגוי.
-            username: 
+            username:
               invalid: "שגוי. אנו מרשים להשתמש באותיות, מספרים וקווים תחתיים בלבד."
               taken: "כבר תפוס."
   ago: "%{time} עברו"
   all_aspects: "כל ההיבטים"
-  application: 
-    helper: 
+  application:
+    helper:
       diaspora_alpha: "דיאספורה* אלפא"
       unknown_person: "אדם לא ידוע"
-      video_title: 
+      video_title:
         unknown: "כותרת הווידאו אינה ידועה"
   are_you_sure: בבטחה?
-  aspect_memberships: 
-    destroy: 
+  aspect_memberships:
+    destroy:
       failure: "אירע כשל בהסרת המשתמש מההיבט"
       no_membership: "לא ניתן למצוא את איש הקשר הנבחר בהיבט זה"
       success: "איש הקשר הוסר בהצלחה מההיבט"
-  aspects: 
-    add_to_aspect: 
+  aspects:
+    add_to_aspect:
       failure: "אירע כשל בהוספת איש הקשר להיבט."
       success: "איש הקשר נוסף בהצלחה להיבט."
-    aspect_contacts: 
+    aspect_contacts:
       done_editing: "סיום העריכה"
-    aspect_listings: 
+    aspect_listings:
       add_an_aspect: "+ הוספת היבט"
       deselect_all: "Deselect all"
       edit_aspect: "Edit %{name}"
       select_all: "Select all"
-    aspect_stream: 
+    aspect_stream:
       stay_updated: "Stay Updated"
       stay_updated_explanation: "Your main stream is populated with all of your contacts, tags you follow, and posts from some creative members of the community."
     contacts_not_visible: "אנשי הקשר בהיבט זה לא יוכלו לראות אחד את השני."
     contacts_visible: "אנשי קשר בהיבט זה יוכלו לראות זה את זה."
-    create: 
+    create:
       failure: "יצירת ההיבט נכשלה."
       success: "ההיבט החדש שלך %{name} נוצר"
-    destroy: 
+    destroy:
       failure: "ההיבט %{name} אינו ריק ולא ניתן להסירו."
       success: "%{name} הוסר בהצלחה."
-    edit: 
+    edit:
       add_existing: "הוספת איש קשר קיים"
       aspect_list_is_not_visible: "רשימת ההיבטים מוסתרת בפני אחרים בהיבט"
       aspect_list_is_visible: "רשימת ההיבטים גלויה לאחרים בהיבט"
@@ -87,22 +87,22 @@ he:
       update: "עדכון"
       updating: "בעדכון"
     few: "%{count} היבטים"
-    helper: 
+    helper:
       are_you_sure: "האם אכן ברצונך למחוק היבט זה?"
       aspect_not_empty: "ההיבט אינו ריק"
       remove: "הסרה"
-    index: 
-      cubbies: 
+    index:
+      cubbies:
         explanation: "Cubbi.es הנו היישום הראשון תחת דיאספורה הנמצא בפיתוח."
         heading: "התחברות ל־Cubbi.es"
         learn_more: "מידע נוסף"
-      diaspora_id: 
+      diaspora_id:
         content_1: "המזהה שלך בדיאספורה הוא:"
         content_2: "באמצעות מזהה זה כל אחד יוכל למצוא אותך בדיאספורה."
         heading: "מזהה בדיאספורה"
       donate: "תרומה"
       handle_explanation: "זהו שם המשתמש שלך בדיאספורה. בדיוק כמו כתובת דואר אלקטרוני, ניתן לחלוק אותו עם אנשים כדי שיגיעו אליך."
-      help: 
+      help:
         do_you: "Do you:"
         email_feedback: "%{link} your feedback, if you prefer"
         feature_suggestion: "... have a %{link} suggestion?"
@@ -117,7 +117,7 @@ he:
         tutorials_wiki_and_forum: "%{tutorial} & %{wiki} & %{forum}: Community-powered tutorials, how-to, and news"
       introduce_yourself: "This is your stream.  Jump in and introduce yourself."
       keep_us_running: "כדי שהפוד %{pod} ימשיך לפעול במהירות ולרכוש שרתים נוספים שימו כמה דולרים כל חודש כדי לממן להם איזה כוס קפה!"
-      new_here: 
+      new_here:
         follow: "Follow %{link} and welcome new users to Diaspora*!"
         learn_more: "Learn more"
         title: "Welcome New Users"
@@ -125,80 +125,80 @@ he:
       no_tags: "+ חיפוש תגית למעקב"
       people_sharing_with_you: "אנשים המשתפים אתך"
       post_a_message: "פרסום הודעה >>"
-      services: 
+      services:
         content: "ניתן לקשר את השירותים הבאים לדיאספורה:"
         heading: "שירותים מקושרים"
       unfollow_tag: "הפסקת המעקב אחר #%{tag}"
       welcome_to_diaspora: "Welcome to Diaspora, %{name}!"
       your_aspects: "ההיבטים שלך"
     many: "%{count} היבטים"
-    move_contact: 
+    move_contact:
       error: "שגיאה בהעברת איש הקשר: %{inspect}"
       failure: "%{inspect} לא עבד"
       success: "האדם הועבר להיבט חדש"
-    new: 
+    new:
       create: "יצירה"
       name: "שם (מופיע בפניך בלבד)"
-    no_contacts_message: 
+    no_contacts_message:
       community_spotlight: "community spotlight"
       or_spotlight: "Or you can share with %{link}"
       try_adding_some_more_contacts: "ניתן לחפש (למעלה) או להזמין (משמאל) אנשי קשר נוספים."
       you_should_add_some_more_contacts: "עליך להוסיף אנשי קשר נוספים!"
-    no_posts_message: 
+    no_posts_message:
       start_talking: "אף אחד לא דיבר עדיין!"
     one: "היבט אחד"
     other: "%{count} היבטים"
-    seed: 
+    seed:
       acquaintances: "מכרים"
       family: "משפחה"
       friends: "חברים"
       work: "עבודה"
-    selected_contacts: 
+    selected_contacts:
       manage_your_aspects: "ניהול ההיבטים שלך."
       no_contacts: "אין לך עדיין אנשי קשר כאן."
       view_all_community_spotlight: "See all community spotlight"
       view_all_contacts: "הצגת כל אנשי הקשר"
-    show: 
+    show:
       edit_aspect: "עריכת היבט"
     two: "%{count} aspects"
-    update: 
+    update:
       failure: "להיבט שלך, %{name}, היה שם ארוך מדי מכדי שיישמר."
       success: "ההיבט שלך, %{name}, נערך בהצלחה."
     zero: "אין היבטים"
-  authorizations: 
-    index: 
+  authorizations:
+    index:
       no_applications: "You haven't registered any applications yet."
       revoke_access: "שלילת הגישה"
   back: "חזרה"
-  blocks: 
-    create: 
+  blocks:
+    create:
       failure: "I couldn't ignore that user.  #evasion"
       success: "Alright, you won't see that user in your stream again. #silencio!"
-    destroy: 
+    destroy:
       failure: "I couldn't stop ignoring that user.  #evasion"
       success: "Let's see what they have to say! #sayhello"
-  bookmarklet: 
+  bookmarklet:
     explanation: "פרסום ישירות לדיאספורה מכל מקום על ידי הוספת %{link} לסימניות."
     explanation_link_text: "קישור זה"
     heading: "סימנייה"
     post_something: "פרסום משהו לתוך דיאספורה"
     post_success: "פורסם! נסגר!"
   cancel: "ביטול"
-  comments: 
+  comments:
     few: "%{count} תגובות"
     many: "%{count} תגובות"
-    new_comment: 
+    new_comment:
       comment: "תגובה"
       commenting: "נוספת הערה..."
     one: "תגובה אחת"
     other: "%{count} תגובות"
     two: "%{count} comments"
     zero: "אין תגובות"
-  contacts: 
-    create: 
+  contacts:
+    create:
       failure: "אירע כשל ביצירת איש קשר"
     few: "%{count} אנשי קשר"
-    index: 
+    index:
       add_a_new_aspect: "הוספת היבט חדש"
       add_to_aspect: "Add contacts to %{name}"
       all_contacts: "כל אנשי הקשר"
@@ -214,61 +214,61 @@ he:
     many: "%{count} אנשי קשר"
     one: "איש קשר אחד"
     other: "%{count} אנשי קשר"
-    sharing: 
+    sharing:
       people_sharing: "אנשים המשתפים אותך:"
-    spotlight: 
+    spotlight:
       community_spotlight: "Community Spotlight"
     two: "%{count} contacts"
     zero: "אנשי קשר"
-  conversations: 
-    create: 
+  conversations:
+    create:
       fail: "הודעה שגויה"
       sent: "ההודעה נשלחה"
-    destroy: 
+    destroy:
       success: "הדיון הוסר בהצלחה"
-    helper: 
-      new_messages: 
+    helper:
+      new_messages:
         few: "%{count} הודעות חדשות"
         many: "%{count} הודעות חדשות"
         one: "הודעה חדשה אחת"
         other: "%{count} הודעות חדשות"
         two: "%{count} new messages"
         zero: "אין הודעות חדשות"
-    index: 
+    index:
       create_a_new_message: "כתיבת הודעה חדשה"
       inbox: "דואר נכנס"
       message_inbox: "תיבת הודעות נכנסות"
       new_message: "הודעה חדשה"
       no_conversation_selected: "לא נבחר דיון"
       no_messages: "אין הודעות"
-    new: 
+    new:
       abandon_changes: "האם להתעלם מהשינויים?"
       send: "שליחה"
       sending: בשליחה...
       subject: "נושא"
       to: "אל"
-    new_message: 
+    new_message:
       fail: "הודעה בלתי תקנית"
-    show: 
+    show:
       delete: "מחיקה וחסימת הדיון"
       reply: "תגובה"
       replying: Replying...
-  date: 
-    formats: 
+  date:
+    formats:
       birthday: "ה־%d ב%B"
       birthday_with_year: "ה־%d ב%B %Y"
       fullmonth_day: "ה־%d ב%B"
   delete: "מחיקה"
   email: דוא״ל
-  error_messages: 
-    helper: 
+  error_messages:
+    helper:
       correct_the_following_errors_and_try_again: "יש לתקן את השגיאות הבאות ולנסות שוב."
       invalid_fields: "שדות שגויים"
   fill_me_out: "נא לרשום אותי"
   find_people: "חיפוש אנשים או #תגיות"
   hide: "הסתרה"
-  home: 
-    show: 
+  home:
+    show:
       already_account: "כבר יש לך חשבון?"
       choice: "בחירה"
       choice_explanation: "מערכת דיאספורה מאפשרת לך לסדר את אנשי הקשר שלך לקבוצות הנקראות היבטים. תכונה זו הנה ייחודית לדיאספורה, היבטים מסייעים לך לוודא שהתמונות, הסיפורים והבדיחות שלך ישותפו רק עם אלו להם ייעדת אותם."
@@ -281,21 +281,21 @@ he:
       simplicity_explanation: "דיאספורה מאפשרת לך לשתף בצורה נקייה ונוחה - ואמרה זו נוגעת גם לשמירה על פרטיותך. דיאספורה מאפשרת להוריש את הגדרות הפרטיות בין הפריטים השונים ובכך נחסך ממך השיטוט בנבכי עמודי ההגדרות והאפשרויות רק כדי לדאוג שהפרופיל שלך יהיה מאובטח."
       tagline_first_half: "שיתוף מה שבא לך,"
       tagline_second_half: "עם מי שבא לך."
-  invitations: 
+  invitations:
     a_facebook_user: "משתמש פייסבוק"
-    check_token: 
+    check_token:
       not_found: "אסימון ההזמנה לא נמצא"
-    create: 
+    create:
       already_contacts: "כבר יש לך קשר עם אדם זה"
       already_sent: "כבר הזמנת אדם זה."
       no_more: "אין לך עוד הזמנות."
       own_address: "אין לך אפשרות לשלוח הזמנות לכתובת העצמית שלך."
       rejected: "בכתובת הדוא״ל הבאה התגלו שגיאות:"
       sent: "נשלחו הזמנות אל:"
-    edit: 
+    edit:
       accept_your_invitation: "קבלת ההזמנה שלך"
       your_account_awaits: "החשבון שלך ממתין!"
-    new: 
+    new:
       already_invited: "האנשים הבאים לא נענו להזמנה שלך:"
       aspect: "היבט"
       comma_seperated_plz: "באפשרותך להזין מספר כתובות דוא״ל ולהפרידן בפסיקים."
@@ -307,14 +307,14 @@ he:
       send_an_invitation: "שליחת הזמנה"
       send_invitation: "שליחת הזמנה"
       to: "אל"
-  layouts: 
-    application: 
+  layouts:
+    application:
       powered_by: "מופעל על גבי דיאספורה*"
       public_feed: "הזנת דיאספורה ציבורית עבור %{name}"
       toggle: "הפעלה/נטרול האתר לניידים"
       whats_new: "מה חדש?"
       your_aspects: "ההיבטים שלך"
-    header: 
+    header:
       admin: "מנהל"
       blog: "בלוג"
       code: "קוד"
@@ -324,23 +324,23 @@ he:
       recent_notifications: "התרעות אחרונות"
       settings: "הגדרות"
       view_all: "צפייה בהכול"
-  likes: 
-    likes: 
-      people_dislike_this: 
+  likes:
+    likes:
+      people_dislike_this:
         few: "%{count} אנשים לא אהבו את זה"
         many: "%{count} אנשים לא אהבו את זה"
         one: "אדם אחד לא אהב את זה"
         other: "%{count} אנשים לא אוהבים את זה"
         two: "%{count} dislikes"
         zero: "אין אנשים שלא אהבו את זה"
-      people_like_this: 
+      people_like_this:
         few: "%{count} אנשים אהבו את זה"
         many: "%{count} אנשים אהבו את זה"
         one: "אדם אחד אהב את זה"
         other: "%{count} אנשים אהבו את זה"
         two: "%{count} likes"
         zero: "אף אחד לא אהב את זה"
-      people_like_this_comment: 
+      people_like_this_comment:
         few: "%{count} אהבו זאת"
         many: "%{count} אהבו זאת"
         one: "%{count} אהב/ה"
@@ -351,39 +351,39 @@ he:
   more: "המשך"
   next: "הבאה"
   no_results: "לא נמצאו תוצאות"
-  notifications: 
-    also_commented: 
+  notifications:
+    also_commented:
       few: "%{actors} גם כן הגיבו על ה%{post_link} של %{post_author}."
       many: "%{actors} גם כן הגיבו על ה%{post_link} של %{post_author}."
       one: "%{actors} %{actors} גם כן הגיב/ה על ה%{post_link} של %{post_author}."
       other: "%{actors} גם כן הגיב/ה על ה%{post_link} של %{post_author}."
       two: "%{actors} also commented on %{post_author}'s %{post_link}."
       zero: "%{actors} גם כן הגיבו על ה%{post_link} של %{post_author}."
-    also_commented_deleted: 
+    also_commented_deleted:
       few: "%{actors} הגיבו על הרשומה שמחקת."
       many: "%{actors} הגיבו על הרשומה שמחקת."
       one: "%{actors} הגיב/ה על הרשומה שמחקת."
       other: "%{actors} הגיב/ה על הרשומה שמחקת."
       two: "%{actors} commented on a deleted post."
       zero: "%{actors} הגיבו על הרשומה שמחקת."
-    comment_on_post: 
+    comment_on_post:
       few: "%{actors} הגיבו על ה%{post_link} שלך."
       many: "%{actors} הגיבו על ה%{post_link} שלך."
       one: "%{actors} הגיב/ה על ה%{post_link} שלך."
       other: "%{actors} הגיב/ה על ה%{post_link} שלך."
       two: "%{actors} commented on your %{post_link}."
       zero: "%{actors} הגיבו על ה־%{post_link} שלך."
-    helper: 
-      new_notifications: 
+    helper:
+      new_notifications:
         few: "%{count} התרעות חדשות"
         many: "%{count} התרעות חדשות"
         one: "התרעה חדשה אחת"
         other: "%{count} התרעות חדשות"
         two: "%{count} new notifications"
         zero: "אין התרעות חדשות"
-    index: 
+    index:
       and: "וגם "
-      and_others: 
+      and_others:
         few: "ו־%{count} נוספים"
         many: "ו־%{count} נוספים"
         one: "ואחד/ת נוסף/ת"
@@ -392,28 +392,28 @@ he:
         zero: "ואף אחד אחר"
       mark_all_as_read: "סימון הכול כלאחר קריאה"
       notifications: "התרעות"
-    liked: 
+    liked:
       few: "%{actors} סימנו כ'אהבתי' את ה%{post_link} שלך."
       many: "%{actors} סימן ב'אהבתי' את ה%{post_link} שלך."
       one: "%{actors} סימן/ה כ'אהבתי' את ה%{post_link} שלך."
       other: "%{actors} סימן/ה כ'אהבתי' את ה%{post_link} שלך."
       two: "%{actors} has just liked your %{post_link}."
       zero: "%{actors} סימנו כ'אהבתי' את ה%{post_link} שלך."
-    liked_post_deleted: 
+    liked_post_deleted:
       few: "%{actors} אהבו את הרשומה שמחקת."
       many: "%{actors} אהבו את הרשומה שמחקת."
       one: "%{actors} אהב/ה את הרשומה שמחקת."
       other: "%{actors} אהב/ה את הרשומה שמחקת."
       two: "%{actors} liked your deleted post."
       zero: "%{actors} אהבו את הרשומה שמחקת."
-    mentioned: 
+    mentioned:
       few: "%{actors} ציינו אותך ב%{post_link}."
       many: "%{actors} ציינו אותך ב%{post_link}."
       one: "%{actors} ציין/ה אותך ב%{post_link}."
       other: "%{actors} ציין/ה אותך ב%{post_link}."
       two: "%{actors} has mentioned you in a %{post_link}."
       zero: "%{actors} ציינו אותך ב%{post_link}."
-    mentioned_deleted: 
+    mentioned_deleted:
       few: "%{actors} ציינו אותך ברשומה שנמחקה."
       many: "%{actors} ציינו אותך ברשומה שנמחקה."
       one: "%{actors} ציין/ה אותך ברשומה שנמחקה."
@@ -421,59 +421,59 @@ he:
       two: "%{actors} mentioned you in a deleted post."
       zero: "%{actors} ציינו אותך ברשומה שנמחקה."
     post: "רשומה"
-    private_message: 
+    private_message:
       few: "%{actors} שלחו לך הודעה."
       many: "%{actors} שלחו לך הודעה."
       one: "%{actors} שלח/ה לך הודעה."
       other: "%{actors} שלח/ה לך הודעה."
       two: "%{actors} sent you a message."
       zero: "%{actors} שלחו לך הודעה."
-    reshared: 
+    reshared:
       few: "%{actors} שיתפו את ה־%{post_link} שלך."
       many: "%{actors} שיתף/ה את ה־%{post_link} שלך."
       one: "%{actors} has reshared your %{post_link}."
       other: "%{actors} has reshared your %{post_link}."
       two: "%{actors} has reshared your %{post_link}."
       zero: "%{actors} has reshared your %{post_link}."
-    reshared_post_deleted: 
+    reshared_post_deleted:
       few: "%{actors} reshared your deleted post."
       many: "%{actors} reshared your deleted post."
       one: "%{actors} reshared your deleted post."
       other: "%{actors} reshared your deleted post."
       two: "%{actors} reshared your deleted post."
       zero: "%{actors} reshared your deleted post."
-    started_sharing: 
+    started_sharing:
       few: "%{actors} החלו לשתף אתך."
       many: "%{actors} החלו לשתף אתך."
       one: "%{actors} החל/ה לשתף אתך."
       other: "%{actors} החל/ה לשתף אתך."
       two: "%{actors} started sharing with you."
       zero: "%{actors} החלו לשתף אתך."
-  notifier: 
+  notifier:
     a_post_you_shared: רשומה.
     click_here: "יש ללחוץ כאן"
-    comment_on_post: 
+    comment_on_post:
       reply: "שליחת תגובה או צפייה ברשומה של %{name} >"
-    confirm_email: 
+    confirm_email:
       click_link: "כדי להפעיל את כתובת הדוא״ל החדשה שלך: %{unconfirmed_email}, יש לעקוב אחר הקישור הבא:"
       subject: "נא להפעיל את כתובת הדוא״ל החדשה שלך: %{unconfirmed_email}"
     email_sent_by_diaspora: "הודעת דוא״ל זו נשלחה על ידי דיאספורה.  אם אין לך עניין בקבלת הודעות כגון זו,"
     hello: "שלום %{name}!"
-    liked: 
+    liked:
       liked: "%{name} בדיוק עכשיו סימן/נה את הרשומה שלך כאהובה"
       view_post: "צפייה ברשומה >"
-    mentioned: 
+    mentioned:
       mentioned: "ציין/ה אותך ברשומה:"
       subject: "הוזכרת על ידי %{name} בדיאספורה*"
-    private_message: 
+    private_message:
       reply_to_or_view: "שליחת תגובה או צפייה בדיון זה >"
-    reshared: 
+    reshared:
       reshared: "%{name} just reshared your post"
       view_post: "View post >"
-    single_admin: 
+    single_admin:
       admin: "מנהל הדיאספורה שלך"
       subject: "הודעה בנוגע לחשבונך בדיאספורה:"
-    started_sharing: 
+    started_sharing:
       sharing: "החל/ה לשתף אתך!"
       subject: "%{name} החל/ה לשתף אתך בדיאספורה*"
       view_profile: "צפייה בפרופיל של %{name}"
@@ -483,29 +483,30 @@ he:
   or: "או"
   password: "ססמה"
   password_confirmation: "אישור הססמה"
-  people: 
-    add_contact_small: 
+  people:
+    add_contact_small:
       add_contact_from_tag: "הוספת איש קשר מתגית"
-    aspect_list: 
+    aspect_list:
       edit_membership: "עריכת חברות בהיבט"
     few: "%{count} אנשים"
-    helper: 
+    helper:
       people_on_pod_are_aware_of: " האנשים בפוד מודעים לגבי"
       results_for: " תוצאות עבור %{params}"
-    index: 
+    index:
       couldnt_find_them_send_invite: "לא נמצאים?  אפשר להזמין אותם!"
+      looking_for: "Looking for posts tagged %{tag_link}?"
       no_one_found: "...ולא נמצא אף אחד."
       no_results: "הי! לא חיפשת שום דבר."
       results_for: "תוצאות חיפוש עבור"
     many: "%{count} אנשים"
     one: "אדם אחד"
     other: "%{count} אנשים"
-    person: 
+    person:
       add_contact: "הוספת איש קשר"
       already_connected: "כבר קושרתם"
       pending_request: "בקשה ממתינה"
       thats_you: "מדובר בך!"
-    profile_sidebar: 
+    profile_sidebar:
       bio: "פרטים"
       born: "תאריך הלידה"
       edit_my_profile: "עריכת הפרופיל שלי"
@@ -514,7 +515,7 @@ he:
       location: "מיקום"
       remove_contact: "הסרת איש קשר"
       remove_from: "האם להסיר את %{name} מההיבט %{aspect}?"
-    show: 
+    show:
       does_not_exist: "אדם זה אינו קיים!"
       has_not_shared_with_you_yet: "%{name} עדיין לא שיתף אתך רשומות כלל!"
       ignoring: "You are ignoring all posts from %{name}."
@@ -528,38 +529,38 @@ he:
       see_all: "צפייה בהכול"
       start_sharing: "התחלת השיתוף"
       to_accept_or_ignore: "כדי לקבל או לדחות אותה."
-    sub_header: 
+    sub_header:
       add_some: "הוספת כמה"
       edit: "עריכה"
       you_have_no_tags: "אין לך תגיות כלל!"
     two: "%{count} people"
-    webfinger: 
+    webfinger:
       fail: "לא ניתן למצוא את %{handle}, עמך הסליחה."
     zero: "אין אנשים"
-  photos: 
+  photos:
     comment_email_subject: "התמונה של %{name}"
-    create: 
+    create:
       integrity_error: "העלאת התמונה נכשלה.  האם זו אכן הייתה תמונה?"
       runtime_error: "העלאת התמונה נכשלה.  האם החגורה שלך אכן מהודקת??"
       type_error: "העלאת התמונה נכשלה.  האם אכן נוספה תמונה?"
-    destroy: 
+    destroy:
       notice: "התמונה נמחקה."
-    edit: 
+    edit:
       editing: "עריכה"
-    new: 
+    new:
       back_to_list: "חזרה לרשימה"
       new_photo: "תמונה חדשה"
       post_it: פרסום!
-    new_photo: 
+    new_photo:
       empty: "הקובץ {file} ריק, נא לבחור שוב קבצים אבל בלעדיו."
       invalid_ext: "לקובץ {file} יש סיומת בלתי מוכרת. רק הסיומות {extensions} מותרות לשימוש."
       size_error: "הקובץ {file} גדול מדי, גודל הקובץ המרבי הוא {sizeLimit}."
-    new_profile_photo: 
+    new_profile_photo:
       or_select_one_existing: "or select one from your already existing %{photos}"
       upload: "העלאת תמונת פרופיל חדש!"
-    photo: 
+    photo:
       view_all: "צפייה בכל התמונות של %{name}"
-    show: 
+    show:
       collection_permalink: "קישור קבוע לאוסף"
       delete_photo: "מחיקת תמונה"
       edit: "עריכה"
@@ -567,19 +568,19 @@ he:
       make_profile_photo: "יצירת תמונת פרופיל"
       show_original_post: "הצגת הרשומה המקורית"
       update_photo: "עדכון התמונה"
-    update: 
+    update:
       error: "אירע כשל בעריכת התמונה."
       notice: "התמונה עודכנה בהצלחה."
-  posts: 
-    show: 
+  posts:
+    show:
       destroy: "מחיקה"
       not_found: "לא ניתן למצוא רשומה זו, עמך הסליחה."
       permalink: "קישור קבוע"
   previous: "הקודמת"
   privacy: "Privacy"
   profile: "פרופיל"
-  profiles: 
-    edit: 
+  profiles:
+    edit:
       allow_search: "מתן אישור לאנשים לחפש אחריך ברשת דיאספורה"
       edit_profile: "עריכת הפרופיל"
       first_name: "שם פרטי"
@@ -595,29 +596,29 @@ he:
       your_public_profile: "הפרופיל הציבורי שלך"
       your_tags: "תאר/י את עצמך ב־5 מילים"
       your_tags_placeholder: "כגון #סרטים #חתלתולים #טיולים #מורה #כרמיאל"
-    update: 
+    update:
       failed: "אירע כשל בעדכון הפרופיל"
       updated: "הפרופיל עודכן"
   public: "ציבורי"
-  reactions: 
+  reactions:
     few: "%{count} reactions"
     many: "%{count} reactions"
     one: "1 reaction"
     other: "%{count} reactions"
     two: "%{count} reactions"
     zero: "0 reactions"
-  registrations: 
+  registrations:
     closed: "אפשרות ההרשמה סגורה בפוד זה של דיאספורה."
-    create: 
+    create:
       success: "הצטרפת לדיאספורה!"
-    edit: 
+    edit:
       cancel_my_account: "ביטול החשבון שלי"
       edit: "עריכת %{name}"
       leave_blank: "(יש להשאיר ריק אם אין ברצונך לשנות זאת)"
       password_to_confirm: "(נזדקק לססמה הנוכחית שלך כדי לאמת את השינויים)"
       unhappy: בבאסה?
       update: "עדכון"
-    new: 
+    new:
       create_my_account: "יצירת החשבון שלי"
       enter_email: "נא להזין כתובת דוא״ל"
       enter_password: "נא להזין ססמה"
@@ -625,34 +626,34 @@ he:
       enter_username: "נא לבחור שם משתמש (אותיות, מספרים וקווים תחתונים בלבד)"
       join_the_movement: "הצטרפות לתנועה!"
       sign_up_message: "Social Networking with a <3"
-  requests: 
-    create: 
+  requests:
+    create:
       sending: "בשליחה"
       sent: "ביקשת לשתף עם %{name}.  הם אמורים לראות זאת בפעם הבאה שייכנסו לדיאספורה."
-    destroy: 
+    destroy:
       error: "נא לבחור בהיבט!"
       ignore: "התעלמת מבקשת החברות."
       success: "את/ה משתף/ת כעת."
-    helper: 
-      new_requests: 
+    helper:
+      new_requests:
         few: "%{count} בקשות חדשות!"
         many: "%{count} בקשות חדשות!"
         one: "בקשה חדשה!"
         other: "%{count} בקשות חדשות!"
         two: "%{count} new requests!"
         zero: "אין בקשות חדשות"
-    manage_aspect_contacts: 
+    manage_aspect_contacts:
       existing: "אנשי הקשר הקיימים"
       manage_within: "ניהול אנשי קשר בתוך"
-    new_request_to_person: 
+    new_request_to_person:
       sent: נשלחה!
-  reshares: 
+  reshares:
     comment_email_subject: "שיתוף מחדש על ידי %{resharer} לרשומה של %{author}"
-    create: 
+    create:
       failure: "פרסום מחדש של רשומה זאת הוביל לשגיאה."
-    reshare: 
+    reshare:
       deleted: "הרשומה המקורית נמחקה על ידי הכותב."
-      reshare: 
+      reshare:
         few: "%{count} שיתופים"
         many: "%{count} שיתופים"
         one: "שיתוף אחד"
@@ -664,20 +665,20 @@ he:
       reshared_via: "reshared via"
       show_original: "הצגת המקור"
   search: "חיפוש"
-  services: 
-    create: 
+  services:
+    create:
       already_authorized: "A user with diaspora id %{diaspora_id} already authorized that %{service_name} account."
       failure: "Authentication failed."
       success: "האימות הצליח."
-    destroy: 
+    destroy:
       success: "האימות נמחק בהצלחה."
-    failure: 
+    failure:
       error: "אירעה שגיאה בעת ההתחברות לשירות זה"
-    finder: 
+    finder:
       fetching_contacts: "Diaspora is populating your %{service} friends please check back in a few minutes."
       no_friends: "לא נמצאו חברי פייסבוק."
       service_friends: "חברים ב־%{service}"
-    index: 
+    index:
       connect_to_facebook: "התחברות לפייסבוק"
       connect_to_tumblr: "התחברות ל־Tumblr"
       connect_to_twitter: "התחברות לטוויטר"
@@ -686,41 +687,41 @@ he:
       logged_in_as: "נכנסת בשם"
       no_services: "לא קישרת אף שירות עדיין."
       really_disconnect: "האם לנתק את %{service}?"
-    inviter: 
+    inviter:
       click_link_to_accept_invitation: "יש ללחוץ על קישור זה כדי לקבל את ההזמנה שלך"
       join_me_on_diaspora: "למה שלא להצטרף אלי ב־DIASPORA*"
-    remote_friend: 
+    remote_friend:
       invite: "הזמנה"
       not_on_diaspora: "עדיין לא בדיאספורה"
       resend: "שליחה שוב"
   settings: "הגדרות"
-  share_visibilites: 
-    update: 
+  share_visibilites:
+    update:
       post_hidden_and_muted: "%{name}'s post has been hidden, and notifications have been muted."
       see_it_on_their_profile: "If you want to see updates on this post, visit %{name}'s profile page."
-  shared: 
-    add_contact: 
+  shared:
+    add_contact:
       add_new_contact: "הוספת איש קשר חדש"
       create_request: "חיפוש לפי שם משתמש בדיאספורה"
       diaspora_handle: diaspora@pod.org
       enter_a_diaspora_username: "נא להזין שם משתמש בדיאספורה:"
       know_email: "כתובת הדוא״ל שלהם ידועה לך? עליך להזמין אותם"
       your_diaspora_username_is: "שם המשתמש שלך בדיאספורה הוא: %{diaspora_handle}"
-    aspect_dropdown: 
+    aspect_dropdown:
       add_to_aspect: "הוספת איש הקשר"
-      toggle: 
+      toggle:
         few: "ב־%{count} היבטים"
         many: "ב־%{count} היבטים"
         one: "באחד מההיבטים"
         other: "ב־%{count} היבטים"
         two: "In %{count} aspects"
         zero: "הוספת איש הקשר"
-    contact_list: 
+    contact_list:
       all_contacts: "כל אנשי הקשר"
-    footer: 
+    footer:
       logged_in_as: "נכנסת בשם %{name}"
       your_aspects: "ההיבטים שלך"
-    invitations: 
+    invitations:
       by_email: בדוא״ל
       dont_have_now: "אין לך כרגע, אך יתווספו לך הזמנות בקרוב!"
       from_facebook: מ־Facebook
@@ -729,9 +730,9 @@ he:
       invite_your_friends: "הזמנת החברים שלך"
       invites: "הזמנות"
       invites_closed: "נכון לעכשיו ההזמנות לפוד זה של דיאספורה סגורות"
-    notification: 
+    notification:
       new: "%{type} חדש מאת %{from}"
-    public_explain: 
+    public_explain:
       control_your_audience: "Control your Audience"
       logged_in: "נכנסת אל %{service}"
       manage: "ניהול השירותים המקושרים"
@@ -740,12 +741,12 @@ he:
       share: "Share"
       title: "הגדרת שירותים מקושרים"
       visibility_dropdown: "Use this dropdown to change visibility of your post.  (We suggest you make this first one public.)"
-    publisher: 
+    publisher:
       all: "הכול"
       all_contacts: "כל אנשי הקשר"
       discard_post: "התעלמות מרשומה"
       make_public: "הפיכה לציבורי"
-      new_user_prefill: 
+      new_user_prefill:
         hello: "Hey everyone, I'm #%{new_user_tag}. "
         i_like: "I'm interested in %{tags}."
         invited_by: "Thanks for the invite, "
@@ -756,9 +757,9 @@ he:
       share_with: "שיתוף עם"
       upload_photos: "העלאת תמונות"
       whats_on_your_mind: "מה עובר לך בראש?"
-    reshare: 
+    reshare:
       reshare: "שיתוף מחדש"
-    stream_element: 
+    stream_element:
       connect_to_comment: "Connect to this user to comment on their post"
       currently_unavailable: "commenting currently unavailable"
       dislike: "לא אהבתי את זה"
@@ -770,61 +771,68 @@ he:
       unlike: "לא אהבתי"
       via: "באמצעות %{link}"
       viewable_to_anyone: "רשומה זו ניתנת לצפייה לכל גולשי הרשת"
-  status_messages: 
-    create: 
+  status_messages:
+    create:
       success: "אוזכרו בהצלחה: %{names}"
-    destroy: 
+    destroy:
       failure: "אירע כשל במחיקת הרשומה"
-    helper: 
+    helper:
       no_message_to_display: "אין הודעה להצגה."
-    new: 
+    new:
       mentioning: "אזכור: %{person}"
-    too_long: 
+    too_long:
       few: "נא לוודא שהודעת המצב שלך אינה עולה על %{count} תווים"
       many: "נא לוודא שהודעת המצב שלך אינה עולה על %{count} תווים"
       one: "נא לוודא שהודעת המצב שלך אינה עולה על תו אחד"
       other: "נא לוודא שהודעות המצב שלך אינן עולות על %{count} תווים"
       two: "please make your status messages less than %{count} characters"
       zero: "נא לוודא שהודעות המצב שלך אינן עולות על %{count} תווים"
-  stream_helper: 
+  stream_helper:
     hide_comments: "הסתרת כל ההערות"
-    show_more_comments: "הצגת %{number} תגובות נוספות"
-  streams: 
-    aspects: 
+    show_comments:
+      few: "Show %{count} more comments"
+      many: "Show %{count} more comments"
+      one: "Show one more comment"
+      other: "Show %{count} more comments"
+      two: "Show two more comments"
+      zero: "No more comments"
+  streams:
+    aspects:
       title: "Your Aspects"
     aspects_stream: "Aspects"
     commented_on: "commented on"
     community_spotlight_stream: "Community Spotlight"
-    followed_tag: 
+    followed_tag:
       add_a_tag: "Add a tag"
       contacts_title: "People who dig these tags"
       follow: "Follow"
       title: "#Followed Tags"
     followed_tags_stream: "#Followed Tags"
     mentioned_stream: "@Mentions"
-    mentions: 
+    mentions:
       contacts_title: "People who mentioned you"
       title: "Your Mentions"
-    multi: 
+    multi:
       contacts_title: "People in your Stream"
       title: "Stream"
     posted: "posted"
-    public: 
+    public:
       contacts_title: "Recent Posters"
       title: "Public Activity"
     recently: "recently:"
-    tags: 
+    tags:
       contacts_title: "People who dig these tags"
+      tag_prefill_text: "The thing about %{tag_name} is... "
       title: "Posts tagged: %{tags}"
-  tag_followings: 
-    create: 
+  tag_followings:
+    create:
       failure: "אירע כשל בעת המעקב: #%{name}"
       success: "המעקב הוגדר בהצלחה אחר: #%{name}"
-    destroy: 
+    destroy:
       failure: "אירע כשל בעצירת הבא: #%{name}"
       success: "הבא נעצר בהצלחה: #%{name}"
-  tags: 
-    show: 
+  tags:
+    show:
       follow: "מעקב אחר #%{tag}"
       followed_by: "followed by"
       following: "במעקב אחר #%{tag}"
@@ -832,8 +840,8 @@ he:
       people_tagged_with: "אנשים תויגו ב־%{tag}"
       posts_tagged_with: "אנשים תויגו ב־%{tag}"
       stop_following: "הפסקת המעקב אחר #%{tag}"
-  tokens: 
-    show: 
+  tokens:
+    show:
       connect_to_cubbies: "התחברות ל־Cubbi.es"
       connecting_is_simple: "חיבור חשבון הדיאספורה שלך הנה משימה פשוטה! עליך להכניס את המזהה שלך בדיאספורה (<b>%{diaspora_id}</b>) ב<a href='%{href_link}'>עמוד ההגדרות</a> בחשבון ה־cubbies שלך וללחוץ על התחברות."
       daniels_account: "חשבון הדיאספורה של דניאל"
@@ -847,15 +855,15 @@ he:
       what_is_cubbies: "Cubbi.es הנו היישום הראשון לדיאספורה אי פעם. זוהי גם הדרך הטובה ביותר לאסוף תמונות באופן מקוון."
   undo: "האם לבטל?"
   username: "שם משתמש"
-  users: 
-    confirm_email: 
+  users:
+    confirm_email:
       email_confirmed: "כתובת הדוא״ל %{email} מופעלת"
       email_not_confirmed: "לא ניתן להפעיל את כתובת הדוא״ל. קישור שגוי?"
-    destroy: 
+    destroy:
       no_password: "Please enter your current password to close your account."
       success: "Your account has been locked.  It may take 20 minutes for us to finish closing your account.  Thank you for trying Diaspora."
       wrong_password: "The entered password didn't match your current password."
-    edit: 
+    edit:
       also_commented: "...מישהו הגיב גם על הרשומה של איש הקשר שלך?"
       change: "שינוי"
       change_email: "החלפת כתובת הדוא״ל"
@@ -883,7 +891,7 @@ he:
       stream_preferences: "Stream Preferences"
       your_email: "כתובת הדוא״ל שלך"
       your_handle: "שם המשתמש שלך בדיאספורה"
-    getting_started: 
+    getting_started:
       awesome_take_me_to_diaspora: "Awesome! Take me to Diaspora*"
       community_welcome: "Diaspora's community is happy to have you aboard!"
       hashtag_explanation: "תגיות מאפשרות לך לשוחח על ולעקוב אחר תחומי העניין שלך. זוהי גם דרך מצוינת למצוא אנשים בדיאספורה."
@@ -895,19 +903,19 @@ he:
       what_are_you_in_to: "What are you into?"
       what_facebook_does: "to Diaspora. This will pull your name and photo, and enable cross-positng."
       who_are_you: "Who are you?"
-    logged_out: 
+    logged_out:
       go_mobile: "Now go mobile."
       on_your_mobile_device: "on your mobile device to access Diaspora* mobile."
       signed_out: "You've signed out of Diaspora*"
       simply_visit: "Simply visit"
       works_on_modern: "Works on all modern smartphones"
-    privacy_settings: 
+    privacy_settings:
       ignored_users: "Ignored Users"
       stop_ignoring: "Stop ignoring"
       title: "Privacy Settings"
-    public: 
+    public:
       does_not_exist: "המשתמש %{username} אינו קיים!"
-    update: 
+    update:
       email_notifications_changed: "ההתרעות בדוא״ל השתנו"
       language_changed: "השפה הוחלפה"
       language_not_changed: "החלפת השפה נכשלה"
@@ -917,7 +925,7 @@ he:
       settings_updated: "Settings updated"
       unconfirmed_email_changed: "כתובת הדוא״ל הוחלפה. נדרשת הפעלה."
       unconfirmed_email_not_changed: "החלפת כתובת הדוא״ל נכשלה"
-  webfinger: 
+  webfinger:
     fetch_failed: "אירע כשל בקבלת פרופיל ה־webfinger שלך ל־%{profile_url}"
     hcard_fetch_failed: "אירעה שגיאה בעת קבלת ה־hcard לחשבון %{account}"
     no_person_constructed: "לא ניתן להרכיב איש קשר מ־hcard זה."

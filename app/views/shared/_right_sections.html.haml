@@ -27,7 +27,7 @@
     %h5
       = t('aspects.index.new_here.title')
   .content
-    != t('aspects.index.new_here.follow', :link => link_to('#NewHere', tag_path(:name => "NewHere")))
+    != t('aspects.index.new_here.follow', :link => link_to("#"+t('shared.publisher.new_user_prefill.newhere'), tag_path(:name => t('shared.publisher.new_user_prefill.newhere'))))
     %br
     = link_to(t('aspects.index.new_here.learn_more'), "https://github.com/diaspora/diaspora/wiki/Welcoming-Committee")
 

@@ -3,14 +3,14 @@
 #   the COPYRIGHT file.
 
 
-lt: 
-  devise: 
-    confirmations: 
+lt:
+  devise:
+    confirmations:
       confirmed: "Paskyra patvirtinta. Prisijungta."
-      new: 
+      new:
         resend_confirmation: "Siųsti patvirtinimo nurodymus iš naujo"
       send_instructions: "Netrukus bus išsiųstas el. laiškas su nurodymais, kaip patvirtinti paskyrą."
-    failure: 
+    failure:
       inactive: "Paskyra dar neaktyvuota."
       invalid: "Neteisingas el. pašto adresas arba slaptažodis."
       invalid_token: "Neteisingas prisijungimo raktas."
@@ -18,17 +18,17 @@ lt:
       timeout: "Sesija baigėsi. Norint tęsti, reikia prisijungti iš naujo."
       unauthenticated: "Norint tęsti, reikia prisijungti arba susikurti paskyrą."
       unconfirmed: "Norint prisijungti, reikia patvirtinti savo paskyrą."
-    invitations: 
+    invitations:
       invitation_token_invalid: "Neteisingas pakvietimo raktas!"
       send_instructions: "Pakvietimas išsiųstas."
       updated: "Slaptažodis pakeistas sėkmingai. Prisijungta."
-    mailer: 
-      confirmation_instructions: 
+    mailer:
+      confirmation_instructions:
         confirm: "Patvirtinti paskyrą"
         subject: "Patvirtinimo nurodymai"
         you_can_confirm: "Paskyrą galima patvirtinti žemiau pateikta nuoroda:"
       hello: "Labas, %{email}!"
-      invitation_instructions: 
+      invitation_instructions:
         accept: "Accept invitation"
         arrived: "The social network you have been waiting for has arrived. Revamped, more secure, and more fun, %{strong_diaspora} is ready to help you share and explore the web in a whole new way."
         be_yourself: "Be Yourself"
@@ -57,37 +57,37 @@ lt:
         team_diaspora: "Team Diaspora"
         unsubscribe: "To unsubscribe please click %{link}."
         view_in: "View in"
-      inviter: 
+      inviter:
         accept_at: "at %{url}, you can accept it through the link below."
         has_invited_you: "%{name}"
         have_invited_you: "%{names} have invited you to join Diaspora"
-      reset_password_instructions: 
+      reset_password_instructions:
         change: "Keisti slaptažodį"
         ignore: "Jei tu to neprašei, nekreipk dėmesio į šį laišką."
         someone_requested: "Kažkas paprašė pakeisti tavo slaptažodį. Tai galima padaryti naudojatis žemiau pateikta nuoroda."
         subject: "Nurodymai, kaip atstatyti slaptažodį"
         wont_change: "Slaptažodis liks nepakeistas, kol nebus pasinaudota aukščiau esančia nuoroda ir sukurtas naujas slaptažodis."
-      unlock_instructions: 
+      unlock_instructions:
         account_locked: "Paskyra užrakinta dėl per daug bandymų prisijungti."
         click_to_unlock: "Spustelk šią nuorodą ir paskyra bus atrakinta:"
         subject: "Nurodymai, kaip atrakinti"
         unlock: "Atrakinti mano paskyrą"
       welcome: "Labas, %{email}!"
-    passwords: 
-      edit: 
+    passwords:
+      edit:
         change_password: "Keisti mano slaptažodį"
-      new: 
+      new:
         forgot_password: "Pamiršai slaptažodį?"
         no_account: "No account with this email exsists.  If you are waiting for an invite, we are rolling them out as soon as possible"
         send_password_instructions: "Siųsti nurodymus, kaip atstatyti slaptažodį"
       send_instructions: "Netrukus gausite el. laišką su nurodymais, kaip atstatyti slaptažodį."
       updated: "Slaptažodis pakeistas sėkmingai. Prisijungta."
-    registrations: 
+    registrations:
       destroyed: "Paskyra sėkmingai atšaukta. Iki pasimatymo!"
       signed_up: "Prisijungta sėkmingai. Jei nustatyta, patvirtinimas nusiųstas į el. paštą."
       updated: "Paskyra atnaujinta sėkmingai."
-    sessions: 
-      new: 
+    sessions:
+      new:
         alpha_software: "Ši programinė įranga nėra pilnai užbaigta."
         bugs_and_feedback: "Naudojantis gali pasitaikyti klaidų. Apie pasitaikiusius nesklandumus galima praneštis naudojantis mygtuku naršyklės dešinėje. Klaidas stengsimės ištaisyti kuo skubiau."
         bugs_and_feedback_mobile: "Be advised, you will experience bugs.  We encourage you to report any hiccups!  We will work as fast as we can to resolve any issues you report."
@@ -99,23 +99,23 @@ lt:
         username: "Vartotojo vardas"
       signed_in: "Sėkmingai prisijungta."
       signed_out: "Sėkmingai atsijungta."
-    shared: 
-      links: 
+    shared:
+      links:
         forgot_your_password: "Pamiršai slaptažodį?"
         receive_confirmation: "Negavai nurodymų, kaip patvirtinti paskyrą?"
         receive_unlock: "Negavai nurodymų, kaip atrakinti paskyrą?"
         sign_in: "Prisijungti"
         sign_up: "Registruotis"
         sign_up_closed: "Atviri prisijungimai šiuo metu uždaryti."
-      mail_signup_form: 
+      mail_signup_form:
         sign_up_for_an_invite: "Sign up for an invite!"
-    unlocks: 
-      new: 
+    unlocks:
+      new:
         resend_unlock: "Siųsti nurodymus, kaip atrakinti, iš naujo"
       send_instructions: "Netrukus bus išsiųstas el. laiškas su nurodymais, kaip atrakinti paskyrą."
       unlocked: "Paskyra atrakinta. Prisijungta."
-  errors: 
-    messages: 
+  errors:
+    messages:
       already_confirmed: "jau patvirtinta"
       not_found: "nerasta"
       not_locked: "nebuvo užrakinta"
