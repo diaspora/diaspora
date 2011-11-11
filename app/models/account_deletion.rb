@@ -33,7 +33,7 @@ class AccountDeletion < ActiveRecord::Base
   
   def perform!
     self.dispatch if person.local?
-    #AccountDeleter.new(self.diaspora_handle).perform!
+    AccountDeleter.new(self.diaspora_handle).perform!
   end
 
   def subscribers(user)
