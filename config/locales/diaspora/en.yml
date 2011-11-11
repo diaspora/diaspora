@@ -27,6 +27,7 @@ en:
   password: "Password"
   password_confirmation: "Password confirmation"
   are_you_sure: "Are you sure?"
+  are_you_sure_delete_account: "Are you sure you want to close your account? This can't be undone!"
   fill_me_out: "Fill me out"
   back: "Back"
   public: "Public"

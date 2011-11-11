@@ -166,11 +166,42 @@
   .span-5.last
     %h3 
       = t('.close_account')
-    = form_for 'user', :url => user_path, :html => { :method => :delete } do |f|
-      = f.error_messages
+    .button
+      =link_to 'Close Account', '#close_account_pane', :rel => 'facebox'
 
-      %p
-        = f.label :close_account_password, t('.current_password'), :for => :close_account_password
-        = f.password_field :current_password, :id => :close_account_password
-      %p
-        = f.submit t('.close_account'), :confirm => t('are_you_sure')
+    .hidden#close_account_pane{:rel => 'facebox'}
+      #inner_account_delete
+        %h1
+          Hey, please don't go!
+        %p
+          We want you to help us make Diaspora better, so you should help us out instead of leaving.
+          if you do want to leave, we want you to know what happens next.
+        .span-10
+          = image_tag 'http://itstrulyrandom.com/wp-content/uploads/2008/03/sadcat.jpg'
+          %br
+          %small
+            %b
+              Mr Wiggles will be sad to see you go
+        .span-10.last
+          %ul
+            %li
+              We delete all of your posts, profile data, as soon as humanly possible.
+              Your comments will hang around, but be associated with your Diaspora Handle.
+            %li
+              You will get signed out and locked out of your account.
+            %li
+              This will lock your username if you decided to sign back up.
+            %li
+              Currently, there is no turning back
+          %p
+            %b
+              If you really want this, type in your password below and click 'Close Account'
+
+          = form_for 'user', :url => user_path, :html => { :method => :delete } do |f|
+            = f.error_messages
+
+            %p
+              = f.label :close_account_password, t('.current_password'), :for => :close_account_password
+              = f.password_field :current_password, :id => :close_account_password
+            %p
+              = f.submit t('.close_account'), :confirm => t('are_you_sure_delete_account')
