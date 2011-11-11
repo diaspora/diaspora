@@ -14,7 +14,6 @@ class AccountDeletion < ActiveRecord::Base
 
    xml_attr :diaspora_handle  
 
-  
   def person=(person)
     self[:diaspora_handle] = person.diaspora_handle
     self[:person_id] = person.id
@@ -37,10 +36,14 @@ class AccountDeletion < ActiveRecord::Base
   end
 
   def subscribers(user)
-    person.owner.contact_people | Person.who_have_reshared_a_users_posts(person.owner)
+    person.owner.contact_people.remote | Person.who_have_reshared_a_users_posts(person.owner).remote
   end
 
   def dispatch
     Postzord::Dispatcher.build(person.owner, self).post
+  end
+
+  def public?
+    true
   end
 end

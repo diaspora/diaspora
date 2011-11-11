@@ -42,22 +42,30 @@ describe AccountDeletion do
     it "sends the account deletion xml" do
       @ad = AccountDeletion.new(:person => alice.person)
       @ad.send(:dispatch)
+    end
 
+    it 'creates a public postzord' do
+      Postzord::Dispatcher::Public.should_receive(:new).and_return(stub.as_null_object)
+      @ad = AccountDeletion.new(:person => alice.person)
+      @ad.send(:dispatch)
     end
   end
 
   describe "#subscribers" do
-    it 'includes all contacts' do
+    it 'includes all remote contacts' do
       @ad = AccountDeletion.new(:person => alice.person)
-      @ad.person.owner.should_receive(:contact_people).and_return([remote_raphael])
-      @ad.subscribers(alice).should include(remote_raphael)
+      alice.share_with(remote_raphael, alice.aspects.first)
+
+      @ad.subscribers(alice).should == [remote_raphael]
     end
 
-    it 'includes resharers' do
+    it 'includes remote resharers' do
       @ad = AccountDeletion.new(:person => alice.person)
-      p = Factory(:person)
-      Person.should_receive(:who_have_reshared_a_users_posts).with(alice).and_return([p]) 
-      @ad.subscribers(alice).should include(p)
+      sm = Factory( :status_message, :public => true, :author => alice.person)
+      r1 = Factory( :reshare, :author => remote_raphael, :root => sm)
+      r2 = Factory( :reshare, :author => local_luke.person, :root => sm)
+
+      @ad.subscribers(alice).should == [remote_raphael]
     end
   end
 

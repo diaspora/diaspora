@@ -490,9 +490,9 @@ class User < ActiveRecord::Base
   end
 
   def close_account!
-    AccountDeletion.create(:person => self.person)
     self.person.lock_access!
     self.lock_access!
+    AccountDeletion.create(:person => self.person)
   end
 
   def clear_account!
