@@ -107,6 +107,11 @@ module Diaspora
       end
     end
 
+    # @return [Integer]
+    def update_reshares_counter
+      self.class.where(:id => self.id).
+        update_all(:reshares_count => self.reshares.count)
+    end
 
     protected
 

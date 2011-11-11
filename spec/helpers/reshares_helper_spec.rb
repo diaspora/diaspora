@@ -22,7 +22,7 @@ describe ResharesHelper do
 
       describe 'which has not been reshared' do
         before :each do
-          @post.reshare_count.should == 0
+          @post.reshares_count.should == 0
         end
 
         it 'has "Reshare" as the English text' do
@@ -33,7 +33,8 @@ describe ResharesHelper do
       describe 'which has been reshared' do
         before :each do
           @reshare = Factory.create(:reshare, :root => @post)
-          @post.reshare_count.should == 1
+          @post.reload
+          @post.reshares_count.should == 1
         end
 
         it 'has "Reshare" as the English text' do

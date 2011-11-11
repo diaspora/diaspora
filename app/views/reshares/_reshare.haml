@@ -16,7 +16,7 @@
             %span.timeago
               = link_to(how_long_ago(post), post_path(post))
             –
-            = t("reshares.reshare.reshare", :count => post.reshare_count)
+            = t("reshares.reshare.reshare", :count => post.reshares_count)
 
       - if post.activity_streams?
         = link_to image_tag(post.image_url, 'data-small-photo' => post.image_url, 'data-full-photo' => post.image_url, :class => 'stream-photo'), post.object_url, :class => "stream-photo-link"

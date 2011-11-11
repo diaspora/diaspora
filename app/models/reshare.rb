@@ -17,6 +17,14 @@ class Reshare < Post
     self.public = true
   end
 
+  after_create do
+    self.root.update_reshares_counter
+  end
+
+  after_destroy do
+    self.root.update_reshares_counter
+  end
+
   def root_diaspora_id
     self.root.author.diaspora_handle
   end
@@ -46,7 +54,7 @@ class Reshare < Post
     return if Post.exists?(:guid => self.root_guid)
 
     fetched_post = self.class.fetch_post(root_author, self.root_guid)
-    
+
     if fetched_post
       #Why are we checking for this?
       if root_author.diaspora_handle != fetched_post.diaspora_handle
