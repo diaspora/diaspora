@@ -1,6 +1,6 @@
 var logout = 0;
 var MINI_TITLE = null;
-  
+
 // Unloading the page
 $(window).unload(function () {
   if (logout) {
@@ -132,7 +132,6 @@ $(document).ready(function () {
 	  }
   });
 
-  
   // Hides the roster when clicking away of Jappix Mini
   jQuery(document).click(
 
