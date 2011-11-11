@@ -750,6 +750,7 @@ pt-BR:
         hello: "Olá a todos, sou #%{new_user_tag}. "
         i_like: "Estou interessado em %{tags}."
         invited_by: "Obrigado pelo convite, "
+        newhere: "NewHere"
       post_a_message_to: "Postar uma mensagem para %{aspect}"
       posting: Postando...
       publishing_to: "publicando para:"

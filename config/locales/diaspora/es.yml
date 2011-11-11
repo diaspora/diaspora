@@ -750,6 +750,7 @@ es:
         hello: "Hola a tod@s, I'm #%{new_user_tag}."
         i_like: "Tengo interés en %{tags}."
         invited_by: "Gracias por la invitación, "
+        newhere: "SoyNuevo"
       post_a_message_to: "Publicar un mensaje en %{aspect}"
       posting: Publicando...
       publishing_to: "publicar en:"
@@ -822,7 +823,7 @@ es:
     recently: "recientemente:"
     tags:
       contacts_title: "Gente que sigue esta etiqueta"
-      tag_prefill_text: "La cosa sobre %{tag_name} es... "
+      tag_prefill_text: "Sobre %{tag_name}..."
       title: "Publicaciones etiquetadas: %{tags}"
   tag_followings:
     create:
@@ -836,7 +837,7 @@ es:
       follow: "Seguir #%{tag}"
       followed_by: "seguido por"
       following: "Siguiendo a #%{tag}"
-      nobody_talking: "Nadie esta hablando de %{tag} todavía."
+      nobody_talking: "Nadie esta hablando sobre %{tag} todavía."
       people_tagged_with: "Perfiles con %{tag}"
       posts_tagged_with: "Publicaciones con #%{tag}"
       stop_following: "Dejar de seguir #%{tag}"

@@ -750,6 +750,7 @@ nb:
         hello: "Hei alle sammen, jeg er #%{new_user_tag}. "
         i_like: "Jeg er interessert i %{tags}."
         invited_by: "Thanks for the invite, "
+        newhere: "NewHere"
       post_a_message_to: "Post et innlegg til %{aspect}"
       posting: Poster...
       publishing_to: "publiserer til:"

@@ -750,6 +750,7 @@ fr:
         hello: "Bonjour tout le monde, je suis #%{new_user_tag}. "
         i_like: "Je suis intéressé par %{tags}."
         invited_by: "Merci pour l'invitation, "
+        newhere: "NouveauIci"
       post_a_message_to: "Publier un message dans %{aspect}"
       posting: Publication…
       publishing_to: "publication vers : "

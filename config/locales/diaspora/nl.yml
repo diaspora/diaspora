@@ -750,6 +750,7 @@ nl:
         hello: "Hallo iedereen, ik ben #%{new_user_tag}. "
         i_like: "Ik ben geïnteresseerd in %{tags}."
         invited_by: "Bedankt voor de invite,"
+        newhere: "NieuwHier"
       post_a_message_to: "Plaats een bericht aan %{aspect}"
       posting: Plaatsen...
       publishing_to: "delen met: "

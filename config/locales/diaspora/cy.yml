@@ -750,6 +750,7 @@ cy:
         hello: "Hey everyone, I'm #%{new_user_tag}. "
         i_like: "I'm interested in %{tags}."
         invited_by: "Thanks for the invite, "
+        newhere: "NewHere"
       post_a_message_to: "Post neges i %{aspect}"
       posting: Posting...
       publishing_to: "publishing to: "
@@ -800,7 +801,7 @@ cy:
     aspects:
       title: "Eich Agweddau"
     aspects_stream: "Aspects"
-    commented_on: "wedi sylwad ar"
+    commented_on: "wedi sylwad arno"
     community_spotlight_stream: "Community Spotlight"
     followed_tag:
       add_a_tag: "Ychwanegu tag"

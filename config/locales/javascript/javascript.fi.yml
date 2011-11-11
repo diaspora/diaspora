@@ -33,7 +33,7 @@ fi:
       alright_ill_wait: "Okei, minä odotan."
       hey: "Hei {{name}}!"
       no_tags: "Hei, et seuraa yhtäkään tagia!  Jatketaanko silti?"
-      preparing_your_stream: "Preparing your personialized stream..."
+      preparing_your_stream: "Yksilöllistä virtaasi valmistellaan..."
     infinite_scroll:
       no_more: "Ei enempää viestejä."
     photo_uploader:

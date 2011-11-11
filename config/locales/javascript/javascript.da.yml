@@ -47,7 +47,7 @@ da:
     search_for: "Søg efter {{name}}"
     show_more: "Vis mere"
     tags:
-      wasnt_that_interesting: "OK, jeg formoder #{{tagName}} var ikke så spændende ..."
+      wasnt_that_interesting: "OK, jeg formoder #{{tagName}} ikke var så spændende igen..."
     timeago:
       day: "en dag"
       days: "%d dage"

@@ -494,7 +494,7 @@ de:
       results_for: "Ergebnisse für %{params}"
     index:
       couldnt_find_them_send_invite: "Konntest du die gesuchte Person nicht finden? Schicke eine Einladung!"
-      looking_for: "Looking for posts tagged %{tag_link}?"
+      looking_for: "Suchst du mit %{tag_link} getaggte Beiträge?"
       no_one_found: "… und niemand wurde gefunden."
       no_results: "Hey! Du musst nach etwas suchen."
       results_for: "Suchergebnisse für"
@@ -750,6 +750,7 @@ de:
         hello: "Hallo zusammen, ich bin #%{new_user_tag}. "
         i_like: "Ich interessiere mich für %{tags}."
         invited_by: "Danke für die Einladung,"
+        newhere: "NeuHier"
       post_a_message_to: "Sende eine Nachricht an %{aspect}"
       posting: "Senden …"
       publishing_to: "Veröffentlichen an: "

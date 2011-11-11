@@ -601,12 +601,12 @@ fi:
       updated: "Profiili päivitetty"
   public: "Julkinen"
   reactions:
-    few: "%{count} reactions"
-    many: "%{count} reactions"
-    one: "1 reaction"
-    other: "%{count} reactions"
-    two: "%{count} reactions"
-    zero: "0 reactions"
+    few: "%{count} reaktiota"
+    many: "%{count} reaktiota"
+    one: "1 reaktio"
+    other: "%{count} reaktiota"
+    two: "%{count} reaktiota"
+    zero: "0 reaktiota"
   registrations:
     closed: "Rekisteröityminen on suljettu tässä Diaspora-podissa."
     create:
@@ -750,6 +750,7 @@ fi:
         hello: "Hey everyone, I'm #%{new_user_tag}. "
         i_like: "I'm interested in %{tags}."
         invited_by: "Thanks for the invite, "
+        newhere: "NewHere"
       post_a_message_to: "Lähetä viesti näkymään %{aspect}"
       posting: Lähetetään...
       publishing_to: "Julkaistaan: "
@@ -892,17 +893,20 @@ fi:
       your_email: "Sähköpostiosoitteesi"
       your_handle: Diaspora-tunnuksesi
     getting_started:
-      awesome_take_me_to_diaspora: "Awesome! Take me to Diaspora*"
-      community_welcome: "Diaspora's community is happy to have you aboard!"
+      awesome_take_me_to_diaspora: "Loistavaa! Mennään Diasporaan"
+      community_welcome: "Diaspora-yhteisö on iloinen saadessaan sinut mukaan!"
       hashtag_explanation: "Hashtagit mahdollistavat kiinnostuksen kohteistasi keskustelun ja niiden seuraamisen. Ne ovat myös hyvä keino ihmisten löytämiseen Diasporassa."
-      hashtag_suggestions: "Try following tags like #art, #movies, #gif, etc."
-      hooking_up_fb: "hooking up your Facebook account"
-      saved: Saved!
-      we_can_speed_things_up: "We can speed things up a bit by"
-      well_hello_there: "Well, hello there!"
-      what_are_you_in_to: "What are you into?"
-      what_facebook_does: "to Diaspora. This will pull your name and photo, and enable cross-positng."
-      who_are_you: "Who are you?"
+      hashtag_suggestions: "Voit seurata vaikkapa tageja kuten #taide, #elokuvat, #gif jne."
+      hooking_up_fb: "yhdistämällä Facebook-tilisi"
+      saved: Tallennettu!
+      we_can_speed_things_up: "Voimme nopeuttaa asioita hieman"
+      well_hello_there: "No, mutta hei!"
+      what_are_you_in_to: "Mistä olet kiinnostunut?"
+      what_facebook_does: |-
+          Diasporaan. Nimesi ja kuvasi haetaan Diasporaan, ja tämän jälkeen voit myös lähettää viestejä Diasporasta Facebookiin.
+
+          This will pull your name and photo, and enable cross-positng.
+      who_are_you: "Kuka olet?"
     logged_out:
       go_mobile: "Siirry nyt mobiiliin."
       on_your_mobile_device: "mobiililaitteellasi päästäksesi Diasporan mobiilisivustolle."

@@ -66,7 +66,7 @@ zh-TW:
       select_all: "全選"
     aspect_stream:
       stay_updated: "隨時保持最新狀態"
-      stay_updated_explanation: "你的主要流水帳會充滿了你的聯絡人, 追蹤的標籤, 以及一些有創意的社群成員的貼文."
+      stay_updated_explanation: "你的主流水帳會充滿了你的聯絡人, 追蹤的標籤, 以及一些有創意的社群成員的貼文."
     contacts_not_visible: 此面向中的聯絡人無法看見彼此.
     contacts_visible: 此面向中的聯絡人可以看見彼此.
     create:
@@ -472,7 +472,7 @@ zh-TW:
       view_post: "看貼文 >"
     single_admin:
       admin: "為您服務的 Diaspora 管理員"
-      subject: "關於你的 Diaspora 帳號的訊息:"
+      subject: "有關於你的 Diaspora 帳號的訊息:"
     started_sharing:
       sharing: 開始跟你分享了!
       subject: "%{name} 開始在 Diaspora* 跟你分享了"
@@ -740,7 +740,7 @@ zh-TW:
       outside: "不使用 Diaspora 的人也能看到公開訊息."
       share: "分享"
       title: "設定連線服務"
-      visibility_dropdown: "用這個下拉式選單來改變貼文的可見範圍.  (建議你第一篇設為公開.)"
+      visibility_dropdown: "用這個下拉式選單來改變貼文的可見範圍.  (建議你這篇首貼設為公開.)"
     publisher:
       all: "全部"
       all_contacts: "所有聯絡人"
@@ -750,6 +750,7 @@ zh-TW:
         hello: "大家好, 我是 #%{new_user_tag}. "
         i_like: "我對 %{tags} 有興趣."
         invited_by: "謝謝你的邀請, "
+        newhere: "新人"
       post_a_message_to: "在 %{aspect} 發表訊息"
       posting: 發表中...
       publishing_to: "發表至: "
@@ -822,7 +823,7 @@ zh-TW:
     recently: "最近:"
     tags:
       contacts_title: "這個標籤的粉絲"
-      tag_prefill_text: "關於 %{tag_name} 的東西有... "
+      tag_prefill_text: "有關於 %{tag_name} 的事情是... "
       title: "有以下標籤的貼文: %{tags}"
   tag_followings:
     create:

@@ -750,6 +750,7 @@ bg:
         hello: "Привет на всички, аз съм #%{new_user_tag}."
         i_like: "Интересува ме %{tags}."
         invited_by: "Благодаря за поканата, "
+        newhere: "НовТук"
       post_a_message_to: "Публикувайте публично съобщение в %{aspect}"
       posting: Публикуване...
       publishing_to: "публикуване в: "
