@@ -73,7 +73,7 @@
             .wrapper
               %ul.dropdown_list{:unSelectable => 'on', 'data-person_id' => (person.id if defined?(person) && person), 'data-service_uid' => (service_uid if defined?(service_uid))}
                 %li.public.radio{"data-aspect_id" => "public", :class => ("selected" if publisher_public)}
-                  Public
+                  = t('public')
 
                 %li.divider.all_aspects.radio{:style => "border-bottom: 1px solid #ddd;", "data-aspect_id" => "all_aspects", :class => ("selected" if (!publisher_public && all_aspects_selected?(selected_aspects)))}
                   = t('all_aspects')
