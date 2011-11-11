@@ -1051,7 +1051,6 @@ describe User do
       it 'returns the clearable fields' do
         user = Factory.create :user
         user.send(:clearable_fields).sort.should == %w{
-          serialized_private_key
           getting_started
           disable_mail
           language

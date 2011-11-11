@@ -508,6 +508,6 @@ class User < ActiveRecord::Base
 
   private
   def clearable_fields
-    self.attributes.keys - ["id", "username", "encrypted_password", "created_at", "updated_at", "locked_at"]
+    self.attributes.keys - ["id", "username", "encrypted_password", "created_at", "updated_at", "locked_at", "serialized_private_key"]
   end
 end
