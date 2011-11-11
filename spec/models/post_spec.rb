@@ -386,7 +386,7 @@ describe Post do
     end
   end
 
-  describe '#reshare_count' do
+  describe '#reshares_count' do
     before :each do
       @post = @user.post :status_message, :text => "hello", :to => @aspect.id, :public => true
       @post.reshares.size.should == 0
@@ -394,7 +394,7 @@ describe Post do
 
     describe 'when post has not been reshared' do
       it 'returns zero' do
-        @post.reshare_count.should == 0
+        @post.reshares_count.should == 0
       end
     end
 
@@ -407,7 +407,7 @@ describe Post do
       end
 
       it 'returns 1' do
-        @post.reshare_count.should == 1
+        @post.reshares_count.should == 1
       end
     end
 
@@ -422,7 +422,7 @@ describe Post do
       end
 
       it 'returns the number of reshares' do
-        @post.reshare_count.should == 3
+        @post.reshares_count.should == 3
       end
     end
   end
