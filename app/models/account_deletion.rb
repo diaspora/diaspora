@@ -12,7 +12,8 @@ class AccountDeletion < ActiveRecord::Base
 
   attr_accessible :person
 
-   xml_attr :diaspora_handle  
+  xml_name :account_deletion
+  xml_attr :diaspora_handle  
 
   def person=(person)
     self[:diaspora_handle] = person.diaspora_handle
@@ -31,8 +32,8 @@ class AccountDeletion < ActiveRecord::Base
   end
   
   def perform!
-    AccountDeleter.new(self.diaspora_handle).perform!
     self.dispatch if person.local?
+    #AccountDeleter.new(self.diaspora_handle).perform!
   end
 
   def subscribers(user)
