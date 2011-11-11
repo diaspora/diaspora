@@ -58,7 +58,7 @@
                 = image_tag "social_media_logos/#{service.provider}-16x16.png", :title => service.provider.titleize, :class => "service_icon dim", :id =>"#{service.provider}", :maxchar => "#{service.class::MAX_CHARACTERS}"
             = link_to (image_tag "icons/monotone_wrench_settings.png"), "#question_mark_pane", :class => 'question_mark', :rel => 'facebox', :title => t('shared.public_explain.manage')
 
-          .dropdown{:class => "hang_right", :title => popover_with_close_html("2. #{t('shared.public_explain.control_your_audience')}"), 'data-content'=> t('shared.public_explain.visibility_dropdown')}
+          .dropdown{ ! current_user.getting_started? ? {:class => "hang_right"} : { :class => "hang_right", :title => popover_with_close_html("2. #{t('shared.public_explain.control_your_audience')}"), 'data-content'=> t('shared.public_explain.visibility_dropdown')} }
             .button.toggle.publisher
               - if publisher_public
                 = t('public')
