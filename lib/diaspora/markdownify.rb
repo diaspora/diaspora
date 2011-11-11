@@ -7,7 +7,14 @@ module Diaspora
       include ActionView::Helpers::TagHelper
 
       def autolink(link, type)
-        auto_link(link, :link => :urls, :html => { :target => "_blank" })
+        domain_only = link[ %r{^https?://([a-zA-Z0-9.-]+/).+}, 1 ]
+        auto_link(
+          link,
+          :link => :urls,
+          :html => { :target => "_blank", :title => domain_only ? link : nil }
+        ) do |text|
+          domain_only ? "#{domain_only}..." : text
+        end
       end
 
     end
