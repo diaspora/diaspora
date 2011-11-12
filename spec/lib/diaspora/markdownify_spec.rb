@@ -61,8 +61,24 @@ describe Diaspora::Markdownify::HTML do
         end
 
         context 'and the short URL redirects "too many" times' do
+          before do
+            stub_request( :get, 'http://bit.ly/a' ).to_return(
+              :status => 301,
+              :headers => { 'Location' => 'http://bit.ly/b', },
+              :body => "some html here"
+            )
+
+            stub_request( :get, 'http://bit.ly/b' ).to_return(
+              :status => 301,
+              :headers => { 'Location' => 'http://bit.ly/a', },
+              :body => "some html here"
+            )
+
+          end
+
           it 'leaves the third-party shortened URL alone' do
-            pending
+            markdownified = @html.autolink('http://bit.ly/a', nil)
+            markdownified.should == %{<a href="http://bit.ly/a" target="_blank">http://bit.ly/a</a>}
           end
         end
       end

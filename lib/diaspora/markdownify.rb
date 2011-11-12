@@ -17,26 +17,27 @@ module Diaspora
 
           res = nil
           num_redirections = 0
-          while num_redirections < 8
-            if url.host && url.port
-              host, port = url.host, url.port
-            else
-              break
-            end
+          timeout(3) do
+            while num_redirections < 8
+              if url.host && url.port
+                host, port = url.host, url.port
+              else
+                break
+              end
 
-            req = Net::HTTP::Get.new(url.path)
-            timeout(3) do
+              req = Net::HTTP::Get.new(url.path)
               res = Net::HTTP.start(host, port) { |http|  http.request(req) }
+
+              if res.header['location']
+                url = URI.parse(res.header['location'])
+                num_redirections += 1
+              else
+                break
+              end
             end
 
-            if res.header['location']
-              url = URI.parse(res.header['location'])
-            else
-              break
-            end
+            url.to_s
           end
-
-          url.to_s
         rescue Timeout::Error
           url_s
         end
