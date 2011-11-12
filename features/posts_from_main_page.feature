@@ -53,7 +53,7 @@ Feature: posting from the main page
       Then I should see a "img" within ".stream_element div.photo_attachments"
       And I should see "Look at this dog" within ".stream_element"
 
-    Scenario: post a photo without text 
+    Scenario: post a photo without text
       Given I expand the publisher
       When I attach the file "spec/fixtures/button.png" to hidden element "file" within "#file-upload"
       And I wait for the ajax to finish
@@ -192,3 +192,17 @@ Feature: posting from the main page
       And I select only "NotPostingThingsHere" aspect
       Then I should not see "I am eating a yogurt"
       Then I should not see "And cornflakes also"
+
+    Scenario: reject deletion one of my posts
+      When I expand the publisher
+      And I fill in "status_message_fake_text" with "I am eating a yogurt"
+      And I press "Share"
+      And I wait for the ajax to finish
+
+      When I click the aspects title
+      And I hover over the ".stream_element"
+      And I preemptively reject the alert
+      And I click to delete the first post
+      Then I should see "I am eating a yogurt"
+      And I should see first post deletion link
+      And I should not see ajax loader on deletion link place

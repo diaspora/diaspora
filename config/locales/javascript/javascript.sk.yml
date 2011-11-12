@@ -8,10 +8,10 @@ sk:
     aspect_dropdown:
       add_to_aspect: "Pridať kontakt"
       all_aspects: "Všetky kategórie"
-      error: "Couldn't start sharing with {{name}}.  Are you ignoring them?"
+      error: "Nemôžete sa začať deliť s použ. {{name}}. Neignorujete ho (ju)?"
       select_aspects: "Vyberte si kategórie"
-      started_sharing_with: "You have started sharing with {{name}}!"
-      stopped_sharing_with: "You have stopped sharing with {{name}}."
+      started_sharing_with: "Začali ste sa deliť s použ. {{name}}!"
+      stopped_sharing_with: "Prestali ste sa deliť s použ. {{name}}."
       toggle:
         few: "V(o) {{count}} kategóriách"
         many: "V(o) {{count}} kategóriách"
@@ -30,24 +30,24 @@ sk:
     failed_to_like: "Nepodarilo sa označiť, že sa vám to páči!"
     failed_to_post_message: "Správu sa nepodarilo poslať!"
     getting_started:
-      alright_ill_wait: "Alright, I'll wait."
-      hey: "Hey, {{name}}!"
-      no_tags: "Hey, you haven't followed any tags!  Continue anyway?"
-      preparing_your_stream: "Preparing your personialized stream..."
+      alright_ill_wait: "V poriadku, počkám."
+      hey: "Hej, {{name}}!"
+      no_tags: "Hej, nesledujete žiadne značky!  Chcete aj tak pokračovať?"
+      preparing_your_stream: "Pripravuje sa vaša upravená nástenka..."
     infinite_scroll:
       no_more: "Žiadne ďalšie príspevky."
     photo_uploader:
-      looking_good: "OMG, you look awesome!"
+      looking_good: "No teda, vyzeráš super!"
     publisher:
       at_least_one_aspect: "Musíte publikovať aspoň jednu kategóriu"
       limited: "Obmedzené - váš príspevok uvidia len ľudia, s ktorými sa oň podelíte"
       public: "Verejný - váš príspevok pomocou vyhľadávačov uvidí a nájde každý"
     reshares:
-      duplicate: "O tento príspevok ste sa už raz znova podelili!"
+      duplicate: "To je dobré, čo? Tento príspevok ste už raz znova zdieľali!"
     search_for: "Hľadať {{name}}"
     show_more: "Zobraziť viac"
     tags:
-      wasnt_that_interesting: "OK, I suppose #{{tagName}} wasn't all that interesting..."
+      wasnt_that_interesting: "Dobre, značka #{{tagName}} asi nebola veľmi zaujímavá..."
     timeago:
       day: "včera"
       days: "%d dňami"

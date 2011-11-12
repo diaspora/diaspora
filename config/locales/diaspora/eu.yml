@@ -750,6 +750,7 @@ eu:
         hello: "Kaixo guztioi, #%{new_user_tag} naiz. "
         i_like: "%{tags} interesatzen zait."
         invited_by: "Thanks for the invite, "
+        newhere: "NewHere"
       post_a_message_to: "%{aspect}(e)n mezu bat partekatu"
       posting: Partekatzen...
       publishing_to: "hemen partekatzen:"

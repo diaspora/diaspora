@@ -750,6 +750,7 @@ bg:
         hello: "Привет на всички, аз съм #%{new_user_tag}."
         i_like: "Интересува ме %{tags}."
         invited_by: "Благодаря за поканата, "
+        newhere: "НовТук"
       post_a_message_to: "Публикувайте публично съобщение в %{aspect}"
       posting: Публикуване...
       publishing_to: "публикуване в: "
@@ -799,7 +800,7 @@ bg:
   streams:
     aspects:
       title: "Вашите аспекти"
-    aspects_stream: "Аспекти"
+    aspects_stream: "От вашите аспекти"
     commented_on: "коментирани"
     community_spotlight_stream: "От \"В центъра на вниманието\""
     followed_tag:
@@ -822,7 +823,7 @@ bg:
     recently: "наскоро:"
     tags:
       contacts_title: "Хора, които харесват марката"
-      tag_prefill_text: "The thing about %{tag_name} is... "
+      tag_prefill_text: "Мисля, че %{tag_name}..."
       title: "Публикации маркирани с \"%{tags}\""
   tag_followings:
     create:

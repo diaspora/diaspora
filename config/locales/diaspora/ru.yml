@@ -68,7 +68,7 @@ ru:
       stay_updated: "Будьте в курсе"
       stay_updated_explanation: "Ваш основной поток наполняется вашими контактами, метками, за которыми вы следите и записями нескольких популярных членов сообщества."
     contacts_not_visible: "Контакты в этом аспекте не смогут видеть друг друга."
-    contacts_visible: "Контакты в этом аспекте могут видеть друг друга"
+    contacts_visible: "Контакты в этом аспекте могут видеть друг друга."
     create:
       failure: "Не удалось создать аспект."
       success: "Ваш новый аспект %{name} создан"
@@ -265,11 +265,11 @@ ru:
       correct_the_following_errors_and_try_again: "Исправьте ошибки и попробуйте снова."
       invalid_fields: "Недействительные поля"
   fill_me_out: "Заполнить"
-  find_people: "Поиск людей или меток"
+  find_people: "Поиск людей или #меток"
   hide: "Скрыть"
   home:
     show:
-      already_account: "уже есть учётная запись?"
+      already_account: "уже есть аккаунт?"
       choice: "Выбор"
       choice_explanation: "Диаспора позволяет сортировать группы контактов, называемые аспектами. Аспекты - уникальная особенность диаспоры. Они позволяют обеспечить приватность ваших фотографий, историй и т.д. Последние будут доступны только для тех людей, которые принадлежат соответствующему аспекту."
       learn_about_host: "Узнайте о том, как организовать свой собственный сервер Диаспоры."
@@ -290,7 +290,7 @@ ru:
       already_sent: "Вы уже пригласили этого человека."
       no_more: "У вас закончились приглашения."
       own_address: "Вы не можете отправить приглашение на ваш собственный адрес."
-      rejected: "Следующие адреса электронной почты имеют проблемы:"
+      rejected: "Есть проблемы со следующими адресами электронной почты:"
       sent: "Ваши приглашения отправлены:"
     edit:
       accept_your_invitation: "Принять ваше приглашение"
@@ -310,7 +310,7 @@ ru:
   layouts:
     application:
       powered_by: "ПОДДЕРЖИВАЕТСЯ ДИАСПОРОЙ*"
-      public_feed: "Общественный канал диаспоры для %{name}"
+      public_feed: "Общественный канал Диаспоры для %{name}"
       toggle: обычный/мобильный
       whats_new: "что нового?"
       your_aspects: "Ваши аспекты"
@@ -361,7 +361,7 @@ ru:
       zero: "%{actors} также прокомментировали %{post_link} %{post_author}."
     also_commented_deleted:
       few: "%{actors} комментировали ваше удаленное сообщение."
-      many: "%{actors} комментировали ваше удаленое сообщение."
+      many: "%{actors} комментировали ваше удаленное сообщение."
       one: "%{actors} комментировал(а) ваше удаленное сообщение."
       other: "%{actors} комментировали ваше удаленное сообщение."
       two: "%{actors} комментировали удаленое сообщение."
@@ -400,12 +400,12 @@ ru:
       two: "%{actors} понравилась ваша %{post_link}."
       zero: "%{actors} понравилась ваша %{post_link}."
     liked_post_deleted:
-      few: "%{actors} нравилась ваша удаленая запись."
-      many: "%{actors} нравилась ваша удаленая запись."
-      one: "%{actors} нравилась ваша удаленая запись."
-      other: "%{actors} нравилась ваша удаленая запись."
+      few: "%{actors} нравилась ваша удаленная запись."
+      many: "%{actors} нравилась ваша удаленная запись."
+      one: "%{actors} нравилась ваша удаленная запись."
+      other: "%{actors} нравилась ваша удаленная запись."
       two: "%{actors} нравилась ваша удаленная запись."
-      zero: "%{actors} нравилась ваша удаленая запись."
+      zero: "%{actors} нравилась ваша удаленная запись."
     mentioned:
       few: "%{actors} упомянули вас в %{post_link}."
       many: "%{actors} упомянули вас в %{post_link}."
@@ -464,7 +464,7 @@ ru:
       view_post: "Посмотреть запись >"
     mentioned:
       mentioned: "упомянул вас в сообщении:"
-      subject: "%{name} упомянул вас в диаспоре*"
+      subject: "%{name} упомянул вас в Диаспоре*"
     private_message:
       reply_to_or_view: "Ответить или посмотреть эту беседу >"
     reshared:
@@ -494,7 +494,7 @@ ru:
       results_for: "результаты для %{params}"
     index:
       couldnt_find_them_send_invite: "Не можете их найти? Отправьте им приглашение!"
-      looking_for: "Looking for posts tagged %{tag_link}?"
+      looking_for: "Сообщения, отмеченные как %{tag_link}?"
       no_one_found: "...не удалось никого найти."
       no_results: "Введите текст для поиска."
       results_for: "результаты поиска для"
@@ -576,7 +576,7 @@ ru:
       destroy: "Удалить"
       not_found: "Извините, мы не смогли найти эту запись."
       permalink: "постоянная ссылка"
-  previous: "предыдущая"
+  previous: "ранее"
   privacy: "Приватность"
   profile: "Профиль"
   profiles:
@@ -608,7 +608,7 @@ ru:
     two: "Отзывы: %{count}"
     zero: "Отзывы: 0"
   registrations:
-    closed: "В этой части Диаспоры регистрация закрыта"
+    closed: "На этом сервере Диаспоры регистрация закрыта."
     create:
       success: "Добро пожаловать в Диаспору!"
     edit:
@@ -636,10 +636,10 @@ ru:
       success: "Теперь вы друзья."
     helper:
       new_requests:
-        few: "%{count} новые[-х] заявки[-ок]!"
-        many: "%{count} новые[-х] заявки[-ок]!"
+        few: "Новых запросов - %{count}!"
+        many: "Новых запросов - %{count}!"
         one: "новый запрос!"
-        other: "%{count} новые[-х] заявки[-ок]!"
+        other: "Новых запросов - %{count}!"
         two: "%{count} новых запросов!"
         zero: "новых запросов нет"
     manage_aspect_contacts:
@@ -705,7 +705,7 @@ ru:
       create_request: "Поиск по идентификатору в Диаспоре"
       diaspora_handle: diaspora@pod.org
       enter_a_diaspora_username: "Введите имя пользователя Диаспоры:"
-      know_email: "Знаете их email адреса? Вы должны предложить им присоединится к Диаспоре "
+      know_email: "Знаете их email адреса? Вы можете предложить им присоединиться к Диаспоре "
       your_diaspora_username_is: "Ваше имя пользователя Диаспоры: %{diaspora_handle}"
     aspect_dropdown:
       add_to_aspect: "Добавить контакт"
@@ -729,7 +729,7 @@ ru:
       invite_someone: "Пригласить кого-нибудь"
       invite_your_friends: "Пригласить друзей"
       invites: "Приглашения"
-      invites_closed: "В данный момент возможность приглашений закрыта в этой части Диаспоры"
+      invites_closed: "В данный момент возможность приглашений закрыта на этом сервере Диаспоры"
     notification:
       new: "Новый %{type} из %{from}"
     public_explain:
@@ -750,6 +750,7 @@ ru:
         hello: "Всем привет, я #%{new_user_tag}."
         i_like: "Мне интересны метки %{tags}."
         invited_by: "Спасибо за приглашение, "
+        newhere: "Новичок"
       post_a_message_to: "Опубликовать сообщение для %{aspect}"
       posting: Отправка...
       publishing_to: "публикация в:"
@@ -770,7 +771,7 @@ ru:
       shared_with: "Для аспектов: %{aspect_names}"
       unlike: "Не нравится"
       via: "через %{link}"
-      viewable_to_anyone: "Эту запись может видеть любой в Интернете"
+      viewable_to_anyone: "Эту запись может видеть любой в интернете"
   status_messages:
     create:
       success: "Успешно упомянут: %{names}"
@@ -790,12 +791,12 @@ ru:
   stream_helper:
     hide_comments: "Скрыть все комментарии"
     show_comments:
-      few: "Show %{count} more comments"
-      many: "Show %{count} more comments"
-      one: "Show one more comment"
-      other: "Show %{count} more comments"
-      two: "Show two more comments"
-      zero: "No more comments"
+      few: "Показать еще %{count} комментариев"
+      many: "Показать еще %{count} комментариев"
+      one: "Показать еще комментарии"
+      other: "Показать еще %{count} комментариев"
+      two: "Показать еще два комментария"
+      zero: "Больше нет комментариев"
   streams:
     aspects:
       title: "Аспекты"
@@ -844,11 +845,11 @@ ru:
     show:
       connect_to_cubbies: "Подключение к Cubbi.es"
       connecting_is_simple: "Подключить аккаунт Диаспоры легко! Просто введите ваш идентификатор в Диаспоре (<b>%{diaspora_id}</b>) на <a href='%{href_link}'>странице настроек</a> cubbies и нажмите \"подключить\"."
-      daniels_account: "Диаспора-аккаунт Даниила"
+      daniels_account: "Аккаунт Даниила в Диаспоре"
       log_in_with_diaspora_is_comming: "Очень скоро вы сможете подключаться к новым приложениям без необходимости заводить новую учетную запись вне Диаспоры."
       love_to_try: "Мы будем рады, если вы попробуете это."
       making_the_connection: "Создание подключения"
-      screenshot_explanation: "%{link1}.  Это особенно связано с %{link2}."
+      screenshot_explanation: "%{link1}.  Этот аккаунт cubbi связан с %{link2}."
       sign_up_today: "Зарегистрируйтесь прямо сейчас!"
       typical_userpage: "Типичная cubbi.es страница"
       via: "(via %{link})"
@@ -928,7 +929,7 @@ ru:
   webfinger:
     fetch_failed: "Не удалось получить профиль для %{profile_url}"
     hcard_fetch_failed: "Возникла проблема при получении hcard для %{account}"
-    no_person_constructed: "Ни одно лицо не может быть собрано из этой hcard."
-    not_enabled: "webfinger не будет включен для хоста %{account}'s"
+    no_person_constructed: "Ни одна персона не может быть собрана из этой hcard."
+    not_enabled: "webfinger не будет включен для хоста %{account}"
     xrd_fetch_failed: "Произошла ошибка при получении xrd с %{account}"
   welcome: "Добро пожаловать!"

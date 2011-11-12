@@ -750,6 +750,7 @@ uk:
         hello: "Привіт всім, я тут #%{new_user_tag}."
         i_like: "Я цікавлюся %{tags}."
         invited_by: "Спасибі за запрошення,"
+        newhere: "NewHere"
       post_a_message_to: "Опублікувати повідомлення для %{aspect}"
       posting: Відправка...
       publishing_to: "публікація в:"

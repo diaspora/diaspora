@@ -750,6 +750,7 @@ en_1337:
         hello: "Hey everyone, I'm #%{new_user_tag}. "
         i_like: "I'm interested in %{tags}."
         invited_by: "Thanks for the invite, "
+        newhere: "NewHere"
       post_a_message_to: "5P4M 7H15 45P3C7: %{aspect}"
       posting: 5P4MM1NG...
       publishing_to: "PUBL15H1NG 2: "

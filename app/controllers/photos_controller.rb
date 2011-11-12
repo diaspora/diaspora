@@ -144,13 +144,15 @@ class PhotosController < ApplicationController
     if user_signed_in?
       @photo = current_user.find_visible_shareable_by_id(Photo, params[:id])
     else
-      @photo = Photo.where(id => params[:id], :public => true)
+      @photo = Photo.where(:id => params[:id], :public => true).first
     end
 
     if @photo
       respond_with @photo
-    else
+    elsif user_signed_in?
       redirect_to :back
+    else
+      redirect_to new_user_session_path
     end
   end
 

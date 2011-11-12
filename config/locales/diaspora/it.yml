@@ -747,9 +747,10 @@ it:
       discard_post: "Elimina il post"
       make_public: "rendi pubblico"
       new_user_prefill:
-        hello: "Ciao a tutti, eccomi qui! Hey everyone, I'm #%{new_user_tag}"
+        hello: "Ciao a tutti, sono un #%{new_user_tag}."
         i_like: "I miei interessi sono %{tags}."
         invited_by: "Grazie per l'invito, "
+        newhere: "NuovoUtente"
       post_a_message_to: "Invia un messaggio a %{aspect}"
       posting: "Invio in corso..."
       publishing_to: "stai condividendo con: "

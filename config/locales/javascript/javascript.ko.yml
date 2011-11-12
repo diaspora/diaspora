@@ -8,7 +8,7 @@ ko:
     aspect_dropdown:
       add_to_aspect: "애스펙에 넣기"
       all_aspects: "모든 에스팩"
-      error: "Couldn't start sharing with {{name}}.  Are you ignoring them?"
+      error: "{{name}}님과 공유를 시작할 수 없습니다. 혹시 무시하고 있습니까?"
       select_aspects: "에스팩 선택"
       started_sharing_with: "{{name}}님과의 공유를 시작합니다!"
       stopped_sharing_with: "{{name}}님과의 공유를 멈췄습니다."

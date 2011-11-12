@@ -750,6 +750,7 @@ de_formal:
         hello: "Hallo zusammen, ich bin #%{new_user_tag}. "
         i_like: "Ich interessiere mich für %{tags}."
         invited_by: "Danke für die Einladung, "
+        newhere: "NewHere"
       post_a_message_to: "Senden Sie eine Nachricht an %{aspect}"
       posting: "Senden …"
       publishing_to: "Veröffentlichen an: "

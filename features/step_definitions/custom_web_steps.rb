@@ -11,6 +11,10 @@ And /^I expand the publisher$/ do
     ')
 end
 
+When 'I click the aspects title' do
+  find('.home_selector').click
+end
+
 When /^I press the aspect dropdown$/ do
   find('.dropdown .button').click
 end
@@ -194,7 +198,7 @@ When /^I resize my window to 800x600$/ do
   JS
 end
 
-Then /^I follow Edit Profile in the same window$/ do 
+Then /^I follow Edit Profile in the same window$/ do
   page.execute_script("$('a[href=\"#{edit_profile_path}\"]').removeAttr('target')")
 
   And %(I follow "Edit Profile")
@@ -213,9 +217,16 @@ And "I wait for the popovers to appear" do
 end
 
 And /^I click close on all the popovers$/ do
-  page.execute_script("var time = 400; $('.popover .close').each( 
+  page.execute_script("var time = 400; $('.popover .close').each(
           function(index, element){ setTimeout(function(){ $(element).click()},time);
           time += 800;
  });")
 end
 
+Then /^I should see first post deletion link$/ do
+  page.evaluate_script("$('.stream_element .delete').first().css('display')").should == "inline"
+end
+
+Then /^I should not see ajax loader on deletion link place$/ do
+  page.evaluate_script("$('.hide_loader').first().css('display')").should == "none"
+end

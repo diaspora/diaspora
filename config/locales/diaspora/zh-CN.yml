@@ -750,6 +750,7 @@ zh-CN:
         hello: "Hey everyone, I'm #%{new_user_tag}. "
         i_like: "I'm interested in %{tags}."
         invited_by: "Thanks for the invite, "
+        newhere: "NewHere"
       post_a_message_to: "在 %{aspect} 发布讯息"
       posting: 发布中……
       publishing_to: 发布至：

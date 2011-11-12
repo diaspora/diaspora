@@ -752,6 +752,7 @@ hu:
         hello: "Sziasztok, én #%{new_user_tag} vagyok. "
         i_like: "Engem ezek érdekelnek: %{tags}."
         invited_by: "Köszi a meghívásért,"
+        newhere: "NewHere"
       post_a_message_to: "Bejegyzés küldése ennek a csoportnak: %{aspect}"
       posting: Küldés...
       publishing_to: "Publikálás:"

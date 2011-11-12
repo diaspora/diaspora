@@ -61,12 +61,12 @@ sv:
       done_editing: "dölj"
     aspect_listings:
       add_an_aspect: "+ Lägg till en aspekt"
-      deselect_all: "Deselect all"
+      deselect_all: "Avmarkera alla"
       edit_aspect: "Ändra %{name}"
-      select_all: "Select all"
+      select_all: "Markera alla"
     aspect_stream:
-      stay_updated: "Stay Updated"
-      stay_updated_explanation: "Your main stream is populated with all of your contacts, tags you follow, and posts from some creative members of the community."
+      stay_updated: "Håll dig uppdaterad"
+      stay_updated_explanation: "Din huvudström innefattar alla dina kontakter, taggar du följer och inlägg från några kreativa medlemmar i gemenskapen."
     contacts_not_visible: "Kontakterna på den här aspekten kommer inte kunna se varandra."
     contacts_visible: "Kontakterna på den här aspekten kommer kunna se varandra."
     create:
@@ -114,13 +114,13 @@ sv:
         tag_bug: "#bug"
         tag_feature: "#feature"
         tag_question: "#question"
-        tutorials_wiki_and_forum: "%{tutorial} & %{wiki} & %{forum}: Community-powered tutorials, how-to, and news"
-      introduce_yourself: "This is your stream.  Jump in and introduce yourself."
+        tutorials_wiki_and_forum: "%{tutorial} & %{wiki} & %{forum}: Gemenskapens handledning, guider och nyheter"
+      introduce_yourself: "Det här är din ström. Hoppa in och presentera dig själv."
       keep_us_running: "Håll farten hos %{pod} uppe och köp kaffe till servrarna genom en månadsdonation!"
       new_here:
-        follow: "Follow %{link} and welcome new users to Diaspora*!"
-        learn_more: "Learn more"
-        title: "Welcome New Users"
+        follow: "Följ %{link} och välkomna nya användare av Diaspora*!"
+        learn_more: "Läs mer"
+        title: "Välkomna Nya Användare"
       no_contacts: "Inga kontakter"
       no_tags: "+ Hitta en tag att följa"
       people_sharing_with_you: "Personer som delar med dig"
@@ -129,7 +129,7 @@ sv:
         content: "Du kan koppla ihop Diaspora med följande tjänster:"
         heading: "Ihopkopplade tjänster"
       unfollow_tag: "Sluta följa #%{tag}"
-      welcome_to_diaspora: "Welcome to Diaspora, %{name}!"
+      welcome_to_diaspora: "Välkommen till Diaspora, %{name}!"
       your_aspects: "Dina aspekter"
     many: "%{count} aspekter"
     move_contact:
@@ -140,8 +140,8 @@ sv:
       create: "Skapa"
       name: "Namn (endast synligt för dig)"
     no_contacts_message:
-      community_spotlight: "community spotlight"
-      or_spotlight: "Or you can share with %{link}"
+      community_spotlight: "gemenskapens rampljus"
+      or_spotlight: "Du kan också dela med %{link}"
       try_adding_some_more_contacts: "Du kan söka efter (längst upp) eller bjuda in (till höger) fler personer."
       you_should_add_some_more_contacts: "Du bör lägga till några fler kontakter!"
     no_posts_message:
@@ -156,7 +156,7 @@ sv:
     selected_contacts:
       manage_your_aspects: "Hantera dina aspekter."
       no_contacts: "Du har ännu inte några kontakter här."
-      view_all_community_spotlight: "See all community spotlight"
+      view_all_community_spotlight: "Se alla gemenskapens rampljus"
       view_all_contacts: "Se alla kontakter"
     show:
       edit_aspect: "ändra aspekt"
@@ -172,11 +172,11 @@ sv:
   back: "Tillbaka"
   blocks:
     create:
-      failure: "I couldn't ignore that user.  #evasion"
-      success: "Alright, you won't see that user in your stream again. #silencio!"
+      failure: "Jag kunde inte ignorera den användaren.  #evasion"
+      success: "Nåväl, du kommer inte att se den användaren i din ström igen. #silencio!"
     destroy:
-      failure: "I couldn't stop ignoring that user.  #evasion"
-      success: "Let's see what they have to say! #sayhello"
+      failure: "Jag kunde inte sluta ignorera den användaren.  #evasion"
+      success: "Låt oss se vad de har att säga! #sayhello"
   bookmarklet:
     explanation: "Bokmärk %{link} för att posta på Diaspora ifrån varsomhelst. "
     explanation_link_text: "denna länk"
@@ -217,7 +217,7 @@ sv:
     sharing:
       people_sharing: "Personer delar med dig:"
     spotlight:
-      community_spotlight: "Community Spotlight"
+      community_spotlight: "Gemenskapens Rampljus"
     two: "%{count} kontakter"
     zero: "kontakter"
   conversations:
@@ -301,7 +301,7 @@ sv:
       comma_seperated_plz: "Du kan ange flera e-postadresser separerade av kommatecken."
       if_they_accept_info: "om de accepterar, kommer de bli med på den sida du har bjudit in dem till."
       invite_someone_to_join: "Bjud in en vän till Diaspora!"
-      language: "Language"
+      language: "Språk"
       personal_message: "Personligt meddelande"
       resend: "Skicka igen"
       send_an_invitation: "Skicka en inbjudan"
@@ -494,7 +494,7 @@ sv:
       results_for: " resultat för %{params}"
     index:
       couldnt_find_them_send_invite: "Fanns de inte här?  Skicka en inbjudan!"
-      looking_for: "Looking for posts tagged %{tag_link}?"
+      looking_for: "Letar du efter inlägg som taggats med %{tag_link}?"
       no_one_found: "...och ingen hittades."
       no_results: "Du måste söka efter något."
       results_for: "Sökresultat för"
@@ -518,7 +518,7 @@ sv:
     show:
       does_not_exist: "Den här personen finns inte!"
       has_not_shared_with_you_yet: "%{name} har inte delat några inlägg med dig än!"
-      ignoring: "You are ignoring all posts from %{name}."
+      ignoring: "Du ignorerar alla inlägg från %{name}."
       incoming_request: "%{name} vill dela med dig"
       mention: "Nämna"
       message: "Meddelande"
@@ -556,7 +556,7 @@ sv:
       invalid_ext: "{file} har en ogiltig filändelse. Endast {extensions} är tillåtna."
       size_error: "{file} är för stor, maximal tillåten filstorlek är {sizeLimit}."
     new_profile_photo:
-      or_select_one_existing: "or select one from your already existing %{photos}"
+      or_select_one_existing: "eller välj ett av dina tidigare %{photos}"
       upload: "Ladda upp en ny profilbild!"
     photo:
       view_all: "visa alla foton som %{name} laddat upp"
@@ -577,7 +577,7 @@ sv:
       not_found: "Tyvärr, men vi kan inte hitta det inlägget."
       permalink: "permalänk"
   previous: "föregående"
-  privacy: "Privacy"
+  privacy: "Sekretess"
   profile: "Profil"
   profiles:
     edit:
@@ -667,15 +667,15 @@ sv:
   search: "Sök"
   services:
     create:
-      already_authorized: "A user with diaspora id %{diaspora_id} already authorized that %{service_name} account."
-      failure: "Authentication failed."
+      already_authorized: "En användare med diaspora-id %{diaspora_id} har redan auktoriserat det %{service_name}-kontot."
+      failure: "Autentisering misslyckades."
       success: "Autentiering lyckades."
     destroy:
       success: "Du har nu kopplat bort tjänsten."
     failure:
       error: "Det blev ett fel vid anslutning till tjänsten"
     finder:
-      fetching_contacts: "Diaspora is populating your %{service} friends please check back in a few minutes."
+      fetching_contacts: "Diaspora fyller listan med dina %{service}-vänner. Vänligen försök igen senare."
       no_friends: "Hittade inga vänner ifrån Facebook."
       service_friends: "%{service}-vänner"
     index:
@@ -697,8 +697,8 @@ sv:
   settings: "Inställningar"
   share_visibilites:
     update:
-      post_hidden_and_muted: "%{name}'s post has been hidden, and notifications have been muted."
-      see_it_on_their_profile: "If you want to see updates on this post, visit %{name}'s profile page."
+      post_hidden_and_muted: "%{name}s inlägg har dolts och notiser har tystats."
+      see_it_on_their_profile: "Om du vill se uppdateringar för detta inlägg besöker du %{name}s profilsida."
   shared:
     add_contact:
       add_new_contact: "Lägg till en ny kontakt"
@@ -733,23 +733,24 @@ sv:
     notification:
       new: "Ny %{type} från %{from}"
     public_explain:
-      control_your_audience: "Control your Audience"
+      control_your_audience: "Bestäm din Publik"
       logged_in: "inloggad på %{service}"
       manage: "hantera anslutna tjänster"
-      new_user_welcome_message: "Use #hashtags to classify your posts and find people who share your interests.  Call out awesome people with @Mentions"
+      new_user_welcome_message: "Använd #hashtaggar för att klassificera dina inlägg och hitta folk som delar dina intressen. Ropa ut till häftiga personer med @Mentions"
       outside: "Publika meddelanden kan läsas av användare utanför Diaspora."
-      share: "Share"
+      share: "Dela"
       title: "Hantera anslutna tjänster"
-      visibility_dropdown: "Use this dropdown to change visibility of your post.  (We suggest you make this first one public.)"
+      visibility_dropdown: "Använd den här rullisten för att ändra synligheten för ditt inlägg (vi föreslår att du gör det här första inlägget publikt)."
     publisher:
       all: "alla"
       all_contacts: "alla kontakter"
       discard_post: "Släng inlägg"
       make_public: "gör publik"
       new_user_prefill:
-        hello: "Hey everyone, I'm #%{new_user_tag}. "
-        i_like: "I'm interested in %{tags}."
-        invited_by: "Thanks for the invite, "
+        hello: "Hej allihop, jag är #%{new_user_tag}. "
+        i_like: "Jag är intresserad av %{tags}."
+        invited_by: "Tack för inbjudan, "
+        newhere: "NewHere"
       post_a_message_to: "Skicka ett meddelande till %{aspect}"
       posting: Skickar...
       publishing_to: "publicerar till: "
@@ -760,12 +761,12 @@ sv:
     reshare:
       reshare: "Återdela"
     stream_element:
-      connect_to_comment: "Connect to this user to comment on their post"
-      currently_unavailable: "commenting currently unavailable"
+      connect_to_comment: "Anslut till den här användaren för att kommentera på deras inlägg"
+      currently_unavailable: "kommentering är för närvarande otillgängligt"
       dislike: "Jag ogillar det här"
       hide_and_mute: "Dölj och ignorera"
-      ignore_user: "Ignore %{name}"
-      ignore_user_description: "Ignore and remove user from all aspects?"
+      ignore_user: "Ignorera %{name}"
+      ignore_user_description: "Ignorera och ta bort användaren från alla aspekter?"
       like: "Jag gillar det här"
       shared_with: "Delas med: %{aspect_names}"
       unlike: "Sluta gilla"
@@ -790,39 +791,39 @@ sv:
   stream_helper:
     hide_comments: "Dölj alla kommentarer"
     show_comments:
-      few: "Show %{count} more comments"
-      many: "Show %{count} more comments"
-      one: "Show one more comment"
-      other: "Show %{count} more comments"
-      two: "Show two more comments"
-      zero: "No more comments"
+      few: "Visa %{count} ytterligare kommentarer"
+      many: "Visa %{count} ytterligare kommentarer"
+      one: "Visa en ytterligare kommentar"
+      other: "Visa %{count} ytterligare kommentarer"
+      two: "Visa två ytterligare kommentarer"
+      zero: "Inga fler kommentarer"
   streams:
     aspects:
-      title: "Your Aspects"
-    aspects_stream: "Aspects"
-    commented_on: "commented on"
-    community_spotlight_stream: "Community Spotlight"
+      title: "Dina Aspekter"
+    aspects_stream: "Aspekter"
+    commented_on: "kommenterade på"
+    community_spotlight_stream: "Gemenskapens Rampljus"
     followed_tag:
-      add_a_tag: "Add a tag"
-      contacts_title: "People who dig these tags"
-      follow: "Follow"
-      title: "#Followed Tags"
-    followed_tags_stream: "#Followed Tags"
+      add_a_tag: "Lägg till en tagg"
+      contacts_title: "Folk som gillar dessa taggar"
+      follow: "Följ"
+      title: "#Följda Taggar"
+    followed_tags_stream: "#Följda Taggar"
     mentioned_stream: "@Mentions"
     mentions:
       contacts_title: "Personer som omnämnt dig"
-      title: "Du är omnämnd"
+      title: "Omnämnanden"
     multi:
-      contacts_title: "People in your Stream"
-      title: "Stream"
-    posted: "posted"
+      contacts_title: "Folk i din Ström"
+      title: "Ström"
+    posted: "skrev ett inlägg"
     public:
       contacts_title: "Postade nyligen"
       title: "Offentlig Aktivitet"
-    recently: "recently:"
+    recently: "nyligen:"
     tags:
       contacts_title: "Människor som gillar de här taggarna"
-      tag_prefill_text: "The thing about %{tag_name} is... "
+      tag_prefill_text: "Det intressanta med %{tag_name} är... "
       title: "Postade taggar: %{tags}"
   tag_followings:
     create:
@@ -860,9 +861,9 @@ sv:
       email_confirmed: "E-mail %{email} aktiverad"
       email_not_confirmed: "E-mail kunde inte aktiveras. Fel länk?"
     destroy:
-      no_password: "Please enter your current password to close your account."
-      success: "Your account has been locked.  It may take 20 minutes for us to finish closing your account.  Thank you for trying Diaspora."
-      wrong_password: "The entered password didn't match your current password."
+      no_password: "Vänligen ange ditt nuvarande lösenord för att avsluta ditt konto."
+      success: "Ditt konto har låsts. Det har ta 20 minuter för oss att avsluta ditt konto. Tack för att du testade Diaspora."
+      wrong_password: "Det angivna lösenordet stämde inte med ditt nuvarande lösenord."
     edit:
       also_commented: "...någon har också kommenterat på din kontakts post?"
       change: "Ändra"
@@ -877,32 +878,32 @@ sv:
       edit_account: "Ändra konto"
       email_awaiting_confirmation: "Vi har skickat dig en länk till %{unconfirmed_email} för aktivering. Innan du har aktiverat din nya adress, kommer vi fortsätta att använda %{email}."
       export_data: "Exportera data"
-      getting_started: "New User Prefrences"
+      getting_started: "Inställningar för Ny Användare"
       liked: "...någon gillar ditt inlägg?"
       mentioned: "...du är omnämnd i en post?"
       new_password: "Nytt lösenord"
-      photo_export_unavailable: "Photo exporting currently unavailable"
+      photo_export_unavailable: "Export av foton är för närvarande otillgängligt"
       private_message: "...du mottar ett privat meddelande?"
       receive_email_notifications: "Skicka notiser via e-post när..."
       reshared: "...någon sprider mina inlägg vidare?"
-      show_community_spotlight: "Show Community Spotlight in Stream?"
-      show_getting_started: "Re-enable Getting Started"
+      show_community_spotlight: "Ska Gemenskapens Rampljus visas i din Ström?"
+      show_getting_started: "Återaktivera Komma Igång"
       started_sharing: "...någon börjar dela med dig?"
-      stream_preferences: "Stream Preferences"
+      stream_preferences: "Inställningar för din Ström"
       your_email: "Din epost"
       your_handle: "Ditt Diaspora ID"
     getting_started:
-      awesome_take_me_to_diaspora: "Awesome! Take me to Diaspora*"
+      awesome_take_me_to_diaspora: "Häftigt! Ta mig till Diaspora*"
       community_welcome: "Vi i Diasporas community är glada att ha dig här!"
       hashtag_explanation: "Hashtaggar gör det möjligt att diskutera och följa dina intressen. Det är också ett bra sätt att lära känna nya människor på Diaspora."
-      hashtag_suggestions: "Try following tags like #art, #movies, #gif, etc."
-      hooking_up_fb: "hooking up your Facebook account"
-      saved: Saved!
-      we_can_speed_things_up: "We can speed things up a bit by"
-      well_hello_there: "Well, hello there!"
-      what_are_you_in_to: "What are you into?"
+      hashtag_suggestions: "Testa att följa taggar såsom #konst, #film, #gif, etc."
+      hooking_up_fb: "koppla in ditt Facebook-konto"
+      saved: Sparat!
+      we_can_speed_things_up: "Vi kan snabba upp det lite genom att"
+      well_hello_there: "Hej på dig!"
+      what_are_you_in_to: "Vad gillar du?"
       what_facebook_does: "to Diaspora. This will pull your name and photo, and enable cross-positng."
-      who_are_you: "Who are you?"
+      who_are_you: "Vem är du?"
     logged_out:
       go_mobile: "Använd nu mobilen."
       on_your_mobile_device: "i din mobil för att komma till Diaspora* mobile."
@@ -910,9 +911,9 @@ sv:
       simply_visit: "Besök helt enkelt"
       works_on_modern: "Fungerar på alla moderna smartphones"
     privacy_settings:
-      ignored_users: "Ignored Users"
-      stop_ignoring: "Stop ignoring"
-      title: "Privacy Settings"
+      ignored_users: "Ignorerade Användare"
+      stop_ignoring: "Sluta ignorera"
+      title: "Sekretessinställningar"
     public:
       does_not_exist: "Användaren %{username} finns inte!"
     update:
@@ -921,8 +922,8 @@ sv:
       language_not_changed: "Språket kunde inte ändras"
       password_changed: "Lösenordet är nu ändrat och klart att användas."
       password_not_changed: "Lösenordet kunde inte ändras"
-      settings_not_updated: "Settings update failed"
-      settings_updated: "Settings updated"
+      settings_not_updated: "Uppdatering av inställningar misslyckades"
+      settings_updated: "Inställningar uppdaterades"
       unconfirmed_email_changed: "E-postadressen har ändrats och behöver aktiveras."
       unconfirmed_email_not_changed: "Byte av e-postadress misslyckades"
   webfinger:
@@ -931,4 +932,4 @@ sv:
     no_person_constructed: "Den här personen kunde inte hittas (hcard-fel)."
     not_enabled: "Webfinger verkar inte vara påslaget på %{account}'s server"
     xrd_fetch_failed: "kunde inte hämta xrd-fil från kontot %{account}"
-  welcome: Welcome!
+  welcome: Välkommen!
