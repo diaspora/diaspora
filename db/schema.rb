@@ -386,7 +386,7 @@ ActiveRecord::Schema.define(:version => 20111112033021) do
 
   create_table "short_url_expansions", :force => true do |t|
     t.string   "url_short"
-    t.string   "url_expanded"
+    t.string   "url_expanded", :limit => 1024
     t.datetime "created_at"
     t.datetime "updated_at"
   end
