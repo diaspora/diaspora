@@ -83,15 +83,26 @@ describe Diaspora::Markdownify::HTML do
 
             stub_request( :get, 'http://bit.ly/b' ).to_return(
               :status => 301,
-              :headers => { 'Location' => 'http://bit.ly/a', },
+              :headers => { 'Location' => 'http://bit.ly/c', },
               :body => "some html here"
             )
 
+            stub_request( :get, 'http://bit.ly/c' ).to_return(
+              :status => 301,
+              :headers => { 'Location' => 'http://bit.ly/a', },
+              :body => "some html here"
+            )
           end
 
           it 'leaves the third-party shortened URL alone' do
             markdownified = @html.autolink('http://bit.ly/a', nil)
             markdownified.should == %{<a href="http://bit.ly/a" target="_blank">http://bit.ly/a</a>}
+
+            markdownified = @html.autolink('http://bit.ly/b', nil)
+            markdownified.should == %{<a href="http://bit.ly/b" target="_blank">http://bit.ly/b</a>}
+
+            markdownified = @html.autolink('http://bit.ly/c', nil)
+            markdownified.should == %{<a href="http://bit.ly/c" target="_blank">http://bit.ly/c</a>}
           end
         end
       end

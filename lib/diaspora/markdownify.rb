@@ -13,10 +13,11 @@ module Diaspora
         end
 
         begin
+          resolution = url_s
           url = URI.parse(url_s)
-
           res = nil
           num_redirections = 0
+
           timeout(3) do
             while num_redirections < 8
               if url.host && url.port
@@ -32,15 +33,14 @@ module Diaspora
                 url = URI.parse(res.header['location'])
                 num_redirections += 1
               else
+                resolution = url.to_s
+                ShortUrlExpansion.create(
+                  :url_short => url_s,
+                  :url_expanded => resolution
+                )
                 break
               end
             end
-
-            resolution = url.to_s
-            ShortUrlExpansion.create(
-              :url_short => url_s,
-              :url_expanded => resolution
-            )
 
             resolution
           end
