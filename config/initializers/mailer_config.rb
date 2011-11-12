@@ -17,7 +17,8 @@ Diaspora::Application.configure do
     elsif AppConfig[:mailer_method] == "sendmail"
       config.action_mailer.delivery_method = :sendmail
       config.action_mailer.sendmail_settings = {
-        :location => AppConfig[:sendmail_location]
+        :location => AppConfig[:sendmail_location],
+        :arguments => "-i" if AppConfig[:sendmail_exim_fix]
       }
     else
       config.action_mailer.delivery_method = :smtp

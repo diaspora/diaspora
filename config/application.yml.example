@@ -127,6 +127,9 @@ defaults: &defaults
 
   # The path to the sendmail binary. Ignored if mailer_method is not set to sendmail
   sendmail_location: '/usr/sbin/sendmail'
+  
+  # Set this to true if you want to use exim and sendmail
+  sendmail_exim_fix: false
 
   # Authentication required to send mail. Use one of 'one', 'plain',
   # 'login' or 'cram-md5'. Use 'none' if server does not support
