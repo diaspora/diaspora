@@ -189,7 +189,7 @@ ca:
         tag_feature: "millora"
         tutorials_wiki_and_forum: "%{tutorial}, %{wiki} i %{forum}: Tutorials, guies i notícies mantinguts per la comunitat"
         satisfaction: "%{link}: Suport de la comunitat"
-        email_feedback: "%Envieu per {link} els vostres comentaris, si ho preferiu"
+        email_feedback: "Envieu per %{link} els vostres comentaris, si ho preferiu"
       cubbies:
         heading: "Connecteu a Cubbi.es"
         explanation: "Cubbi.es és la primera aplicació Diàspora sota desenvolupament."
