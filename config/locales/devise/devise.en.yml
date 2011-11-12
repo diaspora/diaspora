@@ -89,7 +89,7 @@ en:
         have_fun_paragraph: "%{strong_diaspora} is all about discovering amazing new content and people online. %{link}, the world's first %{strong_diaspora} application is just the begining. Collect and share the web in all of its glory."
         made_by_people: "%{strong_diaspora} is made by people who love the Internet as much as you do. %{jointeam}, or %{helpfund}!"
         join_team: "Join our Team"
-        or: "or"	
+        or: "or"
         help_fund: "help fund Diaspora"
         unsubscribe: "To unsubscribe please click %{link}."
         here: "here"
