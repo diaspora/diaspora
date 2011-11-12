@@ -36,7 +36,13 @@ module Diaspora
               end
             end
 
-            url.to_s
+            resolution = url.to_s
+            ShortUrlExpansion.create(
+              :url_short => url_s,
+              :url_expanded => resolution
+            )
+
+            resolution
           end
         rescue Timeout::Error
           url_s

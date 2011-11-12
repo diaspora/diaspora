@@ -56,7 +56,8 @@ describe Diaspora::Markdownify::HTML do
           end
 
           it 'caches URL expansions' do
-            pending
+            markdownified = @html.autolink('http://bit.ly/ttQqRi', nil)
+            ShortUrlExpansion.find_by_url_short('http://bit.ly/ttQqRi').should_not be_nil
           end
         end
 
