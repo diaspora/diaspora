@@ -13,11 +13,11 @@ fi:
       started_sharing_with: "Olet alkanut jakaa käyttäjän {{name}} kanssa!"
       stopped_sharing_with: "Olet lopettanut jakamisen käyttäjän {{name}} kanssa."
       toggle:
-        few: "{{count}}:ssa näkymässä"
-        many: "{{count}}:ssa näkymässä"
-        one: "{{count}}:ssa näkymässä"
-        other: "{{count}}:ssa näkymässä"
-        two: "{{count}}:ssa näkymässä"
+        few: "{{count}} näkymässä"
+        many: "{{count}} näkymässä"
+        one: "{{count}} näkymässä"
+        other: "{{count}} näkymässä"
+        two: "{{count}} näkymässä"
         zero: "Valitse näkymät"
     aspect_navigation:
       deselect_all: "Poista valinnat"

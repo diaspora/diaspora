@@ -101,7 +101,7 @@ fi:
         content_2: "Anna se toisille ihmisille, jotta he voivat löytää sinut Diasporasta."
         heading: Diaspora-ID
       donate: "Lahjoita"
-      handle_explanation: "Tämä on Diaspora-osoitteesi. Voit käyttää sitä kuten sähköpostiosoitettasi. Sen avulla sinut tavoitetaan Diasporasta."
+      handle_explanation: "Tämä on Diaspora-tunnuksesi. Voit antaa sen ihmisille kuten sähköpostiosoitteesi, jotta he voivat sen avulla tavoittaa sinut Diasporasta."
       help:
         do_you: "Do you:"
         email_feedback: "%{link} your feedback, if you prefer"
@@ -203,7 +203,7 @@ fi:
       add_to_aspect: "lisää kontakteja näkymään %{name}"
       all_contacts: "Kaikki kontaktit"
       check_out: "Katso"
-      many_people_are_you_sure: "Are you sure you want to start a private conversation with more than %{suggested_limit} contacts? Posting to this aspect may be a better way to contact them."
+      many_people_are_you_sure: "Oletko varma, että haluat aloittaa yksityiskeskustelun useamman kuin %{suggested_limit} kontaktin kanssa? Viestin lähettäminen tähän näkymään voisi olla parempi tapa olla yhteydessä heihin."
       my_contacts: "Kontaktini"
       no_contacts: "Ei kontakteja."
       only_sharing_with_me: "Jakaa vain kanssani"
@@ -566,7 +566,7 @@ fi:
       edit: "muokkaa"
       edit_delete_photo: "Muokkaa kuvan kuvausta / poista kuva"
       make_profile_photo: "aseta profiilikuvaksi"
-      show_original_post: "Show original post"
+      show_original_post: "Näytä alkuperäinen viesti"
       update_photo: "Päivitä kuva"
     update:
       error: "Kuvan muokkaus epäonnistui."
@@ -710,10 +710,10 @@ fi:
     aspect_dropdown:
       add_to_aspect: "Lisää kontakti"
       toggle:
-        few: "In %{count} aspects"
-        many: "In %{count} aspects"
-        one: "In %{count} aspect"
-        other: "In %{count} aspects"
+        few: "%{count} näkymässä"
+        many: "%{count} näkymässä"
+        one: "%{count} näkymässä"
+        other: "%{count} näkymässä"
         two: "In %{count} aspects"
         zero: "Lisää kontakti"
     contact_list:
@@ -791,12 +791,12 @@ fi:
   stream_helper:
     hide_comments: "Piilota kaikki kommentit"
     show_comments:
-      few: "Show %{count} more comments"
-      many: "Show %{count} more comments"
-      one: "Show one more comment"
-      other: "Show %{count} more comments"
-      two: "Show two more comments"
-      zero: "No more comments"
+      few: "Näytä %{count} muuta kommenttia"
+      many: "Näytä %{count} muuta kommenttia"
+      one: "Näytä yksi muu kommentti"
+      other: "Näytä %{count} muuta kommenttia"
+      two: "Näytä kaksi muuta kommenttia"
+      zero: "Ei enempää kommentteja"
   streams:
     aspects:
       title: "Näkymäsi"

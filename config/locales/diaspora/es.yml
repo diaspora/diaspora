@@ -66,7 +66,7 @@ es:
       select_all: "Marcar todos"
     aspect_stream:
       stay_updated: "Mantente Actualizad@"
-      stay_updated_explanation: "Tu entrada de novedades la forman todos tus contactos, las etiquetas que sigues, y si lo deseas, las publicaciones de diferentes miembros creativos de la comunidad."
+      stay_updated_explanation: "Tu entrada principal la forman todos tus contactos, las etiquetas que sigues, y si lo deseas, las publicaciones de diferentes miembros creativos de la comunidad."
     contacts_not_visible: "Los contactos de este aspecto no podrán verse."
     contacts_visible: "Los contactos de este aspecto podrán verse."
     create:
@@ -115,7 +115,7 @@ es:
         tag_feature: "feature"
         tag_question: "question"
         tutorials_wiki_and_forum: "%{tutorial} & %{wiki} & %{forum}: Tutoriales, wiki y noticias"
-      introduce_yourself: "Esta es tu entrada de novedades. Adelante, preséntate..."
+      introduce_yourself: "Esta es tu entrada principal. Adelante, preséntate..."
       keep_us_running: "Haz que %{pod} vaya más rápido, ¡compra a nuestros servidores sus dosis de café mensual!"
       new_here:
         follow: "¡Sigue %{link} y da la bienvenida a Diaspora* a los nuevos usuarios!"
@@ -173,7 +173,7 @@ es:
   blocks:
     create:
       failure: "No podría ignorar a esa persona. #evasion"
-      success: "Bien, tú no verás a esa persona en tus novedades otra vez. #silencio!"
+      success: "Bien, tú no verás a esa persona en tu entrada otra vez. #silencio!"
     destroy:
       failure: "No podría dejar de ignorar a esa persona.  #evasion"
       success: "¡Vamos a ver qué tiene que decir! #sayhello"
@@ -750,11 +750,11 @@ es:
         hello: "Hola a tod@s, I'm #%{new_user_tag}."
         i_like: "Tengo interés en %{tags}."
         invited_by: "Gracias por la invitación, "
-        newhere: "SoyNuevo"
+        newhere: "NewHere"
       post_a_message_to: "Publicar un mensaje en %{aspect}"
       posting: Publicando...
       publishing_to: "publicar en:"
-      share: "Compartir"
+      share: "Comparte"
       share_with: "compartir con"
       upload_photos: "Subir fotos"
       whats_on_your_mind: "¿Qué andas pensando?"
@@ -805,7 +805,7 @@ es:
     community_spotlight_stream: "Comunidad Creativa"
     followed_tag:
       add_a_tag: "Añade una etiqueta"
-      contacts_title: "Gente que sigue esas etiquetas"
+      contacts_title: "Gente que usando esas etiquetas"
       follow: "Seguir"
       title: "#Etiquetas"
     followed_tags_stream: "#Etiquetas seguidas"
@@ -814,8 +814,8 @@ es:
       contacts_title: "Gente que te mencionó"
       title: "@Menciones"
     multi:
-      contacts_title: "Gente en tus Novedades"
-      title: "Novedades"
+      contacts_title: "Gente en tu Entrada"
+      title: "Entrada"
     posted: "publicado"
     public:
       contacts_title: "Publicadores recientes"
@@ -886,10 +886,10 @@ es:
       private_message: "...recibes un mensaje privado?"
       receive_email_notifications: "Recibir notificaciones por email cuando..."
       reshared: "...alguien compartió tu publicación?"
-      show_community_spotlight: "¿Mostrar \"Comunidad Creativa\" en tus Novedades?"
+      show_community_spotlight: "¿Mostrar la \"Comunidad Creativa\" en tu Entrada?"
       show_getting_started: "Reiniciar la Introducción de Ayuda"
       started_sharing: "...alquien empieza a seguir tus mensajes públicos?"
-      stream_preferences: "Preferencias de las Novedades"
+      stream_preferences: "Preferencias de Entrada"
       your_email: "Tu email"
       your_handle: "Tu dirección Diaspora*"
     getting_started:

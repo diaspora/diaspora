@@ -141,7 +141,7 @@ sk:
       name: "Meno (uvidíte ho len vy)"
     no_contacts_message:
       community_spotlight: "v centre pozornosti komunity"
-      or_spotlight: "Alebo môžete zdieľať s %{link}"
+      or_spotlight: "Alebo sa môžete deliť s používateľmi %{link}"
       try_adding_some_more_contacts: "Môžete vyhľadať alebo pozvať viac ľudí."
       you_should_add_some_more_contacts: "Mali by ste ešte pridať pár kontaktov!"
     no_posts_message:
@@ -188,7 +188,7 @@ sk:
     few: "%{count} komentárov"
     many: "%{count} komentárov"
     new_comment:
-      comment: "Komentár"
+      comment: "Okomentovať"
       commenting: "Posiela sa komentár..."
     one: "1 komentár"
     other: "%{count} komentárov"
@@ -270,15 +270,15 @@ sk:
   home:
     show:
       already_account: "Máte už účet?"
-      choice: "Výber"
-      choice_explanation: "Diaspora vám umožňuje roztriediť si všetky vaše kontakty do skupín, ktoré sa volajú Aspekty. Je unikátna práve tým, že dokáže zabezpečiť, aby k fotkám, správam a statusom mali prístup len tí, ktorých určíte."
+      choice: "Možnosť výberu"
+      choice_explanation: "Diaspora vám umožňuje roztriediť si všetky vaše kontakty do skupín, ktoré sa volajú Aspekty. Je unikátna práve tým, že dokáže zabezpečiť, aby k&nbsp;fotkám, správam a statusom mali prístup len tí, ktorých určíte."
       learn_about_host: "Dozvedieť sa o viac o tom, ako prevádzkovať vlastný server s Diasporou."
       login_here: "sa prihláste tu"
       ownership: "Vlastníctvo"
       ownership_explanation: "Vlastníte svoje fotky a nemali by ste sa ich vzdávať len kvôli tomu, že sa o ne chcete s niekym podeliť. Vaše vlastnícke práva na všetko, o čo sa na Diaspore podelíte, zostávajú nedotknuté, a tak môžete úplne kontrolovať to, ako sa s tým zaobchádza."
       share_what_you_want: "Podeľte sa o čo chcete s kým chcete."
       simplicity: "Jednoduchosť"
-      simplicity_explanation: "Zdieľanie v Diaspore je veľmi ľahké a transparentné – a to isté platí aj o ochrane súkromia. Keďže Diaspora je súkromná sama o sebe, nenúti vás prejsť cez žiadne zložité stránky s nastaveniami a možnosťami iba kvôli tomu, aby ste zabezpečili svoj profil."
+      simplicity_explanation: "Zdieľanie na Diaspore je veľmi ľahké a transparentné &ndash; a&nbsp;to isté platí aj o&nbsp;ochrane súkromia. Keďže Diaspora je súkromná sama o&nbsp;sebe, nenúti vás prejsť cez&nbsp;žiadne zložité stránky s&nbsp;nastaveniami a&nbsp;možnosťami iba kvôli tomu, aby ste zabezpečili svoj profil."
       tagline_first_half: "Podeľte sa, o čo chcete,"
       tagline_second_half: "s kým chcete."
   invitations:
@@ -318,7 +318,7 @@ sk:
       admin: "správca"
       blog: "Blog"
       code: "kód"
-      login: "prihlásenie"
+      login: "Prihlásiť sa"
       logout: "Odhlásiť sa"
       profile: "Profil"
       recent_notifications: "Najnovšie oznamy"
@@ -750,7 +750,7 @@ sk:
         hello: "Hej, všetci, som #%{new_user_tag}. "
         i_like: "Zaujíma ma %{tags}."
         invited_by: "Vďaka za pozvanie, "
-        newhere: "NewHere"
+        newhere: "Nováčik"
       post_a_message_to: "Poslať správu na %{aspect}"
       posting: "Posiela sa..."
       publishing_to: "Publikuje sa na: "
@@ -902,7 +902,7 @@ sk:
       we_can_speed_things_up: "Môžeme veci urýchliť, ak"
       well_hello_there: "Nuž, ahoj!"
       what_are_you_in_to: "Čo vás baví?"
-      what_facebook_does: "to Diaspora. This will pull your name and photo, and enable cross-positng."
+      what_facebook_does: "s Diasporou. Takto spojíte svoje meno a fotku a budete môcť využívať rôzne služby z jedného miesta."
       who_are_you: "Kto ste?"
     logged_out:
       go_mobile: "Teraz buďte mobilní."
