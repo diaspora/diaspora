@@ -12,28 +12,34 @@ module Diaspora
           return cached.url_expanded
         end
 
-        url = URI.parse(url_s)
+        begin
+          url = URI.parse(url_s)
 
-        res = nil
-        num_redirections = 0
-        while num_redirections < 8
-          if url.host && url.port
-            host, port = url.host, url.port
-          else
-            break
+          res = nil
+          num_redirections = 0
+          while num_redirections < 8
+            if url.host && url.port
+              host, port = url.host, url.port
+            else
+              break
+            end
+
+            req = Net::HTTP::Get.new(url.path)
+            timeout(3) do
+              res = Net::HTTP.start(host, port) { |http|  http.request(req) }
+            end
+
+            if res.header['location']
+              url = URI.parse(res.header['location'])
+            else
+              break
+            end
           end
 
-          req = Net::HTTP::Get.new(url.path)
-          res = Net::HTTP.start(host, port) { |http|  http.request(req) }
-
-          if res.header['location']
-            url = URI.parse(res.header['location'])
-          else
-            break
-          end
+          url.to_s
+        rescue Timeout::Error
+          url_s
         end
-
-        url.to_s
       end
 
       def autolink(link_, type)
