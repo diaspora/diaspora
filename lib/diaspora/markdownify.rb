@@ -61,7 +61,14 @@ module Diaspora
           link = link_
         end
 
-        auto_link( link, :link => :urls, :html => { :target => "_blank" } ) { link_ }
+        auto_link(
+          link,
+          :link => :urls,
+          :html => {
+            'target' => '_blank',
+            'title'  => link != link_ ? link : nil,
+          }
+        ) { link_ }
       end
 
     end

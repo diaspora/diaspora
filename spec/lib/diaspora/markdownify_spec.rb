@@ -26,7 +26,7 @@ describe Diaspora::Markdownify::HTML do
 
       it 'expands third-party shortened URLs' do
         markdownified = @html.autolink('http://bit.ly/uehqyK', nil)
-        markdownified.should == %{<a href="https://diasp0ra.ca/" target="_blank">http://bit.ly/uehqyK</a>}
+        markdownified.should == %{<a href="https://diasp0ra.ca/" target="_blank" title="https://diasp0ra.ca/">http://bit.ly/uehqyK</a>}
       end
     end
 
@@ -67,7 +67,7 @@ describe Diaspora::Markdownify::HTML do
           it 'expands third-party shortened URLs' do
             @shortened_urls.each do |url_short|
               markdownified = @html.autolink(url_short, nil)
-              markdownified.should == %{<a href="http://www.whatisdiaspora.com/" target="_blank">#{url_short}</a>}
+              markdownified.should == %{<a href="http://www.whatisdiaspora.com/" target="_blank" title="http://www.whatisdiaspora.com/">#{url_short}</a>}
             end
           end
 
