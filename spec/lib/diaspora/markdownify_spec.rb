@@ -38,11 +38,20 @@ describe Diaspora::Markdownify::HTML do
       context 'and the third-party service is working' do
         context 'and the short URL redirects once' do
           before do
-            stub_request( :get, 'http://bit.ly/ttQqRi' ).to_return(
-              :status => 301,
-              :headers => { 'Location' => 'http://www.whatisdiaspora.com/', },
-              :body => "some html here"
-            )
+            @shortened_urls = [
+              'http://bit.ly/ttQqRi',
+              'http://j.mp/ttQqRi',
+              'http://goo.gl/vrm41',
+              'http://is.gd/lmmKoe',
+              'http://tinyurl.com/c5ydjlp',
+            ]
+            @shortened_urls.each do |url_short|
+              stub_request( :get, url_short ).to_return(
+                :status => 301,
+                :headers => { 'Location' => 'http://www.whatisdiaspora.com/', },
+                :body => "some html here"
+              )
+            end
 
             stub_request( :get, 'http://www.whatisdiaspora.com/' ).to_return(
               :status => 200,
@@ -50,15 +59,18 @@ describe Diaspora::Markdownify::HTML do
             )
           end
 
-          it 'expands third-party shortened URLs' do
-            markdownified = @html.autolink('http://bit.ly/ttQqRi', nil)
-            markdownified.should == %{<a href="http://www.whatisdiaspora.com/" target="_blank">http://bit.ly/ttQqRi</a>}
-          end
-
           it 'caches URL expansions' do
             markdownified = @html.autolink('http://bit.ly/ttQqRi', nil)
             ShortUrlExpansion.find_by_url_short('http://bit.ly/ttQqRi').should_not be_nil
           end
+
+          it 'expands third-party shortened URLs' do
+            @shortened_urls.each do |url_short|
+              markdownified = @html.autolink(url_short, nil)
+              markdownified.should == %{<a href="http://www.whatisdiaspora.com/" target="_blank">#{url_short}</a>}
+            end
+          end
+
         end
 
         context 'and the short URL redirects "too many" times' do

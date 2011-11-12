@@ -51,8 +51,12 @@ module Diaspora
 
       def autolink(link_, type)
         case link_
-        when %r{^http://bit\.ly/[a-zA-Z0-9]+$}
-          link = resolve_redirection( link_ )
+        when %r{^http://bit\.ly/[a-zA-Z0-9]+$},
+          %r{^http://j\.mp/[a-zA-Z0-9]+$},
+          %r{^http://goo\.gl/[a-zA-Z0-9]+$},
+          %r{^http://is\.gd/[a-zA-Z0-9]+$},
+          %r{^http://tinyurl\.com/[a-zA-Z0-9]+$}
+            link = resolve_redirection( link_ )
         else
           link = link_
         end
