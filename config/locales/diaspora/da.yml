@@ -657,7 +657,7 @@ da:
         few: "%{count} delinger"
         many: "%{count} delinger"
         one: "Én deling"
-        other: "%{count} deling"
+        other: "%{count} delinger"
         two: "%{count} delinger"
         zero: "Del"
       reshare_confirmation: "Del %{author} - %{text}?"
@@ -750,6 +750,7 @@ da:
         hello: "Hej allesammen, jeg er #%{new_user_tag}. "
         i_like: "Jeg interesserer mig for %{tags}."
         invited_by: "Tak for invitationen, "
+        newhere: "NewHere"
       post_a_message_to: "Send en besked til %{aspect}"
       posting: Sender...
       publishing_to: "del med: "

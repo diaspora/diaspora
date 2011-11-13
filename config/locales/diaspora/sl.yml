@@ -752,6 +752,7 @@ sl:
         hello: "Zdravo vsem. Jaz sem #%{new_user_tag}. "
         i_like: "Zanimajo me naslednje oznake %{tags}."
         invited_by: "Hvala za povabilo,"
+        newhere: "NewHere"
       post_a_message_to: "Objavi sporočilo v %{aspect}"
       posting: Objavljam...
       publishing_to: "objavljanje do: "

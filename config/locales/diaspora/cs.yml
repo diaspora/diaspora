@@ -750,6 +750,7 @@ cs:
         hello: "Hey everyone, I'm #%{new_user_tag}. "
         i_like: "I'm interested in %{tags}."
         invited_by: "Thanks for the invite, "
+        newhere: "NewHere"
       post_a_message_to: "Poslat zprávu do %{aspect}"
       posting: Odesílání...
       publishing_to: "publikování na:"

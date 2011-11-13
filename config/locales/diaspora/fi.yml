@@ -101,7 +101,7 @@ fi:
         content_2: "Anna se toisille ihmisille, jotta he voivat löytää sinut Diasporasta."
         heading: Diaspora-ID
       donate: "Lahjoita"
-      handle_explanation: "Tämä on Diaspora-osoitteesi. Voit käyttää sitä kuten sähköpostiosoitettasi. Sen avulla sinut tavoitetaan Diasporasta."
+      handle_explanation: "Tämä on Diaspora-tunnuksesi. Voit antaa sen ihmisille kuten sähköpostiosoitteesi, jotta he voivat sen avulla tavoittaa sinut Diasporasta."
       help:
         do_you: "Do you:"
         email_feedback: "%{link} your feedback, if you prefer"
@@ -203,7 +203,7 @@ fi:
       add_to_aspect: "lisää kontakteja näkymään %{name}"
       all_contacts: "Kaikki kontaktit"
       check_out: "Katso"
-      many_people_are_you_sure: "Are you sure you want to start a private conversation with more than %{suggested_limit} contacts? Posting to this aspect may be a better way to contact them."
+      many_people_are_you_sure: "Oletko varma, että haluat aloittaa yksityiskeskustelun useamman kuin %{suggested_limit} kontaktin kanssa? Viestin lähettäminen tähän näkymään voisi olla parempi tapa olla yhteydessä heihin."
       my_contacts: "Kontaktini"
       no_contacts: "Ei kontakteja."
       only_sharing_with_me: "Jakaa vain kanssani"
@@ -566,7 +566,7 @@ fi:
       edit: "muokkaa"
       edit_delete_photo: "Muokkaa kuvan kuvausta / poista kuva"
       make_profile_photo: "aseta profiilikuvaksi"
-      show_original_post: "Show original post"
+      show_original_post: "Näytä alkuperäinen viesti"
       update_photo: "Päivitä kuva"
     update:
       error: "Kuvan muokkaus epäonnistui."
@@ -601,12 +601,12 @@ fi:
       updated: "Profiili päivitetty"
   public: "Julkinen"
   reactions:
-    few: "%{count} reactions"
-    many: "%{count} reactions"
-    one: "1 reaction"
-    other: "%{count} reactions"
-    two: "%{count} reactions"
-    zero: "0 reactions"
+    few: "%{count} reaktiota"
+    many: "%{count} reaktiota"
+    one: "1 reaktio"
+    other: "%{count} reaktiota"
+    two: "%{count} reaktiota"
+    zero: "0 reaktiota"
   registrations:
     closed: "Rekisteröityminen on suljettu tässä Diaspora-podissa."
     create:
@@ -710,10 +710,10 @@ fi:
     aspect_dropdown:
       add_to_aspect: "Lisää kontakti"
       toggle:
-        few: "In %{count} aspects"
-        many: "In %{count} aspects"
-        one: "In %{count} aspect"
-        other: "In %{count} aspects"
+        few: "%{count} näkymässä"
+        many: "%{count} näkymässä"
+        one: "%{count} näkymässä"
+        other: "%{count} näkymässä"
         two: "In %{count} aspects"
         zero: "Lisää kontakti"
     contact_list:
@@ -750,6 +750,7 @@ fi:
         hello: "Hey everyone, I'm #%{new_user_tag}. "
         i_like: "I'm interested in %{tags}."
         invited_by: "Thanks for the invite, "
+        newhere: "NewHere"
       post_a_message_to: "Lähetä viesti näkymään %{aspect}"
       posting: Lähetetään...
       publishing_to: "Julkaistaan: "
@@ -790,12 +791,12 @@ fi:
   stream_helper:
     hide_comments: "Piilota kaikki kommentit"
     show_comments:
-      few: "Show %{count} more comments"
-      many: "Show %{count} more comments"
-      one: "Show one more comment"
-      other: "Show %{count} more comments"
-      two: "Show two more comments"
-      zero: "No more comments"
+      few: "Näytä %{count} muuta kommenttia"
+      many: "Näytä %{count} muuta kommenttia"
+      one: "Näytä yksi muu kommentti"
+      other: "Näytä %{count} muuta kommenttia"
+      two: "Näytä kaksi muuta kommenttia"
+      zero: "Ei enempää kommentteja"
   streams:
     aspects:
       title: "Näkymäsi"
@@ -892,17 +893,20 @@ fi:
       your_email: "Sähköpostiosoitteesi"
       your_handle: Diaspora-tunnuksesi
     getting_started:
-      awesome_take_me_to_diaspora: "Awesome! Take me to Diaspora*"
-      community_welcome: "Diaspora's community is happy to have you aboard!"
+      awesome_take_me_to_diaspora: "Loistavaa! Mennään Diasporaan"
+      community_welcome: "Diaspora-yhteisö on iloinen saadessaan sinut mukaan!"
       hashtag_explanation: "Hashtagit mahdollistavat kiinnostuksen kohteistasi keskustelun ja niiden seuraamisen. Ne ovat myös hyvä keino ihmisten löytämiseen Diasporassa."
-      hashtag_suggestions: "Try following tags like #art, #movies, #gif, etc."
-      hooking_up_fb: "hooking up your Facebook account"
-      saved: Saved!
-      we_can_speed_things_up: "We can speed things up a bit by"
-      well_hello_there: "Well, hello there!"
-      what_are_you_in_to: "What are you into?"
-      what_facebook_does: "to Diaspora. This will pull your name and photo, and enable cross-positng."
-      who_are_you: "Who are you?"
+      hashtag_suggestions: "Voit seurata vaikkapa tageja kuten #taide, #elokuvat, #gif jne."
+      hooking_up_fb: "yhdistämällä Facebook-tilisi"
+      saved: Tallennettu!
+      we_can_speed_things_up: "Voimme nopeuttaa asioita hieman"
+      well_hello_there: "No, mutta hei!"
+      what_are_you_in_to: "Mistä olet kiinnostunut?"
+      what_facebook_does: |-
+          Diasporaan. Nimesi ja kuvasi haetaan Diasporaan, ja tämän jälkeen voit myös lähettää viestejä Diasporasta Facebookiin.
+
+          This will pull your name and photo, and enable cross-positng.
+      who_are_you: "Kuka olet?"
     logged_out:
       go_mobile: "Siirry nyt mobiiliin."
       on_your_mobile_device: "mobiililaitteellasi päästäksesi Diasporan mobiilisivustolle."

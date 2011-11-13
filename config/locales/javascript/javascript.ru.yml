@@ -57,7 +57,7 @@ ru:
       minutes: "%d минут[-ы]"
       month: "около месяца"
       months: "%d месяца[-ев]"
-      prefixAgo: "около"
+      prefixAgo: ""
       prefixFromNow: "через"
       seconds: "несколько секунд"
       suffixAgo: "назад"
