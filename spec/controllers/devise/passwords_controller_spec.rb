@@ -18,9 +18,8 @@ describe Devise::PasswordsController do
         response.should be_success
       end
       it "doesn't send email" do
-        expect {
-          post :create, "user" => {"email" => "foo@example.com"}
-        }.to change(Devise.mailer.deliveries, :length).by(0)
+        Resque.should_not_receive(:enqueue)
+        post :create, "user" => {"email" => "foo@example.com"}
       end
     end
     context "when there is a user with that email" do
@@ -28,18 +27,10 @@ describe Devise::PasswordsController do
         post :create, "user" => {"email" => alice.email}
         response.should redirect_to(new_user_session_path)
       end
-      it "sends email" do
-        expect {
-          post :create, "user" => {"email" => alice.email}
-        }.to change(Devise.mailer.deliveries, :length).by(1)
-      end
-      it "sends email with a non-blank body" do
+      it "sends email (enqueued to Resque)" do
+        Resque.should_receive(:enqueue).with(Jobs::ResetPassword, alice.id)
         post :create, "user" => {"email" => alice.email}
-        email = Devise.mailer.deliveries.last
-        email_body = email.body.to_s
-        email_body = email.html_part.body.raw_source if email_body.blank? && email.html_part.present?
-        email_body.should_not be_blank
-      end  
+      end
     end
   end
 end
