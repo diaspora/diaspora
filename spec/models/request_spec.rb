@@ -92,6 +92,28 @@ describe Request do
                                   :into => eve.aspects.first).receive(alice, eve.person)
       alice.contact_for(eve.person).should be_sharing
     end
+    
+    it 'shares back if auto_following is enabled' do
+      alice.auto_follow_back = true
+      alice.auto_follow_back_aspect = alice.aspects.first
+      eve.save
+      
+      Request.diaspora_initialize(:from => eve.person, :to => alice.person,
+                                  :into => eve.aspects.first).receive(alice, eve.person)
+      
+      eve.contact_for(alice.person).should be_sharing
+    end
+    
+    it 'shares not back if auto_following is not enabled' do
+      alice.auto_follow_back = false
+      alice.auto_follow_back_aspect = alice.aspects.first
+      eve.save
+      
+      Request.diaspora_initialize(:from => eve.person, :to => alice.person,
+                                  :into => eve.aspects.first).receive(alice, eve.person)
+      
+      eve.contact_for(alice.person).should be_nil
+    end
   end
 
   context 'xml' do

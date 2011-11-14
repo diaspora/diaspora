@@ -944,6 +944,9 @@ en:
       show_community_spotlight: "Show Community Spotlight in Stream?"
       show_getting_started: 'Re-enable Getting Started'
       getting_started: 'New User Prefrences'
+      following: "Following Settings"
+      auto_follow_back: "Automatically follow back if a someone follows you"
+      auto_follow_aspect: "Aspect for automatically followed users:"
 
     privacy_settings:
       title: "Privacy Settings"
@@ -984,6 +987,8 @@ en:
       email_notifications_changed: "Email notifications changed"
       unconfirmed_email_changed: "Email changed. Needs activation."
       unconfirmed_email_not_changed: "Email change failed"
+      follow_settings_changed: "Follow settings changed"
+      follow_settings_not_changed: "Follow settings change failed."
     public:
       does_not_exist: "User %{username} does not exist!"
     confirm_email:
