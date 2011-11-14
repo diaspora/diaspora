@@ -17,7 +17,7 @@ class ActsAsTaggableOn::Tag
       # Special case for love, because the world needs more love.
       '<3'
     elsif name
-      name.gsub(/[^#{self.tag_text_regexp}]/, '')
+      name.gsub(/[^#{self.tag_text_regexp}]/, '').downcase
     end
   end
 end

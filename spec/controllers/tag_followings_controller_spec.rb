@@ -33,17 +33,20 @@ describe TagFollowingsController do
       it "creates a new TagFollowing" do
         expect {
           post :create, valid_attributes
+          response.should be_redirect
         }.to change(TagFollowing, :count).by(1)
       end
 
       it "associates the tag following with the currently-signed-in user" do
         expect {
           post :create, valid_attributes
+        response.should be_redirect
         }.to change(bob.tag_followings, :count).by(1)
       end
 
       it "assigns a newly created tag_following as @tag_following" do
         post :create, valid_attributes
+        response.should be_redirect
         assigns(:tag_following).should be_a(TagFollowing)
         assigns(:tag_following).should be_persisted
       end
@@ -67,31 +70,47 @@ describe TagFollowingsController do
       end
 
       it 'squashes the tag' do
+        ActsAsTaggableOn::Tag.find_by_name('somestuff').should be_nil
         post :create, :name => "some stuff"
         assigns[:tag].name.should == "somestuff"
+        ActsAsTaggableOn::Tag.find_by_name('somestuff').should_not be_nil
       end
 
       it 'downcases the tag name' do
+        ActsAsTaggableOn::Tag.find_by_name('somestuff').should be_nil
         post :create, :name => "SOMESTUFF"
+        response.should be_redirect
         assigns[:tag].name.should == "somestuff"
+        ActsAsTaggableOn::Tag.find_by_name('somestuff').should_not be_nil
       end
 
       it "normalizes the tag name" do
+        ActsAsTaggableOn::Tag.find_by_name('foobar').should be_nil
         post :create, :name => "foo:bar"
         assigns[:tag].name.should == "foobar"
+        ActsAsTaggableOn::Tag.find_by_name('foobar').should_not be_nil
       end
     end
 
     describe 'fails to' do
-      it "create the tag IFF already exists" do
+      it "create the tag if it already exists" do
         ActsAsTaggableOn::Tag.find_by_name('tomcruisecontrol').should be_nil
         expect {
           post :create, :name => "tomcruisecontrol"
         }.to change(ActsAsTaggableOn::Tag, :count).by(1)
-
         ActsAsTaggableOn::Tag.find_by_name('tomcruisecontrol').should_not be_nil
+
         expect {
           post :create, :name => "tomcruisecontrol"
+        }.to change(ActsAsTaggableOn::Tag, :count).by(0)
+        expect {
+          post :create, :name => "tom cruise control"
+        }.to change(ActsAsTaggableOn::Tag, :count).by(0)
+        expect {
+          post :create, :name => "TomCruiseControl"
+        }.to change(ActsAsTaggableOn::Tag, :count).by(0)
+        expect {
+          post :create, :name => "tom:cruise:control"
         }.to change(ActsAsTaggableOn::Tag, :count).by(0)
       end
 
