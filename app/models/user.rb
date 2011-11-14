@@ -105,6 +105,11 @@ class User < ActiveRecord::Base
     user
   end
 
+  def send_reset_password_instructions
+    generate_reset_password_token! if should_generate_token?
+    Resque.enqueue(Jobs::ResetPassword, self.id)
+  end
+
 
   def update_user_preferences(pref_hash)
     if self.disable_mail
