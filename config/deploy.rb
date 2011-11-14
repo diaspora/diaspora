@@ -32,9 +32,6 @@ def current_git_branch
   branch
 end
 
-# Set the deploy branch to the current branch
-set :branch, current_git_branch
-
 namespace :deploy do
   task :symlink_config_files do
     run "ln -s -f #{shared_path}/config/database.yml #{current_path}/config/database.yml"
@@ -88,5 +85,14 @@ namespace :deploy do
   end
 end
 
-after "deploy:symlink", "deploy:symlink_config_files", "deploy:symlink_cookie_secret", "deploy:bundle_static_assets", 'deploy:copy_resque_assets'
+before 'deploy:update' do
+  set :branch, current_git_branch
+end
+
+after 'deploy:symlink' do
+  deploy.symlink_config_files
+  deploy.symlink_cookie_secret
+  deploy.bundle_static_assets
+  deploy.copy_resque_assets
+end
 
