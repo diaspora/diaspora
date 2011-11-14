@@ -4,6 +4,7 @@
 
 set :config_yaml, YAML.load_file(File.dirname(__FILE__) + '/deploy_config.yml')
 
+require './config/cap_colors'
 require 'bundler/capistrano'
 require './config/boot'
 require 'hoptoad_notifier/capistrano'
@@ -20,15 +21,10 @@ set :scm_verbose, true
 set :repository_cache, "remote_cache"
 set :deploy_via, :checkout
 
-# Bonus! Colors are pretty!
-def red(str)
-  "\e[31m#{str}\e[0m"
-end
-
 # Figure out the name of the current local branch
 def current_git_branch
   branch = `git symbolic-ref HEAD 2> /dev/null`.strip.gsub(/^refs\/heads\//, '')
-  puts "Deploying branch #{red branch}"
+  logger.info "Deploying branch #{branch}"
   branch
 end
 
