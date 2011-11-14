@@ -5,6 +5,8 @@
 set :config_yaml, YAML.load_file(File.dirname(__FILE__) + '/deploy_config.yml')
 
 require 'bundler/capistrano'
+require './config/boot'
+require 'hoptoad_notifier/capistrano'
 set :bundle_dir, ''
 
 set :stages, ['production', 'staging']
@@ -88,5 +90,3 @@ end
 
 after "deploy:symlink", "deploy:symlink_config_files", "deploy:symlink_cookie_secret", "deploy:bundle_static_assets", 'deploy:copy_resque_assets'
 
-        require './config/boot'
-        require 'hoptoad_notifier/capistrano'
