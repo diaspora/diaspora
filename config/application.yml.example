@@ -211,7 +211,6 @@ development:
 
 production:
   <<: *defaults
-  mount_resque_web: false
 
 #
 # Do not touch unless you know what you're doing
