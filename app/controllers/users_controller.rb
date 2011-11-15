@@ -85,7 +85,7 @@ class UsersController < ApplicationController
       current_user.lock_access!
       sign_out current_user
       flash[:notice] = I18n.t 'users.destroy.success'
-      redirect_to root_path
+      redirect_to multi_path
     else
       if params[:user].present? && params[:user][:current_password].present?
         flash[:error] = t 'users.destroy.wrong_password'
@@ -109,7 +109,7 @@ class UsersController < ApplicationController
         format.any { redirect_to person_path(user.person.id) }
       end
     else
-      redirect_to root_url, :error => I18n.t('users.public.does_not_exist', :username => params[:username])
+      redirect_to multi_path, :error => I18n.t('users.public.does_not_exist', :username => params[:username])
     end
   end
 
@@ -125,14 +125,14 @@ class UsersController < ApplicationController
   def logged_out
     @page = :logged_out
     if user_signed_in?
-      redirect_to root_path
+      redirect_to multi_path
     end
   end
 
   def getting_started_completed
     user = current_user
     user.update_attributes(:getting_started => false)
-    redirect_to root_path
+    redirect_to multi_path
   end
 
   def export

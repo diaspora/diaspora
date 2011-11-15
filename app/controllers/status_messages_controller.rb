@@ -71,7 +71,7 @@ class StatusMessagesController < ApplicationController
       respond_to do |format|
         format.js { render :create, :status => 201}
         format.html { redirect_to :back}
-        format.mobile{ redirect_to root_url}
+        format.mobile{ redirect_to multi_path}
       end
     else
       unless photos.empty?
