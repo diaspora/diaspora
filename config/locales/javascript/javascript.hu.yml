@@ -57,7 +57,7 @@ hu:
       minutes: "%d perccel"
       month: "körülbelül egy hónappal"
       months: "%d hónappal"
-      prefixAgo: "javascripts:timeago:prefixAgo"
+      prefixAgo: ""
       prefixFromNow: ""
       seconds: "kevesebb mint egy perccel"
       suffixAgo: "ezelőtt"
