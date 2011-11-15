@@ -83,7 +83,7 @@ describe InvitationsController do
     end
 
     it "shows an error if there's no such invitation token" do
-      get :email, :invitation_token => 12345
+      get :email, :invitation_token => "12345"
       response.should render_template(:token_not_found)
     end
   end
