@@ -14,7 +14,7 @@ execute "executable" do
   command "chmod -R 755 /service/mysql"
 end
 
-config = YAML.load_file("/usr/local/app/diaspora/chef/cookbooks/common/files/default/thins.yml")
+config = YAML.load_file("/usr/local/app/diaspora/chef/cookbooks/diaspora/files/default/thins.yml")
 
 config['thins'].each do |thin|
   port = thin["port"]
