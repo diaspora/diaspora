@@ -10,8 +10,11 @@ common_pkgs = [
 dev_pkgs = value_for_platform(
   "debian" => {
     "default" => [
+			"ruby-full",
       "libxml2-dev",
-      "libxslt-dev",
+      "libxslt1-dev",
+			"libsqlite3-dev",
+			"libmysqlclient-dev",
       "libssl-dev",
       "libcurl4-openssl-dev"
     ]
