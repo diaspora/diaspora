@@ -399,12 +399,15 @@ var Publisher = {
       alert(Diaspora.I18n.t('publisher.at_least_one_aspect'));
       return false;
     }
+    $('#preview').addClass('dim');
+    Publisher.hidePreview();
   },
   onSubmit: function(data, json, xhr){
     $("#photodropzone").find('li').remove();
     $("#publisher textarea").removeClass("with_attachments").css('paddingBottom', '');
   },
   onFailure: function(data, json, xhr){
+    $('#preview').removeClass('dim');
     json = $.parseJSON(json.responseText);
     if(json.errors.length !== 0){
       Diaspora.Alert.show(json.errors);
@@ -439,6 +442,7 @@ var Publisher = {
         });
       }
     }
+    $('#preview').removeClass('dim');
     //collapse publisher
     Publisher.close();
     Publisher.clear();
@@ -450,6 +454,13 @@ var Publisher = {
     Publisher.form().bind('ajax:loading', Publisher.onSubmit);
     Publisher.form().bind('ajax:failure', Publisher.onFailure);
     Publisher.form().bind('ajax:success', Publisher.onSuccess);
+  },
+  hidePreview: function() {
+    $('#preview-edit').hide();
+    $('#preview-result').hide();
+    $('#preview').show();
+    $('#publisher_textarea_wrapper').show();
+    $('#file-upload').show();
   },
 
   triggerGettingStarted: function(){
@@ -513,6 +524,36 @@ var Publisher = {
     Publisher.form().find("textarea").bind("focus", function(evt) {
       Publisher.open();
     });
+
+    $('#preview.button:not(.dim)').live( 'click', function(evt) {
+      evt.preventDefault();
+
+      $('#preview').addClass('dim');
+
+      $.post('/preview.json', {
+        text: $('#status_message_fake_text').val()
+      }, function(data){
+        $('#preview').hide();
+        $('#publisher_textarea_wrapper').hide();
+        $('#preview-edit').show();
+
+        $('#preview-result .content').html( data.result );
+        $('#preview-result')
+          /* explicit height so that scrollbars appear when needed */
+          .height( $('#publisher_textarea_wrapper').height() )
+          .width( $('#publisher_textarea_wrapper').width() + 20 )
+          .show()
+        ;
+
+        $('#file-upload').hide();
+      });
+    } );
+
+    $('#preview-edit').live( 'click', function(evt) {
+      evt.preventDefault();
+      $('#preview').removeClass('dim');
+      Publisher.hidePreview();
+    } );
   }
 };
 

@@ -41,6 +41,8 @@
 
             #file-upload{:title => t('.upload_photos')}
               = image_tag 'icons/camera.svg', :height => 14
+          #preview-result
+            .content
 
       - if publisher_public
         = hidden_field_tag 'aspect_ids[]', "public"
@@ -81,7 +83,9 @@
                 - for aspect in all_aspects
                   = aspect_dropdown_list_item(aspect, !all_aspects_selected?(selected_aspects) && selected_aspects.include?(aspect) )
 
-          = status.submit t('.share'), :disable_with => t('.posting'), :class => 'button creation', :tabindex => 2
+          = link_to t('.preview'), '#', :id => 'preview', :class => 'button', :tabindex => 2
+          = link_to t('.edit'), '#', :id => 'preview-edit', :class => 'button'
+          = status.submit t('.share'), :id => 'publisher-share', :disable_with => t('.posting'), :class => 'button creation', :tabindex => 3
 
           .facebox_content
             #question_mark_pane
@@ -91,4 +95,3 @@
 
     #publisher_photo_upload
       = render 'photos/new_photo', :aspect_ids => aspect_ids.join(',')
-

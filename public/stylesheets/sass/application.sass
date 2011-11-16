@@ -47,8 +47,9 @@ h1
 ul > li
   :list-style none
 
-.content ul li
-  :list-style disc
+.content, #preview-result
+  ul li
+    :list-style disc
 
 form
   :position relative
@@ -409,7 +410,7 @@ ul.as-selections
     :text
       :decoration none
 
-.stream_element
+.stream_element, #preview-result
   :position relative
   :word-wrap break-word
   :color #555
@@ -1120,6 +1121,24 @@ label:not(.bootstrapped)
   #publisher_textarea_wrapper
     #hide_publisher
       :display none
+
+#preview-result
+  :display none
+  :border 1px solid #666666
+  :background white
+  :color #000000
+  :clear both
+  :padding 0px
+  :overflow auto
+  :margin 0px
+
+  @include border-radius(2px)
+
+  .content
+    :padding 1em
+
+#preview-edit
+  :display none
 
 .dim
   @include opacity(0.3)

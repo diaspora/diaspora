@@ -749,6 +749,8 @@ en:
         other: "In %{count} aspects"
     publisher:
       posting: "Posting..."
+      preview: "Preview"
+      edit: "Edit"
       share: "Share"
       post_a_message_to: "Post a message to %{aspect}"
       make_public: "make public"
