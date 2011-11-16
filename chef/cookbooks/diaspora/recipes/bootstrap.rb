@@ -11,7 +11,9 @@ dev_pkgs = value_for_platform(
   "debian" => {
     "default" => [
       "libxml2-dev",
-      "libxslt-dev",
+      "libxslt1-dev",
+      "libsqlite3-dev",
+      "libmysqlclient-dev",
       "libssl-dev",
       "libcurl4-openssl-dev"
     ]

@@ -4,7 +4,7 @@ unless system "splunk status"
   end
 
   execute "Download splunk" do
-    command "cd /tmp/install && wget 'http://www.splunk.com/index.php/download_track?file=4.1.5/linux/splunk-4.1.5-85165-Linux-x86_64.tgz&ac=&wget=true&name=wget&typed=releases'"
+    command "cd /tmp/install && wget 'http://www.splunk.com/index.php/download_track?file=4.1.5/linux/splunk-4.1.5-85165-Linux-x86_64.tgz&ac=&wget=true&name=wget&typed=releases' -O splunk-4.1.5-85165-Linux-x86_64.tgz"
   end
 
   execute "Untar splunk" do
