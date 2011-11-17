@@ -78,7 +78,7 @@ fi:
         change_password: "Vaihda salasanani"
       new:
         forgot_password: "Unohditko salasanasi?"
-        no_account: "Tunnusta tälle sähköpostille ei ole olemassa. Mikäli odotat vielä kutsua, pyrimme lähettämänää sen niin pian kuin mahdollista."
+        no_account: "Tunnusta tälle sähköpostiosoitteelle ei ole olemassa. Mikäli odotat vielä kutsua, pyrimme lähettämään sen niin pian kuin mahdollista."
         send_password_instructions: "Lähetä minulle salasanan uudelleenasettamisohjeet"
       send_instructions: "Saat hetken päästä sähköpostiisi ohjeet siitä, miten voit asettaa salasanasi uudelleen."
       updated: "Salasanasi on vaihdettu onnistuneesti. Olet nyt kirjautunut sisään."
@@ -108,7 +108,7 @@ fi:
         sign_up: "Rekisteröidy"
         sign_up_closed: "Avoin rekisteröityminen on tällä hetkellä suljettu."
       mail_signup_form:
-        sign_up_for_an_invite: "Rekisteröidy saadaksesi kutsu!"
+        sign_up_for_an_invite: "Rekisteröidy saadaksesi kutsun!"
     unlocks:
       new:
         resend_unlock: "Lähetä lukituksenpoisto-ohjeet uudelleen"

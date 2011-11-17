@@ -6,7 +6,7 @@
 pt-BR:
   javascripts:
     aspect_dropdown:
-      add_to_aspect: "Adicione para aspecto"
+      add_to_aspect: "Adicionar contato"
       all_aspects: "Todos aspectos"
       error: "Não foi possível compartilhar com {{name}}.  Deseja ignorar isto?"
       select_aspects: "Selecione os aspectos"

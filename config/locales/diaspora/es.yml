@@ -105,20 +105,20 @@ es:
       help:
         do_you: "Tal vez:"
         email_feedback: "Si lo prefieres, envía tus comentarios a este %{link}."
-        feature_suggestion: "- Plantees sugerencias. %{link}"
-        find_a_bug: "- Encuentres errores. %{link}"
-        have_a_question: "- Tengas preguntas. %{link}"
+        feature_suggestion: "- Propongas alguna %{link}."
+        find_a_bug: "- Des con errores. %{link}"
+        have_a_question: "- Realices alguna %{link}."
         here_to_help: "¡La comunidad Diaspora está aquí!"
         need_help: "Ayuda"
         satisfaction: "%{link}: Soporte de la Comunidad"
         tag_bug: "bug"
-        tag_feature: "feature"
-        tag_question: "question"
+        tag_feature: "idea"
+        tag_question: "pregunta"
         tutorials_wiki_and_forum: "%{tutorial} & %{wiki} & %{forum}: Tutoriales, wiki y noticias"
       introduce_yourself: "Esta es tu entrada principal. Adelante, preséntate..."
       keep_us_running: "Haz que %{pod} vaya más rápido, ¡compra a nuestros servidores sus dosis de café mensual!"
       new_here:
-        follow: "¡Sigue %{link} y da la bienvenida a Diaspora* a los nuevos usuarios!"
+        follow: "¡Sigue %{link} y da la bienvenida a los nuevos miembros de Diaspora*!"
         learn_more: "Más información"
         title: "Bienvenida"
       no_contacts: "No hay contactos"
@@ -173,7 +173,7 @@ es:
   blocks:
     create:
       failure: "No podría ignorar a esa persona. #evasion"
-      success: "Bien, tú no verás a esa persona en tu entrada otra vez. #silencio!"
+      success: "Bien, no verás a esa persona en tu entrada otra vez. #silencio!"
     destroy:
       failure: "No podría dejar de ignorar a esa persona.  #evasion"
       success: "¡Vamos a ver qué tiene que decir! #sayhello"
@@ -322,7 +322,7 @@ es:
       logout: "Salir"
       profile: "Perfil"
       recent_notifications: "Notificaciones recientes"
-      settings: "Configuración"
+      settings: "Ajustes"
       view_all: "Ver todo"
   likes:
     likes:
@@ -478,7 +478,7 @@ es:
       subject: "%{name} ha empezado a compartir contigo en Diaspora*"
       view_profile: "Ver el perfil de %{name}"
     thanks: "Gracias,"
-    to_change_your_notification_settings: "para cambiar la configuración de tus notificaciones"
+    to_change_your_notification_settings: "para cambiar tus ajustes de notificación"
   ok: "OK"
   or: "o"
   password: "Contraseña"
@@ -694,7 +694,7 @@ es:
       invite: "invitar"
       not_on_diaspora: "Aún no en Diaspora*"
       resend: "reenviar"
-  settings: "Configuración"
+  settings: "Ajustes"
   share_visibilites:
     update:
       post_hidden_and_muted: "La publicación de %{name} ha sido ocultada, y las notificaciones desactivadas."
@@ -747,10 +747,10 @@ es:
       discard_post: "Descartar publicación"
       make_public: "hacer público"
       new_user_prefill:
-        hello: "Hola a tod@s, I'm #%{new_user_tag}."
+        hello: "Hola a todo el mundo, soy #%{new_user_tag}."
         i_like: "Tengo interés en %{tags}."
         invited_by: "Gracias por la invitación, "
-        newhere: "NewHere"
+        newhere: Nuev@Aquí
       post_a_message_to: "Publicar un mensaje en %{aspect}"
       posting: Publicando...
       publishing_to: "publicar en:"
@@ -844,7 +844,7 @@ es:
   tokens:
     show:
       connect_to_cubbies: "Conecta con Cubbi.es"
-      connecting_is_simple: "Conectar tu cuenta de Diaspora* es sencillo. Solo introduce tu identidad Diaspora*(<b>%{diaspora_id}</b>) en la página de <a href='%{href_link}'>configuración</a> de tu cuenta cubbi.es y darle a conectar."
+      connecting_is_simple: "Conectar tu cuenta de Diaspora* es sencillo. Solo introduce tu identidad Diaspora*(<b>%{diaspora_id}</b>) desde tu página de <a href='%{href_link}'>ajustes</a> de cubbi y dale a conectar."
       daniels_account: "La cuenta de Diaspora de Daniel"
       log_in_with_diaspora_is_comming: "Muy pronto podrás conectar a una nueva aplicación sin tener que crear una cuenta aparte de Diaspora*."
       love_to_try: "Nos encantaría que lo pruebes."
@@ -866,6 +866,8 @@ es:
       wrong_password: "La contraseña introducida no coincide con la contraseña actual."
     edit:
       also_commented: "...alguien comenta en la publicación de tu contacto?"
+      auto_follow_aspect: "Aspecto para los usuarios que sigues automáticamente:"
+      auto_follow_back: "Seguir automáticamente a quien te siga"
       change: "Cambiar"
       change_email: "Cambiar email"
       change_language: "Cambiar idioma"
@@ -878,6 +880,7 @@ es:
       edit_account: "Editar cuenta"
       email_awaiting_confirmation: "Te hemos enviado un enlace de activación a %{unconfirmed_email}. Hasta que no sigas ese enlace y actives tu nueva dirección, continuaremos usando la anterior %{email}."
       export_data: "Exportar datos"
+      following: "Ajustes de Seguimiento"
       getting_started: "Preferencias del Nuevo Usuario"
       liked: "...a alguien le gusta tu publicación?"
       mentioned: "...eres mencionad@ en una publicación?"
@@ -913,17 +916,19 @@ es:
     privacy_settings:
       ignored_users: "Personas Ignoradas"
       stop_ignoring: "Dejar de ignorar"
-      title: "Configuración de Privacidad"
+      title: "Ajustes de Privacidad"
     public:
       does_not_exist: "¡La persona %{username} no existe!"
     update:
       email_notifications_changed: "Notificaciones por email cambiadas"
+      follow_settings_changed: "Ajustes de seguimiento modificados"
+      follow_settings_not_changed: "Error modificando los ajustes de seguimiento."
       language_changed: "Idioma cambiado"
       language_not_changed: "Error cambiando de idioma"
       password_changed: "Contraseña cambiada. Ya puedes acceder con tu nueva contraseña."
       password_not_changed: "Error cambiando la contraseña"
-      settings_not_updated: "Error al actualizar la configuración"
-      settings_updated: "Configuración actualizada"
+      settings_not_updated: "Error actualizando los ajustes"
+      settings_updated: "Ajustes actualizados"
       unconfirmed_email_changed: "Correo electrónico cambiado. Necesitas activarlo."
       unconfirmed_email_not_changed: "Error en el cambio de email"
   webfinger:

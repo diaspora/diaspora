@@ -29,7 +29,7 @@ sv:
         reshare:
           attributes:
             root_guid:
-              taken: "Du har redan spridit detta inlägg vidare!"
+              taken: "Du gillar detta va? Du har nämligen redan spridit detta inlägg vidare!"
         user:
           attributes:
             email:
@@ -111,9 +111,9 @@ sv:
         here_to_help: "Diaspora communityn finns här!"
         need_help: "Behöver du hjälp?"
         satisfaction: "%{link}: Support ifrån communityn"
-        tag_bug: "#bug"
-        tag_feature: "#feature"
-        tag_question: "#question"
+        tag_bug: "bugg"
+        tag_feature: "förslag"
+        tag_question: "fråga"
         tutorials_wiki_and_forum: "%{tutorial} & %{wiki} & %{forum}: Gemenskapens handledning, guider och nyheter"
       introduce_yourself: "Det här är din ström. Hoppa in och presentera dig själv."
       keep_us_running: "Håll farten hos %{pod} uppe och köp kaffe till servrarna genom en månadsdonation!"
@@ -142,7 +142,7 @@ sv:
     no_contacts_message:
       community_spotlight: "gemenskapens rampljus"
       or_spotlight: "Du kan också dela med %{link}"
-      try_adding_some_more_contacts: "Du kan söka efter (längst upp) eller bjuda in (till höger) fler personer."
+      try_adding_some_more_contacts: "Du kan söka efter eller bjuda in fler personer."
       you_should_add_some_more_contacts: "Du bör lägga till några fler kontakter!"
     no_posts_message:
       start_talking: "Ingen har sagt något än!"
@@ -200,7 +200,7 @@ sv:
     few: "%{count} kontakter"
     index:
       add_a_new_aspect: "Lägg till en ny aspekt"
-      add_to_aspect: "Lägg till kontakter i %{name}"
+      add_to_aspect: "lägg till kontakter i %{name}"
       all_contacts: "Alla kontakter"
       check_out: "Checka ut"
       many_people_are_you_sure: "Är du säker på att du vill starta en privat konversation mer mer än %{suggested_limit} kontakter? Ett bättre sätt kan vara att posta inlägget i denna aspekt."
@@ -468,7 +468,7 @@ sv:
     private_message:
       reply_to_or_view: "Svara på eller läs denna konversation >"
     reshared:
-      reshared: "%{name} har just spridit ditt inlägg vidare."
+      reshared: "%{name} sprider ditt inlägg vidare."
       view_post: "Se inlägg >"
     single_admin:
       admin: "Din Diaspora administratör"
@@ -619,13 +619,13 @@ sv:
       unhappy: Missnöjd?
       update: "Uppdatera"
     new:
-      create_my_account: "Skapa mitt konto"
+      create_my_account: "Skapa mitt konto!"
       enter_email: "Ange en e-postadress"
       enter_password: "Skriv in ett lösenord"
       enter_password_again: "Skriv in samma lösenord som tidigare"
       enter_username: "Välj ett användarnamn (endast bokstäver, nummer eller understreck)"
       join_the_movement: "Join the movement!"
-      sign_up_message: "Social Networking with a <3"
+      sign_up_message: "Social Nätverkning med ett ♥"
   requests:
     create:
       sending: "Skickar"
@@ -750,7 +750,7 @@ sv:
         hello: "Hej allihop, jag är #%{new_user_tag}. "
         i_like: "Jag är intresserad av %{tags}."
         invited_by: "Tack för inbjudan, "
-        newhere: "NewHere"
+        newhere: "NyHär"
       post_a_message_to: "Skicka ett meddelande till %{aspect}"
       posting: Skickar...
       publishing_to: "publicerar till: "
@@ -822,16 +822,16 @@ sv:
       title: "Offentlig Aktivitet"
     recently: "nyligen:"
     tags:
-      contacts_title: "Människor som gillar de här taggarna"
+      contacts_title: "Användare som gillar den här taggen"
       tag_prefill_text: "Det intressanta med %{tag_name} är... "
       title: "Postade taggar: %{tags}"
   tag_followings:
     create:
-      failure: "Misslyckades med att följa: #%{name}"
-      success: "Följer: #%{name}"
+      failure: "Misslyckades med att följa #%{name}. Du kanske redan gör det?"
+      success: "Ja! Du följer nu #%{name}."
     destroy:
-      failure: "Misslyckades att sluta följa: #%{name}"
-      success: "Följer inte längre: #%{name}"
+      failure: "Misslyckades att sluta följa #%{name}. Kanske har du redan slutat följa?"
+      success: "Följer inte längre #%{name}."
   tags:
     show:
       follow: "Följ #%{tag}"
@@ -866,6 +866,8 @@ sv:
       wrong_password: "Det angivna lösenordet stämde inte med ditt nuvarande lösenord."
     edit:
       also_commented: "...någon har också kommenterat på din kontakts post?"
+      auto_follow_aspect: "Aspekt för användare som automatiskt följs:"
+      auto_follow_back: "Följ automatiskt de som följer dig"
       change: "Ändra"
       change_email: "Ändra e-post"
       change_language: "Ändra språk"
@@ -878,6 +880,7 @@ sv:
       edit_account: "Ändra konto"
       email_awaiting_confirmation: "Vi har skickat dig en länk till %{unconfirmed_email} för aktivering. Innan du har aktiverat din nya adress, kommer vi fortsätta att använda %{email}."
       export_data: "Exportera data"
+      following: "Inställningar för Följer "
       getting_started: "Inställningar för Ny Användare"
       liked: "...någon gillar ditt inlägg?"
       mentioned: "...du är omnämnd i en post?"
@@ -902,7 +905,7 @@ sv:
       we_can_speed_things_up: "Vi kan snabba upp det lite genom att"
       well_hello_there: "Hej på dig!"
       what_are_you_in_to: "Vad gillar du?"
-      what_facebook_does: "to Diaspora. This will pull your name and photo, and enable cross-positng."
+      what_facebook_does: "till Diaspora. Detta kommer att hämta ditt namn och foto, och tillåta korspostning."
       who_are_you: "Vem är du?"
     logged_out:
       go_mobile: "Använd nu mobilen."
@@ -918,6 +921,8 @@ sv:
       does_not_exist: "Användaren %{username} finns inte!"
     update:
       email_notifications_changed: "Notiser via e-post har ändrats"
+      follow_settings_changed: "Inställningar för Följer ändrade"
+      follow_settings_not_changed: "Misslyckades med att ändra inställningar för Följer"
       language_changed: "Språk är nu ändrat"
       language_not_changed: "Språket kunde inte ändras"
       password_changed: "Lösenordet är nu ändrat och klart att användas."

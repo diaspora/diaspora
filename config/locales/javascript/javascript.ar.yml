@@ -6,7 +6,7 @@
 ar:
   javascripts:
     aspect_dropdown:
-      add_to_aspect: "أضف إلى فئة"
+      add_to_aspect: "أضف مراسلا"
       all_aspects: "جميع الفئات"
       error: "Couldn't start sharing with {{name}}.  Are you ignoring them?"
       select_aspects: "Select aspects"
@@ -18,7 +18,7 @@ ar:
         one: "في {{count}} فئة"
         other: "في {{count}} فئات"
         two: "في {{count}} فئات"
-        zero: "أضف إلى فئة"
+        zero: "حدّد الفئات"
     aspect_navigation:
       deselect_all: "Deselect all"
       no_aspects: "No aspects selected"
@@ -43,7 +43,7 @@ ar:
       limited: "محدودة - مشاركتك ستكون متاحة لجهات إتصالك فقط"
       public: "عام - مشاركتك ستكون متاحة للجميع ومفهرسة في محركات البحث"
     reshares:
-      duplicate: "أعدت نشر هذه المشاركة مسبقا!"
+      duplicate: "رائع، أليس كذلك؟ أعدت نشر هذه المشاركة مسبقا"
     search_for: "إبحث عن {{name}}"
     show_more: "المزيد"
     tags:

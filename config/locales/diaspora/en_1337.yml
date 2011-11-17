@@ -866,6 +866,8 @@ en_1337:
       wrong_password: "The entered password didn't match your current password."
     edit:
       also_commented: "...50M30N3 4L50 5P4M5 0N 4 N00B5 5P4M?"
+      auto_follow_aspect: "Aspect for automatically followed users:"
+      auto_follow_back: "Automatically follow back if a someone follows you"
       change: "CH4NG3"
       change_email: "CH4NG3 M41L"
       change_language: "CH4NG3 L4NGU4G3"
@@ -878,6 +880,7 @@ en_1337:
       edit_account: "H4CK Y0UR 4CC0UN7"
       email_awaiting_confirmation: "4C71V4510N L1NK 53N7 2 %{unconfirmed_email}. UN71L U F0LL0W 7H3 L1NK W3 W1LL C0N71NU3 2 U53 Y0UR 0R1G1N4L M41L %{email}."
       export_data: "3XP0R7 D474"
+      following: "Following Settings"
       getting_started: "New User Prefrences"
       liked: "...50M30N3 L1K35 Y0UR 5P4M?"
       mentioned: "...U 4R3 M3N710N3D 1N 4 5P4M?"
@@ -918,6 +921,8 @@ en_1337:
       does_not_exist: "U53R %{username} D035 N07 3X157!"
     update:
       email_notifications_changed: "M41L 5P4M CH4NG3D!"
+      follow_settings_changed: "Follow settings changed"
+      follow_settings_not_changed: "Follow settings change failed."
       language_changed: "L4NGU4G3 CH4NG3D!"
       language_not_changed: "7URN 0FF 1337? -> F41L!"
       password_changed: "***** CH4NG3D!"

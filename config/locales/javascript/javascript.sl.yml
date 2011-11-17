@@ -20,7 +20,7 @@ sl:
         two: "V {{count}} pogledih"
         zero: "Izberi pogled"
     aspect_navigation:
-      deselect_all: "Ne izberi nobenega"
+      deselect_all: "Označi nič"
       no_aspects: "Noben pogled ni izbran"
       select_all: "Izberi vse"
     comments:

@@ -115,7 +115,7 @@ ko:
         tag_feature: "기능"
         tag_question: "질문"
         tutorials_wiki_and_forum: "%{tutorial}과 %{wiki}와  %{forum}: 커뮤니티가 운영하는 튜토리얼, 사용 방법과 소식"
-      introduce_yourself: "내 스트림에서 스스로를 나타내십시오."
+      introduce_yourself: "내 스트림에서 스스로를 나타내세요."
       keep_us_running: "Keep %{pod} running fast, buy our servers their monthly coffee fix!"
       new_here:
         follow: "%{link} 태그를 팔로우해서 디아스포라*의 새 사용자를 맞으세요!"
@@ -581,7 +581,7 @@ ko:
   profile: "프로필"
   profiles:
     edit:
-      allow_search: "내가 디아스포라에서 검색되는 것을 허용"
+      allow_search: "디아스포라에서 사람들이 나를 검색할 수 있도록 허용합니다"
       edit_profile: "프로필 수정"
       first_name: "이름"
       last_name: "성"
@@ -747,7 +747,7 @@ ko:
       discard_post: "공유물 삭제"
       make_public: "공개하기"
       new_user_prefill:
-        hello: "반갑습니다! #%{new_user_tag}했습니다."
+        hello: "반갑습니다! #%{new_user_tag} 했습니다."
         i_like: "제 관심사는 %{tags} 입니다."
         invited_by: "초대해주셔서 고맙습니다,"
         newhere: "새로가입"
@@ -866,6 +866,8 @@ ko:
       wrong_password: "입력하신 암호가 현재 암호와 맞지 않습니다."
     edit:
       also_commented: "댓글 달았던 공유물에 내 컨택도 댓글을 달았을 때"
+      auto_follow_aspect: "자동으로 팔로우된 사용자들을 위한 애스펙:"
+      auto_follow_back: "Automatically follow back if a someone follows you"
       change: "바꾸기"
       change_email: "이메일 바꾸기"
       change_language: "언어 바꾸기"
@@ -878,6 +880,7 @@ ko:
       edit_account: "계정 고치기"
       email_awaiting_confirmation: "%{unconfirmed_email} 로 활성화 링크를 보냈습니다. 이 링크를 따라 새 주소를 활성화하기 전까지는 원래 이메일 주소 %{email} 를 사용합니다."
       export_data: "자료 뽑아내기"
+      following: "팔로잉 설정"
       getting_started: "새 사용자 환경 설정"
       liked: "누군가가 내 공유물을 좋아할 때"
       mentioned: "내가 멘션되었을 때"
@@ -918,6 +921,8 @@ ko:
       does_not_exist: "%{username}님을 찾을 수 없습니다!"
     update:
       email_notifications_changed: "이메일 알림을 바꿨습니다"
+      follow_settings_changed: "팔로잉 설정이 바뀌었습니다"
+      follow_settings_not_changed: "팔로잉 설정 바꾸기를 실패했습니다."
       language_changed: "언어를 바꿨습니다"
       language_not_changed: "언어를 바꿀 수 없습니다"
       password_changed: "암호를 바꿨습니다"

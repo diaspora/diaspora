@@ -103,20 +103,20 @@ fi:
       donate: "Lahjoita"
       handle_explanation: "Tämä on Diaspora-tunnuksesi. Voit antaa sen ihmisille kuten sähköpostiosoitteesi, jotta he voivat sen avulla tavoittaa sinut Diasporasta."
       help:
-        do_you: "Do you:"
-        email_feedback: "%{link} your feedback, if you prefer"
-        feature_suggestion: "... have a %{link} suggestion?"
-        find_a_bug: "... find a %{link}?"
-        have_a_question: "... have a %{link}?"
-        here_to_help: "Diaspora community is here to help!"
+        do_you: "Haluatko:"
+        email_feedback: "Voit halutessasi lähettää palautteesi %{link}ina"
+        feature_suggestion: "... ehdottaa uutta ominaisuutta? %{link}"
+        find_a_bug: "... raportoida ohjelmistovirheen? %{link}"
+        have_a_question: "... kysyä kysymyksen? %{link}"
+        here_to_help: "Diaspora-yhteisö auttaa!"
         need_help: "Tarvitsetko apua?"
-        satisfaction: "%{link}: Community-powered support"
-        tag_bug: "#bug"
-        tag_feature: "#feature"
-        tag_question: "#question"
-        tutorials_wiki_and_forum: "%{tutorial} & %{wiki} & %{forum}: Community-powered tutorials, how-to, and news"
+        satisfaction: "%{link}: Yhteisön tarjoama tuki"
+        tag_bug: "bug"
+        tag_feature: "feature"
+        tag_question: "question"
+        tutorials_wiki_and_forum: "%{tutorial} & %{wiki} & %{forum}: Yhteisön laatimia oppaita, ohjeita ja uutisia"
       introduce_yourself: "Tämä on virtasi. Hyppää sekaan ja esittele itsesi."
-      keep_us_running: "Keep %{pod} running fast, buy our servers their monthly coffee fix!"
+      keep_us_running: "Pidä %{pod} vauhdissa tarjoamalla palvelimille kupponen kahvia kuukausittaisella lahjoituksella!"
       new_here:
         follow: "Seuraa tagia %{link} ja toivota uudet käyttäjät tervetulleiksi Diasporaan!"
         learn_more: "Lue lisää"
@@ -143,7 +143,7 @@ fi:
       community_spotlight: "yhteisön valokeila"
       or_spotlight: "Or you can share with %{link}"
       try_adding_some_more_contacts: "Voit etsiä (ylhäällä) tai kutsua (oikealla) lisää kontakteja."
-      you_should_add_some_more_contacts: "You should add some more contacts!"
+      you_should_add_some_more_contacts: "Sinun pitäisi lisätä kontakteja!"
     no_posts_message:
       start_talking: "Kukaan ei ole sanonut vielä mitään!"
     one: "1 näkymä"
@@ -160,7 +160,7 @@ fi:
       view_all_contacts: "Näytä kaikki kontaktit"
     show:
       edit_aspect: "muokkaa näkymää"
-    two: "%{count} aspects"
+    two: "%{count} näkymää"
     update:
       failure: "Antamasi näkymän nimi, %{name}, on liian pitkä."
       success: "Näkymäsi, %{name}, muokkaus onnistui."
@@ -172,11 +172,11 @@ fi:
   back: "Takaisin"
   blocks:
     create:
-      failure: "I couldn't ignore that user.  #evasion"
-      success: "Alright, you won't see that user in your stream again. #silencio!"
+      failure: "En voinut sivuuttaa käyttäjää. #evasion"
+      success: "No niin, et näe tuota käyttäjää enää virrassasi. #silencio!"
     destroy:
-      failure: "I couldn't stop ignoring that user.  #evasion"
-      success: "Let's see what they have to say! #sayhello"
+      failure: "En voinut lakata sivuuttamasta käyttäjää. #evasion"
+      success: "Katsotaanpa, mitä sanottavaa hänellä on! #sayhello"
   bookmarklet:
     explanation: "Voit lähettää viestin Diasporaan mistä tahansa lisäämällä %{link} kirjanmerkkeihisi."
     explanation_link_text: "tämän linkin"
@@ -246,7 +246,7 @@ fi:
       send: "Lähetä"
       sending: Lähetetään...
       subject: "aihe"
-      to: "vastaanottaja"
+      to: vast.ott.
     new_message:
       fail: "Invalid message"
     show:
@@ -269,7 +269,7 @@ fi:
   hide: "Piilota"
   home:
     show:
-      already_account: "joko sinulla on käyttäjätili?"
+      already_account: "onko sinulla jo käyttäjätili?"
       choice: "Valinta"
       choice_explanation: "Diasporassa voit lajitella kontaktisi eri ryhmiin, joita kutsutaan näkymiksi. Toisin kuin muissa yhteisöpalveluissa, Diasporassa näkymät takaavat, että kuvasi, viestisi ja vitsisi jaetaan vain niille ihmisille, joille ne on tarkoitettu."
       learn_about_host: "Lue miten voit perustaa oman Diaspora-palvelimen."
@@ -331,7 +331,7 @@ fi:
         many: "%{count} ei tykkää"
         one: "%{count} ei tykkää"
         other: "%{count} ei tykkää"
-        two: "%{count} dislikes"
+        two: "%{count} ei tykkää"
         zero: "no people disliked this"
       people_like_this:
         few: "%{count} tykkää"
@@ -379,7 +379,7 @@ fi:
         many: "%{count} uutta ilmoitusta"
         one: "1 uusi ilmoitus"
         other: "%{count} uutta ilmoitusta"
-        two: "%{count} new notifications"
+        two: "%{count} uutta ilmoitusta"
         zero: "Ei uusia ilmoituksia"
     index:
       and: "ja"
@@ -493,7 +493,7 @@ fi:
       people_on_pod_are_aware_of: " ihmiset podissa tietävät, että"
       results_for: " tulokset kyselylle %{params}"
     index:
-      couldnt_find_them_send_invite: "Etkö löytänyt heitä? Lähetä kutsu!"
+      couldnt_find_them_send_invite: "Etkö löytänyt etsimääsi henkilöä? Lähetä kutsu!"
       looking_for: "Etsitkö tägillä %{tag_link} merkittyjä viestejä?"
       no_one_found: "...ketään ei löytynyt."
       no_results: "Hei! Sinun tulisi etsiä jotakin."
@@ -518,7 +518,7 @@ fi:
     show:
       does_not_exist: "Henkilöä ei ole olemassa!"
       has_not_shared_with_you_yet: "%{name} ei ole jakanut vielä yhtään viestiä kanssasi!"
-      ignoring: "You are ignoring all posts from %{name}."
+      ignoring: "Sivuutat nyt kaikki viestit, jotka %{name} lähettää."
       incoming_request: "Tämä henkilö on lähettänyt sinulle pyynnön."
       mention: "Mainitse"
       message: "Viesti"
@@ -556,7 +556,7 @@ fi:
       invalid_ext: "{file} sisältää viallisen tiedostopäätteen. Tuetut muodot ovat {extensions}."
       size_error: "{file} on liian suuri, suurin tiedostokoko on {sizeLimit}."
     new_profile_photo:
-      or_select_one_existing: "or select one from your already existing %{photos}"
+      or_select_one_existing: "tai valitse joku jo lisäämistäsi kuvista: %{photos}"
       upload: "Lisää uusi profiilikuva!"
     photo:
       view_all: "näytä kaikki käyttäjän %{name} kuvat"
@@ -616,7 +616,7 @@ fi:
       edit: "Muokkaa %{name}"
       leave_blank: "(jätä tyhjäksi, mikäli et halua muuttaa)"
       password_to_confirm: "(tarvitsemme nykyisen salasanasi muutosten varmistusta varten)"
-      unhappy: Epäonnellinen?
+      unhappy: Tyytymätön?
       update: "Päivitä"
     new:
       create_my_account: "Luo käyttäjätili!"
@@ -697,7 +697,7 @@ fi:
   settings: "Asetukset"
   share_visibilites:
     update:
-      post_hidden_and_muted: "%{name}'s post has been hidden, and notifications have been muted."
+      post_hidden_and_muted: "Käyttäjän %{name} viesti on piilotettu, ja ilmoitukset on vaimennettu."
       see_it_on_their_profile: "If you want to see updates on this post, visit %{name}'s profile page."
   shared:
     add_contact:
@@ -714,7 +714,7 @@ fi:
         many: "%{count} näkymässä"
         one: "%{count} näkymässä"
         other: "%{count} näkymässä"
-        two: "In %{count} aspects"
+        two: "%{count} näkymässä"
         zero: "Lisää kontakti"
     contact_list:
       all_contacts: "Kaikki kontaktit"
@@ -747,10 +747,10 @@ fi:
       discard_post: "Hylkää viesti"
       make_public: "tee julkiseksi"
       new_user_prefill:
-        hello: "Hey everyone, I'm #%{new_user_tag}. "
-        i_like: "I'm interested in %{tags}."
+        hello: "Hei kaikki, olen #%{new_user_tag}. "
+        i_like: "Kiinnostukseni kohteita ovat %{tags}."
         invited_by: "Thanks for the invite, "
-        newhere: "NewHere"
+        newhere: "UusiTäällä"
       post_a_message_to: "Lähetä viesti näkymään %{aspect}"
       posting: Lähetetään...
       publishing_to: "Julkaistaan: "
@@ -761,15 +761,15 @@ fi:
     reshare:
       reshare: "Jaa uudelleen"
     stream_element:
-      connect_to_comment: "Connect to this user to comment on their post"
-      currently_unavailable: "commenting currently unavailable"
+      connect_to_comment: "Yhdistä tähän käyttäjään kommentoidaksesi hänen viestiään"
+      currently_unavailable: "kommentointi ei tällä hetkellä mahdollista"
       dislike: "En tykkää"
-      hide_and_mute: "Hide and Mute"
-      ignore_user: "Ignore %{name}"
-      ignore_user_description: "Ignore and remove user from all aspects?"
+      hide_and_mute: "Piilota ja vaimenna viesti"
+      ignore_user: "Sivuuta %{name}"
+      ignore_user_description: "Sivuuta käyttäjä ja poista hänet kaikista näkymistä?"
       like: "Tykkää"
       shared_with: "Jaettu heidän kanssaan: %{aspect_names}"
-      unlike: "En tykkää"
+      unlike: "Peru tykkäys"
       via: "%{link} kautta"
       viewable_to_anyone: "Kuka tahansa verkossa näkee tämän viestin"
   status_messages:
@@ -844,7 +844,7 @@ fi:
   tokens:
     show:
       connect_to_cubbies: "Yhdistä kohteeseen Cubbi.es"
-      connecting_is_simple: "Connecting your Diaspora account is as simple as filling out two fields on your Cubbi.es account page."
+      connecting_is_simple: "Diaspora-tilisi yhdistäminen on helppoa! Syötä vain Diaspora-tunnuksesi (<b>%{diaspora_id}</b>) Cubbi.es-<a href='%{href_link}'>asetussivulle</a> ja yhdistä."
       daniels_account: "Danielin Diaspora-käyttäjätili"
       log_in_with_diaspora_is_comming: "Pian voit lisätä uuden sovelluksen luomatta uutta käyttäjätiliä nykyisen tilisi lisäksi."
       love_to_try: "Kokeile sinäkin."
@@ -866,6 +866,8 @@ fi:
       wrong_password: "Syötetty salasana ei vastannut nykyistä salasanaasi."
     edit:
       also_commented: "...joku myös kommentoi kontaktisi viestiin?"
+      auto_follow_aspect: "Aspect for automatically followed users:"
+      auto_follow_back: "Automatically follow back if a someone follows you"
       change: "Vaihda"
       change_email: "Vaihda sähköpostiosoite"
       change_language: "Vaihda kieli"
@@ -878,11 +880,12 @@ fi:
       edit_account: "Muokkaa käyttäjätiliä"
       email_awaiting_confirmation: "Olemme lähettäneet sinulle aktivointilinkin osoitteeseen %{unconfirmed_email}. Jatkamme alkuperäisen osoitteesi %{email} käyttämistä siihen saakka, kunnes aktivoit uuden osoitteesi kyseisen linkin kautta."
       export_data: "Vie tietoja"
+      following: "Following Settings"
       getting_started: "New User Prefrences"
       liked: "...tykkää kirjoituksistasi?"
       mentioned: "...sinut mainitaan viestissä?"
       new_password: "Uusi salasana"
-      photo_export_unavailable: "Photo exporting currently unavailable"
+      photo_export_unavailable: "Kuvien vienti ei tällä hetkellä mahdollista"
       private_message: "...saat uuden viestin?"
       receive_email_notifications: "Vastaanota sähköposti-ilmoituksia, kun.."
       reshared: "...someone reshares your post?"
@@ -902,10 +905,7 @@ fi:
       we_can_speed_things_up: "Voimme nopeuttaa asioita hieman"
       well_hello_there: "No, mutta hei!"
       what_are_you_in_to: "Mistä olet kiinnostunut?"
-      what_facebook_does: |-
-          Diasporaan. Nimesi ja kuvasi haetaan Diasporaan, ja tämän jälkeen voit myös lähettää viestejä Diasporasta Facebookiin.
-
-          This will pull your name and photo, and enable cross-positng.
+      what_facebook_does: "Diasporaan. Nimesi ja kuvasi haetaan Diasporaan, ja tämän jälkeen voit myös lähettää viestejä Diasporasta Facebookiin."
       who_are_you: "Kuka olet?"
     logged_out:
       go_mobile: "Siirry nyt mobiiliin."
@@ -914,13 +914,15 @@ fi:
       simply_visit: "Voit yksinkertaisesti mennä osoitteeseen"
       works_on_modern: "Toimii kaikilla moderneilla älypuhelimilla"
     privacy_settings:
-      ignored_users: "Ignored Users"
-      stop_ignoring: "Stop ignoring"
+      ignored_users: "Sivuutetut käyttäjät"
+      stop_ignoring: "Lakkaa sivuuttamasta"
       title: "Yksityisyysasetukset"
     public:
       does_not_exist: "Käyttäjää %{username} ei ole olemassa!"
     update:
       email_notifications_changed: "Sähköposti-ilmoitukset vaihdettu"
+      follow_settings_changed: "Follow settings changed"
+      follow_settings_not_changed: "Follow settings change failed."
       language_changed: "Kieli vaihdettu"
       language_not_changed: "Kielen vaihtaminen epäonnistui"
       password_changed: "Salasana vaihdettu. Voit nyt kirjautua uudella salasanallasi."

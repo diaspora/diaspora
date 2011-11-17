@@ -105,15 +105,15 @@ es-CL:
       help:
         do_you: "Acaso tu:"
         email_feedback: "Si lo prefieres envíanos un %{link} con tu opinión"
-        feature_suggestion: "... tienes una sugerencia(%{link})?"
-        find_a_bug: "... encontraste un error(%{link})?"
-        have_a_question: "... tienes una pregunta(%{link})?"
+        feature_suggestion: "... tienes una %{link}?"
+        find_a_bug: "... encontraste errores (%{link})?"
+        have_a_question: "... tienes una %{link}?"
         here_to_help: "La comunidad de Diaspora esta aquí!"
         need_help: "Necesitas ayuda?"
         satisfaction: "%{link}: Soporte impulsado por la comunidad"
-        tag_bug: "#bug"
-        tag_feature: "#feature"
-        tag_question: "#question"
+        tag_bug: "bug"
+        tag_feature: "idea"
+        tag_question: "pregunta"
         tutorials_wiki_and_forum: "%{tutorial} & %{wiki} & %{forum}: Community-powered tutorials, how-to, and news"
       introduce_yourself: "This is your stream.  Jump in and introduce yourself."
       keep_us_running: "Mantén %{pod} rápido, !compra a nuestros servidores su dosis mensual de café!"
@@ -140,7 +140,7 @@ es-CL:
       create: "Crear"
       name: "Nombre(solo visible para ti)"
     no_contacts_message:
-      community_spotlight: "community spotlight"
+      community_spotlight: "comunidad creativa"
       or_spotlight: "Or you can share with %{link}"
       try_adding_some_more_contacts: "Puedes buscar (arriba) o invitar (derecha) más contactos."
       you_should_add_some_more_contacts: "Deberías añadir mas contactos!"
@@ -217,7 +217,7 @@ es-CL:
     sharing:
       people_sharing: "Personas compartiendo contigo:"
     spotlight:
-      community_spotlight: "Community Spotlight"
+      community_spotlight: "Comunidad Creativa"
     two: "%{count} contactos"
     zero: "contactos"
   conversations:
@@ -319,8 +319,8 @@ es-CL:
       blog: "blog"
       code: "codigo"
       login: "entrar"
-      logout: "salir"
-      profile: "perfil"
+      logout: "Salir"
+      profile: "Perfil"
       recent_notifications: "Notificaciones recientes"
       settings: "Configuración"
       view_all: "Ver todo"
@@ -393,12 +393,12 @@ es-CL:
       mark_all_as_read: "Marcar todo como leido"
       notifications: "Notificaciones"
     liked:
-      few: "%{actors}  les gustó tu  %{post_link}."
-      many: "%{actors} les gustó tu %{post_link}."
-      one: "%{actors} le gustó tu %{post_link}."
-      other: "%{actors} le gustó tu %{post_link}."
+      few: "A %{actors} les gustó tu %{post_link}."
+      many: "A %{actors} les gustó tu %{post_link}."
+      one: "A %{actors} le gustó tu %{post_link}."
+      other: "A %{actors} le gustó tu %{post_link}."
       two: "%{actors} les gusto tu %{post_link}."
-      zero: "%{actors} le gustó tu %{post_link}."
+      zero: "A %{actors} le gustó tu %{post_link}."
     liked_post_deleted:
       few: "%{actors} les gustó tu post eliminado."
       many: "%{actors} les gustó tu post eliminado."
@@ -407,12 +407,12 @@ es-CL:
       two: "%{actors} les gusto tu post eliminado."
       zero: "%{actors} le gustó tu post eliminado."
     mentioned:
-      few: "%{actors} te menciono en %{post_link}."
-      many: "%{actors} te menciono en %{post_link}."
+      few: "%{actors} te mencionaron en un %{post_link}."
+      many: "%{actors} te mencionaron en un %{post_link}."
       one: "%{actors} te menciono en %{post_link}."
-      other: "%{actors} te menciono en %{post_link}."
+      other: "%{actors} te mencionó en un %{post_link}."
       two: "%{actors} te han mencionado en %{post_link}."
-      zero: "%{actors} te menciono en %{post_link}."
+      zero: "%{actors} te mencionó en un %{post_link}."
     mentioned_deleted:
       few: "%{actors} te mencionó en un post eliminado."
       many: "%{actors} te mencionó en un post eliminado."
@@ -460,7 +460,7 @@ es-CL:
     email_sent_by_diaspora: "Este email fue enviado por Diaspora.  Si no quieres seguir recibiendo emails como este, "
     hello: "¡Hola %{name}!"
     liked:
-      liked: "a %{name} le gustó tu post"
+      liked: "A %{name} le gustó tu post"
       view_post: "Ver post >"
     mentioned:
       mentioned: "Te mencionó en un post:"
@@ -747,10 +747,10 @@ es-CL:
       discard_post: "Descartar post"
       make_public: "hacer público"
       new_user_prefill:
-        hello: "Hey everyone, I'm #%{new_user_tag}. "
-        i_like: "I'm interested in %{tags}."
+        hello: "Hola a todo el mundo, soy #%{new_user_tag}. "
+        i_like: "Tengo interés en %{tags}."
         invited_by: "Thanks for the invite, "
-        newhere: "NewHere"
+        newhere: Nuev@Aquí
       post_a_message_to: "Postear un mensaje a %{aspect}"
       posting: Posteando...
       publishing_to: "publicar en: "
@@ -866,6 +866,8 @@ es-CL:
       wrong_password: "The entered password didn't match your current password."
     edit:
       also_commented: "...alguien comenta en el post de tu amigo?"
+      auto_follow_aspect: "Aspect for automatically followed users:"
+      auto_follow_back: "Automatically follow back if a someone follows you"
       change: "Modificar"
       change_email: "Cambiar email"
       change_language: "Cambiar Idioma"
@@ -878,6 +880,7 @@ es-CL:
       edit_account: "Editar cuenta"
       email_awaiting_confirmation: "Te enviamos un link de activación a %{unconfirmed_email}. Hasta que sigas ese link y actives la nueva dirección, nosotros seguiremos usando tu dirección original %{email}."
       export_data: "Exportar Datos"
+      following: "Following Settings"
       getting_started: "New User Prefrences"
       liked: "...a alguien le gusta tu post?"
       mentioned: "...te mencionan en un post?"
@@ -918,6 +921,8 @@ es-CL:
       does_not_exist: "¡El usuario %{username} no existe!"
     update:
       email_notifications_changed: "Notificaciones por email cambiadas"
+      follow_settings_changed: "Follow settings changed"
+      follow_settings_not_changed: "Follow settings change failed."
       language_changed: "Idioma Cambiado"
       language_not_changed: "Error al cambiar de idioma"
       password_changed: "Contraseña Cambiada. Ahora puedes conectarte con la nueva contraseña."

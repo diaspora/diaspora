@@ -20,11 +20,11 @@ pt-PT:
         two: "Em {{count}} aspectos"
         zero: "Seleccione os aspectos"
     aspect_navigation:
-      deselect_all: "Anular todos"
+      deselect_all: "Desmarcar todos"
       no_aspects: "Nenhuns aspectos seleccionados"
       select_all: "Seleccionar todos"
     comments:
-      hide: "esconder comentários"
+      hide: "ocultar comentários"
       show: "mostrar todos os comentários"
     confirm_dialog: "Tem a certeza?"
     failed_to_like: "Falhou ao gostar!"
@@ -40,7 +40,7 @@ pt-PT:
       looking_good: "OMD, tu estás fantástico(a)!"
     publisher:
       at_least_one_aspect: "Tem de publicar em pelo menos um aspecto"
-      limited: "Limitado - a sua publicação só será vista pelas pessoas com as quais está partilhar"
+      limited: "Limitado - a sua publicação só será vista pelas pessoas com as quais está a partilhar"
       public: "Público - A sua publicação será visível para todos e encontrada por motores de busca"
     reshares:
       duplicate: "Que bom, hein? Você já republicou essa mensagem!"

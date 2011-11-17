@@ -866,6 +866,8 @@ eo:
       wrong_password: "La entajpita pasvoroto ne kongruis kun la nuna pasvorto."
     edit:
       also_commented: "...iu ankaŭ komentis pri la afiŝo de via kontakto?"
+      auto_follow_aspect: "Aspect for automatically followed users:"
+      auto_follow_back: "Automatically follow back if a someone follows you"
       change: "Ŝanĝi"
       change_email: "Redakti retpoŝtadreso"
       change_language: "Ŝanĝi lingvon"
@@ -878,6 +880,7 @@ eo:
       edit_account: "Redakti konton"
       email_awaiting_confirmation: "Ni poŝtis al vin aktivigadan ligilon ĉe %{unconfirmed_email}.  Ĝis vi klikos tiun ĉi ligilo kaj aktivigos la novan repoŝtadreson, ni uzados vian malŝanĝitan retpoŝtadreson %{email}."
       export_data: "Eksporti datumojn"
+      following: "Following Settings"
       getting_started: "Novaj uzanto-agordoj"
       liked: "...iu ŝatis vian afiŝon?"
       mentioned: "...vi estas menciita en afiŝo?"
@@ -918,6 +921,8 @@ eo:
       does_not_exist: "Uzanto %{username} ne ekzistas!"
     update:
       email_notifications_changed: "Retpoŝtaj sciigoj ŝanĝitaj"
+      follow_settings_changed: "Follow settings changed"
+      follow_settings_not_changed: "Follow settings change failed."
       language_changed: "Lingvo ŝanĝita"
       language_not_changed: "Ne povis ŝanĝi lingvon"
       password_changed: "Pasvorto ŝanĝita. Vi nun povas ensaluti per via nova pasvorto."

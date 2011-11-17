@@ -866,6 +866,8 @@ da:
       wrong_password: "Det indtastede kodeord stemmer ikke overens med dit nuværende kodeord."
     edit:
       also_commented: "...nogen har kommenteret på en af dine kontakters indlæg?"
+      auto_follow_aspect: "Aspekt til automatisk fulgte brugere:"
+      auto_follow_back: "Følg automatisk dem der vælger at følge dig"
       change: "Skift"
       change_email: "Skift e-mail"
       change_language: "Skift sprog"
@@ -878,6 +880,7 @@ da:
       edit_account: "Rediger konto"
       email_awaiting_confirmation: "Vi har sendt dig et aktiveringslink til %{unconfirmed_email}. Indtil du følger dette link og aktiverer den nye adresse, vil vi fortsætte med at bruge din oprindelige adresse %{email}."
       export_data: "Eksportér data"
+      following: "Følgeskab"
       getting_started: "Ny bruger opsætning"
       liked: "...nogen synes om dit indlæg?"
       mentioned: "...du er nævnt i et indlæg?"
@@ -913,11 +916,13 @@ da:
     privacy_settings:
       ignored_users: "Ignorerede brugere"
       stop_ignoring: "Hold op med at ignorere"
-      title: "Privatlivsindstillinger"
+      title: "Privatliv"
     public:
       does_not_exist: "Brugeren %{username} findes ikke!"
     update:
       email_notifications_changed: "E-mail notifikation ændret"
+      follow_settings_changed: "Indstillinger for Følgeskab ændret"
+      follow_settings_not_changed: "Kunne ikke ændre indstillinger for Følgeskab."
       language_changed: "Sprog ændret"
       language_not_changed: "Kunne ikke ændre sprog"
       password_changed: "Adgangskode ændret"

@@ -26,7 +26,7 @@ eo:
     comments:
       hide: "Kaŝi komentojn"
       show: "Vidi ĉiujn komentojn"
-    confirm_dialog: "ĉu vi certas?"
+    confirm_dialog: "Ĉu vi certas?"
     failed_to_like: "Ne povis ŝati!"
     failed_to_post_message: "Ne povis afiŝi mesaĝon!"
     getting_started:
@@ -35,11 +35,11 @@ eo:
       no_tags: "Hej, vi ne sekvas iun etikedon! Ĉu tamen daŭrigi?"
       preparing_your_stream: "Preparante vian personan torenton..."
     infinite_scroll:
-      no_more: "Ne pli afiŝoj."
+      no_more: "Neniu plua afiŝo."
     photo_uploader:
       looking_good: "Diable, vi aspektas bonege!"
     publisher:
-      at_least_one_aspect: "Vi devus eldoni al almenaŭ unu aspekto"
+      at_least_one_aspect: "Vi devas konigi al almenaŭ unu aspekto"
       limited: "Malpublika - via afiŝo nur vidoteblos de homoj, kun kiuj vi partoprenas"
       public: "Publika - via afiŝo vidoteblos de ĉiuj kaj trovotos de retserĉaplikaĵoj."
     reshares:
@@ -68,4 +68,4 @@ eo:
       unknown: "nekonata tipo de videaĵo"
       watch: "Vidi tiun ĉi videon je {{provider}}"
     web_sockets:
-      disconnected: "La kontaktoskatolo malfermatas; afiŝoj ne plu rekte datumstriiĝos."
+      disconnected: "La reta kontaktoskatolo estas fermita; afiŝoj ne plu rekte fluos."
