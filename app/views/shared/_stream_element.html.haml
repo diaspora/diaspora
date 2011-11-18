@@ -87,12 +87,12 @@
       .likes.on_post
         .likes_container
           = render "likes/likes_container", :target_id => post.id, :likes_count => post.likes_count, :current_user => current_user, :target_type => "Post"
-
-      %small{:style=>'color:grey;'}
-        Location:
-        - if params[:locale] == "en"
-          = post.locations.first.address if post.locations.first
-        - else
-          = post.locations.first.address if post.locations.first
+      - if post.author.owner.enable_location_services and !post.locations.empty?
+        %small{:style=>'color:grey;'}
+          Location:
+          - if params[:locale] == "en"
+            = post.locations.first.address if post.locations.first
+          - else
+            = post.locations.first.address if post.locations.first
 
       = render "comments/comments", :post => post, :current_user => current_user, :commenting_disabled => commenting_disabled?(post)
