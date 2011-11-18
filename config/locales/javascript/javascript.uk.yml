@@ -8,10 +8,10 @@ uk:
     aspect_dropdown:
       add_to_aspect: "Додати контакт"
       all_aspects: "Усі аспекти"
-      error: "Couldn't start sharing with {{name}}.  Are you ignoring them?"
+      error: "Неможливо почати ділитися з користувачем {{name}}. Можливо, ви його заблокували?"
       select_aspects: "Вибрати аспекти"
-      started_sharing_with: "You have started sharing with {{name}}!"
-      stopped_sharing_with: "You have stopped sharing with {{name}}."
+      started_sharing_with: "Ви почали ділитися з {{name}}!"
+      stopped_sharing_with: "Ви перестали ділитися з {{name}}."
       toggle:
         few: "У {{count}} аспектах"
         many: "У {{count}} аспектах"
@@ -30,24 +30,24 @@ uk:
     failed_to_like: "Не вдалося!"
     failed_to_post_message: "Не вдалося відправити повідомлення!"
     getting_started:
-      alright_ill_wait: "Alright, I'll wait."
-      hey: "Hey, {{name}}!"
-      no_tags: "Hey, you haven't followed any tags!  Continue anyway?"
-      preparing_your_stream: "Preparing your personialized stream..."
+      alright_ill_wait: "Добре, я почекаю."
+      hey: "Привіт, {{name}}!"
+      no_tags: "Ви не стежите ні за однією міткою! Все одно продовжити?"
+      preparing_your_stream: "Підготовка вашого особистого потоку..."
     infinite_scroll:
       no_more: "Повідомлень більше немає."
     photo_uploader:
-      looking_good: "OMG, you look awesome!"
+      looking_good: "Боже мій, ви виглядаєте приголомшливо!"
     publisher:
       at_least_one_aspect: "Вам потрібно створити мінімум один аспект"
       limited: "Обмежена - ваш запис буде видний тільки вказаним вами людям"
       public: "Публічна - ваш запис буде видний усім, включаючи пошукові системи"
     reshares:
-      duplicate: "Ви вже поділилися цим записом!"
+      duplicate: "Настільки круто, так? Ви вже поділилися цим записом!"
     search_for: "Шукати {{name}}"
     show_more: "показати більше"
     tags:
-      wasnt_that_interesting: "OK, I suppose #{{tagName}} wasn't all that interesting..."
+      wasnt_that_interesting: "OK, мабуть, стежити за міткою #{{tagName}} було не так вже цікаво..."
     timeago:
       day: "день"
       days: "%d днів[-я]"

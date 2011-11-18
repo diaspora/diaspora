@@ -866,6 +866,8 @@ zh-CN:
       wrong_password: "The entered password didn't match your current password."
     edit:
       also_commented: ……当有人也对您的好友的内容发表评论时？
+      auto_follow_aspect: "Aspect for automatically followed users:"
+      auto_follow_back: "Automatically follow back if a someone follows you"
       change: "更改"
       change_email: "Change E-Mail"
       change_language: "更改语言"
@@ -878,6 +880,7 @@ zh-CN:
       edit_account: "编辑帐号"
       email_awaiting_confirmation: "We have sent you an activation link to %{unconfirmed_email}. Till you follow this link and activate the new address, we will continue to use your original address %{email}."
       export_data: "资料导出"
+      following: "Following Settings"
       getting_started: "New User Prefrences"
       liked: …有人喜欢您发布的内容？
       mentioned: ……当贴文中提到您时？
@@ -918,6 +921,8 @@ zh-CN:
       does_not_exist: "不存在 %{username} 这个用户！"
     update:
       email_notifications_changed: "邮件通知更改成功"
+      follow_settings_changed: "Follow settings changed"
+      follow_settings_not_changed: "Follow settings change failed."
       language_changed: "语言更改成功"
       language_not_changed: "语言更改失败"
       password_changed: "密码更改成功"

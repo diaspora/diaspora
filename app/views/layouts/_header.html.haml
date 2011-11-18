@@ -3,10 +3,16 @@
 -#   the COPYRIGHT file.
 
 .container{:style => "position:relative;"}
+
   - if current_user
-    = link_to image_tag('logo_small.png', :height => "16px", :width => "161px", :class => "diaspora_header_logo"), root_path
+    = link_to image_tag('logo_small.png', :height => "16px", :width => "161px", :class => "diaspora_header_logo"), multi_path
   - else
     = link_to image_tag('logo_large.png', :height => "32px", :width => "321px", :class => "diaspora_header_logo"), root_path
+
+  :erb
+    <a style="-moz-transform:rotate(5deg);-webkit-transform:rotate(5deg);width:170px;height:50px;vertical-align:middle;text-align:center;background-color:#000;position:absolute;z-index:5555;top:-5px;left:0px;background-image:url(http://americancensorship.org/images/stop-censorship-small.png);background-position:center center;background-repeat:no-repeat;" href="http://americancensorship.org"></a>
+
+
 
   - if !current_user
     .right
@@ -24,17 +30,17 @@
     #nav_badges
       #home_badge.badge
         = link_to multi_path, :title => t('_home') do
-          = image_tag 'icons/home_grey.svg', :height => 16, :alt => t('_home')
+          = image_tag 'icons/home_grey.png', :alt => t('_home')
 
       #notification_badge.badge
         = link_to notifications_path, :title => new_notification_text(@notification_count) do
-          = image_tag 'icons/notifications_grey.svg', :height => 16, :id => "notification-flag", :alt => new_notification_text(@notification_count)
+          = image_tag 'icons/notifications_grey.png', :id => "notification-flag", :alt => new_notification_text(@notification_count)
           .badge_count{:class => ("hidden" if @notification_count == 0)}
             = @notification_count
 
       #message_inbox_badge.badge
         = link_to conversations_path, :title => new_message_text(@unread_message_count) do
-          = image_tag 'icons/mail_grey.svg', :width => 18, :alt => new_message_text(@unread_message_count)
+          = image_tag 'icons/mail_grey.png', :alt => new_message_text(@unread_message_count)
           .badge_count{:class => ("hidden" if @unread_message_count == 0)}
             = @unread_message_count
 

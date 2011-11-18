@@ -52,7 +52,7 @@ class PostsController < ApplicationController
       current_user.retract(@post)
       respond_to do |format|
         format.js {render 'destroy'}
-        format.all {redirect_to root_url}
+        format.all {redirect_to multi_path}
       end
     else
       Rails.logger.info "event=post_destroy status=failure user=#{current_user.diaspora_handle} reason='User does not own post'"

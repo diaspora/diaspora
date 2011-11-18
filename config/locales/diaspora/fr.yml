@@ -866,6 +866,10 @@ fr:
       wrong_password: "Le mot de passe introduit ne correspond pas à  votre mot de passe actuel."
     edit:
       also_commented: "…quelqu'un d'autre commente une publication de votre contact ?"
+      auto_follow_aspect: "Aspect pour les utilisateurs automatiquement suivis :"
+      auto_follow_back: |-
+          Automatically follow back if a someone follows you
+          Retour suivant automatique si une personne vous suit
       change: "Modifier"
       change_email: "Changer d'adresse électronique"
       change_language: "Changer la langue"
@@ -878,6 +882,7 @@ fr:
       edit_account: "Modifier le compte"
       email_awaiting_confirmation: "Nous vous avons envoyé un lien d'activation à %{unconfirmed_email}. Jusqu'à ce que vous suivez ce lien et activez la nouvelle adresse, nous allons continuer à utiliser votre adresse originale %{email}."
       export_data: "Exporter des données"
+      following: "Paramètres suivants"
       getting_started: "Préférences de nouvel utilisateur"
       liked: "...quelqu'un aime votre message ?"
       mentioned: "…vous êtes mentionné(e) dans une publication ?"
@@ -918,6 +923,8 @@ fr:
       does_not_exist: "L'utilisateur %{username} n'existe pas !"
     update:
       email_notifications_changed: "Notifications par courriel modifiées"
+      follow_settings_changed: "Paramètres suivants"
+      follow_settings_not_changed: "Erreur des changements paramètres suivants "
       language_changed: "Langue mise à jour"
       language_not_changed: "Échec lors de la mise à jour de la langue"
       password_changed: "Mot de passe mis à jour. Vous pouvez maintenant vous identifier avec votre nouveau mot de passe."

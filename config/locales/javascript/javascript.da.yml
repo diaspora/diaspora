@@ -8,7 +8,7 @@ da:
     aspect_dropdown:
       add_to_aspect: "Tilføj kontakt"
       all_aspects: "Alle aspekter"
-      error: "Kunne ikke begynde at dele med {{name}}.  Ignorer du vedkommende?"
+      error: "Kunne ikke begynde at dele med {{name}}.  Ignorerer du vedkommende?"
       select_aspects: "Vælg aspekter"
       started_sharing_with: "Du er begyndt at dele med {{name}}!"
       stopped_sharing_with: "Du deler ikke længere med {{name}}."

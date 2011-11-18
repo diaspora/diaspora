@@ -70,7 +70,7 @@ cy:
     contacts_not_visible: "Contacts in this aspect will not be able to see each other."
     contacts_visible: "Contacts in this aspect will be able to see each other."
     create:
-      failure: "Creu Aspect wedi methu."
+      failure: "Creu Agwedd wedi methu."
       success: "Click on the plus on the left side to tell Diaspora who can see your new aspect."
     destroy:
       failure: "%{name} is not empty and could not be removed."
@@ -89,7 +89,7 @@ cy:
     few: "%{count} agweddau"
     helper:
       are_you_sure: "A ydych yn siŵr eich bod am ddileu yr agwedd hon?"
-      aspect_not_empty: "Aspect nid ar wag"
+      aspect_not_empty: "Agwedd nid ar wag"
       remove: "remove"
     index:
       cubbies:
@@ -173,7 +173,7 @@ cy:
   blocks:
     create:
       failure: "I couldn't ignore that user.  #evasion"
-      success: "Alright, you won't see that user in your stream again. #silencio!"
+      success: "Ôlreit, ni fyddwch yn gweld y defnyddiwr yn eich ffrwd yn y dyfodol. #silencio!"
     destroy:
       failure: "I couldn't stop ignoring that user.  #evasion"
       success: "Let's see what they have to say! #sayhello"
@@ -271,7 +271,7 @@ cy:
     show:
       already_account: "already have an account?"
       choice: "Choice"
-      choice_explanation: "Diaspora allows you to sort your connections into groups called Aspects - agweddau yng nghymraeg. Unique to Diaspora, Aspects ensure your photos, stories and jokes are shared with only the people you want them to be."
+      choice_explanation: "Diaspora allows you to sort your connections into groups called Aspects - (agweddau yng nghymraeg). Unique to Diaspora, Aspects ensure your photos, stories and jokes are shared with only the people you want them to be."
       learn_about_host: "Learn about how to host your own Diaspora server"
       login_here: "log in here"
       ownership: "Ownership"
@@ -297,7 +297,7 @@ cy:
       your_account_awaits: "Your account awaits!"
     new:
       already_invited: "Already invited"
-      aspect: "Aspect"
+      aspect: "Agwedd"
       comma_seperated_plz: "You can enter multiple email addresses separated by commas."
       if_they_accept_info: "if they accept, they will be added to the aspect you invited them."
       invite_someone_to_join: "Invite someone to join Diaspora!"
@@ -763,7 +763,7 @@ cy:
     stream_element:
       connect_to_comment: "Cysylltu i ddefnyddiwr hwn i sylwad ar eu swydd"
       currently_unavailable: "commenting currently unavailable"
-      dislike: "I dislike this"
+      dislike: "'Dwi ddim yn hoffi hyn"
       hide_and_mute: "Hide and Mute"
       ignore_user: "Ignore %{name}"
       ignore_user_description: "Ignore and remove user from all aspects?"
@@ -800,7 +800,7 @@ cy:
   streams:
     aspects:
       title: "Eich Agweddau"
-    aspects_stream: "Aspects"
+    aspects_stream: "Agweddau"
     commented_on: "wedi sylwad arno"
     community_spotlight_stream: "Community Spotlight"
     followed_tag:
@@ -814,8 +814,8 @@ cy:
       contacts_title: "People who mentioned you"
       title: "Your Mentions"
     multi:
-      contacts_title: "People in your Stream"
-      title: "Stream"
+      contacts_title: "Pobol yn eich ffrwd"
+      title: "Ffrwd"
     posted: "wedi postio"
     public:
       contacts_title: "Recent Posters"
@@ -866,6 +866,8 @@ cy:
       wrong_password: "The entered password didn't match your current password."
     edit:
       also_commented: "...someone also comments on your contact's post?"
+      auto_follow_aspect: "Aspect for automatically followed users:"
+      auto_follow_back: "Automatically follow back if a someone follows you"
       change: "Change"
       change_email: "Newid yr E-Bost"
       change_language: "Newid yr iaith"
@@ -878,6 +880,7 @@ cy:
       edit_account: "Edit account"
       email_awaiting_confirmation: "We have sent you an activation link to %{unconfirmed_email}. Till you follow this link and activate the new address, we will continue to use your original address %{email}."
       export_data: "Data Allforio"
+      following: "Following Settings"
       getting_started: "New User Prefrences"
       liked: "...someone likes your post?"
       mentioned: "...you are mentioned in a post?"
@@ -918,6 +921,8 @@ cy:
       does_not_exist: "Nid% Defnyddiwr {username} yn bodoli!"
     update:
       email_notifications_changed: "Language Change Failed"
+      follow_settings_changed: "Follow settings changed"
+      follow_settings_not_changed: "Follow settings change failed."
       language_changed: "Iaith wedi newid"
       language_not_changed: "Newidiad iaith wedi methu"
       password_changed: "Password Changed"

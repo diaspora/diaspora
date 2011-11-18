@@ -29,7 +29,7 @@ pt-BR:
         reshare:
           attributes:
             root_guid:
-              taken: "Você já compartilhou este post!"
+              taken: "Que bom, hein? Mas você já compartilhou esta postagem!"
         user:
           attributes:
             email:
@@ -37,7 +37,7 @@ pt-BR:
             person:
               invalid: "é inválido."
             username:
-              invalid: "é inválido. Só permitimos letras, números e sublinhados"
+              invalid: "é inválido. Só permitimos letras, números e sublinhados."
               taken: "já foi feito."
   ago: "%{time} atrás"
   all_aspects: "Todos Aspectos"
@@ -118,7 +118,7 @@ pt-BR:
       introduce_yourself: "Este é seu fluxo. Escreva algo e se apresente."
       keep_us_running: "Mantenha %{pod} rodando mais rápido, comprando nossos servidores e garantindo o nosso café mensal!"
       new_here:
-        follow: "Siga %{link} e bem vindos novos usuários para Diaspora*!"
+        follow: "Siga %{link} e dê boas vindas aos novos usuários de Diaspora*!"
         learn_more: "Saiba mais"
         title: "Bem vindo Novos Usuários"
       no_contacts: "Sem contatos"
@@ -494,7 +494,7 @@ pt-BR:
       results_for: " resultados para %{params}"
     index:
       couldnt_find_them_send_invite: "Não conseguiu encontrá-los? Envie um convite!"
-      looking_for: "Looking for posts tagged %{tag_link}?"
+      looking_for: "Buscando postagens com a tag %{tag_link}?"
       no_one_found: "...e não foi encontrado ninguém."
       no_results: "Ei! Você precisa procurar por alguma coisa."
       results_for: "resultado da busca por"
@@ -722,7 +722,7 @@ pt-BR:
       logged_in_as: "logado como %{name}"
       your_aspects: "seus aspectos"
     invitations:
-      by_email: "por Email"
+      by_email: "Por email"
       dont_have_now: "Você não possui nenhum, novos convites chegarão em breve!"
       from_facebook: "Do Facebook"
       invitations_left: "(%{count} restantes)"
@@ -791,12 +791,12 @@ pt-BR:
   stream_helper:
     hide_comments: "Ocultar todos os comentários"
     show_comments:
-      few: "Show %{count} more comments"
-      many: "Show %{count} more comments"
-      one: "Show one more comment"
-      other: "Show %{count} more comments"
-      two: "Show two more comments"
-      zero: "No more comments"
+      few: "Ver mais %{count} comentários"
+      many: "Ver mais %{count} comentários"
+      one: "Ver mais um comentário"
+      other: "Ver mais %{count} comentários"
+      two: "Ver mais dois comentários"
+      zero: "Nenhum comentário"
   streams:
     aspects:
       title: "Seus Aspectos"
@@ -823,7 +823,7 @@ pt-BR:
     recently: "recentemente:"
     tags:
       contacts_title: "People who dig these tags"
-      tag_prefill_text: "The thing about %{tag_name} is... "
+      tag_prefill_text: "As coisas sobre %{tag_name} é... "
       title: "Postagens com a tag: %{tags}"
   tag_followings:
     create:
@@ -866,6 +866,8 @@ pt-BR:
       wrong_password: "A senha digitada não corresponde com sua senha atual."
     edit:
       also_commented: "...alguém comentar nas postagens dos teus contatos?"
+      auto_follow_aspect: "Aspectos seguidos automaticamente:"
+      auto_follow_back: "Automatically follow back if a someone follows you"
       change: "Alterar"
       change_email: "Alterar Email"
       change_language: "Alterar Idioma"
@@ -878,6 +880,7 @@ pt-BR:
       edit_account: "Editar Conta"
       email_awaiting_confirmation: "Temos que lhe enviar um link para a confirmação do email %{unconfirmed_email}. Enquanto você não confirmar o seu novo endereço de email, nós continuaremos utilizando o endereço antigo: %{email}."
       export_data: "Exportar Dados"
+      following: "Configurações Seguintes"
       getting_started: "Preferência de Novo Usuário"
       liked: "...alguém curtir a sua postagem?"
       mentioned: "...for mencionado(a) em uma postagem?"
@@ -918,6 +921,8 @@ pt-BR:
       does_not_exist: "O usuário %{username} não existe!"
     update:
       email_notifications_changed: "Notificação de email alterado."
+      follow_settings_changed: "Siga as configurações alteradas"
+      follow_settings_not_changed: "Falha em seguir as configurações."
       language_changed: "O idioma foi alterado."
       language_not_changed: "Alteração do idioma falhou!"
       password_changed: "Senha alterada com sucesso! Agora você poderá se conectar com a sua nova senha."

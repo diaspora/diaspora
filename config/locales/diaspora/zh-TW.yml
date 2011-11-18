@@ -167,7 +167,7 @@ zh-TW:
     zero: "沒有面向"
   authorizations:
     index:
-      no_applications: 尚未註冊任何應用程式.
+      no_applications: 還沒註冊任何應用程式.
       revoke_access: "撤銷存取權"
   back: "後退"
   blocks:
@@ -239,7 +239,7 @@ zh-TW:
       inbox: "收件匣"
       message_inbox: "訊息信箱"
       new_message: "發新訊息"
-      no_conversation_selected: "未選取任何對話"
+      no_conversation_selected: "沒有選取任何對話"
       no_messages: "沒有訊息"
     new:
       abandon_changes: 放棄目前變動?
@@ -296,7 +296,7 @@ zh-TW:
       accept_your_invitation: "接受邀請"
       your_account_awaits: 你的帳號在等你!
     new:
-      already_invited: "這些人尚未接受你的邀請:"
+      already_invited: "這些人還沒接受你的邀請:"
       aspect: "面向"
       comma_seperated_plz: "你可以輸入多個電子信箱, 只要以逗號分隔即可."
       if_they_accept_info: "如果他們接受, 就會被加入至你所邀請的面向中."
@@ -517,7 +517,7 @@ zh-TW:
       remove_from: "要從 %{aspect} 刪除 %{name} 嗎?"
     show:
       does_not_exist: 聯絡人不存在!
-      has_not_shared_with_you_yet: "%{name} 尚未跟你分享任何貼文!"
+      has_not_shared_with_you_yet: "%{name} 還沒跟你分享任何貼文!"
       ignoring: "你目前會忽視 %{name} 的所有貼文."
       incoming_request: "%{name} 希望能和你分享"
       mention: "指指點點"
@@ -750,7 +750,7 @@ zh-TW:
         hello: "大家好, 我是 #%{new_user_tag}. "
         i_like: "我對 %{tags} 有興趣."
         invited_by: "謝謝你的邀請, "
-        newhere: "新人"
+        newhere: "新來的"
       post_a_message_to: "在 %{aspect} 發表訊息"
       posting: 發表中...
       publishing_to: "發表至: "
@@ -837,7 +837,7 @@ zh-TW:
       follow: "追蹤 #%{tag}"
       followed_by: "追蹤者:"
       following: "正在追蹤 #%{tag}"
-      nobody_talking: "尚還沒有人在討論 %{tag}."
+      nobody_talking: "還沒有人在討論 %{tag}."
       people_tagged_with: "標記為 %{tag} 的人"
       posts_tagged_with: "標記為 #%{tag} 的貼文"
       stop_following: "停止追蹤 #%{tag}"
@@ -866,6 +866,8 @@ zh-TW:
       wrong_password: 輸入的密碼與你目前的密碼不符.
     edit:
       also_commented: "...當有人也對你的聯絡人的貼文發表意見時?"
+      auto_follow_aspect: "給被自動追蹤的使用者的面向:"
+      auto_follow_back: "當有人追蹤你時自動反追蹤回去"
       change: "更改"
       change_email: 更改E-Mail
       change_language: "更改語言"
@@ -878,6 +880,7 @@ zh-TW:
       edit_account: "編輯帳號"
       email_awaiting_confirmation: "我們已經將啟用連結寄到 %{unconfirmed_email} 給你. 在你使用該連結啟用新的位址之前, 我們還會繼續使用你原來的位址, 也就是 %{email}."
       export_data: "資料匯出"
+      following: "追蹤設定"
       getting_started: "新使用者偏好設定"
       liked: "...當有人對你的貼文說讚時?"
       mentioned: "...當貼文中點到你時?"
@@ -918,6 +921,8 @@ zh-TW:
       does_not_exist: "不存在 %{username} 這個使用者!"
     update:
       email_notifications_changed: "電郵通知已經更改了"
+      follow_settings_changed: "追蹤設定改變了"
+      follow_settings_not_changed: 追蹤設定改變失敗.
       language_changed: "語言已經更改了"
       language_not_changed: "語言更改失敗"
       password_changed: "密碼已經更改了. 從現在起你可以用新的密碼登入."

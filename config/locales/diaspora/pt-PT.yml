@@ -8,8 +8,8 @@ pt-PT:
   _comments: "Comentários"
   _contacts: "Contactos"
   _home: "Início"
-  _photos: "fotografias"
-  _services: "serviços"
+  _photos: "fotos"
+  _services: "Serviços"
   account: "Conta"
   activerecord:
     errors:
@@ -37,7 +37,7 @@ pt-PT:
             person:
               invalid: "não é válido."
             username:
-              invalid: "é inválido. Apenas é permitido usar letras, números, e underscores."
+              invalid: "é inválido. Só permitimos letras, números e underscores."
               taken: "já foi escolhido."
   ago: "Há %{time} atrás"
   all_aspects: "Todos os Aspectos"
@@ -160,7 +160,7 @@ pt-PT:
       view_all_contacts: "Ver todos os contactos"
     show:
       edit_aspect: "editar aspecto"
-    two: "%{count} aspecto"
+    two: "%{count} aspectos"
     update:
       failure: "O seu aspecto, %{name}, tinha um nome grande demais para ser guardado."
       success: "O seu aspecto, %{name}, foi editado com sucesso."
@@ -222,7 +222,7 @@ pt-PT:
     zero: "contactos"
   conversations:
     create:
-      fail: "Mensagens inválidas"
+      fail: "Mensagem inválida"
       sent: "A mensagem foi enviada"
     destroy:
       success: "A conversa foi removida com sucesso"
@@ -291,7 +291,7 @@ pt-PT:
       no_more: "Não tem mais convites."
       own_address: "Não pode enviar um convite para o seu próprio endereço."
       rejected: "Os seguintes endereços de email tiveram problemas: "
-      sent: "Os convites foram enviados a:"
+      sent: "Os convites foram enviados para:"
     edit:
       accept_your_invitation: "Aceite o seu convite"
       your_account_awaits: "A sua conta está à espera!"
@@ -338,14 +338,14 @@ pt-PT:
         many: "%{count} pessoas não gostam"
         one: "%{count} pessoa gosta"
         other: "%{count} pessoas gostam"
-        two: "%{count} gostos"
+        two: "%{count} gostam"
         zero: "ninguém gosta"
       people_like_this_comment:
         few: "%{count} gostos"
         many: "%{count} gostos"
         one: "%{count} gosto"
         other: "%{count} gostos"
-        two: "%{count} gostos"
+        two: "%{count} gostam"
         zero: "não há gostos"
   limited: "Limitado"
   more: "Mais"
@@ -357,7 +357,7 @@ pt-PT:
       many: "%{actors} também comentaram %{post_link} de %{post_author}."
       one: "%{actors} também comentou %{post_link} de %{post_author}."
       other: "%{actors} também comentaram %{post_link} de %{post_author}."
-      two: "%{actors} também comentaram na %{post_link} de %{post_author}."
+      two: "%{actors} também comentaram no %{post_link} de %{post_author}."
       zero: "%{actors} também comentaram %{post_link} de %{post_author}."
     also_commented_deleted:
       few: "%{actors} comentaram na sua publicação apagada."
@@ -371,7 +371,7 @@ pt-PT:
       many: "%{actors} comentaram na sua %{post_link}."
       one: "%{actors} comentou na sua %{post_link}."
       other: "%{actors} comentaram na sua %{post_link}."
-      two: "%{actors} comentaram na sua %{post_link}."
+      two: "%{actors} comentaram no seu %{post_link}."
       zero: "%{actors} comentou na sua %{post_link}."
     helper:
       new_notifications:
@@ -397,7 +397,7 @@ pt-PT:
       many: "%{actors} gostam da sua %{post_link}."
       one: "%{actors} gostou da sua %{post_link}."
       other: "%{actors} gostam da sua %{post_link}."
-      two: "%{actors} gostaram da sua %{post_link}."
+      two: "%{actors} gostaram do seu %{post_link}."
       zero: "%{actors} gostaram da sua %{post_link}."
     liked_post_deleted:
       few: "%{actors} gostam da sua publicação apagada."
@@ -411,7 +411,7 @@ pt-PT:
       many: "%{actors} mencionou-o(a) numa %{post_link}."
       one: "%{actors} mencionou-o numa %{post_link}."
       other: "%{actors} mencionou-o numa %{post_link}."
-      two: "%{actors} mencionaram-na numa %{post_link}."
+      two: "%{actors} mencionaram-no num %{post_link}."
       zero: "%{actors} mencionou-o numa %{post_link}."
     mentioned_deleted:
       few: "%{actors} mencionaram-no numa publicação apagada."
@@ -429,19 +429,19 @@ pt-PT:
       two: "%{actors} enviaram-lhe uma mensagem."
       zero: "%{actors} enviou-lhe uma mensagem."
     reshared:
-      few: "%{actors} partilharam a sua %{post_link}."
-      many: "%{actors} partilharam a sua %{post_link}."
-      one: "%{actors} partilhou a sua %{post_link}."
-      other: "%{actors} repartilharam a sua %{post_link}."
-      two: "%{actors} repartilharam a sua %{post_link}."
-      zero: "%{actors} repartilharam a sua %{post_link}."
+      few: "%{actors} partilharam o seu %{post_link}."
+      many: "%{actors} partilharam o seu %{post_link}."
+      one: "%{actors} partilhou o seu %{post_link}."
+      other: "%{actors} repartilharam o seu %{post_link}."
+      two: "%{actors} repartilharam o seu %{post_link}."
+      zero: "%{actors} repartilharam o seu %{post_link}."
     reshared_post_deleted:
       few: "%{actors} repartilharam a sua publicação apagada."
       many: "%{actors} repartilharam a sua publicação apagada."
       one: "%{actors} repartilhou a sua publicação apagada."
       other: "%{actors} repartilhou a sua publicação apagada."
       two: "%{actors} repartilharam a sua publicação."
-      zero: "%{actors} repartilhou a sua publicação apagada."
+      zero: "%{actors} repartilharam a sua publicação apagada."
     started_sharing:
       few: "%{actors} começaram a partilhar consigo."
       many: "%{actors} começaram a partilhar consigo."
@@ -494,7 +494,7 @@ pt-PT:
       results_for: "resultados para %{params}"
     index:
       couldnt_find_them_send_invite: "Não conseguiu encontrá-los? Envie um convite!"
-      looking_for: "Looking for posts tagged %{tag_link}?"
+      looking_for: "À procura de posts com a tag %{tag_link}?"
       no_one_found: "...e ninguém foi encontrado."
       no_results: "Hei! Precisa pesquisar por alguma coisa."
       results_for: "resultados da pesquisa para"
@@ -504,13 +504,13 @@ pt-PT:
     person:
       add_contact: "adicionar contacto"
       already_connected: "Já está ligado"
-      pending_request: "Pedido pendente"
+      pending_request: "Solicitação pendente"
       thats_you: "É você!"
     profile_sidebar:
       bio: "biografia"
       born: "data de nascimento"
       edit_my_profile: "Editar o meu perfil"
-      gender: "sexo"
+      gender: "género"
       in_aspects: "nos aspectos"
       location: "localização"
       remove_contact: "remover contacto"
@@ -549,7 +549,7 @@ pt-PT:
       editing: "A editar"
     new:
       back_to_list: "Voltar à Lista"
-      new_photo: "Nova Fotografia"
+      new_photo: "Nova Foto"
       post_it: Publique!
     new_photo:
       empty: "{file} está vazio, por favor seleccione de novo os ficheiros sem este último."
@@ -676,7 +676,7 @@ pt-PT:
       error: "ocorreu um erro ao ligar a esse serviço"
     finder:
       fetching_contacts: "Diaspora está a povoar de amigos o seu %{service}, por favor verifique novamente dentro de alguns minutos."
-      no_friends: "Nenhum amigo do Facebook foi encontrado."
+      no_friends: "Não foi encontrado nenhum amigo do Facebook."
       service_friends: "Amigos do %{service}"
     index:
       connect_to_facebook: "Ligar ao Facebook"
@@ -692,7 +692,7 @@ pt-PT:
       join_me_on_diaspora: "Junte-se a mim no DIASPORA*"
     remote_friend:
       invite: "convite"
-      not_on_diaspora: "Ainda não no Diaspora"
+      not_on_diaspora: "Ainda não está no Diaspora"
       resend: "reenviar"
   settings: "Definições"
   share_visibilites:
@@ -750,7 +750,7 @@ pt-PT:
         hello: "Olá a todos, o meu nome é #%{new_user_tag}. "
         i_like: "Estou interessado em %{tags}."
         invited_by: "Obrigado(a) pelo convite,"
-        newhere: "NewHere"
+        newhere: "NovoPorAqui"
       post_a_message_to: "Publicar uma mensagem em %{aspect}"
       posting: "A publicar..."
       publishing_to: "publicando para:"
@@ -791,12 +791,12 @@ pt-PT:
   stream_helper:
     hide_comments: "Ocultar todos comentários"
     show_comments:
-      few: "Show %{count} more comments"
-      many: "Show %{count} more comments"
-      one: "Show one more comment"
-      other: "Show %{count} more comments"
-      two: "Show two more comments"
-      zero: "No more comments"
+      few: "Visualizar mais %{count} comentários"
+      many: "Visualizar mais %{count} comentários"
+      one: "Visualizar mais um comentário"
+      other: "Visualizar mais %{count} comentários"
+      two: "Visualizar mais dois comentários"
+      zero: "Sem mais comentários"
   streams:
     aspects:
       title: "Os Teus Aspectos"
@@ -823,7 +823,7 @@ pt-PT:
     recently: "recentemente:"
     tags:
       contacts_title: "Pessoas que gostam desta etiqueta"
-      tag_prefill_text: "The thing about %{tag_name} is... "
+      tag_prefill_text: "O que acontece com %{tag_name} é... "
       title: "Publicações marcadas: %{tags}"
   tag_followings:
     create:
@@ -868,6 +868,8 @@ pt-PT:
       wrong_password: "A palavra-passe digitada não corresponde à sua palavra-passe actual."
     edit:
       also_commented: "...alguém também comenta na publicação do seu contacto?"
+      auto_follow_aspect: "Aspect for automatically followed users:"
+      auto_follow_back: "Automatically follow back if a someone follows you"
       change: "Alterar"
       change_email: "Mudar de email"
       change_language: "Mudar de idioma"
@@ -880,6 +882,7 @@ pt-PT:
       edit_account: "Editar conta"
       email_awaiting_confirmation: "Enviámos-lhe uma hiperligação de activação para %{unconfirmed_email}. Até que siga esta hiperligação e active o novo endereço, continuaremos a utilizar o seu endereço original %{email}."
       export_data: "Exportar Dados"
+      following: "Following Settings"
       getting_started: "Novas Preferências de Utilizador"
       liked: "...alguém gosta da sua publicação?"
       mentioned: "...é mencionado numa publicação?"
@@ -920,6 +923,8 @@ pt-PT:
       does_not_exist: "O utilizador %{username} não existe!"
     update:
       email_notifications_changed: "As notificações por email foram alteradas"
+      follow_settings_changed: "Follow settings changed"
+      follow_settings_not_changed: "Follow settings change failed."
       language_changed: "O idioma foi alterado"
       language_not_changed: "Falha ao alterar o idioma"
       password_changed: "A palavra-passe foi alterada. Já pode iniciar sessão com a sua nova palavra-passe."

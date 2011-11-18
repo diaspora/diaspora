@@ -971,6 +971,9 @@ ca:
       show_community_spotlight: "Voleu veure els usuaris destacats al flux?"
       show_getting_started: "Torna a habilitar la introducció inicial"
       getting_started: "Preferències de l'usuari nou"
+      following: "Paràmetres del seguiment"
+      auto_follow_back: "Segueix automàticament a qui t'ha començat a seguir automàticament."
+      auto_follow_aspect: "Aspecte pels usuaris seguits automàticament:"
 
     privacy_settings:
       title: "Paràmetres de privacitat"
@@ -1012,6 +1015,8 @@ ca:
       email_notifications_changed: "S'han canviat les notificacions per correu"
       unconfirmed_email_changed: "S'ha canviat l'adreça de correu electrònic. Necessita activació."
       unconfirmed_email_not_changed: "Ha fallat el canvi d'adreça de correu electrònic"
+      follow_settings_changed: "S'han canviat els paràmetres del seguiment"
+      follow_settings_not_changed: "Ha fallat el canvi dels paràmetres del seguiment."
     public:
       does_not_exist: "L'usuari %{username} no existeix!"
     confirm_email:

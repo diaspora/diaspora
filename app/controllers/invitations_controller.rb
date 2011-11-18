@@ -4,7 +4,7 @@
 
 class InvitationsController < Devise::InvitationsController
 
-  before_filter :check_token, :only => [:edit]
+  before_filter :check_token, :only => [:edit, :email]
   before_filter :check_if_invites_open, :only =>[:create]
 
   def new
@@ -73,8 +73,7 @@ class InvitationsController < Devise::InvitationsController
   protected
   def check_token
     if User.find_by_invitation_token(params[:invitation_token]).nil?
-      flash[:error] = I18n.t 'invitations.check_token.not_found'
-      redirect_to root_url
+      render 'invitations/token_not_found'
     end
   end
 

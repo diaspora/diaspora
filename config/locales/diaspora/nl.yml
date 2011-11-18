@@ -866,6 +866,8 @@ nl:
       wrong_password: "Het ingevoerde wachtwoord komt niet overeen met je huidige wachtwoord."
     edit:
       also_commented: "...iemand na jou op de post van jouw contact reageert?"
+      auto_follow_aspect: "Aspect for automatically followed users:"
+      auto_follow_back: "Automatically follow back if a someone follows you"
       change: "Verander"
       change_email: "Verander e-mailadres"
       change_language: "Taal wijzigen"
@@ -878,6 +880,7 @@ nl:
       edit_account: "Bewerk account"
       email_awaiting_confirmation: "We hebben een activatielink verzonden naar %{unconfirmed_email}. Totdat je het adres geactiveerd hebt zullen we je originele adress blijven gebruiken %{email}."
       export_data: "Exporteer data"
+      following: "Following Settings"
       getting_started: "New User Prefrences"
       liked: "... iemand je post leuk vind?"
       mentioned: "...je genoemd word in een post?"
@@ -918,6 +921,8 @@ nl:
       does_not_exist: "Gebruiker %{username} bestaat niet!"
     update:
       email_notifications_changed: "E-mailnotificaties gewijzigd"
+      follow_settings_changed: "Follow settings changed"
+      follow_settings_not_changed: "Follow settings change failed."
       language_changed: "Taal gewijzigd"
       language_not_changed: "Taal wijzigen mislukt"
       password_changed: "Wachtwoord gewijzigd. Je kunt nu inloggen met je nieuwe wachtwoord."

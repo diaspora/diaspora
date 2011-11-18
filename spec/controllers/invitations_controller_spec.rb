@@ -24,20 +24,20 @@ describe InvitationsController do
       request.env["HTTP_REFERER"]= 'http://test.host/cats/foo'
     end
 
-    it 'saves and invitation'  do
+    it 'saves an invitation'  do
       expect {
         post :create,  :user => @invite
       }.should change(Invitation, :count).by(1)
     end
 
-    it 'handles a comma seperated list of emails' do
+    it 'handles a comma-separated list of emails' do
       expect{
         post :create, :user => @invite.merge(
         :email => "foofoofoofoo@example.com, mbs@gmail.com")
       }.should change(Invitation, :count).by(2)
     end
 
-    it 'handles a comma seperated list of emails with whitespace' do
+    it 'handles a comma-separated list of emails with whitespace' do
       expect {
         post :create, :user => @invite.merge(
           :email => "foofoofoofoo@example.com   ,        mbs@gmail.com")
@@ -67,6 +67,24 @@ describe InvitationsController do
       expect{
         post :create, :user => @invite.merge(:email => "hello@example.org, #{@user.email}")
       }.should change(Invitation, :count).by(1)
+    end
+  end
+
+  describe "#email" do
+    before do
+      invites = Invitation.batch_invite(["foo@example.com"], :message => "hi", :sender => @user, :aspect => @user.aspects.first, :service => 'email', :language => "en-US")
+      invites.first.send!
+      @invited_user = User.find_by_email("foo@example.com")
+    end
+
+    it "succeeds" do
+      get :email, :invitation_token => @invited_user.invitation_token
+      response.should be_success
+    end
+
+    it "shows an error if there's no such invitation token" do
+      get :email, :invitation_token => "12345"
+      response.should render_template(:token_not_found)
     end
   end
 

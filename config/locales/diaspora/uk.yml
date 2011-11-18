@@ -111,9 +111,9 @@ uk:
         here_to_help: "Товариство Діаспори до ваших послуг!"
         need_help: "Потрібна допомога?"
         satisfaction: "%{link}: здійснювана товариством підтримка"
-        tag_bug: "#bug"
-        tag_feature: "#feature"
-        tag_question: "#question"
+        tag_bug: "bug"
+        tag_feature: "feature"
+        tag_question: "question"
         tutorials_wiki_and_forum: "%{tutorial}, %{wiki} і %{forum}: довідкові посібники, що складаються товариством, інструкції та новини."
       introduce_yourself: "Це ваш потік. Пірнайте і освоюйтеся."
       keep_us_running: "Допоможіть %{pod} працювати швидко - купіть нашим серверам дозу кави, зробивши щомісячне пожертвування!"
@@ -172,11 +172,11 @@ uk:
   back: "Назад"
   blocks:
     create:
-      failure: "I couldn't ignore that user.  #evasion"
-      success: "Alright, you won't see that user in your stream again. #silencio!"
+      failure: "Я не можу заблокувати цього користувача. #evasion"
+      success: "Добре, ви більше не побачите цього користувача у своєму потоці. #silencio!"
     destroy:
-      failure: "I couldn't stop ignoring that user.  #evasion"
-      success: "Let's see what they have to say! #sayhello"
+      failure: "Не можу припинити блокувати цього користувача. #evasion"
+      success: "Подивимося, що вони скажуть! #sayhello"
   bookmarklet:
     explanation: "Пишіть в Діаспору з будь-якої сторінки з допомогою %{link}."
     explanation_link_text: "цієї закладки"
@@ -494,7 +494,7 @@ uk:
       results_for: "результати для %{params}"
     index:
       couldnt_find_them_send_invite: "Не можете їх знайти? Відправте їм запрошення!"
-      looking_for: "Looking for posts tagged %{tag_link}?"
+      looking_for: "Повідомлення, відмічені як %{tag_link}?"
       no_one_found: "...не вдалося нікого знайти."
       no_results: "Введіть текст для пошуку."
       results_for: "результати пошуку для"
@@ -518,7 +518,7 @@ uk:
     show:
       does_not_exist: "Персони не існує!"
       has_not_shared_with_you_yet: "%{name} ще не ділився записами з вами!"
-      ignoring: "You are ignoring all posts from %{name}."
+      ignoring: "Ви блокуєте усі записи користувача %{name}."
       incoming_request: "%{name} хоче поділитися з вами"
       mention: "Згадати"
       message: "Повідомлення"
@@ -556,7 +556,7 @@ uk:
       invalid_ext: "{file} має неприпустиме розширення. Дозволені тільки {extensions}."
       size_error: "{file} занадто великий, максимальний розмір файлу {sizeLimit}."
     new_profile_photo:
-      or_select_one_existing: "or select one from your already existing %{photos}"
+      or_select_one_existing: "чи виберете одне із вже завантажених %{photos}"
       upload: "Завантажити нове фото для профілю!"
     photo:
       view_all: "Подивитися усі фотографії %{name}"
@@ -577,7 +577,7 @@ uk:
       not_found: "Вибачте, ми не змогли знайти цей запис."
       permalink: "постiйне посилання"
   previous: "попередня"
-  privacy: "Privacy"
+  privacy: "Приватность"
   profile: "Профіль"
   profiles:
     edit:
@@ -675,7 +675,7 @@ uk:
     failure:
       error: "Сталася помилка при підключенні цього сервісу"
     finder:
-      fetching_contacts: "Diaspora is populating your %{service} friends please check back in a few minutes."
+      fetching_contacts: "Діаспора додає ваших друзів з %{service}. Будь ласка, почекайте пару хвилин."
       no_friends: "Не знайдено друзів з Facebook."
       service_friends: "Друзі з %{service}"
     index:
@@ -697,8 +697,8 @@ uk:
   settings: "Налаштування"
   share_visibilites:
     update:
-      post_hidden_and_muted: "%{name}'s post has been hidden, and notifications have been muted."
-      see_it_on_their_profile: "If you want to see updates on this post, visit %{name}'s profile page."
+      post_hidden_and_muted: "Запис користувача %{name} приховано, а повідомлення відключені."
+      see_it_on_their_profile: "Якщо ви хочете бачити оновлення цього запису, відвідаєте профіль користувача %{name}."
   shared:
     add_contact:
       add_new_contact: "Додати контакт"
@@ -750,7 +750,7 @@ uk:
         hello: "Привіт всім, я тут #%{new_user_tag}."
         i_like: "Я цікавлюся %{tags}."
         invited_by: "Спасибі за запрошення,"
-        newhere: "NewHere"
+        newhere: "Новачок"
       post_a_message_to: "Опублікувати повідомлення для %{aspect}"
       posting: Відправка...
       publishing_to: "публікація в:"
@@ -765,8 +765,8 @@ uk:
       currently_unavailable: "коментування на даний момент не доступне"
       dislike: "Не подобається"
       hide_and_mute: "Приховати і відключити повідомлення"
-      ignore_user: "Ignore %{name}"
-      ignore_user_description: "Ignore and remove user from all aspects?"
+      ignore_user: "Блокувати користувача %{name}"
+      ignore_user_description: "Блокувати та видалити користувача з усіх аспектів?"
       like: "Мені подобається"
       shared_with: "Для аспектів: %{aspect_names}"
       unlike: "Не подобається"
@@ -791,12 +791,12 @@ uk:
   stream_helper:
     hide_comments: "Приховати усі коментарі"
     show_comments:
-      few: "Show %{count} more comments"
-      many: "Show %{count} more comments"
-      one: "Show one more comment"
-      other: "Show %{count} more comments"
-      two: "Show two more comments"
-      zero: "No more comments"
+      few: "Показати ще %{count} коментарів"
+      many: "Показати ще %{count} коментарів"
+      one: "Показати ще коментарі"
+      other: "Показати ще %{count} коментарів"
+      two: "Показати ще два коментарі"
+      zero: "Більше немає коментарів"
   streams:
     aspects:
       title: "Ваші аспекти"
@@ -823,7 +823,7 @@ uk:
     recently: "останні:"
     tags:
       contacts_title: "Люди, яким подобаються ця мітка"
-      tag_prefill_text: "The thing about %{tag_name} is... "
+      tag_prefill_text: "Щодо %{tag_name} я думаю, що..."
       title: "Записи, відмічені : %{tags}"
   tag_followings:
     create:
@@ -861,11 +861,13 @@ uk:
       email_confirmed: "Адреса %{email} активована"
       email_not_confirmed: "Адреса не може бути активована. Невірне посилання?"
     destroy:
-      no_password: "Please enter your current password to close your account."
-      success: "Your account has been locked.  It may take 20 minutes for us to finish closing your account.  Thank you for trying Diaspora."
-      wrong_password: "The entered password didn't match your current password."
+      no_password: "Будь ласка, введіть пароль, щоб закрити свій обліковий запис."
+      success: "Ваш обліковий запис заблокований. На повне закриття вашого облікового запису може піти до 20 хвилин. Спасибі, що були разом з нами."
+      wrong_password: "Введений вами пароль не співпадає з вашим поточним паролем."
     edit:
       also_commented: "... хтось коментував повідомлення ваших контактів?"
+      auto_follow_aspect: "Aspect for automatically followed users:"
+      auto_follow_back: "Automatically follow back if a someone follows you"
       change: "Змінити"
       change_email: "Змінити адресу"
       change_language: "Змінити мову"
@@ -878,6 +880,7 @@ uk:
       edit_account: "Редагувати аккаунт"
       email_awaiting_confirmation: "Ми послали посилання для активації на %{unconfirmed_email}. Поки ви не пройдете по ньому і не активуєте нову адресу, ми використовуватимемо ваш колишній ящик %{email}."
       export_data: "Експорт інформації"
+      following: "Following Settings"
       getting_started: "Нові призначені для користувача налаштування"
       liked: "...кому-небудь подобається ваше повідомлення?"
       mentioned: "... ви згадані в повідомленні?"
@@ -911,13 +914,15 @@ uk:
       simply_visit: "Просто зайдіть на"
       works_on_modern: "Працює на усіх сучасних смартфонах"
     privacy_settings:
-      ignored_users: "Ignored Users"
-      stop_ignoring: "Stop ignoring"
-      title: "Privacy Settings"
+      ignored_users: "Заблоковані користувачі"
+      stop_ignoring: "Припинити блокування"
+      title: "Налаштування приватности"
     public:
       does_not_exist: "Користувача %{username} не існує!"
     update:
       email_notifications_changed: "Повідомлення по електронній пошті змінені"
+      follow_settings_changed: "Follow settings changed"
+      follow_settings_not_changed: "Follow settings change failed."
       language_changed: "Мова змінена"
       language_not_changed: "Не вдалося змінити мову"
       password_changed: "Пароль змінений. Тепер ви можете увійти з новим паролем."

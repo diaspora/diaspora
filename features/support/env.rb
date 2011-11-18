@@ -55,11 +55,14 @@ require File.join(File.dirname(__FILE__), "..", "..", "spec", "support","user_me
 include HelperMethods
 
 Before do
+  @no_follow_diaspora_hq_setting = AppConfig[:no_follow_diasporahq]
+  AppConfig[:no_follow_diasporahq] = true
   DatabaseCleaner.clean
   Devise.mailer.deliveries = []
 end
 
 After do
+  AppConfig[:no_follow_diasporahq] = @no_follow_diaspora_hq_setting
   if Capybara.current_session.driver.respond_to?(:browser)
     Capybara.current_session.driver.browser.manage.delete_all_cookies
   end

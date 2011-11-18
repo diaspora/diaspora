@@ -81,7 +81,7 @@ sl:
       aspect_list_is_visible: "seznam pogledov je viden drugim stikom pogleda"
       confirm_remove_aspect: "Ali ste prepričani, da bi radi izbrisali ta pogled?"
       done: "Končano"
-      make_aspect_list_visible: "označi seznam pogledov kot viden?"
+      make_aspect_list_visible: "stiki v tem pogledu naj bodo vidni med sabo?"
       remove_aspect: "Izbriši ta pogled"
       rename: "preimenuj"
       update: "posodobi"
@@ -140,8 +140,8 @@ sl:
       create: "Ustvari"
       name: "Ime (vidno samo tebi)"
     no_contacts_message:
-      community_spotlight: "vsebina skupnosti"
-      or_spotlight: "Ali pa lahko delite z %{link}"
+      community_spotlight: "vsebino skupnosti"
+      or_spotlight: "Lahko pa delite tudi z %{link}"
       try_adding_some_more_contacts: "Poiščete ali povabite lahko več stikov."
       you_should_add_some_more_contacts: "Lahko bi dodali še kakšno osebo!"
     no_posts_message:
@@ -868,6 +868,8 @@ sl:
       wrong_password: "Vneseno geslo se ne ujema z vašim trenutnim geslom."
     edit:
       also_commented: "...nekdo tudi komentira objavo vašega stika?"
+      auto_follow_aspect: "Aspect for automatically followed users:"
+      auto_follow_back: "Automatically follow back if a someone follows you"
       change: "Spremeni"
       change_email: "Spremeni e-naslov"
       change_language: "Spremeni jezik"
@@ -880,6 +882,7 @@ sl:
       edit_account: "Uredi uporabniški račun"
       email_awaiting_confirmation: "Poslali smo vam povezavo za aktiviranje na %{unconfirmed_email}. Dokler ne sledite tej povezavi in ​​aktivirate nov naslov, bomo še naprej uporabljati vaš stari naslov %{email}."
       export_data: "Izvozi podatke"
+      following: "Following Settings"
       getting_started: "Nastavitve novega uporabnika"
       liked: "...je nekomu všeč vaša objava?"
       mentioned: "...ste omenjeni v objavi?"
@@ -920,6 +923,8 @@ sl:
       does_not_exist: "Uporabnik %{username} ne obstaja!"
     update:
       email_notifications_changed: "Obveščanje po e-pošti spremenjeno"
+      follow_settings_changed: "Follow settings changed"
+      follow_settings_not_changed: "Follow settings change failed."
       language_changed: "Jezik spremenjen"
       language_not_changed: "Sprememba jezika ni uspela"
       password_changed: "Geslo spremenjeno. Sedaj se lahko prijavite z novim geslom."

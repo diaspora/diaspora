@@ -868,6 +868,8 @@ hu:
       wrong_password: "The entered password didn't match your current password."
     edit:
       also_commented: "...más is hozzászólt az ismerősöd bejegyzéséhez?"
+      auto_follow_aspect: "Aspect for automatically followed users:"
+      auto_follow_back: "Automatically follow back if a someone follows you"
       change: "Módosítás"
       change_email: "Email megváltoztatása"
       change_language: "Nyelv megváltoztatása"
@@ -880,6 +882,7 @@ hu:
       edit_account: "Fiók szerkesztése"
       email_awaiting_confirmation: "Aktivációs link elküldve ide: %{unconfirmed_email}. Amíg nem erősíted meg az új címed, addig a régit használjuk: %{email}."
       export_data: "Adatok exportálása"
+      following: "Following Settings"
       getting_started: "Új felhasználó beállítások"
       liked: "... valakinek tetszik a bejegyzésed?"
       mentioned: "...meg vagy említve egy bejegyzésben?"
@@ -920,6 +923,8 @@ hu:
       does_not_exist: "%{username} nem létezik!"
     update:
       email_notifications_changed: "E-mail értesítések módosítva"
+      follow_settings_changed: "Follow settings changed"
+      follow_settings_not_changed: "Follow settings change failed."
       language_changed: "Nyelv megváltozott"
       language_not_changed: "Nyelv megváltoztatása nem sikerült"
       password_changed: "A jelszó megváltozott, már bejelentkezhetsz az új jelszóval."
