@@ -14,6 +14,8 @@ $sidebar-width-wide: 300px !default;
 
 $indented-lists: false !default;
 
+$header-font-size: 1em !default;
+
 .group { @include pie-clearfix; }
 
 @mixin collapse-sidebar {
@@ -79,9 +81,9 @@ body {
     }
   }
   > header {
-    font-size: 1em;
-    padding-top: 1.5em;
-    padding-bottom: 1.5em;
+    font-size: $header-font-size;
+    padding-top: $header-padding-top;
+    padding-bottom: $header-padding-bottom;
   }
 }
 
@@ -115,14 +117,14 @@ body.sidebar-footer {
 }
 
 @media only screen and (min-width: 550px) {
-  body > header { font-size: 1em; }
+  body > header { font-size: $header-font-size; }
 }
 @media only screen and (min-width: 750px) {
   aside.sidebar { @include collapse-sidebar; }
 }
 @media only screen and (min-width: 768px) {
   body { -webkit-text-size-adjust: auto; }
-  body > header { font-size: 1.2em; }
+  body > header { font-size: $header-font-size * 1.2; }
   #main {
     @extend .group;
     padding: 0;
@@ -159,7 +161,7 @@ body.sidebar-footer {
 }
 
 @media only screen and (min-width: 992px) {
-  body > header { font-size: 1.3em; }
+  body > header { font-size: $header-font-size * 1.3; }
   #content { margin-right: $sidebar-width-wide; }
   #content {
     > div, > article {
