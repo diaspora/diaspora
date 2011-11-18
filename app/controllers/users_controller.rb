@@ -68,6 +68,13 @@ class UsersController < ApplicationController
         else
           flash[:error] = I18n.t 'users.update.unconfirmed_email_not_changed'
         end
+      elsif u[:enable_location_services]
+        @user.enable_location_services = u[:enable_location_services] == "1" ? true : false
+        if @user.save
+          flash[:notice] = I18n.t '.users.update.location_services_changed'
+        else
+          flash[:error] = I18n.t '.users.update.location_services_not_changed'
+        end
       end
     elsif aspect_order = params[:reorder_aspects]
       @user.reorder_aspects(aspect_order)
