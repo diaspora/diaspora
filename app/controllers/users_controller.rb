@@ -85,7 +85,7 @@ class UsersController < ApplicationController
       current_user.lock_access!
       sign_out current_user
       flash[:notice] = I18n.t 'users.destroy.success'
-      redirect_to multi_path
+      redirect_to root_path
     else
       if params[:user].present? && params[:user][:current_password].present?
         flash[:error] = t 'users.destroy.wrong_password'
@@ -148,7 +148,7 @@ class UsersController < ApplicationController
   def user_photo
     username = params[:username].split('@')[0]
     user = User.find_by_username(username)
-    if user.present? 
+    if user.present?
       redirect_to user.profile.image_url
     else
       render :nothing => true, :status => 404
