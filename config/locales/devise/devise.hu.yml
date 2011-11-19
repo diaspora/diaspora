@@ -19,7 +19,7 @@ hu:
       unauthenticated: "Be kell jelentkezned, vagy regisztrálj."
       unconfirmed: "Előbb meg kell erősítened fiókodat."
     invitations:
-      invitation_token_invalid: "A Token által adott meghívóazonosító nem érvényes!"
+      invitation_token_invalid: "Sajnáljuk, de a meghívás nem érvényes."
       send_instructions: "A meghívód elküldve."
       updated: "A jelszó módosítva. Be vagy jelentkezve."
     mailer:
@@ -34,7 +34,7 @@ hu:
         be_yourself: "Légy Önmagad"
         be_yourself_paragraph: "Az Internet egy új lehetőséged ad az önkifejezésre. A %{strong_diaspora} lehetőséged ad, hogy önmagad légy,  megossz amit akarsz, valódi neveddel vagy anélkül."
         cubbies: Cubbi.es
-        displaying_correctly: "Levelünk hibásan jelenik meg? %{link} böngészöben"
+        displaying_correctly: "Levelünk hibásan jelenik meg? %{link}"
         email_address: questions@joindiaspora.com
         email_us: "Felhasználói fiókoddal kapcsolatos kérdésekkel kérjük írj a %{email} címre."
         finally: "Végre - Itt van!"
@@ -56,7 +56,7 @@ hu:
         subject: "Meghívtak, hogy csatlakozz a Diaspora* közösségi hálóhoz."
         team_diaspora: "Diaspora* Csapat"
         unsubscribe: "Leiratkozáshoz kattints %{link}."
-        view_in: "Megtekintés"
+        view_in: "Megtekintés böngészőben"
       inviter:
         accept_at: "Meghívás elfogadása: %{url}"
         has_invited_you: "%{name}"

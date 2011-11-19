@@ -22,7 +22,7 @@ he:
     aspect_navigation:
       deselect_all: "Deselect all"
       no_aspects: "No aspects selected"
-      select_all: "Select all"
+      select_all: "בחר הכל"
     comments:
       hide: "הסתרת תגובות"
       show: "הצגת כל התגובות"
@@ -30,8 +30,8 @@ he:
     failed_to_like: "הסימון ב'אהבתי' נכשל!"
     failed_to_post_message: "פרסום ההודעה נכשל!"
     getting_started:
-      alright_ill_wait: "Alright, I'll wait."
-      hey: "Hey, {{name}}!"
+      alright_ill_wait: "בסדר, אני אמתין."
+      hey: "שלום, {{name}}!"
       no_tags: "Hey, you haven't followed any tags!  Continue anyway?"
       preparing_your_stream: "Preparing your personialized stream..."
     infinite_scroll:

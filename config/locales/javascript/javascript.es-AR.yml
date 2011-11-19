@@ -6,19 +6,19 @@
 es-AR:
   javascripts:
     aspect_dropdown:
-      add_to_aspect: "Agregar al aspecto"
+      add_to_aspect: "Agregar contacto"
       all_aspects: "Todos los aspectos"
-      error: "Couldn't start sharing with {{name}}.  Are you ignoring them?"
+      error: "No se pudo empezar a compartir con {{name}}.  ¿Será que lo/a estás ignorando?"
       select_aspects: "Selecciona aspectos"
-      started_sharing_with: "You have started sharing with {{name}}!"
-      stopped_sharing_with: "You have stopped sharing with {{name}}."
+      started_sharing_with: "Empezaste a compartir con {{name}}!"
+      stopped_sharing_with: "Dejaste de compartir con {{name}}."
       toggle:
         few: "En {{count}} aspectos"
         many: "En {{count}} aspectos"
         one: "En {{count}} aspecto"
         other: "En {{count}} aspectos"
         two: "En {{count}} aspectos"
-        zero: "Agregar a un aspecto"
+        zero: "Seleccionar aspectos"
     aspect_navigation:
       deselect_all: "De-seleccionar todo"
       no_aspects: "No hay aspectos seleccionados"
@@ -30,24 +30,24 @@ es-AR:
     failed_to_like: "¡No pudo marcarse como 'Me gusta'!"
     failed_to_post_message: "¡No pudo publicarse el mensaje!"
     getting_started:
-      alright_ill_wait: "Alright, I'll wait."
-      hey: "Hey, {{name}}!"
-      no_tags: "Hey, you haven't followed any tags!  Continue anyway?"
-      preparing_your_stream: "Preparing your personialized stream..."
+      alright_ill_wait: "Todo bien, voy a esperar."
+      hey: "Che, {{name}}!"
+      no_tags: "¡Che, no estás siguiendo ningún tag! ¿Continuar de todos modos?"
+      preparing_your_stream: "Preparando tu stream personalizado..."
     infinite_scroll:
       no_more: "No hay más publicaciones."
     photo_uploader:
-      looking_good: "OMG, you look awesome!"
+      looking_good: "¡Apa, te ves muy bien!"
     publisher:
       at_least_one_aspect: "Tenés que publicarlo en, por lo menos, un aspecto"
       limited: "Limitada - tu publicación sera vista solo por la gente con quien la compartes "
       public: "Publica - tu publicación sera visible para cualquiera y los buscadores podrán encontrarla"
     reshares:
-      duplicate: "Ya compartiste esa publicación!"
+      duplicate: "¿Te gustó eh? ¡Ya habías compartido esa publicación!"
     search_for: "Buscar a {{name}}"
     show_more: "mostrar más"
     tags:
-      wasnt_that_interesting: "OK, I suppose #{{tagName}} wasn't all that interesting..."
+      wasnt_that_interesting: "OK, supongamos que #{{tagName}} no era tan interesante..."
     timeago:
       day: "un día"
       days: "%d días"

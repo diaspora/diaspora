@@ -868,8 +868,6 @@ pt-PT:
       wrong_password: "A palavra-passe digitada não corresponde à sua palavra-passe actual."
     edit:
       also_commented: "...alguém também comenta na publicação do seu contacto?"
-      auto_follow_aspect: "Aspect for automatically followed users:"
-      auto_follow_back: "Automatically follow back if a someone follows you"
       change: "Alterar"
       change_email: "Mudar de email"
       change_language: "Mudar de idioma"
@@ -882,7 +880,6 @@ pt-PT:
       edit_account: "Editar conta"
       email_awaiting_confirmation: "Enviámos-lhe uma hiperligação de activação para %{unconfirmed_email}. Até que siga esta hiperligação e active o novo endereço, continuaremos a utilizar o seu endereço original %{email}."
       export_data: "Exportar Dados"
-      following: "Following Settings"
       getting_started: "Novas Preferências de Utilizador"
       liked: "...alguém gosta da sua publicação?"
       mentioned: "...é mencionado numa publicação?"
@@ -923,8 +920,6 @@ pt-PT:
       does_not_exist: "O utilizador %{username} não existe!"
     update:
       email_notifications_changed: "As notificações por email foram alteradas"
-      follow_settings_changed: "Follow settings changed"
-      follow_settings_not_changed: "Follow settings change failed."
       language_changed: "O idioma foi alterado"
       language_not_changed: "Falha ao alterar o idioma"
       password_changed: "A palavra-passe foi alterada. Já pode iniciar sessão com a sua nova palavra-passe."

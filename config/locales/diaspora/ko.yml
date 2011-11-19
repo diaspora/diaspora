@@ -866,8 +866,6 @@ ko:
       wrong_password: "입력하신 암호가 현재 암호와 맞지 않습니다."
     edit:
       also_commented: "댓글 달았던 공유물에 내 컨택도 댓글을 달았을 때"
-      auto_follow_aspect: "자동으로 팔로우된 사용자들을 위한 애스펙:"
-      auto_follow_back: "Automatically follow back if a someone follows you"
       change: "바꾸기"
       change_email: "이메일 바꾸기"
       change_language: "언어 바꾸기"
@@ -880,7 +878,6 @@ ko:
       edit_account: "계정 고치기"
       email_awaiting_confirmation: "%{unconfirmed_email} 로 활성화 링크를 보냈습니다. 이 링크를 따라 새 주소를 활성화하기 전까지는 원래 이메일 주소 %{email} 를 사용합니다."
       export_data: "자료 뽑아내기"
-      following: "팔로잉 설정"
       getting_started: "새 사용자 환경 설정"
       liked: "누군가가 내 공유물을 좋아할 때"
       mentioned: "내가 멘션되었을 때"
@@ -921,8 +918,6 @@ ko:
       does_not_exist: "%{username}님을 찾을 수 없습니다!"
     update:
       email_notifications_changed: "이메일 알림을 바꿨습니다"
-      follow_settings_changed: "팔로잉 설정이 바뀌었습니다"
-      follow_settings_not_changed: "팔로잉 설정 바꾸기를 실패했습니다."
       language_changed: "언어를 바꿨습니다"
       language_not_changed: "언어를 바꿀 수 없습니다"
       password_changed: "암호를 바꿨습니다"

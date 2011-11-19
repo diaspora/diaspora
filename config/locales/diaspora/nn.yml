@@ -866,8 +866,6 @@ nn:
       wrong_password: "The entered password didn't match your current password."
     edit:
       also_commented: "… nokon òg kommenterer kontakten din sitt innlegg?"
-      auto_follow_aspect: "Aspect for automatically followed users:"
-      auto_follow_back: "Automatically follow back if a someone follows you"
       change: "Endra"
       change_email: "Endra e-posten"
       change_language: "Endra språket"
@@ -880,7 +878,6 @@ nn:
       edit_account: "Endra kontoen"
       email_awaiting_confirmation: "Vi har sendt ei aktiveringslenkje til %{unconfirmed_email}. Vi vil halda fram med å senda til originaladressa di, %{email}, fram til du følgjer lenkja og tek i bruk den nye."
       export_data: "Eksporter data"
-      following: "Following Settings"
       getting_started: "New User Prefrences"
       liked: "… nokon liker innlegget ditt?"
       mentioned: "… du er nemnt i eit innlegg?"
@@ -921,8 +918,6 @@ nn:
       does_not_exist: "Brukaren %{username} finst ikkje."
     update:
       email_notifications_changed: "E-postvarsla er endra"
-      follow_settings_changed: "Follow settings changed"
-      follow_settings_not_changed: "Follow settings change failed."
       language_changed: "Språket er endra"
       language_not_changed: "Klarte ikkje å endra språket"
       password_changed: "Passordet er endra. Du kan no logga på med det nye passordet ditt."

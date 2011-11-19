@@ -19,7 +19,7 @@ da:
       unauthenticated: "Du skal logge ind eller oprette en konto for at fortsætte."
       unconfirmed: "Du skal bekræfte din konto for at fortsætte."
     invitations:
-      invitation_token_invalid: "Invitationen er ikke gyldig!"
+      invitation_token_invalid: "Beklager! Invitationen er ikke gyldig."
       send_instructions: "Din invitation er blevet sendt."
       updated: "Din adgangskode blev sat korrekt. Du er nu logget ind."
     mailer:
@@ -34,7 +34,7 @@ da:
         be_yourself: "Vær dig selv"
         be_yourself_paragraph: "Internettet har skabt nye unikke måder vi kan udtrykke os på. %{strong_diaspora} lader dig være dig selv og dele som du ønsker det, med eller uden dit rigtige navn."
         cubbies: Cubbi.es
-        displaying_correctly: "Ser e-mailen forkert ud? %{link} i din browser"
+        displaying_correctly: "Ser e-mailen forkert ud? %{link}"
         email_address: questions@joindiaspora.com
         email_us: "For generelle spørgsmål eller hjælp med din Diaspora-konto, send venligst en email til os på %{email}."
         finally: "Endelig er det her"
@@ -56,7 +56,7 @@ da:
         subject: "Du er blevet inviteret til at bruge Diaspora!"
         team_diaspora: "Team Diaspora"
         unsubscribe: "Hvis du gerne vil holde op med at få e-mails som denne, klik %{link}."
-        view_in: "Se i"
+        view_in: "Se den i din browser."
       inviter:
         accept_at: "på %{url}, du kan acceptere ved at følge linket nedenunder."
         has_invited_you: "%{name}"

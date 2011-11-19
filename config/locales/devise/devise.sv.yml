@@ -19,7 +19,7 @@ sv:
       unauthenticated: "Du måste logga in innan du kan fortsätta."
       unconfirmed: "Du måste verifiera ditt konto innan du kan fortsätta."
     invitations:
-      invitation_token_invalid: "Denna inbjudan är ej giltig!"
+      invitation_token_invalid: "Vi ber om ursäkt! Den här inbjudan är inte giltig!"
       send_instructions: "Din inbjudan är nu skickad."
       updated: "Ditt lösenord är nu inställt och du är inloggad."
     mailer:
@@ -34,7 +34,7 @@ sv:
         be_yourself: "Var Dig själv"
         be_yourself_paragraph: "Internet har skapat helt nya unika sätt att uttrycka sig på. %{strong_diaspora} låter dig vara dig själv och dela vad du vill, med eller utan ditt riktiga namn."
         cubbies: Cubbi.es
-        displaying_correctly: "Visas inte e-mail korrekt? %{link} i din webläsare"
+        displaying_correctly: "Visas inte e-mail korrekt? %{link}"
         email_address: questions@joindiaspora.com
         email_us: "För allmänna frågor eller support med ditt Diaspora konto, vänligen maila oss på %{email}."
         finally: "Slutligen - den är här"
@@ -56,7 +56,7 @@ sv:
         subject: "Du har blivit inbjuden att gå med i Diaspora!"
         team_diaspora: "Team Diaspora"
         unsubscribe: "Klicka för att avregistrera dig %{link}."
-        view_in: "Kolla in"
+        view_in: "Se den i din webbläsare."
       inviter:
         accept_at: "via %{url}. Du accepterar genom att klicka på länken nedan."
         has_invited_you: "%{name}"

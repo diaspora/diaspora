@@ -866,8 +866,6 @@ el:
       wrong_password: "The entered password didn't match your current password."
     edit:
       also_commented: "...κάποιος επίσης σχολίασε σε δημοσίευση επαφής σας;"
-      auto_follow_aspect: "Aspect for automatically followed users:"
-      auto_follow_back: "Automatically follow back if a someone follows you"
       change: "Αλλαγή"
       change_email: "Αλλαγή διεύθυνσης ηλεκτρονικού ταχυδρομείου"
       change_language: "Αλλαγή Γλώσσας"
@@ -880,7 +878,6 @@ el:
       edit_account: "Επεξεργασία λογαριασμού"
       email_awaiting_confirmation: "Σας στείλαμε έναν σύνδεσμο ενεργοποίησης στο %{unconfirmed_email}. Μέχρι να ακολουθήσετε αυτόν τον σύνδεσμο και να ενεργοποιήσετε τη νέα διεύθυνση, θα συνεχίσουμε να χρησιμοποιούμε την αρχική σας %{email}."
       export_data: "Εξαγωγή Δεδομένων"
-      following: "Following Settings"
       getting_started: "New User Prefrences"
       liked: "...σε κάποιον αρέσει η δημοσίευση σας;"
       mentioned: "...επισημανθήκατε σε μία φωτογραφία?"
@@ -921,8 +918,6 @@ el:
       does_not_exist: "Ο χρήστης %{username} δεν υπάρχει!"
     update:
       email_notifications_changed: "Αλλαγή ειδοποιήσεων ηλεκτρονικού ταχυδρομείου,επιτυχής"
-      follow_settings_changed: "Follow settings changed"
-      follow_settings_not_changed: "Follow settings change failed."
       language_changed: "Αλλαγή Γλώσσας επιτυχής"
       language_not_changed: "Η αλλαγή γλώσσας απέτυχε"
       password_changed: "Ο κωδικός σας άλλαξε. Μπορείτε τώρα να συνδεθείτε με τον νέο κωδικό. "

@@ -866,8 +866,6 @@ he:
       wrong_password: "The entered password didn't match your current password."
     edit:
       also_commented: "...מישהו הגיב גם על הרשומה של איש הקשר שלך?"
-      auto_follow_aspect: "Aspect for automatically followed users:"
-      auto_follow_back: "Automatically follow back if a someone follows you"
       change: "שינוי"
       change_email: "החלפת כתובת הדוא״ל"
       change_language: "החלפת השפה"
@@ -880,7 +878,6 @@ he:
       edit_account: "עריכת החשבון"
       email_awaiting_confirmation: "שלחנו אליך קישור הפעלה לכתובת %{unconfirmed_email}.עד שתעקוב אחר קישור זה ותפעיל את הכתובת החדשה, אנו נמשיך להשתמש בכתובת המקורית שלך: %{email}."
       export_data: "יצוא הנתונים"
-      following: "Following Settings"
       getting_started: "New User Prefrences"
       liked: "...מישהו אהב את הרשומה שלך?"
       mentioned: "...מישהו ציין אותך ברשומה?"
@@ -921,8 +918,6 @@ he:
       does_not_exist: "המשתמש %{username} אינו קיים!"
     update:
       email_notifications_changed: "ההתרעות בדוא״ל השתנו"
-      follow_settings_changed: "Follow settings changed"
-      follow_settings_not_changed: "Follow settings change failed."
       language_changed: "השפה הוחלפה"
       language_not_changed: "החלפת השפה נכשלה"
       password_changed: "הססמה הוחלפה. כעת באפשרותך להיכנס עם הססמה החדשה שלך."

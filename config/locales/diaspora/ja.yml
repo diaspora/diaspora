@@ -866,8 +866,6 @@ ja:
       wrong_password: "The entered password didn't match your current password."
     edit:
       also_commented: "他の人も連絡先の投稿にコメントしたとき"
-      auto_follow_aspect: "Aspect for automatically followed users:"
-      auto_follow_back: "Automatically follow back if a someone follows you"
       change: "変更"
       change_email: "Change E-Mail"
       change_language: "言語変更"
@@ -880,7 +878,6 @@ ja:
       edit_account: "アカウント編集"
       email_awaiting_confirmation: "We have sent you an activation link to %{unconfirmed_email}. Till you follow this link and activate the new address, we will continue to use your original address %{email}."
       export_data: "データ出力"
-      following: "Following Settings"
       getting_started: "New User Prefrences"
       liked: "...someone likes your post?"
       mentioned: "投稿に自分がメンションされたとき"
@@ -921,8 +918,6 @@ ja:
       does_not_exist: "ユーザ名「%{username}」は存在しません。"
     update:
       email_notifications_changed: メール通知の設定を変更しました。
-      follow_settings_changed: "Follow settings changed"
-      follow_settings_not_changed: "Follow settings change failed."
       language_changed: "言語の設定を変更しました"
       language_not_changed: "言語の選択に失敗しました"
       password_changed: "パスワードを変更しました"

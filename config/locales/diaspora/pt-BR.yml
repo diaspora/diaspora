@@ -866,8 +866,6 @@ pt-BR:
       wrong_password: "A senha digitada não corresponde com sua senha atual."
     edit:
       also_commented: "...alguém comentar nas postagens dos teus contatos?"
-      auto_follow_aspect: "Aspectos seguidos automaticamente:"
-      auto_follow_back: "Automatically follow back if a someone follows you"
       change: "Alterar"
       change_email: "Alterar Email"
       change_language: "Alterar Idioma"
@@ -880,7 +878,6 @@ pt-BR:
       edit_account: "Editar Conta"
       email_awaiting_confirmation: "Temos que lhe enviar um link para a confirmação do email %{unconfirmed_email}. Enquanto você não confirmar o seu novo endereço de email, nós continuaremos utilizando o endereço antigo: %{email}."
       export_data: "Exportar Dados"
-      following: "Configurações Seguintes"
       getting_started: "Preferência de Novo Usuário"
       liked: "...alguém curtir a sua postagem?"
       mentioned: "...for mencionado(a) em uma postagem?"
@@ -921,8 +918,6 @@ pt-BR:
       does_not_exist: "O usuário %{username} não existe!"
     update:
       email_notifications_changed: "Notificação de email alterado."
-      follow_settings_changed: "Siga as configurações alteradas"
-      follow_settings_not_changed: "Falha em seguir as configurações."
       language_changed: "O idioma foi alterado."
       language_not_changed: "Alteração do idioma falhou!"
       password_changed: "Senha alterada com sucesso! Agora você poderá se conectar com a sua nova senha."
