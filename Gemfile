@@ -1,6 +1,6 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.0.10'
+gem 'rails', '3.0.11'
 
 gem 'bundler', '>= 1.0.0'
 gem 'foreman'
