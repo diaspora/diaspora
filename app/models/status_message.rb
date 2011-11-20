@@ -37,6 +37,10 @@ class StatusMessage < Post
     joins(:mentions).where(:mentions => {:person_id => person.id})
   }
 
+  scope :commented_by, lambda { |person|
+    joins(:comments).where(:comments => {:author_id => person.id}).group("posts.id")
+  }
+
   def self.user_tag_stream(user, tag_ids)
     owned_or_visible_by_user(user).
       tag_stream(tag_ids)

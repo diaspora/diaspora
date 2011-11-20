@@ -43,6 +43,12 @@
         %b
           = link_to t('streams.mentions.title'), mentions_path, :class => 'home_selector'
 
+  .section
+    %ul.left_nav
+      %li
+        %b
+          = link_to t('streams.comment_stream.title'), comment_stream_path, :class => 'home_selector'
+
   .section#followed_tags_listing
     = render 'tags/followed_tags_listings'
 
