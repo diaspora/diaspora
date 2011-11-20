@@ -19,7 +19,7 @@ zh-TW:
       unauthenticated: 繼續之前你必須先登入或登記.
       unconfirmed: 你必須先確認帳號才能繼續.
     invitations:
-      invitation_token_invalid: 提供的邀請信物無效!
+      invitation_token_invalid: "很抱歉! 此邀請信物無效."
       send_instructions: 邀請函已寄出.
       updated: "密碼已設定成功. 你已經登入了."
     mailer:
@@ -34,7 +34,7 @@ zh-TW:
         be_yourself: "做自己"
         be_yourself_paragraph: "網際網路為我們創造了表達我們自己的嶄新方式. %{strong_diaspora} 讓你做你自己, 分享你想分享的, 不管你用真名假名."
         cubbies: Cubbi.es
-        displaying_correctly: "Email無法正確顯示嗎? 用你的瀏覽器%{link}"
+        displaying_correctly: "電子郵件無法正確顯示嗎? %{link}"
         email_address: questions@joindiaspora.com
         email_us: "對 Diaspora 帳號需要諮詢服務或協助, 請寄信到 %{email} 給我們."
         finally: "終於 - 來了"
@@ -56,7 +56,7 @@ zh-TW:
         subject: "有人邀請你加入 Diaspora!"
         team_diaspora: "Diaspora 團隊"
         unsubscribe: "要取消訂閱請按%{link}."
-        view_in: "檢視看看"
+        view_in: 用瀏覽器檢視看看.
       inviter:
         accept_at: "於 %{url}, 你可以透過以下連結來接受."
         has_invited_you: "%{name}"

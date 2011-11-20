@@ -866,8 +866,6 @@ it:
       wrong_password: "Hai inserito una password che non corrisponde a quella attuale."
     edit:
       also_commented: "...qualcuno commenta un post dopo di te?"
-      auto_follow_aspect: "Impostazioni per gli utenti seguiti automaticamente:"
-      auto_follow_back: "Segui automaticamente chi ti segue"
       change: "Cambia"
       change_email: "Cambia email"
       change_language: "Cambia lingua"
@@ -880,7 +878,6 @@ it:
       edit_account: "Modifica account"
       email_awaiting_confirmation: "È stato spedito su %{unconfirmed_email} un link di attivazione. Continueremo ad usare la tua email originale %{email} finché non cliccherai sul link e attiverai il nuovo indirizzo."
       export_data: "Esporta Dati"
-      following: "Impostazioni di iscrizione"
       getting_started: "Preferenze nuovo utente"
       liked: "...a qualcuno piace un tuo post?"
       mentioned: "...sei menzionato in un post?"
@@ -921,8 +918,6 @@ it:
       does_not_exist: "L'utente %{username} non esiste!"
     update:
       email_notifications_changed: "Notifiche email modificate con successo"
-      follow_settings_changed: "Le impostazioni di iscrizione sono state cambiate"
-      follow_settings_not_changed: "Impossibile cambiare le impostazioni di iscrizione."
       language_changed: "Lingua cambiata"
       language_not_changed: "Impossibile cambiare lingua"
       password_changed: "Password cambiata. Ora puoi effettuare l'accesso con la tua nuova password."

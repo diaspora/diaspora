@@ -866,8 +866,6 @@ uk:
       wrong_password: "Введений вами пароль не співпадає з вашим поточним паролем."
     edit:
       also_commented: "... хтось коментував повідомлення ваших контактів?"
-      auto_follow_aspect: "Aspect for automatically followed users:"
-      auto_follow_back: "Automatically follow back if a someone follows you"
       change: "Змінити"
       change_email: "Змінити адресу"
       change_language: "Змінити мову"
@@ -880,7 +878,6 @@ uk:
       edit_account: "Редагувати аккаунт"
       email_awaiting_confirmation: "Ми послали посилання для активації на %{unconfirmed_email}. Поки ви не пройдете по ньому і не активуєте нову адресу, ми використовуватимемо ваш колишній ящик %{email}."
       export_data: "Експорт інформації"
-      following: "Following Settings"
       getting_started: "Нові призначені для користувача налаштування"
       liked: "...кому-небудь подобається ваше повідомлення?"
       mentioned: "... ви згадані в повідомленні?"
@@ -921,8 +918,6 @@ uk:
       does_not_exist: "Користувача %{username} не існує!"
     update:
       email_notifications_changed: "Повідомлення по електронній пошті змінені"
-      follow_settings_changed: "Follow settings changed"
-      follow_settings_not_changed: "Follow settings change failed."
       language_changed: "Мова змінена"
       language_not_changed: "Не вдалося змінити мову"
       password_changed: "Пароль змінений. Тепер ви можете увійти з новим паролем."

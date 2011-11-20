@@ -866,8 +866,6 @@ eu:
       wrong_password: "The entered password didn't match your current password."
     edit:
       also_commented: "...beste norbaitek zure adiskide baten mezua iruzkintzen duenean?"
-      auto_follow_aspect: "Aspect for automatically followed users:"
-      auto_follow_back: "Automatically follow back if a someone follows you"
       change: "Aldatu"
       change_email: "Aldatu e-posta"
       change_language: "Hizkuntza aldatu"
@@ -880,7 +878,6 @@ eu:
       edit_account: "Kontua aldatu"
       email_awaiting_confirmation: "Aktibaketa esteka bat bidali dizugu %{unconfirmed_email}(e)ra. Esteka hau jarraitzen duzun arte, zure jatorrizko e-postak, %{email}, jarraituko du erabilpenean."
       export_data: "Datuak esportatu"
-      following: "Following Settings"
       getting_started: "Erabiltzeile Berriaren Lehentasunak"
       liked: "...norbaitek zure mezu bat gustoko duenean?"
       mentioned: "...mezu batean aipatzen zaituztenean?"
@@ -921,8 +918,6 @@ eu:
       does_not_exist: "%{username} erabiltzailerik ez dago!"
     update:
       email_notifications_changed: "E-posta janirazpenak aldatu dituzu"
-      follow_settings_changed: "Follow settings changed"
-      follow_settings_not_changed: "Follow settings change failed."
       language_changed: "Hizkuntza aldatu da"
       language_not_changed: "Hizkuntza aldaketak huts egin du"
       password_changed: "Pasahitza aldatu duzu. Orain zure pasahitz berria erabiliz sar zaitezke."

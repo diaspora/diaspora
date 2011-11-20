@@ -866,8 +866,6 @@ sk:
       wrong_password: "Zadané heslo sa nezhoduje s&nbsp;vaším súčasným heslom."
     edit:
       also_commented: "...niekto okomentuje aj&nbsp;príspevok človeka vo&nbsp;vašich kontaktoch?"
-      auto_follow_aspect: "Kategória pre používateľov, ktorých automaticky sledujete:"
-      auto_follow_back: "Ak vás niekto sledujte, automaticky ho (ju) sledovať tiež"
       change: "Zmeniť"
       change_email: "Zmeniť e-mail"
       change_language: "Zmeniť jazyk"
@@ -880,7 +878,6 @@ sk:
       edit_account: "Upraviť účet"
       email_awaiting_confirmation: "Poslali sme vám odkaz na aktiváciu %{unconfirmed_email}. Kým nekliknete na tento odkaz a&nbsp;neaktivujete si novú adresu, budeme stále používať vašu pôvodnú adresu %{email}."
       export_data: "Exportovať dáta"
-      following: "Nastavenia sledovania"
       getting_started: "Nové nastavenia používateľa"
       liked: "...sa niekomu páči váš príspevok?"
       mentioned: "...vás spomenuli v&nbsp;príspevku?"
@@ -921,8 +918,6 @@ sk:
       does_not_exist: "Používateľ %{username} neexistuje!"
     update:
       email_notifications_changed: "Nastavenia oznamov e-mailom sa zmenili"
-      follow_settings_changed: "Nastavenia sledovania sa zmenili"
-      follow_settings_not_changed: "Nastavenia sledovania sa nepodarilo zmeniť."
       language_changed: "Jazyk sa zmenil"
       language_not_changed: "Nepodarilo sa zmeniť jazyk"
       password_changed: "Heslo sa zmenilo. Teraz sa môžete prihlásiť so&nbsp;svojím novým heslom."

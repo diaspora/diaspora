@@ -8,7 +8,7 @@ hu:
     aspect_dropdown:
       add_to_aspect: "Hozzáadás a csoporthoz"
       all_aspects: "Összes csoport"
-      error: "Couldn't start sharing with {{name}}.  Are you ignoring them?"
+      error: "Nem indult el a megosztás vele: {{name}}. Visszavonod?"
       select_aspects: "Csoportok kiválasztása"
       started_sharing_with: "Mostantól megosztassz vele: {{name}}!"
       stopped_sharing_with: "Nem osztassz meg többé vele: {{name}}."
@@ -57,7 +57,7 @@ hu:
       minutes: "%d perccel"
       month: "körülbelül egy hónappal"
       months: "%d hónappal"
-      prefixAgo: "javascripts:timeago:prefixAgo"
+      prefixAgo: ""
       prefixFromNow: ""
       seconds: "kevesebb mint egy perccel"
       suffixAgo: "ezelőtt"

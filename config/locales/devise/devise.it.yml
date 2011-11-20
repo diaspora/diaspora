@@ -34,7 +34,7 @@ it:
         be_yourself: "Sii te stesso"
         be_yourself_paragraph: "Internet ha creato nuovi modi per poterci esprimere. %{strong_diaspora} ti permette di essere te stesso e di condividere come vuoi tu, con o senza il tuo vero nome."
         cubbies: Cubbi.es
-        displaying_correctly: "L'email non compare correttamente? %{link} nel browser"
+        displaying_correctly: "L'email non compare correttamente? %{link}"
         email_address: questions@joindiaspora.com
         email_us: "Per domande generali e per avere aiuto riguardo al tuo account Diaspora, scrivi pure a %{email}."
         finally: "Finalmente - è qui"
@@ -56,7 +56,7 @@ it:
         subject: "Hai un invito per iscriverti a Diaspora!"
         team_diaspora: "Il team di Diaspora"
         unsubscribe: "Per rimuoverti clicca %{link}."
-        view_in: "Vedi"
+        view_in: "Visualizza nel tuo browser."
       inviter:
         accept_at: "su %{url}, puoi accettare dal link qua sotto."
         has_invited_you: "%{name} ti ha invitato ad entrare in Diaspora"

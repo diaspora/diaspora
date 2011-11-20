@@ -56,7 +56,7 @@ bg:
         subject: "Поканени сте да се присъедините към Diaspora!"
         team_diaspora: "Екипът на Diaspora"
         unsubscribe: "За да прекратите абонамента кликнете %{link}."
-        view_in: "View in"
+        view_in: "Преглед в браузъра."
       inviter:
         accept_at: "от %{url}, можете да приемете чрез връзката по-долу в писмото."
         has_invited_you: "%{name}"

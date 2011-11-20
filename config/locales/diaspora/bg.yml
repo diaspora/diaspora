@@ -866,8 +866,6 @@ bg:
       wrong_password: "Въведената парола не съвпада с текущата парола на акаунта."
     edit:
       also_commented: "...някой коментира публикация на ваш контакт?"
-      auto_follow_aspect: "Aspect for automatically followed users:"
-      auto_follow_back: "Automatically follow back if a someone follows you"
       change: "Промяна"
       change_email: "Промяна на ел. поща"
       change_language: "Промяна на езика"
@@ -880,7 +878,6 @@ bg:
       edit_account: "Редактиране на акаунта"
       email_awaiting_confirmation: "Изпратена е връзка за активиране до %{unconfirmed_email}. Докато не я активирате ще бъде ползвана старата ел. поща (%{email})."
       export_data: "Сваляне на..."
-      following: "Following Settings"
       getting_started: "New User Prefrences"
       liked: "...някой хареса ваша публикация?"
       mentioned: "...бъдете споменат в публикация?"
@@ -921,8 +918,6 @@ bg:
       does_not_exist: "Потребителят %{username} не съществува!"
     update:
       email_notifications_changed: "Настройките за известяване бяха променени"
-      follow_settings_changed: "Follow settings changed"
-      follow_settings_not_changed: "Follow settings change failed."
       language_changed: "Езикът е сменен"
       language_not_changed: "Езикът не бе сменен"
       password_changed: "Паролата е променена. Можете да се впишете с новата парола."

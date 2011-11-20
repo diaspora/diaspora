@@ -866,8 +866,6 @@ sq:
       wrong_password: "The entered password didn't match your current password."
     edit:
       also_commented: "...someone also comments on your contact's post?"
-      auto_follow_aspect: "Aspect for automatically followed users:"
-      auto_follow_back: "Automatically follow back if a someone follows you"
       change: "Change"
       change_email: "Change E-Mail"
       change_language: "Change Language"
@@ -880,7 +878,6 @@ sq:
       edit_account: "Edit account"
       email_awaiting_confirmation: "We have sent you an activation link to %{unconfirmed_email}. Till you follow this link and activate the new address, we will continue to use your original address %{email}."
       export_data: "Export Data"
-      following: "Following Settings"
       getting_started: "New User Prefrences"
       liked: "...someone likes your post?"
       mentioned: "...you are mentioned in a post?"
@@ -921,8 +918,6 @@ sq:
       does_not_exist: "User %{username} does not exist!"
     update:
       email_notifications_changed: "Email notifications changed"
-      follow_settings_changed: "Follow settings changed"
-      follow_settings_not_changed: "Follow settings change failed."
       language_changed: "Language Changed"
       language_not_changed: "Language Change Failed"
       password_changed: "Password Changed"

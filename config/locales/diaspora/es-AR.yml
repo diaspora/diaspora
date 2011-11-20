@@ -65,7 +65,7 @@ es-AR:
       edit_aspect: "Editar %{name}"
       select_all: "Seleccionar todo"
     aspect_stream:
-      stay_updated: "Stay Updated"
+      stay_updated: "Mantenete actualizado"
       stay_updated_explanation: "En tu stream principal aparecen las publicaciones de tus contactos, más las de tus tags seguidos, y si lo deseas, las de algunos miembros creativos de la comunidad."
     contacts_not_visible: "Los contactos en este aspecto no van a poder verse entre ellos."
     contacts_visible: "Los contactos en este aspecto van a poder verse entre ellos."
@@ -115,7 +115,7 @@ es-AR:
         tag_feature: "idea"
         tag_question: "pregunta"
         tutorials_wiki_and_forum: "%{tutorial} & %{wiki} & %{forum}: Tutoriales, wiki, noticias."
-      introduce_yourself: "This is your stream.  Jump in and introduce yourself."
+      introduce_yourself: "Este es tu stream.  Zambullite en el y presentate."
       keep_us_running: "¡Haz que %{pod} vaya más rapido comprando a nuestros servidores su dosis de café mensual!"
       new_here:
         follow: "Sigue %{link} y da la bienvenida a los nuevos miembros de Diaspora*!"
@@ -141,7 +141,7 @@ es-AR:
       name: "Nombre (solo visible para ti)"
     no_contacts_message:
       community_spotlight: "comunidad creativa"
-      or_spotlight: "Or you can share with %{link}"
+      or_spotlight: "O lo podés compartir con %{link}"
       try_adding_some_more_contacts: "Podés buscar o invitar más contactos."
       you_should_add_some_more_contacts: "Deberías agregar más contactos!"
     no_posts_message:
@@ -172,13 +172,13 @@ es-AR:
   back: "Atrás"
   blocks:
     create:
-      failure: "I couldn't ignore that user.  #evasion"
-      success: "Alright, you won't see that user in your stream again. #silencio!"
+      failure: "No se puede ignorar ese usuario.  #evasion"
+      success: "Muy bien, no vas a volver a ver a ese usuario en tu stream de nuevo. #silencio!"
     destroy:
-      failure: "I couldn't stop ignoring that user.  #evasion"
-      success: "Let's see what they have to say! #sayhello"
+      failure: "No se pudo parar de ignorar a ese usuario.  #evasion"
+      success: "¡Veamos que tienen para decir! #dihola"
   bookmarklet:
-    explanation: "Publicá algo en Diáspora* desde donde quieras agregando %{link} al marcador."
+    explanation: "Publicá algo en Diáspora* desde donde quieras agregando %{link} a tus marcadores."
     explanation_link_text: "este enlace"
     heading: "Marcador"
     post_something: "Publicá algo en Diáspora*"
@@ -530,7 +530,7 @@ es-AR:
       start_sharing: "comenzar a compartir"
       to_accept_or_ignore: "aceptar o ignorar."
     sub_header:
-      add_some: "add some"
+      add_some: "Agregar algo"
       edit: "editar"
       you_have_no_tags: "no tenes tags!"
     two: "%{count} gente"
@@ -667,15 +667,15 @@ es-AR:
   search: "Buscar"
   services:
     create:
-      already_authorized: "A user with diaspora id %{diaspora_id} already authorized that %{service_name} account."
-      failure: "Authentication failed."
+      already_authorized: "Un usuario de Diaspora con id %{diaspora_id} ya autorizó la cuenta de servicio %{service_name}."
+      failure: "Falló la autenticación."
       success: "Autenticacíon correcta."
     destroy:
       success: "Autenticación eliminada."
     failure:
       error: "hubo un error al conectar al servicio"
     finder:
-      fetching_contacts: "Diaspora is populating your %{service} friends please check back in a few minutes."
+      fetching_contacts: "Diaspora está tomando sus amigos de %{service} por favor volvé en unos minutos."
       no_friends: "No se han encontrado amigos de Facebook."
       service_friends: "%{service} Amigos"
     index:
@@ -698,7 +698,7 @@ es-AR:
   share_visibilites:
     update:
       post_hidden_and_muted: "La publicación de %{name} ha sido ocultada y sus notificaciones desactivadas."
-      see_it_on_their_profile: "If you want to see updates on this post, visit %{name}'s profile page."
+      see_it_on_their_profile: "Si querés ver actualizaciones sobre este post, visitá la página del perfil de %{name}."
   shared:
     add_contact:
       add_new_contact: "Añadir contacto"
@@ -805,7 +805,7 @@ es-AR:
     community_spotlight_stream: "Comunidad Creativa"
     followed_tag:
       add_a_tag: "Añade un tag"
-      contacts_title: "People who dig these tags"
+      contacts_title: "Personas que usaron estos tags"
       follow: "Seguir"
       title: "#Tags"
     followed_tags_stream: "#Tags"
@@ -814,7 +814,7 @@ es-AR:
       contacts_title: "Gente que te mencionó"
       title: "@Menciones"
     multi:
-      contacts_title: "People in your Stream"
+      contacts_title: "Personas en tu Stream"
       title: "Stream"
     posted: "publicado"
     public:
@@ -862,12 +862,10 @@ es-AR:
       email_not_confirmed: "El E-Mail no pudo ser activado. Link equivocado?"
     destroy:
       no_password: "Por favor, introduce tu contraseña actual para cerrar y destruir tu cuenta."
-      success: "Your account has been locked.  It may take 20 minutes for us to finish closing your account.  Thank you for trying Diaspora."
-      wrong_password: "The entered password didn't match your current password."
+      success: "Tu cuenta ha sido bloqueada.  Nos puede tomar unos 20 minutos cerrar tu cuenta definitivamente.  Te agradecemos por probar Diaspora."
+      wrong_password: "La contraseña ingresada no coincide con tu contraseña actual."
     edit:
       also_commented: "...alguien también comenta en una publicación en la que comentaste?"
-      auto_follow_aspect: "Aspecto para los usuarios seguidos automáticamente:"
-      auto_follow_back: "Seguir automáticamente a quien te siga"
       change: "Cambiar"
       change_email: "Cambiar E-Mail"
       change_language: "Cambiar idioma"
@@ -880,7 +878,6 @@ es-AR:
       edit_account: "Editar cuenta"
       email_awaiting_confirmation: "Te hemos enviado un link de activación a %{unconfirmed_email}. Hasta que sigas este link y actives la nueva dirección, continuaremos utilizando tu dirección original %{email}."
       export_data: "Exportar datos"
-      following: "Configuración de Seguimiento"
       getting_started: "Preferencias de Nuevos Usuarios"
       liked: "...a alguien le gusta una publicación tuya?"
       mentioned: "...te mencionan en una publicación?"
@@ -896,17 +893,17 @@ es-AR:
       your_email: "Tu correo electrónico"
       your_handle: "Tu identificación de  Diáspora*"
     getting_started:
-      awesome_take_me_to_diaspora: "Awesome! Take me to Diaspora*"
-      community_welcome: "La comunidad de Diáspora está feliz de tenerte a bordo!"
+      awesome_take_me_to_diaspora: "¡Asombroso! Llevame a Diaspora*"
+      community_welcome: "¡La comunidad de Diáspora está feliz de tenerte a bordo!"
       hashtag_explanation: "Los hashtags te permiten seguir y hablar sobre tus intereses. También son una gran manera de encontrar gente nueva en Diáspora."
-      hashtag_suggestions: "Try following tags like #art, #movies, #gif, etc."
-      hooking_up_fb: "hooking up your Facebook account"
+      hashtag_suggestions: "Probá siguiendo tags como #arte, #películas, #gif, etc."
+      hooking_up_fb: "conectando con tu cuenta de Facebook"
       saved: ¡Guardado!
       we_can_speed_things_up: "Podemos acelerar las cosas un poquito vía"
-      well_hello_there: "Well, hello there!"
-      what_are_you_in_to: "What are you into?"
+      well_hello_there: "Bueno, ¡Hola!"
+      what_are_you_in_to: "¿Qué sos por dentro?"
       what_facebook_does: "con Diaspora. Esto mostraŕa tu nombre y foto, y activará la publicación cruzada."
-      who_are_you: "Who are you?"
+      who_are_you: "¿Quién sos?"
     logged_out:
       go_mobile: "Ahora en tu celular."
       on_your_mobile_device: "en tu dispositivo móvil para acceder a Diáspora* móvil."
@@ -921,8 +918,6 @@ es-AR:
       does_not_exist: "¡El usuariuo %{username} no existe!"
     update:
       email_notifications_changed: "Tus notificaciones por correo fueron cambiadas"
-      follow_settings_changed: "Configuración de seguimiento modificada"
-      follow_settings_not_changed: "Error actualizando la configuracion de seguimiento."
       language_changed: "Tu idioma se cambió"
       language_not_changed: "No pudo cambiarse el idioma"
       password_changed: "Tu contraseña se cambió.  Ya podés conectarte con tu nueva contraseña."
@@ -937,4 +932,4 @@ es-AR:
     no_person_constructed: "No pudo crearse ninguna persona a partir de esta 'hcard'."
     not_enabled: "Parece que webfinger no está habilitado para el servidor de %{account}"
     xrd_fetch_failed: "Hubo un error al buscar el 'xrd' de %{account}"
-  welcome: Bienvenido!
+  welcome: ¡Bienvenido!

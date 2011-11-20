@@ -111,9 +111,9 @@ hu:
         here_to_help: "A Diaspora közösség megérkezett!"
         need_help: "Segítségre van szüksége?"
         satisfaction: "%{link}: Közösségi támogatás"
-        tag_bug: "#bug"
-        tag_feature: "#feature"
-        tag_question: "#question"
+        tag_bug: "bug"
+        tag_feature: "funkció"
+        tag_question: "kérdés"
         tutorials_wiki_and_forum: "%{tutorial} & %{wiki} & %{forum}: Közösségi leckék, módszerek, hírek"
       introduce_yourself: "Ez a te Hírfolyamod. Kezdd is el gyorsan egy bemutatkozással."
       keep_us_running: "Hogy gyors maradjon ez a pod (%{pod}), kérlek adományozz pénzt."
@@ -172,11 +172,11 @@ hu:
   back: "Vissza"
   blocks:
     create:
-      failure: "I couldn't ignore that user.  #evasion"
-      success: "Alright, you won't see that user in your stream again. #silencio!"
+      failure: "Nem tudtam figyelmen kívül hagyni azt a felhasználót. #elkerülés"
+      success: "Többet nem látod azt a felhasználót a hírfolyamban. #némítás!"
     destroy:
-      failure: "I couldn't stop ignoring that user.  #evasion"
-      success: "Let's see what they have to say! #sayhello"
+      failure: "Nem tudtam kikapcsolni annak a felhasználónak a figyelmen kívül hagyását. #elkerülés"
+      success: "Lássuk mit akarnak mondani! #sayhello"
   bookmarklet:
     explanation: "Küldj bejegyzést a Diaspora-ra bárhonnan, csak mentsd el ezt könyvjelzőként:"
     explanation_link_text: "ez a link"
@@ -494,7 +494,7 @@ hu:
       results_for: "eredmények %{params}"
     index:
       couldnt_find_them_send_invite: "Nem találod őket? Küldj meghívót nekik!"
-      looking_for: "Looking for posts tagged %{tag_link}?"
+      looking_for: "%{tag_link} címkéjű bejegyzéseket keresel?"
       no_one_found: "...és nem találni senkit."
       no_results: "Hé! Valamit keresned kell."
       results_for: "találatok keresése"
@@ -518,7 +518,7 @@ hu:
     show:
       does_not_exist: "Személy nem létezik!"
       has_not_shared_with_you_yet: "%{name} még nem oszt meg veled semmit."
-      ignoring: "You are ignoring all posts from %{name}."
+      ignoring: "Figyelmen kívül hagyod az összes bejegyzést tőle: %{name}."
       incoming_request: "%{name} megosztást kezdeményezett veled."
       mention: "Megemlít"
       message: "Üzenet"
@@ -556,7 +556,7 @@ hu:
       invalid_ext: "{file} érvénytelen kiterjesztés. Csak {extensions} kiterjesztések megengedettek."
       size_error: "{file} túl nagy, maximum fájlméret {sizeLimit}."
     new_profile_photo:
-      or_select_one_existing: "or select one from your already existing %{photos}"
+      or_select_one_existing: "vagy válassz egyet a már meglévők közül %{photos}"
       upload: "Új profilkép feltöltése!"
     photo:
       view_all: "%{name} összes képének megtekintése"
@@ -577,7 +577,7 @@ hu:
       not_found: "Bocsi, de nem találjuk a bejegyzést."
       permalink: "permalink"
   previous: "előző"
-  privacy: "Privacy"
+  privacy: "Adatvédelem"
   profile: "Profil"
   profiles:
     edit:
@@ -675,7 +675,7 @@ hu:
     failure:
       error: "Hiba történt a szolgáltatáshoz kapcsolódás közben"
     finder:
-      fetching_contacts: "Diaspora is populating your %{service} friends please check back in a few minutes."
+      fetching_contacts: "A Diaspora keresi a %{service} ismerőseidet, nézz vissza néhány perc múlva."
       no_friends: "Nincs Facebook ismerősöd"
       service_friends: "%{service} ismerős"
     index:
@@ -697,8 +697,8 @@ hu:
   settings: "Beállítások"
   share_visibilites:
     update:
-      post_hidden_and_muted: "%{name}'s post has been hidden, and notifications have been muted."
-      see_it_on_their_profile: "If you want to see updates on this post, visit %{name}'s profile page."
+      post_hidden_and_muted: "%{name} bejegyzései és értesítései el lettek rejtve."
+      see_it_on_their_profile: "Ha szeretnéd látni a frissítéseket ezen a bejegyzésen, látogasd meg %{name} profil oldalát."
   shared:
     add_contact:
       add_new_contact: "Új ismerős"
@@ -752,7 +752,7 @@ hu:
         hello: "Sziasztok, én #%{new_user_tag} vagyok. "
         i_like: "Engem ezek érdekelnek: %{tags}."
         invited_by: "Köszi a meghívásért,"
-        newhere: "NewHere"
+        newhere: "Újonc"
       post_a_message_to: "Bejegyzés küldése ennek a csoportnak: %{aspect}"
       posting: Küldés...
       publishing_to: "Publikálás:"
@@ -766,9 +766,9 @@ hu:
       connect_to_comment: "Csatlakozz ehhez a személyhez, hogy hozzászólhass a bejegyzéseihez"
       currently_unavailable: "a hozzászólás jelenleg felfüggesztve"
       dislike: "Nem tetszik"
-      hide_and_mute: "Elrejt és elnémít"
-      ignore_user: "Ignore %{name}"
-      ignore_user_description: "Ignore and remove user from all aspects?"
+      hide_and_mute: "Bejegyzés elrejtése és némítása"
+      ignore_user: "Mellőz: %{name}"
+      ignore_user_description: "A felhasználó eltávolítása és mellőzése az összes körből?"
       like: "Tetszik"
       shared_with: "Megosztva vele: %{aspect_names}"
       unlike: "Nem tetszik"
@@ -793,12 +793,12 @@ hu:
   stream_helper:
     hide_comments: "hozzászólások elrejtése"
     show_comments:
-      few: "Show %{count} more comments"
-      many: "Show %{count} more comments"
-      one: "Show one more comment"
-      other: "Show %{count} more comments"
-      two: "Show two more comments"
-      zero: "No more comments"
+      few: "Még %{count} hozzászólás megtekintése"
+      many: "Még %{count} hozzászólás megtekintése"
+      one: "Még egy hozzászólás megtekintése"
+      other: "Még %{count} hozzászólás megtekintése"
+      two: "Még két hozzászólás megtekintése"
+      zero: "Nincs több hozzászólás"
   streams:
     aspects:
       title: "Csoportjaid"
@@ -825,7 +825,7 @@ hu:
     recently: "Utoljára:"
     tags:
       contacts_title: "Emberek, akik ezeket a címkéket követik"
-      tag_prefill_text: "The thing about %{tag_name} is... "
+      tag_prefill_text: "Mi újság erről: %{tag_name} ?"
       title: "Bejegyzés megjelölve: %{tags}"
   tag_followings:
     create:
@@ -863,13 +863,11 @@ hu:
       email_confirmed: "E-Mail (%{email}) aktiválva"
       email_not_confirmed: "Email cím aktiválása sikertelen. Rossz a link?"
     destroy:
-      no_password: "Please enter your current password to close your account."
-      success: "Your account has been locked.  It may take 20 minutes for us to finish closing your account.  Thank you for trying Diaspora."
-      wrong_password: "The entered password didn't match your current password."
+      no_password: "Add meg a jelszavad, hogy megszüntesd a fiókod."
+      success: "A fiókod le van zárva. Húsz percbe is beletelhet, mire befejezzük a fiókod törlését. Köszönjük, hogy kipróbáltad a Diaspora közösségi oldalt."
+      wrong_password: "A megadott jelszó nem felel meg."
     edit:
       also_commented: "...más is hozzászólt az ismerősöd bejegyzéséhez?"
-      auto_follow_aspect: "Aspect for automatically followed users:"
-      auto_follow_back: "Automatically follow back if a someone follows you"
       change: "Módosítás"
       change_email: "Email megváltoztatása"
       change_language: "Nyelv megváltoztatása"
@@ -882,7 +880,6 @@ hu:
       edit_account: "Fiók szerkesztése"
       email_awaiting_confirmation: "Aktivációs link elküldve ide: %{unconfirmed_email}. Amíg nem erősíted meg az új címed, addig a régit használjuk: %{email}."
       export_data: "Adatok exportálása"
-      following: "Following Settings"
       getting_started: "Új felhasználó beállítások"
       liked: "... valakinek tetszik a bejegyzésed?"
       mentioned: "...meg vagy említve egy bejegyzésben?"
@@ -916,15 +913,13 @@ hu:
       simply_visit: "Tekintsd meg"
       works_on_modern: "Az összes modern okostelefonon működik"
     privacy_settings:
-      ignored_users: "Ignored Users"
-      stop_ignoring: "Stop ignoring"
-      title: "Privacy Settings"
+      ignored_users: "Mellőzött felhasználók"
+      stop_ignoring: "Mellőzés feloldása"
+      title: "Adatvédelmi beállítások"
     public:
       does_not_exist: "%{username} nem létezik!"
     update:
       email_notifications_changed: "E-mail értesítések módosítva"
-      follow_settings_changed: "Follow settings changed"
-      follow_settings_not_changed: "Follow settings change failed."
       language_changed: "Nyelv megváltozott"
       language_not_changed: "Nyelv megváltoztatása nem sikerült"
       password_changed: "A jelszó megváltozott, már bejelentkezhetsz az új jelszóval."

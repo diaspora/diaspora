@@ -866,8 +866,6 @@ ar:
       wrong_password: "The entered password didn't match your current password."
     edit:
       also_commented: "...علق أحدهم على منشور مراسلك"
-      auto_follow_aspect: "Aspect for automatically followed users:"
-      auto_follow_back: "Automatically follow back if a someone follows you"
       change: "تغيير"
       change_email: "عدِّل البريد الإلكتروني"
       change_language: "تغيير اللغة"
@@ -880,7 +878,6 @@ ar:
       edit_account: "تعديل الحساب"
       email_awaiting_confirmation: "لقد أرسلنا إليك رابط تفعيل إلى %{unconfirmed_email}. وحتى تتبع هذا الرابط وتفعل العنوان الجديد، سنستمر في استخدام بريدك الأساسي %{email}."
       export_data: "تصدير البيانات"
-      following: "Following Settings"
       getting_started: "New User Prefrences"
       liked: "...أعجب أحدهم بمنشورك"
       mentioned: "...تم ذكرك في رسالة"
@@ -921,8 +918,6 @@ ar:
       does_not_exist: "هذا المستخدم %{username} غير موجود"
     update:
       email_notifications_changed: "فشل تغيير اللغة"
-      follow_settings_changed: "Follow settings changed"
-      follow_settings_not_changed: "Follow settings change failed."
       language_changed: "غُيِّرت اللغة بنجاح"
       language_not_changed: "فشل تغيير اللغة"
       password_changed: "غُيِّرت كلمة المرور بنجاح. يمكنك الولوج بكلمة سرك الجديدة."
