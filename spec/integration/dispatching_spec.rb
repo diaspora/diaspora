@@ -3,7 +3,6 @@ require 'spec_helper'
 describe "Dispatching" do
   context "a comment retraction on a public post" do
     it "should trigger a private dispatch" do
-      pending "Running this causes test failures in the relayable specs. If you can figure out why, you'll be OUR HERO. <3 <3"
       luke, leia, raph = set_up_friends
 
       # Luke has a public post and comments on it
