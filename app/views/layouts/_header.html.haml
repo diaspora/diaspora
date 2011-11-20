@@ -67,15 +67,6 @@
           .footer_container
             .hashtags
 
-    #lightbox
-      #lightbox-content
-        = link_to "[x] close", '#', :id => 'lightbox-close-link'
-        %img#lightbox-image
-        #lightbox-imageset
-
-
-    #lightbox-backdrop
-
     %ul#user_menu.dropdown
       %li
         .right
@@ -89,3 +80,12 @@
       -if current_user.admin?
         %li= link_to t('.admin'), user_search_path
       %li= link_to t('.logout'), destroy_user_session_path
+
+  #lightbox
+    #lightbox-content
+      = link_to "[x] close", '#', :id => 'lightbox-close-link'
+      %img#lightbox-image
+      #lightbox-imageset
+
+  #lightbox-backdrop
+
