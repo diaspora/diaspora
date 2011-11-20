@@ -187,7 +187,7 @@ class PhotosController < ApplicationController
   # helpers
 
   def ownership
-    @ownership ||= current_user.owns? photo
+    @ownership ||= (current_user.present? && current_user.owns?(photo))
   end
 
   def parent
