@@ -45,7 +45,7 @@ class Contact < ActiveRecord::Base
   end
 
   def repopulate_cache!
-    if RedisCache.configured?
+    if RedisCache.configured? && self.user.present?
       cache = RedisCache.new(self.user)
       cache.repopulate!
     end
