@@ -71,7 +71,7 @@ it:
     contacts_visible: "I contatti in questo aspetto potranno vedersi tra loro."
     create:
       failure: "Creazione dell'aspetto fallita."
-      success: "Il tuo nuovo aspetto %name è stato creato"
+      success: "Il tuo nuovo aspetto %{name} è stato creato"
     destroy:
       failure: "%{name} non è stato rimosso perché non è vuoto."
       success: "%{name} è stato rimosso con successo."
@@ -823,7 +823,7 @@ it:
     recently: "ordina per:"
     tags:
       contacts_title: "Persone con questo tag"
-      tag_prefill_text: "%{tag_name}"
+      tag_prefill_text: "A proposito di %{tag_name} ..."
       title: "Post con tag: %{tags}"
   tag_followings:
     create:

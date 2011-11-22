@@ -47,7 +47,7 @@ fi:
     search_for: "Etsi nimellä {{name}}"
     show_more: "näytä lisää"
     tags:
-      wasnt_that_interesting: "OK, #{{tagName}} ei tainnut ollakaan kovin kiinnostava..."
+      wasnt_that_interesting: "OK, #{{tagName}} ei tainnut ollakaan kovin kiinnostava aihe..."
     timeago:
       day: "päivä"
       days: "%d päivää"

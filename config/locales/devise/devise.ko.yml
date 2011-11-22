@@ -34,7 +34,7 @@ ko:
         be_yourself: "나를 나답게"
         be_yourself_paragraph: "인터넷이 우리 스스로를 표현하기 위한 독특하고 새로운 여러 방법을 만들었습니다. %{strong_diaspora}는 내가 나일 수 있게 하고, 원하는 사람들과만 공유할 수 있게 하며, 실명과 익명을 가리지 않습니다."
         cubbies: Cubbi.es
-        displaying_correctly: "이메일이 틀리게 표시되면 브라우저에서 %{link}를 클릭하십시오."
+        displaying_correctly: "이메일이 올바르게 표시되지 않습니까? %{link}"
         email_address: questions@joindiaspora.com
         email_us: "내 디아스포라 계정에 대한 문의는 %{email} 에 이메일로 보내주십시오."
         finally: 마침내!
@@ -56,7 +56,7 @@ ko:
         subject: "디아스포라로 초대합니다!"
         team_diaspora: "디아스포라 팀"
         unsubscribe: "앞으로 받고싶지 않다면 %{link}를 클릭하십시오."
-        view_in: "View in"
+        view_in: "브라우저에서 보십시오."
       inviter:
         accept_at: "%{URL}에서, 아래의 링크를 통해 확인할 수 있습니다."
         has_invited_you: "%{name}"

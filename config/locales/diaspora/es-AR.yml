@@ -173,10 +173,10 @@ es-AR:
   blocks:
     create:
       failure: "No se puede ignorar ese usuario.  #evasion"
-      success: "Muy bien, no vas a volver a ver a ese usuario en tu stream de nuevo. #silencio!"
+      success: "Bien, ya no verás más a ese usuario en tu stream. #silencio!"
     destroy:
-      failure: "No se pudo parar de ignorar a ese usuario.  #evasion"
-      success: "¡Veamos que tienen para decir! #dihola"
+      failure: "No se pudo dejar de ignorar a ese usuario.  #evasion"
+      success: "¡Veamos que tiene que decir! #dihola"
   bookmarklet:
     explanation: "Publicá algo en Diáspora* desde donde quieras agregando %{link} a tus marcadores."
     explanation_link_text: "este enlace"
@@ -747,10 +747,10 @@ es-AR:
       discard_post: "Descartar publicación"
       make_public: "hacer público"
       new_user_prefill:
-        hello: "Hola a todo el mundo, soy #%{new_user_tag}."
+        hello: "Hola a todo el mundo, esta es mi #%{new_user_tag}."
         i_like: "Tengo interés en %{tags}."
         invited_by: "Gracias por la invitación, "
-        newhere: Nuev@Aquí
+        newhere: "PrimeraPublicación"
       post_a_message_to: "Publicar un mensaje en %{aspect}"
       posting: Publicando...
       publishing_to: "publicar en: "

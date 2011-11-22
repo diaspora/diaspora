@@ -750,7 +750,7 @@ ru:
         hello: "Всем привет, я #%{new_user_tag}."
         i_like: " Мне интересны метки %{tags}."
         invited_by: "Спасибо за приглашение, "
-        newhere: "Новичок"
+        newhere: "новичок"
       post_a_message_to: "Опубликовать сообщение для %{aspect}"
       posting: Отправка...
       publishing_to: "публикация в:"
@@ -823,7 +823,7 @@ ru:
     recently: "последние:"
     tags:
       contacts_title: "Люди, которым нравятся эта метка"
-      tag_prefill_text: "Насчет %{tag_name} я думаю, что..."
+      tag_prefill_text: "По поводу метки %{tag_name}..."
       title: "Записи, отмеченные: %{tags}"
   tag_followings:
     create:

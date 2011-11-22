@@ -747,10 +747,10 @@ es-CL:
       discard_post: "Descartar post"
       make_public: "hacer público"
       new_user_prefill:
-        hello: "Hola a todo el mundo, soy #%{new_user_tag}. "
+        hello: "Hola a todo el mundo, esta es mi #%{new_user_tag}. "
         i_like: "Tengo interés en %{tags}."
         invited_by: "Thanks for the invite, "
-        newhere: Nuev@Aquí
+        newhere: "PrimeraPublicación"
       post_a_message_to: "Postear un mensaje a %{aspect}"
       posting: Posteando...
       publishing_to: "publicar en: "

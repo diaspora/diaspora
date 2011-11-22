@@ -47,7 +47,7 @@ ru:
     search_for: "Искать {{name}}"
     show_more: "показать больше"
     tags:
-      wasnt_that_interesting: "OK, видимо, следить за меткой #{{tagName}} было не так уж интересно..."
+      wasnt_that_interesting: "Что ж, видимо, метка #{{tagName}} была не такой уж интересной..."
     timeago:
       day: "день"
       days: "%d дней[-я]"
