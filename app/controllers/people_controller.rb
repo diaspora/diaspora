@@ -24,7 +24,7 @@ class PeopleController < ApplicationController
       return
     elsif (params[:q][0] == 35 || params[:q][0] == '#') && params[:q].length == 1
       flash[:error] = I18n.t('tags.show.none', :name => params[:q])
-      redirect_to multi_path()
+      redirect_to :back
     end
 
     limit = params[:limit] ? params[:limit].to_i : 15
