@@ -299,11 +299,11 @@ es:
       already_invited: "La siguiente persona no ha aceptado tu invitación:"
       aspect: "Aspecto"
       comma_seperated_plz: "Puedes escribir múltiples direcciones de email separadas por comas."
-      if_they_accept_info: "Si aceptan, serán añadidos al aspecto que selecciones."
+      if_they_accept_info: "Si acepta, se añadirá al aspecto seleccionado."
       invite_someone_to_join: "¡Invita a alguien a unirse a Diaspora*!"
       language: "Idioma"
       personal_message: "Mensaje personal"
-      resend: "Reenviado"
+      resend: "Reenviar"
       send_an_invitation: "Enviar una invitación"
       send_invitation: "Enviar invitación"
       to: "Para"
@@ -747,10 +747,10 @@ es:
       discard_post: "Descartar publicación"
       make_public: "hacer público"
       new_user_prefill:
-        hello: "Hola a todo el mundo, soy #%{new_user_tag}."
+        hello: "Hola a tod@s, esta es mi #%{new_user_tag}."
         i_like: "Tengo interés en %{tags}."
         invited_by: "Gracias por la invitación, "
-        newhere: Nuev@Aquí
+        newhere: "PrimeraPublicación"
       post_a_message_to: "Publicar un mensaje en %{aspect}"
       posting: Publicando...
       publishing_to: "publicar en:"

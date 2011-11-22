@@ -619,7 +619,7 @@ cs:
       unhappy: Nešťastný?
       update: "Aktualizovat"
     new:
-      create_my_account: "Vytvořit účet"
+      create_my_account: "Vytvořit účet!"
       enter_email: "Zadejte e-mail"
       enter_password: "Zadejte heslo"
       enter_password_again: "Zadejte stejné heslo jako předtím"
