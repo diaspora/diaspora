@@ -44,7 +44,7 @@ module Diaspora
 
             resolution
           end
-        rescue Timeout::Error, URI::InvalidURIError, IOError, Errno::ECONNREFUSED
+        rescue Timeout::Error, URI::InvalidURIError, IOError, Errno::ECONNREFUSED, Net::HTTPBadResponse
           url_s
         end
       end
