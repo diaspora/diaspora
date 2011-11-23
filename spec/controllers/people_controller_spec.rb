@@ -95,6 +95,7 @@ describe PeopleController do
     it 'stay on the page if you search for the empty hash' do
       get :index, :q => '#'
       response.should redirect_to(:back)
+    end
   end
 
   describe '#tag_index' do
