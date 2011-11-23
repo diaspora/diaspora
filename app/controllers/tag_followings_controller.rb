@@ -17,7 +17,7 @@ class TagFollowingsController < ApplicationController
     name_normalized = ActsAsTaggableOn::Tag.normalize(params['name'])
     
     if name_normalized.nil? || name_normalized.empty?
-      flash[:error] = I18n.t('tag_followings.create.none', :name => name_normalized)
+      flash[:error] = I18n.t('tag_followings.create.none')
     else
       @tag = ActsAsTaggableOn::Tag.find_or_create_by_name(name_normalized)
       @tag_following = current_user.tag_followings.new(:tag_id => @tag.id)

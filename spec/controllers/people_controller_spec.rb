@@ -94,7 +94,7 @@ describe PeopleController do
     
     it 'stay on the page if you search for the empty hash' do
       get :index, :q => '#'
-      response.should redirect_to(:back)
+      flash[:error].should be_present
     end
   end
 
