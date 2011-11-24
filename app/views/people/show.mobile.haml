@@ -10,6 +10,8 @@
   = person_image_tag @person, :thumb_medium
   %h2
     = @person.name
+  %span.description
+    = @person.diaspora_handle
 
 - if user_signed_in? && !(@contact.persisted? || current_user.person == @person)
   - if @incoming_request
