@@ -865,7 +865,6 @@ en:
       daniels_account: "Daniel's Diaspora account"
       making_the_connection: "Making the Connection"
       connecting_is_simple: "Connecting your Diaspora account is simple!  Just enter your Diaspora ID (<b>%{diaspora_id}</b>) from your cubbies <a href='%{href_link}'>settings page</a> and hit connect."
-      log_in_with_diaspora_is_comming: "Pretty soon, you'll be able to connect to a new application without creating an account separate from your one on Diaspora."
       via: "(via %{link})"
 
   authorizations:
