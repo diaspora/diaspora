@@ -2,12 +2,12 @@ Diaspora.Alert = {
   faceboxTemplate:
     '<div id="diaspora_alert">' +
       '<div class="span-12 last">' +
-				'<div id="facebox_header">' +
-	  			'<h4>' +
-	    			'{{title}}' +
-	  			'</h4>' +
-				'</div>' +
-				'{{content}}' +
+        '<div id="facebox_header">' +
+           '<h4>' +
+             '{{title}}' +
+           '</h4>' +
+        '</div>' +
+        '{{content}}' +
       '</div>' +
     '</div>',
 
