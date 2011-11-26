@@ -750,7 +750,7 @@ es:
         hello: "Hola a tod@s, esta es mi #%{new_user_tag}."
         i_like: "Tengo interés en %{tags}."
         invited_by: "Gracias por la invitación, "
-        newhere: "PrimeraPublicación"
+        newhere: "NuevoAquí"
       post_a_message_to: "Publicar un mensaje en %{aspect}"
       posting: Publicando...
       publishing_to: "publicar en:"

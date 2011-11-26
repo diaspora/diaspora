@@ -19,7 +19,7 @@ es:
       unauthenticated: "Necesitas acceder a tu cuenta o registrarte antes de continuar."
       unconfirmed: "Necesitas confirmar tu cuenta antes de continuar."
     invitations:
-      invitation_token_invalid: "¡El identificador de la invitación no es valido!"
+      invitation_token_invalid: "¡Discúlpanos, ese identificador de invitación no es valido."
       send_instructions: "Tu invitación se ha enviado."
       updated: "Tu contraseña ha sido establecida con éxito. Ahora has accedido."
     mailer:
@@ -34,7 +34,7 @@ es:
         be_yourself: "Se tú mismo"
         be_yourself_paragraph: "Internet ha creado nuevas formas únicas para que nos expresemos. %{strong_diaspora} te permite ser tú mismo y compartir lo que le apetezca, usando tu nombre real o no."
         cubbies: Cubbi.es
-        displaying_correctly: "¿No se muestra correctamente el email? %{Link} en su navegador"
+        displaying_correctly: "¿No se muestra correctamente el email? %{Link}"
         email_address: questions@joindiaspora.com
         email_us: "Para consultas generales o soporte sobre tu cuenta de Diaspora*, por favor envíanos un correo a %{email}."
         finally: "Finalmente - ya está aquí"
@@ -56,7 +56,7 @@ es:
         subject: "¡Has sido invitado a unirte a Diaspora*!"
         team_diaspora: "Equipo de Diaspora*"
         unsubscribe: "Para anular tu suscripción por favor haz clic en %{link}."
-        view_in: "Ver en"
+        view_in: "Ver en el navegador."
       inviter:
         accept_at: "en %{url}, puedes aceptar en el enlace inferior."
         has_invited_you: "%{name}"

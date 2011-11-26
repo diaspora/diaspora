@@ -410,9 +410,9 @@ el:
       few: "Οι χρήστες %{actors} σας ανέφεραν στη %{post_link}."
       many: "Οι χρήστες %{actors} σας ανέφεραν στη %{post_link}."
       one: "Ο χρήστης %{actors} σας ανέφερε στη %{post_link}."
-      other: "Οι χρήστες %{actors} σας ανέφεραν στη %{post_link}."
+      other: "Οι χρήστες %{actors} σας ανέφεραν σε μια %{post_link}."
       two: "Οι χρήστες %{actors} σας ανέφεραν σε μια %{post_link}."
-      zero: "Ο χρήστης %{actors} σας ανέφερε στη %{post_link}."
+      zero: "Ο χρήστης %{actors} σας ανέφερε σε μια %{post_link}."
     mentioned_deleted:
       few: "Οι χρήστες %{actors} σας ανέφεραν σε μια διαγεγραμμένη δημοσίευση."
       many: "Οι χρήστες %{actors} σας ανέφεραν σε μια διαγεγραμμένη δημοσίευση."
@@ -668,7 +668,7 @@ el:
   services:
     create:
       already_authorized: "A user with diaspora id %{diaspora_id} already authorized that %{service_name} account."
-      failure: "Authentication failed."
+      failure: "Αποτυχία πιστοποίησης."
       success: "Επιτυχής έλεγχος ταυτότητας."
     destroy:
       success: "Επιτυχής καταστροφή ταυτότητας."
@@ -736,7 +736,7 @@ el:
       control_your_audience: "Ελέγξτε το Κοινό σας"
       logged_in: "συνδεδεμένος/η στο %{service}"
       manage: "διαχείριση συναφών υπηρεσιών"
-      new_user_welcome_message: "Use #hashtags to classify your posts and find people who share your interests.  Call out awesome people with @Mentions"
+      new_user_welcome_message: "Χρησιμοποιήστε τις #ετικέτες για να ταξινομήσετε τις δημοσιεύσεις σας και να βρείτε άτομα με κοινά ενδιαφέροντα με εσάς. Μνημονεύστε αξιόλογα άτομα με @αναφορές"
       outside: "Τα δημόσια μηνύματα θα είναι διαθέσιμα και σε χρήστες εκτός του δικτύου Diaspora"
       share: "Μοιραστείτε"
       title: "Ρύθμιση συνδεδεμένων υπηρεσιών"
@@ -805,22 +805,22 @@ el:
     community_spotlight_stream: "Community Spotlight"
     followed_tag:
       add_a_tag: "Add a tag"
-      contacts_title: "People who dig these tags"
+      contacts_title: "Άτομα που έψαξαν αυτές τις ετικέτες"
       follow: "Follow"
-      title: "#Followed Tags"
-    followed_tags_stream: "#Followed Tags"
+      title: "#Ετικέτες που ακολουθείτε"
+    followed_tags_stream: "#Ετικέτες που ακολουθείτε"
     mentioned_stream: "@Mentions"
     mentions:
       contacts_title: "Άτομα που σας έχουν αναφέρει"
-      title: "Οι Αναφορές σας"
+      title: "@Αναφορές"
     multi:
       contacts_title: "Άτομα στη Ροή σας"
       title: "Ροή"
-    posted: "posted"
+    posted: "δημοσιεύτηκε"
     public:
       contacts_title: "Πρόσφατες Αφίσες"
       title: "Δημόσια Δραστηριότητα"
-    recently: "recently:"
+    recently: "πρόσφατα:"
     tags:
       contacts_title: "Άτομα που τους αρέσουν αυτές οι ετικέτες"
       tag_prefill_text: "The thing about %{tag_name} is... "
@@ -889,7 +889,7 @@ el:
       show_community_spotlight: "Show Community Spotlight in Stream?"
       show_getting_started: "Re-enable Getting Started"
       started_sharing: "...κάποιος άρχισε να διαμοιράζεται μαζί σας?"
-      stream_preferences: "Stream Preferences"
+      stream_preferences: "Προτιμήσεις Ροής"
       your_email: "Το email σας"
       your_handle: "Το αναγνωριστικό σας στο diaspora"
     getting_started:

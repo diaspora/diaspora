@@ -55,7 +55,7 @@ fr:
         sign_up_now: "Inscrivez-vous →"
         subject: "Vous avez été invité à rejoindre Diaspora!"
         team_diaspora: "L'Équipe Diaspora"
-        unsubscribe: "Pour vous désinscrir, merci de cliquer %{link}."
+        unsubscribe: "Pour vous désinscrire, merci de cliquer sur %{link}."
         view_in: "L'afficher dans votre navigateur."
       inviter:
         accept_at: "à %{url}, vous pouvez l'accepter à travers le lien ci-dessous."

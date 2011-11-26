@@ -629,9 +629,9 @@ fi:
   requests:
     create:
       sending: Lähetetään...
-      sent: "Haluat jakaa %{name} kanssa. Heidän pitäisi nähdä se kirjautuessaan seuraavan kerran Diasporaan."
+      sent: "Olet lähettänyt käyttäjälle %{name} pyynnön jakaa kanssasi. Hänen pitäisi nähdä se kirjautuessaan seuraavan kerran Diasporaan."
     destroy:
-      error: "Ole hyvä, valitse näkymä!"
+      error: "Valitse näkymä!"
       ignore: "Hylätty kontaktipyyntö."
       success: "Olet nyt jakamassa."
     helper:
@@ -921,7 +921,7 @@ fi:
       language_changed: "Kieli vaihdettu"
       language_not_changed: "Kielen vaihtaminen epäonnistui"
       password_changed: "Salasana vaihdettu. Voit nyt kirjautua uudella salasanallasi."
-      password_not_changed: "Salasanan vaihto epäonnistui"
+      password_not_changed: "Salasanan vaihtaminen epäonnistui"
       settings_not_updated: "Asetusten päivittäminen epäonnistui"
       settings_updated: "Asetukset päivitetty"
       unconfirmed_email_changed: "Sähköpostiosoite muutettu. Se täytyy aktivoida."
