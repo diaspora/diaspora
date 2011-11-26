@@ -27,12 +27,7 @@
     }
 
     if(views && typeof views.count !== "undefined") {
-      if(views.count == 0) { nextNamespace = "zero"; } else
-      if(views.count == 1) { nextNamespace = "one";  } else
-      if(views.count <= 3) { nextNamespace = "few";  } else
-      if(views.count > 3)  { nextNamespace = "many"; }
-      else { nextNamespace = "other"; }
-
+      nextNamespace = ["zero", "one", "few", "few"][views.count] || "many"
       translatedMessage = translatedMessage[nextNamespace];
     }
 
