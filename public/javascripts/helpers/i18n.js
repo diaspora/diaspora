@@ -27,7 +27,9 @@
     }
 
     if(views && typeof views.count !== "undefined") {
-      nextNamespace = ["zero", "one", "few", "few"][views.count] || "many"
+      nextNamespace = (isNaN(views.coint))
+        ? "other"
+        : ["zero", "one", "few", "few"][views.count] || "many";
       translatedMessage = translatedMessage[nextNamespace];
     }
 
