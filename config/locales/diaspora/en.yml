@@ -10,6 +10,8 @@ en:
   profile: "Profile"
   account: "Account"
   privacy: "Privacy"
+  privacy_policy: "Privacy Policy"
+  terms_and_conditions: "Terms and Conditions"
   _services: "Services"
   _applications: "Applications"
   _photos: "photos"
