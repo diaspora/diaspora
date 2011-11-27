@@ -762,9 +762,7 @@ qq.UploadButton = function(o){
         multiple: false,
         // name attribute of file input
         name: 'file',
-        onChange: function(input){},
-        hoverClass: 'qq-upload-button-hover',
-        focusClass: 'qq-upload-button-focus'
+        onChange: function(input){}
     };
 
     qq.extend(this._options, o);
@@ -794,7 +792,6 @@ qq.UploadButton.prototype = {
             qq.remove(this._input);
         }
 
-        qq.removeClass(this._element, this._options.focusClass);
         this._input = this._createInput();
     },
     _createInput: function(){
@@ -827,19 +824,6 @@ qq.UploadButton.prototype = {
         var self = this;
         qq.attach(input, 'change', function(){
             self._options.onChange(input);
-        });
-
-        qq.attach(input, 'mouseover', function(){
-            qq.addClass(self._element, self._options.hoverClass);
-        });
-        qq.attach(input, 'mouseout', function(){
-            qq.removeClass(self._element, self._options.hoverClass);
-        });
-        qq.attach(input, 'focus', function(){
-            qq.addClass(self._element, self._options.focusClass);
-        });
-        qq.attach(input, 'blur', function(){
-            qq.removeClass(self._element, self._options.focusClass);
         });
 
         // IE and Opera, unfortunately have 2 tab stops on file input
