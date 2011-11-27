@@ -13,6 +13,8 @@ ca:
   profile: "Perfil"
   account: "Compte"
   privacy: "Privacitat"
+  privacy_policy: "Política de privacitat"
+  terms_and_conditions: "Termes i condicions"
   _services: "Serveis"
   _applications: "Aplicacions"
   _photos: "fotos"
@@ -901,7 +903,6 @@ ca:
       daniels_account: "El compte de Diàspora d'en Daniel"
       making_the_connection: "Fent la connexió"
       connecting_is_simple: "Connectar el vostre compte de Diàspora és simple! Introduïu el vostre ID de Diàspora (<b>%{diaspora_id}</b> a la <a href='%{href_link}'>pàgina de preferències</a> de Cubbies i feu clic en «Connecta»."
-      log_in_with_diaspora_is_comming: "Aviat podreu connectar a una aplicació nova sense haver de crear un compte accessori del vostre compte de Diàspora."
       via: "(via %{link})"
 
 
