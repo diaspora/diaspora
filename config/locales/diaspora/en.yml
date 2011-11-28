@@ -887,6 +887,10 @@ en:
       title: "@Mentions"
       contacts_title: "People who mentioned you"
 
+    comment_stream:
+      title: "Commented Posts"
+      contacts_title: "People who posts you commented"
+
     followed_tag:
       title: "#Followed Tags"
       contacts_title: "People who dig these tags"
