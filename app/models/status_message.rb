@@ -38,7 +38,7 @@ class StatusMessage < Post
   }
 
   scope :commented_by, lambda { |person|
-    joins(:comments).where(:comments => {:author_id => person.id}).group("posts.id")
+    joins(:comments).where(:comments => {:author_id => person.id}).select("DISTINCT posts.id")
   }
 
   def self.user_tag_stream(user, tag_ids)
