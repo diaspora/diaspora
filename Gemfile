@@ -138,6 +138,7 @@ end
 
 group :development do
   gem 'capistrano', '2.5.19', :require => false
+  gem 'capistrano_colors', :require => false
   gem 'capistrano-ext', '1.2.1', :require => false
   gem 'linecache', '0.43', :platforms => :mri_18
   gem 'parallel_tests'
