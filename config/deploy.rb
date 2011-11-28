@@ -4,7 +4,10 @@
 
 set :config_yaml, YAML.load_file(File.dirname(__FILE__) + '/deploy_config.yml')
 
+require './config/cap_colors'
 require 'bundler/capistrano'
+require './config/boot'
+require 'hoptoad_notifier/capistrano'
 set :bundle_dir, ''
 
 set :stages, ['production', 'staging']
@@ -18,20 +21,12 @@ set :scm_verbose, true
 set :repository_cache, "remote_cache"
 set :deploy_via, :checkout
 
-# Bonus! Colors are pretty!
-def red(str)
-  "\e[31m#{str}\e[0m"
-end
-
 # Figure out the name of the current local branch
 def current_git_branch
   branch = `git symbolic-ref HEAD 2> /dev/null`.strip.gsub(/^refs\/heads\//, '')
-  puts "Deploying branch #{red branch}"
+  logger.info "Deploying branch #{branch}"
   branch
 end
-
-# Set the deploy branch to the current branch
-set :branch, current_git_branch
 
 namespace :deploy do
   task :symlink_config_files do
@@ -86,7 +81,14 @@ namespace :deploy do
   end
 end
 
-after "deploy:symlink", "deploy:symlink_config_files", "deploy:symlink_cookie_secret", "deploy:bundle_static_assets", 'deploy:copy_resque_assets'
+before 'deploy:update' do
+  set :branch, current_git_branch
+end
 
-        require './config/boot'
-        require 'hoptoad_notifier/capistrano'
+after 'deploy:symlink' do
+  deploy.symlink_config_files
+  deploy.symlink_cookie_secret
+  deploy.bundle_static_assets
+  deploy.copy_resque_assets
+end
+
