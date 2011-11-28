@@ -16,6 +16,7 @@
           top: 13
         },
         personLink: hoverCard.find("a.person"),
+        personHandle: hoverCard.find("p.handle"),
         avatar: hoverCard.find(".avatar"),
         dropdown: hoverCard.find(".dropdown_list"),
         hashtags: hoverCard.find(".hashtags")
@@ -66,6 +67,7 @@
       self.hoverCard.avatar.attr("src", person.avatar);
       self.hoverCard.personLink.attr("href", person.url);
       self.hoverCard.personLink.text(person.name);
+      self.hoverCard.personHandle.text(person.handle);
       self.hoverCard.dropdown.attr("data-person-id", person.id);
 
       self.hoverCard.hashtags.html("");
