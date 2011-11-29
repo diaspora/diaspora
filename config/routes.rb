@@ -61,6 +61,8 @@ Diaspora::Application.routes.draw do
 
   get 'comment_stream' => 'comment_stream#index', :as => 'comment_stream'
 
+  get 'like_stream' => 'like_stream#index', :as => 'like_stream'
+
   get 'tags/:name' => 'tags#show', :as => 'tag'
 
   resources :apps, :only => [:show]
