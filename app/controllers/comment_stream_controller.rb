@@ -5,7 +5,15 @@
 require File.join(Rails.root, 'lib','stream', 'comments')
 
 class CommentStreamController < ApplicationController
+
+  respond_to :html, :json
+
   def index
-    default_stream_action(Stream::Comments)
+    @backbone = true
+
+    respond_with do |format|
+      format.html{ default_stream_action(Stream::Comments) }
+      format.json{ render :json => stream(Stream::Comments).stream_posts.to_json(:include => {:author => {:include => :profile}}) }
+    end
   end
 end

@@ -11,16 +11,23 @@ class AspectsController < ApplicationController
   before_filter :ensure_page, :only => :index
 
   respond_to :html, :js
-  respond_to :json, :only => [:show, :create]
+  respond_to :json, :only => [:show, :create, :index]
 
   def index
+    #@backbone = true
+
     aspect_ids = (session[:a_ids] ? session[:a_ids] : [])
     @stream = Stream::Aspect.new(current_user, aspect_ids,
                                :order => sort_order,
                                :max_time => params[:max_time].to_i)
 
-    if params[:only_posts]
-      render :partial => 'shared/stream', :locals => {:posts => @stream.stream_posts}
+    respond_with do |format|
+      format.html do
+        if params[:only_posts]
+          render :partial => 'shared/stream', :locals => {:posts => @stream.stream_posts}
+        end
+      end
+      format.json{ render :json => @stream.stream_posts.to_json(:include => {:author => {:include => :profile}}) }
     end
   end
 

@@ -5,7 +5,15 @@
 require File.join(Rails.root, 'lib','stream', 'mention')
 
 class MentionsController < ApplicationController
+
+  respond_to :html, :json
+
   def index
-    default_stream_action(Stream::Mention)
+    @backbone = true
+
+    respond_with do |format|
+      format.html{ default_stream_action(Stream::Mention) }
+      format.json{ render :json => stream(Stream::Mention).stream_posts.to_json(:include => {:author => {:include => :profile}}) }
+    end
   end
 end

@@ -6,11 +6,6 @@
 - content_for :head do
   = include_javascripts :home
 
-  - if @backbone
-    :javascript
-      window.useBackbone = true;
-
-
 - if current_user.getting_started?
   #welcome-to-diaspora
     .container{:style => "position: relative;"}
@@ -68,6 +63,6 @@
     = render 'aspects/aspect_stream', :stream => @stream
 
 .span-5.rightBar.last
-  = render 'aspects/selected_contacts', :stream => @stream
+  /= render 'aspects/selected_contacts', :stream => @stream
 
   = render 'shared/right_sections'
