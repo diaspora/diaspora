@@ -6,14 +6,20 @@
 # for example lib/tasks/capistrano.rake, and they will automatically be available to Rake.
 
 require File.expand_path('../config/application', __FILE__)
+#require 'rake/dsl_definition'
 require 'rake'
 require 'resque/tasks'
 
+include Rake::DSL if defined?(Rake::DSL)
 # for rake 0.9.0
-module Diaspora
-  class Application
-    include Rake::DSL
-  end
-end
+#module Diaspora
+#  class Application
+#    include Rake::DSL
+#  end
+#end
+
+#module ::RakeFileUtils
+#  extend Rake::FileUtilsExt
+#end
 
 Diaspora::Application.load_tasks

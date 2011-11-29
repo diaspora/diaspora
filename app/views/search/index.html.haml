@@ -1,0 +1,14 @@
+-#   Copyright (c) 2010-2011, Diaspora Inc.  This file is
+-#   licensed under the Affero General Public License version 3 or later.  See
+-#   the COPYRIGHT file.
+
+- content_for :page_title do
+  = t('search')
+
+
+.span-12.prepend-5.last
+  = form_tag '/search/query' do
+    = text_field_tag 'searchterm', ''
+    = submit_tag t('search')
+
+

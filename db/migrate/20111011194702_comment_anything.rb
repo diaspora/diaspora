@@ -1,6 +1,6 @@
 class CommentAnything < ActiveRecord::Migration
   def self.up
-    remove_foreign_key :comments, :posts
+    #remove_foreign_key :comments, :posts
     remove_index :comments, :post_id
     change_table :comments do |t|
       t.rename :post_id, :commentable_id

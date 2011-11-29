@@ -1,5 +1,10 @@
 source 'http://rubygems.org'
 
+gem 'dht', :git => 'git://github.com/CodeMonkeySteve/dht.git'
+gem 'acts_as_ferret', '~> 0.5.3'
+#gem 'truncate_html'
+#gem 'rake', '!=0.9.0'
+gem 'rake', '0.8.7'
 gem 'rails', '3.0.11'
 
 gem 'bundler', '>= 1.0.0'
