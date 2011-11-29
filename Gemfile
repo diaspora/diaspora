@@ -1,6 +1,6 @@
 source 'http://rubygems.org'
 
-gem 'dht', :git => 'https://github.com/CodeMonkeySteve/dht.git'
+gem 'dht', :git => 'git://github.com/CodeMonkeySteve/dht.git'
 gem 'acts_as_ferret', '~> 0.5.3'
 #gem 'truncate_html'
 #gem 'rake', '!=0.9.0'
@@ -57,7 +57,7 @@ gem 'typhoeus'
 # JSON and API
 
 gem 'json', '1.4.6'
-gem 'vanna', :git => 'https://github.com/MikeSofaer/vanna.git'
+gem 'vanna', :git => 'git://github.com/MikeSofaer/vanna.git'
 
 # localization
 
@@ -68,7 +68,7 @@ gem 'rails-i18n'
 
 gem 'nokogiri'
 gem 'redcarpet', "2.0.0b5"
-gem 'roxml', :git => 'https://github.com/Empact/roxml.git', :ref => '7ea9a9ffd2338aaef5b0'
+gem 'roxml', :git => 'git://github.com/Empact/roxml.git', :ref => '7ea9a9ffd2338aaef5b0'
 gem 'ruby-oembed'
 
 # queue
@@ -89,12 +89,12 @@ gem 'messagebus_ruby_api', '0.4.8'
 
 # tags
 
-gem 'acts-as-taggable-on', :git => 'https://github.com/diaspora/acts-as-taggable-on.git'
+gem 'acts-as-taggable-on', :git => 'git://github.com/diaspora/acts-as-taggable-on.git'
 
 # URIs and HTTP
 
 gem 'addressable', '2.2.4', :require => 'addressable/uri'
-gem 'http_accept_language', :git => 'https://github.com/iain/http_accept_language.git', :ref => '0b78aa7849fc90cf9e12'
+gem 'http_accept_language', :git => 'git://github.com/iain/http_accept_language.git', :ref => '0b78aa7849fc90cf9e12'
 
 # views
 
@@ -125,7 +125,7 @@ group :test do
   gem 'cucumber-rails', '0.3.2'
   gem 'cucumber-api-steps', :require => false
   gem 'database_cleaner', '0.6.0'
-  gem 'diaspora-client', :git => 'https://github.com/diaspora/diaspora-client.git'
+  gem 'diaspora-client', :git => 'git://github.com/diaspora/diaspora-client.git'
                           #"0.1.0", #:path => '~/workspace/diaspora-client'
   gem 'factory_girl_rails'
   gem 'fixture_builder', '0.3.0'
@@ -149,6 +149,6 @@ group :development do
   gem 'ruby-debug-base19', '0.11.23' if RUBY_VERSION.include? '1.9.1'
   gem 'ruby-debug19', :platforms => :ruby_19
   gem 'ruby-debug', :platforms => :mri_18
-  gem 'sod', :git => 'https://github.com/MikeSofaer/sod.git', :require => false
+  gem 'sod', :git => 'git://github.com/MikeSofaer/sod.git', :require => false
   gem 'yard'
 end
