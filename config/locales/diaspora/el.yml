@@ -765,8 +765,8 @@ el:
       currently_unavailable: "commenting currently unavailable"
       dislike: "Δεν μ' αρέσει"
       hide_and_mute: "Απόκρυψη και Σίγαση "
-      ignore_user: "Ignore %{name}"
-      ignore_user_description: "Ignore and remove user from all aspects?"
+      ignore_user: "Αγνόηση %{name}"
+      ignore_user_description: "Αγνόηση και αφαίρεση χρήστη από όλες τις πτυχές;"
       like: "Μου αρέσει"
       shared_with: "Διαμοιρασμένο με: %{aspect_names}"
       unlike: "Δεν μου αρέσει"
@@ -846,7 +846,6 @@ el:
       connect_to_cubbies: "Σύνδεση με Cubbi.es"
       connecting_is_simple: "Η σύνδεση του Diaspora λογαριασμού σας είναι απλούστατη! Απλά εισάγετε το Diaspora Αναγνωριστικό σας (ID) (<b>%{diaspora_id}</b>) από το cubbies <a href='%{href_link}'>settings page</a> και πατήστε Σύνδεση. "
       daniels_account: "Diaspora λογαριασμό του Daniel"
-      log_in_with_diaspora_is_comming: "Σύντομα θα μπορείτε να συνδέεστε σε μια νέα εφαρμογή χωρίς να δημιουργείτε διαφορετικό λογαριασμό απ' αυτόν στο Diaspora."
       love_to_try: "Θα χαιρόμασταν αν το δοκιμάζατε."
       making_the_connection: "Σύνδεση"
       screenshot_explanation: "%{link1}.  Αυτό το συγκεκριμένο cubby συνδέεται στον %{link2}."
@@ -911,7 +910,7 @@ el:
       simply_visit: "Απλά επισκεφθείτε "
       works_on_modern: "Δουλεύει σε όλα τα μοντέρνα smartphones"
     privacy_settings:
-      ignored_users: "Ignored Users"
+      ignored_users: "Αγνοημένοι Χρήστες"
       stop_ignoring: "Stop ignoring"
       title: "Privacy Settings"
     public:

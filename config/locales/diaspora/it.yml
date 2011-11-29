@@ -846,7 +846,6 @@ it:
       connect_to_cubbies: "Connettiti a Cubbi.es"
       connecting_is_simple: "Connettere il tuo account Diaspora è semplice! Inserisci il tuo ID (<b>%{diaspora_id}</b>) nella <a href='%{href_link}'>pagina delle impostazioni</a> di cubbies e premi <i>connect</i>."
       daniels_account: "account Diaspora di Daniel"
-      log_in_with_diaspora_is_comming: "Presto potrai connetterti ad una nuova applicazione senza dover creare un account separato da quello che hai già su Diaspora."
       love_to_try: "Ci farebbe piacere che tu lo provassi."
       making_the_connection: "Effettua la connessione"
       screenshot_explanation: "%{link1}.  Questa pagina di cubby è collegata all' %{link2}."

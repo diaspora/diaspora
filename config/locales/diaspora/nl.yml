@@ -846,7 +846,6 @@ nl:
       connect_to_cubbies: "Verbind met Cubbi.es"
       connecting_is_simple: "Je Diaspora account verbinden is simpel! Vul je Diaspora ID (<b>%{diaspora_id}</b>) in op cubbies <a href='%{href_link}'>settings page</a> en klik op connect."
       daniels_account: "Daniel's Diaspora account"
-      log_in_with_diaspora_is_comming: "Binnenkort is het mogelijk om met een nieuwe applicatie te verbinden zonder eerst een apart account aan te hoeven maken."
       love_to_try: "We zouden het erg leuk vinden als je het uitprobeert."
       making_the_connection: "Verbindend"
       screenshot_explanation: "%{link1}.  Deze cubby is gelinkt aan %{link2}."

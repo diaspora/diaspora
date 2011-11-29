@@ -846,7 +846,6 @@ sk:
       connect_to_cubbies: "Pripojiť sa na Cubbi.es"
       connecting_is_simple: "Pripojiť sa na účet na Diaspore je jednoduché! Stačí zadať ID na Diaspore.(<b>%{diaspora_id}</b>) zo&nbsp;<a href='%{href_link}'>stránky s&nbsp;nastaveniami</a> vašich prvkov cubby a&nbsp;stlačiť tlačidlo Pripojiť sa."
       daniels_account: "Danielov účet na Diaspore"
-      log_in_with_diaspora_is_comming: "Čoskoro sa budete môcť cez&nbsp;svoj účet pripojiť na novú aplikáciu bez&nbsp;toho, aby ste si na Diaspore museli založiť ďalší."
       love_to_try: "Bolo by super, keby ste to vyskúšali."
       making_the_connection: "Vytvára sa prepojenie"
       screenshot_explanation: "%{link1}.  Táto konkrétna cubby je prepojená s(o)&nbsp;%{link2}."

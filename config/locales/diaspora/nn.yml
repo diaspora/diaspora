@@ -846,7 +846,6 @@ nn:
       connect_to_cubbies: "Kopla deg til Cubbi.es"
       connecting_is_simple: "Det er lett å kopla til Diaspora-kontoen. Skriv berre inn Diaspora-ID-en din (<b>%{diaspora_id}</b>) frå <a href='%{href_link}'>innstillingssida</a> di på cubbi.es og trykk 'kopla til'."
       daniels_account: "Daniel sin Diaspora-konto"
-      log_in_with_diaspora_is_comming: "Snart vil du kunna kopla deg til ein ny applikasjon utan å laga endå ein konto i tillegg til han du allereie har hos Diaspora."
       love_to_try: "Vi vonar du vil prøva det."
       making_the_connection: "Koplar til"
       screenshot_explanation: "%{link1}. Denne cubbyen er lenka til %{link2}."

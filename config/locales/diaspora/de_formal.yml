@@ -846,7 +846,6 @@ de_formal:
       connect_to_cubbies: "Mit Cubbi.es verbinden"
       connecting_is_simple: "Ihr Diaspora Konto mit Cubbi.es zu verbinden ist einfach! Tragen Sie einfach Ihre Diaspora ID in der Cubbi.es <a href='%{href_link}'>Einstellungsseite</a> ein und verbinden Sie die Konten!"
       daniels_account: "Daniels Diaspora Konto"
-      log_in_with_diaspora_is_comming: "Schon bald werden Sie in der Lage sein, eine Verbindung zu einer neuen Anwendung herzustellen, ohne ein seperates Konto neben Ihrem Konto auf Diaspora anzulegen."
       love_to_try: "Es wäre toll, wenn Sie es ausprobieren würden."
       making_the_connection: "Die Verbindung herstellen"
       screenshot_explanation: "%{link1}. Dieses \"Cubby\" ist verlinkt auf %{link2}."

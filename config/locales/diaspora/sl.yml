@@ -848,7 +848,6 @@ sl:
       connect_to_cubbies: "Povežite se Cubbi.es"
       connecting_is_simple: "Povezovanje računa Diaspore je preprosta! Samo vnesite svoj ID Diaspore (<b>%{diaspora_id}</b>) iz vaše cubbies  <a href='%{href_link}'>nastavitvene strani</a> in kliknite poveži."
       daniels_account: "Danielov Diasporin račun"
-      log_in_with_diaspora_is_comming: "Kmalu se boste lahko za povezali na novo aplikacijo, ne da bi ustvarili račun ločen od Diaspore."
       love_to_try: "Radi bi da jo preizkusite."
       making_the_connection: "Ustvarjanje stika"
       screenshot_explanation: "%{link1}.  This particular cubby is linked to  %{link2}."

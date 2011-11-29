@@ -151,7 +151,7 @@ es:
     seed:
       acquaintances: Conocid@s
       family: "Familia"
-      friends: "Amigos"
+      friends: "Contactos"
       work: "Trabajo"
     selected_contacts:
       manage_your_aspects: "Gestiona tus aspectos."
@@ -675,9 +675,9 @@ es:
     failure:
       error: "hubo un error conectando ese servicio"
     finder:
-      fetching_contacts: "Diaspora está trasladando a tus amigos de %{service}, por favor compruébalo de nuevo en unos minutos."
-      no_friends: "No se han encontrados amig@s de Facebook."
-      service_friends: "%{service} Amigos"
+      fetching_contacts: "Diaspora está trasladando a tus contactos de %{service}, por favor compruébalo de nuevo en unos minutos."
+      no_friends: "No se han encontrados contactos en Facebook."
+      service_friends: "Contactos de %{service}"
     index:
       connect_to_facebook: "Conecta con Facebook"
       connect_to_tumblr: "Conecta con Tumblr"
@@ -727,7 +727,7 @@ es:
       from_facebook: "Por Facebook"
       invitations_left: "%{count} restantes"
       invite_someone: "Invita a alguien"
-      invite_your_friends: "Invita a tus amig@s"
+      invite_your_friends: "Invita a tus contactos"
       invites: "Invitaciones"
       invites_closed: "Las invitaciones en este servidor Diaspora* están actualmente cerradas."
     notification:
@@ -747,10 +747,10 @@ es:
       discard_post: "Descartar publicación"
       make_public: "hacer público"
       new_user_prefill:
-        hello: "Hola a tod@s, esta es mi #%{new_user_tag}."
+        hello: "Hola a todo el mundo, esta es mi #%{new_user_tag}."
         i_like: "Tengo interés en %{tags}."
         invited_by: "Gracias por la invitación, "
-        newhere: "NuevoAquí"
+        newhere: "PrimeraPublicación"
       post_a_message_to: "Publicar un mensaje en %{aspect}"
       posting: Publicando...
       publishing_to: "publicar en:"
@@ -836,7 +836,7 @@ es:
     show:
       follow: "Seguir #%{tag}"
       followed_by: "seguido por"
-      following: "Siguiendo a #%{tag}"
+      following: "Siguiendo #%{tag}"
       nobody_talking: "Nadie esta hablando sobre %{tag} todavía."
       people_tagged_with: "Perfiles con %{tag}"
       posts_tagged_with: "Publicaciones con #%{tag}"
@@ -846,7 +846,6 @@ es:
       connect_to_cubbies: "Conecta con Cubbi.es"
       connecting_is_simple: "Conectar tu cuenta de Diaspora* es sencillo. Solo introduce tu identidad Diaspora*(<b>%{diaspora_id}</b>) desde tu página de <a href='%{href_link}'>ajustes</a> de cubbi y dale a conectar."
       daniels_account: "La cuenta de Diaspora de Daniel"
-      log_in_with_diaspora_is_comming: "Muy pronto podrás conectar a una nueva aplicación sin tener que crear una cuenta aparte de Diaspora*."
       love_to_try: "Nos encantaría que lo pruebes."
       making_the_connection: "Creando la conexión"
       screenshot_explanation: "%{link1}. Este cubby en particular está conectado con %{link2}."

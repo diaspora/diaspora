@@ -846,7 +846,6 @@ br:
       connect_to_cubbies: "Connect to Cubbi.es"
       connecting_is_simple: "Connecting your Diaspora account is as simple as filling out two fields on your Cubbi.es account page."
       daniels_account: "Daniel's Diaspora account"
-      log_in_with_diaspora_is_comming: "Pretty soon, you'll be able to connect to a new application without creating an account separate from your one on Diaspora."
       love_to_try: "We'd love for you to try it out."
       making_the_connection: "Making the Connection"
       screenshot_explanation: "%{link1}.  This particular cubby is linked to %{link2}."

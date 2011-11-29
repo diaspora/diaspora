@@ -848,7 +848,6 @@ hu:
       connect_to_cubbies: "Csatlakozás ehhez: Cubbi.es"
       connecting_is_simple: "A csatlakozás sima ügy, csak írd be a Diaspora azonosítódat."
       daniels_account: "Adam Diaspora* fiókja"
-      log_in_with_diaspora_is_comming: "Hamarosan egy új applikációhoz tudsz majd csatlakozni a Diaspora azonosítóddal."
       love_to_try: "Szeretnénk, ha kipróbálnád."
       making_the_connection: "Kapcsolat létrehozása"
       screenshot_explanation: "%{link1}.  Ez a cubby ehhez van linkelve: %{link2}."

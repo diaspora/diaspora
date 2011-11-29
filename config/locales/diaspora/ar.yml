@@ -846,7 +846,6 @@ ar:
       connect_to_cubbies: "صِل حسابك بـ Cubbi.es"
       connecting_is_simple: "اتصال حسابك في ديسبورا بسيط! فقط أدخل وسيط ديسبورا الخاص بك (<b>%{diaspora_id}</b>) من <a href='%{href_link}'>صفحة إعداداتك</a> في Cubbies ثم اضغط \"اتصِل\"."
       daniels_account: "حساب دياسبرا الخاص بدانييل"
-      log_in_with_diaspora_is_comming: "قريبًا جدًا .. ستتمكن من الاتصال بتطبيق جديد دون إنشاء حساب منفصل عن حسابك في ديسبورا."
       love_to_try: "نحبذ أن تجربه."
       making_the_connection: "ابدأ الإتصال"
       screenshot_explanation: "%{link1}.  هذا الـ cubby خاص بـ %{link2}."

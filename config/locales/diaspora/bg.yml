@@ -846,7 +846,6 @@ bg:
       connect_to_cubbies: "Свързване с Cubbi.es"
       connecting_is_simple: "За свързване на акаунта ви в Diaspora е необходимо да въведете вашият адрес в Diaspora (<b>%{diaspora_id}</b>) в <a href='%{href_link}'>страницата с настройки</a> на Cubbi.es и да натиснете \"Connect\"."
       daniels_account: "акаунта на Daniel в Diaspora"
-      log_in_with_diaspora_is_comming: "В най-скоро време ще можете да свързвате ново приложение без необходимост от създаване на отделен, от този, който ползвате, акаунт в Diaspora."
       love_to_try: "Бихме се радвали ако го пробвате!"
       making_the_connection: "Създаване на връзката"
       screenshot_explanation: "%{link1}.  Тази cubby страница е свързана с %{link2}."

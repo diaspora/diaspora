@@ -675,8 +675,8 @@ es-AR:
     failure:
       error: "hubo un error al conectar al servicio"
     finder:
-      fetching_contacts: "Diaspora está tomando sus amigos de %{service} por favor volvé en unos minutos."
-      no_friends: "No se han encontrado amigos de Facebook."
+      fetching_contacts: "Diaspora está tomando sus contactos de %{service} por favor volvé en unos minutos."
+      no_friends: "No se han encontrado contactos de Facebook."
       service_friends: "%{service} Amigos"
     index:
       connect_to_facebook: "Conectar a Facebook"
@@ -727,7 +727,7 @@ es-AR:
       from_facebook: "Desde Facebook"
       invitations_left: "quedan %{count}"
       invite_someone: "Invitá a alguien"
-      invite_your_friends: "Invitá a tus amigos"
+      invite_your_friends: "Invitá a tus contactos"
       invites: "Invitaciones"
       invites_closed: "Las invitaciones en este servidor Diáspora* están cerradas actualmente"
     notification:
@@ -846,7 +846,6 @@ es-AR:
       connect_to_cubbies: "Conectar a Cubbi.es"
       connecting_is_simple: "Conectar tu cuenta Diáspora* es tan simple como introducir tu Diaspora ID (<b>%{diaspora_id}</b>) desde la <a href='%{href_link}'>configuración</a> de Cubbi."
       daniels_account: "Cuenta de Daniel en Diáspora*"
-      log_in_with_diaspora_is_comming: "Pronto podrás conectarte a una nueva aplicación sin crear una cuenta separada de la tuya en Diáspora."
       love_to_try: "Nos encantaría que la pruebes."
       making_the_connection: "Haciendo la conexión"
       screenshot_explanation: "%{link1}. Este cubby en particular está enlazado a %{link2}."
@@ -900,7 +899,7 @@ es-AR:
       hooking_up_fb: "conectando con tu cuenta de Facebook"
       saved: ¡Guardado!
       we_can_speed_things_up: "Podemos acelerar las cosas un poquito vía"
-      well_hello_there: "Bueno, ¡Hola!"
+      well_hello_there: "Bueno, ¡hola!"
       what_are_you_in_to: "¿Qué sos por dentro?"
       what_facebook_does: "con Diaspora. Esto mostraŕa tu nombre y foto, y activará la publicación cruzada."
       who_are_you: "¿Quién sos?"

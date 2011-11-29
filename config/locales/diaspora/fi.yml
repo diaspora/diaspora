@@ -846,7 +846,6 @@ fi:
       connect_to_cubbies: "Yhdistä kohteeseen Cubbi.es"
       connecting_is_simple: "Diaspora-tilisi yhdistäminen on helppoa! Syötä vain Diaspora-tunnuksesi (<b>%{diaspora_id}</b>) Cubbi.es-<a href='%{href_link}'>asetussivulle</a> ja yhdistä."
       daniels_account: "Danielin Diaspora-käyttäjätili"
-      log_in_with_diaspora_is_comming: "Pian voit lisätä uuden sovelluksen luomatta uutta käyttäjätiliä nykyisen tilisi lisäksi."
       love_to_try: "Kokeile sinäkin."
       making_the_connection: "Yhteyden muodostaminen"
       screenshot_explanation: "%{link1}. Tämä tila on linkitetty tänne: %{link2}."
