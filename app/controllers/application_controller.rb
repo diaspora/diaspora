@@ -145,10 +145,14 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def stream(stream_klass)
+    stream_klass.new(current_user, :max_time => max_time, :order => sort_order)
+  end
+
   def default_stream_action(stream_klass)
     authenticate_user!
     save_sort_order
-    @stream = stream_klass.new(current_user, :max_time => max_time, :order => sort_order)
+    @stream = stream(stream_klass)
 
     if params[:only_posts]
       render :partial => 'shared/stream', :locals => {:posts => @stream.stream_posts}

@@ -73,6 +73,9 @@
     %header{:class=>('landing' unless current_user)}
       = render 'layouts/header'
 
+    %script{:id => "stream-element-template", :type => 'text/template'}
+      != File.read("#{Rails.root}/app/views/shared/_stream_element.html.underscore")
+
     .container{:style=> "#{yield(:break_the_mold)}"}
       - if @aspsect == :getting_started || @page == :logged_out
         = yield

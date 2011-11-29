@@ -3,13 +3,22 @@ embed_assets: datauri
 compress_assets: on
 gzip_assets: off
 javascripts:
+
   flash_socket:
     - public/javascripts/vendor/FABridge.js
     - public/javascripts/vendor/swfobject.js
     - public/javascripts/vendor/web_socket.js
   jquery:
     - public/javascripts/vendor/jquery162.min.js
+
   main:
+    - public/javascripts/vendor/underscore.js
+    - public/javascripts/vendor/backbone.js
+
+    - public/javascripts/models/*
+    - public/javascripts/collections/*
+    - public/javascripts/views/*
+
     - public/javascripts/rails.validations.js
     - public/javascripts/rails.js
     - public/javascripts/vendor/jquery.hotkeys.js
@@ -50,7 +59,7 @@ javascripts:
     - public/javascripts/rails.js # we only include this to hijack ajax requests
     - public/javascripts/vendor/mbp-helper.js
     - public/javascripts/mobile.js
-    
+
   mailchimp:
     - public/javascripts/vendor/mailchimp/jquery.form.js
     - public/javascripts/vendor/mailchimp/jquery.validate.js

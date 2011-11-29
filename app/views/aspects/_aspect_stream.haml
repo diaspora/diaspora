@@ -19,10 +19,12 @@
 #gs-shim{:title => popover_with_close_html("3. #{t('.stay_updated')}"), 'data-content' => t('.stay_updated_explanation')}
 
 #main_stream.stream{:data => {:guids => stream.aspect_ids.join(','), :time_for_scroll => time_for_scroll(stream.ajax_stream?, stream)}}
-  - if !stream.ajax_stream? && stream.stream_posts.length > 0
+  - if !@backbone && !stream.ajax_stream? && stream.stream_posts.length > 0
     = render 'shared/stream', :posts => stream.stream_posts
-  #pagination
-    =link_to(t('more'), next_page_path(:ajax_stream => stream.ajax_stream?), :class => 'paginate')
+
+  - if !@backbone
+    #pagination
+      =link_to(t('more'), next_page_path(:ajax_stream => stream.ajax_stream?), :class => 'paginate')
 
 - if current_user.contacts.size < 2
   = render 'aspects/no_contacts_message'

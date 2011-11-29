@@ -6,6 +6,11 @@
 - content_for :head do
   = include_javascripts :home
 
+  - if @backbone
+    :javascript
+      window.useBackbone = true;
+
+
 - if current_user.getting_started?
   #welcome-to-diaspora
     .container{:style => "position: relative;"}
