@@ -84,6 +84,8 @@ class PeopleController < ApplicationController
   end
 
   def show
+    @backbone = true
+
     @person = Person.find_from_id_or_username(params)
 
     if remote_profile_with_no_user_session?
@@ -124,13 +126,13 @@ class PeopleController < ApplicationController
     end
 
     if params[:only_posts]
-      render :partial => 'shared/stream', :locals => {:posts => @stream.stream_posts}
+      respond_to do |format|
+        format.html{ render :partial => 'shared/stream', :locals => {:posts => @stream.stream_posts} }
+      end
     else
       respond_to do |format|
         format.all { respond_with @person, :locals => {:post_type => :all} }
-        format.json {
-          render :json => @person.to_json(:includes => params[:includes])
-        }
+        format.json{ render :json => @stream.stream_posts.to_json(:include => {:author => {:include => :profile}}) }
       end
     end
   end
