@@ -54,6 +54,7 @@ namespace :backup do
 
       puts "Dumping PostgreSQL at #{Time.now.to_s}"
       `PGPASSFILE=#{tmp_backup_dir}/#{tmp_pass_file} nice pg_dump -h #{host} -p #{port} -U #{user} #{database} > #{tmp_backup_dir}/#{tmp_db_dir}/#{tmp_sql_file} `
+      File.delete(tmp_backup_dir + "/" + tmp_pass_file)
 
       puts "Gzipping dump at #{Time.now.to_s}"
       tar_name = "postgresql_#{Time.now.to_i}.tar"
@@ -74,7 +75,6 @@ namespace :backup do
       puts("event=backup status=success type=database")
 
       File.delete(tmp_backup_dir + "/" + tar_name)
-      File.delete(tmp_backup_dir + "/" + tmp_pass_file)
       File.delete(tmp_backup_dir + "/" + tmp_db_dir + "/" + tmp_sql_file)
       Dir.delete(tmp_backup_dir + "/" + tmp_db_dir)
       Dir.delete(tmp_backup_dir)
