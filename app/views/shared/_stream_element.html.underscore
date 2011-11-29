@@ -2,26 +2,36 @@
 
 <div id="<%= post.guid %>" class="stream_element">
   <div class="right controls">
-    <span>block</span>
-    <span>delete_or_hide</span>
+    <a href="#" class="block_user control_icon">
+     <img src="/images/icons/ignoreuser.png">
+    </a>
+
+    <a href="#" class="delete control_icon remove_post">
+      <img src="/images/deletelabel.png"/>
+    </a>
 
     <img src="/images/ajax-loader.gif" class="hide_loader hidden"/>
   </div>
 
   <div class="sm_body">
+
+    <a href="/people/<%= post.author.id %>">
+      <img src="<%= post.author.profile.image_url_small %>" class="avatar" data-person-id="<%= post.author.id %>"/>
+    </a>
+
     <div class="content">
       <div class="post_initial_info">
         <span class="from">
           <a href="/people/<%= post.author.id %>">
-            <%= post.author.diaspora_handle %>
+            <%= post.author.profile.full_name %>
           </a>
         </span>
 
         <span class="details">
           -
-          <span class="timeago">
-            <%= post.created_at %>
-          </span>
+          <a href="/posts/<%= post.id %>">
+            <time class="timeago" datetime="<%= post.created_at %>"/>
+          </a>
         </span>
 
         <p>
