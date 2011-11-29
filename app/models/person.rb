@@ -10,13 +10,25 @@ class Person < ActiveRecord::Base
   include Encryptor::Public
   include Diaspora::Guid
 
+  # NOTE API V1 to be extracted
+  acts_as_api
+  api_accessible :post do |t|
+    t.add :id
+    t.add :name
+    t.add lambda { |person|
+      {:small => person.profile.image_url(:small),
+       :medium => person.profile.image_url(:medium),
+       :large => person.profile.image_url(:large) }
+    }, :as => :avatar
+  end
+
   xml_attr :diaspora_handle
   xml_attr :url
   xml_attr :profile, :as => Profile
   xml_attr :exported_key
 
   has_one :profile, :dependent => :destroy
-  delegate :last_name, :to => :profile
+  delegate :last_name, :image_url, :to => :profile
   accepts_nested_attributes_for :profile
 
   before_validation :downcase_diaspora_handle

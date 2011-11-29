@@ -13,7 +13,8 @@ class MultisController < ApplicationController
 
     respond_with do |format|
       format.html{ default_stream_action(Stream::Multi) }
-      format.json{ render :json => stream(Stream::Multi).stream_posts.to_json(:include => {:author => {:include => :profile}}) }
+      #format.json{ render :json => stream(Stream::Multi).stream_posts.to_json(:include => {:author => {:include => :profile}}) }
+      format.json{ render_for_api :backbone, :json => stream(Stream::Multi).stream_posts }
     end
   end
 end

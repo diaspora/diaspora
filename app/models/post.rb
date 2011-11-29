@@ -9,6 +9,16 @@ class Post < ActiveRecord::Base
   include Diaspora::Commentable
   include Diaspora::Shareable
 
+  # NOTE API V1 to be extracted
+  acts_as_api
+  api_accessible :backbone do |t|
+    t.add :id
+    t.add :guid
+    t.add :text
+    t.add :created_at
+    t.add :author, :template => :post
+  end
+
   xml_attr :provider_display_name
 
   has_many :mentions, :dependent => :destroy

@@ -1,6 +1,4 @@
-<% var post = typeof(status_message) === "undefined" ? (typeof(reshare) === "undefined" ? photo : reshare) : status_message; %>
-
-<div id="<%= post.guid %>" class="stream_element">
+<div id="<%= guid %>" class="stream_element">
   <div class="right controls">
     <a href="#" class="block_user control_icon">
      <img src="/images/icons/ignoreuser.png">
@@ -15,32 +13,32 @@
 
   <div class="sm_body">
 
-    <a href="/people/<%= post.author.id %>">
-      <img src="<%= post.author.profile.image_url_small %>" class="avatar" data-person-id="<%= post.author.id %>"/>
+    <a href="/people/<%= author.id %>">
+      <img src="<%= author.profile.image_url_small %>" class="avatar" data-person-id="<%= post.author.id %>"/>
     </a>
 
     <div class="content">
       <div class="post_initial_info">
         <span class="from">
-          <a href="/people/<%= post.author.id %>">
-            <%= post.author.profile.full_name %>
+          <a href="/people/<%= author.id %>">
+            <%= author.profile.full_name %>
           </a>
         </span>
 
         <span class="details">
           -
-          <a href="/posts/<%= post.id %>">
-            <time class="timeago" datetime="<%= post.created_at %>"/>
+          <a href="/posts/<%= id %>">
+            <time class="timeago" datetime="<%= created_at %>"/>
           </a>
         </span>
 
         <p>
-          <%= post.text %>
+          <%= text %>
         </p>
 
         <div class="info">
           <span class="via">
-            via <%= post.provider_display_name %>
+            via <%= provider_display_name %>
           </span>
         </div>
 

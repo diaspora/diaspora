@@ -85,6 +85,10 @@ GEM
       activemodel (= 3.0.11)
       activesupport (= 3.0.11)
     activesupport (3.0.11)
+    acts_as_api (0.3.11)
+      activemodel (>= 3.0.0)
+      activesupport (>= 3.0.0)
+      rack (>= 1.1.0)
     addressable (2.2.4)
     archive-tar-minitar (0.5.2)
     arel (2.0.10)
@@ -450,6 +454,7 @@ DEPENDENCIES
   SystemTimer (= 1.2.3)
   activerecord-import
   acts-as-taggable-on!
+  acts_as_api
   addressable (= 2.2.4)
   bundler (>= 1.0.0)
   capistrano (~> 2.9.0)
