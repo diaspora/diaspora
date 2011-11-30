@@ -848,10 +848,12 @@ en:
       following: "Following #%{tag}"
       stop_following: "Stop Following #%{tag}"
       followed_by: 'followed by'
+      none: "The empty tag does not exist!"
   tag_followings:
     create:
       success: "Hooray!  You're now following #%{name}."
       failure: "Failed to follow #%{name}.  Are you already following it?"
+      none: "You cannot follow a blank tag!"
     destroy:
       success: "Alas! You aren't following #%{name} anymore."
       failure: "Failed to stop following #%{name}. Maybe you already stopped following it?"
