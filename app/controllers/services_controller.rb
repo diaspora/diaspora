@@ -101,7 +101,7 @@ class ServicesController < ApplicationController
 \n
 #{accept_invitation_url(user, :invitation_token => user.invitation_token)}
 MSG
-    "https://www.facebook.com/?compose=1&id=#{facebook_uid}&subject=#{subject}&message=#{message}&sk=messages"
+    "http://www.facebook.com/messages/#{facebook_uid}?msg_prefill=#{message}"
   end
 
   def invite_redirect_json(invite, user, service_user)
