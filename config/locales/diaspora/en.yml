@@ -893,6 +893,10 @@ en:
       title: "Commented Posts"
       contacts_title: "People who posts you commented"
 
+    like_stream:
+      title: "Like Stream"
+      contacts_title: "People who Posts you like"
+
     followed_tag:
       title: "#Followed Tags"
       contacts_title: "People who dig these tags"
