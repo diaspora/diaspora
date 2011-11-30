@@ -846,7 +846,6 @@ ru:
       connect_to_cubbies: "Подключение к Cubbi.es"
       connecting_is_simple: "Подключить аккаунт Диаспоры легко! Просто введите ваш идентификатор в Диаспоре (<b>%{diaspora_id}</b>) на <a href='%{href_link}'>странице настроек</a> cubbies и нажмите \"подключить\"."
       daniels_account: "Аккаунт Даниила в Диаспоре"
-      log_in_with_diaspora_is_comming: "Очень скоро вы сможете подключаться к новым приложениям без необходимости заводить новую учетную запись вне Диаспоры."
       love_to_try: "Мы будем рады, если вы попробуете это."
       making_the_connection: "Создание подключения"
       screenshot_explanation: "%{link1}.  Этот аккаунт cubbi связан с %{link2}."

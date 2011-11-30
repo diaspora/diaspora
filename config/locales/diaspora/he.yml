@@ -846,7 +846,6 @@ he:
       connect_to_cubbies: "התחברות ל־Cubbi.es"
       connecting_is_simple: "חיבור חשבון הדיאספורה שלך הנה משימה פשוטה! עליך להכניס את המזהה שלך בדיאספורה (<b>%{diaspora_id}</b>) ב<a href='%{href_link}'>עמוד ההגדרות</a> בחשבון ה־cubbies שלך וללחוץ על התחברות."
       daniels_account: "חשבון הדיאספורה של דניאל"
-      log_in_with_diaspora_is_comming: "ממש בקרוב, תהיה לך האפשרות להתחבר ליישום חדש מבלי ליצור חשבון נפרד מחשבונך בדיאספורה."
       love_to_try: "נשמח אם תנסו זאת."
       making_the_connection: "יצירת הקשר"
       screenshot_explanation: "%{link1}.  ה־cubby המסוים הזה מקושר שלך %{link2}."

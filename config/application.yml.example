@@ -190,10 +190,13 @@ defaults: &defaults
   piwik_url:
 
   # Backups
+  backup_retention_days: 3
 
   # cloudfiles username and api-key - used for backups
   cloudfiles_username: 'example'
   cloudfiles_api_key:  'abc123'
+  cloudfiles_db_container: 'Database Backup'
+  cloudfiles_images_container: 'Image Backup'
 
   # Donations
   

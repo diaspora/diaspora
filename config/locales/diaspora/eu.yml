@@ -846,7 +846,6 @@ eu:
       connect_to_cubbies: "Cubbi.es-era lotu"
       connecting_is_simple: "Zure Diaspora kontua lotzea erraza da! Idatzi zure Diaspora IDa (<b>%{diaspora_id}</b>) zure cubbiesen <a href='%{href_link}'>ezarpenen orrialdetik</a> eta sakatu lotu."
       daniels_account: "Danielen Diaspora kontua"
-      log_in_with_diaspora_is_comming: "Laster, aplikazio berri batera konektatu ahal izango zara, kontu berri bat sortu gabe zerbitzu horretan."
       love_to_try: "Zuk probatzea gustatuko litzaiguke."
       making_the_connection: "Lotura Ezartzen"
       screenshot_explanation: "%{link1}. Cubby hau %{link2}(r)ekin lotuta dago."

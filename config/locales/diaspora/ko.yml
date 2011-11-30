@@ -451,13 +451,13 @@ ko:
       zero: "%{actors}님이 나와 공유를 시작했습니다."
   notifier:
     a_post_you_shared: "공유물"
-    click_here: "여기를 클릭하세요"
+    click_here: "여기를 클릭"
     comment_on_post:
       reply: "%{name}님의 공유물에 댓글달기 >"
     confirm_email:
       click_link: "새 이메일 주소 %{unconfirmed_email} 를 활성화하려면 이 링크를 클릭해주세요:"
       subject: "새 이메일 주소 %{unconfirmed_email} 를 활성화해주세요"
-    email_sent_by_diaspora: "이 메일은 디아스포라가 보냈습니다. 앞으로 받고싶지 않다면"
+    email_sent_by_diaspora: "디아스포라가 보낸 이메일입니다. 앞으로 받고싶지 않다면, 내 알림 설정을 바꾸기 위해"
     hello: "%{name}님!"
     liked:
       liked: "%{name}님이 내 공유물을 좋아합니다:"
@@ -478,7 +478,7 @@ ko:
       subject: "%{name}님이 디아스포라*에서 나와 공유를 시작했습니다."
       view_profile: "%{name}님의 프로필 보기"
     thanks: 고맙습니다.
-    to_change_your_notification_settings: "내 알림 설정을 바꾸기 위해"
+    to_change_your_notification_settings: "하세요"
   ok: "확인"
   or: "또는"
   password: "암호"
@@ -846,7 +846,6 @@ ko:
       connect_to_cubbies: "Cubbi.es에 연결하기"
       connecting_is_simple: "내 Cubbi.es에 있는 account 메뉴의 두 항목을 채워넣기만 하면 내 다이스포라 계정을 연결할 수 있습니다."
       daniels_account: "Daniel님의 디아스포라 계정"
-      log_in_with_diaspora_is_comming: "곧 디아스포라 계정이 아닌 별도의 계정을 만들지 않고도 새 애플리케이션에 연결할 수 있게됩니다."
       love_to_try: "꼭 써보세요!"
       making_the_connection: "연결하기"
       screenshot_explanation: "%{link1}. 이 cubby는 %{link2}에 연결되어 있습니다."

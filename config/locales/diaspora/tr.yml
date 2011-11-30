@@ -846,7 +846,6 @@ tr:
       connect_to_cubbies: "Cubbi.es Bağlan"
       connecting_is_simple: "Diaspora'da hesap bağlama basittir! Sadece Diaspora ID'nizi girin (<b>%{diaspora_id}</b>) ve Cubbi.es <a href='%{href_link}'>ayarlar</a> sayfasına gidin."
       daniels_account: "Daniel'in Diaspora hesabı"
-      log_in_with_diaspora_is_comming: "Çok yakında,yeni bir hesap oluşturmadan diğer Diaspora uygualamlarına bağlanabileceksiniz."
       love_to_try: "Bunu denemek isterdim."
       making_the_connection: "Bağlantı Kurma"
       screenshot_explanation: "%{link1}.  This particular cubby is linked to %{link2}."

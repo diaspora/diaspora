@@ -6,22 +6,22 @@
 el:
   javascripts:
     aspect_dropdown:
-      add_to_aspect: "Προσθήκη σε πτυχή"
+      add_to_aspect: "Προσθήκη επαφής"
       all_aspects: "Όλες οι πτυχές"
       error: "Couldn't start sharing with {{name}}.  Are you ignoring them?"
       select_aspects: "Επιλογή πτυχών"
-      started_sharing_with: "You have started sharing with {{name}}!"
-      stopped_sharing_with: "You have stopped sharing with {{name}}."
+      started_sharing_with: "Ξεκινήσατε να διαμοιράζεστε με τον χρήστη {{name}}!"
+      stopped_sharing_with: "Σταματήσατε να διαμοιράζεστε με τον χρήστη {{name}}."
       toggle:
         few: "Σε {{count}} πτυχές"
         many: "Σε {{count}} πτυχές"
         one: "Σε {{count}} πτυχές"
         other: "Σε {{count}} πτυχές"
         two: "Σε {{count}} πτυχές"
-        zero: "Προσθήκη επαφής"
+        zero: "Επιλέξτε πτυχές"
     aspect_navigation:
       deselect_all: "Εξαίρεση όλων"
-      no_aspects: "Καμία Πτυχή δεν έχει επιλεγεί "
+      no_aspects: "Καμία πτυχή δεν έχει επιλεγεί "
       select_all: "Επιλογή όλων"
     comments:
       hide: "απόκρυψη σχολίων"
@@ -30,24 +30,24 @@ el:
     failed_to_like: Αποτυχία!
     failed_to_post_message: "Αποτυχία δημοσίευσης μηνύματος!"
     getting_started:
-      alright_ill_wait: "Alright, I'll wait."
-      hey: "Hey, {{name}}!"
-      no_tags: "Hey, you haven't followed any tags!  Continue anyway?"
-      preparing_your_stream: "Preparing your personialized stream..."
+      alright_ill_wait: "Εντάξει, θα περιμένω."
+      hey: "Γεια σου, {{name}}!"
+      no_tags: "Γεια, δεν ακολουθείς ακόμα καμία ετικέτα! Συνεχίζουμε παρ' όλ' αυτά;"
+      preparing_your_stream: "Ετοιμάζεται η προσωπική σας ροή..."
     infinite_scroll:
       no_more: "Δεν υπάρχουν άλλες δημοσιεύσεις."
     photo_uploader:
-      looking_good: "OMG, you look awesome!"
+      looking_good: "Ναι! Σκίζεις!"
     publisher:
       at_least_one_aspect: "Πρέπει να κάνετε δημοσίευση σε τουλάχιστον μια πτυχή"
       limited: "Περιορισμένο - οι δημοσιεύσεις σας θα είναι ορατές μόνο από τα άτομα με τα οποία διαμοιράζεστε. "
       public: "Δημόσιο - οι δημοσιεύσεις σας θα είναι ορατές στον καθένα και θα μπορούν να βρεθούν από τις μηχανές αναζήτησης."
     reshares:
-      duplicate: "Έχετε ήδη κοινοποιήσει αυτή τη δημοσίευση!"
+      duplicate: "Αυτό είναι τόσο καλό ε; Έχετε ήδη κοινοποιήσει αυτή τη δημοσίευση!"
     search_for: "Αναζήτηση για {{name}}"
     show_more: "Προβολή περισσότερων"
     tags:
-      wasnt_that_interesting: "OK, I suppose #{{tagName}} wasn't all that interesting..."
+      wasnt_that_interesting: "OK, φαντάζομαι πως το #{{tagName}} δεν ήταν και τόσο ενδιαφέρον τελικά..."
     timeago:
       day: "μία μέρα"
       days: "%d μέρες"
@@ -57,8 +57,8 @@ el:
       minutes: "%d λεπτά"
       month: "περίπου ένα μήνα"
       months: "%d μήνες"
-      prefixAgo: "javascripts:timeago:prefixAgo"
-      prefixFromNow: "javascripts:timeago:prefixFromNow"
+      prefixAgo: ""
+      prefixFromNow: ""
       seconds: "λιγότερο από ένα λεπτό"
       suffixAgo: "πριν"
       suffixFromNow: "από τώρα"

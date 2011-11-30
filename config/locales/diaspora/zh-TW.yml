@@ -846,7 +846,6 @@ zh-TW:
       connect_to_cubbies: "與 Cubbi.es 連結"
       connecting_is_simple: "跟 Diapora 帳號連結很簡單! 只要從 cubbies <a href='%{href_link}'>設定頁面</a>輸入你的 Diaspora 識別碼, 再按下\"連結\"就可以了."
       daniels_account: "Daniel 的 Diaspora 帳號"
-      log_in_with_diaspora_is_comming: "很快你就可以使用 Diaspora 帳號連線至新的應用程式, 而不用另外再開新的帳號了."
       love_to_try: 希望你能試試看.
       making_the_connection: "建立連結"
       screenshot_explanation: "%{link1}. 這個cubby頁面是連結至%{link2}."

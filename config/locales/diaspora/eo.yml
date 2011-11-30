@@ -846,7 +846,6 @@ eo:
       connect_to_cubbies: "Konekti al Cubbi.es"
       connecting_is_simple: "Konekti vian DIASPORA* konton estas tiel facila!  Skribu vian DIASPORA* uzantnomon (<b>%{diaspora_id}</b>) de via cubbi.es <a href='%{href_link}'>settings page</a> kaj kliku \"connect\"."
       daniels_account: "La DIASPORA* konto de Daniel"
-      log_in_with_diaspora_is_comming: "Baldaŭ, vi povos konekti novan aplikaĵon sen devon krei konton, kiu estas malsama ol via DIASPORA* konto."
       love_to_try: "Ni vin amus, se vi provi ĝin."
       making_the_connection: "Konektanta"
       screenshot_explanation: "%{link1}.  Tiu aparta cubby ligas kun %{link2}."
