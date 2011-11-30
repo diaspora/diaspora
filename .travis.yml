@@ -8,9 +8,7 @@ rvm:
   - 1.9.2
 
 env:
-  - DB=postgres BUILD_TYPE=cucumber
   - DB=postgres BUILD_TYPE=other
-  - DB=mysql BUILD_TYPE=cucumber
   - DB=mysql BUILD_TYPE=other
 
 before_install: gem install bundler --pre
