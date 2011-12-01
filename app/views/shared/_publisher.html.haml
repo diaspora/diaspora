@@ -40,7 +40,7 @@
             = status.hidden_field :text, :value => h(publisher_hidden_text), :class => 'clear_on_submit'
 
             #file-upload{:title => t('.upload_photos')}
-              = image_tag 'icons/camera.png'
+              = image_tag 'icons/camera.png', :alt => t('.upload_photos').titleize
 
       - if publisher_public
         = hidden_field_tag 'aspect_ids[]', "public"
