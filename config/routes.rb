@@ -59,8 +59,6 @@ Diaspora::Application.routes.draw do
   resources :mentions, :only => [:index]
   resources "tag_followings", :only => [:create]
 
-  get 'comment_stream' => 'comment_stream#index', :as => 'comment_stream'
-
   get 'like_stream' => 'like_stream#index', :as => 'like_stream'
 
   get 'tags/:name' => 'tags#show', :as => 'tag'
@@ -188,7 +186,7 @@ Diaspora::Application.routes.draw do
 
   #Protocol Url
   get 'protocol' => redirect("https://github.com/diaspora/diaspora/wiki/Diaspora%27s-federation-protocol")
-  
+
   # Resque web
   if AppConfig[:mount_resque_web]
     mount Resque::Server.new, :at => '/resque-jobs', :as => "resque_web"
