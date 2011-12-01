@@ -145,6 +145,12 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  # @param stream_klass [Constant]
+  # @return [String] JSON representation of posts given a [Stream] constant.
+  def stream_json(stream_klass)
+    render_for_api :backbone, :json => stream(stream_klass).stream_posts, :root => :posts
+  end
+
   def stream(stream_klass)
     authenticate_user!
     save_sort_order

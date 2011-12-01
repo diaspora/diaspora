@@ -132,7 +132,7 @@ class PeopleController < ApplicationController
     else
       respond_to do |format|
         format.all { respond_with @person, :locals => {:post_type => :all} }
-        format.json{ render :json => @stream.stream_posts.to_json(:include => {:author => {:include => :profile}}) }
+        format.json{ render_for_api :backbone, :json => @stream.stream_posts, :root => :posts }
       end
     end
   end

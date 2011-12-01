@@ -46,7 +46,7 @@ class TagsController < ApplicationController
           return
         end
       end
-      format.json{ render :json => @stream.stream_posts.to_json(:include => {:author => {:include => :profile}}) }
+      format.json{ render_for_api :backbone, :json => @stream.stream_posts, :root => :posts }
     end
   end
 

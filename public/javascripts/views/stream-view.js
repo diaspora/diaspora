@@ -18,7 +18,9 @@ $(function() {
     },
 
     appendPost: function(model) {
-      $(this.el).append(this.template(model.toJSON()));
+      var post = $(this.template(model.toJSON()));
+      $(this.el).append(post);
+      Diaspora.BaseWidget.instantiate("StreamElement", post);
     },
 
     collectionFetched: function() {

@@ -16,6 +16,9 @@ class Post < ActiveRecord::Base
     t.add :guid
     t.add :text
     t.add :created_at
+    t.add :comments_count
+    t.add :last_three_comments
+    t.add :provider_display_name
     t.add :author, :template => :post
   end
 
@@ -32,6 +35,12 @@ class Post < ActiveRecord::Base
 
   #scopes
   scope :includes_for_a_stream, includes(:o_embed_cache, {:author => :profile}, :mentions => {:person => :profile}) #note should include root and photos, but i think those are both on status_message
+
+  # gives the last three comments on the post
+  def last_three_comments
+    return if self.comments_count == 0
+    self.comments.last(3)
+  end
 
   def self.excluding_blocks(user)
     people = user.blocks.includes(:person).map{|b| b.person}

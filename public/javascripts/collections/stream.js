@@ -10,5 +10,9 @@ var BackboneStream = Backbone.Collection.extend({
     }
   },
 
-  model: Post
+  model: Post,
+
+  parse: function(resp){
+    return resp.posts;
+  }
 });

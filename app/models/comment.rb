@@ -16,6 +16,16 @@ class Comment < ActiveRecord::Base
   extract_tags_from :text
   before_create :build_tags
 
+  # NOTE API V1 to be extracted
+  acts_as_api
+  api_accessible :backbone do |t|
+    t.add :id
+    t.add :guid
+    t.add :text
+    t.add :author, :template => :post
+  end
+
+
   xml_attr :text
   xml_attr :diaspora_handle
 
@@ -55,7 +65,7 @@ class Comment < ActiveRecord::Base
 
   def notification_type(user, person)
     if self.post.author == user.person
-      return Notifications::CommentOnPost
+      
     elsif self.post.comments.where(:author_id => user.person.id) != [] && self.author_id != user.person.id
       return Notifications::AlsoCommented
     else

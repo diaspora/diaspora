@@ -10,10 +10,11 @@ class MentionsController < ApplicationController
 
   def index
     @backbone = true
+    stream_klass = Stream::Mention
 
     respond_with do |format|
-      format.html{ default_stream_action(Stream::Mention) }
-      format.json{ render :json => stream(Stream::Mention).stream_posts.to_json(:include => {:author => {:include => :profile}}) }
+      format.html{ default_stream_action(stream_klass) }
+      format.json{ stream_json(stream_klass) }
     end
   end
 end

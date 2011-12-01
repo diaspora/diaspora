@@ -1,6 +1,4 @@
-<% var post = typeof(status_message) === "undefined" ? (typeof(reshare) === "undefined" ? photo : reshare) : status_message; %>
-
-<div id="<%= post.guid %>" class="stream_element">
+<div id="<%= guid %>" class="stream_element">
   <div class="right controls">
     <a href="#" class="block_user control_icon">
      <img src="/images/icons/ignoreuser.png">
@@ -15,37 +13,82 @@
 
   <div class="sm_body">
 
-    <a href="/people/<%= post.author.id %>">
-      <img src="<%= post.author.profile.image_url_small %>" class="avatar" data-person-id="<%= post.author.id %>"/>
+    <a href="/people/<%= author.id %>">
+      <img src="<%= author.avatar.small %>" class="avatar" data-person-id="<%= author.id %>"/>
     </a>
 
     <div class="content">
       <div class="post_initial_info">
         <span class="from">
-          <a href="/people/<%= post.author.id %>">
-            <%= post.author.profile.full_name %>
+          <a href="/people/<%= author.id %>">
+            <%= author.name %>
           </a>
         </span>
 
         <span class="details">
           -
-          <a href="/posts/<%= post.id %>">
-            <time class="timeago" datetime="<%= post.created_at %>"/>
+          <a href="/posts/<%= id %>">
+            <time class="timeago" datetime="<%= created_at %>"/>
           </a>
         </span>
 
         <p>
-          <%= post.text %>
+          <%= text %>
         </p>
 
         <div class="info">
           <span class="via">
-            via <%= post.provider_display_name %>
+            via <%= provider_display_name %>
           </span>
         </div>
 
         <div class="comments">
-          comments
+          <div class="comment_stream">
+            <ul class="comments" >
+
+              <% _.each(last_three_comments, function(comment) { %>
+                <li id="<%= comment.guid %>" class="comment">
+
+                  <a href="/people/<%= author.id %>">
+                    <img src="<%= comment.author.avatar.small %>" class="avatar" data-person-id="<%= comment.author.id %>"/>
+                  </a>
+
+                  <div class="content">
+                    <span class="from">
+                      <a href="/people/<%= comment.author.id %>">
+                        <%= comment.author.name %>
+                      </a>
+                    </span>
+
+                    <p>
+                      <%= comment.text %>
+                    </p>
+
+                    <div class="comment_info">
+                      <time class="timeago" datetime="<%= comment.created_at %>"/>
+                    </div>
+
+                  </div>
+                </li>
+              <% }) %>
+
+            </ul>
+
+            <div class="new_comment_form_wrapper">
+              <form accept-charset="UTF-8" action="/posts/<%= id %>/comments" class="new_comment" data-remote="true" id="new_comment_on_<%= id %>" method="post">
+                <!-- <img alt="Bob Grimm" class="avatar" data-person_id="2" src="http://localhost:3000/images/user/wolf.jpg" title="Bob Grimm"> -->
+
+                <p>
+                  <label for="comment_text_on_<%= id %>">Comment</label>
+                  <textarea class="comment_box" id="comment_text_on_<%= id %>" name="text" rows="2" />
+                </p>
+                <div class="submit_button">
+                  <input class="comment_submit button creation" data-disable-with="Commenting..." id="comment_submit_<%= id %>" name="commit" type="submit" value="Comment" />
+                </div>
+              </form>
+            </div>
+
+          </div>
         </div>
 
       </div>
