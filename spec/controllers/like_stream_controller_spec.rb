@@ -5,6 +5,10 @@
 require 'spec_helper'
 
 describe LikeStreamController do
+  before do
+    sign_in :user, alice
+  end
+
   describe 'index' do
     it 'succeeds' do
       get :index

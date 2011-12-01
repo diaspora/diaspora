@@ -17,13 +17,9 @@ describe Webfinger do
 
   let(:good_request) { FakeHttpRequest.new(:success)}
 
-  let(:diaspora_xrd) {File.open(File.join(Rails.root, 'spec/fixtures/host-meta.fixture.html')).read}
-  let(:diaspora_finger) {File.open(File.join(Rails.root, 'spec/fixtures/webfinger.fixture.html')).read}
-  let(:hcard_xml) {File.open(File.join(Rails.root, 'spec/fixtures/hcard.fixture.html')).read}
-
-
-  let(:non_diaspora_xrd) {File.open(File.join(Rails.root, 'spec/fixtures/nonseed_finger_xrd')).read}
-  let(:non_diaspora_hcard) {File.open(File.join(Rails.root, 'spec/fixtures/evan_hcard')).read}
+  let(:diaspora_xrd) {puts "requiring host-meta"; File.open(File.join(Rails.root, 'spec', 'fixtures', 'host-meta.fixture.html')).read}
+  let(:diaspora_finger) {File.open(File.join(Rails.root, 'spec', 'fixtures', 'webfinger.fixture.html')).read}
+  let(:hcard_xml) {File.open(File.join(Rails.root, 'spec', 'fixtures', 'hcard.fixture.html')).read}
 
   context 'setup' do
 

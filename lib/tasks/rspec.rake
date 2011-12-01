@@ -12,8 +12,15 @@ begin
 
   task :stats => "spec:statsetup"
 
-  desc "Run all specs in spec directory (excluding plugin specs)"
-  RSpec::Core::RakeTask.new(:spec => spec_prereq)
+  desc "Run all specs in spec directory (excluding those tagged performance)"
+  RSpec::Core::RakeTask.new(:spec => :'spec:fixtures') do |t|
+    t.rspec_opts = ['--tag ~fixture --tag ~performance']
+  end
+
+  desc "Run all specs that generate fixtures for rspec or jasmine"
+  RSpec::Core::RakeTask.new(:'spec:fixtures' => spec_prereq) do |t|
+    t.rspec_opts = ['--tag fixture']
+  end
 
   desc "Run the specs with rcov"
   RSpec::Core::RakeTask.new(:rcov => spec_prereq) do |t|

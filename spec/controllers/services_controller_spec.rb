@@ -157,7 +157,7 @@ describe ServicesController do
 
     it 'redirects to a prefilled facebook message url' do
       put :inviter, @invite_params
-      response.location.should match(/https:\/\/www\.facebook\.com\/\?compose=1&id=.*&subject=.*&message=.*&sk=messages/)
+      response.location.should match(/https:\/\/www\.facebook\.com\/messages\/.*?msg_prefill=.*/)
     end
 
     it 'creates an invitation' do

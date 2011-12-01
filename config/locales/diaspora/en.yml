@@ -889,10 +889,6 @@ en:
       title: "@Mentions"
       contacts_title: "People who mentioned you"
 
-    comment_stream:
-      title: "Commented Posts"
-      contacts_title: "People who posts you commented"
-
     like_stream:
       title: "Like Stream"
       contacts_title: "People who Posts you like"

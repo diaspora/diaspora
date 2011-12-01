@@ -22,8 +22,6 @@ module StreamHelper
       public_stream_path(:max_time => time_for_scroll(opts[:ajax_stream], @stream), :sort_order => session[:sort_order])
     elsif controller.instance_of?(AspectsController)
       aspects_path(:max_time => time_for_scroll(opts[:ajax_stream], @stream), :a_ids => @stream.aspect_ids, :sort_order => session[:sort_order])
-    elsif controller.instance_of?(CommentStreamController)
-      comment_stream_path(:max_time => time_for_scroll(opts[:ajax_stream], @stream), :sort_order => session[:sort_order])
     elsif controller.instance_of?(LikeStreamController)
       like_stream_path(:max_time => time_for_scroll(opts[:ajax_stream], @stream), :sort_order => session[:sort_order])
     else
