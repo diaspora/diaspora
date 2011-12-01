@@ -19,7 +19,7 @@ class Post < ActiveRecord::Base
     t.add :comments_count
     t.add :last_three_comments
     t.add :provider_display_name
-    t.add :author, :template => :post
+    t.add :author
   end
 
   xml_attr :provider_display_name

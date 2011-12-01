@@ -60,7 +60,7 @@
     - if @person
       %link{:rel => "alternate", :href => "#{@person.public_url}.atom", :type => "application/atom+xml", :title => "#{t('.public_feed', :name => @person.name)}"}
 
-  %body{:class => "#{yield(:body_class)}"}
+  %body{:class => "#{yield(:body_class)}", 'data-current-user-metadata' => CGI::escape(current_user.person.as_api_response(:backbone).to_json) }
 
     - unless @page == :logged_out
       - flash.each do |name, msg|
