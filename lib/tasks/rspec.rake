@@ -14,7 +14,7 @@ begin
 
   desc "Run all specs in spec directory (excluding those tagged performance)"
   RSpec::Core::RakeTask.new(:spec => :'spec:fixtures') do |t|
-    t.rspec_opts = ['--tag ~fixture ~performance']
+    t.rspec_opts = ['--tag ~fixture --tag ~performance']
   end
 
   desc "Run all specs that generate fixtures for rspec or jasmine"
