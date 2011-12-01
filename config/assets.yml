@@ -15,6 +15,7 @@ javascripts:
     - public/javascripts/vendor/underscore.js
     - public/javascripts/vendor/backbone.js
 
+    - public/javascripts/app.js
     - public/javascripts/models/*
     - public/javascripts/collections/*
     - public/javascripts/views/*

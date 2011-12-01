@@ -42,6 +42,7 @@ class Services::Facebook < Service
   end
 
   def save_friends
+    return
     url = "https://graph.facebook.com/me/friends?fields[]=name&fields[]=picture&access_token=#{URI.escape(self.access_token)}"
     response = Faraday.get(url)
     data = JSON.parse(response.body)['data']

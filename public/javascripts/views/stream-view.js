@@ -18,13 +18,17 @@ $(function() {
     },
 
     appendPost: function(model) {
-      var post = $(this.template(model.toJSON()));
+      var post = $(this.template($.extend(
+        model.toJSON(),
+        App.currentUser()
+      )));
       $(this.el).append(post);
       Diaspora.BaseWidget.instantiate("StreamElement", post);
     },
 
     collectionFetched: function() {
       this.$(".details time").timeago();
+      this.$("label").inFieldLabels();
 
       this.$("#paginate").remove();
       $(this.el).append($("<a>", {

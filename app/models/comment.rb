@@ -23,6 +23,7 @@ class Comment < ActiveRecord::Base
     t.add :guid
     t.add :text
     t.add :author
+    t.add :created_at
   end
 
 

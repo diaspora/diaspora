@@ -1,8 +1,11 @@
 <div id="<%= guid %>" class="stream_element">
   <div class="right controls">
-    <a href="#" class="block_user control_icon">
-     <img src="/images/icons/ignoreuser.png">
-    </a>
+
+    <% if(author.id != current_user.id) { %>
+      <a href="#" class="block_user control_icon">
+       <img src="/images/icons/ignoreuser.png">
+      </a>
+    <% } %>
 
     <a href="#" class="delete control_icon remove_post">
       <img src="/images/deletelabel.png"/>
@@ -37,14 +40,33 @@
         </p>
 
         <div class="info">
-          <span class="via">
-            via <%= provider_display_name %>
+          <% if(provider_display_name != null) { %>
+            <span class="via">
+              via <%= provider_display_name %>
+              -
+            </span>
+          <% } %>
+          <span class="post_scope">
+            <%= public === true ? "Public" : "Limited" %>
+            -
           </span>
+          <a href="#" class="focus_comment_textarea">
+            Comment
+          </a>
         </div>
 
         <div class="comments">
           <div class="comment_stream">
-            <ul class="comments" >
+
+            <ul class="show_comments <%= comments_count <= 3 ? 'hidden' : '' %>">
+              <li>
+                <a href="/posts/<%= id %>/comments" class="toggle_post_comments">
+                  Show <%= comments_count - 3 %> more comments
+                </a>
+              </li>
+            </ul>
+
+            <ul class="comments">
 
               <% _.each(last_three_comments, function(comment) { %>
                 <li id="<%= comment.guid %>" class="comment">
@@ -74,9 +96,11 @@
 
             </ul>
 
-            <div class="new_comment_form_wrapper">
+            <div class="new_comment_form_wrapper <%= comments_count > 0 ? '' : 'hidden' %>">
               <form accept-charset="UTF-8" action="/posts/<%= id %>/comments" class="new_comment" data-remote="true" id="new_comment_on_<%= id %>" method="post">
-                <!-- <img alt="Bob Grimm" class="avatar" data-person_id="2" src="http://localhost:3000/images/user/wolf.jpg" title="Bob Grimm"> -->
+                <a href="/people/<%= current_user.id %>">
+                  <img src="<%= current_user.avatar.small %>" class="avatar" data-person-id="<%= current_user.id %>"/>
+                </a>
 
                 <p>
                   <label for="comment_text_on_<%= id %>">Comment</label>

@@ -15,6 +15,7 @@ class Post < ActiveRecord::Base
     t.add :id
     t.add :guid
     t.add :text
+    t.add :public
     t.add :created_at
     t.add :comments_count
     t.add :last_three_comments
