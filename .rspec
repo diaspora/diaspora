@@ -1,3 +1,5 @@
 --format Fuubar
 --profile
 --color
+--tag ~performance
+--tag ~fixture
