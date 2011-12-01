@@ -11,7 +11,7 @@ Feature: Close Account
     And I put in my password in "close_account_password"
     And I preemptively confirm the alert
     And I press "Close Account"
-    Then I should be on the new user session page
+    Then I should be on the home page
 
     When I try to sign in manually
     Then I should be on the new user session page
