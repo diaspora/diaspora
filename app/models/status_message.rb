@@ -38,7 +38,7 @@ class StatusMessage < Post
   }
   
   scope :commented_by, lambda { |person|
-    select('DISTINCT "posts".*').joins(:comments).where(:comments => {:author_id => person.id})
+    select('DISTINCT posts.*').joins(:comments).where(:comments => {:author_id => person.id})
   }
 
   scope :liked_by, lambda { |person|
