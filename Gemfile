@@ -33,7 +33,7 @@ gem 'settingslogic', '2.0.6'
 
 gem 'activerecord-import'
 gem 'foreigner', '0.9.1'
-gem 'mysql2', '0.2.13' if ENV['DB'].nil? || ENV['DB'] == 'all' || ENV['DB'] == 'mysql'
+gem 'mysql2', "~> 0.2.13", :git => "git://github.com/brianmario/mysql2.git", :ref => "5c4ea4cf1e" if ENV['DB'].nil? || ENV['DB'] == 'all' || ENV['DB'] == 'mysql'
 gem 'pg' if ENV['DB'] == 'all' || ENV['DB'] == 'postgres'
 gem 'sqlite3' if ENV['DB'] == 'all' || ENV['DB'] == 'sqlite'
 
@@ -146,5 +146,5 @@ group :development do
   gem 'ruby-debug19', :platforms => :ruby_19
   gem 'ruby-debug', :platforms => :mri_18
   gem 'sod', :git => 'git://github.com/MikeSofaer/sod.git', :require => false
-  gem 'yard'
+  #gem 'yard'
 end
