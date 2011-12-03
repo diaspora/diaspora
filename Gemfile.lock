@@ -23,6 +23,13 @@ GIT
       rails (>= 3.0.0)
 
 GIT
+  remote: git://github.com/brianmario/mysql2.git
+  revision: 5c4ea4cf1e659731f9ea73253aa8aecb044c9319
+  ref: 5c4ea4cf1e
+  specs:
+    mysql2 (0.2.13)
+
+GIT
   remote: git://github.com/diaspora/acts-as-taggable-on.git
   revision: c3592fe1a906f6ff1cd12766c5cf1152c51eec40
   specs:
@@ -268,7 +275,6 @@ GEM
     multi_json (1.0.3)
     multi_xml (0.2.2)
     multipart-post (1.1.3)
-    mysql2 (0.2.13)
     net-ldap (0.2.2)
     net-scp (1.0.4)
       net-ssh (>= 1.99.1)
@@ -463,7 +469,6 @@ GEM
       crack (>= 0.1.7)
     will_paginate (3.0.pre2)
     xml-simple (1.1.1)
-    yard (0.7.2)
     yui-compressor (0.9.6)
       POpen4 (>= 0.1.4)
 
@@ -517,7 +522,7 @@ DEPENDENCIES
   mobile-fu
   mock_redis
   mongrel
-  mysql2 (= 0.2.13)
+  mysql2 (~> 0.2.13)!
   newrelic_rpm
   nokogiri
   oauth2-provider (= 0.0.16)
@@ -550,4 +555,3 @@ DEPENDENCIES
   vanna!
   webmock
   will_paginate (= 3.0.pre2)
-  yard
