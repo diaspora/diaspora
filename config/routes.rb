@@ -59,6 +59,8 @@ Diaspora::Application.routes.draw do
   resources :mentions, :only => [:index]
   resources "tag_followings", :only => [:create]
 
+  get 'comment_stream' => 'comment_stream#index', :as => 'comment_stream'
+
   get 'like_stream' => 'like_stream#index', :as => 'like_stream'
 
   get 'tags/:name' => 'tags#show', :as => 'tag'
