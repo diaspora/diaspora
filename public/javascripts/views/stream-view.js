@@ -27,7 +27,7 @@ $(function() {
     },
 
     collectionFetched: function() {
-      this.$(".details time").timeago();
+      this.$("time").timeago();
       this.$("label").inFieldLabels();
 
       this.$("#paginate").remove();

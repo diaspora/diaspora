@@ -2,8 +2,8 @@
   <div class="right controls">
 
     <% if(author.id != current_user.id) { %>
-      <a href="#" class="block_user control_icon">
-       <img src="/images/icons/ignoreuser.png">
+      <a href="/blocks?block[person_id]=<%= author.id %>" class="block_user control_icon" data-confirm="Ignore and remove user from all aspects?" data-method="post" rel="nofollow" data-original-title="Ignore">
+        <img alt="Ignoreuser" src="/images/icons/ignoreuser.png">
       </a>
     <% } %>
 
@@ -55,6 +55,18 @@
           </a>
         </div>
 
+        <div class="likes on_post">
+          <div class="likes_container">
+            <% if(likes_count > 0){ %>
+              <img alt="Heart" src="/images/icons/heart.png?1322618579"> 
+              <a href="/posts/<%= id %>/likes" class="expand_likes">
+                <%= likes_count %> like
+              </a>
+              <span class="hidden likes_list"></span>
+            <% } %>
+          </div>
+        </div>
+
         <div class="comments">
           <div class="comment_stream">
 
@@ -70,6 +82,14 @@
 
               <% _.each(last_three_comments, function(comment) { %>
                 <li id="<%= comment.guid %>" class="comment">
+
+                  <% if(comment.author.id == current_user.id || author.id == current_user.id) { %>
+                    <div class="right controls">
+                      <a href="/posts/<%= id %>/comments/<%= comment.id %>" class="delete comment_delete" data-original-title="Delete">
+                        <img alt="Deletelabel" src="/images/deletelabel.png">
+                      </a>
+                    </div>
+                  <% } %>
 
                   <a href="/people/<%= author.id %>">
                     <img src="<%= comment.author.avatar.small %>" class="avatar" data-person-id="<%= comment.author.id %>"/>

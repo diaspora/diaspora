@@ -18,6 +18,7 @@ class Post < ActiveRecord::Base
     t.add :public
     t.add :created_at
     t.add :comments_count
+    t.add :likes_count
     t.add :last_three_comments
     t.add :provider_display_name
     t.add :author
