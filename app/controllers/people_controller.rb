@@ -19,12 +19,15 @@ class PeopleController < ApplicationController
     @aspect = :search
     params[:q] ||= params[:term] || ''
 
-    if (params[:q][0] == 35 || params[:q][0] == '#') && params[:q].length > 1
-      redirect_to tag_path(:name => params[:q].gsub(/[#\.]/, ''), :q => params[:q])
-      return
-    elsif (params[:q][0] == 35 || params[:q][0] == '#') && params[:q].length == 1
-      flash[:error] = I18n.t('tags.show.none', :name => params[:q])
-      redirect_to :back
+    if params[:q][0] == 35 || params[:q][0] == '#'
+      if params[:q].length > 1
+        tag_name = params[:q].gsub(/[#\.]/, '')
+        redirect_to tag_path(:name => tag_name, :q => params[:q])
+        return
+      else
+        flash[:error] = I18n.t('tags.show.none', :name => params[:q])
+        redirect_to :back
+      end
     end
 
     limit = params[:limit] ? params[:limit].to_i : 15
