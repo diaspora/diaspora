@@ -1,4 +1,4 @@
-var BackboneStream = Backbone.Collection.extend({
+App.Collections.Stream = Backbone.Collection.extend({
   url: function() {
     var path = document.location.pathname;
 
@@ -10,7 +10,7 @@ var BackboneStream = Backbone.Collection.extend({
     }
   },
 
-  model: Post,
+  model: App.Models.Post,
 
   parse: function(resp){
     return resp.posts;

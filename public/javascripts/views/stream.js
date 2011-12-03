@@ -1,5 +1,5 @@
 $(function() {
-  window.StreamView = Backbone.View.extend({
+  App.Views.Stream = Backbone.View.extend({
 
     el: $("#main_stream"),
 
@@ -12,7 +12,7 @@ $(function() {
     initialize: function(){
       _.bindAll(this, "appendPost", "collectionFetched");
 
-      this.collection = new window.BackboneStream;
+      this.collection = new App.Collections.Stream;
       this.collection.bind("add", this.appendPost);
       this.loadMore();
     },
@@ -50,6 +50,6 @@ $(function() {
   });
 
   if(window.useBackbone) {
-    window.stream = new window.StreamView;
+    window.stream = new App.Views.Stream;
   }
 });
