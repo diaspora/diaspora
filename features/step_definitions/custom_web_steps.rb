@@ -115,11 +115,7 @@ end
 
 Then /^(?:|I )should not see a "([^\"]*)"(?: within "([^\"]*)")?$/ do |selector, scope_selector|
   with_scope(scope_selector) do
-    if page.has_css?(selector)
-      find(:css, selector).visible?.should be_false
-    else
-      page.has_css?(selector).should be_false
-    end
+    page.has_css?(selector, :visible => true).should be_false
   end
 end
 
@@ -174,11 +170,11 @@ Then /^the "([^"]*)" field(?: within "([^"]*)")? should be filled with "([^"]*)"
 end
 
 Then /^I should see (\d+) posts$/ do |n_posts|
-  wait_until(30) { all("#main_stream .stream_element").length == n_posts.to_i }
+  has_css?("#main_stream .stream_element", :count => n_posts.to_i).should be_true
 end
 
 Then /^I should see (\d+) contacts$/ do |n_posts|
-  wait_until(30) { all("#people_stream .stream_element").length == n_posts.to_i }
+  has_css?("#people_stream .stream_element", :count => n_posts.to_i).should be_true
 end
 
 And /^I scroll down$/ do
