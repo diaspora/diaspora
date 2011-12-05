@@ -891,11 +891,11 @@ en:
 
     comment_stream:
       title: "Commented Posts"
-      contacts_title: "People who posts you commented"
+      contacts_title: "People whose posts you commented on"
 
     like_stream:
       title: "Like Stream"
-      contacts_title: "People who posts you like"
+      contacts_title: "People whose posts you like"
 
     followed_tag:
       title: "#Followed Tags"
