@@ -761,6 +761,8 @@ en:
       whats_on_your_mind: "What's on your mind?"
       publishing_to: "publishing to: "
       discard_post: "Discard post"
+      location: "Location"
+      include_location: "Include location?"
       new_user_prefill:
         newhere: "NewHere"
         hello: "Hey everyone, I'm #%{new_user_tag}. "
@@ -955,6 +957,8 @@ en:
       show_community_spotlight: "Show Community Spotlight in Stream?"
       show_getting_started: 'Re-enable Getting Started'
       getting_started: 'New User Prefrences'
+      location_preferences: "Location services preferences"
+      enable_location_services: "Enable location services"
 
     privacy_settings:
       title: "Privacy Settings"

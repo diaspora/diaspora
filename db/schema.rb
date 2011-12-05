@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111101202137) do
+ActiveRecord::Schema.define(:version => 20111118032644) do
 
   create_table "aspect_memberships", :force => true do |t|
     t.integer  "aspect_id",  :null => false
@@ -50,6 +50,13 @@ ActiveRecord::Schema.define(:version => 20111101202137) do
   create_table "blocks", :force => true do |t|
     t.integer "user_id"
     t.integer "person_id"
+  end
+
+  create_table "check_ins", :force => true do |t|
+    t.integer  "location_id"
+    t.integer  "post_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "comments", :force => true do |t|
@@ -137,6 +144,14 @@ ActiveRecord::Schema.define(:version => 20111101202137) do
   add_index "likes", ["guid"], :name => "index_likes_on_guid", :unique => true
   add_index "likes", ["target_id", "author_id", "target_type"], :name => "index_likes_on_target_id_and_author_id_and_target_type", :unique => true
   add_index "likes", ["target_id"], :name => "index_likes_on_post_id"
+
+  create_table "locations", :force => true do |t|
+    t.float    "longitude"
+    t.float    "latitude"
+    t.string   "address"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "mentions", :force => true do |t|
     t.integer "post_id",   :null => false
@@ -453,6 +468,7 @@ ActiveRecord::Schema.define(:version => 20111101202137) do
     t.string   "confirm_email_token",                :limit => 30
     t.datetime "locked_at"
     t.boolean  "show_community_spotlight_in_stream",                :default => true,  :null => false
+    t.boolean  "enable_location_services"
   end
 
   add_index "users", ["authentication_token"], :name => "index_users_on_authentication_token", :unique => true

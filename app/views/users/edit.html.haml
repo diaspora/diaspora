@@ -91,6 +91,23 @@
   %hr
   %br
 
+  %h3#location-preferences
+    = t('.location_preferences')
+  = form_for current_user, :url => user_path, :html => { :method => :put } do |f|
+    = f.error_messages
+
+    %p.checkbox_select
+      = f.label :enable_location_services, t('.enable_location_services')
+      = f.check_box :enable_location_services
+
+    %br
+    = f.submit t('.change'), :class => 'button'
+
+  %br
+  %br
+  %hr
+  %br
+
   %h3#getting-started-preferences
     = t('.show_getting_started') 
   = form_for current_user, :url => user_path, :html => { :method => :put } do |f|

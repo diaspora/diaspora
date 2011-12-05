@@ -51,6 +51,17 @@ class StatusMessagesController < ApplicationController
       @status_message.photos << photos
     end
 
+    if params[:location] and !params[:location][:location].empty? and params[:location][:include_location] != 0
+      search = Geocoder.search(request.remote_ip).first.data
+      if params[:location][:location] == (search['city'] ? search['city'] + ", " : "") + (search['region_code'] ? search['region_code'] + ", " : "") + (search['country_code'] ? search['country_code'] : "")
+        addr = (search['city'] ? search['city'] + ", " : "") + (search['region_code'] ? search['region_code'] + ", " : "") + (search['country_code'] ? search['country_code'] : "")
+        location = Location.find_by_address(addr).nil? ? Location.create!(:address => addr) : Location.find_by_address(addr)
+      else
+        location = Location.find_by_address(params[:location][:location]).nil? ? Location.create!(:address => params[:location][:location]) : Location.find_by_address(addr)
+      end
+      @status_message.locations << location
+    end
+
     if @status_message.save
       # always send to all aspects if public
       if params[:status_message][:public] || params[:status_message][:aspect_ids].first == "all_aspects"

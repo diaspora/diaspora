@@ -51,6 +51,12 @@
           = hidden_field_tag 'aspect_ids[]', aspect_id.to_s
 
       .options_and_submit
+        #location_services
+          - if current_user.enable_location_services
+            = form_for :location do |f|
+              = f.check_box t('.include_location')
+              = f.text_field t('.location'), :value => current_location(request.remote_ip), :style => "width:200px;"
+
         .public_toggle
           %span#publisher_service_icons
             - if current_user.services
