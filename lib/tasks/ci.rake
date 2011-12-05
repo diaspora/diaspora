@@ -7,7 +7,7 @@ namespace :ci do
       system("export DISPLAY=:99.0 && bundle exec rake cucumber")
       raise "Cucumber failed!" unless $?.exitstatus == 0
     else
-      ["rake spec", "rake jasmine:ci"].each do |cmd|
+      ["rake spec:fixtures", "rake spec", "rake jasmine:ci"].each do |cmd|
         puts "Running #{cmd}..."
         system("export DISPLAY=:99.0 && bundle exec #{cmd}")
         raise "#{cmd} failed!" unless $?.exitstatus == 0
