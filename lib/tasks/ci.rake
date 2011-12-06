@@ -9,7 +9,7 @@ namespace :ci do
     else
       ["rake generate_fixtures", "rake spec"].each do |cmd|
         puts "Running bundle exec #{cmd}..."
-        system("bundle exec #{cmd}")
+        system("bundle exec #{cmd} --trace")
         raise "#{cmd} failed!" unless $?.exitstatus == 0
       end
     end
