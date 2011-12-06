@@ -7,14 +7,11 @@ namespace :ci do
       system("export DISPLAY=:99.0 && bundle exec rake cucumber")
       raise "Cucumber failed!" unless $?.exitstatus == 0
     else
-      ["rake generate_fixtures", "rake spec", "rake jasmine:ci"].each do |cmd|
+      ["rake generate_fixtures", "rake spec"].each do |cmd|
         puts "Running #{cmd}..."
         system("export DISPLAY=:99.0 && bundle exec #{cmd}")
         raise "#{cmd} failed!" unless $?.exitstatus == 0
       end
-      puts "Running oauth cucumber features..."
-      system("export DISPLAY=:99.0 && GROUP=oauth bundle exec rake cucumber")
-      raise "OAuth cucumber failed!" unless $?.exitstatus == 0
     end
   end
 
