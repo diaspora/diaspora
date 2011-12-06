@@ -8,8 +8,8 @@ namespace :ci do
       raise "Cucumber failed!" unless $?.exitstatus == 0
     else
       ["rake generate_fixtures", "rake spec"].each do |cmd|
-        puts "Running #{cmd}..."
-        system("export DISPLAY=:99.0 && bundle exec #{cmd}")
+        puts "Running bundle exec #{cmd}..."
+        system("bundle exec #{cmd}")
         raise "#{cmd} failed!" unless $?.exitstatus == 0
       end
     end
