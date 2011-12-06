@@ -26,7 +26,7 @@
   #home_user_badge
     = owner_image_link
     %h4
-      = link_to current_user.first_name, "/u/#{current_user.username}"
+      = link_to current_user.first_name, local_or_remote_person_path(current_user.person)
 
   .section
     %ul.left_nav

@@ -4,7 +4,7 @@
 
 module LikesHelper
   def likes_list(likes)
-    links = likes.collect { |like| link_to "#{h(like.author.name.titlecase)}", person_path(like.author) }
+    links = likes.collect { |like| link_to "#{h(like.author.name.titlecase)}", local_or_remote_person_path(like.author) }
     links.join(", ").html_safe
   end
 

@@ -10,4 +10,4 @@
       =person_link(person)
 
     .info
-      = link_to person.diaspora_handle, person_path(person), :class => 'black'
+      = link_to person.diaspora_handle, local_or_remote_person_path(person), :class => 'black'

@@ -2,6 +2,7 @@ class Notifier < ActionMailer::Base
   helper :application
   helper :markdownify
   helper :notifier
+  helper :people
   
   def self.admin(string, recipients, opts = {})
     mails = []
