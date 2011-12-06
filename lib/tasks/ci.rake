@@ -9,7 +9,12 @@ namespace :ci do
     else
       ["rake generate_fixtures", "rake spec"].each do |cmd|
         puts "Running bundle exec #{cmd}..."
-        system("bundle exec #{cmd} --trace")
+        system("bundle exec #{cmd}")
+        raise "#{cmd} failed!" unless $?.exitstatus == 0
+      end
+      ["rake jasmine:ci", "rake cucumber"].each do |cmd|
+        puts "Running bundle exec #{cmd}..."
+        system("export DISPLAY=:99.0 && GROUP=oauth bundle exec #{cmd}")
         raise "#{cmd} failed!" unless $?.exitstatus == 0
       end
     end
