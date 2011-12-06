@@ -88,11 +88,6 @@ GEM
     addressable (2.2.4)
     archive-tar-minitar (0.5.2)
     arel (2.0.10)
-    aws (2.3.32)
-      activesupport
-      http_connection
-      uuidtools
-      xml-simple
     bcrypt-ruby (2.1.4)
     builder (2.1.2)
     bunny (0.7.8)
@@ -112,7 +107,7 @@ GEM
       rack (>= 1.0.0)
       rack-test (>= 0.5.4)
       selenium-webdriver (>= 0.0.3)
-    carrierwave (0.5.3)
+    carrierwave (0.5.8)
       activesupport (~> 3.0)
     cgi_multipart_eof_fix (2.5.0)
     chef (0.9.12)
@@ -166,7 +161,6 @@ GEM
     erubis (2.6.6)
       abstract (>= 1.0.0)
     eventmachine (0.12.10)
-    excon (0.2.4)
     extlib (0.9.15)
     factory_girl (2.3.2)
       activesupport
@@ -185,20 +179,10 @@ GEM
     fixture_builder (0.3.1)
       activerecord (>= 2)
       activesupport (>= 2)
-    fog (0.3.25)
-      builder
-      excon (>= 0.2.4)
-      formatador (>= 0.0.16)
-      json
-      mime-types
-      net-ssh (~> 2.0.23)
-      nokogiri (~> 1.4.3.1)
-      ruby-hmac
     foreigner (0.9.1)
     foreman (0.27.0)
       term-ansicolor (~> 1.0.5)
       thor (>= 0.13.6)
-    formatador (0.2.1)
     fuubar (0.0.5)
       rspec (~> 2.0)
       rspec-instafail (~> 0.1.4)
@@ -212,7 +196,6 @@ GEM
     hoptoad_notifier (2.4.11)
       activesupport
       builder
-    http_connection (1.4.1)
     i18n (0.5.0)
     i18n-inflector (2.6.3)
       i18n (>= 0.4.1)
@@ -267,11 +250,11 @@ GEM
       net-ssh (>= 1.99.1)
     net-sftp (2.0.5)
       net-ssh (>= 2.0.9)
-    net-ssh (2.0.24)
+    net-ssh (2.2.1)
     net-ssh-gateway (1.1.0)
       net-ssh (>= 1.99.1)
     newrelic_rpm (3.3.0)
-    nokogiri (1.4.3.1)
+    nokogiri (1.5.0)
     oauth (0.4.5)
     oauth2 (0.5.0)
       faraday (>= 0.6.1, < 0.8)
@@ -376,7 +359,6 @@ GEM
       columnize (>= 0.3.1)
       linecache19 (>= 0.5.11)
       ruby-debug-base19 (>= 0.11.19)
-    ruby-hmac (0.4.0)
     ruby-oembed (0.8.5)
     ruby-progressbar (0.0.10)
     ruby_core_source (0.1.5)
@@ -423,7 +405,6 @@ GEM
       addressable (>= 2.2.2)
       crack (>= 0.1.7)
     will_paginate (3.0.pre2)
-    xml-simple (1.1.1)
     yard (0.7.4)
     yui-compressor (0.9.6)
       POpen4 (>= 0.1.4)
@@ -436,13 +417,12 @@ DEPENDENCIES
   activerecord-import
   acts-as-taggable-on!
   addressable (= 2.2.4)
-  aws (= 2.3.32)
   bundler (>= 1.0.0)
   capistrano (= 2.5.19)
   capistrano-ext (= 1.2.1)
   capistrano_colors
   capybara (~> 0.3.9)
-  carrierwave (= 0.5.3)
+  carrierwave (= 0.5.8)
   chef (= 0.9.12)
   client_side_validations
   cloudfiles (= 1.4.10)
@@ -454,13 +434,11 @@ DEPENDENCIES
   diaspora-client!
   em-synchrony
   em-websocket
-  excon (= 0.2.4)
   factory_girl_rails
   faraday
   faraday-stack
   fastercsv (= 1.5.4)
   fixture_builder (= 0.3.1)
-  fog (= 0.3.25)
   foreigner (= 0.9.1)
   foreman
   fuubar (= 0.0.5)
@@ -480,7 +458,7 @@ DEPENDENCIES
   mongrel
   mysql2 (= 0.2.13)
   newrelic_rpm
-  nokogiri
+  nokogiri (~> 1.5.0)
   oauth2-provider (= 0.0.16)
   ohai (= 0.5.8)
   omniauth (= 1.0.1)

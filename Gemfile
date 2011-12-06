@@ -44,15 +44,12 @@ gem 'sqlite3' if ENV['DB'] == 'all' || ENV['DB'] == 'sqlite'
 
 # file uploading
 
-gem 'aws', '2.3.32' # upgrade to 2.4 breaks 1.8 >.<
-gem 'carrierwave', '0.5.3'
-gem 'excon', '0.2.4'
+gem 'carrierwave', '0.5.8'
 gem 'fastercsv', '1.5.4', :require => false
-gem 'fog', '0.3.25'
-gem 'jammit', '0.6.5'
 gem 'mini_magick', '3.3'
 gem 'rest-client', '1.6.1'
-gem 'typhoeus'
+
+gem 'jammit', '0.6.5'
 
 # JSON and API
 
@@ -66,7 +63,7 @@ gem 'rails-i18n'
 
 # parsing
 
-gem 'nokogiri'
+gem 'nokogiri', '~> 1.5.0'
 gem 'redcarpet', "2.0.0"
 gem 'roxml', :git => 'git://github.com/Empact/roxml.git', :ref => '7ea9a9ffd2338aaef5b0'
 gem 'ruby-oembed'
@@ -95,6 +92,7 @@ gem 'acts-as-taggable-on', :git => 'git://github.com/diaspora/acts-as-taggable-o
 
 gem 'addressable', '2.2.4', :require => 'addressable/uri'
 gem 'http_accept_language', :git => 'git://github.com/iain/http_accept_language.git', :ref => '0b78aa7849fc90cf9e12'
+gem 'typhoeus'
 
 # views
 
