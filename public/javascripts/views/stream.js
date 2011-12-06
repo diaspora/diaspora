@@ -1,55 +1,47 @@
-$(function() {
-  App.Views.Stream = Backbone.View.extend({
+App.Views.Stream = Backbone.View.extend({
+  events: {
+    "click #paginate": "loadMore"
+  },
 
-    el: $("#main_stream"),
+  initialize: function(){
+    this.el = $("#main_stream");
+    this.template = _.template($("#stream-element-template").html());
 
-    template: _.template($('#stream-element-template').html()),
+    _.bindAll(this, "appendPost", "collectionFetched");
 
-    events: {
-      "click #paginate": "loadMore"
-    },
+    this.collection = new App.Collections.Stream;
+    this.collection.bind("add", this.appendPost);
+    this.loadMore();
+  },
 
-    initialize: function(){
-      _.bindAll(this, "appendPost", "collectionFetched");
+  appendPost: function(model) {
+    var post = $(this.template($.extend(
+      model.toJSON(),
+      App.user()
+    )));
+    $(this.el).append(post);
+    Diaspora.BaseWidget.instantiate("StreamElement", post);
+  },
 
-      this.collection = new App.Collections.Stream;
-      this.collection.bind("add", this.appendPost);
-      this.loadMore();
-    },
+  collectionFetched: function() {
+    this.$(".details time").timeago();
+    this.$("label").inFieldLabels();
 
-    appendPost: function(model) {
-      var post = $(this.template($.extend(
-        model.toJSON(),
-        App.currentUser()
-      )));
-      $(this.el).append(post);
-      Diaspora.BaseWidget.instantiate("StreamElement", post);
-    },
+    this.$("#paginate").remove();
+    $(this.el).append($("<a>", {
+      href: this.collection.url(),
+      id: "paginate"
+    }).text('more'));
+  },
 
-    collectionFetched: function() {
-      this.$("time").timeago();
-      this.$("label").inFieldLabels();
-
-      this.$("#paginate").remove();
-      $(this.el).append($("<a>", {
-        href: this.collection.url(),
-        id: "paginate"
-      }).text('more'));
-    },
-
-    loadMore: function(evt) {
-      if(evt) {
-        evt.preventDefault();
-      }
-
-      this.collection.fetch({
-        add: true,
-        success: this.collectionFetched
-      });
+  loadMore: function(evt) {
+    if(evt) {
+      evt.preventDefault();
     }
-  });
 
-  if(window.useBackbone) {
-    window.stream = new App.Views.Stream;
+    this.collection.fetch({
+      add: true,
+      success: this.collectionFetched
+    });
   }
 });

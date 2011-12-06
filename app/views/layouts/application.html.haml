@@ -41,16 +41,16 @@
     - unless @landing_page
       = include_javascripts :main
       :javascript
+        App.user({
+          current_user: #{current_user.person.as_api_response(:backbone).to_json}
+        });
+
         Diaspora.I18n.loadLocale(#{get_javascript_strings_for(I18n.locale).to_json}, "#{I18n.locale}");
         Diaspora.Page = "#{params[:controller].camelcase}#{params[:action].camelcase}";
 
-    - if @backbone
-      :javascript
-        window.useBackbone = true;
-
     = yield(:head)
 
-    -unless Rails.env == "production" 
+    -unless Rails.env == "production"
       :css
         .translation_missing {
           color: purple;
@@ -60,8 +60,7 @@
     - if @person
       %link{:rel => "alternate", :href => "#{@person.public_url}.atom", :type => "application/atom+xml", :title => "#{t('.public_feed', :name => @person.name)}"}
 
-  - metadata = user_signed_in? ? CGI::escape({:current_user => current_user.person.as_api_response(:backbone)}.to_json) : ""
-  %body{:class => "#{yield(:body_class)}", 'data-current-user-metadata' => metadata }
+  %body{:class => "#{yield(:body_class)}"}
 
     - unless @page == :logged_out
       - flash.each do |name, msg|

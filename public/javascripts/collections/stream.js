@@ -1,13 +1,10 @@
 App.Collections.Stream = Backbone.Collection.extend({
   url: function() {
-    var path = document.location.pathname;
+    var path = document.location.pathname + ".json";
 
-    if(this.models.length) {
-      return path + ".json?max_time=" + _.last(this.models).intTime();
-    }
-    else {
-      return path + ".json";
-    }
+    if(this.models.length) { path += "?max_time=" + _.last(this.models).intTime(); }
+
+    return path;
   },
 
   model: App.Models.Post,
