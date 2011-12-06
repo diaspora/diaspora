@@ -72,7 +72,8 @@ describe Invitation do
       invite = Invitation.create(:sender => alice, :aspect => alice.aspects.first, :service => 'facebook', :identifier => bob.services.first.uid)
       lambda {
         invite.send!
-      }.should_not change(User, :count)
+      #}.should_not change(User, :count)
+      }.should raise_error /ActiveRecord::ReadOnlyRecord/
     end
   end
  
