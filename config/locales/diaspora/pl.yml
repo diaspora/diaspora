@@ -578,6 +578,7 @@ pl:
       permalink: "permalink"
   previous: "poprzedni"
   privacy: "Prywatność"
+  privacy_policy: "Privacy Policy"
   profile: "Profil"
   profiles:
     edit:
@@ -801,6 +802,9 @@ pl:
     aspects:
       title: "Twoje Aspekty"
     aspects_stream: "Aspekty"
+    comment_stream:
+      contacts_title: "People whose posts you commented on"
+      title: "Commented Posts"
     commented_on: "komentowane"
     community_spotlight_stream: "W centrum uwagi społeczności"
     followed_tag:
@@ -809,6 +813,9 @@ pl:
       follow: "Obserwuj"
       title: "#Obserwowane znaczniki"
     followed_tags_stream: "#Obserwowane znaczniki"
+    like_stream:
+      contacts_title: "People whose posts you like"
+      title: "Like Stream"
     mentioned_stream: "@Wzmianki"
     mentions:
       contacts_title: "Wspomnieli o Tobie"
@@ -828,6 +835,7 @@ pl:
   tag_followings:
     create:
       failure: "Nie udało się dodać do obserwowanych #%{name}. Może już to obserwujesz?"
+      none: "You cannot follow a blank tag!"
       success: "Brawo! Od teraz obserwujesz #%{name}."
     destroy:
       failure: "Nie udało się zatrzymać obserwowania: #% {name}. Może już tego nie obserwujesz?"
@@ -838,9 +846,11 @@ pl:
       followed_by: "obserwowane przez"
       following: "Obserwowanie #%{tag}"
       nobody_talking: "Nikt jeszcze nie rozmawia o %{tag}."
+      none: "The empty tag does not exist!"
       people_tagged_with: "Osoby oznaczone jako #%{tag}"
       posts_tagged_with: "Wpisy oznaczone jako #%{tag}"
       stop_following: "Przestań obserwować #%{tag}"
+  terms_and_conditions: "Terms and Conditions"
   tokens:
     show:
       connect_to_cubbies: "Połącz z Cubbi.es"

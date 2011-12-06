@@ -578,6 +578,7 @@ da:
       permalink: "permalink"
   previous: "Forrige"
   privacy: "Privatindstillinger"
+  privacy_policy: "Privacy Policy"
   profile: "Profil"
   profiles:
     edit:
@@ -801,6 +802,9 @@ da:
     aspects:
       title: "Dine aspekter"
     aspects_stream: "Aspekter"
+    comment_stream:
+      contacts_title: "People whose posts you commented on"
+      title: "Commented Posts"
     commented_on: "kommenteret"
     community_spotlight_stream: "Kreative medlemmer"
     followed_tag:
@@ -809,6 +813,9 @@ da:
       follow: "Følg"
       title: "#Fulgte tags"
     followed_tags_stream: "#Fulgte tags"
+    like_stream:
+      contacts_title: "People whose posts you like"
+      title: "Like Stream"
     mentioned_stream: "@Omtaler"
     mentions:
       contacts_title: "Personer der har nævnt dig"
@@ -828,6 +835,7 @@ da:
   tag_followings:
     create:
       failure: "Det lykkedes ikke at følge: #%{name}. Følger du allerede tag'et?"
+      none: "You cannot follow a blank tag!"
       success: "Du følger nu #%{name}."
     destroy:
       failure: "Fejlede med at holde op med at følge #%{name}. Måske har du allerede valgt ikke at følge tag'et?"
@@ -838,9 +846,11 @@ da:
       followed_by: "fulgt af"
       following: "Følger #%{tag}"
       nobody_talking: "Ingen har talt om %{tag} endnu."
+      none: "The empty tag does not exist!"
       people_tagged_with: "Personer tagged med %{tag}"
       posts_tagged_with: "Indlæg tagged med #%{tag}"
       stop_following: "Hold op med at følge #%{tag}"
+  terms_and_conditions: "Terms and Conditions"
   tokens:
     show:
       connect_to_cubbies: "Forbind til Cubbi.es"

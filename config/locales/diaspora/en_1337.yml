@@ -578,6 +578,7 @@ en_1337:
       permalink: "P3RM4L1NK"
   previous: "PR3V10U5"
   privacy: "Privacy"
+  privacy_policy: "Privacy Policy"
   profile: "PR0F1L3"
   profiles:
     edit:
@@ -801,6 +802,9 @@ en_1337:
     aspects:
       title: "Your Aspects"
     aspects_stream: "Aspects"
+    comment_stream:
+      contacts_title: "People whose posts you commented on"
+      title: "Commented Posts"
     commented_on: "commented on"
     community_spotlight_stream: "Community Spotlight"
     followed_tag:
@@ -809,6 +813,9 @@ en_1337:
       follow: "Follow"
       title: "#Followed Tags"
     followed_tags_stream: "#Followed Tags"
+    like_stream:
+      contacts_title: "People whose posts you like"
+      title: "Like Stream"
     mentioned_stream: "@Mentions"
     mentions:
       contacts_title: "N00B5 WH0 M3N710N3D U"
@@ -828,6 +835,7 @@ en_1337:
   tag_followings:
     create:
       failure: "F41L3D 2 F0LL0W: #%{name}"
+      none: "You cannot follow a blank tag!"
       success: "5UCC35FULLY F0LL0W1NG: #%{name}"
     destroy:
       failure: "F41L3D 2 570P F0LL0W1NG: #%{name}"
@@ -838,9 +846,11 @@ en_1337:
       followed_by: "followed by"
       following: "F0LL0W1NG #%{tag}"
       nobody_talking: "N0B0DY 5P4MM3D 4B0U7 %{tag} Y37!"
+      none: "The empty tag does not exist!"
       people_tagged_with: "N00B5 74GG3D W17H %{tag}"
       posts_tagged_with: "5P4M 74GG3D W17H #%{tag}"
       stop_following: "570P F0LL0W1NG #%{tag}"
+  terms_and_conditions: "Terms and Conditions"
   tokens:
     show:
       connect_to_cubbies: "C0NN3C7 2 CUBB1.35!"

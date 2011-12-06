@@ -578,6 +578,7 @@ zh-TW:
       permalink: "靜態連結"
   previous: "前面"
   privacy: "隱私"
+  privacy_policy: "Privacy Policy"
   profile: "個人檔案"
   profiles:
     edit:
@@ -801,6 +802,9 @@ zh-TW:
     aspects:
       title: "你的面向"
     aspects_stream: "面向"
+    comment_stream:
+      contacts_title: "People whose posts you commented on"
+      title: "Commented Posts"
     commented_on: "有意見的"
     community_spotlight_stream: "社群焦點"
     followed_tag:
@@ -809,6 +813,9 @@ zh-TW:
       follow: "追蹤"
       title: "#追蹤中的標籤"
     followed_tags_stream: "#追蹤中的標籤"
+    like_stream:
+      contacts_title: "People whose posts you like"
+      title: "Like Stream"
     mentioned_stream: "@指指點點"
     mentions:
       contacts_title: "對你指指點點過的人"
@@ -828,6 +835,7 @@ zh-TW:
   tag_followings:
     create:
       failure: "追蹤 #%{name} 失敗. 是否已經在追蹤了?"
+      none: "You cannot follow a blank tag!"
       success: "喔耶! 你已經開始追蹤 #%{name} 了."
     destroy:
       failure: "停止追蹤標籤 #%{name} 失敗. 也許你已經沒在追蹤了?"
@@ -838,9 +846,11 @@ zh-TW:
       followed_by: "追蹤者:"
       following: "正在追蹤 #%{tag}"
       nobody_talking: "還沒有人在討論 %{tag}."
+      none: "The empty tag does not exist!"
       people_tagged_with: "標記為 %{tag} 的人"
       posts_tagged_with: "標記為 #%{tag} 的貼文"
       stop_following: "停止追蹤 #%{tag}"
+  terms_and_conditions: "Terms and Conditions"
   tokens:
     show:
       connect_to_cubbies: "與 Cubbi.es 連結"

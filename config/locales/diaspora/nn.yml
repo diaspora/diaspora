@@ -578,6 +578,7 @@ nn:
       permalink: "permlenkje"
   previous: "førre"
   privacy: "Privacy"
+  privacy_policy: "Privacy Policy"
   profile: "Profil"
   profiles:
     edit:
@@ -801,6 +802,9 @@ nn:
     aspects:
       title: "Your Aspects"
     aspects_stream: "Aspects"
+    comment_stream:
+      contacts_title: "People whose posts you commented on"
+      title: "Commented Posts"
     commented_on: "commented on"
     community_spotlight_stream: "Community Spotlight"
     followed_tag:
@@ -809,6 +813,9 @@ nn:
       follow: "Follow"
       title: "#Followed Tags"
     followed_tags_stream: "#Followed Tags"
+    like_stream:
+      contacts_title: "People whose posts you like"
+      title: "Like Stream"
     mentioned_stream: "@Mentions"
     mentions:
       contacts_title: "People who mentioned you"
@@ -828,6 +835,7 @@ nn:
   tag_followings:
     create:
       failure: "Klarte ikkje å følgja: #%{name}. Følgjer du allereie?"
+      none: "You cannot follow a blank tag!"
       success: "Bra! No følgjer du: #%{name}."
     destroy:
       failure: "Failed to stop following: #%{name}"
@@ -838,9 +846,11 @@ nn:
       followed_by: "followed by"
       following: "Følgjer #%{tag}"
       nobody_talking: "Det er enno ingen som taler om %{tag}."
+      none: "The empty tag does not exist!"
       people_tagged_with: "Personar som er merka med %{tag}"
       posts_tagged_with: "Meldingar som er merka med #%{tag}"
       stop_following: "Følg ikkje #%{tag} lenger"
+  terms_and_conditions: "Terms and Conditions"
   tokens:
     show:
       connect_to_cubbies: "Kopla deg til Cubbi.es"

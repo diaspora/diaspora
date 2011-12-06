@@ -580,6 +580,7 @@ sl:
       permalink: "permalink"
   previous: "prejšnja"
   privacy: "Zasebnost"
+  privacy_policy: "Privacy Policy"
   profile: "Profil"
   profiles:
     edit:
@@ -803,6 +804,9 @@ sl:
     aspects:
       title: "Vaši pogledi"
     aspects_stream: "Pogledi"
+    comment_stream:
+      contacts_title: "People whose posts you commented on"
+      title: "Commented Posts"
     commented_on: "komentiral na"
     community_spotlight_stream: "Vsebina skupnosti"
     followed_tag:
@@ -811,6 +815,9 @@ sl:
       follow: "Sledi"
       title: "#Sledene oznake"
     followed_tags_stream: "#Sledene oznake"
+    like_stream:
+      contacts_title: "People whose posts you like"
+      title: "Like Stream"
     mentioned_stream: "@Mentions"
     mentions:
       contacts_title: "Ljudje, ki so vas omenili"
@@ -830,6 +837,7 @@ sl:
   tag_followings:
     create:
       failure: "Sledenje #%{name} ni uspelo. Ali že sledite?"
+      none: "You cannot follow a blank tag!"
       success: "Hura! Sedaj sledite #%{name}."
     destroy:
       failure: "Ni mogoče prekiniti sledenja #%{name}. Mogoče ste že prekinili sledenje?"
@@ -840,9 +848,11 @@ sl:
       followed_by: "sledi"
       following: "Sledenje #%{tag}"
       nobody_talking: "Nihče še ni govoril o %{tag}."
+      none: "The empty tag does not exist!"
       people_tagged_with: "Ljudje, označeni z %{tag}"
       posts_tagged_with: "Objave označene z #%{tag}"
       stop_following: "Prenehaj slediti #%{tag}"
+  terms_and_conditions: "Terms and Conditions"
   tokens:
     show:
       connect_to_cubbies: "Povežite se Cubbi.es"

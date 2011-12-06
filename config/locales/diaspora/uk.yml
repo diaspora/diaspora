@@ -578,6 +578,7 @@ uk:
       permalink: "постiйне посилання"
   previous: "попередня"
   privacy: "Приватность"
+  privacy_policy: "Privacy Policy"
   profile: "Профіль"
   profiles:
     edit:
@@ -801,6 +802,9 @@ uk:
     aspects:
       title: "Ваші аспекти"
     aspects_stream: "Аспекти"
+    comment_stream:
+      contacts_title: "People whose posts you commented on"
+      title: "Commented Posts"
     commented_on: "обговорювані"
     community_spotlight_stream: "У центрі уваги"
     followed_tag:
@@ -809,6 +813,9 @@ uk:
       follow: "Cтежити"
       title: "#Відстежувані мітки"
     followed_tags_stream: "#Відстежувані мітки"
+    like_stream:
+      contacts_title: "People whose posts you like"
+      title: "Like Stream"
     mentioned_stream: "@Згадування"
     mentions:
       contacts_title: "Люди, що згадали вас"
@@ -828,6 +835,7 @@ uk:
   tag_followings:
     create:
       failure: "Помилка відстежування #%{name}"
+      none: "You cannot follow a blank tag!"
       success: "Ура! Тепер ви стежите за міткою #%{name}."
     destroy:
       failure: "Не вийшло перестати стежити за міткою #%{name}. Можливо, ви вже відписалися від неї?"
@@ -838,9 +846,11 @@ uk:
       followed_by: "Спостерігають"
       following: "Ви стежите за міткою #%{tag}"
       nobody_talking: "Ніхто доки не говорив про %{tag}."
+      none: "The empty tag does not exist!"
       people_tagged_with: "Люди з міткою %{tag}"
       posts_tagged_with: "Записи з міткою #%{tag}"
       stop_following: "Не стежити за міткою #%{tag}"
+  terms_and_conditions: "Terms and Conditions"
   tokens:
     show:
       connect_to_cubbies: "Підключення до Cubbi.es"

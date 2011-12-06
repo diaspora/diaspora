@@ -578,6 +578,7 @@ ru:
       permalink: "постоянная ссылка"
   previous: "ранее"
   privacy: "Приватность"
+  privacy_policy: "Privacy Policy"
   profile: "Профиль"
   profiles:
     edit:
@@ -801,6 +802,9 @@ ru:
     aspects:
       title: "Аспекты"
     aspects_stream: "Аспекты"
+    comment_stream:
+      contacts_title: "People whose posts you commented on"
+      title: "Commented Posts"
     commented_on: "обсуждаемые"
     community_spotlight_stream: "В центре внимания"
     followed_tag:
@@ -809,6 +813,9 @@ ru:
       follow: "Следить"
       title: "#Метки"
     followed_tags_stream: "#Метки"
+    like_stream:
+      contacts_title: "People whose posts you like"
+      title: "Like Stream"
     mentioned_stream: "@Упоминания"
     mentions:
       contacts_title: "Упоминавшие вас люди"
@@ -828,6 +835,7 @@ ru:
   tag_followings:
     create:
       failure: "Ошибка отслеживания метки #%{name}. Возможно, вы уже следите за ней?"
+      none: "You cannot follow a blank tag!"
       success: "Ура! Теперь вы следите за меткой #%{name}."
     destroy:
       failure: "Не вышло перестать следить за меткой #%{name}. Возможно, вы уже отписались от нее?"
@@ -838,9 +846,11 @@ ru:
       followed_by: "отслеживают"
       following: "Вы следите за меткой #%{tag}"
       nobody_talking: "Никто пока не говорил о %{tag}."
+      none: "The empty tag does not exist!"
       people_tagged_with: "Люди с меткой %{tag}"
       posts_tagged_with: "Записи с меткой #%{tag}"
       stop_following: "Не следить за меткой #%{tag}"
+  terms_and_conditions: "Terms and Conditions"
   tokens:
     show:
       connect_to_cubbies: "Подключение к Cubbi.es"

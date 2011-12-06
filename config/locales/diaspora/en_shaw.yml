@@ -578,6 +578,7 @@ en_shaw:
       permalink: "𐑐𐑻𐑥𐑩𐑤𐑦𐑙𐑒"
   previous: "𐑐𐑮𐑰𐑝𐑾𐑕"
   privacy: "Privacy"
+  privacy_policy: "Privacy Policy"
   profile: "𐑐𐑮𐑴𐑓𐑲𐑤"
   profiles:
     edit:
@@ -801,6 +802,9 @@ en_shaw:
     aspects:
       title: "Your Aspects"
     aspects_stream: "Aspects"
+    comment_stream:
+      contacts_title: "People whose posts you commented on"
+      title: "Commented Posts"
     commented_on: "commented on"
     community_spotlight_stream: "Community Spotlight"
     followed_tag:
@@ -809,6 +813,9 @@ en_shaw:
       follow: "Follow"
       title: "#Followed Tags"
     followed_tags_stream: "#Followed Tags"
+    like_stream:
+      contacts_title: "People whose posts you like"
+      title: "Like Stream"
     mentioned_stream: "@Mentions"
     mentions:
       contacts_title: "People who mentioned you"
@@ -828,6 +835,7 @@ en_shaw:
   tag_followings:
     create:
       failure: "𐑓𐑱𐑤𐑛 𐑑 𐑓𐑪𐑤𐑴: #%{name}"
+      none: "You cannot follow a blank tag!"
       success: "𐑕𐑩𐑒𐑕𐑧𐑕𐑓𐑫𐑤𐑦 𐑓𐑪𐑤𐑴𐑦𐑙: #%{name}"
     destroy:
       failure: "𐑓𐑱𐑤𐑛 𐑑 𐑕𐑑𐑪𐑐 𐑓𐑪𐑤𐑴𐑦𐑙: #%{name}"
@@ -838,9 +846,11 @@ en_shaw:
       followed_by: "followed by"
       following: "𐑓𐑪𐑤𐑴𐑦𐑙 #%{tag}"
       nobody_talking: "𐑯𐑴𐑚𐑩𐑛𐑦 𐑦𐑟 𐑑𐑷𐑒𐑦𐑙 𐑩𐑚𐑬𐑑 %{tag} 𐑘𐑧𐑑."
+      none: "The empty tag does not exist!"
       people_tagged_with: "𐑐𐑰𐑐𐑩𐑤 𐑑𐑨𐑜𐑛 𐑢𐑦𐑞 %{tag}"
       posts_tagged_with: "𐑐𐑴𐑕𐑑𐑕 𐑑𐑨𐑜𐑛 𐑢𐑦𐑞 #%{tag}"
       stop_following: "𐑕𐑑𐑪𐑐 𐑓𐑪𐑤𐑴𐑦𐑙 #%{tag}"
+  terms_and_conditions: "Terms and Conditions"
   tokens:
     show:
       connect_to_cubbies: "𐑒𐑩𐑯𐑧𐑒𐑑 𐑑 Cubbi.es"

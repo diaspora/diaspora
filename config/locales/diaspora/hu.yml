@@ -578,6 +578,7 @@ hu:
       permalink: "permalink"
   previous: "előző"
   privacy: "Adatvédelem"
+  privacy_policy: "Privacy Policy"
   profile: "Profil"
   profiles:
     edit:
@@ -803,6 +804,9 @@ hu:
     aspects:
       title: "Csoportjaid"
     aspects_stream: "Csoportok"
+    comment_stream:
+      contacts_title: "People whose posts you commented on"
+      title: "Commented Posts"
     commented_on: "hozzászólt"
     community_spotlight_stream: "Reflektorfényben"
     followed_tag:
@@ -811,6 +815,9 @@ hu:
       follow: "Követ"
       title: "#követett címkék"
     followed_tags_stream: "#Követett címkék"
+    like_stream:
+      contacts_title: "People whose posts you like"
+      title: "Like Stream"
     mentioned_stream: "@említéses"
     mentions:
       contacts_title: "Emberek, akik megemlítettek"
@@ -830,6 +837,7 @@ hu:
   tag_followings:
     create:
       failure: "#%{name} követése nem sikerült. Talán már eddig is követted?"
+      none: "You cannot follow a blank tag!"
       success: "Hurrá! Figyelemmel követed #%{name} dolgait."
     destroy:
       failure: "Hiba #%{name} követésének leállításakor. Talán már nem is követed őt? "
@@ -840,9 +848,11 @@ hu:
       followed_by: "figyelemmel kíséri"
       following: "Követed #%{tag}"
       nobody_talking: "Senki nem beszélt még erről: %{tag}."
+      none: "The empty tag does not exist!"
       people_tagged_with: "Személy felcímkézve: %{tag}"
       posts_tagged_with: "Bejegyzések felcímkézve: #%{tag}"
       stop_following: "Címke-követés leállítása #%{tag}"
+  terms_and_conditions: "Terms and Conditions"
   tokens:
     show:
       connect_to_cubbies: "Csatlakozás ehhez: Cubbi.es"

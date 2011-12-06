@@ -6,23 +6,23 @@
 vi:
   javascripts:
     aspect_dropdown:
-      add_to_aspect: "Add contact"
-      all_aspects: "All aspects"
-      error: "Couldn't start sharing with {{name}}.  Are you ignoring them?"
-      select_aspects: "Select aspects"
+      add_to_aspect: "Thêm liên lạc"
+      all_aspects: "Tất cả mối quan hệ"
+      error: "Không thể bắt đầu chia sẻ với {{name}}.  Bạn có bỏ qua họ?"
+      select_aspects: "Chọn mối quan hệ"
       started_sharing_with: "Bạn đã bắt đầu chia sẻ với {{name}}!"
       stopped_sharing_with: "Bạn đã ngưng chia sẻ với {{name}}."
       toggle:
-        few: "In {{count}} aspects"
-        many: "In {{count}} aspects"
-        one: "In {{count}} aspect"
-        other: "In {{count}} aspects"
-        two: "In {{count}} aspects"
-        zero: "Select aspects"
+        few: "Trong {{count}} mối quan hệ"
+        many: "Trong {{count}} mối quan hệ"
+        one: "Trong {{count}} mối quan hệ"
+        other: "Trong {{count}} mối quan hệ"
+        two: "Trong {{count}} mối quan hệ"
+        zero: "Chọn mối quan hệ"
     aspect_navigation:
-      deselect_all: "Deselect all"
-      no_aspects: "No aspects selected"
-      select_all: "Select all"
+      deselect_all: "Bỏ chọn tất cả"
+      no_aspects: "Không có mối quan hệ được chọn"
+      select_all: "Chọn tất cả"
     comments:
       hide: "ẩn các bình luận"
       show: "hiện tất cả bình luận"
@@ -30,20 +30,20 @@ vi:
     failed_to_like: "Failed to like!"
     failed_to_post_message: "Đăng tin thất bại!"
     getting_started:
-      alright_ill_wait: "Alright, I'll wait."
+      alright_ill_wait: "Được rồi, tôi sẽ chờ."
       hey: "Này, {{name}}!"
-      no_tags: "Hey, you haven't followed any tags!  Continue anyway?"
+      no_tags: "Bạn chưa theo dõi thẻ nào cả! Tiếp tục?"
       preparing_your_stream: "Preparing your personialized stream..."
     infinite_scroll:
       no_more: "No more posts."
     photo_uploader:
-      looking_good: "OMG, you look awesome!"
+      looking_good: "Ôi, trông bạn thật tuyệt!"
     publisher:
-      at_least_one_aspect: "You must publish to at least one aspect"
-      limited: "Limited - your post will only be seen by people you are sharing with"
-      public: "Public - your post will be visible to everyone and found by search engines"
+      at_least_one_aspect: "Bạn phải công khai ít nhất một mối quan hệ"
+      limited: "Giới hạn - tin của bạn được những người chỉ định nhìn thấy"
+      public: "Công khai - tin của bạn được mọi người và máy tìm kiếm nhìn thấy"
     reshares:
-      duplicate: "That good, huh?  You've already reshared that post!"
+      duplicate: "Bạn đã chia sẻ lại tin đó!"
     search_for: "Tìm {{name}}"
     show_more: "hiện thêm"
     tags:
