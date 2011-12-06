@@ -881,12 +881,14 @@ ca:
       following: "Esteu seguint #%{tag}"
       stop_following: "Deixa de seguir #%{tag}"
       followed_by: "seguit per"
+      none: "L'etiqueta buida no existeix!"
 
 
   tag_followings:
     create:
       success: "Molt bé! Ara esteu seguint #%{name}."
       failure: "No s'ha pogut seguir #%{name}. Ja l'estaveu seguint?"
+      none: "No podeu seguir una etiqueta buida!"
     destroy:
       success: "D'acord! Ja no esteu seguint #%{name}."
       failure: "No s'ha pogut deixar de seguir #%{name}. Ja l'havíeu deixat de seguir?"
@@ -924,6 +926,12 @@ ca:
     mentions:
       title: "@Mencions"
       contacts_title: "Gent que us ha mencionat"
+    comment_stream:
+      title: "Publicacions comentades"
+      contacts_title: "Gent a qui heu comentat alguna publicació"
+    like_stream:
+      title: "Flux «M'agrada»"
+      contacts_title: "Gent de qui us ha agradat alguna publicació"
     followed_tag:
       title: "#Etiquetes que seguiu"
       contacts_title: "Gent que empra aquestes etiquetes"
