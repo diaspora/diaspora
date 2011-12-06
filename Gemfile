@@ -34,7 +34,7 @@ gem 'ohai', '0.5.8', :require => false
 
 gem 'settingslogic', '2.0.6'
 
-# database 
+# database
 
 gem 'activerecord-import'
 gem 'foreigner', '0.9.1'
@@ -49,8 +49,8 @@ gem 'carrierwave', '0.5.3'
 gem 'excon', '0.2.4'
 gem 'fastercsv', '1.5.4', :require => false
 gem 'fog', '0.3.25'
-gem 'jammit', '0.5.4'
-gem 'mini_magick', '3.2'
+gem 'jammit', '0.6.5'
+gem 'mini_magick', '3.3'
 gem 'rest-client', '1.6.1'
 gem 'typhoeus'
 
@@ -67,13 +67,13 @@ gem 'rails-i18n'
 # parsing
 
 gem 'nokogiri'
-gem 'redcarpet', "2.0.0b5"
+gem 'redcarpet', "2.0.0"
 gem 'roxml', :git => 'git://github.com/Empact/roxml.git', :ref => '7ea9a9ffd2338aaef5b0'
 gem 'ruby-oembed'
 
 # queue
 
-gem 'resque', '1.10.0'
+gem 'resque', '1.19.0'
 gem 'resque-ensure-connected'
 gem 'resque-timeout', '1.0.0'
 gem 'SystemTimer', '1.2.3', :platforms => :ruby_18
@@ -100,7 +100,7 @@ gem 'http_accept_language', :git => 'git://github.com/iain/http_accept_language.
 
 gem 'haml', '3.1.4'
 gem 'mobile-fu'
-gem 'sass', '3.1.7'
+gem 'sass', '3.1.11'
 gem 'will_paginate', '3.0.pre2'
 gem 'client_side_validations'
 
@@ -128,7 +128,7 @@ group :test do
   gem 'diaspora-client', :git => 'git://github.com/diaspora/diaspora-client.git'
                           #"0.1.0", #:path => '~/workspace/diaspora-client'
   gem 'factory_girl_rails'
-  gem 'fixture_builder', '0.3.0'
+  gem 'fixture_builder', '0.3.1'
   gem 'fuubar', '0.0.5'
   gem 'mongrel', :require => false, :platforms => :ruby_18
   gem 'rspec', '>= 2.0.0'
