@@ -16,8 +16,8 @@ available:
   en_shaw: "𐑦𐑙𐑤𐑦𐑖"
   eo: "Esperanto"
   es: "Castellano"
-  es-AR: "Argentino"
-  es-CL: "Chileno"
+  es-AR: "Castellano - Argentina"
+  es-CL: "Castellano - Chile"
   eu: "Euskara"
   fi: "Suomi"
   fr: "Français"
@@ -26,7 +26,7 @@ available:
   he: "עברית"
   hu: "magyar nyelv"
   id: "Bahasa Indonesia"
-  is: "íslenska"  
+  is: "íslenska"
   it: "Italiano"
   ja: "日本語"
   ko: "한국어"
@@ -89,3 +89,4 @@ rtl:
   - :ar
   - :he
   - :ur
+  - :ur-PK
