@@ -12,6 +12,8 @@ begin
 
   task :stats => "spec:statsetup"
 
+  Rake::Task[:spec].clear
+
   desc "Run all specs in spec directory"
   RSpec::Core::RakeTask.new(:spec => spec_prereq)
 
