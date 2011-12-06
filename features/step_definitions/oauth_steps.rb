@@ -33,26 +33,26 @@ end
 When /^I try to authorize Chubbies$/ do
   # We need to reset the tokens saved in Chubbies,
   # as we are clearing the Diaspora DB every scenario
-  Then 'I visit "/new" on Chubbies'
+  step 'I visit "/new" on Chubbies'
   ###
-  And "I fill in my Diaspora ID to connect"
-  And 'I press "Connect to Diaspora"'
-  Then 'I should be on the new user session page'
-  And "I fill in \"Username\" with \"#{@me.username}\""
-  And "I fill in \"Password\" with \"#{@me.password}\""
-  And 'I press "Sign in"'
-  Then 'I should be on the oauth authorize page'
-  Then 'I should see "Chubbies"'
-  And 'I should see "The best way to chub."'
+  step "I fill in my Diaspora ID to connect"
+  step 'I press "Connect to Diaspora"'
+  step 'I should be on the new user session page'
+  step "I fill in \"Username\" with \"#{@me.username}\""
+  step "I fill in \"Password\" with \"#{@me.password}\""
+  step 'I press "Sign in"'
+  step 'I should be on the oauth authorize page'
+  step 'I should see "Chubbies"'
+  step 'I should see "The best way to chub."'
 end
 
 And /^I fill in my Diaspora ID to connect$/ do
-  And "I fill in \"Diaspora ID\" with \"#{@me.diaspora_handle}\""
+  step "I fill in \"Diaspora ID\" with \"#{@me.diaspora_handle}\""
 end
 
 And /^I should have (\d) user on Chubbies$/ do |num|
-  When "I visit \"/user_count\" on Chubbies"
-  Then "I should see \"#{num}\""
+  step "I visit \"/user_count\" on Chubbies"
+  step "I should see \"#{num}\""
 end
 
 When /^I visit "([^"]+)" on Chubbies$/ do |path|

@@ -5,7 +5,7 @@ gem 'rails', '3.0.11'
 gem 'bundler', '>= 1.0.0'
 gem 'foreman'
 
-gem 'thin', '1.2.11', :require => false
+gem 'thin', '~> 1.3.1', :require => false
 
 # authentication
 
@@ -13,8 +13,13 @@ gem 'devise', '~> 1.3.1'
 gem 'devise_invitable', '0.5.0'
 gem 'jwt', "0.1.3"
 gem 'oauth2-provider', '0.0.16'
-gem 'omniauth', '0.2.6'
-gem 'twitter', '1.5.0'
+
+gem 'omniauth', '1.0.1'
+gem 'omniauth-facebook'
+gem 'omniauth-tumblr'
+gem 'omniauth-twitter'
+
+gem 'twitter', '2.0.1'
 
 # backups
 
@@ -93,7 +98,7 @@ gem 'http_accept_language', :git => 'git://github.com/iain/http_accept_language.
 
 # views
 
-gem 'haml', '3.1.2'
+gem 'haml', '3.1.4'
 gem 'mobile-fu'
 gem 'sass', '3.1.7'
 gem 'will_paginate', '3.0.pre2'
@@ -118,19 +123,19 @@ end
 group :test do
   gem 'capybara', '~> 0.3.9'
   gem 'cucumber-rails', '0.3.2'
-  gem 'cucumber-api-steps', :require => false
+  gem 'cucumber-api-steps', '0.6', :require => false
   gem 'database_cleaner', '0.6.0'
   gem 'diaspora-client', :git => 'git://github.com/diaspora/diaspora-client.git'
                           #"0.1.0", #:path => '~/workspace/diaspora-client'
   gem 'factory_girl_rails'
   gem 'fixture_builder', '0.3.0'
-  gem 'fuubar'
+  gem 'fuubar', '0.0.5'
   gem 'mongrel', :require => false, :platforms => :ruby_18
   gem 'rspec', '>= 2.0.0'
   gem 'rspec-core', '2.6.0'
   gem 'rspec-instafail', '>= 0.1.7', :require => false
   gem 'rspec-rails', '>= 2.0.0'
-  gem "selenium-webdriver", "~> 2.10.0"
+  gem 'selenium-webdriver', '~> 2.14.0'
   gem 'webmock', :require => false
   gem 'sqlite3'
   gem 'mock_redis'

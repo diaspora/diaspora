@@ -1,6 +1,6 @@
 When /^(.*) in the header$/ do |action|
   within('header') do
-    When action
+    step action
   end
 end
 
@@ -25,11 +25,11 @@ And /^I toggle the aspect "([^"]*)"$/ do |aspect_name|
 end
 
 Then /^the publisher should be collapsed$/ do
-	find("#publisher")["class"].should include("closed")
+  find("#publisher")["class"].should include("closed")
 end
 
 Then /^the publisher should be expanded$/ do
-	find("#publisher")["class"].should_not include("closed")
+  find("#publisher")["class"].should_not include("closed")
 end
 
 When /^I append "([^"]*)" to the publisher$/ do |stuff|
@@ -91,7 +91,7 @@ end
 
 When /^(.*) in the modal window$/ do |action|
   within('#facebox') do
-    When action
+    step action
   end
 end
 
@@ -133,9 +133,9 @@ When /^I attach the file "([^\"]*)" to hidden element "([^\"]*)"(?: within "([^\
   JS
 
   if selector
-    When "I attach the file \"#{Rails.root.join(path).to_s}\" to \"#{field}\" within \"#{selector}\""
+    step "I attach the file \"#{Rails.root.join(path).to_s}\" to \"#{field}\" within \"#{selector}\""
   else
-    When "I attach the file \"#{Rails.root.join(path).to_s}\" to \"#{field}\""
+    step "I attach the file \"#{Rails.root.join(path).to_s}\" to \"#{field}\""
   end
 
   page.execute_script <<-JS
@@ -148,7 +148,7 @@ Then /^I should get download alert$/ do
 end
 
 When /^I search for "([^\"]*)"$/ do |search_term|
-  When "I fill in \"q\" with \"#{search_term}\""
+  step "I fill in \"q\" with \"#{search_term}\""
   page.execute_script <<-JS
     var e = jQuery.Event("keypress");
     e.keyCode = 13;
@@ -197,11 +197,11 @@ end
 Then /^I follow Edit Profile in the same window$/ do
   page.execute_script("$('a[href=\"#{edit_profile_path}\"]').removeAttr('target')")
 
-  And %(I follow "Edit Profile")
+  step %(I follow "Edit Profile")
 end
 
 Then 'I should see an image attached to the post' do
-  Then %{I should see a "img" within ".stream_element div.photo_attachments"}
+  step %{I should see a "img" within ".stream_element div.photo_attachments"}
 end
 
 Then 'I press the attached image' do
