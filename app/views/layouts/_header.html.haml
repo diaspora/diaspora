@@ -65,17 +65,31 @@
 
     %ul#user_menu.dropdown
       %li
-        .right
-          &#9660;
-        .avatar
-          = owner_image_tag(:thumb_small)
-        = link_to current_user.name, '#', :title => current_user.diaspora_handle
-      %li= link_to t('.profile'), current_user.person
-      %li= link_to t('_contacts'), contacts_link
-      %li= link_to t('.settings'), edit_user_path
+        %a{:title => current_user.diaspora_handle}
+          .avatar= owner_image_tag(:thumb_small)
+          .right &#9660;
+          .user= current_user.name
+      %li
+        %a.menu_item{:href => user_profile_path(:username => current_user.username)}
+          .pic= image_tag('icons/mail_grey.png')
+          = t('.profile')
+      %li
+        %a.menu_item{:href => contacts_link}
+          .pic= image_tag('icons/mail_grey.png')
+          = t('_contacts')
+      %li
+        %a.menu_item{:href => edit_user_path}
+          .pic= image_tag('icons/mail_grey.png')
+          = t('.settings')
       -if current_user.admin?
-        %li= link_to t('.admin'), user_search_path
-      %li= link_to t('.logout'), destroy_user_session_path
+        %li
+          %a.menu_item{:href => user_search_path}
+            .pic= image_tag('icons/mail_grey.png')
+            = t('.admin')
+      %li
+        %a.menu_item{:href => destroy_user_session_path}
+          .pic= image_tag('icons/mail_grey.png')
+          = t('.logout')
 
   #lightbox
     #lightbox-content

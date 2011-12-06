@@ -189,14 +189,12 @@ header
     :text-shadow 0 1px 0 #000
     :color rgb(147,147,147)
 
-    :min-width 100px
+    :min-width 130px
 
     :cursor pointer
 
     :z-index 10
     :padding 5px 0
-      :left 32px
-      :right 7px
     :margin 0
       :top -2px
       :right -5px
@@ -220,7 +218,6 @@ header
 
     li
       a
-        :padding 4px
         :height 100%
         :color #939393
         &:hover
@@ -232,9 +229,11 @@ header
 
       &:first-child
         :padding 5px 0
+          :left 8px
+          :right 50px
+        :height 20px
         a
-          :padding
-            :right 15px
+          :position relative
           &:hover
             :background
               :color #222
@@ -242,26 +241,36 @@ header
               :decoration none
           &:focus
             :outline none
+        .avatar
+          :height 20px
+          :width 20px
+          :border
+            :left 2px
+            :right 2px
+          :padding
+            :right 8px
+          :position relative
+          :float left
+        .user
+          :width 100%
+          :float middle
         .right
-          :right 5px
+          :position relative
+          :right -45px
+          :float right
 
     &.active
       @include dropdown-shadow
 
+      .menu_item
+        :padding 4px
+      
       :margin
         :top -3px
         :right -5px
       :background
         :color rgb(34,30,30)
       :border 1px solid #999
-
-    .avatar
-      :height 20px
-      :width 20px
-      :position absolute
-      :left 4px
-      :top 5px
-      :display block
 
 header.ie-user-menu-active
   :height 150px
@@ -284,7 +293,18 @@ ul.dropdown
   &.active
     :z-index 30
     li
+      :padding
+        :left 4px
+        :right 5px
       :display block
+
+    .pic
+      :height 20px
+      :width 20px
+      :padding
+        :left 2px
+        :right 6px
+      :float left
 
 //////////////////////////////////
 //hacks for tagging plugin...
