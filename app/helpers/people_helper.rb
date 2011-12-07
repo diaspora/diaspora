@@ -52,17 +52,30 @@ module PeopleHelper
   end
 
   def person_href(person, opts={})
-    if opts[:absolute]
-      link = "href='#{AppConfig.pod_url}"
-    else
-      link = "href='/"
-    end
+    "href=\"#{local_or_remote_person_path(person, opts)}\""
+  end
+  
+  
+  # Rails.application.routes.url_helpers is needed since this is indirectly called from a model
+  def local_or_remote_person_path(person, opts={})
+    opts.merge!(:protocol => AppConfig[:pod_uri].scheme, :host => AppConfig[:pod_uri].authority)
+    
     if person.local?
       username = person.diaspora_handle.split('@')[0]
       unless username.include?('.')
-        return link+"u/#{person.diaspora_handle.split('@')[0]}'"
+        opts.merge!(:username => username)
+        if opts[:absolute]
+          return Rails.application.routes.url_helpers.user_profile_url(opts)
+        else
+          return Rails.application.routes.url_helpers.user_profile_path(opts)
+        end
       end
     end
-    return link+"people/#{person.id}'"
+    
+    if opts[:absolute]
+      return Rails.application.routes.url_helpers.person_url(person, opts)
+    else
+      return Rails.application.routes.url_helpers.person_path(person, opts)
+    end
   end
 end

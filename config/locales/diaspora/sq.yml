@@ -578,6 +578,7 @@ sq:
       permalink: "permalink"
   previous: "i mëparshëm"
   privacy: "Privacy"
+  privacy_policy: "Privacy Policy"
   profile: "Profile"
   profiles:
     edit:
@@ -801,6 +802,9 @@ sq:
     aspects:
       title: "Your Aspects"
     aspects_stream: "Aspects"
+    comment_stream:
+      contacts_title: "People whose posts you commented on"
+      title: "Commented Posts"
     commented_on: "commented on"
     community_spotlight_stream: "Community Spotlight"
     followed_tag:
@@ -809,6 +813,9 @@ sq:
       follow: "Follow"
       title: "#Followed Tags"
     followed_tags_stream: "#Followed Tags"
+    like_stream:
+      contacts_title: "People whose posts you like"
+      title: "Like Stream"
     mentioned_stream: "@Mentions"
     mentions:
       contacts_title: "People who mentioned you"
@@ -828,6 +835,7 @@ sq:
   tag_followings:
     create:
       failure: "Failed to follow: #%{name}"
+      none: "You cannot follow a blank tag!"
       success: "Successfully following: #%{name}"
     destroy:
       failure: "Failed to stop following: #%{name}"
@@ -838,9 +846,11 @@ sq:
       followed_by: "followed by"
       following: "Following #%{tag}"
       nobody_talking: "Nobody is talking about %{tag} yet."
+      none: "The empty tag does not exist!"
       people_tagged_with: "People tagged with %{tag}"
       posts_tagged_with: "Posts tagged with #%{tag}"
       stop_following: "Stop Following #%{tag}"
+  terms_and_conditions: "Terms and Conditions"
   tokens:
     show:
       connect_to_cubbies: "Connect to Cubbi.es"

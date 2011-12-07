@@ -578,6 +578,7 @@ nl:
       permalink: "permalink"
   previous: "vorige"
   privacy: "Privacy"
+  privacy_policy: "Privacy Policy"
   profile: "Profiel"
   profiles:
     edit:
@@ -801,6 +802,9 @@ nl:
     aspects:
       title: "Jouw Aspecten"
     aspects_stream: "Aspecten"
+    comment_stream:
+      contacts_title: "People whose posts you commented on"
+      title: "Commented Posts"
     commented_on: "commented on"
     community_spotlight_stream: "Community Spotlight"
     followed_tag:
@@ -809,6 +813,9 @@ nl:
       follow: "Volg"
       title: "#Followed Tags"
     followed_tags_stream: "#Followed Tags"
+    like_stream:
+      contacts_title: "People whose posts you like"
+      title: "Like Stream"
     mentioned_stream: "@Mentions"
     mentions:
       contacts_title: "Mensen die jou hebben genoemd"
@@ -828,6 +835,7 @@ nl:
   tag_followings:
     create:
       failure: "Volgen mislukt: #%{name}"
+      none: "You cannot follow a blank tag!"
       success: "Volgen succesvol: #%{name}"
     destroy:
       failure: "Stoppen met volgen mislukt: #%{name}"
@@ -838,9 +846,11 @@ nl:
       followed_by: "gevolgd door"
       following: "Volgt #%{tag}"
       nobody_talking: "Nog niemand heeft het over %{tag}."
+      none: "The empty tag does not exist!"
       people_tagged_with: "Personen gemerkt met %{tag}"
       posts_tagged_with: "Berichten gemerkt met #%{tag}"
       stop_following: "Stop met volgen van #%{tag}"
+  terms_and_conditions: "Terms and Conditions"
   tokens:
     show:
       connect_to_cubbies: "Verbind met Cubbi.es"

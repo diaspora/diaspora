@@ -111,9 +111,9 @@ sv:
         here_to_help: "Diaspora communityn finns här!"
         need_help: "Behöver du hjälp?"
         satisfaction: "%{link}: Support ifrån communityn"
-        tag_bug: "bugg"
-        tag_feature: "förslag"
-        tag_question: "fråga"
+        tag_bug: "bug"
+        tag_feature: "feature"
+        tag_question: "question"
         tutorials_wiki_and_forum: "%{tutorial} & %{wiki} & %{forum}: Gemenskapens handledning, guider och nyheter"
       introduce_yourself: "Det här är din ström. Hoppa in och presentera dig själv."
       keep_us_running: "Håll farten hos %{pod} uppe och köp kaffe till servrarna genom en månadsdonation!"
@@ -316,7 +316,7 @@ sv:
       your_aspects: "dina aspekter"
     header:
       admin: "admin"
-      blog: "Blogg"
+      blog: "blogg"
       code: "källkod"
       login: "Logga in"
       logout: "Logga ut"
@@ -578,6 +578,7 @@ sv:
       permalink: "permalänk"
   previous: "föregående"
   privacy: "Sekretess"
+  privacy_policy: "Privacy Policy"
   profile: "Profil"
   profiles:
     edit:
@@ -801,6 +802,9 @@ sv:
     aspects:
       title: "Dina Aspekter"
     aspects_stream: "Aspekter"
+    comment_stream:
+      contacts_title: "People whose posts you commented on"
+      title: "Commented Posts"
     commented_on: "kommenterade på"
     community_spotlight_stream: "Gemenskapens Rampljus"
     followed_tag:
@@ -809,6 +813,9 @@ sv:
       follow: "Följ"
       title: "#Följda Taggar"
     followed_tags_stream: "#Följda Taggar"
+    like_stream:
+      contacts_title: "People whose posts you like"
+      title: "Like Stream"
     mentioned_stream: "@Mentions"
     mentions:
       contacts_title: "Personer som omnämnt dig"
@@ -828,6 +835,7 @@ sv:
   tag_followings:
     create:
       failure: "Misslyckades med att följa #%{name}. Du kanske redan gör det?"
+      none: "You cannot follow a blank tag!"
       success: "Ja! Du följer nu #%{name}."
     destroy:
       failure: "Misslyckades att sluta följa #%{name}. Kanske har du redan slutat följa?"
@@ -838,9 +846,11 @@ sv:
       followed_by: "följs av"
       following: "Följer #%{tag}"
       nobody_talking: "Ingen talar om %{tag} än."
+      none: "The empty tag does not exist!"
       people_tagged_with: "Personer taggade med %{tag}"
       posts_tagged_with: "Poster taggade med #%{tag}"
       stop_following: "Sluta följa #%{tag}"
+  terms_and_conditions: "Terms and Conditions"
   tokens:
     show:
       connect_to_cubbies: "Koppla till Cubbi.es"

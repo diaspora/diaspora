@@ -578,6 +578,7 @@ pt-PT:
       permalink: "permalink"
   previous: "anterior"
   privacy: "Privacidade"
+  privacy_policy: "Privacy Policy"
   profile: "Perfil"
   profiles:
     edit:
@@ -801,6 +802,9 @@ pt-PT:
     aspects:
       title: "Os Teus Aspectos"
     aspects_stream: "Aspectos"
+    comment_stream:
+      contacts_title: "People whose posts you commented on"
+      title: "Commented Posts"
     commented_on: "comentou no"
     community_spotlight_stream: "Destaque da Comunidade"
     followed_tag:
@@ -809,6 +813,9 @@ pt-PT:
       follow: "Seguir"
       title: "#Followed Tags"
     followed_tags_stream: "#Followed Tags"
+    like_stream:
+      contacts_title: "People whose posts you like"
+      title: "Like Stream"
     mentioned_stream: "@Mentions"
     mentions:
       contacts_title: "Pessoas que o mencionaram"
@@ -828,6 +835,7 @@ pt-PT:
   tag_followings:
     create:
       failure: "Falhou ao seguir: #%{name}. Você já está segui-lo?"
+      none: "You cannot follow a blank tag!"
       success: "Viva! Começou agora a seguir #%{name}."
     destroy:
       failure: "Falhou ao tentar deixar de seguir: #%{name}. Talvez você já deixou de segui-lo?"
@@ -838,9 +846,11 @@ pt-PT:
       followed_by: "seguido por"
       following: "A seguir #%{tag}"
       nobody_talking: "Ainda ninguém está a falar sobre %{tag}."
+      none: "The empty tag does not exist!"
       people_tagged_with: "Pessoas com a %{tag}"
       posts_tagged_with: "Publicações com a tag #%{tag}"
       stop_following: "Deixar de Seguir #%{tag}"
+  terms_and_conditions: "Terms and Conditions"
   tokens:
     show:
       connect_to_cubbies: "Ligar ao Cubbi.es"

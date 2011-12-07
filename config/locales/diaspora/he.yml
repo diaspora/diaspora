@@ -578,6 +578,7 @@ he:
       permalink: "קישור קבוע"
   previous: "הקודמת"
   privacy: "Privacy"
+  privacy_policy: "Privacy Policy"
   profile: "פרופיל"
   profiles:
     edit:
@@ -801,6 +802,9 @@ he:
     aspects:
       title: "Your Aspects"
     aspects_stream: "Aspects"
+    comment_stream:
+      contacts_title: "People whose posts you commented on"
+      title: "Commented Posts"
     commented_on: "commented on"
     community_spotlight_stream: "Community Spotlight"
     followed_tag:
@@ -809,6 +813,9 @@ he:
       follow: "Follow"
       title: "#Followed Tags"
     followed_tags_stream: "#Followed Tags"
+    like_stream:
+      contacts_title: "People whose posts you like"
+      title: "Like Stream"
     mentioned_stream: "@Mentions"
     mentions:
       contacts_title: "People who mentioned you"
@@ -828,6 +835,7 @@ he:
   tag_followings:
     create:
       failure: "אירע כשל בעת המעקב: #%{name}"
+      none: "You cannot follow a blank tag!"
       success: "המעקב הוגדר בהצלחה אחר: #%{name}"
     destroy:
       failure: "אירע כשל בעצירת הבא: #%{name}"
@@ -838,9 +846,11 @@ he:
       followed_by: "followed by"
       following: "במעקב אחר #%{tag}"
       nobody_talking: "אף אחד עדיין לא דיבר על %{tag}."
+      none: "The empty tag does not exist!"
       people_tagged_with: "אנשים תויגו ב־%{tag}"
       posts_tagged_with: "אנשים תויגו ב־%{tag}"
       stop_following: "הפסקת המעקב אחר #%{tag}"
+  terms_and_conditions: "Terms and Conditions"
   tokens:
     show:
       connect_to_cubbies: "התחברות ל־Cubbi.es"

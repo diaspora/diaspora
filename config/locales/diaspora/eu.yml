@@ -578,6 +578,7 @@ eu:
       permalink: "permalink"
   previous: "aurrekoa"
   privacy: "Privacy"
+  privacy_policy: "Privacy Policy"
   profile: "Profila"
   profiles:
     edit:
@@ -801,6 +802,9 @@ eu:
     aspects:
       title: "Zure Alderdiak"
     aspects_stream: "Alderdiak"
+    comment_stream:
+      contacts_title: "People whose posts you commented on"
+      title: "Commented Posts"
     commented_on: "iruzkindua"
     community_spotlight_stream: "Komunitateko Nabarmenenak"
     followed_tag:
@@ -809,6 +813,9 @@ eu:
       follow: "Jarraitu"
       title: "#Jarraitutako Etiketak"
     followed_tags_stream: "#Jarraitutako Etiketak"
+    like_stream:
+      contacts_title: "People whose posts you like"
+      title: "Like Stream"
     mentioned_stream: "@Aipamenak"
     mentions:
       contacts_title: "Aipatu zaituzten jendea"
@@ -828,6 +835,7 @@ eu:
   tag_followings:
     create:
       failure: "Huts #%{name} jarraitzean. Jada jarraitzen ari zara?"
+      none: "You cannot follow a blank tag!"
       success: "Aupa! #%{name} jarraitzne ari zara."
     destroy:
       failure: "Huts #%{name} ez jarraitzean"
@@ -838,9 +846,11 @@ eu:
       followed_by: "hauek jarraitua:"
       following: "#%{tag} jarraitzen"
       nobody_talking: "Inor ez du %{tag}(r)i buruz hitz egin oraindik."
+      none: "The empty tag does not exist!"
       people_tagged_with: "%{tag} etiketadun jendea"
       posts_tagged_with: "#%{tag} etiketadun mezuak"
       stop_following: "Ez Jarraitu #%{tag}"
+  terms_and_conditions: "Terms and Conditions"
   tokens:
     show:
       connect_to_cubbies: "Cubbi.es-era lotu"

@@ -578,6 +578,7 @@ sk:
       permalink: "trvalý odkaz"
   previous: "Predchádzajúce"
   privacy: "Ochrana súkromia"
+  privacy_policy: "Privacy Policy"
   profile: "Profil"
   profiles:
     edit:
@@ -801,6 +802,9 @@ sk:
     aspects:
       title: "Vaše kategórie"
     aspects_stream: "Kategórie"
+    comment_stream:
+      contacts_title: "People whose posts you commented on"
+      title: "Commented Posts"
     commented_on: "okomentované"
     community_spotlight_stream: "V&nbsp;centre pozornosti komunity"
     followed_tag:
@@ -809,6 +813,9 @@ sk:
       follow: "Sledovať"
       title: "#Sledované značky"
     followed_tags_stream: "#Značky, ktoré sledujete"
+    like_stream:
+      contacts_title: "People whose posts you like"
+      title: "Like Stream"
     mentioned_stream: "@Zmienky"
     mentions:
       contacts_title: "Ľudia, ktorí vás spomenuli"
@@ -828,6 +835,7 @@ sk:
   tag_followings:
     create:
       failure: "Nedá sa sledovať použ. #%{name}. Nesledujte ho (ju) už?"
+      none: "You cannot follow a blank tag!"
       success: "Hurá! Teraz sledujete použ. #%{name}."
     destroy:
       failure: "Nepodarilo sa zrušiť sledovanie použ. #%{name}. Možno ste ho (ju) už prestali sledovať."
@@ -838,9 +846,11 @@ sk:
       followed_by: "sleduje"
       following: "Sledujete #%{tag}"
       nobody_talking: "Niekto ešte nehovorí o téme %{tag}."
+      none: "The empty tag does not exist!"
       people_tagged_with: "Ľudia označení s %{tag}"
       posts_tagged_with: "Príspevky označené značkou #%{tag}"
       stop_following: "Prestať sledovať #%{tag}"
+  terms_and_conditions: "Terms and Conditions"
   tokens:
     show:
       connect_to_cubbies: "Pripojiť sa na Cubbi.es"

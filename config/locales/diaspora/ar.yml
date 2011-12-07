@@ -578,6 +578,7 @@ ar:
       permalink: "رابط دائم"
   previous: "السابق"
   privacy: "Privacy"
+  privacy_policy: "Privacy Policy"
   profile: "الصفحة الشخصية"
   profiles:
     edit:
@@ -801,6 +802,9 @@ ar:
     aspects:
       title: "Your Aspects"
     aspects_stream: "Aspects"
+    comment_stream:
+      contacts_title: "People whose posts you commented on"
+      title: "Commented Posts"
     commented_on: "commented on"
     community_spotlight_stream: "Community Spotlight"
     followed_tag:
@@ -809,6 +813,9 @@ ar:
       follow: "Follow"
       title: "#Followed Tags"
     followed_tags_stream: "#Followed Tags"
+    like_stream:
+      contacts_title: "People whose posts you like"
+      title: "Like Stream"
     mentioned_stream: "@Mentions"
     mentions:
       contacts_title: "People who mentioned you"
@@ -828,6 +835,7 @@ ar:
   tag_followings:
     create:
       failure: "فشل في متابعة: #%{name}"
+      none: "You cannot follow a blank tag!"
       success: "بدأت بنجاح متابعة: #%{name}"
     destroy:
       failure: "فشل في إيقاف متابعة: #%{name}"
@@ -838,9 +846,11 @@ ar:
       followed_by: "followed by"
       following: "أنت تتابع #%{tag}"
       nobody_talking: "لم يتحدث أحدٌ عن %{tag} بعد"
+      none: "The empty tag does not exist!"
       people_tagged_with: "أشخاص موسومون بـ %{tag}"
       posts_tagged_with: "مشاركات موسومة بـ #%{tag}"
       stop_following: "أوقف متابعة #%{tag}"
+  terms_and_conditions: "Terms and Conditions"
   tokens:
     show:
       connect_to_cubbies: "صِل حسابك بـ Cubbi.es"

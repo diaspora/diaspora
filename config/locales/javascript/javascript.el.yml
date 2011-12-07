@@ -8,14 +8,14 @@ el:
     aspect_dropdown:
       add_to_aspect: "Προσθήκη επαφής"
       all_aspects: "Όλες οι πτυχές"
-      error: "Couldn't start sharing with {{name}}.  Are you ignoring them?"
+      error: "Δεν μπορεί να ξεκινήσει ο διαμοιρασμός με το χρήστη {{name}}. Μήπως τον αγνοείτε;"
       select_aspects: "Επιλογή πτυχών"
       started_sharing_with: "Ξεκινήσατε να διαμοιράζεστε με τον χρήστη {{name}}!"
       stopped_sharing_with: "Σταματήσατε να διαμοιράζεστε με τον χρήστη {{name}}."
       toggle:
         few: "Σε {{count}} πτυχές"
         many: "Σε {{count}} πτυχές"
-        one: "Σε {{count}} πτυχές"
+        one: "Σε {{count}} πτυχή"
         other: "Σε {{count}} πτυχές"
         two: "Σε {{count}} πτυχές"
         zero: "Επιλέξτε πτυχές"

@@ -16,7 +16,7 @@
   .content
     %span.from.name
       - if friend.on_diaspora?
-        = link_to friend.name, person_path(friend.person)
+        = link_to friend.name, local_or_remote_person_path(friend.person)
       - else
         = friend.name
 

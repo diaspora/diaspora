@@ -105,9 +105,9 @@ bg:
       help:
         do_you: "Вие:"
         email_feedback: "Ако предпочитате изпратете отзив по ел. поща (%{link})"
-        feature_suggestion: "... имате предложение за нова функция (%{link})?"
+        feature_suggestion: "... имате предложение за нова %{link}?"
         find_a_bug: "... сте открили грешка (%{link})?"
-        have_a_question: "... имате въпрос (%{link})?"
+        have_a_question: "... имате %{link}?"
         here_to_help: "Общността е готова да помогне!"
         need_help: "Нуждаете се от помощ?"
         satisfaction: "%{link}: Поддръжка осигурена от общността"
@@ -301,7 +301,7 @@ bg:
       comma_seperated_plz: "Можете да въведете повече от една ел. поща като ги разделяте със запетаи."
       if_they_accept_info: "ако приемат поканата ще бъдат добавени към аспекта в който сте ги поканили."
       invite_someone_to_join: "Поканете някой в Diaspora!"
-      language: "Език"
+      language: "Език за поканата"
       personal_message: "Лично съобщение"
       resend: "Повторно изпращане"
       send_an_invitation: "Изпращане на поканата"
@@ -577,12 +577,13 @@ bg:
       not_found: "За съжаление публикацията не може да бъде намерена."
       permalink: "постоянен адрес"
   previous: "предишна"
-  privacy: "Privacy"
+  privacy: "Поверителност"
+  privacy_policy: "Privacy Policy"
   profile: "Профил"
   profiles:
     edit:
       allow_search: "Разрешете търсенето в Diaspora за вас"
-      edit_profile: "Редактиране на профила"
+      edit_profile: "Настройки на профила"
       first_name: "Собствено име"
       last_name: "Фамилно име"
       update_profile: "Обновяване на профила"
@@ -683,7 +684,7 @@ bg:
       connect_to_tumblr: "Свързване с tumblr"
       connect_to_twitter: "Свързване с twitter"
       disconnect: "изключване"
-      edit_services: "Редактиране на услугите"
+      edit_services: "Настройки на услугите"
       logged_in_as: "вписани сте като"
       no_services: "Все още не сте свързали нито една услуга."
       really_disconnect: "Наистина ли желаете свързаността с %{service} да бъде изключена?"
@@ -801,6 +802,9 @@ bg:
     aspects:
       title: "Вашите аспекти"
     aspects_stream: "От вашите аспекти"
+    comment_stream:
+      contacts_title: "People whose posts you commented on"
+      title: "Commented Posts"
     commented_on: "коментирани"
     community_spotlight_stream: "От \"В центъра на вниманието\""
     followed_tag:
@@ -809,6 +813,9 @@ bg:
       follow: "Добавяне"
       title: "#Марки, които следите"
     followed_tags_stream: "От #Марка, която следите"
+    like_stream:
+      contacts_title: "People whose posts you like"
+      title: "Like Stream"
     mentioned_stream: "@Кой ви спомена"
     mentions:
       contacts_title: "Хора, които са ви споменали"
@@ -828,6 +835,7 @@ bg:
   tag_followings:
     create:
       failure: "Не започнахте да следите \"#%{name}\". Да не би вече да следите марката?"
+      none: "You cannot follow a blank tag!"
       success: "Ура! Започнахте да следите \"#%{name}\"."
     destroy:
       failure: "Следенето на \"#%{name}\" не е прекратено."
@@ -838,9 +846,11 @@ bg:
       followed_by: "се следи от"
       following: "Следите #%{tag}"
       nobody_talking: "Никой не е говорил за %{tag}."
+      none: "The empty tag does not exist!"
       people_tagged_with: "Хора маркирани с %{tag}"
       posts_tagged_with: "Публикации с марка #%{tag}"
       stop_following: "Прекратяване следването на #%{tag}"
+  terms_and_conditions: "Terms and Conditions"
   tokens:
     show:
       connect_to_cubbies: "Свързване с Cubbi.es"
@@ -874,7 +884,7 @@ bg:
       current_password: "Текуща парола"
       download_photos: "снимките ви"
       download_xml: "данните ви (XML формат)"
-      edit_account: "Редактиране на акаунта"
+      edit_account: "Настройки на акаунта"
       email_awaiting_confirmation: "Изпратена е връзка за активиране до %{unconfirmed_email}. Докато не я активирате ще бъде ползвана старата ел. поща (%{email})."
       export_data: "Сваляне на..."
       getting_started: "New User Prefrences"
@@ -912,7 +922,7 @@ bg:
     privacy_settings:
       ignored_users: "Игнорирани потребители"
       stop_ignoring: "Прекратяване на игнорирането"
-      title: "Privacy Settings"
+      title: "Настройки за поверителност"
     public:
       does_not_exist: "Потребителят %{username} не съществува!"
     update:

@@ -578,6 +578,7 @@ eo:
       permalink: "malŝanĝantligilo"
   previous: "antaŭa"
   privacy: "Privateco"
+  privacy_policy: "Privacy Policy"
   profile: "Profilo"
   profiles:
     edit:
@@ -801,6 +802,9 @@ eo:
     aspects:
       title: "Viaj Aspektoj"
     aspects_stream: "Aspektoj"
+    comment_stream:
+      contacts_title: "People whose posts you commented on"
+      title: "Commented Posts"
     commented_on: "komentis pri"
     community_spotlight_stream: "Komunuma Reflektoro"
     followed_tag:
@@ -809,6 +813,9 @@ eo:
       follow: "Sekvi"
       title: "#Sekvataj etikedoj"
     followed_tags_stream: "#Sekvataj etikedoj"
+    like_stream:
+      contacts_title: "People whose posts you like"
+      title: "Like Stream"
     mentioned_stream: "@Mencioj"
     mentions:
       contacts_title: "Homoj, kiuj menciis vin"
@@ -828,6 +835,7 @@ eo:
   tag_followings:
     create:
       failure: "Malsukcesis aboni je #%{name}. Ĉu vi jam sekvas ĝin?"
+      none: "You cannot follow a blank tag!"
       success: "Hura! Vi nun sekvas je #%{name}."
     destroy:
       failure: "Ne povis malaboni je #%{name}. Ĉu eble vi jam malabonis?"
@@ -838,9 +846,11 @@ eo:
       followed_by: "sekvata de"
       following: "Abonita al #%{tag}"
       nobody_talking: "Ankoraŭ neniu parolas pri %{tag}."
+      none: "The empty tag does not exist!"
       people_tagged_with: "Personoj etikediĝis kun %{tag}"
       posts_tagged_with: "Afiŝoj etikediĝis kun #%{tag}"
       stop_following: "Malaboni de #%{tag}"
+  terms_and_conditions: "Terms and Conditions"
   tokens:
     show:
       connect_to_cubbies: "Konekti al Cubbi.es"

@@ -11,15 +11,15 @@ describe Webfinger do
   let(:user1) { alice }
   let(:user2) { eve }
 
-  let(:account) {"foo@tom.joindiaspora.com"}
-  let(:person){ Factory(:person, :diaspora_handle => account)}
-  let(:finger){Webfinger.new(account)}
+  let(:account) { "foo@tom.joindiaspora.com" }
+  let(:person) { Factory(:person, :diaspora_handle => account) }
+  let(:finger) { Webfinger.new(account) }
 
-  let(:good_request) { FakeHttpRequest.new(:success)}
+  let(:good_request) { FakeHttpRequest.new(:success) }
 
-  let(:diaspora_xrd) {puts "requiring host-meta"; File.open(File.join(Rails.root, 'spec', 'fixtures', 'host-meta.fixture.html')).read}
-  let(:diaspora_finger) {File.open(File.join(Rails.root, 'spec', 'fixtures', 'webfinger.fixture.html')).read}
-  let(:hcard_xml) {File.open(File.join(Rails.root, 'spec', 'fixtures', 'hcard.fixture.html')).read}
+  let(:diaspora_xrd) { File.open(File.join(Rails.root, 'spec', 'fixtures', 'host-meta.fixture.html')).read }
+  let(:diaspora_finger) { File.open(File.join(Rails.root, 'spec', 'fixtures', 'webfinger.fixture.html')).read }
+  let(:hcard_xml) { File.open(File.join(Rails.root, 'spec', 'fixtures', 'hcard.fixture.html')).read }
 
   context 'setup' do
 
@@ -28,7 +28,7 @@ describe Webfinger do
         n = Webfinger.new("mbs348@gmail.com")
         n.instance_variable_get(:@account).should_not be nil
       end
-      
+
       it 'downcases account' do
         account = "BIGBOY@Example.Org"
         n = Webfinger.new(account)

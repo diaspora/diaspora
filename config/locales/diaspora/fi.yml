@@ -436,12 +436,12 @@ fi:
       two: "%{actors} ovat jakaneet %{post_link}si uudelleen."
       zero: "%{actors} on jakanut %{post_link}si uudelleen."
     reshared_post_deleted:
-      few: "%{actors} reshared your deleted post."
-      many: "%{actors} reshared your deleted post."
-      one: "%{actors} reshared your deleted post."
-      other: "%{actors} reshared your deleted post."
-      two: "%{actors} reshared your deleted post."
-      zero: "%{actors} reshared your deleted post."
+      few: "%{actors} jakoivat poistamasi viestin uudelleen."
+      many: "%{actors} jakoivat poistamasi viestin uudelleen."
+      one: "%{actors} jakoi poistamasi viestin uudelleen."
+      other: "%{actors} jakoivat poistamasi viestin uudelleen."
+      two: "%{actors} jakoivat poistamasi viestin uudelleen."
+      zero: "%{actors} jakoivat poistamasi viestin uudelleen."
     started_sharing:
       few: "%{actors} on aloittanut jakamaan kanssasi."
       many: "%{actors} on aloittanut jakamaan kanssasi."
@@ -578,6 +578,7 @@ fi:
       permalink: "pysyvä linkki"
   previous: "edellinen"
   privacy: "Yksityisyys"
+  privacy_policy: "Privacy Policy"
   profile: "Profiili"
   profiles:
     edit:
@@ -801,6 +802,9 @@ fi:
     aspects:
       title: "Näkymäsi"
     aspects_stream: "Näkymät"
+    comment_stream:
+      contacts_title: "People whose posts you commented on"
+      title: "Commented Posts"
     commented_on: "kommentoidut"
     community_spotlight_stream: "Yhteisön valokeila"
     followed_tag:
@@ -809,6 +813,9 @@ fi:
       follow: "Seuraa"
       title: "#Seuratut tagit"
     followed_tags_stream: "#Seuratut tagit"
+    like_stream:
+      contacts_title: "People whose posts you like"
+      title: "Like Stream"
     mentioned_stream: "@Maininnat"
     mentions:
       contacts_title: "Sinut maininneet ihmiset"
@@ -828,6 +835,7 @@ fi:
   tag_followings:
     create:
       failure: "Tagin #%{name} seuraamisen aloittaminen epäonnistui. Seuraatko sitä jo?"
+      none: "You cannot follow a blank tag!"
       success: "Hiphei! Seuraat nyt tagia #%{name}."
     destroy:
       failure: "Tagin #%{name} seuraamisen lopettaminen epäonnistui. Oletko jo lopettanut sen seuraamisen?"
@@ -838,9 +846,11 @@ fi:
       followed_by: "tagia seuraa"
       following: "Seurataan tagia #%{tag}"
       nobody_talking: "Kukaan ei vielä keskustele tagista %{tag}."
+      none: "The empty tag does not exist!"
       people_tagged_with: "Tagilla %{tag} merkityt ihmiset"
       posts_tagged_with: "Tagilla #%{tag} merkityt viestit"
       stop_following: "Lopeta tagin #%{tag} seuraaminen"
+  terms_and_conditions: "Terms and Conditions"
   tokens:
     show:
       connect_to_cubbies: "Yhdistä kohteeseen Cubbi.es"

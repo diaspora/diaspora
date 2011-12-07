@@ -1,5 +1,5 @@
 When /^I click on "([^"]*)" aspect edit icon$/ do |aspect_name|
-  When %{I hover over the "ul.sub_nav > li:contains('#{aspect_name}')"}
+  step %{I hover over the "ul.sub_nav > li:contains('#{aspect_name}')"}
   within("#aspect_nav") do
     find(:xpath, "//a[@rel='facebox'][.//img[@title='Edit #{aspect_name}']]").click
   end
@@ -10,19 +10,19 @@ When /^I select only "([^"]*)" aspect$/ do |aspect_name|
     click_link 'Select all' if has_link? 'Select all'
   end
 
-  And %{I wait for the ajax to finish}
+  step %{I wait for the ajax to finish}
 
   within('#aspect_nav') do
     click_link 'Deselect all' if has_link? 'Deselect all'
   end
 
-  And %{I wait for the ajax to finish}
+  step %{I wait for the ajax to finish}
 
   within('#aspect_nav') do
     click_link aspect_name
   end
 
-  And %{I wait for the ajax to finish}
+  step %{I wait for the ajax to finish}
 end
 
 When /^I should see "([^"]*)" aspect selected$/ do |aspect_name|
