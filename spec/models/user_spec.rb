@@ -907,6 +907,7 @@ describe User do
       fantasy_resque do
         @invitation = Factory.create(:invitation, :sender => eve, :identifier => 'invitee@example.org', :aspect => eve.aspects.first)
       end
+
       @invitation.reload
       @form_params = {
                        :invitation_token => "abc",
@@ -1003,6 +1004,8 @@ describe User do
       user = Factory :user
       Resque.should_receive(:enqueue).with(Jobs::ResetPassword, user.id)
       user.send_reset_password_instructions
+    end
+  end
 
   context "close account" do
     before do
@@ -1078,3 +1081,4 @@ describe User do
       end
     end
   end
+end
