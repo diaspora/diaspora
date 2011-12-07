@@ -37,6 +37,13 @@ Factory.define :person do |p|
   end
 end
 
+Factory.define :account_deletion do |d|
+  d.association :person
+  d.after_build do |delete|
+    delete.diaspora_handle= delete.person.diaspora_handle
+  end
+end
+
 Factory.define :searchable_person, :parent => :person do |p|
   p.after_build do |person|
     person.profile = Factory.build(:profile, :person => person, :searchable => true)

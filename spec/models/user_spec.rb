@@ -625,7 +625,8 @@ describe User do
 
     describe '#disconnect_everyone' do
       it 'has no error on a local friend who has deleted his account' do
-        Jobs::DeleteAccount.perform(alice.id)
+        d = Factory(:account_deletion, :person => alice.person)
+        Jobs::DeleteAccount.perform(d.id)
         lambda {
           bob.disconnect_everyone
         }.should_not raise_error
