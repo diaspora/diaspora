@@ -53,28 +53,41 @@ class AuthorizationsController < ApplicationController
       render :text => "bad request: #{params.inspect}", :status => 403
       return
     end
-      packaged_manifest = JSON.parse(RestClient.get("#{app_url}manifest.json").body)
-      public_key = OpenSSL::PKey::RSA.new(packaged_manifest['public_key'])
-      manifest = JWT.decode(packaged_manifest['jwt'], public_key)
+    
+    packaged_manifest = JSON.parse(RestClient.get("#{app_url}manifest.json").body)
+    public_key = OpenSSL::PKey::RSA.new(packaged_manifest['public_key'])
+    manifest = JWT.decode(packaged_manifest['jwt'], public_key)
 
-      message = verify(signed_string, Base64.decode64(params[:signature]), public_key, manifest)
-      if not (message =='ok')
-        render :text => message, :status => 403
-      elsif manifest["application_base_url"].match(/^https?:\/\/(localhost|chubbi\.es|www\.cubbi\.es|cubbi\.es)(:\d+)?\/$/).nil?
-        # This will only be temporary (less than a month) while we iron out the kinks in Diaspora Connect. Essentially,
-        # whatever we release people will try to work off of and it sucks to build things on top of non-stable things.
-        # We also started writing a gem that we'll release (around the same time) that makes becoming a Diaspora enabled
-        # ruby project a breeze.
+    message = verify(signed_string, Base64.decode64(params[:signature]), public_key, manifest)
+    if not (message =='ok')
+      render :text => message, :status => 403
+    elsif manifest["application_base_url"].match(/^https?:\/\/(localhost|chubbi\.es|www\.cubbi\.es|cubbi\.es)(:\d+)?\/$/).nil?
+      # This will only be temporary (less than a month) while we iron out the kinks in Diaspora Connect. Essentially,
+      # whatever we release people will try to work off of and it sucks to build things on top of non-stable things.
+      # We also started writing a gem that we'll release (around the same time) that makes becoming a Diaspora enabled
+      # ruby project a breeze.
 
-        render :text => "Domain (#{manifest["application_base_url"]}) currently not authorized for Diaspora OAuth", :status => 403
-      else
-        client = OAuth2::Provider.client_class.create_or_reset_from_manifest!(manifest, public_key)
+      render :text => "Domain (#{manifest["application_base_url"]}) currently not authorized for Diaspora OAuth", :status => 403
+    else
+      client = OAuth2::Provider.client_class.create_or_reset_from_manifest!(manifest, public_key)
 
-        render :json => {:client_id => client.oauth_identifier,
-                         :client_secret => client.oauth_secret,
-                         :expires_in => 0,
-                         :flows_supported => ""}
+      debugger
+      json = {:client_id => client.oauth_identifier,
+              :client_secret => client.oauth_secret,
+              :expires_in => 0,
+              :flows_supported => ""}
+
+      if params[:code]
+        code = client.authorization_codes.claim(params[:code], 
+                                                params[:redirect_uri])
+        json.merge!(
+          :access_token => code.access_token,
+          :refresh_token => code.refresh_token
+        )
       end
+
+      render :json => json
+    end
   end
 
   def index

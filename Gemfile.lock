@@ -278,8 +278,8 @@ GEM
     oauth2 (0.5.0)
       faraday (>= 0.6.1, < 0.8)
       multi_json (~> 1.0.0)
-    oauth2-provider (0.0.16)
-      activesupport (~> 3.0.1)
+    oauth2-provider (0.0.19)
+      activesupport (~> 3.0)
       addressable (~> 2.2)
     ohai (0.6.10)
       mixlib-cli
@@ -483,7 +483,7 @@ DEPENDENCIES
   mysql2 (= 0.2.17)
   newrelic_rpm
   nokogiri (~> 1.5.0)
-  oauth2-provider (= 0.0.16)
+  oauth2-provider (= 0.0.19)
   ohai (~> 0.6.10)
   omniauth (= 1.0.1)
   omniauth-facebook

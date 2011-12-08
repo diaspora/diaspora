@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111109023618) do
+ActiveRecord::Schema.define(:version => 20111207233503) do
 
   create_table "account_deletions", :force => true do |t|
     t.string  "diaspora_handle"
@@ -199,17 +199,17 @@ ActiveRecord::Schema.define(:version => 20111109023618) do
   add_index "o_embed_caches", ["url"], :name => "index_o_embed_caches_on_url", :length => {"url"=>255}
 
   create_table "oauth_access_tokens", :force => true do |t|
-    t.integer  "authorization_id",               :null => false
-    t.string   "access_token",     :limit => 32, :null => false
-    t.string   "refresh_token",    :limit => 32
+    t.integer  "authorization_id",                :null => false
+    t.string   "access_token",     :limit => 127, :null => false
+    t.string   "refresh_token",    :limit => 127
     t.datetime "expires_at"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "oauth_authorization_codes", :force => true do |t|
-    t.integer  "authorization_id",               :null => false
-    t.string   "code",             :limit => 32, :null => false
+    t.integer  "authorization_id",                :null => false
+    t.string   "code",             :limit => 127, :null => false
     t.datetime "expires_at"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -231,11 +231,12 @@ ActiveRecord::Schema.define(:version => 20111109023618) do
     t.text   "description",                         :null => false
     t.string "application_base_url", :limit => 127, :null => false
     t.string "icon_url",             :limit => 127, :null => false
-    t.string "oauth_identifier",     :limit => 32,  :null => false
-    t.string "oauth_secret",         :limit => 32,  :null => false
-    t.string "nonce",                :limit => 64
+    t.string "oauth_identifier",     :limit => 127, :null => false
+    t.string "oauth_secret",         :limit => 127, :null => false
+    t.string "nonce",                :limit => 127
     t.text   "public_key",                          :null => false
     t.text   "permissions_overview",                :null => false
+    t.string "oauth_redirect_uri"
   end
 
   add_index "oauth_clients", ["application_base_url"], :name => "index_oauth_clients_on_application_base_url", :unique => true
@@ -459,6 +460,8 @@ ActiveRecord::Schema.define(:version => 20111109023618) do
     t.string   "confirm_email_token",                :limit => 30
     t.datetime "locked_at"
     t.boolean  "show_community_spotlight_in_stream",                :default => true,  :null => false
+    t.boolean  "auto_follow_back",                                  :default => false
+    t.integer  "auto_follow_back_aspect_id"
   end
 
   add_index "users", ["authentication_token"], :name => "index_users_on_authentication_token", :unique => true
