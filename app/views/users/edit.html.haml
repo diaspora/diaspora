@@ -165,36 +165,35 @@
 
   .span-5.last
     %h3
-      = t('.close_account')
+      = t('.close_account_text')
     =link_to 'Close Account', '#close_account_pane', :rel => 'facebox', :class => "button"
 
     .hidden#close_account_pane{:rel => 'facebox'}
       #inner_account_delete
         %h1
-          Hey, please don't go!
+          = t('.close_account.dont_go')
         %p
-          We want you to help us make Diaspora better, so you should help us out instead of leaving.
-          if you do want to leave, we want you to know what happens next.
+          = t('.close_account.make_diaspora_better')
         .span-10
           = image_tag 'http://itstrulyrandom.com/wp-content/uploads/2008/03/sadcat.jpg'
           %br
           %small
             %b
-              Mr Wiggles will be sad to see you go
+              = t('.close_account.mr_wiggles')
         .span-10.last
           %ul
             %li
-              We delete all of your posts, profile data, as soon as humanly possible.
-              Your comments will hang around, but be associated with your Diaspora Handle.
+              = t('.close_account.what_we_delete')
             %li
-              You will get signed out and locked out of your account.
+              = t('.close_account.locked_out')
             %li
-              This will lock your username if you decided to sign back up.
+              = t('.close_account.lock_username')
             %li
-              Currently, there is no turning back
+              = t('.close_account.no_turning_back')
           %p
             %b
-              If you really want this, type in your password below and click 'Close Account'
+              = t('.close_account.no_turning_back')
+              
 
           = form_for 'user', :url => user_path, :html => { :method => :delete } do |f|
             = f.error_messages
@@ -203,4 +202,4 @@
               = f.label :close_account_password, t('.current_password'), :for => :close_account_password
               = f.password_field :current_password, :id => :close_account_password
             %p
-              = f.submit t('.close_account'), :confirm => t('are_you_sure_delete_account')
+              = f.submit t('.close_account_text'), :confirm => t('are_you_sure_delete_account')
