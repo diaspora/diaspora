@@ -5,28 +5,21 @@ App.Views.Stream = Backbone.View.extend({
 
   initialize: function(){
     this.el = $("#main_stream");
-    this.template = _.template($("#stream-element-template").html());
-
     _.bindAll(this, "appendPost", "collectionFetched");
 
     this.collection = new App.Collections.Stream;
     this.collection.bind("add", this.appendPost);
+
     this.loadMore();
   },
 
-  appendPost: function(model) {
-    var post = $(this.template($.extend(
-      model.toJSON(),
-      App.user()
-    )));
-    $(this.el).append(post);
-    Diaspora.BaseWidget.instantiate("StreamElement", post);
+  appendPost: function(post) {
+    $(this.el).append(new App.Views.Post({
+      model: post
+    }).render());
   },
 
   collectionFetched: function() {
-    this.$(".details time").timeago();
-    this.$("label").inFieldLabels();
-
     this.$("#paginate").remove();
     $(this.el).append($("<a>", {
       href: this.collection.url(),
@@ -35,9 +28,7 @@ App.Views.Stream = Backbone.View.extend({
   },
 
   loadMore: function(evt) {
-    if(evt) {
-      evt.preventDefault();
-    }
+    if(evt) { evt.preventDefault(); }
 
     this.collection.fetch({
       add: true,

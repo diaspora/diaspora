@@ -1,0 +1,31 @@
+<li id="<%= id %>" class="comment">
+  <div class="right controls">
+    <!-- need access to post -->
+    <% if(author.id === current_user.id) { %>
+      <!-- LINK BROKEN FOR NOW -->
+      <a href="/posts/<%= id %>/comments/<%= id %>" class="delete comment_delete" data-original-title="Delete">
+        <img alt="Deletelabel" src="/images/deletelabel.png">
+      </a>
+    <% } %>
+  </div>
+
+  <a href="/people/<%= author.id %>">
+    <img src="<%= author.avatar.small %>" class="avatar" data-person-id="<%= author.id %>"/>
+  </a>
+
+  <div class="content">
+    <span class="from">
+      <a href="/people/<%= author.id %>">
+        <%= author.name %>
+      </a>
+    </span>
+
+    <p>
+      <%= text %>
+    </p>
+
+    <div class="comment_info">
+      <time class="timeago" datetime="<%= created_at %>"/>
+    </div>
+  </div>
+</li>

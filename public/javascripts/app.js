@@ -18,8 +18,6 @@ var App = {
 
     Backbone.history.start({pushState: true});
   }
-
-
 };
 
 $(function() { App.initialize(); });

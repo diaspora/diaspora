@@ -45,9 +45,6 @@
           current_user: #{current_user.person.as_api_response(:backbone).to_json}
         });
 
-        Diaspora.I18n.loadLocale(#{get_javascript_strings_for(I18n.locale).to_json}, "#{I18n.locale}");
-        Diaspora.Page = "#{params[:controller].camelcase}#{params[:action].camelcase}";
-
     = yield(:head)
 
     -unless Rails.env == "production"
@@ -79,6 +76,9 @@
 
     %script{:id => "stream-element-template", :type => 'text/template'}
       != File.read("#{Rails.root}/app/views/shared/_stream_element.html.underscore")
+
+    %script{:id => "comment-template", :type => 'text/template'}
+      != File.read("#{Rails.root}/app/views/shared/_comment.html.underscore")
 
     .container{:style=> "#{yield(:break_the_mold)}"}
       - if @aspsect == :getting_started || @page == :logged_out
