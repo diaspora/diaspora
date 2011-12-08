@@ -1,5 +1,5 @@
 package_assets: on
-embed_assets: on
+embed_assets: datauri
 compress_assets: on
 gzip_assets: off
 javascripts:

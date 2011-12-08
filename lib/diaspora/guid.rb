@@ -9,6 +9,6 @@ module Diaspora::Guid
 
   # @return [String] The model's guid.
   def set_guid
-    self.guid ||= ActiveSupport::SecureRandom.hex(8)
+    self.guid = ActiveSupport::SecureRandom.hex(8) if self.guid.blank?
   end
 end

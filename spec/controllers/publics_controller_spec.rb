@@ -16,6 +16,7 @@ describe PublicsController do
       get :host_meta
       response.should be_success
       response.body.should =~ /webfinger/
+      puts "Saving host-meta fixture to #{fixture_path}"
       save_fixture(response.body, "host-meta", fixture_path)
     end
   end

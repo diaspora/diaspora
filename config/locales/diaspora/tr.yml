@@ -578,6 +578,7 @@ tr:
       permalink: "kalıcı bağlantı"
   previous: "önceki"
   privacy: "Gizlilik"
+  privacy_policy: "Privacy Policy"
   profile: "Profil"
   profiles:
     edit:
@@ -801,6 +802,9 @@ tr:
     aspects:
       title: "Yönleriniz"
     aspects_stream: "Yönler"
+    comment_stream:
+      contacts_title: "People whose posts you commented on"
+      title: "Commented Posts"
     commented_on: "yorumlanan"
     community_spotlight_stream: "Topluluk Spotlight"
     followed_tag:
@@ -809,6 +813,9 @@ tr:
       follow: "Takip Et"
       title: "#Takip Edilen Etiketler"
     followed_tags_stream: "#Takip Edilen Etiketler"
+    like_stream:
+      contacts_title: "People whose posts you like"
+      title: "Like Stream"
     mentioned_stream: "@Bahsedenler"
     mentions:
       contacts_title: "Senden Bahsedenler"
@@ -828,6 +835,7 @@ tr:
   tag_followings:
     create:
       failure: "Takip etmek başarısız: #%{name}. Zaten onu takip eden var mı?"
+      none: "You cannot follow a blank tag!"
       success: "Başarıyla takip ediliyor: #%{name}"
     destroy:
       failure: "Takibi durdurmak başarısız oldu: #%{name}"
@@ -838,15 +846,16 @@ tr:
       followed_by: "takip edenler:"
       following: "#%{tag} takip ediliyor"
       nobody_talking: "%{tag} hakkında konuşan yok henüz."
+      none: "The empty tag does not exist!"
       people_tagged_with: "Kişi etiketlendi %{tag}"
       posts_tagged_with: "#%{tag} ile etiketlenmiş gönderiler"
       stop_following: "Takibi Durdur #%{tag}"
+  terms_and_conditions: "Terms and Conditions"
   tokens:
     show:
       connect_to_cubbies: "Cubbi.es Bağlan"
       connecting_is_simple: "Diaspora'da hesap bağlama basittir! Sadece Diaspora ID'nizi girin (<b>%{diaspora_id}</b>) ve Cubbi.es <a href='%{href_link}'>ayarlar</a> sayfasına gidin."
       daniels_account: "Daniel'in Diaspora hesabı"
-      log_in_with_diaspora_is_comming: "Çok yakında,yeni bir hesap oluşturmadan diğer Diaspora uygualamlarına bağlanabileceksiniz."
       love_to_try: "Bunu denemek isterdim."
       making_the_connection: "Bağlantı Kurma"
       screenshot_explanation: "%{link1}.  This particular cubby is linked to %{link2}."

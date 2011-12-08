@@ -5,17 +5,12 @@
 # files.
 
 ENV["RAILS_ENV"] ||= "test"
-require File.expand_path(File.dirname(__FILE__) + '/../../config/environment') unless defined?(Rails)
-
-require 'cucumber/formatter/unicode' # Remove this line if you don't want Cucumber Unicode support
-require 'cucumber/rails/rspec'
-require 'cucumber/rails/world'
-require 'cucumber/web/tableish'
+require 'cucumber/rails'
 
 require 'capybara/rails'
 require 'capybara/cucumber'
 require 'capybara/session'
-require 'cucumber/rails/capybara_javascript_emulation' # Lets you click links with onclick javascript handlers without using @culerity or @javascript
+#require 'cucumber/rails/capybara_javascript_emulation' # Lets you click links with onclick javascript handlers without using @culerity or @javascript
 require 'cucumber/api_steps'
 
 # Capybara defaults to XPath selectors rather than Webrat's default of CSS3. In
@@ -67,7 +62,8 @@ end
 After do
   AppConfig[:no_follow_diasporahq] = @no_follow_diaspora_hq_setting
   if Capybara.current_session.driver.respond_to?(:browser)
-    Capybara.current_session.driver.browser.manage.delete_all_cookies
+    Capybara.reset_sessions!
+    # Capybara.current_session.driver.browser.manage.delete_all_cookies
   end
 end
 
@@ -101,20 +97,20 @@ After('@localserver') do
   CapybaraSettings.instance.restore
 end
 
-class Capybara::Driver::Selenium < Capybara::Driver::Base
-  class Node < Capybara::Node
-    def [](name)
-      node.attribute(name.to_s)
-    rescue Selenium::WebDriver::Error::WebDriverError
-      nil
-    end
+# class Capybara::Driver::Selenium < Capybara::Driver::Base
+#   class Node < Capybara::Node
+#     def [](name)
+#       node.attribute(name.to_s)
+#     rescue Selenium::WebDriver::Error::WebDriverError
+#       nil
+#     end
 
-    def select(option)
-      option_node = node.find_element(:xpath, ".//option[normalize-space(text())=#{Capybara::XPath.escape(option)}]") || node.find_element(:xpath, ".//option[contains(.,#{Capybara::XPath.escape(option)})]")
-      option_node.click
-    rescue
-      options = node.find_elements(:xpath, "//option").map { |o| "'#{o.text}'" }.join(', ')
-      raise Capybara::OptionNotFound, "No such option '#{option}' in this select box. Available options: #{options}"
-    end
-  end
-end
+#     def select(option)
+#       option_node = node.find_element(:xpath, ".//option[normalize-space(text())=#{Capybara::XPath.escape(option)}]") || node.find_element(:xpath, ".//option[contains(.,#{Capybara::XPath.escape(option)})]")
+#       option_node.click
+#     rescue
+#       options = node.find_elements(:xpath, "//option").map { |o| "'#{o.text}'" }.join(', ')
+#       raise Capybara::OptionNotFound, "No such option '#{option}' in this select box. Available options: #{options}"
+#     end
+#   end
+# end

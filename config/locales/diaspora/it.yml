@@ -578,6 +578,7 @@ it:
       permalink: "permalink"
   previous: "precedente"
   privacy: "Privacy"
+  privacy_policy: "Privacy Policy"
   profile: "Profilo"
   profiles:
     edit:
@@ -801,6 +802,9 @@ it:
     aspects:
       title: "I tuoi aspetti"
     aspects_stream: "Aspetti"
+    comment_stream:
+      contacts_title: "People whose posts you commented on"
+      title: "Commented Posts"
     commented_on: "commenti"
     community_spotlight_stream: "In evidenza dalla comunità"
     followed_tag:
@@ -809,6 +813,9 @@ it:
       follow: "Segui"
       title: "#Tag che segui"
     followed_tags_stream: "#Tag che segui"
+    like_stream:
+      contacts_title: "People whose posts you like"
+      title: "Like Stream"
     mentioned_stream: "@Menzioni"
     mentions:
       contacts_title: "Persone che ti hanno menzionato"
@@ -828,6 +835,7 @@ it:
   tag_followings:
     create:
       failure: "Errore nel tentativo di seguire: #%{name}. Lo stai già seguendo?"
+      none: "You cannot follow a blank tag!"
       success: "Fantastico! Hai iniziato a seguire #%{name}."
     destroy:
       failure: "Non è stato possibile smettere di seguire #%{name}. Avevi già smesso di seguirlo?"
@@ -838,15 +846,16 @@ it:
       followed_by: "seguito da"
       following: "Stai seguendo #%{tag}"
       nobody_talking: "Nessuno sta ancora parlando di %{tag}."
+      none: "The empty tag does not exist!"
       people_tagged_with: "Persone con il tag %{tag}"
       posts_tagged_with: "Post con il tag #%{tag}"
       stop_following: "Smetti di seguire #%{tag}"
+  terms_and_conditions: "Terms and Conditions"
   tokens:
     show:
       connect_to_cubbies: "Connettiti a Cubbi.es"
       connecting_is_simple: "Connettere il tuo account Diaspora è semplice! Inserisci il tuo ID (<b>%{diaspora_id}</b>) nella <a href='%{href_link}'>pagina delle impostazioni</a> di cubbies e premi <i>connect</i>."
       daniels_account: "account Diaspora di Daniel"
-      log_in_with_diaspora_is_comming: "Presto potrai connetterti ad una nuova applicazione senza dover creare un account separato da quello che hai già su Diaspora."
       love_to_try: "Ci farebbe piacere che tu lo provassi."
       making_the_connection: "Effettua la connessione"
       screenshot_explanation: "%{link1}.  Questa pagina di cubby è collegata all' %{link2}."

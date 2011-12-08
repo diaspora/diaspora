@@ -10,11 +10,11 @@ Then /^I should see an uploaded image within the photo drop zone$/ do
 end
 
 Then /^I should not see an uploaded image within the photo drop zone$/ do
-  find("#photodropzone img").should be_nil
+  all("#photodropzone img").should be_empty
 end
 
 Then /^I should not see any posts in my stream$/ do
-  find(".stream_element").should be_nil 
+  all(".stream_element").should be_empty
 end
 
 Given /^"([^"]*)" has a public post with text "([^"]*)"$/ do |email, text|

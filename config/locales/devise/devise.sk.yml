@@ -19,7 +19,7 @@ sk:
       unauthenticated: "Ak chcete pokračovať, musíte sa prihlásiť, alebo zaregistrovať."
       unconfirmed: "Predtým, ako budete môcť pokračovať, musíte potvrdiť svoj účet."
     invitations:
-      invitation_token_invalid: "Vami zadaný token je neplatný!"
+      invitation_token_invalid: "Ospravedlňujeme sa. Táto pozývacia značka nie je platná."
       send_instructions: "Vaša pozvánka bola odoslaná."
       updated: "Vaše heslo bolo úspešné zmenené. Teraz ste prihlásený."
     mailer:
@@ -34,7 +34,7 @@ sk:
         be_yourself: "Buďte sami sebou"
         be_yourself_paragraph: "Internet pre nás vytvoril jedinečné nové spôsoby na sebaprezentáciu.  %{strong_diaspora} vám umožňuje, aby ste boli sami sebou a podelili sa s hocičím, s čím chcete pod svojím skutočným menom alebo bez neho."
         cubbies: Cubbi.es
-        displaying_correctly: "Nezobrazuje sa e-mail správne? %{link} vo vašom prehliadači"
+        displaying_correctly: "Nezobrazuje sa e-mail správne? %{link}"
         email_address: questions@joindiaspora.com
         email_us: "So všeobecnými otázkami alebo žiadosťami o technickú podporu vášho účtu na Diaspore nám, prosím, napíšte na %{email}."
         finally: "Napokon – je to tu"
@@ -56,7 +56,7 @@ sk:
         subject: "Pozvali vás na Diasporu!"
         team_diaspora: "Tím Diaspory"
         unsubscribe: "Ak už nechcete dostávať e-maily, kliknite %{link}."
-        view_in: "Zobraziť v"
+        view_in: "Pozrite si ho v&nbsp;svojom internetovom prehliadači."
       inviter:
         accept_at: "Kliknutím na odkaz na stránku %{url} ho môžete prijať."
         has_invited_you: "%{name}"

@@ -353,10 +353,10 @@ ko:
   no_results: "결과 없음"
   notifications:
     also_commented:
-      few: "%{actors}님 등도 %{post_author}님의 %{post_link}에 댓글을 달았습니다."
-      many: "%{actors}님 등도 %{post_author}님의 %{post_link}에 댓글을 달았습니다."
+      few: "%{actors}님도 %{post_author}님의 %{post_link}에 댓글을 달았습니다."
+      many: "%{actors}님도 %{post_author}님의 %{post_link}에 댓글을 달았습니다."
       one: "%{actors}님도 %{post_author}님의 %{post_link}에 댓글을 달았습니다."
-      other: "%{actors}님 등도 %{post_author}님의 %{post_link}에 댓글을 달았습니다."
+      other: "%{actors}님도 %{post_author}님의 %{post_link}에 댓글을 달았습니다."
       two: "%{actors}님도 %{post_author}님의 %{post_link} 공유물에 댓글을 달았습니다."
       zero: "%{actors}님도 %{post_author}님의 %{post_link}에 댓글을 달았습니다."
     also_commented_deleted:
@@ -451,13 +451,13 @@ ko:
       zero: "%{actors}님이 나와 공유를 시작했습니다."
   notifier:
     a_post_you_shared: "공유물"
-    click_here: "여기를 클릭하세요"
+    click_here: "여기를 클릭"
     comment_on_post:
       reply: "%{name}님의 공유물에 댓글달기 >"
     confirm_email:
       click_link: "새 이메일 주소 %{unconfirmed_email} 를 활성화하려면 이 링크를 클릭해주세요:"
       subject: "새 이메일 주소 %{unconfirmed_email} 를 활성화해주세요"
-    email_sent_by_diaspora: "이 메일은 디아스포라가 보냈습니다. 앞으로 받고싶지 않다면"
+    email_sent_by_diaspora: "디아스포라가 보낸 이메일입니다. 앞으로 받고싶지 않다면, 내 알림 설정을 바꾸기 위해"
     hello: "%{name}님!"
     liked:
       liked: "%{name}님이 내 공유물을 좋아합니다:"
@@ -478,7 +478,7 @@ ko:
       subject: "%{name}님이 디아스포라*에서 나와 공유를 시작했습니다."
       view_profile: "%{name}님의 프로필 보기"
     thanks: 고맙습니다.
-    to_change_your_notification_settings: "내 알림 설정을 바꾸기 위해"
+    to_change_your_notification_settings: "하세요"
   ok: "확인"
   or: "또는"
   password: "암호"
@@ -578,6 +578,7 @@ ko:
       permalink: "영구 링크"
   previous: "이전"
   privacy: "개인정보보호"
+  privacy_policy: "Privacy Policy"
   profile: "프로필"
   profiles:
     edit:
@@ -801,6 +802,9 @@ ko:
     aspects:
       title: "내 애스펙"
     aspects_stream: "애스펙"
+    comment_stream:
+      contacts_title: "People whose posts you commented on"
+      title: "Commented Posts"
     commented_on: "댓글 달린 순"
     community_spotlight_stream: "커뮤니티 스포트라이트"
     followed_tag:
@@ -809,6 +813,9 @@ ko:
       follow: "팔로우"
       title: "#팔로우한 태그"
     followed_tags_stream: "#팔로우한 태그"
+    like_stream:
+      contacts_title: "People whose posts you like"
+      title: "Like Stream"
     mentioned_stream: "@멘션"
     mentions:
       contacts_title: "나를 멘션한 사람들"
@@ -828,6 +835,7 @@ ko:
   tag_followings:
     create:
       failure: "팔로우를 실패하였습니다: #%{name}"
+      none: "You cannot follow a blank tag!"
       success: "성공적으로 팔로우하였습니다: #%{name}"
     destroy:
       failure: "팔로우 멈추기를 실패하였습니다: #%{name}"
@@ -838,15 +846,16 @@ ko:
       followed_by: "팔로우한 사람들"
       following: "#%{tag} 태그 팔로우중"
       nobody_talking: "아직 %{tag} 태그가 달린 공유물이 없습니다."
+      none: "The empty tag does not exist!"
       people_tagged_with: "%{tag} 태그가 달린 사람들"
       posts_tagged_with: "#%{tag} 태그가 달린 공유물"
       stop_following: "#%{tag} 태그 팔로우 멈추기"
+  terms_and_conditions: "Terms and Conditions"
   tokens:
     show:
       connect_to_cubbies: "Cubbi.es에 연결하기"
       connecting_is_simple: "내 Cubbi.es에 있는 account 메뉴의 두 항목을 채워넣기만 하면 내 다이스포라 계정을 연결할 수 있습니다."
       daniels_account: "Daniel님의 디아스포라 계정"
-      log_in_with_diaspora_is_comming: "곧 디아스포라 계정이 아닌 별도의 계정을 만들지 않고도 새 애플리케이션에 연결할 수 있게됩니다."
       love_to_try: "꼭 써보세요!"
       making_the_connection: "연결하기"
       screenshot_explanation: "%{link1}. 이 cubby는 %{link2}에 연결되어 있습니다."

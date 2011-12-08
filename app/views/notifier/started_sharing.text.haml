@@ -1,4 +1,4 @@
 != "#{@notification.sender.name}"
 != t('notifier.started_sharing.sharing')
 != t('.view_profile', :name => @notification.sender.first_name)
-!= person_url(@notification.sender)
+!= local_or_remote_person_path(@notification.sender, :absolute => true)

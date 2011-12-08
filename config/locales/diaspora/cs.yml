@@ -119,7 +119,7 @@ cs:
       keep_us_running: "Pomozte %{pod} udržet rychlý, kupte našim serverům dávku kávy."
       new_here:
         follow: "Follow %{link} and welcome new users to Diaspora*!"
-        learn_more: "Learn more"
+        learn_more: "Zjistit více"
         title: "Welcome New Users"
       no_contacts: "Žádné kontakty"
       no_tags: "+ Najít nějaký štítek ke sledování"
@@ -494,7 +494,7 @@ cs:
       results_for: " výsledky pro %{params}"
     index:
       couldnt_find_them_send_invite: "Nemůžete je najít? Pošlete pozvánku!"
-      looking_for: "Looking for posts tagged %{tag_link}?"
+      looking_for: "Hledáte příspěvky označené %{tag_link}?"
       no_one_found: "... a nikdo nebyl nalezen."
       no_results: "Hej! Musíte něco hledat."
       results_for: "výsledky hledání"
@@ -518,7 +518,7 @@ cs:
     show:
       does_not_exist: "Osoba neexistuje!"
       has_not_shared_with_you_yet: "%{name} s vámi zatím žádnou zprávu nesdílí!"
-      ignoring: "You are ignoring all posts from %{name}."
+      ignoring: "Ignorujete všechny příspěvky od %{name}."
       incoming_request: "%{name} s vámi chce sdílet"
       mention: "Zmínka"
       message: "Zpráva"
@@ -577,7 +577,8 @@ cs:
       not_found: "Tento příspěvek nelze bohužel najít."
       permalink: "trvalý odkaz"
   previous: "předchozí"
-  privacy: "Privacy"
+  privacy: "Soukromí"
+  privacy_policy: "Privacy Policy"
   profile: "Profil"
   profiles:
     edit:
@@ -738,7 +739,7 @@ cs:
       manage: "upravit připojené služby"
       new_user_welcome_message: "Use #hashtags to classify your posts and find people who share your interests.  Call out awesome people with @Mentions"
       outside: "Veřejné příspěvky budou dostupné pro ostatní mimo Diasporu."
-      share: "Share"
+      share: "Sdílet"
       title: "Nastavit související služby"
       visibility_dropdown: "Use this dropdown to change visibility of your post.  (We suggest you make this first one public.)"
     publisher:
@@ -747,7 +748,7 @@ cs:
       discard_post: "Zahodit příspěvek"
       make_public: "vytvořit veřejnou"
       new_user_prefill:
-        hello: "Hey everyone, I'm #%{new_user_tag}. "
+        hello: "Ahoj všichni, jsem #%{new_user_tag}."
         i_like: "I'm interested in %{tags}."
         invited_by: "Thanks for the invite, "
         newhere: "NewHere"
@@ -765,7 +766,7 @@ cs:
       currently_unavailable: "commenting currently unavailable"
       dislike: "to se mi nelíbí"
       hide_and_mute: "Hide and Mute"
-      ignore_user: "Ignore %{name}"
+      ignore_user: "Ignorovat %{name}"
       ignore_user_description: "Ignore and remove user from all aspects?"
       like: "to se mi líbí"
       shared_with: "Sdíleno s: %{aspect_names}"
@@ -791,16 +792,19 @@ cs:
   stream_helper:
     hide_comments: "Skrýt všechny komentáře"
     show_comments:
-      few: "Show %{count} more comments"
-      many: "Show %{count} more comments"
-      one: "Show one more comment"
-      other: "Show %{count} more comments"
-      two: "Show two more comments"
-      zero: "No more comments"
+      few: "Zobrazit %{count} dalších komentářů"
+      many: "Zobrazit %{count} dalších komentářů"
+      one: "Zobrazit 1 další komentář"
+      other: "Zobrazit %{count} dalších komentářů"
+      two: "Zobrazit 2 další komentáře"
+      zero: "Žádné další komentáře"
   streams:
     aspects:
       title: "Vaše aspekty"
     aspects_stream: "Aspekty"
+    comment_stream:
+      contacts_title: "People whose posts you commented on"
+      title: "Commented Posts"
     commented_on: "commented on"
     community_spotlight_stream: "Community Spotlight"
     followed_tag:
@@ -809,6 +813,9 @@ cs:
       follow: "Follow"
       title: "#Sledované štítky"
     followed_tags_stream: "#Sledované štítky"
+    like_stream:
+      contacts_title: "People whose posts you like"
+      title: "Like Stream"
     mentioned_stream: "@Mentions"
     mentions:
       contacts_title: "People who mentioned you"
@@ -828,6 +835,7 @@ cs:
   tag_followings:
     create:
       failure: "Nepodařilo se následovat: #%{name}"
+      none: "You cannot follow a blank tag!"
       success: "Začal jste sledovat: #%{name}"
     destroy:
       failure: "Nepodařilo se ukončit sledování: #%{name}"
@@ -838,15 +846,16 @@ cs:
       followed_by: "sleduje"
       following: "Sledujete #%{tag}"
       nobody_talking: "Nikdo dosud nemluví o %{tag}."
+      none: "The empty tag does not exist!"
       people_tagged_with: "Lidé označení %{tag}"
       posts_tagged_with: "Příspěvky označené #%{tag}"
       stop_following: "Přestat sledovat #%{tag}"
+  terms_and_conditions: "Terms and Conditions"
   tokens:
     show:
       connect_to_cubbies: "Připojit na Cubbi.es"
       connecting_is_simple: "Připojení účtu na Diaspoře je tak jednoduché! Zadejte vaše Diaspora ID (<b>%{diaspora_id}</b>) z nastavení cubbies a připojte se."
       daniels_account: "Daniel's Diaspora account"
-      log_in_with_diaspora_is_comming: "Velice brzy se budete moci připojit na novou aplikaci bez nutnosti zakládat účet odděleně od účtu na Diaspoře."
       love_to_try: "Rádi bychom, aby jste to vyzkoušeli."
       making_the_connection: "Vytvoření spojení"
       screenshot_explanation: "%{link1}. Tato konkrétní cubby je připojena na %{link2}."
@@ -898,7 +907,7 @@ cs:
       hashtag_explanation: "Štítky vám dovolují sledovat, o co se zajímáte, a diskutovat. Je to také skvělý způsob, jak najít nové lidi na Diaspoře."
       hashtag_suggestions: "Try following tags like #art, #movies, #gif, etc."
       hooking_up_fb: "hooking up your Facebook account"
-      saved: Saved!
+      saved: Uloženo!
       we_can_speed_things_up: "We can speed things up a bit by"
       well_hello_there: "Well, hello there!"
       what_are_you_in_to: "What are you into?"
@@ -913,7 +922,7 @@ cs:
     privacy_settings:
       ignored_users: "Ignored Users"
       stop_ignoring: "Stop ignoring"
-      title: "Privacy Settings"
+      title: "Nastavení soukromí"
     public:
       does_not_exist: "Uživatel %{username} neexistuje!"
     update:
@@ -932,4 +941,4 @@ cs:
     no_person_constructed: "Z této hcard nemůže být vytvořena žádná osoba."
     not_enabled: "Vypadá to, že webfinger nemůže být povolen pro hosta účtu %{account}"
     xrd_fetch_failed: "vyskytl se problém při získání xrd z účtu %{account}"
-  welcome: Welcome!
+  welcome: Vítejte!

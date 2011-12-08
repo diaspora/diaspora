@@ -10,7 +10,7 @@ describe ServicesController do
   let(:omniauth_auth) {
     { 'provider' => 'twitter',
       'uid'      => '2',
-      'user_info'   => { 'nickname' => 'grimmin' },
+      'info'   => { 'nickname' => 'grimmin' },
       'credentials' => { 'token' => 'tokin', 'secret' =>"not_so_much" }
       }
   }
@@ -68,7 +68,7 @@ describe ServicesController do
     it 'returns error if the service is connected with that uid' do
       request.env['omniauth.auth'] = omniauth_auth
 
-      Services::Twitter.create!(:nickname => omniauth_auth["user_info"]['nickname'],
+      Services::Twitter.create!(:nickname => omniauth_auth["info"]['nickname'],
                                            :access_token => omniauth_auth['credentials']['token'],
                                            :access_secret => omniauth_auth['credentials']['secret'],
                                            :uid => omniauth_auth['uid'],
@@ -82,7 +82,7 @@ describe ServicesController do
     context "photo fetching" do
       before do
         omniauth_auth
-        omniauth_auth["user_info"].merge!({"image" => "https://service.com/fallback_lowres.jpg"})
+        omniauth_auth["info"].merge!({"image" => "https://service.com/fallback_lowres.jpg"})
 
         request.env['omniauth.auth'] = omniauth_auth
       end
@@ -157,7 +157,7 @@ describe ServicesController do
 
     it 'redirects to a prefilled facebook message url' do
       put :inviter, @invite_params
-      response.location.should match(/https:\/\/www\.facebook\.com\/\?compose=1&id=.*&subject=.*&message=.*&sk=messages/)
+      response.location.should match(/https:\/\/www\.facebook\.com\/messages\/.*?msg_prefill=.*/)
     end
 
     it 'creates an invitation' do

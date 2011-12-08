@@ -578,6 +578,7 @@ en_shaw:
       permalink: "𐑐𐑻𐑥𐑩𐑤𐑦𐑙𐑒"
   previous: "𐑐𐑮𐑰𐑝𐑾𐑕"
   privacy: "Privacy"
+  privacy_policy: "Privacy Policy"
   profile: "𐑐𐑮𐑴𐑓𐑲𐑤"
   profiles:
     edit:
@@ -801,6 +802,9 @@ en_shaw:
     aspects:
       title: "Your Aspects"
     aspects_stream: "Aspects"
+    comment_stream:
+      contacts_title: "People whose posts you commented on"
+      title: "Commented Posts"
     commented_on: "commented on"
     community_spotlight_stream: "Community Spotlight"
     followed_tag:
@@ -809,6 +813,9 @@ en_shaw:
       follow: "Follow"
       title: "#Followed Tags"
     followed_tags_stream: "#Followed Tags"
+    like_stream:
+      contacts_title: "People whose posts you like"
+      title: "Like Stream"
     mentioned_stream: "@Mentions"
     mentions:
       contacts_title: "People who mentioned you"
@@ -828,6 +835,7 @@ en_shaw:
   tag_followings:
     create:
       failure: "𐑓𐑱𐑤𐑛 𐑑 𐑓𐑪𐑤𐑴: #%{name}"
+      none: "You cannot follow a blank tag!"
       success: "𐑕𐑩𐑒𐑕𐑧𐑕𐑓𐑫𐑤𐑦 𐑓𐑪𐑤𐑴𐑦𐑙: #%{name}"
     destroy:
       failure: "𐑓𐑱𐑤𐑛 𐑑 𐑕𐑑𐑪𐑐 𐑓𐑪𐑤𐑴𐑦𐑙: #%{name}"
@@ -838,15 +846,16 @@ en_shaw:
       followed_by: "followed by"
       following: "𐑓𐑪𐑤𐑴𐑦𐑙 #%{tag}"
       nobody_talking: "𐑯𐑴𐑚𐑩𐑛𐑦 𐑦𐑟 𐑑𐑷𐑒𐑦𐑙 𐑩𐑚𐑬𐑑 %{tag} 𐑘𐑧𐑑."
+      none: "The empty tag does not exist!"
       people_tagged_with: "𐑐𐑰𐑐𐑩𐑤 𐑑𐑨𐑜𐑛 𐑢𐑦𐑞 %{tag}"
       posts_tagged_with: "𐑐𐑴𐑕𐑑𐑕 𐑑𐑨𐑜𐑛 𐑢𐑦𐑞 #%{tag}"
       stop_following: "𐑕𐑑𐑪𐑐 𐑓𐑪𐑤𐑴𐑦𐑙 #%{tag}"
+  terms_and_conditions: "Terms and Conditions"
   tokens:
     show:
       connect_to_cubbies: "𐑒𐑩𐑯𐑧𐑒𐑑 𐑑 Cubbi.es"
       connecting_is_simple: "𐑒𐑩𐑯𐑧𐑒𐑑𐑦𐑙 𐑿𐑼 ·𐑛𐑦𐑨𐑕𐑐𐑹𐑩 𐑩𐑒𐑬𐑯𐑑 𐑦𐑟 𐑕𐑦𐑥𐑐𐑩𐑤! 𐑡𐑳𐑕𐑑 𐑧𐑯𐑑𐑼 𐑿𐑼 𐑲𐑛𐑧𐑯𐑑𐑦𐑓𐑦𐑒𐑱𐑖𐑩𐑯 (<b>%{diaspora_id}</b>) 𐑓𐑮𐑳𐑥 𐑿𐑼 𐑒𐑳𐑚𐑦𐑟 <a href='%{href_link}'>settings page</a> 𐑯 𐑣𐑦𐑑 𐑒𐑩𐑯𐑧𐑒𐑑."
       daniels_account: "·𐑛𐑨𐑯𐑘𐑩𐑤𐑟 ·𐑛𐑦𐑨𐑕𐑐𐑹𐑩 𐑩𐑒𐑬𐑯𐑑"
-      log_in_with_diaspora_is_comming: "𐑐𐑮𐑦𐑑𐑦 𐑕𐑵𐑯, 𐑿𐑤 𐑚𐑰 𐑱𐑚𐑩𐑤 𐑑 𐑒𐑩𐑯𐑧𐑒𐑑 𐑑 𐑩 𐑯𐑿 𐑨𐑐𐑤𐑦𐑒𐑱𐑖𐑩𐑯 𐑢𐑦𐑞𐑬𐑑 𐑒𐑮𐑦𐑱𐑑𐑦𐑙 𐑩𐑯 𐑩𐑒𐑬𐑯𐑑 𐑕𐑧𐑐𐑮𐑩𐑑 𐑓𐑮𐑳𐑥 𐑿𐑼 𐑢𐑳𐑯 𐑪𐑯 ·𐑛𐑦𐑨𐑕𐑐𐑹𐑩."
       love_to_try: "𐑢𐑰'𐑛 𐑤𐑳𐑝 𐑓𐑹 𐑿 𐑑 𐑑𐑮𐑲 𐑦𐑑 𐑬𐑑."
       making_the_connection: "𐑥𐑱𐑒𐑦𐑙 𐑞 𐑒𐑩𐑯𐑧𐑒𐑖𐑩𐑯"
       screenshot_explanation: "%{link1}.  𐑞𐑦𐑕 𐑐𐑼𐑑𐑦𐑒𐑿𐑤𐑼 𐑒𐑩𐑚𐑦 𐑦𐑟 𐑤𐑦𐑙𐑒𐑑 𐑑 %{link2}."

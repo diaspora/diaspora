@@ -37,7 +37,7 @@ Given %r{^I have a (.+)$} do |model_name|
 end
 
 Given %r{^I have the following (.+):$} do |child, table|
-  Given "that me has the following #{child}:", table
+  step "that me has the following #{child}:", table
 end
 
 Given %r{^the following (.+):$} do |model_name, table|
