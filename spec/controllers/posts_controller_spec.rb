@@ -23,8 +23,8 @@ describe PostsController do
       it 'succeeds' do
         get :show, "id" => @message.id
         response.should be_success
-        doc.should have_link('Like')
-        doc.should have_link('Comment')
+        doc.has_link?('Like').should be_true
+        doc.has_link?('Comment').should be_true
       end
 
       it 'succeeds on mobile' do
@@ -136,10 +136,10 @@ describe PostsController do
         it 'does not show social links' do
           get :show, 'id' => @post.id
 
-          doc.should have_content('abc 123')
-          doc.should_not have_link('Like')
-          doc.should_not have_link('Comment')
-          doc.should_not have_link('Reshare')
+          doc.has_content?('abc 123').should be_true
+          doc.has_link?('Like').should be_false
+          doc.has_link?('Comment').should be_false
+          doc.has_link?('Reshare').should be_false
         end
       end
 
@@ -151,10 +151,10 @@ describe PostsController do
         it 'does not show a reshare link' do
           get :show, 'id' => @post.id
 
-          doc.should have_content('abc 123')
-          doc.should have_link('Like')
-          doc.should have_link('Comment')
-          doc.should_not have_link('Reshare')
+          doc.has_content?('abc 123').should be_true
+          doc.has_link?('Like').should be_true
+          doc.has_link?('Comment').should be_true
+          doc.has_link?('Reshare').should be_false
         end
 
         context 'a reshare of the post' do
@@ -165,12 +165,12 @@ describe PostsController do
           it 'does not show a reshare link' do
             get :show, 'id' => @reshare.id
 
-            doc.should have_content('abc 123')
-            doc.should have_link('Like')
-            doc.should have_link('Comment')
-            doc.should_not have_link('Reshare')
-            doc.should_not have_link('Reshare original')
-            doc.should_not have_link('1 reshare')
+            doc.has_content?('abc 123').should be_true
+            doc.has_link?('Like').should be_true
+            doc.has_link?('Comment').should be_true
+            doc.has_link?('Reshare').should be_false
+            doc.has_link?('Reshare original').should be_false
+            doc.has_link?('1 reshare').should be_false
           end
         end
       end
@@ -183,10 +183,10 @@ describe PostsController do
         it 'shows reshare link' do
           get :show, 'id' => @post.id
 
-          doc.should have_content('abc 123')
-          doc.should have_link('Like')
-          doc.should have_link('Comment')
-          doc.should have_link('Reshare')
+          doc.has_content?('abc 123').should be_true
+          doc.has_link?('Like').should be_true
+          doc.has_link?('Comment').should be_true
+          doc.has_link?('Reshare').should be_true
         end
       end
 
@@ -201,11 +201,11 @@ describe PostsController do
           it 'does not show any reshare link' do
             get :show, 'id' => @reshare.id
 
-            doc.should have_content('abc 123')
-            doc.should have_link('Like')
-            doc.should have_link('Comment')
-            doc.should_not have_link('1 reshare')
-            doc.should_not have_link('Reshare')
+            doc.has_content?('abc 123').should be_true
+            doc.has_link?('Like').should be_true
+            doc.has_link?('Comment').should be_true
+            doc.has_link?('1 reshare').should be_false
+            doc.has_link?('Reshare').should be_false
           end
         end
       end
@@ -218,10 +218,10 @@ describe PostsController do
         it 'shows reshare link' do
           get :show, 'id' => @post.id
 
-          doc.should have_content('abc 123')
-          doc.should have_link('Like')
-          doc.should have_link('Comment')
-          doc.should have_link('Reshare')
+          doc.has_content?('abc 123').should be_true
+          doc.has_link?('Like').should be_true
+          doc.has_link?('Comment').should be_true
+          doc.has_link?('Reshare').should be_true
         end
 
         context 'a reshare of the post' do
@@ -232,10 +232,10 @@ describe PostsController do
           it 'shows a reshare link' do
             get :show, 'id' => @reshare.id
 
-            doc.should have_content('abc 123')
-            doc.should have_link('Like')
-            doc.should have_link('Comment')
-            doc.should have_link('Reshare original')
+            doc.has_content?('abc 123').should be_true
+            doc.has_link?('Like').should be_true
+            doc.has_link?('Comment').should be_true
+            doc.has_link?('Reshare original').should be_true
           end
         end
       end
