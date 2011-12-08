@@ -1,6 +1,6 @@
 class ShareAnything < ActiveRecord::Migration
   def self.up
-    #remove_foreign_key :aspect_visibilities, :posts
+    remove_foreign_key :aspect_visibilities, :posts
 
     if postgres?
       execute "DROP INDEX index_aspect_visibilities_on_post_id_and_aspect_id"

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111123211158) do
+ActiveRecord::Schema.define(:version => 20111101202137) do
 
   create_table "aspect_memberships", :force => true do |t|
     t.integer  "aspect_id",  :null => false
@@ -46,12 +46,6 @@ ActiveRecord::Schema.define(:version => 20111123211158) do
 
   add_index "aspects", ["user_id", "contacts_visible"], :name => "index_aspects_on_user_id_and_contacts_visible"
   add_index "aspects", ["user_id"], :name => "index_aspects_on_user_id"
-
-  create_table "birds", :force => true do |t|
-    t.string   "name"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
 
   create_table "blocks", :force => true do |t|
     t.integer "user_id"
@@ -96,7 +90,7 @@ ActiveRecord::Schema.define(:version => 20111123211158) do
     t.datetime "updated_at"
   end
 
-  add_index "conversation_visibilities", ["conversation_id", "person_id"], :name => "index_conversation_visibilities_on_conversation_id_and_person_id", :unique => true
+  add_index "conversation_visibilities", ["conversation_id", "person_id"], :name => "index_conversation_visibilities_usefully", :unique => true
   add_index "conversation_visibilities", ["conversation_id"], :name => "index_conversation_visibilities_on_conversation_id"
   add_index "conversation_visibilities", ["person_id"], :name => "index_conversation_visibilities_on_person_id"
 
@@ -308,9 +302,9 @@ ActiveRecord::Schema.define(:version => 20111123211158) do
     t.string   "provider_display_name"
     t.string   "actor_url"
     t.string   "objectId"
+    t.string   "root_guid",             :limit => 30
     t.string   "status_message_guid"
     t.integer  "likes_count",                         :default => 0
-    t.string   "root_guid",             :limit => 30
     t.integer  "comments_count",                      :default => 0
     t.integer  "o_embed_cache_id"
   end
@@ -339,18 +333,11 @@ ActiveRecord::Schema.define(:version => 20111123211158) do
     t.datetime "updated_at"
     t.string   "location"
     t.string   "full_name",        :limit => 70
-    t.text     "projects",                                          :null => false
   end
 
   add_index "profiles", ["full_name", "searchable"], :name => "index_profiles_on_full_name_and_searchable"
   add_index "profiles", ["full_name"], :name => "index_profiles_on_full_name"
   add_index "profiles", ["person_id"], :name => "index_profiles_on_person_id"
-
-  create_table "projects", :force => true do |t|
-    t.string "name"
-  end
-
-  add_index "projects", ["name"], :name => "index_projects_on_name", :unique => true
 
   create_table "service_users", :force => true do |t|
     t.string   "uid",                          :null => false
@@ -429,14 +416,6 @@ ActiveRecord::Schema.define(:version => 20111123211158) do
 
   add_index "tags", ["name"], :name => "index_tags_on_name", :unique => true
 
-  create_table "user_people_notes", :force => true do |t|
-    t.integer  "owner_id"
-    t.integer  "person_id"
-    t.text     "note_text"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "user_preferences", :force => true do |t|
     t.string   "email_type"
     t.integer  "user_id"
@@ -470,9 +449,9 @@ ActiveRecord::Schema.define(:version => 20111123211158) do
     t.integer  "invited_by_id"
     t.string   "invited_by_type"
     t.string   "authentication_token",               :limit => 30
-    t.datetime "locked_at"
     t.string   "unconfirmed_email"
     t.string   "confirm_email_token",                :limit => 30
+    t.datetime "locked_at"
     t.boolean  "show_community_spotlight_in_stream",                :default => true,  :null => false
   end
 
@@ -482,6 +461,13 @@ ActiveRecord::Schema.define(:version => 20111123211158) do
   add_index "users", ["invitation_token"], :name => "index_users_on_invitation_token"
   add_index "users", ["remember_token"], :name => "index_users_on_remember_token", :unique => true
   add_index "users", ["username"], :name => "index_users_on_username", :unique => true
+
+  add_foreign_key "aspect_memberships", "aspects", :name => "aspect_memberships_aspect_id_fk", :dependent => :delete
+  add_foreign_key "aspect_memberships", "contacts", :name => "aspect_memberships_contact_id_fk", :dependent => :delete
+
+  add_foreign_key "aspect_visibilities", "aspects", :name => "aspect_visibilities_aspect_id_fk", :dependent => :delete
+
+  add_foreign_key "comments", "people", :name => "comments_author_id_fk", :column => "author_id", :dependent => :delete
 
   add_foreign_key "contacts", "people", :name => "contacts_person_id_fk", :dependent => :delete
 
