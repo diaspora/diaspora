@@ -69,9 +69,8 @@ class AuthorizationsController < ApplicationController
 
       render :text => "Domain (#{manifest["application_base_url"]}) currently not authorized for Diaspora OAuth", :status => 403
     else
-      client = OAuth2::Provider.client_class.create_or_reset_from_manifest!(manifest, public_key)
+      client = OAuth2::Provider.client_class.find_or_create_from_manifest!(manifest, public_key)
 
-      debugger
       json = {:client_id => client.oauth_identifier,
               :client_secret => client.oauth_secret,
               :expires_in => 0,

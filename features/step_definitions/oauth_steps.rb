@@ -11,7 +11,7 @@ Given /^Chubbies is registered on my pod$/ do
   public_key = OpenSSL::PKey::RSA.new(packaged_manifest['public_key'])
   manifest = JWT.decode(packaged_manifest['jwt'], public_key)
 
-  client = OAuth2::Provider.client_class.create_or_reset_from_manifest!(manifest, public_key)
+  client = OAuth2::Provider.client_class.find_or_create_from_manifest!(manifest, public_key)
   params = {:client_id => client.oauth_identifier,
             :client_secret => client.oauth_secret,
             :host => "localhost:9887"}
