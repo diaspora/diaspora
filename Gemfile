@@ -120,8 +120,8 @@ group :test, :development do
 end
 
 group :test do
-  gem 'capybara', '~> 0.3.9'
-  gem 'cucumber-rails', '0.3.2'
+  gem 'capybara', '~> 1.1.2'
+  gem 'cucumber-rails', '1.2.1'
   gem 'cucumber-api-steps', '0.6', :require => false
   gem 'database_cleaner', '0.7.0'
   gem 'diaspora-client', :git => 'git://github.com/diaspora/diaspora-client.git'
