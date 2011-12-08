@@ -460,8 +460,6 @@ ActiveRecord::Schema.define(:version => 20111207233503) do
     t.string   "confirm_email_token",                :limit => 30
     t.datetime "locked_at"
     t.boolean  "show_community_spotlight_in_stream",                :default => true,  :null => false
-    t.boolean  "auto_follow_back",                                  :default => false
-    t.integer  "auto_follow_back_aspect_id"
   end
 
   add_index "users", ["authentication_token"], :name => "index_users_on_authentication_token", :unique => true
