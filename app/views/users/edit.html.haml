@@ -164,10 +164,9 @@
     = link_to t('.download_photos'), "#", :class => "button", :id => "photo-export-button", :title => t('.photo_export_unavailable')
 
   .span-5.last
-    %h3 
+    %h3
       = t('.close_account')
-    .button
-      =link_to 'Close Account', '#close_account_pane', :rel => 'facebox'
+    =link_to 'Close Account', '#close_account_pane', :rel => 'facebox', :class => "button"
 
     .hidden#close_account_pane{:rel => 'facebox'}
       #inner_account_delete
