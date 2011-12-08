@@ -181,7 +181,7 @@ And /^I scroll down$/ do
   evaluate_script("window.scrollBy(0,3000000)")
   sleep 1
   wait_until(30) { evaluate_script('$("#infscr-loading:visible").length') == 0 }
-  And "I wait for the ajax to finish"
+  step "I wait for the ajax to finish"
 end
 
 Then /^the notification dropdown should be visible$/ do
