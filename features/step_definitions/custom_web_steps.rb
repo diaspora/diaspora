@@ -205,7 +205,7 @@ Then 'I should see an image attached to the post' do
 end
 
 Then 'I press the attached image' do
-  Then %{I press the 1st "img" within ".stream_element div.photo_attachments"}
+  step %{I press the 1st "img" within ".stream_element div.photo_attachments"}
 end
 
 And "I wait for the popovers to appear" do
