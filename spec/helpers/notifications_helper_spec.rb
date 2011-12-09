@@ -68,14 +68,14 @@ describe NotificationsHelper do
     describe 'for a like' do
       it 'should include a link to the post' do
         output = object_link(@notification, notification_people_link(@notification))
-        output.should include post_path(@post)
+        output.should include post_path(@post.guid)
       end
 
       it 'includes the boilerplate translation' do
         output = object_link(@notification, notification_people_link(@notification))
         output.should include t("#{@notification.popup_translation_key}.two",
                                 :actors => notification_people_link(@notification),
-                                :post_link => "<a href=\"#{post_path(@post)}\" class=\"hard_object_link\" data-ref=\"#{@post.id}\">#{t('notifications.post')}</a>")
+                                :post_link => "<a href=\"#{post_path(@post.guid)}\" class=\"hard_object_link\" data-ref=\"#{@post.id}\">#{t('notifications.post')}</a>")
       end
 
       context 'when post is deleted' do
