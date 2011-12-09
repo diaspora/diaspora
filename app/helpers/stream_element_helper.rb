@@ -16,4 +16,12 @@ module StreamElementHelper
       link_to image_tag('deletelabel.png'), share_visibility_path(:id => "42", :post_id => post.id), :method => :put, :remote => true, :class => "delete remove_post control_icon vis_hide", :title => t('.hide_and_mute')
     end
   end
+
+  def nsfw_sheild(post)
+    if post.respond_to?(:nsfw?) && post.nsfw?
+      content_tag(:div, :class => 'shield') do
+        I18n.translate('shared.stream_element.nsfw', :link => link_to(I18n.translate('shared.stream_element.show'), '#')).html_safe
+      end
+    end
+  end
 end

@@ -811,6 +811,8 @@ en:
       unlike: "Unlike"
       dislike: "Dislike"
       shared_with: "Shared with: %{aspect_names}"
+      nsfw: "This post has been flagged as NSFW by its author. %{link}"
+      show: "show"
     footer:
       logged_in_as: "logged in as %{name}"
       your_aspects: "your aspects"

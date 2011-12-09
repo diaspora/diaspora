@@ -63,8 +63,13 @@ class StatusMessage < Post
   def raw_message
     read_attribute(:text)
   end
+
   def raw_message=(text)
     write_attribute(:text, text)
+  end
+  
+  def nsfw?
+    self.raw_message.include?('#nsfw')
   end
 
   def formatted_message(opts={})
