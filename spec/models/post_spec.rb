@@ -24,7 +24,7 @@ describe Post do
         StatusMessage.owned_or_visible_by_user(@you).should include(@post_from_contact)
       end
 
-      it 'returns your posts' do 
+      it 'returns your posts' do
         StatusMessage.owned_or_visible_by_user(@you).should include(@your_post)
       end
 
@@ -375,6 +375,47 @@ describe Post do
       it 'returns false if the post does not save' do
         @post.stub(:save).and_return(false)
         @post.send(:receive_non_persisted, bob, eve.person).should == false
+      end
+    end
+  end
+
+  describe '#reshares_count' do
+    before :each do
+      @post = @user.post :status_message, :text => "hello", :to => @aspect.id, :public => true
+      @post.reshares.size.should == 0
+    end
+
+    describe 'when post has not been reshared' do
+      it 'returns zero' do
+        @post.reshares_count.should == 0
+      end
+    end
+
+    describe 'when post has been reshared exactly 1 time' do
+      before :each do
+        @post.reshares.size.should == 0
+        @reshare = Factory.create(:reshare, :root => @post)
+        @post.reload
+        @post.reshares.size.should == 1
+      end
+
+      it 'returns 1' do
+        @post.reshares_count.should == 1
+      end
+    end
+
+    describe 'when post has been reshared more than once' do
+      before :each do
+        @post.reshares.size.should == 0
+        Factory.create(:reshare, :root => @post)
+        Factory.create(:reshare, :root => @post)
+        Factory.create(:reshare, :root => @post)
+        @post.reload
+        @post.reshares.size.should == 3
+      end
+
+      it 'returns the number of reshares' do
+        @post.reshares_count.should == 3
       end
     end
   end
