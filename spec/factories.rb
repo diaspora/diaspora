@@ -14,6 +14,7 @@ Factory.define :profile do |p|
   p.sequence(:first_name) { |n| "Robert#{n}#{r_str}" }
   p.sequence(:last_name)  { |n| "Grimm#{n}#{r_str}" }
   p.birthday Date.today
+  p.birthday_display :full
 end
 
 Factory.define :person do |p|

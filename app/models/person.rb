@@ -160,6 +160,13 @@ class Person < ActiveRecord::Base
               end
   end
 
+  # found here: http://stackoverflow.com/questions/819263/get-persons-age-in-ruby/2357790#2357790
+  def age  
+    now = Time.now.utc.to_date
+    birthday = self.profile.birthday
+    now.year - birthday.year - ((now.month > birthday.month || (now.month == birthday.month && now.day >= birthday.day)) ? 0 : 1)
+  end
+
   def owns?(obj)
     self.id == obj.author_id
   end

@@ -20,11 +20,25 @@ module PeopleHelper
     end
   end
 
-  def birthday_format(bday)
-    if bday.year == 1000
-      I18n.l bday, :format => I18n.t('date.formats.birthday')
+  def birthday_title(profile)
+    if profile.birthday_display.to_sym == :age
+      I18n.t('people.profile_sidebar.age')
     else
+      I18n.t('people.profile_sidebar.born')
+    end
+  end
+
+  def birthday_format(profile)
+    bday = profile.birthday
+    
+    if bday.year == 1000 || profile.birthday_display.to_sym == :month_day
+      I18n.l bday, :format => I18n.t('date.formats.birthday')
+    elsif profile.birthday_display.to_sym == :full
       I18n.l bday, :format => I18n.t('date.formats.birthday_with_year')
+    elsif profile.birthday_display.to_sym == :age
+      profile.person.age
+    else
+      ""
     end
   end
 

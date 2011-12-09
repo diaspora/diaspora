@@ -24,6 +24,17 @@ module ProfilesHelper
     content_tag(:span, t(".profile_fields.#{field.to_s}"), :class => klass)
   end
 
+  # list of birthday display options
+  def available_birthday_options
+    options = [
+      [I18n.t('profiles.edit.birthday.full'),      :full     ],
+      [I18n.t('profiles.edit.birthday.month_day'), :month_day],
+      [I18n.t('profiles.edit.birthday.age'),       :age      ],
+      [I18n.t('profiles.edit.birthday.none'),      :none     ],
+    ]
+  end
+
+  
   private
 
   # @param [Profile, Symbol] Profile and field in question

@@ -96,5 +96,72 @@ describe PeopleHelper do
       local_or_remote_person_path(@person).should == person_path(@person)
     end
   end
+  
+  describe "#birthday_title" do
+    before do
+      @person = Factory(:person)
+    end
+
+    it 'returns full birthday as default' do
+      profile = @person.profile
+      birthday_title(profile).should == I18n.t('people.profile_sidebar.born')
+    end
+    
+    it 'returns age heading if user wants it so' do
+      profile = @person.profile
+      profile.birthday_display = :age
+      profile.save!
+      
+      profile.birthday_display.should == :age
+      birthday_title(profile).should == I18n.t('people.profile_sidebar.age')
+    end
+
+  end
+
+  describe "#birthday_format" do
+    before do
+      @person = Factory(:person)
+    end
+
+    it 'returns full date as default' do
+      profile = @person.profile
+      birthday_format(profile).should == I18n.l( profile.birthday, :format => I18n.t('date.formats.birthday_with_year'))
+    end
+
+    it 'should display month and day if user selects it' do
+      profile = @person.profile
+      profile.birthday_display = :month_day
+      profile.save!
+      
+      birthday_format(profile).should == I18n.l( profile.birthday, :format => I18n.t('date.formats.birthday'))
+    end
+
+    it 'should display month and day only if no year is specified' do
+      profile = @person.profile
+      profile.birthday = nil
+      profile.date = { 'month'=>'01', 'day'=>'01'}
+      profile.save!
+
+      birthday_format(profile).should == I18n.l( profile.birthday, :format => I18n.t('date.formats.birthday'))
+    end
+
+    it 'should display age only if user selects it' do
+      profile = @person.profile
+      profile.birthday_display = :age
+      profile.save!
+
+      birthday_format(profile).should == @person.age
+    end
+
+    it 'should display nothing if the users selects it' do
+      profile = @person.profile
+      profile.birthday_display = :none
+      profile.save!
+
+      birthday_format(profile).should == ""
+    end
+    
+  end
+  
 end
 

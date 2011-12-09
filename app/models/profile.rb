@@ -21,6 +21,7 @@ class Profile < ActiveRecord::Base
   xml_attr :image_url_small
   xml_attr :image_url_medium
   xml_attr :birthday
+  xml_attr :birthday_display
   xml_attr :gender
   xml_attr :bio
   xml_attr :location
@@ -39,7 +40,7 @@ class Profile < ActiveRecord::Base
   validate :valid_birthday
 
   attr_accessible :first_name, :last_name, :image_url, :image_url_medium,
-    :image_url_small, :birthday, :gender, :bio, :location, :searchable, :date, :tag_string
+    :image_url_small, :birthday, :birthday_display, :gender, :bio, :location, :searchable, :date, :tag_string
 
   belongs_to :person
   before_validation do
@@ -138,12 +139,16 @@ class Profile < ActiveRecord::Base
       rows.inject(""){|string, row| string << "##{row[1]} " }
     end
   end
-
+  
   # Constructs a full name by joining #first_name and #last_name
   # @return [String] A full name
   def construct_full_name
     self.full_name = [self.first_name, self.last_name].join(' ').downcase.strip
     self.full_name
+  end
+
+  def birthday_hidden?
+    self.birthday_display.to_sym == :none
   end
 
   protected
@@ -162,6 +167,8 @@ class Profile < ActiveRecord::Base
     if @invalid_birthday_date
       errors.add(:birthday)
       @invalid_birthday_date = nil
+    elsif self.birthday_display.to_sym == :age && self.birthday.year == 1000
+      errors.add(:birthday, I18n.t('profiles.edit.age_year_error'))
     end
   end
 
