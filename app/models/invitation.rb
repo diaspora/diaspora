@@ -99,6 +99,17 @@ class Invitation < ActiveRecord::Base
     self
   end
 
+
+  # converts a personal invitation to an admin invite
+  # used in account deletion
+  # @return [Invitation] self
+  def convert_to_admin!
+    self.admin = true
+    self.sender = nil
+    self.aspect = nil
+    self.save
+    self
+  end
   # @return [Invitation] self
   def resend
     self.send!

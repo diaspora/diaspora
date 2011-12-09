@@ -146,6 +146,14 @@ class Profile < ActiveRecord::Base
     self.full_name
   end
 
+  def tombstone!
+    self.taggings.delete_all
+    clearable_fields.each do |field|
+      self[field] = nil
+    end
+    self.save
+  end
+
   protected
   def strip_names
     self.first_name.strip! if self.first_name
@@ -166,6 +174,10 @@ class Profile < ActiveRecord::Base
   end
 
   private
+  def clearable_fields
+    self.attributes.keys - Profile.protected_attributes.to_a - ["created_at", "updated_at", "person_id"]
+  end
+
   def absolutify_local_url url
     pod_url = AppConfig[:pod_url].dup
     pod_url.chop! if AppConfig[:pod_url][-1,1] == '/'

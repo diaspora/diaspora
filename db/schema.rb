@@ -10,7 +10,12 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111101202137) do
+ActiveRecord::Schema.define(:version => 20111109023618) do
+
+  create_table "account_deletions", :force => true do |t|
+    t.string  "diaspora_handle"
+    t.integer "person_id"
+  end
 
   create_table "aspect_memberships", :force => true do |t|
     t.integer  "aspect_id",  :null => false
@@ -238,13 +243,14 @@ ActiveRecord::Schema.define(:version => 20111101202137) do
   add_index "oauth_clients", ["nonce"], :name => "index_oauth_clients_on_nonce", :unique => true
 
   create_table "people", :force => true do |t|
-    t.string   "guid",                  :null => false
-    t.text     "url",                   :null => false
-    t.string   "diaspora_handle",       :null => false
-    t.text     "serialized_public_key", :null => false
+    t.string   "guid",                                     :null => false
+    t.text     "url",                                      :null => false
+    t.string   "diaspora_handle",                          :null => false
+    t.text     "serialized_public_key",                    :null => false
     t.integer  "owner_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "closed_account",        :default => false
   end
 
   add_index "people", ["diaspora_handle"], :name => "index_people_on_diaspora_handle", :unique => true

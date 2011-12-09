@@ -10,6 +10,7 @@ describe UsersController do
     @aspect = @user.aspects.first
     @aspect1 = @user.aspects.create(:name => "super!!")
     sign_in :user, @user
+    @controller.stub(:current_user).and_return(@user)
   end
 
   describe '#export' do
@@ -192,15 +193,16 @@ describe UsersController do
       delete :destroy, :user => { :current_password => "stuff" }
     end
 
+    it 'closes the account' do
+      alice.should_receive(:close_account!)
+      delete :destroy, :user => { :current_password => "bluepin7" }
+    end
+
     it 'enqueues a delete job' do
       Resque.should_receive(:enqueue).with(Jobs::DeleteAccount, alice.id)
       delete :destroy, :user => { :current_password => "bluepin7" }
     end
 
-    it 'locks the user out' do
-      delete :destroy, :user => { :current_password => "bluepin7" }
-      alice.reload.access_locked?.should be_true
-    end
   end
 
   describe '#confirm_email' do

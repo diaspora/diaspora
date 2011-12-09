@@ -39,6 +39,8 @@ module AspectsHelper
   end
 
   def aspect_membership_button(aspect, contact, person)
+    return if person && person.closed_account?
+    
     if contact.nil? || !contact.aspect_memberships.detect{ |am| am.aspect_id == aspect.id}
       add_to_aspect_button(aspect.id, person.id)
     else

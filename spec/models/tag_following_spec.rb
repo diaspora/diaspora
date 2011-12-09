@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe TagFollowing do
   before do
-    @tag = ActsAsTaggableOn::Tag.create(:name => "partytimeexcellent")
+    @tag = Factory.create(:tag)
     TagFollowing.create!(:tag => @tag, :user => alice)
   end
 

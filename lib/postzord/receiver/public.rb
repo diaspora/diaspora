@@ -23,6 +23,8 @@ class Postzord::Receiver::Public < Postzord::Receiver
 
     if @object.respond_to?(:relayable?)
       receive_relayable
+    elsif @object.is_a?(AccountDeletion)
+      #nothing
     else
       Resque.enqueue(Jobs::ReceiveLocalBatch, @object.class.to_s, @object.id, self.recipient_user_ids)
       true

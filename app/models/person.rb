@@ -40,7 +40,7 @@ class Person < ActiveRecord::Base
 
   before_destroy :remove_all_traces
   before_validation :clean_url
-  
+
   validates :url, :presence => true
   validates :profile, :presence => true
   validates :serialized_public_key, :presence => true
@@ -61,6 +61,10 @@ class Person < ActiveRecord::Base
 
   scope :profile_tagged_with, lambda{|tag_name| joins(:profile => :tags).where(:profile => {:tags => {:name => tag_name}}).where('profiles.searchable IS TRUE') }
 
+  scope :who_have_reshared_a_users_posts, lambda{|user| 
+    joins(:posts).where(:posts => {:root_guid => StatusMessage.guids_for_author(user.person), :type => 'Reshare'} )
+  }
+
   def self.community_spotlight
     AppConfig[:community_spotlight].present? ? Person.where(:diaspora_handle => AppConfig[:community_spotlight]) : []
   end
@@ -78,7 +82,7 @@ class Person < ActiveRecord::Base
     super
     self.profile ||= Profile.new unless profile_set
   end
-  
+
   def self.find_from_id_or_username(params)
     p = if params[:id].present?
           Person.where(:id => params[:id]).first
@@ -90,7 +94,6 @@ class Person < ActiveRecord::Base
     raise ActiveRecord::RecordNotFound unless p.present?
     p
   end
-
 
   def self.search_query_string(query)
     query = query.downcase
@@ -276,8 +279,6 @@ class Person < ActiveRecord::Base
     end 
   end
 
-  
-  
   # @param person [Person]
   # @param url [String]
   def update_url(url)
@@ -286,6 +287,16 @@ class Person < ActiveRecord::Base
     newuri += ":#{location.port}" unless ["80", "443"].include?(location.port.to_s)
     newuri += "/"
     self.update_attributes(:url => newuri)
+  end
+
+  def lock_access!
+    self.closed_account = true
+    self.save
+  end
+
+  def clear_profile!
+    self.profile.tombstone!
+    self
   end
 
   protected

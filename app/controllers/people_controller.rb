@@ -90,6 +90,11 @@ class PeopleController < ApplicationController
       raise ActiveRecord::RecordNotFound
     end
 
+    if @person.closed_account?
+      redirect_to :back, :notice => t("people.show.closed_account")
+      return
+    end
+
     @post_type = :all
     @aspect = :profile
     @share_with = (params[:share_with] == 'true')
@@ -177,6 +182,4 @@ class PeopleController < ApplicationController
   def remote_profile_with_no_user_session?
     @person && @person.remote? && !user_signed_in?
   end
-
-
 end

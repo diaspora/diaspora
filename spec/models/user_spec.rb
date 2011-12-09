@@ -625,7 +625,8 @@ describe User do
 
     describe '#disconnect_everyone' do
       it 'has no error on a local friend who has deleted his account' do
-        Jobs::DeleteAccount.perform(alice.id)
+        d = Factory(:account_deletion, :person => alice.person)
+        Jobs::DeleteAccount.perform(d.id)
         lambda {
           bob.disconnect_everyone
         }.should_not raise_error
@@ -907,6 +908,7 @@ describe User do
       fantasy_resque do
         @invitation = Factory.create(:invitation, :sender => eve, :identifier => 'invitee@example.org', :aspect => eve.aspects.first)
       end
+
       @invitation.reload
       @form_params = {
                        :invitation_token => "abc",
@@ -1003,6 +1005,81 @@ describe User do
       user = Factory :user
       Resque.should_receive(:enqueue).with(Jobs::ResetPassword, user.id)
       user.send_reset_password_instructions
+    end
+  end
+
+  context "close account" do
+    before do
+      @user = bob
+    end
+
+    describe "#close_account!" do
+      it 'locks the user out' do
+        @user.close_account!
+        @user.reload.access_locked?.should be_true
+      end
+
+      it 'creates an account deletion' do
+        expect{
+          @user.close_account!
+        }.to change(AccountDeletion, :count).by(1)
+      end
+
+      it 'calls person#lock_access!' do
+        @user.person.should_receive(:lock_access!)
+        @user.close_account!
+      end
+    end
+
+    describe "#clear_account!" do
+      it 'resets the password to a random string' do
+        random_pass = "12345678909876543210"
+        ActiveSupport::SecureRandom.should_receive(:hex).and_return(random_pass)
+        @user.clear_account!
+        @user.valid_password?(random_pass)
+      end
+
+      it 'clears all the clearable fields' do
+        @user.reload
+        attributes = @user.send(:clearable_fields)
+        @user.clear_account!
+
+        @user.reload
+        attributes.each do |attr|
+          @user.send(attr.to_sym).should be_blank
+        end
+      end
+    end
+
+    describe "#clearable_attributes" do
+      it 'returns the clearable fields' do
+        user = Factory.create :user
+        user.send(:clearable_fields).sort.should == %w{
+          getting_started
+          disable_mail
+          language
+          email
+          invitation_token
+          invitation_sent_at
+          reset_password_token
+          remember_token
+          remember_created_at
+          sign_in_count
+          current_sign_in_at
+          last_sign_in_at
+          current_sign_in_ip
+          last_sign_in_ip
+          invitation_service
+          invitation_identifier
+          invitation_limit
+          invited_by_id
+          invited_by_type
+          authentication_token
+          unconfirmed_email
+          confirm_email_token
+          show_community_spotlight_in_stream
+        }.sort
+      end
     end
   end
 end

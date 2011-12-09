@@ -13,7 +13,16 @@ end
 Factory.define :profile do |p|
   p.sequence(:first_name) { |n| "Robert#{n}#{r_str}" }
   p.sequence(:last_name)  { |n| "Grimm#{n}#{r_str}" }
+  p.bio "I am a cat lover and I love to run"
+  p.gender "robot"
+  p.location "Earth"
   p.birthday Date.today
+end
+
+Factory.define :profile_with_image_url, :parent => :profile do |p|
+  p.image_url "http://example.com/image.jpg"
+  p.image_url_medium "http://example.com/image_mid.jpg"
+  p.image_url_small "http://example.com/image_small.jpg"
 end
 
 Factory.define :person do |p|
@@ -25,6 +34,13 @@ Factory.define :person do |p|
   end
   p.after_create do |person|
     person.profile.save
+  end
+end
+
+Factory.define :account_deletion do |d|
+  d.association :person
+  d.after_build do |delete|
+    delete.diaspora_handle= delete.person.diaspora_handle
   end
 end
 
@@ -165,4 +181,23 @@ end
 
 Factory.define(:oauth_access_token, :class => OAuth2::Provider.access_token_class) do |a|
   a.association(:authorization, :factory => :oauth_authorization)
+end
+
+Factory.define(:tag, :class => ActsAsTaggableOn::Tag) do |t|
+  t.name "partytimeexcellent"
+end
+
+Factory.define(:tag_following) do |a|
+  a.association(:tag, :factory => :tag)
+  a.association(:user, :factory => :user)
+end
+
+Factory.define(:contact) do |c|
+  c.association(:person, :factory => :person)
+  c.association(:user, :factory => :user)
+end
+
+Factory.define(:mention) do |c|
+  c.association(:person, :factory => :person)
+  c.association(:post, :factory => :status_message)
 end

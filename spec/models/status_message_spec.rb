@@ -66,6 +66,15 @@ describe StatusMessage do
     end
   end
 
+  describe ".guids_for_author" do 
+    it 'returns an array of the status_message guids' do
+      sm1 = Factory(:status_message, :author => alice.person)
+      sm2 = Factory(:status_message, :author => bob.person)
+      guids = StatusMessage.guids_for_author(alice.person)
+      guids.should == [sm1.guid]
+    end
+  end
+
   describe '.before_create' do
     it 'calls build_tags' do
       status = Factory.build(:status_message)
