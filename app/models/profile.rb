@@ -168,6 +168,8 @@ class Profile < ActiveRecord::Base
     if @invalid_birthday_date
       errors.add(:birthday)
       @invalid_birthday_date = nil
+    elsif self.birthday_display.to_sym == :age && self.birthday.year == 1000
+      errors.add(:birthday, I18n.t('profiles.edit.age_year_error'))
     end
   end
 

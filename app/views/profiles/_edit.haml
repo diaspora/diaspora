@@ -5,6 +5,22 @@
 - content_for :page_title do
   = t('.edit_profile')
 
+- content_for :head do
+  :javascript
+    $(document).ready(function () {
+      $('#profile_birthday_display, #profile_date_year').bind('change', function(){
+        var $birthday_year    = $('#profile_date_year');
+        var $birthday_display = $('#profile_birthday_display');
+        var $birthday_error   = $('#birthday_error');
+
+        if( $birthday_year.val() == "" && $birthday_display.val() == "age" ) {
+          $birthday_error.fadeIn('fast');
+        } else {
+          $birthday_error.hide();
+        }
+      });
+    });
+
 = form_tag profile_path, :method => :put, :multipart => true, :id => 'update_profile_form' do
   = render 'profiles/edit_public', :profile => profile, :aspect => aspect, :person => person
 
@@ -38,6 +54,8 @@
       = t('profiles.edit.your_birthday')
     = select_date profile.birthday, :prompt => true,
       :default => true, :order => t('date.order'), :start_year => 2000, :end_year => 1930, :prefix => 'profile[date]'
+    %p#birthday_error{:style => "color:#B55;font-style:italic;font-size:.9em;display:none;"}
+      = t('profiles.edit.age_year_error')
 
   .span-4.last
     %h4

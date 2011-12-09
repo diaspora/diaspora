@@ -629,6 +629,7 @@ en:
       your_gender: "Your gender"
       your_birthday: "Your birthday"
       display_birthday_as: "Display birthday as"
+      age_year_error: "You have selected to display your age. We need a valid year for that."
       your_tags: "Describe yourself in 5 words"
 
       your_tags_placeholder: "like #movies #kittens #travel #teacher #newyork"
