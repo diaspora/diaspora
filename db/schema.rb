@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111101202137) do
+ActiveRecord::Schema.define(:version => 20111112033021) do
 
   create_table "aspect_memberships", :force => true do |t|
     t.integer  "aspect_id",  :null => false
@@ -383,6 +383,13 @@ ActiveRecord::Schema.define(:version => 20111101202137) do
   add_index "share_visibilities", ["shareable_id", "shareable_type", "contact_id"], :name => "shareable_and_contact_id"
   add_index "share_visibilities", ["shareable_id", "shareable_type", "hidden", "contact_id"], :name => "shareable_and_hidden_and_contact_id"
   add_index "share_visibilities", ["shareable_id"], :name => "index_post_visibilities_on_post_id"
+
+  create_table "short_url_expansions", :force => true do |t|
+    t.string   "url_short"
+    t.string   "url_expanded", :limit => 1024
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "tag_followings", :force => true do |t|
     t.integer  "tag_id",     :null => false
