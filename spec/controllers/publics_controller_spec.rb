@@ -97,6 +97,12 @@ describe PublicsController do
       assigns[:person].should be_nil
       response.should be_not_found
     end
+
+    it 'finds nothing for closed accounts' do
+      @user.person.update_attributes(:closed_account => true)
+      get :hcard, :guid => @user.person.guid.to_s
+      response.should be_not_found
+    end
   end
 
   describe '#webfinger' do
@@ -126,6 +132,12 @@ describe PublicsController do
     it 'has the users profile href' do
       get :webfinger, :q => @user.diaspora_handle
       response.body.should include "http://webfinger.net/rel/profile-page"
+    end
+
+    it 'finds nothing for closed accounts' do
+      @user.person.update_attributes(:closed_account => true)
+      get :webfinger, :q => @user.diaspora_handle
+      response.should be_not_found
     end
   end
 

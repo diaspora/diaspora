@@ -15,10 +15,10 @@ Feature: private messages
     Then I should see "Greetings" within "#conversation_inbox"
     And I should see "Greetings" within "#conversation_show"
     And "Alice Awesome" should be part of active conversation
-    And I should see "hello, alice!" within ".stream"
+    And I should see "hello, alice!" within ".stream_container"
     When I sign in as "alice@alice.alice"
     And I reply with "hey, how you doing?"
-    Then I should see "hey, how you doing?" within ".stream"
+    Then I should see "hey, how you doing?" within ".stream_container"
 
   Scenario: send an empty message
     When I send a message with subject "Empty Greetings" and text " " to "Alice Awesome"

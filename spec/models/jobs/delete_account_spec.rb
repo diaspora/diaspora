@@ -6,25 +6,12 @@ require 'spec_helper'
 
 describe Jobs::DeleteAccount do
   describe '#perform' do
-    it 'calls remove_all_traces' do
-      stub_find_for(bob)
-      bob.should_receive(:remove_all_traces)
-      Jobs::DeleteAccount.perform(bob.id)
-    end
-
-    it 'calls destroy' do
-      stub_find_for(bob)
-      bob.should_receive(:destroy)
-      Jobs::DeleteAccount.perform(bob.id)
-    end
-    def stub_find_for model
-      model.class.stub!(:find) do |id, conditions|
-        if id == model.id
-          model
-        else
-          model.class.find_by_id(id)
-        end
-      end
+    it 'performs the account deletion' do
+      account_deletion = stub
+      AccountDeletion.stub(:find).and_return(account_deletion)
+      account_deletion.should_receive(:perform!)
+      
+      Jobs::DeleteAccount.perform(1)
     end
   end
 end

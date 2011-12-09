@@ -75,6 +75,17 @@ describe Invitation do
       }.should_not change(User, :count)
     end
   end
+
+  describe '#convert_to_admin!' do
+    it 'reset sender and aspect to nil, and sets admin flag to true' do
+      invite = Factory(:invitation)
+      invite.convert_to_admin!
+      invite.reload
+      invite.admin?.should be_true
+      invite.sender_id.should be_nil
+      invite.aspect_id.should be_nil
+    end
+  end
  
   describe '.batch_invite' do
     before do

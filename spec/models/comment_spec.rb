@@ -99,29 +99,6 @@ describe Comment do
     end
   end
 
-  # NOTE(move this to the youtube module spec)
-  describe 'youtube' do
-    before do
-      @message = alice.post :status_message, :text => "hi", :to => @alices_aspect.id
-    end
-
-    it 'should process youtube titles on the way in' do
-      first_video_id  = "ABYnqp-1111"
-      second_video_id = "ABYnqp-2222"
-      url             = "http://www.youtube.com/watch?v=#{first_video_id} http://www.youtube.com/watch?v=#{second_video_id}"
-      expected_title  = "UP & down & UP & down &amp;"
-
-      mock_http = mock("http")
-      Net::HTTP.stub!(:new).with('gdata.youtube.com', 80).twice.and_return(mock_http)
-      mock_http.should_receive(:get).with(/\/feeds\/api\/videos/).twice.and_return(
-        [nil, 'Foobar <title>'+expected_title+'</title> hallo welt <asd><dasdd><a>dsd</a>'])
-
-      comment = alice.build_comment :text => url, :post => @message
-      comment.save!
-
-      Comment.find(comment.id).youtube_titles.should == { first_video_id => CGI::escape(expected_title), second_video_id => CGI::escape(expected_title) }
-    end
-  end
 
   describe 'it is relayable' do
     before do

@@ -39,5 +39,5 @@ Feature: editing your profile
     Then I should be on my edit profile page
     And I should see "Profile updated"
     And the "profile_date_year" field should be filled with "1986"
-    And the "profile_date_month" field should be filled with "November"
+    And the "profile_date_month" field should be filled with "11"
     And the "profile_date_day" field should be filled with "30"

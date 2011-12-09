@@ -164,13 +164,42 @@
     = link_to t('.download_photos'), "#", :class => "button", :id => "photo-export-button", :title => t('.photo_export_unavailable')
 
   .span-5.last
-    %h3 
-      = t('.close_account')
-    = form_for 'user', :url => user_path, :html => { :method => :delete } do |f|
-      = f.error_messages
+    %h3
+      = t('.close_account_text')
+    =link_to 'Close Account', '#close_account_pane', :rel => 'facebox', :class => "button"
 
-      %p
-        = f.label :close_account_password, t('.current_password'), :for => :close_account_password
-        = f.password_field :current_password, :id => :close_account_password
-      %p
-        = f.submit t('.close_account'), :confirm => t('are_you_sure')
+    .hidden#close_account_pane{:rel => 'facebox'}
+      #inner_account_delete
+        %h1
+          = t('.close_account.dont_go')
+        %p
+          = t('.close_account.make_diaspora_better')
+        .span-10
+          = image_tag 'http://itstrulyrandom.com/wp-content/uploads/2008/03/sadcat.jpg'
+          %br
+          %small
+            %b
+              = t('.close_account.mr_wiggles')
+        .span-10.last
+          %ul
+            %li
+              = t('.close_account.what_we_delete')
+            %li
+              = t('.close_account.locked_out')
+            %li
+              = t('.close_account.lock_username')
+            %li
+              = t('.close_account.no_turning_back')
+          %p
+            %b
+              = t('.close_account.no_turning_back')
+              
+
+          = form_for 'user', :url => user_path, :html => { :method => :delete } do |f|
+            = f.error_messages
+
+            %p
+              = f.label :close_account_password, t('.current_password'), :for => :close_account_password
+              = f.password_field :current_password, :id => :close_account_password
+            %p
+              = f.submit t('.close_account_text'), :confirm => t('are_you_sure_delete_account')

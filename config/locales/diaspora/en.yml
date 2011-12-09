@@ -27,6 +27,7 @@ en:
   password: "Password"
   password_confirmation: "Password confirmation"
   are_you_sure: "Are you sure?"
+  are_you_sure_delete_account: "Are you sure you want to close your account? This can't be undone!"
   fill_me_out: "Fill me out"
   back: "Back"
   public: "Public"
@@ -551,6 +552,7 @@ en:
       message: "Message"
       mention: "Mention"
       ignoring: "You are ignoring all posts from %{name}."
+      closed_account: "This account has been closed."
     sub_header:
       you_have_no_tags: "you have no tags!"
       add_some: "add some"
@@ -809,6 +811,8 @@ en:
       unlike: "Unlike"
       dislike: "Dislike"
       shared_with: "Shared with: %{aspect_names}"
+      nsfw: "This post has been flagged as NSFW by its author. %{link}"
+      show: "show"
     footer:
       logged_in_as: "logged in as %{name}"
       your_aspects: "your aspects"
@@ -930,7 +934,7 @@ en:
     edit:
       export_data: "Export Data"
       photo_export_unavailable: "Photo exporting currently unavailable"
-      close_account: "Close Account"
+      close_account_text: "Close Account"
       change_language: "Change language"
       change_password: "Change password"
       change_email: "Change email"
@@ -955,6 +959,16 @@ en:
       show_community_spotlight: "Show Community Spotlight in Stream?"
       show_getting_started: 'Re-enable Getting Started'
       getting_started: 'New User Prefrences'
+
+      close_account:
+        dont_go: "Hey, please don't go!"
+        make_diaspora_better: "We want you to help us make Diaspora better, so you should help us out instead of leaving. If you do want to leave, we want you to know what happens next."
+        mr_wiggles: 'Mr Wiggles will be sad to see you go'
+        what_we_delete: "We delete all of your posts, profile data, as soon as humanly possible. Your comments will hang around, but be associated with your Diaspora Handle."
+        locked_out: "You will get signed out and locked out of your account."
+        lock_username: "This will lock your username if you decided to sign back up."
+        no_turning_back: "Currently, there is no turning back."
+        if_you_want_this: "If you really want this, type in your password below and click 'Close Account'"
 
     privacy_settings:
       title: "Privacy Settings"

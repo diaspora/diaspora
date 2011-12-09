@@ -4,8 +4,6 @@
 
 class Comment < ActiveRecord::Base
   require File.join(Rails.root, 'lib/diaspora/web_socket')
-  require File.join(Rails.root, 'lib/youtube_titles')
-  include YoutubeTitles
   include ROXML
 
   include Diaspora::Webhooks
@@ -30,7 +28,6 @@ class Comment < ActiveRecord::Base
   validates :text, :presence => true, :length => { :maximum => 2500 }
   validates :parent, :presence => true #should be in relayable (pending on fixing Message)
 
-  serialize :youtube_titles, Hash
 
   scope :including_author, includes(:author => :profile)
 

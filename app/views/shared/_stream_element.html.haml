@@ -23,7 +23,7 @@
   .sm_body
     = person_image_link(post.author, :size => :thumb_small)
     .content
-      %div.post_initial_info
+      .post_initial_info
         %span.from
           = person_link(post.author, :class => 'hovercardable')
           %time.time.timeago{:datetime => post.created_at, :integer => time_for_sort(post).to_i}
@@ -33,12 +33,14 @@
           %span.timeago
             = link_to(how_long_ago(post), post_path(post))
 
-      - if post.activity_streams?
-        = link_to image_tag(post.image_url, 'data-small-photo' => post.image_url, 'data-full-photo' => post.image_url, :class => 'stream-photo'), post.object_url, :class => "stream-photo-link"
-      - elsif reshare?(post)
-        = render 'reshares/reshare', :reshare => post, :post => post.root
-      - else
-        = render 'status_messages/status_message', :post => post, :photos => post.photos
+      .post-content
+        = nsfw_sheild(post)
+        - if post.activity_streams?
+          = link_to image_tag(post.image_url, 'data-small-photo' => post.image_url, 'data-full-photo' => post.image_url, :class => 'stream-photo'), post.object_url, :class => "stream-photo-link"
+        - elsif reshare?(post)
+          = render 'reshares/reshare', :reshare => post, :post => post.root
+        - else
+          = render 'status_messages/status_message', :post => post, :photos => post.photos
 
       .info
         %span.via
