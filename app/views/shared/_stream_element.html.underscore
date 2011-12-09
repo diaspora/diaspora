@@ -67,37 +67,7 @@
           </div>
         </div>
 
-        <div class="comments">
-          <div class="comment_stream">
-
-            <ul class="show_comments <%= comments_count <= 3 ? 'hidden' : '' %>">
-              <li>
-                <a href="/posts/<%= id %>/comments" class="toggle_post_comments">
-                  Show <%= comments_count - 3 %> more comments
-                </a>
-              </li>
-            </ul>
-
-            <ul class="comments"> </ul>
-
-            <div class="new_comment_form_wrapper <%= comments_count > 0 ? '' : 'hidden' %>">
-              <form accept-charset="UTF-8" action="/posts/<%= id %>/comments" class="new_comment" data-remote="true" id="new_comment_on_<%= id %>" method="post">
-                <a href="/people/<%= current_user.id %>">
-                  <img src="<%= current_user.avatar.small %>" class="avatar" data-person-id="<%= current_user.id %>"/>
-                </a>
-
-                <p>
-                  <label for="comment_text_on_<%= id %>">Comment</label>
-                  <textarea class="comment_box" id="comment_text_on_<%= id %>" name="text" rows="2" />
-                </p>
-                <div class="submit_button">
-                  <input class="comment_submit button creation" data-disable-with="Commenting..." id="comment_submit_<%= id %>" name="commit" type="submit" value="Comment" />
-                </div>
-              </form>
-            </div>
-
-          </div>
-        </div>
+        <div class="comments"> </div>
 
       </div>
     </div>

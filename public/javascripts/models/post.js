@@ -1,5 +1,5 @@
 App.Models.Post = Backbone.Model.extend({
-  url: "/posts/:id",
+  url: "/posts",
 
   initialize: function() {
     this.comments = new App.Collections.Comments(this.get("last_three_comments"));

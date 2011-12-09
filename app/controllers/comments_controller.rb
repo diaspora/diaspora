@@ -26,7 +26,7 @@ class CommentsController < ApplicationController
         Postzord::Dispatcher.build(current_user, @comment).post
 
         respond_to do |format|
-          format.js{ render(:create, :status => 201)}
+          format.json  { render :json => @comment.as_api_response(:backbone) }
           format.html{ render :nothing => true, :status => 201 }
           format.mobile{ render :partial => 'comment', :locals => {:post => @comment.post, :comment => @comment} }
         end
