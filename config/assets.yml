@@ -20,8 +20,8 @@ javascripts:
     - public/javascripts/collections/*
     - public/javascripts/views/*
 
-    - public/javascripts/routers/stream.js
     - public/javascripts/routers/*
+    - public/javascripts/routers/stream/*
 
     - public/javascripts/rails.validations.js
     - public/javascripts/rails.js

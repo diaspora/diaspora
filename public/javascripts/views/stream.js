@@ -3,14 +3,11 @@ App.Views.Stream = Backbone.View.extend({
     "click #paginate": "loadMore"
   },
 
-  initialize: function(){
-    this.el = $("#main_stream");
-    _.bindAll(this, "appendPost", "collectionFetched");
+  initialize: function() {
+    _.bindAll(this, "appendPost", "collectionFetched", "loadMore");
 
     this.collection = new App.Collections.Stream;
     this.collection.bind("add", this.appendPost);
-
-    this.loadMore();
   },
 
   appendPost: function(post) {
@@ -23,7 +20,8 @@ App.Views.Stream = Backbone.View.extend({
     this.$("#paginate").remove();
     $(this.el).append($("<a>", {
       href: this.collection.url(),
-      id: "paginate"
+      id: "paginate",
+      "class": "paginate"
     }).text('more'));
   },
 

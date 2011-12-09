@@ -5,5 +5,8 @@ App.Routers.Stream = Backbone.Router.extend({
 
   stream: function() {
     App.stream = new App.Views.Stream;
+    $("#main_stream").html(App.stream.el);
+
+    App.stream.loadMore();
   }
 });
