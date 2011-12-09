@@ -148,8 +148,7 @@ class Profile < ActiveRecord::Base
   end
 
   def birthday_hidden?
-    return true if self.birthday_display.to_sym == :none
-    false
+    self.birthday_display.to_sym == :none
   end
 
   protected
