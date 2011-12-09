@@ -6,8 +6,6 @@ class StatusMessage < Post
   include Diaspora::Socketable
   include Diaspora::Taggable
 
-  include YoutubeTitles
-  require File.join(Rails.root, 'lib/youtube_titles')
   include ActionView::Helpers::TextHelper
   include PeopleHelper
 
@@ -26,7 +24,6 @@ class StatusMessage < Post
 
   attr_accessible :text, :provider_display_name
   attr_accessor :oembed_url
-  serialize :youtube_titles, Hash
 
   after_create :create_mentions
 

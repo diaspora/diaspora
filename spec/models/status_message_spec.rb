@@ -275,23 +275,6 @@ STR
     end
   end
 
-  describe 'youtube' do
-    it 'should process youtube titles on the way in' do
-      video_id = "ABYnqp-bxvg"
-      url="http://www.youtube.com/watch?v=#{video_id}&a=GxdCwVVULXdvEBKmx_f5ywvZ0zZHHHDU&list=ML&playnext=1"
-      expected_title = "UP & down & UP & down &amp;"
-
-      mock_http = mock("http")
-      Net::HTTP.stub!(:new).with('gdata.youtube.com', 80).and_return(mock_http)
-      mock_http.should_receive(:get).with('/feeds/api/videos/'+video_id+'?v=2').and_return(
-        [nil, 'Foobar <title>'+expected_title+'</title> hallo welt <asd><dasdd><a>dsd</a>'])
-
-      post = @user.build_post :status_message, :text => url, :to => @aspect.id
-
-      post.save!
-      Post.find(post.id).youtube_titles.should == {video_id => CGI::escape(expected_title)}
-    end
-  end
   describe '#after_dispatch' do
     before do
       @photos = [alice.build_post(:photo, :pending => true, :user_file=> File.open(photo_fixture_name)),

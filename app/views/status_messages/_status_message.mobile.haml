@@ -15,4 +15,4 @@
       = image_tag post.image_url
 
 %div{:class => direction_for(post.text)}
-  != markdownify(post, :youtube_maps => post[:youtube_titles])
+  != markdownify(post)
