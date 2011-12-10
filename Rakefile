@@ -115,14 +115,21 @@ desc "Create a new page in #{source_dir}/(filename)/index.#{new_page_ext}"
 task :new_page, :filename do |t, args|
   raise "### You haven't set anything up yet. First run `rake install` to set up an Octopress theme." unless File.directory?(source_dir)
   args.with_defaults(:filename => 'new-page')
-  page_dir = source_dir
-  if args.filename =~ /(^.+\/)?([\w_-]+)(\.)?(.+)?/
-    page_dir += $4 ? "/#{$1}" : "/#{$1}#{$2}/"
-    name = $4 ? $2 : "index"
-    extension = $4 || "#{new_page_ext}"
-    filename = "#{name}.#{extension}"
+  page_dir = [source_dir]
+  if args.filename.downcase =~ /(^.+\/)?(.+)/ 
+    filename, dot, extension = $2.rpartition('.').reject(&:empty?)         # Get filename and extension
+    title = filename
+    page_dir.concat($1.downcase.sub(/^\//, '').split('/')) unless $1.nil?  # Add path to page_dir Array
+    if extension.nil?
+      page_dir << filename
+      filename = "index"
+    end
+    extension ||= new_page_ext
+    page_dir = page_dir.map! { |d| d = d.to_url }.join('/')                # Sanitize path
+    filename = filename.downcase.to_url
+
     mkdir_p page_dir
-    file = page_dir + filename
+    file = "#{page_dir}/#{filename}.#{extension}"
     if File.exist?(file)
       abort("rake aborted!") if ask("#{file} already exists. Do you want to overwrite?", ['y', 'n']) == 'n'
     end
@@ -130,7 +137,7 @@ task :new_page, :filename do |t, args|
     open(file, 'w') do |page|
       page.puts "---"
       page.puts "layout: page"
-      page.puts "title: \"#{$2.gsub(/[-_]/, ' ')}\""
+      page.puts "title: \"#{title}\""
       page.puts "date: #{Time.now.strftime('%Y-%m-%d %H:%M')}"
       page.puts "comments: true"
       page.puts "sharing: true"
