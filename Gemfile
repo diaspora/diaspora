@@ -131,7 +131,7 @@ group :test do
   gem 'fuubar', '0.0.5'
   gem 'mongrel', :require => false, :platforms => :ruby_18
   gem 'rspec', '>= 2.0.0'
-  gem 'rspec-core', '2.6.0'
+  gem 'rspec-core', '~> 2.7.1'
   gem 'rspec-instafail', '>= 0.1.7', :require => false
   gem 'rspec-rails', '>= 2.0.0'
   gem 'selenium-webdriver', '~> 2.14.0'
@@ -141,7 +141,7 @@ group :test do
 end
 
 group :development do
-  gem 'capistrano', '2.5.19', :require => false
+  gem 'capistrano', '~> 2.9.0', :require => false
   gem 'capistrano_colors', :require => false
   gem 'capistrano-ext', '1.2.1', :require => false
   gem 'linecache', '0.43', :platforms => :mri_18
