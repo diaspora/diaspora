@@ -56,10 +56,12 @@ And /^I should have (\d) user on Chubbies$/ do |num|
 end
 
 When /^I visit "([^"]+)" on Chubbies$/ do |path|
-  former_host = Capybara.app_host
-  Capybara.app_host = "localhost:#{Chubbies::PORT}"
+  Capybara.app_host = "http://localhost:#{Chubbies::PORT}"
   visit(path)
-  Capybara.app_host = former_host
+end
+
+When /^I change the app_host to Diaspora$/ do
+  Capybara.app_host = "http://localhost:9887"
 end
 
 class Chubbies
@@ -114,3 +116,4 @@ class Chubbies
     end
   end
 end
+
