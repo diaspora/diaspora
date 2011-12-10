@@ -37,7 +37,7 @@ gem 'settingslogic', '2.0.6'
 # database
 
 gem 'activerecord-import'
-gem 'foreigner', '0.9.1'
+gem 'foreigner', '~> 1.1.0'
 gem 'mysql2', '0.2.17' if ENV['DB'].nil? || ENV['DB'] == 'all' || ENV['DB'] == 'mysql'
 gem 'pg' if ENV['DB'] == 'all' || ENV['DB'] == 'postgres'
 gem 'sqlite3' if ENV['DB'] == 'all' || ENV['DB'] == 'sqlite'
@@ -116,7 +116,7 @@ gem 'em-websocket'
 ### GROUPS ####
 
 group :test, :development do
-  gem 'jasmine', '1.1.0.rc3'
+  gem 'jasmine', '~> 1.1.2'
 end
 
 group :test do
@@ -134,7 +134,7 @@ group :test do
   gem 'rspec-core', '~> 2.7.1'
   gem 'rspec-instafail', '>= 0.1.7', :require => false
   gem 'rspec-rails', '>= 2.0.0'
-  gem 'selenium-webdriver', '~> 2.14.0'
+  gem 'selenium-webdriver', '~> 2.15.0'
   gem 'webmock', :require => false
   gem 'sqlite3'
   gem 'mock_redis'
@@ -144,7 +144,7 @@ group :development do
   gem 'capistrano', '~> 2.9.0', :require => false
   gem 'capistrano_colors', :require => false
   gem 'capistrano-ext', '1.2.1', :require => false
-  gem 'linecache', '0.43', :platforms => :mri_18
+  gem 'linecache', '0.46', :platforms => :mri_18
   gem 'parallel_tests'
   gem 'ruby-debug-base19', '0.11.23' if RUBY_VERSION.include? '1.9.1'
   gem 'ruby-debug19', :platforms => :ruby_19
