@@ -13,7 +13,7 @@
     position: relative;
     padding-right: 1em;
   }
-  a[href*=status]{
+  a[href*=status]:first-child {
     color: $twitter-status-link;
     float: right;
     padding: 0 0 .1em 1em;
