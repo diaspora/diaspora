@@ -27,8 +27,8 @@ gem 'cloudfiles', '1.4.10', :require => false
 
 # chef
 
-gem 'chef', '0.9.12', :require => false
-gem 'ohai', '0.5.8', :require => false
+gem 'chef', '~> 0.10.4', :require => false
+gem 'ohai', '~> 0.6.10', :require => false
 
 # configuration
 
@@ -54,7 +54,7 @@ gem 'jammit', '0.6.5'
 
 # JSON and API
 
-gem 'json', '1.4.6'
+gem 'json', '1.5.2'
 gem 'vanna', :git => 'git://github.com/MikeSofaer/vanna.git'
 
 # localization
@@ -128,7 +128,7 @@ group :test do
                           #"0.1.0", #:path => '~/workspace/diaspora-client'
   gem 'factory_girl_rails'
   gem 'fixture_builder', '0.3.1'
-  gem 'fuubar', '0.0.5'
+  gem 'fuubar', '0.0.6'
   gem 'mongrel', :require => false, :platforms => :ruby_18
   gem 'rspec', '>= 2.0.0'
   gem 'rspec-core', '~> 2.7.1'

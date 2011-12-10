@@ -110,19 +110,21 @@ GEM
     carrierwave (0.5.8)
       activesupport (~> 3.0)
     cgi_multipart_eof_fix (2.5.0)
-    chef (0.9.12)
+    chef (0.10.4)
       bunny (>= 0.6.0)
       erubis
-      extlib
       highline
-      json (>= 1.4.4, <= 1.4.6)
+      json (>= 1.4.4, <= 1.5.2)
       mixlib-authentication (>= 1.1.0)
       mixlib-cli (>= 1.1.0)
       mixlib-config (>= 1.1.2)
-      mixlib-log (>= 1.2.0)
+      mixlib-log (>= 1.3.0)
       moneta
-      ohai (>= 0.5.7)
+      net-ssh (~> 2.1.3)
+      net-ssh-multi (~> 1.1.0)
+      ohai (>= 0.6.0)
       rest-client (>= 1.0.4, < 1.7.0)
+      treetop (~> 1.4.9)
       uuidtools
     childprocess (0.2.3)
       ffi (~> 1.0.6)
@@ -163,7 +165,6 @@ GEM
       abstract (>= 1.0.0)
     eventmachine (0.12.10)
     excon (0.7.12)
-    extlib (0.9.15)
     factory_girl (2.3.2)
       activesupport
     factory_girl_rails (1.4.0)
@@ -196,9 +197,9 @@ GEM
       term-ansicolor (~> 1.0.5)
       thor (>= 0.13.6)
     formatador (0.2.1)
-    fuubar (0.0.5)
+    fuubar (0.0.6)
       rspec (~> 2.0)
-      rspec-instafail (~> 0.1.4)
+      rspec-instafail (~> 0.1.8)
       ruby-progressbar (~> 0.0.10)
     gem_plugin (0.2.3)
     gherkin (2.6.9)
@@ -224,7 +225,7 @@ GEM
       rspec (>= 1.3.1)
       selenium-webdriver (>= 0.1.3)
     jasmine-core (1.1.0)
-    json (1.4.6)
+    json (1.5.2)
     jsonpath (0.4.2)
       multi_json
     jwt (0.1.3)
@@ -263,9 +264,12 @@ GEM
       net-ssh (>= 1.99.1)
     net-sftp (2.0.5)
       net-ssh (>= 2.0.9)
-    net-ssh (2.2.1)
+    net-ssh (2.1.4)
     net-ssh-gateway (1.1.0)
       net-ssh (>= 1.99.1)
+    net-ssh-multi (1.1)
+      net-ssh (>= 2.1.4)
+      net-ssh-gateway (>= 0.99.0)
     newrelic_rpm (3.3.0)
     nokogiri (1.5.0)
     oauth (0.4.5)
@@ -275,13 +279,12 @@ GEM
     oauth2-provider (0.0.16)
       activesupport (~> 3.0.1)
       addressable (~> 2.2)
-    ohai (0.5.8)
-      extlib
-      json (>= 1.4.4, <= 1.4.6)
+    ohai (0.6.10)
       mixlib-cli
       mixlib-config
       mixlib-log
-      systemu
+      systemu (~> 2.2.0)
+      yajl-ruby
     omniauth (1.0.1)
       hashie (~> 1.2)
       rack
@@ -391,7 +394,7 @@ GEM
       tilt (>= 1.2.2, < 2.0)
     sqlite3 (1.3.5)
     subexec (0.1.0)
-    systemu (2.4.1)
+    systemu (2.2.0)
     term-ansicolor (1.0.7)
     thin (1.3.1)
       daemons (>= 1.0.9)
@@ -421,6 +424,7 @@ GEM
     will_paginate (3.0.pre2)
     xpath (0.1.4)
       nokogiri (~> 1.3)
+    yajl-ruby (1.1.0)
     yard (0.7.4)
     yui-compressor (0.9.6)
       POpen4 (>= 0.1.4)
@@ -439,7 +443,7 @@ DEPENDENCIES
   capistrano_colors
   capybara (~> 1.1.2)
   carrierwave (= 0.5.8)
-  chef (= 0.9.12)
+  chef (~> 0.10.4)
   client_side_validations
   cloudfiles (= 1.4.10)
   cucumber-api-steps (= 0.6)
@@ -458,14 +462,14 @@ DEPENDENCIES
   fog
   foreigner (= 0.9.1)
   foreman
-  fuubar (= 0.0.5)
+  fuubar (= 0.0.6)
   haml (= 3.1.4)
   hoptoad_notifier
   http_accept_language!
   i18n-inflector-rails (~> 1.0)
   jammit (= 0.6.5)
   jasmine (= 1.1.0.rc3)
-  json (= 1.4.6)
+  json (= 1.5.2)
   jwt (= 0.1.3)
   linecache (= 0.43)
   messagebus_ruby_api (= 0.4.8)
@@ -477,7 +481,7 @@ DEPENDENCIES
   newrelic_rpm
   nokogiri (~> 1.5.0)
   oauth2-provider (= 0.0.16)
-  ohai (= 0.5.8)
+  ohai (~> 0.6.10)
   omniauth (= 1.0.1)
   omniauth-facebook
   omniauth-tumblr
