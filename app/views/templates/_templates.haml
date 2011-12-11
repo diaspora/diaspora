@@ -1,0 +1,12 @@
+-#   Copyright (c) 2010-2011, Diaspora Inc.  This file is
+-#   licensed under the Affero General Public License version 3 or later.  See
+-#   the COPYRIGHT file.
+
+%script{:id => "stream-element-template", :type => 'text/template'}
+  != File.read("#{Rails.root}/app/views/templates/stream_element.ujs")
+
+%script{:id => "comment-template", :type => 'text/template'}
+  != File.read("#{Rails.root}/app/views/templates/comment.ujs")
+
+%script{:id => "comment-stream-template", :type => 'text/template'}
+  != File.read("#{Rails.root}/app/views/templates/comment_stream.ujs")
