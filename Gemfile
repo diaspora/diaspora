@@ -30,6 +30,7 @@ gem 'messagebus_ruby_api', '0.4.8'
 
 # web sockets
 gem 'em-synchrony', :platforms => :ruby_19
+gem 'em-websocket'
 
 group :production do # we don't install these on travis to speed up test runs
   # chef
@@ -39,9 +40,6 @@ group :production do # we don't install these on travis to speed up test runs
   # reporting
   gem 'hoptoad_notifier'
   gem 'newrelic_rpm', :require => false
-
-  # web sockets
-  gem 'em-websocket'
 end
 
 # configuration
