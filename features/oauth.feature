@@ -89,7 +89,6 @@ Feature: oauth
     Then I visit "/account?id=1" on Chubbies
     Then I should see "Token invalid"
 
-  @wip
   Scenario: Re-registering a client if the client recognizes the diaspora pod but the diaspora pod has since been reset
     Given Chubbies is registered on my pod
     And I remove all traces of Chubbies on the pod

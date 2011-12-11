@@ -4,7 +4,7 @@ require File.join(Rails.root, "app", "models", "oauth2_provider_models_activerec
 class AuthorizationsController < ApplicationController
   include OAuth2::Provider::Rack::AuthorizationCodesSupport
   before_filter :authenticate_user!, :except => :token
-  before_filter :block_invalid_authorization_code_requests, :except => [:token, :index, :destroy]
+  before_filter :redirect_or_block_invalid_authorization_code_requests, :except => [:token, :index, :destroy]
 
   skip_before_filter :verify_authenticity_token, :only => :token
 
@@ -101,6 +101,8 @@ class AuthorizationsController < ApplicationController
     redirect_to authorizations_path
   end
 
+  private
+
   # @param [String] enc_signed_string A Base64 encoded string with app_url;pod_url;time;nonce
   # @param [String] sig A Base64 encoded signature of the decoded signed_string with public_key.
   # @param [OpenSSL::PKey::RSA] public_key The application's public key to verify sig with.
@@ -130,5 +132,17 @@ class AuthorizationsController < ApplicationController
 
   def valid_nonce?(nonce)
     !OAuth2::Provider.client_class.exists?(:nonce => nonce)
+  end
+
+  def redirect_or_block_invalid_authorization_code_requests
+    begin
+      block_invalid_authorization_code_requests
+    rescue OAuth2::Provider::Rack::InvalidRequest => e
+      if e.message == "client_id is invalid"
+        redirect_to params[:redirect_uri]+"&error=invalid_client"
+      else
+        raise
+      end
+    end
   end
 end
