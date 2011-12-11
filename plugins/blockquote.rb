@@ -60,9 +60,9 @@ module Jekyll
         source << '/&hellip;' unless source == @source
       end
       if !@source.nil?
-        cite = "<cite><a href='#{@source}'>#{(@title || source)}</a></cite>"
+        cite = " <cite><a href='#{@source}'>#{(@title || source)}</a></cite>"
       elsif !@title.nil?
-        cite = "<cite>#{@title}</cite>"
+        cite = " <cite>#{@title}</cite>"
       end
       blockquote = if @by.nil?
         quote
