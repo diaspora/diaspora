@@ -4,10 +4,12 @@
     <li><a href="{{ site.subscribe_email }}" rel="subscribe-email" title="subscribe via email">Email</a></li>
   {% endif %}
 </ul>
+  {% if site.simple_search %}
 <form action="{{ site.simple_search }}" method="get">
   <fieldset role="search">
     <input type="hidden" name="q" value="site:{{ site.url | shorthand_url }}" />
     <input class="search" type="text" name="q" results="0" placeholder="Search"/>
   </fieldset>
 </form>
+  {% endif %}
 {% include custom/navigation.html %}
