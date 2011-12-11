@@ -100,7 +100,7 @@ gem 'typhoeus'
 gem 'haml', '3.1.4'
 gem 'mobile-fu'
 gem 'sass', '3.1.11'
-gem 'will_paginate', '3.0.pre2'
+gem 'will_paginate', '3.0.2'
 gem 'client_side_validations'
 
 # web
