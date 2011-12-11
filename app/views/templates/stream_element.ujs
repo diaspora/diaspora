@@ -34,41 +34,41 @@
             <time class="timeago" datetime="<%= created_at %>"/>
           </a>
         </span>
+      </div>
 
-        <p>
-          <%= text %>
-        </p>
+      <p class="post-text">
+        <%= text %>
+      </p>
 
-        <div class="info">
-          <% if(provider_display_name != null) { %>
-            <span class="via">
-              via <%= provider_display_name %>
-              -
-            </span>
-          <% } %>
-          <span class="post_scope">
-            <%= public === true ? "Public" : "Limited" %>
+      <div class="info">
+        <% if(provider_display_name != null) { %>
+          <span class="via">
+            via <%= provider_display_name %>
             -
           </span>
-          <a href="#" class="focus_comment_textarea">
-            Comment
-          </a>
-        </div>
-
-        <div class="likes on_post">
-          <div class="likes_container">
-            <% if(likes_count > 0){ %>
-              <img alt="Heart" src="/images/icons/heart.png?1322618579"> 
-              <a href="/posts/<%= id %>/likes" class="expand_likes">
-                <%= likes_count %> like
-              </a>
-              <span class="hidden likes_list"></span>
-            <% } %>
-          </div>
-        </div>
-
-        <div class="comments"> </div>
-
+        <% } %>
+        <span class="post_scope">
+          <%= public === true ? "Public" : "Limited" %>
+          -
+        </span>
+        <a href="#" class="focus_comment_textarea">
+          Comment
+        </a>
       </div>
+
+      <div class="likes on_post">
+        <div class="likes_container">
+          <% if(likes_count > 0){ %>
+            <img alt="Heart" src="/images/icons/heart.png?1322618579"> 
+            <a href="/posts/<%= id %>/likes" class="expand_likes">
+              <%= likes_count %> like
+            </a>
+            <span class="hidden likes_list"></span>
+          <% } %>
+        </div>
+      </div>
+
+      <div class="comments"> </div>
+
     </div>
 </div>
