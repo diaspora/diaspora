@@ -19,7 +19,7 @@ gem 'omniauth-facebook'
 gem 'omniauth-tumblr'
 gem 'omniauth-twitter'
 
-gem 'twitter', '2.0.1'
+gem 'twitter', '2.0.2'
 
 # backups
 
