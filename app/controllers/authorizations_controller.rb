@@ -101,8 +101,6 @@ class AuthorizationsController < ApplicationController
     redirect_to authorizations_path
   end
 
-  private
-
   # @param [String] enc_signed_string A Base64 encoded string with app_url;pod_url;time;nonce
   # @param [String] sig A Base64 encoded signature of the decoded signed_string with public_key.
   # @param [OpenSSL::PKey::RSA] public_key The application's public key to verify sig with.

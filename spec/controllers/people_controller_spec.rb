@@ -347,7 +347,7 @@ describe PeopleController do
       contact = alice.contact_for(bob.person)
       contacts = contact.contacts
       get :contacts, :person_id => bob.person.id
-      assigns(:contacts_of_contact).should == contacts
+      assigns(:contacts_of_contact).should =~ contacts
       response.should be_success
     end
 
