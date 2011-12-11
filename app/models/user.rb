@@ -499,6 +499,12 @@ class User < ActiveRecord::Base
     clearable_fields.each do |field|
       self[field] = nil
     end
+    [:getting_started,
+     :disable_mail,
+     :show_community_spotlight_in_stream].each do |field|
+      self[field] = false
+    end
+    self[:email] = "deletedaccount_#{self[:id]}@example.org"
 
     random_password = ActiveSupport::SecureRandom.hex(20)
     self.password = random_password
@@ -508,6 +514,10 @@ class User < ActiveRecord::Base
 
   private
   def clearable_fields
-    self.attributes.keys - ["id", "username", "encrypted_password", "created_at", "updated_at", "locked_at", "serialized_private_key"]
+    self.attributes.keys - ["id", "username", "encrypted_password",
+                            "created_at", "updated_at", "locked_at",
+                            "serialized_private_key", "getting_started",
+                            "disable_mail", "show_community_spotlight_in_stream",
+                            "email"]
   end
 end
