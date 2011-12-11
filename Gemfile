@@ -113,11 +113,11 @@ gem 'faraday-stack'
 gem 'em-synchrony', :platforms => :ruby_19
 gem 'em-websocket'
 
-### GROUPS ####
+# jazzy jasmine
 
-group :test, :development do
-  gem 'jasmine', '~> 1.1.2'
-end
+gem 'jasmine', '~> 1.1.2'
+
+### GROUPS ####
 
 group :test do
   gem 'capybara', '~> 1.1.2'
