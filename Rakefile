@@ -7,6 +7,7 @@ require "stringex"
 ssh_user       = "user@domain.com"
 ssh_port       = "22"
 document_root  = "~/website.com/"
+rsync_delete   = true
 deploy_default = "rsync"
 
 # This will be configured for you when you run config_deploy
@@ -116,7 +117,7 @@ task :new_page, :filename do |t, args|
   raise "### You haven't set anything up yet. First run `rake install` to set up an Octopress theme." unless File.directory?(source_dir)
   args.with_defaults(:filename => 'new-page')
   page_dir = [source_dir]
-  if args.filename.downcase =~ /(^.+\/)?(.+)/ 
+  if args.filename.downcase =~ /(^.+\/)?(.+)/
     filename, dot, extension = $2.rpartition('.').reject(&:empty?)         # Get filename and extension
     title = filename
     page_dir.concat($1.downcase.sub(/^\//, '').split('/')) unless $1.nil?  # Add path to page_dir Array
@@ -231,8 +232,12 @@ end
 
 desc "Deploy website via rsync"
 task :rsync do
+  exclude = ""
+  if File.exists?('./rsync-exclude'))
+    exclude = "--exclude-from '#{File.expand_path('./rsync-exclude')}'"
+  end
   puts "## Deploying website via Rsync"
-  ok_failed system("rsync -avze 'ssh -p #{ssh_port}' --delete #{public_dir}/ #{ssh_user}:#{document_root}")
+  ok_failed system("rsync -avze 'ssh -p #{ssh_port}' #{exclude} #{"--delete" unless rsync_delete == false} #{public_dir}/ #{ssh_user}:#{document_root}")
 end
 
 desc "deploy public directory to github pages"
