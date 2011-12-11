@@ -35,11 +35,12 @@ src_files:
   - public/javascripts/pages/*
   - public/javascripts/helpers/*
   - public/javascripts/widgets/*
- 
-  - public/javascripts/app.js
-  - public/javascripts/models/*
-  - public/javascripts/collections/*
-  - public/javascripts/views/*
+
+  - public/javascripts/app/app.js
+  - public/javascripts/app/router.js
+  - public/javascripts/app/models/*
+  - public/javascripts/app/collections/*
+  - public/javascripts/app/views/*
 
   - public/javascripts/mobile.js
   - public/javascripts/contact-list.js
