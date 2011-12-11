@@ -307,6 +307,7 @@ GEM
     parallel (0.5.11)
     parallel_tests (0.6.11)
       parallel
+    pg (0.11.0)
     polyglot (0.3.3)
     rack (1.2.4)
     rack-mobile-detect (0.3.0)
@@ -490,6 +491,7 @@ DEPENDENCIES
   omniauth-tumblr
   omniauth-twitter
   parallel_tests
+  pg
   rails (= 3.0.11)
   rails-i18n
   redcarpet (= 2.0.0)
