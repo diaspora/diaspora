@@ -19,16 +19,28 @@ gem 'omniauth-facebook'
 gem 'omniauth-tumblr'
 gem 'omniauth-twitter'
 
-gem 'twitter', '2.0.1'
+gem 'twitter', '2.0.2'
 
 # backups
-
 gem 'cloudfiles', '1.4.10', :require => false
 
-# chef
+# mail
+gem 'messagebus_ruby_api', '0.4.8'
 
-gem 'chef', '~> 0.10.4', :require => false
-gem 'ohai', '~> 0.6.10', :require => false
+
+# web sockets
+gem 'em-synchrony', :platforms => :ruby_19
+gem 'em-websocket'
+
+group :production do # we don't install these on travis to speed up test runs
+  # chef
+  gem 'chef', '~> 0.10.4', :require => false
+  gem 'ohai', '~> 0.6.10', :require => false
+
+  # reporting
+  gem 'hoptoad_notifier'
+  gem 'newrelic_rpm', :require => false
+end
 
 # configuration
 
@@ -76,15 +88,6 @@ gem 'resque-ensure-connected'
 gem 'resque-timeout', '1.0.0'
 gem 'SystemTimer', '1.2.3', :platforms => :ruby_18
 
-# reporting
-
-gem 'hoptoad_notifier'
-gem 'newrelic_rpm', :require => false
-
-#mail
-
-gem 'messagebus_ruby_api', '0.4.8'
-
 # tags
 
 gem 'acts-as-taggable-on', :git => 'git://github.com/diaspora/acts-as-taggable-on.git'
@@ -108,16 +111,11 @@ gem 'client_side_validations'
 gem 'faraday'
 gem 'faraday-stack'
 
-# web sockets
+# jazzy jasmine
 
-gem 'em-synchrony', :platforms => :ruby_19
-gem 'em-websocket'
+gem 'jasmine', '~> 1.1.2'
 
 ### GROUPS ####
-
-group :test, :development do
-  gem 'jasmine', '~> 1.1.2'
-end
 
 group :test do
   gem 'capybara', '~> 1.1.2'

@@ -307,7 +307,6 @@ GEM
     parallel (0.5.11)
     parallel_tests (0.6.11)
       parallel
-    pg (0.11.0)
     polyglot (0.3.3)
     rack (1.2.4)
     rack-mobile-detect (0.3.0)
@@ -409,7 +408,7 @@ GEM
     treetop (1.4.10)
       polyglot
       polyglot (>= 0.3.1)
-    twitter (2.0.1)
+    twitter (2.0.2)
       activesupport (>= 2.3.9, < 4)
       faraday (~> 0.7)
       multi_json (~> 1.0)
@@ -491,7 +490,6 @@ DEPENDENCIES
   omniauth-tumblr
   omniauth-twitter
   parallel_tests
-  pg
   rails (= 3.0.11)
   rails-i18n
   redcarpet (= 2.0.0)
@@ -513,7 +511,7 @@ DEPENDENCIES
   sod!
   sqlite3
   thin (~> 1.3.1)
-  twitter (= 2.0.1)
+  twitter (= 2.0.2)
   typhoeus
   vanna!
   webmock
