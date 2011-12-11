@@ -1015,6 +1015,10 @@ en:
       email_confirmed: "Email %{email} activated"
       email_not_confirmed: "Email could not be activated. Wrong link?"
 
+  will_paginate:
+    previous_label: "&laquo; previous"
+    next_label: "next &raquo;"
+
   webfinger:
     fetch_failed: "failed to fetch webfinger profile for %{profile_url}"
     hcard_fetch_failed: "there was a problem fetching the hcard for %{account}"
