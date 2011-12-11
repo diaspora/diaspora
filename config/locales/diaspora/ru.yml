@@ -48,6 +48,7 @@ ru:
       video_title:
         unknown: "Неизвестное название видеозаписи"
   are_you_sure: "Вы уверены?"
+  are_you_sure_delete_account: "Вы уверены, что хотите закрыть свою учетную запись? Эту процедуру невозможно будет отменить!"
   aspect_memberships:
     destroy:
       failure: "Не удалось удалить человека из аспектов"
@@ -516,6 +517,7 @@ ru:
       remove_contact: "удалить контакт"
       remove_from: "Удалить %{name} из %{aspect}?"
     show:
+      closed_account: "Эта учетная запись была закрыта."
       does_not_exist: "Персоны не существует!"
       has_not_shared_with_you_yet: "%{name} еще не делился записями с вами!"
       ignoring: "Вы блокируете все записи пользователя %{name}."
@@ -578,7 +580,7 @@ ru:
       permalink: "постоянная ссылка"
   previous: "ранее"
   privacy: "Приватность"
-  privacy_policy: "Privacy Policy"
+  privacy_policy: "Политика конфиденциальности"
   profile: "Профиль"
   profiles:
     edit:
@@ -769,7 +771,9 @@ ru:
       ignore_user: "Блокировать пользователя %{name}"
       ignore_user_description: "Блокировать и удалить пользователя из всех аспектов?"
       like: "Мне нравится"
+      nsfw: "Автор пометил эту запись как \"только для взрослых\". %{link}"
       shared_with: "Для аспектов: %{aspect_names}"
+      show: "показать"
       unlike: "Не нравится"
       via: "через %{link}"
       viewable_to_anyone: "Эту запись может видеть любой в интернете"
@@ -803,8 +807,8 @@ ru:
       title: "Аспекты"
     aspects_stream: "Аспекты"
     comment_stream:
-      contacts_title: "People whose posts you commented on"
-      title: "Commented Posts"
+      contacts_title: "Люди, чьи записи вы прокомментировали"
+      title: "Прокомментированные"
     commented_on: "обсуждаемые"
     community_spotlight_stream: "В центре внимания"
     followed_tag:
@@ -814,8 +818,8 @@ ru:
       title: "#Метки"
     followed_tags_stream: "#Метки"
     like_stream:
-      contacts_title: "People whose posts you like"
-      title: "Like Stream"
+      contacts_title: "Люди, чьи записи вам понравились"
+      title: "Понравившиеся"
     mentioned_stream: "@Упоминания"
     mentions:
       contacts_title: "Упоминавшие вас люди"
@@ -835,7 +839,7 @@ ru:
   tag_followings:
     create:
       failure: "Ошибка отслеживания метки #%{name}. Возможно, вы уже следите за ней?"
-      none: "You cannot follow a blank tag!"
+      none: "Нельзя следить за пустой меткой!"
       success: "Ура! Теперь вы следите за меткой #%{name}."
     destroy:
       failure: "Не вышло перестать следить за меткой #%{name}. Возможно, вы уже отписались от нее?"
@@ -846,11 +850,11 @@ ru:
       followed_by: "отслеживают"
       following: "Вы следите за меткой #%{tag}"
       nobody_talking: "Никто пока не говорил о %{tag}."
-      none: "The empty tag does not exist!"
+      none: "Пустая метка не существует!"
       people_tagged_with: "Люди с меткой %{tag}"
       posts_tagged_with: "Записи с меткой #%{tag}"
       stop_following: "Не следить за меткой #%{tag}"
-  terms_and_conditions: "Terms and Conditions"
+  terms_and_conditions: "Условия оказания услуг"
   tokens:
     show:
       connect_to_cubbies: "Подключение к Cubbi.es"
@@ -879,7 +883,16 @@ ru:
       change_email: "Изменить адрес"
       change_language: "Изменить язык"
       change_password: "Изменить пароль"
-      close_account: "Закрыть аккаунт"
+      close_account:
+        dont_go: "Пожалуйста, не уходите!"
+        if_you_want_this: "Если вы действительно хотите это сделать, введите ваш пароль и нажмите 'Закрыть аккаунт'."
+        lock_username: "Это зарезервирует ваше имя пользователя на случай, если вы захотите снова зарегистрироваться."
+        locked_out: "Будет произведен выход, и вы будете отключены от вашей учетной записи."
+        make_diaspora_better: "Мы хотели бы, чтобы вы помогли нам сделать Диаспору лучше вместо того, чтобы просто уйти отсюда. Если вы действительно решили уйти, мы хотим, чтобы вы знали, что случится дальше."
+        mr_wiggles: "Мистер Виглз будет опечален вашим уходом"
+        no_turning_back: "На данный момент обратного пути нет."
+        what_we_delete: "Мы удаляем все ваши записи и данные профиля так быстро, как только можем. Ваши комментарии будут по-прежнему доступны, но они не будут привязаны к вашему идентификатору в Диаспоре."
+      close_account_text: "Закрыть аккаунт"
       comment_on_post: "... кто-то прокомментировал вашу запись?"
       current_password: "Текущий пароль"
       download_photos: "Скачать мои фотографии"
@@ -942,3 +955,6 @@ ru:
     not_enabled: "webfinger не будет включен для хоста %{account}"
     xrd_fetch_failed: "Произошла ошибка при получении xrd с %{account}"
   welcome: "Добро пожаловать!"
+  will_paginate:
+    next_label: "next &raquo;"
+    previous_label: "&laquo; previous"

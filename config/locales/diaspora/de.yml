@@ -48,6 +48,7 @@ de:
       video_title:
         unknown: "Unbekannter Videotitel"
   are_you_sure: "Bist du sicher?"
+  are_you_sure_delete_account: "Möchtest du deinen Account wirklich schließen? Dieser Schritt kann nicht Rückgängig gemacht werden!"
   aspect_memberships:
     destroy:
       failure: "Die Person konnte nicht aus dem Aspekt entfernt werden"
@@ -516,6 +517,7 @@ de:
       remove_contact: "Kontakt entfernen"
       remove_from: "%{name} aus %{aspect} entfernen?"
     show:
+      closed_account: "Dieser Konto wurde geschlossen."
       does_not_exist: "Diese Person existiert nicht!"
       has_not_shared_with_you_yet: "%{name} hat bisher noch keine Beiträge mit dir geteilt!"
       ignoring: "Du ignorierst alle Beiträge von %{name}."
@@ -578,7 +580,7 @@ de:
       permalink: "Permanentlink"
   previous: "Vorherige"
   privacy: "Privatsphäre"
-  privacy_policy: "Privacy Policy"
+  privacy_policy: "Datenschutzrichtlinien"
   profile: "Profil"
   profiles:
     edit:
@@ -769,7 +771,9 @@ de:
       ignore_user: "%{name} ignorieren"
       ignore_user_description: "Diesen Benutzer ignorieren und aus allen Aspekten entfernen?"
       like: "Gefällt mir"
+      nsfw: "This post has been flagged as NSFW by its author. %{link}"
       shared_with: "Geteilt mit: %{aspect_names}"
+      show: "show"
       unlike: "Gefällt mir nicht mehr"
       via: "via %{link}"
       viewable_to_anyone: "Dieser Beitrag ist für jeden im Web sichtbar"
@@ -803,8 +807,8 @@ de:
       title: "Deine Aspekte"
     aspects_stream: "Aspekte"
     comment_stream:
-      contacts_title: "People whose posts you commented on"
-      title: "Commented Posts"
+      contacts_title: "Leute, deren Beiträge du kommentiert hast"
+      title: "Kommentierte Beiträge"
     commented_on: "kommentiert"
     community_spotlight_stream: Gemeinschafts-Schaukasten
     followed_tag:
@@ -814,7 +818,7 @@ de:
       title: "#Tags, denen du folgst"
     followed_tags_stream: "#Tags, denen du folgst"
     like_stream:
-      contacts_title: "People whose posts you like"
+      contacts_title: "Leute, deren Beiträge du magst"
       title: "Like Stream"
     mentioned_stream: "@Erwähnungen"
     mentions:
@@ -835,7 +839,7 @@ de:
   tag_followings:
     create:
       failure: "Fehler beim Folgen von: #%{name}. Folgst du #%{name} bereits?"
-      none: "You cannot follow a blank tag!"
+      none: "Du kannst keinem leeren Tag folgen!"
       success: "Hurra! Du folgst nun: #%{name}"
     destroy:
       failure: "Fehler beim Beenden des Folgens von: #%{name}. Vielleicht hast du schon aufgehört zu folgen?"
@@ -846,11 +850,11 @@ de:
       followed_by: "gefolgt von"
       following: "#%{tag} folgen"
       nobody_talking: "Niemand hat bisher etwas über %{tag} gesagt."
-      none: "The empty tag does not exist!"
+      none: "Der leere Tag existiert nicht!"
       people_tagged_with: "Personen, die mit %{tag} getaggt sind"
       posts_tagged_with: "Beiträge, die mit #%{tag} getaggt sind"
       stop_following: "#%{tag} nicht mehr folgen"
-  terms_and_conditions: "Terms and Conditions"
+  terms_and_conditions: "Allgemeine Geschäftsbedingungen"
   tokens:
     show:
       connect_to_cubbies: "Mit Cubbi.es verbinden"
@@ -879,7 +883,16 @@ de:
       change_email: "E-Mail-Adresse ändern"
       change_language: "Sprache ändern"
       change_password: "Kennwort ändern"
-      close_account: "Konto schließen"
+      close_account:
+        dont_go: "Hey, please don't go!"
+        if_you_want_this: "Wenn du das wirklich möchtest, gib dein Kennwort ein und klicke auf 'Konto schließen'"
+        lock_username: "Das wird deinen Benutzernamen sperren, falls du dich dazu entscheidest, dich neu anzumelden."
+        locked_out: "You will get signed out and locked out of your account."
+        make_diaspora_better: "We want you to help us make Diaspora better, so you should help us out instead of leaving. If you do want to leave, we want you to know what happens next."
+        mr_wiggles: "Mr Wiggles will be sad to see you go"
+        no_turning_back: "Currently, there is no turning back."
+        what_we_delete: "We delete all of your posts, profile data, as soon as humanly possible. Your comments will hang around, but be associated with your Diaspora Handle."
+      close_account_text: "Konto schließen"
       comment_on_post: "… jemand deinen Beitrag kommentiert?"
       current_password: "Derzeitiges Kennwort"
       download_photos: "Meine Fotos herunterladen"
@@ -942,3 +955,6 @@ de:
     not_enabled: "Webfinger scheint nicht für den Server von %{account} verfügbar zu sein."
     xrd_fetch_failed: "Die XRD-Datei von %{account} konnte nicht heruntergeladen werden."
   welcome: Willkommen!
+  will_paginate:
+    next_label: "next &raquo;"
+    previous_label: "&laquo; previous"

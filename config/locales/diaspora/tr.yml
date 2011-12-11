@@ -48,6 +48,7 @@ tr:
       video_title:
         unknown: "Geçersiz Video Başlığı"
   are_you_sure: "Emin misin?"
+  are_you_sure_delete_account: "Are you sure you want to close your account? This can't be undone!"
   aspect_memberships:
     destroy:
       failure: "Yön'den kişi kaldırılamadı"
@@ -516,6 +517,7 @@ tr:
       remove_contact: "kişiyi kaldır"
       remove_from: "%{name}, %{aspect} yönünden kaldırılsın mı?"
     show:
+      closed_account: "This account has been closed."
       does_not_exist: "Kişi yok!"
       has_not_shared_with_you_yet: "%{name} seninle henüz bir şey paylaşmamış!"
       ignoring: "You are ignoring all posts from %{name}."
@@ -769,7 +771,9 @@ tr:
       ignore_user: "Ignore %{name}"
       ignore_user_description: "Ignore and remove user from all aspects?"
       like: "Beğen"
+      nsfw: "This post has been flagged as NSFW by its author. %{link}"
       shared_with: "%{aspect_names} ile paylaşıldı"
+      show: "show"
       unlike: "Beğenme"
       via: "%{link} ile"
       viewable_to_anyone: "Bu gönderi web üzerindeki herkes tarafından görünebilir."
@@ -879,7 +883,16 @@ tr:
       change_email: "E-posta değiştir"
       change_language: "Dili değiştir"
       change_password: "Parolamı değiştir"
-      close_account: "Hesabımı Kapat"
+      close_account:
+        dont_go: "Hey, please don't go!"
+        if_you_want_this: "If you really want this, type in your password below and click 'Close Account'"
+        lock_username: "This will lock your username if you decided to sign back up."
+        locked_out: "You will get signed out and locked out of your account."
+        make_diaspora_better: "We want you to help us make Diaspora better, so you should help us out instead of leaving. If you do want to leave, we want you to know what happens next."
+        mr_wiggles: "Mr Wiggles will be sad to see you go"
+        no_turning_back: "Currently, there is no turning back."
+        what_we_delete: "We delete all of your posts, profile data, as soon as humanly possible. Your comments will hang around, but be associated with your Diaspora Handle."
+      close_account_text: "Close Account"
       comment_on_post: "...birisi gönderine yorum yazdığında?"
       current_password: "Mevcut parola"
       download_photos: "fotoğraflarımı indir"
@@ -942,3 +955,6 @@ tr:
     not_enabled: "webfinger does not seem to be enabled for %{account}'s host"
     xrd_fetch_failed: "there was an error getting the xrd from account %{account}"
   welcome: "Hoş Geldin!"
+  will_paginate:
+    next_label: "next &raquo;"
+    previous_label: "&laquo; previous"
