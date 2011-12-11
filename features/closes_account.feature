@@ -19,27 +19,6 @@ Feature: Close Account
     When I wait for the ajax to finish
     Then I should see "Your account is locked."
 
-  Scenario: user is forced to enter something in the password field on closing account
-    Given I am signed in
-    When I click on my name in the header
-    And I follow "Settings"
-    And I follow "Close Account"
-    And I preemptively confirm the alert
-    And I press "Close Account" in the modal window
-    Then I should be on the edit user page
-    And I should see "Please enter your current password to close your account."
-
-  Scenario: user is forced to enter the right password in the password field on closing account
-    Given I am signed in
-    When I click on my name in the header
-    And I follow "Settings"
-    And I follow "Close Account"
-    And I preemptively confirm the alert
-    And I fill in "close_account_password" with "none sense" in the modal window
-    And I press "Close Account" in the modal window
-    Then I should be on the edit user page
-    And I should see "The entered password didn't match your current password."
-
   Scenario: post display should not throw error when mention is removed for the user whose account is closed
     Given a user named "Bob Jones" with email "bob@bob.bob"
     And a user named "Alice Smith" with email "alice@alice.alice"
