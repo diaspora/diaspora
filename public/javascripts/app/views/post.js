@@ -21,6 +21,6 @@ App.Views.Post = Backbone.View.extend({
 
     Diaspora.BaseWidget.instantiate("StreamElement", $(this.el));
 
-    return this.el;
+    return this;
   }
 });

@@ -22,6 +22,8 @@ class Post < ActiveRecord::Base
     t.add :last_three_comments
     t.add :provider_display_name
     t.add :author
+    t.add :post_type
+    t.add :image_url
   end
 
   xml_attr :provider_display_name
@@ -37,6 +39,10 @@ class Post < ActiveRecord::Base
 
   #scopes
   scope :includes_for_a_stream, includes(:o_embed_cache, {:author => :profile}, :mentions => {:person => :profile}) #note should include root and photos, but i think those are both on status_message
+
+  def post_type
+    self.class.name
+  end
 
   # gives the last three comments on the post
   def last_three_comments

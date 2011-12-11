@@ -74,14 +74,15 @@
     %header{:class=>('landing' unless current_user)}
       = render 'layouts/header'
 
-    %script{:id => "stream-element-template", :type => 'text/template'}
-      != File.read("#{Rails.root}/app/views/shared/_stream_element.html.underscore")
+    - if @backbone
+      %script{:id => "stream-element-template", :type => 'text/template'}
+        != File.read("#{Rails.root}/app/views/templates/_stream_element.html.underscore")
 
-    %script{:id => "comment-template", :type => 'text/template'}
-      != File.read("#{Rails.root}/app/views/shared/_comment.html.underscore")
+      %script{:id => "comment-template", :type => 'text/template'}
+        != File.read("#{Rails.root}/app/views/templates/_comment.html.underscore")
 
-    %script{:id => "comment-stream-template", :type => 'text/template'}
-      != File.read("#{Rails.root}/app/views/shared/_comment_stream.html.underscore")
+      %script{:id => "comment-stream-template", :type => 'text/template'}
+        != File.read("#{Rails.root}/app/views/templates/_comment_stream.html.underscore")
 
     .container{:style=> "#{yield(:break_the_mold)}"}
       - if @aspsect == :getting_started || @page == :logged_out
