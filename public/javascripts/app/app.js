@@ -1,8 +1,6 @@
 var App = {
   Collections: {},
   Models: {},
-  routers: {},
-  Routers: {},
   Views: {},
 
   user: function(user) {
@@ -12,9 +10,7 @@ var App = {
   },
 
   initialize: function() {
-    _.each(App.Routers, function(Router, name) {
-      App.routers[name] = new Router;
-    });
+    App.router = new App.Router;
 
     Backbone.history.start({pushState: true});
   }

@@ -15,13 +15,11 @@ javascripts:
     - public/javascripts/vendor/underscore.js
     - public/javascripts/vendor/backbone.js
 
-    - public/javascripts/app.js
-    - public/javascripts/models/*
-    - public/javascripts/collections/*
-    - public/javascripts/views/*
-
-    - public/javascripts/routers/*
-    - public/javascripts/routers/stream/*
+    - public/javascripts/app/app.js
+    - public/javascripts/app/router.js
+    - public/javascripts/app/models/*
+    - public/javascripts/app/collections/*
+    - public/javascripts/app/views/*
 
     - public/javascripts/rails.validations.js
     - public/javascripts/rails.js
