@@ -10,3 +10,9 @@
 
 %script{:id => "comment-stream-template", :type => 'text/template'}
   != File.read("#{Rails.root}/app/views/templates/comment_stream.ujs")
+
+%script{:id => "status-message-template", :type => 'text/template'}
+  != File.read("#{Rails.root}/app/views/templates/status_message.ujs")
+
+%script{:id => "reshare-template", :type => 'text/template'}
+  != File.read("#{Rails.root}/app/views/templates/reshare.ujs")

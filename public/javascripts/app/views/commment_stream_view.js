@@ -21,7 +21,7 @@ App.Views.CommentStream = Backbone.View.extend({
 
     this.model.comments.each(this.appendComment);
 
-    return this.el;
+    return this;
   },
 
   createComment: function(evt) {

@@ -10,6 +10,6 @@ App.Views.Comment = Backbone.View.extend({
       App.user()
     )));
 
-    return this.el;
+    return this;
   }
 });

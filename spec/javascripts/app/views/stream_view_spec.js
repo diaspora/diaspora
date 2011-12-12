@@ -3,33 +3,31 @@ describe("App.views.Stream", function(){
   describe("#render", function(){
     beforeEach(function(){
       // should be jasmine helper
-      window.current_user = App.user({name: "alice", avatar : {small : "http://avatar.com"}});
+      window.current_user = App.user({name: "alice", avatar : {small : "http://avatar.com/photo.jpg"}});
 
-      //hella hax
-      spec.loadFixture("multi_stream_json");
-      var posts = $.parseJSON($("#jasmine_content").html())["posts"]
+      var posts = $.parseJSON(spec.readFixture("multi_stream_json"))["posts"];
       spec.loadFixture("underscore_templates");
 
-      this.collection = new App.Collections.Stream(posts)
+      this.collection = new App.Collections.Stream(posts);
       this.statusMessage = this.collection.models[0];
-      // this.picture = new App.Models.Post({post_type : "ActivityStreams::Photo", image_url : "http://amazonks.com/pretty_picture_lol.gif"});
+      this.reshare = this.collection.models[1];
 
       this.view = new App.Views.Stream({collection : this.collection});
       this.view.render();
       this.statusElement = $(this.view.$("#" + this.statusMessage.get("guid")));
-      //this.pictureElement = $(this.view.$("#" + this.picture.get("guid")));
+      this.reshareElement = $(this.view.$("#" + this.reshare.get("guid")));
     })
 
     context("when rendering a Status Mesasage", function(){
       it("shows the status message in the content area", function(){
-        expect($.trim(this.statusElement.find(".content p.post-text").text())).toBe("hella infos yo!")
+        expect($.trim(this.statusElement.find(".post-content p").text())).toBe("hella infos yo!")
       })
     })
 
-    // context("when rendering a Picture", function(){
-    //   it("shows the picture in the content area", function(){
-    //     expect(this.streamElement.find(".post-content img").attr("src")).toBe("http://amazonks.com/pretty_picture_lol.gif")
-    //   })
-    // })
+    context("when rendering a Reshare", function(){
+      it("shows the reshare in the content area", function(){
+        expect($.trim(this.reshareElement.find(".content h2").text())).toBe("this is a reshare");
+      })
+    })
   })
 })

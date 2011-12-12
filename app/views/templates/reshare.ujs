@@ -1,0 +1,4 @@
+<p>
+  <h2>this is a reshare</h2>
+  <%= root.text %>
+</p>

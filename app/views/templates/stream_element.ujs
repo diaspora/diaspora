@@ -36,9 +36,13 @@
         </span>
       </div>
 
+      <div class="post-content"> </div>
+
+      <!--
       <p class="post-text">
         <%= text %>
       </p>
+      -->
 
       <div class="info">
         <% if(provider_display_name != null) { %>

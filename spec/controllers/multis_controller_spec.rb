@@ -17,7 +17,9 @@ describe MultisController do
 
     describe 'jasmine fixtures' do
       it 'generate' do
-        status_message = alice.post(:status_message, :text => "hella infos yo!", :to => alice.aspects.first.id)
+        alice.post(:status_message, :text => "hella infos yo!", :to => alice.aspects.first.id)
+        alice.post(:reshare, :root_guid => Factory(:status_message, :public => true).guid, :to => 'all')
+
         get :index, :format => :json
         save_fixture(response.body, "multi_stream_json")
       end

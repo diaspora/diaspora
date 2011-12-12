@@ -16,10 +16,19 @@ App.Views.Post = Backbone.View.extend({
       model: this.model
     }).render());
 
+    this.renderPostContent();
+
     this.$(".details time").timeago();
     this.$("label").inFieldLabels();
 
-    Diaspora.BaseWidget.instantiate("StreamElement", $(this.el));
+    return this;
+  },
+
+  renderPostContent: function(){
+    var postClass = App.Views[this.model.get("post_type")] || App.Views.StatusMessage;
+    var postView = new postClass({ model : this.model });
+
+    this.$(".post-content").html(postView.render().el);
 
     return this;
   }

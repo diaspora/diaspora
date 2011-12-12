@@ -24,6 +24,7 @@ class Post < ActiveRecord::Base
     t.add :author
     t.add :post_type
     t.add :image_url
+    t.add :root
   end
 
   xml_attr :provider_display_name
