@@ -1,4 +1,28 @@
-<p>
-  <h2>this is a reshare</h2>
-  <%= root.text %>
-</p>
+<div class="reshare">
+
+  <a href="/people/<%= root.author.id %>">
+    <img src="<%= root.author.avatar.small %>" class="avatar" data-person-id="<%= root.author.id %>"/>
+  </a>
+
+  <div class="content">
+    <div class="post_initial_info">
+      <span class="from">
+        <a href="/people/<%= root.author.id %>">
+          <%= root.author.name %>
+        </a>
+      </span>
+      <span class="details">
+        -
+        <a href="/posts/<%= root.id %>">
+          <time class="timeago" datetime="<%= root.created_at %>"/>
+        </a>
+      </span>
+    </div>
+
+    <!-- duplicate from statusmessage partial -->
+    <p>
+      <%= root.text %>
+    </p>
+
+  </div>
+</div>
