@@ -22,8 +22,8 @@ describe CommentsController do
         @post = alice.post :status_message, :text => 'GIANTS', :to => aspect_to_post
       end
 
-      it 'responds to format js' do
-        post :create, comment_hash.merge(:format => 'js')
+      it 'responds to format json' do
+        post :create, comment_hash.merge(:format => 'json')
         response.code.should == '201'
         response.body.should match comment_hash[:text]
       end
