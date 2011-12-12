@@ -319,6 +319,8 @@ en:
       simplicity_explanation: "Diaspora makes sharing clean and easy – and this goes for privacy too. Inherently private, Diaspora doesn’t make you wade through pages of settings and options just to keep your profile secure."
       learn_about_host: "Learn about how to host your own Diaspora server."
 
+  invitation_codes:
+    excited: "%{name} is excited to see you here."
   invitations:
     create:
       sent: "Invitations have been sent to: "
@@ -332,6 +334,7 @@ en:
       invite_someone_to_join: "Invite someone to join Diaspora!"
       if_they_accept_info: "if they accept, they will be added to the aspect you invited them."
       comma_seperated_plz: "You can enter multiple email addresses separated by commas."
+      check_out_diaspora: "Hey! You should check out Diaspora*"
       to: "To"
       personal_message: "Personal message"
       send_an_invitation: "Send an invitation"

@@ -99,24 +99,8 @@ class ServicesController < ApplicationController
 #{t('services.inviter.click_link_to_accept_invitation')}:
 \n
 \n
-#{accept_invitation_url(user, :invitation_token => user.invitation_token)}
+#{invitation_code_url(user.invitation_code)}
 MSG
     "https://www.facebook.com/messages/#{facebook_uid}?msg_prefill=#{message}"
-  end
-
-  def invite_redirect_json(invite, user, service_user)
-    if invite.email_like_identifer
-      {:message => t("invitations.create.sent") + service_user.name }
-    else
-      {:url => facebook_message_url(user, service_user.uid)}
-    end
-  end
-
-    def invite_redirect_url(invite, user, service_user)
-    if invite.email_like_identifer
-      redirect_to(friend_finder_path(:provider => 'facebook'), :notice => "you re-invited #{service_user.name}")
-    else
-      redirect_to(facebook_message_url(user, service_user.uid))
-    end
   end
 end

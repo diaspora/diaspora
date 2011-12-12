@@ -3,10 +3,12 @@
 #   the COPYRIGHT file.
 
 class RegistrationsController < Devise::RegistrationsController
-  before_filter :check_registrations_open!
+  before_filter :check_registrations_open_or_vaild_invite!
 
   def create
     @user = User.build(params[:user])
+    @user.process_invite_acceptence(invite) if invite.present?
+
     if @user.save
       flash[:notice] = I18n.t 'registrations.create.success'
       @user.seed_aspects
@@ -26,10 +28,19 @@ class RegistrationsController < Devise::RegistrationsController
   end
 
   private
-  def check_registrations_open!
+  def check_registrations_open_or_vaild_invite!
+    return true if invite.present?
     if AppConfig[:registrations_closed]
       flash[:error] = t('registrations.closed')
       redirect_to new_user_session_path
     end
   end
+
+  def invite
+    if params[:invite].present?
+      @invite ||= InvitationCode.find_by_token(params[:invite][:token])
+    end
+  end
+  
+  helper_method :invite
 end

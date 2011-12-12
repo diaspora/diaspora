@@ -39,6 +39,17 @@ describe RegistrationsController do
       flash[:error].should == I18n.t('registrations.closed')
       response.should redirect_to new_user_session_path
     end
+
+    it 'does not redirect if there is a valid invite token' do
+      i = InvitationCode.create(:user => bob)
+      get :new, :invite => {:token => i.token}
+      response.should_not be_redirect
+    end
+
+    it 'does redirect if there is an  invalid invite token' do
+      get :new, :invite => {:token => 'fssdfsd'}
+      response.should be_redirect
+    end
   end
 
   describe "#create" do
