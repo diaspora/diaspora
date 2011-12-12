@@ -39,7 +39,7 @@ App.Views.CommentStream = Backbone.View.extend({
   appendComment: function(comment) {
     this.$("ul.comments").append(new App.Views.Comment({
       model: comment
-    }).render());
+    }).render().el);
   }
 
 });

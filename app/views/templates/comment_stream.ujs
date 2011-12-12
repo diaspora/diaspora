@@ -20,7 +20,7 @@
         <textarea class="comment_box" id="comment_text_on_<%= id %>" name="text" rows="2" />
       </p>
       <div class="submit_button">
-        <input class="comment_submit button creation" id="comment_submit_<%= id %>" name="commit" type="submit" value="Comment" />
+        <input class="button creation" id="comment_submit_<%= id %>" name="commit" type="submit" value="Comment" />
       </div>
     </form>
   </div>
