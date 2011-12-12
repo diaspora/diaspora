@@ -49,6 +49,20 @@
           <%= public === true ? "Public" : "Limited" %>
           -
         </span>
+
+        <span class="like_action">
+          <% if(user_like !== null) { %>
+          <a href="/posts/<%= id %>/likes/<%= user_like.id %>" class="unlike" data-method='delete' data-remote='true' rel='nofollow'>
+              Unlike
+            </a>
+          <% } else { %>
+            <a href="/posts/<%= id %>/likes?positive=true" class="like" data-method='post' data-remote='true' rel='nofollow'>
+              Like
+            </a>
+          <% } %>
+        </span>
+        ·
+
         <a href="#" class="focus_comment_textarea">
           Comment
         </a>
