@@ -16,3 +16,6 @@
 
 %script{:id => "reshare-template", :type => 'text/template'}
   != File.read("#{Rails.root}/app/views/templates/reshare.ujs")
+
+%script{:id => "activity-streams-photo-template", :type => 'text/template'}
+  != File.read("#{Rails.root}/app/views/templates/activity-streams-photo.ujs")

@@ -25,7 +25,8 @@ App.Views.Post = Backbone.View.extend({
   },
 
   renderPostContent: function(){
-    var postClass = App.Views[this.model.get("post_type")] || App.Views.StatusMessage;
+    var normalizedClass = this.model.get("post_type").replace(/::/, "__");
+    var postClass = App.Views[normalizedClass] || App.Views.StatusMessage;
     var postView = new postClass({ model : this.model });
 
     this.$(".post-content").html(postView.render().el);

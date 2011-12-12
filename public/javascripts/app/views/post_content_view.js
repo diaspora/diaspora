@@ -22,3 +22,7 @@ App.Views.StatusMessage = App.Views.PostContent.extend({
 App.Views.Reshare = App.Views.PostContent.extend({
   template_name : "#reshare-template"
 });
+
+App.Views.ActivityStreams__Photo = App.Views.PostContent.extend({
+  template_name : "#activity-streams-photo-template"
+});
