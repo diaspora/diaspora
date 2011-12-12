@@ -81,11 +81,9 @@ class UsersController < ApplicationController
 
   def destroy
     if params[:user] && params[:user][:current_password] && current_user.valid_password?(params[:user][:current_password])
-      Resque.enqueue(Jobs::DeleteAccount, current_user.id)
-      current_user.lock_access!
+      current_user.close_account!
       sign_out current_user
-      flash[:notice] = I18n.t 'users.destroy.success'
-      redirect_to multi_path
+      redirect_to(multi_path, :notice => I18n.t('users.destroy.success'))
     else
       if params[:user].present? && params[:user][:current_password].present?
         flash[:error] = t 'users.destroy.wrong_password'

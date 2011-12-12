@@ -264,7 +264,6 @@ describe Profile do
   end
 
   describe '#receive' do
-    
     it 'updates the profile in place' do
       local_luke, local_leia, remote_raphael = set_up_friends
       new_profile = Factory.build :profile
@@ -274,5 +273,44 @@ describe Profile do
       remote_raphael.last_name.should == new_profile.last_name
     end
 
+  end
+
+  describe "#tombstone!" do
+    before do
+      @profile = bob.person.profile
+    end
+    it "clears the profile fields" do
+      attributes = @profile.send(:clearable_fields)
+
+      @profile.tombstone!
+      @profile.reload
+      attributes.each{ |attr|
+        @profile[attr.to_sym].should be_blank
+      }
+    end
+
+    it 'removes all the tags from the profile' do
+      @profile.taggings.should_receive(:delete_all)
+      @profile.tombstone!
+    end
+  end
+
+  describe "#clearable_fields" do
+    it 'returns the current profile fields' do
+      profile = Factory.build :profile
+      profile.send(:clearable_fields).sort.should == 
+      ["diaspora_handle",
+      "first_name",
+      "last_name",
+      "image_url",
+      "image_url_small",
+      "image_url_medium",
+      "birthday",
+      "gender",
+      "bio",
+      "searchable",
+      "location",
+      "full_name"].sort
+    end
   end
 end

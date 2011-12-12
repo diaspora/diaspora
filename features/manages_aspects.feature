@@ -61,15 +61,12 @@ Feature: User manages contacts
   Scenario: infinite scroll on contacts index
     Given I am signed in
     And I resize my window to 800x600
-    And I have 60 contacts
+    And I have 30 contacts
     And I am on the contacts page
     Then I should see 25 contacts
 
     When I scroll down
-    Then I should see 50 contacts
-
-    When I scroll down
-    Then I should see 60 contacts
+    Then I should see 30 contacts
 
   Scenario: clicking on the contacts link in the header with zero contacts directs a user to the featured users page
     Given I am signed in

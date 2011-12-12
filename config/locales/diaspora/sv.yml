@@ -48,6 +48,7 @@ sv:
       video_title:
         unknown: "Okänd videotitel"
   are_you_sure: "Är du säker?"
+  are_you_sure_delete_account: "Are you sure you want to close your account? This can't be undone!"
   aspect_memberships:
     destroy:
       failure: "Misslyckades med att ta bort personen från aspekten"
@@ -120,7 +121,7 @@ sv:
       new_here:
         follow: "Följ %{link} och välkomna nya användare av Diaspora*!"
         learn_more: "Läs mer"
-        title: "Välkomna Nya Användare"
+        title: "Välkomna nya användare"
       no_contacts: "Inga kontakter"
       no_tags: "+ Hitta en tag att följa"
       people_sharing_with_you: "Personer som delar med dig"
@@ -408,7 +409,7 @@ sv:
       zero: "Ingen gillade ditt borttagna inlägg."
     mentioned:
       few: "%{actors} personer har nämnt dig i %{post_link}."
-      many: "%{actors} personer har nämnt dig i %{post_link}."
+      many: "Omnämn"
       one: "En person har nämnt dig i %{post_link}."
       other: "%{actors} har nämnt dig i %{post_link}."
       two: "Två personer har nämnt dig i %{post_link}."
@@ -490,7 +491,7 @@ sv:
       edit_membership: "redigera medlemskap för aspekt"
     few: "%{count} människor"
     helper:
-      people_on_pod_are_aware_of: " personer på denna plats är medvetna om att"
+      people_on_pod_are_aware_of: " personer på denna pod är medvetna om att"
       results_for: " resultat för %{params}"
     index:
       couldnt_find_them_send_invite: "Fanns de inte här?  Skicka en inbjudan!"
@@ -516,12 +517,13 @@ sv:
       remove_contact: "ta bort kontakt"
       remove_from: "Ta bort %{name} från %{aspect}?"
     show:
+      closed_account: "This account has been closed."
       does_not_exist: "Den här personen finns inte!"
       has_not_shared_with_you_yet: "%{name} har inte delat några inlägg med dig än!"
       ignoring: "Du ignorerar alla inlägg från %{name}."
       incoming_request: "%{name} vill dela med dig"
-      mention: "Nämna"
-      message: "Meddelande"
+      mention: "Omnämn"
+      message: "Skicka meddelande"
       not_connected: "Du delar inte med dig till den här personen"
       recent_posts: "Postat nyligen"
       recent_public_posts: "Senaste publika inlägg"
@@ -536,7 +538,7 @@ sv:
     two: "Två personer"
     webfinger:
       fail: "Förlåt, vi kunde inte hitta %{handle}."
-    zero: "inga personer"
+    zero: "0 personer"
   photos:
     comment_email_subject: "%{name} foto"
     create:
@@ -578,7 +580,7 @@ sv:
       permalink: "permalänk"
   previous: "föregående"
   privacy: "Sekretess"
-  privacy_policy: "Privacy Policy"
+  privacy_policy: "Integritetspolicy"
   profile: "Profil"
   profiles:
     edit:
@@ -677,7 +679,7 @@ sv:
       error: "Det blev ett fel vid anslutning till tjänsten"
     finder:
       fetching_contacts: "Diaspora fyller listan med dina %{service}-vänner. Vänligen försök igen senare."
-      no_friends: "Hittade inga vänner ifrån Facebook."
+      no_friends: "Hittade inga vänner från Facebook."
       service_friends: "%{service}-vänner"
     index:
       connect_to_facebook: "Anslut till Facebook"
@@ -730,7 +732,7 @@ sv:
       invite_someone: "Bjud in en kontakt"
       invite_your_friends: "Bjud in dina vänner"
       invites: "Inbjudningar"
-      invites_closed: "Inbjudningar är för närvarande stängd på denna Diaspora server"
+      invites_closed: "Inbjudningar är för närvarande stängd på denna Diasporaserver"
     notification:
       new: "Ny %{type} från %{from}"
     public_explain:
@@ -751,7 +753,7 @@ sv:
         hello: "Hej allihop, jag är #%{new_user_tag}. "
         i_like: "Jag är intresserad av %{tags}."
         invited_by: "Tack för inbjudan, "
-        newhere: "NyHär"
+        newhere: "NewHere"
       post_a_message_to: "Skicka ett meddelande till %{aspect}"
       posting: Skickar...
       publishing_to: "publicerar till: "
@@ -769,7 +771,9 @@ sv:
       ignore_user: "Ignorera %{name}"
       ignore_user_description: "Ignorera och ta bort användaren från alla aspekter?"
       like: "Jag gillar det här"
+      nsfw: "This post has been flagged as NSFW by its author. %{link}"
       shared_with: "Delas med: %{aspect_names}"
+      show: "show"
       unlike: "Sluta gilla"
       via: "via %{link}"
       viewable_to_anyone: "Detta inlägg är synligt för alla på nätet"
@@ -803,9 +807,9 @@ sv:
       title: "Dina Aspekter"
     aspects_stream: "Aspekter"
     comment_stream:
-      contacts_title: "People whose posts you commented on"
-      title: "Commented Posts"
-    commented_on: "kommenterade på"
+      contacts_title: "Personer vars inlägg du har kommenterat på"
+      title: "Kommenterade Inlägg"
+    commented_on: "kommenterade"
     community_spotlight_stream: "Gemenskapens Rampljus"
     followed_tag:
       add_a_tag: "Lägg till en tagg"
@@ -814,8 +818,8 @@ sv:
       title: "#Följda Taggar"
     followed_tags_stream: "#Följda Taggar"
     like_stream:
-      contacts_title: "People whose posts you like"
-      title: "Like Stream"
+      contacts_title: "Personer vars inlägg du gillar"
+      title: "Omtyckta strömmar"
     mentioned_stream: "@Mentions"
     mentions:
       contacts_title: "Personer som omnämnt dig"
@@ -823,7 +827,7 @@ sv:
     multi:
       contacts_title: "Personer i din Ström"
       title: "Ström"
-    posted: "skrev ett inlägg"
+    posted: "postade"
     public:
       contacts_title: "Postade nyligen"
       title: "Offentlig Aktivitet"
@@ -835,7 +839,7 @@ sv:
   tag_followings:
     create:
       failure: "Misslyckades med att följa #%{name}. Du kanske redan gör det?"
-      none: "You cannot follow a blank tag!"
+      none: "Du kan inte följa en tom tagg!"
       success: "Ja! Du följer nu #%{name}."
     destroy:
       failure: "Misslyckades att sluta följa #%{name}. Kanske har du redan slutat följa?"
@@ -846,11 +850,11 @@ sv:
       followed_by: "följs av"
       following: "Följer #%{tag}"
       nobody_talking: "Ingen talar om %{tag} än."
-      none: "The empty tag does not exist!"
+      none: "Det finns ingen tom tagg!"
       people_tagged_with: "Personer taggade med %{tag}"
       posts_tagged_with: "Poster taggade med #%{tag}"
       stop_following: "Sluta följa #%{tag}"
-  terms_and_conditions: "Terms and Conditions"
+  terms_and_conditions: "Vilkor"
   tokens:
     show:
       connect_to_cubbies: "Koppla till Cubbi.es"
@@ -879,7 +883,16 @@ sv:
       change_email: "Ändra e-postadress"
       change_language: "Ändra språk"
       change_password: "Ändra lösenord"
-      close_account: "Stäng kontot"
+      close_account:
+        dont_go: "Hey, please don't go!"
+        if_you_want_this: "If you really want this, type in your password below and click 'Close Account'"
+        lock_username: "This will lock your username if you decided to sign back up."
+        locked_out: "You will get signed out and locked out of your account."
+        make_diaspora_better: "We want you to help us make Diaspora better, so you should help us out instead of leaving. If you do want to leave, we want you to know what happens next."
+        mr_wiggles: "Mr Wiggles will be sad to see you go"
+        no_turning_back: "Currently, there is no turning back."
+        what_we_delete: "We delete all of your posts, profile data, as soon as humanly possible. Your comments will hang around, but be associated with your Diaspora Handle."
+      close_account_text: "Close Account"
       comment_on_post: "...någon kommenterar på din post?"
       current_password: "Nuvarande lösenord"
       download_photos: "Ladda ner mina foton"
@@ -942,3 +955,6 @@ sv:
     not_enabled: "Webfinger verkar inte vara påslaget på %{account}'s server"
     xrd_fetch_failed: "kunde inte hämta xrd-fil från kontot %{account}"
   welcome: Välkommen!
+  will_paginate:
+    next_label: "next &raquo;"
+    previous_label: "&laquo; previous"

@@ -48,6 +48,7 @@ bg:
       video_title:
         unknown: "Видеото е с незвестно заглавие"
   are_you_sure: "Сигурни ли сте?"
+  are_you_sure_delete_account: "Наистина ли желаете да затворите акаунта си? Няма връщане назад!"
   aspect_memberships:
     destroy:
       failure: "Лицето не бе премахнато от аспекта"
@@ -104,8 +105,8 @@ bg:
       handle_explanation: "Това е вашият адрес в Diaspora. Наподобява адрес на ел. поща - давате го на хора, за да се свържат с вас."
       help:
         do_you: "Вие:"
-        email_feedback: "Ако предпочитате изпратете отзив по ел. поща (%{link})"
-        feature_suggestion: "... имате предложение за нова %{link}?"
+        email_feedback: "Ако предпочитате изпратете отзив по %{link}."
+        feature_suggestion: "... имате идея за нова %{link}?"
         find_a_bug: "... сте открили грешка (%{link})?"
         have_a_question: "... имате %{link}?"
         here_to_help: "Общността е готова да помогне!"
@@ -114,7 +115,7 @@ bg:
         tag_bug: "бъг"
         tag_feature: "функция"
         tag_question: "въпрос"
-        tutorials_wiki_and_forum: "%{tutorial}, %{wiki} и %{forum}: Ръководства, съвети и новини от общността"
+        tutorials_wiki_and_forum: "%{tutorial}, %{wiki} и %{forum} - ръководства, съвети и новини от общността."
       introduce_yourself: "Това е вашият поток.  Включете се и се представете."
       keep_us_running: "Осигурете бързата работа на %{pod} като дарите пари за месечната издръжка на сървърите!"
       new_here:
@@ -516,6 +517,7 @@ bg:
       remove_contact: "премахване на контакта"
       remove_from: "Премахване на %{name} от %{aspect}?"
     show:
+      closed_account: "Акаунтът е затворен."
       does_not_exist: "Лицето не съществува!"
       has_not_shared_with_you_yet: "%{name} все още не е споделил нито една публикация с вас!"
       ignoring: "Всички публикации на %{name} биват игнорирани."
@@ -578,7 +580,7 @@ bg:
       permalink: "постоянен адрес"
   previous: "предишна"
   privacy: "Поверителност"
-  privacy_policy: "Privacy Policy"
+  privacy_policy: "Декларация за поверителност"
   profile: "Профил"
   profiles:
     edit:
@@ -769,7 +771,9 @@ bg:
       ignore_user: "Игнориране на %{name}"
       ignore_user_description: "Игнориране и премахване на потребителя от всички аспекти?"
       like: "Харесва ми"
+      nsfw: "Публикацията Не е Подходяща за Работното Място (NSFW), според автора. %{link}"
       shared_with: "Споделена с: %{aspect_names}"
+      show: "show"
       unlike: "Не ми харесва"
       via: "чрез %{link}"
       viewable_to_anyone: "Публикацията е видима за всеки"
@@ -803,8 +807,8 @@ bg:
       title: "Вашите аспекти"
     aspects_stream: "От вашите аспекти"
     comment_stream:
-      contacts_title: "People whose posts you commented on"
-      title: "Commented Posts"
+      contacts_title: "Хора, чиито публикации сте коментирали"
+      title: "Коментирани публикации"
     commented_on: "коментирани"
     community_spotlight_stream: "От \"В центъра на вниманието\""
     followed_tag:
@@ -814,8 +818,8 @@ bg:
       title: "#Марки, които следите"
     followed_tags_stream: "От #Марка, която следите"
     like_stream:
-      contacts_title: "People whose posts you like"
-      title: "Like Stream"
+      contacts_title: "Хора, чиито публикации сте харесали"
+      title: "Харесани публикации"
     mentioned_stream: "@Кой ви спомена"
     mentions:
       contacts_title: "Хора, които са ви споменали"
@@ -835,7 +839,7 @@ bg:
   tag_followings:
     create:
       failure: "Не започнахте да следите \"#%{name}\". Да не би вече да следите марката?"
-      none: "You cannot follow a blank tag!"
+      none: "Не може да следите празна марка!"
       success: "Ура! Започнахте да следите \"#%{name}\"."
     destroy:
       failure: "Следенето на \"#%{name}\" не е прекратено."
@@ -846,11 +850,11 @@ bg:
       followed_by: "се следи от"
       following: "Следите #%{tag}"
       nobody_talking: "Никой не е говорил за %{tag}."
-      none: "The empty tag does not exist!"
+      none: "Не съществува празна марка!"
       people_tagged_with: "Хора маркирани с %{tag}"
       posts_tagged_with: "Публикации с марка #%{tag}"
       stop_following: "Прекратяване следването на #%{tag}"
-  terms_and_conditions: "Terms and Conditions"
+  terms_and_conditions: "Общи условия и правила"
   tokens:
     show:
       connect_to_cubbies: "Свързване с Cubbi.es"
@@ -879,7 +883,16 @@ bg:
       change_email: "Промяна на ел. поща"
       change_language: "Промяна на езика"
       change_password: "Промяна на паролата"
-      close_account: "Затваряне на акаунта"
+      close_account:
+        dont_go: "Моля, не си отивайте!"
+        if_you_want_this: "Ако наистина го желаете въведете паролата си, по-долу и натиснете \"Затваряне на акаунта\""
+        lock_username: "потребителско ви име се \"заключва\" - ако пожелаете да се върнете отново"
+        locked_out: "автоматично ще бъдете отписани, а акаунтът - \"заключен\""
+        make_diaspora_better: "Надяваме се да ни помогнете в усилията ни да направим услугата Diaspora по-добра. Ако наистина желаете да напуснете ето какво се случва при напускане:"
+        mr_wiggles: "И г-н Wiggles ще се натъжи много"
+        no_turning_back: "За момента действието е необратимо!"
+        what_we_delete: "изтриват се всички ваши публикации и данни от профила (възможно най-бързо). Вашите коментари ще останат наоколо, но ще бъдат асоциирани с адреса ви Diaspora."
+      close_account_text: "Затваряне на акаунта"
       comment_on_post: "...някой коментира ваша публикация?"
       current_password: "Текуща парола"
       download_photos: "снимките ви"
@@ -942,3 +955,6 @@ bg:
     not_enabled: "webfinger does not seem to be enabled for %{account}'s host"
     xrd_fetch_failed: "there was an error getting the xrd from account %{account}"
   welcome: "Привет от Diaspora,"
+  will_paginate:
+    next_label: "next &raquo;"
+    previous_label: "&laquo; previous"

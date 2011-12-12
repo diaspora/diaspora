@@ -16,4 +16,4 @@
           = link_to (image_tag photo.url(:thumb_small), :class => 'stream-photo thumb_small', 'data-small-photo' => photo.url(:thumb_medium), 'data-full-photo' => photo.url), photo_path(photo), :class => 'stream-photo-link'
 
 %div{:class => direction_for(post.text)}
-  != markdownify(post,  :youtube_maps => post[:youtube_titles])
+  != markdownify(post)

@@ -11,7 +11,7 @@ Given /^Chubbies is registered on my pod$/ do
   public_key = OpenSSL::PKey::RSA.new(packaged_manifest['public_key'])
   manifest = JWT.decode(packaged_manifest['jwt'], public_key)
 
-  client = OAuth2::Provider.client_class.create_or_reset_from_manifest!(manifest, public_key)
+  client = OAuth2::Provider.client_class.find_or_create_from_manifest!(manifest, public_key)
   params = {:client_id => client.oauth_identifier,
             :client_secret => client.oauth_secret,
             :host => "localhost:9887"}
@@ -56,10 +56,12 @@ And /^I should have (\d) user on Chubbies$/ do |num|
 end
 
 When /^I visit "([^"]+)" on Chubbies$/ do |path|
-  former_host = Capybara.app_host
-  Capybara.app_host = "localhost:#{Chubbies::PORT}"
+  Capybara.app_host = "http://localhost:#{Chubbies::PORT}"
   visit(path)
-  Capybara.app_host = former_host
+end
+
+When /^I change the app_host to Diaspora$/ do
+  Capybara.app_host = "http://localhost:9887"
 end
 
 class Chubbies
@@ -114,3 +116,4 @@ class Chubbies
     end
   end
 end
+

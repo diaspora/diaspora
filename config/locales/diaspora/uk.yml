@@ -48,6 +48,7 @@ uk:
       video_title:
         unknown: "Невідома назва відеозапису"
   are_you_sure: "Ви упевнені?"
+  are_you_sure_delete_account: "Are you sure you want to close your account? This can't be undone!"
   aspect_memberships:
     destroy:
       failure: "Не вдалося видалити людину з аспектів"
@@ -516,6 +517,7 @@ uk:
       remove_contact: "видалити контакт"
       remove_from: "Видалити %{name} з %{aspect}?"
     show:
+      closed_account: "This account has been closed."
       does_not_exist: "Персони не існує!"
       has_not_shared_with_you_yet: "%{name} ще не ділився записами з вами!"
       ignoring: "Ви блокуєте усі записи користувача %{name}."
@@ -769,7 +771,9 @@ uk:
       ignore_user: "Блокувати користувача %{name}"
       ignore_user_description: "Блокувати та видалити користувача з усіх аспектів?"
       like: "Мені подобається"
+      nsfw: "This post has been flagged as NSFW by its author. %{link}"
       shared_with: "Для аспектів: %{aspect_names}"
+      show: "show"
       unlike: "Не подобається"
       via: "через %{link}"
       viewable_to_anyone: "Цей запис може бачити будь-хто в Інтернеті"
@@ -879,7 +883,16 @@ uk:
       change_email: "Змінити адресу"
       change_language: "Змінити мову"
       change_password: "Змінити пароль"
-      close_account: "Закрити аккаунт"
+      close_account:
+        dont_go: "Hey, please don't go!"
+        if_you_want_this: "If you really want this, type in your password below and click 'Close Account'"
+        lock_username: "This will lock your username if you decided to sign back up."
+        locked_out: "You will get signed out and locked out of your account."
+        make_diaspora_better: "We want you to help us make Diaspora better, so you should help us out instead of leaving. If you do want to leave, we want you to know what happens next."
+        mr_wiggles: "Mr Wiggles will be sad to see you go"
+        no_turning_back: "Currently, there is no turning back."
+        what_we_delete: "We delete all of your posts, profile data, as soon as humanly possible. Your comments will hang around, but be associated with your Diaspora Handle."
+      close_account_text: "Close Account"
       comment_on_post: "... хтось прокоментував ваш запис?"
       current_password: "Поточний пароль"
       download_photos: "Скачати мої фотографії"
@@ -942,3 +955,6 @@ uk:
     not_enabled: "webfinger не буде включений для хоста %{account}'s"
     xrd_fetch_failed: "Сталася помилка при отриманні xrd з %{account}"
   welcome: "Ласкаво просимо!"
+  will_paginate:
+    next_label: "next &raquo;"
+    previous_label: "&laquo; previous"

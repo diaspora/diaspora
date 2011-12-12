@@ -1,6 +1,8 @@
 # Diaspora
 [![Build Status](https://secure.travis-ci.org/diaspora/diaspora.png)](http://travis-ci.org/diaspora/diaspora)
 
+[![Dependency Status](https://gemnasium.com/diaspora/diaspora.png?travis)](https://gemnasium.com/diaspora/diaspora)
+
 The privacy aware, personally controlled, do-it-all, open source social
 network.
 

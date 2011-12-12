@@ -12,5 +12,5 @@
           = comment.created_at ? time_ago_in_words(comment.created_at) : time_ago_in_words(Time.now)
 
     %div{:class => direction_for(comment.text)}
-      = markdownify(comment, :youtube_maps => comment[:youtube_titles])
+      = markdownify(comment)
 

@@ -48,6 +48,7 @@ nb:
       video_title:
         unknown: "Ukjent Videotittel"
   are_you_sure: "Er du sikker?"
+  are_you_sure_delete_account: "Are you sure you want to close your account? This can't be undone!"
   aspect_memberships:
     destroy:
       failure: "Kunne ikke fjerne person fra aspekt"
@@ -516,6 +517,7 @@ nb:
       remove_contact: "fjern kontakt"
       remove_from: "Fjern %{name} fra %{aspect}?"
     show:
+      closed_account: "This account has been closed."
       does_not_exist: "Personen eksisterer ikke!"
       has_not_shared_with_you_yet: "%{name} has not shared any posts with you yet!"
       ignoring: "Du ignorerer innlegg fra %{name}."
@@ -769,7 +771,9 @@ nb:
       ignore_user: "Ignorér %{name}"
       ignore_user_description: "Ignorér og fjern bruker fra alle aspekter?"
       like: "Liker"
+      nsfw: "This post has been flagged as NSFW by its author. %{link}"
       shared_with: "Shared with: %{aspect_names}"
+      show: "show"
       unlike: "Liker ikke"
       via: "via %{link}"
       viewable_to_anyone: "This post is viewable to anyone on the web"
@@ -879,7 +883,16 @@ nb:
       change_email: "Change E-Mail"
       change_language: "Endre Språk"
       change_password: "Endre Passord"
-      close_account: "Steng Konto"
+      close_account:
+        dont_go: "Hey, please don't go!"
+        if_you_want_this: "If you really want this, type in your password below and click 'Close Account'"
+        lock_username: "This will lock your username if you decided to sign back up."
+        locked_out: "You will get signed out and locked out of your account."
+        make_diaspora_better: "We want you to help us make Diaspora better, so you should help us out instead of leaving. If you do want to leave, we want you to know what happens next."
+        mr_wiggles: "Mr Wiggles will be sad to see you go"
+        no_turning_back: "Currently, there is no turning back."
+        what_we_delete: "We delete all of your posts, profile data, as soon as humanly possible. Your comments will hang around, but be associated with your Diaspora Handle."
+      close_account_text: "Close Account"
       comment_on_post: " noen kommenterer på dine innlegg?"
       current_password: "Nåverende passord"
       download_photos: "last ned mine bilder"
@@ -942,3 +955,6 @@ nb:
     not_enabled: "det virker ikke som webfinger er aktivert for % {account}'s vert"
     xrd_fetch_failed: "kunne ikke få xrd fra kontoen %{account}"
   welcome: Welcome!
+  will_paginate:
+    next_label: "next &raquo;"
+    previous_label: "&laquo; previous"

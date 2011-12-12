@@ -19,7 +19,7 @@ pt-PT:
       unauthenticated: "É necessário iniciar sessão ou registar-se antes de continuar."
       unconfirmed: "Precisa de confirmar a sua conta antes de continuar."
     invitations:
-      invitation_token_invalid: "O código de convite que introduziu não é válido!"
+      invitation_token_invalid: "A nossas desculpas! Esse código de convite não é válido!"
       send_instructions: "O seu convite foi enviado."
       updated: "A sua palavra-passe foi definida com sucesso. A sessão foi iniciada."
     mailer:
@@ -34,7 +34,7 @@ pt-PT:
         be_yourself: "Seja você mesmo"
         be_yourself_paragraph: "A Internet criou novas  e únicas formas de nos expressar. %{strong_diaspora} permite que seja você mesma e partilhar o que quiser, com ou sem o seu nome real."
         cubbies: Cubbi.es
-        displaying_correctly: "Email não é apresentado correctamente? %{link} no seu navegador"
+        displaying_correctly: "Email não é apresentado correctamente? %{link} "
         email_address: questions@joindiaspora.com
         email_us: "Para informações gerais ou apoio com a sua conta Diáspora, por favor envie-nos um email para %{email}."
         finally: "Finalmente - está aqui"
@@ -56,7 +56,7 @@ pt-PT:
         subject: "Foi convidado para se juntar ao Diaspora!"
         team_diaspora: "Equipa Diaspora"
         unsubscribe: "Para cancelar a subscrição clique %{link}."
-        view_in: "Ver em"
+        view_in: "Visualizar no seu navegador."
       inviter:
         accept_at: "em %{url}, pode aceitá-lo através da ligação abaixo."
         has_invited_you: "%{name}"

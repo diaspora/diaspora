@@ -85,7 +85,7 @@ Given /^many posts from alice for bob$/ do
   connect_users_with_aspects(alice, bob)
   time_fulcrum = Time.now - 40000
   time_interval = 1000
-  (1..40).each do |n|
+  (1..30).each do |n|
     post = alice.post :status_message, :text => "#{alice.username} - #{n} - #seeded", :to => alice.aspects.where(:name => "generic").first.id
     post.created_at = time_fulcrum - time_interval
     post.updated_at = time_fulcrum + time_interval

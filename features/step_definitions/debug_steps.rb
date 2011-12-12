@@ -1,4 +1,5 @@
 When 'I debug' do
+  require 'ruby-debug'
   debugger
   true
 end

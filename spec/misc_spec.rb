@@ -61,4 +61,22 @@ describe 'making sure the spec runner works' do
       alice.comment "yo", :post => person_status
     end
   end
+
+  describe '#post' do
+    it 'creates a notification with a mention' do
+      lambda{
+        alice.post(:status_message, :text => "@{Bob Grimn; #{bob.person.diaspora_handle}} you are silly", :to => alice.aspects.find_by_name('generic'))
+      }.should change(Notification, :count).by(1)
+    end
+  end
+
+  describe "#create_conversation_with_message" do
+    it 'creates a conversation and a message' do
+      conversation = create_conversation_with_message(alice, bob.person, "Subject", "Hey Bob")
+
+      conversation.participants.should == [alice.person, bob.person]
+      conversation.subject.should == "Subject"
+      conversation.messages.first.text.should == "Hey Bob"
+    end
+  end
 end
