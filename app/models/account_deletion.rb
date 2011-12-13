@@ -13,7 +13,7 @@ class AccountDeletion < ActiveRecord::Base
   attr_accessible :person
 
   xml_name :account_deletion
-  xml_attr :diaspora_handle  
+  xml_attr :diaspora_handle
 
   def person=(person)
     self[:diaspora_handle] = person.diaspora_handle
@@ -25,12 +25,10 @@ class AccountDeletion < ActiveRecord::Base
     self[:person_id] ||= Person.find_by_diaspora_handle(diaspora_handle).id
   end
 
-
-
   def queue_delete_account
     Resque.enqueue(Jobs::DeleteAccount, self.id)
   end
-  
+
   def perform!
     self.dispatch if person.local?
     AccountDeleter.new(self.diaspora_handle).perform!

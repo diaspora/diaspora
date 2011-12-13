@@ -87,7 +87,7 @@ module Chubbies
           begin
             @resource_response = user.access_token.token.get("/api/v0/me")
             haml :response
-          rescue OAuth2::AccessDenied
+          rescue OAuth2::Error
             "Token invalid"
           end
         else

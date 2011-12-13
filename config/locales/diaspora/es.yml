@@ -48,6 +48,7 @@ es:
       video_title:
         unknown: "Título de vídeo desconocido"
   are_you_sure: "¿Estás seguro?"
+  are_you_sure_delete_account: "¿Estás seguro de que quieres eliminar tu cuenta? ¡Esto no se puede deshacer!"
   aspect_memberships:
     destroy:
       failure: "No se pudo quitar a la persona del aspecto"
@@ -516,6 +517,7 @@ es:
       remove_contact: "quitar contacto"
       remove_from: "¿Eliminar a %{name} de %{aspect}?"
     show:
+      closed_account: "Esta cuenta ha sido eliminada."
       does_not_exist: "¡La persona no existe!"
       has_not_shared_with_you_yet: "¡%{name} todavía no ha compartido ninguna publicación contigo!"
       ignoring: "Estás ignorando todas las publicaciones de %{name}."
@@ -578,7 +580,7 @@ es:
       permalink: "enlace permanente"
   previous: "anterior"
   privacy: "Privacidad"
-  privacy_policy: "Privacy Policy"
+  privacy_policy: "Política de Privacidad"
   profile: "Perfil"
   profiles:
     edit:
@@ -769,7 +771,9 @@ es:
       ignore_user: "Ignorar a %{name}"
       ignore_user_description: "¿Ignorar y quitar a esa persona de todos los aspectos?"
       like: "Me gusta"
+      nsfw: "Esta publicación ha sido marcada como NSFW por su autor. %{link}"
       shared_with: "Compartir con: %{aspect_names}"
+      show: "mostrar"
       unlike: "No me gusta"
       via: "vía %{link}"
       viewable_to_anyone: "Esta publicación podrá verla cualquiera en internet"
@@ -803,8 +807,8 @@ es:
       title: "Aspectos"
     aspects_stream: "Aspectos"
     comment_stream:
-      contacts_title: "People whose posts you commented on"
-      title: "Commented Posts"
+      contacts_title: "Gente cuyas publicaciones comentaste"
+      title: "Comentado"
     commented_on: "comentado"
     community_spotlight_stream: "Comunidad Creativa"
     followed_tag:
@@ -814,8 +818,8 @@ es:
       title: "#Etiquetas"
     followed_tags_stream: "#Etiquetas seguidas"
     like_stream:
-      contacts_title: "People whose posts you like"
-      title: "Like Stream"
+      contacts_title: "Gente cuyas publicaciones te gustan"
+      title: "Me gusta"
     mentioned_stream: "@Menciones"
     mentions:
       contacts_title: "Gente que te mencionó"
@@ -835,7 +839,7 @@ es:
   tag_followings:
     create:
       failure: "Error al seguir a #%{name}. ¿Estás siguiéndolo ya?"
-      none: "You cannot follow a blank tag!"
+      none: "¡No puedes seguir una etiqueta vacía!"
       success: "¡Sí! Ahora sigues publicaciones sobre: #%{name}."
     destroy:
       failure: "Error al dejar de seguir #%{name}. ¿Tal vez ya lo hiciste?"
@@ -846,11 +850,11 @@ es:
       followed_by: "seguido por"
       following: "Siguiendo #%{tag}"
       nobody_talking: "Nadie esta hablando sobre %{tag} todavía."
-      none: "The empty tag does not exist!"
+      none: "¡La etiqueta vacía no existe!"
       people_tagged_with: "Perfiles con %{tag}"
       posts_tagged_with: "Publicaciones con #%{tag}"
       stop_following: "Dejar de seguir #%{tag}"
-  terms_and_conditions: "Terms and Conditions"
+  terms_and_conditions: "Términos y Condiciones"
   tokens:
     show:
       connect_to_cubbies: "Conecta con Cubbi.es"
@@ -879,7 +883,16 @@ es:
       change_email: "Cambiar email"
       change_language: "Cambiar idioma"
       change_password: "Cambiar contraseña"
-      close_account: "Cerrar cuenta"
+      close_account:
+        dont_go: "¡Eih, no te vayas!"
+        if_you_want_this: "Si realmente quieres eliminarla, teclea tu contraseña debajo y haz click en 'Eliminar Cuenta'"
+        lock_username: "Esto bloquerá tu nombre de usuario si decides volver a registrarte."
+        locked_out: "Saldrás y eliminarás tu cuenta."
+        make_diaspora_better: "Queremos que nos ayudes a hacer Diaspora mejor, podrías hacerlo. Si te vas, queremos que sepas que pasa después."
+        mr_wiggles: "El Tío la Vara estará triste si te vas"
+        no_turning_back: ""
+        what_we_delete: ""
+      close_account_text: "Eliminar Cuenta"
       comment_on_post: "...alguien comenta en tu publicación?"
       current_password: "Contraseña actual"
       download_photos: "Descargar mis fotos"
@@ -905,7 +918,7 @@ es:
       awesome_take_me_to_diaspora: "¡Increíble! Llévame a Diaspora*"
       community_welcome: "¡La comunidad de Diaspora está encantada de tenerte a bordo!"
       hashtag_explanation: "Las etiquetas te permiten hablar sobre tus intereses así como seguirlos. Además es una forma genial de encontrar gente nueva en Diaspora. "
-      hashtag_suggestions: "Prueba a seguir etiquetas como #art, #cine, #gif, etc."
+      hashtag_suggestions: "Prueba a seguir etiquetas como #arte, #cine, #gif, etc."
       hooking_up_fb: "conecta tu cuenta de Facebook"
       saved: ¡Guardado!
       we_can_speed_things_up: "Podemos acelerar las cosas un poquito mediante"
@@ -942,3 +955,6 @@ es:
     not_enabled: "El webfinger parece no estar habilitado para el host de %{account}"
     xrd_fetch_failed: "Hubo un error al recibir el xrd desde la cuenta %{account}"
   welcome: ¡Bienvenid@!
+  will_paginate:
+    next_label: "siguiente »"
+    previous_label: "« anterior"

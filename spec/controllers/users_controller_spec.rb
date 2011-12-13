@@ -199,7 +199,7 @@ describe UsersController do
     end
 
     it 'enqueues a delete job' do
-      Resque.should_receive(:enqueue).with(Jobs::DeleteAccount, alice.id)
+      Resque.should_receive(:enqueue).with(Jobs::DeleteAccount, anything)
       delete :destroy, :user => { :current_password => "bluepin7" }
     end
 

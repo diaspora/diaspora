@@ -48,6 +48,7 @@ fi:
       video_title:
         unknown: "Videon Otsikko Tuntematon"
   are_you_sure: "Oletko varma?"
+  are_you_sure_delete_account: "Are you sure you want to close your account? This can't be undone!"
   aspect_memberships:
     destroy:
       failure: "Henkilön poisto näkymästä epäonnistui"
@@ -516,6 +517,7 @@ fi:
       remove_contact: "poista kontakti"
       remove_from: "Poista %{name} näkymästä %{aspect}?"
     show:
+      closed_account: "This account has been closed."
       does_not_exist: "Henkilöä ei ole olemassa!"
       has_not_shared_with_you_yet: "%{name} ei ole jakanut vielä yhtään viestiä kanssasi!"
       ignoring: "Sivuutat nyt kaikki viestit, jotka %{name} lähettää."
@@ -578,7 +580,7 @@ fi:
       permalink: "pysyvä linkki"
   previous: "edellinen"
   privacy: "Yksityisyys"
-  privacy_policy: "Privacy Policy"
+  privacy_policy: "Yksityisyydensuoja"
   profile: "Profiili"
   profiles:
     edit:
@@ -769,7 +771,9 @@ fi:
       ignore_user: "Sivuuta %{name}"
       ignore_user_description: "Sivuuta käyttäjä ja poista hänet kaikista näkymistä?"
       like: "Tykkää"
+      nsfw: "This post has been flagged as NSFW by its author. %{link}"
       shared_with: "Jaettu heidän kanssaan: %{aspect_names}"
+      show: "show"
       unlike: "Peru tykkäys"
       via: "%{link} kautta"
       viewable_to_anyone: "Kuka tahansa verkossa näkee tämän viestin"
@@ -803,8 +807,8 @@ fi:
       title: "Näkymäsi"
     aspects_stream: "Näkymät"
     comment_stream:
-      contacts_title: "People whose posts you commented on"
-      title: "Commented Posts"
+      contacts_title: "Ihmiset, joiden viestejä olet kommentoinut"
+      title: "Kommentoimasi viestit"
     commented_on: "kommentoidut"
     community_spotlight_stream: "Yhteisön valokeila"
     followed_tag:
@@ -814,8 +818,8 @@ fi:
       title: "#Seuratut tagit"
     followed_tags_stream: "#Seuratut tagit"
     like_stream:
-      contacts_title: "People whose posts you like"
-      title: "Like Stream"
+      contacts_title: "Ihmiset, joiden viesteistä olet tykännyt"
+      title: "Tykkäysvirta"
     mentioned_stream: "@Maininnat"
     mentions:
       contacts_title: "Sinut maininneet ihmiset"
@@ -835,7 +839,7 @@ fi:
   tag_followings:
     create:
       failure: "Tagin #%{name} seuraamisen aloittaminen epäonnistui. Seuraatko sitä jo?"
-      none: "You cannot follow a blank tag!"
+      none: "Et voi seurata tyhjää tagia!"
       success: "Hiphei! Seuraat nyt tagia #%{name}."
     destroy:
       failure: "Tagin #%{name} seuraamisen lopettaminen epäonnistui. Oletko jo lopettanut sen seuraamisen?"
@@ -846,11 +850,11 @@ fi:
       followed_by: "tagia seuraa"
       following: "Seurataan tagia #%{tag}"
       nobody_talking: "Kukaan ei vielä keskustele tagista %{tag}."
-      none: "The empty tag does not exist!"
+      none: "Tyhjää tagia ei ole olemassa!"
       people_tagged_with: "Tagilla %{tag} merkityt ihmiset"
       posts_tagged_with: "Tagilla #%{tag} merkityt viestit"
       stop_following: "Lopeta tagin #%{tag} seuraaminen"
-  terms_and_conditions: "Terms and Conditions"
+  terms_and_conditions: "Käyttöehdot"
   tokens:
     show:
       connect_to_cubbies: "Yhdistä kohteeseen Cubbi.es"
@@ -879,7 +883,16 @@ fi:
       change_email: "Vaihda sähköpostiosoite"
       change_language: "Vaihda kieli"
       change_password: "Vaihda salasana"
-      close_account: "Sulje käyttäjätili"
+      close_account:
+        dont_go: "Hey, please don't go!"
+        if_you_want_this: "If you really want this, type in your password below and click 'Close Account'"
+        lock_username: "This will lock your username if you decided to sign back up."
+        locked_out: "You will get signed out and locked out of your account."
+        make_diaspora_better: "We want you to help us make Diaspora better, so you should help us out instead of leaving. If you do want to leave, we want you to know what happens next."
+        mr_wiggles: "Mr Wiggles will be sad to see you go"
+        no_turning_back: "Currently, there is no turning back."
+        what_we_delete: "We delete all of your posts, profile data, as soon as humanly possible. Your comments will hang around, but be associated with your Diaspora Handle."
+      close_account_text: "Close Account"
       comment_on_post: "...joku kommentoi viestiisi?"
       current_password: "Nykyinen salasana"
       download_photos: "Lataa kaikki kuvat"
@@ -942,3 +955,6 @@ fi:
     not_enabled: "webfinger-palvelua ei ilmeisesti ole aktivoitu tilin, %{account}, isännälle"
     xrd_fetch_failed: "tapahtui virhe haettaessa xrd:tä käyttäjätilille %{account}"
   welcome: Tervetuloa!
+  will_paginate:
+    next_label: "next &raquo;"
+    previous_label: "&laquo; previous"

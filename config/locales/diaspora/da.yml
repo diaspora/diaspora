@@ -48,6 +48,7 @@ da:
       video_title:
         unknown: "Ukendt videotitel"
   are_you_sure: "Er du sikker?"
+  are_you_sure_delete_account: "Er du helt sikker på at du ønsker at lukke din konto? Dette kan ikke fortrydes!"
   aspect_memberships:
     destroy:
       failure: "Kunne ikke fjerne person fra aspekt"
@@ -516,6 +517,7 @@ da:
       remove_contact: "fjern kontakt"
       remove_from: "Fjern %{name} fra %{aspect}?"
     show:
+      closed_account: "Denne konto er blevet lukket."
       does_not_exist: "Personen findes ikke!"
       has_not_shared_with_you_yet: "%{name} har ikke delt nogen indlæg med dig endnu!"
       ignoring: "Du ignorerer alle indlæg fra %{name}."
@@ -578,7 +580,7 @@ da:
       permalink: "permalink"
   previous: "Forrige"
   privacy: "Privatindstillinger"
-  privacy_policy: "Privacy Policy"
+  privacy_policy: "Behandling af personlige oplysninger"
   profile: "Profil"
   profiles:
     edit:
@@ -769,7 +771,9 @@ da:
       ignore_user: "Ignorer %{name}"
       ignore_user_description: "Ignorer og fjern bruger fra alle aspekter?"
       like: "Synes om"
+      nsfw: "Dette indlæg er markeret af forfatteren som 'uegnet til arbejdsvisning'. %{link}"
       shared_with: "Delt med: %{aspect_names}"
+      show: "vis"
       unlike: "Synes ikke om"
       via: "via %{link}"
       viewable_to_anyone: "Dette indlæg er synlig for alle på internettet"
@@ -803,8 +807,8 @@ da:
       title: "Dine aspekter"
     aspects_stream: "Aspekter"
     comment_stream:
-      contacts_title: "People whose posts you commented on"
-      title: "Commented Posts"
+      contacts_title: "Brugere, hvis indlæg du har kommenteret"
+      title: "Kommenterede indlæg"
     commented_on: "kommenteret"
     community_spotlight_stream: "Kreative medlemmer"
     followed_tag:
@@ -814,8 +818,8 @@ da:
       title: "#Fulgte tags"
     followed_tags_stream: "#Fulgte tags"
     like_stream:
-      contacts_title: "People whose posts you like"
-      title: "Like Stream"
+      contacts_title: "Brugere hvis indlæg du kan lide"
+      title: "Strøm af 'synes om'"
     mentioned_stream: "@Omtaler"
     mentions:
       contacts_title: "Personer der har nævnt dig"
@@ -835,7 +839,7 @@ da:
   tag_followings:
     create:
       failure: "Det lykkedes ikke at følge: #%{name}. Følger du allerede tag'et?"
-      none: "You cannot follow a blank tag!"
+      none: "Du kan ikke følge et tomt tag!"
       success: "Du følger nu #%{name}."
     destroy:
       failure: "Fejlede med at holde op med at følge #%{name}. Måske har du allerede valgt ikke at følge tag'et?"
@@ -846,11 +850,11 @@ da:
       followed_by: "fulgt af"
       following: "Følger #%{tag}"
       nobody_talking: "Ingen har talt om %{tag} endnu."
-      none: "The empty tag does not exist!"
+      none: "Det tomme tag eksisterer ikke!"
       people_tagged_with: "Personer tagged med %{tag}"
       posts_tagged_with: "Indlæg tagged med #%{tag}"
       stop_following: "Hold op med at følge #%{tag}"
-  terms_and_conditions: "Terms and Conditions"
+  terms_and_conditions: "Regler og vilkår"
   tokens:
     show:
       connect_to_cubbies: "Forbind til Cubbi.es"
@@ -879,7 +883,16 @@ da:
       change_email: "Skift e-mail"
       change_language: "Skift sprog"
       change_password: "Skift adgangskode"
-      close_account: "Luk konto"
+      close_account:
+        dont_go: "Hey, please don't go!"
+        if_you_want_this: "Hvis du virkelig ønsker dette, indtast da dit kodeord og klik på 'Luk konto'"
+        lock_username: "Dette vil låse dit brugernavn til hvis du beslutter at oprettes igen."
+        locked_out: "You will get signed out and locked out of your account."
+        make_diaspora_better: "We want you to help us make Diaspora better, so you should help us out instead of leaving. If you do want to leave, we want you to know what happens next."
+        mr_wiggles: "Mr Wiggles will be sad to see you go"
+        no_turning_back: "Currently, there is no turning back."
+        what_we_delete: "Vi sletter alle dine indlæg og profildata, så hurtigt som overhovedet muligt. Dine kommentarer vil forblive, men være forbundet til dit Diaspora handle."
+      close_account_text: "Luk konto"
       comment_on_post: "...nogen har kommenteret dit indlæg?"
       current_password: "Nuværende adgangskode"
       download_photos: "Download mine billeder"
@@ -942,3 +955,6 @@ da:
     not_enabled: "det ser ikke ud til at webfinger er aktiveret på %{account}s domæne"
     xrd_fetch_failed: "der opstod en fejl i forbindelse med hentning af xrd fra kontoen %{account}"
   welcome: Velkommen!
+  will_paginate:
+    next_label: "next &raquo;"
+    previous_label: "&laquo; previous"

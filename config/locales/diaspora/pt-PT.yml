@@ -48,6 +48,7 @@ pt-PT:
       video_title:
         unknown: "Vídeo com Título Desconhecido"
   are_you_sure: "Tem a certeza?"
+  are_you_sure_delete_account: "Você tem a certeza que deseja fechar a sua conta? Isso não pode ser anulado!"
   aspect_memberships:
     destroy:
       failure: "Erro ao remover a pessoa do aspecto"
@@ -66,7 +67,7 @@ pt-PT:
       select_all: "Seleccionar todos"
     aspect_stream:
       stay_updated: "Mantenha-se Actualizado"
-      stay_updated_explanation: "Na sua stream geral pode encontrar todos os seus contactos, as tags que segue e publicações de alguns membros criativos da comunidade."
+      stay_updated_explanation: "No seu fluxo geral pode encontrar todos os seus contactos, as etiquetas que segue e publicações de alguns membros criativos da comunidade."
     contacts_not_visible: "Contactos neste aspecto não se verão uns aos outros."
     contacts_visible: "Contactos neste aspecto ver-se-ão uns aos outros."
     create:
@@ -115,14 +116,14 @@ pt-PT:
         tag_feature: "funcionalidade"
         tag_question: "questão"
         tutorials_wiki_and_forum: "%{tutorial} & %{wiki} & %{forum}: Tutoriais, Como Fazer e Notícias desenvolvidos pela comunidade"
-      introduce_yourself: "Este é o seu stream.  Venha daí e apresente-se."
+      introduce_yourself: "Este é o seu fluxo.  Venha daí e apresente-se."
       keep_us_running: "Mantenha o %{pod} a funcionar rapidamente e compre aos servidores a sua dose de café com uma doação mensal!"
       new_here:
         follow: "Siga %{link} e bem-vindos novos utilizadores à Diaspora*!"
         learn_more: "Saiba mais"
         title: "Bem-vindo Novos Utilizadores"
       no_contacts: "Não há contactos"
-      no_tags: "+ Encontre uma tag para seguir"
+      no_tags: "+ Encontre uma etiqueta para seguir"
       people_sharing_with_you: "Pessoas a partilhar consigo"
       post_a_message: "publicar uma mensagem >>"
       services:
@@ -265,7 +266,7 @@ pt-PT:
       correct_the_following_errors_and_try_again: "Corrija os seguintes erros e volte a tentar."
       invalid_fields: "Campos Inválidos"
   fill_me_out: Informe-me
-  find_people: "Encontrar pessoas ou #tags"
+  find_people: "Encontrar pessoas ou #etiquetas"
   hide: "Esconder"
   home:
     show:
@@ -485,7 +486,7 @@ pt-PT:
   password_confirmation: "Confirmação de palavra-passe"
   people:
     add_contact_small:
-      add_contact_from_tag: "adicionar contacto pela tag"
+      add_contact_from_tag: "adicionar contacto pela etiqueta"
     aspect_list:
       edit_membership: "editar a participação no aspecto"
     few: "%{count} pessoas"
@@ -494,7 +495,7 @@ pt-PT:
       results_for: "resultados para %{params}"
     index:
       couldnt_find_them_send_invite: "Não conseguiu encontrá-los? Envie um convite!"
-      looking_for: "À procura de posts com a tag %{tag_link}?"
+      looking_for: "À procura de posts com a etiqueta %{tag_link}?"
       no_one_found: "...e ninguém foi encontrado."
       no_results: "Hei! Precisa pesquisar por alguma coisa."
       results_for: "resultados da pesquisa para"
@@ -516,6 +517,7 @@ pt-PT:
       remove_contact: "remover contacto"
       remove_from: "Remover %{name} de %{aspect}?"
     show:
+      closed_account: "Esta conta foi fechada."
       does_not_exist: "Essa pessoa não existe!"
       has_not_shared_with_you_yet: "%{name} ainda não partilhou quaisquer publicações consigo!"
       ignoring: "Você está a ignorar todas as mensagens de %{name}."
@@ -532,7 +534,7 @@ pt-PT:
     sub_header:
       add_some: "adicionar alguns"
       edit: "editar"
-      you_have_no_tags: "não tem tags!"
+      you_have_no_tags: "não tem etiquetas!"
     two: "%{count} pessoas"
     webfinger:
       fail: "Lamentamos muito, não conseguimos encontrar %{handle}."
@@ -578,7 +580,7 @@ pt-PT:
       permalink: "permalink"
   previous: "anterior"
   privacy: "Privacidade"
-  privacy_policy: "Privacy Policy"
+  privacy_policy: "Política de Privacidade"
   profile: "Perfil"
   profiles:
     edit:
@@ -769,7 +771,9 @@ pt-PT:
       ignore_user: "Ignorar %{name}"
       ignore_user_description: "Ignorar e remover o utilizador de todos os aspectos?"
       like: "Gosto"
+      nsfw: "This post has been flagged as NSFW by its author. %{link}"
       shared_with: "Partilhado com: %{aspect_names}"
+      show: "show"
       unlike: "Não Gosto"
       via: "via %{link}"
       viewable_to_anyone: "Esta publicação é visível para todos na internet"
@@ -803,26 +807,26 @@ pt-PT:
       title: "Os Teus Aspectos"
     aspects_stream: "Aspectos"
     comment_stream:
-      contacts_title: "People whose posts you commented on"
-      title: "Commented Posts"
+      contacts_title: "Pessoas cujos os posts você comentou"
+      title: "Posts Comentados"
     commented_on: "comentou no"
     community_spotlight_stream: "Destaque da Comunidade"
     followed_tag:
       add_a_tag: "Adicionar uma etiqueta"
       contacts_title: "Pessoas que gostam destas marcações"
       follow: "Seguir"
-      title: "#Followed Tags"
-    followed_tags_stream: "#Followed Tags"
+      title: "Etiquetas #Seguidas"
+    followed_tags_stream: "Etiquetas #Seguidas"
     like_stream:
-      contacts_title: "People whose posts you like"
-      title: "Like Stream"
+      contacts_title: "Pessoas cujos posts você gosta"
+      title: "Gosto do Fluxo"
     mentioned_stream: "@Mentions"
     mentions:
       contacts_title: "Pessoas que o mencionaram"
       title: "Suas Menções"
     multi:
-      contacts_title: "Pessoas no seu Stream"
-      title: "Stream"
+      contacts_title: "Pessoas no seu Fluxo"
+      title: "Fluxo"
     posted: "publicado"
     public:
       contacts_title: "Cartazes Recentes"
@@ -835,7 +839,7 @@ pt-PT:
   tag_followings:
     create:
       failure: "Falhou ao seguir: #%{name}. Você já está segui-lo?"
-      none: "You cannot follow a blank tag!"
+      none: "Você não pode seguir uma etiqueta em branco!"
       success: "Viva! Começou agora a seguir #%{name}."
     destroy:
       failure: "Falhou ao tentar deixar de seguir: #%{name}. Talvez você já deixou de segui-lo?"
@@ -846,11 +850,11 @@ pt-PT:
       followed_by: "seguido por"
       following: "A seguir #%{tag}"
       nobody_talking: "Ainda ninguém está a falar sobre %{tag}."
-      none: "The empty tag does not exist!"
+      none: "A etiqueta vazia não existe!"
       people_tagged_with: "Pessoas com a %{tag}"
-      posts_tagged_with: "Publicações com a tag #%{tag}"
+      posts_tagged_with: "Publicações com a etiqueta #%{tag}"
       stop_following: "Deixar de Seguir #%{tag}"
-  terms_and_conditions: "Terms and Conditions"
+  terms_and_conditions: "Termos e Condições"
   tokens:
     show:
       connect_to_cubbies: "Ligar ao Cubbi.es"
@@ -881,7 +885,16 @@ pt-PT:
       change_email: "Mudar de email"
       change_language: "Mudar de idioma"
       change_password: "Alterar a palavra-passe"
-      close_account: "Encerrar a Conta"
+      close_account:
+        dont_go: "Ei, por favor não vá!"
+        if_you_want_this: "Se você realmente quer isso, digite a seguir a sua palavra-passe  e clique 'Fechar Conta'"
+        lock_username: "Isto irá bloquear o seu nome de utilizador se decidir registar-se de novo."
+        locked_out: "Você irá terminar a sua sessão e bloquear a sua conta."
+        make_diaspora_better: "Queremos que nos ajude a fazer a Diaspora melhor, logo deveria ajudar-nos  em vez de se ir embora. Se você quer deixar-nos, nós queremos que saiba o que acontece depois."
+        mr_wiggles: "Mr Wiggles ficará triste de o(a) ver partir"
+        no_turning_back: "Actualmente, não há como voltar atrás.\n"
+        what_we_delete: "Iremos apagar todos os seus posts, os dados do perfil, assim que for humanamente possível. Os seus comentários permanecerão por cá, mas serão associados com o seu nome de utilizador da Diáspora.\n"
+      close_account_text: "Fechar Conta"
       comment_on_post: "...alguém comenta as suas publicações?"
       current_password: "Palavra-passe actual"
       download_photos: "descarregar as minhas fotografias"
@@ -900,7 +913,7 @@ pt-PT:
       show_community_spotlight: "Mostrar Destaque da Comunidade no Stream?"
       show_getting_started: "Re- activar Como Começar"
       started_sharing: "...alguém começa a partilhar consigo?"
-      stream_preferences: "Preferências de Stream"
+      stream_preferences: "Preferências de Fluxo"
       your_email: "O seu endereço de email"
       your_handle: "A sua identificação do Diaspora"
     getting_started:
@@ -944,3 +957,6 @@ pt-PT:
     not_enabled: "webfinger parece não estar activado para o anfitrião de %{account}"
     xrd_fetch_failed: "ocorreu um erro ao obter o xrd da conta %{account}"
   welcome: Bem-vindo(a)!
+  will_paginate:
+    next_label: "next &raquo;"
+    previous_label: "&laquo; previous"

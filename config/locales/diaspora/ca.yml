@@ -529,7 +529,7 @@ ca:
         liked: "A %{name} li ha agradat la vostra publicació"
         view_post: "visualitza la publicació >"
     reshared:
-        reshared: "%{name} ha compartir la vostra publicació"
+        reshared: "%{name} ha tornat a compartir la vostra publicació"
         view_post: "visualitza la publicació >"
     confirm_email:
       subject: "Activeu la vostra adreça de correu electrònic %{unconfirmed_email}"

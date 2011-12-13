@@ -23,7 +23,7 @@ Feature: photos
     And I press "Delete Photo"
     And I go to the home page
 
-    Then I should see 0 posts
+    Then I should not see any posts in my stream
 
   Scenario: deleting a photo will not delete a photo-only post if another photo remains attached
     Given I expand the publisher

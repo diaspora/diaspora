@@ -48,6 +48,7 @@ is:
       video_title:
         unknown: "Óþekktur vídeótitill"
   are_you_sure: "Ertu viss?"
+  are_you_sure_delete_account: "Are you sure you want to close your account? This can't be undone!"
   aspect_memberships:
     destroy:
       failure: "Ekki tókst að fjarlægja persónu af ásýnd"
@@ -516,6 +517,7 @@ is:
       remove_contact: "fjarlægja tengilið"
       remove_from: "Fjarlægja %{name} úr %{aspect}?"
     show:
+      closed_account: "This account has been closed."
       does_not_exist: "Manneskjan er ekki til!"
       has_not_shared_with_you_yet: "%{name} has not shared any posts with you yet!"
       ignoring: "You are ignoring all posts from %{name}."
@@ -769,7 +771,9 @@ is:
       ignore_user: "Ignore %{name}"
       ignore_user_description: "Ignore and remove user from all aspects?"
       like: "I like this"
+      nsfw: "This post has been flagged as NSFW by its author. %{link}"
       shared_with: "Shared with: %{aspect_names}"
+      show: "show"
       unlike: "Unlike"
       via: "via %{link}"
       viewable_to_anyone: "This post is viewable to anyone on the web"
@@ -879,7 +883,16 @@ is:
       change_email: "Change E-Mail"
       change_language: "Breyta um tungumál"
       change_password: "Breyta lykilorði"
-      close_account: "Loka notendastillingum."
+      close_account:
+        dont_go: "Hey, please don't go!"
+        if_you_want_this: "If you really want this, type in your password below and click 'Close Account'"
+        lock_username: "This will lock your username if you decided to sign back up."
+        locked_out: "You will get signed out and locked out of your account."
+        make_diaspora_better: "We want you to help us make Diaspora better, so you should help us out instead of leaving. If you do want to leave, we want you to know what happens next."
+        mr_wiggles: "Mr Wiggles will be sad to see you go"
+        no_turning_back: "Currently, there is no turning back."
+        what_we_delete: "We delete all of your posts, profile data, as soon as humanly possible. Your comments will hang around, but be associated with your Diaspora Handle."
+      close_account_text: "Close Account"
       comment_on_post: "...someone comments on your post?"
       current_password: "Núverandi lykilorð"
       download_photos: "download my photos"
@@ -942,3 +955,6 @@ is:
     not_enabled: "webfinger does not seem to be enabled for %{account}'s host"
     xrd_fetch_failed: "there was an error getting the xrd from account %{account}"
   welcome: Welcome!
+  will_paginate:
+    next_label: "next &raquo;"
+    previous_label: "&laquo; previous"

@@ -48,6 +48,7 @@ pl:
       video_title:
         unknown: "Wideo bez nazwy"
   are_you_sure: "Czy na pewno?"
+  are_you_sure_delete_account: "Czy na pewno chcesz zamknąć swoje konto? Tego nie można cofnąć!"
   aspect_memberships:
     destroy:
       failure: "Nie udało się usunąć osoby z aspektu"
@@ -516,6 +517,7 @@ pl:
       remove_contact: "usuń kontakt"
       remove_from: "Usunąć %{name} z aspektu %{aspect}?"
     show:
+      closed_account: "Te konto zostało zamknięte."
       does_not_exist: "Osoba nie istnieje!"
       has_not_shared_with_you_yet: "%{name} nie udostępnia Ci jeszcze żadnych wpisów!"
       ignoring: "Ignorujesz wszystkie wpisy od %{name}."
@@ -578,7 +580,7 @@ pl:
       permalink: "permalink"
   previous: "poprzedni"
   privacy: "Prywatność"
-  privacy_policy: "Privacy Policy"
+  privacy_policy: "Polityka prywatności"
   profile: "Profil"
   profiles:
     edit:
@@ -769,7 +771,9 @@ pl:
       ignore_user: "Ignoruj - %{name}"
       ignore_user_description: "Dodać użytkownika do listy ignorowanych i usunąć ze wszystkich aspektów?"
       like: "Lubię"
+      nsfw: "Ten wpis został oznaczony przez jego autora jako NSFW (Not suitable/safe for work). %{link}"
       shared_with: "Opublikowano w: %{aspect_names}"
+      show: "wyświetl"
       unlike: "Nie lubię"
       via: "przez %{link}"
       viewable_to_anyone: "Ten wpis jest widoczny dla każdego"
@@ -803,8 +807,8 @@ pl:
       title: "Twoje Aspekty"
     aspects_stream: "Aspekty"
     comment_stream:
-      contacts_title: "People whose posts you commented on"
-      title: "Commented Posts"
+      contacts_title: "Osoby których wpisy zostały skomentowane przez Ciebie"
+      title: "Skomentowane wpisy"
     commented_on: "komentowane"
     community_spotlight_stream: "W centrum uwagi społeczności"
     followed_tag:
@@ -814,8 +818,8 @@ pl:
       title: "#Obserwowane znaczniki"
     followed_tags_stream: "#Obserwowane znaczniki"
     like_stream:
-      contacts_title: "People whose posts you like"
-      title: "Like Stream"
+      contacts_title: "Osoby których wpisy lubisz"
+      title: "Strumień ulubionych"
     mentioned_stream: "@Wzmianki"
     mentions:
       contacts_title: "Wspomnieli o Tobie"
@@ -835,7 +839,7 @@ pl:
   tag_followings:
     create:
       failure: "Nie udało się dodać do obserwowanych #%{name}. Może już to obserwujesz?"
-      none: "You cannot follow a blank tag!"
+      none: "Nie możesz obserwować pustego znacznika!"
       success: "Brawo! Od teraz obserwujesz #%{name}."
     destroy:
       failure: "Nie udało się zatrzymać obserwowania: #% {name}. Może już tego nie obserwujesz?"
@@ -846,11 +850,11 @@ pl:
       followed_by: "obserwowane przez"
       following: "Obserwowanie #%{tag}"
       nobody_talking: "Nikt jeszcze nie rozmawia o %{tag}."
-      none: "The empty tag does not exist!"
+      none: "Pusty znacznik nie istnieje!"
       people_tagged_with: "Osoby oznaczone jako #%{tag}"
       posts_tagged_with: "Wpisy oznaczone jako #%{tag}"
       stop_following: "Przestań obserwować #%{tag}"
-  terms_and_conditions: "Terms and Conditions"
+  terms_and_conditions: "Regulamin"
   tokens:
     show:
       connect_to_cubbies: "Połącz z Cubbi.es"
@@ -879,7 +883,16 @@ pl:
       change_email: "Zmiana adresu e-mail"
       change_language: "Zmiana języka"
       change_password: "Zmiana hasła"
-      close_account: "Zamknij konto"
+      close_account:
+        dont_go: "Prosimy, nie odchodź!"
+        if_you_want_this: "Jeśli naprawdę tego chcesz, wpisz swoje hasło poniżej i kliknij \"Zamknij konto\"."
+        lock_username: "Nazwa użytkownika zostanie zablokowana, jeśli zdecydujesz się wrócić."
+        locked_out: "Zostaniesz wylogowa@{m:ny|f:na|n:ny(na)} i konto zostanie zablokowane."
+        make_diaspora_better: "Pomóż nam uczynić Diasporę jeszcze lepszą, zamiast nas opuszczać. Jeśli chcesz odejść, chcielibyśmy się dowiedzieć dlaczego."
+        mr_wiggles: "Pan Łaskotka będzie niepocieszony, widząc, że odchodzisz"
+        no_turning_back: "Aktualnie, nie ma odwrotu."
+        what_we_delete: "Usuniemy wszystkie Twoje wpisy i dane profilu najszybciej jak tylko człowiek jest w stanie to zrobić. Twoje komentarze pozostaną tam gdzie były, ale będą skojarzone bezpośrednio z Diasporą."
+      close_account_text: "Zamknij konto"
       comment_on_post: "...ktoś dodał komentarz do mojego wpisu"
       current_password: "Bieżące hasło"
       download_photos: "pobierz moje zdjęcia"
@@ -942,3 +955,6 @@ pl:
     not_enabled: "Usługa Webfinger nie działa w systemie utrzymującym konto użytkownika %{account}"
     xrd_fetch_failed: "wystąpił błąd podczas pobierania xrd z konta %{account}"
   welcome: Witamy!
+  will_paginate:
+    next_label: "next &raquo;"
+    previous_label: "&laquo; previous"

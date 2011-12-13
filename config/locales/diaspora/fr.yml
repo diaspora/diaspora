@@ -48,6 +48,7 @@ fr:
       video_title:
         unknown: "Titre de vidéo inconnu"
   are_you_sure: "Êtes-vous certain ?"
+  are_you_sure_delete_account: "Êtes-vous sûr de vouloir supprimer votre compte ? Cette action est définitive !"
   aspect_memberships:
     destroy:
       failure: "Impossible de retirer la personne de l'aspect"
@@ -309,7 +310,7 @@ fr:
       to: "À"
   layouts:
     application:
-      powered_by: "PROPULSÉ PAR DIASPORA*"
+      powered_by: "MIS EN SERVICE PAR DIASPORA*"
       public_feed: "Flux Diaspora public pour %{name}"
       toggle: "activer/désactiver la version mobile"
       whats_new: "Quoi de neuf ?"
@@ -516,6 +517,7 @@ fr:
       remove_contact: "supprimer ce contact"
       remove_from: "Supprimer %{name} de %{aspect} ?"
     show:
+      closed_account: "Ce compte a été fermé."
       does_not_exist: "Cette personne n'existe pas !"
       has_not_shared_with_you_yet: "%{name} n'a pas encore partagé de messages avec vous !"
       ignoring: "Vous ignorez tous les messages de %{name}."
@@ -528,7 +530,7 @@ fr:
       return_to_aspects: "Retourner à votre page des aspects"
       see_all: "Tout afficher"
       start_sharing: "commencer à partager"
-      to_accept_or_ignore: "pour l'accepter ou l'ignorer."
+      to_accept_or_ignore: "accepter ou ignorer ceci"
     sub_header:
       add_some: "ajouter quelques"
       edit: "modifier"
@@ -578,7 +580,7 @@ fr:
       permalink: "lien permanent"
   previous: "précédent"
   privacy: "Vie privée"
-  privacy_policy: "Privacy Policy"
+  privacy_policy: "Règles de confidentialité"
   profile: "Profil"
   profiles:
     edit:
@@ -769,7 +771,9 @@ fr:
       ignore_user: "Ignorez %{name}"
       ignore_user_description: "Ignorez et supprimer l'utilisateur de tous les aspects ?"
       like: J'aime
+      nsfw: "Le message a été marqué par son auteur comme étant EXPLICITE. %{link}"
       shared_with: "Partagé avec : %{aspect_names}"
+      show: "montrer"
       unlike: "Je n'aime plus"
       via: "via %{link}"
       viewable_to_anyone: "Publication visible par n'importe qui sur le web"
@@ -803,8 +807,8 @@ fr:
       title: "Vos aspects"
     aspects_stream: "Aspects"
     comment_stream:
-      contacts_title: "People whose posts you commented on"
-      title: "Commented Posts"
+      contacts_title: "Vos commentaires apportés sur les interventions d'autres personnes"
+      title: "Interventions commentées"
     commented_on: "commenté"
     community_spotlight_stream: "Actualités de la communauté"
     followed_tag:
@@ -814,8 +818,8 @@ fr:
       title: "#Tags Suivis"
     followed_tags_stream: "#Tags Suivis"
     like_stream:
-      contacts_title: "People whose posts you like"
-      title: "Like Stream"
+      contacts_title: "Personnes dont vous aimez les commentaires"
+      title: "Flux de \"J'aime\""
     mentioned_stream: "@Mentions"
     mentions:
       contacts_title: "Personnes qui vous ont mentionné"
@@ -835,7 +839,7 @@ fr:
   tag_followings:
     create:
       failure: "Impossible de suivre #%{name}. Le suivez-vous déjà ?"
-      none: "You cannot follow a blank tag!"
+      none: "Vous ne pouvez pas suivre de tag vide !"
       success: "Hourra ! Vous suivez maintenant #%{name}."
     destroy:
       failure: "Impossible de ne plus suivre #%{name}. Peut-être ne le suivez-vous déjà plus?"
@@ -846,11 +850,11 @@ fr:
       followed_by: "suivi par"
       following: "Suivre #%{tag}"
       nobody_talking: "Personne ne parle encore de %{tag}."
-      none: "The empty tag does not exist!"
+      none: "Le tag vide n'existe pas !"
       people_tagged_with: "Personnes taguées avec %{tag}"
       posts_tagged_with: "Publications taguées avec #%{tag}"
       stop_following: "Arrêter de suivre #%{tag}"
-  terms_and_conditions: "Terms and Conditions"
+  terms_and_conditions: "Conditions d'utilisation"
   tokens:
     show:
       connect_to_cubbies: "Se connecter à Cubbi.es"
@@ -879,7 +883,16 @@ fr:
       change_email: "Changer d'adresse électronique"
       change_language: "Changer la langue"
       change_password: "Changer le mot de passe"
-      close_account: "Clôturer le compte"
+      close_account:
+        dont_go: "Hey, s'il vous plait ne partez pas !"
+        if_you_want_this: "Si vous le voulez vraiment, tapez votre mot de passe ci-dessous et cliquez sur 'Supprimer le compte'"
+        lock_username: "Ceci bloquera votre nom d'utilisateur si jamais vous décidiez de revenir."
+        locked_out: "Vous serez déconnecté et bloqué de votre compte."
+        make_diaspora_better: "Nous avons besoin de vous pour rendre Diaspora meilleur, vous devriez nous aider au lieu de partir. Si vous voulez partir, on voudrait que vous sachiez ce qu'il se passera prochainement."
+        mr_wiggles: "Mr Wiggles sera triste de vous voir partir."
+        no_turning_back: "Pour l'instant, on ne peut pas revenir en arrière."
+        what_we_delete: "Nous avons enlevé tous vos envois, les données de votre profil, aussi tôt qu'humainement possible. Vos commentaires rester sur le site, mais associé à votre Gestion Diaspora."
+      close_account_text: "Fermer le compte"
       comment_on_post: "…quelqu'un commente votre publication ?"
       current_password: "Mot de passe actuel"
       download_photos: "télécharger mes photos"
@@ -909,7 +922,7 @@ fr:
       hooking_up_fb: "connectant votre compte Facebook"
       saved: "Sauvé !"
       we_can_speed_things_up: "Nous pouvons un peu accélérer les choses en"
-      well_hello_there: "Eh bien, bonjour !"
+      well_hello_there: "Bienvenue !"
       what_are_you_in_to: "Qu'aimez-vous faire ?"
       what_facebook_does: "à Diaspora*. Ça permettra d'importer votre nom et votre photo, et aussi d'y publier vos messages."
       who_are_you: "Qui êtes-vous ?"
@@ -942,3 +955,6 @@ fr:
     not_enabled: "webfinger ne semble pas être activé sur l'hôte de %{account}'s"
     xrd_fetch_failed: "une erreur est survenue lors de la récupération du xrd du compte %{account}"
   welcome: "Bienvenue !"
+  will_paginate:
+    next_label: "next &raquo;"
+    previous_label: "&laquo; previous"

@@ -48,6 +48,7 @@ en_1337:
       video_title:
         unknown: "UNK0WN PR0N 717L3"
   are_you_sure: "4R3 U 5UR3?"
+  are_you_sure_delete_account: "Are you sure you want to close your account? This can't be undone!"
   aspect_memberships:
     destroy:
       failure: "F41L3D 2 PWN 7H47 N00B!"
@@ -516,6 +517,7 @@ en_1337:
       remove_contact: "PWN N00B"
       remove_from: "R3M0V3 %{name} FR0M %{aspect}?"
     show:
+      closed_account: "This account has been closed."
       does_not_exist: "N00B != 3X1571NG"
       has_not_shared_with_you_yet: "%{name} H45 N07 5H4R3D 4NY 5P4M W17H U!"
       ignoring: "You are ignoring all posts from %{name}."
@@ -769,7 +771,9 @@ en_1337:
       ignore_user: "Ignore %{name}"
       ignore_user_description: "Ignore and remove user from all aspects?"
       like: <3
+      nsfw: "This post has been flagged as NSFW by its author. %{link}"
       shared_with: "5H4R3D W17H: %{aspect_names}"
+      show: "show"
       unlike: </3
       via: "V14 %{link}"
       viewable_to_anyone: "7H15 5P4M 15 V13W4BL3 2 4NY0N3 1N 7H3 W3B!"
@@ -879,7 +883,16 @@ en_1337:
       change_email: "CH4NG3 M41L"
       change_language: "CH4NG3 L4NGU4G3"
       change_password: "CH4NG3 *****"
-      close_account: "CL053 4CC0UN7"
+      close_account:
+        dont_go: "Hey, please don't go!"
+        if_you_want_this: "If you really want this, type in your password below and click 'Close Account'"
+        lock_username: "This will lock your username if you decided to sign back up."
+        locked_out: "You will get signed out and locked out of your account."
+        make_diaspora_better: "We want you to help us make Diaspora better, so you should help us out instead of leaving. If you do want to leave, we want you to know what happens next."
+        mr_wiggles: "Mr Wiggles will be sad to see you go"
+        no_turning_back: "Currently, there is no turning back."
+        what_we_delete: "We delete all of your posts, profile data, as soon as humanly possible. Your comments will hang around, but be associated with your Diaspora Handle."
+      close_account_text: "Close Account"
       comment_on_post: "...50M30N3 5P4M5 Y0UR 5P4M?"
       current_password: "CURR3N7 *****"
       download_photos: "D0WNL04D MY PR0N"
@@ -942,3 +955,6 @@ en_1337:
     not_enabled: "W3BF1NG3R D035 N07 533M 70 B3 3N4BL3D F0R %{account}'s H057!"
     xrd_fetch_failed: "3RR0R G3771NG XRD F0R %{account}!"
   welcome: Welcome!
+  will_paginate:
+    next_label: "next &raquo;"
+    previous_label: "&laquo; previous"

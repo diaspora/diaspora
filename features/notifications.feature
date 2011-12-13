@@ -80,7 +80,7 @@ Feature: Notifications
     Then I should see "commented on your post"
     And I should have 1 email delivery
 
-  Scenario: someone mentioned you on his post
+  Scenario: someone mentioned me in their post
     Given a user with email "bob@bob.bob" is connected with "alice@alice.alice"
     And Alice has a post mentioning Bob
     When I sign in as "bob@bob.bob"

@@ -62,7 +62,7 @@ describe User do
     it 'does not overwrite old users with factory' do
       lambda {
         new_user = Factory.create(:user, :id => alice.id)
-      }.should raise_error ActiveRecord::RecordNotUnique
+      }.should raise_error ActiveRecord::StatementInvalid
     end
 
     it 'does not overwrite old users with create' do
@@ -1055,10 +1055,7 @@ describe User do
       it 'returns the clearable fields' do
         user = Factory.create :user
         user.send(:clearable_fields).sort.should == %w{
-          getting_started
-          disable_mail
           language
-          email
           invitation_token
           invitation_sent_at
           reset_password_token
@@ -1077,7 +1074,6 @@ describe User do
           authentication_token
           unconfirmed_email
           confirm_email_token
-          show_community_spotlight_in_stream
         }.sort
       end
     end

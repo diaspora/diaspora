@@ -68,4 +68,4 @@ sv:
       unknown: "Okänd videotyp"
       watch: "Se den här videon på {{provider}}"
     web_sockets:
-      disconnected: "Webbsockeln är stängd; inlägg kommer inte längre att bli direktstreamade."
+      disconnected: "WebSocketen är stängd; inlägg kommer inte längre att bli direktstreamade."

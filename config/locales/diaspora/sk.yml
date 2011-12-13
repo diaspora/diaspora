@@ -37,7 +37,7 @@ sk:
             person:
               invalid: "je neplatný."
             username:
-              invalid: "je neplatné. Povolené sú len písmená, číslice a&nbsp;podčiarkovníky."
+              invalid: "je neplatné. Povolené sú len písmená, číslice a podčiarkovníky."
               taken: "je už obsadený."
   ago: "pred %{time}"
   all_aspects: "Všetky kategórie"
@@ -48,11 +48,12 @@ sk:
       video_title:
         unknown: "Neznámy názov videa"
   are_you_sure: "Ste si istý?"
+  are_you_sure_delete_account: "Určite chcete zrušiť svoj účet? Táto operácia sa nedá vrátiť späť!"
   aspect_memberships:
     destroy:
       failure: "Nepodarilo sa odstrániť kontakt z kategórie"
       no_membership: "V tejto kategórii sa nepodarilo nájsť tohto človeka"
-      success: "Tohto človeka ste úspešne odstránili z&nbsp;kategórie"
+      success: "Tohto človeka ste úspešne odstránili  z kategórie"
   aspects:
     add_to_aspect:
       failure: "Nepodarilo sa pridať kontakt do kategórie."
@@ -66,22 +67,22 @@ sk:
       select_all: "Označiť všetky"
     aspect_stream:
       stay_updated: "Buďte v obraze"
-      stay_updated_explanation: "Na svojej hlavnej nástenke nájdete všetky svoje kontakty, značky, ktoré sledujete, a&nbsp;príspevky od niektorých tvorivých členov komunity."
-    contacts_not_visible: "Kontakty v&nbsp;tejto kategórii sa nebudú môcť navzájom vidieť."
-    contacts_visible: "Kontakty v&nbsp;tejto kategórii sa budú môcť navzájom vidieť."
+      stay_updated_explanation: "Na svojej hlavnej nástenke nájdete všetky svoje kontakty, značky, ktoré sledujete,  a príspevky od niektorých tvorivých členov komunity."
+    contacts_not_visible: "Kontakty v tejto kategórii sa nebudú môcť navzájom vidieť."
+    contacts_visible: "Kontakty v tejto kategórii sa budú môcť navzájom vidieť."
     create:
       failure: "Nepodarilo sa vytvoriť kategóriu."
       success: "Vaša nová kategória %{name} bola vytvorená"
     destroy:
-      failure: "Kategória %{name} nie je prázdna, a&nbsp;tak sa nemohla odstrániť."
+      failure: "Kategória %{name} nie je prázdna,  a tak sa nemohla odstrániť."
       success: "Použ. %{name} bol úspešne odstránený."
     edit:
       add_existing: "Pridať existujúci kontakt"
-      aspect_list_is_not_visible: "zoznam z&nbsp;kategórie ostatní v&nbsp;kategórii nevidia"
-      aspect_list_is_visible: "zoznam z&nbsp;kategórie ostatní v&nbsp;kategórii uvidia"
+      aspect_list_is_not_visible: "zoznam z kategórie ostatní  v kategórii nevidia"
+      aspect_list_is_visible: "zoznam z kategórie ostatní v kategórii uvidia"
       confirm_remove_aspect: "Ste si istý, že chcete zmazať túto kategóriu?"
       done: "Hotovo"
-      make_aspect_list_visible: "majú sa ľudia v&nbsp;kontaktoch v&nbsp;tejto kategórii navzájom vidieť?"
+      make_aspect_list_visible: "majú sa ľudia v kontaktoch  v tejto kategórii navzájom vidieť?"
       remove_aspect: "Zmazať túto kategóriu"
       rename: "premenovať"
       update: "aktualizovať"
@@ -93,20 +94,20 @@ sk:
       remove: "odstrániť"
     index:
       cubbies:
-        explanation: "Cubbi.es je prvá aplikácia, ktorá sa vyvíja v&nbsp;Diaspore."
+        explanation: "Cubbi.es je prvá aplikácia, ktorá sa vyvíja  v Diaspore."
         heading: "Pripojiť sa na Cubbi.es"
         learn_more: "Zistiť viac"
       diaspora_id:
         content_1: "Vaše ID na Diasporu je:"
-        content_2: "Dajte ho hocikomu a&nbsp;bude vás môcť nájsť na Diaspore."
+        content_2: "Dajte ho hocikomu  a bude vás môcť nájsť na Diaspore."
         heading: "ID na Diasporu"
       donate: "Prispieť"
-      handle_explanation: "Toto je vaše id na Diasporu. Môžete ju dať ostatným ľuďom ako e-mailovú adresu, aby sa s&nbsp;vami mohli spojiť."
+      handle_explanation: "Toto je vaše id na Diasporu. Môžete ju dať ostatným ľuďom ako e-mailovú adresu, aby sa s vami mohli spojiť."
       help:
-        do_you: "Už:"
+        do_you: "Povedzte:"
         email_feedback: "Napíšte nám svoj názor na %{link}, ak uprednostňujete tento spôsob"
         feature_suggestion: "&ndash; máte nápad na novú funkciu %{link}?"
-        find_a_bug: "&ndash; ste našli %{link}?"
+        find_a_bug: "&ndash; našli ste %{link}?"
         have_a_question: "&ndash; máte %{link}?"
         here_to_help: "Komunita Diaspory je tu!"
         need_help: "Potrebujete pomoc?"
@@ -114,20 +115,20 @@ sk:
         tag_bug: "chybu"
         tag_feature: "funkciu"
         tag_question: "otázku"
-        tutorials_wiki_and_forum: "%{tutorial}, %{wiki} a %{forum}: príručky, ktoré vytvorili členovia komunity, návody a&nbsp;novinky"
+        tutorials_wiki_and_forum: "%{tutorial}, %{wiki} a %{forum}: príručky, ktoré vytvorili členovia komunity, návody  a novinky"
       introduce_yourself: "Toto je vaša nástenka.  Poďte sa predstaviť."
-      keep_us_running: "Na udržanie %{pod} v&nbsp;dobrej kondícii kúpte svojím príspevkom našim serverom ich mesačnú dávku kávy vo&nbsp;forme opráv!"
+      keep_us_running: "Na udržanie %{pod} v dobrej kondícii kúpte svojím príspevkom našim serverom ich mesačnú dávku kávy  vo forme opráv!"
       new_here:
-        follow: "Sledujte %{link} a&nbsp;privítajte nových používateľov na Diaspore*!"
+        follow: "Sledujte %{link}  a privítajte nových používateľov na Diaspore*!"
         learn_more: "Zistiť viac"
         title: "Privítajte nových používateľov"
       no_contacts: "Žiadne kontakty"
       no_tags: "+ Nájdite značku, ktorú chcete sledovať"
-      people_sharing_with_you: "Ľudia, s&nbsp;ktorými ste sa s niečim podelili"
+      people_sharing_with_you: "Ľudia, s ktorými ste sa o niečo podelili"
       post_a_message: "Poslať správu >>"
       services:
         content: "S Diasporou môžete prepojiť tieto služby:"
-        heading: "Pripojiť sa k&nbsp;službám"
+        heading: "Pripojiť sa k službám"
       unfollow_tag: "Prestať sledovať #%{tag}"
       welcome_to_diaspora: "Vitajte na Diaspore, %{name}!"
       your_aspects: "Vaše kategórie"
@@ -140,8 +141,8 @@ sk:
       create: "Vytvoriť"
       name: "Meno (uvidíte ho len vy)"
     no_contacts_message:
-      community_spotlight: "v&nbsp;centre pozornosti komunity"
-      or_spotlight: "Alebo sa môžete deliť s používateľmi %{link}"
+      community_spotlight: "v centre pozornosti komunity"
+      or_spotlight: "Alebo si do kontaktov môžete pridať používateľov %{link}"
       try_adding_some_more_contacts: "Môžete vyhľadať alebo pozvať viac ľudí."
       you_should_add_some_more_contacts: "Mali by ste ešte pridať pár kontaktov!"
     no_posts_message:
@@ -156,7 +157,7 @@ sk:
     selected_contacts:
       manage_your_aspects: "Spravujte svoje kategórie."
       no_contacts: "Nemáte tu ešte žiadne kontakty."
-      view_all_community_spotlight: "Zobraziť všetko, čo je v&nbsp;centre pozornosti komunity"
+      view_all_community_spotlight: "Zobraziť všetko, čo je v centre pozornosti komunity"
       view_all_contacts: "Zobraziť všetky kontakty"
     show:
       edit_aspect: "upraviť kategóriu"
@@ -178,7 +179,7 @@ sk:
       failure: "Ignorovanie tohto používateľa sa nepodarilo zrušiť.  #evasion"
       success: "Pozrime sa, čo hovoria! #sayhello"
   bookmarklet:
-    explanation: "Píšte na Diasporu z&nbsp;hocikiaľ tak, že si pridáte do záložiek odkaz %{link}."
+    explanation: "Píšte na Diasporu z hocikiaľ tak, že si pridáte do záložiek odkaz %{link}."
     explanation_link_text: "tento odkaz"
     heading: "Bookmarklet"
     post_something: "Pošlite niečo na Diasporu"
@@ -206,7 +207,7 @@ sk:
       many_people_are_you_sure: "Určite chcete začať súkromný rozhovor s viac ako %{suggested_limit} ľuďmi? Poslanie príspevku do tejto kategórie môže byť lepší spôsob, ako sa s nimi spojiť."
       my_contacts: "Moje kontakty"
       no_contacts: "Zdá sa, že treba pridať pár kontaktov!"
-      only_sharing_with_me: "Tí, ktorí sa delia iba so&nbsp;mnou"
+      only_sharing_with_me: "Tí, ktorí sa delia iba  so mnou"
       remove_person_from_aspect: "Odstrániť použ. %{person_name} z kategórie %{aspect_name}"
       start_a_conversation: "Začať rozhovor"
       title: "Kontakty"
@@ -215,7 +216,7 @@ sk:
     one: "1 kontakt"
     other: "kontakty (%{count})"
     sharing:
-      people_sharing: "Ľudia, ktorí sa s&nbsp;vami podelili:"
+      people_sharing: "Ľudia, ktorí sa  s vami podelili:"
     spotlight:
       community_spotlight: "Aktuality z komunity"
     two: "%{count} kontakty"
@@ -262,7 +263,7 @@ sk:
   email: E-mail
   error_messages:
     helper:
-      correct_the_following_errors_and_try_again: "Opravte nasledujúce chyby a&nbsp;skúste znova."
+      correct_the_following_errors_and_try_again: "Opravte nasledujúce chyby a skúste znova."
       invalid_fields: "Neplatné polia"
   fill_me_out: "Vyplňte, prosím, formulár"
   find_people: "Nájsť ľudí alebo #značky"
@@ -271,14 +272,14 @@ sk:
     show:
       already_account: "Máte už účet?"
       choice: "Možnosť výberu"
-      choice_explanation: "Diaspora vám umožňuje roztriediť si všetky vaše kontakty do skupín, ktoré sa volajú Aspekty. Je unikátna práve tým, že dokáže zabezpečiť, aby k&nbsp;fotkám, správam a&nbsp;statusom mali prístup len tí ľudia, ktorých určíte."
-      learn_about_host: "Dozvedieť sa viac o&nbsp;tom, ako prevádzkovať vlastný server s&nbsp;Diasporou."
+      choice_explanation: "Diaspora vám umožňuje roztriediť si všetky vaše kontakty do skupín, ktoré sa  v anglickej verzii nazývajú Aspekty. Je unikátna práve tým, že dokáže zabezpečiť, aby  k fotkám, správam  a statusom mali prístup len tí ľudia, ktorých určíte vy."
+      learn_about_host: "Dozvedieť sa viac  o tom, ako prevádzkovať vlastný server  s Diasporou."
       login_here: "sa prihláste tu"
       ownership: "Vlastníctvo"
-      ownership_explanation: "Vlastníte svoje fotky a&nbsp;nemali by ste sa ich vzdávať len kvôli tomu, že sa o&nbsp;ne chcete s&nbsp;niekym podeliť. Vaše vlastnícke práva na všetko, o&nbsp;čo sa na Diaspore podelíte, zostávajú nedotknuté, a&nbsp;tak môžete úplne kontrolovať to, ako sa s&nbsp;tým zaobchádza."
-      share_what_you_want: "Podeľte sa o&nbsp;čo chcete s&nbsp;kým chcete."
+      ownership_explanation: "Vlastníte svoje fotky  a nemali by ste sa ich vzdávať len kvôli tomu, že sa  o ne chcete  s niekym podeliť. Vaše vlastnícke práva na všetko,  o čo sa na Diaspore podelíte, zostávajú nedotknuté,  a tak môžete úplne kontrolovať to, ako sa  s tým zaobchádza."
+      share_what_you_want: "Podeľte sa o čo chcete s kým chcete."
       simplicity: "Jednoduchosť"
-      simplicity_explanation: "Zdieľanie na Diaspore je veľmi ľahké a&nbsp;transparentné &ndash; a&nbsp;to isté platí aj&nbsp;o&nbsp;ochrane súkromia. Keďže Diaspora je súkromná sama o&nbsp;sebe, nenúti vás prejsť cez&nbsp;žiadne zložité stránky s&nbsp;nastaveniami a&nbsp;možnosťami iba kvôli tomu, aby ste zabezpečili svoj profil."
+      simplicity_explanation: "Zdieľanie na Diaspore je veľmi ľahké  a transparentné –  a to isté platí  aj o ochrane osobných údajov. Keďže Diaspora je súkromná sama  o sebe, nenúti vás prejsť  cez žiadne zložité stránky  s nastaveniami  a možnosťami iba kvôli tomu, aby ste zabezpečili svoj profil."
       tagline_first_half: "Podeľte sa, o čo chcete,"
       tagline_second_half: "s kým chcete."
   invitations:
@@ -299,7 +300,7 @@ sk:
       already_invited: "Títo ľudia neprijali vaše pozvanie:"
       aspect: "Kategória"
       comma_seperated_plz: "Môžete vložiť viacero adries; oddeľte ich čiarkou."
-      if_they_accept_info: "Po&nbsp;odsúhlasení budú pozvaní používatelia pridaní do&nbsp;príslušnej kategórie."
+      if_they_accept_info: "Po odsúhlasení budú pozvaní používatelia pridaní  do príslušnej kategórie."
       invite_someone_to_join: "Pozvite niekoho na Diasporu*!"
       language: "Jazyk"
       personal_message: "Súkromná správa"
@@ -357,7 +358,7 @@ sk:
       many: "%{actors} tiež okomentovali príspevok %{post_link} od použ. %{post_author}."
       one: "%{actors} tiež okomentovali príspevok %{post_link} od použ. %{post_author}."
       other: "%{actors} tiež okomentovali príspevok %{post_link} od použ. %{post_author}."
-      two: "%{actors} ľudia okomentovali aj&nbsp;príspevok %{post_link} od použ. %{post_author}."
+      two: "%{actors} ľudia okomentovali  aj príspevok %{post_link} od použ. %{post_author}."
       zero: "%{actors} tiež okomentovalo príspevok %{post_link} od použ. %{post_author}."
     also_commented_deleted:
       few: "%{actors} ľudia okomentovali váš vymazaný príspevok."
@@ -384,12 +385,12 @@ sk:
     index:
       and: "a"
       and_others:
-        few: "a&nbsp;%{count} ďalšie"
-        many: "a&nbsp;%{count} ďalších"
-        one: a&nbsp;ďalší
-        other: "a&nbsp;%{count} ďalší(ch)"
-        two: "a&nbsp;%{count} ďalšie"
-        zero: "a&nbsp;nikto viac"
+        few: " a %{count} ďalších"
+        many: " a %{count} ďalších"
+        one: " a ďalší"
+        other: " a %{count} ďalší(ch)"
+        two: " a %{count} ďalších"
+        zero: " a nikto viac"
       mark_all_as_read: "Všetky označiť ako prečítané"
       notifications: "Oznamy"
     liked:
@@ -415,7 +416,7 @@ sk:
       zero: "%{actors} vás spomenulo v %{post_link}."
     mentioned_deleted:
       few: "%{actors} vás spomenuli vo vymazanom príspevku."
-      many: "%{actors} ľudia vás spomenuli vo&nbsp;vymazanom príspevku."
+      many: "%{actors} ľudia vás spomenuli  vo vymazanom príspevku."
       one: "%{actors} vás spomenul(a) vo vymazanom príspevku."
       other: "%{actors} vás spomenuli vo vymazanom príspevku."
       two: "%{actors} vás spomenuli vo vymazanom príspevku."
@@ -429,26 +430,26 @@ sk:
       two: "%{actors} vám poslali správu."
       zero: "%{actors} ľudí vám poslalo správu."
     reshared:
-      few: "%{actors} sa znova podelili o&nbsp;%{post_link}."
-      many: "%{actors} sa znova podelili o&nbsp;%{post_link}."
-      one: "%{actors} sa znova podelil(a) o&nbsp;%{post_link}."
-      other: "%{actors} sa znova podelili o&nbsp;%{post_link}."
-      two: "%{actors} sa znova podelili o&nbsp;%{post_link}."
-      zero: "%{actors} sa znova podelilo o&nbsp;%{post_link}."
+      few: "%{actors} sa znova podelilo o %{post_link}."
+      many: "%{actors} sa znova podelilo o %{post_link}."
+      one: "%{actors} sa znova podelil o %{post_link}."
+      other: "%{actors} sa znova podelilo o %{post_link}."
+      two: "%{actors} sa znova podelilo o %{post_link}."
+      zero: "%{actors} sa znova podelilo o %{post_link}."
     reshared_post_deleted:
-      few: "%{actors} sa znova podelili o&nbsp;váš vymazaný príspevok."
-      many: "%{actors} sa znova podelili o&nbsp;váš vymazaný príspevok."
-      one: "%{actors} sa znova podelil(a) o&nbsp;váš vymazaný príspevok."
-      other: "%{actors} sa znova podelili o&nbsp;váš vymazaný príspevok."
-      two: "%{actors} sa znova podelili o&nbsp;váš vymazaný príspevok."
-      zero: "%{actors} sa znova podelilo o&nbsp;váš vymazaný príspevok."
+      few: "%{actors} sa znova podelili o váš vymazaný príspevok."
+      many: "%{actors} sa znova podelili o váš vymazaný príspevok."
+      one: "%{actors} sa znova podelil(a) o váš vymazaný príspevok."
+      other: "%{actors} sa znova podelilo o váš vymazaný príspevok."
+      two: "%{actors} sa znova podelili o váš vymazaný príspevok."
+      zero: "%{actors} sa znova podelilo o váš vymazaný príspevok."
     started_sharing:
-      few: "%{actors} sa s&nbsp;vami začali deliť o&nbsp;rôzne veci."
-      many: "%{actors} sa s&nbsp;vami začali deliť o&nbsp;rôzne veci."
-      one: "%{actors} sa s&nbsp;vami začal(a) deliť o&nbsp;rôzne veci."
-      other: "%{actors} sa s&nbsp;vami začali deliť o&nbsp;rôzne veci."
-      two: "%{actors} sa začali s&nbsp;vami deliť o&nbsp;rôzne veci."
-      zero: "%{actors} sa s&nbsp;vami začalo deliť o&nbsp;rôzne veci."
+      few: "%{actors} si vás pridali do kontaktov."
+      many: "%{actors} si vás pridali do kontaktov."
+      one: "%{actors} si vás pridal(a) do kontaktov."
+      other: "%{actors} si vás pridali do kontaktov."
+      two: "%{actors} si vás pridali do kontaktov."
+      zero: "%{actors} si vás pridalo do kontaktov."
   notifier:
     a_post_you_shared: príspevok.
     click_here: "Kliknite sem"
@@ -463,19 +464,19 @@ sk:
       liked: "%{name} označil(a), že sa mu/jej páči váš príspevok"
       view_post: "Zobraziť príspevok >"
     mentioned:
-      mentioned: "vás spomenul(a) v&nbsp;príspevku:"
+      mentioned: "vás spomenul(a) v príspevku:"
       subject: "%{name} vás spomenul(a) na Diaspore*"
     private_message:
       reply_to_or_view: "Zobraziť tento rozhovor alebo sa doň zapojiť >"
     reshared:
-      reshared: "%{name} sa znova podelil(a) o&nbsp;váš príspevok"
+      reshared: "%{name} sa znova podelil(a) o váš príspevok"
       view_post: "Zobraziť príspevok >"
     single_admin:
       admin: "Váš administrátor"
       subject: "Správa o vašom účte na Diaspore:"
     started_sharing:
-      sharing: "sa s&nbsp;vami začal(a) deliť o&nbsp;rôzne veci!"
-      subject: "%{name} sa s&nbsp;vami o&nbsp;niečo podelil(a) na Diaspore*"
+      sharing: "si vás pridal(a) do kontaktov!"
+      subject: "%{name} sa s vami o niečo podelil(a) na Diaspore*"
       view_profile: "Zobraziť profil použ. %{name}"
     thanks: "Vďaka,"
     to_change_your_notification_settings: "ak chcete zmeniť nastavenie oznamov"
@@ -487,7 +488,7 @@ sk:
     add_contact_small:
       add_contact_from_tag: "pridať kontakt zo značky"
     aspect_list:
-      edit_membership: "upraviť členstvo v&nbsp;kategórii"
+      edit_membership: "upraviť členstvo v kategórii"
     few: "%{count} ľudia"
     helper:
       people_on_pod_are_aware_of: "Ľudia na pode sú si vedomí"
@@ -495,7 +496,7 @@ sk:
     index:
       couldnt_find_them_send_invite: "Nenašli ste ich? Pozvite ich!"
       looking_for: "Hľadajú sa príspevky označené %{tag_link}?"
-      no_one_found: "...a&nbsp;nikto sa nenašiel."
+      no_one_found: "...a nikto sa nenašiel."
       no_results: "Hej! Musíte niečo vyhľadať."
       results_for: "Výsledky vyhľadávania pre"
     many: "%{count} ľudí"
@@ -514,18 +515,19 @@ sk:
       in_aspects: "v kategóriách"
       location: "bydlisko"
       remove_contact: "odstrániť kontakt"
-      remove_from: "Odstrániť používateľa %{name} z&nbsp;kategórie %{aspect}?"
+      remove_from: "Odstrániť používateľa %{name} z kategórie %{aspect}?"
     show:
+      closed_account: "Tento účet bol zrušený."
       does_not_exist: "Osoba neexistuje!"
-      has_not_shared_with_you_yet: "%{name} sa s&nbsp;vami ešte nepodelil(a) o&nbsp;žiadne príspevky!"
+      has_not_shared_with_you_yet: "%{name} sa s vami ešte nepodelil(a)  o žiadne príspevky!"
       ignoring: "Ignorujete všetky príspevky, ktoré vytvoril(a) %{name}."
-      incoming_request: "%{name} sa s&nbsp;vami chce o&nbsp;niečo podeliť"
+      incoming_request: "%{name} si vás chce pridať do kontaktov"
       mention: "Zmienka"
       message: "Správa"
-      not_connected: "S&nbsp;týmto človekom sa o&nbsp;nič nedelíte"
+      not_connected: "S týmto človekom sa o nič nedelíte"
       recent_posts: "Najnovšie príspevky"
       recent_public_posts: "Najnovšie verejné príspevky"
-      return_to_aspects: "Vrátiť sa na stránku s&nbsp;kategóriami"
+      return_to_aspects: "Vrátiť sa na stránku s kategóriami"
       see_all: "Zobraziť všetko"
       start_sharing: "začať zdieľať"
       to_accept_or_ignore: ""
@@ -578,7 +580,7 @@ sk:
       permalink: "trvalý odkaz"
   previous: "Predchádzajúce"
   privacy: "Ochrana súkromia"
-  privacy_policy: "Privacy Policy"
+  privacy_policy: "Ochrana osobných údajov"
   profile: "Profil"
   profiles:
     edit:
@@ -611,7 +613,7 @@ sk:
   registrations:
     closed: "Registrácie sú na tomto pode Diaspory pozastavené."
     create:
-      success: "Pridali ste sa k&nbsp;Diaspore!"
+      success: "Pridali ste sa k Diaspore!"
     edit:
       cancel_my_account: "Zrušiť môj účet"
       edit: "Upraviť %{name}"
@@ -624,8 +626,8 @@ sk:
       enter_email: "Zadajte e-mail"
       enter_password: "Zadajte heslo"
       enter_password_again: "Zadajte rovnaké heslo ako predtým"
-      enter_username: "Zadajte používateľské meno (iba písmená, číslice a&nbsp;podčiarkovníky)"
-      join_the_movement: "Pripojte sa k&nbsp;hnutiu!"
+      enter_username: "Zadajte používateľské meno (iba písmená, číslice  a podčiarkovníky)"
+      join_the_movement: "Pripojte sa k hnutiu!"
       sign_up_message: "Prepojenie cez sociálne siete s ♥"
   requests:
     create:
@@ -649,36 +651,36 @@ sk:
     new_request_to_person:
       sent: Poslané!
   reshares:
-    comment_email_subject: "%{resharer} sa znova podelil(a) o&nbsp;príspevok použ. %{author}"
+    comment_email_subject: "%{resharer} sa znova podelil(a) o príspevok použ. %{author}"
     create:
-      failure: "Pri pokuse znova sa podeliť o&nbsp;tento príspevok nastala chyba."
+      failure: "Pri pokuse znova sa podeliť o tento príspevok nastala chyba."
     reshare:
       deleted: "Pôvodný príspevok vymazal(a) jeho autor(ka)."
       reshare:
-        few: "%{count} sa znova podelili"
-        many: "%{count} sa znova podelili"
-        one: "1 človek sa znova podelil"
-        other: "%{count} ľudia sa znova podelili"
-        two: "%{count} sa znova podelili"
+        few: "%{count} sa znova podelilo o príspevok"
+        many: "%{count} sa znova podelilo o príspevok"
+        one: "1 človek sa znova podelil o príspevok"
+        other: "%{count} ľudí sa znova podelilo o príspevok"
+        two: "%{count} sa znova podelili o príspevok"
         zero: "Znova zdieľať"
-      reshare_confirmation: "Chcete sa znova podeliť o&nbsp;príspevok použ. %{author}?"
-      reshare_original: "Znovu sa podeliť o originál"
+      reshare_confirmation: "Chcete sa znova podeliť o príspevok použ. %{author}?"
+      reshare_original: "Znovu zdieľať originál"
       reshared_via: "znova sa niekto podelil cez"
       show_original: "Zobraziť originál"
   search: "Vyhľadávanie"
   services:
     create:
-      already_authorized: "Používateľ s&nbsp;ID na Diasporu %{diaspora_id} už prepojiť svoj účet so&nbsp;sieťou %{service_name}."
+      already_authorized: "Používateľ s ID na Diasporu %{diaspora_id} už prepojiť svoj účet  so sieťou %{service_name}."
       failure: "Vašu totožnosť sa nepodarilo overiť."
       success: "Autentifikácia bola úspešná."
     destroy:
       success: "Autentifikácia úspešne zrušená."
     failure:
-      error: "pri pripájaní k&nbsp;službe nastala chyba"
+      error: "pri pripájaní  k službe nastala chyba"
     finder:
-      fetching_contacts: "Diaspora pridáva údaje o&nbsp;vašich priateľoch zo&nbsp;siete %{service}, prosím, vráťte sa sem o&nbsp;niekoľko minút."
-      no_friends: "Žiadni priatelia z&nbsp;Facebooku sa nenašli."
-      service_friends: "Priatelia zo&nbsp;siete %{service}"
+      fetching_contacts: "Diaspora pridáva údaje o vašich priateľoch zo siete %{service}, prosím, vráťte sa sem  o niekoľko minút."
+      no_friends: "Žiadni priatelia z Facebooku sa nenašli."
+      service_friends: "Priatelia zo siete %{service}"
     index:
       connect_to_facebook: "Pripojiť sa na Facebook"
       connect_to_tumblr: "Pripojiť sa na Tumblr"
@@ -687,7 +689,7 @@ sk:
       edit_services: "Upraviť pripojenie na služby"
       logged_in_as: "&ndash; prihlásený ako"
       no_services: "Ešte ste svoj účet nepripojili na žiadne ďalšie služby."
-      really_disconnect: "Chcete sa odhlásiť zo&nbsp;služby %{service}?"
+      really_disconnect: "Chcete sa odhlásiť zo služby %{service}?"
     inviter:
       click_link_to_accept_invitation: "Ak chcete prijať pozvanie, kliknite na tento odkaz"
       join_me_on_diaspora: "Pridať sa k DIASPORE*"
@@ -698,7 +700,7 @@ sk:
   settings: "Nastavenia"
   share_visibilites:
     update:
-      post_hidden_and_muted: "Príspevok, ktorý vytvoril(a) %{name} ste schovali a&nbsp;posielanie oznamov bolo zastavené."
+      post_hidden_and_muted: "Príspevok, ktorý vytvoril(a) %{name} ste schovali  a posielanie oznamov bolo zastavené."
       see_it_on_their_profile: "Ak si chcete prečítať novšie verzie tohto príspevku, navštívte stránku s profilom použ. %{name}."
   shared:
     add_contact:
@@ -737,8 +739,8 @@ sk:
       control_your_audience: "Kontrolovať publikum"
       logged_in: "Prihlásenie na %{service}"
       manage: "Spravovať prepojené služby"
-      new_user_welcome_message: "Na roztriedenie svojich príspevkov a&nbsp;hľadanie ľudí, ktorí majú rovnaké koníčky, používajte #hashtagy.  Nájdite super ľudí pomocou @Mentions"
-      outside: "Verejnú správu môžu vidieť aj&nbsp;používatelia mimo Diaspory."
+      new_user_welcome_message: "Na roztriedenie svojich príspevkov  a hľadanie ľudí, ktorí majú rovnaké koníčky, používajte #hashtagy.  Nájdite super ľudí pomocou @Mentions"
+      outside: "Verejnú správu môžu vidieť aj používatelia mimo Diaspory."
       share: "Zdieľať"
       title: "Nastaviť pripojené služby"
       visibility_dropdown: "Použite toto rozbaľovacie menu na zmenu viditeľnosti svojho príspevku. (Navrhujeme, aby ste tento prvý nechali uverejnený.)"
@@ -755,21 +757,23 @@ sk:
       post_a_message_to: "Poslať správu na %{aspect}"
       posting: "Posiela sa..."
       publishing_to: "Publikuje sa na: "
-      share: "Podeliť sa"
+      share: "Uverejniť"
       share_with: "podeliť sa s"
       upload_photos: "Nahrať fotky"
       whats_on_your_mind: "Čo máte na mysli?"
     reshare:
       reshare: "Znovu zdieľať"
     stream_element:
-      connect_to_comment: "Pripojte sa k&nbsp;tomuto používateľovi a&nbsp;okomentujte jeho príspevok"
+      connect_to_comment: "Pripojte sa k tomuto používateľovi  a okomentujte jeho príspevok"
       currently_unavailable: "momentálne sa nedajú písať komentáre"
       dislike: "Nepáči sa mi to"
-      hide_and_mute: "Schovať príspevok a&nbsp;vypnúť oznamy"
+      hide_and_mute: "Schovať príspevok  a vypnúť oznamy"
       ignore_user: "Ignorovať použ. %{name}"
-      ignore_user_description: "Ignorovať použ. a&nbsp;odstrániť ho (ju) zo&nbsp;všetkých kategórií?"
+      ignore_user_description: "Ignorovať použ. a odstrániť ho (ju)  zo všetkých kategórií?"
       like: "Páči sa mi to"
-      shared_with: "Spoločné s&nbsp;kategóriami: %{aspect_names}"
+      nsfw: "Autor(ka) označil(a) tento príspevok za nevhodný v práci. %{link}"
+      shared_with: "Na vedomie: %{aspect_names}"
+      show: "Zobraziť"
       unlike: "Odznačiť"
       via: "na %{link}"
       viewable_to_anyone: "Tento príspevok si môže pozrieť každý na webe"
@@ -783,19 +787,19 @@ sk:
     new:
       mentioning: "Spomína sa: %{person}"
     too_long:
-      few: "prosím, skráťte svoje správy v&nbsp;statuse na menej ako %{count} znakov"
-      many: "prosím, skráťte svoje správy v&nbsp;statuse na menej ako %{count} znakov"
-      one: "prosím, skráťte svoje správy v&nbsp;statusoch na menej ako %{count} znak"
-      other: "prosím, skráťte svoje správy v&nbsp;statuse na menej ako %{count} znakov"
-      two: "prosím, upravte svoje správy v&nbsp;statusoch na menej ako %{count} znakov"
-      zero: "prosím, skráťte svoje správy v&nbsp;statusoch na menej ako %{count} znakov"
+      few: "prosím, skráťte svoje správy  v statuse na menej ako %{count} znakov"
+      many: "prosím, skráťte svoje správy  v statuse na menej ako %{count} znakov"
+      one: "prosím, skráťte svoje správy  v statusoch na menej ako %{count} znak"
+      other: "prosím, skráťte svoje správy  v statuse na menej ako %{count} znakov"
+      two: "prosím, upravte svoje správy  v statusoch na menej ako %{count} znakov"
+      zero: "prosím, skráťte svoje správy  v statusoch na menej ako %{count} znakov"
   stream_helper:
     hide_comments: "skryť komentáre"
     show_comments:
       few: "Zobraziť ďalších %{count} komentárov"
       many: "Zobraziť ďalších %{count} komentárov"
       one: "Zobraziť ešte jeden komentár"
-      other: "Zobraziť ďalšie %{count} komentáre"
+      other: "Zobraziť ďalších %{count} komentárov"
       two: "Zobraziť ďalšie dva komentáre"
       zero: "Žiadne ďalšie komentáre nie sú"
   streams:
@@ -803,19 +807,19 @@ sk:
       title: "Vaše kategórie"
     aspects_stream: "Kategórie"
     comment_stream:
-      contacts_title: "People whose posts you commented on"
-      title: "Commented Posts"
+      contacts_title: "Ľudia, ktorých príspevky ste okomentovali"
+      title: "Okomentované príspevky"
     commented_on: "okomentované"
-    community_spotlight_stream: "V&nbsp;centre pozornosti komunity"
+    community_spotlight_stream: "V centre pozornosti komunity"
     followed_tag:
       add_a_tag: "Pridať značku"
       contacts_title: "Ľudia, ktorí sledujú tieto značky"
       follow: "Sledovať"
-      title: "#Sledované značky"
+      title: "#Značky, ktoré sledujete"
     followed_tags_stream: "#Značky, ktoré sledujete"
     like_stream:
-      contacts_title: "People whose posts you like"
-      title: "Like Stream"
+      contacts_title: "Ľudia, ktorých príspevky sa vám páčia"
+      title: "Nástenka „Páči sa mi“"
     mentioned_stream: "@Zmienky"
     mentions:
       contacts_title: "Ľudia, ktorí vás spomenuli"
@@ -830,13 +834,13 @@ sk:
     recently: "nedávno:"
     tags:
       contacts_title: "Ľudia, ktorí hľadajú tieto značky"
-      tag_prefill_text: "The thing about %{tag_name} is... "
+      tag_prefill_text: "%{tag_name} je... "
       title: "Príspevky so značkami: %{tags}"
   tag_followings:
     create:
       failure: "Nedá sa sledovať použ. #%{name}. Nesledujte ho (ju) už?"
-      none: "You cannot follow a blank tag!"
-      success: "Hurá! Teraz sledujete použ. #%{name}."
+      none: "Nemôžete sledovať prázdnu značku!"
+      success: "Hurá! Teraz sledujete #%{name}."
     destroy:
       failure: "Nepodarilo sa zrušiť sledovanie použ. #%{name}. Možno ste ho (ju) už prestali sledovať."
       success: "No! Už viac nesledujete použ. #%{name}."
@@ -845,24 +849,24 @@ sk:
       follow: "Sledovať #%{tag}"
       followed_by: "sleduje"
       following: "Sledujete #%{tag}"
-      nobody_talking: "Niekto ešte nehovorí o téme %{tag}."
-      none: "The empty tag does not exist!"
+      nobody_talking: "Nikto ešte nehovorí o téme %{tag}."
+      none: "Prázdna značka neexistuje!"
       people_tagged_with: "Ľudia označení s %{tag}"
       posts_tagged_with: "Príspevky označené značkou #%{tag}"
       stop_following: "Prestať sledovať #%{tag}"
-  terms_and_conditions: "Terms and Conditions"
+  terms_and_conditions: "Podmienky"
   tokens:
     show:
       connect_to_cubbies: "Pripojiť sa na Cubbi.es"
-      connecting_is_simple: "Pripojiť sa na účet na Diaspore je jednoduché! Stačí zadať ID na Diaspore.(<b>%{diaspora_id}</b>) zo&nbsp;<a href='%{href_link}'>stránky s&nbsp;nastaveniami</a> vašich prvkov cubby a&nbsp;stlačiť tlačidlo Pripojiť sa."
+      connecting_is_simple: "Pripojiť sa na účet na Diaspore je jednoduché! Stačí zadať ID na Diasporu.(<b>%{diaspora_id}</b>)  zo <a href='%{href_link}'>stránky  s nastaveniami</a> vašich prvkov cubby  a stlačiť tlačidlo Pripojiť sa."
       daniels_account: "Danielov účet na Diaspore"
       love_to_try: "Bolo by super, keby ste to vyskúšali."
       making_the_connection: "Vytvára sa prepojenie"
-      screenshot_explanation: "%{link1}.  Táto konkrétna cubby je prepojená s(o)&nbsp;%{link2}."
+      screenshot_explanation: "%{link1}.  Táto konkrétna cubby je napojená na %{link2}."
       sign_up_today: "Zaregistujte sa dnes!"
       typical_userpage: "Typická používateľská stránka na cubbi.es"
       via: "(na %{link})"
-      what_is_cubbies: "Cubbi.es je celosvetovo prvá aplikácia Diaspory. Je to aj&nbsp;najlepší spôsob na vytváranie albumov fotiek online."
+      what_is_cubbies: "Cubbi.es je celosvetovo prvá aplikácia Diaspory. Je to  aj najlepší spôsob na vytváranie fotoalbumov online."
   undo: "Odvolať zmeny?"
   username: "Používateľské meno"
   users:
@@ -872,46 +876,55 @@ sk:
     destroy:
       no_password: "Zadajte, prosím svoje súčasné heslo, aby ste mohli zrušiť svoj účet."
       success: "Váš účet bol uzamknutý.  Dokončiť zrušenie vášho účtu nám môže trvať 20 minút.  Ďakujeme, že ste vyskúšali Diasporu."
-      wrong_password: "Zadané heslo sa nezhoduje s&nbsp;vaším súčasným heslom."
+      wrong_password: "Zadané heslo sa nezhoduje  s vaším súčasným heslom."
     edit:
-      also_commented: "...niekto okomentuje aj&nbsp;príspevok človeka vo&nbsp;vašich kontaktoch?"
+      also_commented: "...niekto okomentuje aj príspevok človeka vo vašich kontaktoch?"
       change: "Zmeniť"
       change_email: "Zmeniť e-mail"
       change_language: "Zmeniť jazyk"
       change_password: "Zmeniť heslo"
-      close_account: "Zrušiť účet"
+      close_account:
+        dont_go: "Prosím, neodchádzajte!"
+        if_you_want_this: "Ak to naozaj chcete, dole napíšte svoje heslo a kliknite na tlačidlo „Zrušiť účet“"
+        lock_username: "Takto si rezervujete svoje použítateľské meno pre prípad, že by ste sa rozhodli znova zaregistrovať."
+        locked_out: "Odhlásite a vymknete sa zo svojho účtu."
+        make_diaspora_better: "Chceme, aby ste nám pomohli vylepšiť Diasporu, a tak by ste nám mali vypomôcť namiesto odchodu. Ak chcete odísť, chceme, aby ste vedeli, čo sa bude diať ďalej."
+        mr_wiggles: "Pán Wiggles bude smutný, že odchádzate"
+        no_turning_back: "Momentálne návrat neexistuje."
+        what_we_delete: "Zmažeme všetky vaše príspevky, údaje v profile tak skoro, ako je to v ľudských silách možné. Vaše komentáre budú kade-tade, ale budú priradené vašej adrese na Diaspore."
+      close_account_text: "Zrušiť účet"
       comment_on_post: "...niekto okomentuje váš príspevok?"
       current_password: "Súčasné heslo"
       download_photos: "Stiahnuť si fotky"
       download_xml: "Stiahnuť si xml"
       edit_account: "Upraviť účet"
-      email_awaiting_confirmation: "Poslali sme vám odkaz na aktiváciu %{unconfirmed_email}. Kým nekliknete na tento odkaz a&nbsp;neaktivujete si novú adresu, budeme stále používať vašu pôvodnú adresu %{email}."
+      email_awaiting_confirmation: "Poslali sme vám odkaz na aktiváciu %{unconfirmed_email}. Kým nekliknete na tento odkaz  a neaktivujete si novú adresu, budeme stále používať vašu pôvodnú adresu %{email}."
       export_data: "Exportovať dáta"
       getting_started: "Nové nastavenia používateľa"
       liked: "...sa niekomu páči váš príspevok?"
-      mentioned: "...vás spomenuli v&nbsp;príspevku?"
+      mentioned: "...vás spomenuli v príspevku?"
       new_password: "Nové heslo"
       photo_export_unavailable: "Momentálne sa fotky nedajú exportovať"
       private_message: "...dostanete súkromnú správu?"
       receive_email_notifications: "Poslať oznam e-mailom, ak"
-      reshared: "...sa niekto znova podelí o&nbsp;váš príspevok?"
-      show_community_spotlight: "Zobraziť, čo je v&nbsp;centre pozornosti komunity na nástenke?"
+      reshared: "...sa niekto znova podelí o váš príspevok?"
+      show_community_spotlight: "Zobraziť, čo je v centre pozornosti komunity na nástenke?"
       show_getting_started: "Znova spustiť začiatočné nastavenia"
-      started_sharing: "...sa niekto s&nbsp;vami o&nbsp;niečo podelí?"
+      started_sharing: "...sa niekto s vami o niečo podelí?"
       stream_preferences: "Nastavenia nástenky"
       your_email: "Váš e-mail"
       your_handle: "Vaše id na Diasporu"
     getting_started:
       awesome_take_me_to_diaspora: "Super! Prejsť na Diasporu*"
       community_welcome: "Komunita Diaspory je šťastná, že ste na jej palube!"
-      hashtag_explanation: "Hashtagy vám umožňujú hovoriť o&nbsp;tom, čo vás zaujíma a&nbsp;sledovať diskusie o&nbsp;takýchto veciach. Je to aj&nbsp;skvelý spôsob, ako nájsť nových ľudí na Diaspore."
+      hashtag_explanation: "Hashtagy vám umožňujú hovoriť o tom, čo vás zaujíma  a sledovať diskusie  o takýchto veciach. Je to  aj skvelý spôsob, ako nájsť nových ľudí na Diaspore."
       hashtag_suggestions: "Skúste sledovať značky, ako napr. #art, #movies, #gif, atď."
       hooking_up_fb: "prepojíte svoj účet na Facebooku"
       saved: Uložené!
       we_can_speed_things_up: "Môžeme veci trochu urýchliť, ak"
-      well_hello_there: "Nuž, ahoj!"
+      well_hello_there: Vitajte!
       what_are_you_in_to: "Čo vás baví?"
-      what_facebook_does: "s&nbsp;Diasporou. Takto spojíte svoje meno a&nbsp;fotku a&nbsp;budete môcť využívať rôzne služby z&nbsp;jedného miesta."
+      what_facebook_does: " s Diasporou. Takto spojíte svoje meno  a fotku  a budete môcť využívať rôzne služby  z jedného miesta."
       who_are_you: "Kto ste?"
     logged_out:
       go_mobile: "Teraz buďte mobilní."
@@ -929,7 +942,7 @@ sk:
       email_notifications_changed: "Nastavenia oznamov e-mailom sa zmenili"
       language_changed: "Jazyk sa zmenil"
       language_not_changed: "Nepodarilo sa zmeniť jazyk"
-      password_changed: "Heslo sa zmenilo. Teraz sa môžete prihlásiť so&nbsp;svojím novým heslom."
+      password_changed: "Heslo sa zmenilo. Teraz sa môžete prihlásiť so svojím novým heslom."
       password_not_changed: "Nepodarilo sa zmeniť heslo"
       settings_not_updated: "Nepodarilo sa aktualizovať nastavenia"
       settings_updated: "Nastavenia aktualizované"
@@ -938,7 +951,10 @@ sk:
   webfinger:
     fetch_failed: "Nepodarilo sa získať profil webfinger pre %{profile_url}"
     hcard_fetch_failed: "Nepodarilo sa získať hkartu pre %{@account}"
-    no_person_constructed: "Z&nbsp;tejto hkarty sa nedá vytvoriť žiadna osoba."
+    no_person_constructed: "Z tejto hkarty sa nedá vytvoriť žiadna osoba."
     not_enabled: "Zdá sa, že webfinger nie je povolený pre hostiteľa účtu %{account}"
-    xrd_fetch_failed: "Pri získavaní xrd z&nbsp;nastala chyba"
+    xrd_fetch_failed: "Pri získavaní xrd z účtu %{account} nastala chyba"
   welcome: Vitajte!
+  will_paginate:
+    next_label: "next &raquo;"
+    previous_label: "&laquo; previous"

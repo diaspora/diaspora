@@ -151,6 +151,7 @@ class Profile < ActiveRecord::Base
     clearable_fields.each do |field|
       self[field] = nil
     end
+    self[:searchable] = false
     self.save
   end
 

@@ -48,6 +48,7 @@ eo:
       video_title:
         unknown: "Nekonata video-titolo"
   are_you_sure: "Ĉu vi certas?"
+  are_you_sure_delete_account: "Are you sure you want to close your account? This can't be undone!"
   aspect_memberships:
     destroy:
       failure: "Forigi personon el aspekto malsukcesis"
@@ -516,6 +517,7 @@ eo:
       remove_contact: "forigi kontakton"
       remove_from: "Ĉu forigi %{name} de %{aspect}?"
     show:
+      closed_account: "This account has been closed."
       does_not_exist: "Persono ne ekzistas!"
       has_not_shared_with_you_yet: "%{name} ne jam partoprenis iuj ajn afiŝojn kun vi!"
       ignoring: "Vi estas ignoranta ĉiujn afiŝojn de %{name}."
@@ -769,7 +771,9 @@ eo:
       ignore_user: "Ignori %{name}"
       ignore_user_description: "Ignori kaj forigi uzanton de ĉiuj aspektoj?"
       like: "Ŝati"
+      nsfw: "This post has been flagged as NSFW by its author. %{link}"
       shared_with: "Partoprenita kun: %{aspect_names}"
+      show: "show"
       unlike: "Ne plu ŝati"
       via: "per %{link}"
       viewable_to_anyone: "Tiu ĉi afiŝo videblas de iu ajn en la reto"
@@ -879,7 +883,16 @@ eo:
       change_email: "Redakti retpoŝtadreso"
       change_language: "Ŝanĝi lingvon"
       change_password: "Ŝanĝi pasvorton"
-      close_account: "Malaniĝi"
+      close_account:
+        dont_go: "Hey, please don't go!"
+        if_you_want_this: "If you really want this, type in your password below and click 'Close Account'"
+        lock_username: "This will lock your username if you decided to sign back up."
+        locked_out: "You will get signed out and locked out of your account."
+        make_diaspora_better: "We want you to help us make Diaspora better, so you should help us out instead of leaving. If you do want to leave, we want you to know what happens next."
+        mr_wiggles: "Mr Wiggles will be sad to see you go"
+        no_turning_back: "Currently, there is no turning back."
+        what_we_delete: "We delete all of your posts, profile data, as soon as humanly possible. Your comments will hang around, but be associated with your Diaspora Handle."
+      close_account_text: "Close Account"
       comment_on_post: "...iu komentas pri via afiŝo?"
       current_password: "Nuna pasvorto"
       download_photos: "elŝuti miajn bildojn"
@@ -942,3 +955,6 @@ eo:
     not_enabled: "webfinger ŝajnas ne esti ŝaltita ĉe la servilo de %{account}"
     xrd_fetch_failed: "estis eraro dum la venigado de al xrd de konto %{account}"
   welcome: Bonvenon!
+  will_paginate:
+    next_label: "next &raquo;"
+    previous_label: "&laquo; previous"

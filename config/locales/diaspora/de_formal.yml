@@ -48,6 +48,7 @@ de_formal:
       video_title:
         unknown: "Unbekannter Videotitel"
   are_you_sure: "Sind Sie sicher?"
+  are_you_sure_delete_account: "Are you sure you want to close your account? This can't be undone!"
   aspect_memberships:
     destroy:
       failure: "Die Person konnte nicht aus dem Aspekt entfernt werden"
@@ -516,6 +517,7 @@ de_formal:
       remove_contact: "Kontakt entfernen"
       remove_from: "%{name} aus %{aspect} entfernen?"
     show:
+      closed_account: "This account has been closed."
       does_not_exist: "Diese Person existiert nicht!"
       has_not_shared_with_you_yet: "%{name} hat bisher noch keine Beiträge mit Ihnen geteilt!"
       ignoring: "Sie ignorieren sämtliche Beiträge von %{name}."
@@ -769,7 +771,9 @@ de_formal:
       ignore_user: "%{name} ignorieren"
       ignore_user_description: "Benutzer ignorieren und aus allen Aspekten entfernen?"
       like: "Gefällt mir"
+      nsfw: "This post has been flagged as NSFW by its author. %{link}"
       shared_with: "Geteilt mit: %{aspect_names}"
+      show: "show"
       unlike: "Gefällt mir nicht mehr"
       via: "via %{link}"
       viewable_to_anyone: "Dieser Beitrag ist für jeden im Web sichtbar"
@@ -879,7 +883,16 @@ de_formal:
       change_email: "E-Mail-Adresse ändern"
       change_language: "Sprache ändern"
       change_password: "Passwort ändern"
-      close_account: "Konto schließen"
+      close_account:
+        dont_go: "Hey, please don't go!"
+        if_you_want_this: "If you really want this, type in your password below and click 'Close Account'"
+        lock_username: "This will lock your username if you decided to sign back up."
+        locked_out: "You will get signed out and locked out of your account."
+        make_diaspora_better: "We want you to help us make Diaspora better, so you should help us out instead of leaving. If you do want to leave, we want you to know what happens next."
+        mr_wiggles: "Mr Wiggles will be sad to see you go"
+        no_turning_back: "Currently, there is no turning back."
+        what_we_delete: "We delete all of your posts, profile data, as soon as humanly possible. Your comments will hang around, but be associated with your Diaspora Handle."
+      close_account_text: "Close Account"
       comment_on_post: "… jemand Ihren Beitrag kommentiert?"
       current_password: "Derzeitiges Kennwort"
       download_photos: "Meine Fotos herunterladen"
@@ -942,3 +955,6 @@ de_formal:
     not_enabled: "Webfinger scheint nicht für den Server von %{account} verfügbar zu sein."
     xrd_fetch_failed: "Die XRD-Datei von %{account} konnte nicht heruntergeladen werden."
   welcome: Willkommen!
+  will_paginate:
+    next_label: "next &raquo;"
+    previous_label: "&laquo; previous"
