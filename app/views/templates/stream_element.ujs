@@ -21,6 +21,7 @@
     </a>
 
     <div class="content">
+
       <div class="post_initial_info">
         <span class="from">
           <a href="/people/<%= author.id %>">
@@ -36,6 +37,12 @@
         </span>
       </div>
 
+      <% if(text !== null && text.match(/#nsfw/)) { %>
+        <div class="shield">
+          This post has been flagged as NSFW by its author. 
+        </div>
+      <% } %>
+
       <div class="post-content"> </div>
 
       <div class="info">
@@ -46,13 +53,13 @@
           </span>
         <% } %>
         <span class="post_scope">
-          <%= public === true ? "Public" : "Limited" %>
+          <%= public ? "Public" : "Limited" %>
           -
         </span>
 
         <span class="like_action">
-          <% if(user_like !== null) { %>
-          <a href="/posts/<%= id %>/likes/<%= user_like.id %>" class="unlike" data-method='delete' data-remote='true' rel='nofollow'>
+          <% if(user_like) { %>
+            <a href="/posts/<%= id %>/likes/<%= user_like.id %>" class="unlike" data-method='delete' data-remote='true' rel='nofollow'>
               Unlike
             </a>
           <% } else { %>
@@ -62,6 +69,23 @@
           <% } %>
         </span>
         ·
+
+        <% if(public) { %>
+          <span class="reshare_action">
+            <% if(root) {
+                var rootGuid = root.guid;
+              }
+              else {
+                var rootGuid = guid;
+            } %>
+            <a href="/reshares?root_guid=<%= rootGuid %>" data-confirm="Reshare Bob Grimm's post?" data-method="post" data-remote="true" rel="nofollow">
+              Reshare
+            </a>
+            ·
+          </span>
+        <% } %>
+
+
 
         <a href="#" class="focus_comment_textarea">
           Comment

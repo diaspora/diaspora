@@ -20,13 +20,7 @@ describe("App.views.Stream", function(){
 
     context("when rendering a Status Mesasage", function(){
       it("shows the status message in the content area", function(){
-        expect($.trim(this.statusElement.find(".post-content p").text())).toBe("hella infos yo!")
-      })
-    })
-
-    context("when rendering a Reshare", function(){
-      it("shows the reshare in the content area", function(){
-        expect($.trim(this.reshareElement.find(".content h2").text())).toBe("this is a reshare");
+        expect(this.statusElement.find(".post-content p").text()).toContain("jimmy's 2 whales")
       })
     })
   })

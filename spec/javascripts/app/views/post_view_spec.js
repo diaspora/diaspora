@@ -10,17 +10,66 @@ describe("App.views.Post", function(){
 
       this.collection = new App.Collections.Stream(posts);
       this.statusMessage = this.collection.models[0];
-
-      this.view = new App.Views.Post({model : this.statusMessage}).render();
-      this.statusElement = $(this.view.el)
     })
 
-    context("comment clicking", function(){
-      it("shows the status message in the content area", function(){
-        console.log(this.statusElement);
-        //expect(this.statusElement).toBe("hella infos yo!")
+    context("NSFW", function(){
+      it("contains a shield element", function(){
+        this.statusMessage.set({text : "this is safe for work. #sfw"});
+
+        var view = new App.Views.Post({model : this.statusMessage}).render();
+        var statusElement = $(view.el)
+
+        expect(statusElement.find(".shield").html()).toBeNull();
+      })
+
+      it("does not contain a shield element", function(){
+        this.statusMessage.set({text : "nudie magazine day! #nsfw"});
+
+        var view = new App.Views.Post({model : this.statusMessage}).render();
+        var statusElement = $(view.el)
+
+        expect(statusElement.find(".shield").html()).toNotBe(null);
       })
     })
 
+    context("Reshare link", function(){
+      it("is present if the post is public", function(){
+        this.statusMessage.set({"public" : true});
+
+        var view = new App.Views.Post({model : this.statusMessage}).render();
+        var statusElement = $(view.el)
+
+        expect(statusElement.find(".reshare_action")).toNotBe(null);
+      })
+
+      it("is not present if the post is not public", function(){
+        this.statusMessage.set({"public" : false});
+
+        var view = new App.Views.Post({model : this.statusMessage}).render();
+        var statusElement = $(view.el)
+
+        expect(statusElement.find(".reshare_action").html()).toBeNull();
+      })
+    })
+
+    context("Like link", function(){
+      it("displays 'Unlike' if the current user has already liked the post", function(){
+        this.statusMessage.set({user_like : null});
+
+        var view = new App.Views.Post({model : this.statusMessage}).render();
+        var statusElement = $(view.el)
+
+        expect(statusElement.find(".like_action a").text()).toContain('Like');
+      })
+
+      it("displays 'Like' if the current user has not already liked the post", function(){
+        this.statusMessage.set({user_like : { id : 1 }});
+
+        var view = new App.Views.Post({model : this.statusMessage}).render();
+        var statusElement = $(view.el)
+
+        expect(statusElement.find(".like_action a").text()).toContain('Unlike');
+      })
+    })
   })
 })
