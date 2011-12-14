@@ -53,7 +53,7 @@ class Post < ActiveRecord::Base
   # gives the last three comments on the post
   def last_three_comments
     return if self.comments_count == 0
-    self.comments.last(3)
+    self.comments.includes(:author => :profile).last(3)
   end
 
   def self.excluding_blocks(user)
