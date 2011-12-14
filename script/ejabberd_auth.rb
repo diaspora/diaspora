@@ -30,8 +30,6 @@ class EjabberdAuthentication
         0
       end
 
-      `echo "#{[operation, username, domain, password, response].join(' ')}" >> /home/lasek/Scrivania/foo.txt`
-
       STDOUT.syswrite([2, response].pack('nn'))
     end
 
