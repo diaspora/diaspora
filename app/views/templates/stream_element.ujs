@@ -38,12 +38,17 @@
       </div>
 
       <% if(text !== null && text.match(/#nsfw/)) { %>
-        <div class="shield">
-          This post has been flagged as NSFW by its author. 
-        </div>
+        <div class="shield_wrapper">
+          <div class="shield">
+            This post has been flagged as NSFW by its author.
+          </div>
       <% } %>
 
       <div class="post-content"> </div>
+
+      <% if(text !== null && text.match(/#nsfw/)) { %>
+        </div>
+      <% } %>
 
       <div class="info">
         <% if(provider_display_name != null) { %>

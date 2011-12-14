@@ -32,9 +32,17 @@ App.Views.Stream = Backbone.View.extend({
   loadMore: function(evt) {
     if(evt) { evt.preventDefault(); }
 
+    this.addLoader();
+
     this.collection.fetch({
       add: true,
       success: this.collectionFetched
     });
+  },
+
+  addLoader: function(){
+    this.$("#paginate").html($("<img>", {
+      src : "/images/ajax-loader.gif"
+    }));
   }
 });
