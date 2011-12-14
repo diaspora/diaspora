@@ -2,12 +2,12 @@
   <div class="right controls">
 
     <% if(author.id != current_user.id) { %>
-      <a href="/blocks?block[person_id]=<%= author.id %>" class="block_user control_icon" data-confirm="Ignore and remove user from all aspects?" data-method="post" rel="nofollow" data-original-title="Ignore">
-        <img alt="Ignoreuser" src="/images/icons/ignoreuser.png">
+      <a href="/blocks?block[person_id]=<%= author.id %>" class="block_user control_icon" data-confirm="Ignore and remove user from all aspects?" data-method="post" rel="nofollow" title="Ignore">
+        <img alt="Ignoreuser" src="/images/icons/ignoreuser.png"/>
       </a>
     <% } %>
 
-    <a href="#" class="delete control_icon remove_post">
+    <a href="#" class="delete control_icon remove_post" title="Delete">
       <img src="/images/deletelabel.png"/>
     </a>
 
@@ -57,7 +57,8 @@
             -
           </span>
         <% } %>
-        <span class="post_scope">
+
+        <span class="post_scope" title="<%= public ? 'Viewable to anyone on the web' : 'Only certain people can see this'%>">
           <%= public ? "Public" : "Limited" %>
           -
         </span>
@@ -89,8 +90,6 @@
             ·
           </span>
         <% } %>
-
-
 
         <a href="#" class="focus_comment_textarea">
           Comment

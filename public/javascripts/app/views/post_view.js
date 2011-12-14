@@ -9,21 +9,17 @@ App.Views.Post = App.Views.StreamObject.extend({
   },
 
   render: function() {
-    var self = this;
     this.el = $(this.template($.extend(
       this.model.toJSON(),
       App.user()
     )))[0];
 
-    this.delegateEvents(); //we need this because we are explicitly setting this.el in this.render()
-
-    this.$(".comments").html(new App.Views.CommentStream({
-      model: this.model
-    }).render().el);
-
-    this.renderPostContent();
+    this.initializeTooltips()
+        .renderPostContent()
+        .renderComments();
 
     this.$(".details time").timeago();
+    this.delegateEvents(); //we need this because we are explicitly setting this.el in this.render()
 
     return this;
   },
@@ -34,6 +30,24 @@ App.Views.Post = App.Views.StreamObject.extend({
     var postView = new postClass({ model : this.model });
 
     this.$(".post-content").html(postView.render().el);
+
+    return this;
+  },
+
+  renderComments: function(){
+    this.$(".comments").html(new App.Views.CommentStream({
+      model: this.model
+    }).render().el);
+
+    return this;
+  },
+
+  initializeTooltips: function(){
+    $([
+      this.$(".delete"),
+      this.$(".block_user"),
+      this.$(".post_scope")
+    ]).map(function() { this.twipsy(); });
 
     return this;
   },
