@@ -75,7 +75,7 @@
         </span>
         ·
 
-        <% if(public) { %>
+        <% if(public && author.id != current_user.id) { %>
           <span class="reshare_action">
             <% if(root) {
                 var rootGuid = root.guid;

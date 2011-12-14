@@ -2,7 +2,8 @@ App.Views.Post = Backbone.View.extend({
 
   events: {
     "click .focus_comment_textarea": "focusCommentTextarea",
-    "focus .comment_box": "commentTextareaFocused"
+    "focus .comment_box": "commentTextareaFocused",
+    "click .delete:first": "destroyPost"
   },
 
   initialize: function(options) {
@@ -51,6 +52,19 @@ App.Views.Post = Backbone.View.extend({
 
   commentTextareaFocused: function(evt){
     this.$("form").removeClass('hidden').addClass("open");
+  },
+
+  // NOTE: pull this out into a base class
+  destroyPost: function(evt){
+    if(evt){ evt.preventDefault(); }
+
+    var domElement = this.el;
+
+    this.model.destroy({
+      success: function(){
+        $(domElement).remove();
+      }
+    });
   }
 
 });

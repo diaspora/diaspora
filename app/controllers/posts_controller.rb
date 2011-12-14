@@ -52,6 +52,7 @@ class PostsController < ApplicationController
       current_user.retract(@post)
       respond_to do |format|
         format.js {render 'destroy'}
+        format.json { render :nothing => true, :status => 204 }
         format.all {redirect_to multi_path}
       end
     else
