@@ -1,11 +1,9 @@
-App.Views.Comment = Backbone.View.extend({
-  events : {
-    "click .delete": "destroyComment"
-  },
+App.Views.Comment = App.Views.StreamObject.extend({
 
-  initialize: function(options) {
-    this.model = options.model;
-    this.template = _.template($("#comment-template").html());
+  template_name: "#comment-template",
+
+  events : {
+    "click .delete:first": "destroyModel"
   },
 
   render: function() {
@@ -17,18 +15,5 @@ App.Views.Comment = Backbone.View.extend({
     this.delegateEvents(); //we need this because we are explicitly setting this.el in this.render()
 
     return this;
-  },
-
-  // NOTE: pull this out into a base class
-  destroyComment: function(evt) {
-    if(evt) { evt.preventDefault() }
-
-    var domElement = this.el;
-
-    this.model.destroy({
-      success: function(){
-        $(domElement).remove();
-      }
-    });
   }
 });

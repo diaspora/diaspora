@@ -1,14 +1,11 @@
-App.Views.Post = Backbone.View.extend({
+App.Views.Post = App.Views.StreamObject.extend({
+
+  template_name: "#stream-element-template",
 
   events: {
     "click .focus_comment_textarea": "focusCommentTextarea",
     "focus .comment_box": "commentTextareaFocused",
-    "click .delete:first": "destroyPost"
-  },
-
-  initialize: function(options) {
-    this.model = options.model;
-    this.template = _.template($("#stream-element-template").html());
+    "click .delete:first": "destroyModel"
   },
 
   render: function() {
@@ -27,7 +24,6 @@ App.Views.Post = Backbone.View.extend({
     this.renderPostContent();
 
     this.$(".details time").timeago();
-    this.$("label").inFieldLabels();
 
     return this;
   },
@@ -52,19 +48,5 @@ App.Views.Post = Backbone.View.extend({
 
   commentTextareaFocused: function(evt){
     this.$("form").removeClass('hidden').addClass("open");
-  },
-
-  // NOTE: pull this out into a base class
-  destroyPost: function(evt){
-    if(evt){ evt.preventDefault(); }
-
-    var domElement = this.el;
-
-    this.model.destroy({
-      success: function(){
-        $(domElement).remove();
-      }
-    });
   }
-
 });

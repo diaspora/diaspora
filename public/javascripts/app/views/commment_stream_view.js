@@ -19,6 +19,8 @@ App.Views.CommentStream = Backbone.View.extend({
       App.user()
     )));
 
+    this.$("label").inFieldLabels();
+
     this.model.comments.each(this.appendComment);
 
     return this;
