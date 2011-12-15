@@ -84,7 +84,7 @@ es:
       updated: "Tu contraseña ha sido modificada. Ya has accedido a tu cuenta."
     registrations:
       destroyed: "¡Adiós! Tu cuenta ha sido cancelada. Esperamos volver a verte pronto."
-      signed_up: "Te has registrado con éxito. Un mensaje de confirmación ha sido enviada a tu email."
+      signed_up: "Te has registrado con éxito. Un mensaje de confirmación ha sido enviado a tu email."
       updated: "Has actualizado tu cuenta con éxito."
     sessions:
       new:

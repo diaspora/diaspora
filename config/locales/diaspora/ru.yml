@@ -956,5 +956,5 @@ ru:
     xrd_fetch_failed: "Произошла ошибка при получении xrd с %{account}"
   welcome: "Добро пожаловать!"
   will_paginate:
-    next_label: "next &raquo;"
-    previous_label: "&laquo; previous"
+    next_label: "вперед &raquo;"
+    previous_label: "&laquo; назад"

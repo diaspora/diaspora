@@ -807,8 +807,8 @@ fr:
       title: "Vos aspects"
     aspects_stream: "Aspects"
     comment_stream:
-      contacts_title: "Vos commentaires apportés sur les interventions d'autres personnes"
-      title: "Interventions commentées"
+      contacts_title: "Vos commentaires apportés sur les messages d'autres personnes"
+      title: "Messages commentés"
     commented_on: "commenté"
     community_spotlight_stream: "Actualités de la communauté"
     followed_tag:
@@ -956,5 +956,5 @@ fr:
     xrd_fetch_failed: "une erreur est survenue lors de la récupération du xrd du compte %{account}"
   welcome: "Bienvenue !"
   will_paginate:
-    next_label: "next &raquo;"
-    previous_label: "&laquo; previous"
+    next_label: "suivant &raquo;"
+    previous_label: "&laquo; précédent"

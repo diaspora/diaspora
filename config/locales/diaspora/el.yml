@@ -48,7 +48,7 @@ el:
       video_title:
         unknown: "Άγνωστος τίτλος video"
   are_you_sure: "Είστε σίγουρος/η;"
-  are_you_sure_delete_account: "Are you sure you want to close your account? This can't be undone!"
+  are_you_sure_delete_account: "Σίγουρα θέλετε να κλείσετε τον λογαριασμό σας; Αυτό δεν μπορεί να αναιρεθεί!"
   aspect_memberships:
     destroy:
       failure: "Αποτυχία στην αφαίρεση προσώπου από την πτυχή"
@@ -517,7 +517,7 @@ el:
       remove_contact: "διαγραφή επαφής"
       remove_from: "Αφαίρεση του χρήστη %{name} από τη πτυχή %{aspect}?"
     show:
-      closed_account: "This account has been closed."
+      closed_account: "Αυτός ο λογαριασμός έχει κλείσει."
       does_not_exist: "Ο/Η χρήστης δεν υπάρχει!"
       has_not_shared_with_you_yet: "Ο χρήστης %{name} δεν μοιράζεται ακόμα κάποια δημοσίευση μαζί σας!"
       ignoring: "Αγνοείτε όλες τις αναρτήσεις από %{name}."
@@ -580,7 +580,7 @@ el:
       permalink: "permalink"
   previous: "προηγούμενο"
   privacy: "Απόρρητο"
-  privacy_policy: "Privacy Policy"
+  privacy_policy: "Πολιτική Ιδιωτικού Απορρήτου"
   profile: "Προφίλ"
   profiles:
     edit:
@@ -807,8 +807,8 @@ el:
       title: "Οι Πτυχές σας"
     aspects_stream: "Πτυχές"
     comment_stream:
-      contacts_title: "People whose posts you commented on"
-      title: "Commented Posts"
+      contacts_title: "Χρήστες των οποίων έχετε σχολιάσει αναρτήσεις"
+      title: "Σχολιασμένες Αναρτήσεις"
     commented_on: "σχολιάστηκε"
     community_spotlight_stream: "Αναρτήσεις Κοινότητας"
     followed_tag:
@@ -818,7 +818,7 @@ el:
       title: "#Ετικέτες που ακολουθείτε"
     followed_tags_stream: "#Ετικέτες που ακολουθείτε"
     like_stream:
-      contacts_title: "People whose posts you like"
+      contacts_title: "Χρήστες των οποίων αναρτήσεις σας αρέσουν"
       title: "Like Stream"
     mentioned_stream: "@Αναφορές"
     mentions:
@@ -839,7 +839,7 @@ el:
   tag_followings:
     create:
       failure: "Η προσπάθεια σας να ακολουθήσετε την ετικέτα #%{name} απέτυχε. Μήπως την ακολουθείτε ήδη;"
-      none: "You cannot follow a blank tag!"
+      none: "Δεν μπορείτε να ακολουθήσετε μια κενή ετικέτα!"
       success: "Γιούπι! Ακολουθείτε επιτυχώς την ετικέτα #%{name}."
     destroy:
       failure: "Η προσπάθεια σας να σταματήσετε να ακολουθείτε την ετικέτα #%{name} απέτυχε. Μήπως έχετε ήδη σταματήσει να την ακολουθείτε;"
@@ -850,7 +850,7 @@ el:
       followed_by: "ακολουθείται από"
       following: "Ακολουθείτε την ετικέτα #%{tag}"
       nobody_talking: "Κανένας δεν μιλάει ακόμα για την ετικέτα %{tag}."
-      none: "The empty tag does not exist!"
+      none: "Η κενή ετικέτα δεν υπάρχει!"
       people_tagged_with: "Άτομα με την ετικέτα %{tag}"
       posts_tagged_with: "Αναρτήσεις με την ετικέτα #%{tag}"
       stop_following: "Σταματήσατε να ακολουθείτε την ετικέτα #%{tag}"
@@ -884,7 +884,7 @@ el:
       change_language: "Αλλαγή Γλώσσας"
       change_password: "Αλλαγή κωδικού πρόσβασης"
       close_account:
-        dont_go: "Hey, please don't go!"
+        dont_go: "Εη, σε παρακαλώ μη φεύγεις!"
         if_you_want_this: "If you really want this, type in your password below and click 'Close Account'"
         lock_username: "This will lock your username if you decided to sign back up."
         locked_out: "You will get signed out and locked out of your account."
@@ -892,7 +892,7 @@ el:
         mr_wiggles: "Mr Wiggles will be sad to see you go"
         no_turning_back: "Currently, there is no turning back."
         what_we_delete: "We delete all of your posts, profile data, as soon as humanly possible. Your comments will hang around, but be associated with your Diaspora Handle."
-      close_account_text: "Close Account"
+      close_account_text: "Κλείσιμο λογαριάσμου"
       comment_on_post: "...κάποιος σχολίασε την ανάρτησή σας?"
       current_password: "Τρέχον κωδικός πρόσβασης"
       download_photos: "κατέβασε τις φωτογραφίες μου"

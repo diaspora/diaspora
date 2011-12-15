@@ -956,5 +956,5 @@ ko:
     xrd_fetch_failed: "%{account} 계정으로부터 xrd를 가져오는 것에 실패했습니다."
   welcome: 환영합니다!
   will_paginate:
-    next_label: "next &raquo;"
-    previous_label: "&laquo; previous"
+    next_label: "다음 &raquo;"
+    previous_label: "&laquo; 이전"
