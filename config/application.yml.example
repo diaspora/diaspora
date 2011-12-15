@@ -9,6 +9,11 @@ defaults: &defaults
   #
 
   # Hostname of the machine you're running Diaspora on, as seen from the internet.
+  # This should be the URL you want to use to access the pod. So if you plan to
+  # reverse proxy it, it should be the URL the proxy listens on.
+  # DO NOT CHNANGE THIS AFTER INITIAL SETUP UNLESS YOU KNOW WHAT YOU'RE DOING!
+  # However changing http to https is okay and has no consquences. If you do change it
+  # you have to start over as it's hardcoded into the database.
   # For development and testing, you can leave this as is.
   pod_url: "http://localhost:3000"
 
