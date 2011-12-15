@@ -67,21 +67,10 @@ App.Views.Post = App.Views.StreamObject.extend({
 
     var link = $(evt.target);
 
-    if(link.hasClass('like')){
-      this.model.likes.create({
-        target_id: this.model.get("id"),
-        target_type: "post",
-        positive: "true"
-      });
-    }
-    else {
-      var like = new App.Models.Like({
-        "id": this.model.get("user_like")["posts"]["id"],
-        target_type: "post",
-        target_id: this.model.get("id")
-      });
-
-      like.destroy();
+    if(link.hasClass('like')) {
+      this.model.likes.create();
+    } else {
+      this.model.likes.get(link.data("id")).destroy();
     }
 
     return this;

@@ -67,11 +67,11 @@
         </span>
 
         <% if(user_like) { %>
-          <a href="/posts/<%= id %>/likes/<%= user_like.id %>" class="like_action unlike" rel='nofollow'>
+          <a href="#" class="like_action unlike" data-id="<%= user_like.id %>" rel='nofollow'>
             Unlike
           </a>
         <% } else { %>
-          <a href="/posts/<%= id %>/likes?positive=true" class="like_action like" rel='nofollow'>
+          <a href="#" class="like_action like" rel='nofollow'>
             Like
           </a>
         <% } %>
