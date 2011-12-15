@@ -4,7 +4,7 @@ App.Views.Stream = Backbone.View.extend({
   },
 
   initialize: function() {
-    _.bindAll(this, "render", "appendPost", "collectionFetched", "loadMore");
+    _.bindAll(this, "appendPost", "collectionFetched", "loadMore");
 
     this.collection = this.collection || new App.Collections.Stream;
     this.collection.bind("add", this.appendPost);
@@ -12,7 +12,7 @@ App.Views.Stream = Backbone.View.extend({
 
   render : function(){
     _.each(this.collection.models, this.appendPost)
-    return this
+    return this;
   },
 
   appendPost: function(post) {

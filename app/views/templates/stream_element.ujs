@@ -41,6 +41,9 @@
         <div class="shield_wrapper">
           <div class="shield">
             This post has been flagged as NSFW by its author.
+            <a href="#">
+              show
+            </a>
           </div>
       <% } %>
 
@@ -63,32 +66,28 @@
           -
         </span>
 
-        <span class="like_action">
-          <% if(user_like) { %>
-            <a href="/posts/<%= id %>/likes/<%= user_like.id %>" class="unlike" data-method='delete' data-remote='true' rel='nofollow'>
-              Unlike
-            </a>
-          <% } else { %>
-            <a href="/posts/<%= id %>/likes?positive=true" class="like" data-method='post' data-remote='true' rel='nofollow'>
-              Like
-            </a>
-          <% } %>
-        </span>
+        <% if(user_like) { %>
+          <a href="/posts/<%= id %>/likes/<%= user_like.id %>" class="like_action unlike" rel='nofollow'>
+            Unlike
+          </a>
+        <% } else { %>
+          <a href="/posts/<%= id %>/likes?positive=true" class="like_action like" rel='nofollow'>
+            Like
+          </a>
+        <% } %>
         ·
 
         <% if(public && author.id != current_user.id) { %>
-          <span class="reshare_action">
-            <% if(root) {
-                var rootGuid = root.guid;
-              }
-              else {
-                var rootGuid = guid;
-            } %>
-            <a href="/reshares?root_guid=<%= rootGuid %>" data-confirm="Reshare Bob Grimm's post?" data-method="post" data-remote="true" rel="nofollow">
-              Reshare
-            </a>
-            ·
-          </span>
+          <% if(root) {
+              var rootGuid = root.guid;
+            }
+            else {
+              var rootGuid = guid;
+          } %>
+          <a href="/reshares?root_guid=<%= rootGuid %>" class="reshare_action" data-confirm="Reshare Bob Grimm's post?" data-method="post" data-remote="true" rel="nofollow">
+            Reshare
+          </a>
+          ·
         <% } %>
 
         <a href="#" class="focus_comment_textarea">

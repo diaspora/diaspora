@@ -54,6 +54,8 @@ var Stream = {
 };
 
 $(document).ready(function() {
+  if( Diaspora.backboneEnabled() ){ return }
+
   if( $(Stream.selector).length == 0 ) { return }
   Stream.initializeLives();
 });

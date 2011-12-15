@@ -77,11 +77,16 @@
 
       Diaspora.page = new Page();
     }
-    
+
     if(!$.mobile)//why does this need this?
       $.extend(Diaspora.page, new Diaspora.BasePage($(document.body)));
     Diaspora.page.publish("page/ready", [$(document.body)])
   };
+
+  // temp hack to check if backbone is enabled for the page
+  Diaspora.backboneEnabled = function(){
+    return window.App.router.routes[window.location.pathname.replace("/","")];
+  }
 
   window.Diaspora = Diaspora;
 })();

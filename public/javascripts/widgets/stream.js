@@ -4,6 +4,8 @@
     this.streamElements = {};
 
     this.subscribe("widget/ready", function(evt, stream) {
+      if( Diaspora.backboneEnabled() ){ return }
+
       $.extend(self, {
         stream: $(stream),
         mainStream: $(stream).find('#main_stream'),

@@ -37,7 +37,7 @@ class LikesController < ApplicationController
       respond_to do |format|
         format.any { }
         format.js { render 'likes/update' }
-        format.json { render :nothing => true, :status => :ok}
+        format.json { render :nothing => true, :status => 204}
       end
     else
       respond_to do |format|

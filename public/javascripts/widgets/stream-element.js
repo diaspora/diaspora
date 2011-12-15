@@ -3,6 +3,8 @@
     var self = this;
 
     this.subscribe("widget/ready", function(evt, element) {
+      if( Diaspora.backboneEnabled() ){ return }
+
       self.postGuid = element.attr("id");
 
       $.extend(self, {

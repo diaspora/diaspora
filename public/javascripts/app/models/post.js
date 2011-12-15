@@ -5,6 +5,7 @@ App.Models.Post = Backbone.Model.extend({
 
   initialize: function() {
     this.comments = new App.Collections.Comments(this.get("last_three_comments"));
+    this.likes = new App.Collections.Likes();
   },
 
   createdAt: function(){

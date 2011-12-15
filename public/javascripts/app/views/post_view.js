@@ -5,7 +5,9 @@ App.Views.Post = App.Views.StreamObject.extend({
   events: {
     "click .focus_comment_textarea": "focusCommentTextarea",
     "focus .comment_box": "commentTextareaFocused",
-    "click .delete:first": "destroyModel"
+    "click .shield a": "removeNsfwShield",
+    "click .remove_post": "destroyModel",
+    "click .like_action": "toggleLike"
   },
 
   render: function() {
@@ -42,12 +44,45 @@ App.Views.Post = App.Views.StreamObject.extend({
     return this;
   },
 
+  removeNsfwShield: function(evt){
+    if(evt){ evt.preventDefault(); }
+
+    $(evt.target).parent(".shield").remove();
+
+    return this;
+  },
+
   initializeTooltips: function(){
     $([
       this.$(".delete"),
       this.$(".block_user"),
       this.$(".post_scope")
     ]).map(function() { this.twipsy(); });
+
+    return this;
+  },
+
+  toggleLike: function(evt) {
+    if(evt) { evt.preventDefault(); }
+
+    var link = $(evt.target);
+
+    if(link.hasClass('like')){
+      this.model.likes.create({
+        target_id: this.model.get("id"),
+        target_type: "post",
+        positive: "true"
+      });
+    }
+    else {
+      var like = new App.Models.Like({
+        "id": this.model.get("user_like")["posts"]["id"],
+        target_type: "post",
+        target_id: this.model.get("id")
+      });
+
+      like.destroy();
+    }
 
     return this;
   },

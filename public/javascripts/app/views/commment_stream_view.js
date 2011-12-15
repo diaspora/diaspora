@@ -12,8 +12,6 @@ App.Views.CommentStream = Backbone.View.extend({
   },
 
   render: function() {
-    var self = this;
-
     $(this.el).html(this.template($.extend(
       this.model.toJSON(),
       App.user()

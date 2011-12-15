@@ -9,7 +9,7 @@ javascripts:
     - public/javascripts/vendor/swfobject.js
     - public/javascripts/vendor/web_socket.js
   jquery:
-    - public/javascripts/vendor/jquery162.min.js
+    - public/javascripts/vendor/jquery-1.7.1.min.js
 
   main:
     - public/javascripts/vendor/underscore.js
