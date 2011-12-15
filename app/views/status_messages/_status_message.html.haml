@@ -2,7 +2,6 @@
 -#   licensed under the Affero General Public License version 3 or later.  See
 -#   the COPYRIGHT file.
 
-
 - if photos.size > 0
   .photo_attachments
     .big_stream_photo
@@ -16,6 +15,6 @@
           = link_to (image_tag photo.url(:thumb_small), :class => 'stream-photo thumb_small', 'data-small-photo' => photo.url(:thumb_medium), 'data-full-photo' => photo.url), photo_path(photo), :class => 'stream-photo-link'
 
 %div{:class => [direction_for(post.text), 'collapsible']}
-  != markdownify(post, :youtube_maps => post[:youtube_titles])
+  != markdownify(post)
   - if post.o_embed_cache_id.present?
     = o_embed_html(post.o_embed_cache)

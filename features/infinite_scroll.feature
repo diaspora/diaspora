@@ -11,25 +11,8 @@ Feature: infinite scroll
       And I follow "Your Aspects"
       And I wait for the ajax to finish
 
-    Scenario: on the main stream by activity
-      When I follow "commented on"
-      And I wait for the ajax to finish
-      Then I should see 15 posts
-      And I should see "alice - 26 - #seeded"
-
-      When I scroll down
-      Then I should see 30 posts
-      And I should see "alice - 11 - #seeded"
-
-      When I scroll down
-      Then I should see 40 posts
-      And I should see "alice - 1 - #seeded"
-
-      When I scroll down
-      Then I should see "No more"
-
-    Scenario: on the main stream post created time
-      And I go to the home page
+    Scenario: on the main stream
+      When I go to the home page
       And I wait for the ajax to finish
       Then I should see 15 posts
       And I should see "alice - 15 - #seeded"
@@ -37,13 +20,6 @@ Feature: infinite scroll
       When I scroll down
       Then I should see 30 posts
       And I should see "alice - 30 - #seeded"
-
-      When I scroll down
-      Then I should see 40 posts
-      And I should see "alice - 40 - #seeded"
-
-      When I scroll down
-      Then I should see "No more"
 
     Scenario: On a tag page
       When I go to the tag page for "seeded"
@@ -54,13 +30,6 @@ Feature: infinite scroll
       Then I should see 30 posts
       And I should see "alice - 30 - #seeded"
 
-      When I scroll down
-      Then I should see 40 posts
-      And I should see "alice - 40 - #seeded"
-
-      When I scroll down
-      Then I should see "No more"
-
     Scenario: On a profile page
       And I am on "alice@alice.alice"'s page
       Then I should see 15 posts
@@ -69,10 +38,3 @@ Feature: infinite scroll
       When I scroll down
       Then I should see 30 posts
       And I should see "alice - 30 - #seeded"
-
-      When I scroll down
-      Then I should see 40 posts
-      And I should see "alice - 40 - #seeded"
-
-      When I scroll down
-      Then I should see "No more"

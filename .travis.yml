@@ -3,14 +3,17 @@ branches:
     - 'master'
 
 rvm:
-  - 1.8.7
   - ree
   - 1.9.2
+  - 1.9.3
 
 env:
   - DB=postgres BUILD_TYPE=other
   - DB=mysql BUILD_TYPE=other
+  - DB=postgres BUILD_TYPE=cucumber
+  - DB=mysql BUILD_TYPE=cucumber
 
+before_install: gem install bundler --pre
 bundler_args: "--without development production"
 before_script: "./config/ci/before-travis.sh"
 script: "bundle exec rake travis"

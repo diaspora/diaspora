@@ -19,7 +19,3 @@ Feature: private messages
     When I sign in as "alice@alice.alice"
     And I reply with "hey, how you doing?"
     Then I should see "hey, how you doing?" within ".stream_container"
-
-  Scenario: send an empty message
-    When I send a message with subject "Empty Greetings" and text " " to "Alice Awesome"
-    Then I should not see "Empty Greetings" within "#conversation_inbox"

@@ -88,7 +88,7 @@ fr:
       updated: "Vous avez mis à jour votre compte."
     sessions:
       new:
-        alpha_software: "Vous êtes sur le point d'utiliser une application en version alpha."
+        alpha_software: ""
         bugs_and_feedback: "Ne vous étonnez pas, vous allez rencontrer des bugs. Nous vous encourageons à utiliser le bouton Feedback sur le côté droit de votre navigateur pour signaler tout dysfonctionnement ! Nous travaillerons au plus vite pour régler chaque problème que vous signalerez."
         bugs_and_feedback_mobile: "Ne vous étonnez pas, vous allez rencontrer des bugs. Nous vous encourageons à nous signaler tout dysfonctionnement ! Nous travaillerons au plus vite pour régler chaque problème que vous signalerez."
         login: "Se connecter"

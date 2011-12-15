@@ -65,7 +65,7 @@ da:
       year: "ca. et år"
       years: "%d år"
     videos:
-      unknown: "Ukendt video type"
+      unknown: "Ukendt videotype"
       watch: "Se denne video på {{provider}}"
     web_sockets:
       disconnected: "Forbindelse er lukket; indlæg vil ikke længere blive opdateret live."

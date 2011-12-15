@@ -48,6 +48,7 @@ zh-TW:
       video_title:
         unknown: "影片標題不明"
   are_you_sure: 你確定嗎?
+  are_you_sure_delete_account: "你確定要關閉帳號嗎? 沒辦法復原喔!"
   aspect_memberships:
     destroy:
       failure: "從面向中移除聯絡人失敗"
@@ -516,6 +517,7 @@ zh-TW:
       remove_contact: "刪除聯絡人"
       remove_from: "要從 %{aspect} 刪除 %{name} 嗎?"
     show:
+      closed_account: 帳號已經關閉了.
       does_not_exist: 聯絡人不存在!
       has_not_shared_with_you_yet: "%{name} 還沒跟你分享任何貼文!"
       ignoring: "你目前會忽視 %{name} 的所有貼文."
@@ -578,7 +580,7 @@ zh-TW:
       permalink: "靜態連結"
   previous: "前面"
   privacy: "隱私"
-  privacy_policy: "Privacy Policy"
+  privacy_policy: "隱私方案"
   profile: "個人檔案"
   profiles:
     edit:
@@ -769,7 +771,9 @@ zh-TW:
       ignore_user: "忽視 %{name}"
       ignore_user_description: "是否要忽視該使用者, 並將其從所有面向中移除?"
       like: "讚"
+      nsfw: "This post has been flagged as NSFW by its author. %{link}"
       shared_with: "分享給: %{aspect_names}"
+      show: "show"
       unlike: "收回讚"
       via: "經由%{link}"
       viewable_to_anyone: "任何網頁使用者都能看到這則貼文"
@@ -803,8 +807,8 @@ zh-TW:
       title: "你的面向"
     aspects_stream: "面向"
     comment_stream:
-      contacts_title: "People whose posts you commented on"
-      title: "Commented Posts"
+      contacts_title: "你發表過意見的貼文作者"
+      title: "有意見的貼文"
     commented_on: "有意見的"
     community_spotlight_stream: "社群焦點"
     followed_tag:
@@ -814,8 +818,8 @@ zh-TW:
       title: "#追蹤中的標籤"
     followed_tags_stream: "#追蹤中的標籤"
     like_stream:
-      contacts_title: "People whose posts you like"
-      title: "Like Stream"
+      contacts_title: "你說讚的貼文作者"
+      title: "按讚流水帳"
     mentioned_stream: "@指指點點"
     mentions:
       contacts_title: "對你指指點點過的人"
@@ -835,7 +839,7 @@ zh-TW:
   tag_followings:
     create:
       failure: "追蹤 #%{name} 失敗. 是否已經在追蹤了?"
-      none: "You cannot follow a blank tag!"
+      none: 不能夠追蹤空白標籤!
       success: "喔耶! 你已經開始追蹤 #%{name} 了."
     destroy:
       failure: "停止追蹤標籤 #%{name} 失敗. 也許你已經沒在追蹤了?"
@@ -846,11 +850,11 @@ zh-TW:
       followed_by: "追蹤者:"
       following: "正在追蹤 #%{tag}"
       nobody_talking: "還沒有人在討論 %{tag}."
-      none: "The empty tag does not exist!"
+      none: 不存在空白標籤!
       people_tagged_with: "標記為 %{tag} 的人"
       posts_tagged_with: "標記為 #%{tag} 的貼文"
       stop_following: "停止追蹤 #%{tag}"
-  terms_and_conditions: "Terms and Conditions"
+  terms_and_conditions: "服務條款與細則"
   tokens:
     show:
       connect_to_cubbies: "與 Cubbi.es 連結"
@@ -879,7 +883,16 @@ zh-TW:
       change_email: 更改E-Mail
       change_language: "更改語言"
       change_password: "更改密碼"
-      close_account: "關閉帳號"
+      close_account:
+        dont_go: "Hey, please don't go!"
+        if_you_want_this: "If you really want this, type in your password below and click 'Close Account'"
+        lock_username: "This will lock your username if you decided to sign back up."
+        locked_out: "You will get signed out and locked out of your account."
+        make_diaspora_better: "We want you to help us make Diaspora better, so you should help us out instead of leaving. If you do want to leave, we want you to know what happens next."
+        mr_wiggles: "Mr Wiggles will be sad to see you go"
+        no_turning_back: "Currently, there is no turning back."
+        what_we_delete: "We delete all of your posts, profile data, as soon as humanly possible. Your comments will hang around, but be associated with your Diaspora Handle."
+      close_account_text: "關閉帳號"
       comment_on_post: "...當有人對你的貼文發表意見時?"
       current_password: "目前密碼"
       download_photos: "下載我的相片"
@@ -942,3 +955,6 @@ zh-TW:
     not_enabled: "%{account} 的主機似乎沒有啟用 webfinger"
     xrd_fetch_failed: "從 %{account} 這個帳號取得 xrd 時發生錯誤"
   welcome: 歡迎光臨!
+  will_paginate:
+    next_label: "next &raquo;"
+    previous_label: "&laquo; previous"

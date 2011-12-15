@@ -161,6 +161,13 @@ describe PeopleController do
       response.code.should == "404"
     end
 
+    it 'redirects home for closed account' do
+      @person = Factory.create(:person, :closed_account => true)
+      get :show, :id => @person.id
+      response.should be_redirect
+      flash[:notice].should_not be_blank
+    end
+
     it 'does not allow xss attacks' do
       user2 = bob
       profile = user2.profile
@@ -340,7 +347,7 @@ describe PeopleController do
       contact = alice.contact_for(bob.person)
       contacts = contact.contacts
       get :contacts, :person_id => bob.person.id
-      assigns(:contacts_of_contact).should == contacts
+      assigns(:contacts_of_contact).should =~ contacts
       response.should be_success
     end
 

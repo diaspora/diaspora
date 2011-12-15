@@ -15,7 +15,8 @@ class Contact < ActiveRecord::Base
   has_many :posts, :through => :share_visibilities, :source => :shareable, :source_type => 'Post'
 
   validate :not_contact_for_self,
-           :not_blocked_user
+           :not_blocked_user,
+           :not_contact_with_closed_account
 
   validates_presence_of :user
   validates_uniqueness_of :person_id, :scope => :user_id
@@ -23,7 +24,10 @@ class Contact < ActiveRecord::Base
   before_destroy :destroy_notifications,
                  :repopulate_cache!
 
-  # contact.sharing is true when contact.person is sharing with contact.user
+
+  scope :all_contacts_of_person, lambda {|x| where(:person_id => x.id)}
+  
+    # contact.sharing is true when contact.person is sharing with contact.user
   scope :sharing, lambda {
     where(:sharing => true)
   }
@@ -94,6 +98,12 @@ class Contact < ActiveRecord::Base
   end
 
   private
+  def not_contact_with_closed_account
+    if person_id && person.closed_account?
+      errors[:base] << 'Cannot be in contact with a closed account'
+    end
+  end
+
   def not_contact_for_self
     if person_id && person.owner == user
       errors[:base] << 'Cannot create self-contact'

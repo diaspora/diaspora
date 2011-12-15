@@ -137,7 +137,7 @@ describe AspectsController do
           :headers => {'Accept'=>'*/*'}
         ).to_return(
           :status  => 200,
-          :body    => "{ title: 'LazyTown song - Cooking By The Book' }",
+          :body    => '{ "title": "LazyTown song - Cooking By The Boo" }',
           :headers => {}
         )
 

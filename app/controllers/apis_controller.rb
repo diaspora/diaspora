@@ -4,6 +4,7 @@ class ApisController < ApplicationController
   respond_to :json
 
   def me
+#    debugger
     @person = @user.person
     render :json => {
                       :birthday => @person.profile.birthday,

@@ -6,8 +6,6 @@ class StatusMessage < Post
   include Diaspora::Socketable
   include Diaspora::Taggable
 
-  include YoutubeTitles
-  require File.join(Rails.root, 'lib/youtube_titles')
   include ActionView::Helpers::TextHelper
   include PeopleHelper
 
@@ -26,7 +24,6 @@ class StatusMessage < Post
 
   attr_accessible :text, :provider_display_name
   attr_accessor :oembed_url
-  serialize :youtube_titles, Hash
 
   after_create :create_mentions
 
@@ -45,6 +42,10 @@ class StatusMessage < Post
     joins(:likes).where(:likes => {:author_id => person.id})
   }
 
+  def self.guids_for_author(person)
+    Post.connection.select_values(Post.where(:author_id => person.id).select('posts.guid').to_sql)
+  end
+
   def self.user_tag_stream(user, tag_ids)
     owned_or_visible_by_user(user).
       tag_stream(tag_ids)
@@ -62,8 +63,13 @@ class StatusMessage < Post
   def raw_message
     read_attribute(:text)
   end
+
   def raw_message=(text)
     write_attribute(:text, text)
+  end
+  
+  def nsfw?
+    self.raw_message.include?('#nsfw')
   end
 
   def formatted_message(opts={})

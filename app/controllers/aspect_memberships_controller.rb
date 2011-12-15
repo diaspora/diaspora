@@ -75,7 +75,7 @@ class AspectMembershipsController < ApplicationController
     render :text => response_hash.to_json
   end
 
-  rescue_from ActiveRecord::RecordNotUnique do
+  rescue_from ActiveRecord::StatementInvalid do
     render :text => "Duplicate record rejected.", :status => 400
   end
 

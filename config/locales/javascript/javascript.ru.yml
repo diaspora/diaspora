@@ -15,7 +15,7 @@ ru:
       toggle:
         few: "В {{count}} аспектах"
         many: "В {{count}} аспектах"
-        one: "В {{count}} аспектах"
+        one: "В {{count}} аспекте"
         other: "В {{count}} аспектах"
         two: "В {{count}} аспектах"
         zero: "Выбрать аспекты"

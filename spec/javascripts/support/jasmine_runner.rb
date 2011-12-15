@@ -3,6 +3,7 @@ $:.unshift(ENV['JASMINE_GEM_PATH']) if ENV['JASMINE_GEM_PATH'] # for gem testing
 ENV["JASMINE_BROWSER"] = "firefox"
 
 require 'rubygems'
+require 'json'
 require 'jasmine'
 require 'rspec'
 jasmine_config_overrides = File.expand_path(File.join(File.dirname(__FILE__), 'jasmine_config.rb'))

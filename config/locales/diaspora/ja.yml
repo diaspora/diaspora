@@ -48,6 +48,7 @@ ja:
       video_title:
         unknown: "不明な動画タイトル"
   are_you_sure: 本当にいいですか。
+  are_you_sure_delete_account: "Are you sure you want to close your account? This can't be undone!"
   aspect_memberships:
     destroy:
       failure: 連絡先をアスペクトから除外するのに失敗しました。
@@ -516,6 +517,7 @@ ja:
       remove_contact: "連絡先を削除する"
       remove_from: "%{name}さんを%{aspect}から除外しますか。"
     show:
+      closed_account: "This account has been closed."
       does_not_exist: 存在しない連絡先です！
       has_not_shared_with_you_yet: "%{name} has not shared any posts with you yet!"
       ignoring: "You are ignoring all posts from %{name}."
@@ -769,7 +771,9 @@ ja:
       ignore_user: "Ignore %{name}"
       ignore_user_description: "Ignore and remove user from all aspects?"
       like: これ好き！
+      nsfw: "This post has been flagged as NSFW by its author. %{link}"
       shared_with: "Shared with: %{aspect_names}"
+      show: "show"
       unlike: これ好き！を取り消す
       via: "via %{link}"
       viewable_to_anyone: "This post is viewable to anyone on the web"
@@ -879,7 +883,16 @@ ja:
       change_email: "Change E-Mail"
       change_language: "言語変更"
       change_password: "パスワード変更"
-      close_account: "アカウント閉鎖"
+      close_account:
+        dont_go: "Hey, please don't go!"
+        if_you_want_this: "If you really want this, type in your password below and click 'Close Account'"
+        lock_username: "This will lock your username if you decided to sign back up."
+        locked_out: "You will get signed out and locked out of your account."
+        make_diaspora_better: "We want you to help us make Diaspora better, so you should help us out instead of leaving. If you do want to leave, we want you to know what happens next."
+        mr_wiggles: "Mr Wiggles will be sad to see you go"
+        no_turning_back: "Currently, there is no turning back."
+        what_we_delete: "We delete all of your posts, profile data, as soon as humanly possible. Your comments will hang around, but be associated with your Diaspora Handle."
+      close_account_text: "Close Account"
       comment_on_post: "自分の投稿にコメントがあったとき"
       current_password: "現在のパスワード"
       download_photos: "写真をダウンロードする"
@@ -942,3 +955,6 @@ ja:
     not_enabled: "%{account}のポッドではwebfingerが無効になっているようです。"
     xrd_fetch_failed: "%{account}のxrd取得にエラーが発生しました。"
   welcome: Welcome!
+  will_paginate:
+    next_label: "next &raquo;"
+    previous_label: "&laquo; previous"

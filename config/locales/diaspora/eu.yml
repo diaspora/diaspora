@@ -48,6 +48,7 @@ eu:
       video_title:
         unknown: "Bideo izen ezezaguna"
   are_you_sure: "Ziur al zaude?"
+  are_you_sure_delete_account: "Are you sure you want to close your account? This can't be undone!"
   aspect_memberships:
     destroy:
       failure: "Akatsa pertsona alderditik ezabatzean"
@@ -516,6 +517,7 @@ eu:
       remove_contact: "adiskidea ezabatu"
       remove_from: "%{name} ezabatu %{aspect} alderditik?"
     show:
+      closed_account: "This account has been closed."
       does_not_exist: "Pertsona hau ez dago!"
       has_not_shared_with_you_yet: "%{name}(e)k ez duzu mezurik partekatu zurekin oraindik!"
       ignoring: "You are ignoring all posts from %{name}."
@@ -769,7 +771,9 @@ eu:
       ignore_user: "Ignore %{name}"
       ignore_user_description: "Ignore and remove user from all aspects?"
       like: "Gustoko dut"
+      nsfw: "This post has been flagged as NSFW by its author. %{link}"
       shared_with: "%{aspect_names}(r)kin partekatua"
+      show: "show"
       unlike: "Ez dut gustoko"
       via: "%{link}(r)en bidez"
       viewable_to_anyone: "Mezu hau edonork ikusi dezake Interneten"
@@ -879,7 +883,16 @@ eu:
       change_email: "Aldatu e-posta"
       change_language: "Hizkuntza aldatu"
       change_password: "Pasahitza aldatu"
-      close_account: "Kontua Ezabatu"
+      close_account:
+        dont_go: "Hey, please don't go!"
+        if_you_want_this: "If you really want this, type in your password below and click 'Close Account'"
+        lock_username: "This will lock your username if you decided to sign back up."
+        locked_out: "You will get signed out and locked out of your account."
+        make_diaspora_better: "We want you to help us make Diaspora better, so you should help us out instead of leaving. If you do want to leave, we want you to know what happens next."
+        mr_wiggles: "Mr Wiggles will be sad to see you go"
+        no_turning_back: "Currently, there is no turning back."
+        what_we_delete: "We delete all of your posts, profile data, as soon as humanly possible. Your comments will hang around, but be associated with your Diaspora Handle."
+      close_account_text: "Close Account"
       comment_on_post: "...norbaitek zure mezu bat iruzkintzen duenean?"
       current_password: "Pasahitz zaharra"
       download_photos: "nire argazkiak jaitsi"
@@ -942,3 +955,6 @@ eu:
     not_enabled: "webfinger ez dago aktibatuta %{account} zerbitzariarengatik"
     xrd_fetch_failed: "akatsa sortu da %{account}(e)tik xrd lortzean"
   welcome: Ongietorri!
+  will_paginate:
+    next_label: "next &raquo;"
+    previous_label: "&laquo; previous"

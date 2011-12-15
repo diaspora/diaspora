@@ -48,6 +48,7 @@ en_shaw:
       video_title:
         unknown: "𐑩𐑯𐑯𐑴𐑯 𐑝𐑦𐑛𐑦𐑴 𐑑𐑲𐑑𐑩𐑤"
   are_you_sure: "𐑸 𐑿 𐑖𐑻?"
+  are_you_sure_delete_account: "Are you sure you want to close your account? This can't be undone!"
   aspect_memberships:
     destroy:
       failure: "𐑓𐑱𐑤𐑛 𐑑 𐑮𐑦𐑥𐑵𐑝 𐑐𐑻𐑕𐑩𐑯 𐑓𐑮𐑪𐑥 𐑨𐑕𐑐𐑧𐑒𐑑"
@@ -516,6 +517,7 @@ en_shaw:
       remove_contact: "𐑮𐑦𐑥𐑵𐑝 𐑒𐑪𐑯𐑑𐑨𐑒𐑑"
       remove_from: "𐑮𐑦𐑥𐑵𐑝 %{name} 𐑓𐑮𐑪𐑥 %{aspect}?"
     show:
+      closed_account: "This account has been closed."
       does_not_exist: "𐑐𐑻𐑕𐑩𐑯 𐑛𐑳𐑟 𐑯𐑪𐑑 𐑧𐑜𐑟𐑦𐑕𐑑!"
       has_not_shared_with_you_yet: "%{name} 𐑣𐑨𐑟 𐑯𐑪𐑑 𐑖𐑺𐑛 𐑧𐑯𐑦 𐑐𐑴𐑕𐑑𐑕 𐑢𐑦𐑞 𐑿 𐑘𐑧𐑑!"
       ignoring: "You are ignoring all posts from %{name}."
@@ -769,7 +771,9 @@ en_shaw:
       ignore_user: "Ignore %{name}"
       ignore_user_description: "Ignore and remove user from all aspects?"
       like: "𐑤𐑲𐑒"
+      nsfw: "This post has been flagged as NSFW by its author. %{link}"
       shared_with: "𐑖𐑺𐑛 𐑢𐑦𐑞: %{aspect_names}"
+      show: "show"
       unlike: "𐑩𐑯𐑤𐑲𐑒"
       via: "𐑝𐑾 %{link}"
       viewable_to_anyone: "𐑞𐑦𐑕 𐑐𐑴𐑕𐑑 𐑦𐑟 𐑝𐑿𐑩𐑚𐑩𐑤 𐑑 𐑧𐑯𐑦𐑢𐑩𐑯 𐑪𐑯 𐑞 𐑢𐑧𐑚"
@@ -879,7 +883,16 @@ en_shaw:
       change_email: "𐑗𐑱𐑯𐑡 𐑦-𐑥𐑱𐑤"
       change_language: "𐑗𐑱𐑯𐑡 𐑤𐑱𐑙𐑜𐑢𐑩𐑡"
       change_password: "𐑗𐑱𐑯𐑡 𐑐𐑨𐑕𐑢𐑼𐑛"
-      close_account: "𐑒𐑤𐑴𐑟 𐑩𐑒𐑬𐑯𐑑"
+      close_account:
+        dont_go: "Hey, please don't go!"
+        if_you_want_this: "If you really want this, type in your password below and click 'Close Account'"
+        lock_username: "This will lock your username if you decided to sign back up."
+        locked_out: "You will get signed out and locked out of your account."
+        make_diaspora_better: "We want you to help us make Diaspora better, so you should help us out instead of leaving. If you do want to leave, we want you to know what happens next."
+        mr_wiggles: "Mr Wiggles will be sad to see you go"
+        no_turning_back: "Currently, there is no turning back."
+        what_we_delete: "We delete all of your posts, profile data, as soon as humanly possible. Your comments will hang around, but be associated with your Diaspora Handle."
+      close_account_text: "Close Account"
       comment_on_post: "...𐑕𐑳𐑥𐑢𐑩𐑯 𐑒𐑪𐑥𐑩𐑯𐑑𐑕 𐑪𐑯 𐑿𐑼 𐑐𐑴𐑕𐑑?"
       current_password: "𐑒𐑻𐑩𐑯𐑑 𐑐𐑨𐑕𐑢𐑼𐑛"
       download_photos: "𐑛𐑬𐑯𐑤𐑴𐑛 𐑥𐑲 𐑓𐑴𐑑𐑴𐑟"
@@ -942,3 +955,6 @@ en_shaw:
     not_enabled: "𐑢𐑧𐑚𐑓𐑦𐑙𐑜𐑼 𐑛𐑳𐑟 𐑯𐑪𐑑 𐑕𐑰𐑥 𐑑 𐑚𐑰 𐑦𐑯𐑱𐑚𐑩𐑤𐑛 𐑓𐑹 %{account}𐑟 𐑣𐑴𐑕𐑑"
     xrd_fetch_failed: "there was an error getting the xrd from account %{account}"
   welcome: Welcome!
+  will_paginate:
+    next_label: "next &raquo;"
+    previous_label: "&laquo; previous"

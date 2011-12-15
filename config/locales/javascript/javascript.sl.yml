@@ -68,4 +68,4 @@ sl:
       unknown: "Neznan tip videa"
       watch: "Glej ta video na {{provider}}"
     web_sockets:
-      disconnected: "Ta websocket je zaprt; objave se ne bodo več prenašale v  živo."
+      disconnected: "Ta spletni vtič je zaprt; objave se ne bodo več prenašale v  živo."

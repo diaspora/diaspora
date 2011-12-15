@@ -59,7 +59,7 @@ ca:
         resend_unlock: "Torna a enviar les instruccions per al deblocatge"
     invitations:
       send_instructions: "S'ha enviat la vostra invitació."
-      invitation_token_invalid: "El testimoni de invitació que heu emprat no és vàlid!"
+      invitation_token_invalid: "Disculpeu! Aquest testimoni de invitació no és vàlid."
       updated: "S'ha establert la vostra contrasenya amb èxit. Ara esteu autenticat."
     mailer:
       welcome: "Benvingut/da, %{email}!"
@@ -80,8 +80,8 @@ ca:
         click_to_unlock: "Feu clic a l'enllaç següent per desblocar el vostre compte:"
         unlock: "Desbloca el meu compte"
       invitation_instructions:
-        displaying_correctly: "No veieu aquest correu correctament? %{link} al vostre navegador"
-        view_in: "Vegeu-ho"
+        displaying_correctly: "No veieu aquest correu correctament? %{link}"
+        view_in: "Vegeu-ho al vostre navegador."
         finally: "Finalment, és aquí"
         arrived: "La xarxa social que estaveu esperant ha arribat. Redissenyada, més segura i més divertida, %{strong_diaspora} és a punt per ajudar-vos a compartir i explorar el web d'una manera totalment nova."
         sign_up_now: "Registreu-vos ara &rarr;"
