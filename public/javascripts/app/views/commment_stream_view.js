@@ -1,6 +1,7 @@
 App.Views.CommentStream = Backbone.View.extend({
   events: {
-    "submit form": "createComment"
+    "submit form": "createComment",
+    "focus .comment_box": "commentTextareaFocused"
   },
 
   initialize: function(options) {
@@ -40,6 +41,10 @@ App.Views.CommentStream = Backbone.View.extend({
     this.$("ul.comments").append(new App.Views.Comment({
       model: comment
     }).render().el);
+  },
+
+  commentTextareaFocused: function(evt){
+    this.$("form").removeClass('hidden').addClass("open");
   }
 
 });

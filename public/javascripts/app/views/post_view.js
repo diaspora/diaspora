@@ -4,7 +4,6 @@ App.Views.Post = App.Views.StreamObject.extend({
 
   events: {
     "click .focus_comment_textarea": "focusCommentTextarea",
-    "focus .comment_box": "commentTextareaFocused",
     "click .shield a": "removeNsfwShield",
     "click .remove_post": "destroyModel",
     "click .like_action": "toggleLike",
@@ -68,7 +67,6 @@ App.Views.Post = App.Views.StreamObject.extend({
     if(link.hasClass('like')) {
       var like = this.model.likes.create();
       if(like) {
-        console.log(like);
         this.model.set({
           user_like : like,
           likes_count : post.get("likes_count") + 1
@@ -162,9 +160,5 @@ App.Views.Post = App.Views.StreamObject.extend({
     this.$(".comment_box").focus();
 
     return this;
-  },
-
-  commentTextareaFocused: function(evt){
-    this.$("form").removeClass('hidden').addClass("open");
   }
 });
