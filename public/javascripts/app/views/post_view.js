@@ -13,17 +13,12 @@ App.Views.Post = App.Views.StreamObject.extend({
   },
 
   render: function() {
-    this.el = $(this.template($.extend(
-      this.model.toJSON(),
-      App.user()
-    )))[0];
-
-    this.initializeTooltips()
+    this.renderTemplate()
+        .initializeTooltips()
         .renderPostContent()
         .renderComments();
 
     this.$(".details time").timeago();
-    this.delegateEvents(); //we need this because we are explicitly setting this.el in this.render()
 
     return this;
   },
@@ -75,7 +70,7 @@ App.Views.Post = App.Views.StreamObject.extend({
       this.model.likes.get(link.data("id")).destroy();
     }
 
-    return this;
+    return this
   },
 
   expandLikes: function(evt){

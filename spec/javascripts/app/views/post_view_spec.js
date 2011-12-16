@@ -34,9 +34,9 @@ describe("App.views.Post", function(){
 
     context("Reshare link", function(){
       it("is present if the post is public", function(){
+        var view = new App.Views.Post({model : this.statusMessage}).render();
         this.statusMessage.set({"public" : true});
 
-        var view = new App.Views.Post({model : this.statusMessage}).render();
         var statusElement = $(view.el)
 
         expect(statusElement.find(".reshare_action")).toNotBe(null);
@@ -53,22 +53,28 @@ describe("App.views.Post", function(){
     })
 
     context("Like link", function(){
-      it("displays 'Unlike' if the current user has already liked the post", function(){
-        this.statusMessage.set({user_like : null});
-
-        var view = new App.Views.Post({model : this.statusMessage}).render();
-        var statusElement = $(view.el)
-
-        expect(statusElement.find(".like_action a").text()).toContain('Like');
+      beforeEach(function(){
+        this.view = new App.Views.Post({model : this.statusMessage})
       })
 
-      it("displays 'Like' if the current user has not already liked the post", function(){
+      it("clicking 'Like' toggles appropriately", function(){
+        this.statusMessage.set({user_like : null});
+        this.view.render()
+        var link = this.view.$(".like_action");
+
+        expect(link.text()).toContain('Like');
+        link.click();
+        expect(link.text()).toContain('Unlike');
+      })
+
+      it("clicking 'UnLike' toggles appropriately", function(){
         this.statusMessage.set({user_like : { id : 1 }});
+        this.view.render()
+        var link = this.view.$(".like_action");
 
-        var view = new App.Views.Post({model : this.statusMessage}).render();
-        var statusElement = $(view.el)
-
-        expect(statusElement.find(".like_action a").text()).toContain('Unlike');
+        expect(link.text()).toContain('Unlike');
+        link.click();
+        expect(link.text()).toContain('Like');
       })
     })
   })

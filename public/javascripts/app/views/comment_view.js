@@ -4,16 +4,5 @@ App.Views.Comment = App.Views.StreamObject.extend({
 
   events : {
     "click .comment_delete": "destroyModel"
-  },
-
-  render: function() {
-    this.el = $(this.template($.extend(
-      this.model.toJSON(),
-      App.user()
-    )));
-
-    this.delegateEvents(); //we need this because we are explicitly setting this.el in this.render()
-
-    return this;
   }
 });
