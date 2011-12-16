@@ -1,11 +1,14 @@
 <div class="comment_stream">
-  <ul class="show_comments <%= comments_count <= 3 ? 'hidden' : '' %>">
-    <li>
-      <a href="/posts/<%= id %>/comments" class="toggle_post_comments">
-        Show <%= comments_count - 3 %> more comments
-      </a>
-    </li>
-  </ul>
+
+  <% if(typeof(all_comments_loaded) == 'undefined' || !all_comments_loaded) { %>
+    <ul class="show_comments <%= comments_count <= 3 ? 'hidden' : '' %>">
+      <li>
+        <a href="/posts/<%= id %>/comments" class="toggle_post_comments">
+          Show <%= comments_count - 3 %> more comments
+        </a>
+      </li>
+    </ul>
+  <% } %>
 
   <ul class="comments"> </ul>
 

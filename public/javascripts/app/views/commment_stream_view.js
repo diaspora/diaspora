@@ -1,7 +1,8 @@
 App.Views.CommentStream = Backbone.View.extend({
   events: {
     "submit form": "createComment",
-    "focus .comment_box": "commentTextareaFocused"
+    "focus .comment_box": "commentTextareaFocused",
+    "click .toggle_post_comments": "expandComments"
   },
 
   initialize: function(options) {
@@ -9,7 +10,7 @@ App.Views.CommentStream = Backbone.View.extend({
     this.template = _.template($("#comment-stream-template").html());
 
     _.bindAll(this, "appendComment");
-    this.model.comments.bind("add", this.appendComment);
+    this.model.comments.bind('add', this.appendComment, this);
   },
 
   render: function() {
@@ -45,6 +46,18 @@ App.Views.CommentStream = Backbone.View.extend({
 
   commentTextareaFocused: function(evt){
     this.$("form").removeClass('hidden').addClass("open");
+  },
+
+  expandComments: function(evt){
+    if(evt){ evt.preventDefault(); }
+
+    var self = this;
+    this.model.comments.fetch({
+      success : function(){
+        self.model.set({all_comments_loaded : true});
+        self.render();
+      }
+    });
   }
 
 });
