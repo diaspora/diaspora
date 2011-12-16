@@ -3,7 +3,7 @@ App.Views.StreamObject = Backbone.View.extend({
     this.model = options.model;
     this.template = _.template($(this.template_name).html());
 
-    this.model.bind('destroy', this.remove, this);
+    this.model.bind('remove', this.remove, this);
   },
 
   destroyModel: function(evt){
@@ -14,5 +14,4 @@ App.Views.StreamObject = Backbone.View.extend({
   remove: function() {
     $(this.el).remove();
   }
-
 });

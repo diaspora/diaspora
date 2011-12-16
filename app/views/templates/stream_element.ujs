@@ -1,23 +1,16 @@
 <div id="<%= guid %>" class="stream_element">
   <div class="right controls">
-
     <% if(author.id != current_user.id) { %>
-      <a href="/blocks?block[person_id]=<%= author.id %>" class="block_user control_icon" data-confirm="Ignore and remove user from all aspects?" data-method="post" rel="nofollow" title="Ignore">
-        <img alt="Ignoreuser" src="/images/icons/ignoreuser.png"/>
-      </a>
+      <img src="/images/icons/ignoreuser.png" alt="Ignoreuser" class="block_user control_icon" title= "Ignore" data-person_id="<%= author.id %>" />
     <% } %>
-
-    <a href="#" class="delete control_icon remove_post" title="Delete">
-      <img src="/images/deletelabel.png"/>
-    </a>
-
+    <img src="/images/deletelabel.png" class="delete control_icon remove_post" title="Delete" />
     <img src="/images/ajax-loader.gif" class="hide_loader hidden"/>
   </div>
 
   <div class="sm_body">
 
     <a href="/people/<%= author.id %>">
-      <img src="<%= author.avatar.small %>" class="avatar" data-person-id="<%= author.id %>"/>
+      <img src="<%= author.avatar.small %>" class="avatar" data-person_id="<%= author.id %>"/>
     </a>
 
     <div class="content">
@@ -80,8 +73,7 @@
         <% if(public && author.id != current_user.id) { %>
           <% if(root) {
               var rootGuid = root.guid;
-            }
-            else {
+            } else {
               var rootGuid = guid;
           } %>
           <a href="/reshares?root_guid=<%= rootGuid %>" class="reshare_action" data-confirm="Reshare Bob Grimm's post?" data-method="post" data-remote="true" rel="nofollow">
@@ -98,8 +90,8 @@
       <div class="likes on_post">
         <div class="likes_container">
           <% if(likes_count > 0){ %>
-            <img alt="Heart" src="/images/icons/heart.png?1322618579"> 
-            <a href="/posts/<%= id %>/likes" class="expand_likes">
+            <img alt="Heart" src="/images/icons/heart.png">
+            <a href="#" class="expand_likes">
               <%= likes_count %> like
             </a>
           <% } %>

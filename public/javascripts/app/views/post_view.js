@@ -8,7 +8,8 @@ App.Views.Post = App.Views.StreamObject.extend({
     "click .shield a": "removeNsfwShield",
     "click .remove_post": "destroyModel",
     "click .like_action": "toggleLike",
-    "click .expand_likes": "expandLikes"
+    "click .expand_likes": "expandLikes",
+    "click .block_user": "blockUser"
   },
 
   render: function() {
@@ -119,6 +120,29 @@ App.Views.Post = App.Views.StreamObject.extend({
 
       }
     });
+
+    return this;
+  },
+
+  blockUser: function(evt){
+    if(evt) { evt.preventDefault(); }
+
+    if(confirm('Ignore this user?')) {
+      var person_id = $(evt.target).data('person_id');
+      var self = this;
+
+      $.post('/blocks', {block : {"person_id" : person_id}}, function(data){
+        var models_to_remove = [];
+
+        _.each(self.model.collection.models, function(model){
+          if(model.get("author")["id"] == person_id) {
+            models_to_remove.push(model);
+          }
+        })
+
+        self.model.collection.remove(models_to_remove);
+      }, "json");
+    }
 
     return this;
   },

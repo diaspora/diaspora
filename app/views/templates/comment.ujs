@@ -2,10 +2,7 @@
   <div class="right controls">
     <!-- need access to post -->
     <% if(author.id === current_user.id) { %>
-      <!-- LINK BROKEN FOR NOW -->
-      <a href="/posts/<%= id %>/comments/<%= id %>" class="delete comment_delete" data-original-title="Delete">
-        <img alt="Deletelabel" src="/images/deletelabel.png">
-      </a>
+      <img alt="Deletelabel" src="/images/deletelabel.png" class="delete comment_delete" data-original-title="Delete" />
     <% } %>
   </div>
 
