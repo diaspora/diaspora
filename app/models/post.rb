@@ -25,11 +25,13 @@ class Post < ActiveRecord::Base
     t.add :provider_display_name
     t.add :author
     t.add :post_type
+    t.add :photos_count
     t.add :image_url
     t.add :object_url
     t.add :root
     t.add :o_embed_cache
     t.add :user_like
+    t.add :photos
   end
 
   xml_attr :provider_display_name

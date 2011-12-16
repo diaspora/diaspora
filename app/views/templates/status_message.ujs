@@ -1,3 +1,13 @@
+<% if(photos_count > 0) { %>
+  <div class="photo_attachments">
+    <img src="<%= photos[0].sizes.large %>" class="stream-photo big_stream_photo">
+    <% for(photo in photos) {
+      if(photo == 0){ continue; }
+      if(photo == 8){ break; } %>
+      <img src="<%= photos[photo].sizes.small %>" class="stream-photo thumb_small">
+    <% } %>
+<% } %>
+
 <p>
   <%= text %>
 </p>

@@ -22,9 +22,24 @@
       </div>
 
       <!-- duplicate from statusmessage partial -->
+      <% if(root.photos_count > 0) { %>
+        <div class="photo_attachments">
+          <img src="<%= root.photos[0].sizes.large %>" class="stream-photo big_stream_photo">
+          <% for(photo in root.photos) {
+            if(photo == 0){ continue; }
+            if(photo == 8){ break; } %>
+            <img src="<%= root.photos[photo].sizes.small %>" class="stream-photo thumb_small">
+          <% } %>
+      <% } %>
+
       <p>
         <%= root.text %>
       </p>
+
+      <% if(o_embed_cache) { %>
+        <%= root.o_embed_cache.posts.data.html %>
+      <% } %>
+      <!-- end duplication -->
 
     </div>
 
