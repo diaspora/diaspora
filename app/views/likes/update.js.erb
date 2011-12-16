@@ -1,3 +1,0 @@
-var targetGuid = "<%=@like.target.guid%>";
-$(".like_action", "#"+targetGuid).first().html("<%= escape_javascript(like_action(@like.target))%>");
-ContentUpdater.addLikesToPost(targetGuid, "<%= escape_javascript(render("likes/likes_container", :target_id => @like.target_id, :likes_count => @like.target.reload.likes_count, :target_type => @like.target_type)) %>");

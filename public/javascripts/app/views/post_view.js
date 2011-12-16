@@ -7,7 +7,8 @@ App.Views.Post = App.Views.StreamObject.extend({
     "focus .comment_box": "commentTextareaFocused",
     "click .shield a": "removeNsfwShield",
     "click .remove_post": "destroyModel",
-    "click .like_action": "toggleLike"
+    "click .like_action": "toggleLike",
+    "click .expand_likes": "expandLikes"
   },
 
   render: function() {
@@ -72,6 +73,52 @@ App.Views.Post = App.Views.StreamObject.extend({
     } else {
       this.model.likes.get(link.data("id")).destroy();
     }
+
+    return this;
+  },
+
+  expandLikes: function(evt){
+    if(evt) { evt.preventDefault(); }
+
+    var self = this;
+
+    this.model.likes.fetch({
+      success: function(){
+        // this should be broken out
+
+        self.$(".expand_likes").remove();
+        var likesView = Backbone.View.extend({
+
+          tagName: 'span',
+
+          initialize: function(options){
+            this.collection = options.collection;
+            _.bindAll(this, "render", "appendLike");
+          },
+
+          render: function(){
+            _.each(this.collection.models, this.appendLike)
+            return this;
+          },
+
+          appendLike: function(model){
+            console.log(model.get('author'));
+            $(this.el).append("<a>", {
+              href : "/person/" + model.get("author")["id"]
+            }).html($("<img>", {
+              src : model.get("author")["avatar"]["small"],
+              "class" : "avatar"
+            }));
+          }
+        });
+
+        var view = new likesView({collection : self.model.likes});
+
+        self.$('.likes_container').removeClass("hidden")
+                             .append(view.render().el);
+
+      }
+    });
 
     return this;
   },

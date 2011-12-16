@@ -102,7 +102,6 @@
             <a href="/posts/<%= id %>/likes" class="expand_likes">
               <%= likes_count %> like
             </a>
-            <span class="hidden likes_list"></span>
           <% } %>
         </div>
       </div>

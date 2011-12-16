@@ -17,7 +17,6 @@ class LikesController < ApplicationController
         Postzord::Dispatcher.build(current_user, @like).post
 
         respond_to do |format|
-          format.js { render 'likes/update', :status => 201 }
           format.html { render :nothing => true, :status => 201 }
           format.mobile { redirect_to post_path(@like.post_id) }
           format.json{ render :json => @like.as_api_response(:backbone), :status => 201 }
@@ -35,13 +34,11 @@ class LikesController < ApplicationController
       current_user.retract(@like)
       respond_to do |format|
         format.any { }
-        format.js { render 'likes/update' }
         format.json { render :nothing => true, :status => 204}
       end
     else
       respond_to do |format|
         format.mobile { redirect_to :back }
-        format.js { render :nothing => true, :status => 403 }
         format.json { render :nothing => true, :status => 403}
       end
     end
@@ -60,6 +57,8 @@ class LikesController < ApplicationController
       render :nothing => true, :status => 404
     end
   end
+
+  protected
 
   def target
     @target ||= if params[:post_id]
