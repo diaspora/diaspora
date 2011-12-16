@@ -30,6 +30,7 @@ ca:
   password: "Contrasenya"
   password_confirmation: "Confirmació de la contrasenya"
   are_you_sure: "N'esteu segur?"
+  are_you_sure_delete_account: "Esteu segur que voleu tancar el vostre compte? Això no es pot desfer!"
   fill_me_out: "Emplena'm"
   back: "Enrere"
   public: "Públic"
@@ -570,6 +571,7 @@ ca:
       message: "Envia-li un missatge"
       mention: "Menciona'l"
       ignoring: "Esteu ignorant totes les publicacions de %{name}."
+      closed_account: "Aquest compte ha estat tancat."
     sub_header:
       you_have_no_tags: "no teniu cap etiqueta!"
       add_some: "afegiu-ne alguna"
@@ -838,6 +840,8 @@ ca:
       unlike: "Ja no m'agrada"
       dislike: "No m'agrada"
       shared_with: "Compartit amb %{aspect_names}"
+      nsfw: "Aquesta publicació ha estat etiquetada com no apropiada per a entorns de treball (NSFW) pel seu autor. %{link}"
+      show: "Mostra-la"
     footer:
       logged_in_as: "autenticat com a %{name}"
       your_aspects: "els vostres aspectes"
@@ -955,7 +959,7 @@ ca:
     edit:
       export_data: "Exporta les dades"
       photo_export_unavailable: "L'exportació de les fotos no és disponible ara mateix"
-      close_account: "Tanca el compte"
+      close_account_text: "Tanca el compte"
       change_language: "Canvia la llengua"
       change_password: "Canvia la contrasenya"
       change_email: "Canvia el correu electrònic"
@@ -983,6 +987,16 @@ ca:
       following: "Paràmetres del seguiment"
       auto_follow_back: "Segueix automàticament a qui t'ha començat a seguir automàticament."
       auto_follow_aspect: "Aspecte pels usuaris seguits automàticament:"
+
+    close_account:
+      dont_go: "Ei, no te'n vagis!"
+      make_diaspora_better: "Volem que ens ajudeu a millorar Diàspora, i ens agradaria que ens ajudéssiu en lloc de deixar-nos. Si realment voleu anar-vos-en, volem que sapigueu què passarà a continuació."
+      mr_wiggles: "El Senyor Wiggles estarà trist de veure-vos marxar."
+      what_we_delete: "Suprimim totes les vostres publicacions, dades del perfil, el més aviat possible. Els vostres comentaris romandran, però estaran associats al vostre identificador de Diàspora."
+      locked_out: "Sortireu de Diàspora i es blocarà el vostre compte."
+      lock_username: "Això blocarà el vostre nom d'usuari, si decidiu tornar a registrar-vos."
+      no_turning_back: "Ara mateix, no hi ha cap manera de tornar enrere."
+      if_you_want_this: "Si realment voleu això, introduïu la vostra contrasenya a sota i feu clic en «Tanca el compte»."
 
     privacy_settings:
       title: "Paràmetres de privacitat"
@@ -1031,6 +1045,11 @@ ca:
     confirm_email:
       email_confirmed: "S'ha activat l'adreça de correu %{email}"
       email_not_confirmed: "No s'ha pogut activar l'adreça de correu electrònic. Heu emprat un enllaç erroni?"
+
+
+  will_paginate:
+    previous_label: "&laquo; anterior"
+    next_label: "&raquo; següent"
 
 
   webfinger:

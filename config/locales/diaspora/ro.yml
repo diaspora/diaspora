@@ -21,7 +21,7 @@ ro:
         person:
           attributes:
             diaspora_handle:
-              taken: "is already taken."
+              taken: "e folosit deja."
         request:
           attributes:
             from_id:
@@ -46,7 +46,7 @@ ro:
       diaspora_alpha: "DIASPORA* ALPHA"
       unknown_person: "persoană necunoscută"
       video_title:
-        unknown: "Unknown Video Title"
+        unknown: "Titlu necunoscut"
   are_you_sure: "Eşti sigur?"
   are_you_sure_delete_account: "Are you sure you want to close your account? This can't be undone!"
   aspect_memberships:
@@ -81,11 +81,11 @@ ro:
       aspect_list_is_not_visible: "aspect list is hidden to others in aspect"
       aspect_list_is_visible: "aspect list is visible to others in aspect"
       confirm_remove_aspect: "Eşti sigur că doreşti să ştergi acest aspect?"
-      done: "Done"
+      done: "Gata"
       make_aspect_list_visible: "make aspect list visible?"
       remove_aspect: "Şterge acest aspect"
       rename: "redenumeşte"
-      update: "update"
+      update: "actualizare"
       updating: "actualizare"
     few: "%{count} aspecte"
     helper:
@@ -125,7 +125,7 @@ ro:
       no_contacts: "Niciun contact"
       no_tags: "No tags"
       people_sharing_with_you: "People sharing with you"
-      post_a_message: "post a message >>"
+      post_a_message: "publicati un mesaj >>"
       services:
         content: "You can connect the following services to Diaspora:"
         heading: "Connect Services"
@@ -182,8 +182,8 @@ ro:
     explanation: "%{link} from anywhere by bookmarking this link."
     explanation_link_text: "Post to Diaspora"
     heading: "Diaspora Bookmarklet"
-    post_something: "Post something to Diaspora"
-    post_success: "Posted! Closing!"
+    post_something: "Publicati ceva catre Diaspora"
+    post_success: "Publicat! Inchidere!"
   cancel: "Anulează"
   comments:
     few: "%{count} comments"
@@ -198,7 +198,7 @@ ro:
   contacts:
     create:
       failure: "Eşuare la crearea contactului"
-    few: "%{count} contacts"
+    few: "%{count} contacte"
     index:
       add_a_new_aspect: "Adaugă un aspect nou"
       add_to_aspect: "Add contacts to %{name}"
@@ -277,7 +277,7 @@ ro:
       login_here: "log in here"
       ownership: "Proprietate"
       ownership_explanation: "You own your pictures, and you shouldn’t have to give that up just in order to share them. You maintain ownership of everything you share on Diaspora, giving you full control over how it is distributed."
-      share_what_you_want: "Share what you want, with whom you want."
+      share_what_you_want: "Impartaseste ce doresti, cu cine doresti."
       simplicity: "Simplitate"
       simplicity_explanation: "Diaspora makes sharing clean and easy – this goes doubly so for privacy. Innherently private, Diaspora doesn’t have pages of settings and options to wade through to keep your profile secure and to your liking."
       tagline_first_half: "Share what you want,"
@@ -291,7 +291,7 @@ ro:
       already_sent: "Ai invitat deja această persoană."
       no_more: "Nu mai dispui de invitaţii."
       own_address: "You can't send an invitation to your own address."
-      rejected: "The following email addresses had problems: "
+      rejected: "Urmatoarele adrese de email au prezentat probleme:"
       sent: "Invitaţia dvs. a fost trimisă."
     edit:
       accept_your_invitation: "Accept your invitation"
@@ -368,8 +368,8 @@ ro:
       two: "%{actors} commented on a deleted post."
       zero: "%{actors} commented on a deleted post."
     comment_on_post:
-      few: "%{actors} commented on your %{post_link}."
-      many: "%{actors} commented on your %{post_link}."
+      few: "%{actors} au pus comentarii pe %{post_link}."
+      many: "%{actors} au pus comentarii pe %{post_link}."
       one: "%{actors} commented on your %{post_link}."
       other: "%{actors} commented on your %{post_link}."
       two: "%{actors} commented on your %{post_link}."
@@ -488,16 +488,16 @@ ro:
     add_contact_small:
       add_contact_from_tag: "add contact from tag"
     aspect_list:
-      edit_membership: "edit aspect membership"
+      edit_membership: "editati apartenenta la aspect"
     few: "%{count} people"
     helper:
       people_on_pod_are_aware_of: " people on pod are aware of"
       results_for: "rezultate pentru %{params}"
     index:
-      couldnt_find_them_send_invite: "Couldn't find them?  Send an invite!"
+      couldnt_find_them_send_invite: "Nu i-ati gasit? Trimiteti o invitatie!"
       looking_for: "Looking for posts tagged %{tag_link}?"
       no_one_found: "...nimeni nu a fost găsit."
-      no_results: "Hey! You need to search for something."
+      no_results: "Hey! Trebuie sa cautati ceva."
       results_for: "caută rezultate pentru"
     many: "%{count} people"
     one: "1 person"
@@ -526,11 +526,11 @@ ro:
       message: "Message"
       not_connected: "You are not connected with this person"
       recent_posts: "Publicări Recente"
-      recent_public_posts: "Recent Public Posts"
+      recent_public_posts: "Ultimele Postari Publice"
       return_to_aspects: "Return to your aspects page"
       see_all: "Vezi tot"
       start_sharing: "start sharing"
-      to_accept_or_ignore: "to accept or ignore it."
+      to_accept_or_ignore: "pentru acceptare / ignorare."
     sub_header:
       add_some: "add some"
       edit: "editare"
@@ -726,7 +726,7 @@ ro:
       your_aspects: "your aspects"
     invitations:
       by_email: "prin e-mail"
-      dont_have_now: "You don't have any right now, but more invites are coming soon!"
+      dont_have_now: "Nu aveti nici una momentan, insa o sa primiti invitatii noi in curand!"
       from_facebook: "De pe Facebook"
       invitations_left: "(%{count} rămase)"
       invite_someone: "Invită pe cineva"
@@ -754,7 +754,7 @@ ro:
         i_like: "I'm interested in %{tags}."
         invited_by: "Thanks for the invite, "
         newhere: "NewHere"
-      post_a_message_to: "Post a message to %{aspect}"
+      post_a_message_to: "Postati un mesaj catre %{aspect}"
       posting: Publicare...
       publishing_to: "publishing to: "
       share: "Distribuie"
@@ -852,7 +852,7 @@ ro:
       nobody_talking: "Nobody is talking about %{tag} yet."
       none: "The empty tag does not exist!"
       people_tagged_with: "People tagged with %{tag}"
-      posts_tagged_with: "Posts tagged with #%{tag}"
+      posts_tagged_with: "Publicatii marcate cu #%{tag}"
       stop_following: "Stop Following #%{tag}"
   terms_and_conditions: "Terms and Conditions"
   tokens:
@@ -878,7 +878,7 @@ ro:
       success: "Your account has been locked.  It may take 20 minutes for us to finish closing your account.  Thank you for trying Diaspora."
       wrong_password: "The entered password didn't match your current password."
     edit:
-      also_commented: "...someone also comments on your contact's post?"
+      also_commented: "...cineva comenteaza de asemenea pe publicatia unei persoane din contacte?"
       change: "Modifică"
       change_email: "Change E-Mail"
       change_language: "Modificare limbă"
@@ -893,7 +893,7 @@ ro:
         no_turning_back: "Currently, there is no turning back."
         what_we_delete: "We delete all of your posts, profile data, as soon as humanly possible. Your comments will hang around, but be associated with your Diaspora Handle."
       close_account_text: "Close Account"
-      comment_on_post: "...someone comments on your post?"
+      comment_on_post: "...cineva comenteaza pe o publicatie proprie?"
       current_password: "Parola curentă"
       download_photos: "descarcă fotografiile mele"
       download_xml: "descarcă datele mele (xml)"
@@ -902,7 +902,7 @@ ro:
       export_data: "Exportare de date"
       getting_started: "New User Prefrences"
       liked: "...someone likes your post?"
-      mentioned: "...you are mentioned in a post?"
+      mentioned: "...sunteti mentionat intr-un post ?"
       new_password: "Parolă nouă"
       photo_export_unavailable: "Photo exporting currently unavailable"
       private_message: "...you receive a private message?"

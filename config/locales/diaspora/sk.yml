@@ -179,7 +179,7 @@ sk:
       failure: "Ignorovanie tohto používateľa sa nepodarilo zrušiť.  #evasion"
       success: "Pozrime sa, čo hovoria! #sayhello"
   bookmarklet:
-    explanation: "Píšte na Diasporu z hocikiaľ tak, že si pridáte do záložiek odkaz %{link}."
+    explanation: "Píšte na Diasporu z hocikiaľ tak, že si pridáte do záložiek %{link}."
     explanation_link_text: "tento odkaz"
     heading: "Bookmarklet"
     post_something: "Pošlite niečo na Diasporu"
@@ -430,19 +430,19 @@ sk:
       two: "%{actors} vám poslali správu."
       zero: "%{actors} ľudí vám poslalo správu."
     reshared:
-      few: "%{actors} sa znova podelilo o %{post_link}."
+      few: "%{actors} ľudí sa znova podelilo o %{post_link}."
       many: "%{actors} sa znova podelilo o %{post_link}."
       one: "%{actors} sa znova podelil o %{post_link}."
-      other: "%{actors} sa znova podelilo o %{post_link}."
-      two: "%{actors} sa znova podelilo o %{post_link}."
-      zero: "%{actors} sa znova podelilo o %{post_link}."
+      other: "%{actors} ľudí sa znova podelilo o %{post_link}."
+      two: "%{actors} ľudí sa znova podelilo o %{post_link}."
+      zero: "%{actors} ľudí sa znova podelilo o %{post_link}."
     reshared_post_deleted:
       few: "%{actors} sa znova podelili o váš vymazaný príspevok."
       many: "%{actors} sa znova podelili o váš vymazaný príspevok."
       one: "%{actors} sa znova podelil(a) o váš vymazaný príspevok."
-      other: "%{actors} sa znova podelilo o váš vymazaný príspevok."
+      other: "%{actors} ľudia ukázali váš vymazaný príspevok ďalším."
       two: "%{actors} sa znova podelili o váš vymazaný príspevok."
-      zero: "%{actors} sa znova podelilo o váš vymazaný príspevok."
+      zero: "%{actors} ľudí ukázalo príspevok ďalším."
     started_sharing:
       few: "%{actors} si vás pridali do kontaktov."
       many: "%{actors} si vás pridali do kontaktov."
@@ -657,10 +657,10 @@ sk:
     reshare:
       deleted: "Pôvodný príspevok vymazal(a) jeho autor(ka)."
       reshare:
-        few: "%{count} sa znova podelilo o príspevok"
-        many: "%{count} sa znova podelilo o príspevok"
+        few: "%{count} ľudia ukázali príspevok ďalším"
+        many: "%{count} ľudia ukázali príspevok ďalším"
         one: "1 človek sa znova podelil o príspevok"
-        other: "%{count} ľudí sa znova podelilo o príspevok"
+        other: "%{count} ľudia ukázali príspevok ďalším"
         two: "%{count} sa znova podelili o príspevok"
         zero: "Znova zdieľať"
       reshare_confirmation: "Chcete sa znova podeliť o príspevok použ. %{author}?"
@@ -918,13 +918,13 @@ sk:
       awesome_take_me_to_diaspora: "Super! Prejsť na Diasporu*"
       community_welcome: "Komunita Diaspory je šťastná, že ste na jej palube!"
       hashtag_explanation: "Hashtagy vám umožňujú hovoriť o tom, čo vás zaujíma  a sledovať diskusie  o takýchto veciach. Je to  aj skvelý spôsob, ako nájsť nových ľudí na Diaspore."
-      hashtag_suggestions: "Skúste sledovať značky, ako napr. #art, #movies, #gif, atď."
+      hashtag_suggestions: "Skúste sledovať značky, ako napr. #umenie, #filmy, #gif, atď."
       hooking_up_fb: "prepojíte svoj účet na Facebooku"
       saved: Uložené!
       we_can_speed_things_up: "Môžeme veci trochu urýchliť, ak"
       well_hello_there: Vitajte!
       what_are_you_in_to: "Čo vás baví?"
-      what_facebook_does: " s Diasporou. Takto spojíte svoje meno  a fotku  a budete môcť využívať rôzne služby  z jedného miesta."
+      what_facebook_does: " s Diasporou. Tak sa stiahne vaše meno  i fotka  a budete môcť posielať príspevky  z jednej siete na druhú."
       who_are_you: "Kto ste?"
     logged_out:
       go_mobile: "Teraz buďte mobilní."
@@ -956,5 +956,5 @@ sk:
     xrd_fetch_failed: "Pri získavaní xrd z účtu %{account} nastala chyba"
   welcome: Vitajte!
   will_paginate:
-    next_label: "next &raquo;"
-    previous_label: "&laquo; previous"
+    next_label: "Ďalšia &raquo;"
+    previous_label: "&laquo; Predchádzajúca"

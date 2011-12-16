@@ -48,7 +48,7 @@ vi:
       video_title:
         unknown: "Chưa biết tựa đề video"
   are_you_sure: "Bạn có chắc không?"
-  are_you_sure_delete_account: "Are you sure you want to close your account? This can't be undone!"
+  are_you_sure_delete_account: "Bạn có chắc chắn khóa vĩnh viễn tài khoản không? Mọi dữ liệu về bạn sẽ bị xóa khỏi hệ thống!"
   aspect_memberships:
     destroy:
       failure: "Thất bại khi loại bỏ người khỏi mối quan hệ"

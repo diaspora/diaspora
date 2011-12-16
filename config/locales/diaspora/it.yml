@@ -48,7 +48,7 @@ it:
       video_title:
         unknown: "Video Senza Nome"
   are_you_sure: "Sei sicuro?"
-  are_you_sure_delete_account: "Are you sure you want to close your account? This can't be undone!"
+  are_you_sure_delete_account: "Sei sicuro di voler chiudere il tuo account? È un'operazione irreversibile!"
   aspect_memberships:
     destroy:
       failure: "Impossibile rimuovere la persona dall'aspetto"
@@ -391,7 +391,7 @@ it:
         other: "e altre %{count} persone"
         two: "e altre %{count} persone"
         zero: "e nessun altro"
-      mark_all_as_read: "Segna tutti come letti"
+      mark_all_as_read: "Segna come lette"
       notifications: "Notifiche"
     liked:
       few: "A %{actors} piace il tuo %{post_link}."
@@ -517,7 +517,7 @@ it:
       remove_contact: "rimuovi contatto"
       remove_from: "Rimuovere %{name} da %{aspect}?"
     show:
-      closed_account: "This account has been closed."
+      closed_account: "Questo account è stato chiuso."
       does_not_exist: "La persona non esiste!"
       has_not_shared_with_you_yet: "%{name} non ha ancora condiviso nessun post con te!"
       ignoring: "Stai ignorando tutti i post di %{name}."
@@ -580,7 +580,7 @@ it:
       permalink: "permalink"
   previous: "precedente"
   privacy: "Privacy"
-  privacy_policy: "Privacy Policy"
+  privacy_policy: "Politiche di privacy"
   profile: "Profilo"
   profiles:
     edit:
@@ -771,9 +771,9 @@ it:
       ignore_user: "Ignora %{name}"
       ignore_user_description: "Vuoi ignorare questo utente e rimuoverlo da tutti gli aspetti?"
       like: "Mi piace"
-      nsfw: "This post has been flagged as NSFW by its author. %{link}"
+      nsfw: "Questo post è stato marcato dall'autore come non adatto a un luogo di lavoro (NSFW). %{link}"
       shared_with: "Condiviso con: %{aspect_names}"
-      show: "show"
+      show: "mostra"
       unlike: "Annulla"
       via: "via %{link}"
       viewable_to_anyone: "Questo post è visibile a tutti sul web"
@@ -819,7 +819,7 @@ it:
     followed_tags_stream: "#Tag che segui"
     like_stream:
       contacts_title: "Persone di cui ti piacciono i post"
-      title: "Like Stream"
+      title: "Post preferiti"
     mentioned_stream: "@Menzioni"
     mentions:
       contacts_title: "Persone che ti hanno menzionato"
@@ -854,7 +854,7 @@ it:
       people_tagged_with: "Persone con il tag %{tag}"
       posts_tagged_with: "Post con il tag #%{tag}"
       stop_following: "Smetti di seguire #%{tag}"
-  terms_and_conditions: "Terms and Conditions"
+  terms_and_conditions: "Termini e condizioni d'uso"
   tokens:
     show:
       connect_to_cubbies: "Connettiti a Cubbi.es"
@@ -885,13 +885,13 @@ it:
       change_password: "Cambia password"
       close_account:
         dont_go: "Dai, non te ne andare!"
-        if_you_want_this: "Se vuoi davvero farlo, scrivi la tua password qua sotto e clicca sul bottone"
-        lock_username: "Questa operazione blocchera' il tuo nome utente, nel caso tu volessi iscriverti nuovamente non potrai usarlo."
-        locked_out: "Sarai disconnesso e non potrai piu' accedere al tuo account."
-        make_diaspora_better: "Vorremmo che tu ci aiutassi a migliorare Diaspora, sappi che puoi darci una mano invece che lasciarci. Se vuoi davvero convinto, vogliamo che tu sappia come funzionera' la rimozione del tuo account."
-        mr_wiggles: "Mr Wiggles will be sad to see you go"
-        no_turning_back: "Currently, there is no turning back."
-        what_we_delete: "Cancelleremo tutti i tuoi post e i dati del profilo nel tempo piu' breve possibile. I tuoi commenti rimarranno qua e la' ma associati al tuo identificativo Diaspora."
+        if_you_want_this: "Se vuoi davvero farlo, scrivi la tua password e clicca sul bottone 'Chiudi l'account'"
+        lock_username: "Questa operazione bloccherà il tuo nome utente, nel caso che tu volessi iscriverti nuovamente non potrai usarlo."
+        locked_out: "Sarai disconnesso e non potrai più accedere al tuo account."
+        make_diaspora_better: "Vorremmo che tu ci aiutassi a migliorare Diaspora, considera che puoi darci una mano invece di lasciare il servizio. Se sei davvero convinto, vogliamo che tu sappia come funzionerà la rimozione del tuo account."
+        mr_wiggles: "Il Fantasma Formaggino ti perseguiterà perché te ne vai!"
+        no_turning_back: "Al momento, non è possibile tornare indietro."
+        what_we_delete: "Cancelleremo tutti i tuoi post e i dati del profilo nel tempo più breve possibile. I commenti che hai lasciato rimarranno abbinati al tuo identificativo Diaspora."
       close_account_text: "Chiudi l'account"
       comment_on_post: "...qualcuno commenta un tuo post?"
       current_password: "Password attuale"
@@ -956,5 +956,5 @@ it:
     xrd_fetch_failed: "impossibile recuperare il xrd dall'account %{account}"
   welcome: Benvenuto!
   will_paginate:
-    next_label: "next &raquo;"
-    previous_label: "&laquo; previous"
+    next_label: "successivo &raquo;"
+    previous_label: "&laquo; precedente"

@@ -107,12 +107,12 @@ es:
         do_you: "Tal vez:"
         email_feedback: "Si lo prefieres, envía tus comentarios a este %{link}."
         feature_suggestion: "- Propongas alguna %{link}."
-        find_a_bug: "- Des con errores. %{link}"
+        find_a_bug: "- Encuentres algún %{link}"
         have_a_question: "- Realices alguna %{link}."
         here_to_help: "¡La comunidad Diaspora está aquí!"
         need_help: "Ayuda"
         satisfaction: "%{link}: Soporte de la Comunidad"
-        tag_bug: "bug"
+        tag_bug: "error"
         tag_feature: "idea"
         tag_question: "pregunta"
         tutorials_wiki_and_forum: "%{tutorial} & %{wiki} & %{forum}: Tutoriales, wiki y noticias"
@@ -692,7 +692,7 @@ es:
       really_disconnect: "¿Desconectar %{service}?"
     inviter:
       click_link_to_accept_invitation: "Sigue este enlace para aceptar la invitación"
-      join_me_on_diaspora: "Comparte conmigo en DIASPORA*."
+      join_me_on_diaspora: "Nos vemos en DIASPORA*."
     remote_friend:
       invite: "invitar"
       not_on_diaspora: "Aún no en Diaspora*"
@@ -740,7 +740,7 @@ es:
       logged_in: "conectado a %{service}"
       manage: "gestión de servicios conectados"
       new_user_welcome_message: "Usa #etiquetas para clasificar tus publicaciones y encontrar gente que comparte tus intereses. Llama a gente interesante con las @Menciones"
-      outside: "Las publicaciones para \"el mundo\" podrán verse fuera de Diaspora*."
+      outside: "Los mensajes públicos también podrán verse fuera de Diaspora*."
       share: "Comparte"
       title: "Configurar los servicios conectados"
       visibility_dropdown: "Usa este menú desplegable para cambiar la visibilidad de tu publicación. (Sugerimos hacerlo público la primera vez.)"
@@ -757,7 +757,7 @@ es:
       post_a_message_to: "Publicar un mensaje en %{aspect}"
       posting: Publicando...
       publishing_to: "publicar en:"
-      share: "Comparte"
+      share: "Compartir"
       share_with: "compartir con"
       upload_photos: "Subir fotos"
       whats_on_your_mind: "¿Qué andas pensando?"
@@ -787,12 +787,12 @@ es:
     new:
       mentioning: "Menciones: %{person}"
     too_long:
-      few: "Tu mensaje de estado debe tener menos de %{count} caracteres"
-      many: "Tu mensaje de estado debe tener menos de %{count} caracteres"
-      one: "Tu mensaje de estado debe tener menos de %{count} caracter"
-      other: "Tu mensaje de estado debe tener menos de %{count} caracteres"
-      two: "por favor procura que tu mensaje de estado tenga menos de %{count} caracteres"
-      zero: "Tu mensaje de estado debe tener menos de %{count} caracteres"
+      few: "intenta hacer tu mensaje de estado con menos de %{count} caracteres"
+      many: "intenta hacer tu mensaje de estado con menos de %{count} caracteres"
+      one: "intenta hacer tu mensaje de estado con menos de %{count} caracteres"
+      other: "intenta hacer tu mensaje de estado con menos de %{count} caracteres"
+      two: "intenta hacer tu mensaje de estado con menos de %{count} caracteres"
+      zero: "intenta hacer tu mensaje de estado con menos de %{count} caracteres"
   stream_helper:
     hide_comments: "Ocultar comentarios"
     show_comments:
@@ -813,7 +813,7 @@ es:
     community_spotlight_stream: "Comunidad Creativa"
     followed_tag:
       add_a_tag: "Añade una etiqueta"
-      contacts_title: "Gente que usando esas etiquetas"
+      contacts_title: "Gente con esas etiquetas"
       follow: "Seguir"
       title: "#Etiquetas"
     followed_tags_stream: "#Etiquetas seguidas"
@@ -843,7 +843,7 @@ es:
       success: "¡Sí! Ahora sigues publicaciones sobre: #%{name}."
     destroy:
       failure: "Error al dejar de seguir #%{name}. ¿Tal vez ya lo hiciste?"
-      success: "¡Ay! Ya no sigues más #%{name}."
+      success: "¡Ay! Ya no estás siguiendo #%{name}."
   tags:
     show:
       follow: "Seguir #%{tag}"
@@ -860,7 +860,7 @@ es:
       connect_to_cubbies: "Conecta con Cubbi.es"
       connecting_is_simple: "Conectar tu cuenta de Diaspora* es sencillo. Solo introduce tu identidad Diaspora*(<b>%{diaspora_id}</b>) desde tu página de <a href='%{href_link}'>ajustes</a> de cubbi y dale a conectar."
       daniels_account: "La cuenta de Diaspora de Daniel"
-      love_to_try: "Nos encantaría que lo pruebes."
+      love_to_try: "Nos encantaría que lo probases."
       making_the_connection: "Creando la conexión"
       screenshot_explanation: "%{link1}. Este cubby en particular está conectado con %{link2}."
       sign_up_today: "Regístrate hoy mismo!"
@@ -890,8 +890,8 @@ es:
         locked_out: "Saldrás y eliminarás tu cuenta."
         make_diaspora_better: "Queremos que nos ayudes a hacer Diaspora mejor, podrías hacerlo. Si te vas, queremos que sepas que pasa después."
         mr_wiggles: "El Tío la Vara estará triste si te vas"
-        no_turning_back: ""
-        what_we_delete: ""
+        no_turning_back: "Actualmente, no hay vuelta atrás."
+        what_we_delete: "Eliminamos todas tus publicaciones y datos del perfil, tan pronto como humanamente posible. Tus comentarios seguirán subidos, pero se asocian a tu servidor Diaspora."
       close_account_text: "Eliminar Cuenta"
       comment_on_post: "...alguien comenta en tu publicación?"
       current_password: "Contraseña actual"
@@ -918,13 +918,13 @@ es:
       awesome_take_me_to_diaspora: "¡Increíble! Llévame a Diaspora*"
       community_welcome: "¡La comunidad de Diaspora está encantada de tenerte a bordo!"
       hashtag_explanation: "Las etiquetas te permiten hablar sobre tus intereses así como seguirlos. Además es una forma genial de encontrar gente nueva en Diaspora. "
-      hashtag_suggestions: "Prueba a seguir etiquetas como #arte, #cine, #gif, etc."
-      hooking_up_fb: "conecta tu cuenta de Facebook"
+      hashtag_suggestions: "Prueba a seguir etiquetas como #arte, #cine, #activismo, #geek, etc."
+      hooking_up_fb: "conectando tu cuenta de Facebook"
       saved: ¡Guardado!
-      we_can_speed_things_up: "Podemos acelerar las cosas un poquito mediante"
+      we_can_speed_things_up: "Podemos acelerar las cosas un poquito"
       well_hello_there: "Bueno, ¿qué tal?"
-      what_are_you_in_to: "¿Qué andas haciendo?"
-      what_facebook_does: "a Diaspora. Esto mostrará tu nombre y tu foto, y permitirá las publicaciones cruzadas."
+      what_are_you_in_to: "¿En qué estás?"
+      what_facebook_does: "a Diaspora. Esto traerá tu nombre y foto, y habilitará publicaciones cruzadas."
       who_are_you: "¿Quién eres?"
     logged_out:
       go_mobile: "Ahora tecnología móvil."

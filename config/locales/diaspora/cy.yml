@@ -361,19 +361,19 @@ cy:
       two: "Mae %{actors} hefyd wedi sylwi ar %{post_link} %{post_author}."
       zero: "Mae %{actors} hefyd wedi sylwi ar %{post_link} %{post_author}."
     also_commented_deleted:
-      few: "Mae %{actors} wedi sylwad ar bost dileuwyd"
-      many: "Mae %{actors} wedi sylwad ar bost dileuwyd"
-      one: "Mae %{actors} wedi sylwad ar bost dileuwyd"
-      other: "Mae %{actors} wedi sylwad ar bost dileuwyd"
-      two: "Mae %{actors} wedi sylwad ar bost dileuwyd"
-      zero: "Mae %{actors} wedi sylwad ar bost dileuwyd"
+      few: "Mae %{actors} wedi sylwi ar bost dileuwyd"
+      many: "Mae %{actors} wedi sylwi ar bost dileuwyd"
+      one: "Mae %{actors} wedi sylwi ar bost dileuwyd"
+      other: "Mae %{actors} wedi sylwi ar bost dileuwyd"
+      two: "Mae %{actors} wedi sylwi ar bost dileuwyd"
+      zero: "Mae %{actors} wedi sylwi ar bost dileuwyd"
     comment_on_post:
-      few: "Mae %{actors} wedi sylwad ar eich %{post_link}."
-      many: "Mae %{actors} wedi sylwad ar eich %{post_link}."
-      one: "Mae %{actors} wedi sylwad ar eich %{post_link}."
-      other: "Mae %{actors} wedi sylwad ar eich %{post_link}."
-      two: "Mae %{actors} wedi sylwad ar eich %{post_link}."
-      zero: "Mae %{actors} wedi sylwad ar eich %{post_link}."
+      few: "Mae %{actors} wedi sylwi ar eich %{post_link}."
+      many: "Mae %{actors} wedi sylwi ar eich %{post_link}."
+      one: "Mae %{actors} wedi sylwi ar eich %{post_link}."
+      other: "Mae %{actors} wedi sylwi ar eich %{post_link}."
+      two: "Mae %{actors} wedi sylwi ar eich %{post_link}."
+      zero: "Mae %{actors} wedi sylwi ar eich %{post_link}."
     helper:
       new_notifications:
         few: "%{count} hysbysiadau newydd"
@@ -764,7 +764,7 @@ cy:
     reshare:
       reshare: "Rhannu eto"
     stream_element:
-      connect_to_comment: "Cysylltu i ddefnyddiwr hwn i sylwad ar eu swydd"
+      connect_to_comment: "Cysylltu i ddefnyddiwr hwn i sylwi ar eu swydd"
       currently_unavailable: "commenting currently unavailable"
       dislike: "'Dwi ddim yn hoffi hyn"
       hide_and_mute: "Hide and Mute"
@@ -809,7 +809,7 @@ cy:
     comment_stream:
       contacts_title: "People whose posts you commented on"
       title: "Commented Posts"
-    commented_on: "wedi sylwad arno"
+    commented_on: "wedi sylwi arno"
     community_spotlight_stream: "Community Spotlight"
     followed_tag:
       add_a_tag: "Ychwanegu tag"

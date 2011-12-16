@@ -956,5 +956,5 @@ pl:
     xrd_fetch_failed: "wystąpił błąd podczas pobierania xrd z konta %{account}"
   welcome: Witamy!
   will_paginate:
-    next_label: "next &raquo;"
-    previous_label: "&laquo; previous"
+    next_label: "dalej &raquo;"
+    previous_label: "&laquo; wstecz"
