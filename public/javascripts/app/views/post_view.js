@@ -63,14 +63,29 @@ App.Views.Post = App.Views.StreamObject.extend({
     if(evt) { evt.preventDefault(); }
 
     var link = $(evt.target);
+    var post = this.model;
 
     if(link.hasClass('like')) {
-      this.model.likes.create();
+      var like = this.model.likes.create();
+      if(like) {
+        console.log(like);
+        this.model.set({
+          user_like : like,
+          likes_count : post.get("likes_count") + 1
+        });
+      }
     } else {
-      this.model.likes.get(link.data("id")).destroy();
+      this.model.likes.get(link.data("id")).destroy({
+        success : function(){
+          post.set({
+            user_like : null,
+            likes_count : post.get("likes_count") - 1
+          });
+        }
+      });
     }
 
-    return this
+    return this;
   },
 
   expandLikes: function(evt){
@@ -98,7 +113,6 @@ App.Views.Post = App.Views.StreamObject.extend({
           },
 
           appendLike: function(model){
-            console.log(model.get('author'));
             $(this.el).append("<a>", {
               href : "/person/" + model.get("author")["id"]
             }).html($("<img>", {

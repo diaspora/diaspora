@@ -55,26 +55,27 @@ describe("App.views.Post", function(){
     context("Like link", function(){
       beforeEach(function(){
         this.view = new App.Views.Post({model : this.statusMessage})
+        this.link = function(){ return this.view.$(".like_action"); }
       })
 
       it("clicking 'Like' toggles appropriately", function(){
         this.statusMessage.set({user_like : null});
-        this.view.render()
-        var link = this.view.$(".like_action");
+        this.view.render();
 
-        expect(link.text()).toContain('Like');
-        link.click();
-        expect(link.text()).toContain('Unlike');
+        expect(this.link().text()).toContain('Like');
+        this.link().click();
+        expect(this.link().text()).toContain('Unlike');
+        expect($(this.view.el).html()).toContain('1 like');
       })
 
-      it("clicking 'UnLike' toggles appropriately", function(){
+      it("clicking 'Unlike' toggles appropriately", function(){
         this.statusMessage.set({user_like : { id : 1 }});
-        this.view.render()
-        var link = this.view.$(".like_action");
+        this.view.render();
 
-        expect(link.text()).toContain('Unlike');
-        link.click();
-        expect(link.text()).toContain('Like');
+        expect(this.link().text()).toContain('Unlike');
+        this.link().click();
+        expect(this.link().text()).toContain('Like');
+        expect($(this.view.el).html()).toNotContain('1 Like');
       })
     })
   })

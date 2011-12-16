@@ -2,6 +2,7 @@ App.Views.StreamObject = Backbone.View.extend({
   initialize: function(options) {
     this.model = options.model;
     this.model.bind('remove', this.remove, this);
+    this.model.bind('change', this.render, this);
   },
 
   destroyModel: function(evt){
