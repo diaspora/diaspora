@@ -2,6 +2,9 @@
 -#   licensed under the Affero General Public License version 3 or later.  See
 -#   the COPYRIGHT file.
 
+%script{:id => "header-template", :type => 'text/template'}
+  != File.read("#{Rails.root}/app/views/templates/header.ujs")
+
 %script{:id => "stream-element-template", :type => 'text/template'}
   != File.read("#{Rails.root}/app/views/templates/stream_element.ujs")
 
@@ -19,3 +22,4 @@
 
 %script{:id => "activity-streams-photo-template", :type => 'text/template'}
   != File.read("#{Rails.root}/app/views/templates/activity-streams-photo.ujs")
+

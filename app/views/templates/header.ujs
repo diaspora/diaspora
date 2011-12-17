@@ -1,0 +1,86 @@
+<header>
+<div class="container" style="position:relative;">
+  <a href="/stream"><img alt="Logo_small" class="diaspora_header_logo" height="16px" src="/images/logo_small.png?1322618579" width="161px"></a>
+  <div id="global_search">
+    <form accept-charset="UTF-8" action="/people" class="search_form" method="get"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="✓"></div>
+      <input id="q" name="q" placeholder="Find people or #tags" results="5" type="search" autocomplete="off" class="ac_input">
+    </form>
+  </div>
+  <div id="nav_badges">
+    <div class="badge" id="home_badge">
+      <a href="/stream" title="Home"><img alt="Home" src="/images/icons/home_grey.png">
+      </a>
+    </div>
+    <div class="badge" id="notification_badge">
+      <a href="/notifications" title="No new notifications">
+        <img alt="No new notifications" id="notification-flag" src="/images/icons/notifications_grey.png">
+        <div class="badge_count hidden">
+          0
+        </div>
+      </a>
+    </div>
+    <div class="badge" id="message_inbox_badge">
+      <a href="/conversations" title="No new messages"><img alt="No new messages" src="/images/icons/mail_grey.png">
+        <div class="badge_count hidden">
+          0
+        </div>
+      </a>
+    </div>
+  </div>
+  <div id="notification_dropdown">
+    <div class="header">
+      <div class="right">
+        <a href="/notifications/read_all">Mark All as Read</a>
+        |
+        <a href="/notifications" id="view_all_notifications">View all</a>
+      </div>
+      <h4>
+        Recent notifications
+      </h4>
+    </div>
+    <div class="notifications">
+      <div class="ajax_loader">
+        <img alt="Ajax-loader" src="/images/ajax-loader.gif">
+      </div>
+    </div>
+  </div>
+  <div id="hovercard_container">
+    <div id="hovercard">
+      <img class="avatar">
+      <h4>
+        <a class="person"></a>
+      </h4>
+      <p class="handle"></p>
+      <div id="hovercard_dropdown_container"></div>
+      <div class="hovercard_footer">
+        <div class="footer_container">
+          <div class="hashtags"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <ul class="dropdown" id="user_menu">
+    <li>
+    <div class="right">
+      ▼
+    </div>
+    <div class="avatar">
+      <img alt="<%= current_user.name %>" class="avatar" data-person_id="<%= current_user.id %>" src="<%= current_user.avatar.small %>" title="Bob Grimm">
+    </div>
+    <a href="#" title="bob@localhost:3000">Bob Grimm</a>
+    </li>
+    <li><a href="/people/<%= current_user.id %>">Profile</a></li>
+    <li><a href="/contacts">Contacts</a></li>
+    <li><a href="/user/edit">Settings</a></li>
+    <li><a href="/users/sign_out">Log out</a></li>
+  </ul>
+  <div id="lightbox">
+    <div id="lightbox-content">
+      <a href="#" id="lightbox-close-link">[x] close</a>
+      <img id="lightbox-image">
+      <div id="lightbox-imageset"></div>
+    </div>
+  </div>
+  <div id="lightbox-backdrop"></div>
+</div>
+</header>

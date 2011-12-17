@@ -49,7 +49,7 @@
 
     globalSubscribe: function(eventName, callback, context) {
       Diaspora.page.subscribe(eventName, callback, context);
-    },  
+    },
 
     globalPublish: function(eventName, args) {
       Diaspora.page.publish(eventName, args);
