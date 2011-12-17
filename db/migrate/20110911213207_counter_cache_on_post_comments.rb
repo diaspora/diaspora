@@ -1,5 +1,6 @@
 class CounterCacheOnPostComments < ActiveRecord::Migration
   class Post < ActiveRecord::Base; end
+
   def self.up
     add_column :posts, :comments_count, :integer, :default => 0
     execute <<SQL if Post.count > 0

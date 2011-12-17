@@ -128,6 +128,7 @@ GEM
       uuidtools
     childprocess (0.2.3)
       ffi (~> 1.0.6)
+    chronic (0.6.6)
     client_side_validations (3.1.3)
     cloudfiles (1.4.10)
       mime-types (>= 1.16)
@@ -424,6 +425,9 @@ GEM
     webmock (1.6.2)
       addressable (>= 2.2.2)
       crack (>= 0.1.7)
+    whenever (0.7.0)
+      activesupport (>= 2.3.4)
+      chronic (~> 0.6.3)
     will_paginate (3.0.2)
     xpath (0.1.4)
       nokogiri (~> 1.3)
@@ -515,5 +519,6 @@ DEPENDENCIES
   typhoeus
   vanna!
   webmock
+  whenever
   will_paginate (= 3.0.2)
   yard

@@ -17,14 +17,19 @@ class Photo < ActiveRecord::Base
   xml_attr :text
   xml_attr :status_message_guid
 
-  belongs_to :status_message, :foreign_key => :status_message_guid, :primary_key => :guid
+  belongs_to :status_message, :foreign_key => :status_message_guid, :primary_key => :guid, :counter_cache => :photos_count
 
   attr_accessible :text, :pending
   validate :ownership_of_status_message
 
   before_destroy :ensure_user_picture
   after_destroy :clear_empty_status_message
+
   after_create :queue_processing_job
+
+  after_save do
+    self.status_message.update_photos_counter if status_message
+  end
 
   def clear_empty_status_message
     if self.status_message_guid && self.status_message.text_and_photos_blank?

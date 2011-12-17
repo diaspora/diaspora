@@ -178,11 +178,16 @@ class StatusMessage < Post
   def queue_gather_oembed_data
     Resque.enqueue(Jobs::GatherOEmbedData, self.id, self.oembed_url)
   end 
-  
+
   def contains_oembed_url_in_text?
     require 'uri'
     urls = URI.extract(self.raw_message, ['http', 'https'])
     self.oembed_url = urls.find{|url| ENDPOINT_HOSTS_STRING.match(URI.parse(url).host)}
+  end
+
+  def update_photos_counter
+    StatusMessage.where(:id => self.id).
+      update_all(:photos_count => self.photos.count)
   end
 
   protected
