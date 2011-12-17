@@ -10,10 +10,6 @@ App.Views.StreamObject = Backbone.View.extend({
     this.model.destroy();
   },
 
-  remove: function() {
-    $(this.el).remove();
-  },
-
   context : function(){
     var modelJson = this.model ? this.model.toJSON() : {}
     return $.extend(modelJson, App.user());
