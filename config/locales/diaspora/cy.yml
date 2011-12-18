@@ -3,958 +3,462 @@
 #   the COPYRIGHT file.
 
 
-cy:
-  _applications: "Applications"
-  _comments: "Comments"
-  _contacts: "Cysylltiadau"
-  _home: "Home"
-  _photos: "Photos"
-  _services: "Services"
-  account: "Account"
-  activerecord:
-    errors:
-      models:
-        contact:
-          attributes:
-            person_id:
-              taken: "must be unique among this user's contacts."
-        person:
-          attributes:
-            diaspora_handle:
-              taken: "is already taken."
-        request:
-          attributes:
-            from_id:
-              taken: "is a duplicate of a pre-existing request."
-        reshare:
-          attributes:
-            root_guid:
+
+cy: 
+  _contacts: Cysylltiadau
+  _photos: Photos
+  activerecord: 
+    errors: 
+      models: 
+        reshare: 
+          attributes: 
+            root_guid: 
               taken: "Mae hynny'n dda, huh? Rydych chi wedi ailrhannu eisoes y swydd honno!"
-        user:
-          attributes:
-            email:
-              taken: "is already taken."
-            person:
-              invalid: "is invalid."
-            username:
+        user: 
+          attributes: 
+            username: 
               invalid: "is invalid. We only allow letters, numbers, and underscores"
-              taken: "is already taken."
-  ago: "%{time} ago"
   all_aspects: "Agweddau i gŷd"
-  application:
-    helper:
-      diaspora_alpha: "DIASPORA* ALPHA"
-      unknown_person: "unknown person"
-      video_title:
-        unknown: "Unknown Video Title"
-  are_you_sure: "Are you sure?"
-  are_you_sure_delete_account: "Are you sure you want to close your account? This can't be undone!"
-  aspect_memberships:
-    destroy:
-      failure: "Failed to remove person from aspect"
-      no_membership: "Could not find the selected person in that aspect"
-      success: "Successfully removed person from aspect"
-  aspects:
-    add_to_aspect:
+  aspects: 
+    add_to_aspect: 
       failure: "Failed to add friend to aspect."
       success: "Successfully added friend to aspect."
-    aspect_contacts:
-      done_editing: "done editing"
-    aspect_listings:
+    aspect_listings: 
       add_an_aspect: "+ Ychwanegu agwedd"
-      deselect_all: "Deselect all"
-      edit_aspect: "Edit %{name}"
-      select_all: "Select all"
-    aspect_stream:
-      stay_updated: "Stay Updated"
-      stay_updated_explanation: "Your main stream is populated with all of your contacts, tags you follow, and posts from some creative members of the community."
-    contacts_not_visible: "Contacts in this aspect will not be able to see each other."
-    contacts_visible: "Contacts in this aspect will be able to see each other."
-    create:
+    create: 
       failure: "Creu Agwedd wedi methu."
       success: "Click on the plus on the left side to tell Diaspora who can see your new aspect."
-    destroy:
-      failure: "%{name} is not empty and could not be removed."
+    destroy: 
       success: "%{name} cael ei dynnu yn llwyddiannol."
-    edit:
-      add_existing: "Add an existing contact"
-      aspect_list_is_not_visible: "aspect list is hidden to others in aspect"
-      aspect_list_is_visible: "aspect list is visible to others in aspect"
+    edit: 
       confirm_remove_aspect: "A ydych yn siŵr eich bod am ddileu yr agwedd hon?"
-      done: "Done"
       make_aspect_list_visible: "make aspect list visible?"
       remove_aspect: "Dileu yr agwedd hwn"
-      rename: "rename"
-      update: "update"
-      updating: "updating"
     few: "%{count} agweddau"
-    helper:
+    helper: 
       are_you_sure: "A ydych yn siŵr eich bod am ddileu yr agwedd hon?"
       aspect_not_empty: "Agwedd nid ar wag"
-      remove: "remove"
-    index:
-      cubbies:
-        explanation: "Cubbi.es is the first Diaspora application under development."
+    index: 
+      cubbies: 
         heading: "Cysylltu i Cubbi.es"
-        learn_more: "Learn more"
-      diaspora_id:
-        content_1: "Your Diaspora ID is:"
-        content_2: "Give it to anyone and they'll be able to find you on Diaspora."
+      diaspora_id: 
         heading: "ID Diaspora"
-      donate: "Donate"
       handle_explanation: "This is your diaspora handle.  Like an email address, you can give this to people to reach you."
-      help:
+      help: 
         do_you: "Ydych chi:"
-        email_feedback: "%{link} your feedback, if you prefer"
-        feature_suggestion: "... have a %{link} suggestion?"
-        find_a_bug: "... find a %{link}?"
         have_a_question: "... yn cael cwestion %{link}?"
         here_to_help: "Diaspora community is here to help!"
         need_help: "Oes rhaid help?"
-        satisfaction: "%{link}: Community-powered support"
         tag_bug: "#bug"
         tag_feature: "#feature"
         tag_question: "#question"
-        tutorials_wiki_and_forum: "%{tutorial} & %{wiki} & %{forum}: Community-powered tutorials, how-to, and news"
-      introduce_yourself: "This is your stream.  Jump in and introduce yourself."
       keep_us_running: "Keep %{pod} running fast, buy our servers their monthly coffee fix!"
-      new_here:
-        follow: "Follow %{link} and welcome new users to Diaspora*!"
-        learn_more: "Learn more"
-        title: "Welcome New Users"
       no_contacts: "Dim cysylltiadau"
       no_tags: "No tags"
-      people_sharing_with_you: "People sharing with you"
-      post_a_message: "post a message >>"
-      services:
-        content: "You can connect the following services to Diaspora:"
-        heading: "Connect Services"
-      unfollow_tag: "Stop following #%{tag}"
-      welcome_to_diaspora: "Welcome to Diaspora, %{name}!"
       your_aspects: "Eich Agweddau"
     many: "%{count} agweddau"
-    move_contact:
-      error: "Error moving contact: %{inspect}"
-      failure: "didn't work %{inspect}"
+    move_contact: 
       success: "Unigolyn wedi symud i agwedd newydd"
-    new:
-      create: "Create"
-      name: "Name"
-    no_contacts_message:
-      community_spotlight: "community spotlight"
-      or_spotlight: "Or you can share with %{link}"
+    new: 
+      name: Name
+    no_contacts_message: 
       try_adding_some_more_contacts: "You can search (top) or invite (right) more contacts."
       you_should_add_some_more_contacts: "Dylech chi ychwanegu mwy o gysylltiadau!"
-    no_posts_message:
+    no_posts_message: 
       start_talking: "Nobody has said anything yet.  Get the conversation started!"
-    one: "1 aspect"
     other: "%{count} agweddau"
-    seed:
-      acquaintances: "Acquaintances"
-      family: "Family"
-      friends: "Friends"
-      work: "Work"
-    selected_contacts:
-      manage_your_aspects: "Manage your aspects."
-      no_contacts: "You don't have any contacts here yet."
-      view_all_community_spotlight: "See all community spotlight"
+    selected_contacts: 
       view_all_contacts: "Gweld cysylltiadau i gŷd"
-    show:
-      edit_aspect: "edit aspect"
     two: "%{count} agweddau"
-    update:
-      failure: "Your aspect, %{name}, had too long name to be saved."
+    update: 
       success: "Eich aspect, %{name},  wedi bod yn golygu yn llwyddiannus."
     zero: "dim agweddau"
-  authorizations:
-    index:
-      no_applications: "You haven't registered any applications yet."
-      revoke_access: "Revoke Access"
   back: "Yn ôl"
-  blocks:
-    create:
-      failure: "I couldn't ignore that user.  #evasion"
+  blocks: 
+    create: 
       success: "Ôlreit, ni fyddwch yn gweld y defnyddiwr yn eich ffrwd yn y dyfodol. #silencio!"
-    destroy:
-      failure: "I couldn't stop ignoring that user.  #evasion"
-      success: "Let's see what they have to say! #sayhello"
-  bookmarklet:
+  bookmarklet: 
     explanation: "%{link} from anywhere by bookmarking this link."
     explanation_link_text: "Post to Diaspora"
     heading: "Diaspora Bookmarklet"
-    post_something: "Post something to Diaspora"
-    post_success: "Posted! Closing!"
-  cancel: "Diddymu"
-  comments:
-    few: "%{count} comments"
-    many: "%{count} comments"
-    new_comment:
-      comment: "Sylw"
-      commenting: Commenting...
-    one: "1 comment"
-    other: "%{count} comments"
-    two: "%{count} comments"
-    zero: "no comments"
-  contacts:
-    create:
-      failure: "Failed to create contact"
-    few: "%{count} contacts"
-    index:
+  cancel: Diddymu
+  comments: 
+    new_comment: 
+      comment: Sylw
+  contacts: 
+    index: 
       add_a_new_aspect: "Ychwanegwch agwedd newydd"
       add_to_aspect: "Add contacts to %{name}"
       all_contacts: "Cysylltiadau i gŷd"
-      check_out: "Check out"
-      many_people_are_you_sure: "Are you sure you want to start a private conversation with more than %{suggested_limit} contacts? Posting to this aspect may be a better way to contact them."
       my_contacts: "Fy nghysylltiadau"
       no_contacts: "No contacts."
-      only_sharing_with_me: "Only sharing with me"
       remove_person_from_aspect: "Tynnu %{person_name} oddi ar \"%{aspect_name}\""
-      start_a_conversation: "Start a conversation"
-      title: "Cysylltiadau"
+      title: Cysylltiadau
       your_contacts: "Eich Cysylltiadau chi"
-    many: "%{count} contacts"
-    one: "1 contact"
-    other: "%{count} contacts"
-    sharing:
-      people_sharing: "People sharing with you:"
-    spotlight:
-      community_spotlight: "Community Spotlight"
-    two: "%{count} contacts"
     zero: "no contacts"
-  conversations:
-    create:
-      fail: "Invalid message"
+  conversations: 
+    create: 
       sent: "Neges wedi anfon"
-    destroy:
-      success: "Conversation successfully removed"
-    helper:
-      new_messages:
-        few: "%{count} new messages"
-        many: "%{count} new messages"
-        one: "1 new messages"
-        other: "%{count} new messages"
-        two: "%{count} new messages"
+    helper: 
+      new_messages: 
         zero: "no new messages"
-    index:
-      create_a_new_message: "create a new message"
-      inbox: "Inbox"
+    index: 
       message_inbox: "Neges Inbox"
       new_message: "Neges Newydd"
-      no_conversation_selected: "no conversation selected"
-      no_messages: "no messages"
-    new:
-      abandon_changes: "Abandon changes?"
-      send: "Send"
-      sending: Sending...
-      subject: "subject"
-      to: "to"
-    new_message:
-      fail: "Invalid message"
-    show:
-      delete: "delete and block conversation"
-      reply: "reply"
-      replying: Replying...
-  date:
-    formats:
-      birthday: "%B %d"
-      birthday_with_year: "%B %d %Y"
-      fullmonth_day: "%B %d"
-  delete: "Dileu"
+  delete: Dileu
   email: E-bost
-  error_messages:
-    helper:
-      correct_the_following_errors_and_try_again: "Correct the following errors and try again."
-      invalid_fields: "Invalid Fields"
-  fill_me_out: "Fill me out"
   find_people: "Dod o hyd i bobl neu # tagiau"
-  hide: "Hide"
-  home:
-    show:
-      already_account: "already have an account?"
-      choice: "Choice"
+  home: 
+    show: 
       choice_explanation: "Diaspora allows you to sort your connections into groups called Aspects - (agweddau yng nghymraeg). Unique to Diaspora, Aspects ensure your photos, stories and jokes are shared with only the people you want them to be."
       learn_about_host: "Learn about how to host your own Diaspora server"
-      login_here: "log in here"
-      ownership: "Ownership"
       ownership_explanation: "You own your pictures, and you shouldn’t have to give that up just in order to share them. You maintain ownership of everything you share on Diaspora, giving you full control over how it is distributed."
-      share_what_you_want: "Share what you want, with whom you want."
-      simplicity: "Simplicity"
       simplicity_explanation: "Diaspora makes sharing clean and easy – this goes doubly so for privacy. Innherently private, Diaspora doesn’t have pages of settings and options to wade through to keep your profile secure and to your liking."
-      tagline_first_half: "Share what you want,"
-      tagline_second_half: "with whom you want."
-  invitations:
-    a_facebook_user: "A Facebook user"
-    check_token:
-      not_found: "Invitation token not found"
-    create:
-      already_contacts: "You are already connected with this person"
-      already_sent: "You already invited this person."
-      no_more: "You have no more invitations."
-      own_address: "You can't send an invitation to your own address."
-      rejected: "The following email addresses had problems: "
+  invitations: 
+    create: 
       sent: "Your invitation has been sent."
-    edit:
-      accept_your_invitation: "Accept your invitation"
-      your_account_awaits: "Your account awaits!"
-    new:
+    new: 
       already_invited: "Already invited"
-      aspect: "Agwedd"
-      comma_seperated_plz: "You can enter multiple email addresses separated by commas."
-      if_they_accept_info: "if they accept, they will be added to the aspect you invited them."
-      invite_someone_to_join: "Invite someone to join Diaspora!"
-      language: "Language"
-      personal_message: "Personal message"
-      resend: "Resend"
-      send_an_invitation: "Send an invitation"
-      send_invitation: "Send invitation"
-      to: "I"
-  layouts:
-    application:
-      powered_by: "POWERED BY DIASPORA*"
-      public_feed: "Public Diaspora Feed for %{name}"
+      aspect: Agwedd
+      to: I
+  layouts: 
+    application: 
       toggle: "toggle mobile site"
-      whats_new: "what's new?"
       your_aspects: "eich agweddau"
-    header:
-      admin: "admin"
-      blog: "blog"
-      code: "code"
-      login: "login"
-      logout: "Allgofnodi"
-      profile: "profile"
-      recent_notifications: "Recent notifications"
-      settings: "Gosodiadau"
+    header: 
+      login: login
+      logout: Allgofnodi
+      profile: profile
+      settings: Gosodiadau
       view_all: "Gweld popeth"
-  likes:
-    likes:
-      people_dislike_this:
+  likes: 
+    likes: 
+      people_dislike_this: 
         few: "%{count} people disliked this"
         many: "%{count} o bobl ddim yn hoffi hwn"
-        one: "%{count} dislike"
         other: "%{count} people disliked this"
-        two: "%{count} dislikes"
         zero: "no people disliked this"
-      people_like_this:
+      people_like_this: 
         few: "%{count} people liked this"
         many: "%{count} people liked this"
         one: "1 unigolyn yn hoffi hyn"
         other: "%{count} pobl yn hoffi hyn"
-        two: "%{count} likes"
         zero: "no people liked this"
-      people_like_this_comment:
-        few: "%{count} likes"
-        many: "%{count} likes"
-        one: "%{count} like"
-        other: "%{count} likes"
-        two: "%{count} likes"
-        zero: "no likes"
-  limited: "Cyfyngedig"
-  more: "More"
-  next: "nesaf"
-  no_results: "No Results Found"
-  notifications:
-    also_commented:
+  limited: Cyfyngedig
+  next: nesaf
+  notifications: 
+    also_commented: 
       few: "Mae %{actors} hefyd wedi sylwi ar %{post_link} %{post_author}."
       many: "Mae %{actors} hefyd wedi sylwi ar %{post_link} %{post_author}."
       one: "Mae %{actors} hefyd wedi sylwi ar %{post_link} %{post_author}."
       other: "Mae %{actors} hefyd wedi sylwi ar %{post_link} %{post_author}."
       two: "Mae %{actors} hefyd wedi sylwi ar %{post_link} %{post_author}."
       zero: "Mae %{actors} hefyd wedi sylwi ar %{post_link} %{post_author}."
-    also_commented_deleted:
+    also_commented_deleted: 
       few: "Mae %{actors} wedi sylwi ar bost dileuwyd"
       many: "Mae %{actors} wedi sylwi ar bost dileuwyd"
       one: "Mae %{actors} wedi sylwi ar bost dileuwyd"
       other: "Mae %{actors} wedi sylwi ar bost dileuwyd"
       two: "Mae %{actors} wedi sylwi ar bost dileuwyd"
       zero: "Mae %{actors} wedi sylwi ar bost dileuwyd"
-    comment_on_post:
+    comment_on_post: 
       few: "Mae %{actors} wedi sylwi ar eich %{post_link}."
       many: "Mae %{actors} wedi sylwi ar eich %{post_link}."
       one: "Mae %{actors} wedi sylwi ar eich %{post_link}."
       other: "Mae %{actors} wedi sylwi ar eich %{post_link}."
       two: "Mae %{actors} wedi sylwi ar eich %{post_link}."
       zero: "Mae %{actors} wedi sylwi ar eich %{post_link}."
-    helper:
-      new_notifications:
+    helper: 
+      new_notifications: 
         few: "%{count} hysbysiadau newydd"
         many: "%{count} hysbysiadau newydd"
-        one: "1 new notification"
         other: "%{count} hysbysiadau newydd"
-        two: "%{count} new notifications"
         zero: "no new notifications"
-    index:
-      and: "a"
-      and_others:
-        few: "and %{count} others"
-        many: "and %{count} others"
+    index: 
+      and: a
+      and_others: 
         one: "ac un arall"
-        other: "and %{count} others"
-        two: "and %{count} others"
-        zero: "and nobody else"
       mark_all_as_read: "Nodiad pob wedi darllen"
-      notifications: "Hysbysiadau"
-    liked:
+      notifications: Hysbysiadau
+    liked: 
       few: "Mae %{actors} wedi newydd hoffi eich %{post_link}."
       many: "Mae %{actors} wedi newydd hoffi eich %{post_link}."
       one: "Mae %{actors} wedi newydd hoffi eich %{post_link}."
       other: "Mae %{actors} wedi newydd hoffi eich %{post_link}."
       two: "Mae %{actors} wedi newydd hoffi eich %{post_link}."
       zero: "Mae %{actors} wedi newydd hoffi eich %{post_link}."
-    liked_post_deleted:
+    liked_post_deleted: 
       few: "%{actors} yn hoffi y post bod chi wedi dileu."
       many: "%{actors} yn hoffi y post bod chi wedi dileu."
       one: "%{actors} yn hoffi y post bod chi wedi dileu."
       other: "%{actors} yn hoffi y post bod chi wedi dileu."
       two: "%{actors} yn hoffi y post bod chi wedi dileu."
       zero: "%{actors} yn hoffi y post bod chi wedi dileu."
-    mentioned:
+    mentioned: 
       few: "%{actors} has mentioned you in a %{post_link}."
       many: "%{actors} has mentioned you in a %{post_link}."
-      one: "%{actors} has mentioned you in a %{post_link}."
       other: "%{actors} has mentioned you in a %{post_link}."
       two: "%{actors} has mentioned you in a %{post_link}."
       zero: "%{actors} has mentioned you in a %{post_link}."
-    mentioned_deleted:
-      few: "%{actors} mentioned you in a deleted post."
-      many: "%{actors} mentioned you in a deleted post."
-      one: "%{actors} mentioned you in a deleted post."
-      other: "%{actors} mentioned you in a deleted post."
-      two: "%{actors} mentioned you in a deleted post."
-      zero: "%{actors} mentioned you in a deleted post."
-    post: "bost"
-    private_message:
+    post: bost
+    private_message: 
       few: "Mae %{actors} wedi anfon neges iddych chi."
       many: "Mae %{actors} wedi anfon neges iddych chi."
       one: "Mae %{actors} wedi anfon neges iddych chi."
       other: "Mae %{actors} wedi anfon neges iddych chi."
       two: "Mae %{actors} wedi anfon neges iddych chi."
       zero: "Mae %{actors} wedi anfon neges iddych chi."
-    reshared:
+    reshared: 
       few: "Mae %{actors} wedi ailrhannu eich %{post_link}."
       many: "Mae %{actors} wedi ailrhannu eich %{post_link}."
       one: "Mae %{actors} wedi ail-bostio eich %{post_link}."
       other: "Mae %{actors} wedi ail-bostio eich %{post_link}."
       two: "Mae %{actors} wedi ailrhannu eich %{post_link}."
       zero: "Mae %{actors} wedi ail-bostio eich %{post_link}."
-    reshared_post_deleted:
+    reshared_post_deleted: 
       few: "mae %{actors} wedi rhannu eich post wedi dileu."
       many: "mae %{actors} wedi rhannu eich post wedi dileu."
       one: "mae %{actors} wedi rhannu eich post wedi dileu."
       other: "%{actors} wedi rhannu y swydd yr ydych yn dileu."
       two: "mae %{actors} wedi rhannu eich post wedi dileu."
       zero: "%{actors} wedi rhannu y swydd yr ydych yn dileu."
-    started_sharing:
+    started_sharing: 
       few: "Mae %{actors} wedi dechrau rhannu gyda chi."
       many: "Mae %{actors} wedi dechrau rhannu gyda chi."
       one: "Mae %{actors} wedi dechrau rhannu gyda chi."
       other: "Mae %{actors} wedi dechrau rhannu gyda chi."
       two: "Mae %{actors} wedi dechrau rhannu gyda chi."
       zero: "Mae %{actors} wedi dechrau rhannu gyda chi."
-  notifier:
+  notifier: 
     a_post_you_shared: post.
     click_here: "cliciwch yma"
-    comment_on_post:
+    comment_on_post: 
       reply: "Ateb neu gweld post %{name} >"
-    confirm_email:
+    confirm_email: 
       click_link: "To activate your new e-mail address %{unconfirmed_email}, please click this link:"
       subject: "Please activate your new e-mail address %{unconfirmed_email}"
-    email_sent_by_diaspora: "This email was sent by Diaspora.  If you'd like to stop getting emails like this,"
     hello: "Helo %{name}!"
-    liked:
+    liked: 
       liked: "Mae %{name} wedi newydd hoffi eich post: "
       view_post: "Gweld y post >"
-    mentioned:
-      mentioned: "mentioned you in a post:"
-      subject: "%{name} has mentioned you on Diaspora*"
-    private_message:
-      reply_to_or_view: "Reply to or view this conversation >"
-    reshared:
+    reshared: 
       reshared: "Mae%{name} wedi newydd ail-bostio eich post"
       view_post: "Gweld y post >"
-    single_admin:
-      admin: "Your Diaspora administrator"
+    single_admin: 
       subject: "A message from your Diaspora administrator:"
-    started_sharing:
+    started_sharing: 
       sharing: "wedi dechrau rhannu gyda chi!"
       subject: "Mae %{name} wedi dechrau rhannu gyda chi i mewn Diaspora*"
-      view_profile: "View %{name}'s profile"
     thanks: "Diolch,"
-    to_change_your_notification_settings: "to change your notification settings"
-  ok: "OK"
-  or: "neu"
-  password: "Cyfrinair"
+  or: neu
+  password: Cyfrinair
   password_confirmation: "Cadarnhad Cyfrinair"
-  people:
-    add_contact_small:
-      add_contact_from_tag: "add contact from tag"
-    aspect_list:
-      edit_membership: "edit aspect membership"
+  people: 
     few: "%{count} pobl"
-    helper:
-      people_on_pod_are_aware_of: " people on pod are aware of"
-      results_for: " results for %{params}"
-    index:
-      couldnt_find_them_send_invite: "Couldn't find them?  Send an invite!"
-      looking_for: "Looking for posts tagged %{tag_link}?"
-      no_one_found: "...and no one was found."
-      no_results: "Hey! You need to search for something."
-      results_for: "search results for"
     many: "%{count} pobl"
     one: "1 unigolyn"
     other: "%{count} pobl"
-    person:
+    person: 
       add_contact: "anadu cysylltiad"
-      already_connected: "Already connected"
       pending_request: "pending request"
       thats_you: "chi sy hyn!"
-    profile_sidebar:
-      bio: "bio"
-      born: "born"
-      edit_my_profile: "Edit my profile"
-      gender: "gender"
+    profile_sidebar: 
+      born: born
       in_aspects: "i mewn agweddau"
-      location: "location"
       remove_contact: "dileu cysylltiad"
-      remove_from: "Remove %{name} from %{aspect}?"
-    show:
-      closed_account: "This account has been closed."
+    show: 
       does_not_exist: "Dydy'r unigolyn ddim yn bodoli!"
-      has_not_shared_with_you_yet: "%{name} has not shared any posts with you yet!"
-      ignoring: "You are ignoring all posts from %{name}."
       incoming_request: "You have an incoming request from this person."
-      mention: "Mention"
-      message: "Neges"
+      message: Neges
       not_connected: "You are not connected with this person"
-      recent_posts: "Recent Posts"
-      recent_public_posts: "Recent Public Posts"
       return_to_aspects: "Mynd yn ôl i dudalen agweddau"
       see_all: "Gweld popeth"
       start_sharing: "dechrau rhannu"
-      to_accept_or_ignore: "to accept or ignore it."
-    sub_header:
-      add_some: "add some"
-      edit: "golygu"
-      you_have_no_tags: "you have no tags!"
-    two: "%{count} people"
-    webfinger:
-      fail: "Sorry, we couldn't find %{handle}."
-    zero: "no people"
-  photos:
+    sub_header: 
+      edit: golygu
+  photos: 
     comment_email_subject: "ffoto %{name}"
-    create:
-      integrity_error: "Photo upload failed.  Are you sure that was an image?"
-      runtime_error: "Photo upload failed.  Are you sure that your seatbelt is fastened?"
+    create: 
       type_error: "Mae ffoto wedi methu llwytho i fyny. A ydych yn sicr delwedd ei ychwanegu?"
-    destroy:
+    destroy: 
       notice: "Ffoto wedi dileu."
-    edit:
-      editing: "Editing"
-    new:
+    new: 
       back_to_list: "Nôl i'r Rhestr"
-      new_photo: "New Photo"
-      post_it: "post it!"
-    new_photo:
-      empty: "{file} is empty, please select files again without it."
-      invalid_ext: "{file} has invalid extension. Only {extensions} are allowed."
-      size_error: "{file} is too large, maximum file size is {sizeLimit}."
-    new_profile_photo:
-      or_select_one_existing: "or select one from your already existing %{photos}"
-      upload: "Upload a new profile photo!"
-    photo:
+    photo: 
       view_all: "gweld lluniau %{name} i gŷd"
-    show:
-      collection_permalink: "collection permalink"
+    show: 
       delete_photo: "Dileu'r Llun"
-      edit: "edit"
-      edit_delete_photo: "Edit photo description / delete photo"
-      make_profile_photo: "make profile photo"
-      show_original_post: "Show original post"
-      update_photo: "Update Photo"
-    update:
-      error: "Failed to edit photo."
-      notice: "Photo successfully updated."
-  posts:
-    show:
-      destroy: "Delete"
-      not_found: "Sorry, we couldn't find that post."
-      permalink: "permalink"
-  previous: "blaenorol"
-  privacy: "Privacy"
-  privacy_policy: "Privacy Policy"
-  profile: "Proffil"
-  profiles:
-    edit:
-      allow_search: "Allow for people to search for you within Diaspora"
+  previous: blaenorol
+  profile: Proffil
+  profiles: 
+    edit: 
       edit_profile: "Golygu proffil"
-      first_name: "First name"
-      last_name: "Last name"
-      update_profile: "Update Profile"
-      your_bio: "Your bio"
       your_birthday: "Eich penblwydd"
-      your_gender: "Your gender"
-      your_location: "Your location"
       your_name: "Eich enw"
       your_photo: "Eich ffoto"
-      your_private_profile: "Your private profile"
-      your_public_profile: "Your public profile"
       your_tags: "You: in 5 #tags"
       your_tags_placeholder: "i.e. #diaspora #ironing #kittens #music"
-    update:
-      failed: "Failed to update profile"
-      updated: "Profile updated"
-  public: "Public"
-  reactions:
-    few: "%{count} reactions"
-    many: "%{count} reactions"
-    one: "1 reaction"
-    other: "%{count} reactions"
-    two: "%{count} reactions"
-    zero: "0 reactions"
-  registrations:
-    closed: "Signups are closed on this Diaspora pod."
-    create:
+  registrations: 
+    create: 
       success: "Rydych chi wedi ymuno Diaspora!"
-    edit:
-      cancel_my_account: "Cancel my account"
-      edit: "Edit %{name}"
-      leave_blank: "(leave blank if you don't want to change it)"
-      password_to_confirm: "(we need your current password to confirm your changes)"
-      unhappy: Unhappy?
-      update: "Update"
-    new:
+    new: 
       create_my_account: "Create my account"
       enter_email: "Enter an e-mail"
-      enter_password: "Enter a password"
-      enter_password_again: "Enter the same password as before"
-      enter_username: "Pick a username (only letters, numbers, and underscores)"
-      join_the_movement: "Join the movement!"
       sign_up_message: "Social Networking with a <3"
-  requests:
-    create:
+  requests: 
+    create: 
       sending: Sending...
       sent: "Rydych chi wedi gofyn i rannu gyda %{name}. Dylen nhw ei weld tro nesaf y byddant yn mewngofnodi i Diaspora."
-    destroy:
+    destroy: 
       error: "Dewiswch agwedd!"
       ignore: "Ignored friend request."
       success: "Ffrindiau ydych chi!"
-    helper:
-      new_requests:
-        few: "%{count} new requests!"
-        many: "%{count} new requests!"
-        one: "new request!"
-        other: "%{count} new requests!"
-        two: "%{count} new requests!"
-        zero: "no new requests"
-    manage_aspect_contacts:
-      existing: "Existing contacts"
-      manage_within: "Manage contacts within"
-    new_request_to_person:
-      sent: sent!
-  reshares:
-    comment_email_subject: "%{resharer}'s reshare of %{author}'s post"
-    create:
+  reshares: 
+    create: 
       failure: "Roedd camgymeriad yn rhannu y swydd hon."
-    reshare:
+    reshare: 
       deleted: "Post gwreiddiol wedi cael ei ddileu gan yr awdur."
-      reshare:
+      reshare: 
         few: "rhannwyd %{count} waith"
         many: "rhannwyd %{count} waith"
         one: "Rhannwyd unwaith"
         other: "rhannwyd %{count} waith"
         two: "rhannwyd %{count} waith"
-        zero: "Ailrhannu"
+        zero: Ailrhannu
       reshare_confirmation: "Ailrhannu post %{author}?"
-      reshare_original: "Ailrhannu"
+      reshare_original: Ailrhannu
       reshared_via: "ailrhannwyd gan"
       show_original: "Dangos yr wreiddiol"
-  search: "Search"
-  services:
-    create:
-      already_authorized: "A user with diaspora id %{diaspora_id} already authorized that %{service_name} account."
-      failure: "Authentication failed."
+  services: 
+    create: 
       success: "Dilysu llwyddiannus."
-    destroy:
+    destroy: 
       success: "Successfully destroyed authentication."
-    failure:
-      error: "there was an error connecting that service"
-    finder:
-      fetching_contacts: "Diaspora is populating your %{service} friends please check back in a few minutes."
+    finder: 
       no_friends: "Dim ffrindiau Facebook wedi darganfod."
       service_friends: "Ffrindiau %{service}"
-    index:
+    index: 
       connect_to_facebook: "Cysylltiad gyda Facebook"
       connect_to_tumblr: "Cysylltiad gyda Tumblr"
       connect_to_twitter: "Cysylltiad gyda Twitter"
-      disconnect: "datgysylltu"
-      edit_services: "Edit services"
+      disconnect: datgysylltu
       logged_in_as: "mewngofnodi fel"
-      no_services: "You have not connected any services yet."
       really_disconnect: "datgysylltu %{service}?"
-    inviter:
+    inviter: 
       click_link_to_accept_invitation: "Click this link to accept your invitation"
       join_me_on_diaspora: "Cysylltu gyda fi mewn DIASPORA*"
-    remote_friend:
-      invite: "invite"
-      not_on_diaspora: "Not yet on Diaspora"
-      resend: "resend"
-  settings: "Gosodiadau"
-  share_visibilites:
-    update:
-      post_hidden_and_muted: "%{name}'s post has been hidden, and notifications have been muted."
-      see_it_on_their_profile: "If you want to see updates on this post, visit %{name}'s profile page."
-  shared:
-    add_contact:
-      add_new_contact: "Add a new contact"
+  settings: Gosodiadau
+  shared: 
+    add_contact: 
       create_request: "Find by Diaspora handle"
       diaspora_handle: "Diaspora handle"
-      enter_a_diaspora_username: "Enter a Diaspora username:"
-      know_email: "Know their email address? You should invite them"
       your_diaspora_username_is: "%{diaspora_handle} ydy eich enw Diaspora"
-    aspect_dropdown:
+    aspect_dropdown: 
       add_to_aspect: "Add to aspect"
-      toggle:
+      toggle: 
         few: "Mewn %{count} agweddau"
         many: "Mewn %{count} agweddau"
         one: "Mewn %{count} agwedd"
         other: "Mewn %{count} agweddau"
         two: "Mewn %{count} agweddau"
         zero: "Add to aspect"
-    contact_list:
+    contact_list: 
       all_contacts: "Cysylltiadau i gŷd"
-    footer:
-      logged_in_as: "logged in as %{name}"
+    footer: 
       your_aspects: "eich agweddau"
-    invitations:
+    invitations: 
       by_email: "gan e-bost"
-      dont_have_now: "You don't have any right now, but more invites are coming soon!"
       from_facebook: "O Facebook"
       invitations_left: "(%{count} left)"
-      invite_someone: "Invite someone"
-      invite_your_friends: "Invite your friends"
-      invites: "Invites"
       invites_closed: "Invites are currently closed on this Diaspora seed"
-    notification:
+    notification: 
       new: "%{type} newydd o %{from}"
-    public_explain:
-      control_your_audience: "Control your Audience"
-      logged_in: "logged in to %{service}"
-      manage: "manage connected services"
-      new_user_welcome_message: "Use #hashtags to classify your posts and find people who share your interests.  Call out awesome people with @Mentions"
-      outside: "Public messages will be available for others outside of Diaspora to see."
-      share: "Share"
+    public_explain: 
       title: "You are about to post a public message!"
-      visibility_dropdown: "Use this dropdown to change visibility of your post.  (We suggest you make this first one public.)"
-    publisher:
-      all: "all"
+    publisher: 
       all_contacts: "cysylltiadau i gŷd"
-      discard_post: "Discard post"
       make_public: "gwneud yn gyhoeddus"
-      new_user_prefill:
-        hello: "Hey everyone, I'm #%{new_user_tag}. "
+      new_user_prefill: 
         i_like: "I'm interested in %{tags}."
-        invited_by: "Thanks for the invite, "
-        newhere: "NewHere"
       post_a_message_to: "Post neges i %{aspect}"
-      posting: Posting...
-      publishing_to: "publishing to: "
-      share: "Share"
       share_with: "Share with %{aspect}"
-      upload_photos: "Upload photos"
       whats_on_your_mind: "Am be' dych chi'n meddwl?"
-    reshare:
+    reshare: 
       reshare: "Rhannu eto"
-    stream_element:
+    stream_element: 
       connect_to_comment: "Cysylltu i ddefnyddiwr hwn i sylwi ar eu swydd"
-      currently_unavailable: "commenting currently unavailable"
       dislike: "'Dwi ddim yn hoffi hyn"
       hide_and_mute: "Hide and Mute"
-      ignore_user: "Ignore %{name}"
-      ignore_user_description: "Ignore and remove user from all aspects?"
       like: "Dwi'n hoffi hyn"
-      nsfw: "This post has been flagged as NSFW by its author. %{link}"
-      shared_with: "Shared with: %{aspect_names}"
-      show: "show"
       unlike: "Dim hoffi"
-      via: "via %{link}"
       viewable_to_anyone: "Mae'r post hon yn weladwy i unrhyw un ar y we"
-  status_messages:
-    create:
-      success: "Successfully mentioned: %{names}"
-    destroy:
-      failure: "Failed to delete post"
-    helper:
+  status_messages: 
+    helper: 
       no_message_to_display: "Dim neges i arddangos."
-    new:
-      mentioning: "Mentioning: %{person}"
-    too_long:
-      few: "please make your status messages less than %{count} characters"
-      many: "please make your status messages less than %{count} characters"
-      one: "please make your status messages less than %{count} character"
-      other: "please make your status messages less than %{count} characters"
-      two: "please make your status messages less than %{count} characters"
-      zero: "please make your status messages less than %{count} characters"
-  stream_helper:
+  stream_helper: 
     hide_comments: "hide comments"
-    show_comments:
-      few: "Show %{count} more comments"
-      many: "Show %{count} more comments"
-      one: "Show one more comment"
-      other: "Show %{count} more comments"
-      two: "Show two more comments"
-      zero: "No more comments"
-  streams:
-    aspects:
+  streams: 
+    aspects: 
       title: "Eich Agweddau"
-    aspects_stream: "Agweddau"
-    comment_stream:
-      contacts_title: "People whose posts you commented on"
-      title: "Commented Posts"
+    aspects_stream: Agweddau
     commented_on: "wedi sylwi arno"
-    community_spotlight_stream: "Community Spotlight"
-    followed_tag:
+    followed_tag: 
       add_a_tag: "Ychwanegu tag"
-      contacts_title: "People who dig these tags"
-      follow: "Follow"
       title: "#Tagiau ddilynwyd"
     followed_tags_stream: "#Tagiau ddilynwyd"
-    like_stream:
-      contacts_title: "People whose posts you like"
-      title: "Like Stream"
-    mentioned_stream: "@Mentions"
-    mentions:
-      contacts_title: "People who mentioned you"
+    mentions: 
       title: "Your Mentions"
-    multi:
+    multi: 
       contacts_title: "Pobol yn eich ffrwd"
-      title: "Ffrwd"
+      title: Ffrwd
     posted: "wedi postio"
-    public:
-      contacts_title: "Recent Posters"
-      title: "Public Activity"
     recently: "yn ddiweddar:"
-    tags:
+    tags: 
       contacts_title: "People who dig these tags"
-      tag_prefill_text: "The thing about %{tag_name} is... "
-      title: "Posts tagged: %{tags}"
-  tag_followings:
-    create:
+  tag_followings: 
+    create: 
       failure: "Failed to follow: #%{name}"
-      none: "You cannot follow a blank tag!"
       success: "Successfully following: #%{name}"
-    destroy:
+    destroy: 
       failure: "Failed to stop following: #%{name}"
       success: "Successfully stopped following: #%{name}"
-  tags:
-    show:
-      follow: "Follow #%{tag}"
-      followed_by: "followed by"
-      following: "Following #%{tag}"
+  tags: 
+    show: 
       nobody_talking: "Does neb yn siarad am %{tag} eto."
-      none: "The empty tag does not exist!"
-      people_tagged_with: "People tagged with %{tag}"
-      posts_tagged_with: "Posts tagged with #%{tag}"
-      stop_following: "Stop Following #%{tag}"
-  terms_and_conditions: "Terms and Conditions"
-  tokens:
-    show:
-      connect_to_cubbies: "Connect to Cubbi.es"
+  tokens: 
+    show: 
       connecting_is_simple: "Connecting your Diaspora account is as simple as filling out two fields on your Cubbi.es account page."
-      daniels_account: "Daniel's Diaspora account"
-      love_to_try: "We'd love for you to try it out."
-      making_the_connection: "Making the Connection"
-      screenshot_explanation: "%{link1}.  This particular cubby is linked to %{link2}."
-      sign_up_today: "Sign up today!"
-      typical_userpage: "A typical cubbi.es userpage"
-      via: "(via %{link})"
-      what_is_cubbies: "Cubbi.es is the world's first Diaspora application.  It's also the best way to collect photos online."
-  undo: Undo?
   username: "Enw Defnyddiwr"
-  users:
-    confirm_email:
+  users: 
+    confirm_email: 
       email_confirmed: "E-Mail %{email} activated"
       email_not_confirmed: "E-Mail could not be activated. Wrong link?"
-    destroy:
-      no_password: "Please enter your current password to close your account."
-      success: "Your account has been locked.  It may take 20 minutes for us to finish closing your account.  Thank you for trying Diaspora."
-      wrong_password: "The entered password didn't match your current password."
-    edit:
-      also_commented: "...someone also comments on your contact's post?"
-      change: "Change"
+    edit: 
       change_email: "Newid yr E-Bost"
       change_language: "Newid yr iaith"
       change_password: "Newid cyfrinair"
-      close_account:
-        dont_go: "Hey, please don't go!"
-        if_you_want_this: "If you really want this, type in your password below and click 'Close Account'"
-        lock_username: "This will lock your username if you decided to sign back up."
-        locked_out: "You will get signed out and locked out of your account."
-        make_diaspora_better: "We want you to help us make Diaspora better, so you should help us out instead of leaving. If you do want to leave, we want you to know what happens next."
-        mr_wiggles: "Mr Wiggles will be sad to see you go"
-        no_turning_back: "Currently, there is no turning back."
-        what_we_delete: "We delete all of your posts, profile data, as soon as humanly possible. Your comments will hang around, but be associated with your Diaspora Handle."
-      close_account_text: "Close Account"
-      comment_on_post: "...someone comments on your post?"
-      current_password: "Current password"
-      download_photos: "download my photos"
       download_xml: "llwytho i lawr fy xml"
-      edit_account: "Edit account"
       email_awaiting_confirmation: "We have sent you an activation link to %{unconfirmed_email}. Till you follow this link and activate the new address, we will continue to use your original address %{email}."
       export_data: "Data Allforio"
-      getting_started: "New User Prefrences"
-      liked: "...someone likes your post?"
-      mentioned: "...you are mentioned in a post?"
       new_password: "Cyfrinair newydd "
-      photo_export_unavailable: "Photo exporting currently unavailable"
-      private_message: "...you receive a private message?"
       receive_email_notifications: "Receive email notificaions?"
       reshared: "...rhywun yn rhannu eich post?"
-      show_community_spotlight: "Show Community Spotlight in Stream?"
-      show_getting_started: "Re-enable Getting Started"
-      started_sharing: "...someone starts sharing with you?"
-      stream_preferences: "Stream Preferences"
-      your_email: "Your email"
       your_handle: "Your diaspora handle"
-    getting_started:
-      awesome_take_me_to_diaspora: "Awesome! Take me to Diaspora*"
-      community_welcome: "Diaspora's community is happy to have you aboard!"
-      hashtag_explanation: "Hashtags allow you to talk about and follow your interests.  They're also a great way to find new people on Diaspora."
-      hashtag_suggestions: "Try following tags like #art, #movies, #gif, etc."
-      hooking_up_fb: "hooking up your Facebook account"
-      saved: Saved!
-      we_can_speed_things_up: "We can speed things up a bit by"
-      well_hello_there: "Well, hello there!"
-      what_are_you_in_to: "What are you into?"
+    getting_started: 
       what_facebook_does: "to Diaspora. This will pull your name and photo, and enable cross-positng."
-      who_are_you: "Who are you?"
-    logged_out:
-      go_mobile: "Now go mobile."
-      on_your_mobile_device: "on your mobile device to access Diaspora* mobile."
-      signed_out: "You've signed out of Diaspora*"
-      simply_visit: "Simply visit"
-      works_on_modern: "Works on all modern smartphones"
-    privacy_settings:
-      ignored_users: "Ignored Users"
-      stop_ignoring: "Stop ignoring"
+    privacy_settings: 
       title: "Gosodiadau preifatrwydd"
-    public:
+    public: 
       does_not_exist: "Nid% Defnyddiwr {username} yn bodoli!"
-    update:
+    update: 
       email_notifications_changed: "Language Change Failed"
       language_changed: "Iaith wedi newid"
       language_not_changed: "Newidiad iaith wedi methu"
       password_changed: "Password Changed"
       password_not_changed: "Password Change Failed"
       settings_not_updated: "Mae diweddaru gosodiadau wedi methu "
-      settings_updated: "Settings updated"
       unconfirmed_email_changed: "E-Mail Changed. Needs activation."
       unconfirmed_email_not_changed: "E-Mail Change Failed"
-  webfinger:
-    fetch_failed: "failed to fetch webfinger profile for %{profile_url}"
+  webfinger: 
     hcard_fetch_failed: "there was a problem fetching the hcard for #{@account}"
     no_person_constructed: "Ni allai unrhyw berson yn cael ei adeiladu o'r hcard hyn."
-    not_enabled: "webfinger does not seem to be enabled for %{account}'s host"
-    xrd_fetch_failed: "there was an error getting the xrd from account %{account}"
-  welcome: Welcome!
-  will_paginate:
-    next_label: "next &raquo;"
-    previous_label: "&laquo; previous"

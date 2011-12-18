@@ -3,52 +3,53 @@
 #   the COPYRIGHT file.
 
 
-hu:
-  javascripts:
-    aspect_dropdown:
+
+hu: 
+  javascripts: 
+    aspect_dropdown: 
       add_to_aspect: "Hozzáadás a csoporthoz"
       all_aspects: "Összes csoport"
       error: "Nem indult el a megosztás vele: {{name}}. Visszavonod?"
       select_aspects: "Csoportok kiválasztása"
       started_sharing_with: "Mostantól megosztassz vele: {{name}}!"
       stopped_sharing_with: "Nem osztassz meg többé vele: {{name}}."
-      toggle:
+      toggle: 
         few: "{{count}} csoportban"
         many: "{{count}} csoportban"
         one: "{{count}} csoportban"
         other: "{{count}} csoportban"
         two: "{{count}} csoportban"
         zero: "Csoportok kiválasztása"
-    aspect_navigation:
+    aspect_navigation: 
       deselect_all: "Összes kijelölés megszüntetése"
       no_aspects: "Nincs csoport kiválasztva"
       select_all: "Mindent kijelöl"
-    comments:
+    comments: 
       hide: "hozzászólások elrejtése"
       show: "összes hozzászólás"
     confirm_dialog: "Biztos vagy benne?"
-    failed_to_like: "Hiba"
+    failed_to_like: Hiba
     failed_to_post_message: "Üzenet elküldése sikertelen!"
-    getting_started:
+    getting_started: 
       alright_ill_wait: "Rendben, várok!"
       hey: "Szia {{name}}!"
       no_tags: "Hékás, nem követtél egy #címkét sem! Így is folytatod?"
       preparing_your_stream: "Személyre szabott hírfolyamod előkészítése..."
-    infinite_scroll:
+    infinite_scroll: 
       no_more: "Nincs több bejegyzés."
-    photo_uploader:
+    photo_uploader: 
       looking_good: "Azta! Remekül nézek ki!"
-    publisher:
+    publisher: 
       at_least_one_aspect: "Minimum 1 csoportnak meg kell osztanod!"
       limited: "Korlátozott - csak az ismerőseid láthatják ezt a bejegyzést"
       public: "Nyilvános - ezt a bejegyzést bárki láthatja az interneten."
-    reshares:
+    reshares: 
       duplicate: "Jó mi? De már egyszer megosztottad ezt a bejegyzést!"
     search_for: "{{name}} keresése."
-    show_more: "tovább"
-    tags:
+    show_more: tovább
+    tags: 
       wasnt_that_interesting: "Oké, azt hiszem a #{{tagName}} nem volt annyira érdekes."
-    timeago:
+    timeago: 
       day: "egy nappal"
       days: "%d nappal"
       hour: "körülbelül egy órával"
@@ -57,15 +58,13 @@ hu:
       minutes: "%d perccel"
       month: "körülbelül egy hónappal"
       months: "%d hónappal"
-      prefixAgo: ""
-      prefixFromNow: ""
       seconds: "kevesebb mint egy perccel"
-      suffixAgo: "ezelőtt"
-      suffixFromNow: "mostantól"
+      suffixAgo: ezelőtt
+      suffixFromNow: mostantól
       year: "körülbelül egy évvel"
       years: "%d évvel"
-    videos:
+    videos: 
       unknown: "Ismeretlen videó tipus"
       watch: "Videó megtekintése itt: {{provider}}"
-    web_sockets:
+    web_sockets: 
       disconnected: "A websocket zárolva van. A bejegyzések nem lesznek előben stream-elve."

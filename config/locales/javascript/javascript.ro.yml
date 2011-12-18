@@ -3,52 +3,39 @@
 #   the COPYRIGHT file.
 
 
-ro:
-  javascripts:
-    aspect_dropdown:
+
+ro: 
+  javascripts: 
+    aspect_dropdown: 
       add_to_aspect: "Adaugă la aspect"
       all_aspects: "Toate aspectele"
-      error: "Couldn't start sharing with {{name}}.  Are you ignoring them?"
       select_aspects: "Selectează aspecte"
-      started_sharing_with: "You have started sharing with {{name}}!"
-      stopped_sharing_with: "You have stopped sharing with {{name}}."
-      toggle:
+      toggle: 
         few: "În {{count}} aspecte"
         many: "În {{count}} aspecte"
         one: "În {{count}} aspect"
         other: "În {{count}} aspecte"
-        two: "In {{count}} aspects"
         zero: "Adaugă la aspect"
-    aspect_navigation:
+    aspect_navigation: 
       deselect_all: "Deselectează tot"
       no_aspects: "Niciun aspect selectat"
       select_all: "Selectează tot"
-    comments:
+    comments: 
       hide: "ascunde comentariile"
       show: "arată toate comentarile"
     confirm_dialog: "Sunteţi sigur?"
-    failed_to_like: "Failed to like!"
-    failed_to_post_message: "Failed to post message!"
-    getting_started:
+    getting_started: 
       alright_ill_wait: "In regulă, o să aștept."
-      hey: "Hey, {{name}}!"
-      no_tags: "Hey, you haven't followed any tags!  Continue anyway?"
       preparing_your_stream: "Preparing your personialized stream..."
-    infinite_scroll:
+    infinite_scroll: 
       no_more: "Nu mai sunt posturi."
-    photo_uploader:
-      looking_good: "OMG, you look awesome!"
-    publisher:
+    publisher: 
       at_least_one_aspect: "Trebuie sa publici pe cel puţin un aspect"
-      limited: "Limited - your post will only be seen by people you are sharing with"
-      public: "Public - your post will be visible to everyone and found by search engines"
-    reshares:
+    reshares: 
       duplicate: "You've already reshared that post!"
     search_for: "Caută {{name}}"
     show_more: "arată mai mult"
-    tags:
-      wasnt_that_interesting: "OK, I suppose #{{tagName}} wasn't all that interesting..."
-    timeago:
+    timeago: 
       day: "o zi"
       days: "%d zile"
       hour: "o ora"
@@ -57,15 +44,15 @@ ro:
       minutes: "%d minute"
       month: "o luna"
       months: "%d luni"
-      prefixAgo: "acum"
+      prefixAgo: acum
       prefixFromNow: "in timp de"
       seconds: "mai putin de un minut"
       suffixAgo: ""
       suffixFromNow: ""
       year: "un an"
       years: "%d ani"
-    videos:
+    videos: 
       unknown: "Format de video necunoscut"
       watch: "Vizualizează acest video pe {{provider}}"
-    web_sockets:
+    web_sockets: 
       disconnected: "Websocket-ul e închis; posturile nu vor mai fi transmise în direct."

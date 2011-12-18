@@ -3,69 +3,61 @@
 #   the COPYRIGHT file.
 
 
-cy:
-  javascripts:
-    aspect_dropdown:
+
+cy: 
+  javascripts: 
+    aspect_dropdown: 
       add_to_aspect: "Ychwanegu cysylltiad"
       all_aspects: "Agweddau i gŷd"
-      error: "Couldn't start sharing with {{name}}.  Are you ignoring them?"
       select_aspects: "Dewis agweddau"
       started_sharing_with: "Rydych chi'n rhannu gyda {{name}}!"
       stopped_sharing_with: "Dydych chi ddim yn rhannu nawr gyda {{name}}."
-      toggle:
+      toggle: 
         few: "Mewn {{count}} agweddau"
         many: "Mewn {{count}} agweddau"
         one: "Mewn {{count}} agwedd"
         other: "Mewn {{count}} agweddau"
         two: "Mewn {{count}} agweddau"
         zero: "Dewiswch agweddau"
-    aspect_navigation:
+    aspect_navigation: 
       deselect_all: "Dad-ddewis i gŷd"
       no_aspects: "Dydych chi ddim wedi dewis unrhyw agweddau"
       select_all: "Dewis i gŷd"
-    comments:
+    comments: 
       hide: "cuddio sylwadau"
       show: "ddangos sylwadau i gŷd"
     confirm_dialog: "Chi'n siwr?"
     failed_to_like: "Wedi methu i hoffi!"
     failed_to_post_message: "Methwyd i bostio neges!"
-    getting_started:
+    getting_started: 
       alright_ill_wait: "O'r gorau - 'dwi'n aros..."
       hey: "Hei, {{name}}!"
       no_tags: "Hei, dydych chi ddim yn dilyn unrhyw tagiau! Dal ymlaen beth bynnag?"
       preparing_your_stream: "Preparing your personalised stream..."
-    infinite_scroll:
+    infinite_scroll: 
       no_more: "Dim mwy o swyddi."
-    photo_uploader:
+    photo_uploader: 
       looking_good: "OMG, rydych chi'n ymddangos yn neis iawn!"
-    publisher:
-      at_least_one_aspect: "You must publish to at least one aspect"
-      limited: "Limited - your post will only be seen by people you are sharing with"
-      public: "Public - your post will be visible to everyone and found by search engines"
-    reshares:
+    reshares: 
       duplicate: "Mae hynny'n dda, eh? Rydych chi wedi rhannu'r bost eisoes!"
     search_for: "Chwilio am {{name}}"
     show_more: "dangos mwy"
-    tags:
+    tags: 
       wasnt_that_interesting: "OK, mae'n debyg nid yw #{{tagName}} yn ddiddorol iawn..."
-    timeago:
-      day: "diwrnod"
+    timeago: 
+      day: diwrnod
       days: "%d diwrnod"
-      hour: "awr"
+      hour: awr
       hours: "%d awr"
       minute: "tua funud"
       minutes: "%d munud"
-      month: "mis"
+      month: mis
       months: "%d mis"
-      prefixAgo: ""
-      prefixFromNow: ""
       seconds: "rhai na munud"
       suffixAgo: "yn ôl"
       suffixFromNow: "o hŷd"
       year: "tua flwyddyn"
       years: "%d blyddynoedd"
-    videos:
+    videos: 
       unknown: "Math o fideo anhysbys"
       watch: "Gwyliwch y fideo ar {{provider}}"
-    web_sockets:
-      disconnected: "The websocket is closed; posts will no longer be streamed live."

@@ -1,0 +1,105 @@
+#   Copyright (c) 2010-2011, Diaspora Inc.  This file is
+#   licensed under the Affero General Public License version 3 or later.  See
+#   the COPYRIGHT file.
+
+
+
+te: 
+  _applications: అనువర్తనాలు
+  _comments: వ్యాఖ్యలు
+  _contacts: పరిచయాలు
+  _home: ముంగిలి
+  _photos: ఫొటోలు
+  _services: సేవలు
+  account: ఖాతా
+  ago: "%{time} క్రితం"
+  application: 
+    helper: 
+      unknown_person: "తెలియని వ్యక్తి"
+  aspects: 
+    edit: 
+      done: పూర్తయ్యింది
+      rename: పేరుమార్చు
+    index: 
+      cubbies: 
+        learn_more: "మరింత తెలుసుకోండి"
+      help: 
+        need_help: "సహాయం కావాలా?"
+      new_here: 
+        learn_more: "మరింత తెలుసుకోండి"
+    new: 
+      name: "పేరు (మీకు మాత్రమే కనిపిస్తుంది)"
+    seed: 
+      family: కుటుంబం
+      friends: స్నేహితులు
+      work: సహోద్యోగులు
+  cancel: రద్దుచేయి
+  comments: 
+    few: "%{count} వ్యాఖ్యలు"
+    many: "%{count} వ్యాఖ్యలు"
+    one: "1 వ్యాఖ్య"
+    other: "%{count} వ్యాఖ్యలు"
+    two: "%{count} వ్యాఖ్యలు"
+    zero: "వ్యాఖ్యలు లేవు"
+  contacts: 
+    few: "%{count} పరిచయాలు"
+  conversations: 
+    helper: 
+      new_messages: 
+        few: "%{count} కొత్త సందేశాలు"
+        many: "%{count} కొత్త సందేశాలు"
+        one: "1 కొత్త సందేశం"
+        other: "%{count} కొత్త సందేశాలు"
+        two: "%{count} కొత్త సందేశాలు"
+        zero: "కొత్త సందేశాలు లేవు"
+    new: 
+      subject: విషయం
+  delete: తొలగించు
+  fill_me_out: పూరించండి
+  hide: దాచు
+  home: 
+    show: 
+      already_account: "ఇప్పటికే ఖాతా ఉందా?"
+  invitations: 
+    create: 
+      already_sent: "ఈ వ్యక్తిని మీరు ఇప్పటికే ఆహ్వానించారు."
+      no_more: "మీకు ఆహ్వానాలేమీ లేవు."
+    new: 
+      language: భాష
+  layouts: 
+    header: 
+      blog: బ్లాగు
+      settings: అమరికలు
+  limited: పరిమితం
+  notifications: 
+    index: 
+      and: మరియు
+      and_others: 
+        few: "ఇంకా %{count}గురు ఇతరులు"
+  notifier: 
+    click_here: "ఇక్కడ నొక్కండి"
+  ok: సరే
+  or: లేదా
+  password: సంకేతపదం
+  password_confirmation: "సంకేతపదపు నిర్ధారణ"
+  people: 
+    person: 
+      thats_you: "అది మీరే!"
+    profile_sidebar: 
+      born: "పుట్టిన రోజు"
+      gender: లింగం
+      location: ప్రాంతం
+    show: 
+      recent_posts: "ఇటీవలి టపాలు"
+      recent_public_posts: "ఇటీవలి బహిరంగ టపాలు"
+      see_all: "అందరినీ చూడండి"
+  posts: 
+    show: 
+      permalink: స్థిరలంకె
+  profiles: 
+    edit: 
+      your_name: "మీ పేరు"
+      your_photo: "మీ ఫొటో"
+  public: బహిరంగం
+  settings: అమరికలు
+  welcome: స్వాగతం!

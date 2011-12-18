@@ -3,14 +3,15 @@
 #   the COPYRIGHT file.
 
 
-fr:
-  devise:
-    confirmations:
+
+fr: 
+  devise: 
+    confirmations: 
       confirmed: "Votre compte a été confirmé. Vous êtes à présent connecté(e)."
-      new:
+      new: 
         resend_confirmation: "Renvoyer les instructions de confirmation"
       send_instructions: "Vous allez recevoir dans quelques minutes un e-mail contenant les instructions pour confirmer votre compte."
-    failure:
+    failure: 
       inactive: "Votre compte n’a pas encore été activé."
       invalid: "Pseudo ou mot de passe invalide."
       invalid_token: "Jeton d’authentification invalide."
@@ -18,24 +19,22 @@ fr:
       timeout: "Votre session a expiré, veuillez vous connecter de nouveau afin de continuer."
       unauthenticated: "Vous devez vous connecter ou vous inscrire avant de continuer."
       unconfirmed: "Vous devez confirmer votre compte avant de continuer."
-    invitations:
+    invitations: 
       invitation_token_invalid: "Toutes nos excuses ! Cette invitation n'est pas valide."
       send_instructions: "Votre invitation a été envoyée."
       updated: "Votre mot de passe a été créé. Vous êtes à présent connecté(e)."
-    mailer:
-      confirmation_instructions:
+    mailer: 
+      confirmation_instructions: 
         confirm: "Confirmer mon compte"
         subject: "Instructions de confirmation"
         you_can_confirm: "Vous pouvez confirmer votre compte en cliquant sur le lien ci-dessous :"
       hello: "Bonjour %{email} !"
-      invitation_instructions:
+      invitation_instructions: 
         accept: "Accepter l'invitation"
         arrived: "Le réseau social que vous avez tant attendu est arrivé. Redessiné, plus sûr et plus fun, {strong_diaspora} est prêt à vous aider pour partager et explorer le web d'une toute nouvelle manière."
         be_yourself: "Soyez vous-même"
         be_yourself_paragraph: "L'Internet a créé de nouvelles façons uniques pour nous de nous exprimer. %{strong_diaspora} vous permet d'être vous-même et de partager comme vous le voulez, avec ou sans votre vrai nom."
-        cubbies: Cubbi.es
         displaying_correctly: "Ce courriel ne s'affiche pas correctement ? %{link}"
-        email_address: questions@joindiaspora.com
         email_us: "Pour des renseignements généraux ou de l'aide sur votre compte Diaspora, merci de nous envoyer un courriel à %{email}."
         finally: "Enfin - c'est ici"
         friends_saying: "Ce que disent vos amis..."
@@ -44,50 +43,49 @@ fr:
         have_fun: "Prenez plaisir"
         have_fun_paragraph: "%{strong_diaspora} est tout un projet étonnant permettant de découvrir de nouveaux contenus et des gens en ligne. %{link}, la première application %{strong_diaspora}, et c'est juste le commencement. Recueillir et partager sur le Web dans toute sa gloire."
         help_fund: "aider à financer Diaspora"
-        here: "ici"
+        here: ici
         ignore: "Si vous ne voulez pas accepter l'invitation, merci d'ignorer ce courriel."
         join_team: "Rejoignez notre Équipe"
         love: "Cordialement,"
         made_by_people: "%{strong_diaspora} est fait par des gens qui aiment l'Internet autant que vous. %{jointeam}, ou %{helpfund} !"
         more_people: "Encore plus de gens sont ravis de vous voir !"
         no_account_till: "Votre compte ne sera créé que lorsque vous irez sur le lien ci-dessus et que vous vous inscrirez."
-        or: "ou"
+        or: ou
         sign_up_now: "Inscrivez-vous →"
         subject: "Vous avez été invité à rejoindre Diaspora!"
         team_diaspora: "L'Équipe Diaspora"
         unsubscribe: "Pour vous désinscrire, merci de cliquer sur %{link}."
         view_in: "L'afficher dans votre navigateur."
-      inviter:
+      inviter: 
         accept_at: "à %{url}, vous pouvez l'accepter à travers le lien ci-dessous."
-        has_invited_you: "%{name}"
         have_invited_you: "%{names} vous a invité à rejoindre Diaspora"
-      reset_password_instructions:
+      reset_password_instructions: 
         change: "Changer mon mot de passe"
         ignore: "Si vous n'avez pas demandé cela, merci d'ignorer cet e-mail."
         someone_requested: "Quelqu'un a demandé un lien pour changer votre mot de passe, vous pouvez effectuer cela en cliquant sur le lien ci-dessous."
         subject: "Instructions de réinitialisation de mot de passe"
         wont_change: "Votre mot de passe ne changera pas avant que vous n'en créiez un nouveau en accédant au lien ci-dessus. "
-      unlock_instructions:
+      unlock_instructions: 
         account_locked: "Votre compte a été bloqué à cause d'un nombre excessif de tentatives infructueuses de connexion."
         click_to_unlock: "Cliquez sur le lien ci-dessous pour débloquer votre compte :"
         subject: "Instructions de déverrouillage"
         unlock: "Débloquer mon compte"
       welcome: "Bienvenue %{email} !"
-    passwords:
-      edit:
+    passwords: 
+      edit: 
         change_password: "Changer mon mot de passe"
-      new:
+      new: 
         forgot_password: "Mot de passe oublié ?"
         no_account: "Aucun compte n'est associé à cette adresse de courrier électronique. Si vous attendez une invitation, nous les distribuons aussi vite que possible."
         send_password_instructions: "Envoyez-moi les instructions de réinitialisation de mot de passe"
       send_instructions: "Vous allez recevoir dans quelques minutes un e-mail contenant les instructions pour réinitialiser votre mot de passe."
       updated: "Votre mot de passe a été modifié. Vous êtes à présent connecté(e)."
-    registrations:
+    registrations: 
       destroyed: "Au revoir ! Votre compte a été résilié. Nous espérons vous revoir très bientôt."
       signed_up: "Votre inscription a été effectuée. Si cette dernière est activée, une confirmation a été envoyée sur votre adresse e-mail."
       updated: "Vous avez mis à jour votre compte."
-    sessions:
-      new:
+    sessions: 
+      new: 
         alpha_software: ""
         bugs_and_feedback: "Ne vous étonnez pas, vous allez rencontrer des bugs. Nous vous encourageons à utiliser le bouton Feedback sur le côté droit de votre navigateur pour signaler tout dysfonctionnement ! Nous travaillerons au plus vite pour régler chaque problème que vous signalerez."
         bugs_and_feedback_mobile: "Ne vous étonnez pas, vous allez rencontrer des bugs. Nous vous encourageons à nous signaler tout dysfonctionnement ! Nous travaillerons au plus vite pour régler chaque problème que vous signalerez."
@@ -95,27 +93,27 @@ fr:
         modern_browsers: "supporte seulement des navigateurs modernes."
         password: "Mot de passe"
         remember_me: "Se souvenir de moi"
-        sign_in: "Connexion"
+        sign_in: Connexion
         username: "Nom d'utilisateur"
       signed_in: "Vous êtes à présent connecté(e)."
       signed_out: "Vous êtes à présent déconnecté(e)."
-    shared:
-      links:
+    shared: 
+      links: 
         forgot_your_password: "Mot de passe oublié ?"
         receive_confirmation: "Vous n'avez pas reçu les instructions de confirmation ?"
         receive_unlock: "Vous n'avez pas reçu les instructions de déblocage ?"
-        sign_in: "Connexion"
-        sign_up: "Inscription"
+        sign_in: Connexion
+        sign_up: Inscription
         sign_up_closed: "Les inscriptions sont fermées pour l'instant."
-      mail_signup_form:
+      mail_signup_form: 
         sign_up_for_an_invite: "Demander une invitation !"
-    unlocks:
-      new:
+    unlocks: 
+      new: 
         resend_unlock: "Renvoyer les instructions de déblocage"
       send_instructions: "Vous allez recevoir dans quelques minutes un e-mail contenant les instructions pour déverrouiller votre compte."
       unlocked: "Votre compte a été déverrouillé. Vous êtes à présent connecté(e)."
-  errors:
-    messages:
+  errors: 
+    messages: 
       already_confirmed: "a déjà été confirmé"
-      not_found: "introuvable"
+      not_found: introuvable
       not_locked: "n’a pas été verrouillé"

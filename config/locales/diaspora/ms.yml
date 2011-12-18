@@ -1,0 +1,298 @@
+#   Copyright (c) 2010-2011, Diaspora Inc.  This file is
+#   licensed under the Affero General Public License version 3 or later.  See
+#   the COPYRIGHT file.
+
+
+
+ms: 
+  _applications: Aplikasi
+  _comments: komen-komen
+  _contacts: Kenalan-kenalan
+  _home: "Laman Utama"
+  _photos: gambar
+  _services: Perkhidmatan
+  account: Akaun
+  activerecord: 
+    errors: 
+      models: 
+        contact: 
+          attributes: 
+            person_id: 
+              taken: "mestilah perbeza di kenalan dalam pengguna ini."
+        person: 
+          attributes: 
+            diaspora_handle: 
+              taken: "sudah diambil."
+        request: 
+          attributes: 
+            from_id: 
+              taken: "adalah salinan permintaan yang sedia ada."
+        reshare: 
+          attributes: 
+            root_guid: 
+              taken: "Baik, kan? Anda telah berkongsi semula pos itu!"
+        user: 
+          attributes: 
+            email: 
+              taken: "sudah diambil."
+            person: 
+              invalid: "adalah tidak sah."
+            username: 
+              invalid: "adalah tidak sah. Kami hanya membenarkan huruf, nombor, dan garis bawah."
+              taken: "sudah diambil."
+  ago: "%{time} lalu"
+  all_aspects: "Semua Aspek"
+  application: 
+    helper: 
+      diaspora_alpha: "DIASPORA* ALFA"
+      unknown_person: "orang yang tidak diketahui"
+      video_title: 
+        unknown: "Tajuk Wayang Tidak Diketahui"
+  are_you_sure: "Anda yakin?"
+  aspect_memberships: 
+    destroy: 
+      failure: "Gagal mengeluarkan individu daripada aspek"
+  aspects: 
+    destroy: 
+      success: "%{name} telah berjaya dikeluarkan."
+    edit: 
+      add_existing: "Tambah kenalan yang sedia ada"
+      confirm_remove_aspect: "Adakah anda pasti anda mahu memadam aspek ini?"
+      done: Selesai
+      make_aspect_list_visible: "membuat kenalan dalam aspek ini dapat dilihat antara satu sama lain?"
+      remove_aspect: "Padam aspek ini"
+      update: "kemas kini"
+      updating: "mengemas kini"
+    few: "%{count} aspek"
+    helper: 
+      are_you_sure: "Adakah anda pasti anda mahu memadam aspek ini?"
+      aspect_not_empty: "Aspek tidak kosong"
+      remove: buang
+    index: 
+      cubbies: 
+        explanation: "Cubbi.es adalah aplikasi pertama Diaspora dalam pembangunan."
+        heading: "Sambung kepada Cubbi.es"
+        learn_more: "Ketahui lebih lanjut"
+      diaspora_id: 
+        content_1: "ID Diaspora anda adalah:"
+        content_2: "Beri kepada sesiapa dan mereka akan dapat mencari anda di Diaspora."
+        heading: "ID Diaspora"
+      donate: Derma
+      handle_explanation: "Ini adalah diaspora id anda. Seperti alamat e-mel, anda boleh memberikan orang-orang ini untuk mencapai anda."
+      help: 
+        do_you: "Adakah anda:"
+        tag_bug: "#bug"
+        tag_feature: "#feature"
+        tag_question: "#question"
+      unfollow_tag: "berhenti mengikut #%{tag}"
+      welcome_to_diaspora: "Selamat datang ke Diaspora, %{name}!"
+      your_aspects: "Aspek Anda"
+    many: "%{count} aspek"
+    move_contact: 
+      error: "Ralat memindah kenalan: %{inspect}"
+      failure: "tidak berfungsi %{inspect}"
+      success: "Orang berpindah kepada aspek baru"
+    new: 
+      create: Cipta
+      name: "Nama (hanya boleh dilihat oleh anda)"
+    no_contacts_message: 
+      community_spotlight: "komuniti sorotan"
+      or_spotlight: "Atau anda boleh berkongsi dengan %{link}"
+      try_adding_some_more_contacts: "Anda boleh mencari atau menjemput lebih banyak kenalan."
+      you_should_add_some_more_contacts: "Anda perlu menambah beberapa lagi kenalan!"
+    no_posts_message: 
+      start_talking: "Tiada orang berkata apa-apa lagi!"
+    one: "1 aspek"
+    other: "%{count} aspek"
+    seed: 
+      acquaintances: kenalan
+      family: Famili
+      friends: Rakan
+      work: Kerja
+  bookmarklet: 
+    post_success: "Telah Di Pos! Tutup!"
+  cancel: Batal
+  comments: 
+    few: "%{count} komen"
+    many: "%{count} komen"
+    new_comment: 
+      comment: Komen
+      commenting: Mengulas...
+    one: "1 komen"
+    other: "%{count} komen"
+    two: "%{count} komen"
+    zero: "tiada komen"
+  contacts: 
+    create: 
+      failure: "Gagal untuk membuat kenalan"
+    few: "%{count} kenalan"
+    index: 
+      add_a_new_aspect: "Tambah aspek baru"
+      add_to_aspect: "menambah kenalan ke %{name}"
+      all_contacts: "Semua Kenalan"
+      check_out: "Daftar keluar"
+      many_people_are_you_sure: "Adakah anda pasti anda mahu untuk memulakan perbualan peribadi dengan lebih daripada% {suggested_limit} kenalan? Posting ke aspek ini mungkin cara yang lebih baik untuk menghubungi mereka."
+      my_contacts: "Kenalan Saya"
+      only_sharing_with_me: "Hanya berkongsi dengan saya"
+  conversations: 
+    helper: 
+      new_messages: 
+        zero: "Tiada mesej baru"
+    index: 
+      create_a_new_message: "membuat mesej baru"
+      inbox: "Peti masuk"
+      message_inbox: "Mesej Peti Masuk"
+      new_message: "Mesej Baru"
+      no_conversation_selected: "tiada perbualan dipilih"
+      no_messages: "tiada mesej"
+    new: 
+      abandon_changes: "Batalkan perubahan?"
+      send: Hantar
+      sending: Menghantar...
+      subject: subjek
+      to: kepada
+    new_message: 
+      fail: "mesej tidak sah"
+    show: 
+      delete: "memadam dan menyekat perbualan"
+      reply: balas
+      replying: Membalas...
+  delete: Padam
+  invitations: 
+    create: 
+      already_contacts: "Anda telah disambungkan dengan orang ini"
+      already_sent: "Anda telah menjemput orang ini."
+      no_more: "Anda tidak mempunyai lebih banyak jemputan."
+      own_address: "Anda tidak boleh menghantar jemputan ke alamat anda sendiri."
+      rejected: "Alamat e-mel berikut menghadapi masalah:"
+      sent: "Jemputan telah dihantar kepada:"
+    edit: 
+      accept_your_invitation: "Menerima jemputan anda"
+      your_account_awaits: "Akaun anda menanti!"
+    new: 
+      already_invited: "Orang-orang yang berikut tidak menerima jemputan anda:"
+      aspect: Aspek
+      comma_seperated_plz: "Anda boleh memasukkan pelbagai alamat e-mel yang dipisahkan dengan koma."
+      if_they_accept_info: "jika mereka menerima, mereka akan dimasukkan ke dalam aspek awak telah menjemput mereka."
+      invite_someone_to_join: "Menjemput seseorang untuk menyertai Diaspora!"
+      language: Bahasa
+      personal_message: "Mesej peribadi"
+      resend: "Hantar semula"
+      send_an_invitation: "Menghantar jemputan"
+      send_invitation: "Hantar jemputan"
+      to: Kepada
+  layouts: 
+    application: 
+      powered_by: "DI KUASA OLEH DIASPORA*"
+  likes: 
+    likes: 
+      people_like_this: 
+        many: "%{count} suka"
+        one: "%{count} suka"
+        other: "%{count} suka"
+        two: "%{count} suka"
+        zero: "tiada suka"
+      people_like_this_comment: 
+        few: "%{count} suka"
+        many: "%{count} suka"
+        one: "%{count} suka"
+        other: "%{count} suka"
+        zero: "tiada suka"
+  limited: Terhad
+  more: "lebih banyak"
+  next: seterusnya
+  no_results: "Tiada Hasil Dijumpai"
+  notifications: 
+    also_commented: 
+      few: "%{actors} juga mengulas mengenai %{post_author}'s %{post_link}."
+      many: "%{actors} juga mengulas mengenai %{post_author}'s %{post_link}."
+      one: "%{actors} juga mengulas mengenai %{post_author}'s %{post_link}."
+      other: "%{actors} juga mengulas mengenai %{post_author}'s %{post_link}."
+      two: "%{actors} juga mengulas mengenai %{post_author}'s %{post_link}."
+    index: 
+      and: dan
+      and_others: 
+        few: "dan %{count} lain-lain"
+        many: "dan %{count} lain-lain"
+        one: "dan satu lagi"
+        other: "dan %{count} lain-lain"
+        two: "dan %{count} lain-lain"
+        zero: "dan tiada siapa lagi"
+      mark_all_as_read: "Tandakan Semua sebagai Sudah Baca"
+      notifications: Pemberitahuan
+    liked: 
+      few: "%{actors} menyukai anda %{post_link}."
+      many: "%{actors} telah menyukai anda %{post_link}."
+      one: "%{actors} telah menyukai anda %{post_link}."
+      other: "%{actors} telah menyukai anda %{post_link}."
+      two: "%{actors} telah menyukai anda %{post_link}."
+      zero: "%{actors} telah menyukai anda %{post_link}."
+    liked_post_deleted: 
+      few: "%{actors} suka pos yang dihapuskan anda."
+      many: "%{actors} suka pos yang dihapuskan anda."
+      one: "%{actors} suka pos yang dihapuskan anda."
+      other: "%{actors} suka pos yang dihapuskan anda."
+      two: "%{actors} suka pos yang dihapuskan anda."
+    reshared: 
+      few: "%{actors} telah berkongsi semula dengan anda %{post_link}."
+      other: "%{actors} telah berkongsi semula %{post_link} anda."
+      two: "%{actors} telah berkongsi semula %{post_link} anda."
+      zero: "%{actors} telah berkongsi semula %{post_link} anda."
+    reshared_post_deleted: 
+      few: "%{actors} berkongsi semula pos yang dihapuskan anda."
+      many: "%{actors} berkongsi semula pos yang dihapuskan anda."
+      one: "%{actors} berkongsi semula pos yang dihapuskan anda."
+      other: "%{actors} berkongsi semula pos yang dihapuskan anda."
+      two: "%{actors} berkongsi semula pos yang dihapuskan anda."
+      zero: "%{actors} berkongsi semula pos yang dihapuskan anda."
+    started_sharing: 
+      few: "%{actors} mula berkongsi dengan anda."
+      many: "%{actors} mula berkongsi dengan anda."
+      one: "%{actors} mula berkongsi dengan anda."
+      other: "%{actors} mula berkongsi dengan anda."
+      two: "%{actors} mula berkongsi dengan anda."
+      zero: "%{actors} mula berkongsi dengan anda."
+  notifier: 
+    a_post_you_shared: pos.
+    click_here: "klik di sini"
+    to_change_your_notification_settings: "untuk menukar tetapan pemberitahuan anda"
+  or: atau
+  password: "kata laluan"
+  password_confirmation: "pengesahan kata laluan"
+  people: 
+    add_contact_small: 
+      add_contact_from_tag: "menambah kenalan dari tag"
+    aspect_list: 
+      edit_membership: "mengedit keahlian aspek"
+    few: "%{count} orang"
+    helper: 
+      results_for: "keputusan untuk %{params}"
+    index: 
+      no_one_found: "...dan tiada orang yang dijumpai."
+      no_results: "Hey! Anda perlu mencari sesuatu."
+      results_for: "hasil carian untuk"
+    many: "%{count} orang"
+    one: "1 orang"
+    other: "%{count} orang"
+    person: 
+      add_contact: "tambah kenalan"
+      already_connected: "sudah disambungkan"
+      pending_request: "permintaan yang belum selesai"
+    show: 
+      return_to_aspects: "Kembali ke halaman aspek anda"
+      see_all: "lihat semua"
+      start_sharing: "mula berkongsi"
+      to_accept_or_ignore: "untuk menerima atau tidak mengendahkan."
+    sub_header: 
+      add_some: "menambah beberapa"
+      edit: mengedit
+      you_have_no_tags: "anda tiada tag!"
+    two: "%{count} orang"
+    webfinger: 
+      fail: "Maaf, kami tidak dapat menemui %{handle}."
+    zero: "tiada orang"
+  photos: 
+    comment_email_subject: "%{name}'s foto"
+    create: 
+      integrity_error: "\"Upload\" foto gagal. Adakah anda pasti itu adalah imej?"
+      runtime_error: "\"Upload\" foto gagal. Adakah anda pasti bahawa tali pinggang keledar anda telah diikat?"

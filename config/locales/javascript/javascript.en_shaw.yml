@@ -3,52 +3,34 @@
 #   the COPYRIGHT file.
 
 
-en_shaw:
-  javascripts:
-    aspect_dropdown:
+
+en_shaw: 
+  javascripts: 
+    aspect_dropdown: 
       add_to_aspect: "𐑨𐑛 𐑑 𐑨𐑕𐑐𐑧𐑒𐑑"
-      all_aspects: "All aspects"
-      error: "Couldn't start sharing with {{name}}.  Are you ignoring them?"
-      select_aspects: "Select aspects"
-      started_sharing_with: "You have started sharing with {{name}}!"
-      stopped_sharing_with: "You have stopped sharing with {{name}}."
-      toggle:
+      toggle: 
         few: "𐑦𐑯 {{count}} 𐑨𐑕𐑐𐑧𐑒𐑑𐑕"
         many: "𐑦𐑯 {{count}} 𐑨𐑕𐑐𐑧𐑒𐑑𐑕"
         one: "𐑦𐑯 {{count}} 𐑨𐑕𐑐𐑧𐑒𐑑"
         other: "𐑦𐑯 {{count}} 𐑨𐑕𐑐𐑧𐑒𐑑𐑕"
-        two: "In {{count}} aspects"
         zero: "𐑨𐑛 𐑑 𐑨𐑕𐑐𐑧𐑒𐑑"
-    aspect_navigation:
-      deselect_all: "Deselect all"
-      no_aspects: "No aspects selected"
-      select_all: "Select all"
-    comments:
+    comments: 
       hide: "𐑣𐑲𐑛 𐑒𐑪𐑥𐑩𐑯𐑑𐑕"
       show: "𐑖𐑴 𐑷𐑤 𐑒𐑪𐑥𐑩𐑯𐑑𐑕"
     confirm_dialog: "𐑸 𐑿 𐑖𐑻?"
     failed_to_like: "𐑓𐑱𐑤𐑛 𐑑 𐑤𐑲𐑒!"
     failed_to_post_message: "𐑓𐑱𐑤𐑛 𐑑 𐑐𐑴𐑕𐑑 𐑥𐑧𐑕𐑩𐑡!"
-    getting_started:
-      alright_ill_wait: "Alright, I'll wait."
-      hey: "Hey, {{name}}!"
-      no_tags: "Hey, you haven't followed any tags!  Continue anyway?"
+    getting_started: 
       preparing_your_stream: "Preparing your personialized stream..."
-    infinite_scroll:
+    infinite_scroll: 
       no_more: "𐑯𐑴 𐑥𐑹 𐑐𐑴𐑕𐑑𐑕."
-    photo_uploader:
-      looking_good: "OMG, you look awesome!"
-    publisher:
+    publisher: 
       at_least_one_aspect: "𐑿 𐑥𐑳𐑕𐑑 𐑐𐑳𐑚𐑤𐑦𐑖 𐑑 𐑨𐑑 𐑤𐑰𐑕𐑑 𐑢𐑳𐑯 𐑨𐑕𐑐𐑧𐑒𐑑"
-      limited: "Limited - your post will only be seen by people you are sharing with"
-      public: "Public - your post will be visible to everyone and found by search engines"
-    reshares:
+    reshares: 
       duplicate: "𐑿𐑝 𐑷𐑤𐑮𐑧𐑛𐑦 𐑮𐑦𐑖𐑺𐑛 𐑞𐑨𐑑 𐑐𐑴𐑕𐑑!"
     search_for: "𐑕𐑻𐑗 𐑓𐑹 {{name}}"
     show_more: "𐑖𐑴 𐑥𐑹"
-    tags:
-      wasnt_that_interesting: "OK, I suppose #{{tagName}} wasn't all that interesting..."
-    timeago:
+    timeago: 
       day: "𐑩 𐑛𐑱"
       days: "%d 𐑛𐑱𐑟"
       hour: "𐑩𐑚𐑬𐑑 𐑩𐑯 𐑬𐑮"
@@ -57,15 +39,15 @@ en_shaw:
       minutes: "%d 𐑥𐑦𐑯𐑩𐑑𐑕"
       month: "𐑩𐑚𐑬𐑑 𐑩 𐑥𐑳𐑯𐑔"
       months: "%d 𐑥𐑳𐑯𐑔𐑕"
-      prefixAgo: "𐑩𐑜𐑴"
+      prefixAgo: 𐑩𐑜𐑴
       prefixFromNow: "𐑓𐑮𐑪𐑥 𐑯𐑬"
       seconds: "𐑤𐑧𐑕 𐑞𐑨𐑯 𐑩 𐑥𐑦𐑯𐑩𐑑"
-      suffixAgo: "𐑩𐑜𐑴"
+      suffixAgo: 𐑩𐑜𐑴
       suffixFromNow: "𐑓𐑮𐑪𐑥 𐑯𐑬"
       year: "𐑩𐑚𐑬𐑑 𐑩 𐑘𐑽"
       years: "%d 𐑘𐑽𐑟"
-    videos:
+    videos: 
       unknown: "𐑩𐑯𐑯𐑴𐑯 𐑝𐑦𐑛𐑦𐑴 𐑑𐑲𐑐"
       watch: "𐑢𐑷𐑗 𐑞𐑦𐑕 𐑝𐑦𐑛𐑦𐑴 𐑪𐑯 {{provider}}"
-    web_sockets:
+    web_sockets: 
       disconnected: "𐑞 𐑢𐑧𐑚𐑕𐑪𐑒𐑩𐑑 𐑦𐑟 𐑒𐑤𐑴𐑟𐑛; 𐑐𐑴𐑕𐑑𐑕 𐑢𐑦𐑤 𐑯𐑴 𐑤𐑪𐑙𐑜𐑼 𐑚𐑰 𐑕𐑑𐑮𐑰𐑥𐑛 𐑤𐑲𐑝."

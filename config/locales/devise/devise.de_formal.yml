@@ -3,14 +3,15 @@
 #   the COPYRIGHT file.
 
 
-de_formal:
-  devise:
-    confirmations:
+
+de_formal: 
+  devise: 
+    confirmations: 
       confirmed: "Ihr Konto wurde erfolgreich bestätigt. Sie sind nun angemeldet."
-      new:
+      new: 
         resend_confirmation: "Anweisungen zum Bestätigen erneut senden"
       send_instructions: "Sie werden in ein paar Minuten eine E-Mail erhalten, die beschreibt, wie Sie Ihr Konto bestätigen."
-    failure:
+    failure: 
       inactive: "Ihr Konto wurde noch nicht aktiviert."
       invalid: "Ungültiger Benutzername oder ungültiges Kennwort."
       invalid_token: "Ungültiger Authentifizierungstoken."
@@ -18,104 +19,81 @@ de_formal:
       timeout: "Ihre Sitzung ist abgelaufen! Um fortzufahren, melden Sie sich bitte erneut an."
       unauthenticated: "Sie müssen sich anmelden oder registrieren, um fortzufahren."
       unconfirmed: "Sie müssen ihr Konto bestätigen, um fortzufahren."
-    invitations:
+    invitations: 
       invitation_token_invalid: "Das Einladungstoken ist ungültig!"
       send_instructions: "Ihre Einladung wurde versandt."
       updated: "Ihr Kennwort wurde akzeptiert. Sie sind nun angemeldet."
-    mailer:
-      confirmation_instructions:
+    mailer: 
+      confirmation_instructions: 
         confirm: "Mein Konto bestätigen"
         subject: "Bestätigung Ihres Diaspora-Kontos"
         you_can_confirm: "Sie können Ihr Konto über den nachfolgenden Link bestätigen:"
       hello: "Hallo %{email}!"
-      invitation_instructions:
+      invitation_instructions: 
         accept: "Einladung annehmen"
-        arrived: "The social network you have been waiting for has arrived. Revamped, more secure, and more fun, %{strong_diaspora} is ready to help you share and explore the web in a whole new way."
-        be_yourself: "Be Yourself"
-        be_yourself_paragraph: "The Internet has created unique new ways for us to express ourselves. %{strong_diaspora} lets you be yourself and share however you want, with or without your real name."
-        cubbies: Cubbi.es
         displaying_correctly: "Email not displaying correctly? %{link} in your browser"
-        email_address: questions@joindiaspora.com
-        email_us: "For general inquiries or support with your Diaspora account, please email us at %{email}."
-        finally: "Finally - it's here"
-        friends_saying: "What your friends are saying..."
-        get_connected: "Get Connected"
-        get_connected_paragraph: "An international movement with a shared vision for a better web, %{strong_diaspora}'s #1 feature is its community. Meet new people, connect with friends, and join the fun."
-        have_fun: "Have Fun"
-        have_fun_paragraph: "%{strong_diaspora} is all about discovering amazing new content and people online. %{link}, the world's first %{strong_diaspora} application is just the begining. Collect and share the web in all of its glory."
-        help_fund: "help fund Diaspora"
-        here: "here"
         ignore: "Wenn Sie die Einladung nicht annehmen möchten, ignorieren Sie diese E-Mail einfach."
-        join_team: "Join our Team"
-        love: "Love,"
-        made_by_people: "%{strong_diaspora} is made by people who love the Internet as much as you do. %{jointeam}, or %{helpfund}!"
-        more_people: "Even more people are excited to see you!"
         no_account_till: "Ihr Konto wird nicht erstellt solange Sie sich nicht über den oberen Link registrieren."
-        or: "or"
-        sign_up_now: "Sign up now &rarr;"
         subject: "Sie wurden zu Diaspora eingeladen!"
-        team_diaspora: "Team Diaspora"
-        unsubscribe: "To unsubscribe please click %{link}."
         view_in: "View in"
-      inviter:
+      inviter: 
         accept_at: "unter %{url}, können Sie sie über den untenstehenden Link akzeptieren."
-        has_invited_you: "%{name}"
         have_invited_you: "%{names} hat Sie eingeladen Diaspora beizutreten"
-      reset_password_instructions:
+      reset_password_instructions: 
         change: "Mein Kennwort ändern"
         ignore: "Wenn Sie dies nicht angefordert haben, ignorieren Sie bitte diese E-Mail."
         someone_requested: "Jemand hat einen Link angefordert, um Ihr Kennwort zu ändern und Sie können das durch den unten aufgeführten Link tun."
         subject: "Setzen Sie Ihr Passwort zurück"
         wont_change: "Ihr Kennwort bleibt unverändert, bis Sie es über den Link ändern und ein neues erstellen."
-      unlock_instructions:
+      unlock_instructions: 
         account_locked: "Ihr Konto wurde aufgrund von zu vielen fehlgeschlagenen Anmeldeversuchen gesperrt."
         click_to_unlock: "Folgen Sie dem unten aufgeführten Link, um Ihr Konto zu entsperren:"
         subject: "Anweisungen entsperren"
         unlock: "Mein Konto entsperren"
       welcome: "Willkommen %{email}!"
-    passwords:
-      edit:
+    passwords: 
+      edit: 
         change_password: "Mein Kennwort ändern"
-      new:
+      new: 
         forgot_password: "Kennwort vergessen?"
         no_account: "Es existiert kein Benutzerkonto mit dieser E-Mail-Adresse. Falls Sie auf eine Einladung warten, dann geben wir Ihnen sobald wie möglich eine"
         send_password_instructions: "Anleitung zum Zurücksetzen des Кennworts anfordern"
       send_instructions: "Sie werden in ein paar Minuten eine E-Mail erhalten, die beschreibt, wie Sie Ihr Kennwort zurücksetzen."
       updated: "Ihr Kennwort wurde erfolgreich geändert. Sie sind nun angemeldet."
-    registrations:
+    registrations: 
       destroyed: "Tschüss! Ihr Konto wurde erfolgreich geschlossen. Wir hoffen, Sie bald wiederzusehen."
       signed_up: "Sie haben sich erfolgreich registriert. Sofern aktiviert, wurde Ihnen eine Bestätigung per E-Mail zugesandt."
       updated: "Ihr Konto wurde aktualisiert."
-    sessions:
-      new:
+    sessions: 
+      new: 
         alpha_software: "Diese Software befindet sich im Alpha-Stadium."
         bugs_and_feedback: "Seien Sie gewarnt, Fehler werden auftreten. Wir empfehlen Ihnen, den Feedback-Knopf am rechten Browserrand zu nutzen, um alle Störungen zu berichten. Wir werden so schnell wir können arbeiten, um alle Probleme, die Sie melden, zu lösen."
         bugs_and_feedback_mobile: "Seien Sie gewarnt, Fehler werden auftreten. Wir empfehlen Ihnen, alle Störungen zu melden! Wir werden so schnell wir können arbeiten, um alle Probleme, die Sie melden, zu lösen."
-        login: "Einloggen"
+        login: Einloggen
         modern_browsers: "unterstützt nur moderne Browser."
-        password: "Kennwort"
+        password: Kennwort
         remember_me: "Angemeldet bleiben"
-        sign_in: "Anmelden"
-        username: "Benutzername"
+        sign_in: Anmelden
+        username: Benutzername
       signed_in: Angemeldet.
       signed_out: Abgemeldet.
-    shared:
-      links:
+    shared: 
+      links: 
         forgot_your_password: "Kennwort vergessen?"
         receive_confirmation: "Keine Bestätigungsanleitung erhalten?"
         receive_unlock: "Keine Entsperr-Anweisungen erhalten?"
-        sign_in: "Anmelden"
-        sign_up: "Registrieren"
+        sign_in: Anmelden
+        sign_up: Registrieren
         sign_up_closed: "Öffentliche Registrierungen sind momentan nicht möglich."
-      mail_signup_form:
+      mail_signup_form: 
         sign_up_for_an_invite: "Registrieren Sie sich für eine Einladung!"
-    unlocks:
-      new:
+    unlocks: 
+      new: 
         resend_unlock: "Entsperr-Anweisungen erneut senden"
       send_instructions: "Sie werden in ein paar Minuten eine E-Mail erhalten, die beschreibt, wie Sie Ihr Konto entsperren können."
       unlocked: "Ihr Konto wurde erfolgreich entsperrt. Sie sind nun angemeldet."
-  errors:
-    messages:
+  errors: 
+    messages: 
       already_confirmed: "wurde bereits bestätigt"
       not_found: "wurde nicht gefunden"
       not_locked: "war nicht gesperrt"

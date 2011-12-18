@@ -1,0 +1,214 @@
+#   Copyright (c) 2010-2011, Diaspora Inc.  This file is
+#   licensed under the Affero General Public License version 3 or later.  See
+#   the COPYRIGHT file.
+
+
+
+fil: 
+  _applications: "Mga Applikasyon"
+  _comments: "Mga Kumento"
+  _contacts: "Mga Kakilala"
+  _home: "Home Port"
+  _photos: "Mga Larawan"
+  _services: "Mga Serbisyo"
+  account: Pag-aari
+  activerecord: 
+    errors: 
+      models: 
+        contact: 
+          attributes: 
+            person_id: 
+              taken: "maari lamang na walang kaparis."
+        person: 
+          attributes: 
+            diaspora_handle: 
+              taken: "ay mayroon ng nagmamay-ari."
+        request: 
+          attributes: 
+            from_id: 
+              taken: "ay kaparis na ng huling kahilingan."
+        reshare: 
+          attributes: 
+            root_guid: 
+              taken: "Naipamahagi mo na ang poste!"
+        user: 
+          attributes: 
+            email: 
+              taken: "mayroon ng nagmamay-ari."
+            person: 
+              invalid: "ay hindi tama."
+            username: 
+              invalid: "ay hindi tama. Pinapahintulutan lamang namin ang mga letra ng alpabeto, numero, at salungguhit."
+              taken: "ay mayroon ng nagmamay-ari."
+  ago: "%{time} ang nakalipas"
+  all_aspects: "Lahat ng aspeto"
+  application: 
+    helper: 
+      unknown_person: "hindi kilala"
+      video_title: 
+        unknown: "Hindi kilalang Titulo"
+  are_you_sure: "Sigurado ka ba?"
+  aspect_memberships: 
+    destroy: 
+      failure: "Aduy! Hindi masipa ang isa sa iyong tropa sa grupo"
+      no_membership: "Hindi mahanap ang iyong tropa sa grupo"
+      success: "Matagumpay na natanggal ang tropa sa iyong grupo"
+  aspects: 
+    add_to_aspect: 
+      failure: "Failed to add contact to crew."
+      success: "Successfully added contact to crew."
+    aspect_listings: 
+      add_an_aspect: "+ Add a crew"
+    contacts_not_visible: "Contacts in this crew will not be able to see each other."
+    contacts_visible: "Contacts in this crew will be able to see each other."
+    create: 
+      failure: "Crew creation failed."
+      success: "Your new crew %{name} was created"
+    edit: 
+      aspect_list_is_not_visible: "crew list is hidden to others in crew"
+      aspect_list_is_visible: "crew list is visible to others in crew"
+      confirm_remove_aspect: "Are you sure you want to delete this crew?"
+      make_aspect_list_visible: "make crew list visible?"
+      remove_aspect: "Fire this crew"
+    few: "%{count} crews"
+    helper: 
+      are_you_sure: "Are you sure you want to delete this crew?"
+      aspect_not_empty: "Crew not empty"
+    index: 
+      help: 
+        here_to_help: "Diaspora community is here to help!"
+        tag_bug: "#bug"
+        tag_feature: "#feature"
+        tag_question: "#question"
+      keep_us_running: "Keep %{pod} running fast, buy our servers their monthly coffee fix!"
+      no_contacts: "No mateys"
+      your_aspects: "Yer Crews"
+    many: "%{count} crews"
+    new: 
+      name: Name
+    no_contacts_message: 
+      try_adding_some_more_contacts: "You can search (top) or invite (right) more contacts."
+    one: "1 crew"
+    other: "%{count} crews"
+    seed: 
+      acquaintances: Landlubbers
+      family: Kin
+      friends: Mateys
+      work: Shipmates
+  authorizations: 
+    index: 
+      no_applications: "Hindi ka pa nakapag-sumite ng applikasyon."
+      revoke_access: "Bawiin ang Access"
+  contacts: 
+    index: 
+      add_to_aspect: "Add contacts to %{name}"
+      all_contacts: "All yer mateys"
+      no_contacts: "No contacts."
+      title: Mateys
+      your_contacts: "Yer Mateys"
+    zero: "no contacts"
+  layouts: 
+    application: 
+      toggle: "toggle mobile site"
+    header: 
+      logout: "abandon ship"
+      profile: profile
+      settings: settings
+  limited: Limitado
+  notifications: 
+    helper: 
+      new_notifications: 
+        one: "1 new notifications"
+    liked: 
+      few: "%{actors} has just liked your %{post_link}."
+      many: "%{actors} has just liked your %{post_link}."
+      one: "%{actors} has just liked your %{post_link}."
+      other: "%{actors} has just liked your %{post_link}."
+      two: "%{actors} has just liked your %{post_link}."
+      zero: "%{actors} has just liked your %{post_link}."
+    mentioned: 
+      few: "%{actors} has mentioned you in a %{post_link}."
+      many: "%{actors} has mentioned you in a %{post_link}."
+      other: "%{actors} has mentioned you in a %{post_link}."
+      two: "%{actors} has mentioned you in a %{post_link}."
+      zero: "%{actors} has mentioned you in a %{post_link}."
+    reshared: 
+      few: "%{actors} has reshared your %{post_link}."
+      many: "%{actors} has reshared your %{post_link}."
+      other: "%{actors} has reshared your %{post_link}."
+      two: "%{actors} has reshared your %{post_link}."
+      zero: "%{actors} has reshared your %{post_link}."
+  notifier: 
+    confirm_email: 
+      click_link: "To activate your new email address %{unconfirmed_email}, please click this link:"
+    liked: 
+      liked: "%{name} just liked your post"
+    reshared: 
+      reshared: "%{name} just reshared your post"
+  people: 
+    add_contact_small: 
+      add_contact_from_tag: "magdagdag ng kakilala mula sa tag"
+    few: "%{count} na tao"
+    helper: 
+      people_on_pod_are_aware_of: " mga tao sa pod ay may kamalayan sa"
+      results_for: " mga resulta para sa %{params}"
+    many: "%{count} na tao"
+    person: 
+      add_contact: "magdagdag ng mga kakilala"
+      already_connected: "Konektado ka na"
+      pending_request: "Nakabinbin na kahilingan"
+      thats_you: "Ikaw yan!"
+    profile_sidebar: 
+      born: "date o' birth"
+    sub_header: 
+      add_some: "magdagdag ng ilan"
+      edit: baguhin
+      you_have_no_tags: "wala ka pang mga tag!"
+    two: "%{count} na tao"
+  photos: 
+    new: 
+      new_photo: "New Portrait"
+  profiles: 
+    edit: 
+      your_birthday: "Ye day o' birth"
+  registrations: 
+    new: 
+      create_my_account: "Create my account"
+      sign_up_message: "Social Networking with a <3"
+  services: 
+    inviter: 
+      click_link_to_accept_invitation: "Click this link to accept your invitation"
+  shared: 
+    aspect_dropdown: 
+      add_to_aspect: "Add to aspect"
+      toggle: 
+        zero: "Add to aspect"
+    publisher: 
+      new_user_prefill: 
+        i_like: "I'm interested in %{tags}."
+      share: Fire!
+      whats_on_your_mind: "What be botherin' you?"
+    stream_element: 
+      hide_and_mute: "Hide and Mute"
+      shared_with: "Fired at: %{aspect_names}"
+  streams: 
+    mentions: 
+      title: "Your Mentions"
+    tags: 
+      contacts_title: "People who dig these tags"
+  tag_followings: 
+    create: 
+      failure: "Failed to follow: #%{name}"
+      success: "Successfully following: #%{name}"
+    destroy: 
+      failure: "Failed to stop following: #%{name}"
+      success: "Successfully stopped following: #%{name}"
+  users: 
+    getting_started: 
+      what_facebook_does: "to Diaspora. This will pull your name and photo, and enable cross-positng."
+  webfinger: 
+    fetch_failed: "hindi nakuha ang webfinger profile para sa %{profile_url}"
+    hcard_fetch_failed: "nagkaroon ng problema sa pagkuha ng hcard ni %{account}"
+    no_person_constructed: "Walang taong magagawa mula sa hcard na ito."
+    not_enabled: "ang webfinger ay hindi gumagana sa host ni %{account}"
+    xrd_fetch_failed: "nagkaroon ng pagkakamali sa pagkuha ng xrd mula sa pag-aari %{account}"
