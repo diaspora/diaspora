@@ -86,7 +86,7 @@ class Stream::Base
     true
   end
 
-  #NOTE: MBS bad bad methods the fact we need these means our views are foobared. please kill them and make them 
+  #NOTE: MBS bad bad methods the fact we need these means our views are foobared. please kill them and make them
   #private methods on the streams that need them
   def aspects
     user.aspects
@@ -98,7 +98,7 @@ class Stream::Base
   end
 
   def aspect_ids
-    aspects.map{|x| x.id} 
+    aspects.map{|x| x.id}
   end
 
   def max_time=(time_string)

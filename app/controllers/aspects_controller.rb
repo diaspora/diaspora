@@ -6,7 +6,6 @@ require File.join(Rails.root, "lib", 'stream', "aspect")
 
 class AspectsController < ApplicationController
   before_filter :authenticate_user!
-  before_filter :save_sort_order, :only => :index
   before_filter :save_selected_aspects, :only => :index
   before_filter :ensure_page, :only => :index
 
@@ -14,11 +13,8 @@ class AspectsController < ApplicationController
   respond_to :json, :only => [:show, :create, :index]
 
   def index
-    #@backbone = true
-
     aspect_ids = (session[:a_ids] ? session[:a_ids] : [])
     @stream = Stream::Aspect.new(current_user, aspect_ids,
-                               :order => sort_order,
                                :max_time => params[:max_time].to_i)
 
     respond_with do |format|
