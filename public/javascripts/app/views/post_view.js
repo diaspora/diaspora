@@ -6,7 +6,6 @@ App.Views.Post = App.Views.StreamObject.extend({
     "click .focus_comment_textarea": "focusCommentTextarea",
     "click .shield a": "removeNsfwShield",
     "click .remove_post": "destroyModel",
-    "click .like_action": "toggleLike",
     "click .expand_likes": "expandLikes",
     "click .block_user": "blockUser"
   },
@@ -58,33 +57,6 @@ App.Views.Post = App.Views.StreamObject.extend({
     return this;
   },
 
-  toggleLike: function(evt) {
-    if(evt) { evt.preventDefault(); }
-
-    var link = $(evt.target);
-    var post = this.model;
-
-    if(link.hasClass('like')) {
-      var like = this.model.likes.create();
-      if(like) {
-        this.model.set({
-          user_like : like,
-          likes_count : post.get("likes_count") + 1
-        });
-      }
-    } else {
-      this.model.likes.get(link.data("id")).destroy({
-        success : function(){
-          post.set({
-            user_like : null,
-            likes_count : post.get("likes_count") - 1
-          });
-        }
-      });
-    }
-
-    return this;
-  },
 
   expandLikes: function(evt){
     if(evt) { evt.preventDefault(); }

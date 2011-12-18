@@ -1,6 +1,5 @@
 App.Views.StreamObject = Backbone.View.extend({
   initialize: function(options) {
-    this.model = options.model;
     this.model.bind('remove', this.remove, this);
     this.model.bind('change', this.render, this);
   },
@@ -10,18 +9,22 @@ App.Views.StreamObject = Backbone.View.extend({
     this.model.destroy();
   },
 
-  context : function(){
-    var modelJson = this.model ? this.model.toJSON() : {}
-    return $.extend(modelJson, App.user());
+  presenter : function(){
+    return this.defaultPresenter()
   },
 
-  renderTemplate : function(){
-    this.template = _.template($(this.template_name).html());
-    $(this.el).html(this.template(this.context()));
-    return this;
+  defaultPresenter : function(){
+    var modelJson = this.model ? this.model.toJSON() : {}
+    return _.extend(modelJson, App.user());
   },
 
   render : function() {
     return this.renderTemplate()
+  },
+
+  renderTemplate : function(){
+    this.template = _.template($(this.template_name).html());
+    $(this.el).html(this.template(this.presenter()));
+    return this;
   }
 });

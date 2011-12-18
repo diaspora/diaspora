@@ -1,15 +1,10 @@
 describe("App.Views.Header", function() {
   beforeEach(function() {
     // should be jasmine helper
-
     window.current_user = App.user({name: "alice", avatar : {small : "http://avatar.com/photo.jpg"}});
 
     spec.loadFixture("aspects_index");
-
     this.view = new App.Views.Header().render();
-
-    console.log(this.view);
-
   });
 
   describe("#toggleDropdown", function() {

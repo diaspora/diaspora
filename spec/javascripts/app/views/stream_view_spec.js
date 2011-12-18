@@ -6,7 +6,6 @@ describe("App.views.Stream", function(){
       window.current_user = App.user({name: "alice", avatar : {small : "http://avatar.com/photo.jpg"}});
 
       var posts = $.parseJSON(spec.readFixture("multi_stream_json"))["posts"];
-      spec.loadFixture("underscore_templates");
 
       this.collection = new App.Collections.Stream(posts);
       this.statusMessage = this.collection.models[0];

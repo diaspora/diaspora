@@ -46,59 +46,7 @@
         </div>
       <% } %>
 
-      <div class="info">
-        <% if(provider_display_name != null) { %>
-          <span class="via">
-            via <%= provider_display_name %>
-            -
-          </span>
-        <% } %>
-
-        <span class="post_scope" title="<%= public ? 'Viewable to anyone on the web' : 'Only certain people can see this'%>">
-          <%= public ? "Public" : "Limited" %>
-          -
-        </span>
-
-        <% if(user_like) { %>
-          <a href="#" class="like_action unlike" data-id="<%= user_like.id %>" rel='nofollow'>
-            Unlike
-          </a>
-        <% } else { %>
-          <a href="#" class="like_action like" rel='nofollow'>
-            Like
-          </a>
-        <% } %>
-        ·
-
-        <% if(public && author.id != current_user.id) { %>
-          <% if(root) {
-              var rootGuid = root.guid;
-            } else {
-              var rootGuid = guid;
-          } %>
-          <a href="/reshares?root_guid=<%= rootGuid %>" class="reshare_action" data-confirm="Reshare Bob Grimm's post?" data-method="post" data-remote="true" rel="nofollow">
-            Reshare
-          </a>
-          ·
-        <% } %>
-
-        <a href="#" class="focus_comment_textarea">
-          Comment
-        </a>
-      </div>
-
-      <div class="likes on_post">
-        <div class="likes_container">
-          <% if(likes_count > 0){ %>
-            <img alt="Heart" src="/images/icons/heart.png">
-            <a href="#" class="expand_likes">
-              <%= likes_count %> like
-            </a>
-          <% } %>
-        </div>
-      </div>
-
-      <div class="comments"> </div>
+      <div class="feedback"> </div>
 
     </div>
 </div>
