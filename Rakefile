@@ -295,8 +295,12 @@ task :set_root_dir, :dir do |t, args|
 end
 
 desc "Set up _deploy folder and deploy branch for Github Pages deployment"
-task :setup_github_pages do
-  repo_url = get_stdin("Enter the read/write url for your repository: ")
+task :setup_github_pages, :repo do |t, args|
+  if args.repo
+    repo_url = args.repo
+  else
+    repo_url = get_stdin("Enter the read/write url for your repository: ")
+  end
   user = repo_url.match(/:([^\/]+)/)[1]
   branch = (repo_url.match(/\/[\w-]+.github.com/).nil?) ? 'gh-pages' : 'master'
   project = (branch == 'gh-pages') ? repo_url.match(/\/([^\.]+)/)[1] : ''
