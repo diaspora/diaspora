@@ -3,9 +3,21 @@
 #   the COPYRIGHT file.
 
 
+
 ml: 
   javascripts: 
+    aspect_dropdown: 
+      add_to_aspect: "Add to aspect"
+      toggle: 
+        zero: "Add to aspect"
     confirm_dialog: "താങ്കള്‍ക്ക് ഉറപ്പാണോ?"
+    infinite_scroll: 
+      no_more: "കൂടുതല്‍ പോസ്റ്റുകളൊന്നുമില്ല."
+    publisher: 
+      at_least_one_aspect: "താങ്കള്‍ ഒരു പരിചയത്തിമെങ്കിലും തിരഞ്ഞെടുക്കേണ്ടതാണ്."
+    reshares: 
+      duplicate: "You've already reshared that post!"
+    search_for: "{{name}}നായി തിരയുക"
     timeago: 
       day: "ഒരു ദിവസം"
       days: "%d ദിവസങ്ങള്‍"
@@ -15,40 +27,16 @@ ml:
       minutes: "%d മിനിട്ടുകള്‍"
       month: "ഉദ്ദേശം ഒരു മാസം"
       months: "%d മാസങ്ങള്‍"
-      prefixAgo: ""
       prefixFromNow: "ഇപ്പോള്‍ മുതല്‍"
       seconds: "ഏതാനും നിമിഷങ്ങള്‍"
-      suffixAgo: "മുന്‍പ്"
-      suffixFromNow: "വരെ"
+      suffixAgo: മുന്‍പ്
+      suffixFromNow: വരെ
       year: "ഉദ്ദേശം ഒരു വര്‍ഷം"
       years: "%d വര്‍ഷങ്ങള്‍ക്ക്"
     videos: 
       unknown: "അജ്ഞാതമായ തരം വീഡിയോ"
       watch: "ഈ വീഡിയോ {{provider}}ല്‍ കാണുക"
-    search_for: "{{name}}നായി തിരയുക"
-    infinite_scroll: 
-      no_more: "കൂടുതല്‍ പോസ്റ്റുകളൊന്നുമില്ല."
-    publisher: 
-      at_least_one_aspect: "താങ്കള്‍ ഒരു പരിചയത്തിമെങ്കിലും തിരഞ്ഞെടുക്കേണ്ടതാണ്."
-      limited: "Limited - your post will only be seen by people you are sharing with"
-      public: "Public - your post will be visible to everyone and found by search engines"
     web_sockets: 
       disconnected: 
         body: "പോസ്റ്റൂകള്‍ തത്സമയമായി കാണിക്കുന്നതല്ല."
         title: "താങ്കള്‍ വിച്ഛേദിക്കപ്പെട്ടിരിക്കുന്നു."
-    aspect_dropdown:
-      add_to_aspect: "Add to aspect"
-      toggle:
-        zero: "Add to aspect"
-        one: "In {{count}} aspect"
-        few: "In {{count}} aspects"
-        many: "In {{count}} aspects"
-        other: "In {{count}} aspects"
-    show_more: "show more"
-    failed_to_like: "Failed to like!"
-    failed_to_post_message: "Failed to post message!"
-    comments:
-      show: "show all comments"
-      hide: "hide comments"
-    reshares:
-      duplicate: "You've already reshared that post!"

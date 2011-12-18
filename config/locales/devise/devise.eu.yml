@@ -3,14 +3,15 @@
 #   the COPYRIGHT file.
 
 
-eu:
-  devise:
-    confirmations:
+
+eu: 
+  devise: 
+    confirmations: 
       confirmed: "Zure kontua baieztatu da. Sartu egin zara."
-      new:
+      new: 
         resend_confirmation: "Berbidali baieztapen argibideak"
       send_instructions: "Minutu batzuetan kontua baieztatzeko argibideak jasoko dituzu e-postan."
-    failure:
+    failure: 
       inactive: "Zure kontua ez da aktibatu oraindik."
       invalid: "Erabiltzaile edo pasahitz okerra."
       invalid_token: "Autentikazio datu akasduna."
@@ -18,104 +19,81 @@ eu:
       timeout: "Zure sesioa bukatu da, autentikatu berriz jarraitzeko."
       unauthenticated: "Izena eman edo autentikatu behar duzu jarraitu aurretik"
       unconfirmed: "Zure kontua baieztatu behar duzu jarraitu aurretik."
-    invitations:
+    invitations: 
       invitation_token_invalid: "Gonbidapen kodea ez da baliozkoa!"
       send_instructions: "Gonbidapena bidali duzu."
       updated: "Zure pasahitza arrakastaz ezarri duzu. Sartu egin zara."
-    mailer:
-      confirmation_instructions:
+    mailer: 
+      confirmation_instructions: 
         confirm: "Kontua baieztatu"
         subject: "Baieztapen argibideak"
         you_can_confirm: "Zure kontua baieztatu dezakezu esteka hau jarraituz:"
       hello: "Kaixo %{email}!"
-      invitation_instructions:
-        accept: "Gonbidapena"
-        arrived: "The social network you have been waiting for has arrived. Revamped, more secure, and more fun, %{strong_diaspora} is ready to help you share and explore the web in a whole new way."
-        be_yourself: "Be Yourself"
-        be_yourself_paragraph: "The Internet has created unique new ways for us to express ourselves. %{strong_diaspora} lets you be yourself and share however you want, with or without your real name."
-        cubbies: Cubbi.es
+      invitation_instructions: 
+        accept: Gonbidapena
         displaying_correctly: "Email not displaying correctly? %{link} in your browser"
-        email_address: questions@joindiaspora.com
-        email_us: "For general inquiries or support with your Diaspora account, please email us at %{email}."
-        finally: "Finally - it's here"
-        friends_saying: "What your friends are saying..."
-        get_connected: "Get Connected"
-        get_connected_paragraph: "An international movement with a shared vision for a better web, %{strong_diaspora}'s #1 feature is its community. Meet new people, connect with friends, and join the fun."
-        have_fun: "Have Fun"
-        have_fun_paragraph: "%{strong_diaspora} is all about discovering amazing new content and people online. %{link}, the world's first %{strong_diaspora} application is just the begining. Collect and share the web in all of its glory."
-        help_fund: "help fund Diaspora"
-        here: "here"
         ignore: "Ez baduzu gonbidapena onartu nahi, mesedez egin iezaiozu ez-ikusi mezu honi."
-        join_team: "Join our Team"
-        love: "Love,"
-        made_by_people: "%{strong_diaspora} is made by people who love the Internet as much as you do. %{jointeam}, or %{helpfund}!"
-        more_people: "Even more people are excited to see you!"
         no_account_till: "Zure kontua ez da sortuko hemengo esteka jarraitu eta izena eman arte."
-        or: "or"
-        sign_up_now: "Sign up now &rarr;"
         subject: "Diasporara batzera gonbidatua izan zara!"
-        team_diaspora: "Team Diaspora"
-        unsubscribe: "To unsubscribe please click %{link}."
         view_in: "View in"
-      inviter:
+      inviter: 
         accept_at: "%{url}(e)n, onartu dezakezu beheko esteka jarraituz."
-        has_invited_you: "%{name}"
         have_invited_you: "%{names}(e)k Diasporara batzera gonbidatu zaituzte"
-      reset_password_instructions:
+      reset_password_instructions: 
         change: "Pasahitza aldatu"
         ignore: "Hau eskatu ez bazenuen, mesedez gutxietsi mezu hau."
         someone_requested: "Norbaitek pasahitz aldaketarako esteka bat eskatu du, hau egin dezakezu esteka honako esteka jarraituz:"
         subject: "Pasahitz berreskuraketaren argibideak"
         wont_change: "Zure pasahitza ez da aldatuko honako esteka jarraitu eta berri bat ezartzen duzun arte."
-      unlock_instructions:
+      unlock_instructions: 
         account_locked: "Zure kontua blokeatu da autentikazio akasdun askoren ondoren."
         click_to_unlock: "Sakatu honako estekan zure kontua askatzeko:"
         subject: "Askatu argibideak"
         unlock: "Askatu nire kontua"
       welcome: "Ongietorri, %{email}!"
-    passwords:
-      edit:
+    passwords: 
+      edit: 
         change_password: "Nire pasahitza aldatu"
-      new:
+      new: 
         forgot_password: "Pasahitza ahaztu duzu?"
         no_account: "Ez da konturik e-posta horrekin. Gonbidapen baten zain bazaude, ahal dugun azkarren bidaliko dizugu bat"
         send_password_instructions: "Bidali iezadazu pasahitzaren berrezarpenerako argibideak"
       send_instructions: "Hurrengo minutuetan email bat jasoko dituzu pasahitza berrezartzeko argibideekin."
       updated: "Zure pasahitza arrakastaz aldatu duzu. Autentikatuta zaude orain."
-    registrations:
+    registrations: 
       destroyed: "Agur! Zure kontua arrakastaz ezabatu duzu. Laister berriro ikustea espero dugu."
       signed_up: "Arrakastaz eman duzu izena. Ahal bazen, mezu bat bidalia izan da zure sarrera-ontzira."
       updated: "Kontua arrakastaz eguneratu duzu."
-    sessions:
-      new:
+    sessions: 
+      new: 
         alpha_software: "Alpha softwarea erabiltzear zaude."
         bugs_and_feedback: "Jakin dezazula aktsak aurkituko dituzula. Feedback botoia erabiltzera animatzen zaitugu (eskubian) edozein akats bidaltzeko! Ahal dugun azkarren konponduko dugu."
         bugs_and_feedback_mobile: "Jakin dezazula akatsak aurkitu dituzula. Akatsak bidaltzera animatzen zaitugu! Ahal dugun azkarren egingo dugu lan horiek konpontzeko."
-        login: "Sartu"
+        login: Sartu
         modern_browsers: "bakarrik nabigatzaile modernoak onartzen ditu."
-        password: "Pasahitza"
+        password: Pasahitza
         remember_me: "Gogoratu nazazu"
-        sign_in: "Sartu"
-        username: "Erabiltzailea"
+        sign_in: Sartu
+        username: Erabiltzailea
       signed_in: "Arrakastaz sartu zara."
       signed_out: "Arrakastaz atera zara."
-    shared:
-      links:
+    shared: 
+      links: 
         forgot_your_password: "Zure pasahitza ahaztu duzu?"
         receive_confirmation: "Ez duzu baieztapen emailik jaso?"
         receive_unlock: "Ez duzu askapen argibiderik jaso?"
-        sign_in: "Sartu"
+        sign_in: Sartu
         sign_up: "Izena eman"
         sign_up_closed: "Izen-emate irekiak ez daude erabilgarri momentu hontan."
-      mail_signup_form:
+      mail_signup_form: 
         sign_up_for_an_invite: "Izena eman gonbidapen bat jasotzeko!"
-    unlocks:
-      new:
+    unlocks: 
+      new: 
         resend_unlock: "Desblokeatzeko argibideak bidali"
       send_instructions: "Zure kontua berriro aktibatzeko argibidedun mezu bat jasoko duzu e-postan minutu batzuetan."
       unlocked: "Zure kontua berraktibatu duzu. Orain sartu egin zara."
-  errors:
-    messages:
+  errors: 
+    messages: 
       already_confirmed: "jadanik baieztatua zegoen"
       not_found: "ez da aurkitu"
       not_locked: "ez zegoen giltzapetuta"

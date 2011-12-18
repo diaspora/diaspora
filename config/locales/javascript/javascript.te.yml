@@ -1,0 +1,37 @@
+#   Copyright (c) 2010-2011, Diaspora Inc.  This file is
+#   licensed under the Affero General Public License version 3 or later.  See
+#   the COPYRIGHT file.
+
+
+
+te: 
+  javascripts: 
+    aspect_navigation: 
+      select_all: "అన్నిటినీ ఎంచుకో"
+    comments: 
+      hide: "వ్యాఖ్యలను దాచు"
+      show: "అన్ని వ్యాఖ్యలను చూపించు"
+    getting_started: 
+      hey: "ఓయ్, {{name}}!"
+    infinite_scroll: 
+      no_more: "ఇంక టపాలు లేవు."
+    reshares: 
+      duplicate: "ఓహో, అది బాగుందా?  ఆ టపాని మీరు ఇప్పటికే పంచుకున్నారు!"
+    search_for: "{{name}} కోసం వెతకండి"
+    show_more: "మరిన్ని చూపించు"
+    timeago: 
+      day: "ఒక రోజు"
+      days: "%d రోజుల"
+      hour: "దాదాపు గంట"
+      hours: "దాదాపు %d గంటల"
+      minute: "దాదాపు నిమిషం"
+      minutes: "%d నిమిషాల"
+      month: "దాదాపు నెల"
+      months: "%d నెలల"
+      seconds: "కొన్ని క్షణాల"
+      suffixAgo: క్రితం
+      suffixFromNow: ""
+      year: "దాదాపు సంవత్సరం"
+      years: "%d సంవత్సరాల"
+    videos: 
+      watch: "ఈ వీడియోని {{provider}}లో చూడండి"

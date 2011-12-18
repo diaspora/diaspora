@@ -3,14 +3,10 @@
 #   the COPYRIGHT file.
 
 
-vi:
-  devise:
-    confirmations:
-      confirmed: "Your account was successfully confirmed. You are now signed in."
-      new:
-        resend_confirmation: "Resend confirmation instructions"
-      send_instructions: "You will receive an email with instructions about how to confirm your account in a few minutes."
-    failure:
+
+vi: 
+  devise: 
+    failure: 
       inactive: "Tài khoản của bạn chưa được kích hoạt."
       invalid: "Tên người dùng hoặc mật khẩu không đúng."
       invalid_token: "Khoá xác thực không hợp lệ."
@@ -18,79 +14,38 @@ vi:
       timeout: "Phiên đăng nhập đã hết hạn, hãy đăng nhập lại để tiếp tục."
       unauthenticated: "Bạn cần đăng nhập hoặc đăng kí để tiếp tục."
       unconfirmed: "Bạn cần phải xác nhận tài khoản trước khi tiếp tục."
-    invitations:
+    invitations: 
       invitation_token_invalid: "The invitation token provided is not valid!"
       send_instructions: "Lời mời của bạn đã được gửi."
       updated: "Thiết lập mật khẩu thành công. Bạn đã đăng nhập."
-    mailer:
-      confirmation_instructions:
-        confirm: "Confirm my account"
-        subject: "Confirmation instructions"
-        you_can_confirm: "You can confirm your account through the link below:"
-      hello: "Hello %{email}!"
-      invitation_instructions:
-        accept: "Accept invitation"
-        arrived: "The social network you have been waiting for has arrived. Revamped, more secure, and more fun, %{strong_diaspora} is ready to help you share and explore the web in a whole new way."
-        be_yourself: "Be Yourself"
-        be_yourself_paragraph: "The Internet has created unique new ways for us to express ourselves. %{strong_diaspora} lets you be yourself and share however you want, with or without your real name."
-        cubbies: Cubbi.es
+    mailer: 
+      invitation_instructions: 
         displaying_correctly: "Email not displaying correctly? %{link} in your browser"
-        email_address: questions@joindiaspora.com
-        email_us: "For general inquiries or support with your Diaspora account, please email us at %{email}."
         finally: "Cuối cùng - nó đây"
-        friends_saying: "What your friends are saying..."
-        get_connected: "Get Connected"
-        get_connected_paragraph: "An international movement with a shared vision for a better web, %{strong_diaspora}'s #1 feature is its community. Meet new people, connect with friends, and join the fun."
-        have_fun: "Have Fun"
-        have_fun_paragraph: "%{strong_diaspora} is all about discovering amazing new content and people online. %{link}, the world's first %{strong_diaspora} application is just the begining. Collect and share the web in all of its glory."
-        help_fund: "help fund Diaspora"
-        here: "here"
-        ignore: "If you don't want to accept the invitation, please ignore this email."
-        join_team: "Join our Team"
-        love: "Love,"
         made_by_people: "%{strong_diaspora} được tạo ra bởi những người yêu Internet như bạn. %{jointeam}, hay %{helpfund}!"
-        more_people: "Even more people are excited to see you!"
-        no_account_till: "Your account won't be created until you access the link above and sign up."
-        or: "or"
-        sign_up_now: "Sign up now &rarr;"
-        subject: "You've been invited to join Diaspora!"
         team_diaspora: "Đội Diaspora"
         unsubscribe: "Không nhận thư nữa, vui lòng nhấn %{link}."
         view_in: "View in"
-      inviter:
-        accept_at: "at %{url}, you can accept it through the link below."
-        has_invited_you: "%{name}"
-        have_invited_you: "%{names} have invited you to join Diaspora"
-      reset_password_instructions:
-        change: "Change my password"
-        ignore: "If you didn't request this, please ignore this email."
-        someone_requested: "Someone has requested a link to change your password, and you can do this through the link below."
-        subject: "Reset password instructions"
-        wont_change: "Your password won't change until you access the link above and create a new one."
-      unlock_instructions:
+      unlock_instructions: 
         account_locked: "Tài khoản của bạn bị khoá do đăng nhập thất bại quá số lần quy định."
         click_to_unlock: "Nhấn vào liên kết bên dưới để mở khoá tài khoản:"
         subject: "Chỉ dẫn mở khoá"
         unlock: "Mở khoá tài khoản"
-      welcome: "Welcome %{email}!"
-    passwords:
-      edit:
+    passwords: 
+      edit: 
         change_password: "Đổi mật khẩu"
-      new:
+      new: 
         forgot_password: "Quên mật khẩu?"
         no_account: "Không có tài khoản nào với địa chỉ thư điện tử này. Nếu bạn đang chờ để được mời, chúng tôi sẽ cố gắng sớm nhất có thể"
         send_password_instructions: "Gửi cho tôi hướng dẫn thiết đặt lại mật khẩu"
       send_instructions: "Bạn sẽ nhận được thư chứa chỉ dẫn cách thiết lập lại mật khẩu trong ít phút nữa."
       updated: "Đã đổi mật khẩu. Bạn đã đăng nhập."
-    registrations:
-      destroyed: "Bye! Your account was successfully cancelled. We hope to see you again soon."
+    registrations: 
       signed_up: "Bạn đã đăng nhập thành công. Nếu được bật, một thư xác nhận sẽ được gửi cho bạn."
       updated: "Bạn đã cập nhật tài khoản thành công."
-    sessions:
-      new:
+    sessions: 
+      new: 
         alpha_software: "Bạn sẽ sử dụng phần mềm không ổn định."
-        bugs_and_feedback: "Be advised, you will experience bugs.  We encourage you to use the Feedback button on the right hand side of your browser to report any hiccups!  We will work as fast as we can to resolve any issues you report."
-        bugs_and_feedback_mobile: "Be advised, you will experience bugs.  We encourage you to report any hiccups!  We will work as fast as we can to resolve any issues you report."
         login: "Đăng nhập"
         modern_browsers: "chỉ hỗ trợ những trình duyệt hiện đại."
         password: "Mật khẩu"
@@ -99,23 +54,17 @@ vi:
         username: "Tên người dùng"
       signed_in: "Đăng nhập thành công."
       signed_out: "Đăng xuất thành công."
-    shared:
-      links:
+    shared: 
+      links: 
         forgot_your_password: "Quên mật khẩu?"
         receive_confirmation: "Không nhận được chỉ dẫn xác nhận?"
         receive_unlock: "Không nhận được chỉ dẫn mở khoá?"
         sign_in: "Đăng nhập"
         sign_up: "Đăng kí"
-        sign_up_closed: "Open signups are closed at this time."
-      mail_signup_form:
+      mail_signup_form: 
         sign_up_for_an_invite: "Đăng kí nhận lời mời!"
-    unlocks:
-      new:
-        resend_unlock: "Resend unlock instructions"
-      send_instructions: "You will receive an email with instructions about how to unlock your account in a few minutes."
-      unlocked: "Your account was successfully unlocked. You are now signed in."
-  errors:
-    messages:
+  errors: 
+    messages: 
       already_confirmed: "đã được xác nhận"
       not_found: "không tìm thấy"
       not_locked: "không khoá"

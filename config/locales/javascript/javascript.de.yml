@@ -3,52 +3,52 @@
 #   the COPYRIGHT file.
 
 
-de:
-  javascripts:
-    aspect_dropdown:
+
+de: 
+  javascripts: 
+    aspect_dropdown: 
       add_to_aspect: "Kontakt hinzufügen"
       all_aspects: "Alle Aspekte"
       error: "Konnte nicht anfangen, mit {{name}} zu teilen. Ignorierst du sie/ihn?"
       select_aspects: "Wähle Aspekte aus"
       started_sharing_with: "Du hast angefangen, mit {{name}} zu teilen!"
       stopped_sharing_with: "Du hast aufgehört, mit {{name}} zu teilen!"
-      toggle:
+      toggle: 
         few: "In {{count}} Aspekten"
         many: "In {{count}} Aspekten"
         one: "In einem Aspekt"
         other: "In {{count}} Aspekten"
         two: "In {{count}} Aspekten"
         zero: "Aspekt auswählen"
-    aspect_navigation:
+    aspect_navigation: 
       deselect_all: "Auswahl aufheben"
       no_aspects: "Keine Aspekte ausgewählt"
       select_all: "Alle auswählen"
-    comments:
+    comments: 
       hide: "Kommentare verbergen"
       show: "Alle Kommentare zeigen"
     confirm_dialog: "Bist du dir sicher?"
     failed_to_like: "Gefällt mir fehlgeschlagen."
     failed_to_post_message: "Konnte Beitrag nicht senden!"
-    getting_started:
+    getting_started: 
       alright_ill_wait: "Alles klar, ich warte."
-      hey: "Hey, {{name}}!"
       no_tags: "Hey, du folgst noch keinen Tags! Trotzdem weitermachen?"
       preparing_your_stream: "Dein persönlicher Stream wird zusammengestellt …"
-    infinite_scroll:
+    infinite_scroll: 
       no_more: "Keine weiteren Beiträge."
-    photo_uploader:
+    photo_uploader: 
       looking_good: "OMG, du siehst toll aus!"
-    publisher:
+    publisher: 
       at_least_one_aspect: "Du musst zumindest zu einem Aspekt posten"
       limited: "Eingeschränkt - dein Beitrag wird nur Leuten sichtbar sein, mit denen du teilst"
       public: "Öffentlich - dein Beitrag ist für alle sichtbar und kann von Suchmaschinen gefunden werden"
-    reshares:
+    reshares: 
       duplicate: "Du hast diesen Beitrag bereits weitergesagt!"
     search_for: "Nach {{name}} suchen"
     show_more: "Mehr zeigen"
-    tags:
+    tags: 
       wasnt_that_interesting: "OK, ich nehme an, #{{tagName}} war nicht so interessant..."
-    timeago:
+    timeago: 
       day: "einem Tag"
       days: "%d Tagen"
       hour: "etwa einer Stunde"
@@ -57,15 +57,15 @@ de:
       minutes: "%d Minuten"
       month: "etwa einem Monat"
       months: "%d Monaten"
-      prefixAgo: "vor"
-      prefixFromNow: "in"
+      prefixAgo: vor
+      prefixFromNow: in
       seconds: "wenigen Sekunden"
       suffixAgo: ""
       suffixFromNow: ""
       year: "etwa einem Jahr"
       years: "%d Jahren"
-    videos:
+    videos: 
       unknown: "Unbekanntes Videoformat"
       watch: "Dieses Video auf {{provider}} ansehen"
-    web_sockets:
+    web_sockets: 
       disconnected: "Der Websocket ist geschlossen. Beiträge werden nicht länger in Echtzeit aktualisiert."

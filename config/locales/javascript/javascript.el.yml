@@ -3,52 +3,53 @@
 #   the COPYRIGHT file.
 
 
-el:
-  javascripts:
-    aspect_dropdown:
+
+el: 
+  javascripts: 
+    aspect_dropdown: 
       add_to_aspect: "Προσθήκη επαφής"
       all_aspects: "Όλες οι πτυχές"
       error: "Δεν μπορεί να ξεκινήσει ο διαμοιρασμός με το χρήστη {{name}}. Μήπως τον αγνοείτε;"
       select_aspects: "Επιλογή πτυχών"
       started_sharing_with: "Ξεκινήσατε να διαμοιράζεστε με τον χρήστη {{name}}!"
       stopped_sharing_with: "Σταματήσατε να διαμοιράζεστε με τον χρήστη {{name}}."
-      toggle:
+      toggle: 
         few: "Σε {{count}} πτυχές"
         many: "Σε {{count}} πτυχές"
         one: "Σε {{count}} πτυχή"
         other: "Σε {{count}} πτυχές"
         two: "Σε {{count}} πτυχές"
         zero: "Επιλέξτε πτυχές"
-    aspect_navigation:
+    aspect_navigation: 
       deselect_all: "Εξαίρεση όλων"
       no_aspects: "Καμία πτυχή δεν έχει επιλεγεί "
       select_all: "Επιλογή όλων"
-    comments:
+    comments: 
       hide: "απόκρυψη σχολίων"
       show: "προβολή όλων των σχολίων"
     confirm_dialog: "Είστε σίγουρος/η;"
     failed_to_like: Αποτυχία!
     failed_to_post_message: "Αποτυχία δημοσίευσης μηνύματος!"
-    getting_started:
+    getting_started: 
       alright_ill_wait: "Εντάξει, θα περιμένω."
       hey: "Γεια σου, {{name}}!"
       no_tags: "Γεια, δεν ακολουθείς ακόμα καμία ετικέτα! Συνεχίζουμε παρ' όλ' αυτά;"
       preparing_your_stream: "Ετοιμάζεται η προσωπική σας ροή..."
-    infinite_scroll:
+    infinite_scroll: 
       no_more: "Δεν υπάρχουν άλλες δημοσιεύσεις."
-    photo_uploader:
+    photo_uploader: 
       looking_good: "Ναι! Σκίζεις!"
-    publisher:
+    publisher: 
       at_least_one_aspect: "Πρέπει να κάνετε δημοσίευση σε τουλάχιστον μια πτυχή"
       limited: "Περιορισμένο - οι δημοσιεύσεις σας θα είναι ορατές μόνο από τα άτομα με τα οποία διαμοιράζεστε. "
       public: "Δημόσιο - οι δημοσιεύσεις σας θα είναι ορατές στον καθένα και θα μπορούν να βρεθούν από τις μηχανές αναζήτησης."
-    reshares:
+    reshares: 
       duplicate: "Αυτό είναι τόσο καλό ε; Έχετε ήδη κοινοποιήσει αυτή τη δημοσίευση!"
     search_for: "Αναζήτηση για {{name}}"
     show_more: "Προβολή περισσότερων"
-    tags:
+    tags: 
       wasnt_that_interesting: "OK, φαντάζομαι πως το #{{tagName}} δεν ήταν και τόσο ενδιαφέρον τελικά..."
-    timeago:
+    timeago: 
       day: "μία μέρα"
       days: "%d μέρες"
       hour: "περίπου μία ώρα"
@@ -57,15 +58,13 @@ el:
       minutes: "%d λεπτά"
       month: "περίπου ένα μήνα"
       months: "%d μήνες"
-      prefixAgo: ""
-      prefixFromNow: ""
       seconds: "λιγότερο από ένα λεπτό"
-      suffixAgo: "πριν"
+      suffixAgo: πριν
       suffixFromNow: "από τώρα"
       year: "περίπου ένα χρόνο"
       years: "%d χρόνια"
-    videos:
+    videos: 
       unknown: "Άγνωστος τύπος βίντεο"
       watch: "Δείτε το βίντεο στο {{provider}}"
-    web_sockets:
+    web_sockets: 
       disconnected: "Το websocket είναι κλειστό: οι δημοσιεύσεις δεν θα αναμεταδίδονται ζωντανά πλέον."

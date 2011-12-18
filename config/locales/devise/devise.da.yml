@@ -3,14 +3,15 @@
 #   the COPYRIGHT file.
 
 
-da:
-  devise:
-    confirmations:
+
+da: 
+  devise: 
+    confirmations: 
       confirmed: "Din konto er blevet bekræftet. Du er nu logget ind"
-      new:
+      new: 
         resend_confirmation: "Send bekræftelse igen"
       send_instructions: "Du vil modtage en e-mail med instruktioner om hvordan du bekræfter din konto om et par minutter."
-    failure:
+    failure: 
       inactive: "Din konto er endnu ikke aktiveret."
       invalid: "Forkert brugernavn eller adgangskode."
       invalid_token: "Ugyldig token."
@@ -18,24 +19,22 @@ da:
       timeout: "Du har været inaktiv for længe. Log ind for at fortsætte."
       unauthenticated: "Du skal logge ind eller oprette en konto for at fortsætte."
       unconfirmed: "Du skal bekræfte din konto for at fortsætte."
-    invitations:
+    invitations: 
       invitation_token_invalid: "Beklager! Invitationen er ikke gyldig."
       send_instructions: "Din invitation er blevet sendt."
       updated: "Din adgangskode blev sat korrekt. Du er nu logget ind."
-    mailer:
-      confirmation_instructions:
+    mailer: 
+      confirmation_instructions: 
         confirm: "Bekræft min konto"
-        subject: "Bekræftelsesinstruktioner"
+        subject: Bekræftelsesinstruktioner
         you_can_confirm: "Du kan bekræfte din konto via nedenstående link:"
       hello: "Hej %{email}!"
-      invitation_instructions:
+      invitation_instructions: 
         accept: "Accepter invitation"
         arrived: "Det sociale netværk du har ventet på, er kommet. Ombygget, sikrere og sjovere, er %{strong_diaspora} klar til at hjælpe dig med at dele og udforske web på en helt ny måde."
         be_yourself: "Vær dig selv"
         be_yourself_paragraph: "Internettet har skabt nye unikke måder vi kan udtrykke os på. %{strong_diaspora} lader dig være dig selv og dele som du ønsker det, med eller uden dit rigtige navn."
-        cubbies: Cubbi.es
         displaying_correctly: "Ser e-mailen forkert ud? %{link}"
-        email_address: questions@joindiaspora.com
         email_us: "For generelle spørgsmål eller hjælp med din Diaspora-konto, send venligst en email til os på %{email}."
         finally: "Endelig er det her"
         friends_saying: "Hvad dine venner siger..."
@@ -44,78 +43,76 @@ da:
         have_fun: "Hav det sjovt"
         have_fun_paragraph: "%{strong_diaspora} handler om at opdage nyt fantastisk indhold og nye mennesker online. %{link}, verdens første %{strong_diaspora} program er kun begyndelsen. Saml og del med hele det utrolige web."
         help_fund: "støt Diaspora økonomisk"
-        here: "her"
+        here: her
         ignore: "Hvis du ikke vil acceptere invitationen skal du blot ignorere denne mail."
         join_team: "Kom med på holdet"
         love: "Kærlig hilsen,"
         made_by_people: "%{strong_diaspora} er skabt af folk der elsker internettet lige så meget som du gør. %{jointeam}, eller %{helpfund}!"
         more_people: "Endnu flere vil gerne møde dig!"
         no_account_till: "Din konto vil ikke blive oprettet før du har klikket ind på ovenstående link, og skriver dig op."
-        or: "eller"
+        or: eller
         sign_up_now: "Tilmeld dig nu &rarr;"
         subject: "Du er blevet inviteret til at bruge Diaspora!"
-        team_diaspora: "Team Diaspora"
         unsubscribe: "Hvis du gerne vil holde op med at få e-mails som denne, klik %{link}."
         view_in: "Se den i din browser."
-      inviter:
+      inviter: 
         accept_at: "på %{url}, du kan acceptere ved at følge linket nedenunder."
-        has_invited_you: "%{name}"
         have_invited_you: "%{names} har inviteret dig til at deltage i Diaspora."
-      reset_password_instructions:
+      reset_password_instructions: 
         change: "Skift min adgangskode"
         ignore: "Hvis du ikke har anmodet om dette, bedes du ignorere denne e-mail."
         someone_requested: "Nogen har anmodet om et link til at ændre din adgangskode. Du kan gøre dette via linket nedenfor."
         subject: "Instruktioner til nulstilling af adgangskode"
         wont_change: "Din adgangskode vil ikke blive ændret før du klikker på linket ovenfor og opretter en ny."
-      unlock_instructions:
+      unlock_instructions: 
         account_locked: "Din konto er blevet låst på grund af en stor mængde mislykkede log ind forsøg."
         click_to_unlock: "Klik på linket nedenfor for at aktivere din konto:"
-        subject: "Aktiveringsinstruktioner"
+        subject: Aktiveringsinstruktioner
         unlock: "Aktivér min konto"
       welcome: "Velkommen %{email}!"
-    passwords:
-      edit:
+    passwords: 
+      edit: 
         change_password: "skift adgangskode"
-      new:
+      new: 
         forgot_password: "Glemt din adgangskode?"
         no_account: "Ingen konto med den email adresse eksisterer. Hvis du venter på invitation, så åbner vi så snart som muligt"
         send_password_instructions: "Send mig instruktioner til nulstilning af adgangskode"
       send_instructions: "Du vil modtage en e-mail med instruktioner om hvordan du kan nulstille din adgangskode om et par minutter."
       updated: "Dit adgangskode er nu ændret. Du er nu logget ind."
-    registrations:
+    registrations: 
       destroyed: "Farvel! Din konto er nu lukket. Vi håber at se dig igen snart."
       signed_up: "Du har nu tilmeldt dig. En bekræftelse er blevet sendt til din e-mail, hvis den er aktiveret."
       updated: "Din konto er nu opdateret."
-    sessions:
-      new:
+    sessions: 
+      new: 
         alpha_software: "Du er ved at starte alpha software."
         bugs_and_feedback: "Vær opmærksom på at du vil opleve fejl og mangler. Vi opfordrer dig til at bruge feedbackknappen i højre side af din browser til at melde de fejl du støder på. Vi arbejder så hurtigt vi kan på at løse de problemer du melder."
         bugs_and_feedback_mobile: "Vær opmærksom på at du vil opleve fejl. Vi opfordrer dig til at melde enhver fejl du støder på. Vi vil arbejde så hurtigt som muligt for at løse ethvert problem du melder."
         login: "Log ind"
         modern_browsers: "understøtter kun nyere browsere."
-        password: "Adgangskode"
+        password: Adgangskode
         remember_me: "Husk mig"
         sign_in: "Log ind"
-        username: "Brugernavn"
+        username: Brugernavn
       signed_in: "Du er nu logget ind."
       signed_out: "Du er nu logget ud."
-    shared:
-      links:
+    shared: 
+      links: 
         forgot_your_password: "Glemt din adgangskode?"
         receive_confirmation: "Modtog du ikke bekræftelsen? "
         receive_unlock: "Modtog du ikke aktiveringsvejledningen?"
         sign_in: "Log ind"
         sign_up: "Opret en profil"
         sign_up_closed: "Der er på nuværende tidspunkt lukket for fri tilmelding."
-      mail_signup_form:
+      mail_signup_form: 
         sign_up_for_an_invite: "Anmod om en invitation!"
-    unlocks:
-      new:
+    unlocks: 
+      new: 
         resend_unlock: "Send vejledningen til aktivering af konto igen"
       send_instructions: "Du vil modtage en e-mail om et par minutter med instruktioner om hvordan du kan låse din konto op."
       unlocked: "Din konto er blevet låst op. Du er nu logget ind."
-  errors:
-    messages:
+  errors: 
+    messages: 
       already_confirmed: "var allerede bekræftet"
       not_found: "ikke fundet"
       not_locked: "blev ikke låst"

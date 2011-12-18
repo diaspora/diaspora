@@ -3,14 +3,15 @@
 #   the COPYRIGHT file.
 
 
-ar:
-  devise:
-    confirmations:
+
+ar: 
+  devise: 
+    confirmations: 
       confirmed: "تم تأكيد حسابك، وتسجيل دخولك"
-      new:
+      new: 
         resend_confirmation: "أعِد إرسال لتعليمات التأكيد"
       send_instructions: "ستصلك في بضع دقائق رسالة إلكترونية تحوي تعليمات تأكيد الحساب الخاص بك"
-    failure:
+    failure: 
       inactive: ".لم يتم تفعيل حسابك بعد"
       invalid: ".المعرف غير صالح أو كلمة المرور غير صحيحة"
       invalid_token: ".الإقليد غير صالح"
@@ -18,104 +19,82 @@ ar:
       timeout: ".انقضت مدة جلستك، رجاء لُج من جديد للمتابعة"
       unauthenticated: ".لُج أو سجل قبل المتابعة"
       unconfirmed: ".أكِد حسابك قبل المتابعة"
-    invitations:
+    invitations: 
       invitation_token_invalid: "إقليد الدعوة غير صالحة"
       send_instructions: "تم إرسال دعوتك"
       updated: "تم إنشاء كلمة المرور بنجاح، أنت الآن متصل"
-    mailer:
-      confirmation_instructions:
+    mailer: 
+      confirmation_instructions: 
         confirm: "أكِد حسابي"
         subject: "تعليمات التأكيد"
         you_can_confirm: "يمكنك تأكيد حسابك عبر الرابط التالي"
       hello: "مرحبا %{email}!"
-      invitation_instructions:
+      invitation_instructions: 
         accept: "إقبل الدعوة"
-        arrived: "The social network you have been waiting for has arrived. Revamped, more secure, and more fun, %{strong_diaspora} is ready to help you share and explore the web in a whole new way."
-        be_yourself: "Be Yourself"
-        be_yourself_paragraph: "The Internet has created unique new ways for us to express ourselves. %{strong_diaspora} lets you be yourself and share however you want, with or without your real name."
-        cubbies: Cubbi.es
         displaying_correctly: "Email not displaying correctly? %{link} in your browser"
-        email_address: questions@joindiaspora.com
-        email_us: "For general inquiries or support with your Diaspora account, please email us at %{email}."
-        finally: "Finally - it's here"
-        friends_saying: "What your friends are saying..."
-        get_connected: "Get Connected"
-        get_connected_paragraph: "An international movement with a shared vision for a better web, %{strong_diaspora}'s #1 feature is its community. Meet new people, connect with friends, and join the fun."
-        have_fun: "Have Fun"
-        have_fun_paragraph: "%{strong_diaspora} is all about discovering amazing new content and people online. %{link}, the world's first %{strong_diaspora} application is just the begining. Collect and share the web in all of its glory."
-        help_fund: "help fund Diaspora"
-        here: "here"
         ignore: "رجاء تجاهل هذا البريد الإلكتروني في حال لم ترغب بقبول الدعوة"
-        join_team: "Join our Team"
-        love: "Love,"
-        made_by_people: "%{strong_diaspora} is made by people who love the Internet as much as you do. %{jointeam}, or %{helpfund}!"
-        more_people: "Even more people are excited to see you!"
         no_account_till: "لن يتم إنشاء حسابك حتى تلج الرابط أعلاه وتسجل"
-        or: "or"
-        sign_up_now: "Sign up now &rarr;"
         subject: "تم دعوتك للإنضمام لدياسبرا"
-        team_diaspora: "Team Diaspora"
-        unsubscribe: "To unsubscribe please click %{link}."
         view_in: "View in"
-      inviter:
+      inviter: 
         accept_at: ", %{url}, يمكنك قبولها عبر الرابط التالي"
         has_invited_you: "%{name} يدعوك للإنضمام إلى دياسبرا"
         have_invited_you: "%{names} يدعونك للإنضمام إلى دياسبرا"
-      reset_password_instructions:
+      reset_password_instructions: 
         change: "غيِر كلمة المرور"
         ignore: "إذا لم تكن من طلب هذا، رجاء تجاهل هذا البريد"
         someone_requested: "أحدهم طلب رابطا لتغيير كلمة مرورك, ويمكنك فعل هذا عبر الرابط الآتي"
         subject: "تعليمات إعادة إدخال كلمة المرور"
         wont_change: "كلمة مرورك لن تتغير قبل أن تنقر الرابط التالي وتدخل كلمة مرور جديدة"
-      unlock_instructions:
+      unlock_instructions: 
         account_locked: "لقد تم حظر حسابك ظرفيا بسبب العدد المفرط من محاولات الدخول الفاشلة"
         click_to_unlock: "انقر الرابط التالي لإعادة فتح حسابك"
         subject: "تعليمات إعادة فتح حسابك"
         unlock: "أعد فتح حسابي"
       welcome: "مرحبا %{email} !"
-    passwords:
-      edit:
+    passwords: 
+      edit: 
         change_password: "غيِر كلمة المرور"
-      new:
+      new: 
         forgot_password: "نسيت كلمة المرور؟"
         no_account: "هذا البريد الإلكتروني غير مرتبط بأي حساب. إذا كنت تنتظر دعوة, فنحن نقوم بتوزيعها بأسرع وسيلة لتصل الجميع"
         send_password_instructions: "أعِد تعيين كلمة المرور"
       send_instructions: "ستصلك في بضع دقائق رسالة إلكترونية تحوي تعليمات إعادة تعيين كلمة المرور الخاصة بك"
       updated: "تم تغيير كلمة السر خاصتك بنجاح. أنت الآن متصل"
-    registrations:
+    registrations: 
       destroyed: ".وداعا! تم إلغاء حسابك بنجاح. ونأمل أن نراكم مرة أخرى قريبا"
       signed_up: ".تمت عملية تسجيلك بنجاح. ستصلك رسالة إلكترونية حال تفعيله"
       updated: ".قمت بتحديث حسابك بنجاح"
-    sessions:
-      new:
+    sessions: 
+      new: 
         alpha_software: "أنت على وشك استخدام برنامج تجريبي ألفا"
         bugs_and_feedback: "للتذكير، ستواجه خلال تجربتك بعض المشاكل التقنية.  نشجعك على استخدام زر التبليغ -الموجود بالجانب الأيمن من متصفحك- من أجل تنبيه المطورين لأي معضلة واجهتها, وسنعمل بأسرع ما يمكن لحل أي مشكلة تقنية تم الإبلاغ عنها."
         bugs_and_feedback_mobile: "للتذكير، ستواجه خلال تجربتك بعض المشاكل التقنية.  نشجعك على استخدام زر التبليغ من أجل تنبيه المطورين لأي معضلة واجهتها, وسنعمل بأسرع ما يمكن لحل أي مشكلة تقنية تم الإبلاغ عنها"
         login: لُج
         modern_browsers: "الدعم حصري للمتصفحات الحديثة."
         password: "كلمة المرور"
-        remember_me: "تذكرني"
+        remember_me: تذكرني
         sign_in: لُج
-        username: "المعرف"
+        username: المعرف
       signed_in: "تم تسجيل الدخول بنجاح"
       signed_out: "تم تسجيل الخروج بنجاح"
-    shared:
-      links:
+    shared: 
+      links: 
         forgot_your_password: "نسيت كلمة المرور؟"
         receive_confirmation: "لم تصلك تعليمات تأكيد حسابك؟"
         receive_unlock: "لم تصلك تعليمات إعادة فتح حسابك؟"
         sign_in: لُج
         sign_up: سجِل
         sign_up_closed: "التسجيلات مغلقة حاليا"
-      mail_signup_form:
+      mail_signup_form: 
         sign_up_for_an_invite: "سجل في قائمة انتظار الدعوات"
-    unlocks:
-      new:
+    unlocks: 
+      new: 
         resend_unlock: "أعِد إرسال تعليمات إعادة فتح حسابك"
       send_instructions: "ستصلك رسالة إلكترونية خلال لحظات تحوي تعليمات إعادة فتح حسابك"
       unlocked: "تم إعادة فتح حسابك بنجاح، أنت الآن متصل"
-  errors:
-    messages:
+  errors: 
+    messages: 
       already_confirmed: "تم تأكيد إعادة فتح حسابك مسبقا"
       not_found: "غير موجود"
       not_locked: "لم يكن مغلقا"

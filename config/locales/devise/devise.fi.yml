@@ -3,14 +3,15 @@
 #   the COPYRIGHT file.
 
 
-fi:
-  devise:
-    confirmations:
+
+fi: 
+  devise: 
+    confirmations: 
       confirmed: "Käyttäjätilisi on varmistettu onnistuneesti. Olet nyt kirjautunut sisään."
-      new:
+      new: 
         resend_confirmation: "Lähetä vahvistusohjeet uudelleen"
       send_instructions: "Saat hetken päästä sähköpostiisi ohjeet siitä, miten vahvistat käyttäjätilisi."
-    failure:
+    failure: 
       inactive: "Käyttätiliäsi ei ole vielä aktivoitu."
       invalid: "Virheellinen käyttäjätunnus tai salasana."
       invalid_token: "Virheellinen todennustunnus."
@@ -18,24 +19,22 @@ fi:
       timeout: "Istunto on vanhentunut, kirjaudu uudelleen jatkaaksesi."
       unauthenticated: "Sinun tulee rekisteröityä ja/tai kirjautua ennen jatkamista."
       unconfirmed: "Sinun täytyy vahvistaa käyttäjätilisi ennen kuin voit jatkaa"
-    invitations:
+    invitations: 
       invitation_token_invalid: "Kutsun vahvistustunnus on virheellinen!"
       send_instructions: "Kutsusi on lähetetty."
       updated: "Salasanasi on asetettu onnistuneesti. Olet kirjautunut sisään."
-    mailer:
-      confirmation_instructions:
+    mailer: 
+      confirmation_instructions: 
         confirm: "Vahvista käyttäjätilini"
-        subject: "Vahvistamisohjeet"
+        subject: Vahvistamisohjeet
         you_can_confirm: "Voit vahvistaa käyttäjätilisi alla olevan linkin kautta:"
       hello: "Hei, %{email}!"
-      invitation_instructions:
+      invitation_instructions: 
         accept: "Hyväksy kutsu"
         arrived: "Odottamasi sosiaalinen verkosto on täällä. Uudistettu, entistä turvallisempi ja hauskempi %{strong_diaspora} auttaa sinua kokemaan ja jakamaan internetin kokonaan uudella tavalla."
         be_yourself: "Ole oma itsesi"
         be_yourself_paragraph: "Internet on luonut uusia, ainutlaatuisia tapoja ilmaista itseämme. %{strong_diaspora}ssa voit olla oma itsesi ja jakaa sisältöä kuten haluat, omalla nimelläsi tai ilman."
-        cubbies: Cubbi.es
         displaying_correctly: "Email not displaying correctly? %{link} in your browser"
-        email_address: questions@joindiaspora.com
         email_us: "Voit lähettää yleisluontoiset Diaspora-tiliisi liittyvät tiedustelut ja tukipyynnöt osoitteeseen %{email}."
         finally: "Vihdoinkin – se on täällä"
         friends_saying: "Mitä ystäväsi sanovat..."
@@ -44,78 +43,78 @@ fi:
         have_fun: "Pidä hauskaa"
         have_fun_paragraph: "%{strong_diaspora} on uusien ja ihmeellisten sisältöjen ja ihmisten paikka. %{link}, maailman ensimmäinen %{strong_diaspora}-sovellus on vain alkua. Kerää ja jaa webin sisältöä."
         help_fund: "tue Diasporaa lahjoituksella"
-        here: "tästä"
+        here: tästä
         ignore: "Mikäli et halua hyväksyä kutsua, voit jättää tämän viestin huomioimatta."
         join_team: "Liity mukaan"
         love: "Rakkaudella,"
         made_by_people: "%{strong_diaspora}n ovat tehneet ihmiset, jotka rakastavat internetiä yhtä paljon kuin sinä. %{jointeam} tai %{helpfund}!"
         more_people: "Useammat ihmiset odottavat näkevänsä sinut!"
         no_account_till: "Käyttäjätilisi luodaan vasta, kun rekisteröidyt yllä olevan linkin kautta. "
-        or: "tai"
+        or: tai
         sign_up_now: "Rekisteröidy heti &rarr;"
         subject: "Sinut on kutsuttu käyttämään Diasporaa!"
         team_diaspora: Diaspora-tiimi
         unsubscribe: "Voit poistua postituslistalta napsauttamalla %{link}."
         view_in: "View in"
-      inviter:
+      inviter: 
         accept_at: "osoitteessa %{url}, hyväksyminen alla olevasta linkistä."
         has_invited_you: "%{names}"
         have_invited_you: "%{names} on kutsunut sinut Diasporan käyttäjäksi"
-      reset_password_instructions:
+      reset_password_instructions: 
         change: "Vaihda salasanani"
         ignore: "Jos et pyytänyt tätä, voit jättää viestin huomiotta."
         someone_requested: "Joku on pyytänyt linkkiä salasanasi vaihtamiseksi. Voit tehdä sen alla olevan linkin kautta. "
         subject: "Salasanan palautusohjeet"
         wont_change: "Salasanasi ei vaihdu, ennen kuin luot uuden yllä olevan linkin kautta."
-      unlock_instructions:
+      unlock_instructions: 
         account_locked: "Käyttäjätilisi on lukittu liian usean epäonnistuneen kirjautumisyrityksen vuoksi."
         click_to_unlock: "Poista käyttäjätilisi lukitus alla olevasta linkistä:"
         subject: Lukituksenpoisto-ohjeet
         unlock: "Poista käyttäjätilini lukitus"
       welcome: "Tervetuloa %{email}!"
-    passwords:
-      edit:
+    passwords: 
+      edit: 
         change_password: "Vaihda salasanani"
-      new:
+      new: 
         forgot_password: "Unohditko salasanasi?"
         no_account: "Tunnusta tälle sähköpostiosoitteelle ei ole olemassa. Mikäli odotat vielä kutsua, pyrimme lähettämään sen niin pian kuin mahdollista."
         send_password_instructions: "Lähetä minulle salasanan uudelleenasettamisohjeet"
       send_instructions: "Saat hetken päästä sähköpostiisi ohjeet siitä, miten voit asettaa salasanasi uudelleen."
       updated: "Salasanasi on vaihdettu onnistuneesti. Olet nyt kirjautunut sisään."
-    registrations:
+    registrations: 
       destroyed: "Näkemiin! Käyttäjätilisi on onnistuneesti peruutettu. Toivottavasti näemme sinut pian uudelleen."
       signed_up: "Käyttäjätilin luominen onnistui. Mahdollinen vahvistus on lähetetty sähköpostiisi."
       updated: "Päivitit käyttäjätilisi onnistuneesti."
-    sessions:
-      new:
+    sessions: 
+      new: 
         alpha_software: "Olet aikeissa käyttää alpha-versiota ohjelmistosta."
         bugs_and_feedback: "Ota huomioon, että tulet kohtaamaan ohjelmistovirheitä. Kannustamme sinua ilmoittamaan kaikki huomaamasi virheet oikealla olevan Feedback-nappulan kautta! Työskentelemme niin nopeasti kuin voimme selvittääksemme ilmoittamasi virheet."
         bugs_and_feedback_mobile: "Tulet todennäköisesti kohtaamaan ohjelmistovirheitä. Kerro mahdollisista ongelmatilanteista ja virheistä meille. Pyrimme korjaamaan ilmoittamasi virheet niin nopeasti kuin voimme."
-        login: "Kirjautuminen"
+        login: Kirjautuminen
         modern_browsers: "tukee vain moderneja selaimia."
-        password: "Salasana"
+        password: Salasana
         remember_me: "Muista minut"
         sign_in: "Kirjaudu sisään"
-        username: "Käyttäjänimi"
+        username: Käyttäjänimi
       signed_in: "Sisäänkirjautuminen onnistui."
       signed_out: "Uloskirjautuminen onnistui."
-    shared:
-      links:
+    shared: 
+      links: 
         forgot_your_password: "Unohditko salasanasi?"
         receive_confirmation: "Etkö saanut vahvistusohjeita?"
         receive_unlock: "Etkö saanut lukituksenpoisto-ohjeita?"
-        sign_in: "Kirjaudu"
-        sign_up: "Rekisteröidy"
+        sign_in: Kirjaudu
+        sign_up: Rekisteröidy
         sign_up_closed: "Avoin rekisteröityminen on tällä hetkellä suljettu."
-      mail_signup_form:
+      mail_signup_form: 
         sign_up_for_an_invite: "Rekisteröidy saadaksesi kutsun!"
-    unlocks:
-      new:
+    unlocks: 
+      new: 
         resend_unlock: "Lähetä lukituksenpoisto-ohjeet uudelleen"
       send_instructions: "Saat hetken kuluttua sähköpostiisi ohjeet siitä, miten avaat käyttäjätilisi lukituksen."
       unlocked: "Käyttäjätilisi lukitus on avattu onnistuneesti. Olet nyt kirjautunut sisään."
-  errors:
-    messages:
+  errors: 
+    messages: 
       already_confirmed: "oli jo varmistettu"
       not_found: "ei löytynyt"
       not_locked: "ei ollut lukittu"

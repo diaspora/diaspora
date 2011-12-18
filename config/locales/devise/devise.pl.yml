@@ -3,14 +3,15 @@
 #   the COPYRIGHT file.
 
 
-pl:
-  devise:
-    confirmations:
+
+pl: 
+  devise: 
+    confirmations: 
       confirmed: "Konto zostało aktywowane. Zalogowano Cię w Diasporze."
-      new:
+      new: 
         resend_confirmation: "Wyślij ponownie instrukcję aktywacji"
       send_instructions: "W ciągu kilku minut otrzymasz wiadomość zawierającą instrukcję aktywacji konta."
-    failure:
+    failure: 
       inactive: "Twoje konto nie zostało jeszcze aktywowane."
       invalid: "Nieprawidłowa nazwa użytkownika lub hasło."
       invalid_token: "Nieprawidłowy token uwierzytelnienia."
@@ -18,24 +19,22 @@ pl:
       timeout: "Sesja wygasła, aby kontynuować zaloguj się ponownie."
       unauthenticated: "Przed kontynuacją musisz się zalogować lub zarejestrować."
       unconfirmed: "Musisz aktywować swoje konto."
-    invitations:
+    invitations: 
       invitation_token_invalid: "Token zaproszenia jest nieprawidłowy!"
       send_instructions: "Zaproszenie zostało wysłane."
       updated: "Hasło zostało pomyślnie zmienione. Zalogowano."
-    mailer:
-      confirmation_instructions:
+    mailer: 
+      confirmation_instructions: 
         confirm: "Aktywuj konto"
         subject: "Instrukcja aktywacji"
         you_can_confirm: "Możesz aktywować swoje konto klikając poniższe łącze:"
       hello: "Cześć %{email}!"
-      invitation_instructions:
+      invitation_instructions: 
         accept: "Przyjmij zaproszenie"
         arrived: "Sieć społecznościowa na którą czekałeś lub czekałaś właśnie stała się faktem. Przebudowana, bezpieczniejsza i zabawniejsza %{strong_diaspora} jest gotowa pomóc Ci dzielić się i odkrywać internet w zupełnie nowy sposób."
         be_yourself: "Bądź sobą"
         be_yourself_paragraph: "Internet dostarcza wiele zupełnie nowych sposobów wyrażania siebie. %{strong_diaspora} pozwala Ci być sobą i udostępniać cokolwiek chcesz, podając lub nie swoje prawdziwe imię i nazwisko."
-        cubbies: Cubbi.es
         displaying_correctly: "Wiadomość nie jest wyświetlana prawidłowo? %{link}"
-        email_address: questions@joindiaspora.com
         email_us: "Pytania ogólne oraz zgłoszenia problemów z kontem na Diasporze należy kierować do nas na adres %{email}."
         finally: "Nareszcie - jest tutaj"
         friends_saying: "Co mówią Twoi znajomi..."
@@ -44,78 +43,76 @@ pl:
         have_fun: "Baw się dobrze"
         have_fun_paragraph: "%{strong_diaspora} służy odkrywaniu niesamowitych nowych treści i ludzi. %{link}, pierwsza na świecie %{strong_diaspora} aplikacja to tylko początek. Zbieraj i udostępniaj zawartość internetu w całej okazałości."
         help_fund: "wspomóż Diasporę darowizną"
-        here: "tutaj"
+        here: tutaj
         ignore: "Zignoruj tę wiadomość jeśli nie chcesz zaakceptować tego zaproszenia."
         join_team: "Dołącz do naszego zespołu"
         love: "Pozdrawiam,"
         made_by_people: "%{strong_diaspora} została stworzona przez ludzi kochających internet tak samo jak Ty. %{jointeam} lub %{helpfund}!"
         more_people: "Jeszcze więcej osób, nie może się doczekać, aby Cię zobaczyć!"
         no_account_till: "Konto nie zostanie utworzone dopóki nie zalogujesz się na stronie powyżej."
-        or: "lub"
+        or: lub
         sign_up_now: "Zarejestruj się teraz →"
         subject: "Zapraszamy do dołączenia do Diaspory!"
         team_diaspora: "Zespół Diaspory"
         unsubscribe: "Aby zrezygnować z subskrypcji kliknij %{link}."
         view_in: "Wyświetl w przeglądarce."
-      inviter:
+      inviter: 
         accept_at: "na %{url}, możesz je zaakceptować używając poniższego łącza."
-        has_invited_you: "%{name}"
         have_invited_you: "%{names} zaprosili Cię do Diaspory"
-      reset_password_instructions:
+      reset_password_instructions: 
         change: "Zmiana hasła"
         ignore: "Jeśli nie chcesz zmienić hasła, zignoruj tę wiadomość."
         someone_requested: "Odebraliśmy zgłoszenie zmiany hasła, jeśli chcesz to zrobić kliknij poniższy odnośnik:"
         subject: "Instrukcja resetowania hasła"
         wont_change: "Hasło nie zostanie zmienione do momentu kliknięcia powyższego łącza i utworzenia nowego."
-      unlock_instructions:
+      unlock_instructions: 
         account_locked: "Konto zostało zablokowane, ponieważ przekroczono limit nieudanych prób logowania."
         click_to_unlock: "Kliknij poniższy link, aby odblokować konto:"
         subject: "Instrukcja odblokowania"
         unlock: "Odblokuj moje konto"
       welcome: "Witaj %{email}!"
-    passwords:
-      edit:
+    passwords: 
+      edit: 
         change_password: "Zmień hasło"
-      new:
+      new: 
         forgot_password: "Nie pamiętasz hasła?"
         no_account: "Konto z przypisanym podanym adresem e-mail nie istnieje. Jeżeli czekasz na nowe zaproszenia, wysyłamy je tak szybko, jak to tylko możliwe."
         send_password_instructions: "Wyślij mi instrukcje resetowania hasła"
       send_instructions: "W ciągu kilku minut otrzymasz e-maila zawierającego instrukcjie dotyczące zresetowania hasła."
       updated: "Hasło zostało zmienione. Zalogowano pomyślnie."
-    registrations:
+    registrations: 
       destroyed: "Do widzenia! Konto zostało pomyślnie zamknięte. Mamy nadzieję, że wkrótce zobaczymy Cię ponownie!"
       signed_up: "Rejestracja przebiegła pomyślnie. Jeśli aktywowano odpowiednią opcję, wyślemy do Ciebie e-mail potwierdzający ten fakt."
       updated: "Pomyślnie zaktualizowano konto."
-    sessions:
-      new:
+    sessions: 
+      new: 
         alpha_software: "Masz zamiar korzystać z oprogramowania w wersji alfa."
         bugs_and_feedback: "Miej świadomość, że napotkasz na błędy. Zachęcamy do korzystania z łącza \"Feedback\" umieszczonego po prawej stronie okna przeglądarki, aby zgłaszać wszelkie problemy. Pracujemy najszybciej jak się da, aby rozwiązać wszystkie zgłaszane problemy."
         bugs_and_feedback_mobile: "Informujemy o możliwości występowania błędów.  Zachęcamy do informowania o nich! Postaramy się jak najszybciej je zlikwidować. "
-        login: "Login"
         modern_browsers: "obsługuje wyłącznie nowoczesne przeglądarki."
-        password: "Hasło"
+        password: Hasło
         remember_me: "Zapamiętaj mnie"
         sign_in: "Zaloguj się"
         username: "Nazwa użytkownika"
       signed_in: "Zalogowano pomyślnie."
       signed_out: "Pomyślnie wylogowano."
-    shared:
-      links:
+    shared: 
+      links: 
         forgot_your_password: "Nie pamiętasz hasła?"
         receive_confirmation: "Nie otrzymano instrukcji aktywacji?"
         receive_unlock: "Nie otrzymano instrukcji odblokowywania?"
         sign_in: "Zaloguj się"
         sign_up: "Zarejestruj się"
         sign_up_closed: "Otwarta rejestracja jest w tym momencie wyłączona."
-      mail_signup_form:
+      mail_signup_form: 
         sign_up_for_an_invite: "Zgłoś się po zaproszenie!"
-    unlocks:
-      new:
+    unlocks: 
+      new: 
         resend_unlock: "Wyślij ponownie instrukcje odblokowywania"
       send_instructions: "W ciągu kilku minut otrzymasz wiadomość z instrukcją odblokowania konta."
       unlocked: "Konto zostało pomyślnie odblokowane. Pomyślnie zalogowano."
-  errors:
-    messages:
+  errors: 
+    messages: 
       already_confirmed: "już potwierdzone"
       not_found: "nie znaleziono"
       not_locked: "nie był(a) zablokowany/a"

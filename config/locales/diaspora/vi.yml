@@ -3,107 +3,103 @@
 #   the COPYRIGHT file.
 
 
-vi:
+
+vi: 
   _applications: "Ứng dụng"
   _comments: "Bình luận"
   _contacts: "Liên lạc"
   _home: "Trang chủ"
-  _photos: "ảnh"
+  _photos: ảnh
   _services: "Dịch vụ"
   account: "Tài khoản"
-  activerecord:
-    errors:
-      models:
-        contact:
-          attributes:
-            person_id:
+  activerecord: 
+    errors: 
+      models: 
+        contact: 
+          attributes: 
+            person_id: 
               taken: "phải là duy nhất trong số các liên lạc của người dùng này."
-        person:
-          attributes:
-            diaspora_handle:
+        person: 
+          attributes: 
+            diaspora_handle: 
               taken: "đã được thực hiện."
-        request:
-          attributes:
-            from_id:
+        request: 
+          attributes: 
+            from_id: 
               taken: "là bản sao của một yêu cầu có trước."
-        reshare:
-          attributes:
-            root_guid:
+        reshare: 
+          attributes: 
+            root_guid: 
               taken: "Bạn đã chia sẻ lại tin!"
-        user:
-          attributes:
-            email:
+        user: 
+          attributes: 
+            email: 
               taken: "đã được thực hiện."
-            person:
+            person: 
               invalid: "không hợp lệ."
-            username:
+            username: 
               invalid: "không hợp lệ. Chỉ cho phép chữ cái, số, và dấu gạch dưới."
               taken: "đã được thực hiện."
   ago: "%{time} trước"
   all_aspects: "Tất cả mối quan hệ"
-  application:
-    helper:
-      diaspora_alpha: "DIASPORA* ALPHA"
+  application: 
+    helper: 
       unknown_person: "người lạ"
-      video_title:
+      video_title: 
         unknown: "Chưa biết tựa đề video"
   are_you_sure: "Bạn có chắc không?"
   are_you_sure_delete_account: "Bạn có chắc chắn khóa vĩnh viễn tài khoản không? Mọi dữ liệu về bạn sẽ bị xóa khỏi hệ thống!"
-  aspect_memberships:
-    destroy:
+  aspect_memberships: 
+    destroy: 
       failure: "Thất bại khi loại bỏ người khỏi mối quan hệ"
       no_membership: "Không thể tìm người đã chọn trong mối quan hệ đó"
       success: "Đã loại bỏ người khỏi mối quan hệ"
-  aspects:
-    add_to_aspect:
+  aspects: 
+    add_to_aspect: 
       failure: "Thất bại khi thêm liên lạc vào mối quan hệ."
       success: "Đã thêm liên lạc vào mối quan hệ."
-    aspect_contacts:
+    aspect_contacts: 
       done_editing: "đã chỉnh sửa xong"
-    aspect_listings:
+    aspect_listings: 
       add_an_aspect: "+ Thêm một mối quan hệ"
       deselect_all: "Bỏ chọn tất cả"
       edit_aspect: "Sửa %{name}"
       select_all: "Chọn tất cả"
-    aspect_stream:
+    aspect_stream: 
       stay_updated: "Vẫn còn cập nhật"
       stay_updated_explanation: "Luồng chính của bạn hầu hết là từ các liên lạc, thẻ, và tin từ một vài thành viên trong cộng đồng."
     contacts_not_visible: "Các liên lạc trong mối quan hệ này sẽ không thể nhìn thấy nhau."
     contacts_visible: "Các liên lạc trong mối quan hệ này có thể nhìn thấy nhau."
-    create:
+    create: 
       failure: "Tạo mối quan hệ thất bại."
       success: "Mối quan hệ %{name} đã được tạo"
-    destroy:
+    destroy: 
       failure: "%{name} không rỗng và không thể bị loại bỏ."
       success: "%{name} đã bị loại bỏ."
-    edit:
+    edit: 
       add_existing: "Thêm một liên lạc đang có"
-      aspect_list_is_not_visible: "aspect list is hidden to others in aspect"
-      aspect_list_is_visible: "aspect list is visible to others in aspect"
       confirm_remove_aspect: "Bạn có chắc là muốn xoá mối quan hệ này không?"
-      done: "Xong"
-      make_aspect_list_visible: "make contacts in this aspect visible to each other?"
+      done: Xong
       remove_aspect: "Xoá mối quan hệ này"
       rename: "đổi tên"
       update: "cập nhật"
       updating: "đang cập nhật"
     few: "%{count} mối quan hệ"
-    helper:
+    helper: 
       are_you_sure: "Bạn có chắc là muốn xoá mối quan hệ này không?"
       aspect_not_empty: "Mối quan hệ không rỗng"
       remove: "loại bỏ"
-    index:
-      cubbies:
+    index: 
+      cubbies: 
         explanation: "Cubbi.es là ứng dụng được phát triển đầu tiên của Diaspora."
         heading: "Kết nối đến Cubbi.es"
         learn_more: "Tìm hiểu thêm"
-      diaspora_id:
+      diaspora_id: 
         content_1: "ID Diaspora của bạn:"
         content_2: "Cho người khác biết và họ có thể tìm thấy bạn trên Diaspora."
-        heading: "Diaspora ID"
       donate: "Quyên góp"
       handle_explanation: "Đây là id diaspora của bạn. Giống như một địa chỉ thư điện tử, người khác có thể liên lạc với bạn thông qua nó."
-      help:
+      help: 
         do_you: "Bạn:"
         email_feedback: "%{link} phản hồi hoặc góp ý, nếu muốn"
         feature_suggestion: "... có một đề nghị %{link}?"
@@ -115,10 +111,7 @@ vi:
         tag_bug: "#bug"
         tag_feature: "#feature"
         tag_question: "#question"
-        tutorials_wiki_and_forum: "%{tutorial} & %{wiki} & %{forum}: Community-powered tutorials, how-to, and news"
-      introduce_yourself: "This is your stream.  Jump in and introduce yourself."
-      keep_us_running: "Keep %{pod} running fast and buy servers their coffee fix with a monthly donation!"
-      new_here:
+      new_here: 
         follow: "Theo dõi %{link} và chào đón người dùng mới đến với Diaspora*!"
         learn_more: "Tìm hiểu thêm"
         title: "Chào mừng người dùng mới"
@@ -126,80 +119,70 @@ vi:
       no_tags: "+ Tìm thẻ để theo dõi"
       people_sharing_with_you: "Đang chia sẻ với bạn"
       post_a_message: "đăng một tin >>"
-      services:
+      services: 
         content: "Bạn có thể kết nối những dịch vụ sau với Diaspora:"
         heading: "Kết nối dịch vụ"
       unfollow_tag: "Ngừng theo dõi #%{tag}"
       welcome_to_diaspora: "Chào mừng đến với Diaspora, %{name}!"
       your_aspects: "Các mối quan hệ"
     many: "%{count} mối quan hệ"
-    move_contact:
+    move_contact: 
       error: "Lỗi khi dời liên lạc: %{inspect}"
-      failure: "didn't work %{inspect}"
       success: "Đã chuyển người sang mối quan hệ mới"
-    new:
-      create: "Tạo"
+    new: 
+      create: Tạo
       name: "Tên (chỉ bạn nhìn thấy)"
-    no_contacts_message:
-      community_spotlight: "community spotlight"
+    no_contacts_message: 
       or_spotlight: "Hoặc bạn có thể chia sẻ với %{link}"
       try_adding_some_more_contacts: "Bạn có thể tìm kiếm hoặc mời thêm bạn."
       you_should_add_some_more_contacts: "Bạn có thể thêm một vài liên lạc!"
-    no_posts_message:
+    no_posts_message: 
       start_talking: "Chưa có ai nói gì!"
     one: "1 mối quan hệ"
     other: "%{count} mối quan hệ"
-    seed:
+    seed: 
       acquaintances: "Người quen"
       family: "Gia đình"
       friends: "Bạn bè"
       work: "Đồng nghiệp"
-    selected_contacts:
+    selected_contacts: 
       manage_your_aspects: "Quản lí các mối quan hệ."
       no_contacts: "Bạn chưa có liên lạc nào ở đây."
-      view_all_community_spotlight: "See all community spotlight"
       view_all_contacts: "Xem tất cả liên lạc"
-    show:
+    show: 
       edit_aspect: "chỉnh sửa mối quan hệ"
     two: "%{count} mối quan hệ"
-    update:
+    update: 
       failure: "Mối quan hệ %{name} có tên quá dài, không thể lưu."
       success: "Mối quan hệ %{name} đã được chỉnh sửa."
     zero: "không có mối quan hệ"
-  authorizations:
-    index:
+  authorizations: 
+    index: 
       no_applications: "Bạn chưa đăng kí bất kì ứng dụng nào."
       revoke_access: "Thu hồi quyền truy cập"
   back: "Trở lại"
-  blocks:
-    create:
-      failure: "I couldn't ignore that user.  #evasion"
-      success: "Alright, you won't see that user in your stream again. #silencio!"
-    destroy:
-      failure: "I couldn't stop ignoring that user.  #evasion"
-      success: "Let's see what they have to say! #sayhello"
-  bookmarklet:
+  bookmarklet: 
     explanation: "Đăng tin lên Diaspora từ bất kì đâu bằng cách đánh dấu %{link}."
     explanation_link_text: "liên kết này"
     heading: "Đánh dấu"
     post_something: "Đăng tin lên Diaspora"
     post_success: "Đã đăng! Đang đóng!"
   cancel: "Hủy bỏ"
-  comments:
+  comments: 
     few: "%{count} bình luận"
     many: "%{count} bình luận"
-    new_comment:
+    new_comment: 
       comment: "Bình luận"
       commenting: "Đang gửi bình luận..."
     one: "1 bình luận"
     other: "%{count} bình luận"
     two: "%{count} bình luận"
     zero: "không có bình luận"
-  contacts:
-    create:
+  contacts: 
+    create: 
       failure: "Tạo liên lạc mới thất bại"
     few: "%{count} liên lạc"
-    index:
+    index: 
       add_a_new_aspect: "Thêm mối quan hệ mới"
       add_to_aspect: "thêm liên lạc vào %{name}"
       all_contacts: "Tất cả liên lạc"
@@ -215,90 +198,68 @@ vi:
     many: "%{count} liên lạc"
     one: "1 liên lạc"
     other: "%{count} liên lạc"
-    sharing:
+    sharing: 
       people_sharing: "Người đang chia sẻ với bạn:"
-    spotlight:
-      community_spotlight: "Community Spotlight"
     two: "%{count} liên lạc"
-    zero: "contacts"
-  conversations:
-    create:
+  conversations: 
+    create: 
       fail: "Tin nhắn không hợp lệ"
       sent: "Đã gửi tin nhắn"
-    destroy:
+    destroy: 
       success: "Đã loại bỏ cuộc hội thoại"
-    helper:
-      new_messages:
+    helper: 
+      new_messages: 
         few: "%{count} tin nhắn mới"
         many: "%{count} tin nhắn mới"
         one: "1 tin nhắn mới"
         other: "%{count} tin nhắn mới"
         two: "%{count} tin nhắn mới"
         zero: "Không có tin nhắn mới"
-    index:
+    index: 
       create_a_new_message: "viết tin nhắn mới"
       inbox: "Hộp thư đến"
       message_inbox: "Hộp tin nhắn"
       new_message: "Tin nhắn mới"
       no_conversation_selected: "không có cuộc trò chuyện nào được chọn"
       no_messages: "không có tin nhắn"
-    new:
+    new: 
       abandon_changes: "Huỷ bỏ thay đổi?"
-      send: "Gửi"
+      send: Gửi
       sending: "Đang gửi..."
       subject: "tựa đề"
-      to: "đến"
-    new_message:
+      to: đến
+    new_message: 
       fail: "Tin nhắn không hợp lệ"
-    show:
+    show: 
       delete: "xóa và khóa cuộc trò chuyện"
       reply: "trả lời"
       replying: "Đang trả lời..."
-  date:
-    formats:
-      birthday: "%B %d"
-      birthday_with_year: "%B %d %Y"
-      fullmonth_day: "%B %d"
-  delete: "Xóa"
+  delete: Xóa
   email: "Thư điện tử"
-  error_messages:
-    helper:
+  error_messages: 
+    helper: 
       correct_the_following_errors_and_try_again: "Sửa lỗi sau và thử lại."
       invalid_fields: "Trường không hợp lệ"
   fill_me_out: "Điền đầy đủ"
   find_people: "Tìm người hoặc #tags"
-  hide: "Ẩn"
-  home:
-    show:
+  hide: Ẩn
+  home: 
+    show: 
       already_account: "đã có tài khoản?"
       choice: "Lựa chọn"
-      choice_explanation: "Diaspora lets you sort your connections into groups called aspects. Unique to Diaspora, aspects ensure that your photos, stories and jokes are shared only with the people you intend."
-      learn_about_host: "Learn about how to host your own Diaspora server."
-      login_here: "log in here"
-      ownership: "Ownership"
-      ownership_explanation: "You own your pictures, and you shouldn’t have to give that up just to share them. You maintain ownership of everything you share on Diaspora, giving you full control over how it's distributed."
-      share_what_you_want: "Share what you want, with whom you want."
-      simplicity: "Simplicity"
-      simplicity_explanation: "Diaspora makes sharing clean and easy – and this goes for privacy too. Inherently private, Diaspora doesn’t make you wade through pages of settings and options just to keep your profile secure."
-      tagline_first_half: "Share what you want,"
-      tagline_second_half: "with whom you want."
-  invitations:
+  invitations: 
     a_facebook_user: "Người dùng Facebook"
-    check_token:
-      not_found: "Invitation token not found"
-    create:
+    create: 
       already_contacts: "Bạn đã kết nối với người này"
       already_sent: "Bạn đã mời người này."
       no_more: "Bạn không còn nhiều lời mời."
       own_address: "Bạn không thể gửi lời mời đến địa chỉ riêng của bạn."
       rejected: "Địa chỉ thư điện tử sau có vấn đề: "
       sent: "Lời mời đã được gửi đến: "
-    edit:
+    edit: 
       accept_your_invitation: "Chấp nhận lời mời của bạn"
-      your_account_awaits: "Your account awaits!"
-    new:
+    new: 
       already_invited: "Những người sau không chấp nhận lời mời của bạn:"
-      aspect: "Aspect"
       comma_seperated_plz: "Bạn có thể nhập nhiều địa chỉ thư điện tử và ngăn cách chúng bằng dấu phẩy."
       if_they_accept_info: "nếu chấp nhận, họ sẽ được thêm vào mối quan hệ mà bạn đã mời."
       invite_someone_to_join: "Mời người khác tham gia Diaspora!"
@@ -307,17 +268,14 @@ vi:
       resend: "Gửi lại"
       send_an_invitation: "Gửi một lời mời"
       send_invitation: "Gửi lời mời"
-      to: "Đến"
-  layouts:
-    application:
-      powered_by: "POWERED BY DIASPORA*"
-      public_feed: "Public Diaspora Feed for %{name}"
+      to: Đến
+  layouts: 
+    application: 
       toggle: "chuyển sang di động"
       whats_new: "có gì mới?"
       your_aspects: "mối quan hệ của bạn"
-    header:
+    header: 
       admin: "quản trị"
-      blog: "blog"
       code: "mã nguồn"
       login: "đăng nhập"
       logout: "Đăng xuất"
@@ -325,23 +283,23 @@ vi:
       recent_notifications: "Thông báo gần đây"
       settings: "Thiết lập"
       view_all: "Xem tất cả"
-  likes:
-    likes:
-      people_dislike_this:
+  likes: 
+    likes: 
+      people_dislike_this: 
         few: "%{count} người không thích"
         many: "%{count} người không thích"
         one: "%{count} người không thích"
         other: "%{count} người không thích"
         two: "%{count} người không thích"
         zero: "chưa có người không thích"
-      people_like_this:
+      people_like_this: 
         few: "%{count} người thích"
         many: "%{count} người thích"
         one: "%{count} người thích"
         other: "%{count} người thích"
         two: "%{count} người thích"
         zero: "không có người thích"
-      people_like_this_comment:
+      people_like_this_comment: 
         few: "%{count} người thích"
         many: "%{count} người thích"
         one: "%{count} người thích"
@@ -349,551 +307,164 @@ vi:
         two: "%{count} người thích"
         zero: "không có người thích"
   limited: "Bị giới hạn"
-  more: "More"
   next: "tiếp theo"
   no_results: "Không tìm thấy kết quả"
-  notifications:
-    also_commented:
-      few: "%{actors} also commented on %{post_author}'s %{post_link}."
-      many: "%{actors} also commented on %{post_author}'s %{post_link}."
-      one: "%{actors} also commented on %{post_author}'s %{post_link}."
-      other: "%{actors} also commented on %{post_author}'s %{post_link}."
-      two: "%{actors} also commented on %{post_author}'s %{post_link}."
-      zero: "%{actors} also commented on %{post_author}'s %{post_link}."
-    also_commented_deleted:
+  notifications: 
+    also_commented_deleted: 
       few: "%{actors} bình luận vào một tin đã bị xoá."
       many: "%{actors} bình luận vào một tin đã bị xoá."
       one: "%{actors} bình luận vào một tin đã bị xoá."
       other: "%{actors} bình luận vào một tin đã bị xoá."
       two: "%{actors} bình luận vào một tin đã bị xoá."
       zero: "%{actors} bình luận vào một tin đã bị xoá."
-    comment_on_post:
+    comment_on_post: 
       few: "%{actors} đã bình luận tin %{post_link} của bạn."
       many: "%{actors} đã bình luận tin %{post_link} của bạn."
       one: "%{actors} đã bình luận tin %{post_link} của bạn."
       other: "%{actors} đã bình luận tin %{post_link} của bạn."
       two: "%{actors} đã bình luận tin %{post_link} của bạn."
       zero: "%{actors} đã bình luận tin %{post_link} của bạn."
-    helper:
-      new_notifications:
+    helper: 
+      new_notifications: 
         few: "%{count} thông báo mới"
         many: "%{count} thông báo mới"
         one: "1 thông báo mới"
         other: "%{count} thông báo mới"
         two: "%{count} thông báo mới"
         zero: "Không có thông báo mới"
-    index:
-      and: "và"
-      and_others:
-        few: "and %{count} others"
-        many: "and %{count} others"
-        one: "and one more"
-        other: "and %{count} others"
-        two: "and %{count} others"
+    index: 
+      and: và
+      and_others: 
         zero: "và không có ai khác"
       mark_all_as_read: "Đánh dấu tất cả là đã đọc"
       notifications: "Thông báo"
-    liked:
+    liked: 
       few: "%{actors} has just liked your %{post_link}."
       many: "%{actors} has just liked your %{post_link}."
       one: "%{actors} has just liked your %{post_link}."
       other: "%{actors} has just liked your %{post_link}."
       two: "%{actors} has just liked your %{post_link}."
       zero: "%{actors} has just liked your %{post_link}."
-    liked_post_deleted:
+    liked_post_deleted: 
       few: "%{actors} thích bài đã bị xóa của bạn."
       many: "%{actors} thích bài đã bị xóa của bạn."
       one: "%{actors} thích bài đã bị xóa của bạn."
       other: "%{actors} thích bài đã bị xóa của bạn."
       two: "%{actors} thích bài đã bị xóa của bạn."
-      zero: "%{actors} liked your deleted post."
-    mentioned:
+    mentioned: 
       few: "%{actors} has mentioned you in a %{post_link}."
       many: "%{actors} has mentioned you in a %{post_link}."
-      one: "%{actors} has mentioned you in a %{post_link}."
       other: "%{actors} has mentioned you in a %{post_link}."
       two: "%{actors} has mentioned you in a %{post_link}."
       zero: "%{actors} has mentioned you in a %{post_link}."
-    mentioned_deleted:
-      few: "%{actors} mentioned you in a deleted post."
-      many: "%{actors} mentioned you in a deleted post."
-      one: "%{actors} mentioned you in a deleted post."
-      other: "%{actors} mentioned you in a deleted post."
-      two: "%{actors} mentioned you in a deleted post."
-      zero: "%{actors} mentioned you in a deleted post."
-    post: "post"
-    private_message:
+    private_message: 
       few: "%{actors} gửi cho bạn một tin nhắn."
       many: "%{actors} gửi cho bạn một tin nhắn."
       one: "%{actors} gửi cho bạn một tin nhắn."
       other: "%{actors} gửi cho bạn một tin nhắn."
       two: "%{actors} gửi cho bạn một tin nhắn."
       zero: "%{actors} gửi cho bạn một tin nhắn."
-    reshared:
+    reshared: 
       few: "%{actors} đã chia sẻ lại tin %{post_link}."
       many: "%{actors} đã chia sẻ lại tin %{post_link}."
       one: "%{actors} đã chia sẻ lại %{post_link}."
       other: "%{actors} đã chia sẻ lại tin %{post_link}."
       two: "%{actors} đã chia sẻ lại tin %{post_link}."
       zero: "%{actors} đã chia sẻ lại tin %{post_link}."
-    reshared_post_deleted:
+    reshared_post_deleted: 
       few: "%{actors} đã chia sẻ lại tin đã xóa của bạn."
       many: "%{actors} đã chia sẻ lại tin đã xóa của bạn."
       one: "%{actors} đã chia sẻ lại tin đã xóa của bạn."
       other: "%{actors} đã chia sẻ lại tin đã xóa của bạn."
       two: "%{actors} đã chia sẻ lại tin đã xóa của bạn."
       zero: "%{actors} đã chia sẻ lại tin đã xóa của bạn."
-    started_sharing:
+    started_sharing: 
       few: "%{actors} đã bắt đầu chia sẻ với bạn."
       many: "%{actors} đã bắt đầu chia sẻ với bạn."
       one: "%{actors} đã bắt đầu chia sẻ với bạn."
       other: "%{actors} đã bắt đầu chia sẻ với bạn."
       two: "%{actors} đã bắt đầu chia sẻ với bạn."
       zero: "%{actors} đã bắt đầu chia sẻ với bạn."
-  notifier:
+  notifier: 
     a_post_you_shared: "một bài đăng."
     click_here: "nhấn vào đây"
-    comment_on_post:
-      reply: "Reply or view %{name}'s post >"
-    confirm_email:
+    confirm_email: 
       click_link: "Để kích hoạt địa chỉ thư điện tử mới của bạn - %{unconfirmed_email}, hãy vào liên kết này:"
       subject: "Vui lòng kích hoạt địa chỉ thư điện tử %{unconfirmed_email} của bạn"
-    email_sent_by_diaspora: "This email was sent by Diaspora.  If you'd like to stop getting emails like this,"
     hello: "Xin chào %{name}!"
-    liked:
+    liked: 
       liked: "%{name} just liked your post"
-      view_post: "View post >"
-    mentioned:
-      mentioned: "mentioned you in a post:"
-      subject: "%{name} has mentioned you on Diaspora*"
-    private_message:
-      reply_to_or_view: "Reply to or view this conversation >"
-    reshared:
+    reshared: 
       reshared: "%{name} just reshared your post"
-      view_post: "View post >"
-    single_admin:
-      admin: "Your Diaspora administrator"
-      subject: "A message about your Diaspora account:"
-    started_sharing:
-      sharing: "has started sharing with you!"
-      subject: "%{name} started sharing with you on Diaspora*"
-      view_profile: "View %{name}'s profile"
-    thanks: "Thanks,"
-    to_change_your_notification_settings: "to change your notification settings"
-  ok: "OK"
-  or: "or"
-  password: "Password"
-  password_confirmation: "Password confirmation"
-  people:
-    add_contact_small:
-      add_contact_from_tag: "add contact from tag"
-    aspect_list:
-      edit_membership: "edit aspect membership"
+  people: 
     few: "%{count} người"
-    helper:
-      people_on_pod_are_aware_of: " people on pod are aware of"
-      results_for: " results for %{params}"
-    index:
-      couldnt_find_them_send_invite: "Couldn't find them?  Send an invite!"
-      looking_for: "Looking for posts tagged %{tag_link}?"
-      no_one_found: "...and no one was found."
-      no_results: "Hey! You need to search for something."
-      results_for: "search results for"
-    many: "%{count} people"
-    one: "1 person"
-    other: "%{count} people"
-    person:
-      add_contact: "add contact"
-      already_connected: "Already connected"
-      pending_request: "Pending request"
-      thats_you: "That's you!"
-    profile_sidebar:
-      bio: "bio"
-      born: "birthday"
-      edit_my_profile: "Edit my profile"
-      gender: "gender"
-      in_aspects: "in aspects"
-      location: "location"
-      remove_contact: "remove contact"
-      remove_from: "Remove %{name} from %{aspect}?"
-    show:
-      closed_account: "This account has been closed."
-      does_not_exist: "Person does not exist!"
-      has_not_shared_with_you_yet: "%{name} has not shared any posts with you yet!"
-      ignoring: "You are ignoring all posts from %{name}."
-      incoming_request: "%{name} wants to share with you"
-      mention: "Mention"
-      message: "Message"
-      not_connected: "You are not sharing with this person"
-      recent_posts: "Recent Posts"
-      recent_public_posts: "Recent Public Posts"
-      return_to_aspects: "Return to your aspects page"
-      see_all: "See all"
-      start_sharing: "start sharing"
-      to_accept_or_ignore: "to accept or ignore it."
-    sub_header:
-      add_some: "add some"
-      edit: "edit"
-      you_have_no_tags: "you have no tags!"
-    two: "%{count} people"
-    webfinger:
-      fail: "Sorry, we couldn't find %{handle}."
-    zero: "no people"
-  photos:
-    comment_email_subject: "%{name}'s photo"
-    create:
-      integrity_error: "Photo upload failed.  Are you sure that was an image?"
-      runtime_error: "Photo upload failed.  Are you sure that your seatbelt is fastened?"
-      type_error: "Photo upload failed.  Are you sure an image was added?"
-    destroy:
-      notice: "Photo deleted."
-    edit:
-      editing: "Editing"
-    new:
-      back_to_list: "Back to List"
-      new_photo: "New Photo"
-      post_it: "post it!"
-    new_photo:
-      empty: "{file} is empty, please select files again without it."
-      invalid_ext: "{file} has invalid extension. Only {extensions} are allowed."
-      size_error: "{file} is too large, maximum file size is {sizeLimit}."
-    new_profile_photo:
-      or_select_one_existing: "or select one from your already existing %{photos}"
-      upload: "Upload a new profile photo!"
-    photo:
-      view_all: "view all of %{name}'s photos"
-    show:
-      collection_permalink: "collection permalink"
-      delete_photo: "Delete Photo"
-      edit: "edit"
-      edit_delete_photo: "Edit photo description / delete photo"
-      make_profile_photo: "make profile photo"
-      show_original_post: "Show original post"
-      update_photo: "Update Photo"
-    update:
-      error: "Failed to edit photo."
-      notice: "Photo successfully updated."
-  posts:
-    show:
-      destroy: "Delete"
-      not_found: "Sorry, we couldn't find that post."
-      permalink: "permalink"
-  previous: "previous"
-  privacy: "Privacy"
-  privacy_policy: "Privacy Policy"
-  profile: "Profile"
-  profiles:
-    edit:
-      allow_search: "Allow for people to search for you within Diaspora"
+  profiles: 
+    edit: 
       edit_profile: "Chỉnh sửa hồ sơ"
-      first_name: "Tên"
-      last_name: "Họ"
+      first_name: Tên
+      last_name: Họ
       update_profile: "Cập nhật hồ sơ"
       your_bio: "Tiểu sử"
       your_birthday: "Ngày sinh"
       your_gender: "Giới tính"
       your_location: "Nơi sinh sống"
-      your_name: "Tên"
-      your_photo: "Ảnh"
+      your_name: Tên
+      your_photo: Ảnh
       your_private_profile: "Hồ sơ cá nhân"
       your_public_profile: "Hồ sơ công khai"
       your_tags: "Mo tả bản thân qua 5 từ"
       your_tags_placeholder: "ví dụ: #movies #kittens #travel #teacher #newyork"
-    update:
+    update: 
       failed: "Cập nhật hồ sơ thất bại"
       updated: "Đã cập nhật hồ sơ"
   public: "Công khai"
-  reactions:
-    few: "%{count} reactions"
-    many: "%{count} reactions"
-    one: "1 reaction"
-    other: "%{count} reactions"
-    two: "%{count} reactions"
-    zero: "0 reactions"
-  registrations:
-    closed: "Signups are closed on this Diaspora pod."
-    create:
+  registrations: 
+    create: 
       success: "Bạn đã tham gia vào Diaspora!"
-    edit:
+    edit: 
       cancel_my_account: "Huỷ tài khoản"
       edit: "Chỉnh sửa %{name}"
       leave_blank: "(để trống nếu bạn không muốn thay đổi)"
       password_to_confirm: "(bạn cần cung cấp mật khẩu hiện tai để xác nhận thay đổi)"
-      unhappy: Unhappy?
       update: "Cập nhật"
-    new:
+    new: 
       create_my_account: "Tạo tài khoản"
       enter_email: "Nhập địa chỉ thư điện tử"
       enter_password: "Nhập mật khẩu"
       enter_password_again: "Nhập lại mật khẩu"
       enter_username: "Tên người dùng (chỉ gồm chữ cái, số và dấu gạch dưới _)"
-      join_the_movement: "Join the movement!"
       sign_up_message: "Social Networking with a <3"
-  requests:
-    create:
-      sending: "Sending"
-      sent: "You've asked to share with %{name}.  They should see it next time they log in to Diaspora."
-    destroy:
-      error: "Please select an aspect!"
-      ignore: "Ignored contact request."
-      success: "You are now sharing."
-    helper:
-      new_requests:
-        few: "%{count} new requests!"
-        many: "%{count} new requests!"
-        one: "new request!"
-        other: "%{count} new requests!"
-        two: "%{count} new requests!"
-        zero: "no new requests"
-    manage_aspect_contacts:
-      existing: "Existing contacts"
-      manage_within: "Manage contacts within"
-    new_request_to_person:
-      sent: sent!
-  reshares:
-    comment_email_subject: "%{resharer}'s reshare of %{author}'s post"
-    create:
-      failure: "There was an error resharing this post."
-    reshare:
-      deleted: "Original post deleted by author."
-      reshare:
-        few: "%{count} reshares"
-        many: "%{count} reshares"
-        one: "1 reshare"
-        other: "%{count} reshares"
-        two: "%{count} reshares"
-        zero: "Reshare"
-      reshare_confirmation: "Reshare %{author}'s post?"
-      reshare_original: "Reshare original"
-      reshared_via: "reshared via"
-      show_original: "Show original"
-  search: "Search"
-  services:
-    create:
-      already_authorized: "A user with diaspora id %{diaspora_id} already authorized that %{service_name} account."
-      failure: "Authentication failed."
-      success: "Authentication successful."
-    destroy:
-      success: "Successfully deleted authentication."
-    failure:
-      error: "there was an error connecting that service"
-    finder:
-      fetching_contacts: "Diaspora is populating your %{service} friends please check back in a few minutes."
-      no_friends: "No Facebook friends found."
-      service_friends: "%{service} Friends"
-    index:
-      connect_to_facebook: "Connect to Facebook"
-      connect_to_tumblr: "Connect to Tumblr"
-      connect_to_twitter: "Connect to Twitter"
-      disconnect: "disconnect"
-      edit_services: "Edit services"
-      logged_in_as: "logged in as"
-      no_services: "You have not connected any services yet."
-      really_disconnect: "disconnect %{service}?"
-    inviter:
-      click_link_to_accept_invitation: "Follow this link to accept your invitation"
-      join_me_on_diaspora: "Join me on DIASPORA*"
-    remote_friend:
-      invite: "invite"
-      not_on_diaspora: "Not yet on Diaspora"
-      resend: "resend"
-  settings: "Settings"
-  share_visibilites:
-    update:
-      post_hidden_and_muted: "%{name}'s post has been hidden, and notifications have been muted."
-      see_it_on_their_profile: "If you want to see updates on this post, visit %{name}'s profile page."
-  shared:
-    add_contact:
-      add_new_contact: "Add a new contact"
-      create_request: "Find by Diaspora ID"
-      diaspora_handle: diaspora@pod.org
-      enter_a_diaspora_username: "Enter a Diaspora username:"
-      know_email: "Know their email address? You should invite them"
-      your_diaspora_username_is: "Your Diaspora username is: %{diaspora_handle}"
-    aspect_dropdown:
-      add_to_aspect: "Add contact"
-      toggle:
-        few: "In %{count} aspects"
-        many: "In %{count} aspects"
-        one: "In %{count} aspect"
-        other: "In %{count} aspects"
-        two: "In %{count} aspects"
-        zero: "Add contact"
-    contact_list:
-      all_contacts: "All contacts"
-    footer:
-      logged_in_as: "logged in as %{name}"
-      your_aspects: "your aspects"
-    invitations:
-      by_email: "By email"
-      dont_have_now: "You don't have any right now, but more invites are coming soon!"
-      from_facebook: "From Facebook"
-      invitations_left: "%{count} left"
-      invite_someone: "Invite someone"
-      invite_your_friends: "Invite your friends"
-      invites: "Invites"
-      invites_closed: "Invites are currently closed on this Diaspora pod"
-    notification:
-      new: "New %{type} from %{from}"
-    public_explain:
-      control_your_audience: "Control your Audience"
-      logged_in: "logged in to %{service}"
-      manage: "manage connected services"
-      new_user_welcome_message: "Use #hashtags to classify your posts and find people who share your interests.  Call out awesome people with @Mentions"
-      outside: "Public messages will be available for others outside of Diaspora to see."
-      share: "Share"
-      title: "Set up connected services"
-      visibility_dropdown: "Use this dropdown to change visibility of your post.  (We suggest you make this first one public.)"
-    publisher:
-      all: "all"
-      all_contacts: "all contacts"
-      discard_post: "Discard post"
-      make_public: "make public"
-      new_user_prefill:
-        hello: "Hey everyone, I'm #%{new_user_tag}. "
+  shared: 
+    publisher: 
+      new_user_prefill: 
         i_like: "I'm interested in %{tags}."
-        invited_by: "Thanks for the invite, "
-        newhere: "NewHere"
-      post_a_message_to: "Post a message to %{aspect}"
-      posting: Posting...
-      publishing_to: "publishing to: "
-      share: "Share"
-      share_with: "share with"
-      upload_photos: "Upload photos"
-      whats_on_your_mind: "What's on your mind?"
-    reshare:
-      reshare: "Reshare"
-    stream_element:
-      connect_to_comment: "Connect to this user to comment on their post"
-      currently_unavailable: "commenting currently unavailable"
-      dislike: "Dislike"
+    stream_element: 
       hide_and_mute: "Hide and Mute"
-      ignore_user: "Ignore %{name}"
-      ignore_user_description: "Ignore and remove user from all aspects?"
-      like: "Like"
-      nsfw: "This post has been flagged as NSFW by its author. %{link}"
-      shared_with: "Shared with: %{aspect_names}"
-      show: "show"
-      unlike: "Unlike"
-      via: "via %{link}"
-      viewable_to_anyone: "This post is viewable to anyone on the web"
-  status_messages:
-    create:
-      success: "Successfully mentioned: %{names}"
-    destroy:
-      failure: "Failed to delete post"
-    helper:
-      no_message_to_display: "No message to display."
-    new:
-      mentioning: "Mentioning: %{person}"
-    too_long:
-      few: "please make your status messages less than %{count} characters"
-      many: "please make your status messages less than %{count} characters"
-      one: "please make your status messages less than %{count} character"
-      other: "please make your status messages less than %{count} characters"
-      two: "please make your status messages less than %{count} characters"
-      zero: "please make your status messages less than %{count} characters"
-  stream_helper:
-    hide_comments: "Hide all comments"
-    show_comments:
-      few: "Show %{count} more comments"
-      many: "Show %{count} more comments"
-      one: "Show one more comment"
-      other: "Show %{count} more comments"
-      two: "Show two more comments"
-      zero: "No more comments"
-  streams:
-    aspects:
-      title: "Your Aspects"
-    aspects_stream: "Aspects"
-    comment_stream:
-      contacts_title: "People whose posts you commented on"
-      title: "Commented Posts"
-    commented_on: "commented on"
-    community_spotlight_stream: "Community Spotlight"
-    followed_tag:
-      add_a_tag: "Add a tag"
-      contacts_title: "People who dig these tags"
-      follow: "Follow"
-      title: "#Followed Tags"
-    followed_tags_stream: "#Followed Tags"
-    like_stream:
-      contacts_title: "People whose posts you like"
-      title: "Like Stream"
-    mentioned_stream: "@Mentions"
-    mentions:
-      contacts_title: "People who mentioned you"
+  streams: 
+    mentions: 
       title: "Tin của bạn"
-    multi:
-      contacts_title: "People in your Stream"
-      title: "Stream"
-    posted: "posted"
-    public:
-      contacts_title: "Recent Posters"
-      title: "Public Activity"
-    recently: "recently:"
-    tags:
+    tags: 
       contacts_title: "People who dig these tags"
-      tag_prefill_text: "The thing about %{tag_name} is... "
-      title: "Posts tagged: %{tags}"
-  tag_followings:
-    create:
+  tag_followings: 
+    create: 
       failure: "Theo dõi thất bại: #%{name}"
-      none: "You cannot follow a blank tag!"
       success: "Theo dõi thành công: #%{name}"
-    destroy:
+    destroy: 
       failure: "Dừng theo dõi #%{name} thất bại. Có lẽ bạn đã dừng theo dõi rồi?"
       success: "Đã dừng theo dõi: #%{name}"
-  tags:
-    show:
-      follow: "Follow #%{tag}"
-      followed_by: "followed by"
-      following: "Following #%{tag}"
-      nobody_talking: "Nobody is talking about %{tag} yet."
-      none: "The empty tag does not exist!"
-      people_tagged_with: "People tagged with %{tag}"
-      posts_tagged_with: "Posts tagged with #%{tag}"
-      stop_following: "Stop Following #%{tag}"
-  terms_and_conditions: "Terms and Conditions"
-  tokens:
-    show:
-      connect_to_cubbies: "Connect to Cubbi.es"
-      connecting_is_simple: "Connecting your Diaspora account is simple!  Just enter your Diaspora ID (<b>%{diaspora_id}</b>) from your cubbies <a href='%{href_link}'>settings page</a> and hit connect."
-      daniels_account: "Daniel's Diaspora account"
-      love_to_try: "We'd love for you to try it out."
-      making_the_connection: "Making the Connection"
-      screenshot_explanation: "%{link1}.  This particular cubby is linked to %{link2}."
-      sign_up_today: "Sign up today!"
-      typical_userpage: "A typical cubbi.es userpage"
-      via: "(via %{link})"
-      what_is_cubbies: "Cubbi.es is the world's first Diaspora application.  It's also the best way to collect photos online."
-  undo: Undo?
-  username: "Username"
-  users:
-    confirm_email:
+  users: 
+    confirm_email: 
       email_confirmed: "Địa chỉ %{email} đã được kích hoạt"
       email_not_confirmed: "Không thể kích hoạt địa chỉ thư điện tử. Sai địa chỉ?"
-    destroy:
+    destroy: 
       no_password: "Nhập mật khẩu hiện tại để đóng tài khoản."
       success: "Tài khoản của bạn đã bị khoá. Có thể mất 20 phút để đóng tài khoản của bạn. Cám ơn vì đã dùng Diaspora."
       wrong_password: "Mật khẩu đã nhập không khớp với mật khẩu hiện tại."
-    edit:
-      also_commented: "...someone also comments on your contact's post?"
+    edit: 
       change: "Thay đổi"
       change_email: "Đổi địa chỉ thư điện tử"
       change_language: "Đổi ngôn ngữ"
       change_password: "Đổi mật khẩu"
-      close_account:
-        dont_go: "Hey, please don't go!"
-        if_you_want_this: "If you really want this, type in your password below and click 'Close Account'"
-        lock_username: "This will lock your username if you decided to sign back up."
-        locked_out: "You will get signed out and locked out of your account."
-        make_diaspora_better: "We want you to help us make Diaspora better, so you should help us out instead of leaving. If you do want to leave, we want you to know what happens next."
-        mr_wiggles: "Mr Wiggles will be sad to see you go"
-        no_turning_back: "Currently, there is no turning back."
-        what_we_delete: "We delete all of your posts, profile data, as soon as humanly possible. Your comments will hang around, but be associated with your Diaspora Handle."
-      close_account_text: "Close Account"
-      comment_on_post: "...someone comments on your post?"
       current_password: "Mật khẩu hiện tại"
       download_photos: "tải ảnh của tôi"
       download_xml: "tải xml của tôi"
@@ -901,44 +472,27 @@ vi:
       email_awaiting_confirmation: "Chúng tôi đã gửi đường dẫn kích hoạt đến %{unconfirmed_email}. Chúng tôi vẫn dùng địa chỉ gốc của bạn %{email} cho đến khi bạn xác nhận địa chỉ mới."
       export_data: "Xuất dữ liệu"
       getting_started: "Tuỳ chỉnh người dùng mới"
-      liked: "...someone likes your post?"
-      mentioned: "...you are mentioned in a post?"
       new_password: "Mật khẩu mới"
       photo_export_unavailable: "Chức năng xuất ảnh hiện chưa hoạt động"
       private_message: "...bạn nhận được một tin nhắn cá nhân?"
       receive_email_notifications: "Nhận thư điện tử thông báo khi..."
       reshared: "...ai đó chia sẻ lại tin của bạn?"
-      show_community_spotlight: "Show Community Spotlight in Stream?"
-      show_getting_started: "Re-enable Getting Started"
       started_sharing: "...ai đó bắt đầu chia sẻ với bạn?"
       stream_preferences: "Tuỳ chỉnh luồng"
       your_email: "Thư điện tử của bạn"
       your_handle: "ID Diaspora của bạn"
-    getting_started:
+    getting_started: 
       awesome_take_me_to_diaspora: "Tuyệt vời! Đưa tối đến Diaspora*"
-      community_welcome: "Diaspora's community is happy to have you aboard!"
-      hashtag_explanation: "Hashtags allow you to talk about and follow your interests.  They're also a great way to find new people on Diaspora."
-      hashtag_suggestions: "Try following tags like #art, #movies, #gif, etc."
-      hooking_up_fb: "hooking up your Facebook account"
-      saved: Saved!
-      we_can_speed_things_up: "We can speed things up a bit by"
-      well_hello_there: "Well, hello there!"
-      what_are_you_in_to: "What are you into?"
       what_facebook_does: "to Diaspora. This will pull your name and photo, and enable cross-positng."
       who_are_you: "Bạn là ai?"
-    logged_out:
-      go_mobile: "Now go mobile."
-      on_your_mobile_device: "on your mobile device to access Diaspora* mobile."
+    logged_out: 
       signed_out: "Bạn đã đăng xuất khỏi Diaspora*"
-      simply_visit: "Simply visit"
       works_on_modern: "Hoạt động trên mọi điện thoại thông minh hiện đại"
-    privacy_settings:
-      ignored_users: "Ignored Users"
-      stop_ignoring: "Stop ignoring"
+    privacy_settings: 
       title: "Thiết lập riêng tư"
-    public:
+    public: 
       does_not_exist: "Người dùng %{username} không tồn tại!"
-    update:
+    update: 
       email_notifications_changed: "Đã đổi thông báo qua thư điện tử"
       language_changed: "Đã đổi ngôn ngữ"
       language_not_changed: "Đổi ngôn ngữ thất bại"
@@ -948,13 +502,4 @@ vi:
       settings_updated: "Đã cập nhật thiết lập"
       unconfirmed_email_changed: "Đã đổi thư điện tử. Cần kích hoạt ngay."
       unconfirmed_email_not_changed: "Đổi thư điện tử thất bại"
-  webfinger:
-    fetch_failed: "failed to fetch webfinger profile for %{profile_url}"
-    hcard_fetch_failed: "there was a problem fetching the hcard for %{account}"
-    no_person_constructed: "No person could be constructed from this hcard."
-    not_enabled: "webfinger does not seem to be enabled for %{account}'s host"
-    xrd_fetch_failed: "there was an error getting the xrd from account %{account}"
   welcome: "Chào mừng!"
-  will_paginate:
-    next_label: "next &raquo;"
-    previous_label: "&laquo; previous"

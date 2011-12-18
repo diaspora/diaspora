@@ -3,52 +3,53 @@
 #   the COPYRIGHT file.
 
 
-nb:
-  javascripts:
-    aspect_dropdown:
+
+nb: 
+  javascripts: 
+    aspect_dropdown: 
       add_to_aspect: "Legg til kategori"
       all_aspects: "Alle kategorier"
       error: "Kunne ikke begynne å dele med {{name}}.  Ignorerer du dem?"
       select_aspects: "Velg kategori"
       started_sharing_with: "Du har begynt å dele med {{name}}!"
       stopped_sharing_with: "Du har sluttet å dele med {{name}}."
-      toggle:
+      toggle: 
         few: "I {{count}} kategorier"
         many: "I {{count}} kategorier"
         one: "I {{count}} kategori"
         other: "I {{count}} kategorier"
         two: "I {{count}} kategorier"
         zero: "Legg til kategori"
-    aspect_navigation:
+    aspect_navigation: 
       deselect_all: "Avmerk alle"
       no_aspects: "Ingen kategorier valgt"
       select_all: "Merk alle"
-    comments:
+    comments: 
       hide: "skjul kommentarer"
       show: "vis alle kommentarer"
     confirm_dialog: "Er du sikker?"
     failed_to_like: "Klarte ikke å like!"
     failed_to_post_message: "Klarte ikke å publisere post!"
-    getting_started:
+    getting_started: 
       alright_ill_wait: "Greit, jeg venter."
       hey: "Hei, {{name}}!"
       no_tags: "Hei, du har ikke fulgt noen tagger! Fortsett likevel?"
       preparing_your_stream: "Preparing your personialized stream..."
-    infinite_scroll:
+    infinite_scroll: 
       no_more: "Ingen flere innlegg."
-    photo_uploader:
+    photo_uploader: 
       looking_good: "Wow, du ser fantastisk ut!"
-    publisher:
+    publisher: 
       at_least_one_aspect: "Du må poste til minst ett aspekt"
       limited: "Begrenset - posten din vil bare være synlig for de du deler med"
       public: "Offentlig - posten din vil være synlig for alle og kan bli funnet av søkemotorer"
-    reshares:
+    reshares: 
       duplicate: "du har allerede delt denne posten!"
     search_for: "Søk etter {{name}}"
     show_more: "vis mer"
-    tags:
+    tags: 
       wasnt_that_interesting: "OK, jeg skjønner at #{{tagName}} ikke var så spennende likevel..."
-    timeago:
+    timeago: 
       day: "en dag"
       days: "%d dager"
       hour: "ca. en time"
@@ -57,15 +58,13 @@ nb:
       minutes: "%d minutter"
       month: "ca. en måned"
       months: "%d måneder"
-      prefixAgo: "for"
-      prefixFromNow: "om"
+      prefixAgo: for
+      prefixFromNow: om
       seconds: "under ett minutt"
-      suffixAgo: "siden"
+      suffixAgo: siden
       suffixFromNow: ""
       year: "ca. et år"
       years: "%d år"
-    videos:
+    videos: 
       unknown: "Ukjent videotype"
       watch: "Se denne videoen på {{provider}}"
-    web_sockets:
-      disconnected: "The websocket is closed; posts will no longer be streamed live."

@@ -3,53 +3,43 @@
 #   the COPYRIGHT file.
 
 
-he:
-  javascripts:
-    aspect_dropdown:
+
+he: 
+  javascripts: 
+    aspect_dropdown: 
       add_to_aspect: "הוספה להיבט"
       all_aspects: "כל ההיבטים"
-      error: "Couldn't start sharing with {{name}}.  Are you ignoring them?"
-      select_aspects: "Select aspects"
-      started_sharing_with: "You have started sharing with {{name}}!"
-      stopped_sharing_with: "You have stopped sharing with {{name}}."
-      toggle:
+      toggle: 
         few: "ב־{{count}} היבטים"
         many: "ב־{{count}} היבטים"
         one: "בהיבט אחד"
         other: "ב־{{count}} היבטים"
         two: "ב־{{count}} היבטים"
         zero: "הוספה להיבט"
-    aspect_navigation:
-      deselect_all: "Deselect all"
-      no_aspects: "No aspects selected"
+    aspect_navigation: 
       select_all: "בחר הכל"
-    comments:
+    comments: 
       hide: "הסתרת תגובות"
       show: "הצגת כל התגובות"
     confirm_dialog: בבטחה?
     failed_to_like: "הסימון ב'אהבתי' נכשל!"
     failed_to_post_message: "פרסום ההודעה נכשל!"
-    getting_started:
+    getting_started: 
       alright_ill_wait: "בסדר, אני אמתין."
       hey: "שלום, {{name}}!"
-      no_tags: "Hey, you haven't followed any tags!  Continue anyway?"
       preparing_your_stream: "Preparing your personialized stream..."
-    infinite_scroll:
+    infinite_scroll: 
       no_more: "אין רשומות נוספות."
-    photo_uploader:
-      looking_good: "OMG, you look awesome!"
-    publisher:
+    publisher: 
       at_least_one_aspect: "עליך לפרסם היבט אחד לפחות"
       limited: "מוגבל - הרשומה שלך תהיה גלויה אך ורק לאנשים אתם בחרת לשתף"
       public: "ציבורי - הרשומה שלך תהיה גלויה לכולם וניתן יהיה למצוא אותה במנועי חיפוש"
-    reshares:
+    reshares: 
       duplicate: "כבר שיתפת רשומה זו מחדש!"
     search_for: "חיפוש אחר {{name}}"
     show_more: "הצגת עוד"
-    tags:
-      wasnt_that_interesting: "OK, I suppose #{{tagName}} wasn't all that interesting..."
-    timeago:
-      day: "יום"
+    timeago: 
+      day: יום
       days: "%d ימים"
       hour: "בערך שעה"
       hours: "בערך %d שעות"
@@ -57,15 +47,15 @@ he:
       minutes: "%d דקות"
       month: "בערך חודש"
       months: "%d חודשים"
-      prefixAgo: "לפני"
-      prefixFromNow: "מעכשיו"
+      prefixAgo: לפני
+      prefixFromNow: מעכשיו
       seconds: "פחות מדקה"
-      suffixAgo: "לפני"
-      suffixFromNow: "מעכשיו"
+      suffixAgo: לפני
+      suffixFromNow: מעכשיו
       year: "בערך שנה"
       years: "%d שנים"
-    videos:
+    videos: 
       unknown: "סוג הווידאו אינו ידוע"
       watch: "צפייה בסרטון וידאו זה באתר {{provider}}"
-    web_sockets:
+    web_sockets: 
       disconnected: "צינור ההודעות סגור; הודעות לא יוצגו בזמן אמת."

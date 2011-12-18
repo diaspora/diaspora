@@ -3,14 +3,15 @@
 #   the COPYRIGHT file.
 
 
-sv:
-  devise:
-    confirmations:
+
+sv: 
+  devise: 
+    confirmations: 
       confirmed: "Ditt konto har verifierats och du är inloggad."
-      new:
+      new: 
         resend_confirmation: "Skicka instruktioner för att bekräfta kontot igen"
       send_instructions: "Du kommer att få ett mail med instruktioner för att verifiera ditt konto inom några minuter."
-    failure:
+    failure: 
       inactive: "Ditt konto är inte aktiverat."
       invalid: "Felaktigt användarnamn eller lösenord."
       invalid_token: "Ogiltig identifiering."
@@ -18,24 +19,22 @@ sv:
       timeout: "Din session är avslutad, var vänlig logga in igen."
       unauthenticated: "Du måste logga in innan du kan fortsätta."
       unconfirmed: "Du måste verifiera ditt konto innan du kan fortsätta."
-    invitations:
+    invitations: 
       invitation_token_invalid: "Vi ber om ursäkt! Den här inbjudan är inte giltig!"
       send_instructions: "Din inbjudan är nu skickad."
       updated: "Ditt lösenord är nu inställt och du är inloggad."
-    mailer:
-      confirmation_instructions:
+    mailer: 
+      confirmation_instructions: 
         confirm: "Aktivera mitt konto"
         subject: "Instruktioner för att aktivera ditt konto"
         you_can_confirm: "Klicka på länken nedan för att aktivera ditt konto:"
       hello: "Hej %{email}!"
-      invitation_instructions:
+      invitation_instructions: 
         accept: "Acceptera inbjudan"
         arrived: "Det sociala nätverket som du har väntat på har kommit. Moderniserat, säkrare och roligare, % {strong_diaspora} är redo att hjälpa dig dela och utforska webben på ett helt nytt sätt."
         be_yourself: "Var Dig själv"
         be_yourself_paragraph: "Internet har skapat helt nya unika sätt att uttrycka sig på. %{strong_diaspora} låter dig vara dig själv och dela vad du vill, med eller utan ditt riktiga namn."
-        cubbies: Cubbi.es
         displaying_correctly: "Visas inte e-mail korrekt? %{link}"
-        email_address: questions@joindiaspora.com
         email_us: "För allmänna frågor eller support med ditt Diaspora konto, vänligen maila oss på %{email}."
         finally: "Äntligen - den är här"
         friends_saying: "Vad dina vänner säger ..."
@@ -44,78 +43,76 @@ sv:
         have_fun: "Ha det så roligt"
         have_fun_paragraph: "%{strong_diaspora} handlar om att upptäcka otroliga saker och personer online. %{link}, den första %{strong_diaspora}applikationen är bara början. Samla och dela allt."
         help_fund: "hjälp till med att stödja Diaspora"
-        here: "här"
+        here: här
         ignore: "Om du inte vill acceptera inbjudan, var snäll och ignorera detta mail."
         join_team: "Gå med i vårt arbetslag"
         love: "Varma hälsningar,"
         made_by_people: "%{strong_diaspora} är gjord av människor som älskar internet lika mycket som du gör. %{jointeam} eller % {helpfund}!"
         more_people: "Ännu fler människor är glada att se dig!"
         no_account_till: "Ditt konto kommer inte att skapas förrän du besöker länken ovan och registrerar dig."
-        or: "eller"
+        or: eller
         sign_up_now: "Registrera dig nu →"
         subject: "Du har blivit inbjuden att gå med i Diaspora!"
-        team_diaspora: "Team Diaspora"
         unsubscribe: "Klicka %{link} för att avregistrera dig."
         view_in: "Se den i din webbläsare."
-      inviter:
+      inviter: 
         accept_at: "via %{url}. Du accepterar genom att klicka på länken nedan."
-        has_invited_you: "%{name}"
         have_invited_you: "%{names} har bjudit in dig att gå med i Diaspora"
-      reset_password_instructions:
+      reset_password_instructions: 
         change: "Återställ mitt lösenord"
         ignore: "Om det inte är du som vill byta lösenord så kan du ignorera det här mailet."
         someone_requested: "Någon har efterfrågat en länk för att återställa ditt lösenord. För att återställa lösenordet, klicka på länken nedan."
         subject: "Instruktioner för att återställa lösenordet"
         wont_change: "Ditt lösenord kommer inte ändras förrän du klickat på länken och ändrat det."
-      unlock_instructions:
+      unlock_instructions: 
         account_locked: "Ditt konto har låsts eftersom du eller någon annan har angett fel lösenord för många gånger."
         click_to_unlock: "Klicka på länken nedan för att låsa upp ditt konto:"
         subject: "Instruktioner för upplåsning"
         unlock: "Lås upp mitt konto"
       welcome: "Välkommen %{email}!"
-    passwords:
-      edit:
+    passwords: 
+      edit: 
         change_password: "Ändra mitt lösenord"
-      new:
+      new: 
         forgot_password: "Glömt ditt lösenord?"
         no_account: "Det finns inget konto med den här mailadressen. Väntar du på en inbjudan så skickar vi ut dem så snart som möjligt."
         send_password_instructions: "Skicka information om hur jag återställer lösenordet"
       send_instructions: "Du kommer att få ett mail med instruktioner för att återställa lösenordet inom några minuter."
       updated: "Ditt lösenord har ändrats och du är inloggad."
-    registrations:
+    registrations: 
       destroyed: "Ditt konto är avslutat. Välkommen åter!"
       signed_up: "Du har skapat ett konto. Beroende på dina inställningar kan ett bekräftelsemail ha skickats till dig."
       updated: "Ditt konto har uppdateras."
-    sessions:
-      new:
+    sessions: 
+      new: 
         alpha_software: "Du är på väg att använda mjukvara i alpha-stadium."
         bugs_and_feedback: "Var beredd på att stöta på buggar och problem. Använd gärna feedback-knappen till höger för att rapportera dessa, vi kommer att försöka ordna problemen så snart som möjligt."
         bugs_and_feedback_mobile: "Tänk på att du kommer att uppleva buggar.Vi uppmanar dig att rapportera alla fel! Vi kommer att arbeta så fort som möjligt med att lösa dom problem som du rapporterar."
         login: "Logga in"
         modern_browsers: "stöder endast moderna webbläsare."
-        password: "Lösenord"
+        password: Lösenord
         remember_me: "Kom ihåg mig"
         sign_in: "Logga in"
-        username: "Användarnamn"
+        username: Användarnamn
       signed_in: "Inloggning ok."
       signed_out: "Utloggning ok."
-    shared:
-      links:
+    shared: 
+      links: 
         forgot_your_password: "Glömt ditt lösenord?"
         receive_confirmation: "Fick du inget bekräftelsemail?"
         receive_unlock: "Fick du inga upplåsningsinstruktioner?"
         sign_in: "Logga in"
         sign_up: "Registrera dig"
         sign_up_closed: "Formuläret för att bli medlem är tyvärr stängt."
-      mail_signup_form:
+      mail_signup_form: 
         sign_up_for_an_invite: "Begär en inbjudan!"
-    unlocks:
-      new:
+    unlocks: 
+      new: 
         resend_unlock: "Skicka upplåsningsinstruktioner igen"
       send_instructions: "Du kommer att få ett mail med instruktioner för att låsa upp ditt konto inom några minuter."
       unlocked: "Ditt konto har är nu upplåst och du är inloggad"
-  errors:
-    messages:
+  errors: 
+    messages: 
       already_confirmed: "är redan bekräftad"
       not_found: "kan ej hitta"
       not_locked: "var ej låst"

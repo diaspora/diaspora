@@ -3,52 +3,53 @@
 #   the COPYRIGHT file.
 
 
-pt-PT:
-  javascripts:
-    aspect_dropdown:
+
+pt-PT: 
+  javascripts: 
+    aspect_dropdown: 
       add_to_aspect: "Adicionar contacto"
       all_aspects: "Todos os aspectos"
       error: "Não foi possível começar a partilhar com {{name}}. Você está a ignorá-los?"
       select_aspects: "Seleccionar aspectos"
       started_sharing_with: "Começou a partilhar com {{name}}!"
       stopped_sharing_with: "Deixou de partilhar com {{name}}."
-      toggle:
+      toggle: 
         few: "Em {{count}} aspectos"
         many: "Em {{count}} aspectos"
         one: "Em {{count}} aspecto"
         other: "Em {{count}} aspectos"
         two: "Em {{count}} aspectos"
         zero: "Seleccione os aspectos"
-    aspect_navigation:
+    aspect_navigation: 
       deselect_all: "Desmarcar todos"
       no_aspects: "Nenhuns aspectos seleccionados"
       select_all: "Seleccionar todos"
-    comments:
+    comments: 
       hide: "ocultar comentários"
       show: "mostrar todos os comentários"
     confirm_dialog: "Tem a certeza?"
     failed_to_like: "Falhou ao gostar!"
     failed_to_post_message: "Falhou ao publicar a mensagem!"
-    getting_started:
+    getting_started: 
       alright_ill_wait: "Tudo bem, eu esperarei."
       hey: "Ei, {{name}}!"
       no_tags: "Ei, não está a seguir nenhuma etiqueta! Continuar mesmo assim?"
       preparing_your_stream: "A preparar o seu Stream personalizado..."
-    infinite_scroll:
+    infinite_scroll: 
       no_more: "Não há mais publicações."
-    photo_uploader:
+    photo_uploader: 
       looking_good: "OMD, tu estás fantástico(a)!"
-    publisher:
+    publisher: 
       at_least_one_aspect: "Tem de publicar em pelo menos um aspecto"
       limited: "Limitado - a sua publicação só será vista pelas pessoas com as quais está a partilhar"
       public: "Público - A sua publicação será visível para todos e encontrada por motores de busca"
-    reshares:
+    reshares: 
       duplicate: "Que bom, hein? Você já republicou essa mensagem!"
     search_for: "Procurar por {{name}}"
     show_more: "mostrar mais"
-    tags:
+    tags: 
       wasnt_that_interesting: "OK, suponho que #{{tagName}} não era assim tão interessante..."
-    timeago:
+    timeago: 
       day: "um dia"
       days: "%d dias"
       hour: "cerca de uma hora"
@@ -60,12 +61,12 @@ pt-PT:
       prefixAgo: "javascripts:timeago:prefixAgo"
       prefixFromNow: "javascripts:timeago:prefixFromNow"
       seconds: "menos de um minuto"
-      suffixAgo: "atrás"
+      suffixAgo: atrás
       suffixFromNow: "a partir de agora"
       year: "cerca de um ano"
       years: "%d anos"
-    videos:
+    videos: 
       unknown: "Formato de vídeo desconhecido"
       watch: "Visualize este vídeo no {{provider}}"
-    web_sockets:
+    web_sockets: 
       disconnected: "A websocket está fechada; as publicações não serão distribuídas em directo."

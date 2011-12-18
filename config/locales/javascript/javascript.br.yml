@@ -3,52 +3,22 @@
 #   the COPYRIGHT file.
 
 
-br:
-  javascripts:
-    aspect_dropdown:
+
+br: 
+  javascripts: 
+    aspect_dropdown: 
       add_to_aspect: "Add to aspect"
-      all_aspects: "All aspects"
-      error: "Couldn't start sharing with {{name}}.  Are you ignoring them?"
-      select_aspects: "Select aspects"
-      started_sharing_with: "You have started sharing with {{name}}!"
-      stopped_sharing_with: "You have stopped sharing with {{name}}."
-      toggle:
-        few: "In {{count}} aspects"
-        many: "In {{count}} aspects"
-        one: "In {{count}} aspect"
-        other: "In {{count}} aspects"
-        two: "In {{count}} aspects"
+      toggle: 
         zero: "Add to aspect"
-    aspect_navigation:
-      deselect_all: "Deselect all"
-      no_aspects: "No aspects selected"
-      select_all: "Select all"
-    comments:
-      hide: "hide comments"
-      show: "show all comments"
     confirm_dialog: "Emaoc'h sur?"
-    failed_to_like: "Failed to like!"
-    failed_to_post_message: "Failed to post message!"
-    getting_started:
-      alright_ill_wait: "Alright, I'll wait."
-      hey: "Hey, {{name}}!"
-      no_tags: "Hey, you haven't followed any tags!  Continue anyway?"
+    getting_started: 
       preparing_your_stream: "Preparing your personialized stream..."
-    infinite_scroll:
-      no_more: "No more posts."
-    photo_uploader:
-      looking_good: "OMG, you look awesome!"
-    publisher:
+    publisher: 
       at_least_one_aspect: "Dav eo deoc'h embann un arvez da'n nebeutañ"
-      limited: "Limited - your post will only be seen by people you are sharing with"
-      public: "Public - your post will be visible to everyone and found by search engines"
-    reshares:
+    reshares: 
       duplicate: "You've already reshared that post!"
     search_for: "Klask war-lerc'h {{name}}"
-    show_more: "show more"
-    tags:
-      wasnt_that_interesting: "OK, I suppose #{{tagName}} wasn't all that interesting..."
-    timeago:
+    timeago: 
       day: "un devezh"
       days: "%d a zevezhioù"
       hour: "war-dro un eurvezh"
@@ -57,15 +27,11 @@ br:
       minutes: "%d a vunutennoù"
       month: "war-dro ur mizvezhiad"
       months: "%d a vizioù"
-      prefixAgo: ""
-      prefixFromNow: ""
       seconds: "dindan ur vunutenn"
-      suffixAgo: "zo"
+      suffixAgo: zo
       suffixFromNow: diwar-vremañ
       year: "war-dro ur bloavezh"
       years: "%d a vloavezhioù"
-    videos:
+    videos: 
       unknown: "Stumm ar video dianav"
       watch: "Sellet ouzh ar video gant {{provider}}"
-    web_sockets:
-      disconnected: "The websocket is closed; posts will no longer be streamed live."

@@ -3,14 +3,15 @@
 #   the COPYRIGHT file.
 
 
-hu:
-  devise:
-    confirmations:
+
+hu: 
+  devise: 
+    confirmations: 
       confirmed: "Fiókod megerősítve. Be vagy jelentkezve."
-      new:
+      new: 
         resend_confirmation: "Megerősítési utasítások újraküldése"
       send_instructions: "Pár percen belül kapsz egy e-mailt, benne a megerősítéshez szükséges utasításokkal."
-    failure:
+    failure: 
       inactive: "A fiókod nem aktiváltad még."
       invalid: "Érvénytelen felhasználónév vagy jelszó."
       invalid_token: "Érvénytelen hitelesítési token."
@@ -18,104 +19,101 @@ hu:
       timeout: "A munkamenet lejárt, kérjük jelentkezz be újra."
       unauthenticated: "Be kell jelentkezned, vagy regisztrálj."
       unconfirmed: "Előbb meg kell erősítened fiókodat."
-    invitations:
+    invitations: 
       invitation_token_invalid: "Sajnáljuk, de a meghívás nem érvényes."
       send_instructions: "A meghívód elküldve."
       updated: "A jelszó módosítva. Be vagy jelentkezve."
-    mailer:
-      confirmation_instructions:
+    mailer: 
+      confirmation_instructions: 
         confirm: "Fiókom megerősítése"
         subject: "Megerősítési utasítások"
         you_can_confirm: "Megerősítheted a fiókod ezen a linken keresztül:"
       hello: "Szia %{email}!"
-      invitation_instructions:
+      invitation_instructions: 
         accept: "Elfogadom a meghívót"
         arrived: "Megérkezett az a közösségi hálózat amire vártál. Átalakított, biztonságosabb és szórakoztatóbb, %{strong_diaspora} készen áll arra, hogy segítsen neked a web felfedezésében és megosztásában. "
         be_yourself: "Légy Önmagad"
         be_yourself_paragraph: "Az Internet egy új lehetőséged ad az önkifejezésre. A %{strong_diaspora} lehetőséged ad, hogy önmagad légy,  megossz amit akarsz, valódi neveddel vagy anélkül."
-        cubbies: Cubbi.es
         displaying_correctly: "Levelünk hibásan jelenik meg? %{link}"
-        email_address: questions@joindiaspora.com
         email_us: "Felhasználói fiókoddal kapcsolatos kérdésekkel kérjük írj a %{email} címre."
         finally: "Végre - Itt van!"
         friends_saying: "Miről beszélnek az ismerőseid..."
-        get_connected: "Kapcsolódj"
+        get_connected: Kapcsolódj
         get_connected_paragraph: "Nemzetközi megmozdulás egy közös álom a jobb webről. A %{strong_diaspora} fő funkciója a közösség. Ismerkedj új emberekkel, tartsd a kapcsolatot barátaiddal."
         have_fun: "Jó szórakozást"
         have_fun_paragraph: "%{strong_diaspora} az érdekes új dolgok felfedezéséről szól. %{link}, a világ első %{strong_diaspora} applikációja épp most indult. Gyűjtsd össze és oszd meg a web érdekességeit."
         help_fund: "segíts a Diaspora* fenntartásában"
-        here: "itt"
+        here: itt
         ignore: "Ha nem szeretnél csatlakozni csak hagyd figyelmen kívül ezt a levelet."
         join_team: "Csatlakozz a Csapatunkhoz"
         love: "Szeretettel,"
         made_by_people: "A %{strong_diaspora} olyan emberek munkája, akik annyira szeretik az Internetet, mint te magad. %{jointeam}, vagy %{helpfund}!"
         more_people: "Egyre több személy szeretne kapcsolatba lépni veled!"
         no_account_till: "A fiókod addig nem készül el amíg be nem lépsz a megadott linkkel és be nem regisztrálsz."
-        or: "vagy"
+        or: vagy
         sign_up_now: "Regisztrálj most &rarr;"
         subject: "Meghívtak, hogy csatlakozz a Diaspora* közösségi hálóhoz."
         team_diaspora: "Diaspora* Csapat"
         unsubscribe: "Leiratkozáshoz kattints %{link}."
         view_in: "Megtekintés böngészőben"
-      inviter:
+      inviter: 
         accept_at: "Meghívás elfogadása: %{url}"
-        has_invited_you: "%{name}"
         have_invited_you: "%{names} meghívott a Diaspora* közösségi oldalra."
-      reset_password_instructions:
+      reset_password_instructions: 
         change: "Jelszavam módosítása"
         ignore: "Ha nem kérted ezt, hagyd figyelmen kívül ezt a levelet."
         someone_requested: "Valaki jelszóváltoztatást kért, és ezen a linken keresztül tudod megtenni."
         subject: "Utasítások jelszó alaphelyzetbe állításához"
         wont_change: "A jelszavad addig nem változik meg, amíg a fenti linken keresztül nem hozol létre egy újat."
-      unlock_instructions:
+      unlock_instructions: 
         account_locked: "Fiókod zárolva lett a túl sokszori hibás bejelentkezési kísérlet miatt."
         click_to_unlock: "Kattints az alábbi linkre, hogy felold a fiókod:"
         subject: "Feloldási utasítások"
         unlock: "Fiókom feloldása"
       welcome: "Üdv %{email}!"
-    passwords:
-      edit:
+    passwords: 
+      edit: 
         change_password: "Megváltoztatom a jelszavamat"
-      new:
+      new: 
         forgot_password: "Elfelejtetted a jelszavad?"
         no_account: "Ehhez az emailhez nincs fiók regisztrálva. Ha meghívóra vársz, akkor légy türelmes. Hamarosan osztogatunk."
         send_password_instructions: "Küldd el nekem jelszó alaphelyzetbe állításához szükséges utasítások"
       send_instructions: "Néhány perc múlva kapni fog egy e-mailt arról, hogy miként állítsa alaphelyzetbe a jelszavát."
       updated: "A jelszavad megváltozott. Be vagy jelentkezve vele."
-    registrations:
+    registrations: 
       destroyed: "Viszlát! A fiókod törölve. Reméljük hamarosan újra látunk. =)"
       signed_up: "Sikeresen regisztrált. Ha engedélyezve van, akkor egy megerősítő e-mailt küldünk."
       updated: "Fiókod frissítve."
-    sessions:
-      new:
+    sessions: 
+      new: 
         alpha_software: "Alfa állapotú szoftvert fogsz használni."
         bugs_and_feedback: "Légy felkészülve, hogy találsz majd hibákat a rendszerben. Ajánljuk, hogy használd a Visszajelzés gombot a jobb oldalon, hogy jelezd a hibákat felénk. Mi minden tőlünk telhetőt megteszünk, hogy minél gyorsabban kijavítsuk a hibát."
         bugs_and_feedback_mobile: "Légy türelmes, hibákat fogsz találni. Szeretnénk, ha minden hibát jelentenél nekünk. Megpróbáljuk olyan gyorsan megoldani őket, ahogy csak tudjuk."
-        login: "Bejelentkezés"
+        login: Bejelentkezés
         modern_browsers: "csak modern böngészőket támogatunk."
-        password: "Jelszó"
+        password: Jelszó
         remember_me: "Emlékezzen rám"
-        sign_in: "Bejelentkezés"
-        username: "Felhasználónév"
+        sign_in: Bejelentkezés
+        username: Felhasználónév
       signed_in: "Sikeresen bejelentkeztél."
       signed_out: "Sikeresen kijelentkeztél."
-    shared:
-      links:
+    shared: 
+      links: 
         forgot_your_password: "Elfelejtetted a jelszavad?"
         receive_confirmation: "Nem kaptál megerősítési utasítást?"
         receive_unlock: "Nem kaptad meg feloldási utasítást?"
-        sign_in: "Bejelentkezés"
-        sign_up: "Regisztrálj"
+        sign_in: Bejelentkezés
+        sign_up: Regisztrálj
         sign_up_closed: "Nincs nyílt regisztráció jelenleg."
-      mail_signup_form:
+      mail_signup_form: 
         sign_up_for_an_invite: "Iratkozz fel egy meghívóra!"
-    unlocks:
-      new:
+    unlocks: 
+      new: 
         resend_unlock: "Feloldási utasítások újraküldése"
       send_instructions: "Pár percen belül kapsz egy e-mailt, benne a feloldáshoz szükséges utasításokkal."
       unlocked: "A fiókod sikeresen feloldva. Be vagy jelentkezve."
-  errors:
-    messages:
+  errors: 
+    messages: 
       already_confirmed: "már megerősítette"
       not_found: "nem található"
       not_locked: "nem volt bezárva"

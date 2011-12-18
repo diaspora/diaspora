@@ -3,52 +3,53 @@
 #   the COPYRIGHT file.
 
 
-da:
-  javascripts:
-    aspect_dropdown:
+
+da: 
+  javascripts: 
+    aspect_dropdown: 
       add_to_aspect: "Tilføj kontakt"
       all_aspects: "Alle aspekter"
       error: "Kunne ikke begynde at dele med {{name}}.  Ignorerer du vedkommende?"
       select_aspects: "Vælg aspekter"
       started_sharing_with: "Du er begyndt at dele med {{name}}!"
       stopped_sharing_with: "Du deler ikke længere med {{name}}."
-      toggle:
+      toggle: 
         few: "I {{count}} aspekter"
         many: "I {{count}} aspekter"
         one: "I {{count}} aspekt"
         other: "I {{count}} aspekter"
         two: "I {{count}} aspekter"
         zero: "Vælg aspekter"
-    aspect_navigation:
+    aspect_navigation: 
       deselect_all: "Fravælg alle"
       no_aspects: "Ingen valgte aspekter"
       select_all: "Vælg alle"
-    comments:
+    comments: 
       hide: "Skjul kommentarer"
       show: "Vis alle kommentarer"
     confirm_dialog: "Er du sikker?"
     failed_to_like: "Kunne ikke synes om!"
     failed_to_post_message: "Kunne ikke indsende besked!"
-    getting_started:
+    getting_started: 
       alright_ill_wait: "Okay, jeg venter."
       hey: "Hej {{name}}!"
       no_tags: "Du har ikke fulgt nogen tags! Vil du fortsætte alligevel?"
       preparing_your_stream: "Forbereder din personlige strøm..."
-    infinite_scroll:
+    infinite_scroll: 
       no_more: "Ikke flere indlæg."
-    photo_uploader:
+    photo_uploader: 
       looking_good: "OMG, du ser sej ud!"
-    publisher:
+    publisher: 
       at_least_one_aspect: "Du skal dele med mindst et aspekt"
       limited: "Begrænset - dit indlæg vil kun blive set af dem du deler med"
       public: "Offentlig - dit indlæg vil være synligt for alle og kan findes af søgemaskiner"
-    reshares:
+    reshares: 
       duplicate: "Du har allerede delt indlægget!"
     search_for: "Søg efter {{name}}"
     show_more: "Vis mere"
-    tags:
+    tags: 
       wasnt_that_interesting: "OK, jeg formoder #{{tagName}} ikke var så spændende igen..."
-    timeago:
+    timeago: 
       day: "en dag"
       days: "%d dage"
       hour: "ca. en time"
@@ -57,15 +58,15 @@ da:
       minutes: "%d minutter"
       month: "ca. en måned"
       months: "%d måneder"
-      prefixAgo: "for"
-      prefixFromNow: "om"
+      prefixAgo: for
+      prefixFromNow: om
       seconds: "mindre end et minut"
-      suffixAgo: "siden"
+      suffixAgo: siden
       suffixFromNow: "fra nu"
       year: "ca. et år"
       years: "%d år"
-    videos:
+    videos: 
       unknown: "Ukendt videotype"
       watch: "Se denne video på {{provider}}"
-    web_sockets:
+    web_sockets: 
       disconnected: "Forbindelse er lukket; indlæg vil ikke længere blive opdateret live."

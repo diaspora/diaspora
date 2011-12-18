@@ -1,0 +1,72 @@
+#   Copyright (c) 2010-2011, Diaspora Inc.  This file is
+#   licensed under the Affero General Public License version 3 or later.  See
+#   the COPYRIGHT file.
+
+
+
+ms: 
+  javascripts: 
+    aspect_dropdown: 
+      add_to_aspect: "Tambah kenalan"
+      all_aspects: "Semua aspek"
+      error: "Tidak dapat berkongsi dengan {{name}}.  Adakah anda mengabaikan mereka?"
+      select_aspects: "Pilih kenalan"
+      started_sharing_with: "Anda telah mula berkongsi dengan {{name}}!"
+      stopped_sharing_with: "Anda telah berhenti berkongsi dengan {{name}}."
+      toggle: 
+        few: "Dalam {{count}} aspek"
+        many: "Dalam {{count}} aspek"
+        one: "Dalam {{count}} aspek"
+        other: "dalam {{count}} aspek"
+        two: "Dalam {{count}} aspek"
+        zero: "Pilih aspek"
+    aspect_navigation: 
+      deselect_all: "menyahpilih semua"
+      no_aspects: "Tiada aspek yang dipilih"
+      select_all: "Pilih semua"
+    comments: 
+      hide: "sembunyi komen"
+      show: "tunjuk semua komen"
+    confirm_dialog: "Anda pasti?"
+    failed_to_like: "Gagal untuk suka!"
+    failed_to_post_message: "Gagal untuk pos mesej!"
+    getting_started: 
+      alright_ill_wait: "Baiklah, saya akan tunggu."
+      hey: "Hei, {{name}}!"
+      no_tags: "Hei, anda tidak mengikuti mana-mana tag! Teruskan juga?"
+      preparing_your_stream: "Menyediakan strim peribadi anda..."
+    infinite_scroll: 
+      no_more: "Tiada lagi pos."
+    photo_uploader: 
+      looking_good: "Wah, anda nampak hebat! \n"
+    publisher: 
+      at_least_one_aspect: "Anda perlu menerbitkan sekurang-kurangnya satu aspek"
+      limited: "Terhad - catatan anda hanya akan dilihat oleh orang-orang yang berkongsi dengan anda"
+      public: "Awam - Pos anda akan dilihat oleh semua orang dan dijumpai oleh enjin carian"
+    reshares: 
+      duplicate: "Yang baik, kan? Anda telah berkongsi semula pos itu!"
+    search_for: "Mencari {{name}}"
+    show_more: "tunjuk lagi"
+    tags: 
+      wasnt_that_interesting: "OK, saya mengandaikan # {{tagName}} tidak semua yang menarik..."
+    timeago: 
+      day: sehari
+      days: "%d hari"
+      hour: "kira-kira sejam"
+      hours: "kira-kira %d jam"
+      minute: "kira-kira satu minit"
+      minutes: "%d minit"
+      month: "kira-kira sebulan"
+      months: "%d bulan"
+      prefixAgo: "javascripts:timeago:prefixAgo"
+      prefixFromNow: "javascripts:timeago:prefixFromNow"
+      seconds: "kurang daripada satu minit"
+      suffixAgo: lalu
+      suffixFromNow: "dari sekarang"
+      year: "kira-kira setahun"
+      years: "%d tahun"
+    videos: 
+      unknown: "Jenis video tidak diketahui"
+      watch: "Tonton video ini di {{provider}}"
+    web_sockets: 
+      disconnected: "Websocket ditutup; pos tidak lagi akan distrim secara langsung."
