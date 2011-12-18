@@ -20,6 +20,7 @@ available:
   es-CL: "Castellano - Chile"
   eu: "Euskara"
   fi: "Suomi"
+  fil: "Filipino"
   fr: "Français"
   ga: "Gaeilge"
   gl: "Galego"
@@ -33,6 +34,7 @@ available:
   lt: "Lietuviškai"
   mk: "македонски"
   ml: "മലയാളം"
+  ms: "بهاس ملايو‎"
   nb: "Norske"
   nl: "Nederlands"
   nn: "Nynorsk"
@@ -45,6 +47,7 @@ available:
   sl: "Slovenščina"
   sq: "gjuha shqipe"
   sv: "Svenska"
+  te: "తెలుగు"
   tr: "Türk"
   uk: "украї́нська мо́ва"
   ur-PK: "اُردو (پاکستان)"
@@ -90,3 +93,4 @@ rtl:
   - :he
   - :ur
   - :ur-PK
+  - :ms
