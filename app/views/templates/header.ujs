@@ -1,6 +1,10 @@
 <header>
 <div class="container" style="position:relative;">
-  <a href="/stream"><img alt="Logo_small" class="diaspora_header_logo" height="16px" src="/images/logo_small.png?1322618579" width="161px"></a>
+
+  <a href="/stream">
+    <img alt="Logo_small" class="diaspora_header_logo" height="38px" width="38px" src="/images/header-logo.png" />
+  </a>
+
   <div id="global_search">
     <form accept-charset="UTF-8" action="/people" class="search_form" method="get"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="✓"></div>
       <input id="q" name="q" placeholder="Find people or #tags" results="5" type="search" autocomplete="off" class="ac_input">

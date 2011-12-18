@@ -148,8 +148,11 @@ form
     :margin 0
 
 header
-  @include box-shadow(0,1px,2px,rgba(0,0,0,0.5))
-  @include linear-gradient(rgb(40,35,35),rgb(35,30,30))
+  @include box-shadow(0,1px,3px,rgba(0,0,0,0.9))
+
+  :background
+    :color rgb(40,35,35)
+    :image url('/images/header-bg.png')
 
   :z-index 1001
   :padding 6px 0
@@ -163,7 +166,7 @@ header
   :left 0
 
   :border
-    :bottom 1px solid rgb(4,0,0)
+    :bottom 1px solid #444
 
   &.fixit
     :position fixed
@@ -201,9 +204,6 @@ header
       :top -2px
       :right -5px
 
-    :background
-      :color rgba(24,20,20,0.5)
-
     :border
       :left 1px solid #333
       :right 1px solid #333
@@ -213,10 +213,6 @@ header
 
     :top -4px
     :right 0
-
-    &:hover
-      :background
-        :color #222
 
     li
       a
@@ -300,11 +296,13 @@ ul.as-selections
 
 .diaspora_header_logo
   :position relative
-  :top 4px
+  :top -6px
+
+  :padding 0 10px
+
   :margin
-    :right 26px
-  &:active
-    :top 5px
+    :left 60px
+    :right 69px
 
 .stream
   audio
@@ -1159,33 +1157,43 @@ header #global_search
   :display inline
   :position relative
 
+  :top -20px
+
   form
     :display inline
 
     input
-      @include box-shadow(0,1px,0px,#444)
+      @include box-shadow(0,1px,1px,#444)
+      @include border-radius(3px)
+      @include transition(background-color)
 
       :display inline
-      :background-color #ccc
+      :background-color #555
+      :background-color rgba(60,60,60,0.6)
+
       :border
         :top 1px solid #111
 
       :font
-        :size 13px
+        :size 14px
 
-      :border 1px solid #000
+      :border 1px solid #222
 
       &:hover
-        :background-color #eee
+        :background-color #888
+        :background-color rgba(90,90,90,0.6)
 
       &.active
         :background-color #fafafa
+        :background-color rgba(160,160,160,0.6)
 
+      &:focus
+        @include box-shadow(0,0,5px,#fff)
+        :outline none
 
     input[type='search']
-      :width 250px
-      :padding 3px
-
+      :width 220px
+      :padding 5px
 
 .aspect
   h3
@@ -1642,7 +1650,7 @@ h3 span.current_gs_step
   :display inline-block
   :min-width 170px
   :top 3px
-  :left 440px
+  :left 410px
   :margin
     :left 20px
 
@@ -3092,7 +3100,7 @@ a.toggle_selector
   :border solid #888 1px
   :position absolute
   :top 32px
-  :left 492px
+  :left 462px
   :width 380px
   :display none
 
