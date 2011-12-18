@@ -15,16 +15,6 @@ describe MultisController do
       AppConfig[:community_spotlight] = @old_spotlight_value
     end
 
-    describe 'jasmine fixtures' do
-      it 'generate' do
-        alice.post(:status_message, :text => "hella infos yo!", :to => alice.aspects.first.id)
-        alice.post(:reshare, :root_guid => Factory(:status_message, :public => true).guid, :to => 'all')
-
-        get :index, :format => :json
-        save_fixture(response.body, "multi_stream_json")
-      end
-    end
-
     it 'succeeds' do
       AppConfig[:community_spotlight] = [bob.person.diaspora_handle]
       get :index
