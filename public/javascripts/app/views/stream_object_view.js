@@ -1,4 +1,7 @@
 App.Views.StreamObject = Backbone.View.extend({
+
+  className : "loaded",
+
   initialize: function(options) {
     this.model.bind('remove', this.remove, this);
     this.model.bind('change', this.render, this);

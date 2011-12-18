@@ -26,7 +26,7 @@ App.Views.Stream = Backbone.View.extend({
       href: this.collection.url(),
       id: "paginate",
       "class": "paginate"
-    }).text('more'));
+    }).text('Load more posts'));
   },
 
   loadMore: function(evt) {
@@ -42,7 +42,8 @@ App.Views.Stream = Backbone.View.extend({
 
   addLoader: function(){
     this.$("#paginate").html($("<img>", {
-      src : "/images/ajax-loader.gif"
+      src : "/images/static-loader.png",
+      "class" : 'loader'
     }));
   }
 });
