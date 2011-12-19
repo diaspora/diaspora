@@ -26,7 +26,7 @@ gem 'twitter', '2.0.2'
 gem 'cloudfiles', '1.4.10', :require => false
 
 # mail
-gem 'messagebus_ruby_api', '0.4.8'
+gem 'messagebus_ruby_api', '1.0.1'
 
 
 # web sockets
