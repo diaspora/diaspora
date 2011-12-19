@@ -109,7 +109,7 @@ describe OEmbedHelper do
         real_data = data['oembed_data']
         cache =  OEmbedCache.new(:url => data['link_url'])
         cache.data = real_data
-        formatted = o_embed_html(cache).gsub('https', 'http')
+        formatted = o_embed_html(cache).gsub('https://', 'http://')
         case type
           when 'photo'
             formatted.should =~ /#{data['oembed_data']['url']}/
