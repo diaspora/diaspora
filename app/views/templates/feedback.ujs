@@ -1,13 +1,11 @@
 <div class="info">
-  <% if(like) { %>
-    <a href="#" class="like_action unlike" rel='nofollow'>
-      Unlike
-    </a>
-  <% } else { %>
-    <a href="#" class="like_action like" rel='nofollow'>
-      Like
-    </a>
-  <% } %>
+  <a href="#" class="like_action" rel='nofollow'>
+    <%= like ? "Unlike" : "Like" %>
+  </a>
   ·
+
+  <a href="#" class="focus_comment_textarea" rel="nofollow">
+    Comment
+  </a>
 </div>
 

@@ -11,6 +11,13 @@ describe("App.views.Post", function(){
       this.statusMessage = this.collection.models[0];
     })
 
+    it("contains a '.like_action' link", function(){
+      var view = new App.Views.Post({model : this.statusMessage}).render();
+      var statusElement = $(view.el);
+
+      expect(statusElement.find(".like_action").html()).not.toBeNull();
+    })
+
     context("NSFW", function(){
       it("contains a shield element", function(){
         this.statusMessage.set({text : "this is safe for work. #sfw"});

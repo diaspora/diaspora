@@ -11,11 +11,14 @@ App.Views.Post = App.Views.StreamObject.extend({
   },
 
   render: function() {
+    // subview rendering
     this.renderTemplate()
-        .initializeTooltips()
         .renderPostContent()
+        .renderFeedback()
         .renderComments();
+    //
 
+    this.initializeTooltips();
     this.$(".details time").timeago();
 
     return this;
@@ -33,6 +36,14 @@ App.Views.Post = App.Views.StreamObject.extend({
 
   renderComments: function(){
     this.$(".comments").html(new App.Views.CommentStream({
+      model: this.model
+    }).render().el);
+
+    return this;
+  },
+
+  renderFeedback: function(){
+    this.$(".feedback").html(new App.Views.Feedback({
       model: this.model
     }).render().el);
 

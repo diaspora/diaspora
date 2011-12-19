@@ -47,6 +47,7 @@
       <% } %>
 
       <div class="feedback"> </div>
+      <div class="comments"> </div>
 
     </div>
 </div>
