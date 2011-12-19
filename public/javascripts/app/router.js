@@ -2,6 +2,7 @@ App.Router = Backbone.Router.extend({
   routes: {
     "stream": "stream",
     "comment_stream": "stream",
+    "like_stream": "stream",
     "mentions": "stream",
     "people/:id": "stream",
     "tag_followings": "stream",

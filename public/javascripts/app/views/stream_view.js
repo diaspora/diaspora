@@ -24,8 +24,7 @@ App.Views.Stream = Backbone.View.extend({
     this.$("#paginate").remove();
     $(this.el).append($("<a>", {
       href: this.collection.url(),
-      id: "paginate",
-      "class": "paginate"
+      id: "paginate"
     }).text('Load more posts'));
   },
 
