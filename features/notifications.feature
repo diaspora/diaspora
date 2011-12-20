@@ -19,7 +19,6 @@ Feature: Notifications
     Then the notification dropdown should be visible
     Then I should see "started sharing with you"
     And I go to the notifications page
-    When I go to the notifications page
     Then I should see "started sharing with you"
     And I should have 1 email delivery
 
