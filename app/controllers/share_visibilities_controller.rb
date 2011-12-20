@@ -17,7 +17,7 @@ class ShareVisibilitiesController < ApplicationController
     if @contact && @vis = ShareVisibility.where(:contact_id => @contact.id,
                                                 :shareable_id => params[:shareable_id],
                                                 :shareable_type => params[:shareable_type]).first
-      @vis.hidden = !@vis.hidden
+      @vis.hidden = @vis.hidden ? @vis.hidden : !@vis.hidden
       if @vis.save
         update_cache(@vis)
         render 'update'
