@@ -31,6 +31,10 @@ class Photo < ActiveRecord::Base
     self.status_message.update_photos_counter if status_message
   end
 
+  after_destroy do
+    self.status_message.update_photos_counter if status_message
+  end
+
   def clear_empty_status_message
     if self.status_message_guid && self.status_message.text_and_photos_blank?
       self.status_message.destroy
