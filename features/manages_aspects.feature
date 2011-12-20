@@ -11,7 +11,7 @@ Feature: User manages contacts
     And I fill in "Name" with "Dorm Mates" in the modal window
     And I press "Create" in the modal window
     Then I should see "Dorm Mates" within "#aspect_nav"
-    
+
   Scenario: creating an aspect from homepage
     Given I am signed in
     When I follow "Add an aspect"
