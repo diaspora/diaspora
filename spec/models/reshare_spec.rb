@@ -18,7 +18,9 @@ describe Reshare do
   end
 
   it 'require public root' do
-    Factory.build(:reshare, :root => Factory.build(:status_message, :public => false)).should_not be_valid
+    reshare = Factory.build(:reshare, :root => Factory.build(:status_message, :public => false))
+    reshare.should_not be_valid
+    reshare.errors[:base].should include('Only posts which are public may be reshared.')
   end
 
   it 'forces public' do

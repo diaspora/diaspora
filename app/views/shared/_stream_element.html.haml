@@ -32,6 +32,10 @@
           –
           %span.timeago
             = link_to(how_long_ago(post), post_path(post))
+          - if post.reshares_count > 0
+            –
+            %span.num_reshares
+              = t("reshares.reshare.reshare", :count => post.reshares.size)
 
       .post-content
         = nsfw_sheild(post)

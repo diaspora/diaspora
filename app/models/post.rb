@@ -53,10 +53,6 @@ class Post < ActiveRecord::Base
     new_post
   end
 
-  def reshare_count
-    @reshare_count ||= Post.where(:root_guid => self.guid).count
-  end
-
   # @return Returns true if this Post will accept updates (i.e. updates to the caption of a photo).
   def mutable?
     false
