@@ -12,7 +12,12 @@ begin
 
   task :stats => "spec:statsetup"
 
-  Rake::Task[:spec].clear
+  #heroku barfs here :/
+  begin 
+    Rake::Task[:spec].clear
+  rescue
+    nil
+  end
 
   desc "Run all specs in spec directory"
   RSpec::Core::RakeTask.new(:spec => spec_prereq)

@@ -16,7 +16,7 @@ class AppConfig < Settingslogic
   namespace Rails.env
 
   def self.load!
-    unless ENV["HEROKU"]
+    unless EnviromentConfiguration.heroku?
       if no_config_file? && !have_old_config_file?
         $stderr.puts <<-HELP
 ******** You haven't set up your Diaspora settings file. **********
@@ -52,7 +52,7 @@ Please do the following:
       Process.exit(1)
     end
 
-    if !ENV["HEROKU"] && no_cert_file_in_prod?
+    if !EnviromentConfiguration.heroku? && no_cert_file_in_prod?
       $stderr.puts <<-HELP
 ******** Diaspora does not know where your SSL-CA-Certificates file is. **********
   Please add the root certificate bundle (this is operating system specific) to application.yml. Defaults:
