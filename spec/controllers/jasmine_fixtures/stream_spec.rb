@@ -10,7 +10,7 @@ describe MultisController do
       sign_in :user, alice
     end
 
-    it 'generates the multti_stream_json fixture' do
+    it 'generates the multi_stream_json fixture', :fixture => true do
       alice.post(:status_message, :text => "hella infos yo!", :to => alice.aspects.first.id)
       alice.post(:reshare, :root_guid => Factory(:status_message, :public => true).guid, :to => 'all')
       post_to_be_liked = alice.post(:status_message, :text => "you're gonna love this.'", :to => alice.aspects.first.id)
