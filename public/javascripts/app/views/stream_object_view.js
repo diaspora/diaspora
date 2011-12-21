@@ -1,5 +1,4 @@
-App.Views.StreamObject = Backbone.View.extend({
-
+App.Views.StreamObject = App.Views.Base.extend({
   className : "loaded",
 
   initialize: function(options) {
@@ -10,24 +9,5 @@ App.Views.StreamObject = Backbone.View.extend({
   destroyModel: function(evt){
     if(evt){ evt.preventDefault(); }
     this.model.destroy();
-  },
-
-  presenter : function(){
-    return this.defaultPresenter()
-  },
-
-  defaultPresenter : function(){
-    var modelJson = this.model ? this.model.toJSON() : {}
-    return _.extend(modelJson, App.user());
-  },
-
-  render : function() {
-    return this.renderTemplate()
-  },
-
-  renderTemplate : function(){
-    this.template = _.template($(this.template_name).html());
-    $(this.el).html(this.template(this.presenter()));
-    return this;
   }
 });

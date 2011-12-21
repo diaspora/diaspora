@@ -8,6 +8,9 @@
 %script{:id => "feedback-template", :type => 'text/template'}
   != File.read("#{Rails.root}/app/views/templates/feedback.ujs")
 
+%script{:id => "static-text-template", :type => 'text/template'}
+  != File.read("#{Rails.root}/app/views/templates/static_text.ujs")
+
 %script{:id => "stream-element-template", :type => 'text/template'}
   != File.read("#{Rails.root}/app/views/templates/stream_element.ujs")
 

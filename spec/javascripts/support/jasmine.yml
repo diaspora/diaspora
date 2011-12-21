@@ -38,6 +38,7 @@ src_files:
 
   - public/javascripts/app/app.js
   - public/javascripts/app/router.js
+  - public/javascripts/app/views.js
   - public/javascripts/app/models/*
   - public/javascripts/app/collections/*
   - public/javascripts/app/views/stream_object_view.js
