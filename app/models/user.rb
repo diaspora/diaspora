@@ -214,7 +214,10 @@ class User < ActiveRecord::Base
   end
 
   def add_to_streams(post, aspects_to_insert)
-    post.socket_to_user(self, :aspect_ids => aspects_to_insert.map{|x| x.id}) if post.respond_to? :socket_to_user
+    inserted_aspect_ids = aspects_to_insert.map{|x| x.id}
+
+    Diaspora::Websocket.to(self, :aspect_ids => inserted_aspect_ids ).socket(post)
+
     aspects_to_insert.each do |aspect|
       aspect << post
     end

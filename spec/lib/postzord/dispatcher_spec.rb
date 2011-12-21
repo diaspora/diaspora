@@ -349,7 +349,7 @@ describe Postzord::Dispatcher do
 
     describe '#socket_to_users' do
       it 'calls socket_to_user given users' do
-        @zord.object.should_receive(:socket_to_user).with(bob)
+        Diaspora::Websocket.should_receive(:to).and_return(stub.as_null_object)
         @zord.send(:socket_to_users, [bob])
       end
     end

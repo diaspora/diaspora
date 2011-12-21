@@ -3,14 +3,12 @@
 #   the COPYRIGHT file.
 
 class Comment < ActiveRecord::Base
-  require File.join(Rails.root, 'lib/diaspora/web_socket')
   include ROXML
 
   include Diaspora::Webhooks
   include Diaspora::Guid
   include Diaspora::Relayable
 
-  include Diaspora::Socketable
   include Diaspora::Taggable
   include Diaspora::Likeable
 
