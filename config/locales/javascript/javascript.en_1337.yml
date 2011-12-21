@@ -4,41 +4,41 @@
 
 
 
-en_1337: 
-  javascripts: 
-    aspect_dropdown: 
+en_1337:
+  javascripts:
+    aspect_dropdown:
       add_to_aspect: "4DD N00B"
       all_aspects: "4LL 45P3C75"
-      toggle: 
+      toggle:
         few: "1N {{count}} 45P3C75"
         many: "1N {{count}} 45P3C75"
         one: "1N {{count}} 45P3C7"
         other: "1N {{count}} 45P3C75"
         two: "1N {{count}} 45P3C75"
         zero: "4DD N00B"
-    aspect_navigation: 
+    aspect_navigation:
       deselect_all: "D353L3C7 4LL"
       no_aspects: "N0 45P3C75 53L3C73D"
       select_all: "53L3C7 4LL"
-    comments: 
+    comments:
       hide: "H1D3 5P4M5!"
       show: "5H0W 4LL 5P4M5!"
     confirm_dialog: 5UR3?
     failed_to_like: "F41L3D 2 <3!"
     failed_to_post_message: "F41L3D 2 53ND 5P4M!"
-    getting_started: 
+    getting_started:
       preparing_your_stream: "Preparing your personialized stream..."
-    infinite_scroll: 
+    infinite_scroll:
       no_more: EOF
-    publisher: 
+    publisher:
       at_least_one_aspect: "Y0U MU57 70 PUBL15CH 47 L3457 1 4SP3C7"
       limited: "L1M173D - Y0UR 5P4M W1LL 0NLY B33 533N BY N00B5 U 4R3 5H4R1NG W17H!"
       public: "PUBL1C - Y0UR 5P4M W1LL B3 V151BL3 2 3V3RY0N3 4ND F0UND BY S34RCH 3NG1N35!"
-    reshares: 
+    reshares:
       duplicate: "U H4V3 4LR34DY R35P4MM3D 7HI5!"
     search_for: "S34RCH F0R {{name}}"
     show_more: "5H0W M0R3!"
-    timeago: 
+    timeago:
       day: "4 D4Y"
       days: "%d D4Y5"
       hour: "4B0U7 4N H0UR"
@@ -52,8 +52,8 @@ en_1337:
       suffixFromNow: "FR0M N0W"
       year: "4B0U7 4 Y34R"
       years: "%d Y34R5"
-    videos: 
+    videos:
       unknown: "UNK0WN V1D30 7YP3"
       watch: "W47CH 7H15 V1D30 0N {{provider}}"
-    web_sockets: 
+    web_sockets:
       disconnected: D15C0NN3C73D!

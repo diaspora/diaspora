@@ -4,68 +4,68 @@
 
 
 
-en_pirate: 
+en_pirate:
   _contacts: Mateys
   _home: "Home Port"
   _photos: Portraits
-  activerecord: 
-    errors: 
-      models: 
-        reshare: 
-          attributes: 
-            root_guid: 
+  activerecord:
+    errors:
+      models:
+        reshare:
+          attributes:
+            root_guid:
               taken: "You've already reshared that post!"
-        user: 
-          attributes: 
-            username: 
+        user:
+          attributes:
+            username:
               invalid: "is invalid. We only allow letters, numbers, and underscores"
   all_aspects: "Yer Crews"
-  aspect_memberships: 
-    destroy: 
+  aspect_memberships:
+    destroy:
       failure: "Blast! Failed to kick matey out yer crew"
       no_membership: "Could not find the selected person in that crew"
       success: "Successfully removed person from that crew"
-  aspects: 
-    add_to_aspect: 
+  aspects:
+    add_to_aspect:
       failure: "Failed to add contact to crew."
       success: "Successfully added contact to crew."
-    aspect_listings: 
+    aspect_listings:
       add_an_aspect: "+ Add a crew"
     contacts_not_visible: "Contacts in this crew will not be able to see each other."
     contacts_visible: "Contacts in this crew will be able to see each other."
-    create: 
+    create:
       failure: "Crew creation failed."
       success: "Your new crew %{name} was created"
-    edit: 
+    edit:
       aspect_list_is_not_visible: "crew list is hidden to others in crew"
       aspect_list_is_visible: "crew list is visible to others in crew"
       confirm_remove_aspect: "Are you sure you want to delete this crew?"
       make_aspect_list_visible: "make crew list visible?"
       remove_aspect: "Fire this crew"
     few: "%{count} crews"
-    helper: 
+    helper:
       are_you_sure: "Are you sure you want to delete this crew?"
       aspect_not_empty: "Crew not empty"
-    index: 
-      help: 
+    index:
+      help:
         here_to_help: "Diaspora community is here to help!"
       keep_us_running: "Keep %{pod} running fast, buy our servers their monthly coffee fix!"
       no_contacts: "No mateys"
       your_aspects: "Yer Crews"
     many: "%{count} crews"
-    new: 
+    new:
       name: Name
-    no_contacts_message: 
+    no_contacts_message:
       try_adding_some_more_contacts: "You can search (top) or invite (right) more contacts."
     one: "1 crew"
     other: "%{count} crews"
-    seed: 
+    seed:
       acquaintances: Landlubbers
       family: Kin
       friends: Mateys
       work: Shipmates
-  contacts: 
-    index: 
+  contacts:
+    index:
       add_to_aspect: "Add contacts to %{name}"
       all_contacts: "All yer mateys"
       my_contacts: "Me Mateys"
@@ -73,85 +73,85 @@ en_pirate:
       title: Mateys
       your_contacts: "Yer Mateys"
     zero: "no contacts"
-  layouts: 
-    application: 
+  layouts:
+    application:
       toggle: "toggle mobile site"
-    header: 
+    header:
       logout: "Abandon Ship"
       profile: "Ye Ship"
       settings: "Ye Ships Rigging"
-  notifications: 
-    helper: 
-      new_notifications: 
+  notifications:
+    helper:
+      new_notifications:
         one: "1 new notifications"
-    liked: 
+    liked:
       few: "%{actors} has just liked your %{post_link}."
       many: "%{actors} has just liked your %{post_link}."
       one: "%{actors} has just liked your %{post_link}."
       other: "%{actors} has just liked your %{post_link}."
       two: "%{actors} has just liked your %{post_link}."
       zero: "%{actors} has just liked your %{post_link}."
-    mentioned: 
+    mentioned:
       few: "%{actors} has mentioned you in a %{post_link}."
       many: "%{actors} has mentioned you in a %{post_link}."
       other: "%{actors} has mentioned you in a %{post_link}."
       two: "%{actors} has mentioned you in a %{post_link}."
       zero: "%{actors} has mentioned you in a %{post_link}."
-    reshared: 
+    reshared:
       few: "%{actors} has reshared your %{post_link}."
       many: "%{actors} has reshared your %{post_link}."
       other: "%{actors} has reshared your %{post_link}."
       two: "%{actors} has reshared your %{post_link}."
       zero: "%{actors} has reshared your %{post_link}."
-  notifier: 
-    confirm_email: 
+  notifier:
+    confirm_email:
       click_link: "To activate your new email address %{unconfirmed_email}, please click this link:"
-    liked: 
+    liked:
       liked: "%{name} just liked your post"
-    reshared: 
+    reshared:
       reshared: "%{name} just reshared your post"
-  people: 
-    profile_sidebar: 
+  people:
+    profile_sidebar:
       born: "date o' birth"
-  photos: 
-    new: 
+  photos:
+    new:
       new_photo: "New Portrait"
-  profiles: 
-    edit: 
+  profiles:
+    edit:
       your_birthday: "Ye day o' birth"
-  registrations: 
-    new: 
+  registrations:
+    new:
       create_my_account: "Create my account"
       sign_up_message: "Social Networking with a <3"
   search: Scour
-  services: 
-    inviter: 
+  services:
+    inviter:
       click_link_to_accept_invitation: "Click this link to accept your invitation"
-  shared: 
-    aspect_dropdown: 
+  shared:
+    aspect_dropdown:
       add_to_aspect: "Add to aspect"
-      toggle: 
+      toggle:
         zero: "Add to aspect"
-    publisher: 
-      new_user_prefill: 
+    publisher:
+      new_user_prefill:
         i_like: "I'm interested in %{tags}."
       share: Fire!
       whats_on_your_mind: "What be botherin' you?"
-    stream_element: 
+    stream_element:
       hide_and_mute: "Hide and Mute"
       shared_with: "Fired at: %{aspect_names}"
-  streams: 
-    mentions: 
+  streams:
+    mentions:
       title: "Your Mentions"
-    tags: 
+    tags:
       contacts_title: "People who dig these tags"
-  tag_followings: 
-    create: 
+  tag_followings:
+    create:
       failure: "Failed to follow: #%{name}"
       success: "Successfully following: #%{name}"
-    destroy: 
+    destroy:
       failure: "Failed to stop following: #%{name}"
       success: "Successfully stopped following: #%{name}"
-  users: 
-    getting_started: 
+  users:
+    getting_started:
       what_facebook_does: "to Diaspora. This will pull your name and photo, and enable cross-positng."

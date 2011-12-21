@@ -4,14 +4,14 @@
 
 
 
-tr: 
-  devise: 
-    confirmations: 
+tr:
+  devise:
+    confirmations:
       confirmed: "Hesabınız başarıyla doğrulanmıştır. Şu anda giriş yapmış bulunuyorsunuz."
-      new: 
+      new:
         resend_confirmation: "Doğrulama yönergelerini tekrar gönder"
       send_instructions: "Kısa bir süre içerisinde hesabınızı nasıl doğrulayacağınıza dair bir e-posta alacaksınız."
-    failure: 
+    failure:
       inactive: "Hesabınız henüz aktive edilmemiştir."
       invalid: "Yanlış e-posta ya da parola."
       invalid_token: "Yanlış doğrulama kodu."
@@ -19,17 +19,17 @@ tr:
       timeout: "Zaman aşımı oldu, devam etmek için lütfen tekrar giriş yapın."
       unauthenticated: "Devam etmeden önce bir hesap açtırmalı veya hesabınızla giriş yapmalısınız."
       unconfirmed: "Devam etmeden önce hesabınızı doğrulamalısınız."
-    invitations: 
+    invitations:
       invitation_token_invalid: "Davet kodu doğrulanamadı!"
       send_instructions: "Davetiniz gönderildi."
       updated: "Parolanız başarıyla ayarlandı. Şu anda giriş yapmış bulunuyorsunuz."
-    mailer: 
-      confirmation_instructions: 
+    mailer:
+      confirmation_instructions:
         confirm: "Hesabımı doğrula"
         subject: "Doğrulama talimatları"
         you_can_confirm: "Hesabınızı aşağıdaki bağlantı ile doğrulayabilirsiniz:"
       hello: "Merhaba %{email}!"
-      invitation_instructions: 
+      invitation_instructions:
         accept: "Daveti kabul et"
         displaying_correctly: "Email not displaying correctly? %{link} in your browser"
         email_us: "Diaspora hesabınızla ilgili destek veya sorularınız için lütfen iletişime geçiniz: %{email}"
@@ -45,36 +45,36 @@ tr:
         sign_up_now: "Şimdi kaydol &rarr;"
         subject: "Diaspora'ya katılmak için davet edildiniz!"
         view_in: "View in"
-      inviter: 
+      inviter:
         accept_at: "%{url}, aşağıdaki bağlantıya tıklayarak bunu kabul edebilirsiniz."
         have_invited_you: "%{names} Diaspora'ya katılmanız için davet edildiniz"
-      reset_password_instructions: 
+      reset_password_instructions:
         change: "Parolamı değiştir"
         ignore: "Eğer bunu siz talep etmediyseniz, lütfen bu e-postayı yoksayın."
         someone_requested: "Parola değiştirme talep edildi, parolanızı değiştirmek için aşağıdaki bağlantıya tıklayın."
         subject: "Parola yenileme yönergeleri"
         wont_change: "Parolanız siz yukarıdaki bağlantıya tıklayıp yeni bir parola oluşturana kadar değişmeyecektir."
-      unlock_instructions: 
+      unlock_instructions:
         account_locked: "Hesabınız çok fazla yanlış giriş yaptığınız için kilitlendi."
         click_to_unlock: "Hesabınızın kilidini açmak için aşağıdaki bağlantıya tıklayın:"
         subject: "Kilit Açma Yönergeleri"
         unlock: "Hesabımın kilidini aç"
       welcome: "Hoş geldiniz %{email}!"
-    passwords: 
-      edit: 
+    passwords:
+      edit:
         change_password: "Parola değiştirme"
-      new: 
+      new:
         forgot_password: "Parolanızı mı unuttunuz?"
         no_account: "Bu e-posta adresiyle alınmış hesap bulunmamaktadır. Eğer bir davetiye için bekliyorsanız, en kısa zamanda size ulaştıracağız."
         send_password_instructions: "Bana parola yenileme talimatları gönder"
       send_instructions: "Bir kaç dakika içerisinde parolanızı nasıl sıfırlayacağınızı açıklıyan bir e-posta alacaksınız."
       updated: "Parolanız değiştirilmiştir. Şu anda giriş yapmış bulunuyorsunuz."
-    registrations: 
+    registrations:
       destroyed: "Hoşçakalın! Hesabınız iptal edildi. Umarız sizi yakında tekrar görürüz."
       signed_up: "Başarıyla kayıt yaptınız. Doğrulama, e-postanıza gönderilmiştir."
       updated: "Hesabınızı başarılı bir şekilde yenilediniz."
-    sessions: 
-      new: 
+    sessions:
+      new:
         alpha_software: "Alfa programını kullanmak üzeresiniz."
         bugs_and_feedback: "Sitede bazı hatalarla karşılaşabilirsiniz. Karşılaştığınız herhangi hata için sağ üstteki Geri Bildirim düğmesini kullanmanızı tavsiye ederiz. Raporlarınız bize ulaşır ulaşmaz, sorunu düzeltmek için çalışacağız."
         bugs_and_feedback_mobile: "Aklınızda bulunsun, hatalarla karşılacaksınız. Karşılaştığınız hataları bildirmenizi istiyoruz.  Bildiriminizi alır almaz konu hakkında çalışmaya başlayacağız."
@@ -86,23 +86,23 @@ tr:
         username: "Kullanıcı Adı"
       signed_in: "Başarıyla giriş yaptınız."
       signed_out: "Başarıyla çıkış yaptınız."
-    shared: 
-      links: 
+    shared:
+      links:
         forgot_your_password: "Parolanızı mı unuttunuz?"
         receive_confirmation: "Hesap doğrulama yönergelerini almadınız mı?"
         receive_unlock: "Kilit açma yönergelerini almadınız mı?"
         sign_in: "Giriş yap"
         sign_up: "Kayıt ol"
         sign_up_closed: "Şu an için yeni kayıt alınamıyor."
-      mail_signup_form: 
+      mail_signup_form:
         sign_up_for_an_invite: "Bir davetiye için kaydolun!"
-    unlocks: 
-      new: 
+    unlocks:
+      new:
         resend_unlock: "Tekrar gönder"
       send_instructions: "Bir kaç dakika içerisinde hesabınızın kilidini nasıl açabileceğinize dair bir e-posta alacaksınız."
       unlocked: "Hesabınızın kilidi açılmıştır. Şu anda giriş yapmış bulunuyorsunuz."
-  errors: 
-    messages: 
+  errors:
+    messages:
       already_confirmed: "zaten doğrulandı"
       not_found: bulunamadı
       not_locked: kilitlenmedi

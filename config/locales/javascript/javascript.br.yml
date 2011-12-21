@@ -4,21 +4,21 @@
 
 
 
-br: 
-  javascripts: 
-    aspect_dropdown: 
+br:
+  javascripts:
+    aspect_dropdown:
       add_to_aspect: "Add to aspect"
-      toggle: 
+      toggle:
         zero: "Add to aspect"
     confirm_dialog: "Emaoc'h sur?"
-    getting_started: 
+    getting_started:
       preparing_your_stream: "Preparing your personialized stream..."
-    publisher: 
+    publisher:
       at_least_one_aspect: "Dav eo deoc'h embann un arvez da'n nebeutañ"
-    reshares: 
+    reshares:
       duplicate: "You've already reshared that post!"
     search_for: "Klask war-lerc'h {{name}}"
-    timeago: 
+    timeago:
       day: "un devezh"
       days: "%d a zevezhioù"
       hour: "war-dro un eurvezh"
@@ -32,6 +32,6 @@ br:
       suffixFromNow: diwar-vremañ
       year: "war-dro ur bloavezh"
       years: "%d a vloavezhioù"
-    videos: 
+    videos:
       unknown: "Stumm ar video dianav"
       watch: "Sellet ouzh ar video gant {{provider}}"

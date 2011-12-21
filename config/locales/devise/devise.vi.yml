@@ -4,9 +4,9 @@
 
 
 
-vi: 
-  devise: 
-    failure: 
+vi:
+  devise:
+    failure:
       inactive: "Tài khoản của bạn chưa được kích hoạt."
       invalid: "Tên người dùng hoặc mật khẩu không đúng."
       invalid_token: "Khoá xác thực không hợp lệ."
@@ -14,37 +14,37 @@ vi:
       timeout: "Phiên đăng nhập đã hết hạn, hãy đăng nhập lại để tiếp tục."
       unauthenticated: "Bạn cần đăng nhập hoặc đăng kí để tiếp tục."
       unconfirmed: "Bạn cần phải xác nhận tài khoản trước khi tiếp tục."
-    invitations: 
+    invitations:
       invitation_token_invalid: "The invitation token provided is not valid!"
       send_instructions: "Lời mời của bạn đã được gửi."
       updated: "Thiết lập mật khẩu thành công. Bạn đã đăng nhập."
-    mailer: 
-      invitation_instructions: 
+    mailer:
+      invitation_instructions:
         displaying_correctly: "Email not displaying correctly? %{link} in your browser"
         finally: "Cuối cùng - nó đây"
         made_by_people: "%{strong_diaspora} được tạo ra bởi những người yêu Internet như bạn. %{jointeam}, hay %{helpfund}!"
         team_diaspora: "Đội Diaspora"
         unsubscribe: "Không nhận thư nữa, vui lòng nhấn %{link}."
         view_in: "View in"
-      unlock_instructions: 
+      unlock_instructions:
         account_locked: "Tài khoản của bạn bị khoá do đăng nhập thất bại quá số lần quy định."
         click_to_unlock: "Nhấn vào liên kết bên dưới để mở khoá tài khoản:"
         subject: "Chỉ dẫn mở khoá"
         unlock: "Mở khoá tài khoản"
-    passwords: 
-      edit: 
+    passwords:
+      edit:
         change_password: "Đổi mật khẩu"
-      new: 
+      new:
         forgot_password: "Quên mật khẩu?"
         no_account: "Không có tài khoản nào với địa chỉ thư điện tử này. Nếu bạn đang chờ để được mời, chúng tôi sẽ cố gắng sớm nhất có thể"
         send_password_instructions: "Gửi cho tôi hướng dẫn thiết đặt lại mật khẩu"
       send_instructions: "Bạn sẽ nhận được thư chứa chỉ dẫn cách thiết lập lại mật khẩu trong ít phút nữa."
       updated: "Đã đổi mật khẩu. Bạn đã đăng nhập."
-    registrations: 
+    registrations:
       signed_up: "Bạn đã đăng nhập thành công. Nếu được bật, một thư xác nhận sẽ được gửi cho bạn."
       updated: "Bạn đã cập nhật tài khoản thành công."
-    sessions: 
-      new: 
+    sessions:
+      new:
         alpha_software: "Bạn sẽ sử dụng phần mềm không ổn định."
         login: "Đăng nhập"
         modern_browsers: "chỉ hỗ trợ những trình duyệt hiện đại."
@@ -54,17 +54,17 @@ vi:
         username: "Tên người dùng"
       signed_in: "Đăng nhập thành công."
       signed_out: "Đăng xuất thành công."
-    shared: 
-      links: 
+    shared:
+      links:
         forgot_your_password: "Quên mật khẩu?"
         receive_confirmation: "Không nhận được chỉ dẫn xác nhận?"
         receive_unlock: "Không nhận được chỉ dẫn mở khoá?"
         sign_in: "Đăng nhập"
         sign_up: "Đăng kí"
-      mail_signup_form: 
+      mail_signup_form:
         sign_up_for_an_invite: "Đăng kí nhận lời mời!"
-  errors: 
-    messages: 
+  errors:
+    messages:
       already_confirmed: "đã được xác nhận"
       not_found: "không tìm thấy"
       not_locked: "không khoá"

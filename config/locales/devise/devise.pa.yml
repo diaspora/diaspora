@@ -4,47 +4,47 @@
 
 
 
-pa: 
-  devise: 
-    failure: 
+pa:
+  devise:
+    failure:
       inactive: "ਤੁਹਾਡਾ ਅਕਾਊਂਟ ਹਾਲੇ ਐਕਟੀਵੇਟ ਨਹੀਂ ਹੋਇਆ ਹੈ।"
       invalid: "ਗਲਤ ਈਮੇਲ ਜਾਂ ਪਾਸਵਰਡ ਹੈ।"
       locked: "ਤੁਹਾਡਾ ਅਕਾਊਂਟ ਲਾਕ ਹੈ।"
       timeout: "ਤੁਹਾਡੇ ਸ਼ੈਸ਼ਨ ਦੀ ਮਿਆਦ ਪੁੱਗ ਗਈ ਹੈ, ਜਾਰੀ ਰੱਖਣ ਲਈ ਫੇਰ ਲਾਗਇਨ ਕਰੋ ਜੀ।"
       unauthenticated: "ਤੁਹਾਨੂੰ ਜਾਰੀ ਰੱਖਣ ਤੋਂ ਪਹਿਲਾਂ ਲਾਗਇਨ ਕਰਨਾ ਪਵੇਗਾ ਜਾਂ ਸਾਇਨ ਅੱਪ"
       unconfirmed: "ਜਾਰੀ ਰੱਖਣ ਤੋਂ ਪਹਿਲਾਂ ਤੁਹਾਨੂੰ ਆਪਣੇ ਅਕਾਊਂਟ ਦੀ ਪੁਸ਼ਟੀ ਕਰਨੀ ਪੈਣੀ ਹੈ।"
-    invitations: 
+    invitations:
       invitation_token_invalid: "The invitation token provided is not valid!"
-    mailer: 
-      confirmation_instructions: 
+    mailer:
+      confirmation_instructions:
         confirm: "ਮੇਰੇ ਅਕਾਊਂਟ ਦੀ ਪੁਸ਼ਟੀ ਕਰੋ"
         subject: "ਪੁਸ਼ਟੀ ਹਦਾਇਤਾਂ"
-      invitation_instructions: 
+      invitation_instructions:
         displaying_correctly: "Email not displaying correctly? %{link} in your browser"
         view_in: "View in"
-      unlock_instructions: 
+      unlock_instructions:
         click_to_unlock: "ਆਪਣਾ ਅਕਾਊਂਟ ਅਣ-ਲਾਕ ਕਰਨ ਲਈ ਹੇਠਲੇ ਲਿੰਕ ਉੱਤੇ ਕਲਿੱਕ ਕਰੋ:"
         subject: "ਅਣ-ਲਾਕ ਹਦਾਇਤਾਂ"
         unlock: "ਮੇਰਾ ਅਕਾਊਂਟ ਅਣ-ਲਾਕ ਕਰੋ"
       welcome: "%{email} ਜੀ ਆਇਆਂ ਨੂੰ!"
-    passwords: 
-      edit: 
+    passwords:
+      edit:
         change_password: "ਮੇਰਾ ਪਾਸਵਰਡ ਬਦਲੋ"
-      new: 
+      new:
         forgot_password: "ਆਪਣਾ ਪਾਸਵਰਡ ਭੁੱਲ ਗਏ ਹੋ?"
         no_account: "No account with this email exsists.  If you are waiting for an invite, we are rolling them out as soon as possible"
       updated: "ਤੁਹਾਡਾ ਪਾਸਵਰਡ ਠੀਕ ਤਹ੍ਹਾਂ ਬਦਲਿਆ ਗਿਆ ਹੈ। ਹੁਣ ਤੁਸੀਂ ਸਾਈਨ ਇਨ ਕਰ ਸਕਦੇ ਹੋ।"
-    sessions: 
-      new: 
+    sessions:
+      new:
         login: ਲਾਗਇਨ
         password: ਪਾਸਵਰਡ
-    shared: 
-      links: 
+    shared:
+      links:
         forgot_your_password: "ਆਪਣਾ ਪਾਸਵਰਡ ਭੁੱਲ ਗਏ?"
         sign_in: "ਸਾਇਨ ਇਨ"
         sign_up: "ਸਾਇਨ ਅੱਪ"
-  errors: 
-    messages: 
+  errors:
+    messages:
       already_confirmed: "ਪਹਿਲਾਂ ਹੀ ਪੁਸ਼ਟੀ ਹੋ ਚੁੱਕੀ ਸੀ"
       not_found: "ਨਹੀਂ ਲੱਭਿਆ"
       not_locked: "ਲਾਕ ਨਹੀਂ ਹੈ"

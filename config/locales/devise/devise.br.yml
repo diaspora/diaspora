@@ -4,14 +4,14 @@
 
 
 
-br: 
-  devise: 
-    confirmations: 
+br:
+  devise:
+    confirmations:
       confirmed: "Ho kont zo bet kadarnaet. Emaoc'h luget."
-      new: 
+      new:
         resend_confirmation: "Kas titouroù-kadarnaat en dro"
       send_instructions: "Emaoc'h o vont da reseviñ ur postel gant titouroù a-benn goût penaos kadarnaat ho kont a-benn nebeut."
-    failure: 
+    failure:
       inactive: "N'eo ket bet lakaet ho kont war-elum."
       invalid: "Fazi zo gant ar postel pe gant ar ger-kuzh."
       invalid_token: "Fazi zo gant ar bilhed gwiriañ."
@@ -19,46 +19,46 @@ br:
       timeout: "Diamzeret eo hoc'h abadenn, dav eo deoc'h mont e-barzh en dro a-benn kendalc'hen."
       unauthenticated: "Dav eo deoc'h mont e-barzh pe lakaat hoc'h anv a-raok kendalc'hen ganti."
       unconfirmed: "Dav eo deoc'h kadarnaat ho kont a-raok mont pelloc'h."
-    invitations: 
+    invitations:
       invitation_token_invalid: "Ar bilhed-pediñ kaset deoc'h zo divalav!"
       send_instructions: "Kaset eo bet ho pedadenn."
       updated: "Kaset eo bet mat ho ker-kuzh. Emaoc'h luget."
-    mailer: 
-      confirmation_instructions: 
+    mailer:
+      confirmation_instructions:
         confirm: "Kadarnaat ma c'hont"
         subject: Titouroù-kadarnaat
         you_can_confirm: "Moaien zo deoc'h kadarnaat ho kont gant al liamm dindan:"
       hello: "Demat, %{email}!"
-      invitation_instructions: 
+      invitation_instructions:
         displaying_correctly: "Email not displaying correctly? %{link} in your browser"
         view_in: "View in"
-      reset_password_instructions: 
+      reset_password_instructions:
         change: "Cheñch ma ger-kuzh"
         ignore: "M'ho peus ket goulennet an dra-se n'ho peus ket nemet leuskel an dra-se a-gostez."
         someone_requested: "Unan bennak en deus goulennet kaout ul liamm da cheñch ho ker-kuzh, moaien zo deoc'h hen ober dre al liamm a-is."
         subject: "Titouroù evit nulañ ar ger-kuzh"
         wont_change: "Ne cheñcho ket ho ker-kuzh keit ma n'ho po ket kliket war al liamm dindan ha dibabet unan all."
-      unlock_instructions: 
+      unlock_instructions:
         account_locked: "Prennet eo bet ho kont abalamour m'ho peus klasket mont e-barzh en un ober re a daolioù-gwenn."
         click_to_unlock: "Klikit war al liamm dindan a-benn dibrennañ ho kont:"
         subject: "Dibrennañ Titouroù"
         unlock: "Dibrennañ ma c'hont"
       welcome: "Degemer mat, %{email}!"
-    passwords: 
-      edit: 
+    passwords:
+      edit:
         change_password: "Cheñch ma ger-kuzh"
-      new: 
+      new:
         forgot_password: "Disoñjet ho ker-kuzh ganeoc'h?"
         no_account: "N'eus kont ebet gant ar postel-mañ. M'emaoc'h o c'hortoz da vezañ pedet, deoc'h da c'hoût e klaskomp astennañ ar pedadennoù da'n abretañ ar gwellañ"
         send_password_instructions: "Kasit din titouroù evit nulañ ar ger-kuzh"
       send_instructions: "Emaoc'h o vont da reseviñ ur postel gant titouroù evit goût penaos nulañ ho ker-kuzh a-benn nebeut."
       updated: "Cheñchet mat ho ker-kuzh. Emaoc'h luget."
-    registrations: 
+    registrations:
       destroyed: "Kenavo! Ho kont zo bet nullet. Emichañs e voc'h gwelet en dro a-benn nebeut."
       signed_up: "Enskrivet hoc'h bet mat. M'ho peus dibabet e vo kaset deoc'h ur postel-kadarnaat."
       updated: "Adnevezet eo bet ho kont ganeoc'h."
-    sessions: 
-      new: 
+    sessions:
+      new:
         alpha_software: "Emaoc'h o vont da implij ar meziant alpha."
         bugs_and_feedback: "Deoc'h da c'hoût e vo kavet vioù-koukoug ganeoc'h. Reiñ a reomp ton deoc'h evit implij ar boton Feedback a zo e tu dehoù ar bajenn a-benn kelaouiñ ac'hanomp ma vez fazioù! Labourat a rimp ar buanañ a c'hellomp evit diluziañ ar c'hudennoù bet meneget ganeoc'h."
         bugs_and_feedback_mobile: "Deoc'h da c'hoût e vo kavet vioù-koukoug ganeoc'h. Reiñ a reomp ton deoc'h evit kelaouiñ ac'hanomp pep gwech ma vo kavet fazioù ganeoc'h! Labourat a rimp ar buanañ a c'hellomp evit diluziañ pep kudenn a vo disklaeriet ganeoc'h."
@@ -70,23 +70,23 @@ br:
         username: Anv-implijer
       signed_in: "Luget mat."
       signed_out: "Diluget mat."
-    shared: 
-      links: 
+    shared:
+      links:
         forgot_your_password: "Disoñjet ho ker-kuzh ganeoc'h?"
         receive_confirmation: "N'ho peus ket resevet titouroù-kadarnaat?"
         receive_unlock: "N'ho peus ket resevet titouroù-dibrenn?"
         sign_in: "Mont e-barzh"
         sign_up: "Lakait hoc'h anv"
         sign_up_closed: "Klozet eo an enskrivadurioù evit poent."
-      mail_signup_form: 
+      mail_signup_form:
         sign_up_for_an_invite: "Lakait hoc'h anv evit bezañ pedet!"
-    unlocks: 
-      new: 
+    unlocks:
+      new:
         resend_unlock: "Kas titouroù-dibrennañ en dro"
       send_instructions: "Emaoc'h o vont da reseviñ ur postel gant titouroù evit goût penaos dibrennañ ho kont a-benn nebeut."
       unlocked: "Ho kont zo bet dibrennet mat. Emaoc'h luget."
-  errors: 
-    messages: 
+  errors:
+    messages:
       already_confirmed: "zo bet kadarnet dija"
       not_found: "n'eo ket bet kavet"
       not_locked: "n'eo ket bet prennet"

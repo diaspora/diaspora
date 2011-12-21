@@ -4,29 +4,29 @@
 
 
 
-gl: 
-  javascripts: 
-    aspect_dropdown: 
+gl:
+  javascripts:
+    aspect_dropdown:
       add_to_aspect: "Engadir a un aspecto"
-      toggle: 
+      toggle:
         few: "En {{count}} aspectos"
         many: "En {{count}} aspectos"
         one: "Nun aspecto"
         other: "En {{count}} aspectos"
         zero: "Engadir a un aspecto"
-    comments: 
+    comments:
       hide: "Agochar os comentarios"
       show: "Amosar todos os comentarios"
     confirm_dialog: "Está seguro?"
     failed_to_like: "Non se puido indicar que lle gusta a publicación!"
     failed_to_post_message: "Non se puido publicar a mensaxe!"
-    infinite_scroll: 
+    infinite_scroll:
       no_more: "Non hai máis publicacións."
-    publisher: 
+    publisher:
       at_least_one_aspect: "Ten que publicalo polo menos nun aspecto."
     search_for: "Buscar por «{{name}}»"
     show_more: "Amosar máis"
-    timeago: 
+    timeago:
       day: "un día."
       days: "%d días."
       hour: "unha hora."
@@ -42,8 +42,8 @@ gl:
       suffixFromNow: ""
       year: "un ano."
       years: "%d anos."
-    videos: 
+    videos:
       unknown: "Tipo de vídeo descoñecido"
       watch: "Ver o vídeo en {{provider}}"
-    web_sockets: 
+    web_sockets:
       disconnected: "Pechouse o conector web, as publicacións deixarán de aparecer en canto se publiquen."

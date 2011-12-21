@@ -4,14 +4,14 @@
 
 
 
-is: 
-  devise: 
-    confirmations: 
+is:
+  devise:
+    confirmations:
       confirmed: "Aðgangurinn þinn hefur nú verið staðfestur. Þú ert @{f:innskráð|m:innskráður|innskráð(ur)}."
-      new: 
+      new:
         resend_confirmation: "Endursenda leiðbeiningar um staðfestingu"
       send_instructions: "Þú munt fá tölvupóst innan fárra mínútna, með leiðbeiningum um hvernig þú staðfestir aðganginn þinn."
-    failure: 
+    failure:
       inactive: "Aðgangurinn þinn hefur enn ekki verið gerður virkur."
       invalid: "Ógilt netfang eða lykilorð."
       invalid_token: "Ógildur staðfestingarlykill."
@@ -19,17 +19,17 @@ is:
       timeout: "Innskráningin þín hefur runnið út á tíma. Vinsamlegast skráðu þig aftur inn til að geta haldið áfram."
       unauthenticated: "Þú þarft að skrá þig inn eða stofna nýjan aðgang áður en þú getur haldið áfram."
       unconfirmed: "Þú þarft að staðfesta aðganginn þinn áður en þú getur haldið áfram."
-    invitations: 
+    invitations:
       invitation_token_invalid: "Okkur þykir það leitt, en þetta er ekki gildur boðslykill."
       send_instructions: "Boðið þitt hefur verið sent."
       updated: "Nú er búið að stilla lykilorðið þitt og þú ert hér með @{f:innskráð|m:innskráður|innskráð(ur)}."
-    mailer: 
-      confirmation_instructions: 
+    mailer:
+      confirmation_instructions:
         confirm: "Staðfesta aðganginn minn"
         subject: "Leiðbeiningar um staðfestingu"
         you_can_confirm: "Þú getur staðfest aðganginn þinn með því að elta hlekkinn hér fyrir neðan:"
       hello: "Halló %{email}!"
-      invitation_instructions: 
+      invitation_instructions:
         accept: "Þiggja boð"
         arrived: "Hér er loksins komið samskiptanetið sem þú hefur beðið eftir. %{strong_diaspora} er hressara, öruggara og skemmtilegra, og tilbúið fyrir það sem þú vilt skoða eða deila með vefnum, á nýjan hátt."
         be_yourself: "Vertu þú @{f:sjálf|m:sjálfur|sjálf(ur)}"
@@ -55,36 +55,36 @@ is:
         team_diaspora: Diasporahópurinn
         unsubscribe: "Smelltu %{link} til að segja upp áskriftinni."
         view_in: "View in"
-      inviter: 
+      inviter:
         accept_at: "á %{url}. Þú getur þegið boðið með því að fylgja hlekknum hér fyrir neðan."
         have_invited_you: "%{names} hafa boðið þér að vera með í Diaspora"
-      reset_password_instructions: 
+      reset_password_instructions:
         change: "Breyta lykilorðinu mínu"
         ignore: "Ef þú baðst ekki um þetta, vinsamlegast gefðu þessum tölvupósti þá engan gaum."
         someone_requested: "Einhver hefur beðið um hlekk til að breyta lykilorðinu þínu og þú getur gert það með því að elta hlekkinn hér fyrir neðan."
         subject: "Leiðbeiningar um endurstillingu lykilorðs"
         wont_change: "Lykilorð þitt mun ekki breytast fyrr en þú eltir hlekkinn hér fyrir ofan og býrð til nýtt."
-      unlock_instructions: 
+      unlock_instructions:
         account_locked: "Aðgangi þínum hefur verið læst vegna þess að of oft hefur verið að reynt að opna hann án árangurs."
         click_to_unlock: "Eltu hlekkinn hér fyrir neðan til að taka aðgang þinn úr lás."
         subject: Aflæsingarleiðbeiningar
         unlock: "Taka aðgang minn úr lás"
       welcome: "Velkomin/n %{email}!"
-    passwords: 
-      edit: 
+    passwords:
+      edit:
         change_password: "Breyta lykilorði mínu"
-      new: 
+      new:
         forgot_password: "Gleymdirðu lykilorðinu þínu?"
         no_account: "Enginn notandi með þetta netfang ert til. Ef þú ert að bíða eftir boði, þá erum við að senda þau út eins fljótt og auðið er"
         send_password_instructions: "Senda mér leiðbeiningar um hvernig ég get endurstillt lykilorðið mitt"
       send_instructions: "Þú munt fá tölvupóst innan fárra mínútna, með leiðbeiningum um hvernig þú getur endurstillt lykilorð þitt."
       updated: "Lykilorði þínu hefur hér með verið breytt. Þú ert nú skráð/ur inn."
-    registrations: 
+    registrations:
       destroyed: "Bæ! Aðgangur þinn hefur hér með verið afturkallaður. Við vonumst til þess að sjá þig brátt aftur."
       signed_up: "Þú hefur hér með stofnað aðgang. Staðfesting var send á tölvupóstfang þitt, ef kveikt er á þeim möguleika."
       updated: "Þú hefur nú uppfært aðgang þinn."
-    sessions: 
-      new: 
+    sessions:
+      new:
         alpha_software: "Þú ert í þann veginn að nota alpha-hugbúnað (það þýðir að hann hefur ekki verið fullreyndur)."
         bugs_and_feedback: "Hafðu fyrirvara um að þú munt rekast á galla í forritinu. Við hvetjum þig til að nota Feedback-hnappinn þér á hægri hönd til þess að tilkynna hvers kyns hiksta! Við munum vinna eins hratt og við getum að því að leysa þau mál sem þú tilkynnir."
         bugs_and_feedback_mobile: "Hafðu fyrirvara um að þú munt rekast á galla í forritinu. Við hvetjum þig til að tilkynna hvers kyns hiksta! Við munum vinna eins hratt og við getum að því að leysa þau mál sem þú tilkynnir."
@@ -96,23 +96,23 @@ is:
         username: Notandanafn
       signed_in: "Þú ert nú skráð/ur inn."
       signed_out: "Þú hefur verið skráð/ur út."
-    shared: 
-      links: 
+    shared:
+      links:
         forgot_your_password: "Gleymdirðu lykilorðinu þínu?"
         receive_confirmation: "Fékkstu ekki staðfestingarleiðbeiningarnar?"
         receive_unlock: "Fékkstu ekki leiðbeiningarnar um hvernig þú getur tekið úr lás?"
         sign_in: Innskrá
         sign_up: "Stofna aðgang"
         sign_up_closed: "Ekki er hægt að stofna aðgang án boðslykils eins og er."
-      mail_signup_form: 
+      mail_signup_form:
         sign_up_for_an_invite: "Fá boðslykil!"
-    unlocks: 
-      new: 
+    unlocks:
+      new:
         resend_unlock: "Endursenda leiðbeiningar um hvernig ég get tekið úr lás"
       send_instructions: "Þú færð tölvupóst innan fárra mínútna, með leiðbeiningum um hvernig þú getur tekið aðgang þinn úr lás."
       unlocked: "Aðgangur þinn hefur hér með verið opnaður. Þú ert nú skráð/ur inn."
-  errors: 
-    messages: 
+  errors:
+    messages:
       already_confirmed: "var nú þegar staðfestur"
       not_found: "fannst ekki"
       not_locked: "var ekki læstur"

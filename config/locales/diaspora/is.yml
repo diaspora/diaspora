@@ -4,80 +4,80 @@
 
 
 
-is: 
+is:
   _comments: Athugasemdir
   _contacts: Tengiliðir
   _home: Forsíða
   _photos: Myndir
   _services: Þjónusta
   account: Notandastillingar
-  activerecord: 
-    errors: 
-      models: 
-        contact: 
-          attributes: 
-            person_id: 
+  activerecord:
+    errors:
+      models:
+        contact:
+          attributes:
+            person_id:
               taken: "verður að vera einstakt meðal tengiliða þessa notanda."
-        person: 
-          attributes: 
-            diaspora_handle: 
+        person:
+          attributes:
+            diaspora_handle:
               taken: "er þegar frátekið."
-        request: 
-          attributes: 
-            from_id: 
+        request:
+          attributes:
+            from_id:
               taken: "er afrit af fyrirliggjandi beiðni."
-        reshare: 
-          attributes: 
-            root_guid: 
+        reshare:
+          attributes:
+            root_guid:
               taken: "You've already reshared that post!"
-        user: 
-          attributes: 
-            email: 
+        user:
+          attributes:
+            email:
               taken: "er þegar í notkun."
-            person: 
+            person:
               invalid: "er ógilt."
-            username: 
+            username:
               invalid: "is invalid. We only allow letters, numbers, and underscores"
               taken: "er þegar í notkun."
   ago: "%{time} síðan"
   all_aspects: "All aspects"
-  application: 
-    helper: 
+  application:
+    helper:
       unknown_person: "óþekkt manneskja"
-      video_title: 
+      video_title:
         unknown: "Óþekktur vídeótitill"
   are_you_sure: "Ertu viss?"
-  aspect_memberships: 
-    destroy: 
+  aspect_memberships:
+    destroy:
       failure: "Ekki tókst að fjarlægja persónu af ásýnd"
       no_membership: "Valda manneskjan fannst ekki í þeirri ásýnd"
       success: "Það heppnaðist að fjarlægja persónu af ásýnd"
-  aspects: 
-    add_to_aspect: 
+  aspects:
+    add_to_aspect:
       failure: "Ekki tókst að bæta tengilið við ásýnd."
       success: "Það heppnaðist að bæta tengilið við ásýnd."
-    aspect_contacts: 
+    aspect_contacts:
       done_editing: "búið að breyta"
     contacts_not_visible: "Tengiliðir í þessari ásýnd geta ekki séð hvern annan."
     contacts_visible: "Tengiliðir í þessari ásýnd geta séð hvern annan."
-    create: 
+    create:
       failure: "Ekki tókst að búa til ásýnd."
       success: "Nýja ásýndin þín %{name} var búin til"
-    destroy: 
+    destroy:
       success: "það heppnaðist að fjarlægja %{name}."
-    edit: 
+    edit:
       add_existing: "Bæta við tengilið sem er þegar til"
       confirm_remove_aspect: "Ertu viss um að þú viljir eyða þessari ásýnd?"
       make_aspect_list_visible: "gera þáttökulista ásýndar sýnilegan öðrum í ásýnd"
       remove_aspect: "Eyða þessari ásýnd"
       rename: "breyta nafni"
-    helper: 
+    helper:
       are_you_sure: "Ertu viss um að þú viljir eyða þessari ásýnd?"
       aspect_not_empty: "Ásýnd er ekki tóm"
       remove: fjarlægja
-    index: 
+    index:
       handle_explanation: "Þetta er netfangið þitt hjá Díaspora. Eins og með venjulegt netfang, geturðu gefið fólki það svo þau geti haft samband við þig. "
-      help: 
+      help:
         here_to_help: "Diaspora community is here to help!"
         tag_bug: "#bug"
         tag_feature: "#feature"
@@ -85,61 +85,61 @@ is:
       keep_us_running: "Keep %{pod} running fast, buy our servers their monthly coffee fix!"
       no_contacts: "Engir tengiliðir"
       no_tags: "No tags"
-    move_contact: 
+    move_contact:
       error: "Villa við að breyta tengiliði: %{inspect}"
       failure: "virkaði ekki %{inspect}"
       success: "Fólk flutt í nýja ásýnd"
-    new: 
+    new:
       name: Name
-    no_contacts_message: 
+    no_contacts_message:
       try_adding_some_more_contacts: "You can search (top) or invite (right) more contacts."
-    no_posts_message: 
+    no_posts_message:
       start_talking: "Enginn hefur sagt neitt enn.  Byrjaðu umræðurnar!"
-    seed: 
+    seed:
       family: Fjölskylda
       work: Vinna
-    show: 
+    show:
       edit_aspect: "Breyta ásýndum"
-    update: 
+    update:
       failure: "Ásýnd þín,%{nafn}, hefur of langt nafn til að geta verið vistuð."
       success: "Ásýnd þinni,% {nafn}, hefur verið breytt."
   back: "Til baka"
-  bookmarklet: 
+  bookmarklet:
     explanation: "%{link} from anywhere by bookmarking this link."
     explanation_link_text: "Post to Diaspora"
     heading: "Diaspora Bookmarklet"
   cancel: "Hætta við"
-  comments: 
-    new_comment: 
+  comments:
+    new_comment:
       comment: Athugasemd
       commenting: "Athugasemd gerð..."
-  contacts: 
-    create: 
+  contacts:
+    create:
       failure: "Ekki tókst að mynda tengsl"
     few: "%{count} tengsl"
-    index: 
+    index:
       add_to_aspect: "Add contacts to %{name}"
       no_contacts: "No contacts."
     one: "Ein tengsl"
     other: "%{count} tengsl"
     zero: "Engin tengsl"
-  conversations: 
-    helper: 
-      new_messages: 
+  conversations:
+    helper:
+      new_messages:
         zero: "no new messages"
-  date: 
-    formats: 
+  date:
+    formats:
       birthday_with_year: "%d %B %Y"
       fullmonth_day: "%d %B"
   delete: Eyða
   email: Netfang
-  error_messages: 
-    helper: 
+  error_messages:
+    helper:
       correct_the_following_errors_and_try_again: "Það þarf að lagfæra eftirfarandi villur og reyna síðan aftur. "
   fill_me_out: "Fylla út"
   find_people: "Find people"
-  home: 
-    show: 
+  home:
+    show:
       already_account: "nú þegar með notandastillingar?"
       choice: Valkostur
       choice_explanation: "Diaspora gerir þér kleift að raða tengingum í hópa sem kallast ásýndir. Einungis í Diaspora tryggja ásýndir að myndir þínar, sögur og brandarar séu einungis samnýtt með þeim sem þú ætlar. "
@@ -152,14 +152,14 @@ is:
       simplicity_explanation: "Diaspora gerir samnýtingu hreina og auðvelda - og það gildir líka fyrir friðhelgi. Þar sem Diaspora er í eðli sínu persónulegt, þarftu ekki að vaða í gegnum síður með stillingum og möguleikum til að halda síðunni þinni öruggri."
       tagline_first_half: "Deildu því sem þú vilt,"
       tagline_second_half: "með þeim sem þú vilt."
-  invitations: 
-    create: 
+  invitations:
+    create:
       already_contacts: "Þú tengist þessari manneskju nú þegar"
       already_sent: "Þessari manneskju hefur þegar verið boðið."
       no_more: "Ekki eru til fleiri boðsmiðar."
       rejected: "Eftirfarandi netföng ollu vandræðum: "
       sent: "Boðsmiðar hafa verið sendir til:"
-    new: 
+    new:
       already_invited: "Nu þegar boðið"
       aspect: Ásýnd
       comma_seperated_plz: "Þú getur sett inn mörg netföng með því að aðskilja þau með kommu. "
@@ -170,27 +170,27 @@ is:
       send_an_invitation: "Sendu boðsmiða"
       send_invitation: "Senda boðsmiða"
       to: Til
-  layouts: 
-    application: 
+  layouts:
+    application:
       powered_by: "DÍASPORA* STJÓRNAR HÉR"
       toggle: "toggle mobile site"
       whats_new: "hvað er að frétta?"
       your_aspects: "þínar ásýndir"
-    header: 
+    header:
       blog: blogg
       login: Innskráning
       logout: Útskrá
       profile: profile
       settings: settings
-  likes: 
-    likes: 
-      people_dislike_this: 
+  likes:
+    likes:
+      people_dislike_this:
         few: "%{count} people disliked this"
         many: "%{count} people disliked this"
         one: "1 person disliked this"
         other: "%{count} people disliked this"
         zero: "no people disliked this"
-      people_like_this: 
+      people_like_this:
         few: "%{count} people liked this"
         many: "%{count} people liked this"
         one: "1 person liked this"
@@ -198,119 +198,119 @@ is:
         zero: "no people liked this"
   more: Meira
   next: næsta
-  notifications: 
-    helper: 
-      new_notifications: 
+  notifications:
+    helper:
+      new_notifications:
         one: "1 new notifications"
         zero: "no new notifications"
-    index: 
+    index:
       mark_all_as_read: "Merkja allt sem lesið"
       notifications: Tilkynningar
-    liked: 
+    liked:
       few: "%{actors} has just liked your %{post_link}."
       many: "%{actors} has just liked your %{post_link}."
       one: "%{actors} has just liked your %{post_link}."
       other: "%{actors} has just liked your %{post_link}."
       two: "%{actors} has just liked your %{post_link}."
       zero: "%{actors} has just liked your %{post_link}."
-    mentioned: 
+    mentioned:
       few: "%{actors} has mentioned you in a %{post_link}."
       many: "%{actors} has mentioned you in a %{post_link}."
       other: "%{actors} has mentioned you in a %{post_link}."
       two: "%{actors} has mentioned you in a %{post_link}."
       zero: "%{actors} has mentioned you in a %{post_link}."
     post: "setja inn"
-    reshared: 
+    reshared:
       few: "%{actors} has reshared your %{post_link}."
       many: "%{actors} has reshared your %{post_link}."
       other: "%{actors} has reshared your %{post_link}."
       two: "%{actors} has reshared your %{post_link}."
       zero: "%{actors} has reshared your %{post_link}."
-  notifier: 
-    confirm_email: 
+  notifier:
+    confirm_email:
       click_link: "To activate your new e-mail address %{unconfirmed_email}, please click this link:"
       subject: "Please activate your new e-mail address %{unconfirmed_email}"
     hello: "Halló %{name}!"
-    liked: 
+    liked:
       liked: "%{name} has just liked your post: "
-    mentioned: 
+    mentioned:
       mentioned: "gat þín í pósti:"
       subject: "% {Nafn} hefur getið þín á Diaspora*"
-    reshared: 
+    reshared:
       reshared: "%{name} just reshared your post"
-    single_admin: 
+    single_admin:
       subject: "Skilaboð um notandastillingar þínar í Diaspora:"
-    started_sharing: 
+    started_sharing:
       subject: "%{name} has started sharing with you on Diaspora*"
     thanks: "Takk,"
   or: eða
   password: Lykilorð
   password_confirmation: "Staðfesting lykilorðs"
-  people: 
-    aspect_list: 
+  people:
+    aspect_list:
       edit_membership: "breyta aðild að ásýnd"
-    helper: 
+    helper:
       results_for: " niðurstöður fyrir %{params}"
-    index: 
+    index:
       couldnt_find_them_send_invite: "Þau fundust ekki?  Senda boðsmiða!"
       no_one_found: "...og enginn fannst."
       no_results: "Hey! Þú þarft að leita að einhverju."
       results_for: "leitarniðurstöður fyrir"
-    person: 
+    person:
       add_contact: "bæta tengilið við"
       already_connected: "Þegar tengdur"
       pending_request: "pending request"
       thats_you: "thats you!"
-    profile_sidebar: 
+    profile_sidebar:
       born: afmælisdagur
       edit_my_profile: "Breyta síðunni minni"
       gender: kyn
       in_aspects: "í ásýnd"
       remove_contact: "fjarlægja tengilið"
       remove_from: "Fjarlægja %{name} úr %{aspect}?"
-    show: 
+    show:
       does_not_exist: "Manneskjan er ekki til!"
       incoming_request: "%{name} vill samnýta með þér"
       not_connected: "Þú samnýtir ekki með %{name}"
       recent_posts: "Nýlegar færslur"
       start_sharing: "Byrja að samnýta"
       to_accept_or_ignore: "að samþykkja eða hunsa það."
-    webfinger: 
+    webfinger:
       fail: "Því miður, %{handle} fannst ekki."
-  photos: 
-    create: 
+  photos:
+    create:
       integrity_error: "Innhlöðunn myndar mistókst. Ertu viss um að þetta hafi verið mynd?"
       runtime_error: "Innsetning á mynd mistóḱst.  Ertu viss um að sætisbeltin séu spennt?"
       type_error: "Innsetning á mynd mistóḱst. Ertu viss um að mynd hafi verið bætt við?"
-    destroy: 
+    destroy:
       notice: "Mynd eytt."
-    edit: 
+    edit:
       editing: Breyti
-    new: 
+    new:
       back_to_list: "Til baka í listann"
       post_it: "færa inn!"
-    new_photo: 
+    new_photo:
       empty: "{file} skráin er tóm, veldu vinsamlegast skrárnar aftur en slepptu henni."
       invalid_ext: "{file} hefur ógilt viðskeyti. Aðeins {extensions} eru leyfð."
       size_error: "{file} skráin er of stór, mesta stærð er {sizeLimit}."
-    new_profile_photo: 
+    new_profile_photo:
       upload: "Setja upp nýja mynd!"
-    photo: 
+    photo:
       view_all: "skoða allar myndir hjá notandanum %{name}'"
-    show: 
+    show:
       collection_permalink: "safn varanlegra tengla"
       delete_photo: "Eyða mynd"
       edit: breyta
       edit_delete_photo: "Breyta lýsingu við mynd / eyða mynd"
       make_profile_photo: "setja mynd á síðuna mína"
       update_photo: "Uppfæra mynd"
-    update: 
+    update:
       error: "Ekki tókst að breyta mynd."
       notice: "Velheppnuð uppfærsla á mynd. "
   previous: fyrra
   profile: "Síðan mín"
-  profiles: 
-    edit: 
+  profiles:
+    edit:
       allow_search: "Leyfa fólki að leita að þér á Díaspora"
       edit_profile: "Breyta síðunni minni"
       first_name: Fornafn
@@ -323,41 +323,41 @@ is:
       your_photo: "Mynd þín"
       your_tags: "You: in 5 #tags"
       your_tags_placeholder: "i.e. #diaspora #ironing #kittens #music"
-    update: 
+    update:
       failed: "Ekki tókst að uppfæra síðuna mína"
       updated: "Síðan mín uppfærð"
-  registrations: 
+  registrations:
     closed: "Innskráningar eru lokaðar á þessum Diaspora pod."
-    create: 
+    create:
       success: "Nú hefurðu tengst Diaspora!"
-    edit: 
+    edit:
       cancel_my_account: "Aflýsa mínum notandastillingum"
       edit: "Breyta %{name}"
       leave_blank: "(Skildu eftir autt ef þú vilt ekki gera breytingu)"
       password_to_confirm: "(Við þurfum núverandi lykilorðið þitt til að staðfesta breytingar þínar)"
       unhappy: Óhamingjusamur?
       update: Uppfæra
-    new: 
+    new:
       create_my_account: "Create my account"
       enter_email: "Gefðu upp netfang"
       enter_password: "Skrifaðu lykilorð"
       enter_password_again: "Skrifaðu sama lykilorð og áður"
       enter_username: "Veldu notandanafn (aðeins bókstafi, tölur, og undirstrikun)"
       sign_up_message: "Social Networking with a <3"
-  requests: 
-    create: 
+  requests:
+    create:
       sending: Sendi
       sent: "%{name} hefur verið beðin(n) um að tengjast þér.  Þau ættu að sjá það þegar þau logga næst inn í Díaspora."
-    destroy: 
+    destroy:
       error: "Þú þarft að velja ásýnd!"
       ignore: "Hundsaði vinabeiðni. "
       success: "Nú er vinátta á milli ykkar."
-    manage_aspect_contacts: 
+    manage_aspect_contacts:
       existing: "Núverandi tengiliðir"
       manage_within: "Umsjón tengiliða innan"
-  reshares: 
-    reshare: 
-      reshare: 
+  reshares:
+    reshare:
+      reshare:
         few: "%{count} Reshares"
         many: "%{count} Reshares"
         one: "1 Reshare"
@@ -366,39 +366,39 @@ is:
       reshare_original: "Reshare orignial"
       show_original: "Show Original"
   search: Leita
-  services: 
-    create: 
+  services:
+    create:
       success: "Auðkenning tókst."
-    failure: 
+    failure:
       error: "villa kom upp við að tengjast þeirri þjónustu"
-    index: 
+    index:
       connect_to_facebook: "Tengja við facebook"
       connect_to_twitter: "Tengja við twitter"
       disconnect: aftengja
       edit_services: "Breyta þjónustum"
       logged_in_as: "innskráning þín sem "
       really_disconnect: "aftengja %{service}?"
-    inviter: 
+    inviter:
       click_link_to_accept_invitation: "Smelltu á þessa krækju til að þiggja boðið"
       join_me_on_diaspora: "Tengstu mér á DIASPORA*"
-    remote_friend: 
+    remote_friend:
       invite: bjóða
       resend: endursenda
   settings: Stillingar
-  shared: 
-    add_contact: 
+  shared:
+    add_contact:
       create_request: "Finna fólk eftir Díaspora netfangi"
       diaspora_handle: diaspora@handle.org
       enter_a_diaspora_username: "Skrifaðu notandanafn hjá Diaspora:"
       know_email: "Veistu netföngin þeirra? Þú ættir að senda þeim boðsmiða"
       your_diaspora_username_is: "Þitt Diaspora notandanafn er: %{diaspora_handle}"
-    aspect_dropdown: 
+    aspect_dropdown:
       add_to_aspect: "Add to aspect"
-      toggle: 
+      toggle:
         zero: "Add to aspect"
-    contact_list: 
+    contact_list:
       all_contacts: "Allir tengiliðir"
-    invitations: 
+    invitations:
       by_email: "með tölvupósti"
       dont_have_now: "Þú átt enga boðsmiða núna, en þeir koma fljótlega!"
       from_facebook: "Frá Facebook"
@@ -406,56 +406,56 @@ is:
       invite_someone: "Bjóddu einhverjum"
       invite_your_friends: "Bjóddu vinafólki þínu"
       invites: Boðsmiðar
-    notification: 
+    notification:
       new: "Nýtt %{type} frá %{from}"
-    public_explain: 
+    public_explain:
       outside: "Almennt aðgengileg skilaboð verða sýnileg öðrum utan Diaspora."
       title: "Þú ert að fara að setja þetta á almannafæri!"
-    publisher: 
+    publisher:
       all: allt
       all_contacts: "Allir tengiliðir"
       make_public: "gera almennt"
-      new_user_prefill: 
+      new_user_prefill:
         i_like: "I'm interested in %{tags}."
       post_a_message_to: "Skrifa skilaboð til %{aspect}"
       posting: Senda...
       share: Deila
       share_with: "deila með"
       whats_on_your_mind: "hvað er þér efst í huga?"
-    reshare: 
+    reshare:
       reshare: Endurdeila
-    stream_element: 
+    stream_element:
       dislike: "I dislike this"
       hide_and_mute: "Hide and Mute"
       like: "I like this"
-  status_messages: 
-    destroy: 
+  status_messages:
+    destroy:
       failure: "Ekki tókst að eyða færslu"
-    helper: 
+    helper:
       no_message_to_display: "Engin skilaboð að sýna!"
-  stream_helper: 
+  stream_helper:
     hide_comments: "fela athugasemdir"
-  streams: 
-    mentions: 
+  streams:
+    mentions:
       title: "Your Mentions"
-    tags: 
+    tags:
       contacts_title: "People who dig these tags"
-  tag_followings: 
-    create: 
+  tag_followings:
+    create:
       failure: "Failed to follow: #%{name}"
       success: "Successfully following: #%{name}"
-    destroy: 
+    destroy:
       failure: "Failed to stop following: #%{name}"
       success: "Successfully stopped following: #%{name}"
-  tokens: 
-    show: 
+  tokens:
+    show:
       connecting_is_simple: "Connecting your Diaspora account is as simple as filling out two fields on your Cubbi.es account page."
   username: Notandanafn
-  users: 
-    confirm_email: 
+  users:
+    confirm_email:
       email_confirmed: "E-Mail %{email} activated"
       email_not_confirmed: "E-Mail could not be activated. Wrong link?"
-    edit: 
+    edit:
       change: Breyting
       change_email: "Change E-Mail"
       change_language: "Breyta um tungumál"
@@ -467,11 +467,11 @@ is:
       receive_email_notifications: "Fá tilkynningar í tölvupósti?"
       your_email: "Netfangið þitt"
       your_handle: "Díaspora netfangið þitt."
-    getting_started: 
+    getting_started:
       what_facebook_does: "to Diaspora. This will pull your name and photo, and enable cross-positng."
-    public: 
+    public:
       does_not_exist: "Notandinn %{username} er ekki til!"
-    update: 
+    update:
       email_notifications_changed: "Tilkynningum í tölvupósti var breytt."
       language_changed: "breytt var um tungumál"
       language_not_changed: "ekki tókst að breyta um tungumál"

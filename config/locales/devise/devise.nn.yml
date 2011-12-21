@@ -4,14 +4,14 @@
 
 
 
-nn: 
-  devise: 
-    confirmations: 
+nn:
+  devise:
+    confirmations:
       confirmed: "Kontoen din er stadfesta. Du kan no logga deg på."
-      new: 
+      new:
         resend_confirmation: "Send stadfestingsrettleiinga på nytt"
       send_instructions: "Om ei lita stund vil du få ei e-postmelding med rettleiing om korleis du stadfestar kontoen din."
-    failure: 
+    failure:
       inactive: "Kontoen din var ikkje teken i bruk."
       invalid: "Brukarnamnet eller passordet er ugyldig."
       invalid_token: "Ugyldig autentisering."
@@ -19,53 +19,53 @@ nn:
       timeout: "Økta finst ikkje lenger. Logg deg på att."
       unauthenticated: "Du må logga deg på eller melda deg inn før du kan halda fram."
       unconfirmed: "Du må stadfesta kontoen din før du kan halda fram."
-    invitations: 
+    invitations:
       invitation_token_invalid: "Invitasjonsførespurnaden er ikkje gyldig."
       send_instructions: "Invitasjonen din er vorten send."
       updated: "Passordet ditt vart lagra. Du kan no logga deg på."
-    mailer: 
-      confirmation_instructions: 
+    mailer:
+      confirmation_instructions:
         confirm: "Stadfest kontoen min"
         subject: Stadfestingsrettleiing
         you_can_confirm: "Du kan stadfesta kontoen din ved å nytta lenkja nedanfor:"
       hello: "Hei %{email}."
-      invitation_instructions: 
+      invitation_instructions:
         accept: "Godta invitasjonen"
         displaying_correctly: "Email not displaying correctly? %{link} in your browser"
         ignore: "Om du ikkje ønskjer å godta invitasjonen, lèt du berre vera å svara på meldinga."
         no_account_till: "Kontoen din vil ikkje verta oppretta før du nyttar lenkja ovanfor og loggar deg på."
         subject: "Du er vorten invitert til å vera med i Diaspora."
         view_in: "View in"
-      inviter: 
+      inviter:
         accept_at: "på %{url}, du kan godta det gjennom lenkja nedanfor."
         have_invited_you: "%{names} har invitert deg til å verta med i Diaspora"
-      reset_password_instructions: 
+      reset_password_instructions:
         change: "Endra passordet mitt"
         ignore: "Om du ikkje bad om dette, kan du berre sjå vekk frå meldinga."
         someone_requested: "Nokon har spurt etter ei lenkje for å nullstilla passordet ditt. Du kan gjera dette ved hjelp av lenkja nedanfor."
         subject: "Nullstill passordrettleiinga"
         wont_change: "Passordet vil ikkje verta endra før du nyttar lenkja ovanfor og lagar eit nytt eit."
-      unlock_instructions: 
+      unlock_instructions:
         account_locked: "Kontoen din er låst grunna for mange mislykka påloggingsforsøk."
         click_to_unlock: "Klikk på lenkja nedanfor for å låsa opp kontoen din:"
         subject: Opplåsingsrettleiing
         unlock: "Lås opp kontoen min"
       welcome: "Velkomen %{email}."
-    passwords: 
-      edit: 
+    passwords:
+      edit:
         change_password: "Endra passordet mitt"
-      new: 
+      new:
         forgot_password: "Har du gløymt passordet ditt?"
         no_account: "Det finst ingen konto med denne e-postadressa. Om du ventar på ein invitasjon, skal du veta at vi sender dei ut så fort vi kan."
         send_password_instructions: "Send meg opplysningar om korleis nullstilla passordet"
       send_instructions: "Om ei lita stund vil du få ei e-postmelding med opplysningar om korleis du kan nullstilla passordet ditt."
       updated: "Passordet ditt vart endra. Du er no pålogga."
-    registrations: 
+    registrations:
       destroyed: "Ha det! Kontoen din vart sletta. Vi vonar vi ser deg att snart."
       signed_up: "Du er no påmeld. Om du slo på valet, vil det koma ei stadfesting til e-postkontoen din."
       updated: "Kontoen din vart oppdatert."
-    sessions: 
-      new: 
+    sessions:
+      new:
         alpha_software: "Du er på veg til å ta i bruk alfa-program."
         bugs_and_feedback: "Ver merksam på at du vil oppleva feil. Vi ber deg om å rapportera dei til oss ved å nytta tilbakemeldingsknappen på nettlesaren si høgre side. Så skal vi prøva å ordna dei så fort råd er."
         bugs_and_feedback_mobile: "Ver merksam på at du vil oppleva feil. Vi ber deg om å rapportera dei til oss. Så skal vi prøva å ordna dei så fort råd er."
@@ -77,23 +77,23 @@ nn:
         username: Brukarnamn
       signed_in: "Er pålogga."
       signed_out: "Er utlogga."
-    shared: 
-      links: 
+    shared:
+      links:
         forgot_your_password: "Har du gløymt passordet ditt?"
         receive_confirmation: "Har du ikkje fått stadfestingsrettleiinga?"
         receive_unlock: "Fekk du ikkje nullstillingsrettleiinga?"
         sign_in: "Logg på"
         sign_up: Påmelding
         sign_up_closed: "Du kan ikkje melda deg på no."
-      mail_signup_form: 
+      mail_signup_form:
         sign_up_for_an_invite: "Meld deg på for å få ein invitasjon."
-    unlocks: 
-      new: 
+    unlocks:
+      new:
         resend_unlock: "Send opplåsingrettleiinga på nytt"
       send_instructions: "Om ei lita stund vil du få ei e-postmelding med rettleiing om korleis låsa opp att kontoen din."
       unlocked: "Kontoen din vart låst opp. Du kan no logga deg på."
-  errors: 
-    messages: 
+  errors:
+    messages:
       already_confirmed: "var allereie stadfesta"
       not_found: "ikkje funnen"
       not_locked: "vart ikkje låst"

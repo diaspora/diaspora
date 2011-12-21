@@ -4,36 +4,36 @@
 
 
 
-pa: 
+pa:
   _comments: ਟਿੱਪਣੀਆਂ
   _contacts: ਸੰਪਰਕ
   _home: ਘਰ
   _photos: ਫੋਟੋ
   _services: ਸਰਵਿਸਾਂ
   account: ਅਕਾਊਂਟ
-  activerecord: 
-    errors: 
-      models: 
-        reshare: 
-          attributes: 
-            root_guid: 
+  activerecord:
+    errors:
+      models:
+        reshare:
+          attributes:
+            root_guid:
               taken: "You've already reshared that post!"
-        user: 
-          attributes: 
-            username: 
+        user:
+          attributes:
+            username:
               invalid: "is invalid. We only allow letters, numbers, and underscores"
   ago: "%{time} ਪਹਿਲਾਂ"
   all_aspects: "All aspects"
   are_you_sure: "ਕੀ ਤੁਸੀਂ ਚਾਹੁੰਦੇ ਹੋ?"
-  aspects: 
-    edit: 
+  aspects:
+    edit:
       make_aspect_list_visible: "make aspect list visible to others in aspect"
       rename: ਨਾਂ-ਬਦਲੋ
-    helper: 
+    helper:
       remove: ਹਟਾਓ
-    index: 
+    index:
       handle_explanation: "This is your diaspora handle. Like an email address, you can give this to people to reach you."
-      help: 
+      help:
         here_to_help: "Diaspora community is here to help!"
         tag_bug: "#bug"
         tag_feature: "#feature"
@@ -41,66 +41,66 @@ pa:
       keep_us_running: "Keep %{pod} running fast, buy our servers their monthly coffee fix!"
       no_contacts: "ਕੋਈ ਸੰਪਰਕ ਨਹੀਂ"
       no_tags: "No tags"
-    new: 
+    new:
       name: Name
-    no_contacts_message: 
+    no_contacts_message:
       try_adding_some_more_contacts: "You can search (top) or invite (right) more contacts."
-    no_posts_message: 
+    no_posts_message:
       start_talking: "Nobody has said anything yet.  Get the conversation started!"
-    seed: 
+    seed:
       family: ਪਰਿਵਾਰ
       work: ਕੰਮ
   back: ਪਿੱਛੇ
-  bookmarklet: 
+  bookmarklet:
     explanation: "%{link} from anywhere by bookmarking this link."
     explanation_link_text: "Post to Diaspora"
     heading: "Diaspora Bookmarklet"
   cancel: "ਰੱਦ ਕਰੋ"
-  comments: 
-    new_comment: 
+  comments:
+    new_comment:
       comment: ਟਿੱਪਣੀ
       commenting: "ਟਿੱਪਣੀ ਕੀਤੀ ਜਾ ਰਹੀ ਹੈ..."
-  contacts: 
-    index: 
+  contacts:
+    index:
       add_to_aspect: "Add contacts to %{name}"
       no_contacts: "No contacts."
     one: "1 ਸੰਪਰਕ"
     other: "%{count} ਸੰਪਰਕ"
     zero: "ਕੋਈ ਸੰਪਰਕ ਨਹੀਂ"
-  conversations: 
-    helper: 
-      new_messages: 
+  conversations:
+    helper:
+      new_messages:
         zero: "no new messages"
   delete: ਹਟਾਓ
   email: ਈਮੇਲ
   find_people: "Find people"
-  home: 
-    show: 
+  home:
+    show:
       already_account: "ਪਹਿਲਾਂ ਹੀ ਅਕਾਊਂਟ ਹੈ?"
       login_here: "ਇੱਥੇ ਲਾਗਇਨ ਕਰੋ"
-  invitations: 
-    new: 
+  invitations:
+    new:
       already_invited: "Already invited"
-  layouts: 
-    application: 
+  layouts:
+    application:
       toggle: "toggle mobile site"
       whats_new: "ਨਵਾਂ ਕੀ ਹੈ?"
-    header: 
+    header:
       blog: ਬਲੌਗ
       code: ਕੋਡ
       login: ਲਾਗਇਨ
       logout: ਲਾਗਆਉਟ
       profile: profile
       settings: settings
-  likes: 
-    likes: 
-      people_dislike_this: 
+  likes:
+    likes:
+      people_dislike_this:
         few: "%{count} people disliked this"
         many: "%{count} people disliked this"
         one: "1 person disliked this"
         other: "%{count} people disliked this"
         zero: "no people disliked this"
-      people_like_this: 
+      people_like_this:
         few: "%{count} people liked this"
         many: "%{count} people liked this"
         one: "1 person liked this"
@@ -108,82 +108,82 @@ pa:
         zero: "no people liked this"
   more: ਹੋਰ
   next: ਅੱਗੇ
-  notifications: 
-    helper: 
-      new_notifications: 
+  notifications:
+    helper:
+      new_notifications:
         one: "1 new notifications"
         zero: "no new notifications"
-    liked: 
+    liked:
       few: "%{actors} has just liked your %{post_link}."
       many: "%{actors} has just liked your %{post_link}."
       one: "%{actors} has just liked your %{post_link}."
       other: "%{actors} has just liked your %{post_link}."
       two: "%{actors} has just liked your %{post_link}."
       zero: "%{actors} has just liked your %{post_link}."
-    mentioned: 
+    mentioned:
       few: "%{actors} has mentioned you in a %{post_link}."
       many: "%{actors} has mentioned you in a %{post_link}."
       other: "%{actors} has mentioned you in a %{post_link}."
       two: "%{actors} has mentioned you in a %{post_link}."
       zero: "%{actors} has mentioned you in a %{post_link}."
     post: ਪੋਸਟ
-    reshared: 
+    reshared:
       few: "%{actors} has reshared your %{post_link}."
       many: "%{actors} has reshared your %{post_link}."
       other: "%{actors} has reshared your %{post_link}."
       two: "%{actors} has reshared your %{post_link}."
       zero: "%{actors} has reshared your %{post_link}."
-  notifier: 
-    confirm_email: 
+  notifier:
+    confirm_email:
       click_link: "To activate your new e-mail address %{unconfirmed_email}, please click this link:"
       subject: "Please activate your new e-mail address %{unconfirmed_email}"
     hello: "ਹੈਲੋ %{name}!"
-    liked: 
+    liked:
       liked: "%{name} has just liked your post: "
-    reshared: 
+    reshared:
       reshared: "%{name} just reshared your post"
-    started_sharing: 
+    started_sharing:
       subject: "%{name} has started sharing with you on Diaspora*"
   ok: "ਠੀਕ ਹੈ"
   or: ਜਾਂ
   password: ਪਾਸਵਰਡ
   password_confirmation: "ਪਾਸਵਰਡ ਪੁਸ਼ਟੀ"
-  people: 
-    helper: 
+  people:
+    helper:
       results_for: "%{params} ਲਈ ਨਤੀਜੇ"
-    person: 
+    person:
       add_contact: "ਸੰਪਰਕ ਸ਼ਾਮਲ"
       already_connected: "ਪਹਿਲਾਂ ਹੀ ਕੁਨੈਕਟ ਹੈ"
       pending_request: "pending request"
       thats_you: "thats you!"
-    show: 
+    show:
       not_connected: "You are not sharing with %{name}"
   previous: ਪਿੱਛੇ
-  profiles: 
-    edit: 
+  profiles:
+    edit:
       your_tags: "You: in 5 #tags"
       your_tags_placeholder: "i.e. #diaspora #ironing #kittens #music"
-  registrations: 
-    edit: 
+  registrations:
+    edit:
       cancel_my_account: "ਮੇਰਾ ਅਕਾਊਂਟ ਰੱਦ ਕਰੋ"
       edit: "%{name} ਸੋਧ"
       unhappy: "ਖੁਸ਼ ਨਹੀਂ?"
       update: ਅੱਪਡੇਟ
-    new: 
+    new:
       create_my_account: "Create my account"
       enter_email: "ਈਮੇਲ ਦਿਓ"
       enter_password: "ਪਾਸਵਰਡ ਦਿਓ"
       enter_password_again: "ਪਹਿਲਾਂ ਵਾਲਾ ਪਾਸਵਰਡ ਦਿਓ"
       enter_username: "ਯੂਜ਼ਰ ਨਾਂ ਚੁਣੋ (ਕੇਵਲ ਅੱਖਰ, ਅੰਕ ਅਤੇ ਹੇਠਾਂ ਲਾਈਨ)"
       sign_up_message: "Social Networking with a <3"
-  requests: 
-    destroy: 
+  requests:
+    destroy:
       success: "ਹੁਣ ਤੁਸੀਂ ਦੋਸਤ ਹੋ।"
-    new_request_to_person: 
+    new_request_to_person:
       sent: ਭੇਜਿਆ!
-  reshares: 
-    reshare: 
-      reshare: 
+  reshares:
+    reshare:
+      reshare:
         few: "%{count} Reshares"
         many: "%{count} Reshares"
         one: "1 Reshare"
@@ -192,71 +192,71 @@ pa:
       reshare_original: "Reshare orignial"
       show_original: "Show Original"
   search: ਖੋਜ
-  services: 
-    index: 
+  services:
+    index:
       connect_to_facebook: "ਫੇਸਬੁੱਕ ਨਾਲ ਕੁਨੈਕਟ ਕਰੋ"
       connect_to_twitter: "ਟਵਿੱਟਰ ਨਾਲ ਕੁਨੈਕਟ ਕਰੋ"
       disconnect: "ਕੁਨੈਕਸ਼ਨ ਖਤਮ ਕਰੋ"
       edit_services: "ਸਰਵਿਸ ਸੋਧ"
       logged_in_as: "ਇੰਝ ਲਾਗ ਕਰੋ"
-    inviter: 
+    inviter:
       click_link_to_accept_invitation: "Click this link to accept your invitation"
-    remote_friend: 
+    remote_friend:
       invite: ਸੱਦਾ
       resend: ਮੁੜ-ਭੇਜੋ
-  shared: 
-    add_contact: 
+  shared:
+    add_contact:
       create_request: "Find by Diaspora handle"
       diaspora_handle: diaspora@handle.org
-    aspect_dropdown: 
+    aspect_dropdown:
       add_to_aspect: "Add to aspect"
-      toggle: 
+      toggle:
         zero: "Add to aspect"
-    contact_list: 
+    contact_list:
       all_contacts: "ਸਭ ਸੰਪਰਕ"
-    invitations: 
+    invitations:
       by_email: "by Email"
       invitations_left: "(%{count} left)"
-    public_explain: 
+    public_explain:
       title: "You are about to post a public message!"
-    publisher: 
+    publisher:
       all: ਸਭ
       all_contacts: "ਸਭ ਸੰਪਰਕਾਂ ਨਾਲ"
       make_public: "ਪਬਲਿਕ ਬਣਾਓ"
-      new_user_prefill: 
+      new_user_prefill:
         i_like: "I'm interested in %{tags}."
       posting: "ਪੋਸਟ ਕੀਤਾ ਜਾ ਰਿਹਾ ਹੈ..."
       whats_on_your_mind: "ਤੁਹਾਡੇ ਦਿਮਾਗ 'ਚ ਕੀ ਹੈ?"
-    stream_element: 
+    stream_element:
       dislike: "I dislike this"
       hide_and_mute: "Hide and Mute"
       like: "I like this"
-  status_messages: 
-    helper: 
+  status_messages:
+    helper:
       no_message_to_display: "ਵੇਖਾਉਣ ਲਈ ਕੋਈ ਸੁਨੇਹਾ ਨਹੀਂ ਹੈ।"
-  stream_helper: 
+  stream_helper:
     hide_comments: "ਟਿੱਪਣੀਆਂ ਓਹਲੇ ਕਰੋ"
-  streams: 
-    mentions: 
+  streams:
+    mentions:
       title: "Your Mentions"
-    tags: 
+    tags:
       contacts_title: "People who dig these tags"
-  tag_followings: 
-    create: 
+  tag_followings:
+    create:
       failure: "Failed to follow: #%{name}"
       success: "Successfully following: #%{name}"
-    destroy: 
+    destroy:
       failure: "Failed to stop following: #%{name}"
       success: "Successfully stopped following: #%{name}"
-  tokens: 
-    show: 
+  tokens:
+    show:
       connecting_is_simple: "Connecting your Diaspora account is as simple as filling out two fields on your Cubbi.es account page."
   username: "ਯੂਜ਼ਰ ਨਾਂ"
-  users: 
-    confirm_email: 
+  users:
+    confirm_email:
       email_confirmed: "E-Mail %{email} activated"
       email_not_confirmed: "E-Mail could not be activated. Wrong link?"
-    edit: 
+    edit:
       change_email: "Change E-Mail"
       change_language: "Change Language"
       change_password: "Change Password"
@@ -264,9 +264,9 @@ pa:
       new_password: "New Password"
       receive_email_notifications: "Receive email notificaions?"
       your_handle: "Your diaspora handle"
-    getting_started: 
+    getting_started:
       what_facebook_does: "to Diaspora. This will pull your name and photo, and enable cross-positng."
-    update: 
+    update:
       language_changed: "ਭਾਸ਼ਾ ਬਦਲੀ ਗਈ"
       language_not_changed: "Language Change Failed"
       password_changed: "ਪਾਸਵਰਡ ਬਦਲਿਆ ਗਿਆ"

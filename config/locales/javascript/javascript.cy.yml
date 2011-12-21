@@ -4,47 +4,47 @@
 
 
 
-cy: 
-  javascripts: 
-    aspect_dropdown: 
+cy:
+  javascripts:
+    aspect_dropdown:
       add_to_aspect: "Ychwanegu cysylltiad"
       all_aspects: "Agweddau i gŷd"
       select_aspects: "Dewis agweddau"
       started_sharing_with: "Rydych chi'n rhannu gyda {{name}}!"
       stopped_sharing_with: "Dydych chi ddim yn rhannu nawr gyda {{name}}."
-      toggle: 
+      toggle:
         few: "Mewn {{count}} agweddau"
         many: "Mewn {{count}} agweddau"
         one: "Mewn {{count}} agwedd"
         other: "Mewn {{count}} agweddau"
         two: "Mewn {{count}} agweddau"
         zero: "Dewiswch agweddau"
-    aspect_navigation: 
+    aspect_navigation:
       deselect_all: "Dad-ddewis i gŷd"
       no_aspects: "Dydych chi ddim wedi dewis unrhyw agweddau"
       select_all: "Dewis i gŷd"
-    comments: 
+    comments:
       hide: "cuddio sylwadau"
       show: "ddangos sylwadau i gŷd"
     confirm_dialog: "Chi'n siwr?"
     failed_to_like: "Wedi methu i hoffi!"
     failed_to_post_message: "Methwyd i bostio neges!"
-    getting_started: 
+    getting_started:
       alright_ill_wait: "O'r gorau - 'dwi'n aros..."
       hey: "Hei, {{name}}!"
       no_tags: "Hei, dydych chi ddim yn dilyn unrhyw tagiau! Dal ymlaen beth bynnag?"
       preparing_your_stream: "Preparing your personalised stream..."
-    infinite_scroll: 
+    infinite_scroll:
       no_more: "Dim mwy o swyddi."
-    photo_uploader: 
+    photo_uploader:
       looking_good: "OMG, rydych chi'n ymddangos yn neis iawn!"
-    reshares: 
+    reshares:
       duplicate: "Mae hynny'n dda, eh? Rydych chi wedi rhannu'r bost eisoes!"
     search_for: "Chwilio am {{name}}"
     show_more: "dangos mwy"
-    tags: 
+    tags:
       wasnt_that_interesting: "OK, mae'n debyg nid yw #{{tagName}} yn ddiddorol iawn..."
-    timeago: 
+    timeago:
       day: diwrnod
       days: "%d diwrnod"
       hour: awr
@@ -58,6 +58,6 @@ cy:
       suffixFromNow: "o hŷd"
       year: "tua flwyddyn"
       years: "%d blyddynoedd"
-    videos: 
+    videos:
       unknown: "Math o fideo anhysbys"
       watch: "Gwyliwch y fideo ar {{provider}}"

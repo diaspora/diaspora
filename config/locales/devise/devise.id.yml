@@ -4,14 +4,14 @@
 
 
 
-id: 
-  devise: 
-    confirmations: 
+id:
+  devise:
+    confirmations:
       confirmed: "Akun Anda telah berhasil disahkan. Anda sekarang telah masuk."
-      new: 
+      new:
         resend_confirmation: "Kirim ulang instruksi untuk pengesahan"
       send_instructions: "Anda akan menerima email berisi instruksi bagaimana mengkonfirmasi akun Anda dalam beberapa menit."
-    failure: 
+    failure:
       inactive: "Akun anda belum diaktifkan."
       invalid: "E-mail atau kata sandi tidak valid."
       invalid_token: "Token otentikasi tidak valid."
@@ -19,53 +19,53 @@ id:
       timeout: "Sesi anda telah berakhir, silahkan masuk lagi untuk melanjutkan."
       unauthenticated: "Anda harus masuk atau mendaftar sebelum melanjutkan."
       unconfirmed: "Anda harus mengkonfirmasi akun Anda sebelum melanjutkan."
-    invitations: 
+    invitations:
       invitation_token_invalid: "Bukti undangan yang diberikan tidak valid!"
       send_instructions: "Undangan anda telah dikirimkan."
       updated: "Kata sandi anda berhasil dibuat. Sekarang anda sudah terdaftar."
-    mailer: 
-      confirmation_instructions: 
+    mailer:
+      confirmation_instructions:
         confirm: "Sahkan akun saya"
         subject: "Instruksi pengesahan"
         you_can_confirm: "Anda dapat mengesahkan akun anda melalui tautan di bawah ini:"
       hello: "Halo %{email}!"
-      invitation_instructions: 
+      invitation_instructions:
         accept: "Setuju menerima undangan"
         displaying_correctly: "Email not displaying correctly? %{link} in your browser"
         ignore: "Mohon abaikan e-mail ini, jika anda tidak setuju untuk menerima undangan ini."
         no_account_till: "Akun anda tidak akan diciptakan sampai anda mengakses tautan di atas dan mendaftar."
         subject: "Anda telah diundang untuk bergabung di Diaspora!"
         view_in: "View in"
-      inviter: 
+      inviter:
         accept_at: "di %{url}, anda dapat menerimanya melalui tautan di bawah ini."
         have_invited_you: "%{names} telah mengundang anda untuk bergabung di Diaspora"
-      reset_password_instructions: 
+      reset_password_instructions:
         change: "Ubah kata sandi saya"
         ignore: "Tolong abaikan e-mail ini jika anda tidak memintanya."
         someone_requested: "Seseorang telah meminta tautan untuk mengubah kata sandi anda, anda dapat melakukannya melalui tautan di bawah ini."
         subject: "Instruksi untuk membuat ulang kata sandi"
         wont_change: "Kata sandi anda tidak akan berubah sampai anda mengakses tautan di atas dan membuat yang baru."
-      unlock_instructions: 
+      unlock_instructions:
         account_locked: "Akun anda sekarang terkunci karena berkali-kali gagal saat mencoba masuk."
         click_to_unlock: "Klik tautan di bawah untuk mengaktifkan akun anda:"
         subject: "Instruksi untuk membuka kunci"
         unlock: "Aktifkan akun saya"
       welcome: "Selamat datang %{email}!"
-    passwords: 
-      edit: 
+    passwords:
+      edit:
         change_password: "Ubah kata sandi saya"
-      new: 
+      new:
         forgot_password: "Lupa kata sandi anda?"
         no_account: "Tidak ditemukan akun dengan E-mail. Jika anda menunggu undangan, kami akan menyebarkannya secepatnya"
         send_password_instructions: "Kirimkan saya instruksi untuk membuat ulang kata sandi"
       send_instructions: "Anda akan menerima email berisi petunjuk cara membuat ulang kata sandi Anda dalam beberapa menit."
       updated: "Kata kunci Anda telah berhasil diubah. Anda sekarang sudah masuk."
-    registrations: 
+    registrations:
       destroyed: "Selamat tinggal! Akun Anda telah berhasil dibatalkan. Kami berharap dapat melihat Anda lagi."
       signed_up: "Anda telah berhasil mendaftar. Jika diaktifkan, konfirmasi dikirim ke e-mail Anda."
       updated: "Anda berhasil memperbarui akun anda."
-    sessions: 
-      new: 
+    sessions:
+      new:
         alpha_software: "Anda akan menggunakan perangkat lunak alpha."
         bugs_and_feedback: "Dapat dipastikan, anda akan mengalami gangguan. Kami mendorong anda untuk menggunakan tombol Umpan balik yang berada di bagian kanan penjelajah internet anda untuk melaporkan gangguan sekecil apapun! Kami akan bekerja secepat mungkin untuk menyelesaikan masalah apapun yang anda laporkan."
         bugs_and_feedback_mobile: "Dapat dipastikan, Anda akan mengalami gangguan. Kami mendorong Anda untuk melaporkan gangguan kecil apapun! Kami akan bekerja secepat mungkin untuk menyelesaikan masalah apapun yang Anda laporkan."
@@ -77,23 +77,23 @@ id:
         username: "Nama pengguna"
       signed_in: "Berhasil masuk."
       signed_out: "Berhasil keluar."
-    shared: 
-      links: 
+    shared:
+      links:
         forgot_your_password: "Lupa kata sandi anda?"
         receive_confirmation: "Tidak menerima instruksi pengesahan?"
         receive_unlock: "Tidak menerima instruksi untuk membuka?"
         sign_in: Masuk
         sign_up: Mendaftar
         sign_up_closed: "Pendaftaran terbuka sedang ditutup saat ini."
-      mail_signup_form: 
+      mail_signup_form:
         sign_up_for_an_invite: "Mendaftar untuk undangan!"
-    unlocks: 
-      new: 
+    unlocks:
+      new:
         resend_unlock: "Kirim ulang instruksi untuk membuka"
       send_instructions: "Anda akan menerima email berisi instruksi bagaimana membuka akun Anda dalam beberapa menit."
       unlocked: "Akun Anda telah berhasil dibuka. Anda sekarang sudah masuk."
-  errors: 
-    messages: 
+  errors:
+    messages:
       already_confirmed: "sudah dikonfirmasi"
       not_found: "tidak ditemukan"
       not_locked: "tidak terkunci"
