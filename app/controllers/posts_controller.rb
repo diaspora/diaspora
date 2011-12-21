@@ -40,7 +40,7 @@ class PostsController < ApplicationController
 
     else
       user_id = (user_signed_in? ? current_user : nil)
-      Rails.logger.info(:event => :link_to_nonexistent_post, :ref => request.env['HTTP_REFERER'], :user_id => user_id, :post_id => params[:id])
+      Rails.logger.info(":event => :link_to_nonexistent_post, :ref => #{request.env['HTTP_REFERER']}, :user_id => #{user_id}, :post_id => #{params[:id]}")
       flash[:error] = I18n.t('posts.show.not_found')
       redirect_to :back
     end

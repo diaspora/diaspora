@@ -82,7 +82,7 @@ class SignedRetraction
       self.target.unsocket_from_user receiving_user if target.respond_to? :unsocket_from_user
       self.target.destroy
     end
-    Rails.logger.info(:event => :retraction, :status => :complete, :target_type => self.target_type, :guid => self.target_guid)
+    Rails.logger.info("event=retraction status =complete target_type=#{self.target_type} guid =#{self.target_guid}")
   end
 
   def receive(recipient, sender)

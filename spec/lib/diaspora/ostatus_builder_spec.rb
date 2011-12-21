@@ -37,7 +37,6 @@ describe Diaspora::OstatusBuilder do
     messages.each{ |message| atom2.should include message }
   end
 
-    include Oink::InstanceTypeCounter
   it 'does not query the db for the author of every post' do
     alice.person #Preload user.person
     ActiveRecord::Base.reset_instance_type_count

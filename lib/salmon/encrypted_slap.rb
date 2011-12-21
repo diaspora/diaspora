@@ -30,7 +30,7 @@ HEADER
       begin
        super 
       rescue OpenSSL::PKey::RSAError => e
-        Rails.logger.info(:event => :invalid_rsa_key, :identifier => person.diaspora_handle)
+        Rails.logger.info("event => :invalid_rsa_key, :identifier => #{person.diaspora_handle}")
         false
       end
     end
