@@ -7,7 +7,7 @@ require 'spec_helper'
 describe PostsController do
   before do
     aspect = alice.aspects.first
-    @message = alice.build_post :status_message, :text => "ohai", :to => aspect.id
+    @message = alice.build_post :status_message, :text => "ohai "*800, :to => aspect.id
     @message.save!
 
     alice.add_to_streams(@message, [aspect])
@@ -25,6 +25,12 @@ describe PostsController do
         response.should be_success
         doc.has_link?('Like').should be_true
         doc.has_link?('Comment').should be_true
+      end
+
+      it 'does not collapse the post' do
+        get :show, "id" => @message.id
+        response.should be_success
+        doc.css('collapsible').should be_empty
       end
 
       it 'succeeds on mobile' do
