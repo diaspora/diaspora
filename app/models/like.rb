@@ -3,7 +3,6 @@
 #   the COPYRIGHT file.
 
 class Like < ActiveRecord::Base
-  require File.join(Rails.root, 'lib/diaspora/web_socket')
   include ROXML
 
   include Diaspora::Webhooks
@@ -11,7 +10,6 @@ class Like < ActiveRecord::Base
 
   xml_attr :target_type
   include Diaspora::Relayable
-  include Diaspora::Socketable
 
   xml_attr :positive
   xml_attr :diaspora_handle

@@ -12,13 +12,13 @@ module Jobs
       finger = Webfinger.new(account)
       begin
         result = finger.fetch
-        result.socket_to_user(user_id, opts)
+        Diaspora::Websocket.to(user_id).socket(opts)
       rescue
-        Diaspora::WebSocket.queue_to_user(user_id,
+        Diaspora::Websocket.to(user_id).socket(
           {:class => 'people',
            :status => 'fail',
            :query => account,
-           :response => I18n.t('people.webfinger.fail', :handle => account)}.to_json)
+           :response => I18n.t('people.webfinger.fail', :handle => account)})
       end
     end
   end

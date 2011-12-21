@@ -33,7 +33,9 @@ describe User do
     end
 
     it 'sockets the post to the poster' do
-      @post.should_receive(:socket_to_user).with(alice, anything)
+      socket_stub = mock()
+      socket_stub.should_receive(:socket).with(@post)
+      Diaspora::Websocket.should_receive(:to).with(alice, instance_of(Hash)).and_return(socket_stub)
       alice.add_to_streams(@post, @aspects)
     end
   end

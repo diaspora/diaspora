@@ -3,9 +3,6 @@
 #   the COPYRIGHT file.
 #
 class Notification < ActiveRecord::Base
-  require File.join(Rails.root, 'lib/diaspora/web_socket')
-  include Diaspora::Socketable
-
   belongs_to :recipient, :class_name => 'User'
   has_many :notification_actors, :dependent => :destroy
   has_many :actors, :class_name => 'Person', :through => :notification_actors, :source => :person
@@ -26,8 +23,8 @@ class Notification < ActiveRecord::Base
           n = note_type.make_notification(recipient, target, actor, note_type)
         end
         if n
-          n.email_the_user(target, actor) if n
-          n.socket_to_user(recipient, :actor => actor) if n
+          n.email_the_user(target, actor)
+          Diaspora::Websocket.to(recipient, :actor => actor).socket(n)
           n
         else
           nil

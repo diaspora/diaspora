@@ -8,8 +8,6 @@ require File.join(Rails.root, 'lib/hcard')
 class Person < ActiveRecord::Base
   include ROXML
   include Encryptor::Public
-  require File.join(Rails.root, 'lib/diaspora/web_socket')
-  include Diaspora::Socketable
   include Diaspora::Guid
 
   xml_attr :diaspora_handle
