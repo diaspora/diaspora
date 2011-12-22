@@ -173,12 +173,12 @@ fr:
     explanation_link_text: "ce lien"
     post_something: "Publiez quelque chose sur Diaspora"
     post_success: "Publié ! Fermeture !"
-  cancel: Annuler
+  cancel: "Annuler"
   comments:
     few: "%{count} commentaires"
     many: "%{count} commentaires"
     new_comment:
-      comment: Commenter
+      comment: "Commenter"
       commenting: "Commentaire en cours d'envoi..."
     one: "1 commentaire"
     other: "%{count} commentaires"
@@ -191,7 +191,7 @@ fr:
       add_a_new_aspect: "Ajouter un nouvel aspect"
       add_to_aspect: "ajouter les contacts à %{name}"
       all_contacts: "Tous les contacts"
-      check_out: Vérifiez
+      check_out: "Vérifiez"
       many_people_are_you_sure: "Êtes-vous sûr de vouloir commencer une conversation privée avec plus de %{suggested_limit} contacts? Envoyer des messages à cet aspect peut être un meilleur moyen de les contacter."
       my_contacts: "Mes Contacts"
       no_contacts: "On dirait que vous avez besoin d'ajouter quelques contacts !"
@@ -203,7 +203,10 @@ fr:
       people_sharing: "Personnes partageant avec vous :"
     spotlight:
       community_spotlight: "Actualités de la communauté"
-    zero: contact
+    zero: "No contacts"
+    one: "1 contact"
+    few: "%{count} contacts"
+    other: "%{count} contacts"
   conversations:
     create:
       fail: "Message invalide"
