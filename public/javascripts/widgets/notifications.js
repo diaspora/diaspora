@@ -15,11 +15,18 @@
         notificationArea: notificationArea
       });
 
-      $(".stream_element.unread").live("mousedown", function() {
-        self.decrementCount();
-
+      $(".stream_element.unread,.stream_element.read").live("mousedown", function() {
+        if ( $(this).hasClass("unread") ) {
+          self.decrementCount();
+          $(this).removeClass("unread").addClass( "read" )
+        }
+        else {
+          self.incrementCount();
+          $(this).removeClass("read").addClass( "unread" )
+        }
         $.ajax({
-          url: "notifications/" + $(this).removeClass("unread").data("guid"),
+          url: "notifications/" + $(this).data("guid"),
+          data: { is_unread: $(this).hasClass("unread") },
           type: "PUT"
         });
       });
