@@ -57,12 +57,15 @@
 
       if(self.badge.text() !== "") {
 				self.badge.text(self.count);
+        $( ".notification_count" ).text(self.count);
 
 				if(self.count === 0) {
 	  			self.badge.addClass("hidden");
+          $( ".notification_count" ).addClass("hidden");
 				}
 				else if(self.count === 1) {
 	  			self.badge.removeClass("hidden");
+          $( ".notification_count" ).removeClass("hidden");
 				}
       }
     };
