@@ -6,11 +6,11 @@ require 'uri'
 class AppConfig < Settingslogic
 
   def self.source_file_name
-    if Rails.env == 'test' || ENV["CI"] || Rails.env.include?("integration") || ENV["HEROKU"]
-      File.join(Rails.root, "config", "application.yml.example")
-    else
-      File.join(Rails.root, "config", "application.yml")
+    config_file = File.join(Rails.root, "config", "application.yml")
+    if !File.exists?(config_file) && (Rails.env == 'test' || Rails.env.include?("integration") || ENV["HEROKU"])
+      config_file = File.join(Rails.root, "config", "application.yml.example")
     end
+    config_file
   end
   source source_file_name
   namespace Rails.env
