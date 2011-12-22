@@ -4,14 +4,14 @@
 
 
 
-ms: 
-  devise: 
-    confirmations: 
+ms:
+  devise:
+    confirmations:
       confirmed: "Akaun anda telah berjaya disahkan. Anda kini ditandatangani."
-      new: 
+      new:
         resend_confirmation: "Menghantar semula arahan pengesahan"
       send_instructions: "nda akan menerima e-mel dengan arahan mengenai cara untuk mengesahkan akaun anda dalam beberapa minit."
-    failure: 
+    failure:
       inactive: "Akaun anda tidak diaktifkan lagi."
       invalid: "Tidak sah nama pengguna atau kata laluan."
       invalid_token: "Token pengesahan tidak sah."
@@ -19,16 +19,16 @@ ms:
       timeout: "Sesi anda luput, sila mendaftar masuk sekali lagi untuk meneruskan."
       unauthenticated: "Anda perlu log masuk atau mendaftar sebelum meneruskan."
       unconfirmed: "Anda perlu log masuk atau mendaftar sebelum meneruskan."
-    invitations: 
+    invitations:
       invitation_token_invalid: "Token jemputan yang diberikan adalah tidak sah!"
       send_instructions: "Jemputan anda telah dihantar."
       updated: "Kata laluan anda telah ditubuhkan dengan jayanya. Anda kini ditandatangani."
-    mailer: 
-      confirmation_instructions: 
+    mailer:
+      confirmation_instructions:
         confirm: "Sahkan akaun saya"
         subject: "pengesahan tunjuk-cara"
         you_can_confirm: "Anda boleh mengesahkan akaun anda melalui link di bawah:"
-      invitation_instructions: 
+      invitation_instructions:
         accept: "menerima jemputan"
         arrived: "Rangkaian sosial yang anda tunggu telah tiba. Dirombak, lebih selamat, dan lebih menyenangkan,% {strong_diaspora} bersedia untuk membantu anda berkongsi dan meneroka web dengan cara yang baru."
         be_yourself: "Jadi Diri Sendiri"
@@ -55,36 +55,36 @@ ms:
         team_diaspora: "Kumpulan Diaspora"
         unsubscribe: "Untuk menghentikan langganan, sila klik %{link}."
         view_in: "Lihat dalam"
-      inviter: 
+      inviter:
         accept_at: "pada% {url}, anda boleh menerimanya melalui link di bawah."
         have_invited_you: "%{names} telah menjemput anda untuk menyertai Diaspora"
-      reset_password_instructions: 
+      reset_password_instructions:
         change: "Tukar kata laluan saya"
         ignore: "Jika anda tidak membuat permintaan ini, sila abaikan email ini."
         someone_requested: "Seseorang telah meminta link untuk menukar kata laluan anda, dan anda boleh melakukan ini melalui link di bawah."
         subject: "Arahan tukar kata laluan"
         wont_change: "Kata laluan anda tidak akan berubah sehingga anda mengakses pautan di atas dan mencipta yang baru."
-      unlock_instructions: 
+      unlock_instructions:
         account_locked: "Akaun anda telah dikunci kerana jumlah cubaan \"sign in\" yang berlebihan."
         click_to_unlock: "Klik pautan di bawah untuk membuka akaun anda:"
         subject: "Arahan Membuka Kunci"
         unlock: "Buka kunci akaun saya"
       welcome: "Selamat Datang %{email}!"
-    passwords: 
-      edit: 
+    passwords:
+      edit:
         change_password: "Tukar kata laluan saya"
-      new: 
+      new:
         forgot_password: "Lupa kata laluan anda?"
         no_account: "Tiada akaun dengan e-mel ini wujud. Jika anda sedang menunggu untuk jemputan, kami memusing mereka secepat mungkin"
         send_password_instructions: "Hantar saya arahan menetap semula kata laluan"
       send_instructions: "Anda akan menerima e-mel dengan arahan mengenai cara untuk menetapkan semula kata laluan anda dalam beberapa minit."
       updated: "Kata laluan anda telah berubah dengan jayanya. Anda kini ditandatangani."
-    registrations: 
+    registrations:
       destroyed: "Selamat tinggal! Akaun anda telah berjaya dibatalkan. Kami berharap untuk melihat anda semula tidak lama lagi."
       signed_up: "Anda telah mendaftar dengan jayanya. Jika diaktifkan, pengesahan telah dihantar ke e-mel anda."
       updated: "Anda mengemas kini akaun anda dengan jayanya."
-    sessions: 
-      new: 
+    sessions:
+      new:
         alpha_software: "Anda akan menggunakan perisian alfa."
         bugs_and_feedback: "Dinasihatkan, anda akan mengalami ralat. Kami menggalakkan anda untuk menggunakan butang Maklum balas pada sebelah kanan pelayar anda untuk melaporkan sebarang rintangan! Kita akan berusaha secepat mungkin agar kita boleh menyelesaikan apa-apa isu yang anda laporkan."
         bugs_and_feedback_mobile: "Dinasihatkan, anda akan mengalami ralat. Kami menggalakkan anda untuk melaporkan apa-apa rintangan! Kita akan berusaha secepat mungkin agar kita boleh menyelesaikan apa-apa isu yang anda laporkan."
@@ -96,23 +96,23 @@ ms:
         username: "Nama pengguna"
       signed_in: "Ditandatangani dengan jayanya."
       signed_out: "Signed dengan jayanya."
-    shared: 
-      links: 
+    shared:
+      links:
         forgot_your_password: "Lupa kata laluan anda?"
         receive_confirmation: "Tidak menerima arahan pengesahan?"
         receive_unlock: "Tidak menerima arahan membuka kunci?"
         sign_in: "Daftar masuk"
         sign_up: Daftar
         sign_up_closed: "Pendaftaran terbuka ditutup pada masa ini."
-      mail_signup_form: 
+      mail_signup_form:
         sign_up_for_an_invite: "Daftar untuk jemputan!"
-    unlocks: 
-      new: 
+    unlocks:
+      new:
         resend_unlock: "Hantar semula arahan membuka kunci"
       send_instructions: "Anda akan menerima e-mel dengan arahan mengenai bagaimana untuk membuka akaun anda dalam beberapa minit."
       unlocked: "Akaun anda telah berjaya dibuka. Anda kini ditandatangani."
-  errors: 
-    messages: 
+  errors:
+    messages:
       already_confirmed: "telah disahkan"
       not_found: "tidak dijumpai"
       not_locked: "tidak dikunci"

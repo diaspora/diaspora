@@ -59,7 +59,7 @@ describe Photo do
       @photo = Photo.diaspora_initialize(
                 :author => @user.person, :user_file => @image)
     end
-    
+
     it 'sets the persons diaspora handle' do
       @photo.diaspora_handle.should == @user.person.diaspora_handle
     end
@@ -83,7 +83,7 @@ describe Photo do
     context "with a url" do
       it 'saves the photo' do
         url = "https://service.com/user/profile_image"
-        
+
         photo_stub = stub.as_null_object
         photo_stub.should_receive(:remote_unprocessed_image_url=).with(url)
         Photo.stub(:new).and_return(photo_stub)
@@ -227,17 +227,19 @@ describe Photo do
       }.should change(Photo, :count).by(-1)
     end
 
-    it 'will delete parent status message iff message is otherwise empty' do
+    it 'will delete parent status message if message is otherwise empty' do
       expect {
         @photo2.destroy
       }.should change(StatusMessage, :count).by(-1)
     end
 
-    it 'will not delete parent status message iff message had other content' do
+    it 'will not delete parent status message if message had other content' do
+      @status_message.text = "Some text"
+      @status_message.save
+      @status_message.reload
+
       expect {
-        @status_message.text = "Some text"
-        @status_message.save
-        @status_message.reload
+        @photo2.status_message.reload
         @photo2.destroy
       }.should_not change(StatusMessage, :count)
     end

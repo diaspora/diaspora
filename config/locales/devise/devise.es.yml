@@ -4,14 +4,14 @@
 
 
 
-es: 
-  devise: 
-    confirmations: 
+es:
+  devise:
+    confirmations:
       confirmed: "Tu cuenta ha sido confirmada. Ya has accedido a tu cuenta."
-      new: 
+      new:
         resend_confirmation: "Volver a enviar instrucciones de confirmación"
       send_instructions: "Recibirás un correo con instrucciones para confirmar tu cuenta en pocos minutos."
-    failure: 
+    failure:
       inactive: "Tu cuenta aún no ha sido activada."
       invalid: "Nombre de usuario o contraseña incorrectos."
       invalid_token: "Identificador de autenticación incorrecto."
@@ -19,17 +19,17 @@ es:
       timeout: "Tu sesión ha expirado, por favor accede de nuevo para continuar."
       unauthenticated: "Necesitas acceder a tu cuenta o registrarte antes de continuar."
       unconfirmed: "Necesitas confirmar tu cuenta antes de continuar."
-    invitations: 
+    invitations:
       invitation_token_invalid: "¡Discúlpanos, ese identificador de invitación no es valido."
       send_instructions: "Tu invitación se ha enviado."
       updated: "Tu contraseña ha sido establecida con éxito. Ahora has accedido."
-    mailer: 
-      confirmation_instructions: 
+    mailer:
+      confirmation_instructions:
         confirm: "Confirmar mi cuenta"
         subject: "Instrucciones de confirmación"
         you_can_confirm: "Puedes confirmar tu cuenta a través del siguiente enlace:"
       hello: "Hola %{email}!"
-      invitation_instructions: 
+      invitation_instructions:
         accept: "Aceptar invitación"
         arrived: "La red social que has estado esperando ha llegado. Renovada, más segura y divertida, %{strong_diaspora} está lista para ayudarte a compartir y explorar la red de una forma totalmente nueva."
         be_yourself: "Sé tú mism@"
@@ -56,36 +56,36 @@ es:
         team_diaspora: "Equipo Diaspora*"
         unsubscribe: "Para anular tu suscripción haz clic en %{link}."
         view_in: "Ver en el navegador."
-      inviter: 
+      inviter:
         accept_at: "en %{url}, puedes aceptar en el enlace inferior."
         have_invited_you: "%{names} te ha invitado a unirte a Diaspora*"
-      reset_password_instructions: 
+      reset_password_instructions:
         change: "Cambiar mi contraseña"
         ignore: "Si no has solicitado esto, por favor ignora este mensaje."
         someone_requested: "Alguien ha solicitado un enlace para cambiar tu contraseña, y tú puedes hacerlo con el siguiente enlace."
         subject: "Instrucciones para cambiar tu contraseña"
         wont_change: "Tu contraseña no cambiará hasta que accedas al enlace anterior y crees una nueva."
-      unlock_instructions: 
+      unlock_instructions:
         account_locked: "Tu cuenta ha sido bloqueada debido a una excesiva cantidad de intentos de ingreso fallidos."
         click_to_unlock: "Pulsa en el enlace de abajo para desbloquear tu cuenta:"
         subject: "Instrucciones para desbloquear tu cuenta"
         unlock: "Desbloquear mi cuenta"
       welcome: "¡Bienvenido %{email}!"
-    passwords: 
-      edit: 
+    passwords:
+      edit:
         change_password: "Cambiar mi contraseña"
-      new: 
+      new:
         forgot_password: "¿Olvidaste tu contraseña?"
         no_account: "No existe una cuenta con ese correo. Si estás esperando una invitación, las haremos llegar tan pronto como nos sea posible."
         send_password_instructions: "Envíame instrucciones para restablecer la contraseña"
       send_instructions: "Recibirás un correo con instrucciones para cambiar tu contraseña en pocos minutos."
       updated: "Tu contraseña ha sido modificada. Ya has accedido a tu cuenta."
-    registrations: 
+    registrations:
       destroyed: "¡Adiós! Tu cuenta ha sido cancelada. Esperamos volver a verte pronto."
       signed_up: "Te has registrado con éxito. Un mensaje de confirmación ha sido enviado a tu email."
       updated: "Has actualizado tu cuenta con éxito."
-    sessions: 
-      new: 
+    sessions:
+      new:
         alpha_software: "Estás a punto de utilizar software en versión alpha."
         bugs_and_feedback: "Ten en cuenta que puedes sufrir errores. ¡Te animamos a que utilices el botón de Feedback situado a la derecha de tu navegador para informar cualquier fallo! Trabajaremos tan rápido como nos sea posible para resolver cualquier problema que nos remitas."
         bugs_and_feedback_mobile: "Ten en cuenta que puedes sufrir errores. ¡Te animamos a informar de cualquier fallo! Trabajaremos tan rápido como nos sea posible para resolver cualquier problema que nos remitas."
@@ -97,23 +97,23 @@ es:
         username: "Nombre de usuario"
       signed_in: "Accediste con éxito. A navegar libre..."
       signed_out: "Saliste con éxito."
-    shared: 
-      links: 
+    shared:
+      links:
         forgot_your_password: "¿Olvidaste tu contraseña?"
         receive_confirmation: "¿No has recibido instrucciones de confirmación?"
         receive_unlock: "¿No has recibido las instrucciones de desbloqueo?"
         sign_in: Acceder
         sign_up: Regístrate
         sign_up_closed: "Los registros están cerrados temporalmente."
-      mail_signup_form: 
+      mail_signup_form:
         sign_up_for_an_invite: "¡Regístrate para ser invitado!"
-    unlocks: 
-      new: 
+    unlocks:
+      new:
         resend_unlock: "Volver a enviar las instrucciones de desbloqueo."
       send_instructions: "Recibirás un correo con instrucciones para desbloquear tu cuenta en pocos minutos."
       unlocked: "Tu cuenta ha sido desbloqueada. Ya has accedido a tu cuenta."
-  errors: 
-    messages: 
+  errors:
+    messages:
       already_confirmed: "Ya ha sido confirmada"
       not_found: "No encontrado"
       not_locked: "No fue bloqueado"

@@ -4,14 +4,14 @@
 
 
 
-nb: 
-  devise: 
-    confirmations: 
+nb:
+  devise:
+    confirmations:
       confirmed: "Brukeren din er nå bekrefta, og du er logga inn."
-      new: 
+      new:
         resend_confirmation: "Send bekreftelses-instruksjoner på nytt"
       send_instructions: "Du vil få en e-post med instrukser om hvordan du bekrefter brukeren din om kort tid."
-    failure: 
+    failure:
       inactive: "Brukeren din er ikke aktivert ennå."
       invalid: "Ugyldig e-postadresse eller passord."
       invalid_token: "Ugyldig aktiveringskode."
@@ -19,17 +19,17 @@ nb:
       timeout: "Økta har løpt ut, logg inn igjen for å fortsette."
       unauthenticated: "Du må logge inn eller lage en bruker før du kan fortsette."
       unconfirmed: "Du må bekrefte brukeren din før du kan fortsette."
-    invitations: 
+    invitations:
       invitation_token_invalid: "Den oppgitte aktiveringskoden er ugyldig!"
       send_instructions: "Invitasjonen er sendt."
       updated: "Passordet ble satt vellykket. Du er nå logget inn"
-    mailer: 
-      confirmation_instructions: 
+    mailer:
+      confirmation_instructions:
         confirm: "Bekreft kontoen min"
         subject: Bekreftelsesinstrukser
         you_can_confirm: "Du kan bekrefte kontoen via linken nedenfor:"
       hello: "Hei %{email}!"
-      invitation_instructions: 
+      invitation_instructions:
         accept: "Takk ja til invitasjonen"
         arrived: "Det sosiale nettverket som du har ventet på har kommet. Med nytt utseende, bedre sikkerhet, og mer moro - %{strong_diaspora} er klar for å hjelpe deg dele og utforske nettet på en hel ny måte."
         be_yourself: "Vær deg selv"
@@ -54,35 +54,35 @@ nb:
         subject: "Du har blitt invitert til Diaspora!"
         unsubscribe: "For å avregistrere deg klikk på %{link}."
         view_in: "Se i"
-      inviter: 
+      inviter:
         have_invited_you: "%{names} har invitert deg til Diaspora"
-      reset_password_instructions: 
+      reset_password_instructions:
         change: "Endre passordet mitt"
         ignore: "Hvis du ikke har bedt om det, kan du overse denne e-posten."
         someone_requested: "Noen har bedt om en lenke for å endre passordet ditt, og du kan gjøre dette via linken nedenfor."
         subject: "Instruksjoner for å tilbakestille passord"
         wont_change: "Ditt passord vil ikke endres før du klikker på linken over og lager et nytt."
-      unlock_instructions: 
+      unlock_instructions:
         account_locked: "Kontoen din er låst på grunn av for mange mislykkede påloggingsforsøk"
         click_to_unlock: "Klikk på linken nedenfor for å låse opp kontoen:"
         subject: "Instrukser for å låse opp"
         unlock: "Lås opp kontoen min"
       welcome: "Velkommen %{email}!"
-    passwords: 
-      edit: 
+    passwords:
+      edit:
         change_password: "Endre passordet mitt"
-      new: 
+      new:
         forgot_password: "Glemt passordet?"
         no_account: "Det finnes ingen bruker med denne e-postadressen. Hvis du venter på en invitasjon, sender vi dem ut så snart vi kan."
         send_password_instructions: "Send meg instruksjoner for å tilbakestille passordet"
       send_instructions: "Du vil få en e-post med instrukser om hvordan du tilbakestiller passordet ditt om kort tid."
       updated: "Passordet ditt er nå endra, og du har logga inn."
-    registrations: 
+    registrations:
       destroyed: "Ha det! Brukeren din er nå sagt opp. Vi håper å se deg igjen snart."
       signed_up: "Du har nå laga en bruker. Hvis du valgte å få en e-post med bekreftelse på dette, er den nå sendt."
       updated: "Du har oppdatert brukeren din."
-    sessions: 
-      new: 
+    sessions:
+      new:
         alpha_software: "Du er i ferd med å bruke alpha-programvare."
         bugs_and_feedback: "Vær advart, du vil oppleve feil. Vi oppfordrer deg til å bruke feedback knappen på høyre side av nettleseren til å melde feil! Vi vil arbeide så fort vi kan for å løse eventuelle problemer du rapporterer."
         bugs_and_feedback_mobile: "Vær advart, du vil oppleve bugs. Vi oppfordrer deg til å rapportere feil! Vi vil arbeide så fort vi kan for å løse eventuelle problemer du rapporterer."
@@ -94,23 +94,23 @@ nb:
         username: Brukernavn
       signed_in: "Innlogginga var vellykka."
       signed_out: "Utlogginga var vellykka."
-    shared: 
-      links: 
+    shared:
+      links:
         forgot_your_password: "Glemt passordet?"
         receive_confirmation: "Fikk du ingen bekreftelsesinstrukser?"
         receive_unlock: "Fikk du ingen instrukser for å låse opp?"
         sign_in: "Logg inn"
         sign_up: "Registrer deg"
         sign_up_closed: "Åpen påmelding er stengt."
-      mail_signup_form: 
+      mail_signup_form:
         sign_up_for_an_invite: "Registrer deg for en invitasjon!"
-    unlocks: 
-      new: 
+    unlocks:
+      new:
         resend_unlock: "Send instruksene for å låse opp på nytt"
       send_instructions: "Du vil få en e-post med instrukser om hvordan du låser opp brukeren din om kort tid."
       unlocked: "Brukeren din er nå låst opp, og du er logga in."
-  errors: 
-    messages: 
+  errors:
+    messages:
       already_confirmed: "er allerede bekrefta"
       not_found: "ble ikke funnet"
       not_locked: "er ikke låst"

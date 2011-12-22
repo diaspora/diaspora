@@ -4,52 +4,52 @@
 
 
 
-pt-BR: 
-  javascripts: 
-    aspect_dropdown: 
+pt-BR:
+  javascripts:
+    aspect_dropdown:
       add_to_aspect: "Adicionar contato"
       all_aspects: "Todos aspectos"
       error: "Não foi possível compartilhar com {{name}}.  Deseja ignorar isto?"
       select_aspects: "Selecione os aspectos"
       started_sharing_with: "Você começou a compartilhar com {{name}}!"
       stopped_sharing_with: "Você parou de compartilhar com {{name}}."
-      toggle: 
+      toggle:
         few: "Em {{count}} aspectos"
         many: "Em {{count}} aspectos"
         one: "Em {{count}} aspecto"
         other: "Em {{count}} aspectos"
         two: "Em {{count}} aspectos"
         zero: "Adicione para aspecto"
-    aspect_navigation: 
+    aspect_navigation:
       deselect_all: "Desmarcar tudo"
       no_aspects: "Sem aspecto selecionado"
       select_all: "Marcar tudo"
-    comments: 
+    comments:
       hide: "ocultar comentários"
       show: "mostrar todos comentários"
     confirm_dialog: "Tem certeza?"
     failed_to_like: "Falhou ao curtir!"
     failed_to_post_message: "Falha em postar a mensagem!"
-    getting_started: 
+    getting_started:
       alright_ill_wait: "Tudo bem, eu esperarei."
       hey: "Ei, {{name}}!"
       no_tags: "Ei, você não está seguindo todas as tags! Continuar assim mesmo?"
       preparing_your_stream: "Preparando seu fluxo personalizado..."
-    infinite_scroll: 
+    infinite_scroll:
       no_more: "Não há mais postagem."
-    photo_uploader: 
+    photo_uploader:
       looking_good: "OMG, veja você é incrível!"
-    publisher: 
+    publisher:
       at_least_one_aspect: "Você deve publicar pelo menos um aspecto"
       limited: "Limitada - a sua postagem será visível apenas para as pessoas que você compartilha."
       public: "Pública - a sua postagem será totalmente visível na web e poderá ser encontrada pelos mecanismos de buscas, Google, Bing e etc..."
-    reshares: 
+    reshares:
       duplicate: "Você já compartilhou essa postagem."
     search_for: "Procurar por {{name}}"
     show_more: "mostrar mais"
-    tags: 
+    tags:
       wasnt_that_interesting: "Ok, eu acho que #{{tagName}} não era tão interessante..."
-    timeago: 
+    timeago:
       day: "um dia"
       days: "%d dias"
       hour: "cerca de uma hora"
@@ -63,8 +63,8 @@ pt-BR:
       suffixFromNow: "a partir de agora"
       year: "cerca de um ano"
       years: "%d anos"
-    videos: 
+    videos:
       unknown: "Tipo de vídeo desconhecido"
       watch: "Assista este vídeo no {{provider}}"
-    web_sockets: 
+    web_sockets:
       disconnected: "A conexão foi encerrada, não é mais possível transmitir novas postagens."

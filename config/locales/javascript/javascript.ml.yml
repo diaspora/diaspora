@@ -4,21 +4,21 @@
 
 
 
-ml: 
-  javascripts: 
-    aspect_dropdown: 
+ml:
+  javascripts:
+    aspect_dropdown:
       add_to_aspect: "Add to aspect"
-      toggle: 
+      toggle:
         zero: "Add to aspect"
     confirm_dialog: "താങ്കള്‍ക്ക് ഉറപ്പാണോ?"
-    infinite_scroll: 
+    infinite_scroll:
       no_more: "കൂടുതല്‍ പോസ്റ്റുകളൊന്നുമില്ല."
-    publisher: 
+    publisher:
       at_least_one_aspect: "താങ്കള്‍ ഒരു പരിചയത്തിമെങ്കിലും തിരഞ്ഞെടുക്കേണ്ടതാണ്."
-    reshares: 
+    reshares:
       duplicate: "You've already reshared that post!"
     search_for: "{{name}}നായി തിരയുക"
-    timeago: 
+    timeago:
       day: "ഒരു ദിവസം"
       days: "%d ദിവസങ്ങള്‍"
       hour: "ഉദ്ദേശം ഒരു മണീക്കൂര്‍"
@@ -33,10 +33,10 @@ ml:
       suffixFromNow: വരെ
       year: "ഉദ്ദേശം ഒരു വര്‍ഷം"
       years: "%d വര്‍ഷങ്ങള്‍ക്ക്"
-    videos: 
+    videos:
       unknown: "അജ്ഞാതമായ തരം വീഡിയോ"
       watch: "ഈ വീഡിയോ {{provider}}ല്‍ കാണുക"
-    web_sockets: 
-      disconnected: 
+    web_sockets:
+      disconnected:
         body: "പോസ്റ്റൂകള്‍ തത്സമയമായി കാണിക്കുന്നതല്ല."
         title: "താങ്കള്‍ വിച്ഛേദിക്കപ്പെട്ടിരിക്കുന്നു."

@@ -4,38 +4,51 @@
 
 
 
-ro: 
-  javascripts: 
-    aspect_dropdown: 
-      add_to_aspect: "Adaugă la aspect"
+ro:
+  javascripts:
+    aspect_dropdown:
+      add_to_aspect: "Adaugă la contacte"
       all_aspects: "Toate aspectele"
+      error: "Nu sa putut incepe impartirea de publicatii cu {{name}}. Ii ignorati cumva ?"
       select_aspects: "Selectează aspecte"
-      toggle: 
+      started_sharing_with: "Ati inceput sa impartiti publicatii cu {{name}}!"
+      stopped_sharing_with: "Nu mai imparti publicatii cu {{name}}."
+      toggle:
         few: "În {{count}} aspecte"
         many: "În {{count}} aspecte"
         one: "În {{count}} aspect"
         other: "În {{count}} aspecte"
-        zero: "Adaugă la aspect"
-    aspect_navigation: 
+        two: "In {{count}} aspecte"
+        zero: "Selectati aspecte"
+    aspect_navigation:
       deselect_all: "Deselectează tot"
       no_aspects: "Niciun aspect selectat"
       select_all: "Selectează tot"
-    comments: 
+    comments:
       hide: "ascunde comentariile"
       show: "arată toate comentarile"
     confirm_dialog: "Sunteţi sigur?"
-    getting_started: 
+    failed_to_like: "Nu sa reusit operatia de \"imi place\"!"
+    failed_to_post_message: "Nu sa reusit trimiterea mesajului!"
+    getting_started:
       alright_ill_wait: "In regulă, o să aștept."
-      preparing_your_stream: "Preparing your personialized stream..."
-    infinite_scroll: 
+      hey: "Salutare, {{name}}!"
+      no_tags: "Hopa, nu urmati nicio eticheta! Continuati si asa ?"
+      preparing_your_stream: "Se pregateste fluxul personalizat pentru dvs..."
+    infinite_scroll:
       no_more: "Nu mai sunt posturi."
-    publisher: 
+    photo_uploader:
+      looking_good: "WOW, arati super!"
+    publisher:
       at_least_one_aspect: "Trebuie sa publici pe cel puţin un aspect"
-    reshares: 
-      duplicate: "You've already reshared that post!"
+      limited: "Limitat - publicatia va fi vazuta doar de catre persoanele cu care imparti publicatii"
+    reshares:
+      duplicate: "E chiar asa de tare, hmm?  Ati mai raspandit o data aceasta publicatie!"
     search_for: "Caută {{name}}"
     show_more: "arată mai mult"
-    timeago: 
+    tags:
+      wasnt_that_interesting: "Bine, presupun ca #{{tagName}} nu a fost chiar atat de interesant..."
+    timeago:
       day: "o zi"
       days: "%d zile"
       hour: "o ora"
@@ -51,8 +64,8 @@ ro:
       suffixFromNow: ""
       year: "un an"
       years: "%d ani"
-    videos: 
+    videos:
       unknown: "Format de video necunoscut"
       watch: "Vizualizează acest video pe {{provider}}"
-    web_sockets: 
+    web_sockets:
       disconnected: "Websocket-ul e închis; posturile nu vor mai fi transmise în direct."

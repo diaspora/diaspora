@@ -4,13 +4,13 @@
 
 
 
-en_pirate: 
-  javascripts: 
-    aspect_dropdown: 
+en_pirate:
+  javascripts:
+    aspect_dropdown:
       add_to_aspect: "Add to aspect"
-      toggle: 
+      toggle:
         zero: "Add to aspect"
-    getting_started: 
+    getting_started:
       preparing_your_stream: "Preparing your personialized stream..."
-    reshares: 
+    reshares:
       duplicate: "You've already reshared that post!"

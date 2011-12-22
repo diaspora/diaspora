@@ -4,52 +4,52 @@
 
 
 
-uk: 
-  javascripts: 
-    aspect_dropdown: 
+uk:
+  javascripts:
+    aspect_dropdown:
       add_to_aspect: "Додати контакт"
       all_aspects: "Усі аспекти"
       error: "Неможливо почати ділитися з користувачем {{name}}. Можливо, ви його заблокували?"
       select_aspects: "Вибрати аспекти"
       started_sharing_with: "Ви почали ділитися з {{name}}!"
       stopped_sharing_with: "Ви перестали ділитися з {{name}}."
-      toggle: 
+      toggle:
         few: "У {{count}} аспектах"
         many: "У {{count}} аспектах"
         one: "У {{count}} аспектах"
         other: "У {{count}} аспектах"
         two: "У {{count}} аспектах"
         zero: "Вибрати аспекти"
-    aspect_navigation: 
+    aspect_navigation:
       deselect_all: "Відмінити всі"
       no_aspects: "Аспект не вибраний"
       select_all: "Вибрати всі"
-    comments: 
+    comments:
       hide: "приховати коментарі"
       show: "Показати усі коментарі"
     confirm_dialog: "Ви упевнені?"
     failed_to_like: "Не вдалося!"
     failed_to_post_message: "Не вдалося відправити повідомлення!"
-    getting_started: 
+    getting_started:
       alright_ill_wait: "Добре, я почекаю."
       hey: "Привіт, {{name}}!"
       no_tags: "Ви не стежите ні за однією міткою! Все одно продовжити?"
       preparing_your_stream: "Підготовка вашого особистого потоку..."
-    infinite_scroll: 
+    infinite_scroll:
       no_more: "Повідомлень більше немає."
-    photo_uploader: 
+    photo_uploader:
       looking_good: "Боже мій, ви виглядаєте приголомшливо!"
-    publisher: 
+    publisher:
       at_least_one_aspect: "Вам потрібно створити мінімум один аспект"
       limited: "Обмежена - ваш запис буде видний тільки вказаним вами людям"
       public: "Публічна - ваш запис буде видний усім, включаючи пошукові системи"
-    reshares: 
+    reshares:
       duplicate: "Настільки круто, так? Ви вже поділилися цим записом!"
     search_for: "Шукати {{name}}"
     show_more: "показати більше"
-    tags: 
+    tags:
       wasnt_that_interesting: "OK, мабуть, стежити за міткою #{{tagName}} було не так вже цікаво..."
-    timeago: 
+    timeago:
       day: день
       days: "%d днів[-я]"
       hour: "близько години"
@@ -65,8 +65,8 @@ uk:
       suffixFromNow: "з цієї миті"
       year: "близько року"
       years: "%d років"
-    videos: 
+    videos:
       unknown: "Невідомий відеоформат"
       watch: "Дивитися це відео на {{provider}}"
-    web_sockets: 
+    web_sockets:
       disconnected: "WebSocket закритий; повідомлення більше не транслюватимуться в прямому ефірі."

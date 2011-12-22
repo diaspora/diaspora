@@ -4,52 +4,52 @@
 
 
 
-fi: 
-  javascripts: 
-    aspect_dropdown: 
+fi:
+  javascripts:
+    aspect_dropdown:
       add_to_aspect: "Lisää kontakti"
       all_aspects: "Kaikki näkymät"
       error: "Ei voitu aloittaa jakamaan käyttäjän {{name}} kanssa. Oletko sivuuttanut hänet?"
       select_aspects: "Valitse näkymät"
       started_sharing_with: "Olet alkanut jakaa käyttäjän {{name}} kanssa!"
       stopped_sharing_with: "Olet lopettanut jakamisen käyttäjän {{name}} kanssa."
-      toggle: 
+      toggle:
         few: "{{count}} näkymässä"
         many: "{{count}} näkymässä"
         one: "{{count}} näkymässä"
         other: "{{count}} näkymässä"
         two: "{{count}} näkymässä"
         zero: "Valitse näkymät"
-    aspect_navigation: 
+    aspect_navigation:
       deselect_all: "Poista valinnat"
       no_aspects: "Näkymiä ei ole valittu"
       select_all: "Valitse kaikki"
-    comments: 
+    comments:
       hide: "piilota kommentit"
       show: "näytä kaikki kommentit"
     confirm_dialog: "Oletko varma?"
     failed_to_like: "Tykkääminen epäonnistui!"
     failed_to_post_message: "Viestin lähetys epäonnistui!"
-    getting_started: 
+    getting_started:
       alright_ill_wait: "Okei, minä odotan."
       hey: "Hei {{name}}!"
       no_tags: "Hei, et seuraa yhtäkään tagia!  Jatketaanko silti?"
       preparing_your_stream: "Yksilöllistä virtaasi valmistellaan..."
-    infinite_scroll: 
+    infinite_scroll:
       no_more: "Ei enempää viestejä."
-    photo_uploader: 
+    photo_uploader:
       looking_good: "OMG, näytät upealta!"
-    publisher: 
+    publisher:
       at_least_one_aspect: "Sinun täytyy julkaista vähintään yhdelle näkymälle."
       limited: "Rajoitettu - viestisi näkyy vain ihmisille, joiden kanssa jaat"
       public: "Julkinen - viestisi näkyvät kaikille mukaan lukien hakukoneet ja niiden tulokset"
-    reshares: 
+    reshares:
       duplicate: "Olet jo uudelleenjakanut viesti!"
     search_for: "Etsi nimellä {{name}}"
     show_more: "näytä lisää"
-    tags: 
+    tags:
       wasnt_that_interesting: "OK, #{{tagName}} ei tainnut ollakaan kovin kiinnostava aihe..."
-    timeago: 
+    timeago:
       day: päivä
       days: "%d päivää"
       hour: "noin tunti"
@@ -63,8 +63,8 @@ fi:
       suffixFromNow: "tästä alkaen"
       year: "noin vuosi"
       years: "%d vuotta"
-    videos: 
+    videos:
       unknown: "Tuntematon videomuoto"
       watch: "Katso video {{provider}} :ssa"
-    web_sockets: 
+    web_sockets:
       disconnected: "Yhteys on suljettu; viestejä ei enää esitetä reaaliaikaisesti."

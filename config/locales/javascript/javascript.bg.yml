@@ -4,52 +4,52 @@
 
 
 
-bg: 
-  javascripts: 
-    aspect_dropdown: 
+bg:
+  javascripts:
+    aspect_dropdown:
       add_to_aspect: "Избиране на аспект(и)"
       all_aspects: "Във всеки аспект"
       error: "Не е възможно започване на споделяне с {{name}}.  Вероятно ги игнорирате?"
       select_aspects: "Избиране на аспект(и)"
       started_sharing_with: "Започнахте да споделяте с {{name}}!"
       stopped_sharing_with: "Престанахте да споделяте с {{name}}."
-      toggle: 
+      toggle:
         few: "В {{count}} аспекта"
         many: "В {{count}} аспекта"
         one: "В {{count}} аспект"
         other: "В {{count}} аспекта"
         two: "В {{count}} аспекта"
         zero: "Избиране на аспект(и)"
-    aspect_navigation: 
+    aspect_navigation:
       deselect_all: Никой
       no_aspects: "Няма избран аспект"
       select_all: Всички
-    comments: 
+    comments:
       hide: "скриване на коментарите"
       show: "показване на коментарите"
     confirm_dialog: "Сигурни ли сте?"
     failed_to_like: "Публикацията не бе харесана!"
     failed_to_post_message: "Съобщението не бе публикувано!"
-    getting_started: 
+    getting_started:
       alright_ill_wait: "Добре, ще изчакам."
       hey: "Здравейте, {{name}}!"
       no_tags: "Не следите нито една марка!  Желаете ли да продължите въпреки това?"
       preparing_your_stream: "Вашият персонализиран поток се подготвя..."
-    infinite_scroll: 
+    infinite_scroll:
       no_more: "Няма други публикации."
-    photo_uploader: 
+    photo_uploader:
       looking_good: "Леле, изглеждате страхотно!"
-    publisher: 
+    publisher:
       at_least_one_aspect: "Трябва да публикувате в поне един аспект"
       limited: "Ограничено - публикацията ще бъде видима само за хората, с които я споделите"
       public: "Публично - публикацията ще бъде видима за всеки, а съдържанието ѝ ще бъде налично за търсещите машини"
-    reshares: 
+    reshares:
       duplicate: "Вече сте споделили публикацията!"
     search_for: "Търсене за {{name}}"
     show_more: "покажи още"
-    tags: 
+    tags:
       wasnt_that_interesting: "Е, вероятно марката #{{tagName}} не е чак толкова интересна..."
-    timeago: 
+    timeago:
       day: ден
       days: "%d дни"
       hour: "около час"
@@ -65,6 +65,6 @@ bg:
       suffixFromNow: "от сега"
       year: "около година"
       years: "%d години"
-    videos: 
+    videos:
       unknown: "Неизвестен вид видео"
       watch: "Гледайте видеото в {{provider}}"

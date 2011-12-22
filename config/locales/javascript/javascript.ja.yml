@@ -4,23 +4,23 @@
 
 
 
-ja: 
-  javascripts: 
-    aspect_dropdown: 
+ja:
+  javascripts:
+    aspect_dropdown:
       add_to_aspect: "Add to aspect"
-      toggle: 
+      toggle:
         zero: "Add to aspect"
     confirm_dialog: 本当にいいですか。
-    getting_started: 
+    getting_started:
       preparing_your_stream: "Preparing your personialized stream..."
-    infinite_scroll: 
+    infinite_scroll:
       no_more: 投稿はこれ以上ありません。
-    publisher: 
+    publisher:
       at_least_one_aspect: アスペクトを選択してから投稿してください。
-    reshares: 
+    reshares:
       duplicate: "You've already reshared that post!"
     search_for: "{{name}}を検索する"
-    timeago: 
+    timeago:
       day: 1日
       days: "%d日"
       hour: 大体1時間
@@ -35,8 +35,8 @@ ja:
       suffixFromNow: 後
       year: 大体1年
       years: "%d年"
-    videos: 
+    videos:
       unknown: 動画の種類が不明です
       watch: "{{provider}}で動画を視聴する"
-    web_sockets: 
+    web_sockets:
       disconnected: 接続が解除されました。投稿のリアルタイム更新を中断します。

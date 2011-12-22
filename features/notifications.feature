@@ -18,7 +18,7 @@ Feature: Notifications
     And I wait for the ajax to finish
     Then the notification dropdown should be visible
     Then I should see "started sharing with you"
-    When I follow "View all"
+    And I go to the notifications page
     Then I should see "started sharing with you"
     And I should have 1 email delivery
 
@@ -37,8 +37,6 @@ Feature: Notifications
     Then the notification dropdown should be visible
     And I wait for the ajax to finish
     Then I should see "reshared your post"
-    When I follow "View all"
-    Then I should see "reshared your post"
     And I should have 1 email delivery
 
   Scenario: someone likes my post
@@ -55,8 +53,6 @@ Feature: Notifications
     And I wait for the ajax to finish
     Then the notification dropdown should be visible
     And I wait for the ajax to finish
-    Then I should see "liked your post"
-    When I follow "View all"
     Then I should see "liked your post"
     And I should have 1 email delivery
 
@@ -76,8 +72,6 @@ Feature: Notifications
     Then the notification dropdown should be visible
     And I wait for the ajax to finish
     Then I should see "commented on your post"
-    When I follow "View all"
-    Then I should see "commented on your post"
     And I should have 1 email delivery
 
   Scenario: someone mentioned me in their post
@@ -88,7 +82,5 @@ Feature: Notifications
     And I wait for the ajax to finish
     Then the notification dropdown should be visible
     And I wait for the ajax to finish
-    Then I should see "mentioned you in a post"
-    When I follow "View all"
     Then I should see "mentioned you in a post"
     And I should have 1 email delivery

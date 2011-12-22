@@ -4,51 +4,51 @@
 
 
 
-eu: 
-  javascripts: 
-    aspect_dropdown: 
+eu:
+  javascripts:
+    aspect_dropdown:
       add_to_aspect: "Adiskidea gehitu"
       all_aspects: "Alderdi guztiak"
       select_aspects: "Alderdiak aukeratu"
       started_sharing_with: "{{name}}(r)ekin harremanetan hasi zara!"
       stopped_sharing_with: "Jada ez zaude {{name}}(r)ekin harremanetan."
-      toggle: 
+      toggle:
         few: "{{count}} alderdietan"
         many: "{{count}} alderdietan"
         one: "Alderdi {{count}}ean"
         other: "{{count}} alderdietan"
         two: "{{count}} alderditan"
         zero: "Alderdial hautatu"
-    aspect_navigation: 
+    aspect_navigation:
       deselect_all: "Guztiak deshautatu"
       no_aspects: "Ez da alderdirik hautatu"
       select_all: "Guztiak hautatu"
-    comments: 
+    comments:
       hide: "iruzkinak ezkutatu"
       show: "iruzkin guztiak erakutsi"
     confirm_dialog: "Ziur al zaude?"
     failed_to_like: "Huts gustoko egitean!"
     failed_to_post_message: "Huts egin du mezuaren bidalketak!"
-    getting_started: 
+    getting_started:
       alright_ill_wait: "Beno, itxarongo dut."
       hey: "Aizu, {{name}}!"
       no_tags: "Aizu, ez duzu etiketarik jarraitzen! Jarraitu hala ere?"
       preparing_your_stream: "Zure kronologia pertsonalizatua prestatzen..."
-    infinite_scroll: 
+    infinite_scroll:
       no_more: "Mezu gehiagorik ez dago."
-    photo_uploader: 
+    photo_uploader:
       looking_good: "Ene bada, oso jatorra dirudizu!"
-    publisher: 
+    publisher:
       at_least_one_aspect: "Gutxienez alderdi batean partekatu behar duzu"
       limited: "Mugatua - zure mezua aukeratu duzun jendeak bakarrik ikusiko du"
       public: "Publikoa - zure mezua edonork ikusi ahalko du, bai eta bilaketa zerbitzuetan agertu ere"
-    reshares: 
+    reshares:
       duplicate: "Oso ona, e? Dagoeneko birpartekatu duzu mezu hori!"
     search_for: "Bilatu {{name}}"
     show_more: "erakutsi gehiago"
-    tags: 
+    tags:
       wasnt_that_interesting: "Beno, suposatzen dut #{{tagName}} ez zela oso interesgarria..."
-    timeago: 
+    timeago:
       day: "egun bat"
       days: "%d egun"
       hour: "ordu bat"
@@ -63,8 +63,8 @@ eu:
       suffixFromNow: barru
       year: "urte bat"
       years: "%d urte"
-    videos: 
+    videos:
       unknown: "Bideo mota ezezaguna"
       watch: "Ikusi bideo hau {{provider}}(e)n"
-    web_sockets: 
+    web_sockets:
       disconnected: "Websocketa itxita dago; mezuak ez dira denbora errealean azalduko."

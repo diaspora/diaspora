@@ -4,14 +4,14 @@
 
 
 
-pt-PT: 
-  devise: 
-    confirmations: 
+pt-PT:
+  devise:
+    confirmations:
       confirmed: "A sua conta foi confirmada com sucesso. A sessão foi iniciada."
-      new: 
+      new:
         resend_confirmation: "Reenviar instruções de confirmação"
       send_instructions: "Receberá um email com instruções sobre como confirmar a sua conta dentro de alguns minutos."
-    failure: 
+    failure:
       inactive: "A sua conta ainda não foi activada."
       invalid: "Endereço de email ou palavra-passe inválidos."
       invalid_token: "Código de autentificação inválido."
@@ -19,17 +19,17 @@ pt-PT:
       timeout: "A sua sessão expirou, por favor inicie sessão novamente para continuar."
       unauthenticated: "É necessário iniciar sessão ou registar-se antes de continuar."
       unconfirmed: "Precisa de confirmar a sua conta antes de continuar."
-    invitations: 
+    invitations:
       invitation_token_invalid: "A nossas desculpas! Esse código de convite não é válido!"
       send_instructions: "O seu convite foi enviado."
       updated: "A sua palavra-passe foi definida com sucesso. A sessão foi iniciada."
-    mailer: 
-      confirmation_instructions: 
+    mailer:
+      confirmation_instructions:
         confirm: "Confirmar a minha conta"
         subject: "Instruções de confirmação"
         you_can_confirm: "Pode confirmar a sua conta através da seguinte hiperligação:"
       hello: "Olá %{email}!"
-      invitation_instructions: 
+      invitation_instructions:
         accept: "Aceitar o convite"
         arrived: "A rede social de que estava à espera chegou. Renovada, mais segura e mais divertida, %{strong_diaspora} está pronta para o(a) ajudar a partilhar e explorar a Web de forma totalmente nova."
         be_yourself: "Seja você mesmo"
@@ -56,36 +56,36 @@ pt-PT:
         team_diaspora: "Equipa Diaspora"
         unsubscribe: "Para cancelar a subscrição clique %{link}."
         view_in: "Visualizar no seu navegador."
-      inviter: 
+      inviter:
         accept_at: "em %{url}, pode aceitá-lo através da ligação abaixo."
         have_invited_you: "%{names} convidaram-no para se juntar ao Diaspora"
-      reset_password_instructions: 
+      reset_password_instructions:
         change: "Alterar a minha palavra-passe"
         ignore: "Se não fez este pedido, por favor ignore este email."
         someone_requested: "Alguém pediu para alterar a sua palavra-passe, e pode fazer isso através da hiperligação abaixo."
         subject: "Instruções para redefinir palavra-passe"
         wont_change: "A sua palavra-passe não será alterada até que aceda à hiperligação acima e crie uma nova palavra-passe. "
-      unlock_instructions: 
+      unlock_instructions:
         account_locked: "A sua conta foi bloqueada devido a um número excessivo de tentativas de início de sessão falhadas."
         click_to_unlock: "Clique na hiperligação abaixo para desbloquear a sua conta:"
         subject: "Instruções de Desbloqueio"
         unlock: "Desbloquear a minha conta"
       welcome: "Bem-vindo(a) %{email}!"
-    passwords: 
-      edit: 
+    passwords:
+      edit:
         change_password: "Alterar a minha palavra-passe"
-      new: 
+      new:
         forgot_password: "Esqueceu a sua palavra-passe?"
         no_account: "Não existe nenhuma conta com este endereço de email.  Se está a esperar por um convite, estamos a distribuí-los tão rapidamente quanto é possível"
         send_password_instructions: "Enviem-me instruções para redefinir a minha palavra-passe"
       send_instructions: "Vai receber um email com instruções sobre como alterar a sua palavra-passe dentro de alguns minutos."
       updated: "A sua palavra-passe foi alterada com sucesso. A sessão foi iniciada."
-    registrations: 
+    registrations:
       destroyed: "Adeus! A sua conta foi cancelada com sucesso. Esperamos vê-lo novamente em breve."
       signed_up: "Registou-se com sucesso. Caso tenha seleccionado essa opção, uma confirmação foi enviada para o seu endereço de email."
       updated: "Actualizou a sua conta com sucesso."
-    sessions: 
-      new: 
+    sessions:
+      new:
         alpha_software: "Está prestes a utilizar software em fase \"alfa\"."
         bugs_and_feedback: "Tenha em conta que irão ocorrer erros. Encorajamo-lo a usar o botão de Feedback na margem direita do seu navegador para reportar quaisquer anomalias! Trabalharemos o mais rapidamente possível para resolver os problemas que reportar."
         bugs_and_feedback_mobile: "Tenha em conta que irão ocorrer erros.  Encorajamo-lo a relatar quaisquer anomalias!  Trabalharemos tão rapidamente quanto possível para resolver quaisquer problemas que relate."
@@ -97,23 +97,23 @@ pt-PT:
         username: "Nome de Utilizador"
       signed_in: "A sessão foi iniciada com sucesso."
       signed_out: "A sessão foi terminada com sucesso."
-    shared: 
-      links: 
+    shared:
+      links:
         forgot_your_password: "Esqueceu a palavra-passe?"
         receive_confirmation: "Não recebeu as instruções de confirmação?"
         receive_unlock: "Não recebeu as instruções de desbloqueio?"
         sign_in: "Iniciar sessão"
         sign_up: Registe-se
         sign_up_closed: "Os registos abertos não estão disponíveis por agora."
-      mail_signup_form: 
+      mail_signup_form:
         sign_up_for_an_invite: "Inscreva-se para receber um convite!"
-    unlocks: 
-      new: 
+    unlocks:
+      new:
         resend_unlock: "Reenviar instruções de desbloqueio"
       send_instructions: "Receberá um email sobre como desbloquear a sua conta dentro de alguns minutos."
       unlocked: "A sua conta foi desbloqueada com sucesso. A sessão foi iniciada."
-  errors: 
-    messages: 
+  errors:
+    messages:
       already_confirmed: "já foi confirmado"
       not_found: "não foi encontrado"
       not_locked: "não foi bloqueado"

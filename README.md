@@ -6,7 +6,7 @@
 The privacy aware, personally controlled, do-it-all, open source social
 network.
 
-[Diaspora Foundation](http://diasporafoundation.org)
+[Diaspora Project](http://diasporaproject.org)
 
 **TL;DR**
 

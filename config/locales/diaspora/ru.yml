@@ -4,7 +4,7 @@
 
 
 
-ru: 
+ru:
   _applications: Приложения
   _comments: Коментарии
   _contacts: Контакты
@@ -12,71 +12,71 @@ ru:
   _photos: фотографий
   _services: Сервисы
   account: Аккаунт
-  activerecord: 
-    errors: 
-      models: 
-        contact: 
-          attributes: 
-            person_id: 
+  activerecord:
+    errors:
+      models:
+        contact:
+          attributes:
+            person_id:
               taken: "должно быть уникальным среди контактов этого пользователя."
-        person: 
-          attributes: 
-            diaspora_handle: 
+        person:
+          attributes:
+            diaspora_handle:
               taken: "уже занято."
-        request: 
-          attributes: 
-            from_id: 
+        request:
+          attributes:
+            from_id:
               taken: "дубликат ранних запросов."
-        reshare: 
-          attributes: 
-            root_guid: 
+        reshare:
+          attributes:
+            root_guid:
               taken: "Настолько круто, да? Вы уже поделились этой записью!"
-        user: 
-          attributes: 
-            email: 
+        user:
+          attributes:
+            email:
               taken: "уже занято."
-            person: 
+            person:
               invalid: недействительно.
-            username: 
+            username:
               invalid: "не подходит. Можно использовать только буквы, цифры и знак подчеркивания."
               taken: "уже занято."
   ago: "%{time} назад"
   all_aspects: "Все аспекты"
-  application: 
-    helper: 
+  application:
+    helper:
       unknown_person: "неизвестная персона"
-      video_title: 
+      video_title:
         unknown: "Неизвестное название видеозаписи"
   are_you_sure: "Вы уверены?"
   are_you_sure_delete_account: "Вы уверены, что хотите закрыть свою учетную запись? Эту процедуру невозможно будет отменить!"
-  aspect_memberships: 
-    destroy: 
+  aspect_memberships:
+    destroy:
       failure: "Не удалось удалить человека из аспектов"
       no_membership: "Не удалось найти этого человека в этом аспекте"
       success: "Человек успешно удалён из аспектов"
-  aspects: 
-    add_to_aspect: 
+  aspects:
+    add_to_aspect:
       failure: "Не удалось добавить друга в аспект."
       success: "Друг добавлен в аспект."
-    aspect_contacts: 
+    aspect_contacts:
       done_editing: "редактирование завершено"
-    aspect_listings: 
+    aspect_listings:
       add_an_aspect: "+ Добавить аспект"
       deselect_all: "Выключить все"
       edit_aspect: "Редактировать аспект «%{name}»"
       select_all: "Включить все"
-    aspect_stream: 
+    aspect_stream:
       stay_updated: "Будьте в курсе"
       stay_updated_explanation: "Ваш основной поток наполняется вашими контактами, метками, за которыми вы следите, и записями нескольких популярных членов сообщества."
     contacts_not_visible: "Контакты в этом аспекте не смогут видеть друг друга."
     contacts_visible: "Контакты в этом аспекте могут видеть друг друга."
-    create: 
+    create:
       failure: "Не удалось создать аспект."
       success: "Ваш новый аспект %{name} создан"
-    destroy: 
+    destroy:
       failure: "%{name} не пуст и не может быть удалён."
       success: "%{name} успешно удалён."
-    edit: 
+    edit:
       add_existing: "Добавить существующий контакт"
       aspect_list_is_not_visible: "список аспектов скрыт от других пользователей"
       aspect_list_is_visible: "список аспектов виден другим пользователям"
@@ -88,22 +88,22 @@ ru:
       update: изменение
       updating: обновление
     few: "%{count} аспект[-а, -ов]"
-    helper: 
+    helper:
       are_you_sure: "Вы уверены в том, что хотите удалить этот аспект?"
       aspect_not_empty: "Аспект не пуст"
       remove: удалить
-    index: 
-      cubbies: 
+    index:
+      cubbies:
         explanation: "Cubbi.es — это первое приложение, разрабатываемое для Диаспоры."
         heading: "Подключение к Cubbi.es"
         learn_more: "Узнать больше"
-      diaspora_id: 
+      diaspora_id:
         content_1: "Ваш идентификатор в Диаспоре:"
         content_2: "По нему любой сможет найти вас в Диаспоре."
         heading: "Идентификатор в Диаспоре"
       donate: Пожертвовать
       handle_explanation: "Это ваш идентификатор в Диаспоре. Как и адрес электронной почты, вы можете дать его людям для связи с вами."
-      help: 
+      help:
         do_you: "Вы:"
         email_feedback: "%{link}: еще один способ связи с нами."
         feature_suggestion: "... хотите предложить что-то новое (%{link})?"
@@ -115,7 +115,7 @@ ru:
         tutorials_wiki_and_forum: "%{tutorial}, %{wiki} и %{forum}: составляемые сообществом справочные пособия, инструкции и новости."
       introduce_yourself: "Это ваш поток. Ныряйте и осваивайтесь здесь."
       keep_us_running: "Помогите %{pod} работать быстро — купите нашим серверам дозу кофе, сделав ежемесячное пожертвование!"
-      new_here: 
+      new_here:
         follow: "Следите за меткой %{link} и приветствуйте новых пользователей в Диаспоре*!"
         learn_more: "Узнать больше"
         title: "Приветствуйте новичков"
@@ -123,80 +123,80 @@ ru:
       no_tags: "+ Найти метку"
       people_sharing_with_you: "Люди делятся с вами"
       post_a_message: "новая запись >>"
-      services: 
+      services:
         content: "Вы можете подключить к Диаспоре следующие службы:"
         heading: "Подключенные службы"
       unfollow_tag: "Не следить за меткой #%{tag}"
       welcome_to_diaspora: "Добро пожаловать в Диаспору, %{name}!"
       your_aspects: Аспекты
     many: "%{count} аспект[-а, -ов]"
-    move_contact: 
+    move_contact:
       error: "Ошибка при перемещении контакта: %{inspect}"
       failure: "не работает %{inspect}"
       success: "Персона перемещена в новый аспект"
-    new: 
+    new:
       create: Создать
       name: "Имя (видно только вам)"
-    no_contacts_message: 
+    no_contacts_message:
       community_spotlight: "рекомендуемыми пользователями"
       or_spotlight: "Или вы можете делиться с %{link}"
       try_adding_some_more_contacts: "Вы можете найти или пригласить других пользователей."
       you_should_add_some_more_contacts: "Добавьте больше контактов!"
-    no_posts_message: 
+    no_posts_message:
       start_talking: "Здесь ещё никто ничего не сказал."
     one: "1 аспект"
     other: "%{count} аспект[-а, -ов]"
-    seed: 
+    seed:
       acquaintances: Знакомые
       family: Семья
       friends: Друзья
       work: Работа
-    selected_contacts: 
+    selected_contacts:
       manage_your_aspects: "Управление аспектами."
       no_contacts: "Здесь пока нет ни одного контакта."
       view_all_community_spotlight: "Посмотреть всех рекомендуемых"
       view_all_contacts: "Все контакты"
-    show: 
+    show:
       edit_aspect: "редактировать аспект"
     two: "%{count} аспектов"
-    update: 
+    update:
       failure: "ваш аспект, %{name}, имеет слишком длинное имя для сохранения."
       success: "Ваш аспект %{name} успешно отредактирован."
     zero: "нет аспектов"
-  authorizations: 
-    index: 
+  authorizations:
+    index:
       no_applications: "Вы еще не зарегистрировали ни одного приложения."
       revoke_access: "Отменить доступ"
   back: Назад
-  blocks: 
-    create: 
+  blocks:
+    create:
       failure: "Я не могу заблокировать этого пользователя.  #evasion"
       success: "Хорошо, вы больше не увидите этого пользователя в своем потоке. #silencio!"
-    destroy: 
+    destroy:
       failure: "Не могу прекратить блокировать этого пользователя.  #evasion"
       success: "Посмотрим, что они скажут! #sayhello"
-  bookmarklet: 
+  bookmarklet:
     explanation: "Пишите в Диаспору с любой страницы с помощью %{link}."
     explanation_link_text: "этой закладки"
     heading: "Букмарклет Диаспоры"
     post_something: "Сообщите что-нибудь Диаспоре"
     post_success: "Опубликовано! Закрытие!"
   cancel: Отменить
-  comments: 
+  comments:
     few: "%{count} комментариев"
     many: "%{count} комментариев"
-    new_comment: 
+    new_comment:
       comment: Комментировать
       commenting: Комментирование...
     one: "1 комментарий"
     other: "%{count} комментариев"
     two: "%{count} комментариев"
     zero: "нет комментариев"
-  contacts: 
-    create: 
+  contacts:
+    create:
       failure: "Не удалось создать контакт"
     few: "%{count} контакт[-а, -ов]"
-    index: 
+    index:
       add_a_new_aspect: "Новый аспект"
       add_to_aspect: "добавить контакты в %{name}"
       all_contacts: "Все контакты"
@@ -212,59 +212,59 @@ ru:
     many: "%{count} контакт[-а, -ов]"
     one: "1 контакт"
     other: "%{count} контакт[-а, -ов]"
-    sharing: 
+    sharing:
       people_sharing: "делятся с вами:"
-    spotlight: 
+    spotlight:
       community_spotlight: "В центре внимания"
     two: "%{count} контакта"
     zero: "0 контактов"
-  conversations: 
-    create: 
+  conversations:
+    create:
       fail: "Неверное сообщение"
       sent: "Сообщение отправлено"
-    destroy: 
+    destroy:
       success: "Разговор успешно удален"
-    helper: 
-      new_messages: 
+    helper:
+      new_messages:
         few: "Новые сообщения: %{count}"
         many: "Новые сообщения: %{count}"
         one: "1 новое сообщение"
         other: "Новые сообщения: %{count}"
         two: "%{count} новых сообщений"
         zero: "Новых сообщений нет"
-    index: 
+    index:
       create_a_new_message: "написать новое сообщение"
       inbox: Входящие
       message_inbox: "Входящие сообщения"
       new_message: "Новое сообщение"
       no_conversation_selected: "разговор не выбран"
       no_messages: "нет сообщений"
-    new: 
+    new:
       abandon_changes: "Отказаться от изменений?"
       send: Отправить
       sending: Отправка...
       subject: тема
       to: кому
-    new_message: 
+    new_message:
       fail: "Неверное сообщение"
-    show: 
+    show:
       delete: "удалить и заблокировать разговор"
       reply: ответить
       replying: Ответ...
-  date: 
-    formats: 
+  date:
+    formats:
       birthday: "%d %B"
       birthday_with_year: "%d %B %Y"
   delete: Удалить
-  error_messages: 
-    helper: 
+  error_messages:
+    helper:
       correct_the_following_errors_and_try_again: "Исправьте ошибки и попробуйте снова."
       invalid_fields: "Недействительные поля"
   fill_me_out: Заполнить
   find_people: "Поиск людей или #меток"
   hide: Скрыть
-  home: 
-    show: 
+  home:
+    show:
       already_account: "уже есть аккаунт?"
       choice: Выбор
       choice_explanation: "Диаспора позволяет сортировать группы контактов, называемые аспектами. Аспекты - уникальная особенность диаспоры. Они позволяют обеспечить приватность ваших фотографий, историй и т.д. Последние будут доступны только для тех людей, которые принадлежат соответствующему аспекту."
@@ -277,21 +277,21 @@ ru:
       simplicity_explanation: "Диаспора делает обмен прозрачным и простым - это распространяется и на частную жизнь. По существу, диаспора не заставляет вас пробираться через страницы настроек и опций для того, чтобы держать ваш профиль в безопасности."
       tagline_first_half: "Поделитесь чем хотите,"
       tagline_second_half: "с кем вы хотите."
-  invitations: 
+  invitations:
     a_facebook_user: "Пользователь Facebook"
-    check_token: 
+    check_token:
       not_found: "Код приглашения не найден"
-    create: 
+    create:
       already_contacts: "Вы уже связаны с этим человеком"
       already_sent: "Вы уже пригласили этого человека."
       no_more: "У вас закончились приглашения."
       own_address: "Вы не можете отправить приглашение на ваш собственный адрес."
       rejected: "Есть проблемы со следующими адресами электронной почты:"
       sent: "Ваши приглашения отправлены:"
-    edit: 
+    edit:
       accept_your_invitation: "Принять ваше приглашение"
       your_account_awaits: "Ваш аккаунт ждет вас!"
-    new: 
+    new:
       already_invited: "Следующие люди не приняли ваше приглашение:"
       aspect: Аспект
       comma_seperated_plz: "Вы можете ввести несколько адресов электронной почты через запятую."
@@ -303,14 +303,14 @@ ru:
       send_an_invitation: "Отправить приглашение"
       send_invitation: "Отправить приглашение"
       to: Для
-  layouts: 
-    application: 
+  layouts:
+    application:
       powered_by: "ПОДДЕРЖИВАЕТСЯ ДИАСПОРОЙ*"
       public_feed: "Общественный канал Диаспоры для %{name}"
       toggle: обычный/мобильный
       whats_new: "что нового?"
       your_aspects: "Ваши аспекты"
-    header: 
+    header:
       admin: админ
       blog: блог
       code: код
@@ -320,23 +320,23 @@ ru:
       recent_notifications: "Последние извещения"
       settings: Настройки
       view_all: "Посмотреть все"
-  likes: 
-    likes: 
-      people_dislike_this: 
+  likes:
+    likes:
+      people_dislike_this:
         few: "%{count} не понравилось"
         many: "%{count} не понравилось"
         one: "%{count} не понравилось"
         other: "%{count} не понравилось "
         two: "%{count} не понравилось"
         zero: "никому не понравилось"
-      people_like_this: 
+      people_like_this:
         few: "%{count} понравилось"
         many: "%{count} понравилось"
         one: "%{count} понравилось"
         other: "%{count} понравилось"
         two: "%{count} понравилось"
         zero: "никому не понравилось"
-      people_like_this_comment: 
+      people_like_this_comment:
         few: "%{count} понравилось"
         many: "%{count} понравилось"
         one: "%{count} понравилось"
@@ -347,39 +347,39 @@ ru:
   more: Еще
   next: далее
   no_results: "Результатов не найдено"
-  notifications: 
-    also_commented: 
+  notifications:
+    also_commented:
       few: "%{actors} также прокомментировали %{post_link} %{post_author}."
       many: "%{actors} также прокомментировали %{post_link} %{post_author}."
       one: "%{actors} также прокомментировал(а) %{post_link} %{post_author}."
       other: "%{actors} также прокомментировали %{post_link} %{post_author}."
       two: "%{actors} также прокомментировали %{post_link} %{post_author}."
       zero: "%{actors} также прокомментировали %{post_link} %{post_author}."
-    also_commented_deleted: 
+    also_commented_deleted:
       few: "%{actors} комментировали ваше удаленное сообщение."
       many: "%{actors} комментировали ваше удаленное сообщение."
       one: "%{actors} комментировал(а) ваше удаленное сообщение."
       other: "%{actors} комментировали ваше удаленное сообщение."
       two: "%{actors} комментировали удаленое сообщение."
       zero: "%{actors} комментировали ваше удаленное сообщение."
-    comment_on_post: 
+    comment_on_post:
       few: "%{actors} прокомментировали вашу %{post_link}."
       many: "%{actors} прокомментировали вашу %{post_link}."
       one: "%{actors} прокомментировал(а) вашу %{post_link}."
       other: "%{actors} прокомментировали вашу %{post_link}."
       two: "%{actors} прокомментировали вашу %{post_link}."
       zero: "%{actors} прокомментировали вашу %{post_link}."
-    helper: 
-      new_notifications: 
+    helper:
+      new_notifications:
         few: "Новые извещения: %{count}"
         many: "Новые извещения: %{count}"
         one: "1 новое извещение"
         other: "Новые извещения: %{count}"
         two: "%{count} новых уведомлений"
         zero: "Новых извещений нет"
-    index: 
+    index:
       and: и
-      and_others: 
+      and_others:
         few: "и %{count} другим"
         many: "и %{count} другим"
         one: "и еще один"
@@ -388,28 +388,28 @@ ru:
         zero: "и больше никому"
       mark_all_as_read: "Отметить все как прочитанные"
       notifications: Уведомления
-    liked: 
+    liked:
       few: "%{actors} понравилась ваша %{post_link}."
       many: "%{actors} понравилась ваша %{post_link}."
       one: "%{actors} понравилась ваша %{post_link}."
       other: "%{actors} понравилась ваша %{post_link}."
       two: "%{actors} понравилась ваша %{post_link}."
       zero: "%{actors} понравилась ваша %{post_link}."
-    liked_post_deleted: 
+    liked_post_deleted:
       few: "%{actors} нравилась ваша удаленная запись."
       many: "%{actors} нравилась ваша удаленная запись."
       one: "%{actors} нравилась ваша удаленная запись."
       other: "%{actors} нравилась ваша удаленная запись."
       two: "%{actors} нравилась ваша удаленная запись."
       zero: "%{actors} нравилась ваша удаленная запись."
-    mentioned: 
+    mentioned:
       few: "%{actors} упомянули вас в %{post_link}."
       many: "%{actors} упомянули вас в %{post_link}."
       one: "%{actors} упомянул(а) вас в %{post_link}."
       other: "%{actors} упомянули вас в %{post_link}."
       two: "%{actors} упомянули вас в %{post_link}."
       zero: "%{actors} упомянули вас в %{post_link}."
-    mentioned_deleted: 
+    mentioned_deleted:
       few: "%{actors} упомянули вас в удаленном сообщении."
       many: "%{actors} упомянули вас в удаленном сообщении."
       one: "%{actors} упомянул(а) вас в удаленном сообщении."
@@ -417,59 +417,59 @@ ru:
       two: "%{actors} упомянули вас в удаленной записи."
       zero: "%{actors} упомянули вас в удаленном сообщении."
     post: запись
-    private_message: 
+    private_message:
       few: "%{actors} послали вам сообщение."
       many: "%{actors} послали вам сообщение."
       one: "%{actors} послал(а) вам сообщение."
       other: "%{actors} послали вам сообщение."
       two: "%{actors} отправили вам сообщение."
       zero: "%{actors} послали вам сообщение."
-    reshared: 
+    reshared:
       few: "%{actors} поделились вашей %{post_link}."
       many: "%{actors} поделились вашей %{post_link}."
       one: "%{actors} поделился(лась) вашей %{post_link}."
       other: "%{actors} поделились вашей %{post_link}."
       two: "%{actors} поделились вашей %{post_link}."
       zero: "%{actors} поделились вашей %{post_link}."
-    reshared_post_deleted: 
+    reshared_post_deleted:
       few: "%{actors} поделились вашей удаленной записью."
       many: "%{actors} поделились вашей удаленной записью."
       one: "%{actors} поделился(лась) вашей удаленной записью."
       other: "%{actors} поделились вашей удаленной записью."
       two: "%{actors} поделились вашей удаленной записью."
       zero: "%{actors} поделились вашей удаленной записью."
-    started_sharing: 
+    started_sharing:
       few: "%{actors} начали делиться с вами."
       many: "%{actors} начали делиться с вами."
       one: "%{actors} начал(а) делиться с вами."
       other: "%{actors} начали делиться с вами."
       two: "%{actors} начал(а) делиться с вами."
       zero: "%{actors} начали делиться с вами."
-  notifier: 
+  notifier:
     a_post_you_shared: запись.
     click_here: "нажмите сюда,"
-    comment_on_post: 
+    comment_on_post:
       reply: "Ответить или посмотреть запись %{name} >"
-    confirm_email: 
+    confirm_email:
       click_link: "Чтобы активировать ваш адрес %{unconfirmed_email}, пожалуйста, перейдите по этой ссылке:"
       subject: "Пожалуйста, активируйте ваш новый адрес %{unconfirmed_email}"
     email_sent_by_diaspora: "Это письмо было послано Диаспорой. Если вы не хотите получать подобные письма,"
     hello: "Привет, %{name}!"
-    liked: 
+    liked:
       liked: "%{name} понравилось ваше сообщение"
       view_post: "Посмотреть запись >"
-    mentioned: 
+    mentioned:
       mentioned: "упомянул вас в сообщении:"
       subject: "%{name} упомянул вас в Диаспоре*"
-    private_message: 
+    private_message:
       reply_to_or_view: "Ответить или посмотреть эту беседу >"
-    reshared: 
+    reshared:
       reshared: "%{name} поделился(лась) вашей записью"
       view_post: "Посмотреть запись >"
-    single_admin: 
+    single_admin:
       admin: "Ваш администратор Диаспоры"
       subject: "Сообщение о вашем аккаунте Диаспоры:"
-    started_sharing: 
+    started_sharing:
       sharing: "начал(а) делиться с вами!"
       subject: "Пользователь %{name} начал делиться с вами в Диаспоре*"
       view_profile: "%{name} - посмотреть профиль"
@@ -479,16 +479,16 @@ ru:
   or: или
   password: Пароль
   password_confirmation: "Подтверждение пароля"
-  people: 
-    add_contact_small: 
+  people:
+    add_contact_small:
       add_contact_from_tag: "добавить контакт из метки"
-    aspect_list: 
+    aspect_list:
       edit_membership: "редактировать участников аспекта"
     few: "%{count} человек[-a]"
-    helper: 
+    helper:
       people_on_pod_are_aware_of: "люди на сервере знают о"
       results_for: "результаты для %{params}"
-    index: 
+    index:
       couldnt_find_them_send_invite: "Не можете их найти? Отправьте им приглашение!"
       looking_for: "Сообщения, отмеченные как %{tag_link}?"
       no_one_found: "...не удалось никого найти."
@@ -497,12 +497,12 @@ ru:
     many: "%{count} человек[-a]"
     one: "1 человек"
     other: "%{count} человек[-a]"
-    person: 
+    person:
       add_contact: "добавить контакт"
       already_connected: "Уже подключен"
       pending_request: "В ожидании запроса"
       thats_you: "Это вы!"
-    profile_sidebar: 
+    profile_sidebar:
       bio: "О себе"
       born: "день рождения"
       edit_my_profile: "Редактировать профиль"
@@ -511,7 +511,7 @@ ru:
       location: местоположение
       remove_contact: "удалить контакт"
       remove_from: "Удалить %{name} из %{aspect}?"
-    show: 
+    show:
       closed_account: "Эта учетная запись была закрыта."
       does_not_exist: "Персоны не существует!"
       has_not_shared_with_you_yet: "%{name} еще не делился записями с вами!"
@@ -526,38 +526,38 @@ ru:
       see_all: "Показать все"
       start_sharing: поделиться
       to_accept_or_ignore: "принять или игнорировать."
-    sub_header: 
+    sub_header:
       add_some: добавить
       edit: редактировать
       you_have_no_tags: "у вас нет меток!"
     two: "%{count} человек[а]"
-    webfinger: 
+    webfinger:
       fail: "К сожалению, мы не смогли найти %{handle}."
     zero: "0 человек"
-  photos: 
+  photos:
     comment_email_subject: "Фотография %{name}"
-    create: 
+    create:
       integrity_error: "Сбой при загрузке фотографии. Вы уверены, что это правильный файл?"
       runtime_error: "Сбой при загрузке фотографии."
       type_error: "Сбой при загрузке фототрафии. Вы уверены, что добавили фотографию?"
-    destroy: 
+    destroy:
       notice: "Фотография удалена."
-    edit: 
+    edit:
       editing: Редактирование
-    new: 
+    new:
       back_to_list: "Вернуться к списку"
       new_photo: "Новая фотография"
       post_it: Опубликовать!
-    new_photo: 
+    new_photo:
       empty: "{file} пуст, выберите пожалуйста файл повторно."
       invalid_ext: "{file} имеет недопустимое расширение. Разрешены только {extensions}."
       size_error: "{file} слишком большой, максимальный размер файла {sizeLimit}."
-    new_profile_photo: 
+    new_profile_photo:
       or_select_one_existing: "или выберете одну из уже загруженных %{photos}"
       upload: "Загрузить новое фото для профиля!"
-    photo: 
+    photo:
       view_all: "Посмотреть все фотографии %{name}"
-    show: 
+    show:
       collection_permalink: "постоянная ссылка на коллекцию"
       delete_photo: "Удалить фотографию"
       edit: редактировать
@@ -565,11 +565,11 @@ ru:
       make_profile_photo: "сделать фотографией профиля"
       show_original_post: "Показать исходную запись"
       update_photo: "Обновить фотографию"
-    update: 
+    update:
       error: "Не удалось изменить фотографию."
       notice: "Фотография успешно загружена."
-  posts: 
-    show: 
+  posts:
+    show:
       destroy: Удалить
       not_found: "Извините, мы не смогли найти эту запись."
       permalink: "постоянная ссылка"
@@ -577,8 +577,8 @@ ru:
   privacy: Приватность
   privacy_policy: "Политика конфиденциальности"
   profile: Профиль
-  profiles: 
-    edit: 
+  profiles:
+    edit:
       allow_search: "Разрешить всем искать вас в Диаспоре"
       edit_profile: "Редактировать профиль"
       first_name: Имя
@@ -594,29 +594,29 @@ ru:
       your_public_profile: "Ваш публичный профиль"
       your_tags: "Опишите себя в пяти словах"
       your_tags_placeholder: "например, #кино #котята #путешествия #учитель #москва"
-    update: 
+    update:
       failed: "Не удалось обновить профиль"
       updated: "Профиль обновлен"
   public: Публичная
-  reactions: 
+  reactions:
     few: "Отзывы: %{count}"
     many: "Отзывы: %{count}"
     one: "Отзывы: 1"
     other: "Отзывы: %{count}"
     two: "Отзывы: %{count}"
     zero: "Отзывы: 0"
-  registrations: 
+  registrations:
     closed: "На этом сервере Диаспоры регистрация закрыта."
-    create: 
+    create:
       success: "Добро пожаловать в Диаспору!"
-    edit: 
+    edit:
       cancel_my_account: "Закрыть мой аккаунт"
       edit: "Редактировать %{name}"
       leave_blank: "(Оставьте пустым, если не хотите менять)"
       password_to_confirm: "(введите ваш текущий пароль для подтверждения изменений)"
       unhappy: Недовольны?
       update: Обновить
-    new: 
+    new:
       create_my_account: "Создать мой аккаунт!"
       enter_email: "Введите email"
       enter_password: "Введите пароль"
@@ -624,34 +624,34 @@ ru:
       enter_username: "Выберите имя пользователя (разрешены только латинские буквы, цифры и подчеркивание)"
       join_the_movement: "Присоединяйтесь к движению!"
       sign_up_message: "Социальная сеть с ♥"
-  requests: 
-    create: 
+  requests:
+    create:
       sending: Отправка
       sent: "Вы просили поделиться с %{name}. Они должны увидеть это при следующем входе в Диаспору."
-    destroy: 
+    destroy:
       error: "Выберите, пожалуйста, один аспект!"
       ignore: "Проигнорированные запросы на дружбу."
       success: "Теперь вы друзья."
-    helper: 
-      new_requests: 
+    helper:
+      new_requests:
         few: "Новых запросов - %{count}!"
         many: "Новых запросов - %{count}!"
         one: "новый запрос!"
         other: "Новых запросов - %{count}!"
         two: "%{count} новых запросов!"
         zero: "новых запросов нет"
-    manage_aspect_contacts: 
+    manage_aspect_contacts:
       existing: "Существующие контакты"
       manage_within: "Управление контактами в"
-    new_request_to_person: 
+    new_request_to_person:
       sent: отправлено!
-  reshares: 
+  reshares:
     comment_email_subject: "Перепост %{resharer} записи %{author}"
-    create: 
+    create:
       failure: "Ошибка при попытке поделиться этой записью."
-    reshare: 
+    reshare:
       deleted: "Исходная запись удалена автором."
-      reshare: 
+      reshare:
         few: "Поделились: %{count}"
         many: "Поделились: %{count}"
         one: "Поделился: 1"
@@ -663,20 +663,20 @@ ru:
       reshared_via: "поделился пользователь"
       show_original: "Показать исходную запись"
   search: Поиск
-  services: 
-    create: 
+  services:
+    create:
       already_authorized: "Пользователь с идентификатором %{diaspora_id} уже авторизовал эту учетную запись %{service_name}."
       failure: "Ошибка авторизации."
       success: "Проверка подлинности прошла успешно."
-    destroy: 
+    destroy:
       success: "Идентификация успешно удалена."
-    failure: 
+    failure:
       error: "Произошла ошибка при подключении этого сервиса"
-    finder: 
+    finder:
       fetching_contacts: "Диаспора добавляет ваших друзей из %{service}. Пожалуйста, подождите пару минут."
       no_friends: "Не найдено друзей из Facebook."
       service_friends: "Друзья из %{service}"
-    index: 
+    index:
       connect_to_facebook: "Подключение к Facebook"
       connect_to_tumblr: "Подключение к Tumblr"
       connect_to_twitter: "Подключение к Twitter"
@@ -685,40 +685,40 @@ ru:
       logged_in_as: "Вы вошли как"
       no_services: "Вы еще не подключили ни одной службы."
       really_disconnect: "отключить %{service}?"
-    inviter: 
+    inviter:
       click_link_to_accept_invitation: "Перейдите по этой ссылке для принятия вашего приглашения"
       join_me_on_diaspora: "Присоединяйтесь ко мне в DIASPORA*"
-    remote_friend: 
+    remote_friend:
       invite: приглашение
       not_on_diaspora: "Еще нет в Диаспоре"
       resend: "отправить повторно"
   settings: Настройки
-  share_visibilites: 
-    update: 
+  share_visibilites:
+    update:
       post_hidden_and_muted: "Запись пользователя %{name} была скрыта, а уведомления отключены."
       see_it_on_their_profile: "Если вы хотите видеть обновления этой записи, посетите профиль пользователя %{name}."
-  shared: 
-    add_contact: 
+  shared:
+    add_contact:
       add_new_contact: "Добавить контакт"
       create_request: "Поиск по идентификатору в Диаспоре"
       enter_a_diaspora_username: "Введите имя пользователя Диаспоры:"
       know_email: "Знаете их email адреса? Вы можете предложить им присоединиться к Диаспоре "
       your_diaspora_username_is: "Ваше имя пользователя Диаспоры: %{diaspora_handle}"
-    aspect_dropdown: 
+    aspect_dropdown:
       add_to_aspect: "Добавить контакт"
-      toggle: 
+      toggle:
         few: "В %{count} аспектах"
         many: "В %{count} аспектах"
         one: "В %{count} аспекте"
         other: "В %{count} аспектах"
         two: "В %{count} аспекте[ах]"
         zero: "Добавить контакт"
-    contact_list: 
+    contact_list:
       all_contacts: "Все контакты"
-    footer: 
+    footer:
       logged_in_as: "вошли как %{name}"
       your_aspects: "ваши аспекты"
-    invitations: 
+    invitations:
       by_email: "По электронной почте"
       dont_have_now: "У вас больше нет приглашений, но новые будут уже скоро!"
       from_facebook: "Из Facebook"
@@ -727,9 +727,9 @@ ru:
       invite_your_friends: "Пригласить друзей"
       invites: Приглашения
       invites_closed: "В данный момент возможность приглашений закрыта на этом сервере Диаспоры"
-    notification: 
+    notification:
       new: "Новый %{type} из %{from}"
-    public_explain: 
+    public_explain:
       control_your_audience: "Выбирайте свою аудиторию"
       logged_in: "вошли в %{service}"
       manage: "управление подключенными сервисами"
@@ -738,12 +738,12 @@ ru:
       share: Делитесь
       title: "Настройка подключенных услуг"
       visibility_dropdown: "Используйте это выпадающее меню для смены видимости вашей записи (мы предлагаем вам сделать эту первую запись публичной)."
-    publisher: 
+    publisher:
       all: все
       all_contacts: "все контакты"
       discard_post: "Отменить запись"
       make_public: "сделать публичным"
-      new_user_prefill: 
+      new_user_prefill:
         hello: "Всем привет, я #%{new_user_tag}."
         i_like: " Мне интересны метки %{tags}."
         invited_by: "Спасибо за приглашение, "
@@ -755,9 +755,9 @@ ru:
       share_with: "поделиться с"
       upload_photos: "Загрузить фотографии"
       whats_on_your_mind: "О чём вы думаете?"
-    reshare: 
+    reshare:
       reshare: "Поделиться повторно"
-    stream_element: 
+    stream_element:
       connect_to_comment: "Подключитесь к этому пользователю, чтобы комментировать его записи"
       currently_unavailable: "комментирование недоступно"
       dislike: "Не нравится"
@@ -771,75 +771,75 @@ ru:
       unlike: "Не нравится"
       via: "через %{link}"
       viewable_to_anyone: "Эту запись может видеть любой в интернете"
-  status_messages: 
-    create: 
+  status_messages:
+    create:
       success: "Успешно упомянут: %{names}"
-    destroy: 
+    destroy:
       failure: "Не удалось удалить сообщение"
-    helper: 
+    helper:
       no_message_to_display: "Новых сообщений нет."
-    new: 
+    new:
       mentioning: "Упоминание: %{person}"
-    too_long: 
+    too_long:
       few: "сократите, пожалуйста, ваше сообщение до %{count} символов"
       many: "сократите, пожалуйста, ваше сообщение до %{count} символов"
       one: "сократите, пожалуйста, ваше сообщение до %{count} символов"
       other: "сократите, пожалуйста, ваше сообщение до %{count} символов"
       two: "сделайте ваше сообщение меньше, чем %{count} символов"
       zero: "сократите, пожалуйста, ваше сообщение до %{count} символов"
-  stream_helper: 
+  stream_helper:
     hide_comments: "Скрыть все комментарии"
-    show_comments: 
+    show_comments:
       few: "Показать еще %{count} комментариев"
       many: "Показать еще %{count} комментариев"
       one: "Показать еще комментарии"
       other: "Показать еще %{count} комментариев"
       two: "Показать еще два комментария"
       zero: "Больше нет комментариев"
-  streams: 
-    aspects: 
+  streams:
+    aspects:
       title: Аспекты
     aspects_stream: Аспекты
-    comment_stream: 
+    comment_stream:
       contacts_title: "Люди, чьи записи вы прокомментировали"
       title: Прокомментированные
     commented_on: обсуждаемые
     community_spotlight_stream: "В центре внимания"
-    followed_tag: 
+    followed_tag:
       add_a_tag: "Добавить метку"
       contacts_title: "Интересуются этими метками"
       follow: Следить
       title: "#Метки"
     followed_tags_stream: "#Метки"
-    like_stream: 
+    like_stream:
       contacts_title: "Люди, чьи записи вам понравились"
       title: Понравившиеся
     mentioned_stream: "@Упоминания"
-    mentions: 
+    mentions:
       contacts_title: "Упоминавшие вас люди"
       title: "@Упоминания"
-    multi: 
+    multi:
       contacts_title: "В вашем потоке"
       title: Поток
     posted: опубликованные
-    public: 
+    public:
       contacts_title: "Последние публиковавшие"
       title: "Публичная активность"
     recently: "последние:"
-    tags: 
+    tags:
       contacts_title: "Люди, которым нравятся эта метка"
       tag_prefill_text: "По поводу метки %{tag_name}..."
       title: "Записи, отмеченные: %{tags}"
-  tag_followings: 
-    create: 
+  tag_followings:
+    create:
       failure: "Ошибка отслеживания метки #%{name}. Возможно, вы уже следите за ней?"
       none: "Нельзя следить за пустой меткой!"
       success: "Ура! Теперь вы следите за меткой #%{name}."
-    destroy: 
+    destroy:
       failure: "Не вышло перестать следить за меткой #%{name}. Возможно, вы уже отписались от нее?"
       success: "Увы! Вы больше не следите за меткой #%{name}."
-  tags: 
-    show: 
+  tags:
+    show:
       follow: "Следить за меткой #%{tag}"
       followed_by: отслеживают
       following: "Вы следите за меткой #%{tag}"
@@ -849,8 +849,8 @@ ru:
       posts_tagged_with: "Записи с меткой #%{tag}"
       stop_following: "Не следить за меткой #%{tag}"
   terms_and_conditions: "Условия оказания услуг"
-  tokens: 
-    show: 
+  tokens:
+    show:
       connect_to_cubbies: "Подключение к Cubbi.es"
       connecting_is_simple: "Подключить аккаунт Диаспоры легко! Просто введите ваш идентификатор в Диаспоре (<b>%{diaspora_id}</b>) на <a href='%{href_link}'>странице настроек</a> cubbies и нажмите \"подключить\"."
       daniels_account: "Аккаунт Даниила в Диаспоре"
@@ -862,21 +862,21 @@ ru:
       what_is_cubbies: "Cubbi.es - это первое в мире приложение для Диаспоры. Кроме того, это лучший способ создания коллекции фотографий в Интернете."
   undo: Отменить?
   username: "Имя пользователя"
-  users: 
-    confirm_email: 
+  users:
+    confirm_email:
       email_confirmed: "Адрес %{email} активирован"
       email_not_confirmed: "Адрес не может быть активирован. Неверная ссылка?"
-    destroy: 
+    destroy:
       no_password: "Пожалуйста, введите пароль, чтобы закрыть свою учетную запись."
       success: "Ваша учетная запись заблокирована. На полное закрытие вашей учетной записи может уйти до 20 минут. Спасибо, что были вместе с нами."
       wrong_password: "Введенный вами пароль не совпадает с вашим текущим паролем."
-    edit: 
+    edit:
       also_commented: "... кто-то комментировал сообщения ваших контактов?"
       change: Изменить
       change_email: "Изменить адрес"
       change_language: "Изменить язык"
       change_password: "Изменить пароль"
-      close_account: 
+      close_account:
         dont_go: "Пожалуйста, не уходите!"
         if_you_want_this: "Если вы действительно хотите это сделать, введите ваш пароль и нажмите 'Закрыть аккаунт'."
         lock_username: "Это зарезервирует ваше имя пользователя на случай, если вы захотите снова зарегистрироваться."
@@ -907,7 +907,7 @@ ru:
       stream_preferences: "Настройки потока"
       your_email: "Ваш адрес электронной почты"
       your_handle: "Ваш идентификатор в Диаспоре"
-    getting_started: 
+    getting_started:
       awesome_take_me_to_diaspora: "Чудесно! Пустите меня в Диаспору*"
       community_welcome: "Сообщество Диаспоры радо приветствовать вас!"
       hashtag_explanation: "Метки позволяют вам обсуждать и следить за интересующими вас темами. Это также отличный способ поиска единомышленников в Диаспоре."
@@ -919,19 +919,19 @@ ru:
       what_are_you_in_to: "Чем вы интересуетесь?"
       what_facebook_does: "к Диаспоре. Мы заполним ваше имя и фотографию, а вы сможете отправлять туда копии своих записей."
       who_are_you: "Кто вы?"
-    logged_out: 
+    logged_out:
       go_mobile: "Заходите с мобильного!"
       on_your_mobile_device: "на вашем устройстве для доступа к мобильной версии Диаспоры."
       signed_out: "Вы вышли из Диаспоры*"
       simply_visit: "Просто зайдите на"
       works_on_modern: "Работает на всех современных смартфонах"
-    privacy_settings: 
+    privacy_settings:
       ignored_users: "Заблокированные пользователи"
       stop_ignoring: "Отменить блокирование"
       title: "Настройки приватности"
-    public: 
+    public:
       does_not_exist: "Пользователя %{username} не существует!"
-    update: 
+    update:
       email_notifications_changed: "Настройки уведомлений сохранены"
       language_changed: "Язык изменён"
       language_not_changed: "Не удалось изменить язык"
@@ -941,13 +941,13 @@ ru:
       settings_updated: "Настройки сохранены"
       unconfirmed_email_changed: "Email изменился. Нужна активация."
       unconfirmed_email_not_changed: "Ошибка изменения Email"
-  webfinger: 
+  webfinger:
     fetch_failed: "Не удалось получить профиль для %{profile_url}"
     hcard_fetch_failed: "Возникла проблема при получении hcard для %{account}"
     no_person_constructed: "Ни одна персона не может быть собрана из этой hcard."
     not_enabled: "webfinger не будет включен для хоста %{account}"
     xrd_fetch_failed: "Произошла ошибка при получении xrd с %{account}"
   welcome: "Добро пожаловать!"
-  will_paginate: 
+  will_paginate:
     next_label: "вперед &raquo;"
     previous_label: "&laquo; назад"

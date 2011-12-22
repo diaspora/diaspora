@@ -85,9 +85,6 @@ defaults: &defaults
   # Enable extensive logging to log/{development,test,production}.log
   debug: false
 
-  # If you want normal Rails logs, set this to false in the appropriate environment.
-  # It is false by default in development and test.
-  enable_splunk_logging: true
 
   # Enable extensive logging to websocket server.
   socket_debug : false
@@ -215,7 +212,6 @@ defaults: &defaults
 
 development:
   <<: *defaults
-  enable_splunk_logging: false
 
 production:
   <<: *defaults
@@ -228,15 +224,12 @@ test:
   <<: *defaults
   pod_url: "http://localhost:9887"
   socket_port: 8081
-  enable_splunk_logging: false
   open_invitations: true
 
 integration_1:
   <<: *defaults
   pod_url: "http://localhost:45789"
-  enable_splunk_logging: false
 
 integration_2:
   <<: *defaults
   pod_url: "http://localhost:34658"
-  enable_splunk_logging: false

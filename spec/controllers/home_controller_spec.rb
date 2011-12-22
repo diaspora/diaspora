@@ -3,7 +3,6 @@
 #   the COPYRIGHT file.
 
 require 'spec_helper'
-require File.join(Rails.root, "spec", "shared_behaviors", "log_override")
 
 describe HomeController do
   describe '#show' do
@@ -16,25 +15,6 @@ describe HomeController do
       sign_in alice
       get :show, :home => true
       response.should redirect_to(multi_path)
-    end
-
-    describe "custom logging on success" do
-      before do
-        @action = :show
-        @action_params = {"lasers" => "green"}
-      end
-
-      it_should_behave_like "it overrides the logs on success"
-    end
-
-    describe "custom logging on redirect" do
-      before do
-        sign_in :user, bob
-        @action = :show
-        @action_params = {"lasers" => "green"}
-      end
-
-      it_should_behave_like "it overrides the logs on redirect"
     end
   end
 end
