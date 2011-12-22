@@ -14,10 +14,17 @@ describe NotificationsController do
   end
 
   describe '#update' do
-    it 'marks a notification as read' do
+    it 'marks a notification as read if it was unread' do
       note = Factory(:notification, :recipient => @user)
       @controller.update :id => note.id
       Notification.first.unread.should == false
+    end
+    it 'marks a notification as unread if it was read' do
+      note = Factory(:notification, :recipient => @user)
+      @controller.update :id => note.id
+      Notification.first.unread.should == false
+      @controller.update :id => note.id
+      Notification.first.unread.should == true
     end
 
     it 'only lets you read your own notifications' do
