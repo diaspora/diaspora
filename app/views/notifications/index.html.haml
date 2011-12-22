@@ -21,7 +21,7 @@
 
         .span-8.notifications_for_day
           - notes.each do |note|
-            .stream_element{:data=>{:guid => note.id}, :class => "#{note.unread ? 'unread' : ''}"}
+            .stream_element{:data=>{:guid => note.id}, :class => "#{note.unread ? 'unread' : 'read'}"}
               - if note.type == "Notifications::StartedSharing" && contact = current_user.contact_for(note[:target])
                 .right
                   = aspect_membership_dropdown(contact, note[:target], 'left')
