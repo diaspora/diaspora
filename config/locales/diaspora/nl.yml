@@ -310,8 +310,10 @@ nl:
         two: "%{count} leuk"
         zero: "niemand vindt dit leuk"
       people_like_this_comment:
-        two: "%{count} leuk"
         zero: "geen likes"
+        one: "%{count} leuk"
+        two: "%{count} leuk"
+        many: "%{count} leuk"
   limited: Beperkt
   more: Meer
   next: volgende
