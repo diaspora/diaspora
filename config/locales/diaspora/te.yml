@@ -20,6 +20,7 @@ te:
     edit:
       done: పూర్తయ్యింది
       rename: పేరుమార్చు
+    few: "%{count} aspects"
     index:
       cubbies:
         learn_more: "మరింత తెలుసుకోండి"
@@ -27,12 +28,17 @@ te:
         need_help: "సహాయం కావాలా?"
       new_here:
         learn_more: "మరింత తెలుసుకోండి"
+    many: "%{count} aspects"
     new:
       name: "పేరు (మీకు మాత్రమే కనిపిస్తుంది)"
+    one: "1 aspect"
+    other: "%{count} aspects"
     seed:
       family: కుటుంబం
       friends: స్నేహితులు
       work: సహోద్యోగులు
+    two: "%{count} aspects"
+    zero: "no aspects"
   cancel: రద్దుచేయి
   comments:
     few: "%{count} వ్యాఖ్యలు"
@@ -43,6 +49,11 @@ te:
     zero: "వ్యాఖ్యలు లేవు"
   contacts:
     few: "%{count} పరిచయాలు"
+    many: "%{count} contacts"
+    one: "1 contact"
+    other: "%{count} contacts"
+    two: "%{count} contacts"
+    zero: contacts
   conversations:
     helper:
       new_messages:
@@ -70,12 +81,125 @@ te:
     header:
       blog: బ్లాగు
       settings: అమరికలు
+  likes:
+    likes:
+      people_dislike_this:
+        few: "%{count} dislikes"
+        many: "%{count} dislikes"
+        one: "%{count} dislike"
+        other: "%{count} dislikes"
+        two: "%{count} dislikes"
+        zero: "no dislikes"
+      people_like_this:
+        few: "%{count} likes"
+        many: "%{count} likes"
+        one: "%{count} like"
+        other: "%{count} likes"
+        two: "%{count} likes"
+        zero: "no likes"
+      people_like_this_comment:
+        few: "%{count} likes"
+        many: "%{count} likes"
+        one: "%{count} like"
+        other: "%{count} likes"
+        two: "%{count} likes"
+        zero: "no likes"
   limited: పరిమితం
   notifications:
+    also_commented:
+      few: "%{actors} also commented on %{post_author}'s %{post_link}."
+      many: "%{actors} also commented on %{post_author}'s %{post_link}."
+      one: "%{actors} also commented on %{post_author}'s %{post_link}."
+      other: "%{actors} also commented on %{post_author}'s %{post_link}."
+      two: "%{actors} also commented on %{post_author}'s %{post_link}."
+      zero: "%{actors} also commented on %{post_author}'s %{post_link}."
+    also_commented_deleted:
+      few: "%{actors} commented on a deleted post."
+      many: "%{actors} commented on a deleted post."
+      one: "%{actors} commented on a deleted post."
+      other: "%{actors} commented on a deleted post."
+      two: "%{actors} commented on a deleted post."
+      zero: "%{actors} commented on a deleted post."
+    comment_on_post:
+      few: "%{actors} commented on your %{post_link}."
+      many: "%{actors} commented on your %{post_link}."
+      one: "%{actors} commented on your %{post_link}."
+      other: "%{actors} commented on your %{post_link}."
+      two: "%{actors} commented on your %{post_link}."
+      zero: "%{actors} commented on your %{post_link}."
+    helper:
+      new_notifications:
+        few: "%{count} new notifications"
+        many: "%{count} new notifications"
+        one: "1 new notification"
+        other: "%{count} new notifications"
+        two: "%{count} new notifications"
+        zero: "No new notifications"
     index:
       and: మరియు
       and_others:
         few: "ఇంకా %{count}గురు ఇతరులు"
+        many: "and %{count} others"
+        one: "and one more"
+        other: "and %{count} others"
+        two: "and %{count} others"
+        zero: "and nobody else"
+    liked:
+      few: "%{actors} have liked your %{post_link}."
+      many: "%{actors} have liked your %{post_link}."
+      one: "%{actors} has liked your %{post_link}."
+      other: "%{actors} have liked your %{post_link}."
+      two: "%{actors} have liked your %{post_link}."
+      zero: "%{actors} have liked your %{post_link}."
+    liked_post_deleted:
+      few: "%{actors} liked your deleted post."
+      many: "%{actors} liked your deleted post."
+      one: "%{actors} liked your deleted post."
+      other: "%{actors} liked your deleted post."
+      two: "%{actors} liked your deleted post."
+      zero: "%{actors} liked your deleted post."
+    mentioned:
+      few: "%{actors} have mentioned you in a %{post_link}."
+      many: "%{actors} have mentioned you in a %{post_link}."
+      one: "%{actors} has mentioned you in a %{post_link}."
+      other: "%{actors} have mentioned you in a %{post_link}."
+      two: "%{actors} have mentioned you in a %{post_link}."
+      zero: "%{actors} have mentioned you in a %{post_link}."
+    mentioned_deleted:
+      few: "%{actors} mentioned you in a deleted post."
+      many: "%{actors} mentioned you in a deleted post."
+      one: "%{actors} mentioned you in a deleted post."
+      other: "%{actors} mentioned you in a deleted post."
+      two: "%{actors} mentioned you in a deleted post."
+      zero: "%{actors} mentioned you in a deleted post."
+    private_message:
+      few: "%{actors} sent you a message."
+      many: "%{actors} sent you a message."
+      one: "%{actors} sent you a message."
+      other: "%{actors} sent you a message."
+      two: "%{actors} sent you a message."
+      zero: "%{actors} sent you a message."
+    reshared:
+      few: "%{actors} have reshared your %{post_link}."
+      many: "%{actors} have reshared your %{post_link}."
+      one: "%{actors} has reshared your %{post_link}."
+      other: "%{actors} have reshared your %{post_link}."
+      two: "%{actors} have reshared your %{post_link}."
+      zero: "%{actors} have reshared your %{post_link}."
+    reshared_post_deleted:
+      few: "%{actors} reshared your deleted post."
+      many: "%{actors} reshared your deleted post."
+      one: "%{actors} reshared your deleted post."
+      other: "%{actors} reshared your deleted post."
+      two: "%{actors} reshared your deleted post."
+      zero: "%{actors} reshared your deleted post."
+    started_sharing:
+      few: "%{actors} started sharing with you."
+      many: "%{actors} started sharing with you."
+      one: "%{actors} started sharing with you."
+      other: "%{actors} started sharing with you."
+      two: "%{actors} started sharing with you."
+      zero: "%{actors} started sharing with you."
   notifier:
     click_here: "ఇక్కడ నొక్కండి"
   ok: సరే
@@ -83,6 +207,10 @@ te:
   password: సంకేతపదం
   password_confirmation: "సంకేతపదపు నిర్ధారణ"
   people:
+    few: "%{count} people"
+    many: "%{count} people"
+    one: "1 person"
+    other: "%{count} people"
     person:
       thats_you: "అది మీరే!"
     profile_sidebar:
@@ -93,6 +221,8 @@ te:
       recent_posts: "ఇటీవలి టపాలు"
       recent_public_posts: "ఇటీవలి బహిరంగ టపాలు"
       see_all: "అందరినీ చూడండి"
+    two: "%{count} people"
+    zero: "no people"
   posts:
     show:
       permalink: స్థిరలంకె
@@ -101,5 +231,55 @@ te:
       your_name: "మీ పేరు"
       your_photo: "మీ ఫొటో"
   public: బహిరంగం
+  reactions:
+    few: "%{count} reactions"
+    many: "%{count} reactions"
+    one: "1 reaction"
+    other: "%{count} reactions"
+    two: "%{count} reactions"
+    zero: "0 reactions"
+  requests:
+    helper:
+      new_requests:
+        few: "%{count} new requests!"
+        many: "%{count} new requests!"
+        one: "new request!"
+        other: "%{count} new requests!"
+        two: "%{count} new requests!"
+        zero: "no new requests"
+  reshares:
+    reshare:
+      reshare:
+        few: "%{count} reshares"
+        many: "%{count} reshares"
+        one: "1 reshare"
+        other: "%{count} reshares"
+        two: "%{count} reshares"
+        zero: Reshare
   settings: అమరికలు
+  shared:
+    aspect_dropdown:
+      toggle:
+        few: "In %{count} aspects"
+        many: "In %{count} aspects"
+        one: "In %{count} aspect"
+        other: "In %{count} aspects"
+        two: "In %{count} aspects"
+        zero: "Add contact"
+  status_messages:
+    too_long:
+      few: "please make your status messages less than %{count} characters"
+      many: "please make your status messages less than %{count} characters"
+      one: "please make your status messages less than %{count} character"
+      other: "please make your status messages less than %{count} characters"
+      two: "please make your status messages less than %{count} characters"
+      zero: "please make your status messages less than %{count} characters"
+  stream_helper:
+    show_comments:
+      few: "Show %{count} more comments"
+      many: "Show %{count} more comments"
+      one: "Show one more comment"
+      other: "Show %{count} more comments"
+      two: "Show two more comments"
+      zero: "No more comments"
   welcome: స్వాగతం!

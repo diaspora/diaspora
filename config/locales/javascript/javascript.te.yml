@@ -6,6 +6,14 @@
 
 te:
   javascripts:
+    aspect_dropdown:
+      toggle:
+        few: "In {{count}} aspects"
+        many: "In {{count}} aspects"
+        one: "In {{count}} aspect"
+        other: "In {{count}} aspects"
+        two: "In {{count}} aspects"
+        zero: "Select aspects"
     aspect_navigation:
       select_all: "అన్నిటినీ ఎంచుకో"
     comments:

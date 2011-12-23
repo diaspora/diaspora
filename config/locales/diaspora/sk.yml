@@ -925,7 +925,7 @@ sk:
       who_are_you: "Kto ste?"
     logged_out:
       go_mobile: "Teraz buďte mobilní."
-      on_your_mobile_device: "na mobile, aby ste sa mohli dostať na verziu Diaspory* pre mobily."
+      on_your_mobile_device: "na mobile a dostanete sa na verziu Diaspory* pre mobily."
       signed_out: "Odhlásili ste sa z Diaspory*"
       simply_visit: "Jednoducho navštívte"
       works_on_modern: "Funguje na všetkých moderných smartfónoch"

@@ -84,6 +84,7 @@ fr:
       rename: renommer
       update: "mettre à jour"
       updating: "mise à jour"
+    few: "%{count} aspects"
     helper:
       are_you_sure: "Voulez-vous vraiment supprimer cet aspect ?"
       aspect_not_empty: "L’aspect n’est pas vide"
@@ -126,6 +127,7 @@ fr:
       unfollow_tag: "Arrêter de suivre #%{tag}"
       welcome_to_diaspora: "Bienvenue sur Diaspora*, %{name} !"
       your_aspects: "Vos aspects"
+    many: "%{count} aspects"
     move_contact:
       error: "Erreur lors du déplacement du contact : %{inspect}"
       failure: "n'a pas fonctionné %{inspect}"
@@ -140,6 +142,8 @@ fr:
       you_should_add_some_more_contacts: "Vous devez ajouter un peu plus de contacts !"
     no_posts_message:
       start_talking: "Personne n’a encore rien dit !"
+    one: "1 aspect"
+    other: "%{count} aspects"
     seed:
       acquaintances: Connaissances
       family: Famille
@@ -152,6 +156,7 @@ fr:
       view_all_contacts: "Afficher tous les contacts"
     show:
       edit_aspect: "modifier l'aspect"
+    two: "%{count} aspects"
     update:
       failure: "Votre aspect %{name} a un nom trop long pour être enregistré."
       success: "Votre aspect « %{aspect_name} » a été modifié."
@@ -173,12 +178,12 @@ fr:
     explanation_link_text: "ce lien"
     post_something: "Publiez quelque chose sur Diaspora"
     post_success: "Publié ! Fermeture !"
-  cancel: "Annuler"
+  cancel: Annuler
   comments:
     few: "%{count} commentaires"
     many: "%{count} commentaires"
     new_comment:
-      comment: "Commenter"
+      comment: Commenter
       commenting: "Commentaire en cours d'envoi..."
     one: "1 commentaire"
     other: "%{count} commentaires"
@@ -187,11 +192,12 @@ fr:
   contacts:
     create:
       failure: "Impossible de créer le contact"
+    few: "%{count} contacts"
     index:
       add_a_new_aspect: "Ajouter un nouvel aspect"
       add_to_aspect: "ajouter les contacts à %{name}"
       all_contacts: "Tous les contacts"
-      check_out: "Vérifiez"
+      check_out: Vérifiez
       many_people_are_you_sure: "Êtes-vous sûr de vouloir commencer une conversation privée avec plus de %{suggested_limit} contacts? Envoyer des messages à cet aspect peut être un meilleur moyen de les contacter."
       my_contacts: "Mes Contacts"
       no_contacts: "On dirait que vous avez besoin d'ajouter quelques contacts !"
@@ -199,14 +205,15 @@ fr:
       remove_person_from_aspect: "Enlever %{person_name} de \"%{aspect_name}\""
       start_a_conversation: "Démarrer une conversation"
       your_contacts: "Vos contacts"
+    many: "%{count} contacts"
+    one: "1 contact"
+    other: "%{count} contacts"
     sharing:
       people_sharing: "Personnes partageant avec vous :"
     spotlight:
       community_spotlight: "Actualités de la communauté"
-    zero: "No contacts"
-    one: "1 contact"
-    few: "%{count} contacts"
-    other: "%{count} contacts"
+    two: "%{count} contacts"
+    zero: contact
   conversations:
     create:
       fail: "Message invalide"

@@ -133,6 +133,7 @@ nl:
       you_should_add_some_more_contacts: "Voeg wat meer contacten toe!"
     no_posts_message:
       start_talking: "Nog niemand heeft iets gezegd!"
+    one: "1 aspect"
     other: "%{count} aspecten"
     seed:
       acquaintances: Kennissen
@@ -194,6 +195,7 @@ nl:
       title: Contacten
       your_contacts: "Jouw Contacten"
     many: "%{count} contacten"
+    one: "1 contact"
     other: "%{count} contacten"
     sharing:
       people_sharing: "Mensen die met jou delen:"
@@ -310,10 +312,12 @@ nl:
         two: "%{count} leuk"
         zero: "niemand vindt dit leuk"
       people_like_this_comment:
-        zero: "geen likes"
-        one: "%{count} leuk"
+        few: "%{count} likes"
+        many: "%{count} likes"
+        one: "%{count} like"
+        other: "%{count} likes"
         two: "%{count} leuk"
-        many: "%{count} leuk"
+        zero: "geen likes"
   limited: Beperkt
   more: Meer
   next: volgende
@@ -565,6 +569,7 @@ nl:
     many: "%{count} reacties"
     one: "1 reactie"
     other: "%{count} reacties"
+    two: "%{count} reactions"
     zero: "0 reacties"
   registrations:
     closed: "Registratie is gesloten op deze Diaspora pod."
@@ -667,6 +672,7 @@ nl:
       toggle:
         few: "In %{count} aspecten"
         many: "In %{count} aspecten"
+        one: "In %{count} aspect"
         other: "In %{count} aspecten"
         two: "In %{count} aspecten"
         zero: "Voeg toe aan aspect"
@@ -742,6 +748,13 @@ nl:
       zero: "statusberichten mogen niet langer zijn dan %{count} tekens"
   stream_helper:
     hide_comments: "Verberg alle reacties"
+    show_comments:
+      few: "Show %{count} more comments"
+      many: "Show %{count} more comments"
+      one: "Show one more comment"
+      other: "Show %{count} more comments"
+      two: "Show two more comments"
+      zero: "No more comments"
   streams:
     aspects:
       title: "Jouw Aspecten"

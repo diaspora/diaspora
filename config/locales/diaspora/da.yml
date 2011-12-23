@@ -489,6 +489,7 @@ da:
       no_results: "Hey! Du er nødt til at søge efter noget."
       results_for: "søgeresultater for"
     many: "%{count} personer"
+    one: "1 person"
     other: "%{count} personer"
     person:
       add_contact: "tilføj kontaktperson"

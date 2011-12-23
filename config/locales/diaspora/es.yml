@@ -315,7 +315,7 @@ es:
       whats_new: "Novedades en Diaspora*"
       your_aspects: "tus aspectos"
     header:
-      admin: administrar
+      admin: Administrar
       code: código
       login: acceder
       logout: Salir
@@ -758,7 +758,7 @@ es:
       upload_photos: "Subir fotos"
       whats_on_your_mind: "¿Qué andas pensando?"
     reshare:
-      reshare: "Publicar en..."
+      reshare: "Compartir original"
     stream_element:
       connect_to_comment: "Conecta con esta persona para comentar en su publicación"
       currently_unavailable: "comentarios actualmente no disponibles"

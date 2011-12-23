@@ -443,6 +443,7 @@ fi:
       many: "%{actors} on aloittanut jakamaan kanssasi."
       one: "%{actors} on aloittanut jakamaan kanssasi."
       other: "%{actors} on aloittanut jakamaan kanssasi."
+      two: "%{actors} started sharing with you."
       zero: "%{actors} on aloittanut jakamaan kanssasi."
   notifier:
     click_here: "klikkaa tästä"

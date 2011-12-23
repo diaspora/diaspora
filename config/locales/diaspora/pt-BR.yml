@@ -600,6 +600,7 @@ pt-BR:
   public: Público
   reactions:
     few: "%{count} reações"
+    many: "%{count} reactions"
     one: "1 reação"
     other: "%{count} reações"
     two: "%{count} reações"
