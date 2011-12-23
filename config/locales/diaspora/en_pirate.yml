@@ -64,7 +64,17 @@ en_pirate:
       family: Kin
       friends: Mateys
       work: Shipmates
+    two: "%{count} aspects"
+    zero: "no aspects"
+  comments:
+    few: "%{count} comments"
+    many: "%{count} comments"
+    one: "1 comment"
+    other: "%{count} comments"
+    two: "%{count} comments"
+    zero: "no comments"
   contacts:
+    few: "%{count} contacts"
     index:
       add_to_aspect: "Add contacts to %{name}"
       all_contacts: "All yer mateys"
@@ -72,7 +82,20 @@ en_pirate:
       no_contacts: "No contacts."
       title: Mateys
       your_contacts: "Yer Mateys"
+    many: "%{count} contacts"
+    one: "1 contact"
+    other: "%{count} contacts"
+    two: "%{count} contacts"
     zero: "no contacts"
+  conversations:
+    helper:
+      new_messages:
+        few: "%{count} new messages"
+        many: "%{count} new messages"
+        one: "1 new messages"
+        other: "%{count} new messages"
+        two: "%{count} new messages"
+        zero: "No new messages"
   layouts:
     application:
       toggle: "toggle mobile site"
@@ -80,10 +103,67 @@ en_pirate:
       logout: "Abandon Ship"
       profile: "Ye Ship"
       settings: "Ye Ships Rigging"
+  likes:
+    likes:
+      people_dislike_this:
+        few: "%{count} dislikes"
+        many: "%{count} dislikes"
+        one: "%{count} dislike"
+        other: "%{count} dislikes"
+        two: "%{count} dislikes"
+        zero: "no dislikes"
+      people_like_this:
+        few: "%{count} likes"
+        many: "%{count} likes"
+        one: "%{count} like"
+        other: "%{count} likes"
+        two: "%{count} likes"
+        zero: "no likes"
+      people_like_this_comment:
+        few: "%{count} likes"
+        many: "%{count} likes"
+        one: "%{count} like"
+        other: "%{count} likes"
+        two: "%{count} likes"
+        zero: "no likes"
   notifications:
+    also_commented:
+      few: "%{actors} also commented on %{post_author}'s %{post_link}."
+      many: "%{actors} also commented on %{post_author}'s %{post_link}."
+      one: "%{actors} also commented on %{post_author}'s %{post_link}."
+      other: "%{actors} also commented on %{post_author}'s %{post_link}."
+      two: "%{actors} also commented on %{post_author}'s %{post_link}."
+      zero: "%{actors} also commented on %{post_author}'s %{post_link}."
+    also_commented_deleted:
+      few: "%{actors} commented on a deleted post."
+      many: "%{actors} commented on a deleted post."
+      one: "%{actors} commented on a deleted post."
+      other: "%{actors} commented on a deleted post."
+      two: "%{actors} commented on a deleted post."
+      zero: "%{actors} commented on a deleted post."
+    comment_on_post:
+      few: "%{actors} commented on your %{post_link}."
+      many: "%{actors} commented on your %{post_link}."
+      one: "%{actors} commented on your %{post_link}."
+      other: "%{actors} commented on your %{post_link}."
+      two: "%{actors} commented on your %{post_link}."
+      zero: "%{actors} commented on your %{post_link}."
     helper:
       new_notifications:
+        few: "%{count} new notifications"
+        many: "%{count} new notifications"
         one: "1 new notifications"
+        other: "%{count} new notifications"
+        two: "%{count} new notifications"
+        zero: "No new notifications"
+    index:
+      and_others:
+        few: "and %{count} others"
+        many: "and %{count} others"
+        one: "and one more"
+        other: "and %{count} others"
+        two: "and %{count} others"
+        zero: "and nobody else"
     liked:
       few: "%{actors} has just liked your %{post_link}."
       many: "%{actors} has just liked your %{post_link}."
@@ -91,18 +171,55 @@ en_pirate:
       other: "%{actors} has just liked your %{post_link}."
       two: "%{actors} has just liked your %{post_link}."
       zero: "%{actors} has just liked your %{post_link}."
+    liked_post_deleted:
+      few: "%{actors} liked your deleted post."
+      many: "%{actors} liked your deleted post."
+      one: "%{actors} liked your deleted post."
+      other: "%{actors} liked your deleted post."
+      two: "%{actors} liked your deleted post."
+      zero: "%{actors} liked your deleted post."
     mentioned:
       few: "%{actors} has mentioned you in a %{post_link}."
       many: "%{actors} has mentioned you in a %{post_link}."
+      one: "%{actors} has mentioned you in a %{post_link}."
       other: "%{actors} has mentioned you in a %{post_link}."
       two: "%{actors} has mentioned you in a %{post_link}."
       zero: "%{actors} has mentioned you in a %{post_link}."
+    mentioned_deleted:
+      few: "%{actors} mentioned you in a deleted post."
+      many: "%{actors} mentioned you in a deleted post."
+      one: "%{actors} mentioned you in a deleted post."
+      other: "%{actors} mentioned you in a deleted post."
+      two: "%{actors} mentioned you in a deleted post."
+      zero: "%{actors} mentioned you in a deleted post."
+    private_message:
+      few: "%{actors} sent you a message."
+      many: "%{actors} sent you a message."
+      one: "%{actors} sent you a message."
+      other: "%{actors} sent you a message."
+      two: "%{actors} sent you a message."
+      zero: "%{actors} sent you a message."
     reshared:
       few: "%{actors} has reshared your %{post_link}."
       many: "%{actors} has reshared your %{post_link}."
+      one: "%{actors} has reshared your %{post_link}."
       other: "%{actors} has reshared your %{post_link}."
       two: "%{actors} has reshared your %{post_link}."
       zero: "%{actors} has reshared your %{post_link}."
+    reshared_post_deleted:
+      few: "%{actors} reshared your deleted post."
+      many: "%{actors} reshared your deleted post."
+      one: "%{actors} reshared your deleted post."
+      other: "%{actors} reshared your deleted post."
+      two: "%{actors} reshared your deleted post."
+      zero: "%{actors} reshared your deleted post."
+    started_sharing:
+      few: "%{actors} started sharing with you."
+      many: "%{actors} started sharing with you."
+      one: "%{actors} started sharing with you."
+      other: "%{actors} started sharing with you."
+      two: "%{actors} started sharing with you."
+      zero: "%{actors} started sharing with you."
   notifier:
     confirm_email:
       click_link: "To activate your new email address %{unconfirmed_email}, please click this link:"
@@ -111,18 +228,49 @@ en_pirate:
     reshared:
       reshared: "%{name} just reshared your post"
   people:
+    few: "%{count} people"
+    many: "%{count} people"
+    one: "1 person"
+    other: "%{count} people"
     profile_sidebar:
       born: "date o' birth"
+    two: "%{count} people"
+    zero: "no people"
   photos:
     new:
       new_photo: "New Portrait"
   profiles:
     edit:
       your_birthday: "Ye day o' birth"
+  reactions:
+    few: "%{count} reactions"
+    many: "%{count} reactions"
+    one: "1 reaction"
+    other: "%{count} reactions"
+    two: "%{count} reactions"
+    zero: "0 reactions"
   registrations:
     new:
       create_my_account: "Create my account"
       sign_up_message: "Social Networking with a <3"
+  requests:
+    helper:
+      new_requests:
+        few: "%{count} new requests!"
+        many: "%{count} new requests!"
+        one: "new request!"
+        other: "%{count} new requests!"
+        two: "%{count} new requests!"
+        zero: "no new requests"
+  reshares:
+    reshare:
+      reshare:
+        few: "%{count} reshares"
+        many: "%{count} reshares"
+        one: "1 reshare"
+        other: "%{count} reshares"
+        two: "%{count} reshares"
+        zero: Reshare
   search: Scour
   services:
     inviter:
@@ -131,6 +279,11 @@ en_pirate:
     aspect_dropdown:
       add_to_aspect: "Add to aspect"
       toggle:
+        few: "In %{count} aspects"
+        many: "In %{count} aspects"
+        one: "In %{count} aspect"
+        other: "In %{count} aspects"
+        two: "In %{count} aspects"
         zero: "Add to aspect"
     publisher:
       new_user_prefill:
@@ -140,6 +293,22 @@ en_pirate:
     stream_element:
       hide_and_mute: "Hide and Mute"
       shared_with: "Fired at: %{aspect_names}"
+  status_messages:
+    too_long:
+      few: "please make your status messages less than %{count} characters"
+      many: "please make your status messages less than %{count} characters"
+      one: "please make your status messages less than %{count} character"
+      other: "please make your status messages less than %{count} characters"
+      two: "please make your status messages less than %{count} characters"
+      zero: "please make your status messages less than %{count} characters"
+  stream_helper:
+    show_comments:
+      few: "Show %{count} more comments"
+      many: "Show %{count} more comments"
+      one: "Show one more comment"
+      other: "Show %{count} more comments"
+      two: "Show two more comments"
+      zero: "No more comments"
   streams:
     mentions:
       title: "Your Mentions"

@@ -138,6 +138,7 @@ he:
       view_all_contacts: "הצגת כל אנשי הקשר"
     show:
       edit_aspect: "עריכת היבט"
+    two: "%{count} aspects"
     update:
       failure: "להיבט שלך, %{name}, היה שם ארוך מדי מכדי שיישמר."
       success: "ההיבט שלך, %{name}, נערך בהצלחה."
@@ -161,6 +162,7 @@ he:
       commenting: "נוספת הערה..."
     one: "תגובה אחת"
     other: "%{count} תגובות"
+    two: "%{count} comments"
     zero: "אין תגובות"
   contacts:
     create:
@@ -183,6 +185,7 @@ he:
     other: "%{count} אנשי קשר"
     sharing:
       people_sharing: "אנשים המשתפים אותך:"
+    two: "%{count} contacts"
     zero: "אנשי קשר"
   conversations:
     create:
@@ -196,6 +199,7 @@ he:
         many: "%{count} הודעות חדשות"
         one: "הודעה חדשה אחת"
         other: "%{count} הודעות חדשות"
+        two: "%{count} new messages"
         zero: "אין הודעות חדשות"
     index:
       create_a_new_message: "כתיבת הודעה חדשה"
@@ -292,18 +296,21 @@ he:
         many: "%{count} אנשים לא אהבו את זה"
         one: "אדם אחד לא אהב את זה"
         other: "%{count} אנשים לא אוהבים את זה"
+        two: "%{count} dislikes"
         zero: "אין אנשים שלא אהבו את זה"
       people_like_this:
         few: "%{count} אנשים אהבו את זה"
         many: "%{count} אנשים אהבו את זה"
         one: "אדם אחד אהב את זה"
         other: "%{count} אנשים אהבו את זה"
+        two: "%{count} likes"
         zero: "אף אחד לא אהב את זה"
       people_like_this_comment:
         few: "%{count} אהבו זאת"
         many: "%{count} אהבו זאת"
         one: "%{count} אהב/ה"
         other: "%{count} אהבו"
+        two: "%{count} likes"
         zero: "אף אחד לא אהב"
   limited: מוגבל
   more: המשך
@@ -315,18 +322,21 @@ he:
       many: "%{actors} גם כן הגיבו על ה%{post_link} של %{post_author}."
       one: "%{actors} %{actors} גם כן הגיב/ה על ה%{post_link} של %{post_author}."
       other: "%{actors} גם כן הגיב/ה על ה%{post_link} של %{post_author}."
+      two: "%{actors} also commented on %{post_author}'s %{post_link}."
       zero: "%{actors} גם כן הגיבו על ה%{post_link} של %{post_author}."
     also_commented_deleted:
       few: "%{actors} הגיבו על הרשומה שמחקת."
       many: "%{actors} הגיבו על הרשומה שמחקת."
       one: "%{actors} הגיב/ה על הרשומה שמחקת."
       other: "%{actors} הגיב/ה על הרשומה שמחקת."
+      two: "%{actors} commented on a deleted post."
       zero: "%{actors} הגיבו על הרשומה שמחקת."
     comment_on_post:
       few: "%{actors} הגיבו על ה%{post_link} שלך."
       many: "%{actors} הגיבו על ה%{post_link} שלך."
       one: "%{actors} הגיב/ה על ה%{post_link} שלך."
       other: "%{actors} הגיב/ה על ה%{post_link} שלך."
+      two: "%{actors} commented on your %{post_link}."
       zero: "%{actors} הגיבו על ה־%{post_link} שלך."
     helper:
       new_notifications:
@@ -334,6 +344,7 @@ he:
         many: "%{count} התרעות חדשות"
         one: "התרעה חדשה אחת"
         other: "%{count} התרעות חדשות"
+        two: "%{count} new notifications"
         zero: "אין התרעות חדשות"
     index:
       and: "וגם "
@@ -342,6 +353,7 @@ he:
         many: "ו־%{count} נוספים"
         one: "ואחד/ת נוסף/ת"
         other: "ו־%{count} נוספים"
+        two: "and %{count} others"
         zero: "ואף אחד אחר"
       mark_all_as_read: "סימון הכול כלאחר קריאה"
       notifications: התרעות
@@ -357,6 +369,7 @@ he:
       many: "%{actors} אהבו את הרשומה שמחקת."
       one: "%{actors} אהב/ה את הרשומה שמחקת."
       other: "%{actors} אהב/ה את הרשומה שמחקת."
+      two: "%{actors} liked your deleted post."
       zero: "%{actors} אהבו את הרשומה שמחקת."
     mentioned:
       few: "%{actors} ציינו אותך ב%{post_link}."
@@ -370,6 +383,7 @@ he:
       many: "%{actors} ציינו אותך ברשומה שנמחקה."
       one: "%{actors} ציין/ה אותך ברשומה שנמחקה."
       other: "%{actors} ציין/ה אותך ברשומה שנמחקה."
+      two: "%{actors} mentioned you in a deleted post."
       zero: "%{actors} ציינו אותך ברשומה שנמחקה."
     post: רשומה
     private_message:
@@ -377,18 +391,28 @@ he:
       many: "%{actors} שלחו לך הודעה."
       one: "%{actors} שלח/ה לך הודעה."
       other: "%{actors} שלח/ה לך הודעה."
+      two: "%{actors} sent you a message."
       zero: "%{actors} שלחו לך הודעה."
     reshared:
       few: "%{actors} שיתפו את ה־%{post_link} שלך."
       many: "%{actors} שיתף/ה את ה־%{post_link} שלך."
+      one: "%{actors} has reshared your %{post_link}."
       other: "%{actors} has reshared your %{post_link}."
       two: "%{actors} has reshared your %{post_link}."
       zero: "%{actors} has reshared your %{post_link}."
+    reshared_post_deleted:
+      few: "%{actors} reshared your deleted post."
+      many: "%{actors} reshared your deleted post."
+      one: "%{actors} reshared your deleted post."
+      other: "%{actors} reshared your deleted post."
+      two: "%{actors} reshared your deleted post."
+      zero: "%{actors} reshared your deleted post."
     started_sharing:
       few: "%{actors} החלו לשתף אתך."
       many: "%{actors} החלו לשתף אתך."
       one: "%{actors} החל/ה לשתף אתך."
       other: "%{actors} החל/ה לשתף אתך."
+      two: "%{actors} started sharing with you."
       zero: "%{actors} החלו לשתף אתך."
   notifier:
     a_post_you_shared: רשומה.
@@ -471,6 +495,7 @@ he:
       add_some: "הוספת כמה"
       edit: עריכה
       you_have_no_tags: "אין לך תגיות כלל!"
+    two: "%{count} people"
     webfinger:
       fail: "לא ניתן למצוא את %{handle}, עמך הסליחה."
     zero: "אין אנשים"
@@ -535,6 +560,13 @@ he:
       failed: "אירע כשל בעדכון הפרופיל"
       updated: "הפרופיל עודכן"
   public: ציבורי
+  reactions:
+    few: "%{count} reactions"
+    many: "%{count} reactions"
+    one: "1 reaction"
+    other: "%{count} reactions"
+    two: "%{count} reactions"
+    zero: "0 reactions"
   registrations:
     closed: "אפשרות ההרשמה סגורה בפוד זה של דיאספורה."
     create:
@@ -568,6 +600,7 @@ he:
         many: "%{count} בקשות חדשות!"
         one: "בקשה חדשה!"
         other: "%{count} בקשות חדשות!"
+        two: "%{count} new requests!"
         zero: "אין בקשות חדשות"
     manage_aspect_contacts:
       existing: "אנשי הקשר הקיימים"
@@ -585,6 +618,7 @@ he:
         many: "%{count} שיתופים"
         one: "שיתוף אחד"
         other: "%{count} שיתופים"
+        two: "%{count} reshares"
         zero: "שיתוף מחדש"
       reshare_confirmation: "האם לשתף את הרשומה של %{author}?"
       reshare_original: "שיתוף המקור מחדש"
@@ -631,6 +665,7 @@ he:
         many: "ב־%{count} היבטים"
         one: "באחד מההיבטים"
         other: "ב־%{count} היבטים"
+        two: "In %{count} aspects"
         zero: "הוספת איש הקשר"
     contact_list:
       all_contacts: "כל אנשי הקשר"
@@ -691,9 +726,17 @@ he:
       many: "נא לוודא שהודעת המצב שלך אינה עולה על %{count} תווים"
       one: "נא לוודא שהודעת המצב שלך אינה עולה על תו אחד"
       other: "נא לוודא שהודעות המצב שלך אינן עולות על %{count} תווים"
+      two: "please make your status messages less than %{count} characters"
       zero: "נא לוודא שהודעות המצב שלך אינן עולות על %{count} תווים"
   stream_helper:
     hide_comments: "הסתרת כל ההערות"
+    show_comments:
+      few: "Show %{count} more comments"
+      many: "Show %{count} more comments"
+      one: "Show one more comment"
+      other: "Show %{count} more comments"
+      two: "Show two more comments"
+      zero: "No more comments"
   streams:
     mentions:
       title: "Your Mentions"

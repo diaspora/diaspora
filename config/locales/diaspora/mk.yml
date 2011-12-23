@@ -37,6 +37,7 @@ mk:
       success: "%{name} е отстранет успешно."
     edit:
       make_aspect_list_visible: "make aspect list visible?"
+    few: "%{count} aspects"
     helper:
       aspect_not_empty: "Аспектот не е празен"
       remove: одстрани
@@ -49,6 +50,7 @@ mk:
         tag_question: "#question"
       keep_us_running: "Keep %{pod} running fast, buy our servers their monthly coffee fix!"
       no_tags: "No tags"
+    many: "%{count} aspects"
     move_contact:
       error: "Грешка при преместувањето на контактот: %{inspect}"
       failure: "не проработи %{inspect}"
@@ -59,13 +61,17 @@ mk:
       try_adding_some_more_contacts: "You can search (top) or invite (right) more contacts."
     no_posts_message:
       start_talking: "Никој досега нема кажано ништо. Започни го разговорот!"
+    one: "1 aspect"
+    other: "%{count} aspects"
     seed:
       family: Фамилија
       work: Работа
     show:
       edit_aspect: "уреди аспект"
+    two: "%{count} aspects"
     update:
       success: "Вашиот аспект, %{name}, беше успешно уреден."
+    zero: "no aspects"
   back: Назад
   bookmarklet:
     explanation: "%{link} from anywhere by bookmarking this link."
@@ -73,17 +79,33 @@ mk:
     heading: "Diaspora Bookmarklet"
   cancel: Откажи
   comments:
+    few: "%{count} comments"
+    many: "%{count} comments"
     new_comment:
       comment: Коментар
       commenting: Коментирање...
+    one: "1 comment"
+    other: "%{count} comments"
+    two: "%{count} comments"
+    zero: "no comments"
   contacts:
+    few: "%{count} contacts"
     index:
       add_to_aspect: "Add contacts to %{name}"
       no_contacts: "No contacts."
+    many: "%{count} contacts"
+    one: "1 contact"
+    other: "%{count} contacts"
+    two: "%{count} contacts"
     zero: "no contacts"
   conversations:
     helper:
       new_messages:
+        few: "%{count} new messages"
+        many: "%{count} new messages"
+        one: "1 new messages"
+        other: "%{count} new messages"
+        two: "%{count} new messages"
         zero: "no new messages"
   delete: Избриши
   email: Е-маил
@@ -135,18 +157,60 @@ mk:
         many: "%{count} people disliked this"
         one: "1 person disliked this"
         other: "%{count} people disliked this"
+        two: "%{count} dislikes"
         zero: "no people disliked this"
       people_like_this:
         few: "%{count} people liked this"
         many: "%{count} people liked this"
         one: "1 person liked this"
         other: "%{count} people liked this"
+        two: "%{count} likes"
         zero: "no people liked this"
+      people_like_this_comment:
+        few: "%{count} likes"
+        many: "%{count} likes"
+        one: "%{count} like"
+        other: "%{count} likes"
+        two: "%{count} likes"
+        zero: "no likes"
   notifications:
+    also_commented:
+      few: "%{actors} also commented on %{post_author}'s %{post_link}."
+      many: "%{actors} also commented on %{post_author}'s %{post_link}."
+      one: "%{actors} also commented on %{post_author}'s %{post_link}."
+      other: "%{actors} also commented on %{post_author}'s %{post_link}."
+      two: "%{actors} also commented on %{post_author}'s %{post_link}."
+      zero: "%{actors} also commented on %{post_author}'s %{post_link}."
+    also_commented_deleted:
+      few: "%{actors} commented on a deleted post."
+      many: "%{actors} commented on a deleted post."
+      one: "%{actors} commented on a deleted post."
+      other: "%{actors} commented on a deleted post."
+      two: "%{actors} commented on a deleted post."
+      zero: "%{actors} commented on a deleted post."
+    comment_on_post:
+      few: "%{actors} commented on your %{post_link}."
+      many: "%{actors} commented on your %{post_link}."
+      one: "%{actors} commented on your %{post_link}."
+      other: "%{actors} commented on your %{post_link}."
+      two: "%{actors} commented on your %{post_link}."
+      zero: "%{actors} commented on your %{post_link}."
     helper:
       new_notifications:
+        few: "%{count} new notifications"
+        many: "%{count} new notifications"
         one: "1 new notifications"
+        other: "%{count} new notifications"
+        two: "%{count} new notifications"
         zero: "no new notifications"
+    index:
+      and_others:
+        few: "and %{count} others"
+        many: "and %{count} others"
+        one: "and one more"
+        other: "and %{count} others"
+        two: "and %{count} others"
+        zero: "and nobody else"
     liked:
       few: "%{actors} has just liked your %{post_link}."
       many: "%{actors} has just liked your %{post_link}."
@@ -154,18 +218,55 @@ mk:
       other: "%{actors} has just liked your %{post_link}."
       two: "%{actors} has just liked your %{post_link}."
       zero: "%{actors} has just liked your %{post_link}."
+    liked_post_deleted:
+      few: "%{actors} liked your deleted post."
+      many: "%{actors} liked your deleted post."
+      one: "%{actors} liked your deleted post."
+      other: "%{actors} liked your deleted post."
+      two: "%{actors} liked your deleted post."
+      zero: "%{actors} liked your deleted post."
     mentioned:
       few: "%{actors} has mentioned you in a %{post_link}."
       many: "%{actors} has mentioned you in a %{post_link}."
+      one: "%{actors} has mentioned you in a %{post_link}."
       other: "%{actors} has mentioned you in a %{post_link}."
       two: "%{actors} has mentioned you in a %{post_link}."
       zero: "%{actors} has mentioned you in a %{post_link}."
+    mentioned_deleted:
+      few: "%{actors} mentioned you in a deleted post."
+      many: "%{actors} mentioned you in a deleted post."
+      one: "%{actors} mentioned you in a deleted post."
+      other: "%{actors} mentioned you in a deleted post."
+      two: "%{actors} mentioned you in a deleted post."
+      zero: "%{actors} mentioned you in a deleted post."
+    private_message:
+      few: "%{actors} sent you a message."
+      many: "%{actors} sent you a message."
+      one: "%{actors} sent you a message."
+      other: "%{actors} sent you a message."
+      two: "%{actors} sent you a message."
+      zero: "%{actors} sent you a message."
     reshared:
       few: "%{actors} has reshared your %{post_link}."
       many: "%{actors} has reshared your %{post_link}."
+      one: "%{actors} has reshared your %{post_link}."
       other: "%{actors} has reshared your %{post_link}."
       two: "%{actors} has reshared your %{post_link}."
       zero: "%{actors} has reshared your %{post_link}."
+    reshared_post_deleted:
+      few: "%{actors} reshared your deleted post."
+      many: "%{actors} reshared your deleted post."
+      one: "%{actors} reshared your deleted post."
+      other: "%{actors} reshared your deleted post."
+      two: "%{actors} reshared your deleted post."
+      zero: "%{actors} reshared your deleted post."
+    started_sharing:
+      few: "%{actors} started sharing with you."
+      many: "%{actors} started sharing with you."
+      one: "%{actors} started sharing with you."
+      other: "%{actors} started sharing with you."
+      two: "%{actors} started sharing with you."
+      zero: "%{actors} started sharing with you."
   notifier:
     confirm_email:
       click_link: "To activate your new e-mail address %{unconfirmed_email}, please click this link:"
@@ -184,11 +285,15 @@ mk:
   password: Лозинка
   password_confirmation: "Потврда на лозинка"
   people:
+    few: "%{count} people"
     helper:
       people_on_pod_are_aware_of: " достапните луѓе се запознаени со"
       results_for: " резултати за %{params}"
     index:
       results_for: "резултати од пребарување за"
+    many: "%{count} people"
+    one: "1 person"
+    other: "%{count} people"
     person:
       add_contact: "додај контакт"
       already_connected: "Веќе поврзани"
@@ -206,6 +311,8 @@ mk:
       does_not_exist: "Личноста не постои!"
       incoming_request: "You have an incoming request from this person."
       not_connected: "You are not connected with this person"
+    two: "%{count} people"
+    zero: "no people"
   photos:
     destroy:
       notice: "Сликата е избришана."
@@ -235,6 +342,13 @@ mk:
     edit:
       your_tags: "You: in 5 #tags"
       your_tags_placeholder: "i.e. #diaspora #ironing #kittens #music"
+  reactions:
+    few: "%{count} reactions"
+    many: "%{count} reactions"
+    one: "1 reaction"
+    other: "%{count} reactions"
+    two: "%{count} reactions"
+    zero: "0 reactions"
   registrations:
     closed: "Регистрирањето е затворено."
     create:
@@ -257,6 +371,14 @@ mk:
       error: "Ве молиме изберете аспект!"
       ignore: "Игнорирано контакт барање."
       success: "Сега сте пријатели."
+    helper:
+      new_requests:
+        few: "%{count} new requests!"
+        many: "%{count} new requests!"
+        one: "new request!"
+        other: "%{count} new requests!"
+        two: "%{count} new requests!"
+        zero: "no new requests"
     manage_aspect_contacts:
       existing: "Постоечки контакти"
       manage_within: "Менаџирај контакти во"
@@ -269,6 +391,8 @@ mk:
         many: "%{count} Reshares"
         one: "1 Reshare"
         other: "%{count} Reshares"
+        two: "%{count} reshares"
+        zero: Reshare
       reshare_confirmation: "Reshare %{author} - %{text}?"
       reshare_original: "Reshare orignial"
       show_original: "Show Original"
@@ -296,6 +420,11 @@ mk:
     aspect_dropdown:
       add_to_aspect: "Add to aspect"
       toggle:
+        few: "In %{count} aspects"
+        many: "In %{count} aspects"
+        one: "In %{count} aspect"
+        other: "In %{count} aspects"
+        two: "In %{count} aspects"
         zero: "Add to aspect"
     invitations:
       by_email: "by Email"
@@ -330,8 +459,22 @@ mk:
   status_messages:
     helper:
       no_message_to_display: "Нема пораки за прикажување."
+    too_long:
+      few: "please make your status messages less than %{count} characters"
+      many: "please make your status messages less than %{count} characters"
+      one: "please make your status messages less than %{count} character"
+      other: "please make your status messages less than %{count} characters"
+      two: "please make your status messages less than %{count} characters"
+      zero: "please make your status messages less than %{count} characters"
   stream_helper:
     hide_comments: "hide comments"
+    show_comments:
+      few: "Show %{count} more comments"
+      many: "Show %{count} more comments"
+      one: "Show one more comment"
+      other: "Show %{count} more comments"
+      two: "Show two more comments"
+      zero: "No more comments"
   streams:
     mentions:
       title: "Your Mentions"

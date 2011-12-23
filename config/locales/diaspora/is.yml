@@ -71,6 +71,7 @@ is:
       make_aspect_list_visible: "gera þáttökulista ásýndar sýnilegan öðrum í ásýnd"
       remove_aspect: "Eyða þessari ásýnd"
       rename: "breyta nafni"
+    few: "%{count} aspects"
     helper:
       are_you_sure: "Ertu viss um að þú viljir eyða þessari ásýnd?"
       aspect_not_empty: "Ásýnd er ekki tóm"
@@ -85,6 +86,7 @@ is:
       keep_us_running: "Keep %{pod} running fast, buy our servers their monthly coffee fix!"
       no_contacts: "Engir tengiliðir"
       no_tags: "No tags"
+    many: "%{count} aspects"
     move_contact:
       error: "Villa við að breyta tengiliði: %{inspect}"
       failure: "virkaði ekki %{inspect}"
@@ -95,14 +97,18 @@ is:
       try_adding_some_more_contacts: "You can search (top) or invite (right) more contacts."
     no_posts_message:
       start_talking: "Enginn hefur sagt neitt enn.  Byrjaðu umræðurnar!"
+    one: "1 aspect"
+    other: "%{count} aspects"
     seed:
       family: Fjölskylda
       work: Vinna
     show:
       edit_aspect: "Breyta ásýndum"
+    two: "%{count} aspects"
     update:
       failure: "Ásýnd þín,%{nafn}, hefur of langt nafn til að geta verið vistuð."
       success: "Ásýnd þinni,% {nafn}, hefur verið breytt."
+    zero: "no aspects"
   back: "Til baka"
   bookmarklet:
     explanation: "%{link} from anywhere by bookmarking this link."
@@ -110,9 +116,15 @@ is:
     heading: "Diaspora Bookmarklet"
   cancel: "Hætta við"
   comments:
+    few: "%{count} comments"
+    many: "%{count} comments"
     new_comment:
       comment: Athugasemd
       commenting: "Athugasemd gerð..."
+    one: "1 comment"
+    other: "%{count} comments"
+    two: "%{count} comments"
+    zero: "no comments"
   contacts:
     create:
       failure: "Ekki tókst að mynda tengsl"
@@ -120,12 +132,19 @@ is:
     index:
       add_to_aspect: "Add contacts to %{name}"
       no_contacts: "No contacts."
+    many: "%{count} contacts"
     one: "Ein tengsl"
     other: "%{count} tengsl"
+    two: "%{count} contacts"
     zero: "Engin tengsl"
   conversations:
     helper:
       new_messages:
+        few: "%{count} new messages"
+        many: "%{count} new messages"
+        one: "1 new messages"
+        other: "%{count} new messages"
+        two: "%{count} new messages"
         zero: "no new messages"
   date:
     formats:
@@ -189,21 +208,62 @@ is:
         many: "%{count} people disliked this"
         one: "1 person disliked this"
         other: "%{count} people disliked this"
+        two: "%{count} dislikes"
         zero: "no people disliked this"
       people_like_this:
         few: "%{count} people liked this"
         many: "%{count} people liked this"
         one: "1 person liked this"
         other: "%{count} people liked this"
+        two: "%{count} likes"
         zero: "no people liked this"
+      people_like_this_comment:
+        few: "%{count} likes"
+        many: "%{count} likes"
+        one: "%{count} like"
+        other: "%{count} likes"
+        two: "%{count} likes"
+        zero: "no likes"
   more: Meira
   next: næsta
   notifications:
+    also_commented:
+      few: "%{actors} also commented on %{post_author}'s %{post_link}."
+      many: "%{actors} also commented on %{post_author}'s %{post_link}."
+      one: "%{actors} also commented on %{post_author}'s %{post_link}."
+      other: "%{actors} also commented on %{post_author}'s %{post_link}."
+      two: "%{actors} also commented on %{post_author}'s %{post_link}."
+      zero: "%{actors} also commented on %{post_author}'s %{post_link}."
+    also_commented_deleted:
+      few: "%{actors} commented on a deleted post."
+      many: "%{actors} commented on a deleted post."
+      one: "%{actors} commented on a deleted post."
+      other: "%{actors} commented on a deleted post."
+      two: "%{actors} commented on a deleted post."
+      zero: "%{actors} commented on a deleted post."
+    comment_on_post:
+      few: "%{actors} commented on your %{post_link}."
+      many: "%{actors} commented on your %{post_link}."
+      one: "%{actors} commented on your %{post_link}."
+      other: "%{actors} commented on your %{post_link}."
+      two: "%{actors} commented on your %{post_link}."
+      zero: "%{actors} commented on your %{post_link}."
     helper:
       new_notifications:
+        few: "%{count} new notifications"
+        many: "%{count} new notifications"
         one: "1 new notifications"
+        other: "%{count} new notifications"
+        two: "%{count} new notifications"
         zero: "no new notifications"
     index:
+      and_others:
+        few: "and %{count} others"
+        many: "and %{count} others"
+        one: "and one more"
+        other: "and %{count} others"
+        two: "and %{count} others"
+        zero: "and nobody else"
       mark_all_as_read: "Merkja allt sem lesið"
       notifications: Tilkynningar
     liked:
@@ -213,19 +273,56 @@ is:
       other: "%{actors} has just liked your %{post_link}."
       two: "%{actors} has just liked your %{post_link}."
       zero: "%{actors} has just liked your %{post_link}."
+    liked_post_deleted:
+      few: "%{actors} liked your deleted post."
+      many: "%{actors} liked your deleted post."
+      one: "%{actors} liked your deleted post."
+      other: "%{actors} liked your deleted post."
+      two: "%{actors} liked your deleted post."
+      zero: "%{actors} liked your deleted post."
     mentioned:
       few: "%{actors} has mentioned you in a %{post_link}."
       many: "%{actors} has mentioned you in a %{post_link}."
+      one: "%{actors} has mentioned you in a %{post_link}."
       other: "%{actors} has mentioned you in a %{post_link}."
       two: "%{actors} has mentioned you in a %{post_link}."
       zero: "%{actors} has mentioned you in a %{post_link}."
+    mentioned_deleted:
+      few: "%{actors} mentioned you in a deleted post."
+      many: "%{actors} mentioned you in a deleted post."
+      one: "%{actors} mentioned you in a deleted post."
+      other: "%{actors} mentioned you in a deleted post."
+      two: "%{actors} mentioned you in a deleted post."
+      zero: "%{actors} mentioned you in a deleted post."
     post: "setja inn"
+    private_message:
+      few: "%{actors} sent you a message."
+      many: "%{actors} sent you a message."
+      one: "%{actors} sent you a message."
+      other: "%{actors} sent you a message."
+      two: "%{actors} sent you a message."
+      zero: "%{actors} sent you a message."
     reshared:
       few: "%{actors} has reshared your %{post_link}."
       many: "%{actors} has reshared your %{post_link}."
+      one: "%{actors} has reshared your %{post_link}."
       other: "%{actors} has reshared your %{post_link}."
       two: "%{actors} has reshared your %{post_link}."
       zero: "%{actors} has reshared your %{post_link}."
+    reshared_post_deleted:
+      few: "%{actors} reshared your deleted post."
+      many: "%{actors} reshared your deleted post."
+      one: "%{actors} reshared your deleted post."
+      other: "%{actors} reshared your deleted post."
+      two: "%{actors} reshared your deleted post."
+      zero: "%{actors} reshared your deleted post."
+    started_sharing:
+      few: "%{actors} started sharing with you."
+      many: "%{actors} started sharing with you."
+      one: "%{actors} started sharing with you."
+      other: "%{actors} started sharing with you."
+      two: "%{actors} started sharing with you."
+      zero: "%{actors} started sharing with you."
   notifier:
     confirm_email:
       click_link: "To activate your new e-mail address %{unconfirmed_email}, please click this link:"
@@ -249,6 +346,7 @@ is:
   people:
     aspect_list:
       edit_membership: "breyta aðild að ásýnd"
+    few: "%{count} people"
     helper:
       results_for: " niðurstöður fyrir %{params}"
     index:
@@ -256,6 +354,9 @@ is:
       no_one_found: "...og enginn fannst."
       no_results: "Hey! Þú þarft að leita að einhverju."
       results_for: "leitarniðurstöður fyrir"
+    many: "%{count} people"
+    one: "1 person"
+    other: "%{count} people"
     person:
       add_contact: "bæta tengilið við"
       already_connected: "Þegar tengdur"
@@ -275,8 +376,10 @@ is:
       recent_posts: "Nýlegar færslur"
       start_sharing: "Byrja að samnýta"
       to_accept_or_ignore: "að samþykkja eða hunsa það."
+    two: "%{count} people"
     webfinger:
       fail: "Því miður, %{handle} fannst ekki."
+    zero: "no people"
   photos:
     create:
       integrity_error: "Innhlöðunn myndar mistókst. Ertu viss um að þetta hafi verið mynd?"
@@ -326,6 +429,13 @@ is:
     update:
       failed: "Ekki tókst að uppfæra síðuna mína"
       updated: "Síðan mín uppfærð"
+  reactions:
+    few: "%{count} reactions"
+    many: "%{count} reactions"
+    one: "1 reaction"
+    other: "%{count} reactions"
+    two: "%{count} reactions"
+    zero: "0 reactions"
   registrations:
     closed: "Innskráningar eru lokaðar á þessum Diaspora pod."
     create:
@@ -352,6 +462,14 @@ is:
       error: "Þú þarft að velja ásýnd!"
       ignore: "Hundsaði vinabeiðni. "
       success: "Nú er vinátta á milli ykkar."
+    helper:
+      new_requests:
+        few: "%{count} new requests!"
+        many: "%{count} new requests!"
+        one: "new request!"
+        other: "%{count} new requests!"
+        two: "%{count} new requests!"
+        zero: "no new requests"
     manage_aspect_contacts:
       existing: "Núverandi tengiliðir"
       manage_within: "Umsjón tengiliða innan"
@@ -362,6 +480,8 @@ is:
         many: "%{count} Reshares"
         one: "1 Reshare"
         other: "%{count} Reshares"
+        two: "%{count} reshares"
+        zero: Reshare
       reshare_confirmation: "Reshare %{author} - %{text}?"
       reshare_original: "Reshare orignial"
       show_original: "Show Original"
@@ -395,6 +515,11 @@ is:
     aspect_dropdown:
       add_to_aspect: "Add to aspect"
       toggle:
+        few: "In %{count} aspects"
+        many: "In %{count} aspects"
+        one: "In %{count} aspect"
+        other: "In %{count} aspects"
+        two: "In %{count} aspects"
         zero: "Add to aspect"
     contact_list:
       all_contacts: "Allir tengiliðir"
@@ -433,8 +558,22 @@ is:
       failure: "Ekki tókst að eyða færslu"
     helper:
       no_message_to_display: "Engin skilaboð að sýna!"
+    too_long:
+      few: "please make your status messages less than %{count} characters"
+      many: "please make your status messages less than %{count} characters"
+      one: "please make your status messages less than %{count} character"
+      other: "please make your status messages less than %{count} characters"
+      two: "please make your status messages less than %{count} characters"
+      zero: "please make your status messages less than %{count} characters"
   stream_helper:
     hide_comments: "fela athugasemdir"
+    show_comments:
+      few: "Show %{count} more comments"
+      many: "Show %{count} more comments"
+      one: "Show one more comment"
+      other: "Show %{count} more comments"
+      two: "Show two more comments"
+      zero: "No more comments"
   streams:
     mentions:
       title: "Your Mentions"

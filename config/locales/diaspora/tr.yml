@@ -743,6 +743,13 @@ tr:
       zero: "durum mesajları %{count} karakterden az olmalıdır."
   stream_helper:
     hide_comments: "Yorumları gizle"
+    show_comments:
+      few: "Show %{count} more comments"
+      many: "Show %{count} more comments"
+      one: "Show one more comment"
+      other: "Show %{count} more comments"
+      two: "Show two more comments"
+      zero: "No more comments"
   streams:
     aspects:
       title: Yönleriniz
