@@ -26,7 +26,7 @@
         }
         $.ajax({
           url: "notifications/" + $(this).data("guid"),
-          data: { is_unread: $(this).hasClass("unread") },
+          data: { unread: $(this).hasClass("unread") },
           type: "PUT"
         });
       });
@@ -61,11 +61,11 @@
 
 				if(self.count === 0) {
 	  			self.badge.addClass("hidden");
-          $( ".notification_count" ).addClass("hidden");
+          $( ".notification_count" ).removeClass("unread");
 				}
 				else if(self.count === 1) {
 	  			self.badge.removeClass("hidden");
-          $( ".notification_count" ).removeClass("hidden");
+          $( ".notification_count" ).addClass("unread");
 				}
       }
     };
