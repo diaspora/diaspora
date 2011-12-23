@@ -131,6 +131,12 @@ describe AspectsController do
       response.should render_template('shared/_stream')
     end
 
+    it 'displays long posts collapsed' do
+      alice.post(:status_message, :text => "ohai "*800, :to => @alices_aspect_2.id)
+      get :index, :only_posts => true
+      doc.css('.collapsible').should_not be_nil
+    end
+
     it 'assigns an Stream::Aspect' do
       get :index
       assigns(:stream).class.should == Stream::Aspect
