@@ -21,12 +21,16 @@ describe NotificationsController do
     end
     it 'marks a notification as read if it is told to' do
       note = Factory(:notification, :recipient => @user)
-      @controller.update :id => note.id, :is_unread => false
+      @controller.update :id => note.id, :unread => false
+      Notification.first.unread.should == false
+      @controller.update :id => note.id, :unread => "false"
       Notification.first.unread.should == false
     end
     it 'marks a notification as unread if it is told to' do
       note = Factory(:notification, :recipient => @user)
-      @controller.update :id => note.id, :is_unread => true
+      @controller.update :id => note.id, :unread => "true"
+      Notification.first.unread.should == true
+      @controller.update :id => note.id, :unread => true
       Notification.first.unread.should == true
     end
 
