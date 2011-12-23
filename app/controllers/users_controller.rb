@@ -48,7 +48,6 @@ class UsersController < ApplicationController
       elsif u[:show_community_spotlight_in_stream] || u[:getting_started]
         if @user.update_attributes(u)
           flash[:notice] = I18n.t 'users.update.settings_updated'
-          return
         else
           flash[:notice] = I18n.t 'users.update.settings_not_updated'
         end
