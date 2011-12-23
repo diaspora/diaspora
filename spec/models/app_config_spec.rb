@@ -40,7 +40,7 @@ describe AppConfig do
 
       context "when source config file (i.e. config/application.yml) does not exist" do
         before do
-          application_yml = File.join(Rails.root, "config", "application.yml.example")
+          application_yml = AppConfig.source_file_name
           @app_yml = File.join(Rails.root, "config", "app.yml")
           @app_config_yml = File.join(Rails.root, "config", "app_config.yml")
           File.should_receive(:exists?).with(application_yml).at_least(:once).and_return(false)
