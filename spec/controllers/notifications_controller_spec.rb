@@ -30,6 +30,17 @@ describe NotificationsController do
       Notification.first.unread.should == true
     end
 
+    it 'should return the item guid' do
+      note = Factory(:notification, :recipient => @user)
+      answer = @controller.update :id => note.id
+      answer[:guid].should == note.id
+    end
+    it 'should return the unread state' do
+      note = Factory(:notification, :recipient => @user)
+      answer = @controller.update :id => note.id, :unread => "true"
+      answer[:unread].should == true
+    end
+
     it 'only lets you read your own notifications' do
       user2 = bob
 
