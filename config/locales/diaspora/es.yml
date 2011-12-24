@@ -758,7 +758,7 @@ es:
       upload_photos: "Subir fotos"
       whats_on_your_mind: "¿Qué andas pensando?"
     reshare:
-      reshare: "Compartir original"
+      reshare: Compartir
     stream_element:
       connect_to_comment: "Conecta con esta persona para comentar en su publicación"
       currently_unavailable: "comentarios actualmente no disponibles"
@@ -768,7 +768,7 @@ es:
       ignore_user_description: "¿Ignorar y quitar a esa persona de todos los aspectos?"
       like: "Me gusta"
       nsfw: "Esta publicación es considerada por su autor como no segura para entornos de trabajo (NSFW). %{link}"
-      shared_with: "Compartir con: %{aspect_names}"
+      shared_with: "Compartido con: %{aspect_names}"
       show: mostrar
       unlike: "No me gusta"
       via: "vía %{link}"
