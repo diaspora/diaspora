@@ -15,21 +15,7 @@
         notificationArea: notificationArea
       });
 
-      $(".stream_element.unread,.stream_element.read").live("mousedown", function() {
-        if ( $(this).hasClass("unread") ) {
-          self.decrementCount();
-          $(this).removeClass("unread").addClass( "read" )
-        }
-        else {
-          self.incrementCount();
-          $(this).removeClass("read").addClass( "unread" )
-        }
-        $.ajax({
-          url: "notifications/" + $(this).data("guid"),
-          data: { unread: $(this).hasClass("unread") },
-          type: "PUT"
-        });
-      });
+      $(".stream_element.unread,.stream_element.read").live("mousedown", self.messageClick);
 
       $("a.more").live("click", function(evt) {
         evt.preventDefault();
@@ -38,7 +24,33 @@
           .removeClass("hidden");
       });
     });
-    
+    this.messageClick = function() {
+      $.ajax({
+        url: "notifications/" + $(this).data("guid"),
+        data: { unread: $(this).hasClass("read") },
+        type: "PUT",
+        success: self.clickSuccess
+      });
+    };
+    this.clickSuccess = function( data ) {
+      var jsList = jQuery.parseJSON(data);
+      var itemID = jsList["guid"]
+      var isUnread = jsList["unread"]
+      if ( isUnread ) {
+        self.incrementCount();
+      }else{
+        self.decrementCount();
+      }
+      $('.read,.unread').each(function(index) {
+        if ( $(this).data("guid") == itemID ) {
+          if ( isUnread ) {
+            $(this).removeClass("read").addClass( "unread" )
+          } else {
+            $(this).removeClass("unread").addClass( "read" )
+          }
+        }
+      });
+    };
     this.showNotification = function(notification) {
       $(notification.html).prependTo(this.notificationArea)
 				.fadeIn(200)
