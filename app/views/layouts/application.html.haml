@@ -91,7 +91,7 @@
 
       #notifications
 
-    - unless user_signed_in?
+    - unless current_user
       %header{:class=>('landing')}
         = render 'layouts/header'
 
