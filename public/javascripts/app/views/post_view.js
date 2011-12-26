@@ -10,16 +10,23 @@ App.Views.Post = App.Views.StreamObject.extend({
     "click .block_user": "blockUser"
   },
 
-  render: function() {
-    // subview rendering
-    this.renderTemplate()
-        .renderPostContent()
-        .renderFeedback()
-        .renderComments();
-    //
+  subviews : {
+    ".feedback" : "feedbackView",
+    ".comments" : "commentStreamView"
+  },
 
-    this.initializeTooltips();
-    this.$(".details time").timeago();
+  initialize : function() {
+    this.feedbackView = new App.Views.Feedback({model : this.model});
+    this.commentStreamView = new App.Views.CommentStream({ model : this.model});
+
+    return this;
+  },
+
+  postRenderTemplate : function() {
+    this.renderPostContent()
+        .initializeTooltips()
+        .$(".details time")
+          .timeago();
 
     return this;
   },
@@ -30,22 +37,6 @@ App.Views.Post = App.Views.StreamObject.extend({
     var postView = new postClass({ model : this.model });
 
     this.$(".post-content").html(postView.render().el);
-
-    return this;
-  },
-
-  renderComments: function(){
-    this.$(".comments").html(new App.Views.CommentStream({
-      model: this.model
-    }).render().el);
-
-    return this;
-  },
-
-  renderFeedback: function(){
-    this.$(".feedback").html(new App.Views.Feedback({
-      model: this.model
-    }).render().el);
 
     return this;
   },

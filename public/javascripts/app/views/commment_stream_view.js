@@ -1,4 +1,7 @@
-App.Views.CommentStream = Backbone.View.extend({
+App.Views.CommentStream = App.Views.Base.extend({
+
+  template_name: "#comment-stream-template",
+
   events: {
     "submit form": "createComment",
     "focus .comment_box": "commentTextareaFocused",
@@ -6,28 +9,18 @@ App.Views.CommentStream = Backbone.View.extend({
   },
 
   initialize: function(options) {
-    this.model = options.model;
-    this.template = _.template($("#comment-stream-template").html());
-
-    _.bindAll(this, "appendComment");
     this.model.comments.bind('add', this.appendComment, this);
   },
 
-  render: function() {
-    $(this.el).html(this.template($.extend(
-      this.model.toJSON(),
-      App.user()
-    )));
-
+  postRenderTemplate : function() {
     this.$("label").inFieldLabels();
-
-    this.model.comments.each(this.appendComment);
+    this.model.comments.each(this.appendComment, this);
 
     return this;
   },
 
   createComment: function(evt) {
-    evt.preventDefault();
+    if(evt){ evt.preventDefault(); }
 
     this.model.comments.create({
       "text" : this.$(".comment_box").val(),
