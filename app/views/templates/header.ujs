@@ -71,7 +71,7 @@
     <div class="avatar">
       <img alt="<%= current_user.name %>" class="avatar" data-person_id="<%= current_user.id %>" src="<%= current_user.avatar.small %>" title="Bob Grimm">
     </div>
-    <a href="#" title="bob@localhost:3000">Bob Grimm</a>
+    <a href="#"><%= current_user.name %></a>
     </li>
     <li><a href="/people/<%= current_user.id %>">Profile</a></li>
     <li><a href="/contacts">Contacts</a></li>

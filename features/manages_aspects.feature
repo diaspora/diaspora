@@ -14,6 +14,7 @@ Feature: User manages contacts
 
   Scenario: creating an aspect from homepage
     Given I am signed in
+    And I go to the aspects page
     When I follow "Add an aspect"
     And I fill in "Name" with "losers" in the modal window
     And I press "Create" in the modal window
