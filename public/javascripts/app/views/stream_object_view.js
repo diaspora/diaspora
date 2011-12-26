@@ -1,4 +1,4 @@
-App.Views.StreamObject = App.Views.Base.extend({
+app.views.StreamObject = app.views.Base.extend({
   className : "loaded",
 
   initialize: function(options) {

@@ -1,11 +1,11 @@
-App.Views.StatusMessage = App.Views.StreamObject.extend({
+app.views.StatusMessage = app.views.StreamObject.extend({
   template_name : "#status-message-template"
 });
 
-App.Views.Reshare = App.Views.StreamObject.extend({
+app.views.Reshare = app.views.StreamObject.extend({
   template_name : "#reshare-template"
 });
 
-App.Views.ActivityStreams__Photo = App.Views.StreamObject.extend({
+app.views.ActivityStreams__Photo = app.views.StreamObject.extend({
   template_name : "#activity-streams-photo-template"
 });

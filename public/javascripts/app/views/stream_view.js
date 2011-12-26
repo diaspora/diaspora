@@ -1,17 +1,17 @@
-App.Views.Stream = Backbone.View.extend({
+app.views.Stream = Backbone.View.extend({
   events: {
     "click #paginate": "render"
   },
 
   initialize: function() {
-    this.collection = this.collection || new App.Collections.Stream;
+    this.collection = this.collection || new app.collections.Stream;
     this.collection.bind("add", this.appendPost, this);
 
     return this;
   },
 
   appendPost: function(post) {
-    var postView = new App.Views.Post({ model: post });
+    var postView = new app.views.Post({ model: post });
     $(this.el).append(postView.render().el);
   },
 

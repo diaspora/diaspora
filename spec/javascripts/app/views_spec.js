@@ -1,4 +1,4 @@
-describe("App.Views.Base", function(){
+describe("app.views.Base", function(){
   function stubView(text){
     var stubClass = Backbone.View.extend({
       render : function(){
@@ -12,7 +12,7 @@ describe("App.Views.Base", function(){
 
   describe("#render", function(){
     beforeEach(function(){
-      var staticTemplateClass = App.Views.Base.extend({ template_name : "#static-text-template" })
+      var staticTemplateClass = app.views.Base.extend({ template_name : "#static-text-template" })
 
       this.model = new Backbone.Model({text : "model attributes are in the default presenter"})
       this.view = new staticTemplateClass({model: this.model})
@@ -31,7 +31,7 @@ describe("App.Views.Base", function(){
 
     context("subViewRendering", function(){
       beforeEach(function(){
-        var viewClass =  App.Views.Base.extend({
+        var viewClass =  app.views.Base.extend({
             template_name : "#static-text-template",
             subviews : {
               ".subview1": "subview1",

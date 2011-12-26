@@ -1,3 +1,3 @@
-App.Collections.Comments = Backbone.Collection.extend({
-  model: App.Models.Comment
+app.collections.Comments = Backbone.Collection.extend({
+  model: app.models.Comment
 });

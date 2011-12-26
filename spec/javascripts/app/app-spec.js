@@ -1,11 +1,11 @@
-describe("App", function() {
+describe("app", function() {
   describe("user", function() {
     it("sets the user if given one and returns the current user", function() {
-      expect(App.user()).toBeUndefined();
+      expect(app.user()).toBeUndefined();
 
-      App.user({name: "alice"});
+      app.user({name: "alice"});
 
-      expect(App.user()).toEqual({name: "alice"});
+      expect(app.user()).toEqual({name: "alice"});
     });
   });
 });

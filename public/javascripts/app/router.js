@@ -1,4 +1,4 @@
-App.Router = Backbone.Router.extend({
+app.Router = Backbone.Router.extend({
   routes: {
     "stream": "stream",
     "comment_stream": "stream",
@@ -12,7 +12,7 @@ App.Router = Backbone.Router.extend({
   },
 
   stream: function() {
-    App.stream = new App.Views.Stream().render();
-    $("#main_stream").html(App.stream.el);
+    app.stream = new app.views.Stream().render();
+    $("#main_stream").html(app.stream.el);
   }
 });

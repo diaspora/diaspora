@@ -1,3 +1,3 @@
-App.Collections.Likes = Backbone.Collection.extend({
-  model: App.Models.Like
+app.collections.Likes = Backbone.Collection.extend({
+  model: app.models.Like
 });

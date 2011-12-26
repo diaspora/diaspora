@@ -1,13 +1,13 @@
-describe("App.Models.Stream", function() {
+describe("app.collections.Stream", function() {
   describe("url", function() {
-    var stream = new App.Collections.Stream(),
+    var stream = new app.collections.Stream(),
       expectedPath = document.location.pathname + ".json";
     it("returns the json path", function() {
       expect(stream.url()).toEqual(expectedPath);
     });
 
     it("returns the json path with max_time if the collection has models", function() {
-      var post = new App.Models.Post();
+      var post = new app.models.Post();
       spyOn(post, "createdAt").andReturn(1234);
 
       stream.add(post);

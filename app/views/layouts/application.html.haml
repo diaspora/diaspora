@@ -61,7 +61,7 @@
     - unless @landing_page
       = include_javascripts :main
       :javascript
-        App.user({
+        app.user({
           current_user: #{current_user.person.as_api_response(:backbone).to_json}
         });
 

@@ -1,3 +1,3 @@
-App.Models.Comment = Backbone.Model.extend({
+app.models.Comment = Backbone.Model.extend({
   urlRoot: "/comments"
 });

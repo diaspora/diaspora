@@ -1,7 +1,7 @@
-var App = {
-  Collections: {},
-  Models: {},
-  Views: {},
+var app = {
+  collections: {},
+  models: {},
+  views: {},
 
   user: function(user) {
     if(user) { return this._user = user; }
@@ -10,16 +10,16 @@ var App = {
   },
 
   initialize: function() {
-    App.router = new App.Router;
+    app.router = new app.Router;
 
     if(this._user){
-      App.header = new App.Views.Header;
-      $("body").prepend(App.header.el);
-      App.header.render();
+      app.header = new app.views.Header;
+      $("body").prepend(app.header.el);
+      app.header.render();
     }
 
     Backbone.history.start({pushState: true});
   }
 };
 
-$(function() { App.initialize(); });
+$(function() { app.initialize(); });

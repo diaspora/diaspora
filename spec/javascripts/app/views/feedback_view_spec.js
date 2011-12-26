@@ -1,11 +1,11 @@
-describe("App.views.Feedback", function(){
+describe("app.views.Feedback", function(){
   beforeEach(function(){
-    window.current_user = App.user({name: "alice", avatar : {small : "http://avatar.com/photo.jpg"}});
+    window.current_user = app.user({name: "alice", avatar : {small : "http://avatar.com/photo.jpg"}});
 
     var posts = $.parseJSON(spec.readFixture("multi_stream_json"))["posts"];
 
-    this.post = new App.Models.Post(posts[2]);
-    this.view = new App.Views.Feedback({model: this.post});
+    this.post = new app.models.Post(posts[2]);
+    this.view = new app.views.Feedback({model: this.post});
   });
 
   it("has a like from the post", function(){

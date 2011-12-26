@@ -1,4 +1,4 @@
-App.Collections.Stream = Backbone.Collection.extend({
+app.collections.Stream = Backbone.Collection.extend({
   url: function() {
     var path = document.location.pathname + ".json";
 
@@ -7,7 +7,7 @@ App.Collections.Stream = Backbone.Collection.extend({
     return path;
   },
 
-  model: App.Models.Post,
+  model: app.models.Post,
 
   parse: function(resp){
     return resp.posts;

@@ -1,11 +1,11 @@
-App.Views.Base =  Backbone.View.extend({
+app.views.Base =  Backbone.View.extend({
   presenter : function(){
     return this.defaultPresenter()
   },
 
   defaultPresenter : function(){
     var modelJson = this.model ? this.model.toJSON() : {}
-    return _.extend(modelJson, App.user());
+    return _.extend(modelJson, app.user());
   },
 
   render : function() {

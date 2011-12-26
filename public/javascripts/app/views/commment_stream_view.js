@@ -1,4 +1,4 @@
-App.Views.CommentStream = App.Views.Base.extend({
+app.views.CommentStream = app.views.Base.extend({
 
   template_name: "#comment-stream-template",
 
@@ -32,7 +32,7 @@ App.Views.CommentStream = App.Views.Base.extend({
   },
 
   appendComment: function(comment) {
-    this.$("ul.comments").append(new App.Views.Comment({
+    this.$("ul.comments").append(new app.views.Comment({
       model: comment
     }).render().el);
   },

@@ -1,4 +1,4 @@
-App.Views.Feedback = App.Views.StreamObject.extend({
+app.views.Feedback = app.views.StreamObject.extend({
   template_name: "#feedback-template",
 
   events: {

@@ -1,4 +1,4 @@
-App.Views.Header = Backbone.View.extend({
+app.views.Header = Backbone.View.extend({
 
   events : {
     "click ul.dropdown li:first-child" : "toggleDropdown"
@@ -16,7 +16,7 @@ App.Views.Header = Backbone.View.extend({
 
   render : function(){
     this.template = _.template($("#header-template").html());
-    $(this.el).html(this.template(App.user()));
+    $(this.el).html(this.template(app.user()));
     return this;
   },
 

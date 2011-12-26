@@ -1,4 +1,4 @@
-App.Views.Post = App.Views.StreamObject.extend({
+app.views.Post = app.views.StreamObject.extend({
 
   template_name: "#stream-element-template",
 
@@ -16,8 +16,8 @@ App.Views.Post = App.Views.StreamObject.extend({
   },
 
   initialize : function() {
-    this.feedbackView = new App.Views.Feedback({model : this.model});
-    this.commentStreamView = new App.Views.CommentStream({ model : this.model});
+    this.feedbackView = new app.views.Feedback({model : this.model});
+    this.commentStreamView = new app.views.CommentStream({ model : this.model});
 
     return this;
   },
@@ -33,7 +33,7 @@ App.Views.Post = App.Views.StreamObject.extend({
 
   renderPostContent: function(){
     var normalizedClass = this.model.get("post_type").replace(/::/, "__");
-    var postClass = App.Views[normalizedClass] || App.Views.StatusMessage;
+    var postClass = app.views[normalizedClass] || app.views.StatusMessage;
     var postView = new postClass({ model : this.model });
 
     this.$(".post-content").html(postView.render().el);
