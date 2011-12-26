@@ -9,9 +9,9 @@ app.views.Feedback = app.views.StreamObject.extend({
     var user_like = this.model.get("user_like")
     this.like = user_like && this.model.likes.get(user_like.id);
 
-    this.model.likes.bind("change", this.render, this);
-    this.model.likes.bind("remove", this.render, this);
-    this.model.likes.bind("add", this.render, this);
+    _.each(["change", "remove", "add"], function(listener) {
+      this.model.likes.bind(listener, this.render, this);
+    }, this)
   },
 
   presenter : function(){

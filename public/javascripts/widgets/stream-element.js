@@ -15,21 +15,10 @@
         timeAgo: self.instantiate("TimeAgo", element.find(".timeago a abbr.timeago")),
 
         content: element.find(".content .collapsible"),
-        blockUserLink: element.find(".block_user"),
-        deletePostLink: element.find(".remove_post"),
-        focusCommentLink: element.find("a.focus_comment_textarea"),
         hidePostLoader: element.find("img.hide_loader"),
         hidePostUndo: element.find("a.stream_element_hide_undo"),
-        post: element,
-        postScope: element.find("span.post_scope")
+        post: element
       });
-
-      // twipsy tooltips
-      $([
-        self.blockUserLink,
-        self.deletePostLink,
-        self.postScope
-      ]).map(function() { this.twipsy(); });
 
       // collapse long posts
       self.content.expander({
@@ -50,12 +39,6 @@
           self.deletePostLink.addClass("hidden");
           $(this).removeClass('hidden');
         } );
-      });
-
-      self.focusCommentLink.click(function(evt) {
-        evt.preventDefault();
-
-        self.commentForm.commentInput.focus();
       });
 
       self.hidePostUndo.click(function(evt) {

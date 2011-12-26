@@ -15,6 +15,12 @@ app.views.Post = app.views.StreamObject.extend({
     ".comments" : "commentStreamView"
   },
 
+  tooltips : [
+    ".delete",
+    ".block_user",
+    ".post_scope"
+  ],
+
   initialize : function() {
     this.feedbackView = new app.views.Feedback({model : this.model});
     this.commentStreamView = new app.views.CommentStream({ model : this.model});
@@ -50,15 +56,12 @@ app.views.Post = app.views.StreamObject.extend({
   },
 
   initializeTooltips: function(){
-    $([
-      this.$(".delete"),
-      this.$(".block_user"),
-      this.$(".post_scope")
-    ]).map(function() { this.twipsy(); });
+    _.each(this.tooltips, function(selector){
+      this.$(selector).twipsy();
+    }, this);
 
     return this;
   },
-
 
   expandLikes: function(evt){
     if(evt) { evt.preventDefault(); }

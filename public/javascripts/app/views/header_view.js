@@ -1,39 +1,33 @@
-app.views.Header = Backbone.View.extend({
+app.views.Header = app.views.Base.extend({
+
+  template_name : "#header-template",
 
   events : {
     "click ul.dropdown li:first-child" : "toggleDropdown"
   },
 
   initialize : function(options) {
-    this.menuElement = this.$("ul.dropdown");
-
-    _.bindAll(this, "toggleDropdown", "hideDropdown");
-    this.menuElement.find("li a").slice(1).click(function(evt) { evt.stopPropagation(); });
-    $(document.body).click(this.hideDropdown);
-
+    $(document.body).click($.proxy(this.hideDropdown, this));
     return this;
   },
 
-  render : function(){
-    this.template = _.template($("#header-template").html());
-    $(this.el).html(this.template(app.user()));
-    return this;
+  menuElement : function() {
+    return this.$("ul.dropdown");
   },
 
   toggleDropdown : function(evt) {
-    evt.preventDefault();
-    evt.stopPropagation();
+    if(evt){ evt.preventDefault(); }
 
-    this.$("ul.dropdown").toggleClass("active");
+    this.menuElement().toggleClass("active");
 
-    if ( $.browser.msie ) {
-      this.$('header').toggleClass('ie-user-menu-active');
+    if($.browser.msie) {
+      this.$("header").toggleClass('ie-user-menu-active');
     }
   },
 
   hideDropdown : function(evt) {
-    if(this.$("ul.dropdown").hasClass("active") && !$(evt.target).parents("#user_menu").length) {
-      this.$("ul.dropdown").removeClass("active");
+    if(this.menuElement().hasClass("active") && !$(evt.target).parents("#user_menu").length) {
+      this.menuElement().removeClass("active");
     }
   }
 });

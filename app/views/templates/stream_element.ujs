@@ -2,9 +2,10 @@
   <div class="right controls">
     <% if(author.id != current_user.id) { %>
       <img src="/images/icons/ignoreuser.png" alt="Ignoreuser" class="block_user control_icon" title= "Ignore" data-person_id="<%= author.id %>" />
+    <% } else { %>
+      <img src="/images/deletelabel.png" class="delete control_icon remove_post" title="Delete" />
     <% } %>
-    <img src="/images/deletelabel.png" class="delete control_icon remove_post" title="Delete" />
-    <img src="/images/ajax-loader.gif" class="hide_loader hidden"/>
+
   </div>
 
   <div class="sm_body">

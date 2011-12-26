@@ -5,11 +5,9 @@
 
 var Stream = {
   selector: "#main_stream",
-  nsfw_links: ".shield a",
 
   initialize: function() {
     Diaspora.page.directionDetector.updateBinds();
-
     Stream.setUpAudioLinks();
   },
 
@@ -26,14 +24,6 @@ var Stream = {
         button.toggleClass("active");
         box.toggle();
       }
-    });
-    
-  },
-
-  setUpNsfwLinks:function(){
-    $(this.nsfw_links).click(function(e){
-      e.preventDefault();
-      $(this).parent().fadeOut();
     });
   },
 
