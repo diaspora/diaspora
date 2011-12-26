@@ -40,7 +40,7 @@ Feature: commenting
     Then I should see "hahaha" within "li.comment div.content"
     And I should see "less than a minute ago" within "li.comment time"
 
-  Scenario: delete a comment 
+  Scenario: delete a comment
     When I sign in as "bob@bob.bob"
     And I am on "alice@alice.alice"'s page
     Then I should see "Look at this dog"
@@ -48,7 +48,7 @@ Feature: commenting
     And I fill in "Comment" with "is that a poodle?"
     And I press "Comment"
     And I wait for the ajax to finish
-    When I hover over the ".comment.posted"
+    When I hover over the ".comment"
     And I preemptively confirm the alert
     And I click to delete the first comment
     And I wait for the ajax to finish
@@ -66,7 +66,7 @@ Feature: commenting
     Then the first comment field should be closed
     When I focus the comment field
     Then the first comment field should be open
-    
+
   Scenario: comment on a status show page
     When I sign in as "bob@bob.bob"
     And I am on "alice@alice.alice"'s page

@@ -5,10 +5,10 @@
 .span-20.append-2.prepend-2.last
 
   #main_stream.stream.status_message_show
-    - if @post.is_a?(Photo)
-      = render 'posts/photo', :post => @post
-    - else
-      = render 'shared/stream_element', :post => @post, :commenting_disabled => commenting_disabled?(@post)
+    /- if @post.is_a?(Photo)
+    /  = render 'posts/photo', :post => @post
+    /- else
+    /  = render 'shared/stream_element', :post => @post, :commenting_disabled => commenting_disabled?(@post)
   %br
   %br
   %br

@@ -35,6 +35,7 @@ class PostsController < ApplicationController
       respond_to do |format|
         format.xml{ render :xml => @post.to_diaspora_xml }
         format.mobile{render 'posts/show.mobile.haml'}
+        format.json{ render :json => {:posts => @post.as_api_response(:backbone)}, :status => 201 }
         format.any{render 'posts/show.html.haml'}
       end
 

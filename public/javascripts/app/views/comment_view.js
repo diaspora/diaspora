@@ -4,5 +4,9 @@ App.Views.Comment = App.Views.StreamObject.extend({
 
   events : {
     "click .comment_delete": "destroyModel"
+  },
+
+  postRenderTemplate : function(){
+    this.$("time").timeago();
   }
 });
