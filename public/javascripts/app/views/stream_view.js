@@ -1,17 +1,12 @@
 App.Views.Stream = Backbone.View.extend({
   events: {
-    "click #paginate": "loadMore"
+    "click #paginate": "render"
   },
 
   initialize: function() {
-    _.bindAll(this, "collectionFetched");
-
     this.collection = this.collection || new App.Collections.Stream;
     this.collection.bind("add", this.appendPost, this);
-  },
 
-  render : function(){
-    _.each(this.collection.models, this.appendPost, this)
     return this;
   },
 
@@ -28,20 +23,29 @@ App.Views.Stream = Backbone.View.extend({
     }).text('Load more posts'));
   },
 
-  loadMore: function(evt) {
+  render : function(evt) {
     if(evt) { evt.preventDefault(); }
 
-    this.addLoader();
-    this.collection.fetch({
+    var self = this;
+    self.addLoader();
+    self.collection.fetch({
       add: true,
-      success: this.collectionFetched
+      success: $.proxy(this.collectionFetched, self)
     });
+
+    return this;
   },
 
   addLoader: function(){
+    if(this.$("#paginate").length == 0) {
+      $(this.el).append($("<div>", {
+        "id" : "paginate"
+      }));
+    }
+
     this.$("#paginate").html($("<img>", {
       src : "/images/static-loader.png",
-      "class" : 'loader'
+      "class" : "loader"
     }));
   }
 });
