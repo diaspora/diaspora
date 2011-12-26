@@ -28,7 +28,7 @@ describe TagFollowingsController do
     end
     
     describe 'if empty' do
-      it 'suceeds' do
+      it 'succeeds' do
         bob.followed_tags.delete_all
         get :index
         response.should be_success
