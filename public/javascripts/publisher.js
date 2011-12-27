@@ -7,18 +7,6 @@
 var Publisher = {
 
   bookmarklet : false,
-  close: function(){
-    Publisher.form().addClass('closed');
-    Publisher.form().find("#publisher_textarea_wrapper").removeClass('active');
-    Publisher.form().find("textarea.ac_input").css('min-height', '');
-  },
-
-  open: function(){
-    Publisher.form().removeClass('closed');
-    Publisher.form().find("#publisher_textarea_wrapper").addClass('active');
-    Publisher.form().find("textarea.ac_input").css('min-height', '42px');
-    Publisher.determineSubmitAvailability();
-  },
 
   cachedForm : false,
   form: function(){
@@ -284,8 +272,6 @@ var Publisher = {
 
   clear: function(){
     this.autocompletion.mentionList.clear();
-    $("#photodropzone").find('li').remove();
-    $("#publisher textarea").removeClass("with_attachments").css('paddingBottom', '');
   },
 
   bindServiceIcons: function(){
@@ -439,14 +425,12 @@ var Publisher = {
         });
       }
     }
-    //collapse publisher
-    Publisher.close();
-    Publisher.clear();
+
     //Stream.setUpImageLinks();
     Stream.setUpAudioLinks();
   },
   bindAjax: function(){
-    Publisher.form().bind('submit', Publisher.beforeSubmit);
+    //Publisher.form().bind('submit', Publisher.beforeSubmit);
     Publisher.form().bind('ajax:loading', Publisher.onSubmit);
     Publisher.form().bind('ajax:failure', Publisher.onFailure);
     Publisher.form().bind('ajax:success', Publisher.onSuccess);
@@ -492,14 +476,6 @@ var Publisher = {
     Publisher.bindServiceIcons();
     Publisher.bindAspectToggles();
 
-    /* close text area */
-    Publisher.form().delegate("#hide_publisher", "click", function(){
-      $.each(Publisher.form().find("textarea"), function(idx, element){
-        $(element).val("");
-      });
-      Publisher.close();
-    });
-
     Publisher.autocompletion.initialize();
 
     if(Publisher.hiddenInput().val() === "") {
@@ -509,10 +485,7 @@ var Publisher = {
     Publisher.input().keydown(Publisher.autocompletion.keyDownHandler);
     Publisher.input().keyup(Publisher.autocompletion.keyUpHandler);
     Publisher.input().mouseup(Publisher.autocompletion.keyUpHandler);
-    Publisher.bindAjax();
-    Publisher.form().find("textarea").bind("focus", function(evt) {
-      Publisher.open();
-    });
+    //Publisher.bindAjax();
   }
 };
 

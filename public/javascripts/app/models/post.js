@@ -8,7 +8,11 @@ app.models.Post = Backbone.Model.extend({
   },
 
   url: function(){
-    return "/posts/" + this.id;
+    if(this.id) {
+      return "/posts/" + this.id;
+    } else {
+      return "/status_messages"
+    }
   },
 
   createdAt: function(){

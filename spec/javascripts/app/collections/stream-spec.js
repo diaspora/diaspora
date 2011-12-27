@@ -1,8 +1,9 @@
 describe("app.collections.Stream", function() {
   describe("url", function() {
     var stream = new app.collections.Stream(),
-      expectedPath = document.location.pathname + ".json";
-    it("returns the json path", function() {
+        expectedPath = document.location.pathname;
+
+    it("returns the correct path", function() {
       expect(stream.url()).toEqual(expectedPath);
     });
 

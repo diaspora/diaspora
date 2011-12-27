@@ -24,7 +24,6 @@ app.views.Post = app.views.StreamObject.extend({
   initialize : function() {
     this.feedbackView = new app.views.Feedback({model : this.model});
     this.commentStreamView = new app.views.CommentStream({ model : this.model});
-
     return this;
   },
 

@@ -7,6 +7,8 @@ app.views.Stream = Backbone.View.extend({
     this.collection = this.collection || new app.collections.Stream;
     this.collection.bind("add", this.appendPost, this);
 
+    this.publisher = new app.views.Publisher({collection : this.collection});
+
     return this;
   },
 
