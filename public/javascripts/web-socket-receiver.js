@@ -15,22 +15,7 @@ var WSR = WebSocketReceiver = {
       Diaspora.page.header.notifications.showNotification(message);
     }
     else {
-      switch(message["class"]) {
-        case "retractions":
-          ContentUpdater.removePostFromStream(message.post_id);
-          break;
-        case "comments":
-          ContentUpdater.addCommentToPost(message.post_guid, message.comment_guid, message.html);
-          break;
-        case "likes":
-          ContentUpdater.addLikesToPost(message.post_guid, message.html);
-          break;
-        default:
-          if(WSR.onPageForAspects(message.aspect_ids)) {
-            ContentUpdater.addPostToStream(message.html);
-          }
-          break;
-      }
+      console.log("new content");
     }
   },
 

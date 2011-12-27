@@ -15,14 +15,18 @@ app.views.Feedback = app.views.StreamObject.extend({
   },
 
   presenter : function(){
-    return _.extend(this.defaultPresenter, {like : this.like});
+    return _.extend(this.defaultPresenter(), {like : this.like});
   },
 
   toggleLike: function(evt) {
     if(evt) { evt.preventDefault(); }
 
     if(this.like){
-      this.like.destroy();
+      this.like.destroy({
+        success : function() {
+          this.like = null;
+        }.apply(this)
+      });
     } else {
       this.like = this.model.likes.create();
     }

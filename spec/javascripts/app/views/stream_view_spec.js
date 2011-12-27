@@ -12,7 +12,13 @@ describe("app.views.Stream", function(){
       this.reshare = this.collection.models[1];
 
       this.view = new app.views.Stream({collection : this.collection});
+
+      // do this manually because we've moved loadMore into render??
       this.view.render();
+      _.each(this.view.collection.models, function(post){
+        this.view.appendPost(post);
+      }, this);
+
       this.statusElement = $(this.view.$("#" + this.statusMessage.get("guid")));
       this.reshareElement = $(this.view.$("#" + this.reshare.get("guid")));
     })

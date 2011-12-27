@@ -4,6 +4,13 @@
   </a>
   ·
 
+  <% if(public) { %>
+    <a href="#" class="reshare_action" rel='nofollow'>
+      Reshare
+    </a>
+    ·
+  <% } %>
+
   <a href="#" class="focus_comment_textarea" rel="nofollow">
     Comment
   </a>

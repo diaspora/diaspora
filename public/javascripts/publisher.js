@@ -415,7 +415,6 @@ var Publisher = {
       }
 
       if(isPostVisible) {
-        ContentUpdater.addPostToStream(json.html);
         Diaspora.page.stream.addPost($("#" + json.post_id));
       }
       else {
