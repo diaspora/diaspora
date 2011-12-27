@@ -485,6 +485,7 @@ sv:
       no_results: "Du måste söka efter något."
       results_for: "Sökresultat för"
     many: "%{count} människor"
+    one: "1 person"
     other: "%{count} personer"
     person:
       add_contact: "lägg till kontakt"

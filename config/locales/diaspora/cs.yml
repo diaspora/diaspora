@@ -296,13 +296,22 @@ cs:
         many: "%{count} lidem se to nelíbí"
         one: "1 osobě se to nelíbí"
         other: "%{count} lidem se to nelíbí"
+        two: "%{count} dislikes"
         zero: "žádná záporná hodnocení"
       people_like_this:
         few: "%{count} lidem se to líbí"
         many: "%{count} lidem se to líbí"
         one: "1 osobě se to líbí"
         other: "%{count} lidem se to líbí"
+        two: "%{count} likes"
         zero: "žádná kladná hodnocení"
+      people_like_this_comment:
+        few: "%{count} likes"
+        many: "%{count} likes"
+        one: "%{count} like"
+        other: "%{count} likes"
+        two: "%{count} likes"
+        zero: "no likes"
   limited: Omezený
   more: Více
   next: další
@@ -387,9 +396,17 @@ cs:
     reshared:
       few: "%{actors} has reshared your %{post_link}."
       many: "%{actors} has reshared your %{post_link}."
+      one: "%{actors} has reshared your %{post_link}."
       other: "%{actors} has reshared your %{post_link}."
       two: "%{actors} has reshared your %{post_link}."
       zero: "%{actors} has reshared your %{post_link}."
+    reshared_post_deleted:
+      few: "%{actors} reshared your deleted post."
+      many: "%{actors} reshared your deleted post."
+      one: "%{actors} reshared your deleted post."
+      other: "%{actors} reshared your deleted post."
+      two: "%{actors} reshared your deleted post."
+      zero: "%{actors} reshared your deleted post."
     started_sharing:
       few: "%{actors} s vámi začali sdílet."
       many: "%{actors} s vámi začali sdílet."
@@ -543,6 +560,13 @@ cs:
       failed: "Nepodařilo se aktualizovat profil"
       updated: "Profil aktualizován"
   public: Veřejné
+  reactions:
+    few: "%{count} reactions"
+    many: "%{count} reactions"
+    one: "1 reaction"
+    other: "%{count} reactions"
+    two: "%{count} reactions"
+    zero: "0 reactions"
   registrations:
     closed: "Zápisy jsou aktuálně uzavřeny na tomto Diasporu podu."
     create:
@@ -591,6 +615,8 @@ cs:
         many: "%{count} Reshares"
         one: "1 Reshare"
         other: "%{count} Reshares"
+        two: "%{count} reshares"
+        zero: Reshare
       reshare_confirmation: "Reshare %{author} - %{text}?"
       reshare_original: "Reshare orignial"
       show_original: "Show Original"

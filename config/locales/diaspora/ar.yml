@@ -567,6 +567,13 @@ ar:
       failed: "فشل في تحديث صفحتك الشخصية"
       updated: "حُدِّثَت صفحتِك الشخصية"
   public: عام
+  reactions:
+    few: "%{count} reactions"
+    many: "%{count} reactions"
+    one: "1 reaction"
+    other: "%{count} reactions"
+    two: "%{count} reactions"
+    zero: "0 reactions"
   registrations:
     closed: "التسجيلات مغلقة على هذه المنصة"
     create:
@@ -731,6 +738,13 @@ ar:
       zero: "رجاءًا لا تضع في مشاركاتك أية حروف "
   stream_helper:
     hide_comments: "أخْفِ كل التعليقات"
+    show_comments:
+      few: "Show %{count} more comments"
+      many: "Show %{count} more comments"
+      one: "Show one more comment"
+      other: "Show %{count} more comments"
+      two: "Show two more comments"
+      zero: "No more comments"
   streams:
     mentions:
       title: "Your Mentions"

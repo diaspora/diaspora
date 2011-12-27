@@ -13,6 +13,7 @@ nl:
       toggle:
         few: "In {{count}} aspecten"
         many: "In {{count}} aspecten"
+        one: "In {{count}} aspect"
         other: "In {{count}} aspecten"
         two: "In {{count}} aspecten"
         zero: "Voeg toe aan aspect"

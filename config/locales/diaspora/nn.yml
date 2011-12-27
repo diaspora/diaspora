@@ -267,6 +267,29 @@ nn:
       recent_notifications: "Nylege varsel"
       settings: Innstillingar
       view_all: "Syn alt"
+  likes:
+    likes:
+      people_dislike_this:
+        few: "%{count} dislikes"
+        many: "%{count} dislikes"
+        one: "%{count} dislike"
+        other: "%{count} dislikes"
+        two: "%{count} dislikes"
+        zero: "no dislikes"
+      people_like_this:
+        few: "%{count} likes"
+        many: "%{count} likes"
+        one: "%{count} like"
+        other: "%{count} likes"
+        two: "%{count} likes"
+        zero: "no likes"
+      people_like_this_comment:
+        few: "%{count} likes"
+        many: "%{count} likes"
+        one: "%{count} like"
+        other: "%{count} likes"
+        two: "%{count} likes"
+        zero: "no likes"
   limited: Avgrensa
   next: neste
   no_results: "Fann ingen resultat"
@@ -277,6 +300,7 @@ nn:
       one: "%{actors} kommenterte òg %{post_author} sitt %{post_link}."
       other: "%{actors} kommenterte òg %{post_author} sitt %{post_link}."
       two: "%{actors} kommenterte òg %{post_author} si %{post_link}."
+      zero: "%{actors} also commented on %{post_author}'s %{post_link}."
     also_commented_deleted:
       few: "%{actors} kommenterte eit sletta innlegg."
       many: "%{actors} kommenterte eit sletta innlegg."
@@ -414,6 +438,7 @@ nn:
       no_results: "Du må søkja etter noko."
       results_for: "søkjeresultat for"
     many: "%{count} personar"
+    one: "1 person"
     other: "%{count} personar"
     person:
       add_contact: "legg til kontakt"
@@ -511,6 +536,13 @@ nn:
       failed: "Klarte ikkje å oppdatera profilen"
       updated: "Profilen vart oppdatert"
   public: Offentleg
+  reactions:
+    few: "%{count} reactions"
+    many: "%{count} reactions"
+    one: "1 reaction"
+    other: "%{count} reactions"
+    two: "%{count} reactions"
+    zero: "0 reactions"
   registrations:
     closed: "Kan ikkje oppretta brukarar på denne Diaspora-tenaren."
     create:
@@ -557,6 +589,11 @@ nn:
     reshare:
       deleted: "Forfattaren har sletta originalinnlegget."
       reshare:
+        few: "%{count} reshares"
+        many: "%{count} reshares"
+        one: "1 reshare"
+        other: "%{count} reshares"
+        two: "%{count} reshares"
         zero: "Del vidare"
       reshare_original: "Del originalen vidare"
       show_original: "Syn original"
@@ -665,6 +702,13 @@ nn:
       zero: "sjå til at statusmeldingane dine har færre enn %{count} teikn"
   stream_helper:
     hide_comments: "Gøym alle kommentarane"
+    show_comments:
+      few: "Show %{count} more comments"
+      many: "Show %{count} more comments"
+      one: "Show one more comment"
+      other: "Show %{count} more comments"
+      two: "Show two more comments"
+      zero: "No more comments"
   streams:
     mentions:
       title: "@Nemningar"

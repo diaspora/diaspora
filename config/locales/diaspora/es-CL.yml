@@ -330,6 +330,7 @@ es-CL:
         many: "%{count} personas les gusta esto"
         one: "1 persona le gusta esto"
         other: "%{count} personas les gusta esto"
+        two: "%{count} likes"
         zero: "a nadie le gusta esto aun"
       people_like_this_comment:
         few: "a %{count} les gusta esto"

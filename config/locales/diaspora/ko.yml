@@ -389,6 +389,7 @@ ko:
         one: "+ 한 명"
         other: "+ %{count}명"
         two: "과 %{count}명"
+        zero: "and nobody else"
       mark_all_as_read: "모두 읽음으로 표시"
       notifications: 알림
     liked:

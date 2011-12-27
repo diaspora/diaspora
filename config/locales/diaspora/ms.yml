@@ -109,6 +109,8 @@ ms:
       family: Famili
       friends: Rakan
       work: Kerja
+    two: "%{count} aspects"
+    zero: "no aspects"
   bookmarklet:
     post_success: "Telah Di Pos! Tutup!"
   cancel: Batal
@@ -134,9 +136,19 @@ ms:
       many_people_are_you_sure: "Adakah anda pasti anda mahu untuk memulakan perbualan peribadi dengan lebih daripada% {suggested_limit} kenalan? Posting ke aspek ini mungkin cara yang lebih baik untuk menghubungi mereka."
       my_contacts: "Kenalan Saya"
       only_sharing_with_me: "Hanya berkongsi dengan saya"
+    many: "%{count} contacts"
+    one: "1 contact"
+    other: "%{count} contacts"
+    two: "%{count} contacts"
+    zero: contacts
   conversations:
     helper:
       new_messages:
+        few: "%{count} new messages"
+        many: "%{count} new messages"
+        one: "1 new messages"
+        other: "%{count} new messages"
+        two: "%{count} new messages"
         zero: "Tiada mesej baru"
     index:
       create_a_new_message: "membuat mesej baru"
@@ -186,7 +198,15 @@ ms:
       powered_by: "DI KUASA OLEH DIASPORA*"
   likes:
     likes:
+      people_dislike_this:
+        few: "%{count} dislikes"
+        many: "%{count} dislikes"
+        one: "%{count} dislike"
+        other: "%{count} dislikes"
+        two: "%{count} dislikes"
+        zero: "no dislikes"
       people_like_this:
+        few: "%{count} likes"
         many: "%{count} suka"
         one: "%{count} suka"
         other: "%{count} suka"
@@ -197,6 +217,7 @@ ms:
         many: "%{count} suka"
         one: "%{count} suka"
         other: "%{count} suka"
+        two: "%{count} likes"
         zero: "tiada suka"
   limited: Terhad
   more: "lebih banyak"
@@ -209,6 +230,29 @@ ms:
       one: "%{actors} juga mengulas mengenai %{post_author}'s %{post_link}."
       other: "%{actors} juga mengulas mengenai %{post_author}'s %{post_link}."
       two: "%{actors} juga mengulas mengenai %{post_author}'s %{post_link}."
+      zero: "%{actors} also commented on %{post_author}'s %{post_link}."
+    also_commented_deleted:
+      few: "%{actors} commented on a deleted post."
+      many: "%{actors} commented on a deleted post."
+      one: "%{actors} commented on a deleted post."
+      other: "%{actors} commented on a deleted post."
+      two: "%{actors} commented on a deleted post."
+      zero: "%{actors} commented on a deleted post."
+    comment_on_post:
+      few: "%{actors} commented on your %{post_link}."
+      many: "%{actors} commented on your %{post_link}."
+      one: "%{actors} commented on your %{post_link}."
+      other: "%{actors} commented on your %{post_link}."
+      two: "%{actors} commented on your %{post_link}."
+      zero: "%{actors} commented on your %{post_link}."
+    helper:
+      new_notifications:
+        few: "%{count} new notifications"
+        many: "%{count} new notifications"
+        one: "1 new notification"
+        other: "%{count} new notifications"
+        two: "%{count} new notifications"
+        zero: "No new notifications"
     index:
       and: dan
       and_others:
@@ -233,8 +277,32 @@ ms:
       one: "%{actors} suka pos yang dihapuskan anda."
       other: "%{actors} suka pos yang dihapuskan anda."
       two: "%{actors} suka pos yang dihapuskan anda."
+      zero: "%{actors} liked your deleted post."
+    mentioned:
+      few: "%{actors} have mentioned you in a %{post_link}."
+      many: "%{actors} have mentioned you in a %{post_link}."
+      one: "%{actors} has mentioned you in a %{post_link}."
+      other: "%{actors} have mentioned you in a %{post_link}."
+      two: "%{actors} have mentioned you in a %{post_link}."
+      zero: "%{actors} have mentioned you in a %{post_link}."
+    mentioned_deleted:
+      few: "%{actors} mentioned you in a deleted post."
+      many: "%{actors} mentioned you in a deleted post."
+      one: "%{actors} mentioned you in a deleted post."
+      other: "%{actors} mentioned you in a deleted post."
+      two: "%{actors} mentioned you in a deleted post."
+      zero: "%{actors} mentioned you in a deleted post."
+    private_message:
+      few: "%{actors} sent you a message."
+      many: "%{actors} sent you a message."
+      one: "%{actors} sent you a message."
+      other: "%{actors} sent you a message."
+      two: "%{actors} sent you a message."
+      zero: "%{actors} sent you a message."
     reshared:
       few: "%{actors} telah berkongsi semula dengan anda %{post_link}."
+      many: "%{actors} have reshared your %{post_link}."
+      one: "%{actors} has reshared your %{post_link}."
       other: "%{actors} telah berkongsi semula %{post_link} anda."
       two: "%{actors} telah berkongsi semula %{post_link} anda."
       zero: "%{actors} telah berkongsi semula %{post_link} anda."
@@ -296,3 +364,53 @@ ms:
     create:
       integrity_error: "\"Upload\" foto gagal. Adakah anda pasti itu adalah imej?"
       runtime_error: "\"Upload\" foto gagal. Adakah anda pasti bahawa tali pinggang keledar anda telah diikat?"
+  reactions:
+    few: "%{count} reactions"
+    many: "%{count} reactions"
+    one: "1 reaction"
+    other: "%{count} reactions"
+    two: "%{count} reactions"
+    zero: "0 reactions"
+  requests:
+    helper:
+      new_requests:
+        few: "%{count} new requests!"
+        many: "%{count} new requests!"
+        one: "new request!"
+        other: "%{count} new requests!"
+        two: "%{count} new requests!"
+        zero: "no new requests"
+  reshares:
+    reshare:
+      reshare:
+        few: "%{count} reshares"
+        many: "%{count} reshares"
+        one: "1 reshare"
+        other: "%{count} reshares"
+        two: "%{count} reshares"
+        zero: Reshare
+  shared:
+    aspect_dropdown:
+      toggle:
+        few: "In %{count} aspects"
+        many: "In %{count} aspects"
+        one: "In %{count} aspect"
+        other: "In %{count} aspects"
+        two: "In %{count} aspects"
+        zero: "Add contact"
+  status_messages:
+    too_long:
+      few: "please make your status messages less than %{count} characters"
+      many: "please make your status messages less than %{count} characters"
+      one: "please make your status messages less than %{count} character"
+      other: "please make your status messages less than %{count} characters"
+      two: "please make your status messages less than %{count} characters"
+      zero: "please make your status messages less than %{count} characters"
+  stream_helper:
+    show_comments:
+      few: "Show %{count} more comments"
+      many: "Show %{count} more comments"
+      one: "Show one more comment"
+      other: "Show %{count} more comments"
+      two: "Show two more comments"
+      zero: "No more comments"

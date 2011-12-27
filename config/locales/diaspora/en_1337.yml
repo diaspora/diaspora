@@ -732,6 +732,13 @@ en_1337:
       zero: "PL3453 M4K3 Y0UR 5P4M5 L355 7H3N %{count} CH4R4C73R5"
   stream_helper:
     hide_comments: "H1D3 4LL 5P4M5!"
+    show_comments:
+      few: "Show %{count} more comments"
+      many: "Show %{count} more comments"
+      one: "Show one more comment"
+      other: "Show %{count} more comments"
+      two: "Show two more comments"
+      zero: "No more comments"
   streams:
     mentions:
       contacts_title: "N00B5 WH0 M3N710N3D U"
