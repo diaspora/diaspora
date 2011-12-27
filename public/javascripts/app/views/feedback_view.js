@@ -3,6 +3,7 @@ app.views.Feedback = app.views.StreamObject.extend({
 
   events: {
     "click .like_action": "toggleLike",
+    "click .reshare_action": "resharePost"
   },
 
   initialize : function() {
@@ -31,4 +32,14 @@ app.views.Feedback = app.views.StreamObject.extend({
       this.like = this.model.likes.create();
     }
   },
+
+  resharePost : function(evt){
+    if(evt) { evt.preventDefault(); }
+
+    if(window.confirm("Reshare " + this.model.get("author").name + "'s post?")) {
+      var reshare = new app.models.Reshare({root_guid : this.model.rootGuid()});
+      reshare.save();
+      return reshare;
+    }
+  }
 })

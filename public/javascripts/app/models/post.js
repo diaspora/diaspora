@@ -1,5 +1,5 @@
 app.models.Post = Backbone.Model.extend({
-  initialize: function() {
+  initialize : function() {
     this.comments = new app.collections.Comments(this.get("last_three_comments"));
     this.comments.url = this.url() + '/comments';
 
@@ -7,7 +7,7 @@ app.models.Post = Backbone.Model.extend({
     this.likes.url = this.url() + '/likes';
   },
 
-  url: function(){
+  url : function() {
     if(this.id) {
       return "/posts/" + this.id;
     } else {
@@ -15,7 +15,15 @@ app.models.Post = Backbone.Model.extend({
     }
   },
 
-  createdAt: function(){
+  createdAt : function() {
     return +new Date(this.get("created_at")) / 1000;
+  },
+
+  rootGuid : function() {
+    if(this.get("root")){
+      return this.get("root").guid;
+    } else {
+      return this.get("guid");
+    }
   }
 });

@@ -90,6 +90,60 @@ describe("app.views.Feedback", function(){
         expect(this.link().text()).toContain('Like');
       })
     })
+
+    context("when the post is public", function(){
+      beforeEach(function(){
+        this.post.attributes.public = true
+        this.view.render();
+      })
+
+      it("shows a reshare_action link", function(){
+        expect($(this.view.el).html()).toContain('reshare_action')
+      });
+    })
+
+    context("when the post is not public", function(){
+      beforeEach(function(){
+        this.post.attributes.public = false
+        this.view.render();
+      })
+
+      it("shows a reshare_action link", function(){
+        expect($(this.view.el).html()).not.toContain('reshare_action')
+      });
+    })
+
+    context("when the current user owns the post", function(){
+      beforeEach(function(){
+        this.post.attributes.author = window.current_user
+        this.post.attributes.public = true
+        this.view.render();
+      })
+
+      it("does not display a reshare_action link", function(){
+        expect($(this.view.el).html()).not.toContain('reshare_action')
+      })
+    })
+
+    context("reshares", function(){
+      beforeEach(function(){
+        this.post.attributes.public = true
+        this.view.render();
+      })
+
+      it("displays a confirmation dialog", function(){
+        spyOn(window, "confirm")
+
+        this.view.$(".reshare_action").first().click();
+        expect(window.confirm).toHaveBeenCalled();
+      })
+
+      it("creates a reshare if the confirmation dialog is accepted", function(){
+        spyOn(window, "confirm").andReturn(true);
+
+        expect(this.view.resharePost().constructor).toBe(app.models.Reshare);
+      })
+    })
   })
 })
 
