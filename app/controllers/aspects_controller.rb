@@ -9,21 +9,26 @@ class AspectsController < ApplicationController
   before_filter :save_selected_aspects, :only => :index
   before_filter :ensure_page, :only => :index
 
-  respond_to :html, :js
-  respond_to :json, :only => [:show, :create, :index]
+  respond_to :html,
+             :js,
+             :json
 
   def index
+    @backbone = true
+    stream_klass = Stream::Aspect
     aspect_ids = (session[:a_ids] ? session[:a_ids] : [])
     @stream = Stream::Aspect.new(current_user, aspect_ids,
-                               :max_time => params[:max_time].to_i)
+                                 :max_time => params[:max_time].to_i)
 
     respond_with do |format|
       format.html do
         if params[:only_posts]
           render :partial => 'shared/stream', :locals => {:posts => @stream.stream_posts}
+        else
+          render 'aspects/index'
         end
       end
-      format.json{ render :json => @stream.stream_posts.to_json(:include => {:author => {:include => :profile}}) }
+      format.json{ render_for_api :backbone, :json => @stream.stream_posts, :root => :posts }
     end
   end
 

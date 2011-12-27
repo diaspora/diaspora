@@ -1,6 +1,7 @@
 app.Router = Backbone.Router.extend({
   routes: {
     "stream": "stream",
+    "aspects:query": "stream",
     "comment_stream": "stream",
     "like_stream": "stream",
     "mentions": "stream",
@@ -11,8 +12,9 @@ app.Router = Backbone.Router.extend({
     "posts/:id": "stream"
   },
 
-  stream: function() {
+  stream : function() {
     app.stream = new app.views.Stream().render();
     $("#main_stream").html(app.stream.el);
   }
 });
+

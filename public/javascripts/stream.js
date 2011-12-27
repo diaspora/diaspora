@@ -12,8 +12,6 @@ var Stream = {
   },
 
   initializeLives: function(){
-    Stream.setUpNsfwLinks();
-
     // reshare button action
     $(".reshare_button", this.selector).live("click", function(evt) {
       evt.preventDefault();

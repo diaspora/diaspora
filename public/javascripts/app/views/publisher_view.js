@@ -22,7 +22,8 @@ app.views.Publisher = Backbone.View.extend({
       "status_message" : {
         "text" : serializedForm["status_message[text]"]
       },
-      "aspect_ids" : serializedForm["aspect_ids[]"]
+      "aspect_ids" : serializedForm["aspect_ids[]"],
+      "photos" : serializedForm["photos[]"]
     });
 
     // clear state

@@ -86,6 +86,9 @@
     };
 
     this.performAjax = function() {
+      window.location = self.generateURL(); // hella hax
+      // and fuck all this stuff VVVV
+
       var post = $("#publisher textarea#status_message_fake_text").val(),
         newURL = self.generateURL(),
         photos = {};
