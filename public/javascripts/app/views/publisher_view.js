@@ -18,12 +18,18 @@ app.views.Publisher = Backbone.View.extend({
 
     var serializedForm = $(evt.target).closest("form").serializeObject();
 
-    this.collection.create({
+    // save status message
+    var statusMessage = new app.models.StatusMessage();
+    statusMessage.save({
       "status_message" : {
         "text" : serializedForm["status_message[text]"]
       },
       "aspect_ids" : serializedForm["aspect_ids[]"],
       "photos" : serializedForm["photos[]"]
+    }, {
+      success : $.proxy(function(data) {
+        app.stream.collection.add(this);
+      }, statusMessage)
     });
 
     // clear state

@@ -37,25 +37,5 @@ describe("app.views.Post", function(){
         expect(statusElement.find(".shield").html()).toNotBe(null);
       })
     })
-
-    context("Reshare link", function(){
-      it("is present if the post is public", function(){
-        var view = new app.views.Post({model : this.statusMessage}).render();
-        this.statusMessage.set({"public" : true});
-
-        var statusElement = $(view.el)
-
-        expect(statusElement.find(".reshare_action")).toNotBe(null);
-      })
-
-      it("is not present if the post is not public", function(){
-        this.statusMessage.set({"public" : false});
-
-        var view = new app.views.Post({model : this.statusMessage}).render();
-        var statusElement = $(view.el)
-
-        expect(statusElement.find(".reshare_action").html()).toBeNull();
-      })
-    })
   })
 })

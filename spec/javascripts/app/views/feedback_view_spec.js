@@ -1,6 +1,6 @@
 describe("app.views.Feedback", function(){
   beforeEach(function(){
-    window.current_user = app.user({name: "alice", avatar : {small : "http://avatar.com/photo.jpg"}});
+    window.current_user = app.user({id : 1, name: "alice", avatar : {small : "http://avatar.com/photo.jpg"}});
 
     var posts = $.parseJSON(spec.readFixture("multi_stream_json"))["posts"];
 
@@ -93,34 +93,43 @@ describe("app.views.Feedback", function(){
 
     context("when the post is public", function(){
       beforeEach(function(){
-        this.post.attributes.public = true
+        this.post.attributes.public = true;
         this.view.render();
       })
 
       it("shows a reshare_action link", function(){
         expect($(this.view.el).html()).toContain('reshare_action')
       });
+
+      it("does not show a reshare_action link if the original post has been deleted", function(){
+        this.post.attributes.root = null
+        this.view.render();
+
+        expect($(this.view.el).html()).not.toContain('reshare_action');
+      })
     })
 
     context("when the post is not public", function(){
       beforeEach(function(){
-        this.post.attributes.public = false
+        this.post.attributes.public = false;
+        this.post.attributes.root = {author : {name : "susan"}};
         this.view.render();
       })
 
-      it("shows a reshare_action link", function(){
-        expect($(this.view.el).html()).not.toContain('reshare_action')
+      it("does not show a reshare_action link", function(){
+        expect($(this.view.el).html()).not.toContain('reshare_action');
       });
     })
 
     context("when the current user owns the post", function(){
       beforeEach(function(){
-        this.post.attributes.author = window.current_user
-        this.post.attributes.public = true
+        this.post.attributes.author = window.current_user;
         this.view.render();
       })
 
       it("does not display a reshare_action link", function(){
+        this.post.attributes.public = false
+        this.view.render();
         expect($(this.view.el).html()).not.toContain('reshare_action')
       })
     })
@@ -128,6 +137,7 @@ describe("app.views.Feedback", function(){
     context("reshares", function(){
       beforeEach(function(){
         this.post.attributes.public = true
+        this.post.attributes.root = {author : {name : "susan"}};
         this.view.render();
       })
 

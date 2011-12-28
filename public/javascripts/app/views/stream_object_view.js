@@ -11,7 +11,7 @@ app.views.StreamObject = app.views.Base.extend({
     this.model.destroy();
 
     $(this.el).slideUp(400, function(){
-      this.remove();
+      $(this).remove();
     });
   }
 });

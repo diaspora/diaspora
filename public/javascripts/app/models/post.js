@@ -11,7 +11,7 @@ app.models.Post = Backbone.Model.extend({
     if(this.id) {
       return "/posts/" + this.id;
     } else {
-      return "/status_messages"
+      return "/posts"
     }
   },
 
@@ -19,11 +19,19 @@ app.models.Post = Backbone.Model.extend({
     return +new Date(this.get("created_at")) / 1000;
   },
 
-  rootGuid : function() {
+  baseGuid : function() {
     if(this.get("root")){
       return this.get("root").guid;
     } else {
       return this.get("guid");
+    }
+  },
+
+  baseAuthor : function() {
+    if(this.get("root")){
+      return this.get("root").author;
+    } else {
+      return this.get("author");
     }
   }
 });

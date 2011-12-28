@@ -36,9 +36,13 @@ app.views.Feedback = app.views.StreamObject.extend({
   resharePost : function(evt){
     if(evt) { evt.preventDefault(); }
 
-    if(window.confirm("Reshare " + this.model.get("author").name + "'s post?")) {
-      var reshare = new app.models.Reshare({root_guid : this.model.rootGuid()});
-      reshare.save();
+    if(window.confirm("Reshare " + this.model.baseAuthor().name + "'s post?")) {
+      var reshare = new app.models.Reshare();
+      reshare.save({root_guid : this.model.baseGuid()}, {
+        success : $.proxy(function(data){
+          app.stream.collection.add(this);
+        }, reshare)
+      });
       return reshare;
     }
   }
