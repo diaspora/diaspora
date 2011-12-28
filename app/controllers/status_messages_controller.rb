@@ -79,11 +79,8 @@ class StatusMessagesController < ApplicationController
       end
 
       respond_to do |format|
-        format.js {
-          errors = @status_message.errors.full_messages.collect { |msg| msg.gsub(/^Text/, "") }
-          render :json =>{:errors => errors}, :status => 422
-        }
-        format.html {redirect_to :back}
+        format.json { render :nothing, :status => 403 }
+        format.html { redirect_to :back }
       end
     end
   end

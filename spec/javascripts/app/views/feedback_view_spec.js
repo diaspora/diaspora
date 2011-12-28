@@ -1,6 +1,6 @@
 describe("app.views.Feedback", function(){
   beforeEach(function(){
-    window.current_user = app.user({id : 1, name: "alice", avatar : {small : "http://avatar.com/photo.jpg"}});
+    window.current_user = app.user({id : -1, name: "alice", avatar : {small : "http://avatar.com/photo.jpg"}});
 
     var posts = $.parseJSON(spec.readFixture("multi_stream_json"))["posts"];
 
@@ -58,6 +58,10 @@ describe("app.views.Feedback", function(){
       beforeEach(function(){
         this.view.like = null;
         this.view.render();
+      })
+
+      it("contains a .like_action", function(){
+        expect($(this.view.el).html()).toContain("like_action");
       })
 
       it("the like action should be 'Like'", function(){

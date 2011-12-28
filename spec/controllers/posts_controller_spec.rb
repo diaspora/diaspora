@@ -23,8 +23,6 @@ describe PostsController do
       it 'succeeds' do
         get :show, "id" => @message.id
         response.should be_success
-        doc.has_link?('Like').should be_true
-        doc.has_link?('Comment').should be_true
       end
 
       it 'succeeds on mobile' do
@@ -38,9 +36,8 @@ describe PostsController do
       end
 
       it 'marks a corresponding notification as read' do
-        alice.comment("comment after me", :post => @message)
-        bob.comment("here you go", :post => @message)
-        note = Notification.where(:recipient_id => alice.id, :target_id => @message.id).first
+        note = Notification.create(:recipient => alice, :target => @message, :unread => true)
+
         lambda{
           get :show, :id => @message.id
           note.reload
@@ -55,7 +52,6 @@ describe PostsController do
     end
 
     context 'user not signed in' do
-
       context 'given a public post' do
         before :each do
           @status = alice.post(:status_message, :text => "hello", :public => true, :to => 'all')
@@ -76,27 +72,6 @@ describe PostsController do
           get :show, :id => @status.guid, :format => :xml
           response.body.should == @status.to_diaspora_xml
         end
-
-        context 'with more than 3 comments' do
-          before do
-            (1..5).each do |i|
-              alice.comment  "comment #{i}", :post => @status
-            end
-          end
-
-          it 'shows all comments of a public post' do
-            get :show, :id => @status.id
-
-            response.body.should =~ /comment 3/
-            response.body.should_not =~ /comment 2/
-
-            get :show, :id => @status.id, 'all_comments' => '1'
-
-            response.body.should =~ /comment 3/
-            response.body.should =~ /comment 2/
-          end
-        end
-
       end
 
       it 'does not show a private post' do
@@ -116,127 +91,13 @@ describe PostsController do
         it 'assumes guids less than 8 chars are ids and not guids' do
           Post.should_receive(:where).with(hash_including(:id => @status.id)).and_return(Post)
           get :show, :id => @status.id
-          response.status= 200
+          response.should be_success
         end
 
         it 'assumes guids more than (or equal to) 8 chars are actually guids' do
           Post.should_receive(:where).with(hash_including(:guid => @status.guid)).and_return(Post)
           get :show, :id => @status.guid
-          response.status= 200
-        end
-      end
-    end
-
-    context 'when a post is public' do
-      before do
-        @post = alice.post( :status_message, :public => true, :to => alice.aspects, :text => 'abc 123' )
-      end
-
-      context 'and visitor is not signed in' do
-        it 'does not show social links' do
-          get :show, 'id' => @post.id
-
-          doc.has_content?('abc 123').should be_true
-          doc.has_link?('Like').should be_false
-          doc.has_link?('Comment').should be_false
-          doc.has_link?('Reshare').should be_false
-        end
-      end
-
-      context 'and signed in as poster' do
-        before do
-          sign_in alice
-        end
-
-        it 'does not show a reshare link' do
-          get :show, 'id' => @post.id
-
-          doc.has_content?('abc 123').should be_true
-          doc.has_link?('Like').should be_true
-          doc.has_link?('Comment').should be_true
-          doc.has_link?('Reshare').should be_false
-        end
-
-        context 'a reshare of the post' do
-          before do
-            @reshare = bob.post( :reshare, :public => true, :root_guid => @post.guid, :to => bob.aspects )
-          end
-
-          it 'does not show a reshare link' do
-            get :show, 'id' => @reshare.id
-
-            doc.has_content?('abc 123').should be_true
-            doc.has_link?('Like').should be_true
-            doc.has_link?('Comment').should be_true
-            doc.has_link?('Reshare').should be_false
-            doc.has_link?('Reshare original').should be_false
-            doc.has_link?('1 reshare').should be_false
-          end
-        end
-      end
-
-      context 'and signed in as someone other than the poster' do
-        before do
-          sign_in bob
-        end
-
-        it 'shows reshare link' do
-          get :show, 'id' => @post.id
-
-          doc.has_content?('abc 123').should be_true
-          doc.has_link?('Like').should be_true
-          doc.has_link?('Comment').should be_true
-          doc.has_link?('Reshare').should be_true
-        end
-      end
-
-      context 'and signed in as the resharer of the post' do
-        context 'a reshare of the post' do
-          before do
-            @reshare = bob.post( :reshare, :public => true, :root_guid => @post.guid, :to => bob.aspects )
-            # Don't know why this is needed, but this spec fails without it
-            sign_in bob
-          end
-
-          it 'does not show any reshare link' do
-            get :show, 'id' => @reshare.id
-
-            doc.has_content?('abc 123').should be_true
-            doc.has_link?('Like').should be_true
-            doc.has_link?('Comment').should be_true
-            doc.has_link?('1 reshare').should be_false
-            doc.has_link?('Reshare').should be_false
-          end
-        end
-      end
-
-      context 'and signed in as neither the poster nor the resharer of the post' do
-        before do
-          sign_in eve
-        end
-
-        it 'shows reshare link' do
-          get :show, 'id' => @post.id
-
-          doc.has_content?('abc 123').should be_true
-          doc.has_link?('Like').should be_true
-          doc.has_link?('Comment').should be_true
-          doc.has_link?('Reshare').should be_true
-        end
-
-        context 'a reshare of the post' do
-          before do
-            @reshare = bob.post( :reshare, :public => true, :root_guid => @post.guid, :to => bob.aspects )
-          end
-
-          it 'shows a reshare link' do
-            get :show, 'id' => @reshare.id
-
-            doc.has_content?('abc 123').should be_true
-            doc.has_link?('Like').should be_true
-            doc.has_link?('Comment').should be_true
-            doc.has_link?('Reshare original').should be_true
-          end
+          response.should be_success
         end
       end
     end

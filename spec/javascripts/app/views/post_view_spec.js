@@ -11,11 +11,13 @@ describe("app.views.Post", function(){
       this.statusMessage = this.collection.models[0];
     })
 
-    it("contains a '.like_action' link", function(){
-      var view = new app.views.Post({model : this.statusMessage}).render();
-      var statusElement = $(view.el);
+    context("user not signed in", function(){
+      it("does not provide a Feedback view", function(){
+        window.current_user = app.user(null);
 
-      expect(statusElement.find(".like_action").html()).not.toBeNull();
+        var view = new app.views.Post({model : this.statusMessage}).render();
+        expect(view.feedbackView).toBeNull();
+      })
     })
 
     context("NSFW", function(){
