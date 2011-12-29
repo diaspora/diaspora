@@ -6,30 +6,23 @@ app.views.Feedback = app.views.StreamObject.extend({
     "click .reshare_action": "resharePost"
   },
 
-  initialize : function() {
-    var user_like = this.model.get("user_like")
-    this.like = user_like && this.model.likes.get(user_like.id);
-
-    _.each(["change", "remove", "add"], function(listener) {
-      this.model.likes.bind(listener, this.render, this);
-    }, this)
-  },
-
-  presenter : function(){
-    return _.extend(this.defaultPresenter(), {like : this.like});
-  },
-
   toggleLike: function(evt) {
     if(evt) { evt.preventDefault(); }
 
-    if(this.like){
-      this.like.destroy({
-        success : function() {
-          this.like = null;
-        }.apply(this)
+    var userLike = this.model.get("user_like");
+
+    if(userLike) {
+      this.model.likes.get(userLike.id).destroy({
+        success : $.proxy(function() {
+          this.model.set({user_like : null, likes_count : this.model.get("likes_count") - 1});
+        }, this)
       });
     } else {
-      this.like = this.model.likes.create();
+      this.model.likes.create({}, {
+        success : $.proxy(function(like) {
+          this.model.set({user_like : like, likes_count : this.model.get("likes_count") + 1}); // this should be in a callback...
+        }, this)
+      });
     }
   },
 

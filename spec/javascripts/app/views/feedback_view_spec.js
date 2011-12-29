@@ -8,25 +8,6 @@ describe("app.views.Feedback", function(){
     this.view = new app.views.Feedback({model: this.post});
   });
 
-  it("has a like from the post", function(){
-    var like = this.post.likes.models[0];
-
-    expect(like).toBeDefined();
-    expect(this.view.like).toBe(like);
-  })
-
-  it("rerends when the post is liked", function(){
-    spyOn(this.view, "render")
-    this.post.likes.trigger("add");
-    expect(this.view.render);
-  })
-
-  it("rerends when the post is unliked", function(){
-    spyOn(this.view, "render")
-    this.view.like.trigger("destroy");
-    expect(this.view.render);
-  })
-
   describe(".render", function(){
     beforeEach(function(){
       this.link = function(){ return this.view.$(".like_action"); }
@@ -42,21 +23,18 @@ describe("app.views.Feedback", function(){
       })
 
       it("removes like when Unlike is clicked", function() {
-        this.link().click();
-        expect(this.view.like).toBeNull();
-      })
+        var likeModel = new app.models.Like(this.view.model.get("user_like"));
+        spyOn(this.view.model.likes, "get").andReturn(likeModel);
+        spyOn(likeModel, "destroy");
 
-      // strange that this is failing... maybe we need to spy on Backbone.sync here?
-      // it("destroys ths like when Unlike is clicked", function(){
-        // spyOn(this.view.like, "destroy").andReturn($.noop());
-        // this.link().click();
-        // expect(this.view.like.destroy).toHaveBeenCalled()
-      // });
+        this.link().click();
+        expect(likeModel.destroy).toHaveBeenCalled();
+      })
     })
 
     context("when the user doesn't yet like the post", function(){
       beforeEach(function(){
-        this.view.like = null;
+        this.view.model.set({user_like : null});
         this.view.render();
       })
 
@@ -68,13 +46,6 @@ describe("app.views.Feedback", function(){
         expect(this.link().text()).toContain('Like');
       })
 
-      it("likes the post when the link is clicked", function(){
-        var like = { party : "time"}
-        spyOn(this.post.likes, "create").andReturn(like);
-        this.link().click()
-        expect(this.view.like).toBe(like);
-      })
-
       it("allows for unliking a just-liked post", function(){
         var like = new app.models.Like({id : 2});
 
@@ -83,10 +54,15 @@ describe("app.views.Feedback", function(){
         expect(this.link().text()).toContain('Like');
         this.link().click();
 
-        spyOn(this.view.like, "destroy").andReturn($.noop());
-
         this.view.render();
         expect(this.link().text()).toContain('Unlike');
+
+        // spying + stubbing for destroy
+        var likeModel = new app.models.Like(this.view.model.get("user_like"));
+        spyOn(this.view.model.likes, "get").andReturn(likeModel);
+        spyOn(likeModel, "destroy").andReturn(function(){
+          this.view.model.set({user_like : null})
+        });
 
         this.link().click();
 

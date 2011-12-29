@@ -48,6 +48,7 @@
       <% } %>
 
       <div class="feedback"> </div>
+      <div class="likes"> </div>
       <div class="comments"> </div>
 
     </div>

@@ -1,6 +1,6 @@
 <div class="info">
   <a href="#" class="like_action" rel='nofollow'>
-    <%= like ? "Unlike" : "Like" %>
+    <%= user_like ? "Unlike" : "Like" %>
   </a>
   ·
 
