@@ -2,33 +2,16 @@
 -#   licensed under the Affero General Public License version 3 or later.  See
 -#   the COPYRIGHT file.
 
-%script{:id => "header-template", :type => 'text/template'}
-  != File.read("#{Rails.root}/app/views/templates/header.ujs")
+- ["header",
+  "feedback",
+  "static_text",
+  "stream_element",
+  "comment_stream",
+  "comment",
+  "status_message",
+  "activity_streams_photo",
+  "reshare",
+  "likes_info"].each do |template_name|
 
-%script{:id => "feedback-template", :type => 'text/template'}
-  != File.read("#{Rails.root}/app/views/templates/feedback.ujs")
-
-%script{:id => "static-text-template", :type => 'text/template'}
-  != File.read("#{Rails.root}/app/views/templates/static_text.ujs")
-
-%script{:id => "stream-element-template", :type => 'text/template'}
-  != File.read("#{Rails.root}/app/views/templates/stream_element.ujs")
-
-%script{:id => "comment-template", :type => 'text/template'}
-  != File.read("#{Rails.root}/app/views/templates/comment.ujs")
-
-%script{:id => "comment-stream-template", :type => 'text/template'}
-  != File.read("#{Rails.root}/app/views/templates/comment_stream.ujs")
-
-%script{:id => "status-message-template", :type => 'text/template'}
-  != File.read("#{Rails.root}/app/views/templates/status_message.ujs")
-
-%script{:id => "reshare-template", :type => 'text/template'}
-  != File.read("#{Rails.root}/app/views/templates/reshare.ujs")
-
-%script{:id => "activity-streams-photo-template", :type => 'text/template'}
-  != File.read("#{Rails.root}/app/views/templates/activity-streams-photo.ujs")
-
-%script{:id => "likes-info-template", :type => 'text/template'}
-  != File.read("#{Rails.root}/app/views/templates/likes_info.ujs")
-
+  %script{:id => "#{template_name.gsub("_","-")}-template", :type => 'text/template'}
+    != File.read("#{Rails.root}/app/views/templates/#{template_name}.jst")

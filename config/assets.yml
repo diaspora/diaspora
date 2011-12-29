@@ -5,9 +5,9 @@ gzip_assets: off
 javascripts:
 
   flash_socket:
-    - public/javascripts/vendor/FABridge.js
-    - public/javascripts/vendor/swfobject.js
-    - public/javascripts/vendor/web_socket.js
+    #- public/javascripts/vendor/FABridge.js
+    #- public/javascripts/vendor/swfobject.js
+    #- public/javascripts/vendor/web_socket.js
   jquery:
     - public/javascripts/vendor/jquery-1.7.1.min.js
 
