@@ -48,6 +48,10 @@ defaults: &defaults
   s3_region: 'us-east-1'
 
 
+  # Serve static assets via the appserver, this is not recommended for production use,
+  # let your reverse proxy/webserver do it.
+  serve_static_assets: false
+
   #
   # Settings
   #
@@ -68,6 +72,7 @@ defaults: &defaults
   # (expressed as an array of Diaspora IDs)
   community_spotlight:
     - 'diasporahq@joindiaspora.com'
+  
   # Email to send spotlight suggestions to
   spotlight_suggest_email: ''
 
@@ -84,7 +89,6 @@ defaults: &defaults
 
   # Enable extensive logging to log/{development,test,production}.log
   debug: false
-
 
   # Enable extensive logging to websocket server.
   socket_debug : false
@@ -212,6 +216,7 @@ defaults: &defaults
 
 development:
   <<: *defaults
+  serve_static_assets: true
 
 production:
   <<: *defaults
@@ -225,11 +230,14 @@ test:
   pod_url: "http://localhost:9887"
   socket_port: 8081
   open_invitations: true
+  serve_static_assets: true
 
 integration_1:
   <<: *defaults
   pod_url: "http://localhost:45789"
+  serve_static_assets: true
 
 integration_2:
   <<: *defaults
   pod_url: "http://localhost:34658"
+  serve_static_assets: true
