@@ -65,6 +65,7 @@
         Diaspora.Page = "#{params[:controller].camelcase}#{params[:action].camelcase}";
 
     - if current_user
+      :javascript
         app.user({
           current_user: #{current_user.person.as_api_response(:backbone).to_json}
         });

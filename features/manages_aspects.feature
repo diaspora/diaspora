@@ -35,7 +35,7 @@ Feature: User manages contacts
   Scenario: deleting an aspect from homepage
     Given I am signed in
     And I have an aspect called "People"
-    When I am on the home page
+    When I am on the aspects page
     And I click on "People" aspect edit icon
     And I wait for the ajax to finish
     And I preemptively confirm the alert
