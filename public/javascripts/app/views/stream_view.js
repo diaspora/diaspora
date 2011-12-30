@@ -12,9 +12,18 @@ app.views.Stream = Backbone.View.extend({
     return this;
   },
 
+  prependPost : function(post) {
+    var postView = new app.views.Post({ model: post });
+    $(this.el).prepend(postView.render().el);
+
+    return this;
+  },
+
   appendPost: function(post) {
     var postView = new app.views.Post({ model: post });
     $(this.el).append(postView.render().el);
+
+    return this;
   },
 
   collectionFetched: function() {
