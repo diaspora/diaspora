@@ -62,42 +62,6 @@ function chk_service
 }
 
 
-function redis_config
-# Create/update the local redis.conf file from /etc master
-{
-    if [ ! -w config ]; then
-        # read-only installation, should be OK
-        return
-    fi
-
-    if [ -r "/etc/redis.conf" ]; then
-        redis_conf="/etc/redis.conf"
-    elif [ -r "/etc/redis/redis.conf" ]; then
-        redis_conf="/etc/redis/redis.conf"
-    elif [ -r "/opt/local/etc/redis.conf" ]; then
-        # MacPorts location
-        redis_conf="/opt/local/etc/redis.conf"
-    elif [ -r "/usr/local/etc/redis.conf" ]; then
-        redis_conf="/usr/local/etc/redis.conf"
-    elif [ -r "/usr/local/etc/redis/redis.conf" ]; then
-        redis_conf="/usr/local/etc/redis/redis.conf"
-    else
-        echo "Don't know how to configure redis for this platform. Copy the configuration file redis.conf to the config directory and patch it manually. In particular, don't daemonize." >&2
-        return
-    fi
-
-    if [ config/redis.conf -nt $redis_conf ]
-    then
-        return
-    fi
-
-    cp $redis_conf config/redis.conf
-    sed -i -e '/^[^#]*daemonize/s/yes/no/'                               \
-           -e '/^[^#]*logfile/s|.*|logfile /var/log/diaspora/redis.log|' \
-        config/redis.conf
-}
-
-
 # Scan for -p, find out what port thin is about to use.
 args="$DEFAULT_THIN_ARGS $@"
 prev_arg=''
@@ -119,14 +83,6 @@ fi
 services=$( chk_service $SOCKET_PORT )
 if [ -n "$services" ]; then
     echo "FATAL: Error: websocket port $SOCKET_PORT is already in use. Exiting" >&2
-    echo "     $services"
-    exit 64
-fi
-
-# See http://bugs.joindiaspora.com/issues/722
-services=$( chk_service 5379 )
-if [ -n "$services" ]; then
-    echo "FATAL: Error:  Someone (another redis server?) is using redis port 5379" >&2
     echo "     $services"
     exit 64
 fi
@@ -155,8 +111,6 @@ fi
 # Start Diaspora
 
 if [ "$(bundle exec ruby ./script/get_config.rb 'single_process_mode?')" != "true" ]; then
-    redis_config
-    redis-server config/redis.conf &>log/redis-console.log &
 
     QUEUE=* bundle exec rake resque:work&
 
