@@ -63,14 +63,6 @@ app.views.Post = app.views.StreamObject.extend({
     return this;
   },
 
-  initializeTooltips: function(){
-    _.each(this.tooltips, function(selector){
-      this.$(selector).twipsy();
-    }, this);
-
-    return this;
-  },
-
   blockUser: function(evt){
     if(evt) { evt.preventDefault(); }
 
@@ -98,6 +90,14 @@ app.views.Post = app.views.StreamObject.extend({
     evt.preventDefault();
     this.$(".new_comment_form_wrapper").removeClass("hidden");
     this.$(".comment_box").focus();
+
+    return this;
+  },
+
+  initializeTooltips: function(){
+    _.each(this.tooltips, function(selector, options){
+      this.$(selector).twipsy(options);
+    }, this);
 
     return this;
   }

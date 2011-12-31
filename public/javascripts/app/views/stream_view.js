@@ -15,6 +15,10 @@ app.views.Stream = Backbone.View.extend({
     var throttledScroll = _.throttle($.proxy(this.infScroll, this), 200);
     $(window).scroll(throttledScroll);
 
+    // lightbox delegation
+    this.lightbox = Diaspora.BaseWidget.instantiate("Lightbox");
+    $(this.el).delegate("a.stream-photo-link", "click", this.lightbox.lightboxImageClicked);
+
     return this;
   },
 

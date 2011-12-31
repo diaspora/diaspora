@@ -33,5 +33,5 @@ app.views.Base =  Backbone.View.extend({
     })
 
     return this
-  }
+  },
 })

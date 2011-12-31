@@ -8,6 +8,8 @@ app.views.StreamObject = app.views.Base.extend({
 
   destroyModel: function(evt){
     if(evt){ evt.preventDefault(); }
+    if(!confirm("Are you sure?")) { return }
+
     this.model.destroy();
 
     $(this.el).slideUp(400, function(){
