@@ -22,37 +22,41 @@ describe Jobs::GatherOEmbedData do
 
     @no_oembed_url = 'http://www.we-do-not-support-oembed.com/index.html'
 
+    @status_message = Factory(:status_message)
+
     stub_request(:get, @flickr_oembed_get_request).to_return(:status => 200, :body => @flickr_oembed_data.to_json)
     stub_request(:get, @no_oembed_url).to_return(:status => 200, :body => '<html><body>hello there</body></html>')
   end
 
   describe '.perform' do
     it 'requests not data from the internet' do
-      Jobs::GatherOEmbedData.perform("Look at this! "+@flickr_photo_url)
+      Jobs::GatherOEmbedData.perform(@status_message.id, @flickr_photo_url)
 
       a_request(:get, @flickr_oembed_get_request).should have_been_made
     end
 
     it 'requests not data from the internet only once' do
-      Jobs::GatherOEmbedData.perform("Look at this! "+@flickr_photo_url)
-      Jobs::GatherOEmbedData.perform("Look at this! "+@flickr_photo_url)
+      2.times do |n|
+        Jobs::GatherOEmbedData.perform(@status_message.id, @flickr_photo_url)
+      end
 
       a_request(:get, @flickr_oembed_get_request).should have_been_made.times(1)
     end
 
     it 'creates one cache entry' do
-      Jobs::GatherOEmbedData.perform("Look at this! "+@flickr_photo_url)
+      Jobs::GatherOEmbedData.perform(@status_message.id, @flickr_photo_url)
 
       expected_data = @flickr_oembed_data
       expected_data['trusted_endpoint_url'] = @flickr_oembed_url
       OEmbedCache.find_by_url(@flickr_photo_url).data.should == expected_data
 
-      Jobs::GatherOEmbedData.perform("Look at this! "+@flickr_photo_url)
+      Jobs::GatherOEmbedData.perform(@status_message.id, @flickr_photo_url)
       OEmbedCache.count(:conditions => {:url => @flickr_photo_url}).should == 1
     end
 
     it 'creates no cache entry for unsupported pages' do
-      Jobs::GatherOEmbedData.perform("This page is lame! It does not support oEmbed: "+@no_oembed_url)
+      Jobs::GatherOEmbedData.perform(@status_message.id, @no_oembed_url)
+
       OEmbedCache.find_by_url(@no_oembed_url).should be_nil
     end
   end
