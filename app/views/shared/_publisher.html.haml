@@ -81,7 +81,7 @@
                 - for aspect in all_aspects
                   = aspect_dropdown_list_item(aspect, !all_aspects_selected?(selected_aspects) && selected_aspects.include?(aspect) )
 
-          = status.submit t('.share'), :disabled => publisher_hidden_text.blank?, :disable_with => t('.posting'), :class => 'button creation', :tabindex => 2
+          = status.submit t('.share'), :disabled => publisher_hidden_text.blank?, :class => 'button creation', :tabindex => 2
 
           .facebox_content
             #question_mark_pane

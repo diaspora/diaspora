@@ -5,7 +5,7 @@ app.views.Stream = Backbone.View.extend({
 
   initialize: function() {
     this.collection = this.collection || new app.collections.Stream;
-    this.collection.bind("add", this.appendPost, this);
+    this.collection.bind("add", this.addPost, this);
 
     this.publisher = new app.views.Publisher({collection : this.collection});
 
@@ -19,26 +19,30 @@ app.views.Stream = Backbone.View.extend({
   },
 
   infScroll : function(options) {
+    if(this.isLoading()) { return }
+
     var $window = $(window);
     var distFromTop = $window.height() + $window.scrollTop();
     var distFromBottom = $(document).height() - distFromTop;
     var bufferPx = 300;
 
-    if(distFromBottom < bufferPx && !this._loading) {
+    if(distFromBottom < bufferPx) {
       this.render();
     }
   },
 
-  prependPost : function(post) {
-    var postView = new app.views.Post({ model: post });
-    $(this.el).prepend(postView.render().el);
-
-    return this;
+  isLoading : function(){
+    return !this._loading.isResolved();
   },
 
-  appendPost: function(post) {
+  addPost : function(post) {
     var postView = new app.views.Post({ model: post });
-    $(this.el).append(postView.render().el);
+
+    $(this.el)[
+      (this.collection.at(0).id == post.id)
+        ? "prepend"
+        : "append"
+    ](postView.render().el);
 
     return this;
   },
@@ -49,8 +53,6 @@ app.views.Stream = Backbone.View.extend({
       href: this.collection.url(),
       id: "paginate"
     }).text('Load more posts'));
-
-    this._loading = false;
   },
 
   render : function(evt) {
@@ -59,9 +61,7 @@ app.views.Stream = Backbone.View.extend({
     var self = this;
     self.addLoader();
 
-    this._loading = true;
-
-    self.collection.fetch({
+    this._loading = self.collection.fetch({
       add: true,
       success: $.proxy(this.collectionFetched, self)
     });

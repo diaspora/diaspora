@@ -27,10 +27,8 @@ app.views.Publisher = Backbone.View.extend({
       "aspect_ids" : serializedForm["aspect_ids[]"],
       "photos" : serializedForm["photos[]"]
     }, {
-      success : function(data) {
-        var newPost = new app.models.Post(data);
-        app.stream.collection.add(newPost, {silent : true});
-        app.stream.prependPost(newPost);
+      success : function() {
+        app.stream.collection.add(statusMessage.toJSON());
       }
     });
 
