@@ -5,19 +5,9 @@
     this.subscribe("widget/ready", function(evt, element) {
       if( Diaspora.backboneEnabled() ){ return }
 
-      self.postGuid = element.attr("id");
-
       $.extend(self, {
-        commentForm: self.instantiate("CommentForm", element.find("form.new_comment")),
-        commentStream: self.instantiate("CommentStream", element.find(".comment_stream")),
-        likes: self.instantiate("Likes", element.find(".likes.on_post .likes_container:first")),
-        lightBox: self.instantiate("Lightbox", element),
         timeAgo: self.instantiate("TimeAgo", element.find(".timeago a abbr.timeago")),
-
         content: element.find(".content .collapsible"),
-        hidePostLoader: element.find("img.hide_loader"),
-        hidePostUndo: element.find("a.stream_element_hide_undo"),
-        post: element
       });
 
       // collapse long posts
@@ -26,25 +16,6 @@
         widow: 12,
         expandText: Diaspora.I18n.t("show_more"),
         userCollapse: false
-      });
-
-      self.globalSubscribe("likes/" + self.postGuid + "/updated", function() {
-        self.likes = self.instantiate("Likes", self.post.find(".likes_container:first"));
-      });
-
-      self.deletePostLink.click(function(evt) {
-        evt.preventDefault();
-
-        self.hidePostLoader.ajaxStart( function() {
-          self.deletePostLink.addClass("hidden");
-          $(this).removeClass('hidden');
-        } );
-      });
-
-      self.hidePostUndo.click(function(evt) {
-        evt.preventDefault();
-
-        self.hidePostLoader.toggleClass("hidden");
       });
     });
   };

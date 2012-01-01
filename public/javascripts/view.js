@@ -63,8 +63,6 @@ var View = {
                           'extraSpace': 5
                         });
     }
-//    Diaspora.Page.subscribe("stream/scrolled", startAutoResize)
-//    Diaspora.Page.subscribe("stream/reloaded", startAutoResize)
 
     /* photo exporting in the works */
     $("#photo-export-button").bind("click", function(evt){

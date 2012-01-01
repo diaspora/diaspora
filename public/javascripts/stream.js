@@ -8,36 +8,6 @@ var Stream = {
 
   initialize: function() {
     Diaspora.page.directionDetector.updateBinds();
-    Stream.setUpAudioLinks();
-  },
-
-  initializeLives: function(){
-    // reshare button action
-    $(".reshare_button", this.selector).live("click", function(evt) {
-      evt.preventDefault();
-      var button = $(this),
-        box = button.siblings(".reshare_box");
-
-      if (box.length > 0) {
-        button.toggleClass("active");
-        box.toggle();
-      }
-    });
-  },
-
-  setUpAudioLinks: function() {
-    $(".stream a[target='_blank']").each(function(r){
-      var link = $(this);
-      if(this.href.match(/\.mp3$|\.ogg$/)) {
-        $("<audio/>", {
-          preload: "none",
-          src: this.href,
-          controls: "controls"
-        }).appendTo(link.parent());
-
-        link.remove();
-      }
-    });
   }
 };
 
