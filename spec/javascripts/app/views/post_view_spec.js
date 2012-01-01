@@ -11,6 +11,22 @@ describe("app.views.Post", function(){
       this.statusMessage = this.collection.models[0];
     })
 
+    it("displays a reshare count", function(){
+      this.statusMessage.set({reshares_count : 2})
+      var view = new app.views.Post({model : this.statusMessage}).render();
+      var statusElement = $(view.el)
+
+      expect(statusElement.html()).toContain("2 reshares")
+    })
+
+    it("does not display a reshare count for 'zero'", function(){
+      this.statusMessage.set({reshares_count : 0})
+      var view = new app.views.Post({model : this.statusMessage}).render();
+      var statusElement = $(view.el)
+
+      expect(statusElement.html()).not.toContain("0 reshares")
+    })
+
     context("user not signed in", function(){
       it("does not provide a Feedback view", function(){
         window.current_user = app.user(null);

@@ -19,6 +19,11 @@
             <time class="timeago" datetime="<%= root.created_at %>"/>
           </a>
         </span>
+
+        <% if(root.reshares_count) { %>
+          -
+          <%= root.reshares_count %> reshares
+        <% } %>
       </div>
 
       <!-- duplicate from statusmessage partial -->

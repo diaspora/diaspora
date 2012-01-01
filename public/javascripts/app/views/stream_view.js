@@ -22,7 +22,7 @@ app.views.Stream = Backbone.View.extend({
     return this;
   },
 
-  infScroll : function(options) {
+  infScroll : function() {
     if(this.isLoading()) { return }
 
     var $window = $(window);
@@ -33,10 +33,12 @@ app.views.Stream = Backbone.View.extend({
     if(distFromBottom < bufferPx) {
       this.render();
     }
+
+    return this;
   },
 
   isLoading : function(){
-    return !this._loading.isResolved();
+    return this._loading && !this._loading.isResolved();
   },
 
   addPost : function(post) {

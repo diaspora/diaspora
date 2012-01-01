@@ -26,6 +26,11 @@
         <a href="/posts/<%= id %>">
           <time class="timeago" datetime="<%= created_at %>"/>
         </a>
+
+        <% if(reshares_count) { %>
+          -
+          <%= reshares_count %> reshares
+        <% } %>
       </span>
     </div>
 

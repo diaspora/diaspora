@@ -49,7 +49,6 @@ describe("app.views.Base", function(){
             postRenderTemplate : function(){
               $(this.el).append("<div class=subview1/>")
               $(this.el).append("<div class=subview2/>")
-              console.log($(this.el).html())
             },
 
             createSubview2 : function(){

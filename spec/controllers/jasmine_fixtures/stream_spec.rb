@@ -13,10 +13,12 @@ describe MultisController do
     it 'generates the multi_stream_json fixture', :fixture => true do
       posts = []
 
-      posts << alice.post(:status_message, :text => "hella infos yo!", :to => alice.aspects.first.id)
-      posts << alice.post(:reshare, :root_guid => Factory(:status_message, :public => true).guid, :to => 'all')
-      posts << alice.post(:status_message, :text => "you're gonna love this.'", :to => alice.aspects.first.id)
-      alice.like(1, :target => posts.last)
+      10.times do
+        posts << alice.post(:status_message, :text => "hella infos yo!", :to => alice.aspects.first.id)
+        posts << alice.post(:reshare, :root_guid => Factory(:status_message, :public => true).guid, :to => 'all')
+        posts << alice.post(:status_message, :text => "you're gonna love this.'", :to => alice.aspects.first.id)
+        alice.like(1, :target => posts.last)
+      end
 
       time = Time.now
       posts.each do |p|
@@ -26,9 +28,6 @@ describe MultisController do
 
       get :index, :format => :json
       response.should be_success
-
-      pp response.body
-
       save_fixture(response.body, "multi_stream_json")
     end
   end
