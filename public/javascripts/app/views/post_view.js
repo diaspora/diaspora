@@ -27,6 +27,9 @@ app.views.Post = app.views.StreamObject.extend({
     // set the guid
     $(this.el).attr("id", this.model.get("guid"));
 
+    // remove post
+    this.model.bind('remove', this.remove, this);
+
     // commentStream view
     this.commentStreamView = new app.views.CommentStream({ model : this.model});
     this.likesInfoView = new app.views.LikesInfo({ model : this.model});
@@ -70,25 +73,22 @@ app.views.Post = app.views.StreamObject.extend({
 
   blockUser: function(evt){
     if(evt) { evt.preventDefault(); }
+    if(!confirm("Ignore this user?")) { return }
 
-    if(confirm('Ignore this user?')) {
-      var person_id = $(evt.target).data('person_id');
-      var self = this;
+    var personId = this.model.get("author").id;
+    var block = new app.models.Block();
 
-      $.post('/blocks', {block : {"person_id" : person_id}}, function(data){
-        var models_to_remove = [];
+    block.save({block : {person_id : personId}}, {
+      success : function(){
+        if(!app.stream) { return }
 
-        _.each(self.model.collection.models, function(model){
-          if(model.get("author")["id"] == person_id) {
-            models_to_remove.push(model);
+        _.each(app.stream.collection.models, function(model){
+          if(model.get("author").id == personId) {
+            app.stream.collection.remove(model);
           }
         })
-
-        self.model.collection.remove(models_to_remove);
-      }, "json");
-    }
-
-    return this;
+      }
+    })
   },
 
   focusCommentTextarea: function(evt){

@@ -1,6 +1,6 @@
 <div class="right controls">
   <% if(author.id != current_user.id) { %>
-    <img src="/images/icons/ignoreuser.png" alt="Ignoreuser" class="block_user control_icon" title= "Ignore" data-person_id="<%= author.id %>" />
+    <img src="/images/icons/ignoreuser.png" alt="Ignoreuser" class="block_user control_icon" title= "Ignore" />
   <% } else { %>
     <img src="/images/deletelabel.png" class="delete control_icon remove_post" title="Delete" />
   <% } %>
@@ -8,9 +8,8 @@
 </div>
 
 <div class="sm_body">
-
   <a href="/people/<%= author.id %>">
-    <img src="<%= author.avatar.small %>" class="avatar" data-person_id="<%= author.id %>"/>
+    <img src="<%= author.avatar.small %>" class="avatar" />
   </a>
 
   <div class="content">
