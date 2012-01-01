@@ -2,6 +2,8 @@ app.views.CommentStream = app.views.Base.extend({
 
   template_name: "#comment-stream-template",
 
+  className : "comment_stream",
+
   events: {
     "submit form": "createComment",
     "focus .comment_box": "commentTextareaFocused",

@@ -1,5 +1,4 @@
 app.views.StreamObject = app.views.Base.extend({
-  className : "loaded",
 
   initialize: function(options) {
     this.model.bind('remove', this.remove, this);

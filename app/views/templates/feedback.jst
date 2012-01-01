@@ -1,23 +1,21 @@
-<div class="info">
-  <span class="post_scope">
-    <%= public ? "Public" : "Limited" %>
-  </span>
-  –
+<span class="post_scope">
+  <%= public ? "Public" : "Limited" %>
+</span>
+–
 
-  <a href="#" class="like_action" rel='nofollow'>
-    <%= user_like ? "Unlike" : "Like" %>
+<a href="#" class="like_action" rel='nofollow'>
+  <%= user_like ? "Unlike" : "Like" %>
+</a>
+·
+
+<% if(public && author.id != current_user.id) { %>
+  <a href="#" class="reshare_action" rel='nofollow'>
+    Reshare
   </a>
   ·
+<% } %>
 
-  <% if(public && author.id != current_user.id) { %>
-    <a href="#" class="reshare_action" rel='nofollow'>
-      Reshare
-    </a>
-    ·
-  <% } %>
-
-  <a href="#" class="focus_comment_textarea" rel="nofollow">
-    Comment
-  </a>
-</div>
+<a href="#" class="focus_comment_textarea" rel="nofollow">
+  Comment
+</a>
 

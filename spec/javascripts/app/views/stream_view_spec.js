@@ -16,7 +16,7 @@ describe("app.views.Stream", function(){
       // do this manually because we've moved loadMore into render??
       this.view.render();
       _.each(this.view.collection.models, function(post){
-        this.view.appendPost(post);
+        this.view.addPost(post);
       }, this);
 
       this.statusElement = $(this.view.$("#" + this.statusMessage.get("guid")));
@@ -25,7 +25,7 @@ describe("app.views.Stream", function(){
 
     context("when rendering a Status Mesasage", function(){
       it("shows the status message in the content area", function(){
-        expect(this.statusElement.find(".post-content p").text()).toContain("hella infos yo!")
+        expect(this.statusElement.find(".post-content p").text()).toContain("you're gonna love this")
       })
     })
   })

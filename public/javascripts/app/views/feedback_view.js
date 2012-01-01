@@ -1,6 +1,8 @@
 app.views.Feedback = app.views.StreamObject.extend({
   template_name: "#feedback-template",
 
+  className : "info loaded",
+
   events: {
     "click .like_action": "toggleLike",
     "click .reshare_action": "resharePost"

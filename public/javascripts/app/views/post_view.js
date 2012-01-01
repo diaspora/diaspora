@@ -2,6 +2,8 @@ app.views.Post = app.views.StreamObject.extend({
 
   template_name: "#stream-element-template",
 
+  className : "stream_element loaded",
+
   events: {
     "click .focus_comment_textarea": "focusCommentTextarea",
     "click .shield a": "removeNsfwShield",
@@ -22,6 +24,9 @@ app.views.Post = app.views.StreamObject.extend({
   ],
 
   initialize : function() {
+    // set the guid
+    $(this.el).attr("id", this.model.get("guid"));
+
     // commentStream view
     this.commentStreamView = new app.views.CommentStream({ model : this.model});
     this.likesInfoView = new app.views.LikesInfo({ model : this.model});
