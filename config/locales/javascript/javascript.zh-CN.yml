@@ -9,11 +9,11 @@ zh-CN:
     aspect_dropdown:
       add_to_aspect: 添加到视图
       toggle:
-        few: "在{{count}}个视图中"
-        many: "在{{count}}个视图中"
-        one: "在{{count}}个视图中"
-        other: "在{{count}}个视图中"
-        two: "In {{count}} aspects"
+        few: "在<%= count %>个视图中"
+        many: "在<%= count %>个视图中"
+        one: "在<%= count %>个视图中"
+        other: "在<%= count %>个视图中"
+        two: "In <%= count %> aspects"
         zero: 添加到视图
     comments:
       hide: 隐藏评论
@@ -29,7 +29,7 @@ zh-CN:
       at_least_one_aspect: 发布时请选择至少一个情景
     reshares:
       duplicate: "You've already reshared that post!"
-    search_for: "搜索 {{name}}"
+    search_for: "搜索 <%= name %>"
     show_more: 查看更多
     timeago:
       day: 1天
@@ -47,6 +47,6 @@ zh-CN:
       years: "%d年"
     videos:
       unknown: 未知视频格式
-      watch: "在 {{provider}} 上看观看视频"
+      watch: "在 <%= provider %> 上看观看视频"
     web_sockets:
       disconnected: websocket已关闭，内容不会再实时更新。

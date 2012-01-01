@@ -9,10 +9,10 @@ gl:
     aspect_dropdown:
       add_to_aspect: "Engadir a un aspecto"
       toggle:
-        few: "En {{count}} aspectos"
-        many: "En {{count}} aspectos"
+        few: "En <%= count %> aspectos"
+        many: "En <%= count %> aspectos"
         one: "Nun aspecto"
-        other: "En {{count}} aspectos"
+        other: "En <%= count %> aspectos"
         zero: "Engadir a un aspecto"
     comments:
       hide: "Agochar os comentarios"
@@ -24,7 +24,7 @@ gl:
       no_more: "Non hai máis publicacións."
     publisher:
       at_least_one_aspect: "Ten que publicalo polo menos nun aspecto."
-    search_for: "Buscar por «{{name}}»"
+    search_for: "Buscar por «<%= name %>»"
     show_more: "Amosar máis"
     timeago:
       day: "un día."
@@ -44,6 +44,6 @@ gl:
       years: "%d anos."
     videos:
       unknown: "Tipo de vídeo descoñecido"
-      watch: "Ver o vídeo en {{provider}}"
+      watch: "Ver o vídeo en <%= provider %>"
     web_sockets:
       disconnected: "Pechouse o conector web, as publicacións deixarán de aparecer en canto se publiquen."

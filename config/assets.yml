@@ -3,11 +3,6 @@ embed_assets: datauri
 compress_assets: on
 gzip_assets: off
 javascripts:
-
-  flash_socket:
-    #- public/javascripts/vendor/FABridge.js
-    #- public/javascripts/vendor/swfobject.js
-    #- public/javascripts/vendor/web_socket.js
   jquery:
     - public/javascripts/vendor/jquery-1.7.1.min.js
 
@@ -32,7 +27,6 @@ javascripts:
     - public/javascripts/vendor/jquery-debounce.js
     - public/javascripts/vendor/jquery.expander.js
     - public/javascripts/vendor/timeago.js
-    - public/javascripts/vendor/Mustache.js
     - public/javascripts/vendor/facebox.js
     - public/javascripts/jquery.infinitescroll-custom.js
     - public/javascripts/jquery.autocomplete-custom.js

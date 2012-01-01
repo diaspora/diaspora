@@ -9,16 +9,16 @@ es:
     aspect_dropdown:
       add_to_aspect: "Añadir contacto"
       all_aspects: "Todos los aspectos"
-      error: "No podría empezar a compartir con {{name}}.  ¿Vas a ignonarl@?"
+      error: "No podría empezar a compartir con <%= name %>.  ¿Vas a ignonarl@?"
       select_aspects: "Elige los aspectos"
-      started_sharing_with: "¡Ahora sigues los mensajes públicos de {{name}}!"
-      stopped_sharing_with: "Ya no compartes más con {{name}}."
+      started_sharing_with: "¡Ahora sigues los mensajes públicos de <%= name %>!"
+      stopped_sharing_with: "Ya no compartes más con <%= name %>."
       toggle:
-        few: "En {{count}} aspectos"
-        many: "En {{count}} aspectos"
-        one: "En {{count}} aspecto"
-        other: "En {{count}} aspectos"
-        two: "En {{count}} aspectos"
+        few: "En <%= count %> aspectos"
+        many: "En <%= count %> aspectos"
+        one: "En <%= count %> aspecto"
+        other: "En <%= count %> aspectos"
+        two: "En <%= count %> aspectos"
         zero: "Elige los aspectos"
     aspect_navigation:
       deselect_all: "Desmarcar todos"
@@ -32,7 +32,7 @@ es:
     failed_to_post_message: "¡Fallo al publicar el mensaje!"
     getting_started:
       alright_ill_wait: "Está bien, esperaré."
-      hey: "¡Hola, {{name}}!"
+      hey: "¡Hola, <%= name %>!"
       no_tags: "¡Eih, aún no sigues ninguna etiqueta! ¿Quieres continuar de todas formas?"
       preparing_your_stream: "Preparando tus novedades personalizadas..."
     infinite_scroll:
@@ -45,10 +45,10 @@ es:
       public: "Público - tu publicación es visible para todos, incluyendo buscadores"
     reshares:
       duplicate: "Que bien, ¿eh? ¡Has compartido esa publicación!"
-    search_for: "Buscar a {{name}}"
+    search_for: "Buscar a <%= name %>"
     show_more: "mostrar más"
     tags:
-      wasnt_that_interesting: "OK, supongo que #{{tagName}} no era tan interesante..."
+      wasnt_that_interesting: "OK, supongo que #<%= tagName %> no era tan interesante..."
     timeago:
       day: "1 día"
       days: "%d días"
@@ -67,6 +67,6 @@ es:
       years: "%d años"
     videos:
       unknown: "Tipo de video desconocido"
-      watch: "Ver este video con {{provider}}"
+      watch: "Ver este video con <%= provider %>"
     web_sockets:
       disconnected: "El canal está cerrado; las publicaciones no serán actualizadas al momento."

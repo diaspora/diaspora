@@ -9,16 +9,16 @@ ru:
     aspect_dropdown:
       add_to_aspect: "Добавить контакт"
       all_aspects: "Все аспекты"
-      error: "Невозможно начать делиться с пользователем {{name}}.  Возможно, вы его заблокировали?"
+      error: "Невозможно начать делиться с пользователем <%= name %>.  Возможно, вы его заблокировали?"
       select_aspects: "Выбрать аспекты"
-      started_sharing_with: "Вы начали делиться с {{name}}!"
-      stopped_sharing_with: "Вы перестали делиться с {{name}}."
+      started_sharing_with: "Вы начали делиться с <%= name %>!"
+      stopped_sharing_with: "Вы перестали делиться с <%= name %>."
       toggle:
-        few: "В {{count}} аспектах"
-        many: "В {{count}} аспектах"
-        one: "В {{count}} аспекте"
-        other: "В {{count}} аспектах"
-        two: "В {{count}} аспектах"
+        few: "В <%= count %> аспектах"
+        many: "В <%= count %> аспектах"
+        one: "В <%= count %> аспекте"
+        other: "В <%= count %> аспектах"
+        two: "В <%= count %> аспектах"
         zero: "Выбрать аспекты"
     aspect_navigation:
       deselect_all: "Выключить все"
@@ -32,7 +32,7 @@ ru:
     failed_to_post_message: "Не удалось отправить сообщение!"
     getting_started:
       alright_ill_wait: "Хорошо, я подожду."
-      hey: "Привет, {{name}}!"
+      hey: "Привет, <%= name %>!"
       no_tags: "Вы не следите ни за одной меткой! Все равно продолжить?"
       preparing_your_stream: "Подготовка вашего личного потока..."
     infinite_scroll:
@@ -45,10 +45,10 @@ ru:
       public: "Публичная - ваша запись будет видна всем, включая поисковые системы"
     reshares:
       duplicate: "Настолько круто, да? Вы уже поделились этой записью!"
-    search_for: "Искать {{name}}"
+    search_for: "Искать <%= name %>"
     show_more: "показать больше"
     tags:
-      wasnt_that_interesting: "Что ж, видимо, метка #{{tagName}} была не такой уж интересной..."
+      wasnt_that_interesting: "Что ж, видимо, метка #<%= tagName %> была не такой уж интересной..."
     timeago:
       day: день
       days: "%d дней[-я]"
@@ -66,6 +66,6 @@ ru:
       years: "%d лет"
     videos:
       unknown: "Неизвестный видеоформат"
-      watch: "Смотреть это видео на {{provider}}"
+      watch: "Смотреть это видео на <%= provider %>"
     web_sockets:
       disconnected: "WebSocket закрыт; сообщения больше не будут транслироваться в прямом эфире."

@@ -9,16 +9,16 @@ sk:
     aspect_dropdown:
       add_to_aspect: "Pridať kontakt"
       all_aspects: "Všetky kategórie"
-      error: "Nemôžete sa začať deliť s použ. {{name}}. Neignorujete ho (ju)?"
+      error: "Nemôžete sa začať deliť s použ. <%= name %>. Neignorujete ho (ju)?"
       select_aspects: "Vyberte si kategórie"
-      started_sharing_with: "Začali ste sa deliť s použ. {{name}}!"
-      stopped_sharing_with: "Prestali ste sa deliť s použ. {{name}}."
+      started_sharing_with: "Začali ste sa deliť s použ. <%= name %>!"
+      stopped_sharing_with: "Prestali ste sa deliť s použ. <%= name %>."
       toggle:
-        few: "V(o) {{count}} kategóriách"
-        many: "V(o) {{count}} kategóriách"
-        one: "V {{count}} kategórii"
-        other: "V(o) {{count}} kategóriách"
-        two: "V(o) {{count}} kategóriách"
+        few: "V(o) <%= count %> kategóriách"
+        many: "V(o) <%= count %> kategóriách"
+        one: "V <%= count %> kategórii"
+        other: "V(o) <%= count %> kategóriách"
+        two: "V(o) <%= count %> kategóriách"
         zero: "Vyberte si kategórie"
     aspect_navigation:
       deselect_all: "Odznačiť všetky"
@@ -32,7 +32,7 @@ sk:
     failed_to_post_message: "Správu sa nepodarilo poslať!"
     getting_started:
       alright_ill_wait: "V poriadku, počkám."
-      hey: "Hej, {{name}}!"
+      hey: "Hej, <%= name %>!"
       no_tags: "Hej, nesledujete žiadne značky!  Chcete aj tak pokračovať?"
       preparing_your_stream: "Pripravuje sa vaša upravená nástenka..."
     infinite_scroll:
@@ -45,10 +45,10 @@ sk:
       public: "Verejný - váš príspevok pomocou vyhľadávačov uvidí a nájde každý"
     reshares:
       duplicate: "To je dobré, čo? Tento príspevok ste už raz znova zdieľali!"
-    search_for: "Hľadať {{name}}"
+    search_for: "Hľadať <%= name %>"
     show_more: "Zobraziť viac"
     tags:
-      wasnt_that_interesting: "Dobre, značka #{{tagName}} asi nebola veľmi zaujímavá..."
+      wasnt_that_interesting: "Dobre, značka #<%= tagName %> asi nebola veľmi zaujímavá..."
     timeago:
       day: včera
       days: "pred %d dňami"
@@ -65,6 +65,6 @@ sk:
       years: "pred %d rokmi"
     videos:
       unknown: "Neznámy typ videa"
-      watch: "Pozrite sa na toto video na sieti {{provider}}"
+      watch: "Pozrite sa na toto video na sieti <%= provider %>"
     web_sockets:
       disconnected: "Webová zásuvka (websocket) je odpojená; príspevky sa už viac nebudú spracúvať v reálnom čase."

@@ -9,11 +9,11 @@ ja:
     aspect_dropdown:
       add_to_aspect: "Add to aspect"
       toggle:
-        few: "In {{count}} aspects"
-        many: "In {{count}} aspects"
-        one: "In {{count}} aspect"
-        other: "In {{count}} aspects"
-        two: "In {{count}} aspects"
+        few: "In <%= count %> aspects"
+        many: "In <%= count %> aspects"
+        one: "In <%= count %> aspect"
+        other: "In <%= count %> aspects"
+        two: "In <%= count %> aspects"
         zero: "Add to aspect"
     confirm_dialog: 本当にいいですか。
     getting_started:
@@ -24,7 +24,7 @@ ja:
       at_least_one_aspect: アスペクトを選択してから投稿してください。
     reshares:
       duplicate: "You've already reshared that post!"
-    search_for: "{{name}}を検索する"
+    search_for: "<%= name %>を検索する"
     timeago:
       day: 1日
       days: "%d日"
@@ -42,6 +42,6 @@ ja:
       years: "%d年"
     videos:
       unknown: 動画の種類が不明です
-      watch: "{{provider}}で動画を視聴する"
+      watch: "<%= provider %>で動画を視聴する"
     web_sockets:
       disconnected: 接続が解除されました。投稿のリアルタイム更新を中断します。
