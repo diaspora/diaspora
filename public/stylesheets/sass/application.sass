@@ -174,10 +174,6 @@ header
   :border
     :bottom 1px solid #444
 
-  &.fixit
-    :position fixed
-    :top -30px
-
   a
     :color #CCC
     :color rgb(147,147,147)
@@ -239,7 +235,7 @@ header
             :right 15px
           &:hover
             :background
-              :color #222
+              :color transparent
             :text
               :decoration none
           &:focus
@@ -1931,13 +1927,19 @@ ul#landing_nav
   :margin 0
   :padding 0
 
-  :font
-    :size 14px
+  :position absolute
+  :top 4px
+  :right 0
 
   > li
     :display inline
     :margin
       :right 0.5em
+
+    &:last-child
+      :margin
+        :right 0
+
     a
       :color $blue
 
