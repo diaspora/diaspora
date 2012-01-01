@@ -13,61 +13,63 @@ describe("app.views.Feedback", function(){
       this.link = function(){ return this.view.$(".like_action"); }
     })
 
-    context("when the user likes the post", function(){
-      beforeEach(function(){
-        this.view.render();
+    context("likes", function(){
+      context("when the user likes the post", function(){
+        beforeEach(function(){
+          this.view.render();
+        })
+
+        it("the like action should be 'Unlike'", function(){
+          expect(this.link().text()).toContain('Unlike');
+        })
+
+        it("removes like when Unlike is clicked", function() {
+          var likeModel = new app.models.Like(this.view.model.get("user_like"));
+          spyOn(this.view.model.likes, "get").andReturn(likeModel);
+          spyOn(likeModel, "destroy");
+
+          this.link().click();
+          expect(likeModel.destroy).toHaveBeenCalled();
+        })
       })
 
-      it("the like action should be 'Unlike'", function(){
-        expect(this.link().text()).toContain('Unlike');
-      })
+      context("when the user doesn't yet like the post", function(){
+        beforeEach(function(){
+          this.view.model.set({user_like : null});
+          this.view.render();
+        })
 
-      it("removes like when Unlike is clicked", function() {
-        var likeModel = new app.models.Like(this.view.model.get("user_like"));
-        spyOn(this.view.model.likes, "get").andReturn(likeModel);
-        spyOn(likeModel, "destroy");
+        it("contains a .like_action", function(){
+          expect($(this.view.el).html()).toContain("like_action");
+        })
 
-        this.link().click();
-        expect(likeModel.destroy).toHaveBeenCalled();
-      })
-    })
+        it("the like action should be 'Like'", function(){
+          expect(this.link().text()).toContain('Like');
+        })
 
-    context("when the user doesn't yet like the post", function(){
-      beforeEach(function(){
-        this.view.model.set({user_like : null});
-        this.view.render();
-      })
+        it("allows for unliking a just-liked post", function(){
+          var like = new app.models.Like({id : 2});
 
-      it("contains a .like_action", function(){
-        expect($(this.view.el).html()).toContain("like_action");
-      })
+          spyOn(this.post.likes, "create").andReturn(like);
 
-      it("the like action should be 'Like'", function(){
-        expect(this.link().text()).toContain('Like');
-      })
+          expect(this.link().text()).toContain('Like');
+          this.link().click();
 
-      it("allows for unliking a just-liked post", function(){
-        var like = new app.models.Like({id : 2});
+          this.view.render();
+          expect(this.link().text()).toContain('Unlike');
 
-        spyOn(this.post.likes, "create").andReturn(like);
+          // spying + stubbing for destroy
+          var likeModel = new app.models.Like(this.view.model.get("user_like"));
+          spyOn(this.view.model.likes, "get").andReturn(likeModel);
+          spyOn(likeModel, "destroy").andReturn(function(){
+            this.view.model.set({user_like : null})
+          });
 
-        expect(this.link().text()).toContain('Like');
-        this.link().click();
+          this.link().click();
 
-        this.view.render();
-        expect(this.link().text()).toContain('Unlike');
-
-        // spying + stubbing for destroy
-        var likeModel = new app.models.Like(this.view.model.get("user_like"));
-        spyOn(this.view.model.likes, "get").andReturn(likeModel);
-        spyOn(likeModel, "destroy").andReturn(function(){
-          this.view.model.set({user_like : null})
-        });
-
-        this.link().click();
-
-        this.view.render();
-        expect(this.link().text()).toContain('Like');
+          this.view.render();
+          expect(this.link().text()).toContain('Like');
+        })
       })
     })
 
@@ -75,6 +77,10 @@ describe("app.views.Feedback", function(){
       beforeEach(function(){
         this.post.attributes.public = true;
         this.view.render();
+      })
+
+      it("shows 'Public'", function(){
+        expect($(this.view.el).html()).toContain('Public')
       })
 
       it("shows a reshare_action link", function(){
@@ -94,6 +100,10 @@ describe("app.views.Feedback", function(){
         this.post.attributes.public = false;
         this.post.attributes.root = {author : {name : "susan"}};
         this.view.render();
+      })
+
+      it("shows 'Limited'", function(){
+        expect($(this.view.el).html()).toContain('Limited')
       })
 
       it("does not show a reshare_action link", function(){

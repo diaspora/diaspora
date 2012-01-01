@@ -114,7 +114,9 @@ class Stream::Base
   protected
   # @return [void]
   def like_posts_for_stream!(posts)
-    likes = Like.where(:target_id => posts.map(&:id), :target_type => "Post")
+    return posts unless @user
+
+    likes = Like.where(:author_id => @user.person.id, :target_id => posts.map(&:id), :target_type => "Post")
 
     like_hash = likes.inject({}) do |hash, like|
       hash[like.target_id] = like
