@@ -26,24 +26,6 @@ Feature: public repost
     And I should see "Bob"
 
   # (NOTE) this should be a jasmine spec
-  # assert that it is added to app.stream's collection
-  Scenario: When I reshare, it shows up in my stream
-    Given "bob@bob.bob" has a public post with text "reshare this!"
-    And I sign in as "alice@alice.alice"
-    And I preemptively confirm the alert
-    And I follow "Reshare"
-    And I wait for the ajax to finish
-
-    # NOTE(why do we need this to make this work?)
-    And I wait for 2 seconds
-    And I go to the home page
-
-    And I wait for the ajax to finish
-    Then I should see a ".reshare"
-    And I should see "reshare this!"
-    And I should see "Bob"
-
-  # (NOTE) this should be a jasmine spec
   Scenario: I can see the number of reshares
     Given "bob@bob.bob" has a public post with text "reshare this!"
     And I sign in as "alice@alice.alice"
@@ -51,15 +33,7 @@ Feature: public repost
     And I preemptively confirm the alert
     And I follow "Reshare"
 
-    # NOTE(why do we need this to make this work?)
     And I wait for 2 seconds
     When I go to the home page
-
-    Then I should see a ".reshare"
-    And I should see "reshare this!"
-    And I should see "Bob"
-
-    # NOTE(why do we need this to make this work?)
-    And I wait for 2 seconds
-    When I go to the home page
+    And I wait for the ajax to finish
     Then I should see "1 reshare"

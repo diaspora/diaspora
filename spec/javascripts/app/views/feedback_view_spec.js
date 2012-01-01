@@ -113,26 +113,26 @@ describe("app.views.Feedback", function(){
         expect($(this.view.el).html()).not.toContain('reshare_action')
       })
     })
+  })
 
-    context("reshares", function(){
-      beforeEach(function(){
-        this.post.attributes.public = true
-        this.post.attributes.root = {author : {name : "susan"}};
-        this.view.render();
-      })
+  describe("resharePost", function(){
+    beforeEach(function(){
+      this.post.attributes.public = true
+      this.post.attributes.root = {author : {name : "susan"}};
+      this.view.render();
+    })
 
-      it("displays a confirmation dialog", function(){
-        spyOn(window, "confirm")
+    it("displays a confirmation dialog", function(){
+      spyOn(window, "confirm")
 
-        this.view.$(".reshare_action").first().click();
-        expect(window.confirm).toHaveBeenCalled();
-      })
+      this.view.$(".reshare_action").first().click();
+      expect(window.confirm).toHaveBeenCalled();
+    })
 
-      it("creates a reshare if the confirmation dialog is accepted", function(){
-        spyOn(window, "confirm").andReturn(true);
+    it("creates a reshare if the confirmation dialog is accepted", function(){
+      spyOn(window, "confirm").andReturn(true);
 
-        expect(this.view.resharePost().constructor).toBe(app.models.Reshare);
-      })
+      expect(this.view.resharePost().constructor).toBe(app.models.Reshare);
     })
   })
 })
