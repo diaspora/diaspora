@@ -10,7 +10,8 @@
       });
 
       self.button.click(self.backToTop);
-      self.window.debounce("scroll", self.toggleVisibility, 250);
+      var debouncedScroll = _.debounce(self.toggleVisibility, 250);
+      $(window).scroll(debouncedScroll)
     });
 
     this.backToTop = function(evt) {
