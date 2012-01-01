@@ -735,10 +735,10 @@ es-CL:
       discard_post: "Descartar post"
       make_public: "hacer público"
       new_user_prefill:
-        hello: "Hola a todo el mundo, esta es mi #%{new_user_tag}."
+        hello: "#%{new_user_tag}, acabo de llegar aquí."
         i_like: "Tengo interés en %{tags}."
         invited_by: "Gracias por la invitación,"
-        newhere: PrimeraPublicación
+        newhere: Hola
       post_a_message_to: "Postear un mensaje a %{aspect}"
       posting: Posteando...
       publishing_to: "publicar en: "
@@ -788,6 +788,9 @@ es-CL:
     aspects:
       title: Aspectos
     aspects_stream: Aspectos
+    comment_stream:
+      contacts_title: "Gente cuyas publicaciones comentaste"
+      title: Comentado
     commented_on: comentado
     community_spotlight_stream: "Comunidad Creativa"
     followed_tag:
@@ -796,6 +799,9 @@ es-CL:
       follow: Seguir
       title: "#Tags"
     followed_tags_stream: "#Tags"
+    like_stream:
+      contacts_title: "Gente cuyas publicaciones te gustan"
+      title: "Me gusta"
     mentioned_stream: "@Menciones"
     mentions:
       contacts_title: "Personas que te han mencionado"
