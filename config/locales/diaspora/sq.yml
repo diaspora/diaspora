@@ -5,264 +5,583 @@
 
 
 sq:
-  _photos: fotot
+  _applications: Zbatime
+  _comments: Komente
+  _contacts: Kontakte
+  _home: Hyrja
+  _photos: foto
+  _services: Shërbime
+  account: Llogari
   activerecord:
     errors:
       models:
+        contact:
+          attributes:
+            person_id:
+              taken: "duhet të jetë unik mes kontakteve të këtij përdoruesi."
+        person:
+          attributes:
+            diaspora_handle:
+              taken: "është i zënë."
+        request:
+          attributes:
+            from_id:
+              taken: "është përsëdytje e një kërkese më të hershme."
         reshare:
           attributes:
             root_guid:
-              taken: "You've already reshared that post!"
+              taken: "E bukur, hë?  E keni ndarë një herë me të tjerët këtë postim!"
         user:
           attributes:
+            email:
+              taken: "është i zënë."
+            person:
+              invalid: "është i pavleshëm."
             username:
-              invalid: "is invalid. We only allow letters, numbers, and underscores"
-  all_aspects: "All aspects"
+              invalid: "është i pavlefshëm. Lejojmë vetë shkronja, numra, dhe nënvija."
+              taken: "është i zënë."
+  ago: "%{time} më parë"
+  all_aspects: "Krejt Aspektet"
+  application:
+    helper:
+      unknown_person: "person i panjohur"
+      video_title:
+        unknown: "Titull i Panjohur Videoje"
+  are_you_sure: "Jeni i sigurt?"
+  are_you_sure_delete_account: "Jeni i sigurt se doni të mbyllet llogaria juaj? Kjo nuk mund të zhbëhet!"
+  aspect_memberships:
+    destroy:
+      failure: "Heqja e personit nga aspekti dështoi"
+      no_membership: "Në atë aspekt nuk u gjet dot personi i përzgjedhur"
+      success: "Personi u hoq me sukses nga aspekti"
   aspects:
+    add_to_aspect:
+      failure: "Shtimi i kontaktit te aspekti dështoi."
+      success: "Kontakti u shtua me sukses te aspekti."
+    aspect_contacts:
+      done_editing: "mbarova me përpunimin"
+    aspect_listings:
+      add_an_aspect: "+ Shtoni një aspekt"
+      deselect_all: "Çpërzgjidhi të tëra"
+      edit_aspect: "Përpunoni %{name}"
+      select_all: "Përzgjidhi të tëra"
+    aspect_stream:
+      stay_updated: "Jini Përherë i Përditësuar"
+      stay_updated_explanation: "Rrëkeza juaj kryesore mbushet me krejt kontaktet tuaj, etiketat që ndiqni, dhe postime prej disa anëtarëve me krijimtari të bashkësisë."
+    contacts_not_visible: "Kontaktet te ky aspekt nuk do të jenë në gjendje të shohin njëri-tjetrin."
+    contacts_visible: "Kontaktet te ky aspekt do të jenë në gjendje të shohin njëri-tjetrin."
+    create:
+      failure: "Krijimi i aspektit dështoi."
+      success: "Aspekti juaj i ri %{name} u krijua"
+    destroy:
+      failure: "%{name} nuk është bosh dhe nuk u hoq dot."
+      success: "%{name} u hoq me sukses."
     edit:
-      make_aspect_list_visible: "make aspect list visible?"
-    few: "%{count} aspects"
+      add_existing: "Shtoni një kontakt ekzistues"
+      aspect_list_is_not_visible: "lista e aspekteve u fshihet të tjerëve në aspekt"
+      aspect_list_is_visible: "lista e aspekteve është e dukshme për të tjerët në aspekt"
+      confirm_remove_aspect: "Jeni i sigurt se doni të fshihet ky aspekt?"
+      done: "U bë"
+      make_aspect_list_visible: "të bëhen kontaktet e këtij aspekti të dukshëm për njëri-tjetrin?"
+      remove_aspect: "Fshije këtë aspekt"
+      rename: riemërtojeni
+      update: përditësoje
+      updating: përditësim
+    few: "%{count} aspekte"
+    helper:
+      are_you_sure: "Jeni i sigurt se doni të fshihet ky aspekt?"
+      aspect_not_empty: "Aspekt jo i zbrazët"
+      remove: hiqe
     index:
-      handle_explanation: "This is your diaspora handle. Like an email address, you can give this to people to reach you."
+      cubbies:
+        explanation: "Cubbi.es është zbatimi i parë Diaspora në zhvillim e sipër."
+        heading: "Lidhuni me Cubbi.es"
+        learn_more: "Mësoni më tepër"
+      diaspora_id:
+        content_1: "ID-ja juaj në Diaspora është:"
+        content_2: "Jepjani kujtdo dhe kështu do të jenë në gjendje t'ju gjejnë në Diaspora."
+        heading: "ID Diaspora"
+      donate: Dhuroni
+      handle_explanation: "Kjo është id-ja juaj e diasporas. Pak a shumë si një adresë email, mund t'ua jepni njerëzve që të lidhen me ju."
       help:
-        here_to_help: "Diaspora community is here to help!"
-        tag_bug: "#bug"
-        tag_feature: "#feature"
-        tag_question: "#question"
-      keep_us_running: "Keep %{pod} running fast, buy our servers their monthly coffee fix!"
-      no_tags: "No tags"
-    many: "%{count} aspects"
+        do_you: ":"
+        email_feedback: "Na dërogni me %{link} përshtypjet tuaja, nëse dëshironi"
+        feature_suggestion: "... keni një këshillë për një %{link}?"
+        find_a_bug: "... gjeni një %{link}?"
+        have_a_question: "... keni një %{link}?"
+        here_to_help: "Bashkësia Diaspora këtu është!"
+        need_help: "Ju Duhet Ndihmë?"
+        satisfaction: "%{link}: Asistencë e mbajtur në këmbë nga bashkësia"
+        tag_bug: "të metë"
+        tag_feature: "veçori të re"
+        tag_question: pyetje
+        tutorials_wiki_and_forum: "%{tutorial} & %{wiki} & %{forum}: Përkujdesore, how-to dhe lajme nga bashkësia"
+      introduce_yourself: "Kjo është rrëkeza juaj.  Fillojani duke prezantuar vetveten."
+      keep_us_running: "Mbajeni të shpejtë xhirimin e %{pod}-it dhe u blini shërbyesve kafenë e ditës përmes një dhurimi të përmuajshëm!"
+      new_here:
+        follow: "Ndiqni %{link} dhe përshëndetni mirëseardhjen e përdoruesve të rinj te Diaspora*!"
+        learn_more: "Mësoni më tepër"
+        title: "Mirë se vini, Përdorues i Ri"
+      no_contacts: "Pa kontakte"
+      no_tags: "+ Gjeni një etiketë për ndjekje"
+      people_sharing_with_you: "Persona që ndajnë gjëra me ju"
+      post_a_message: "postoni një mesazh >>"
+      services:
+        content: "Te Diaspora mund të lidheni me shërbimet vijuese:"
+        heading: "Shërbime Lidhjesh"
+      unfollow_tag: "Resht së ndjekuri #%{tag}"
+      welcome_to_diaspora: "Mirë se vini te Diaspora, %{name}!"
+      your_aspects: "Aspektet tuaja"
+    many: "%{count} aspekte"
+    move_contact:
+      error: "Gabim gjatë lëvizjes së kontaktit: %{inspect}"
+      failure: "nuk funksionoi %{inspect}"
+      success: "Personi u lëviz te aspekt i ri"
     new:
-      name: Name
+      create: Krijoje
+      name: "Emër (i dukshëm vetëm për ju)"
     no_contacts_message:
-      try_adding_some_more_contacts: "You can search (top) or invite (right) more contacts."
+      community_spotlight: "prozhektorit mbi bashkësinë"
+      or_spotlight: "Ose mund të kërkoni përmes %{link}"
+      try_adding_some_more_contacts: "Mund të kërkoni ose të ftoni më tepër kontakte."
+      you_should_add_some_more_contacts: "Do të duhej të shtoni ca kontakte!"
     no_posts_message:
-      start_talking: "Nobody has said anything yet.  Get the conversation started!"
-    one: "1 aspect"
-    other: "%{count} aspects"
-    two: "%{count} aspects"
-    zero: "no aspects"
-  back: Kthehu
+      start_talking: "Askush nuk ka thënë gjë ende!"
+    one: "1 aspekt"
+    other: "%{count} aspekte"
+    seed:
+      acquaintances: "Të njohur"
+      family: "Të familjes"
+      friends: Miq
+      work: "Të punës"
+    selected_contacts:
+      manage_your_aspects: "Administroni aspektet tuaja."
+      no_contacts: "Këtu nuk keni ende ndonjë kontakt."
+      view_all_community_spotlight: "Shihni krejt ç'ka nën prozhektorin e bashkësisë"
+      view_all_contacts: "Shihni krejt kontaktet"
+    show:
+      edit_aspect: "përpunoni aspekt"
+    two: "%{count} aspekte"
+    update:
+      failure: "Aspekti juaj %{name} e kish emrin shumë të gjatë për t'ia ruajtur."
+      success: "Aspekti juaj %{name} u përpunua me sukses."
+    zero: "pa aspekte"
+  back: Mbrapsht
   bookmarklet:
-    explanation: "%{link} from anywhere by bookmarking this link."
-    explanation_link_text: "Post to Diaspora"
-    heading: "Diaspora Bookmarklet"
+    explanation: "Postoni te Diaspora prej kudo qofshi, duke faqeruajtur %{link}."
+    explanation_link_text: "këtë lidhje"
+    heading: "Zbatimth Faqerojtës"
+    post_something: "Postoni diçka te Diaspora"
+    post_success: "U postua! Po mbyllet!"
+  cancel: Anuloje
   comments:
-    few: "%{count} comments"
-    many: "%{count} comments"
+    few: "%{count} komente"
+    many: "%{count} komente"
     new_comment:
       comment: Koment
-      commenting: "Duke komentuar..."
-    one: "1 comment"
-    other: "%{count} comments"
-    two: "%{count} comments"
-    zero: "no comments"
+      commenting: "Po komentohet..."
+    one: "1 koment"
+    other: "%{count} komente"
+    two: "%{count} komente"
+    zero: "pa komente"
   contacts:
-    few: "%{count} contacts"
+    create:
+      failure: "Dështoi në krijimin e kontaktit"
+    few: "%{count} kontakte"
     index:
-      add_to_aspect: "Add contacts to %{name}"
-      no_contacts: "No contacts."
-    many: "%{count} contacts"
-    one: "1 contact"
-    other: "%{count} contacts"
-    two: "%{count} contacts"
-    zero: "no contacts"
+      add_a_new_aspect: "Shtoni një aspekt të ri"
+      add_to_aspect: "shtoni kontakte te %{name}"
+      all_contacts: "Krejt Kontaktet"
+      check_out: "Kontrolloni te"
+      many_people_are_you_sure: "Jeni i sigurt se doni të nisni një bashkëbisedim privatme më tepër se %{suggested_limit} kontakte? Postimi te ky aspekt mund të jetë një mënyrë më e mirë për t'u lidhur me ta."
+      my_contacts: "Kontaktet e Mia"
+      no_contacts: "Duket se keni nevojë të shtoni ndonjë kontakt!"
+      only_sharing_with_me: "Vetëm ata që ndajnë gjëra me mua"
+      remove_person_from_aspect: "Hiqe %{person_name} prej \"%{aspect_name}\""
+      start_a_conversation: "Filloni një bashkëbisedim"
+      title: Kontakte
+      your_contacts: "Kontaktet Tuaja"
+    many: "%{count} kontakte"
+    one: "1 kontakt"
+    other: "%{count} kontakte"
+    sharing:
+      people_sharing: "Personan që ndajnë gjëra me ju:"
+    spotlight:
+      community_spotlight: "Prozhektori i Bashkësisë"
+    two: "%{count} kontakte"
+    zero: kontakte
   conversations:
+    create:
+      fail: "Mesazh i mangët"
+      sent: "Mesazhi u dërgua"
+    destroy:
+      success: "Bashkëbisedimi u hoq me sukses"
     helper:
       new_messages:
-        few: "%{count} new messages"
-        many: "%{count} new messages"
-        one: "1 new messages"
-        other: "%{count} new messages"
-        two: "%{count} new messages"
-        zero: "no new messages"
-  find_people: "Find people"
-  invitations:
+        few: "%{count} mesazhe të reja"
+        many: "%{count} mesazhe të reja"
+        one: "1 mesazh i ri"
+        other: "%{count} mesazhe të reja"
+        two: "%{count} mesazhe të reja"
+        zero: "Nuk ka mesazhe të reja"
+    index:
+      create_a_new_message: "krijoni një mesazh të ri"
+      inbox: "Të marrat"
+      message_inbox: "Mesazhet e Marra"
+      new_message: "Mesazh i Ri"
+      no_conversation_selected: "nuk u përzgjodh bashkëbisedim"
+      no_messages: "pa mesazhe"
     new:
-      already_invited: "Already invited"
+      abandon_changes: "Të braktisen ndryshimet?"
+      send: Dërgoje
+      sending: "Po dërgohet..."
+      subject: subjekt
+      to: për
+    new_message:
+      fail: "Mesazh i mangët"
+    show:
+      delete: "fshije dhe bllokoje bashkëbisedimin"
+      reply: përgjigjuni
+      replying: "Po përgjigjeni..."
+  delete: Fshije
+  error_messages:
+    helper:
+      correct_the_following_errors_and_try_again: "Ndreqni gabimet vijuese dhe riprovoni."
+      invalid_fields: "Fusha të Pavlefshme"
+  find_people: "Gjeni persona ose #tags"
+  hide: Fshihe
+  home:
+    show:
+      already_account: "keni tashmë një llogari?"
+      choice: Zgjedhjet
+      choice_explanation: "Diaspora ju lejon t'i gruponi lidhjet tuaja në grupe të quajtura aspekte. Veçanti e Diaspora-s, aspektet bëjnë të mundur që fotot tuaj, ngjarjet dhe barsaletat që tregoni, ndahen vetëm me personat që doni."
+      learn_about_host: "Mësoni se si të strehoni shërbyesin tuaj Diaspora."
+      login_here: "hyni prej këtu"
+      ownership: Pronësia
+      ownership_explanation: "Fotot tuaja janë pronë e juaja, dhe nuk do të duhej të hiqnit dorë nga kjo pronësi thjesht vetëm që të mundni t'i ndani ato me të tjerët. Pronësia e gjithçkaje që ndani me të tjerët në Diaspora ju mbetet po juve, duke pasur kështu kontroll të plotë mbi mënyrat se si shpërndahen ato."
+      share_what_you_want: "Ndani çfarë të doni, me kë të doni."
+      simplicity: Thjeshtësia
+      simplicity_explanation: "Diaspora e bën ndarjen e gjërave me të tjerët të qëruar dhe të pastër – dhe kjo vlen po njësoj për privatësinë. Me privatësinë në gen, Diaspora nuk ju bën të endeni nëpër faqe të tëra me rregullime dhe mundësi thjesht vetëm për të profilin tuaj të sigurt."
+      tagline_first_half: "Ndani çfarë të doni,"
+      tagline_second_half: "me kë të doni."
+  invitations:
+    a_facebook_user: "Përdorues Facebook-u"
+    check_token:
+      not_found: "Nuk u gjetën të dhëna ftese"
+    create:
+      already_contacts: "Jeni tashmë i lidhur me këtë person"
+      already_sent: "E keni ftuar një herë këtë person."
+      no_more: "Nuk keni më ftesa."
+      own_address: "S'mund të dërgoni ftesë te adresa juaj."
+      rejected: "Adresat email vijuese patën probleme: "
+      sent: "Janë dërguar ftesa për: "
+    edit:
+      your_account_awaits: "Llogaria juaj pret!"
+    new:
+      already_invited: "Ftesa juaj nuk është pranuar nga personat vijues:"
+      aspect: Aspekt
+      comma_seperated_plz: "Mund të fusni shumë adresa email njëherësh, duke i ndarë me presje."
+      if_they_accept_info: "nëse pranojnë, do të shtohen te aspekti prej nga ku i ftuat."
+      invite_someone_to_join: "Ftoni dikë që të marrë pjesë në Diaspora!"
+      language: Gjuhë
+      personal_message: "Mesazh personal"
+      resend: Ridërgoje
+      send_an_invitation: "Dërgoni një ftesë"
+      send_invitation: "Dërgoje ftesën"
+      to: Për
   layouts:
     application:
-      powered_by: "MUNDËSUAR NGA DIASPORA*"
-      toggle: "toggle mobile site"
-      whats_new: "çka ka të re?"
+      public_feed: "Prurje Publike Diaspora për %{name}"
+      toggle: "aktivizojeni/çaktivizojeni për celular"
+      whats_new: "ç'ka të re?"
+      your_aspects: "aspektet tuaja"
     header:
       code: kod
-      login: kyçu
-      logout: dekonektohu
-      profile: profile
-      settings: settings
+      login: hyni
+      logout: Dilni
+      profile: Profil
+      recent_notifications: "Njoftime së fundi"
+      settings: Rregullime
+      view_all: "Shihini krejt"
   likes:
     likes:
       people_dislike_this:
-        few: "%{count} people disliked this"
-        many: "%{count} people disliked this"
-        one: "1 person disliked this"
-        other: "%{count} people disliked this"
-        two: "%{count} dislikes"
-        zero: "no people disliked this"
+        few: "%{count} mospëlqime"
+        many: "%{count} mospëlqime"
+        one: "%{count} mospëlqim"
+        other: "%{count} mospëlqime"
+        two: "%{count} mospëlqime"
+        zero: "pa mospëlqime"
       people_like_this:
-        few: "%{count} people liked this"
-        many: "%{count} people liked this"
-        one: "1 person liked this"
-        other: "%{count} people liked this"
-        two: "%{count} likes"
-        zero: "no people liked this"
+        few: "%{count} pëlqime"
+        many: "%{count} pëlqime"
+        one: "%{count} pëlqim"
+        other: "%{count} pëlqime"
+        two: "%{count} pëlqime"
+        zero: "pa pëlqime"
       people_like_this_comment:
-        few: "%{count} likes"
-        many: "%{count} likes"
-        one: "%{count} like"
-        other: "%{count} likes"
-        two: "%{count} likes"
+        few: "%{count} pëlqime"
+        many: "%{count} pëlqime"
+        one: "%{count} pëlqim"
+        other: "%{count} pëlqime"
+        two: "%{count} pëlqime"
         zero: "no likes"
+  limited: "E kufizuar"
+  more: "Më tepër"
+  next: pasuesja
+  no_results: "Nuk u Gjetën Përfundime"
   notifications:
     also_commented:
-      few: "%{actors} also commented on %{post_author}'s %{post_link}."
-      many: "%{actors} also commented on %{post_author}'s %{post_link}."
-      one: "%{actors} also commented on %{post_author}'s %{post_link}."
-      other: "%{actors} also commented on %{post_author}'s %{post_link}."
-      two: "%{actors} also commented on %{post_author}'s %{post_link}."
-      zero: "%{actors} also commented on %{post_author}'s %{post_link}."
+      few: "%{actors} kanë komentuar gjithashtu te %{post_link} nga %{post_author}."
+      many: "%{actors} kanë komentuar gjithashtu te %{post_link} nga %{post_author}."
+      one: "%{actors} ka komentuar gjithashtu te %{post_link} nga %{post_author}."
+      other: "%{actors} kanë komentuar gjithashtu te %{post_link} nga %{post_author}."
+      two: "%{actors} kanë komentuar gjithashtu te %{post_link} nga %{post_author}."
+      zero: "%{actors} ka komentuar gjithashtu te %{post_link} nga %{post_author}."
     also_commented_deleted:
-      few: "%{actors} commented on a deleted post."
-      many: "%{actors} commented on a deleted post."
-      one: "%{actors} commented on a deleted post."
-      other: "%{actors} commented on a deleted post."
-      two: "%{actors} commented on a deleted post."
-      zero: "%{actors} commented on a deleted post."
+      few: "%{actors} kanë komentuar në një postim të fshirë."
+      many: "%{actors} kanë komentuar në një postim të fshirë."
+      one: "%{actors} ka komentuar në një postim të fshirë."
+      other: "%{actors} kanë komentuar në një postim të fshirë."
+      two: "%{actors} kanë komentuar në një postim të fshirë."
+      zero: "%{actors} ka komentuar në një postim të fshirë."
     comment_on_post:
-      few: "%{actors} commented on your %{post_link}."
-      many: "%{actors} commented on your %{post_link}."
-      one: "%{actors} commented on your %{post_link}."
-      other: "%{actors} commented on your %{post_link}."
-      two: "%{actors} commented on your %{post_link}."
-      zero: "%{actors} commented on your %{post_link}."
+      few: "Te %{post_link} juaj komentuan %{actors}."
+      many: "Te %{post_link} juaj komentuan %{actors}."
+      one: "Te %{post_link} juaj komentoi %{actors}."
+      other: "Te %{post_link} juaj komentuan %{actors}."
+      two: "Te %{post_link} juaj komentuan %{actors}."
+      zero: "Te %{post_link} juaj ka komentuar %{actors}."
     helper:
       new_notifications:
-        few: "%{count} new notifications"
-        many: "%{count} new notifications"
-        one: "1 new notifications"
-        other: "%{count} new notifications"
-        two: "%{count} new notifications"
-        zero: "no new notifications"
+        few: "%{count} njoftime të reja"
+        many: "%{count} njoftime të reja"
+        one: "1 njoftim të ri"
+        other: "%{count} njoftime të reja"
+        two: "%{count} njoftime të reja"
+        zero: "Pa njoftime të reja"
     index:
+      and: dhe
       and_others:
-        few: "and %{count} others"
-        many: "and %{count} others"
-        one: "and one more"
-        other: "and %{count} others"
-        two: "and %{count} others"
-        zero: "and nobody else"
+        few: "dhe %{count} të tjerë"
+        many: "dhe %{count} të tjerë"
+        one: "dhe një më tepër"
+        other: "dhe %{count} të tjerë"
+        two: "dhe %{count} të tjerë"
+        zero: "dhe askush tjetër"
+      mark_all_as_read: "Vëru Shenjë të Tërave Si të Lexuara"
+      notifications: Njoftime
     liked:
-      few: "%{actors} has just liked your %{post_link}."
-      many: "%{actors} has just liked your %{post_link}."
-      one: "%{actors} has just liked your %{post_link}."
-      other: "%{actors} has just liked your %{post_link}."
-      two: "%{actors} has just liked your %{post_link}."
-      zero: "%{actors} has just liked your %{post_link}."
+      few: "%{post_link} tuaj e kanë përlqyer %{actors}."
+      many: "%{post_link} tuaj e kanë përlqyer %{actors}."
+      one: "%{post_link} tuaj e ka përlqyer %{actors}."
+      other: "%{post_link} tuaj e kanë përlqyer %{actors}."
+      two: "%{post_link} tuaj e kanë përlqyer %{actors}."
+      zero: "%{post_link} tuaj e kanë përlqyer %{actors}."
     liked_post_deleted:
-      few: "%{actors} liked your deleted post."
-      many: "%{actors} liked your deleted post."
-      one: "%{actors} liked your deleted post."
-      other: "%{actors} liked your deleted post."
-      two: "%{actors} liked your deleted post."
-      zero: "%{actors} liked your deleted post."
+      few: "Postimin tuaj të fshirë e pëlqyen %{actors}."
+      many: "Postimin tuaj të fshirë e pëlqyen %{actors}."
+      one: "Postimin tuaj të fshirë e pëlqeu %{actors}."
+      other: "Postimin tuaj të fshirë e pëlqyen %{actors}."
+      two: "Postimin tuaj të fshirë e pëlqyen %{actors}."
+      zero: "Postimin tuaj të fshirë e pëlqeu %{actors}."
     mentioned:
-      few: "%{actors} has mentioned you in a %{post_link}."
-      many: "%{actors} has mentioned you in a %{post_link}."
-      one: "%{actors} has mentioned you in a %{post_link}."
-      other: "%{actors} has mentioned you in a %{post_link}."
-      two: "%{actors} has mentioned you in a %{post_link}."
-      zero: "%{actors} has mentioned you in a %{post_link}."
+      few: "%{actors} ju përmendën te një %{post_link}."
+      many: "%{actors} ju përmendën te një %{post_link}."
+      one: "%{actors} ju përmendi te një %{post_link}."
+      other: "%{actors} ju përmendën te një %{post_link}."
+      two: "%{actors} ju përmendën te një %{post_link}."
+      zero: "%{actors} ju ka përmendur te një %{post_link}."
     mentioned_deleted:
-      few: "%{actors} mentioned you in a deleted post."
-      many: "%{actors} mentioned you in a deleted post."
-      one: "%{actors} mentioned you in a deleted post."
-      other: "%{actors} mentioned you in a deleted post."
-      two: "%{actors} mentioned you in a deleted post."
-      zero: "%{actors} mentioned you in a deleted post."
+      few: "Në një postim të fshirë ju kanë përmendur %{actors}."
+      many: "Në një postim të fshirë ju kanë përmendur %{actors}."
+      one: "Në një postim të fshirë ju ka përmendur %{actors}."
+      other: "Në një postim të fshirë ju kanë përmendur %{actors}."
+      two: "Në një postim të fshirë ju kanë përmendur %{actors}."
+      zero: "Në një postim të fshirë ju kanë përmendur %{actors}."
     private_message:
-      few: "%{actors} sent you a message."
-      many: "%{actors} sent you a message."
-      one: "%{actors} sent you a message."
-      other: "%{actors} sent you a message."
-      two: "%{actors} sent you a message."
-      zero: "%{actors} sent you a message."
+      few: "%{actors} ju dërguan mesazh."
+      many: "%{actors} ju dërguan mesazh."
+      one: "%{actors} ju dërgoi mesazh."
+      other: "%{actors} ju dërguan mesazh."
+      two: "%{actors} ju dërguan mesazh."
+      zero: "%{actors} ju ka dërguar mesazh."
     reshared:
-      few: "%{actors} has reshared your %{post_link}."
-      many: "%{actors} has reshared your %{post_link}."
-      one: "%{actors} has reshared your %{post_link}."
-      other: "%{actors} has reshared your %{post_link}."
-      two: "%{actors} has reshared your %{post_link}."
-      zero: "%{actors} has reshared your %{post_link}."
+      few: "%{post_link} tuaj e kanë rindarë me dikë %{actors}."
+      many: "%{post_link} tuaj e kanë rindarë me dikë %{actors}."
+      one: "%{post_link} tuaj e ka rindarë me dikë %{actors}."
+      other: "%{post_link} tuaj e kanë rindarë me dikë %{actors}."
+      two: "%{post_link} tuaj e kanë rindarë me dikë %{actors}."
+      zero: "%{post_link} tuaj e kanë rindarë me dikë %{actors}."
     reshared_post_deleted:
-      few: "%{actors} reshared your deleted post."
-      many: "%{actors} reshared your deleted post."
-      one: "%{actors} reshared your deleted post."
-      other: "%{actors} reshared your deleted post."
-      two: "%{actors} reshared your deleted post."
-      zero: "%{actors} reshared your deleted post."
+      few: "Postimin tuaj të fshirë e kanë rindarë me dikë %{actors}."
+      many: "Postimin tuaj të fshirë e kanë rindarë me dikë %{actors}."
+      one: "Postimin tuaj të fshirë e ka rindarë me dikë %{actors}."
+      other: "Postimin tuaj të fshirë e kanë rindarë me dikë %{actors}."
+      two: "Postimin tuaj të fshirë e kanë rindarë me dikë %{actors}."
+      zero: "Postimin tuaj të fshirë e ka rindarë me dikë %{actors}."
     started_sharing:
-      few: "%{actors} started sharing with you."
-      many: "%{actors} started sharing with you."
-      one: "%{actors} started sharing with you."
-      other: "%{actors} started sharing with you."
-      two: "%{actors} started sharing with you."
-      zero: "%{actors} started sharing with you."
+      few: "%{actors} filluan të ndajnë gjëra me ju."
+      many: "%{actors} filluan të ndajnë gjëra me ju."
+      one: "%{actors} filloi të ndajë gjëra me ju."
+      other: "%{actors} filluan të ndajnë gjëra me ju."
+      two: "%{actors} filluan të ndajnë gjëra me ju."
+      zero: "%{actors} që ndajnë gjëra me ju."
   notifier:
+    a_post_you_shared: postim.
+    click_here: "klikoni këtu"
+    comment_on_post:
+      reply: "Përgjigjjuni ose shihni postimin nga %{name} >"
     confirm_email:
-      click_link: "To activate your new e-mail address %{unconfirmed_email}, please click this link:"
-      subject: "Please activate your new e-mail address %{unconfirmed_email}"
+      click_link: "Që të aktivizoni adresën tuaj të re email %{unconfirmed_email}, ju lutemi, ndiqni këtë lidhje:"
+      subject: "Ju lutemi, aktivizoni adresën tuaj të re email %{unconfirmed_email}"
+    email_sent_by_diaspora: "Ky email u dërgua nga Diaspora.  Nëse doni të reshtni së marri email-e të tillë,"
+    hello: "Tungjatjeta %{name}!"
     liked:
-      liked: "%{name} has just liked your post: "
+      liked: "%{name} e pëlqeu postimin tuaj"
+      view_post: "Shiheni postimin >"
+    mentioned:
+      mentioned: "ju përmendi në një postim:"
+      subject: "%{name} ju ka përmenduar në Diaspora*"
+    private_message:
+      reply_to_or_view: "Përgjigjuni te ose shiheni këtë bashkëbisedim >"
     reshared:
-      reshared: "%{name} just reshared your post"
+      reshared: "%{name} e rindau me dikë postimin tuaj"
+      view_post: "Shiheni postimin >"
+    single_admin:
+      admin: "Përgjegjësi i Diaspora-s"
+      subject: "Mesazh lidhur me llogarinë tuaj te Diaspora:"
     started_sharing:
-      subject: "%{name} has started sharing with you on Diaspora*"
+      sharing: "ka filluar të ndajë gjëra me ju!"
+      subject: "%{name} filloi të ndajë gjëra me ju në Diaspora*"
+      view_profile: "Shihni profilin për %{name}"
+    thanks: "Faleminderit,"
+    to_change_your_notification_settings: "që të ndryshoni rregullimet tuaja mbi njoftimet"
+  or: ose
+  password: Fjalëkalim
+  password_confirmation: "Ripohim fjalëkalimi"
   people:
-    few: "%{count} people"
-    many: "%{count} people"
+    add_contact_small:
+      add_contact_from_tag: "shto kontakt prej etiketës"
+    aspect_list:
+      edit_membership: "përpunoni anëtarësinë te aspekti"
+    few: "%{count} vetë"
+    helper:
+      results_for: " përfundime për %{params}"
+    index:
+      couldnt_find_them_send_invite: "Nuk i gjetët dot?  Dërgojuni një ftesë!"
+      looking_for: "Po kërkonit për postime me etiketën %{tag_link}?"
+      no_one_found: "...dhe nuk u gjet njeri."
+      no_results: "Hej! Lypset të kërkoni për diçka."
+      results_for: "përfundime kërkimi për"
+    many: "%{count} vetë"
     one: "1 person"
-    other: "%{count} people"
+    other: "%{count} vetë"
     person:
-      pending_request: "pending request"
-      thats_you: "thats you!"
+      add_contact: "shtojeni kontaktin"
+      already_connected: "I lidhur tashmë"
+      pending_request: "Në pritje të miratimit"
+      thats_you: "Ky jeni ju!"
+    profile_sidebar:
+      born: datëlindje
+      edit_my_profile: "Përpunim i profilit tim"
+      gender: gjini
+      in_aspects: "në aspektet"
+      location: venndodhje
+      remove_contact: "hiqe kontaktin"
+      remove_from: "Hiqe %{name} prej %{aspect}?"
     show:
-      incoming_request: "You have an incoming request from this person."
-      not_connected: "You are not sharing with %{name}"
-    two: "%{count} people"
-    zero: "no people"
+      closed_account: "Kjo llogari është mbyllur."
+      does_not_exist: "Personi nuk ekziston!"
+      has_not_shared_with_you_yet: "%{name} nuk ka ndarë ende ndonjë postim me ju!"
+      ignoring: "Po shpërfillni krejt postimet prej %{name}."
+      incoming_request: "%{name} dëshiron të ndajë diçka me ju"
+      mention: Përmendje
+      message: Mesazh
+      not_connected: "Nuk ndani gjë me këtë person"
+      recent_posts: "Postime Së Fundi"
+      recent_public_posts: "Postime Publike Së Fundi"
+      return_to_aspects: "Kthehuni te faqja e aspektit tuaj"
+      see_all: "Shihini krejt"
+      start_sharing: "filloni të ndani me të tjerët"
+      to_accept_or_ignore: "që ta pranoni ose shpërfillni."
+    sub_header:
+      add_some: "shtoni ndonjë"
+      edit: përpunoni
+      you_have_no_tags: "nuk keni etiketa!"
+    two: "%{count} vetë"
+    webfinger:
+      fail: "Na ndjeni, nuk gjetëm dot %{handle}."
+    zero: "asnjë person"
   photos:
+    comment_email_subject: "Foto nga %{name}"
     create:
-      type_error: "Ngarkimi i fotos dështoi.  A jeni i sigurtë se fotoja u shtua?"
+      integrity_error: "Ngarkimi i fotos dështoi.  Jeni i sigurt se qe një figurë?"
+      runtime_error: "Ngarkimi i fotos dështoi.  Jeni i sigurt se rripin e sigurimit e kishit lidhur?"
+      type_error: "Ngarkimi i fotos dështoi.  Jeni i sigurt se shtuat një figurë?"
+    destroy:
+      notice: "Fotoja u fshi."
+    edit:
+      editing: "Po përpunohet"
+    new:
+      back_to_list: "Mbrapsht te Lista"
+      new_photo: "Foto e Re"
+      post_it: postoje!
     new_photo:
-      size_error: "{file} është shumë e madhe, madhësia maksimale është {sizeLimit}."
+      empty: "{file} është e zbrazët, ju lutem, përzgjidhni sërish kartela, por pa të."
+      invalid_ext: "{file} ka zgjatim të  pavlefshëm. Lejohen vetëm {extensions}."
+      size_error: "{file} është shumë e madhe, madhësia maksimum për kartelat është {sizeLimit}."
     new_profile_photo:
-      upload: "Ngarko një foto të re profili!"
+      or_select_one_existing: "ose përzgjidhni një prej %{photos}ve tuaja ekzistuese"
+      upload: "Ngarkoni një foto të re profili!"
+    photo:
+      view_all: "shihni krejt fotot nga %{name}"
     show:
-      edit: modifiko
+      collection_permalink: "permalidhje koleksioni"
+      delete_photo: "Fshije Foton"
+      edit: përpunojeni
+      edit_delete_photo: "Përpunoni përshkrim fotoje / fshijeni foton"
+      make_profile_photo: "kaloje si foto profili"
+      show_original_post: "Shfaq postimin origjinal"
+      update_photo: "Përditësoje Foton"
     update:
-      error: "Dështoi për ta ndryshuar foton."
-      notice: "Fotoja u ngarkua me sukëses."
-  previous: "i mëparshëm"
+      error: "Nuk arrit të përpunojë foton."
+      notice: "Fotoja u përditësua me sukses."
+  posts:
+    show:
+      destroy: Fshije
+      not_found: "Na ndjeni nuk e gjetëm dot atë postim."
+      permalink: permalidhje
+  previous: "e mëparshmja"
+  privacy: Privatësi
+  privacy_policy: "Rregulla Privatësie"
+  profile: Profil
   profiles:
     edit:
-      your_tags: "You: in 5 #tags"
-      your_tags_placeholder: "i.e. #diaspora #ironing #kittens #music"
+      allow_search: "Lejojuni njerëzve të kërkojnë për ju brenda Diaspora-s"
+      edit_profile: "Përpunoje profilin"
+      first_name: Emri
+      last_name: Mbiemri
+      update_profile: "Përditësoni Profilin"
+      your_bio: "Jetëshkrimi juaj"
+      your_birthday: "Datëlindja juaj"
+      your_gender: "Gjinia juaj"
+      your_location: "Vendndodhja juaj"
+      your_name: "Emri juaj"
+      your_photo: "Fotoja juaj"
+      your_private_profile: "Profili juaj privat"
+      your_public_profile: "Profili juaj publik"
+      your_tags: "Përshkruani veten me 5 fjalë"
+      your_tags_placeholder: "fjala vjen #filma #lepujt #udhëtime #mësues #Pukë"
+  public: Publike
   reactions:
-    few: "%{count} reactions"
-    many: "%{count} reactions"
-    one: "1 reaction"
-    other: "%{count} reactions"
-    two: "%{count} reactions"
-    zero: "0 reactions"
-  registrations:
-    new:
-      create_my_account: "Create my account"
-      enter_email: "Enter an e-mail"
-      sign_up_message: "Social Networking with a <3"
+    few: "%{count} kundërpërgjigje"
+    many: "%{count} kundërpërgjigje"
+    one: "1 kundërpërgjigje"
+    other: "%{count} kundërpërgjigje"
+    two: "%{count} kundërpërgjigje"
+    zero: "0 kundërpërgjigje"
   requests:
-    destroy:
-      success: "You are now friends."
     helper:
       new_requests:
         few: "%{count} new requests!"
@@ -274,48 +593,27 @@ sq:
   reshares:
     reshare:
       reshare:
-        few: "%{count} Reshares"
-        many: "%{count} Reshares"
-        one: "1 Reshare"
-        other: "%{count} Reshares"
+        few: "%{count} reshares"
+        many: "%{count} reshares"
+        one: "1 reshare"
+        other: "%{count} reshares"
         two: "%{count} reshares"
         zero: Reshare
-      reshare_confirmation: "Reshare %{author} - %{text}?"
-      reshare_original: "Reshare orignial"
-      show_original: "Show Original"
-  services:
-    index:
-      connect_to_facebook: "Connect to facebook"
-      connect_to_twitter: "Connect to twitter"
-    inviter:
-      click_link_to_accept_invitation: "Click this link to accept your invitation"
+  search: Kërkoni
+  settings: Rregullime
+  share_visibilites:
+    update:
+      post_hidden_and_muted: "Postimi %{name} u fsheh dhe njoftimet u pezulluan."
+      see_it_on_their_profile: "Nëse doni të shihni përditësime në këtë postim, vizitoni faqen e profilit për %{name}."
   shared:
-    add_contact:
-      create_request: "Find by Diaspora handle"
-      diaspora_handle: diaspora@handle.org
     aspect_dropdown:
-      add_to_aspect: "Add to aspect"
       toggle:
         few: "In %{count} aspects"
         many: "In %{count} aspects"
         one: "In %{count} aspect"
         other: "In %{count} aspects"
         two: "In %{count} aspects"
-        zero: "Add to aspect"
-    invitations:
-      by_email: "by Email"
-      invitations_left: "(%{count} left)"
-    public_explain:
-      title: "You are about to post a public message!"
-    publisher:
-      new_user_prefill:
-        i_like: "I'm interested in %{tags}."
-      share_with: "Share with %{aspect}"
-      whats_on_your_mind: "what's on your mind?"
-    stream_element:
-      dislike: "I dislike this"
-      hide_and_mute: "Hide and Mute"
-      like: "I like this"
+        zero: "Add contact"
   status_messages:
     too_long:
       few: "please make your status messages less than %{count} characters"
@@ -325,7 +623,6 @@ sq:
       two: "please make your status messages less than %{count} characters"
       zero: "please make your status messages less than %{count} characters"
   stream_helper:
-    hide_comments: "mshifni komentet"
     show_comments:
       few: "Show %{count} more comments"
       many: "Show %{count} more comments"
@@ -333,39 +630,7 @@ sq:
       other: "Show %{count} more comments"
       two: "Show two more comments"
       zero: "No more comments"
-  streams:
-    mentions:
-      title: "Your Mentions"
-    tags:
-      contacts_title: "People who dig these tags"
-  tag_followings:
-    create:
-      failure: "Failed to follow: #%{name}"
-      success: "Successfully following: #%{name}"
-    destroy:
-      failure: "Failed to stop following: #%{name}"
-      success: "Successfully stopped following: #%{name}"
-  tokens:
-    show:
-      connecting_is_simple: "Connecting your Diaspora account is as simple as filling out two fields on your Cubbi.es account page."
-  users:
-    confirm_email:
-      email_confirmed: "E-Mail %{email} activated"
-      email_not_confirmed: "E-Mail could not be activated. Wrong link?"
-    edit:
-      change_email: "Change E-Mail"
-      change_language: "Change Language"
-      change_password: "Change Password"
-      email_awaiting_confirmation: "We have sent you an activation link to %{unconfirmed_email}. Till you follow this link and activate the new address, we will continue to use your original address %{email}."
-      new_password: "New Password"
-      receive_email_notifications: "Receive email notificaions?"
-      your_handle: "Your diaspora handle"
-    getting_started:
-      what_facebook_does: "to Diaspora. This will pull your name and photo, and enable cross-positng."
-    update:
-      language_changed: "Language Changed"
-      language_not_changed: "Language Change Failed"
-      password_changed: "Password Changed"
-      password_not_changed: "Password Change Failed"
-      unconfirmed_email_changed: "E-Mail Changed. Needs activation."
-      unconfirmed_email_not_changed: "E-Mail Change Failed"
+  terms_and_conditions: "Terma dhe Kushte"
+  undo: "Të zhbëhet?"
+  username: "Emër përdoruesi"
+  welcome: "Mirë se vini!"

@@ -572,6 +572,7 @@ hu:
       not_found: "Bocsi, de nem találjuk a bejegyzést."
   previous: előző
   privacy: Adatvédelem
+  privacy_policy: Adatvédelem
   profile: Profil
   profiles:
     edit:
@@ -796,6 +797,9 @@ hu:
     aspects:
       title: Csoportjaid
     aspects_stream: Csoportok
+    comment_stream:
+      contacts_title: "Emberek, akiknek a bejegyzéséhez hozzászóltál."
+      title: "Hozzászólt bejegyzések"
     commented_on: hozzászólt
     community_spotlight_stream: Reflektorfényben
     followed_tag:
@@ -833,6 +837,7 @@ hu:
       followed_by: "figyelemmel kíséri"
       following: "Követed #%{tag}"
       nobody_talking: "Senki nem beszélt még erről: %{tag}."
+      none: "Az üres címke nem létezik!"
       people_tagged_with: "Személy felcímkézve: %{tag}"
       posts_tagged_with: "Bejegyzések felcímkézve: #%{tag}"
       stop_following: "Címke-követés leállítása #%{tag}"
