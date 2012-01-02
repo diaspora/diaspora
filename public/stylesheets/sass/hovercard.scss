@@ -5,10 +5,15 @@
   @include box-shadow(0, 0, 5px, #666666);
 
   position: relative;
+  display: inline-block;
+  min-width: 250px;
+  max-width: 400px;
+  
   background-color: $background;
   height: 70px;
   border: 1px solid #999999;
   font-size: small;
+
   .avatar {
     position: relative;
     float: left;
@@ -22,15 +27,25 @@
     }
   }
 
+  $image_width: 80px; /* including margin */
+
+  & > h4, & > div, & > p {
+    margin-left: $image_width;
+  }
+  
+  & > h4, & > div, & > p, .hashtags {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+
   padding: 5px {
     bottom: 25px;
   };
 
-
   h4 {
     margin-bottom: 0px;
     padding-bottom: 0px;
-    overflow:hidden;
   }
 
   a {
@@ -50,6 +65,7 @@
     bottom: 0;
     left: 0;
     background-color: #eeeeee;
+    margin-left: 0;
 
     width: 100%;
     min-height: 19px;
@@ -60,12 +76,6 @@
 
     .footer_container {
       padding: 1px 5px;
-
-      .hashtags {
-        overflow: hidden;
-        white-space: nowrap;
-        text-overflow: ellipsis;
-      }
 
       a {
         color: #999999;
@@ -81,8 +91,7 @@
   display: none;
   z-index: 10;
 
-  min-width: 250px;
-  max-width: 300px;
+  width: 400px;
 
   padding: 10px {
     top: 5px;
