@@ -2,12 +2,14 @@
 # licensed under the Affero General Public License version 3 or later.  See
 # the COPYRIGHT file.
 require 'uri'
+require File.join(Rails.root, 'lib', 'enviroment_configuration')
 
 class AppConfig < Settingslogic
+  ARRAY_VARS = [:community_spotlight, :admins]
 
   def self.source_file_name
     config_file = File.join(Rails.root, "config", "application.yml")
-    if !File.exists?(config_file) && (Rails.env == 'test' || Rails.env.include?("integration") || ENV["HEROKU"])
+    if !File.exists?(config_file) && (Rails.env == 'test' || Rails.env.include?("integration") || EnviromentConfiguration.heroku?)
       config_file = File.join(Rails.root, "config", "application.yml.example")
     end
     config_file
@@ -117,8 +119,16 @@ HELP
 
   def self.[] (key)
     return self.pod_uri if key == :pod_uri
-    return ENV[key.to_s] if ENV[key.to_s] && ENV["HEROKU"]
+    return fetch_from_env(key.to_s) if EnviromentConfiguration.heroku?
     super
+  end
+
+  def fetch_from_env(key)
+    if ARRAY_VARS.include?(key.to_sym)
+      ENV[key].split(EnviromentConfiguration::ARRAY_SEPERATOR)
+    else
+     ENV[key] if ENV[key] 
+    end
   end
 
   def self.[]= (key, value)
