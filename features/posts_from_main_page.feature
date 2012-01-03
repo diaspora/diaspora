@@ -75,7 +75,6 @@ Feature: posting from the main page
       And I click to delete the first uploaded photo
       And I wait for the ajax to finish
       Then I should not see an uploaded image within the photo drop zone
-      And the publisher should be collapsed
 
     Scenario: back out of uploading a picture to a post with text
       Given I expand the publisher
