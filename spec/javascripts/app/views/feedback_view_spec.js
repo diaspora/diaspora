@@ -4,7 +4,7 @@ describe("app.views.Feedback", function(){
 
     var posts = $.parseJSON(spec.readFixture("multi_stream_json"))["posts"];
 
-    this.post = new app.models.Post(posts[2]);
+    this.post = new app.models.Post(posts[0]);
     this.view = new app.views.Feedback({model: this.post});
   });
 

@@ -3,7 +3,7 @@ describe("app.views.LikesInfo", function(){
     window.current_user = app.user({id : -1, name: "alice", avatar : {small : "http://avatar.com/photo.jpg"}});
 
     var posts = $.parseJSON(spec.readFixture("multi_stream_json"))["posts"];
-    this.post = new app.models.Post(posts[2]); // post with a like
+    this.post = new app.models.Post(posts[0]); // post with a like
     this.view = new app.views.LikesInfo({model: this.post});
   });
 
