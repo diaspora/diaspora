@@ -1,4 +1,5 @@
 module EnviromentConfiguration
+  ARRAY_SEPERATOR = '%|%'
   def self.heroku?
     ENV['HEROKU']
   end
