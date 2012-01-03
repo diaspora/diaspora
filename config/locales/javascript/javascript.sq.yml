@@ -1,0 +1,70 @@
+#   Copyright (c) 2010-2011, Diaspora Inc.  This file is
+#   licensed under the Affero General Public License version 3 or later.  See
+#   the COPYRIGHT file.
+
+
+
+sq:
+  javascripts:
+    aspect_dropdown:
+      add_to_aspect: "Shtoni kontakt"
+      all_aspects: "Krejt aspektet"
+      error: "Nuk u fillua dot ndarja e gjërave me {{name}}.  Mos po e shpërfillni?"
+      select_aspects: "Përzgjidhni aspekte"
+      started_sharing_with: "Filluat të ndani gjëra me {{name}}!"
+      stopped_sharing_with: "Reshtët së ndari gjëra me {{name}}."
+      toggle:
+        few: "Në {{count}} aspekte"
+        many: "Në {{count}} aspekte"
+        one: "Në {{count}} aspekt"
+        other: "Në {{count}} aspekte"
+        two: "Në {{count}} aspekte"
+        zero: "Përzgjidhni aspekte"
+    aspect_navigation:
+      deselect_all: "Çpërzgjidhi krejt"
+      no_aspects: "Nuk janë përzgjedhur aspekte"
+      select_all: "Përzgjidhi krejt"
+    comments:
+      hide: "fshihi komentet"
+      show: "shfaqi krejt komentet"
+    confirm_dialog: "Jeni i sigurt?"
+    failed_to_like: "Pëlqimi dështoi!"
+    failed_to_post_message: "Postimi i mesazhit dështoi!"
+    getting_started:
+      alright_ill_wait: "Në rregull, do të pres."
+      hey: "Hej, {{name}}!"
+      no_tags: "Hej, nuk jeni duke ndjekur ndonjë etiketë!  Të vazhdohet, sido qoftë?"
+      preparing_your_stream: "Po përgatitet rrëkeja juaj e personalizuar..."
+    infinite_scroll:
+      no_more: "Nuk ka më postime."
+    photo_uploader:
+      looking_good: "O Zot, sa bukur që dukeni!"
+    publisher:
+      at_least_one_aspect: "Duhet të publikoni të paktën një aspekt"
+      limited: "I kufizuar - postimi juaj do të shihet vetëm nga persona me të cilët ndani gjëra"
+      public: "Publik - postimi juaj do të jetë i dukshëm nga kushdo dhe dhe motorët e kërkimeve do të jenë në gjendje ta kapin"
+    reshares:
+      duplicate: "I bukur ky, hë?  E keni ndarë një herë me të tjerët atë postim!"
+    search_for: "Kërkoni për {{name}}"
+    show_more: "shfaq më tepër"
+    tags:
+      wasnt_that_interesting: "OK, Them se #{{tagName}} nuk qe kushedi se çë interesant..."
+    timeago:
+      day: "një ditë"
+      days: "%d ditë"
+      hour: "rreth një orë"
+      hours: "rreth %d orë"
+      minute: "rreth një minutë"
+      minutes: "%d minuta"
+      month: "rreth një muaj"
+      months: "%d muaj"
+      seconds: "më pak se një minutë"
+      suffixAgo: "më parë"
+      suffixFromNow: "nga tani"
+      year: "rreth një vit"
+      years: "%d vjetë"
+    videos:
+      unknown: "Lloj i panjohur videoje"
+      watch: "Shiheni këtë video në {{provider}}"
+    web_sockets:
+      disconnected: "Kanali web është mbyllur; postimet nuk do të transmetohen më live."

@@ -735,7 +735,7 @@ bg:
       discard_post: "Отхвърляне на публикацията"
       make_public: "направете публично"
       new_user_prefill:
-        hello: "Привет на всички, аз съм #%{new_user_tag}."
+        hello: "Привет на всички, аз съм #%{new_user_tag}. "
         i_like: "Интересува ме %{tags}."
         invited_by: "Благодаря за поканата, "
         newhere: НовТук

@@ -137,8 +137,8 @@ defaults: &defaults
   # Set this to true if you want to use exim and sendmail
   sendmail_exim_fix: false
 
-  # Authentication required to send mail. Use one of 'one', 'plain',
-  # 'login' or 'cram-md5'. Use 'none' if server does not support
+  # Authentication required to send mail. Use one of 'plain',
+  # 'login' or 'cram_md5'. Use 'none' if server does not support
   # authentication
   smtp_authentication: 'plain'
 

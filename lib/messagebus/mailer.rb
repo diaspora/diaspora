@@ -20,6 +20,9 @@ module Messagebus
     if message.multipart?
       msg[:plaintextBody] = message.text_part.body.to_s if message.text_part
       msg[:htmlBody] = message.html_part.body.to_s if message.html_part
+    else
+      msg[:plaintextBody] = message.body.to_s
+      msg[:htmlBody] = message.body.to_s
     end
 
     begin

@@ -68,7 +68,7 @@ class StatusMessage < Post
   end
 
   def nsfw?
-    self.raw_message.include?('#nsfw')
+    self.raw_message.match(/#nsfw/i)
   end
 
   def formatted_message(opts={})

@@ -80,7 +80,7 @@ HELP
   end
 
   def self.no_cert_file_in_prod?
-    (Rails.env == "production") && self[:ca_file] && !File.exists?(self[:ca_file])
+    (Rails.env == "production") && (self[:ca_file].blank? || !File.exists?(self[:ca_file]))
   end
 
   def self.have_old_config_file?
