@@ -11,27 +11,24 @@ describe("app.views.Feedback", function(){
   describe(".render", function(){
     beforeEach(function(){
       this.link = function(){ return this.view.$(".like_action"); }
+      this.view.render();
     })
 
     context("likes", function(){
-      context("when the user likes the post", function(){
-        beforeEach(function(){
-          this.view.render();
-        })
+      it("calls 'toggleLike' on the target post", function(){
+        this.view.render();
+        spyOn(this.post, "toggleLike");
 
+        this.link().click();
+        expect(this.post.toggleLike).toHaveBeenCalled();
+      })
+
+      context("when the user likes the post", function(){
         it("the like action should be 'Unlike'", function(){
           expect(this.link().text()).toContain('Unlike');
         })
-
-        it("removes like when Unlike is clicked", function() {
-          var likeModel = new app.models.Like(this.view.model.get("user_like"));
-          spyOn(this.view.model.likes, "get").andReturn(likeModel);
-          spyOn(likeModel, "destroy");
-
-          this.link().click();
-          expect(likeModel.destroy).toHaveBeenCalled();
-        })
       })
+
 
       context("when the user doesn't yet like the post", function(){
         beforeEach(function(){
@@ -39,35 +36,17 @@ describe("app.views.Feedback", function(){
           this.view.render();
         })
 
-        it("contains a .like_action", function(){
-          expect($(this.view.el).html()).toContain("like_action");
-        })
-
         it("the like action should be 'Like'", function(){
           expect(this.link().text()).toContain('Like');
         })
 
         it("allows for unliking a just-liked post", function(){
-          var like = new app.models.Like({id : 2});
-
-          spyOn(this.post.likes, "create").andReturn(like);
-
           expect(this.link().text()).toContain('Like');
-          this.link().click();
 
-          this.view.render();
+          this.link().click();
           expect(this.link().text()).toContain('Unlike');
 
-          // spying + stubbing for destroy
-          var likeModel = new app.models.Like(this.view.model.get("user_like"));
-          spyOn(this.view.model.likes, "get").andReturn(likeModel);
-          spyOn(likeModel, "destroy").andReturn(function(){
-            this.view.model.set({user_like : null})
-          });
-
           this.link().click();
-
-          this.view.render();
           expect(this.link().text()).toContain('Like');
         })
       })
@@ -88,7 +67,7 @@ describe("app.views.Feedback", function(){
       });
 
       it("does not show a reshare_action link if the original post has been deleted", function(){
-        this.post.attributes.root = null
+        this.post.set({post_type : "Reshare", root : null})
         this.view.render();
 
         expect($(this.view.el).html()).not.toContain('reshare_action');

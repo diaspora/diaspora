@@ -8,7 +8,7 @@
 </a>
 ·
 
-<% if(public && author.id != current_user.id) { %>
+<% if(public && author.id != current_user.id && (post_type == "Reshare" ? root : true)) { %>
   <a href="#" class="reshare_action" rel='nofollow'>
     Reshare
   </a>

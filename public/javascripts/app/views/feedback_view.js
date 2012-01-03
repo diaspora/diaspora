@@ -10,35 +10,19 @@ app.views.Feedback = app.views.StreamObject.extend({
 
   toggleLike: function(evt) {
     if(evt) { evt.preventDefault(); }
-
-    var userLike = this.model.get("user_like");
-
-    if(userLike) {
-      this.model.likes.get(userLike.id).destroy({
-        success : $.proxy(function() {
-          this.model.set({user_like : null, likes_count : this.model.get("likes_count") - 1});
-        }, this)
-      });
-    } else {
-      this.model.likes.create({}, {
-        success : $.proxy(function(like) {
-          this.model.set({user_like : like, likes_count : this.model.get("likes_count") + 1}); // this should be in a callback...
-        }, this)
-      });
-    }
+    this.model.toggleLike();
   },
 
   resharePost : function(evt){
     if(evt) { evt.preventDefault(); }
+    if(!window.confirm("Reshare " + this.model.baseAuthor().name + "'s post?")) { return }
 
-    if(window.confirm("Reshare " + this.model.baseAuthor().name + "'s post?")) {
-      var reshare = new app.models.Reshare();
-      reshare.save({root_guid : this.model.baseGuid()}, {
-        success : function(){
-          app.stream.collection.add(reshare.toJSON());
-        }
-      });
-      return reshare;
-    }
+    var reshare = new app.models.Reshare();
+    reshare.save({root_guid : this.model.baseGuid()}, {
+      success : function(){
+        app.stream.collection.add(reshare.toJSON());
+      }
+    });
+    return reshare;
   }
 })

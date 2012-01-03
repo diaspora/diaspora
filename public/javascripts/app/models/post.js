@@ -15,6 +15,15 @@ app.models.Post = Backbone.Model.extend({
     }
   },
 
+  toggleLike : function() {
+    var userLike = this.get("user_like")
+    if(userLike) {
+      this.unlike()
+    } else {
+      this.like()
+    }
+  },
+
   createdAt : function() {
     return +new Date(this.get("created_at")) / 1000;
   },
@@ -33,5 +42,14 @@ app.models.Post = Backbone.Model.extend({
     } else {
       return this.get("author");
     }
+  },
+
+  unlike : function() {
+    this.get("user_like").destroy();
+    this.set({ user_like : null });
+  },
+
+  like : function() {
+    this.set({ user_like : this.likes.create() });
   }
 });
