@@ -68,6 +68,12 @@ class UsersController < ApplicationController
         else
           flash[:error] = I18n.t 'users.update.unconfirmed_email_not_changed'
         end
+      elsif u[:auto_follow_back]
+        if  @user.update_attributes(u)
+          flash[:notice] = I18n.t 'users.update.follow_settings_changed'
+        else
+          flash[:error] = I18n.t 'users.update.follow_settings_not_changed'
+        end
       end
     elsif aspect_order = params[:reorder_aspects]
       @user.reorder_aspects(aspect_order)

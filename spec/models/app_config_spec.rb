@@ -141,6 +141,28 @@ describe AppConfig do
     end
   end
 
+  context 'configurations which are arrays' do
+
+    it 'should be set to be admins or community_spotlight' do
+      AppConfig::ARRAY_VARS.should =~ [:community_spotlight, :admins]
+    end
+
+    context 'on heroku' do
+      before do
+        ENV['admins'] = "maxwell#{EnviromentConfiguration::ARRAY_SEPERATOR}daniel"
+        EnviromentConfiguration.stub(:heroku?).and_return(true)
+      end
+
+      after do
+        EnviromentConfiguration.stub(:heroku?).and_return(false)
+      end
+
+      it 'converts a string with ARRAY_SEPERATOR to an array' do
+        AppConfig[:admins].should be_a Array
+      end
+    end
+  end
+
   describe ".pod_uri" do
     it "properly parses the pod_url" do
       AppConfig.pod_uri = nil

@@ -106,6 +106,14 @@ Factory.define(:photo) do |p|
   end
 end
 
+Factory.define(:remote_photo, :parent => :photo) do |p|
+  p.remote_photo_path 'https://photo.com/images/'
+  p.remote_photo_name 'kittehs.jpg'
+  p.association :author,:factory => :person
+  p.processed_image nil
+  p.unprocessed_image nil
+end
+
 Factory.define :reshare do |r|
   r.association(:root, :public => true, :factory => :status_message)
   r.association(:author, :factory => :person)

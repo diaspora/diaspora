@@ -12,10 +12,17 @@ begin
 
   task :stats => "spec:statsetup"
 
-  Rake::Task[:spec].clear
+  #heroku barfs here :/
+  begin 
+    Rake::Task[:spec].clear
+  rescue
+    nil
+  end
 
   desc "Run all specs in spec directory"
-  RSpec::Core::RakeTask.new(:spec => spec_prereq)
+  RSpec::Core::RakeTask.new(:spec => spec_prereq) do |t|
+    t.rspec_opts = ['-b'] 
+  end
 
   desc "Run all specs that generate fixtures for rspec or jasmine"
   RSpec::Core::RakeTask.new(:generate_fixtures => spec_prereq) do |t|

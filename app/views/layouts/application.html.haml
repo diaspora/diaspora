@@ -37,19 +37,15 @@
     = javascript_include_tag "/javascripts/ie.js"
     <![endif]-->
 
-    = include_javascripts :jquery
+    -# %script{:type => "text/javascript", :src => 'http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js'}
     :javascript
-      !window.jQuery && document.write(unescape('%3Cscript src="//ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"%3E%3C/script%3E'))
+      !window.jQuery && document.write(unescape("#{escape_javascript(include_javascripts(:jquery))}"))
 
     - unless @landing_page
       = include_javascripts :main
       :javascript
         Diaspora.I18n.loadLocale(#{get_javascript_strings_for(I18n.locale).to_json}, "#{I18n.locale}");
         Diaspora.Page = "#{params[:controller].camelcase}#{params[:action].camelcase}";
-    - if current_user
-      = include_javascripts :flash_socket #unless modern_browser?
-      = javascript_include_tag 'web-socket-receiver'
-      = render 'js/websocket_js'
 
     = yield(:head)
 
