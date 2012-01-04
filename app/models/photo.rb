@@ -85,7 +85,7 @@ class Photo < ActiveRecord::Base
     unless self.unprocessed_image.url.match(/^https?:\/\//)
       pod_url = AppConfig[:pod_url].dup
       pod_url.chop! if AppConfig[:pod_url][-1,1] == '/'
-      remote_path = "#{pod_url}#{self.unprocessed_image.url}"
+      remote_path = self.processed? ? "#{pod_url}#{self.processed_image.url}" : "#{pod_url}#{self.unprocessed_image.url}"
     else
       remote_path = self.unprocessed_image.url
     end
