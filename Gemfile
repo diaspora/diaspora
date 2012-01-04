@@ -45,9 +45,8 @@ end
 
 # configuration
 
-gem 'settingslogic', '2.0.6'
-gem 'heroku'
 
+gem 'settingslogic', '2.0.6'
 # database
 
 gem 'activerecord-import'
@@ -118,6 +117,10 @@ gem 'faraday-stack'
 gem 'jasmine', '~> 1.1.2'
 
 ### GROUPS ####
+
+group :heroku do
+  gem 'heroku'
+end
 
 group :test do
   gem 'capybara', '~> 1.1.2'
