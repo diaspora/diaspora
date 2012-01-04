@@ -8,7 +8,7 @@ Then /^I send a message with subject "([^"]*)" and text "([^"]*)" to "([^"]*)"$/
   step %(I am on the conversations page)
   step %(I follow "New Message")
   step %(I wait for the ajax to finish)
-  
+  step %(I fill in "contact_autocomplete" with "#{person}" in the modal window)
   step %(I press the first ".as-result-item" within ".as-results" in the modal window)
   step %(I fill in "conversation_subject" with "#{subject}" in the modal window)
   step %(I fill in "conversation_text" with "#{text}" in the modal window)
