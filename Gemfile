@@ -118,10 +118,6 @@ gem 'jasmine', '~> 1.1.2'
 
 ### GROUPS ####
 
-group :heroku do
-  gem 'heroku'
-end
-
 group :test do
   gem 'capybara', '~> 1.1.2'
   gem 'cucumber-rails', '1.2.1'
@@ -144,6 +140,8 @@ group :test do
 end
 
 group :development do
+
+  gem 'heroku'
   gem 'capistrano', '~> 2.9.0', :require => false
   gem 'capistrano_colors', :require => false
   gem 'capistrano-ext', '1.2.1', :require => false
