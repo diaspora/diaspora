@@ -3,10 +3,9 @@ describe("app.views.Stream", function(){
     // should be jasmine helper
     window.current_user = app.user({name: "alice", avatar : {small : "http://avatar.com/photo.jpg"}});
 
-    var posts = $.parseJSON(spec.readFixture("multi_stream_json"))["posts"];
+    this.posts = $.parseJSON(spec.readFixture("multi_stream_json"))["posts"];
 
-    this.collection = new app.collections.Stream(posts);
-
+    this.collection = new app.collections.Stream(this.posts);
     this.view = new app.views.Stream({collection : this.collection});
 
     // do this manually because we've moved loadMore into render??
@@ -17,8 +16,11 @@ describe("app.views.Stream", function(){
   })
 
   describe("initialize", function(){
-
     it("binds an infinite scroll listener", function(){
+      spyOn($.fn, "scroll");
+
+      new app.views.Stream();
+      expect($.fn.scroll).toHaveBeenCalled()
     })
   })
 
@@ -57,8 +59,16 @@ describe("app.views.Stream", function(){
         expect(this.view.collection.fetch).toHaveBeenCalled();
       })
 
-      it("does not call fetch", function(){
+      it("does not call fetch if the collection is loading", function(){
         spyOn(this.view, "isLoading").andReturn(true)
+
+        this.view.infScroll();
+        expect(this.view.collection.fetch).not.toHaveBeenCalled();
+      })
+
+      it("does not call fetch if all content has been fetched", function(){
+        spyOn(this.view, "isLoading").andReturn(false)
+        this.view.allContentLoaded = true;
 
         this.view.infScroll();
         expect(this.view.collection.fetch).not.toHaveBeenCalled();
@@ -73,6 +83,26 @@ describe("app.views.Stream", function(){
 
       this.view.infScroll();
       expect(this.view.collection.fetch).not.toHaveBeenCalled();
+    })
+  })
+
+  describe("collectionFetched", function(){
+    it("sets this.allContentLoaded if there are no more posts left to load", function(){
+      expect(this.view.allContentLoaded).toBe(false)
+      this.view.collectionFetched(this.collection, {posts : []})
+      expect(this.view.allContentLoaded).toBe(true)
+    })
+
+    it("unbinds scroll if there are no more posts left to load", function(){
+      spyOn($.fn, "unbind")
+      this.view.collectionFetched(this.collection, {posts : []})
+      expect($.fn.unbind).toHaveBeenCalled()
+    })
+
+    it("does not set this.allContentLoaded if there was a non-empty response from the server", function(){
+      expect(this.view.allContentLoaded).toBe(false)
+      this.view.collectionFetched(this.collection, {posts : this.posts})
+      expect(this.view.allContentLoaded).toBe(false)
     })
   })
 })

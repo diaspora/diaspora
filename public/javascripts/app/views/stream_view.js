@@ -23,7 +23,7 @@ app.views.Stream = Backbone.View.extend({
   },
 
   infScroll : function() {
-    if(this.isLoading()) { return }
+    if(this.allContentLoaded || this.isLoading()) { return }
 
     var $window = $(window);
     var distFromTop = $window.height() + $window.scrollTop();
@@ -41,6 +41,8 @@ app.views.Stream = Backbone.View.extend({
     return this._loading && !this._loading.isResolved();
   },
 
+  allContentLoaded : false,
+
   addPost : function(post) {
     var postView = new app.views.Post({ model: post });
 
@@ -53,8 +55,15 @@ app.views.Stream = Backbone.View.extend({
     return this;
   },
 
-  collectionFetched: function() {
+  collectionFetched: function(collection, response) {
     this.$("#paginate").remove();
+
+    if(collection.parse(response).length == 0) {
+      this.allContentLoaded = true;
+      $(window).unbind('scroll')
+      return
+    }
+
     $(this.el).append($("<a>", {
       href: this.collection.url(),
       id: "paginate"
