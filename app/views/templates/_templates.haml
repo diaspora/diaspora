@@ -11,7 +11,8 @@
   "status_message",
   "activity_streams_photo",
   "reshare",
-  "likes_info"].each do |template_name|
+  "likes_info",
+  "stream_faces"].each do |template_name|
 
   %script{:id => "#{template_name.gsub("_","-")}-template", :type => 'text/template'}
     != File.read("#{Rails.root}/app/views/templates/#{template_name}.jst")

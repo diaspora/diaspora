@@ -56,5 +56,10 @@
 
 .span-5.rightBar.last
   /= render 'aspects/selected_contacts', :stream => @stream
+  #selected_aspect_contacts.section
+    .title.no_icon
+      %h5
+        = @stream.title
+    .content
 
   = render 'shared/right_sections'
