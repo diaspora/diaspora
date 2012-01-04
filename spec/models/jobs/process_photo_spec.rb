@@ -14,24 +14,41 @@ describe Jobs::ProcessPhoto do
   it 'saves the processed image' do
     @saved_photo.processed_image.path.should be_nil
 
-    result = Jobs::ProcessPhoto.perform(@saved_photo.id)
+    result = Jobs::ProcessPhoto.perform(@saved_photo.id, nil)
 
     @saved_photo.reload
 
     @saved_photo.processed_image.path.should_not be_nil
+
     result.should be true
+  end
+
+  it 'saves the profile image when set' do
+    @saved_photo.processed_image.path.should be_nil
+
+    result = Jobs::ProcessPhoto.perform(@saved_photo.id, "true")
+
+    @saved_photo.reload
+    puts( @user.person.profile.image_url.inspect )
+    @user.person.profile.image_url.should == @saved_photo.url(:thumb_large)
+  end
+  it 'doesnt save the profile image when not' do
+    @saved_photo.processed_image.path.should == nil
+
+    result = Jobs::ProcessPhoto.perform(@saved_photo.id, nil)
+    @user.person.profile.image_url.should == "/images/user/default.png"
   end
 
   context 'when trying to process a photo that has already been processed' do
     before do
-      Jobs::ProcessPhoto.perform(@saved_photo.id)
+      Jobs::ProcessPhoto.perform(@saved_photo.id, nil)
       @saved_photo.reload
     end
 
     it 'does not process the photo' do
       processed_image_path = @saved_photo.processed_image.path
 
-      result = Jobs::ProcessPhoto.perform(@saved_photo.id)
+      result = Jobs::ProcessPhoto.perform(@saved_photo.id, nil)
 
       @saved_photo.reload
 
@@ -48,7 +65,7 @@ describe Jobs::ProcessPhoto do
     end
 
     it 'does not process the gif' do
-      result = Jobs::ProcessPhoto.perform(@saved_gif.id)
+      result = Jobs::ProcessPhoto.perform(@saved_gif.id, nil)
 
       @saved_gif.reload.processed_image.path.should be_nil
       result.should be false
@@ -59,7 +76,7 @@ describe Jobs::ProcessPhoto do
     p = Factory(:remote_photo)
     p.unprocessed_image = nil
     expect{
-      result = Jobs::ProcessPhoto.perform(p.id)
+      result = Jobs::ProcessPhoto.perform(p.id, nil)
     }.to_not raise_error
     
   end
