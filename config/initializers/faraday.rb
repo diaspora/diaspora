@@ -3,8 +3,8 @@
 #   the COPYRIGHT file.
 options = {:timeout => 5}
 
-options[:ssl] = {:ca_file => AppConfig[:ca_file]} unless ENV['HEROKU']
-Faraday.default_connection = Faraday::Connection.new(options ) do |b|
+options[:ssl] = {:ca_file => EnviromentConfiguration.ca_cert_file_location}
+Faraday.default_connection = Faraday::Connection.new(options) do |b|
   b.use FaradayStack::FollowRedirects
   b.adapter Faraday.default_adapter
 end
