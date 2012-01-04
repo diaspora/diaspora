@@ -19,8 +19,8 @@
     <div class="badge" id="notification_badge">
       <a href="/notifications" title="<%= Diaspora.I18n.t('header.notifications') %>">
         <img alt="<%= Diaspora.I18n.t('header.notifications') %>" id="notification-flag" src="/images/icons/notifications_grey.png">
-        <div class="badge_count hidden">
-          0
+        <div class="badge_count <%= current_user.notifications_count > 0 ? '' : 'hidden' %>">
+          <%= current_user.notifications_count %>
         </div>
       </a>
     </div>
@@ -28,8 +28,8 @@
     <div class="badge" id="message_inbox_badge">
       <a href="/conversations" title="<%= Diaspora.I18n.t('header.messages') %>">
         <img alt="<%= Diaspora.I18n.t('header.messages') %>" src="/images/icons/mail_grey.png">
-        <div class="badge_count hidden">
-          0
+        <div class="badge_count <%= current_user.unread_messages_count > 0 ? '' : 'hidden' %>">
+          <%= current_user.unread_messages_count %>
         </div>
       </a>
     </div>

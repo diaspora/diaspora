@@ -7,6 +7,38 @@ describe("app.views.Header", function() {
     this.view = new app.views.Header().render();
   });
 
+  describe("render", function(){
+    context("notifications badge", function(){
+      it("displays a count when the current user has a notification", function(){
+        window.current_user = _.extend(window.current_user, {notifications_count : 1})
+        this.view.render();
+        expect(this.view.$("#notification_badge .badge_count").hasClass('hidden')).toBe(false);
+        expect(this.view.$("#notification_badge .badge_count").text()).toContain("1");
+      })
+
+      it("does not display a count when the current user has a notification", function(){
+        window.current_user = _.extend(window.current_user, {notifications_count : 0})
+        this.view.render();
+        expect(this.view.$("#notification_badge .badge_count").hasClass('hidden')).toBe(true);
+      })
+    })
+
+    context("messages badge", function(){
+      it("displays a count when the current user has a notification", function(){
+        window.current_user = _.extend(window.current_user, {unread_messages_count : 1})
+        this.view.render();
+        expect(this.view.$("#message_inbox_badge .badge_count").hasClass('hidden')).toBe(false);
+        expect(this.view.$("#message_inbox_badge .badge_count").text()).toContain("1");
+      })
+
+      it("does not display a count when the current user has a notification", function(){
+        window.current_user = _.extend(window.current_user, {unread_messages_count : 0})
+        this.view.render();
+        expect(this.view.$("#message_inbox_badge .badge_count").hasClass('hidden')).toBe(true);
+      })
+    })
+  })
+
   describe("#toggleDropdown", function() {
     it("adds the class 'active'", function() {
       expect(this.view.$(".dropdown")).not.toHaveClass("active");

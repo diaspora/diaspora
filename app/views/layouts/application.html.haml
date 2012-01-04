@@ -67,7 +67,7 @@
     - if current_user
       :javascript
         app.user({
-          current_user: #{current_user.person.as_api_response(:backbone).to_json}
+          current_user: _.extend(#{current_user.person.as_api_response(:backbone).to_json}, {notifications_count : #{@notification_count}, unread_messages_count : #{@unread_message_count}})
         });
 
     = yield(:head)
