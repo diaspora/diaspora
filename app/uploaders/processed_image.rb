@@ -6,7 +6,7 @@ class ProcessedImage < CarrierWave::Uploader::Base
   include CarrierWave::MiniMagick
 
   def store_dir
-    "uploads/images"
+    "uploads/user_images"
   end
 
   def extension_white_list
