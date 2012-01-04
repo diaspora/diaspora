@@ -19,6 +19,9 @@ $(document).ready( function(){
   username.focus();
   $("form").submit(function(){
     $('#asterisk').addClass('rideSpinners');
+    clearConnectionInfo();
+    juser = username.val() + "@" + pod_url;
+    localStorage.setItem("user", juser);
     forgotPass.addClass('hidden');
     controls.addClass('hidden');
   });

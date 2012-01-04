@@ -43,6 +43,8 @@ javascripts:
     - public/javascripts/vendor/bootstrap/bootstrap-twipsy.js
     - public/javascripts/vendor/bootstrap/bootstrap-popover.js
 
+    - public/javascripts/vendor/strophe.min.js
+    - public/javascripts/xmpp.js
   login:
     - public/javascripts/login.js
   mobile:
@@ -72,6 +74,13 @@ javascripts:
     - public/javascripts/inbox.js
   profile:
     - public/javascripts/vendor/jquery.autoSuggest.custom.js
+  chat_ui:
+    - public/javascripts/vendor/jquery.timers.js
+    - public/javascripts/vendor/jsjac.js
+    - public/javascripts/vendor/common.js
+    - public/javascripts/vendor/date.js
+    - public/javascripts/vendor/browser-detect.js
+    - public/javascripts/chatui.js
 
 stylesheets:
   default:

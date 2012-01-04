@@ -209,3 +209,395 @@ input.button
     .wrapper ul > li *
       :cursor pointer
 
+// Jappix - An open social platform
+// This is the Jappix Mini CSS stylesheet
+//
+// -------------------------------------------------
+// 
+// License: AGPL
+// Authors: Valérian Saliou, Julien Barrier
+// Last revision: 24/06/11
+
+#jappix_mini, #jappix_popup
+  font: normal 11px helvetica, "Lucida Grande", "Lucida Sans", "Lucida Sans Unicode", Arial, sans-serif
+
+#jappix_mini
+  margin-left: 130px
+  position: fixed
+  bottom: 0
+  right: 20px
+  z-index: 999
+  *
+    border: none
+    color: black
+    width: auto
+    height: auto
+    margin: 0
+    padding: 0
+    overflow: visible
+    font-size: 11px
+    text-align: left
+    text-transform: none
+    text-shadow: none
+    opacity: 1.0
+    border-radius: 0
+    -moz-border-radius: 0
+    -webkit-border-radius: 0
+    box-shadow: none
+    -moz-box-shadow: none
+    -webkit-box-shadow: none
+
+#jappix_popup *
+  border: none
+  color: black
+  width: auto
+  height: auto
+  margin: 0
+  padding: 0
+  overflow: visible
+  font-size: 11px
+  text-align: left
+  text-transform: none
+  text-shadow: none
+  opacity: 1.0
+  border-radius: 0
+  -moz-border-radius: 0
+  -webkit-border-radius: 0
+  box-shadow: none
+  -moz-box-shadow: none
+  -webkit-box-shadow: none
+
+#jappix_mini
+  .jm_images
+    background-image: url(../images/mini.png)
+    background-repeat: no-repeat
+  .jm_images_animate
+    background-image: url(../img/sprites/animate.png)
+    background-repeat: no-repeat
+  a
+    text-decoration: none
+    cursor: pointer
+    &:hover
+      cursor: pointer
+  div.jm_position
+    float: right
+  a.jm_pane
+    background-color: #f4f4f4
+    background-position: 0 -100px
+    background-repeat: repeat-x
+    border-color: #999999
+    border-style: solid
+    border-width: 1px 1px 0 1px
+    font-weight: bold
+    outline-style: none
+    display: block
+    padding: 6px
+    height: 13px
+    &:hover
+      background: white
+      border-color: #666666
+    &:focus
+      border-color: #666666
+  div
+    &.jm_starter, &.jm_conversations
+      float: left
+      position: relative
+    &.jm_conversation
+      float: left
+      position: relative
+      width: 153px
+  a.jm_chat-tab
+    border-width: 1px 0 0 1px
+    width: 140px
+    float: right
+    overflow: hidden
+    &.jm_clicked
+      background: white
+      position: relative
+      border-top: none
+      border-left: 1px solid #999999
+      padding-top: 7px
+    span.jm_notify
+      position: absolute
+      top: 6px
+      right: 9px
+      span
+        float: left
+        &.jm_notify_left
+          background-position: 0 -360px
+        &.jm_notify_right
+          background-position: -7px -360px
+        &.jm_notify_left, &.jm_notify_right
+          height: 16px
+          width: 7px
+        &.jm_notify_middle
+          background-color: #c60505
+          color: white
+          font-size: 0.85em
+          height: 14px
+          padding-top: 2px
+  div
+    &.jm_conversation.jm_type_groupchat span.jm_name
+      margin-left: 4px
+    &.jm_chat-content
+      background-color: white
+      border: 1px solid #999999
+      height: 300px
+      width: 260px
+      position: absolute
+      right: -1px
+      bottom: 25px
+      display: none
+    &.jm_actions
+      background-color: #565d5e
+      border-bottom: 1px solid #3a3a3a
+      height: 14px
+      padding: 4px 6px
+      font-weight: bold
+      overflow: hidden
+      span.jm_nick
+        color: white
+        height: 16px
+        width: 225px
+        overflow: hidden
+        float: left
+      a
+        &.jm_one-action
+          background-color: #727879
+          margin: 0 -2px 0 5px
+          height: 15px
+          width: 15px
+          outline-style: none
+          float: right
+          &:hover, &:focus
+            background-color: #7f8788
+          &:active
+            background-color: #8c9293
+        &.jm_logo
+          background-position: 7px 2px
+          width: 90px
+          height: 22px
+          margin: -4px 0 0 -2px
+          outline-style: none
+          float: left
+          &:hover, &:focus
+            background-color: #636a6b
+          &:active
+            background-color: #707677
+        &.jm_close
+          background-position: 1px -341px
+    &.jm_received-messages
+      background-color: white
+      padding: 5px 0 4px
+      height: 242px
+      overflow: auto
+      p
+        margin: 3px 0
+        word-wrap: break-word
+        color: black !important
+      a
+        color: black !important
+      div
+        &.jm_group
+          margin: 2px 6px 9px 6px
+          padding-bottom: 8px
+          border-bottom: 1px solid #eaeaea
+        &.jm_system-message
+          p, a
+            color: #053805 !important
+            font-style: italic !important
+      p a
+        text-decoration: underline
+      b
+        margin-bottom: 3px
+        display: block
+        &.jm_me
+          color: #123a5c
+        &.jm_him
+          color: #801e1e
+      span.jm_date
+        font-size: 0.8em
+        float: right
+        display: none
+      div.jm_group:hover span.jm_date
+        display: block
+  input.jm_send-messages
+    background-color: white
+    border-color: #999999
+    border-style: solid
+    border-width: 1px 0 0 0
+    padding: 5px
+    width: 250px
+    min-height: 14px
+  div
+    &.jm_disabled
+      div.jm_chat-content, input.jm_send-messages, a.jm_pane
+        background: #f3f3f3 !important
+      input.jm_send-messages
+        color: #9d9d9d
+    &.jm_roster
+      background-color: white
+      border: 1px solid #999999
+      width: 160px
+      position: absolute
+      right: 0
+      bottom: 25px
+      display: none
+      div
+        &.jm_buddies
+          width: 100%
+          max-height: 300px
+          padding: 5px 0
+          overflow: auto
+        &.jm_grouped
+          margin: 2px 0
+          div.jm_name
+            margin-bottom: 2px
+            padding: 4px 8px 0
+            font-weight: bold
+  a
+    &.jm_friend
+      border-color: white
+      border-style: solid
+      border-width: 1px 0
+      outline-style: none
+      padding: 6px
+      display: block
+      &.jm_offline
+        display: none
+      &:hover, &:focus
+        background-color: #888888
+        border-color: #494949
+        color: white
+      &:hover span.jm_presence, &:focus span.jm_presence
+        background-position: 0 -84px
+    &.jm_button
+      padding: 6px 10px
+      position: relative
+      z-index: 1
+      &.jm_clicked
+        background: white
+        border-top: none
+        border-left: 1px solid #999999
+        border-right: 1px solid #999999
+        padding: 7px 10px 6px 10px
+  span
+    &.jm_animate
+      background-position: 0 0
+      width: 111px
+      height: 102px
+      position: absolute
+      top: -100px
+      left: -74px
+      z-index: 1
+      display: block
+    &.jm_counter
+      background-position: 0 -288px
+      color: #333333
+      height: 16px
+      padding-left: 25px
+      display: block
+      &.jm_error
+        background-position: 0 -305px
+    &.jm_presence
+      display: block
+      height: 16px
+      width: 16px
+      margin-right: 4px
+      float: left
+    &.jm_name
+      color: #272727
+      height: 14px
+      width: 105px
+      overflow: hidden
+      float: left
+  .jm_available, .jm_chat
+    background-position: 0 -20px
+  .jm_away
+    background-position: 0 -36px
+  .jm_xa, .jm_dnd
+    background-position: 0 -52px
+  .jm_unavailable
+    background-position: 0 -68px
+  .jm_status
+    font-style: italic
+    white-space: nowrap
+    text-overflow: ellipsis
+    overflow: hidden
+    width: 140px
+    display: block
+  .jm_smiley
+    border: 0 none
+    height: 16px
+    width: 16px
+    vertical-align: bottom
+  .jm_smiley-wink
+    background-position: 0 -148px
+  .jm_smiley-waii
+    background-position: 0 -164px
+  .jm_smiley-unhappy
+    background-position: 0 -180px
+  .jm_smiley-tongue
+    background-position: 0 -196px
+  .jm_smiley-surprised
+    background-position: 0 -212px
+  .jm_smiley-smile
+    background-position: 0 -228px
+  .jm_smiley-happy
+    background-position: 0 -244px
+  .jm_smiley-grin
+    background-position: 0 -260px
+
+#jappix_popup
+  background: url(../img/others/blank.gif) repeat
+  position: fixed
+  top: 0
+  bottom: 0
+  left: 0
+  right: 0
+  z-index: 999
+  div.jm_prompt
+    background-color: #565d5e
+    border: 1px solid #3a3a3a
+    width: 346px
+    position: fixed
+    top: 50%
+    left: 50%
+    margin-left: -175px
+    padding: 16px 2px 2px 2px
+    border-top-right-radius: 4px
+    border-top-left-radius: 4px
+    -moz-border-radius-topright: 4px
+    -moz-border-radius-topleft: 4px
+    -webkit-border-top-right-radius: 4px
+    -webkit-border-top-left-radius: 4px
+    box-shadow: 0 0 35px #232323
+    -moz-box-shadow: 0 0 35px #232323
+    -webkit-box-shadow: 0 0 35px #232323
+    form
+      background-color: white
+      border: 1px solid #3a3a3a
+      width: 332px
+      padding: 6px
+      input
+        background-color: #f9f9f9
+        border: 1px solid #666666
+        font-size: 1.1em
+        padding: 1px 2px
+        &:hover, &:focus
+          border: 1px solid #202020
+        &.jm_text
+          width: 326px
+          margin: 6px 0
+          display: block
+        &.jm_submit
+          text-align: center
+          margin-left: 3px
+          float: right
+          &:hover, &:focus
+            background-color: #f3f3f3
+            cursor: pointer
+          &:active
+            background-color: #e8e8e8
+    div.jm_clear
+      clear: both
