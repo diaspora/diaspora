@@ -20,7 +20,7 @@ ar:
       unauthenticated: ".لُج أو سجل قبل المتابعة"
       unconfirmed: ".أكِد حسابك قبل المتابعة"
     invitations:
-      invitation_token_invalid: "إقليد الدعوة غير صالحة"
+      invitation_token_invalid: "نتسف! الدعوة غير صالحة"
       send_instructions: "تم إرسال دعوتك"
       updated: "تم إنشاء كلمة المرور بنجاح، أنت الآن متصل"
     mailer:
@@ -32,7 +32,9 @@ ar:
       invitation_instructions:
         accept: "إقبل الدعوة"
         displaying_correctly: "Email not displaying correctly? %{link} in your browser"
+        have_fun: إستمتع
         ignore: "رجاء تجاهل هذا البريد الإلكتروني في حال لم ترغب بقبول الدعوة"
+        join_team: "إنضم إلى فريقنا"
         no_account_till: "لن يتم إنشاء حسابك حتى تلج الرابط أعلاه وتسجل"
         subject: "تم دعوتك للإنضمام لدياسبرا"
         view_in: "View in"

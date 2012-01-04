@@ -7,22 +7,22 @@
 he:
   devise:
     confirmations:
-      confirmed: "חשבונך אומת בהצלחה. נכנסת כעת."
+      confirmed: "חשבונך אומת בהצלחה. נכנסת כעת"
       new:
-        resend_confirmation: "שליחת הוראות אימות מחדש"
-      send_instructions: "בעוד מספר דקות תתקבל לתיבת הדוא״ל שלך הודעה עם הנחיות כיצד לאמת את חשבונך."
+        resend_confirmation: "שלח הוראות אימות מחדש"
+      send_instructions: "בעוד מספר דקות תתקבל לתיבת הדוא״ל שלך הודעה עם הנחיות כיצד לאמת את חשבונך"
     failure:
-      inactive: "חשבונך לא הופעל עדיין."
-      invalid: "שם המשתמש או הססמה שגויים."
-      invalid_token: "אסימון האימות שגוי."
-      locked: "חשבונך נעול."
-      timeout: "ההפעלה שלך פגה, נא להיכנס שוב כדי להמשיך."
-      unauthenticated: "עליך להיכנס או להירשם לפני המשך הפעילות."
-      unconfirmed: "עליך לאמת את חשבונך לפי המשך הפעילות."
+      inactive: "חשבונך לא הופעל עדיין"
+      invalid: "שם המשתמש או הססמה שגויים"
+      invalid_token: "אסימון האימות שגוי"
+      locked: "חשבונך נעול"
+      timeout: "ההפעלה שלך פגה, עליך להירשם שוב כדי להמשיך"
+      unauthenticated: "עליך להיכנס או להירשם לפני המשך הפעילות"
+      unconfirmed: "עליך לאמת את חשבונך לפני שתוכל להמשיך"
     invitations:
-      invitation_token_invalid: "אסימון ההזמנה שסופק אינו תקף!"
-      send_instructions: "ההזמנה שלך נשלחה."
-      updated: "הססמה שלך הוגדרה בהצלחה. נכנסת כעת."
+      invitation_token_invalid: "אסימון ההזמנה שסופק אינו תקף"
+      send_instructions: "ההזמנה שלך נשלחה"
+      updated: "הססמה שלך הוגדרה בהצלחה. נכנסת כעת"
     mailer:
       confirmation_instructions:
         confirm: "אימות החשבון שלי"
@@ -31,17 +31,35 @@ he:
       hello: "שלום %{email}!"
       invitation_instructions:
         accept: "אשר הזמנה"
+        arrived: "    מוכנה לאפשר לך לשתף %{strong_diaspora}הרשת החברתית שחיכית לה הגיעה. יותר בטוחה, יותר מהנה\n\
+            \x20 ולגלות את האינטרנט בדרך חדשה לגמרי"
+        be_yourself: "תהיה אתה עצמך "
         be_yourself_paragraph: "הרשת יצרה עבורנו דרכים חדשות ויחודיות לביטא את עצמנו. %{strong_diaspora} נותנת לך להיות עצמך ולשתף בכל דרך שתרצה, עם או בלי שמך האמיתי."
-        displaying_correctly: "Email not displaying correctly? %{link} in your browser"
+        displaying_correctly: "%{link} ? המייל לא מוצג באופן תקין"
+        email_us: " %{email}עבור שאלות כלליות או תמיכה בחשבון הדיאספורה שלך נא שלח לנו מייל ל"
+        finally: "סוף סוף - זה הגיע "
+        friends_saying: "...מה שהחברים שלך אומרים"
         get_connected: התחבר
+        get_connected_paragraph: |-
+            המאפיין מספר 1 הוא הקהילה %{strong_diaspora}'s תנועה בינלאומית עם חזון משותף עבור אינטרנט טוב יותר
+            פגוש אנשים חדשים, תתחבר עם חברים, ותצטרף להנאה
+        have_fun: תיהנה
+        have_fun_paragraph: |-
+            %{strong_diaspora} מאפשרת להכיר תכנים חדשים ומיוחדים ואנשים ברשת  %{link} הראשונה בעולם, %{strong_diaspora} אפליקציה יוצאת לדרך
+            שתף ברשת ותיהנה מכל מה שהרשת יכולה להציע עבורך
+        help_fund: "עזור לממן את דיאספורה"
         here: כאן
         ignore: "אם אין ברצונך לאשר את ההזמנה, ניתן להתעלם מהודעה זו."
         join_team: "הצטרף לצוות שלנו"
         love: "באהבה,"
+        more_people: "אפילו יותר אנשים מתרגשים לראות אותך"
         no_account_till: " החשבון שלך לא ייווצר עד לכניסתך לקישור המופיע למעלה וההרשמה לשירות."
         or: או
+        sign_up_now: "&rarr;הירשם עכשיו"
         subject: "הוזמנת להצטרף לדיאספורה!"
-        view_in: "View in"
+        team_diaspora: "צוות דיאספורה"
+        unsubscribe: "%{link}.כדי להתנתק בבקשה לחץ על"
+        view_in: "צפה בזה בדפדפן שלך "
       inviter:
         accept_at: "בכתובת %{url}, באפשרותך לקבל זאת באמצעות הקישור שלהלן."
         have_invited_you: "הוזמנת על-ידי %{names} להצטרף לדיאספורה"

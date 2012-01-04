@@ -736,7 +736,7 @@ es-CL:
       make_public: "hacer público"
       new_user_prefill:
         hello: "#%{new_user_tag}, acabo de llegar aquí."
-        i_like: "Tengo interés en %{tags}."
+        i_like: " Tengo interés en %{tags}."
         invited_by: "Gracias por la invitación,"
         newhere: Hola
       post_a_message_to: "Postear un mensaje a %{aspect}"

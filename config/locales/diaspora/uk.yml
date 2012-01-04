@@ -48,6 +48,7 @@ uk:
       video_title:
         unknown: "Невідома назва відеозапису"
   are_you_sure: "Ви упевнені?"
+  are_you_sure_delete_account: "Ви упевнені, що хочете закрити свій обліковий запис? Цю процедуру неможливо буде відмінити!"
   aspect_memberships:
     destroy:
       failure: "Не вдалося видалити людину з аспектів"
@@ -507,6 +508,7 @@ uk:
       remove_contact: "видалити контакт"
       remove_from: "Видалити %{name} з %{aspect}?"
     show:
+      closed_account: "Цей обліковий запис був закритий."
       does_not_exist: "Персони не існує!"
       has_not_shared_with_you_yet: "%{name} ще не ділився записами з вами!"
       ignoring: "Ви блокуєте усі записи користувача %{name}."
@@ -569,6 +571,7 @@ uk:
       permalink: "постiйне посилання"
   previous: попередня
   privacy: Приватность
+  privacy_policy: "Політика конфіденційності"
   profile: Профіль
   profiles:
     edit:
@@ -758,7 +761,9 @@ uk:
       ignore_user: "Блокувати користувача %{name}"
       ignore_user_description: "Блокувати та видалити користувача з усіх аспектів?"
       like: "Мені подобається"
+      nsfw: "Автор помітив цей запис як тільки для дорослих\". %{link}"
       shared_with: "Для аспектів: %{aspect_names}"
+      show: показати
       unlike: "Не подобається"
       via: "через %{link}"
       viewable_to_anyone: "Цей запис може бачити будь-хто в Інтернеті"
@@ -791,6 +796,9 @@ uk:
     aspects:
       title: "Ваші аспекти"
     aspects_stream: Аспекти
+    comment_stream:
+      contacts_title: "Люди, чиї записи ви прокоментували"
+      title: Прокоментовані
     commented_on: обговорювані
     community_spotlight_stream: "У центрі уваги"
     followed_tag:
@@ -799,6 +807,9 @@ uk:
       follow: Cтежити
       title: "#Відстежувані мітки"
     followed_tags_stream: "#Відстежувані мітки"
+    like_stream:
+      contacts_title: "Люди, чиї записи вам сподобалися"
+      title: Вподобані
     mentioned_stream: "@Згадування"
     mentions:
       contacts_title: "Люди, що згадали вас"
@@ -818,6 +829,7 @@ uk:
   tag_followings:
     create:
       failure: "Помилка відстежування #%{name}"
+      none: "Не можна стежити за порожньою міткою!"
       success: "Ура! Тепер ви стежите за міткою #%{name}."
     destroy:
       failure: "Не вийшло перестати стежити за міткою #%{name}. Можливо, ви вже відписалися від неї?"
@@ -828,9 +840,11 @@ uk:
       followed_by: Спостерігають
       following: "Ви стежите за міткою #%{tag}"
       nobody_talking: "Ніхто доки не говорив про %{tag}."
+      none: "Порожня мітка не існує!"
       people_tagged_with: "Люди з міткою %{tag}"
       posts_tagged_with: "Записи з міткою #%{tag}"
       stop_following: "Не стежити за міткою #%{tag}"
+  terms_and_conditions: "Умови надання послуг"
   tokens:
     show:
       connect_to_cubbies: "Підключення до Cubbi.es"
@@ -858,6 +872,16 @@ uk:
       change_email: "Змінити адресу"
       change_language: "Змінити мову"
       change_password: "Змінити пароль"
+      close_account:
+        dont_go: "Будь ласка, не уходьте!"
+        if_you_want_this: "Якщо ви дійсно хочете це зробити, введіть ваш пароль і натисніть 'Закрити аккаунт'."
+        lock_username: "Це зарезервує ваше ім'я користувача на випадок, якщо ви захочете знову зареєструватися."
+        locked_out: "Буде зроблений вихід, і ви будете відключені від вашого облікового запису."
+        make_diaspora_better: "Ми хотіли б, щоб ви допомогли нам зробити Діаспору краще замість того, щоб просто піти звідси. Якщо ви дійсно вирішили піти, ми хочемо, щоб ви знали, що станеться далі."
+        mr_wiggles: "Містер Виглз буде засмучений вашим уходом"
+        no_turning_back: "На даний момент зворотного шляху немає."
+        what_we_delete: "Ми видаляємо усі ваші записи і дані профілю так швидко, як тільки можемо. Ваші коментарі будуть як і раніше доступні, але вони не будуть прив'язані до вашого ідентифікатора в Діаспорі."
+      close_account_text: "Закрити аккаунт"
       comment_on_post: "... хтось прокоментував ваш запис?"
       current_password: "Поточний пароль"
       download_photos: "Скачати мої фотографії"
@@ -920,3 +944,6 @@ uk:
     not_enabled: "webfinger не буде включений для хоста %{account}'s"
     xrd_fetch_failed: "Сталася помилка при отриманні xrd з %{account}"
   welcome: "Ласкаво просимо!"
+  will_paginate:
+    next_label: "вперед &raquo;"
+    previous_label: "&laquo; назад"

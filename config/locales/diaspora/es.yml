@@ -747,7 +747,7 @@ es:
       make_public: "hacer público"
       new_user_prefill:
         hello: "#%{new_user_tag}, acabo de llegar aquí."
-        i_like: "Tengo interés en %{tags}."
+        i_like: " Tengo interés en %{tags}."
         invited_by: "Gracias por la invitación, "
         newhere: Hola
       post_a_message_to: "Publicar un mensaje en %{aspect}"
@@ -767,7 +767,7 @@ es:
       ignore_user: "Ignorar a %{name}"
       ignore_user_description: "¿Ignorar y quitar a esa persona de todos los aspectos?"
       like: "Me gusta"
-      nsfw: "Esta publicación es considerada por su autor como no apta para verla en el trabajo (NSFW). %{link}"
+      nsfw: "Esta publicación es considerada por su autor como no segura para ciertos entornos de trabajo (#NSFW - Not safe for work). %{link}"
       shared_with: "Compartido con: %{aspect_names}"
       show: mostrar
       unlike: "No me gusta"
