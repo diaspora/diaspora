@@ -1,8 +1,8 @@
 <div class="right controls">
   <% if(author.id != current_user.id) { %>
-    <img src="/images/icons/ignoreuser.png" alt="Ignoreuser" class="block_user control_icon" title= "Ignore" />
+    <img src="/images/icons/ignoreuser.png" alt="Ignoreuser" class="block_user control_icon" title= "<%= Diaspora.I18n.t('ignore') %>" />
   <% } else { %>
-    <img src="/images/deletelabel.png" class="delete control_icon remove_post" title="Delete" />
+    <img src="/images/deletelabel.png" class="delete control_icon remove_post" title="<%= Diaspora.I18n.t('delete') %>" />
   <% } %>
 
 </div>
@@ -29,17 +29,17 @@
 
         <% if(reshares_count) { %>
           -
-          <%= reshares_count %> reshares
+          <%= Diaspora.I18n.t("stream.reshares", {count : reshares_count}) %>
         <% } %>
       </span>
     </div>
 
-    <% if(text !== null && text.match(/#nsfw/)) { %>
+    <% if(text !== null && text.match(/#nsfw/i)) { %>
       <div class="shield_wrapper">
         <div class="shield">
-          This post has been flagged as NSFW by its author.
+          <%= Diaspora.I18n.t('stream.nsfw') %>
           <a href="#">
-            show
+            <%= Diaspora.I18n.t('stream.show') %>
           </a>
         </div>
     <% } %>

@@ -2,7 +2,7 @@
   <ul class="show_comments <%= comments_count <= 3 ? 'hidden' : '' %>">
     <li>
       <a href="/posts/<%= id %>/comments" class="toggle_post_comments">
-        Show <%= comments_count - 3 %> more comments
+      <%= Diaspora.I18n.t('stream.more_comments', {count : comments_count - 3}) %>
       </a>
     </li>
   </ul>
@@ -18,11 +18,11 @@
       </a>
 
       <p>
-        <label for="comment_text_on_<%= id %>">Comment</label>
+      <label for="comment_text_on_<%= id %>"><%= Diaspora.I18n.t('stream.comment') %></label>
         <textarea class="comment_box" id="comment_text_on_<%= id %>" name="text" rows="2" />
       </p>
       <div class="submit_button">
-        <input class="button creation" id="comment_submit_<%= id %>" name="commit" type="submit" value="Comment" />
+        <input class="button creation" id="comment_submit_<%= id %>" name="commit" type="submit" value="<%= Diaspora.I18n.t('stream.comment') %>" />
       </div>
     </form>
   </div>

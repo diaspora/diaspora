@@ -7,7 +7,7 @@ app.views.StreamObject = app.views.Base.extend({
 
   destroyModel: function(evt){
     if(evt){ evt.preventDefault(); }
-    if(!confirm("Are you sure?")) { return }
+    if(!confirm(Diaspora.I18n.t("confirm_dialog"))) { return }
 
     this.model.destroy();
 

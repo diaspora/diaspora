@@ -2,10 +2,16 @@ describe("app.views.Post", function(){
 
   describe("#render", function(){
     beforeEach(function(){
-      // should be jasmine helper
       window.current_user = app.user({name: "alice", avatar : {small : "http://avatar.com/photo.jpg"}});
 
-      var posts = $.parseJSON(spec.readFixture("multi_stream_json"))["posts"][0];
+      Diaspora.I18n.loadLocale({stream : {
+        reshares : {
+          one : "<%= count %> reshare",
+          few : "<%= count %> reshares"
+        }
+      }})
+
+      var posts = $.parseJSON(spec.readFixture("multi_stream_json"))["posts"];
 
       this.collection = new app.collections.Stream(posts);
       this.statusMessage = this.collection.models[0];
@@ -14,17 +20,15 @@ describe("app.views.Post", function(){
     it("displays a reshare count", function(){
       this.statusMessage.set({reshares_count : 2})
       var view = new app.views.Post({model : this.statusMessage}).render();
-      var statusElement = $(view.el)
 
-      expect(statusElement.html()).toContain("2 reshares")
+      expect(view.$(".post_initial_info").html()).toContain(Diaspora.I18n.t('stream.reshares', {count: 2}))
     })
 
     it("does not display a reshare count for 'zero'", function(){
       this.statusMessage.set({reshares_count : 0})
       var view = new app.views.Post({model : this.statusMessage}).render();
-      var statusElement = $(view.el)
 
-      expect(statusElement.html()).not.toContain("0 reshares")
+      expect(view.$(".post_initial_info").html()).not.toContain("0 Reshares")
     })
 
     context("user not signed in", function(){

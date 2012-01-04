@@ -2,6 +2,13 @@ describe("app.views.Feedback", function(){
   beforeEach(function(){
     window.current_user = app.user({id : -1, name: "alice", avatar : {small : "http://avatar.com/photo.jpg"}});
 
+    Diaspora.I18n.loadLocale({stream : {
+      'like' : "Like",
+      'unlike' : "Unlike",
+      'public' : "Public",
+      'limited' : "Limted"
+    }})
+
     var posts = $.parseJSON(spec.readFixture("multi_stream_json"))["posts"];
 
     this.post = new app.models.Post(posts[0]);
@@ -25,7 +32,7 @@ describe("app.views.Feedback", function(){
 
       context("when the user likes the post", function(){
         it("the like action should be 'Unlike'", function(){
-          expect(this.link().text()).toContain('Unlike');
+          expect(this.link().text()).toContain(Diaspora.I18n.t('stream.unlike'))
         })
       })
 
@@ -37,17 +44,17 @@ describe("app.views.Feedback", function(){
         })
 
         it("the like action should be 'Like'", function(){
-          expect(this.link().text()).toContain('Like');
+          expect(this.link().text()).toContain(Diaspora.I18n.t('stream.like'))
         })
 
         it("allows for unliking a just-liked post", function(){
-          expect(this.link().text()).toContain('Like');
+          expect(this.link().text()).toContain(Diaspora.I18n.t('stream.like'))
 
           this.link().click();
-          expect(this.link().text()).toContain('Unlike');
+          expect(this.link().text()).toContain(Diaspora.I18n.t('stream.unlike'))
 
           this.link().click();
-          expect(this.link().text()).toContain('Like');
+          expect(this.link().text()).toContain(Diaspora.I18n.t('stream.like'))
         })
       })
     })
@@ -59,7 +66,7 @@ describe("app.views.Feedback", function(){
       })
 
       it("shows 'Public'", function(){
-        expect($(this.view.el).html()).toContain('Public')
+        expect($(this.view.el).html()).toContain(Diaspora.I18n.t('stream.public'))
       })
 
       it("shows a reshare_action link", function(){
@@ -82,7 +89,7 @@ describe("app.views.Feedback", function(){
       })
 
       it("shows 'Limited'", function(){
-        expect($(this.view.el).html()).toContain('Limited')
+        expect($(this.view.el).html()).toContain(Diaspora.I18n.t('stream.limited'))
       })
 
       it("does not show a reshare_action link", function(){

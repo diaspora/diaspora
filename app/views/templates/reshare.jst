@@ -22,7 +22,7 @@
 
         <% if(root.reshares_count) { %>
           -
-          <%= root.reshares_count %> reshares
+          <%= Diaspora.I18n.t("stream.reshares", {count : root.reshares_count}) %>
         <% } %>
       </div>
 
@@ -50,7 +50,7 @@
 
   <% } else { %>
     <p>
-      Original post deleted by author.
+      <%= Diaspora.I18n.t('stream.original_post_deleted') %>
     </p>
   <% } %>
 </div>
