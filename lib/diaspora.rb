@@ -6,5 +6,6 @@ module Diaspora
 
   autoload :Parser
   autoload :Webhooks
+  autoload :Websocket
 
 end

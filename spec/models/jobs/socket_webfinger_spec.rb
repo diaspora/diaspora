@@ -22,7 +22,7 @@ describe Jobs::SocketWebfinger do
     person = Factory.create(:person)
     finger.stub(:fetch).and_return(person)
 
-    person.should_receive(:socket_to_user).with(@user.id, {})
+    Diaspora::Websocket.should_receive(:to).with(@user.id).and_return(stub.as_null_object)
     Jobs::SocketWebfinger.perform(@user.id, @account)
   end
   it 'Passes opts through on success' do
@@ -32,7 +32,8 @@ describe Jobs::SocketWebfinger do
     finger.stub(:fetch).and_return(person)
 
     opts = {:symbol => true}
-    person.should_receive(:socket_to_user).with(@user.id, opts)
+
+    Diaspora::Websocket.should_receive(:to).with(@user.id).and_return(stub.as_null_object)
     Jobs::SocketWebfinger.perform(@user.id, @account, opts)
   end
   it 'sockets failure message on failure' do
@@ -41,7 +42,8 @@ describe Jobs::SocketWebfinger do
     finger.stub(:fetch).and_raise(Webfinger::WebfingerFailedError)
 
     opts = {:class => 'people', :status => 'fail', :query => @account, :response => I18n.t('people.webfinger.fail', :handle => @account )}.to_json
-    Diaspora::WebSocket.should_receive(:queue_to_user).with(@user.id, opts)
+    Diaspora::Websocket.should_receive(:to).with(@user.id).and_return(stub.as_null_object)
+
     Jobs::SocketWebfinger.perform(@user.id, @account)
 
   end

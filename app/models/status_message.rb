@@ -3,7 +3,6 @@
 #   the COPYRIGHT file.
 
 class StatusMessage < Post
-  include Diaspora::Socketable
   include Diaspora::Taggable
 
   include ActionView::Helpers::TextHelper
@@ -141,17 +140,6 @@ class StatusMessage < Post
     <activity:object-type>http://activitystrea.ms/schema/1.0/note</activity:object-type>
   </entry>
     XML
-  end
-
-  def socket_to_user(user_or_id, opts={})
-    unless opts[:aspect_ids]
-      user_id = user_or_id.instance_of?(Fixnum) ? user_or_id : user_or_id.id
-      aspect_ids = AspectMembership.connection.select_values(
-        AspectMembership.joins(:contact).where(:contacts => {:user_id => user_id, :person_id => self.author_id}).select('aspect_memberships.aspect_id').to_sql
-      )
-      opts.merge!(:aspect_ids => aspect_ids)
-    end
-    super(user_or_id, opts)
   end
 
   def after_dispatch sender
