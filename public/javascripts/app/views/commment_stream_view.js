@@ -25,8 +25,7 @@ app.views.CommentStream = app.views.Base.extend({
     if(evt){ evt.preventDefault(); }
 
     this.model.comments.create({
-      "text" : this.$(".comment_box").val(),
-      "post_id" : this.model.id
+      "text" : this.$(".comment_box").val()
     });
 
     this.$(".comment_box").val("");

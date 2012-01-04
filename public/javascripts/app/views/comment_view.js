@@ -4,7 +4,7 @@ app.views.Comment = app.views.StreamObject.extend({
 
   tagName : "li",
 
-  className : "comment loaded",
+  className : "comment",
 
   events : {
     "click .comment_delete": "destroyModel"

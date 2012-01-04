@@ -1,7 +1,7 @@
 app.views.Feedback = app.views.StreamObject.extend({
   template_name: "#feedback-template",
 
-  className : "info loaded",
+  className : "info",
 
   events: {
     "click .like_action": "toggleLike",
