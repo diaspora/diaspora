@@ -13,7 +13,7 @@ module Jobs
       return false if photo.processed? || unprocessed_image.path.try(:include?, ".gif")
 
       photo.processed_image.store!(unprocessed_image)
-
+      photo.update_remote_path
       photo.save!
     end
   end
