@@ -5,6 +5,8 @@
 class Photo < ActiveRecord::Base
   require 'carrierwave/orm/activerecord'
 
+  attr_accessor :is_for_profile
+  
   include Diaspora::Commentable
   include Diaspora::Shareable
 
@@ -62,6 +64,7 @@ class Photo < ActiveRecord::Base
     photo.diaspora_handle = photo.author.diaspora_handle
 
     photo.random_string = ActiveSupport::SecureRandom.hex(10)
+    photo.is_for_profile = params[:set_profile_photo]
 
     if params[:user_file]
       image_file = params.delete(:user_file)
@@ -119,7 +122,7 @@ class Photo < ActiveRecord::Base
   end
 
   def queue_processing_job
-    Resque.enqueue(Jobs::ProcessPhoto, self.id)
+    Resque.enqueue(Jobs::ProcessPhoto, self.id, self.is_for_profile)
   end
 
   def mutable?

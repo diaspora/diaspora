@@ -6,7 +6,7 @@
 module Jobs
   class ProcessPhoto < Base
     @queue = :photos
-    def self.perform(id)
+    def self.perform(id, needs_profile)
       photo = Photo.find(id)
       unprocessed_image = photo.unprocessed_image
 
@@ -15,6 +15,13 @@ module Jobs
       photo.processed_image.store!(unprocessed_image)
       photo.update_remote_path
       photo.save!
+
+      if ( needs_profile == "true" )
+        profile_params = {:image_url => photo.url(:thumb_large),
+                         :image_url_medium => photo.url(:thumb_medium),
+                         :image_url_small => photo.url(:thumb_small)}
+        photo.author.owner.update_profile(profile_params)
+      end
     end
   end
 end
