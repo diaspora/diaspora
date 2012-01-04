@@ -9,6 +9,7 @@ tr:
     aspect_dropdown:
       add_to_aspect: "Yönüne ekle"
       all_aspects: "Tüm yönler"
+      error: "{{name}} ile paylaşım başlatılamadı. Onu yasaklamış olmayasınız?"
       select_aspects: "Yönleri seç"
       started_sharing_with: "{{name}} sizinle paylaşıma başladı!"
       stopped_sharing_with: "{{name}} sizinle paylaşımı durdurdu."
@@ -33,7 +34,7 @@ tr:
       alright_ill_wait: "Tamam, ben bekleyeceğim."
       hey: "Merhaba, {{name}}!"
       no_tags: "Hey, hiç etiket takip etmiyorsunuz! Gerçekten devam etmek istiyor musun?"
-      preparing_your_stream: "Kişiselleştirilmiş akışınız hazırlanıyor ..."
+      preparing_your_stream: "Kişiselleştirilmiş akışınız hazırlanıyor..."
     infinite_scroll:
       no_more: "Daha fazla gönderi yok."
     photo_uploader:

@@ -41,12 +41,13 @@ is:
         get_connected: "Komdu í samband"
         get_connected_paragraph: "%{strong_diaspora} er alþjóðleg hreyfing sem sér fyrir sér betri vef. Samfélagið er það sem skiptir mestu máli. Komdu með, að kynnast fólki, að halda sambandi við vini þína og taka þátt í fjörinu."
         have_fun: "Skemmtu þér"
+        have_fun_paragraph: "%{strong_diaspora} Snýst um að kynnast uppgötva nýjar hugmyndir og kynnast nýju fólki í gegnum Netið. %{link} er ekki nema upphafið. Safnaðu og dreifðu Vefnum í allri sinni dýrð."
         help_fund: "hjálpaðu til við að fjármagna Diaspora"
         here: hér
         ignore: "Ef þú vilt ekki þiggja boðið, biðjumst við afsökunar á þessum tölvupósti."
         join_team: "Taktu þátt"
         love: "Bestu kveðjur,"
-        made_by_people: "%{strong_diaspora} er búið til af fólki sem þykir vænt um Internetið eins og þér. %{jointeam}, or %{helpfund}!"
+        made_by_people: "%{strong_diaspora} er búið til af fólki sem þykir vænt um Internetið eins og þér. %{jointeam}, eða %{helpfund}!"
         more_people: "Enn fleiri eru spenntir að hitta þig!"
         no_account_till: "Aðgangurinn þinn verður ekki til fyrr en þú fylgir hlekknum hér fyrir ofan og stofnar nýjan aðgang."
         or: eða
@@ -54,7 +55,7 @@ is:
         subject: "Þér hefur verið boðið að vera með í Diaspora!"
         team_diaspora: Diasporahópurinn
         unsubscribe: "Smelltu %{link} til að segja upp áskriftinni."
-        view_in: "View in"
+        view_in: "Skoða í"
       inviter:
         accept_at: "á %{url}. Þú getur þegið boðið með því að fylgja hlekknum hér fyrir neðan."
         have_invited_you: "%{names} hafa boðið þér að vera með í Diaspora"
@@ -72,7 +73,7 @@ is:
       welcome: "Velkomin/n %{email}!"
     passwords:
       edit:
-        change_password: "Breyta lykilorði mínu"
+        change_password: "Breyta lykilorði"
       new:
         forgot_password: "Gleymdirðu lykilorðinu þínu?"
         no_account: "Enginn notandi með þetta netfang ert til. Ef þú ert að bíða eftir boði, þá erum við að senda þau út eins fljótt og auðið er"
@@ -86,8 +87,8 @@ is:
     sessions:
       new:
         alpha_software: "Þú ert í þann veginn að nota alpha-hugbúnað (það þýðir að hann hefur ekki verið fullreyndur)."
-        bugs_and_feedback: "Hafðu fyrirvara um að þú munt rekast á galla í forritinu. Við hvetjum þig til að nota Feedback-hnappinn þér á hægri hönd til þess að tilkynna hvers kyns hiksta! Við munum vinna eins hratt og við getum að því að leysa þau mál sem þú tilkynnir."
-        bugs_and_feedback_mobile: "Hafðu fyrirvara um að þú munt rekast á galla í forritinu. Við hvetjum þig til að tilkynna hvers kyns hiksta! Við munum vinna eins hratt og við getum að því að leysa þau mál sem þú tilkynnir."
+        bugs_and_feedback: "Hafðu fyrirvara um að þú munt rekast á galla í forritinu. Við hvetjum þig til að nota Feedback-hnappinn þér á hægri hönd til þess að tilkynna hvers kyns hnökra! Við munum vinna eins hratt og við getum að því að leysa þau mál sem þú tilkynnir."
+        bugs_and_feedback_mobile: "Vertu viðbúinn hnökrum! Við reynum okkar besta til þess að laga tilkynnta hnökra."
         login: Innskrá
         modern_browsers: "styður einungis nýlega vafra."
         password: Lykilorð
@@ -115,4 +116,4 @@ is:
     messages:
       already_confirmed: "var nú þegar staðfestur"
       not_found: "fannst ekki"
-      not_locked: "var ekki læstur"
+      not_locked: ólæstur

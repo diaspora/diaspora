@@ -39,7 +39,7 @@ Diaspora::Application.configure do
           :address => AppConfig[:smtp_address],
           :port => AppConfig[:smtp_port],
           :domain => AppConfig[:smtp_domain],
-          :authentication => AppConfig[:smtp_authentication],
+          :authentication => AppConfig[:smtp_authentication].gsub('-', '_').to_sym,
           :user_name => AppConfig[:smtp_username],
           :password => AppConfig[:smtp_password],
           :enable_starttls_auto => AppConfig[:smtp_starttls_auto],

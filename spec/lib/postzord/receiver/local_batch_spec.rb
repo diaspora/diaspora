@@ -43,9 +43,7 @@ describe Postzord::Receiver::LocalBatch do
 
   describe '#socket_to_users' do
     it 'sockets to users' do
-      receiver.users.each do |user|
-        @object.should_receive(:socket_to_user).with(user)
-      end
+      Diaspora::Websocket.should_receive(:to).with(receiver.users).and_return(stub.as_null_object)
       receiver.socket_to_users
     end
   end

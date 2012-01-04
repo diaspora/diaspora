@@ -4,7 +4,6 @@
 
 module Diaspora
   module Shareable
-    require File.join(Rails.root, 'lib/diaspora/web_socket')
     include Diaspora::Webhooks
 
     def self.included(model)

@@ -66,6 +66,7 @@ cy:
       you_should_add_some_more_contacts: "Dylech chi ychwanegu mwy o gysylltiadau!"
     no_posts_message:
       start_talking: "Nobody has said anything yet.  Get the conversation started!"
+    one: "1 aspect"
     other: "%{count} agweddau"
     selected_contacts:
       view_all_contacts: "Gweld cysylltiadau i gŷd"
@@ -83,9 +84,16 @@ cy:
     heading: "Diaspora Bookmarklet"
   cancel: Diddymu
   comments:
+    few: "%{count} comments"
+    many: "%{count} comments"
     new_comment:
       comment: Sylw
+    one: "1 comment"
+    other: "%{count} comments"
+    two: "%{count} comments"
+    zero: "no comments"
   contacts:
+    few: "%{count} contacts"
     index:
       add_a_new_aspect: "Ychwanegwch agwedd newydd"
       add_to_aspect: "Add contacts to %{name}"
@@ -95,12 +103,21 @@ cy:
       remove_person_from_aspect: "Tynnu %{person_name} oddi ar \"%{aspect_name}\""
       title: Cysylltiadau
       your_contacts: "Eich Cysylltiadau chi"
+    many: "%{count} contacts"
+    one: "1 contact"
+    other: "%{count} contacts"
+    two: "%{count} contacts"
     zero: "no contacts"
   conversations:
     create:
       sent: "Neges wedi anfon"
     helper:
       new_messages:
+        few: "%{count} new messages"
+        many: "%{count} new messages"
+        one: "1 new messages"
+        other: "%{count} new messages"
+        two: "%{count} new messages"
         zero: "no new messages"
     index:
       message_inbox: "Neges Inbox"
@@ -136,14 +153,24 @@ cy:
       people_dislike_this:
         few: "%{count} people disliked this"
         many: "%{count} o bobl ddim yn hoffi hwn"
+        one: "%{count} dislike"
         other: "%{count} people disliked this"
+        two: "%{count} dislikes"
         zero: "no people disliked this"
       people_like_this:
         few: "%{count} people liked this"
         many: "%{count} people liked this"
         one: "1 unigolyn yn hoffi hyn"
         other: "%{count} pobl yn hoffi hyn"
+        two: "%{count} likes"
         zero: "no people liked this"
+      people_like_this_comment:
+        few: "%{count} likes"
+        many: "%{count} likes"
+        one: "%{count} like"
+        other: "%{count} likes"
+        two: "%{count} likes"
+        zero: "no likes"
   limited: Cyfyngedig
   next: nesaf
   notifications:
@@ -172,12 +199,19 @@ cy:
       new_notifications:
         few: "%{count} hysbysiadau newydd"
         many: "%{count} hysbysiadau newydd"
+        one: "1 new notification"
         other: "%{count} hysbysiadau newydd"
+        two: "%{count} new notifications"
         zero: "no new notifications"
     index:
       and: a
       and_others:
+        few: "and %{count} others"
+        many: "and %{count} others"
         one: "ac un arall"
+        other: "and %{count} others"
+        two: "and %{count} others"
+        zero: "and nobody else"
       mark_all_as_read: "Nodiad pob wedi darllen"
       notifications: Hysbysiadau
     liked:
@@ -197,9 +231,17 @@ cy:
     mentioned:
       few: "%{actors} has mentioned you in a %{post_link}."
       many: "%{actors} has mentioned you in a %{post_link}."
+      one: "%{actors} has mentioned you in a %{post_link}."
       other: "%{actors} has mentioned you in a %{post_link}."
       two: "%{actors} has mentioned you in a %{post_link}."
       zero: "%{actors} has mentioned you in a %{post_link}."
+    mentioned_deleted:
+      few: "%{actors} mentioned you in a deleted post."
+      many: "%{actors} mentioned you in a deleted post."
+      one: "%{actors} mentioned you in a deleted post."
+      other: "%{actors} mentioned you in a deleted post."
+      two: "%{actors} mentioned you in a deleted post."
+      zero: "%{actors} mentioned you in a deleted post."
     post: bost
     private_message:
       few: "Mae %{actors} wedi anfon neges iddych chi."
@@ -276,6 +318,8 @@ cy:
       start_sharing: "dechrau rhannu"
     sub_header:
       edit: golygu
+    two: "%{count} people"
+    zero: "no people"
   photos:
     comment_email_subject: "ffoto %{name}"
     create:
@@ -298,6 +342,13 @@ cy:
       your_photo: "Eich ffoto"
       your_tags: "You: in 5 #tags"
       your_tags_placeholder: "i.e. #diaspora #ironing #kittens #music"
+  reactions:
+    few: "%{count} reactions"
+    many: "%{count} reactions"
+    one: "1 reaction"
+    other: "%{count} reactions"
+    two: "%{count} reactions"
+    zero: "0 reactions"
   registrations:
     create:
       success: "Rydych chi wedi ymuno Diaspora!"
@@ -313,6 +364,14 @@ cy:
       error: "Dewiswch agwedd!"
       ignore: "Ignored friend request."
       success: "Ffrindiau ydych chi!"
+    helper:
+      new_requests:
+        few: "%{count} new requests!"
+        many: "%{count} new requests!"
+        one: "new request!"
+        other: "%{count} new requests!"
+        two: "%{count} new requests!"
+        zero: "no new requests"
   reshares:
     create:
       failure: "Roedd camgymeriad yn rhannu y swydd hon."
@@ -395,8 +454,22 @@ cy:
   status_messages:
     helper:
       no_message_to_display: "Dim neges i arddangos."
+    too_long:
+      few: "please make your status messages less than %{count} characters"
+      many: "please make your status messages less than %{count} characters"
+      one: "please make your status messages less than %{count} character"
+      other: "please make your status messages less than %{count} characters"
+      two: "please make your status messages less than %{count} characters"
+      zero: "please make your status messages less than %{count} characters"
   stream_helper:
     hide_comments: "hide comments"
+    show_comments:
+      few: "Show %{count} more comments"
+      many: "Show %{count} more comments"
+      one: "Show one more comment"
+      other: "Show %{count} more comments"
+      two: "Show two more comments"
+      zero: "No more comments"
   streams:
     aspects:
       title: "Eich Agweddau"

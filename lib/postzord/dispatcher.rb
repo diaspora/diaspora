@@ -152,10 +152,8 @@ class Postzord::Dispatcher
 
   # @param services [Array<User>]
   def socket_to_users(users)
-    return unless users.present? && @object.respond_to?(:socket_to_user)
-    users.each do |user|
-      @object.socket_to_user(user)
-    end
+    return unless users.present?
+    Diaspora::Websocket.to(users).socket(@object)
   end
 end
 

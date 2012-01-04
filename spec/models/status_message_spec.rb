@@ -226,6 +226,18 @@ STR
       end
     end
 
+    describe "#nsfw?" do
+      it 'returns MatchObject (true) if the post contains #nsfw (however capitalised)' do
+         status  = Factory(:status_message, :text => "This message is #nSFw")
+         status.nsfw?.should be_true
+      end
+
+      it 'returns nil (false) if the post does not contain #nsfw' do
+         status  = Factory(:status_message, :text => "This message is #sFW")
+         status.nsfw?.should be_false
+      end
+    end
+
     describe "#notify_person" do
       it 'notifies the person mentioned' do
         Notification.should_receive(:notify).with(alice, anything, anything)

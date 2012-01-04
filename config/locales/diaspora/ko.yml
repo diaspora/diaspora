@@ -188,7 +188,7 @@ ko:
     few: "댓글 %{count}개"
     many: "댓글 %{count}개"
     new_comment:
-      comment: 댓글
+      comment: "댓글 달기"
       commenting: "댓글 다는 중···"
     one: "댓글 한 개"
     other: "댓글 %{count}개"
@@ -389,6 +389,7 @@ ko:
         one: "+ 한 명"
         other: "+ %{count}명"
         two: "과 %{count}명"
+        zero: "and nobody else"
       mark_all_as_read: "모두 읽음으로 표시"
       notifications: 알림
     liked:

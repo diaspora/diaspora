@@ -41,7 +41,7 @@ module ResqueJobLogging
         :controller => "Resque",
         :action => self.name
       }
-    ) if Rails.env.production?
+    ) if Rails.env.production? && AppConfig[:hoptoad_api_key].present?
   end
 
   def application_trace(error) #copied from ActionDispatch::ShowExceptions

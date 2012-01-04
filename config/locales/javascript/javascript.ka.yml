@@ -1,0 +1,72 @@
+#   Copyright (c) 2010-2011, Diaspora Inc.  This file is
+#   licensed under the Affero General Public License version 3 or later.  See
+#   the COPYRIGHT file.
+
+
+
+ka:
+  javascripts:
+    aspect_dropdown:
+      add_to_aspect: "კონტაქტის დამატება"
+      all_aspects: "ყველა ასპექტი"
+      error: "{{name}}-თან გაზიარების დაწყება ვერ მოხერხდა. იგნორირება ხომ არ გაუკეთეთ მას?"
+      select_aspects: "აირჩიეთ ასპექტები"
+      started_sharing_with: "თქვნ დაიწყეთ {{name}}-თან გაზიარება!"
+      stopped_sharing_with: "თქვენ შეწყვიტეთ {{name}}-თან გაზიარება."
+      toggle:
+        few: "{{count}} ასპექტში"
+        many: "{{count}} ასპექტში"
+        one: "{{count}} ასპექტში"
+        other: "{{count}} ასპექტში"
+        two: "{{count}} ასპექტში"
+        zero: "აირჩიეთ ასპექტები"
+    aspect_navigation:
+      deselect_all: "მონიშვნის მოხსნა"
+      no_aspects: "ასპექტები არ არჩეულა"
+      select_all: "ყველას მონიშვნა"
+    comments:
+      hide: "კომენტარების დამალვა"
+      show: "ყველა კომენტარის ჩვენება"
+    confirm_dialog: "დარწმუნებული ხართ?"
+    failed_to_like: "მოწონება ჩაიშალა!"
+    failed_to_post_message: "შეტყობინების გამოცხადება ჩაიშალა!"
+    getting_started:
+      alright_ill_wait: "კარგი, მოვიცდი."
+      hey: "ჰეი, {{name}}!"
+      no_tags: "ჰეი, თქვენ არ მიყვებით არცერთ ტეგს! მაინც გსურთ გაგრძელება?"
+      preparing_your_stream: "თქვენი პერსონალიზებული ნაკადი მზადდება..."
+    infinite_scroll:
+      no_more: "მეტი პოსტი არ არის."
+    photo_uploader:
+      looking_good: "OMG, ძალიან კარგად გამოიყურები!"
+    publisher:
+      at_least_one_aspect: "თქვენ უნდა გამოაქვეყნოთ მინიმუმ ერთ ასპექტში"
+      limited: "შეზღუდული - თქვენს პოსტს დაინახავს მხოლოდ ის ხალხი რომელთანაც აზიარებთ"
+      public: "საჯარო - თქვენს პოსტს დაინახავს ყველა და მას მოძებნილი იქნებიან საძიბო სისტემებით"
+    reshares:
+      duplicate: "ასეთი მაგარია?  თქვენ უკვე გააზიარეთ ეს პოსტი!"
+    search_for: "ძებნა {{name}}"
+    show_more: "მეტის ჩვენება"
+    tags:
+      wasnt_that_interesting: "კარგი, მე ვფიქრობ რომ #{{tagName}} არც ისე საინტერესო იყო..."
+    timeago:
+      day: დღე
+      days: "%d დღე"
+      hour: "დაახლოებით ერთი საათი"
+      hours: "დაახლოებით %d საათი"
+      minute: "დაახლოებით წუთი"
+      minutes: "%d წუთი"
+      month: "დაახლოებით ერთი თვე"
+      months: "%d თვე"
+      prefixAgo: "javascripts:timeago:prefixAgo"
+      prefixFromNow: "javascripts:timeago:prefixFromNow"
+      seconds: "წუთზე ნაკლები"
+      suffixAgo: წინ
+      suffixFromNow: ამიერიდან
+      year: "დაახლოებით ერთი წელი"
+      years: "%d წელი"
+    videos:
+      unknown: "ვიდეოს ტიპი უცნობია"
+      watch: "ვიდეოს ნახვა საიტზე {{provider}}"
+    web_sockets:
+      disconnected: "ვებ-სოკეტი დახურულია; განხადებების ნაკადი აღარ მოედინება პირდაპირ."

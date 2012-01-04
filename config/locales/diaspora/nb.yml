@@ -274,17 +274,22 @@ nb:
         many: "%{count} personer misliker dette"
         one: "1 person misliker dette"
         other: "%{count} personer misliker dette"
+        two: "%{count} dislikes"
         zero: "ingen misliker dette"
       people_like_this:
         few: "%{count} personer liker dette"
         many: "%{count} personer liker dette"
         one: "1 person liker dette"
         other: "%{count} personer liker dette"
+        two: "%{count} likes"
         zero: "ingen liker dette"
       people_like_this_comment:
         few: "%{count} liker"
         many: "%{count} liker"
         one: "%{count} liker"
+        other: "%{count} likes"
+        two: "%{count} likes"
+        zero: "no likes"
   more: Mer
   next: neste
   no_results: "Ingen resultater ble funnet"
@@ -294,18 +299,21 @@ nb:
       many: "%{actors} kommenterte også på %{post_author}s %{post_link}."
       one: "%{actors} kommenterte også på %{post_author}s %{post_link}."
       other: "%{actors} har også kommentert på %{post_author}'s %{post_link}."
+      two: "%{actors} also commented on %{post_author}'s %{post_link}."
       zero: "%{actors} har også kommentert på %{post_author}'s %{post_link}."
     also_commented_deleted:
       few: "%{actors} kommenterte på en slettet post."
       many: "%{actors} kommenterte på en slettet post."
       one: "%{actors} kommenterte på en slettet post."
       other: "%{actors} kommenterte på en slettet post."
+      two: "%{actors} commented on a deleted post."
       zero: "%{actors} kommenterte på en slettet post."
     comment_on_post:
       few: "%{actors} kommenterte på din %{post_link}."
       many: "%{actors} kommenterte på din %{post_link}."
       one: "%{actors} kommenterte på din %{post_link}."
       other: "%{actors} kommenterte på din %{post_link}."
+      two: "%{actors} commented on your %{post_link}."
       zero: "%{actors} kommenterte på din %{post_link}."
     helper:
       new_notifications:
@@ -313,6 +321,7 @@ nb:
         many: "%{count} nye varsler"
         one: "1 nytt varsel"
         other: "%{count} nye varsler"
+        two: "%{count} new notifications"
         zero: "ingen nye varsler"
     index:
       and: og
@@ -337,6 +346,7 @@ nb:
       many: "%{actors} likte ditt innlegg du har slettet."
       one: "%{actors} likte ditt innlegg du har slettet."
       other: "%{actors} likte ditt innlegg du har slettet."
+      two: "%{actors} liked your deleted post."
       zero: "%{actors} likte ditt innlegg du har slettet."
     mentioned:
       few: "%{actors} har nevnt deg i en %{post_link}."
@@ -350,6 +360,7 @@ nb:
       many: "%{actors} nevnte deg i en slettet post."
       one: "%{actors} nevnte deg i en slettet post."
       other: "%{actors} nevnte deg i en slettet post."
+      two: "%{actors} mentioned you in a deleted post."
       zero: "%{actors} nevnte deg i en slettet post."
     post: innlegg
     private_message:
@@ -371,11 +382,14 @@ nb:
       many: "%{actors} har delt innlegget du slettet."
       one: "%{actors} har delt innlegget du slettet."
       other: "%{actors} har delt innlegget du slettet."
+      two: "%{actors} reshared your deleted post."
       zero: "%{actors} har delt innlegget du slettet."
     started_sharing:
       few: "%{actors} har begynt å dele med deg."
       many: "%{actors} har begynt å dele med deg."
       one: "%{actors} har begynt å dele med deg."
+      other: "%{actors} started sharing with you."
+      two: "%{actors} started sharing with you."
       zero: "%{actors} har begynt å dele med deg."
   notifier:
     click_here: "klikk her"
@@ -425,6 +439,7 @@ nb:
       no_results: "Hei! Du må søke etter noe."
       results_for: "søkeresultater for"
     many: "%{count} personer"
+    one: "1 person"
     other: "%{count} personer"
     person:
       add_contact: "legg til kontakt"
@@ -456,6 +471,7 @@ nb:
       add_some: "legg til noen"
       edit: endre
       you_have_no_tags: "du har ingen tags!"
+    two: "%{count} people"
     webfinger:
       fail: "Beklager, vi kunne ikke finne %{handle}."
     zero: "ingen personer"
@@ -574,6 +590,7 @@ nb:
         many: "%{count} Reshares"
         one: "1 Reshare"
         other: "%{count} Reshares"
+        two: "%{count} reshares"
         zero: "Del igjen"
       reshare_confirmation: "Reshare %{author} - %{text}?"
       reshare_original: "Reshare orignial"
@@ -699,6 +716,8 @@ nb:
       many: "Vis %{count} flere kommentarer"
       one: "Vis ett kommentar til"
       other: "Vis %{count} flere kommentarer"
+      two: "Show two more comments"
+      zero: "No more comments"
   streams:
     mentions:
       contacts_title: "Folk som har nevnt deg"

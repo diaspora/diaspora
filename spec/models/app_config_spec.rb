@@ -40,7 +40,7 @@ describe AppConfig do
 
       context "when source config file (i.e. config/application.yml) does not exist" do
         before do
-          application_yml = File.join(Rails.root, "config", "application.yml.example")
+          application_yml = AppConfig.source_file_name
           @app_yml = File.join(Rails.root, "config", "app.yml")
           @app_config_yml = File.join(Rails.root, "config", "app_config.yml")
           File.should_receive(:exists?).with(application_yml).at_least(:once).and_return(false)
@@ -138,6 +138,28 @@ describe AppConfig do
       AppConfig[:pod_url] = "https://example.org/"
       AppConfig.normalize_pod_url
       AppConfig[:pod_url].should == "https://example.org/"
+    end
+  end
+
+  context 'configurations which are arrays' do
+
+    it 'should be set to be admins or community_spotlight' do
+      AppConfig::ARRAY_VARS.should =~ [:community_spotlight, :admins]
+    end
+
+    context 'on heroku' do
+      before do
+        ENV['admins'] = "maxwell#{EnviromentConfiguration::ARRAY_SEPERATOR}daniel"
+        EnviromentConfiguration.stub(:heroku?).and_return(true)
+      end
+
+      after do
+        EnviromentConfiguration.stub(:heroku?).and_return(false)
+      end
+
+      it 'converts a string with ARRAY_SEPERATOR to an array' do
+        AppConfig[:admins].should be_a Array
+      end
     end
   end
 

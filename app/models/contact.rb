@@ -69,7 +69,7 @@ class Contact < ActiveRecord::Base
 
   def receive_shareable(shareable)
     ShareVisibility.create!(:shareable_id => shareable.id, :shareable_type => shareable.class.base_class.to_s, :contact_id => self.id)
-    shareable.socket_to_user(self.user, :aspect_ids => self.aspect_ids) if shareable.respond_to? :socket_to_user
+    Diaspora::Websocket.to(self.user, :aspect_ids => self.aspect_ids).socket(shareable)
   end
 
   def contacts

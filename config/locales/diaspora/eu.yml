@@ -206,6 +206,7 @@ eu:
       people_sharing: "Zurekin harremanetan daudenak:"
     spotlight:
       community_spotlight: "Komunitateko Nabarmenena"
+    two: "%{count} contacts"
     zero: adiskideak
   conversations:
     create:
@@ -219,6 +220,7 @@ eu:
         many: "%{count} mezu pribatu berri"
         one: "mezu pribatu berri 1"
         other: "%{count} mezu pribatu berri"
+        two: "%{count} new messages"
         zero: "Mezu pribatu berririk ez"
     index:
       create_a_new_message: "mezu berria sortu"
@@ -314,6 +316,7 @@ eu:
         many: "%{count} pertsonek ez dute hau gustuko"
         one: "%{count}ek ez du hau gustuko"
         other: "%{count} pertsonek ez dute hau gustuko"
+        two: "%{count} dislikes"
         zero: "gustoko ez duen pertsonarik ez"
       people_like_this:
         few: "%{count} pertsonek gustoko dute hau"
@@ -757,6 +760,13 @@ eu:
       zero: "mesedez, egin itzazu zure mezuak %{count} karaktere baino motzagoak"
   stream_helper:
     hide_comments: "Iruzkin guztiak ezkutatu"
+    show_comments:
+      few: "Show %{count} more comments"
+      many: "Show %{count} more comments"
+      one: "Show one more comment"
+      other: "Show %{count} more comments"
+      two: "Show two more comments"
+      zero: "No more comments"
   streams:
     aspects:
       title: "Zure Alderdiak"

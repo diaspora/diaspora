@@ -13,6 +13,7 @@ zh-CN:
         many: "在{{count}}个视图中"
         one: "在{{count}}个视图中"
         other: "在{{count}}个视图中"
+        two: "In {{count}} aspects"
         zero: 添加到视图
     comments:
       hide: 隐藏评论

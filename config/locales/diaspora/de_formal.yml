@@ -782,6 +782,13 @@ de_formal:
       zero: "Bitte kürzen Sie Ihren Beitrag auf weniger als %{count} Zeichen."
   stream_helper:
     hide_comments: "Alle Kommentare verbergen"
+    show_comments:
+      few: "Show %{count} more comments"
+      many: "Show %{count} more comments"
+      one: "Show one more comment"
+      other: "Show %{count} more comments"
+      two: "Show two more comments"
+      zero: "No more comments"
   streams:
     aspects:
       title: "Ihre Aspekte"
