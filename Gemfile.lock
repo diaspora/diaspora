@@ -262,6 +262,7 @@ GEM
       gem_plugin (>= 0.2.3)
     multi_json (1.0.4)
     multipart-post (1.1.4)
+    mysql2 (0.2.17)
     net-scp (1.0.4)
       net-ssh (>= 1.99.1)
     net-sftp (2.0.5)
@@ -487,6 +488,7 @@ DEPENDENCIES
   mobile-fu
   mock_redis
   mongrel
+  mysql2 (= 0.2.17)
   newrelic_rpm
   nokogiri (~> 1.5.0)
   oauth2-provider (= 0.0.19)
