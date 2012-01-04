@@ -39,7 +39,7 @@
 
     -# %script{:type => "text/javascript", :src => 'http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js'}
     :javascript
-      !window.jQuery && document.write(unescape("#{escape_javascript(include_javascripts(:jquery))})"))
+      !window.jQuery && document.write(unescape("#{escape_javascript(include_javascripts(:jquery))}"))
 
     - unless @landing_page
       = include_javascripts :main
