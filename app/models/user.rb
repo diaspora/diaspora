@@ -36,6 +36,7 @@ class User < ActiveRecord::Base
   has_many :invitations_from_me, :class_name => 'Invitation', :foreign_key => :sender_id
   has_many :invitations_to_me, :class_name => 'Invitation', :foreign_key => :recipient_id
   has_many :aspects, :order => 'order_id ASC'
+  belongs_to  :auto_follow_back_aspect, :class_name => 'Aspect'
   has_many :aspect_memberships, :through => :aspects
   has_many :contacts
   has_many :contact_people, :through => :contacts, :source => :person
@@ -61,7 +62,9 @@ class User < ActiveRecord::Base
                   :disable_mail,
                   :invitation_service,
                   :invitation_identifier,
-                  :show_community_spotlight_in_stream
+                  :show_community_spotlight_in_stream,
+                  :auto_follow_back,
+                  :auto_follow_back_aspect_id
 
 
   def self.all_sharing_with_person(person)
