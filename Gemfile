@@ -33,6 +33,9 @@ gem 'messagebus_ruby_api', '1.0.1'
 gem 'em-synchrony', :platforms => :ruby_19
 gem 'em-websocket'
 
+# web sockets flash fallback
+gem 'flash_policy_server'
+
 group :production do # we don't install these on travis to speed up test runs
   # chef
   gem 'chef', '~> 0.10.4', :require => false

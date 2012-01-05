@@ -183,6 +183,7 @@ GEM
     fixture_builder (0.3.1)
       activerecord (>= 2)
       activesupport (>= 2)
+    flash_policy_server (0.0.3)
     fog (1.1.1)
       builder
       excon (~> 0.7.4)
@@ -472,6 +473,7 @@ DEPENDENCIES
   faraday-stack
   fastercsv (= 1.5.4)
   fixture_builder (= 0.3.1)
+  flash_policy_server
   fog
   foreigner (~> 1.1.0)
   foreman
