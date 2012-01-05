@@ -49,7 +49,7 @@ Diaspora::Application.configure do
   config.threadsafe!
 
 
-  require Rails.root + 'app/models/app_config'
+  require File.join(Rails.root, 'app/models/app_config')
 
   if AppConfig[:google_a_site].present?
     config.gem 'rack-google-analytics', :lib => 'rack/google-analytics'
