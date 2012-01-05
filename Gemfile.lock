@@ -317,10 +317,12 @@ GEM
     pg (0.12.2)
     polyglot (0.3.3)
     rack (1.2.4)
+    rack-google-analytics (0.10.0)
     rack-mobile-detect (0.3.0)
       rack
     rack-mount (0.6.14)
       rack (>= 1.0.0)
+    rack-piwik (0.1.2)
     rack-test (0.5.7)
       rack (>= 1.0)
     rails (3.0.11)
@@ -503,6 +505,8 @@ DEPENDENCIES
   omniauth-twitter
   parallel_tests
   pg
+  rack-google-analytics
+  rack-piwik
   rails (= 3.0.11)
   rails-i18n
   redcarpet (= 2.0.0)
