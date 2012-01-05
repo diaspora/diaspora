@@ -159,7 +159,7 @@ describe Photo do
 
   describe 'serialization' do
     before do
-      Jobs::ProcessPhoto.perform(@saved_photo.id)
+      Jobs::ProcessPhoto.perform(@saved_photo.id, nil)
       @xml = @saved_photo.to_xml.to_s
     end
 
@@ -175,7 +175,7 @@ describe Photo do
 
   describe 'remote photos' do
     before do
-      Jobs::ProcessPhoto.perform(@saved_photo.id)
+      Jobs::ProcessPhoto.perform(@saved_photo.id, nil)
     end
 
     it 'should set the remote_photo on marshalling' do
@@ -208,7 +208,13 @@ describe Photo do
 
   describe '#queue_processing_job' do
     it 'should queue a resque job to process the images' do
-      Resque.should_receive(:enqueue).with(Jobs::ProcessPhoto, @photo.id)
+      Resque.should_receive(:enqueue).with(Jobs::ProcessPhoto, @photo.id, nil)
+      @photo.is_for_profile = nil
+      @photo.queue_processing_job
+    end
+    it 'should queue a resque job to process the images and save a profile' do
+      Resque.should_receive(:enqueue).with(Jobs::ProcessPhoto, @photo.id, "true")
+      @photo.is_for_profile = "true"
       @photo.queue_processing_job
     end
   end
