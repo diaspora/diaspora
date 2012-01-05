@@ -15,14 +15,22 @@
         notificationArea: notificationArea
       });
 
-      $(".stream_element.unread").live("mousedown", function() {
-        self.decrementCount();
+        $(".stream_element.unread").live("mousedown", function() {
+          self.decrementCount();
 
-        $.ajax({
-          url: "notifications/" + $(this).removeClass("unread").data("guid"),
-          type: "PUT"
+          $.ajax({
+            url: "notifications/" + $(this).removeClass("unread").data("guid"),
+            type: "PUT"
+          });
         });
-      });
+        $(".stream_element").live("mousedown", function() {
+          self.incrementCount();
+
+          $.ajax({
+            url: "notifications/" + $(this).addClass("unread").data("guid"),
+            type: "PUT"
+          });
+        });
 
       $("a.more").live("click", function(evt) {
         evt.preventDefault();
