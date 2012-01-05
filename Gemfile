@@ -45,6 +45,9 @@ end
 
 # configuration
 
+group :heroku do
+  gem 'pg'
+end
 
 gem 'settingslogic', '2.0.6'
 # database
