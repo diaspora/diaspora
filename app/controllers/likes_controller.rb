@@ -34,7 +34,7 @@ class LikesController < ApplicationController
       current_user.retract(@like)
       respond_to do |format|
         format.any { }
-        format.json { render :nothing => true, :status => 204}
+        format.json{ render :json => @like.parent.as_api_response(:backbone), :status => 202 }
       end
     else
       respond_to do |format|

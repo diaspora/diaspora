@@ -59,12 +59,12 @@ describe("app.models.Post", function() {
   describe("unlike", function(){
     it("calls destroy on the likes collection", function(){
       var like = new app.models.Like();
-      this.post.set({user_like : like})
+      this.post.set({user_like : like.toJSON()})
 
-      spyOn(like, "destroy");
+      spyOn(app.models.Like.prototype, "destroy");
 
       this.post.unlike();
-      expect(like.destroy).toHaveBeenCalled();
+      expect(app.models.Like.prototype.destroy).toHaveBeenCalled();
     })
   })
 

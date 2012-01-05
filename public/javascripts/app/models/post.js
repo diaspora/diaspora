@@ -45,7 +45,10 @@ app.models.Post = Backbone.Model.extend({
   },
 
   unlike : function() {
-    this.get("user_like").destroy();
+    var likeModel = new app.models.Like(this.get("user_like"));
+    likeModel.url = this.likes.url + "/" + likeModel.id;
+
+    likeModel.destroy();
     this.set({ user_like : null });
   },
 

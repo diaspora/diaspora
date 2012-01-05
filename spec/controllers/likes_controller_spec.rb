@@ -117,7 +117,7 @@ describe LikesController do
           expect {
             delete :destroy, :format => :json, id_field => @like.target_id, :id => @like.id
           }.should change(Like, :count).by(-1)
-          response.status.should == 204
+          response.status.should == 202
         end
 
         it 'does not let a user destroy other likes' do
