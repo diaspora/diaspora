@@ -25,13 +25,18 @@ describe Jobs::ProcessPhoto do
 
   it 'saves the profile image when set' do
     @saved_photo.processed_image.path.should be_nil
-    @saved_photo.author.owner.should_receive(:update_profile)
+
     result = Jobs::ProcessPhoto.perform(@saved_photo.id, "true")
+
+    @saved_photo.reload
+    puts( @user.person.profile.image_url.inspect )
+    @user.person.profile.image_url.should == @saved_photo.url(:thumb_large)
   end
   it 'doesnt save the profile image when not' do
-    @saved_photo.processed_image.path.should be_nil
-    @saved_photo.author.owner.should_not_receive(:update_profile)
+    @saved_photo.processed_image.path.should == nil
+
     result = Jobs::ProcessPhoto.perform(@saved_photo.id, nil)
+    @user.person.profile.image_url.should == "/images/user/default.png"
   end
 
   context 'when trying to process a photo that has already been processed' do
