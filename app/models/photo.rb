@@ -8,6 +8,8 @@ class Photo < ActiveRecord::Base
   include Diaspora::Commentable
   include Diaspora::Shareable
 
+  attr_accessor :post_proc_proc
+
   mount_uploader :processed_image, ProcessedImage
   mount_uploader :unprocessed_image, UnprocessedImage
 
@@ -60,6 +62,11 @@ class Photo < ActiveRecord::Base
     photo.diaspora_handle = photo.author.diaspora_handle
 
     photo.random_string = ActiveSupport::SecureRandom.hex(10)
+    if ( params[:set_profile_photo] == "true" )
+      photo.post_proc_proc = Proc.new do |a_photo|
+        Jobs::ProcessPhoto.update_profile( a_photo )
+      end
+    end
 
     if params[:user_file]
       image_file = params.delete(:user_file)
@@ -83,7 +90,7 @@ class Photo < ActiveRecord::Base
     unless self.unprocessed_image.url.match(/^https?:\/\//)
       pod_url = AppConfig[:pod_url].dup
       pod_url.chop! if AppConfig[:pod_url][-1,1] == '/'
-      remote_path = "#{pod_url}#{self.unprocessed_image.url}"
+      remote_path = self.processed? ? "#{pod_url}#{self.processed_image.url}" : "#{pod_url}#{self.unprocessed_image.url}"
     else
       remote_path = self.unprocessed_image.url
     end
@@ -117,7 +124,7 @@ class Photo < ActiveRecord::Base
   end
 
   def queue_processing_job
-    Resque.enqueue(Jobs::ProcessPhoto, self.id)
+    Resque.enqueue(Jobs::ProcessPhoto, self.id, self.post_proc_proc)
   end
 
   def mutable?
