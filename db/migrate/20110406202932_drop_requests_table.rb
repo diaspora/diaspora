@@ -10,7 +10,7 @@ class DropRequestsTable < ActiveRecord::Migration
     remove_index :requests, [:sender_id, :recipient_id]
     remove_index :requests, :sender_id
 
-    drop_table :requests
+    execute 'DROP TABLE requests'
 
     execute( <<SQL
       DELETE contacts.* FROM contacts

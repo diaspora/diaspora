@@ -1,6 +1,6 @@
 class RemovePodStatsTable < ActiveRecord::Migration
   def self.up
-    drop_table :pod_stats
+    execute 'DROP TABLE pod_stats'
   end
 
   def self.down

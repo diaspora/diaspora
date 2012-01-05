@@ -1,7 +1,7 @@
 class DropStatistics < ActiveRecord::Migration
   def self.up
-    drop_table :statistics
-    drop_table :data_points
+    execute 'DROP TABLE statistics'
+    execute 'DROP TABLE data_points'
   end
 
   def self.down
