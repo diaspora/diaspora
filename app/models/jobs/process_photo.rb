@@ -14,7 +14,7 @@ module Jobs
 
       photo.processed_image.store!(unprocessed_image)
       photo.update_remote_path
-      photo.save!
+      result = photo.save!
 
       if ( needs_profile == "true" )
         profile_params = {:image_url => photo.url(:thumb_large),
@@ -22,6 +22,8 @@ module Jobs
                          :image_url_small => photo.url(:thumb_small)}
         photo.author.owner.update_profile(profile_params)
       end
+
+      result
     end
   end
 end
