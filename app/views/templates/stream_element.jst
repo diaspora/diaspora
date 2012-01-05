@@ -1,8 +1,12 @@
 <div class="right controls">
   <% if(author.id != current_user.id) { %>
-    <img src="/images/icons/ignoreuser.png" alt="Ignoreuser" class="block_user control_icon" title= "<%= Diaspora.I18n.t('ignore') %>" />
+    <a href="#" rel=nofollow>
+      <img src="/images/icons/ignoreuser.png" alt="Ignoreuser" class="block_user control_icon" title= "<%= Diaspora.I18n.t('ignore') %>" />
+    </a>
   <% } else { %>
-    <img src="/images/deletelabel.png" class="delete control_icon remove_post" title="<%= Diaspora.I18n.t('delete') %>" />
+    <a href="#" rel=nofollow>
+      <img src="/images/deletelabel.png" class="delete control_icon remove_post" title="<%= Diaspora.I18n.t('delete') %>" />
+    </a>
   <% } %>
 
 </div>

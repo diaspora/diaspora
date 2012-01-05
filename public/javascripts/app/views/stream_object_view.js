@@ -5,6 +5,20 @@ app.views.StreamObject = app.views.Base.extend({
     this.model.bind('change', this.render, this);
   },
 
+  postRenderTemplate : function(){
+    // time
+    this.$("time").timeago();
+
+    // collapse long posts
+    this.$(".collapsible").expander({
+      slicePoint: 400,
+      widow: 12,
+      expandText: Diaspora.I18n.t("show_more"),
+      userCollapse: false
+    });
+
+  },
+
   destroyModel: function(evt){
     if(evt){ evt.preventDefault(); }
     if(!confirm(Diaspora.I18n.t("confirm_dialog"))) { return }

@@ -47,8 +47,7 @@ app.views.Post = app.views.StreamObject.extend({
   postRenderTemplate : function() {
     this.renderPostContent()
         .initializeTooltips()
-        .$(".details time")
-          .timeago();
+        .$("time").timeago();
 
     return this;
   },

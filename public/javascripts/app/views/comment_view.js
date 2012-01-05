@@ -14,9 +14,5 @@ app.views.Comment = app.views.StreamObject.extend({
     $(this.el).attr("id", this.model.get("guid"));
 
     return this;
-  },
-
-  postRenderTemplate : function(){
-    this.$("time").timeago();
   }
 });
