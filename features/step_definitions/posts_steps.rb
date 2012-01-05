@@ -6,7 +6,7 @@ JSON
 end
 
 Then /^I should see an uploaded image within the photo drop zone$/ do
-  find("#photodropzone img")["src"].should include("uploads/images")
+  find("#photodropzone img")["src"].should include("uploads/tmp_images/thumb_small_")
 end
 
 Then /^I should not see an uploaded image within the photo drop zone$/ do
