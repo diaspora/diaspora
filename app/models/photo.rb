@@ -64,7 +64,7 @@ class Photo < ActiveRecord::Base
     photo.diaspora_handle = photo.author.diaspora_handle
 
     photo.random_string = ActiveSupport::SecureRandom.hex(10)
-    photo.is_for_profile = params[:set_profile_photo]
+    photo.is_for_profile = params[:set_profile_photo] == "true"
 
     if params[:user_file]
       image_file = params.delete(:user_file)
