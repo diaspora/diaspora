@@ -37,7 +37,7 @@
     = javascript_include_tag "/javascripts/ie.js"
     <![endif]-->
 
-    -# %script{:type => "text/javascript", :src => 'http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js'}
+    %script{:type => "text/javascript", :src => 'http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js'}
     :javascript
       !window.jQuery && document.write(unescape("#{escape_javascript(include_javascripts(:jquery))}"))
 
