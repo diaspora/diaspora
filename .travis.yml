@@ -1,6 +1,7 @@
 branches:
   only:
     - 'master'
+    - 'backbone-stream'
 
 rvm:
   - ree
