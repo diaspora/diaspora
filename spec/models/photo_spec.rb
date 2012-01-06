@@ -208,7 +208,14 @@ describe Photo do
 
   describe '#queue_processing_job' do
     it 'should queue a resque job to process the images' do
-      Resque.should_receive(:enqueue).with(Jobs::ProcessPhoto, @photo.id)
+      Resque.should_receive(:enqueue).with(Jobs::ProcessPhoto, @photo.id, nil)
+      @photo.post_proc_proc = nil
+      @photo.queue_processing_job
+    end
+    it 'should queue a resque job to process the images and run the supplied proc' do
+      a_proc = Proc.new { |a_ph| }
+      @photo.post_proc_proc = a_proc
+      Resque.should_receive(:enqueue).with(Jobs::ProcessPhoto, @photo.id, a_proc)
       @photo.queue_processing_job
     end
   end
