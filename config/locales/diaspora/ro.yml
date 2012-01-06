@@ -14,6 +14,10 @@ ro:
   activerecord:
     errors:
       models:
+        contact:
+          attributes:
+            person_id:
+              taken: "trebuie sa fie unul singur in contactele acestui utilizator."
         person:
           attributes:
             diaspora_handle:
@@ -92,6 +96,7 @@ ro:
       no_contacts: "Niciun contact"
       no_tags: "No tags"
       post_a_message: "publicati un mesaj >>"
+      unfollow_tag: "Nu mai urma #%{tag}"
     many: "%{count} aspecte"
     move_contact:
       error: "Eroare la mutarea contactului: %{inspect}"
@@ -234,6 +239,7 @@ ro:
       profile: profile
       recent_notifications: "Notificări recente"
       settings: settings
+      view_all: "Arata tot"
   likes:
     likes:
       people_dislike_this:
@@ -392,15 +398,17 @@ ro:
       edit_membership: "editati apartenenta la aspect"
     few: "%{count} persoane"
     helper:
+      people_on_pod_are_aware_of: "persoanele de pe acest pod stiu despre"
       results_for: "rezultate pentru %{params}"
     index:
       couldnt_find_them_send_invite: "Nu i-ati gasit? Trimiteti o invitatie!"
+      looking_for: "Cautati publicatii marcate cu %{tag_link}?"
       no_one_found: "...nimeni nu a fost găsit."
       no_results: "Hey! Trebuie sa cautati ceva."
       results_for: "caută rezultate pentru"
     many: "%{count} persoane"
     one: "1 persoana"
-    other: "%{count} people"
+    other: "%{count} persoane"
     person:
       add_contact: "adaugă contact"
       already_connected: "Eşti deja conectat"
@@ -416,7 +424,10 @@ ro:
       remove_contact: "Elimină contactul"
       remove_from: "Elimini pe %{name} din %{aspect}?"
     show:
+      closed_account: "Acest cont a fost inchis."
       does_not_exist: "Persoana nu există!"
+      has_not_shared_with_you_yet: "%{name} nu a publicat inca nimic!"
+      ignoring: "De acum toate publicatiile de la %{name} vor fi ignorate."
       incoming_request: "You have an incoming request from this person."
       message: Mesaj
       not_connected: "You are not connected with this person"
@@ -427,6 +438,7 @@ ro:
       to_accept_or_ignore: "pentru acceptare / ignorare."
     sub_header:
       edit: editare
+      you_have_no_tags: "nu aveti nici un marcaj!"
     two: "%{count} people"
     webfinger:
       fail: "Ne pare rău, nu am putut găsi %{handle}."
@@ -480,6 +492,8 @@ ro:
       your_location: "Locaţia dvs"
       your_name: "Numele tău "
       your_photo: "Poza ta"
+      your_private_profile: "Profilul tau privat"
+      your_public_profile: "Profilul tau public"
       your_tags: "You: in 5 #tags"
       your_tags_placeholder: "i.e. #diaspora #ironing #kittens #music"
     update:
@@ -605,6 +619,7 @@ ro:
       all: toate
       all_contacts: "toate contactele"
       discard_post: "Anuleaza publicatia"
+      make_public: "Vizibil pentru toti"
       new_user_prefill:
         i_like: "I'm interested in %{tags}."
       post_a_message_to: "Postati un mesaj catre %{aspect}"
@@ -612,6 +627,8 @@ ro:
       share: Distribuie
       share_with: "Share with %{aspect}"
       whats_on_your_mind: "what's on your mind?"
+    reshare:
+      reshare: Redistribuie
     stream_element:
       dislike: "I dislike this"
       hide_and_mute: "Hide and Mute"
@@ -653,7 +670,12 @@ ro:
       success: "Successfully stopped following: #%{name}"
   tags:
     show:
+      follow: "Urmeaza #%{tag}"
+      following: "Urmarind #%{tag}"
+      nobody_talking: "Nu se povesteste nimic despre %{tag} inca."
+      people_tagged_with: "Persoane marcate cu %{tag}"
       posts_tagged_with: "Publicatii marcate cu #%{tag}"
+      stop_following: "Nu mai urmari #%{tag}"
   tokens:
     show:
       connect_to_cubbies: "Conectarea la Cubbi.es"
@@ -669,6 +691,7 @@ ro:
       email_not_confirmed: "E-Mail could not be activated. Wrong link?"
     edit:
       also_commented: "...cineva comenteaza de asemenea pe publicatia unei persoane din contacte?"
+      auto_follow_back: "Automatically follow back if a someone follows you"
       change: Modifică
       change_email: "Change E-Mail"
       change_language: "Modificare limbă"
@@ -683,6 +706,7 @@ ro:
       liked: "...cuiva ii place ce ai publicat?"
       mentioned: "...sunteti mentionat intr-un post ?"
       new_password: "Parolă nouă"
+      private_message: "...primesti un mesaj privat?"
       receive_email_notifications: "Receive email notificaions?"
       your_email: "E-mailul tău"
       your_handle: "Identificatorul tău pe Diaspora"

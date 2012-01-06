@@ -891,6 +891,7 @@ he:
       wrong_password: "הסיסמה שהוכנסה לא תואמת"
     edit:
       also_commented: "...מישהו הגיב גם על הרשומה של איש הקשר שלך?"
+      auto_follow_back: "Automatically follow back if a someone follows you"
       change: שינוי
       change_email: "החלפת כתובת הדוא״ל"
       change_language: "החלפת השפה"

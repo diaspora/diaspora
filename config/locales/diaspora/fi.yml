@@ -855,6 +855,7 @@ fi:
       wrong_password: "Syötetty salasana ei vastannut nykyistä salasanaasi."
     edit:
       also_commented: "...joku myös kommentoi kontaktisi viestiin?"
+      auto_follow_back: "Automatically follow back if a someone follows you"
       change: Vaihda
       change_email: "Vaihda sähköpostiosoite"
       change_language: "Vaihda kieli"

@@ -872,6 +872,8 @@ de:
       wrong_password: "Das eingegebene Kennwort stimmt nicht mit deinem aktuellen Kennwort überein."
     edit:
       also_commented: "… jemand ebenfalls den Beitrag eines Kontaktes kommentiert?"
+      auto_follow_aspect: "Aspekt für automatisch gefolgten Benutzern:"
+      auto_follow_back: "Folge Benutzern automatisch, wenn sie dir folgen"
       change: Ändern
       change_email: "E-Mail-Adresse ändern"
       change_language: "Sprache ändern"
@@ -893,6 +895,7 @@ de:
       edit_account: "Konto bearbeiten"
       email_awaiting_confirmation: "Wir haben dir einen Aktivierungslink zu %{unconfirmed_email} geschickt. Solange du dem Link nicht gefolgt bist und die neue Adresse aktiviert hast, werden wir weiterhin deine ursprüngliche E-Mail-Adresse %{email} verwenden."
       export_data: "Daten exportieren"
+      following: Folgen-Einstellungen
       getting_started: "Einstellungen für neue Nutzer"
       liked: "… wenn jemandem dein Beitrag gefällt?"
       mentioned: "… du in einem Beitrag erwähnt wirst?"
@@ -933,6 +936,8 @@ de:
       does_not_exist: "Benutzer %{username} existiert nicht!"
     update:
       email_notifications_changed: "E-Mail-Benachrichtigungen geändert"
+      follow_settings_changed: "Folgen-Einstellungen geändert"
+      follow_settings_not_changed: "Ändern der Folgen-Einstellungen fehlgeschlagen."
       language_changed: "Sprache geändert"
       language_not_changed: "Fehler beim Ändern der Sprache."
       password_changed: "Kennwort geändert. Du kannst dich nun mit deinem neuen Kennwort anmelden."

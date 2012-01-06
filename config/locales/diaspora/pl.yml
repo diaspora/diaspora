@@ -875,6 +875,8 @@ pl:
       wrong_password: "Wprowadzone hasło nie jest zgodne z aktualnym hasłem."
     edit:
       also_commented: "...ktoś także skomentuje wpis jednego z z moich kontaktów"
+      auto_follow_aspect: "Aspekt dla automatycznie obserwowanych użytkowników:"
+      auto_follow_back: "Automatycznie zacznij obserwować, gdy ktoś zaczyna obserwować mnie"
       change: Zmień
       change_email: "Zmiana adresu e-mail"
       change_language: "Zmiana języka"
@@ -896,6 +898,7 @@ pl:
       edit_account: "Edycja konta"
       email_awaiting_confirmation: "Łącze aktywacyjne zostało wysłany na adres \"%{unconfirmed_email}\". Do momentu kliknięcia łącza i aktywacji nowego adresu, nadal będziemy korzystać z obecnego \"%{email}\"."
       export_data: "Eksport danych"
+      following: "Ustawienia obserwowania"
       getting_started: "Preferencje nowego użytkownika"
       liked: "...ktoś polubił mój wpis"
       mentioned: "...ktoś o mnie wspomniał we wpisie"
@@ -936,6 +939,8 @@ pl:
       does_not_exist: "Użytkownik %{username} nie istnieje!"
     update:
       email_notifications_changed: "Ustawienia powiadomień e-mail zostały zmienione"
+      follow_settings_changed: "Ustawienia obserwowania zostały zmienione"
+      follow_settings_not_changed: "Nie udało się zmienić ustawień obserwowania."
       language_changed: "Język został zmieniony"
       language_not_changed: "Zmiana języka nie powiodła się"
       password_changed: "Hasło zostało zmienione. Możesz teraz zalogować się używając nowego hasła."

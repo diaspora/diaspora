@@ -863,6 +863,7 @@ bg:
       wrong_password: "Въведената парола не съвпада с текущата парола на акаунта."
     edit:
       also_commented: "...някой коментира публикация на ваш контакт?"
+      auto_follow_back: "Automatically follow back if a someone follows you"
       change: Промяна
       change_email: "Промяна на ел. поща"
       change_language: "Промяна на езика"

@@ -61,7 +61,7 @@ ro:
       prefixFromNow: "in timp de"
       seconds: "mai putin de un minut"
       suffixAgo: ""
-      suffixFromNow: ""
+      suffixFromNow: "in urma"
       year: "un an"
       years: "%d ani"
     videos:

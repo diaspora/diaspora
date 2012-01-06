@@ -875,6 +875,8 @@ zh-TW:
       wrong_password: 輸入的密碼與你目前的密碼不符.
     edit:
       also_commented: "...當有人也對你的聯絡人的貼文發表意見時?"
+      auto_follow_aspect: "給被自動追蹤的使用者的面向:"
+      auto_follow_back: 當有人追蹤你時自動反追蹤回去
       change: 更改
       change_email: 更改E-Mail
       change_language: 更改語言
@@ -887,6 +889,7 @@ zh-TW:
       edit_account: 編輯帳號
       email_awaiting_confirmation: "我們已經將啟用連結寄到 %{unconfirmed_email} 給你. 在你使用該連結啟用新的位址之前, 我們還會繼續使用你原來的位址, 也就是 %{email}."
       export_data: 資料匯出
+      following: 追蹤設定
       getting_started: 新使用者偏好設定
       liked: "...當有人對你的貼文說讚時?"
       mentioned: "...當貼文中點到你時?"
@@ -927,6 +930,8 @@ zh-TW:
       does_not_exist: "不存在 %{username} 這個使用者!"
     update:
       email_notifications_changed: 電郵通知已經更改了
+      follow_settings_changed: 追蹤設定改變了
+      follow_settings_not_changed: 追蹤設定改變失敗.
       language_changed: 語言已經更改了
       language_not_changed: 語言更改失敗
       password_changed: "密碼已經更改了. 從現在起你可以用新的密碼登入."

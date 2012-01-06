@@ -322,5 +322,7 @@ en_pirate:
       failure: "Failed to stop following: #%{name}"
       success: "Successfully stopped following: #%{name}"
   users:
+    edit:
+      auto_follow_back: "Automatically follow back if a someone follows you"
     getting_started:
       what_facebook_does: "to Diaspora. This will pull your name and photo, and enable cross-positng."
