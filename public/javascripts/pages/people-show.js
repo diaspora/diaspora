@@ -1,2 +1,0 @@
-Diaspora.Pages.PeopleShow = function() {
-};

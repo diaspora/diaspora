@@ -11,7 +11,7 @@
 #   - dist/**/*.js
 #
 src_files:
-  - public/javascripts/vendor/jquery162.min.js
+  - public/javascripts/vendor/jquery-1.7.1.min.js
   - public/javascripts/vendor/jquery-ui-1.8.9.custom.min.js
   - public/javascripts/vendor/bootstrap/bootstrap-popover.js
   - public/javascripts/vendor/bootstrap/bootstrap-twipsy.js

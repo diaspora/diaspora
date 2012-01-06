@@ -40,7 +40,7 @@ describe("app.views.Stream", function(){
   })
 
   describe("infScroll", function(){
-    // NOTE: inf scroll happens at 300px
+    // NOTE: inf scroll happens at 500px
 
     beforeEach(function(){
       spyOn(this.view.collection, "fetch")

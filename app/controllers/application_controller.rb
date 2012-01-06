@@ -13,8 +13,6 @@ class ApplicationController < ActionController::Base
   before_filter :set_git_header if (AppConfig[:git_update] && AppConfig[:git_revision])
   before_filter :set_grammatical_gender
 
-  prepend_before_filter :clear_gc_stats
-
   inflection_method :grammatical_gender => :gender
 
   helper_method :all_aspects,
@@ -83,10 +81,6 @@ class ApplicationController < ActionController::Base
     else
       I18n.locale = request.compatible_language_from AVAILABLE_LANGUAGE_CODES
     end
-  end
-
-  def clear_gc_stats
-    GC.clear_stats if GC.respond_to?(:clear_stats)
   end
 
   def redirect_unless_admin
