@@ -22,7 +22,7 @@ class PeopleController < ApplicationController
     if params[:q][0] == 35 || params[:q][0] == '#'
       if params[:q].length > 1
         tag_name = params[:q].gsub(/[#\.]/, '')
-        redirect_to tags_path(:q => params[:q])
+        redirect_to tag_path(:name => tag_name, :q => params[:q])
         return
       else
         flash[:error] = I18n.t('tags.show.none', :name => params[:q])

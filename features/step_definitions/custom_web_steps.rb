@@ -148,12 +148,8 @@ Then /^I should get download alert$/ do
 end
 
 When /^I search for "([^\"]*)"$/ do |search_term|
-  step "I fill in \"q\" with \"#{search_term}\""
-  page.execute_script <<-JS
-    var e = jQuery.Event("keypress");
-    e.keyCode = 13;
-    $("#q").trigger(e);
-  JS
+  fill_in "q", :with => search_term
+  find_field("q").native.send_key(:enter)
 end
 
 Then /^the "([^"]*)" field(?: within "([^"]*)")? should be filled with "([^"]*)"$/ do |field, selector, value|
