@@ -10,6 +10,8 @@ javascripts:
     - public/javascripts/vendor/underscore.js
     - public/javascripts/vendor/backbone.js
 
+    - public/javascripts/vendor/markdown.js
+
     - public/javascripts/app/app.js
     - public/javascripts/app/router.js
     - public/javascripts/app/views.js

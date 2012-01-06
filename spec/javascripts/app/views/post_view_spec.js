@@ -31,6 +31,13 @@ describe("app.views.Post", function(){
       expect(view.$(".post_initial_info").html()).not.toContain("0 Reshares")
     })
 
+    it("should markdownify the post's text", function(){
+      this.statusMessage.set({text: "I have three Belly Buttons"})
+      spyOn(window.markdown, "toHTML")
+      new app.views.Post({model : this.statusMessage}).render();
+      expect(window.markdown.toHTML).toHaveBeenCalledWith("I have three Belly Buttons")
+    })
+
     context("user not signed in", function(){
       it("does not provide a Feedback view", function(){
         window.current_user = app.user(null);

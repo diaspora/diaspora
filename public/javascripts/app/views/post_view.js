@@ -15,7 +15,8 @@ app.views.Post = app.views.StreamObject.extend({
   subviews : {
     ".feedback" : "feedbackView",
     ".likes" : "likesInfoView",
-    ".comments" : "commentStreamView"
+    ".comments" : "commentStreamView",
+    ".post-content" : "postContentView"
   },
 
   tooltips : [
@@ -45,23 +46,19 @@ app.views.Post = app.views.StreamObject.extend({
     return this;
   },
 
-  postRenderTemplate : function() {
-    this.renderPostContent()
-        .initializeTooltips()
-        .$("time").timeago();
-
-    return this;
-  },
-
-  renderPostContent: function(){
+  postContentView: function(){
     var normalizedClass = this.model.get("post_type").replace(/::/, "__");
     var postClass = app.views[normalizedClass] || app.views.StatusMessage;
-    var postView = new postClass({ model : this.model });
+    return new postClass({ model : this.model });
+  },
 
-    this.$(".post-content").html(postView.render().el);
+  postRenderTemplate : function() {
+    this.initializeTooltips();
+    this.$("time").timeago();
 
     return this;
   },
+
 
   removeNsfwShield: function(evt){
     if(evt){ evt.preventDefault(); }
