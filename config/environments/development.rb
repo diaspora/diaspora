@@ -19,7 +19,7 @@ Diaspora::Application.configure do
   
   # Don't care if the mailer can't send
   config.action_mailer.raise_delivery_errors = false
-  config.active_support.deprecation = :log
+  config.active_support.deprecation = [:stderr, :log]
   #config.threadsafe!
   # Monkeypatch around the nasty "2.5MB exception page" issue, caused by very large environment vars
   # This snippet via: http://stackoverflow.com/questions/3114993/exception-pages-in-development-mode-take-upwards-of-15-30-seconds-to-render-why
