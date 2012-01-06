@@ -1,6 +1,7 @@
 # Copyright (c) 2010-2011, Diaspora Inc.  This file is
 # licensed under the Affero General Public License version 3 or later.  See
 # the COPYRIGHT file.
+
 require 'uri'
 require File.join(Rails.root, 'lib', 'enviroment_configuration')
 
@@ -67,7 +68,9 @@ Please do the following:
 HELP
       Process.exit(1)
     end
+  end
 
+  def self.setup!
     normalize_pod_url
     normalize_admins
     normalize_pod_services

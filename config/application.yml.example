@@ -96,7 +96,19 @@ defaults: &defaults
   # Hoptoad api key, send failures to Hoptoad
   hoptoad_api_key: ''
 
+  #social media setup
+  facebook_app_id:  ''
+  facebook_app_secret: ''
+
+  twitter_consumer_key: ''
+  twitter_consumer_secret: ''
+
+  tumblr_consumer_key: ''
+  tumblr_consumer_secret: '' 
   # Miscellaneous
+
+  NEW_RELIC_LICENSE_KEY: ''
+
 
   # If set to true Diaspora will work with just the appserver, thin by default,
   # running, however this makes it quite slow as all the time intensive jobs
