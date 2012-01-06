@@ -88,15 +88,17 @@ describe AppConfig do
           end
         end
       end
-
     end
+  end
+  
+  describe '.setup!' do
     it "calls normalize_pod_url" do
-      AppConfig.should_receive(:normalize_pod_url).twice # apparently should_receive counts stuff in after blocks...WTF?
-      AppConfig.load!
+      AppConfig.should_receive(:normalize_pod_url)
+      AppConfig.setup!
     end
     it "calls normalize_admins" do
-      AppConfig.should_receive(:normalize_admins).twice
-      AppConfig.load!
+      AppConfig.should_receive(:normalize_admins)
+      AppConfig.setup!
     end
   end
 
@@ -182,7 +184,7 @@ describe AppConfig do
           AppConfig[:pod_uri].host.should == "joindiaspora.com"
         end
         it "calls normalize_pod_url" do
-          AppConfig.should_receive(:normalize_pod_url).twice
+          AppConfig.should_receive(:normalize_pod_url)
           AppConfig[:pod_url] = "http://joindiaspora.com"
         end
       end
@@ -193,7 +195,7 @@ describe AppConfig do
           AppConfig[:pod_uri].host.should == "joindiaspora.com"
         end
         it "calls normalize_pod_url" do
-          AppConfig.should_receive(:normalize_pod_url).twice
+          AppConfig.should_receive(:normalize_pod_url)
           AppConfig['pod_url'] = "http://joindiaspora.com"
         end
       end
