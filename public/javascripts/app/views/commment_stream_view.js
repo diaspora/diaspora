@@ -17,8 +17,6 @@ app.views.CommentStream = app.views.Base.extend({
   postRenderTemplate : function() {
     this.$("label").inFieldLabels();
     this.model.comments.each(this.appendComment, this);
-
-    return this;
   },
 
   createComment: function(evt) {

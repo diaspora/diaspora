@@ -1,14 +1,10 @@
 app.views.StreamObject = app.views.Base.extend({
-
   initialize: function(options) {
     this.model.bind('remove', this.remove, this);
     this.model.bind('change', this.render, this);
   },
 
   postRenderTemplate : function(){
-    // time
-    this.$("time").timeago();
-
     // collapse long posts
     this.$(".collapsible").expander({
       slicePoint: 400,
@@ -16,7 +12,6 @@ app.views.StreamObject = app.views.Base.extend({
       expandText: Diaspora.I18n.t("show_more"),
       userCollapse: false
     });
-
   },
 
   destroyModel: function(evt){

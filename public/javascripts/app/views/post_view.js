@@ -19,11 +19,7 @@ app.views.Post = app.views.StreamObject.extend({
     ".post-content" : "postContentView"
   },
 
-  tooltips : [
-    ".delete",
-    ".block_user",
-    ".post_scope"
-  ],
+  tooltipSelector : ".delete, .block_user, .post_scope",
 
   initialize : function() {
     // set the guid
@@ -51,14 +47,6 @@ app.views.Post = app.views.StreamObject.extend({
     var postClass = app.views[normalizedClass] || app.views.StatusMessage;
     return new postClass({ model : this.model });
   },
-
-  postRenderTemplate : function() {
-    this.initializeTooltips();
-    this.$("time").timeago();
-
-    return this;
-  },
-
 
   removeNsfwShield: function(evt){
     if(evt){ evt.preventDefault(); }
@@ -107,14 +95,6 @@ app.views.Post = app.views.StreamObject.extend({
     evt.preventDefault();
     this.$(".new_comment_form_wrapper").removeClass("hidden");
     this.$(".comment_box").focus();
-
-    return this;
-  },
-
-  initializeTooltips: function(){
-    _.each(this.tooltips, function(selector, options){
-      this.$(selector).twipsy(options);
-    }, this);
 
     return this;
   }

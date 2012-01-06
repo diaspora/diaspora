@@ -71,5 +71,23 @@ describe("app.views.Base", function(){
         expect(this.view.$('.subview2').text().trim()).toBe("furreal this is the Second Subview")
       })
     })
+
+    context("calling out to third party plugins", function(){
+      it("replaces .time with relative time ago in words", function(){
+        spyOn($.fn, "timeago")
+        this.view.render()
+        expect($.fn.timeago).toHaveBeenCalled()
+        expect($.fn.timeago.mostRecentCall.object.selector).toBe("time")
+      })
+
+
+      it("initializes tooltips declared with the view's tooltipSelector property", function(){
+        this.view.tooltipSelector = ".christopher_columbus, .barrack_obama, .block_user"
+
+        spyOn($.fn, "twipsy")
+        this.view.render()
+        expect($.fn.twipsy.mostRecentCall.object.selector).toBe(".christopher_columbus, .barrack_obama, .block_user")
+      })
+    })
   })
 })

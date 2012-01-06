@@ -84,7 +84,7 @@
 
   // temp hack to check if backbone is enabled for the page
   Diaspora.backboneEnabled = function(){
-    return window.app.stream !== undefined;
+    return window.app && window.app.stream !== undefined;
   }
 
   window.Diaspora = Diaspora;

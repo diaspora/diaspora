@@ -9,7 +9,11 @@ app.views.Base =  Backbone.View.extend({
   },
 
   render : function() {
-    return this.renderTemplate().renderSubviews()
+    this.renderTemplate()
+    this.renderSubviews()
+    this.renderPluginWidgets()
+
+    return this
   },
 
   renderTemplate : function(){
@@ -17,7 +21,6 @@ app.views.Base =  Backbone.View.extend({
     var presenter = _.isFunction(this.presenter) ? this.presenter() : this.presenter
     $(this.el).html(this.template(presenter));
     this.postRenderTemplate();
-    return this;
   },
 
   postRenderTemplate : $.noop, //hella callbax yo
@@ -31,7 +34,10 @@ app.views.Base =  Backbone.View.extend({
         view.delegateEvents();
       }
     })
-
-    return this
   },
+
+  renderPluginWidgets : function() {
+    this.$(this.tooltipSelector).twipsy();
+    this.$("time").timeago();
+  }
 })
