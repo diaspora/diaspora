@@ -7,7 +7,6 @@ When /^I try to sign in$/ do
   @me ||= Factory(:user_with_aspect, :getting_started => false)
   page.driver.visit(new_integration_sessions_path(:user_id => @me.id))
   step %(I press "Login")
-  step %(I am on the homepage)
   # To save time as compared to:
   #step %(I go to the new user session page)
   #step %(I fill in "Username" with "#{@me.username}")
@@ -38,6 +37,5 @@ When /^I put in my password in "([^"]*)"$/ do |field|
 end
 
 When /^I (?:log|sign) out$/ do
-  step 'I click on my name in the header'
-  step 'I follow "Log out"'
+  step %(I go to the destroy user session page)
 end
