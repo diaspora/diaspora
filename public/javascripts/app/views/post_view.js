@@ -8,6 +8,7 @@ app.views.Post = app.views.StreamObject.extend({
     "click .focus_comment_textarea": "focusCommentTextarea",
     "click .shield a": "removeNsfwShield",
     "click .remove_post": "destroyModel",
+    "click .hide_post": "hidePost",
     "click .block_user": "blockUser"
   },
 
@@ -88,6 +89,21 @@ app.views.Post = app.views.StreamObject.extend({
         })
       }
     })
+  },
+
+  hidePost : function(evt) {
+    if(evt) { evt.preventDefault(); }
+    if(!confirm(Diaspora.I18n.t('confirm_dialog'))) { return }
+
+    $.ajax({
+      url : "/share_visibilities/42",
+      type : "PUT",
+      data : {
+        post_id : this.model.id
+      }
+    })
+
+    this.slideAndRemove();
   },
 
   focusCommentTextarea: function(evt){

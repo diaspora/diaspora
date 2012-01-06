@@ -70,6 +70,7 @@ en:
         wasnt_that_interesting: "OK, I suppose #<%= tagName %> wasn't all that interesting..."
 
       stream:
+        hide: "Hide"
         public: "Public"
         limited: "Limited"
         like: "Like"
