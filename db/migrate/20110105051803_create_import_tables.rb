@@ -178,17 +178,17 @@ class CreateImportTables < ActiveRecord::Migration
   end
 
   def self.down
-    drop_table :mongo_users
-    drop_table :mongo_services
-    drop_table :mongo_requests
-    drop_table :mongo_post_visibilities
-    drop_table :mongo_invitations
-    drop_table :mongo_contacts
-    drop_table :mongo_comments
-    drop_table :mongo_profiles
-    drop_table :mongo_people
-    drop_table :mongo_posts
-    drop_table :mongo_aspect_memberships
-    drop_table :mongo_aspects
+    execute 'DROP TABLE mongo_users'
+    execute 'DROP TABLE mongo_services'
+    execute 'DROP TABLE mongo_requests'
+    execute 'DROP TABLE mongo_post_visibilities'
+    execute 'DROP TABLE mongo_invitations'
+    execute 'DROP TABLE mongo_contacts'
+    execute 'DROP TABLE mongo_comments'
+    execute 'DROP TABLE mongo_profiles'
+    execute 'DROP TABLE mongo_people'
+    execute 'DROP TABLE mongo_posts'
+    execute 'DROP TABLE mongo_aspect_memberships'
+    execute 'DROP TABLE mongo_aspects'
   end
 end

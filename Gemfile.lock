@@ -314,14 +314,15 @@ GEM
     parallel (0.5.11)
     parallel_tests (0.6.11)
       parallel
-    pg (0.12.0)
-      rake-compiler (~> 0.7)
+    pg (0.12.2)
     polyglot (0.3.3)
     rack (1.2.4)
+    rack-google-analytics (0.10.0)
     rack-mobile-detect (0.3.0)
       rack
     rack-mount (0.6.14)
       rack (>= 1.0.0)
+    rack-piwik (0.1.2)
     rack-test (0.5.7)
       rack (>= 1.0)
     rails (3.0.11)
@@ -341,8 +342,6 @@ GEM
       rdoc (~> 3.4)
       thor (~> 0.14.4)
     rake (0.9.2.2)
-    rake-compiler (0.7.9)
-      rake
     rbx-require-relative (0.0.5)
     rdoc (3.11)
       json (~> 1.4)
@@ -506,6 +505,8 @@ DEPENDENCIES
   omniauth-twitter
   parallel_tests
   pg
+  rack-google-analytics
+  rack-piwik
   rails (= 3.0.11)
   rails-i18n
   redcarpet (= 2.0.0)

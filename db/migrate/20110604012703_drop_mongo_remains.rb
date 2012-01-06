@@ -10,7 +10,7 @@ class DropMongoRemains < ActiveRecord::Migration
     remove_index :services, :mongo_id
     remove_index :users, :mongo_id
 
-    drop_table :mongo_notifications
+    execute 'DROP TABLE mongo_notifications'
   end
 
   def self.down

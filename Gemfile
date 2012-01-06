@@ -41,13 +41,17 @@ group :production do # we don't install these on travis to speed up test runs
   # reporting
   gem 'hoptoad_notifier'
   gem 'newrelic_rpm', :require => false
+  gem 'rack-google-analytics', :require => 'rack/google-analytics'
+  gem 'rack-piwik', :require => 'rack/piwik'
 end
 
 # configuration
 
-gem 'settingslogic', '2.0.6'
-gem 'heroku'
+group :heroku do
+  gem 'pg'
+end
 
+gem 'settingslogic', '2.0.6'
 # database
 
 gem 'activerecord-import'
@@ -141,6 +145,8 @@ group :test do
 end
 
 group :development do
+
+  gem 'heroku'
   gem 'capistrano', '~> 2.9.0', :require => false
   gem 'capistrano_colors', :require => false
   gem 'capistrano-ext', '1.2.1', :require => false

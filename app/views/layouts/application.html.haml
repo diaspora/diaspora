@@ -37,7 +37,7 @@
     = javascript_include_tag "/javascripts/ie.js"
     <![endif]-->
 
-    -# %script{:type => "text/javascript", :src => 'http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js'}
+    %script{:type => "text/javascript", :src => '//ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js'}
     :javascript
       !window.jQuery && document.write(unescape("#{escape_javascript(include_javascripts(:jquery))}"))
 
@@ -55,28 +55,6 @@
           color: purple;
           background-color: red;
         }
-    -if AppConfig[:google_a_site]
-      :javascript
-        var _gaq = _gaq || [];
-        _gaq.push(['_setAccount', '#{AppConfig[:google_a_site]}']);
-        _gaq.push(['_trackPageview']);
-
-        (function() {
-        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-        })();
-
-    -if AppConfig[:piwik_id]
-      :javascript
-        var pkBaseURL = (("https:" == document.location.protocol) ? "https://#{AppConfig[:piwik_url]}/" : "http://#{AppConfig[:piwik_url]}/");
-        document.write(unescape("%3Cscript src='" + pkBaseURL + "piwik.js' type='text/javascript'%3E%3C/script%3E"));
-      :javascript
-        try {
-        var piwikTracker = Piwik.getTracker(pkBaseURL + "piwik.php", #{AppConfig[:piwik_id]});
-        piwikTracker.trackPageView();
-        piwikTracker.enableLinkTracking();
-        } catch( err ) {}
 
     - if @person
       %link{:rel => "alternate", :href => "#{@person.public_url}.atom", :type => "application/atom+xml", :title => "#{t('.public_feed', :name => @person.name)}"}
