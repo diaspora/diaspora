@@ -23,7 +23,6 @@ gem 'omniauth-twitter'
 gem 'twitter', '2.0.2'
 
 # backups
-gem 'cloudfiles', '1.4.10', :require => false
 
 # mail
 gem 'messagebus_ruby_api', '1.0.1'
