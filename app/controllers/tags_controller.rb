@@ -15,16 +15,14 @@ class TagsController < ApplicationController
   respond_to :json, :only => [:index, :show]
 
   def index
-    if params[:q] && params[:q].length > 1 && request.format.json?
+    if params[:q] && params[:q].length > 1
       params[:q].gsub!("#", "")
       params[:limit] = !params[:limit].blank? ? params[:limit].to_i : 10
       @tags = ActsAsTaggableOn::Tag.autocomplete(params[:q]).limit(params[:limit] - 1)
       prep_tags_for_javascript
 
       respond_to do |format|
-        format.json{
-          render(:json => @tags.to_json, :status => 200)
-        }
+        format.json{ render(:json => @tags.to_json, :status => 200) }
       end
     else
       respond_to do |format|

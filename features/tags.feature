@@ -11,12 +11,3 @@ Feature: Interacting with tags
     Then I should be on the tag page for "rockstar"
     And I should see "Samuel Beckett"
 
-  @wip
-  Scenario: adding a contact from a tag page
-    When I search for "#rockstar"
-    Then I should see "Add to aspect"
-
-    When I add the person to my "Besties" aspect
-
-    When I search for "#rockstar"
-    Then I should see "generic"

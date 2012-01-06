@@ -78,14 +78,6 @@ Feature: User manages contacts
     When I follow "Contacts"
     Then I should see "Community Spotlight" within ".span-18"
 
-  Scenario: clicking on the manage aspects link in the right nav with zero contacts directs a user to the featured users page
-    Given I am signed in
-    And I have 0 contacts
-    And I am on the home page
-
-    When I follow "Manage your aspects."
-    Then I should see "Community Spotlight" within ".span-18"
-
   Scenario: clicking on the contacts link in the header with contacts does not send a user to the featured users page
     Given I am signed in
     And I have 2 contacts
