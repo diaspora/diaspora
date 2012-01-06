@@ -39,7 +39,7 @@ group :production do # we don't install these on travis to speed up test runs
 
   # reporting
   gem 'hoptoad_notifier'
-  gem 'newrelic_rpm', :require => false
+  gem 'newrelic_rpm'
   gem 'rack-google-analytics', :require => 'rack/google-analytics'
   gem 'rack-piwik', :require => 'rack/piwik'
 end
