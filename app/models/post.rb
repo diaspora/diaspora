@@ -61,6 +61,10 @@ class Post < ActiveRecord::Base
     self.class.name
   end
 
+  def raw_message
+    ""
+  end
+
   # gives the last three comments on the post
   def last_three_comments
     return if self.comments_count == 0

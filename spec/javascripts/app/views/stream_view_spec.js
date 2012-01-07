@@ -34,7 +34,7 @@ describe("app.views.Stream", function(){
 
     context("when rendering a Status Mesasage", function(){
       it("shows the status message in the content area", function(){
-        expect(this.statusElement.find(".post-content p").text()).toContain("you're gonna love this")
+        expect(this.statusElement.find(".post-content p").text()).toContain("you&#39;re gonna love this") //markdown'ed
       })
     })
   })
