@@ -147,8 +147,14 @@ Diaspora::Application.routes.draw do
     get 'hub'                   => :hub
   end
 
+#  controller :search do
+#    get 'index' => :index
+#  end
+#  scope "search" do
+    match ':controller/:action'
+#    match ':query'
 
-
+#  end
   # External
 
   resources :authorizations, :only => [:index, :destroy]

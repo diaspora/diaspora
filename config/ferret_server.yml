@@ -1,0 +1,24 @@
+# configuration for the acts_as_ferret DRb server
+# host: where to reach the DRb server (used by application processes to contact the server)
+# port: which port the server should listen on
+# socket: where the DRb server should create the socket (absolute path), this setting overrides host:port configuration
+# pid_file: location of the server's pid file (relative to Rails.root)
+# log_file: log file (default: Rails.root/log/ferret_server.log
+# log_level: log level for the server's logger
+production:
+  host: localhost
+  port: 9010
+  pid_file: log/ferret.pid
+  log_file: log/ferret_server.log
+  log_level: warn
+
+# aaf won't try to use the DRb server in environments that are not 
+# configured here.
+#development:
+#  host: localhost
+#  port: 9010
+#  pid_file: log/ferret.pid
+#test:
+#  host: localhost
+#  port: 9009
+#  pid_file: log/ferret.pid
