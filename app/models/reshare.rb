@@ -29,6 +29,10 @@ class Reshare < Post
     self.root.author.diaspora_handle
   end
 
+  def raw_message
+    self.root ? root.raw_message : ""
+  end
+
   def receive(recipient, sender)
     local_reshare = Reshare.where(:guid => self.guid).first
     if local_reshare && local_reshare.root.author_id == recipient.person.id
