@@ -37,5 +37,6 @@ When /^I put in my password in "([^"]*)"$/ do |field|
 end
 
 When /^I (?:log|sign) out$/ do
-  step %(I go to the destroy user session page)
+  $browser.delete_cookie('_session', 'path=/') if $browser
+  $browser.delete_all_visible_cookies if $browser
 end
