@@ -4,11 +4,12 @@
 
 class StatusMessagesController < ApplicationController
   before_filter :authenticate_user!
-  
+
   before_filter :remove_getting_started, :only => [:create]
 
-  respond_to :html
-  respond_to :mobile
+  respond_to :html,
+             :mobile,
+             :json
 
   # Called when a user clicks "Mention" on a profile page
   # @param person_id [Integer] The id of the person to be mentioned
@@ -40,8 +41,7 @@ class StatusMessagesController < ApplicationController
   end
 
   def create
-    params[:status_message][:aspect_ids] = params[:aspect_ids]
-
+    params[:status_message][:aspect_ids] = [*params[:aspect_ids]]
     normalize_public_flag!
 
     @status_message = current_user.build_post(:status_message, params[:status_message])
@@ -69,9 +69,9 @@ class StatusMessagesController < ApplicationController
       end
 
       respond_to do |format|
-        format.js { render :create, :status => 201}
         format.html { redirect_to :back}
         format.mobile{ redirect_to multi_path}
+        format.json{ render :json => @status_message.as_api_response(:backbone), :status => 201 }
       end
     else
       unless photos.empty?
@@ -79,11 +79,8 @@ class StatusMessagesController < ApplicationController
       end
 
       respond_to do |format|
-        format.js {
-          errors = @status_message.errors.full_messages.collect { |msg| msg.gsub(/^Text/, "") }
-          render :json =>{:errors => errors}, :status => 422
-        }
-        format.html {redirect_to :back}
+        format.json { render :nothing, :status => 403 }
+        format.html { redirect_to :back }
       end
     end
   end

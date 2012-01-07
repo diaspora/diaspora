@@ -40,6 +40,10 @@ class StatusMessage < Post
     joins(:likes).where(:likes => {:author_id => person.id})
   }
 
+  def photos_count
+    self.photos.size
+  end
+
   def self.guids_for_author(person)
     Post.connection.select_values(Post.where(:author_id => person.id).select('posts.guid').to_sql)
   end

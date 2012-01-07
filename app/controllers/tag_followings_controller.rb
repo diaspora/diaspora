@@ -7,8 +7,16 @@ require File.join(Rails.root, 'lib', 'stream', 'followed_tag')
 class TagFollowingsController < ApplicationController
   before_filter :authenticate_user!
 
+  respond_to :html, :json
+
   def index
-    default_stream_action(Stream::FollowedTag)
+    @backbone = true
+    stream_klass = Stream::FollowedTag
+
+    respond_with do |format|
+      format.html{ default_stream_action(stream_klass) }
+      format.json{ stream_json(stream_klass) }
+    end
   end
 
   # POST /tag_followings

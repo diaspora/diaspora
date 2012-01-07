@@ -6,8 +6,9 @@ class CommentsController < ApplicationController
   include ApplicationHelper
   before_filter :authenticate_user!, :except => [:index]
 
-  respond_to :html, :mobile, :except => :show
-  respond_to :js, :only => [:index]
+  respond_to :html,
+             :mobile,
+             :json
 
   rescue_from ActiveRecord::RecordNotFound do
     render :nothing => true, :status => 404
@@ -26,7 +27,7 @@ class CommentsController < ApplicationController
         Postzord::Dispatcher.build(current_user, @comment).post
 
         respond_to do |format|
-          format.js{ render(:create, :status => 201)}
+          format.json{ render :json => @comment.as_api_response(:backbone), :status => 201 }
           format.html{ render :nothing => true, :status => 201 }
           format.mobile{ render :partial => 'comment', :locals => {:post => @comment.post, :comment => @comment} }
         end
@@ -44,12 +45,14 @@ class CommentsController < ApplicationController
       current_user.retract(@comment)
       respond_to do |format|
         format.js { render :nothing => true, :status => 204 }
+        format.json { render :nothing => true, :status => 204 }
         format.mobile{ redirect_to @comment.post }
       end
     else
       respond_to do |format|
         format.mobile {redirect_to :back}
         format.js {render :nothing => true, :status => 403}
+        format.json { render :nothing => true, :status => 403 }
       end
     end
   end
@@ -63,13 +66,11 @@ class CommentsController < ApplicationController
 
     if @post
       @comments = @post.comments.includes(:author => :profile).order('created_at ASC')
-      render :layout => false
+      respond_with do |format|
+        format.json  { render :json => @post.comments.as_api_response(:backbone), :status => 200 }
+      end
     else
       raise ActiveRecord::RecordNotFound.new
     end
-  end
-
-  def new
-    render :layout => false
   end
 end

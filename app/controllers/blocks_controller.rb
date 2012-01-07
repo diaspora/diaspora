@@ -1,6 +1,8 @@
 class BlocksController < ApplicationController
   before_filter :authenticate_user!
 
+  respond_to :html, :json
+
   def create
     block = current_user.blocks.new(params[:block])
 
@@ -10,7 +12,11 @@ class BlocksController < ApplicationController
     else
       notice = {:error => t('blocks.create.failure')}
     end
-    redirect_to :back, notice
+
+    respond_with do |format|
+      format.html{ redirect_to :back, notice }
+      format.json{ render :nothing => true, :status => 204 }
+    end
   end
 
   def destroy
@@ -19,7 +25,11 @@ class BlocksController < ApplicationController
     else
       notice = {:error => t('blocks.destroy.failure')}
     end
-    redirect_to :back, notice
+
+    respond_with do |format|
+      format.html{ redirect_to :back, notice }
+      format.json{ render :nothing => true, :status => 204 }
+    end
   end
 
   protected

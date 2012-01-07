@@ -13,8 +13,6 @@ class ApplicationController < ActionController::Base
   before_filter :set_git_header if (AppConfig[:git_update] && AppConfig[:git_revision])
   before_filter :set_grammatical_gender
 
-  prepend_before_filter :clear_gc_stats
-
   inflection_method :grammatical_gender => :gender
 
   helper_method :all_aspects,
@@ -85,10 +83,6 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  def clear_gc_stats
-    GC.clear_stats if GC.respond_to?(:clear_stats)
-  end
-
   def redirect_unless_admin
     unless current_user.admin?
       redirect_to multi_url, :notice => 'you need to be an admin to do that'
@@ -135,30 +129,25 @@ class ApplicationController < ActionController::Base
     @tags ||= current_user.followed_tags
   end
 
-  def save_sort_order
-    if params[:sort_order].present?
-      session[:sort_order] = (params[:sort_order] == 'created_at') ? 'created_at' : 'updated_at'
-    elsif session[:sort_order].blank?
-      session[:sort_order] = 'created_at'
-    else
-      session[:sort_order] = (session[:sort_order] == 'created_at') ? 'created_at' : 'updated_at'
-    end
+  # @param stream_klass [Constant]
+  # @return [String] JSON representation of posts given a [Stream] constant.
+  def stream_json(stream_klass)
+    render_for_api :backbone, :json => stream(stream_klass).stream_posts, :root => :posts
+  end
+
+  def stream(stream_klass)
+    authenticate_user!
+    stream_klass.new(current_user, :max_time => max_time)
   end
 
   def default_stream_action(stream_klass)
-    authenticate_user!
-    save_sort_order
-    @stream = stream_klass.new(current_user, :max_time => max_time, :order => sort_order)
+    @stream = stream(stream_klass)
 
     if params[:only_posts]
       render :partial => 'shared/stream', :locals => {:posts => @stream.stream_posts}
     else
       render 'aspects/index'
     end
-  end
-
-  def sort_order
-    is_mobile_device? ? 'created_at' : session[:sort_order]
   end
 
   def max_time

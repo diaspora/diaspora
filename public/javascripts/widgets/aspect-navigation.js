@@ -43,14 +43,10 @@
 
     this.perform = function() {
       if (self.noneSelected()) {
-        self.abortAjax();
-        Diaspora.page.stream.empty();
-        Diaspora.page.stream.setHeaderTitle(Diaspora.I18n.t('aspect_navigation.no_aspects'));
-        self.fadeIn();
+        return;
       } else {
-        self.performAjax();
+        window.location = self.generateURL(); // hella hax
       }
-      self.calculateToggleText();
     };
 
     this.calculateToggleText = function() {
@@ -85,51 +81,6 @@
       return baseURL;
     };
 
-    this.performAjax = function() {
-      var post = $("#publisher textarea#status_message_fake_text").val(),
-        newURL = self.generateURL(),
-        photos = {};
-
-      //pass photos
-   	  $('#photodropzone img').each(function() {
-        var img = $(this);
-        photos[img.attr("data-id")] = img.attr("src");
-      });
-
-      self.abortAjax();
-      self.fadeOut();
-
-      self.jXHR = $.getScript(newURL, function(data) {
-        var textarea = $("#publisher textarea#status_message_fake_text"),
-          photozone = $("#photodropzone");
-
-        if( post !== "" ) {
-          textarea.val(post).focus();
-        }
-
-        $.each(photos, function(GUID, URL) {
-          photozone.append([
-            '<li style="position: relative;">',
-              '<img src="' + URL + ' data-id="' + GUID + '/>',
-            '</li>'
-          ].join(""));
-        });
-
-        self.globalPublish("stream/reloaded");
-        if( post !== "" ) {
-          Publisher.open();
-        }
-        self.fadeIn();
-      });
-    };
-
-    this.abortAjax = function() {
-      if (self.jXHR) {
-        self.jXHR.abort();
-        self.jXHR = null;
-      }
-    };
-
     this.noneSelected = function() {
       return self.aspectLis.filter(".active").length === 0;
     }
@@ -137,15 +88,5 @@
     this.allSelected = function() {
       return self.aspectLis.not(".active").length === 0;
     }
-
-    this.fadeOut = function() {
-      $("#aspect_stream_container").fadeTo(100, 0.4);
-      $("#selected_aspect_contacts").fadeTo(100, 0.4);
-    };
-
-    this.fadeIn = function() {
-      $("#aspect_stream_container").fadeTo(100, 1);
-      $("#selected_aspect_contacts").fadeTo(100, 1);
-    };
   };
 })();

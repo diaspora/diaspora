@@ -9,16 +9,16 @@ el:
     aspect_dropdown:
       add_to_aspect: "Προσθήκη επαφής"
       all_aspects: "Όλες οι πτυχές"
-      error: "Δεν μπορεί να ξεκινήσει ο διαμοιρασμός με το χρήστη {{name}}. Μήπως τον αγνοείτε;"
+      error: "Δεν μπορεί να ξεκινήσει ο διαμοιρασμός με το χρήστη <%= name %>. Μήπως τον αγνοείτε;"
       select_aspects: "Επιλογή πτυχών"
-      started_sharing_with: "Ξεκινήσατε να διαμοιράζεστε με τον χρήστη {{name}}!"
-      stopped_sharing_with: "Σταματήσατε να διαμοιράζεστε με τον χρήστη {{name}}."
+      started_sharing_with: "Ξεκινήσατε να διαμοιράζεστε με τον χρήστη <%= name %>!"
+      stopped_sharing_with: "Σταματήσατε να διαμοιράζεστε με τον χρήστη <%= name %>."
       toggle:
-        few: "Σε {{count}} πτυχές"
-        many: "Σε {{count}} πτυχές"
-        one: "Σε {{count}} πτυχή"
-        other: "Σε {{count}} πτυχές"
-        two: "Σε {{count}} πτυχές"
+        few: "Σε <%= count %> πτυχές"
+        many: "Σε <%= count %> πτυχές"
+        one: "Σε <%= count %> πτυχή"
+        other: "Σε <%= count %> πτυχές"
+        two: "Σε <%= count %> πτυχές"
         zero: "Επιλέξτε πτυχές"
     aspect_navigation:
       deselect_all: "Εξαίρεση όλων"
@@ -32,7 +32,7 @@ el:
     failed_to_post_message: "Αποτυχία δημοσίευσης μηνύματος!"
     getting_started:
       alright_ill_wait: "Εντάξει, θα περιμένω."
-      hey: "Γεια σου, {{name}}!"
+      hey: "Γεια σου, <%= name %>!"
       no_tags: "Γεια, δεν ακολουθείς ακόμα καμία ετικέτα! Συνεχίζουμε παρ' όλ' αυτά;"
       preparing_your_stream: "Ετοιμάζεται η προσωπική σας ροή..."
     infinite_scroll:
@@ -45,10 +45,10 @@ el:
       public: "Δημόσιο - οι δημοσιεύσεις σας θα είναι ορατές στον καθένα και θα μπορούν να βρεθούν από τις μηχανές αναζήτησης."
     reshares:
       duplicate: "Αυτό είναι τόσο καλό ε; Έχετε ήδη κοινοποιήσει αυτή τη δημοσίευση!"
-    search_for: "Αναζήτηση για {{name}}"
+    search_for: "Αναζήτηση για <%= name %>"
     show_more: "Προβολή περισσότερων"
     tags:
-      wasnt_that_interesting: "OK, φαντάζομαι πως το #{{tagName}} δεν ήταν και τόσο ενδιαφέρον τελικά..."
+      wasnt_that_interesting: "OK, φαντάζομαι πως το #<%= tagName %> δεν ήταν και τόσο ενδιαφέρον τελικά..."
     timeago:
       day: "μία μέρα"
       days: "%d μέρες"
@@ -65,6 +65,6 @@ el:
       years: "%d χρόνια"
     videos:
       unknown: "Άγνωστος τύπος βίντεο"
-      watch: "Δείτε το βίντεο στο {{provider}}"
+      watch: "Δείτε το βίντεο στο <%= provider %>"
     web_sockets:
       disconnected: "Το websocket είναι κλειστό: οι δημοσιεύσεις δεν θα αναμεταδίδονται ζωντανά πλέον."

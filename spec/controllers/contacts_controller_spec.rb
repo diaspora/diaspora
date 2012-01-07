@@ -63,10 +63,6 @@ describe ContactsController do
       response.should be_success
     end
 
-    it "generates a jasmine fixture", :fixture => true do
-      get :index
-      save_fixture(html_for("body"), "aspects_manage")
-    end
 
     it 'does not select duplicate contacts' do
       aspect = bob.aspects.create(:name => 'hilarious people')

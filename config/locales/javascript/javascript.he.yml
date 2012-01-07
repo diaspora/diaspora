@@ -14,11 +14,11 @@ he:
       started_sharing_with: "{{name}}! התחלת לשתף עם"
       stopped_sharing_with: "{{name}} הפסקת לשתף עם"
       toggle:
-        few: "{{count}} תחומי עניין ב"
-        many: "{{count}} תחומי עניין ב"
-        one: "{{count}}בתחום עניין "
-        other: "ב־{{count}} היבטים"
-        two: "ב־{{count}} היבטים"
+        few: "<%= count %> תחומי עניין ב"
+        many: "<%= count %> תחומי עניין ב"
+        one: "<%= count %> בתחום עניין "
+        other: "ב־<%= count %> היבטים"
+        two: "ב־<%= count %> היבטים"
         zero: "בחר תחום עניין"
     aspect_navigation:
       deselect_all: "בטל את הסימון"
@@ -32,7 +32,7 @@ he:
     failed_to_post_message: "פרסום ההודעה נכשל!"
     getting_started:
       alright_ill_wait: "בסדר, אני אמתין."
-      hey: "שלום, {{name}}!"
+      hey: "שלום, <%= name %>!"
       no_tags: "?היי, לא עקבת אחרי אף תגית! לאן אתה רוצה להמשיך"
       preparing_your_stream: "החדשות האישיות שלך בשלבי הכנה"
     infinite_scroll:
@@ -45,10 +45,10 @@ he:
       public: "ציבורי - הרשומה שלך תהיה גלויה לכולם וניתן יהיה למצוא אותה במנועי חיפוש"
     reshares:
       duplicate: "כבר שיתפת רשומה זו בעבר "
-    search_for: " {{name}}חיפוש אחר"
+    search_for: " <%= name %>חיפוש אחר"
     show_more: "הצגת עוד"
     tags:
-      wasnt_that_interesting: "...זה לא היה כל כך מעניין#{{tagName}} אוקיי, אני מניח "
+      wasnt_that_interesting: "...זה לא היה כל כך מעניין#<%= tagName %> אוקיי, אני מניח "
     timeago:
       day: יום
       days: "%d ימים"
@@ -67,6 +67,6 @@ he:
       years: "%d שנים"
     videos:
       unknown: "סוג הווידאו אינו ידוע"
-      watch: " {{provider}}צפייה בסרטון וידאו זה באתר"
+      watch: " <%= provider %>צפייה בסרטון וידאו זה באתר"
     web_sockets:
       disconnected: "צינור ההודעות סגור; הודעות לא יוצגו בזמן אמת"

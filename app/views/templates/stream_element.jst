@@ -1,0 +1,62 @@
+<div class="right controls">
+  <% if(author.id != current_user.id) { %>
+    <a href="#" rel=nofollow>
+      <img src="/images/icons/ignoreuser.png" alt="Ignoreuser" class="block_user control_icon" title= "<%= Diaspora.I18n.t('ignore') %>" />
+      <img src="/images/deletelabel.png" class="delete control_icon hide_post" title="<%= Diaspora.I18n.t('stream.hide') %>" />
+    </a>
+  <% } else { %>
+    <a href="#" rel=nofollow>
+      <img src="/images/deletelabel.png" class="delete control_icon remove_post" title="<%= Diaspora.I18n.t('delete') %>" />
+    </a>
+  <% } %>
+
+</div>
+
+<div class="sm_body">
+  <a href="/people/<%= author.id %>">
+    <img src="<%= author.avatar.small %>" class="avatar" />
+  </a>
+
+  <div class="content">
+
+    <div class="post_initial_info">
+      <span class="from">
+        <a href="/people/<%= author.id %>">
+          <%= author.name %>
+        </a>
+      </span>
+
+      <span class="details">
+        -
+        <a href="/posts/<%= id %>">
+          <time class="timeago" datetime="<%= created_at %>"/>
+        </a>
+
+        <% if(reshares_count) { %>
+          -
+          <%= Diaspora.I18n.t("stream.reshares", {count : reshares_count}) %>
+        <% } %>
+      </span>
+    </div>
+
+    <% if(text !== null && text.match(/#nsfw/i)) { %>
+      <div class="shield_wrapper">
+        <div class="shield">
+          <%= Diaspora.I18n.t('stream.nsfw') %>
+          <a href="#">
+            <%= Diaspora.I18n.t('stream.show') %>
+          </a>
+        </div>
+    <% } %>
+
+    <div class="post-content"> </div>
+
+    <% if(text !== null && text.match(/#nsfw/)) { %>
+      </div>
+    <% } %>
+
+    <div class="feedback"> </div>
+    <div class="likes"> </div>
+    <div class="comments"> </div>
+
+  </div>

@@ -20,9 +20,8 @@ jQuery.fn.center = (function() {
   var Lightbox = function() {
     var self = this;
 
-    this.subscribe("widget/ready", function(evt, post) {
+    this.subscribe("widget/ready", function(evt) {
       $.extend(self, {
-        post: post,
         lightbox: $("#lightbox"),
         imageset: $("#lightbox-imageset"),
         backdrop: $("#lightbox-backdrop"),
@@ -32,7 +31,7 @@ jQuery.fn.center = (function() {
         window: $(window)
       });
 
-      self.post.delegate("a.stream-photo-link", "click", self.lightboxImageClicked);
+      //self.post.delegate("a.stream-photo-link", "click", self.lightboxImageClicked);
       self.imageset.delegate("img", "click", self.imagesetImageClicked);
 
       self.window.resize(function() {

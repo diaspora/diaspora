@@ -61,6 +61,12 @@ form
   :display none
 
 .avatar
+  :-webkit-box-shadow rgba(0,0,0,0.12) 0px 0px 5px inset
+  :-moz-box-shadow rgba(0,0,0,0.12) 0px 0px 5px inset
+
+  :background
+    :color #eee
+
   :width 50px
   :height 50px
 
@@ -148,8 +154,11 @@ form
     :margin 0
 
 header
-  @include box-shadow(0,1px,2px,rgba(0,0,0,0.5))
-  @include linear-gradient(rgb(40,35,35),rgb(35,30,30))
+  @include box-shadow(0,1px,3px,rgba(0,0,0,0.9))
+
+  :background
+    :color rgb(40,35,35)
+    :image url('/images/header-bg.png')
 
   :z-index 1001
   :padding 6px 0
@@ -163,11 +172,7 @@ header
   :left 0
 
   :border
-    :bottom 1px solid rgb(4,0,0)
-
-  &.fixit
-    :position fixed
-    :top -30px
+    :bottom 1px solid #444
 
   a
     :color #CCC
@@ -201,9 +206,6 @@ header
       :top -2px
       :right -5px
 
-    :background
-      :color rgba(24,20,20,0.5)
-
     :border
       :left 1px solid #333
       :right 1px solid #333
@@ -213,10 +215,6 @@ header
 
     :top -4px
     :right 0
-
-    &:hover
-      :background
-        :color #222
 
     li
       a
@@ -237,7 +235,7 @@ header
             :right 15px
           &:hover
             :background
-              :color #222
+              :color transparent
             :text
               :decoration none
           &:focus
@@ -256,11 +254,11 @@ header
       :border 1px solid #999
 
     .avatar
-      :height 20px
-      :width 20px
+      :height 22px
+      :width 22px
       :position absolute
-      :left 4px
-      :top 5px
+      :left 7px
+      :top 9px
       :display block
 
 header.ie-user-menu-active
@@ -300,11 +298,13 @@ ul.as-selections
 
 .diaspora_header_logo
   :position relative
-  :top 4px
+  :top -6px
+
+  :padding 0 10px
+
   :margin
-    :right 26px
-  &:active
-    :top 5px
+    :left 60px
+    :right 69px
 
 .stream
   audio
@@ -793,7 +793,7 @@ form.new_comment
       h4
         :font-weight bold
 
-a.paginate, #infscr-loading
+#paginate, #infscr-loading
   :display block
 
   :margin
@@ -1159,33 +1159,43 @@ header #global_search
   :display inline
   :position relative
 
+  :top -20px
+
   form
     :display inline
 
     input
-      @include box-shadow(0,1px,0px,#444)
+      @include box-shadow(0,1px,1px,#444)
+      @include border-radius(3px)
+      @include transition(background-color)
 
       :display inline
-      :background-color #ccc
+      :background-color #555
+      :background-color rgba(60,60,60,0.6)
+
       :border
         :top 1px solid #111
 
       :font
-        :size 13px
+        :size 14px
 
-      :border 1px solid #000
+      :border 1px solid #222
 
       &:hover
-        :background-color #eee
+        :background-color #888
+        :background-color rgba(90,90,90,0.6)
 
       &.active
         :background-color #fafafa
+        :background-color rgba(160,160,160,0.6)
 
+      &:focus
+        @include box-shadow(0,0,5px,#fff)
+        :outline none
 
     input[type='search']
-      :width 250px
-      :padding 3px
-
+      :width 220px
+      :padding 5px
 
 .aspect
   h3
@@ -1642,7 +1652,7 @@ h3 span.current_gs_step
   :display inline-block
   :min-width 170px
   :top 3px
-  :left 440px
+  :left 410px
   :margin
     :left 20px
 
@@ -1917,13 +1927,19 @@ ul#landing_nav
   :margin 0
   :padding 0
 
-  :font
-    :size 14px
+  :position absolute
+  :top 4px
+  :right 0
 
   > li
     :display inline
     :margin
       :right 0.5em
+
+    &:last-child
+      :margin
+        :right 0
+
     a
       :color $blue
 
@@ -2406,17 +2422,6 @@ ul.show_comments,
     :color #eee
   :border 1px solid #ccc
 
-#sort_by
-  :float right
-  :color #777
-  .controls
-    :font
-      :weight 700
-    a
-      :font
-        :weight normal
-
-
 #remember_me
   input[type='checkbox']
     :display inline
@@ -2864,8 +2869,12 @@ ul#requested-scopes
 
 ul.left_nav
   :margin 0
-    :bottom 20px
+    :bottom 15px
   :padding 0
+
+  a
+    :color #777
+    :font-weight bold
 
   li
     :position relative
@@ -2906,9 +2915,6 @@ ul.left_nav
     :display block
     :width 100%
     :padding 3px 7px
-
-  .root_element
-    :font-weight 700
 
   a.aspect_selector,
   a.home_selector,
@@ -3092,7 +3098,7 @@ a.toggle_selector
   :border solid #888 1px
   :position absolute
   :top 32px
-  :left 492px
+  :left 462px
   :width 380px
   :display none
 
@@ -3288,20 +3294,6 @@ a.toggle_selector
 .accept_invitation_text
   :font
     :weight lighter
-#back-to-top
-  :display block
-  :color white
-  :position fixed
-  :z-index 49
-  :right 20px
-  :bottom 20px
-  :opacity 0
-  :font-size 3em
-  :padding 0 11px 0 12px
-  :border-radius 10px
-  :background-color #aaa
-  &:hover
-    :opacity .85 !important
 
 .red
   :color $red
@@ -3496,9 +3488,16 @@ a.toggle_selector
   :position relative
 
 .shield
+  @include border-radius(3px)
   :z-index 3
   :background-color #eee
   :position absolute
   :width 100%
   :height 100%
   :padding 5px
+  :border 1px solid #ddd
+
+.shield_wrapper
+  :position relative
+  :margin
+    :bottom 15px

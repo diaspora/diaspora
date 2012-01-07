@@ -881,9 +881,6 @@ en:
       no_applications: "You haven't registered any applications yet."
 
   streams:
-    recently: "recently:"
-    commented_on: "commented on"
-    posted: "posted"
     community_spotlight_stream: "Community Spotlight"
     aspects_stream: "Aspects"
     mentioned_stream: "@Mentions"

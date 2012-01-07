@@ -9,16 +9,16 @@ ro:
     aspect_dropdown:
       add_to_aspect: "Adaugă la contacte"
       all_aspects: "Toate aspectele"
-      error: "Nu sa putut incepe impartirea de publicatii cu {{name}}. Ii ignorati cumva ?"
+      error: "Nu sa putut incepe impartirea de publicatii cu <%= name %>. Ii ignorati cumva ?"
       select_aspects: "Selectează aspecte"
-      started_sharing_with: "Ati inceput sa impartiti publicatii cu {{name}}!"
-      stopped_sharing_with: "Nu mai imparti publicatii cu {{name}}."
+      started_sharing_with: "Ati inceput sa impartiti publicatii cu <%= name %>!"
+      stopped_sharing_with: "Nu mai imparti publicatii cu <%= name %>."
       toggle:
-        few: "În {{count}} aspecte"
-        many: "În {{count}} aspecte"
-        one: "În {{count}} aspect"
-        other: "În {{count}} aspecte"
-        two: "In {{count}} aspecte"
+        few: "În <%= count %> aspecte"
+        many: "În <%= count %> aspecte"
+        one: "În <%= count %> aspect"
+        other: "În <%= count %> aspecte"
+        two: "In <%= count %> aspecte"
         zero: "Selectati aspecte"
     aspect_navigation:
       deselect_all: "Deselectează tot"
@@ -32,7 +32,7 @@ ro:
     failed_to_post_message: "Nu sa reusit trimiterea mesajului!"
     getting_started:
       alright_ill_wait: "In regulă, o să aștept."
-      hey: "Salutare, {{name}}!"
+      hey: "Salutare, <%= name %>!"
       no_tags: "Hopa, nu urmati nicio eticheta! Continuati si asa ?"
       preparing_your_stream: "Se pregateste fluxul personalizat pentru dvs..."
     infinite_scroll:
@@ -44,10 +44,10 @@ ro:
       limited: "Limitat - publicatia va fi vazuta doar de catre persoanele cu care imparti publicatii"
     reshares:
       duplicate: "E chiar asa de tare, hmm?  Ati mai raspandit o data aceasta publicatie!"
-    search_for: "Caută {{name}}"
+    search_for: "Caută <%= name %>"
     show_more: "arată mai mult"
     tags:
-      wasnt_that_interesting: "Bine, presupun ca #{{tagName}} nu a fost chiar atat de interesant..."
+      wasnt_that_interesting: "Bine, presupun ca #<%= tagName %> nu a fost chiar atat de interesant..."
     timeago:
       day: "o zi"
       days: "%d zile"
@@ -66,6 +66,6 @@ ro:
       years: "%d ani"
     videos:
       unknown: "Format de video necunoscut"
-      watch: "Vizualizează acest video pe {{provider}}"
+      watch: "Vizualizează acest video pe <%= provider %>"
     web_sockets:
       disconnected: "Websocket-ul e închis; posturile nu vor mai fi transmise în direct."

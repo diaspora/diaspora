@@ -1,5 +1,4 @@
-RSpec::Rails::ControllerExampleGroup.class_eval do
-
+module JasmineFixtureGeneration
   # Saves the markup to a fixture file using the given name
   def save_fixture(markup, name, fixture_path=nil )
     fixture_path = File.join(Rails.root, 'tmp', 'js_dom_fixtures') unless fixture_path
@@ -39,5 +38,9 @@ RSpec::Rails::ControllerExampleGroup.class_eval do
   def convert_body_tag_to_div(markup)
     return markup.gsub("<body", '<div').gsub("</body>", "</div>")
   end
+end
+
+RSpec::Rails::ControllerExampleGroup.class_eval do
+  include JasmineFixtureGeneration
 end
 

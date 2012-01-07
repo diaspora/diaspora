@@ -73,6 +73,7 @@ gem 'jammit', '0.6.5'
 
 gem 'json', '1.5.2'
 gem 'vanna', :git => 'git://github.com/MikeSofaer/vanna.git'
+gem 'acts_as_api'
 
 # localization
 
@@ -128,6 +129,8 @@ group :test do
   gem 'cucumber-api-steps', '0.6', :require => false
   gem 'database_cleaner', '0.7.0'
   gem 'diaspora-client', :git => 'git://github.com/diaspora/diaspora-client.git'
+
+  gem 'timecop'
                           #"0.1.0", #:path => '~/workspace/diaspora-client'
   gem 'factory_girl_rails'
   gem 'fixture_builder', '0.3.1'

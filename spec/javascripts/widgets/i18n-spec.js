@@ -9,7 +9,7 @@ describe("Diaspora", function() {
       var locale = {
         namespace: {
           message: "hey",
-          template: "{{myVar}}",
+          template: "<%= myVar %>",
           otherNamespace: {
             message: "hello from another namespace",
             otherMessage: {

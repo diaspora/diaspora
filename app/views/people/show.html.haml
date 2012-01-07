@@ -27,14 +27,15 @@
     = render 'people/sub_header', :person => @person, :contact => @contact
 
     / hackity hack until we get a photo stream
-    - if (@posts && @posts.length > 0) || (@stream && @stream.stream_posts.length > 0)
+    - if @backbone && (@posts && @posts.length > 0) || (@stream && @stream.stream_posts.length > 0)
       -if @post_type == :photos
         = render 'photos/index', :photos => @posts
       - else
         #main_stream.stream
-          = render 'shared/stream', :posts => @stream.stream_posts
-          #pagination
-            =link_to(t('more'), next_page_path, :class => 'paginate')
+          - if !@backbone
+            = render 'shared/stream', :posts => @stream.stream_posts
+            #pagination
+              =link_to(t('more'), next_page_path, :class => 'paginate')
 
     - else
       #main_stream

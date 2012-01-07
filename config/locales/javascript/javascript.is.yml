@@ -9,11 +9,11 @@ is:
     aspect_dropdown:
       add_to_aspect: "Add to aspect"
       toggle:
-        few: "In {{count}} aspects"
-        many: "In {{count}} aspects"
-        one: "In {{count}} aspect"
-        other: "In {{count}} aspects"
-        two: "In {{count}} aspects"
+        few: "In <%= count %> aspects"
+        many: "In <%= count %> aspects"
+        one: "In <%= count %> aspect"
+        other: "In <%= count %> aspects"
+        two: "In <%= count %> aspects"
         zero: "Add to aspect"
     confirm_dialog: "Ertu viss?"
     getting_started:
@@ -35,4 +35,4 @@ is:
       years: "%d ára"
     videos:
       unknown: "Óþekkt vídeó tegund"
-      watch: "Horfa á þetta vídeó á {{provider}}"
+      watch: "Horfa á þetta vídeó á <%= provider %>"

@@ -22,8 +22,8 @@ describe CommentsController do
         @post = alice.post :status_message, :text => 'GIANTS', :to => aspect_to_post
       end
 
-      it 'responds to format js' do
-        post :create, comment_hash.merge(:format => 'js')
+      it 'responds to format json' do
+        post :create, comment_hash.merge(:format => 'json')
         response.code.should == '201'
         response.body.should match comment_hash[:text]
       end
@@ -128,13 +128,6 @@ describe CommentsController do
     before do
       aspect_to_post = bob.aspects.where(:name => "generic").first
       @message = bob.post(:status_message, :text => "hey", :to => aspect_to_post.id)
-    end
-
-    it 'generates a jasmine fixture', :fixture => true do
-      2.times { alice.comment("hey", :post => @message) }
-      get :index, :post_id => @message.id
-
-      save_fixture(response.body, "ajax_comments_on_post")
     end
 
     it 'works for mobile' do

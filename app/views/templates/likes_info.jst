@@ -1,0 +1,6 @@
+<% if(likes_count > 0) { %>
+  <img alt="Heart" src="/images/icons/heart.png" />
+  <a href="#" class="expand_likes">
+    <%= Diaspora.I18n.t('stream.likes', {count: likes_count}) %>
+  </a>
+<% } %>
