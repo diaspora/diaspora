@@ -77,18 +77,12 @@ silence_warnings do
 end
 
 require File.join(File.dirname(__FILE__), "..", "..", "spec", "support", "fake_resque")
-module Resque
-  def enqueue(klass, *args)
-    klass.send(:perform, *args)
-  end
-end
 
-# Patch aspect stream to not ajax in itself
-class Stream::Aspect
-  def ajax_stream?
-    false
-  end
-end
+
+require File.join(File.dirname(__FILE__), 'run_resque_in_process')
+require File.join(File.dirname(__FILE__), 'always_use_local_jquery')
+require File.join(File.dirname(__FILE__), 'never_ajax_stream')
+
 
 Before('@localserver') do
   TestServerFixture.start_if_needed
@@ -100,21 +94,3 @@ end
 After('@localserver') do
   CapybaraSettings.instance.restore
 end
-
-# class Capybara::Driver::Selenium < Capybara::Driver::Base
-#   class Node < Capybara::Node
-#     def [](name)
-#       node.attribute(name.to_s)
-#     rescue Selenium::WebDriver::Error::WebDriverError
-#       nil
-#     end
-
-#     def select(option)
-#       option_node = node.find_element(:xpath, ".//option[normalize-space(text())=#{Capybara::XPath.escape(option)}]") || node.find_element(:xpath, ".//option[contains(.,#{Capybara::XPath.escape(option)})]")
-#       option_node.click
-#     rescue
-#       options = node.find_elements(:xpath, "//option").map { |o| "'#{o.text}'" }.join(', ')
-#       raise Capybara::OptionNotFound, "No such option '#{option}' in this select box. Available options: #{options}"
-#     end
-#   end
-# end
