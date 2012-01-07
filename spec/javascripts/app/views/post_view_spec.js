@@ -49,6 +49,15 @@ describe("app.views.Post", function(){
         this.statusMessage.set({text: "I love #parties and #rockstars and #unicorns"})
         var view = new app.views.Post({model : this.statusMessage}).render();
         expect(view.$("a.tag").length).toBe(3)
+        expect(view.$("a:contains('#parties')")).toExist();
+        expect(view.$("a:contains('#rockstars')")).toExist();
+        expect(view.$("a:contains('#unicorns')")).toExist();
+      })
+
+      it("requires hashtags to be preceeded with a space", function(){
+        this.statusMessage.set({text: "I love the#parties"})
+        var view = new app.views.Post({model : this.statusMessage}).render();
+        expect(view.$(".tag").length).toBe(0)
       })
 
       // NOTE THIS DIVERGES FROM GRUBER'S ORIGINAL DIALECT OF MARKDOWN.
@@ -62,7 +71,6 @@ describe("app.views.Post", function(){
         var view = new app.views.Post({model : this.statusMessage}).render();
         expect(view.$("h1:contains(parties)")).not.toExist();
         expect(view.$("a:contains('#parties')")).toExist();
-
       })
     })
 

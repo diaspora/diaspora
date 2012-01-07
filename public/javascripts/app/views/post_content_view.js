@@ -22,9 +22,9 @@
       }
 
       function hashtagify(text){
-        var utf8WordCharcters =/(#([\u0080-\uFFFF|\w|-]+|&lt;3))/g
-        return text.replace(utf8WordCharcters, function(tagText) {
-          return "<a href='/tags/" + tagText.substring(1) + "' class='tag'>" + tagText + "</a>"
+        var utf8WordCharcters =/(\s|^|>)#([\u0080-\uFFFF|\w|-]+|&lt;3)/g
+        return text.replace(utf8WordCharcters, function(hashtag, preceeder, tagText) {
+          return preceeder + "<a href='/tags/" + tagText + "' class='tag'>#" + tagText + "</a>"
         })
       }
 

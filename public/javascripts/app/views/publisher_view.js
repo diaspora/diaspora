@@ -1,5 +1,8 @@
-app.views.Publisher = Backbone.View.extend({
+//this file is the scary no-no-zone bad-touch of our backbone code.
+//after re-writing/eliminating the existing Publisher let's re-write
+//this with PANACHE!
 
+app.views.Publisher = Backbone.View.extend({
   el : "#publisher",
 
   events : {
@@ -7,6 +10,7 @@ app.views.Publisher = Backbone.View.extend({
     "click #hide_publisher" : "close",
     "submit form" : "createStatusMessage"
   },
+
 
   initialize : function(){
     this.collection = this.collection || new app.collections.Stream;
@@ -37,18 +41,19 @@ app.views.Publisher = Backbone.View.extend({
   },
 
   clear : function() {
-    // remove form data
-    _.each(this.$('textarea'), function(element) {
-      $(element).removeClass("with_attachments")
-                .css("paddingBottom", "")
-                .val("");
-    });
+    this.$('textarea')
+      .removeClass("with_attachments")
+      .css("paddingBottom", "")
+      .val("");
 
     // remove photos
     this.$("#photodropzone").find('li').remove();
 
     // close publishing area (CSS)
     this.close();
+
+    // clear mentions (TO BE REMOVED!!)
+    Publisher.autocompletion.mentionList.clear()
 
     return this;
   },
