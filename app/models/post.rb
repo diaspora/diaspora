@@ -16,7 +16,9 @@ class Post < ActiveRecord::Base
   api_accessible :backbone do |t|
     t.add :id
     t.add :guid
-    t.add :text
+    t.add lambda { |post|
+      post.raw_message
+    }, :as => :text
     t.add :public
     t.add :created_at
     t.add :comments_count

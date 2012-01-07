@@ -38,6 +38,34 @@ describe("app.views.Post", function(){
       expect(window.markdown.toHTML).toHaveBeenCalledWith("I have three Belly Buttons")
     })
 
+    context("changes hashtags to links", function(){
+      it("links to a hashtag to the tag page", function(){
+        this.statusMessage.set({text: "I love #parties"})
+        var view = new app.views.Post({model : this.statusMessage}).render();
+        expect(view.$("a:contains('#parties')").attr('href')).toBe('/tags/parties')
+      })
+
+      it("changes all hashtags", function(){
+        this.statusMessage.set({text: "I love #parties and #rockstars and #unicorns"})
+        var view = new app.views.Post({model : this.statusMessage}).render();
+        expect(view.$("a.tag").length).toBe(3)
+      })
+
+      // NOTE THIS DIVERGES FROM GRUBER'S ORIGINAL DIALECT OF MARKDOWN.
+      // We had to edit markdown.js line 291 - good people would have made a new dialect.
+      //
+      //    original : var m = block.match( /^(#{1,6})\s*(.*?)\s*#*\s*(?:\n|$)/ );
+      //    \s* changed to \s+
+      //
+      it("doesn't create a header tag if the first word is a hashtag", function(){
+        this.statusMessage.set({text: "#parties, I love"})
+        var view = new app.views.Post({model : this.statusMessage}).render();
+        expect(view.$("h1:contains(parties)")).not.toExist();
+        expect(view.$("a:contains('#parties')")).toExist();
+
+      })
+    })
+
     context("user not signed in", function(){
       it("does not provide a Feedback view", function(){
         window.current_user = app.user(null);
