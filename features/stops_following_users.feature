@@ -1,17 +1,17 @@
 @javascript
-Feature: Unfollowing 
-  In order to stop seeing updates from self-important rockstars 
+Feature: Unfollowing
+  In order to stop seeing updates from self-important rockstars
   As a user
   I want to be able to stop following people
 
-  Background: 
+  Background:
     Given a user with email "bob@bob.bob"
     And a user with email "alice@alice.alice"
     When I sign in as "bob@bob.bob"
     And I am on "alice@alice.alice"'s page
     And I add the person to my "Besties" aspect
 
-  Scenario: stop following someone while on their profile page 
+  Scenario: stop following someone while on their profile page
     When I am on "alice@alice.alice"'s page
 
     And I remove the person from my "Besties" aspect
@@ -27,8 +27,8 @@ Feature: Unfollowing
 
   Scenario: stop following someone while on the aspect edit page
     When I go to the home page
-    And I click on my name in the header
-    And I follow "Contacts"
+    And I go to the contacts page
+
     And I follow "Besties"
     And I follow "add contacts to Besties"
     And I wait for the ajax to finish
