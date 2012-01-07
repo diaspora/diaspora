@@ -22,12 +22,7 @@ Feature: Close Account
     Given a user named "Bob Jones" with email "bob@bob.bob"
     And a user named "Alice Smith" with email "alice@alice.alice"
     And a user with email "bob@bob.bob" is connected with "alice@alice.alice"
-    When I sign in as "alice@alice.alice"
-    And I am on the home page
-    And I expand the publisher
-    And I fill in "status_message_fake_text" with "Hi, @{Bob Jones; bob_jones@example.org} long time no see"
-    And I press "Share"
-    And I log out
+    And Alice has a post mentioning Bob
 
     Then I sign in as "bob@bob.bob"
     When I go to the users edit page
@@ -37,4 +32,4 @@ Feature: Close Account
     And I press "Close Account" in the modal window
     Then I sign in as "alice@alice.alice"
     And I am on the home page
-    Then I should see "Hi, Bob Jones long time no see"
+    Then I should see "Bob Jones"

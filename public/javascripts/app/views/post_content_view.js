@@ -35,6 +35,7 @@
             return person.diaspora_id == diasporaId
           }).id
 
+
           return "<a href='/people/" + personId + "' class='mention'>" + fullName + "</a>"
         })
         return text
