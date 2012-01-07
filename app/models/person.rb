@@ -16,6 +16,9 @@ class Person < ActiveRecord::Base
     t.add :id
     t.add :name
     t.add lambda { |person|
+      person.diaspora_handle
+    }, :as => :diaspora_id
+    t.add lambda { |person|
       {:small => person.profile.image_url(:small),
        :medium => person.profile.image_url(:medium),
        :large => person.profile.image_url(:large) }
@@ -71,7 +74,7 @@ class Person < ActiveRecord::Base
 
   scope :profile_tagged_with, lambda{|tag_name| joins(:profile => :tags).where(:profile => {:tags => {:name => tag_name}}).where('profiles.searchable IS TRUE') }
 
-  scope :who_have_reshared_a_users_posts, lambda{|user| 
+  scope :who_have_reshared_a_users_posts, lambda{|user|
     joins(:posts).where(:posts => {:root_guid => StatusMessage.guids_for_author(user.person), :type => 'Reshare'} )
   }
 
@@ -286,7 +289,7 @@ class Person < ActiveRecord::Base
   def self.url_batch_update(people, url)
     people.each do |person|
       person.update_url(url)
-    end 
+    end
   end
 
   # @param person [Person]

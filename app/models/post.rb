@@ -34,6 +34,7 @@ class Post < ActiveRecord::Base
     t.add :root
     t.add :o_embed_cache
     t.add :user_like
+    t.add :mentioned_people
     t.add lambda { |post|
       if post.photos_count > 0
         post.photos
@@ -63,6 +64,10 @@ class Post < ActiveRecord::Base
 
   def raw_message
     ""
+  end
+
+  def mentioned_people
+    []
   end
 
   # gives the last three comments on the post

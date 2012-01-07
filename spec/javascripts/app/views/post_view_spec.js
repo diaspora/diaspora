@@ -66,6 +66,38 @@ describe("app.views.Post", function(){
       })
     })
 
+    context("changes mention markup to links", function(){
+      beforeEach(function(){
+        this.alice = factory.author({
+          name : "Alice Smith",
+          diaspora_id : "alice@example.com",
+          id : "555"
+        })
+
+        this.bob = factory.author({
+          name : "Bob Grimm",
+          diaspora_id : "bob@example.com",
+          id : "666"
+        })
+      })
+
+      it("links to the mentioned person's page", function(){
+        this.statusMessage.set({mentioned_people : [this.alice]})
+        this.statusMessage.set({text: "sup, @{Alice Smith; alice@example.com}?"})
+
+        var view = new app.views.Post({model : this.statusMessage}).render();
+        expect(view.$("a:contains('Alice Smith')").attr('href')).toBe('/people/555')
+      })
+
+      it("matches all mentions", function(){
+        this.statusMessage.set({mentioned_people : [this.alice, this.bob]})
+        this.statusMessage.set({text: "hey there @{Alice Smith; alice@example.com} and @{Bob Grimm; bob@example.com}"})
+
+        var view = new app.views.Post({model : this.statusMessage}).render();
+        expect(view.$("a.mention").length).toBe(2)
+      })
+    })
+
     context("user not signed in", function(){
       it("does not provide a Feedback view", function(){
         window.current_user = app.user(null);
