@@ -756,7 +756,7 @@ ru:
       upload_photos: "Загрузить фотографии"
       whats_on_your_mind: "О чём вы думаете?"
     reshare:
-      reshare: "Поделиться повторно"
+      reshare: Поделиться
     stream_element:
       connect_to_comment: "Подключитесь к этому пользователю, чтобы комментировать его записи"
       currently_unavailable: "комментирование недоступно"

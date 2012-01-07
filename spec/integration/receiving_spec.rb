@@ -23,8 +23,8 @@ describe 'a user receives a post' do
     contact = alice.contact_for(bob.person)
     alice.add_contact_to_aspect(contact, alice.aspects.create(:name => "villains"))
     status = bob.build_post(:status_message, :text => "Users do things", :to => @bobs_aspect.id)
-    Diaspora::WebSocket.stub!(:is_connected?).and_return(true)
-    Diaspora::WebSocket.should_receive(:queue_to_user).exactly(:once)
+    Diaspora::Websocket.stub!(:is_connected?).and_return(true)
+    Diaspora::Websocket.should_receive(:to).exactly(:once).and_return(stub.as_null_object)
     zord = Postzord::Receiver::Private.new(alice, :object => status, :person => bob.person)
     zord.receive_object
   end

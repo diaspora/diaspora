@@ -73,6 +73,6 @@ module ApplicationHelper
   end
 
   def popover_with_close_html(without_close_html)
-    without_close_html + "#{link_to(image_tag('deletelabel.png'), "#", :class => 'close')}"
+    without_close_html + link_to(image_tag('deletelabel.png'), "#", :class => 'close')
   end
 end

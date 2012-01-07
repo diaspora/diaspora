@@ -7,42 +7,53 @@
 he:
   javascripts:
     aspect_dropdown:
-      add_to_aspect: "הוספה להיבט"
+      add_to_aspect: "הוסף איש קשר"
       all_aspects: "כל ההיבטים"
+      error: " ?האם אתה מתעלם מהם .{{name}}לא יכול להתחיל לשתף עם "
+      select_aspects: "בחר תחומי עניין"
+      started_sharing_with: "{{name}}! התחלת לשתף עם"
+      stopped_sharing_with: "{{name}} הפסקת לשתף עם"
       toggle:
-        few: "ב־{{count}} היבטים"
-        many: "ב־{{count}} היבטים"
-        one: "בהיבט אחד"
+        few: "{{count}} תחומי עניין ב"
+        many: "{{count}} תחומי עניין ב"
+        one: "{{count}}בתחום עניין "
         other: "ב־{{count}} היבטים"
         two: "ב־{{count}} היבטים"
-        zero: "הוספה להיבט"
+        zero: "בחר תחום עניין"
     aspect_navigation:
+      deselect_all: "בטל את הסימון"
+      no_aspects: "אין תחום עניין שנבחר"
       select_all: "בחר הכל"
     comments:
       hide: "הסתרת תגובות"
       show: "הצגת כל התגובות"
-    confirm_dialog: בבטחה?
+    confirm_dialog: בבטחה
     failed_to_like: "הסימון ב'אהבתי' נכשל!"
     failed_to_post_message: "פרסום ההודעה נכשל!"
     getting_started:
       alright_ill_wait: "בסדר, אני אמתין."
       hey: "שלום, {{name}}!"
-      preparing_your_stream: "Preparing your personialized stream..."
+      no_tags: "?היי, לא עקבת אחרי אף תגית! לאן אתה רוצה להמשיך"
+      preparing_your_stream: "החדשות האישיות שלך בשלבי הכנה"
     infinite_scroll:
-      no_more: "אין רשומות נוספות."
+      no_more: "אין רשומות נוספות"
+    photo_uploader:
+      looking_good: "! וואו, מדהים"
     publisher:
-      at_least_one_aspect: "עליך לפרסם היבט אחד לפחות"
+      at_least_one_aspect: "עליך לפרסם תחום עניין אחד לפחות"
       limited: "מוגבל - הרשומה שלך תהיה גלויה אך ורק לאנשים אתם בחרת לשתף"
       public: "ציבורי - הרשומה שלך תהיה גלויה לכולם וניתן יהיה למצוא אותה במנועי חיפוש"
     reshares:
-      duplicate: "כבר שיתפת רשומה זו מחדש!"
-    search_for: "חיפוש אחר {{name}}"
+      duplicate: "כבר שיתפת רשומה זו בעבר "
+    search_for: " {{name}}חיפוש אחר"
     show_more: "הצגת עוד"
+    tags:
+      wasnt_that_interesting: "...זה לא היה כל כך מעניין#{{tagName}} אוקיי, אני מניח "
     timeago:
       day: יום
       days: "%d ימים"
       hour: "בערך שעה"
-      hours: "בערך %d שעות"
+      hours: "שעות %d בערך"
       minute: "בערך דקה"
       minutes: "%d דקות"
       month: "בערך חודש"
@@ -56,6 +67,6 @@ he:
       years: "%d שנים"
     videos:
       unknown: "סוג הווידאו אינו ידוע"
-      watch: "צפייה בסרטון וידאו זה באתר {{provider}}"
+      watch: " {{provider}}צפייה בסרטון וידאו זה באתר"
     web_sockets:
-      disconnected: "צינור ההודעות סגור; הודעות לא יוצגו בזמן אמת."
+      disconnected: "צינור ההודעות סגור; הודעות לא יוצגו בזמן אמת"

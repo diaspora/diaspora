@@ -1072,6 +1072,8 @@ describe User do
           invited_by_id
           invited_by_type
           authentication_token
+          auto_follow_back
+          auto_follow_back_aspect_id
           unconfirmed_email
           confirm_email_token
         }.sort

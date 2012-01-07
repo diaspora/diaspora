@@ -6,8 +6,7 @@ Feature: Close Account
 
   Scenario: user closes account
     Given I am signed in
-    When I click on my name in the header
-    And I follow "Settings"
+    When I go to the users edit page
     And I follow "Close Account"
     And I put in my password in "close_account_password" in the modal window
     And I preemptively confirm the alert
@@ -29,9 +28,9 @@ Feature: Close Account
     And I fill in "status_message_fake_text" with "Hi, @{Bob Jones; bob_jones@example.org} long time no see"
     And I press "Share"
     And I log out
+
     Then I sign in as "bob@bob.bob"
-    When I click on my name in the header
-    And I follow "Settings"
+    When I go to the users edit page
     And I follow "Close Account"
     And I put in my password in "close_account_password" in the modal window
     And I preemptively confirm the alert

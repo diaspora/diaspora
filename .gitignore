@@ -13,7 +13,6 @@ config/oauth_keys.yml
 config/initializers/secret_token.rb
 config/redis.conf
 config/deploy_config.yml
-config/newrelic.yml
 .bundle
 vendor/bundle/*
 vendor/cache/*

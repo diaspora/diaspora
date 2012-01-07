@@ -867,8 +867,10 @@ da:
       change_language: "Skift sprog"
       change_password: "Skift adgangskode"
       close_account:
+        dont_go: "Hey, gå ikke!"
         if_you_want_this: "Hvis du virkelig ønsker dette, indtast da dit kodeord og klik på 'Luk konto'"
         lock_username: "Dette vil låse dit brugernavn til hvis du beslutter at oprettes igen."
+        locked_out: "Du vil blive logget ud og låst ude af din konto."
         what_we_delete: "Vi sletter alle dine indlæg og profildata, så hurtigt som overhovedet muligt. Dine kommentarer vil forblive, men være forbundet til dit Diaspora handle."
       close_account_text: "Luk konto"
       comment_on_post: "...nogen har kommenteret dit indlæg?"

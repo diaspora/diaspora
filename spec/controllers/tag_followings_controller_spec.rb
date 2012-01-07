@@ -26,7 +26,22 @@ describe TagFollowingsController do
       get :index
       assigns[:stream].should be_a Stream::FollowedTag
     end
+    
+    describe 'if empty' do
+      it 'succeeds' do
+        bob.followed_tags.delete_all
+        get :index
+        response.should be_success
+      end
+      
+      it 'assigns a stream' do
+        bob.followed_tags.delete_all
+        get :index
+        assigns[:stream].should be_a Stream::FollowedTag
+      end
+    end
   end
+
 
   describe "create" do
     describe "successfully" do

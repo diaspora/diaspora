@@ -856,6 +856,8 @@ sv:
       wrong_password: "Det angivna lösenordet stämde inte med ditt nuvarande lösenord."
     edit:
       also_commented: "...någon kommenterar dina inlägg?"
+      auto_follow_aspect: "Aspekt för automatiskt följda användare:"
+      auto_follow_back: "Följ automatiskt de som börjar följa dig"
       change: Ändra
       change_email: "Ändra e-postadress"
       change_language: "Ändra språk"
@@ -877,6 +879,7 @@ sv:
       edit_account: "Ändra konto"
       email_awaiting_confirmation: "Vi har skickat dig en länk till %{unconfirmed_email} för aktivering. Innan du har aktiverat din nya adress, kommer vi fortsätta att använda %{email}."
       export_data: "Exportera data"
+      following: "Inställningar för Följer"
       getting_started: "Inställningar för Ny Användare"
       liked: "...någon gillar ditt inlägg?"
       mentioned: "...du omnämns i ett inlägg?"
@@ -917,6 +920,8 @@ sv:
       does_not_exist: "Användaren %{username} finns inte!"
     update:
       email_notifications_changed: "Notiser via e-post har ändrats"
+      follow_settings_changed: "Inställningar för Följer ändrades"
+      follow_settings_not_changed: "Misslyckades att ändra inställningar för Följer."
       language_changed: "Språk är nu ändrat"
       language_not_changed: "Språket kunde inte ändras"
       password_changed: "Lösenordet är nu ändrat och klart att användas."

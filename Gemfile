@@ -23,7 +23,6 @@ gem 'omniauth-twitter'
 gem 'twitter', '2.0.2'
 
 # backups
-gem 'cloudfiles', '1.4.10', :require => false
 
 # mail
 gem 'messagebus_ruby_api', '1.0.1'
@@ -40,13 +39,18 @@ group :production do # we don't install these on travis to speed up test runs
 
   # reporting
   gem 'hoptoad_notifier'
-  gem 'newrelic_rpm', :require => false
+  gem 'newrelic_rpm'
+  gem 'rack-google-analytics', :require => 'rack/google-analytics'
+  gem 'rack-piwik', :require => 'rack/piwik'
 end
 
 # configuration
 
-gem 'settingslogic', '2.0.6'
+group :heroku do
+  gem 'pg'
+end
 
+gem 'settingslogic', '2.0.6'
 # database
 
 gem 'activerecord-import'
@@ -78,7 +82,7 @@ gem 'rails-i18n'
 # parsing
 
 gem 'nokogiri', '~> 1.5.0'
-gem 'redcarpet', "2.0.0"
+gem 'redcarpet', "2.0.1"
 gem 'roxml', :git => 'git://github.com/Empact/roxml.git', :ref => '7ea9a9ffd2338aaef5b0'
 gem 'ruby-oembed'
 
@@ -130,16 +134,18 @@ group :test do
   gem 'fuubar', '0.0.6'
   gem 'mongrel', :require => false, :platforms => :ruby_18
   gem 'rspec', '>= 2.0.0'
-  gem 'rspec-core', '~> 2.7.1'
+  gem 'rspec-core', '~> 2.8.0'
   gem 'rspec-instafail', '>= 0.1.7', :require => false
   gem 'rspec-rails', '>= 2.0.0'
-  gem 'selenium-webdriver', '~> 2.15.0'
+  gem 'selenium-webdriver', '~> 2.16.0'
   gem 'webmock', :require => false
   gem 'sqlite3'
   gem 'mock_redis'
 end
 
 group :development do
+
+  gem 'heroku'
   gem 'capistrano', '~> 2.9.0', :require => false
   gem 'capistrano_colors', :require => false
   gem 'capistrano-ext', '1.2.1', :require => false

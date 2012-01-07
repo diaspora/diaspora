@@ -52,3 +52,4 @@ end
 # Sacrifice readability for a 10% performance boost
 Haml::Template::options[:ugly] = true
 GC.enable_stats if GC.respond_to?(:enable_stats)
+GC::Profiler.enable if defined?(GC::Profiler) && GC::Profiler.respond_to?(:enable)

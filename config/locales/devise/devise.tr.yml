@@ -20,7 +20,7 @@ tr:
       unauthenticated: "Devam etmeden önce bir hesap açtırmalı veya hesabınızla giriş yapmalısınız."
       unconfirmed: "Devam etmeden önce hesabınızı doğrulamalısınız."
     invitations:
-      invitation_token_invalid: "Davet kodu doğrulanamadı!"
+      invitation_token_invalid: "Özür dileriz! Bu davet kodu geçerli değildir."
       send_instructions: "Davetiniz gönderildi."
       updated: "Parolanız başarıyla ayarlandı. Şu anda giriş yapmış bulunuyorsunuz."
     mailer:
@@ -31,20 +31,31 @@ tr:
       hello: "Merhaba %{email}!"
       invitation_instructions:
         accept: "Daveti kabul et"
-        displaying_correctly: "Email not displaying correctly? %{link} in your browser"
+        arrived: "Beklediğiniz sosyal ağ sonunda geldi. Yenilenmiş, daha güvenli ve daha eğlenceli, %{strong_diaspora} yepyeni bir şekilde İnternet'i paylaşmanıza ve keşfetmenize yardımcı olmaya hazırdır."
+        be_yourself: "Kendiniz Olun"
+        be_yourself_paragraph: "İnternet bize kendimizi ifade etmek için benzersiz yeni yollar yarattı. % {Strong_diaspora}, ister gerçek isminizle ister bir rumuzla kendiniz olmanıza ve istediğiniz gibi paylaşma yapmanıza imkân sağlar."
+        displaying_correctly: "E-mail doğru görüntülenmemiş mi? %{link} tarayıcınızda"
         email_us: "Diaspora hesabınızla ilgili destek veya sorularınız için lütfen iletişime geçiniz: %{email}"
         finally: "Sonunda - o burada!"
         friends_saying: "Arkadaşların ne diyor..."
         get_connected: "Bağlı Kal"
+        get_connected_paragraph: "Daha iyi bir İnternet vizyonunu paylaşan ve uluslar arası bir hareket olan %{strong_diaspora}'nın en önemli unsuru topluluğudur. Yeni kişilerle tanışın, arkadaşlarınızla iletişim kurun ve eğlenceye katılın."
         have_fun: "Keyif al"
+        have_fun_paragraph: "%{strong_diaspora}, çevrim içinde yeni içerik ve kişiler bulmaya odaklanır. %{link}, dünyanın ilk  %{strong_diaspora} uygulaması, sadece bir başlangıçtır. Tüm görkemiyle İnternet'i toplayın ve paylaşın."
+        help_fund: "Diaspora'ya mali yardım"
         here: burda
         ignore: "Daveti kabul etmek istemiyorsanız, lütfen bu e-postayı gözardı edin."
+        join_team: "Ekibimize katılın"
+        love: "Sevgiler,"
+        made_by_people: "%{strong_diaspora} İnternet'i sizin sevdiğiniz kadar seven kişiler tarafından yapılmıştır. %{jointeam}, ya da %{helpfund}!"
         more_people: "Hatta daha fazla kişi seni görmek istiyor!"
         no_account_till: "Hesabınız yukarıdaki bağlantıya tıklayıp üye olmadan oluşturulmayacaktır."
         or: veya
         sign_up_now: "Şimdi kaydol &rarr;"
         subject: "Diaspora'ya katılmak için davet edildiniz!"
-        view_in: "View in"
+        team_diaspora: "Diaspora Ekibi"
+        unsubscribe: "Aboneliğinizi kaldırmak için şu bağlantıyı tıklayınız: %{link}."
+        view_in: "Tarayıcınızda görüntüleyin."
       inviter:
         accept_at: "%{url}, aşağıdaki bağlantıya tıklayarak bunu kabul edebilirsiniz."
         have_invited_you: "%{names} Diaspora'ya katılmanız için davet edildiniz"
@@ -67,7 +78,7 @@ tr:
         forgot_password: "Parolanızı mı unuttunuz?"
         no_account: "Bu e-posta adresiyle alınmış hesap bulunmamaktadır. Eğer bir davetiye için bekliyorsanız, en kısa zamanda size ulaştıracağız."
         send_password_instructions: "Bana parola yenileme talimatları gönder"
-      send_instructions: "Bir kaç dakika içerisinde parolanızı nasıl sıfırlayacağınızı açıklıyan bir e-posta alacaksınız."
+      send_instructions: "Bir kaç dakika içerisinde parolanızı nasıl sıfırlayacağınızı açıklayan bir e-posta alacaksınız."
       updated: "Parolanız değiştirilmiştir. Şu anda giriş yapmış bulunuyorsunuz."
     registrations:
       destroyed: "Hoşçakalın! Hesabınız iptal edildi. Umarız sizi yakında tekrar görürüz."

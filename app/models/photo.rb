@@ -25,7 +25,9 @@ class Photo < ActiveRecord::Base
   before_destroy :ensure_user_picture
   after_destroy :clear_empty_status_message
 
-  after_create :queue_processing_job
+  after_create do
+    queue_processing_job if self.author.local?
+  end
 
   after_save do
     self.status_message.update_photos_counter if status_message

@@ -1,6 +1,7 @@
 branches:
   only:
     - 'master'
+    - 'backbone-stream'
 
 rvm:
   - ree
@@ -14,7 +15,7 @@ env:
   - DB=mysql BUILD_TYPE=cucumber
 
 before_install: gem install bundler --pre
-bundler_args: "--without development production"
+bundler_args: "--without development production heroku"
 before_script: "./config/ci/before-travis.sh"
 script: "bundle exec rake travis"
 

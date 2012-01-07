@@ -46,7 +46,7 @@ class AccountDeleter
   end
 
   def special_ar_user_associations
-    [:invitations_from_me, :person, :contacts]
+    [:invitations_from_me, :person, :contacts, :auto_follow_back_aspect]
   end
 
   def ignored_ar_user_associations

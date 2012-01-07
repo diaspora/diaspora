@@ -429,18 +429,18 @@ sk:
       two: "%{actors} vám poslali správu."
       zero: "%{actors} ľudí vám poslalo správu."
     reshared:
-      few: "%{actors} ľudí sa znova podelilo o %{post_link}."
-      many: "%{actors} sa znova podelilo o %{post_link}."
-      one: "%{actors} sa znova podelil o %{post_link}."
-      other: "%{actors} ľudí sa znova podelilo o %{post_link}."
-      two: "%{actors} ľudí sa znova podelilo o %{post_link}."
-      zero: "%{actors} ľudí sa znova podelilo o %{post_link}."
+      few: "%{actors} ľudí ukázalo %{post_link} priateľom."
+      many: "%{actors} ľudí ukázalo %{post_link} priateľom."
+      one: "%{actors} človek ukázal %{post_link} priateľom."
+      other: "%{actors} ľudí ukázalo %{post_link} priateľom."
+      two: "%{actors} ľudia ukázali %{post_link} priateľom."
+      zero: "%{actors} ľudí ukázalo %{post_link} priateľom."
     reshared_post_deleted:
-      few: "%{actors} sa znova podelili o váš vymazaný príspevok."
-      many: "%{actors} sa znova podelili o váš vymazaný príspevok."
-      one: "%{actors} sa znova podelil(a) o váš vymazaný príspevok."
+      few: "%{actors} ľudí ukázalo váš vymazaný príspevok priateľom."
+      many: "%{actors} ukázal(a) váš vymazaný príspevok priateľom."
+      one: "%{actors} človek ukázal váš vymazaný príspevok priateľom."
       other: "%{actors} ľudia ukázali váš vymazaný príspevok ďalším."
-      two: "%{actors} sa znova podelili o váš vymazaný príspevok."
+      two: "%{actors} ľudia ukázali váš vymazaný príspevok priateľom."
       zero: "%{actors} ľudí ukázalo príspevok ďalším."
     started_sharing:
       few: "%{actors} si vás pridali do kontaktov."
@@ -468,7 +468,7 @@ sk:
     private_message:
       reply_to_or_view: "Zobraziť tento rozhovor alebo sa doň zapojiť >"
     reshared:
-      reshared: "%{name} sa znova podelil(a) o váš príspevok"
+      reshared: "%{name} ukázal(a) váš príspevok priateľom"
       view_post: "Zobraziť príspevok >"
     single_admin:
       admin: "Váš administrátor"
@@ -649,20 +649,20 @@ sk:
     new_request_to_person:
       sent: Poslané!
   reshares:
-    comment_email_subject: "%{resharer} sa znova podelil(a) o príspevok použ. %{author}"
+    comment_email_subject: "%{resharer} ukázal(a) príspevok použ. %{author} priateľom"
     create:
       failure: "Pri pokuse znova sa podeliť o tento príspevok nastala chyba."
     reshare:
       deleted: "Pôvodný príspevok vymazal(a) jeho autor(ka)."
       reshare:
-        few: "%{count} ľudia ukázali príspevok ďalším"
-        many: "%{count} ľudia ukázali príspevok ďalším"
-        one: "1 človek sa znova podelil o príspevok"
-        other: "%{count} ľudia ukázali príspevok ďalším"
-        two: "%{count} sa znova podelili o príspevok"
+        few: "%{count} ľudia ukázali príspevok priateľom"
+        many: "%{count} opätovných zdieľaní"
+        one: "1 opätovné zdieľanie"
+        other: "%{count} opätovných zdieľaní"
+        two: "%{count} opätovné zdieľania"
         zero: "Znova zdieľať"
       reshare_confirmation: "Chcete sa znova podeliť o príspevok použ. %{author}?"
-      reshare_original: "Znovu zdieľať originál"
+      reshare_original: "Originál ukázať priateľom "
       reshared_via: "znova sa niekto podelil cez"
       show_original: "Zobraziť originál"
   search: Vyhľadávanie

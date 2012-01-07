@@ -65,20 +65,3 @@
 
     :javascript
       MBP.hideUrlBar();
-
-    -if AppConfig[:google_a_site]
-      :javascript
-        var _gaq=[["_setAccount","#{AppConfig[:google_a_site]}"],["_trackPageview"]];
-        (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];g.async=1;
-        g.src=("https:"==location.protocol?"//ssl":"//www")+".google-analytics.com/ga.js";
-        s.parentNode.insertBefore(g,s)}(document,"script"));
-
-    -if AppConfig[:piwik_id]
-      :javascript
-        var pkBaseURL = (("https:" == document.location.protocol) ? "https://#{AppConfig[:piwik_url]}/" : "http://#{AppConfig[:piwik_url]}/");
-        document.write(unescape("%3Cscript src='" + pkBaseURL + "piwik.js' type='text/javascript'%3E%3C/script%3E"));
-        try {
-        var piwikTracker = Piwik.getTracker(pkBaseURL + "piwik.php", #{AppConfig[:piwik_id]});
-        piwikTracker.trackPageView();
-        piwikTracker.enableLinkTracking();
-        } catch( err ) {}

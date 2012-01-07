@@ -850,6 +850,7 @@ de_formal:
       email_not_confirmed: "Die E-Mail-Adresse konnte nicht aktiviert werden. Falscher Link?"
     edit:
       also_commented: "… jemand ebenfalls den Beitrag eines Kontaktes kommentiert?"
+      auto_follow_back: "Automatically follow back if a someone follows you"
       change: Ändern
       change_email: "E-Mail-Adresse ändern"
       change_language: "Sprache ändern"

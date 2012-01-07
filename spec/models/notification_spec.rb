@@ -81,7 +81,7 @@ describe Notification do
         n = @request.notification_type(@user, @person).create(opts)
         Notification.stub!(:make_notification).and_return n
 
-        n.should_receive(:socket_to_user).once
+        Diaspora::Websocket.should_receive(:to).once.and_return(stub.as_null_object)
         Notification.notify(@user, @request, @person)
       end
 

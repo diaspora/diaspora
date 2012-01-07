@@ -73,8 +73,8 @@ class ApplicationController < ActionController::Base
   end
 
   def set_git_header
-    headers['X-Git-Update'] = AppConfig[:git_update]
-    headers['X-Git-Revision'] = AppConfig[:git_revision]
+    headers['X-Git-Update'] = AppConfig[:git_update] if AppConfig[:git_update].present?
+    headers['X-Git-Revision'] = AppConfig[:git_revision] if AppConfig[:git_revision].present?
   end
 
   def set_locale

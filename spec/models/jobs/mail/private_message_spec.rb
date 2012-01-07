@@ -12,7 +12,7 @@ describe Jobs::Mail::PrivateMessage do
       participant_ids = [user1.contacts.first.person.id, user1.person.id]
 
       create_hash = { :author => user1.person, :participant_ids => participant_ids ,
-                       :subject => "cool stuff", :text => 'hey'}
+                       :subject => "cool stuff", :messages_attributes => [{:text => 'hey'}]}
 
       cnv = Conversation.create(create_hash)
       message = cnv.messages.first

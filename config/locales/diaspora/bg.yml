@@ -735,7 +735,7 @@ bg:
       discard_post: "Отхвърляне на публикацията"
       make_public: "направете публично"
       new_user_prefill:
-        hello: "Привет на всички, аз съм #%{new_user_tag}."
+        hello: "Привет на всички, аз съм #%{new_user_tag}. "
         i_like: "Интересува ме %{tags}."
         invited_by: "Благодаря за поканата, "
         newhere: НовТук
@@ -863,6 +863,7 @@ bg:
       wrong_password: "Въведената парола не съвпада с текущата парола на акаунта."
     edit:
       also_commented: "...някой коментира публикация на ваш контакт?"
+      auto_follow_back: "Automatically follow back if a someone follows you"
       change: Промяна
       change_email: "Промяна на ел. поща"
       change_language: "Промяна на езика"

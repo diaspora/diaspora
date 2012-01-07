@@ -858,6 +858,7 @@ eo:
       wrong_password: "La entajpita pasvoroto ne kongruis kun la nuna pasvorto."
     edit:
       also_commented: "...iu ankaŭ komentis pri la afiŝo de via kontakto?"
+      auto_follow_back: "Automatically follow back if a someone follows you"
       change: Ŝanĝi
       change_email: "Redakti retpoŝtadreso"
       change_language: "Ŝanĝi lingvon"

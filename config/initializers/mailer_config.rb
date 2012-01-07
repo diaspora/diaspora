@@ -6,6 +6,7 @@ require File.join(Rails.root, 'lib/messagebus/mailer')
 Diaspora::Application.configure do
   config.action_mailer.default_url_options = {:protocol => AppConfig[:pod_uri].scheme,
                                               :host => AppConfig[:pod_uri].authority }
+  config.action_mailer.asset_host = AppConfig[:pod_uri].to_s
 
   unless Rails.env == 'test' || AppConfig[:mailer_on] != true
     if AppConfig[:mailer_method] == 'messagebus'
@@ -39,7 +40,7 @@ Diaspora::Application.configure do
           :address => AppConfig[:smtp_address],
           :port => AppConfig[:smtp_port],
           :domain => AppConfig[:smtp_domain],
-          :authentication => AppConfig[:smtp_authentication],
+          :authentication => AppConfig[:smtp_authentication].gsub('-', '_').to_sym,
           :user_name => AppConfig[:smtp_username],
           :password => AppConfig[:smtp_password],
           :enable_starttls_auto => AppConfig[:smtp_starttls_auto],

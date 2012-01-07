@@ -830,6 +830,7 @@ eu:
       email_not_confirmed: "E-MPosta ezin izan da gaitu. Esteka baliogabea agian?"
     edit:
       also_commented: "...beste norbaitek zure adiskide baten mezua iruzkintzen duenean?"
+      auto_follow_back: "Automatically follow back if a someone follows you"
       change: Aldatu
       change_email: "Aldatu e-posta"
       change_language: "Hizkuntza aldatu"

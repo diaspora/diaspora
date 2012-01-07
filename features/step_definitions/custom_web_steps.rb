@@ -120,7 +120,7 @@ Then /^(?:|I )should not see a "([^\"]*)"(?: within "([^\"]*)")?$/ do |selector,
 end
 
 When /^I wait for the ajax to finish$/ do
-  wait_until(30) { evaluate_script("$.active") == 0 }
+  wait_until(15) { evaluate_script("$.active") == 0 }
 end
 
 When /^I have turned off jQuery effects$/ do
