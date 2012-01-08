@@ -126,6 +126,23 @@ describe("app.views.Post", function(){
       })
     })
 
+    context("generates urls from plaintext", function(){
+      it("works", function(){
+        links = ["http://google.com",
+                 "https://joindiaspora.com",
+                 "http://www.yahooligans.com",
+                 "obama.com",
+                 "japan.co.jp"]
+
+        this.statusMessage.set({text : links.join(" ")})
+        var view = new app.views.Post({model : this.statusMessage}).render();
+
+        _.each(links, function(link) {
+          expect(view.$("a[href='" + link + "']").text()).toContain(link)
+        })
+      })
+    })
+
     context("user not signed in", function(){
       it("does not provide a Feedback view", function(){
         window.current_user = app.user(null);

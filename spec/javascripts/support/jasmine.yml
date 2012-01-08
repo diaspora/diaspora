@@ -42,6 +42,7 @@ src_files:
   - public/javascripts/app/models/*
   - public/javascripts/app/collections/*
   - public/javascripts/app/views/stream_object_view.js
+  - public/javascripts/app/views/content_view.js
   - public/javascripts/app/views/*
 
   - public/javascripts/mobile.js
