@@ -28,7 +28,7 @@ app.views.Stream = Backbone.View.extend({
     var $window = $(window);
     var distFromTop = $window.height() + $window.scrollTop();
     var distFromBottom = $(document).height() - distFromTop;
-    var bufferPx = 300;
+    var bufferPx = 500;
 
     if(distFromBottom < bufferPx) {
       this.render();

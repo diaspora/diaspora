@@ -79,7 +79,7 @@ describe("app.views.Stream", function(){
       spyOn(this.view, "isLoading").andReturn(false)
 
       spyOn($.fn, "height").andReturn(0);
-      spyOn($.fn, "scrollTop").andReturn(-400);
+      spyOn($.fn, "scrollTop").andReturn(-500);
 
       this.view.infScroll();
       expect(this.view.collection.fetch).not.toHaveBeenCalled();
