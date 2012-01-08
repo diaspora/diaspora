@@ -19,6 +19,18 @@ class RedisCache
     AppConfig[:redis_cache].present?
   end
 
+  def self.update_cache_for(user, post, post_was_hidden)
+    return unless RedisCache.configured?
+
+    cache = RedisCache.new(user, 'created_at')
+
+    if post_was_hidden
+      cache.remove(post.id)
+    else
+      cache.add(post.created_at.to_i, post.id)
+    end
+  end
+
   # @return [Boolean]
   def cache_exists?
     self.redis.exists(set_key)

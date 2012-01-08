@@ -4,7 +4,16 @@
 
 namespace :db do
   desc "rebuild and prepare test db"
-  task :rebuild => [:drop, :drop_integration, :create, :migrate, :seed, 'db:test:prepare']
+  task :rebuild  do
+    Rake::Task['db:drop'].invoke
+    Rake::Task['db:drop_integration'].invoke
+    Rake::Task['db:create'].invoke
+    Rake::Task['db:migrate'].invoke
+    puts "seeding users, this will take awhile"
+    `rake db:seed` #ghetto hax as we have active record garbage in our models
+    puts "seeded!"
+    Rake::Task['db:test:prepare'].invoke
+  end
 
   namespace :integration do
     # desc 'Check for pending migrations and load the integration schema'

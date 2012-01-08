@@ -87,6 +87,28 @@ describe Post do
       end
     end
 
+    describe '.excluding_hidden_shareables' do
+      before do
+        @post = Factory(:status_message, :author => alice.person)
+        @other_post = Factory(:status_message, :author => eve.person)
+        bob.toggle_hidden_shareable(@post)
+      end
+      it 'excludes posts the user has hidden' do
+        Post.excluding_hidden_shareables(bob).should_not include(@post)
+      end
+      it 'includes posts the user has not hidden' do
+        Post.excluding_hidden_shareables(bob).should include(@other_post)
+      end
+    end
+
+    describe '.excluding_hidden_content' do
+      it 'calls excluding_blocks and excluding_hidden_shareables' do
+        Post.should_receive(:excluding_blocks).and_return(Post)
+        Post.should_receive(:excluding_hidden_shareables)
+        Post.excluding_hidden_content(bob)
+      end
+    end
+
     context 'having some posts' do
       before do
         time_interval = 1000

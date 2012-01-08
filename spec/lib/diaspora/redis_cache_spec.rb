@@ -220,4 +220,30 @@ describe RedisCache do
       RedisCache.acceptable_types.should =~ Stream::Base::TYPES_OF_POST_IN_STREAM
     end
   end
+ 
+  describe '#update_cache' do
+    before do
+      @cache = RedisCache.new(bob, 'created_at')
+      RedisCache.stub(:new).and_return(@cache)
+      RedisCache.stub(:configured?).and_return(true)
+      @post = Factory(:status_message)
+    end
+
+    it 'does nothing if cache is not configured' do
+      RedisCache.stub(:configured?).and_return(false)
+      RedisCache.should_not_receive(:new)
+      RedisCache.update_cache_for(bob, @post, true)
+    end
+
+    it 'removes the post from the cache if visibility is marked as hidden' do
+      @cache.should_receive(:remove).with(@post.id)
+      RedisCache.update_cache_for(bob, @post, true)
+    end
+
+    it 'adds the post from the cache if visibility is unmarked as hidden' do
+      @cache.should_receive(:add).with(@post.created_at.to_i, @post.id)
+      RedisCache.update_cache_for(bob, @post, false)
+    end
+  end
+
 end
