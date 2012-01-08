@@ -58,7 +58,7 @@ app.views.Stream = Backbone.View.extend({
   collectionFetched: function(collection, response) {
     this.$("#paginate").remove();
 
-    if(collection.parse(response).length == 0) {
+    if(!collection.parse(response).length || collection.parse(response).length == 0) {
       this.allContentLoaded = true;
       $(window).unbind('scroll')
       return

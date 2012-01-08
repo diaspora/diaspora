@@ -87,16 +87,26 @@ describe("app.views.Stream", function(){
   })
 
   describe("collectionFetched", function(){
+    context("unbinding scroll", function(){
+      beforeEach(function(){
+        spyOn($.fn, "unbind")
+      })
+
+      it("unbinds scroll if there are no more posts left to load", function(){
+        this.view.collectionFetched(this.collection, {posts : []})
+        expect($.fn.unbind).toHaveBeenCalled()
+      })
+
+      it("does not fetch new content when the user is fetching one post", function(){
+        this.view.collectionFetched(this.collection, {posts : {}})
+        expect($.fn.unbind).toHaveBeenCalled()
+      })
+    })
+
     it("sets this.allContentLoaded if there are no more posts left to load", function(){
       expect(this.view.allContentLoaded).toBe(false)
       this.view.collectionFetched(this.collection, {posts : []})
       expect(this.view.allContentLoaded).toBe(true)
-    })
-
-    it("unbinds scroll if there are no more posts left to load", function(){
-      spyOn($.fn, "unbind")
-      this.view.collectionFetched(this.collection, {posts : []})
-      expect($.fn.unbind).toHaveBeenCalled()
     })
 
     it("does not set this.allContentLoaded if there was a non-empty response from the server", function(){
