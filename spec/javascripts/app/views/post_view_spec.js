@@ -131,8 +131,8 @@ describe("app.views.Post", function(){
         links = ["http://google.com",
                  "https://joindiaspora.com",
                  "http://www.yahooligans.com",
-                 "obama.com",
-                 "japan.co.jp"]
+                 "http://obama.com",
+                 "http://japan.co.jp"]
 
         this.statusMessage.set({text : links.join(" ")})
         var view = new app.views.Post({model : this.statusMessage}).render();

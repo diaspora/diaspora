@@ -8,9 +8,9 @@ app.views.Content = app.views.StreamObject.extend({
     function metafyText(text) {
       //we want it to return at least a <p> from markdown
       text = text || ""
-      return mentionify(
-        hashtagify(
-          urlify(
+      return urlify(
+        mentionify(
+          hashtagify(
             markdownify(text)
           )
         )
