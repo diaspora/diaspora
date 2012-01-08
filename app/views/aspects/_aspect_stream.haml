@@ -2,9 +2,8 @@
 -#   licensed under the Affero General Public License version 3 or later.  See
 -#   the COPYRIGHT file.
 
-#aspect_stream_header
-  %h3
-    = stream.title
+%h3#aspect_stream_header.stream_title
+  = stream.title
 
 = render 'shared/publisher', :selected_aspects => stream.aspects, :aspect_ids => stream.aspect_ids, :for_all_aspects => stream.for_all_aspects?, :aspect => stream.aspect
 = render 'aspects/no_posts_message'
