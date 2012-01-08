@@ -26,5 +26,10 @@ describe MultisController do
       get :index
       response.should be_success
     end
+
+    it 'succeeds on mobile' do
+      get :index, :format => :mobile
+      response.should be_success
+    end
   end
 end
