@@ -31,6 +31,10 @@ javascripts:
     - public/javascripts/vendor/jquery.expander.js
     - public/javascripts/vendor/timeago.js
     - public/javascripts/vendor/facebox.js
+    - public/javascripts/vendor/underscore.js
+    - public/javascripts/vendor/jquery.events.input.js
+    - public/javascripts/vendor/jquery.elastic.js
+    - public/javascripts/vendor/jquery.mentionsInput.js
     - public/javascripts/jquery.infinitescroll-custom.js
     - public/javascripts/jquery.autocomplete-custom.js
     - public/javascripts/jquery.infieldlabel-custom.js
@@ -47,6 +51,7 @@ javascripts:
     - public/javascripts/contact-edit.js
     - public/javascripts/contact-list.js
     - public/javascripts/aspect-sorting.js
+    - public/javascripts/mentions.js
 
     - public/javascripts/vendor/bootstrap/bootstrap-twipsy.js
     - public/javascripts/vendor/bootstrap/bootstrap-popover.js
@@ -87,6 +92,7 @@ stylesheets:
     - public/stylesheets/ui.css
     - public/stylesheets/lightbox.css
     - public/stylesheets/autocomplete.css
+    - public/stylesheets/mentions.css
     - public/stylesheets/tags.css
     - public/stylesheets/hovercard.css
     - public/stylesheets/vendor/facebox.css
