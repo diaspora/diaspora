@@ -19,9 +19,9 @@ class Person < ActiveRecord::Base
       person.diaspora_handle
     }, :as => :diaspora_id
     t.add lambda { |person|
-      {:small => person.profile.image_url(:small),
-       :medium => person.profile.image_url(:medium),
-       :large => person.profile.image_url(:large) }
+      {:small => person.profile.image_url(:thumb_small),
+       :medium => person.profile.image_url(:thumb_medium),
+       :large => person.profile.image_url(:thumb_large) }
     }, :as => :avatar
   end
 
