@@ -1,4 +1,4 @@
-app.views.Comment = app.views.StreamObject.extend({
+app.views.Comment = app.views.Content.extend({
 
   template_name: "#comment-template",
 
