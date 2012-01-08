@@ -30,7 +30,11 @@ class Reshare < Post
   end
 
   def raw_message
-    self.root ? root.raw_message : ""
+    self.root ? root.raw_message : super
+  end
+
+  def mentioned_people
+    self.root ? root.mentioned_people : super
   end
 
   def receive(recipient, sender)

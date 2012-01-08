@@ -15,6 +15,7 @@ describe("app.views.Post", function(){
 
       this.collection = new app.collections.Stream(posts);
       this.statusMessage = this.collection.models[0];
+      this.reshare = this.collection.models[1];
     })
 
     it("displays a reshare count", function(){
@@ -72,6 +73,17 @@ describe("app.views.Post", function(){
         expect(view.$("h1:contains(parties)")).not.toExist();
         expect(view.$("a:contains('#parties')")).toExist();
       })
+
+      it("works on reshares", function(){
+        this.statusMessage.set({text: "I love #parties"})
+        var reshare = new app.models.Reshare(factory.post({
+          text : this.statusMessage.get("text"),
+          root : this.statusMessage
+        }))
+
+        var view = new app.views.Post({model : reshare}).render();
+        expect(view.$("a:contains('#parties')").attr('href')).toBe('/tags/parties')
+      })
     })
 
     context("changes mention markup to links", function(){
@@ -87,21 +99,29 @@ describe("app.views.Post", function(){
           diaspora_id : "bob@example.com",
           id : "666"
         })
+
+        this.statusMessage.set({mentioned_people : [this.alice, this.bob]})
+        this.statusMessage.set({text: "hey there @{Alice Smith; alice@example.com} and @{Bob Grimm; bob@example.com}"})
       })
 
       it("links to the mentioned person's page", function(){
-        this.statusMessage.set({mentioned_people : [this.alice]})
-        this.statusMessage.set({text: "sup, @{Alice Smith; alice@example.com}?"})
-
         var view = new app.views.Post({model : this.statusMessage}).render();
         expect(view.$("a:contains('Alice Smith')").attr('href')).toBe('/people/555')
       })
 
       it("matches all mentions", function(){
-        this.statusMessage.set({mentioned_people : [this.alice, this.bob]})
-        this.statusMessage.set({text: "hey there @{Alice Smith; alice@example.com} and @{Bob Grimm; bob@example.com}"})
-
         var view = new app.views.Post({model : this.statusMessage}).render();
+        expect(view.$("a.mention").length).toBe(2)
+      })
+
+      it("works on reshares", function(){
+        var reshare = new app.models.Reshare(factory.post({
+          text : this.statusMessage.get("text"),
+          mentioned_people :  this.statusMessage.get("mentioned_people"),
+          root : this.statusMessage
+        }))
+
+        var view = new app.views.Post({model : reshare}).render();
         expect(view.$("a.mention").length).toBe(2)
       })
     })
