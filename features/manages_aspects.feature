@@ -14,6 +14,7 @@ Feature: User manages contacts
 
   Scenario: creating an aspect from homepage
     Given I am signed in
+    And I go to the aspects page
     When I follow "Add an aspect"
     And I fill in "Name" with "losers" in the modal window
     And I press "Create" in the modal window
@@ -34,7 +35,7 @@ Feature: User manages contacts
   Scenario: deleting an aspect from homepage
     Given I am signed in
     And I have an aspect called "People"
-    When I am on the home page
+    When I am on the aspects page
     And I click on "People" aspect edit icon
     And I wait for the ajax to finish
     And I preemptively confirm the alert
@@ -75,14 +76,6 @@ Feature: User manages contacts
 
     And I click on my name in the header
     When I follow "Contacts"
-    Then I should see "Community Spotlight" within ".span-18"
-
-  Scenario: clicking on the manage aspects link in the right nav with zero contacts directs a user to the featured users page
-    Given I am signed in
-    And I have 0 contacts
-    And I am on the home page
-
-    When I follow "Manage your aspects."
     Then I should see "Community Spotlight" within ".span-18"
 
   Scenario: clicking on the contacts link in the header with contacts does not send a user to the featured users page

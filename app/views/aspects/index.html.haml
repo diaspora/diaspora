@@ -31,38 +31,35 @@
   .section
     %ul.left_nav
       %li
-        %b
-          = link_to t("streams.multi.title"), multi_path, :class => 'home_selector'
+        = link_to t("streams.multi.title"), multi_path, :class => 'home_selector'
 
-  .section
     = render 'aspects/aspect_listings', :stream => @stream
 
-  .section
     %ul.left_nav
       %li
-        %b
-          = link_to t('streams.mentions.title'), mentions_path, :class => 'home_selector'
+        = link_to t('streams.mentions.title'), mentions_path, :class => 'home_selector'
 
-  .section
     %ul.left_nav
       %li
-        %b
-          = link_to t('streams.comment_stream.title'), comment_stream_path, :class => 'home_selector'
+        = link_to t('streams.comment_stream.title'), comment_stream_path, :class => 'home_selector'
 
-  .section
     %ul.left_nav
       %li
-        %b
-          = link_to t('streams.like_stream.title'), like_stream_path, :class => 'home_selector'
+        = link_to t('streams.like_stream.title'), like_stream_path, :class => 'home_selector'
 
-  .section#followed_tags_listing
-    = render 'tags/followed_tags_listings'
+    #followed_tags_listing
+      = render 'tags/followed_tags_listings'
 
 .span-13.append-1
   #aspect_stream_container.stream_container
     = render 'aspects/aspect_stream', :stream => @stream
 
 .span-5.rightBar.last
-  = render 'aspects/selected_contacts', :stream => @stream
+  /= render 'aspects/selected_contacts', :stream => @stream
+  #selected_aspect_contacts.section
+    .title.no_icon
+      %h5
+        = @stream.title
+    .content
 
   = render 'shared/right_sections'

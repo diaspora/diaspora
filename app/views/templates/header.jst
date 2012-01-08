@@ -1,0 +1,102 @@
+<div class="container" style="position:relative;">
+
+  <a href="/stream">
+    <img alt="Logo_small" class="diaspora_header_logo" height="38px" width="38px" src="/images/header-logo.png" />
+  </a>
+
+  <div id="global_search">
+    <form accept-charset="UTF-8" action="/people" class="search_form" method="get">
+      <input name="utf8" type="hidden" value="✓">
+      <input id="q" name="q" placeholder="<%= Diaspora.I18n.t('header.search') %>" results="5" type="search" autocomplete="off" class="ac_input">
+    </form>
+  </div>
+
+  <div id="nav_badges">
+    <div class="badge" id="home_badge">
+      <a href="/stream" title="<%= Diaspora.I18n.t('header.home') %>"><img alt="Home" src="/images/icons/home_grey.png">
+      </a>
+    </div>
+
+    <div class="badge" id="notification_badge">
+      <a href="/notifications" title="<%= Diaspora.I18n.t('header.notifications') %>">
+        <img alt="<%= Diaspora.I18n.t('header.notifications') %>" id="notification-flag" src="/images/icons/notifications_grey.png">
+        <div class="badge_count <%= current_user.notifications_count > 0 ? '' : 'hidden' %>">
+          <%= current_user.notifications_count %>
+        </div>
+      </a>
+    </div>
+
+    <div class="badge" id="message_inbox_badge">
+      <a href="/conversations" title="<%= Diaspora.I18n.t('header.messages') %>">
+        <img alt="<%= Diaspora.I18n.t('header.messages') %>" src="/images/icons/mail_grey.png">
+        <div class="badge_count <%= current_user.unread_messages_count > 0 ? '' : 'hidden' %>">
+          <%= current_user.unread_messages_count %>
+        </div>
+      </a>
+    </div>
+  </div>
+
+  <div id="notification_dropdown">
+    <div class="header">
+      <div class="right">
+        <a href="/notifications/read_all">
+          <%= Diaspora.I18n.t("header.mark_all_as_read") %>
+        </a>
+        |
+        <a href="/notifications" id="view_all_notifications">
+          <%= Diaspora.I18n.t("header.view_all") %>
+        </a>
+      </div>
+
+      <h4>
+        <%= Diaspora.I18n.t("header.recent_notifications") %>
+      </h4>
+    </div>
+
+    <div class="notifications">
+      <div class="ajax_loader">
+        <img alt="Ajax-loader" src="/images/ajax-loader.gif">
+      </div>
+    </div>
+  </div>
+
+  <div id="hovercard_container">
+    <div id="hovercard">
+      <img class="avatar">
+      <h4>
+        <a class="person"></a>
+      </h4>
+      <p class="handle"></p>
+      <div id="hovercard_dropdown_container"></div>
+      <div class="hovercard_footer">
+        <div class="footer_container">
+          <div class="hashtags"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <ul class="dropdown" id="user_menu">
+    <li>
+    <div class="right">
+      ▼
+    </div>
+    <img alt="<%= current_user.name %>" class="avatar" data-person_id="<%= current_user.id %>" src="<%= current_user.avatar.small %>" title="<%= current_user.name %>" />
+    <a href="#"><%= current_user.name %></a>
+    </li>
+    <li><a href="/people/<%= current_user.id %>"><%= Diaspora.I18n.t("header.profile") %></a></li>
+    <li><a href="/contacts"><%= Diaspora.I18n.t("header.contacts") %></a></li>
+    <li><a href="/user/edit"><%= Diaspora.I18n.t("header.settings") %></a></li>
+    <li><a href="/users/sign_out"><%= Diaspora.I18n.t("header.log_out") %></a></li>
+  </ul>
+
+  <div id="lightbox">
+    <div id="lightbox-content">
+      <a href="#" id="lightbox-close-link">[x] close</a>
+      <img id="lightbox-image">
+      <div id="lightbox-imageset"></div>
+    </div>
+  </div>
+  <div id="lightbox-backdrop"></div>
+
+</div>

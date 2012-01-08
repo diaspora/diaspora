@@ -9,11 +9,11 @@ br:
     aspect_dropdown:
       add_to_aspect: "Add to aspect"
       toggle:
-        few: "In {{count}} aspects"
-        many: "In {{count}} aspects"
-        one: "In {{count}} aspect"
-        other: "In {{count}} aspects"
-        two: "In {{count}} aspects"
+        few: "In <%= count %> aspects"
+        many: "In <%= count %> aspects"
+        one: "In <%= count %> aspect"
+        other: "In <%= count %> aspects"
+        two: "In <%= count %> aspects"
         zero: "Add to aspect"
     confirm_dialog: "Emaoc'h sur?"
     getting_started:
@@ -22,7 +22,7 @@ br:
       at_least_one_aspect: "Dav eo deoc'h embann un arvez da'n nebeutañ"
     reshares:
       duplicate: "You've already reshared that post!"
-    search_for: "Klask war-lerc'h {{name}}"
+    search_for: "Klask war-lerc'h <%= name %>"
     timeago:
       day: "un devezh"
       days: "%d a zevezhioù"
@@ -39,4 +39,4 @@ br:
       years: "%d a vloavezhioù"
     videos:
       unknown: "Stumm ar video dianav"
-      watch: "Sellet ouzh ar video gant {{provider}}"
+      watch: "Sellet ouzh ar video gant <%= provider %>"

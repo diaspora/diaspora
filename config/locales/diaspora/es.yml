@@ -875,6 +875,8 @@ es:
       wrong_password: "La contraseña introducida no coincide con la contraseña actual."
     edit:
       also_commented: "...alguien comenta en la publicación de tu contacto?"
+      auto_follow_aspect: "Selecciona el aspecto en el que se incluirán los usuarios que sigues automáticamente:"
+      auto_follow_back: "Seguir automáticamente a quien empiece a seguirte"
       change: Cambiar
       change_email: "Cambiar email"
       change_language: "Cambiar idioma"
@@ -896,6 +898,7 @@ es:
       edit_account: "Editar cuenta"
       email_awaiting_confirmation: "Te hemos enviado un enlace de activación a %{unconfirmed_email}. Hasta que no sigas ese enlace y actives tu nueva dirección, continuaremos usando la anterior %{email}."
       export_data: "Exportar datos"
+      following: "Ajustes de Seguimiento"
       getting_started: "Preferencias del Nuevo Usuario"
       liked: "...a alguien le gusta tu publicación?"
       mentioned: "...eres mencionad@ en una publicación?"
@@ -936,6 +939,8 @@ es:
       does_not_exist: "¡La persona %{username} no existe!"
     update:
       email_notifications_changed: "Notificaciones por email cambiadas"
+      follow_settings_changed: "Ajustes de seguimiento modificados"
+      follow_settings_not_changed: "Error al cambiar los ajustes de seguimiento."
       language_changed: "Idioma cambiado"
       language_not_changed: "Error cambiando de idioma"
       password_changed: "Contraseña cambiada. Ya puedes acceder con tu nueva contraseña."

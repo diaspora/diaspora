@@ -748,6 +748,7 @@ nn:
       email_not_confirmed: "Klarte ikkje å slå på bruk av e-post. Feil lenkje?"
     edit:
       also_commented: "… nokon òg kommenterer kontakten din sitt innlegg?"
+      auto_follow_back: "Automatically follow back if a someone follows you"
       change: Endra
       change_email: "Endra e-posten"
       change_language: "Endra språket"

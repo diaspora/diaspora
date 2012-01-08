@@ -5,14 +5,7 @@
 
 describe("Publisher", function() {
 
-  describe("initialize", function(){
-    it("does not call close when there is prefilled text", function(){
-      spec.loadFixture('aspects_index_prefill');
-      spyOn(Publisher, 'close');
-      Publisher.initialize();
-      expect(Publisher.close).wasNotCalled();
-    });
-  });
+  Publisher.open = function(){ this.form().removeClass("closed"); }
 
   describe("toggleCounter", function(){
     beforeEach( function(){
@@ -39,7 +32,7 @@ describe("Publisher", function() {
     });
 
     it('gets called on initialize', function(){
-      spyOn(Publisher, 'bindAspectToggles'); 
+      spyOn(Publisher, 'bindAspectToggles');
       Publisher.initialize();
       expect(Publisher.bindAspectToggles).toHaveBeenCalled();
     });
@@ -172,34 +165,6 @@ describe("Publisher", function() {
     });
   });
 
-  describe("open", function() {
-    beforeEach(function() {
-      spec.loadFixture('aspects_index');
-      Publisher.initialize();
-    });
-    it("removes the closed class", function() {
-      expect(Publisher.form().hasClass('closed')).toBeTruthy();
-      Publisher.open();
-      expect(Publisher.form().hasClass('closed')).toBeFalsy();
-    });
-    it("disables the share button", function() {
-      expect(Publisher.submit().attr('disabled')).toBeFalsy();
-      Publisher.open();
-      expect(Publisher.submit().attr('disabled')).toBeTruthy();
-    });
-  });
-  describe("close", function() {
-    beforeEach(function() {
-      spec.loadFixture('aspects_index_prefill');
-      Publisher.initialize();
-    });
-    it("adds the closed class", function() {
-      Publisher.form().removeClass('closed');
-      expect(Publisher.form().hasClass('closed')).toBeFalsy();
-      Publisher.close();
-      expect(Publisher.form().hasClass('closed')).toBeTruthy();
-    });
-  });
   describe("input", function(){
     beforeEach(function(){
       spec.loadFixture('aspects_index_prefill');
@@ -209,161 +174,173 @@ describe("Publisher", function() {
       expect(Publisher.input().length).toBe(1);
     });
   });
+
   describe("autocompletion", function(){
     describe("searchTermFromValue", function(){
-      var func;
-      beforeEach(function(){func = Publisher.autocompletion.searchTermFromValue;});
+      beforeEach(function(){
+        this.func = Publisher.autocompletion.searchTermFromValue;
+      });
+
       it("returns nothing if the cursor is before the @", function(){
-        expect(func('not @dan grip', 2)).toBe('');
+        expect(this.func('not @dan grip', 2)).toBe('');
       });
+
       it("returns everything up to the cursor if the cursor is a word after that @", function(){
-        expect(func('not @dan grip', 13)).toBe('dan grip');
+        expect(this.func('not @dan grip', 13)).toBe('dan grip');
       });
+
       it("returns up to the cursor if the cursor is after that @", function(){
-        expect(func('not @dan grip', 7)).toBe('da');
+        expect(this.func('not @dan grip', 7)).toBe('da');
       });
 
       it("returns everything after an @ at the start of the line", function(){
-        expect(func('@dan grip', 9)).toBe('dan grip');
+        expect(this.func('@dan grip', 9)).toBe('dan grip');
       });
       it("returns nothing if there is no @", function(){
-        expect(func('dan', 3)).toBe('');
+        expect(this.func('dan', 3)).toBe('');
       });
       it("returns nothing for just an @", function(){
-        expect(func('@', 1)).toBe('');
+        expect(this.func('@', 1)).toBe('');
       });
       it("returns nothing if there are letters preceding the @", function(){
-        expect(func('ioj@asdo', 8)).toBe('');
+        expect(this.func('ioj@asdo', 8)).toBe('');
       });
       it("returns everything up to the cursor if there are 2 @s and the cursor is between them", function(){
-        expect(func('@asdpo  aoisdj @asodk', 8)).toBe('asdpo');
+        expect(this.func('@asdpo  aoisdj @asodk', 8)).toBe('asdpo');
       });
       it("returns everything from the 2nd @ up to the cursor if there are 2 @s and the cursor after them", function(){
-        expect(func('@asod asdo @asd asok', 15)).toBe('asd');
+        expect(this.func('@asod asdo @asd asok', 15)).toBe('asd');
       });
-    });
-
-    describe("onSelect", function(){
-
     });
 
     describe("mentionList", function(){
-      var visibleInput, visibleVal,
-      hiddenInput, hiddenVal,
-      list,
-      mention;
       beforeEach(function(){
         spec.loadFixture('aspects_index');
-        list = Publisher.autocompletion.mentionList;
-        visibleInput = Publisher.input();
-        hiddenInput = Publisher.hiddenInput();
-        mention = { visibleStart : 0,
+
+        this.list = Publisher.autocompletion.mentionList;
+        this.visibleInput = Publisher.input();
+        this.hiddenInput = Publisher.hiddenInput();
+        this.mention = { visibleStart : 0,
           visibleEnd   : 5,
           mentionString : "@{Danny; dan@pod.org}"
         };
-        list.mentions = [];
-        list.push(mention);
-        visibleVal = "Danny loves testing javascript";
-        visibleInput.val(visibleVal);
-        hiddenVal = "@{Danny; dan@pod.org} loves testing javascript";
-        hiddenInput.val(hiddenVal);
+
+        this.list.mentions = [];
+        this.list.push(this.mention);
+        this.visibleVal = "Danny loves testing javascript";
+        this.visibleInput.val(this.visibleVal);
+        this.hiddenVal = "@{Danny; dan@pod.org} loves testing javascript";
+        this.hiddenInput.val(this.hiddenVal);
       });
+
       describe("selectionDeleted", function(){
-        var func, danny, daniel, david, darren;
         beforeEach(function(){
-          func = list.selectionDeleted;
-          visibleVal = "Danny Daniel David Darren";
-          visibleInput.val(visibleVal);
-          list.mentions = [];
-          danny = {
+          this.func = this.list.selectionDeleted;
+          this.visibleVal = "Danny Daniel David Darren";
+          this.visibleInput.val(this.visibleVal);
+          this.list.mentions = [];
+          this.danny = {
             visibleStart : 0,
             visibleEnd : 5,
             mentionString : "@{Danny; danny@pod.org}"
           };
-          daniel = {
+          this.daniel = {
             visibleStart : 6,
             visibleEnd : 12,
             mentionString : "@{Daniel; daniel@pod.org}"
           };
-          david = {
+          this.david = {
             visibleStart : 13,
             visibleEnd : 18,
             mentionString : "@{David; david@pod.org}"
           };
-          darren = {
+          this.darren = {
             visibleStart : 19,
             visibleEnd : 25,
             mentionString : "@{Darren; darren@pod.org}"
           };
-          list.push(danny)
-          list.push(daniel)
-          list.push(david)
-          list.push(darren)
+
+          _.each([this.danny, this.daniel, this.david, this.darren], function(person){
+            this.list.push(person);
+          }, this);
         });
+
         it("destroys mentions within the selection", function(){
-          func(4,11);
-          expect(list.sortedMentions()).toEqual([darren, david])
+          this.func(4,11);
+          expect(this.list.sortedMentions()).toEqual([this.darren, this.david])
         });
+
         it("moves remaining mentions back", function(){
-          func(7,14);
-          var length = 11 - 4
-          expect(danny.visibleStart).toBe(0);
-          expect(darren.visibleStart).toBe(19-length);
+          this.func(7,14);
+          var length = 11 - 4;
+
+          expect(this.danny.visibleStart).toBe(0);
+          expect(this.darren.visibleStart).toBe(19-length);
         });
       });
+
       describe("generateHiddenInput", function(){
         it("replaces mentions in a string", function(){
-          expect(list.generateHiddenInput(visibleVal)).toBe(hiddenVal);
+          expect(this.list.generateHiddenInput(this.visibleVal)).toBe(this.hiddenVal);
         });
       });
+
       describe("push", function(){
         it("adds mention to mentions array", function(){
-          expect(list.mentions.length).toBe(1);
-          expect(list.mentions[0]).toBe(mention)
+          expect(this.list.mentions.length).toBe(1);
+          expect(this.list.mentions[0]).toBe(this.mention)
         });
       });
+
       describe("mentionAt", function(){
         it("returns the location of the mention at that location in the mentions array", function(){
-          expect(list.mentions[list.mentionAt(3)]).toBe(mention);
+          expect(this.list.mentions[this.list.mentionAt(3)]).toBe(this.mention);
         });
+
         it("returns null if there is no mention", function(){
-          expect(list.mentionAt(8)).toBeFalsy();
+          expect(this.list.mentionAt(8)).toBeFalsy();
         });
       });
+
       describe("insertionAt", function(){
         it("does nothing if there is no visible mention at that index", function(){
-          list.insertionAt(8);
-          expect(visibleInput.val()).toBe(visibleVal);
-          expect(hiddenInput.val()).toBe(hiddenVal);
+          this.list.insertionAt(8);
+          expect(this.visibleInput.val()).toBe(this.visibleVal);
+          expect(this.hiddenInput.val()).toBe(this.hiddenVal);
         });
+
         it("deletes the mention from the hidden field if there is a mention", function(){
-          list.insertionAt(3);
-          expect(visibleInput.val()).toBe(visibleVal);
-          expect(list.generateHiddenInput(visibleInput.val())).toBe(visibleVal);
+          this.list.insertionAt(3);
+          expect(this.visibleInput.val()).toBe(this.visibleVal);
+          expect(this.list.generateHiddenInput(this.visibleInput.val())).toBe(this.visibleVal);
         });
+
         it("deletes the mention from the list", function(){
-          list.insertionAt(3);
-          expect(list.mentionAt(3)).toBeFalsy();
+          this.list.insertionAt(3);
+          expect(this.list.mentionAt(3)).toBeFalsy();
         });
+
         it("calls updateMentionLocations", function(){
           mentionTwo = { visibleStart : 8,
             visibleEnd   : 15,
             mentionString : "@{SomeoneElse; other@pod.org}"
           };
-          list.push(mentionTwo);
-          spyOn(list, 'updateMentionLocations');
-          list.insertionAt(3,4, 60);
-          expect(list.updateMentionLocations).toHaveBeenCalled();
+          this.list.push(mentionTwo);
+
+          spyOn(this.list, 'updateMentionLocations');
+          this.list.insertionAt(3,4, 60);
+          expect(this.list.updateMentionLocations).toHaveBeenCalled();
         });
       });
+
       describe("updateMentionLocations", function(){
         it("updates the offsets of the remaining mentions in the list", function(){
           mentionTwo = { visibleStart : 8,
             visibleEnd   : 15,
             mentionString : "@{SomeoneElse; other@pod.org}"
           };
-          list.push(mentionTwo);
-          list.updateMentionLocations(7, 1);
+          this.list.push(mentionTwo);
+          this.list.updateMentionLocations(7, 1);
           expect(mentionTwo.visibleStart).toBe(9);
           expect(mentionTwo.visibleEnd).toBe(16);
         });
@@ -371,81 +348,84 @@ describe("Publisher", function() {
     });
 
     describe("keyUpHandler", function(){
-      var input;
-      var submit;
       beforeEach(function(){
         spec.loadFixture('aspects_index');
         Publisher.initialize();
-        input = Publisher.input();
-        submit = Publisher.submit();
+        this.input = Publisher.input();
+        this.submit = Publisher.submit();
         Publisher.open();
       });
+
       it("keep the share button disabled when adding only whitespaces", function(){
-        expect(submit.attr('disabled')).toBeTruthy();
-        input.val(' ');
-        input.keyup();
-        expect(submit.attr('disabled')).toBeTruthy();
+        expect(this.submit.attr('disabled')).toBeTruthy();
+        this.input.val(' ');
+        this.input.keyup();
+        expect(this.submit.attr('disabled')).toBeTruthy();
       });
+
       it("enable the share button when adding non-whitespace characters", function(){
-        expect(submit.attr('disabled')).toBeTruthy();
-        input.val('some text');
-        input.keyup();
-        expect(submit.attr('disabled')).toBeFalsy();
+        expect(this.submit.attr('disabled')).toBeTruthy();
+        this.input.val('some text');
+        this.input.keyup();
+        expect(this.submit.attr('disabled')).toBeFalsy();
       });
+
       it("should toggle share button disable/enable when playing with input", function(){
-        expect(submit.attr('disabled')).toBeTruthy();
-        input.val('         ');
-        input.keyup();
-        expect(submit.attr('disabled')).toBeTruthy();
-        input.val('text');
-        input.keyup();
-        expect(submit.attr('disabled')).toBeFalsy();
-        input.val('');
-        input.keyup();
-        expect(submit.attr('disabled')).toBeTruthy();
+        expect(this.submit.attr('disabled')).toBeTruthy();
+        this.input.val('         ');
+        this.input.keyup();
+        expect(this.submit.attr('disabled')).toBeTruthy();
+        this.input.val('text');
+        this.input.keyup();
+        this.expect(this.submit.attr('disabled')).toBeFalsy();
+        this.input.val('');
+        this.input.keyup();
+        expect(this.submit.attr('disabled')).toBeTruthy();
       });
     });
 
     describe("addMentionToInput", function(){
-      var func;
-      var input;
-      var replaceWith;
       beforeEach(function(){
         spec.loadFixture('aspects_index');
-        func = Publisher.autocompletion.addMentionToInput;
-        input = Publisher.input();
+        this.func = Publisher.autocompletion.addMentionToInput;
+        this.input = Publisher.input();
+        this.replaceWith = "Replace with this.";
         Publisher.autocompletion.mentionList.mentions = [];
-        replaceWith = "Replace with this.";
       });
+
       it("replaces everything up to the cursor if the cursor is a word after that @", function(){
-        input.val('not @dan grip');
+        this.input.val('not @dan grip');
         var cursorIndex = 13;
-        func(input, cursorIndex, replaceWith);
-        expect(input.val()).toBe('not ' + replaceWith);
+        this.func(this.input, cursorIndex, this.replaceWith);
+        expect(this.input.val()).toBe('not ' + this.replaceWith);
       });
+
       it("replaces everything between @ and the cursor if the cursor is after that @", function(){
-        input.val('not @dan grip');
+        this.input.val('not @dan grip');
         var cursorIndex = 7;
-        func(input, cursorIndex, replaceWith);
-        expect(input.val()).toBe('not ' + replaceWith + 'n grip');
+        this.func(this.input, cursorIndex, this.replaceWith);
+        expect(this.input.val()).toBe('not ' + this.replaceWith + 'n grip');
       });
+
       it("replaces everything up to the cursor from @ at the start of the line", function(){
-        input.val('@dan grip');
+        this.input.val('@dan grip');
         var cursorIndex = 9;
-        func(input, cursorIndex, replaceWith);
-        expect(input.val()).toBe(replaceWith);
+        this.func(this.input, cursorIndex, this.replaceWith);
+        expect(this.input.val()).toBe(this.replaceWith);
       });
+
       it("replaces everything between the first @ and the cursor if there are 2 @s and the cursor is between them", function(){
-        input.val('@asdpo  aoisdj @asodk');
+        this.input.val('@asdpo  aoisdj @asodk');
         var cursorIndex = 8;
-        func(input, cursorIndex, replaceWith);
-        expect(input.val()).toBe(replaceWith + 'aoisdj @asodk');
+        this.func(this.input, cursorIndex, this.replaceWith);
+        expect(this.input.val()).toBe(this.replaceWith + 'aoisdj @asodk');
       });
+
       it("replaces everything after the 2nd @ if there are 2 @s and the cursor after them", function(){
-        input.val('@asod asdo @asd asok');
+        this.input.val('@asod asdo @asd asok');
         var cursorIndex = 15;
-        func(input, cursorIndex, replaceWith);
-        expect(input.val()).toBe('@asod asdo ' + replaceWith + ' asok');
+        this.func(this.input, cursorIndex, this.replaceWith);
+        expect(this.input.val()).toBe('@asod asdo ' + this.replaceWith + ' asok');
       });
     });
   });

@@ -132,11 +132,17 @@ describe Post do
     end
   end
 
-
   describe 'validations' do
     it 'validates uniqueness of guid and does not throw a db error' do
       message = Factory(:status_message)
       Factory.build(:status_message, :guid => message.guid).should_not be_valid
+    end
+  end
+
+  describe 'post_type' do
+    it 'returns the class constant' do
+      status_message = Factory(:status_message)
+      status_message.post_type.should == "StatusMessage"
     end
   end
 

@@ -20,7 +20,7 @@ class ShareVisibilitiesController < ApplicationController
       @vis.hidden = !@vis.hidden
       if @vis.save
         update_cache(@vis)
-        render 'update'
+        render :nothing => true, :status => 200
         return
       end
     end

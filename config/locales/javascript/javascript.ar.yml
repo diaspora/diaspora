@@ -10,11 +10,11 @@ ar:
       add_to_aspect: "أضف مراسلا"
       all_aspects: "جميع الفئات"
       toggle:
-        few: "في {{count}} فئات"
-        many: "في {{count}} فئات"
-        one: "في {{count}} فئة"
-        other: "في {{count}} فئات"
-        two: "في {{count}} فئات"
+        few: "في <%= count %> فئات"
+        many: "في <%= count %> فئات"
+        one: "في <%= count %> فئة"
+        other: "في <%= count %> فئات"
+        two: "في <%= count %> فئات"
         zero: "حدّد الفئات"
     comments:
       hide: "أخفِ التعليقات"
@@ -32,7 +32,7 @@ ar:
       public: "عام - مشاركتك ستكون متاحة للجميع ومفهرسة في محركات البحث"
     reshares:
       duplicate: "رائع، أليس كذلك؟ أعدت نشر هذه المشاركة مسبقا"
-    search_for: "إبحث عن {{name}}"
+    search_for: "إبحث عن <%= name %>"
     show_more: المزيد
     timeago:
       day: "منذ يوم"
@@ -51,6 +51,6 @@ ar:
       years: "منذ %d أعوام"
     videos:
       unknown: "نوع فيديو غير معروف"
-      watch: "شاهد هذا الفيديو عبر {{provider}}"
+      watch: "شاهد هذا الفيديو عبر <%= provider %>"
     web_sockets:
       disconnected: "الـ websocket مغلق; الرسائل لن تنشر بعد الآن"

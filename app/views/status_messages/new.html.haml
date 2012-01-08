@@ -12,8 +12,7 @@
       Publisher.autocompletion.onSelect($("#status_message_fake_text"),person,'#{@person.name}');
       $("#publisher #status_message_fake_text").val(function(index, value){ return value + " " });
       $("#publisher").bind('ajax:success', function(){location.reload();});
-      Publisher.bookmarklet =true;
-      Publisher.open();
+      Publisher.bookmarklet = true;
     });
 
 #new_status_message_pane

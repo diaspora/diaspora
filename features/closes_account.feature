@@ -6,8 +6,7 @@ Feature: Close Account
 
   Scenario: user closes account
     Given I am signed in
-    When I click on my name in the header
-    And I follow "Settings"
+    When I go to the users edit page
     And I follow "Close Account"
     And I put in my password in "close_account_password" in the modal window
     And I preemptively confirm the alert
@@ -23,19 +22,14 @@ Feature: Close Account
     Given a user named "Bob Jones" with email "bob@bob.bob"
     And a user named "Alice Smith" with email "alice@alice.alice"
     And a user with email "bob@bob.bob" is connected with "alice@alice.alice"
-    When I sign in as "alice@alice.alice"
-    And I am on the home page
-    And I expand the publisher
-    And I fill in "status_message_fake_text" with "Hi, @{Bob Jones; bob_jones@example.org} long time no see"
-    And I press "Share"
-    And I log out
+    And Alice has a post mentioning Bob
+
     Then I sign in as "bob@bob.bob"
-    When I click on my name in the header
-    And I follow "Settings"
+    When I go to the users edit page
     And I follow "Close Account"
     And I put in my password in "close_account_password" in the modal window
     And I preemptively confirm the alert
     And I press "Close Account" in the modal window
     Then I sign in as "alice@alice.alice"
     And I am on the home page
-    Then I should see "Hi, Bob Jones long time no see"
+    Then I should see "Bob Jones"

@@ -39,7 +39,7 @@ group :production do # we don't install these on travis to speed up test runs
 
   # reporting
   gem 'hoptoad_notifier'
-  gem 'newrelic_rpm', :require => false
+  gem 'newrelic_rpm'
   gem 'rack-google-analytics', :require => 'rack/google-analytics'
   gem 'rack-piwik', :require => 'rack/piwik'
 end
@@ -73,6 +73,7 @@ gem 'jammit', '0.6.5'
 
 gem 'json', '1.5.2'
 gem 'vanna', :git => 'git://github.com/MikeSofaer/vanna.git'
+gem 'acts_as_api'
 
 # localization
 
@@ -82,7 +83,7 @@ gem 'rails-i18n'
 # parsing
 
 gem 'nokogiri', '~> 1.5.0'
-gem 'redcarpet', "2.0.0"
+gem 'redcarpet', "2.0.1"
 gem 'roxml', :git => 'git://github.com/Empact/roxml.git', :ref => '7ea9a9ffd2338aaef5b0'
 gem 'ruby-oembed'
 
@@ -128,16 +129,18 @@ group :test do
   gem 'cucumber-api-steps', '0.6', :require => false
   gem 'database_cleaner', '0.7.0'
   gem 'diaspora-client', :git => 'git://github.com/diaspora/diaspora-client.git'
+
+  gem 'timecop'
                           #"0.1.0", #:path => '~/workspace/diaspora-client'
   gem 'factory_girl_rails'
   gem 'fixture_builder', '0.3.1'
   gem 'fuubar', '0.0.6'
   gem 'mongrel', :require => false, :platforms => :ruby_18
   gem 'rspec', '>= 2.0.0'
-  gem 'rspec-core', '~> 2.7.1'
+  gem 'rspec-core', '~> 2.8.0'
   gem 'rspec-instafail', '>= 0.1.7', :require => false
   gem 'rspec-rails', '>= 2.0.0'
-  gem 'selenium-webdriver', '~> 2.15.0'
+  gem 'selenium-webdriver', '~> 2.16.0'
   gem 'webmock', :require => false
   gem 'sqlite3'
   gem 'mock_redis'

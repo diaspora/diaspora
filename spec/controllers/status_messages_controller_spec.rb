@@ -47,37 +47,10 @@ describe StatusMessagesController do
         },
       :aspect_ids => [@aspect1.id.to_s] }
     }
-    
+
     it 'removes getting started from new users' do
       @controller.should_receive(:remove_getting_started)
       post :create, status_message_hash
-    end
-
-    context 'js requests' do
-      it 'responds' do
-        post :create, status_message_hash.merge(:format => 'js')
-        response.status.should == 201
-      end
-
-      it 'responds with json' do
-        post :create, status_message_hash.merge(:format => 'js')
-        json = JSON.parse(response.body)
-        json['post_id'].should_not be_nil
-        json['html'].should_not be_nil
-      end
-
-      it 'saves the html as a fixture', :fixture => true do
-        post :create, status_message_hash.merge(:format => 'js')
-        json = JSON.parse(response.body)
-        save_fixture(json['html'], "created_status_message")
-      end
-
-      it 'escapes XSS' do
-        xss = "<script> alert('hi browser') </script>"
-        post :create, status_message_hash.merge(:format => 'js', :text => xss)
-        json = JSON.parse(response.body)
-        json['html'].should_not =~ /<script>/
-      end
     end
 
     it 'takes public in aspect ids' do
@@ -166,7 +139,7 @@ describe StatusMessagesController do
       alice.getting_started = true
       alice.save
       expect{
-        @controller.remove_getting_started 
+        @controller.remove_getting_started
       }.should change{
         alice.reload.getting_started
       }.from(true).to(false)
@@ -174,7 +147,7 @@ describe StatusMessagesController do
 
     it 'does nothing for returning users' do
       expect{
-        @controller.remove_getting_started 
+        @controller.remove_getting_started
       }.should_not change{
         alice.reload.getting_started
       }

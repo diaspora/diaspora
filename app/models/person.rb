@@ -10,13 +10,28 @@ class Person < ActiveRecord::Base
   include Encryptor::Public
   include Diaspora::Guid
 
+  # NOTE API V1 to be extracted
+  acts_as_api
+  api_accessible :backbone do |t|
+    t.add :id
+    t.add :name
+    t.add lambda { |person|
+      person.diaspora_handle
+    }, :as => :diaspora_id
+    t.add lambda { |person|
+      {:small => person.profile.image_url(:thumb_small),
+       :medium => person.profile.image_url(:thumb_medium),
+       :large => person.profile.image_url(:thumb_large) }
+    }, :as => :avatar
+  end
+
   xml_attr :diaspora_handle
   xml_attr :url
   xml_attr :profile, :as => Profile
   xml_attr :exported_key
 
   has_one :profile, :dependent => :destroy
-  delegate :last_name, :to => :profile
+  delegate :last_name, :image_url, :to => :profile
   accepts_nested_attributes_for :profile
 
   before_validation :downcase_diaspora_handle
@@ -59,7 +74,7 @@ class Person < ActiveRecord::Base
 
   scope :profile_tagged_with, lambda{|tag_name| joins(:profile => :tags).where(:profile => {:tags => {:name => tag_name}}).where('profiles.searchable IS TRUE') }
 
-  scope :who_have_reshared_a_users_posts, lambda{|user| 
+  scope :who_have_reshared_a_users_posts, lambda{|user|
     joins(:posts).where(:posts => {:root_guid => StatusMessage.guids_for_author(user.person), :type => 'Reshare'} )
   }
 
@@ -274,7 +289,7 @@ class Person < ActiveRecord::Base
   def self.url_batch_update(people, url)
     people.each do |person|
       person.update_url(url)
-    end 
+    end
   end
 
   # @param person [Person]

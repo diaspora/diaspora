@@ -66,7 +66,7 @@ When /^I click to delete the first post$/ do
 end
 
 When /^I click to delete the first comment$/ do
-  page.execute_script('$(".comment.posted").first().find(".comment_delete").click()')
+  page.execute_script('$(".comment").first().find(".comment_delete").click()')
 end
 
 When /^I click to delete the first uploaded photo$/ do
@@ -120,7 +120,7 @@ Then /^(?:|I )should not see a "([^\"]*)"(?: within "([^\"]*)")?$/ do |selector,
 end
 
 When /^I wait for the ajax to finish$/ do
-  wait_until(30) { evaluate_script("$.active") == 0 }
+  wait_until(15) { evaluate_script("$.active") == 0 }
 end
 
 When /^I have turned off jQuery effects$/ do
@@ -148,12 +148,8 @@ Then /^I should get download alert$/ do
 end
 
 When /^I search for "([^\"]*)"$/ do |search_term|
-  step "I fill in \"q\" with \"#{search_term}\""
-  page.execute_script <<-JS
-    var e = jQuery.Event("keypress");
-    e.keyCode = 13;
-    $("#q").trigger(e);
-  JS
+  fill_in "q", :with => search_term
+  find_field("q").native.send_key(:enter)
 end
 
 Then /^the "([^"]*)" field(?: within "([^"]*)")? should be filled with "([^"]*)"$/ do |field, selector, value|
@@ -179,8 +175,6 @@ end
 
 And /^I scroll down$/ do
   evaluate_script("window.scrollBy(0,3000000)")
-  sleep 1
-  wait_until(30) { evaluate_script('$("#infscr-loading:visible").length') == 0 }
   step "I wait for the ajax to finish"
 end
 

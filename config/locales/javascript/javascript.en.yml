@@ -6,6 +6,8 @@
 en:
   javascripts:
       confirm_dialog: "Are you sure?"
+      delete: "Delete"
+      ignore: "Ignore"
       timeago:
         prefixAgo: ""
         prefixFromNow: ""
@@ -23,31 +25,28 @@ en:
         year: "about a year"
         years: "%d years"
       videos:
-          watch: "Watch this video on {{provider}}"
+          watch: "Watch this video on <%= provider %>"
           unknown: "Unknown video type"
-      search_for: "Search for {{name}}"
+      search_for: "Search for <%= name %>"
       publisher:
         at_least_one_aspect: "You must publish to at least one aspect"
         limited: "Limited - your post will only be seen by people you are sharing with"
         public: "Public - your post will be visible to everyone and found by search engines"
       infinite_scroll:
         no_more: "No more posts."
-      web_sockets:
-        disconnected: "The websocket is closed; posts will no longer be streamed live."
       aspect_dropdown:
         add_to_aspect: "Add contact"
         select_aspects: "Select aspects"
         all_aspects: "All aspects"
-        stopped_sharing_with: "You have stopped sharing with {{name}}."
-        started_sharing_with: "You have started sharing with {{name}}!"
-        error: "Couldn't start sharing with {{name}}.  Are you ignoring them?"
+        stopped_sharing_with: "You have stopped sharing with <%= name %>."
+        started_sharing_with: "You have started sharing with <%= name %>!"
+        error: "Couldn't start sharing with <%= name %>.  Are you ignoring them?"
         toggle:
           zero: "Select aspects"
-          one: "In {{count}} aspect"
-          two: "In {{count}} aspects"
-          few: "In {{count}} aspects"
-          many: "In {{count}} aspects"
-          other: "In {{count}} aspects"
+          one: "In <%= count %> aspect"
+          few: "In <%= count %> aspects"
+          many: "In <%= count %> aspects"
+          other: "In <%= count %> aspects"
       show_more: "show more"
       failed_to_like: "Failed to like!"
       failed_to_post_message: "Failed to post message!"
@@ -61,11 +60,61 @@ en:
         deselect_all: "Deselect all"
         no_aspects: "No aspects selected"
       getting_started:
-        hey: "Hey, {{name}}!"
+        hey: "Hey, <%= name %>!"
         no_tags: "Hey, you haven't followed any tags!  Continue anyway?"
         alright_ill_wait: "Alright, I'll wait."
         preparing_your_stream: "Preparing your personalized stream..."
       photo_uploader:
         looking_good: "OMG, you look awesome!"
       tags:
-        wasnt_that_interesting: "OK, I suppose #{{tagName}} wasn't all that interesting..."
+        wasnt_that_interesting: "OK, I suppose #<%= tagName %> wasn't all that interesting..."
+
+      stream:
+        hide: "Hide"
+        public: "Public"
+        limited: "Limited"
+        like: "Like"
+        unlike: "Unlike"
+        reshare: "Reshare"
+        comment: "Comment"
+        original_post_deleted: "Original post deleted by author."
+        nsfw: "This post has been flagged NSFW by its author."
+        show: "Show"
+
+        likes:
+          zero: "<%= count %> Likes"
+          one: "<%= count %> Like"
+          few: "<%= count %> Likes"
+          many: "<%= count %> Likes"
+          other: "<%= count %> Likes"
+
+        reshares:
+          zero: "<%= count %> Reshares"
+          one: "<%= count %> Reshare"
+          few: "<%= count %> Reshares"
+          many: "<%= count %> Reshares"
+          other: "<%= count %> Reshares"
+
+        more_comments:
+          zero: "Show <%= count %> more comments"
+          one: "Show <%= count %> more comment"
+          few: "Show <%= count %> more comments"
+          many: "Show <%= count %> more comments"
+          other: "Show <%= count %> more comments"
+
+      header:
+        home: "Home"
+        profile: "Profile"
+        contacts: "Contacts"
+        settings: "Settings"
+        log_out: "Log out"
+
+        notifications: "Notifications"
+        messages: "Messages"
+
+        search: "Find people or #tags"
+
+        recent_notifications: "Recent Notifications"
+        mark_all_as_read: "Mark all as read"
+        view_all: "View all"
+

@@ -7,6 +7,7 @@ end
 
 When /^I select only "([^"]*)" aspect$/ do |aspect_name|
   within('#aspect_nav') do
+    click_link 'Aspects'
     click_link 'Select all' if has_link? 'Select all'
   end
 

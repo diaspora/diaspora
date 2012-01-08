@@ -36,6 +36,6 @@
       translatedMessage = translatedMessage[nextNamespace];
     }
 
-    return $.mustache(translatedMessage, views || {});
+    return _.template(translatedMessage, views || {});
    }
  };

@@ -29,14 +29,10 @@ describe LikesController do
         }
 
         context "on my own post" do
-          before do
+          it 'succeeds' do
             @target = alice.post :status_message, :text => "AWESOME", :to => @alices_aspect.id
-
             @target = alice.comment "hey", :post => @target if class_const == Comment
-          end
-
-          it 'responds to format js' do
-            post :create, like_hash.merge(:format => 'js')
+            post :create, like_hash.merge(:format => :json)
             response.code.should == '201'
           end
         end
@@ -119,9 +115,9 @@ describe LikesController do
 
         it 'lets a user destroy their like' do
           expect {
-            delete :destroy, :format => "js", id_field => @like.target_id, :id => @like.id
+            delete :destroy, :format => :json, id_field => @like.target_id, :id => @like.id
           }.should change(Like, :count).by(-1)
-          response.status.should == 200
+          response.status.should == 202
         end
 
         it 'does not let a user destroy other likes' do
@@ -129,7 +125,7 @@ describe LikesController do
           like2.save
 
           expect {
-            delete :destroy, :format => "js", id_field => like2.target_id, :id => like2.id
+            delete :destroy, :format => :json, id_field => like2.target_id, :id => like2.id
           }.should_not change(Like, :count)
 
           response.status.should == 403

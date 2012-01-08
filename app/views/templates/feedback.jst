@@ -1,0 +1,21 @@
+<span class="post_scope">
+  <%= public ? Diaspora.I18n.t("stream.public") : Diaspora.I18n.t("stream.limited") %>
+</span>
+–
+
+<a href="#" class="like_action" rel='nofollow'>
+  <%= user_like ? Diaspora.I18n.t("stream.unlike") : Diaspora.I18n.t("stream.like") %>
+</a>
+·
+
+<% if(public && author.id != current_user.id && (post_type == "Reshare" ? root : true)) { %>
+  <a href="#" class="reshare_action" rel='nofollow'>
+    <%= Diaspora.I18n.t("stream.reshare") %>
+  </a>
+  ·
+<% } %>
+
+<a href="#" class="focus_comment_textarea" rel="nofollow">
+  <%= Diaspora.I18n.t("stream.comment") %>
+</a>
+

@@ -1,0 +1,54 @@
+<div class="reshare">
+
+  <% if(root) { %>
+
+    <a href="/people/<%= root.author.id %>">
+      <img src="<%= root.author.avatar.small %>" class="avatar" data-person-id="<%= root.author.id %>"/>
+    </a>
+
+    <div class="content">
+      <div class="post_initial_info">
+        <span class="from">
+          <a href="/people/<%= root.author.id %>">
+            <%= root.author.name %>
+          </a>
+        </span>
+        <span class="details">
+          -
+          <a href="/posts/<%= root.id %>">
+            <time class="timeago" datetime="<%= root.created_at %>"/>
+          </a>
+        </span>
+
+        <% if(root.reshares_count) { %>
+          -
+          <%= Diaspora.I18n.t("stream.reshares", {count : root.reshares_count}) %>
+        <% } %>
+      </div>
+
+      <!-- duplicate from statusmessage partial -->
+      <% if(root.photos_count > 0 && root.photos && root.photos.length > 0) { %>
+        <div class="photo_attachments">
+          <img src="<%= root.photos[0].sizes.large %>" class="stream-photo big_stream_photo">
+          <% for(photo in root.photos) {
+            if(photo == 0){ continue; }
+            if(photo == 8){ break; } %>
+            <img src="<%= root.photos[photo].sizes.small %>" class="stream-photo thumb_small">
+          <% } %>
+      <% } %>
+
+      <%= text %>
+
+      <% if(o_embed_cache) { %>
+        <%= root.o_embed_cache.posts.data.html %>
+      <% } %>
+      <!-- end duplication -->
+
+    </div>
+
+  <% } else { %>
+    <p>
+      <%= Diaspora.I18n.t('stream.original_post_deleted') %>
+    </p>
+  <% } %>
+</div>

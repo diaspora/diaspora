@@ -420,6 +420,7 @@ id:
       email_confirmed: "E-Mail %{email} activated"
       email_not_confirmed: "E-Mail could not be activated. Wrong link?"
     edit:
+      auto_follow_back: "Automatically follow back if a someone follows you"
       change_email: "Change E-Mail"
       change_language: "Change Language"
       change_password: "Change Password"

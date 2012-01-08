@@ -17,6 +17,39 @@
     %link{:rel => 'shortcut icon', :href => '/favicon.png'}
     %link{:rel => 'apple-touch-icon', :href => '/apple-touch-icon.png'}
 
+    :css
+      @-webkit-keyframes fade-in {
+        0%   { opacity: 0; }
+        100% { opacity: 1; }
+      }
+
+      @-webkit-keyframes spin {
+        0%   { -webkit-transform: rotate(0deg); }
+        100% { -webkit-transform: rotate(360deg); }
+      }
+
+      @-moz-keyframes fade-in {
+        0%   { opacity: 0; }
+        100% { opacity: 1; }
+      }
+
+      @-moz-keyframes spin {
+        0%   { -moz-transform: rotate(0deg); }
+        100% { -moz-transform: rotate(360deg); }
+      }
+
+      .loaded {
+        -webkit-animation: fade-in 0.16s linear;
+        -moz-animation: fade-in 0.16s linear;
+      }
+
+      .loader {
+        -webkit-animation: spin 1s infinite ease-in-out,
+                           fade-in 0.2s ease-in;
+        -moz-animation: spin 1s infinite ease-in-out,
+                           fade-in 0.2s ease-in;
+      }
+
     / Social Media Icons are by Paul Robert Lloyd @ http://paulrobertlloyd.com/2009/06/social_media_icons
 
     / bootstrap/blueprint switch
@@ -37,19 +70,22 @@
     = javascript_include_tag "/javascripts/ie.js"
     <![endif]-->
 
-    %script{:type => "text/javascript", :src => '//ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js'}
-    :javascript
-      !window.jQuery && document.write(unescape("#{escape_javascript(include_javascripts(:jquery))}"))
-
+    = jquery_include_tag
     - unless @landing_page
       = include_javascripts :main
       :javascript
         Diaspora.I18n.loadLocale(#{get_javascript_strings_for(I18n.locale).to_json}, "#{I18n.locale}");
         Diaspora.Page = "#{params[:controller].camelcase}#{params[:action].camelcase}";
 
+    - if current_user
+      :javascript
+        app.user({
+          current_user: _.extend(#{current_user.person.as_api_response(:backbone).to_json}, {notifications_count : #{@notification_count}, unread_messages_count : #{@unread_message_count}})
+        });
+
     = yield(:head)
 
-    -unless Rails.env == "production" 
+    -unless Rails.env == "production"
       :css
         .translation_missing {
           color: purple;
@@ -67,14 +103,13 @@
           .message
             = msg
 
-    - unless @landing_page
-      %a{:id=>"back-to-top", :title=>"Back to top", :href=>"#"}
-        &#8679;
-
       #notifications
 
-    %header{:class=>('landing' unless current_user)}
-      = render 'layouts/header'
+    - unless current_user
+      %header
+        = render 'layouts/header'
+
+    = render 'templates/templates'
 
     .container{:style=> "#{yield(:break_the_mold)}"}
       - if @aspsect == :getting_started || @page == :logged_out

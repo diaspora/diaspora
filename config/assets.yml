@@ -3,23 +3,33 @@ embed_assets: datauri
 compress_assets: on
 gzip_assets: off
 javascripts:
-  flash_socket:
-    - public/javascripts/vendor/FABridge.js
-    - public/javascripts/vendor/swfobject.js
-    - public/javascripts/vendor/web_socket.js
   jquery:
-    - public/javascripts/vendor/jquery162.min.js
+    - public/javascripts/vendor/jquery-1.7.1.min.js
+
   main:
+    - public/javascripts/vendor/underscore.js
+    - public/javascripts/vendor/backbone.js
+
+    - public/javascripts/vendor/markdown.js
+
+    - public/javascripts/app/app.js
+    - public/javascripts/app/router.js
+    - public/javascripts/app/views.js
+    - public/javascripts/app/models/post.js
+    - public/javascripts/app/models/*
+    - public/javascripts/app/collections/*
+    - public/javascripts/app/views/stream_object_view.js
+    - public/javascripts/app/views/content_view.js
+    - public/javascripts/app/views/*
+
     - public/javascripts/rails.validations.js
     - public/javascripts/rails.js
     - public/javascripts/vendor/jquery.hotkeys.js
     - public/javascripts/vendor/jquery.autoresize.min.js
     - public/javascripts/vendor/jquery-ui-1.8.9.custom.min.js
     - public/javascripts/vendor/jquery.charcount.js
-    - public/javascripts/vendor/jquery-debounce.js
     - public/javascripts/vendor/jquery.expander.js
     - public/javascripts/vendor/timeago.js
-    - public/javascripts/vendor/Mustache.js
     - public/javascripts/vendor/facebox.js
     - public/javascripts/jquery.infinitescroll-custom.js
     - public/javascripts/jquery.autocomplete-custom.js
@@ -33,8 +43,6 @@ javascripts:
     - public/javascripts/widgets/*.js
 
     - public/javascripts/view.js
-    - public/javascripts/stream.js
-    - public/javascripts/content-updater.js
     - public/javascripts/aspects-dropdown.js
     - public/javascripts/contact-edit.js
     - public/javascripts/contact-list.js
@@ -46,12 +54,12 @@ javascripts:
   login:
     - public/javascripts/login.js
   mobile:
-    - public/javascripts/vendor/jquery162.min.js
+    - public/javascripts/vendor/jquery-1.7.1.min.js
     - public/javascripts/vendor/jquery.charcount.js
     - public/javascripts/rails.js # we only include this to hijack ajax requests
     - public/javascripts/vendor/mbp-helper.js
     - public/javascripts/mobile.js
-    
+
   mailchimp:
     - public/javascripts/vendor/mailchimp/jquery.form.js
     - public/javascripts/vendor/mailchimp/jquery.validate.js

@@ -10,7 +10,8 @@
 //});
 
 beforeEach(function() {
-  $('#jasmine_content').empty();
+  $('#jasmine_content').html(spec.readFixture("underscore_templates"));
+
   // NOTE Commented (as well as in afterEach) to keep the listeners from rails.js alive.
   //spec.clearLiveEventBindings();
   jasmine.Clock.useMock();
@@ -22,7 +23,7 @@ beforeEach(function() {
       self.directionDetector = self.instantiate("DirectionDetector");
     });
   };
-  
+
   var Page = Diaspora.Pages["TestPage"];
   $.extend(Page.prototype, Diaspora.EventBroker.extend(Diaspora.BaseWidget));
 
@@ -97,6 +98,6 @@ spec.retrieveFixture = function(fixtureName) {
   return xhr.responseText;
 };
 
+
 spec.loadFixtureCount = 0;
 spec.cachedFixtures = {};
-

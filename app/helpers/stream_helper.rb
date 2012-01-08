@@ -11,21 +11,21 @@ module StreamHelper
     elsif controller.instance_of?(PeopleController)
       local_or_remote_person_path(@person, :max_time => time_for_scroll(opts[:ajax_stream], @stream))
     elsif controller.instance_of?(TagFollowingsController)
-      tag_followings_path(:max_time => time_for_scroll(opts[:ajax_stream], @stream), :sort_order => session[:sort_order])
+      tag_followings_path(:max_time => time_for_scroll(opts[:ajax_stream], @stream))
     elsif controller.instance_of?(CommunitySpotlightController)
-      spotlight_path(:max_time => time_for_scroll(opts[:ajax_stream], @stream), :sort_order => session[:sort_order])
+      spotlight_path(:max_time => time_for_scroll(opts[:ajax_stream], @stream))
     elsif controller.instance_of?(MentionsController)
-      mentions_path(:max_time => time_for_scroll(opts[:ajax_stream], @stream), :sort_order => session[:sort_order])
+      mentions_path(:max_time => time_for_scroll(opts[:ajax_stream], @stream))
     elsif controller.instance_of?(MultisController)
-      multi_path(:max_time => time_for_scroll(opts[:ajax_stream], @stream), :sort_order => session[:sort_order])
+      multi_path(:max_time => time_for_scroll(opts[:ajax_stream], @stream))
     elsif controller.instance_of?(PostsController)
-      public_stream_path(:max_time => time_for_scroll(opts[:ajax_stream], @stream), :sort_order => session[:sort_order])
+      public_stream_path(:max_time => time_for_scroll(opts[:ajax_stream], @stream))
     elsif controller.instance_of?(AspectsController)
-      aspects_path(:max_time => time_for_scroll(opts[:ajax_stream], @stream), :a_ids => @stream.aspect_ids, :sort_order => session[:sort_order])
+      aspects_path(:max_time => time_for_scroll(opts[:ajax_stream], @stream), :a_ids => @stream.aspect_ids)
     elsif controller.instance_of?(LikeStreamController)
-      like_stream_path(:max_time => time_for_scroll(opts[:ajax_stream], @stream), :sort_order => session[:sort_order])
+      like_stream_path(:max_time => time_for_scroll(opts[:ajax_stream], @stream))
     elsif controller.instance_of?(CommentStreamController)
-      comment_stream_path(:max_time => time_for_scroll(opts[:ajax_stream], @stream), :sort_order => session[:sort_order])
+      comment_stream_path(:max_time => time_for_scroll(opts[:ajax_stream], @stream))
     else
       raise 'in order to use pagination for this new controller, update next_page_path in stream helper'
     end
@@ -40,11 +40,7 @@ module StreamHelper
   end
 
   def time_for_sort(post)
-    if controller.instance_of?(AspectsController)
-      post.send(session[:sort_order].to_sym)
-    else
-      post.created_at
-    end
+    post.created_at
   end
 
   def comments_expanded

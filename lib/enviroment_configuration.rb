@@ -36,4 +36,8 @@ module EnviromentConfiguration
       AppConfig[:ca_file]
     end
   end
+
+  def self.using_new_relic?
+    defined?(NewRelic) && AppConfig['NEW_RELIC_LICENSE_KEY'].present?
+  end
 end

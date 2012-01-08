@@ -20,18 +20,18 @@
       = t('.inbox')
 
   #conversation_inbox
-    - if @conversations.count > 0
-      .stream.conversations
+    .stream.conversations
+      - if @conversations.count > 0
         = render :partial => 'conversations/conversation', :collection => @conversations, :locals => {:authors => @authors, :unread_counts => @unread_counts}
+      - else
+        %br
+        %br
+        %br
+        %br
+        %div{:style => 'text-align:center;'}
+          %i
+            = t('.no_messages')
       = will_paginate @conversations
-    - else
-      %br
-      %br
-      %br
-      %br
-      %div{:style => 'text-align:center;'}
-        %i
-          = t('.no_messages')
 
 
 .span-15.prepend-9.last

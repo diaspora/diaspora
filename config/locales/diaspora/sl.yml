@@ -863,6 +863,7 @@ sl:
       wrong_password: "Vneseno geslo se ne ujema z vašim trenutnim geslom."
     edit:
       also_commented: "...nekdo tudi komentira objavo vašega stika?"
+      auto_follow_back: "Automatically follow back if a someone follows you"
       change: Spremeni
       change_email: "Spremeni e-naslov"
       change_language: "Spremeni jezik"

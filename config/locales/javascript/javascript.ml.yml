@@ -24,8 +24,8 @@ ml:
       years: "%d വര്‍ഷങ്ങള്‍ക്ക്"
     videos: 
       unknown: "അജ്ഞാതമായ തരം വീഡിയോ"
-      watch: "ഈ വീഡിയോ {{provider}}ല്‍ കാണുക"
-    search_for: "{{name}}നായി തിരയുക"
+      watch: "ഈ വീഡിയോ <%= provider %>ല്‍ കാണുക"
+    search_for: "<%= name %>നായി തിരയുക"
     infinite_scroll: 
       no_more: "കൂടുതല്‍ പോസ്റ്റുകളൊന്നുമില്ല."
     publisher: 
@@ -40,10 +40,10 @@ ml:
       add_to_aspect: "Add to aspect"
       toggle:
         zero: "Add to aspect"
-        one: "In {{count}} aspect"
-        few: "In {{count}} aspects"
-        many: "In {{count}} aspects"
-        other: "In {{count}} aspects"
+        one: "In <%= count %> aspect"
+        few: "In <%= count %> aspects"
+        many: "In <%= count %> aspects"
+        other: "In <%= count %> aspects"
     show_more: "show more"
     failed_to_like: "Failed to like!"
     failed_to_post_message: "Failed to post message!"

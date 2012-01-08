@@ -6,21 +6,29 @@ require File.join(Rails.root, "lib", 'stream', "aspect")
 
 class AspectsController < ApplicationController
   before_filter :authenticate_user!
-  before_filter :save_sort_order, :only => :index
   before_filter :save_selected_aspects, :only => :index
   before_filter :ensure_page, :only => :index
 
-  respond_to :html, :js
-  respond_to :json, :only => [:show, :create]
+  respond_to :html,
+             :js,
+             :json
 
   def index
+    @backbone = true
+    stream_klass = Stream::Aspect
     aspect_ids = (session[:a_ids] ? session[:a_ids] : [])
     @stream = Stream::Aspect.new(current_user, aspect_ids,
-                               :order => sort_order,
-                               :max_time => params[:max_time].to_i)
+                                 :max_time => params[:max_time].to_i)
 
-    if params[:only_posts]
-      render :partial => 'shared/stream', :locals => {:posts => @stream.stream_posts}
+    respond_with do |format|
+      format.html do
+        if params[:only_posts]
+          render :partial => 'shared/stream', :locals => {:posts => @stream.stream_posts}
+        else
+          render 'aspects/index'
+        end
+      end
+      format.json{ render_for_api :backbone, :json => @stream.stream_posts, :root => :posts }
     end
   end
 
