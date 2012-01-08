@@ -70,13 +70,14 @@
     bottom: 0;
     color: white;
     font-size: 14px;
-    left: 1px;
+    font-family: Arial, Helvetica, sans-serif;
+    left: 4px;
     line-height: normal;
     overflow: hidden;
     padding: 6px 0px 3px;
     position: absolute;
     right: 0;
-    top: -1px;
+    top: -2px;
     white-space: pre-wrap;
     word-wrap: break-word;
 
@@ -85,9 +86,9 @@
       white-space: pre-wrap;
       width: 100%;
 
-      strong { background: #d8dfea; }
-
-      em {
+      strong {
+        background: #d8dfea;
+        font-weight: normal;
       }
     }
   }

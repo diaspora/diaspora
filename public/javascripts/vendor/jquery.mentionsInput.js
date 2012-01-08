@@ -28,8 +28,8 @@
       autocompleteListItemAvatar : _.template('<img  src="<%= avatar %>" />'),
       autocompleteListItemIcon   : _.template('<div class="icon <%= icon %>"></div>'),
       mentionsOverlay            : _.template('<div class="mentions"><div></div></div>'),
-      mentionItemSyntax          : _.template('@[<%= value %>](<%= type %>:<%= id %>)'),
-      mentionItemHighlight       : _.template('<strong><span><%= value %></span></strong>')
+      mentionItemSyntax          : _.template('@[<%= name %>](<%= type %>:<%= id %>)'),
+      mentionItemHighlight       : _.template('<strong><span><%= name %></span></strong>')
     }
   };
 
@@ -104,15 +104,15 @@
       var syntaxMessage = getInputBoxValue();
 
       _.each(mentionsCollection, function (mention) {
-        var textSyntax = settings.templates.mentionItemSyntax({ value : mention.value, type : 'contact', id : mention.id });
-        syntaxMessage = syntaxMessage.replace(mention.value, textSyntax);
+        var textSyntax = settings.templates.mentionItemSyntax({ name : mention.name, type : 'contact', id : mention.id, mention : mention });
+        syntaxMessage = syntaxMessage.replace(mention.name, textSyntax);
       });
 
       var mentionText = utils.htmlEncode(syntaxMessage);
 
       _.each(mentionsCollection, function (mention) {
-        var textSyntax = settings.templates.mentionItemSyntax({ value : utils.htmlEncode(mention.value), type : 'contact', id : mention.id });
-        var textHighlight = settings.templates.mentionItemHighlight({ value : utils.htmlEncode(mention.value) });
+        var textSyntax = settings.templates.mentionItemSyntax({ name : utils.htmlEncode(mention.name), type : 'contact', id : mention.id, mention : mention });
+        var textHighlight = settings.templates.mentionItemHighlight({ name : utils.htmlEncode(mention.name), mention : mention });
 
         mentionText = mentionText.replace(textSyntax, textHighlight);
       });
@@ -132,12 +132,12 @@
       var inputText = getInputBoxValue();
 
       mentionsCollection = _.reject(mentionsCollection, function (mention, index) {
-        return !mention.value || inputText.indexOf(mention.value) == -1;
+        return !mention.name || inputText.indexOf(mention.name) == -1;
       });
       mentionsCollection = _.compact(mentionsCollection);
     }
 
-    function addMention(value, id, type) {
+    function addMention(mention) {
       var currentMessage = getInputBoxValue();
 
       // Using a regex to figure out positions
@@ -149,15 +149,11 @@
 
       var start = currentMessage.substr(0, startCaretPosition);
       var end = currentMessage.substr(currentCaretPosition, currentMessage.length);
-      var startEndIndex = (start + value).length;
+      var startEndIndex = (start + mention.name).length;
 
-      var updatedMessageText = start + value + end;
+      var updatedMessageText = start + mention.name + end;
 
-      mentionsCollection.push({
-        id    : id,
-        type  : type,
-        value : value
-      });
+      mentionsCollection.push(mention);
 
       // Cleaning before inserting the value, otherwise auto-complete would be triggered with "old" inputbuffer
       resetBuffer();
@@ -180,7 +176,7 @@
     function onAutoCompleteItemClick(e) {
       var elmTarget = $(this);
 
-      addMention(elmTarget.attr('data-display'), elmTarget.attr('data-ref-id'), elmTarget.attr('data-ref-type'));
+      addMention(elmTarget.data("mention"));
 
       return false;
     }
@@ -295,9 +291,11 @@
           'content' : utils.highlightTerm(utils.htmlEncode((item.name)), query)
         }));
 
-        if (index === 0) { 
-          selectAutoCompleteItem(elmListItem); 
+        if (index === 0) {
+          selectAutoCompleteItem(elmListItem);
         }
+
+        elmListItem.data("mention", item);
 
         if (settings.showAvatars) {
           var elmIcon;
@@ -344,6 +342,7 @@
       },
 
       reset : function () {
+        debugger;
         elmInputBox.val('');
         mentionsCollection = [];
         updateValues();
