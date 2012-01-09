@@ -142,6 +142,14 @@ describe("app.views.Post", function(){
         })
       })
 
+      it("works with urls that use #! syntax (i'm looking at you, twitter)')", function(){
+        link = "http://twitter.com/#!/hashbangs?gross=true"
+        this.statusMessage.set({text : link})
+        var view = new app.views.Post({model : this.statusMessage}).render();
+
+        expect(view.$("a[href='" + link + "']").text()).toContain(link)
+      })
+
       it("doesn't create link tags for links that are already in <a/> or <img/> tags", function(){
         link = "http://google.com"
 
