@@ -919,9 +919,6 @@ ca:
 
 
   streams:
-    recently: "recentment:"
-    commented_on: "comentat"
-    posted: "publicat"
     community_spotlight_stream: "Flux dels usuaris destacats"
     aspects_stream: "Aspectes"
     mentioned_stream: "@Mencions"
@@ -985,18 +982,17 @@ ca:
       show_getting_started: "Torna a habilitar la introducció inicial"
       getting_started: "Preferències de l'usuari nou"
       following: "Paràmetres del seguiment"
-      auto_follow_back: "Segueix automàticament a qui t'ha començat a seguir automàticament."
+      auto_follow_back: "Segueix automàticament a qui t'ha començat a seguir automàticament"
       auto_follow_aspect: "Aspecte pels usuaris seguits automàticament:"
-
-    close_account:
-      dont_go: "Ei, no te'n vagis!"
-      make_diaspora_better: "Volem que ens ajudeu a millorar Diàspora, i ens agradaria que ens ajudéssiu en lloc de deixar-nos. Si realment voleu anar-vos-en, volem que sapigueu què passarà a continuació."
-      mr_wiggles: "El Senyor Wiggles estarà trist de veure-vos marxar."
-      what_we_delete: "Suprimim totes les vostres publicacions, dades del perfil, el més aviat possible. Els vostres comentaris romandran, però estaran associats al vostre identificador de Diàspora."
-      locked_out: "Sortireu de Diàspora i es blocarà el vostre compte."
-      lock_username: "Això blocarà el vostre nom d'usuari, si decidiu tornar a registrar-vos."
-      no_turning_back: "Ara mateix, no hi ha cap manera de tornar enrere."
-      if_you_want_this: "Si realment voleu això, introduïu la vostra contrasenya a sota i feu clic en «Tanca el compte»."
+      close_account:
+        dont_go: "Ei, no te'n vagis!"
+        make_diaspora_better: "Volem que ens ajudeu a millorar Diàspora, i ens agradaria que ens ajudéssiu en lloc de deixar-nos. Si realment voleu anar-vos-en, volem que sapigueu què passarà a continuació."
+        mr_wiggles: "El Senyor Wiggles estarà trist de veure-vos marxar."
+        what_we_delete: "Suprimim totes les vostres publicacions, dades del perfil, el més aviat possible. Els vostres comentaris romandran, però estaran associats al vostre identificador de Diàspora."
+        locked_out: "Sortireu de Diàspora i es blocarà el vostre compte."
+        lock_username: "Això blocarà el vostre nom d'usuari, si decidiu tornar a registrar-vos."
+        no_turning_back: "Ara mateix, no hi ha cap manera de tornar enrere."
+        if_you_want_this: "Si realment voleu això, introduïu la vostra contrasenya a sota i feu clic en «Tanca el compte»."
 
     privacy_settings:
       title: "Paràmetres de privacitat"
