@@ -1,0 +1,26 @@
+-#   Copyright (c) 2010-2011, Diaspora Inc.  This file is
+-#   licensed under the Affero General Public License version 3 or later.  See
+-#   the COPYRIGHT file.
+
+- content_for :page_title do
+  = t('search')
+
+
+.span-12.prepend-5.last
+
+  .stream
+    = link_to 'Search again', '/search/index'
+  - if @results.nil?
+    = t('no_results')
+  - else
+    = t('found') results.count , t('results')
+    - @results.each do |result|
+      %ul.comments
+        %li.comments
+          = result[:context]
+        
+
+  %p
+    = link_to 'Search again', '/search/index'
+
+

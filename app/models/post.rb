@@ -2,6 +2,8 @@
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
+
+
 class Post < ActiveRecord::Base
   include ApplicationHelper
 
@@ -54,6 +56,7 @@ class Post < ActiveRecord::Base
   belongs_to :o_embed_cache
 
   after_create :cache_for_author
+  TAG_PATTERN = %r{(</?.*?>)}
 
   #scopes
   scope :includes_for_a_stream, includes(:o_embed_cache, {:author => :profile}, :mentions => {:person => :profile}) #note should include root and photos, but i think those are both on status_message
@@ -131,5 +134,12 @@ class Post < ActiveRecord::Base
   def should_cache_for_author?
     self.triggers_caching? && RedisCache.configured? &&
       RedisCache.acceptable_types.include?(self.type) && user = self.author.owner
+  end
+
+  # @return [String]
+  def truncated_text (max_length=50, ellipsis='...')
+    tag_free = self.text.gsub(TAG_PATTERN, '')
+    truncated = truncate(tag_free, :length => max_length, :omission => ellipsis, :separator=>" ")
+    truncated += ' - ' + self.author.name
   end
 end
