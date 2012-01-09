@@ -141,6 +141,22 @@ describe("app.views.Post", function(){
           expect(view.$("a[href='" + link + "']").text()).toContain(link)
         })
       })
+
+      it("works with urls that use #! syntax (i'm looking at you, twitter)')", function(){
+        link = "http://twitter.com/#!/hashbangs?gross=true"
+        this.statusMessage.set({text : link})
+        var view = new app.views.Post({model : this.statusMessage}).render();
+
+        expect(view.$("a[href='" + link + "']").text()).toContain(link)
+      })
+
+      it("doesn't create link tags for links that are already in <a/> or <img/> tags", function(){
+        link = "http://google.com"
+
+        this.statusMessage.set({text : "![cats](http://google.com/cats)"})
+        var view = new app.views.Content({model : this.statusMessage})
+        expect(view.presenter().text).toNotContain('</a>')
+      })
     })
 
     context("user not signed in", function(){

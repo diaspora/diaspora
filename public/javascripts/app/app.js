@@ -10,7 +10,7 @@ var app = {
   },
 
   initialize: function() {
-    app.router = new app.Router;
+    app.router = new app.Router();
 
     if(this._user){
       app.header = new app.views.Header;
@@ -19,6 +19,15 @@ var app = {
     }
 
     Backbone.history.start({pushState: true});
+
+    // there's probably a better way to do this...
+    $("a[rel=backbone]").bind("click", function(evt){
+      evt.preventDefault();
+      var link = $(this);
+
+      $(".stream_title").text(link.text())
+      app.router.navigate(link.attr("href").substring(1) ,true)
+    })
   }
 };
 
