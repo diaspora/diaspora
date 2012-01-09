@@ -42,8 +42,9 @@ app.views.Content = app.views.StreamObject.extend({
     }
 
     function urlify(text) {
-      var urlRegex = /[-a-zA-Z0-9@:%_\+.~#?&//=]{2,256}\.[a-z]{2,4}\b(\/[-a-zA-Z0-9@:%_\+.~#?&//=]*)?/gi
-      return text.replace(urlRegex, function(url) {
+      var urlRegex = /(=\s?'|=\s?")?[-a-zA-Z0-9@:%_\+.~#?&//=]{2,256}\.[a-z]{2,4}\b(\/[-a-zA-Z0-9@:%_\+.~#?&//=]*)?/gi
+      return text.replace(urlRegex, function(url, preceeder) {
+        if(preceeder) return url
         var protocol = (url.search(/:\/\//) == -1 ? "http://" : "")
         return "<a href='" + protocol + url + "' target=_blank>" + url + "</a>"
       })
