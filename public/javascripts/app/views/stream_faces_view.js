@@ -2,6 +2,10 @@ app.views.StreamFaces = app.views.Base.extend({
 
   template_name : "#stream-faces-template",
 
+  className : "stream-faces",
+
+  tooltipSelector : ".avatar",
+
   initialize : function(){
     this.updatePeople()
     this.collection.bind("add", this.updatePeople, this)
