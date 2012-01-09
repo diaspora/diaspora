@@ -89,7 +89,10 @@ body {
   }
 }
 
-#content { > div, > article { width: 100%; }}
+#content {
+  overflow: hidden;
+  > div, > article { width: 100%; }
+}
 
 aside.sidebar {
   float: none;
@@ -134,6 +137,7 @@ body.sidebar-footer {
   }
   #content {
     @extend .group;
+    overflow: visible;
     margin-right: $sidebar-width-medium;
     position: relative;
     .no-sidebar & { margin-right: 0; border-right: 0; }

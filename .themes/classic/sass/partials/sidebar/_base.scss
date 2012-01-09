@@ -2,6 +2,7 @@
   @include box-shadow(lighten($sidebar-bg, 5) 0 1px);
 }
 aside.sidebar {
+  overflow: hidden;
   color: $sidebar-color;
   text-shadow: lighten($sidebar-bg, 8) 0 1px;
   a { @extend .force-wrap; }
