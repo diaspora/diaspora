@@ -1,3 +1,4 @@
 != "#{t('notifier.reshared.reshared', :name => "#{@notification.sender.name}")}:"
-!=post_message(@notification.reshare.root)
+!= @notification.text_owner.user_preferences.exists?(:email_type => 'silent') ? "#{t('notifier.reshared.silenced_text')}" : post_message(@notification.reshare.root)
+
 

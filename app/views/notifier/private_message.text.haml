@@ -1,1 +1,3 @@
-!= @notification.message.text
+!= @notification.text_owner.user_preferences.exists?(:email_type => 'silent') ? "#{t('notifier.private_message.silenced', :name => "#{@notification.sender.name}")}" : @notification.message.text
+
+
