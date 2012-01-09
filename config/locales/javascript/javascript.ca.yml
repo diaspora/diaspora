@@ -9,6 +9,8 @@
 ca:
   javascripts:
       confirm_dialog: "N'esteu segur?"
+      delete: "Suprimeix"
+      ignore: "Omet"
       timeago:
         prefixAgo: "fa"
         prefixFromNow: "fa"
@@ -35,8 +37,6 @@ ca:
         public: "Públic - la vostra publicació serà visible per a tothom i serà trobada pels cercadors"
       infinite_scroll:
         no_more: "No hi ha més publicacions."
-      web_sockets:
-        disconnected: "S'ha tancat el sòcol web. Les publicacions ja no es mostraran en temps real."
       aspect_dropdown:
         add_to_aspect: "Afegeix el contacte"
         select_aspects: "Selecciona els aspectes"
@@ -72,3 +72,56 @@ ca:
         looking_good: "Vaja, teniu un aspecte fantàstic!"
       tags:
         wasnt_that_interesting: "D'acord, es possible que #<%= tagName %> no fos tan interessant…"
+
+      stream:
+        hide: "Amaga"
+        public: "Públic"
+        limited: "Limitat"
+        like: "M'agrada"
+        unlike: "Ja no m'agrada"
+        reshare: "Torna a compartir"
+        comment: "Comenta"
+        original_post_deleted: "Publicació original suprimida per l'autor."
+        nsfw: "Aquesta publicació ha estat etiquetada com no apropiada per a entorns de treball (NSFW) pel seu autor."
+        show: "Mostra"
+
+        likes:
+          zero: "a cap persona li agrada"
+          one: "li agrada a <%= count %> persona"
+          two: "li agrada a <%= count %> persones"
+          few: "li agrada a <%= count %> persones"
+          many: "li agrada a <%= count %> persones"
+          other: "li agrada a <%= count %> persones"
+
+        reshares:
+          zero: "Torna a compartir"
+          one: "<%= count %> vegada tornat a compartir"
+          two: "<%= count %> vegades tornat a compartir"
+          few: "<%= count %> vegades tornat a compartir"
+          many: "<%= count %> vegades tornat a compatir"
+          other: "<%= count %> vegades tornat a compatir"
+
+        more_comments:
+          zero: "Mostra <%= count %> comentaris més"
+          one: "Mostra <%= count %> comentari més"
+          two: "Mostra <%= count %> comentaris més"
+          few: "Mostra <%= count %> comentaris més"
+          many: "Mostra <%= count %> comentaris més"
+          other: "Mostra <%= count %> comentaris més"
+
+      header:
+        home: "Inici"
+        profile: "Perfil"
+        contacts: "Contactes"
+        settings: "Paràmetres"
+        admin: "Administració"
+        log_out: "Surt"
+
+        notifications: "Notificacions"
+        messages: "Missatges"
+
+        search: "Cerqueu gent o #etiquetes"
+
+        recent_notifications: "Notificacions recents"
+        mark_all_as_read: "Marca'ls tots com llegits"
+        view_all: "Visualitza'ls tots"
