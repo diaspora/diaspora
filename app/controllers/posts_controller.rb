@@ -32,6 +32,8 @@ class PostsController < ApplicationController
         notification.save
       end
 
+      @expand_post = true
+
       respond_to do |format|
         format.xml{ render :xml => @post.to_diaspora_xml }
         format.mobile{render 'posts/show.mobile.haml'}
