@@ -45,7 +45,7 @@
             = link_to (image_tag "icons/monotone_wrench_settings.png"), "#question_mark_pane", :class => 'question_mark', :rel => 'facebox', :title => t('shared.public_explain.manage')
 
           .dropdown{ ! current_user.getting_started? ? {:class => "hang_right"} : { :class => "hang_right", :title => popover_with_close_html("2. #{t('shared.public_explain.control_your_audience')}"), 'data-content'=> t('shared.public_explain.visibility_dropdown')} }
-            .button.toggle.publisher
+            %button.button.toggle.publisher{:type => 'button'}
               - if publisher_public
                 = t('public')
               - elsif all_aspects_selected?(selected_aspects)
@@ -59,10 +59,10 @@
             .wrapper
               %ul.dropdown_list{:unSelectable => 'on', 'data-person_id' => (person.id if defined?(person) && person), 'data-service_uid' => (service_uid if defined?(service_uid))}
                 %li.public.radio{"data-aspect_id" => "public", :class => ("selected" if publisher_public)}
-                  = t('public')
+                  = link_to t('public'), '#'
 
                 %li.divider.all_aspects.radio{:style => "border-bottom: 1px solid #ddd;", "data-aspect_id" => "all_aspects", :class => ("selected" if (!publisher_public && all_aspects_selected?(selected_aspects)))}
-                  = t('all_aspects')
+                  = link_to t('all_aspects'), '#'
 
                 - for aspect in all_aspects
                   = aspect_dropdown_list_item(aspect, !all_aspects_selected?(selected_aspects) && selected_aspects.include?(aspect) )

@@ -70,7 +70,7 @@ module AspectGlobalHelper
 
     str = <<LISTITEM
 <li data-aspect_id=#{aspect.id} class='#{klass} aspect_selector'>
-  #{aspect.name}
+  <a href='#'>#{aspect.name}</a>
 </li>
 LISTITEM
     str.html_safe
