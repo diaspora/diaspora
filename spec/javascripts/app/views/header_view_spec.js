@@ -37,6 +37,20 @@ describe("app.views.Header", function() {
         expect(this.view.$("#message_inbox_badge .badge_count").hasClass('hidden')).toBe(true);
       })
     })
+
+    context("admin link", function(){
+      it("displays if the current user is an admin", function(){
+        window.current_user = _.extend(window.current_user, {admin : true})
+        this.view.render();
+        expect(this.view.$("#user_menu").html()).toContain("/admins");
+      })
+
+      it("does not display if the current user is not an admin", function(){
+        window.current_user = _.extend(window.current_user, {admin : false})
+        this.view.render();
+        expect(this.view.$("#user_menu").html()).not.toContain("/admins");
+      })
+    })
   })
 
   describe("#toggleDropdown", function() {

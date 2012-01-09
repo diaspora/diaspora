@@ -87,6 +87,9 @@
     <li><a href="/people/<%= current_user.id %>"><%= Diaspora.I18n.t("header.profile") %></a></li>
     <li><a href="/contacts"><%= Diaspora.I18n.t("header.contacts") %></a></li>
     <li><a href="/user/edit"><%= Diaspora.I18n.t("header.settings") %></a></li>
+    <% if(current_user.admin) { %>
+      <li><a href="/admins/user_search"><%= Diaspora.I18n.t("header.admin") %></a></li>
+    <% } %>
     <li><a href="/users/sign_out"><%= Diaspora.I18n.t("header.log_out") %></a></li>
   </ul>
 
