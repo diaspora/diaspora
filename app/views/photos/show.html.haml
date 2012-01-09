@@ -59,5 +59,6 @@
         = form_for photo, :remote => true do |p|
           = p.text_field :text, :value => photo.text
           = p.submit t('.update_photo')
+          = link_to t('cancel'), '#', :id => 'cancel_edit'
     %p
       = button_to t('.delete_photo'), photo, :confirm => t('are_you_sure'), :method => :delete
