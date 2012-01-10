@@ -1,12 +1,15 @@
 # Diaspora
-[![Build Status](https://secure.travis-ci.org/diaspora/diaspora.png)](http://travis-ci.org/diaspora/diaspora)
-
-[![Dependency Status](https://gemnasium.com/diaspora/diaspora.png?travis)](https://gemnasium.com/diaspora/diaspora)
 
 The privacy aware, personally controlled, do-it-all, open source social
-network.
+network. [Diaspora Project](http://diasporaproject.org)
 
-[Diaspora Project](http://diasporaproject.org)
+************************
+Diaspora is currently going through a huge refactoring push, the code is changing fast!
+If you want to do something big, reach out on IRC or the mailing list first, so you can contribute effectively <3333
+************************
+
+[![Build Status](https://secure.travis-ci.org/diaspora/diaspora.png)](http://travis-ci.org/diaspora/diaspora)
+[![Dependency Status](https://gemnasium.com/diaspora/diaspora.png?travis)](https://gemnasium.com/diaspora/diaspora)
 
 **TL;DR**
 
