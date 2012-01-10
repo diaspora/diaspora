@@ -782,9 +782,14 @@
       var fragment          = this.getFragment();
       var docMode           = document.documentMode;
       var oldIE             = (isExplorer.exec(navigator.userAgent.toLowerCase()) && (!docMode || docMode <= 7));
+      var IE9               = (isExplorer.exec(navigator.userAgent.toLowerCase()) && (docMode == 9));
       if (oldIE) {
         this.iframe = $('<iframe src="javascript:0" tabindex="-1" />').hide().appendTo('body')[0].contentWindow;
         this.navigate(fragment);
+      }
+
+      if (IE9) {
+        this._hasPushState = true;
       }
 
       // Depending on whether we're using pushState or hashes, and whether
