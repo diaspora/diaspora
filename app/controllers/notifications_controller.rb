@@ -11,8 +11,8 @@ class NotificationsController < VannaController
   def update(opts=params)
     note = Notification.where(:recipient_id => current_user.id, :id => opts[:id]).first
     if note
-      note.update_attributes(:unread => false)
-      {}
+      note.update_attributes(:unread => opts[:unread] == "true" )
+      { :guid => note.id, :unread => note.unread }
     else
       Response.new :status => 404
     end
