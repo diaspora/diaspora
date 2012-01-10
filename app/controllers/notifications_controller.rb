@@ -5,9 +5,6 @@
 class NotificationsController < VannaController
   include NotificationsHelper
 
-  include ActionController::MobileFu
-  has_mobile_fu
-
   def update(opts=params)
     note = Notification.where(:recipient_id => current_user.id, :id => opts[:id]).first
     if note
