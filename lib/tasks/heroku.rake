@@ -24,6 +24,7 @@ namespace :heroku do
   end
 
   task :install_requirements do
+    system 'heroku addons:remove logging:basic'
     system 'heroku addons:add logging:expanded'
     system 'heroku addons:add redistogo:nano'
   end
