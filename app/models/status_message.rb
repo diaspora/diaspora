@@ -25,7 +25,7 @@ class StatusMessage < Post
   attr_accessor :oembed_url
 
   after_create :create_mentions
-  after_create :queue_gather_oembed_data, :if => :contains_oembed_url_in_text?
+  after_create :queue_gather_oembed_data
 
   #scopes
   scope :where_person_is_mentioned, lambda { |person|
@@ -167,13 +167,12 @@ class StatusMessage < Post
   end
 
   def queue_gather_oembed_data
-    Resque.enqueue(Jobs::GatherOEmbedData, self.id, self.oembed_url)
-  end
-
-  def contains_oembed_url_in_text?
     require 'uri'
     urls = URI.extract(self.raw_message, ['http', 'https'])
-    self.oembed_url = urls.find{|url| ENDPOINT_HOSTS_STRING.match(URI.parse(url).host)}
+    oembed_urls = urls.keep_if{|url| ENDPOINT_HOSTS_STRING.match(URI.parse(url).host)}
+    oembed_urls.each do |url|
+      Resque.enqueue(Jobs::GatherOEmbedData, self.id, url)
+    end
   end
 
   def update_photos_counter

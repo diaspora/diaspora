@@ -51,12 +51,13 @@ class Post < ActiveRecord::Base
   has_many :reshares, :class_name => "Reshare", :foreign_key => :root_guid, :primary_key => :guid
   has_many :resharers, :class_name => 'Person', :through => :reshares, :source => :author
 
-  belongs_to :o_embed_cache
+  has_many :embeddings
+  has_many :o_embed_caches, :through => :embeddings, :source => :o_embed_cache
 
   after_create :cache_for_author
 
   #scopes
-  scope :includes_for_a_stream, includes(:o_embed_cache, {:author => :profile}, :mentions => {:person => :profile}) #note should include root and photos, but i think those are both on status_message
+  scope :includes_for_a_stream, includes({:author => :profile}, :mentions => {:person => :profile}) #note should include root and photos, but i think those are both on status_message
 
   def post_type
     self.class.name

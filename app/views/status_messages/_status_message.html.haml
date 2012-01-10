@@ -20,5 +20,5 @@
 
 %div{:class => [direction_for(post.text), 'collapsible']}
   != markdownify(post)
-  - if post.o_embed_cache_id.present?
-    = o_embed_html(post.o_embed_cache)
+  - post.o_embed_caches.each do |cache|
+    = o_embed_html(cache)
