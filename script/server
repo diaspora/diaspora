@@ -3,7 +3,7 @@
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 #
-# Start diaspora websocket and main services
+# Start diaspora main services
 #
 
 # ensure right directory
@@ -80,13 +80,6 @@ if [ -n "$services" ]; then
     exit 64
 fi
 
-services=$( chk_service $SOCKET_PORT )
-if [ -n "$services" ]; then
-    echo "FATAL: Error: websocket port $SOCKET_PORT is already in use. Exiting" >&2
-    echo "     $services"
-    exit 64
-fi
-
 # Force AGPL
 if [ -w public -a ! -e  public/source.tar.gz ]; then
     branch=$( git branch | awk '/^[*]/ {print $2}')
@@ -111,10 +104,7 @@ fi
 # Start Diaspora
 
 if [ "$(bundle exec ruby ./script/get_config.rb 'single_process_mode?')" != "true" ]; then
-
     QUEUE=* bundle exec rake resque:work&
-
-    #bundle exec ruby ./script/websocket_server.rb&
 fi
 
 if [ "$(./script/get_config.rb enable_thin script_server)" = "true" ]; then

@@ -22,15 +22,9 @@ gem 'omniauth-twitter'
 
 gem 'twitter', '2.0.2'
 
-# backups
-
 # mail
+
 gem 'messagebus_ruby_api', '1.0.1'
-
-
-# web sockets
-gem 'em-synchrony', :platforms => :ruby_19
-gem 'em-websocket'
 
 group :production do # we don't install these on travis to speed up test runs
   # chef
@@ -116,6 +110,7 @@ gem 'client_side_validations'
 
 gem 'faraday'
 gem 'faraday-stack'
+gem 'em-synchrony', :platforms => :ruby_19
 
 # jazzy jasmine
 

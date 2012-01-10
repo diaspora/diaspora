@@ -26,7 +26,7 @@ class Contact < ActiveRecord::Base
 
 
   scope :all_contacts_of_person, lambda {|x| where(:person_id => x.id)}
-  
+
     # contact.sharing is true when contact.person is sharing with contact.user
   scope :sharing, lambda {
     where(:sharing => true)
@@ -69,7 +69,6 @@ class Contact < ActiveRecord::Base
 
   def receive_shareable(shareable)
     ShareVisibility.create!(:shareable_id => shareable.id, :shareable_type => shareable.class.base_class.to_s, :contact_id => self.id)
-    Diaspora::Websocket.to(self.user, :aspect_ids => self.aspect_ids).socket(shareable)
   end
 
   def contacts

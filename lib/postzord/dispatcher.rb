@@ -30,7 +30,7 @@ class Postzord::Dispatcher
     else
       false
     end
-  end 
+  end
 
   # @return [Object]
   def post(opts={})
@@ -52,7 +52,7 @@ class Postzord::Dispatcher
     remote_people, local_people = @subscribers.partition{ |person| person.owner_id.nil? }
 
     if @object.respond_to?(:relayable?) && @sender.owns?(@object.parent)
-      self.socket_and_notify_local_users(local_people)
+      self.notify_local_users(local_people)
     else
       self.deliver_to_local(local_people)
     end
@@ -83,10 +83,10 @@ class Postzord::Dispatcher
   # @param remote_people [Array<Person>] Recipients of the post on other pods
   # @return [void]
   def queue_remote_delivery_job(remote_people)
-    Resque.enqueue(Jobs::HttpMulti, 
-                   @sender.id, 
-                   Base64.encode64s(@object.to_diaspora_xml), 
-                   remote_people.map{|p| p.id}, 
+    Resque.enqueue(Jobs::HttpMulti,
+                   @sender.id,
+                   Base64.encode64s(@object.to_diaspora_xml),
+                   remote_people.map{|p| p.id},
                    self.class.to_s)
   end
 
@@ -129,11 +129,9 @@ class Postzord::Dispatcher
   end
 
   # @param local_people [Array<People>]
-  def socket_and_notify_local_users(local_people)
+  def notify_local_users(local_people)
     local_users = fetch_local_users(local_people)
     self.notify_users(local_users)
-    local_users << @sender if @object.author.local?
-    self.socket_to_users(local_users)
   end
 
   # @param services [Array<User>]
@@ -148,12 +146,6 @@ class Postzord::Dispatcher
 
   def object_is_related_to_diaspora_hq?
     (@object.author.diaspora_handle == 'diasporahq@joindiaspora.com' || (@object.respond_to?(:relayable?) && @object.parent.author.diaspora_handle == 'diasporahq@joindiaspora.com'))
-  end
-
-  # @param services [Array<User>]
-  def socket_to_users(users)
-    return unless users.present?
-    Diaspora::Websocket.to(users).socket(@object)
   end
 end
 

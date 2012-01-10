@@ -31,13 +31,6 @@ describe User do
       @aspect.reload.post_ids.should include @post.id
       @aspect1.reload.post_ids.should include @post.id
     end
-
-    it 'sockets the post to the poster' do
-      socket_stub = mock()
-      socket_stub.should_receive(:socket).with(@post)
-      Diaspora::Websocket.should_receive(:to).with(alice, instance_of(Hash)).and_return(socket_stub)
-      alice.add_to_streams(@post, @aspects)
-    end
   end
 
   describe '#aspects_from_ids' do

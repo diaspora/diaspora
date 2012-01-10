@@ -77,12 +77,12 @@ class User < ActiveRecord::Base
     identifier = invitation.identifier
 
     if service == 'email'
-      existing_user = User.where(:email => identifier).first 
+      existing_user = User.where(:email => identifier).first
     else
       existing_user = User.joins(:services).where(:services => {:type => "Services::#{service.titleize}", :uid => identifier}).first
     end
-   
-   if existing_user.nil? 
+
+   if existing_user.nil?
     i = Invitation.where(:service => service, :identifier => identifier).first
     existing_user = i.recipient if i
    end
@@ -219,8 +219,6 @@ class User < ActiveRecord::Base
   def add_to_streams(post, aspects_to_insert)
     inserted_aspect_ids = aspects_to_insert.map{|x| x.id}
 
-    Diaspora::Websocket.to(self, :aspect_ids => inserted_aspect_ids ).socket(post)
-
     aspects_to_insert.each do |aspect|
       aspect << post
     end
@@ -348,7 +346,7 @@ class User < ActiveRecord::Base
       self.invitation_token = nil
       self.password              = opts[:password]
       self.password_confirmation = opts[:password_confirmation]
-      
+
       self.save
       return unless self.errors.empty?
 
