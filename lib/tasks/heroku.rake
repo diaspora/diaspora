@@ -12,7 +12,7 @@ namespace :heroku do
     application_config = YAML.load_file('config/application.yml')['production'] rescue {}
     application_config.delete_if { |k, v| v.nil? or v.to_s.empty? }
 
-    heroku_env = application_config.map do|key, value| 
+    heroku_env = application_config.map do|key, value|
       value =value.join(EnviromentConfiguration::ARRAY_SEPERATOR) if value.respond_to?(:join)
 
       "#{key}=\"#{value}\""
@@ -24,7 +24,7 @@ namespace :heroku do
   end
 
   task :install_requirements do
-    system 'heroku addons:add lgging:expanded'
+    system 'heroku addons:add logging:expanded'
     system 'heroku addons:add redistogo:nano'
   end
 end
