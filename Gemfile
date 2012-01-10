@@ -147,7 +147,6 @@ group :test do
 end
 
 group :development do
-
   gem 'heroku'
   gem 'capistrano', '~> 2.9.0', :require => false
   gem 'capistrano_colors', :require => false
@@ -157,6 +156,5 @@ group :development do
   gem 'ruby-debug-base19', '0.11.23' if RUBY_VERSION.include? '1.9.1'
   gem 'ruby-debug19', :platforms => :ruby_19
   gem 'ruby-debug', :platforms => :mri_18
-  gem 'sod', :git => 'git://github.com/MikeSofaer/sod.git', :require => false
   gem 'yard'
 end

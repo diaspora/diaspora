@@ -1,5 +1,0 @@
-production:
-  repo: git@github.com:diaspora/diaspora.git
-  app_dir: /usr/local/app
-  cookbook: diaspora
-  ruby_version: ruby-1.9.2-p290

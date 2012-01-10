@@ -8,13 +8,6 @@ GIT
       nokogiri (>= 1.3.3)
 
 GIT
-  remote: git://github.com/MikeSofaer/sod.git
-  revision: e7fb74b412ec9dcd6b18f29c2accca6375cacdcf
-  specs:
-    sod (0.0.1)
-      net-scp
-
-GIT
   remote: git://github.com/MikeSofaer/vanna.git
   revision: 334eec220dbfddcc6bd3108e6e6c77fec8484dc4
   specs:
@@ -528,7 +521,6 @@ DEPENDENCIES
   sass (= 3.1.11)
   selenium-webdriver (~> 2.16.0)
   settingslogic (= 2.0.6)
-  sod!
   sqlite3
   thin (~> 1.3.1)
   timecop
