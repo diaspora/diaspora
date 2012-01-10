@@ -14,26 +14,6 @@ default:
   # Enable extensive logging to log/{development,test,production}.log
   debug: false
 
-  # Websocket server setup, see script/websocket_server.rb
-  # Enable extensive logging to websocket server.
-  socket_debug : false
-
-  # Websocket host, leave as 0.0.0.0 unless you know what you are doing
-  socket_host: 0.0.0.0
-
-  # File containing pid of running script/websocket_server.rb
-  socket_pidfile: "log/diaspora-wsd.pid"
-
-  # Websocket port, should normally be 8080 or 8081.
-  socket_port: 8080
-  socket_collection_name: 'websocket'
-
-  # Secure websocket confguration (wss://)
-  # requires SSL cert and key
-  socket_secure: false
-  socket_cert_chain_location: '/full/path/to/cert_chain.crt'
-  socket_private_key_location: '/full/path/to/file.key'
-
   # Diaspora is only tested against this default pubsub server.
   pubsub_server: 'https://pubsubhubbub.appspot.com/'
 
@@ -113,7 +93,6 @@ production:
 # Do not touch unless you know what you're doing
 test:
   pod_url: "http://example.org/"
-  socket_port: 8081
   enable_splunk_logging: false
 
 

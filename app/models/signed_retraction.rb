@@ -79,7 +79,6 @@ class SignedRetraction
       Postzord::Dispatcher.build(receiving_user, onward_retraction).post
     end
     if target
-      Diaspora::Websocket.to(receiving_user).retract(self.target)
       self.target.destroy
     end
     Rails.logger.info("event=retraction status =complete target_type=#{self.target_type} guid =#{self.target_guid}")

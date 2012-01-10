@@ -15,14 +15,7 @@
         notificationArea: notificationArea
       });
 
-      $(".stream_element.unread").live("mousedown", function() {
-        self.decrementCount();
-
-        $.ajax({
-          url: "notifications/" + $(this).removeClass("unread").data("guid"),
-          type: "PUT"
-        });
-      });
+      $(".stream_element.unread,.stream_element.read").live("mousedown", self.messageClick);
 
       $("a.more").live("click", function(evt) {
         evt.preventDefault();
@@ -31,7 +24,33 @@
           .removeClass("hidden");
       });
     });
-    
+    this.messageClick = function() {
+      $.ajax({
+        url: "notifications/" + $(this).data("guid"),
+        data: { unread: $(this).hasClass("read") },
+        type: "PUT",
+        success: self.clickSuccess
+      });
+    };
+    this.clickSuccess = function( data ) {
+      var jsList = jQuery.parseJSON(data);
+      var itemID = jsList["guid"]
+      var isUnread = jsList["unread"]
+      if ( isUnread ) {
+        self.incrementCount();
+      }else{
+        self.decrementCount();
+      }
+      $('.read,.unread').each(function(index) {
+        if ( $(this).data("guid") == itemID ) {
+          if ( isUnread ) {
+            $(this).removeClass("read").addClass( "unread" )
+          } else {
+            $(this).removeClass("unread").addClass( "read" )
+          }
+        }
+      });
+    };
     this.showNotification = function(notification) {
       $(notification.html).prependTo(this.notificationArea)
 				.fadeIn(200)
@@ -50,12 +69,15 @@
 
       if(self.badge.text() !== "") {
 				self.badge.text(self.count);
+        $( ".notification_count" ).text(self.count);
 
 				if(self.count === 0) {
 	  			self.badge.addClass("hidden");
+          $( ".notification_count" ).removeClass("unread");
 				}
 				else if(self.count === 1) {
 	  			self.badge.removeClass("hidden");
+          $( ".notification_count" ).addClass("unread");
 				}
       }
     };

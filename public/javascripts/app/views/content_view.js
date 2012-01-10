@@ -38,7 +38,6 @@ app.views.Content = app.views.StreamObject.extend({
 
         return "<a href='/people/" + personId + "' class='mention'>" + fullName + "</a>"
       })
-      return text
     }
 
     function urlify(text) {

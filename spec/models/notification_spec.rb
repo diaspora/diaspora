@@ -72,19 +72,6 @@ describe Notification do
         Notification.notify(@user, @request, @person)
       end
 
-      it 'sockets to the recipient' do
-        opts = {:target_id => @request.sender.id,
-          :target_type => "Request",
-          :actors => [@person],
-          :recipient_id => @user.id}
-
-        n = @request.notification_type(@user, @person).create(opts)
-        Notification.stub!(:make_notification).and_return n
-
-        Diaspora::Websocket.should_receive(:to).once.and_return(stub.as_null_object)
-        Notification.notify(@user, @request, @person)
-      end
-
       describe '#emails_the_user' do
         it 'calls mail' do
           opts = {

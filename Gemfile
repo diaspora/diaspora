@@ -22,15 +22,9 @@ gem 'omniauth-twitter'
 
 gem 'twitter', '2.0.2'
 
-# backups
-
 # mail
+
 gem 'messagebus_ruby_api', '1.0.1'
-
-
-# web sockets
-gem 'em-synchrony', :platforms => :ruby_19
-gem 'em-websocket'
 
 group :production do # we don't install these on travis to speed up test runs
   # chef
@@ -116,6 +110,7 @@ gem 'client_side_validations'
 
 gem 'faraday'
 gem 'faraday-stack'
+gem 'em-synchrony', :platforms => :ruby_19
 
 # jazzy jasmine
 
@@ -147,7 +142,6 @@ group :test do
 end
 
 group :development do
-
   gem 'heroku'
   gem 'capistrano', '~> 2.9.0', :require => false
   gem 'capistrano_colors', :require => false
@@ -157,6 +151,5 @@ group :development do
   gem 'ruby-debug-base19', '0.11.23' if RUBY_VERSION.include? '1.9.1'
   gem 'ruby-debug19', :platforms => :ruby_19
   gem 'ruby-debug', :platforms => :mri_18
-  gem 'sod', :git => 'git://github.com/MikeSofaer/sod.git', :require => false
   gem 'yard'
 end

@@ -11,7 +11,6 @@ app.views.Publisher = Backbone.View.extend({
     "submit form" : "createStatusMessage"
   },
 
-
   initialize : function(){
     this.collection = this.collection || new app.collections.Stream;
     return this;
@@ -29,7 +28,8 @@ app.views.Publisher = Backbone.View.extend({
         "text" : serializedForm["status_message[text]"]
       },
       "aspect_ids" : serializedForm["aspect_ids[]"],
-      "photos" : serializedForm["photos[]"]
+      "photos" : serializedForm["photos[]"],
+      "services" : serializedForm["services[]"]
     }, {
       success : function() {
         app.stream.collection.add(statusMessage.toJSON());

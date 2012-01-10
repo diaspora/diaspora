@@ -1,10 +1,10 @@
-require 'spec_helper' 
+require 'spec_helper'
 require File.join(Rails.root, 'lib','postzord', 'receiver', 'local_batch')
 
 describe Postzord::Receiver::LocalBatch do
   before do
     @object = Factory(:status_message, :author => alice.person)
-    @ids = [bob.id.to_s] 
+    @ids = [bob.id.to_s]
   end
 
   let(:receiver) { Postzord::Receiver::LocalBatch.new(@object, @ids) }
@@ -38,13 +38,6 @@ describe Postzord::Receiver::LocalBatch do
     it 'calls sharevisibility.batch_import with hashes' do
       ShareVisibility.should_receive(:batch_import).with(instance_of(Array), @object)
       receiver.create_share_visibilities
-    end
-  end
-
-  describe '#socket_to_users' do
-    it 'sockets to users' do
-      Diaspora::Websocket.should_receive(:to).with(receiver.users).and_return(stub.as_null_object)
-      receiver.socket_to_users
     end
   end
 

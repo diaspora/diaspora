@@ -19,16 +19,6 @@ describe 'a user receives a post' do
     @contact = alice.contact_for(bob.person)
   end
 
-  it 'streams only one message to the everyone aspect when a multi-aspected contacts posts' do
-    contact = alice.contact_for(bob.person)
-    alice.add_contact_to_aspect(contact, alice.aspects.create(:name => "villains"))
-    status = bob.build_post(:status_message, :text => "Users do things", :to => @bobs_aspect.id)
-    Diaspora::Websocket.stub!(:is_connected?).and_return(true)
-    Diaspora::Websocket.should_receive(:to).exactly(:once).and_return(stub.as_null_object)
-    zord = Postzord::Receiver::Private.new(alice, :object => status, :person => bob.person)
-    zord.receive_object
-  end
-
   it 'should be able to parse and store a status message from xml' do
     status_message = bob.post :status_message, :text => 'store this!', :to => @bobs_aspect.id
 
@@ -55,7 +45,6 @@ describe 'a user receives a post' do
     fantasy_resque do
       sm = bob.build_post(:status_message, :text => "hi")
       sm.save!
-      sm.stub!(:socket_to_user)
       bob.aspects.reload
       bob.add_to_streams(sm, [@bobs_aspect])
       bob.dispatch_post(sm, :to => @bobs_aspect)
@@ -70,7 +59,6 @@ describe 'a user receives a post' do
       Notification.should_receive(:notify).with(eve, anything(), bob.person)
 
       @sm = bob.build_post(:status_message, :text => "@{#{alice.name}; #{alice.diaspora_handle}} stuff @{#{eve.name}; #{eve.diaspora_handle}}")
-      @sm.stub!(:socket_to_user)
       bob.add_to_streams(@sm, [bob.aspects.first])
       @sm.save
 
@@ -88,7 +76,6 @@ describe 'a user receives a post' do
       Notification.should_receive(:notify).with(alice, anything(), @remote_person)
 
       @sm = Factory.build(:status_message, :text => "hello @{#{alice.name}; #{alice.diaspora_handle}}", :diaspora_handle => @remote_person.diaspora_handle, :author => @remote_person)
-      @sm.stub!(:socket_to_user)
       @sm.save
 
       zord = Postzord::Receiver::Private.new(alice, :object => @sm, :person => bob.person)
@@ -99,7 +86,6 @@ describe 'a user receives a post' do
       Notification.should_not_receive(:notify).with(alice, anything(), eve.person)
 
       @sm = eve.build_post(:status_message, :text => "should not notify @{#{alice.name}; #{alice.diaspora_handle}}")
-      @sm.stub!(:socket_to_user)
       eve.add_to_streams(@sm, [eve.aspects.first])
       @sm.save
 

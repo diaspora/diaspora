@@ -43,7 +43,6 @@ class Retraction
 
   def perform receiving_user
     Rails.logger.debug "Performing retraction for #{post_guid}"
-    Diaspora::Websocket.to(receiving_user).retract(self.target)
 
     self.target.destroy if self.target
     Rails.logger.info("event=retraction status=complete type=#{self.type} guid=#{self.post_guid}")

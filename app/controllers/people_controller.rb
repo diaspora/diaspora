@@ -169,6 +169,7 @@ class PeopleController < ApplicationController
       @contact = current_user.contact_for(@person) || Contact.new
       render :partial => 'aspect_membership_dropdown', :locals => {:contact => @contact, :person => @person, :hang => 'left'}
     end
+    Webfinger.new(account, opts)
   end
 
   def diaspora_id?(query)
@@ -177,7 +178,7 @@ class PeopleController < ApplicationController
 
   private
   def webfinger(account, opts = {})
-    Resque.enqueue(Jobs::SocketWebfinger, current_user.id, account, opts)
+    Webfinger.new(account, opts)
   end
 
   def remote_profile_with_no_user_session?

@@ -10,12 +10,12 @@ namespace :heroku do
   task :config do
     puts "Reading config/application.yml and sending config vars to Heroku..."
     application_config = YAML.load_file('config/application.yml')['production'] rescue {}
-    application_config.delete_if { |k, v| v.blank? }
+    application_config.delete_if { |k, v| v.nil? or v.to_s.empty? }
 
-    heroku_env = application_config.map do|key, value| 
+    heroku_env = application_config.map do|key, value|
       value =value.join(EnviromentConfiguration::ARRAY_SEPERATOR) if value.respond_to?(:join)
 
-      "#{key}=#{value}"
+      "#{key}=\"#{value}\""
     end.join(' ')
 
     puts "Generating and setting a new secret token"
@@ -24,7 +24,8 @@ namespace :heroku do
   end
 
   task :install_requirements do
-    system 'heroku addons:add lgging:expanded'
+    system 'heroku addons:remove logging:basic'
+    system 'heroku addons:add logging:expanded'
     system 'heroku addons:add redistogo:nano'
   end
 end

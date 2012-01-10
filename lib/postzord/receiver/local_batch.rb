@@ -21,7 +21,6 @@ class Postzord::Receiver::LocalBatch < Postzord::Receiver
     notify_mentioned_users if @object.respond_to?(:mentions)
 
     # 09/27/11 this is slow
-    socket_to_users
     notify_users
 
     true
@@ -65,13 +64,6 @@ class Postzord::Receiver::LocalBatch < Postzord::Receiver
   end
 
   #NOTE(these methods should be in their own module, included in this class)
-
-  # Issue websocket requests to all specified recipients
-  # @return [void]
-  def socket_to_users
-    Diaspora::Websocket.to(@users).socket(@object)
-  end
-
   # Notify users of the new object
   # return [void]
   def notify_users

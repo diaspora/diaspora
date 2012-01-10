@@ -61,13 +61,6 @@ describe Diaspora::Relayable do
           @object_by_recipient.receive(@local_luke, @local_leia.person)
         end
 
-        it 'sockets to the user if the object supports it' do
-          if @object_by_recipient.respond_to?(:socket_to_user)
-            @object_by_recipient.should_receive(:socket_to_user).exactly(3).times
-            @object_by_recipient.receive(@local_luke, @local_leia.person)
-          end
-        end
-
         it 'calls after_receive callback' do
           @object_by_recipient.should_receive(:after_receive)
           @object_by_recipient.class.stub(:where).and_return([@object_by_recipient])

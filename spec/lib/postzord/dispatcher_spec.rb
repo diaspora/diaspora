@@ -23,7 +23,7 @@ describe Postzord::Dispatcher do
       zord.xml.should == @sm.to_diaspora_xml
     end
 
-    context 'setting @subscribers' do 
+    context 'setting @subscribers' do
       it 'sets @subscribers from object' do
         @sm.should_receive(:subscribers).and_return(@subscribers)
         zord = Postzord::Dispatcher.build(alice, @sm)
@@ -90,18 +90,17 @@ describe Postzord::Dispatcher do
             before do
               @mailman = Postzord::Dispatcher.build(@local_leia, @comment)
             end
+
             it 'calls deliver_to_local with local_luke' do
               @mailman.should_receive(:deliver_to_local).with([@local_luke.person])
               @mailman.post
             end
+
             it 'calls deliver_to_remote with nobody' do
               @mailman.should_receive(:deliver_to_remote).with([])
               @mailman.post
             end
-            it 'does not call socket_to_users' do
-              @mailman.should_not_receive(:socket_to_users)
-              @mailman.post
-            end
+
             it 'does not call notify_users' do
               @mailman.should_not_receive(:notify_users)
               @mailman.post
@@ -111,18 +110,17 @@ describe Postzord::Dispatcher do
             before do
               @mailman = Postzord::Dispatcher.build(@local_luke, @comment)
             end
+
             it 'does not call deliver_to_local' do
               @mailman.should_not_receive(:deliver_to_local)
               @mailman.post
             end
+
             it 'calls deliver_to_remote with remote raphael' do
               @mailman.should_receive(:deliver_to_remote).with([@remote_raphael])
               @mailman.post
             end
-            it 'calls socket_to_users' do
-              @mailman.should_receive(:socket_to_users).with([@local_leia, @local_luke])
-              @mailman.post
-            end
+
             it 'calls notify_users' do
               @mailman.should_receive(:notify_users).with([@local_leia])
               @mailman.post
@@ -144,11 +142,6 @@ describe Postzord::Dispatcher do
 
           it 'calls deliver_to_remote with remote_raphael' do
             @mailman.should_receive(:deliver_to_remote).with([@remote_raphael])
-            @mailman.post
-          end
-
-          it 'calls socket_to_users' do
-            @mailman.should_receive(:socket_to_users).with([@local_leia])
             @mailman.post
           end
 
@@ -175,11 +168,6 @@ describe Postzord::Dispatcher do
             @mailman.post
           end
 
-          it 'calls socket_to_users' do
-            @mailman.should_receive(:socket_to_users).with([@local_leia, @local_luke])
-            @mailman.post
-          end
-
           it 'calls notify_users' do
             @mailman.should_receive(:notify_users).with([@local_leia])
             @mailman.post
@@ -202,11 +190,6 @@ describe Postzord::Dispatcher do
 
         it 'calls deliver_to_local with nobody' do
           @mailman.should_receive(:deliver_to_local).with([])
-          @mailman.post
-        end
-
-        it 'does not call socket_to_users' do
-          @mailman.should_not_receive(:socket_to_users)
           @mailman.post
         end
 
@@ -328,15 +311,10 @@ describe Postzord::Dispatcher do
       end
     end
 
-    describe '#socket_and_notify_local_users' do
+    describe '#and_notify_local_users' do
       it 'calls notifiy_users' do
         @zord.should_receive(:notify_users).with([bob])
-        @zord.send(:socket_and_notify_local_users, [bob.person])
-      end
-
-      it 'calls socket_to_users with the object author' do
-        @zord.should_receive(:socket_to_users).with([bob, @zord.sender])
-        @zord.send(:socket_and_notify_local_users, [bob.person])
+        @zord.send(:notify_local_users, [bob.person])
       end
     end
 
@@ -344,13 +322,6 @@ describe Postzord::Dispatcher do
       it 'enqueues a NotifyLocalUsers job' do
         Resque.should_receive(:enqueue).with(Jobs::NotifyLocalUsers, [bob.id], @zord.object.class.to_s, @zord.object.id, @zord.object.author.id)
         @zord.send(:notify_users, [bob])
-      end
-    end
-
-    describe '#socket_to_users' do
-      it 'calls socket_to_user given users' do
-        Diaspora::Websocket.should_receive(:to).and_return(stub.as_null_object)
-        @zord.send(:socket_to_users, [bob])
       end
     end
   end

@@ -107,6 +107,7 @@ en:
         profile: "Profile"
         contacts: "Contacts"
         settings: "Settings"
+        admin: "Admin"
         log_out: "Log out"
 
         notifications: "Notifications"
