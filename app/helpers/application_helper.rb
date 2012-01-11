@@ -55,7 +55,7 @@ module ApplicationHelper
   def jquery_include_tag
     javascript_include_tag('//ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js') +
     content_tag(:script) do
-      "!window.jQuery && document.write(unescape(\"#{escape_javascript(include_javascripts(:jquery))}\"))".html_safe
+      "!window.jQuery && document.write(unescape(\"#{escape_javascript(include_javascripts(:jquery))}\")); jQuery.ajaxSetup({'cache': false});".html_safe
     end
   end
 end
