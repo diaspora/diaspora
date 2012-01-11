@@ -3,44 +3,13 @@
  *   the COPYRIGHT file.
  */
 describe("Diaspora.Widgets.Notifications", function() {
-  var changeNotificationCountSpy, notifications, incrementCountSpy, decrementCountSpy;
+  var changeNotificationCountSpy, notifications;
 
   beforeEach(function() {
     spec.loadFixture("aspects_index");
     notifications = Diaspora.BaseWidget.instantiate("Notifications", $("#notifications"), $("#notification_badge .badge_count"));
 
     changeNotificationCountSpy = spyOn(notifications, "changeNotificationCount").andCallThrough();
-    incrementCountSpy = spyOn(notifications, "incrementCount").andCallThrough();
-    decrementCountSpy = spyOn(notifications, "decrementCount").andCallThrough();
-  });
-
-  describe("clickSuccess", function(){
-    it("changes the css to a read cell", function() {
-      $(".notifications").html(
-        '<div id="1" class="stream_element read" data-guid=1></div>' +
-        '<div id="2" class="stream_element unread" data-guid=2></div>'
-      );
-      notifications.clickSuccess(JSON.stringify({guid:2,unread:false}));
-      expect( $('.stream_element#2')).toHaveClass("read");
-    });
-    it("changes the css to an unread cell", function() {
-      $(".notifications").html(
-        '<div id="1" class="stream_element read" data-guid=1></div>' +
-        '<div id="2" class="stream_element unread" data-guid=2></div>'
-      );
-      notifications.clickSuccess(JSON.stringify({guid:1,unread:true}));
-      expect( $('.stream_element#1')).toHaveClass("unread");
-    });
-
-
-    it("calls Notifications.decrementCount on a read cell", function() {
-      notifications.clickSuccess(JSON.stringify({guid:1,unread:false}));
-      expect(notifications.decrementCount).toHaveBeenCalled();
-    });
-    it("calls Notifications.incrementCount on a unread cell", function() {
-      notifications.clickSuccess(JSON.stringify({guid:1,unread:true}));
-      expect(notifications.incrementCount).toHaveBeenCalled();
-    });
   });
 
   describe("decrementCount", function() {
