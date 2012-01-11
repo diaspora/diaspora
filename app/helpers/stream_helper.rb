@@ -39,14 +39,6 @@ module StreamHelper
     end
   end
 
-  def time_for_sort(post)
-    post.created_at
-  end
-
-  def comments_expanded
-    false
-  end
-
   def reshare?(post)
     post.instance_of?(Reshare)
   end

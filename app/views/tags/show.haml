@@ -67,11 +67,4 @@
     %hr
 
     #main_stream.stream
-      - if !@backbone
-        - if @stream.stream_posts.length > 0
-          = render 'shared/stream', :posts => @stream.stream_posts
-          #pagination
-            =link_to(t('more'), next_page_path, :class => 'paginate')
-        - else
-          = t('.nobody_talking', :tag => @stream.display_tag_name)
 

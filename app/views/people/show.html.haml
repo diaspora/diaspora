@@ -32,10 +32,6 @@
         = render 'photos/index', :photos => @posts
       - else
         #main_stream.stream
-          - if !@backbone
-            = render 'shared/stream', :posts => @stream.stream_posts
-            #pagination
-              =link_to(t('more'), next_page_path, :class => 'paginate')
 
     - else
       #main_stream

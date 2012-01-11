@@ -10,7 +10,6 @@ describe ApplicationHelper do
     @person = Factory.create(:person)
   end
 
- 
   describe "#contacts_link" do
     before do
       def current_user

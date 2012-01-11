@@ -3,7 +3,6 @@
 #   the COPYRIGHT file.
 
 module ApplicationHelper
-
   def how_long_ago(obj)
     timeago(obj.created_at)
   end
@@ -15,29 +14,6 @@ module ApplicationHelper
 
   def bookmarklet
     "javascript:(function(){f='#{AppConfig[:pod_url]}bookmarklet?url='+encodeURIComponent(window.location.href)+'&title='+encodeURIComponent(document.title)+'&notes='+encodeURIComponent(''+(window.getSelection?window.getSelection():document.getSelection?document.getSelection():document.selection.createRange().text))+'&v=1&';a=function(){if(!window.open(f+'noui=1&jump=doclose','diasporav1','location=yes,links=no,scrollbars=no,toolbar=no,width=620,height=250'))location.href=f+'jump=yes'};if(/Firefox/.test(navigator.userAgent)){setTimeout(a,0)}else{a()}})()"
-  end
-
-  def object_fields(object)
-    object.attributes.keys
-  end
-
-
-  def type_partial(post)
-    class_name = post.class.name.to_s.underscore
-    "#{class_name.pluralize}/#{class_name}"
-  end
-
-  def hard_link(string, path)
-    link_to string, path, :rel => 'external'
-  end
-
-
-  def post_yield_tag(post)
-    (':' + post.id.to_s).to_sym
-  end
-
-  def info_text(text)
-    image_tag 'icons/monotone_question.png', :class => 'what_is_this', :title => text
   end
 
   def get_javascript_strings_for(language)

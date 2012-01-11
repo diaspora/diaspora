@@ -9,7 +9,6 @@ class CommentStreamController < ApplicationController
   respond_to :html, :json
 
   def index
-    @backbone = true
     stream_klass = Stream::Comments
 
     respond_with do |format|

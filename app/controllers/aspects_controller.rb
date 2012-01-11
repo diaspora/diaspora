@@ -14,20 +14,13 @@ class AspectsController < ApplicationController
              :json
 
   def index
-    @backbone = true
     stream_klass = Stream::Aspect
     aspect_ids = (session[:a_ids] ? session[:a_ids] : [])
     @stream = Stream::Aspect.new(current_user, aspect_ids,
                                  :max_time => params[:max_time].to_i)
 
     respond_with do |format|
-      format.html do
-        if params[:only_posts]
-          render :partial => 'shared/stream', :locals => {:posts => @stream.stream_posts}
-        else
-          render 'aspects/index'
-        end
-      end
+      format.html { render 'aspects/index' }
       format.json{ render_for_api :backbone, :json => @stream.stream_posts, :root => :posts }
     end
   end

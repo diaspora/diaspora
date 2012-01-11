@@ -9,13 +9,6 @@ describe StreamHelper do
     @post = Factory(:status_message)
   end
 
-  describe "#time_for_sort" do
-    it "returns post.created_at" do
-      stub!(:controller).and_return(mock())
-      time_for_sort(@post).should == @post.created_at
-    end
-  end
-
   describe '#next_page_path' do
     it 'works for apps page' do
       stub!(:controller).and_return(AppsController.new)

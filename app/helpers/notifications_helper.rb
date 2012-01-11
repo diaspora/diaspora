@@ -5,7 +5,7 @@ module NotificationsHelper
   include PeopleHelper
   include UsersHelper
   include ApplicationHelper
-  
+
   def object_link(note, actors)
     target_type = note.popup_translation_key
     actors_count = note.actors.count
@@ -30,13 +30,6 @@ module NotificationsHelper
   def translation(target_type, opts = {})
     {:post_author => nil}.merge!(opts)
     t("#{target_type}", opts).html_safe
-  end
-
-
-  def new_notification_link(count)
-    if count > 0
-        link_to new_notification_text(count), notifications_path
-    end
   end
 
   def notification_people_link(note, people=nil)

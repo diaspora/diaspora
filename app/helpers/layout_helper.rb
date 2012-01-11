@@ -17,23 +17,11 @@ module LayoutHelper
     current_user ? current_user.name : t("application.helper.diaspora_alpha")
   end
 
-  def show_title?
-    @show_title
-  end
-
   def stylesheet(*args)
     content_for(:head) { stylesheet_link_tag(*args) }
   end
 
   def javascript(*args)
     content_for(:head) { javascript_include_tag(*args) }
-  end
-
-  def new_notification_text(count)
-      t('notifications.helper.new_notifications', :count => count)
-  end
-
-  def new_message_text(count)
-    t('conversations.helper.new_messages', :count => count)
   end
 end

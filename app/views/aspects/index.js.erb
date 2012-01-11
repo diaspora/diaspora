@@ -1,3 +1,0 @@
-$('#aspect_stream_container').html("<%= escape_javascript(render('aspects/aspect_stream', :stream => @stream)) %>");
-$('#selected_aspect_contacts').html("<%= escape_javascript(render('aspects/selected_contacts', :people => @stream.people.sample(20), :count => @stream.people.size)) %>");
-$('#aspect_stream_container a[rel*=facebox]').facebox();
