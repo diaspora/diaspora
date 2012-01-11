@@ -1,5 +1,0 @@
-App.stream.collection.get(<%= @comment.post.id %>);
-
-ContentUpdater.addCommentToPost("<%= @comment.post.guid %>",
-   "<%= @comment.guid%>",
-   "<%= escape_javascript(render(:partial => 'comments/comment', :locals => { :comment => @comment, :person => current_user.person, :post => @comment.post}))%>");

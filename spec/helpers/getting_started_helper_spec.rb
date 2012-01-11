@@ -12,56 +12,6 @@ describe GettingStartedHelper do
     @current_user
   end
 
-  describe "#has_connected_services?" do
-    before do
-      AppConfig[:configured_services] = ['fake_service']
-    end
-
-    it 'returns true if the current user has connected at least one service' do
-      @current_user.services << Factory.build(:service)
-      has_connected_services?.should be_true
-    end
-
-    it 'returns true if the current user has zero connected services and the server has no services configured' do
-      AppConfig[:configured_services] = []
-      @current_user.services.delete_all
-      has_connected_services?.should be_true
-    end
-
-    it 'returns false if the current user has not connected any service' do
-      @current_user.services.delete_all
-      has_connected_services?.should be_false
-    end
-  end
-
-  describe "#has_few_contacts?" do
-    it 'returns true if the current_user has more than 2 contacts' do
-      3.times do |n|
-        @current_user.contacts << Contact.new(:person => Factory(:person), :receiving => true)
-      end
-      has_few_contacts?.should be_true
-    end
-
-    it 'returns false if the current_user has less than 2 contacts (inclusive)' do
-      @current_user.contacts.destroy_all
-      has_few_contacts?.should be_false
-    end
-  end
-
-  describe "has_few_followed_tags?" do
-    it 'returns true if the current_user has more than 2 contacts' do
-      3.times do |n|
-        @current_user.followed_tags << ActsAsTaggableOn::Tag.new(:name => "poodles_#{n}")
-      end
-      has_few_followed_tags?.should be_true
-    end
-
-    it 'returns false if the current_user has less than 2 contacts (inclusive)' do
-      @current_user.followed_tags.delete_all
-      has_few_followed_tags?.should be_false
-    end
-  end
-  
   describe "#has_connected_cubbies?" do
     it 'returns true if the current user has connected cubbies to their account' do
       @current_user.authorizations << Factory(:oauth_authorization)

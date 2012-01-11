@@ -8,7 +8,6 @@ if( $("#no_contacts").is(':visible') ) {
   $("#no_contacts").fadeOut(200);
 }
 
-$(".badges").prepend("<%= escape_javascript( aspect_badge(@aspect).html_safe ) %>");
 element.parent().html("<%= escape_javascript(render('aspect_memberships/add_to_aspect', :aspect_id => @aspect.id, :person_id => @person.id)) %>");
 
 if($('#aspects_list').length == 1) {

@@ -12,7 +12,7 @@ gem 'thin', '~> 1.3.1', :require => false
 
 gem 'devise', '~> 1.3.1'
 gem 'devise_invitable', '0.5.0'
-gem 'jwt', "0.1.3"
+gem 'jwt'
 gem 'oauth2-provider', '0.0.19'
 
 gem 'omniauth', '1.0.1'
@@ -27,10 +27,6 @@ gem 'twitter', '2.0.2'
 gem 'messagebus_ruby_api', '1.0.1'
 
 group :production do # we don't install these on travis to speed up test runs
-  # chef
-  gem 'chef', '~> 0.10.4', :require => false
-  gem 'ohai', '~> 0.6.10', :require => false
-
   # reporting
   gem 'hoptoad_notifier'
   gem 'newrelic_rpm'
@@ -65,7 +61,7 @@ gem 'jammit', '0.6.5'
 
 # JSON and API
 
-gem 'json', '1.5.2'
+gem 'json'
 gem 'vanna', :git => 'git://github.com/MikeSofaer/vanna.git'
 gem 'acts_as_api'
 
@@ -100,10 +96,10 @@ gem 'typhoeus'
 
 # views
 
-gem 'haml', '3.1.4'
+gem 'haml'
 gem 'mobile-fu'
-gem 'sass', '3.1.11'
-gem 'will_paginate', '3.0.2'
+gem 'sass'
+gem 'will_paginate'
 gem 'client_side_validations'
 
 # web
@@ -147,9 +143,9 @@ group :development do
   gem 'capistrano_colors', :require => false
   gem 'capistrano-ext', '1.2.1', :require => false
   gem 'linecache', '0.46', :platforms => :mri_18
-  gem 'parallel_tests'
+  gem 'parallel_tests', :require => false
   gem 'ruby-debug-base19', '0.11.23' if RUBY_VERSION.include? '1.9.1'
   gem 'ruby-debug19', :platforms => :ruby_19
   gem 'ruby-debug', :platforms => :mri_18
-  gem 'yard'
+  gem 'yard', :require => false
 end

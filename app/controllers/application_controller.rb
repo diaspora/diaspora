@@ -30,11 +30,9 @@ class ApplicationController < ActionController::Base
   # we need to do this for vanna controller.  these should really be controller
   # helper methods instead
   def set_header_data
-    if user_signed_in?
-      if request.format.html? && !params[:only_posts]
-        @notification_count = Notification.for(current_user, :unread =>true).count
-        @unread_message_count = ConversationVisibility.sum(:unread, :conditions => "person_id = #{current_user.person.id}")
-      end
+    if user_signed_in? && request.format.html? && !params[:only_posts]
+      @notification_count = Notification.for(current_user, :unread =>true).count
+      @unread_message_count = ConversationVisibility.sum(:unread, :conditions => "person_id = #{current_user.person.id}")
     end
   end
 
@@ -142,12 +140,7 @@ class ApplicationController < ActionController::Base
 
   def default_stream_action(stream_klass)
     @stream = stream(stream_klass)
-
-    if params[:only_posts]
-      render :partial => 'shared/stream', :locals => {:posts => @stream.stream_posts}
-    else
-      render 'aspects/index'
-    end
+    render 'aspects/index'
   end
 
   def max_time

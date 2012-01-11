@@ -63,7 +63,6 @@
         $.each(notifications, function(index, notification) {
           var notificationElement = $("<div/>")
             .addClass("notification_element")
-            .data( "guid", notification.id )
             .html(notification.translation)
             .prepend($("<img/>", { src: notification.actors[0].avatar }))
             .append("<br />")
@@ -74,18 +73,16 @@
             .appendTo(self.dropdownNotifications);
 
           notificationElement.find("abbr.timeago").timeago();
-          notificationElement.click(Diaspora.page.header.notifications.messageClick);
 
           if(notification.unread) {
             notificationElement.addClass("unread");
             $.ajax({
               url: "/notifications/" + notification.id,
               type: "PUT",
-              data: { unread: false },
-              success: Diaspora.page.header.notifications.clickSuccess
+              success: function() {
+                Diaspora.page.header.notifications.decrementCount();
+              }
             });
-          } else {
-            notificationElement.addClass("read");
           }
         });
       });

@@ -36,11 +36,6 @@ describe AspectsController do
   end
 
   describe "#index" do
-    it 'renders just the stream with the infinite scroll param set' do
-      get :index, :only_posts => true
-      response.should render_template('shared/_stream')
-    end
-
     it 'assigns an Stream::Aspect' do
       get :index
       assigns(:stream).class.should == Stream::Aspect

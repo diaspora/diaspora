@@ -6,7 +6,7 @@ class HomeController < ApplicationController
 
   def show
     if current_user
-      redirect_to multi_path
+      redirect_to multi_path if current_user
     elsif is_mobile_device?
       redirect_to user_session_path
     else
@@ -16,11 +16,7 @@ class HomeController < ApplicationController
   end
 
   def toggle_mobile
-   if session[:mobile_view]
-     session[:mobile_view] = false
-   else
-     session[:mobile_view] = true
-   end
+   session[:mobile_view] = !session[:mobile_view]
     redirect_to :back
   end
 end

@@ -9,7 +9,6 @@ class LikeStreamController < ApplicationController
   respond_to :html, :json
 
   def index
-    @backbone = true
     stream_klass = Stream::Likes
 
     respond_with do |format|

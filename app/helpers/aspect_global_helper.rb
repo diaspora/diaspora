@@ -9,25 +9,6 @@ module AspectGlobalHelper
     end
   end
 
-  def aspect_badges(aspects, opts={})
-    str = ''
-    aspects.each do |aspect|
-      str << aspect_badge(aspect, opts)
-    end
-    str.html_safe
-  end
-
-  def aspect_badge(aspect, opts={})
-    str = "<span class='aspect_badge single'>"
-    link = opts.delete(:link)
-    if !link
-      str << link_to(aspect.name, "#", 'data-guid' => aspect.id).html_safe
-    else
-      str << link_for_aspect(aspect).html_safe
-    end
-    str << "</span>"
-  end
-
   def aspect_links(aspects, opts={})
     str = ""
     aspects.each do |aspect|
@@ -79,7 +60,7 @@ LISTITEM
   def dropdown_may_create_new_aspect
     @aspect == :profile || @aspect == :tag || @aspect == :search || @aspect == :notification || params[:action] == "getting_started"
   end
-  
+
   def aspect_options_for_select(aspects)
     options = {}
     aspects.each do |aspect|

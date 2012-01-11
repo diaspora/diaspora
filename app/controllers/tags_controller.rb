@@ -33,17 +33,9 @@ class TagsController < ApplicationController
   end
 
   def show
-    @backbone = true
-
     @stream = Stream::Tag.new(current_user, params[:name], :max_time => max_time, :page => params[:page])
 
     respond_with do |format|
-      format.html do
-        if params[:only_posts]
-          render :partial => 'shared/stream', :locals => {:posts => @stream.stream_posts}
-          return
-        end
-      end
       format.json{ render_for_api :backbone, :json => @stream.stream_posts, :root => :posts }
     end
   end

@@ -10,7 +10,6 @@ class TagFollowingsController < ApplicationController
   respond_to :html, :json
 
   def index
-    @backbone = true
     stream_klass = Stream::FollowedTag
 
     respond_with do |format|
@@ -23,7 +22,7 @@ class TagFollowingsController < ApplicationController
   # POST /tag_followings.xml
   def create
     name_normalized = ActsAsTaggableOn::Tag.normalize(params['name'])
-    
+
     if name_normalized.nil? || name_normalized.empty?
       flash[:error] = I18n.t('tag_followings.create.none')
     else
