@@ -87,7 +87,6 @@ GEM
     arel (2.0.10)
     bcrypt-ruby (2.1.4)
     builder (2.1.2)
-    bunny (0.7.8)
     capistrano (2.9.0)
       highline
       net-scp (>= 1.0.0)
@@ -107,22 +106,6 @@ GEM
     carrierwave (0.5.8)
       activesupport (~> 3.0)
     cgi_multipart_eof_fix (2.5.0)
-    chef (0.10.8)
-      bunny (>= 0.6.0)
-      erubis
-      highline
-      json (>= 1.4.4, <= 1.6.1)
-      mixlib-authentication (>= 1.1.0)
-      mixlib-cli (>= 1.1.0)
-      mixlib-config (>= 1.1.2)
-      mixlib-log (>= 1.3.0)
-      moneta
-      net-ssh (~> 2.1.3)
-      net-ssh-multi (~> 1.1.0)
-      ohai (>= 0.6.0)
-      rest-client (>= 1.0.4, < 1.7.0)
-      treetop (~> 1.4.9)
-      uuidtools
     childprocess (0.2.5)
       ffi (~> 1.0.6)
     chronic (0.6.6)
@@ -243,16 +226,10 @@ GEM
     mime-types (1.17.2)
     mini_magick (3.3)
       subexec (~> 0.1.0)
-    mixlib-authentication (1.1.4)
-      mixlib-log
-    mixlib-cli (1.2.2)
-    mixlib-config (1.1.2)
-    mixlib-log (1.3.0)
     mobile-fu (0.3.0)
       rack-mobile-detect
       rails
     mock_redis (0.3.0)
-    moneta (0.6.0)
     mongrel (1.1.5)
       cgi_multipart_eof_fix (>= 2.4)
       daemons (>= 1.0.3)
@@ -268,9 +245,6 @@ GEM
     net-ssh (2.1.4)
     net-ssh-gateway (1.1.0)
       net-ssh (>= 1.99.1)
-    net-ssh-multi (1.1)
-      net-ssh (>= 2.1.4)
-      net-ssh-gateway (>= 0.99.0)
     newrelic_rpm (3.3.1)
     nokogiri (1.5.0)
     oauth (0.4.5)
@@ -280,12 +254,6 @@ GEM
     oauth2-provider (0.0.19)
       activesupport (~> 3.0)
       addressable (~> 2.2)
-    ohai (0.6.10)
-      mixlib-cli
-      mixlib-config
-      mixlib-log
-      systemu (~> 2.2.0)
-      yajl-ruby
     omniauth (1.0.1)
       hashie (~> 1.2)
       rack
@@ -399,7 +367,6 @@ GEM
       tilt (>= 1.2.2, < 2.0)
     sqlite3 (1.3.5)
     subexec (0.1.0)
-    systemu (2.2.0)
     term-ansicolor (1.0.7)
     thin (1.3.1)
       daemons (>= 1.0.9)
@@ -419,7 +386,6 @@ GEM
     typhoeus (0.3.3)
       mime-types
     tzinfo (0.3.31)
-    uuidtools (2.1.2)
     vegas (0.1.8)
       rack (>= 1.0.0)
     warden (1.0.6)
@@ -433,7 +399,6 @@ GEM
     will_paginate (3.0.2)
     xpath (0.1.4)
       nokogiri (~> 1.3)
-    yajl-ruby (1.1.0)
     yard (0.7.4)
     yui-compressor (0.9.6)
       POpen4 (>= 0.1.4)
@@ -453,7 +418,6 @@ DEPENDENCIES
   capistrano_colors
   capybara (~> 1.1.2)
   carrierwave (= 0.5.8)
-  chef (~> 0.10.4)
   client_side_validations
   cucumber-api-steps (= 0.6)
   cucumber-rails (= 1.2.1)
@@ -490,7 +454,6 @@ DEPENDENCIES
   newrelic_rpm
   nokogiri (~> 1.5.0)
   oauth2-provider (= 0.0.19)
-  ohai (~> 0.6.10)
   omniauth (= 1.0.1)
   omniauth-facebook
   omniauth-tumblr

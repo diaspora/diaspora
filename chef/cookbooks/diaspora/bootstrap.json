@@ -1,1 +1,0 @@
-{"run_list": ["recipe[diaspora::bootstrap"]}

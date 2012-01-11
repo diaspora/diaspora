@@ -1,4 +1,0 @@
-#statistics
-42 15 * * * cd /usr/local/app/diaspora && exec /usr/local/bin/ruby /usr/local/bin/bundle exec rake --trace statistics:users_splunk &> /usr/local/app/diaspora/log/stats.log
-42 15 * * * cd /usr/local/app/diaspora && exec /usr/local/bin/ruby /usr/local/bin/bundle exec rake --trace statistics:content_splunk &> /usr/local/app/diaspora/log/stats.log
-0 * * * * cd /usr/local/app/diaspora && exec /usr/local/bin/ruby /usr/local/bin/bundle exec rake --trace backup:mysql 
