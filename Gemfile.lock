@@ -106,7 +106,7 @@ GEM
     carrierwave (0.5.8)
       activesupport (~> 3.0)
     cgi_multipart_eof_fix (2.5.0)
-    childprocess (0.2.5)
+    childprocess (0.2.8)
       ffi (~> 1.0.6)
     chronic (0.6.6)
     client_side_validations (3.1.4)
@@ -150,8 +150,8 @@ GEM
       addressable (~> 2.2.4)
       multipart-post (~> 1.1.0)
       rack (>= 1.1.0, < 2)
-    faraday-stack (0.1.3)
-      faraday (~> 0.6)
+    faraday-stack (0.1.4)
+      faraday (>= 0.6, < 0.8)
     fastercsv (1.5.4)
     fastthread (1.0.7)
     ffi (1.0.11)
@@ -183,7 +183,7 @@ GEM
       json (>= 1.4.6)
     haml (3.1.4)
     hashie (1.2.0)
-    heroku (2.17.0)
+    heroku (2.18.1)
       launchy (>= 0.3.2)
       rest-client (~> 1.6.1)
       rubyzip
@@ -210,7 +210,7 @@ GEM
     json (1.6.4)
     jsonpath (0.4.2)
       multi_json
-    jwt (0.1.3)
+    jwt (0.1.4)
       json (>= 1.2.4)
     launchy (2.0.3)
     linecache (0.46)
@@ -242,7 +242,7 @@ GEM
       net-ssh (>= 1.99.1)
     net-sftp (2.0.5)
       net-ssh (>= 2.0.9)
-    net-ssh (2.1.4)
+    net-ssh (2.2.2)
     net-ssh-gateway (1.1.0)
       net-ssh (>= 1.99.1)
     newrelic_rpm (3.3.1)
@@ -270,7 +270,7 @@ GEM
     omniauth-twitter (0.0.7)
       omniauth-oauth (~> 1.0)
     open4 (1.3.0)
-    orm_adapter (0.0.5)
+    orm_adapter (0.0.6)
     parallel (0.5.11)
     parallel_tests (0.6.14)
       parallel
@@ -293,7 +293,7 @@ GEM
       activesupport (= 3.0.11)
       bundler (~> 1.0)
       railties (= 3.0.11)
-    rails-i18n (0.2.1)
+    rails-i18n (0.3.0)
       i18n (~> 0.5)
     railties (3.0.11)
       actionpack (= 3.0.11)
@@ -354,7 +354,7 @@ GEM
     ruby_core_source (0.1.5)
       archive-tar-minitar (>= 0.5.2)
     rubyzip (0.9.5)
-    sass (3.1.11)
+    sass (3.1.12)
     selenium-webdriver (2.16.0)
       childprocess (>= 0.2.5)
       ffi (~> 1.0.9)
@@ -435,7 +435,7 @@ DEPENDENCIES
   foreigner (~> 1.1.0)
   foreman (= 0.27.0)
   fuubar (= 0.0.6)
-  haml (= 3.1.4)
+  haml
   heroku
   hoptoad_notifier
   http_accept_language!
@@ -443,7 +443,7 @@ DEPENDENCIES
   jammit (= 0.6.5)
   jasmine (~> 1.1.2)
   json
-  jwt (= 0.1.3)
+  jwt
   linecache (= 0.46)
   messagebus_ruby_api (= 1.0.1)
   mini_magick (= 3.3)
@@ -477,7 +477,7 @@ DEPENDENCIES
   ruby-debug
   ruby-debug19
   ruby-oembed
-  sass (= 3.1.11)
+  sass
   selenium-webdriver (~> 2.16.0)
   settingslogic (= 2.0.6)
   sqlite3
@@ -488,5 +488,5 @@ DEPENDENCIES
   vanna!
   webmock
   whenever
-  will_paginate (= 3.0.2)
+  will_paginate
   yard
