@@ -21,7 +21,7 @@ begin
 
   desc "Run all specs in spec directory"
   RSpec::Core::RakeTask.new(:spec => spec_prereq) do |t|
-    t.rspec_opts = ['-b'] 
+    t.rspec_opts = ['-b', '--order random'] 
   end
 
   desc "Run all specs that generate fixtures for rspec or jasmine"
