@@ -1,12 +1,6 @@
--# %form{:action => "https://www.paypal.com/cgi-bin/webscr", :method => "post"}
-%form{:action => "https://www.diasporafoundation.org/donate", :method => "get"}
-  -# %input{:name => "cmd", :type => "hidden", :value => "_s-xclick"}
-  -# %input{:name => "hosted_button_id", :type => "hidden", :value => AppConfig[:paypal_hosted_button_id]}
-  -# %input{:name => "on0", :type => "hidden", :value => "Type"}
-  -# %input{:name => "modify", :type => "hidden", :value => "2"}
+%form{:action => "https://diaspora-project-site.heroku.com/donate", :method => "get"}
   %select{:name => "monthly_amount"}
     %option{:value => "1"} Supporter : $5.00USD
     %option{:value => "2"} Member : $10.00USD
     %option{:value => "3"} Freedom Fighter : $20.00USD
-  -# %input{:name => "currency_code", :type => "hidden", :value => "USD"}
   %input{:name => "submit", :type => "submit", :value => t('aspects.index.donate')}
