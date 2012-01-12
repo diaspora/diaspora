@@ -3,7 +3,9 @@
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 #
-# Start diaspora main services
+# This script is meant for running a small server in production. It starts the Diaspora
+# server, redis, and resque. To run a server locally for development, use foreman instead:
+#    foreman start
 #
 
 # ensure right directory
