@@ -51,7 +51,7 @@ class StatusMessagesController < ApplicationController
 
     if params[:location] and !params[:location][:location].empty? and params[:location][:include_location] != 0
       search = Geocoder.search(request.remote_ip).first.data
-      if params[:location] && params[:location][:location] == (search['city'] ? search['city'] + ", " : "") + (search['region_code'] ? search['region_code'] + ", " : "") + (search['country_code'] ? search['country_code'] : "")
+      if params[:location][:location] == (search['city'] ? search['city'] + ", " : "") + (search['region_code'] ? search['region_code'] + ", " : "") + (search['country_code'] ? search['country_code'] : "")
         addr = (search['city'] ? search['city'] + ", " : "") + (search['region_code'] ? search['region_code'] + ", " : "") + (search['country_code'] ? search['country_code'] : "")
         location = Location.find_by_address(addr).nil? ? Location.create!(:address => addr) : Location.find_by_address(addr)
       else
