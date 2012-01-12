@@ -175,6 +175,22 @@ describe AppConfig do
     end
   end
 
+  describe '.normalize_services' do
+    before do
+      @services = SERVICES
+      Object.send(:remove_const, :SERVICES)
+    end
+
+    after do
+      SERVICES = @services
+    end
+
+    it 'sets configured_services to an empty array if SERVICES is not defined' do
+      AppConfig.normalize_pod_services
+      AppConfig.configured_services.should == []
+    end
+  end
+
   describe ".[]=" do
     describe "when setting pod_url" do
       context "with a symbol" do
