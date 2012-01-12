@@ -2,3 +2,4 @@
 --profile
 --color
 --tag ~performance
+--order random
