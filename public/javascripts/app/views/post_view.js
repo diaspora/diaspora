@@ -22,22 +22,14 @@ app.views.Post = app.views.StreamObject.extend({
   tooltipSelector : ".delete, .block_user, .post_scope",
 
   initialize : function() {
-    // set the guid
     $(this.el).attr("id", this.model.get("guid"));
 
-    // remove post
     this.model.bind('remove', this.remove, this);
 
-    // commentStream view
+    //subviews
     this.commentStreamView = new app.views.CommentStream({ model : this.model});
     this.likesInfoView = new app.views.LikesInfo({ model : this.model});
-
-    // feedback view
-    if(window.app.user().current_user) {
-      this.feedbackView = new app.views.Feedback({model : this.model});
-    } else {
-      this.feedbackView = null;
-    }
+    this.feedbackView = window.app.user().current_user && new app.views.Feedback({model : this.model});
 
     return this;
   },

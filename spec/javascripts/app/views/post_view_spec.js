@@ -164,7 +164,7 @@ describe("app.views.Post", function(){
         window.current_user = app.user(null);
 
         var view = new app.views.Post({model : this.statusMessage}).render();
-        expect(view.feedbackView).toBeNull();
+        expect(view.feedbackView).toBeFalsy();
       })
     })
 
