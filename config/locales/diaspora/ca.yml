@@ -964,7 +964,7 @@ ca:
       current_password: "Contrasenya actual"
       download_xml: "baixa el meu XML"
       download_photos: "baixa les meues fotos"
-      your_handle: "El vostre identificador de diàspora"
+      your_handle: "El vostre identificador de Diàspora"
       your_email: "El vostre correu electrònic"
       edit_account: "Edita el compte"
       receive_email_notifications: "Voleu rebre notificacions per correu quan…"
