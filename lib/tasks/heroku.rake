@@ -12,15 +12,15 @@ namespace :heroku do
     application_config = YAML.load_file('config/application.yml')['production'] rescue {}
     application_config.delete_if { |k, v| v.nil? or v.to_s.empty? }
 
-    heroku_env = application_config.map do|key, value|
-      value =value.join(EnviromentConfiguration::ARRAY_SEPERATOR) if value.respond_to?(:join)
+    #heroku_env = application_config.map do|key, value|
+      #value =value.join(EnviromentConfiguration::ARRAY_SEPERATOR) if value.respond_to?(:join)
 
-      "#{key}=\"#{value}\""
-    end.join(' ')
+      #"#{key}=\"#{value}\""
+    #end.join(' ')
 
     puts "Generating and setting a new secret token"
     token = ActiveSupport::SecureRandom.hex(40)#reloads secret token every time you reload vars.... this expires cookies, and kinda sucks
-    system "#{HEROKU_CONFIG_ADD_COMMAND} #{heroku_env} SECRET_TOKEN=#{token}"
+    system "#{HEROKU_CONFIG_ADD_COMMAND} HEROKU=true SECRET_TOKEN=#{token}"
   end
 
   task :install_requirements do
