@@ -13,9 +13,13 @@ te:
   _services: సేవలు
   account: ఖాతా
   ago: "%{time} క్రితం"
+  all_aspects: "అన్ని కోణాలు"
   application:
     helper:
+      diaspora_alpha: "డయాస్పోరా* ఆల్ఫా"
       unknown_person: "తెలియని వ్యక్తి"
+      video_title:
+        unknown: "తెలియని వీడియో శీర్షిక"
   aspects:
     edit:
       done: పూర్తయ్యింది
@@ -51,6 +55,8 @@ te:
     zero: "వ్యాఖ్యలు లేవు"
   contacts:
     few: "%{count} పరిచయాలు"
+    index:
+      your_contacts: "మీ పరిచయాలు"
     many: "%{count} contacts"
     one: "1 contact"
     other: "%{count} contacts"
@@ -264,13 +270,15 @@ te:
       reshare:
         few: "%{count} reshares"
         many: "%{count} reshares"
-        one: "1 reshare"
-        other: "%{count} reshares"
-        two: "%{count} reshares"
+        one: "1 పంచుకోలు"
+        other: "%{count} పంచుకోళ్ళు"
+        two: "%{count} పంచుకోళ్ళు"
         zero: Reshare
   search: వెతుకు
   settings: అమరికలు
   shared:
+    add_contact:
+      your_diaspora_username_is: "మీ డయస్పోరా వాడుకరి పేరు: %{diaspora_handle}"
     aspect_dropdown:
       toggle:
         few: "In %{count} aspects"
@@ -304,6 +312,10 @@ te:
       change_language: "భాష మార్పు"
       change_password: "సంకేతపదం మార్పు"
       close_account_text: "ఖాతా మూసివేత"
+      current_password: "ప్రస్తుత సంకేతపదం"
+      new_password: "కొత్త సంకేతపదం"
+      your_email: "మీ ఈమెయిలు"
+      your_handle: "మీ డయస్పోరా గుర్తింపు"
     privacy_settings:
       title: "అంతరంగికత అమరికలు"
     public:
@@ -311,6 +323,8 @@ te:
     update:
       language_changed: "భాషను మార్చాం"
       language_not_changed: "భాష మార్పు విఫలమైంది"
+      password_changed: "సంకేతపదాన్ని మార్చాం.  మీరు ఇప్పుడు మీ కొత్త సంకేతపదంలో ప్రవేశించవచ్చు."
+      password_not_changed: "సంకేతపదం మార్పు విఫలమైంది"
   welcome: స్వాగతం!
   will_paginate:
     next_label: "తదుపరి &raquo;"

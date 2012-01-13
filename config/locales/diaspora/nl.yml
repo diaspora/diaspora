@@ -767,10 +767,8 @@ nl:
       title: "Your Mentions"
     multi:
       contacts_title: "Gebuikers in je Stream"
-    posted: geplaatst
     public:
       title: "Publieke activiteit"
-    recently: "recentelijk:"
     tags:
       contacts_title: "People who dig these tags"
       title: "Posts getagged: %{tags}"

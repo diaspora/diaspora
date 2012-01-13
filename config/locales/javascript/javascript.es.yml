@@ -9,7 +9,7 @@ es:
     aspect_dropdown:
       add_to_aspect: "Añadir contacto"
       all_aspects: "Todos los aspectos"
-      error: "No podría empezar a compartir con <%= name %>.  ¿Vas a ignonarl@?"
+      error: "No podría empezar a compartir con <%= name %>. ¿Vas a ignonarl@?"
       select_aspects: "Elige los aspectos"
       started_sharing_with: "¡Ahora sigues los mensajes públicos de <%= name %>!"
       stopped_sharing_with: "Ya no compartes más con <%= name %>."
@@ -18,7 +18,6 @@ es:
         many: "En <%= count %> aspectos"
         one: "En <%= count %> aspecto"
         other: "En <%= count %> aspectos"
-        two: "En <%= count %> aspectos"
         zero: "Elige los aspectos"
     aspect_navigation:
       deselect_all: "Desmarcar todos"
@@ -47,6 +46,25 @@ es:
       duplicate: "Que bien, ¿eh? ¡Has compartido esa publicación!"
     search_for: "Buscar a <%= name %>"
     show_more: "mostrar más"
+    stream:
+      likes:
+        few: "<%= count %> Likes"
+        many: "<%= count %> Likes"
+        one: "<%= count %> Like"
+        other: "<%= count %> Likes"
+        zero: "<%= count %> Likes"
+      more_comments:
+        few: "Show <%= count %> more comments"
+        many: "Show <%= count %> more comments"
+        one: "Show <%= count %> more comment"
+        other: "Show <%= count %> more comments"
+        zero: "Show <%= count %> more comments"
+      reshares:
+        few: "<%= count %> Reshares"
+        many: "<%= count %> Reshares"
+        one: "<%= count %> Reshare"
+        other: "<%= count %> Reshares"
+        zero: "<%= count %> Reshares"
     tags:
       wasnt_that_interesting: "OK, supongo que #<%= tagName %> no era tan interesante..."
     timeago:
@@ -68,5 +86,3 @@ es:
     videos:
       unknown: "Tipo de video desconocido"
       watch: "Ver este video con <%= provider %>"
-    web_sockets:
-      disconnected: "El canal está cerrado; las publicaciones no serán actualizadas al momento."

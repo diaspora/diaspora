@@ -791,7 +791,6 @@ es-CL:
     comment_stream:
       contacts_title: "Gente cuyas publicaciones comentaste"
       title: Comentado
-    commented_on: comentado
     community_spotlight_stream: "Comunidad Creativa"
     followed_tag:
       add_a_tag: "Añadir un tag"
@@ -808,11 +807,9 @@ es-CL:
       title: "@Menciones"
     multi:
       contacts_title: "Gente en tu Stream"
-    posted: publicado
     public:
       contacts_title: "Posters recientes"
       title: "Actividad publica"
-    recently: "recientemente:"
     tags:
       contacts_title: "Gente que usa este tag"
       tag_prefill_text: "La cosa sobre %{tag_name} es... "

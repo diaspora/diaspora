@@ -805,7 +805,6 @@ de:
     comment_stream:
       contacts_title: "Leute, deren Beiträge du kommentiert hast"
       title: "Kommentierte Beiträge"
-    commented_on: kommentiert
     community_spotlight_stream: Gemeinschafts-Schaukasten
     followed_tag:
       add_a_tag: "Füge einen Tag hinzu"
@@ -821,11 +820,9 @@ de:
       title: "@Erwähnungen"
     multi:
       contacts_title: "Personen in deinem Stream"
-    posted: veröffentlicht
     public:
       contacts_title: "Aktuelle Poster"
       title: "Öffentliche Aktivität"
-    recently: "zuletzt:"
     tags:
       contacts_title: "Personen, die diesen Tag nutzen"
       tag_prefill_text: "Das Interessante an %{tag_name} ist, dass …"

@@ -9,12 +9,14 @@ ar:
     aspect_dropdown:
       add_to_aspect: "أضف مراسلا"
       all_aspects: "جميع الفئات"
+      error: "Couldn't start sharing with {{name}}.  Are you ignoring them?"
+      started_sharing_with: "You have started sharing with {{name}}!"
+      stopped_sharing_with: "You have stopped sharing with {{name}}."
       toggle:
-        few: "في <%= count %> فئات"
-        many: "في <%= count %> فئات"
-        one: "في <%= count %> فئة"
-        other: "في <%= count %> فئات"
-        two: "في <%= count %> فئات"
+        few: "في {{count}} فئات"
+        many: "في {{count}} فئات"
+        one: "في {{count}} فئة"
+        other: "في {{count}} فئات"
         zero: "حدّد الفئات"
     comments:
       hide: "أخفِ التعليقات"
@@ -23,6 +25,7 @@ ar:
     failed_to_like: "فشل في [أعجبني]"
     failed_to_post_message: "فشل في نشر رسالة!"
     getting_started:
+      hey: "Hey, {{name}}!"
       preparing_your_stream: "Preparing your personialized stream..."
     infinite_scroll:
       no_more: "لا توجد أية رسائل أخرى"
@@ -32,8 +35,29 @@ ar:
       public: "عام - مشاركتك ستكون متاحة للجميع ومفهرسة في محركات البحث"
     reshares:
       duplicate: "رائع، أليس كذلك؟ أعدت نشر هذه المشاركة مسبقا"
-    search_for: "إبحث عن <%= name %>"
+    search_for: "إبحث عن {{name}}"
     show_more: المزيد
+    stream:
+      likes:
+        few: "<%= count %> Likes"
+        many: "<%= count %> Likes"
+        one: "<%= count %> Like"
+        other: "<%= count %> Likes"
+        zero: "<%= count %> Likes"
+      more_comments:
+        few: "Show <%= count %> more comments"
+        many: "Show <%= count %> more comments"
+        one: "Show <%= count %> more comment"
+        other: "Show <%= count %> more comments"
+        zero: "Show <%= count %> more comments"
+      reshares:
+        few: "<%= count %> Reshares"
+        many: "<%= count %> Reshares"
+        one: "<%= count %> Reshare"
+        other: "<%= count %> Reshares"
+        zero: "<%= count %> Reshares"
+    tags:
+      wasnt_that_interesting: "OK, I suppose #{{tagName}} wasn't all that interesting..."
     timeago:
       day: "منذ يوم"
       days: "منذ %d أيام"
@@ -51,6 +75,4 @@ ar:
       years: "منذ %d أعوام"
     videos:
       unknown: "نوع فيديو غير معروف"
-      watch: "شاهد هذا الفيديو عبر <%= provider %>"
-    web_sockets:
-      disconnected: "الـ websocket مغلق; الرسائل لن تنشر بعد الآن"
+      watch: "شاهد هذا الفيديو عبر {{provider}}"

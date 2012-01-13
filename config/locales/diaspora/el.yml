@@ -794,7 +794,6 @@ el:
     comment_stream:
       contacts_title: "Χρήστες των οποίων έχετε σχολιάσει αναρτήσεις"
       title: "Σχολιασμένες Αναρτήσεις"
-    commented_on: σχολιάστηκε
     community_spotlight_stream: "Αναρτήσεις Κοινότητας"
     followed_tag:
       add_a_tag: "Προσθήκη μιας ετικέτας"
@@ -811,11 +810,9 @@ el:
     multi:
       contacts_title: "Άτομα στη Ροή σας"
       title: Ροή
-    posted: αναρτήθηκε
     public:
       contacts_title: "Πρόσφατες Αφίσες"
       title: "Δημόσια Δραστηριότητα"
-    recently: "πρόσφατα:"
     tags:
       contacts_title: "Άτομα που τους αρέσει αυτή ή ετικέτα"
       tag_prefill_text: "Αυτό που σκέφτομαι για %{tag_name} είναι... "

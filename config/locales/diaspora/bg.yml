@@ -793,7 +793,6 @@ bg:
     comment_stream:
       contacts_title: "Хора, чиито публикации сте коментирали"
       title: "Коментирани публикации"
-    commented_on: коментирани
     community_spotlight_stream: "От \"В центъра на вниманието\""
     followed_tag:
       add_a_tag: "Добавете още"
@@ -811,11 +810,9 @@ bg:
     multi:
       contacts_title: "Хора от потока ви"
       title: Поток
-    posted: публикувани
     public:
       contacts_title: "Скоро публикували"
       title: "Публична активност"
-    recently: "наскоро:"
     tags:
       contacts_title: "Хора, които харесват марката"
       tag_prefill_text: "Мисля, че %{tag_name}..."

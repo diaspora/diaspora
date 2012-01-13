@@ -805,7 +805,6 @@ zh-TW:
     comment_stream:
       contacts_title: 你發表過意見的貼文作者
       title: 有意見的貼文
-    commented_on: 有意見的
     community_spotlight_stream: 社群焦點
     followed_tag:
       add_a_tag: 新增標籤
@@ -823,11 +822,9 @@ zh-TW:
     multi:
       contacts_title: 出現在流水帳中的人
       title: 流水帳
-    posted: 發表的
     public:
       contacts_title: 最新貼文者
       title: 公開活動
-    recently: "最近:"
     tags:
       contacts_title: 這個標籤的粉絲
       tag_prefill_text: "有關於 %{tag_name} 的事情是... "

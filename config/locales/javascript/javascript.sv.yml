@@ -9,16 +9,15 @@ sv:
     aspect_dropdown:
       add_to_aspect: "Lägg till kontakt"
       all_aspects: "Alla aspekter"
-      error: "Det går inte att börja dela med <%= name %>. Ignorerar du dem?"
+      error: "Det går inte att börja dela med {{name}}. Ignorerar du dem?"
       select_aspects: "Välj aspekter"
-      started_sharing_with: "Du har börjat dela med <%= name %>!"
-      stopped_sharing_with: "Du har slutat dela med <%= name %>."
+      started_sharing_with: "Du har börjat dela med {{name}}!"
+      stopped_sharing_with: "Du har slutat dela med {{name}}."
       toggle:
-        few: "I <%= count %> aspekter"
-        many: "I <%= count %> aspekter"
-        one: "I <%= count %> aspekt"
-        other: "I <%= count %> aspekter"
-        two: "I <%= count %> aspekter"
+        few: "I {{count}} aspekter"
+        many: "I {{count}} aspekter"
+        one: "I {{count}} aspekt"
+        other: "I {{count}} aspekter"
         zero: "Välj aspekter"
     aspect_navigation:
       deselect_all: "Visa ingen"
@@ -32,7 +31,7 @@ sv:
     failed_to_post_message: "Misslyckades att posta meddelande!"
     getting_started:
       alright_ill_wait: "Okej, jag väntar."
-      hey: "Hej, <%= name %>!"
+      hey: "Hej, {{name}}!"
       no_tags: "Du, du följer ju inte några taggar! Vill du fortsätta ändå?"
       preparing_your_stream: "Förbereder din personliga ström..."
     infinite_scroll:
@@ -45,10 +44,29 @@ sv:
       public: "Publikt - ditt inlägg visas för alla och i söktjänster"
     reshares:
       duplicate: "Du gillar detta va? Du har nämligen redan spridit detta inlägg vidare!"
-    search_for: "Sök efter <%= name %>"
+    search_for: "Sök efter {{name}}"
     show_more: "visa mer"
+    stream:
+      likes:
+        few: "<%= count %> Likes"
+        many: "<%= count %> Likes"
+        one: "<%= count %> Like"
+        other: "<%= count %> Likes"
+        zero: "<%= count %> Likes"
+      more_comments:
+        few: "Show <%= count %> more comments"
+        many: "Show <%= count %> more comments"
+        one: "Show <%= count %> more comment"
+        other: "Show <%= count %> more comments"
+        zero: "Show <%= count %> more comments"
+      reshares:
+        few: "<%= count %> Reshares"
+        many: "<%= count %> Reshares"
+        one: "<%= count %> Reshare"
+        other: "<%= count %> Reshares"
+        zero: "<%= count %> Reshares"
     tags:
-      wasnt_that_interesting: "OK, jag antar att #<%= tagName %> inte var så intressant..."
+      wasnt_that_interesting: "OK, jag antar att #{{tagName}} inte var så intressant..."
     timeago:
       day: "en dag"
       days: "%d dagar"
@@ -67,6 +85,4 @@ sv:
       years: "%d år"
     videos:
       unknown: "Okänd videotyp"
-      watch: "Se den här videon på <%= provider %>"
-    web_sockets:
-      disconnected: "WebSocketen är stängd; inlägg kommer inte längre att bli direktstreamade."
+      watch: "Se den här videon på {{provider}}"

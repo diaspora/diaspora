@@ -791,7 +791,6 @@ fr:
     comment_stream:
       contacts_title: "Vos commentaires apportés sur les messages d'autres personnes"
       title: "Messages commentés"
-    commented_on: commenté
     community_spotlight_stream: "Actualités de la communauté"
     followed_tag:
       add_a_tag: "Ajouter un tag"
@@ -807,11 +806,9 @@ fr:
     multi:
       contacts_title: "Personnes dans votre flux"
       title: Flux
-    posted: posté
     public:
       contacts_title: "Posteurs récents"
       title: "Activité publique"
-    recently: "récemment :"
     tags:
       contacts_title: "Personnes qui suivent ce tag"
       tag_prefill_text: "Une chose que j'aime à propos de %{tag_name} est... "
@@ -858,6 +855,8 @@ fr:
       wrong_password: "Le mot de passe introduit ne correspond pas à  votre mot de passe actuel."
     edit:
       also_commented: "…quelqu'un d'autre commente une publication de votre contact ?"
+      auto_follow_aspect: "Aspect pour les utilisateurs suivis automatiquement :"
+      auto_follow_back: "Suivre automatiquement en retour ceux qui vous suivent"
       change: Modifier
       change_email: "Changer d'adresse électronique"
       change_language: "Changer la langue"
@@ -879,6 +878,7 @@ fr:
       edit_account: "Modifier le compte"
       email_awaiting_confirmation: "Nous vous avons envoyé un lien d'activation à %{unconfirmed_email}. Jusqu'à ce que vous suiviez ce lien et activiez la nouvelle adresse, nous allons continuer à utiliser votre adresse originale %{email}."
       export_data: "Exporter des données"
+      following: "Paramètres de suivi"
       getting_started: "Préférences de nouvel utilisateur"
       liked: "... quelqu'un aime votre message ?"
       mentioned: "…vous êtes mentionné(e) dans une publication ?"
@@ -919,6 +919,8 @@ fr:
       does_not_exist: "L'utilisateur %{username} n'existe pas !"
     update:
       email_notifications_changed: "Notifications par courriel modifiées"
+      follow_settings_changed: "Les paramètres de suivi ont été modifiés"
+      follow_settings_not_changed: "Échec de la modification des paramètres de suivi."
       language_changed: "Langue mise à jour"
       language_not_changed: "Échec lors de la mise à jour de la langue"
       password_changed: "Mot de passe mis à jour. Vous pouvez maintenant vous identifier avec votre nouveau mot de passe."

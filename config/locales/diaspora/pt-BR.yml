@@ -801,7 +801,6 @@ pt-BR:
     comment_stream:
       contacts_title: "Pessoas cujos posts você comentou"
       title: "Posts comentados"
-    commented_on: "comentou sobre"
     community_spotlight_stream: "Foco de Comunidade"
     followed_tag:
       add_a_tag: "Adicionar uma tag"
@@ -819,11 +818,9 @@ pt-BR:
     multi:
       contacts_title: "Pessoas em seus Fluxos"
       title: Fluxos
-    posted: postado
     public:
       contacts_title: "Postagens Recentes"
       title: "Atividade Pública"
-    recently: "recentemente:"
     tags:
       contacts_title: "Pessoas que seguem essa tag"
       tag_prefill_text: "As coisas sobre %{tag_name} é... "

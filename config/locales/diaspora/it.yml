@@ -794,7 +794,6 @@ it:
     comment_stream:
       contacts_title: "Persone a cui hai commentato i post"
       title: "Post commentati"
-    commented_on: commenti
     community_spotlight_stream: "In evidenza dalla comunità"
     followed_tag:
       add_a_tag: "Aggiungi un tag"
@@ -811,11 +810,9 @@ it:
       title: "@Menzioni"
     multi:
       contacts_title: "Persone nel tuo stream"
-    posted: post
     public:
       contacts_title: "Chi ha postato di recente"
       title: "Attività pubblica"
-    recently: "ordina per:"
     tags:
       contacts_title: "Persone con questo tag"
       tag_prefill_text: "A proposito di %{tag_name} ..."
@@ -862,6 +859,8 @@ it:
       wrong_password: "Hai inserito una password che non corrisponde a quella attuale."
     edit:
       also_commented: "...qualcuno commenta un post dopo di te?"
+      auto_follow_aspect: "Aspetto per gli utenti seguiti in automatico:"
+      auto_follow_back: "Segui automaticamente tutti coloro che iniziano a seguirti"
       change: Cambia
       change_email: "Cambia email"
       change_language: "Cambia lingua"
@@ -883,6 +882,7 @@ it:
       edit_account: "Modifica account"
       email_awaiting_confirmation: "È stato spedito su %{unconfirmed_email} un link di attivazione. Continueremo ad usare la tua email originale %{email} finché non cliccherai sul link e attiverai il nuovo indirizzo."
       export_data: "Esporta Dati"
+      following: "Impostazioni dei contatti"
       getting_started: "Preferenze nuovo utente"
       liked: "...a qualcuno piace un tuo post?"
       mentioned: "...sei menzionato in un post?"
@@ -923,6 +923,8 @@ it:
       does_not_exist: "L'utente %{username} non esiste!"
     update:
       email_notifications_changed: "Notifiche email modificate con successo"
+      follow_settings_changed: "Le impostazioni dei contatti sono state cambiate"
+      follow_settings_not_changed: "Le impostazioni dei contatti non sono state cambiate a causa di un errore."
       language_changed: "Lingua cambiata"
       language_not_changed: "Impossibile cambiare lingua"
       password_changed: "Password cambiata. Ora puoi effettuare l'accesso con la tua nuova password."

@@ -78,8 +78,11 @@ vi:
       success: "%{name} đã bị loại bỏ."
     edit:
       add_existing: "Thêm một liên lạc đang có"
+      aspect_list_is_not_visible: "danh sách mối quan hệ bị ẩn với người khác trong mối quan hệ"
+      aspect_list_is_visible: "danh sách mối quan hệ hiện với người khác trong mối quan hệ"
       confirm_remove_aspect: "Bạn có chắc là muốn xoá mối quan hệ này không?"
       done: Xong
+      make_aspect_list_visible: "các liên lạc trong mối quan hệ này có thể thấy nhau?"
       remove_aspect: "Xoá mối quan hệ này"
       rename: "đổi tên"
       update: "cập nhật"
@@ -111,6 +114,8 @@ vi:
         tag_bug: "#bug"
         tag_feature: "#feature"
         tag_question: "#question"
+        tutorials_wiki_and_forum: "%{tutorial} & %{wiki} & %{forum}: Kinh nghiệm, thủ thuật, giải đáp và tin tức từ cộng đồng"
+      introduce_yourself: "Đây là luồng của bạn. Hãy tự giới thiệu mình ở đây."
       new_here:
         follow: "Theo dõi %{link} và chào đón người dùng mới đến với Diaspora*!"
         learn_more: "Tìm hiểu thêm"
@@ -133,6 +138,7 @@ vi:
       create: Tạo
       name: "Tên (chỉ bạn nhìn thấy)"
     no_contacts_message:
+      community_spotlight: "nổi bật từ cộng đồng"
       or_spotlight: "Hoặc bạn có thể chia sẻ với %{link}"
       try_adding_some_more_contacts: "Bạn có thể tìm kiếm hoặc mời thêm bạn."
       you_should_add_some_more_contacts: "Bạn có thể thêm một vài liên lạc!"
@@ -148,6 +154,7 @@ vi:
     selected_contacts:
       manage_your_aspects: "Quản lí các mối quan hệ."
       no_contacts: "Bạn chưa có liên lạc nào ở đây."
+      view_all_community_spotlight: "Xem tất cả những người nổi bật trong cộng đồng"
       view_all_contacts: "Xem tất cả liên lạc"
     show:
       edit_aspect: "chỉnh sửa mối quan hệ"
@@ -161,6 +168,10 @@ vi:
       no_applications: "Bạn chưa đăng kí bất kì ứng dụng nào."
       revoke_access: "Thu hồi quyền truy cập"
   back: "Trở lại"
+  blocks:
+    create:
+      failure: "Không thể bỏ qua người dùng.  #evasion"
+      success: "Bạn sẽ không thấy #silencio trong luồng của bạn nữa!"
   bookmarklet:
     explanation: "Đăng tin lên Diaspora từ bất kì đâu bằng cách đánh dấu %{link}."
     explanation_link_text: "liên kết này"

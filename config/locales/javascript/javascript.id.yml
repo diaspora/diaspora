@@ -8,17 +8,42 @@ id:
   javascripts:
     aspect_dropdown:
       add_to_aspect: "Add to aspect"
+      error: "Couldn't start sharing with {{name}}.  Are you ignoring them?"
+      started_sharing_with: "You have started sharing with {{name}}!"
+      stopped_sharing_with: "You have stopped sharing with {{name}}."
       toggle:
-        few: "In <%= count %> aspects"
-        many: "In <%= count %> aspects"
-        one: "In <%= count %> aspect"
-        other: "In <%= count %> aspects"
-        two: "In <%= count %> aspects"
+        few: "In {{count}} aspects"
+        many: "In {{count}} aspects"
+        one: "In {{count}} aspect"
+        other: "In {{count}} aspects"
         zero: "Add to aspect"
     getting_started:
+      hey: "Hey, {{name}}!"
       preparing_your_stream: "Preparing your personialized stream..."
     reshares:
       duplicate: "You've already reshared that post!"
+    search_for: "Search for {{name}}"
+    stream:
+      likes:
+        few: "<%= count %> Likes"
+        many: "<%= count %> Likes"
+        one: "<%= count %> Like"
+        other: "<%= count %> Likes"
+        zero: "<%= count %> Likes"
+      more_comments:
+        few: "Show <%= count %> more comments"
+        many: "Show <%= count %> more comments"
+        one: "Show <%= count %> more comment"
+        other: "Show <%= count %> more comments"
+        zero: "Show <%= count %> more comments"
+      reshares:
+        few: "<%= count %> Reshares"
+        many: "<%= count %> Reshares"
+        one: "<%= count %> Reshare"
+        other: "<%= count %> Reshares"
+        zero: "<%= count %> Reshares"
+    tags:
+      wasnt_that_interesting: "OK, I suppose #{{tagName}} wasn't all that interesting..."
     timeago:
       day: sehari
       days: "%d hari"
@@ -33,3 +58,5 @@ id:
       suffixFromNow: "dari sekarang"
       year: "sekitar setahun"
       years: "%d tahun"
+    videos:
+      watch: "Watch this video on {{provider}}"

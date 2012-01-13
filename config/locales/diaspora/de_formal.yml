@@ -793,7 +793,6 @@ de_formal:
     aspects:
       title: "Ihre Aspekte"
     aspects_stream: Aspekte
-    commented_on: kommentiert
     community_spotlight_stream: Gemeinschafts-Schaukasten
     followed_tag:
       add_a_tag: "Fügen Sie einen Tag hinzu"
@@ -807,11 +806,9 @@ de_formal:
       title: "Ihre Erwähnungen"
     multi:
       contacts_title: "Personen in Ihrem Stream"
-    posted: veröffentlicht
     public:
       contacts_title: "Aktuelle Poster"
       title: "Öffentliche Aktivität"
-    recently: "zuletzt:"
     tags:
       contacts_title: "Menschen, die diese Tags nutzen"
       title: "Getaggte Beiträge: %{tags}"

@@ -474,7 +474,6 @@ cy:
     aspects:
       title: "Eich Agweddau"
     aspects_stream: Agweddau
-    commented_on: "wedi sylwi arno"
     followed_tag:
       add_a_tag: "Ychwanegu tag"
       title: "#Tagiau ddilynwyd"
@@ -484,8 +483,6 @@ cy:
     multi:
       contacts_title: "Pobol yn eich ffrwd"
       title: Ffrwd
-    posted: "wedi postio"
-    recently: "yn ddiweddar:"
     tags:
       contacts_title: "People who dig these tags"
   tag_followings:

@@ -9,15 +9,15 @@ de_formal:
     aspect_dropdown:
       add_to_aspect: "Kontakt hinzufügen"
       all_aspects: "Alle Aspekte"
+      error: "Couldn't start sharing with {{name}}.  Are you ignoring them?"
       select_aspects: "Wählen Sie Aspekte aus"
-      started_sharing_with: "Sie haben angefangen, mit <%= name %> zu teilen!"
-      stopped_sharing_with: "Sie haben aufgehört, mit <%= name %> zu teilen!"
+      started_sharing_with: "Sie haben angefangen, mit {{name}} zu teilen!"
+      stopped_sharing_with: "Sie haben aufgehört, mit {{name}} zu teilen!"
       toggle:
-        few: "In <%= count %> Aspekten"
-        many: "In <%= count %> Aspekten"
+        few: "In {{count}} Aspekten"
+        many: "In {{count}} Aspekten"
         one: "In einem Aspekt"
-        other: "In <%= count %> Aspekten"
-        two: "In <%= count %> Aspekten"
+        other: "In {{count}} Aspekten"
         zero: "Aspekt auswählen"
     aspect_navigation:
       deselect_all: "Auswahl aufheben"
@@ -31,6 +31,7 @@ de_formal:
     failed_to_post_message: "Konnte Beitrag nicht senden!"
     getting_started:
       alright_ill_wait: "Alles klar, ich warte."
+      hey: "Hey, {{name}}!"
       no_tags: "Hey, Sie folgen noch keinen Tags! Trotzdem weitermachen?"
       preparing_your_stream: "Ihr personalisierter Stream wird zusammengestellt..."
     infinite_scroll:
@@ -43,10 +44,29 @@ de_formal:
       public: "Öffentlich - Ihr Beitrag ist für alle sichtbar und kann von Suchmaschinen gefunden werden"
     reshares:
       duplicate: "Sie haben diesen Beitrag bereits weitergesagt!"
-    search_for: "Nach <%= name %> suchen"
+    search_for: "Nach {{name}} suchen"
     show_more: "Mehr zeigen"
+    stream:
+      likes:
+        few: "<%= count %> Likes"
+        many: "<%= count %> Likes"
+        one: "<%= count %> Like"
+        other: "<%= count %> Likes"
+        zero: "<%= count %> Likes"
+      more_comments:
+        few: "Show <%= count %> more comments"
+        many: "Show <%= count %> more comments"
+        one: "Show <%= count %> more comment"
+        other: "Show <%= count %> more comments"
+        zero: "Show <%= count %> more comments"
+      reshares:
+        few: "<%= count %> Reshares"
+        many: "<%= count %> Reshares"
+        one: "<%= count %> Reshare"
+        other: "<%= count %> Reshares"
+        zero: "<%= count %> Reshares"
     tags:
-      wasnt_that_interesting: "OK, ich nehme an, #<%= tagName %> war nicht so interessant..."
+      wasnt_that_interesting: "OK, ich nehme an, #{{tagName}} war nicht so interessant..."
     timeago:
       day: "einem Tag"
       days: "%d Tagen"
@@ -65,6 +85,4 @@ de_formal:
       years: "%d Jahren"
     videos:
       unknown: "Unbekanntes Videoformat"
-      watch: "Dieses Video auf <%= provider %> ansehen"
-    web_sockets:
-      disconnected: "Der Websocket ist geschlossen. Beiträge werden nicht länger in Echtzeit aktualisiert."
+      watch: "Dieses Video auf {{provider}} ansehen"

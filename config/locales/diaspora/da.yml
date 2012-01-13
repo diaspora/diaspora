@@ -793,7 +793,6 @@ da:
     comment_stream:
       contacts_title: "Brugere, hvis indlæg du har kommenteret"
       title: "Kommenterede indlæg"
-    commented_on: kommenteret
     community_spotlight_stream: "Kreative medlemmer"
     followed_tag:
       add_a_tag: "Tilføj et tag"
@@ -811,11 +810,9 @@ da:
     multi:
       contacts_title: "Personer i din Strøm"
       title: Strøm
-    posted: indsendt
     public:
       contacts_title: "Seneste indlæg"
       title: "Offentlig Aktivitet"
-    recently: "for nylig:"
     tags:
       contacts_title: "Folk der følger disse tags"
       tag_prefill_text: "Jeg synes at %{tag_name} er... "
@@ -862,6 +859,8 @@ da:
       wrong_password: "Det indtastede kodeord stemmer ikke overens med dit nuværende kodeord."
     edit:
       also_commented: "...nogen har kommenteret på en af dine kontakters indlæg?"
+      auto_follow_aspect: "Aspekt for brugere du automatisk følger:"
+      auto_follow_back: "Følg automatisk brugere der følger dig"
       change: Skift
       change_email: "Skift e-mail"
       change_language: "Skift sprog"
