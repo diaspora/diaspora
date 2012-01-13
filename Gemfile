@@ -38,6 +38,7 @@ end
 
 group :heroku do
   gem 'pg'
+  gem 'mysql'
 end
 
 gem 'settingslogic', :git => 'https://github.com/binarylogic/settingslogic.git'
