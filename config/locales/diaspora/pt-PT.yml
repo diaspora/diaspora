@@ -798,7 +798,6 @@ pt-PT:
     comment_stream:
       contacts_title: "Pessoas cujos os posts você comentou"
       title: "Posts Comentados"
-    commented_on: "comentou no"
     community_spotlight_stream: "Destaque da Comunidade"
     followed_tag:
       add_a_tag: "Adicionar uma etiqueta"
@@ -815,11 +814,9 @@ pt-PT:
     multi:
       contacts_title: "Pessoas no seu Fluxo"
       title: Fluxo
-    posted: publicado
     public:
       contacts_title: "Cartazes Recentes"
       title: "Actividade Geral"
-    recently: "recentemente:"
     tags:
       contacts_title: "Pessoas que gostam desta etiqueta"
       tag_prefill_text: "O que acontece com %{tag_name} é... "

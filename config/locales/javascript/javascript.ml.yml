@@ -3,10 +3,95 @@
 #   the COPYRIGHT file.
 
 
-ml: 
-  javascripts: 
+ml:
+  javascripts:
+    aspect_dropdown:
+      add_to_aspect: "Add to aspect"
+      all_aspects: "All aspects"
+      error: "Couldn't start sharing with {{name}}.  Are you ignoring them?"
+      select_aspects: "Select aspects"
+      started_sharing_with: "You have started sharing with {{name}}!"
+      stopped_sharing_with: "You have stopped sharing with {{name}}."
+      toggle:
+        few: "In {{count}} aspects"
+        many: "In {{count}} aspects"
+        one: "In {{count}} aspect"
+        other: "In {{count}} aspects"
+        zero: "Add to aspect"
+    aspect_navigation:
+      deselect_all: "Deselect all"
+      no_aspects: "No aspects selected"
+      select_all: "Select all"
+    comments:
+      hide: "hide comments"
+      show: "show all comments"
     confirm_dialog: "താങ്കള്‍ക്ക് ഉറപ്പാണോ?"
-    timeago: 
+    delete: "Delete"
+    failed_to_like: "Failed to like!"
+    failed_to_post_message: "Failed to post message!"
+    getting_started:
+      alright_ill_wait: "Alright, I'll wait."
+      hey: "Hey, {{name}}!"
+      no_tags: "Hey, you haven't followed any tags!  Continue anyway?"
+      preparing_your_stream: "Preparing your personalized stream..."
+    header:
+      admin: "Admin"
+      contacts: "Contacts"
+      home: "Home"
+      log_out: "Log out"
+      mark_all_as_read: "Mark all as read"
+      messages: "Messages"
+      notifications: "Notifications"
+      profile: "Profile"
+      recent_notifications: "Recent Notifications"
+      search: "Find people or #tags"
+      settings: "Settings"
+      view_all: "View all"
+    ignore: "Ignore"
+    infinite_scroll:
+      no_more: "കൂടുതല്‍ പോസ്റ്റുകളൊന്നുമില്ല."
+    photo_uploader:
+      looking_good: "OMG, you look awesome!"
+    publisher:
+      at_least_one_aspect: "താങ്കള്‍ ഒരു പരിചയത്തിമെങ്കിലും തിരഞ്ഞെടുക്കേണ്ടതാണ്."
+      limited: "Limited - your post will only be seen by people you are sharing with"
+      public: "Public - your post will be visible to everyone and found by search engines"
+    reshares:
+      duplicate: "You've already reshared that post!"
+    search_for: "{{name}}നായി തിരയുക"
+    show_more: "show more"
+    stream:
+      comment: "Comment"
+      hide: "Hide"
+      like: "Like"
+      likes:
+        few: "<%= count %> Likes"
+        many: "<%= count %> Likes"
+        one: "<%= count %> Like"
+        other: "<%= count %> Likes"
+        zero: "<%= count %> Likes"
+      limited: "Limited"
+      more_comments:
+        few: "Show <%= count %> more comments"
+        many: "Show <%= count %> more comments"
+        one: "Show <%= count %> more comment"
+        other: "Show <%= count %> more comments"
+        zero: "Show <%= count %> more comments"
+      nsfw: "This post has been flagged NSFW by its author."
+      original_post_deleted: "Original post deleted by author."
+      public: "Public"
+      reshare: "Reshare"
+      reshares:
+        few: "<%= count %> Reshares"
+        many: "<%= count %> Reshares"
+        one: "<%= count %> Reshare"
+        other: "<%= count %> Reshares"
+        zero: "<%= count %> Reshares"
+      show: "Show"
+      unlike: "Unlike"
+    tags:
+      wasnt_that_interesting: "OK, I suppose #{{tagName}} wasn't all that interesting..."
+    timeago:
       day: "ഒരു ദിവസം"
       days: "%d ദിവസങ്ങള്‍"
       hour: "ഉദ്ദേശം ഒരു മണീക്കൂര്‍"
@@ -18,37 +103,10 @@ ml:
       prefixAgo: ""
       prefixFromNow: "ഇപ്പോള്‍ മുതല്‍"
       seconds: "ഏതാനും നിമിഷങ്ങള്‍"
-      suffixAgo: "മുന്‍പ്"
-      suffixFromNow: "വരെ"
+      suffixAgo: മുന്‍പ്
+      suffixFromNow: വരെ
       year: "ഉദ്ദേശം ഒരു വര്‍ഷം"
       years: "%d വര്‍ഷങ്ങള്‍ക്ക്"
-    videos: 
+    videos:
       unknown: "അജ്ഞാതമായ തരം വീഡിയോ"
-      watch: "ഈ വീഡിയോ <%= provider %>ല്‍ കാണുക"
-    search_for: "<%= name %>നായി തിരയുക"
-    infinite_scroll: 
-      no_more: "കൂടുതല്‍ പോസ്റ്റുകളൊന്നുമില്ല."
-    publisher: 
-      at_least_one_aspect: "താങ്കള്‍ ഒരു പരിചയത്തിമെങ്കിലും തിരഞ്ഞെടുക്കേണ്ടതാണ്."
-      limited: "Limited - your post will only be seen by people you are sharing with"
-      public: "Public - your post will be visible to everyone and found by search engines"
-    web_sockets: 
-      disconnected: 
-        body: "പോസ്റ്റൂകള്‍ തത്സമയമായി കാണിക്കുന്നതല്ല."
-        title: "താങ്കള്‍ വിച്ഛേദിക്കപ്പെട്ടിരിക്കുന്നു."
-    aspect_dropdown:
-      add_to_aspect: "Add to aspect"
-      toggle:
-        zero: "Add to aspect"
-        one: "In <%= count %> aspect"
-        few: "In <%= count %> aspects"
-        many: "In <%= count %> aspects"
-        other: "In <%= count %> aspects"
-    show_more: "show more"
-    failed_to_like: "Failed to like!"
-    failed_to_post_message: "Failed to post message!"
-    comments:
-      show: "show all comments"
-      hide: "hide comments"
-    reshares:
-      duplicate: "You've already reshared that post!"
+      watch: "ഈ വീഡിയോ {{provider}}ല്‍ കാണുക"

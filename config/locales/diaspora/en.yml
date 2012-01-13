@@ -161,7 +161,7 @@ en:
       your_aspects: "Your Aspects"
       no_tags: "+ Find a tag to follow"
       unfollow_tag: "Stop following #%{tag}"
-      handle_explanation: "This is your diaspora id. Like an email address, you can give this to people to reach you."
+      handle_explanation: "This is your Diaspora ID. Like an email address, you can give this to people to reach you."
       no_contacts: "No contacts"
       post_a_message: "post a message >>"
       people_sharing_with_you: "People sharing with you"
@@ -614,6 +614,14 @@ en:
       destroy: "Delete"
       permalink: "permalink"
       not_found: "Sorry, we couldn't find that post."
+      photos_by:
+        zero: "No photos by %{author}"
+        one: "One photo by %{author}"
+        two: "Two photos by %{author}"
+        few: "%{count} photos by %{author}"
+        many: "%{count} photos by %{author}"
+        other: "%{count} photos by %{author}"
+      reshare_by: "Reshare by %{author}"
 
   share_visibilites:
     update:
@@ -939,7 +947,7 @@ en:
       current_password: "Current password"
       download_xml: "download my xml"
       download_photos: "download my photos"
-      your_handle: "Your diaspora id"
+      your_handle: "Your Diaspora ID"
       your_email: "Your email"
       edit_account: "Edit account"
       receive_email_notifications: "Receive email notifications when..."
@@ -964,7 +972,7 @@ en:
         dont_go: "Hey, please don't go!"
         make_diaspora_better: "We want you to help us make Diaspora better, so you should help us out instead of leaving. If you do want to leave, we want you to know what happens next."
         mr_wiggles: 'Mr Wiggles will be sad to see you go'
-        what_we_delete: "We delete all of your posts, profile data, as soon as humanly possible. Your comments will hang around, but be associated with your Diaspora Handle."
+        what_we_delete: "We delete all of your posts, profile data, as soon as humanly possible. Your comments will hang around, but be associated with your Diaspora ID."
         locked_out: "You will get signed out and locked out of your account."
         lock_username: "This will lock your username if you decided to sign back up."
         no_turning_back: "Currently, there is no turning back."

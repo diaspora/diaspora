@@ -1,7 +1,6 @@
 describe("app.views.Stream", function(){
   beforeEach(function(){
-    // should be jasmine helper
-    window.current_user = app.user({name: "alice", avatar : {small : "http://avatar.com/photo.jpg"}});
+    loginAs({name: "alice", avatar : {small : "http://avatar.com/photo.jpg"}});
 
     this.posts = $.parseJSON(spec.readFixture("multi_stream_json"))["posts"];
 

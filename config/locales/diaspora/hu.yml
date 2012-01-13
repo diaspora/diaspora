@@ -800,7 +800,6 @@ hu:
     comment_stream:
       contacts_title: "Emberek, akiknek a bejegyzéséhez hozzászóltál."
       title: "Hozzászólt bejegyzések"
-    commented_on: hozzászólt
     community_spotlight_stream: Reflektorfényben
     followed_tag:
       add_a_tag: "Címke hozzáadása"
@@ -815,11 +814,9 @@ hu:
     multi:
       contacts_title: "Személyek a Hírfolyamodban"
       title: Hírfolyam
-    posted: elküldve
     public:
       contacts_title: "Friss poszterek"
       title: "Publikus tevékenység"
-    recently: "Utoljára:"
     tags:
       contacts_title: "Emberek, akik ezeket a címkéket követik"
       tag_prefill_text: "Mi újság erről: %{tag_name} ?"

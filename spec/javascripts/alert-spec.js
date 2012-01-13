@@ -5,6 +5,11 @@ describe("Diaspora.Alert", function() {
     $(document).trigger("close.facebox");
   });
 
+  afterEach(function() {
+    $(".diaspora_alert").empty();
+  });
+
+
   describe("on widget ready", function() {
     it("should remove #diaspora_alert on close.facebox", function() {
       Diaspora.Alert.show("YEAH", "YEAHH");
@@ -13,7 +18,7 @@ describe("Diaspora.Alert", function() {
       expect($("#diaspora_alert").length).toEqual(0);
     });
   });
-  
+
   describe("alert", function() {
     it("should render a mustache template and append it the body", function() {
       Diaspora.Alert.show("YO", "YEAH");

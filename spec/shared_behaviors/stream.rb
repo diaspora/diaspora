@@ -27,14 +27,6 @@ describe 'Streams' do
         @stream.contacts_link.should_not be_nil
       end
 
-      it 'responds to ajax_stream' do
-        @stream.ajax_stream?.should_not be_nil
-      end
-
-      it 'responds to ajax_stream' do
-        @stream.ajax_stream?.should_not be_nil
-      end
-
       it 'should make the stream a time object' do
         @stream.max_time = 123
         @stream.max_time.should be_a(Time)

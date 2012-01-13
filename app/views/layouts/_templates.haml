@@ -1,0 +1,5 @@
+- templates_dir = Rails.root.join("app", "views", "templates")
+- Dir[templates_dir.to_s + "/*.jst"].each do |template|
+  - template_name = File.basename(template, ".jst").gsub("_","-")
+  %script{:id => "#{template_name}-template", :type => 'text/template'}
+    != File.read(templates_dir.join(template))

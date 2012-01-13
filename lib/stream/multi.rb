@@ -23,11 +23,6 @@ class Stream::Multi < Stream::Base
     end.call
   end
 
-  # @return [Boolean]
-  def ajax_stream?
-    false
-  end
-
   #emits an enum of the groups which the post appeared
   # :spotlight, :aspects, :tags, :mentioned
   def post_from_group(post)

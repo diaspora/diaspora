@@ -9,16 +9,15 @@ vi:
     aspect_dropdown:
       add_to_aspect: "Thêm liên lạc"
       all_aspects: "Tất cả mối quan hệ"
-      error: "Không thể bắt đầu chia sẻ với <%= name %>.  Bạn có bỏ qua họ?"
+      error: "Không thể bắt đầu chia sẻ với {{name}}. Bạn có muốn bỏ qua họ?"
       select_aspects: "Chọn mối quan hệ"
-      started_sharing_with: "Bạn đã bắt đầu chia sẻ với <%= name %>!"
-      stopped_sharing_with: "Bạn đã ngưng chia sẻ với <%= name %>."
+      started_sharing_with: "Bạn đã bắt đầu chia sẻ với {{name}}!"
+      stopped_sharing_with: "Bạn đã ngưng chia sẻ với {{name}}."
       toggle:
-        few: "Trong <%= count %> mối quan hệ"
-        many: "Trong <%= count %> mối quan hệ"
-        one: "Trong <%= count %> mối quan hệ"
-        other: "Trong <%= count %> mối quan hệ"
-        two: "Trong <%= count %> mối quan hệ"
+        few: "Trong {{count}} mối quan hệ"
+        many: "Trong {{count}} mối quan hệ"
+        one: "Trong {{count}} mối quan hệ"
+        other: "Trong {{count}} mối quan hệ"
         zero: "Chọn mối quan hệ"
     aspect_navigation:
       deselect_all: "Bỏ chọn tất cả"
@@ -28,12 +27,15 @@ vi:
       hide: "ẩn các bình luận"
       show: "hiện tất cả bình luận"
     confirm_dialog: "Bạn có chắc không?"
+    failed_to_like: "Không thích được!"
     failed_to_post_message: "Đăng tin thất bại!"
     getting_started:
       alright_ill_wait: "Được rồi, tôi sẽ chờ."
-      hey: "Này, <%= name %>!"
+      hey: "Này, {{name}}!"
       no_tags: "Bạn chưa theo dõi thẻ nào cả! Tiếp tục?"
-      preparing_your_stream: "Preparing your personialized stream..."
+      preparing_your_stream: "Đang chuẩn bị luồng cho bạn..."
+    infinite_scroll:
+      no_more: "Không còn bài đăng nào nữa."
     photo_uploader:
       looking_good: "Ôi, trông bạn thật tuyệt!"
     publisher:
@@ -42,8 +44,29 @@ vi:
       public: "Công khai - tin của bạn được mọi người và máy tìm kiếm nhìn thấy"
     reshares:
       duplicate: "Bạn đã chia sẻ lại tin đó!"
-    search_for: "Tìm <%= name %>"
+    search_for: "Tìm {{name}}"
     show_more: "hiện thêm"
+    stream:
+      likes:
+        few: "<%= count %> Likes"
+        many: "<%= count %> Likes"
+        one: "<%= count %> Like"
+        other: "<%= count %> Likes"
+        zero: "<%= count %> Likes"
+      more_comments:
+        few: "Show <%= count %> more comments"
+        many: "Show <%= count %> more comments"
+        one: "Show <%= count %> more comment"
+        other: "Show <%= count %> more comments"
+        zero: "Show <%= count %> more comments"
+      reshares:
+        few: "<%= count %> Reshares"
+        many: "<%= count %> Reshares"
+        one: "<%= count %> Reshare"
+        other: "<%= count %> Reshares"
+        zero: "<%= count %> Reshares"
+    tags:
+      wasnt_that_interesting: "Tôi cho rằng #{{tagName}} không thú vị..."
     timeago:
       day: "một ngày"
       days: "%d ngày"
@@ -55,9 +78,9 @@ vi:
       months: "%d tháng"
       seconds: "ít hơn một phút"
       suffixAgo: trước
-      suffixFromNow: "kể từ bây giờ"
+      suffixFromNow: "kể từ đây"
       year: "khoảng một năm"
       years: "%d năm"
     videos:
       unknown: "Chưa biết kiểu video"
-      watch: "Xem video này trên <%= provider %>"
+      watch: "Xem video này trên {{provider}}"

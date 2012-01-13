@@ -9,16 +9,15 @@ sl:
     aspect_dropdown:
       add_to_aspect: "Dodaj stik"
       all_aspects: "Vsi pogledi"
-      error: "Ne morem začeti deliti s <%= name %>. Ali ste jih ignorirali?"
+      error: "Ne morem začeti deliti s {{name}}. Ali ste jih ignorirali?"
       select_aspects: "Izberi poglede"
-      started_sharing_with: "Začeli ste deliti z <%= name %>!"
-      stopped_sharing_with: "Prenehali ste deliti z <%= name %>."
+      started_sharing_with: "Začeli ste deliti z {{name}}!"
+      stopped_sharing_with: "Prenehali ste deliti z {{name}}."
       toggle:
-        few: "V <%= count %> pogledih"
-        many: "V <%= count %> pogledih"
-        one: "V <%= count %> pogledu"
-        other: "V <%= count %> pogledih"
-        two: "V <%= count %> pogledih"
+        few: "V {{count}} pogledih"
+        many: "V {{count}} pogledih"
+        one: "V {{count}} pogledu"
+        other: "V {{count}} pogledih"
         zero: "Izberi pogled"
     aspect_navigation:
       deselect_all: "Označi nič"
@@ -32,7 +31,7 @@ sl:
     failed_to_post_message: "Objava ni uspela!"
     getting_started:
       alright_ill_wait: "V redu, bom počakal."
-      hey: "Hej, <%= name %>!"
+      hey: "Hej, {{name}}!"
       no_tags: "Hej, niste sledili nobeni oznaki! Vseeno nadaljuj?"
       preparing_your_stream: "Pripravljanje vašega osebnega toka ..."
     infinite_scroll:
@@ -45,10 +44,29 @@ sl:
       public: "Javno - Vaša objava bo vidna vsem, prikazana bo tudi v spletnih  iskalnikih"
     reshares:
       duplicate: "To objavo ste že ponovno delili"
-    search_for: "Išči <%= name %>"
+    search_for: "Išči {{name}}"
     show_more: "pokaži več"
+    stream:
+      likes:
+        few: "<%= count %> Likes"
+        many: "<%= count %> Likes"
+        one: "<%= count %> Like"
+        other: "<%= count %> Likes"
+        zero: "<%= count %> Likes"
+      more_comments:
+        few: "Show <%= count %> more comments"
+        many: "Show <%= count %> more comments"
+        one: "Show <%= count %> more comment"
+        other: "Show <%= count %> more comments"
+        zero: "Show <%= count %> more comments"
+      reshares:
+        few: "<%= count %> Reshares"
+        many: "<%= count %> Reshares"
+        one: "<%= count %> Reshare"
+        other: "<%= count %> Reshares"
+        zero: "<%= count %> Reshares"
     tags:
-      wasnt_that_interesting: "Vredu, mislim, da zaznamek #<%= tagName %> ni bil tako zanimiv ..."
+      wasnt_that_interesting: "Vredu, mislim, da zaznamek #{{tagName}} ni bil tako zanimiv ..."
     timeago:
       day: včeraj
       days: "pred %d dnem"
@@ -65,6 +83,4 @@ sl:
       years: "pred %d leti"
     videos:
       unknown: "Neznan tip videa"
-      watch: "Glej ta video na <%= provider %>"
-    web_sockets:
-      disconnected: "Ta spletni vtič je zaprt; objave se ne bodo več prenašale v  živo."
+      watch: "Glej ta video na {{provider}}"

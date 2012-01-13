@@ -790,7 +790,6 @@ fi:
     comment_stream:
       contacts_title: "Ihmiset, joiden viestejä olet kommentoinut"
       title: "Kommentoimasi viestit"
-    commented_on: kommentoidut
     community_spotlight_stream: "Yhteisön valokeila"
     followed_tag:
       add_a_tag: "Lisää tagi"
@@ -808,8 +807,6 @@ fi:
     multi:
       contacts_title: "Ihmiset sinun virrassasi"
       title: Virta
-    posted: lähetetyt
-    recently: "äskettäin:"
     tags:
       contacts_title: "Näistä tageista pitävät ihmiset"
   tag_followings:

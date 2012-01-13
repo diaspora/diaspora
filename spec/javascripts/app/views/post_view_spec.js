@@ -2,7 +2,7 @@ describe("app.views.Post", function(){
 
   describe("#render", function(){
     beforeEach(function(){
-      window.current_user = app.user({name: "alice", avatar : {small : "http://avatar.com/photo.jpg"}});
+      loginAs({name: "alice", avatar : {small : "http://avatar.com/photo.jpg"}});
 
       Diaspora.I18n.loadLocale({stream : {
         reshares : {
@@ -16,6 +16,14 @@ describe("app.views.Post", function(){
       this.collection = new app.collections.Stream(posts);
       this.statusMessage = this.collection.models[0];
       this.reshare = this.collection.models[1];
+    })
+
+    context("for a reshare", function(){
+      it("should display ReshareFeedback", function(){
+        spyOn(app.views, "ReshareFeedback").andReturn(stubView("these are special reshare actions"));
+        var view = new app.views.Post({model : this.reshare}).render();
+        expect(view.$(".feedback").text().trim()).toBe("these are special reshare actions");
+      })
     })
 
     it("displays a reshare count", function(){
@@ -161,10 +169,9 @@ describe("app.views.Post", function(){
 
     context("user not signed in", function(){
       it("does not provide a Feedback view", function(){
-        window.current_user = app.user(null);
-
+        logout()
         var view = new app.views.Post({model : this.statusMessage}).render();
-        expect(view.feedbackView).toBeNull();
+        expect(view.feedbackView()).toBeFalsy();
       })
     })
 

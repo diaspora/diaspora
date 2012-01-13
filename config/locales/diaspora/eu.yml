@@ -771,7 +771,6 @@ eu:
     aspects:
       title: "Zure Alderdiak"
     aspects_stream: Alderdiak
-    commented_on: iruzkindua
     community_spotlight_stream: "Komunitateko Nabarmenenak"
     followed_tag:
       add_a_tag: "Etiketa bat gehitu"
@@ -786,11 +785,9 @@ eu:
     multi:
       contacts_title: "Zure Kronologiako Jendea"
       title: Kronologia
-    posted: bidalia
     public:
       contacts_title: "MAutore Berrienak"
       title: "Ekintza Publikoak"
-    recently: "oraintsu:"
     tags:
       contacts_title: "Etiketa hau jarraitzen duen jendea"
       title: "Mezu etiketatuak: %{tags}"

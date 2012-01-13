@@ -9,16 +9,15 @@ zh-TW:
     aspect_dropdown:
       add_to_aspect: 加聯絡人
       all_aspects: 所有面向
-      error: "無法開始和 <%= name %> 分享. 你還在忽視他們嗎?"
+      error: "無法開始和 {{name}} 分享. 你還在忽視他們嗎?"
       select_aspects: 選面向
-      started_sharing_with: "你開始和 <%= name %> 分享了!"
-      stopped_sharing_with: "你停止和 <%= name %> 分享了."
+      started_sharing_with: "你開始和 {{name}} 分享了!"
+      stopped_sharing_with: "你停止和 {{name}} 分享了."
       toggle:
-        few: "在<%= count %>個面向中"
-        many: "在<%= count %>個面向中"
-        one: "在<%= count %>個面向中"
-        other: "在<%= count %>個面向中"
-        two: "在<%= count %>個面向中"
+        few: "在{{count}}個面向中"
+        many: "在{{count}}個面向中"
+        one: "在{{count}}個面向中"
+        other: "在{{count}}個面向中"
         zero: 選面向
     aspect_navigation:
       deselect_all: 全不選
@@ -32,7 +31,7 @@ zh-TW:
     failed_to_post_message: 貼文失敗!
     getting_started:
       alright_ill_wait: "好吧, 以後再說."
-      hey: "嘿, <%= name %>!"
+      hey: "嘿, {{name}}!"
       no_tags: "嘿, 你還沒有追蹤任何標籤! 要往下一步嗎?"
       preparing_your_stream: 整理你個人的流水帳中...
     infinite_scroll:
@@ -45,10 +44,29 @@ zh-TW:
       public: "公開 - 所有人都能看到你的貼文, 包括搜尋引擎"
     reshares:
       duplicate: "很棒對吧? 你已經轉貼過該篇貼文了!"
-    search_for: "搜尋 <%= name %>"
+    search_for: "搜尋 {{name}}"
     show_more: 顯示更多
+    stream:
+      likes:
+        few: "<%= count %> Likes"
+        many: "<%= count %> Likes"
+        one: "<%= count %> Like"
+        other: "<%= count %> Likes"
+        zero: "<%= count %> Likes"
+      more_comments:
+        few: "Show <%= count %> more comments"
+        many: "Show <%= count %> more comments"
+        one: "Show <%= count %> more comment"
+        other: "Show <%= count %> more comments"
+        zero: "Show <%= count %> more comments"
+      reshares:
+        few: "<%= count %> Reshares"
+        many: "<%= count %> Reshares"
+        one: "<%= count %> Reshare"
+        other: "<%= count %> Reshares"
+        zero: "<%= count %> Reshares"
     tags:
-      wasnt_that_interesting: "OK, 我想 #<%= tagName %> 大概沒那麼有趣..."
+      wasnt_that_interesting: "OK, 我想 #{{tagName}} 大概沒那麼有趣..."
     timeago:
       day: 一天
       days: "%d天"
@@ -67,6 +85,4 @@ zh-TW:
       years: "%d年"
     videos:
       unknown: 不明的影片類別
-      watch: "從 <%= provider %> 看這部影片"
-    web_sockets:
-      disconnected: "Websocket 已斷線; 貼文不會再即時更新了."
+      watch: "從 {{provider}} 看這部影片"

@@ -9,15 +9,15 @@ eu:
     aspect_dropdown:
       add_to_aspect: "Adiskidea gehitu"
       all_aspects: "Alderdi guztiak"
+      error: "Couldn't start sharing with {{name}}.  Are you ignoring them?"
       select_aspects: "Alderdiak aukeratu"
-      started_sharing_with: "<%= name %>(r)ekin harremanetan hasi zara!"
-      stopped_sharing_with: "Jada ez zaude <%= name %>(r)ekin harremanetan."
+      started_sharing_with: "{{name}}(r)ekin harremanetan hasi zara!"
+      stopped_sharing_with: "Jada ez zaude {{name}}(r)ekin harremanetan."
       toggle:
-        few: "<%= count %> alderdietan"
-        many: "<%= count %> alderdietan"
-        one: "Alderdi <%= count %>ean"
-        other: "<%= count %> alderdietan"
-        two: "<%= count %> alderditan"
+        few: "{{count}} alderdietan"
+        many: "{{count}} alderdietan"
+        one: "Alderdi {{count}}ean"
+        other: "{{count}} alderdietan"
         zero: "Alderdial hautatu"
     aspect_navigation:
       deselect_all: "Guztiak deshautatu"
@@ -31,7 +31,7 @@ eu:
     failed_to_post_message: "Huts egin du mezuaren bidalketak!"
     getting_started:
       alright_ill_wait: "Beno, itxarongo dut."
-      hey: "Aizu, <%= name %>!"
+      hey: "Aizu, {{name}}!"
       no_tags: "Aizu, ez duzu etiketarik jarraitzen! Jarraitu hala ere?"
       preparing_your_stream: "Zure kronologia pertsonalizatua prestatzen..."
     infinite_scroll:
@@ -44,10 +44,29 @@ eu:
       public: "Publikoa - zure mezua edonork ikusi ahalko du, bai eta bilaketa zerbitzuetan agertu ere"
     reshares:
       duplicate: "Oso ona, e? Dagoeneko birpartekatu duzu mezu hori!"
-    search_for: "Bilatu <%= name %>"
+    search_for: "Bilatu {{name}}"
     show_more: "erakutsi gehiago"
+    stream:
+      likes:
+        few: "<%= count %> Likes"
+        many: "<%= count %> Likes"
+        one: "<%= count %> Like"
+        other: "<%= count %> Likes"
+        zero: "<%= count %> Likes"
+      more_comments:
+        few: "Show <%= count %> more comments"
+        many: "Show <%= count %> more comments"
+        one: "Show <%= count %> more comment"
+        other: "Show <%= count %> more comments"
+        zero: "Show <%= count %> more comments"
+      reshares:
+        few: "<%= count %> Reshares"
+        many: "<%= count %> Reshares"
+        one: "<%= count %> Reshare"
+        other: "<%= count %> Reshares"
+        zero: "<%= count %> Reshares"
     tags:
-      wasnt_that_interesting: "Beno, suposatzen dut #<%= tagName %> ez zela oso interesgarria..."
+      wasnt_that_interesting: "Beno, suposatzen dut #{{tagName}} ez zela oso interesgarria..."
     timeago:
       day: "egun bat"
       days: "%d egun"
@@ -65,6 +84,4 @@ eu:
       years: "%d urte"
     videos:
       unknown: "Bideo mota ezezaguna"
-      watch: "Ikusi bideo hau <%= provider %>(e)n"
-    web_sockets:
-      disconnected: "Websocketa itxita dago; mezuak ez dira denbora errealean azalduko."
+      watch: "Ikusi bideo hau {{provider}}(e)n"

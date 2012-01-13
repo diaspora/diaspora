@@ -6,9 +6,11 @@ require 'uri'
 require File.join(Rails.root, 'lib', 'enviroment_configuration')
 
 class AppConfig < Settingslogic
-  ARRAY_VARS = [:community_spotlight, :admins]
-
   def self.source_file_name
+    if ENV['application_yml'].present?
+      puts "using remote application.yml"
+      return ENV['application_yml']
+    end
     config_file = File.join(Rails.root, "config", "application.yml")
     if !File.exists?(config_file) && (Rails.env == 'test' || Rails.env.include?("integration") || EnviromentConfiguration.heroku?)
       config_file = File.join(Rails.root, "config", "application.yml.example")
@@ -107,14 +109,13 @@ HELP
   end
 
   def self.normalize_pod_services
+    self['configured_services'] = []
     if defined?(SERVICES)
-      configured_services = []
       SERVICES.keys.each do |service|
         unless SERVICES[service].keys.any?{|service_key| SERVICES[service][service_key].blank?}
-          configured_services << service
+          self['configured_services'] << service
         end
       end
-      self['configured_services'] = configured_services
     end
   end
 
@@ -122,16 +123,7 @@ HELP
 
   def self.[] (key)
     return self.pod_uri if key == :pod_uri
-    return fetch_from_env(key.to_s) if EnviromentConfiguration.heroku?
     super
-  end
-
-  def fetch_from_env(key)
-    if ARRAY_VARS.include?(key.to_sym)
-      ENV[key].split(EnviromentConfiguration::ARRAY_SEPERATOR)
-    else
-     ENV[key] if ENV[key] 
-    end
   end
 
   def self.[]= (key, value)

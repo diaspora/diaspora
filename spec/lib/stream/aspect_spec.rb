@@ -62,7 +62,7 @@ describe Stream::Aspect do
       stream.posts
     end
 
-    it 'respects ordering' do 
+    it 'respects ordering' do
       stream = Stream::Aspect.new(@alice, [1,2], :order => 'created_at')
       @alice.should_receive(:visible_shareables).with(Post, hash_including(:order => 'created_at DESC')).and_return(stub.as_null_object)
       stream.posts
@@ -129,40 +129,6 @@ describe Stream::Aspect do
     it "is false if the count of aspect_ids is not equal to the size of the user's aspect count" do
       @stream.aspect_ids.stub(:length).and_return(1)
       @stream.should_not be_for_all_aspects
-    end
-  end
-
-  describe '.ajax_stream?' do
-    before do
-      @original_value = AppConfig[:redis_cache] 
-      @stream = Stream::Aspect.new(stub, stub)
-    end
-
-    after do
-      AppConfig[:redis_cache] = @original_value
-    end
-
-    context 'if we are not caching with redis' do
-      before do
-        AppConfig[:redis_cache] = false
-      end
-
-      it 'is true if stream is for all aspects?' do
-        @stream.stub(:for_all_aspects?).and_return(true)
-        @stream.ajax_stream?.should be_true
-      end
-
-      it 'is false if it is not for all aspects' do
-        @stream.stub(:for_all_aspects?).and_return(false)
-        @stream.ajax_stream?.should be_false
-      end
-    end
-
-    context 'if we are caching with redis' do
-      it 'returns false' do
-        AppConfig[:redis_cache] = true
-        @stream.ajax_stream?.should be_false
-      end
     end
   end
 

@@ -819,7 +819,6 @@ he:
     comment_stream:
       contacts_title: "אנשים שהגבת על הרשומה שלהם"
       title: "רשומות עם תגובות"
-    commented_on: "הגיב על"
     community_spotlight_stream: "דברים חשובים בקהילה"
     followed_tag:
       add_a_tag: "הוסף תגית"
@@ -837,11 +836,9 @@ he:
     multi:
       contacts_title: "אנשים בחדשות שלך"
       title: חדשות
-    posted: נרשם
     public:
       contacts_title: "מודעות חדשות"
       title: "פעילות ציבורית"
-    recently: ":לאחרונה"
     tags:
       contacts_title: "אנשים ששותפים לתגית הזו"
       tag_prefill_text: " %{tag_name} העניין בקשר ל"

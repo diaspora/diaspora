@@ -1,6 +1,6 @@
 describe("app.views.Feedback", function(){
   beforeEach(function(){
-    window.current_user = app.user({id : -1, name: "alice", avatar : {small : "http://avatar.com/photo.jpg"}});
+   loginAs({id : -1, name: "alice", avatar : {small : "http://avatar.com/photo.jpg"}});
 
     Diaspora.I18n.loadLocale({stream : {
       'like' : "Like",

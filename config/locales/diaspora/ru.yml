@@ -803,7 +803,6 @@ ru:
     comment_stream:
       contacts_title: "Люди, чьи записи вы прокомментировали"
       title: Прокомментированные
-    commented_on: обсуждаемые
     community_spotlight_stream: "В центре внимания"
     followed_tag:
       add_a_tag: "Добавить метку"
@@ -821,11 +820,9 @@ ru:
     multi:
       contacts_title: "В вашем потоке"
       title: Поток
-    posted: опубликованные
     public:
       contacts_title: "Последние публиковавшие"
       title: "Публичная активность"
-    recently: "последние:"
     tags:
       contacts_title: "Люди, которым нравятся эта метка"
       tag_prefill_text: "По поводу метки %{tag_name}..."
@@ -872,6 +869,7 @@ ru:
       wrong_password: "Введенный вами пароль не совпадает с вашим текущим паролем."
     edit:
       also_commented: "... кто-то комментировал сообщения ваших контактов?"
+      auto_follow_back: "Автоматически подписываться в ответ, если кто-то начинает следить за вашими записями"
       change: Изменить
       change_email: "Изменить адрес"
       change_language: "Изменить язык"

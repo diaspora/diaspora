@@ -9,12 +9,14 @@ cs:
     aspect_dropdown:
       add_to_aspect: "Přidat kontakt"
       all_aspects: "Všechny aspekty"
+      error: "Couldn't start sharing with {{name}}.  Are you ignoring them?"
+      started_sharing_with: "You have started sharing with {{name}}!"
+      stopped_sharing_with: "You have stopped sharing with {{name}}."
       toggle:
-        few: "Ve <%= count %> aspektech"
-        many: "V <%= count %> aspektech"
-        one: "V <%= count %> aspektu"
-        other: "Ve <%= count %> aspektech"
-        two: "Ve <%= count %> aspektech"
+        few: "Ve {{count}} aspektech"
+        many: "V {{count}} aspektech"
+        one: "V {{count}} aspektu"
+        other: "Ve {{count}} aspektech"
         zero: "Vybrat aspekty"
     comments:
       hide: "skrýt komentáře"
@@ -23,6 +25,7 @@ cs:
     failed_to_like: "Oblíbení se nezdařilo!"
     failed_to_post_message: "Odeslání příspěvku se nezdařilo!"
     getting_started:
+      hey: "Hey, {{name}}!"
       preparing_your_stream: "Preparing your personialized stream..."
     infinite_scroll:
       no_more: "Žádné další příspěvky."
@@ -32,8 +35,29 @@ cs:
       public: "Veřejné - váši zprávu si bude moci přečíst kdokoliv a může být nalezena vyhledávači"
     reshares:
       duplicate: "Tato zprávu už sdílíte!"
-    search_for: "Hledat <%= name %>"
+    search_for: "Hledat {{name}}"
     show_more: "zobrazit více"
+    stream:
+      likes:
+        few: "<%= count %> Likes"
+        many: "<%= count %> Likes"
+        one: "<%= count %> Like"
+        other: "<%= count %> Likes"
+        zero: "<%= count %> Likes"
+      more_comments:
+        few: "Show <%= count %> more comments"
+        many: "Show <%= count %> more comments"
+        one: "Show <%= count %> more comment"
+        other: "Show <%= count %> more comments"
+        zero: "Show <%= count %> more comments"
+      reshares:
+        few: "<%= count %> Reshares"
+        many: "<%= count %> Reshares"
+        one: "<%= count %> Reshare"
+        other: "<%= count %> Reshares"
+        zero: "<%= count %> Reshares"
+    tags:
+      wasnt_that_interesting: "OK, I suppose #{{tagName}} wasn't all that interesting..."
     timeago:
       day: "1 dnem"
       days: "%d dny"
@@ -51,6 +75,4 @@ cs:
       years: "%d roky"
     videos:
       unknown: "Neznámý typ videa"
-      watch: "Podívejte se na tohle video na <%= provider %>"
-    web_sockets:
-      disconnected: "Websocket je uzavřen, příspěvky již nebude možno sledovat živě."
+      watch: "Podívejte se na tohle video na {{provider}}"

@@ -9,16 +9,15 @@ fi:
     aspect_dropdown:
       add_to_aspect: "Lisää kontakti"
       all_aspects: "Kaikki näkymät"
-      error: "Ei voitu aloittaa jakamaan käyttäjän <%= name %> kanssa. Oletko sivuuttanut hänet?"
+      error: "Ei voitu aloittaa jakamaan käyttäjän {{name}} kanssa. Oletko sivuuttanut hänet?"
       select_aspects: "Valitse näkymät"
-      started_sharing_with: "Olet alkanut jakaa käyttäjän <%= name %> kanssa!"
-      stopped_sharing_with: "Olet lopettanut jakamisen käyttäjän <%= name %> kanssa."
+      started_sharing_with: "Olet alkanut jakaa käyttäjän {{name}} kanssa!"
+      stopped_sharing_with: "Olet lopettanut jakamisen käyttäjän {{name}} kanssa."
       toggle:
-        few: "<%= count %> näkymässä"
-        many: "<%= count %> näkymässä"
-        one: "<%= count %> näkymässä"
-        other: "<%= count %> näkymässä"
-        two: "<%= count %> näkymässä"
+        few: "{{count}} näkymässä"
+        many: "{{count}} näkymässä"
+        one: "{{count}} näkymässä"
+        other: "{{count}} näkymässä"
         zero: "Valitse näkymät"
     aspect_navigation:
       deselect_all: "Poista valinnat"
@@ -32,7 +31,7 @@ fi:
     failed_to_post_message: "Viestin lähetys epäonnistui!"
     getting_started:
       alright_ill_wait: "Okei, minä odotan."
-      hey: "Hei <%= name %>!"
+      hey: "Hei {{name}}!"
       no_tags: "Hei, et seuraa yhtäkään tagia!  Jatketaanko silti?"
       preparing_your_stream: "Yksilöllistä virtaasi valmistellaan..."
     infinite_scroll:
@@ -45,10 +44,29 @@ fi:
       public: "Julkinen - viestisi näkyvät kaikille mukaan lukien hakukoneet ja niiden tulokset"
     reshares:
       duplicate: "Olet jo uudelleenjakanut viesti!"
-    search_for: "Etsi nimellä <%= name %>"
+    search_for: "Etsi nimellä {{name}}"
     show_more: "näytä lisää"
+    stream:
+      likes:
+        few: "<%= count %> Likes"
+        many: "<%= count %> Likes"
+        one: "<%= count %> Like"
+        other: "<%= count %> Likes"
+        zero: "<%= count %> Likes"
+      more_comments:
+        few: "Show <%= count %> more comments"
+        many: "Show <%= count %> more comments"
+        one: "Show <%= count %> more comment"
+        other: "Show <%= count %> more comments"
+        zero: "Show <%= count %> more comments"
+      reshares:
+        few: "<%= count %> Reshares"
+        many: "<%= count %> Reshares"
+        one: "<%= count %> Reshare"
+        other: "<%= count %> Reshares"
+        zero: "<%= count %> Reshares"
     tags:
-      wasnt_that_interesting: "OK, #<%= tagName %> ei tainnut ollakaan kovin kiinnostava aihe..."
+      wasnt_that_interesting: "OK, #{{tagName}} ei tainnut ollakaan kovin kiinnostava aihe..."
     timeago:
       day: päivä
       days: "%d päivää"
@@ -65,6 +83,4 @@ fi:
       years: "%d vuotta"
     videos:
       unknown: "Tuntematon videomuoto"
-      watch: "Katso video <%= provider %> :ssa"
-    web_sockets:
-      disconnected: "Yhteys on suljettu; viestejä ei enää esitetä reaaliaikaisesti."
+      watch: "Katso video {{provider}} :ssa"

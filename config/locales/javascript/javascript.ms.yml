@@ -9,16 +9,15 @@ ms:
     aspect_dropdown:
       add_to_aspect: "Tambah kenalan"
       all_aspects: "Semua aspek"
-      error: "Tidak dapat berkongsi dengan <%= name %>.  Adakah anda mengabaikan mereka?"
+      error: "Tidak dapat berkongsi dengan {{name}}.  Adakah anda mengabaikan mereka?"
       select_aspects: "Pilih kenalan"
-      started_sharing_with: "Anda telah mula berkongsi dengan <%= name %>!"
-      stopped_sharing_with: "Anda telah berhenti berkongsi dengan <%= name %>."
+      started_sharing_with: "Anda telah mula berkongsi dengan {{name}}!"
+      stopped_sharing_with: "Anda telah berhenti berkongsi dengan {{name}}."
       toggle:
-        few: "Dalam <%= count %> aspek"
-        many: "Dalam <%= count %> aspek"
-        one: "Dalam <%= count %> aspek"
-        other: "dalam <%= count %> aspek"
-        two: "Dalam <%= count %> aspek"
+        few: "Dalam {{count}} aspek"
+        many: "Dalam {{count}} aspek"
+        one: "Dalam {{count}} aspek"
+        other: "dalam {{count}} aspek"
         zero: "Pilih aspek"
     aspect_navigation:
       deselect_all: "menyahpilih semua"
@@ -32,7 +31,7 @@ ms:
     failed_to_post_message: "Gagal untuk pos mesej!"
     getting_started:
       alright_ill_wait: "Baiklah, saya akan tunggu."
-      hey: "Hei, <%= name %>!"
+      hey: "Hei, {{name}}!"
       no_tags: "Hei, anda tidak mengikuti mana-mana tag! Teruskan juga?"
       preparing_your_stream: "Menyediakan strim peribadi anda..."
     infinite_scroll:
@@ -45,10 +44,29 @@ ms:
       public: "Awam - Pos anda akan dilihat oleh semua orang dan dijumpai oleh enjin carian"
     reshares:
       duplicate: "Yang baik, kan? Anda telah berkongsi semula pos itu!"
-    search_for: "Mencari <%= name %>"
+    search_for: "Mencari {{name}}"
     show_more: "tunjuk lagi"
+    stream:
+      likes:
+        few: "<%= count %> Likes"
+        many: "<%= count %> Likes"
+        one: "<%= count %> Like"
+        other: "<%= count %> Likes"
+        zero: "<%= count %> Likes"
+      more_comments:
+        few: "Show <%= count %> more comments"
+        many: "Show <%= count %> more comments"
+        one: "Show <%= count %> more comment"
+        other: "Show <%= count %> more comments"
+        zero: "Show <%= count %> more comments"
+      reshares:
+        few: "<%= count %> Reshares"
+        many: "<%= count %> Reshares"
+        one: "<%= count %> Reshare"
+        other: "<%= count %> Reshares"
+        zero: "<%= count %> Reshares"
     tags:
-      wasnt_that_interesting: "OK, saya mengandaikan # <%= tagName %> tidak semua yang menarik..."
+      wasnt_that_interesting: "OK, saya mengandaikan # {{tagName}} tidak semua yang menarik..."
     timeago:
       day: sehari
       days: "%d hari"
@@ -67,6 +85,4 @@ ms:
       years: "%d tahun"
     videos:
       unknown: "Jenis video tidak diketahui"
-      watch: "Tonton video ini di <%= provider %>"
-    web_sockets:
-      disconnected: "Websocket ditutup; pos tidak lagi akan distrim secara langsung."
+      watch: "Tonton video ini di {{provider}}"

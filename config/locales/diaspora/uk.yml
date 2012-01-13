@@ -799,7 +799,6 @@ uk:
     comment_stream:
       contacts_title: "Люди, чиї записи ви прокоментували"
       title: Прокоментовані
-    commented_on: обговорювані
     community_spotlight_stream: "У центрі уваги"
     followed_tag:
       add_a_tag: "Додати мітку"
@@ -817,11 +816,9 @@ uk:
     multi:
       contacts_title: "Люди у вашому Потоці"
       title: Потік
-    posted: опубліковані
     public:
       contacts_title: "Нещодавно написали"
       title: "Публічна Активність"
-    recently: "останні:"
     tags:
       contacts_title: "Люди, яким подобаються ця мітка"
       tag_prefill_text: "Щодо %{tag_name} я думаю, що..."

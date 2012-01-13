@@ -794,7 +794,6 @@ eo:
     aspects:
       title: "Viaj Aspektoj"
     aspects_stream: Aspektoj
-    commented_on: "komentis pri"
     community_spotlight_stream: "Komunuma Reflektoro"
     followed_tag:
       add_a_tag: "Aldoni etikedon"
@@ -809,11 +808,9 @@ eo:
     multi:
       contacts_title: "Homoj en via Torento"
       title: Torento
-    posted: afiŝis
     public:
       contacts_title: "ĵusaj afiŝintoj"
       title: "publika aktiveco"
-    recently: "freŝdate:"
     tags:
       contacts_title: "Homoj, al kiuj tiuj ĉi etikedoj plaĉas"
       tag_prefill_text: "La afero pri %{tag_name} estas... "

@@ -9,16 +9,15 @@ ko:
     aspect_dropdown:
       add_to_aspect: "애스펙에 넣기"
       all_aspects: "모든 에스팩"
-      error: "<%= name %>님과 공유를 시작할 수 없습니다. 혹시 무시하고 있습니까?"
+      error: "{{name}}님과 공유를 시작할 수 없습니다. 혹시 무시하고 있습니까?"
       select_aspects: "에스팩 선택"
-      started_sharing_with: "<%= name %>님과의 공유를 시작합니다!"
-      stopped_sharing_with: "<%= name %>님과의 공유를 멈췄습니다."
+      started_sharing_with: "{{name}}님과의 공유를 시작합니다!"
+      stopped_sharing_with: "{{name}}님과의 공유를 멈췄습니다."
       toggle:
-        few: "애스펙 <%= count %>개 안에 있습니다"
-        many: "애스펙 <%= count %>개 안에 있습니다"
+        few: "애스펙 {{count}}개 안에 있습니다"
+        many: "애스펙 {{count}}개 안에 있습니다"
         one: "애스펙 한 개 안에 있습니다"
-        other: "애스펙 <%= count %>개 안에 있습니다"
-        two: "<%= count %>개의 에스팩에서"
+        other: "애스펙 {{count}}개 안에 있습니다"
         zero: "애스펙에 넣기"
     aspect_navigation:
       deselect_all: "선택 해제"
@@ -31,7 +30,7 @@ ko:
     failed_to_like: "좋아요를 실패했습니다!"
     failed_to_post_message: "메시지 게시를 실패하였습니다!"
     getting_started:
-      hey: "<%= name %>님 안녕하세요?"
+      hey: "{{name}}님 안녕하세요?"
       no_tags: "태그를 팔로우하지 않았습니다. 그래도 계속하시겠습니까?"
       preparing_your_stream: "개인화 스트림 준비중···"
     infinite_scroll:
@@ -44,10 +43,29 @@ ko:
       public: "공개 - 내 게시물을 누구나 볼 수 있고 검색 엔진으로 찾을 수 있습니다"
     reshares:
       duplicate: "이미 재공유된 게시물입니다!"
-    search_for: "<%= name %> 검색"
+    search_for: "{{name}} 검색"
     show_more: "더 보기"
+    stream:
+      likes:
+        few: "<%= count %> Likes"
+        many: "<%= count %> Likes"
+        one: "<%= count %> Like"
+        other: "<%= count %> Likes"
+        zero: "<%= count %> Likes"
+      more_comments:
+        few: "Show <%= count %> more comments"
+        many: "Show <%= count %> more comments"
+        one: "Show <%= count %> more comment"
+        other: "Show <%= count %> more comments"
+        zero: "Show <%= count %> more comments"
+      reshares:
+        few: "<%= count %> Reshares"
+        many: "<%= count %> Reshares"
+        one: "<%= count %> Reshare"
+        other: "<%= count %> Reshares"
+        zero: "<%= count %> Reshares"
     tags:
-      wasnt_that_interesting: "처리했습니다. #<%= tagName %> 태그는 흥미롭지 않았군요?"
+      wasnt_that_interesting: "처리했습니다. #{{tagName}} 태그는 흥미롭지 않았군요?"
     timeago:
       day: 하루
       days: "%d일"
@@ -65,6 +83,4 @@ ko:
       years: "%d년"
     videos:
       unknown: "알 수 없는 동영상 형식"
-      watch: "동영상을 <%= provider %>에서 보기"
-    web_sockets:
-      disconnected: "웹소켓이 닫혔습니다. 앞으로는 게시물이 실시간으로 제공되지 않습니다."
+      watch: "동영상을 {{provider}}에서 보기"

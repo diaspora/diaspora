@@ -40,7 +40,7 @@ group :heroku do
   gem 'pg'
 end
 
-gem 'settingslogic', '2.0.6'
+gem 'settingslogic', :git => 'https://github.com/binarylogic/settingslogic.git'
 # database
 
 gem 'activerecord-import'

@@ -1,7 +1,7 @@
 describe("app.views.Publisher", function() {
   beforeEach(function() {
     // should be jasmine helper
-    window.current_user = app.user({name: "alice", avatar : {small : "http://avatar.com/photo.jpg"}});
+    loginAs({name: "alice", avatar : {small : "http://avatar.com/photo.jpg"}});
 
     spec.loadFixture("aspects_index");
     this.view = new app.views.Publisher();

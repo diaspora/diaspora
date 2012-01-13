@@ -805,7 +805,6 @@ ko:
     comment_stream:
       contacts_title: "내가 댓글 남긴 게시물을 공유한 사람들"
       title: "댓글 스트림"
-    commented_on: "댓글 달린 순"
     community_spotlight_stream: "커뮤니티 스포트라이트"
     followed_tag:
       add_a_tag: "태그 추가"
@@ -822,11 +821,9 @@ ko:
     multi:
       contacts_title: "내 스트림에 있는 사람들"
       title: 스트림
-    posted: "올린 순"
     public:
       contacts_title: "최근 게시자"
       title: "공개 활동"
-    recently: 최근에
     tags:
       tag_prefill_text: "%{tag_name} 태그를 달고 공유하세요!"
       title: "태그: %{tags}"

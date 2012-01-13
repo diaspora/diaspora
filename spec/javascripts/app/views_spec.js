@@ -1,15 +1,4 @@
 describe("app.views.Base", function(){
-  function stubView(text){
-    var stubClass = Backbone.View.extend({
-      render : function(){
-        $(this.el).html(text)
-      return this
-      }
-    })
-
-    return new stubClass
-  }
-
   describe("#render", function(){
     beforeEach(function(){
       var staticTemplateClass = app.views.Base.extend({ template_name : "#static-text-template" })

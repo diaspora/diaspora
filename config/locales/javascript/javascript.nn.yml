@@ -9,16 +9,15 @@ nn:
     aspect_dropdown:
       add_to_aspect: "Legg til kontakt"
       all_aspects: "Alle aspekta"
-      error: "Klarte ikkje å byrja å dela med <%= name %>.  Ignorerer du dei?"
+      error: "Klarte ikkje å byrja å dela med {{name}}.  Ignorerer du dei?"
       select_aspects: "Vel aspekt"
-      started_sharing_with: "Du har byrja å dela med <%= name %>."
-      stopped_sharing_with: "Du deler ikkje lenger med <%= name %>."
+      started_sharing_with: "Du har byrja å dela med {{name}}."
+      stopped_sharing_with: "Du deler ikkje lenger med {{name}}."
       toggle:
-        few: "I <%= count %> aspekt"
-        many: "I <%= count %> aspekt"
-        one: "I <%= count %> aspekt"
-        other: "I <%= count %> aspekt"
-        two: "I <%= count %> aspekt"
+        few: "I {{count}} aspekt"
+        many: "I {{count}} aspekt"
+        one: "I {{count}} aspekt"
+        other: "I {{count}} aspekt"
         zero: "Vel aspekt"
     aspect_navigation:
       deselect_all: "Vel vekk alle"
@@ -32,7 +31,7 @@ nn:
     failed_to_post_message: "Klarte ikkje å senda meldinga."
     getting_started:
       alright_ill_wait: "Greitt, eg ventar."
-      hey: "Hei, <%= name %>!"
+      hey: "Hei, {{name}}!"
       no_tags: "Du har ikkje følgt nokon etikett. Vil du likevel halda fram?"
       preparing_your_stream: "Lagar den tilpassa straumen din …"
     infinite_scroll:
@@ -45,10 +44,29 @@ nn:
       public: "Offentleg - alle kan sjå meldinga di og ho kan bli funnen av søkjemotorar"
     reshares:
       duplicate: "Så bra, altså? Men du har allereie delt meldinga :-)"
-    search_for: "Leit etter <%= name %>"
+    search_for: "Leit etter {{name}}"
     show_more: "syn meir"
+    stream:
+      likes:
+        few: "<%= count %> Likes"
+        many: "<%= count %> Likes"
+        one: "<%= count %> Like"
+        other: "<%= count %> Likes"
+        zero: "<%= count %> Likes"
+      more_comments:
+        few: "Show <%= count %> more comments"
+        many: "Show <%= count %> more comments"
+        one: "Show <%= count %> more comment"
+        other: "Show <%= count %> more comments"
+        zero: "Show <%= count %> more comments"
+      reshares:
+        few: "<%= count %> Reshares"
+        many: "<%= count %> Reshares"
+        one: "<%= count %> Reshare"
+        other: "<%= count %> Reshares"
+        zero: "<%= count %> Reshares"
     tags:
-      wasnt_that_interesting: "Greitt, #<%= tagName %> var vel kanskje ikkje så interessant …"
+      wasnt_that_interesting: "Greitt, #{{tagName}} var vel kanskje ikkje så interessant …"
     timeago:
       day: "om dagen"
       days: "%d dagar"
@@ -65,6 +83,4 @@ nn:
       years: "%d år"
     videos:
       unknown: "Ukjend videotype"
-      watch: "Sjå denne videoen hos <%= provider %>"
-    web_sockets:
-      disconnected: "Nettendepunktet er lukka - meldingane vil ikkje lenger kunna strøymast direkte."
+      watch: "Sjå denne videoen hos {{provider}}"

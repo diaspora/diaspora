@@ -11,14 +11,13 @@ tr:
       all_aspects: "Tüm yönler"
       error: "{{name}} ile paylaşım başlatılamadı. Onu yasaklamış olmayasınız?"
       select_aspects: "Yönleri seç"
-      started_sharing_with: "<%= name %> sizinle paylaşıma başladı!"
-      stopped_sharing_with: "<%= name %> sizinle paylaşımı durdurdu."
+      started_sharing_with: "{{name}} sizinle paylaşıma başladı!"
+      stopped_sharing_with: "{{name}} sizinle paylaşımı durdurdu."
       toggle:
-        few: "<%= count %> yön"
-        many: "<%= count %> yön"
-        one: "<%= count %> yön"
-        other: "<%= count %> yön"
-        two: "<%= count %> yön"
+        few: "{{count}} yön"
+        many: "{{count}} yön"
+        one: "{{count}} yön"
+        other: "{{count}} yön"
         zero: "Yön seç"
     aspect_navigation:
       deselect_all: "Tümünü kaldır"
@@ -32,7 +31,7 @@ tr:
     failed_to_post_message: "Gönderi başarısız oldu!"
     getting_started:
       alright_ill_wait: "Tamam, ben bekleyeceğim."
-      hey: "Merhaba, <%= name %>!"
+      hey: "Merhaba, {{name}}!"
       no_tags: "Hey, hiç etiket takip etmiyorsunuz! Gerçekten devam etmek istiyor musun?"
       preparing_your_stream: "Kişiselleştirilmiş akışınız hazırlanıyor..."
     infinite_scroll:
@@ -45,10 +44,29 @@ tr:
       public: "Genel - gönderi herkes tarafından görünür ve arama motorları tarafından bulunur olacak"
     reshares:
       duplicate: "Bu iyi, değil mi? Zaten bu gönderiyi tekrar paylaştın!"
-    search_for: "<%= name %> Ara"
+    search_for: "{{name}} Ara"
     show_more: "daha fazlasını göster"
+    stream:
+      likes:
+        few: "<%= count %> Likes"
+        many: "<%= count %> Likes"
+        one: "<%= count %> Like"
+        other: "<%= count %> Likes"
+        zero: "<%= count %> Likes"
+      more_comments:
+        few: "Show <%= count %> more comments"
+        many: "Show <%= count %> more comments"
+        one: "Show <%= count %> more comment"
+        other: "Show <%= count %> more comments"
+        zero: "Show <%= count %> more comments"
+      reshares:
+        few: "<%= count %> Reshares"
+        many: "<%= count %> Reshares"
+        one: "<%= count %> Reshare"
+        other: "<%= count %> Reshares"
+        zero: "<%= count %> Reshares"
     tags:
-      wasnt_that_interesting: "Tamam, benim #<%= tagName %> o kadar da ilginç değil..."
+      wasnt_that_interesting: "Tamam, benim #{{tagName}} o kadar da ilginç değil..."
     timeago:
       day: "1 gün"
       days: "%d gün"
@@ -67,6 +85,4 @@ tr:
       years: "%d yıl"
     videos:
       unknown: "Bilinmeyen video tipi"
-      watch: "Bu videoyu <%= provider %>'da izle"
-    web_sockets:
-      disconnected: "Websocket kapalı; gönderiler bundan sonra canlı akış olacak."
+      watch: "Bu videoyu {{provider}}'da izle"

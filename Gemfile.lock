@@ -40,6 +40,12 @@ GIT
   specs:
     http_accept_language (1.0.1)
 
+GIT
+  remote: https://github.com/binarylogic/settingslogic.git
+  revision: 4884d455bf18d92723cb8190cfd2dbf87f3aafd5
+  specs:
+    settingslogic (2.0.8)
+
 GEM
   remote: http://rubygems.org/
   specs:
@@ -360,7 +366,6 @@ GEM
       ffi (~> 1.0.9)
       multi_json (~> 1.0.4)
       rubyzip
-    settingslogic (2.0.6)
     simple_oauth (0.1.5)
     sinatra (1.2.8)
       rack (~> 1.1)
@@ -479,7 +484,7 @@ DEPENDENCIES
   ruby-oembed
   sass
   selenium-webdriver (~> 2.16.0)
-  settingslogic (= 2.0.6)
+  settingslogic!
   sqlite3
   thin (~> 1.3.1)
   timecop

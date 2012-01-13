@@ -805,7 +805,6 @@ pl:
     comment_stream:
       contacts_title: "Osoby których wpisy zostały skomentowane przez Ciebie"
       title: "Skomentowane wpisy"
-    commented_on: komentowane
     community_spotlight_stream: "W centrum uwagi społeczności"
     followed_tag:
       add_a_tag: "Dodaj znacznik"
@@ -823,11 +822,9 @@ pl:
     multi:
       contacts_title: "Osoby w Twoim Strumieniu"
       title: Strumień
-    posted: opublikowane
     public:
       contacts_title: "Ostatnio dodawali"
       title: "Działalność publiczna"
-    recently: "ostatnio:"
     tags:
       contacts_title: "Osoby, które wykopały te tagi"
       tag_prefill_text: "Rzecz o %{tag_link} jest..."

@@ -21,7 +21,7 @@ factory = {
     return _.extend(defaultAttrs, overrides)
   },
 
-  author : function(overrides){
+  userAttrs : function(overrides){
     var id = this.id.next()
       var defaultAttrs = {
         "name":"Awesome User" + id,
@@ -60,3 +60,5 @@ factory = {
     return new app.models.Post(_.extend(defaultAttrs, overrides))
   }
 }
+
+factory.author = factory.userAttrs

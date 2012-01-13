@@ -9,16 +9,15 @@ pl:
     aspect_dropdown:
       add_to_aspect: "Dodaj kontakt"
       all_aspects: "Wszystkie aspekty"
-      error: "Nie można zacząć dzielić się z <%= name %>. Może ich ignorujesz?"
+      error: "Nie można zacząć dzielić się z {{name}}. Może ich ignorujesz?"
       select_aspects: "Wybierz aspekty"
-      started_sharing_with: "Od teraz dzielisz się z <%= name %>!"
-      stopped_sharing_with: "Nie dzielisz się już z <%= name %>."
+      started_sharing_with: "Od teraz dzielisz się z {{name}}!"
+      stopped_sharing_with: "Nie dzielisz się już z {{name}}."
       toggle:
-        few: "W <%= count %> aspektach"
-        many: "W <%= count %> aspektach"
-        one: "W <%= count %> aspekcie"
-        other: "W <%= count %> aspektach"
-        two: "W <%= count %> aspektach"
+        few: "W {{count}} aspektach"
+        many: "W {{count}} aspektach"
+        one: "W {{count}} aspekcie"
+        other: "W {{count}} aspektach"
         zero: "Wybierz aspekty"
     aspect_navigation:
       deselect_all: "Odznacz wszystkie"
@@ -32,7 +31,7 @@ pl:
     failed_to_post_message: "Nie można wysłać wiadomości!"
     getting_started:
       alright_ill_wait: "Dobrze, poczekam."
-      hey: "Hej, <%= name %>!"
+      hey: "Hej, {{name}}!"
       no_tags: "Hej, nie obserwujesz żadnych znaczników! Kontynuować mimo to?"
       preparing_your_stream: "Przygotowanie spersonalizowanego strumienia..."
     infinite_scroll:
@@ -45,10 +44,29 @@ pl:
       public: "Publiczny - wpis będzie widoczny dla wszystkich i można go znaleźć przez wyszukiwarki"
     reshares:
       duplicate: "Już przekaza@{m:łeś|f:łaś|n:no} dalej ten wpis!"
-    search_for: "Znajdź: <%= name %>"
+    search_for: "Znajdź: {{name}}"
     show_more: "wyświetl więcej"
+    stream:
+      likes:
+        few: "<%= count %> Likes"
+        many: "<%= count %> Likes"
+        one: "<%= count %> Like"
+        other: "<%= count %> Likes"
+        zero: "<%= count %> Likes"
+      more_comments:
+        few: "Show <%= count %> more comments"
+        many: "Show <%= count %> more comments"
+        one: "Show <%= count %> more comment"
+        other: "Show <%= count %> more comments"
+        zero: "Show <%= count %> more comments"
+      reshares:
+        few: "<%= count %> Reshares"
+        many: "<%= count %> Reshares"
+        one: "<%= count %> Reshare"
+        other: "<%= count %> Reshares"
+        zero: "<%= count %> Reshares"
     tags:
-      wasnt_that_interesting: "OK, przypuszczam, że #<%= tagName %> nie był, aż tak interesujący..."
+      wasnt_that_interesting: "OK, przypuszczam, że #{{tagName}} nie był, aż tak interesujący..."
     timeago:
       day: dzień
       days: "%d dni"
@@ -67,6 +85,4 @@ pl:
       years: "%d lat"
     videos:
       unknown: "Nieznany typ wideo"
-      watch: "Zobacz ten film na <%= provider %>"
-    web_sockets:
-      disconnected: "Kanał komunikacji jest zamknięty; wpisy nie będą publikowane online."
+      watch: "Zobacz ten film na {{provider}}"
