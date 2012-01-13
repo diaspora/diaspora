@@ -124,15 +124,4 @@ describe AspectMembershipsController do
       end
     end
   end
-
-  describe "#update" do
-    it 'calls the move_contact method' do
-      @controller.stub!(:current_user).and_return(alice)
-      alice.should_receive(:move_contact)
-      put :update, :id => 123,
-                   :person_id => alice.person.id,
-                   :aspect_id => @aspect0.id,
-                   :to => @aspect1.id
-    end
-  end
 end
