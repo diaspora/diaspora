@@ -5,15 +5,4 @@
 require 'spec_helper'
 
 describe StreamHelper do
-  before do
-    @post = Factory(:status_message)
-  end
-
-  describe '#next_page_path' do
-    it 'works for apps page' do
-      stub!(:controller).and_return(AppsController.new)
-      @posts = [Factory(:activity_streams_photo)]
-      next_page_path.should include '/apps/1'
-    end
-  end
 end
