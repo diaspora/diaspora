@@ -11,7 +11,7 @@ module PostsHelper
     else
       if post.text.present?
         truncate(post.text(:plain_text => true), :length => 20)
-      elsif post.photos.present?
+      elsif post.respond_to?(:photos) && post.photos.present?
         I18n.t "posts.show.photos_by", :count => post.photos.size, :author => post.author.name
       end
     end
