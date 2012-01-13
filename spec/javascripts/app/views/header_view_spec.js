@@ -1,23 +1,20 @@
 describe("app.views.Header", function() {
   beforeEach(function() {
-    // should be jasmine helper
-    window.current_user = app.user({name: "alice", avatar : {small : "http://avatar.com/photo.jpg"}});
+    this.userAttrs = {name: "alice", avatar : {small : "http://avatar.com/photo.jpg"}}
+
+    loginAs(this.userAttrs);
 
     spec.loadFixture("aspects_index");
     this.view = new app.views.Header().render();
   });
-
-  describe("render", function(){
-    context("notifications badge", function(){
-      it("displays a count when the current user has a notification", function(){
-        window.current_user = _.extend(window.current_user, {notifications_count : 1})
+describe("render", function(){ context("notifications badge", function(){ it("displays a count when the current user has a notification", function(){ loginAs(_.extend(this.userAttrs, {notifications_count : 1}))
         this.view.render();
         expect(this.view.$("#notification_badge .badge_count").hasClass('hidden')).toBe(false);
         expect(this.view.$("#notification_badge .badge_count").text()).toContain("1");
       })
 
       it("does not display a count when the current user has a notification", function(){
-        window.current_user = _.extend(window.current_user, {notifications_count : 0})
+        loginAs(_.extend(this.userAttrs, {notifications_count : 0}))
         this.view.render();
         expect(this.view.$("#notification_badge .badge_count").hasClass('hidden')).toBe(true);
       })
@@ -25,14 +22,14 @@ describe("app.views.Header", function() {
 
     context("messages badge", function(){
       it("displays a count when the current user has a notification", function(){
-        window.current_user = _.extend(window.current_user, {unread_messages_count : 1})
+        loginAs(_.extend(this.userAttrs, {unread_messages_count : 1}))
         this.view.render();
         expect(this.view.$("#message_inbox_badge .badge_count").hasClass('hidden')).toBe(false);
         expect(this.view.$("#message_inbox_badge .badge_count").text()).toContain("1");
       })
 
       it("does not display a count when the current user has a notification", function(){
-        window.current_user = _.extend(window.current_user, {unread_messages_count : 0})
+        loginAs(_.extend(this.userAttrs, {unread_messages_count : 0}))
         this.view.render();
         expect(this.view.$("#message_inbox_badge .badge_count").hasClass('hidden')).toBe(true);
       })
@@ -40,13 +37,13 @@ describe("app.views.Header", function() {
 
     context("admin link", function(){
       it("displays if the current user is an admin", function(){
-        window.current_user = _.extend(window.current_user, {admin : true})
+        loginAs(_.extend(this.userAttrs, {admin : true}))
         this.view.render();
         expect(this.view.$("#user_menu").html()).toContain("/admins");
       })
 
       it("does not display if the current user is not an admin", function(){
-        window.current_user = _.extend(window.current_user, {admin : false})
+        loginAs(_.extend(this.userAttrs, {admin : false}))
         this.view.render();
         expect(this.view.$("#user_menu").html()).not.toContain("/admins");
       })

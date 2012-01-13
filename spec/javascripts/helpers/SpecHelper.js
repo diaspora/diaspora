@@ -40,6 +40,25 @@ afterEach(function() {
 var context = describe;
 var spec = {};
 
+window.stubView = function stubView(text){
+  var stubClass = Backbone.View.extend({
+    render : function(){
+      $(this.el).html(text);
+      return this
+    }
+  })
+
+  return new stubClass
+}
+
+window.loginAs = function loginAs(attrs){
+  return window.current_user = app.user({current_user: factory.userAttrs(attrs)})
+}
+
+window.logout = function logout(){
+  return window.current_user = app.user({current_user: null})
+}
+
 spec.clearLiveEventBindings = function() {
   var events = jQuery.data(document, "events");
   for (prop in events) {
@@ -62,6 +81,7 @@ spec.loadFixture = function(fixtureName) {
   // call loadFixture() more than once
   spec.loadFixtureCount++;
 };
+
 
 // Returns fixture markup as a string. Useful for fixtures that
 // represent the response text of ajax requests.

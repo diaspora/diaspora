@@ -1,5 +1,5 @@
 <div class="right controls">
-  <% if(author.id != current_user.id) { %>
+  <% if(author.id != (!!current_user && current_user.id)) { %>
     <a href="#" rel=nofollow>
       <img src="/images/icons/ignoreuser.png" alt="Ignoreuser" class="block_user control_icon" title= "<%= Diaspora.I18n.t('ignore') %>" />
       <img src="/images/deletelabel.png" class="delete control_icon hide_post" title="<%= Diaspora.I18n.t('stream.hide') %>" />

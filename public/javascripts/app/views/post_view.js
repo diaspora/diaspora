@@ -29,9 +29,18 @@ app.views.Post = app.views.StreamObject.extend({
     //subviews
     this.commentStreamView = new app.views.CommentStream({ model : this.model});
     this.likesInfoView = new app.views.LikesInfo({ model : this.model});
-    this.feedbackView = window.app.user().current_user && new app.views.Feedback({model : this.model});
 
     return this;
+  },
+
+  feedbackView : function(){
+    if(!window.app.user().current_user ) { return null }
+    var feedbackViewClass = this.resharedContent() ? app.views.ReshareFeedback : app.views.Feedback 
+    return new feedbackViewClass({model : this.model});
+  },
+
+  resharedContent : function(){
+    return this.model.get('root')
   },
 
   postContentView: function(){
