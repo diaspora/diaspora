@@ -614,6 +614,14 @@ en:
       destroy: "Delete"
       permalink: "permalink"
       not_found: "Sorry, we couldn't find that post."
+      photos_by:
+        zero: "No photos by %{author}"
+        one: "One photo by %{author}"
+        two: "Two photos by %{author}"
+        few: "%{count} photos by %{author}"
+        many: "%{count} photos by %{author}"
+        other: "%{count} photos by %{author}"
+      reshare_by: "Reshare by %{author}"
 
   share_visibilites:
     update:

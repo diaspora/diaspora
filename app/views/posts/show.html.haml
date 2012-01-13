@@ -2,6 +2,9 @@
 -#   licensed under the Affero General Public License version 3 or later.  See
 -#   the COPYRIGHT file.
 
+- content_for :page_title do
+  = post_page_title @post
+
 .span-20.append-2.prepend-2.last
 
   #main_stream.stream.status_message_show
