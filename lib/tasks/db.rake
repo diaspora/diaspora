@@ -62,6 +62,21 @@ namespace :db do
     puts "everything should be peachy"
   end
 
+  desc 'Create correctly sized thumbnails for all photos in the database'
+  task :fix_broken_thumbnails do
+    puts "correcting the thumnail size for all photos in database"
+    require File.join(File.dirname(__FILE__), '..', '..', 'config', 'environment')
+    pub_folder = File.join(File.dirname(__FILE__), '..', '..', 'public' )
+    Photo.all.each do |photo|
+      if photo.processed_image && photo.processed_image.url
+        if FileTest.exists?( File.join( pub_folder, photo.processed_image.url ) )
+          photo.processed_image.recreate_versions!
+        end
+      end
+    end
+    puts "thumbnail sizes fixed"
+  end
+
   task :move_private_key do
     require File.join(File.dirname(__FILE__), '..', '..', 'config', 'environment')
     User.all.each do |user|
