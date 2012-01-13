@@ -8,6 +8,7 @@ describe AppConfig do
 
   after do
     AppConfig.reload!
+    AppConfig.setup!
   end
 
   describe ".load!" do
@@ -93,11 +94,11 @@ describe AppConfig do
   
   describe '.setup!' do
     it "calls normalize_pod_url" do
-      AppConfig.should_receive(:normalize_pod_url)
+      AppConfig.should_receive(:normalize_pod_url).twice
       AppConfig.setup!
     end
     it "calls normalize_admins" do
-      AppConfig.should_receive(:normalize_admins)
+      AppConfig.should_receive(:normalize_admins).twice
       AppConfig.setup!
     end
   end
@@ -200,7 +201,7 @@ describe AppConfig do
           AppConfig[:pod_uri].host.should == "joindiaspora.com"
         end
         it "calls normalize_pod_url" do
-          AppConfig.should_receive(:normalize_pod_url)
+          AppConfig.should_receive(:normalize_pod_url).twice
           AppConfig[:pod_url] = "http://joindiaspora.com"
         end
       end
@@ -211,7 +212,7 @@ describe AppConfig do
           AppConfig[:pod_uri].host.should == "joindiaspora.com"
         end
         it "calls normalize_pod_url" do
-          AppConfig.should_receive(:normalize_pod_url)
+          AppConfig.should_receive(:normalize_pod_url).twice
           AppConfig['pod_url'] = "http://joindiaspora.com"
         end
       end
