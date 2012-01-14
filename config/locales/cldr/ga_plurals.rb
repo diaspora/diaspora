@@ -1,1 +1,0 @@
-{ :ga => { :i18n => {:plural => { :keys => [:one, :two, :few, :many, :other], :rule => lambda { |n| n == 1 ? :one : n == 2 ? :two : [3, 4, 5, 6].include?(n) ? :few : [7, 8, 9, 10].include?(n) ? :many : :other } } } } }

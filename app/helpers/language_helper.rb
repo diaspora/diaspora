@@ -6,4 +6,26 @@ module LanguageHelper
     end
     options.sort_by { |o| o[0] }
   end
+
+  def get_javascript_strings_for(language)
+    defaults = I18n.t('javascripts', :locale => DEFAULT_LANGUAGE)
+
+    if language != DEFAULT_LANGUAGE
+      translations = I18n.t('javascripts', :locale => language)
+      defaults.deep_merge!(translations)
+    end
+    
+    defaults['pluralization_rule'] = I18n.t 'i18n.plural.js_rule', :locale => language
+    
+    defaults
+  end
+
+  def direction_for(string)
+    return '' unless string.respond_to?(:cleaned_is_rtl?)
+    string.cleaned_is_rtl? ? 'rtl' : 'ltr'
+  end
+
+  def rtl?
+    @rtl ||= RTL_LANGUAGES.include? I18n.locale
+  end
 end

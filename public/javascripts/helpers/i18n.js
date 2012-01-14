@@ -9,6 +9,7 @@
    loadLocale: function(locale, language) {
      this.locale = locale;
      this.language = language;
+     eval("this.pluralizationKey = "+this.t('pluralization_rule'));
    },
 
    t: function(item, views) {
@@ -27,13 +28,7 @@
     }
 
     if(views && typeof views.count !== "undefined") {
-      if(views.count == 0) { nextNamespace = "zero"; } else
-      if(views.count == 1) { nextNamespace = "one";  } else
-      if(views.count <= 3) { nextNamespace = "few";  } else
-      if(views.count > 3)  { nextNamespace = "many"; }
-      else { nextNamespace = "other"; }
-
-      translatedMessage = translatedMessage[nextNamespace];
+      translatedMessage = translatedMessage[this.pluralizationKey(views.count)];
     }
 
     return _.template(translatedMessage, views || {});
