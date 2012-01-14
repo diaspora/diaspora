@@ -84,5 +84,4 @@ class Comment < ActiveRecord::Base
   def parent= parent
     self.post = parent
   end
-
 end

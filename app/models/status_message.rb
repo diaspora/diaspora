@@ -40,10 +40,6 @@ class StatusMessage < Post
     joins(:likes).where(:likes => {:author_id => person.id})
   }
 
-  def photos_count
-    self.photos.size
-  end
-
   def self.guids_for_author(person)
     Post.connection.select_values(Post.where(:author_id => person.id).select('posts.guid').to_sql)
   end
@@ -177,7 +173,7 @@ class StatusMessage < Post
   end
 
   def update_photos_counter
-    StatusMessage.where(:id => self.id).
+    self.class.where(:id => self.id).
       update_all(:photos_count => self.photos.count)
   end
 
@@ -192,6 +188,5 @@ class StatusMessage < Post
   def self.tag_stream(tag_ids)
     joins(:tags).where(:tags => {:id => tag_ids})
   end
-
 end
 
