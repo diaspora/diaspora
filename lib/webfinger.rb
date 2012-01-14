@@ -9,6 +9,10 @@ class Webfinger
     Rails.logger.info("event=webfinger status=initialized target=#{account}")
   end
 
+  def self.in_background(account, opts={})
+    Resque.enqueue(Jobs::FetchWebfinger, account)
+  end
+
   def fetch
     begin
       person = Person.by_account_identifier(@account)

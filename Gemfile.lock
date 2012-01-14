@@ -16,6 +16,12 @@ GIT
       rails (>= 3.0.0)
 
 GIT
+  remote: git://github.com/binarylogic/settingslogic.git
+  revision: 4884d455bf18d92723cb8190cfd2dbf87f3aafd5
+  specs:
+    settingslogic (2.0.8)
+
+GIT
   remote: git://github.com/diaspora/acts-as-taggable-on.git
   revision: c3592fe1a906f6ff1cd12766c5cf1152c51eec40
   specs:
@@ -237,6 +243,7 @@ GEM
       gem_plugin (>= 0.2.3)
     multi_json (1.0.4)
     multipart-post (1.1.4)
+    mysql (2.8.1)
     mysql2 (0.2.17)
     net-scp (1.0.4)
       net-ssh (>= 1.99.1)
@@ -360,7 +367,6 @@ GEM
       ffi (~> 1.0.9)
       multi_json (~> 1.0.4)
       rubyzip
-    settingslogic (2.0.6)
     simple_oauth (0.1.5)
     sinatra (1.2.8)
       rack (~> 1.1)
@@ -450,6 +456,7 @@ DEPENDENCIES
   mobile-fu
   mock_redis
   mongrel
+  mysql
   mysql2 (= 0.2.17)
   newrelic_rpm
   nokogiri (~> 1.5.0)
@@ -479,7 +486,7 @@ DEPENDENCIES
   ruby-oembed
   sass
   selenium-webdriver (~> 2.16.0)
-  settingslogic (= 2.0.6)
+  settingslogic!
   sqlite3
   thin (~> 1.3.1)
   timecop

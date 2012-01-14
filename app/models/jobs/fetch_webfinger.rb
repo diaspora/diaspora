@@ -2,7 +2,12 @@
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
-require 'spec_helper'
+module Jobs
+  class FetchWebfinger < Base
+    @queue = :socket_webfinger
 
-describe StreamHelper do
+    def self.perform(account)
+      Webfinger.new(account).fetch
+    end
+  end
 end

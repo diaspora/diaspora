@@ -708,34 +708,6 @@ describe User do
         alice.add_contact_to_aspect(@contact, @original_aspect).should be_true
       end
     end
-
-    context 'moving and removing posts' do
-      describe 'User#move_contact' do
-        it 'should be able to move a contact from one of users existing aspects to another' do
-          alice.move_contact(bob.person, @new_aspect, @original_aspect)
-
-          @original_aspect.contacts(true).include?(@contact).should be_false
-          @new_aspect.contacts(true).include?(@contact).should be_true
-        end
-
-        it "should not move a person who is not a contact" do
-          non_contact = eve.person
-
-          expect {
-            alice.move_contact(non_contact, @new_aspect, @original_aspect)
-          }.to raise_error
-
-          @original_aspect.contacts.where(:person_id => non_contact.id).should be_empty
-          @new_aspect.contacts.where(:person_id => non_contact.id).should be_empty
-        end
-
-        it 'does not try to delete if add person did not go through' do
-          alice.should_receive(:add_contact_to_aspect).and_return(false)
-          alice.should_not_receive(:delete_person_from_aspect)
-          alice.move_contact(bob.person, @new_aspect, @original_aspect)
-        end
-      end
-    end
   end
 
   context 'likes' do
@@ -1000,7 +972,7 @@ describe User do
       user.should_not_receive(:generate_reset_password_token)
       user.send_reset_password_instructions
     end
-    
+
     it "queues up a job to send the reset password instructions" do
       user = Factory :user
       Resque.should_receive(:enqueue).with(Jobs::ResetPassword, user.id)

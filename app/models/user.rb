@@ -172,17 +172,6 @@ class User < ActiveRecord::Base
   end
 
   ######### Aspects ######################
-
-  def move_contact(person, to_aspect, from_aspect)
-    return true if to_aspect == from_aspect
-    contact = contact_for(person)
-
-    add_contact_to_aspect(contact, to_aspect)
-
-    membership = contact ? AspectMembership.where(:contact_id => contact.id, :aspect_id => from_aspect.id).first : nil
-    return(membership && membership.destroy)
-  end
-
   def add_contact_to_aspect(contact, aspect)
     return true if AspectMembership.exists?(:contact_id => contact.id, :aspect_id => aspect.id)
     contact.aspect_memberships.create!(:aspect => aspect)

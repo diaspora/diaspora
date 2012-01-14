@@ -99,6 +99,7 @@ Feature: posting from the main page
       Then I should see an uploaded image within the photo drop zone
       And the publisher should be expanded
 
+    @wip
     Scenario: hide a contact's post
       Given I expand the publisher
       When I fill in "status_message_fake_text" with "Here is a post for you to hide"
@@ -114,8 +115,10 @@ Feature: posting from the main page
       And I click to delete the first post
       And I wait for the ajax to finish
       And I go to "bob@bob.bob"'s page
+      And I wait for the ajax to finish
       Then I should not see "Here is a post for you to hide"
       When I am on the aspects page
+      And I wait for the ajax to finish
       Then I should not see "Here is a post for you to hide"
 
     Scenario: delete one of my posts

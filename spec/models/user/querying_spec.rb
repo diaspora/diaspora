@@ -182,7 +182,7 @@ describe User do
       time = Time.now
       Time.stub(:now).and_return(time)
       alice.send(:prep_opts, Post, {}).should == {
-        :type => Stream::Base::TYPES_OF_POST_IN_STREAM, 
+        :type => Stream::Base::TYPES_OF_POST_IN_STREAM,
         :order => 'created_at DESC',
         :limit => 15,
         :hidden => false,
@@ -198,9 +198,9 @@ describe User do
       Factory(:status_message, :public => true)
       bob.visible_shareables(Post).count.should == 0
     end
+
     context 'with many posts' do
       before do
-        bob.move_contact(eve.person, @bobs_aspect, bob.aspects.create(:name => 'new aspect'))
         time_interval = 1000
         time_past = 1000000
         (1..25).each do |n|
@@ -229,7 +229,7 @@ describe User do
         # It should respect the order option
         opts = {:order => 'updated_at DESC'}
         bob.visible_shareables(Post, opts).first.updated_at.should > bob.visible_shareables(Post, opts).last.updated_at
-        
+
         # It should respect the limit option
         opts = {:limit => 40}
         bob.visible_shareables(Post, opts).length.should == 40

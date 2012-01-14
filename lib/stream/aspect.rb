@@ -65,16 +65,6 @@ class Stream::Aspect < Stream::Base
     end
   end
 
-  # Only ajax in the stream if all aspects are present.
-  # In this case, we know we're on the first page of the stream,
-  # as the default view for aspects/index is showing posts from
-  # all a user's aspects.
-  #
-  # @return [Boolean] see #for_all_aspects?
-  def ajax_stream?
-    !AppConfig[:redis_cache] && for_all_aspects?
-  end
-
   # The title that will display at the top of the stream's
   # publisher box.
   #

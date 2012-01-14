@@ -75,12 +75,6 @@ class Stream::Base
     Rails.application.routes.url_helpers.contacts_path
   end
 
-  #helpers
-  # @return [Boolean]
-  def ajax_stream?
-    false
-  end
-
   # @return [Boolean]
   def for_all_aspects?
     true
