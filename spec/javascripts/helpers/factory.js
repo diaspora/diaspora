@@ -53,8 +53,7 @@ factory = {
       "root" : null,
       "post_type" : "StatusMessage",
       "likes_count" : 0,
-      "comments_count" : 0,
-      "photos_count" : 0
+      "comments_count" : 0
     }
 
     return new app.models.Post(_.extend(defaultAttrs, overrides))

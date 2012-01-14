@@ -244,22 +244,4 @@ describe Photo do
       }.should_not change(StatusMessage, :count)
     end
   end
-
-  describe 'photo cache counter' do
-    it "works" do
-      @s = @user.build_post(:status_message, :text => "sup?", :to => @aspect.id)
-      @s.save!
-      @s.reload.photos_count.should == 0
-      @s.photos << @photo
-      @s.save!
-      @s.reload.photos_count.should == 1
-      @s.photos << @photo2
-      @s.save!
-      @s.reload.photos_count.should == 2
-      @s.photos.last.destroy
-      @s.reload.photos_count.should == 1
-      @s.photos.first.destroy
-      @s.reload.photos_count.should == 0
-    end
-  end
 end

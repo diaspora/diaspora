@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111217042006) do
+ActiveRecord::Schema.define(:version => 20120114191018) do
 
   create_table "account_deletions", :force => true do |t|
     t.string  "diaspora_handle"
@@ -315,7 +315,6 @@ ActiveRecord::Schema.define(:version => 20111217042006) do
     t.integer  "comments_count",                      :default => 0
     t.integer  "o_embed_cache_id"
     t.integer  "reshares_count",                      :default => 0
-    t.integer  "photos_count",                        :default => 0
   end
 
   add_index "posts", ["author_id", "root_guid"], :name => "index_posts_on_author_id_and_root_guid", :unique => true

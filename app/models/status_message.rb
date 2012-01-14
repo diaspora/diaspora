@@ -172,11 +172,6 @@ class StatusMessage < Post
     self.oembed_url = urls.find{|url| ENDPOINT_HOSTS_STRING.match(URI.parse(url).host)}
   end
 
-  def update_photos_counter
-    self.class.where(:id => self.id).
-      update_all(:photos_count => self.photos.count)
-  end
-
   protected
   def presence_of_content
     unless text_and_photos_blank?

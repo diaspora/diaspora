@@ -28,7 +28,6 @@ class Post < ActiveRecord::Base
     t.add :provider_display_name
     t.add :author
     t.add :post_type
-    t.add :photos_count
     t.add :image_url
     t.add :object_url
     t.add :root
@@ -36,7 +35,7 @@ class Post < ActiveRecord::Base
     t.add :user_like
     t.add :mentioned_people
     t.add lambda { |post|
-      if post.respond_to?(:photos) && post.photos_count > 0
+      if post.respond_to?(:photos)
         post.photos
       else
         []
