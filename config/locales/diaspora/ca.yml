@@ -635,6 +635,14 @@ ca:
       destroy: "Suprimeix"
       permalink: "enllaç permanent"
       not_found: "No s'ha trobat aquesta publicació."
+      photos_by:
+        zero: "Cap foto per %{author}"
+        one: "Una foto per %{author}"
+        two: "Dos fotos per %{author}"
+        few: "%{count} fotos per %{author}"
+        many: "%{count} fotos per %{author}"
+        other: "%{count} fotos per %{author}"
+      reshare_by: "Tornat a compartir per %{author}"
 
 
   share_visibilites:
