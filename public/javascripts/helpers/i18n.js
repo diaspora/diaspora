@@ -9,7 +9,10 @@
    loadLocale: function(locale, language) {
      this.locale = locale;
      this.language = language;
-     eval("this.pluralizationKey = "+this.t('pluralization_rule'));
+     rule = this.t('pluralization_rule');
+     if (rule === "")
+      rule = 'function (n) { return n == 1 ? "one" : "other" }';
+     eval("this.pluralizationKey = "+rule);
    },
 
    t: function(item, views) {
@@ -26,11 +29,11 @@
         return "";
       }
     }
-
+    
     if(views && typeof views.count !== "undefined") {
       translatedMessage = translatedMessage[this.pluralizationKey(views.count)];
     }
-
+    
     return _.template(translatedMessage, views || {});
    }
  };
