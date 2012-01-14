@@ -563,6 +563,13 @@ sv:
       destroy: "Ta bort"
       not_found: "Tyvärr, men vi kan inte hitta det inlägget."
       permalink: permalänk
+      photos_by:
+        few: "%{count} photos by %{author}"
+        many: "%{count} photos by %{author}"
+        one: "One photo by %{author}"
+        other: "%{count} photos by %{author}"
+        two: "Two photos by %{author}"
+        zero: "No photos by %{author}"
   previous: föregående
   privacy: Sekretess
   privacy_policy: Integritetspolicy

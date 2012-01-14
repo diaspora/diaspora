@@ -263,6 +263,15 @@ pa:
       not_connected: "You are not sharing with %{name}"
     two: "%{count} people"
     zero: "no people"
+  posts:
+    show:
+      photos_by:
+        few: "%{count} photos by %{author}"
+        many: "%{count} photos by %{author}"
+        one: "One photo by %{author}"
+        other: "%{count} photos by %{author}"
+        two: "Two photos by %{author}"
+        zero: "No photos by %{author}"
   previous: ਪਿੱਛੇ
   profiles:
     edit:
@@ -402,6 +411,8 @@ pa:
       change_email: "Change E-Mail"
       change_language: "Change Language"
       change_password: "Change Password"
+      close_account:
+        what_we_delete: "We delete all of your posts, profile data, as soon as humanly possible. Your comments will hang around, but be associated with your Diaspora Handle."
       email_awaiting_confirmation: "We have sent you an activation link to %{unconfirmed_email}. Till you follow this link and activate the new address, we will continue to use your original address %{email}."
       new_password: "New Password"
       receive_email_notifications: "Receive email notificaions?"

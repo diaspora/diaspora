@@ -478,6 +478,13 @@ ro:
     show:
       destroy: Şterge
       not_found: "Ne pare rau, dar nu am gasit publicatia."
+      photos_by:
+        few: "%{count} photos by %{author}"
+        many: "%{count} photos by %{author}"
+        one: "One photo by %{author}"
+        other: "%{count} photos by %{author}"
+        two: "Two photos by %{author}"
+        zero: "No photos by %{author}"
   previous: anterioare
   profile: Profil
   profiles:
@@ -696,6 +703,8 @@ ro:
       change_email: "Change E-Mail"
       change_language: "Modificare limbă"
       change_password: "Modificare parolă"
+      close_account:
+        what_we_delete: "We delete all of your posts, profile data, as soon as humanly possible. Your comments will hang around, but be associated with your Diaspora Handle."
       comment_on_post: "...cineva comenteaza pe o publicatie proprie?"
       current_password: "Parola curentă"
       download_photos: "descarcă fotografiile mele"

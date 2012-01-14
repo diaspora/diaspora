@@ -583,6 +583,13 @@ he:
       destroy: מחיקה
       not_found: "לא ניתן למצוא רשומה זו, עמך הסליחה."
       permalink: "קישור קבוע"
+      photos_by:
+        few: "%{count} photos by %{author}"
+        many: "%{count} photos by %{author}"
+        one: "One photo by %{author}"
+        other: "%{count} photos by %{author}"
+        two: "Two photos by %{author}"
+        zero: "No photos by %{author}"
   previous: הקודמת
   privacy: פרטיות
   privacy_policy: "מדיניות פרטיות"

@@ -332,6 +332,15 @@ cy:
       view_all: "gweld lluniau %{name} i gŷd"
     show:
       delete_photo: "Dileu'r Llun"
+  posts:
+    show:
+      photos_by:
+        few: "%{count} photos by %{author}"
+        many: "%{count} photos by %{author}"
+        one: "One photo by %{author}"
+        other: "%{count} photos by %{author}"
+        two: "Two photos by %{author}"
+        zero: "No photos by %{author}"
   previous: blaenorol
   profile: Proffil
   profiles:
@@ -508,6 +517,8 @@ cy:
       change_email: "Newid yr E-Bost"
       change_language: "Newid yr iaith"
       change_password: "Newid cyfrinair"
+      close_account:
+        what_we_delete: "We delete all of your posts, profile data, as soon as humanly possible. Your comments will hang around, but be associated with your Diaspora Handle."
       download_xml: "llwytho i lawr fy xml"
       email_awaiting_confirmation: "We have sent you an activation link to %{unconfirmed_email}. Till you follow this link and activate the new address, we will continue to use your original address %{email}."
       export_data: "Data Allforio"

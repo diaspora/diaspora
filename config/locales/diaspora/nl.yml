@@ -541,6 +541,13 @@ nl:
     show:
       destroy: Verwijder
       not_found: "Sorry, die post konden we niet vinden."
+      photos_by:
+        few: "%{count} photos by %{author}"
+        many: "%{count} photos by %{author}"
+        one: "One photo by %{author}"
+        other: "%{count} photos by %{author}"
+        two: "Two photos by %{author}"
+        zero: "No photos by %{author}"
   previous: vorige
   profile: Profiel
   profiles:
@@ -815,6 +822,8 @@ nl:
       change_email: "Verander e-mailadres"
       change_language: "Taal wijzigen"
       change_password: "Verander wachtwoord"
+      close_account:
+        what_we_delete: "We delete all of your posts, profile data, as soon as humanly possible. Your comments will hang around, but be associated with your Diaspora Handle."
       comment_on_post: "...iemand op jouw post reageert?"
       current_password: "Huidig wachtwoord"
       download_photos: "download mijn foto's"

@@ -575,6 +575,13 @@ es:
       destroy: Eliminar
       not_found: "Lo sentimos, no podemos encontrar ese comentario."
       permalink: "enlace permanente"
+      photos_by:
+        few: "%{count} photos by %{author}"
+        many: "%{count} photos by %{author}"
+        one: "One photo by %{author}"
+        other: "%{count} photos by %{author}"
+        two: "Two photos by %{author}"
+        zero: "No photos by %{author}"
   previous: anterior
   privacy: Privacidad
   privacy_policy: "Política de Privacidad"

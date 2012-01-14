@@ -18,6 +18,7 @@ ko:
         many: "애스펙 {{count}}개 안에 있습니다"
         one: "애스펙 한 개 안에 있습니다"
         other: "애스펙 {{count}}개 안에 있습니다"
+        two: "{{count}}개의 에스팩에서"
         zero: "애스펙에 넣기"
     aspect_navigation:
       deselect_all: "선택 해제"
@@ -51,18 +52,21 @@ ko:
         many: "<%= count %> Likes"
         one: "<%= count %> Like"
         other: "<%= count %> Likes"
+        two: "<%= count %> Likes"
         zero: "<%= count %> Likes"
       more_comments:
         few: "Show <%= count %> more comments"
         many: "Show <%= count %> more comments"
         one: "Show <%= count %> more comment"
         other: "Show <%= count %> more comments"
+        two: "Show <%= count %> more comments"
         zero: "Show <%= count %> more comments"
       reshares:
         few: "<%= count %> Reshares"
         many: "<%= count %> Reshares"
         one: "<%= count %> Reshare"
         other: "<%= count %> Reshares"
+        two: "<%= count %> Reshares"
         zero: "<%= count %> Reshares"
     tags:
       wasnt_that_interesting: "처리했습니다. #{{tagName}} 태그는 흥미롭지 않았군요?"

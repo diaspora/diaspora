@@ -18,6 +18,7 @@ fr:
         many: "Dans {{count}} aspects"
         one: "Dans {{count}} aspect"
         other: "Dans {{count}} aspects"
+        two: "Dans {{count}} aspects"
         zero: "Sélectionnez les aspects"
     aspect_navigation:
       deselect_all: "Désélectionner tout"
@@ -52,18 +53,21 @@ fr:
         many: "<%= count %> Likes"
         one: "<%= count %> Like"
         other: "<%= count %> Likes"
+        two: "<%= count %> Likes"
         zero: "<%= count %> Likes"
       more_comments:
         few: "Show <%= count %> more comments"
         many: "Show <%= count %> more comments"
         one: "Show <%= count %> more comment"
         other: "Show <%= count %> more comments"
+        two: "Show <%= count %> more comments"
         zero: "Show <%= count %> more comments"
       reshares:
         few: "<%= count %> Reshares"
         many: "<%= count %> Reshares"
         one: "<%= count %> Reshare"
         other: "<%= count %> Reshares"
+        two: "<%= count %> Reshares"
         zero: "<%= count %> Reshares"
     tags:
       wasnt_that_interesting: "Ok, je suppose que #{{tagName}} n'est pas la seule chose qui vous intéresse..."

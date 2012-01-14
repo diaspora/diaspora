@@ -18,6 +18,7 @@ fi:
         many: "{{count}} näkymässä"
         one: "{{count}} näkymässä"
         other: "{{count}} näkymässä"
+        two: "{{count}} näkymässä"
         zero: "Valitse näkymät"
     aspect_navigation:
       deselect_all: "Poista valinnat"
@@ -52,18 +53,21 @@ fi:
         many: "<%= count %> Likes"
         one: "<%= count %> Like"
         other: "<%= count %> Likes"
+        two: "<%= count %> Likes"
         zero: "<%= count %> Likes"
       more_comments:
         few: "Show <%= count %> more comments"
         many: "Show <%= count %> more comments"
         one: "Show <%= count %> more comment"
         other: "Show <%= count %> more comments"
+        two: "Show <%= count %> more comments"
         zero: "Show <%= count %> more comments"
       reshares:
         few: "<%= count %> Reshares"
         many: "<%= count %> Reshares"
         one: "<%= count %> Reshare"
         other: "<%= count %> Reshares"
+        two: "<%= count %> Reshares"
         zero: "<%= count %> Reshares"
     tags:
       wasnt_that_interesting: "OK, #{{tagName}} ei tainnut ollakaan kovin kiinnostava aihe..."

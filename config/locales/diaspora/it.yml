@@ -566,6 +566,14 @@ it:
     show:
       destroy: Elimina
       not_found: "Ci scusiamo, non possiamo trovare il post."
+      photos_by:
+        few: "%{count} foto di %{author}"
+        many: "%{count} foto di %{author}"
+        one: "Una foto di %{author}"
+        other: "%{count} foto di %{author}"
+        two: "Due foto di %{author}"
+        zero: "Nessuna foto di %{author}"
+      reshare_by: "Condiviso da %{author}"
   previous: precedente
   privacy_policy: "Norme sulla privacy"
   profile: Profilo
@@ -873,7 +881,7 @@ it:
         make_diaspora_better: "Vorremmo che tu ci aiutassi a migliorare Diaspora, considera che puoi darci una mano invece di lasciare il servizio. Se sei davvero convinto, vogliamo che tu sappia come funzionerà la rimozione del tuo account."
         mr_wiggles: "Il Fantasma Formaggino ti perseguiterà perché te ne vai!"
         no_turning_back: "Al momento, non è possibile tornare indietro."
-        what_we_delete: "Cancelleremo tutti i tuoi post e i dati del profilo nel tempo più breve possibile. I commenti che hai lasciato rimarranno abbinati al tuo identificativo Diaspora."
+        what_we_delete: "Cancelleremo tutti i tuoi post e i dati del profilo nel tempo più breve possibile. I commenti che hai lasciato rimarranno abbinati al tuo ID Diaspora."
       close_account_text: "Chiudi l'account"
       comment_on_post: "...qualcuno commenta un tuo post?"
       current_password: "Password attuale"

@@ -573,6 +573,13 @@ tr:
       destroy: Sil
       not_found: "Üzgünüz, bu gönderi bulamadı."
       permalink: "kalıcı bağlantı"
+      photos_by:
+        few: "%{count} photos by %{author}"
+        many: "%{count} photos by %{author}"
+        one: "One photo by %{author}"
+        other: "%{count} photos by %{author}"
+        two: "Two photos by %{author}"
+        zero: "No photos by %{author}"
   previous: önceki
   privacy: Gizlilik
   privacy_policy: "Gizlilik Politikası"

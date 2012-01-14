@@ -573,6 +573,13 @@ pt-BR:
       destroy: Deletar
       not_found: "Desculpe! Não foi possível encontrar."
       permalink: "link permanente"
+      photos_by:
+        few: "%{count} photos by %{author}"
+        many: "%{count} photos by %{author}"
+        one: "One photo by %{author}"
+        other: "%{count} photos by %{author}"
+        two: "Two photos by %{author}"
+        zero: "No photos by %{author}"
   previous: Anterior
   privacy: Privacidade
   privacy_policy: "Política de Privacidade"

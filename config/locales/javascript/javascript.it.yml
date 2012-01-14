@@ -9,15 +9,16 @@ it:
     aspect_dropdown:
       add_to_aspect: Aggiungi
       all_aspects: "Tutti gli aspetti"
-      error: "Non è possibile condividere con {{name}}. E' tra gli utenti ignorati?"
+      error: "Non è possibile condividere con <%= name %>. È tra gli utenti ignorati?"
       select_aspects: "Scegli gli aspetti"
-      started_sharing_with: "Hai iniziato a condividere con {{name}}!"
-      stopped_sharing_with: "Hai smesso di condividere con {{name}}."
+      started_sharing_with: "Hai iniziato a condividere con <%= name %>!"
+      stopped_sharing_with: "Hai smesso di condividere con <%= name %>."
       toggle:
-        few: "In {{count}} aspetti"
-        many: "In {{count}} aspetti"
-        one: "In {{count}} aspetto"
-        other: "In {{count}} aspetti"
+        few: "In <%= count %> aspetti"
+        many: "In <%= count %> aspetti"
+        one: "In <%= count %> aspetto"
+        other: "In <%= count %> aspetti"
+        two: "In <%= count %> aspetti"
         zero: "Scegli gli aspetti"
     aspect_navigation:
       deselect_all: "Deseleziona tutti"
@@ -27,13 +28,27 @@ it:
       hide: "nascondi i commenti"
       show: "mostra tutti i commenti"
     confirm_dialog: "Sei sicuro?"
+    delete: Elimina
     failed_to_like: "Valutazione fallita!"
     failed_to_post_message: "Invio messaggio fallito!"
     getting_started:
       alright_ill_wait: "Perfetto, aspetterò."
-      hey: "Ciao, {{name}}!"
+      hey: "Ciao, <%= name %>!"
       no_tags: "Non hai scelto di seguire alcun tag, vuoi continuare comunque?"
       preparing_your_stream: "Sto preparando il tuo stream personalizzato..."
+    header:
+      admin: Amministrazione
+      contacts: Contatti
+      log_out: Esci
+      mark_all_as_read: "Segna tutti come letti"
+      messages: Messaggi
+      notifications: Notifiche
+      profile: Profilo
+      recent_notifications: "Notifiche recenti"
+      search: "Cerca persone o #tag"
+      settings: Impostazioni
+      view_all: "Vedi tutti"
+    ignore: Ignora
     infinite_scroll:
       no_more: "Non ci sono altri post."
     photo_uploader:
@@ -44,29 +59,41 @@ it:
       public: "Pubblico - il tuo post sarà visibile a tutti, inclusi i motori di ricerca"
     reshares:
       duplicate: "Bello eh? Ma hai già condiviso quel post!"
-    search_for: "Ricerca per {{name}}"
+    search_for: "Ricerca per <%= name %>"
     show_more: continua...
     stream:
+      comment: Commenta
+      hide: Nascondi
+      like: "Mi piace"
       likes:
-        few: "<%= count %> Likes"
-        many: "<%= count %> Likes"
-        one: "<%= count %> Like"
-        other: "<%= count %> Likes"
-        zero: "<%= count %> Likes"
+        few: "<%= count %> Mi piace"
+        many: "<%= count %> Mi piace"
+        one: "<%= count %> Mi piace"
+        other: "<%= count %> Mi piace"
+        two: "<%= count %> Mi piace"
+        zero: "<%= count %> Mi piace"
+      limited: "Non pubblico"
       more_comments:
-        few: "Show <%= count %> more comments"
-        many: "Show <%= count %> more comments"
-        one: "Show <%= count %> more comment"
-        other: "Show <%= count %> more comments"
-        zero: "Show <%= count %> more comments"
+        few: "Mostra gli altri <%= count %> commenti"
+        many: "Mostra gli altri <%= count %> commenti"
+        one: "Mostra <%= count %> altro commento"
+        other: "Mostra gli altri <%= count %> commenti"
+        two: "Mostra gli altri <%= count %> commenti"
+        zero: "Mostra gli altri <%= count %> commenti"
+      nsfw: "Questo post è stato marcato come NSFW (non adatto ad un luogo di lavoro) dal suo autore."
+      original_post_deleted: "Il post originale è stato rimosso dall'autore."
+      public: Pubblico
+      reshare: Condividi
       reshares:
-        few: "<%= count %> Reshares"
-        many: "<%= count %> Reshares"
-        one: "<%= count %> Reshare"
-        other: "<%= count %> Reshares"
-        zero: "<%= count %> Reshares"
+        few: "<%= count %> Condivisioni"
+        many: "<%= count %> Condivisioni"
+        one: "<%= count %> Condivisione"
+        other: "<%= count %> Condivisioni"
+        two: "<%= count %> Condivisioni"
+        zero: "<%= count %> Condivisioni"
+      show: Mostra
     tags:
-      wasnt_that_interesting: "OK, immagino che #{{tagName}} non fosse così interessante..."
+      wasnt_that_interesting: "OK, immagino che #<%= tagName %> non fosse così interessante..."
     timeago:
       day: "un giorno"
       days: "%d giorni"
@@ -84,4 +111,4 @@ it:
       years: "%d anni"
     videos:
       unknown: "Tipo di video sconosciuto"
-      watch: "Guarda questo video su {{provider}}"
+      watch: "Guarda questo video su <%= provider %>"

@@ -565,6 +565,13 @@ da:
     show:
       destroy: Slet
       not_found: "Vi kunne desværre ikke finde dette indlæg."
+      photos_by:
+        few: "%{count} photos by %{author}"
+        many: "%{count} photos by %{author}"
+        one: "One photo by %{author}"
+        other: "%{count} photos by %{author}"
+        two: "Two photos by %{author}"
+        zero: "No photos by %{author}"
   previous: Forrige
   privacy: Privatindstillinger
   privacy_policy: "Behandling af personlige oplysninger"

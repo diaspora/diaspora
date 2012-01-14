@@ -48,6 +48,7 @@ fi:
       video_title:
         unknown: "Videon Otsikko Tuntematon"
   are_you_sure: "Oletko varma?"
+  are_you_sure_delete_account: "Haluatko varmasti sulkea tilisi? Tätä ei voi kumota!"
   aspect_memberships:
     destroy:
       failure: "Henkilön poisto näkymästä epäonnistui"
@@ -510,6 +511,7 @@ fi:
       remove_contact: "poista kontakti"
       remove_from: "Poista %{name} näkymästä %{aspect}?"
     show:
+      closed_account: "Tämä käyttäjätili on suljettu."
       does_not_exist: "Henkilöä ei ole olemassa!"
       has_not_shared_with_you_yet: "%{name} ei ole jakanut vielä yhtään viestiä kanssasi!"
       ignoring: "Sivuutat nyt kaikki viestit, jotka %{name} lähettää."
@@ -569,6 +571,13 @@ fi:
       destroy: Poista
       not_found: "Valitettavasti viestiä ei löytynyt."
       permalink: "pysyvä linkki"
+      photos_by:
+        few: "%{count} photos by %{author}"
+        many: "%{count} photos by %{author}"
+        one: "One photo by %{author}"
+        other: "%{count} photos by %{author}"
+        two: "Two photos by %{author}"
+        zero: "No photos by %{author}"
   previous: edellinen
   privacy: Yksityisyys
   privacy_policy: Yksityisyydensuoja
@@ -673,7 +682,7 @@ fi:
       connect_to_twitter: "Yhdistä Twitteriin"
       disconnect: katkaise
       edit_services: "Muokkaa palveluita"
-      logged_in_as: "kirjautunut käyttäjänä"
+      logged_in_as: "kirjauduttu käyttäjänä"
       no_services: "Et ole vielä yhdistänyt palveluita."
       really_disconnect: "katkaise %{service}?"
     inviter:
@@ -687,6 +696,7 @@ fi:
   share_visibilites:
     update:
       post_hidden_and_muted: "Käyttäjän %{name} viesti on piilotettu, ja ilmoitukset on vaimennettu."
+      see_it_on_their_profile: "Jos haluat nähdä päivityksiä tälle viestille, mene käyttäjän %{name} profiilisivulle."
   shared:
     add_contact:
       add_new_contact: "Lisää uusi kontakti"
@@ -721,12 +731,12 @@ fi:
       new: "Uusi %{type} henkilöltä %{from}"
     public_explain:
       control_your_audience: "Hallitse yleisöäsi"
-      logged_in: "sisäänkirjautunut palveluun %{service}"
+      logged_in: "kirjauduttu palveluun %{service}"
       manage: "hallitse yhdistettyjä palveluita"
       new_user_welcome_message: "Käytä #hashtageja luokitellaksesi viestisi ja löytääksesi ihmisiä, jotka jakavat kiinnostuksen kohteesi. Kutsu upeita ihmisiä paikalle @Maininnoilla."
       outside: "Julkiset viestit näkyvät Diasporan ulkopuolelle."
       share: Jaa
-      title: "Olet lähettämässä julkista viestiä!"
+      title: "Yhdistä ulkoisia palveluita"
       visibility_dropdown: "Muuta tästä pudotusvalikosta viestisi näkyvyyttä. (Suosittelemme, että teet tästä ensimmäisestä viestistäsi julkisen.)"
     publisher:
       all: kaikki
@@ -755,6 +765,7 @@ fi:
       ignore_user_description: "Sivuuta käyttäjä ja poista hänet kaikista näkymistä?"
       like: Tykkää
       shared_with: "Jaettu heidän kanssaan: %{aspect_names}"
+      show: näytä
       unlike: "Peru tykkäys"
       via: "%{link} kautta"
       viewable_to_anyone: "Kuka tahansa verkossa näkee tämän viestin"
@@ -852,11 +863,22 @@ fi:
       wrong_password: "Syötetty salasana ei vastannut nykyistä salasanaasi."
     edit:
       also_commented: "...joku myös kommentoi kontaktisi viestiin?"
-      auto_follow_back: "Automatically follow back if a someone follows you"
+      auto_follow_aspect: "Näkymä automaattisesti seurattaville käyttäjille:"
+      auto_follow_back: "Seuraa automaattisesti ihmisiä, jotka seuraavat sinua"
       change: Vaihda
       change_email: "Vaihda sähköpostiosoite"
       change_language: "Vaihda kieli"
       change_password: "Vaihda salasana"
+      close_account:
+        dont_go: "Hei, älä lähde!"
+        if_you_want_this: "Jos todella haluat tätä, kirjoita salasanasi alle ja napsauta 'Sulje käyttäjätili'"
+        lock_username: "Tämä lukitsee käyttäjänimesi, jos päätät kirjautua uudelleen."
+        locked_out: "Kirjaudut ulos ja käyttäjätilisi lukitaan."
+        make_diaspora_better: "Haluamme sinun auttavan Diasporan parantamisessa, joten voit lähtemisen sijaan auttaa meitä. Jos haluat lähteä, haluamme sinun tietävän, mitä tapahtuu seuraavaksi."
+        mr_wiggles: "Herra Töpö on surullinen, kun lähdet"
+        no_turning_back: "Tällä hetkellä tästä ei ole paluuta."
+        what_we_delete: "Poistamme kaikki viestisi ja profiilisi tiedot niin pian kuin inhimillisesti mahdollista. Kommenttisi jäävät paikoilleen, mutta ne yhdistetään Diaspora-tunnukseesi."
+      close_account_text: "Sulje käyttäjätili"
       comment_on_post: "...joku kommentoi viestiisi?"
       current_password: "Nykyinen salasana"
       download_photos: "Lataa kaikki kuvat"
@@ -864,6 +886,7 @@ fi:
       edit_account: "Muokkaa käyttäjätiliä"
       email_awaiting_confirmation: "Olemme lähettäneet sinulle aktivointilinkin osoitteeseen %{unconfirmed_email}. Jatkamme alkuperäisen osoitteesi %{email} käyttämistä siihen saakka, kunnes aktivoit uuden osoitteesi kyseisen linkin kautta."
       export_data: "Vie tietoja"
+      following: Seuraamisasetukset
       liked: "...tykkää kirjoituksistasi?"
       mentioned: "...sinut mainitaan viestissä?"
       new_password: "Uusi salasana"
@@ -903,6 +926,8 @@ fi:
       does_not_exist: "Käyttäjää %{username} ei ole olemassa!"
     update:
       email_notifications_changed: "Sähköposti-ilmoitukset vaihdettu"
+      follow_settings_changed: "Seuraamisasetuksia muutettu"
+      follow_settings_not_changed: "Seuraamisasetusten muuttaminen epäonnistui."
       language_changed: "Kieli vaihdettu"
       language_not_changed: "Kielen vaihtaminen epäonnistui"
       password_changed: "Salasana vaihdettu. Voit nyt kirjautua uudella salasanallasi."
@@ -918,3 +943,6 @@ fi:
     not_enabled: "webfinger-palvelua ei ilmeisesti ole aktivoitu tilin, %{account}, isännälle"
     xrd_fetch_failed: "tapahtui virhe haettaessa xrd:tä käyttäjätilille %{account}"
   welcome: Tervetuloa!
+  will_paginate:
+    next_label: "seuraava &raquo;"
+    previous_label: "&laquo; edellinen"

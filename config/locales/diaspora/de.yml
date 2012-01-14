@@ -576,6 +576,14 @@ de:
       destroy: Löschen
       not_found: "Entschuldige, wir konnten den Beitrag leider nicht finden."
       permalink: Permanentlink
+      photos_by:
+        few: "%{count} Fotos von %{author}"
+        many: "%{count} Fotos von %{author}"
+        one: "Ein Foto von %{author}"
+        other: "%{count} Fotos von %{author}"
+        two: "Zwei Fotos von %{author}"
+        zero: "Keine Fotos von %{author}"
+      reshare_by: "Weitergesagt von %{author}"
   previous: Vorherige
   privacy: Privatsphäre
   privacy_policy: Datenschutzrichtlinien
@@ -769,6 +777,7 @@ de:
       ignore_user: "%{name} ignorieren"
       ignore_user_description: "Diesen Benutzer ignorieren und aus allen Aspekten entfernen?"
       like: "Gefällt mir"
+      nsfw: "Dieser Post wurde vom Autor als NSFW markiert. %{link}"
       shared_with: "Geteilt mit: %{aspect_names}"
       show: zeigen
       unlike: "Gefällt mir nicht mehr"
@@ -814,6 +823,7 @@ de:
     followed_tags_stream: "#Tags, denen du folgst"
     like_stream:
       contacts_title: "Leute, deren Beiträge du magst"
+      title: "\"Gefällt mir-Stream"
     mentioned_stream: "@Erwähnungen"
     mentions:
       contacts_title: "Personen, die dich erwähnt haben"

@@ -575,6 +575,13 @@ pl:
     show:
       destroy: Usuń
       not_found: "Nie można odnaleźć wskazanego wpisu."
+      photos_by:
+        few: "%{count} photos by %{author}"
+        many: "%{count} photos by %{author}"
+        one: "One photo by %{author}"
+        other: "%{count} photos by %{author}"
+        two: "Two photos by %{author}"
+        zero: "No photos by %{author}"
   previous: poprzedni
   privacy: Prywatność
   privacy_policy: "Polityka prywatności"

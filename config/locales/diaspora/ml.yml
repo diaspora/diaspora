@@ -578,6 +578,14 @@ ml:
       destroy: "Delete"
       not_found: "Sorry, we couldn't find that post."
       permalink: "permalink"
+      photos_by:
+        few: "%{count} photos by %{author}"
+        many: "%{count} photos by %{author}"
+        one: "One photo by %{author}"
+        other: "%{count} photos by %{author}"
+        two: "Two photos by %{author}"
+        zero: "No photos by %{author}"
+      reshare_by: "Reshare by %{author}"
   previous: മുന്‍‌പത്തെ
   privacy: "Privacy"
   privacy_policy: "Privacy Policy"

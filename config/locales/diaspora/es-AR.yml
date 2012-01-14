@@ -574,6 +574,13 @@ es-AR:
     show:
       destroy: Eliminar
       not_found: "No se pudo encontrar la publicación."
+      photos_by:
+        few: "%{count} photos by %{author}"
+        many: "%{count} photos by %{author}"
+        one: "One photo by %{author}"
+        other: "%{count} photos by %{author}"
+        two: "Two photos by %{author}"
+        zero: "No photos by %{author}"
   previous: anterior
   privacy: Privacidad
   privacy_policy: "Política de Privacidad"
@@ -872,6 +879,8 @@ es-AR:
       change_email: "Cambiar E-Mail"
       change_language: "Cambiar idioma"
       change_password: "Cambiar contraseña"
+      close_account:
+        what_we_delete: "We delete all of your posts, profile data, as soon as humanly possible. Your comments will hang around, but be associated with your Diaspora Handle."
       comment_on_post: "...comentan en una publicación tuya?"
       current_password: "Contraseña actual"
       download_photos: "descargar mis fotos"

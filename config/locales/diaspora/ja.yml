@@ -458,6 +458,15 @@ ja:
     update:
       error: 写真の編集に失敗しました。
       notice: 写真の更新に成功しました。
+  posts:
+    show:
+      photos_by:
+        few: "%{count} photos by %{author}"
+        many: "%{count} photos by %{author}"
+        one: "One photo by %{author}"
+        other: "%{count} photos by %{author}"
+        two: "Two photos by %{author}"
+        zero: "No photos by %{author}"
   previous: 前へ
   profile: プロフィール
   profiles:
@@ -674,6 +683,8 @@ ja:
       change_email: "Change E-Mail"
       change_language: 言語変更
       change_password: パスワード変更
+      close_account:
+        what_we_delete: "We delete all of your posts, profile data, as soon as humanly possible. Your comments will hang around, but be associated with your Diaspora Handle."
       comment_on_post: 自分の投稿にコメントがあったとき
       current_password: 現在のパスワード
       download_photos: 写真をダウンロードする

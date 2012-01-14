@@ -565,6 +565,13 @@ sl:
     show:
       destroy: Izbriši
       not_found: "Oprostite, te objave nismo mogli najti."
+      photos_by:
+        few: "%{count} photos by %{author}"
+        many: "%{count} photos by %{author}"
+        one: "One photo by %{author}"
+        other: "%{count} photos by %{author}"
+        two: "Two photos by %{author}"
+        zero: "No photos by %{author}"
   previous: prejšnja
   privacy: Zasebnost
   privacy_policy: "Pravila o zasebnosti"

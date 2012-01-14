@@ -316,6 +316,15 @@ br:
       update_photo: "Nevesaat ar Foto"
     update:
       notice: "Foto bet kaset mat."
+  posts:
+    show:
+      photos_by:
+        few: "%{count} photos by %{author}"
+        many: "%{count} photos by %{author}"
+        one: "One photo by %{author}"
+        other: "%{count} photos by %{author}"
+        two: "Two photos by %{author}"
+        zero: "No photos by %{author}"
   previous: war-raok
   profile: Patrom
   profiles:
@@ -476,6 +485,8 @@ br:
       change_email: "Change E-Mail"
       change_language: "Cheñch Yezh"
       change_password: "Cheñch ar Ger-Kuzh"
+      close_account:
+        what_we_delete: "We delete all of your posts, profile data, as soon as humanly possible. Your comments will hang around, but be associated with your Diaspora Handle."
       current_password: "Ho Ker-Kuzh"
       email_awaiting_confirmation: "We have sent you an activation link to %{unconfirmed_email}. Till you follow this link and activate the new address, we will continue to use your original address %{email}."
       new_password: "Ger-Kuzh Nevez"

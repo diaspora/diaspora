@@ -569,6 +569,13 @@ uk:
       destroy: Видалити
       not_found: "Вибачте, ми не змогли знайти цей запис."
       permalink: "постiйне посилання"
+      photos_by:
+        few: "%{count} photos by %{author}"
+        many: "%{count} photos by %{author}"
+        one: "One photo by %{author}"
+        other: "%{count} photos by %{author}"
+        two: "Two photos by %{author}"
+        zero: "No photos by %{author}"
   previous: попередня
   privacy: Приватность
   privacy_policy: "Політика конфіденційності"

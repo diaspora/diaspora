@@ -28,6 +28,7 @@ te:
     index:
       cubbies:
         learn_more: "మరింత తెలుసుకోండి"
+      handle_explanation: "This is your diaspora id. Like an email address, you can give this to people to reach you."
       help:
         need_help: "సహాయం కావాలా?"
       new_here:
@@ -235,6 +236,13 @@ te:
     show:
       destroy: తొలగించు
       permalink: స్థిరలంకె
+      photos_by:
+        few: "%{count} photos by %{author}"
+        many: "%{count} photos by %{author}"
+        one: "One photo by %{author}"
+        other: "%{count} photos by %{author}"
+        two: "Two photos by %{author}"
+        zero: "No photos by %{author}"
   privacy: అంతరంగికత
   privacy_policy: "అంతరంగికత విధానం"
   profiles:
@@ -311,6 +319,8 @@ te:
       change: మార్చు
       change_language: "భాష మార్పు"
       change_password: "సంకేతపదం మార్పు"
+      close_account:
+        what_we_delete: "We delete all of your posts, profile data, as soon as humanly possible. Your comments will hang around, but be associated with your Diaspora Handle."
       close_account_text: "ఖాతా మూసివేత"
       current_password: "ప్రస్తుత సంకేతపదం"
       new_password: "కొత్త సంకేతపదం"
