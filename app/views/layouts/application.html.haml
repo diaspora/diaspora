@@ -65,6 +65,17 @@
     - if rtl?
       = include_stylesheets :rtl, :media => 'all'
 
+    :javascript
+      // Support for older browsers
+      if(Array.isArray === undefined) {  
+        Array.isArray = function (arg) {  
+          return Object.prototype.toString.call(arg) == '[object Array]';  
+        };  
+      }
+      if ((window.history) && (window.history.pushState === undefined)) {
+        window.history.pushState = function() { };
+      }
+
     = csrf_meta_tag
     <!--[if IE]>
     = javascript_include_tag "/javascripts/ie.js"
