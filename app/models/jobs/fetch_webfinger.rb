@@ -2,7 +2,6 @@
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
-require 'lib/webfinger'
 module Jobs
   class FetchWebfinger < Base
     @queue = :socket_webfinger
