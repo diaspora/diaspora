@@ -21,7 +21,7 @@ module ApplicationHelper
 
     if language != DEFAULT_LANGUAGE
       translations = I18n.t('javascripts', :locale => language)
-      defaults.update(translations)
+      defaults.deep_merge!(translations)
     end
 
     defaults
