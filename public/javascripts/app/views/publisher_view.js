@@ -48,6 +48,7 @@ app.views.Publisher = Backbone.View.extend({
 
     // remove photos
     this.$("#photodropzone").find('li').remove();
+    this.$("input[name='photos[]']").remove();
 
     // close publishing area (CSS)
     this.close();
