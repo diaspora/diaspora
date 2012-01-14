@@ -13,9 +13,5 @@
         });
       }
     });
-
-    this.subscribe("widget/ready", function(evt, element) {
-      self.element = element.timeago();
-    });
   };
 })();
