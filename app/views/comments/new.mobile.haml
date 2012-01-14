@@ -1,1 +1,1 @@
-= new_comment_form(params[:post_id], current_user)
+= render :partial => 'new_comment', :locals =>{:post_id => params[:post_id]}
