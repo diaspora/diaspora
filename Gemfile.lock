@@ -218,6 +218,7 @@ GEM
       multi_json
     jwt (0.1.4)
       json (>= 1.2.4)
+    kgio (2.7.0)
     launchy (2.0.3)
     linecache (0.46)
       rbx-require-relative (> 0.0.4)
@@ -307,6 +308,7 @@ GEM
       rake (>= 0.8.7)
       rdoc (~> 3.4)
       thor (~> 0.14.4)
+    raindrops (0.8.0)
     rake (0.9.2.2)
     rbx-require-relative (0.0.5)
     rdoc (3.12)
@@ -391,6 +393,10 @@ GEM
     typhoeus (0.3.3)
       mime-types
     tzinfo (0.3.31)
+    unicorn (4.1.1)
+      kgio (~> 2.4)
+      rack
+      raindrops (~> 0.6)
     vegas (0.1.8)
       rack (>= 1.0.0)
     warden (1.0.6)
@@ -490,6 +496,7 @@ DEPENDENCIES
   timecop
   twitter (= 2.0.2)
   typhoeus
+  unicorn (~> 4.1.1)
   vanna!
   webmock
   whenever
