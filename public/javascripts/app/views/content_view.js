@@ -39,9 +39,23 @@ app.views.Content = app.views.StreamObject.extend({
         return "<a href='/people/" + personId + "' class='mention'>" + fullName + "</a>"
       })
     }
-
+  // makes http[s]/www as mandatory in url. As it should not match " end of sentence.hi ..."
+  // supports unicode
+  // Fail cases:
+  //  goutham.me
+  //  httpsssss://sdfd.com
+  //  htttttp://sdfd.com
+  //  jskldf fkdkd s.sf dkll....sd d
+  //  goutham..me
+  // Success cases:
+  //  http://sdfd.com
+  //  https://sdfd.com
+  //  https://sdfd.sdfdf.sdf-#@~:sdf.com/sdfsdfsd
+  //  https://sdfd.sdfdf.sdf-#@~:sdf.com/sdfsdfsd#!/hello
+  //  www.goutham.lkds:3000/sdfdsfdsfdsf
+  //  www.bürgerentscheid-krankenhäuser.de/this/is/a/ünicode/ürl
     function urlify(text) {
-      var urlRegex = /(=\s?'|=\s?")?[-a-zA-Z0-9@:%_\+.~#?&//=]{2,256}\.[a-z]{2,4}\b(\/[-a-zA-Z0-9@:%_\+.~#?(#!)&//=;]*)?/gi
+      var urlRegex = /(=\s?'|=\s?")?(http[s]?:\/\/|www){1}\.?(([-@:%_+\.~#?&//=\w]|[^\u0000-\u0080]){2,255}[a-zA-Z0-9])\.[a-z]{2,4}\b(:[0-9]+)?(\/[-a-zA-Z0-9@:%_\+.~#?(#!)&//=;]*|[^\u0000-\u0080]?)*/gi
       return text.replace(urlRegex, function(url, preceeder, bang) {
         if(preceeder) return url
         var protocol = (url.search(/:\/\//) == -1 ? "http://" : "")
