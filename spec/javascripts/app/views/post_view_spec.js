@@ -167,6 +167,26 @@ describe("app.views.Post", function(){
       })
     })
 
+    context("embed_html", function(){
+      it("provides oembed html from the model response", function(){
+        this.statusMessage.set({"o_embed_cache" : {
+          "data" : {
+            "html" : "some html"
+          }
+        }})
+
+        var view = new app.views.Content({model : this.statusMessage});
+        expect(view.presenter().o_embed_html).toContain("some html")
+      })
+
+      it("does not provide oembed html from the model response if none is present", function(){
+        this.statusMessage.set({"o_embed_cache" : null})
+
+        var view = new app.views.Content({model : this.statusMessage});
+        expect(view.presenter().o_embed_html).toBe("");
+      })
+    })
+
     context("user not signed in", function(){
       it("does not provide a Feedback view", function(){
         logout()

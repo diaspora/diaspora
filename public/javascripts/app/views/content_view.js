@@ -2,7 +2,8 @@ app.views.Content = app.views.StreamObject.extend({
   presenter : function(){
     var model = this.model
     return _.extend(this.defaultPresenter(), {
-      text : metafyText(model.get("text"))
+      text : metafyText(model.get("text")),
+      o_embed_html : embedHTML(model)
     })
 
     function metafyText(text) {
@@ -47,6 +48,11 @@ app.views.Content = app.views.StreamObject.extend({
         var protocol = (url.search(/:\/\//) == -1 ? "http://" : "")
         return "<a href='" + protocol + url + "' target=_blank>" + url + "</a>"
       })
+    }
+
+    function embedHTML(model){
+      if(!model.get("o_embed_cache")) { return ""; }
+      return model.get("o_embed_cache").data.html
     }
   }
 })
