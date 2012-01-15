@@ -47,6 +47,13 @@ describe("app.views.Post", function(){
       expect(window.markdown.toHTML).toHaveBeenCalledWith("I have three Belly Buttons")
     })
 
+    it("should correctly interpret markdown link syntax", function(){
+      this.statusMessage.set({text: "[![alt text](http://example.com/eg.png 'image title')](http://example.com 'link title')"})
+      spyOn(window.markdown, "toHTML")
+      new app.views.Post({model: this.statusMessage.render();
+      expect(window.markdown.toHTML).toMatch("<p><a href=\"http://example.com\" title=\"link title\"><img alt=\"alt text\" title=\"image title\" src=\"http://example.com/eg.png\"></img></a></p>");
+    })
+
     context("changes hashtags to links", function(){
       it("links to a hashtag to the tag page", function(){
         this.statusMessage.set({text: "I love #parties"})
