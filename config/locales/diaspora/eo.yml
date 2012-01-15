@@ -572,6 +572,13 @@ eo:
       destroy: Forlasi
       not_found: "Ni bedaŭras, sed ni ne povis trovi tiun afiŝon."
       permalink: malŝanĝantligilo
+      photos_by:
+        few: "%{count} photos by %{author}"
+        many: "%{count} photos by %{author}"
+        one: "One photo by %{author}"
+        other: "%{count} photos by %{author}"
+        two: "Two photos by %{author}"
+        zero: "No photos by %{author}"
   previous: antaŭa
   privacy: Privateco
   profile: Profilo
@@ -860,6 +867,8 @@ eo:
       change_email: "Redakti retpoŝtadreso"
       change_language: "Ŝanĝi lingvon"
       change_password: "Ŝanĝi pasvorton"
+      close_account:
+        what_we_delete: "We delete all of your posts, profile data, as soon as humanly possible. Your comments will hang around, but be associated with your Diaspora Handle."
       comment_on_post: "...iu komentas pri via afiŝo?"
       current_password: "Nuna pasvorto"
       download_photos: "elŝuti miajn bildojn"

@@ -75,6 +75,7 @@ fil:
       are_you_sure: "Are you sure you want to delete this crew?"
       aspect_not_empty: "Crew not empty"
     index:
+      handle_explanation: "This is your diaspora id. Like an email address, you can give this to people to reach you."
       help:
         here_to_help: "Diaspora community is here to help!"
         tag_bug: "#bug"
@@ -288,6 +289,15 @@ fil:
   photos:
     new:
       new_photo: "New Portrait"
+  posts:
+    show:
+      photos_by:
+        few: "%{count} photos by %{author}"
+        many: "%{count} photos by %{author}"
+        one: "One photo by %{author}"
+        other: "%{count} photos by %{author}"
+        two: "Two photos by %{author}"
+        zero: "No photos by %{author}"
   profiles:
     edit:
       your_birthday: "Ye day o' birth"
@@ -370,6 +380,10 @@ fil:
       failure: "Failed to stop following: #%{name}"
       success: "Successfully stopped following: #%{name}"
   users:
+    edit:
+      close_account:
+        what_we_delete: "We delete all of your posts, profile data, as soon as humanly possible. Your comments will hang around, but be associated with your Diaspora Handle."
+      your_handle: "Your diaspora id"
     getting_started:
       what_facebook_does: "to Diaspora. This will pull your name and photo, and enable cross-positng."
   webfinger:

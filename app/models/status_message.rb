@@ -40,10 +40,6 @@ class StatusMessage < Post
     joins(:likes).where(:likes => {:author_id => person.id})
   }
 
-  def photos_count
-    self.photos.size
-  end
-
   def self.guids_for_author(person)
     Post.connection.select_values(Post.where(:author_id => person.id).select('posts.guid').to_sql)
   end
@@ -176,11 +172,6 @@ class StatusMessage < Post
     self.oembed_url = urls.find{|url| ENDPOINT_HOSTS_STRING.match(URI.parse(url).host)}
   end
 
-  def update_photos_counter
-    StatusMessage.where(:id => self.id).
-      update_all(:photos_count => self.photos.count)
-  end
-
   protected
   def presence_of_content
     unless text_and_photos_blank?
@@ -192,6 +183,5 @@ class StatusMessage < Post
   def self.tag_stream(tag_ids)
     joins(:tags).where(:tags => {:id => tag_ids})
   end
-
 end
 

@@ -1,1 +1,0 @@
-{ :br => { :i18n => {:plural => { :keys => [:one, :two, :few, :many, :other], :rule => lambda { |n| n % 10 == 1 && n ? :one : n % 10 == 2 && n ? :two : [3, 4].include?(n % 10) && ![10, 11, 12, 13, 14, 15, 16, 17, 18, 19].include?(n % 100) ? :few : n % 1000000 == 0 && n != 0 ? :many : :other } } } } }

@@ -552,6 +552,13 @@ sq:
       destroy: Fshije
       not_found: "Na ndjeni nuk e gjetëm dot atë postim."
       permalink: permalidhje
+      photos_by:
+        few: "%{count} photos by %{author}"
+        many: "%{count} photos by %{author}"
+        one: "One photo by %{author}"
+        other: "%{count} photos by %{author}"
+        two: "Two photos by %{author}"
+        zero: "No photos by %{author}"
   previous: "e mëparshmja"
   privacy: Privatësi
   privacy_policy: "Rregulla Privatësie"
@@ -633,4 +640,9 @@ sq:
   terms_and_conditions: "Terma dhe Kushte"
   undo: "Të zhbëhet?"
   username: "Emër përdoruesi"
+  users:
+    edit:
+      close_account:
+        what_we_delete: "We delete all of your posts, profile data, as soon as humanly possible. Your comments will hang around, but be associated with your Diaspora Handle."
+      your_handle: "Your diaspora id"
   welcome: "Mirë se vini!"

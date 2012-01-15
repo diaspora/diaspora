@@ -385,11 +385,4 @@ describe PeopleController do
       @controller.diaspora_id?("ilya_2%3@joindiaspora.com").should be_false
     end
   end
-
-  describe '#webfinger' do
-    it 'calls Webfinger.new' do
-      Webfinger.should_receive(:new).with(@user.diaspora_handle, anything).once
-      get :retrieve_remote, :diaspora_handle => @user.diaspora_handle
-    end
-  end
 end

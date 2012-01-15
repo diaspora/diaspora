@@ -36,6 +36,7 @@ ka:
         content_1: "თქვენი Diaspora-ს ID არის:"
         content_2: "გაუზიარეთ ის ნებისმიერ ადამიანს და ის შეძლებს თქვენს პოვნას Diaspora-ზე."
       donate: "ფულის შეწირვა"
+      handle_explanation: "This is your diaspora id. Like an email address, you can give this to people to reach you."
       help:
         do_you: "თქვენ:"
         email_feedback: "%{link} თქვენი უკუკავშირი, თუ გსურთ"
@@ -197,6 +198,15 @@ ka:
     other: "%{count} people"
     two: "%{count} people"
     zero: "no people"
+  posts:
+    show:
+      photos_by:
+        few: "%{count} photos by %{author}"
+        many: "%{count} photos by %{author}"
+        one: "One photo by %{author}"
+        other: "%{count} photos by %{author}"
+        two: "Two photos by %{author}"
+        zero: "No photos by %{author}"
   public: საჯაროდ
   reactions:
     few: "%{count} reactions"
@@ -253,6 +263,9 @@ ka:
   users:
     edit:
       change_language: "ენის შეცვლა"
+      close_account:
+        what_we_delete: "We delete all of your posts, profile data, as soon as humanly possible. Your comments will hang around, but be associated with your Diaspora Handle."
+      your_handle: "Your diaspora id"
     update:
       language_changed: "ენა შიეცვალა"
       language_not_changed: "ენის შეცვლა ვერ მოხერხდა"

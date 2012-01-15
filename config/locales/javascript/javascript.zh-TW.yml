@@ -18,6 +18,7 @@ zh-TW:
         many: "在{{count}}個面向中"
         one: "在{{count}}個面向中"
         other: "在{{count}}個面向中"
+        two: "在{{count}}個面向中"
         zero: 選面向
     aspect_navigation:
       deselect_all: 全不選
@@ -52,18 +53,21 @@ zh-TW:
         many: "<%= count %> Likes"
         one: "<%= count %> Like"
         other: "<%= count %> Likes"
+        two: "<%= count %> Likes"
         zero: "<%= count %> Likes"
       more_comments:
         few: "Show <%= count %> more comments"
         many: "Show <%= count %> more comments"
         one: "Show <%= count %> more comment"
         other: "Show <%= count %> more comments"
+        two: "Show <%= count %> more comments"
         zero: "Show <%= count %> more comments"
       reshares:
         few: "<%= count %> Reshares"
         many: "<%= count %> Reshares"
         one: "<%= count %> Reshare"
         other: "<%= count %> Reshares"
+        two: "<%= count %> Reshares"
         zero: "<%= count %> Reshares"
     tags:
       wasnt_that_interesting: "OK, 我想 #{{tagName}} 大概沒那麼有趣..."

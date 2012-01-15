@@ -564,6 +564,13 @@ fr:
       destroy: Supprimer
       not_found: "Désolé, nous n'avons pas pu trouver ce message."
       permalink: "lien permanent"
+      photos_by:
+        few: "%{count} photos by %{author}"
+        many: "%{count} photos by %{author}"
+        one: "One photo by %{author}"
+        other: "%{count} photos by %{author}"
+        two: "Two photos by %{author}"
+        zero: "No photos by %{author}"
   previous: précédent
   privacy: "Vie privée"
   privacy_policy: "Règles de confidentialité"

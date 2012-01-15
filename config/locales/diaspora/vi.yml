@@ -436,6 +436,15 @@ vi:
     other: "%{count} people"
     two: "%{count} people"
     zero: "no people"
+  posts:
+    show:
+      photos_by:
+        few: "%{count} photos by %{author}"
+        many: "%{count} photos by %{author}"
+        one: "One photo by %{author}"
+        other: "%{count} photos by %{author}"
+        two: "Two photos by %{author}"
+        zero: "No photos by %{author}"
   profiles:
     edit:
       edit_profile: "Chỉnh sửa hồ sơ"
@@ -552,6 +561,8 @@ vi:
       change_email: "Đổi địa chỉ thư điện tử"
       change_language: "Đổi ngôn ngữ"
       change_password: "Đổi mật khẩu"
+      close_account:
+        what_we_delete: "We delete all of your posts, profile data, as soon as humanly possible. Your comments will hang around, but be associated with your Diaspora Handle."
       current_password: "Mật khẩu hiện tại"
       download_photos: "tải ảnh của tôi"
       download_xml: "tải xml của tôi"

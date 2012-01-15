@@ -536,6 +536,13 @@ cs:
       destroy: Smazat
       not_found: "Tento příspěvek nelze bohužel najít."
       permalink: "trvalý odkaz"
+      photos_by:
+        few: "%{count} photos by %{author}"
+        many: "%{count} photos by %{author}"
+        one: "One photo by %{author}"
+        other: "%{count} photos by %{author}"
+        two: "Two photos by %{author}"
+        zero: "No photos by %{author}"
   previous: předchozí
   privacy: Soukromí
   profile: Profil
@@ -788,6 +795,8 @@ cs:
       change_email: "Změnit e-mail"
       change_language: "Změnit jazyk"
       change_password: "Změnit heslo"
+      close_account:
+        what_we_delete: "We delete all of your posts, profile data, as soon as humanly possible. Your comments will hang around, but be associated with your Diaspora Handle."
       comment_on_post: "...někdo komentoval váš příspěvek?"
       current_password: "Současné heslo"
       download_photos: "stáhnout moje fotky"

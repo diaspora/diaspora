@@ -9,6 +9,10 @@
    loadLocale: function(locale, language) {
      this.locale = locale;
      this.language = language;
+     rule = this.t('pluralization_rule');
+     if (rule === "")
+      rule = 'function (n) { return n == 1 ? "one" : "other" }';
+     eval("this.pluralizationKey = "+rule);
    },
 
    t: function(item, views) {
@@ -25,17 +29,11 @@
         return "";
       }
     }
-
+    
     if(views && typeof views.count !== "undefined") {
-      if(views.count == 0) { nextNamespace = "zero"; } else
-      if(views.count == 1) { nextNamespace = "one";  } else
-      if(views.count <= 3) { nextNamespace = "few";  } else
-      if(views.count > 3)  { nextNamespace = "many"; }
-      else { nextNamespace = "other"; }
-
-      translatedMessage = translatedMessage[nextNamespace];
+      translatedMessage = translatedMessage[this.pluralizationKey(views.count)];
     }
-
+    
     return _.template(translatedMessage, views || {});
    }
  };

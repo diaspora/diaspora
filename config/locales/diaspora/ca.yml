@@ -635,6 +635,14 @@ ca:
       destroy: "Suprimeix"
       permalink: "enllaç permanent"
       not_found: "No s'ha trobat aquesta publicació."
+      photos_by:
+        zero: "Cap foto per %{author}"
+        one: "Una foto per %{author}"
+        two: "Dos fotos per %{author}"
+        few: "%{count} fotos per %{author}"
+        many: "%{count} fotos per %{author}"
+        other: "%{count} fotos per %{author}"
+      reshare_by: "Tornat a compartir per %{author}"
 
 
   share_visibilites:
@@ -964,7 +972,7 @@ ca:
       current_password: "Contrasenya actual"
       download_xml: "baixa el meu XML"
       download_photos: "baixa les meues fotos"
-      your_handle: "El vostre identificador de diàspora"
+      your_handle: "El vostre identificador de Diàspora"
       your_email: "El vostre correu electrònic"
       edit_account: "Edita el compte"
       receive_email_notifications: "Voleu rebre notificacions per correu quan…"

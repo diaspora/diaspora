@@ -9,15 +9,16 @@ de:
     aspect_dropdown:
       add_to_aspect: "Kontakt hinzufügen"
       all_aspects: "Alle Aspekte"
-      error: "Konnte nicht anfangen, mit {{name}} zu teilen. Ignorierst du sie/ihn?"
+      error: "Konnte nicht anfangen, mit <%= name %> zu teilen. Ignorierst du sie/ihn?"
       select_aspects: "Wähle Aspekte aus"
-      started_sharing_with: "Du hast angefangen, mit {{name}} zu teilen!"
-      stopped_sharing_with: "Du hast aufgehört, mit {{name}} zu teilen!"
+      started_sharing_with: "Du hast angefangen, mit <%= name %> zu teilen!"
+      stopped_sharing_with: "Du hast aufgehört, mit <%= name %> zu teilen!"
       toggle:
-        few: "In {{count}} Aspekten"
-        many: "In {{count}} Aspekten"
+        few: "In <%= count %> Aspekten"
+        many: "In <%= count %> Aspekten"
         one: "In einem Aspekt"
-        other: "In {{count}} Aspekten"
+        other: "In <%= count %> Aspekten"
+        two: "In <%= count %> Aspekten"
         zero: "Aspekt auswählen"
     aspect_navigation:
       deselect_all: "Auswahl aufheben"
@@ -27,13 +28,25 @@ de:
       hide: "Kommentare verbergen"
       show: "Alle Kommentare zeigen"
     confirm_dialog: "Bist du dir sicher?"
+    delete: Löschen
     failed_to_like: "Gefällt mir fehlgeschlagen."
     failed_to_post_message: "Konnte Beitrag nicht senden!"
     getting_started:
       alright_ill_wait: "Alles klar, ich warte."
-      hey: "Hey, {{name}}!"
       no_tags: "Hey, du folgst noch keinen Tags! Trotzdem weitermachen?"
       preparing_your_stream: "Dein persönlicher Stream wird zusammengestellt …"
+    header:
+      contacts: Kontakte
+      log_out: Abmelden
+      mark_all_as_read: "Alle als gelesen markieren"
+      messages: Nachrichten
+      notifications: Benachrichtigungen
+      profile: Profil
+      recent_notifications: "Neuste Benachrichtigungen"
+      search: "Suche Leute oder #Tags"
+      settings: Einstellungen
+      view_all: "Alle anzeigen"
+    ignore: Ignorieren
     infinite_scroll:
       no_more: "Keine weiteren Beiträge."
     photo_uploader:
@@ -44,29 +57,42 @@ de:
       public: "Öffentlich - dein Beitrag ist für alle sichtbar und kann von Suchmaschinen gefunden werden"
     reshares:
       duplicate: "Du hast diesen Beitrag bereits weitergesagt!"
-    search_for: "Nach {{name}} suchen"
+    search_for: "Nach <%= name %> suchen"
     show_more: "Mehr zeigen"
     stream:
+      comment: Kommentar
+      hide: Ausblenden
+      like: "Gefällt mir"
       likes:
-        few: "<%= count %> Likes"
-        many: "<%= count %> Likes"
-        one: "<%= count %> Like"
-        other: "<%= count %> Likes"
-        zero: "<%= count %> Likes"
+        few: "Gefällt <%= count %>"
+        many: "Gefällt <%= count %>"
+        one: "Gefällt <%= count %>"
+        other: "Gefällt <%= count %>"
+        two: "Gefällt <%= count %>"
+        zero: "Gefällt keinem"
+      limited: Begrenzt
       more_comments:
-        few: "Show <%= count %> more comments"
-        many: "Show <%= count %> more comments"
-        one: "Show <%= count %> more comment"
-        other: "Show <%= count %> more comments"
-        zero: "Show <%= count %> more comments"
+        few: "Zeige <%= count %> weitere Kommentare"
+        many: "Zeige <%= count %> weitere Kommentare"
+        one: "Zeige einen weiteren Kommentare"
+        other: "Zeige <%= count %> weitere Kommentare"
+        two: "Zeige <%= count %> weitere Kommentare"
+        zero: "Keine weiteren Kommentare"
+      nsfw: "Dieser Beitrag wurde als NSFW von seinem Autor gekennzeichnet."
+      original_post_deleted: "Originalbeitrag wurde vom Autor entfernt."
+      public: Öffentlich
+      reshare: Weitersagen
       reshares:
-        few: "<%= count %> Reshares"
-        many: "<%= count %> Reshares"
-        one: "<%= count %> Reshare"
-        other: "<%= count %> Reshares"
-        zero: "<%= count %> Reshares"
+        few: "<%= count %> mal weitergesagt"
+        many: "<%= count %> mal weitergesagt"
+        one: "<%= count %> mal weitergesagt"
+        other: "<%= count %> mal weitergesagt"
+        two: "<%= count %> mal weitergesagt"
+        zero: "<%= count %> mal weitergesagt"
+      show: Zeigen
+      unlike: "Gefällt mir nicht mehr"
     tags:
-      wasnt_that_interesting: "OK, ich nehme an, #{{tagName}} war nicht so interessant..."
+      wasnt_that_interesting: "OK, ich nehme an, #<%= tagName %> war nicht so interessant..."
     timeago:
       day: "einem Tag"
       days: "%d Tagen"

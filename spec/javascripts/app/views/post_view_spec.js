@@ -7,7 +7,7 @@ describe("app.views.Post", function(){
       Diaspora.I18n.loadLocale({stream : {
         reshares : {
           one : "<%= count %> reshare",
-          few : "<%= count %> reshares"
+          other : "<%= count %> reshares"
         }
       }})
 

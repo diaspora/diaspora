@@ -56,5 +56,14 @@ describe("app.views.Publisher", function() {
       this.view.clear($.Event());
       expect(this.view.$("#photodropzone").html()).toBe("");
     })
+
+    it("removes all photo values appended by the photo uploader", function(){
+      $(this.view.el).prepend("<input name='photos[]' value='3'/>")
+      var photoValuesInput = this.view.$("input[name='photos[]']");
+
+      photoValuesInput.val("3")
+      this.view.clear($.Event());
+      expect(this.view.$("input[name='photos[]']").length).toBe(0);
+    })
   });
 });

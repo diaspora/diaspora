@@ -16,6 +16,12 @@ GIT
       rails (>= 3.0.0)
 
 GIT
+  remote: git://github.com/binarylogic/settingslogic.git
+  revision: 4884d455bf18d92723cb8190cfd2dbf87f3aafd5
+  specs:
+    settingslogic (2.0.8)
+
+GIT
   remote: git://github.com/diaspora/acts-as-taggable-on.git
   revision: c3592fe1a906f6ff1cd12766c5cf1152c51eec40
   specs:
@@ -39,12 +45,6 @@ GIT
   ref: 0b78aa7849fc90cf9e12
   specs:
     http_accept_language (1.0.1)
-
-GIT
-  remote: https://github.com/binarylogic/settingslogic.git
-  revision: 4884d455bf18d92723cb8190cfd2dbf87f3aafd5
-  specs:
-    settingslogic (2.0.8)
 
 GEM
   remote: http://rubygems.org/

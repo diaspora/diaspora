@@ -18,6 +18,7 @@ he:
         many: "{{count}} תחומי עניין ב"
         one: "{{count}}בתחום עניין "
         other: "ב־{{count}} היבטים"
+        two: "ב־{{count}} היבטים"
         zero: "בחר תחום עניין"
     aspect_navigation:
       deselect_all: "בטל את הסימון"
@@ -52,18 +53,21 @@ he:
         many: "<%= count %> Likes"
         one: "<%= count %> Like"
         other: "<%= count %> Likes"
+        two: "<%= count %> Likes"
         zero: "<%= count %> Likes"
       more_comments:
         few: "Show <%= count %> more comments"
         many: "Show <%= count %> more comments"
         one: "Show <%= count %> more comment"
         other: "Show <%= count %> more comments"
+        two: "Show <%= count %> more comments"
         zero: "Show <%= count %> more comments"
       reshares:
         few: "<%= count %> Reshares"
         many: "<%= count %> Reshares"
         one: "<%= count %> Reshare"
         other: "<%= count %> Reshares"
+        two: "<%= count %> Reshares"
         zero: "<%= count %> Reshares"
     tags:
       wasnt_that_interesting: "...זה לא היה כל כך מעניין#{{tagName}} אוקיי, אני מניח "

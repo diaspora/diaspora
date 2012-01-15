@@ -18,6 +18,7 @@ vi:
         many: "Trong {{count}} mối quan hệ"
         one: "Trong {{count}} mối quan hệ"
         other: "Trong {{count}} mối quan hệ"
+        two: "Trong {{count}} mối quan hệ"
         zero: "Chọn mối quan hệ"
     aspect_navigation:
       deselect_all: "Bỏ chọn tất cả"
@@ -52,18 +53,21 @@ vi:
         many: "<%= count %> Likes"
         one: "<%= count %> Like"
         other: "<%= count %> Likes"
+        two: "<%= count %> Likes"
         zero: "<%= count %> Likes"
       more_comments:
         few: "Show <%= count %> more comments"
         many: "Show <%= count %> more comments"
         one: "Show <%= count %> more comment"
         other: "Show <%= count %> more comments"
+        two: "Show <%= count %> more comments"
         zero: "Show <%= count %> more comments"
       reshares:
         few: "<%= count %> Reshares"
         many: "<%= count %> Reshares"
         one: "<%= count %> Reshare"
         other: "<%= count %> Reshares"
+        two: "<%= count %> Reshares"
         zero: "<%= count %> Reshares"
     tags:
       wasnt_that_interesting: "Tôi cho rằng #{{tagName}} không thú vị..."

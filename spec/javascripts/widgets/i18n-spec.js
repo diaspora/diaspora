@@ -6,8 +6,7 @@
 describe("Diaspora", function() {
   describe("widgets", function() {
     describe("i18n", function() {
-      var locale = {
-        namespace: {
+      var locale = {namespace: {
           message: "hey",
           template: "<%= myVar %>",
           otherNamespace: {
@@ -55,42 +54,6 @@ describe("Diaspora", function() {
 
         it("returns an empty string if the translation is not found", function() {
           expect(Diaspora.I18n.t("missing.locale")).toEqual("");
-        });
-
-        describe("count", function() {
-          function translateWith(count) {
-            translation = Diaspora.I18n.t("namespace.otherNamespace.otherMessage", {
-              count: count
-            })
-          }
-
-          it("returns the 'zero' namespace if the count is zero", function() {
-            translateWith(0);
-
-            expect(translation).toEqual("none");
-          });
-
-          it("returns the 'one' namespace if the count is one", function() {
-            translateWith(1);
-
-            expect(translation).toEqual("just one");
-          });
-
-          it("returns the 'few' namespace if the count is 2 or 3", function() {
-            translateWith(2);
-
-            expect(translation).toEqual("just a few");
-
-            translateWith(3);
-
-            expect(translation).toEqual("just a few");
-          });
-
-          it("returns the 'many' namespace for any number greater than 3", function() {
-            translateWith(50);
-
-            expect(translation).toEqual("way too many");
-          });
         });
       });
     });

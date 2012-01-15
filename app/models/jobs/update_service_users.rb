@@ -4,11 +4,15 @@
 
 
 module Jobs
-  class UpdateServiceUsers < Base 
+  class UpdateServiceUsers < Base
     @queue = :http_service
     def self.perform(service_id)
       service = Service.find(service_id)
-      service.save_friends
+      begin
+        service.save_friends
+      rescue SocketError
+        nil
+      end
     end
   end
 end

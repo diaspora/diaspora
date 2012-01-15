@@ -27,7 +27,7 @@
       </div>
 
       <!-- duplicate from statusmessage partial -->
-      <% if(root.photos_count > 0 && root.photos && root.photos.length > 0) { %>
+      <% if(root.photos && root.photos.length > 0) { %>
         <div class="photo_attachments">
           <img src="<%= root.photos[0].sizes.large %>" class="stream-photo big_stream_photo">
           <% for(photo in root.photos) {

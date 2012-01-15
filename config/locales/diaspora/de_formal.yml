@@ -571,6 +571,13 @@ de_formal:
       destroy: Löschen
       not_found: "Entschuldigen Sie, wir konnten den Beitrag leider nicht finden."
       permalink: Permanentlink
+      photos_by:
+        few: "%{count} photos by %{author}"
+        many: "%{count} photos by %{author}"
+        one: "One photo by %{author}"
+        other: "%{count} photos by %{author}"
+        two: "Two photos by %{author}"
+        zero: "No photos by %{author}"
   previous: Vorherige
   privacy: Privatsphäre
   profile: Profil
@@ -852,6 +859,8 @@ de_formal:
       change_email: "E-Mail-Adresse ändern"
       change_language: "Sprache ändern"
       change_password: "Passwort ändern"
+      close_account:
+        what_we_delete: "We delete all of your posts, profile data, as soon as humanly possible. Your comments will hang around, but be associated with your Diaspora Handle."
       comment_on_post: "… jemand Ihren Beitrag kommentiert?"
       current_password: "Derzeitiges Kennwort"
       download_photos: "Meine Fotos herunterladen"

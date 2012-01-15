@@ -564,6 +564,13 @@ el:
     show:
       destroy: Διαγραφή
       not_found: "Λυπούμαστε, δεν καταφέραμε να βρούμε αυτή την ανάρτηση."
+      photos_by:
+        few: "%{count} photos by %{author}"
+        many: "%{count} photos by %{author}"
+        one: "One photo by %{author}"
+        other: "%{count} photos by %{author}"
+        two: "Two photos by %{author}"
+        zero: "No photos by %{author}"
   previous: προηγούμενο
   privacy: Απόρρητο
   privacy_policy: "Πολιτική Ιδιωτικού Απορρήτου"

@@ -568,6 +568,13 @@ bg:
       destroy: Изтриване
       not_found: "За съжаление публикацията не може да бъде намерена."
       permalink: "постоянен адрес"
+      photos_by:
+        few: "%{count} photos by %{author}"
+        many: "%{count} photos by %{author}"
+        one: "One photo by %{author}"
+        other: "%{count} photos by %{author}"
+        two: "Two photos by %{author}"
+        zero: "No photos by %{author}"
   previous: предишна
   privacy: Поверителност
   privacy_policy: "Декларация за поверителност"

@@ -577,6 +577,13 @@ zh-TW:
       destroy: 刪除
       not_found: "抱歉,找不到該則貼文."
       permalink: 靜態連結
+      photos_by:
+        few: "%{count} photos by %{author}"
+        many: "%{count} photos by %{author}"
+        one: "One photo by %{author}"
+        other: "%{count} photos by %{author}"
+        two: "Two photos by %{author}"
+        zero: "No photos by %{author}"
   previous: 前面
   privacy: 隱私
   privacy_policy: 隱私方案
@@ -878,6 +885,8 @@ zh-TW:
       change_email: 更改E-Mail
       change_language: 更改語言
       change_password: 更改密碼
+      close_account:
+        what_we_delete: "We delete all of your posts, profile data, as soon as humanly possible. Your comments will hang around, but be associated with your Diaspora Handle."
       close_account_text: 關閉帳號
       comment_on_post: "...當有人對你的貼文發表意見時?"
       current_password: 目前密碼

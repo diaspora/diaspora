@@ -63,7 +63,8 @@
       events: function() { return Diaspora.page.eventsContainer.data("events"); },
       flashMessages: this.instantiate("FlashMessages"),
       header: this.instantiate("Header", body.find("header")),
-      hoverCard: this.instantiate("HoverCard", body.find("#hovercard"))
+      hoverCard: this.instantiate("HoverCard", body.find("#hovercard")),
+      timeAgo: this.instantiate("TimeAgo")
     });
   };
 

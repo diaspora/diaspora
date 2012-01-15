@@ -312,6 +312,15 @@ ur-PK:
     other: "%{count} people"
     two: "%{count} people"
     zero: "no people"
+  posts:
+    show:
+      photos_by:
+        few: "%{count} photos by %{author}"
+        many: "%{count} photos by %{author}"
+        one: "One photo by %{author}"
+        other: "%{count} photos by %{author}"
+        two: "Two photos by %{author}"
+        zero: "No photos by %{author}"
   reactions:
     few: "%{count} reactions"
     many: "%{count} reactions"
@@ -390,5 +399,8 @@ ur-PK:
   users:
     edit:
       auto_follow_back: "Automatically follow back if a someone follows you"
+      close_account:
+        what_we_delete: "We delete all of your posts, profile data, as soon as humanly possible. Your comments will hang around, but be associated with your Diaspora Handle."
+      your_handle: "Your diaspora id"
     getting_started:
       what_facebook_does: "to Diaspora. This will pull your name and photo, and enable cross-positng."

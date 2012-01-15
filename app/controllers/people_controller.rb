@@ -42,7 +42,7 @@ class PeopleController < ApplicationController
         #only do it if it is an email address
         if diaspora_id?(params[:q])
           people = Person.where(:diaspora_handle => params[:q].downcase)
-          webfinger(params[:q]) if people.empty?
+          Webfinger.in_background(params[:q]) if people.empty?
         else
           people = Person.search(params[:q], current_user)
         end
@@ -53,7 +53,7 @@ class PeopleController < ApplicationController
         #only do it if it is an email address
         if diaspora_id?(params[:q])
           people = Person.where(:diaspora_handle => params[:q])
-          webfinger(params[:q]) if people.empty?
+          Webfinger.in_background(params[:q]) if people.empty?
         else
           people = Person.search(params[:q], current_user)
         end
@@ -131,7 +131,7 @@ class PeopleController < ApplicationController
 
   def retrieve_remote
     if params[:diaspora_handle]
-      webfinger(params[:diaspora_handle], :single_aspect_form => true)
+      Webfinger.in_background(params[:diaspora_handle], :single_aspect_form => true)
       render :nothing => true
     else
       render :nothing => true, :status => 422
@@ -161,7 +161,6 @@ class PeopleController < ApplicationController
       @contact = current_user.contact_for(@person) || Contact.new
       render :partial => 'aspect_membership_dropdown', :locals => {:contact => @contact, :person => @person, :hang => 'left'}
     end
-    Webfinger.new(account, opts)
   end
 
   def diaspora_id?(query)
@@ -169,9 +168,6 @@ class PeopleController < ApplicationController
   end
 
   private
-  def webfinger(account, opts = {})
-    Webfinger.new(account, opts)
-  end
 
   def remote_profile_with_no_user_session?
     @person && @person.remote? && !user_signed_in?

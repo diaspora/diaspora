@@ -118,6 +118,7 @@ ko:
         tag_question: 질문
         tutorials_wiki_and_forum: "%{tutorial}과 %{wiki}와  %{forum}: 커뮤니티가 운영하는 튜토리얼, 사용 방법과 소식"
       introduce_yourself: "내 스트림입니다. 자기소개 어때요?"
+      keep_us_running: "%{pod} 팟이 빠르게 동작하고 서버와 디아스포라 팀이 마시는 커피를 살 수 있도록 정기후원을 해 주세요!"
       new_here:
         follow: "%{link} 태그를 팔로우해서 디아스포라*의 새 사용자를 맞으세요!"
         learn_more: 자세히
@@ -577,6 +578,14 @@ ko:
       destroy: 지우기
       not_found: "해당 게시물을 찾을 수 없습니다."
       permalink: "영구 링크"
+      photos_by:
+        few: "%{author}님의 사진 %{count}장"
+        many: "%{author}님의 사진 %{count}장"
+        one: "%{author}님의 사진 한 장"
+        other: "%{author}님의 사진 %{count}장"
+        two: "%{author}님의 사진 두 장"
+        zero: "%{author}님의 사진 없음"
+      reshare_by: "%{author}님이 재공유"
   previous: 이전
   privacy: 개인정보보호
   privacy_policy: 개인정보보호정책
@@ -883,7 +892,7 @@ ko:
         make_diaspora_better: "떠나는 것 대신 더 나은 디아스포라를 만들 수 있도록 도와주십시오. 떠나고 싶다면, 다음에 무슨 일이 일어나는지 알려드리겠습니다."
         mr_wiggles: "Mr Wiggles님이 내가 떠나는 걸 슬퍼할거에요"
         no_turning_back: "현재로서는 돌이킬 수 있는 방법이 없습니다."
-        what_we_delete: "내 게시물, 프로필 자료가 인간적으로 가능한 한 빨리 모두 지워집니다. 내 댓글은 그대로 달려있지만 내 디아스포라 핸들과 연결됩니다.\n"
+        what_we_delete: "내 게시물, 프로필 자료가 인간적으로 가능한 한 빨리 모두 지워집니다. 내 댓글은 그대로 달려있지만 내 디아스포라 핸들과 연결됩니다."
       close_account_text: "계정 없애기"
       comment_on_post: "내 게시물에 댓글이 달렸을 때"
       current_password: "원래 암호"

@@ -511,6 +511,13 @@ nb:
     show:
       destroy: Slett
       not_found: "Beklager, vi fant ikke det inlegget. "
+      photos_by:
+        few: "%{count} photos by %{author}"
+        many: "%{count} photos by %{author}"
+        one: "One photo by %{author}"
+        other: "%{count} photos by %{author}"
+        two: "Two photos by %{author}"
+        zero: "No photos by %{author}"
   previous: forrige
   privacy: Personvern
   profile: Profil
@@ -768,6 +775,8 @@ nb:
       change_email: "Change E-Mail"
       change_language: "Endre Språk"
       change_password: "Endre Passord"
+      close_account:
+        what_we_delete: "We delete all of your posts, profile data, as soon as humanly possible. Your comments will hang around, but be associated with your Diaspora Handle."
       comment_on_post: " noen kommenterer på dine innlegg?"
       current_password: "Nåverende passord"
       download_photos: "last ned mine bilder"

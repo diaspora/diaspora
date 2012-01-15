@@ -570,6 +570,13 @@ hu:
     show:
       destroy: Töröl
       not_found: "Bocsi, de nem találjuk a bejegyzést."
+      photos_by:
+        few: "%{count} photos by %{author}"
+        many: "%{count} photos by %{author}"
+        one: "One photo by %{author}"
+        other: "%{count} photos by %{author}"
+        two: "Two photos by %{author}"
+        zero: "No photos by %{author}"
   previous: előző
   privacy: Adatvédelem
   privacy_policy: Adatvédelem
@@ -865,6 +872,8 @@ hu:
       change_email: "Email megváltoztatása"
       change_language: "Nyelv megváltoztatása"
       change_password: "Jelszó módosítása"
+      close_account:
+        what_we_delete: "We delete all of your posts, profile data, as soon as humanly possible. Your comments will hang around, but be associated with your Diaspora Handle."
       comment_on_post: "...valaki hozzászólt egy bejegyzésedhez?"
       current_password: "Jelenlegi jelszó"
       download_photos: "Képeim letöltése"
