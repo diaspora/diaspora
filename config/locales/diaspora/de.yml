@@ -823,7 +823,7 @@ de:
     followed_tags_stream: "#Tags, denen du folgst"
     like_stream:
       contacts_title: "Leute, deren Beiträge du magst"
-      title: "\"Gefällt mir-Stream"
+      title: "\"Gefällt mir\"-Stream"
     mentioned_stream: "@Erwähnungen"
     mentions:
       contacts_title: "Personen, die dich erwähnt haben"
