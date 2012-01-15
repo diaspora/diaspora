@@ -786,6 +786,26 @@ Markdown.dialects.Gruber.inline = {
         // Not an esacpe
         return [ 1, "\\" ];
     },
+    "[![": function image_link( text ) {
+      
+      var m = text.match( /^\[(.*)\][ \t]*\([ \t]*(\S+)(?:[ \t]+(["'])(.*?)\3)?[ \t]*\)/ );
+      if(m) {
+        var link_img = this.processInline( m[1] )[0];
+        if ( m[2] && m[2][0] == '<' && m[2][m[2].length-1] == '>' )
+        m[2] = m[2].substring( 1, m[2].length - 1 );
+        
+        // Process escapes only
+        m[2] = this.dialect.inline.__call__.call( this, m[2], /\\/ )[0];
+        
+        var attrs = { href: m[2] || "" };
+        if ( m[4] !== undefined)
+        attrs.title = m[4];
+        
+        var link = [ "link", attrs, link_img ];
+        return [ m[0].length, link ];
+        
+      }
+    },
 
     "![": function image( text ) {
       // ![Alt text](/path/to/img.jpg "Optional title")
