@@ -6,7 +6,7 @@ gem 'bundler', '>= 1.0.0'
 gem 'foreman', '0.27.0'
 gem 'whenever'
 
-gem 'thin', '~> 1.3.1',    :require => false
+gem 'thin', '~> 1.3.1', :require => false
 
 # authentication
 
@@ -38,7 +38,6 @@ end
 
 group :heroku do
   gem 'pg'
-  gem 'unicorn', '~> 4.1.1', :require => false
 end
 
 gem 'settingslogic', :git => 'git://github.com/binarylogic/settingslogic.git'
