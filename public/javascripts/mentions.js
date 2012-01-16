@@ -11,6 +11,8 @@ var Mentions = {
   },
 
   options: {
+    elastic: false,
+
     onDataRequest: function(mode, query, callback) {
       var filteredResults = _.filter(Mentions.contacts, function(item) { return item.name.toLowerCase().indexOf(query.toLowerCase()) > -1 });
 
