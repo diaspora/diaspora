@@ -100,11 +100,12 @@
       elmMentionsOverlay.prependTo(elmWrapperBox);
     }
 
-    function updateValues() {
+    function updateNames() {
       var syntaxMessage = getInputBoxValue();
 
       _.each(mentionsCollection, function (mention) {
-        var textSyntax = settings.templates.mentionItemSyntax({ name : mention.name, type : 'contact', id : mention.id, mention : mention });
+        var textSyntax = settings.templates.mentionItemSyntax({ name : mention.name, type : 'contact', id : mention.id, mention: mention });
+
         syntaxMessage = syntaxMessage.replace(mention.name, textSyntax);
       });
 
@@ -162,7 +163,7 @@
 
       // Mentions & syntax message
       elmInputBox.val(updatedMessageText);
-      updateValues();
+      updateNames();
 
       // Set correct focus and selection
       elmInputBox.focus();
@@ -174,9 +175,9 @@
     }
 
     function onAutoCompleteItemClick(e) {
-      var elmTarget = $(this);
+      var mention = $(this).data("mention");
 
-      addMention(elmTarget.data("mention"));
+      addMention(mention);
 
       return false;
     }
@@ -186,7 +187,7 @@
     }
 
     function onInputBoxInput(e) {
-      updateValues();
+      updateNames();
       updateMentionsCollection();
       hideAutoComplete();
 
@@ -270,9 +271,9 @@
       elmAutocompleteList.show();
 
       // Filter items that has already been mentioned
-      var mentionValues = _.pluck(mentionsCollection, 'value');
+      var mentionedNames = _.pluck(mentionsCollection, 'name');
       results = _.reject(results, function (item) {
-        return _.include(mentionValues, item.name);
+        return _.include(mentionedNames, item.name);
       });
 
       if (!results.length) {
@@ -289,13 +290,11 @@
           'display' : utils.htmlEncode(item.name),
           'type'    : utils.htmlEncode(item.type),
           'content' : utils.highlightTerm(utils.htmlEncode((item.name)), query)
-        }));
+        })).data('mention', item);
 
-        if (index === 0) {
-          selectAutoCompleteItem(elmListItem);
+        if (index === 0) { 
+          selectAutoCompleteItem(elmListItem); 
         }
-
-        elmListItem.data("mention", item);
 
         if (settings.showAvatars) {
           var elmIcon;
@@ -342,10 +341,9 @@
       },
 
       reset : function () {
-        debugger;
         elmInputBox.val('');
         mentionsCollection = [];
-        updateValues();
+        updateNames();
       },
 
       getMentions : function (callback) {

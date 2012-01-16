@@ -54,7 +54,7 @@ var Publisher = {
 
   clear: function(){
     $("#photodropzone").find('li').remove();
-    $("#publisher textarea").removeClass("with_attachments")
+    Publisher.input().removeClass("with_attachments")
       .css('paddingBottom', '')
       .mentionsInput("reset");
   },
