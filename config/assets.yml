@@ -9,10 +9,9 @@ javascripts:
   main:
     - public/javascripts/vendor/underscore.js
     - public/javascripts/vendor/backbone.js
-
-    - public/javascripts/vendor/markdown.js
-
+    - public/javascripts/vendor/markdown/*
     - public/javascripts/app/app.js
+    - public/javascripts/app/helpers/*
     - public/javascripts/app/router.js
     - public/javascripts/app/views.js
     - public/javascripts/app/models/post.js

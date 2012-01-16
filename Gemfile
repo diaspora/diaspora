@@ -6,8 +6,7 @@ gem 'bundler', '>= 1.0.0'
 gem 'foreman', '0.27.0'
 gem 'whenever'
 
-gem 'thin', '~> 1.3.1',    :require => false
-gem 'unicorn', '~> 4.1.1', :require => false
+gem 'thin', '~> 1.3.1', :require => false
 
 # authentication
 
@@ -46,7 +45,7 @@ gem 'settingslogic', :git => 'git://github.com/binarylogic/settingslogic.git'
 
 gem 'activerecord-import'
 gem 'foreigner', '~> 1.1.0'
-gem 'mysql2', '0.2.17' if ENV['DB'].nil? || ENV['DB'] == 'all' || ENV['DB'] == 'mysql'
+gem 'mysql2', '0.2.18' if ENV['DB'].nil? || ENV['DB'] == 'all' || ENV['DB'] == 'mysql'
 gem 'pg' if ENV['DB'] == 'all' || ENV['DB'] == 'postgres'
 gem 'sqlite3' if ENV['DB'] == 'all' || ENV['DB'] == 'sqlite'
 
@@ -55,8 +54,8 @@ gem 'sqlite3' if ENV['DB'] == 'all' || ENV['DB'] == 'sqlite'
 gem 'carrierwave', '0.5.8'
 gem 'fog'
 gem 'fastercsv', '1.5.4', :require => false
-gem 'mini_magick', '3.3'
-gem 'rest-client', '1.6.1'
+gem 'mini_magick', '3.4'
+gem 'rest-client', '1.6.7'
 
 gem 'jammit', '0.6.5'
 
@@ -119,7 +118,7 @@ group :test do
   gem 'capybara', '~> 1.1.2'
   gem 'cucumber-rails', '1.2.1'
   gem 'cucumber-api-steps', '0.6', :require => false
-  gem 'database_cleaner', '0.7.0'
+  gem 'database_cleaner', '0.7.1'
   gem 'diaspora-client', :git => 'git://github.com/diaspora/diaspora-client.git'
 
   gem 'timecop'

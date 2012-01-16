@@ -92,6 +92,7 @@ it:
         two: "<%= count %> Condivisioni"
         zero: "<%= count %> Condivisioni"
       show: Mostra
+      unlike: "Non mi piace più"
     tags:
       wasnt_that_interesting: "OK, immagino che #<%= tagName %> non fosse così interessante..."
     timeago:

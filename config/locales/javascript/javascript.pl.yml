@@ -9,16 +9,16 @@ pl:
     aspect_dropdown:
       add_to_aspect: "Dodaj kontakt"
       all_aspects: "Wszystkie aspekty"
-      error: "Nie można zacząć dzielić się z {{name}}. Może ich ignorujesz?"
+      error: "Nie można zacząć dzielić się z <%= name %>. Może go/ją ignorujesz?"
       select_aspects: "Wybierz aspekty"
-      started_sharing_with: "Od teraz dzielisz się z {{name}}!"
-      stopped_sharing_with: "Nie dzielisz się już z {{name}}."
+      started_sharing_with: "Od teraz dzielisz się z <%= name %>!"
+      stopped_sharing_with: "Nie dzielisz się już z <%= name %>."
       toggle:
-        few: "W {{count}} aspektach"
-        many: "W {{count}} aspektach"
-        one: "W {{count}} aspekcie"
-        other: "W {{count}} aspektach"
-        two: "W {{count}} aspektach"
+        few: "W <%= count %> aspektach"
+        many: "W <%= count %> aspektach"
+        one: "W <%= count %> aspekcie"
+        other: "W <%= count %> aspektach"
+        two: "W <%= count %> aspektach"
         zero: "Wybierz aspekty"
     aspect_navigation:
       deselect_all: "Odznacz wszystkie"
@@ -28,13 +28,28 @@ pl:
       hide: "ukryj komentarze"
       show: "wyświetl wszystkie komentarze"
     confirm_dialog: "Czy @{m,f:jesteś|n:na}{ pew}{m:ien|f:na|n:no}?"
+    delete: Usuń
     failed_to_like: "Nie udało się polubić!"
     failed_to_post_message: "Nie można wysłać wiadomości!"
     getting_started:
       alright_ill_wait: "Dobrze, poczekam."
-      hey: "Hej, {{name}}!"
+      hey: "Hej, <%= name %>!"
       no_tags: "Hej, nie obserwujesz żadnych znaczników! Kontynuować mimo to?"
       preparing_your_stream: "Przygotowanie spersonalizowanego strumienia..."
+    header:
+      admin: Administrator
+      contacts: Kontakty
+      home: "Strona główna"
+      log_out: Wyloguj
+      mark_all_as_read: "Oznacz wszystkie jako przeczytane"
+      messages: Wiadomości
+      notifications: Powiadomienia
+      profile: Profil
+      recent_notifications: "Ostatnie powiadomienia"
+      search: "Szukaj osób luz #znaczników"
+      settings: Ustawienia
+      view_all: "Wyświetl wszystko"
+    ignore: Ignoruj
     infinite_scroll:
       no_more: "Nie ma więcej wpisów."
     photo_uploader:
@@ -45,13 +60,16 @@ pl:
       public: "Publiczny - wpis będzie widoczny dla wszystkich i można go znaleźć przez wyszukiwarki"
     reshares:
       duplicate: "Już przekaza@{m:łeś|f:łaś|n:no} dalej ten wpis!"
-    search_for: "Znajdź: {{name}}"
+    search_for: "Znajdź: <%= name %>"
     show_more: "wyświetl więcej"
     stream:
+      comment: Skomentuj
+      hide: Ukryj
+      like: "Lubię to!"
       likes:
-        few: "<%= count %> Likes"
-        many: "<%= count %> Likes"
-        one: "<%= count %> Like"
+        few: "Polubiono: <%= count %>"
+        many: "Polubiono: <%= count %>"
+        one: "<%= count %> lubi"
         other: "<%= count %> Likes"
         two: "<%= count %> Likes"
         zero: "<%= count %> Likes"
@@ -69,8 +87,10 @@ pl:
         other: "<%= count %> Reshares"
         two: "<%= count %> Reshares"
         zero: "<%= count %> Reshares"
+      show: Wyświetl
+      unlike: "Nie lubię"
     tags:
-      wasnt_that_interesting: "OK, przypuszczam, że #{{tagName}} nie był, aż tak interesujący..."
+      wasnt_that_interesting: "OK, przypuszczam, że #<%= tagName %> nie był, aż tak interesujący..."
     timeago:
       day: dzień
       days: "%d dni"
@@ -89,4 +109,4 @@ pl:
       years: "%d lat"
     videos:
       unknown: "Nieznany typ wideo"
-      watch: "Zobacz ten film na {{provider}}"
+      watch: "Zobacz ten film na <%= provider %>"

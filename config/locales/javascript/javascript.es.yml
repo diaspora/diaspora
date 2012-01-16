@@ -9,7 +9,7 @@ es:
     aspect_dropdown:
       add_to_aspect: "Añadir contacto"
       all_aspects: "Todos los aspectos"
-      error: "No podría empezar a compartir con <%= name %>. ¿Vas a ignonarl@?"
+      error: "No podrás compartir con <%= name %>. ¿Vas a ignonarle?"
       select_aspects: "Elige los aspectos"
       started_sharing_with: "¡Ahora sigues los mensajes públicos de <%= name %>!"
       stopped_sharing_with: "Ya no compartes más con <%= name %>."
@@ -18,7 +18,7 @@ es:
         many: "En <%= count %> aspectos"
         one: "En <%= count %> aspecto"
         other: "En <%= count %> aspectos"
-        two: "In <%= count %> aspects"
+        two: "En <%= count %> aspectos"
         zero: "Elige los aspectos"
     aspect_navigation:
       deselect_all: "Desmarcar todos"
@@ -28,6 +28,7 @@ es:
       hide: "ocultar comentarios"
       show: "ver todos los comentarios"
     confirm_dialog: "¿Estás seguro?"
+    delete: Borrar
     failed_to_like: "¡Ha fallado tu aprobación!"
     failed_to_post_message: "¡Fallo al publicar el mensaje!"
     getting_started:
@@ -43,9 +44,9 @@ es:
       mark_all_as_read: "Marcar todo como leido"
       messages: Mensajes
       notifications: Notificaciones
-      profile: Prefil
+      profile: Perfil
       recent_notifications: "Notificaciones recientes"
-      search: "Buscas gente o #tags"
+      search: "Encuentra gente o #etiquetas"
       settings: Ajustes
       view_all: "Ver todo"
     ignore: Ignorar
@@ -64,13 +65,13 @@ es:
     stream:
       comment: Comentar
       hide: Ocultar
-      like: Gustar
+      like: "Me gusta"
       likes:
         few: "le gusta a <%= count %> personas"
         many: "le gusta a <%= count %> personas"
         one: "le gusta a <%= count %> persona"
         other: "le gusta a <%= count %> personas"
-        two: "<%= count %> Likes"
+        two: "le gusta a <%= count %> personas"
         zero: "le gusta a <%= count %> personas"
       limited: Restringido
       more_comments:
@@ -78,19 +79,19 @@ es:
         many: "Mostrar <%= count %> comentarios más"
         one: "Mostrar <%= count %> comentario"
         other: "Mostrar <%= count %> comentarios más"
-        two: "Show <%= count %> more comments"
+        two: "Mostrar <%= count %> comentarios más"
         zero: "Mostrar <%= count %> comentarios más"
       nsfw: "Esta publicación puede tener contenido ofensivo, pornográfico o violento #NSFW."
       original_post_deleted: "Publicación original borrada por el autor."
       public: Público
       reshare: Compartir
       reshares:
-        few: "<%= count %> veces compartido"
-        many: "<%= count %> veces compartido"
-        one: "<%= count %> vez compartido"
-        other: "<%= count %> veces compartido"
-        two: "<%= count %> Reshares"
-        zero: "<%= count %> veces compartido"
+        few: "Compartido <%= count %> veces"
+        many: "Compartido <%= count %> veces"
+        one: "Compartido <%= count %> vez"
+        other: "Compartido <%= count %> veces"
+        two: "Compartido <%= count %> veces"
+        zero: "Comparido <%= count %> veces"
       show: Mostrar
       unlike: "No me gusta"
     tags:

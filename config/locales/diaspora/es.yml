@@ -576,12 +576,13 @@ es:
       not_found: "Lo sentimos, no podemos encontrar ese comentario."
       permalink: "enlace permanente"
       photos_by:
-        few: "%{count} photos by %{author}"
-        many: "%{count} photos by %{author}"
-        one: "One photo by %{author}"
-        other: "%{count} photos by %{author}"
-        two: "Two photos by %{author}"
-        zero: "No photos by %{author}"
+        few: "%{count} fotos por %{author}"
+        many: "%{count} fotos por %{author}"
+        one: "Una foto por %{author}"
+        other: "%{count} fotos por %{author}"
+        two: "Dos fotos por %{author}"
+        zero: "Ninguna foto por %{author}"
+      reshare_by: "Vuelto a compartir por %{author}"
   previous: anterior
   privacy: Privacidad
   privacy_policy: "Política de Privacidad"
@@ -893,7 +894,7 @@ es:
         make_diaspora_better: "Queremos que nos ayudes a hacer Diaspora mejor, podrías hacerlo. Si te vas, queremos que sepas que pasa después."
         mr_wiggles: "El Tío la Vara estará triste si te vas"
         no_turning_back: "Actualmente, no hay vuelta atrás."
-        what_we_delete: "Eliminamos todas tus publicaciones y datos del perfil, tan pronto como humanamente posible. Tus comentarios seguirán subidos, pero se asocian a tu servidor Diaspora."
+        what_we_delete: "Eliminamos todas tus publicaciones y datos del perfil, tan pronto como es humanamente posible. Tus comentarios seguirán en línea, pero asociados a tu dirección Diaspora*."
       close_account_text: "Eliminar Cuenta"
       comment_on_post: "...alguien comenta en tu publicación?"
       current_password: "Contraseña actual"

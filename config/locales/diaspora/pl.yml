@@ -103,7 +103,7 @@ pl:
         content_2: "Dzięki temu każdy będzie mógł Cię znaleźć na Diasporze."
         heading: "Identyfikator Diaspory"
       donate: Wspomóż
-      handle_explanation: "Oto Twój identyfikator diaspory. Tak jak adres e-mail, możesz podawać go osobom które chcesz, aby nawiązały z Tobą kontakt."
+      handle_explanation: "Oto Twój identyfikator Diaspory. Tak jak adres e-mail, możesz podać go osobom, z którymi chcesz być w kontakcie."
       help:
         do_you: "Czy:"
         email_feedback: "%{link} swoje zgłoszenie, jeśli chcesz"
@@ -576,12 +576,13 @@ pl:
       destroy: Usuń
       not_found: "Nie można odnaleźć wskazanego wpisu."
       photos_by:
-        few: "%{count} photos by %{author}"
-        many: "%{count} photos by %{author}"
-        one: "One photo by %{author}"
-        other: "%{count} photos by %{author}"
-        two: "Two photos by %{author}"
-        zero: "No photos by %{author}"
+        few: "%{count} zdjęcia od %{author}"
+        many: "%{count} zdjęć od %{author}"
+        one: "Jedno zdjęcie od %{author}"
+        other: "%{count} zdjęcia od %{author}"
+        two: "Dwa zdjęcia od %{author}"
+        zero: "Brak zdjęć od %{author}"
+      reshare_by: "Przekazane dalej przez %{author}"
   previous: poprzedni
   privacy: Prywatność
   privacy_policy: "Polityka prywatności"
@@ -893,7 +894,7 @@ pl:
         make_diaspora_better: "Pomóż nam uczynić Diasporę jeszcze lepszą, zamiast nas opuszczać. Jeśli chcesz odejść, chcielibyśmy się dowiedzieć dlaczego."
         mr_wiggles: "Pan Łaskotka będzie niepocieszony, widząc, że odchodzisz"
         no_turning_back: "Aktualnie, nie ma odwrotu."
-        what_we_delete: "Usuniemy wszystkie Twoje wpisy i dane profilu najszybciej jak tylko człowiek jest w stanie to zrobić. Twoje komentarze pozostaną tam gdzie były, ale będą skojarzone bezpośrednio z Diasporą."
+        what_we_delete: "Usuniemy wszystkie Twoje wpisy i dane profilu, najszybciej jak tylko człowiek jest w stanie to zrobić. Twoje komentarze pozostaną tam gdzie były, ale będą skojarzone bezpośrednio z Twoim Identyfikatorem Diaspory."
       close_account_text: "Zamknij konto"
       comment_on_post: "...ktoś dodał komentarz do mojego wpisu"
       current_password: "Bieżące hasło"
@@ -916,7 +917,7 @@ pl:
       started_sharing: "...ktoś zaczął mi coś udostępniać"
       stream_preferences: "Ustawienia Strumienia"
       your_email: "Adres e-mail"
-      your_handle: "Identyfikator Diaspory"
+      your_handle: "Twój Identyfikator Diaspory"
     getting_started:
       awesome_take_me_to_diaspora: "Świetnie! Zabierz mnie do Diaspory*"
       community_welcome: "Społeczności Diaspory cieszy się, że ​​jesteś na pokładzie!"

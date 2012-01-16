@@ -40,130 +40,24 @@ describe("app.views.Post", function(){
       expect(view.$(".post_initial_info").html()).not.toContain("0 Reshares")
     })
 
-    it("should markdownify the post's text", function(){
-      this.statusMessage.set({text: "I have three Belly Buttons"})
-      spyOn(window.markdown, "toHTML")
-      new app.views.Post({model : this.statusMessage}).render();
-      expect(window.markdown.toHTML).toHaveBeenCalledWith("I have three Belly Buttons")
-    })
 
-    context("changes hashtags to links", function(){
-      it("links to a hashtag to the tag page", function(){
-        this.statusMessage.set({text: "I love #parties"})
-        var view = new app.views.Post({model : this.statusMessage}).render();
-        expect(view.$("a:contains('#parties')").attr('href')).toBe('/tags/parties')
+    context("embed_html", function(){
+      it("provides oembed html from the model response", function(){
+        this.statusMessage.set({"o_embed_cache" : {
+          "data" : {
+            "html" : "some html"
+          }
+        }})
+
+        var view = new app.views.Content({model : this.statusMessage});
+        expect(view.presenter().o_embed_html).toContain("some html")
       })
 
-      it("changes all hashtags", function(){
-        this.statusMessage.set({text: "I love #parties and #rockstars and #unicorns"})
-        var view = new app.views.Post({model : this.statusMessage}).render();
-        expect(view.$("a.tag").length).toBe(3)
-        expect(view.$("a:contains('#parties')")).toExist();
-        expect(view.$("a:contains('#rockstars')")).toExist();
-        expect(view.$("a:contains('#unicorns')")).toExist();
-      })
+      it("does not provide oembed html from the model response if none is present", function(){
+        this.statusMessage.set({"o_embed_cache" : null})
 
-      it("requires hashtags to be preceeded with a space", function(){
-        this.statusMessage.set({text: "I love the#parties"})
-        var view = new app.views.Post({model : this.statusMessage}).render();
-        expect(view.$(".tag").length).toBe(0)
-      })
-
-      // NOTE THIS DIVERGES FROM GRUBER'S ORIGINAL DIALECT OF MARKDOWN.
-      // We had to edit markdown.js line 291 - good people would have made a new dialect.
-      //
-      //    original : var m = block.match( /^(#{1,6})\s*(.*?)\s*#*\s*(?:\n|$)/ );
-      //    \s* changed to \s+
-      //
-      it("doesn't create a header tag if the first word is a hashtag", function(){
-        this.statusMessage.set({text: "#parties, I love"})
-        var view = new app.views.Post({model : this.statusMessage}).render();
-        expect(view.$("h1:contains(parties)")).not.toExist();
-        expect(view.$("a:contains('#parties')")).toExist();
-      })
-
-      it("works on reshares", function(){
-        this.statusMessage.set({text: "I love #parties"})
-        var reshare = new app.models.Reshare(factory.post({
-          text : this.statusMessage.get("text"),
-          root : this.statusMessage
-        }))
-
-        var view = new app.views.Post({model : reshare}).render();
-        expect(view.$("a:contains('#parties')").attr('href')).toBe('/tags/parties')
-      })
-    })
-
-    context("changes mention markup to links", function(){
-      beforeEach(function(){
-        this.alice = factory.author({
-          name : "Alice Smith",
-          diaspora_id : "alice@example.com",
-          id : "555"
-        })
-
-        this.bob = factory.author({
-          name : "Bob Grimm",
-          diaspora_id : "bob@example.com",
-          id : "666"
-        })
-
-        this.statusMessage.set({mentioned_people : [this.alice, this.bob]})
-        this.statusMessage.set({text: "hey there @{Alice Smith; alice@example.com} and @{Bob Grimm; bob@example.com}"})
-      })
-
-      it("links to the mentioned person's page", function(){
-        var view = new app.views.Post({model : this.statusMessage}).render();
-        expect(view.$("a:contains('Alice Smith')").attr('href')).toBe('/people/555')
-      })
-
-      it("matches all mentions", function(){
-        var view = new app.views.Post({model : this.statusMessage}).render();
-        expect(view.$("a.mention").length).toBe(2)
-      })
-
-      it("works on reshares", function(){
-        var reshare = new app.models.Reshare(factory.post({
-          text : this.statusMessage.get("text"),
-          mentioned_people :  this.statusMessage.get("mentioned_people"),
-          root : this.statusMessage
-        }))
-
-        var view = new app.views.Post({model : reshare}).render();
-        expect(view.$("a.mention").length).toBe(2)
-      })
-    })
-
-    context("generates urls from plaintext", function(){
-      it("works", function(){
-        links = ["http://google.com",
-                 "https://joindiaspora.com",
-                 "http://www.yahooligans.com",
-                 "http://obama.com",
-                 "http://japan.co.jp"]
-
-        this.statusMessage.set({text : links.join(" ")})
-        var view = new app.views.Post({model : this.statusMessage}).render();
-
-        _.each(links, function(link) {
-          expect(view.$("a[href='" + link + "']").text()).toContain(link)
-        })
-      })
-
-      it("works with urls that use #! syntax (i'm looking at you, twitter)')", function(){
-        link = "http://twitter.com/#!/hashbangs?gross=true"
-        this.statusMessage.set({text : link})
-        var view = new app.views.Post({model : this.statusMessage}).render();
-
-        expect(view.$("a[href='" + link + "']").text()).toContain(link)
-      })
-
-      it("doesn't create link tags for links that are already in <a/> or <img/> tags", function(){
-        link = "http://google.com"
-
-        this.statusMessage.set({text : "![cats](http://google.com/cats)"})
-        var view = new app.views.Content({model : this.statusMessage})
-        expect(view.presenter().text).toNotContain('</a>')
+        var view = new app.views.Content({model : this.statusMessage});
+        expect(view.presenter().o_embed_html).toBe("");
       })
     })
 
