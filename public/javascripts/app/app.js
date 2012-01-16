@@ -1,6 +1,7 @@
 var app = {
   collections: {},
   models: {},
+  helpers: {},
   views: {},
 
   user: function(user) {
