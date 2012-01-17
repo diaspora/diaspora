@@ -7,6 +7,7 @@ public/images/ball.png
 config/app_config.yml
 config/app.yml
 config/application.yml
+config/heroku.yml
 config/script_server*.yml
 config/fb_config.yml
 config/oauth_keys.yml

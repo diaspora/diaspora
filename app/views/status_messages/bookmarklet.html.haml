@@ -12,7 +12,6 @@
   Diaspora.I18n.loadLocale(#{get_javascript_strings_for(current_user.language).to_json}, "#{current_user.language}");
   $(document).ready(function() 
     {
-      Publisher.open();
       Publisher.bookmarklet = true;
       $("#publisher").bind('ajax:success', function(){
         $('h4').text("#{t('bookmarklet.post_success')}");

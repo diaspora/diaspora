@@ -103,7 +103,13 @@ describe("app.helpers.textFormatter", function(){
         _.each([this.alice, this.bob], function(person) {
           expect(wrapper.find("a[href='/people/" + person.id + "']").text()).toContain(person.name)
         })
-      })
+      });
+
+      it('returns the name of the mention if the mention does not exist in the array', function(){
+        var text = "hey there @{Chris Smith; chris@example.com}"
+        var formattedText = this.formatter.mentionify(text, [])
+        expect(formattedText.match(/\<a/)).toBeNull();
+      });
     })
   })
 })

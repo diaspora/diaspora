@@ -15,6 +15,16 @@ app.models.Post = Backbone.Model.extend({
     }
   },
 
+  reshare : function(){
+    var reshare = new app.models.Reshare();
+    reshare.save({root_guid : this.baseGuid()}, {
+      success : function(){
+        app.stream.collection.add(reshare.toJSON());
+      }
+    });
+    return reshare;
+  },
+
   toggleLike : function() {
     var userLike = this.get("user_like")
     if(userLike) {

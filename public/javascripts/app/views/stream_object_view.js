@@ -1,7 +1,6 @@
 app.views.StreamObject = app.views.Base.extend({
   initialize: function(options) {
-    this.model.bind('remove', this.remove, this);
-    this.model.bind('change', this.render, this);
+    this.setupRenderEvents();
   },
 
   postRenderTemplate : function(){

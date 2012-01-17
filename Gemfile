@@ -3,7 +3,7 @@ source 'http://rubygems.org'
 gem 'rails', '3.0.11'
 
 gem 'bundler', '>= 1.0.0'
-gem 'foreman', '0.27.0'
+gem 'foreman', '0.34.1'
 gem 'whenever'
 
 gem 'thin', '~> 1.3.1', :require => false
@@ -139,6 +139,7 @@ end
 
 group :development do
   gem 'heroku'
+  gem 'heroku_san'
   gem 'capistrano', '~> 2.9.0', :require => false
   gem 'capistrano_colors', :require => false
   gem 'capistrano-ext', '1.2.1', :require => false

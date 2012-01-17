@@ -25,11 +25,11 @@
   textFormatter.mentionify = function mentionify(text, mentions) {
     var mentionRegex = /@\{([^;]+); ([^\}]+)\}/g
     return text.replace(mentionRegex, function(mentionText, fullName, diasporaId) {
-      var personId = _.find(mentions, function(person){
+      var person = _.find(mentions, function(person){
         return person.diaspora_id == diasporaId
-      }).id
-
-      return "<a href='/people/" + personId + "' class='mention'>" + fullName + "</a>"
+      })
+      
+      return person ? "<a href='/people/" + person.id + "' class='mention'>" + fullName + "</a>" : fullName;
     })
   }
 
