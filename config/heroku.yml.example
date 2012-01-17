@@ -1,0 +1,15 @@
+defaults: &defaults
+  HEROKU: true
+  application_yml: <%= '../' + '../' +'config/' + 'application.yml.example' %>
+production: 
+  app: production
+  stack: cedar
+  config: 
+    <<: *defaults
+    BUNDLE_WITHOUT: "development:test"
+staging:
+  app: staging
+  stack: cedar
+  config: 
+    <<: *defaults
+    BUNDLE_WITHOUT: "development:test"
