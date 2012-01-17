@@ -12,7 +12,6 @@ Feature: viewing the photo lightbox
     And I fill in "status_message_fake_text" with "Look at this dog"
     And I press "Share"
     And I wait for the ajax to finish
-    And I am on the aspects page
 
     Scenario: viewing a photo
       Then I should see an image attached to the post

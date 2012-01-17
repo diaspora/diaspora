@@ -4,7 +4,7 @@
 
 require 'spec_helper'
 
-describe PostsController do
+describe StreamsController do
   describe '#multi' do
     before do
       sign_in :user, alice

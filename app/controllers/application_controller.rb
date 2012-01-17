@@ -127,22 +127,6 @@ class ApplicationController < ActionController::Base
     @tags ||= current_user.followed_tags
   end
 
-  # @param stream_klass [Constant]
-  # @return [String] JSON representation of posts given a [Stream] constant.
-  def stream_json(stream_klass)
-    render_for_api :backbone, :json => stream(stream_klass).stream_posts, :root => :posts
-  end
-
-  def stream(stream_klass)
-    authenticate_user!
-    stream_klass.new(current_user, :max_time => max_time)
-  end
-
-  def default_stream_action(stream_klass)
-    @stream = stream(stream_klass)
-    render 'aspects/index'
-  end
-
   def max_time
     params[:max_time] ? Time.at(params[:max_time].to_i) : Time.now
   end

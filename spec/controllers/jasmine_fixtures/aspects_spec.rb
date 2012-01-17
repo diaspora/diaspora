@@ -4,7 +4,7 @@
 
 require 'spec_helper'
 
-describe PostsController do
+describe StreamsController do
   describe '#aspects' do
     before do
       sign_in :user, alice

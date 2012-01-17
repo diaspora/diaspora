@@ -21,13 +21,13 @@ Diaspora::Application.routes.draw do
   end
 
   # Streams
-  get "public" => "posts#public", :as => "public_stream"
-  get "stream" => "posts#multi", :as => "multi_stream"
-  get "followed_tags" => "posts#followed_tags", :as => "followed_tags_stream"
-  get "mentions" => "posts#mentioned", :as => "mentioned_stream"
-  get "liked" => "posts#liked", :as => "liked_stream"
-  get "commented" => "posts#commented", :as => "commented_stream"
-  get "aspects" => "posts#aspects", :as => "aspects_stream"
+  get "public" => "streams#public", :as => "public_stream"
+  get "stream" => "streams#multi", :as => "multi_stream"
+  get "followed_tags" => "streams#followed_tags", :as => "followed_tags_stream"
+  get "mentions" => "streams#mentioned", :as => "mentioned_stream"
+  get "liked" => "streams#liked", :as => "liked_stream"
+  get "commented" => "streams#commented", :as => "commented_stream"
+  get "aspects" => "streams#aspects", :as => "aspects_stream"
 
   resources :aspects do
     put :toggle_contact_visibility
