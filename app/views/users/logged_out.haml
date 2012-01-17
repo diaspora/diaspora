@@ -4,10 +4,7 @@
 
 - content_for :head do
   :css
-    body {
-      margin-top: 220px;
-    }
-
+    body { margin-top: 220px; }
 
 #grey_header
   .row
@@ -25,7 +22,7 @@
     %h4
       = t('.simply_visit')
       %strong
-        = link_to AppConfig[:pod_url], multi_path
+        = link_to AppConfig[:pod_url], multi_stream_path
       = t('.on_your_mobile_device')
 
     %p.dull

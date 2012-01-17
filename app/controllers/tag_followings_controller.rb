@@ -2,21 +2,11 @@
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 #
-require File.join(Rails.root, 'lib', 'stream', 'followed_tag')
 
 class TagFollowingsController < ApplicationController
   before_filter :authenticate_user!
 
   respond_to :html, :json
-
-  def index
-    stream_klass = Stream::FollowedTag
-
-    respond_with do |format|
-      format.html{ default_stream_action(stream_klass) }
-      format.json{ stream_json(stream_klass) }
-    end
-  end
 
   # POST /tag_followings
   # POST /tag_followings.xml
@@ -73,6 +63,6 @@ class TagFollowingsController < ApplicationController
         @tag_following = current_user.tag_followings.create(:tag_id => @tag.id)
       end
     end
-    redirect_to multi_path
+    redirect_to multi_stream_path
   end
 end
