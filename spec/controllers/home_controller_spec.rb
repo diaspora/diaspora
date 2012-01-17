@@ -14,7 +14,7 @@ describe HomeController do
     it 'redirects to multis index if user is logged in' do
       sign_in alice
       get :show, :home => true
-      response.should redirect_to(multi_path)
+      response.should redirect_to(multi_stream_path)
     end
   end
 end

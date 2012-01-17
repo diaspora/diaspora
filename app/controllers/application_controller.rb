@@ -83,7 +83,7 @@ class ApplicationController < ActionController::Base
 
   def redirect_unless_admin
     unless current_user.admin?
-      redirect_to multi_url, :notice => 'you need to be an admin to do that'
+      redirect_to multi_stream_url, :notice => 'you need to be an admin to do that'
       return
     end
   end
@@ -111,7 +111,7 @@ class ApplicationController < ActionController::Base
   end
 
   def after_sign_in_path_for(resource)
-    stored_location_for(:user) || (current_user.getting_started? ? getting_started_path : multi_path)
+    stored_location_for(:user) || (current_user.getting_started? ? getting_started_path : multi_stream_path)
   end
 
   def tag_followings

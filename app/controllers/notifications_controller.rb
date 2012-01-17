@@ -50,7 +50,7 @@ class NotificationsController < VannaController
 
   post_process :html do
     def post_read_all(json)
-      Response.new(:status => 302, :location => multi_path)
+      Response.new(:status => 302, :location => multi_stream_path)
     end
   end
 

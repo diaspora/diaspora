@@ -138,22 +138,70 @@ describe PostsController do
     end
   end
 
-  describe '#index' do
+  context 'streams' do
     before do
       sign_in alice
     end
 
-    it 'will succeed if admin' do
-      AppConfig[:admins] = [alice.username]
-      get :index
-      response.should be_success
+    describe "#public" do
+      it 'will succeed if admin' do
+        AppConfig[:admins] = [alice.username]
+        get :public
+        response.should be_success
+      end
+
+      it 'will redirect if not' do
+        AppConfig[:admins] = []
+        get :public
+        response.should be_redirect
+      end
     end
 
-    it 'will redirect if not' do
-      AppConfig[:admins] = []
-      get :index
-      response.should be_redirect
+    describe '#multi' do
+      before do
+        @old_spotlight_value = AppConfig[:community_spotlight]
+      end
+
+      after do
+        AppConfig[:community_spotlight] = @old_spotlight_value
+      end
+
+      it 'succeeds' do
+        AppConfig[:community_spotlight] = [bob.person.diaspora_handle]
+        get :multi
+        response.should be_success
+      end
+
+      it 'succeeds without AppConfig[:community_spotlight]' do
+        AppConfig[:community_spotlight] = nil
+        get :multi
+        response.should be_success
+      end
+
+      it 'succeeds on mobile' do
+        get :multi, :format => :mobile
+        response.should be_success
+      end
     end
 
+    streams = [
+      {:path => :liked, :type => Stream::Likes},
+      {:path => :mentioned, :type => Stream::Mention},
+      {:path => :followed_tags, :type => Stream::FollowedTag}
+    ]
+
+    streams.each do |s|
+      describe "##{s[:path]}" do
+        it 'succeeds' do
+          get s[:path]
+          response.should be_success
+        end
+
+        it 'assigns a stream' do
+          get s[:path]
+          assigns[:stream].should be_a s[:type]
+        end
+      end
+    end
   end
 end
