@@ -1,3 +1,8 @@
 app.models.Reshare = app.models.Post.extend({
-  url : function() { return "/reshares"; }
+  url : function() { return "/reshares"; },
+
+  rootPost : function(){
+    this._rootPost = this._rootPost || new app.models.Post(this.get("root"))
+    return this._rootPost 
+  }
 });

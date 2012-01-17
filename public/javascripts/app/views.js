@@ -3,6 +3,11 @@ app.views.Base =  Backbone.View.extend({
     return this.defaultPresenter()
   },
 
+  setupRenderEvents : function(){
+    this.model.bind('remove', this.remove, this);
+    this.model.bind('change', this.render, this);
+  },
+
   defaultPresenter : function(){
     var modelJson = this.model ? this.model.toJSON() : {}
     return _.extend(modelJson, { current_user: app.user().current_user });
