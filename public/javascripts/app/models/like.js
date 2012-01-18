@@ -1,2 +1,1 @@
-app.models.Like = Backbone.Model.extend({
-})
+app.models.Like = Backbone.Model.extend({ })

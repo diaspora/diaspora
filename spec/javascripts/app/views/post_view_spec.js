@@ -18,14 +18,6 @@ describe("app.views.Post", function(){
       this.reshare = this.collection.models[1];
     })
 
-    context("for a reshare", function(){
-      it("should display ReshareFeedback", function(){
-        spyOn(app.views, "ReshareFeedback").andReturn(stubView("these are special reshare actions"));
-        var view = new app.views.Post({model : this.reshare}).render();
-        expect(view.$(".feedback").text().trim()).toBe("these are special reshare actions");
-      })
-    })
-
     it("displays a reshare count", function(){
       this.statusMessage.set({reshares_count : 2})
       var view = new app.views.Post({model : this.statusMessage}).render();
