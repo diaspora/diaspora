@@ -31,6 +31,7 @@ app.views.Publisher = Backbone.View.extend({
       "photos" : serializedForm["photos[]"],
       "services" : serializedForm["services[]"]
     }, {
+      url : "/status_messages",
       success : function() {
         app.stream.collection.add(statusMessage.toJSON());
       }

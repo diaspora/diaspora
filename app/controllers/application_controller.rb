@@ -128,6 +128,6 @@ class ApplicationController < ActionController::Base
   end
 
   def max_time
-    params[:max_time] ? Time.at(params[:max_time].to_i) : Time.now
+    params[:max_time] ? Time.at(params[:max_time].to_i) : Time.now + 1
   end
 end
