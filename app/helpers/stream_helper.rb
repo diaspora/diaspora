@@ -12,6 +12,8 @@ module StreamHelper
       local_or_remote_person_path(@person, :max_time => time_for_scroll(@stream))
     elsif controller.instance_of?(PostsController)
       public_stream_path(:max_time => time_for_scroll(@stream))
+    elsif controller.instance_of?(StreamsController)
+      multi_stream_path(:max_time => time_for_scroll(@stream))
     else
       raise 'in order to use pagination for this new controller, update next_page_path in stream helper'
     end
