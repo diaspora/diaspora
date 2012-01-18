@@ -60,9 +60,8 @@ describe Post do
       end
 
       it 'calls excluding_blocks if a user is present' do
-        user = stub
-        Post.should_receive(:excluding_blocks).with(user)
-        Post.for_a_stream(stub, stub, user)
+        Post.should_receive(:excluding_blocks).with(alice).and_return(Post)
+        Post.for_a_stream(stub, stub, alice)
       end
     end
 
