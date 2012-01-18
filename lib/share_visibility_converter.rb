@@ -36,13 +36,17 @@ class ShareVisibilityConverter
       puts "Updating batch ##{batch_count} of #{(count/1000)+1}..."
       batch_count += 1
       visibilities.each do |visibility|   
-        type = visibility.shareable_type
-        id = visibility.shareable_id.to_s
-        u = visibility.contact.user
-        u.hidden_shareables ||= {}
-        u.hidden_shareables[type] ||= []
-        u.hidden_shareables[type] << id unless u.hidden_shareables[type].include?(id)
-        u.save!(:validate => false)
+        begin
+          type = visibility.shareable_type
+          id = visibility.shareable_id.to_s
+          u = visibility.contact.user
+          u.hidden_shareables ||= {}
+          u.hidden_shareables[type] ||= []
+          u.hidden_shareables[type] << id unless u.hidden_shareables[type].include?(id)
+          u.save!(:validate => false)
+        rescue Exception =>e
+          puts "ERROR: #{e.message} skipping pv with id: #{visibility.id}"
+        end
       end
     end
   end
