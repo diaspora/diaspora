@@ -7,7 +7,7 @@ require 'spec_helper'
 require File.join(Rails.root, 'lib/webfinger')
 
 describe Webfinger do
-  let(:host_with_port) { "#{AppConfig.pod_uri.host}:#{AppConfig.pod_uri.port}" }
+  let(:host_with_port) { AppConfig.bare_pod_uri }
   let(:user1) { alice }
   let(:user2) { eve }
 
@@ -45,7 +45,7 @@ describe Webfinger do
       describe '#webfinger_profile_url' do
         it 'parses out the webfinger template' do
           finger.send(:webfinger_profile_url, diaspora_xrd).should ==
-            "http://#{host_with_port}/webfinger?q=foo@tom.joindiaspora.com"
+            "http://#{AppConfig[:pod_uri].authority}/webfinger?q=foo@tom.joindiaspora.com"
         end
 
         it 'should return nil if not an xrd' do
