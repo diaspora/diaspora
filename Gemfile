@@ -32,6 +32,7 @@ group :production do # we don't install these on travis to speed up test runs
   gem 'newrelic_rpm'
   gem 'rack-google-analytics', :require => 'rack/google-analytics'
   gem 'rack-piwik', :require => 'rack/piwik'
+  gem 'rack-ssl', :require => 'rack/ssl'
 end
 
 # configuration
