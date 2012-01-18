@@ -130,7 +130,7 @@ describe Person do
     context 'local people' do
       it 'uses the pod config url to set the diaspora_handle' do
         new_person = User.build(:username => "foo123", :email => "foo123@example.com", :password => "password", :password_confirmation => "password").person
-        new_person.diaspora_handle.should == "foo123@#{AppConfig[:pod_uri].authority}"
+        new_person.diaspora_handle.should == "foo123#{User.diaspora_id_host}"
       end
 
       it 'does not include www if it is set in app config' do
