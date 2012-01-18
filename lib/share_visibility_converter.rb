@@ -1,3 +1,28 @@
+#we dont have the enviroment, and it is not carring over from the migration
+unless defined?(Person)
+  class Person < ActiveRecord::Base
+    belongs_to :owner, :class_name => 'User'
+  end
+end
+
+unless defined?(User)
+  class User < ActiveRecord::Base
+    serialize :hidden_shareables, Hash
+  end
+end
+
+unless defined?(Contact)
+  class Contact < ActiveRecord::Base
+    belongs_to :user
+  end
+end
+
+unless defined?(ShareVisibility)
+  class ShareVisibility < ActiveRecord::Base
+    belongs_to :contact
+  end
+end
+
 class ShareVisibilityConverter
   RECENT = 2 # number of weeks to do in the migration
   def self.copy_hidden_share_visibilities_to_users(only_recent = false)
