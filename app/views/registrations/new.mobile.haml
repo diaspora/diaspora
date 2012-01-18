@@ -16,7 +16,7 @@
           .centered
             = f.text_field :username
             %span.host_uri
-              = "@#{AppConfig[:pod_uri].host}"
+              = diaspora_id_host
         .row
           .row
             = f.label :email, t('email')

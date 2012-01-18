@@ -377,8 +377,12 @@ class User < ActiveRecord::Base
 
   def set_person(person)
     person.url = AppConfig[:pod_url]
-    person.diaspora_handle = "#{self.username}@#{AppConfig[:pod_uri].authority}"
+    person.diaspora_handle = "#{self.username}#{User.diaspora_id_host}"
     self.person = person
+  end
+
+  def self.diaspora_id_host
+    "@#{AppConfig.bare_pod_uri}"
   end
 
   def seed_aspects
@@ -476,7 +480,7 @@ class User < ActiveRecord::Base
   end
 
   def no_person_with_same_username
-    diaspora_id = "#{self.username}@#{AppConfig[:pod_uri].host}"
+    diaspora_id = "#{self.username}#{User.diaspora_id_host}"
     if self.username_changed? && Person.exists?(:diaspora_handle => diaspora_id)
       errors[:base] << 'That username has already been taken'
     end

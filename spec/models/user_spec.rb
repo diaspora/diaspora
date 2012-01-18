@@ -111,7 +111,7 @@ describe User do
       end
 
       it 'requires uniqueness also amount Person objects with diaspora handle' do
-        p = Factory(:person, :diaspora_handle => "jimmy@#{AppConfig[:pod_uri].host}")
+        p = Factory(:person, :diaspora_handle => "jimmy#{User.diaspora_id_host}")
         alice.username = 'jimmy'
         alice.should_not be_valid
 

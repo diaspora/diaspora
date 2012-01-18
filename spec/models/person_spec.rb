@@ -132,6 +132,14 @@ describe Person do
         new_person = User.build(:username => "foo123", :email => "foo123@example.com", :password => "password", :password_confirmation => "password").person
         new_person.diaspora_handle.should == "foo123@#{AppConfig[:pod_uri].authority}"
       end
+
+      it 'does not include www if it is set in app config' do
+        old_url = AppConfig[:pod_url]
+        AppConfig[:pod_url] = 'https://www.foobar.com/' 
+        new_person = User.build(:username => "foo123", :email => "foo123@example.com", :password => "password", :password_confirmation => "password").person
+        new_person.diaspora_handle.should == "foo123@foobar.com"
+        AppConfig[:pod_url] = old_url
+      end
     end
 
     context 'remote people' do
