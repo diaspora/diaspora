@@ -29,6 +29,10 @@ module EnviromentConfiguration
     end
   end
 
+  def self.circumvent_ssl?
+    ENV['NO_SSL'] || AppConfig[:circumvent_ssl_requirement].present?
+  end
+
   def self.ca_cert_file_location
     if self.heroku?
       "/usr/lib/ssl/certs/ca-certificates.crt"

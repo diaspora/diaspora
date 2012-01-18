@@ -125,6 +125,7 @@ defaults: &defaults
   # Diaspora is only tested against this default pubsub server. You probably don't want to change this.
   pubsub_server: 'https://pubsubhubbub.appspot.com/'
 
+  circumvent_ssl_requirement: false
   # Email
 
   # Setting this to true enables Diaspora's "send email" functionality,
