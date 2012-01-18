@@ -885,13 +885,16 @@ form p.checkbox_select
     :position relative
     :top 6px
 
-label:not(.bootstrapped)
-  :display none
-  :font-weight normal
-
 @mixin placeholder_styles
   :color #999
-  :text-shadow 0 1px 1px #eeeeee
+  :text-shadow 0 1px 1px #eee
+  :font-weight normal
+    
+label:not(.bootstrapped)
+  @include placeholder_styles
+  :position absolute
+  :top 3px
+  :left 0.48em
   
 .placeholder
   @include placeholder_styles
@@ -1207,6 +1210,12 @@ header #global_search
     input[type='search']
       :width 220px
       :padding 5px
+
+      &::-webkit-input-placeholder
+        :text-shadow none
+
+      &:-moz-placeholder
+        :text-shadow none
 
 .aspect
   h3
