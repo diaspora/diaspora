@@ -618,29 +618,6 @@ describe User do
   end
 
   describe 'account deletion' do
-    describe '#remove_all_traces' do
-      it 'should disconnect everyone' do
-        alice.should_receive(:disconnect_everyone)
-        alice.remove_all_traces
-      end
-
-      it 'should remove mentions' do
-        alice.should_receive(:remove_mentions)
-        alice.remove_all_traces
-      end
-
-      it 'should remove person' do
-        alice.should_receive(:remove_person)
-        alice.remove_all_traces
-      end
-
-      it 'should remove all aspects' do
-        lambda {
-          alice.remove_all_traces
-        }.should change{ alice.aspects(true).count }.by(-1)
-      end
-    end
-
     describe '#destroy' do
       it 'removes invitations from the user' do
         Factory(:invitation, :sender => alice)
@@ -662,75 +639,6 @@ describe User do
           alice.destroy
         }.should change {
           alice.services.count
-        }.by(-1)
-      end
-    end
-
-    describe '#remove_person' do
-      it 'should remove the person object' do
-        person = alice.person
-        alice.remove_person
-        person.reload
-        person.should be_nil
-      end
-
-      it 'should remove the posts' do
-        message = alice.post(:status_message, :text => "hi", :to => alice.aspects.first.id)
-        alice.reload
-        alice.remove_person
-        expect { message.reload }.to raise_error ActiveRecord::RecordNotFound
-      end
-    end
-
-    describe '#remove_mentions' do
-      it 'should remove the mentions' do
-        person = alice.person
-        sm =  Factory(:status_message)
-        mention  = Mention.create(:person => person, :post=> sm)
-        alice.reload
-        alice.remove_mentions
-        expect { mention.reload }.to raise_error ActiveRecord::RecordNotFound
-      end
-    end
-
-    describe '#disconnect_everyone' do
-      it 'has no error on a local friend who has deleted his account' do
-        d = Factory(:account_deletion, :person => alice.person)
-        Jobs::DeleteAccount.perform(d.id)
-        lambda {
-          bob.disconnect_everyone
-        }.should_not raise_error
-      end
-
-      it 'has no error when the user has sent local requests' do
-        alice.share_with(eve.person, alice.aspects.first)
-        lambda {
-          alice.disconnect_everyone
-        }.should_not raise_error
-      end
-
-      it 'sends retractions to remote poeple' do
-        person = eve.person
-        eve.delete
-        person.owner_id = nil
-        person.save
-        alice.contacts.create(:person => person, :aspects => [alice.aspects.first])
-
-        alice.should_receive(:disconnect).once
-        alice.disconnect_everyone
-      end
-
-      it 'disconnects local people' do
-        lambda {
-          alice.remove_all_traces
-        }.should change{bob.reload.contacts.count}.by(-1)
-      end
-
-      it 'removes all contacts' do
-        lambda {
-          alice.disconnect_everyone
-        }.should change {
-          alice.contacts.count
         }.by(-1)
       end
     end
