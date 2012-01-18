@@ -886,14 +886,22 @@ form p.checkbox_select
     :top 6px
 
 label:not(.bootstrapped)
-  :font
-    :weight normal
+  :display none
+  :font-weight normal
+
+@mixin placeholder_styles
   :color #999
-  :position absolute
-  :top 3px
-  :left 0.48em
-  :text
-    :shadow 0 1px 1px #eee
+  :text-shadow 0 1px 1px #eeeeee
+  
+.placeholder
+  @include placeholder_styles
+
+/* those can't be combined, see: http://stackoverflow.com/questions/2610497 */
+*::-webkit-input-placeholder
+  @include placeholder_styles
+  
+*:-moz-placeholder
+  @include placeholder_styles
 
 #file-upload
   input

@@ -7,11 +7,11 @@ var View = {
     /* Buttons */
     $("input:submit").addClass("button");
 
-    /* In field labels */
-    $("label").inFieldLabels();
-    $(document).bind('afterReveal.facebox', function() {
-      jQuery("#facebox label").inFieldLabels();
-    });
+    /* label placeholders */
+    $("input, textarea").placeholder();
+    if( jQuery.fn.placeholder.input ) {
+      $("input[placeholder], textarea[placeholder]").siblings("label").hide();
+    }
 
     /* "Toggling" the search input */
     $(this.search.selector)
