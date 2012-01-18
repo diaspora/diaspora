@@ -15,7 +15,7 @@ app.models.Post = Backbone.Model.extend({
     }
   },
 
-  reshareUrl : "reshares/",
+  reshareUrl : "/reshares",
   reshare : function(){
     return this._reshare = this._reshare || new app.models.Reshare({root_guid : this.get("guid")});
   },
