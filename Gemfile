@@ -28,7 +28,7 @@ gem 'messagebus_ruby_api', '1.0.1'
 
 group :production do # we don't install these on travis to speed up test runs
   # reporting
-  gem 'hoptoad_notifier'
+  gem 'airbrake'
   gem 'newrelic_rpm'
   gem 'rack-google-analytics', :require => 'rack/google-analytics'
   gem 'rack-piwik', :require => 'rack/piwik'

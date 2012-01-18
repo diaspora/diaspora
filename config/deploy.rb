@@ -7,7 +7,7 @@ set :config_yaml, YAML.load_file(File.dirname(__FILE__) + '/deploy_config.yml')
 require './config/cap_colors'
 require 'bundler/capistrano'
 require './config/boot'
-require 'hoptoad_notifier/capistrano'
+require 'airbrake/capistrano'
 set :bundle_dir, ''
 
 set :stages, ['production', 'staging']
