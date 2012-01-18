@@ -32,6 +32,10 @@ module ApplicationHelper
     without_close_html + link_to(image_tag('deletelabel.png'), "#", :class => 'close')
   end
 
+  def diaspora_id_host
+    User.diaspora_id_host
+  end
+
   def jquery_include_tag
     javascript_include_tag('//ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js') +
     content_tag(:script) do

@@ -13,14 +13,15 @@ app.views.Feedback = app.views.StreamObject.extend({
     this.model.toggleLike();
   },
 
-  initialize: function(options){
-    this.setupRenderEvents();
-    this.reshareablePost = options.model;
-  },
-
   resharePost : function(evt){
     if(evt) { evt.preventDefault(); }
-    if(!window.confirm("Reshare " + this.reshareablePost.baseAuthor().name + "'s post?")) { return }
-    this.reshareablePost.reshare();
+    if(!window.confirm("Reshare " + this.model.reshareAuthor().name + "'s post?")) { return }
+    var reshare = this.model.reshare()
+    reshare.save({}, {
+      url: this.model.reshareUrl,
+      success : function(){
+        app.stream.collection.add(reshare);
+      }
+    });
   }
 })

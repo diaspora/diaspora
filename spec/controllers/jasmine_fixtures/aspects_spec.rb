@@ -4,8 +4,8 @@
 
 require 'spec_helper'
 
-describe AspectsController do
-  describe '#index' do
+describe StreamsController do
+  describe '#aspects' do
     before do
       sign_in :user, alice
       @alices_aspect_2 = alice.aspects.create(:name => "another aspect")
@@ -19,19 +19,19 @@ describe AspectsController do
       end
 
       it "generates a jasmine fixture", :fixture => true do
-        get :index
+        get :aspects
         save_fixture(html_for("body"), "aspects_index")
       end
 
       it "generates a jasmine fixture with a prefill", :fixture => true do
-        get :index, :prefill => "reshare things"
+        get :aspects, :prefill => "reshare things"
         save_fixture(html_for("body"), "aspects_index_prefill")
       end
 
       it 'generates a jasmine fixture with services', :fixture => true do
         alice.services << Services::Facebook.create(:user_id => alice.id)
         alice.services << Services::Twitter.create(:user_id => alice.id)
-        get :index, :prefill => "reshare things"
+        get :aspects, :prefill => "reshare things"
         save_fixture(html_for("body"), "aspects_index_services")
       end
 
@@ -39,14 +39,14 @@ describe AspectsController do
         bob.post(:status_message, :text => "Is anyone out there?", :to => @bob.aspects.where(:name => "generic").first.id)
         message = alice.post(:status_message, :text => "hello "*800, :to => @alices_aspect_2.id)
         5.times { bob.comment("what", :post => message) }
-        get :index
+        get :aspects
         save_fixture(html_for("body"), "aspects_index_with_posts")
       end
 
       it 'generates a jasmine fixture with only posts', :fixture => true do
         2.times { bob.post(:status_message, :text => "Is anyone out there?", :to => @bob.aspects.where(:name => "generic").first.id) }
 
-        get :index, :only_posts => true
+        get :aspects, :only_posts => true
 
         save_fixture(response.body, "aspects_index_only_posts")
       end
@@ -54,14 +54,14 @@ describe AspectsController do
       it "generates a jasmine fixture with a post with comments", :fixture => true do
         message = bob.post(:status_message, :text => "HALO WHIRLED", :to => @bob.aspects.where(:name => "generic").first.id)
         5.times { bob.comment("what", :post => message) }
-        get :index
+        get :aspects
         save_fixture(html_for("body"), "aspects_index_post_with_comments")
       end
 
       it 'generates a jasmine fixture with a followed tag', :fixture => true do
         @tag = ActsAsTaggableOn::Tag.create!(:name => "partytimeexcellent")
         TagFollowing.create!(:tag => @tag, :user => alice)
-        get :index
+        get :aspects
         save_fixture(html_for("body"), "aspects_index_with_one_followed_tag")
       end
 
@@ -89,7 +89,7 @@ describe AspectsController do
         )
 
         alice.post(:status_message, :text => "http://www.youtube.com/watch?v=UYrkQL1bX4A", :to => @alices_aspect_2.id)
-        get :index
+        get :aspects
         save_fixture(html_for("body"), "aspects_index_with_video_post")
       end
 
@@ -98,7 +98,7 @@ describe AspectsController do
         alice.build_like(:positive => true, :target => message).save
         bob.build_like(:positive => true, :target => message).save
 
-        get :index
+        get :aspects
         save_fixture(html_for("body"), "aspects_index_with_a_post_with_likes")
       end
     end

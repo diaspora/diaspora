@@ -2,7 +2,7 @@ class Stream::Multi < Stream::Base
 
   # @return [String] URL
   def link(opts)
-    Rails.application.routes.url_helpers.multi_path(opts)
+    Rails.application.routes.url_helpers.multi_stream_path(opts)
   end
 
   # @return [String]

@@ -83,7 +83,7 @@ class VannaController < Vanna::Base
 
   def redirect_unless_admin
     unless current_user.admin?
-      redirect_to multi_path, :notice => 'you need to be an admin to do that'
+      redirect_to multi_stream_path, :notice => 'you need to be an admin to do that'
       return
     end
   end

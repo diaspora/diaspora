@@ -35,52 +35,6 @@ describe AspectsController do
     end
   end
 
-  describe "#index" do
-    it 'assigns an Stream::Aspect' do
-      get :index
-      assigns(:stream).class.should == Stream::Aspect
-    end
-
-    describe 'filtering by aspect' do
-      before do
-        @aspect1 = alice.aspects.create(:name => "test aspect")
-        @stream = Stream::Aspect.new(alice, [])
-        @stream.stub(:posts).and_return([])
-      end
-
-      it 'respects a single aspect' do
-        Stream::Aspect.should_receive(:new).with(alice, [@aspect1.id], anything).and_return(@stream)
-        get :index, :a_ids => [@aspect1.id]
-      end
-
-      it 'respects multiple aspects' do
-        aspect2 = alice.aspects.create(:name => "test aspect two")
-        Stream::Aspect.should_receive(:new).with(alice, [@aspect1.id, aspect2.id], anything).and_return(@stream)
-        get :index, :a_ids => [@aspect1.id, aspect2.id]
-      end
-    end
-
-    describe 'performance', :performance => true do
-      before do
-        require 'benchmark'
-        8.times do |n|
-          user = Factory.create(:user)
-          aspect = user.aspects.create(:name => 'people')
-          connect_users(alice, @alices_aspect_1, user, aspect)
-          post = alice.post(:status_message, :text => "hello#{n}", :to => @alices_aspect_2.id)
-          8.times do |n|
-            user.comment "yo#{post.text}", :post => post
-          end
-        end
-      end
-      it 'takes time' do
-        Benchmark.realtime {
-          get :index
-        }.should < 1.5
-      end
-    end
-  end
-
   describe "#show" do
     it "succeeds" do
       get :show, 'id' => @alices_aspect_1.id.to_s
@@ -124,6 +78,7 @@ describe AspectsController do
         end
       end
     end
+
     context "with invalid params" do
       it "does not create an aspect" do
         alice.aspects.count.should == 2
@@ -230,27 +185,6 @@ describe AspectsController do
         @controller.tags.should == [42]
         @controller.tags.should == [42]
       end
-    end
-  end
-
-  describe "mobile site" do
-    before do
-      ap = alice.person
-      posts = []
-      posts << alice.post(:reshare, :root_guid => Factory(:status_message, :public => true).guid, :to => 'all')
-      posts << alice.post(:status_message, :text => 'foo', :to => alice.aspects)
-      photo = Factory(:activity_streams_photo, :public => true, :author => ap)
-      posts << photo
-      posts.each do |p|
-        alice.build_like(:positive => true, :target => p).save
-      end
-      alice.add_to_streams(photo, alice.aspects)
-      sign_in alice
-    end
-
-    it 'should not 500' do
-      get :index, :format => :mobile
-      response.should be_success
     end
   end
 end

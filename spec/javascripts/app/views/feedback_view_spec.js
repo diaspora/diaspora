@@ -15,11 +15,6 @@ describe("app.views.Feedback", function(){
     this.view = new app.views.Feedback({model: this.post});
   });
 
-  describe("initialization", function(){
-    it("sets the model as the reshareable post", function(){
-      expect(this.view.reshareablePost).toBe(this.post);
-    })
-  })
 
   describe(".render", function(){
     beforeEach(function(){
@@ -130,11 +125,11 @@ describe("app.views.Feedback", function(){
       expect(window.confirm).toHaveBeenCalled();
     })
 
-    it("reshares the reshareablePost", function(){
+    it("reshares the model", function(){
       spyOn(window, "confirm").andReturn(true);
-      spyOn(this.view.reshareablePost, "reshare")
+      spyOn(this.view.model.reshare(), "save")
       this.view.$(".reshare_action").first().click();
-      expect(this.view.reshareablePost.reshare).toHaveBeenCalled();
+      expect(this.view.model.reshare().save).toHaveBeenCalled();
     })
   })
 })

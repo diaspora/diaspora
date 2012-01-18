@@ -15,14 +15,13 @@ app.models.Post = Backbone.Model.extend({
     }
   },
 
+  reshareUrl : "/reshares",
   reshare : function(){
-    var reshare = new app.models.Reshare();
-    reshare.save({root_guid : this.baseGuid()}, {
-      success : function(){
-        app.stream.collection.add(reshare.toJSON());
-      }
-    });
-    return reshare;
+    return this._reshare = this._reshare || new app.models.Reshare({root_guid : this.get("guid")});
+  },
+
+  reshareAuthor : function(){
+    return this.get("author")
   },
 
   toggleLike : function() {
@@ -35,23 +34,16 @@ app.models.Post = Backbone.Model.extend({
   },
 
   createdAt : function() {
-    return +new Date(this.get("created_at")) / 1000;
+    return new Date(this.get("created_at")) / 1000;
   },
 
-  baseGuid : function() {
-    if(this.get("root")){
-      return this.get("root").guid;
-    } else {
-      return this.get("guid");
-    }
+
+  likeUrl : function(){
+    return this.url() + "/likes"
   },
 
-  baseAuthor : function() {
-    if(this.get("root")){
-      return this.get("root").author;
-    } else {
-      return this.get("author");
-    }
+  like : function() {
+    this.set({ user_like : this.likes.create({}, {url : this.likeUrl()}) });
   },
 
   unlike : function() {
@@ -60,9 +52,5 @@ app.models.Post = Backbone.Model.extend({
 
     likeModel.destroy();
     this.set({ user_like : null });
-  },
-
-  like : function() {
-    this.set({ user_like : this.likes.create() });
   }
 });

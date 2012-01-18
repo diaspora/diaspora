@@ -5,7 +5,7 @@
 - if user_signed_in?
   %ul.left_nav
     %li
-      %b=link_to t('streams.followed_tag.title'), tag_followings_path, :class => 'home_selector'
+      %b=link_to t('streams.followed_tag.title'), followed_tags_stream_path, :class => 'home_selector'
 
       - if @stream.is_a?(Stream::FollowedTag)
         %ul.sub_nav

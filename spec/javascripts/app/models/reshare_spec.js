@@ -1,9 +1,9 @@
 describe("app.models.Reshare", function(){
-   describe("rootPost", function(){
-     beforeEach(function(){
-       this.reshare = new app.models.Reshare({root: {a:"namaste", be : "aloha", see : "community"}})
-     });
+   beforeEach(function(){
+     this.reshare = new app.models.Reshare({root: {a:"namaste", be : "aloha", see : "community"}})
+   });
 
+   describe("rootPost", function(){
      it("should be the root attrs", function(){
        expect(this.reshare.rootPost().get("be")).toBe("aloha")
      });
@@ -16,5 +16,13 @@ describe("app.models.Reshare", function(){
        expect(this.reshare.rootPost()).toBe(this.reshare.rootPost())
      });
    });
+
+   describe(".reshare", function(){
+     it("reshares the root post", function(){
+       spyOn(this.reshare.rootPost(), "reshare")
+       this.reshare.reshare()
+       expect(this.reshare.rootPost().reshare).toHaveBeenCalled()
+     })
+   })
 });
 

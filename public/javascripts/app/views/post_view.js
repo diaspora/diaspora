@@ -35,12 +35,7 @@ app.views.Post = app.views.StreamObject.extend({
 
   feedbackView : function(){
     if(!window.app.user().current_user ) { return null }
-    var feedbackViewClass = this.resharedContent() ? app.views.ReshareFeedback : app.views.Feedback 
-    return new feedbackViewClass({model : this.model});
-  },
-
-  resharedContent : function(){
-    return this.model.get('root')
+    return new  app.views.Feedback({model : this.model});
   },
 
   postContentView: function(){

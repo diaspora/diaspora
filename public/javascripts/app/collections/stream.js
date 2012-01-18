@@ -9,7 +9,10 @@ app.collections.Stream = Backbone.Collection.extend({
     return path;
   },
 
-  model: app.models.Post,
+  model: function(attrs, options) {
+    var modelClass = app.models[attrs.post_type] || app.models.Post
+    return new modelClass(attrs, options);
+  },
 
   parse: function(resp){
     return resp.posts;

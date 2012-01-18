@@ -2,12 +2,12 @@ app.Router = Backbone.Router.extend({
   routes: {
     "stream": "stream",
     "aspects:query": "stream",
-    "comment_stream": "stream",
-    "like_stream": "stream",
+    "commented": "stream",
+    "liked": "stream",
     "mentions": "stream",
     "people/:id": "stream",
       "u/:name": "stream",
-    "tag_followings": "stream",
+    "followed_tags": "stream",
     "tags/:name": "stream",
     "posts/:id": "stream"
   },
