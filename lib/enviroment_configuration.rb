@@ -1,5 +1,6 @@
+require File.join(File.dirname(__FILE__), '..', 'app', 'models', 'app_config')
+
 module EnviromentConfiguration
-  ARRAY_SEPERATOR = '%|%'
   def self.heroku?
     ENV['HEROKU']
   end
