@@ -651,6 +651,11 @@ en:
       updated: "Profile updated"
       failed: "Failed to update profile"
 
+  places: 
+    title: "Title"
+    new: 
+      enter_username: "Pick a username (only letters, numbers, and underscores)"
+
   registrations:
     new:
       create_my_account: "Create my account!"
@@ -1035,3 +1040,6 @@ en:
     xrd_fetch_failed: "there was an error getting the xrd from account %{account}"
     not_enabled: "webfinger does not seem to be enabled for %{account}'s host"
     no_person_constructed: "No person could be constructed from this hcard."
+
+
+
