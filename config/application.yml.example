@@ -196,6 +196,11 @@ defaults: &defaults
   # is running on the default Redis port.
   redis_location: ''
 
+
+
+  #when set, your pod will not force you to use https in production
+  #NOTE: not all features of Diaspora work without SSL, and you may have trouble federating
+  # with other pods
   circumvent_ssl_requirement: false
 
   # Web tracking
