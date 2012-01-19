@@ -1,3 +1,9 @@
+# Ensure known RubyGems version
+if [ "$(gem --version)" != "1.8.12" ]; then
+  echo "RubyGems version is $(gem --version). Changing..."
+  rvm rubygems 1.8.12
+fi
+
 # Install firefox & Xvfb, in preparation for cucumber & jasmine
 #echo "Installing Firefox and Xvfb"
 #sudo aptitude --quiet=2 --without-recommends --assume-yes install firefox xvfb
