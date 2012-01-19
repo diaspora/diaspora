@@ -1,1 +1,4 @@
-Rails.application.config.middleware.insert_before(Rack::Runtime, Rack::SSL) if EnviromentConfiguration.enforce_ssl?
+if EnviromentConfiguration.enforce_ssl?
+  Rails.application.config.middleware.insert_before HoptoadNotifier::UserInformer, Rack::SSL
+  puts "Rack::SSL is enabled"
+end
