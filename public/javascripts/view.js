@@ -9,9 +9,6 @@ var View = {
 
     /* label placeholders */
     $("input, textarea").placeholder();
-    if( jQuery.fn.placeholder.input ) {
-      $("input[placeholder], textarea[placeholder]").siblings("label").hide();
-    }
 
     /* "Toggling" the search input */
     $(this.search.selector)
