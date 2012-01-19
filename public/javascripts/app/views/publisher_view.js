@@ -12,7 +12,7 @@ app.views.Publisher = Backbone.View.extend({
   },
 
   initialize : function(){
-    this.collection = this.collection || new app.collections.Posts;
+    this.collection = this.collection || new app.collections.Stream;
     return this;
   },
 
@@ -33,7 +33,7 @@ app.views.Publisher = Backbone.View.extend({
     }, {
       url : "/status_messages",
       success : function() {
-        app.stream.posts.add(statusMessage.toJSON());
+        app.stream.collection.add(statusMessage.toJSON());
       }
     });
 

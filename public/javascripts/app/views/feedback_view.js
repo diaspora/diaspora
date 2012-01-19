@@ -20,7 +20,7 @@ app.views.Feedback = app.views.StreamObject.extend({
     reshare.save({}, {
       url: this.model.createReshareUrl,
       success : function(){
-        app.stream.add(reshare);
+        app.stream.collection.add(reshare);
       }
     });
   }

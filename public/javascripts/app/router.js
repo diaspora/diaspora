@@ -13,11 +13,10 @@ app.Router = Backbone.Router.extend({
   },
 
   stream : function() {
-    app.stream = new app.models.Stream()
-    app.page = new app.views.Stream().render();
-    $("#main_stream").html(app.page.el);
+    app.stream = new app.views.Stream().render();
+    $("#main_stream").html(app.stream.el);
 
-    var streamFacesView = new app.views.StreamFaces({collection : app.stream.posts}).render();
+    var streamFacesView = new app.views.StreamFaces({collection : app.stream.collection}).render();
     $('#selected_aspect_contacts .content').html(streamFacesView.el);
   }
 });

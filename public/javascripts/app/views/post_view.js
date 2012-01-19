@@ -63,9 +63,9 @@ app.views.Post = app.views.StreamObject.extend({
       success : function(){
         if(!app.stream) { return }
 
-        _.each(app.stream.posts.models, function(model){
+        _.each(app.stream.collection.models, function(model){
           if(model.get("author").id == personId) {
-            app.stream.posts.remove(model);
+            app.stream.collection.remove(model);
           }
         })
       }

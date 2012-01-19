@@ -13,7 +13,7 @@ describe("app.views.Post", function(){
 
       var posts = $.parseJSON(spec.readFixture("multi_stream_json"))["posts"];
 
-      this.collection = new app.collections.Posts(posts);
+      this.collection = new app.collections.Stream(posts);
       this.statusMessage = this.collection.models[0];
       this.reshare = this.collection.models[1];
     })

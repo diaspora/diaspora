@@ -4,17 +4,14 @@ describe("app.views.Stream", function(){
 
     this.posts = $.parseJSON(spec.readFixture("multi_stream_json"))["posts"];
 
-    app.stream = new app.models.Stream()
-    app.stream.add(this.posts);
-
-    this.collection = app.stream.posts
+    this.collection = new app.collections.Stream(this.posts);
     this.view = new app.views.Stream({collection : this.collection});
-
-    app.stream.bind("fetched", this.collectionFetched, this) //untested
 
     // do this manually because we've moved loadMore into render??
     this.view.render();
-    _.each(this.view.collection.models, function(post){ this.view.addPost(post); }, this);
+    _.each(this.view.collection.models, function(post){
+      this.view.addPost(post);
+    }, this);
   })
 
   describe("initialize", function(){
@@ -45,7 +42,7 @@ describe("app.views.Stream", function(){
     // NOTE: inf scroll happens at 500px
 
     beforeEach(function(){
-      spyOn(this.view.collection, "fetch").andReturn($.Deferred())
+      spyOn(this.view.collection, "fetch")
     })
 
     context("when the user is at the bottom of the page", function(){
