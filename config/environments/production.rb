@@ -38,7 +38,8 @@ Diaspora::Application.configure do
   config.serve_static_assets = false
 
   #force ssl in production
-  config.middleware.insert_before ActionDispatch::Static, "Rack::SSL"
+  config.middleware.insert_before Rack::Runtime, Rack::SSL
+  
 
   # Enable serving of images, stylesheets, and javascripts from an asset server
   # config.action_controller.asset_host = "http://assets.example.com"
