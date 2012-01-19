@@ -42,7 +42,6 @@ export RAILS_ENV=$(bundle exec ruby ./script/get_config.rb rails_env script_serv
 export DB=$(bundle exec ruby ./script/get_config.rb db script_server)
 THIN_PORT=$(bundle exec ruby ./script/get_config.rb thin_port script_server)
 eval "DEFAULT_THIN_ARGS=\"$(bundle exec ruby ./script/get_config.rb default_thin_args script_server)\""
-SOCKET_PORT=$(bundle exec ruby ./script/get_config.rb socket_port $RAILS_ENV)
 
 # Backward compatibillity, overide default settings
 [ -e config/server.sh ] && source config/server.sh
