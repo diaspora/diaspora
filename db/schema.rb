@@ -463,6 +463,7 @@ ActiveRecord::Schema.define(:version => 20120114191018) do
     t.boolean  "show_community_spotlight_in_stream",                :default => true,  :null => false
     t.boolean  "auto_follow_back",                                  :default => false
     t.integer  "auto_follow_back_aspect_id"
+    t.text     "hidden_shareables"
   end
 
   add_index "users", ["authentication_token"], :name => "index_users_on_authentication_token", :unique => true

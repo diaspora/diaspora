@@ -1,5 +1,5 @@
 module EnviromentConfiguration
-  ARRAY_SEPERATOR = '%|%'
+
   def self.heroku?
     ENV['HEROKU']
   end
@@ -27,6 +27,13 @@ module EnviromentConfiguration
     else
       #do nothing
     end
+  end
+
+  def self.enforce_ssl?
+    return false unless Rails.env == 'production'
+    return false if ENV['NO_SSL'] 
+    return false if AppConfig[:circumvent_ssl_requirement].present?
+    true
   end
 
   def self.ca_cert_file_location

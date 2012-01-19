@@ -103,6 +103,10 @@ HELP
     end
   end
 
+  def self.bare_pod_uri
+    self[:pod_uri].authority.gsub('www.', '')
+  end
+
   def self.normalize_admins
     self[:admins] ||= []
     self[:admins].collect! { |username| username.downcase }

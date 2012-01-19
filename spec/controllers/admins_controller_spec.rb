@@ -14,7 +14,7 @@ describe AdminsController do
     context 'admin not signed in' do
       it 'is behind redirect_unless_admin' do
         get :user_search
-        response.should redirect_to multi_path
+        response.should redirect_to multi_stream_path
       end
     end
 
@@ -64,7 +64,7 @@ describe AdminsController do
     context 'admin not signed in' do
       it 'is behind redirect_unless_admin' do
         get :admin_inviter
-        response.should redirect_to multi_path
+        response.should redirect_to multi_stream_path
       end
     end
 

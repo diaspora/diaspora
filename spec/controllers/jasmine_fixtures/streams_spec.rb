@@ -4,8 +4,8 @@
 
 require 'spec_helper'
 
-describe MultisController do
-  describe '#index' do
+describe StreamsController do
+  describe '#multi' do
     before do
       sign_in :user, alice
     end
@@ -27,7 +27,7 @@ describe MultisController do
         end
       end
 
-      get :index, :format => :json
+      get :multi, :format => :json
       response.should be_success
       save_fixture(response.body, "multi_stream_json")
 

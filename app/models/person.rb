@@ -51,7 +51,6 @@ class Person < ActiveRecord::Base
 
   has_many :mentions, :dependent => :destroy
 
-  before_destroy :remove_all_traces
   before_validation :clean_url
 
   validates :url, :presence => true
@@ -322,10 +321,6 @@ class Person < ActiveRecord::Base
   end
 
   private
-  def remove_all_traces
-    Notification.joins(:notification_actors).where(:notification_actors => {:person_id => self.id}).all.each{ |n| n.destroy}
-  end
-
   def fix_profile
     Webfinger.new(self.diaspora_handle).fetch
     self.reload

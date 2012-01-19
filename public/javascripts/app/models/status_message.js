@@ -1,3 +1,1 @@
-app.models.StatusMessage = app.models.Post.extend({
-  url : function() { return "/status_messages"; }
-});
+app.models.StatusMessage = app.models.Post.extend({ });

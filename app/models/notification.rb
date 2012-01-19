@@ -22,6 +22,7 @@ class Notification < ActiveRecord::Base
         else
           n = note_type.make_notification(recipient, target, actor, note_type)
         end
+
         if n
           n.email_the_user(target, actor)
           n
@@ -43,7 +44,8 @@ class Notification < ActiveRecord::Base
 
 private
   def self.concatenate_or_create(recipient, target, actor, notification_type)
-    return nil if share_visiblity_is_hidden?(recipient, target)
+    return nil if suppress_notification?(recipient, target)
+
     if n = notification_type.where(:target_id => target.id,
                                    :target_type => target.class.base_class,
                                    :recipient_id => recipient.id,
@@ -64,22 +66,16 @@ private
 
 
   def self.make_notification(recipient, target, actor, notification_type)
-    return nil if share_visiblity_is_hidden?(recipient, target)
+    return nil if suppress_notification?(recipient, target)
     n = notification_type.new(:target => target,
-                               :recipient_id => recipient.id)
+                              :recipient_id => recipient.id)
     n.actors = n.actors | [actor]
     n.unread = false if target.is_a? Request
     n.save!
     n
   end
 
-  #horrible hack that should not be here!
-  def self.share_visiblity_is_hidden?(recipient, post)
-    return false unless post.is_a?(Post)
-
-    contact = recipient.contact_for(post.author)
-    return false unless contact && recipient && post
-    pv = ShareVisibility.where(:contact_id => contact.id, :shareable_id => post.id, :shareable_type => post.class.base_class.to_s).first
-    pv.present? ? pv.hidden? : false
+  def self.suppress_notification?(recipient, post)
+    post.is_a?(Post) && recipient.is_shareable_hidden?(post)
   end
 end

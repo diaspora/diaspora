@@ -13,17 +13,9 @@ describe("app.views.Post", function(){
 
       var posts = $.parseJSON(spec.readFixture("multi_stream_json"))["posts"];
 
-      this.collection = new app.collections.Stream(posts);
+      this.collection = new app.collections.Posts(posts);
       this.statusMessage = this.collection.models[0];
       this.reshare = this.collection.models[1];
-    })
-
-    context("for a reshare", function(){
-      it("should display ReshareFeedback", function(){
-        spyOn(app.views, "ReshareFeedback").andReturn(stubView("these are special reshare actions"));
-        var view = new app.views.Post({model : this.reshare}).render();
-        expect(view.$(".feedback").text().trim()).toBe("these are special reshare actions");
-      })
     })
 
     it("displays a reshare count", function(){
