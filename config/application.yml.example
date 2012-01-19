@@ -93,8 +93,8 @@ defaults: &defaults
   # Enable extensive logging to websocket server.
   socket_debug : false
 
-  # Hoptoad api key, send failures to Hoptoad
-  hoptoad_api_key: ''
+  # Airbreak api key, send failures to http://projectname.airbreak.io/ (Former Hoptoad)
+  airbreak_api_key: ''
 
   #social media setup
   facebook_app_id:  ''
