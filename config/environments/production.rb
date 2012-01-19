@@ -2,8 +2,6 @@
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
-require File.join(Rails.root, 'lib', 'enviroment_configuration')
-
 Diaspora::Application.configure do
   # Settings specified here will take precedence over those in config/environment.rb
 
@@ -40,7 +38,7 @@ Diaspora::Application.configure do
   config.serve_static_assets = false
 
   #force ssl in production
-  config.middleware.insert_before ActionDispatch::Static, "Rack::SSL" unless EnviromentConfiguration.circumvent_ssl?
+  config.middleware.insert_before ActionDispatch::Static, "Rack::SSL"
 
   # Enable serving of images, stylesheets, and javascripts from an asset server
   # config.action_controller.asset_host = "http://assets.example.com"
