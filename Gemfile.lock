@@ -148,7 +148,7 @@ GEM
       abstract (>= 1.0.0)
     eventmachine (0.12.10)
     excon (0.9.4)
-    factory_girl (2.4.0)
+    factory_girl (2.4.2)
       activesupport
     factory_girl_rails (1.5.0)
       factory_girl (~> 2.4.0)
