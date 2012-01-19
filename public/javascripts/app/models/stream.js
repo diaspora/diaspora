@@ -16,8 +16,8 @@ app.models.Stream = Backbone.Collection.extend({
         url : self.url()
       })
       .done(
-        function(){ 
-          self.trigger("fetched", self);
+        function(response){ 
+          self.trigger("fetched", self, response);
         }
       )
   },
