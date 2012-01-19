@@ -4,6 +4,8 @@
 
 Diaspora::Application.routes.draw do
 
+  resources :places
+
   # Posting and Reading
 
   resources :reshares

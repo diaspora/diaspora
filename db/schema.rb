@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120114191018) do
+ActiveRecord::Schema.define(:version => 20120119182234) do
 
   create_table "account_deletions", :force => true do |t|
     t.string  "diaspora_handle"
@@ -109,6 +109,22 @@ ActiveRecord::Schema.define(:version => 20120114191018) do
 
   add_index "conversations", ["author_id"], :name => "conversations_author_id_fk"
 
+  create_table "descriptions", :force => true do |t|
+    t.string   "diaspora_handle"
+    t.string   "image_url"
+    t.string   "image_url_small"
+    t.string   "image_url_medium"
+    t.boolean  "searchable",                                                    :default => true, :null => false
+    t.integer  "place_id",                                                                        :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "location"
+    t.string   "title",            :limit => 70
+    t.text     "summary"
+    t.decimal  "lat",                            :precision => 10, :scale => 0
+    t.decimal  "lng",                            :precision => 10, :scale => 0
+  end
+
   create_table "invitations", :force => true do |t|
     t.text     "message"
     t.integer  "sender_id"
@@ -196,7 +212,7 @@ ActiveRecord::Schema.define(:version => 20120114191018) do
     t.text   "data",                 :null => false
   end
 
-  add_index "o_embed_caches", ["url"], :name => "index_o_embed_caches_on_url", :length => {"url"=>255}
+  add_index "o_embed_caches", ["url"], :name => "index_o_embed_caches_on_url", :length => {"url"=>767}
 
   create_table "oauth_access_tokens", :force => true do |t|
     t.integer  "authorization_id",                :null => false
@@ -254,10 +270,6 @@ ActiveRecord::Schema.define(:version => 20120114191018) do
     t.boolean  "closed_account",        :default => false
   end
 
-  add_index "people", ["diaspora_handle"], :name => "index_people_on_diaspora_handle", :unique => true
-  add_index "people", ["guid"], :name => "index_people_on_guid", :unique => true
-  add_index "people", ["owner_id"], :name => "index_people_on_owner_id", :unique => true
-
   create_table "photos", :force => true do |t|
     t.integer  "tmp_old_id"
     t.integer  "author_id",                              :null => false
@@ -278,6 +290,17 @@ ActiveRecord::Schema.define(:version => 20120114191018) do
   end
 
   add_index "photos", ["status_message_guid"], :name => "index_photos_on_status_message_guid"
+
+  create_table "places", :force => true do |t|
+    t.string   "guid",                                     :null => false
+    t.text     "url",                                      :null => false
+    t.string   "diaspora_handle",                          :null => false
+    t.text     "serialized_public_key",                    :null => false
+    t.integer  "owner_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.boolean  "closed_account",        :default => false
+  end
 
   create_table "pods", :force => true do |t|
     t.string   "host"
