@@ -17,27 +17,35 @@ defaults: &defaults
   # For development and testing, you can leave this as is.
   pod_url: "http://localhost:3000/"
 
-  # Websocket host - leave as 0.0.0.0 unless you know what you are doing
-  socket_host: 0.0.0.0
-
-  # Websocket port - should normally be 8080 or 8081.
-  socket_port: 8080
-
   # Setting the root certificate bundle (this is operating system specific). Examples, uncomment one:
   ca_file: '/etc/pki/tls/certs/ca-bundle.crt' # CentOS
   #ca_file: '/etc/ssl/certs/ca-certificates.crt' # Debian
   #ca_file: '/etc/ssl/certs/ca-certificates.crt' # Gentoo
 
-  # Secure websocket confguration (wss://).
-  # Requires SSL cert and key
-  socket_secure: false
-  socket_cert_chain_location: '/full/path/to/cert_chain.crt'
-  socket_private_key_location: '/full/path/to/file.key'
-
-
   # URL for a remote redis, on the default port. Don't forget to restrict IP access!
   # leave it empty for the default (localhost)
   redis_url: ''
+
+  # Redis cache
+
+  # Enable the cache layer (Redis)
+  # If you expect to have thousands of users on your pod,
+  # we *highly* suggest you enable this.
+  # IMPORTANT: THE CACHE REQUIRES REDIS 2.4 OR LATER.
+  #
+  # By default, the cache layer will piggyback off of the Redis
+  # database used by your Resque workers.
+  redis_cache: false
+
+  # The location of your redis cache.
+  # IMPORTANT: DO NOT CHANGE THIS IF YOU DO NOT KNOW WHAT YOU ARE DOING!
+  #
+  # Leave this blank to use the same Redis database
+  # that your Resque workers use (happy path).
+  #
+  # This takes an ip (or DNS record).  It assumes that your Redis database
+  # is running on the default Redis port.
+  redis_location: ''
 
   # Amazon S3 for photos
 
@@ -90,9 +98,6 @@ defaults: &defaults
   # Enable extensive logging to log/{development,test,production}.log
   debug: false
 
-  # Enable extensive logging to websocket server.
-  socket_debug : false
-
   # Hoptoad api key, send failures to Hoptoad
   hoptoad_api_key: ''
 
@@ -105,6 +110,7 @@ defaults: &defaults
 
   tumblr_consumer_key: ''
   tumblr_consumer_secret: '' 
+
   # Miscellaneous
 
   NEW_RELIC_LICENSE_KEY: ''
@@ -115,12 +121,6 @@ defaults: &defaults
   # must be run inside the request cycle. Also the live updates from the Websocket
   # will be disabled.
   single_process_mode: false
-
-  # File containing pid of running script/websocket_server.rb
-  socket_pidfile: "log/diaspora-wsd.pid"
-
-  # Do not touch unless you know what you're doing
-  socket_collection_name: 'websocket'
 
   # Diaspora is only tested against this default pubsub server. You probably don't want to change this.
   pubsub_server: 'https://pubsubhubbub.appspot.com/'
@@ -175,27 +175,10 @@ defaults: &defaults
   # Sender address in Diaspora's outgoing mail.
   smtp_sender_address: 'no-reply@joindiaspora.com'
 
-  # Redis cache
-
-  # Enable the cache layer (Redis)
-  # If you expect to have thousands of users on your pod,
-  # we *highly* suggest you enable this.
-  # IMPORTANT: THE CACHE REQUIRES REDIS 2.4 OR LATER.
-  #
-  # By default, the cache layer will piggyback off of the Redis
-  # database used by your Resque workers.
-  redis_cache: false
-
-  # The location of your redis cache.
-  # IMPORTANT: DO NOT CHANGE THIS IF YOU DO NOT KNOW WHAT YOU ARE DOING!
-  #
-  # Leave this blank to use the same Redis database
-  # that your Resque workers use (happy path).
-  #
-  # This takes an ip (or DNS record).  It assumes that your Redis database
-  # is running on the default Redis port.
-  redis_location: ''
-
+  #when set, your pod will not force you to use https in production
+  #NOTE: not all features of Diaspora work without SSL, and you may have trouble federating
+  # with other pods
+  circumvent_ssl_requirement: false
 
   # Web tracking
 
@@ -215,12 +198,6 @@ defaults: &defaults
   cloudfiles_api_key:  'abc123'
   cloudfiles_db_container: 'Database Backup'
   cloudfiles_images_container: 'Image Backup'
-
-  # Donations
-  
-  # Leave this blank to not show the request for donations
-  # Use paypal for recurring donations
-  paypal_hosted_button_id: ""
 
 #
 # Use this section to override default settings in specific environments

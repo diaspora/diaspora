@@ -130,7 +130,6 @@ class User < ActiveRecord::Base
     end
   end
 
-
   def toggle_hidden_shareable(share)
     share_id = share.id.to_s
     key = share.class.base_class.to_s
@@ -165,7 +164,6 @@ class User < ActiveRecord::Base
     generate_reset_password_token! if should_generate_token?
     Resque.enqueue(Jobs::ResetPassword, self.id)
   end
-
 
   def update_user_preferences(pref_hash)
     if self.disable_mail
@@ -450,39 +448,12 @@ class User < ActiveRecord::Base
     aq
   end
 
-
   def encryption_key
     OpenSSL::PKey::RSA.new(serialized_private_key)
   end
 
   def admin?
     AppConfig[:admins].present? && AppConfig[:admins].include?(self.username)
-  end
-
-  def remove_all_traces
-    disconnect_everyone
-    remove_mentions
-    remove_person
-  end
-
-  def remove_person
-    self.person.destroy
-  end
-
-  def disconnect_everyone
-    self.contacts.each do |contact|
-      if contact.person.remote?
-        self.disconnect(contact)
-      else
-        contact.person.owner.disconnected_by(self.person)
-        remove_contact(contact, :force => true)
-      end
-    end
-    self.aspects.destroy_all
-  end
-
-  def remove_mentions
-    Mention.where( :person_id => self.person.id).delete_all
   end
 
   def guard_unconfirmed_email
@@ -500,7 +471,6 @@ class User < ActiveRecord::Base
       i += 1
     end
   end
-
 
   # Generate public/private keys for User and associated Person
   def generate_keys

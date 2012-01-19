@@ -135,7 +135,7 @@ describe Person do
 
       it 'does not include www if it is set in app config' do
         old_url = AppConfig[:pod_url]
-        AppConfig[:pod_url] = 'https://www.foobar.com/' 
+        AppConfig[:pod_url] = 'https://www.foobar.com/'
         new_person = User.build(:username => "foo123", :email => "foo123@example.com", :password => "password", :password_confirmation => "password").person
         new_person.diaspora_handle.should == "foo123@foobar.com"
         AppConfig[:pod_url] = old_url
@@ -228,43 +228,6 @@ describe Person do
 
     @person.owns?(person_message).should be true
     person_two.owns?(person_message).should be false
-  end
-
-  describe '#remove_all_traces' do
-    before do
-      @deleter = Factory(:person)
-      @status = Factory.create(:status_message, :author => @deleter)
-      @other_status = Factory.create(:status_message, :author => @person)
-    end
-
-    it "deletes all notifications from a person's actions" do
-      note = Factory(:notification, :actors => [@deleter], :recipient => @user)
-      @deleter.destroy
-      Notification.where(:id => note.id).first.should be_nil
-    end
-
-    it "deletes all contacts pointing towards a person" do
-      @user.contacts.create(:person => @deleter, :aspects => [@user.aspects.first])
-      @deleter.destroy
-      @user.contact_for(@deleter).should be_nil
-    end
-
-    it "deletes all of a person's posts upon person deletion" do
-      lambda { @deleter.destroy }.should change(Post, :count).by(-1)
-    end
-
-    it "deletes a person's profile" do
-      lambda {
-        @deleter.destroy
-      }.should change(Profile, :count).by(-1)
-    end
-
-    it "deletes a person's comments on person deletion" do
-      Factory.create(:comment, :author_id => @deleter.id, :diaspora_handle => @deleter.diaspora_handle, :text => "i love you", :post => @other_status)
-      Factory.create(:comment, :author_id => @person.id, :diaspora_handle => @person.diaspora_handle, :text => "you are creepy", :post => @other_status)
-
-      lambda { @deleter.destroy }.should change(Comment, :count).by(-1)
-    end
   end
 
   describe "disconnecting" do
