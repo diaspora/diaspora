@@ -196,6 +196,7 @@ defaults: &defaults
   # is running on the default Redis port.
   redis_location: ''
 
+  circumvent_ssl_requirement: false
 
   # Web tracking
 
