@@ -4,14 +4,18 @@ app.views.Stream = Backbone.View.extend({
   },
 
   initialize: function(options) {
-    this.stream = app.stream || new app.models.Stream()
-    this.collection = this.stream.posts
-    this.publisher = new app.views.Publisher({collection : this.collection});
+    this.stream = this.model
+    this.collection = this.model.posts
 
-    this.stream.bind("fetched", this.collectionFetched, this)
-    this.collection.bind("add", this.addPost, this);
+    this.setupEvents()
     this.setupInfiniteScroll()
     this.setupLightbox()
+  },
+
+  setupEvents : function(){
+    this.stream.bind("fetched", this.removeLoader, this)
+    this.stream.bind("allPostsLoaded", this.unbindInfScroll, this)
+    this.collection.bind("add", this.addPost, this);
   },
 
   addPost : function(post) {
@@ -26,51 +30,30 @@ app.views.Stream = Backbone.View.extend({
     return this;
   },
 
-  isLoading : function(){
-    return this._loading && !this._loading.isResolved();
-  },
-
-  allContentLoaded : false,
-
-
-  collectionFetched: function(collection, response) {
-    this.removeLoader()
-    if(!collection.parse(response).length || collection.parse(response).length == 0) {
-      this.allContentLoaded = true;
-      $(window).unbind('scroll')
-      return
-    }
-
-    $(this.el).append($("<a>", {
-      href: this.stream.url(),
-      id: "paginate"
-    }).text('Load more posts'));
+  unbindInfScroll : function() {
+    $("window").unbind("scroll");
   },
 
   render : function(evt) {
     if(evt) { evt.preventDefault(); }
 
-    this.addLoader();
-    this._loading = this.stream.fetch();
+    // fetch more posts from the stream model
+    if(this.stream.fetch()) {
+      this.appendLoader()
+    };
 
     return this;
   },
 
-  addLoader: function(){
-    if(this.$("#paginate").length == 0) {
-      $(this.el).append($("<div>", {
-        "id" : "paginate"
-      }));
-    }
-
-    this.$("#paginate").html($("<img>", {
+  appendLoader: function(){
+    $("#paginate").html($("<img>", {
       src : "/images/static-loader.png",
       "class" : "loader"
     }));
   },
 
-  removeLoader : function(){
-    this.$("#paginate").remove();
+  removeLoader: function() {
+    $("#paginate").empty();
   },
 
   setupLightbox : function(){
@@ -80,13 +63,11 @@ app.views.Stream = Backbone.View.extend({
 
   setupInfiniteScroll : function() {
     var throttledScroll = _.throttle($.proxy(this.infScroll, this), 200);
-    $(window).scroll(throttledScroll);
+    $("window").scroll(throttledScroll);
   },
 
   infScroll : function() {
-    if(this.allContentLoaded || this.isLoading()) { return }
-
-    var $window = $(window);
+    var $window = $("window");
     var distFromTop = $window.height() + $window.scrollTop();
     var distFromBottom = $(document).height() - distFromTop;
     var bufferPx = 500;

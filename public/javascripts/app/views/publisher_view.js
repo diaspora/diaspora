@@ -12,7 +12,7 @@ app.views.Publisher = Backbone.View.extend({
   },
 
   initialize : function(){
-    this.collection = this.collection || new app.collections.Posts;
+    this.collection = this.collection //takes a Posts collection
     return this;
   },
 
