@@ -212,7 +212,7 @@ ActiveRecord::Schema.define(:version => 20120119182234) do
     t.text   "data",                 :null => false
   end
 
-  add_index "o_embed_caches", ["url"], :name => "index_o_embed_caches_on_url", :length => {"url"=>767}
+  add_index "o_embed_caches", ["url"], :name => "index_o_embed_caches_on_url", :length => {"url"=>255}
 
   create_table "oauth_access_tokens", :force => true do |t|
     t.integer  "authorization_id",                :null => false
@@ -269,6 +269,10 @@ ActiveRecord::Schema.define(:version => 20120119182234) do
     t.datetime "updated_at"
     t.boolean  "closed_account",        :default => false
   end
+
+  add_index "people", ["diaspora_handle"], :name => "index_people_on_diaspora_handle", :unique => true
+  add_index "people", ["guid"], :name => "index_people_on_guid", :unique => true
+  add_index "people", ["owner_id"], :name => "index_people_on_owner_id", :unique => true
 
   create_table "photos", :force => true do |t|
     t.integer  "tmp_old_id"
