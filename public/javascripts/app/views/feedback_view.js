@@ -18,7 +18,7 @@ app.views.Feedback = app.views.StreamObject.extend({
     if(!window.confirm("Reshare " + this.model.reshareAuthor().name + "'s post?")) { return }
     var reshare = this.model.reshare()
     reshare.save({}, {
-      url: this.model.createReshareUrl,
+      url: this.model.reshareUrl,
       success : function(){
         app.stream.collection.add(reshare);
       }
