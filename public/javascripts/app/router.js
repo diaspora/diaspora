@@ -11,6 +11,7 @@ app.Router = Backbone.Router.extend({
     "tags/:name": "stream",
     "posts/:id": "stream",
     "p/:id": "stream"
+    "places/:id": "stream",
   },
 
   stream : function() {

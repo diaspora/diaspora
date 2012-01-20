@@ -11,9 +11,8 @@ class PlacesController < ApplicationController
     @place = Place.find(params[:id])
     @stream = Stream::Place.new(current_user, @place, :max_time => max_time, :page => params[:page])
 
-    respond_to do |format|
-      format.html # show.html.erb
-      format.xml  { render :xml => @place }
+    respond_with do |format|
+      format.json{ render_for_api :backbone, :json => @stream.stream_posts, :root => :posts }
     end
   end
 

@@ -13,7 +13,7 @@ class Stream::Place < Stream::Base
 
   # @return [ActiveRecord::Association<Post>] AR association of posts
   def posts
-    @posts ||= Post.all
+    @posts ||= Post.all_public
   end
 end
 
