@@ -4,7 +4,9 @@
 
 Diaspora::Application.routes.draw do
 
-  resources :places
+  resources :places do
+    resources :photos
+  end
 
   # Posting and Reading
 
