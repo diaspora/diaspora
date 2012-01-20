@@ -101,7 +101,7 @@ da:
         content_1: "Dit Diaspora ID er:"
         content_2: "Giv det til hvem som helst og de vil kunne finde dig på Diaspora."
       donate: Donér
-      handle_explanation: "Dette er din Diaspora ID. Som med en e-mail-adresse, kan du give denne til folk, så de kan kontakte dig."
+      handle_explanation: "Dette er dit Diaspora ID. Som med en e-mail-adresse, kan du give denne til folk, så de kan kontakte dig."
       help:
         do_you: "Har du:"
         email_feedback: "%{link} din tilbagemelding, hvis du foretrækker det"
@@ -566,8 +566,8 @@ da:
       destroy: Slet
       not_found: "Vi kunne desværre ikke finde dette indlæg."
       photos_by:
-        few: "%{count} photos by %{author}"
-        many: "%{count} photos by %{author}"
+        few: "%{count} billeder af %{author}"
+        many: "%{count} billeder af %{author}"
         one: "Et billede af %{author}"
         other: "%{count} billeder af %{author}"
         two: "To billeder af %{author}"
@@ -877,7 +877,7 @@ da:
         if_you_want_this: "Hvis du virkelig ønsker dette, indtast da dit kodeord og klik på 'Luk konto'"
         lock_username: "Dette vil låse dit brugernavn til hvis du beslutter at oprettes igen."
         locked_out: "Du vil blive logget ud og låst ude af din konto."
-        what_we_delete: "Vi sletter alle dine indlæg og profildata, så hurtigt som overhovedet muligt. Dine kommentarer vil forblive, men være forbundet til dit Diaspora handle."
+        what_we_delete: "Vi sletter alle dine indlæg og profildata, så hurtigt som overhovedet muligt. Dine kommentarer vil forblive, men være forbundet til dit Diaspora ID."
       close_account_text: "Luk konto"
       comment_on_post: "...nogen har kommenteret dit indlæg?"
       current_password: "Nuværende adgangskode"

@@ -106,7 +106,7 @@ pl:
       handle_explanation: "Oto Twój identyfikator Diaspory. Tak jak adres e-mail, możesz podać go osobom, z którymi chcesz być w kontakcie."
       help:
         do_you: "Czy:"
-        email_feedback: "%{link} swoje zgłoszenie, jeśli chcesz"
+        email_feedback: "Wyślij %{link}, jeśli wolisz"
         feature_suggestion: "... masz propozycję (%{link})?"
         find_a_bug: "... znal@{m:azłeś|f:azłaś|n:eziono} %{link}?"
         have_a_question: "... masz %{link}?"
