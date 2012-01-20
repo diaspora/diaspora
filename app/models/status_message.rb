@@ -25,6 +25,7 @@ class StatusMessage < Post
   attr_accessor :oembed_url
 
   after_create :create_mentions
+  after_create :create_review
   after_create :queue_gather_oembed_data, :if => :contains_oembed_url_in_text?
 
   #scopes
@@ -110,6 +111,12 @@ class StatusMessage < Post
     end
   end
 
+  def create_review
+    mentioned_places_from_string.each do |place|
+      self.reviews.create(:place => place)
+    end
+  end
+
   def mentions?(person)
     mentioned_people.include? person
   end
@@ -124,6 +131,14 @@ class StatusMessage < Post
       match.last
     end
     identifiers.empty? ? [] : Person.where(:diaspora_handle => identifiers)
+  end
+
+  def mentioned_places_from_string
+    regex = /=\{([^;]+); ([^\}]+)\}/
+    identifiers = self.raw_message.scan(regex).map do |match|
+      match.last
+    end
+    identifiers.empty? ? [] : Place.where(:diaspora_handle => identifiers)
   end
 
   def to_activity(opts={})
