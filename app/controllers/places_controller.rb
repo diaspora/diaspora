@@ -1,20 +1,15 @@
 class PlacesController < ApplicationController
   before_filter :authenticate_user!
-  # GET /places
-  # GET /places.xml
-  def index
-    @places = Place.all
 
-    respond_to do |format|
-      format.html # index.html.erb
-      format.xml  { render :xml => @places }
-    end
-  end
+  respond_to :html, :only => [:show]
+  respond_to :json, :only => [:index, :show]
+
 
   # GET /places/1
   # GET /places/1.xml
   def show
     @place = Place.find(params[:id])
+    @stream = Stream::Place.new(current_user, @place, :max_time => max_time, :page => params[:page])
 
     respond_to do |format|
       format.html # show.html.erb
@@ -70,15 +65,4 @@ class PlacesController < ApplicationController
     end
   end
 
-  # DELETE /places/1
-  # DELETE /places/1.xml
-  def destroy
-    @place = Place.find(params[:id])
-    @place.destroy
-
-    respond_to do |format|
-      format.html { redirect_to(places_url) }
-      format.xml  { head :ok }
-    end
-  end
 end

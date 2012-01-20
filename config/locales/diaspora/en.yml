@@ -660,6 +660,9 @@ en:
     new: 
       enter_username: "Pick a username (only letters, numbers, and underscores)"
       submit: "Create Place"
+    show:
+      following: "Following %{place}"
+      stop_following: "Stop following %{place}"
     place_sidebar:
       summary: "Description"
       location: "Location"

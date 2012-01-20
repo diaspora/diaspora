@@ -1,13 +1,19 @@
 -#   Copyright (c) 2010-2011, Diaspora Inc.  This file is
+
 -#   licensed under the Affero General Public License version 3 or later.  See
 -#   the COPYRIGHT file.
 
 
+- content_for :page_title do
+  = @place.title
+
 - content_for :head do
   = include_javascripts :people
 
-- content_for :page_title do
-  = @place.title
+
+- content_for :body_class do
+  = "tags_show"
+  
 
 .span-6
   = render :partial => 'places/place_sidebar', :locals => {:place => @place}
@@ -15,3 +21,9 @@
 
 .span-18.last
   .stream_container
+    - if current_user
+      = render 'shared/publisher', :selected_aspects => @stream.aspect_ids, :aspect_ids => @stream.aspect_ids, :for_all_aspects => true, :aspect => @stream.aspect
+
+    %hr
+
+    #main_stream.stream
