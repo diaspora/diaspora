@@ -12,7 +12,7 @@ class Description < ActiveRecord::Base
   end
 
   def title_sanitized
-    self.title.gsub(/ /, '_') #.gsub(/[azAZ09]!*/)
+    self.title.gsub(/([\s]){1,}/,'_').gsub(/[\W]{1,}/,'').downcase
   end
 end
 
