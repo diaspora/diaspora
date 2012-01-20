@@ -655,6 +655,7 @@ en:
     title: "Place name."
     summary: "Describe the place briefly."
     location: "Generally, where is it?"
+    image_url: "Enter the url for the place's profile image."
 
     new: 
       enter_username: "Pick a username (only letters, numbers, and underscores)"

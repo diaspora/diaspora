@@ -36,6 +36,10 @@
             = t('places.location')
           = d.text_field :location
 
+          %b
+            = t('places.image_url')
+          = d.text_field :image_url
+
 
       .submit_field
         = f.submit t('places.new.submit'), :class => 'in_aspects'
