@@ -6,6 +6,7 @@ task :after_deploy => :environment do
     puts "-----> resetting HEAD before custom landing page commit"
 
     system("git reset --hard HEAD^") ? true : fail
+    system("git stash pop") ? true : fail
 
     puts "-----> done"
   end

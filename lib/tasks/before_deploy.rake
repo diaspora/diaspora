@@ -7,6 +7,10 @@ task :before_deploy => :environment do
 
     puts "-----> including custom landing page in a temp commit"
 
+
+    pp @app_settings
+
+    system("git stash") ? true : fail
     system("git add app/views/home/_show.html.haml -f") ? true : fail
     system("git commit -m 'adding custom landing page for heroku'") ? true : fail
 
