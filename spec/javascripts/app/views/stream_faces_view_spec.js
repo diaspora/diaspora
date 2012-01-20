@@ -9,8 +9,11 @@ describe("app.views.StreamFaces", function(){
     this.post6 = factory.post({author : rebeccaBlack})
     this.post7 = factory.post({author : rebeccaBlack})
 
-    this.stream = new app.collections.Stream([this.post1, this.post2, this.post3, this.post4, this.post5, this.post6, this.post7]);
-    this.view = new app.views.StreamFaces({collection : this.stream})
+    app.stream = new app.models.Stream()
+    app.stream.add([this.post1, this.post2, this.post3, this.post4, this.post5, this.post6, this.post7]);
+    this.posts = app.stream.posts
+
+    this.view = new app.views.StreamFaces({collection : this.posts})
   })
 
   it("should take them unique", function(){
@@ -19,7 +22,7 @@ describe("app.views.StreamFaces", function(){
   })
 
   it("findsPeople when the collection changes", function(){
-    this.stream.add(factory.post({author : factory.author({name : "Harriet Tubman"})}))
+    this.posts.add(factory.post({author : factory.author({name : "Harriet Tubman"})}))
     expect(this.view.people.length).toBe(6)
   })
 
@@ -39,8 +42,8 @@ describe("app.views.StreamFaces", function(){
 
     it("rerenders when people are added, but caps to 15 people", function(){
       var posts = _.map(_.range(20), function(){ return factory.post()})
-      this.stream.reset(posts) //add 20 posts silently to the collection
-      this.stream.add(factory.post) //trigger an update
+      this.posts.reset(posts) //add 20 posts silently to the collection
+      this.posts.add(factory.post) //trigger an update
       expect(this.view.$("img").length).toBe(15)
     })
   })

@@ -1,21 +1,16 @@
 app.models.Post = Backbone.Model.extend({
+  urlRoot : "/posts",
   initialize : function() {
-    this.comments = new app.collections.Comments(this.get("last_three_comments"));
-    this.comments.url = this.url() + '/comments';
-
-    this.likes = new app.collections.Likes(this.get("user_like")); // load in the user like initially
-    this.likes.url = this.url() + '/likes';
+    this.comments = new app.collections.Comments(this.get("last_three_comments"), {post : this});
+    this.likes = new app.collections.Likes(this.get("user_like"), { post : this}); // load in the user like initially
   },
 
-  url : function() {
-    if(this.id) {
-      return "/posts/" + this.id;
-    } else {
-      return "/posts"
-    }
+  createdAt : function() {
+    return new Date(this.get("created_at")) / 1000;
   },
 
-  reshareUrl : "/reshares",
+  createReshareUrl : "/reshares",
+
   reshare : function(){
     return this._reshare = this._reshare || new app.models.Reshare({root_guid : this.get("guid")});
   },
@@ -33,17 +28,8 @@ app.models.Post = Backbone.Model.extend({
     }
   },
 
-  createdAt : function() {
-    return new Date(this.get("created_at")) / 1000;
-  },
-
-
-  likeUrl : function(){
-    return this.url() + "/likes"
-  },
-
   like : function() {
-    this.set({ user_like : this.likes.create({}, {url : this.likeUrl()}) });
+    this.set({ user_like : this.likes.create() });
   },
 
   unlike : function() {
