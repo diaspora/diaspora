@@ -7,9 +7,11 @@ production:
   config: 
     <<: *defaults
     BUNDLE_WITHOUT: "development:test"
+    HOME_FILE: 'app/views/home/_show.html.haml'
 staging:
   app: staging
   stack: cedar
   config: 
     <<: *defaults
     BUNDLE_WITHOUT: "development:test"
+    HOME_FILE: 'app/views/home/_show.html.haml'

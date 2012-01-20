@@ -1,20 +1,20 @@
 desc "include custom landing page before heroku san deploys"
 task :before_deploy => :environment do
 
-  # Perform this task only if custom landing page is not present in app/views/home/_show.html.haml
-  if File.exist?(File.join(Rails.root, "app", "views", "home", "_show.html.haml"))
-    puts "-----> custom landing page detected..."
+  each_heroku_app do |name, app, repo| 
+    home_file = @app_settings[name]['config']['HOME_FILE']
+    # Perform this task only if custom landing page is not present in app/views/home/_show.html.haml
+    if home_file.present?
+      puts "-----> custom landing page detected..."
 
-    puts "-----> including custom landing page in a temp commit"
+      puts "-----> including custom landing page in a temp commit"
 
+      @did_not_stash = system("git stash| grep 'No local changes to save'")      
+      system("git add #{home_file} -f") ? true : fail
+      system("git commit -m 'adding custom landing page for heroku'") ? true : fail
 
-    pp @app_settings
-
-    system("git stash") ? true : fail
-    system("git add app/views/home/_show.html.haml -f") ? true : fail
-    system("git commit -m 'adding custom landing page for heroku'") ? true : fail
-
-    puts "-----> done"
+      puts "-----> done"
+    end
   end
 
 end
