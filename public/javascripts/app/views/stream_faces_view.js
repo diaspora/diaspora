@@ -8,7 +8,7 @@ app.views.StreamFaces = app.views.Base.extend({
 
   initialize : function(){
     this.updatePeople()
-    this.collection.bind("add", this.updatePeople, this)
+    app.stream.posts.bind("add", this.updatePeople, this)
   },
 
   presenter : function() {

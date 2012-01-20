@@ -2,7 +2,7 @@ module NavigationHelpers
   def path_to(page_name)
     case page_name
       when /^the home(?: )?page$/
-        multi_path
+        multi_stream_path
       when /^step (\d)$/
         if $1.to_i == 1
           getting_started_path

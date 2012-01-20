@@ -12,6 +12,9 @@ app.views.CommentStream = app.views.Base.extend({
 
   initialize: function(options) {
     this.model.comments.bind('add', this.appendComment, this);
+
+    // add autoexpanders to new comment textarea
+    this.$('textarea').autoResize();
   },
 
   postRenderTemplate : function() {

@@ -60,9 +60,8 @@ describe Post do
       end
 
       it 'calls excluding_blocks if a user is present' do
-        user = stub
-        Post.should_receive(:excluding_blocks).with(user)
-        Post.for_a_stream(stub, stub, user)
+        Post.should_receive(:excluding_blocks).with(alice).and_return(Post)
+        Post.for_a_stream(stub, stub, alice)
       end
     end
 
@@ -84,6 +83,28 @@ describe Post do
 
       it 'returns posts if you dont have any blocks' do
         Post.excluding_blocks(alice).count.should == 2
+      end
+    end
+
+    describe '.excluding_hidden_shareables' do
+      before do
+        @post = Factory(:status_message, :author => alice.person)
+        @other_post = Factory(:status_message, :author => eve.person)
+        bob.toggle_hidden_shareable(@post)
+      end
+      it 'excludes posts the user has hidden' do
+        Post.excluding_hidden_shareables(bob).should_not include(@post)
+      end
+      it 'includes posts the user has not hidden' do
+        Post.excluding_hidden_shareables(bob).should include(@other_post)
+      end
+    end
+
+    describe '.excluding_hidden_content' do
+      it 'calls excluding_blocks and excluding_hidden_shareables' do
+        Post.should_receive(:excluding_blocks).and_return(Post)
+        Post.should_receive(:excluding_hidden_shareables)
+        Post.excluding_hidden_content(bob)
       end
     end
 

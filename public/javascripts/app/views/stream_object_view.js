@@ -1,7 +1,6 @@
 app.views.StreamObject = app.views.Base.extend({
   initialize: function(options) {
-    this.model.bind('remove', this.remove, this);
-    this.model.bind('change', this.render, this);
+    this.setupRenderEvents();
   },
 
   postRenderTemplate : function(){
@@ -9,6 +8,7 @@ app.views.StreamObject = app.views.Base.extend({
     this.$(".collapsible").expander({
       slicePoint: 400,
       widow: 12,
+      expandPrefix: "",
       expandText: Diaspora.I18n.t("show_more"),
       userCollapse: false
     });

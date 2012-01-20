@@ -3,3 +3,10 @@ spec
 tmp
 log
 public/uploads
+graphics
+Capfile
+multi-server-spec-Procfile
+ci-*
+config/deploy
+config/ci
+config/environments/integration*

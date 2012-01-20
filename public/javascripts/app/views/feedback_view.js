@@ -15,14 +15,13 @@ app.views.Feedback = app.views.StreamObject.extend({
 
   resharePost : function(evt){
     if(evt) { evt.preventDefault(); }
-    if(!window.confirm("Reshare " + this.model.baseAuthor().name + "'s post?")) { return }
-
-    var reshare = new app.models.Reshare();
-    reshare.save({root_guid : this.model.baseGuid()}, {
+    if(!window.confirm("Reshare " + this.model.reshareAuthor().name + "'s post?")) { return }
+    var reshare = this.model.reshare()
+    reshare.save({}, {
+      url: this.model.createReshareUrl,
       success : function(){
-        app.stream.collection.add(reshare.toJSON());
+        app.stream.add(reshare);
       }
     });
-    return reshare;
   }
 })

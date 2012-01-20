@@ -58,6 +58,76 @@ describe User do
     end
   end
 
+  describe 'hidden_shareables' do
+    before do
+      @sm = Factory(:status_message)
+      @sm_id = @sm.id.to_s
+      @sm_class = @sm.class.base_class.to_s
+    end
+
+    it 'is a hash' do
+      alice.hidden_shareables.should == {}
+    end
+
+    describe '#add_hidden_shareable' do
+      it 'adds the share id to an array which is keyed by the objects class' do
+        alice.add_hidden_shareable(@sm_class, @sm_id)
+        alice.hidden_shareables['Post'].should == [@sm_id]
+      end
+
+      it 'handles having multiple posts' do
+        sm2 = Factory(:status_message)
+        alice.add_hidden_shareable(@sm_class, @sm_id)
+        alice.add_hidden_shareable(sm2.class.base_class.to_s, sm2.id.to_s)
+
+        alice.hidden_shareables['Post'].should =~ [@sm_id, sm2.id.to_s]
+      end
+
+      it 'handles having multiple shareable types' do
+        photo = Factory(:photo)
+        alice.add_hidden_shareable(photo.class.base_class.to_s, photo.id.to_s)
+        alice.add_hidden_shareable(@sm_class, @sm_id)
+
+        alice.hidden_shareables['Photo'].should == [photo.id.to_s]
+      end
+    end
+
+    describe '#remove_hidden_shareable' do
+      it 'removes the id from the hash if it is there'  do
+        alice.add_hidden_shareable(@sm_class, @sm_id)
+        alice.remove_hidden_shareable(@sm_class, @sm_id)
+        alice.hidden_shareables['Post'].should == []
+      end
+    end
+
+    describe 'toggle_hidden_shareable' do
+      it 'calls add_hidden_shareable if the key does not exist, and returns true' do
+        alice.should_receive(:add_hidden_shareable).with(@sm_class, @sm_id)
+        alice.toggle_hidden_shareable(@sm).should be_true
+      end
+
+      it 'calls remove_hidden_shareable if the key exists' do
+        alice.should_receive(:remove_hidden_shareable).with(@sm_class, @sm_id)
+        alice.add_hidden_shareable(@sm_class, @sm_id)
+        alice.toggle_hidden_shareable(@sm).should be_false
+      end
+    end
+
+    describe '#is_shareable_hidden?' do
+      it 'returns true if the shareable is hidden' do
+        post = Factory(:status_message)
+        bob.toggle_hidden_shareable(post)
+        bob.is_shareable_hidden?(post).should be_true
+      end
+
+      it 'returns false if the shareable is not present' do
+        post = Factory(:status_message)
+        bob.is_shareable_hidden?(post).should be_false
+      end
+    end
+  end
+
+
   describe 'overwriting people' do
     it 'does not overwrite old users with factory' do
       lambda {
@@ -111,7 +181,7 @@ describe User do
       end
 
       it 'requires uniqueness also amount Person objects with diaspora handle' do
-        p = Factory(:person, :diaspora_handle => "jimmy@#{AppConfig[:pod_uri].host}")
+        p = Factory(:person, :diaspora_handle => "jimmy#{User.diaspora_id_host}")
         alice.username = 'jimmy'
         alice.should_not be_valid
 
@@ -548,29 +618,6 @@ describe User do
   end
 
   describe 'account deletion' do
-    describe '#remove_all_traces' do
-      it 'should disconnect everyone' do
-        alice.should_receive(:disconnect_everyone)
-        alice.remove_all_traces
-      end
-
-      it 'should remove mentions' do
-        alice.should_receive(:remove_mentions)
-        alice.remove_all_traces
-      end
-
-      it 'should remove person' do
-        alice.should_receive(:remove_person)
-        alice.remove_all_traces
-      end
-
-      it 'should remove all aspects' do
-        lambda {
-          alice.remove_all_traces
-        }.should change{ alice.aspects(true).count }.by(-1)
-      end
-    end
-
     describe '#destroy' do
       it 'removes invitations from the user' do
         Factory(:invitation, :sender => alice)
@@ -592,75 +639,6 @@ describe User do
           alice.destroy
         }.should change {
           alice.services.count
-        }.by(-1)
-      end
-    end
-
-    describe '#remove_person' do
-      it 'should remove the person object' do
-        person = alice.person
-        alice.remove_person
-        person.reload
-        person.should be_nil
-      end
-
-      it 'should remove the posts' do
-        message = alice.post(:status_message, :text => "hi", :to => alice.aspects.first.id)
-        alice.reload
-        alice.remove_person
-        expect { message.reload }.to raise_error ActiveRecord::RecordNotFound
-      end
-    end
-
-    describe '#remove_mentions' do
-      it 'should remove the mentions' do
-        person = alice.person
-        sm =  Factory(:status_message)
-        mention  = Mention.create(:person => person, :post=> sm)
-        alice.reload
-        alice.remove_mentions
-        expect { mention.reload }.to raise_error ActiveRecord::RecordNotFound
-      end
-    end
-
-    describe '#disconnect_everyone' do
-      it 'has no error on a local friend who has deleted his account' do
-        d = Factory(:account_deletion, :person => alice.person)
-        Jobs::DeleteAccount.perform(d.id)
-        lambda {
-          bob.disconnect_everyone
-        }.should_not raise_error
-      end
-
-      it 'has no error when the user has sent local requests' do
-        alice.share_with(eve.person, alice.aspects.first)
-        lambda {
-          alice.disconnect_everyone
-        }.should_not raise_error
-      end
-
-      it 'sends retractions to remote poeple' do
-        person = eve.person
-        eve.delete
-        person.owner_id = nil
-        person.save
-        alice.contacts.create(:person => person, :aspects => [alice.aspects.first])
-
-        alice.should_receive(:disconnect).once
-        alice.disconnect_everyone
-      end
-
-      it 'disconnects local people' do
-        lambda {
-          alice.remove_all_traces
-        }.should change{bob.reload.contacts.count}.by(-1)
-      end
-
-      it 'removes all contacts' do
-        lambda {
-          alice.disconnect_everyone
-        }.should change {
-          alice.contacts.count
         }.by(-1)
       end
     end
@@ -1037,6 +1015,7 @@ describe User do
           current_sign_in_at
           last_sign_in_at
           current_sign_in_ip
+          hidden_shareables
           last_sign_in_ip
           invitation_service
           invitation_identifier

@@ -15,6 +15,7 @@ describe("app.views.Feedback", function(){
     this.view = new app.views.Feedback({model: this.post});
   });
 
+
   describe(".render", function(){
     beforeEach(function(){
       this.link = function(){ return this.view.$(".like_action"); }
@@ -120,15 +121,15 @@ describe("app.views.Feedback", function(){
 
     it("displays a confirmation dialog", function(){
       spyOn(window, "confirm")
-
       this.view.$(".reshare_action").first().click();
       expect(window.confirm).toHaveBeenCalled();
     })
 
-    it("creates a reshare if the confirmation dialog is accepted", function(){
+    it("reshares the model", function(){
       spyOn(window, "confirm").andReturn(true);
-
-      expect(this.view.resharePost().constructor).toBe(app.models.Reshare);
+      spyOn(this.view.model.reshare(), "save")
+      this.view.$(".reshare_action").first().click();
+      expect(this.view.model.reshare().save).toHaveBeenCalled();
     })
   })
 })

@@ -50,7 +50,7 @@
       = yield
 
     %header
-      = link_to(image_tag('white@2x.png', :height => 20, :width => 127, :id => 'header_title'), multi_path)
+      = link_to(image_tag('white@2x.png', :height => 20, :width => 127, :id => 'header_title'), multi_stream_path)
       - if user_signed_in?
         - if yield(:header_action).present?
           = yield(:header_action)

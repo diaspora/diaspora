@@ -564,12 +564,13 @@ sv:
       not_found: "Tyvärr, men vi kan inte hitta det inlägget."
       permalink: permalänk
       photos_by:
-        few: "%{count} photos by %{author}"
-        many: "%{count} photos by %{author}"
-        one: "One photo by %{author}"
-        other: "%{count} photos by %{author}"
-        two: "Two photos by %{author}"
-        zero: "No photos by %{author}"
+        few: "%{count} foton av %{author}"
+        many: "%{count} foton av %{author}"
+        one: "Ett foto av %{author}"
+        other: "%{count} foton av %{author}"
+        two: "Två foton av %{author}"
+        zero: "Inga foton av %{author}"
+      reshare_by: "Sprids vidare av %{author}"
   previous: föregående
   privacy: Sekretess
   privacy_policy: Integritetspolicy
@@ -875,7 +876,7 @@ sv:
         make_diaspora_better: "Vi vill att du hjälper oss att göra Diaspora bättre, så du borde hjälpa oss, inte lämna oss. Men om du verkligen vill lämna oss, vill vi att du ska veta vad som kommer att hända."
         mr_wiggles: "Mr Wiggles kommer att bli ledsen"
         no_turning_back: "Nu finns det ingen återvändo."
-        what_we_delete: "Vi kommer att radera alla dina inlägg och din profil så fort som det bara går. Dina kommentarer kommer att finnas kvar, men vara associerade med ditt Diaspora-användarnamn."
+        what_we_delete: "Vi kommer att radera alla dina inlägg och din profil så fort som det bara går. Dina kommentarer kommer att finnas kvar, men vara associerade med ditt Diaspora-ID."
       close_account_text: "Stäng kontot"
       comment_on_post: "...någon kommenterar din post?"
       current_password: "Nuvarande lösenord"

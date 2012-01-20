@@ -2,126 +2,110 @@ require File.join(Rails.root, 'lib/hcard')
 require File.join(Rails.root, 'lib/webfinger_profile')
 
 class Webfinger
-  class WebfingerFailedError < RuntimeError; end
+  attr_accessor :host_meta_xrd, :webfinger_profile_xrd, 
+                :webfinger_profile, :hcard, :hcard_xrd, :person, 
+                :account, :ssl
+
   def initialize(account)
-    @account = account.strip.gsub('acct:','').to_s.downcase
-    @ssl = true
+    self.account = account 
+    self.ssl = true
     Rails.logger.info("event=webfinger status=initialized target=#{account}")
+  end
+
+
+  def fetch
+    return person if existing_person_with_profile?
+    create_or_update_person_from_webfinger_profile!
   end
 
   def self.in_background(account, opts={})
     Resque.enqueue(Jobs::FetchWebfinger, account)
   end
 
-  def fetch
-    begin
-      person = Person.by_account_identifier(@account)
-      if person
-        if person.profile
-          Rails.logger.info("event=webfinger status=success route=local target=#{@account}")
-          return person
-        end
-      end
+  #everything below should be private I guess
+  def account=(str)
+    @account = str.strip.gsub('acct:','').to_s.downcase
+  end
 
-      profile_url = get_xrd
-      webfinger_profile = get_webfinger_profile(profile_url)
-      if person
-        person.assign_new_profile_from_hcard(get_hcard(webfinger_profile))
-        fingered_person = person
-      else
-        fingered_person = make_person_from_webfinger(webfinger_profile)
-      end
-
-      if fingered_person
-        Rails.logger.info("event=webfinger status=success route=remote target=#{@account}")
-        fingered_person
-      else
-        Rails.logger.info("event=webfinger status=failure route=remote target=#{@account}")
-        raise WebfingerFailedError.new(@account)
-      end
+  def get(url)
+    Rails.logger.info("Getting: #{url} for #{account}")
+    begin 
+      Faraday.get(url).body
     rescue Exception => e
-      Rails.logger.info("event=receive status=abort recipient=#{@account} reason='#{e.message}'")
-      nil
+      Rails.logger.info("Failed to fetch: #{url} for #{account}; #{e.message}")
+      raise e
     end
   end
 
-  private
-  def get_xrd
-    begin
-      http = Faraday.get xrd_url
+  def existing_person_with_profile?
+    cached_person.present? && cached_person.profile.present?
+  end
 
-      profile_url = webfinger_profile_url(http.body)
-      if profile_url
-        return profile_url
-      else
-        raise "no profile URL"
-      end
+  def cached_person
+    self.person ||= Person.by_account_identifier(account)
+  end
+
+  def create_or_update_person_from_webfinger_profile!
+    if person #update my profile please
+      person.assign_new_profile_from_hcard(self.hcard)
+    else
+      person = make_person_from_webfinger
+    end
+    Rails.logger.info("event=webfinger status=success route=remote target=#{@account}")
+    person
+  end
+
+  #this tries the xrl url with https first, then falls back to http
+  def host_meta_xrd
+    begin
+      get(host_meta_url)
     rescue Exception => e
-      if @ssl
-        @ssl = false
+      if self.ssl
+        self.ssl = false
         retry
       else
-        raise e
-        raise I18n.t('webfinger.xrd_fetch_failed', :account => @account)
+        raise I18n.t('webfinger.xrd_fetch_failed', :account => account)
       end
     end
   end
 
 
-  def get_webfinger_profile(profile_url)
-    begin
-      http = Faraday.get(profile_url)
+  def hcard
+    @hcard ||= HCard.build(hcard_xrd)
+  end
 
-    rescue
-      raise I18n.t('webfinger.fetch_failed', :profile_url => profile_url)
-    end
-    return http.body
+  def webfinger_profile
+    @webfinger_profile ||= WebfingerProfile.new(account, webfinger_profile_xrd)
   end
 
   def hcard_url
-    @wf_profile.hcard
+    self.webfinger_profile.hcard
   end
 
-  def get_hcard(webfinger_profile)
-    unless webfinger_profile.strip == ""
-
-      @wf_profile = WebfingerProfile.new(@account, webfinger_profile)
-
-      begin
-        hcard = Faraday.get(hcard_url)
-      rescue
-        return I18n.t('webfinger.hcard_fetch_failed', :account => @account)
-      end
-
-      HCard.build hcard.body
-    else
-      nil
-    end
-  end
-
-  def make_person_from_webfinger(webfinger_profile)
-    card = get_hcard(webfinger_profile)
-    if card && @wf_profile
-      Person.create_from_webfinger(@wf_profile, card)
-    end
-  end
-
-
-  ##helpers
-  private
-
-  def webfinger_profile_url(xrd_response)
-    doc = Nokogiri::XML::Document.parse(xrd_response)
+  def webfinger_profile_url
+    doc = Nokogiri::XML::Document.parse(self.host_meta_xrd)
     return nil if doc.namespaces["xmlns"] != "http://docs.oasis-open.org/ns/xri/xrd-1.0"
     swizzle doc.at('Link[rel=lrdd]').attribute('template').value
   end
 
-  def xrd_url
-    domain = @account.split('@')[1]
-    "http#{'s' if @ssl}://#{domain}/.well-known/host-meta"
+  def webfinger_profile_xrd
+    @webfinger_profile_xrd ||= get(webfinger_profile_url)
+  end
+
+  def hcard_xrd
+    @hcard_xrd ||= get(hcard_url)
+  end
+
+  def make_person_from_webfinger
+    Person.create_from_webfinger(webfinger_profile, hcard)
+  end
+
+  def host_meta_url
+    domain = account.split('@')[1]
+    "http#{'s' if self.ssl}://#{domain}/.well-known/host-meta"
   end
 
   def swizzle(template)
-    template.gsub '{uri}', @account
+    template.gsub('{uri}', account)
   end
 end

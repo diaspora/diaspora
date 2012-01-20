@@ -103,7 +103,7 @@ tr:
         content_2: "Diaspora'da sizi bulabilmelerini istediğiniz kişilere verebilirsiniz."
         heading: "Diaspora ID (Diaspora Kimliği)"
       donate: "Bağış yap"
-      handle_explanation: "Bu Diaspora kimliği. Bir e-posta adresi gibi, bunu insanlara size ulaşması için verebilirsiniz."
+      handle_explanation: "Bu Diaspora kimliğindir. Bir e-posta adresi gibi, bunu insanlara sana ulaşması için verebilirsin."
       help:
         do_you: "Seçim:"
         email_feedback: "%{link} ile yolla mesajını, bu yolu tercih ediyorsan"
@@ -574,12 +574,13 @@ tr:
       not_found: "Üzgünüz, bu gönderi bulamadı."
       permalink: "kalıcı bağlantı"
       photos_by:
-        few: "%{count} photos by %{author}"
-        many: "%{count} photos by %{author}"
-        one: "One photo by %{author}"
-        other: "%{count} photos by %{author}"
-        two: "Two photos by %{author}"
-        zero: "No photos by %{author}"
+        few: "%{author} tarafından %{count} fotoğraf"
+        many: "%{author} tarafından %{count} fotoğraf"
+        one: "%{author} tarafından bir fotoğraf"
+        other: "%{author} tarafından %{count} fotoğraf"
+        two: "%{author} tarafından iki fotoğraf"
+        zero: "%{author} tarafından fotoğraf yok"
+      reshare_by: "%{author} tarafından tekrar paylaşım"
   previous: önceki
   privacy: Gizlilik
   privacy_policy: "Gizlilik Politikası"
@@ -889,9 +890,9 @@ tr:
         lock_username: "Bu, geri gelmek istersen bulunması için kullanıcı ismini kilitleyecektir."
         locked_out: "Oturumdan çıkacak ve hesabına tekrar giriş yapamayacaksın."
         make_diaspora_better: "Diaspora'yı daha da iyi yapmamıza yardım etmeni isteriz, dolayısıyla hesabı kapatmak yerine bize yardımcı olmanı tercih ederiz. Hesabı gerçekten kapatmak istiyorsan, bundan sonra olacakları dikkatine sunarız."
-        mr_wiggles: "Bay Wiggles gitmenizden üzüntü duyacak"
+        mr_wiggles: "Ayrılırsan bay Wiggles üzülecek"
         no_turning_back: "Şu anda, geri almak mümkün değildir."
-        what_we_delete: "Tüm gönderilerini ve profil verilerini mümkün olduğu kadar çabuk sileceğiz. Yorumların kalacak ve Diaspora kullanıcı ismin ile ilişik olacaktır."
+        what_we_delete: "Tüm gönderilerini ve profil verilerini mümkün olduğu kadar çabuk sileceğiz. Yorumların kalacak ve Diaspora kimliğin ile ilişik olacaktır."
       close_account_text: "Hesabı Kapat"
       comment_on_post: "...birisi gönderine yorum yazdığında?"
       current_password: "Mevcut parola"
@@ -914,7 +915,7 @@ tr:
       started_sharing: "...birisi benimle birşey paylaştığında?"
       stream_preferences: "Akış Tercihleri"
       your_email: E-posta
-      your_handle: "Diaspora ID"
+      your_handle: "Diaspora kimliğin"
     getting_started:
       awesome_take_me_to_diaspora: "Harika! Diaspora* Git"
       community_welcome: "Diaspora topluluğunda seni aramızda görmekten mutluyuz!"

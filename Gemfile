@@ -3,10 +3,10 @@ source 'http://rubygems.org'
 gem 'rails', '3.0.11'
 
 gem 'bundler', '>= 1.0.0'
-gem 'foreman', '0.27.0'
+gem 'foreman', '0.34.1'
 gem 'whenever'
 
-gem 'thin', '~> 1.3.1',    :require => false
+gem 'thin', '~> 1.3.1', :require => false
 
 # authentication
 
@@ -32,13 +32,13 @@ group :production do # we don't install these on travis to speed up test runs
   gem 'newrelic_rpm'
   gem 'rack-google-analytics', :require => 'rack/google-analytics'
   gem 'rack-piwik', :require => 'rack/piwik'
+  gem 'rack-ssl', :require => 'rack/ssl'
 end
 
 # configuration
 
 group :heroku do
   gem 'pg'
-  gem 'unicorn', '~> 4.1.1', :require => false
 end
 
 gem 'settingslogic', :git => 'git://github.com/binarylogic/settingslogic.git'
@@ -46,7 +46,7 @@ gem 'settingslogic', :git => 'git://github.com/binarylogic/settingslogic.git'
 
 gem 'activerecord-import'
 gem 'foreigner', '~> 1.1.0'
-gem 'mysql2', '0.2.17' if ENV['DB'].nil? || ENV['DB'] == 'all' || ENV['DB'] == 'mysql'
+gem 'mysql2', '0.2.18' if ENV['DB'].nil? || ENV['DB'] == 'all' || ENV['DB'] == 'mysql'
 gem 'pg' if ENV['DB'] == 'all' || ENV['DB'] == 'postgres'
 gem 'sqlite3' if ENV['DB'] == 'all' || ENV['DB'] == 'sqlite'
 
@@ -55,8 +55,8 @@ gem 'sqlite3' if ENV['DB'] == 'all' || ENV['DB'] == 'sqlite'
 gem 'carrierwave', '0.5.8'
 gem 'fog'
 gem 'fastercsv', '1.5.4', :require => false
-gem 'mini_magick', '3.3'
-gem 'rest-client', '1.6.1'
+gem 'mini_magick', '3.4'
+gem 'rest-client', '1.6.7'
 
 gem 'jammit', '0.6.5'
 
@@ -117,9 +117,9 @@ gem 'jasmine', '~> 1.1.2'
 
 group :test do
   gem 'capybara', '~> 1.1.2'
-  gem 'cucumber-rails', '1.2.1'
+  gem 'cucumber-rails', '1.2.1', :require => false
   gem 'cucumber-api-steps', '0.6', :require => false
-  gem 'database_cleaner', '0.7.0'
+  gem 'database_cleaner', '0.7.1'
   gem 'diaspora-client', :git => 'git://github.com/diaspora/diaspora-client.git'
 
   gem 'timecop'
@@ -140,6 +140,7 @@ end
 
 group :development do
   gem 'heroku'
+  gem 'heroku_san'
   gem 'capistrano', '~> 2.9.0', :require => false
   gem 'capistrano_colors', :require => false
   gem 'capistrano-ext', '1.2.1', :require => false
@@ -149,4 +150,7 @@ group :development do
   gem 'ruby-debug19', :platforms => :ruby_19
   gem 'ruby-debug', :platforms => :mri_18
   gem 'yard', :require => false
+
+  # speed up development requests (already pulled into rails 3.2)
+  gem 'active_reload'
 end

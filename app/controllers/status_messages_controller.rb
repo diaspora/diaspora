@@ -70,7 +70,7 @@ class StatusMessagesController < ApplicationController
 
       respond_to do |format|
         format.html { redirect_to :back}
-        format.mobile{ redirect_to multi_path}
+        format.mobile{ redirect_to multi_stream_path}
         format.json{ render :json => @status_message.as_api_response(:backbone), :status => 201 }
       end
     else

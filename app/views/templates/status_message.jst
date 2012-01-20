@@ -12,8 +12,7 @@
     <% } %>
 <% } %>
 
-<%= text %>
-
-<% if(o_embed_cache) { %>
-  <%= o_embed_cache.posts.data.html %>
-<% } %>
+<div class="collapsible">
+  <%= text %>
+  <%= o_embed_html %>
+</div>

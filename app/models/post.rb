@@ -71,27 +71,40 @@ class Post < ActiveRecord::Base
   end
 
   def self.excluding_blocks(user)
-    people = user.blocks.includes(:person).map{|b| b.person}
+    people = user.blocks.map{|b| b.person_id}
+    scope = scoped
 
-    if people.present?
-      where("posts.author_id NOT IN (?)", people.map { |person| person.id })
-    else
-      scoped
+    if people.any?
+      scope = scope.where("posts.author_id NOT IN (?)", people)
     end
+
+    scope
+  end
+
+  def self.excluding_hidden_shareables(user)
+    scope = scoped
+    if user.has_hidden_shareables_of_type?
+      scope = scope.where('posts.id NOT IN (?)', user.hidden_shareables["#{self.base_class}"])
+    end
+    scope
+  end
+
+  def self.excluding_hidden_content(user)
+    excluding_blocks(user).excluding_hidden_shareables(user)
   end
 
   def self.for_a_stream(max_time, order, user=nil)
     scope = self.for_visible_shareable_sql(max_time, order).
       includes_for_a_stream
 
-    scope = scope.excluding_blocks(user) if user.present?
+    scope = scope.excluding_hidden_content(user) if user.present?
 
     scope
   end
 
   #############
 
-  def self.diaspora_initialize params
+  def self.diaspora_initialize(params)
     new_post = self.new params.to_hash
     new_post.author = params[:author]
     new_post.public = params[:public] if params[:public]

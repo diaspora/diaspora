@@ -142,6 +142,14 @@ describe AppConfig do
       AppConfig.normalize_pod_url
       AppConfig[:pod_url].should == "https://example.org/"
     end
+
+  end
+
+  describe '.bare_pod_uri' do
+    it 'is AppConfig[:pod_uri].authority stripping www.' do
+      AppConfig[:pod_url] = "https://www.example.org/"
+      AppConfig.bare_pod_uri.should == 'example.org'
+    end
   end
 
   describe ".pod_uri" do

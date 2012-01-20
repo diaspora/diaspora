@@ -7,7 +7,7 @@ require 'active_support/base64'
 
 class HydraWrapper
 
-  OPTS = {:max_redirects => 3, :timeout => 5000, :method => :post,
+  OPTS = {:max_redirects => 3, :timeout => 25000, :method => :post,
           :headers => {'Expect'            => '',
                        'Transfer-Encoding' => ''}
          }

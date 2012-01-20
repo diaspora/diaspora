@@ -4,125 +4,201 @@
 
 require 'spec_helper'
 
-require File.join(Rails.root, 'lib/webfinger')
-
 describe Webfinger do
-  let(:host_with_port) { "#{AppConfig.pod_uri.host}:#{AppConfig.pod_uri.port}" }
-  let(:user1) { alice }
-  let(:user2) { eve }
-
-  let(:account) { "foo@tom.joindiaspora.com" }
-  let(:person) { Factory(:person, :diaspora_handle => account) }
-  let(:finger) { Webfinger.new(account) }
-
-  let(:good_request) { FakeHttpRequest.new(:success) }
-
-  let(:diaspora_xrd) { File.open(File.join(Rails.root, 'spec', 'fixtures', 'host-meta.fixture.html')).read }
-  let(:diaspora_finger) { File.open(File.join(Rails.root, 'spec', 'fixtures', 'webfinger.fixture.html')).read }
+  let(:host_meta_xrd) { File.open(File.join(Rails.root, 'spec', 'fixtures', 'host-meta.fixture.html')).read }
+  let(:webfinger_xrd) { File.open(File.join(Rails.root, 'spec', 'fixtures', 'webfinger.fixture.html')).read }
   let(:hcard_xml) { File.open(File.join(Rails.root, 'spec', 'fixtures', 'hcard.fixture.html')).read }
+  let(:account){'foo@bar.com'}
+  let(:account_in_fixtures){"alice@localhost:9887"}
+  let(:finger){Webfinger.new(account)}
+  let(:host_meta_url){"http://#{AppConfig[:pod_uri].authority}/webfinger?q="}
 
-  context 'setup' do
-
-    describe '#intialize' do
-      it 'sets account ' do
-        n = Webfinger.new("mbs348@gmail.com")
-        n.instance_variable_get(:@account).should_not be nil
-      end
-
-      it 'downcases account' do
-        account = "BIGBOY@Example.Org"
-        n = Webfinger.new(account)
-        n.instance_variable_get(:@account).should == account.downcase
-      end
-
-      it 'should set ssl as the default' do
-        foo = Webfinger.new(account)
-        foo.instance_variable_get(:@ssl).should be true
-      end
+  describe '#intialize' do
+    it 'sets account ' do
+      n = Webfinger.new("mbs348@gmail.com")
+      n.account.should_not be nil
     end
 
-    context 'webfinger query chain processing' do
-      describe '#webfinger_profile_url' do
-        it 'parses out the webfinger template' do
-          finger.send(:webfinger_profile_url, diaspora_xrd).should ==
-            "http://#{host_with_port}/webfinger?q=foo@tom.joindiaspora.com"
-        end
-
-        it 'should return nil if not an xrd' do
-          finger.send(:webfinger_profile_url, '<html></html>').should be nil
-        end
-      end
-
-      describe '#xrd_url' do
-        it 'should return canonical host-meta url for http' do
-          finger.instance_variable_set(:@ssl, false)
-          finger.send(:xrd_url).should == "http://tom.joindiaspora.com/.well-known/host-meta"
-        end
-
-        it 'can return the https version' do
-          finger.send(:xrd_url).should == "https://tom.joindiaspora.com/.well-known/host-meta"
-        end
-      end
+    it "downcases account and strips whitespace, and gsub 'acct:'" do
+      n = Webfinger.new("acct:BIGBOY@Example.Org ")
+      n.account.should == 'bigboy@example.org'
     end
 
-    describe '#get_xrd' do
-      it 'follows redirects' do
-        redirect_url = "http://whereami.whatisthis/host-meta"
-        stub_request(:get, "https://tom.joindiaspora.com/.well-known/host-meta").
-          to_return(:status => 302, :headers => { 'Location' => redirect_url })
-        stub_request(:get, redirect_url).
-          to_return(:status => 200, :body => diaspora_xrd)
-        begin
-        finger.send :get_xrd
-        rescue; end
-        a_request(:get, redirect_url).should have_been_made
-      end
+    it 'should set ssl as the default' do
+      foo = Webfinger.new(account)
+      foo.ssl.should be true
     end
+  end
 
-
-    context 'webfingering local people' do
-      it 'should return a person from the database if it matches its handle' do
-        person.save
-        finger.fetch.id.should == person.id
-      end
+  describe '.in_background' do
+    it 'enqueues a Jobs::FetchWebfinger job' do
+      Resque.should_receive(:enqueue).with(Jobs::FetchWebfinger, account)
+      Webfinger.in_background(account)
     end
-    it 'should fetch a diaspora webfinger and make a person for them' do
-      User.delete_all; Person.delete_all; Profile.delete_all
-      hcard_url = "http://google-1655890.com/hcard/users/29a9d5ae5169ab0b"
-
-      f = Webfinger.new("alice@#{host_with_port}")
-      stub_request(:get, f.send(:xrd_url)).
-        to_return(:status => 200, :body => diaspora_xrd, :headers => {})
-      stub_request(:get, f.send(:webfinger_profile_url, diaspora_xrd)).
-        to_return(:status => 200, :body => diaspora_finger, :headers => {})
-      f.should_receive(:hcard_url).and_return(hcard_url)
-
-      stub_request(:get, hcard_url).
-        to_return(:status => 200, :body => hcard_xml, :headers => {})
-
-      person = f.fetch
-
-      WebMock.should have_requested(:get, f.send(:xrd_url))
-      WebMock.should have_requested(:get, f.send(:webfinger_profile_url, diaspora_xrd))
-      WebMock.should have_requested(:get, hcard_url)
+  end
+  
+  describe '#fetch' do
+    it 'works' do
+      finger = Webfinger.new(account_in_fixtures)
+      finger.stub(:host_meta_xrd).and_return(host_meta_xrd)
+      finger.stub(:hcard_xrd).and_return(hcard_xml)
+      finger.stub(:webfinger_profile_xrd).and_return(webfinger_xrd)
+      person = finger.fetch
       person.should be_valid
+      person.should be_a Person
     end
 
-    it 'should retry with http if https fails' do
-      f = Webfinger.new("tom@tom.joindiaspora.com")
-      xrd_url = "://tom.joindiaspora.com/.well-known/host-meta"
+  end
 
-      stub_request(:get, "https#{xrd_url}").
-        to_return(:status => 503, :body => "", :headers => {})
-      stub_request(:get, "http#{xrd_url}").
-        to_return(:status => 200, :body => diaspora_xrd, :headers => {})
+  describe '#get' do
+    it 'makes a request and grabs the body' do
+      url ="https://bar.com/.well-known/host-meta"
+      stub_request(:get, url).
+        to_return(:status => 200, :body => host_meta_xrd)
 
-      #Faraday::Connection.any_instance.should_receive(:get).twice.and_return(nil, diaspora_xrd)
-      f.send(:get_xrd)
-      WebMock.should have_requested(:get,"https#{xrd_url}")
-      WebMock.should have_requested(:get,"http#{xrd_url}")
-      f.instance_variable_get(:@ssl).should == false
+      finger.get(url).should == host_meta_xrd
     end
 
+    it 'follows redirects' do
+      redirect_url = "http://whereami.whatisthis/host-meta"
+
+      stub_request(:get, "https://bar.com/.well-known/host-meta").
+        to_return(:status => 302, :headers => { 'Location' => redirect_url })
+
+      stub_request(:get, redirect_url).
+        to_return(:status => 200, :body => host_meta_xrd)
+
+      finger.host_meta_xrd
+
+      a_request(:get, redirect_url).should have_been_made
+    end
+  end
+
+  describe 'existing_person_with_profile?' do
+    it 'returns true if cached_person is present and has a profile' do
+      finger.should_receive(:cached_person).twice.and_return(Factory(:person))
+      finger.existing_person_with_profile?.should be_true
+    end
+
+    it 'returns false if it has no person' do
+      finger.stub(:cached_person).and_return false
+      finger.existing_person_with_profile?.should be_false
+    end
+
+    it 'returns false if the person has no profile' do
+      p = Factory(:person)
+      p.profile = nil
+      finger.stub(:cached_person).and_return(p)
+      finger.existing_person_with_profile?.should be_false
+    end
+  end
+
+  describe 'cached_person' do
+    it 'sets the person by looking up the account from Person.by_account_identifier' do
+      person = stub
+      Person.should_receive(:by_account_identifier).with(account).and_return(person)
+      finger.cached_person.should == person
+      finger.person.should == person
+    end
+  end
+
+
+  describe 'create_or_update_person_from_webfinger_profile!' do
+    context 'with a cached_person' do
+      it 'calls Person#assign_new_profile_from_hcard with the fetched hcard' do
+        finger.hcard_xrd = hcard_xml
+        finger.stub(:person).and_return(bob.person)
+        bob.person.should_receive(:assign_new_profile_from_hcard).with(finger.hcard)
+        finger.create_or_update_person_from_webfinger_profile!
+      end
+    end
+
+    context 'with no cached person' do
+      it 'sets person based on make_person_from_webfinger' do
+        finger.stub(:person).and_return(nil)
+        finger.should_receive(:make_person_from_webfinger)
+        finger.create_or_update_person_from_webfinger_profile!
+      end
+    end
+  end
+
+  describe '#host_meta_xrd' do
+    it 'calls #get with host_meta_url' do
+      finger.stub(:host_meta_url).and_return('meta')
+      finger.should_receive(:get).with('meta')
+      finger.host_meta_xrd
+    end
+
+    it 'should retry with ssl off a second time' do
+      finger.should_receive(:get).and_raise
+      finger.should_receive(:get)
+      finger.host_meta_xrd
+      finger.ssl.should be false
+    end
+  end
+
+  describe '#hcard' do
+    it 'calls HCard.build' do
+      finger.stub(:hcard_xrd).and_return(hcard_xml)
+      HCard.should_receive(:build).with(hcard_xml).and_return true
+      finger.hcard.should_not be_nil
+    end
+  end
+
+  describe '#webfinger_profile' do
+    it 'constructs a new WebfingerProfile object' do
+      finger.stub(:webfinger_profile_xrd).and_return(webfinger_xrd)
+      WebfingerProfile.should_receive(:new).with(account, webfinger_xrd)
+      finger.webfinger_profile
+    end
+  end
+
+  describe '#webfinger_profile_url' do
+    it 'returns the llrd link for a valid host meta' do
+      finger.stub(:host_meta_xrd).and_return(host_meta_xrd)
+      finger.webfinger_profile_url.should_not be_nil
+    end
+
+    it 'returns nil if no link is found' do
+      finger.stub(:host_meta_xrd).and_return(nil)
+      finger.webfinger_profile_url.should be_nil
+    end
+  end
+
+  describe '#webfinger_profile_xrd' do
+    it 'calls #get with the hcard_url' do
+      finger.stub(:hcard_url).and_return("url")
+      finger.should_receive(:get).with("url")
+      finger.hcard_xrd
+    end
+  end
+
+  describe '#make_person_from_webfinger' do
+    it 'with an hcard and a webfinger_profile, it calls Person.create_from_webfinger' do
+      finger.stub(:hcard).and_return("hcard")
+      finger.stub(:webfinger_profile).and_return("webfinger_profile")
+      Person.should_receive(:create_from_webfinger).with("webfinger_profile", "hcard")
+      finger.make_person_from_webfinger
+    end
+  end
+
+
+
+  describe '#host_meta_url' do
+    it 'should return canonical host-meta url for http' do
+      finger.ssl = false
+      finger.host_meta_url.should == "http://bar.com/.well-known/host-meta"
+    end
+
+    it 'can return the https version' do
+      finger.host_meta_url.should == "https://bar.com/.well-known/host-meta"
+    end
+  end
+
+  describe 'swizzle' do
+    it 'gsubs out {uri} for the account' do
+      string = "{uri} is the coolest"
+      finger.swizzle(string).should == "#{finger.account} is the coolest"
+    end
   end
 end

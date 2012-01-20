@@ -22,7 +22,7 @@ src_files:
   - public/javascripts/vendor/jquery.charcount.js
   - public/javascripts/vendor/timeago.js
   - public/javascripts/vendor/facebox.js
-  - public/javascripts/vendor/markdown.js
+  - public/javascripts/vendor/markdown/*
   - public/javascripts/jquery.infieldlabel-custom.js
   - public/javascripts/vendor/underscore.js
   - public/javascripts/vendor/backbone.js
@@ -36,6 +36,7 @@ src_files:
   - public/javascripts/widgets/*
 
   - public/javascripts/app/app.js
+  - public/javascripts/app/helpers/*
   - public/javascripts/app/router.js
   - public/javascripts/app/views.js
   - public/javascripts/app/models/post.js

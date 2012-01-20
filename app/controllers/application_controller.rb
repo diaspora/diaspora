@@ -83,7 +83,7 @@ class ApplicationController < ActionController::Base
 
   def redirect_unless_admin
     unless current_user.admin?
-      redirect_to multi_url, :notice => 'you need to be an admin to do that'
+      redirect_to multi_stream_url, :notice => 'you need to be an admin to do that'
       return
     end
   end
@@ -111,7 +111,7 @@ class ApplicationController < ActionController::Base
   end
 
   def after_sign_in_path_for(resource)
-    stored_location_for(:user) || (current_user.getting_started? ? getting_started_path : multi_path)
+    stored_location_for(:user) || (current_user.getting_started? ? getting_started_path : multi_stream_path)
   end
 
   def tag_followings
@@ -127,23 +127,7 @@ class ApplicationController < ActionController::Base
     @tags ||= current_user.followed_tags
   end
 
-  # @param stream_klass [Constant]
-  # @return [String] JSON representation of posts given a [Stream] constant.
-  def stream_json(stream_klass)
-    render_for_api :backbone, :json => stream(stream_klass).stream_posts, :root => :posts
-  end
-
-  def stream(stream_klass)
-    authenticate_user!
-    stream_klass.new(current_user, :max_time => max_time)
-  end
-
-  def default_stream_action(stream_klass)
-    @stream = stream(stream_klass)
-    render 'aspects/index'
-  end
-
   def max_time
-    params[:max_time] ? Time.at(params[:max_time].to_i) : Time.now
+    params[:max_time] ? Time.at(params[:max_time].to_i) : Time.now + 1
   end
 end

@@ -12,7 +12,7 @@ app.views.Publisher = Backbone.View.extend({
   },
 
   initialize : function(){
-    this.collection = this.collection || new app.collections.Stream;
+    this.collection = this.collection //takes a Posts collection
     return this;
   },
 
@@ -31,8 +31,9 @@ app.views.Publisher = Backbone.View.extend({
       "photos" : serializedForm["photos[]"],
       "services" : serializedForm["services[]"]
     }, {
+      url : "/status_messages",
       success : function() {
-        app.stream.collection.add(statusMessage.toJSON());
+        app.stream.posts.add(statusMessage.toJSON());
       }
     });
 

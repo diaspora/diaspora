@@ -66,7 +66,7 @@ Factory.define :user do |u|
     user.person = Factory.build(:person, :profile => Factory.build(:profile),
                                 :owner_id => user.id,
                                 :serialized_public_key => user.encryption_key.public_key.export,
-                                :diaspora_handle => "#{user.username}@#{AppConfig[:pod_url].gsub(/(https?:|www\.)\/\//, '').chop!}")
+                                :diaspora_handle => "#{user.username}#{User.diaspora_id_host}")
   end
   u.after_create do |user|
     user.person.save
@@ -100,6 +100,7 @@ end
 
 Factory.define(:photo) do |p|
   p.sequence(:random_string) {|n| ActiveSupport::SecureRandom.hex(10) }
+  p.association :author, :factory => :person
   p.after_build do |p|
     p.unprocessed_image.store! File.open(File.join(File.dirname(__FILE__), 'fixtures', 'button.png'))
     p.update_remote_path

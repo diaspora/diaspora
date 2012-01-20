@@ -3,6 +3,15 @@ describe("app.models.Post", function() {
     this.post = new app.models.Post();
   })
 
+  describe("url", function(){
+    it("should be /posts when it doesn't have an id", function(){
+      expect(new app.models.Post().url()).toBe("/posts")
+    })
+  
+    it("should be /posts/id when it doesn't have an id", function(){
+      expect(new app.models.Post({id: 5}).url()).toBe("/posts/5")
+    })
+  })
   describe("createdAt", function() {
     it("returns the post's created_at as an integer", function() {
       var date = new Date;
@@ -12,22 +21,6 @@ describe("app.models.Post", function() {
       expect(this.post.createdAt()).toEqual(+date);
     });
   });
-
-  describe("baseGuid", function(){
-    it("returns the post's guid if the post does not have a root", function() {
-      this.post.attributes.root = null;
-      this.post.attributes.guid = "abcd";
-
-      expect(this.post.baseGuid()).toBe("abcd")
-    })
-
-    it("returns the post's root guid if the post has a root", function() {
-      this.post.attributes.root = {guid : "1234"}
-      this.post.attributes.guid = "abcd";
-
-      expect(this.post.baseGuid()).toBe("1234")
-    })
-  })
 
   describe("toggleLike", function(){
     it("calls unliked when the user_like exists", function(){
@@ -65,22 +58,6 @@ describe("app.models.Post", function() {
 
       this.post.unlike();
       expect(app.models.Like.prototype.destroy).toHaveBeenCalled();
-    })
-  })
-
-  describe("baseAuthor", function(){
-    it("returns the post's guid if the post does not have a root", function() {
-      this.post.attributes.root = null;
-      this.post.attributes.author = "abcd";
-
-      expect(this.post.baseAuthor()).toBe("abcd")
-    })
-
-    it("returns the post's root guid if the post has a root", function() {
-      this.post.attributes.root = {author : "1234"}
-      this.post.attributes.author = "abcd";
-
-      expect(this.post.baseAuthor()).toBe("1234")
     })
   })
 });
