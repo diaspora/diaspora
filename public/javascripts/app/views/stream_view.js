@@ -31,7 +31,7 @@ app.views.Stream = Backbone.View.extend({
   },
 
   unbindInfScroll : function() {
-    $("window").unbind("scroll");
+    $(window).unbind("scroll");
   },
 
   render : function(evt) {
@@ -63,11 +63,11 @@ app.views.Stream = Backbone.View.extend({
 
   setupInfiniteScroll : function() {
     var throttledScroll = _.throttle($.proxy(this.infScroll, this), 200);
-    $("window").scroll(throttledScroll);
+    $(window).scroll(throttledScroll);
   },
 
   infScroll : function() {
-    var $window = $("window");
+    var $window = $(window);
     var distFromTop = $window.height() + $window.scrollTop();
     var distFromBottom = $(document).height() - distFromTop;
     var bufferPx = 500;

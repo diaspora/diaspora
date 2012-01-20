@@ -65,7 +65,6 @@ describe("app.views.Stream", function(){
     it("unbinds scroll", function() {
       spyOn($.fn, "unbind")
       this.view.unbindInfScroll()
-      expect($.fn.unbind.mostRecentCall.object.selector).toBe("window")
       expect($.fn.unbind).toHaveBeenCalledWith("scroll")
     })
   })
