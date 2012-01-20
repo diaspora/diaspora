@@ -10,7 +10,7 @@ app.models.Stream = Backbone.Collection.extend({
   _fetching : false,
 
   fetch: function() {
-    if(this._fetching) { console.log('no sir'); return false; }
+    if(this._fetching) { return false; }
     var self = this
 
     // we're fetching the collection... there is probably a better way to do this
