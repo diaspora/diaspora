@@ -9,6 +9,19 @@ class Place < ActiveRecord::Base
 
   validates_presence_of :description
 
+  before_save :auto_diaspora_handle
+
+  #attr_accessible 
+
+  def initialize(attributes={})
+    super
+    self.description ||= self.build_description
+  end
+
+  def auto_diaspora_handle
+    self.diaspora_handle ||= description.title_sanitized
+  end
+
 end
 
 

@@ -11,5 +11,8 @@ class Description < ActiveRecord::Base
     result || '/images/user/default.png'
   end
 
+  def title_sanitized
+    self.title.gsub(/ /, '_') #.gsub(/[azAZ09]!*/)
+  end
 end
 

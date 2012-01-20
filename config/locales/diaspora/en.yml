@@ -652,10 +652,16 @@ en:
       failed: "Failed to update profile"
 
   places: 
-    title: "Title"
+    title: "Place name."
+    summary: "Describe the place briefly."
+    location: "Generally, where is it?"
+
     new: 
       enter_username: "Pick a username (only letters, numbers, and underscores)"
-
+      submit: "Create Place"
+    place_sidebar:
+      summary: "Description"
+      location: "Location"
   registrations:
     new:
       create_my_account: "Create my account!"

@@ -10,7 +10,7 @@
       - unless place.description.summary.blank?
         %li
           %h4
-            =t('.bio')
+            =t('.summary')
           %div{ :class => direction_for(place.description.summary) }
             = markdownify(place.description.summary, :oembed => true, :newlines => true)
 

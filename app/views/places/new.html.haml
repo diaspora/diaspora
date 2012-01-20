@@ -21,15 +21,23 @@
   %br
   %br
   %br
-  = form_for(@place, :html => {:class => 'new_place_form'}, :url => places_path, :validate => true) do |f|
+  = form_for(@place, :html => {:class => 'new_place_for'}, :url => places_path, :validate => true) do |f|
     %fieldset
       .clearfix
-        %b
-          = t('places.title')
-        = f.text_field :diaspora_handle, :title => t('places.new.enter_username')
-        %span.host_uri
-          = diaspora_id_host
+        
+        = f.fields_for :description do |d|
+          %b
+            = t('places.title')
+          = d.text_field :title
+          %b
+            = t('places.summary')
+          = d.text_area :summary, :rows => 5
+          %b
+            = t('places.location')
+          = d.text_field :location
+
+
       .submit_field
-        = f.submit t('registrations.new.create_my_account'), :class => 'in_aspects'
+        = f.submit t('places.new.submit'), :class => 'in_aspects'
 
 
