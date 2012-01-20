@@ -9,7 +9,7 @@ describe("app.models.Stream", function() {
     beforeEach(function(){
       postFetch = new $.Deferred()
 
-      spyOn(this.stream.posts, "fetch").andCallFake(function(){ 
+      spyOn(this.stream.posts, "fetch").andCallFake(function(){
         return postFetch
       })
     })
@@ -32,7 +32,23 @@ describe("app.models.Stream", function() {
       var fetchedSpy = jasmine.createSpy()
       this.stream.bind('fetched', fetchedSpy)
       this.stream.fetch()
-      postFetch.resolve()
+      postFetch.resolve({posts : [1,2,3]})
+      expect(fetchedSpy).toHaveBeenCalled()
+    })
+
+    it("triggers allPostsLoaded on the stream when zero posts are returned", function(){
+      var fetchedSpy = jasmine.createSpy()
+      this.stream.bind('allPostsLoaded', fetchedSpy)
+      this.stream.fetch()
+      postFetch.resolve({posts : []})
+      expect(fetchedSpy).toHaveBeenCalled()
+    })
+
+    it("triggers allPostsLoaded on the stream when a Post is returned", function(){
+      var fetchedSpy = jasmine.createSpy()
+      this.stream.bind('allPostsLoaded', fetchedSpy)
+      this.stream.fetch()
+      postFetch.resolve({posts : factory.post().attributes})
       expect(fetchedSpy).toHaveBeenCalled()
     })
   });
