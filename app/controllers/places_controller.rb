@@ -8,8 +8,7 @@ class PlacesController < ApplicationController
   # GET /places/1
   # GET /places/1.xml
   def show
-    @place = Place.find(params[:id])
-    @stream = Stream::Place.new(current_user, @place, :max_time => max_time, :page => params[:page])
+    @stream = Stream::Place.new(current_user, params[:id], :max_time => max_time, :page => params[:page])
 
     respond_with do |format|
       format.json{ render_for_api :backbone, :json => @stream.stream_posts, :root => :posts }

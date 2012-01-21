@@ -4,11 +4,15 @@
 
 class Stream::Place < Stream::Base
 
-  attr_accessor :place
+  attr_accessor :place_id 
 
-  def initialize(user, place, opts={})
-    self.place = place
+  def initialize(user, place_id, opts={})
+    self.place_id = place_id
     super(user, opts)
+  end
+
+  def place
+    @place ||= ::Place.find(place_id)
   end
 
   # @return [ActiveRecord::Association<Post>] AR association of posts

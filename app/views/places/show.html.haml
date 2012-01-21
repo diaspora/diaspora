@@ -5,7 +5,7 @@
 
 
 - content_for :page_title do
-  = @place.title
+  = @stream.place.title
 
 - content_for :head do
   = include_javascripts :people
@@ -16,7 +16,7 @@
   
 
 .span-6
-  = render :partial => 'places/place_sidebar', :locals => {:place => @place}
+  = render :partial => 'places/place_sidebar', :locals => {:place => @stream.place}
 
 
 .span-18.last
