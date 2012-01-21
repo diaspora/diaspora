@@ -21,6 +21,6 @@ Rails.application.config.middleware.use OmniAuth::Builder do
   end
   if SERVICES['facebook'] && SERVICES['facebook']['app_id'] && SERVICES['facebook']['app_secret']
     provider :facebook, SERVICES['facebook']['app_id'], SERVICES['facebook']['app_secret'],  { :scope => "publish_stream,email,offline_access",
-                                                                                               :client_options => {:ssl => {:ca_file => AppConfig[:ca_file]}}}
+                                                                                               :client_options => {:ssl => {:ca_file => EnviromentConfiguration.ca_cert_file_location}}}  
   end
 end
