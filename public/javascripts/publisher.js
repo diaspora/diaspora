@@ -451,8 +451,6 @@ var Publisher = {
     selection.popover(options);
     selection.bind("click", function(){$(this).popover("hide")});
 
-
-
     setTimeout(function(){
       selection.popover("show");
 
@@ -480,7 +478,7 @@ var Publisher = {
     if(Publisher.hiddenInput().val() === "") {
       Publisher.hiddenInput().val(Publisher.input().val());
     }
-    Publisher.input().autoResize();
+    Publisher.input().autoResize({'extraSpace' : 10});
     Publisher.input().keydown(Publisher.autocompletion.keyDownHandler);
     Publisher.input().keyup(Publisher.autocompletion.keyUpHandler);
     Publisher.input().mouseup(Publisher.autocompletion.keyUpHandler);

@@ -21,10 +21,10 @@ javascripts:
     - public/javascripts/app/views/content_view.js
     - public/javascripts/app/views/*
 
-    - public/javascripts/rails.validations.js
+    - public/javascripts/rails.validations.s
     - public/javascripts/rails.js
     - public/javascripts/vendor/jquery.hotkeys.js
-    - public/javascripts/vendor/jquery.autoresize.min.js
+    - public/javascripts/vendor/jquery.autoresize.js
     - public/javascripts/vendor/jquery-ui-1.8.9.custom.min.js
     - public/javascripts/vendor/jquery.charcount.js
     - public/javascripts/vendor/jquery.expander.js
