@@ -21,7 +21,7 @@ javascripts:
     - public/javascripts/app/views/content_view.js
     - public/javascripts/app/views/*
 
-    - public/javascripts/rails.validations.s
+    - public/javascripts/rails.validations.js
     - public/javascripts/rails.js
     - public/javascripts/vendor/jquery.hotkeys.js
     - public/javascripts/vendor/jquery.autoresize.js
