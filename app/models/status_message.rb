@@ -17,6 +17,9 @@ class StatusMessage < Post
 
   has_many :photos, :dependent => :destroy, :foreign_key => :status_message_guid, :primary_key => :guid
 
+  has_many :place_mentions, :foreign_key => :post_id
+  alias :reviews :place_mentions
+
   # a StatusMessage is federated before its photos are so presence_of_content() fails erroneously if no text is present
   # therefore, we put the validation in a before_destory callback instead of a validation
   before_destroy :presence_of_content

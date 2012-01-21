@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120119182234) do
+ActiveRecord::Schema.define(:version => 20120121005900) do
 
   create_table "account_deletions", :force => true do |t|
     t.string  "diaspora_handle"
@@ -294,6 +294,13 @@ ActiveRecord::Schema.define(:version => 20120119182234) do
   end
 
   add_index "photos", ["status_message_guid"], :name => "index_photos_on_status_message_guid"
+
+  create_table "place_mentions", :force => true do |t|
+    t.integer  "post_id"
+    t.integer  "place_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "places", :force => true do |t|
     t.string   "guid",                                     :null => false
