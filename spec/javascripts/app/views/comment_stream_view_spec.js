@@ -18,4 +18,12 @@ describe("app.views.CommentStream", function(){
       expect($.fn.autoResize.mostRecentCall.object.selector).toBe("textarea")
     })
   })
+
+  describe("createComment", function(){
+    it("clears the new comment textarea", function(){
+      $(this.view.el).html($("<textarea/>", {"class" : 'comment_box'}).val("hey"))
+      this.view.createComment()
+      expect(this.view.$(".comment_box").val()).toBe("")
+    })
+  })
 })

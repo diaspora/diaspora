@@ -29,7 +29,7 @@ app.views.CommentStream = app.views.Base.extend({
       "text" : this.$(".comment_box").val()
     });
 
-    this.$(".comment_box").empty()
+    this.$(".comment_box").val("")
     return this;
   },
 
