@@ -133,6 +133,10 @@
         .span-24.last{:style=> "#{yield(:break_the_mold)}"}
           = yield
 
+    - unless @landing_page
+      %a{:id=>"back-to-top", :title=>"Back to top", :href=>"#"}
+        &#8679;
+
     %footer
       .container
         %ul#footer_nav
