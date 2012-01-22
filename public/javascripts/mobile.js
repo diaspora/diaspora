@@ -1,5 +1,8 @@
 $(document).ready(function(){
 
+  $('.shield a').click(function(){
+    $(this).parents('.shield_wrapper').remove();
+  });
   var showLoader = function(link){
     link.addClass('loading');
   };

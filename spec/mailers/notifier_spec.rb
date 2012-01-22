@@ -23,7 +23,7 @@ describe Notifier do
       before do
         @users = []
         5.times do
-          @users << Factory.create(:user)
+          @users << Factory(:user)
         end
       end
       it 'has a body' do
@@ -145,8 +145,8 @@ describe Notifier do
 
   describe ".reshared" do
     before do
-      @sm = Factory.create(:status_message, :author => alice.person, :public => true)
-      @reshare = Factory.create(:reshare, :root => @sm, :author => bob.person)
+      @sm = Factory(:status_message, :author => alice.person, :public => true)
+      @reshare = Factory(:reshare, :root => @sm, :author => bob.person)
       @mail = Notifier.reshared(alice.id, @reshare.author.id, @reshare.id)
     end
 

@@ -36,50 +36,48 @@ describe ServicesController do
   end
 
   describe '#create' do
-    it 'creates a new OmniauthService' do
-      request.env['omniauth.auth'] = omniauth_auth
-      lambda{
+    context 'when not fetching a photo' do
+      before do
+        request.env['omniauth.auth'] = omniauth_auth
+      end
+
+      it 'creates a new OmniauthService' do
+        expect {
+          post :create, :provider => 'twitter'
+        }.to change(@user.services, :count).by(1)
+      end
+
+      it 'redirects to getting started if the user is getting started' do
+        @user.getting_started = true
         post :create, :provider => 'twitter'
-      }.should change(@user.services, :count).by(1)
+        response.should redirect_to getting_started_path
+      end
+
+      it 'redirects to services url if user is not getting started' do
+        @user.getting_started = false
+        post :create, :provider => 'twitter'
+        response.should redirect_to services_url
+      end
+
+      it 'creates a twitter service' do
+        Service.delete_all
+        @user.getting_started = false
+        post :create, :provider => 'twitter'
+        @user.reload.services.first.class.name.should == "Services::Twitter"
+      end
+
+      it 'returns error if the user already a service with that uid' do
+        Services::Twitter.create!(:nickname => omniauth_auth["info"]['nickname'],
+                                  :access_token => omniauth_auth['credentials']['token'],
+                                  :access_secret => omniauth_auth['credentials']['secret'],
+                                  :uid => omniauth_auth['uid'],
+                                  :user => bob)
+        post :create, :provider => 'twitter'
+        flash[:error].include?(bob.person.profile.diaspora_handle).should be_true
+      end
     end
 
-    it 'redirects to getting started if the user is getting started' do
-      @user.getting_started = true
-      request.env['omniauth.auth'] = omniauth_auth
-      post :create, :provider => 'twitter'
-      response.should redirect_to getting_started_path
-    end
-
-    it 'redirects to services url' do
-      @user.getting_started = false
-      request.env['omniauth.auth'] = omniauth_auth
-      post :create, :provider => 'twitter'
-      response.should redirect_to services_url
-    end
-
-    it 'creates a twitter service' do
-      Service.delete_all
-      @user.getting_started = false
-      request.env['omniauth.auth'] = omniauth_auth
-      post :create, :provider => 'twitter'
-      @user.reload.services.first.class.name.should == "Services::Twitter"
-    end
-
-    it 'returns error if the service is connected with that uid' do
-      request.env['omniauth.auth'] = omniauth_auth
-
-      Services::Twitter.create!(:nickname => omniauth_auth["info"]['nickname'],
-                                           :access_token => omniauth_auth['credentials']['token'],
-                                           :access_secret => omniauth_auth['credentials']['secret'],
-                                           :uid => omniauth_auth['uid'],
-                                           :user => bob)
-
-      post :create, :provider => 'twitter'
-
-      flash[:error].include?(bob.person.profile.diaspora_handle).should be_true
-    end
-
-    context "photo fetching" do
+    context 'when fetching a photo' do
       before do
         omniauth_auth
         omniauth_auth["info"].merge!({"image" => "https://service.com/fallback_lowres.jpg"})
@@ -111,7 +109,7 @@ describe ServicesController do
 
   describe '#destroy' do
     before do
-      @service1 = Factory.create(:service, :user => @user)
+      @service1 = Factory(:service, :user => @user)
     end
 
     it 'destroys a service selected by id' do

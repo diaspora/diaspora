@@ -6,7 +6,7 @@ require 'spec_helper'
 
 describe 'making sure the spec runner works' do
   it 'factory creates a user with a person saved' do
-    user = Factory.create(:user)
+    user = Factory(:user)
     loaded_user = User.find(user.id)
     loaded_user.person.owner_id.should == user.id
   end
@@ -52,8 +52,8 @@ describe 'making sure the spec runner works' do
 
   describe '#comment' do
     it "should send a user's comment on a person's post to that person" do
-      person = Factory.create(:person)
-      person_status = Factory.create(:status_message, :author => person)
+      person = Factory(:person)
+      person_status = Factory(:status_message, :author => person)
       m = mock()
       m.stub!(:post)
       Postzord::Dispatcher.should_receive(:build).and_return(m)

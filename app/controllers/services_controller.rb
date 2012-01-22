@@ -1,5 +1,6 @@
 #   Copyright (c) 2010-2011, Diaspora Inc.  This file is
-#   licensed under the Affero General Public License version 3 or later.  See #   the COPYRIGHT file.
+#   licensed under the Affero General Public License version 3 or later.  See 
+#   the COPYRIGHT file.
 
 class ServicesController < ApplicationController
   before_filter :authenticate_user!
@@ -38,9 +39,8 @@ class ServicesController < ApplicationController
 
       if existing_service = Service.where(:type => service.type.to_s, :uid => service.uid).first
         flash[:error] <<  I18n.t('services.create.already_authorized',
-                                    :diaspora_id => existing_service.user.person.profile.diaspora_handle,
-                                    :service_name => provider.camelize )
-:A
+                                 :diaspora_id => existing_service.user.person.profile.diaspora_handle,
+                                 :service_name => provider.camelize )
       end
     end
 

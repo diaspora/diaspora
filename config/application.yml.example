@@ -98,8 +98,8 @@ defaults: &defaults
   # Enable extensive logging to log/{development,test,production}.log
   debug: false
 
-  # Hoptoad api key, send failures to Hoptoad
-  hoptoad_api_key: ''
+  # Airbrake api key, send failures to http://projectname.airbrake.io/ (Former Hoptoad)
+  airbrake_api_key: ''
 
   #social media setup
   facebook_app_id:  ''

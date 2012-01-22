@@ -169,7 +169,7 @@ describe Post do
 
   describe 'deletion' do
     it 'should delete a posts comments on delete' do
-      post = Factory.create(:status_message, :author => @user.person)
+      post = Factory(:status_message, :author => @user.person)
       @user.comment "hey", :post => post
       post.destroy
       Post.where(:id => post.id).empty?.should == true
@@ -421,7 +421,7 @@ describe Post do
     describe 'when post has been reshared exactly 1 time' do
       before :each do
         @post.reshares.size.should == 0
-        @reshare = Factory.create(:reshare, :root => @post)
+        @reshare = Factory(:reshare, :root => @post)
         @post.reload
         @post.reshares.size.should == 1
       end
@@ -434,9 +434,9 @@ describe Post do
     describe 'when post has been reshared more than once' do
       before :each do
         @post.reshares.size.should == 0
-        Factory.create(:reshare, :root => @post)
-        Factory.create(:reshare, :root => @post)
-        Factory.create(:reshare, :root => @post)
+        Factory(:reshare, :root => @post)
+        Factory(:reshare, :root => @post)
+        Factory(:reshare, :root => @post)
         @post.reload
         @post.reshares.size.should == 3
       end

@@ -1,6 +1,16 @@
 <% if(likes_count > 0) { %>
   <img alt="Heart" src="/images/icons/heart.png" />
-  <a href="#" class="expand_likes">
-    <%= Diaspora.I18n.t('stream.likes', {count: likes_count}) %>
-  </a>
+  <% if(likes && likes.length == 0) { %>
+	  <a href="#" class="expand_likes">
+	    <%= Diaspora.I18n.t('stream.likes', {count: likes_count}) %>
+	  </a>
+  <% } else { %>
+  	<span class="likes_list">
+	  	<% _.each(likes, function(like){ %>
+	  	  <a href="/people/<%= like.get("author").id %>">
+		  	  <img src="<%= like.get("author").avatar.small %>" class="avatar" title="<%= like.get("author").name %>"/>
+		  </a>
+	  	<% }) %>
+	</span>
+  <% } %>
 <% } %>

@@ -25,14 +25,14 @@ describe Statistics do
 
   describe '#posts_count_sql' do
     it "pulls back an array of post counts and ids" do
-      Factory.create(:status_message, :author => bob.person)
+      Factory(:status_message, :author => bob.person)
       result_should_equal User.connection.select_all(@stats.posts_count_sql)
     end
   end
 
   describe '#comments_count_sql' do
     it "pulls back an array of post counts and ids" do
-      sm = Factory.create(:status_message, :author => alice.person)
+      sm = Factory(:status_message, :author => alice.person)
       bob.comment("sup", :post => sm)
       result_should_equal User.connection.select_all(@stats.comments_count_sql)
     end
@@ -55,7 +55,7 @@ describe Statistics do
 
   describe '#mentions_count_sql' do
     it "pulls back an array of mentions following counts and ids" do
-      post = Factory.create(:status_message, :author => bob.person)
+      post = Factory(:status_message, :author => bob.person)
       Mention.create(:post => post, :person => bob.person)
       result_should_equal User.connection.select_all(@stats.mentions_count_sql)
     end

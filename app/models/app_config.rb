@@ -76,6 +76,7 @@ HELP
     normalize_pod_url
     normalize_admins
     normalize_pod_services
+    deprecate_hoptoad_api_key
   end
 
   def self.config_file_is_old_style?
@@ -124,6 +125,13 @@ HELP
           self['configured_services'] << service
         end
       end
+    end
+  end
+
+  def deprecate_hoptoad_api_key
+    if self[:hoptoad_api_key].present?
+      $stderr.puts "WARNING: Please change hoptoad_api_key to airbrake_api_key in your application.yml"
+      self[:airbrake_api_key] = self[:hoptoad_api_key]
     end
   end
 

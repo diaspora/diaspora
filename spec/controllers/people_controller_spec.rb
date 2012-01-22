@@ -13,9 +13,9 @@ describe PeopleController do
 
   describe '#index (search)' do
     before do
-      @eugene = Factory.create(:person,
+      @eugene = Factory(:person,
         :profile => Factory.build(:profile, :first_name => "Eugene", :last_name => "w"))
-      @korth = Factory.create(:person,
+      @korth = Factory(:person,
         :profile => Factory.build(:profile, :first_name => "Evan", :last_name => "Korth"))
     end
 
@@ -35,7 +35,7 @@ describe PeopleController do
     end
 
     it "assigns people" do
-      eugene2 = Factory.create(:person,
+      eugene2 = Factory(:person,
                                :profile => Factory.build(:profile, :first_name => "Eugene",
                                                          :last_name => "w"))
       get :index, :q => "Eug"
@@ -43,7 +43,7 @@ describe PeopleController do
     end
 
     it "excludes people that are not searchable" do
-      eugene2 = Factory.create(:person,
+      eugene2 = Factory(:person,
                                :profile => Factory.build(:profile, :first_name => "Eugene",
                                                          :last_name => "w", :searchable => false))
       get :index, :q => "Eug"
@@ -51,7 +51,7 @@ describe PeopleController do
     end
 
     it "allows unsearchable people to be found by handle" do
-      eugene2 = Factory.create(:person, :diaspora_handle => "eugene@example.org",
+      eugene2 = Factory(:person, :diaspora_handle => "eugene@example.org",
                                :profile => Factory.build(:profile, :first_name => "Eugene",
                                                          :last_name => "w", :searchable => false))
       get :index, :q => "eugene@example.org"
@@ -65,7 +65,7 @@ describe PeopleController do
     end
 
      it "downcases the handle before trying to find someone by it" do
-      eugene2 = Factory.create(:person, :diaspora_handle => "eugene@example.org",
+      eugene2 = Factory(:person, :diaspora_handle => "eugene@example.org",
                                :profile => Factory.build(:profile, :first_name => "Eugene",
                                                          :last_name => "w", :searchable => false))
       get :index, :q => "Eugene@Example.ORG"
@@ -124,7 +124,7 @@ describe PeopleController do
       @posts = []
       @users = []
       8.times do |n|
-        user = Factory.create(:user)
+        user = Factory(:user)
         @users << user
         aspect = user.aspects.create(:name => 'people')
         connect_users(@user, @user.aspects.first, user, aspect)
@@ -162,7 +162,7 @@ describe PeopleController do
     end
 
     it 'redirects home for closed account' do
-      @person = Factory.create(:person, :closed_account => true)
+      @person = Factory(:person, :closed_account => true)
       get :show, :id => @person.id
       response.should be_redirect
       flash[:notice].should_not be_blank

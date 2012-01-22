@@ -23,8 +23,8 @@ describe StatusMessage do
         @bo = bob.person
         @test_string = "@{Daniel; #{@bo.diaspora_handle}} can mention people like Raph"
 
-       Factory.create(:status_message, :text => @test_string )
-       Factory.create(:status_message, :text => @test_string )
+       Factory(:status_message, :text => @test_string )
+       Factory(:status_message, :text => @test_string )
        Factory(:status_message)
 
        StatusMessage.where_person_is_mentioned(@bo).count.should == 2
@@ -33,10 +33,10 @@ describe StatusMessage do
 
     context "tag_streams" do
       before do
-        @sm1 = Factory.create(:status_message, :text => "#hashtag" , :public => true)
-        @sm2 = Factory.create(:status_message, :text => "#hashtag" )
-        @sm3 = Factory.create(:status_message, :text => "hashtags are #awesome", :public => true )
-        @sm4 = Factory.create(:status_message, :text => "hashtags are #awesome" )
+        @sm1 = Factory(:status_message, :text => "#hashtag" , :public => true)
+        @sm2 = Factory(:status_message, :text => "#hashtag" )
+        @sm3 = Factory(:status_message, :text => "hashtags are #awesome", :public => true )
+        @sm4 = Factory(:status_message, :text => "hashtags are #awesome" )
 
         @tag_id = ActsAsTaggableOn::Tag.where(:name => "hashtag").first.id
       end
@@ -93,8 +93,8 @@ describe StatusMessage do
 
   describe '#diaspora_handle=' do
     it 'sets #author' do
-      person = Factory.create(:person)
-      post = Factory.create(:status_message, :author => @user.person)
+      person = Factory(:person)
+      post = Factory(:status_message, :author => @user.person)
       post.diaspora_handle = person.diaspora_handle
       post.author.should == person
     end
@@ -138,7 +138,7 @@ describe StatusMessage do
 @{Raphael; #{@people[0].diaspora_handle}} can mention people like Raphael @{Ilya; #{@people[1].diaspora_handle}}
 can mention people like Raphaellike Raphael @{Daniel; #{@people[2].diaspora_handle}} can mention people like Raph
 STR
-      @sm = Factory.create(:status_message, :text => @test_string )
+      @sm = Factory(:status_message, :text => @test_string )
     end
 
     describe '#format_mentions' do
@@ -222,7 +222,7 @@ STR
       end
 
       it 'returns false if the person was not mentioned' do
-        @sm.mentions?(Factory.create(:person)).should be_false
+        @sm.mentions?(Factory(:person)).should be_false
       end
     end
 
@@ -255,7 +255,7 @@ STR
 
   describe "XML" do
     before do
-      @message = Factory.create(:status_message, :text => "I hate WALRUSES!", :author => @user.person)
+      @message = Factory(:status_message, :text => "I hate WALRUSES!", :author => @user.person)
       @xml = @message.to_xml.to_s
     end
     it 'serializes the unescaped, unprocessed message' do

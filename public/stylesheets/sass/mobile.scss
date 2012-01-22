@@ -296,7 +296,21 @@ body {
   margin: 10px {
     top: 10px;
     bottom: 0; };
-  padding: 0 !important; }
+  padding: 0 !important; 
+}
+.shield{
+  padding: 10px;
+  font-size: larger;
+  }
+
+.shield_wrapper{
+    height: 100%;
+    width: 100%;
+    background-color: grey;
+    position: absolute;
+    border-radius: 5px;
+    z-index: 2;
+}
 
 .new_comment {
   padding: 10px;
@@ -558,7 +572,7 @@ footer {
 .bottom_bar {
   @include border-radius(0, 0, 5px, 5px);
   box-shadow: inset 0 2px 5px -3px #999;
-
+  z-index: 3;
   display: block;
   position: relative;
   padding: 10px;

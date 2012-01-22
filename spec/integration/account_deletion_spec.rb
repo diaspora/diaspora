@@ -48,7 +48,7 @@ describe 'deleteing your account' do
       @block = @bob2.blocks.create!(:person => eve.person)
 
       #authorization
-      @authorization = Factory.create(:oauth_authorization, :resource_owner => @bob2)
+      @authorization = Factory(:oauth_authorization, :resource_owner => @bob2)
 
       AccountDeleter.new(@bob2.person.diaspora_handle).perform!
       @bob2.reload
@@ -109,7 +109,7 @@ describe 'deleteing your account' do
 
       #posts
       @posts = (1..3).map do
-        Factory.create(:status_message, :author => @person)
+        Factory(:status_message, :author => @person)
       end
 
       @persons_sv = @posts.each do |post|
@@ -123,7 +123,7 @@ describe 'deleteing your account' do
 
       #mentions
       @mentions = 3.times do
-        Factory.create(:mention, :person => @person)
+        Factory(:mention, :person => @person)
       end
 
       #conversations

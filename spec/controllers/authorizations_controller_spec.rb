@@ -33,7 +33,7 @@ describe AuthorizationsController do
 
   describe '#new' do
     before do
-      @app = Factory.create(:app, :name => "Authorized App")
+      @app = Factory(:app, :name => "Authorized App")
       @params = {
         :scope => "profile",
         :redirect_uri => @manifest['application_base_url'] << '/callback',
@@ -167,8 +167,8 @@ describe AuthorizationsController do
     end
 
     it 'assigns the auth. & apps for the current user' do
-     app1 = Factory.create(:app, :name => "Authorized App")
-     app2 = Factory.create(:app, :name => "Unauthorized App")
+     app1 = Factory(:app, :name => "Authorized App")
+     app2 = Factory(:app, :name => "Unauthorized App")
      auth = OAuth2::Provider.authorization_class.create(:client => app1, :resource_owner => alice)
 
      OAuth2::Provider.authorization_class.create(:client => app1, :resource_owner => bob)
@@ -182,7 +182,7 @@ describe AuthorizationsController do
 
   describe "#destroy" do
     before do
-     @app1 = Factory.create(:app)
+     @app1 = Factory(:app)
      @auth1 = OAuth2::Provider.authorization_class.create(:client => @app1, :resource_owner => alice)
      @auth2 = OAuth2::Provider.authorization_class.create(:client => @app1, :resource_owner => bob)
     end
@@ -260,7 +260,7 @@ describe AuthorizationsController do
   describe 'valid_nonce' do
     before do
       @nonce = "abc123"
-      Factory.create(:app, :nonce => @nonce)
+      Factory(:app, :nonce => @nonce)
     end
 
     it 'returns true if its a new nonce' do

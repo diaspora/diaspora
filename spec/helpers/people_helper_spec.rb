@@ -7,7 +7,7 @@ require 'spec_helper'
 describe PeopleHelper do
  before do
     @user = alice
-    @person = Factory.create(:person)
+    @person = Factory(:person)
   end
  describe "#person_image_link" do
     it "returns an empty string if person is nil" do

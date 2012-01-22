@@ -98,7 +98,7 @@ describe AspectsController do
     end
 
     it "doesn't overwrite random attributes" do
-      new_user = Factory.create :user
+      new_user = Factory :user
       params = {"name" => "Bruisers"}
       params[:user_id] = new_user.id
       put('update', :id => @alices_aspect_1.id, "aspect" => params)

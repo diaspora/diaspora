@@ -8,7 +8,7 @@ describe Person do
 
   before do
     @user = bob
-    @person = Factory.create(:person)
+    @person = Factory(:person)
   end
 
   it 'always has a profile' do
@@ -94,8 +94,8 @@ describe Person do
 
     describe ".who_have_reshared a user's posts" do
       it 'pulls back users who reshared the status message of a user' do
-        sm = Factory.create(:status_message, :author => alice.person, :public => true)
-        reshare = Factory.create(:reshare, :root => sm)
+        sm = Factory(:status_message, :author => alice.person, :public => true)
+        reshare = Factory(:reshare, :root => sm)
         Person.who_have_reshared_a_users_posts(alice).should == [reshare.author]
       end
     end
@@ -111,17 +111,17 @@ describe Person do
 
   describe "vaild url" do
     it 'should allow for https urls' do
-      person = Factory.create(:person, :url => "https://example.com")
+      person = Factory(:person, :url => "https://example.com")
       person.should be_valid
     end
 
     it 'should always return the correct receive url' do
-      person = Factory.create(:person, :url => "https://example.com/a/bit/messed/up")
+      person = Factory(:person, :url => "https://example.com/a/bit/messed/up")
       person.receive_url.should == "https://example.com/receive/users/#{person.guid}/"
     end
 
     it 'should allow ports in the url' do
-      person = Factory.create(:person, :url => "https://example.com:3000/")
+      person = Factory(:person, :url => "https://example.com:3000/")
       person.url.should == "https://example.com:3000/"
     end
   end
@@ -223,8 +223,8 @@ describe Person do
   end
 
   it '#owns? posts' do
-    person_message = Factory.create(:status_message, :author => @person)
-    person_two = Factory.create(:person)
+    person_message = Factory(:status_message, :author => @person)
+    person_two = Factory(:person)
 
     @person.owns?(person_message).should be true
     person_two.owns?(person_message).should be false
@@ -270,16 +270,16 @@ describe Person do
   describe '.search' do
     before do
       Person.delete_all
-      @user = Factory.create(:user_with_aspect)
+      @user = Factory(:user_with_aspect)
       user_profile = @user.person.profile
       user_profile.first_name = "aiofj"
       user_profile.last_name = "asdji"
       user_profile.save
 
-      @robert_grimm = Factory.create(:searchable_person)
-      @eugene_weinstein = Factory.create(:searchable_person)
-      @yevgeniy_dodis = Factory.create(:searchable_person)
-      @casey_grippi = Factory.create(:searchable_person)
+      @robert_grimm = Factory(:searchable_person)
+      @eugene_weinstein = Factory(:searchable_person)
+      @yevgeniy_dodis = Factory(:searchable_person)
+      @casey_grippi = Factory(:searchable_person)
 
       @robert_grimm.profile.first_name = "Robert"
       @robert_grimm.profile.last_name = "Grimm"

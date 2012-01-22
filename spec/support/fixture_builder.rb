@@ -35,4 +35,3 @@ FixtureBuilder.configure do |fbuilder|
     local_luke.contacts.create(:person => remote_raphael, :aspects => [lukes_aspect])
    end
 end
-

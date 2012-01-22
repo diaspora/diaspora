@@ -60,14 +60,14 @@ describe Postzord::Receiver::LocalBatch do
 
   describe '#notify_users' do
     it 'calls notify for posts with notification type' do
-      reshare = Factory.create(:reshare)
+      reshare = Factory(:reshare)
       Notification.should_receive(:notify)
       receiver = Postzord::Receiver::LocalBatch.new(reshare, @ids)
       receiver.notify_users
     end
 
     it 'calls notify for posts with notification type' do
-      sm = Factory.create(:status_message, :author => alice.person)
+      sm = Factory(:status_message, :author => alice.person)
       receiver = Postzord::Receiver::LocalBatch.new(sm, @ids)
       Notification.should_not_receive(:notify)
       receiver.notify_users
