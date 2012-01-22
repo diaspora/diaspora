@@ -3,6 +3,6 @@
 # the COPYRIGHT file.
 
 if EnviromentConfiguration.enforce_ssl?
-  Rails.application.config.middleware.insert_before ActionDispatch::Cookies, Rack::SSL
+  Rails.application.config.middleware.insert_before 0, Rack::SSL
   puts "Rack::SSL is enabled"
 end
