@@ -8,14 +8,6 @@ GIT
       nokogiri (>= 1.3.3)
 
 GIT
-  remote: git://github.com/MikeSofaer/vanna.git
-  revision: 334eec220dbfddcc6bd3108e6e6c77fec8484dc4
-  specs:
-    vanna (0.1.1)
-      json
-      rails (>= 3.0.0)
-
-GIT
   remote: git://github.com/binarylogic/settingslogic.git
   revision: 4884d455bf18d92723cb8190cfd2dbf87f3aafd5
   specs:
@@ -499,7 +491,6 @@ DEPENDENCIES
   timecop
   twitter (= 2.0.2)
   typhoeus
-  vanna!
   webmock
   whenever
   will_paginate

@@ -22,6 +22,25 @@
           .next(".hidden")
           .removeClass("hidden");
       });
+      self.notificationMenu.find('a#mark_all_read_link').click(function() {
+        $.ajax({
+          url: "/notifications/read_all",
+          type: "GET",
+          dataType:'json',
+          success: function(){
+            self.notificationMenu.find('.unread').each(function(index) {
+              self.setUpRead( $(this) );
+            });
+            if ( self.notificationArea ) {
+              self.notificationArea.find('.unread').each(function(index) {
+                self.setUpRead( $(this) );
+              });
+            }
+            self.resetCount();
+          }
+        });
+        return false;
+      });
     });
     this.setUpNotificationPage = function( contentArea ) {
       self.notificationArea = contentArea;
@@ -70,9 +89,8 @@
       );
     }
     this.clickSuccess = function( data ) {
-      var jsList = jQuery.parseJSON(data);
-      var itemID = jsList["guid"]
-      var isUnread = jsList["unread"]
+      var itemID = data["guid"]
+      var isUnread = data["unread"]
       if ( isUnread ) {
         self.incrementCount();
       }else{
@@ -115,23 +133,24 @@
     this.changeNotificationCount = function(change) {
       self.count += change;
 
-      if(self.badge.text() !== "") {
-				self.badge.text(self.count);
-        if ( self.notificationArea ) {
-          self.notificationArea.find( ".notification_count" ).text(self.count);
+      self.badge.text(self.count);
+      if ( self.notificationArea )
+        self.notificationArea.find( ".notification_count" ).text(self.count);
 
-          if(self.count === 0) {
-            self.badge.addClass("hidden");
-            if ( self.notificationArea )
-              self.notificationArea.find( ".notification_count" ).removeClass("unread");
-          }
-          else if(self.count === 1) {
-            self.badge.removeClass("hidden");
-            if ( self.notificationArea )
-              self.notificationArea.find( ".notification_count" ).addClass("unread");
-          }
-        }
+      if(self.count === 0) {
+        self.badge.addClass("hidden");
+        if ( self.notificationArea )
+          self.notificationArea.find( ".notification_count" ).removeClass("unread");
       }
+      else if(self.count === 1) {
+        self.badge.removeClass("hidden");
+        if ( self.notificationArea )
+          self.notificationArea.find( ".notification_count" ).addClass("unread");
+      }
+    };
+    this.resetCount = function(change) {
+      self.count = 0;
+      this.changeNotificationCount(0);
     };
 
     this.decrementCount = function() {

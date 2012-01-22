@@ -59,29 +59,18 @@
     this.renderNotifications = function() {
       self.dropdownNotifications.empty();
 
-      $.each(self.notifications.notifications, function(index, notifications) {
+      $.each(self.notifications, function(index, notifications) {
         $.each(notifications, function(index, notification) {
-          var notificationElement = $("<div/>")
-            .addClass("notification_element")
-            .data( "guid", notification.id )
-            .html(notification.translation)
-            .prepend($("<img/>", { src: notification.actors[0].avatar }))
-            .append("<br />")
-            .append($("<abbr/>", {
-              "class": "timeago",
-              "title": notification.created_at
-            }))
-            .append('<a class="unread-setter">mark unread</a>')
-            .appendTo(self.dropdownNotifications);
-
-          notificationElement.find("abbr.timeago").timeago();
-
-          if(notification.unread) {
-            Diaspora.page.header.notifications.setUpUnread( notificationElement );
-          }else{
-            Diaspora.page.header.notifications.setUpRead( notificationElement );
-          }
+          self.dropdownNotifications.append(notification.note_html);
         });
+      });
+      self.dropdownNotifications.find("abbr.timeago").timeago();
+
+      self.dropdownNotifications.find('.unread').each(function(index) {
+        Diaspora.page.header.notifications.setUpUnread( $(this) );
+      });
+      self.dropdownNotifications.find('.read').each(function(index) {
+        Diaspora.page.header.notifications.setUpRead( $(this) );
       });
 
       self.ajaxLoader.hide();

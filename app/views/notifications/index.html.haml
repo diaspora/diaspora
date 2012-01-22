@@ -9,10 +9,10 @@
         = @notification_count
       = t('.notifications')
   .span-8.last
-    = link_to t('.mark_all_as_read'), read_all_notifications_path, :class => 'button'
+    = link_to t('.mark_all_as_read'), notifications_read_all_path, :class => 'button'
   .span-24.last
     .stream.notifications
-      - group_days.each do |day, notes|
+      - @group_days.each do |day, notes|
         .day_group.span-24.last
           .span-3
             .date
@@ -33,7 +33,7 @@
                 %a{:class => 'unread-setter'}
                   mark unread
           .span-13.last
-      = will_paginate notifications
+      = will_paginate @notifications
 
 :javascript
   $(document).ready(function(){

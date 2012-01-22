@@ -22,7 +22,7 @@ describe("Diaspora.Widgets.Notifications", function() {
         '<div id="1" class="stream_element read" data-guid=1></div>' +
         '<div id="2" class="stream_element unread" data-guid=2></div>'
       );
-      notifications.clickSuccess(JSON.stringify({guid:2,unread:false}));
+      notifications.clickSuccess({guid:2,unread:false});
       expect( this.view.$('.stream_element#2')).toHaveClass("read");
     });
     it("changes the css to an unread cell", function() {
@@ -30,7 +30,7 @@ describe("Diaspora.Widgets.Notifications", function() {
         '<div id="1" class="stream_element read" data-guid=1></div>' +
         '<div id="2" class="stream_element unread" data-guid=2></div>'
       );
-      notifications.clickSuccess(JSON.stringify({guid:1,unread:true}));
+      notifications.clickSuccess({guid:1,unread:true});
       expect( this.view.$('.stream_element#1')).toHaveClass("unread");
     });
 
@@ -40,7 +40,7 @@ describe("Diaspora.Widgets.Notifications", function() {
       expect(notifications.decrementCount).toHaveBeenCalled();
     });
     it("calls Notifications.incrementCount on a unread cell", function() {
-      notifications.clickSuccess(JSON.stringify({guid:1,unread:true}));
+      notifications.clickSuccess({guid:1,unread:true});
       expect(notifications.incrementCount).toHaveBeenCalled();
     });
   });

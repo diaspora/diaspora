@@ -4,6 +4,7 @@
 
 class ApplicationController < ActionController::Base
   has_mobile_fu
+  include ApplicationHelper
 
   protect_from_forgery :except => :receive
 
@@ -25,15 +26,6 @@ class ApplicationController < ActionController::Base
 
   def ensure_http_referer_is_set
     request.env['HTTP_REFERER'] ||= '/aspects'
-  end
-
-  # we need to do this for vanna controller.  these should really be controller
-  # helper methods instead
-  def set_header_data
-    if user_signed_in? && request.format.html? && !params[:only_posts]
-      @notification_count = Notification.for(current_user, :unread =>true).count
-      @unread_message_count = ConversationVisibility.sum(:unread, :conditions => "person_id = #{current_user.person.id}")
-    end
   end
 
   # Overwriting the sign_out redirect path method
