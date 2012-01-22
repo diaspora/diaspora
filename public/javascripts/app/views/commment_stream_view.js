@@ -17,6 +17,9 @@ app.views.CommentStream = app.views.Base.extend({
   postRenderTemplate : function() {
     this.$("label").inFieldLabels();
     this.model.comments.each(this.appendComment, this);
+
+    // add autoexpanders to new comment textarea
+    this.$("textarea").autoResize({'extraSpace' : 10});
   },
 
   createComment: function(evt) {
@@ -26,7 +29,7 @@ app.views.CommentStream = app.views.Base.extend({
       "text" : this.$(".comment_box").val()
     });
 
-    this.$(".comment_box").val("");
+    this.$(".comment_box").val("")
     return this;
   },
 

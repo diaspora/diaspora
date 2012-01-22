@@ -105,6 +105,17 @@ describe Reshare do
         end
       end
 
+      describe 'destroy' do
+        it 'allows you to destroy the reshare if the root post is missing' do
+          reshare = Factory(:reshare)
+          reshare.root = nil
+          
+          expect{
+            reshare.destroy
+          }.should_not raise_error
+        end
+      end
+
       context 'remote' do
         before do
           @root_object = @reshare.root

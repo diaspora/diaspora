@@ -39,19 +39,6 @@ var View = {
       $(this).siblings("#tag_following_submit").removeClass('hidden');
     });
 
-    /* Autoexpand textareas */
-    var startAutoResize = function() {
-     if (arguments.length > 1){
-        target = $(Array.prototype.slice.call(arguments,1)).find('textarea');
-      }else{
-        target = $('textarea')
-      }
-      target.autoResize({
-                          'animate': false,
-                          'extraSpace': 5
-                        });
-    }
-
     /* photo exporting in the works */
     $("#photo-export-button").bind("click", function(evt){
       evt.preventDefault();

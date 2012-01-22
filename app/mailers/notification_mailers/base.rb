@@ -20,12 +20,18 @@ module NotificationMailers
       default_headers.merge(@headers)
     end
 
+    def name_and_address(name, email)
+      address = Mail::Address.new email
+      address.display_name = name
+      address.format
+    end
+
     private
     def default_headers
       headers = {
         :from => AppConfig[:smtp_sender_address],
         :host => "#{AppConfig[:pod_uri]}",
-        :to => "\"#{@recipient.name}\" <#{@recipient.email}>"
+        :to => name_and_address(@recipient.name, @recipient.email)
       }
 
       headers[:from] = "\"#{@sender.name} (Diaspora*)\" <#{AppConfig[:smtp_sender_address]}>" if @sender.present?

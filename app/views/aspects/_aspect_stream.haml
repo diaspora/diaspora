@@ -10,7 +10,9 @@
 
 #gs-shim{:title => popover_with_close_html("3. #{t('.stay_updated')}"), 'data-content' => t('.stay_updated_explanation')}
 
-#main_stream.stream{:data => {:guids => stream.aspect_ids.join(',')}}
+#main_stream.stream
+
+#paginate
 
 - if current_user.contacts.size < 2
   = render 'aspects/no_contacts_message'
