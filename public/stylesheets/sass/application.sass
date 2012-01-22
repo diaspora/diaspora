@@ -853,6 +853,7 @@ form.new_comment
 input:not([type='submit']):not([type='reset']):not([type='hidden']):not(.as-input),
 textarea
   @include border-radius(2px)
+  :margin-top 1px
 
   :font
     :family 'Arial', 'Helvetica', sans-serif
@@ -881,6 +882,8 @@ form p.checkbox_select
   label
     :left 25px
     :top 3px
+    :position absolute
+    :font-size 1em
   img
     :position relative
     :top 6px
@@ -894,6 +897,11 @@ form p.checkbox_select
   //:position absolute
   //:top 3px
   //:left 0.48em
+label
+  :font
+    :size .96em
+    :weight normal
+  
   
 .placeholder
   @include placeholder_styles
