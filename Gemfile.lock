@@ -148,10 +148,10 @@ GEM
       abstract (>= 1.0.0)
     eventmachine (0.12.10)
     excon (0.9.4)
-    factory_girl (2.4.2)
+    factory_girl (2.5.0)
       activesupport
-    factory_girl_rails (1.5.0)
-      factory_girl (~> 2.4.0)
+    factory_girl_rails (1.6.0)
+      factory_girl (~> 2.5.0)
       railties (>= 3.0.0)
     faraday (0.7.0)
       addressable (~> 2.2.4)

@@ -290,9 +290,9 @@ describe Postzord::Dispatcher do
       end
 
       it 'only pushes to specified services' do
-       @s1 = Factory.create(:service, :user_id => alice.id)
+       @s1 = Factory(:service, :user_id => alice.id)
        alice.services << @s1
-       @s2 = Factory.create(:service, :user_id => alice.id)
+       @s2 = Factory(:service, :user_id => alice.id)
        alice.services << @s2
        mailman = Postzord::Dispatcher.build(alice, Factory(:status_message))
 

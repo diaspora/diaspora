@@ -28,7 +28,7 @@ describe Notification do
 
   describe '.for' do
     it 'returns all of a users notifications' do
-      user2 = Factory.create(:user)
+      user2 = Factory(:user)
       4.times do
         Notification.create(@opts)
       end

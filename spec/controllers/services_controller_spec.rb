@@ -111,7 +111,7 @@ describe ServicesController do
 
   describe '#destroy' do
     before do
-      @service1 = Factory.create(:service, :user => @user)
+      @service1 = Factory(:service, :user => @user)
     end
 
     it 'destroys a service selected by id' do

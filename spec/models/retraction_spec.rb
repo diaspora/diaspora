@@ -32,7 +32,7 @@ describe Retraction do
       end
 
       it 'does not return the authors of reshares' do
-        @post.reshares << Factory.create(:reshare, :root => @post, :author => bob.person)
+        @post.reshares << Factory(:reshare, :root => @post, :author => bob.person)
         @post.save!
 
         @wanted_subscribers -= [bob.person]

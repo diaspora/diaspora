@@ -4,7 +4,7 @@ describe SignedRetraction do
   before do
     @post = Factory(:status_message, :author => bob.person, :public => true)
     @resharer = Factory(:user)
-    @post.reshares << Factory.create(:reshare, :root => @post, :author => @resharer.person)
+    @post.reshares << Factory(:reshare, :root => @post, :author => @resharer.person)
     @post.save!
   end
   describe '#perform' do

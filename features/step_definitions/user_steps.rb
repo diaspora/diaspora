@@ -23,7 +23,7 @@ end
 Given /^a user named "([^\"]*)" with email "([^\"]*)"$/ do |name, email|
   first, last = name.split
   username = "#{first}_#{last}" if first
-  user = Factory.create(:user, :email => email, :password => 'password', :username => "#{first}_#{last}",
+  user = Factory(:user, :email => email, :password => 'password', :username => "#{first}_#{last}",
                  :password_confirmation => 'password', :getting_started => false)
 
   user.profile.update_attributes!(:first_name => first, :last_name => last) if first
@@ -151,7 +151,7 @@ Given /^I have (\d+) contacts$/ do |n|
   aspect_memberships = []
 
   count.times do
-    person = Factory.create(:person)
+    person = Factory(:person)
     people << person
   end
 
