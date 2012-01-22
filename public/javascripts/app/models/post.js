@@ -2,7 +2,7 @@ app.models.Post = Backbone.Model.extend({
   urlRoot : "/posts",
   initialize : function() {
     this.comments = new app.collections.Comments(this.get("last_three_comments"), {post : this});
-    this.likes = new app.collections.Likes(this.get("user_like"), { post : this}); // load in the user like initially
+    this.likes = new app.collections.Likes([], {post : this}); // load in the user like initially
   },
 
   createdAt : function() {

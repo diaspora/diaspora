@@ -28,5 +28,24 @@ describe("app.views.LikesInfo", function(){
       expect($(this.view.el).html().trim()).toBe("");
     })
   })
+
+  describe("showAvatars", function(){
+    beforeEach(function(){
+      spyOn(this.post.likes, "fetch").andCallThrough()
+    })
+
+    it("calls fetch on the model's like collection", function(){
+      this.view.showAvatars();
+      expect(this.post.likes.fetch).toHaveBeenCalled();
+    })
+
+    it("sets the fetched response to the model's likes", function(){
+      //placeholder... not sure how to test done functionalty here
+    })
+
+    it("re-renders the view", function(){
+      //placeholder... not sure how to test done functionalty here
+    })
+  })
 })
 
