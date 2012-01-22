@@ -364,6 +364,7 @@ en:
       toggle: "toggle mobile"
       public_feed: "Public Diaspora Feed for %{name}"
       your_aspects: "your aspects"
+      back_to_top: "Back to top"
 
   likes:
     likes:
