@@ -24,7 +24,7 @@ javascripts:
     - public/javascripts/rails.validations.js
     - public/javascripts/rails.js
     - public/javascripts/vendor/jquery.hotkeys.js
-    - public/javascripts/vendor/jquery.autoresize.min.js
+    - public/javascripts/vendor/jquery.autoresize.js
     - public/javascripts/vendor/jquery-ui-1.8.9.custom.min.js
     - public/javascripts/vendor/jquery.charcount.js
     - public/javascripts/vendor/jquery.expander.js

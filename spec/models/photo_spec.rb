@@ -180,7 +180,7 @@ describe Photo do
 
     it 'should set the remote_photo on marshalling' do
       #security hax
-      user2 = Factory.create(:user)
+      user2 = Factory(:user)
       aspect2 = user2.aspects.create(:name => "foobars")
       connect_users(@user, @aspect, user2, aspect2)
 

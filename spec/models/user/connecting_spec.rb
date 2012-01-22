@@ -8,13 +8,13 @@ describe Diaspora::UserModules::Connecting do
 
   let(:aspect) { alice.aspects.first }
   let(:aspect1) { alice.aspects.create(:name => 'other') }
-  let(:person) { Factory.create(:person) }
+  let(:person) { Factory(:person) }
 
   let(:aspect2) { eve.aspects.create(:name => "aspect two") }
 
-  let(:person_one) { Factory.create :person }
-  let(:person_two) { Factory.create :person }
-  let(:person_three) { Factory.create :person }
+  let(:person_one) { Factory :person }
+  let(:person_two) { Factory :person }
+  let(:person_three) { Factory :person }
 
   describe 'disconnecting' do
     describe '#remove_contact' do
@@ -155,7 +155,7 @@ describe Diaspora::UserModules::Connecting do
     end
 
     it "should mark the corresponding notification as 'read'" do
-      notification = Factory.create(:notification, :target => eve.person)
+      notification = Factory(:notification, :target => eve.person)
 
       Notification.where(:target_id => eve.person.id).first.unread.should be_true
       alice.share_with(eve.person, aspect)

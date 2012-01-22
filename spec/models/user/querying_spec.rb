@@ -311,9 +311,9 @@ describe User do
   end
 
   context 'contact querying' do
-    let(:person_one) { Factory.create :person }
-    let(:person_two) { Factory.create :person }
-    let(:person_three) { Factory.create :person }
+    let(:person_one) { Factory :person }
+    let(:person_two) { Factory :person }
+    let(:person_three) { Factory :person }
     let(:aspect) { alice.aspects.create(:name => 'heroes') }
 
     describe '#contact_for_person_id' do

@@ -46,7 +46,7 @@ describe Contact do
     end
 
     it "validates that the person's account is not closed" do
-      person = Factory.create(:person, :closed_account => true)
+      person = Factory(:person, :closed_account => true)
 
       contact = alice.contacts.new(:person=>person)
 
@@ -93,7 +93,7 @@ describe Contact do
     
     describe "all_contacts_of_person" do
       it 'returns all contacts where the person is the passed in person' do
-        person = Factory.create(:person)
+        person = Factory(:person)
         contact1 = Factory(:contact, :person => person)
         contact2 = Factory(:contact)
         contacts = Contact.all_contacts_of_person(person)
@@ -166,7 +166,7 @@ describe Contact do
   context 'requesting' do
     before do
       @contact = Contact.new
-      @user = Factory.create(:user)
+      @user = Factory(:user)
       @person = Factory(:person)
 
       @contact.user = @user

@@ -22,7 +22,7 @@ class Reshare < Post
   end
 
   after_destroy do
-    self.root.update_reshares_counter
+    self.root.update_reshares_counter if self.root.present?
   end
 
   def root_diaspora_id

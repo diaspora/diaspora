@@ -40,7 +40,6 @@ class ServicesController < ApplicationController
         flash[:error] <<  I18n.t('services.create.already_authorized',
                                     :diaspora_id => existing_service.user.person.profile.diaspora_handle,
                                     :service_name => provider.camelize )
-:A
       end
     end
 

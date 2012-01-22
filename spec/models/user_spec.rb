@@ -131,7 +131,7 @@ describe User do
   describe 'overwriting people' do
     it 'does not overwrite old users with factory' do
       lambda {
-        new_user = Factory.create(:user, :id => alice.id)
+        new_user = Factory(:user, :id => alice.id)
       }.should raise_error ActiveRecord::StatementInvalid
     end
 
@@ -367,7 +367,7 @@ describe User do
     end
 
     describe "with malicious params" do
-      let(:person) {Factory.create :person}
+      let(:person) {Factory :person}
       before do
         @invalid_params = {:username => "ohai",
                   :email => "ohai@example.com",
@@ -591,7 +591,7 @@ describe User do
 
   describe '#notify_if_mentioned' do
     before do
-      @post = Factory.create(:status_message, :author => bob.person)
+      @post = Factory(:status_message, :author => bob.person)
     end
 
     it 'notifies the user if the incoming post mentions them' do
@@ -609,7 +609,7 @@ describe User do
     end
 
     it 'does not notify the user if the post author is not a contact' do
-      @post = Factory.create(:status_message, :author => eve.person)
+      @post = Factory(:status_message, :author => eve.person)
       @post.stub(:mentions?).and_return(true)
       @post.should_not_receive(:notify_person)
 
@@ -856,7 +856,7 @@ describe User do
   describe "#accept_invitation!" do
     before do
       fantasy_resque do
-        @invitation = Factory.create(:invitation, :sender => eve, :identifier => 'invitee@example.org', :aspect => eve.aspects.first)
+        @invitation = Factory(:invitation, :sender => eve, :identifier => 'invitee@example.org', :aspect => eve.aspects.first)
       end
 
       @invitation.reload
@@ -1003,7 +1003,7 @@ describe User do
 
     describe "#clearable_attributes" do
       it 'returns the clearable fields' do
-        user = Factory.create :user
+        user = Factory :user
         user.send(:clearable_fields).sort.should == %w{
           language
           invitation_token

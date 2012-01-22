@@ -30,7 +30,7 @@ describe Reshare do
   describe "#receive" do
     let(:receive) {@reshare.receive(@root.author.owner, @reshare.author)}
     before do
-      @reshare = Factory.create(:reshare, :root => Factory(:status_message, :author => bob.person, :public => true))
+      @reshare = Factory(:reshare, :root => Factory(:status_message, :author => bob.person, :public => true))
       @root = @reshare.root
     end
 
@@ -55,8 +55,8 @@ describe Reshare do
 
   describe '#notification_type' do
     before do
-      sm = Factory.create(:status_message, :author => alice.person, :public => true)
-      @reshare = Factory.create(:reshare, :root => sm)
+      sm = Factory(:status_message, :author => alice.person, :public => true)
+      @reshare = Factory(:reshare, :root => sm)
     end
     it 'does not return anything for non-author of the original post' do
       @reshare.notification_type(bob, @reshare.author).should be_nil
@@ -102,6 +102,17 @@ describe Reshare do
 
         it 'fetches the root author from root_diaspora_id' do
           Reshare.from_xml(@xml).root.author.should == @original_author
+        end
+      end
+
+      describe 'destroy' do
+        it 'allows you to destroy the reshare if the root post is missing' do
+          reshare = Factory(:reshare)
+          reshare.root = nil
+          
+          expect{
+            reshare.destroy
+          }.should_not raise_error
         end
       end
 
@@ -180,7 +191,7 @@ describe Reshare do
             @original_author = @reshare.root.author.dup
             @xml = @reshare.to_xml.to_s
 
-            different_person = Factory.create(:person)
+            different_person = Factory(:person)
 
             wf_prof_mock = mock
             wf_prof_mock.should_receive(:fetch).and_return(different_person)

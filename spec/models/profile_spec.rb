@@ -147,7 +147,7 @@ describe Profile do
   end
   
   describe 'serialization' do
-    let(:person) {Factory.create(:person,:diaspora_handle => "foobar" )}
+    let(:person) {Factory(:person,:diaspora_handle => "foobar" )}
 
     it 'should include persons diaspora handle' do
       xml = person.profile.to_diaspora_xml
@@ -244,7 +244,7 @@ describe Profile do
 
   describe 'tags' do
     before do
-      person = Factory.create(:person)
+      person = Factory(:person)
       @object = person.profile
     end
     it 'allows 5 tags' do

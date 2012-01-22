@@ -114,7 +114,7 @@ defaults: &defaults
   # Miscellaneous
 
   NEW_RELIC_LICENSE_KEY: ''
-
+  new_relic_app_name: ''
 
   # If set to true Diaspora will work with just the appserver, thin by default,
   # running, however this makes it quite slow as all the time intensive jobs

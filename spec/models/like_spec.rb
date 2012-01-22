@@ -73,7 +73,7 @@ describe Like do
 
   describe 'xml' do
     before do
-      @liker = Factory.create(:user)
+      @liker = Factory(:user)
       @liker_aspect = @liker.aspects.create(:name => "dummies")
       connect_users(alice, @alices_aspect, @liker, @liker_aspect)
       @post = alice.post :status_message, :text => "huhu", :to => @alices_aspect.id
@@ -102,7 +102,7 @@ describe Like do
   describe 'it is relayable' do
     before do
       @local_luke, @local_leia, @remote_raphael = set_up_friends
-      @remote_parent = Factory.create(:status_message, :author => @remote_raphael)
+      @remote_parent = Factory(:status_message, :author => @remote_raphael)
       @local_parent = @local_luke.post :status_message, :text => "foobar", :to => @local_luke.aspects.first
 
       @object_by_parent_author = @local_luke.like(1, :target => @local_parent)

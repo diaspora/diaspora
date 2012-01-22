@@ -13,11 +13,11 @@ unless Server.all.empty?
       Server.truncate_databases
       @post = nil
       Server[0].in_scope do
-        Factory.create(:user_with_aspect, :username => "poster")
+        Factory(:user_with_aspect, :username => "poster")
       end
 
       Server[1].in_scope do
-        recipient = Factory.create(:user_with_aspect, :username => "recipient")
+        recipient = Factory(:user_with_aspect, :username => "recipient")
         recipients_aspect = recipient.aspects.where(:name => "generic").first
         person = Webfinger.new("poster@localhost:#{Server[0].port}").fetch
         person.save!

@@ -7,7 +7,7 @@ describe ServiceUser do
         @user = alice
         @service = Services::Facebook.new(:access_token => "yeah")
         @user.services << @service
-        @user2 = Factory.create(:user_with_aspect)
+        @user2 = Factory(:user_with_aspect)
         @user2_fb_id = '820651'
         @user2_fb_name = 'Maxwell Salzberg'
         @user2_fb_photo_url = 'http://cdn.fn.com/pic1.jpg'
@@ -43,7 +43,7 @@ describe ServiceUser do
       @service = Services::Facebook.new(:access_token => "yeah")
       @user.services << @service
 
-      @user2 = Factory.create(:user_with_aspect)
+      @user2 = Factory(:user_with_aspect)
       @user2_fb_id = '820651'
       @user2_fb_name = 'Maxwell Salzberg'
       @user2_fb_photo_url = 'http://cdn.fn.com/pic1.jpg'

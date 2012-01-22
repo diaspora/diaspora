@@ -15,8 +15,8 @@ unless Server.all.empty?
       Server.truncate_databases
       @original_post = nil
       Server[0].in_scope do
-        original_poster = Factory.create(:user_with_aspect, :username => "original_poster")
-        resharer = Factory.create(:user_with_aspect, :username => "resharer")
+        original_poster = Factory(:user_with_aspect, :username => "original_poster")
+        resharer = Factory(:user_with_aspect, :username => "resharer")
 
         connect_users_with_aspects(original_poster, resharer)
 
@@ -27,7 +27,7 @@ unless Server.all.empty?
       end
 
       Server[1].in_scope do
-        recipient = Factory.create(:user_with_aspect, :username => "recipient")
+        recipient = Factory(:user_with_aspect, :username => "recipient")
       end
 
       Server[0].in_scope do

@@ -17,7 +17,7 @@ src_files:
   - public/javascripts/vendor/bootstrap/bootstrap-twipsy.js
   - public/javascripts/vendor/jquery.tipsy.js
   - public/javascripts/vendor/jquery.infinitescroll.min.js
-  - public/javascripts/vendor/jquery.autoresize.min.js
+  - public/javascripts/vendor/jquery.autoresize.js
   - public/javascripts/vendor/jquery.expander.js
   - public/javascripts/vendor/jquery.charcount.js
   - public/javascripts/vendor/timeago.js

@@ -70,7 +70,7 @@ describe 'a user receives a post' do
     end
 
     it 'notifies local users who are mentioned' do
-      @remote_person = Factory.create(:person, :diaspora_handle => "foobar@foobar.com")
+      @remote_person = Factory(:person, :diaspora_handle => "foobar@foobar.com")
       Contact.create!(:user => alice, :person => @remote_person, :aspects => [@alices_aspect])
 
       Notification.should_receive(:notify).with(alice, anything(), @remote_person)
@@ -154,7 +154,7 @@ describe 'a user receives a post' do
         @person = Factory(:person)
         alice.contacts.create(:person => @person, :aspects => [@alices_aspect])
 
-        @post = Factory.create(:status_message, :author => @person)
+        @post = Factory(:status_message, :author => @person)
         @post.share_visibilities.should be_empty
         receive_with_zord(alice, @person, @post.to_diaspora_xml)
         @contact = alice.contact_for(@person)

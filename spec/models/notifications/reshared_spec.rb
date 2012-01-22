@@ -6,9 +6,9 @@ require 'spec_helper'
 
 describe Notifications::Reshared do
   before do
-    @sm = Factory.create(:status_message, :author => alice.person, :public => true)
-    @reshare1 = Factory.create(:reshare, :root => @sm)
-    @reshare2 = Factory.create(:reshare, :root => @sm)
+    @sm = Factory(:status_message, :author => alice.person, :public => true)
+    @reshare1 = Factory(:reshare, :root => @sm)
+    @reshare2 = Factory(:reshare, :root => @sm)
   end
 
   describe 'Notification.notify' do
