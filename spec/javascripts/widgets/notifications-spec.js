@@ -3,13 +3,46 @@
  *   the COPYRIGHT file.
  */
 describe("Diaspora.Widgets.Notifications", function() {
-  var changeNotificationCountSpy, notifications;
+  var changeNotificationCountSpy, notifications, incrementCountSpy, decrementCountSpy;
 
   beforeEach(function() {
     spec.loadFixture("aspects_index");
-    notifications = Diaspora.BaseWidget.instantiate("Notifications", $("#notifications"), $("#notification_badge .badge_count"));
+    this.view = new app.views.Header().render();
+
+    notifications = Diaspora.BaseWidget.instantiate("Notifications", this.view.$("#notification_badge .badge_count"), this.view.$(".notifications"));
 
     changeNotificationCountSpy = spyOn(notifications, "changeNotificationCount").andCallThrough();
+    incrementCountSpy = spyOn(notifications, "incrementCount").andCallThrough();
+    decrementCountSpy = spyOn(notifications, "decrementCount").andCallThrough();
+  });
+
+  describe("clickSuccess", function(){
+    it("changes the css to a read cell", function() {
+      this.view.$(".notifications").html(
+        '<div id="1" class="stream_element read" data-guid=1></div>' +
+        '<div id="2" class="stream_element unread" data-guid=2></div>'
+      );
+      notifications.clickSuccess({guid:2,unread:false});
+      expect( this.view.$('.stream_element#2')).toHaveClass("read");
+    });
+    it("changes the css to an unread cell", function() {
+      this.view.$(".notifications").html(
+        '<div id="1" class="stream_element read" data-guid=1></div>' +
+        '<div id="2" class="stream_element unread" data-guid=2></div>'
+      );
+      notifications.clickSuccess({guid:1,unread:true});
+      expect( this.view.$('.stream_element#1')).toHaveClass("unread");
+    });
+
+
+    it("calls Notifications.decrementCount on a read cell", function() {
+      notifications.clickSuccess(JSON.stringify({guid:1,unread:false}));
+      expect(notifications.decrementCount).toHaveBeenCalled();
+    });
+    it("calls Notifications.incrementCount on a unread cell", function() {
+      notifications.clickSuccess({guid:1,unread:true});
+      expect(notifications.incrementCount).toHaveBeenCalled();
+    });
   });
 
   describe("decrementCount", function() {
@@ -40,13 +73,13 @@ describe("Diaspora.Widgets.Notifications", function() {
 
   describe("showNotification", function() {
     it("prepends a div to div#notifications", function() {
-      expect($("#notifications div").length).toEqual(0);
+      expect(this.view.$(".notifications div").length).toEqual(1);
 
       notifications.showNotification({
-        html: '<div class="notification"></div>'
+        html: '<div class="notification_element"></div>'
       });
 
-      expect($("#notifications div").length).toEqual(1);
+      expect(this.view.$(".notifications div").length).toEqual(2);
     });
 
     it("only increments the notification count if specified to do so", function() {

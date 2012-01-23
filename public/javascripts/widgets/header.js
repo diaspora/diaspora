@@ -4,8 +4,8 @@
 
     this.subscribe("widget/ready", function(evt, header) {
       self.notifications = self.instantiate("Notifications",
-        header.find("#notifications"),
-        header.find("#notification_badge .badge_count")
+        header.find("#notification_badge .badge_count"),
+        header.find("#notification_dropdown")
       );
 
       self.notificationsDropdown = self.instantiate("NotificationsDropdown",

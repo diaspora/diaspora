@@ -2,28 +2,30 @@
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
-class NotificationsController < VannaController
+class NotificationsController < ApplicationController
   include NotificationsHelper
 
-  include ActionController::MobileFu
-  has_mobile_fu
-
-  def update(opts=params)
-    note = Notification.where(:recipient_id => current_user.id, :id => opts[:id]).first
+  def update
+    note = Notification.where(:recipient_id => current_user.id, :id => params[:id]).first
     if note
-      note.update_attributes(:unread => false)
-      {}
+      note.set_read_state(params[:set_unread] != "true" )
+
+      respond_to do |format|
+        format.json { render :json => { :guid => note.id, :unread => note.unread } }
+      end
+
     else
-      Response.new :status => 404
+      respond_to do |format|
+        format.json { render :json => {}.to_json }
+      end
     end
   end
 
-  def index(opts=params)
-    @aspect = :notification
+  def index
     conditions = {:recipient_id => current_user.id}
-    page = opts[:page] || 1
-    per_page = opts[:per_page] || 25
-    notifications = WillPaginate::Collection.create(page, per_page, Notification.where(conditions).count ) do |pager|
+    page = params[:page] || 1
+    per_page = params[:per_page] || 25
+    @notifications = WillPaginate::Collection.create(page, per_page, Notification.where(conditions).count ) do |pager|
       result = Notification.find(:all,
                                  :conditions => conditions,
                                  :order => 'created_at desc',
@@ -34,27 +36,26 @@ class NotificationsController < VannaController
 
       pager.replace(result)
     end
-    notifications.each do |n|
-      n[:actors] = n.actors
-      n[:translation] = notification_message_for(n)
-      n[:translation_key] = n.popup_translation_key
-      n[:target] = n.translation_key == "notifications.mentioned" ? n.target.post : n.target
+    @notifications.each do |n|
+      n[:note_html] = render_to_string( :partial => 'notify_popup_item', :locals => { :n => n } )
     end
-    group_days = notifications.group_by{|note| I18n.l(note.created_at, :format => I18n.t('date.formats.fullmonth_day')) }
-    {:group_days => group_days, :notifications => notifications}
+    @group_days = @notifications.group_by{|note| I18n.l(note.created_at, :format => I18n.t('date.formats.fullmonth_day')) }
+
+    respond_to do |format|
+      format.html
+      format.xml { render :xml => @notifications.to_xml }
+      format.json { render :json => @notifications.to_json }
+    end
+
   end
 
-  def read_all(opts=params)
+  def read_all
     Notification.where(:recipient_id => current_user.id).update_all(:unread => false)
-  end
-
-  post_process :html do
-    def post_read_all(json)
-      Response.new(:status => 302, :location => multi_stream_path)
+    respond_to do |format|
+      format.html { redirect_to notifications_path }
+      format.xml { render :xml => {}.to_xml }
+      format.json { render :json => {}.to_json }
     end
   end
 
-  def controller
-    Object.new
-  end
 end
