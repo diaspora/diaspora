@@ -298,6 +298,7 @@ GEM
     rack-mount (0.6.14)
       rack (>= 1.0.0)
     rack-piwik (0.1.2)
+    rack-rewrite (1.2.1)
     rack-ssl (1.3.2)
       rack
     rack-test (0.5.7)
@@ -487,6 +488,7 @@ DEPENDENCIES
   pg
   rack-google-analytics
   rack-piwik
+  rack-rewrite (~> 1.2.1)
   rack-ssl
   rails (= 3.0.11)
   rails-i18n
