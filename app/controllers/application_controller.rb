@@ -24,6 +24,13 @@ class ApplicationController < ActionController::Base
                 :tags,
                 :open_publisher
 
+  def set_header_data
+    if user_signed_in? && request.format.html? && !params[:only_posts]
+      @notification_count = Notification.for(current_user, :unread =>true).count
+      @unread_message_count = ConversationVisibility.sum(:unread, :conditions => "person_id = #{current_user.person.id}")
+    end
+  end
+
   def ensure_http_referer_is_set
     request.env['HTTP_REFERER'] ||= '/aspects'
   end

@@ -4,13 +4,6 @@
 
 module ApplicationHelper
 
-  def set_header_data
-    if user_signed_in? && request.format.html? && !params[:only_posts]
-      @notification_count = Notification.for(current_user, :unread =>true).count
-      @unread_message_count = ConversationVisibility.sum(:unread, :conditions => "person_id = #{current_user.person.id}")
-    end
-  end
-
   def how_long_ago(obj)
     timeago(obj.created_at)
   end
