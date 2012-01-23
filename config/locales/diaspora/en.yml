@@ -184,11 +184,7 @@ en:
         tag_bug: "bug"
         feature_suggestion: "... have a %{link} suggestion?"
         tag_feature: "feature"
-
         tutorials_wiki_and_forum: "%{tutorial} & %{wiki} & %{forum}: Community-powered tutorials, how-to, and news"
-
-
-        satisfaction: "%{link}: Community-powered support"
         email_feedback: "%{link} your feedback, if you prefer"
       cubbies:
         heading: "Connect to Cubbi.es"
