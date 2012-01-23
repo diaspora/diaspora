@@ -41,6 +41,7 @@ doc/
 public/uploads/*
 public/assets/*
 public/source.tar*
+public/.well-known
 tmp/**/*
 tmp/*
 *.sqlite3
