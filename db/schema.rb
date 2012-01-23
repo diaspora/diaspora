@@ -95,7 +95,7 @@ ActiveRecord::Schema.define(:version => 20120114191018) do
     t.datetime "updated_at"
   end
 
-  add_index "conversation_visibilities", ["conversation_id", "person_id"], :name => "index_conversation_visibilities_on_conversation_id_and_person_id", :unique => true
+  add_index "conversation_visibilities", ["conversation_id", "person_id"], :name => "index_conversation_visibilities_usefully", :unique => true
   add_index "conversation_visibilities", ["conversation_id"], :name => "index_conversation_visibilities_on_conversation_id"
   add_index "conversation_visibilities", ["person_id"], :name => "index_conversation_visibilities_on_person_id"
 
@@ -309,9 +309,9 @@ ActiveRecord::Schema.define(:version => 20120114191018) do
     t.string   "provider_display_name"
     t.string   "actor_url"
     t.string   "objectId"
+    t.string   "root_guid",             :limit => 30
     t.string   "status_message_guid"
     t.integer  "likes_count",                         :default => 0
-    t.string   "root_guid",             :limit => 30
     t.integer  "comments_count",                      :default => 0
     t.integer  "o_embed_cache_id"
     t.integer  "reshares_count",                      :default => 0
@@ -457,9 +457,9 @@ ActiveRecord::Schema.define(:version => 20120114191018) do
     t.integer  "invited_by_id"
     t.string   "invited_by_type"
     t.string   "authentication_token",               :limit => 30
-    t.datetime "locked_at"
     t.string   "unconfirmed_email"
     t.string   "confirm_email_token",                :limit => 30
+    t.datetime "locked_at"
     t.boolean  "show_community_spotlight_in_stream",                :default => true,  :null => false
     t.boolean  "auto_follow_back",                                  :default => false
     t.integer  "auto_follow_back_aspect_id"
