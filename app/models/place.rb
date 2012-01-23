@@ -8,6 +8,7 @@ class Place < ActiveRecord::Base
   accepts_nested_attributes_for :description
 
   validates_presence_of :description
+  validates :diaspora_handle, :uniqueness => true
 
   before_save :auto_diaspora_handle
 
