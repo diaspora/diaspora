@@ -20,7 +20,7 @@ class Place < ActiveRecord::Base
   end
 
   def auto_diaspora_handle
-    self.diaspora_handle ||= description.title_sanitized
+    self.diaspora_handle ||= "#{description.title_sanitized}#{User.diaspora_id_host}"
   end
 
 end
