@@ -3,3 +3,9 @@
   - template_name = File.basename(template, ".jst").gsub("_","-")
   %script{:id => "#{template_name}-template", :type => 'text/template'}
     != File.read(templates_dir.join(template))
+
+- #don't tell my mom I did this, okay?
+- Dir[templates_dir.to_s + "/*.handlebars"].each do |template|
+  - template_name = File.basename(template, ".handlebars").gsub("_","-")
+  %script{:id => "#{template_name}-template", :type => 'text/template'}
+    != File.read(templates_dir.join(template))

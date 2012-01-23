@@ -1,4 +1,5 @@
 app.views.Post = app.views.StreamObject.extend({
+  legacyTemplate : true,
 
   template_name: "#stream-element-template",
 
@@ -28,9 +29,12 @@ app.views.Post = app.views.StreamObject.extend({
 
     //subviews
     this.commentStreamView = new app.views.CommentStream({ model : this.model});
-    this.likesInfoView = new app.views.LikesInfo({ model : this.model});
 
     return this;
+  },
+
+  likesInfoView : function(){
+    return new app.views.LikesInfo({ model : this.model});
   },
 
   feedbackView : function(){

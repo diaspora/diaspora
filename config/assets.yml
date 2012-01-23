@@ -9,6 +9,7 @@ javascripts:
   main:
     - public/javascripts/vendor/underscore.js
     - public/javascripts/vendor/backbone.js
+    - public/javascripts/vendor/handlebars-1.0.0.beta.6.js
     - public/javascripts/vendor/markdown/*
     - public/javascripts/app/app.js
     - public/javascripts/app/helpers/*
