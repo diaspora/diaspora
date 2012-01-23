@@ -91,7 +91,7 @@ gem 'acts-as-taggable-on', :git => 'git://github.com/diaspora/acts-as-taggable-o
 # URIs and HTTP
 
 gem 'addressable', '2.2.4', :require => 'addressable/uri'
-gem 'http_accept_language', :git => 'git://github.com/iain/http_accept_language.git', :ref => '0b78aa7849fc90cf9e12'
+gem 'http_accept_language', '~> 1.0.2'
 gem 'typhoeus'
 
 # views

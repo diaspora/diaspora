@@ -31,13 +31,6 @@ GIT
       oauth2 (= 0.5.0)
       sinatra
 
-GIT
-  remote: git://github.com/iain/http_accept_language.git
-  revision: 0b78aa7849fc90cf9e12586af162fa4c408a795d
-  ref: 0b78aa7849fc90cf9e12
-  specs:
-    http_accept_language (1.0.1)
-
 GEM
   remote: http://rubygems.org/
   specs:
@@ -194,6 +187,7 @@ GEM
       heroku (>= 2)
       rails (>= 2)
     highline (1.6.9)
+    http_accept_language (1.0.2)
     i18n (0.5.0)
     i18n-inflector (2.6.3)
       i18n (>= 0.4.1)
@@ -443,7 +437,7 @@ DEPENDENCIES
   haml
   heroku
   heroku_san
-  http_accept_language!
+  http_accept_language (~> 1.0.2)
   i18n-inflector-rails (~> 1.0)
   jammit (= 0.6.5)
   jasmine (~> 1.1.2)

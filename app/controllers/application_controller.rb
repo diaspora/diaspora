@@ -76,7 +76,9 @@ class ApplicationController < ActionController::Base
     if user_signed_in?
       I18n.locale = current_user.language
     else
-      I18n.locale = request.compatible_language_from AVAILABLE_LANGUAGE_CODES
+      locale = request.preferred_language_from AVAILABLE_LANGUAGE_CODES
+      locale ||= request.compatible_language_from AVAILABLE_LANGUAGE_CODES
+      I18n.locale = locale
     end
   end
 
