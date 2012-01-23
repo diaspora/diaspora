@@ -1,5 +1,4 @@
 app.views.Content = app.views.StreamObject.extend({
-  legacyTemplate : true,
   presenter : function(){
     var model = this.model
     return _.extend(this.defaultPresenter(), {

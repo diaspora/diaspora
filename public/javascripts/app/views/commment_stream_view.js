@@ -1,6 +1,5 @@
 app.views.CommentStream = app.views.Base.extend({
 
-  legacyTemplate : true,
   template_name: "#comment-stream-template",
 
   className : "comment_stream",

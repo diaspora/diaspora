@@ -1,12 +1,11 @@
 app.views.LikesInfo = app.views.StreamObject.extend({
 
-  legacyTemplate : true,
   template_name : "#likes-info-template",
 
   className : "likes_container",
 
   events : {
-    "click .expand_likes" : "showAvatars"
+  	"click .expand_likes" : "showAvatars"
   },
 
   tooltipSelector : ".avatar",
@@ -16,12 +15,12 @@ app.views.LikesInfo = app.views.StreamObject.extend({
   },
 
   showAvatars : function(evt){
-    if(evt) { evt.preventDefault() }
-    var self = this;
-    this.model.likes.fetch()
-      .done(function(resp){
+  	if(evt) { evt.preventDefault() }
+  	var self = this;
+  	this.model.likes.fetch()
+		.done(function(resp){
       // set like attribute and like collection
       self.model.set({likes : self.model.likes.reset(resp)})
-    })
-  }
+		})
+	}
 });
