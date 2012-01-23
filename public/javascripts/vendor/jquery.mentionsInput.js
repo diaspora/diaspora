@@ -64,7 +64,7 @@
     var elmInputBox, elmInputWrapper, elmAutocompleteList, elmWrapperBox, elmMentionsOverlay, elmActiveAutoCompleteItem;
     var mentionsCollection = [];
     var inputBuffer = [];
-    var currentDataQuery;
+    var currentDataQuery = '';
 
     function initTextarea() {
       elmInputBox = $(input);
@@ -329,6 +329,10 @@
         initTextarea();
         initAutocomplete();
         initMentionsOverlay();
+
+        if(options.prefillMention) {
+          addMention(options.prefillMention);
+        }
       },
 
       val : function (callback) {
