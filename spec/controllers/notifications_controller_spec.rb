@@ -14,10 +14,24 @@ describe NotificationsController do
   end
 
   describe '#update' do
-    it 'marks a notification as read' do
-      note = Factory(:notification, :recipient => @user)
-      @controller.update :id => note.id
-      Notification.first.unread.should == false
+    it 'marks a notification as read if it gets no other information' do
+      note = mock_model( Notification )
+      Notification.should_receive( :where ).and_return( [note] )
+      note.should_receive( :set_read_state ).with( true )
+      get :update, "id" => note.id
+    end
+    it 'marks a notification as read if it is told to' do
+      note = mock_model( Notification )
+      Notification.should_receive( :where ).and_return( [note] )
+      note.should_receive( :set_read_state ).with( true )
+      get :update, "id" => note.id, :set_unread => "false"
+    end
+
+    it 'marks a notification as unread if it is told to' do
+      note = mock_model( Notification )
+      Notification.should_receive( :where ).and_return( [note] )
+      note.should_receive( :set_read_state ).with( false )
+      get :update, "id" => note.id, :set_unread => "true"
     end
 
     it 'only lets you read your own notifications' do
@@ -26,7 +40,7 @@ describe NotificationsController do
       Factory(:notification, :recipient => @user)
       note = Factory(:notification, :recipient => user2)
 
-      @controller.update :id => note.id
+      get :update, "id" => note.id, :set_unread => "false"
 
       Notification.find(note.id).unread.should == true
     end
@@ -39,7 +53,7 @@ describe NotificationsController do
       Factory(:notification, :recipient => @user)
 
       Notification.where(:unread => true).count.should == 2
-      @controller.read_all({})
+      get :read_all
       Notification.where(:unread => true).count.should == 0
     end
   end
@@ -52,26 +66,16 @@ describe NotificationsController do
 
     it 'paginates the notifications' do
       25.times { Factory(:notification, :recipient => @user, :target => @post) }
-
-      @controller.index({})[:notifications].count.should == 25
-      @controller.index(:page => 2)[:notifications].count.should == 1
-    end
-
-    it "includes the actors" do
-      Factory(:notification, :recipient => @user, :target => @post)
-      response = @controller.index({})
-      response[:notifications].first[:actors].first.should be_a(Person)
-    end
-
-    it 'eager loads the target' do
-      response = @controller.index({})
-      response[:notifications].each { |note| note[:target].should be }
+      get :index
+      assigns[:notifications].count.should == 25
+      get :index, "page" => 2
+      assigns[:notifications].count.should == 1
     end
 
     it "supports a limit per_page parameter" do
       5.times { Factory(:notification, :recipient => @user, :target => @post) }
-      response = @controller.index({:per_page => 5})
-      response[:notifications].length.should == 5
+      get :index, "per_page" => 5
+      assigns[:notifications].count.should == 5 
     end
   end
 end

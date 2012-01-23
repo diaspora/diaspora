@@ -1,11 +1,5 @@
 module NotificationsHelper
-  include ERB::Util
-  include ActionView::Helpers::TranslationHelper
-  include ActionView::Helpers::UrlHelper
   include PeopleHelper
-  include UsersHelper
-  include ApplicationHelper
-  include LanguageHelper
 
   def object_link(note, actors)
     target_type = note.popup_translation_key

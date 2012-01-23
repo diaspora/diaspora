@@ -37,6 +37,9 @@ class Notification < ActiveRecord::Base
     self.recipient.mail(self.mail_job, self.recipient_id, actor.id, target.id)
   end
 
+  def set_read_state( read_state )
+    self.update_attributes( :unread => !read_state )
+  end
 
   def mail_job
     raise NotImplementedError.new('Subclass this.')
