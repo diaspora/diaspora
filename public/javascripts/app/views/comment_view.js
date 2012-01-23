@@ -10,14 +10,11 @@ app.views.Comment = app.views.Content.extend({
     "click .comment_delete": "destroyModel"
   },
 
-  initialize : function() {
-    $(this.el).attr("id", this.model.get("guid"));
-
-    return this;
-  },
-
   presenter : function() {
-    return _.extend(this.defaultPresenter(), {ownComment: this.ownComment()})
+    return _.extend(this.defaultPresenter(), {
+      ownComment: this.ownComment(),
+      text : app.helpers.textFormatter(this.model)
+    })
   },
 
   ownComment: function() {
