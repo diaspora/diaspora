@@ -32,4 +32,9 @@ var app = {
   }
 };
 
-$(function() { app.initialize(); });
+$(function() { 
+  Handlebars.registerHelper('t', function(){
+    return Diaspora.I18n.t(arguments[0], jQuery.parseJSON(arguments[1]))
+  })
+  app.initialize();
+});
