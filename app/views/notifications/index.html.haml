@@ -1,34 +1,37 @@
--self.extend AspectGlobalHelper
--self.extend AspectsHelper
--self.extend ApplicationHelper
--self.extend ErrorMessagesHelper
-.span-13
-  %h2
-    %span.notification_count{:class => ('unread' if @notification_count > 0)}
-      = @notification_count
-    = t('.notifications')
-.span-8.last
-  = link_to t('.mark_all_as_read'), read_all_notifications_path, :class => 'button'
+#notifications_content
+  .span-13
+    %h2
+      %span.notification_count{:class => ('unread' if notification_count > 0)}
+        = notification_count
+      = t('.notifications')
+  .span-8.last
+    = link_to t('.mark_all_as_read'), notifications_read_all_path, :class => 'button'
+  .span-24.last
+    .stream.notifications
+      - @group_days.each do |day, notes|
+        .day_group.span-24.last
+          .span-3
+            .date
+              .day= the_day(day.split(' '))
+              .month= the_month(day.split(' '))
 
-.span-24.last
-  .stream.notifications
-    - group_days.each do |day, notes|
-      .day_group.span-24.last
-        .span-3
-          .date
-            .day= the_day(day.split(' '))
-            .month= the_month(day.split(' '))
+          .span-8.notifications_for_day
+            - notes.each do |note|
+              .stream_element{:data=>{:guid => note.id}, :class => "#{note.unread ? 'unread' : 'read'}"}
+                - if note.type == "Notifications::StartedSharing" && contact = current_user.contact_for(note[:target])
+                  .right
+                    = aspect_membership_dropdown(contact, note[:target], 'left')
 
-        .span-8.notifications_for_day
-          - notes.each do |note|
-            .stream_element{:data=>{:guid => note.id}, :class => "#{note.unread ? 'unread' : ''}"}
-              - if note.type == "Notifications::StartedSharing" && contact = current_user.contact_for(note[:target])
-                .right
-                  = aspect_membership_dropdown(contact, note[:target], 'left')
+                %span.from
+                  = notification_message_for(note)
+                %br
+                %time= timeago(note.created_at)
+                %a{:class => 'unread-setter'}
+                  mark unread
+          .span-13.last
+      = will_paginate @notifications
 
-              %span.from
-                = notification_message_for(note)
-              %br
-              %time= timeago(note.created_at)
-        .span-13.last
-    = will_paginate notifications
+:javascript
+  $(document).ready(function(){
+    Diaspora.page.header.notifications.setUpNotificationPage( $("#notifications_content" ) );
+  });

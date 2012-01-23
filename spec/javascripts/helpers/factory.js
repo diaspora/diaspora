@@ -26,6 +26,7 @@ factory = {
       var defaultAttrs = {
         "name":"Awesome User" + id,
         "id": id,
+        "diaspora_id": "bob@bob.com",
         "avatar":{
           "large":"http://localhost:3000/images/user/uma.jpg",
           "medium":"http://localhost:3000/images/user/uma.jpg",
@@ -57,6 +58,18 @@ factory = {
     }
 
     return new app.models.Post(_.extend(defaultAttrs, overrides))
+  },
+
+  comment: function(overrides) {
+    var defaultAttrs = {
+      "text" : "This is an awesome comment!",
+      "created_at" : "2012-01-03T19:53:13Z",
+      "author" : this.author(),
+      "guid" : this.guid(),
+      "id": this.id.next()
+    }
+
+    return new app.models.Comment(_.extend(defaultAttrs, overrides))
   }
 }
 

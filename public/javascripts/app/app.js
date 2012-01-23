@@ -5,9 +5,8 @@ var app = {
   views: {},
 
   user: function(user) {
-    if(user) { return this._user = user; }
-
-    return this._user || {current_user : false};
+    if(user) { return this._user = user }
+    return this._user
   },
 
   initialize: function() {
@@ -32,4 +31,9 @@ var app = {
   }
 };
 
-$(function() { app.initialize(); });
+$(function() { 
+  Handlebars.registerHelper('t', function(){
+    return Diaspora.I18n.t(arguments[0], jQuery.parseJSON(arguments[1]))
+  })
+  app.initialize();
+});

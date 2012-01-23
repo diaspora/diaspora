@@ -4,7 +4,6 @@
 
 if AppConfig[:airbrake_api_key].present?
   require 'airbrake'
-  puts "in airbrake"
   Airbrake.configure do |config|
     config.api_key = AppConfig[:airbrake_api_key]
   end

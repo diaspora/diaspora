@@ -7,7 +7,11 @@ describe("app.views.Header", function() {
     spec.loadFixture("aspects_index");
     this.view = new app.views.Header().render();
   });
-describe("render", function(){ context("notifications badge", function(){ it("displays a count when the current user has a notification", function(){ loginAs(_.extend(this.userAttrs, {notifications_count : 1}))
+
+  describe("render", function(){
+    context("notifications badge", function(){
+      it("displays a count when the current user has a notification", function(){
+        loginAs(_.extend(this.userAttrs, {notifications_count : 1}))
         this.view.render();
         expect(this.view.$("#notification_badge .badge_count").hasClass('hidden')).toBe(false);
         expect(this.view.$("#notification_badge .badge_count").text()).toContain("1");

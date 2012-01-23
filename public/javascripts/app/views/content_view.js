@@ -14,14 +14,17 @@ app.views.Content = app.views.StreamObject.extend({
 })
 
 app.views.StatusMessage = app.views.Content.extend({
+  legacyTemplate : true,
   template_name : "#status-message-template"
 });
 
 app.views.Reshare = app.views.Content.extend({
+  legacyTemplate : true,
   template_name : "#reshare-template"
 });
 
 app.views.ActivityStreams__Photo = app.views.Content.extend({
-  template_name : "#activity-streams-photo-template"
+  legacyTemplate : false,
+  templateName : "activity-streams-photo"
 });
 

@@ -1,4 +1,5 @@
 app.views.Feedback = app.views.StreamObject.extend({
+  legacyTemplate : true,
   template_name: "#feedback-template",
 
   className : "info",

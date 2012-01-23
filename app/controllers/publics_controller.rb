@@ -9,7 +9,11 @@ class PublicsController < ApplicationController
   require File.join(Rails.root, '/lib/postzord/receiver/private')
   include Diaspora::Parser
 
-  newrelic_ignore if EnviromentConfiguration.using_new_relic?
+  # We use newrelic_ignore to prevent artifical RPM bloat; however,
+  # I am commenting this line out for the time being to debug some apparent
+  # issues on Heroku.
+  # 
+  # newrelic_ignore if EnviromentConfiguration.using_new_relic?
 
   skip_before_filter :set_header_data
   skip_before_filter :which_action_and_user

@@ -1,7 +1,7 @@
 describe("app.views.Base", function(){
   describe("#render", function(){
     beforeEach(function(){
-      var staticTemplateClass = app.views.Base.extend({ template_name : "#static-text-template" })
+      var staticTemplateClass = app.views.Base.extend({ templateName : "static-text" })
 
       this.model = new Backbone.Model({text : "model attributes are in the default presenter"})
       this.view = new staticTemplateClass({model: this.model})
@@ -21,7 +21,7 @@ describe("app.views.Base", function(){
     context("subViewRendering", function(){
       beforeEach(function(){
         var viewClass =  app.views.Base.extend({
-            template_name : "#static-text-template",
+            templateName : "static-text",
             subviews : {
               ".subview1": "subview1",
               ".subview2": "createSubview2"

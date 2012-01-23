@@ -10,7 +10,7 @@ app.views.Base =  Backbone.View.extend({
 
   defaultPresenter : function(){
     var modelJson = this.model ? this.model.toJSON() : {}
-    return _.extend(modelJson, { current_user: app.user().current_user });
+    return _.extend(modelJson, {current_user: app.user()});
   },
 
   render : function() {
@@ -22,9 +22,18 @@ app.views.Base =  Backbone.View.extend({
   },
 
   renderTemplate : function(){
-    var templateHTML = $(this.template_name).html(); //don't forget to regenerate your jasmine fixtures ;-)
-    this.template = _.template(templateHTML);
+    var templateHTML //don't forget to regenerate your jasmine fixtures ;-)
     var presenter = _.isFunction(this.presenter) ? this.presenter() : this.presenter
+
+    if(this.legacyTemplate) {
+      templateHTML = $(this.template_name).html();
+      this.template = _.template(templateHTML);
+    } else {
+      window.templateCache = window.templateCache || {}
+      templateHTML = $("#" + this.templateName + "-template").html(); //don't forget to regenerate your jasmine fixtures ;-)
+      this.template = templateCache[this.templateName] = templateCache[this.templateName] || Handlebars.compile(templateHTML);
+    }
+
     $(this.el).html(this.template(presenter));
     this.postRenderTemplate();
   },

@@ -1,6 +1,6 @@
 app.views.Comment = app.views.Content.extend({
 
-  template_name: "#comment-template",
+  templateName: "comment",
 
   tagName : "li",
 
@@ -10,9 +10,15 @@ app.views.Comment = app.views.Content.extend({
     "click .comment_delete": "destroyModel"
   },
 
-  initialize : function() {
-    $(this.el).attr("id", this.model.get("guid"));
+  presenter : function() {
+    return _.extend(this.defaultPresenter(), {
+      ownComment: this.ownComment(),
+      text : app.helpers.textFormatter(this.model)
+    })
+  },
 
-    return this;
+  ownComment: function() {
+    if(!app.user()){ return false }
+    return this.model.get("author").diaspora_id == app.user().diaspora_id
   }
 });
