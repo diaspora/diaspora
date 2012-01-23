@@ -38,7 +38,7 @@ app.views.Post = app.views.StreamObject.extend({
   },
 
   feedbackView : function(){
-    if(!window.app.user().current_user ) { return null }
+    if(!window.app.user()) { return null }
     return new  app.views.Feedback({model : this.model});
   },
 
