@@ -7,27 +7,21 @@ class ApplicationController < ActionController::Base
   protect_from_forgery :except => :receive
 
   before_filter :ensure_http_referer_is_set
-  before_filter :set_header_data, :except => [:create, :update, :destroy]
   before_filter :set_locale
   before_filter :set_git_header if (AppConfig[:git_update] && AppConfig[:git_revision])
   before_filter :set_grammatical_gender
 
   inflection_method :grammatical_gender => :gender
 
-  helper_method :all_aspects,
+  helper_method :notification_count,
+                :unread_message_count,
+                :all_aspects,
                 :all_contacts_count,
                 :my_contacts_count,
                 :only_sharing_count,
                 :tag_followings,
                 :tags,
                 :open_publisher
-
-  def set_header_data
-    if user_signed_in? && request.format.html? && !params[:only_posts]
-      @notification_count = Notification.for(current_user, :unread =>true).count
-      @unread_message_count = ConversationVisibility.sum(:unread, :conditions => "person_id = #{current_user.person.id}")
-    end
-  end
 
   def ensure_http_referer_is_set
     request.env['HTTP_REFERER'] ||= '/aspects'
@@ -45,6 +39,14 @@ class ApplicationController < ActionController::Base
   end
 
   ##helpers
+  def notification_count
+    @notification_count ||= Notification.for(current_user, :unread =>true).size
+  end
+
+  def unread_message_count
+    @unread_message_count ||= ConversationVisibility.sum(:unread, :conditions => "person_id = #{current_user.person.id}")
+  end 
+
   def all_aspects
     @all_aspects ||= current_user.aspects
   end
