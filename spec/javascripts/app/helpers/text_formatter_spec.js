@@ -101,7 +101,7 @@ describe("app.helpers.textFormatter", function(){
         var wrapper = $("<div>").html(formattedText);
 
         _.each([this.alice, this.bob], function(person) {
-          expect(wrapper.find("a[href='/people/" + person.id + "']").text()).toContain(person.name)
+          expect(wrapper.find("a[href='/people/" + person.guid + "']").text()).toContain(person.name)
         })
       });
 

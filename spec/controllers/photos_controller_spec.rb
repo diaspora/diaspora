@@ -189,7 +189,7 @@ describe PhotosController do
 
     it "redirects when the user does not own the photo" do
       get :edit, :id => @bobs_photo.id
-      response.should redirect_to(:action => :index, :person_id => alice.person.id.to_s)
+      response.should redirect_to(:action => :index, :person_id => alice.person.guid.to_s)
     end
   end
 
@@ -239,7 +239,7 @@ describe PhotosController do
     it 'redirects if you do not have access to the post' do
       params = { :text => "now with lasers!" }
       put :update, :id => @bobs_photo.id, :photo => params
-      response.should redirect_to(:action => :index, :person_id => alice.person.id.to_s)
+      response.should redirect_to(:action => :index, :person_id => alice.person.guid.to_s)
     end
   end
 
