@@ -1,7 +1,6 @@
 app.views.Comment = app.views.Content.extend({
 
-  legacyTemplate : true,
-  template_name: "#comment-template",
+  templateName: "comment",
 
   tagName : "li",
 
