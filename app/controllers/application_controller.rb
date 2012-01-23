@@ -4,8 +4,6 @@
 
 class ApplicationController < ActionController::Base
   has_mobile_fu
-  include ApplicationHelper
-
   protect_from_forgery :except => :receive
 
   before_filter :ensure_http_referer_is_set
