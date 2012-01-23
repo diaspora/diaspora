@@ -12,6 +12,10 @@ class Place < ActiveRecord::Base
 
   before_save :auto_diaspora_handle
 
+  has_one :place_mention
+  has_many :posts, :through=> :place_mention
+
+
   #attr_accessible 
 
   def initialize(attributes={})
