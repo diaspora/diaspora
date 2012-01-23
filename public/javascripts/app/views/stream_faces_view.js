@@ -1,6 +1,5 @@
 app.views.StreamFaces = app.views.Base.extend({
-
-  template_name : "#stream-faces-template",
+  templateName : "stream-faces",
 
   className : "stream-faces",
 
