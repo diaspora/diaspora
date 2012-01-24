@@ -1,7 +1,10 @@
 var Mentions = {
   initialize: function(mentionsInput) {
     mentionsInput.mentionsInput(Mentions.options);
+    Mentions.fetchContacts();
+  },
 
+  fetchContacts : function(){
     $.getJSON($(".selected_contacts_link").attr("href"), function(data) {
       Mentions.contacts = data;
     });

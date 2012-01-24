@@ -5,39 +5,22 @@
 
 //TODO: make this a widget
 var Publisher = {
-
   bookmarklet : false,
 
-  cachedForm : false,
   form: function(){
-    if(!Publisher.cachedForm){
-      Publisher.cachedForm = $('#publisher');
-    }
-    return Publisher.cachedForm;
+    return Publisher.cachedForm = Publisher.cachedForm || $('#publisher');
   },
 
-  cachedInput : false,
   input: function(){
-    if(!Publisher.cachedInput){
-      Publisher.cachedInput = Publisher.form().find('#status_message_fake_text');
-    }
-    return Publisher.cachedInput;
+    return Publisher.cachedInput = Publisher.cachedInput || Publisher.form().find('#status_message_fake_text');
   },
 
-  cachedHiddenInput : false,
   hiddenInput: function(){
-    if(!Publisher.cachedHiddenInput){
-      Publisher.cachedHiddenInput = Publisher.form().find('#status_message_text');
-    }
-    return Publisher.cachedHiddenInput;
+    return Publisher.cachedHiddenInput= Publisher.cachedHiddenInput || Publisher.form().find('#status_message_text');
   },
 
-  cachedSubmit : false,
   submit: function(){
-    if(!Publisher.cachedSubmit){
-      Publisher.cachedSubmit = Publisher.form().find('#status_message_submit');
-    }
-    return Publisher.cachedSubmit;
+    return Publisher.cachedSubmit = Publisher.cachedSubmit || Publisher.form().find('#status_message_submit');
   },
 
   determineSubmitAvailability: function(){
@@ -54,7 +37,8 @@ var Publisher = {
 
   clear: function(){
     $("#photodropzone").find('li').remove();
-    Publisher.input().removeClass("with_attachments")
+    Publisher.input()
+      .removeClass("with_attachments")
       .css('paddingBottom', '')
       .mentionsInput("reset");
   },
@@ -165,16 +149,21 @@ var Publisher = {
       Publisher.toggleAspectIds(li);
     });
   },
+
   beforeSubmit: function(){
     if($("#publisher .content_creation form #aspect_ids_").length == 0){
       alert(Diaspora.I18n.t('publisher.at_least_one_aspect'));
       return false;
     }
+  },
 
+  keyUp : function(){
+    Publisher.determineSubmitAvailability()
     Publisher.input().mentionsInput("val", function(value) {
       Publisher.hiddenInput().val(value);
     });
   },
+
   onSubmit: function(data, json, xhr){
     $("#photodropzone").find('li').remove();
     Publisher.input().removeClass("with_attachments").css('paddingBottom', '');
@@ -217,8 +206,8 @@ var Publisher = {
     //Stream.setUpImageLinks();
     Stream.setUpAudioLinks();
   },
+
   bindAjax: function(){
-    //Publisher.form().bind('submit', Publisher.beforeSubmit);
     Publisher.form().bind('ajax:loading', Publisher.onSubmit);
     Publisher.form().bind('ajax:failure', Publisher.onFailure);
     Publisher.form().bind('ajax:success', Publisher.onSuccess);
@@ -277,10 +266,7 @@ var Publisher = {
     }
 
     Publisher.input().autoResize({'extraSpace' : 10});
-
-    Publisher.form().find("textarea").bind("focus", function(evt) {
-      Publisher.open();
-    });
+    Publisher.input().keyup(Publisher.keyUp)
   }
 };
 
