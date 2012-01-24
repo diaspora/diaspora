@@ -78,10 +78,7 @@ javascripts:
   people:
     - public/javascripts/aspect-edit-pane.js
     - public/javascripts/fileuploader-custom.js
-  people:
     - public/javascripts/vendor/jquery.autoSuggest.custom.js
-    - public/javascripts/vendor/jquery.autoSuggest.custom.js
-    - public/javascripts/aspect-edit-pane.js
   photos:
     - public/javascripts/photo-show.js
   inbox:
