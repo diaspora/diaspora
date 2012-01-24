@@ -150,67 +150,11 @@ var Publisher = {
     });
   },
 
-  beforeSubmit: function(){
-    if($("#publisher .content_creation form #aspect_ids_").length == 0){
-      alert(Diaspora.I18n.t('publisher.at_least_one_aspect'));
-      return false;
-    }
-  },
-
   keyUp : function(){
     Publisher.determineSubmitAvailability()
     Publisher.input().mentionsInput("val", function(value) {
       Publisher.hiddenInput().val(value);
     });
-  },
-
-  onSubmit: function(data, json, xhr){
-    $("#photodropzone").find('li').remove();
-    Publisher.input().removeClass("with_attachments").css('paddingBottom', '');
-  },
-  onFailure: function(data, json, xhr){
-    json = $.parseJSON(json.responseText);
-    if(json.errors.length !== 0){
-      Diaspora.Alert.show(json.errors);
-    }else{
-      Diaspora.Alert.show(Diaspora.I18n.t('failed_to_post_message'));
-    }
-  },
-  onSuccess: function(data, json, xhr){
-    if (Publisher.bookmarklet == false) {
-      var isPostVisible = Diaspora.page.aspectNavigation.selectedAspects().length == 0;
-      var postedTo = Publisher.selectedAspectIds();
-
-
-      if(Publisher.isPublicPost() || Publisher.isToAllAspects()){
-        isPostVisible = true;
-
-      } else {
-        $.each(Diaspora.page.aspectNavigation.selectedAspects(), function(index, value) {
-          if (postedTo.indexOf(parseInt(value)) > -1)
-            isPostVisible = true;
-        });
-      }
-
-      if(isPostVisible) {
-        Diaspora.page.stream.addPost($("#" + json.post_id));
-      }
-      else {
-        Diaspora.widgets.flashMessages.render({
-          success: true,
-          message: Diaspora.I18n.t('successfully_posted_message_to_an_aspects_that_is_not_visible')
-        });
-      }
-    }
-
-    //Stream.setUpImageLinks();
-    Stream.setUpAudioLinks();
-  },
-
-  bindAjax: function(){
-    Publisher.form().bind('ajax:loading', Publisher.onSubmit);
-    Publisher.form().bind('ajax:failure', Publisher.onFailure);
-    Publisher.form().bind('ajax:success', Publisher.onSuccess);
   },
 
   triggerGettingStarted: function(){
