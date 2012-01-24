@@ -64,7 +64,7 @@ describe Person do
 
       it 'throws active record not found exceptions if no person is found via id' do
         expect{
-          Person.find_from_guid_or_username(:id => 213123)
+          Person.find_from_guid_or_username(:id => "2d13123")
         }.to raise_error ActiveRecord::RecordNotFound
       end
 

@@ -152,7 +152,7 @@ describe PeopleController do
     end
 
     it "404s if no person is found via id" do
-      get :show, :id => 3920397846
+      get :show, :id => "3d920397846"
       response.code.should == "404"
     end
 
@@ -260,7 +260,7 @@ describe PeopleController do
       it 'throws 404 if the person is remote' do
         p = Factory(:person)
 
-        get :show, :id => p.id
+        get :show, :id => p.to_param
         response.status.should == 404
       end
     end
