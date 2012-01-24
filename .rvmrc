@@ -1,6 +1,11 @@
 #!/bin/bash
 
-root=$(dirname $(readlink -e $BASH_SOURCE))
+if [ -n "${BASH_SOURCE}" ]; then
+ root=$(dirname $(readlink -e $BASH_SOURCE))
+else
+  root="."
+fi
+
 if [ -e "${root}/.rvmrc_custom" ]; then
   source ${root}/.rvmrc_custom
 else
