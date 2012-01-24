@@ -27,12 +27,14 @@ gem 'twitter', '2.0.2'
 gem 'messagebus_ruby_api', '1.0.3'
 
 group :production do # we don't install these on travis to speed up test runs
-  # reporting
-  gem 'airbrake', :require => false
-  gem 'newrelic_rpm', :require => false
+  gem 'rack-ssl', :require => 'rack/ssl'
+end
+
+group :reporting do
+  gem 'airbrake'
+  gem 'newrelic_rpm'
   gem 'rack-google-analytics', :require => 'rack/google-analytics'
   gem 'rack-piwik', :require => 'rack/piwik'
-  gem 'rack-ssl', :require => 'rack/ssl'
 end
 
 # configuration
