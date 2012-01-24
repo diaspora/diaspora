@@ -5,6 +5,8 @@
 
 - content_for :head do
   = include_javascripts :people
+  :javascript
+    Mentions.options.prefillMention = #{@person.to_json};
 
 - content_for :page_title do
   = @person.name

@@ -11,6 +11,7 @@
 #   - dist/**/*.js
 #
 src_files:
+  - public/javascripts/vendor/underscore.js
   - public/javascripts/vendor/jquery-1.7.1.min.js
   - public/javascripts/vendor/jquery-ui-1.8.9.custom.min.js
   - public/javascripts/vendor/bootstrap/bootstrap-popover.js
@@ -20,11 +21,11 @@ src_files:
   - public/javascripts/vendor/jquery.autoresize.js
   - public/javascripts/vendor/jquery.expander.js
   - public/javascripts/vendor/jquery.charcount.js
+  - public/javascripts/vendor/jquery.mentionsInput.js
   - public/javascripts/vendor/timeago.js
   - public/javascripts/vendor/facebox.js
   - public/javascripts/vendor/markdown/*
   - public/javascripts/jquery.infieldlabel-custom.js
-  - public/javascripts/vendor/underscore.js
   - public/javascripts/vendor/backbone.js
   - public/javascripts/vendor/handlebars-1.0.0.beta.6.js
   - public/javascripts/fileuploader-custom.js
@@ -50,6 +51,7 @@ src_files:
   - public/javascripts/mobile.js
   - public/javascripts/contact-list.js
   - public/javascripts/view.js
+  - public/javascripts/mentions.js
   - public/javascripts/publisher.js
   - public/javascripts/stream.js
   - public/javascripts/validation.js
