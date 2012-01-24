@@ -5,6 +5,8 @@
 # This file is used by Rack-based servers to start the application.
 
 require ::File.expand_path('../config/environment',  __FILE__)
+require ::File.expand_path('../config/unicorn_killer',  __FILE__)
+require ::File.expand_path('../config/rack/chrome_frame',  __FILE__)
 
 # use UnicornKiller::MaxRequests, 1000
 use UnicornKiller::Oom, 400 * 1024 #kill a unicorn that has gone over 400mB
