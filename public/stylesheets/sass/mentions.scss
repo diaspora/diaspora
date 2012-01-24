@@ -16,7 +16,6 @@
     resize: none;
     width: 100%;
 
-    
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
@@ -31,7 +30,6 @@
     right: 0;
     z-index: 10000;
 
-
     ul {
       border: 1px solid #999;
       margin: 0;
@@ -40,6 +38,7 @@
       @include border-radius(0px, 0px, 5px, 5px);
 
       li {
+        color: #444;
         background: white;
         border-bottom: 1px solid #ccc;
         cursor: pointer;
@@ -50,7 +49,6 @@
         margin: 0;
         overflow: hidden;
         padding: 5px;
-        text-decoration: underline;
         white-space: nowrap;
 
         &:hover, &.active { background: #eee; }
