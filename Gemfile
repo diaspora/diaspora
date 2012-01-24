@@ -24,7 +24,7 @@ gem 'twitter', '2.0.2'
 
 # mail
 
-gem 'messagebus_ruby_api', '1.0.1'
+gem 'messagebus_ruby_api', '1.0.3'
 
 group :production do # we don't install these on travis to speed up test runs
   # reporting
