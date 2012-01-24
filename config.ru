@@ -1,4 +1,4 @@
-#   Copyright (c) 2010-2011, Diaspora Inc.  This file is
+ #   Copyright (c) 2010-2011, Diaspora Inc.  This file is
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
@@ -8,8 +8,6 @@ require ::File.expand_path('../config/environment',  __FILE__)
 require ::File.expand_path('../lib/unicorn_killer',  __FILE__)
 require ::File.expand_path('../lib/rack/chrome_frame',  __FILE__)
 
-# use UnicornKiller::MaxRequests, 1000
-use UnicornKiller::Oom, 400 * 1024 #kill a unicorn that has gone over 400mB
 
 use Rack::ChromeFrame, :minimum => 8
 run Diaspora::Application
