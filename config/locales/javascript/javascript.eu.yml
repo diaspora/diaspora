@@ -9,16 +9,16 @@ eu:
     aspect_dropdown:
       add_to_aspect: "Adiskidea gehitu"
       all_aspects: "Alderdi guztiak"
-      error: "Couldn't start sharing with {{name}}.  Are you ignoring them?"
+      error: "Ezin izan da <%= name %>(r)ekin harremanetan hasi. Isiltzen ari zara erabiltzaile hori?"
       select_aspects: "Alderdiak aukeratu"
-      started_sharing_with: "{{name}}(r)ekin harremanetan hasi zara!"
-      stopped_sharing_with: "Jada ez zaude {{name}}(r)ekin harremanetan."
+      started_sharing_with: "<%= name %>(r)ekin harremanetan hasi zara!"
+      stopped_sharing_with: "Jada ez zaude <%= name %>(r)ekin harremanetan."
       toggle:
-        few: "{{count}} alderdietan"
-        many: "{{count}} alderdietan"
-        one: "Alderdi {{count}}ean"
-        other: "{{count}} alderdietan"
-        two: "{{count}} alderditan"
+        few: "<%= count %> arlotan"
+        many: "<%= count %> arlotan"
+        one: "Arlo <%= count %>ean"
+        other: "<%= count %> arlotan"
+        two: "<%= count %> arlotan"
         zero: "Alderdial hautatu"
     aspect_navigation:
       deselect_all: "Guztiak deshautatu"
@@ -28,13 +28,27 @@ eu:
       hide: "iruzkinak ezkutatu"
       show: "iruzkin guztiak erakutsi"
     confirm_dialog: "Ziur al zaude?"
+    delete: Ezabatu
     failed_to_like: "Huts gustoko egitean!"
     failed_to_post_message: "Huts egin du mezuaren bidalketak!"
     getting_started:
       alright_ill_wait: "Beno, itxarongo dut."
-      hey: "Aizu, {{name}}!"
+      hey: "Aizu, <%= name %>!"
       no_tags: "Aizu, ez duzu etiketarik jarraitzen! Jarraitu hala ere?"
       preparing_your_stream: "Zure kronologia pertsonalizatua prestatzen..."
+    header:
+      contacts: Lagunak
+      home: Hasiera
+      log_out: Atera
+      mark_all_as_read: "Guztiak irakurri gisa markatu"
+      messages: "Mezu pribatuak"
+      notifications: Jakinarazpenak
+      profile: Profila
+      recent_notifications: "Jakinarazpen Berrienak"
+      search: "Aurkitu jendea edo #etiketak"
+      settings: Ezarpenak
+      view_all: "Guztiak ikusi"
+    ignore: Isildu
     infinite_scroll:
       no_more: "Mezu gehiagorik ez dago."
     photo_uploader:
@@ -45,32 +59,42 @@ eu:
       public: "Publikoa - zure mezua edonork ikusi ahalko du, bai eta bilaketa zerbitzuetan agertu ere"
     reshares:
       duplicate: "Oso ona, e? Dagoeneko birpartekatu duzu mezu hori!"
-    search_for: "Bilatu {{name}}"
+    search_for: "Bilatu <%= name %>"
     show_more: "erakutsi gehiago"
     stream:
+      comment: Iruzkindu
+      hide: Ezkutatu
+      like: "Gustuko dut"
       likes:
-        few: "<%= count %> Likes"
-        many: "<%= count %> Likes"
-        one: "<%= count %> Like"
-        other: "<%= count %> Likes"
-        two: "<%= count %> Likes"
-        zero: "<%= count %> Likes"
+        few: "<%= count %>(e)k gustuko dute"
+        many: "<%= count %>(e)k gustuko dute"
+        one: "<%= count %>ek gustuko du"
+        other: "<%= count %>(e)k gustuko dute"
+        two: "<%= count %>(e)k gustuko dute"
+        zero: "<%= count %>(e)k gustuko dute"
+      limited: Mugatua
       more_comments:
-        few: "Show <%= count %> more comments"
-        many: "Show <%= count %> more comments"
-        one: "Show <%= count %> more comment"
-        other: "Show <%= count %> more comments"
-        two: "Show <%= count %> more comments"
-        zero: "Show <%= count %> more comments"
+        few: "Erakutsi <%= count %> iruzkin gehiago"
+        many: "Erakutsi <%= count %> iruzkin gehiago"
+        one: "Erakutsi iruzkin <%= count %> gehiago"
+        other: "Erakutsi <%= count %> iruzkin gehiago"
+        two: "Erakutsi <%= count %> iruzkin gehiago"
+        zero: "Erakutsi <%= count %> iruzkin gehiago"
+      nsfw: "Mezu hau NSFW gisa markatu du bere egileak."
+      original_post_deleted: "Jatorrizko mezua egileak ezabatu du."
+      public: Publikoa
+      reshare: Birpartekatu
       reshares:
-        few: "<%= count %> Reshares"
-        many: "<%= count %> Reshares"
-        one: "<%= count %> Reshare"
-        other: "<%= count %> Reshares"
-        two: "<%= count %> Reshares"
-        zero: "<%= count %> Reshares"
+        few: "<%= count %> Birpartekaketa"
+        many: "<%= count %> Birpartekaketa"
+        one: "Birpartekaketa <%= count %> "
+        other: "<%= count %> Birpatekaketa"
+        two: "<%= count %> Birpatekaketa"
+        zero: "<%= count %> Birpatekaketa"
+      show: Erakutsi
+      unlike: "Ez dut gustuko"
     tags:
-      wasnt_that_interesting: "Beno, suposatzen dut #{{tagName}} ez zela oso interesgarria..."
+      wasnt_that_interesting: "Beno, suposatzen dut #<%= tagName %> ez zela oso interesgarria..."
     timeago:
       day: "egun bat"
       days: "%d egun"
@@ -88,4 +112,4 @@ eu:
       years: "%d urte"
     videos:
       unknown: "Bideo mota ezezaguna"
-      watch: "Ikusi bideo hau {{provider}}(e)n"
+      watch: "Ikusi bideo hau <%= provider %>(e)n"

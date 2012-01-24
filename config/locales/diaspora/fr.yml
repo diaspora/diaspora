@@ -108,7 +108,6 @@ fr:
         have_a_question: "... une %{link} ?"
         here_to_help: "La communauté Diaspora est là !"
         need_help: "Besoin d'aide ?"
-        satisfaction: "%{link} : Support par la communauté"
         tag_feature: suggestion
         tutorials_wiki_and_forum: "%{tutorial} & %{wiki} & %{forum}: Tutoriels créés par la communauté, astuces, et infos"
       introduce_yourself: "Ceci est votre flux. Rejoignez-nous et présentez-vous."

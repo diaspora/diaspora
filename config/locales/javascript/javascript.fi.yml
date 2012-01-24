@@ -77,7 +77,7 @@ fi:
       more_comments:
         few: "Näytä <%= count %> muuta kommenttia"
         many: "Näytä <%= count %> muuta kommenttia"
-        one: "Näytä <%= count %> muuta kommenttia"
+        one: "Näytä <%= count %> muu kommentti"
         other: "Näytä <%= count %> muuta kommenttia"
         two: "Näytä <%= count %> muuta kommenttia"
         zero: "Näytä <%= count %> muuta kommenttia"
@@ -88,7 +88,7 @@ fi:
       reshares:
         few: "<%= count %> uudelleenjakoa"
         many: "<%= count %> uudelleenjakoa"
-        one: "<%= count %> uudelleenjakoa"
+        one: "<%= count %> uudelleenjako"
         other: "<%= count %> uudelleenjakoa"
         two: "<%= count %> uudelleenjakoa"
         zero: "<%= count %> uudelleenjakoa"

@@ -107,7 +107,6 @@ bg:
         have_a_question: "... имате %{link}?"
         here_to_help: "Общността е готова да помогне!"
         need_help: "Нуждаете се от помощ?"
-        satisfaction: "%{link}: Поддръжка осигурена от общността"
         tag_bug: бъг
         tag_feature: функция
         tag_question: въпрос

@@ -96,7 +96,6 @@ nb:
       help:
         here_to_help: "Diaspora community is here to help!"
         need_help: "Trenger du hjelp?"
-        satisfaction: "%{link}: Grasrotsupport"
         tag_bug: "#bug"
         tag_feature: "#feature"
         tag_question: "#question"

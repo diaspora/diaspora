@@ -109,7 +109,6 @@ it:
         have_a_question: "...fare una %{link}?"
         here_to_help: "La comunità di Diaspora è qui!"
         need_help: "Hai bisogno di aiuto?"
-        satisfaction: "%{link}: Per avere supporto dalla comunità"
         tag_bug: problema
         tag_feature: idea
         tag_question: domanda
