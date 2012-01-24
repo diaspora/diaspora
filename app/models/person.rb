@@ -14,6 +14,7 @@ class Person < ActiveRecord::Base
   acts_as_api
   api_accessible :backbone do |t|
     t.add :id
+    t.add :guid
     t.add :name
     t.add lambda { |person|
       person.diaspora_handle
@@ -61,7 +62,7 @@ class Person < ActiveRecord::Base
   scope :searchable, joins(:profile).where(:profiles => {:searchable => true})
   scope :remote, where('people.owner_id IS NULL')
   scope :local, where('people.owner_id IS NOT NULL')
-  scope :for_json, select('DISTINCT people.id, people.diaspora_handle').includes(:profile)
+  scope :for_json, select('DISTINCT people.id, people.guid, people.diaspora_handle').includes(:profile)
 
   # @note user is passed in here defensively
   scope :all_from_aspects, lambda { |aspect_ids, user|
@@ -95,9 +96,9 @@ class Person < ActiveRecord::Base
     self.profile ||= Profile.new unless profile_set
   end
 
-  def self.find_from_id_or_username(params)
+  def self.find_from_guid_or_username(params)
     p = if params[:id].present?
-          Person.where(:id => params[:id]).first
+          Person.where(:guid => params[:id]).first
         elsif params[:username].present? && u = User.find_by_username(params[:username])
           u.person
         else
@@ -105,6 +106,10 @@ class Person < ActiveRecord::Base
         end
     raise ActiveRecord::RecordNotFound unless p.present?
     p
+  end
+
+  def to_param
+    self.guid
   end
 
   def self.search_query_string(query)
@@ -273,10 +278,11 @@ class Person < ActiveRecord::Base
     opts ||= {}
     json = {
       :id => self.id,
+      :guid => self.guid,
       :name => self.name,
       :avatar => self.profile.image_url(:thumb_medium),
       :handle => self.diaspora_handle,
-      :url => "/people/#{self.id}",
+      :url => Rails.application.routes.url_helpers.person_path(self),
     }
     json.merge!(:tags => self.profile.tags.map{|t| "##{t.name}"}) if opts[:includes] == "tags"
     json

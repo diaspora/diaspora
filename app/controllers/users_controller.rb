@@ -108,7 +108,7 @@ class UsersController < ApplicationController
           render :xml => director.build(ostatus_builder), :content_type => 'application/atom+xml'
         end
 
-        format.any { redirect_to person_path(user.person.id) }
+        format.any { redirect_to person_path(user.person) }
       end
     else
       redirect_to multi_stream_path, :error => I18n.t('users.public.does_not_exist', :username => params[:username])

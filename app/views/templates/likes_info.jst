@@ -7,7 +7,7 @@
   <% } else { %>
   	<span class="likes_list">
 	  	<% _.each(likes, function(like){ %>
-	  	  <a href="/people/<%= like.get("author").id %>">
+	  	  <a href="/people/<%= like.get("author").guid %>">
 		  	  <img src="<%= like.get("author").avatar.small %>" class="avatar" title="<%= like.get("author").name %>"/>
 		  </a>
 	  	<% }) %>

@@ -84,7 +84,7 @@
     <img alt="{{current_user.name}}" class="avatar" src="{{current_user.avatar.small}}" title="{{current_user.name}}" />
     <a href="#">{{current_user.name}}</a>
     </li>
-    <li><a href="/people/{{current_user.id}}">{{t "header.profile"}}</a></li>
+    <li><a href="/people/{{current_user.guid}}">{{t "header.profile"}}</a></li>
     <li><a href="/contacts">{{t "header.contacts"}}</a></li>
     <li><a href="/user/edit">{{t "header.settings"}}</a></li>
     {{#if current_user.admin}}

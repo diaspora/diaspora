@@ -84,7 +84,7 @@ class PeopleController < ApplicationController
   end
 
   def show
-    @person = Person.find_from_id_or_username(params)
+    @person = Person.find_from_guid_or_username(params)
 
     if remote_profile_with_no_user_session?
       raise ActiveRecord::RecordNotFound
@@ -139,7 +139,7 @@ class PeopleController < ApplicationController
   end
 
   def contacts
-    @person = Person.find_by_id(params[:person_id])
+    @person = Person.find_by_guid(params[:person_id])
     if @person
       @contact = current_user.contact_for(@person)
       @aspect = :profile
@@ -154,7 +154,7 @@ class PeopleController < ApplicationController
   end
 
   def aspect_membership_dropdown
-    @person = Person.find(params[:person_id])
+    @person = Person.find_by_guid(params[:person_id])
     if @person == current_user.person
       render :text => I18n.t('people.person.thats_you')
     else
