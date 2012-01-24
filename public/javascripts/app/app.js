@@ -6,7 +6,7 @@ var app = {
 
   user: function(user) {
     if(user) { return this._user = user }
-    return this._user
+    return this._user || false
   },
 
   initialize: function() {
