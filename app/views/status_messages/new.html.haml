@@ -4,9 +4,7 @@
 = javascript_include_tag "publisher.js"
 
 :javascript
-  Mentions.options.prefillMention = #{@person.to_json};
-
-  $(function() { 
+  $(function() {
     $("#publisher").bind('ajax:success', function(){ location.reload(); });
     Publisher.bookmarklet = true;
   });
