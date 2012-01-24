@@ -43,6 +43,9 @@ class StatusMessagesController < ApplicationController
   def create
     params[:status_message][:aspect_ids] = [*params[:aspect_ids]]
     normalize_public_flag!
+    
+    # ensure services is an array since .map doesn't work on a string for ruby 1.9
+    params[:services] = [params[:services]] if params[:services].is_a?(String)
 
     @status_message = current_user.build_post(:status_message, params[:status_message])
 

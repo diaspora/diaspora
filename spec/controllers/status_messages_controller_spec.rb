@@ -72,6 +72,14 @@ describe StatusMessagesController do
       post :create, status_message_hash
     end
 
+    it "works if services is a string" do
+      s1 = Services::Facebook.new
+      alice.services << s1
+      status_message_hash[:services] = "facebook"
+      alice.should_receive(:dispatch_post).with(anything(), hash_including(:services => [s1]))
+      post :create, status_message_hash
+    end
+
     it "doesn't overwrite author_id" do
       status_message_hash[:status_message][:author_id] = bob.person.id
       post :create, status_message_hash
