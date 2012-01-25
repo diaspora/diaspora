@@ -59,7 +59,7 @@ gem 'fastercsv', '1.5.4', :require => false
 gem 'mini_magick', '3.4'
 gem 'rest-client', '1.6.7'
 
-gem 'jammit', '0.6.5'
+gem 'jammit-s3'
 
 # JSON and API
 
@@ -81,7 +81,7 @@ gem 'ruby-oembed'
 # queue
 
 gem 'resque', '1.19.0'
-gem 'resque-ensure-connected'
+gem 'resque-ensure-connected', :git => 'https://github.com/socialcast/resque-ensure-connected.git'
 gem 'resque-timeout', '1.0.0'
 gem 'SystemTimer', '1.2.3', :platforms => :ruby_18
 
