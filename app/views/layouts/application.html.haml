@@ -54,12 +54,11 @@
 
     / bootstrap/blueprint switch
     - if @aspect == :getting_started || @page == :logged_out
-      = stylesheet_link_tag "bootstrap.min.css"
+      = include_stylesheets :bootstrap
     - else
-      = stylesheet_link_tag "blueprint/screen", :media => 'screen'
-      = stylesheet_link_tag "blueprint/print", :media => 'print'
+      = include_stylesheets :blueprint, :media => 'screen'
 
-    = stylesheet_link_tag "login", :media => 'screen'
+    = include_stylesheets :login, :media => 'screen'
 
     = include_stylesheets :default, :media => 'all'
     - if rtl?
@@ -78,7 +77,7 @@
 
     = csrf_meta_tag
     <!--[if IE]>
-    = javascript_include_tag "/javascripts/ie.js"
+    = include_javascripts :ie
     <![endif]-->
 
     = jquery_include_tag

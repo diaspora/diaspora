@@ -5,7 +5,6 @@ gzip_assets: off
 javascripts:
   jquery:
     - public/javascripts/vendor/jquery-1.7.1.min.js
-
   main:
     - public/javascripts/vendor/underscore.js
     - public/javascripts/vendor/backbone.js
@@ -86,8 +85,15 @@ javascripts:
     - public/javascripts/inbox.js
   profile:
     - public/javascripts/vendor/jquery.autoSuggest.custom.js
-
+  ie:
+    - public/javascripts/ie.js
 stylesheets:
+  bootstrap:
+    - public/stylesheets/bootstrap.min.css
+  blueprint:
+    - public/stylesheets/blueprint/screen.css
+  login:
+    - public/stylesheets/login.css
   default:
     - public/stylesheets/application.css
     - public/stylesheets/ui.css
