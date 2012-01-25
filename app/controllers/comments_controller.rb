@@ -71,7 +71,7 @@ class CommentsController < ApplicationController
     if @post
       @comments = @post.comments.includes(:author => :profile).order('created_at ASC')
       respond_with do |format|
-        format.json  { render :json => @post.comments.as_api_response(:backbone), :status => 200 }
+        format.json  { render :json => @comments.as_api_response(:backbone), :status => 200 }
         format.mobile{render :layout => false}
       end
     else

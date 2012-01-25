@@ -64,14 +64,6 @@ class Post < ActiveRecord::Base
   def raw_message; ""; end
   def mentioned_people; []; end
 
-  # gives the last three comments on the post
-  def last_three_comments
-    return if self.comments_count == 0
-    # DO NOT USE .last(3) HERE.  IT WILL FETCH ALL COMMENTS AND RETURN THE LAST THREE
-    # INSTEAD OF DOING THE FOLLOWING, AS EXPECTED (THX AR):
-    self.comments.order('created_at DESC').limit(3).includes(:author => :profile).reverse!
-  end
-
   def self.excluding_blocks(user)
     people = user.blocks.map{|b| b.person_id}
     scope = scoped
