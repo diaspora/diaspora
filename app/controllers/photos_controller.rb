@@ -11,7 +11,7 @@ class PhotosController < ApplicationController
 
   def index
     @post_type = :photos
-    @person = Person.find_by_id(params[:person_id])
+    @person = Person.find_by_guid(params[:person_id])
 
     if @person
       @profile = @person.profile

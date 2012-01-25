@@ -64,19 +64,19 @@ describe PhotosController do
 
   describe '#index' do
     it "succeeds without any available pictures" do
-      get :index, :person_id => Factory(:person).id.to_s
+      get :index, :person_id => Factory(:person).guid.to_s
 
       response.should be_success
     end
 
     it "displays the logged in user's pictures" do
-      get :index, :person_id => alice.person.id.to_s
+      get :index, :person_id => alice.person.guid.to_s
       assigns[:person].should == alice.person
       assigns[:posts].should == [@alices_photo]
     end
 
     it "displays another person's pictures" do
-      get :index, :person_id => bob.person.id.to_s
+      get :index, :person_id => bob.person.guid.to_s
       assigns[:person].should == bob.person
       assigns[:posts].should == [@bobs_photo]
     end
