@@ -6,7 +6,7 @@ module Diaspora
   module Commentable
     def self.included(model)
       model.instance_eval do
-        has_many :comments, :as => :commentable, :order => 'created_at', :dependent => :destroy
+        has_many :comments, :as => :commentable, :dependent => :destroy
       end
     end
 
