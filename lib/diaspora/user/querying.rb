@@ -47,7 +47,11 @@ module Diaspora
       # @return [Array<Integer>]
       def visible_ids_from_sql(klass, opts={})
         opts = prep_opts(klass, opts)
-        klass.connection.select_values(visible_shareable_sql(klass, opts)).map { |id| id.to_i }
+        opts[:klass] = klass
+        opts[:by_members_of] ||= self.aspects.map{|a| a.id}
+
+        post_ids = klass.connection.select_values(visible_shareable_sql(klass, opts)).map { |id| id.to_i }
+        post_ids += klass.connection.select_values(construct_public_followings_sql(opts).to_sql).map {|id| id.to_i }
       end
 
       def visible_shareable_sql(klass, opts={})
@@ -75,6 +79,19 @@ module Diaspora
         if opts[:by_members_of]
           query = query.joins(:contacts => :aspect_memberships).where(
             :aspect_memberships => {:aspect_id => opts[:by_members_of]})
+        end
+
+        ugly_select_clause(query, opts)
+      end
+
+      def construct_public_followings_sql(opts)
+        aspects = Aspect.where(:id => opts[:by_members_of])
+        person_ids = people_in_aspects(aspects).map{|p| p.id}
+
+        query = opts[:klass].where(:author_id => person_ids, :public => true, :pending => false)
+
+        unless(opts[:klass] == Photo)
+          query = query.where(:type => opts[:type])
         end
 
         ugly_select_clause(query, opts)
@@ -131,9 +148,9 @@ module Diaspora
       end
 
       def contacts_in_aspects aspects
-        aspects.inject([]) do |contacts,aspect|
-          contacts | aspect.contacts
-        end
+        aspect_ids = aspects.map{|a| a.id}
+        Contact.joins(:aspect_memberships => :aspect).
+                where(Aspect.arel_table[:id].in(aspect_ids))
       end
 
       def posts_from(person)

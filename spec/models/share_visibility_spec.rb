@@ -11,6 +11,12 @@ describe ShareVisibility do
       @contact = bob.contact_for(alice.person)
     end
 
+    it 'returns false if share is public' do
+      @post.public = true
+      @post.save
+      ShareVisibility.batch_import([@contact.id], @post).should be_false
+    end
+
     it 'creates a visibility for each user' do
       lambda {
         ShareVisibility.batch_import([@contact.id], @post)
