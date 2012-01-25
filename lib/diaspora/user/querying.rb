@@ -5,14 +5,65 @@
 require File.join(Rails.root, 'lib', 'diaspora', 'redis_cache')
 
 module Diaspora
+  module EvilQuery
+    def self.prep_opts(klass, opts)
+      defaults = {
+          :order => 'created_at DESC',
+          :limit => 15,
+          :hidden => false
+      }
+      defaults[:type] = Stream::Base::TYPES_OF_POST_IN_STREAM if klass == Post
+      opts = defaults.merge(opts)
+
+      opts[:order_field] = opts[:order].split.first.to_sym
+      opts[:order_with_table] = klass.table_name + '.' + opts[:order]
+
+      opts[:max_time] = Time.at(opts[:max_time]) if opts[:max_time].is_a?(Integer)
+      opts[:max_time] ||= Time.now + 1
+      opts
+    end
+
+    class Base
+      def initialize(user, klass)
+        @user = user
+        @class = klass
+      end
+    end
+
+    class VisibleShareableById < Base
+      def initialize(user, klass, key, id, conditions={})
+        super(user, klass)
+        @key = key
+        @id  = id
+        @conditions = conditions
+      end
+
+      def post!
+        #is this optimal order, also, queries don't get executed until first
+        user_is_contact.first || user_is_author.first || public_post.first
+      end
+
+      def user_is_contact
+        @class.where(@key => @id).joins(:contacts).where(:contacts => {:user_id => @user.id}).where(@conditions).select(@class.table_name+".*")
+      end
+
+      def user_is_author
+        @class.where(@key => @id, :author_id => @user.person.id).where(@conditions)
+      end
+
+      def public_post
+        @class.where(@key => @id, :public => true).where(@conditions)
+      end
+    end
+  end
+
+
+
   module UserModules
     module Querying
-
       def find_visible_shareable_by_id(klass, id, opts={} )
-        key = opts.delete(:key) || :id
-        post = klass.where(key => id).joins(:contacts).where(:contacts => {:user_id => self.id}).where(opts).select(klass.table_name+".*").first
-        post ||= klass.where(key => id, :author_id => self.person.id).where(opts).first
-        post ||= klass.where(key => id, :public => true).where(opts).first
+        key = (opts.delete(:key) || :id)
+        EvilQuery::VisibleShareableById.new(self, klass, key, id, opts).post!
       end
 
       def visible_shareables(klass, opts={})
@@ -72,8 +123,14 @@ module Diaspora
       end
 
       def construct_shareable_from_others_query(opts)
-        conditions = {:pending => false, :share_visibilities => {:hidden => opts[:hidden]}, :contacts => {:user_id => self.id, :receiving => true} }
+        conditions = {
+            :pending => false,
+            :share_visibilities => {:hidden => opts[:hidden]},
+            :contacts => {:user_id => self.id, :receiving => true}
+        }
+
         conditions[:type] = opts[:type] if opts.has_key?(:type)
+
         query = opts[:klass].joins(:contacts).where(conditions)
 
         if opts[:by_members_of]
@@ -194,20 +251,7 @@ module Diaspora
 
       # @return [Hash]
       def prep_opts(klass, opts)
-        defaults = {
-          :order => 'created_at DESC',
-          :limit => 15,
-          :hidden => false
-        }
-        defaults[:type] = Stream::Base::TYPES_OF_POST_IN_STREAM if klass == Post
-        opts = defaults.merge(opts)
-
-        opts[:order_field] = opts[:order].split.first.to_sym
-        opts[:order_with_table] = klass.table_name + '.' + opts[:order]
-
-        opts[:max_time] = Time.at(opts[:max_time]) if opts[:max_time].is_a?(Integer)
-        opts[:max_time] ||= Time.now + 1
-        opts
+        EvilQuery.prep_opts(klass, opts)
       end
     end
   end
