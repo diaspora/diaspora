@@ -7,7 +7,20 @@ class Postzord::Dispatcher
   require File.join(Rails.root, 'lib/postzord/dispatcher/private')
   require File.join(Rails.root, 'lib/postzord/dispatcher/public')
 
-  attr_reader :sender, :object, :xml, :subscribers
+  attr_reader :sender, :object, :xml, :subscribers, :opts
+
+  # @param user [User] User dispatching the object in question
+  # @param object [Object] The object to be sent to other Diaspora installations
+  # @opt additional_subscribers [Array<Person>] Additional subscribers
+  def initialize(user, object, opts={})
+    @sender = user
+    @object = object
+    @xml = @object.to_diaspora_xml
+    @opts = opts
+
+    additional_subscribers = opts[:additional_subscribers] || []
+    @subscribers = subscribers_from_object | [*additional_subscribers]
+  end
 
   # @return [Postzord::Dispatcher] Public or private dispatcher depending on the object's intended audience
   def self.build(user, object, opts={})
@@ -33,9 +46,9 @@ class Postzord::Dispatcher
   end
 
   # @return [Object]
-  def post(opts={})
+  def post
     self.post_to_subscribers if @subscribers.present?
-    self.deliver_to_services(opts[:url], opts[:services] || [])
+    self.deliver_to_services(@opts[:url], @opts[:services] || [])
     self.process_after_dispatch_hooks
     @object
   end

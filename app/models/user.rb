@@ -237,9 +237,8 @@ class User < ActiveRecord::Base
   end
 
   def dispatch_post(post, opts = {})
-    additional_people = opts.delete(:additional_subscribers)
-    mailman = Postzord::Dispatcher.build(self, post, :additional_subscribers => additional_people)
-    mailman.post(opts)
+    mailman = Postzord::Dispatcher.build(self, post, opts)
+    mailman.post
   end
 
   def update_post(post, post_hash = {})
