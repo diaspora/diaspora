@@ -228,7 +228,7 @@ class User < ActiveRecord::Base
   end
 
   ######## Posting ########
-  def build_post(class_name, opts = {})
+  def build_post(class_name, opts={})
     opts[:author] = self.person
     opts[:diaspora_handle] = opts[:author].diaspora_handle
 
@@ -236,16 +236,15 @@ class User < ActiveRecord::Base
     model_class.diaspora_initialize(opts)
   end
 
-  def dispatch_post(post, opts = {})
-    additional_people = opts.delete(:additional_subscribers)
-    mailman = Postzord::Dispatcher.build(self, post, :additional_subscribers => additional_people)
-    mailman.post(opts)
+  def dispatch_post(post, opts={})
+    Postzord::Dispatcher.defer_build_and_post(self, post, opts)
   end
 
-  def update_post(post, post_hash = {})
+  def update_post(post, post_hash={})
     if self.owns? post
+      puts 'ownin'
       post.update_attributes(post_hash)
-      Postzord::Dispatcher.build(self, post).post
+      self.dispatch_post(post)
     end
   end
 

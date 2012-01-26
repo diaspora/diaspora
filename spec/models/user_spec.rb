@@ -580,11 +580,9 @@ describe User do
   end
 
   describe '#update_post' do
-    it 'sends a notification to aspects' do
-      m = mock()
-      m.should_receive(:post)
-      Postzord::Dispatcher.should_receive(:build).and_return(m)
+    it 'should dispatch post' do
       photo = alice.build_post(:photo, :user_file => uploaded_photo, :text => "hello", :to => alice.aspects.first.id)
+      alice.should_receive(:dispatch_post).with(photo)
       alice.update_post(photo, :text => 'hellp')
     end
   end
