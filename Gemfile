@@ -153,4 +153,7 @@ group :development do
 
   # speed up development requests (already pulled into rails 3.2)
   gem 'active_reload'
+
+  # for tracing AR object instantiation and memory usage per request
+  gem 'oink'
 end

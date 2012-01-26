@@ -195,6 +195,7 @@ GEM
       heroku (>= 2)
       rails (>= 2)
     highline (1.6.11)
+    hodel_3000_compliant_logger (0.1.0)
     http_accept_language (1.0.2)
     i18n (0.5.0)
     i18n-inflector (2.6.3)
@@ -264,6 +265,9 @@ GEM
     oauth2-provider (0.0.19)
       activesupport (~> 3.0)
       addressable (~> 2.2)
+    oink (0.9.3)
+      activerecord
+      hodel_3000_compliant_logger
     omniauth (1.0.1)
       hashie (~> 1.2)
       rack
@@ -474,6 +478,7 @@ DEPENDENCIES
   newrelic_rpm
   nokogiri (~> 1.5.0)
   oauth2-provider (= 0.0.19)
+  oink
   omniauth (= 1.0.1)
   omniauth-facebook
   omniauth-tumblr
