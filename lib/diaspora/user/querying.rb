@@ -6,7 +6,7 @@ require File.join(Rails.root, 'lib', 'diaspora', 'redis_cache')
 
 module Diaspora
   module EvilQuery
-    def self.prep_opts(klass, opts)
+    def self.legacy_prep_opts(klass, opts)
       defaults = {
           :order => 'created_at DESC',
           :limit => 15,
@@ -25,7 +25,7 @@ module Diaspora
 
     class Base
       def initialize(user, klass)
-        @user = user
+        @querent = user
         @class = klass
       end
     end
@@ -39,25 +39,74 @@ module Diaspora
       end
 
       def post!
-        #is this optimal order, also, queries don't get executed until first
-        user_is_contact.first || user_is_author.first || public_post.first
+        #small optimization - is this optimal order??
+        querent_is_contact.first || querent_is_author.first || public_post.first
       end
 
-      def user_is_contact
-        @class.where(@key => @id).joins(:contacts).where(:contacts => {:user_id => @user.id}).where(@conditions).select(@class.table_name+".*")
+      protected
+
+      def querent_is_contact
+        @class.where(@key => @id).joins(:contacts).where(:contacts => {:user_id => @querent.id}).where(@conditions).select(@class.table_name+".*")
       end
 
-      def user_is_author
-        @class.where(@key => @id, :author_id => @user.person.id).where(@conditions)
+      def querent_is_author
+        @class.where(@key => @id, :author_id => @querent.person.id).where(@conditions)
       end
 
       def public_post
         @class.where(@key => @id, :public => true).where(@conditions)
       end
     end
+
+    class ShareablesFromPerson < Base
+      def initialize(querent, klass, person)
+        super(querent, klass)
+        @person = person
+      end
+
+      def make_relation!
+        return querents_posts if @person == @querent.person
+
+        # persons_private_visibilities and persons_public_posts have no limit which is making shareable_ids gigantic.
+        # perhaps they should the arrays should be merged and sorted
+        # then the query at the bottom of this method can be paginated or something?
+
+        shareable_ids = contact.present? ? fetch_ids!(persons_private_visibilities, "share_visibilities.shareable_id") : []
+        shareable_ids += fetch_ids!(persons_public_posts, table_name + ".id")
+
+        @class.where(:id => shareable_ids, :pending => false).
+            select('DISTINCT '+table_name+'.*').
+            order(table_name+".created_at DESC")
+      end
+
+      protected
+
+      def fetch_ids!(relation, id_column)
+        #the relation should be ordered and limited by here
+        @class.connection.select_values(relation.select(id_column).to_sql)
+      end
+
+      def table_name
+        @class.table_name
+      end
+
+      def contact
+        @contact ||= @querent.contact_for(@person)
+      end
+
+      def querents_posts
+        @querent.person.send(table_name).where(:pending => false).order("#{table_name}.created_at DESC")
+      end
+
+      def persons_private_visibilities
+        contact.share_visibilities.where(:hidden => false, :shareable_type => @class.to_s)
+      end
+
+      def persons_public_posts
+        @person.send(table_name).where(:public => true).select(table_name+'.id')
+      end
+    end
   end
-
-
 
   module UserModules
     module Querying
@@ -211,28 +260,11 @@ module Diaspora
       end
 
       def posts_from(person)
-        self.shareables_from(Post, person)
+        EvilQuery::ShareablesFromPerson.new(self, Post, person).make_relation!
       end
 
       def photos_from(person)
-        self.shareables_from(Photo, person)
-      end
-
-      def shareables_from(klass, person)
-        return self.person.send(klass.table_name).where(:pending => false).order("#{klass.table_name}.created_at DESC") if person == self.person
-        con = Contact.arel_table
-        p = klass.arel_table
-        shareable_ids = []
-        if contact = self.contact_for(person)
-          shareable_ids = klass.connection.select_values(
-            contact.share_visibilities.where(:hidden => false, :shareable_type => klass.to_s).select('share_visibilities.shareable_id').to_sql
-          )
-        end
-        shareable_ids += klass.connection.select_values(
-          person.send(klass.table_name).where(:public => true).select(klass.table_name+'.id').to_sql
-        )
-
-        klass.where(:id => shareable_ids, :pending => false).select('DISTINCT '+klass.table_name+'.*').order(klass.table_name+".created_at DESC")
+        EvilQuery::ShareablesFromPerson.new(self, Photo, person).make_relation!
       end
 
       protected
@@ -251,7 +283,7 @@ module Diaspora
 
       # @return [Hash]
       def prep_opts(klass, opts)
-        EvilQuery.prep_opts(klass, opts)
+        EvilQuery.legacy_prep_opts(klass, opts)
       end
     end
   end
