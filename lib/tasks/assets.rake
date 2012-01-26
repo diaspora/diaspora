@@ -1,5 +1,5 @@
 namespace :assets do
-	task :precompile do
+	task :compile_s3 do
     puts "compiling sass..."
     system 'sass --update public/stylesheets/sass:public/stylesheets'
 
