@@ -242,7 +242,6 @@ class User < ActiveRecord::Base
 
   def update_post(post, post_hash={})
     if self.owns? post
-      puts 'ownin'
       post.update_attributes(post_hash)
       self.dispatch_post(post)
     end

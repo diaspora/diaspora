@@ -200,7 +200,7 @@ module Diaspora
       def visible_ids_from_sql(klass, opts={})
         opts = prep_opts(klass, opts)
         opts[:klass] = klass
-        opts[:by_members_of] ||= self.aspects.map{|a| a.id}
+        opts[:by_members_of] ||= self.aspect_ids
 
         post_ids = klass.connection.select_values(visible_shareable_sql(klass, opts)).map { |id| id.to_i }
         post_ids += klass.connection.select_values(construct_public_followings_sql(opts).to_sql).map {|id| id.to_i }
@@ -244,7 +244,7 @@ module Diaspora
 
       def construct_public_followings_sql(opts)
         aspects = Aspect.where(:id => opts[:by_members_of])
-        person_ids = Person.connection.select_values(people_in_aspects(aspects).select("id").to_sql)
+        person_ids = Person.connection.select_values(people_in_aspects(aspects).select("people.id").to_sql)
 
         query = opts[:klass].where(:author_id => person_ids, :public => true, :pending => false)
 
@@ -290,8 +290,10 @@ module Diaspora
 
       def people_in_aspects(requested_aspects, opts={})
         allowed_aspects = self.aspects & requested_aspects
-        person_ids = contacts_in_aspects(allowed_aspects).collect{|contact| contact.person_id}
-        people = Person.where(:id => person_ids)
+        aspect_ids = allowed_aspects.map(&:id)
+
+        people = Person.joins(:contacts => {:aspect_memberships => :aspect}).
+                        where(Aspect.arel_table[:id].in(aspect_ids))
 
         if opts[:type] == 'remote'
           people = people.where(:owner_id => nil)
@@ -303,12 +305,6 @@ module Diaspora
 
       def aspects_with_person person
         contact_for(person).aspects
-      end
-
-      def contacts_in_aspects aspects
-        aspect_ids = aspects.map{|a| a.id}
-        Contact.joins(:aspect_memberships => :aspect).
-                where(Aspect.arel_table[:id].in(aspect_ids))
       end
 
       def posts_from(person)
