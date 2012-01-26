@@ -35,6 +35,12 @@ class Postzord::Dispatcher
     end
   end
 
+  def self.defer_build_and_post(user, object, opts={})
+    opts[:additional_subscribers] ||= [] 
+    opts[:additional_subscribers] = [*opts[:additional_subscribers]].map(&:id)
+    Resque.enqueue(Jobs::DeferredDispatch, user.id, object.class.to_s, object.id, opts)
+  end
+
   # @param object [Object]
   # @return [Boolean]
   def self.object_should_be_processed_as_public?(object)

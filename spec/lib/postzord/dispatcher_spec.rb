@@ -283,10 +283,10 @@ describe Postzord::Dispatcher do
 
       it 'does not push to hub for non-public posts' do
        @sm     = Factory(:status_message)
-       mailman = Postzord::Dispatcher.build(alice, @sm)
+       mailman = Postzord::Dispatcher.build(alice, @sm, :url => "http://joindiaspora.com/p/123")
 
        mailman.should_not_receive(:deliver_to_hub)
-       mailman.post(:url => "http://joindiaspora.com/p/123")
+       mailman.post
       end
 
       it 'only pushes to specified services' do
@@ -294,20 +294,20 @@ describe Postzord::Dispatcher do
        alice.services << @s1
        @s2 = Factory(:service, :user_id => alice.id)
        alice.services << @s2
-       mailman = Postzord::Dispatcher.build(alice, Factory(:status_message))
+       mailman = Postzord::Dispatcher.build(alice, Factory(:status_message), :url => "http://joindiaspora.com/p/123", :services => [@s1])
 
        Resque.stub!(:enqueue).with(Jobs::PublishToHub, anything)
        Resque.stub!(:enqueue).with(Jobs::HttpMulti, anything, anything, anything)
        Resque.should_receive(:enqueue).with(Jobs::PostToService, @s1.id, anything, anything)
-       mailman.post(:url => "http://joindiaspora.com/p/123", :services => [@s1])
+       mailman.post
       end
 
       it 'does not push to services if none are specified' do
-       mailman = Postzord::Dispatcher.build(alice, Factory(:status_message))
+       mailman = Postzord::Dispatcher.build(alice, Factory(:status_message), :url => "http://joindiaspora.com/p/123")
 
        Resque.stub!(:enqueue).with(Jobs::PublishToHub, anything)
        Resque.should_not_receive(:enqueue).with(Jobs::PostToService, anything, anything, anything)
-       mailman.post(:url => "http://joindiaspora.com/p/123")
+       mailman.post
       end
     end
 

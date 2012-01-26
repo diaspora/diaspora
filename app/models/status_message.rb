@@ -142,7 +142,11 @@ class StatusMessage < Post
     XML
   end
 
-  def after_dispatch sender
+  def after_dispatch(sender)
+    self.update_and_dispatch_attached_photos(sender)
+  end
+
+  def update_and_dispatch_attached_photos(sender)
     unless self.photos.empty?
       self.photos.update_all(:pending => false, :public => self.public)
       for photo in self.photos
