@@ -9,8 +9,8 @@ module Jobs
 
     def self.perform(post_id, url)
       post = Post.find(post_id)
-      post.o_embed_cache = OEmbedCache.find_or_create_by_url(url)
-      post.save
+      cache =  OEmbedCache.find_or_create_by_url(url)
+      post.o_embed_caches << cache if cache.save
     end
   end
 end

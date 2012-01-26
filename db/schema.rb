@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120114191018) do
+ActiveRecord::Schema.define(:version => 20120126055126) do
 
   create_table "account_deletions", :force => true do |t|
     t.string  "diaspora_handle"
@@ -191,6 +191,11 @@ ActiveRecord::Schema.define(:version => 20120114191018) do
   add_index "notifications", ["target_id"], :name => "index_notifications_on_target_id"
   add_index "notifications", ["target_type", "target_id"], :name => "index_notifications_on_target_type_and_target_id"
 
+  create_table "o_embed_cache_associations", :force => true do |t|
+    t.integer "post_id"
+    t.integer "o_embed_cache_id"
+  end
+
   create_table "o_embed_caches", :force => true do |t|
     t.string "url",  :limit => 1024, :null => false
     t.text   "data",                 :null => false
@@ -313,7 +318,6 @@ ActiveRecord::Schema.define(:version => 20120114191018) do
     t.string   "status_message_guid"
     t.integer  "likes_count",                         :default => 0
     t.integer  "comments_count",                      :default => 0
-    t.integer  "o_embed_cache_id"
     t.integer  "reshares_count",                      :default => 0
   end
 
