@@ -23,6 +23,54 @@ module Diaspora
       opts
     end
 
+    class MultiStream
+      def initialize(user, order, max_time, include_spotlight)
+        @user = user
+        @order = order
+        @max_time = max_time
+        @aspect_ids = aspect_ids!
+        @include_spotlight = include_spotlight
+      end
+
+      def aspect_ids!
+        @user.aspects.map(&:id)
+      end
+
+      def make_relation!
+        post_ids = aspects_post_ids + followed_tags_post_ids + mentioned_post_ids
+        post_ids += community_spotlight_post_ids if @include_spotlight
+        Post.where(:id => post_ids)
+      end
+
+      def aspects_post_ids
+        @aspects_post_ids ||= @user.visible_shareable_ids(Post, :limit => 15, :order => "#{@order} DESC", :max_time => @max_time, :all_aspects? => true, :by_members_of => @aspect_ids)
+      end
+
+      def followed_tags_post_ids
+        @followed_tags_ids ||= ids(StatusMessage.public_tag_stream(tag_ids))
+      end
+
+      def mentioned_post_ids
+        @mentioned_post_ids ||= ids(StatusMessage.where_person_is_mentioned(@user.person))
+      end
+
+      def community_spotlight_post_ids
+        @community_spotlight_post_ids ||= ids(Post.all_public.where(:author_id => community_spotlight_person_ids))
+      end
+
+      def community_spotlight_person_ids
+        @community_spotlight_person_ids ||= Person.community_spotlight.select('id').map{|x| x.id}
+      end
+
+      def tag_ids
+        @user.followed_tags.map{|x| x.id}
+      end
+
+      def ids(query)
+        Post.connection.select_values(query.for_a_stream(@max_time, @order).select('posts.id').to_sql)
+      end
+    end
+
     class Base
       def initialize(user, klass)
         @querent = user
@@ -121,26 +169,30 @@ module Diaspora
         klass.where(:id => shareable_ids).select('DISTINCT '+klass.to_s.tableize+'.*').limit(opts[:limit]).order(opts[:order_with_table])
       end
 
-      def visible_shareable_ids(klass, opts={})
-        opts = prep_opts(klass, opts)
-        cache = nil
+      def visible_shareables_from_cache(klass, opts)
+        cache = RedisCache.new(self, opts[:order_field])
 
-        if use_cache?(opts)
-          cache = RedisCache.new(self, opts[:order_field])
-
-          #total hax
-          if self.contacts.where(:sharing => true, :receiving => true).count > 0 
-            cache.ensure_populated!(opts)
-          end
-
-          name = klass.to_s.downcase
-          shareable_ids = cache.send(name+"_ids", opts[:max_time], opts[:limit] +1)
+        #total hax
+        if self.contacts.where(:sharing => true, :receiving => true).count > 0
+          cache.ensure_populated!(opts)
         end
 
-        if perform_db_query?(shareable_ids, cache, opts)
+        name = klass.to_s.downcase + "_ids"
+        cached_ids = cache.send(name, opts[:max_time], opts[:limit] +1)
+
+        if perform_db_query?(cached_ids, cache, opts)
           visible_ids_from_sql(klass, opts)
         else
-          shareable_ids
+          cached_ids
+        end
+      end
+
+      def visible_shareable_ids(klass, opts={})
+        opts = prep_opts(klass, opts)
+        if use_cache?(opts)
+          visible_shareables_from_cache(klass, opts)
+        else
+          visible_ids_from_sql(klass, opts)
         end
       end
 
