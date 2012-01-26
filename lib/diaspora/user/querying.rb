@@ -244,7 +244,7 @@ module Diaspora
 
       def construct_public_followings_sql(opts)
         aspects = Aspect.where(:id => opts[:by_members_of])
-        person_ids = people_in_aspects(aspects).map{|p| p.id}
+        person_ids = Person.connection.select_values(people_in_aspects(aspects).select("id").to_sql)
 
         query = opts[:klass].where(:author_id => person_ids, :public => true, :pending => false)
 
