@@ -45,7 +45,7 @@ factory = {
       "guid" : this.guid(),
       "image_url" : null,
       "author" : this.author(),
-      "o_embed_cache" : null,
+      "o_embed_caches" : null,
       "photos" : [],
       "text" : "jasmine is bomb",
       "reshares_count" : 0,

@@ -29,8 +29,8 @@ class Reshare < Post
     self.root.author.diaspora_handle
   end
 
-  def o_embed_cache
-    self.root ? root.o_embed_cache : super
+  def o_embed_caches
+    self.root ? root.o_embed_caches : super
   end
 
   def raw_message

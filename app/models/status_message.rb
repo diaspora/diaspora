@@ -22,10 +22,9 @@ class StatusMessage < Post
   before_destroy :presence_of_content
 
   attr_accessible :text, :provider_display_name
-  attr_accessor :oembed_url
 
   after_create :create_mentions
-  after_create :queue_gather_oembed_data, :if => :contains_oembed_url_in_text?
+  after_create :queue_gather_oembed_data
 
   #scopes
   scope :where_person_is_mentioned, lambda { |person|
@@ -163,13 +162,10 @@ class StatusMessage < Post
   end
 
   def queue_gather_oembed_data
-    Resque.enqueue(Jobs::GatherOEmbedData, self.id, self.oembed_url)
-  end
-
-  def contains_oembed_url_in_text?
-    require 'uri'
-    urls = URI.extract(self.raw_message, ['http', 'https'])
-    self.oembed_url = urls.find{|url| ENDPOINT_HOSTS_STRING.match(URI.parse(url).host)}
+    urls = URI.extract(self.raw_message, ['http', 'https']).uniq
+    urls.each do |url|
+      Resque.enqueue(Jobs::GatherOEmbedData, self.id, url) if ENDPOINT_HOSTS_STRING.match(URI.parse(url).host)
+    end
   end
 
   protected
