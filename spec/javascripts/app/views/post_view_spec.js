@@ -34,19 +34,30 @@ describe("app.views.Post", function(){
 
 
     context("embed_html", function(){
-      it("provides oembed html from the model response", function(){
-        this.statusMessage.set({"o_embed_cache" : {
+      it("provides all oembed html from the model response", function(){
+        this.statusMessage.set({"o_embed_caches" : [{
           "data" : {
             "html" : "some html"
           }
-        }})
+        }, {
+          "data" : {
+            "type" : "photo",
+            "url" : "foo.jpg",
+            "width" : "5",
+            "height" : "23"
+          }
+        }]});
 
-        var view = new app.views.Content({model : this.statusMessage});
-        expect(view.presenter().o_embed_html).toContain("some html")
+        var view = new app.views.Content({model : this.statusMessage}),
+            html = view.presenter().o_embed_html;
+        expect(html).toContain("some html");
+        expect(html).toContain('img src="foo.jpg');
+        expect(html).toContain('width="5"');
+        expect(html).toContain('height="23"');
       })
 
       it("does not provide oembed html from the model response if none is present", function(){
-        this.statusMessage.set({"o_embed_cache" : null})
+        this.statusMessage.set({"o_embed_caches" : null})
 
         var view = new app.views.Content({model : this.statusMessage});
         expect(view.presenter().o_embed_html).toBe("");

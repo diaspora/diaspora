@@ -7,13 +7,18 @@ app.views.Content = app.views.StreamObject.extend({
     })
 
     function embedHTML(model){
-      if(!model.get("o_embed_cache")) { return ""; }
-      var data = model.get("o_embed_cache").data;
-      if(data.type == "photo") {
-        return '<img src="'+data.url+'" width="'+data.width+'" height="'+data.height+'" />';
-      } else {
-        return data.html || ""
-      }
+      if(!model.get("o_embed_caches")) { return ""; }
+      var html = "";
+      $.each(model.get("o_embed_caches"), function() {
+        if(this.data.type == "photo") {
+          html += '<img src="'+this.data.url;
+          html += '" width="'+this.data.width;
+          html += '" height="'+this.data.height+'" />';
+        } else {
+          html += this.data.html || ""
+        }
+      });
+      return html;
     }
   }
 })

@@ -31,7 +31,7 @@ class Post < ActiveRecord::Base
     t.add :image_url
     t.add :object_url
     t.add :root
-    t.add :o_embed_cache
+    t.add :o_embed_caches
     t.add :user_like
     t.add :mentioned_people
     t.add lambda { |post|
@@ -50,12 +50,13 @@ class Post < ActiveRecord::Base
   has_many :reshares, :class_name => "Reshare", :foreign_key => :root_guid, :primary_key => :guid
   has_many :resharers, :class_name => 'Person', :through => :reshares, :source => :author
 
-  belongs_to :o_embed_cache
+  has_many :o_embed_cache_associations
+  has_many :o_embed_caches, :through => :o_embed_cache_associations, :source => :o_embed_cache
 
   after_create :cache_for_author
 
   #scopes
-  scope :includes_for_a_stream, includes(:o_embed_cache, {:author => :profile}, :mentions => {:person => :profile}) #note should include root and photos, but i think those are both on status_message
+  scope :includes_for_a_stream, includes(:o_embed_caches, {:author => :profile}, :mentions => {:person => :profile}) #note should include root and photos, but i think those are both on status_message
 
   def post_type
     self.class.name

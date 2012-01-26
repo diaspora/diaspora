@@ -1,9 +1,14 @@
+#   Copyright (c) 2010-2011, Diaspora Inc.  This file is
+#   licensed under the Affero General Public License version 3 or later.  See
+#   the COPYRIGHT file.
+
 class OEmbedCache < ActiveRecord::Base
   serialize :data
   attr_accessible :url
   validates :data, :presence => true
 
-  has_many :posts
+  has_many :o_embed_cache_associations
+  has_many :posts, :through => :o_embed_cache_associations
 
   # NOTE API V1 to be extracted
   acts_as_api
