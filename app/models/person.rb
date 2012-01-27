@@ -67,12 +67,18 @@ class Person < ActiveRecord::Base
   # @note user is passed in here defensively
   scope :all_from_aspects, lambda { |aspect_ids, user|
     joins(:contacts => :aspect_memberships).
-         where(:contacts => {:user_id => user.id},
-               :aspect_memberships => {:aspect_id => aspect_ids}).
-         select("DISTINCT people.*")
+         where(:contacts => {:user_id => user.id}, :aspect_memberships => {:aspect_id => aspect_ids})
   }
 
-  scope :in_aspects, lambda{|aspect_ids| joins(:contacts => {:aspect_memberships => :aspect}).where(Aspect.arel_table[:id].in(aspect_ids))}
+  scope :unique_from_aspects, lambda{ |aspect_ids, user|
+    all_from_aspects(aspect_ids, user).select('DISTINCT people.*')
+  }
+
+  #not defensive
+  scope :in_aspects, lambda { |aspect_ids|
+    joins(:contacts => :aspect_memberships).
+        where(:contacts => { :aspect_memberships => {:aspect_id => aspect_ids}})
+  }
 
   scope :profile_tagged_with, lambda{|tag_name| joins(:profile => :tags).where(:profile => {:tags => {:name => tag_name}}).where('profiles.searchable IS TRUE') }
 

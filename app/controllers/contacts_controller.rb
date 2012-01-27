@@ -19,17 +19,14 @@ class ContactsController < ApplicationController
         current_user.contacts.receiving
       end
     end
+    @contacts = @contacts.for_a_stream(params[:page])
 
     respond_to do |format|
-      format.html { @contacts = sort_and_paginate_profiles(@contacts) }
-      format.mobile { @contacts = sort_and_paginate_profiles(@contacts) }
       format.json {
-        @people = Person.for_json.joins(:contacts => :aspect_memberships).
-          where(:contacts => { :user_id => current_user.id },
-                :aspect_memberships => { :aspect_id => params[:aspect_ids] })
-
+        @people = Person.all_from_aspects(params[:aspect_ids], current_user).for_json
         render :json => @people.to_json
       }
+      format.any{}
     end
   end
 
@@ -43,12 +40,4 @@ class ContactsController < ApplicationController
     @people = Person.community_spotlight
   end
 
-  private
-
-  def sort_and_paginate_profiles contacts
-    contacts.
-      includes(:aspects, :person => :profile).
-      order('profiles.last_name ASC').
-      paginate(:page => params[:page], :per_page => 25)
-  end
 end
