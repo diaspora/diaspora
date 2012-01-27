@@ -65,11 +65,11 @@ class CommentsController < ApplicationController
     if user_signed_in?
       @post = current_user.find_visible_shareable_by_id(Post, params[:post_id])
     else
-      @post = Post.where(:id => params[:post_id], :public => true).includes(:author, :comments => :author).first
+      @post = Post.find_by_id_and_public(params[:post_id], true)
     end
 
     if @post
-      @comments = @post.comments.includes(:author => :profile).order('created_at ASC')
+      @comments = @post.comments.for_a_stream
       respond_with do |format|
         format.json  { render :json => @comments.as_api_response(:backbone), :status => 200 }
         format.mobile{render :layout => false}

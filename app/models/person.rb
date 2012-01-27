@@ -212,7 +212,7 @@ class Person < ActiveRecord::Base
   end
 
   def public_key_hash
-    Base64.encode64 OpenSSL::Digest::SHA256.new(self.exported_key).to_s
+    Base64.encode64(OpenSSL::Digest::SHA256.new(self.exported_key).to_s)
   end
 
   def public_key

@@ -38,6 +38,7 @@ class Comment < ActiveRecord::Base
 
 
   scope :including_author, includes(:author => :profile)
+  scope :for_a_stream, including_author.merge(order('created_at ASC'))
 
   before_save do
     self.text.strip! unless self.text.nil?
