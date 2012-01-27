@@ -110,7 +110,6 @@ da:
         have_a_question: "... har du et %{link}?"
         here_to_help: "Diaspora samfundet er her!"
         need_help: "Brug for hjælp?"
-        satisfaction: "%{link}: Samfunds-drevet support"
         tutorials_wiki_and_forum: "%{tutorial} & %{wiki} & %{forum}: Samfundsdrevne selvinstruktioner, vejledninger og nyheder"
       introduce_yourself: "Dette er din strøm. Hop ud i det og introducér dig selv."
       keep_us_running: "Hold %{pod} kørende hurtigt og køb serverne deres kaffe fix med en månedlig donation!"

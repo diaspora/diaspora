@@ -111,7 +111,6 @@ ml:
         have_a_question: "... have a %{link}?"
         here_to_help: "The Diaspora community is here!"
         need_help: "Need Help?"
-        satisfaction: "%{link}: Community-powered support"
         tag_bug: "bug"
         tag_feature: "feature"
         tag_question: "question"
@@ -310,6 +309,7 @@ ml:
       to: സ്വീകര്‍ത്താവ്
   layouts:
     application:
+      back_to_top: "Back to top"
       powered_by: "ഡയസ്പോറയാല്‍* ശക്തമാക്കിയത്"
       public_feed: "%{name} -ന്റെ പൊതു ഡയസ്പോറ ഫീഡ്"
       toggle: "മൊബൈല്‍ സൈറ്റിലേക്ക് മാറുക"

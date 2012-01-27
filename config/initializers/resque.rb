@@ -28,6 +28,19 @@ if AppConfig.single_process_mode?
   end
 end
 
+if AppConfig[:airbrake_api_key].present?
+  require 'resque/failure/multiple'
+  require 'resque/failure/airbrake'
+  require 'resque/failure/redis'
+  Resque::Failure::Airbrake.configure do |config|
+    config.api_key = AppConfig[:airbrake_api_key]
+    config.secure = true
+  end
+  Resque::Failure::Multiple.classes = [Resque::Failure::Redis, Resque::Failure::Airbrake]
+  Resque::Failure.backend = Resque::Failure::Multiple
+end
+
+
 if AppConfig[:mount_resque_web]
   require 'resque/server'
   require File.join(Rails.root, 'lib/admin_rack')

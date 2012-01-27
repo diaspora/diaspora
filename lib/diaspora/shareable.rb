@@ -61,14 +61,6 @@ module Diaspora
       write_attribute(:diaspora_handle, nd)
     end
 
-    def user_refs
-      if AspectVisibility.exists?(:shareable_id => self.id, :shareable_type => self.class.base_class.to_s)
-        self.share_visibilities.count + 1
-      else
-        self.share_visibilities.count
-      end
-    end
-
     # @param [User] user The user that is receiving this shareable.
     # @param [Person] person The person who dispatched this shareable to the
     # @return [void]

@@ -114,7 +114,6 @@ he:
         have_a_question: "? %{link}יש לך  "
         here_to_help: "קהילת דיאספורה לרשותך!"
         need_help: "?צריך עזרה "
-        satisfaction: "עזרה בתמיכת הקהילה %{link}"
         tag_bug: תקלה
         tag_feature: מאפיין
         tag_question: שאלה

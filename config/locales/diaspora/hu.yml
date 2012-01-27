@@ -110,7 +110,6 @@ hu:
         have_a_question: "... kérdésed van? %{link}"
         here_to_help: "A Diaspora közösség megérkezett!"
         need_help: "Segítségre van szüksége?"
-        satisfaction: "%{link}: Közösségi támogatás"
         tag_feature: funkció
         tag_question: kérdés
         tutorials_wiki_and_forum: "%{tutorial} & %{wiki} & %{forum}: Közösségi leckék, módszerek, hírek"

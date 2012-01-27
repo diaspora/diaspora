@@ -20,7 +20,7 @@ eu:
       unauthenticated: "Izena eman edo autentikatu behar duzu jarraitu aurretik"
       unconfirmed: "Zure kontua baieztatu behar duzu jarraitu aurretik."
     invitations:
-      invitation_token_invalid: "Gonbidapen kodea ez da baliozkoa!"
+      invitation_token_invalid: "Sentitzen dugu, baina gonbidapen kodea ez da baliozkoa."
       send_instructions: "Gonbidapena bidali duzu."
       updated: "Zure pasahitza arrakastaz ezarri duzu. Sartu egin zara."
     mailer:
@@ -31,11 +31,31 @@ eu:
       hello: "Kaixo %{email}!"
       invitation_instructions:
         accept: Gonbidapena
-        displaying_correctly: "Email not displaying correctly? %{link} in your browser"
+        arrived: "Espero zenuen sare soziala iritsi da. Berria, seguruago, eta dibertigarriagoa, %{strong_diaspora} prest dago weba partekatu eta esploratzeko modu berri batean."
+        be_yourself: "Izan Zaitez Zu Zeu"
+        be_yourself_paragraph: "Internetek aditzera emateko bide berriak sortu ditu. %{strong_diaspora}k zu zeu izaten eta nahi duzuna partekatzen ahalbidetzen du, bai zure izena erabiliz, bai gabe."
+        displaying_correctly: "Emaila ez da ondo ikusten? %{link}"
+        email_us: "Galdera orrokorrentzako, bidali mezu bat bidali %{email}(e)ra."
+        finally: "Azkenik - iritsi da"
+        friends_saying: "Zure lagunak esaten ari direna..."
+        get_connected: "Konektatu Zaitez"
+        get_connected_paragraph: "Mugimendu internazional bat, web hobe baten ikuspegi batekin, %{strong_diaspora} garrantz<itsu egiten duena haren komunitatea da. Ezagutu jende berria, konektatu lagunekin, eta dibertitu zaitez."
+        have_fun: "Dibertitu Zaitez"
+        have_fun_paragraph: "%{strong_diaspora} edukin eta jende berria ezagutzean datza. %{link}, munduko lehenengo %{strong_diaspora} aplikazioa hasiera da soilik. Arakatu eta partekatu weba ezinhobean!"
+        help_fund: "lagundu diruaz Diaspora"
+        here: hemen
         ignore: "Ez baduzu gonbidapena onartu nahi, mesedez egin iezaiozu ez-ikusi mezu honi."
+        join_team: "Batu gure Taldera"
+        love: "Adeitasunez,"
+        made_by_people: "%{strong_diaspora} zuk bezala Internet maite duen jendeak egin du. %{jointeam}, edo %{helpfund}!"
+        more_people: "Oraindik jende gehiago pozik daude zu ikusteaz!"
         no_account_till: "Zure kontua ez da sortuko hemengo esteka jarraitu eta izena eman arte."
+        or: edo
+        sign_up_now: "Izena eman orain →"
         subject: "Diasporara batzera gonbidatua izan zara!"
-        view_in: "View in"
+        team_diaspora: "Diaspora Taldea"
+        unsubscribe: "Harpidetza ezezteko sakatu %{link}."
+        view_in: "Ikus ezazu zure nabigatzailean."
       inviter:
         accept_at: "%{url}(e)n, onartu dezakezu beheko esteka jarraituz."
         have_invited_you: "%{names}(e)k Diasporara batzera gonbidatu zaituzte"

@@ -1,7 +1,7 @@
 <div class="container" style="position:relative;">
 
   <a href="/stream">
-    <img alt="Logo_small" class="diaspora_header_logo" height="38px" width="65px" src="/images/header-logo.png" />
+    <img alt="Logo_small" class="diaspora_header_logo" height="38px" width="65px" src="{{imageUrl "/images/header-logo.png"}}" />
   </a>
 
   <div id="global_search">
@@ -13,13 +13,13 @@
 
   <div id="nav_badges">
     <div class="badge" id="home_badge">
-      <a href="/stream" title="{{t "header.home"}}"><img alt="Home" src="/images/icons/home_grey.png">
+      <a href="/stream" title="{{t "header.home"}}"><img alt="Home" src="{{imageUrl "/images/icons/home_grey.png"}}" />
       </a>
     </div>
 
     <div class="badge" id="notification_badge">
       <a href="/notifications" title="{{t "header.notifications"}}">
-        <img alt="{{t "header.notifications"}}" id="notification-flag" src="/images/icons/notifications_grey.png">
+        <img alt="{{t "header.notifications"}}" id="notification-flag" src="{{imageUrl "/images/icons/notifications_grey.png"}}" />
         <div class="badge_count {{#unless current_user.notifications_count}} hidden {{/unless}}">
           {{current_user.notifications_count}}
         </div>
@@ -28,7 +28,7 @@
 
     <div class="badge" id="message_inbox_badge">
       <a href="/conversations" title="{{t "header.messages"}}">
-        <img alt="{{t "header.messages"}}" src="/images/icons/mail_grey.png">
+        <img alt="{{t "header.messages"}}" src="{{imageUrl "/images/icons/mail_grey.png"}}" />
         <div class="badge_count {{#unless current_user.unread_messages_count}} hidden {{/unless}}">
           {{current_user.unread_messages_count}}
         </div>
@@ -55,7 +55,7 @@
 
     <div class="notifications">
       <div class="ajax_loader">
-        <img alt="Ajax-loader" src="/images/ajax-loader.gif">
+        <img alt="Ajax-loader" src="{{imageUrl "/images/ajax-loader.gif"}}">
       </div>
     </div>
   </div>
@@ -84,7 +84,7 @@
     <img alt="{{current_user.name}}" class="avatar" src="{{current_user.avatar.small}}" title="{{current_user.name}}" />
     <a href="#">{{current_user.name}}</a>
     </li>
-    <li><a href="/people/{{current_user.id}}">{{t "header.profile"}}</a></li>
+    <li><a href="/people/{{current_user.guid}}">{{t "header.profile"}}</a></li>
     <li><a href="/contacts">{{t "header.contacts"}}</a></li>
     <li><a href="/user/edit">{{t "header.settings"}}</a></li>
     {{#if current_user.admin}}

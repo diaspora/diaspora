@@ -149,8 +149,8 @@ describe 'a user receives a post' do
       alice.visible_shareables(Post).should_not include @status_message
     end
 
-    context 'dependant delete' do
-      before do
+    context 'dependent delete' do
+      it 'deletes share_visibilities on disconnected by' do
         @person = Factory(:person)
         alice.contacts.create(:person => @person, :aspects => [@alices_aspect])
 
@@ -161,49 +161,11 @@ describe 'a user receives a post' do
         @contact.share_visibilities.reset
         @contact.posts(true).should include(@post)
         @post.share_visibilities.reset
-      end
 
-      it 'deletes a post if the no one links to it' do
-        lambda {
-          alice.disconnected_by(@person)
-        }.should change(Post, :count).by(-1)
-      end
-
-      it 'deletes share_visibilities on disconnected by' do
         lambda {
           alice.disconnected_by(@person)
         }.should change{@post.share_visibilities(true).count}.by(-1)
       end
-    end
-
-    it 'should keep track of user references for one person ' do
-      @status_message.reload
-      @status_message.user_refs.should == 3
-      @status_message.contacts(true).should include(@contact)
-
-      alice.remove_contact(@contact, :force => true)
-      @status_message.reload
-      @status_message.contacts(true).should_not include(@contact)
-      @status_message.share_visibilities.reset
-      @status_message.user_refs.should == 2
-    end
-
-    it 'should not override userrefs on receive by another person' do
-      new_user = Factory(:user_with_aspect)
-      @status_message.share_visibilities.reset
-      @status_message.user_refs.should == 3
-
-      new_user.contacts.create(:person => bob.person, :aspects => [new_user.aspects.first])
-      xml = @status_message.to_diaspora_xml
-
-      receive_with_zord(new_user, bob.person, xml)
-
-      @status_message.share_visibilities.reset
-      @status_message.user_refs.should == 4
-
-      alice.remove_contact(@contact, :force => true)
-      @status_message.share_visibilities.reset
-      @status_message.user_refs.should == 3
     end
   end
 

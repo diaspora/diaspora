@@ -110,7 +110,6 @@ vi:
         have_a_question: "... có một %{link}?"
         here_to_help: "Cộng đồng Diaspora!"
         need_help: "Cần giúp đỡ?"
-        satisfaction: "%{link}: Hỗ trợ bởi cộng đồng"
         tag_bug: "#bug"
         tag_feature: "#feature"
         tag_question: "#question"

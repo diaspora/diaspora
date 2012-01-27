@@ -48,7 +48,7 @@ class Stream::Aspect < Stream::Base
 
   # @return [ActiveRecord::Association<Person>] AR association of people within stream's given aspects
   def people
-    @people ||= Person.all_from_aspects(aspect_ids, user).includes(:profile)
+    @people ||= Person.unique_from_aspects(aspect_ids, user).includes(:profile)
   end
 
   # @return [String] URL

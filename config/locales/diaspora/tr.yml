@@ -112,7 +112,6 @@ tr:
         have_a_question: "... bir %{link} mu sormak istiyorsun?"
         here_to_help: "Diaspora topluluğu burada!"
         need_help: "Yardıma mı ihtiyacın var?"
-        satisfaction: "%{link}: Topluluk desteği"
         tag_bug: hata
         tag_feature: işlev
         tag_question: soru

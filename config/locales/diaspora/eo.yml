@@ -111,7 +111,6 @@ eo:
         have_a_question: "... havas %{link}n?"
         here_to_help: "Jen la DIASPORA* komunumo!"
         need_help: "Ĉu Vi Bezonas Helpon?"
-        satisfaction: "%{link}: Komunuma helpo"
         tag_bug: cimo
         tag_feature: trajto
         tag_question: demando

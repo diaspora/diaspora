@@ -111,7 +111,6 @@ sk:
         have_a_question: "&ndash; máte %{link}?"
         here_to_help: "Komunita Diaspory je tu!"
         need_help: "Potrebujete pomoc?"
-        satisfaction: "%{link}: podpora od ostatných používateľov"
         tag_bug: chybu
         tag_feature: funkciu
         tag_question: otázku

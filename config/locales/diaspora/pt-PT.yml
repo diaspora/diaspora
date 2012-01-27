@@ -111,7 +111,6 @@ pt-PT:
         have_a_question: "... uma %{link}?"
         here_to_help: "A comunidade do Diaspora está aqui!"
         need_help: "Precisa de ajuda?"
-        satisfaction: "%{link}: Apoio da comunidade"
         tag_feature: funcionalidade
         tag_question: questão
         tutorials_wiki_and_forum: "%{tutorial} & %{wiki} & %{forum}: Tutoriais, Como Fazer e Notícias desenvolvidos pela comunidade"

@@ -180,6 +180,8 @@ defaults: &defaults
   # with other pods
   circumvent_ssl_requirement: false
 
+  image_redirect_url: ''
+  
   # Web tracking
 
   # google analytics key - if false, no javascript included

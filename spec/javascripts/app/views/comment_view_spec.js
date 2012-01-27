@@ -11,7 +11,7 @@ describe("app.views.Comment", function(){
     })
 
     it("doesn't have a delete link if the author is not the current user", function(){
-      loginAs(_.extend(this.comment.get("author"), {diaspora_id : "notbob@bob.com"})
+      loginAs(factory.author({diaspora_id : "notbob@bob.com"}))
       expect(this.view.render().$('.delete').length).toBe(0)
     })
 
@@ -28,7 +28,7 @@ describe("app.views.Comment", function(){
     })
 
     it("returns false if the author diaspora_id != the current user's diaspora_id", function(){
-      loginAs(_.extend(this.comment.get("author"), {diaspora_id : "notbob@bob.com"})
+      loginAs(factory.author({diaspora_id : "notbob@bob.com"}))
       expect(this.view.ownComment()).toBe(false);
     })
 

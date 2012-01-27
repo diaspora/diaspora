@@ -64,12 +64,6 @@ class Post < ActiveRecord::Base
   def raw_message; ""; end
   def mentioned_people; []; end
 
-  # gives the last three comments on the post
-  def last_three_comments
-    return if self.comments_count == 0
-    self.comments.includes(:author => :profile).last(3)
-  end
-
   def self.excluding_blocks(user)
     people = user.blocks.map{|b| b.person_id}
     scope = scoped

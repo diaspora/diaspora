@@ -8,7 +8,12 @@ app.views.Content = app.views.StreamObject.extend({
 
     function embedHTML(model){
       if(!model.get("o_embed_cache")) { return ""; }
-      return model.get("o_embed_cache").data.html
+      var data = model.get("o_embed_cache").data;
+      if(data.type == "photo") {
+        return '<img src="'+data.url+'" width="'+data.width+'" height="'+data.height+'" />';
+      } else {
+        return data.html || ""
+      }
     }
   }
 })

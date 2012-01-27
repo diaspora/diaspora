@@ -111,7 +111,6 @@ es:
         have_a_question: "- Realices alguna %{link}."
         here_to_help: "¡La comunidad Diaspora está aquí!"
         need_help: Ayuda
-        satisfaction: "%{link}: Soporte de la Comunidad"
         tag_bug: error
         tag_feature: idea
         tag_question: pregunta
@@ -309,6 +308,7 @@ es:
       to: Para
   layouts:
     application:
+      back_to_top: "Volver arriba"
       powered_by: "IMPULSADO POR DIASPORA*"
       public_feed: "Canal público de %{name} "
       toggle: "cambiar al sitio móvil"

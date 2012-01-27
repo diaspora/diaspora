@@ -110,7 +110,6 @@ pt-BR:
         have_a_question: "... Tem um %{link}?"
         here_to_help: "A comunidade do Diaspora está aqui!"
         need_help: "Quer Ajuda?"
-        satisfaction: "%{link}: Comunidade de suporte"
         tag_bug: "#bug"
         tag_feature: "#feature"
         tag_question: "#question"

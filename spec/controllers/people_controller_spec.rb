@@ -140,7 +140,7 @@ describe PeopleController do
 
     it 'takes time' do
       Benchmark.realtime {
-        get :show, :id => @user.person.id
+        get :show, :id => @user.person.to_param
       }.should < 1.0
     end
   end
@@ -152,7 +152,7 @@ describe PeopleController do
     end
 
     it "404s if no person is found via id" do
-      get :show, :id => 3920397846
+      get :show, :id => "3d920397846"
       response.code.should == "404"
     end
 
@@ -163,7 +163,7 @@ describe PeopleController do
 
     it 'redirects home for closed account' do
       @person = Factory(:person, :closed_account => true)
-      get :show, :id => @person.id
+      get :show, :id => @person.to_param
       response.should be_redirect
       flash[:notice].should_not be_blank
     end
@@ -173,7 +173,7 @@ describe PeopleController do
       profile = user2.profile
       profile.first_name = "<script> alert('xss attack');</script>"
       profile.save
-      get :show, :id => user2.person.id
+      get :show, :id => user2.person.to_param
       response.should be_success
       response.body.match(profile.first_name).should be_false
     end
@@ -208,7 +208,7 @@ describe PeopleController do
       it "renders the comments on the user's posts" do
         message = @user.post :status_message, :text => 'test more', :to => @aspect.id
         @user.comment 'I mean it', :post => message
-        get :show, :id => @user.person.id
+        get :show, :id => @user.person.to_param
         response.should be_success
       end
     end
@@ -220,12 +220,12 @@ describe PeopleController do
       end
 
       it "succeeds" do
-        get :show, :id => @person.id
+        get :show, :id => @person.to_param
         response.status.should == 200
       end
 
       it 'succeeds on the mobile site' do
-        get :show, :id => @person.id, :format => :mobile
+        get :show, :id => @person.to_param, :format => :mobile
         response.should be_success
       end
 
@@ -242,17 +242,17 @@ describe PeopleController do
 
         it "posts include reshares" do
           reshare = @user.post(:reshare, :public => true, :root_guid => Factory(:status_message, :public => true).guid, :to => alice.aspects)
-          get :show, :id => @user.person.id
+          get :show, :id => @user.person.to_param
           assigns[:stream].posts.map{|x| x.id}.should include(reshare.id)
         end
 
         it "assigns only public posts" do
-          get :show, :id => @person.id
+          get :show, :id => @person.to_param
           assigns[:stream].posts.map(&:id).should =~ @public_posts.map(&:id)
         end
 
         it 'is sorted by created_at desc' do
-          get :show, :id => @person.id
+          get :show, :id => @person.to_param
           assigns[:stream].stream_posts.should == @public_posts.sort_by{|p| p.created_at}.reverse
         end
       end
@@ -260,7 +260,7 @@ describe PeopleController do
       it 'throws 404 if the person is remote' do
         p = Factory(:person)
 
-        get :show, :id => p.id
+        get :show, :id => p.to_param
         response.status.should == 404
       end
     end
@@ -271,12 +271,12 @@ describe PeopleController do
       end
 
       it "succeeds" do
-        get :show, :id => @person.id
+        get :show, :id => @person.to_param
         response.should be_success
       end
 
       it 'succeeds on the mobile site' do
-        get :show, :id => @person.id, :format => :mobile
+        get :show, :id => @person.to_param, :format => :mobile
         response.should be_success
       end
 
@@ -291,13 +291,13 @@ describe PeopleController do
         posts_user_can_see << bob.post(:status_message, :text => "public", :to => 'all', :public => true)
         bob.reload.posts.length.should == 4
 
-        get :show, :id => @person.id
+        get :show, :id => @person.to_param
         assigns(:stream).posts.map(&:id).should =~ posts_user_can_see.map(&:id)
       end
 
       it "posts include reshares" do
         reshare = @user.post(:reshare, :public => true, :root_guid => Factory(:status_message, :public => true).guid, :to => alice.aspects)
-        get :show, :id => @user.person.id
+        get :show, :id => @user.person.to_param
         assigns[:stream].posts.map{|x| x.id}.should include(reshare.id)
       end
     end
@@ -308,12 +308,12 @@ describe PeopleController do
       end
 
       it "succeeds" do
-        get :show, :id => @person.id
+        get :show, :id => @person.to_param
         response.should be_success
       end
 
       it 'succeeds on the mobile site' do
-        get :show, :id => @person.id, :format => :mobile
+        get :show, :id => @person.to_param, :format => :mobile
         response.should be_success
       end
 
@@ -324,13 +324,13 @@ describe PeopleController do
         public_post = eve.post(:status_message, :text => "public", :to => 'all', :public => true)
         eve.reload.posts.length.should == 3
 
-        get :show, :id => @person.id
+        get :show, :id => @person.to_param
         assigns[:stream].posts.map(&:id).should =~ [public_post].map(&:id)
       end
 
       it "posts include reshares" do
         reshare = @user.post(:reshare, :public => true, :root_guid => Factory(:status_message, :public => true).guid, :to => alice.aspects)
-        get :show, :id => @user.person.id
+        get :show, :id => @user.person.to_param
         assigns[:stream].posts.map{|x| x.id}.should include(reshare.id)
       end
     end
@@ -340,7 +340,7 @@ describe PeopleController do
     it 'assigns the contacts of a person' do
       contact = alice.contact_for(bob.person)
       contacts = contact.contacts
-      get :contacts, :person_id => bob.person.id
+      get :contacts, :person_id => bob.person.to_param
       assigns(:contacts_of_contact).should =~ contacts
       response.should be_success
     end

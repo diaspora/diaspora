@@ -6,7 +6,7 @@ gem 'bundler', '>= 1.0.0'
 gem 'foreman', '0.34.1'
 gem 'whenever'
 
-gem 'thin', '~> 1.3.1', :require => false
+gem 'thin', '~> 1.3.1',    :require => false
 
 # authentication
 
@@ -24,21 +24,23 @@ gem 'twitter', '2.0.2'
 
 # mail
 
-gem 'messagebus_ruby_api', '1.0.1'
+gem 'messagebus_ruby_api', '1.0.3'
+gem 'airbrake'
+gem 'newrelic_rpm'
+gem "rpm_contrib", "~> 2.1.7"
 
 group :production do # we don't install these on travis to speed up test runs
-  # reporting
-  gem 'airbrake', :require => false
-  gem 'newrelic_rpm', :require => false
+  gem 'rack-ssl', :require => 'rack/ssl'
+  gem 'rack-rewrite', '~> 1.2.1', :require => false
   gem 'rack-google-analytics', :require => 'rack/google-analytics'
   gem 'rack-piwik', :require => 'rack/piwik'
-  gem 'rack-ssl', :require => 'rack/ssl'
 end
 
 # configuration
 
 group :heroku do
   gem 'pg'
+  gem 'unicorn', '~> 4.1.1', :require => false
 end
 
 gem 'settingslogic', :git => 'git://github.com/binarylogic/settingslogic.git'
@@ -58,7 +60,7 @@ gem 'fastercsv', '1.5.4', :require => false
 gem 'mini_magick', '3.4'
 gem 'rest-client', '1.6.7'
 
-gem 'jammit', '0.6.5'
+gem 'jammit-s3'
 
 # JSON and API
 
@@ -80,7 +82,7 @@ gem 'ruby-oembed'
 # queue
 
 gem 'resque', '1.19.0'
-gem 'resque-ensure-connected'
+gem 'resque-ensure-connected', :git => 'https://github.com/socialcast/resque-ensure-connected.git'
 gem 'resque-timeout', '1.0.0'
 gem 'SystemTimer', '1.2.3', :platforms => :ruby_18
 
@@ -152,4 +154,7 @@ group :development do
 
   # speed up development requests (already pulled into rails 3.2)
   gem 'active_reload'
+
+  # for tracing AR object instantiation and memory usage per request
+  gem 'oink'
 end

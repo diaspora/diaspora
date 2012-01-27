@@ -50,12 +50,6 @@ module Diaspora
         else
           contact.update_attributes(:receiving => false)
         end
-
-        posts.each do |p|
-          if p.user_refs < 1
-            p.destroy
-          end
-        end
       end
 
       def disconnect(bad_contact, opts={})

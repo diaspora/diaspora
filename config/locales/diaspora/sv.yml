@@ -111,7 +111,6 @@ sv:
         have_a_question: "... en %{link}?"
         here_to_help: "Diaspora-communityn finns här!"
         need_help: "Behöver du hjälp?"
-        satisfaction: "%{link}: Support ifrån communityn"
         tutorials_wiki_and_forum: "%{tutorial} & %{wiki} & %{forum}: Handledning, guider och nyheter från gemenskapen"
       introduce_yourself: "Det här är din ström. Hoppa in och presentera dig själv."
       keep_us_running: "Håll farten hos %{pod} uppe och köp kaffe till servrarna genom en månadsdonation!"

@@ -112,7 +112,6 @@ ko:
         have_a_question: "%{link}: 물어보세요!"
         here_to_help: "디아스포라 커뮤니티가 도와드립니다!"
         need_help: "도움이 필요하세요?"
-        satisfaction: "%{link}: 커뮤니티 지원"
         tag_bug: 버그
         tag_feature: 기능
         tag_question: 질문

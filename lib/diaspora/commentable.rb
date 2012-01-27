@@ -6,14 +6,17 @@ module Diaspora
   module Commentable
     def self.included(model)
       model.instance_eval do
-        has_many :comments, :as => :commentable, :order => 'created_at', :dependent => :destroy
+        has_many :comments, :as => :commentable, :dependent => :destroy
       end
     end
 
     # @return [Array<Comment>]
-    def last_three_comments
-      self.comments.order('created_at DESC').limit(3).includes(:author => :profile).reverse
-    end
+  def last_three_comments
+    return if self.comments_count == 0
+    # DO NOT USE .last(3) HERE.  IT WILL FETCH ALL COMMENTS AND RETURN THE LAST THREE
+    # INSTEAD OF DOING THE FOLLOWING, AS EXPECTED (THX AR):
+    self.comments.order('created_at DESC').limit(3).includes(:author => :profile).reverse
+  end
 
     # @return [Integer]
     def update_comments_counter
