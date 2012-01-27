@@ -985,6 +985,9 @@ label:not(.bootstrapped)
       :display inline
       :position relative
       :top -2px
+  
+  #status_message_fake_text
+    :min-height 20px
 
 
   .content_creation
@@ -1033,6 +1036,7 @@ label:not(.bootstrapped)
 #publisher_textarea_wrapper
   #hide_publisher
     @include opacity(0.3)
+    :z-index 5
     :padding 3px
     :position absolute
     :right 6px

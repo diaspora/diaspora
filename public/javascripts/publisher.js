@@ -118,6 +118,7 @@ var Publisher = {
       }
     }
   },
+
   createCounter: function(service){
     var counter = $("#publisher .counter");
     counter.remove();
@@ -204,6 +205,10 @@ var Publisher = {
     });
 
     Mentions.initialize(Publisher.input());
+
+    Publisher.input().bind("focus", function(){
+      Mentions.fetchContacts();
+    })
 
     if(Publisher.hiddenInput().val() === "") {
       Publisher.hiddenInput().val(Publisher.input().val());
