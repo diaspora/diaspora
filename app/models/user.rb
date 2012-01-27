@@ -191,6 +191,10 @@ class User < ActiveRecord::Base
     end
   end
 
+  def disable_getting_started
+    self.update_attribute(:getting_started, false) if self.getting_started?
+  end
+
   def set_current_language
     self.language = I18n.locale.to_s if self.language.blank?
   end

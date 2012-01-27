@@ -8,6 +8,7 @@ class Photo < ActiveRecord::Base
   include Diaspora::Commentable
   include Diaspora::Shareable
 
+
   # NOTE API V1 to be extracted
   acts_as_api
   api_accessible :backbone do |t|
@@ -32,6 +33,7 @@ class Photo < ActiveRecord::Base
   xml_attr :status_message_guid
 
   belongs_to :status_message, :foreign_key => :status_message_guid, :primary_key => :guid
+  validates_associated :status_message
 
   attr_accessible :text, :pending
   validate :ownership_of_status_message

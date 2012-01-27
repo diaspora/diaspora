@@ -66,6 +66,12 @@ class StatusMessage < Post
     write_attribute(:text, text)
   end
 
+  def attach_photos_by_ids(photo_ids)
+    return [] unless photo_ids.present?
+    self.photos << Photo.where(:id => photo_ids, :author_id => self.author_id).all
+  end
+
+
   def nsfw?
     self.raw_message.match(/#nsfw/i)
   end
@@ -102,6 +108,10 @@ class StatusMessage < Post
     else
       mentioned_people_from_string
     end
+  end
+
+  def mentioned_people_names
+    self.mentioned_people.map(&:name).join(', ')
   end
 
   def create_mentions
