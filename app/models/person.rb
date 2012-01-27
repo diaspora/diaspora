@@ -72,6 +72,8 @@ class Person < ActiveRecord::Base
          select("DISTINCT people.*")
   }
 
+  scope :in_aspects, lambda{|aspect_ids| joins(:contacts => {:aspect_memberships => :aspect}).where(Aspect.arel_table[:id].in(aspect_ids))}
+
   scope :profile_tagged_with, lambda{|tag_name| joins(:profile => :tags).where(:profile => {:tags => {:name => tag_name}}).where('profiles.searchable IS TRUE') }
 
   scope :who_have_reshared_a_users_posts, lambda{|user|

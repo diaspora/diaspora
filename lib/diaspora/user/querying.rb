@@ -292,8 +292,7 @@ module Diaspora
         allowed_aspects = self.aspects & requested_aspects
         aspect_ids = allowed_aspects.map(&:id)
 
-        people = Person.joins(:contacts => {:aspect_memberships => :aspect}).
-                        where(Aspect.arel_table[:id].in(aspect_ids))
+        people = Person.in_aspects(aspect_ids)
 
         if opts[:type] == 'remote'
           people = people.where(:owner_id => nil)
