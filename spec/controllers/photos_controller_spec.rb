@@ -135,7 +135,7 @@ describe PhotosController do
       it "redirects to the aspects page if there's no referrer" do
         request.env.delete("HTTP_REFERER")
         get :show, :id => @photo.to_param
-        response.should redirect_to(aspects_path)
+        response.should redirect_to(root_path)
       end
       
       it 'redirects to the sign in page if not logged in' do
