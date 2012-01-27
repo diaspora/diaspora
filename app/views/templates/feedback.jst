@@ -1,5 +1,10 @@
 <span class="post_scope">
   <%= public ? Diaspora.I18n.t("stream.public") : Diaspora.I18n.t("stream.limited") %>
+  <% if(provider_display_name) { %>
+    <strong>
+      via <%= provider_display_name %>
+    </strong>
+  <% } %>
 </span>
 –
 
