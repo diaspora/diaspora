@@ -85,8 +85,7 @@ class StatusMessage < Post
   end
 
   def format_mentions(text, opts = {})
-    regex = /@\{([^;]+); ([^\}]+)\}/
-    form_message = text.to_str.gsub(regex) do |matched_string|
+    form_message = text.to_str.gsub(Mention::REGEX) do |matched_string|
       people = self.mentioned_people
       person = people.detect{ |p|
         p.diaspora_handle == $~[2] unless p.nil?
@@ -129,8 +128,7 @@ class StatusMessage < Post
   end
 
   def mentioned_people_from_string
-    regex = /@\{([^;]+); ([^\}]+)\}/
-    identifiers = self.raw_message.scan(regex).map do |match|
+    identifiers = self.raw_message.scan(Mention::REGEX).map do |match|
       match.last
     end
     identifiers.empty? ? [] : Person.where(:diaspora_handle => identifiers)
