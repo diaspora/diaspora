@@ -7,11 +7,8 @@ var View = {
     /* Buttons */
     $("input:submit").addClass("button");
 
-    /* In field labels */
-    $("label").inFieldLabels();
-    $(document).bind('afterReveal.facebox', function() {
-      jQuery("#facebox label").inFieldLabels();
-    });
+    /* label placeholders */
+    $("input, textarea").placeholder();
 
     /* "Toggling" the search input */
     $(this.search.selector)

@@ -38,16 +38,15 @@
     = t('.change_password')
   = form_for 'user', :url => user_path, :html => { :method => :put } do |f|
     = f.error_messages
-
     %p
       = f.label :current_password, t('.current_password')
-      = f.password_field :current_password
+      = f.password_field :current_password, :placeholder => "the one you sign in with..."
     %p
       = f.label :password, t('.new_password')
-      = f.password_field :password
+      = f.password_field :password, :placeholder => 'must be at least six charaters'
     %p
       = f.label :password_confirmation, t('password_confirmation')
-      = f.password_field :password_confirmation
+      = f.password_field :password_confirmation, :placeholder => 'must be at least six charaters'
 
     .submit_block
       = link_to t('cancel'), edit_user_path
