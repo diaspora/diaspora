@@ -18,8 +18,7 @@
       </a>
 
       <p>
-      <label for="comment_text_on_<%= id %>"><%= Diaspora.I18n.t('stream.comment') %></label>
-        <textarea class="comment_box" id="comment_text_on_<%= id %>" name="text" rows="2" />
+        <textarea class="comment_box" id="comment_text_on_<%= id %>" name="text" rows="2" placeholder="<%= Diaspora.I18n.t('stream.comment') %>"/>
       </p>
       <div class="submit_button">
         <input class="button creation" id="comment_submit_<%= id %>" name="commit" type="submit" value="<%= Diaspora.I18n.t('stream.comment') %>" />
