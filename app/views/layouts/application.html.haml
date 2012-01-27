@@ -87,6 +87,9 @@
         Diaspora.I18n.loadLocale(#{get_javascript_strings_for(I18n.locale).to_json}, "#{I18n.locale}");
         Diaspora.Page = "#{params[:controller].camelcase}#{params[:action].camelcase}";
 
+    :javascript
+      app.baseImageUrl("#{ENV['ASSET_HOST']}")
+
     - if current_user
       :javascript
         app.user(
