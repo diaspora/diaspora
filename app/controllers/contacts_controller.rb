@@ -6,28 +6,30 @@ class ContactsController < ApplicationController
   before_filter :authenticate_user!
 
   def index
-    @contacts = case params[:set]
-    when "only_sharing"
-      current_user.contacts.only_sharing
-    when "all"
-      current_user.contacts
-    else
-      if params[:a_id]
-        @aspect = current_user.aspects.find(params[:a_id])
-        @aspect.contacts
-      else
-        current_user.contacts.receiving
-      end
-    end
-    @contacts = @contacts.for_a_stream.paginate(:page => params[:page], :per_page => 25)
-
     respond_to do |format|
+
       format.json {
         aspect_ids = params[:aspect_ids] || current_user.aspects.map(&:id)
         @people = Person.all_from_aspects(aspect_ids, current_user).for_json.paginate(:page => params[:page], :per_page => 25)
         render :json => @people.to_json
       }
-      format.any{}
+
+      format.any {
+        @contacts = case params[:set]
+          when "only_sharing"
+            current_user.contacts.only_sharing
+          when "all"
+            current_user.contacts
+          else
+            if params[:a_id]
+              @aspect = current_user.aspects.find(params[:a_id])
+              @aspect.contacts
+            else
+              current_user.contacts.receiving
+            end
+        end
+        @contacts = @contacts.for_a_stream.paginate(:page => params[:page], :per_page => 25)
+      }
     end
   end
 
