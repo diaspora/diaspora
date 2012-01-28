@@ -1,0 +1,30 @@
+{{#unless all_comments_loaded}}
+  <ul class="show_comments {{#unless showExpandCommentsLink}} hidden {{/unless}}">
+    <li>
+      <a href="/posts/{{id}}/comments" class="toggle_post_comments">
+      {{t "stream.more_comments" count=moreCommentsCount}}
+      </a>
+    </li>
+  </ul>
+{{/unless}}
+
+<ul class="comments"> </ul>
+
+{{#if current_user}}
+  <div class="new_comment_form_wrapper {{#unless comments_count}} hidden {{/unless}}">
+    <form accept-charset="UTF-8" action="/posts/{{id}}/comments" class="new_comment" id="new_comment_on_{{id}}" method="post">
+      {{#with current_user}}
+        <a href="/people/{{guid}}">
+          <img src="{{avatar.small}}" class="avatar" />
+        </a>
+      {{/with}}
+
+      <p>
+        <textarea class="comment_box" id="comment_text_on_{{id}}" name="text" rows="2" placeholder="{{t "stream.comment"}}" />
+      </p>
+      <div class="submit_button">
+        <input class="button creation" id="comment_submit_{{id}}" name="commit" type="submit" value="{{t "stream.comment"}}" />
+      </div>
+    </form>
+  </div>
+{{/if}}

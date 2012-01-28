@@ -1,7 +1,6 @@
 app.views.CommentStream = app.views.Base.extend({
 
-  legacyTemplate : true,
-  template_name: "#comment-stream-template",
+  templateName: "comment-stream",
 
   className : "comment_stream",
 
@@ -21,6 +20,13 @@ app.views.CommentStream = app.views.Base.extend({
 
     // add autoexpanders to new comment textarea
     this.$("textarea").autoResize({'extraSpace' : 10});
+  },
+
+  presenter: function(){
+    return _.extend(this.defaultPresenter(), {
+      moreCommentsCount : (this.model.get("comments_count") - 3),
+      showExpandCommentsLink : (this.model.get("comments_count") > 3)
+    })
   },
 
   createComment: function(evt) {

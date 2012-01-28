@@ -37,9 +37,8 @@ var app = {
 };
 
 $(function() { 
-
-  Handlebars.registerHelper('t', function(){
-    return Diaspora.I18n.t(arguments[0], jQuery.parseJSON(arguments[1]))
+  Handlebars.registerHelper('t', function(scope, values) {
+    return Diaspora.I18n.t(scope, values.hash)
   })
 
   Handlebars.registerHelper('imageUrl', function(path){
