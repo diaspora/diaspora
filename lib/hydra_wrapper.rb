@@ -8,6 +8,7 @@ require 'active_support/base64'
 class HydraWrapper
 
   OPTS = {:max_redirects => 3, :timeout => 25000, :method => :post,
+          :ssl_capath => EnviromentConfiguration.ca_cert_file_location,
           :headers => {'Expect'            => '',
                        'Transfer-Encoding' => ''}
          }
