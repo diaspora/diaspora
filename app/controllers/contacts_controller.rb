@@ -8,27 +8,14 @@ class ContactsController < ApplicationController
   def index
     respond_to do |format|
 
+      format.html { set_up_contacts }
+
+      format.mobile { set_up_contacts }
+
       format.json {
         aspect_ids = params[:aspect_ids] || current_user.aspects.map(&:id)
         @people = Person.all_from_aspects(aspect_ids, current_user).for_json.paginate(:page => params[:page], :per_page => 25)
         render :json => @people.to_json
-      }
-
-      format.any {
-        @contacts = case params[:set]
-          when "only_sharing"
-            current_user.contacts.only_sharing
-          when "all"
-            current_user.contacts
-          else
-            if params[:a_id]
-              @aspect = current_user.aspects.find(params[:a_id])
-              @aspect.contacts
-            else
-              current_user.contacts.receiving
-            end
-        end
-        @contacts = @contacts.for_a_stream.paginate(:page => params[:page], :per_page => 25)
       }
     end
   end
@@ -41,6 +28,25 @@ class ContactsController < ApplicationController
   def spotlight
     @spotlight = true
     @people = Person.community_spotlight
+  end
+
+  protected
+
+  def set_up_contacts
+    @contacts = case params[:set]
+      when "only_sharing"
+        current_user.contacts.only_sharing
+      when "all"
+        current_user.contacts
+      else
+        if params[:a_id]
+          @aspect = current_user.aspects.find(params[:a_id])
+          @aspect.contacts
+        else
+          current_user.contacts.receiving
+        end
+    end
+    @contacts = @contacts.for_a_stream.paginate(:page => params[:page], :per_page => 25)
   end
 
 end
