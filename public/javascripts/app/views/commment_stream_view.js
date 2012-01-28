@@ -41,6 +41,10 @@ app.views.CommentStream = app.views.Base.extend({
   },
 
   appendComment: function(comment) {
+    // Set the post as the comment's parent, so we can check
+    // on post ownership in the Comment view.
+    comment.set({parent : this.model.toJSON()})
+
     this.$("ul.comments").append(new app.views.Comment({
       model: comment
     }).render().el);
