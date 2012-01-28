@@ -9,9 +9,11 @@ module Jobs
     @queue = :receive_salmon
 
     def self.perform(user_id, xml)
-      user = User.find(user_id)
-      zord = Postzord::Receiver::Private.new(user, :salmon_xml => xml)
-      zord.perform!
+      suppress_annoying_errors do
+        user = User.find(user_id)
+        zord = Postzord::Receiver::Private.new(user, :salmon_xml => xml)
+        zord.perform!
+      end
     end
   end
 end

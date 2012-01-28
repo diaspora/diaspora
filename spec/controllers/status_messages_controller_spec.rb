@@ -68,7 +68,8 @@ describe StatusMessagesController do
       alice.services << s1
       alice.services << Services::Twitter.new
       status_message_hash[:services] = ['facebook']
-      alice.should_receive(:dispatch_post).with(anything(), hash_including(:services => [s1]))
+      service_types = Service.titles(status_message_hash[:services])
+      alice.should_receive(:dispatch_post).with(anything(), hash_including(:service_types => service_types))
       post :create, status_message_hash
     end
 
@@ -76,7 +77,7 @@ describe StatusMessagesController do
       s1 = Services::Facebook.new
       alice.services << s1
       status_message_hash[:services] = "facebook"
-      alice.should_receive(:dispatch_post).with(anything(), hash_including(:services => [s1]))
+      alice.should_receive(:dispatch_post).with(anything(), hash_including(:service_types => ["Services::Facebook"]))
       post :create, status_message_hash
     end
 

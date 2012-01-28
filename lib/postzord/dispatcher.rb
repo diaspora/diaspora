@@ -25,7 +25,7 @@ class Postzord::Dispatcher
   # @return [Postzord::Dispatcher] Public or private dispatcher depending on the object's intended audience
   def self.build(user, object, opts={})
     unless object.respond_to? :to_diaspora_xml
-      raise 'this object does not respond_to? to_diaspora xml.  try including Diaspora::Webhooks into your object'
+      raise 'This object does not respond_to? to_diaspora xml.  Try including Diaspora::Webhooks into your object'
     end
 
     if self.object_should_be_processed_as_public?(object)
@@ -36,8 +36,10 @@ class Postzord::Dispatcher
   end
 
   def self.defer_build_and_post(user, object, opts={})
-    opts[:additional_subscribers] ||= [] 
-    opts[:additional_subscribers] = [*opts[:additional_subscribers]].map(&:id)
+    opts[:additional_subscribers] ||= []
+    if opts[:additional_subscribers].present?
+      opts[:additional_subscribers] = [*opts[:additional_subscribers]].map(&:id)
+    end
     Resque.enqueue(Jobs::DeferredDispatch, user.id, object.class.to_s, object.id, opts)
   end
 

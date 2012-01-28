@@ -5,10 +5,10 @@ describe("app.views.CommentStream", function(){
 
   describe("postRenderTemplate", function(){
     it("applies infield labels", function(){
-      spyOn($.fn, "inFieldLabels")
+      spyOn($.fn, "placeholder")
       this.view.postRenderTemplate()
-      expect($.fn.inFieldLabels).toHaveBeenCalled()
-      expect($.fn.inFieldLabels.mostRecentCall.object.selector).toBe("label")
+      expect($.fn.placeholder).toHaveBeenCalled()
+      expect($.fn.placeholder.mostRecentCall.object.selector).toBe("textarea")
     })
 
     it("autoResizes the new comment textarea", function(){

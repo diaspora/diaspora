@@ -28,18 +28,9 @@
   .stream_container
     = render 'people/sub_header', :person => @person, :contact => @contact
 
-    / hackity hack until we get a photo stream
-    - if @backbone && (@posts && @posts.length > 0) || (@stream && @stream.stream_posts.length > 0)
-      -if @post_type == :photos
-        = render 'photos/index', :photos => @posts
-      - else
-        #main_stream.stream
-
-    - else
-      #main_stream
+    #main_stream.stream
+      - if @block.present?
         %div{:style=>"text-align:center;", :class => "dull"}
-          - if @block.present?
-            = t('.ignoring', :name => @person.first_name)
-          - else
-            = t('.has_not_shared_with_you_yet', :name => @person.first_name)
-
+          = t('.ignoring', :name => @person.first_name)
+          
+    #paginate
