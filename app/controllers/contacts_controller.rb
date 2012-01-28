@@ -19,7 +19,7 @@ class ContactsController < ApplicationController
         current_user.contacts.receiving
       end
     end
-    @contacts = @contacts.for_a_stream(params[:page])
+    @contacts = @contacts.for_a_stream.paginate(:page => params[:page], :per_page => 25)
 
     respond_to do |format|
       format.json {
