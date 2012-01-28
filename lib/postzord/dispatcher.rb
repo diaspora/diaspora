@@ -36,7 +36,10 @@ class Postzord::Dispatcher
   end
 
   def self.defer_build_and_post(user, object, opts={})
-    opts[:additional_subscribers] = [*opts[:additional_subscribers]].map(&:id)
+    opts[:additional_subscribers] ||= []
+    if opts[:additional_subscribers].present?
+      opts[:additional_subscribers] = [*opts[:additional_subscribers]].map(&:id)
+    end
     Resque.enqueue(Jobs::DeferredDispatch, user.id, object.class.to_s, object.id, opts)
   end
 
