@@ -23,7 +23,8 @@ class ContactsController < ApplicationController
 
     respond_to do |format|
       format.json {
-        @people = Person.all_from_aspects(params[:aspect_ids], current_user).for_json
+        aspect_ids = params[:aspect_ids] || current_user.aspects.map(&:id)
+        @people = Person.all_from_aspects(aspect_ids, current_user).for_json.paginate(:page => params[:page], :per_page => 25)
         render :json => @people.to_json
       }
       format.any{}
