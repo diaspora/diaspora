@@ -33,6 +33,7 @@ en:
   public: "Public"
   limited: "Limited"
   search: "Search"
+  nsfw: "NSFW"
   find_people: "Find people or #tags"
   _home: "Home"
   more: "More"
@@ -648,6 +649,8 @@ en:
       update_profile: "Update Profile"
       allow_search: "Allow for people to search for you within Diaspora"
       edit_profile: "Edit profile"
+      you_are_nsfw: "You have marked yourself not safe for work, your content will not show up in people who have opted out of seeing objectionable content's streams."
+      you_are_safe_for_work: "You have marked yourself as safe for work, this means you agree the content you post will agree with the community guidelines."
     update:
       updated: "Profile updated"
       failed: "Failed to update profile"

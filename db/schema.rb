@@ -343,6 +343,7 @@ ActiveRecord::Schema.define(:version => 20120203220932) do
     t.datetime "updated_at"
     t.string   "location"
     t.string   "full_name",        :limit => 70
+    t.boolean  "nsfw",                            :default => false
   end
 
   add_index "profiles", ["full_name", "searchable"], :name => "index_profiles_on_full_name_and_searchable"

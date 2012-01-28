@@ -309,6 +309,7 @@ describe Profile do
       "gender",
       "bio",
       "searchable",
+      "nsfw",
       "location",
       "full_name"].sort
     end
