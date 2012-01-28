@@ -53,9 +53,9 @@ ServiceUser.import((1..40).map{|n| Factory.build(:service_user, :service => eve_
 
 puts "done!"
 
-require 'spec/support/fake_resque'
-require 'spec/support/fake_redis'
-require 'spec/support/user_methods'
+require File.join(File.dirname(__FILE__), '..', 'spec', 'support', 'fake_resque')
+require File.join(File.dirname(__FILE__), '..', 'spec', 'support', 'fake_redis')
+require File.join(File.dirname(__FILE__), '..', 'spec', 'support', 'user_methods')
 
 old_cache_setting = AppConfig[:redis_cache]
 AppConfig[:redis_cache] = false
