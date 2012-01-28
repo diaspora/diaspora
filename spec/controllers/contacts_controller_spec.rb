@@ -28,6 +28,13 @@ describe ContactsController do
   end
 
   describe '#index' do
+    context 'format mobile' do
+      it "succeeds" do
+        get :index, :format => 'mobile'
+        response.should be_success
+      end
+    end
+
     context 'format html' do
       it "succeeds" do
         get :index
@@ -60,12 +67,6 @@ describe ContactsController do
     end
 
     context 'format json' do
-      it 'respects pagination' do
-        get :index, :format => 'json', :page => '2'
-        assigns[:people].should == []
-        response.should be_success
-      end
-
       it 'assumes all aspects if none are specified' do
         get :index, :format => 'json'
         assigns[:people].map(&:id).should =~ bob.contacts.map { |c| c.person.id }

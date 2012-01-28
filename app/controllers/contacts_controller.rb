@@ -8,13 +8,16 @@ class ContactsController < ApplicationController
   def index
     respond_to do |format|
 
+      # Used for normal requests to contacts#index and subsequent infinite scroll calls
       format.html { set_up_contacts }
 
+      # Used by the mobile site
       format.mobile { set_up_contacts }
 
+      # Used to populate mentions in the publisher
       format.json {
         aspect_ids = params[:aspect_ids] || current_user.aspects.map(&:id)
-        @people = Person.all_from_aspects(aspect_ids, current_user).for_json.paginate(:page => params[:page], :per_page => 25)
+        @people = Person.all_from_aspects(aspect_ids, current_user).for_json
         render :json => @people.to_json
       }
     end
