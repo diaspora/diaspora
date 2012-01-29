@@ -61,11 +61,17 @@ describe("app.views.Stream", function(){
       expect(this.statusElement.find('.read-more').length).toEqual(0);
     });
 
-    xit('collapses the p elements', function() {
-      // This does not work on firefox. Seems to be different behavior of the expander plugin. Needs more work.
+    it('collapses the p elements on webkit', function() {
+      // The expander plugin has different behavior on firefox and webkit >.<
       expect(this.statusElement.find('.collapsible p').length).toEqual(2);
       readMoreLink.click();
-      expect(this.statusElement.find('.collapsible p').length).toEqual(1);
+      if(this.statusElement.find('.collapsible .summary').length > 0) {
+        // Firefox
+        expect(this.statusElement.find('.collapsible p').length).toEqual(2);
+      } else { 
+        // Chrome
+        expect(this.statusElement.find('.collapsible p').length).toEqual(1);
+      }
     });
   });
 
