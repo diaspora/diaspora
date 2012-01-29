@@ -51,7 +51,7 @@ describe PostsController do
       end
       
       it 'redirects if the post is missing' do
-        get :show, :id => 523523523
+        get :show, :id => 1234567
         response.should be_redirect
       end
     end
