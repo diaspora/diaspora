@@ -5,135 +5,218 @@
 
 
 gl:
-  _applications: Aplicativos
-  _comments: Comentarios
-  _contacts: Contactos
-  _home: Inicio
-  _photos: Imaxes
-  _services: Servizos
-  account: Conta
+  settings: "Configuración"
+  profile: "Perfil"
+  account: "Conta"
+  privacy: "Intimidade"
+  privacy_policy: "Política de protección da intimidade"
+  terms_and_conditions: "Condicións de uso"
+  _services: "Servizos"
+  _applications: "Aplicativos"
+  _photos: "Imaxes"
+  ok: "Aceptar"
+  cancel: "Cancelar"
+  delete: "Eliminar"
+  hide: "Agochar"
+  undo: "Desfacer?"
+  or: "ou"
+  ago: "Hai %{time}"
+  username: "Nome de usuario"
+  email: "correo electrónico"
+  password: "Contrasinal"
+  password_confirmation: "Confirmación do contrasinal"
+  are_you_sure: "Está seguro?"
+  are_you_sure_delete_account: "Está seguro de que quere pechar a súa conta? Non haberá volta atrás!"
+  fill_me_out: "Escribir aquí."
+  back: "Volver"
+  public: "Público"
+  limited: "Limitado"
+  search: "Busca"
+  find_people: "Atopar xente ou #etiquetas."
+  _home: "Inicio"
+  more: "Máis"
+  next: "Seguinte"
+  previous: "Anterior"
+  _comments: "Comentarios"
+  all_aspects: "Todos os aspectos"
+  no_results: "Non se atopou nada."
+  _contacts: "Contactos"
+  welcome: "Benvido!"
+
+
   activerecord:
     errors:
       models:
-        contact:
-          attributes:
-            person_id:
-              taken: "debe ser único entre os contactos deste usuario."
-        person:
-          attributes:
-            diaspora_handle:
-              taken: "xa está collido."
-        request:
-          attributes:
-            from_id:
-              taken: "é un duplicado dunha petición anterior."
         user:
           attributes:
-            email:
-              taken: "xa está collido."
             person:
               invalid: "non é correcto."
             username:
               taken: "xa está collido."
-  ago: "Hai %{time}"
-  all_aspects: "Todos os aspectos"
+              invalid: "non é correcto. Só se permiten letras do alfabeto latino, números e guións baixos."
+            email:
+              taken: "xa está collido."
+        person:
+          attributes:
+            diaspora_handle:
+              taken: "xa está collido."
+        contact:
+          attributes:
+            person_id:
+              taken: "debe ser único entre os contactos deste usuario."
+        request:
+          attributes:
+            from_id:
+              taken: "é un duplicado dunha petición anterior."
+        reshare:
+          attributes:
+            root_guid:
+              taken: "Moi interesante ten que ser iso para que o compartas outra vez!"
+
+
+  error_messages:
+    helper:
+      invalid_fields: "Campos incorrectos"
+      correct_the_following_errors_and_try_again: "Corrixa os seguintes erros e vólvao intentar."
+
+
   application:
     helper:
-      diaspora_alpha: "DIASPORA* ALFA"
       unknown_person: "persoa descoñecida"
       video_title:
         unknown: "Título de vídeo descoñecido"
-  are_you_sure: "Está seguro?"
+      diaspora_alpha: "DIASPORA* ALFA"
+
+
+  aspects:
+    zero: "non hai aspectos"
+    one: "un aspecto"
+    two: "dous aspectos"
+    few: "%{count} aspectos"
+    many: "%{count} aspectos"
+    other: "%{count} aspectos"
+    contacts_visible: "Os contactos deste aspecto poderán verse os uns aos outros."
+    contacts_not_visible: "Os contactos deste aspecto non poderán verse os uns aos outros."
+    edit:
+      make_aspect_list_visible: "Deixar que os contactos deste aspecto vexan a lista de membros?"
+      remove_aspect: "Eliminar o aspecto"
+      confirm_remove_aspect: "Está seguro de que quere eliminar este aspecto?"
+      add_existing: "Engadir un contacto existente"
+      done: "Feito"
+      rename: "Renomear"
+      aspect_list_is_visible: "Os contactos do aspecto poden ver a lista dos membros."
+      aspect_list_is_not_visible: "Os contactos do aspecto non poden ver a lista dos membros."
+      update: "Actualizar"
+      updating: "Actualizando…"
+    aspect_contacts:
+      done_editing: "Remataron as modificacións."
+    show:
+      edit_aspect: "Modificar o aspecto"
+    no_posts_message:
+      start_talking: "De momento ninguén dixo nin “mu”!"
+    no_contacts_message:
+      you_should_add_some_more_contacts: "Debería engadir máis contactos!"
+      try_adding_some_more_contacts: "Pode buscar ou convidar a máis contactos."
+      or_spotlight:  "Ou pode compartir coas %{link}."
+      community_spotlight: "estrelas da comunidade"
+    aspect_listings:
+      select_all: "Escollelos todos"
+      deselect_all: "Non escoller ningún"
+      edit_aspect: "Modificar %{name}"
+      add_an_aspect: "Engadir un novo"
+    selected_contacts:
+      view_all_community_spotlight: "Ver a todas as estrelas da comunidade."
+      view_all_contacts: "Ver todos os contactos"
+      no_contacts: "Aínda non ten ningún contacto aquí."
+      manage_your_aspects: "Xestione os seus aspectos."
+    new:
+      name: "Nome (só o pode ver vostede)"
+      create: "Crear"
+    create:
+      success: "Creouse o aspecto «%{name}»."
+      failure: "Non se puido crear o aspecto."
+    destroy:
+      success: "Eliminouse «%{name}»."
+      failure: "Non se pode eliminar «%{name}» porque non está baleiro."
+    update:
+      success: "Gardáronse os cambios do aspecto «%{name}»."
+      failure: "O aspecto «%{name}» tiña un nome longo de máis para gardalo."
+    move_contact:
+      failure: "Non funcionou: %{inspect}"
+      success: "Moveuse a persoa a un novo aspecto."
+      error: "Houbo un erro ao intentar mover o contacto: %{inspect}"
+    add_to_aspect:
+      failure: "Non se puido engadir o contacto ao aspecto."
+      success: "O contacto engadiuse ao aspecto."
+    helper:
+      remove: "Eliminar"
+      aspect_not_empty: "O aspecto non está baleiro."
+      are_you_sure: "Está seguro de que quere eliminar o aspecto?"
+    seed:
+      family: "Familia"
+      work: "Traballo"
+      acquaintances: "Coñecidos"
+      friends: "Amigos"
+    index:
+      donate: "Doar"
+      keep_us_running: "Contribúe ao mantemento de %{pod} cunha doazón mensual!"
+      your_aspects: "Aspectos"
+      no_tags: "Atope unha etiqueta que seguir"
+      unfollow_tag: "Deixar se seguir #%{tag}"
+      handle_explanation: "Este é o seu identificador de Diaspora. É coma un enderezo electrónico, pode darllo á xente para que o atopen."
+      no_contacts: "Non ten contactos."
+      post_a_message: "Publicar unha mensaxe: "
+      people_sharing_with_you: "Xente compartindo con vostede"
+
+      welcome_to_diaspora: "Dámosche a benvida a Diaspora, %{name}!"
+      introduce_yourself: "Esta é a túa onda. Veña, preséntate!"
+
+      new_here:
+        title: "Dálle a benvida aos novos"
+        follow: "Segue %{link} e dálle a benvida aos novos usuarios de Diaspora*!"
+        learn_more: "Informarse"
+
+      help:
+        need_help: "Necesita axuda?"
+        here_to_help: "A comunidade de Diaspora ao rescate!"
+        do_you: "Que foi?"
+        have_a_question: "Ten unha %{link}?"
+        tag_question: "dúbida"
+        find_a_bug: "Atopou un %{link}?"
+        tag_bug: "erro"
+        feature_suggestion: "Quere propoñer unha %{link}?"
+        tag_feature: "funcionalidade"
+        tutorials_wiki_and_forum: "%{tutorial}, %{wiki}, %{forum}… Recursos de aprendizaxe, manuais e novas, todo da man a comunidade!"
+        email_feedback: "Ademais, sempre lle quedará mandarnos un %{link}."
+      cubbies:
+        heading: "Conectarse a Cubbi.es"
+        explanation: "Cubbi.es é o primeiro aplicativo en desenvolverse para Diaspora."
+        learn_more: "Informarse"
+      diaspora_id:
+        heading: "Identificador de Diaspora"
+        content_1: "O seu identificador de Diaspora é:"
+        content_2: "Déallo a quen queira, e poderán atopalo en Diaspora."
+      services:
+        heading: "Conectar servizos"
+        content: "Pode conectar con Diaspora os seguintes servizos:"
+
+# Continuar a revisión da tradución por aquí.
+
+
   aspect_memberships:
     destroy:
       failure: "Non se puido eliminar ao contacto do aspecto."
       no_membership: "O contacto seleccionado non está neste aspecto."
       success: "Eliminouse ao contacto do aspecto correctamente."
-  aspects:
-    add_to_aspect:
-      failure: "Non se puido engadir o contacto ao aspecto."
-      success: "O contacto engadiuse ao aspecto correctamente."
-    aspect_contacts:
-      done_editing: "Rematou a edición."
-    aspect_listings:
-      add_an_aspect: "Engadir un aspecto"
-    contacts_not_visible: "Os contactos deste aspecto non se poderán ver entre eles."
-    contacts_visible: "Os contactos deste aspecto poderanse ver entre eles."
-    create:
-      failure: "Non se puido crear o aspecto."
-      success: "Creouse o aspecto %{name}."
-    destroy:
-      failure: "%{name} non pode eliminarse porque non está baleiro."
-      success: "%{name} eliminouse correctamente."
-    edit:
-      add_existing: "Engadir un contacto existente"
-      aspect_list_is_not_visible: "Os contactos do aspecto non poden ver a lista dos membros."
-      aspect_list_is_visible: "Os contactos do aspecto poden ver a lista dos membros."
-      confirm_remove_aspect: "Está seguro de que quere eliminar este aspecto?"
-      done: Feito
-      make_aspect_list_visible: "facer visíbel a lista dos aspectos?"
-      remove_aspect: "Eliminar este aspecto"
-      rename: Renomear
-      update: Actualizar
-      updating: Actualizando…
-    few: "%{count} aspectos"
-    helper:
-      are_you_sure: "Está seguro de que quere eliminar o aspecto?"
-      aspect_not_empty: "O aspecto non está baleiro."
-      remove: Eliminar
-    index:
-      cubbies:
-        explanation: "Cubbi.es é o primeiro aplicativo en desenvolverse para Diaspora."
-        heading: "Conectar Cubbi.es"
-        learn_more: "Máis información"
-      diaspora_id:
-        content_1: "O seu identificador de Diaspora é:"
-        content_2: "Déallo a quen queira, e poderán atopalo en Diaspora."
-        heading: "Identificador de Diaspora"
-      handle_explanation: "Este é o seu enderezo de Diaspora. É coma un enderezo electrónico, pode darllo á xente para que o atopen."
-      no_contacts: "Non ten contactos."
-      people_sharing_with_you: "Xente que comparte con vostede"
-      post_a_message: "Publicar unha mensaxe: "
-      services:
-        content: "Pode conectar con Diaspora os seguintes servizos:"
-        heading: "Conectar servizos"
-      your_aspects: Aspectos
-    many: "%{count} aspectos"
-    move_contact:
-      error: "Houbo un erro ao intentar mover a contacto: %{inspect}"
-      failure: "non funcionou %{inspect}"
-      success: "Moveuse a persoa a un novo aspecto."
-    new:
-      create: Crear
-      name: Nome
-    no_posts_message:
-      start_talking: "Ninguén dixo nada. Comeza unha conversa!"
-    one: "un aspecto"
-    other: "%{count} aspectos"
-    seed:
-      family: Familia
-      work: Traballo
-    selected_contacts:
-      manage_your_aspects: "Xestione os seus aspectos."
-      no_contacts: "Aínda non ten ningún contacto aquí."
-      view_all_contacts: "Ver todos os contactos"
-    show:
-      edit_aspect: "Modificar o aspecto"
-    update:
-      failure: "O aspecto %{name} tiña un nome longo de máis para gardalo."
-      success: "O aspecto %{name} modificouse correctamente."
-    zero: "non hai aspectos"
   authorizations:
     index:
       revoke_access: "Revogar o permiso de acceso"
-  back: Volver
   bookmarklet:
     explanation: "Engada a ligazón «%{link}» aos seus marcadores e publique dende calquera páxina."
     explanation_link_text: "Publicar en Diaspora"
     heading: "Marcador de publicación"
     post_something: "Publicar algo en Diaspora"
     post_success: "Publicado! Pechando…"
-  cancel: Cancelar
   comments:
     few: "Hai %{count} comentarios."
     many: "Hai %{count} comentarios."
@@ -196,15 +279,6 @@ gl:
       birthday: "%d de %B"
       birthday_with_year: "%d de %B do %Y"
       fullmonth_day: "%d de %B"
-  delete: Eliminar
-  email: "Correo electrónico"
-  error_messages:
-    helper:
-      correct_the_following_errors_and_try_again: "Corrixa os seguintes erros e vólvao intentar."
-      invalid_fields: "Campos incorrectos"
-  fill_me_out: "Escribir aquí."
-  find_people: "Atopar xente."
-  hide: Ocultar
   home:
     show:
       already_account: "Xa ten conta?"
@@ -270,10 +344,6 @@ gl:
         one: "Gústalle a unha persoa."
         other: "Gústalle a %{count} persoas."
         zero: "A ninguén lle gusta."
-  limited: Limitado
-  more: Máis
-  next: Seguinte
-  no_results: "Non se atopou nada."
   notifications:
     also_commented:
       few: "%{actors} comentaron tamén a %{post_link} de %{post_author}."
@@ -361,10 +431,6 @@ gl:
       sharing: "comezou a compartir con vostede!"
       subject: "%{name} comezou a compartir con vostede en Diaspora*"
     thanks: "Grazas,"
-  ok: Aceptar
-  or: ou
-  password: Contrasinal
-  password_confirmation: "Confirmación do contrasinal"
   people:
     add_contact_small:
       add_contact_from_tag: "Engadir un contacto a partir da etiqueta"
@@ -447,8 +513,6 @@ gl:
       destroy: Eliminar
       not_found: "Non se deu atopado esa publicación."
       permalink: "Ligazón permanente"
-  previous: Anterior
-  profile: Perfil
   profiles:
     edit:
       allow_search: "Aparecer nas buscas en Diaspora."
@@ -469,7 +533,6 @@ gl:
     update:
       failed: "Non se puido actualizar o perfil."
       updated: "Actualizouse o perfil."
-  public: Público
   registrations:
     closed: "Rexistros pechados neste servidor de Diaspora."
     create:
@@ -506,7 +569,6 @@ gl:
       manage_within: "Administrar os contactos"
     new_request_to_person:
       sent: Enviada!
-  search: Busca
   services:
     create:
       success: "Identificouse correctamente."
@@ -529,7 +591,6 @@ gl:
     remote_friend:
       invite: Convidar
       resend: "Volver enviar"
-  settings: Configuración
   shared:
     add_contact:
       add_new_contact: "Engadir un novo contacto"
@@ -624,8 +685,6 @@ gl:
       typical_userpage: "Unha páxina de usuario típica de cubbi.es"
       via: "(vía %{link})"
       what_is_cubbies: "Cubbi.es é o primeiro aplicativo de Diaspora, e a mellor forma de recoller imaxes na rede."
-  undo: Desfacer?
-  username: "Nome de usuario"
   users:
     destroy: "Bloqueouse a súa conta. Pode levar ata 20 minutos pechala completamente. Grazas por darlle unha oportunidade a Diaspora."
     edit:
