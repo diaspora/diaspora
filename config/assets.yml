@@ -110,5 +110,7 @@ stylesheets:
     - public/stylesheets/rtl.css
 
   mobile:
+    - public/stylesheets/bootstrap2.css
+    - public/stylesheets/bootstrap-responsive.css
     - public/stylesheets/mobile.css
 

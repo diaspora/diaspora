@@ -3,10 +3,9 @@
 -#   the COPYRIGHT file.
 
 = form_tag( post_comments_path(post_id), :id => "new_comment_on_#{post_id}", :class => 'new_comment', :autocomplete => "off") do
-  = hidden_field_tag :post_id,  post_id, :id => "post_id_on_#{post_id}"
-  = text_area_tag :text, nil, :class => "comment_box",:id => "comment_text_on_#{post_id}", :placeholder => t('.comment'), :autofocus => true
+  %fieldset
+    = hidden_field_tag :post_id,  post_id, :id => "post_id_on_#{post_id}"
+    = text_area_tag :text, nil, :class => "span12 comment_box", :id => "comment_text_on_#{post_id}", :placeholder => t('.comment'), :autofocus => true
 
-  .actions
     = link_to "Cancel", post_path(post_id), :class => "cancel_new_comment btn"
-    = submit_tag t('.comment'), :id => "comment_submit_#{post_id}", :disable_with => t('.commenting'), :class => "action"
-
+    = submit_tag t('.comment'), :id => "comment_submit_#{post_id}", :disable_with => t('.commenting'), :class => "btn primary"
