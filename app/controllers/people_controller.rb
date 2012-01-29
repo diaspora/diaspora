@@ -46,6 +46,7 @@ class PeopleController < ApplicationController
         else
           people = Person.search(params[:q], current_user)
         end
+        @normalized_tag_for_query = ActsAsTaggableOn::Tag.normalize(params[:q])
         @people = people.paginate( :page => params[:page], :per_page => 15)
         @hashes = hashes_for_people(@people, @aspects)
       end

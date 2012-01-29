@@ -18,9 +18,10 @@
       =t('.results_for')
       %span.term
         = params[:q]
-    %h4
-      %small
-        = t('.looking_for', :tag_link => tag_page_link(params[:q])).html_safe
+    - if @normalized_tag_for_query.present?
+      %h4
+        %small
+          = t('.looking_for', :tag_link => link_to("##{@normalized_tag_for_query}", tag_path(:name => @normalized_tag_for_query))).html_safe
 .span-15
   %hr
 .clearfix

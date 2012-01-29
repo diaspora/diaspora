@@ -12,13 +12,21 @@ app.views.Comment = app.views.Content.extend({
 
   presenter : function() {
     return _.extend(this.defaultPresenter(), {
-      ownComment: this.ownComment(),
+      canRemove: this.canRemove(),
       text : app.helpers.textFormatter(this.model)
     })
   },
 
-  ownComment: function() {
-    if(!app.user()){ return false }
+  ownComment : function() {
     return this.model.get("author").diaspora_id == app.user().diaspora_id
+  },
+
+  postOwner : function() {
+    return this.model.get("parent").author.diaspora_id == app.user().diaspora_id
+  },
+
+  canRemove : function() {
+    if(!app.user()){ return false }
+    return this.ownComment() || this.postOwner()
   }
 });

@@ -15,7 +15,7 @@ Feature: commenting
     And I am on "alice@alice.alice"'s page
     Then I should see "Look at this dog"
     When I focus the comment field
-    And I fill in "Comment" with "is that a poodle?"
+    And I fill in "text" with "is that a poodle?"
     And I press "Comment"
     Then I should see "is that a poodle?" within "li.comment div.content"
     And I should see "less than a minute ago" within "li.comment time"
@@ -25,7 +25,7 @@ Feature: commenting
     And I am on the photo page for "alice@alice.alice"'s post "Look at this dog"
     And I wait for the ajax to finish
     And I focus the comment field
-    And I fill in "Comment" with "hahahah"
+    And I fill in "text" with "hahahah"
     And I press "Comment"
     Then I should see "hahaha" within "li.comment div.content"
     And I should see "less than a minute ago" within "li.comment time"
@@ -35,7 +35,7 @@ Feature: commenting
     And I am on the photo page for "alice@alice.alice"'s post "Look at this dog"
     And I wait for the ajax to finish
     And I focus the comment field
-    And I fill in "Comment" with "hahahah"
+    And I fill in "text" with "hahahah"
     And I press "Comment"
     Then I should see "hahaha" within "li.comment div.content"
     And I should see "less than a minute ago" within "li.comment time"
@@ -45,7 +45,7 @@ Feature: commenting
     And I am on "alice@alice.alice"'s page
     Then I should see "Look at this dog"
     When I focus the comment field
-    And I fill in "Comment" with "is that a poodle?"
+    And I fill in "text" with "is that a poodle?"
     And I press "Comment"
     And I wait for the ajax to finish
     When I hover over the ".comment"

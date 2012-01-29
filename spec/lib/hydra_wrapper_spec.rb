@@ -2,7 +2,7 @@
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
-require 'spec_helper'
+require 'hydra_wrapper'
 
 describe HydraWrapper do
   before do
@@ -72,27 +72,6 @@ describe HydraWrapper do
       @wrapper.enqueue_batch
     end
 
-  end
-
-  describe "#insert_job" do
-    before do
-      @wrapper.hydra.stub!(:queue)
-      @wrapper.stub!(:prepare_request!)
-    end
-    
-    it 'passes the correct options' do
-      xml = "<XML>"
-      url = "blub"
-      Typhoeus::Request.should_receive(:new).with(url, {
-        :max_redirects => 3, :timeout => 25000, :method => :post,
-        #:ssl_capath => EnvironmentConfiguration.
-         :headers => {'Expect'            => '',
-                      'Transfer-Encoding' => ''},
-         :ssl_capath => EnviromentConfiguration.ca_cert_file_location,
-         :params => {:xml => CGI.escape(xml)}
-         })
-      @wrapper.insert_job(url, xml, stub)
-    end
   end
 
   describe '#redirecting_to_https?!' do

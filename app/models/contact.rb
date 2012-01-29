@@ -37,10 +37,9 @@ class Contact < ActiveRecord::Base
     where(:receiving => true)
   }
 
-  scope :for_a_stream, lambda { |page|
+  scope :for_a_stream, lambda {
     includes(:aspects, :person => :profile).
-        order('profiles.last_name ASC').
-        paginate(:page => page, :per_page => 25)
+        order('profiles.last_name ASC')
   }
 
   scope :only_sharing, lambda {
