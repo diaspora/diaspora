@@ -16,13 +16,12 @@ class PostsController < ApplicationController
 
     if user_signed_in?
       @post = current_user.find_visible_shareable_by_id(Post, params[:id], :key => key)
-      @commenting_disabled = user_can_not_comment_on_post?
     else
       @post = Post.where(key => params[:id], :public => true).includes(:author, :comments => :author).first
-      @commenting_disabled = true
     end
 
     if @post
+      @commenting_disabled = can_not_comment_on_post?
       # mark corresponding notification as read
       if user_signed_in? && notification = Notification.where(:recipient_id => current_user.id, :target_id => @post.id).first
         notification.unread = false
@@ -65,8 +64,10 @@ class PostsController < ApplicationController
    request.format = :html if request.format == 'application/html+xml'
   end
 
-  def user_can_not_comment_on_post?
-    if @post.public && @post.author.local?
+  def can_not_comment_on_post?
+    if !user_signed_in?
+      true
+    elsif @post.public && @post.author.local?
       false
     elsif current_user.contact_for(@post.author)
       false
