@@ -1,9 +1,9 @@
 module TagsHelper
   def looking_for_tag_link
-    return if @search_query.include?('@') || normalized_tag_name.blank?
+    return if search_query.include?('@') || normalized_tag_name.blank?
     content_tag('h4') do 
       content_tag('small') do
-        t('.looking_for', :tag_link => tag_link).html_safe
+        t('people.index.looking_for', :tag_link => tag_link).html_safe
       end
     end
   end
