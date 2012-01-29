@@ -31,6 +31,14 @@ GIT
       oauth2 (= 0.5.0)
       sinatra
 
+GIT
+  remote: https://github.com/socialcast/resque-ensure-connected.git
+  revision: 8ac0f9e4658495097fb333a93db81d54ba9a5311
+  specs:
+    resque-ensure-connected (0.2.0)
+      activerecord (>= 2.3.5)
+      resque (>= 1.10.0)
+
 GEM
   remote: http://rubygems.org/
   specs:
@@ -63,9 +71,9 @@ GEM
       activesupport (= 3.0.11)
       arel (~> 2.0.10)
       tzinfo (~> 0.3.23)
-    activerecord-import (0.2.8)
-      activerecord (~> 3.0pre)
-      activerecord (~> 3.0pre)
+    activerecord-import (0.2.9)
+      activerecord (~> 3.0)
+      activerecord (~> 3.0)
     activeresource (3.0.11)
       activemodel (= 3.0.11)
       activesupport (= 3.0.11)
@@ -120,7 +128,7 @@ GEM
       capybara (>= 1.1.2)
       cucumber (>= 1.1.3)
       nokogiri (>= 1.5.0)
-    daemons (1.1.5)
+    daemons (1.1.6)
     database_cleaner (0.7.1)
     devise (1.3.4)
       bcrypt-ruby (~> 2.1.2)
@@ -135,16 +143,16 @@ GEM
     erubis (2.6.6)
       abstract (>= 1.0.0)
     eventmachine (0.12.10)
-    excon (0.9.4)
+    excon (0.9.5)
     factory_girl (2.5.0)
       activesupport
     factory_girl_rails (1.6.0)
       factory_girl (~> 2.5.0)
       railties (>= 3.0.0)
-    faraday (0.7.0)
-      addressable (~> 2.2.4)
-      multipart-post (~> 1.1.0)
-      rack (>= 1.1.0, < 2)
+    faraday (0.7.6)
+      addressable (~> 2.2)
+      multipart-post (~> 1.1)
+      rack (~> 1.1)
     faraday-stack (0.1.4)
       faraday (>= 0.6, < 0.8)
     fastercsv (1.5.4)
@@ -174,7 +182,7 @@ GEM
       rspec-instafail (~> 0.1.8)
       ruby-progressbar (~> 0.0.10)
     gem_plugin (0.2.3)
-    gherkin (2.7.3)
+    gherkin (2.7.4)
       json (>= 1.4.6)
     haml (3.1.4)
     hashie (1.2.0)
@@ -186,7 +194,8 @@ GEM
     heroku_san (1.3.0)
       heroku (>= 2)
       rails (>= 2)
-    highline (1.6.9)
+    highline (1.6.11)
+    hodel_3000_compliant_logger (0.1.0)
     http_accept_language (1.0.2)
     i18n (0.5.0)
     i18n-inflector (2.6.3)
@@ -197,6 +206,10 @@ GEM
       railties (~> 3.0)
     jammit (0.6.5)
       yui-compressor (>= 0.9.3)
+    jammit-s3 (0.6.0.2)
+      jammit (>= 0.5.4)
+      mimemagic (>= 0.1.7)
+      s3 (>= 0.3.7)
     jasmine (1.1.2)
       jasmine-core (>= 1.1.0)
       rack (>= 1.1)
@@ -208,6 +221,7 @@ GEM
       multi_json
     jwt (0.1.4)
       json (>= 1.2.4)
+    kgio (2.7.0)
     launchy (2.0.3)
     linecache (0.46)
       rbx-require-relative (> 0.0.4)
@@ -218,11 +232,12 @@ GEM
       i18n (>= 0.4.0)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
-    messagebus_ruby_api (1.0.1)
+    messagebus_ruby_api (1.0.3)
     mime-types (1.17.2)
+    mimemagic (0.1.8)
     mini_magick (3.4)
       subexec (~> 0.2.1)
-    mobile-fu (0.3.0)
+    mobile-fu (1.0.0)
       rack-mobile-detect
       rails
     mock_redis (0.3.0)
@@ -250,6 +265,9 @@ GEM
     oauth2-provider (0.0.19)
       activesupport (~> 3.0)
       addressable (~> 2.2)
+    oink (0.9.3)
+      activerecord
+      hodel_3000_compliant_logger
     omniauth (1.0.1)
       hashie (~> 1.2)
       rack
@@ -267,11 +285,12 @@ GEM
       omniauth-oauth (~> 1.0)
     open4 (1.3.0)
     orm_adapter (0.0.6)
-    parallel (0.5.11)
+    parallel (0.5.12)
     parallel_tests (0.6.16)
       parallel
     pg (0.12.2)
     polyglot (0.3.3)
+    proxies (0.2.1)
     rack (1.2.5)
     rack-google-analytics (0.10.0)
     rack-mobile-detect (0.3.0)
@@ -279,6 +298,7 @@ GEM
     rack-mount (0.6.14)
       rack (>= 1.0.0)
     rack-piwik (0.1.2)
+    rack-rewrite (1.2.1)
     rack-ssl (1.3.2)
       rack
     rack-test (0.5.7)
@@ -299,6 +319,7 @@ GEM
       rake (>= 0.8.7)
       rdoc (~> 3.4)
       thor (~> 0.14.4)
+    raindrops (0.8.0)
     rake (0.9.2.2)
     rbx-require-relative (0.0.5)
     rdoc (3.12)
@@ -312,13 +333,13 @@ GEM
       redis-namespace (~> 1.0.2)
       sinatra (>= 0.9.2)
       vegas (~> 0.1.2)
-    resque-ensure-connected (0.2.0)
-      activerecord (>= 2.3.5)
-      resque (>= 1.10.0)
     resque-timeout (1.0.0)
       resque (~> 1.0)
     rest-client (1.6.7)
       mime-types (>= 1.16)
+    rpm_contrib (2.1.7)
+      newrelic_rpm (>= 3.1.1)
+      newrelic_rpm (>= 3.1.1)
     rspec (2.8.0)
       rspec-core (~> 2.8.0)
       rspec-expectations (~> 2.8.0)
@@ -352,6 +373,8 @@ GEM
     ruby_core_source (0.1.5)
       archive-tar-minitar (>= 0.5.2)
     rubyzip (0.9.5)
+    s3 (0.3.11)
+      proxies (~> 0.2.0)
     sass (3.1.12)
     selenium-webdriver (2.16.0)
       childprocess (>= 0.2.5)
@@ -383,8 +406,11 @@ GEM
     typhoeus (0.3.3)
       mime-types
     tzinfo (0.3.31)
-    vegas (0.1.8)
-      rack (>= 1.0.0)
+    unicorn (4.1.1)
+      kgio (~> 2.4)
+      rack
+      raindrops (~> 0.6)
+    vegas (0.1.11)
     warden (1.0.6)
       rack (>= 1.0)
     webmock (1.6.2)
@@ -439,12 +465,12 @@ DEPENDENCIES
   heroku_san
   http_accept_language (~> 1.0.2)
   i18n-inflector-rails (~> 1.0)
-  jammit (= 0.6.5)
+  jammit-s3
   jasmine (~> 1.1.2)
   json
   jwt
   linecache (= 0.46)
-  messagebus_ruby_api (= 1.0.1)
+  messagebus_ruby_api (= 1.0.3)
   mini_magick (= 3.4)
   mobile-fu
   mock_redis
@@ -453,6 +479,7 @@ DEPENDENCIES
   newrelic_rpm
   nokogiri (~> 1.5.0)
   oauth2-provider (= 0.0.19)
+  oink
   omniauth (= 1.0.1)
   omniauth-facebook
   omniauth-tumblr
@@ -461,15 +488,17 @@ DEPENDENCIES
   pg
   rack-google-analytics
   rack-piwik
+  rack-rewrite (~> 1.2.1)
   rack-ssl
   rails (= 3.0.11)
   rails-i18n
   redcarpet (= 2.0.1)
   resque (= 1.19.0)
-  resque-ensure-connected
+  resque-ensure-connected!
   resque-timeout (= 1.0.0)
   rest-client (= 1.6.7)
   roxml!
+  rpm_contrib (~> 2.1.7)
   rspec (>= 2.0.0)
   rspec-core (~> 2.8.0)
   rspec-instafail (>= 0.1.7)
@@ -485,6 +514,7 @@ DEPENDENCIES
   timecop
   twitter (= 2.0.2)
   typhoeus
+  unicorn (~> 4.1.1)
   webmock
   whenever
   will_paginate

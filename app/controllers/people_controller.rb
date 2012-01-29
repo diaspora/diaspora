@@ -46,6 +46,7 @@ class PeopleController < ApplicationController
         else
           people = Person.search(params[:q], current_user)
         end
+        @normalized_tag_for_query = ActsAsTaggableOn::Tag.normalize(params[:q])
         @people = people.paginate( :page => params[:page], :per_page => 15)
         @hashes = hashes_for_people(@people, @aspects)
       end
@@ -84,7 +85,7 @@ class PeopleController < ApplicationController
   end
 
   def show
-    @person = Person.find_from_id_or_username(params)
+    @person = Person.find_from_guid_or_username(params)
 
     if remote_profile_with_no_user_session?
       raise ActiveRecord::RecordNotFound
@@ -139,7 +140,7 @@ class PeopleController < ApplicationController
   end
 
   def contacts
-    @person = Person.find_by_id(params[:person_id])
+    @person = Person.find_by_guid(params[:person_id])
     if @person
       @contact = current_user.contact_for(@person)
       @aspect = :profile
@@ -154,7 +155,7 @@ class PeopleController < ApplicationController
   end
 
   def aspect_membership_dropdown
-    @person = Person.find(params[:person_id])
+    @person = Person.find_by_guid(params[:person_id])
     if @person == current_user.person
       render :text => I18n.t('people.person.thats_you')
     else

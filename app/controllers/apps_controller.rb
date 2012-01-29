@@ -1,7 +1,6 @@
 class AppsController < ApplicationController
   def show
     @app = 'cubbies'
-    max_time = params[:max_time] ? Time.at(params[:max_time].to_i) : Time.now
     @posts = ActivityStreams::Photo.where(:public => true).for_a_stream(max_time, 'created_at')
     @commenting_disabled = true
     @people = []

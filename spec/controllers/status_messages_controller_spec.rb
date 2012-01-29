@@ -68,7 +68,16 @@ describe StatusMessagesController do
       alice.services << s1
       alice.services << Services::Twitter.new
       status_message_hash[:services] = ['facebook']
-      alice.should_receive(:dispatch_post).with(anything(), hash_including(:services => [s1]))
+      service_types = Service.titles(status_message_hash[:services])
+      alice.should_receive(:dispatch_post).with(anything(), hash_including(:service_types => service_types))
+      post :create, status_message_hash
+    end
+
+    it "works if services is a string" do
+      s1 = Services::Facebook.new
+      alice.services << s1
+      status_message_hash[:services] = "facebook"
+      alice.should_receive(:dispatch_post).with(anything(), hash_including(:service_types => ["Services::Facebook"]))
       post :create, status_message_hash
     end
 
@@ -117,19 +126,24 @@ describe StatusMessagesController do
         @hash = status_message_hash
         @hash[:photos] = [@photo1.id.to_s, @photo2.id.to_s]
       end
+
       it "will post a photo without text" do
         @hash.delete :text
         post :create, @hash
         response.should be_redirect
       end
+
       it "attaches all referenced photos" do
         post :create, @hash
         assigns[:status_message].photos.map(&:id).should =~ [@photo1, @photo2].map(&:id)
       end
+
       it "sets the pending bit of referenced photos" do
-        post :create, @hash
-        @photo1.reload.pending.should be_false
-        @photo2.reload.pending.should be_false
+        fantasy_resque do
+          post :create, @hash
+          @photo1.reload.pending.should be_false
+          @photo2.reload.pending.should be_false
+        end
       end
     end
   end

@@ -33,27 +33,10 @@ Then /^the publisher should be expanded$/ do
 end
 
 When /^I append "([^"]*)" to the publisher$/ do |stuff|
-  # Wait for the publisher to appear and all the elements to lay out
-  wait_until { evaluate_script("$('#status_message_fake_text').focus().length == 1") }
-
-  # Write to the placeholder field and trigger a keyup to start the copy
-  page.execute_script <<-JS
-    $('#status_message_fake_text').val($('#status_message_fake_text').val() + '#{stuff}');
-    $('#status_message_fake_text').keyup();
-  JS
-
-  # Wait until the text appears in the placeholder
+  previous_value = page.find("#status_message_fake_text").value
+  fill_in "status_message_fake_text", :with => previous_value +  " " + stuff
   wait_until do
-    evaluate_script("$('#status_message_fake_text').val().match(/#{stuff}/) != null")
-  end
-
-  # WAIT FOR IT!...
-
-  # Wait until the text copy is finished
-  wait_until do
-    evaluate_script <<-JS
-      $('#status_message_text').val() && ($('#status_message_text').val().match(/#{stuff}/) != null)
-    JS
+    page.find("#status_message_text").value.match(/#{stuff}/)
   end
 end
 

@@ -62,7 +62,7 @@ Feature: Notifications
     When I sign in as "bob@bob.bob"
     And I am on "alice@alice.alice"'s page
     And I focus the comment field
-    And I fill in "Comment" with "great post!"
+    And I fill in "text" with "great post!"
     And I press "Comment"
     And I wait for the ajax to finish
     And I go to the destroy user session page

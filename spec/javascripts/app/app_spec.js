@@ -7,5 +7,11 @@ describe("app", function() {
 
       expect(app.user()).toEqual({name: "alice"});
     });
+    
+    it("returns false if the current_user isn't set", function() {
+      app._user = undefined;
+
+      expect(app.user()).toEqual(false);
+    });
   });
 });

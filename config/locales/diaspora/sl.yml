@@ -110,7 +110,6 @@ sl:
         have_a_question: "... imate vprašanje(%{link})?"
         here_to_help: "Skupnost Diaspora je tukaj!"
         need_help: "Potrebujete pomoč?"
-        satisfaction: "%{link}: Podpora s pomočjo skupnosti"
         tutorials_wiki_and_forum: "%{tutorial} & %{wiki} & %{forum}: Vodiči, navodila in novice iz skupnosti"
       introduce_yourself: "To je vaš tok. Vskoči in predstavi se."
       keep_us_running: "Pomagajte %{pod}, da bo tekel hitreje, kupite našim  strežnikom mesečno dozo kave!"

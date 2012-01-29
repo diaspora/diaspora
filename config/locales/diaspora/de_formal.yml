@@ -110,7 +110,6 @@ de_formal:
         have_a_question: "… eine %{link}?"
         here_to_help: "Die Diaspora-Community ist hier!"
         need_help: "Benötigen Sie Hilfe?"
-        satisfaction: "%{link}: Unterstützung durch die Gemeinschaft"
         tag_bug: "#bug"
         tag_feature: "#feature"
         tag_question: "#question"

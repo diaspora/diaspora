@@ -111,7 +111,6 @@ sq:
         have_a_question: "... keni një %{link}?"
         here_to_help: "Bashkësia Diaspora këtu është!"
         need_help: "Ju Duhet Ndihmë?"
-        satisfaction: "%{link}: Asistencë e mbajtur në këmbë nga bashkësia"
         tag_bug: "të metë"
         tag_feature: "veçori të re"
         tag_question: pyetje

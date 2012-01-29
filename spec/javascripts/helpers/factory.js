@@ -21,6 +21,18 @@ factory = {
     return _.extend(defaultAttrs, overrides)
   },
 
+  comment : function(overrides) {
+    var defaultAttrs = {
+      "created_at" : "2012-01-04T00:55:30Z",
+      "author" : this.author(),
+      "guid" : this.guid(),
+      "id" : this.id.next(),
+      "text" : "This is a comment!"
+    }
+    
+    return new app.models.Comment(_.extend(defaultAttrs, overrides))
+  },
+
   userAttrs : function(overrides){
     var id = this.id.next()
       var defaultAttrs = {

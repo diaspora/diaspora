@@ -54,8 +54,7 @@ app.views.Publisher = Backbone.View.extend({
     // close publishing area (CSS)
     this.close();
 
-    // clear mentions (TO BE REMOVED!!)
-    Publisher.autocompletion.mentionList.clear()
+    Publisher.clear()
 
     return this;
   },

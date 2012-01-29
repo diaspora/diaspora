@@ -78,7 +78,7 @@ describe Diaspora::UserModules::Connecting do
 
   describe '#register_share_visibilities' do
     it 'creates post visibilites for up to 100 posts' do
-      Post.stub_chain(:where, :limit).and_return([Factory(:status_message, :public => true)])
+      Post.stub_chain(:where, :limit).and_return([Factory(:status_message)])
       c = Contact.create!(:user_id => alice.id, :person_id => eve.person.id)
       expect{
         alice.register_share_visibilities(c)

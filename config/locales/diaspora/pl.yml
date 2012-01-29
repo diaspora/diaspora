@@ -112,7 +112,6 @@ pl:
         have_a_question: "... masz %{link}?"
         here_to_help: "Społeczności Diaspory jest tutaj!"
         need_help: "Potrzebujesz pomocy?"
-        satisfaction: "%{link}: Strona wsparcia społeczności"
         tag_bug: błąd
         tag_feature: funkcja
         tag_question: pytanie

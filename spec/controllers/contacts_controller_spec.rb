@@ -28,48 +28,64 @@ describe ContactsController do
   end
 
   describe '#index' do
-    it "succeeds" do
-      get :index
-      response.should be_success
+    context 'format mobile' do
+      it "succeeds" do
+        get :index, :format => 'mobile'
+        response.should be_success
+      end
     end
 
-    it "assigns contacts" do
-      get :index
-      contacts = assigns(:contacts)
-      contacts.to_set.should == bob.contacts.to_set
+    context 'format html' do
+      it "succeeds" do
+        get :index
+        response.should be_success
+      end
+
+      it "assigns contacts" do
+        get :index
+        contacts = assigns(:contacts)
+        contacts.to_set.should == bob.contacts.to_set
+      end
+
+      it "shows only contacts a user is sharing with" do
+        contact = bob.contacts.first
+        contact.update_attributes(:sharing => false)
+
+        get :index, :set => "mine"
+        contacts = assigns(:contacts)
+        contacts.to_set.should == bob.contacts.receiving.to_set
+      end
+
+      it "shows all contacts (sharing and receiving)" do
+        contact = bob.contacts.first
+        contact.update_attributes(:sharing => false)
+
+        get :index, :set => "all"
+        contacts = assigns(:contacts)
+        contacts.to_set.should == bob.contacts.to_set
+      end
     end
 
-    it "shows only contacts a user is sharing with" do
-      contact = bob.contacts.first
-      contact.update_attributes(:sharing => false)
+    context 'format json' do
+      it 'assumes all aspects if none are specified' do
+        get :index, :format => 'json'
+        assigns[:people].map(&:id).should =~ bob.contacts.map { |c| c.person.id }
+        response.should be_success
+      end
 
-      get :index, :set => "mine"
-      contacts = assigns(:contacts)
-      contacts.to_set.should == bob.contacts.receiving.to_set
-    end
+      it 'returns the contacts for multiple aspects' do
+        get :index, :aspect_ids => bob.aspect_ids, :format => 'json'
+        assigns[:people].map(&:id).should =~ bob.contacts.map { |c| c.person.id }
+        response.should be_success
+      end
 
-    it "shows all contacts (sharing and receiving)" do
-      contact = bob.contacts.first
-      contact.update_attributes(:sharing => false)
-
-      get :index, :set => "all"
-      contacts = assigns(:contacts)
-      contacts.to_set.should == bob.contacts.to_set
-    end
-
-    it 'will return the contacts for multiple aspects' do
-      get :index, :aspect_ids => bob.aspect_ids, :format => 'json'
-      assigns[:people].map(&:id).should =~ bob.contacts.map{|c| c.person.id}
-      response.should be_success
-    end
-
-
-    it 'does not select duplicate contacts' do
-      aspect = bob.aspects.create(:name => 'hilarious people')
-      aspect.contacts << bob.contact_for(eve.person)
-      get :index, :format => 'json', :aspect_ids => bob.aspect_ids
-      assigns[:people].map{|p| p.id}.uniq.should == assigns[:people].map{|p| p.id}
-      assigns[:people].map(&:id).should =~ bob.contacts.map{|c| c.person.id}
+      it 'does not return duplicate contacts' do
+        aspect = bob.aspects.create(:name => 'hilarious people')
+        aspect.contacts << bob.contact_for(eve.person)
+        get :index, :format => 'json', :aspect_ids => bob.aspect_ids
+        assigns[:people].map { |p| p.id }.uniq.should == assigns[:people].map { |p| p.id }
+        assigns[:people].map(&:id).should =~ bob.contacts.map { |c| c.person.id }
+      end
     end
   end
 

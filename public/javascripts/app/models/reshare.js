@@ -5,7 +5,7 @@ app.models.Reshare = app.models.Post.extend({
   },
 
   reshare : function(){
-    this.rootPost().reshare()
+    return this.rootPost().reshare()
   },
 
   reshareAuthor : function(){

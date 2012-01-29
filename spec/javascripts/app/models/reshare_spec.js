@@ -22,7 +22,11 @@ describe("app.models.Reshare", function(){
        spyOn(this.reshare.rootPost(), "reshare")
        this.reshare.reshare()
        expect(this.reshare.rootPost().reshare).toHaveBeenCalled()
-     })
-   })
+     });
+     
+     it("returns something", function() {
+      expect(this.reshare.reshare()).toBeDefined();
+     });
+   });
 });
 

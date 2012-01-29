@@ -110,7 +110,6 @@ es-CL:
         have_a_question: "... tienes una %{link}?"
         here_to_help: "La comunidad de Diaspora esta aquí!"
         need_help: "Necesitas ayuda?"
-        satisfaction: "%{link}: Soporte impulsado por la comunidad"
         tag_feature: idea
         tag_question: pregunta
         tutorials_wiki_and_forum: "%{tutorial} & %{wiki} & %{forum}: Tutoriales hechos por la comunidad, how-to, y noticias"

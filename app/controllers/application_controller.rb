@@ -24,7 +24,7 @@ class ApplicationController < ActionController::Base
                 :open_publisher
 
   def ensure_http_referer_is_set
-    request.env['HTTP_REFERER'] ||= '/aspects'
+    request.env['HTTP_REFERER'] ||= root_path
   end
 
   # Overwriting the sign_out redirect path method
@@ -61,6 +61,10 @@ class ApplicationController < ActionController::Base
 
   def only_sharing_count
     @only_sharing_count ||= current_user.contacts.only_sharing.count
+  end
+
+  def tags
+    @tags ||= current_user.followed_tags
   end
 
   def ensure_page
@@ -113,19 +117,6 @@ class ApplicationController < ActionController::Base
 
   def after_sign_in_path_for(resource)
     stored_location_for(:user) || (current_user.getting_started? ? getting_started_path : multi_stream_path)
-  end
-
-  def tag_followings
-    if current_user
-      if @tag_followings == nil
-        @tag_followings = current_user.tag_followings
-      end
-      @tag_followings
-    end
-  end
-
-  def tags
-    @tags ||= current_user.followed_tags
   end
 
   def max_time

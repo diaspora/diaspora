@@ -53,24 +53,24 @@ describe Person do
       end
     end
 
-    describe '.find_person_from_id_or_username' do
+    describe '.find_person_from_guid_or_username' do
       it 'searchs for a person if id is passed' do
-        Person.find_from_id_or_username(:id => @person.id).id.should == @person.id
+        Person.find_from_guid_or_username(:id => @person.guid).id.should == @person.id
       end
 
       it 'searchs a person from a user if username is passed' do
-        Person.find_from_id_or_username(:username => @user.username).id.should == @user.person.id
+        Person.find_from_guid_or_username(:username => @user.username).id.should == @user.person.id
       end
 
       it 'throws active record not found exceptions if no person is found via id' do
         expect{
-          Person.find_from_id_or_username(:id => 213123)
+          Person.find_from_guid_or_username(:id => "2d13123")
         }.to raise_error ActiveRecord::RecordNotFound
       end
 
       it 'throws active record not found exceptions if no person is found via username' do
         expect{
-          Person.find_from_id_or_username(:username => 'michael_jackson')
+          Person.find_from_guid_or_username(:username => 'michael_jackson')
         }.to raise_error ActiveRecord::RecordNotFound
       end
     end
@@ -463,10 +463,11 @@ describe Person do
     it 'returns a hash representation of a person' do
       @person.as_json.should == {
         :id => @person.id,
+        :guid => @person.guid,
         :name => @person.name,
         :avatar => @person.profile.image_url(:thumb_medium),
         :handle => @person.diaspora_handle,
-        :url => "/people/#{@person.id}",
+        :url => Rails.application.routes.url_helpers.person_path(@person),
       }
     end
     it 'return tags if asked' do

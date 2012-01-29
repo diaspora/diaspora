@@ -111,7 +111,6 @@ es-AR:
         have_a_question: "...tiene una %{link}?"
         here_to_help: "La comunidad de Diáspora está acá!"
         need_help: "Necesitás ayuda?"
-        satisfaction: "%{link}: Soporte impulsado por la Comunidad"
         tag_bug: error
         tag_feature: idea
         tag_question: pregunta

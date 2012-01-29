@@ -111,7 +111,6 @@ de:
         have_a_question: "… eine %{link}?"
         here_to_help: "Die Diaspora-Gemeinschaft ist für dich da!"
         need_help: "Benötigst du Hilfe?"
-        satisfaction: "%{link}: Unterstützung durch die Gemeinschaft"
         tag_bug: problem
         tag_feature: verbesserung
         tag_question: frage

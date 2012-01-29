@@ -16,7 +16,6 @@ class PublicsController < ApplicationController
   # newrelic_ignore if EnviromentConfiguration.using_new_relic?
 
   skip_before_filter :set_header_data
-  skip_before_filter :which_action_and_user
   skip_before_filter :set_grammatical_gender
   before_filter :allow_cross_origin, :only => [:hcard, :host_meta, :webfinger]
   before_filter :check_for_xml, :only => [:receive, :receive_public]
@@ -25,22 +24,14 @@ class PublicsController < ApplicationController
   respond_to :html
   respond_to :xml, :only => :post
 
-  def allow_cross_origin
-    headers["Access-Control-Allow-Origin"] = "*"
-  end
 
   layout false
   caches_page :host_meta
 
   def hcard
-    @person = Person.where(:guid => params[:guid]).first
+    @person = Person.find_by_guid_and_closed_account(params[:guid], false)
 
-    if @person && @person.closed_account?
-      render :nothing => true, :status => 404
-      return
-    end
-
-    unless @person.nil? || @person.owner.nil?
+    if @person.present? && @person.local?
       render 'publics/hcard'
     else
       render :nothing => true, :status => 404
@@ -54,16 +45,12 @@ class PublicsController < ApplicationController
   def webfinger
     @person = Person.local_by_account_identifier(params[:q]) if params[:q]
 
-    if @person && @person.closed_account?
+    if @person.nil? || @person.closed_account?
       render :nothing => true, :status => 404
       return
     end
 
-    unless @person.nil?
-      render 'webfinger', :content_type => 'application/xrd+xml'
-    else
-      render :nothing => true, :status => 404
-    end
+    render 'webfinger', :content_type => 'application/xrd+xml'
   end
 
   def hub
@@ -76,7 +63,7 @@ class PublicsController < ApplicationController
   end
 
   def receive
-    person = Person.where(:guid => params[:guid]).first
+    person = Person.find_by_guid(params[:guid])
 
     if person.nil? || person.owner_id.nil?
       Rails.logger.error("Received post for nonexistent person #{params[:guid]}")
@@ -89,6 +76,12 @@ class PublicsController < ApplicationController
 
     render :nothing => true, :status => 202
   end
+
+
+  def allow_cross_origin
+    headers["Access-Control-Allow-Origin"] = "*"
+  end
+
 
 
   private

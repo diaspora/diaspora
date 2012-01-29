@@ -37,6 +37,11 @@ class Contact < ActiveRecord::Base
     where(:receiving => true)
   }
 
+  scope :for_a_stream, lambda {
+    includes(:aspects, :person => :profile).
+        order('profiles.last_name ASC')
+  }
+
   scope :only_sharing, lambda {
     sharing.where(:receiving => false)
   }

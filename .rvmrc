@@ -2,7 +2,7 @@
 if [ -e '.rvmrc_custom' ]; then
   source .rvmrc_custom;
 else
-  rvm --create use ree-1.8.7-2011.03@diaspora
+  rvm --create use ruby-1.9.2-p290@diaspora
 fi
 
 if [ "$(gem --version)" != "1.8.15" ]; then

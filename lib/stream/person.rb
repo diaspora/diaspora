@@ -13,13 +13,6 @@ class Stream::Person < Stream::Base
 
   # @return [ActiveRecord::Association<Post>] AR association of posts
   def posts
-    @posts ||= lambda do
-      if user
-        posts = self.user.posts_from(@person)
-      else
-        posts = @person.posts.where(:public => true)
-      end
-      posts
-    end.call
+    @posts ||= user.present? ? user.posts_from(@person) : @person.posts.where(:public => true)
   end
 end
