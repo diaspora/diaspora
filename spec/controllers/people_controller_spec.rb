@@ -85,11 +85,6 @@ describe PeopleController do
           assigns[:people].map { |x| x.id }.should =~ [@eugene.id, eugene2.id]
         end
         
-        it "assigns a normalized tag" do
-          get :index, :q => "foo"
-          assigns[:normalized_tag_for_query].should == "foo"
-        end
-
         it "succeeds if there is exactly one match" do
           get :index, :q => "Korth"
           assigns[:people].length.should == 1
@@ -104,13 +99,11 @@ describe PeopleController do
 
         it 'succeeds if you search for the empty term' do
           get :index, :q => ''
-          assigns[:normalized_tag_for_query].should be_empty
           response.should be_success
         end
 
         it 'succeeds if you search for punctuation' do
           get :index, :q => '+'
-          assigns[:normalized_tag_for_query].should be_empty
           response.should be_success
         end
 
