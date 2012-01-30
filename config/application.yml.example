@@ -200,6 +200,12 @@ defaults: &defaults
   cloudfiles_api_key:  'abc123'
   cloudfiles_db_container: 'Database Backup'
   cloudfiles_images_container: 'Image Backup'
+  
+  # Donations
+
+  # Leave this blank to not show the request for donations
+  # Use paypal for recurring donations
+  paypal_hosted_button_id: ""
 
 #
 # Use this section to override default settings in specific environments

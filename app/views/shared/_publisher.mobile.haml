@@ -9,7 +9,7 @@
     }
 
 - content_for :header_action do
-  = submit_tag t('.share'), :class => 'action', :id => "submit_new_message"
+  = submit_tag t('.share'), :class => 'btn primary', :id => "submit_new_message"
 
 = form_for StatusMessage.new, {:data => {:ajax => false}} do |status|
   #message_container

@@ -59,10 +59,10 @@
         = t('.no_contacts')
         %br
         %br
-        = t('.check_out')
-        = link_to t('contacts.spotlight.community_spotlight'), community_spotlight_path
         - if @aspect
-          or
-          = link_to t('.add_to_aspect', :name => @aspect.name), edit_aspect_path(@aspect), :rel => "facebox"
-
-
+          != t('.no_contacts_message_with_aspect',
+              :community_spotlight => link_to(t('.community_spotlight'), community_spotlight_path),
+              :add_to_aspect_link => link_to(t('.add_to_aspect_link', :name => @aspect.name), edit_aspect_path(@aspect), :rel => "facebox"))
+        - else
+          != t('.no_contacts_message',
+               :community_spotlight => link_to(t('.community_spotlight'), community_spotlight_path))
