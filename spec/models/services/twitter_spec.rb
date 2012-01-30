@@ -29,6 +29,8 @@ describe Services::Twitter do
   end
   describe "message size limits" do
     before :each do
+      @long_message_start = ActiveSupport::SecureRandom.hex(25)
+      @long_message_end = ActiveSupport::SecureRandom.hex(25)
     end
 
     it "should not truncate a short message" do
@@ -39,34 +41,31 @@ describe Services::Twitter do
     it "should truncate a long message" do
       long_message = ActiveSupport::SecureRandom.hex(220)
       long_post = @user.post(:status_message, :text => long_message, :to =>@user.aspects.first.id)
-      @service.public_message(long_post, '').should_not == long_message
+      @service.public_message(long_post, '').should == long_message.first(137) + "..."
     end
     it "should not truncate a long message with an http url" do
-      long_message_part = ActiveSupport::SecureRandom.hex(25)
-      long_message = long_message_part + " http://joindiaspora.com/a-very-long-url-name-that-will-be-shortened.html " + long_message_part
+      long_message = @long_message_start + " http://joindiaspora.com/a-very-long-url-name-that-will-be-shortened.html " + @long_message_end
       long_post = @user.post(:status_message, :text => long_message, :to =>@user.aspects.first.id)
       answer = @service.public_message(long_post, '')
 
-      answer.starts_with?( long_message_part ).should == true
-      answer.ends_with?( long_message_part ).should == true
+      answer.starts_with?( @long_message_start ).should be_true
+      answer.ends_with?( @long_message_end ).should be_true
     end
     it "should not truncate a long message with an https url" do
-      long_message_part = ActiveSupport::SecureRandom.hex(25)
-      long_message = long_message_part + " https://joindiaspora.com/a-very-long-url-name-that-will-be-shortened.html " + long_message_part
+      long_message = @long_message_start + " https://joindiaspora.com/a-very-long-url-name-that-will-be-shortened.html " + @long_message_end
       long_post = @user.post(:status_message, :text => long_message, :to =>@user.aspects.first.id)
 
       answer = @service.public_message(long_post, '')
-      answer.starts_with?( long_message_part ).should == true
-      answer.ends_with?( long_message_part ).should == true
+      answer.starts_with?( @long_message_start ).should be_true
+      answer.ends_with?( @long_message_end ).should be_true
     end
-    it "should  truncate a long message with an ftp url" do
-      long_message_part = ActiveSupport::SecureRandom.hex(25)
-      long_message = long_message_part + " ftp://joindiaspora.com/a-very-long-url-name-that-will-be-shortened.html " + long_message_part
+    it "should truncate a long message with an ftp url" do
+      long_message = @long_message_start + " ftp://joindiaspora.com/a-very-long-url-name-that-will-be-shortened.html " + @long_message_end
       long_post = @user.post(:status_message, :text => long_message, :to =>@user.aspects.first.id)
       answer = @service.public_message(long_post, '')
 
-      answer.starts_with?( long_message_part ).should == true
-      answer.ends_with?( long_message_part ).should == false
+      answer.starts_with?( @long_message_start ).should be_true
+      answer.ends_with?( @long_message_end ).should_not be_true
     end
 
   end
