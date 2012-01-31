@@ -264,7 +264,10 @@ ca:
       title: "Contactes"
       your_contacts: "Els vostres contactes"
       no_contacts: "Sembla que necessiteu afegir alguns contactes!"
-      check_out: "Pegueu una ullada"
+      no_contacts_message: "Vegeu els %{community_spotlight}"
+      no_contacts_message_with_aspect: "Vegeu els %{community_spotlight} o %{add_to_aspect_link}"
+      add_to_aspect_link: "afegiu contactes a %{name}"
+      community_spotlight: "usuaris destacats"
       my_contacts: "Els meus contactes"
       all_contacts: "Tots els contactes"
       only_sharing_with_me: "Només compartint amb mi"
@@ -832,6 +835,7 @@ ca:
       outside: "Els missatges públics seran visibles per qualsevol des de fora del Diàspora."
       logged_in: "s'ha entrat en %{service}"
       manage: "gestiona els serveis connectats"
+      atom_feed: "Canal Atom"
     notification:
       new: "Nou %{type} de %{from}"
     contact_list:
