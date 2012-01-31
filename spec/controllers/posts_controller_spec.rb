@@ -49,6 +49,11 @@ describe PostsController do
         get :show, :id => photo.id
         response.should be_success
       end
+      
+      it 'redirects if the post is missing' do
+        get :show, :id => 1234567
+        response.should be_redirect
+      end
     end
 
     context 'user not signed in' do

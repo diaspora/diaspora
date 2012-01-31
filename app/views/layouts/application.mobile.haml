@@ -46,17 +46,21 @@
     = yield(:head)
 
   %body
-    #main{:role => "main"}
-      = yield
+    .navbar.navbar-fixed-top
+      .navbar-inner
+        .container{:style => "position: relative;"}
+          = link_to(image_tag('header-logo2x.png', :height => 40, :width => 40, :id => 'header_title'), multi_stream_path)
 
-    %header
-      = link_to(image_tag('header-logo2x.png', :height => 40, :width => 40, :id => 'header_title'), multi_stream_path)
+          - if user_signed_in?
+            .right
+              - if yield(:header_action).present?
+                = yield(:header_action)
+              - else
+                = link_to(image_tag('icons/compose_mobile2.png', :class => 'compose_icon'), new_status_message_path)
 
-      - if user_signed_in?
-        - if yield(:header_action).present?
-          = yield(:header_action)
-        - else
-          = link_to(image_tag('icons/compose_mobile2.png', :height => 28, :width => 28), new_status_message_path, :class => 'compose_icon')
+    #main.container{:role => "main"}
+      .row
+        = yield
 
     - if user_signed_in?
       = render :partial =>'shared/footer'

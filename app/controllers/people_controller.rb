@@ -6,6 +6,7 @@ require File.join(Rails.root, "lib", 'stream', "person")
 
 class PeopleController < ApplicationController
   before_filter :authenticate_user!, :except => [:show]
+  before_filter :redirect_if_tag_search, :only => [:index]
 
   respond_to :html, :except => [:tag_index]
   respond_to :json, :only => [:index, :show]
@@ -15,50 +16,27 @@ class PeopleController < ApplicationController
     render :file => "#{Rails.root}/public/404.html", :layout => false, :status => 404
   end
 
+  helper_method :search_query
+
   def index
     @aspect = :search
-    params[:q] ||= params[:term] || ''
-
-    if params[:q][0] == 35 || params[:q][0] == '#'
-      if params[:q].length > 1
-        tag_name = params[:q].gsub(/[#\.]/, '')
-        redirect_to tag_path(:name => tag_name, :q => params[:q])
-        return
-      else
-        flash[:error] = I18n.t('tags.show.none', :name => params[:q])
-        redirect_to :back
-      end
-    end
-
     limit = params[:limit] ? params[:limit].to_i : 15
+
+    @people = Person.search(search_query, current_user)
 
     respond_to do |format|
       format.json do
-        @people = Person.search(params[:q], current_user).limit(limit)
+        @people = @people.limit(limit)
         render :json => @people
       end
 
-      format.html do
+      format.any(:html, :mobile) do
         #only do it if it is an email address
-        if diaspora_id?(params[:q])
-          people = Person.where(:diaspora_handle => params[:q].downcase)
-          Webfinger.in_background(params[:q]) if people.empty?
-        else
-          people = Person.search(params[:q], current_user)
+        if diaspora_id?(search_query)
+          @people =  Person.where(:diaspora_handle => search_query.downcase)
+          Webfinger.in_background(search_query) if @people.empty?
         end
-        @normalized_tag_for_query = ActsAsTaggableOn::Tag.normalize(params[:q])
-        @people = people.paginate( :page => params[:page], :per_page => 15)
-        @hashes = hashes_for_people(@people, @aspects)
-      end
-      format.mobile do
-        #only do it if it is an email address
-        if diaspora_id?(params[:q])
-          people = Person.where(:diaspora_handle => params[:q])
-          Webfinger.in_background(params[:q]) if people.empty?
-        else
-          people = Person.search(params[:q], current_user)
-        end
-        @people = people.paginate( :page => params[:page], :per_page => 15)
+        @people = @people.paginate(:page => params[:page], :per_page => 15)
         @hashes = hashes_for_people(@people, @aspects)
       end
     end
@@ -70,7 +48,7 @@ class PeopleController < ApplicationController
     respond_with @people
   end
 
-  def hashes_for_people people, aspects
+  def hashes_for_people(people, aspects)
     ids = people.map{|p| p.id}
     contacts = {}
     Contact.unscoped.where(:user_id => current_user.id, :person_id => ids).each do |contact|
@@ -166,6 +144,21 @@ class PeopleController < ApplicationController
 
   def diaspora_id?(query)
     !query.try(:match, /^(\w)*@([a-zA-Z0-9]|[-]|[.]|[:])*$/).nil?
+  end
+
+  def search_query
+    @search_query ||= params[:q] || params[:term] || ''
+  end
+
+  def redirect_if_tag_search
+    if search_query.starts_with?('#')
+      if search_query.length > 1
+        redirect_to tag_path(:name => search_query.delete('#.'), :q => search_query)
+      else
+        flash[:error] = I18n.t('tags.show.none', :name => search_query)
+        redirect_to :back
+      end
+    end
   end
 
   private

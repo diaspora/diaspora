@@ -252,7 +252,10 @@ en:
       title: "Contacts"
       your_contacts: "Your Contacts"
       no_contacts: "Looks like you need to add some contacts!"
-      check_out: "Check out"
+      no_contacts_message: "Check out %{community_spotlight}"
+      no_contacts_message_with_aspect: "Check out %{community_spotlight} or %{add_to_aspect_link}"
+      add_to_aspect_link: "add contacts to %{name}"
+      community_spotlight: "Community Spotlight"
       my_contacts: "My Contacts"
       all_contacts: "All Contacts"
       only_sharing_with_me: "Only sharing with me"
@@ -800,6 +803,7 @@ en:
       outside: "Public messages will be available for others outside of Diaspora to see."
       logged_in: "logged in to %{service}"
       manage: "manage connected services"
+      atom_feed: "Atom feed"
     notification:
       new: "New %{type} from %{from}"
     contact_list:

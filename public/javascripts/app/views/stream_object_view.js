@@ -10,7 +10,17 @@ app.views.StreamObject = app.views.Base.extend({
       widow: 12,
       expandPrefix: "",
       expandText: Diaspora.I18n.t("show_more"),
-      userCollapse: false
+      userCollapse: false,
+      beforeExpand: function() {
+        var readMoreDiv = $(this).find('.read-more');
+        var lastParagraphBeforeReadMore = readMoreDiv.prev();
+        var firstParagraphAfterReadMore = $(readMoreDiv.next().find('p')[0]);
+
+        lastParagraphBeforeReadMore.append(firstParagraphAfterReadMore.text());
+
+        firstParagraphAfterReadMore.remove();
+        readMoreDiv.remove();
+      }
     });
   },
 
