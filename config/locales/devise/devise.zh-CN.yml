@@ -31,6 +31,7 @@ zh-CN:
       hello: "您好, %{email}!"
       invitation_instructions:
         accept: 接收请求
+        be_yourself: 就做你自己
         displaying_correctly: "Email not displaying correctly? %{link} in your browser"
         ignore: 如果您不想接收这个邀请，请忽略这封邮件。
         no_account_till: 只有在您点击上面的链接并注册后，您的帐号才会被创建。

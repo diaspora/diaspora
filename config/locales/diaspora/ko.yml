@@ -201,11 +201,14 @@ ko:
     index:
       add_a_new_aspect: "새 애스펙 추가"
       add_to_aspect: "%{name} 애스펙에 컨택 추가"
+      add_to_aspect_link: "%{name} 애스펙으로 추가하세요"
       all_contacts: "모든 컨택"
-      check_out: 체크아웃
+      community_spotlight: "커뮤니티 스포트라이트"
       many_people_are_you_sure: "컨택 %{suggested_limit}명보다 많은 사람들에게 쪽지를 보내려 하십니까? 해당 애스펙에 게시물을 공유하길 권합니다."
       my_contacts: "내 컨택"
       no_contacts: "컨택을 좀 추가하는게 어때요?"
+      no_contacts_message: "%{community_spotlight}를 확인하세요"
+      no_contacts_message_with_aspect: "%{community_spotlight}를 확인하거나 %{add_to_aspect_link}"
       only_sharing_with_me: "나와만 공유하고 있는 사람들"
       remove_person_from_aspect: "\"%{aspect_name} 애스펙에서 %{person_name}님 지우기"
       start_a_conversation: "대화를 시작하세요"
@@ -309,6 +312,7 @@ ko:
       to: 받는이
   layouts:
     application:
+      back_to_top: "맨 위로 돌아가기"
       powered_by: "디아스포라* 제공"
       public_feed: "%{name}님의 공개 디아스포라 피드"
       toggle: 모바일
@@ -741,6 +745,7 @@ ko:
     notification:
       new: "%{from}님의 새 %{type}"
     public_explain:
+      atom_feed: "Atom 구독"
       control_your_audience: "보일 사람 제어하기"
       logged_in: "%{service}에 로그인 되었습니다"
       manage: "연결된 서비스 관리"

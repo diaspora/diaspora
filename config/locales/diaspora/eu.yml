@@ -199,7 +199,6 @@ eu:
       add_a_new_aspect: "Alderdi berria gehitu"
       add_to_aspect: "Adiskideak gehitu %{name}(e)n"
       all_contacts: "Adiskide Guztiak"
-      check_out: Probatu
       many_people_are_you_sure: "Ziur al zaude elkarrizketa pribatu bat hasi nahi duzula %{suggested_limit} baino lagun gehiagorekin? Alderdi horretan mezu bat bidaltzea beharbada haiekin harremanetan egoteko modu hobea izan daiteke."
       my_contacts: "Nire Adiskideak"
       no_contacts: "Badirudi lagun batzuk gehitu behar dituzula!"

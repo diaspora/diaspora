@@ -202,7 +202,6 @@ eo:
       add_a_new_aspect: "Aldoni novan aspekton"
       add_to_aspect: "aldoni kontaktojn al %{name}"
       all_contacts: "Ĉiuj kontaktoj"
-      check_out: Vidu
       many_people_are_you_sure: "Ĉu vi certas, ke vi volas mesaĝi pli ol {suggested_limit} homojn? Afiŝi al tiu ĉi aspekto eble estas pli bona metodo kontakti ilin."
       my_contacts: "Miaj kontaktoj"
       no_contacts: "Vi bezonos aldoni iujn kontaktojn!"

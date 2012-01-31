@@ -203,7 +203,6 @@ zh-TW:
       add_a_new_aspect: 加入新面向
       add_to_aspect: "加聯絡人到%{name}"
       all_contacts: 所有聯絡人
-      check_out: 看看
       many_people_are_you_sure: "你確定要進行跟%{suggested_limit}個聯絡人的私人對話? 貼文到該面向可能是跟他們聯絡比較好的方式."
       my_contacts: 我的聯絡人
       no_contacts: 你好像應該要多加點聯絡人!

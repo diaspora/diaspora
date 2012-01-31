@@ -191,7 +191,6 @@ sq:
       add_a_new_aspect: "Shtoni një aspekt të ri"
       add_to_aspect: "shtoni kontakte te %{name}"
       all_contacts: "Krejt Kontaktet"
-      check_out: "Kontrolloni te"
       many_people_are_you_sure: "Jeni i sigurt se doni të nisni një bashkëbisedim privatme më tepër se %{suggested_limit} kontakte? Postimi te ky aspekt mund të jetë një mënyrë më e mirë për t'u lidhur me ta."
       my_contacts: "Kontaktet e Mia"
       no_contacts: "Duket se keni nevojë të shtoni ndonjë kontakt!"

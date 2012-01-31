@@ -203,7 +203,6 @@ tr:
       add_a_new_aspect: "Yeni yön ekle"
       add_to_aspect: "%{name} unsuruna kişi ekle"
       all_contacts: "Tüm Kişiler"
-      check_out: "Kontrol et"
       many_people_are_you_sure: "%{suggested_limit} sayısından yüksek kişiyle özel görüşme başlatmak istediğinden emin misin? Bu yöne gönderi yapmak onlarla iletişime geçmek için daha iyi bir yol olabilir."
       my_contacts: Kişilerim
       no_contacts: "Birkaç kişi eklemen gerekir gibi görünüyor!"

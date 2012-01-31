@@ -199,7 +199,6 @@ de_formal:
       add_a_new_aspect: "Einen neuen Aspekt hinzufügen"
       add_to_aspect: "Füge Kontakte zu %{name} hinzu"
       all_contacts: "Alle Kontakte"
-      check_out: Abmelden
       many_people_are_you_sure: "Sind Sie sich sicher, dass Sie eine private Unterhaltung mit mehr als %{suggested_limit} Kontakten beginnen möchten? Einen Beitrag in diesen Aspekt zu schreiben könnte ein besserer Weg sein, um sie zu kontaktieren."
       my_contacts: "Meine Kontakte"
       no_contacts: "Sieht so aus als müssten Sie einige Kontakte hinzufügen!"

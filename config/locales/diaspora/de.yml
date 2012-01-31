@@ -200,11 +200,14 @@ de:
     index:
       add_a_new_aspect: "Einen neuen Aspekt hinzufügen"
       add_to_aspect: "Füge Kontakte zu %{name} hinzu"
+      add_to_aspect_link: "füge Kontakte zu »%{name}« hinzu"
       all_contacts: "Alle Kontakte"
-      check_out: Abmelden
+      community_spotlight: Gemeinschafts-Schaukasten
       many_people_are_you_sure: "Bist du dir sicher, dass du eine private Unterhaltung mit mehr als %{suggested_limit} Kontakten beginnen möchtest? Einen Beitrag in diesen Aspekt zu schreiben könnte ein besserer Weg sein, um sie zu kontaktieren."
       my_contacts: "Meine Kontakte"
       no_contacts: "Sieht so aus, als müsstest du einige Kontakte hinzufügen!"
+      no_contacts_message: "Guck’ in den %{community_spotlight}"
+      no_contacts_message_with_aspect: "Guck’ in den %{community_spotlight} oder %{add_to_aspect_link}"
       only_sharing_with_me: "Nur mit dir Teilende"
       remove_person_from_aspect: "Entferne %{person_name} aus \"%{aspect_name}\""
       start_a_conversation: "Beginne eine Unterhaltung"
@@ -308,6 +311,7 @@ de:
       to: An
   layouts:
     application:
+      back_to_top: "Zurück zum Anfang"
       powered_by: "BETRIEBEN MIT DIASPORA*"
       public_feed: "Öffentlicher Diaspora Feed von %{name}"
       toggle: "Mobile Ansicht umschalten"
@@ -589,7 +593,7 @@ de:
   profile: Profil
   profiles:
     edit:
-      allow_search: "Erlaube anderen auf Diaspora nach dir zu suchen"
+      allow_search: "Anderen erlauben, auf Diaspora nach dir zu suchen"
       edit_profile: "Profil bearbeiten"
       first_name: Vorname
       last_name: Nachname
@@ -741,6 +745,7 @@ de:
     notification:
       new: "Neue %{type} von %{from}"
     public_explain:
+      atom_feed: Atom-Feed
       control_your_audience: "Kontrolliere deine Zielgruppe"
       logged_in: "Eingeloggt in %{service}"
       manage: "Verbundene Dienste verwalten"

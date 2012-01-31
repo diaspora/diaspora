@@ -198,7 +198,6 @@ sl:
       add_a_new_aspect: "Dodaj nov pogled"
       add_to_aspect: "Dodaj stik k %{name}"
       all_contacts: "Vsi stiki"
-      check_out: Razišči
       many_people_are_you_sure: "Ste prepričani, da želite začeti zasebni  pogovor z več kot %{suggested_limit} stiki? Morda bi bilo bolje, da bi  sporočilo objavili v pogledu."
       my_contacts: "Moji stiki"
       no_contacts: "Ni stikov."

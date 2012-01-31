@@ -202,7 +202,6 @@ pl:
       add_a_new_aspect: "Dodaj aspekt"
       add_to_aspect: "dodaj kontakty do %{name}"
       all_contacts: "Wszystkie kontakty"
-      check_out: Zobacz
       many_people_are_you_sure: "Czy na pewno chcesz rozpocząć prywatną rozmowę z więcej niż %{suggested_limit} osobami? Możesz po prostu opublikować swoją wiadomość w tej grupie. "
       my_contacts: "Moje kontakty"
       no_contacts: "Wygląda na to, że musisz dodać kilka kontaktów!"
@@ -309,6 +308,7 @@ pl:
       to: Do
   layouts:
     application:
+      back_to_top: "Powrót na górę"
       powered_by: "NAPĘDZANE PRZEZ DIASPORĘ*"
       public_feed: "Publiczny kanał Diaspory użytkownika %{name}"
       toggle: "przełącz widok mobilny"

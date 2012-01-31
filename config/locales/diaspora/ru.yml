@@ -199,7 +199,6 @@ ru:
       add_a_new_aspect: "Новый аспект"
       add_to_aspect: "добавить контакты в %{name}"
       all_contacts: "Все контакты"
-      check_out: Оцените
       many_people_are_you_sure: "Вы уверены, что хотите начать приватную беседу с числом контактов более %{suggested_limit}? Возможно, лучше просто написать сообщение в этот аспект."
       my_contacts: "Мои контакты"
       no_contacts: "Похоже, вам надо добавить несколько контактов!"
@@ -304,6 +303,7 @@ ru:
       to: Для
   layouts:
     application:
+      back_to_top: "Вернуться наверх"
       powered_by: "ПОДДЕРЖИВАЕТСЯ ДИАСПОРОЙ*"
       public_feed: "Общественный канал Диаспоры для %{name}"
       toggle: обычный/мобильный
@@ -573,12 +573,13 @@ ru:
       not_found: "Извините, мы не смогли найти эту запись."
       permalink: "постоянная ссылка"
       photos_by:
-        few: "%{count} photos by %{author}"
-        many: "%{count} photos by %{author}"
-        one: "One photo by %{author}"
-        other: "%{count} photos by %{author}"
-        two: "Two photos by %{author}"
-        zero: "No photos by %{author}"
+        few: "%{count} фото пользователя %{author}"
+        many: "%{count} фото пользователя %{author}"
+        one: "Одно фото пользователя %{author}"
+        other: "%{count} фото пользователя %{author}"
+        two: "Два фото пользователя %{author}"
+        zero: "Нет фото пользователя %{author}"
+      reshare_by: "Поделился(лась) %{author}"
   previous: ранее
   privacy: Приватность
   privacy_policy: "Политика конфиденциальности"
@@ -875,6 +876,7 @@ ru:
       wrong_password: "Введенный вами пароль не совпадает с вашим текущим паролем."
     edit:
       also_commented: "... кто-то комментировал сообщения ваших контактов?"
+      auto_follow_aspect: "Помещать этих пользователей в аспект:"
       auto_follow_back: "Автоматически подписываться в ответ, если кто-то начинает следить за вашими записями"
       change: Изменить
       change_email: "Изменить адрес"
@@ -897,6 +899,7 @@ ru:
       edit_account: "Редактировать аккаунт"
       email_awaiting_confirmation: "Мы послали ссылку для активации на %{unconfirmed_email}. Пока вы не пройдете по ней и не активируете новый адрес, мы будем использовать ваш прежний ящик %{email}."
       export_data: "Экспорт информации"
+      following: "Настройки подписок"
       getting_started: "Новые пользовательские настройки"
       liked: "...кому-нибудь нравится ваше сообщение?"
       mentioned: "... вы упомянуты в сообщении?"
@@ -937,6 +940,8 @@ ru:
       does_not_exist: "Пользователя %{username} не существует!"
     update:
       email_notifications_changed: "Настройки уведомлений сохранены"
+      follow_settings_changed: "Настройки подписок изменены"
+      follow_settings_not_changed: "Не удалось изменить настройки подписок."
       language_changed: "Язык изменён"
       language_not_changed: "Не удалось изменить язык"
       password_changed: "Пароль изменён. Теперь вы можете войти в систему с новым паролем."
