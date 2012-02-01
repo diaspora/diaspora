@@ -1,5 +1,7 @@
 #!/bin/bash
-if [ -e '.rvmrc_custom' ]; then
+if [ -e '.rvmrc.local' ]; then
+  source .rvmrc.local;
+elif [ -e '.rvmrc_custom' ] ; then
   source .rvmrc_custom;
 else
   rvm --create use ruby-1.9.2-p290@diaspora

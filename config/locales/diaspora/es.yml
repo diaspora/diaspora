@@ -202,10 +202,12 @@ es:
       add_a_new_aspect: "Añade un nuevo aspecto"
       add_to_aspect: "añade contactos a %{name}"
       all_contacts: "Todos los contactos"
-      check_out: "Echa un vistazo a la"
+      community_spotlight: "Comunidad Creativa"
       many_people_are_you_sure: "¿Estás seguro que quieres comenzar una conversación privada con más de %{suggested_limit} contactos? Publicar en sus aspectos podría ser mejor para contactar con ellos."
       my_contacts: "Mis Contactos"
       no_contacts: "¡Parece que necesitas añadir algunos contactos!"
+      no_contacts_message: "Echa un vistazo a %{community_spotlight}"
+      no_contacts_message_with_aspect: "Echa un vistazo a %{community_spotlight} o %{add_to_aspect_link}"
       only_sharing_with_me: "Solo compartiendo conmigo"
       remove_person_from_aspect: "Eliminar a %{person_name} de \"%{aspect_name}\""
       start_a_conversation: "Inicia una conversación"
@@ -740,6 +742,7 @@ es:
     notification:
       new: "Nuevo %{type} de %{from}"
     public_explain:
+      atom_feed: "fuentes Atom"
       control_your_audience: "Controla tu Audiencia"
       logged_in: "conectado a %{service}"
       manage: "gestión de servicios conectados"

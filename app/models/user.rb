@@ -277,6 +277,16 @@ class User < ActiveRecord::Base
     Salmon::EncryptedSlap.create_by_user_and_activity(self, post.to_diaspora_xml)
   end
 
+  def comment!(post, text, opts={})
+    comment = build_comment(opts.merge!(:post => post, :text => text))
+    if comment.save
+      dispatch_post(comment)
+      comment
+    else
+      false
+    end
+  end
+
   def build_relayable(model, options = {})
     r = model.new(options.merge(:author_id => self.person.id))
     r.set_guid

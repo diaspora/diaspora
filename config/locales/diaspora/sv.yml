@@ -198,7 +198,6 @@ sv:
       add_a_new_aspect: "Lägg till en ny aspekt"
       add_to_aspect: "lägg till kontakter i %{name}"
       all_contacts: "Alla kontakter"
-      check_out: "Checka ut"
       many_people_are_you_sure: "Är du säker på att du vill starta en privat konversation mer mer än %{suggested_limit} kontakter? Ett bättre sätt kan vara att posta inlägget i denna aspekt."
       my_contacts: "Mina kontakter"
       no_contacts: "Det verkar som om att du skulle behöva några fler kontakter!"
@@ -300,6 +299,7 @@ sv:
       to: Till
   layouts:
     application:
+      back_to_top: "Åter till början"
       public_feed: "Offentligt Diasporaflöde för %{name}"
       toggle: "byt till mobilanpassad "
       whats_new: "några nyheter?"

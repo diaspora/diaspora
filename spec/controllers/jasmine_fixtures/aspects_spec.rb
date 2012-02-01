@@ -38,7 +38,7 @@ describe StreamsController do
       it 'generates a jasmine fixture with posts', :fixture => true do
         bob.post(:status_message, :text => "Is anyone out there?", :to => @bob.aspects.where(:name => "generic").first.id)
         message = alice.post(:status_message, :text => "hello "*800, :to => @alices_aspect_2.id)
-        5.times { bob.comment("what", :post => message) }
+        5.times { bob.comment!(message, "what") }
         get :aspects
         save_fixture(html_for("body"), "aspects_index_with_posts")
       end
@@ -53,7 +53,7 @@ describe StreamsController do
 
       it "generates a jasmine fixture with a post with comments", :fixture => true do
         message = bob.post(:status_message, :text => "HALO WHIRLED", :to => @bob.aspects.where(:name => "generic").first.id)
-        5.times { bob.comment("what", :post => message) }
+        5.times { bob.comment!(message, "what") }
         get :aspects
         save_fixture(html_for("body"), "aspects_index_post_with_comments")
       end

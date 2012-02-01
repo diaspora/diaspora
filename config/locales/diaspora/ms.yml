@@ -132,7 +132,6 @@ ms:
       add_a_new_aspect: "Tambah aspek baru"
       add_to_aspect: "menambah kenalan ke %{name}"
       all_contacts: "Semua Kenalan"
-      check_out: "Daftar keluar"
       many_people_are_you_sure: "Adakah anda pasti anda mahu untuk memulakan perbualan peribadi dengan lebih daripada% {suggested_limit} kenalan? Posting ke aspek ini mungkin cara yang lebih baik untuk menghubungi mereka."
       my_contacts: "Kenalan Saya"
       only_sharing_with_me: "Hanya berkongsi dengan saya"

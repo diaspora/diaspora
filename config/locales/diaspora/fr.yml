@@ -196,7 +196,6 @@ fr:
       add_a_new_aspect: "Ajouter un nouvel aspect"
       add_to_aspect: "ajouter les contacts à %{name}"
       all_contacts: "Tous les contacts"
-      check_out: Vérifiez
       many_people_are_you_sure: "Êtes-vous sûr de vouloir commencer une conversation privée avec plus de %{suggested_limit} contacts? Envoyer des messages à cet aspect peut être un meilleur moyen de les contacter."
       my_contacts: "Mes Contacts"
       no_contacts: "On dirait que vous avez besoin d'ajouter quelques contacts !"
@@ -301,6 +300,7 @@ fr:
       to: À
   layouts:
     application:
+      back_to_top: "Retour en haut"
       powered_by: "MIS EN SERVICE PAR DIASPORA*"
       public_feed: "Flux Diaspora public pour %{name}"
       toggle: "activer/désactiver la version mobile"

@@ -200,7 +200,6 @@ es-CL:
       add_a_new_aspect: "Agregar un nuevo aspecto"
       add_to_aspect: "Añadir contactos a %{name}"
       all_contacts: "Todos los Contactos"
-      check_out: Desmarcar
       many_people_are_you_sure: "Estas seguro que quieres iniciar una conversación privada con más de %{suggested_limit} contactos? Postear algo en este aspecto quizás sea una mejor manera de contactarte con ellos."
       my_contacts: "Mis Contactos"
       no_contacts: "Parece que necesitas agregar algunos contactos!"

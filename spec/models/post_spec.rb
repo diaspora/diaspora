@@ -170,7 +170,7 @@ describe Post do
   describe 'deletion' do
     it 'should delete a posts comments on delete' do
       post = Factory(:status_message, :author => @user.person)
-      @user.comment "hey", :post => post
+      @user.comment!(post, "hey")
       post.destroy
       Post.where(:id => post.id).empty?.should == true
       Comment.where(:text => "hey").empty?.should == true

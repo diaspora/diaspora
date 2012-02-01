@@ -196,7 +196,6 @@ vi:
       add_a_new_aspect: "Thêm mối quan hệ mới"
       add_to_aspect: "thêm liên lạc vào %{name}"
       all_contacts: "Tất cả liên lạc"
-      check_out: "Kiểm tra"
       many_people_are_you_sure: "Bạn có chắc là muốn trò chuyện với hơn %{suggested_limit} người khác? Posting to this aspect may be a better way to contact them."
       my_contacts: "Liên lạc của tôi"
       no_contacts: "Có vẻ như bạn cần thêm vài liên lạc!"

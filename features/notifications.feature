@@ -39,13 +39,13 @@ Feature: Notifications
     Then I should see "reshared your post"
     And I should have 1 email delivery
 
-  Scenario: someone likes my post
+  Scenario: someone pins my post
     Given a user with email "bob@bob.bob" is connected with "alice@alice.alice"
     And "alice@alice.alice" has a public post with text "check this out!"
     When I sign in as "bob@bob.bob"
     And I am on "alice@alice.alice"'s page
     And I preemptively confirm the alert
-    And I follow "Like"
+    And I follow "Pin"
     And I wait for the ajax to finish
     And I go to the destroy user session page
     When I sign in as "alice@alice.alice"
@@ -53,7 +53,7 @@ Feature: Notifications
     And I wait for the ajax to finish
     Then the notification dropdown should be visible
     And I wait for the ajax to finish
-    Then I should see "liked your post"
+    Then I should see "pinned your post"
     And I should have 1 email delivery
 
   Scenario: someone comments on my post

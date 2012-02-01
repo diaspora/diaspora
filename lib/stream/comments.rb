@@ -13,7 +13,7 @@ class Stream::Comments < Stream::Base
 
   # @return [ActiveRecord::Association<Post>] AR association of posts
   def posts
-    @posts ||= StatusMessage.commented_by(self.user.person)
+    @posts ||= EvilQuery::CommentedPosts.new(user).posts
   end
 
   def contacts_title

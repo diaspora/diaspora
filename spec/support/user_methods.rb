@@ -32,16 +32,6 @@ class User
     end
   end
 
-  def comment(text, options = {})
-    fantasy_resque do
-      c = build_comment(options.merge(:text => text))
-      if c.save!
-        Postzord::Dispatcher.build(self, c).post
-      end
-      c
-    end
-  end
-
   def like(positive, options ={})
     fantasy_resque do
       l = build_like(options.merge(:positive => positive))

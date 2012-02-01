@@ -199,7 +199,6 @@ fi:
       add_a_new_aspect: "Lisää näkymä"
       add_to_aspect: "lisää kontakteja näkymään %{name}"
       all_contacts: "Kaikki kontaktit"
-      check_out: Katso
       many_people_are_you_sure: "Oletko varma, että haluat aloittaa yksityiskeskustelun useamman kuin %{suggested_limit} kontaktin kanssa? Viestin lähettäminen tähän näkymään voisi olla parempi tapa olla yhteydessä heihin."
       my_contacts: Kontaktini
       no_contacts: "Sinun pitäisi näköjään lisätä kontakteja!"

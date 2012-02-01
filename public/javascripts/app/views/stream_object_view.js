@@ -3,7 +3,7 @@ app.views.StreamObject = app.views.Base.extend({
     this.setupRenderEvents();
   },
 
-  postRenderTemplate : function(){
+  postRenderTemplate : function() {
     // collapse long posts
     this.$(".collapsible").expander({
       slicePoint: 400,
@@ -12,28 +12,40 @@ app.views.StreamObject = app.views.Base.extend({
       expandText: Diaspora.I18n.t("show_more"),
       userCollapse: false,
       beforeExpand: function() {
-        var readMoreDiv = $(this).find('.read-more');
-        var lastParagraphBeforeReadMore = readMoreDiv.prev();
-        var firstParagraphAfterReadMore = $(readMoreDiv.next().find('p')[0]);
+        if ($(this).find('.summary').length == 0) { // Sigh. See comments in the spec.
+          var readMoreDiv = $(this).find('.read-more');
+          var lastElementBeforeReadMore = readMoreDiv.prev();
+          var firstElementAfterReadMore = readMoreDiv.next().children().first();
 
-        lastParagraphBeforeReadMore.append(firstParagraphAfterReadMore.text());
+          if (lastElementBeforeReadMore.is('p')) {
+            lastElementBeforeReadMore.append(firstElementAfterReadMore.html());
+            firstElementAfterReadMore.remove();
 
-        firstParagraphAfterReadMore.remove();
-        readMoreDiv.remove();
+          } else if (lastElementBeforeReadMore.is('ul') && firstElementAfterReadMore.is('ul')) {
+            var firstBullet = firstElementAfterReadMore.children().first();
+            lastElementBeforeReadMore.find('li').last().append(firstBullet.html());
+            firstBullet.remove();
+          }
+          readMoreDiv.remove();
+        }
       }
     });
   },
 
-  destroyModel: function(evt){
-    if(evt){ evt.preventDefault(); }
-    if(!confirm(Diaspora.I18n.t("confirm_dialog"))) { return }
+  destroyModel: function(evt) {
+    if (evt) {
+      evt.preventDefault();
+    }
+    if (!confirm(Diaspora.I18n.t("confirm_dialog"))) {
+      return
+    }
 
     this.model.destroy();
     this.slideAndRemove();
   },
 
-  slideAndRemove : function(){
-    $(this.el).slideUp(400, function(){
+  slideAndRemove : function() {
+    $(this.el).slideUp(400, function() {
       $(this).remove();
     });
   }

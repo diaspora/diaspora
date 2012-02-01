@@ -55,8 +55,8 @@ class Postzord::Dispatcher
 
   # @return [Object]
   def post
-    self.post_to_subscribers if @subscribers.present?
     self.deliver_to_services(@opts[:url], @opts[:services] || [])
+    self.post_to_subscribers if @subscribers.present?
     self.process_after_dispatch_hooks
     @object
   end

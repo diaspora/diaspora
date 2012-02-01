@@ -4,163 +4,18 @@
 
 require File.join(Rails.root, 'lib', 'diaspora', 'redis_cache')
 
+require File.join(Rails.root, 'lib', 'evil_query')
+
+
+#TODO: THIS FILE SHOULD NOT EXIST, EVIL SQL SHOULD BE ENCAPSULATED IN EvilQueries,
+#throwing all of this stuff in user violates demeter like WHOA
+
 module Diaspora
-  module EvilQuery
-    def self.legacy_prep_opts(klass, opts)
-      defaults = {
-          :order => 'created_at DESC',
-          :limit => 15,
-          :hidden => false
-      }
-      defaults[:type] = Stream::Base::TYPES_OF_POST_IN_STREAM if klass == Post
-      opts = defaults.merge(opts)
-
-      opts[:order_field] = opts[:order].split.first.to_sym
-      opts[:order_with_table] = klass.table_name + '.' + opts[:order]
-
-      opts[:max_time] = Time.at(opts[:max_time]) if opts[:max_time].is_a?(Integer)
-      opts[:max_time] ||= Time.now + 1
-      opts
-    end
-
-    class MultiStream
-      def initialize(user, order, max_time, include_spotlight)
-        @user = user
-        @order = order
-        @max_time = max_time
-        @aspect_ids = aspect_ids!
-        @include_spotlight = include_spotlight
-      end
-
-      def aspect_ids!
-        @user.aspects.map(&:id)
-      end
-
-      def make_relation!
-        post_ids = aspects_post_ids + followed_tags_post_ids + mentioned_post_ids
-        post_ids += community_spotlight_post_ids if @include_spotlight
-        Post.where(:id => post_ids)
-      end
-
-      def aspects_post_ids
-        @aspects_post_ids ||= @user.visible_shareable_ids(Post, :limit => 15, :order => "#{@order} DESC", :max_time => @max_time, :all_aspects? => true, :by_members_of => @aspect_ids)
-      end
-
-      def followed_tags_post_ids
-        @followed_tags_ids ||= ids(StatusMessage.public_tag_stream(tag_ids))
-      end
-
-      def mentioned_post_ids
-        @mentioned_post_ids ||= ids(StatusMessage.where_person_is_mentioned(@user.person))
-      end
-
-      def community_spotlight_post_ids
-        @community_spotlight_post_ids ||= ids(Post.all_public.where(:author_id => community_spotlight_person_ids))
-      end
-
-      def community_spotlight_person_ids
-        @community_spotlight_person_ids ||= Person.community_spotlight.select('id').map{|x| x.id}
-      end
-
-      def tag_ids
-        @user.followed_tags.map{|x| x.id}
-      end
-
-      def ids(query)
-        Post.connection.select_values(query.for_a_stream(@max_time, @order).select('posts.id').to_sql)
-      end
-    end
-
-    class Base
-      def initialize(user, klass)
-        @querent = user
-        @class = klass
-      end
-    end
-
-    class VisibleShareableById < Base
-      def initialize(user, klass, key, id, conditions={})
-        super(user, klass)
-        @key = key
-        @id  = id
-        @conditions = conditions
-      end
-
-      def post!
-        #small optimization - is this optimal order??
-        querent_is_contact.first || querent_is_author.first || public_post.first
-      end
-
-      protected
-
-      def querent_is_contact
-        @class.where(@key => @id).joins(:contacts).where(:contacts => {:user_id => @querent.id}).where(@conditions).select(@class.table_name+".*")
-      end
-
-      def querent_is_author
-        @class.where(@key => @id, :author_id => @querent.person.id).where(@conditions)
-      end
-
-      def public_post
-        @class.where(@key => @id, :public => true).where(@conditions)
-      end
-    end
-
-    class ShareablesFromPerson < Base
-      def initialize(querent, klass, person)
-        super(querent, klass)
-        @person = person
-      end
-
-      def make_relation!
-        return querents_posts if @person == @querent.person
-
-        # persons_private_visibilities and persons_public_posts have no limit which is making shareable_ids gigantic.
-        # perhaps they should the arrays should be merged and sorted
-        # then the query at the bottom of this method can be paginated or something?
-
-        shareable_ids = contact.present? ? fetch_ids!(persons_private_visibilities, "share_visibilities.shareable_id") : []
-        shareable_ids += fetch_ids!(persons_public_posts, table_name + ".id")
-
-        @class.where(:id => shareable_ids, :pending => false).
-            select('DISTINCT '+table_name+'.*').
-            order(table_name+".created_at DESC")
-      end
-
-      protected
-
-      def fetch_ids!(relation, id_column)
-        #the relation should be ordered and limited by here
-        @class.connection.select_values(relation.select(id_column).to_sql)
-      end
-
-      def table_name
-        @class.table_name
-      end
-
-      def contact
-        @contact ||= @querent.contact_for(@person)
-      end
-
-      def querents_posts
-        @querent.person.send(table_name).where(:pending => false).order("#{table_name}.created_at DESC")
-      end
-
-      def persons_private_visibilities
-        contact.share_visibilities.where(:hidden => false, :shareable_type => @class.to_s)
-      end
-
-      def persons_public_posts
-        @person.send(table_name).where(:public => true).select(table_name+'.id')
-      end
-    end
-  end
-
   module UserModules
     module Querying
       def find_visible_shareable_by_id(klass, id, opts={} )
         key = (opts.delete(:key) || :id)
-        EvilQuery::VisibleShareableById.new(self, klass, key, id, opts).post!
+        ::EvilQuery::VisibleShareableById.new(self, klass, key, id, opts).post!
       end
 
       def visible_shareables(klass, opts={})
@@ -307,11 +162,11 @@ module Diaspora
       end
 
       def posts_from(person)
-        EvilQuery::ShareablesFromPerson.new(self, Post, person).make_relation!
+        ::EvilQuery::ShareablesFromPerson.new(self, Post, person).make_relation!
       end
 
       def photos_from(person)
-        EvilQuery::ShareablesFromPerson.new(self, Photo, person).make_relation!
+        ::EvilQuery::ShareablesFromPerson.new(self, Photo, person).make_relation!
       end
 
       protected
@@ -330,7 +185,20 @@ module Diaspora
 
       # @return [Hash]
       def prep_opts(klass, opts)
-        EvilQuery.legacy_prep_opts(klass, opts)
+        defaults = {
+            :order => 'created_at DESC',
+            :limit => 15,
+            :hidden => false
+        }
+        defaults[:type] = Stream::Base::TYPES_OF_POST_IN_STREAM if klass == Post
+        opts = defaults.merge(opts)
+
+        opts[:order_field] = opts[:order].split.first.to_sym
+        opts[:order_with_table] = klass.table_name + '.' + opts[:order]
+
+        opts[:max_time] = Time.at(opts[:max_time]) if opts[:max_time].is_a?(Integer)
+        opts[:max_time] ||= Time.now + 1
+        opts
       end
     end
   end

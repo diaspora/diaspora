@@ -31,7 +31,7 @@ describe LikesController do
         context "on my own post" do
           it 'succeeds' do
             @target = alice.post :status_message, :text => "AWESOME", :to => @alices_aspect.id
-            @target = alice.comment "hey", :post => @target if class_const == Comment
+            @target = alice.comment!(@target, "hey") if class_const == Comment
             post :create, like_hash.merge(:format => :json)
             response.code.should == '201'
           end
@@ -40,7 +40,7 @@ describe LikesController do
         context "on a post from a contact" do
           before do
             @target = bob.post :status_message, :text => "AWESOME", :to => @bobs_aspect.id
-            @target = bob.comment "hey", :post => @target if class_const == Comment
+            @target = bob.comment!(@target, "hey") if class_const == Comment
           end
 
           it 'likes' do
@@ -63,7 +63,7 @@ describe LikesController do
         context "on a post from a stranger" do
           before do
             @target = eve.post :status_message, :text => "AWESOME", :to => eve.aspects.first.id
-            @target = eve.comment "hey", :post => @target if class_const == Comment
+            @target = eve.comment!(@target, "hey") if class_const == Comment
           end
 
           it "doesn't post" do
@@ -77,7 +77,7 @@ describe LikesController do
       describe '#index' do
         before do
           @message = alice.post(:status_message, :text => "hey", :to => @alices_aspect.id)
-          @message = alice.comment( "hey", :post => @message) if class_const == Comment
+          @message = alice.comment!(@message, "hey") if class_const == Comment
         end
 
         it 'generates a jasmine fixture', :fixture => true do
@@ -108,7 +108,7 @@ describe LikesController do
       describe '#destroy' do
         before do
           @message = bob.post(:status_message, :text => "hey", :to => @alices_aspect.id)
-          @message = bob.comment( "hey", :post => @message) if class_const == Comment
+          @message = bob.comment!(@message, "hey") if class_const == Comment
           @like = alice.build_like(:positive => true, :target => @message)
           @like.save
         end

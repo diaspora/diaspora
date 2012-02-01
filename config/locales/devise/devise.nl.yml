@@ -31,15 +31,27 @@ nl:
       hello: "Hallo %{email}!"
       invitation_instructions:
         accept: "Accepteer uitnodiging"
+        arrived: "Het sociale netwerk waar je op hebt gewacht is hier. Vernieuwd, veiliger, leuker, %{strong_diaspora} is laat je het web op een hele nieuwe manier delen en verkennen."
         be_yourself: "Wees jezelf"
         be_yourself_paragraph: "Het Internet heeft unieke nieuwe manieren mogelijk gemaakt om onszelf te uiten. %{strong_diaspora} laat jou jezelf zijn en laat jou delen hoe je dat wilt, met of zonder je echte naam."
         displaying_correctly: "Ziet deze e-mail er niet goed uit? %{link} in jouw browser"
         email_us: "Voor algemene vragen of hulp met je Diaspora account kun je een e-mail sturen naar %{email}."
         finally: "Eindelijk - het is er"
         friends_saying: "Wat je vrienden zeggen..."
+        get_connected_paragraph: "Als internationale beweging met een gedeelde visie voor een beter web, is de community het belangrijkste kenmerk van %{strong_diaspora}. Ontmoet nieuwe mensen, connect met vrienden, en join the fun."
+        have_fun: "Veel plezier"
+        have_fun_paragraph: "%{strong_diaspora} draait helemaal om het online ontdekken van geweldige content en mensen. %{link}, 's werelds eerste %{strong_diaspora} toepassing is nog maar het begin. Verzamel en deel het web in al zijn glorie."
+        here: hier
         ignore: "Als je de uitnodiging niet wilt accepteren, negeer dan deze E-mail."
+        join_team: "Sluit je aan bij ons Team"
+        love: "Liefs,"
+        made_by_people: "%{strong_diaspora} is gemaakt door mensen die net zoveel van het Internet houden als jij. %{jointeam}, of %{helpfund}!"
+        more_people: "Nog meer mensen zijn enthousiast je te zien!"
         no_account_till: "Je account wordt niet aangemaakt totdat je de bovenstaande link bezoekt en je aanmeldt."
+        or: of
+        sign_up_now: "Meld je nu aan &rarr;"
         subject: "Je bent uitgenodigd om lid te worden van Diaspora!"
+        unsubscribe: "Om je af te melden, klik %{link}."
         view_in: "View in"
       inviter:
         accept_at: "op %{url}, je kunt deze accepteren via onderstaande link."

@@ -215,7 +215,7 @@ describe Notifier do
 
   context "comments" do
     let(:commented_post) {bob.post(:status_message, :text => "It's really sunny outside today, and this is a super long status message!  #notreally", :to => :all)}
-    let(:comment) { eve.comment("Totally is", :post => commented_post)}
+    let(:comment) { eve.comment!(commented_post, "Totally is")}
 
     describe ".comment_on_post" do
       let(:comment_mail) {Notifier.comment_on_post(bob.id, person.id, comment.id).deliver}

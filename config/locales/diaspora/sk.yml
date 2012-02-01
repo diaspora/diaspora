@@ -201,7 +201,6 @@ sk:
       add_a_new_aspect: "Pridať novú kategóriu"
       add_to_aspect: "Pridať kontakty do kategórie %{name}"
       all_contacts: "Všetky kontakty"
-      check_out: Vyskúšať
       many_people_are_you_sure: "Určite chcete začať súkromný rozhovor s viac ako %{suggested_limit} ľuďmi? Poslanie príspevku do tejto kategórie môže byť lepší spôsob, ako sa s nimi spojiť."
       my_contacts: "Moje kontakty"
       no_contacts: "Zdá sa, že treba pridať pár kontaktov!"
@@ -308,6 +307,7 @@ sk:
       to: Príjemca
   layouts:
     application:
+      back_to_top: "Späť nahor"
       powered_by: "PREVÁDZKUJE DIASPORA*"
       public_feed: "Verejný kanál Diaspory pre %{name}"
       toggle: "prepnúť na stránku pre mobil"

@@ -46,6 +46,7 @@ zh-CN:
       video_title:
         unknown: 未知影片标题
   are_you_sure: 你确定吗？
+  are_you_sure_delete_account: "你真的确定要关闭您的户口吗? 关了就不能再开了哦!"
   aspect_memberships:
     destroy:
       failure: 从视图中移除好友失败
@@ -85,6 +86,7 @@ zh-CN:
       handle_explanation: "这是您的 diaspora 帐号， 就像是邮箱一样，你可以把它提供给想好友您的人。"
       help:
         here_to_help: "Diaspora community is here to help!"
+        need_help: 需要帮助吗？
         tag_bug: "#bug"
         tag_feature: "#feature"
         tag_question: "#question"
@@ -93,6 +95,7 @@ zh-CN:
       no_tags: "No tags"
       people_sharing_with_you: 与您分享的人
       post_a_message: 发布站内信>>
+      welcome_to_diaspora: "%{name}，欢迎加入Diaspora!"
     many: "%{count}个视图"
     move_contact:
       error: "好友移动错误：%{inspect}"
@@ -109,6 +112,7 @@ zh-CN:
     other: "%{count}个视图"
     seed:
       family: 家人
+      friends: 好友
       work: 同事
     show:
       edit_aspect: 编辑视图
@@ -220,6 +224,7 @@ zh-CN:
       comma_seperated_plz: 你可以输入多个邮箱，输入多个时以逗号分隔。
       if_they_accept_info: 如果他们接受，就会自动被加入到您所邀请的视图中。
       invite_someone_to_join: 邀请好友来加入到Diaspora！
+      language: 语言
       personal_message: 个人信息
       resend: 重寄
       send_an_invitation: 发送邀请函
@@ -227,6 +232,7 @@ zh-CN:
       to: 收件人
   layouts:
     application:
+      back_to_top: 回到上面
       powered_by: "Powered by DIASPORA*"
       public_feed: "%{name} 的 Diaspora RSS Feed"
       toggle: 切换为手机网页
@@ -467,6 +473,7 @@ zh-CN:
       notice: 照片更新成功。
   posts:
     show:
+      destroy: 删除
       photos_by:
         few: "%{count} photos by %{author}"
         many: "%{count} photos by %{author}"
@@ -612,6 +619,7 @@ zh-CN:
       logged_in: "成功登录到 %{service}"
       manage: 管理已连线的服务
       outside: "不使用 Diaspora 的人也能看到公开讯息。"
+      share: 分享
       title: 设定连线服务
     publisher:
       all: 全部
@@ -624,6 +632,7 @@ zh-CN:
       publishing_to: 发布至：
       share: 分享
       share_with: 与他分享：
+      upload_photos: 上载照片
       whats_on_your_mind: 你想到了什么？
     reshare:
       reshare: 重新分享
@@ -710,6 +719,8 @@ zh-CN:
       your_handle: "您的 diaspora 帐号"
     getting_started:
       what_facebook_does: "to Diaspora. This will pull your name and photo, and enable cross-positng."
+    logged_out:
+      signed_out: "您已经退出 Diaspora* 了，欢迎再度光临！"
     public:
       does_not_exist: "不存在 %{username} 这个用户！"
     update:
@@ -726,3 +737,4 @@ zh-CN:
     no_person_constructed: "从这份 hcard 资料无法组建出联络人。"
     not_enabled: "%{account} 的主机似乎没有启用 webfinger"
     xrd_fetch_failed: "从 %{account} 这个帐号取得 xrd 时发生错误"
+  welcome: 欢迎！

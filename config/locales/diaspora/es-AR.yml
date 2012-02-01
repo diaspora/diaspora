@@ -202,7 +202,6 @@ es-AR:
       add_a_new_aspect: "Añadir un nuevo aspecto"
       add_to_aspect: "añade contactos a %{name}"
       all_contacts: "Todos los Contactos"
-      check_out: "Echa un vistazo a la "
       many_people_are_you_sure: "Estás seguro que querés comenzar una conversación privada con más de  %{suggested_limit} contactos? Publicando a este aspecto puede ser una mejor manera de contactarlos."
       my_contacts: "Mis Contactos"
       no_contacts: "Parece que necesitás agregar algunos contactos!"
