@@ -50,18 +50,6 @@ describe 'making sure the spec runner works' do
     end
   end
 
-  describe '#comment' do
-    it "should send a user's comment on a person's post to that person" do
-      person = Factory(:person)
-      person_status = Factory(:status_message, :author => person)
-      m = mock()
-      m.stub!(:post)
-      Postzord::Dispatcher.should_receive(:build).and_return(m)
-
-      alice.comment "yo", :post => person_status
-    end
-  end
-
   describe '#post' do
     it 'creates a notification with a mention' do
       lambda{

@@ -32,8 +32,8 @@ describe Statistics do
 
   describe '#comments_count_sql' do
     it "pulls back an array of post counts and ids" do
-      sm = Factory(:status_message, :author => alice.person)
-      bob.comment("sup", :post => sm)
+      status_message = Factory(:status_message, :author => alice.person)
+      bob.comment!(status_message, "sup")
       result_should_equal User.connection.select_all(@stats.comments_count_sql)
     end
   end

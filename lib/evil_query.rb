@@ -2,7 +2,45 @@ module EvilQuery
   class Base
     def fetch_ids!(relation, id_column)
       #the relation should be ordered and limited by here
-      @class.connection.select_values(relation.select(id_column).to_sql)
+      @class.connection.select_values(id_sql(relation, id_column))
+    end
+
+    def id_sql(relation, id_column)
+      relation.select(id_column).to_sql
+    end
+  end
+
+  class Participation < Base
+    def initialize(user)
+      @user = user
+      @class = Post
+    end
+
+    def posts
+      liked_post_ids = fetch_ids!(LikedPosts.new(@user).posts, "posts.id")
+      commented_post_ids = fetch_ids!(CommentedPosts.new(@user).posts, "posts.id")
+
+      Post.where(:id => liked_post_ids + commented_post_ids)
+    end
+  end
+
+  class LikedPosts < Base
+    def initialize(user)
+      @user = user
+    end
+
+    def posts
+      StatusMessage.liked_by(@user.person)
+    end
+  end
+
+  class CommentedPosts < Base
+    def initialize(user)
+      @user = user
+    end
+
+    def posts
+      StatusMessage.commented_by(@user.person)
     end
   end
 

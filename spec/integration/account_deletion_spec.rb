@@ -17,7 +17,7 @@ describe 'deleteing your account' do
 
       #objects on post
       @bob2.like(true, :target => @alices_post)
-      @bob2.comment("here are some thoughts on your post", :post => @alices_post)
+      @bob2.comment!(@alices_post, "here are some thoughts on your post")
 
       #conversations
       create_conversation_with_message(alice, @bob2.person, "Subject", "Hey @bob2")

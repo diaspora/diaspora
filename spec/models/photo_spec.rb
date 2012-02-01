@@ -202,7 +202,7 @@ describe Photo do
 
   context "commenting" do
     it "accepts comments if there is no parent status message" do
-      proc{ @user.comment("big willy style", :post => @photo) }.should change(@photo.comments, :count).by(1)
+      proc{ @user.comment!(@photo, "big willy style") }.should change(@photo.comments, :count).by(1)
     end
   end
 
