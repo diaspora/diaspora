@@ -16,7 +16,7 @@ app.views.StreamObject = app.views.Base.extend({
         var lastParagraphBeforeReadMore = readMoreDiv.prev();
         var firstParagraphAfterReadMore = $(readMoreDiv.next().find('p')[0]);
 
-        lastParagraphBeforeReadMore.append(firstParagraphAfterReadMore.text());
+        lastParagraphBeforeReadMore.append(firstParagraphAfterReadMore.html());
 
         firstParagraphAfterReadMore.remove();
         readMoreDiv.remove();
