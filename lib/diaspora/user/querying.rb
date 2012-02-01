@@ -49,7 +49,7 @@ module Diaspora
         @user.visible_shareable_ids(Post, :limit => 15, :order => "#{@order} DESC", :max_time => @max_time, :all_aspects? => true, :by_members_of => @user.aspect_ids)
       end
 
-      def followed_tag_posts!
+      def followed_tags_posts!
         StatusMessage.public_tag_stream(@user.followed_tag_ids)
       end
 
