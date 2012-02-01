@@ -34,6 +34,7 @@ class StatusMessagesController < ApplicationController
   def bookmarklet
     @aspects = current_user.aspects
     @aspect_ids = @aspects.map{|x| x.id}
+    params[:notes].gsub!(/(")|(\s+)/, " ")
     if ! is_mobile_device?
       render :layout => nil
     end
