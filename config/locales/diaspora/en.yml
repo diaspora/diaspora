@@ -425,7 +425,7 @@ en:
       few: "%{actors} have mentioned you in a %{post_link}."
       many: "%{actors} have mentioned you in a %{post_link}."
       other: "%{actors} have mentioned you in a %{post_link}."
-    pinned:
+    liked:
       zero: "%{actors} have pinned your %{post_link}."
       one: "%{actors} has pinned your %{post_link}."
       two: "%{actors} have pinned your %{post_link}."
@@ -447,7 +447,7 @@ en:
       few: "%{actors} commented on a deleted post."
       many: "%{actors} commented on a deleted post."
       other: "%{actors} commented on a deleted post."
-    pinned_post_deleted:
+    liked_post_deleted:
       zero: "%{actors} pinned your deleted post."
       one: "%{actors} pinned your deleted post."
       two: "%{actors} pinned your deleted post."
@@ -509,8 +509,8 @@ en:
         mentioned: "mentioned you in a post:"
     private_message:
         reply_to_or_view: "Reply to or view this conversation >"
-    pinned:
-        pinned: "%{name} pinned your post"
+    liked:
+        liked: "%{name} pinned your post"
         view_post: "View post >"
     reshared:
         reshared: "%{name} reshared your post"
@@ -923,8 +923,8 @@ en:
       contacts_title: "Recent Posters"
 
     multi:
-      title: "Stream"
-      contacts_title: "People in your Stream"
+      title: "Explore"
+      contacts_title: "People in your Explore Stream"
 
     aspects:
       title: "Your Aspects"
@@ -957,7 +957,7 @@ en:
       mentioned: "...you are mentioned in a post?"
       started_sharing: "...someone starts sharing with you?"
       private_message: "...you receive a private message?"
-      pinned: "...someone pins your post?"
+      liked: "...someone pins your post?"
       reshared: "...someone reshares your post?"
       change: "Change"
       email_awaiting_confirmation: "We have sent you an activation link to %{unconfirmed_email}. Until you follow this link and activate the new address, we will continue to use your original address %{email}."
