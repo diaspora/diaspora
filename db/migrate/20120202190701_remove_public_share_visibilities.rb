@@ -19,16 +19,17 @@ class RemovePublicShareVisibilities < ActiveRecord::Migration
 
       index = 0
       shareable_size = type.constantize.count
+      table_name = type.tableize
 
       while index < shareable_size + 100 do
         sql = <<-SQL
           DELETE sv
             FROM share_visibilities AS sv
-              INNER JOIN posts
-              ON sv.shareable_id = posts.id
+              INNER JOIN #{table_name}
+              ON sv.shareable_id = #{table_name}.id
               WHERE sv.shareable_type = "#{type}"
-                AND #{type.tableize}.public IS TRUE
-                AND #{type.tableize}.id < #{index};
+                AND #{table_name}.public IS TRUE
+                AND #{table_name}.id < #{index};
         SQL
 
         ActiveRecord::Base.connection.execute(sql)
