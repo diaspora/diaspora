@@ -28,5 +28,5 @@
       .content
         = form_for [conversation, Message.new] do |message|
           = message.text_area :text, :rows => 5, :tabindex => 1
-          .right
+          .left
             = message.submit t('.reply').capitalize, :disable_with => t('.replying'), :class => 'button creation', :tabindex => 2
