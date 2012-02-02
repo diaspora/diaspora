@@ -41,6 +41,6 @@ class RemovePublicShareVisibilities < ActiveRecord::Migration
   end
 
   def self.down
-    #raise ActiveRecord::IrreversibleMigration
+    raise ActiveRecord::IrreversibleMigration
   end
 end
