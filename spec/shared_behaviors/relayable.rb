@@ -9,25 +9,37 @@ describe Diaspora::Relayable do
 
     describe 'validations' do
       describe 'on :author_id' do
-        it "is invalid if the author is on the parent post author's ignore list when object is created" do
-          bob.blocks.create(:person => alice.person)
-          relayable = build_object
-          relayable.should_not be_valid
-          relayable.should have(1).error_on(:author_id)
+        context "the author is on the parent object author's ignore list when object is created" do
+          before do
+            bob.blocks.create(:person => alice.person)
+            @relayable = build_object
+          end
+
+          it "is invalid" do
+            @relayable.should_not be_valid
+            @relayable.should have(1).error_on(:author_id)
+          end
+
+          it "sends a retraction for the object" do
+            pending 'need to figure out how to test this'
+            RelayableRetraction.should_receive(:build)
+            Postzord::Dispatcher.should_receive(:build)
+            @relayable.valid?
+          end
+
+          it "works if the object has no parent" do # This can happen if we get a comment for a post that's been deleted
+            @relayable.parent = nil
+            expect { @relayable.valid? }.to_not raise_exception
+          end
         end
 
-        it "works if the object has no parent" do # This can happen if we get a comment for a post that's been deleted
-          bob.blocks.create(:person => alice.person)
-          relayable = build_object
-          relayable.parent = nil
-          expect { relayable.valid? }.to_not raise_exception
-        end
-
-        it "is valid if the author is added to the parent post author's ignore list later" do
-          relayable = build_object
-          relayable.save!
-          bob.blocks.create(:person => alice.person)
-          relayable.should be_valid
+        context "the author is added to the parent object author's ignore list later" do
+          it "is valid" do
+            relayable = build_object
+            relayable.save!
+            bob.blocks.create(:person => alice.person)
+            relayable.should be_valid
+          end
         end
       end
     end
@@ -62,9 +74,9 @@ describe Diaspora::Relayable do
     context 'propagation' do
       describe '#receive' do
         it 'does not overwrite a object that is already in the db' do
-          lambda {
+          expect {
             @dup_object_by_parent_author.receive(@local_leia, @local_luke.person)
-          }.should_not change(@dup_object_by_parent_author.class, :count)
+          }.to_not change { @dup_object_by_parent_author.class.count }
         end
 
         it 'does not process if post_creator_signature is invalid' do

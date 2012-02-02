@@ -28,6 +28,7 @@ module Diaspora
 
         if post_author.local? && post_author.owner.ignored_people.include?(relayable_author)
           self.errors.add(:author_id, 'This person is ignored by the post author')
+          #post_author.owner.retract(self)
         end
       end
     end
