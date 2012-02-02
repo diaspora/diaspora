@@ -10,14 +10,6 @@ describe Stream::Multi do
     it_should_behave_like 'it is a stream'
   end
 
-  describe '#is_in?' do
-    it 'handles when the cache returns strings' do
-      p = Factory(:status_message)
-      @stream.should_receive(:aspects_post_ids).and_return([p.id.to_s])
-      @stream.send(:is_in?, :aspects, p).should be_true
-    end
-  end
-
   describe '#publisher_opts' do
     it 'prefills, sets public, and autoexpands if welcome? is set' do
       prefill_text = "sup?"

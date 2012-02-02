@@ -52,8 +52,6 @@ class Post < ActiveRecord::Base
 
   belongs_to :o_embed_cache
 
-  after_create :cache_for_author
-
   #scopes
   scope :includes_for_a_stream, includes(:o_embed_cache, {:author => :profile}, :mentions => {:person => :profile}) #note should include root and photos, but i think those are both on status_message
 
@@ -122,20 +120,5 @@ class Post < ActiveRecord::Base
 
   def comment_email_subject
     I18n.t('notifier.a_post_you_shared')
-  end
-
-  # @return [Boolean]
-  def cache_for_author
-    if self.should_cache_for_author?
-      cache = RedisCache.new(self.author.owner, 'created_at')
-      cache.add(self.created_at.to_i, self.id)
-    end
-    true
-  end
-
-  # @return [Boolean]
-  def should_cache_for_author?
-    self.triggers_caching? && RedisCache.configured? &&
-      RedisCache.acceptable_types.include?(self.type) && user = self.author.owner
   end
 end

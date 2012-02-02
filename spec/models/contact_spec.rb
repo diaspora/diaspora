@@ -194,31 +194,6 @@ describe Contact do
     end
   end
 
-  describe "#repopulate_cache" do
-    before do
-      @contact = bob.contact_for(alice.person)
-    end
-
-    it "repopulates the cache if the cache exists" do
-      cache = stub(:repopulate!)
-      RedisCache.stub(:configured? => true, :new => cache)
-
-      cache.should_receive(:repopulate!)
-      @contact.repopulate_cache!
-    end
-
-    it "does not touch the cache if it is not configured" do
-      RedisCache.stub(:configured?).and_return(false)
-      RedisCache.should_not_receive(:new)
-      @contact.repopulate_cache!
-    end
-
-    it "gets called on destroy" do
-      @contact.should_receive(:repopulate_cache!)
-      @contact.destroy
-    end
-  end
-
   describe "#not_blocked_user" do
     before do
       @contact = alice.contact_for(bob.person)

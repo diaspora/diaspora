@@ -91,43 +91,4 @@ describe Postzord::Receiver::LocalBatch do
       receiver.perform!
     end
   end
-
-  describe '#update_cache!' do
-    before do
-
-    end
-
-    it 'adds to a redis cache for users sharing with author' do
-      users = [bob]
-      @zord = Postzord::Receiver::LocalBatch.new(@object, users.map{|u| u.id})
-
-      sort_order = "created_at"
-
-      cache = mock
-      RedisCache.should_receive(:new).exactly(users.length).times.with(instance_of(User), sort_order).and_return(cache)
-
-      cache.should_receive(:add).exactly(users.length).times.with(@object.created_at.to_i, @object.id)
-
-      @zord.update_cache!
-    end
-
-    it 'does not add to the redis cache of the users not contact with author' do
-      users = [bob, eve]
-      @zord = Postzord::Receiver::LocalBatch.new(@object, users.map{|u| u.id})
-
-      RedisCache.should_receive(:new).once.with(bob, anything()).and_return(stub.as_null_object)
-
-      @zord.update_cache!
-    end
-
-    it 'does not add to the redis cache of users not sharing with the author' do
-      alice.share_with(eve.person, alice.aspects.first)
-      users = [bob, eve]
-      @zord = Postzord::Receiver::LocalBatch.new(@object, users.map{|u| u.id})
-
-      RedisCache.should_receive(:new).once.with(bob, anything()).and_return(stub.as_null_object)
-
-      @zord.update_cache!
-    end
-  end
 end

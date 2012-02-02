@@ -96,29 +96,4 @@ describe Postzord::Receiver::Private do
       @zord.receive_object
     end
   end
-
-  describe '#update_cache!' do
-    it 'adds to redis cache if the contact has aspect visibilities' do
-      @alices_post.save!
-
-      @zord = Postzord::Receiver::Private.new(bob, :person => alice.person, :object => @alices_post)
-
-      sort_order = "created_at"
-      cache = RedisCache.new(bob, sort_order)
-      RedisCache.should_receive(:new).with(bob, sort_order).and_return(cache)
-      cache.should_receive(:add).with(@alices_post.created_at.to_i, @alices_post.id)
-      @zord.update_cache!
-    end
-
-    it 'does not add to redis cache if the receiving user is not sharing with the sender' do
-      alice.share_with(eve.person, alice.aspects.first)
-      @alices_post.save!
-
-      @zord = Postzord::Receiver::Private.new(eve, :person => alice.person, :object => @alices_post)
-
-      sort_order = "created_at"
-      RedisCache.should_not_receive(:new)
-      @zord.update_cache!
-    end
-  end
 end
