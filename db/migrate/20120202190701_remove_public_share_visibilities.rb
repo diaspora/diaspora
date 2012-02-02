@@ -1,5 +1,10 @@
 # NOTE: this migration will remove a lot of unused rows.  It is highly suggested
 # that you run `OPTIMIZE TABLE share_visibilities` after this
+# `OPTIMIZE NO_WRITE_TO_BINLOG TABLE share_visibilities;` will run faster but has a greater chance of corrupting data
+# and will only work on an unsharded database (which should be the case for everyone right now)
+# you probably want to backup your db before you do any of this.
+
+
 # migration is complete.
 #
 # caution: you may want to take your pod offline during the OPTIMIZE command.
