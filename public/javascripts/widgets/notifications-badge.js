@@ -72,7 +72,13 @@
       self.dropdownNotifications.find('.read').each(function(index) {
         Diaspora.page.header.notifications.setUpRead( $(this) );
       });
-
+      self.dropdownNotifications.find('.unread').each(function(index) {
+        var myItem = $(this);
+        setTimeout(function(){
+          if ( self.dropdownNotifications.is(":visible") )
+            myItem.trigger('click');
+        }, 2000 );
+      });
       self.ajaxLoader.hide();
     };
   };
