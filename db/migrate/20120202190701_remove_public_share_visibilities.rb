@@ -10,16 +10,17 @@
 # caution: you may want to take your pod offline during the OPTIMIZE command.
 
 class RemovePublicShareVisibilities < ActiveRecord::Migration
-  class ShareVisibility < ActiveRecord::Base; end
-  class Post < ActiveRecord::Base; end
-  class Photo < ActiveRecord::Base; end
-
   def self.up
     %w{Post Photo}.each do |type|
 
       index = 0
-      shareable_size = type.constantize.count
+
       table_name = type.tableize
+      if postgres?
+        shareable_size = ActiveRecord::Base.connection.execute("SELECT COUNT(*) FROM #{table_name}").first['count'].to_i
+      else
+        shareable_size = ActiveRecord::Base.connection.execute("SELECT COUNT(*) FROM #{table_name}").first.first
+      end
 
       while index < shareable_size + 100 do
         sql = <<-SQL
