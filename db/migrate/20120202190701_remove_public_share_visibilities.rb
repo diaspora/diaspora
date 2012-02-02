@@ -11,14 +11,16 @@
 
 class RemovePublicShareVisibilities < ActiveRecord::Migration
   class ShareVisibility < ActiveRecord::Base; end
+  class Post < ActiveRecord::Base; end
+  class Photo < ActiveRecord::Base; end
 
   def self.up
     %w{Post Photo}.each do |type|
 
       index = 0
-      visibilitiy_size = ShareVisibility.count
+      shareable_size = type.constantize.count
 
-      while index < visibilitiy_size + 100 do
+      while index < shareable_size + 100 do
         sql = <<-SQL
           DELETE sv
             FROM share_visibilities AS sv
