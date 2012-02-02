@@ -52,7 +52,6 @@ require File.join(File.dirname(__FILE__), "poor_mans_webmock")
 
 require File.join(File.dirname(__FILE__), "..", "..", "spec", "support", "fake_redis")
 require File.join(File.dirname(__FILE__), "..", "..", "spec", "helper_methods")
-require File.join(File.dirname(__FILE__), "..", "..", "spec", "support","no_id_on_object")
 require File.join(File.dirname(__FILE__), "..", "..", "spec", "support","user_methods")
 include HelperMethods
 
