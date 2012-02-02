@@ -37,9 +37,12 @@
 
     #followed_tags_listing
       = render 'tags/followed_tags_listings'
-    
 
-    /participation stream
+    %br
+    %ul.left_nav
+      %li
+        = link_to t("streams.participate.title"), participate_stream_path, :class => 'home_selector', :rel => 'backbone'
+
     %ul.left_nav.sub
       %li
         = link_to t('streams.like_stream.title'), liked_stream_path, :class => 'home_selector', :rel => 'backbone'

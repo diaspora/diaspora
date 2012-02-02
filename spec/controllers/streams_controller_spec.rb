@@ -50,22 +50,19 @@ describe StreamsController do
     end
   end
 
-  streams = [
-    {:path => :liked, :type => Stream::Likes},
-    {:path => :mentioned, :type => Stream::Mention},
-    {:path => :followed_tags, :type => Stream::FollowedTag}
-  ]
+  streams = {
+      :liked => Stream::Likes,
+      :mentioned => Stream::Mention,
+      :followed_tags => Stream::FollowedTag,
+      :participate => Stream::Participate
+  }
 
-  streams.each do |s|
-    describe "##{s[:path]}" do
-      it 'succeeds' do
-        get s[:path]
+  streams.each do |stream_path, stream_class|
+    describe "a GET to #{stream_path}" do
+      it 'assigns a stream of the proper class' do
+        get stream_path
         response.should be_success
-      end
-
-      it 'assigns a stream' do
-        get s[:path]
-        assigns[:stream].should be_a s[:type]
+        assigns[:stream].should be_a stream_class
       end
     end
   end
