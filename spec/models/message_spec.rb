@@ -3,36 +3,34 @@
 #   the COPYRIGHT file.
 
 require 'spec_helper'
-require File.join(Rails.root, "spec", "shared_behaviors", "relayable")
+require Rails.root.join("spec", "shared_behaviors", "relayable")
 
 describe Message do
   before do
-    @user1 = alice
-    @user2 = bob
-
     @create_hash = {
-      :author => @user1.person,
-      :participant_ids => [@user1.contacts.first.person.id, @user1.person.id],
+      :author => bob.person,
+      :participant_ids => [bob.person.id, alice.person.id],
       :subject => "cool stuff",
-      :messages_attributes => [ {:author => @user1.person, :text => 'stuff'} ]
+      :messages_attributes => [ {:author => bob.person, :text => 'stuff'} ]
     }
 
-    @cnv = Conversation.create!(@create_hash)
-    @message = @cnv.messages.first
+    @conversation = Conversation.create!(@create_hash)
+    @message = @conversation.messages.first
     @xml = @message.to_diaspora_xml
   end
 
   it 'validates that the author is a participant in the conversation' do
-    msg = Message.new(:text => 'yo', :author => eve.person, :conversation_id => @cnv.id)
+    message = Message.new(:text => 'yo', :author => eve.person, :conversation_id => @conversation.id)
+    message.should_not be_valid
   end
 
   describe '#notification_type' do
     it 'does not return anything for the author' do
-      @message.notification_type(@user1, @user1.person).should be_nil
+      @message.notification_type(bob, bob.person).should be_nil
     end
 
     it 'returns private mesage for an actual receiver' do
-      @message.notification_type(@user2, @user1.person).should == Notifications::PrivateMessage
+      @message.notification_type(alice, bob.person).should == Notifications::PrivateMessage
     end
   end
 
@@ -94,13 +92,15 @@ describe Message do
       @object_on_remote_parent = Message.create(msg_hash)
       Postzord::Dispatcher.build(@local_luke, @object_on_remote_parent).post
     end
+
+    let(:build_object) { Message.new(:author => @alice.person, :text => "ohai!", :conversation => @conversation) }
     it_should_behave_like 'it is relayable'
 
     describe '#after_receive' do
       it 'increments the conversation visiblity for the conversation' do
        ConversationVisibility.where(:conversation_id => @object_by_recipient.reload.conversation.id,
                                                      :person_id => @local_luke.person.id).first.unread.should == 0
-  
+
         @object_by_recipient.receive(@local_luke, @local_leia.person)
         ConversationVisibility.where(:conversation_id => @object_by_recipient.reload.conversation.id,
                                                      :person_id => @local_luke.person.id).first.unread.should == 1

@@ -3,7 +3,7 @@
 #   the COPYRIGHT file.
 
 require 'spec_helper'
-require File.join(Rails.root, "spec", "shared_behaviors", "relayable")
+require Rails.root.join("spec", "shared_behaviors", "relayable")
 
 describe Comment do
   before do
@@ -111,6 +111,8 @@ describe Comment do
 
       @object_on_remote_parent = @local_luke.comment!(@remote_parent, "Yeah, it was great")
     end
+
+    let(:build_object) { alice.build_comment(:post => @status, :text => "why so formal?") }
     it_should_behave_like 'it is relayable'
   end
 

@@ -111,6 +111,8 @@ describe Like do
 
       @object_on_remote_parent = @local_luke.like(0, :target => @remote_parent)
     end
+
+    let(:build_object) { alice.build_like(:target => @status, :positive => 1) }
     it_should_behave_like 'it is relayable'
   end
 

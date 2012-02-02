@@ -40,13 +40,20 @@ class User < ActiveRecord::Base
   has_many :aspects, :order => 'order_id ASC'
   belongs_to  :auto_follow_back_aspect, :class_name => 'Aspect'
   has_many :aspect_memberships, :through => :aspects
+
   has_many :contacts
   has_many :contact_people, :through => :contacts, :source => :person
+
   has_many :services
+
   has_many :user_preferences
+
   has_many :tag_followings
   has_many :followed_tags, :through => :tag_followings, :source => :tag, :order => 'tags.name'
+
   has_many :blocks
+  has_many :ignored_people, :through => :blocks, :source => :person
+
   has_many :notifications, :foreign_key => :recipient_id
 
   has_many :authorizations, :class_name => 'OAuth2::Provider::Models::ActiveRecord::Authorization', :foreign_key => :resource_owner_id
