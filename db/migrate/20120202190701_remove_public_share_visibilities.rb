@@ -32,6 +32,7 @@ class RemovePublicShareVisibilities < ActiveRecord::Migration
                 AND #{table_name}.id < #{index};
         SQL
 
+        puts "deleted public share vis up to #{index} of #{type}"
         ActiveRecord::Base.connection.execute(sql)
 
         index += 100
@@ -40,6 +41,6 @@ class RemovePublicShareVisibilities < ActiveRecord::Migration
   end
 
   def self.down
-    raise ActiveRecord::IrreversibleMigration
+    #raise ActiveRecord::IrreversibleMigration
   end
 end
