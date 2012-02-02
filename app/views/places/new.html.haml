@@ -1,0 +1,47 @@
+= javascript_include_tag "validation"
+= javascript_include_tag 'vendor/jquery.ghostInput'
+
+= javascript_tag "Diaspora.Page = 'InvitationsEdit';"
+.span-7.append-1.prepend-3
+  %br
+  %br
+  %br
+  %br
+  %h1
+    = t('welcome')
+  %h3.accept_invitation_text
+    = t('.sign_up_message')
+  - flash.each do |name, msg|
+    %p{:class => "login_#{name}"}= msg
+
+  = image_tag 'diaspora_collage.png', :style => "margin-left:-50px;"
+
+.span-10
+  %br
+  %br
+  %br
+  %br
+  = form_for(@place, :html => {:class => 'new_place_for'}, :url => places_path, :validate => true) do |f|
+    %fieldset
+      .clearfix
+        
+        = f.fields_for :description do |d|
+          %b
+            = t('places.title')
+          = d.text_field :title
+          %b
+            = t('places.summary')
+          = d.text_area :summary, :rows => 5
+          %b
+            = t('places.location')
+          = d.text_field :location
+
+          %b
+            = t('places.image_url')
+          = d.text_field :image_url
+
+
+      .submit_field
+        = f.submit t('places.new.submit'), :class => 'in_aspects'
+
+

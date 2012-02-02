@@ -1,0 +1,40 @@
+-#   Copyright (c) 2010-2011, Diaspora Inc.  This file is
+
+-#   licensed under the Affero General Public License version 3 or later.  See
+-#   the COPYRIGHT file.
+
+= javascript_include_tag "publisher.js"
+
+:javascript
+  $(document).ready(function()
+    {
+      var place = {name: '#{@stream.place.title}' };
+      // Publisher.autocompletion.onSelect($("#status_message_fake_text"),place,'#{@stream.place.title}');
+      // $("#publisher #status_message_fake_text").val(function(index, value){ return value + " " });
+      $("#publisher").bind('ajax:success', function(){location.reload();});
+      Publisher.bookmarklet = true;
+    });
+
+- content_for :page_title do
+  = @stream.place.title
+
+- content_for :head do
+  = include_javascripts :people
+
+
+- content_for :body_class do
+  = "tags_show"
+  
+
+.span-6
+  = render :partial => 'places/place_sidebar', :locals => {:place => @stream.place}
+
+
+.span-18.last
+  .stream_container
+    - if current_user
+      = render 'shared/publisher', :selected_aspects => @stream.aspect_ids, :aspect_ids => @stream.aspect_ids, :for_all_aspects => true, :aspect => @stream.aspect
+
+    %hr
+
+    #main_stream.stream

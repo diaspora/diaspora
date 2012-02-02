@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120114191018) do
+ActiveRecord::Schema.define(:version => 20120121005900) do
 
   create_table "account_deletions", :force => true do |t|
     t.string  "diaspora_handle"
@@ -109,6 +109,22 @@ ActiveRecord::Schema.define(:version => 20120114191018) do
   end
 
   add_index "conversations", ["author_id"], :name => "conversations_author_id_fk"
+
+  create_table "descriptions", :force => true do |t|
+    t.string   "diaspora_handle"
+    t.string   "image_url"
+    t.string   "image_url_small"
+    t.string   "image_url_medium"
+    t.boolean  "searchable",                                                    :default => true, :null => false
+    t.integer  "place_id",                                                                        :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "location"
+    t.string   "title",            :limit => 70
+    t.text     "summary"
+    t.decimal  "lat",                            :precision => 10, :scale => 0
+    t.decimal  "lng",                            :precision => 10, :scale => 0
+  end
 
   create_table "invitations", :force => true do |t|
     t.text     "message"
@@ -279,6 +295,24 @@ ActiveRecord::Schema.define(:version => 20120114191018) do
   end
 
   add_index "photos", ["status_message_guid"], :name => "index_photos_on_status_message_guid"
+
+  create_table "place_mentions", :force => true do |t|
+    t.integer  "post_id"
+    t.integer  "place_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "places", :force => true do |t|
+    t.string   "guid",                                     :null => false
+    t.text     "url",                                      :null => false
+    t.string   "diaspora_handle",                          :null => false
+    t.text     "serialized_public_key",                    :null => false
+    t.integer  "owner_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.boolean  "closed_account",        :default => false
+  end
 
   create_table "pods", :force => true do |t|
     t.string   "host"

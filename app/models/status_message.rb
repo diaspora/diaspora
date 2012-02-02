@@ -17,6 +17,9 @@ class StatusMessage < Post
 
   has_many :photos, :dependent => :destroy, :foreign_key => :status_message_guid, :primary_key => :guid
 
+  has_many :place_mentions, :foreign_key => :post_id
+  alias :reviews :place_mentions
+
   # a StatusMessage is federated before its photos are so presence_of_content() fails erroneously if no text is present
   # therefore, we put the validation in a before_destory callback instead of a validation
   before_destroy :presence_of_content
@@ -25,6 +28,7 @@ class StatusMessage < Post
   attr_accessor :oembed_url
 
   after_create :create_mentions
+  after_create :create_review
   after_create :queue_gather_oembed_data, :if => :contains_oembed_url_in_text?
 
   #scopes
@@ -119,6 +123,12 @@ class StatusMessage < Post
     end
   end
 
+  def create_review
+    mentioned_places_from_string.each do |place|
+      self.reviews.create(:place => place)
+    end
+  end
+
   def mentions?(person)
     mentioned_people.include? person
   end
@@ -132,6 +142,14 @@ class StatusMessage < Post
       match.last
     end
     identifiers.empty? ? [] : Person.where(:diaspora_handle => identifiers)
+  end
+
+  def mentioned_places_from_string
+    regex = /=\{([^;]+); ([^\}]+)\}/
+    identifiers = self.raw_message.scan(regex).map do |match|
+      match.last
+    end
+    identifiers.empty? ? [] : Place.where(:diaspora_handle => identifiers)
   end
 
   def to_activity(opts={})

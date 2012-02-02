@@ -651,6 +651,21 @@ en:
       updated: "Profile updated"
       failed: "Failed to update profile"
 
+  places: 
+    title: "Place name."
+    summary: "Describe the place briefly."
+    location: "Generally, where is it?"
+    image_url: "Enter the url for the place's profile image."
+
+    new: 
+      enter_username: "Pick a username (only letters, numbers, and underscores)"
+      submit: "Create Place"
+    show:
+      following: "Following %{place}"
+      stop_following: "Stop following %{place}"
+    place_sidebar:
+      summary: "Description"
+      location: "Location"
   registrations:
     new:
       create_my_account: "Create my account!"
@@ -1038,3 +1053,6 @@ en:
     xrd_fetch_failed: "there was an error getting the xrd from account %{account}"
     not_enabled: "webfinger does not seem to be enabled for %{account}'s host"
     no_person_constructed: "No person could be constructed from this hcard."
+
+
+
