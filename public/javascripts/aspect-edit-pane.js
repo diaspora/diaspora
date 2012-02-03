@@ -12,6 +12,9 @@ function updateAspectName(new_name) {
   $('#aspect_name_title .name').html(new_name);
   $('input#aspect_name').val(new_name);
 }
+function updatePageAspectName( an_id, new_name) {
+  $('ul#aspect_nav [data-guid="'+an_id+'"]').html(new_name);
+}
 
 $(document).ready(function() {
   $('#rename_aspect_link').live('click', function(){
@@ -20,6 +23,7 @@ $(document).ready(function() {
 
   $('form.edit_aspect').live('ajax:success', function(evt, data, status, xhr) {
     updateAspectName(data['name']);
+    updatePageAspectName( data['id'], data['name'] );
     toggleAspectTitle();
   });
 });
