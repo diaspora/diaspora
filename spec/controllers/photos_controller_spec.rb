@@ -114,7 +114,7 @@ describe PhotosController do
         sm = bob.post(:status_message, :text => 'parent post', :to => 'all')
         @bobs_photo.status_message_guid = sm.guid
         @bobs_photo.save!
-        alice.like(1, :target => @bobs_photo.status_message)
+        alice.like!(@bobs_photo.status_message)
         get :show, :id => @bobs_photo.id
         response.should be_success
       end

@@ -689,11 +689,35 @@ describe User do
   context 'likes' do
     before do
       alices_aspect = alice.aspects.where(:name => "generic").first
-      bobs_aspect = bob.aspects.where(:name => "generic").first
+      @bobs_aspect = bob.aspects.where(:name => "generic").first
       @message = alice.post(:status_message, :text => "cool", :to => alices_aspect)
-      @message2 = bob.post(:status_message, :text => "uncool", :to => bobs_aspect)
-      @like = alice.like(true, :target => @message)
-      @like2 = bob.like(true, :target => @message)
+      @message2 = bob.post(:status_message, :text => "uncool", :to => @bobs_aspect)
+      @like = alice.like!(@message)
+      @like2 = bob.like!(@message)
+    end
+
+    describe 'User#like' do
+      before do
+        @status = bob.post(:status_message, :text => "hello", :to => @bobs_aspect.id)
+      end
+
+      it "should be able to like on one's own status" do
+        like = alice.like!(@status)
+        @status.reload.likes.first.should == like
+      end
+
+      it "should be able to like on a contact's status" do
+        like = bob.like!(@status)
+        @status.reload.likes.first.should == like
+      end
+
+      it "does not allow multiple likes" do
+        alice.like!(@status)
+
+        lambda {
+          alice.like!(@status)
+        }.should_not change(@status, :likes)
+      end
     end
 
     describe '#like_for' do

@@ -47,7 +47,7 @@ TXT
             posts << alice.post(:status_message, :text => "you're gonna love this.", :to => alice.aspects.first.id)
           end
           Timecop.travel time += 1.minute
-          alice.like(1, :target => posts.last)
+          alice.like!(posts.last)
         end
       end
 

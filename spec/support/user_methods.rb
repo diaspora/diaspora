@@ -32,16 +32,6 @@ class User
     end
   end
 
-  def like(positive, options ={})
-    fantasy_resque do
-      l = build_like(options.merge(:positive => positive))
-      if l.save!
-        Postzord::Dispatcher.build(self, l).post
-      end
-      l
-    end
-  end
-
   def post_at_time(time)
     to_aspect = self.aspects.length == 1 ? self.aspects.first : self.aspects.where(:name => "generic")
     p = self.post(:status_message, :text => 'hi', :to => to_aspect)

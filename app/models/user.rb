@@ -294,6 +294,16 @@ class User < ActiveRecord::Base
     end
   end
 
+  def like!(target, opts={})
+    like = build_like(opts.merge!(:target => target, :positive => true))
+    if like.save
+      dispatch_post(like)
+      like
+    else
+      false
+    end
+  end
+
   def build_relayable(model, options = {})
     r = model.new(options.merge(:author_id => self.person.id))
     r.set_guid

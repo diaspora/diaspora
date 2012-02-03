@@ -39,7 +39,7 @@ describe LikesController do
 
         context "on a post from a contact" do
           before do
-            @target = bob.post :status_message, :text => "AWESOME", :to => @bobs_aspect.id
+            @target = bob.post(:status_message, :text => "AWESOME", :to => @bobs_aspect.id)
             @target = bob.comment!(@target, "hey") if class_const == Comment
           end
 
@@ -54,7 +54,7 @@ describe LikesController do
           end
 
           it "doesn't post multiple times" do
-            alice.like(1, :target => @target)
+            alice.like!(@target)
             post :create, dislike_hash
             response.code.should == '422'
           end
@@ -67,7 +67,7 @@ describe LikesController do
           end
 
           it "doesn't post" do
-            alice.should_not_receive(:like)
+            alice.should_not_receive(:like!)
             post :create, like_hash
             response.code.should == '422'
           end
@@ -92,9 +92,7 @@ describe LikesController do
         end
 
         it 'returns an array of likes for a post' do
-          like = bob.build_like(:positive => true, :target => @message)
-          like.save!
-
+          like = bob.like!(@message)
           get :index, id_field => @message.id
           assigns[:likes].map(&:id).should == @message.likes.map(&:id)
         end
@@ -109,8 +107,7 @@ describe LikesController do
         before do
           @message = bob.post(:status_message, :text => "hey", :to => @alices_aspect.id)
           @message = bob.comment!(@message, "hey") if class_const == Comment
-          @like = alice.build_like(:positive => true, :target => @message)
-          @like.save
+          @like = alice.like!(@message)
         end
 
         it 'lets a user destroy their like' do
@@ -121,8 +118,7 @@ describe LikesController do
         end
 
         it 'does not let a user destroy other likes' do
-          like2 = eve.build_like(:positive => true, :target => @message)
-          like2.save
+          like2 = eve.like!(@message)
 
           expect {
             delete :destroy, :format => :json, id_field => like2.target_id, :id => like2.id

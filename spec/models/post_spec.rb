@@ -218,7 +218,7 @@ describe Post do
   describe 'Likeable#update_likes_counter' do
     before do
       @post = bob.post :status_message, :text => "hello", :to => 'all'
-      bob.like(1, :target => @post)
+      bob.like!(@post)
     end
     it 'does not update updated_at' do
       old_time = Time.zone.now - 10000
