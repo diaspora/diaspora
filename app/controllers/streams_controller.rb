@@ -32,6 +32,7 @@ class StreamsController < ApplicationController
   end
 
   def participate
+    puts params.inspect
     stream_responder(Stream::Participate)
   end
 

@@ -3,6 +3,10 @@ class Stream::Participate < Stream::Base
     Rails.application.routes.url_helpers.participate_stream_path(opts)
   end
 
+  def order
+    "interacted_at"
+  end
+
   def title
     I18n.translate("streams.participate.title")
   end
@@ -11,5 +15,4 @@ class Stream::Participate < Stream::Base
   def posts
     @posts ||= EvilQuery::Participation.new(user).posts
   end
-
 end

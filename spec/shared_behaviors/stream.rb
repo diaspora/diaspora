@@ -32,9 +32,9 @@ describe 'Streams' do
         @stream.max_time.should be_a(Time)
       end
 
-      it 'should default order to created_at' do
+      it 'should always have an order (default created_at)' do
         @stream.order=nil
-        @stream.order.should == 'created_at'
+        @stream.order.should_not be_nil
       end
 
       it 'initializes a publisher' do

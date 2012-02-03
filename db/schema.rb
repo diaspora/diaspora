@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120202190701) do
+ActiveRecord::Schema.define(:version => 20120203220932) do
 
   create_table "account_deletions", :force => true do |t|
     t.string  "diaspora_handle"
@@ -316,6 +316,7 @@ ActiveRecord::Schema.define(:version => 20120202190701) do
     t.integer  "comments_count",                      :default => 0
     t.integer  "o_embed_cache_id"
     t.integer  "reshares_count",                      :default => 0
+    t.datetime "interacted_at"
   end
 
   add_index "posts", ["author_id", "root_guid"], :name => "index_posts_on_author_id_and_root_guid", :unique => true
@@ -336,8 +337,8 @@ ActiveRecord::Schema.define(:version => 20120202190701) do
     t.date     "birthday"
     t.string   "gender"
     t.text     "bio"
-    t.boolean  "searchable",                      :default => true, :null => false
-    t.integer  "person_id",                                         :null => false
+    t.boolean  "searchable",                      :default => true,  :null => false
+    t.integer  "person_id",                                          :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "location"
