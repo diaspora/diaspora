@@ -221,7 +221,7 @@ GEM
       multi_json
     jwt (0.1.4)
       json (>= 1.2.4)
-    kgio (2.7.0)
+    kgio (2.7.2)
     launchy (2.0.3)
     linecache (0.46)
       rbx-require-relative (> 0.0.4)
@@ -406,10 +406,10 @@ GEM
     typhoeus (0.3.3)
       mime-types
     tzinfo (0.3.31)
-    unicorn (4.1.1)
-      kgio (~> 2.4)
+    unicorn (4.2.0)
+      kgio (~> 2.6)
       rack
-      raindrops (~> 0.6)
+      raindrops (~> 0.7)
     vegas (0.1.11)
     warden (1.0.6)
       rack (>= 1.0)
@@ -514,7 +514,7 @@ DEPENDENCIES
   timecop
   twitter (= 2.0.2)
   typhoeus
-  unicorn (~> 4.1.1)
+  unicorn (~> 4.2.0)
   webmock
   whenever
   will_paginate
