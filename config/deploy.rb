@@ -20,6 +20,7 @@ set :use_sudo, false
 set :scm_verbose, true
 set :repository_cache, "remote_cache"
 set :deploy_via, :checkout
+set :bundle_without,  [:development, :test, :heroku]
 
 # Figure out the name of the current local branch
 def current_git_branch
