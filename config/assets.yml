@@ -2,9 +2,17 @@ package_assets: on
 embed_assets: datauri
 compress_assets: on
 gzip_assets: off
+
+template_function: off
+template_extension: 'handlebars'
+
 javascripts:
   jquery:
     - public/javascripts/vendor/jquery-1.7.1.min.js
+
+  templates:
+    - public/javascripts/app/templates/*.handlebars
+
   main:
     - public/javascripts/vendor/underscore.js
     - public/javascripts/vendor/backbone.js
