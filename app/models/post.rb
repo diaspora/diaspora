@@ -21,6 +21,7 @@ class Post < ActiveRecord::Base
     }, :as => :text
     t.add :public
     t.add :created_at
+    t.add :interacted_at
     t.add :comments_count
     t.add :likes_count
     t.add :reshares_count
