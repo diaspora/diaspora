@@ -24,13 +24,13 @@ class RemovePublicShareVisibilities < ActiveRecord::Migration
 
       while index < shareable_size + 100 do
         sql = <<-SQL
-          DELETE sv
+          DELETE
             FROM share_visibilities AS sv
-              INNER JOIN #{table_name}
-              ON sv.shareable_id = #{table_name}.id
-              WHERE sv.shareable_type = "#{type}"
-                AND #{table_name}.public IS TRUE
-                AND #{table_name}.id < #{index};
+              USING #{table_name} as p
+              WHERE sv.shareable_id = p.id
+                AND sv.shareable_type = '#{type}'
+                AND p.public IS TRUE
+                AND p.id < #{index};
         SQL
 
         puts "deleted public share vis up to #{index} of #{type}"
