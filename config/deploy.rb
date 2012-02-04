@@ -46,7 +46,7 @@ namespace :deploy do
   end
 
   task :restart do
-    thins = capture "svstat /service/thin*"
+    thins = capture_svstat "/service/thin*"
     matches = thins.match(/(thin_\d+):/).captures
 
     matches.each_with_index do |thin, index|
@@ -54,25 +54,25 @@ namespace :deploy do
         puts "sleeping for 20 seconds"
         sleep(20)
       end
-      run "svc -t /service/#{thin}"
+      svc "-t /service/#{thin}"
     end
 
-    run "svc -t /service/resque_worker*"
+    svc "-t /service/resque_worker*"
   end
 
   task :kill do
-    run "svc -k /service/thin*"
-    run "svc -k /service/resque_worker*"
+    svc "-k /service/thin*"
+    svc "-k /service/resque_worker*"
   end
 
   task :start do
-    run "svc -u /service/thin*"
-    run "svc -u /service/resque_worker*"
+    svc "-u /service/thin*"
+    svc "-u /service/resque_worker*"
   end
 
   task :stop do
-    run "svc -d /service/thin*"
-    run "svc -d /service/resque_worker*"
+    svc "-d /service/thin*"
+    svc "-d /service/resque_worker*"
   end
 
   desc 'Copy resque-web assets to public folder'
@@ -91,5 +91,18 @@ after 'deploy:symlink' do
   deploy.symlink_cookie_secret
   deploy.bundle_static_assets
   deploy.copy_resque_assets
+end
+
+
+def maybe_sudo(cmd)
+  "#{svc_sudo ? sudo : ''} #{cmd}"
+end
+
+def svc(opts)
+  run(maybe_sudo("svc #{opts}"))
+end
+
+def capture_svstat(opts)
+  capture(maybe_sudo("svstat #{opts}"))
 end
 
