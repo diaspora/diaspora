@@ -47,7 +47,10 @@ namespace :deploy do
 
   task :restart do
     thins = capture_svstat "/service/thin*"
-    matches = thins.match(/(thin_\d+):/).captures
+    matches = thins.split("\n").inject([]) do |list, line|
+      m = line.match(/(thin_\d+):/)
+      list << m.captures[0] unless m.nil?
+    end
 
     matches.each_with_index do |thin, index|
       unless index == 0
