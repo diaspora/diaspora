@@ -41,7 +41,7 @@ namespace :deploy do
   end
 
   task :bundle_static_assets do
-    run "cd #{current_path} && sass --update public/stylesheets/sass:public/stylesheets"
+    run "cd #{current_path} && bundle exec sass --update public/stylesheets/sass:public/stylesheets"
     run "cd #{current_path} && bundle exec jammit"
   end
 
