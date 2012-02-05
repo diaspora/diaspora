@@ -18,12 +18,16 @@
 .span-15.append-1
   #people_stream.stream
     - if @hashes.empty?
-      %p
+      %p#not_found{:class => @background_query.nil? ? "" : "hidden" }
         =t('.no_one_found')
-
+      %p#searching{:class => @background_query.nil? ? "hidden" : "" }
+        =t('.searching')
+      - if ! @background_query.nil?
+        :javascript
+          $(document).ready(function() { setTimeout("runDelayedSearch('#{@background_query}')", 10000); });
     - else
       - for hash in @hashes
-        = render :partial => 'people/person', :locals => hash
+        = render :partial => 'people/person.html', :locals => hash
 
       = will_paginate @people
 

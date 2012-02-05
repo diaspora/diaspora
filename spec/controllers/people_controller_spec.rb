@@ -351,6 +351,35 @@ describe PeopleController do
     end
   end
 
+
+
+  describe '#refresh_search ' do
+    before(:each)do
+      @eugene = Factory(:person,
+                      :profile => Factory.build(:profile, :first_name => "Eugene", :last_name => "w"))
+      @korth = Factory(:person,
+                     :profile => Factory.build(:profile, :first_name => "Evan", :last_name => "Korth"))
+    end
+
+    describe 'via json' do
+      it 'returns a zero count when a search fails' do
+        get :refresh_search, :q => "weweweKorth", :format => 'json'
+        response.body.should == {:search_count=>0, :search_html=>""}.to_json
+      end
+
+      it 'returns with a zero count unless a fully composed name is sent' do
+        get :refresh_search, :q => "Korth"
+        response.body.should == {:search_count=>0, :search_html=>""}.to_json
+      end
+      it 'returns with a found name' do
+        get :refresh_search, :q => @korth.diaspora_handle
+        puts JSON.parse( response.body ).inspect
+        JSON.parse( response.body )["search_count"].should == 1
+      end
+    end
+  end
+
+
   describe '#contacts' do
     it 'assigns the contacts of a person' do
       contact = alice.contact_for(bob.person)
