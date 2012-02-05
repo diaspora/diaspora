@@ -27,7 +27,7 @@
           $(document).ready(function() { setTimeout("runDelayedSearch('#{@background_query}')", 10000); });
     - else
       - for hash in @hashes
-        = render :partial => 'people/person.html', :locals => hash
+        = render :partial => 'people/person', :locals => hash
 
       = will_paginate @people
 
