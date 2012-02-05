@@ -1,7 +1,6 @@
 app.views.LikesInfo = app.views.StreamObject.extend({
 
-  legacyTemplate : true,
-  template_name : "#likes-info-template",
+  templateName : "likes-info",
 
   className : "likes_container",
 

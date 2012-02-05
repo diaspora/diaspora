@@ -1,0 +1,35 @@
+<span class="post_scope">
+  {{#if public}}
+    {{t "stream.public"}}
+  {{else}}
+    {{t "stream.limited"}}
+  {{/if}}
+
+  {{#if provider_display_name}}
+    <strong>
+      via {{provider_display_name}}
+    </strong>
+  {{/if}}
+</span>
+–
+
+<a href="#" class="like_action" rel='nofollow'>
+  {{#if user_like}}
+    {{t "stream.unlike"}}
+  {{else}}
+    {{t "stream.like"}}
+  {{/if}}
+</a>
+·
+
+{{#if userCanReshare}}
+  <a href="#" class="reshare_action" rel='nofollow'>
+    {{t "stream.reshare"}}
+  </a>
+  ·
+{{/if}}
+
+<a href="#" class="focus_comment_textarea" rel="nofollow">
+  {{t "stream.comment"}}
+</a>
+
