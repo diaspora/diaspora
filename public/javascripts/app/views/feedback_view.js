@@ -33,10 +33,13 @@ app.views.Feedback = app.views.StreamObject.extend({
   },
 
   userCanReshare : function() {
+    var isReshare = this.model.get("post_type") == "Reshare"
+    var rootExists = (isReshare ? this.model.get("root") : true)
+
     var publicPost = this.model.get("public");
-    var userIsNotAuthor = this.model.get("author").id != app.user().id;
-    var rootExists = (this.model.get("post_type") == "Reshare" ? this.model.get("root") : true);
-    
-    return publicPost && userIsNotAuthor && rootExists;
+    var userIsNotAuthor = this.model.get("author").diaspora_id != app.user().diaspora_id;
+    var userIsNotRootAuthor = rootExists && (isReshare ? this.model.get("root").author.diaspora_id != app.user().diaspora_id : true)
+
+    return publicPost && userIsNotAuthor && userIsNotRootAuthor;
   }
 })

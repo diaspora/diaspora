@@ -1,14 +1,12 @@
 app.views.Content = app.views.StreamObject.extend({
   presenter : function(model){
     var model = model || this.model
-    console.log(model.get("author"))
 
     return _.extend(this.defaultPresenter(), {
       text : app.helpers.textFormatter(model),
       o_embed_html : embedHTML(model),
       largePhoto : this.largePhoto(model),
-      smallPhotos : this.smallPhotos(model),
-      root : this.rootPresenter(model)
+      smallPhotos : this.smallPhotos(model)
     })
 
     function embedHTML(model){
