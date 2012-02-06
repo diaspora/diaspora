@@ -1,12 +1,13 @@
 app.views.Content = app.views.StreamObject.extend({
   presenter : function(model){
     var model = model || this.model
+    console.log(model.get("author"))
 
     return _.extend(this.defaultPresenter(), {
       text : app.helpers.textFormatter(model),
       o_embed_html : embedHTML(model),
-      largePhoto : this.largePhoto(),
-      smallPhotos : this.smallPhotos(),
+      largePhoto : this.largePhoto(model),
+      smallPhotos : this.smallPhotos(model),
       root : this.rootPresenter(model)
     })
 
@@ -21,14 +22,14 @@ app.views.Content = app.views.StreamObject.extend({
     }
   },
 
-  largePhoto : function() {
-    var photos = this.model.get("photos")
+  largePhoto : function(model) {
+    var photos = model.get("photos")
     if(!photos || photos.length == 0) { return }
     return photos[0]
   },
 
-  smallPhotos : function() {
-    var photos = this.model.get("photos")
+  smallPhotos : function(model) {
+    var photos = model.get("photos")
     if(!photos || photos.length < 2) { return }
     return photos.slice(1,8)
   },
