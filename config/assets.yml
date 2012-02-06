@@ -3,7 +3,7 @@ embed_assets: datauri
 compress_assets: on
 gzip_assets: off
 
-template_function: off
+template_function: Handlebars.compile
 template_extension: 'handlebars'
 
 javascripts:

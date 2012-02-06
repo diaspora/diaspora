@@ -1,5 +1,5 @@
 package_assets: on
-template_function: off
+template_function: Handlebars.compile
 template_extension: 'handlebars'
 
 javascripts:
