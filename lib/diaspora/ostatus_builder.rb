@@ -45,7 +45,7 @@ module Diaspora
 <author>
   <activity:object-type>http://activitystrea.ms/schema/1.0/person</activity:object-type>
   <name>#{x(@user.name)}</name>
-  <uri>#{AppConfig[:pod_url]}#{local_or_remote_person_path(@user.person)[1..-1]}</uri>
+  <uri>#{local_or_remote_person_path(@user.person, :absolute => true)}</uri>
   <poco:preferredUsername>#{x(@user.username)}</poco:preferredUsername>
   <poco:displayName>#{x(@user.person.name)}</poco:displayName>
 </author>
