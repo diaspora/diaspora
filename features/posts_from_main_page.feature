@@ -25,8 +25,8 @@ Feature: posting from the main page
       Then I should see "I am eating a yogurt" within ".stream_element"
 
     Scenario: posting a message appends it to the top of the stream
-      Given I have a prexisting post
-      And I post "hey there"
+      When I click the publisher and post "sup dog"
+      And I click the publisher and post "hello there"
       Then I should see "hello there" as the first post in my stream
 
     Scenario: post a text-only message to just one aspect
