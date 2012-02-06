@@ -1,11 +1,13 @@
 app.views.Content = app.views.StreamObject.extend({
-  presenter : function(){
-    var model = this.model
+  presenter : function(model){
+    var model = model || this.model
+
     return _.extend(this.defaultPresenter(), {
       text : app.helpers.textFormatter(model),
       o_embed_html : embedHTML(model),
       largePhoto : this.largePhoto(),
-      smallPhotos : this.smallPhotos()
+      smallPhotos : this.smallPhotos(),
+      root : this.rootPresenter(model)
     })
 
     function embedHTML(model){
@@ -29,6 +31,12 @@ app.views.Content = app.views.StreamObject.extend({
     var photos = this.model.get("photos")
     if(!photos || photos.length < 2) { return }
     return photos.slice(1,8)
+  },
+
+  // should be a private function in this.presenter()
+  rootPresenter : function(model) {
+    if(!model || !model.get("root")) { return }
+    return this.presenter(new app.models.Post(model.get("root")))
   }
 })
 
@@ -37,12 +45,10 @@ app.views.StatusMessage = app.views.Content.extend({
 });
 
 app.views.Reshare = app.views.Content.extend({
-  legacyTemplate : true,
-  template_name : "#reshare-template"
+  templateName : "reshare"
 });
 
 app.views.ActivityStreams__Photo = app.views.Content.extend({
-  legacyTemplate : false,
   templateName : "activity-streams-photo"
 });
 

@@ -1,9 +1,9 @@
-{{#if photos.length}}
+{{#if largePhoto}}
   <div class="photo_attachments">
 
     <a href="#" class="stream-photo-link">
       {{#with largePhoto}}
-        <img src="{{sizes.large}}" class="stream-photo big_stream_photo" data-small-photo="{{sizes.small}}" data-full-photo="{{sizes.large}}" rel="lightbox">
+        <img src="{{sizes.large}}" class="stream-photo big_stream_photo" data-small-photo="{{sizes.small}}" data-full-photo="{{largePhoto.sizes.large}}" rel="lightbox">
       {{/with}}
     </a>
 

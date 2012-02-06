@@ -127,8 +127,6 @@
       %header
         = render 'layouts/header'
 
-    = render 'layouts/templates'
-
     .container{:style=> "#{yield(:break_the_mold)}"}
       - if @aspsect == :getting_started || @page == :logged_out
         = yield

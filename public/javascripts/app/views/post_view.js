@@ -1,4 +1,5 @@
 app.views.Post = app.views.StreamObject.extend({
+  
   templateName: "stream-element",
 
   className : "stream_element loaded",

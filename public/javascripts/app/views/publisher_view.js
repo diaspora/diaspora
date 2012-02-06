@@ -3,6 +3,7 @@
 //this with PANACHE!
 
 app.views.Publisher = Backbone.View.extend({
+  
   el : "#publisher",
 
   events : {

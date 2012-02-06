@@ -25,15 +25,10 @@ app.views.Base =  Backbone.View.extend({
     var templateHTML //don't forget to regenerate your jasmine fixtures ;-)
     var presenter = _.isFunction(this.presenter) ? this.presenter() : this.presenter
 
-    if(this.legacyTemplate) {
-      templateHTML = $(this.template_name).html();
-      this.template = _.template(templateHTML);
-    } else {
-      window.templateCache = window.templateCache || {}
-      templateHTML = JST[this.templateName];
-      this.template = templateCache[this.templateName] = templateCache[this.templateName] || Handlebars.compile(templateHTML);
-    }
-
+    window.templateCache = window.templateCache || {}
+    templateHTML = JST[this.templateName];
+    this.template = templateCache[this.templateName] = templateCache[this.templateName] || Handlebars.compile(templateHTML);
+    
     $(this.el).html(this.template(presenter));
     this.postRenderTemplate();
   },

@@ -1,5 +1,5 @@
 app.views.Stream = Backbone.View.extend({
-  legacyTemplate : true,
+  
   events: {
     "click #paginate": "render"
   },
