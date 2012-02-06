@@ -487,48 +487,64 @@ gl:
         few: "Hai %{count} notificacións novas."
         many: "Hai %{count} notificacións novas."
         other: "Hai %{count} notificacións novas."
+  notifier:
+    a_post_you_shared: "unha publicación."
+    email_sent_by_diaspora: "Este correo electrónico envíao Diaspora. Se non quere volver recibir unha mensaxe coma esta,"
+    click_here: "prema aquí"
+    hello: "Ola %{name}!"
+    thanks: "Grazas,"
+    to_change_your_notification_settings: "para cambiar a configuración das notificacións."
+    single_admin:
+      subject: "Unha mensaxe sobre a súa conta en Diaspora:"
+      admin: "O seu administrador en Diaspora"
+    started_sharing:
+      subject: "%{name} comezou a compartir con vostede en Diaspora."
+      sharing: "comezou a compartir con vostede!"
+      view_profile: "Ver o perfil de %{name}"
+    comment_on_post:
+      reply: "Ver ou responder á publicación de %{name}"
+    mentioned:
+      subject: "%{name} mencionouno en Diaspora"
+      mentioned: "mencionouno nunha publicación:"
+    private_message:
+      reply_to_or_view: "Ver ou participar na conversa"
+    liked:
+      liked: "A %{name} gústalle a súa publicación"
+      view_post: "Ver a publicación"
+    reshared:
+      reshared: "%{name} repetiu a súa publicación"
+      view_post: "Ver a publicación"
+    confirm_email:
+      subject: "Active o seu novo enderezo de correo electrónico, «%{unconfirmed_email}»."
+      click_link: "Para activar o seu novo enderezo de correo electrónico, «%{unconfirmed_email}», prema a seguinte ligazón:"
+  people:
+    zero: "Non hai xente."
+    one: "Hai unha persoa."
+    two: "Hai dúas persoas."
+    few: "Hai %{count} persoas."
+    many: "Hai %{count} persoas."
+    other: "Hai %{count} persoas."
+    person:
+      pending_request: "Solicitude pendente"
+      already_connected: "Xa están conectados"
+      thats_you: "É vostede!"
+      add_contact: "Engadir un contacto"
+    index:
+      results_for: "Resultados para"
+      no_results: "Así non vai atopar nada…"
+      couldnt_find_them_send_invite: "Non atopa a quen busca? Envíelle unha invitación:"
+      no_one_found: "Non se atopou a ninguén."
+      looking_for: "Busca publicacións coa etiqueta %{tag_link}?"
 
 # Continuar a revisión da tradución por aquí.
 
-  authorizations:
-    index:
-      revoke_access: "Revogar o permiso de acceso"
-  notifier:
-    hello: "Ola %{name}!"
-    liked:
-      liked: "A %{name} gústalle a seguinte publicación súa:"
-    mentioned:
-      mentioned: "mencionouno nunha publicación:"
-      subject: "%{name} mencionouno en Diaspora*"
-    single_admin:
-      admin: "O seu administrador en Diaspora"
-      subject: "Unha mensaxe sobre a súa conta en Diaspora:"
-    started_sharing:
-      sharing: "comezou a compartir con vostede!"
-      subject: "%{name} comezou a compartir con vostede en Diaspora*"
-    thanks: "Grazas,"
-  people:
     add_contact_small:
       add_contact_from_tag: "Engadir un contacto a partir da etiqueta"
     aspect_list:
       edit_membership: "Modificar a pertenza ao aspecto"
-    few: "Hai %{count} persoas."
     helper:
       people_on_pod_are_aware_of: "A xente neste servidor está ao tanto de"
       results_for: "Resultados para %{params}"
-    index:
-      couldnt_find_them_send_invite: "Non atopa a quen busca? Envíalle unha invitación:"
-      no_one_found: "Non se atoparon resultados."
-      no_results: "Así non vai atopar nada…"
-      results_for: "Resultados para"
-    many: "Hai %{count} persoas."
-    one: "Hai unha persoa."
-    other: "Hai %{count} persoas."
-    person:
-      add_contact: "Engadir un contacto"
-      already_connected: "Xa conectado"
-      pending_request: "Solicitude pendente"
-      thats_you: "É vostede!"
     profile_sidebar:
       bio: Biografía
       born: Aniversario
@@ -552,7 +568,11 @@ gl:
       to_accept_or_ignore: "Aceptalo ou ignoralo"
     webfinger:
       fail: "Non se puido atopar «%{handle}»."
-    zero: "Non hai xente."
+
+
+  authorizations:
+    index:
+      revoke_access: "Revogar o permiso de acceso"
   photos:
     create:
       integrity_error: "Non se puido subir a imaxe. Está seguro de que o ficheiro era unha imaxe?"
