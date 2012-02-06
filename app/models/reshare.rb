@@ -42,7 +42,7 @@ class Reshare < Post
   end
 
   def photos
-    self.root ? root.photos : super
+    self.root ? root.photos : nil
   end
 
   def receive(recipient, sender)

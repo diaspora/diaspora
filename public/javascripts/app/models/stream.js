@@ -47,8 +47,11 @@ app.models.Stream = Backbone.Collection.extend({
 
   maxTime: function(){
     var lastPost = _.last(this.posts.models);
-    var isOnParticipateStream = this.basePath().match(/participate/);
-    return (isOnParticipateStream == null) ? lastPost.createdAt() : lastPost.interactedAt();
+    return lastPost[this.sortOrder()]()
+  },
+
+  sortOrder : function() {
+    return this.basePath().match(/participate/) ? "interactedAt" : "createdAt"
   },
 
   add : function(models){
