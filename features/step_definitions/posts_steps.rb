@@ -34,3 +34,15 @@ end
 When /^I click on the first block button/ do
   find(".block_user").click
 end
+
+
+
+Then /^"I should see "([^"]*)" as the first post in my stream$/ do |text|
+  first_post_text.should include(text)
+end
+
+Given /^"I post "([^"]*)"$/ do |text|
+  make_post(text)
+end
+
+

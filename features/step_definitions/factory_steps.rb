@@ -32,6 +32,10 @@ end
 
 World(FactoryMethods)
 
+Given /I have a prexisting post/ do
+  Factory(:status_message, :author => @me.person, :public => true)
+end
+
 Given %r{^I have a (.+)$} do |model_name|
   create_from_table(model_name, {}, 'user' => @me)
 end
