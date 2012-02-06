@@ -1,0 +1,24 @@
+{{#if likes_count}}
+  <img alt="Heart" src="/images/icons/pin.png" />
+  {{#unless likes.length}}
+
+	  <a href="#" class="expand_likes">
+	    {{t "stream.likes" count=likes_count}}
+	  </a>
+
+  {{else}}
+
+  	<span class="likes_list">
+
+      {{#each likes}}
+        {{#with attributes.author}}
+          <a href="/people/{{guid}}">
+            <img src="{{avatar.small}}" class="avatar" title="{{name}}"/>
+          </a>
+        {{/with}}
+      {{/each}}
+
+  	</span>
+
+  {{/unless}}
+{{/if}}

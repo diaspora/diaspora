@@ -19,8 +19,7 @@ module EvilQuery
     def posts
       liked_post_ids = fetch_ids!(LikedPosts.new(@user).posts, "posts.id")
       commented_post_ids = fetch_ids!(CommentedPosts.new(@user).posts, "posts.id")
-
-      Post.where(:id => liked_post_ids + commented_post_ids)
+      Post.where(:id => liked_post_ids + commented_post_ids).order("posts.interacted_at DESC")
     end
   end
 
@@ -30,7 +29,7 @@ module EvilQuery
     end
 
     def posts
-      StatusMessage.liked_by(@user.person)
+      Post.liked_by(@user.person)
     end
   end
 
@@ -40,7 +39,7 @@ module EvilQuery
     end
 
     def posts
-      StatusMessage.commented_by(@user.person)
+      Post.commented_by(@user.person)
     end
   end
 

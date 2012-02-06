@@ -21,6 +21,7 @@ class Post < ActiveRecord::Base
     }, :as => :text
     t.add :public
     t.add :created_at
+    t.add :interacted_at
     t.add :comments_count
     t.add :likes_count
     t.add :reshares_count
@@ -52,10 +53,17 @@ class Post < ActiveRecord::Base
 
   belongs_to :o_embed_cache
 
-  after_create :cache_for_author
-
   #scopes
   scope :includes_for_a_stream, includes(:o_embed_cache, {:author => :profile}, :mentions => {:person => :profile}) #note should include root and photos, but i think those are both on status_message
+
+
+  scope :commented_by, lambda { |person|
+    select('DISTINCT posts.*').joins(:comments).where(:comments => {:author_id => person.id})
+  }
+
+  scope :liked_by, lambda { |person|
+    joins(:likes).where(:likes => {:author_id => person.id})
+  }
 
   def post_type
     self.class.name
@@ -122,20 +130,5 @@ class Post < ActiveRecord::Base
 
   def comment_email_subject
     I18n.t('notifier.a_post_you_shared')
-  end
-
-  # @return [Boolean]
-  def cache_for_author
-    if self.should_cache_for_author?
-      cache = RedisCache.new(self.author.owner, 'created_at')
-      cache.add(self.created_at.to_i, self.id)
-    end
-    true
-  end
-
-  # @return [Boolean]
-  def should_cache_for_author?
-    self.triggers_caching? && RedisCache.configured? &&
-      RedisCache.acceptable_types.include?(self.type) && user = self.author.owner
   end
 end

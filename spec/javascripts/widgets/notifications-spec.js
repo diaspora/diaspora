@@ -46,7 +46,16 @@ describe("Diaspora.Widgets.Notifications", function() {
   });
 
   describe("decrementCount", function() {
+    it("wont decrement Notifications.count below zero", function() {
+      var originalCount = notifications.count;
+      notifications.decrementCount();
+      expect(originalCount).toEqual(0);
+      expect(notifications.count).toEqual(0);
+    });
+
     it("decrements Notifications.count", function() {
+      notifications.incrementCount();
+      notifications.incrementCount();
       var originalCount = notifications.count;
       notifications.decrementCount();
       expect(notifications.count).toBeLessThan(originalCount);

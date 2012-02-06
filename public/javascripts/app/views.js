@@ -30,7 +30,7 @@ app.views.Base =  Backbone.View.extend({
       this.template = _.template(templateHTML);
     } else {
       window.templateCache = window.templateCache || {}
-      templateHTML = $("#" + this.templateName + "-template").html(); //don't forget to regenerate your jasmine fixtures ;-)
+      templateHTML = JST[this.templateName];
       this.template = templateCache[this.templateName] = templateCache[this.templateName] || Handlebars.compile(templateHTML);
     }
 

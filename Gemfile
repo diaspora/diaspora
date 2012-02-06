@@ -40,7 +40,7 @@ end
 
 group :heroku do
   gem 'pg'
-  gem 'unicorn', '~> 4.1.1', :require => false
+  gem 'unicorn', '~> 4.2.0', :require => false
 end
 
 gem 'settingslogic', :git => 'git://github.com/binarylogic/settingslogic.git'
@@ -152,8 +152,6 @@ group :development do
   gem 'ruby-debug', :platforms => :mri_18
   gem 'yard', :require => false
 
-  # speed up development requests (already pulled into rails 3.2)
-  gem 'active_reload'
 
   # for tracing AR object instantiation and memory usage per request
   gem 'oink'

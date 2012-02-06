@@ -33,9 +33,8 @@ class Comment < ActiveRecord::Base
   alias_attribute :post, :commentable
   belongs_to :author, :class_name => 'Person'
 
-  validates :text, :presence => true, :length => { :maximum => 2500 }
+  validates :text, :presence => true, :length => {:maximum => 2500}
   validates :parent, :presence => true #should be in relayable (pending on fixing Message)
-
 
   scope :including_author, includes(:author => :profile)
   scope :for_a_stream, including_author.merge(order('created_at ASC'))

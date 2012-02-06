@@ -11,6 +11,9 @@
 #   - dist/**/*.js
 #
 src_files:
+  # load up our outputted templates, bound to window.JST
+  - public/assets/app.js
+
   - public/javascripts/vendor/underscore.js
   - public/javascripts/vendor/jquery-1.7.1.min.js
   - public/javascripts/vendor/jquery-ui-1.8.9.custom.min.js
@@ -59,6 +62,7 @@ src_files:
   - public/javascripts/aspects-dropdown.js
   - public/javascripts/content-updater.js
   - public/javascripts/tag-followings.js
+
 # stylesheets
 #
 # Return an array of stylesheet filepaths relative to src_dir to include before jasmine specs.

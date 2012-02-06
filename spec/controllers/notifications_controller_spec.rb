@@ -56,6 +56,16 @@ describe NotificationsController do
       get :read_all
       Notification.where(:unread => true).count.should == 0
     end
+    it "should redirect to the stream in the html version" do
+      Factory(:notification, :recipient => @user)
+      get :read_all, :format => :html
+      response.should redirect_to(multi_stream_path)
+    end
+    it "should return a dummy value in the json version" do
+      Factory(:notification, :recipient => @user)
+      get :read_all, :format => :json
+      response.should_not be_redirect
+    end
   end
 
   describe '#index' do
@@ -76,6 +86,25 @@ describe NotificationsController do
       5.times { Factory(:notification, :recipient => @user, :target => @post) }
       get :index, "per_page" => 5
       assigns[:notifications].count.should == 5 
+    end
+
+    describe "special case for start sharing notifications" do
+      it "should not provide a contacts menu for standard notifications" do
+        2.times { Factory(:notification, :recipient => @user, :target => @post) }
+        get :index, "per_page" => 5
+
+        Nokogiri(response.body).css('.aspect_membership').should be_empty
+      end
+      it "should provide a contacts menu for start sharing notifications" do
+        2.times { Factory(:notification, :recipient => @user, :target => @post) }
+        eve.share_with(alice.person, eve.aspects.first)
+        get :index, "per_page" => 5
+
+        Nokogiri(response.body).css('.aspect_membership').should_not be_empty
+      end
+
+
+      
     end
   end
 end

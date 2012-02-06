@@ -8,9 +8,5 @@ app.collections.Posts = Backbone.Collection.extend({
 
   parse: function(resp){
     return resp.posts;
-  },
-
-  comparator : function(post) {
-    return -post.createdAt();
   }
 });

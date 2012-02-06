@@ -2,8 +2,6 @@
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
-require File.join(Rails.root, 'lib', 'diaspora', 'redis_cache')
-
 require File.join(Rails.root, 'lib', 'evil_query')
 
 
@@ -24,31 +22,9 @@ module Diaspora
         klass.where(:id => shareable_ids).select('DISTINCT '+klass.to_s.tableize+'.*').limit(opts[:limit]).order(opts[:order_with_table])
       end
 
-      def visible_shareables_from_cache(klass, opts)
-        cache = RedisCache.new(self, opts[:order_field])
-
-        #total hax
-        if self.contacts.where(:sharing => true, :receiving => true).count > 0
-          cache.ensure_populated!(opts)
-        end
-
-        name = klass.to_s.downcase + "_ids"
-        cached_ids = cache.send(name, opts[:max_time], opts[:limit] +1)
-
-        if perform_db_query?(cached_ids, cache, opts)
-          visible_ids_from_sql(klass, opts)
-        else
-          cached_ids
-        end
-      end
-
       def visible_shareable_ids(klass, opts={})
         opts = prep_opts(klass, opts)
-        if use_cache?(opts)
-          visible_shareables_from_cache(klass, opts)
-        else
-          visible_ids_from_sql(klass, opts)
-        end
+        visible_ids_from_sql(klass, opts)
       end
 
       # @return [Array<Integer>]
@@ -170,18 +146,6 @@ module Diaspora
       end
 
       protected
-      # @return [Boolean]
-
-      def use_cache?(opts)
-        RedisCache.configured? && RedisCache.supported_order?(opts[:order_field]) && opts[:all_aspects?].present?
-      end
-
-      # @return [Boolean]
-      def perform_db_query?(shareable_ids, cache, opts)
-        return true if cache == nil
-        return false if cache.size <= opts[:limit]
-        shareable_ids.blank? || shareable_ids.length < opts[:limit]
-      end
 
       # @return [Hash]
       def prep_opts(klass, opts)

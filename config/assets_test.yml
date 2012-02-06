@@ -1,0 +1,7 @@
+package_assets: on
+template_function: off
+template_extension: 'handlebars'
+
+javascripts:
+  app:
+    - public/javascripts/app/templates/*

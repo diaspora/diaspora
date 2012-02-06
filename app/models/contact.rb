@@ -21,9 +21,7 @@ class Contact < ActiveRecord::Base
   validates_presence_of :user
   validates_uniqueness_of :person_id, :scope => :user_id
 
-  before_destroy :destroy_notifications,
-                 :repopulate_cache!
-
+  before_destroy :destroy_notifications
 
   scope :all_contacts_of_person, lambda {|x| where(:person_id => x.id)}
 
@@ -51,13 +49,6 @@ class Contact < ActiveRecord::Base
                        :target_id => person_id,
                        :recipient_id => user_id,
                        :type => "Notifications::StartedSharing").delete_all
-  end
-
-  def repopulate_cache!
-    if RedisCache.configured? && self.user.present?
-      cache = RedisCache.new(self.user)
-      cache.repopulate!
-    end
   end
 
   def dispatch_request

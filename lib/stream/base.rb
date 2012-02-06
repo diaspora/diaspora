@@ -11,16 +11,6 @@ class Stream::Base
     self.publisher = Publisher.new(self.user, publisher_opts)
   end
 
-  # @return [Person]
-  def random_community_spotlight_member
-    @random_community_spotlight_member ||= Person.find_by_diaspora_handle(spotlight_diaspora_id)
-  end
-
-  # @return [Boolean]
-  def has_community_spotlight?
-    random_community_spotlight_member.present?
-  end
-
   #requied to implement said stream
   def link(opts={})
     'change me in lib/base_stream.rb!'

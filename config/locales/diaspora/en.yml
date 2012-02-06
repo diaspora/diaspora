@@ -929,6 +929,8 @@ en:
     aspects:
       title: "Your Aspects"
 
+    participate:
+      title: "Participate"
   users:
     logged_out:
       signed_out: "You've signed out of Diaspora*"

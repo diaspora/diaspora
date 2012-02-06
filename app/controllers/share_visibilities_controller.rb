@@ -12,7 +12,6 @@ class ShareVisibilitiesController < ApplicationController
     params[:shareable_type] ||= 'Post'
 
     vis = current_user.toggle_hidden_shareable(accessible_post)
-    RedisCache.update_cache_for(current_user, accessible_post, vis)
     render :nothing => true, :status => 200
   end
 

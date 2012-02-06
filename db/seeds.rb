@@ -54,11 +54,7 @@ ServiceUser.import((1..40).map{|n| Factory.build(:service_user, :service => eve_
 puts "done!"
 
 require File.join(File.dirname(__FILE__), '..', 'spec', 'support', 'fake_resque')
-require File.join(File.dirname(__FILE__), '..', 'spec', 'support', 'fake_redis')
 require File.join(File.dirname(__FILE__), '..', 'spec', 'support', 'user_methods')
-
-old_cache_setting = AppConfig[:redis_cache]
-AppConfig[:redis_cache] = false
 
 print "Seeding post data..."
 time_interval = 1000
@@ -81,8 +77,6 @@ time_interval = 1000
   end
 end
 puts " done!"
-
-AppConfig[:redis_cache] = old_cache_setting
 
 puts "Successfully seeded the db with users eve, bob, and alice (password: 'evankorth')"
 puts ""

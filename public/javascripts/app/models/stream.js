@@ -42,7 +42,13 @@ app.models.Stream = Backbone.Collection.extend({
   },
 
   timeFilteredPath : function(){
-   return this.basePath() + "?max_time=" + _.last(this.posts.models).createdAt();
+   return this.basePath() + "?max_time=" + this.maxTime();
+  },
+
+  maxTime: function(){
+    var lastPost = _.last(this.posts.models);
+    var isOnParticipateStream = this.basePath().match(/participate/);
+    return (isOnParticipateStream == null) ? lastPost.createdAt() : lastPost.interactedAt();
   },
 
   add : function(models){

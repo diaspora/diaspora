@@ -131,8 +131,7 @@
     };
 
     this.changeNotificationCount = function(change) {
-      self.count += change;
-
+      self.count = Math.max( self.count + change, 0 )
       self.badge.text(self.count);
       if ( self.notificationArea )
         self.notificationArea.find( ".notification_count" ).text(self.count);
