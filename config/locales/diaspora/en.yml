@@ -339,6 +339,7 @@ en:
       aspect: "Aspect"
       already_invited: "The following people have not accepted your invitation:"
       resend: "Resend"
+      check_out_diaspora: "Check out Diaspora!"
     check_token:
       not_found: "Invitation token not found"
     edit:
