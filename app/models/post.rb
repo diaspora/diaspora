@@ -35,13 +35,7 @@ class Post < ActiveRecord::Base
     t.add :o_embed_cache
     t.add :user_like
     t.add :mentioned_people
-    t.add lambda { |post|
-      if post.respond_to?(:photos)
-        post.photos
-      else
-        []
-      end
-    }, :as => :photos
+    t.add :photos
   end
 
   xml_attr :provider_display_name

@@ -1,12 +1,10 @@
 app.views.Content = app.views.StreamObject.extend({
-  presenter : function(model){
-    var model = model || this.model
-
+  presenter : function(){
     return _.extend(this.defaultPresenter(), {
-      text : app.helpers.textFormatter(model),
-      o_embed_html : embedHTML(model),
-      largePhoto : this.largePhoto(model),
-      smallPhotos : this.smallPhotos(model)
+      text : app.helpers.textFormatter(this.model),
+      o_embed_html : embedHTML(this.model),
+      largePhoto : this.largePhoto(),
+      smallPhotos : this.smallPhotos()
     })
 
     function embedHTML(model){
@@ -20,22 +18,16 @@ app.views.Content = app.views.StreamObject.extend({
     }
   },
 
-  largePhoto : function(model) {
-    var photos = model.get("photos")
+  largePhoto : function() {
+    var photos = this.model.get("photos")
     if(!photos || photos.length == 0) { return }
     return photos[0]
   },
 
-  smallPhotos : function(model) {
-    var photos = model.get("photos")
+  smallPhotos : function() {
+    var photos = this.model.get("photos")
     if(!photos || photos.length < 2) { return }
     return photos.slice(1,8)
-  },
-
-  // should be a private function in this.presenter()
-  rootPresenter : function(model) {
-    if(!model || !model.get("root")) { return }
-    return this.presenter(new app.models.Post(model.get("root")))
   }
 })
 
