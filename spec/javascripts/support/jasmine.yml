@@ -13,7 +13,7 @@
 src_files:
   # load up our outputted templates, bound to window.JST
   - public/javascripts/vendor/handlebars-1.0.0.beta.6.js
-  - public/assets/app.js
+  - public/assets/templates.js
 
   - public/javascripts/vendor/underscore.js
   - public/javascripts/vendor/jquery-1.7.1.min.js
