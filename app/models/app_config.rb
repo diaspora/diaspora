@@ -70,7 +70,6 @@ Please do the following:
 HELP
       Process.exit(1)
     end
-    self.setup!
   end
 
   def self.setup!
