@@ -1,6 +1,13 @@
 app.models.Stream = Backbone.Collection.extend({
   initialize : function(){
-    this.posts = new app.collections.Posts();
+    this.posts = new app.collections.Posts([], this.postOptions());
+  },
+
+  postOptions :function(){
+      var order = this.sortOrder();
+      return {
+          comparator : function(post) { return -post[order](); }
+      }
   },
 
   url : function(){
