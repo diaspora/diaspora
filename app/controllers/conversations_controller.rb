@@ -53,7 +53,10 @@ class ConversationsController < ApplicationController
         @visibility.save
       end
 
-      respond_with @conversation
+      respond_to do |format|
+        format.html { redirect_to conversations_path(:conversation_id => @conversation.id) }
+        format.js
+      end
     else
       redirect_to conversations_path
     end
