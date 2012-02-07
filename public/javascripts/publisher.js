@@ -151,8 +151,8 @@ var Publisher = {
     });
   },
 
-  keyUp : function(){
-    Publisher.determineSubmitAvailability()
+  textChange : function(){
+    Publisher.determineSubmitAvailability();
     Publisher.input().mentionsInput("val", function(value) {
       Publisher.hiddenInput().val(value);
     });
@@ -215,7 +215,7 @@ var Publisher = {
     }
 
     Publisher.input().autoResize({'extraSpace' : 10});
-    Publisher.input().keyup(Publisher.keyUp)
+    Publisher.input().bind('textchange', Publisher.textChange);
   }
 };
 
