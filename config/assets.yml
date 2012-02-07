@@ -3,7 +3,7 @@ embed_assets: datauri
 compress_assets: on
 gzip_assets: off
 
-template_function: off
+template_function: Handlebars.compile
 template_extension: 'handlebars'
 
 javascripts:
@@ -80,6 +80,7 @@ javascripts:
     - public/javascripts/friend-finder.js
   home:
     - public/javascripts/publisher.js
+    - public/javascripts/jquery.textchange.min.js
     - public/javascripts/aspect-edit-pane.js
     - public/javascripts/fileuploader-custom.js
   people:

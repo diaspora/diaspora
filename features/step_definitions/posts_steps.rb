@@ -34,3 +34,16 @@ end
 When /^I click on the first block button/ do
   find(".block_user").click
 end
+
+
+Then /^I should see "([^"]*)" as the first post in my stream$/ do |text|
+  first_post_text.should include(text)
+end
+
+When /^I post "([^"]*)"$/ do |text|
+  click_and_post(text)
+end
+
+When /^I click the publisher and post "([^"]*)"$/ do |text|
+  click_and_post(text)
+end

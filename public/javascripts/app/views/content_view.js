@@ -1,9 +1,8 @@
 app.views.Content = app.views.StreamObject.extend({
   presenter : function(){
-    var model = this.model
     return _.extend(this.defaultPresenter(), {
-      text : app.helpers.textFormatter(model),
-      o_embed_html : embedHTML(model),
+      text : app.helpers.textFormatter(this.model),
+      o_embed_html : embedHTML(this.model),
       largePhoto : this.largePhoto(),
       smallPhotos : this.smallPhotos()
     })
@@ -37,12 +36,10 @@ app.views.StatusMessage = app.views.Content.extend({
 });
 
 app.views.Reshare = app.views.Content.extend({
-  legacyTemplate : true,
-  template_name : "#reshare-template"
+  templateName : "reshare"
 });
 
 app.views.ActivityStreams__Photo = app.views.Content.extend({
-  legacyTemplate : false,
   templateName : "activity-streams-photo"
 });
 

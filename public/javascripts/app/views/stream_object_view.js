@@ -1,4 +1,5 @@
 app.views.StreamObject = app.views.Base.extend({
+  
   initialize: function(options) {
     this.setupRenderEvents();
   },

@@ -70,7 +70,6 @@ Please do the following:
 HELP
       Process.exit(1)
     end
-    self.setup!
   end
 
   def self.setup!
@@ -78,6 +77,10 @@ HELP
     normalize_admins
     normalize_pod_services
     deprecate_hoptoad_api_key
+  end
+
+  def self.configured_services
+    self['configured_services'] || []
   end
 
   def self.config_file_is_old_style?

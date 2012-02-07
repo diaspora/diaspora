@@ -10,6 +10,8 @@ production:
   password: 'password'
   rails_env: 'production'
   repo: 'git://github.com/diaspora/diaspora.git'
+  #set svc_sudo to true if you want to run scv and svstat with sudo. default: false
+  svc_sudo: false
 staging:
   server: 'staging.example.com'
   deploy_to: '/var/www/diaspora'
@@ -18,3 +20,4 @@ staging:
   password: 'password'
   rails_env: 'staging'
   repo: 'git://github.com/diaspora/diaspora.git'
+  svc_sudo: false

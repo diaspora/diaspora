@@ -12,6 +12,7 @@
 #
 src_files:
   # load up our outputted templates, bound to window.JST
+  - public/javascripts/vendor/handlebars-1.0.0.beta.6.js
   - public/assets/app.js
 
   - public/javascripts/vendor/underscore.js
@@ -30,7 +31,6 @@ src_files:
   - public/javascripts/vendor/markdown/*
   - public/javascripts/vendor/jquery.placeholder.js
   - public/javascripts/vendor/backbone.js
-  - public/javascripts/vendor/handlebars-1.0.0.beta.6.js
   - public/javascripts/fileuploader-custom.js
   - public/javascripts/jquery.autocomplete-custom.js
   - public/javascripts/diaspora.js
