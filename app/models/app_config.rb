@@ -79,6 +79,10 @@ HELP
     deprecate_hoptoad_api_key
   end
 
+  def self.configured_services
+    self['configured_services'] || []
+  end
+
   def self.config_file_is_old_style?
     !(File.read(@source) =~ /^defaults: &defaults/)
   end
