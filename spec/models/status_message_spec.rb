@@ -66,7 +66,7 @@ describe StatusMessage do
     end
   end
 
-  describe ".guids_for_author" do 
+  describe ".guids_for_author" do
     it 'returns an array of the status_message guids' do
       sm1 = Factory(:status_message, :author => alice.person)
       sm2 = Factory(:status_message, :author => bob.person)
@@ -226,15 +226,15 @@ STR
       end
     end
 
-    describe "#nsfw?" do
+    describe "#nsfw" do
       it 'returns MatchObject (true) if the post contains #nsfw (however capitalised)' do
          status  = Factory(:status_message, :text => "This message is #nSFw")
-         status.nsfw?.should be_true
+         status.nsfw.should be_true
       end
 
       it 'returns nil (false) if the post does not contain #nsfw' do
          status  = Factory(:status_message, :text => "This message is #sFW")
-         status.nsfw?.should be_false
+         status.nsfw.should be_false
       end
     end
 

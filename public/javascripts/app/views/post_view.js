@@ -49,8 +49,7 @@ app.views.Post = app.views.StreamObject.extend({
 
   presenter : function() {
     return _.extend(this.defaultPresenter(), {
-      authorIsCurrentUser : this.authorIsCurrentUser(),
-      nsfw : this.nsfw()
+      authorIsCurrentUser : this.authorIsCurrentUser()
     })
   },
 
@@ -107,9 +106,5 @@ app.views.Post = app.views.StreamObject.extend({
 
   authorIsCurrentUser : function() {
     return this.model.get("author").id != (!!app.user() && app.user().id)
-  },
-
-  nsfw : function() {
-    return this.model.get("text") !== null && this.model.get("text").match(/#nsfw/i)
   }
 });

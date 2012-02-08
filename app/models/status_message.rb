@@ -63,9 +63,8 @@ class StatusMessage < Post
     self.photos << Photo.where(:id => photo_ids, :author_id => self.author_id).all
   end
 
-
-  def nsfw?
-    self.raw_message.match(/#nsfw/i)
+  def nsfw
+    self.raw_message.match(/#nsfw/i) || super
   end
 
   def formatted_message(opts={})
