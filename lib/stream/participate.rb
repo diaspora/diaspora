@@ -1,6 +1,6 @@
 class Stream::Participate < Stream::Base
   def link(opts={})
-    Rails.application.routes.url_helpers.participate_stream_path(opts)
+    Rails.application.routes.url_helpers.participate_path(opts)
   end
 
   def order

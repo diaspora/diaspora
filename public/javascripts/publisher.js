@@ -191,7 +191,6 @@ var Publisher = {
   },
 
   initialize: function() {
-      console.log("OHHHHH MY GAWD")
     Publisher.cachedForm = Publisher.cachedSubmit =
       Publisher.cachedInput = Publisher.cachedHiddenInput = false;
 

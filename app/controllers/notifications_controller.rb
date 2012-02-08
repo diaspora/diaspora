@@ -52,7 +52,7 @@ class NotificationsController < ApplicationController
   def read_all
     Notification.where(:recipient_id => current_user.id).update_all(:unread => false)
     respond_to do |format|
-      format.html { redirect_to multi_stream_path }
+      format.html { redirect_to explore_path }
       format.xml { render :xml => {}.to_xml }
       format.json { render :json => {}.to_json }
     end

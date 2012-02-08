@@ -59,7 +59,7 @@ describe NotificationsController do
     it "should redirect to the stream in the html version" do
       Factory(:notification, :recipient => @user)
       get :read_all, :format => :html
-      response.should redirect_to(multi_stream_path)
+      response.should redirect_to(explore_path)
     end
     it "should return a dummy value in the json version" do
       Factory(:notification, :recipient => @user)

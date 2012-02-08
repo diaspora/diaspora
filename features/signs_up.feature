@@ -19,18 +19,18 @@ Feature: new user registration
     And I preemptively confirm the alert
     And I follow "awesome_button"
 
-    Then I should be on the multi stream page
+    Then I should be on the explore page
     And I should not see "awesome_button"
 
   Scenario: new user skips the setup wizard
     When I preemptively confirm the alert
     And I follow "awesome_button"
-    Then I should be on the multi stream page
+    Then I should be on the explore page
 
   Scenario: closing a popover clears getting started
     When I preemptively confirm the alert
     And I follow "awesome_button"
-    Then I should be on the multi stream page
+    Then I should be on the explore page
     And I have turned off jQuery effects
     And I wait for the popovers to appear
     And I click close on all the popovers

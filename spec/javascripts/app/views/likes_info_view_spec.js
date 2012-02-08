@@ -9,7 +9,7 @@ describe("app.views.LikesInfo", function(){
       }
     })
 
-    var posts = $.parseJSON(spec.readFixture("multi_stream_json"))["posts"];
+    var posts = $.parseJSON(spec.readFixture("explore_json"))["posts"];
     this.post = new app.models.Post(posts[0]); // post with a like
     this.view = new app.views.LikesInfo({model: this.post});
   });
