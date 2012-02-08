@@ -48,6 +48,10 @@ class Post < ActiveRecord::Base
 
   belongs_to :o_embed_cache
 
+  after_create do
+    self.touch(:interacted_at)
+  end
+
   #scopes
   scope :includes_for_a_stream, includes(:o_embed_cache, {:author => :profile}, :mentions => {:person => :profile}) #note should include root and photos, but i think those are both on status_message
 

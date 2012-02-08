@@ -348,4 +348,13 @@ describe Post do
       end
     end
   end
+
+  describe "#after_create" do
+    it "sets #interacted_at" do
+      post = Factory(:status_message)
+      post.interacted_at.should_not be_blank
+    end
+  end
+
+
 end
