@@ -152,6 +152,7 @@ var Publisher = {
   },
 
   textChange : function(){
+      console.log("yohoho")
     Publisher.determineSubmitAvailability();
     Publisher.input().mentionsInput("val", function(value) {
       Publisher.hiddenInput().val(value);
@@ -190,6 +191,7 @@ var Publisher = {
   },
 
   initialize: function() {
+      console.log("OHHHHH MY GAWD")
     Publisher.cachedForm = Publisher.cachedSubmit =
       Publisher.cachedInput = Publisher.cachedHiddenInput = false;
 
