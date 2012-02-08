@@ -36,6 +36,7 @@ class Post < ActiveRecord::Base
     t.add :user_like
     t.add :mentioned_people
     t.add :photos
+    t.add :nsfw
   end
 
   xml_attr :provider_display_name
@@ -124,5 +125,9 @@ class Post < ActiveRecord::Base
 
   def comment_email_subject
     I18n.t('notifier.a_post_you_shared')
+  end
+
+  def nsfw
+    self.author.profile.nsfw?
   end
 end

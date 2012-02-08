@@ -1,5 +1,4 @@
 Then /^the post "([^"]*)" should be marked nsfw$/ do |text|
-  pending
   assert_nsfw(text)
 end
 
