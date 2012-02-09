@@ -42,6 +42,21 @@ describe ProfilesController do
       flash[:notice].should_not be_blank
     end
 
+    it "sets nsfw" do
+      @user.person(true).profile.nsfw.should == false
+      put :update, :profile => { :id => @user.person.id, :nsfw => "1" }
+      @user.person(true).profile.nsfw.should == true
+    end
+
+    it "unsets nsfw" do
+      @user.person.profile.nsfw = true
+      @user.person.profile.save
+
+      @user.person(true).profile.nsfw.should == true
+      put :update, :profile => { :id => @user.person.id }
+      @user.person(true).profile.nsfw.should == false
+    end
+
     it 'sets tags' do
       params = { :id => @user.person.id,
                  :tags => '#apples #oranges'}
