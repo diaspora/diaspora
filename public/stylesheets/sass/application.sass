@@ -3,6 +3,27 @@
 
 @import 'mixins'
 
+/* ====== media ====== */
+.media
+  :margin 10px
+
+.media, .bd
+  :overflow hidden
+  :_overflow visible
+  :zoom 1
+
+.media .img
+  :float left
+  :margin-right 10px
+
+.media .img img
+  :display block
+
+.media .imgExt
+  :float right
+  :margin-left 10px
+/* ====== ----- ====== */
+
 body
   :padding 2em
   :margin 0
@@ -25,14 +46,6 @@ a
 p
   :word-wrap break-word
 
-h1
-  :color #333
-  :position relative
-  :font
-    :weight bold
-  :letter
-    :spacing -1px
-
 h1, h2, h3, h4
   :margin
     :bottom 5px
@@ -41,17 +54,11 @@ h1, h2, h3, h4
     :font-size small
     :color #999
 
-h1
-  :color #111
-
 ul > li
   :list-style none
 
 .content ul li
   :list-style disc
-
-form
-  :position relative
 
 .rtl
   :direction rtl
@@ -182,7 +189,7 @@ header
 
     &:hover
       :background none
-      :color #eee
+      :color #fafafa
 
   &.landing
     .right
@@ -332,10 +339,12 @@ ul.as-selections
     :margin 5px 0
 
   .stream_element
-    :padding 15px
-    :min-height 50px
     :border
       :bottom 1px solid #ddd
+
+    p
+      :padding-bottom 0
+      :margin-bottom 0
 
     &:first-child
       :border
@@ -345,36 +354,6 @@ ul.as-selections
       :border none
       :height 304px
       :width 410px
-
-    .comment
-      .comment_info
-        :font
-          :size smaller
-
-.from
-  a
-    :font
-      :weight bold
-
-.arrow
-  :color #ccc
-  :font
-    :weight lighter
-
-.show_photo_attachments
-  :border
-    :bottom 1px solid #eee
-  :padding
-    :top 6px
-    :bottom 16px
-  :margin
-    :bottom 2em
-  img
-    :position relative
-    :display inline
-    :margin
-      :right 1px
-      :bottom -1px
 
 #author_info
   :position relative
@@ -429,74 +408,28 @@ ul.as-selections
       :decoration none
 
 .stream_element
-  :position relative
-  :word-wrap break-word
-  :color #555
-
-  :font
-    :size 13px
-
   a.author
-    :font
-      :weight bold
-    :color #444
+    :color inherit
+    :font-weight bold
 
-  .content
+  .photo_attachments
     :margin
-      :top 0
-    :padding
-      :left 60px
+      :top 7px
 
-    :font
-      :weight normal
+  img
+    :max-width 100%
 
-    p
-      :margin
-        :top 0
-        :bottom 10px
-      :font
-        :size 12px
-      :line
-        :height 18px
+  .stream_photo
+    :float left
+    :margin
+      :top 6px
 
-    .photo_attachments
-      :margin
-        :top 7px
+  &:hover
+    .controls:first-child
+      @include opacity(0.5)
 
-    img
-      :margin
-        :right 0
-      :max-width 100%
-
-    .stream_photo
-      :float left
-      :margin
-        :top 6px
-
-    .photo_description
-      :margin
-        :top 6px
-      :padding
-        :left 220px
-      :min-height 185px
-      :color #888
-      :font
-        :style italic
-
-    .small_text
-      :font
-        :size smaller
-
-    .info
-      :margin
-        :top 2px
-      :color #999
-      :font-size 11px
-
-    .comments
-      .info
-        :margin
-          :top -1px
+.info
+  :font-size smaller
 
   .control_icon
     @include opacity(0.3)
@@ -505,52 +438,29 @@ ul.as-selections
     &:hover
       @include opacity(1)
 
-  .delete
-    img
-      :padding
-        :top 3px
-        :bottom 3px
+.controls
+  @include transition(opacity)
+  @include opacity(0)
+  :z-index 6
+  :float right
 
-  .right
-    :position absolute
-    :right 12px
-
-  .controls
-    @include transition(opacity)
-    @include opacity(0)
-    :z-index 6
-    :color #999
-    a
-      :color #999
-      :font
-        :weight normal
-
-  &:hover, .comment:hover
-    > .controls
-      @include opacity(1)
-
-    .from
-      a
-        :color $blue
+  &:hover
+    @include opacity(1)
 
 .status_message_show
-  .stream_element
-    .content
-      p
-        :font
-          :size 1em
-
   .comment_box
     :width 653px
     :margin
       :bottom 5px
 
-.from
-  .details,
-  .details *
-    :color #aaa
-    :font
-      :weight normal
+.grey,
+.grey *
+  :color #999
+
+.details,
+.details *
+  :font
+    :weight normal
 
 .post_scope
   :cursor default
@@ -607,78 +517,48 @@ ul.as-selections
       :border none
 
 .submit_button
-  :text
-    :align right
+  input
+    :float right
 
-ul.comments,
-ul.show_comments,
-.likes_container,
-.stream_element .reshare
-
+.stream_element .reshare,
+.comment
   .avatar
     :width 30px
     :height 30px
 
-  :margin 0
-  :padding 0
-
+.likes,
+.stream_element .reshare
   :font
     :size 12px
-  :line
-    :height 18px
 
-  :position relative
+.comment.no-border
+  :border none
 
-  > li
-    :list
-      :style none
-    :padding 8px 5px
-
-    :border
-      :bottom 1px dotted #aaa
-
-    .from
-      :font
-        :size 1em
-      :margin
-        :bottom 0px
-
-    .youtube-player, .vimeo-player
-      :border none
-      :height 250px
-      :width 400px
-
-
-  .content
+.comment
+  .media
     :margin
-      :top 0px
-      :bottom -2px
-    :padding
-      :left 36px
-      :right 10px
+      :left 0
+      :right 0
 
-    p
-      :margin
-        :bottom 0
-        :top 0
-    p + p
-      :margin
-        :top 1em
-    .ltr
-      ol, ul
-        padding-left: 2em
-        li
-          :padding 0px
-          :border none
-          :list-style inherit
+  :border
+    :bottom 1px dotted #aaa
 
+  .youtube-player, .vimeo-player
+    :border none
+    :height 250px
+    :width 400px
 
-    .right
-      :right 4px
+  .ltr
+    ol, ul
+      :padding-left 2em
+      li
+        :padding 0px
+        :border none
+        :list-style inherit
 
-    .avatar
-      :position absolute
-      :display inline
+  .right
+    :right 4px
+
 
 .stream_element .reshare
   :padding
@@ -688,107 +568,20 @@ ul.show_comments,
     :top 5px
     :bottom 10px
 
-ul.show_comments
-  :padding
-    :bottom 6px
-  :margin
-    :top 6px
 
 form.new_comment
-  :padding 8px 5px
-  .avatar
-    :position absolute
-    :display inline
-    :width 30px
-    :height 30px
-
-  :min-height 35px
-
   input
     :display none
 
-  :margin
-    :bottom -4px
-
-  :font
-    :size 1em
-
-  .submit_button
-    input
-      :margin
-        :right 0
-
   textarea
-    :width 365px
     :height 21px
-
-    :font
-      :size 1em
-    :margin
-      :top 0
-      :bottom -3px
-
-  p
-    :margin
-      :bottom 0
-      :top -10px
-    :position relative
-    :left 35px
+    :font-size 12px
+    :width 371px
 
   &.open
-    .submit_button
-      :display block
-      :margin
-        :top 5px
-        :bottom 2px
-        :right 2px
-
     input
-      :display inline-block
+      :display block
 
-
-.comment
-  .like_action
-    @include transition(opacity)
-    @include opacity(0)
-
-    &:before
-      :content " · "
-
-  &:hover
-    .like_action
-      @include opacity(1)
-
-  .likes,
-  .likes_container
-    :display inline
-    :padding 0
-    :margin 0
-    :font
-      :size 10px
-    a
-      :font
-        :weight normal
-
-    img
-      :margin 0
-      :height 9px
-      :width 9px
-      :top 1px
-
-  .likes
-    :margin
-      :left 5px
-
-.stream.show
-  ul.comments
-    li
-      :padding
-        :right 135px
-
-      textarea
-        :margin
-          :bottom 5px
 
 .profile_photo
   img
@@ -822,25 +615,6 @@ form.new_comment
   :text-align center
   :width 100%
 
-#main_stream
-  :position relative
-  :z-index 0
-
-  .pagination
-    :display none
-
-.request_buttons
-  :position absolute
-  :right 0
-  :display inline
-  :margin 0
-  :padding 0
-
-  > li
-    :display inline
-    &:first-child
-      :margin-right 1em
-
 #photo_container
   :text
     :align center
@@ -871,23 +645,18 @@ input:not([type='submit']):not([type='reset']):not([type='hidden']):not(.as-inpu
 textarea
   @include border-radius(2px)
   :margin-top 1px
-
   :font
-    :family 'Arial', 'Helvetica', sans-serif
+    :family "Arial", "Helvetica", sans-serif
     :size 14px
 
   :padding 0.3em
+
   :display block
-  :width 100%
   :border 1px solid #ccc
   :height auto
 
 input[type='checkbox']
   :width auto !important
-
-.submit_block
-  :text
-    :align right
 
 form p
   :position relative
@@ -909,16 +678,6 @@ form p.checkbox_select
   :color #999
   :text-shadow 0 1px 1px #eee
   :font-weight normal
-
-//label:not(.bootstrapped)
-  //:position absolute
-  //:top 3px
-  //:left 0.48em
-label
-  :font
-    :size .96em
-    :weight normal
-
 
 .placeholder
   @include placeholder_styles
@@ -969,9 +728,6 @@ label
     .options_and_submit
       :display none !important
 
-    textarea
-      :height 24px !important
-
     .counter
       :display none
 
@@ -979,14 +735,6 @@ label
     textarea
       :margin
         :bottom 30px
-
-  form
-    :position relative
-    :top 0
-
-  label
-    :font
-      :size 14px
 
   .options_and_submit
     :min-height 21px
@@ -1012,9 +760,6 @@ label
       :top 3px
       :margin
         :right 10px
-
-    .mention_helper
-      :float left
 
     #fileInfo
       :display inline
@@ -1196,23 +941,20 @@ img.scaled_full
     img
       :height 140px
 
-header #global_search
-  :display inline
+#global_search
   :float right
 
-  :margin-top -1px
-  :margin-right 10px
+  :margin
+    :top -1px
+    :right 10px
 
   form
-    :display inline
-
     input
       @include box-shadow(0,1px,1px,#444)
       @include border-radius(15px)
       @include transition(width)
 
       :width 100px
-      :display inline
       :background-color #444
 
       :border 1px solid #222
@@ -1235,152 +977,6 @@ header #global_search
         &:-moz-placeholder
           :text-shadow none
 
-.aspect
-  h3
-    :display inline-block
-
-  .tip
-    :display none
-    :color #999
-    :margin
-      :left 0.5em
-
-  .edit_name_field:hover
-    .tip
-      :display inline
-
-  .aspect_name
-    :position relative
-
-    ul.tools
-      :position absolute
-      :top 3px
-      :right 0
-      :display inline
-      :padding 0
-      :margin 0
-      li
-        :display inline
-        :margin
-          :right 1em
-
-        &:last-child
-          :margin
-            :right 0
-.requests
-  ul.dropzone
-    :max-width 124px
-.aspect,
-.requests
-  :color #999
-  :cursor default
-  :text-shadow 0 1px #fff
-  ul.dropzone
-    @include border-radius(10px)
-
-    :position relative
-    :min-height 65px
-    :margin 0
-      :bottom 25px
-
-    :padding 15px
-    :border 2px dashed #ccc
-
-    &.active
-      :background
-        :color rgba(255,252,127,0.2)
-
-    .draggable_info
-      :position absolute
-      :display none
-      :right 15px
-      :bottom 10px
-      :font
-        :style italic
-        :size 14px
-      :color #aaa
-
-  .person
-    :display inline-block
-    :cursor move
-    :z-index 3
-    :position relative
-    :padding 0
-    :margin 5px
-
-    :color #eee
-
-    img
-      @include border-radius(5px)
-
-      :height 50px
-      :width 50px
-
-    a:hover
-      :cursor move
-
-    &:hover
-      .delete
-        :display inline
-
-    &:active
-      :z-index 20
-      img
-        @include box-shadow(0,1px,3px,#000)
-
-      .delete
-        :display none
-
-    .delete
-      :display none
-
-      :position absolute
-      :top -8px
-      :left -8px
-
-      .circle
-        @include border-radius(20px)
-        @include box-shadow(0,1px,3px,#000)
-
-        :z-index 1
-        :position absolute
-        :background
-          :color #333
-
-        :width 20px
-        :max-width 20px
-        :height 20px
-        :max-height 20px
-
-        :border 1px solid #fff
-
-      .x
-        :z-index 2
-        :position absolute
-        :top 2px
-        :left 7px
-
-      &:hover
-        :cursor default
-        .circle
-          :background
-            :color rgba(208,49,43,1)
-
-.requests
-  :position fixed
-  :background-color rgb(252,252,252)
-
-.aspect
-  :margin-right 20px // overwriting default of 10px from grid
-  &.last
-    :margin-right 0
-  &.span-12
-    :width 465px // overwriting default of 470px from grid
-
-.requests
-  ul.dropzone
-    :border 2px solid #ccc
-
 ul#settings_nav
   :display inline
   :padding 0
@@ -1402,7 +998,6 @@ ul#settings_nav
       :font
         :weight normal
 
-
 .settings_pane
   :display none
 
@@ -1420,7 +1015,6 @@ ul#settings_nav
 #aspect_list
   :margin 0
   :padding 0
-
 
 .dull
   :color #aaa
@@ -1477,64 +1071,10 @@ input[type="search"]
     :margin
       :top 10px
 
-.modal_title_bar
-  :width 100%
-  :background
-    :color #333
-  :margin
-    :bottom 2em
-  h4
-    :color #fff
-    :padding 10px 20px
-    :font
-      :size small
-
-#show_text
-  :font
-    :size 24px
-    :family "Warnock Pro", "Goudy Old Style","Palatino","Book Antiqua", Georgia, serif
-
-  .time
-    :color #888
-    :font
-      :size 18px
-      :weight bold
-
 .photo_options
   :color #888
   :text
     :align center
-
-ul.aspects
-  :margin 0
-  :padding 0
-  :font
-    :size 24px
-
-  > li
-    :padding 12px 0
-    :border
-      :bottom 1px solid #eee
-
-    &:hover
-      :background
-        :color #fafafa
-
-  .right
-    :top 12px
-    :right 12px
-
-  .delete
-    @include border-radius(10px)
-
-    :background
-      :color #eee
-    :width 20px
-    :height 20px
-
-    :line-height 16px
-    :text-indent 6px
-    :font-size 16px
 
 .inline
   :display inline
@@ -1579,11 +1119,6 @@ ul.aspects
       &:after
         :content "."
 
-#previous_step
-  :position absolute
-  :left 12px
-  :bottom 12px
-
 #user_photo_uploader
   .avatar
     @include border-radius(5px)
@@ -1598,11 +1133,12 @@ ul.aspects
   :top 0
   :z-index 10
 
-
 #profile_photo_upload
   :margin
     :top 5px
   :min-height 100px
+  :position relative
+
   img
     @include border-radius(5px)
     @include box-shadow(0,1px,2px,#666)
@@ -1656,35 +1192,6 @@ h3 span.current_gs_step
       :vertical
         :align middle
 
-.bottom_notification
-  :position fixed
-  :bottom 0
-  :left 0
-  :width 100%
-  :background
-    :color rgba(63,143,186,0.8)
-
-  :text
-    :align center
-  :font
-    :size 14px
-    :weight bold
-  :color #fff
-  :padding 12px
-    :bottom 10px
-
-  a
-    @include border-radius(10px)
-
-    :color #fafafa
-    :background
-      :color $blue
-    :padding 8px
-
-    &:hover
-      :background
-        :color #22AAE0
-
 #nav_badges
   :display inline-block
   :margin-top 2px
@@ -1735,59 +1242,6 @@ h3 span.current_gs_step
     :height 12px
 
   :color #fff
-
-#profile
-  ul#aspects_for_person
-    > li
-      :display inline-block
-      :padding 4px 6px 0 0
-
-      a
-        :padding 2px 4px
-        :margin
-          :left -3px
-        :background
-          :color #eee
-        :font
-          :size smaller
-        :border 1px solid #ccc
-          :top 1px solid #ddd
-          :bottom 1px solid #aaa
-
-        :color #777
-        :text-shadow 0 1px #fff
-
-        &:hover
-          :background
-            :color #ccc
-          :border 1px solid #999
-            :top 1px solid #bbb
-            :bottom 1px solid #777
-
-          :color #444
-
-        &:active
-          :background
-            :color #666
-
-          :border 1px solid #555
-            :top 1px solid #777
-            :bottom 1px solid #222
-
-          :color #eee
-          :text-shadow none
-
-      a:first-child
-        @include border-radius(2px)
-        :-webkit-border-radius 6px 0 0 6px
-        :-moz-border-radius 6px 0 0 6px
-        :border-radius 6px 0 0 6px
-
-      a:last-child
-        :-webkit-border-radius 0 6px 6px 0
-        :-moz-border-radius 0 6px 6px 0
-        :border-radius 0 6px 6px 0
-
 
 ul#request_result
   :padding 0
@@ -1878,9 +1332,6 @@ ul#request_result
 
       > .name
         :white-space nowrap
-      // > .right
-      //   :right -5px
-      //   :bottom 2px
 
       &.remote_friend
         :width 285px
@@ -1938,8 +1389,7 @@ footer
       :top 1px solid #ddd
 
   img
-    :position relative
-    :top 2px
+    :margin-top 2px
 
   ul#footer_nav
     :margin 0
@@ -2039,7 +1489,7 @@ ul#landing_nav
       :size 18px
 
   #big_action_button, input[type='submit']
-    @include linear-gradient(rgb(0,123,194),rgb(65,182,250))
+    @include linear-gradient(rgb(65,182,250),rgb(0,123,194))
 
     :height 47px
     :margin 0
@@ -2133,36 +1583,6 @@ ul#press_logos
   :margin
     :bottom 48px
 
-
-h3,h4
-  :padding
-    :bottom 5px
-
-.big_buttons
-  input
-    :width 100%
-    :padding
-      :top 10px
-      :bottom 10px
-    :color #666
-
-#original_post_info
-  p
-    :color #999
-  :margin
-    :bottom 2em
-
-.what_is_this
-  :position relative
-  :top 3px
-
-  &:hover
-    @include opacity(0.5)
-
-#edit_aspect_trigger
-  :font
-    :size 12px
-
 #already_invited_pane
   h4
     :color #666
@@ -2175,39 +1595,6 @@ h3,h4
   .term
     :font
       :weight bold
-
-.aspect_badge
-  @include border-radius(3px)
-
-  :color #fff
-  :line-height auto
-  :padding 0 4px
-  :margin
-    :right 4px
-    :bottom 4px
-  :line
-    :height 14px
-
-  a
-    :color #fff
-
-  :display inline-block
-
-  :font
-    :size smaller
-    :weight normal
-  :text
-    :shadow none
-
-  :cursor default
-
-  a
-    :color #fff
-    :font
-      :weight normal
-    &:hover
-      :text
-        :decoration none
 
 .aspects
   :position relative
@@ -2225,38 +1612,6 @@ h3,h4
 .aspects .aspect_badge
   :font
     :size 1em
-
-.aspect_badge.public
-  :background
-    :color #C0E76C
-
-.aspect_badge.single
-  :background
-    :color #999
-  &:hover
-    :background
-      :color #bbb
-  &:active
-    :top 0px
-
-.aspect_badge.removed
-  :background
-    :color #FA2A00
-  :text
-    :decoration line-through
-  &:hover
-    :background
-      :color #FA2A00
-.stream
-  .avatar
-    :float left
-
-  .aspect_badge
-    :position relative
-    :margin
-      :bottom 0
-  .aspect_badge
-    :top -0.2em
 
 .share_with
   :min-width 430px
@@ -2301,29 +1656,23 @@ h3,h4
     :border
       :bottom 1px solid #eee
 
-#photo_controls
-  :color #ddd
-  :position relative
-  :z-index 10
-
-
-ul.show_comments
+.show_comments
   :border
-    :top 1px dotted #aaa
+    :top 1px solid #ddd
+  :margin
+    :top 5px
 
-ul.show_comments,
+.show_comments,
 .likes_container
   a
     :color #999
 
-.likes_container
-  :padding 4px
+.likes
+  .img
+    :margin-top 3px
+    :margin-right 5px
 
-ul.show_comments,
-.likes_container
   img
-    :position relative
-    :top 2px
     :height 12px
     :width 12px
 
@@ -2482,7 +1831,6 @@ ul.show_comments,
       :size 12px
     :color #777
 
-
 .conversation_participants
   :z-index 3
   :background
@@ -2535,20 +1883,6 @@ ul.show_comments,
       :align right
     :margin
       :top 9px
-
-.stream_element.new_message
-  :border
-    :top 1px solid #999
-    :bottom none
-  &:hover
-    :border
-      :bottom none
-  textarea
-    :margin 0
-      :bottom 0.5em
-    :width 100%
-  .right
-    :right -11px
 
 .stream_element.conversation
   :padding 10px
@@ -2681,7 +2015,6 @@ ul.show_comments,
       :decoration underline
     :background
       :color lighten($blue, 47%)
-
 
   :font
     :weight bold
@@ -2874,33 +2207,6 @@ ul#requested-scopes
     .scope-description
       :display none
 
-.canvas
-  .image-element,
-  .stream_element
-    :border none
-    :padding 20px
-    :height 170px
-    :width 170px
-
-    :min-height 170px
-    :min-width 170px
-
-    :display inline-block
-    :vertical-align middle
-    :text-align center
-
-    img
-      :position relative
-      :max-width 100%
-      :max-height 100%
-
-    .via
-      :text-align left
-      :font-size 11px
-
-    .hold-me
-      :display inline-block
-
 ul.left_nav
   :margin 0
     :bottom 15px
@@ -2999,7 +2305,6 @@ ul.left_nav
       :padding
         :left 25px
       :width 172px
-
 
 .section
   .left_nav
@@ -3306,6 +2611,7 @@ a.toggle_selector
       :margin
         :right 5px
       :float left
+
 .action_item
   :padding-right 5px
 
@@ -3318,11 +2624,6 @@ a.toggle_selector
   input[type='email']
     :font-size 16px !important
     :width 378px !important
-
-  p
-    :margin
-      :bottom 14px
-
 
   .diaspora_id_text
     :font-size 12px
@@ -3417,32 +2718,6 @@ a.toggle_selector
     :color #999
     :padding-right 9px
 
-.indicator
-  :margin-top -15px
-  :width 14px
-  :height 4px
-  :float right
-
-  a
-    :display block
-    :height 100%
-    :width 100%
-    :padding 0
-    :margin 0
-
-.community_spotlight_stream
-  .indicator
-    :background-color #DE5099
-.followed_tags_stream
-  .indicator
-    :background-color $blue
-.aspects_stream
-  .indicator
-    :background-color $green
-.mentioned_stream
-  .indicator
-    :background-color #E3E856
-
 .center
   :text-align center
 
@@ -3488,13 +2763,9 @@ a.toggle_selector
     :height 20px
 
 
-.likes_list
-  .avatar
-    :position relative
-    :float none
-    :height 20px
-    :width 20px
-    :top 5px
+.avatar.micro
+  :height 20px
+  :width 20px
 
 #gs-name-form-spinner
   :position absolute
@@ -3530,8 +2801,6 @@ a.toggle_selector
 
       &:hover
         @include opacity(1)
-.post-content
-  :position relative
 
 .shield
   @include border-radius(3px)

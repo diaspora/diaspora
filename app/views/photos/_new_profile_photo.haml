@@ -74,11 +74,5 @@
   %p
     #fileInfo
 
-  -if !aspect.nil? && aspect != :getting_started && current_user.person.has_photos?
-    %br
-    %br
-    %p
-      \...#{t('.or_select_one_existing', :photos => link_to(t('_photos'), person_photos_path(person))).html_safe}
-
   #publisher_photo_upload
 

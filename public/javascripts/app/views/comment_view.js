@@ -2,8 +2,6 @@ app.views.Comment = app.views.Content.extend({
 
   templateName: "comment",
 
-  tagName : "li",
-
   className : "comment",
 
   events : {
