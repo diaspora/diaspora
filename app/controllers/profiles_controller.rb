@@ -29,6 +29,7 @@ class ProfilesController < ApplicationController
     #checkbox tags wtf
     @profile_attrs[:nsfw] ||= false
     @profile_attrs[:searchable] ||= false
+    @profile_attrs[:nsfw] ||= false
 
     if params[:photo_id]
       @profile_attrs[:photo] = Photo.where(:author_id => current_user.person.id, :id => params[:photo_id]).first
