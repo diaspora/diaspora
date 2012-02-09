@@ -21,8 +21,9 @@
       });
 
       var contents = "#{params[:title]} - #{params[:url]}";
-      if ("#{params[:notes]}".length > 0){
-        contents = contents + " - #{params[:notes]}";
+      var notes    = "#{escape_javascript params[:notes]}";
+      if (notes.length > 0){
+        contents = contents + " - " + notes;
       }
 
       $("#publisher #status_message_fake_text").val(contents);
