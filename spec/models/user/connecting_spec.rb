@@ -4,7 +4,7 @@
 
 require 'spec_helper'
 
-describe Diaspora::UserModules::Connecting do
+describe User::Connecting do
 
   let(:aspect) { alice.aspects.first }
   let(:aspect1) { alice.aspects.create(:name => 'other') }

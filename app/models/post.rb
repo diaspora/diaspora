@@ -9,6 +9,8 @@ class Post < ActiveRecord::Base
   include Diaspora::Commentable
   include Diaspora::Shareable
 
+  has_many :participations, :dependent => :delete_all, :as => :target
+
   attr_accessor :user_like
 
   # NOTE API V1 to be extracted
