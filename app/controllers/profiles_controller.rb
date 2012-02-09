@@ -27,7 +27,6 @@ class ProfilesController < ApplicationController
     munge_tag_string
 
     #checkbox tags wtf
-    @profile_attrs[:nsfw] ||= false
     @profile_attrs[:searchable] ||= false
     @profile_attrs[:nsfw] ||= false
 
