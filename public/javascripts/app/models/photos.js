@@ -62,4 +62,8 @@ app.models.Photos = Backbone.Model.extend({
     return "createdAt";
   },
 
+  add : function(models){
+    this.photos.add(models)
+  }
+
 });
