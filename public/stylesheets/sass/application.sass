@@ -174,7 +174,7 @@ header
   :left 0
 
   :border
-    :bottom 1px solid #444
+    :bottom 1px solid #000
 
   a
     :color #CCC
@@ -212,11 +212,10 @@ header
       :left 1px solid #333
       :right 1px solid #333
 
-    :position absolute
     :display inline
 
     :top -4px
-    :right 0
+    :float right
 
     li
       a
@@ -263,6 +262,31 @@ header
       :top 9px
       :display block
 
+  .header-nav
+    :font-weight bold
+    :float left
+    :height 100%
+    :margin-right 5px
+    :margin-top 3px
+
+    a
+      :padding 0 10px
+      :width 100%
+      &:hover
+        :text-decoration none
+
+    > span
+      :height 100%
+      :display inline-block
+      :margin-left -4px
+      :border
+        :left 1px solid #333
+        :right 1px solid #333
+
+      &:last-child
+        :margin-left -5px
+
+
 header.ie-user-menu-active
   :height 150px
 
@@ -299,14 +323,8 @@ ul.as-selections
     :color #333 !important
 
 .diaspora_header_logo
-  :position relative
-  :top -6px
-
-  :padding 0 10px
-
-  :margin
-    :left 43px
-    :right 60px
+  :float left
+  :margin-top -6px
 
 .stream
   audio
@@ -322,7 +340,6 @@ ul.as-selections
     &:first-child
       :border
         :top none
-
 
     .youtube-player, .vimeo-player
       :border none
@@ -892,7 +909,7 @@ form p.checkbox_select
   :color #999
   :text-shadow 0 1px 1px #eee
   :font-weight normal
-    
+
 //label:not(.bootstrapped)
   //:position absolute
   //:top 3px
@@ -901,15 +918,15 @@ label
   :font
     :size .96em
     :weight normal
-  
-  
+
+
 .placeholder
   @include placeholder_styles
 
 /* those can't be combined, see: http://stackoverflow.com/questions/2610497 */
 *::-webkit-input-placeholder
   @include placeholder_styles
-  
+
 *:-moz-placeholder
   @include placeholder_styles
 
@@ -1003,7 +1020,7 @@ label
       :display inline
       :position relative
       :top -2px
-  
+
   #status_message_fake_text
     :min-height 20px
 
@@ -1181,52 +1198,42 @@ img.scaled_full
 
 header #global_search
   :display inline
-  :position relative
+  :float right
 
-  :top -20px
+  :margin-top -1px
+  :margin-right 10px
 
   form
     :display inline
 
     input
       @include box-shadow(0,1px,1px,#444)
-      @include border-radius(3px)
-      @include transition(background-color)
+      @include border-radius(15px)
+      @include transition(width)
 
+      :width 100px
       :display inline
-      :background-color #555
-      :background-color rgba(60,60,60,0.6)
-
-      :border
-        :top 1px solid #111
-
-      :font
-        :size 14px
+      :background-color #444
 
       :border 1px solid #222
 
       &:hover
-        :background-color #888
-        :background-color rgba(90,90,90,0.6)
+        :background-color #555
 
       &.active
         :background-color #fafafa
         :background-color rgba(160,160,160,0.6)
 
       &:focus
-        @include box-shadow(0,0,5px,#fff)
         :outline none
         :background-color white
+        :width 200px
 
-    input[type='search']
-      :width 220px
-      :padding 5px
-
-      &::-webkit-input-placeholder
-        :text-shadow none
-
-      &:-moz-placeholder
-        :text-shadow none
+      &[type='search']
+        &:-webkit-input-placeholder
+          :text-shadow none
+        &:-moz-placeholder
+          :text-shadow none
 
 .aspect
   h3
@@ -1679,13 +1686,9 @@ h3 span.current_gs_step
         :color #22AAE0
 
 #nav_badges
-  :position absolute
   :display inline-block
-  :min-width 170px
-  :top 3px
-  :left 410px
-  :margin
-    :left 20px
+  :margin-top 2px
+  :float left
 
   a:hover
     :text
@@ -3137,11 +3140,10 @@ a.toggle_selector
 
   :background white
   :border solid #888 1px
-  :position absolute
-  :top 32px
-  :left 462px
+  :left 300px
   :width 380px
   :display none
+  :margin-top 8px
 
   :color #444
 
