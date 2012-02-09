@@ -16,7 +16,8 @@ describe Participation do
       @object_on_remote_parent = @local_luke.participate!(@remote_parent)
     end
 
-    let(:build_object) { alice.build_participation(:target => @status) }
+    let(:build_object) { Participation::Generator.new(alice.person, @status).build }
+
     it_should_behave_like 'it is relayable'
   end
 end

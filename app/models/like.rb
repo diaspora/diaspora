@@ -2,7 +2,17 @@
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
-class Like < FederatedRelayable
+class Like < Federated::Relayable
+  class Generator < Federated::Generator
+    def self.federated_class
+      Like
+    end
+
+    def relayable_options
+      {:target => @target, :positive => true}
+    end
+  end
+
   after_create do
     self.parent.update_likes_counter
   end
