@@ -7,8 +7,7 @@ require File.join(Rails.root, "spec", "shared_behaviors", "relayable")
 
 describe Like do
   before do
-    bobs_aspect = bob.aspects.first
-    @status = bob.post(:status_message, :text => "hello", :to => bobs_aspect.id)
+    @status = bob.post(:status_message, :text => "hello", :to => bob.aspects.first.id)
   end
 
   it 'has a valid factory' do
@@ -94,5 +93,4 @@ describe Like do
     let(:build_object) { alice.build_like(:target => @status, :positive => true) }
     it_should_behave_like 'it is relayable'
   end
-
 end

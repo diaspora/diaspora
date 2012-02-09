@@ -1,0 +1,3 @@
+class Participation < FederatedRelayable
+
+end

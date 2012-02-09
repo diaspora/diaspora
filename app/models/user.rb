@@ -294,6 +294,16 @@ class User < ActiveRecord::Base
     end
   end
 
+  def participate!(target, opts={})
+    participation = build_participation(opts.merge!(:target => target))
+    if participation.save
+      dispatch_post(participation)
+      participation
+    else
+      false
+    end
+  end
+
   def like!(target, opts={})
     like = build_like(opts.merge!(:target => target, :positive => true))
     if like.save
@@ -311,12 +321,14 @@ class User < ActiveRecord::Base
     r
   end
 
-  ######## Commenting  ########
   def build_comment(options = {})
     build_relayable(Comment, options)
   end
 
-  ######## Liking  ########
+  def build_participation(options = {})
+    build_relayable(Participation, options)
+  end
+
   def build_like(options = {})
     build_relayable(Like, options)
   end
