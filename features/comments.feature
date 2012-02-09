@@ -17,8 +17,8 @@ Feature: commenting
     When I focus the comment field
     And I fill in "text" with "is that a poodle?"
     And I press "Comment"
-    Then I should see "is that a poodle?" within "li.comment div.content"
-    And I should see "less than a minute ago" within "li.comment time"
+    Then I should see "is that a poodle?" within ".comment"
+    And I should see "less than a minute ago" within ".comment time"
 
   Scenario: comment on a photo from the photo page
     When I sign in as "bob@bob.bob"
@@ -27,8 +27,8 @@ Feature: commenting
     And I focus the comment field
     And I fill in "text" with "hahahah"
     And I press "Comment"
-    Then I should see "hahaha" within "li.comment div.content"
-    And I should see "less than a minute ago" within "li.comment time"
+    Then I should see "hahaha" within ".comment"
+    And I should see "less than a minute ago" within ".comment time"
 
   Scenario: comment on your own photo from the photo page
     When I sign in as "alice@alice.alice"
@@ -37,8 +37,8 @@ Feature: commenting
     And I focus the comment field
     And I fill in "text" with "hahahah"
     And I press "Comment"
-    Then I should see "hahaha" within "li.comment div.content"
-    And I should see "less than a minute ago" within "li.comment time"
+    Then I should see "hahaha" within ".comment"
+    And I should see "less than a minute ago" within ".comment time"
 
   Scenario: delete a comment
     When I sign in as "bob@bob.bob"

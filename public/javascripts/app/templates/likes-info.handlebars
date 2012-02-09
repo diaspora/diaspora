@@ -1,24 +1,28 @@
-{{#if likes_count}}
-  <img alt="Heart" src="/images/icons/pin.png" />
-  {{#unless likes.length}}
+{{#if hasLikes}}
+  <div class="comment">
+    <div class="media">
+      <span class="img">
+        <img alt="Heart" src="/images/icons/pin.png" />
+      </span>
 
-	  <a href="#" class="expand_likes">
-	    {{t "stream.likes" count=likes_count}}
-	  </a>
-
-  {{else}}
-
-  	<span class="likes_list">
-
-      {{#each likes}}
-        {{#with attributes.author}}
-          <a href="/people/{{guid}}">
-            <img src="{{avatar.small}}" class="avatar" title="{{name}}"/>
+      <div class="bd">
+        {{#unless likes.length}}
+          <a href="#" class="expand_likes">
+            {{t "stream.likes" count=likes_count}}
           </a>
-        {{/with}}
-      {{/each}}
 
-  	</span>
+        {{else}}
 
-  {{/unless}}
+          {{#each likes}}
+            {{#with attributes.author}}
+              <a href="/people/{{guid}}">
+                <img src="{{avatar.small}}" class="avatar micro" title="{{name}}"/>
+              </a>
+            {{/with}}
+          {{/each}}
+
+        {{/unless}}
+      </div>
+    </div>
+  </div>
 {{/if}}
