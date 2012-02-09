@@ -84,4 +84,19 @@ class Comment < ActiveRecord::Base
   def parent= parent
     self.post = parent
   end
+
+  class Generator < Federated::Generator
+    def self.federated_class
+      Comment
+    end
+
+    def initialize(person, target, text)
+      @text = text
+      super(person, target)
+    end
+
+    def relayable_options
+      {:post => @target, :text => @text}
+    end
+  end
 end

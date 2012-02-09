@@ -90,7 +90,7 @@ describe Like do
       @object_on_remote_parent = @local_luke.like!(@remote_parent)
     end
 
-    let(:build_object) { alice.build_like(:target => @status, :positive => true) }
+    let(:build_object) { Like::Generator.new(alice.person, @status).build }
     it_should_behave_like 'it is relayable'
   end
 end

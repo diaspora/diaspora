@@ -285,52 +285,19 @@ class User < ActiveRecord::Base
   end
 
   def comment!(post, text, opts={})
-    comment = build_comment(opts.merge!(:post => post, :text => text))
-    if comment.save
-      dispatch_post(comment)
-      comment
-    else
-      false
-    end
+    Comment::Generator.new(self.person, post, text).create!(opts)
   end
 
   def participate!(target, opts={})
-    participation = build_participation(opts.merge!(:target => target))
-    if participation.save
-      dispatch_post(participation)
-      participation
-    else
-      false
-    end
+    Participation::Generator.new(self.person, target).create!(opts)
   end
 
   def like!(target, opts={})
-    like = build_like(opts.merge!(:target => target, :positive => true))
-    if like.save
-      dispatch_post(like)
-      like
-    else
-      false
-    end
+    Like::Generator.new(self.person, target).create!(opts)
   end
 
-  def build_relayable(model, options = {})
-    r = model.new(options.merge(:author_id => self.person.id))
-    r.set_guid
-    r.initialize_signatures
-    r
-  end
-
-  def build_comment(options = {})
-    build_relayable(Comment, options)
-  end
-
-  def build_participation(options = {})
-    build_relayable(Participation, options)
-  end
-
-  def build_like(options = {})
-    build_relayable(Like, options)
+  def build_comment(options={})
+    Comment::Generator.new(self.person, options.delete(:post), options.delete(:text)).build(options)
   end
 
   # Check whether the user has liked a post.
