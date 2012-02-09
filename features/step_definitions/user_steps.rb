@@ -26,15 +26,14 @@ Given /^a nsfw user with email "([^\"]*)"$/ do |email|
 end
 
 Given /^I have been invited by an admin$/ do
-  i = Invitation.create!(:admin => true, :service => 'email', :identifier => "new_invitee@example.com")
-  @me = i.attach_recipient!
+  i = EmailInviter.new("new_invitee@example.com")
+  i.send!
 end
 
 Given /^I have been invited by a user$/ do
   @inviter = Factory(:user)
-  aspect = @inviter.aspects.create(:name => "Rocket Scientists")
-  i =  Invitation.create!(:aspect => aspect, :sender => @inviter, :service => 'email', :identifier => "new_invitee@example.com", :message =>"Hey, tell me about your rockets!")
-  @me = i.attach_recipient!
+  i = EmailInviter.new("new_invitee@example.com", :inviter => @inviter)
+  i.send!
 end
 
 When /^I click on my name$/ do

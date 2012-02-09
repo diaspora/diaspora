@@ -29,7 +29,7 @@ module RakeHelpers
       unless possible_user
         puts "#{n}: sending email to: #{backer_name} #{backer_email}" unless Rails.env == 'test'
         unless test
-          i = Invitation.new(:service => 'email', :identifier => backer_email, :admin => true) 
+          i = EmailInviter.new(backer_email)
           i.send!
         end
       else

@@ -15,10 +15,11 @@ class EmailInviter
   end
 
   def invitation_code
-    @invitation_code ||= inviter.nil? ? self.admin_code : inviter.invitation_code 
+    @invitation_code ||= inviter.nil? ? EmailInviter.admin_code : inviter.invitation_code 
   end
 
   def self.admin_code
+    puts "FIX ME"
     "foo"
   end
 
@@ -29,6 +30,6 @@ class EmailInviter
   private
 
   def mail(email)
-    Notifier.invite(email, message, inviter, invitation_code, locale)
+    Notifier.invite(email, message, inviter, invitation_code, locale).deliver!
   end
 end

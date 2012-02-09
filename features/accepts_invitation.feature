@@ -40,6 +40,6 @@ Feature: invitation acceptance
       Given a user with email "bob@bob.bob"
       When I sign in as "bob@bob.bob"
       And I follow "By email"
-      And I fill in "user_email" with "alex@example.com"
+      And I fill in "email_inviter_emails" with "alex@example.com"
       And I press "Send an invitation"
       Then I should have 1 Devise email delivery
