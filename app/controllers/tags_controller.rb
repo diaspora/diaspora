@@ -40,10 +40,7 @@ class TagsController < ApplicationController
   end
 
  def tag_followed?
-   if @tag_followed.nil?
-     @tag_followed = TagFollowing.joins(:tag).where(:tags => {:name => params[:name]}, :user_id => current_user.id).exists?
-   end
-   @tag_followed
+   TagFollowing.user_is_following?(current_user, params[:name])
  end
 
   def prep_tags_for_javascript
