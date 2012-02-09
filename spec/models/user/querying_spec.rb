@@ -4,8 +4,7 @@
 
 require 'spec_helper'
 
-describe User do
-
+describe User::Querying do
   before do
     @alices_aspect = alice.aspects.where(:name => "generic").first
     @eves_aspect = eve.aspects.where(:name => "generic").first
