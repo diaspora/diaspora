@@ -2,39 +2,42 @@
 
   {{#if root}}
 
-    {{#with root}}
-      <a href="/people/{{author.guid}}">
-        <img src="{{author.avatar.small}}" class="avatar" />
-      </a>
+    <div class="media">
 
-      <div class="content">
-        <div class="post_initial_info">
-          <span class="from">
-            <a href="/people/{{author.guid}}">
+      {{#with root}}
+        <a href="/people/{{author.guid}}" class="img">
+          <img src="{{author.avatar.small}}" class="avatar" />
+        </a>
+      {{/with}}
+
+      {{#with root}}
+        <div class="bd">
+          <div>
+            <a href="/people/{{author.guid}}" class="author">
               {{author.name}}
             </a>
-          </span>
 
-          <span class="details">
-            -
-            <a href="/posts/{{id}}">
-              <time class="timeago" datetime="{{created_at}}"/>
-            </a>
-          </span>
+            <span class="details grey">
+              -
+              <a href="/posts/{{id}}">
+                <time class="timeago" datetime="{{created_at}}"/>
+              </a>
 
-          {{#if reshares_count}}
-            -
-            {{t "stream.reshares" count=reshares_count}}
-          {{/if}}
-        </div>
-    {{/with}}
+              {{#if reshares_count}}
+                -
+                {{t "stream.reshares" count=reshares_count}}
+              {{/if}}
+            </span>
+          </div>
+      {{/with}}
 
-      {{> status-message}}
-      
+        {{> status-message}}
+      </div>
+
     </div>
 
   {{else}}
-  
+
     <p>
       {{t "stream.original_post_deleted"}}
     </p>
