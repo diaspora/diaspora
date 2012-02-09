@@ -18,6 +18,14 @@ Scenario: NSFWs users posts are nsfw
   And I post "I love 0bj3ction4bl3 c0nt3nt!"
   Then the post "I love 0bj3ction4bl3 c0nt3nt!" should be marked nsfw
 
+Scenario: Making yourself SFW
+  Given a nsfw user with email "tommy@pr0nking.com"
+  And I sign in as "tommy@pr0nking.com"
+  And I go to the edit profile page
+  When I mark myself as safe for work
+  And I submit the form
+  Then I should see the "you are safe for work" message
+
 #  And I log out
 #  And I log in as an office worker
 #  And I am folllowing "tommy@pr0n.xxx"
