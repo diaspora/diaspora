@@ -298,14 +298,6 @@ describe User do
     end
   end
 
-  describe '#seed_aspects' do
-    it 'follows the default account' do
-      Webfinger.stub_chain(:new, :fetch).and_return(Factory(:person))
-      expect{
-       eve.seed_aspects
-      }.to change(eve.contacts, :count).by(1)
-    end
-  end
 
   describe ".build" do
     context 'with valid params' do
