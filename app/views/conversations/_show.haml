@@ -23,10 +23,11 @@
     = render :partial => 'messages/message', :collection => conversation.messages
 
     .stream_element.new_message
-      = owner_image_tag(:thumb_small)
+      .media
+        .img
+          = owner_image_tag(:thumb_small)
 
-      .content
-        = form_for [conversation, Message.new] do |message|
-          = message.text_area :text, :rows => 5, :tabindex => 1
-          .left
+        .bd
+          = form_for [conversation, Message.new] do |message|
+            = message.text_area :text, :rows => 5, :tabindex => 1
             = message.submit t('.reply').capitalize, :disable_with => t('.replying'), :class => 'button creation', :tabindex => 2
