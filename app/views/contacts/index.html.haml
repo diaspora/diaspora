@@ -32,8 +32,8 @@
         .stream_element{:id => contact.person.id}
 
           .float-right
-            = thing(contact)
-            
+            = contact_aspect_dropdown(contact)
+
           .media
             .img
               = person_image_link(contact.person)
