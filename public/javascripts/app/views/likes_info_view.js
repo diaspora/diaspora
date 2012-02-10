@@ -10,13 +10,8 @@ app.views.LikesInfo = app.views.StreamObject.extend({
 
   presenter : function() {
     return _.extend(this.defaultPresenter(), {
-      likes : this.model.likes.models,
-      hasLikes : this.hasLikes()
+      likes : this.model.likes.models
     })
-  },
-
-  hasLikes : function() {
-    return this.model.likes.models.length > 0
   },
 
   showAvatars : function(evt){
