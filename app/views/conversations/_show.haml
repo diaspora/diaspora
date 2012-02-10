@@ -13,20 +13,15 @@
     - for participant in conversation.participants
       = person_image_link(participant)
 
-%br
-%br
-%br
-%br
-%br
-.span-15.last
+.conversation_container.span-15.last
   .stream
     = render :partial => 'messages/message', :collection => conversation.messages
 
-    .stream_element.new_message
+    .stream_element.new_message.clearfix
       = owner_image_tag(:thumb_small)
 
       .content
         = form_for [conversation, Message.new] do |message|
           = message.text_area :text, :rows => 5, :tabindex => 1
-          .left
+          %div
             = message.submit t('.reply').capitalize, :disable_with => t('.replying'), :class => 'button creation', :tabindex => 2
