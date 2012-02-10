@@ -10,8 +10,6 @@ require 'rspec/rails'
 require 'webmock/rspec'
 require 'factory_girl'
 
-include WebMock::API
-WebMock::Config.instance.allow_localhost = false
 include HelperMethods
 
 # Force fixture rebuild
@@ -33,7 +31,7 @@ RSpec.configure do |config|
   config.before(:each) do
     I18n.locale = :en
     stub_request(:post, "https://pubsubhubbub.appspot.com/")
-
+    disable_typhoeus
     $process_queue = false
   end
 
@@ -50,8 +48,9 @@ Dir["#{File.dirname(__FILE__)}/shared_behaviors/**/*.rb"].each do |f|
   require f
 end
 
-disable_typhoeus
+
 ProcessedImage.enable_processing = false
+UnprocessedImage.enable_processing = false
 
 AppConfig.load!
 AppConfig.setup!
