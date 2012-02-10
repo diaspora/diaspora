@@ -17,9 +17,7 @@ module EvilQuery
     end
 
     def posts
-      liked_post_ids = fetch_ids!(LikedPosts.new(@user).posts, "posts.id")
-      commented_post_ids = fetch_ids!(CommentedPosts.new(@user).posts, "posts.id")
-      Post.where(:id => liked_post_ids + commented_post_ids).order("posts.interacted_at DESC")
+      Post.joins(:participations).where(:participations => {:author_id => @user.person.id}).order("posts.interacted_at DESC")
     end
   end
 

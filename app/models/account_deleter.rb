@@ -103,7 +103,7 @@ class AccountDeleter
   end
   
   def normal_ar_person_associates_to_delete
-    [:posts, :photos, :mentions]
+    [:posts, :photos, :mentions, :participations]
   end
 
   def ignored_or_special_ar_person_associations

@@ -2,32 +2,16 @@
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
-class Like < ActiveRecord::Base
-  include ROXML
+class Like < Federated::Relayable
+  class Generator < Federated::Generator
+    def self.federated_class
+      Like
+    end
 
-  include Diaspora::Webhooks
-  include Diaspora::Guid
-
-  xml_attr :target_type
-  include Diaspora::Relayable
-
-  # NOTE API V1 to be extracted
-  acts_as_api
-  api_accessible :backbone do |t|
-    t.add :id
-    t.add :guid
-    t.add :author
-    t.add :created_at
+    def relayable_options
+      {:target => @target, :positive => true}
+    end
   end
-
-  xml_attr :positive
-  xml_attr :diaspora_handle
-
-  belongs_to :target, :polymorphic => true
-  belongs_to :author, :class_name => 'Person'
-
-  validates_uniqueness_of :target_id, :scope => [:target_type, :author_id]
-  validates :parent, :presence => true #should be in relayable (pending on fixing Message)
 
   after_create do
     self.parent.update_likes_counter
@@ -37,24 +21,15 @@ class Like < ActiveRecord::Base
     self.parent.update_likes_counter
   end
 
-  def diaspora_handle
-    self.author.diaspora_handle
-  end
+  xml_attr :positive
 
-  def diaspora_handle= nh
-    self.author = Webfinger.new(nh).fetch
-  end
-
-  def parent_class
-    self.target_type.constantize
-  end
-
-  def parent
-    self.target
-  end
-
-  def parent= parent
-    self.target = parent
+  # NOTE API V1 to be extracted
+  acts_as_api
+  api_accessible :backbone do |t|
+    t.add :id
+    t.add :guid
+    t.add :author
+    t.add :created_at
   end
 
   def notification_type(user, person)

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120203220932) do
+ActiveRecord::Schema.define(:version => 20120208231253) do
 
   create_table "account_deletions", :force => true do |t|
     t.string  "diaspora_handle"
@@ -243,6 +243,17 @@ ActiveRecord::Schema.define(:version => 20120203220932) do
   add_index "oauth_clients", ["application_base_url"], :name => "index_oauth_clients_on_application_base_url", :unique => true
   add_index "oauth_clients", ["name"], :name => "index_oauth_clients_on_name", :unique => true
   add_index "oauth_clients", ["nonce"], :name => "index_oauth_clients_on_nonce", :unique => true
+
+  create_table "participations", :force => true do |t|
+    t.string   "guid"
+    t.integer  "target_id"
+    t.string   "target_type",             :limit => 60, :null => false
+    t.integer  "author_id"
+    t.text     "author_signature"
+    t.text     "parent_author_signature"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "people", :force => true do |t|
     t.string   "guid",                                     :null => false
