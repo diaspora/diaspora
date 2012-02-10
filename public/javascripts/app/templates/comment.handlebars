@@ -1,27 +1,28 @@
-<div class="right controls">
+<div class="media">
+
   {{#if canRemove}}
-    <a href="#" class="delete comment_delete" title="{{t "delete"}}">
-      <img alt="Deletelabel" src="{{imageUrl "/images/deletelabel.png"}}" />
-    <a/>
+    <div class="controls">
+      <a href="#" class="delete comment_delete" title="{{t "delete"}}">
+        <img alt="Deletelabel" src="{{imageUrl "/images/deletelabel.png"}}" />
+      <a/>
+    </div>
   {{/if}}
-</div>
 
-<a href="/people/{{author.guid}}">
-  <img src="{{author.avatar.small}}" class="avatar" />
-</a>
+  <a href="/people/{{author.guid}}" class="img">
+    <img src="{{author.avatar.small}}" class="avatar" />
+  </a>
 
-<div class="content">
-  <span class="from">
-    <a href="/people/{{author.guid}}">
+  <div class="bd">
+    <a href="/people/{{author.guid}}" class="author">
       {{author.name}}
     </a>
-  </span>
 
-  <div class="collapsible">
-    {{{text}}}
-  </div>
+    <div class="collapsible">
+      {{{text}}}
+    </div>
 
-  <div class="comment_info">
-    <time class="timeago" datetime="{{created_at}}"/>
+    <div class="info">
+      <time class="timeago" datetime="{{created_at}}"/>
+    </div>
   </div>
 </div>

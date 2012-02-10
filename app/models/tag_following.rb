@@ -3,4 +3,9 @@ class TagFollowing < ActiveRecord::Base
   belongs_to :tag, :class_name => "ActsAsTaggableOn::Tag"
 
   validates_uniqueness_of :tag_id, :scope => :user_id
+  
+  def self.user_is_following?(user, tagname)
+    tagname.nil? ? false : joins(:tag).where(:tags => {:name => tagname.downcase}, :user_id => user.id).exists?
+  end
+  
 end

@@ -11,7 +11,7 @@ describe("app.views.Post", function(){
         }
       }})
 
-      var posts = $.parseJSON(spec.readFixture("multi_stream_json"))["posts"];
+      var posts = $.parseJSON(spec.readFixture("explore_json"))["posts"];
 
       this.collection = new app.collections.Posts(posts);
       this.statusMessage = this.collection.models[0];
@@ -63,21 +63,21 @@ describe("app.views.Post", function(){
 
     context("NSFW", function(){
       it("contains a shield element", function(){
-        this.statusMessage.set({text : "this is safe for work. #sfw"});
+        this.statusMessage.set({nsfw: true});
 
         var view = new app.views.Post({model : this.statusMessage}).render();
         var statusElement = $(view.el)
 
-        expect(statusElement.find(".shield").html()).toBeNull();
+        expect(statusElement.find(".shield").length).toBe(1)
       })
 
       it("does not contain a shield element", function(){
-        this.statusMessage.set({text : "nudie magazine day! #nsfw"});
+        this.statusMessage.set({nsfw: false});
 
         var view = new app.views.Post({model : this.statusMessage}).render();
         var statusElement = $(view.el)
 
-        expect(statusElement.find(".shield").html()).toNotBe(null);
+        expect(statusElement.find(".shield").html()).toBe(null);
       })
     })
   })

@@ -24,6 +24,10 @@ en:
         months: "%d months"
         year: "about a year"
         years: "%d years"
+
+      participate: "Participate"
+      explore: "Explore"
+
       videos:
           watch: "Watch this video on <%= provider %>"
           unknown: "Unknown video type"
@@ -117,7 +121,7 @@ en:
         notifications: "Notifications"
         messages: "Messages"
 
-        search: "Find people or #tags"
+        search: "Search"
 
         recent_notifications: "Recent Notifications"
         mark_all_as_read: "Mark all as read"

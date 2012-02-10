@@ -21,9 +21,9 @@ Diaspora::Application.routes.draw do
   end
 
   # Streams
-  get "participate" => "streams#participate", :as => "participate_stream"
+  get "participate" => "streams#participate", :as => "participate"
+  get "explore" => "streams#multi", :as => "explore"
   get "public" => "streams#public", :as => "public_stream"
-  get "stream" => "streams#multi", :as => "multi_stream"
   get "followed_tags" => "streams#followed_tags", :as => "followed_tags_stream"
   get "mentions" => "streams#mentioned", :as => "mentioned_stream"
   get "liked" => "streams#liked", :as => "liked_stream"

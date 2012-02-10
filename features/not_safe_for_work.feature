@@ -10,7 +10,9 @@ Scenario: Setting not safe for work
   And I submit the form
   Then I should be on the edit profile page
   And I should see the "you are nsfw" message
-
+  When I mark myself as safe for work
+  And I submit the form
+  Then I should see the "you are safe for work" message
 
 Scenario: NSFWs users posts are nsfw
   Given a nsfw user with email "tommy@pr0nking.com"

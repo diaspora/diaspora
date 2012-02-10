@@ -76,10 +76,10 @@ describe TagsController do
         sign_in bob
         @tag = ActsAsTaggableOn::Tag.create!(:name => "partytimeexcellent")
         @controller.stub(:current_user).and_return(bob)
-        @controller.stub(:params).and_return({:name => "partytimeexcellent"})
+        @controller.stub(:params).and_return({:name => "PARTYTIMEexcellent"})
       end
 
-      it 'returns true if the following already exists' do
+      it 'returns true if the following already exists and should be case insensitive' do
         TagFollowing.create!(:tag => @tag, :user => bob )
         @controller.tag_followed?.should be_true
       end

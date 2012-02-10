@@ -3,13 +3,13 @@ describe("app.views.LikesInfo", function(){
     loginAs({id : -1, name: "alice", avatar : {small : "http://avatar.com/photo.jpg"}});
 
     Diaspora.I18n.loadLocale({stream : {
-      likes : {
-        zero : "<%= count %> Likes",
-        one : "<%= count %> Like"}
+      pins : {
+        zero : "<%= count %> Pins",
+        one : "<%= count %> Pin"}
       }
     })
 
-    var posts = $.parseJSON(spec.readFixture("multi_stream_json"))["posts"];
+    var posts = $.parseJSON(spec.readFixture("explore_json"))["posts"];
     this.post = new app.models.Post(posts[0]); // post with a like
     this.view = new app.views.LikesInfo({model: this.post});
   });
@@ -18,7 +18,9 @@ describe("app.views.LikesInfo", function(){
     it("displays a the like count if it is above zero", function() {
       this.view.render();
 
-      expect($(this.view.el).text()).toContain(Diaspora.I18n.t('stream.likes', {count : this.view.model.get("likes_count")}))
+      console.log($(this.view.el))
+
+      expect($(this.view.el).text()).toContain(Diaspora.I18n.t('stream.pins', {count : this.view.model.get("likes_count")}))
     })
 
     it("does not display the like count if it is zero", function() {

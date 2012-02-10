@@ -63,6 +63,6 @@ class TagFollowingsController < ApplicationController
         @tag_following = current_user.tag_followings.create(:tag_id => @tag.id)
       end
     end
-    redirect_to multi_stream_path
+    redirect_to explore_path
   end
 end
