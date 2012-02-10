@@ -25,6 +25,7 @@ app.views.Post = app.views.StreamObject.extend({
     $(this.el).attr("id", this.model.get("guid"));
 
     this.model.bind('remove', this.remove, this);
+    this.model.bind('destroy', this.destroy, this);
 
     //subviews
     this.commentStreamView = new app.views.CommentStream({ model : this.model});
@@ -106,5 +107,11 @@ app.views.Post = app.views.StreamObject.extend({
 
   authorIsCurrentUser : function() {
     return this.model.get("author").id != (!!app.user() && app.user().id)
+  },
+
+  destroy : function() {
+    if ((this.model.collection.length == 1) && ($('#publisher').length == 0)) {
+      document.location.replace('/');
+    }
   }
 });
