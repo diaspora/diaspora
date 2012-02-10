@@ -209,9 +209,12 @@ describe Postzord::Dispatcher do
         Typhoeus::Hydra.stub!(:new).and_return(@hydra)
       end
 
-      it 'should queue an HttpPost job for each remote person' do
+      it 'should queue an HttpMultiJob for the remote people' do
+        Postzord::Dispatcher::Public.any_instance.unstub(:deliver_to_remote)
         Resque.should_receive(:enqueue).with(Jobs::HttpMulti, alice.id, anything, @remote_people.map{|p| p.id}, anything).once
         @mailman.send(:deliver_to_remote, @remote_people)
+
+        Postzord::Dispatcher::Public.stub(:deliver_to_remote)
       end
     end
 
