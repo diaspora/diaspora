@@ -17,10 +17,9 @@ describe("app.views.LikesInfo", function(){
   describe(".render", function(){
     it("displays a the like count if it is above zero", function() {
       this.view.render();
+      this.view.model.set({"likes_count" : 1})
 
-      console.log($(this.view.el))
-
-      expect($(this.view.el).text()).toContain(Diaspora.I18n.t('stream.pins', {count : this.view.model.get("likes_count")}))
+      expect($(this.view.el).find(".expand_likes").length).toBe(1)
     })
 
     it("does not display the like count if it is zero", function() {
