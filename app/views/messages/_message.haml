@@ -3,14 +3,13 @@
 -#   the COPYRIGHT file.
 
 .stream_element{:data=>{:guid=>message.id}}
-  = person_image_link(message.author, :size => :thumb_small)
-
-  .content
-    .from
-      = person_link(message.author, :class => 'author')
+  .media
+    .img
+      = person_image_link(message.author, :size => :thumb_small)
+    .bd
+      = person_link(message.author, :class => 'author from')
       %time.timeago{:datetime => message.created_at}
         = how_long_ago(message)
 
-    %div{ :class => direction_for(message.text) }
-      = markdownify(message, :oembed => true)
-
+      %div{ :class => direction_for(message.text) }
+        = markdownify(message, :oembed => true)

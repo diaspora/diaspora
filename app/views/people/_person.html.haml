@@ -3,11 +3,12 @@
 -#   the COPYRIGHT file.
 
 .stream_element{:id => person.id}
+  %div{:style => "float:right;margin-top:2px;"}
+    = render :partial => 'people/relationship_action',
+             :locals => { :person => person, :contact => contact,
+                          :current_user => current_user }
+
   .media
-    %div{:style => "float:right;margin-top:2px;"}
-      = render :partial => 'people/relationship_action',
-               :locals => { :person => person, :contact => contact,
-                            :current_user => current_user }
     .img
       = person_image_link(person)
 
