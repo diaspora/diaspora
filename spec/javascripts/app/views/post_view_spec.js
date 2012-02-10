@@ -22,14 +22,14 @@ describe("app.views.Post", function(){
       this.statusMessage.set({reshares_count : 2})
       var view = new app.views.Post({model : this.statusMessage}).render();
 
-      expect(view.$(".post_initial_info").html()).toContain(Diaspora.I18n.t('stream.reshares', {count: 2}))
+      expect($(view.el).html()).toContain(Diaspora.I18n.t('stream.reshares', {count: 2}))
     })
 
     it("does not display a reshare count for 'zero'", function(){
       this.statusMessage.set({reshares_count : 0})
       var view = new app.views.Post({model : this.statusMessage}).render();
 
-      expect(view.$(".post_initial_info").html()).not.toContain("0 Reshares")
+      expect($(view.el).html()).not.toContain("0 Reshares")
     })
 
 

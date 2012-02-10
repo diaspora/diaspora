@@ -54,6 +54,9 @@ require File.join(File.dirname(__FILE__), "..", "..", "spec", "helper_methods")
 require File.join(File.dirname(__FILE__), "..", "..", "spec", "support","user_methods")
 include HelperMethods
 
+require 'webmock/cucumber'
+WebMock.disable_net_connect!(:allow_localhost => true)
+
 Before do
   @no_follow_diaspora_hq_setting = AppConfig[:no_follow_diasporahq]
   AppConfig[:no_follow_diasporahq] = true

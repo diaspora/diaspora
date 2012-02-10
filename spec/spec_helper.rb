@@ -33,6 +33,8 @@ RSpec.configure do |config|
     stub_request(:post, "https://pubsubhubbub.appspot.com/")
     disable_typhoeus
     $process_queue = false
+    Postzord::Dispatcher::Public.any_instance.stub(:deliver_to_remote)
+    Postzord::Dispatcher::Private.any_instance.stub(:deliver_to_remote)
   end
 
   config.before(:each, :type => :controller) do

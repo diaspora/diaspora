@@ -2,14 +2,16 @@
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
-require File.join(Rails.root, 'lib/diaspora/user')
 require File.join(Rails.root, 'lib/salmon/salmon')
 require File.join(Rails.root, 'lib/postzord/dispatcher')
 require 'rest-client'
 
 class User < ActiveRecord::Base
-  include Diaspora::UserModules
   include Encryptor::Private
+
+  include Connecting
+  include Querying
+  include SocialActions
 
   devise :invitable, :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable,
@@ -33,7 +35,7 @@ class User < ActiveRecord::Base
   serialize :hidden_shareables, Hash
 
   has_one :person, :foreign_key => :owner_id
-  delegate :public_key, :posts, :photos, :owns?, :diaspora_handle, :name, :public_url, :profile, :first_name, :last_name, :to => :person
+  delegate :public_key, :posts, :photos, :owns?, :diaspora_handle, :name, :public_url, :profile, :first_name, :last_name, :participations, :to => :person
 
   has_many :invitations_from_me, :class_name => 'Invitation', :foreign_key => :sender_id
   has_many :invitations_to_me, :class_name => 'Invitation', :foreign_key => :recipient_id
@@ -282,43 +284,6 @@ class User < ActiveRecord::Base
 
   def salmon(post)
     Salmon::EncryptedSlap.create_by_user_and_activity(self, post.to_diaspora_xml)
-  end
-
-  def comment!(post, text, opts={})
-    comment = build_comment(opts.merge!(:post => post, :text => text))
-    if comment.save
-      dispatch_post(comment)
-      comment
-    else
-      false
-    end
-  end
-
-  def like!(target, opts={})
-    like = build_like(opts.merge!(:target => target, :positive => true))
-    if like.save
-      dispatch_post(like)
-      like
-    else
-      false
-    end
-  end
-
-  def build_relayable(model, options = {})
-    r = model.new(options.merge(:author_id => self.person.id))
-    r.set_guid
-    r.initialize_signatures
-    r
-  end
-
-  ######## Commenting  ########
-  def build_comment(options = {})
-    build_relayable(Comment, options)
-  end
-
-  ######## Liking  ########
-  def build_like(options = {})
-    build_relayable(Like, options)
   end
 
   # Check whether the user has liked a post.

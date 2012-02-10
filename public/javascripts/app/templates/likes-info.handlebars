@@ -1,4 +1,4 @@
-{{#if hasLikes}}
+{{#if likes_count}}
   <div class="comment">
     <div class="media">
       <span class="img">
@@ -7,7 +7,7 @@
 
       <div class="bd">
         {{#unless likes.length}}
-          <a href="#" class="expand_likes">
+          <a href="#" class="expand_likes grey">
             {{t "stream.likes" count=likes_count}}
           </a>
 

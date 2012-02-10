@@ -44,6 +44,7 @@ class Person < ActiveRecord::Base
   has_many :posts, :foreign_key => :author_id, :dependent => :destroy # This person's own posts
   has_many :photos, :foreign_key => :author_id, :dependent => :destroy # This person's own photos
   has_many :comments, :foreign_key => :author_id, :dependent => :destroy # This person's own comments
+  has_many :participations, :foreign_key => :author_id, :dependent => :destroy
 
   belongs_to :owner, :class_name => 'User'
 
