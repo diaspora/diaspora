@@ -1,15 +1,15 @@
 namespace :assets do
-	task :compile_s3 do
+	task :deploy do
     puts "compiling sass..."
     system 'sass --update public/stylesheets/sass:public/stylesheets'
 
-    puts "packaging assets....."
+    puts "packaging assets..."
     Jammit.package!
 
-    Rake::Task['assets:upload_to_s3'].invoke
+    Rake::Task['assets:upload'].invoke
 	end
 
-  task :upload_to_s3 => [:environment] do
+  task :upload => [:environment] do
    s3_configuration = {
      :bucket_name => AppConfig[:s3_bucket],
      :access_key_id =>  AppConfig[:s3_key],

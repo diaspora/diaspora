@@ -1,30 +1,32 @@
 {{#unless all_comments_loaded}}
-  <ul class="show_comments {{#unless showExpandCommentsLink}} hidden {{/unless}}">
-    <li>
+  <div class="show_comments comment {{#unless showExpandCommentsLink}} hidden {{/unless}}">
+    <div class="media">
       <a href="/posts/{{id}}/comments" class="toggle_post_comments">
-      {{t "stream.more_comments" count=moreCommentsCount}}
+        {{t "stream.more_comments" count=moreCommentsCount}}
       </a>
-    </li>
-  </ul>
+    </div>
+  </div>
 {{/unless}}
 
-<ul class="comments"> </ul>
+<div class="comments"> </div>
 
 {{#if current_user}}
-  <div class="new_comment_form_wrapper {{#unless comments_count}} hidden {{/unless}}">
-    <form accept-charset="UTF-8" action="/posts/{{id}}/comments" class="new_comment" id="new_comment_on_{{id}}" method="post">
+  <div class="comment no-border">
+    <div class="media new_comment_form_wrapper {{#unless comments_count}} hidden {{/unless}}">
       {{#with current_user}}
-        <a href="/people/{{guid}}">
+        <a href="/people/{{guid}}" class="img">
           <img src="{{avatar.small}}" class="avatar" />
         </a>
       {{/with}}
 
-      <p>
-        <textarea class="comment_box" id="comment_text_on_{{id}}" name="text" rows="2" placeholder="{{t "stream.comment"}}" />
-      </p>
-      <div class="submit_button">
-        <input class="button creation" id="comment_submit_{{id}}" name="commit" type="submit" value="{{t "stream.comment"}}" />
+      <div class="bd">
+        <form accept-charset="UTF-8" action="/posts/{{id}}/comments" class="new_comment" id="new_comment_on_{{id}}" method="post">
+          <textarea class="comment_box" id="comment_text_on_{{id}}" name="text" rows="2" placeholder="{{t "stream.comment"}}" />
+          <div class="submit_button">
+            <input class="button creation" id="comment_submit_{{id}}" name="commit" type="submit" value="{{t "stream.comment"}}" />
+          </div>
+        </form>
       </div>
-    </form>
+    </div>
   </div>
 {{/if}}

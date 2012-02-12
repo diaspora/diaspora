@@ -9,6 +9,8 @@ class Post < ActiveRecord::Base
   include Diaspora::Commentable
   include Diaspora::Shareable
 
+  has_many :participations, :dependent => :delete_all, :as => :target
+
   attr_accessor :user_like
 
   # NOTE API V1 to be extracted
@@ -70,6 +72,7 @@ class Post < ActiveRecord::Base
 
   def raw_message; ""; end
   def mentioned_people; []; end
+  def photos; []; end
 
   def self.excluding_blocks(user)
     people = user.blocks.map{|b| b.person_id}

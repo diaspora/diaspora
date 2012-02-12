@@ -47,13 +47,13 @@ class StatusMessagesController < ApplicationController
     @status_message = current_user.build_post(:status_message, params[:status_message])
     @status_message.attach_photos_by_ids(params[:photos])
 
-
     if @status_message.save
       aspects = current_user.aspects_from_ids(destination_aspect_ids)
       current_user.add_to_streams(@status_message, aspects)
       receiving_services = Service.titles(services)
 
       current_user.dispatch_post(@status_message, :url => short_post_url(@status_message.guid), :service_types => receiving_services)
+      current_user.participate!(@status_message)
 
       if coming_from_profile_page? # if this is a post coming from a profile page
         flash[:notice] = successful_mention_message

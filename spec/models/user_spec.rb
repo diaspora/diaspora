@@ -5,7 +5,6 @@
 require 'spec_helper'
 
 describe User do
-
   describe "private key" do
     it 'has a key' do
       alice.encryption_key.should_not be nil
@@ -298,14 +297,6 @@ describe User do
     end
   end
 
-  describe '#seed_aspects' do
-    it 'follows the default account' do
-      Webfinger.stub_chain(:new, :fetch).and_return(Factory(:person))
-      expect{
-       eve.seed_aspects
-      }.to change(eve.contacts, :count).by(1)
-    end
-  end
 
   describe ".build" do
     context 'with valid params' do
@@ -694,30 +685,6 @@ describe User do
       @message2 = bob.post(:status_message, :text => "uncool", :to => @bobs_aspect)
       @like = alice.like!(@message)
       @like2 = bob.like!(@message)
-    end
-
-    describe 'User#like' do
-      before do
-        @status = bob.post(:status_message, :text => "hello", :to => @bobs_aspect.id)
-      end
-
-      it "should be able to like on one's own status" do
-        like = alice.like!(@status)
-        @status.reload.likes.first.should == like
-      end
-
-      it "should be able to like on a contact's status" do
-        like = bob.like!(@status)
-        @status.reload.likes.first.should == like
-      end
-
-      it "does not allow multiple likes" do
-        alice.like!(@status)
-
-        lambda {
-          alice.like!(@status)
-        }.should_not change(@status, :likes)
-      end
     end
 
     describe '#like_for' do

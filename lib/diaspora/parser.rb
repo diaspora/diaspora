@@ -8,7 +8,14 @@ module Diaspora
       doc = Nokogiri::XML(xml) { |cfg| cfg.noblanks }
       return unless body = doc.xpath("/XML/post").children.first
       class_name = body.name.gsub('-', '/')
-      class_name.camelize.constantize.from_xml body.to_s
+      begin
+        class_name.camelize.constantize.from_xml body.to_s
+      rescue NameError => e
+        # A pods is trying to federate an object we don't recognize.
+        # i.e. their codebase is different from ours.  Quietly discard
+        # so that no Resque job failure is created
+        nil
+      end
     end
   end
 end

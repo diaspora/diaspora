@@ -50,7 +50,7 @@ When /^I click to delete the first post$/ do
 end
 
 When /^I click to delete the first comment$/ do
-  page.execute_script('$(".comment").first().find(".comment_delete").click()')
+  find(".comment").find(".comment_delete").click()
 end
 
 When /^I click to delete the first uploaded photo$/ do

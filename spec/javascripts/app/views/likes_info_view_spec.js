@@ -3,9 +3,9 @@ describe("app.views.LikesInfo", function(){
     loginAs({id : -1, name: "alice", avatar : {small : "http://avatar.com/photo.jpg"}});
 
     Diaspora.I18n.loadLocale({stream : {
-      likes : {
-        zero : "<%= count %> Likes",
-        one : "<%= count %> Like"}
+      pins : {
+        zero : "<%= count %> Pins",
+        one : "<%= count %> Pin"}
       }
     })
 
@@ -17,8 +17,9 @@ describe("app.views.LikesInfo", function(){
   describe(".render", function(){
     it("displays a the like count if it is above zero", function() {
       this.view.render();
+      this.view.model.set({"likes_count" : 1})
 
-      expect($(this.view.el).text()).toContain(Diaspora.I18n.t('stream.likes', {count : this.view.model.get("likes_count")}))
+      expect($(this.view.el).find(".expand_likes").length).toBe(1)
     })
 
     it("does not display the like count if it is zero", function() {

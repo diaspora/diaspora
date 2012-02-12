@@ -65,7 +65,7 @@ class StreamsController < ApplicationController
     respond_with do |format|
       format.html { render 'layouts/main_stream' }
       format.mobile { render 'layouts/main_stream' }
-      format.json { render_for_api :backbone, :json => @stream.stream_posts, :root => :posts }
+      format.json {render_for_api :backbone, :json => @stream.stream_posts, :root => :posts }
     end
   end
 

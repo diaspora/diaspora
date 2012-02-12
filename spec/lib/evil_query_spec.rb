@@ -6,7 +6,7 @@ describe EvilQuery::Participation do
   end
 
   it "includes posts liked by the user" do
-    Factory(:like, :target => @status_message, :author => alice.person)
+    alice.like!(@status_message)
     EvilQuery::Participation.new(alice).posts.should include(@status_message)
   end
 
@@ -35,7 +35,7 @@ describe EvilQuery::Participation do
         alice.comment!(@status_messageB, "party")
         Timecop.travel time += 1.month
 
-        Factory(:like, :target => @status_messageA, :author => alice.person)
+        alice.like!(@status_messageA)
         Timecop.travel time += 1.month
 
         alice.comment!(@photoC, "party")

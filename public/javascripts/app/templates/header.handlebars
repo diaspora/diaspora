@@ -4,19 +4,21 @@
     <img alt="Logo_small" class="diaspora_header_logo" height="38px" width="65px" src="{{imageUrl "/images/header-logo.png"}}" />
   </a>
 
-  <div id="global_search">
-    <form accept-charset="UTF-8" action="/people" class="search_form" method="get">
-      <input name="utf8" type="hidden" value="✓">
-      <input id="q" name="q" placeholder="{{t "header.search"}}" results="5" type="search" autocomplete="off" class="ac_input">
-    </form>
-  </div>
+  <span class="header-nav">
+    <span>
+        <a href="/explore">
+          {{t "explore"}}
+        </a>
+    </span>
+
+    <span>
+        <a href="/participate">
+          {{t "participate"}}
+        </a>
+     </span>
+  </span>
 
   <div id="nav_badges">
-    <div class="badge" id="home_badge">
-      <a href="/explore" title="{{t "header.home"}}"><img alt="Home" src="{{imageUrl "/images/icons/home_grey.png"}}" />
-      </a>
-    </div>
-
     <div class="badge" id="notification_badge">
       <a href="/notifications" title="{{t "header.notifications"}}">
         <img alt="{{t "header.notifications"}}" id="notification-flag" src="{{imageUrl "/images/icons/notifications_grey.png"}}" />
@@ -34,31 +36,33 @@
         </div>
       </a>
     </div>
+
+
+      <div id="notification_dropdown">
+        <div class="header">
+          <div class="right">
+            <a href="#" id="mark_all_read_link">
+              {{t "header.mark_all_as_read"}}
+            </a>
+            |
+            <a href="/notifications" id="view_all_notifications">
+              {{t "header.view_all"}}
+            </a>
+          </div>
+
+          <h4>
+            {{t "header.recent_notifications"}}
+          </h4>
+        </div>
+
+        <div class="notifications">
+          <div class="ajax_loader">
+            <img alt="Ajax-loader" src="{{imageUrl "/images/ajax-loader.gif"}}">
+          </div>
+        </div>
+      </div>
   </div>
 
-  <div id="notification_dropdown">
-    <div class="header">
-      <div class="right">
-        <a href="#" id="mark_all_read_link">
-          {{t "header.mark_all_as_read"}}
-        </a>
-        |
-        <a href="/notifications" id="view_all_notifications">
-          {{t "header.view_all"}}
-        </a>
-      </div>
-
-      <h4>
-        {{t "header.recent_notifications"}}
-      </h4>
-    </div>
-
-    <div class="notifications">
-      <div class="ajax_loader">
-        <img alt="Ajax-loader" src="{{imageUrl "/images/ajax-loader.gif"}}">
-      </div>
-    </div>
-  </div>
 
   <div id="hovercard_container">
     <div id="hovercard">
@@ -92,6 +96,14 @@
     {{/if}}
     <li><a href="/users/sign_out">{{t "header.log_out"}}</a></li>
   </ul>
+
+
+  <div id="global_search">
+    <form accept-charset="UTF-8" action="/people" class="search_form" method="get">
+      <input name="utf8" type="hidden" value="✓">
+      <input id="q" name="q" placeholder="{{t "header.search"}}" results="5" type="search" autocomplete="off" class="ac_input">
+    </form>
+  </div>
 
   <div id="lightbox">
     <div id="lightbox-content">

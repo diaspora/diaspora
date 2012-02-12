@@ -33,7 +33,7 @@ class Comment < ActiveRecord::Base
   alias_attribute :post, :commentable
   belongs_to :author, :class_name => 'Person'
 
-  validates :text, :presence => true, :length => {:maximum => 2500}
+  validates :text, :presence => true, :length => {:maximum => 65535}
   validates :parent, :presence => true #should be in relayable (pending on fixing Message)
 
   scope :including_author, includes(:author => :profile)
@@ -83,5 +83,20 @@ class Comment < ActiveRecord::Base
 
   def parent= parent
     self.post = parent
+  end
+
+  class Generator < Federated::Generator
+    def self.federated_class
+      Comment
+    end
+
+    def initialize(person, target, text)
+      @text = text
+      super(person, target)
+    end
+
+    def relayable_options
+      {:post => @target, :text => @text}
+    end
   end
 end

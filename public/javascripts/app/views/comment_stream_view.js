@@ -45,7 +45,7 @@ app.views.CommentStream = app.views.Base.extend({
     // on post ownership in the Comment view.
     comment.set({parent : this.model.toJSON()})
 
-    this.$("ul.comments").append(new app.views.Comment({
+    this.$(".comments").append(new app.views.Comment({
       model: comment
     }).render().el);
   },
