@@ -110,10 +110,10 @@ app.views.Post = app.views.StreamObject.extend({
   },
 
   destroy : function() {
-    var posts_uri = new RegExp('^\\' + this.model.collection.url + '\/[0-9]+$');
+    var posts_uri = new RegExp(this.model.collection.url + '\/[0-9]+$');
 
     if ((this.model.collection.length == 1) && (posts_uri.test(document.location.pathname))) {
-      document.location.replace('/');
+      document.location.replace(Backbone.history.options.root);
     }
   }
 });
