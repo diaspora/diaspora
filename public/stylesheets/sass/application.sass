@@ -19,7 +19,7 @@
 .media .img img
   :display block
 
-.media .imgExt
+.media .imgEt
   :float right
   :margin-left 10px
 /* ====== ----- ====== */
@@ -402,11 +402,6 @@ ul.as-selections
     :margin
       :bottom 10px
 
-#conversation_inbox a
-  &:hover
-    :text
-      :decoration none
-
 .stream_element
   a.author
     :font-weight bold
@@ -569,7 +564,7 @@ form.new_comment
   textarea
     :height 21px
     :font-size 12px
-    :width 371px
+    :width 355px
 
   &.open
     input
@@ -607,6 +602,8 @@ form.new_comment
   :padding 8px 0
   :text-align center
   :width 100%
+  img
+    :border none
 
 #photo_container
   :text
@@ -1626,14 +1623,8 @@ ul#press_logos
 
 .notifications_for_day
   .stream_element
-    :margin
-      :bottom 0.3em
     :padding 0.2em 0.5em
     :width 500px
-    @include border-radius(5px)
-
-    &:hover
-      :background-color #EFEFEF
 
 .day_group
   :min-height 100px
@@ -1878,8 +1869,7 @@ ul#press_logos
       :top 9px
 
 .stream_element.conversation
-  :padding 10px
-  :min-height 0px
+  :padding 8px
 
   .message_count
     @include border-radius(5px)
@@ -1959,6 +1949,10 @@ ul#press_logos
   :height 100%
   :overflow-y auto
   :overflow-x none
+
+  a:hover
+    :text
+      :decoration none
 
 #left_pane
   :position fixed
@@ -2321,10 +2315,7 @@ ul.left_nav
     :margin-left 8px
 
 .unread-setter
-  :float right
   :display none
-  :cursor pointer
-  :margin-top 8px
 
 .stream_container
   :min-height 500px
@@ -2826,3 +2817,7 @@ a.toggle_selector
     :opacity 0.85 !important
   &:visible
     :opacity 0.5
+
+.float-right
+  :float right
+  :margin-top 5px

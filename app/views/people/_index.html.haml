@@ -1,13 +1,11 @@
 .people_stream
-  - for person in people
+  - people.each do |person|
     .stream_element{:id => person.id}
-      = person_image_link(person)
-      - if current_user
-        - contact = current_user.contacts.find_by_person_id(person.id)
-        - contact ||= Contact.new(:person => person)
-
-      .content
-        %span.from
-          =person_link(person, :class => "hovercardable")
+      .media
+        .img
+          = person_image_link(person)
+        .bg
+          %span.from
+            = person_link(person, :class => "hovercardable")
 
   = will_paginate people, :inner_window => 3, :params => {:controller => 'people', :action => 'tag_index'}
