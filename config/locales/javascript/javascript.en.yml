@@ -83,8 +83,7 @@ en:
         reshare: "Reshare"
         comment: "Comment"
         original_post_deleted: "Original post deleted by author."
-        nsfw: "This post has been flagged NSFW by its author."
-        show: "Show"
+        show_post: "Show post"
 
         likes:
           zero: "<%= count %> Pins"

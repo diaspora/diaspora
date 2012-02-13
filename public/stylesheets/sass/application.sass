@@ -2786,20 +2786,13 @@ a.toggle_selector
       &:hover
         @include opacity(1)
 
-.shield
+.nsfw-shield
   @include border-radius(3px)
-  :z-index 3
   :background-color #eee
-  :position absolute
-  :width 100%
-  :min-height 100%
-  :padding 5px
+  :width 90%
+  :padding 5px 10px
   :border 1px solid #ddd
-
-.shield_wrapper
-  :position relative
-  :margin
-    :bottom 15px
+  :color #999
 
 #back-to-top
   :display block

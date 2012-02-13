@@ -68,7 +68,7 @@ describe("app.views.Post", function(){
         var view = new app.views.Post({model : this.statusMessage}).render();
         var statusElement = $(view.el)
 
-        expect(statusElement.find(".shield").length).toBe(1)
+        expect(statusElement.find(".nsfw-shield").length).toBe(1)
       })
 
       it("does not contain a shield element", function(){
