@@ -1,12 +1,12 @@
 app.views.Post = app.views.StreamObject.extend({
-  
+
   templateName: "stream-element",
 
   className : "stream_element loaded",
 
   events: {
     "click .focus_comment_textarea": "focusCommentTextarea",
-    "click .shield a": "removeNsfwShield",
+    "click .nsfw-shield a": "removeNsfwShield",
     "click .remove_post": "destroyModel",
     "click .hide_post": "hidePost",
     "click .block_user": "blockUser"
@@ -55,9 +55,8 @@ app.views.Post = app.views.StreamObject.extend({
 
   removeNsfwShield: function(evt){
     if(evt){ evt.preventDefault(); }
-
-    $(evt.target).parent(".shield").remove();
-
+    this.model.set({nsfw : false})
+    this.render();
     return this;
   },
 
