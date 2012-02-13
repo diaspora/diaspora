@@ -93,6 +93,7 @@ fi:
         two: "<%= count %> uudelleenjakoa"
         zero: "<%= count %> uudelleenjakoa"
       show: Näytä
+      unlike: Unlike
     tags:
       wasnt_that_interesting: "OK, #<%= tagName %> ei tainnut ollakaan kovin kiinnostava aihe..."
     timeago:

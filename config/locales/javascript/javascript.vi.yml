@@ -35,6 +35,8 @@ vi:
       hey: "Này, {{name}}!"
       no_tags: "Bạn chưa theo dõi thẻ nào cả! Tiếp tục?"
       preparing_your_stream: "Đang chuẩn bị luồng cho bạn..."
+    header:
+      search: "Find people or #tags"
     infinite_scroll:
       no_more: "Không còn bài đăng nào nữa."
     photo_uploader:
@@ -48,6 +50,7 @@ vi:
     search_for: "Tìm {{name}}"
     show_more: "hiện thêm"
     stream:
+      like: Like
       likes:
         few: "<%= count %> Likes"
         many: "<%= count %> Likes"
@@ -69,6 +72,7 @@ vi:
         other: "<%= count %> Reshares"
         two: "<%= count %> Reshares"
         zero: "<%= count %> Reshares"
+      unlike: Unlike
     tags:
       wasnt_that_interesting: "Tôi cho rằng #{{tagName}} không thú vị..."
     timeago:

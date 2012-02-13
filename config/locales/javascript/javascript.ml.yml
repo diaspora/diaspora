@@ -28,6 +28,7 @@ ml:
       show: "show all comments"
     confirm_dialog: "താങ്കള്‍ക്ക് ഉറപ്പാണോ?"
     delete: "Delete"
+    explore: "Explore"
     failed_to_like: "Failed to like!"
     failed_to_post_message: "Failed to post message!"
     getting_started:
@@ -51,6 +52,7 @@ ml:
     ignore: "Ignore"
     infinite_scroll:
       no_more: "കൂടുതല്‍ പോസ്റ്റുകളൊന്നുമില്ല."
+    participate: "Participate"
     photo_uploader:
       looking_good: "OMG, you look awesome!"
     publisher:

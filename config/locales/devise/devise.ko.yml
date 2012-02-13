@@ -20,7 +20,7 @@ ko:
       unauthenticated: "더 나아가려면 로그인하거나 가입해야 합니다."
       unconfirmed: "더 나아가기 전에 계정을 확인해야 합니다."
     invitations:
-      invitation_token_invalid: "초대장 토큰이 유효하지 않습니다!"
+      invitation_token_invalid: "죄송합니다! 초대장 토큰이 유효하지 않습니다."
       send_instructions: "초대장을 보냈습니다"
       updated: "암호를 성공적으로 바꾼 뒤 로그인했습니다."
     mailer:

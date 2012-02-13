@@ -202,7 +202,7 @@ de:
       add_to_aspect: "Füge Kontakte zu %{name} hinzu"
       add_to_aspect_link: "füge Kontakte zu »%{name}« hinzu"
       all_contacts: "Alle Kontakte"
-      community_spotlight: Gemeinschafts-Schaukasten
+      community_spotlight: Gemeinschafts-Focus
       many_people_are_you_sure: "Bist du dir sicher, dass du eine private Unterhaltung mit mehr als %{suggested_limit} Kontakten beginnen möchtest? Einen Beitrag in diesen Aspekt zu schreiben könnte ein besserer Weg sein, um sie zu kontaktieren."
       my_contacts: "Meine Kontakte"
       no_contacts: "Sieht so aus, als müsstest du einige Kontakte hinzufügen!"
@@ -300,8 +300,9 @@ de:
     new:
       already_invited: "Die folgenden Personen haben deine Einladung nicht angenommen:"
       aspect: Aspekt
+      check_out_diaspora: "Erkunde Diaspora!"
       comma_seperated_plz: "Du kannst mehrere E-Mail-Adressen durch Trennen mit Kommata eintragen."
-      if_they_accept_info: "Wenn sie akzeptieren, werden sie zu dem Aspekt hinzugefügt, in den du sie eingeladen hast."
+      if_they_accept_info: "Wenn sie deine Einladung annehmen, werden sie zu dem Aspekt hinzugefügt, in den du sie eingeladen hast."
       invite_someone_to_join: "Lade jemanden zu Diaspora ein!"
       language: Sprache
       personal_message: "Persönliche Nachricht"
@@ -336,13 +337,6 @@ de:
         other: "%{count} Personen gefällt das nicht"
         two: "%{count} Personen gefällt das nicht"
         zero: "Keinem gefällt das nicht"
-      people_like_this:
-        few: "%{count} Personen gefällt das"
-        many: "%{count} Personen gefällt das"
-        one: "Einer Person gefällt das"
-        other: "%{count} Personen gefällt das"
-        two: "%{count} Personen gefällt das"
-        zero: "Keinem gefällt das"
       people_like_this_comment:
         few: "Gefällt %{count}"
         many: "Gefällt %{count}"
@@ -350,6 +344,13 @@ de:
         other: "Gefällt %{count}"
         two: "Gefällt %{count}"
         zero: "Gefällt niemandem"
+      people_pin_this:
+        few: "%{count} pins"
+        many: "%{count} pins"
+        one: "%{count} pin"
+        other: "%{count} pins"
+        two: "%{count} pins"
+        zero: "no pins"
   limited: Begrenzt
   more: Mehr
   next: Nächste
@@ -518,7 +519,7 @@ de:
       remove_contact: "Kontakt entfernen"
       remove_from: "%{name} aus %{aspect} entfernen?"
     show:
-      closed_account: "Dieser Konto wurde geschlossen."
+      closed_account: "Dieses Konto wurde geschlossen."
       does_not_exist: "Diese Person existiert nicht!"
       has_not_shared_with_you_yet: "%{name} hat bisher noch keine Beiträge mit dir geteilt!"
       ignoring: "Du ignorierst alle Beiträge von %{name}."
@@ -714,11 +715,11 @@ de:
   shared:
     add_contact:
       add_new_contact: "Einen neuen Kontakt hinzufügen"
-      create_request: "Finde mittels Diaspora ID"
+      create_request: "Mittels Diaspora-ID finden"
       diaspora_handle: diaspora@beispiel.org
-      enter_a_diaspora_username: "Gib einen Diaspora-Benutzernamen ein:"
+      enter_a_diaspora_username: "Gib bitte einen Diaspora-Benutzernamen ein:"
       know_email: "Du kennst die E-Mail-Adresse? Sende eine Einladung!"
-      your_diaspora_username_is: "Dein Diaspora Nutzername ist: %{diaspora_handle}"
+      your_diaspora_username_is: "Dein Diaspora-Nutzername ist: %{diaspora_handle}"
     aspect_dropdown:
       add_to_aspect: "Kontakt hinzufügen"
       toggle:
@@ -780,11 +781,9 @@ de:
       hide_and_mute: "Beitrag verbergen und stummschalten"
       ignore_user: "%{name} ignorieren"
       ignore_user_description: "Diesen Benutzer ignorieren und aus allen Aspekten entfernen?"
-      like: "Gefällt mir"
       nsfw: "Dieser Post wurde vom Autor als NSFW markiert. %{link}"
       shared_with: "Geteilt mit: %{aspect_names}"
       show: zeigen
-      unlike: "Gefällt mir nicht mehr"
       viewable_to_anyone: "Dieser Beitrag ist für jeden im Web sichtbar"
   status_messages:
     create:
@@ -818,7 +817,7 @@ de:
     comment_stream:
       contacts_title: "Leute, deren Beiträge du kommentiert hast"
       title: "Kommentierte Beiträge"
-    community_spotlight_stream: Gemeinschafts-Schaukasten
+    community_spotlight_stream: Gemeinschafts-Fokus
     followed_tag:
       add_a_tag: "Füge einen Tag hinzu"
       contacts_title: "Leute, denen diese Tags gefallen"
@@ -834,6 +833,9 @@ de:
       title: "@Erwähnungen"
     multi:
       contacts_title: "Personen in deinem Stream"
+      title: Stream
+    participate:
+      title: Teilnehmen
     public:
       contacts_title: "Aktuelle Poster"
       title: "Öffentliche Aktivität"

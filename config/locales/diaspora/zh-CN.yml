@@ -255,13 +255,6 @@ zh-CN:
         other: "有%{count}个人觉得不好"
         two: "%{count} dislikes"
         zero: 没有人觉得不好
-      people_like_this:
-        few: "有%{count}个人觉得好"
-        many: "有%{count}个人觉得好"
-        one: 有1个人觉得好
-        other: "有%{count}个人觉得好"
-        two: "%{count} likes"
-        zero: 没有人觉得好
       people_like_this_comment:
         few: "%{count} likes"
         many: "%{count} likes"
@@ -269,6 +262,13 @@ zh-CN:
         other: "%{count} likes"
         two: "%{count} likes"
         zero: "no likes"
+      people_pin_this:
+        few: "%{count} pins"
+        many: "%{count} pins"
+        one: "%{count} pin"
+        other: "%{count} pins"
+        two: "%{count} pins"
+        zero: "no pins"
   more: 更多
   next: 下一步
   no_results: 没有找到符合条件的内容
@@ -639,8 +639,6 @@ zh-CN:
     stream_element:
       dislike: 不喜欢
       hide_and_mute: "Hide and Mute"
-      like: 喜欢
-      unlike: 不喜欢
       via: "通过 %{link}"
   status_messages:
     create:
@@ -668,8 +666,14 @@ zh-CN:
       two: "Show two more comments"
       zero: "No more comments"
   streams:
+    like_stream:
+      contacts_title: "People whose posts you like"
+      title: "Like Stream"
     mentions:
       title: "Your Mentions"
+    multi:
+      contacts_title: "People in your Stream"
+      title: Stream
     tags:
       contacts_title: "People who dig these tags"
   tag_followings:

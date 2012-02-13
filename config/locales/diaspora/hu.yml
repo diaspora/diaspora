@@ -48,6 +48,7 @@ hu:
       video_title:
         unknown: "Ismeretlen videó cím"
   are_you_sure: "Biztos vagy benne?"
+  are_you_sure_delete_account: "Biztos, hogy le akarod zárni a fiókodat?"
   aspect_memberships:
     destroy:
       failure: "Személy törlése a csoportból sikertelen"
@@ -199,10 +200,14 @@ hu:
     index:
       add_a_new_aspect: "Új csoport"
       add_to_aspect: "Kapcsolatok hozzáadása %{name}"
+      add_to_aspect_link: "ismerősök hozzáadása: %{name}"
       all_contacts: "Összes ismerős"
+      community_spotlight: "Közösségi Reflektorfény"
       many_people_are_you_sure: "Biztos, hogy privát beszélgetést akarsz kezdeményezni több mint %{suggested_limit} személlyel? Talán jobb lenne, ha bejegyzést írnál ennek a csoportnak."
       my_contacts: Kapcsolataim
       no_contacts: "Nincs ismerősöd."
+      no_contacts_message: "Csekkold le ezt is: %{community_spotlight}"
+      no_contacts_message_with_aspect: "Csekkold le ezt is %{community_spotlight} vagy ezt %{add_to_aspect_link}"
       only_sharing_with_me: "Csak velem oszt meg"
       remove_person_from_aspect: "%{person_name} eltávolítása a(z) \"%{aspect_name}\" csoportból."
       start_a_conversation: "Beszélgetés indítása"
@@ -303,6 +308,7 @@ hu:
       to: Címzett
   layouts:
     application:
+      back_to_top: "Vissza az elejére"
       powered_by: "DIASPORA* fordította ADAMEX"
       public_feed: "Nyílvános Diaspora hírfolyam neki: %{name}"
       toggle: "mobil változat"
@@ -326,13 +332,6 @@ hu:
         other: "%{count} nem kedveli"
         two: "%{count} embernek nem tetszik"
         zero: "nincs negatív visszajelzés"
-      people_like_this:
-        few: "%{count} személy kedveli"
-        many: "%{count} személy kedveli"
-        one: "1 személy kedveli"
-        other: "%{count} személy kedveli"
-        two: "%{count} ember kedveli"
-        zero: "senki nem kedveli"
       people_like_this_comment:
         few: "%{count} kedveli"
         many: "%{count} kedveli"
@@ -340,6 +339,13 @@ hu:
         other: "%{count} tetszik"
         two: "%{count} ember kedveli"
         zero: "nincs 'tetszik'"
+      people_pin_this:
+        few: "%{count} pins"
+        many: "%{count} pins"
+        one: "%{count} pin"
+        other: "%{count} pins"
+        two: "%{count} pins"
+        zero: "no pins"
   limited: Korlátozott
   more: Bővebben
   next: következő
@@ -509,6 +515,7 @@ hu:
       remove_contact: "kapcsolat törlése"
       remove_from: "Törlöd %{name}-t a %{aspect} csoportból?"
     show:
+      closed_account: "Ez a fiók zárolva lett."
       does_not_exist: "Személy nem létezik!"
       has_not_shared_with_you_yet: "%{name} még nem oszt meg veled semmit."
       ignoring: "Figyelmen kívül hagyod az összes bejegyzést tőle: %{name}."
@@ -569,12 +576,13 @@ hu:
       destroy: Töröl
       not_found: "Bocsi, de nem találjuk a bejegyzést."
       photos_by:
-        few: "%{count} photos by %{author}"
-        many: "%{count} photos by %{author}"
-        one: "One photo by %{author}"
-        other: "%{count} photos by %{author}"
-        two: "Two photos by %{author}"
-        zero: "No photos by %{author}"
+        few: "%{count} fénykép tőle: %{author}"
+        many: "%{count} fénykép tőle: %{author}"
+        one: "Egy fénykép tőle: %{author}"
+        other: "%{count} fénykép tőle: %{author}"
+        two: "Két fénykép tőle: %{author}"
+        zero: "Nincs fénykép tőle: %{author}"
+      reshare_by: "Újraosztva általa: %{author}"
   previous: előző
   privacy: Adatvédelem
   privacy_policy: Adatvédelem
@@ -768,9 +776,9 @@ hu:
       hide_and_mute: "Bejegyzés elrejtése és némítása"
       ignore_user: "Mellőz: %{name}"
       ignore_user_description: "A felhasználó eltávolítása és mellőzése az összes körből?"
-      like: Tetszik
+      nsfw: "Ez a bejegyzés \"nem biztonságos\" jelölést kapott a szerzőjétől. %{link}"
       shared_with: "Megosztva vele: %{aspect_names}"
-      unlike: "Nem tetszik"
+      show: megmutat
       via: "ezen keresztül: %{link}"
       viewable_to_anyone: "Ez a bejegyzés bárki számára megtekinthető az interneten."
   status_messages:
@@ -812,7 +820,10 @@ hu:
       follow: Követ
       title: "#követett címkék"
     followed_tags_stream: "#Követett címkék"
-    mentioned_stream: "@említéses"
+    like_stream:
+      contacts_title: "Ismerősök, akiknek kedveled a bejegyzéseit"
+      title: Kedveled
+    mentioned_stream: "@említések"
     mentions:
       contacts_title: "Emberek, akik megemlítettek"
       title: "@Megemlítettek"
@@ -829,6 +840,7 @@ hu:
   tag_followings:
     create:
       failure: "#%{name} követése nem sikerült. Talán már eddig is követted?"
+      none: "Nem követhetsz egy üres címkét!"
       success: "Hurrá! Figyelemmel követed #%{name} dolgait."
     destroy:
       failure: "Hiba #%{name} követésének leállításakor. Talán már nem is követed őt? "
@@ -843,6 +855,7 @@ hu:
       people_tagged_with: "Személy felcímkézve: %{tag}"
       posts_tagged_with: "Bejegyzések felcímkézve: #%{tag}"
       stop_following: "Címke-követés leállítása #%{tag}"
+  terms_and_conditions: "Felhasználási feltételek"
   tokens:
     show:
       connect_to_cubbies: "Csatlakozás ehhez: Cubbi.es"
@@ -866,12 +879,22 @@ hu:
       wrong_password: "A megadott jelszó nem felel meg."
     edit:
       also_commented: "...más is hozzászólt az ismerősöd bejegyzéséhez?"
+      auto_follow_aspect: "Csoport az automatikusan követett felhasználóknak:"
+      auto_follow_back: "Automatikusan követsz valakit, ha ő követ téged"
       change: Módosítás
       change_email: "Email megváltoztatása"
       change_language: "Nyelv megváltoztatása"
       change_password: "Jelszó módosítása"
       close_account:
-        what_we_delete: "We delete all of your posts, profile data, as soon as humanly possible. Your comments will hang around, but be associated with your Diaspora Handle."
+        dont_go: "Hé, kérlek ne menj!"
+        if_you_want_this: "Ha tényleg ezt akarod, írd be a jelszavad és kattints a \"Fiók bezárása\" gombra."
+        lock_username: "Le tudod védeni a felhasználóneved, ha esetleg mégis úgy döntenél, hogy újra regisztrálsz."
+        locked_out: "Ki leszel léptetve."
+        make_diaspora_better: "Ha el akarod hagyni az oldalt, kérlek olvasd el mi fog következni."
+        mr_wiggles: "Vuk szomorú lesz, mert lát téged elmenni."
+        no_turning_back: "Nincs visszaút."
+        what_we_delete: "Töröljük az összes bejegyzésedet és profil adataidat amint tudjuk. A kommentjeid megmaradnak."
+      close_account_text: "Fiók bezárása"
       comment_on_post: "...valaki hozzászólt egy bejegyzésedhez?"
       current_password: "Jelenlegi jelszó"
       download_photos: "Képeim letöltése"
@@ -879,6 +902,7 @@ hu:
       edit_account: "Fiók szerkesztése"
       email_awaiting_confirmation: "Aktivációs link elküldve ide: %{unconfirmed_email}. Amíg nem erősíted meg az új címed, addig a régit használjuk: %{email}."
       export_data: "Adatok exportálása"
+      following: "Követési beállítások"
       getting_started: "Új felhasználó beállítások"
       liked: "... valakinek tetszik a bejegyzésed?"
       mentioned: "...meg vagy említve egy bejegyzésben?"
@@ -919,6 +943,8 @@ hu:
       does_not_exist: "%{username} nem létezik!"
     update:
       email_notifications_changed: "E-mail értesítések módosítva"
+      follow_settings_changed: "Követési beállítások megváltoztak"
+      follow_settings_not_changed: "Követési beállítások megváltoztatása sikertelen."
       language_changed: "Nyelv megváltozott"
       language_not_changed: "Nyelv megváltoztatása nem sikerült"
       password_changed: "A jelszó megváltozott, már bejelentkezhetsz az új jelszóval."
@@ -934,3 +960,6 @@ hu:
     not_enabled: "a webfinger nincs engedélyezve %{account} kiszolgálóján"
     xrd_fetch_failed: "%{account} fiókjából nem sikerült az XRD kiolvasása"
   welcome: Üdv!
+  will_paginate:
+    next_label: "következő &raquo;"
+    previous_label: "&laquo; előző"

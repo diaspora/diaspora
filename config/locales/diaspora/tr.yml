@@ -202,10 +202,14 @@ tr:
     index:
       add_a_new_aspect: "Yeni yön ekle"
       add_to_aspect: "%{name} unsuruna kişi ekle"
+      add_to_aspect_link: "kişileri %{name} yönüne ekle"
       all_contacts: "Tüm Kişiler"
+      community_spotlight: "Topluluk Haberleri"
       many_people_are_you_sure: "%{suggested_limit} sayısından yüksek kişiyle özel görüşme başlatmak istediğinden emin misin? Bu yöne gönderi yapmak onlarla iletişime geçmek için daha iyi bir yol olabilir."
       my_contacts: Kişilerim
       no_contacts: "Birkaç kişi eklemen gerekir gibi görünüyor!"
+      no_contacts_message: "%{community_spotlight}'ni ziyaret et"
+      no_contacts_message_with_aspect: "%{community_spotlight}'ni ziyaret et ya da %{add_to_aspect_link}"
       only_sharing_with_me: "Benimle paylaşım yapan"
       remove_person_from_aspect: "%{person_name} kişisini \"%{aspect_name}\" yönünden kaldır"
       start_a_conversation: "Bir iletişim başlatın"
@@ -293,6 +297,7 @@ tr:
     new:
       already_invited: "Aşağıdaki kişiler davetinizi kabul etmedi:"
       aspect: Yön
+      check_out_diaspora: "Diaspora'yı deneyin!"
       comma_seperated_plz: "Virgülle ayırarak birden fazla e-posta adresi girebilirsin."
       if_they_accept_info: "kabul ederseler, yönünüze eklenecekler."
       invite_someone_to_join: "Diaspora'ya birilerini davet et!"
@@ -304,6 +309,7 @@ tr:
       to: Kime
   layouts:
     application:
+      back_to_top: "Sayfa başına dön"
       powered_by: "GELİŞTİRİCİ DIASPORA*"
       public_feed: " %{name} için Genel Diaspora Beslemesi"
       toggle: "mobil site"
@@ -327,13 +333,6 @@ tr:
         other: "%{count} kişi beğenmedi"
         two: "%{count} beğenmeme"
         zero: "beğenmeyen yok"
-      people_like_this:
-        few: "%{count} kişi beğendi"
-        many: "%{count} kişi beğendi"
-        one: "1 kişi beğendi"
-        other: "%{count} kişi beğendi"
-        two: "%{count} kişi beğendi"
-        zero: "beğenme yok"
       people_like_this_comment:
         few: "%{count} kişi bunu beğendi"
         many: "%{count} kişi bunu beğendi!"
@@ -341,6 +340,13 @@ tr:
         other: "%{count} beğenme"
         two: "%{count} kişi bunu beğendi"
         zero: "beğenen yok"
+      people_pin_this:
+        few: "%{count} kez iğnelendi"
+        many: "%{count} kez iğnelendi"
+        one: "%{count} kez iğnelendi"
+        other: "%{count} kez iğnelendi"
+        two: "%{count} kez iğnelendi"
+        zero: "hiç iğnelenmemiş"
   limited: Sınırlı
   more: "Daha fazla"
   next: sonraki
@@ -387,19 +393,19 @@ tr:
       mark_all_as_read: "Tümünü okundu olarak işaretle"
       notifications: Bildirimler
     liked:
-      few: "%{actors} %{post_link} beğendi."
-      many: "%{actors} %{post_link} beğendi."
-      one: "%{actors} %{post_link} beğendi."
-      other: "%{actors} %{post_link} gönderini beğendi."
-      two: "%{actors} %{post_link}yi beğendi."
-      zero: "%{actors} %{post_link} beğendi."
+      few: "%{actors} senin %{post_link} unsurunu iğneledi."
+      many: "%{actors} senin %{post_link} unsurunu iğneledi."
+      one: "%{actors} senin %{post_link} unsurunu iğneledi."
+      other: "%{actors} senin %{post_link} unsurunu iğneledi."
+      two: "%{actors} senin %{post_link} unsurunu iğneledi."
+      zero: "%{actors} senin %{post_link} unsurunu iğneledi."
     liked_post_deleted:
-      few: "%{actors} silinmiş gönderinizi beğendi."
-      many: "%{actors} silinmiş gönderinizi beğendi."
-      one: "%{actors} silinmiş gönderinizi beğendi."
-      other: "%{actors} silinmiş gönderinizi beğendi."
-      two: "%{actors} silinen gönderiyi beğendi."
-      zero: "%{actors} silinmiş gönderinizi beğendi."
+      few: "%{actors} silinmiş gönderinizi iğneledi."
+      many: "%{actors} silinmiş gönderinizi iğneledi."
+      one: "%{actors} silinmiş gönderinizi iğneledi."
+      other: "%{actors} silinmiş gönderinizi iğneledi."
+      two: "%{actors} silinen gönderiyi iğneledi."
+      zero: "%{actors} silinmiş gönderinizi iğnelemedi."
     mentioned:
       few: "%{actors} %{post_link} senden bahsetti."
       many: "%{actors} %{post_link} senden bahsetti."
@@ -454,7 +460,7 @@ tr:
     email_sent_by_diaspora: "Bu e-posta Diaspora tarafından gönderildi. Bu gibi e-postalar almak istemiyorsanız,"
     hello: "Merhaba %{name}!"
     liked:
-      liked: "%{name} gönderinizi beğendi."
+      liked: "%{name} gönderini iğneledi."
       view_post: "Gönderiyi görüntüle >"
     mentioned:
       mentioned: "gönderisinde senden bahsetti:"
@@ -736,6 +742,7 @@ tr:
     notification:
       new: "%{from}'den yeni %{type}"
     public_explain:
+      atom_feed: "Atom beslemesi"
       control_your_audience: "Hedef Kitle Kontrolü"
       logged_in: "%{service} servisine bağlandınız."
       manage: "bağlı servisleri yönetin"
@@ -770,11 +777,11 @@ tr:
       hide_and_mute: "Gönderiyi gizle ve sustur"
       ignore_user: "%{name} isimli kullanıcıyı görmezden gel"
       ignore_user_description: "Kullanıcı görmezden gelinip tüm yönlerden kaldırılsın mı?"
-      like: Beğen
       nsfw: "Bu gönderi yazarı tarafından NSFW ile etiketlenmiştir. %{link}"
+      pin: İğnele
       shared_with: "%{aspect_names} ile paylaşıldı"
       show: göster
-      unlike: Beğenme
+      unpin: "İğnelemeyi kaldır"
       via: "%{link} ile"
       viewable_to_anyone: "Bu gönderi web üzerindeki herkes tarafından görünebilir."
   status_messages:
@@ -817,15 +824,17 @@ tr:
       title: "#Takip Edilen Etiketler"
     followed_tags_stream: "#Takip Edilen Etiketler"
     like_stream:
-      contacts_title: "Gönderilerini beğendiğin kişiler"
-      title: "Beğenilenler akışı"
+      contacts_title: "Gönderilerini iğnelediğin kişiler"
+      title: "İğnelenenler akışı"
     mentioned_stream: "@Bahsedenler"
     mentions:
       contacts_title: "Senden Bahsedenler"
       title: "@Bahsedenler"
     multi:
-      contacts_title: Kişiler
-      title: Akış
+      contacts_title: "Göz atma akışındaki kişiler"
+      title: "Göz at"
+    participate:
+      title: Katıl
     public:
       contacts_title: "Yeni Düzen"
       title: "Genel Aktiviteler"
@@ -901,7 +910,7 @@ tr:
       export_data: "Bilgilerimi Dışarı taşı"
       following: "İzleme ayarları"
       getting_started: "Yeni Kullanıcı Tercihleri"
-      liked: "...birisi gönderimi beğendiğinde?"
+      liked: "...birisi gönderimi iğnelediğinde?"
       mentioned: "...benden bahsedildiğinde?"
       new_password: "Yeni parola"
       photo_export_unavailable: "Fotoğraf aktarma şu anda kullanılamıyor"
@@ -929,7 +938,7 @@ tr:
     logged_out:
       go_mobile: "Şimdi mobil olun."
       on_your_mobile_device: "mobil cihazınız üzerinden diaspora* mobile erişim."
-      signed_out: "Diaspora'dan çıkış yaptınız*"
+      signed_out: "Diaspora'dan çıkış yaptın"
       simply_visit: "Basitçe ziyaret"
       works_on_modern: "Tüm modern akıllı telefonlarda çalışır"
     privacy_settings:

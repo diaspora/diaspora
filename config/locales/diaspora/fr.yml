@@ -195,10 +195,14 @@ fr:
     index:
       add_a_new_aspect: "Ajouter un nouvel aspect"
       add_to_aspect: "ajouter les contacts à %{name}"
+      add_to_aspect_link: "ajoutez les contacts à %{name}"
       all_contacts: "Tous les contacts"
+      community_spotlight: "Actualités de la communauté"
       many_people_are_you_sure: "Êtes-vous sûr de vouloir commencer une conversation privée avec plus de %{suggested_limit} contacts? Envoyer des messages à cet aspect peut être un meilleur moyen de les contacter."
       my_contacts: "Mes Contacts"
       no_contacts: "On dirait que vous avez besoin d'ajouter quelques contacts !"
+      no_contacts_message: "Consultez %{community_spotlight}"
+      no_contacts_message_with_aspect: "Consultez %{community_spotlight} ou %{add_to_aspect_link}"
       only_sharing_with_me: "Partage uniquement avec moi"
       remove_person_from_aspect: "Enlever %{person_name} de \"%{aspect_name}\""
       start_a_conversation: "Démarrer une conversation"
@@ -289,6 +293,7 @@ fr:
       your_account_awaits: "Votre compte vous attend !"
     new:
       already_invited: "Les personnes suivantes n'ont pas accepté votre invitation :"
+      check_out_diaspora: "Essayez Diaspora !"
       comma_seperated_plz: "Vous pouvez entrer plusieurs adresses de courrier électronique séparées par des virgules."
       if_they_accept_info: "s'ils acceptent, ils seront ajoutés à l'aspect dans lequel vous les avez invités."
       invite_someone_to_join: "Inviter quelqu'un à rejoindre Diaspora !"
@@ -322,13 +327,6 @@ fr:
         other: "%{count} personnes n'aiment pas"
         two: "%{count} n'aiment pas"
         zero: "Personne n'aime pas"
-      people_like_this:
-        few: "%{count} personnes aiment"
-        many: "%{count} personnes aiment"
-        one: "%{count} personne aime"
-        other: "%{count} personnes aiment"
-        two: "%{count} aiment"
-        zero: "Personne n'aime ça"
       people_like_this_comment:
         few: "%{count} aiment"
         many: "%{count} aiment"
@@ -336,6 +334,13 @@ fr:
         other: "%{count} aiment"
         two: "%{count} aiment"
         zero: "personne n'aime"
+      people_pin_this:
+        few: "Épinglé %{count} fois"
+        many: "Épinglé %{count} fois"
+        one: "Épinglé %{count} fois"
+        other: "Épinglé %{count} fois"
+        two: "Épinglé %{count} fois"
+        zero: "Pas encore épinglé"
   limited: Limité
   more: Plus
   next: suivant
@@ -381,19 +386,19 @@ fr:
         zero: "et personne d'autre"
       mark_all_as_read: "Tout marquer comme lu"
     liked:
-      few: "%{actors} ont aimé votre %{post_link}."
-      many: "%{actors} ont aimé votre %{post_link}."
-      one: "%{actors} a aimé votre %{post_link}."
-      other: "%{actors} ont aimé votre %{post_link}."
-      two: "%{actors} ont aimé votre %{post_link}."
-      zero: "%{actors} n'a aimé votre %{post_link}."
+      few: "%{actors} ont épinglé votre %{post_link}."
+      many: "%{actors} ont épinglé votre %{post_link}."
+      one: "%{actors} a épinglé votre %{post_link}."
+      other: "%{actors} ont épinglé votre %{post_link}."
+      two: "%{actors} ont épinglé votre %{post_link}."
+      zero: "%{actors} n'a épinglé votre %{post_link}."
     liked_post_deleted:
-      few: "%{actors} ont aimé votre message supprimé."
-      many: "%{actors} ont aimé votre message supprimé."
-      one: "%{actors} a aimé votre message supprimé."
-      other: "%{actors} a/ont aimé votre message supprimé."
-      two: "%{actors} aiment le message que vous avez supprimé."
-      zero: "%{actors} a/ont aimé votre message supprimé."
+      few: "%{actors} ont épinglé votre message supprimé."
+      many: "%{actors} ont épinglé votre message supprimé."
+      one: "%{actors} a épinglé votre message supprimé."
+      other: "%{actors} a/ont épinglé votre message supprimé."
+      two: "%{actors} ont épinglé le message que vous avez supprimé."
+      zero: "%{actors} a/ont épinglé votre message supprimé."
     mentioned:
       few: "%{actors} vous ont mentionné(e) dans un %{post_link}."
       many: "%{actors} vous ont mentionné(e) dans un %{post_link}."
@@ -448,7 +453,7 @@ fr:
     email_sent_by_diaspora: "Ce courriel a été envoyé par Diaspora. Si vous ne souhaitez plus recevoir des courriels de ce genre,"
     hello: "Bonjour %{name} !"
     liked:
-      liked: "%{name} aime votre message"
+      liked: "%{name} a épinglé votre message"
       view_post: "Voir le message >"
     mentioned:
       mentioned: "vous a mentionné(e) dans un message :"
@@ -727,6 +732,7 @@ fr:
     notification:
       new: "Nouveau/nouvelle %{type} de %{from}"
     public_explain:
+      atom_feed: "Flux Atom"
       control_your_audience: "Contrôlez votre audience"
       logged_in: "connecté(e) à %{service}"
       manage: "gérer les services connectés"
@@ -761,11 +767,11 @@ fr:
       hide_and_mute: "Masquer et mettre le message en sourdine"
       ignore_user: "Ignorez %{name}"
       ignore_user_description: "Ignorez et supprimer l'utilisateur de tous les aspects ?"
-      like: J'aime
       nsfw: "Le message a été marqué par son auteur comme étant EXPLICITE. %{link}"
+      pin: Épingler
       shared_with: "Partagé avec : %{aspect_names}"
       show: montrer
-      unlike: "Je n'aime plus"
+      unpin: "Ne plus épingler"
       viewable_to_anyone: "Publication visible par n'importe qui sur le web"
   status_messages:
     create:
@@ -806,13 +812,15 @@ fr:
       title: "#Tags Suivis"
     followed_tags_stream: "#Tags Suivis"
     like_stream:
-      contacts_title: "Personnes dont vous aimez les commentaires"
-      title: "Flux de \"J'aime\""
+      contacts_title: "Personnes dont vous avec épinglé les commentaires"
+      title: "Flux des éléments épinglés"
     mentions:
       contacts_title: "Personnes qui vous ont mentionné"
     multi:
-      contacts_title: "Personnes dans votre flux"
-      title: Flux
+      contacts_title: "Personnes dans votre flux d'exploration"
+      title: Explorer
+    participate:
+      title: Participer
     public:
       contacts_title: "Posteurs récents"
       title: "Activité publique"
@@ -887,7 +895,7 @@ fr:
       export_data: "Exporter des données"
       following: "Paramètres de suivi"
       getting_started: "Préférences de nouvel utilisateur"
-      liked: "... quelqu'un aime votre message ?"
+      liked: "... quelqu'un a épinglé votre message ?"
       mentioned: "…vous êtes mentionné(e) dans une publication ?"
       new_password: "Nouveau mot de passe"
       photo_export_unavailable: "L'exportation des photos est actuellement indisponible"

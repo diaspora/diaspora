@@ -83,13 +83,6 @@ ka:
         other: "%{count} dislikes"
         two: "%{count} dislikes"
         zero: "no dislikes"
-      people_like_this:
-        few: "%{count} likes"
-        many: "%{count} likes"
-        one: "%{count} like"
-        other: "%{count} likes"
-        two: "%{count} likes"
-        zero: "no likes"
       people_like_this_comment:
         few: "%{count} likes"
         many: "%{count} likes"
@@ -97,6 +90,13 @@ ka:
         other: "%{count} likes"
         two: "%{count} likes"
         zero: "no likes"
+      people_pin_this:
+        few: "%{count} pins"
+        many: "%{count} pins"
+        one: "%{count} pin"
+        other: "%{count} pins"
+        two: "%{count} pins"
+        zero: "no pins"
   notifications:
     also_commented:
       few: "%{actors} also commented on %{post_author}'s %{post_link}."
@@ -191,6 +191,9 @@ ka:
       other: "%{actors} started sharing with you."
       two: "%{actors} started sharing with you."
       zero: "%{actors} started sharing with you."
+  notifier:
+    liked:
+      liked: "%{name} liked your post"
   people:
     few: "%{count} people"
     many: "%{count} people"
@@ -260,11 +263,19 @@ ka:
       other: "Show %{count} more comments"
       two: "Show two more comments"
       zero: "No more comments"
+  streams:
+    like_stream:
+      contacts_title: "People whose posts you like"
+      title: "Like Stream"
+    multi:
+      contacts_title: "People in your Stream"
+      title: Stream
   users:
     edit:
       change_language: "ენის შეცვლა"
       close_account:
         what_we_delete: "We delete all of your posts, profile data, as soon as humanly possible. Your comments will hang around, but be associated with your Diaspora Handle."
+      liked: "...someone likes your post?"
       your_handle: "Your diaspora id"
     update:
       language_changed: "ენა შიეცვალა"

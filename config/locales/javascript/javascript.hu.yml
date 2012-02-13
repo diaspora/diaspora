@@ -9,16 +9,16 @@ hu:
     aspect_dropdown:
       add_to_aspect: "Hozzáadás a csoporthoz"
       all_aspects: "Összes csoport"
-      error: "Nem indult el a megosztás vele: {{name}}. Visszavonod?"
+      error: "Nem indult el a megosztás vele: <%= name %>. Visszavonod?"
       select_aspects: "Csoportok kiválasztása"
-      started_sharing_with: "Mostantól megosztassz vele: {{name}}!"
-      stopped_sharing_with: "Nem osztassz meg többé vele: {{name}}."
+      started_sharing_with: "Mostantól megosztassz vele: <%= name %>!"
+      stopped_sharing_with: "Nem osztassz meg többé vele: <%= name %>."
       toggle:
-        few: "{{count}} csoportban"
-        many: "{{count}} csoportban"
-        one: "{{count}} csoportban"
-        other: "{{count}} csoportban"
-        two: "{{count}} csoportban"
+        few: "<%= count %> csoportban"
+        many: "<%= count %> csoportban"
+        one: "<%= count %> csoportban"
+        other: "<%= count %> csoportban"
+        two: "<%= count %> csoportban"
         zero: "Csoportok kiválasztása"
     aspect_navigation:
       deselect_all: "Összes kijelölés megszüntetése"
@@ -28,13 +28,27 @@ hu:
       hide: "hozzászólások elrejtése"
       show: "összes hozzászólás"
     confirm_dialog: "Biztos vagy benne?"
+    delete: Töröl
     failed_to_like: Hiba
     failed_to_post_message: "Üzenet elküldése sikertelen!"
     getting_started:
       alright_ill_wait: "Rendben, várok!"
-      hey: "Szia {{name}}!"
+      hey: "Szia <%= name %>!"
       no_tags: "Hékás, nem követtél egy #címkét sem! Így is folytatod?"
       preparing_your_stream: "Személyre szabott hírfolyamod előkészítése..."
+    header:
+      contacts: Ismerősök
+      home: Kezdőlap
+      log_out: Kijelentkezés
+      mark_all_as_read: "Összes olvasottnak jelölése"
+      messages: Üzenetek
+      notifications: Értesítések
+      profile: Profil
+      recent_notifications: "Friss értesítések"
+      search: "Ismerős vagy #címke keresése"
+      settings: Beállítások
+      view_all: Összes
+    ignore: Elutasít
     infinite_scroll:
       no_more: "Nincs több bejegyzés."
     photo_uploader:
@@ -45,32 +59,42 @@ hu:
       public: "Nyilvános - ezt a bejegyzést bárki láthatja az interneten."
     reshares:
       duplicate: "Jó mi? De már egyszer megosztottad ezt a bejegyzést!"
-    search_for: "{{name}} keresése."
+    search_for: "<%= name %> keresése."
     show_more: tovább
     stream:
+      comment: Hozzászólás
+      hide: Elrejt
+      like: Tetszik
       likes:
-        few: "<%= count %> Likes"
-        many: "<%= count %> Likes"
-        one: "<%= count %> Like"
-        other: "<%= count %> Likes"
-        two: "<%= count %> Likes"
-        zero: "<%= count %> Likes"
+        few: "<%= count %> kedveli"
+        many: "<%= count %> kedveli"
+        one: "<%= count %> kedveli"
+        other: "<%= count %> kedveli"
+        two: "<%= count %> kedveli"
+        zero: "<%= count %> kedveli"
+      limited: Korlátozott
       more_comments:
-        few: "Show <%= count %> more comments"
-        many: "Show <%= count %> more comments"
-        one: "Show <%= count %> more comment"
-        other: "Show <%= count %> more comments"
-        two: "Show <%= count %> more comments"
-        zero: "Show <%= count %> more comments"
+        few: "Mutasd a többi <%= count %> hozzászólást"
+        many: "Mutasd a további <%= count %> hozzászólást"
+        one: "Mutasd a többi <%= count %> hozzászólást"
+        other: "Mutasd a többi <%= count %> hozzászólást"
+        two: "Mutasd a többi <%= count %> hozzászólást"
+        zero: "Mutasd a többi <%= count %> hozzászólást"
+      nsfw: "A bejegyzés \"nem biztonságosnak\" lett jelölve a szerzője által."
+      original_post_deleted: "Eredeti bejegyzés törölve a szerzője által."
+      public: Publikus
+      reshare: Megosztás
       reshares:
-        few: "<%= count %> Reshares"
-        many: "<%= count %> Reshares"
-        one: "<%= count %> Reshare"
-        other: "<%= count %> Reshares"
-        two: "<%= count %> Reshares"
-        zero: "<%= count %> Reshares"
+        few: "<%= count %> megosztás"
+        many: "<%= count %> megosztás"
+        one: "<%= count %> megosztás"
+        other: "<%= count %> megosztás"
+        two: "<%= count %> megosztás"
+        zero: "<%= count %> megosztás"
+      show: Megmutat
+      unlike: "Nem tetszik"
     tags:
-      wasnt_that_interesting: "Oké, azt hiszem a #{{tagName}} nem volt annyira érdekes."
+      wasnt_that_interesting: "Oké, azt hiszem a #<%= tagName %> nem volt annyira érdekes."
     timeago:
       day: "egy nappal"
       days: "%d nappal"
@@ -87,4 +111,4 @@ hu:
       years: "%d évvel"
     videos:
       unknown: "Ismeretlen videó tipus"
-      watch: "Videó megtekintése itt: {{provider}}"
+      watch: "Videó megtekintése itt: <%= provider %>"

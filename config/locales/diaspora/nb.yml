@@ -293,13 +293,6 @@ nb:
         other: "%{count} personer misliker dette"
         two: "%{count} misliker dette"
         zero: "ingen misliker dette"
-      people_like_this:
-        few: "%{count} personer liker dette"
-        many: "%{count} personer liker dette"
-        one: "1 person liker dette"
-        other: "%{count} personer liker dette"
-        two: "%{count} liker dette"
-        zero: "ingen liker dette"
       people_like_this_comment:
         few: "%{count} liker"
         many: "%{count} liker"
@@ -307,6 +300,13 @@ nb:
         other: "%{count} liker"
         two: "%{count} liker dette"
         zero: "ingen liker"
+      people_pin_this:
+        few: "%{count} pins"
+        many: "%{count} pins"
+        one: "%{count} pin"
+        other: "%{count} pins"
+        two: "%{count} pins"
+        zero: "no pins"
   limited: Begrenset
   more: Mer
   next: neste
@@ -717,9 +717,7 @@ nb:
       hide_and_mute: "Hide and Mute"
       ignore_user: "Ignorér %{name}"
       ignore_user_description: "Ignorér og fjern bruker fra alle aspekter?"
-      like: Liker
       shared_with: "Delt med: %{aspect_names}"
-      unlike: "Liker ikke"
       viewable_to_anyone: "Denne posten er synlig for alle på Internett"
   status_messages:
     create:
@@ -753,9 +751,13 @@ nb:
       follow: Følg
     like_stream:
       contacts_title: "Personer hvis poster du liker"
+      title: "Like Stream"
     mentions:
       contacts_title: "Folk som har nevnt deg"
       title: "Your Mentions"
+    multi:
+      contacts_title: "People in your Stream"
+      title: Stream
     public:
       title: "Offentlig aktivitet"
     tags:
