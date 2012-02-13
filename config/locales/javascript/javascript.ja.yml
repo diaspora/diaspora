@@ -19,9 +19,12 @@ ja:
         two: "In <%= count %> aspects"
         zero: "Add to aspect"
     confirm_dialog: 本当にいいですか。
+    failed_to_like: "Failed to like!"
     getting_started:
       hey: "Hey, {{name}}!"
       preparing_your_stream: "Preparing your personialized stream..."
+    header:
+      search: "Find people or #tags"
     infinite_scroll:
       no_more: 投稿はこれ以上ありません。
     publisher:
@@ -30,6 +33,7 @@ ja:
       duplicate: "You've already reshared that post!"
     search_for: "{{name}}を検索する"
     stream:
+      like: Like
       likes:
         few: "<%= count %> Likes"
         many: "<%= count %> Likes"
@@ -51,6 +55,7 @@ ja:
         other: "<%= count %> Reshares"
         two: "<%= count %> Reshares"
         zero: "<%= count %> Reshares"
+      unlike: Unlike
     tags:
       wasnt_that_interesting: "OK, I suppose #{{tagName}} wasn't all that interesting..."
     timeago:

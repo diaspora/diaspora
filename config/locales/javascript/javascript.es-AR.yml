@@ -35,6 +35,8 @@ es-AR:
       hey: "Che, {{name}}!"
       no_tags: "¡Che, no estás siguiendo ningún tag! ¿Continuar de todos modos?"
       preparing_your_stream: "Preparando tu stream personalizado..."
+    header:
+      search: "Find people or #tags"
     infinite_scroll:
       no_more: "No hay más publicaciones."
     photo_uploader:
@@ -48,6 +50,7 @@ es-AR:
     search_for: "Buscar a {{name}}"
     show_more: "mostrar más"
     stream:
+      like: Like
       likes:
         few: "<%= count %> Likes"
         many: "<%= count %> Likes"
@@ -69,6 +72,7 @@ es-AR:
         other: "<%= count %> Reshares"
         two: "<%= count %> Reshares"
         zero: "<%= count %> Reshares"
+      unlike: Unlike
     tags:
       wasnt_that_interesting: "OK, supongamos que #{{tagName}} no era tan interesante..."
     timeago:

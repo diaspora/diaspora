@@ -310,7 +310,7 @@ GEM
       activesupport (= 3.0.11)
       bundler (~> 1.0)
       railties (= 3.0.11)
-    rails-i18n (0.3.0)
+    rails-i18n (0.4.0)
       i18n (~> 0.5)
     railties (3.0.11)
       actionpack (= 3.0.11)

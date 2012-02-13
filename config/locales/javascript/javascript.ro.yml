@@ -35,6 +35,8 @@ ro:
       hey: "Salutare, {{name}}!"
       no_tags: "Hopa, nu urmati nicio eticheta! Continuati si asa ?"
       preparing_your_stream: "Se pregateste fluxul personalizat pentru dvs..."
+    header:
+      search: "Find people or #tags"
     infinite_scroll:
       no_more: "Nu mai sunt posturi."
     photo_uploader:
@@ -47,6 +49,7 @@ ro:
     search_for: "Caută {{name}}"
     show_more: "arată mai mult"
     stream:
+      like: Like
       likes:
         few: "<%= count %> Likes"
         many: "<%= count %> Likes"
@@ -68,6 +71,7 @@ ro:
         other: "<%= count %> Reshares"
         two: "<%= count %> Reshares"
         zero: "<%= count %> Reshares"
+      unlike: Unlike
     tags:
       wasnt_that_interesting: "Bine, presupun ca #{{tagName}} nu a fost chiar atat de interesant..."
     timeago:

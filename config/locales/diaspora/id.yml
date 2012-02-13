@@ -137,13 +137,6 @@ id:
         other: "%{count} people disliked this"
         two: "%{count} dislikes"
         zero: "no people disliked this"
-      people_like_this:
-        few: "%{count} people liked this"
-        many: "%{count} people liked this"
-        one: "1 person liked this"
-        other: "%{count} people liked this"
-        two: "%{count} likes"
-        zero: "no people liked this"
       people_like_this_comment:
         few: "%{count} likes"
         many: "%{count} likes"
@@ -151,6 +144,13 @@ id:
         other: "%{count} likes"
         two: "%{count} likes"
         zero: "no likes"
+      people_pin_this:
+        few: "%{count} pins"
+        many: "%{count} pins"
+        one: "%{count} pin"
+        other: "%{count} pins"
+        two: "%{count} pins"
+        zero: "no pins"
   notifications:
     also_commented:
       few: "%{actors} also commented on %{post_author}'s %{post_link}."
@@ -389,7 +389,6 @@ id:
     stream_element:
       dislike: "I dislike this"
       hide_and_mute: "Hide and Mute"
-      like: "I like this"
   status_messages:
     helper:
       no_message_to_display: "Tidak ada pesan yang dapat ditampilkan."
@@ -410,8 +409,14 @@ id:
       two: "Show two more comments"
       zero: "No more comments"
   streams:
+    like_stream:
+      contacts_title: "People whose posts you like"
+      title: "Like Stream"
     mentions:
       title: "Your Mentions"
+    multi:
+      contacts_title: "People in your Stream"
+      title: Stream
     tags:
       contacts_title: "People who dig these tags"
   tag_followings:
@@ -438,6 +443,7 @@ id:
       download_photos: "Unduh foto-fotoku"
       download_xml: "Unduh xmlku"
       email_awaiting_confirmation: "We have sent you an activation link to %{unconfirmed_email}. Till you follow this link and activate the new address, we will continue to use your original address %{email}."
+      liked: "...someone likes your post?"
       new_password: "New Password"
       receive_email_notifications: "Receive email notificaions?"
       your_handle: "Your diaspora handle"

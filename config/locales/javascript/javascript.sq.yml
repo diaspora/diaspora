@@ -35,6 +35,8 @@ sq:
       hey: "Hej, {{name}}!"
       no_tags: "Hej, nuk jeni duke ndjekur ndonjë etiketë!  Të vazhdohet, sido qoftë?"
       preparing_your_stream: "Po përgatitet rrëkeja juaj e personalizuar..."
+    header:
+      search: "Find people or #tags"
     infinite_scroll:
       no_more: "Nuk ka më postime."
     photo_uploader:
@@ -48,6 +50,7 @@ sq:
     search_for: "Kërkoni për {{name}}"
     show_more: "shfaq më tepër"
     stream:
+      like: Like
       likes:
         few: "<%= count %> Likes"
         many: "<%= count %> Likes"
@@ -69,6 +72,7 @@ sq:
         other: "<%= count %> Reshares"
         two: "<%= count %> Reshares"
         zero: "<%= count %> Reshares"
+      unlike: Unlike
     tags:
       wasnt_that_interesting: "OK, Them se #{{tagName}} nuk qe kushedi se çë interesant..."
     timeago:

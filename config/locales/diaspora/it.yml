@@ -121,7 +121,7 @@ it:
         title: "Saluta i nuovi arrivati"
       no_contacts: "Nessun contatto"
       no_tags: "+ Cerca tag da seguire"
-      people_sharing_with_you: "Persone in condivisione con te"
+      people_sharing_with_you: "Persone che condividono con te"
       post_a_message: "invia un messaggio >>"
       services:
         content: "Puoi collegare i seguenti servizi a Diaspora:"
@@ -198,10 +198,14 @@ it:
     index:
       add_a_new_aspect: "Aggiungi un aspetto"
       add_to_aspect: "aggiungi i contatti a %{name}"
+      add_to_aspect_link: "aggiungi contatti a %{name}"
       all_contacts: "Tutti i contatti"
+      community_spotlight: "in evidenza"
       many_people_are_you_sure: "Stai inviando un messaggio privato a più di %{suggested_limit} contatti. Vuoi farlo davvero? Forse potrebbe essere più opportuno pubblicarlo su un aspetto!"
       my_contacts: "I miei contatti"
       no_contacts: "Probabilmente devi aggiungere qualche contatto!"
+      no_contacts_message: "Guarda gli utenti %{community_spotlight}"
+      no_contacts_message_with_aspect: "Guarda gli utenti %{community_spotlight} oppure %{add_to_aspect_link}"
       only_sharing_with_me: "Condividono con me"
       remove_person_from_aspect: "Rimuovi %{person_name} da \"%{aspect_name}\""
       start_a_conversation: "Inizia una conversazione"
@@ -293,6 +297,7 @@ it:
     new:
       already_invited: "Le seguenti persone non hanno accettato il tuo invito:"
       aspect: Aspetto
+      check_out_diaspora: "Prova Diaspora!"
       comma_seperated_plz: "Puoi inserire più indirizzi email separati da virgole."
       if_they_accept_info: "se accettano, saranno aggiunti all'aspetto in cui li hai invitati."
       invite_someone_to_join: "Invita qualcuno ad entrare in Diaspora!"
@@ -304,6 +309,7 @@ it:
       to: A
   layouts:
     application:
+      back_to_top: "Torna all'inizio"
       powered_by: "CREATO CON DIASPORA*"
       public_feed: "Feed pubblici Diaspora di %{name}"
       toggle: "attiva/disattiva versione mobile"
@@ -326,13 +332,6 @@ it:
         other: "%{count} Non mi piace"
         two: "%{count} non mi piace"
         zero: "0 Non mi piace"
-      people_like_this:
-        few: "%{count} Mi piace"
-        many: "%{count} Mi piace"
-        one: "%{count} Mi piace"
-        other: "%{count} Mi piace"
-        two: "%{count} mi piace"
-        zero: "0 Mi piace"
       people_like_this_comment:
         few: "%{count} mi piace"
         many: "%{count} mi piace"
@@ -340,6 +339,13 @@ it:
         other: "%{count} mi piace"
         two: "%{count} mi piace"
         zero: "0 mi piace"
+      people_pin_this:
+        few: "%{count} annota"
+        many: "%{count} annota"
+        one: "%{count} annota"
+        other: "%{count} annota"
+        two: "%{count} annota"
+        zero: "0 annota"
   limited: "Non pubblico"
   more: Altro
   next: successivo
@@ -386,19 +392,19 @@ it:
       mark_all_as_read: "Segna come lette"
       notifications: Notifiche
     liked:
-      few: "A %{actors} piace il tuo %{post_link}."
-      many: "A %{actors} piace il tuo %{post_link}."
-      one: "A %{actors} piace il tuo %{post_link}."
-      other: "A %{actors} piace il tuo %{post_link}."
-      two: "A %{actors} piace il tuo %{post_link}."
-      zero: "A %{actors} piace il tuo %{post_link}."
+      few: "%{actors} hanno annotato il tuo %{post_link}."
+      many: "%{actors} hanno annotato il tuo %{post_link}."
+      one: "%{actors} ha annotato il tuo %{post_link}."
+      other: "%{actors} hanno annotato il tuo %{post_link}."
+      two: "%{actors} hanno annotato il tuo %{post_link}."
+      zero: "%{actors} hanno annotato il tuo %{post_link}."
     liked_post_deleted:
-      few: "A %{actors} piaceva il messaggio che hai eliminato."
-      many: "A %{actors} piaceva il messaggio che hai eliminato."
-      one: "A %{actors} piaceva il messaggio che hai eliminato."
-      other: "A %{actors} piaceva il messaggio che hai eliminato."
-      two: "A %{actors} piaceva il post che hai eliminato."
-      zero: "A %{actors} piaceva il messaggio che hai eliminato."
+      few: "%{actors} avevano annotato il post che hai eliminato."
+      many: "%{actors} avevano annotato il post che hai eliminato."
+      one: "%{actors} aveva annotato il post che hai eliminato."
+      other: "%{actors} avevano annotato il post che hai eliminato."
+      two: "%{actors} avevano annotato il post che hai eliminato."
+      zero: "%{actors} avevano annotato il post che hai eliminato."
     mentioned:
       few: "%{actors} ti hanno menzionato in un %{post_link}."
       many: "%{actors} ti hanno menzionato in un %{post_link}."
@@ -452,7 +458,7 @@ it:
     email_sent_by_diaspora: "Questo messaggio è stato spedito da Diaspora.  Se preferisci smettere di ricevere questo tipo di email,"
     hello: "Ciao %{name}!"
     liked:
-      liked: "A %{name} piace il tuo post"
+      liked: "%{name} ha annotato un tuo post"
       view_post: "Leggi il post >"
     mentioned:
       mentioned: "ti ha menzionato in un post:"
@@ -471,6 +477,7 @@ it:
       view_profile: "Guarda il profilo di %{name}"
     thanks: "Grazie,"
     to_change_your_notification_settings: "per cambiare le opzioni delle notifiche"
+  nsfw: "NSFW (non adatto ad un luogo di lavoro)"
   or: o
   password_confirmation: "Conferma password"
   people:
@@ -583,6 +590,8 @@ it:
       first_name: Nome
       last_name: Cognome
       update_profile: "Aggiorna Profilo"
+      you_are_nsfw: "Hai impostato tutti i tuoi messaggi come non adatti ad un luogo di lavoro (NSFW), i tuoi contenuti non compariranno alle persone che non vogliono ricevere materiale sconveniente."
+      you_are_safe_for_work: "Hai impostato il tuo utente come \"sicuro\", cioè i contenuti che invierai rispetteranno le linee guida della comunità."
       your_bio: "La tua biografia"
       your_birthday: "Il tuo compleanno"
       your_gender: Sesso
@@ -763,11 +772,11 @@ it:
       hide_and_mute: "Nascondi il post e disattiva le notifiche"
       ignore_user: "Ignora %{name}"
       ignore_user_description: "Vuoi ignorare questo utente e rimuoverlo da tutti gli aspetti?"
-      like: "Mi piace"
-      nsfw: "Questo post è stato marcato dall'autore come non adatto a un luogo di lavoro (NSFW). %{link}"
+      nsfw: "Questo post è stato dichiarato dal suo autore non adatto a un luogo di lavoro (NSFW). %{link}"
+      pin: Annota
       shared_with: "Condiviso con: %{aspect_names}"
       show: mostra
-      unlike: Annulla
+      unpin: "Non annotare"
       viewable_to_anyone: "Questo post è visibile a tutti sul web"
   status_messages:
     create:
@@ -809,14 +818,17 @@ it:
       title: "#Tag che segui"
     followed_tags_stream: "#Tag che segui"
     like_stream:
-      contacts_title: "Persone di cui ti piacciono i post"
-      title: "Post preferiti"
+      contacts_title: "Autori dei post annotati"
+      title: "Post annotati"
     mentioned_stream: "@Menzioni"
     mentions:
       contacts_title: "Persone che ti hanno menzionato"
       title: "@Menzioni"
     multi:
-      contacts_title: "Persone nel tuo stream"
+      contacts_title: "Persone in Esplora"
+      title: Esplora
+    participate:
+      title: Partecipa
     public:
       contacts_title: "Chi ha postato di recente"
       title: "Attività pubblica"
@@ -891,7 +903,7 @@ it:
       export_data: "Esporta Dati"
       following: "Impostazioni dei contatti"
       getting_started: "Preferenze nuovo utente"
-      liked: "...a qualcuno piace un tuo post?"
+      liked: "...qualcuno annota un tuo post?"
       mentioned: "...sei menzionato in un post?"
       new_password: "Nuova password"
       photo_export_unavailable: "Al momento l'esportazione delle foto non è disponibile "

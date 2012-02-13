@@ -35,6 +35,8 @@ de_formal:
       hey: "Hey, {{name}}!"
       no_tags: "Hey, Sie folgen noch keinen Tags! Trotzdem weitermachen?"
       preparing_your_stream: "Ihr personalisierter Stream wird zusammengestellt..."
+    header:
+      search: "Find people or #tags"
     infinite_scroll:
       no_more: "Keine weiteren Beiträge."
     photo_uploader:
@@ -48,6 +50,7 @@ de_formal:
     search_for: "Nach {{name}} suchen"
     show_more: "Mehr zeigen"
     stream:
+      like: Like
       likes:
         few: "<%= count %> Likes"
         many: "<%= count %> Likes"
@@ -69,6 +72,7 @@ de_formal:
         other: "<%= count %> Reshares"
         two: "<%= count %> Reshares"
         zero: "<%= count %> Reshares"
+      unlike: Unlike
     tags:
       wasnt_that_interesting: "OK, ich nehme an, #{{tagName}} war nicht so interessant..."
     timeago:

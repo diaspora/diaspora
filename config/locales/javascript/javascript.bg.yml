@@ -18,7 +18,7 @@ bg:
         many: "В <%= count %> аспекта"
         one: "В <%= count %> аспект"
         other: "В <%= count %> аспекта"
-        two: "В {{count}} аспекта"
+        two: "В <%= count %> аспекта"
         zero: "Избиране на аспект(и)"
     aspect_navigation:
       deselect_all: Никой
@@ -46,7 +46,7 @@ bg:
       notifications: Известия
       profile: Профил
       recent_notifications: Скорошни
-      search: "Намеретр хора или #диез-марки"
+      search: "Намерете хора или #диез-марки"
       settings: Настройки
       view_all: "Покажи всички"
     ignore: Игнориране
@@ -65,6 +65,7 @@ bg:
     stream:
       comment: Коментиране
       hide: Скриване
+      like: "Харесва ми"
       likes:
         few: "<%= count %> Likes"
         many: "<%= count %> Likes"
@@ -72,6 +73,7 @@ bg:
         other: "<%= count %> Likes"
         two: "<%= count %> Likes"
         zero: "<%= count %> Likes"
+      limited: Ограничено
       more_comments:
         few: "Покажи останалите <%= count %> коментара"
         many: "Покажи останалите <%= count %> коментара"
@@ -81,6 +83,7 @@ bg:
         zero: "Покажи осталите <%= count %> коментара"
       nsfw: "Публикацията Не е Подходяща за Работното Място (NSFW), според автора."
       original_post_deleted: "Авторът на оригиналната публикация я е изтрил."
+      public: Публично
       reshare: Споделяне
       reshares:
         few: "<%= count %> споделяния"
@@ -90,6 +93,7 @@ bg:
         two: "<%= count %> Reshares"
         zero: "<%= count %> споделяния"
       show: Показване
+      unlike: "Не ми харесва"
     tags:
       wasnt_that_interesting: "Е, вероятно марката #<%= tagName %> не е чак толкова интересна..."
     timeago:

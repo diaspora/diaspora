@@ -198,10 +198,14 @@ ru:
     index:
       add_a_new_aspect: "Новый аспект"
       add_to_aspect: "добавить контакты в %{name}"
+      add_to_aspect_link: "добавить контакты в аспект %{name}"
       all_contacts: "Все контакты"
+      community_spotlight: "В центре внимания"
       many_people_are_you_sure: "Вы уверены, что хотите начать приватную беседу с числом контактов более %{suggested_limit}? Возможно, лучше просто написать сообщение в этот аспект."
       my_contacts: "Мои контакты"
       no_contacts: "Похоже, вам надо добавить несколько контактов!"
+      no_contacts_message: "Загляните в %{community_spotlight}"
+      no_contacts_message_with_aspect: "Загляните в %{community_spotlight} или %{add_to_aspect_link}"
       only_sharing_with_me: "Только делящиеся со мной"
       remove_person_from_aspect: "Удалить %{person_name} из \"%{aspect_name}\""
       start_a_conversation: "Начать беседу"
@@ -292,6 +296,7 @@ ru:
     new:
       already_invited: "Следующие люди не приняли ваше приглашение:"
       aspect: Аспект
+      check_out_diaspora: "Попробуйте Диаспору!"
       comma_seperated_plz: "Вы можете ввести несколько адресов электронной почты через запятую."
       if_they_accept_info: "после согласия с их стороны, они будут добавлены в предложенный вами аспект."
       invite_someone_to_join: "Пригласить кого-либо в Диаспору!"
@@ -328,13 +333,6 @@ ru:
         other: "%{count} не понравилось "
         two: "%{count} не понравилось"
         zero: "никому не понравилось"
-      people_like_this:
-        few: "%{count} понравилось"
-        many: "%{count} понравилось"
-        one: "%{count} понравилось"
-        other: "%{count} понравилось"
-        two: "%{count} понравилось"
-        zero: "никому не понравилось"
       people_like_this_comment:
         few: "%{count} понравилось"
         many: "%{count} понравилось"
@@ -342,6 +340,13 @@ ru:
         other: "%{count} понравилось"
         two: "%{count} понравилось"
         zero: "не понравилось никому"
+      people_pin_this:
+        few: "Прикололи: %{count}"
+        many: "Прикололи: %{count}"
+        one: "Прикололи: %{count}"
+        other: "Прикололи: %{count}"
+        two: "Прикололи: %{count}"
+        zero: "Прикололи: 0"
   limited: Ограниченная
   more: Еще
   next: далее
@@ -737,6 +742,7 @@ ru:
     notification:
       new: "Новый %{type} из %{from}"
     public_explain:
+      atom_feed: Atom-лента
       control_your_audience: "Выбирайте свою аудиторию"
       logged_in: "вошли в %{service}"
       manage: "управление подключенными сервисами"
@@ -771,11 +777,11 @@ ru:
       hide_and_mute: "Скрыть и отключить уведомления"
       ignore_user: "Блокировать пользователя %{name}"
       ignore_user_description: "Блокировать и удалить пользователя из всех аспектов?"
-      like: "Мне нравится"
       nsfw: "Автор пометил эту запись как \"только для взрослых\". %{link}"
+      pin: Приколоть
       shared_with: "Для аспектов: %{aspect_names}"
       show: показать
-      unlike: "Не нравится"
+      unpin: Открепить
       via: "через %{link}"
       viewable_to_anyone: "Эту запись может видеть любой в интернете"
   status_messages:
@@ -826,7 +832,9 @@ ru:
       title: "@Упоминания"
     multi:
       contacts_title: "В вашем потоке"
-      title: Поток
+      title: Исследуйте
+    participate:
+      title: Участвовать
     public:
       contacts_title: "Последние публиковавшие"
       title: "Публичная активность"
@@ -875,7 +883,7 @@ ru:
       success: "Ваша учетная запись заблокирована. На полное закрытие вашей учетной записи может уйти до 20 минут. Спасибо, что были вместе с нами."
       wrong_password: "Введенный вами пароль не совпадает с вашим текущим паролем."
     edit:
-      also_commented: "... кто-то комментировал сообщения ваших контактов?"
+      also_commented: "...кто-то прокомментировал сообщения ваших контактов."
       auto_follow_aspect: "Помещать этих пользователей в аспект:"
       auto_follow_back: "Автоматически подписываться в ответ, если кто-то начинает следить за вашими записями"
       change: Изменить
@@ -892,7 +900,7 @@ ru:
         no_turning_back: "На данный момент обратного пути нет."
         what_we_delete: "Мы удаляем все ваши записи и данные профиля так быстро, как только можем. Ваши комментарии будут по-прежнему доступны, но они не будут привязаны к вашему идентификатору в Диаспоре."
       close_account_text: "Закрыть аккаунт"
-      comment_on_post: "... кто-то прокомментировал вашу запись?"
+      comment_on_post: "...кто-то прокомментировал вашу запись."
       current_password: "Текущий пароль"
       download_photos: "Скачать мои фотографии"
       download_xml: "Скачать мою информацию в xml"
@@ -901,16 +909,16 @@ ru:
       export_data: "Экспорт информации"
       following: "Настройки подписок"
       getting_started: "Новые пользовательские настройки"
-      liked: "...кому-нибудь нравится ваше сообщение?"
-      mentioned: "... вы упомянуты в сообщении?"
+      liked: "...кому-то понравилось ваше сообщение."
+      mentioned: "...вы были упомянуты в сообщении."
       new_password: "Новый пароль"
       photo_export_unavailable: "Экспорт фотографий сейчас недоступен"
-      private_message: "... вы получаете личное сообщение?"
+      private_message: "...вы получили личное сообщение."
       receive_email_notifications: "Получать уведомление по электронной почте, когда..."
       reshared: "...кто-то делится вашей записью?"
       show_community_spotlight: "Показывать рекомендуемых пользователей в потоке?"
       show_getting_started: "Вернуть информацию для начинающих"
-      started_sharing: "...кто-то начинает делиться с вами?"
+      started_sharing: "...кто-то начал делиться с вами."
       stream_preferences: "Настройки потока"
       your_email: "Ваш адрес электронной почты"
       your_handle: "Ваш идентификатор в Диаспоре"

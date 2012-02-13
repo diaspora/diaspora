@@ -35,6 +35,8 @@ ka:
       hey: "ჰეი, {{name}}!"
       no_tags: "ჰეი, თქვენ არ მიყვებით არცერთ ტეგს! მაინც გსურთ გაგრძელება?"
       preparing_your_stream: "თქვენი პერსონალიზებული ნაკადი მზადდება..."
+    header:
+      search: "Find people or #tags"
     infinite_scroll:
       no_more: "მეტი პოსტი არ არის."
     photo_uploader:
@@ -48,6 +50,7 @@ ka:
     search_for: "ძებნა {{name}}"
     show_more: "მეტის ჩვენება"
     stream:
+      like: Like
       likes:
         few: "<%= count %> Likes"
         many: "<%= count %> Likes"
@@ -69,6 +72,7 @@ ka:
         other: "<%= count %> Reshares"
         two: "<%= count %> Reshares"
         zero: "<%= count %> Reshares"
+      unlike: Unlike
     tags:
       wasnt_that_interesting: "კარგი, მე ვფიქრობ რომ #{{tagName}} არც ისე საინტერესო იყო..."
     timeago:

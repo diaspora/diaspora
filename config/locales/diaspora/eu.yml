@@ -327,13 +327,6 @@ eu:
         other: "%{count} pertsonek ez dute hau gustuko"
         two: "%{count} dislikes"
         zero: "gustuko ez duen pertsonarik ez"
-      people_like_this:
-        few: "%{count} pertsonek gustuko dute hau"
-        many: "%{count} pertsonek gustuko dute hau"
-        one: "%{count}ek du gustuko"
-        other: "%{count} pertsonek gustuko dute hau"
-        two: "%{count}(e)k gustuko dute"
-        zero: "oraindik ez du inork gustuko"
       people_like_this_comment:
         few: "%{count}(e)k gustuko dute"
         many: "%{count}(e)k gustuko dute"
@@ -341,6 +334,13 @@ eu:
         other: "%{count}(e)k gustuko dute"
         two: "%{count}(e)k gustuko dute"
         zero: "inork ez du gustuko"
+      people_pin_this:
+        few: "%{count} pins"
+        many: "%{count} pins"
+        one: "%{count} pin"
+        other: "%{count} pins"
+        two: "%{count} pins"
+        zero: "no pins"
   limited: Mugatua
   more: Gehiago
   next: hurrengoa
@@ -769,11 +769,9 @@ eu:
       hide_and_mute: "Ezkutatu eta isildu mezua"
       ignore_user: "Sahiestu %{name}"
       ignore_user_description: "Sahiestu eta ezabatu erabiltzailea arlo guztietatik?"
-      like: "Gustoko dut"
       nsfw: "Mezu hau NSFW gisa markatu du egileak. %{link}"
       shared_with: "%{aspect_names}(r)kin partekatua"
       show: erakutsi
-      unlike: "Ez dut gustuko"
       via: "%{link}(r)en bidez"
       viewable_to_anyone: "Mezu hau edonork ikusi dezake Interneten"
   status_messages:

@@ -331,13 +331,6 @@ es-AR:
         other: "%{count} les disgusta"
         two: "a %{count} no les gusta"
         zero: "a nadie le disgusta"
-      people_like_this:
-        few: "%{count} les gusta"
-        many: "%{count} les gusta"
-        one: "%{count} le gusta"
-        other: "%{count} les gusta"
-        two: "a %{count} les gusta"
-        zero: "a nadie le gusta"
       people_like_this_comment:
         few: "a %{count} le gusta"
         many: "a %{count} le gusta"
@@ -345,6 +338,13 @@ es-AR:
         other: "a %{count} le gusta"
         two: "a %{count} les gusta"
         zero: "a nadie le gusta esto"
+      people_pin_this:
+        few: "%{count} pins"
+        many: "%{count} pins"
+        one: "%{count} pin"
+        other: "%{count} pins"
+        two: "%{count} pins"
+        zero: "no pins"
   limited: Limitado
   more: Más
   next: siguiente
@@ -770,9 +770,7 @@ es-AR:
       hide_and_mute: "Ignorar la publicación"
       ignore_user: "Ignorar a %{name}"
       ignore_user_description: "¿Ignorar y quitar al usuario de todos los aspectos?"
-      like: "Me gusta"
       shared_with: "Compartido con: %{aspect_names}"
-      unlike: "No me gusta"
       via: "vía %{link}"
       viewable_to_anyone: "Esta publicación puede ser vista por cualquiera en la web"
   status_messages:
@@ -823,6 +821,7 @@ es-AR:
       title: "@Menciones"
     multi:
       contacts_title: "Personas en tu Stream"
+      title: Stream
     public:
       contacts_title: "Autores recientes"
       title: "Actividad Pública"

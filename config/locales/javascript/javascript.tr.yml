@@ -35,6 +35,8 @@ tr:
       hey: "Merhaba, {{name}}!"
       no_tags: "Hey, hiç etiket takip etmiyorsunuz! Gerçekten devam etmek istiyor musun?"
       preparing_your_stream: "Kişiselleştirilmiş akışınız hazırlanıyor..."
+    header:
+      search: "Find people or #tags"
     infinite_scroll:
       no_more: "Daha fazla gönderi yok."
     photo_uploader:
@@ -48,6 +50,7 @@ tr:
     search_for: "{{name}} Ara"
     show_more: "daha fazlasını göster"
     stream:
+      like: Like
       likes:
         few: "<%= count %> Likes"
         many: "<%= count %> Likes"
@@ -69,6 +72,7 @@ tr:
         other: "<%= count %> Reshares"
         two: "<%= count %> Reshares"
         zero: "<%= count %> Reshares"
+      unlike: Unlike
     tags:
       wasnt_that_interesting: "Tamam, benim #{{tagName}} o kadar da ilginç değil..."
     timeago:
