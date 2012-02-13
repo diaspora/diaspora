@@ -9,7 +9,7 @@ pt-PT:
   _comments: Comentários
   _contacts: Contactos
   _home: Início
-  _photos: fotos
+  _photos: Fotografias
   _services: Serviços
   account: Conta
   activerecord:
@@ -102,7 +102,7 @@ pt-PT:
         content_2: "Dê-a a alguém para que o encontre no Diaspora."
         heading: "Identificação do Diaspora"
       donate: Doar
-      handle_explanation: "Esta é a sua identificação do Diaspora. Tal como um endereço de email, pode dá-la a quem deseja que o contacte."
+      handle_explanation: "Esta é a sua identificação na Diaspora. Tal como um endereço de email, pode dá-la a quem desejar que o contacte."
       help:
         do_you: "Quer:"
         email_feedback: "%{link} o teu feedback, se preferires"
@@ -198,10 +198,14 @@ pt-PT:
     index:
       add_a_new_aspect: "Adicionar um novo aspecto"
       add_to_aspect: "Adicionar contactos a %{name}"
+      add_to_aspect_link: "adicionar contactos a %{name}"
       all_contacts: "Todos os Contactos"
+      community_spotlight: "Destaques da comunidade"
       many_people_are_you_sure: "Tem a certeza de que deseja começar um conversa privada com mais de %{suggested_limit} contactos? Publicar para este aspecto pode ser uma forma melhor de os contactar."
       my_contacts: "Os Meus Contactos"
       no_contacts: "Parece que precisa de adicionar alguns contactos."
+      no_contacts_message: "Descobre %{community_spotlight}"
+      no_contacts_message_with_aspect: "Descobre %{community_spotlight} ou %{add_to_aspect_link}"
       only_sharing_with_me: "Apenas a partilhar comigo"
       remove_person_from_aspect: "Remover %{person_name} de \"%{aspect_name}\""
       start_a_conversation: "Iniciar um conversa"
@@ -293,6 +297,7 @@ pt-PT:
     new:
       already_invited: "As pessoas seguintes não aceitaram o seu convite:"
       aspect: Aspecto
+      check_out_diaspora: "Descobre a Diaspora*!"
       comma_seperated_plz: "Pode inserir vários endereços de email separados por vírgulas."
       if_they_accept_info: "se aceitarem, serão adicionados ao aspecto para o qual os convidou."
       invite_someone_to_join: "Convide alguém para se juntar ao Diaspora!"
@@ -304,6 +309,7 @@ pt-PT:
       to: Para
   layouts:
     application:
+      back_to_top: "Voltar ao topo"
       public_feed: "Fonte Pública do Diaspora para %{name}"
       toggle: "ligar modo móvel"
       whats_new: "O que há de novo?"
@@ -327,13 +333,6 @@ pt-PT:
         other: "%{count} pessoa não gosta"
         two: "%{count} não gostam"
         zero: "nenhuma pessoa não gosta disto"
-      people_like_this:
-        few: "%{count} pessoas gostam"
-        many: "%{count} pessoas não gostam"
-        one: "%{count} pessoa gosta"
-        other: "%{count} pessoas gostam"
-        two: "%{count} gostam"
-        zero: "ninguém gosta"
       people_like_this_comment:
         few: "%{count} gostos"
         many: "%{count} gostos"
@@ -341,6 +340,13 @@ pt-PT:
         other: "%{count} gostos"
         two: "%{count} gostam"
         zero: "não há gostos"
+      people_pin_this:
+        few: "%{count} marcaram"
+        many: "%{count} marcaram"
+        one: "%{count} marcou"
+        other: "%{count} marcaram"
+        two: "%{count} marcaram"
+        zero: "Sem marcas"
   limited: Limitado
   more: Mais
   next: próximo
@@ -387,19 +393,19 @@ pt-PT:
       mark_all_as_read: "Marcar Tudo como Lido"
       notifications: Notificações
     liked:
-      few: "%{actors} gostaram da sua %{post_link}."
-      many: "%{actors} gostam da sua %{post_link}."
-      one: "%{actors} gostou da sua %{post_link}."
-      other: "%{actors} gostam da sua %{post_link}."
-      two: "%{actors} gostaram do seu %{post_link}."
-      zero: "%{actors} gostaram da sua %{post_link}."
+      few: "%{actors} marcaram o seu %{post_link}."
+      many: "%{actors} marcaram o seu %{post_link}."
+      one: "%{actors} marcou o seu %{post_link}."
+      other: "%{actors} marcaram o seu %{post_link}."
+      two: "%{actors} marcaram o seu %{post_link}."
+      zero: "%{actors} marcaram o seu %{post_link}."
     liked_post_deleted:
-      few: "%{actors} gostam da sua publicação apagada."
-      many: "%{actors} gostam da sua publicação apagada."
-      one: "%{actors} gosta da sua publicação apagada."
-      other: "%{actors} gostam da sua publicação apagada."
-      two: "%{actors} gostou da sua publicação apagada."
-      zero: "%{actors} gostam da sua publicação apagada."
+      few: "%{actors} marcaram o seu artigo eliminado."
+      many: "%{actors} marcaram o seu artigo eliminado"
+      one: "%{actors} marcou o seu artigo eliminado."
+      other: "%{actors} marcaram o seu artigo eliminado."
+      two: "%{actors} marcaram o seu artigo eliminado."
+      zero: "%{actors} marcaram o seu artigo eliminado."
     mentioned:
       few: "%{actors} mencionou-o(a) numa %{post_link}."
       many: "%{actors} mencionou-o(a) numa %{post_link}."
@@ -454,7 +460,7 @@ pt-PT:
     email_sent_by_diaspora: "Este email foi enviado pelo Diaspora.  Se deseja deixar de receber emails deste tipo,"
     hello: "Olá %{name}!"
     liked:
-      liked: "%{name} gostou da sua publicação"
+      liked: "%{name} marcou o seu artigo"
       view_post: "Ver a publicação >"
     mentioned:
       mentioned: "mencionou-o numa publicação:"
@@ -487,7 +493,7 @@ pt-PT:
       results_for: "resultados para %{params}"
     index:
       couldnt_find_them_send_invite: "Não conseguiu encontrá-los? Envie um convite!"
-      looking_for: "À procura de posts com a etiqueta %{tag_link}?"
+      looking_for: "À procura de publicações com a etiqueta %{tag_link}?"
       no_one_found: "...e ninguém foi encontrado."
       no_results: "Hei! Precisa pesquisar por alguma coisa."
       results_for: "resultados da pesquisa para"
@@ -570,12 +576,13 @@ pt-PT:
       destroy: Apagar
       not_found: "Lamentamos muito, mas não foi possível encontrar essa publicação."
       photos_by:
-        few: "%{count} photos by %{author}"
-        many: "%{count} photos by %{author}"
-        one: "One photo by %{author}"
-        other: "%{count} photos by %{author}"
-        two: "Two photos by %{author}"
-        zero: "No photos by %{author}"
+        few: "%{count} fotografias de %{author}"
+        many: "%{count} fotografias de %{author}"
+        one: "Uma fotografia de %{author}"
+        other: "%{count} fotografias de %{author}"
+        two: "Duas fotografias de %{author}"
+        zero: "Nenhuma fotografia de %{author}"
+      reshare_by: "Partilhado por %{author}"
   previous: anterior
   privacy: Privacidade
   privacy_policy: "Política de Privacidade"
@@ -733,6 +740,7 @@ pt-PT:
     notification:
       new: "Novo %{type} de %{from}"
     public_explain:
+      atom_feed: "Feed Atom"
       control_your_audience: "Controle o seu Público"
       logged_in: "Sessão iniciada em %{service}"
       manage: "gerir serviços conectados"
@@ -767,9 +775,11 @@ pt-PT:
       hide_and_mute: "Ocultar e Silenciar"
       ignore_user: "Ignorar %{name}"
       ignore_user_description: "Ignorar e remover o utilizador de todos os aspectos?"
-      like: Gosto
+      nsfw: "Este artigo foi marcado pelo seu autor como tendo conteúdo impróprio. %{link}"
+      pin: Marcar
       shared_with: "Partilhado com: %{aspect_names}"
-      unlike: "Não Gosto"
+      show: Mostrae
+      unpin: "Desmarcar "
       viewable_to_anyone: "Esta publicação é visível para todos na internet"
   status_messages:
     create:
@@ -801,7 +811,7 @@ pt-PT:
       title: "Os Teus Aspectos"
     aspects_stream: Aspectos
     comment_stream:
-      contacts_title: "Pessoas cujos os posts você comentou"
+      contacts_title: "Pessoas cujas publicações você comentou"
       title: "Posts Comentados"
     community_spotlight_stream: "Destaque da Comunidade"
     followed_tag:
@@ -811,14 +821,16 @@ pt-PT:
       title: "Etiquetas #Seguidas"
     followed_tags_stream: "Etiquetas #Seguidas"
     like_stream:
-      contacts_title: "Pessoas cujos posts você gosta"
-      title: "Gosto do Fluxo"
+      contacts_title: "Pessoas cujas publicações você marcou"
+      title: "Artigos marcados"
     mentions:
       contacts_title: "Pessoas que o mencionaram"
       title: "Suas Menções"
     multi:
       contacts_title: "Pessoas no seu Fluxo"
       title: Fluxo
+    participate:
+      title: Participar
     public:
       contacts_title: "Cartazes Recentes"
       title: "Actividade Geral"
@@ -870,7 +882,8 @@ pt-PT:
       wrong_password: "A palavra-passe digitada não corresponde à sua palavra-passe actual."
     edit:
       also_commented: "...alguém também comenta na publicação do seu contacto?"
-      auto_follow_back: "Automatically follow back if a someone follows you"
+      auto_follow_aspect: "Aspecto para utilizadores automaticamente seguidos:"
+      auto_follow_back: "Seguir automaticamente quem o seguir a si"
       change: Alterar
       change_email: "Mudar de email"
       change_language: "Mudar de idioma"
@@ -883,7 +896,7 @@ pt-PT:
         make_diaspora_better: "Queremos que nos ajude a fazer a Diaspora melhor, logo deveria ajudar-nos  em vez de se ir embora. Se você quer deixar-nos, nós queremos que saiba o que acontece depois."
         mr_wiggles: "Mr Wiggles ficará triste de o(a) ver partir"
         no_turning_back: "Actualmente, não há como voltar atrás.\n"
-        what_we_delete: "Iremos apagar todos os seus posts, os dados do perfil, assim que for humanamente possível. Os seus comentários permanecerão por cá, mas serão associados com o seu nome de utilizador da Diáspora.\n"
+        what_we_delete: "Iremos apagar todas as suas publicações, os dados do perfil, assim que for humanamente possível. Os seus comentários permanecerão por cá, mas serão associados com o seu nome de utilizador da Diaspora.\n"
       close_account_text: "Fechar Conta"
       comment_on_post: "...alguém comenta as suas publicações?"
       current_password: "Palavra-passe actual"
@@ -892,6 +905,7 @@ pt-PT:
       edit_account: "Editar conta"
       email_awaiting_confirmation: "Enviámos-lhe uma hiperligação de activação para %{unconfirmed_email}. Até que siga esta hiperligação e active o novo endereço, continuaremos a utilizar o seu endereço original %{email}."
       export_data: "Exportar Dados"
+      following: "Definições de seguidores"
       getting_started: "Novas Preferências de Utilizador"
       liked: "...alguém gosta da sua publicação?"
       mentioned: "...é mencionado numa publicação?"
@@ -905,7 +919,7 @@ pt-PT:
       started_sharing: "...alguém começa a partilhar consigo?"
       stream_preferences: "Preferências de Fluxo"
       your_email: "O seu endereço de email"
-      your_handle: "A sua identificação do Diaspora"
+      your_handle: "A sua identificação na Diaspora"
     getting_started:
       awesome_take_me_to_diaspora: "Excelente! Quero ir para o Diaspora*"
       community_welcome: "A comunidade do Diaspora está feliz por o ter consigo!"
@@ -932,6 +946,8 @@ pt-PT:
       does_not_exist: "O utilizador %{username} não existe!"
     update:
       email_notifications_changed: "As notificações por email foram alteradas"
+      follow_settings_changed: "Definições alteradas"
+      follow_settings_not_changed: "Falha na alteração das definições"
       language_changed: "O idioma foi alterado"
       language_not_changed: "Falha ao alterar o idioma"
       password_changed: "A palavra-passe foi alterada. Já pode iniciar sessão com a sua nova palavra-passe."
@@ -947,3 +963,6 @@ pt-PT:
     not_enabled: "webfinger parece não estar activado para o anfitrião de %{account}"
     xrd_fetch_failed: "ocorreu um erro ao obter o xrd da conta %{account}"
   welcome: Bem-vindo(a)!
+  will_paginate:
+    next_label: "seguinte &raquo;"
+    previous_label: "&laquo; anterior"

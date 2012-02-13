@@ -28,13 +28,27 @@ pt-PT:
       hide: "ocultar comentários"
       show: "mostrar todos os comentários"
     confirm_dialog: "Tem a certeza?"
-    failed_to_like: "Falhou ao gostar!"
+    delete: Eliminar
+    failed_to_like: "Falhou em marcar!"
     failed_to_post_message: "Falhou ao publicar a mensagem!"
     getting_started:
       alright_ill_wait: "Tudo bem, eu esperarei."
       hey: "Ei, {{name}}!"
       no_tags: "Ei, não está a seguir nenhuma etiqueta! Continuar mesmo assim?"
       preparing_your_stream: "A preparar o seu Stream personalizado..."
+    header:
+      contacts: "Contactos "
+      home: "Inicio "
+      log_out: Sair
+      mark_all_as_read: "Marcar tudo como lido"
+      messages: Mensagens
+      notifications: Notificações
+      profile: Perfil
+      recent_notifications: "Últimas Notificações"
+      search: "Encontrar pessoas ou #tags"
+      settings: Definições
+      view_all: "Ver tudo"
+    ignore: Ignorar
     infinite_scroll:
       no_more: "Não há mais publicações."
     photo_uploader:
@@ -48,27 +62,37 @@ pt-PT:
     search_for: "Procurar por {{name}}"
     show_more: "mostrar mais"
     stream:
+      comment: Comentar
+      hide: Ocultar
+      like: Marcar
       likes:
-        few: "<%= count %> Likes"
-        many: "<%= count %> Likes"
-        one: "<%= count %> Like"
-        other: "<%= count %> Likes"
+        few: "<%= count %> Marcados"
+        many: "<%= count %> Marcados"
+        one: "<%= count %> Marcado"
+        other: "<%= count %> Marcados"
         two: "<%= count %> Likes"
-        zero: "<%= count %> Likes"
+        zero: "<%= count %> Marcados"
+      limited: Limitado
       more_comments:
-        few: "Show <%= count %> more comments"
-        many: "Show <%= count %> more comments"
-        one: "Show <%= count %> more comment"
-        other: "Show <%= count %> more comments"
-        two: "Show <%= count %> more comments"
-        zero: "Show <%= count %> more comments"
+        few: "Mostrar <%= count %> mais comentários"
+        many: "Mostrar <%= count %> mais comentários"
+        one: "Mostras <%= count %> mais comentários"
+        other: "Mostrar <%= count %> mais comentários"
+        two: "Mostrar <%= count %> mais comentários"
+        zero: "Mostrar <%= count %> mais comentários"
+      nsfw: "Este artigo foi marcado pelo seu autor como tendo conteúdo impróprio"
+      original_post_deleted: "Publicação original eliminada pelo autor."
+      public: Publico
+      reshare: Partilhar
       reshares:
-        few: "<%= count %> Reshares"
-        many: "<%= count %> Reshares"
-        one: "<%= count %> Reshare"
-        other: "<%= count %> Reshares"
-        two: "<%= count %> Reshares"
-        zero: "<%= count %> Reshares"
+        few: "<%= count %> Partilhas"
+        many: "<%= count %> Partilhas"
+        one: "<%= count %> Partilha"
+        other: "<%= count %> Partilhas"
+        two: "<%= count %> Partilhas"
+        zero: "<%= count %> Partilhas"
+      show: Mostrar
+      unlike: Desmarcar
     tags:
       wasnt_that_interesting: "OK, suponho que #{{tagName}} não era assim tão interessante..."
     timeago:
@@ -89,4 +113,4 @@ pt-PT:
       years: "%d anos"
     videos:
       unknown: "Formato de vídeo desconhecido"
-      watch: "Visualize este vídeo no {{provider}}"
+      watch: "Veja este vídeo no {{provider}}"

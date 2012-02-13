@@ -147,13 +147,6 @@ fil:
         other: "%{count} dislikes"
         two: "%{count} dislikes"
         zero: "no dislikes"
-      people_like_this:
-        few: "%{count} likes"
-        many: "%{count} likes"
-        one: "%{count} like"
-        other: "%{count} likes"
-        two: "%{count} likes"
-        zero: "no likes"
       people_like_this_comment:
         few: "%{count} likes"
         many: "%{count} likes"
@@ -161,6 +154,13 @@ fil:
         other: "%{count} likes"
         two: "%{count} likes"
         zero: "no likes"
+      people_pin_this:
+        few: "%{count} pins"
+        many: "%{count} pins"
+        one: "%{count} pin"
+        other: "%{count} pins"
+        two: "%{count} pins"
+        zero: "no pins"
   limited: Limitado
   notifications:
     also_commented:
@@ -368,8 +368,14 @@ fil:
       two: "Show two more comments"
       zero: "No more comments"
   streams:
+    like_stream:
+      contacts_title: "People whose posts you like"
+      title: "Like Stream"
     mentions:
       title: "Your Mentions"
+    multi:
+      contacts_title: "People in your Stream"
+      title: Stream
     tags:
       contacts_title: "People who dig these tags"
   tag_followings:
@@ -383,6 +389,7 @@ fil:
     edit:
       close_account:
         what_we_delete: "We delete all of your posts, profile data, as soon as humanly possible. Your comments will hang around, but be associated with your Diaspora Handle."
+      liked: "...someone likes your post?"
       your_handle: "Your diaspora id"
     getting_started:
       what_facebook_does: "to Diaspora. This will pull your name and photo, and enable cross-positng."

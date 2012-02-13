@@ -29,7 +29,7 @@ es:
       show: "ver todos los comentarios"
     confirm_dialog: "¿Estás seguro?"
     delete: Borrar
-    failed_to_like: "¡Ha fallado tu aprobación!"
+    failed_to_like: "¡Ha fallado tu intento de marcar la publicación!"
     failed_to_post_message: "¡Fallo al publicar el mensaje!"
     getting_started:
       alright_ill_wait: "Está bien, esperaré."
@@ -65,14 +65,14 @@ es:
     stream:
       comment: Comentar
       hide: Ocultar
-      like: "Me gusta"
+      like: Marcar
       likes:
-        few: "le gusta a <%= count %> personas"
-        many: "le gusta a <%= count %> personas"
-        one: "le gusta a <%= count %> persona"
-        other: "le gusta a <%= count %> personas"
-        two: "le gusta a <%= count %> personas"
-        zero: "le gusta a <%= count %> personas"
+        few: "ha sido marcada por <%= count %> personas"
+        many: "ha sido marcada por <%= count %> personas"
+        one: "ha sido marcada por <%= count %> persona"
+        other: "ha sido marcada por <%= count %> personas"
+        two: "ha sido marcada por <%= count %> personas"
+        zero: "ha sido marcada por <%= count %> personas"
       limited: Restringido
       more_comments:
         few: "Mostrar <%= count %> comentarios más"
@@ -93,7 +93,7 @@ es:
         two: "Compartido <%= count %> veces"
         zero: "Comparido <%= count %> veces"
       show: Mostrar
-      unlike: "No me gusta"
+      unlike: Desmarcar
     tags:
       wasnt_that_interesting: "OK, supongo que #<%= tagName %> no era tan interesante..."
     timeago:

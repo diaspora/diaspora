@@ -35,6 +35,8 @@ sl:
       hey: "Hej, {{name}}!"
       no_tags: "Hej, niste sledili nobeni oznaki! Vseeno nadaljuj?"
       preparing_your_stream: "Pripravljanje vašega osebnega toka ..."
+    header:
+      search: "Find people or #tags"
     infinite_scroll:
       no_more: "Konec objav."
     photo_uploader:
@@ -48,6 +50,7 @@ sl:
     search_for: "Išči {{name}}"
     show_more: "pokaži več"
     stream:
+      like: Like
       likes:
         few: "<%= count %> Likes"
         many: "<%= count %> Likes"
@@ -69,6 +72,7 @@ sl:
         other: "<%= count %> Reshares"
         two: "<%= count %> Reshares"
         zero: "<%= count %> Reshares"
+      unlike: Unlike
     tags:
       wasnt_that_interesting: "Vredu, mislim, da zaznamek #{{tagName}} ni bil tako zanimiv ..."
     timeago:

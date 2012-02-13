@@ -28,6 +28,8 @@ ar:
     getting_started:
       hey: "Hey, {{name}}!"
       preparing_your_stream: "Preparing your personialized stream..."
+    header:
+      search: "Find people or #tags"
     infinite_scroll:
       no_more: "لا توجد أية رسائل أخرى"
     publisher:
@@ -39,6 +41,7 @@ ar:
     search_for: "إبحث عن {{name}}"
     show_more: المزيد
     stream:
+      like: Like
       likes:
         few: "<%= count %> Likes"
         many: "<%= count %> Likes"
@@ -60,6 +63,7 @@ ar:
         other: "<%= count %> Reshares"
         two: "<%= count %> Reshares"
         zero: "<%= count %> Reshares"
+      unlike: Unlike
     tags:
       wasnt_that_interesting: "OK, I suppose #{{tagName}} wasn't all that interesting..."
     timeago:

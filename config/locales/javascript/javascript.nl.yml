@@ -9,17 +9,17 @@ nl:
     aspect_dropdown:
       add_to_aspect: "Voeg contact toe"
       all_aspects: "Alle aspecten"
-      error: "Couldn't start sharing with {{name}}.  Are you ignoring them?"
+      error: "Je kan niet delen met <%= name %>.  Negeer je hem?"
       select_aspects: "Selecteer aspecten"
-      started_sharing_with: "You have started sharing with {{name}}!"
-      stopped_sharing_with: "You have stopped sharing with {{name}}."
+      started_sharing_with: "Je deelt nu met <%= name %>!"
+      stopped_sharing_with: "Je deelt niet meer met <%= name %>."
       toggle:
-        few: "In {{count}} aspecten"
-        many: "In {{count}} aspecten"
-        one: "In {{count}} aspect"
-        other: "In {{count}} aspecten"
-        two: "In {{count}} aspecten"
-        zero: "Voeg toe aan aspect"
+        few: "In <%= count %> aspecten"
+        many: "In <%= count %> aspecten"
+        one: "In <%= count %> aspect"
+        other: "In <%= count %> aspecten"
+        two: "In <%= count %> aspecten"
+        zero: "Aspecten selecteren"
     aspect_navigation:
       deselect_all: "Alles deselecteren"
       no_aspects: "Geen aspecten geselecteerd"
@@ -29,13 +29,12 @@ nl:
       show: "laat reacties zien"
     confirm_dialog: "Weet je het zeker?"
     delete: Verwijder
-    failed_to_like: "Leuk vinden mislukt!"
+    failed_to_like: "Vastprikken mislukt!"
     failed_to_post_message: "Bericht plaatsen mislukt!"
     getting_started:
       alright_ill_wait: "Prima, ik wacht wel."
-      hey: "Hey, {{name}}!"
       no_tags: "Hey, je volgt geen tags! Toch doorgaan?"
-      preparing_your_stream: "Preparing your personialized stream..."
+      preparing_your_stream: "Je gepersonaliseerde stream klaarmaken..."
     header:
       contacts: Contacten
       log_out: "Log uit"
@@ -57,20 +56,20 @@ nl:
       limited: "Gelimiteerd - je post is alleen zichtbaar voor de mensen waarmee je hem deelt"
       public: "Openbaar - je post is zichtbaar voor iedereen en kan gevonden worden door zoekmachines"
     reshares:
-      duplicate: "Je hebt deze post al doorgegeven!"
-    search_for: "Zoek naar {{name}}"
+      duplicate: "Je hebt deze post al doorgegeven! Is hij echt zo goed?"
+    search_for: "Zoek naar <%= name %>"
     show_more: "laat meer zien"
     stream:
       comment: Reageer
       hide: Verberg
-      like: "Vind ik leuk"
+      like: Vastprikken
       likes:
-        few: "<%= count %> mensen vinden dit leuk"
-        many: "<%= count %> mensen vinden dit leuk"
-        one: "<%= count %> mensen vinden dit leuk"
-        other: "<%= count %> mensen vinden dit leuk"
-        two: "<%= count %> mensen vinden dit leuk"
-        zero: "<%= count %> mensen vinden dit leuk"
+        few: "<%= count %> keer vastgeprikt"
+        many: "<%= count %> keer vastgeprikt"
+        one: "<%= count %> keer vastgeprikt"
+        other: "<%= count %> keer vastgeprikt"
+        two: "<%= count %> keer vastgeprikt"
+        zero: "<%= count %> keer vastgeprikt"
       limited: "Beperkt zichtbaar"
       more_comments:
         few: "Toon nog <%= count %> reacties"
@@ -91,9 +90,9 @@ nl:
         two: "<%= count %> Doorgaven"
         zero: "<%= count %> doorgaven"
       show: Toon
-      unlike: "Vind ik niet meer leuk"
+      unlike: Losprikken
     tags:
-      wasnt_that_interesting: "OK, I suppose #{{tagName}} wasn't all that interesting..."
+      wasnt_that_interesting: "#<%= tagName %> zal dan toch niet zo interessant geweest zijn..."
     timeago:
       day: "een dag"
       days: "%d dagen"
@@ -110,4 +109,4 @@ nl:
       years: "%d jaar"
     videos:
       unknown: "Onbekend video type"
-      watch: "Bekijk deze video op {{provider}}"
+      watch: "Bekijk deze video op <%= provider %>"

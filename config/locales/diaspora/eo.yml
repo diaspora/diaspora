@@ -327,13 +327,6 @@ eo:
         other: "%{count} malŝatantoj"
         two: "%{count} malŝatadoj"
         zero: "neniuj ŝatantoj"
-      people_like_this:
-        few: "%{count} ŝatantoj"
-        many: "%{count} ŝatantoj"
-        one: "%{count} ŝatanto"
-        other: "%{count} ŝatantoj"
-        two: "%{count} ŝatadoj"
-        zero: "neniuj ŝatantoj"
       people_like_this_comment:
         few: "%{count} ŝatadoj"
         many: "%{count} ŝatadoj"
@@ -341,6 +334,13 @@ eo:
         other: "%{count} ŝatadoj"
         two: "%{count} ŝatadoj"
         zero: "neniu ŝatado"
+      people_pin_this:
+        few: "%{count} pins"
+        many: "%{count} pins"
+        one: "%{count} pin"
+        other: "%{count} pins"
+        two: "%{count} pins"
+        zero: "no pins"
   limited: Limita
   more: Pli
   next: sekva
@@ -765,9 +765,7 @@ eo:
       hide_and_mute: "Kaŝi kaj muti afiŝon"
       ignore_user: "Ignori %{name}"
       ignore_user_description: "Ignori kaj forigi uzanton de ĉiuj aspektoj?"
-      like: Ŝati
       shared_with: "Partoprenita kun: %{aspect_names}"
-      unlike: "Ne plu ŝati"
       via: "per %{link}"
       viewable_to_anyone: "Tiu ĉi afiŝo videblas de iu ajn en la reto"
   status_messages:
@@ -806,6 +804,9 @@ eo:
       follow: Sekvi
       title: "#Sekvataj etikedoj"
     followed_tags_stream: "#Sekvataj etikedoj"
+    like_stream:
+      contacts_title: "People whose posts you like"
+      title: "Like Stream"
     mentioned_stream: "@Mencioj"
     mentions:
       contacts_title: "Homoj, kiuj menciis vin"

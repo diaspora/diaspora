@@ -191,10 +191,13 @@ nl:
     index:
       add_a_new_aspect: "Voeg een aspect toe"
       add_to_aspect: "voeg contacten toe aan %{name}"
+      add_to_aspect_link: "contacten toevoegen aan %{name}"
       all_contacts: "Alle Contacten"
       many_people_are_you_sure: "Weet je zeker dat je een privégesprek wil starten met meer dan %{suggested_limit} contacten? Een bericht plaatsen in dit aspect is waarschijnlijk een betere manier om met hen te communiceren."
       my_contacts: "Mijn Contacten"
       no_contacts: "Voeg wat contacten toe!"
+      no_contacts_message: "Bekijk %{community_spotlight} eens"
+      no_contacts_message_with_aspect: "Bekijk %{community_spotlight} eens, of %{add_to_aspect_link}"
       only_sharing_with_me: "Delen alleen met mij"
       remove_person_from_aspect: "Verwijder %{person_name} uit \"%{aspect_name}\""
       start_a_conversation: "Start een conversatie"
@@ -279,6 +282,7 @@ nl:
       your_account_awaits: "Jou account wacht op je!"
     new:
       already_invited: "De volgende mensen hebben je uitnodiging niet geaccepteerd:"
+      check_out_diaspora: "Kijk eens naar Diaspora!"
       comma_seperated_plz: "Je kunt meerdere e-mailadressen invullen, gescheiden door komma's."
       if_they_accept_info: "als hij of zij accepteert zal hij of zij toegevoegd worden aan het aspect waarvoor je hem of haar uitgenodigd hebt."
       invite_someone_to_join: "Nodig iemand uit om lid te worden op Diaspora!"
@@ -311,13 +315,6 @@ nl:
         other: "%{count} mensen vinden dit niet leuk"
         two: "%{count} niet leuk"
         zero: "niemand vindt dit niet leuk"
-      people_like_this:
-        few: "%{count} mensen vinden dit leuk"
-        many: "%{count} mensen vinden dit leuk"
-        one: "%{count} persoon vindt dit leuk"
-        other: "%{count} mensen vinden dit leuk"
-        two: "%{count} leuk"
-        zero: "niemand vindt dit leuk"
       people_like_this_comment:
         few: "%{count} likes"
         many: "%{count} likes"
@@ -325,6 +322,13 @@ nl:
         other: "%{count} likes"
         two: "%{count} leuk"
         zero: "geen likes"
+      people_pin_this:
+        few: "%{count} keer vastgeprikt"
+        many: "%{count} keer vastgeprikt"
+        one: "%{count} keer vastgeprikt"
+        other: "%{count} keer vastgeprikt"
+        two: "%{count} keer vastgeprikt"
+        zero: "niet vastgeprikt"
   limited: Beperkt
   more: Meer
   next: volgende
@@ -371,19 +375,19 @@ nl:
       mark_all_as_read: "Markeer alles gelezen"
       notifications: Notificaties
     liked:
-      few: "%{actors} vinden jouw %{post_link} leuk."
-      many: "%{actors} vinden jouw %{post_link} leuk."
-      one: "%{actors} vindt jouw %{post_link} leuk."
-      other: "%{actors} vinden jouw %{post_link} leuk."
-      two: "%{actors} vinden jouw %{post_link} leuk."
-      zero: "%{actors} vinden jouw %{post_link} leuk."
+      few: "%{actors} hebben je %{post_link} vastgeprikt."
+      many: "%{actors} hebben je %{post_link} vastgeprikt."
+      one: "%{actors} heeft je %{post_link} vastgeprikt."
+      other: "%{actors} hebben je %{post_link} vastgeprikt."
+      two: "%{actors} hebben je %{post_link} vastgeprikt."
+      zero: "%{actors} heeft je %{post_link} vastgeprikt."
     liked_post_deleted:
-      few: "%{actors} vonden jouw verwijderde post leuk."
-      many: "%{actors} vonden jouw verwijderde post leuk."
-      one: "%{actors} vond jouw verwijderde post leuk."
-      other: "%{actors} vonden jouw verwijderde post leuk."
-      two: "%{actors} vonden jou verwijderde post leuk."
-      zero: "%{actors} vond jouw verwijderde post leuk."
+      few: "%{actors} hadden je verwijderde post vastgeprikt."
+      many: "%{actors} hadden je verwijderde post vastgeprikt."
+      one: "%{actors} had je verwijderde post vastgeprikt."
+      other: "%{actors} hadden je verwijderde post vastgeprikt."
+      two: "%{actors} hadden je verwijderde vastgeprikt."
+      zero: "%{actors} had je verwijderde post vastgeprikt."
     mentioned:
       few: "%{actors} hebben je genoemd in een %{post_link}."
       many: "%{actors} hebben je genoemd in een %{post_link}."
@@ -437,7 +441,7 @@ nl:
     email_sent_by_diaspora: "Deze mail is gestuurd door Diaspora.  Als je dit soort email's niet meer wilt ontvangen,"
     hello: "Hoi %{name}!"
     liked:
-      liked: "%{name} vindt je post leuk"
+      liked: "%{name} heeft je post vastgeprikt"
       view_post: "Bekijk post >"
     mentioned:
       mentioned: "heeft jou genoemd in een post:"
@@ -552,13 +556,15 @@ nl:
       destroy: Verwijder
       not_found: "Sorry, die post konden we niet vinden."
       photos_by:
-        few: "%{count} photos by %{author}"
-        many: "%{count} photos by %{author}"
-        one: "One photo by %{author}"
-        other: "%{count} photos by %{author}"
-        two: "Two photos by %{author}"
-        zero: "No photos by %{author}"
+        few: "%{count} foto's door %{author}"
+        many: "%{count} foto's door %{author}"
+        one: "Eén foto door %{author}"
+        other: "%{count} foto's door %{author}"
+        two: "Twee foto's door %{author}"
+        zero: "Geen foto's van %{author}"
+      reshare_by: "Doorgegeven door %{author}"
   previous: vorige
+  privacy_policy: Privacybeleid
   profile: Profiel
   profiles:
     edit:
@@ -746,11 +752,11 @@ nl:
       hide_and_mute: "Verberg en blokkeer bericht"
       ignore_user: "Negeer %{name}"
       ignore_user_description: "Gebruiker negeren en hem uit alle aspecten verwijderen?"
-      like: "Vind ik leuk"
       nsfw: "Dit bericht is geflagd als NSFW door de auteur.  %{link}"
+      pin: Vastprikken
       shared_with: "Gedeeld met: %{aspect_names}"
       show: "laat zien"
-      unlike: "vind ik niet meer leuk"
+      unpin: Losprikken
       viewable_to_anyone: "Deze post is zichtbaar voor iedereen op het internet"
   status_messages:
     create:
@@ -771,16 +777,19 @@ nl:
   stream_helper:
     hide_comments: "Verberg alle reacties"
     show_comments:
-      few: "Show %{count} more comments"
-      many: "Show %{count} more comments"
-      one: "Show one more comment"
-      other: "Show %{count} more comments"
-      two: "Show two more comments"
-      zero: "No more comments"
+      few: "Toon nog %{count} andere reacties."
+      many: "Toon nog %{count} andere reacties."
+      one: "Toon nog één andere reactie."
+      other: "Toon nog %{count} andere reacties"
+      two: "Toon nog twee andere reacties."
+      zero: "Geen andere reacties meer"
   streams:
     aspects:
       title: "Jouw Aspecten"
     aspects_stream: Aspecten
+    comment_stream:
+      contacts_title: "Mensen op wiens posts je hebt gereageerd"
+      title: "Reacties op je posts"
     followed_tag:
       add_a_tag: "Voeg een tag toe"
       contacts_title: "Personen die deze tag leuk vinden"
@@ -788,19 +797,23 @@ nl:
       title: "#Gevolgde Tags"
     followed_tags_stream: "#Gevolgde Tags"
     like_stream:
-      contacts_title: "Personen wiens berichten je leuk vindt"
-      title: "Vind ik leuk Stream"
+      contacts_title: "Mensen wiens posts je hebt vastgeprikt"
+      title: Prikbord
     mentioned_stream: "@Vermeldingen"
     mentions:
       contacts_title: "Mensen die jou hebben genoemd"
       title: "@Mij"
     multi:
-      contacts_title: "Gebuikers in je Stream"
+      contacts_title: "Volk in je Verkenstream"
+      title: Verkennen
+    participate:
+      title: Deelnemen
     public:
       contacts_title: "Recente Posters"
       title: "Publieke activiteit"
     tags:
       contacts_title: "Mensen die deze tag cool vinden"
+      tag_prefill_text: "Over %{tag_name} gesproken, ... "
       title: "Posts getagged: %{tags}"
   tag_followings:
     create:
@@ -866,8 +879,9 @@ nl:
       edit_account: "Bewerk account"
       email_awaiting_confirmation: "We hebben een activatielink verzonden naar %{unconfirmed_email}. Totdat je het adres geactiveerd hebt zullen we je originele adress blijven gebruiken %{email}."
       export_data: "Exporteer data"
+      following: Volgvoorkeuren
       getting_started: "Nieuwe Gebruikers Voorkeuren"
-      liked: "... iemand je post leuk vind?"
+      liked: "...iemand prikt je post vast?"
       mentioned: "...je genoemd word in een post?"
       new_password: "Nieuw wachtwoord"
       photo_export_unavailable: "Foto's exporteren is op dit moment niet beschikbaar"
@@ -890,7 +904,7 @@ nl:
       we_can_speed_things_up: "We kunnen het wat sneller maken door"
       well_hello_there: "O, hallo daar!"
       what_are_you_in_to: "Wat interesseert je?"
-      what_facebook_does: "to Diaspora. This will pull your name and photo, and enable cross-positng."
+      what_facebook_does: "met Diaspora. Je naam en foto worden dan overgezet, en je kan heen en weer posten."
       who_are_you: "Wie ben je?"
     logged_out:
       go_mobile: "Ga nu mobile."
@@ -906,6 +920,8 @@ nl:
       does_not_exist: "Gebruiker %{username} bestaat niet!"
     update:
       email_notifications_changed: "E-mailnotificaties gewijzigd"
+      follow_settings_changed: "Volgvoorkeuren aangepast"
+      follow_settings_not_changed: "Aanpassing aan de volgvoorkeuren is mislukt."
       language_changed: "Taal gewijzigd"
       language_not_changed: "Taal wijzigen mislukt"
       password_changed: "Wachtwoord gewijzigd. Je kunt nu inloggen met je nieuwe wachtwoord."

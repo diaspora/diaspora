@@ -320,13 +320,6 @@ el:
         other: "Δεν αρέσει σε %{count} άτομα"
         two: "δεν αρέσει σε %{count}"
         zero: "κανένας δεν ανέφερε ότι δεν του αρέσει"
-      people_like_this:
-        few: "Αρέσει σε %{count} άτομα"
-        many: "Αρέσει σε %{count} άτομα"
-        one: "Αρέσει σε 1 άτομο"
-        other: "Αρέσει σε %{count} άτομα"
-        two: "αρέσει σε %{count}"
-        zero: "δεν αρέσει σε κανέναν"
       people_like_this_comment:
         few: "Αρέσει σε %{count} χρήστες"
         many: "Αρέσει σε %{count} χρήστες"
@@ -334,6 +327,13 @@ el:
         other: "Αρέσει σε %{count} χρήστες"
         two: "αρέσει σε %{count}"
         zero: "Δεν αρέσει σε κανέναν "
+      people_pin_this:
+        few: "%{count} pins"
+        many: "%{count} pins"
+        one: "%{count} pin"
+        other: "%{count} pins"
+        two: "%{count} pins"
+        zero: "no pins"
   limited: Περιορισμένο
   more: Περισσότερα
   next: επόμενο
@@ -760,11 +760,9 @@ el:
       hide_and_mute: "Απόκρυψη και σίγαση δημοσίευσης"
       ignore_user: "Αγνόηση %{name}"
       ignore_user_description: "Αγνόηση και αφαίρεση χρήστη από όλες τις πτυχές;"
-      like: "Μου αρέσει"
       nsfw: "Αυτή η δημοσίευση έχει σημανθεί ως μη ασφαλής για δουλειά από τον δημιουργό της. %{link}"
       shared_with: "Διαμοιρασμένο με: %{aspect_names}"
       show: εμφάνισε
-      unlike: "Δεν μου αρέσει"
       via: "μέσω %{link}"
       viewable_to_anyone: "Αυτή η δημοσίευση είναι εμφανής σε όλους στο διαδίκτυο"
   status_messages:
@@ -808,6 +806,7 @@ el:
     followed_tags_stream: "#Ετικέτες που ακολουθείτε"
     like_stream:
       contacts_title: "Χρήστες των οποίων αναρτήσεις σας αρέσουν"
+      title: "Like Stream"
     mentioned_stream: "@Αναφορές"
     mentions:
       contacts_title: "Άτομα που σας έχουν αναφέρει"

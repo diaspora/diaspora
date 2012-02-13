@@ -201,10 +201,14 @@ pl:
     index:
       add_a_new_aspect: "Dodaj aspekt"
       add_to_aspect: "dodaj kontakty do %{name}"
+      add_to_aspect_link: "dodaj kontakty do %{name}"
       all_contacts: "Wszystkie kontakty"
+      community_spotlight: "W centrum uwagi"
       many_people_are_you_sure: "Czy na pewno chcesz rozpocząć prywatną rozmowę z więcej niż %{suggested_limit} osobami? Możesz po prostu opublikować swoją wiadomość w tej grupie. "
       my_contacts: "Moje kontakty"
       no_contacts: "Wygląda na to, że musisz dodać kilka kontaktów!"
+      no_contacts_message: "Sprawdź kto jest %{community_spotlight}"
+      no_contacts_message_with_aspect: "Sprawdź kto jest w %{community_spotlight} lub %{add_to_aspect_link}"
       only_sharing_with_me: "Udostępniający tylko mnie"
       remove_person_from_aspect: "Usuń %{person_name} z aspektu \"%{aspect_name}\""
       start_a_conversation: "Rozpocznij rozmowę"
@@ -297,6 +301,7 @@ pl:
     new:
       already_invited: "Te osoby nie zaakceptowały jeszcze Twojego zaproszenia:"
       aspect: Aspekt
+      check_out_diaspora: "Wypróbuj Diasporę!"
       comma_seperated_plz: "Możesz podać kilka adresów e-mail, oddzielając je przecinkami."
       if_they_accept_info: "Jeśli wybrana osoba przyjmie zaproszenie, zostanie dodana do aspektów, do których ją zapros@{m:iłeś|f:iłaś|n:zono}."
       invite_someone_to_join: "Zaproś kogoś do Diaspory!"
@@ -332,13 +337,6 @@ pl:
         other: "%{count} os. tego nie lubi"
         two: "%{count} os. tego nie lubi"
         zero: "nikt tego nie nielubi"
-      people_like_this:
-        few: "%{count} os. to lubi"
-        many: "%{count} os. to lubi"
-        one: "1 osoba to polubiła"
-        other: "%{count} os. to lubi"
-        two: "%{count} osoby to lubią"
-        zero: "nikt tego nie polubił"
       people_like_this_comment:
         few: "%{count} os. to lubi"
         many: "%{count} os. to lubi"
@@ -346,6 +344,13 @@ pl:
         other: "%{count} os. to lubi"
         two: "%{count} ososby to lubią"
         zero: "nikt nie lubi"
+      people_pin_this:
+        few: "%{count} przypięć"
+        many: "%{count} przypięć"
+        one: "%{count} przypięcie"
+        other: "%{count} przypięcia"
+        two: "%{count} przypięcia"
+        zero: "brak przypięć"
   limited: Ograniczone
   more: Więcej
   next: dalej
@@ -392,19 +397,19 @@ pl:
       mark_all_as_read: "Oznacz wszystkie jako przeczytane"
       notifications: Powiadomienia
     liked:
-      few: "%{actors} polubili Twój %{post_link}."
-      many: "%{actors} polubili Twój %{post_link}."
-      one: "%{actors} polubi@{m:ł|f:ła|n:ł} Twój %{post_link}."
-      other: "%{actors} polubi@{m:ł|f:ła|n:ł} Twój %{post_link}."
-      two: "%{actors} polubili Twój %{post_link}."
-      zero: "%{actors} polubi@{m:ł|f:ła|n:ło} Twój wpis."
+      few: "%{actors} przypięło Twój %{post_link}."
+      many: "%{actors} przypięło Twój %{post_link}."
+      one: "%{actors} przypi@{m:ął|f:ęła|n:ął/ęła} Twój %{post_link}."
+      other: "%{actors} przypięli Twój %{post_link}."
+      two: "%{actors} przypięły Twój %{post_link}."
+      zero: "%{actors} przypi@{m:ął|f:ęła|n:ął/ęła} Twój wpis."
     liked_post_deleted:
-      few: "%{actors} polubili Twój usunięty wpis."
-      many: "%{actors} lubią twój już usunięty wpis."
-      one: "%{actors} polubi@{m:ł|f:ła|n:ło} Twój usunięty wpis."
-      other: "%{actors} polubi@{m:ł|f:ła|n:ło} Twój usunięty wpis."
-      two: "%{actors} polubili Twój usunięty wpis."
-      zero: "%{actors} polubi@{m:ł|f:ła|n:ło} Twój usunięty wpis."
+      few: "%{actors} przypięli Twój usunięty wpis."
+      many: "%{actors} przypięło Twój usunięty wpis."
+      one: "%{actors} przypi@{m:ął|f:ęła|n:ął/ęła} Twój usunięty wpis."
+      other: "%{actors} przypi@{m:ął|f:ęła|n:ął/ęła} Twój usunięty wpis."
+      two: "%{actors} przypięli Twój usunięty wpis."
+      zero: "%{actors} przypię@{m:ło|f:ła|n:ło/ła} Twój usunięty wpis."
     mentioned:
       few: "%{actors} wspomnieli o Tobie w %{post_link}."
       many: "%{actors} wspomnieli o Tobie w %{post_link}."
@@ -459,7 +464,7 @@ pl:
     email_sent_by_diaspora: "Ta wiadomość została wysłana przez Diasporę. Jeśli nie chcesz otrzymywać takich wiadomości,"
     hello: "Cześć %{name}!"
     liked:
-      liked: "%{name} polubi@{m:ł|f:ła|n:ł} Twój wpis"
+      liked: "%{name} przypi@{m:ął|f:ęła|n:ł} Twój wpis"
       view_post: "Wyświetl wpis >"
     mentioned:
       mentioned: "wspomniał(a) o Tobie we wpisie:"
@@ -593,6 +598,8 @@ pl:
       first_name: Imię
       last_name: Nazwisko
       update_profile: "Aktualizacja profilu"
+      you_are_nsfw: "Oznaczyłeś/aś siebie jako NSFW, wszystkie dodane przez Ciebie treści nie będą wyświetlane osobom, które zrezygnowały z wyświetlania dyskusyjnych treści w strumieniach."
+      you_are_safe_for_work: "Oznaczyłeś/aś siebie jako osobę udostępniającą treści, które można bez problemu oglądać w pracy, oznacza to, że publikowane przez Ciebie treści są zgodne z zasadami panującymi w społeczności."
       your_bio: "O Tobie"
       your_birthday: "Twoje urodziny"
       your_gender: "Twoja płeć"
@@ -682,7 +689,7 @@ pl:
     failure:
       error: "wystąpił błąd podczas łączenia z tą usługą"
     finder:
-      fetching_contacts: "Diaspora zaprasza Twoich znajomych z  %{service}, wróć ponownie za kilka minut."
+      fetching_contacts: "Diaspora zaprasza Twoich znajomych z %{service}, wróć ponownie za kilka minut."
       no_friends: "Nie znaleziono znajomych z Facebooka."
       service_friends: "Znajomi z %{service} "
     index:
@@ -739,6 +746,7 @@ pl:
     notification:
       new: "Nowy(-a,-e) %{type} od %{from}"
     public_explain:
+      atom_feed: "Kanał Atom"
       control_your_audience: "Dostosuj swoją publiczność"
       logged_in: "zalogowano do %{service}"
       manage: "zarządzaj powiązanymi usługami"
@@ -773,11 +781,11 @@ pl:
       hide_and_mute: "Ukryj i wycisz wpis"
       ignore_user: "Ignoruj - %{name}"
       ignore_user_description: "Dodać użytkownika do listy ignorowanych i usunąć ze wszystkich aspektów?"
-      like: Lubię
       nsfw: "Ten wpis został oznaczony przez jego autora jako NSFW (Not suitable/safe for work). %{link}"
+      pin: Przypnij
       shared_with: "Opublikowano w: %{aspect_names}"
       show: wyświetl
-      unlike: "Nie lubię"
+      unpin: Odepnij
       via: "przez %{link}"
       viewable_to_anyone: "Ten wpis jest widoczny dla każdego"
   status_messages:
@@ -820,15 +828,17 @@ pl:
       title: "#Obserwowane znaczniki"
     followed_tags_stream: "#Obserwowane znaczniki"
     like_stream:
-      contacts_title: "Osoby których wpisy lubisz"
-      title: "Strumień ulubionych"
+      contacts_title: "Osoby, których wpisy przypi@{m:ąłeś|f:ęłaś|n:ąłeś/ęłaś}"
+      title: "Strumień przypiętych"
     mentioned_stream: "@Wzmianki"
     mentions:
       contacts_title: "Wspomnieli o Tobie"
       title: "@Wzmianki"
     multi:
-      contacts_title: "Osoby w Twoim Strumieniu"
-      title: Strumień
+      contacts_title: "Osoby w Strumieniu Poznawania"
+      title: Poznawaj
+    participate:
+      title: "Przyłącz się"
     public:
       contacts_title: "Ostatnio dodawali"
       title: "Działalność publiczna"
@@ -904,7 +914,7 @@ pl:
       export_data: "Eksport danych"
       following: "Ustawienia obserwowania"
       getting_started: "Preferencje nowego użytkownika"
-      liked: "...ktoś polubił mój wpis"
+      liked: "...ktoś przypiął mój wpis"
       mentioned: "...ktoś o mnie wspomniał we wpisie"
       new_password: "Nowe hasło"
       photo_export_unavailable: "Eksportowanie zdjęć jest aktualnie niedostępne"

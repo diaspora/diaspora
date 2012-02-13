@@ -201,6 +201,7 @@ es:
     index:
       add_a_new_aspect: "Añade un nuevo aspecto"
       add_to_aspect: "añade contactos a %{name}"
+      add_to_aspect_link: "añadir contactos a %{name}"
       all_contacts: "Todos los contactos"
       community_spotlight: "Comunidad Creativa"
       many_people_are_you_sure: "¿Estás seguro que quieres comenzar una conversación privada con más de %{suggested_limit} contactos? Publicar en sus aspectos podría ser mejor para contactar con ellos."
@@ -328,26 +329,26 @@ es:
   likes:
     likes:
       people_dislike_this:
-        few: "A %{count} no les gusta"
-        many: "A %{count} no les gusta"
-        one: "A 1 persona no le gusta"
-        other: "A %{count} no les gusta"
-        two: "A %{count} personas no les gusta"
-        zero: "A nadie le disgusta"
-      people_like_this:
-        few: "A %{count} les gusta"
-        many: "A %{count} les gusta"
-        one: "A 1 persona le gusta"
-        other: "A %{count} les gusta"
-        two: "A %{count} personas les gusta"
-        zero: "A nadie le gusta"
+        few: "%{count} no quisieron marcarla"
+        many: "%{count} no quisieron marcarla"
+        one: "1 persona no quiso marcarla"
+        other: "%{count} no quieron marcarla"
+        two: "%{count} no quieron marcarla"
+        zero: "No quieron marcarla"
       people_like_this_comment:
-        few: "A %{count} personas les gusta"
-        many: "A %{count} personas les gusta"
-        one: "A %{count} persona le gusta"
-        other: "A %{count} personas les gusta"
-        two: "A %{count} personas les gusta"
-        zero: "sin votos"
+        few: "%{count} personas lo marcaron"
+        many: "%{count} personas lo marcaron"
+        one: "%{count} persona lo marcó"
+        other: "%{count} personas lo marcaron"
+        two: "%{count} personas lo marcaron"
+        zero: "Nadie lo marcó"
+      people_pin_this:
+        few: "%{count} marcas"
+        many: "%{count} marcas"
+        one: "%{count} marca"
+        other: "%{count} marcas"
+        two: "%{count} marcas"
+        zero: "ninguna marca"
   limited: Restringido
   more: Más
   next: siguiente
@@ -394,19 +395,19 @@ es:
       mark_all_as_read: "Marcar todo como leído"
       notifications: Notificaciones
     liked:
-      few: "A %{actors} les gustó tu %{post_link}."
-      many: "A %{actors} les gustó tu %{post_link}."
-      one: "A %{actors} le gustó tu %{post_link}."
-      other: "A %{actors} les gustó tu %{post_link}."
-      two: "A %{actors} les gustó tu %{post_link}."
-      zero: "A %{actors} le gustó tu %{post_link}."
+      few: "%{actors} marcaron tu %{post_link}."
+      many: "%{actors} marcaron tu %{post_link}."
+      one: "%{actors} marcó tu %{post_link}."
+      other: "%{actors} marcaron tu %{post_link}."
+      two: "%{actors} marcaron tu %{post_link}."
+      zero: "%{actors} marcaron tu %{post_link}."
     liked_post_deleted:
-      few: "%{actors} les gustó una publicación eliminada."
-      many: "%{actors} les gustó una publicación eliminada."
-      one: "%{actors} le gustó una publicación eliminada."
-      other: "%{actors} les gustó una publicación eliminada."
-      two: "%{actors} le gusta tu publicación eliminada."
-      zero: "%{actors} le gustó una publicación eliminada."
+      few: "%{actors} marcaron una publicación eliminada."
+      many: "%{actors} marcaron una publicación eliminada."
+      one: "%{actors} marcó una publicación eliminada."
+      other: "%{actors} marcaron una publicación eliminada."
+      two: "%{actors} marcaron una publicación eliminada."
+      zero: "%{actors} marcó una publicación eliminada."
     mentioned:
       few: "%{actors} te han mencionado en una %{post_link}."
       many: "%{actors} te han mencionado en una %{post_link}."
@@ -461,7 +462,7 @@ es:
     email_sent_by_diaspora: "Este email fue enviado por Diaspora*. Si te gustaría dejar de recibir emails como este,"
     hello: "¡Hola %{name}!"
     liked:
-      liked: "a %{name} le gustó tu publicación"
+      liked: "%{name} marcó tu publicación"
       view_post: "Ver comentario >"
     mentioned:
       mentioned: "te mencionó en una publicación:"
@@ -742,7 +743,7 @@ es:
     notification:
       new: "Nuevo %{type} de %{from}"
     public_explain:
-      atom_feed: "fuentes Atom"
+      atom_feed: "canal Atom"
       control_your_audience: "Controla tu Audiencia"
       logged_in: "conectado a %{service}"
       manage: "gestión de servicios conectados"
@@ -777,11 +778,11 @@ es:
       hide_and_mute: "Ignorar la publicación"
       ignore_user: "Ignorar a %{name}"
       ignore_user_description: "¿Ignorar y quitar a esa persona de todos los aspectos?"
-      like: "Me gusta"
       nsfw: "Esta publicación es considerada por su autor como no segura para ciertos entornos de trabajo (#NSFW - Not safe for work). %{link}"
+      pin: Marca
       shared_with: "Compartido con: %{aspect_names}"
       show: mostrar
-      unlike: "No me gusta"
+      unpin: Desmarcar
       via: "vía %{link}"
       viewable_to_anyone: "Esta publicación podrá verla cualquiera en internet"
   status_messages:
@@ -824,7 +825,7 @@ es:
       title: "#Etiquetas"
     followed_tags_stream: "#Etiquetas seguidas"
     like_stream:
-      contacts_title: "Gente cuyas publicaciones te gustan"
+      contacts_title: "Gente cuyas publicaciones marcaste"
       title: "Me gusta"
     mentioned_stream: "@Menciones"
     mentions:
@@ -833,6 +834,8 @@ es:
     multi:
       contacts_title: "Gente en tu Entrada"
       title: Entrada
+    participate:
+      title: Participar
     public:
       contacts_title: "Publicadores recientes"
       title: "Actividad Pública"
@@ -908,7 +911,7 @@ es:
       export_data: "Exportar datos"
       following: "Ajustes de Seguimiento"
       getting_started: "Preferencias del Nuevo Usuario"
-      liked: "...a alguien le gusta tu publicación?"
+      liked: "...alguien marcó tu publicación?"
       mentioned: "...eres mencionad@ en una publicación?"
       new_password: "Nueva contraseña"
       photo_export_unavailable: "Exportar fotos no está disponible actualmente"

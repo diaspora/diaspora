@@ -35,6 +35,8 @@ uk:
       hey: "Привіт, {{name}}!"
       no_tags: "Ви не стежите ні за однією міткою! Все одно продовжити?"
       preparing_your_stream: "Підготовка вашого особистого потоку..."
+    header:
+      search: "Find people or #tags"
     infinite_scroll:
       no_more: "Повідомлень більше немає."
     photo_uploader:
@@ -48,6 +50,7 @@ uk:
     search_for: "Шукати {{name}}"
     show_more: "показати більше"
     stream:
+      like: Like
       likes:
         few: "<%= count %> Likes"
         many: "<%= count %> Likes"
@@ -69,6 +72,7 @@ uk:
         other: "<%= count %> Reshares"
         two: "<%= count %> Reshares"
         zero: "<%= count %> Reshares"
+      unlike: Unlike
     tags:
       wasnt_that_interesting: "OK, мабуть, стежити за міткою #{{tagName}} було не так вже цікаво..."
     timeago:

@@ -19,15 +19,19 @@ br:
         two: "In <%= count %> aspects"
         zero: "Add to aspect"
     confirm_dialog: "Emaoc'h sur?"
+    failed_to_like: "Failed to like!"
     getting_started:
       hey: "Hey, {{name}}!"
       preparing_your_stream: "Preparing your personialized stream..."
+    header:
+      search: "Find people or #tags"
     publisher:
       at_least_one_aspect: "Dav eo deoc'h embann un arvez da'n nebeutañ"
     reshares:
       duplicate: "You've already reshared that post!"
     search_for: "Klask war-lerc'h {{name}}"
     stream:
+      like: Like
       likes:
         few: "<%= count %> Likes"
         many: "<%= count %> Likes"
@@ -49,6 +53,7 @@ br:
         other: "<%= count %> Reshares"
         two: "<%= count %> Reshares"
         zero: "<%= count %> Reshares"
+      unlike: Unlike
     tags:
       wasnt_that_interesting: "OK, I suppose #{{tagName}} wasn't all that interesting..."
     timeago:

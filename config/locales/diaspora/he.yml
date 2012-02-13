@@ -337,13 +337,6 @@ he:
         other: "%{count} אנשים לא אוהבים את זה"
         two: "%{count} לא מתעניין"
         zero: "אין אנשים שלא אהבו את זה"
-      people_like_this:
-        few: "%{count} אנשים אהבו את זה"
-        many: "%{count} אנשים אהבו את זה"
-        one: "אדם אחד אהב את זה"
-        other: "%{count} אנשים אהבו את זה"
-        two: "%{count} מתעניין"
-        zero: "אף אחד לא אהב את זה"
       people_like_this_comment:
         few: "%{count} אהבו זאת"
         many: "%{count} אהבו זאת"
@@ -351,6 +344,13 @@ he:
         other: "%{count} אהבו"
         two: "%{count} מתעניין"
         zero: "אף אחד לא אהב"
+      people_pin_this:
+        few: "%{count} pins"
+        many: "%{count} pins"
+        one: "%{count} pin"
+        other: "%{count} pins"
+        two: "%{count} pins"
+        zero: "no pins"
   limited: מוגבל
   more: המשך
   next: הבאה
@@ -785,11 +785,9 @@ he:
       hide_and_mute: "הסתר והשתק"
       ignore_user: " %{name} התעלם"
       ignore_user_description: "?התעלם והסר את המשתמש מכל תחומי העניין"
-      like: אהבתי
       nsfw: "%{link}על ידי הכותב NSFW הרשומה הזאת סומנה כ"
       shared_with: "משותף עם: %{aspect_names}"
       show: הצג
-      unlike: "לא אהבתי"
       via: "באמצעות %{link}"
       viewable_to_anyone: "רשומה זו ניתנת לצפייה לכל גולשי הרשת"
   status_messages:

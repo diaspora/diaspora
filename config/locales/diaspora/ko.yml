@@ -301,6 +301,7 @@ ko:
     new:
       already_invited: "내 초대를 수락하지 않은 사람들:"
       aspect: 애스펙
+      check_out_diaspora: "디아스포라를 써보세요!"
       comma_seperated_plz: "쉼표로 구분하여 여러 이메일 주소를 넣을 수 있습니다."
       if_they_accept_info: "수락한 친구는 초대했던 애스펙에 추가됩니다."
       invite_someone_to_join: "다이스포라에 친구를 초대하세요!"
@@ -337,13 +338,6 @@ ko:
         other: "%{count}명이 싫어합니다"
         two: "싪어요 %{count}개"
         zero: "아무도 싫어하지 않습니다"
-      people_like_this:
-        few: "%{count}명이 좋아합니다"
-        many: 컨택
-        one: "한 명이 좋아합니다"
-        other: "%{count}명이 좋아합니다"
-        two: "좋아요 %{count}개"
-        zero: "아무도 좋아하지 않습니다"
       people_like_this_comment:
         few: "%{count}명이 좋아합니다"
         many: "%{count}명이 좋아합니다"
@@ -351,6 +345,13 @@ ko:
         other: "%{count}명이 좋아합니다"
         two: "좋아요 %{count}개"
         zero: "아무도 좋아하지 않습니다"
+      people_pin_this:
+        few: "%{count} pins"
+        many: "%{count} pins"
+        one: "%{count} pin"
+        other: "%{count} pins"
+        two: "%{count} pins"
+        zero: "no pins"
   limited: 제한됨
   more: 더
   next: 다음
@@ -780,11 +781,9 @@ ko:
       hide_and_mute: "게시물을 숨기고 알림 끄기"
       ignore_user: "%{name}님 무시하기"
       ignore_user_description: "이 사용자를 무시한 뒤 모든 애스펙에서 지우시겠습니까?"
-      like: 좋아요
       nsfw: "이 게시물은 게시인이 유해매체로 지정했습니다. %{link}"
       shared_with: "공유된 애스펙: %{aspect_names}"
       show: 보기
-      unlike: "좋아요 취소"
       viewable_to_anyone: "이 게시물은 웹의 누구든지 볼 수 있습니다"
   status_messages:
     create:

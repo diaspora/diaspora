@@ -29,7 +29,7 @@ sk:
       show: "Zobraziť všetky komentáre"
     confirm_dialog: Určite?
     delete: Odstrániť
-    failed_to_like: "Nepodarilo sa označiť, že sa vám to páči!"
+    failed_to_like: "Nepodarilo sa pridať špendlík!"
     failed_to_post_message: "Správu sa nepodarilo poslať!"
     getting_started:
       alright_ill_wait: "V poriadku, počkám."
@@ -65,14 +65,14 @@ sk:
     stream:
       comment: Okomentovať
       hide: Schovať
-      like: "Páči sa mi to"
+      like: "Pridať špendlík"
       likes:
-        few: "<%= count %> ľuďom sa to páči"
-        many: "<%= count %> ľuďom sa to páči"
-        one: "<%= count %> človeku sa to páči"
-        other: "<%= count %> ľuďom sa to páči"
-        two: "<%= count %> ľuďom sa to páči"
-        zero: "<%= count %> ľuďom sa to páči"
+        few: "<%= count %> špendlíkov"
+        many: "<%= count %> špendlíkov"
+        one: "<%= count %> špendlík"
+        other: "<%= count %> špendlíkov"
+        two: "<%= count %> špendlíky"
+        zero: "<%= count %> špendlíkov"
       limited: Súkromný
       more_comments:
         few: "Zobraziť ďalšie <%= count %> komentáre"
@@ -93,7 +93,7 @@ sk:
         two: "<%= count %> opätovné zdieľania"
         zero: "<%= count %> opätovných zdieľaní"
       show: Zobraziť
-      unlike: "Už sa mi to nepáči"
+      unlike: "Odobrať špendlík"
     tags:
       wasnt_that_interesting: "OK, značka #<%= tagName %> asi vôbec nebola zaujímavá..."
     timeago:

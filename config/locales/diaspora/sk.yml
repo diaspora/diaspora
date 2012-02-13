@@ -200,10 +200,14 @@ sk:
     index:
       add_a_new_aspect: "Pridať novú kategóriu"
       add_to_aspect: "Pridať kontakty do kategórie %{name}"
+      add_to_aspect_link: "pridať kontakt do %{name}"
       all_contacts: "Všetky kontakty"
+      community_spotlight: "V centre pozornosti komunity"
       many_people_are_you_sure: "Určite chcete začať súkromný rozhovor s viac ako %{suggested_limit} ľuďmi? Poslanie príspevku do tejto kategórie môže byť lepší spôsob, ako sa s nimi spojiť."
       my_contacts: "Moje kontakty"
       no_contacts: "Zdá sa, že treba pridať pár kontaktov!"
+      no_contacts_message: "Pozrite si %{community_spotlight}"
+      no_contacts_message_with_aspect: "Pozrite si %{community_spotlight} alebo %{add_to_aspect_link}"
       only_sharing_with_me: "Tí, ktorí sa delia iba  so mnou"
       remove_person_from_aspect: "Odstrániť použ. %{person_name} z kategórie %{aspect_name}"
       start_a_conversation: "Začať rozhovor"
@@ -296,6 +300,7 @@ sk:
     new:
       already_invited: "Títo ľudia neprijali vaše pozvanie:"
       aspect: Kategória
+      check_out_diaspora: "Vyskúšajte Diasporu!"
       comma_seperated_plz: "Môžete vložiť viacero adries; oddeľte ich čiarkou."
       if_they_accept_info: "Po odsúhlasení budú pozvaní používatelia pridaní  do príslušnej kategórie."
       invite_someone_to_join: "Pozvite niekoho na Diasporu*!"
@@ -332,13 +337,6 @@ sk:
         other: "%{count} ľuďom sa to nepáči"
         two: "%{count} ľuďom sa to nepáči"
         zero: "nie sú takí, ktorým sa to nepáči"
-      people_like_this:
-        few: "%{count} ľudom sa to páči"
-        many: "%{count} ľuďom sa to páči"
-        one: "1 človeku sa to páči"
-        other: "%{count} ľuďom sa to páči"
-        two: "%{count} ľuďom sa to páči"
-        zero: "žiadne ohlasy"
       people_like_this_comment:
         few: "%{count} ľuďom sa to páči"
         many: "%{count} ľuďom sa to páči"
@@ -346,6 +344,13 @@ sk:
         other: "%{count} ľuďom sa to páči"
         two: "%{count} ľuďom sa to páči"
         zero: "žiadne ohlasy"
+      people_pin_this:
+        few: "%{count} špendlíkov"
+        many: "%{count} špendlíkov"
+        one: "%{count} špendlík"
+        other: "%{count} špendlíkov"
+        two: "%{count} špendlíky"
+        zero: "žiadne špendlíky"
   limited: Obmedzený
   more: Viac
   next: ďalej
@@ -392,19 +397,19 @@ sk:
       mark_all_as_read: "Všetky označiť ako prečítané"
       notifications: Oznamy
     liked:
-      few: "%{actors} označili, že sa im páči %{post_link}."
-      many: "%{actors} označili, že sa im páči %{post_link}."
-      one: "%{actors} označil(a), že sa mu (jej) páči %{post_link}."
-      other: "%{actors} označil(a), že sa mu (jej) páči %{post_link}."
-      two: "%{actors} práve označili, že sa im páči %{post_link}."
-      zero: "%{actors} označilo, že sa im páči %{post_link}."
+      few: "%{actors} ľudia pridali špendlíky na %{post_link}."
+      many: "%{actors} ľudia pridali špendlíky na %{post_link}."
+      one: "%{actors} pridal(a) špendlíky na %{post_link}."
+      other: "%{actors} pridal(a) špendlíky na %{post_link}."
+      two: "%{actors} ľudia práve pridali špendlíky na %{post_link}."
+      zero: "%{actors} ľudia pridali špendlíky na %{post_link}."
     liked_post_deleted:
-      few: "%{actors} ľuďom sa páčil váš vymazaný príspevok."
-      many: "%{actors} ľuďom sa páčil váš vymazaný príspevok."
-      one: "%{actors} človeku sa páčil váš vymazaný príspevok."
-      other: "%{actors} ľuďom sa páčil váš vymazaný príspevok."
-      two: "%{actors} ľuďom sa páčil váš vymazaný príspevok."
-      zero: "%{actors} ľuďom sa páčil váš vymazaný príspevok."
+      few: "%{actors} ľudia pridali špendlíky na váš vymazaný príspevok."
+      many: "%{actors} ľudia pridali špendlíky na váš vymazaný príspevok."
+      one: "%{actors} človek pridal špendlík na váš vymazaný príspevok."
+      other: "%{actors} ľudia pridali špendlíky na váš vymazaný príspevok."
+      two: "%{actors} ľudia pridali špendlíky na váš vymazaný príspevok."
+      zero: "%{actors} ľudia pridali špendlíky na váš vymazaný príspevok."
     mentioned:
       few: "%{actors} vás spomenul(a) v %{post_link}."
       many: "%{actors} vás spomenuli v príspevku %{post_link}."
@@ -459,7 +464,7 @@ sk:
     email_sent_by_diaspora: "Tento e-mail poslala Diaspora. Ak nechcete dostávať takéto e-maily,"
     hello: "Ahoj %{name}!"
     liked:
-      liked: "%{name} označil(a), že sa mu/jej páči váš príspevok"
+      liked: "%{name} pridal(a) špendlík na váš príspevok"
       view_post: "Zobraziť príspevok >"
     mentioned:
       mentioned: "vás spomenul(a) v príspevku:"
@@ -740,6 +745,7 @@ sk:
     notification:
       new: "Nový %{type} od použ. %{from}"
     public_explain:
+      atom_feed: "Zdroj RSS Atom"
       control_your_audience: "Kontrolovať publikum"
       logged_in: "Prihlásenie na %{service}"
       manage: "Spravovať prepojené služby"
@@ -774,11 +780,11 @@ sk:
       hide_and_mute: "Schovať príspevok  a vypnúť oznamy"
       ignore_user: "Ignorovať použ. %{name}"
       ignore_user_description: "Ignorovať použ. a odstrániť ho (ju)  zo všetkých kategórií?"
-      like: "Páči sa mi to"
       nsfw: "Autor(ka) označil(a) tento príspevok za nevhodný v práci. %{link}"
+      pin: Špendlík
       shared_with: "Na vedomie: %{aspect_names}"
       show: Zobraziť
-      unlike: Odznačiť
+      unpin: "Odobrať špendlík"
       via: "na %{link}"
       viewable_to_anyone: "Tento príspevok si môže pozrieť každý na webe"
   status_messages:
@@ -821,15 +827,17 @@ sk:
       title: "#Značky, ktoré sledujete"
     followed_tags_stream: "#Značky, ktoré sledujete"
     like_stream:
-      contacts_title: "Ľudia, ktorých príspevky sa vám páčia"
-      title: "Nástenka „Páči sa mi“"
+      contacts_title: "Ľudia, ktorých príspevky ste pripli špendlíkom"
+      title: Špendlíky
     mentioned_stream: "@Zmienky"
     mentions:
       contacts_title: "Ľudia, ktorí vás spomenuli"
       title: "@Zmienky"
     multi:
-      contacts_title: "Ľudia na vašej nástenke"
-      title: Nástenka
+      contacts_title: "Ľudia vo vašom prehľadávaní"
+      title: Prehľadávať
+    participate:
+      title: Účasť
     public:
       contacts_title: "Autori najnovších príspevkov"
       title: "Verejná aktivita"
@@ -905,7 +913,7 @@ sk:
       export_data: "Exportovať dáta"
       following: "Nastavenia sledovania"
       getting_started: "Nové nastavenia používateľa"
-      liked: "...sa niekomu páči váš príspevok?"
+      liked: "...niekto pridá špendlík na váš príspevok?"
       mentioned: "...vás spomenuli v príspevku?"
       new_password: "Nové heslo"
       photo_export_unavailable: "Momentálne sa fotky nedajú exportovať"
