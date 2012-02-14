@@ -25,6 +25,10 @@ gl:
         months: "%d meses."
         year: "un ano."
         years: "%d anos."
+
+      my_activity: "Actividade"
+      my_stream: "Onda"
+
       videos:
         watch: "Ver o vídeo en <%= provider %>"
         unknown: "Tipo de vídeo descoñecido"
@@ -80,8 +84,9 @@ gl:
         reshare: "Repetir"
         comment: "Comentar"
         original_post_deleted: "O autor eliminou a publicación orixinal."
-        nsfw: "O autor da publicación marcouna coma non apta para todos os públicos."
-        show: "Amosar"
+        show_post: "Amosar a publicación"
+        follow: "Seguir"
+        unfollow: "Deixar de seguir"
 
         likes:
           zero: "Non lle gusta a ninguén."

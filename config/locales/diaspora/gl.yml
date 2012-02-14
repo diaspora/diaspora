@@ -32,6 +32,7 @@ gl:
   public: "Público"
   limited: "Limitado"
   search: "Busca"
+  nsfw: "Non para todos os públicos"
   find_people: "Atopar xente ou #etiquetas."
   _home: "Inicio"
   more: "Máis"
@@ -160,7 +161,6 @@ gl:
     index:
       donate: "Doar"
       keep_us_running: "Contribúe ao subministro de café para manter os servidores de %{pod} en marcha cunha doazón mensual!"
-      your_aspects: "Aspectos"
       no_tags: "Atope unha etiqueta que seguir"
       unfollow_tag: "Deixar se seguir #%{tag}"
       handle_explanation: "Este é o seu identificador de Diaspora. É coma un enderezo electrónico, pode darllo á xente para que o atopen."
@@ -254,7 +254,10 @@ gl:
       title: "Contactos"
       your_contacts: "Contactos"
       no_contacts: "Non hai ningún contacto."
-      check_out: "Bota unha ollada"
+      no_contacts_message: "Bote unha ollada ás %{community_spotlight}"
+      no_contacts_message_with_aspect: "Bote unha ollada ás %{community_spotlight} ou %{add_to_aspect_link}"
+      add_to_aspect_link: "engada contactos a %{name}"
+      community_spotlight: "estrelas da comunidade"
       my_contacts: "Contactos"
       all_contacts: "Todos os contactos"
       only_sharing_with_me: "Só eles comparten"
@@ -338,6 +341,7 @@ gl:
       aspect: "Aspecto"
       already_invited: "Xa convidou a esta persoa."
       resend: "Volvela convidar"
+      check_out_diaspora: "Bote unha ollada a Diaspora!"
     check_token:
       not_found: "Non se atopou o código da invitación."
     edit:
@@ -646,6 +650,8 @@ gl:
       update_profile: "Gardar os cambios"
       allow_search: "Aparecer nas buscas en Diaspora."
       edit_profile: "Modificar o perfil"
+      you_are_nsfw: "Marcouse a vostede mesmo como non apto para todos os públicos, a xente que decidise non visualizar contido que puidese ofender algunhas sensibilidades non verá o que publique."
+      you_are_safe_for_work: "Marcouse a vostede mesmo como apto para todos os públicos, indicando así que o que vostede publique é acorde ás directrices da comunidade."
     update:
       updated: "Actualizouse o perfil."
       failed: "Non se puido actualizar o perfil."
@@ -804,6 +810,7 @@ gl:
       outside: "As mensaxes públicas as poderá ver xente sen conta de Diaspora."
       logged_in: "Conectado a «%{service}»."
       manage: "Administrar os servizos conectados"
+      atom_feed: "Fonte de novas Atom"
     notification:
       new: "Nova %{type} de %{from}"
     contact_list:
@@ -930,6 +937,9 @@ gl:
 
     aspects:
       title: "Aspectos"
+
+    activity:
+      title: "Actividade"
 
   users:
     logged_out:
