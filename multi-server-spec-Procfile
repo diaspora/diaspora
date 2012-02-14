@@ -1,2 +1,0 @@
-integration_1: bundle exec thin start -e integration_1 -p 45789
-integration_2: bundle exec thin start -e integration_2 -p 34658
