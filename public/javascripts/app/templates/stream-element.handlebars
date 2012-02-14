@@ -45,23 +45,23 @@
     </div>
 
     {{#if nsfw}}
-      <div class="shield_wrapper">
-        <div class="shield">
-          {{t "stream.nsfw"}}
-          <a href="#">
-            {{t "stream.show"}}
-          </a>
-        </div>
-    {{/if}}
-
-    <div class="post-content"> </div>
-
-    {{#if nsfw}}
+      <div class="nsfw-shield">
+        <strong>
+          NSFW
+        </strong>
+        |
+        <a href="#">
+          {{t "stream.show_post"}}
+        </a>
       </div>
-    {{/if}}
 
-    <div class="feedback"> </div>
-    <div class="likes"> </div>
-    <div class="comments"> </div>
+    {{else}}
+
+      <div class="post-content"> </div>
+
+      <div class="feedback"> </div>
+      <div class="likes"> </div>
+      <div class="comments"> </div>
+    {{/if}}
 
   </div>

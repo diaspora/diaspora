@@ -935,7 +935,6 @@ img.scaled_full
   :float right
 
   :margin
-    :top -1px
     :right 10px
 
   form
@@ -949,6 +948,9 @@ img.scaled_full
 
       :border 1px solid #222
 
+      :font-size 13px
+      :padding 4px
+
       &:hover
         :background-color #555
 
@@ -961,11 +963,10 @@ img.scaled_full
         :background-color white
         :width 200px
 
-      &[type='search']
-        &::-webkit-input-placeholder
-          :text-shadow none
-        &:-moz-placeholder
-          :text-shadow none
+      &::-webkit-input-placeholder
+        :text-shadow none
+      &:-moz-placeholder
+        :text-shadow none
 
 ul#settings_nav
   :display inline
@@ -2786,20 +2787,13 @@ a.toggle_selector
       &:hover
         @include opacity(1)
 
-.shield
+.nsfw-shield
   @include border-radius(3px)
-  :z-index 3
   :background-color #eee
-  :position absolute
-  :width 100%
-  :min-height 100%
-  :padding 5px
+  :width 90%
+  :padding 5px 10px
   :border 1px solid #ddd
-
-.shield_wrapper
-  :position relative
-  :margin
-    :bottom 15px
+  :color #999
 
 #back-to-top
   :display block

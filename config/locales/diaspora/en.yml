@@ -159,7 +159,6 @@ en:
     index:
       donate: "Donate"
       keep_us_running: "Keep %{pod} running fast and buy servers their coffee fix with a monthly donation!"
-      your_aspects: "Your Aspects"
       no_tags: "+ Find a tag to follow"
       unfollow_tag: "Stop following #%{tag}"
       handle_explanation: "This is your Diaspora ID. Like an email address, you can give this to people to reach you."
@@ -369,13 +368,13 @@ en:
 
   likes:
     likes:
-      people_pin_this:
-        zero: "no pins"
-        one: "%{count} pin"
-        two: "%{count} pins"
-        few: "%{count} pins"
-        many: "%{count} pins"
-        other: "%{count} pins"
+      people_like_this:
+        zero: "no likes"
+        one: "%{count} like"
+        two: "%{count} likes"
+        few: "%{count} likes"
+        many: "%{count} likes"
+        other: "%{count} likes"
       people_like_this_comment:
         zero: "no likes"
         one: "%{count} like"
@@ -428,12 +427,12 @@ en:
       many: "%{actors} have mentioned you in a %{post_link}."
       other: "%{actors} have mentioned you in a %{post_link}."
     liked:
-      zero: "%{actors} have pinned your %{post_link}."
-      one: "%{actors} has pinned your %{post_link}."
-      two: "%{actors} have pinned your %{post_link}."
-      few: "%{actors} have pinned your %{post_link}."
-      many: "%{actors} have pinned your %{post_link}."
-      other: "%{actors} have pinned your %{post_link}."
+      zero: "%{actors} have liked your %{post_link}."
+      one: "%{actors} has liked your %{post_link}."
+      two: "%{actors} have liked your %{post_link}."
+      few: "%{actors} have liked your %{post_link}."
+      many: "%{actors} have liked your %{post_link}."
+      other: "%{actors} have liked your %{post_link}."
     reshared:
       zero: "%{actors} have reshared your %{post_link}."
       one: "%{actors} has reshared your %{post_link}."
@@ -450,12 +449,12 @@ en:
       many: "%{actors} commented on a deleted post."
       other: "%{actors} commented on a deleted post."
     liked_post_deleted:
-      zero: "%{actors} pinned your deleted post."
-      one: "%{actors} pinned your deleted post."
-      two: "%{actors} pinned your deleted post."
-      few: "%{actors} pinned your deleted post."
-      many: "%{actors} pinned your deleted post."
-      other: "%{actors} pinned your deleted post."
+      zero: "%{actors} liked your deleted post."
+      one: "%{actors} liked your deleted post."
+      two: "%{actors} liked your deleted post."
+      few: "%{actors} liked your deleted post."
+      many: "%{actors} liked your deleted post."
+      other: "%{actors} liked your deleted post."
     reshared_post_deleted:
       zero: "%{actors} reshared your deleted post."
       one: "%{actors} reshared your deleted post."
@@ -512,7 +511,7 @@ en:
     private_message:
         reply_to_or_view: "Reply to or view this conversation >"
     liked:
-        liked: "%{name} pinned your post"
+        liked: "%{name} liked your post"
         view_post: "View post >"
     reshared:
         reshared: "%{name} reshared your post"
@@ -820,8 +819,8 @@ en:
       ignore_user: "Ignore %{name}"
       ignore_user_description: "Ignore and remove user from all aspects?"
       hide_and_mute: "Hide and mute post"
-      pin: "Pin"
-      unpin: "Unpin"
+      like: "Like"
+      unlike: "Unlike"
       dislike: "Dislike"
       shared_with: "Shared with: %{aspect_names}"
       nsfw: "This post has been flagged as NSFW by its author. %{link}"
@@ -908,8 +907,8 @@ en:
       contacts_title: "People whose posts you commented on"
 
     like_stream:
-      title: "Pin Stream"
-      contacts_title: "People whose posts you pinned"
+      title: "Like Stream"
+      contacts_title: "People whose posts you like"
 
     followed_tag:
       title: "#Followed Tags"
@@ -927,14 +926,15 @@ en:
       contacts_title: "Recent Posters"
 
     multi:
-      title: "Explore"
+      title: "Stream"
       contacts_title: "People in your Explore Stream"
 
     aspects:
-      title: "Your Aspects"
+      title: "My Aspects"
 
     participate:
-      title: "Participate"
+      title: "My Activity"
+
   users:
     logged_out:
       signed_out: "You've signed out of Diaspora*"
@@ -963,7 +963,7 @@ en:
       mentioned: "...you are mentioned in a post?"
       started_sharing: "...someone starts sharing with you?"
       private_message: "...you receive a private message?"
-      liked: "...someone pins your post?"
+      liked: "...someone likes your post?"
       reshared: "...someone reshares your post?"
       change: "Change"
       email_awaiting_confirmation: "We have sent you an activation link to %{unconfirmed_email}. Until you follow this link and activate the new address, we will continue to use your original address %{email}."

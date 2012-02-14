@@ -11,7 +11,8 @@ class Post < ActiveRecord::Base
 
   has_many :participations, :dependent => :delete_all, :as => :target
 
-  attr_accessor :user_like
+  attr_accessor :user_like,
+                :user_participation
 
   # NOTE API V1 to be extracted
   acts_as_api
@@ -36,6 +37,7 @@ class Post < ActiveRecord::Base
     t.add :root
     t.add :o_embed_cache
     t.add :user_like
+    t.add :user_participation
     t.add :mentioned_people
     t.add :photos
     t.add :nsfw

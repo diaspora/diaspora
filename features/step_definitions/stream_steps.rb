@@ -2,8 +2,8 @@ Then /^I should see an image in the publisher$/ do
   photo_in_publisher.should be_present
 end
 
-Then /^I pin the post "([^"]*)"$/ do |post_text|
-  pin_post(post_text)
+Then /^I like the post "([^"]*)"$/ do |post_text|
+  like_post(post_text)
 end
 
 Then /^"([^"]*)" should be post (\d+)$/ do |post_text, position|

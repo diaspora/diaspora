@@ -25,8 +25,8 @@ en:
         year: "about a year"
         years: "%d years"
 
-      participate: "Participate"
-      explore: "Explore"
+      my_activity: "My Activity"
+      my_stream: "Stream"
 
       videos:
           watch: "Watch this video on <%= provider %>"
@@ -53,7 +53,7 @@ en:
           many: "In <%= count %> aspects"
           other: "In <%= count %> aspects"
       show_more: "show more"
-      failed_to_like: "Failed to pin!"
+      failed_to_like: "Failed to like!"
       failed_to_post_message: "Failed to post message!"
       comments:
         show: "show all comments"
@@ -78,21 +78,22 @@ en:
         hide: "Hide"
         public: "Public"
         limited: "Limited"
-        like: "Pin"
-        unlike: "Unpin"
+        like: "Like"
+        unlike: "Unlike"
         reshare: "Reshare"
         comment: "Comment"
         original_post_deleted: "Original post deleted by author."
-        nsfw: "This post has been flagged NSFW by its author."
-        show: "Show"
+        show_post: "Show post"
+        follow: "Follow"
+        unfollow: "Unfollow"
 
         likes:
-          zero: "<%= count %> Pins"
-          one: "<%= count %> Pin"
-          two: "<%= count %> Pins"
-          few: "<%= count %> Pins"
-          many: "<%= count %> Pins"
-          other: "<%= count %> Pins"
+          zero: "<%= count %> Likes"
+          one: "<%= count %> Like"
+          two: "<%= count %> Likes"
+          few: "<%= count %> Likes"
+          many: "<%= count %> Likes"
+          other: "<%= count %> Likes"
 
         reshares:
           zero: "<%= count %> Reshares"

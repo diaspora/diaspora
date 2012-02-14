@@ -32,7 +32,6 @@ describe("app.views.Post", function(){
       expect($(view.el).html()).not.toContain("0 Reshares")
     })
 
-
     context("embed_html", function(){
       it("provides oembed html from the model response", function(){
         this.statusMessage.set({"o_embed_cache" : {
@@ -68,7 +67,7 @@ describe("app.views.Post", function(){
         var view = new app.views.Post({model : this.statusMessage}).render();
         var statusElement = $(view.el)
 
-        expect(statusElement.find(".shield").length).toBe(1)
+        expect(statusElement.find(".nsfw-shield").length).toBe(1)
       })
 
       it("does not contain a shield element", function(){

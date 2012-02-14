@@ -82,6 +82,22 @@ class User < ActiveRecord::Base
     User.joins(:contacts).where(:contacts => {:person_id => person.id})
   end
 
+  def self.monthly_actives(start_day = Time.now)
+    logged_in_since(start_day - 1.month)
+  end
+
+  def self.yearly_actives(start_day = Time.now)
+    logged_in_since(start_day - 1.year)
+  end
+
+  def self.daily_actives(start_day = Time.now)
+    logged_in_since(start_day - 1.day)
+  end
+
+  def self.logged_in_since(time)
+    where('last_sign_in_at > ?', time)
+  end
+
   # @return [User]
   def self.find_by_invitation(invitation)
     service = invitation.service

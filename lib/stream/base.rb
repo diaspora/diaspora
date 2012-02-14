@@ -40,6 +40,7 @@ class Stream::Base
   def stream_posts
     self.posts.for_a_stream(max_time, order, self.user).tap do |posts|
       like_posts_for_stream!(posts) #some sql person could probably do this with joins.
+      participation_posts_for_stream!(posts)
     end
   end
 
@@ -109,6 +110,22 @@ class Stream::Base
 
     posts.each do |post|
       post.user_like = like_hash[post.id]
+    end
+  end
+
+  # @return [void]
+  def participation_posts_for_stream!(posts)
+    return posts unless @user
+
+    participations = Participation.where(:author_id => @user.person.id, :target_id => posts.map(&:id), :target_type => "Post")
+
+    participation_hash = participations.inject({}) do |hash, participation|
+      hash[participation.target_id] = participation
+      hash
+    end
+
+    posts.each do |post|
+      post.user_participation = participation_hash[post.id]
     end
   end
 
