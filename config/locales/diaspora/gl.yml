@@ -535,285 +535,505 @@ gl:
       couldnt_find_them_send_invite: "Non atopa a quen busca? Envíelle unha invitación:"
       no_one_found: "Non se atopou a ninguén."
       looking_for: "Busca publicacións coa etiqueta %{tag_link}?"
-
-# Continuar a revisión da tradución por aquí.
-
-    add_contact_small:
-      add_contact_from_tag: "Engadir un contacto a partir da etiqueta"
-    aspect_list:
-      edit_membership: "Modificar a pertenza ao aspecto"
-    helper:
-      people_on_pod_are_aware_of: "A xente neste servidor está ao tanto de"
-      results_for: "Resultados para %{params}"
-    profile_sidebar:
-      bio: Biografía
-      born: Aniversario
-      edit_my_profile: "Modificar o perfil"
-      gender: Sexo
-      in_aspects: "Nos aspectos"
-      location: Localidade
-      remove_contact: "Eliminar o contacto"
-      remove_from: "Eliminar a %{name} de %{aspect}?"
+    webfinger:
+      fail: "Non se puido atopar «%{handle}»."
     show:
-      does_not_exist: "Esa persoa non existe!"
+      has_not_shared_with_you_yet: "%{name} aínda non compartiu con vostede!"
       incoming_request: "%{name} quere compartir con vostede."
-      mention: Mencionar
-      message: "Enviar unha mensaxe"
+      return_to_aspects: "Volver á paxina dos aspectos"
+      to_accept_or_ignore: "Aceptalo ou ignoralo"
+      does_not_exist: "Esa persoa non existe!"
       not_connected: "Non está a compartir con %{name}."
       recent_posts: "Últimas publicacións"
       recent_public_posts: "Últimas publicacións públicas"
-      return_to_aspects: "Volver á paxina dos aspectos"
       see_all: "Velas todas"
       start_sharing: "Comezar a compartir"
-      to_accept_or_ignore: "Aceptalo ou ignoralo"
-    webfinger:
-      fail: "Non se puido atopar «%{handle}»."
+      message: "Enviar unha mensaxe"
+      mention: "Mencionar"
+      ignoring: "Está a ignorar as publicacións de %{name}."
+      closed_account: "Esta conta está pechada."
+    sub_header:
+      you_have_no_tags: "Non ten etiquetas!"
+      add_some: "Engadir"
+      edit: "Modificar"
+    profile_sidebar:
+      remove_contact: "Eliminar o contacto"
+      edit_my_profile: "Modificar o perfil"
+      bio: "Biografía"
+      location: "Localidade"
+      gender: "Sexo"
+      born: "Aniversario"
+      in_aspects: "Nos aspectos"
+      remove_from: "Eliminar a %{name} de %{aspect}?"
+    helper:
+      results_for: " resultados buscando «%{params}»"
+      people_on_pod_are_aware_of: " persoas neste servidor están ao tanto de"
+    aspect_list:
+      edit_membership: "Modificar a pertenza ao aspecto"
+    add_contact_small:
+      add_contact_from_tag: "Engadir un contacto a partir da etiqueta"
+
+  photos:
+    show:
+      delete_photo: "Eliminar a imaxe"
+      make_profile_photo: "Converter na imaxe do perfil"
+      update_photo: "Actualizar a imaxe"
+      edit: "Modificar"
+      edit_delete_photo: "Modificar a descrición da imaxe ou eliminala"
+      collection_permalink: "Ligazón permanente á colección"
+      show_original_post: "Amosar a publicación orixinal"
+    edit:
+      editing: "Modificando…"
+    photo:
+      view_all: "Ver todas as imaxes de %{name}"
+    new:
+      new_photo: "Nova imaxe"
+      back_to_list: "Volver á lista"
+      post_it: "Publicalo!"
+    create:
+      runtime_error: "Non se puido subir a imaxe. Está seguro de que tiña o cinto de seguridade ben axustado?"
+      integrity_error: "Non se puido subir a imaxe. Está seguro de que o ficheiro era unha imaxe?"
+      type_error: "Non se puido subir a imaxe. Está seguro de que se engadiu algunha imaxe?"
+    update:
+      notice: "Actualizouse a imaxe."
+      error: "Non se puido modificar a imaxe."
+    destroy:
+      notice: "Eliminouse a imaxe."
+    new_photo:
+      invalid_ext: "Diaspora non permite extensións como a do ficheiro «{file}». Só se permiten: {extensions}."
+      size_error: "O ficheiro «{file}» é grande de máis, non pode superar os {sizeLimit}."
+      empty: "O ficheiro «{file}» está baleiro, volva seleccionar os ficheiros saltándose ese."
+    new_profile_photo:
+      upload: "Subir unha nova imaxe para o perfil!"
+      or_select_one_existing: "Ou escoller unha das %{photos} existentes."
+    comment_email_subject: "Imaxe de %{name}"
+
+  posts:
+    show:
+      destroy: "Eliminar"
+      permalink: "Ligazón permanente"
+      not_found: "Non se deu atopado esa publicación."
+      photos_by:
+        zero: "Ningunha imaxe de %{author}."
+        one: "Unha imaxe de %{author}."
+        two: "Dúas imaxes de %{author}."
+        few: "%{count} imaxes de %{author}."
+        many: "%{count} imaxes de %{author}."
+        other: "%{count} imaxes de %{author}."
+      reshare_by: "Repetido por %{author}."
+
+  share_visibilites:
+    update:
+      post_hidden_and_muted: "A publicación de %{name} agochouse e anuláronse as notificacións."
+      see_it_on_their_profile: "Se quere estar ao tanto das novidades desta publicación, vaia á páxina de perfil de %{name}."
+
+  profiles:
+    edit:
+      your_public_profile: "Perfil público"
+      your_private_profile: "Perfil privado"
+      your_name: "Nome completo"
+      first_name: "Nome"
+      last_name: "Apelidos"
+      your_gender: "Sexo"
+      your_birthday: "Aniversario"
+      your_tags: "Defínase en cinco #etiquetas"
+
+      your_tags_placeholder: "Por exemplo: #filmes #mascotas #viaxar #ensino #santiago"
+
+      your_bio: "Biografía"
+      your_location: "Localidade"
+      your_photo: "Imaxe"
+      update_profile: "Gardar os cambios"
+      allow_search: "Aparecer nas buscas en Diaspora."
+      edit_profile: "Modificar o perfil"
+    update:
+      updated: "Actualizouse o perfil."
+      failed: "Non se puido actualizar o perfil."
+
+  registrations:
+    new:
+      create_my_account: "Crear a miña conta!"
+
+      join_the_movement: "Unirse ao movemento!"
+      sign_up_message: "A rede social feita con ♥"
+
+      enter_email: "Escriba un enderezo de correo electrónico"
+      enter_username: "Escolla un nome de usuario (só letras, números e guións baixos)"
+      enter_password: "Escriba un contrasinal"
+      enter_password_again: "Repita o contrasinal"
+    create:
+      success: "Xa está en Diaspora!"
+    edit:
+      edit: "Modificar a %{name}"
+      leave_blank: "(déixeo baleiro se non quere cambialo)"
+      password_to_confirm: "(ten que escribir o seu contrasinal actual para confirmar os cambios)"
+      unhappy: "Non está contento?"
+      update: "Gardar"
+      cancel_my_account: "Cancelar a conta"
+    closed: "Rexistros pechados neste servidor de Diaspora."
+
+  requests:
+    manage_aspect_contacts:
+      manage_within: "Administrar os contactos"
+      existing: "Contactos existentes"
+    destroy:
+      success: "Agora están a compartir."
+      error: "Escolla un aspecto!"
+      ignore: "Ignorouse a petición de contacto."
+    create:
+      sending: "Enviando…"
+      sent: "Pediu compartir con %{name}. Notificaráselle a próxima vez que entre en Diaspora."
+    new_request_to_person:
+      sent: "Enviada!"
+    helper:
+      new_requests:
+        zero: "Non hai peticións novas."
+        one: "Hai unha petición nova."
+        two: "Hai dúas peticións novas."
+        few: "Hai %{count} peticións novas."
+        many: "Hai %{count} peticións novas."
+        other: "Hai %{count} peticións novas."
+
+  reshares:
+    reshare:
+      reshared_via: "repetido de"
+      reshare_original: "Repetir o orixinal"
+      reshare:
+        zero: "Repetir"
+        one: "Unha repetición."
+        two: "Dúas repeticións."
+        few: "%{count} repeticións."
+        many: "%{count} repeticións."
+        other: "%{count} repeticións."
+      show_original: "Amosar o orixinal"
+      reshare_confirmation: "Repetir a publicación de %{author}?"
+      deleted: "O autor da publicación orixinal eliminouna."
+    create:
+      failure: "Produciuse un erro ao intentar repetir a publicación."
+    comment_email_subject: "Repetición de %{resharer} da publicación de %{author}."
+
+  services:
+    index:
+      logged_in_as: "→ conectado como"
+      disconnect: "Desconectar"
+      really_disconnect: "Está seguro de que quere desconectarse de «%{service}»?"
+      connect_to_twitter: "Conectar ao Twitter"
+      connect_to_facebook: "Conectar ao Facebook"
+      connect_to_tumblr: "Conectar ao Tumblr"
+      edit_services: "Modificar os servizos"
+      no_services: 'Aínda non conectou ningún dos servizos.'
+    create:
+      success: "Accedeu a Diaspora."
+      failure: "Non puido acceder a Diaspora."
+      already_authorized: "Un usuario co identificador de Diaspora «%{diaspora_id}» xa autorizou unha conta de %{service_name}."
+    destroy:
+      success: "Destruíuse a autenticación."
+    failure:
+      error: "Houbo un erro ao intentar conectar o servizo."
+    inviter:
+      join_me_on_diaspora: "Únase a min en DIASPORA*"
+      click_link_to_accept_invitation: "Prema esta ligazón para aceptar a invitación."
+    finder:
+      fetching_contacts: "Diaspora está a buscar os seus contactos de %{service}, estará uns minutos."
+      service_friends: "Contactos de %{service}"
+      no_friends: "Non se atoparon contactos de Facebook."
+    remote_friend:
+      invite: "Convidar"
+      resend: "Volver enviar"
+      not_on_diaspora: "Non está en Diaspora"
+
+  blocks:
+    create:
+      success: "Vale, non volverá ver a ese contacto na súa onda. #silencio!"
+      failure: "Non se puido ignorar ao usuario. #evasión"
+    destroy:
+      success: "A ver que ten que dicir! #saúdo"
+      failure: "Non se puido evitar ignorar ao usuario. #evasión"
+
+  shared:
+    aspect_dropdown:
+      add_to_aspect: "Engadir como contacto"
+      toggle:
+        zero: "Engadir como contacto"
+        one: "Nun aspecto"
+        two: "En dous aspectos"
+        few: "En %{count} aspectos"
+        many: "En %{count} aspectos"
+        other: "En %{count} aspectos"
+    publisher:
+      posting: "Publicando…"
+      share: "Compartir"
+      post_a_message_to: "Publicar unha mensaxe en %{aspect}"
+      make_public: "Facer público"
+      all: "Todos"
+      upload_photos: "Subir imaxes"
+      all_contacts: "Todos os contactos"
+      share_with: "Compartir con"
+      whats_on_your_mind: "En que está a pensar?"
+      publishing_to: "Publicar en: "
+      discard_post: "Descartar a publicación"
+      new_user_prefill:
+        newhere: "NovoAquí"
+        hello: "Ola a todos, son #%{new_user_tag}. "
+        i_like: "Estou interesado en %{tags}. "
+        invited_by: "Grazas pola invitación, "
+    add_contact:
+      enter_a_diaspora_username: "Escriba un nome de usuario de Diaspora:"
+      your_diaspora_username_is: "O seu nome de usuario de Diaspora é «%{diaspora_handle}»."
+      create_request: "Buscar por enderezo de Diaspora"
+      diaspora_handle: "diaspora@servidor.org"
+      know_email: "Se sabe os seus enderezos de correo electrónico, debería convidalos."
+      add_new_contact: "Engadir un novo contacto"
+    invitations:
+      invites: "Invitacións"
+      invite_someone: "Convidar a alguén"
+      invitations_left: "(restan %{count})"
+      dont_have_now: "Non lle quedan, xa lle daremos máis."
+      invites_closed: "Este servidor de Diaspora non conta con invitacións nestes momentos."
+      invite_your_friends: "Convide aos seus contactos"
+      from_facebook: "Convidar a contactos de Facebook"
+      by_email: "Convidar a contactos por correo electrónico"
+    reshare:
+      reshare: "Repetir"
+    public_explain:
+      control_your_audience: "Controle a súa audiencia"
+      new_user_welcome_message: "Empregue #etiquetas para clasificar as súas publicacións e atopar xente con intereses similares aos seus. @Menciona a quen queiras."
+      visibility_dropdown: "Empregue este menú despregable para cambiar a visibilidade da súa publicación (se cadra esta primeira debería facela pública)."
+      title: "Configurar os servizos conectados"
+      share: "Compartir"
+      outside: "As mensaxes públicas as poderá ver xente sen conta de Diaspora."
+      logged_in: "Conectado a «%{service}»."
+      manage: "Administrar os servizos conectados"
+    notification:
+      new: "Nova %{type} de %{from}"
+    contact_list:
+      all_contacts: "Todos os contactos"
+    stream_element:
+      viewable_to_anyone: "Esta publicación pode vela calquera persoa, mesmo quen non teña conta en Diaspora."
+      connect_to_comment: "Conéctese co usuario para comentar a súa publicación."
+      currently_unavailable: 'Non se pode comentar nestes momentos.'
+      via: "vía %{link}"
+      ignore_user: "Ignorar a %{name}"
+      ignore_user_description: "Ignorar ao contacto e eliminalo dos aspectos?"
+      hide_and_mute: "Agochar e ignorar a publicación"
+      like: "Gústame"
+      unlike: "Xa non me gusta"
+      dislike: "Desagrádame"
+      shared_with: "Compartido con: %{aspect_names}"
+      nsfw: "O autor da publicación marcouna coma non apta para todos os públicos. %{link}"
+      show: "Amosar"
+    footer:
+      logged_in_as: "Accedeu como %{name}."
+      your_aspects: "Aspectos"
+
+  status_messages:
+    new:
+      mentioning: "Mencionouse a %{person}."
+    create:
+      success: "Mencionouse a %{names}."
+    helper:
+      no_message_to_display: "Non hai mensaxes que amosar."
+    destroy:
+      failure: "Non se puido eliminar a publicación."
+    too_long:
+      zero: "As súas mensaxes de estado non poden ter ningún carácter. Curioso, va que si?"
+      one: "As súas mensaxes de estado non poden ter máis dun carácter. Elíxao ben!"
+      two: "As súas mensaxes de estado non poden ter máis de dous caracteres."
+      few: "As súas mensaxes de estado non poden ter máis de %{count} caracteres."
+      many: "As súas mensaxes de estado non poden ter máis de %{count} caracteres."
+      other: "As súas mensaxes de estado non poden ter máis de %{count} caracteres."
+
+  stream_helper:
+    show_comments:
+      zero: "Non hai máis comentarios"
+      one: "Amosar o comentario que falta"
+      two: "Amosar os dous comentarios que faltan"
+      few: "Amosar %{count} comentarios máis"
+      many: "Amosar %{count} comentarios máis"
+      other: "Amosar %{count} comentarios máis"
+    hide_comments: "Agochar os comentarios"
+
+  tags:
+    show:
+      posts_tagged_with: "Publicacións etiquetadas con #%{tag}."
+      nobody_talking: "Ninguén mencionou %{tag} aínda."
+      people_tagged_with: "Xente etiquetada con %{tag}."
+      follow: "Seguir #%{tag}"
+      following: "Seguindo #%{tag}"
+      stop_following: "Deixar de seguir #%{tag}"
+      followed_by: 'seguida por'
+      none: "A etiqueta baleira non existe!"
+  tag_followings:
+    create:
+      success: "Agora segue «#%{name}»."
+      failure: "Non se puido seguir «#%{name}». Xa a está a seguir?"
+      none: "Non pode seguir unha etiqueta baleira!"
+    destroy:
+      success: "Deixou de seguir «#%{name}»."
+      failure: "Non se puido deixar e seguir «#%{name}». Será que xa deixou de seguila?"
+
+  tokens:
+    show:
+      connect_to_cubbies: "Conectar a Cubbi.es"
+      what_is_cubbies: "Cubbi.es é o primeiro aplicativo de Diaspora, e a mellor forma de recoller imaxes na rede."
+      love_to_try: "Gustaríanos que o probase."
+      sign_up_today: "Rexístrese agora!"
+      screenshot_explanation: "%{link1}. Este faiado particular está ligado á %{link2}."
+      typical_userpage: "Unha páxina de usuario típica de cubbi.es"
+      daniels_account: "Conta de Diaspora de Daniel"
+      making_the_connection: "Conectar"
+      connecting_is_simple: "Conectar unha conta de Diaspora é moi sinxelo! Só ten que escribir o seu enderezo de Diaspora (<b>%{diaspora_id}</b>) na súa <a href='%{href_link}'>páxina de configuración</a> de cubbi.es e premer «Conectar»."
+      via: "(vía %{link})"
 
 
   authorizations:
     index:
       revoke_access: "Revogar o permiso de acceso"
-  photos:
-    create:
-      integrity_error: "Non se puido subir a imaxe. Está seguro de que o ficheiro era unha imaxe?"
-      runtime_error: "Non se puido subir a imaxe. Está seguro de que tiña o cinto de seguridade ben axustado?"
-      type_error: "Non se puido subir a imaxe. Está seguro de que se engadiu algunha imaxe?"
-    destroy:
-      notice: "Eliminouse a imaxe."
-    edit:
-      editing: Modificando…
-    new:
-      back_to_list: "Volver á lista"
-      new_photo: "Nova imaxe"
-      post_it: Publicalo!
-    new_photo:
-      empty: "O ficheiro «{file}» está baleiro, volva seleccionar os ficheiros saltándose ese."
-      invalid_ext: "Diaspora non permite extensións como a do ficheiro «{file}». Só se permiten: {extensions}."
-      size_error: "O ficheiro «{file}» é grande de máis, non pode superar os {sizeLimit}."
-    new_profile_photo:
-      upload: "Subir unha nova imaxe do perfil"
-    photo:
-      view_all: "Ver todas as imaxes de %{name}"
-    show:
-      collection_permalink: "Ligazón permanente á colección"
-      delete_photo: "Eliminar a imaxe"
-      edit: Modificar
-      edit_delete_photo: "Modificar a descrición da imaxe ou eliminala"
-      make_profile_photo: "Converter na imaxe do perfil"
-      update_photo: "Actualizar a imaxe"
-    update:
-      error: "Non se puido modificar a imaxe."
-      notice: "A imaxe actualizouse correctamente."
-  posts:
-    show:
-      destroy: Eliminar
-      not_found: "Non se deu atopado esa publicación."
-      permalink: "Ligazón permanente"
-  profiles:
-    edit:
-      allow_search: "Aparecer nas buscas en Diaspora."
-      edit_profile: "Modificar o perfil"
-      first_name: Nome
-      last_name: Apelidos
-      update_profile: "Gardar os cambios"
-      your_bio: Biografía
-      your_birthday: Aniversario
-      your_gender: Sexo
-      your_location: Localidade
-      your_name: "Nome completo"
-      your_photo: Imaxe
-      your_private_profile: "Perfil privado"
-      your_public_profile: "Perfil público"
-      your_tags: "Defínase en cinco #etiquetas"
-      your_tags_placeholder: "Por exemplo: #filmes #mascotas #viaxar #mestre #santiagodecompostela"
-    update:
-      failed: "Non se puido actualizar o perfil."
-      updated: "Actualizouse o perfil."
-  registrations:
-    closed: "Rexistros pechados neste servidor de Diaspora."
-    create:
-      success: "Xa está en Diaspora!"
-    edit:
-      cancel_my_account: "Cancelar a conta"
-      edit: "Modificar a %{name}"
-      leave_blank: "(déixeo baleiro se non quere cambialo)"
-      password_to_confirm: "(ten que escribir o seu contrasinal actual para confirmar os cambios)"
-      unhappy: "Non está contento?"
-      update: Gardar
-    new:
-      enter_email: "Escriba un enderezo de correo electrónico"
-      enter_password: "Escriba un contrasinal"
-      enter_password_again: "Repita o contrasinal"
-      enter_username: "Escolla un nome de usuario (só letras, números e guións baixos)"
-  requests:
-    create:
-      sending: Enviando…
-      sent: "Pediu compartir con %{name}. Notificaráselle a próxima vez que entre en Diaspora."
-    destroy:
-      error: "Escolla un aspecto!"
-      ignore: "Ignorouse a petición de contacto."
-      success: "Agora están a compartir."
-    helper:
-      new_requests:
-        few: "Hai %{count} peticións novas."
-        many: "Hai %{count} peticións novas."
-        one: "Hai unha petición nova."
-        other: "Hai %{count} peticións novas."
-        zero: "Non hai peticións novas."
-    manage_aspect_contacts:
-      existing: "Contactos existentes"
-      manage_within: "Administrar os contactos"
-    new_request_to_person:
-      sent: Enviada!
-  services:
-    create:
-      success: "Identificouse correctamente."
-    destroy:
-      success: "Destruíuse a autenticación correctamente."
-    failure:
-      error: "Houbo un erro ao intentar conectar o servizo."
-    index:
-      connect_to_facebook: "Conectar ao Facebook"
-      connect_to_tumblr: "Conectar ao Tumblr"
-      connect_to_twitter: "Conectar ao Twitter"
-      disconnect: Desconectar
-      edit_services: "Modificar os servizos"
-      logged_in_as: "→ conectado como"
-      no_services: "Aínda non conectou ningún dos servizos."
-      really_disconnect: "Está seguro de que quere desconectarse de «%{service}»?"
-    inviter:
-      click_link_to_accept_invitation: "Prema esta ligazón para aceptar a invitación."
-      join_me_on_diaspora: "Únase a min en DIASPORA*"
-    remote_friend:
-      invite: Convidar
-      resend: "Volver enviar"
-  shared:
-    add_contact:
-      add_new_contact: "Engadir un novo contacto"
-      create_request: "Buscar por enderezo de Diaspora"
-      diaspora_handle: diaspora@servidor.org
-      enter_a_diaspora_username: "Escriba un nome de usuario para Diaspora:"
-      know_email: "Se sabe os seus enderezos de correo electrónico, debería convidalos."
-      your_diaspora_username_is: "O seu nome de usuario en Diaspora é «%{diaspora_handle}»."
-    contact_list:
-      all_contacts: "Todos os contactos"
-    footer:
-      logged_in_as: "Identificado como %{name}."
-      your_aspects: Aspectos
-    invitations:
-      by_email: "Convidar a contactos por correo electrónico"
-      dont_have_now: "Non lle quedan, xa lle daremos máis."
-      from_facebook: "Convidar a contactos de Facebook"
-      invitations_left: "(restan %{count})"
-      invite_someone: "Convidar a alguén"
-      invite_your_friends: "Convide aos seus contactos"
-      invites: Invitacións
-      invites_closed: "Este servidor de Diaspora non conta con invitacións nestes momentos."
-    notification:
-      new: "Nova %{type} de %{from}"
-    public_explain:
-      logged_in: "Conectado a «%{service}»."
-      manage: "Administrar os servizos conectados"
-      outside: "As mensaxes públicas as poderá ver xente sen conta en Diaspora."
-      title: "Configurar os servizos conectados"
-    publisher:
-      all: Todos
-      all_contacts: "Todos os contactos"
-      discard_post: "Descartar a publicación"
-      make_public: "Facer público"
-      post_a_message_to: "Publicar unha mensaxe en %{aspect}"
-      posting: Publicando…
-      publishing_to: "Publicar en: "
-      share: Compartir
-      share_with: "Compartir con"
-      upload_photos: "Subir imaxes"
-      whats_on_your_mind: "En que está a pensar?"
-    reshare:
-      reshare: Repetir
-    stream_element:
-      dislike: Desagrádame
-      like: Gústame
-      shared_with: "Compartido con: %{aspect_names}"
-      unlike: "Xa non me gusta"
-      via: "vía %{link}"
-      viewable_to_anyone: "Esta publicación pode vela calquera persoa, mesmo quen non teña conta en Diaspora."
-  status_messages:
-    create:
-      success: "Mencionouse a %{names} correctamente."
-    destroy:
-      failure: "Non se puido eliminar a publicación."
-    helper:
-      no_message_to_display: "Non hai mensaxes que amosar."
-    new:
-      mentioning: "Mencionouse a %{person}."
-    too_long:
-      few: "As súas mensaxes de estano non poden ter máis de %{count} caracteres."
-      many: "As súas mensaxes de estano non poden ter máis de %{count} caracteres."
-      one: "As súas mensaxes de estado non poden ter máis dun carácter. Elíxao ben!"
-      other: "As súas mensaxes de estano non poden ter máis de %{count} caracteres."
-      zero: "As súas mensaxes de estado non poden ter ningún carácter. Raro, va que si?"
-  stream_helper:
-    hide_comments: "Agochar os comentarios"
-  tag_followings:
-    create:
-      failure: "Non se puido seguir «#%{name}»."
-      success: "Agora segue «#%{name}»."
-    destroy:
-      failure: "Non se puido deixar e seguir «#%{name}»."
-      success: "Deixou de seguir «#%{name}»."
-  tags:
-    show:
-      follow: "Seguir #%{tag}"
-      following: "Seguindo #%{tag}"
-      nobody_talking: "Ninguén mencionou %{tag} aínda."
-      people_tagged_with: "Xente etiquetada con %{tag}."
-      posts_tagged_with: "Publicacións etiquetadas con #%{tag}."
-      stop_following: "Deixar de seguir #%{tag}"
-  tokens:
-    show:
-      connect_to_cubbies: "Conectar a Cubbi.es"
-      connecting_is_simple: "Conectar unha conta de Diaspora é moi sinxelo! Só ten que escribir o seu enderezo de Diaspora (<b>%{diaspora_id}</b>) na súa <a href='%{href_link}'>páxina de configuración</a> de cubbi.es e premer «Conectar»."
-      daniels_account: "conta de Diaspora de Daniel"
-      love_to_try: "Gustaríanos que o probase."
-      making_the_connection: Conectar
-      screenshot_explanation: "%{link1}. Este faiado particular está ligado á %{link2}."
-      sign_up_today: "Rexístrese agora!"
-      typical_userpage: "Unha páxina de usuario típica de cubbi.es"
-      via: "(vía %{link})"
-      what_is_cubbies: "Cubbi.es é o primeiro aplicativo de Diaspora, e a mellor forma de recoller imaxes na rede."
+      no_applications: "Aínda non rexistrou ningún aplicativo."
+
+  streams:
+    community_spotlight_stream: "Estrelas da comunidade"
+    aspects_stream: "Aspectos"
+    mentioned_stream: "@Mencións"
+    followed_tags_stream: "#Etiquetas"
+
+    mentions:
+      title: "@Mencións"
+      contacts_title: "Xente que o mencionou"
+
+    comment_stream:
+      title: "Publicacións comentadas"
+      contacts_title: "Xente cuxas publicacións comentou"
+
+    like_stream:
+      title: "Favoritos"
+      contacts_title: "Xente cuxas publicacións lle gustaron"
+
+    followed_tag:
+      title: "#Etiquetas"
+      contacts_title: "Xente que segue estas etiquetas"
+      add_a_tag: "Engadir unha etiqueta"
+      follow: "Seguir"
+
+    tags:
+      title: "Publicacións etiquetadas con «%{tags}»."
+      contacts_title: "Xente que segue esta etiqueta"
+      tag_prefill_text: "Lo interesante de %{tag_name} é que…"
+
+    public:
+      title: "Actividade pública"
+      contacts_title: "Últimos en publicar"
+
+    multi:
+      title: "Onda"
+      contacts_title: "Xente na súa onda"
+
+    aspects:
+      title: "Aspectos"
+
   users:
-    destroy: "Bloqueouse a súa conta. Pode levar ata 20 minutos pechala completamente. Grazas por darlle unha oportunidade a Diaspora."
+    logged_out:
+      signed_out: "Pechou a súa conta en Diaspora."
+      go_mobile: "Acceda dende o seu móbil."
+      simply_visit: "Visite"
+      on_your_mobile_device: "desde o seu dispositivo móbil para acceder á versión móbil de Diaspora."
+      works_on_modern: "Funciona en todos os móbiles intelixentes modernos."
     edit:
-      also_commented: "Comentarios nas publicacións dos contactos."
-      change: Gardar
+      export_data: "Exportar os datos"
+      photo_export_unavailable: "Nestes momentos non se poden exportar as imaxes."
+      close_account_text: "Pechar a conta"
       change_language: "Cambiar a lingua"
       change_password: "Cambiar o contrasinal"
-      close_account: "Pechar a conta"
-      comment_on_post: "Comentarios nas publicacións propias."
-      current_password: "Contrasinal actual"
-      download_photos: "Descargar as imaxes"
-      download_xml: "Descargar o ficheiro XML"
-      edit_account: "Modificar a conta"
-      export_data: "Exportar os datos"
-      liked: "Que a alguén lle guste unha das miñas publicacións."
-      mentioned: "Mencións en publicacións."
+      change_email: "Cambiar o enderezo de correo electrónico"
       new_password: "Contrasinal novo"
-      private_message: "Recepción de mensaxes privadas."
-      receive_email_notifications: "Motivos de notificación por correo electrónico"
-      started_sharing: "Que alguén comece a compartir comigo."
-      your_email: "Correo electrónico"
+      current_password: "Contrasinal actual"
+      download_xml: "Descargar o ficheiro XML"
+      download_photos: "Descargar as imaxes"
       your_handle: "Enderezo de Diaspora"
-    public:
-      does_not_exist: "O usuario «%{username}» non existe!"
+      your_email: "Correo electrónico"
+      edit_account: "Modificar a conta"
+      receive_email_notifications: "Motivos de notificación por correo electrónico"
+      also_commented: "Comentarios nas publicacións dos contactos."
+      comment_on_post: "Comentarios nas publicacións propias."
+      mentioned: "Mencións en publicacións."
+      started_sharing: "Que alguén comece a compartir comigo."
+      private_message: "Recepción de mensaxes privadas."
+      liked: "Que a alguén lle guste unha das miñas publicacións."
+      reshared: "Repetición dunha publicación miña."
+      change: "Gardar"
+      email_awaiting_confirmation: "Enviámoslle unha ligazón de activación a %{unconfirmed_email}. Ata que siga a ligazón e active o seu novo enderezo, seguirá empregándose o seu enderezo anterior, «%{email}»."
+      stream_preferences: "Configuración da onda"
+      show_community_spotlight: "Amosar as estrelas da comunidade na onda."
+      show_getting_started: 'Activar de novo os consellos para principiantes.'
+      getting_started: 'Configuración de usuario novo'
+      following: "Configuración de seguimento"
+      auto_follow_back: "Seguir automaticamente aos que me sigan."
+      auto_follow_aspect: "Aspecto para os usuarios aos que se seguiu automaticamente:"
+
+      close_account:
+        dont_go: "Non marche, por favor!"
+        make_diaspora_better: "Queremos que nos axude a mellorar Diaspora, así que debería axudar en vez de marchar. Pero se vai marchar, queremos que saiba o que lle espera."
+        mr_wiggles: 'Botarémolo de menos.'
+        what_we_delete: "Eliminaranse as súas publicacións e datos do perfil canto antes. Os seus comentarios seguirán por aí, salvo que estean asociados co seu identificador de Diaspora."
+        locked_out: "Pecharase a súas sesión e non poderá volver entrar coa súa conta."
+        lock_username: "Se lle entra a morriña, non poderá volver empregar o seu usuario."
+        no_turning_back: "De momento, non hai xeito de volver atrás."
+        if_you_want_this: "Se está seguro de que isto é o que quere, escriba o seu contrasinal a continuación e prema o botón de «Pechar a conta»."
+
+    privacy_settings:
+      title: "Configuración da intimidade"
+      ignored_users: "Usuarios ignorados"
+      stop_ignoring: "Deixar de ignorar"
+
+    destroy:
+      success: "Bloqueouse a súa conta. Pode levar ata 20 minutos pechala completamente. Grazas por darlle unha oportunidade a Diaspora."
+      no_password: "Escriba o seu contrasinal actual para pechar a conta."
+      wrong_password: "O contrasinal introducido é incorrecto."
+    getting_started:
+      well_hello_there: "Ola!"
+      community_welcome: "Na comunidade de Diaspora estamos encantados de que te nos unas!"
+
+      awesome_take_me_to_diaspora: "Xenial! Vaiamos a Diaspora*"
+
+      who_are_you: "E ti de quen ves sendo?"
+      we_can_speed_things_up: "Podemos acelerar as cousas un pouco"
+      hooking_up_fb: "conectado a súa conta de Facebook"
+      what_facebook_does: "a Diaspora. Obterase o seu nome e imaxe de perfil, e activarase a sincronización de publicacións."
+
+      what_are_you_in_to: "Que lle interesa?"
+      hashtag_explanation: "Empregue as etiquetas para falar dos seus intereses e estar ao tanto das publicacións relacionadas. Ademais, son un xeito ideal de coñecer xente en Diaspora."
+      hashtag_suggestions: "Probe a seguir etiquetas coma #arte, #cine, #gif, etc."
+
+      saved: "Gardouse!"
+
     update:
-      email_notifications_changed: "Modificáronse as notificacións por correo electrónico."
-      language_changed: "Cambiouse a lingua."
-      language_not_changed: "Non se puido cambiar a lingua."
       password_changed: "Cambiouse o contrasinal."
       password_not_changed: "Non se puido cambiar o contrasinal."
+
+      language_changed: "Cambiouse a lingua."
+      language_not_changed: "Non se puido cambiar a lingua."
+
+      settings_updated: "Actualizouse a configuración."
+      settings_not_updated: "Non se puido actualizar a configuración."
+
+      email_notifications_changed: "Modificáronse as notificacións por correo electrónico."
+      unconfirmed_email_changed: "Cambiouse o enderezo de correo electrónico, resta activar o novo."
+      unconfirmed_email_not_changed: "Non se puido cambiar o enderezo de correo electrónico."
+      follow_settings_changed: "Cambiouse a configuración de seguimento."
+      follow_settings_not_changed: "Non se puido cambiar a configuración de seguimento."
+    public:
+      does_not_exist: "O usuario «%{username}» non existe!"
+    confirm_email:
+      email_confirmed: "Activouse o enderezo de correo electrónico «%{email}»."
+      email_not_confirmed: "Non se puido activar o enderezo de correo electrónico. Confundiuse de ligazón?"
+
+  will_paginate:
+    previous_label: "← Anterior"
+    next_label: "Seguinte →"
+
   webfinger:
     fetch_failed: "Non se puido obter o perfil “webfinger” de «%{profile_url}»."
     hcard_fetch_failed: "Non se puido obter a tarxeta “hcard” de «%{account}»."
-    no_person_constructed: "Non se puido configurar unha persoa a partir desta tarxeta “hcard”."
-    not_enabled: "Parece que no servidor no que está a conta «%{account}» non está activado o “webfinger”."
     xrd_fetch_failed: "Non se puido obter o “xrd” de «%{account}»."
+    not_enabled: "Parece que no servidor no que está a conta «%{account}» non está activado o “webfinger”."
+    no_person_constructed: "Non se puido configurar unha persoa a partir desta tarxeta “hcard”."
