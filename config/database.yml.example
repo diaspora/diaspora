@@ -26,11 +26,15 @@ common: &common
 development:
   <<: *common
   database: diaspora_development
-
 production:
   <<: *common
   database: diaspora_production
-
 test:
   <<: *common
   database: "diaspora_test<%= ENV['TEST_ENV_NUMBER'] %>"
+integration1:
+  <<: *common
+  database: diaspora_integration1
+integration2:
+  <<: *common
+  database: diaspora_integration2

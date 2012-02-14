@@ -24,9 +24,9 @@ class PublicsController < ApplicationController
   respond_to :html
   respond_to :xml, :only => :post
 
+  caches_page :host_meta, :if => Proc.new{ Rails.env == 'production'}
 
   layout false
-  caches_page :host_meta
 
   def hcard
     @person = Person.find_by_guid_and_closed_account(params[:guid], false)

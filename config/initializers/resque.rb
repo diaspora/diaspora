@@ -8,6 +8,8 @@ if !AppConfig.single_process_mode?
     Resque.redis = Redis.new(:host => uri.host, :port => uri.port, :password => uri.password)
   elsif AppConfig[:redis_url]
     Resque.redis = Redis.new(:host => AppConfig[:redis_url], :port => 6379)
+  elsif ENV['RAILS_ENV']== 'integration2'
+    Resque.redis = Redis.new(:host => 'localhost', :port => 6380)
   end
 end
 
