@@ -19,12 +19,9 @@ class Server
   end
 
   def self.all
-    @servers ||= lambda {
-      keys = ActiveRecord::Base.configurations.keys.select{
-        |k| k.include?("integration")
-      }
-      keys ? keys.map{ |k| self.new(k) } : []
-    }.call
+    @servers ||= ActiveRecord::Base.configurations.keys.select{
+      |k| k.include?("integration")
+    }.map{ |k| self.new(k) }
   end
 
   attr_reader :port, :env
