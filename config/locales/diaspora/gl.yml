@@ -71,7 +71,7 @@ gl:
         reshare:
           attributes:
             root_guid:
-              taken: "Moi interesante ten que ser iso para que o compartas outra vez!"
+              taken: "Moi interesante ten que ser iso para que o repitas outra vez!"
 
 
   error_messages:
