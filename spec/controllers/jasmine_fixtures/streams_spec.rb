@@ -10,7 +10,7 @@ describe StreamsController do
       sign_in :user, alice
     end
 
-    it 'generates the explore_json fixture', :fixture => true do
+    it 'generates the stream_json fixture', :fixture => true do
       posts = []
 
       time = Time.now
@@ -53,7 +53,7 @@ TXT
 
       get :multi, :format => :json
       response.should be_success
-      save_fixture(response.body, "explore_json")
+      save_fixture(response.body, "stream_json")
 
       Timecop.return
     end

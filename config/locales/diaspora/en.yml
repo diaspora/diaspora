@@ -927,14 +927,13 @@ en:
 
     multi:
       title: "Stream"
-      contacts_title: "People in your Explore Stream"
+      contacts_title: "People in your Stream"
 
     aspects:
       title: "My Aspects"
 
-    participate:
+    activity:
       title: "My Activity"
-
   users:
     logged_out:
       signed_out: "You've signed out of Diaspora*"

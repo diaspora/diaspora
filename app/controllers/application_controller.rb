@@ -88,7 +88,7 @@ class ApplicationController < ActionController::Base
 
   def redirect_unless_admin
     unless current_user.admin?
-      redirect_to explore_url, :notice => 'you need to be an admin to do that'
+      redirect_to stream_url, :notice => 'you need to be an admin to do that'
       return
     end
   end
@@ -116,7 +116,7 @@ class ApplicationController < ActionController::Base
   end
 
   def after_sign_in_path_for(resource)
-    stored_location_for(:user) || (current_user.getting_started? ? getting_started_path : explore_path)
+    stored_location_for(:user) || (current_user.getting_started? ? getting_started_path : stream_path)
   end
 
   def max_time

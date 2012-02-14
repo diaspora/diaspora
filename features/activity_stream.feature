@@ -1,5 +1,5 @@
 @javascript
-Feature: The participate stream
+Feature: The activity stream
   Scenario: Sorting
     Given a user with username "bob"
     When I sign in as "bob@bob.bob"
@@ -8,7 +8,7 @@ Feature: The participate stream
     And I post "B- barack obama is your new bicycle"
     And I post "C- barack obama is a square"
 
-    When I go to the participate page
+    When I go to the activity stream page
     Then "C- barack obama is a square" should be post 1
     And "B- barack obama is your new bicycle" should be post 2
     And "A- I like turtles" should be post 3
@@ -20,7 +20,7 @@ Feature: The participate stream
     And I like the post "B- barack obama is your new bicycle"
     And I wait for 1 second
 
-    When I go to the participate page
+    When I go to the activity stream page
     Then "B- barack obama is your new bicycle" should be post 1
     And "C- barack obama is a square" should be post 2
     And "A- I like turtles" should be post 3
