@@ -146,14 +146,15 @@ class StatusMessage < Post
   end
 
   def update_and_dispatch_attached_photos(sender)
-    unless self.photos.empty?
-      self.photos.update_all(:pending => false, :public => self.public)
-      for photo in self.photos
+    if self.photos.any?
+      self.photos.update_all(:public => self.public)
+      self.photos.each do |photo|
         if photo.pending
           sender.add_to_streams(photo, self.aspects)
           sender.dispatch_post(photo)
         end
       end
+      self.photos.update_all(:pending => false)
     end
   end
 
