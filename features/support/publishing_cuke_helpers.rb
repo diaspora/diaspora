@@ -25,9 +25,9 @@ module PublishingCukeHelpers
     find(".stream_element:contains('#{text}')")
   end
 
-  def pin_post(post_text)
+  def like_post(post_text)
     within_post(post_text) do
-      click_link 'Pin'
+      click_link 'Like'
     end
     wait_for_ajax_to_finish
   end
@@ -65,7 +65,7 @@ module PublishingCukeHelpers
 
   def assert_nsfw(text)
     post = find_post_by_text(text)
-    post.find(".shield").should be_present
+    post.find(".nsfw-shield").should be_present
   end
 end
 
