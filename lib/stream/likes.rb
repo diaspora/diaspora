@@ -13,7 +13,7 @@ class Stream::Likes < Stream::Base
 
   # @return [ActiveRecord::Association<Post>] AR association of posts
   def posts
-    @posts ||= StatusMessage.liked_by(self.user.person)
+    @posts ||= EvilQuery::LikedPosts.new(user).posts
   end
 
   def contacts_title

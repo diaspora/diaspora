@@ -29,6 +29,7 @@ class Postzord::Receiver::Private < Postzord::Receiver
 
   def parse_and_receive(xml)
     @object ||= Diaspora::Parser.from_xml(xml)
+    return  if @object.nil?
 
     Rails.logger.info("event=receive status=start recipient=#{@user_person.diaspora_handle} payload_type=#{@object.class} sender=#{@sender.diaspora_handle}")
 
@@ -46,13 +47,6 @@ class Postzord::Receiver::Private < Postzord::Receiver
     Notification.notify(@user, obj, @author) if obj.respond_to?(:notification_type)
     Rails.logger.info("event=receive status=complete recipient=#{@user_person.diaspora_handle} sender=#{@sender.diaspora_handle} payload_type=#{obj.class}")
     obj
-  end
-
-  def update_cache!
-    if @user.contact_for(@author).aspect_memberships.size > 0
-      cache = RedisCache.new(@user, "created_at")
-      cache.add(@object.created_at.to_i, @object.id)
-    end
   end
 
   protected

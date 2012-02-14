@@ -26,17 +26,6 @@ class Postzord::Receiver::LocalBatch < Postzord::Receiver
     true
   end
 
-  def update_cache!
-    @users.each do |user|
-      # (NOTE) this can be optimized furter to not use n-query
-      contact = user.contact_for(object.author)
-      if contact && contact.aspect_memberships.size > 0
-        cache = RedisCache.new(user, "created_at")
-        cache.add(@object.created_at.to_i, @object.id)
-      end
-    end
-  end
-
   # NOTE(copied over from receiver public)
   # @return [Object]
   def receive_relayable

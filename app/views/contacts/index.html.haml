@@ -30,28 +30,18 @@
     - if @contacts.size > 0
       - for contact in @contacts
         .stream_element{:id => contact.person.id}
-          .right
-            - if @aspect
-              = link_to(image_tag('/images/icons/monotone_close_exit_delete.png', :height => 20, :width => 20),
-                  {:controller => "aspect_memberships",
-                    :action => 'destroy',
-                    :id => 42,
-                    :aspect_id => @aspect.id,
-                    :person_id => contact.person.id},
-                  :title => t('.remove_person_from_aspect', :person_name => contact.person.first_name, :aspect_name => @aspect.name),
-                  :method => 'delete')
 
-            - else
-              = render :partial => 'people/relationship_action',
-                       :locals => { :person => contact.person, :contact => contact,
-                                    :current_user => current_user }
+          .float-right
+            = contact_aspect_dropdown(contact)
 
-          = person_image_link(contact.person)
-          .content
-            %span.from
-              =person_link(contact.person)
-            .info
-              = contact.person.diaspora_handle
+          .media
+            .img
+              = person_image_link(contact.person)
+
+            .bd
+              = person_link(contact.person)
+              .info
+                = contact.person.diaspora_handle
 
       = will_paginate @contacts
     - else
@@ -59,10 +49,10 @@
         = t('.no_contacts')
         %br
         %br
-        = t('.check_out')
-        = link_to t('contacts.spotlight.community_spotlight'), community_spotlight_path
         - if @aspect
-          or
-          = link_to t('.add_to_aspect', :name => @aspect.name), edit_aspect_path(@aspect), :rel => "facebox"
-
-
+          != t('.no_contacts_message_with_aspect',
+              :community_spotlight => link_to(t('.community_spotlight'), community_spotlight_path),
+              :add_to_aspect_link => link_to(t('.add_to_aspect_link', :name => @aspect.name), edit_aspect_path(@aspect), :rel => "facebox"))
+        - else
+          != t('.no_contacts_message',
+               :community_spotlight => link_to(t('.community_spotlight'), community_spotlight_path))

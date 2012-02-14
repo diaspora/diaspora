@@ -80,7 +80,7 @@ class Request
     contact.sharing = true
     contact.save
     
-    user.share_with(person, user.auto_follow_back_aspect) if user.auto_follow_back
+    user.share_with(person, user.auto_follow_back_aspect) if user.auto_follow_back && !contact.receiving
 
     self
   end

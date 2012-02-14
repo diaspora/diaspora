@@ -2,9 +2,17 @@ package_assets: on
 embed_assets: datauri
 compress_assets: on
 gzip_assets: off
+
+template_function: Handlebars.compile
+template_extension: 'handlebars'
+
 javascripts:
   jquery:
     - public/javascripts/vendor/jquery-1.7.1.min.js
+
+  templates:
+    - public/javascripts/app/templates/*.handlebars
+
   main:
     - public/javascripts/vendor/underscore.js
     - public/javascripts/vendor/backbone.js
@@ -28,6 +36,7 @@ javascripts:
     - public/javascripts/vendor/jquery-ui-1.8.9.custom.min.js
     - public/javascripts/vendor/jquery.charcount.js
     - public/javascripts/vendor/jquery.expander.js
+    - public/javascripts/vendor/jquery.placeholder.js
     - public/javascripts/vendor/timeago.js
     - public/javascripts/vendor/facebox.js
     - public/javascripts/vendor/underscore.js
@@ -36,7 +45,6 @@ javascripts:
     - public/javascripts/vendor/jquery.mentionsInput.js
     - public/javascripts/jquery.infinitescroll-custom.js
     - public/javascripts/jquery.autocomplete-custom.js
-    - public/javascripts/jquery.infieldlabel-custom.js
     - public/javascripts/keycodes.js
     - public/javascripts/fileuploader-custom.js
 
@@ -72,6 +80,7 @@ javascripts:
     - public/javascripts/friend-finder.js
   home:
     - public/javascripts/publisher.js
+    - public/javascripts/vendor/jquery.textchange.min.js
     - public/javascripts/aspect-edit-pane.js
     - public/javascripts/fileuploader-custom.js
   people:
@@ -110,5 +119,7 @@ stylesheets:
     - public/stylesheets/rtl.css
 
   mobile:
+    - public/stylesheets/bootstrap2.css
+    - public/stylesheets/bootstrap-responsive.css
     - public/stylesheets/mobile.css
 

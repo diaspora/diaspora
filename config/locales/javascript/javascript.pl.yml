@@ -29,7 +29,8 @@ pl:
       show: "wyświetl wszystkie komentarze"
     confirm_dialog: "Czy @{m,f:jesteś|n:na}{ pew}{m:ien|f:na|n:no}?"
     delete: Usuń
-    failed_to_like: "Nie udało się polubić!"
+    explore: Odkryj
+    failed_to_like: "Nie udało się przypiąć!"
     failed_to_post_message: "Nie można wysłać wiadomości!"
     getting_started:
       alright_ill_wait: "Dobrze, poczekam."
@@ -46,12 +47,13 @@ pl:
       notifications: Powiadomienia
       profile: Profil
       recent_notifications: "Ostatnie powiadomienia"
-      search: "Szukaj osób luz #znaczników"
+      search: Szukaj
       settings: Ustawienia
       view_all: "Wyświetl wszystko"
     ignore: Ignoruj
     infinite_scroll:
       no_more: "Nie ma więcej wpisów."
+    participate: "Udzielaj się"
     photo_uploader:
       looking_good: "O rety! Świetnie wyglądasz!"
     publisher:
@@ -65,14 +67,14 @@ pl:
     stream:
       comment: Skomentuj
       hide: Ukryj
-      like: "Lubię to!"
+      like: Przypnij
       likes:
-        few: "Polubiono: <%= count %>"
-        many: "Polubiono: <%= count %>"
-        one: "<%= count %> lubi"
-        other: "<%= count %> os. to lubi"
-        two: "<%= count %> osoby to lubią"
-        zero: "<%= count %> osób to lubi"
+        few: "Przypięć: <%= count %>"
+        many: "Przypięć: <%= count %>"
+        one: "<%= count %> przypięcie"
+        other: "<%= count %> przypięć"
+        two: "<%= count %> przypięcia"
+        zero: "<%= count %> przypięć"
       limited: Ograniczone
       more_comments:
         few: "Wyświetl <%= count %> więcej komentarzy"
@@ -93,7 +95,7 @@ pl:
         two: "<%= count %> razy przekazano dalej"
         zero: "<%= count %> razy przekazano dalej"
       show: Wyświetl
-      unlike: "Nie lubię"
+      unlike: Odepnij
     tags:
       wasnt_that_interesting: "OK, przypuszczam, że #<%= tagName %> nie był, aż tak interesujący..."
     timeago:

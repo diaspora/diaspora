@@ -31,24 +31,24 @@
   .section
     %ul.left_nav
       %li
-        = link_to t("streams.multi.title"), multi_stream_path, :class => 'home_selector', :rel => 'backbone'
+        = link_to t("streams.activity.title"), activity_stream_path, :class => 'home_selector', :rel => 'backbone'
 
-    = render 'aspects/aspect_listings', :stream => @stream
-
-    %ul.left_nav
+    %ul.left_nav.sub
       %li
         = link_to t('streams.mentions.title'), mentioned_stream_path, :class => 'home_selector', :rel => 'backbone'
 
-    %ul.left_nav
-      %li
-        = link_to t('streams.comment_stream.title'), commented_stream_path, :class => 'home_selector', :rel => 'backbone'
+    %br
 
     %ul.left_nav
       %li
-        = link_to t('streams.like_stream.title'), liked_stream_path, :class => 'home_selector', :rel => 'backbone'
+        = link_to t("streams.multi.title"), stream_path, :class => 'home_selector', :rel => 'backbone'
+
+    = render 'aspects/aspect_listings', :stream => @stream
 
     #followed_tags_listing
       = render 'tags/followed_tags_listings'
+
+
 
 .span-13.append-1
   #aspect_stream_container.stream_container

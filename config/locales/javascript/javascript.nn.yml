@@ -35,6 +35,8 @@ nn:
       hey: "Hei, {{name}}!"
       no_tags: "Du har ikkje følgt nokon etikett. Vil du likevel halda fram?"
       preparing_your_stream: "Lagar den tilpassa straumen din …"
+    header:
+      search: "Find people or #tags"
     infinite_scroll:
       no_more: "Ingen fleire meldingar."
     photo_uploader:
@@ -48,6 +50,7 @@ nn:
     search_for: "Leit etter {{name}}"
     show_more: "syn meir"
     stream:
+      like: Like
       likes:
         few: "<%= count %> Likes"
         many: "<%= count %> Likes"
@@ -69,6 +72,7 @@ nn:
         other: "<%= count %> Reshares"
         two: "<%= count %> Reshares"
         zero: "<%= count %> Reshares"
+      unlike: Unlike
     tags:
       wasnt_that_interesting: "Greitt, #{{tagName}} var vel kanskje ikkje så interessant …"
     timeago:

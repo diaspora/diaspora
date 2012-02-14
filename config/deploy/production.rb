@@ -12,3 +12,6 @@ if config['branch']
 end
 set :repository, config['repo']
 server config['server'], :app, :web, :db, :primary => true
+set :svc_sudo, (config['svc_sudo'] || false)
+default_run_options[:pty] = true if svc_sudo
+

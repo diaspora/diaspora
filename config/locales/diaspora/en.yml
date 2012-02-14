@@ -33,6 +33,7 @@ en:
   public: "Public"
   limited: "Limited"
   search: "Search"
+  nsfw: "NSFW"
   find_people: "Find people or #tags"
   _home: "Home"
   more: "More"
@@ -158,7 +159,6 @@ en:
     index:
       donate: "Donate"
       keep_us_running: "Keep %{pod} running fast and buy servers their coffee fix with a monthly donation!"
-      your_aspects: "Your Aspects"
       no_tags: "+ Find a tag to follow"
       unfollow_tag: "Stop following #%{tag}"
       handle_explanation: "This is your Diaspora ID. Like an email address, you can give this to people to reach you."
@@ -252,7 +252,10 @@ en:
       title: "Contacts"
       your_contacts: "Your Contacts"
       no_contacts: "Looks like you need to add some contacts!"
-      check_out: "Check out"
+      no_contacts_message: "Check out %{community_spotlight}"
+      no_contacts_message_with_aspect: "Check out %{community_spotlight} or %{add_to_aspect_link}"
+      add_to_aspect_link: "add contacts to %{name}"
+      community_spotlight: "Community Spotlight"
       my_contacts: "My Contacts"
       all_contacts: "All Contacts"
       only_sharing_with_me: "Only sharing with me"
@@ -336,6 +339,7 @@ en:
       aspect: "Aspect"
       already_invited: "The following people have not accepted your invitation:"
       resend: "Resend"
+      check_out_diaspora: "Check out Diaspora!"
     check_token:
       not_found: "Invitation token not found"
     edit:
@@ -644,6 +648,8 @@ en:
       update_profile: "Update Profile"
       allow_search: "Allow for people to search for you within Diaspora"
       edit_profile: "Edit profile"
+      you_are_nsfw: "You have marked yourself not safe for work, your content will not show up in people who have opted out of seeing objectionable content's streams."
+      you_are_safe_for_work: "You have marked yourself as safe for work, this means you agree the content you post will agree with the community guidelines."
     update:
       updated: "Profile updated"
       failed: "Failed to update profile"
@@ -800,6 +806,7 @@ en:
       outside: "Public messages will be available for others outside of Diaspora to see."
       logged_in: "logged in to %{service}"
       manage: "manage connected services"
+      atom_feed: "Atom feed"
     notification:
       new: "New %{type} from %{from}"
     contact_list:
@@ -923,8 +930,10 @@ en:
       contacts_title: "People in your Stream"
 
     aspects:
-      title: "Your Aspects"
+      title: "My Aspects"
 
+    activity:
+      title: "My Activity"
   users:
     logged_out:
       signed_out: "You've signed out of Diaspora*"

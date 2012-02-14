@@ -50,11 +50,12 @@ require File.join(File.dirname(__FILE__), "database_cleaner_patches")
 require File.join(File.dirname(__FILE__), "integration_sessions_controller")
 require File.join(File.dirname(__FILE__), "poor_mans_webmock")
 
-require File.join(File.dirname(__FILE__), "..", "..", "spec", "support", "fake_redis")
 require File.join(File.dirname(__FILE__), "..", "..", "spec", "helper_methods")
-require File.join(File.dirname(__FILE__), "..", "..", "spec", "support","no_id_on_object")
 require File.join(File.dirname(__FILE__), "..", "..", "spec", "support","user_methods")
 include HelperMethods
+
+require 'webmock/cucumber'
+WebMock.disable_net_connect!(:allow_localhost => true)
 
 Before do
   @no_follow_diaspora_hq_setting = AppConfig[:no_follow_diasporahq]

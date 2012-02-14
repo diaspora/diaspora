@@ -8,6 +8,8 @@ require File.join(Rails.root, "lib", "stream", "comments")
 require File.join(Rails.root, "lib", "stream", "likes")
 require File.join(Rails.root, "lib", "stream", "mention")
 require File.join(Rails.root, "lib", "stream", "followed_tag")
+require File.join(Rails.root, "lib", "stream", "activity")
+
 
 class StreamsController < ApplicationController
   before_filter :authenticate_user!
@@ -27,6 +29,10 @@ class StreamsController < ApplicationController
 
   def public
     stream_responder(Stream::Public)
+  end
+
+  def activity
+    stream_responder(Stream::Activity)
   end
 
   def multi
@@ -59,7 +65,7 @@ class StreamsController < ApplicationController
     respond_with do |format|
       format.html { render 'layouts/main_stream' }
       format.mobile { render 'layouts/main_stream' }
-      format.json { render_for_api :backbone, :json => @stream.stream_posts, :root => :posts }
+      format.json {render_for_api :backbone, :json => @stream.stream_posts, :root => :posts }
     end
   end
 

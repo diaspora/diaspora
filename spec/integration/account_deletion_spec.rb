@@ -16,8 +16,8 @@ describe 'deleteing your account' do
       @aspect_vis = AspectVisibility.where(:aspect_id => @bob2.aspects.map(&:id))
 
       #objects on post
-      @bob2.like(true, :target => @alices_post)
-      @bob2.comment("here are some thoughts on your post", :post => @alices_post)
+      @bob2.like!(@alices_post)
+      @bob2.comment!(@alices_post, "here are some thoughts on your post")
 
       #conversations
       create_conversation_with_message(alice, @bob2.person, "Subject", "Hey @bob2")

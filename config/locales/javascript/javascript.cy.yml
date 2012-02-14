@@ -35,6 +35,8 @@ cy:
       hey: "Hei, {{name}}!"
       no_tags: "Hei, dydych chi ddim yn dilyn unrhyw tagiau! Dal ymlaen beth bynnag?"
       preparing_your_stream: "Preparing your personalised stream..."
+    header:
+      search: "Find people or #tags"
     infinite_scroll:
       no_more: "Dim mwy o swyddi."
     photo_uploader:
@@ -44,6 +46,7 @@ cy:
     search_for: "Chwilio am {{name}}"
     show_more: "dangos mwy"
     stream:
+      like: Like
       likes:
         few: "<%= count %> Likes"
         many: "<%= count %> Likes"
@@ -65,6 +68,7 @@ cy:
         other: "<%= count %> Reshares"
         two: "<%= count %> Reshares"
         zero: "<%= count %> Reshares"
+      unlike: Unlike
     tags:
       wasnt_that_interesting: "OK, mae'n debyg nid yw #{{tagName}} yn ddiddorol iawn..."
     timeago:

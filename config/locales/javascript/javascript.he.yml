@@ -35,6 +35,8 @@ he:
       hey: "שלום, {{name}}!"
       no_tags: "?היי, לא עקבת אחרי אף תגית! לאן אתה רוצה להמשיך"
       preparing_your_stream: "החדשות האישיות שלך בשלבי הכנה"
+    header:
+      search: "Find people or #tags"
     infinite_scroll:
       no_more: "אין רשומות נוספות"
     photo_uploader:
@@ -48,6 +50,7 @@ he:
     search_for: " {{name}}חיפוש אחר"
     show_more: "הצגת עוד"
     stream:
+      like: Like
       likes:
         few: "<%= count %> Likes"
         many: "<%= count %> Likes"
@@ -69,6 +72,7 @@ he:
         other: "<%= count %> Reshares"
         two: "<%= count %> Reshares"
         zero: "<%= count %> Reshares"
+      unlike: Unlike
     tags:
       wasnt_that_interesting: "...זה לא היה כל כך מעניין#{{tagName}} אוקיי, אני מניח "
     timeago:

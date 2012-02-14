@@ -191,7 +191,6 @@ ca:
         feature_suggestion: "… teniu alguna proposta de %{link}"
         tag_feature: "millora"
         tutorials_wiki_and_forum: "%{tutorial}, %{wiki} i %{forum}: Tutorials, guies i notícies mantinguts per la comunitat"
-        satisfaction: "%{link}: Suport de la comunitat"
         email_feedback: "Envieu per %{link} els vostres comentaris, si ho preferiu"
       cubbies:
         heading: "Connecteu a Cubbi.es"
@@ -265,7 +264,10 @@ ca:
       title: "Contactes"
       your_contacts: "Els vostres contactes"
       no_contacts: "Sembla que necessiteu afegir alguns contactes!"
-      check_out: "Pegueu una ullada"
+      no_contacts_message: "Vegeu els %{community_spotlight}"
+      no_contacts_message_with_aspect: "Vegeu els %{community_spotlight} o %{add_to_aspect_link}"
+      add_to_aspect_link: "afegiu contactes a %{name}"
+      community_spotlight: "usuaris destacats"
       my_contacts: "Els meus contactes"
       all_contacts: "Tots els contactes"
       only_sharing_with_me: "Només compartint amb mi"
@@ -378,6 +380,7 @@ ca:
       toggle: "commuta el lloc per a mòbils"
       public_feed: "Canal públic del Diàspora per a %{name}"
       your_aspects: "els vostres aspectes"
+      back_to_top: "Torna a dalt"
 
 
   likes:
@@ -832,6 +835,7 @@ ca:
       outside: "Els missatges públics seran visibles per qualsevol des de fora del Diàspora."
       logged_in: "s'ha entrat en %{service}"
       manage: "gestiona els serveis connectats"
+      atom_feed: "Canal Atom"
     notification:
       new: "Nou %{type} de %{from}"
     contact_list:

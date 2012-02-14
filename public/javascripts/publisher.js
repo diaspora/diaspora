@@ -118,6 +118,7 @@ var Publisher = {
       }
     }
   },
+
   createCounter: function(service){
     var counter = $("#publisher .counter");
     counter.remove();
@@ -150,8 +151,8 @@ var Publisher = {
     });
   },
 
-  keyUp : function(){
-    Publisher.determineSubmitAvailability()
+  textChange : function(){
+    Publisher.determineSubmitAvailability();
     Publisher.input().mentionsInput("val", function(value) {
       Publisher.hiddenInput().val(value);
     });
@@ -205,12 +206,16 @@ var Publisher = {
 
     Mentions.initialize(Publisher.input());
 
+    Publisher.input().bind("focus", function(){
+      Mentions.fetchContacts();
+    })
+
     if(Publisher.hiddenInput().val() === "") {
       Publisher.hiddenInput().val(Publisher.input().val());
     }
 
     Publisher.input().autoResize({'extraSpace' : 10});
-    Publisher.input().keyup(Publisher.keyUp)
+    Publisher.input().bind('textchange', Publisher.textChange);
   }
 };
 

@@ -114,7 +114,7 @@ describe PhotosController do
         sm = bob.post(:status_message, :text => 'parent post', :to => 'all')
         @bobs_photo.status_message_guid = sm.guid
         @bobs_photo.save!
-        alice.like(1, :target => @bobs_photo.status_message)
+        alice.like!(@bobs_photo.status_message)
         get :show, :id => @bobs_photo.id
         response.should be_success
       end
@@ -135,7 +135,7 @@ describe PhotosController do
       it "redirects to the aspects page if there's no referrer" do
         request.env.delete("HTTP_REFERER")
         get :show, :id => @photo.to_param
-        response.should redirect_to(aspects_path)
+        response.should redirect_to(root_path)
       end
       
       it 'redirects to the sign in page if not logged in' do

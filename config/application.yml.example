@@ -26,27 +26,6 @@ defaults: &defaults
   # leave it empty for the default (localhost)
   redis_url: ''
 
-  # Redis cache
-
-  # Enable the cache layer (Redis)
-  # If you expect to have thousands of users on your pod,
-  # we *highly* suggest you enable this.
-  # IMPORTANT: THE CACHE REQUIRES REDIS 2.4 OR LATER.
-  #
-  # By default, the cache layer will piggyback off of the Redis
-  # database used by your Resque workers.
-  redis_cache: false
-
-  # The location of your redis cache.
-  # IMPORTANT: DO NOT CHANGE THIS IF YOU DO NOT KNOW WHAT YOU ARE DOING!
-  #
-  # Leave this blank to use the same Redis database
-  # that your Resque workers use (happy path).
-  #
-  # This takes an ip (or DNS record).  It assumes that your Redis database
-  # is running on the default Redis port.
-  redis_location: ''
-
   # Amazon S3 for photos
 
   # s3 config - if set, carrierwave will store your photos on s3. Otherwise they're on the filesystem.
@@ -180,6 +159,8 @@ defaults: &defaults
   # with other pods
   circumvent_ssl_requirement: false
 
+  image_redirect_url: ''
+  
   # Web tracking
 
   # google analytics key - if false, no javascript included
@@ -198,6 +179,12 @@ defaults: &defaults
   cloudfiles_api_key:  'abc123'
   cloudfiles_db_container: 'Database Backup'
   cloudfiles_images_container: 'Image Backup'
+  
+  # Donations
+
+  # Leave this blank to not show the request for donations
+  # Use paypal for recurring donations
+  paypal_hosted_button_id: ""
 
 #
 # Use this section to override default settings in specific environments
@@ -206,6 +193,7 @@ defaults: &defaults
 development:
   <<: *defaults
   serve_static_assets: true
+  no_follow_diasporahq: true
 
 production:
   <<: *defaults
@@ -219,6 +207,7 @@ test:
   pod_url: "http://localhost:9887/"
   socket_port: 8081
   open_invitations: true
+  no_follow_diasporahq: true
   serve_static_assets: true
 
 integration_1:

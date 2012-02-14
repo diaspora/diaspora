@@ -1,9 +1,6 @@
 app.views.LikesInfo = app.views.StreamObject.extend({
 
-  legacyTemplate : true,
-  template_name : "#likes-info-template",
-
-  className : "likes_container",
+  templateName : "likes-info",
 
   events : {
     "click .expand_likes" : "showAvatars"
@@ -12,7 +9,9 @@ app.views.LikesInfo = app.views.StreamObject.extend({
   tooltipSelector : ".avatar",
 
   presenter : function() {
-    return _.extend(this.defaultPresenter(), {likes : this.model.likes.models})
+    return _.extend(this.defaultPresenter(), {
+      likes : this.model.likes.models
+    })
   },
 
   showAvatars : function(evt){

@@ -35,6 +35,8 @@ ms:
       hey: "Hei, {{name}}!"
       no_tags: "Hei, anda tidak mengikuti mana-mana tag! Teruskan juga?"
       preparing_your_stream: "Menyediakan strim peribadi anda..."
+    header:
+      search: "Find people or #tags"
     infinite_scroll:
       no_more: "Tiada lagi pos."
     photo_uploader:
@@ -48,6 +50,7 @@ ms:
     search_for: "Mencari {{name}}"
     show_more: "tunjuk lagi"
     stream:
+      like: Like
       likes:
         few: "<%= count %> Likes"
         many: "<%= count %> Likes"
@@ -69,6 +72,7 @@ ms:
         other: "<%= count %> Reshares"
         two: "<%= count %> Reshares"
         zero: "<%= count %> Reshares"
+      unlike: Unlike
     tags:
       wasnt_that_interesting: "OK, saya mengandaikan # {{tagName}} tidak semua yang menarik..."
     timeago:

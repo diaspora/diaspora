@@ -96,7 +96,7 @@ describe Request do
     it 'shares back if auto_following is enabled' do
       alice.auto_follow_back = true
       alice.auto_follow_back_aspect = alice.aspects.first
-      eve.save
+      alice.save
       
       Request.diaspora_initialize(:from => eve.person, :to => alice.person,
                                   :into => eve.aspects.first).receive(alice, eve.person)
@@ -107,12 +107,27 @@ describe Request do
     it 'shares not back if auto_following is not enabled' do
       alice.auto_follow_back = false
       alice.auto_follow_back_aspect = alice.aspects.first
-      eve.save
+      alice.save
       
       Request.diaspora_initialize(:from => eve.person, :to => alice.person,
                                   :into => eve.aspects.first).receive(alice, eve.person)
       
       eve.contact_for(alice.person).should be_nil
+    end
+    
+    it 'shares not back if already sharing' do
+      alice.auto_follow_back = true
+      alice.auto_follow_back_aspect = alice.aspects.first
+      alice.save
+      
+      contact = Factory :contact, :user => alice, :person => eve.person,
+                                  :receiving => true, :sharing => false
+      contact.save
+      
+      alice.should_not_receive(:share_with)
+      
+      Request.diaspora_initialize(:from => eve.person, :to => alice.person,
+                                  :into => eve.aspects.first).receive(alice, eve.person)
     end
   end
 

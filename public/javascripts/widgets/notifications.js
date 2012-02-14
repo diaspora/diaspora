@@ -54,7 +54,7 @@
     }
     this.unreadClick = function() {
       $.ajax({
-        url: "/notifications/" + $(this).parent().data("guid"),
+        url: "/notifications/" + $(this).closest(".stream_element").data("guid"),
         data: { set_unread: true },
         type: "PUT",
         success: self.clickSuccess
@@ -131,8 +131,7 @@
     };
 
     this.changeNotificationCount = function(change) {
-      self.count += change;
-
+      self.count = Math.max( self.count + change, 0 )
       self.badge.text(self.count);
       if ( self.notificationArea )
         self.notificationArea.find( ".notification_count" ).text(self.count);

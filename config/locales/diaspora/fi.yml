@@ -199,7 +199,6 @@ fi:
       add_a_new_aspect: "Lisää näkymä"
       add_to_aspect: "lisää kontakteja näkymään %{name}"
       all_contacts: "Kaikki kontaktit"
-      check_out: Katso
       many_people_are_you_sure: "Oletko varma, että haluat aloittaa yksityiskeskustelun useamman kuin %{suggested_limit} kontaktin kanssa? Viestin lähettäminen tähän näkymään voisi olla parempi tapa olla yhteydessä heihin."
       my_contacts: Kontaktini
       no_contacts: "Sinun pitäisi näköjään lisätä kontakteja!"
@@ -329,13 +328,6 @@ fi:
         other: "%{count} ei tykkää"
         two: "%{count} ei tykkää"
         zero: "no people disliked this"
-      people_like_this:
-        few: "%{count} tykkää"
-        many: "%{count} tykkää"
-        one: "%{count} tykkää"
-        other: "%{count} tykkää"
-        two: "%{count} tykkää"
-        zero: "ei tykkäyksiä"
       people_like_this_comment:
         few: "%{count} tykkää"
         many: "%{count} tykkää"
@@ -343,6 +335,13 @@ fi:
         other: "%{count} tykkää"
         two: "%{count} tykkää"
         zero: "ei tykkäyksiä"
+      people_pin_this:
+        few: "%{count} pins"
+        many: "%{count} pins"
+        one: "%{count} pin"
+        other: "%{count} pins"
+        two: "%{count} pins"
+        zero: "no pins"
   limited: Rajoitettu
   more: Lisää
   next: seuraava
@@ -762,10 +761,8 @@ fi:
       hide_and_mute: "Piilota ja vaimenna viesti"
       ignore_user: "Sivuuta %{name}"
       ignore_user_description: "Sivuuta käyttäjä ja poista hänet kaikista näkymistä?"
-      like: Tykkää
       shared_with: "Jaettu heidän kanssaan: %{aspect_names}"
       show: näytä
-      unlike: "Peru tykkäys"
       via: "%{link} kautta"
       viewable_to_anyone: "Kuka tahansa verkossa näkee tämän viestin"
   status_messages:

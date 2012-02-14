@@ -61,7 +61,6 @@ GEM
       rack-mount (~> 0.6.14)
       rack-test (~> 0.5.7)
       tzinfo (~> 0.3.23)
-    active_reload (0.6.1)
     activemodel (3.0.11)
       activesupport (= 3.0.11)
       builder (~> 2.1.2)
@@ -195,6 +194,7 @@ GEM
       heroku (>= 2)
       rails (>= 2)
     highline (1.6.11)
+    hodel_3000_compliant_logger (0.1.0)
     http_accept_language (1.0.2)
     i18n (0.5.0)
     i18n-inflector (2.6.3)
@@ -220,7 +220,7 @@ GEM
       multi_json
     jwt (0.1.4)
       json (>= 1.2.4)
-    kgio (2.7.0)
+    kgio (2.7.2)
     launchy (2.0.3)
     linecache (0.46)
       rbx-require-relative (> 0.0.4)
@@ -264,6 +264,9 @@ GEM
     oauth2-provider (0.0.19)
       activesupport (~> 3.0)
       addressable (~> 2.2)
+    oink (0.9.3)
+      activerecord
+      hodel_3000_compliant_logger
     omniauth (1.0.1)
       hashie (~> 1.2)
       rack
@@ -294,6 +297,7 @@ GEM
     rack-mount (0.6.14)
       rack (>= 1.0.0)
     rack-piwik (0.1.2)
+    rack-rewrite (1.2.1)
     rack-ssl (1.3.2)
       rack
     rack-test (0.5.7)
@@ -306,7 +310,7 @@ GEM
       activesupport (= 3.0.11)
       bundler (~> 1.0)
       railties (= 3.0.11)
-    rails-i18n (0.3.0)
+    rails-i18n (0.4.0)
       i18n (~> 0.5)
     railties (3.0.11)
       actionpack (= 3.0.11)
@@ -401,10 +405,10 @@ GEM
     typhoeus (0.3.3)
       mime-types
     tzinfo (0.3.31)
-    unicorn (4.1.1)
-      kgio (~> 2.4)
+    unicorn (4.2.0)
+      kgio (~> 2.6)
       rack
-      raindrops (~> 0.6)
+      raindrops (~> 0.7)
     vegas (0.1.11)
     warden (1.0.6)
       rack (>= 1.0)
@@ -426,7 +430,6 @@ PLATFORMS
 
 DEPENDENCIES
   SystemTimer (= 1.2.3)
-  active_reload
   activerecord-import
   acts-as-taggable-on!
   acts_as_api
@@ -474,6 +477,7 @@ DEPENDENCIES
   newrelic_rpm
   nokogiri (~> 1.5.0)
   oauth2-provider (= 0.0.19)
+  oink
   omniauth (= 1.0.1)
   omniauth-facebook
   omniauth-tumblr
@@ -482,6 +486,7 @@ DEPENDENCIES
   pg
   rack-google-analytics
   rack-piwik
+  rack-rewrite (~> 1.2.1)
   rack-ssl
   rails (= 3.0.11)
   rails-i18n
@@ -507,7 +512,7 @@ DEPENDENCIES
   timecop
   twitter (= 2.0.2)
   typhoeus
-  unicorn (~> 4.1.1)
+  unicorn (~> 4.2.0)
   webmock
   whenever
   will_paginate

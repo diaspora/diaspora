@@ -19,6 +19,7 @@ vendor/bundle/*
 vendor/cache/*
 config/database.yml
 .rvmrc_custom
+.rvmrc.local
 
 #Mailing list stuff
 config/email_offset

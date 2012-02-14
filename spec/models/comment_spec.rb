@@ -3,7 +3,7 @@
 #   the COPYRIGHT file.
 
 require 'spec_helper'
-require File.join(Rails.root, "spec", "shared_behaviors", "relayable")
+require Rails.root.join("spec", "shared_behaviors", "relayable")
 
 describe Comment do
   before do
@@ -13,19 +13,19 @@ describe Comment do
 
   describe 'comment#notification_type' do
     it "returns 'comment_on_post' if the comment is on a post you own" do
-      comment = alice.comment("why so formal?", :post => @status)
+      comment = alice.comment!(@status, "why so formal?")
       comment.notification_type(bob, alice.person).should == Notifications::CommentOnPost
     end
 
     it 'returns false if the comment is not on a post you own and no one "also_commented"' do
-      comment = alice.comment("I simply felt like issuing a greeting.  Do step off.", :post => @status)
+      comment = alice.comment!(@status, "I simply felt like issuing a greeting.  Do step off.")
       comment.notification_type(eve, alice.person).should be_false
     end
 
     context "also commented" do
       before do
-        alice.comment("a-commenta commenta", :post => @status)
-        @comment = eve.comment("I also commented on the first user's post", :post => @status)
+        alice.comment!(@status, "a-commenta commenta")
+        @comment = eve.comment!(@status, "I also commented on the first user's post")
       end
 
       it 'does not return also commented if the user commented' do
@@ -40,18 +40,18 @@ describe Comment do
 
   describe 'User#comment' do
     it "should be able to comment on one's own status" do
-      alice.comment("Yeah, it was great", :post => @status)
+      alice.comment!(@status, "Yeah, it was great")
       @status.reload.comments.first.text.should == "Yeah, it was great"
     end
 
     it "should be able to comment on a contact's status" do
-      bob.comment("sup dog", :post => @status)
+      bob.comment!(@status, "sup dog")
       @status.reload.comments.first.text.should == "sup dog"
     end
 
     it 'does not multi-post a comment' do
       lambda {
-        alice.comment 'hello', :post => @status
+        alice.comment!(@status, 'hello')
       }.should change { Comment.count }.by(1)
     end
   end
@@ -59,7 +59,7 @@ describe Comment do
   describe 'counter cache' do
     it 'increments the counter cache on its post' do
       lambda {
-        alice.comment("oh yeah", :post => @status)
+        alice.comment!(@status, "oh yeah")
       }.should change{
         @status.reload.comments_count
       }.by(1)
@@ -72,7 +72,7 @@ describe Comment do
       @commenter_aspect = @commenter.aspects.create(:name => "bruisers")
       connect_users(alice, @alices_aspect, @commenter, @commenter_aspect)
       @post = alice.post :status_message, :text => "hello", :to => @alices_aspect.id
-      @comment = @commenter.comment "Fool!", :post => @post
+      @comment = @commenter.comment!(@post, "Fool!")
       @xml = @comment.to_xml.to_s
     end
 
@@ -99,19 +99,20 @@ describe Comment do
     end
   end
 
-
   describe 'it is relayable' do
     before do
       @local_luke, @local_leia, @remote_raphael = set_up_friends
       @remote_parent = Factory(:status_message, :author => @remote_raphael)
       @local_parent = @local_luke.post :status_message, :text => "hi", :to => @local_luke.aspects.first
 
-      @object_by_parent_author = @local_luke.comment("yo", :post => @local_parent)
+      @object_by_parent_author = @local_luke.comment!(@local_parent, "yo")
       @object_by_recipient = @local_leia.build_comment(:text => "yo", :post => @local_parent)
       @dup_object_by_parent_author = @object_by_parent_author.dup
 
-      @object_on_remote_parent = @local_luke.comment("Yeah, it was great", :post => @remote_parent)
+      @object_on_remote_parent = @local_luke.comment!(@remote_parent, "Yeah, it was great")
     end
+
+    let(:build_object) { alice.build_comment(:post => @status, :text => "why so formal?") }
     it_should_behave_like 'it is relayable'
   end
 

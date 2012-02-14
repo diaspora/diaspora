@@ -24,6 +24,10 @@ en:
         months: "%d months"
         year: "about a year"
         years: "%d years"
+
+      my_activity: "My Activity"
+      my_stream: "Stream"
+
       videos:
           watch: "Watch this video on <%= provider %>"
           unknown: "Unknown video type"
@@ -79,8 +83,9 @@ en:
         reshare: "Reshare"
         comment: "Comment"
         original_post_deleted: "Original post deleted by author."
-        nsfw: "This post has been flagged NSFW by its author."
-        show: "Show"
+        show_post: "Show post"
+        follow: "Follow"
+        unfollow: "Unfollow"
 
         likes:
           zero: "<%= count %> Likes"
@@ -117,7 +122,7 @@ en:
         notifications: "Notifications"
         messages: "Messages"
 
-        search: "Find people or #tags"
+        search: "Search"
 
         recent_notifications: "Recent Notifications"
         mark_all_as_read: "Mark all as read"

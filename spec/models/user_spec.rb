@@ -5,7 +5,6 @@
 require 'spec_helper'
 
 describe User do
-
   describe "private key" do
     it 'has a key' do
       alice.encryption_key.should_not be nil
@@ -298,14 +297,6 @@ describe User do
     end
   end
 
-  describe '#seed_aspects' do
-    it 'follows the default account' do
-      Webfinger.stub_chain(:new, :fetch).and_return(Factory(:person))
-      expect{
-       eve.seed_aspects
-      }.to change(eve.contacts, :count).by(1)
-    end
-  end
 
   describe ".build" do
     context 'with valid params' do
@@ -580,11 +571,9 @@ describe User do
   end
 
   describe '#update_post' do
-    it 'sends a notification to aspects' do
-      m = mock()
-      m.should_receive(:post)
-      Postzord::Dispatcher.should_receive(:build).and_return(m)
+    it 'should dispatch post' do
       photo = alice.build_post(:photo, :user_file => uploaded_photo, :text => "hello", :to => alice.aspects.first.id)
+      alice.should_receive(:dispatch_post).with(photo)
       alice.update_post(photo, :text => 'hellp')
     end
   end
@@ -691,11 +680,11 @@ describe User do
   context 'likes' do
     before do
       alices_aspect = alice.aspects.where(:name => "generic").first
-      bobs_aspect = bob.aspects.where(:name => "generic").first
+      @bobs_aspect = bob.aspects.where(:name => "generic").first
       @message = alice.post(:status_message, :text => "cool", :to => alices_aspect)
-      @message2 = bob.post(:status_message, :text => "uncool", :to => bobs_aspect)
-      @like = alice.like(true, :target => @message)
-      @like2 = bob.like(true, :target => @message)
+      @message2 = bob.post(:status_message, :text => "uncool", :to => @bobs_aspect)
+      @like = alice.like!(@message)
+      @like2 = bob.like!(@message)
     end
 
     describe '#like_for' do

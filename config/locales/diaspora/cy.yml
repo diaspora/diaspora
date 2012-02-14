@@ -157,13 +157,6 @@ cy:
         other: "%{count} people disliked this"
         two: "%{count} dislikes"
         zero: "no people disliked this"
-      people_like_this:
-        few: "%{count} people liked this"
-        many: "%{count} people liked this"
-        one: "1 unigolyn yn hoffi hyn"
-        other: "%{count} pobl yn hoffi hyn"
-        two: "%{count} likes"
-        zero: "no people liked this"
       people_like_this_comment:
         few: "%{count} likes"
         many: "%{count} likes"
@@ -171,6 +164,13 @@ cy:
         other: "%{count} likes"
         two: "%{count} likes"
         zero: "no likes"
+      people_pin_this:
+        few: "%{count} pins"
+        many: "%{count} pins"
+        one: "%{count} pin"
+        other: "%{count} pins"
+        two: "%{count} pins"
+        zero: "no pins"
   limited: Cyfyngedig
   next: nesaf
   notifications:
@@ -457,8 +457,6 @@ cy:
       connect_to_comment: "Cysylltu i ddefnyddiwr hwn i sylwi ar eu swydd"
       dislike: "'Dwi ddim yn hoffi hyn"
       hide_and_mute: "Hide and Mute"
-      like: "Dwi'n hoffi hyn"
-      unlike: "Dim hoffi"
       viewable_to_anyone: "Mae'r post hon yn weladwy i unrhyw un ar y we"
   status_messages:
     helper:
@@ -487,6 +485,9 @@ cy:
       add_a_tag: "Ychwanegu tag"
       title: "#Tagiau ddilynwyd"
     followed_tags_stream: "#Tagiau ddilynwyd"
+    like_stream:
+      contacts_title: "People whose posts you like"
+      title: "Like Stream"
     mentions:
       title: "Your Mentions"
     multi:
@@ -522,6 +523,7 @@ cy:
       download_xml: "llwytho i lawr fy xml"
       email_awaiting_confirmation: "We have sent you an activation link to %{unconfirmed_email}. Till you follow this link and activate the new address, we will continue to use your original address %{email}."
       export_data: "Data Allforio"
+      liked: "...someone likes your post?"
       new_password: "Cyfrinair newydd "
       receive_email_notifications: "Receive email notificaions?"
       reshared: "...rhywun yn rhannu eich post?"

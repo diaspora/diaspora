@@ -5,7 +5,6 @@ require File.join(Rails.root, 'app', 'models', 'acts_as_taggable_on', 'tag')
 require File.join(Rails.root, 'lib', 'stream', 'tag')
 
 class TagsController < ApplicationController
-  skip_before_filter :which_action_and_user
   skip_before_filter :set_grammatical_gender
   before_filter :ensure_page, :only => :show
 
@@ -41,10 +40,7 @@ class TagsController < ApplicationController
   end
 
  def tag_followed?
-   if @tag_followed.nil?
-     @tag_followed = TagFollowing.joins(:tag).where(:tags => {:name => params[:name]}, :user_id => current_user.id).exists?
-   end
-   @tag_followed
+   TagFollowing.user_is_following?(current_user, params[:name])
  end
 
   def prep_tags_for_javascript

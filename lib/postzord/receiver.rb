@@ -8,16 +8,7 @@ class Postzord::Receiver
   require File.join(Rails.root, 'lib/postzord/receiver/public')
 
   def perform!
-    if self.receive!
-      self.update_cache! if cache?
-    end
-  end
-
-  # @return [Boolean]
-  def cache?
-    self.respond_to?(:update_cache!) && RedisCache.configured? &&
-      @object.respond_to?(:triggers_caching?) && @object.triggers_caching? &&
-      @object.respond_to?(:type) && RedisCache.acceptable_types.include?(@object.type)
+    self.receive!
   end
 end
 

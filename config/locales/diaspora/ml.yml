@@ -201,11 +201,14 @@ ml:
     index:
       add_a_new_aspect: "Add a new aspect"
       add_to_aspect: "add contacts to %{name}"
+      add_to_aspect_link: "add contacts to %{name}"
       all_contacts: "All Contacts"
-      check_out: "Check out"
+      community_spotlight: "Community Spotlight"
       many_people_are_you_sure: "Are you sure you want to start a private conversation with more than %{suggested_limit} contacts? Posting to this aspect may be a better way to contact them."
       my_contacts: "My Contacts"
       no_contacts: "No contacts."
+      no_contacts_message: "Check out %{community_spotlight}"
+      no_contacts_message_with_aspect: "Check out %{community_spotlight} or %{add_to_aspect_link}"
       only_sharing_with_me: "Only sharing with me"
       remove_person_from_aspect: "Remove %{person_name} from \"%{aspect_name}\""
       start_a_conversation: "Start a conversation"
@@ -298,6 +301,7 @@ ml:
     new:
       already_invited: "The following people have not accepted your invitation:"
       aspect: പരിചയം
+      check_out_diaspora: "Check out Diaspora!"
       comma_seperated_plz: "താങ്കള്‍ക്ക് കോമാ ഉപയോഗിച്ച് ഒന്നില്‍ കൂടൂതല്‍ ഇമെയില്‍ വിലാസങ്ങള്‍ ചേര്‍ക്കാം."
       if_they_accept_info: "അവര്‍ അംഗീകരിക്കുകയാണെങ്കില്‍, അവരെ താങ്കള്‍ ക്ഷണിച്ച പരിചയത്തിലേയ്ക്ക് ചേര്‍ക്കും."
       invite_someone_to_join: "ഡയസ്പോറയില്‍ ചേരാന്‍ ആരെയെങ്കിലും ക്ഷണിക്കു!"
@@ -334,13 +338,6 @@ ml:
         other: "%{count} പേര്‍ ഇത് ഇഷ്ടപ്പെടുന്നില്ല"
         two: "%{count} dislikes"
         zero: "ആരും ഇത് ഇഷ്ടപ്പെടുന്നില്ല"
-      people_like_this:
-        few: "%{count} ആളുകള്‍ ഇത് ഇഷ്ടപ്പെടുന്നു"
-        many: "%{count} ആളുകള്‍ ഇത് ഇഷ്ട്പ്പെടുന്നു"
-        one: "ഒരാള്‍ ഇത് ഇഷ്ടപ്പെടുന്നു"
-        other: "%{count} ആളുകള്‍ ഇത് ഇഷ്ടപ്പെടുന്നു"
-        two: "%{count} likes"
-        zero: "ആരും ഇതു ഇഷ്ടപ്പെടുന്നില്ല."
       people_like_this_comment:
         few: "%{count} likes"
         many: "%{count} likes"
@@ -348,6 +345,13 @@ ml:
         other: "%{count} likes"
         two: "%{count} likes"
         zero: "no likes"
+      people_pin_this:
+        few: "%{count} pins"
+        many: "%{count} pins"
+        one: "%{count} pin"
+        other: "%{count} pins"
+        two: "%{count} pins"
+        zero: "no pins"
   limited: "Limited"
   more: കൂടുതല്‍
   next: അടുത്തത്
@@ -480,6 +484,7 @@ ml:
       view_profile: "View %{name}'s profile"
     thanks: "നന്ദിയോടെ,"
     to_change_your_notification_settings: "to change your notification settings"
+  nsfw: "NSFW"
   ok: ശരി
   or: അല്ലെങ്കില്‍
   password: അടയാളവാക്ക്
@@ -597,6 +602,8 @@ ml:
       first_name: "ആദ്യ പേര്"
       last_name: "അവസാന പേര്"
       update_profile: "പ്രൊഫൈല്‍ പുതുക്കുക"
+      you_are_nsfw: "You have marked yourself not safe for work, your content will not show up in people who have opted out of seeing objectionable content's streams."
+      you_are_safe_for_work: "You have marked yourself as safe for work, this means you agree the content you post will agree with the community guidelines."
       your_bio: "നിങ്ങളുടെ സ്വയം വിവരണം"
       your_birthday: "താങ്കളുടെ ജന്മദിനം"
       your_gender: "താങ്കളുടെ ലിംഗം"
@@ -744,6 +751,7 @@ ml:
     notification:
       new: "പുതിയ %{type} %{from} ല്‍ നിന്ന്"
     public_explain:
+      atom_feed: "Atom feed"
       control_your_audience: "Control your Audience"
       logged_in: "%{service} ലേയ്ക്ക് പ്രവേശിച്ചിരിക്കുന്നു."
       manage: "ബന്ധിപ്പിച്ചിരിക്കുന്ന സേവനങ്ങളെ കൈകാര്യം ചെയ്യുക"
@@ -778,11 +786,11 @@ ml:
       hide_and_mute: "Hide and mute post"
       ignore_user: "Ignore %{name}"
       ignore_user_description: "Ignore and remove user from all aspects?"
-      like: ഇഷ്ടപ്പെടുന്നു
       nsfw: "This post has been flagged as NSFW by its author. %{link}"
+      pin: "Pin"
       shared_with: "Shared with: %{aspect_names}"
       show: "show"
-      unlike: "Unlike"
+      unpin: "Unpin"
       via: "via %{link}"
       viewable_to_anyone: "This post is viewable to anyone on the web"
   status_messages:
@@ -834,6 +842,8 @@ ml:
     multi:
       contacts_title: "People in your Stream"
       title: "Stream"
+    participate:
+      title: "Participate"
     public:
       contacts_title: "Recent Posters"
       title: "Public Activity"

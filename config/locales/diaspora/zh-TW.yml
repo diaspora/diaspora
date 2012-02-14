@@ -203,7 +203,6 @@ zh-TW:
       add_a_new_aspect: 加入新面向
       add_to_aspect: "加聯絡人到%{name}"
       all_contacts: 所有聯絡人
-      check_out: 看看
       many_people_are_you_sure: "你確定要進行跟%{suggested_limit}個聯絡人的私人對話? 貼文到該面向可能是跟他們聯絡比較好的方式."
       my_contacts: 我的聯絡人
       no_contacts: 你好像應該要多加點聯絡人!
@@ -332,13 +331,6 @@ zh-TW:
         other: "有%{count}個遜"
         two: "%{count}個遜"
         zero: 沒有遜
-      people_like_this:
-        few: "有%{count}個讚"
-        many: "有%{count}個讚"
-        one: "有%{count}個讚"
-        other: "有%{count}個讚"
-        two: "%{count}個讚"
-        zero: 沒有讚
       people_like_this_comment:
         few: "有%{count}個人說讚"
         many: "有%{count}個人說讚"
@@ -346,6 +338,13 @@ zh-TW:
         other: "有%{count}個人說讚"
         two: "%{count}個讚"
         zero: 沒人說讚
+      people_pin_this:
+        few: "%{count} pins"
+        many: "%{count} pins"
+        one: "%{count} pin"
+        other: "%{count} pins"
+        two: "%{count} pins"
+        zero: "no pins"
   limited: 限制
   more: 更多
   next: 後面
@@ -774,9 +773,7 @@ zh-TW:
       hide_and_mute: 隱藏貼文並消音
       ignore_user: "忽視 %{name}"
       ignore_user_description: "是否要忽視該使用者, 並將其從所有面向中移除?"
-      like: 讚
       shared_with: "分享給: %{aspect_names}"
-      unlike: 收回讚
       via: "經由%{link}"
       viewable_to_anyone: 任何網頁使用者都能看到這則貼文
   status_messages:

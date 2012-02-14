@@ -48,9 +48,8 @@
                            fade-in 0.2s ease-in;
         -moz-animation: spin 1s infinite ease-in-out,
                            fade-in 0.2s ease-in;
-      }
 
-    / Social Media Icons are by Paul Robert Lloyd @ http://paulrobertlloyd.com/2009/06/social_media_icons
+      }
 
     / bootstrap/blueprint switch
     - if @aspect == :getting_started || @page == :logged_out
@@ -82,10 +81,14 @@
 
     = jquery_include_tag
     - unless @landing_page
-      = include_javascripts :main
+      = include_javascripts :main, :templates
+      
       :javascript
         Diaspora.I18n.loadLocale(#{get_javascript_strings_for(I18n.locale).to_json}, "#{I18n.locale}");
         Diaspora.Page = "#{params[:controller].camelcase}#{params[:action].camelcase}";
+
+    :javascript
+      app.baseImageUrl("#{ENV['ASSET_HOST']}")
 
     - if current_user
       :javascript
@@ -122,8 +125,6 @@
     - unless current_user
       %header
         = render 'layouts/header'
-
-    = render 'layouts/templates'
 
     .container{:style=> "#{yield(:break_the_mold)}"}
       - if @aspsect == :getting_started || @page == :logged_out

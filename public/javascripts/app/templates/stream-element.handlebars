@@ -1,0 +1,67 @@
+<div class="media">
+
+  {{#if current_user}}
+    <div class="controls">
+      {{#if authorIsCurrentUser}}
+        <a href="#" rel=nofollow>
+          <img src="{{imageUrl "/images/icons/ignoreuser.png"}}"" alt="Ignoreuser" class="block_user control_icon" title="{{t "ignore"}}" />
+        </a>
+        <a href="#" rel=nofollow>
+          <img src="{{imageUrl "/images/deletelabel.png"}}" class="delete control_icon hide_post" title="{{t "stream.hide"}}" />
+        </a>
+      {{else}}
+        <a href="#" rel=nofollow>
+          <img src="{{imageUrl "/images/deletelabel.png"}}" class="delete control_icon remove_post" title="{{t "delete"}}" />
+        </a>
+      {{/if}}
+    </div>
+  {{/if}}
+
+  {{#with author}}
+    <a href="/people/{{guid}}" class="img">
+      <img src="{{avatar.small}}" class="avatar" />
+    </a>
+  {{/with}}
+
+  <div class="bd">
+    <div>
+      {{#with author}}
+        <a href="/people/{{guid}}" class="author">
+          {{name}}
+        </a>
+      {{/with}}
+
+      <span class="details grey">
+        -
+        <a href="/posts/{{id}}">
+          <time class="timeago" datetime="{{created_at}}" />
+        </a>
+
+        {{#if reshares_count}}
+          -
+          {{t "stream.reshares" count=reshares_count}}
+        {{/if}}
+      </span>
+    </div>
+
+    {{#if nsfw}}
+      <div class="nsfw-shield">
+        <strong>
+          NSFW
+        </strong>
+        |
+        <a href="#">
+          {{t "stream.show_post"}}
+        </a>
+      </div>
+
+    {{else}}
+
+      <div class="post-content"> </div>
+
+      <div class="feedback"> </div>
+      <div class="likes"> </div>
+      <div class="comments"> </div>
+    {{/if}}
+
+  </div>

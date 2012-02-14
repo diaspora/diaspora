@@ -196,7 +196,6 @@ vi:
       add_a_new_aspect: "Thêm mối quan hệ mới"
       add_to_aspect: "thêm liên lạc vào %{name}"
       all_contacts: "Tất cả liên lạc"
-      check_out: "Kiểm tra"
       many_people_are_you_sure: "Bạn có chắc là muốn trò chuyện với hơn %{suggested_limit} người khác? Posting to this aspect may be a better way to contact them."
       my_contacts: "Liên lạc của tôi"
       no_contacts: "Có vẻ như bạn cần thêm vài liên lạc!"
@@ -303,13 +302,6 @@ vi:
         other: "%{count} người không thích"
         two: "%{count} người không thích"
         zero: "chưa có người không thích"
-      people_like_this:
-        few: "%{count} người thích"
-        many: "%{count} người thích"
-        one: "%{count} người thích"
-        other: "%{count} người thích"
-        two: "%{count} người thích"
-        zero: "không có người thích"
       people_like_this_comment:
         few: "%{count} người thích"
         many: "%{count} người thích"
@@ -317,6 +309,13 @@ vi:
         other: "%{count} người thích"
         two: "%{count} người thích"
         zero: "không có người thích"
+      people_pin_this:
+        few: "%{count} pins"
+        many: "%{count} pins"
+        one: "%{count} pin"
+        other: "%{count} pins"
+        two: "%{count} pins"
+        zero: "no pins"
   limited: "Bị giới hạn"
   next: "tiếp theo"
   no_results: "Không tìm thấy kết quả"
@@ -536,8 +535,14 @@ vi:
       two: "Show two more comments"
       zero: "No more comments"
   streams:
+    like_stream:
+      contacts_title: "People whose posts you like"
+      title: "Like Stream"
     mentions:
       title: "Tin của bạn"
+    multi:
+      contacts_title: "People in your Stream"
+      title: Stream
     tags:
       contacts_title: "People who dig these tags"
   tag_followings:
@@ -569,6 +574,7 @@ vi:
       email_awaiting_confirmation: "Chúng tôi đã gửi đường dẫn kích hoạt đến %{unconfirmed_email}. Chúng tôi vẫn dùng địa chỉ gốc của bạn %{email} cho đến khi bạn xác nhận địa chỉ mới."
       export_data: "Xuất dữ liệu"
       getting_started: "Tuỳ chỉnh người dùng mới"
+      liked: "...someone likes your post?"
       new_password: "Mật khẩu mới"
       photo_export_unavailable: "Chức năng xuất ảnh hiện chưa hoạt động"
       private_message: "...bạn nhận được một tin nhắn cá nhân?"

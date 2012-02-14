@@ -1,3 +1,4 @@
+# encoding: UTF-8
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -10,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120114191018) do
+ActiveRecord::Schema.define(:version => 20120208231253) do
 
   create_table "account_deletions", :force => true do |t|
     t.string  "diaspora_handle"
@@ -243,6 +244,17 @@ ActiveRecord::Schema.define(:version => 20120114191018) do
   add_index "oauth_clients", ["name"], :name => "index_oauth_clients_on_name", :unique => true
   add_index "oauth_clients", ["nonce"], :name => "index_oauth_clients_on_nonce", :unique => true
 
+  create_table "participations", :force => true do |t|
+    t.string   "guid"
+    t.integer  "target_id"
+    t.string   "target_type",             :limit => 60, :null => false
+    t.integer  "author_id"
+    t.text     "author_signature"
+    t.text     "parent_author_signature"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "people", :force => true do |t|
     t.string   "guid",                                     :null => false
     t.text     "url",                                      :null => false
@@ -315,6 +327,7 @@ ActiveRecord::Schema.define(:version => 20120114191018) do
     t.integer  "comments_count",                      :default => 0
     t.integer  "o_embed_cache_id"
     t.integer  "reshares_count",                      :default => 0
+    t.datetime "interacted_at"
   end
 
   add_index "posts", ["author_id", "root_guid"], :name => "index_posts_on_author_id_and_root_guid", :unique => true
@@ -335,12 +348,13 @@ ActiveRecord::Schema.define(:version => 20120114191018) do
     t.date     "birthday"
     t.string   "gender"
     t.text     "bio"
-    t.boolean  "searchable",                      :default => true, :null => false
-    t.integer  "person_id",                                         :null => false
+    t.boolean  "searchable",                      :default => true,  :null => false
+    t.integer  "person_id",                                          :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "location"
     t.string   "full_name",        :limit => 70
+    t.boolean  "nsfw",                            :default => false
   end
 
   add_index "profiles", ["full_name", "searchable"], :name => "index_profiles_on_full_name_and_searchable"

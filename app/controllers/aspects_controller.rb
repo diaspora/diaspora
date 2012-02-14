@@ -10,22 +10,16 @@ class AspectsController < ApplicationController
              :json
 
   def create
-    @aspect = current_user.aspects.create(params[:aspect])
+    @aspect = current_user.aspects.build(params[:aspect])
+    aspecting_person_id = params[:aspect][:person_id]
 
-    if @aspect.valid?
+    if @aspect.save
       flash[:notice] = I18n.t('aspects.create.success', :name => @aspect.name)
-      if current_user.getting_started
-        redirect_to :back
-      elsif request.env['HTTP_REFERER'].include?("contacts")
-        redirect_to :back
-      elsif params[:aspect][:person_id].present?
-        @person = Person.where(:id => params[:aspect][:person_id]).first
 
-        if @contact = current_user.contact_for(@person)
-          @contact.aspects << @aspect
-        else
-          @contact = current_user.share_with(@person, @aspect)
-        end
+      if current_user.getting_started || request.referer.include?("contacts")
+        redirect_to :back
+      elsif aspecting_person_id.present?
+        connect_person_to_aspect(aspecting_person_id)
       else
         redirect_to contacts_path(:a_id => @aspect.id)
       end
@@ -37,6 +31,16 @@ class AspectsController < ApplicationController
           redirect_to :back
         end
       end
+    end
+  end
+
+  #person_id, user, @aspect
+  def connect_person_to_aspect(aspecting_person_id)
+    @person = Person.find(aspecting_person_id)
+    if @contact = current_user.contact_for(@person)
+      @contact.aspects << @aspect
+    else
+      @contact = current_user.share_with(@person, @aspect)
     end
   end
 

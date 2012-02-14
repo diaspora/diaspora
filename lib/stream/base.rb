@@ -11,16 +11,6 @@ class Stream::Base
     self.publisher = Publisher.new(self.user, publisher_opts)
   end
 
-  # @return [Person]
-  def random_community_spotlight_member
-    @random_community_spotlight_member ||= Person.find_by_diaspora_handle(spotlight_diaspora_id)
-  end
-
-  # @return [Boolean]
-  def has_community_spotlight?
-    random_community_spotlight_member.present?
-  end
-
   #requied to implement said stream
   def link(opts={})
     'change me in lib/base_stream.rb!'
@@ -50,6 +40,7 @@ class Stream::Base
   def stream_posts
     self.posts.for_a_stream(max_time, order, self.user).tap do |posts|
       like_posts_for_stream!(posts) #some sql person could probably do this with joins.
+      participation_posts_for_stream!(posts)
     end
   end
 
@@ -119,6 +110,22 @@ class Stream::Base
 
     posts.each do |post|
       post.user_like = like_hash[post.id]
+    end
+  end
+
+  # @return [void]
+  def participation_posts_for_stream!(posts)
+    return posts unless @user
+
+    participations = Participation.where(:author_id => @user.person.id, :target_id => posts.map(&:id), :target_type => "Post")
+
+    participation_hash = participations.inject({}) do |hash, participation|
+      hash[participation.target_id] = participation
+      hash
+    end
+
+    posts.each do |post|
+      post.user_participation = participation_hash[post.id]
     end
   end
 

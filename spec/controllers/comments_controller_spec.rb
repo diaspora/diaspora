@@ -27,6 +27,7 @@ describe CommentsController do
         response.code.should == '201'
         response.body.should match comment_hash[:text]
       end
+
       it 'responds to format mobile' do
         post :create, comment_hash.merge(:format => 'mobile')
         response.should be_success
@@ -52,7 +53,7 @@ describe CommentsController do
       end
 
       it "doesn't overwrite id" do
-        old_comment = alice.comment("hello", :post => @post)
+        old_comment = alice.comment!(@post, "hello")
         comment_hash[:id] = old_comment.id
         post :create, comment_hash
         old_comment.reload.text.should == 'hello'
@@ -82,25 +83,25 @@ describe CommentsController do
       end
 
       it 'lets the user delete his comment' do
-        comment = bob.comment("hey", :post => @message)
+        comment = bob.comment!(@message, "hey")
 
         bob.should_receive(:retract).with(comment)
-        delete :destroy, :format => "js", :post_id => 1,  :id => comment.id
+        delete :destroy, :format => "js", :post_id => 1, :id => comment.id
         response.status.should == 204
       end
 
       it "lets the user destroy other people's comments" do
-        comment = alice.comment("hey", :post => @message)
+        comment = alice.comment!(@message, "hey")
 
         bob.should_receive(:retract).with(comment)
-        delete :destroy, :format => "js", :post_id => 1,  :id => comment.id
+        delete :destroy, :format => "js", :post_id => 1, :id => comment.id
         response.status.should == 204
       end
     end
 
     context "another user's post" do
       it 'let the user delete his comment' do
-        comment = alice.comment("hey", :post => @message)
+        comment = alice.comment!(@message, "hey")
 
         alice.should_receive(:retract).with(comment)
         delete :destroy, :format => "js", :post_id => 1,  :id => comment.id
@@ -108,8 +109,8 @@ describe CommentsController do
       end
 
       it 'does not let the user destroy comments he does not own' do
-        comment1 = bob.comment("hey", :post => @message)
-        comment2 = eve.comment("hey", :post => @message)
+        comment1 = bob.comment!(@message, "hey")
+        comment2 = eve.comment!(@message, "hey")
 
         alice.should_not_receive(:retract).with(comment1)
         delete :destroy, :format => "js", :post_id => 1,  :id => comment2.id
@@ -136,7 +137,7 @@ describe CommentsController do
     end
 
     it 'returns all the comments for a post' do
-      comments = [alice, bob, eve].map{ |u| u.comment("hey", :post => @message) }
+      comments = [alice, bob, eve].map{ |u| u.comment!(@message, "hey") }
 
       get :index, :post_id => @message.id, :format => 'js'
       assigns[:comments].should == comments
@@ -146,11 +147,12 @@ describe CommentsController do
       get :index, :post_id => 235236, :format => 'js'
       response.status.should == 404
     end
+
     it 'returns a 404 on a post that is not visible to the signed in user' do
       aspect_to_post = eve.aspects.where(:name => "generic").first
       message = eve.post(:status_message, :text => "hey", :to => aspect_to_post.id)
-      bob.comment("hey", :post => @message)
-      get :index, :post_id => message.id, :format => 'js'
+      bob.comment!(@message, "hey")
+      get :index, :post_id => message.id, :format => :json
       response.status.should == 404
     end
   end

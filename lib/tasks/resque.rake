@@ -7,3 +7,10 @@ end
 
 desc "Alias for resque:work (To run workers on Heroku)"
 task "jobs:work" => "resque:work"
+
+desc 'clear your failure queue in resque.  good for crons.'
+task 'resque:clear_failed' => [:environment]do
+  puts "clearing resque failures"
+  Resque::Failure.clear
+  puts "complete!"
+end

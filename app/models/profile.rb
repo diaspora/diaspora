@@ -25,6 +25,7 @@ class Profile < ActiveRecord::Base
   xml_attr :bio
   xml_attr :location
   xml_attr :searchable
+  xml_attr :nsfw
   xml_attr :tag_string
 
   before_save :strip_names
@@ -39,7 +40,7 @@ class Profile < ActiveRecord::Base
   validate :valid_birthday
 
   attr_accessible :first_name, :last_name, :image_url, :image_url_medium,
-    :image_url_small, :birthday, :gender, :bio, :location, :searchable, :date, :tag_string
+    :image_url_small, :birthday, :gender, :bio, :location, :searchable, :date, :tag_string, :nsfw
 
   belongs_to :person
   before_validation do

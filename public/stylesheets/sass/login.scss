@@ -15,9 +15,6 @@
   form {
     input,
     label {
-      font: {
-        size: 14px;
-      };
       display: inline;
     }
 
@@ -34,6 +31,7 @@
       box-shadow: 0 1px 0px white, 0 -1px 0px #888888;
       width: 180px;
       max-width: 180px;
+      font-size: 14px;
     }
 
     p {
@@ -68,7 +66,7 @@
       text-align: left;
       position: absolute;
       left: 205px;
-      top: 12px;
+      top: 2em;
       width: 150px;
       color: #aaa;
     }

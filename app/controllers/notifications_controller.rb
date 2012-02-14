@@ -3,7 +3,7 @@
 #   the COPYRIGHT file.
 
 class NotificationsController < ApplicationController
-  include NotificationsHelper
+  before_filter :authenticate_user!
 
   def update
     note = Notification.where(:recipient_id => current_user.id, :id => params[:id]).first
@@ -52,7 +52,7 @@ class NotificationsController < ApplicationController
   def read_all
     Notification.where(:recipient_id => current_user.id).update_all(:unread => false)
     respond_to do |format|
-      format.html { redirect_to notifications_path }
+      format.html { redirect_to stream_path }
       format.xml { render :xml => {}.to_xml }
       format.json { render :json => {}.to_json }
     end

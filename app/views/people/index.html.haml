@@ -10,17 +10,8 @@
   = javascript_include_tag 'contact-list'
 
 .span-24.last
-  - if params[:q].blank?
-    %h2
-      =t('.no_results')
-  - else
-    %h2#search_title
-      =t('.results_for')
-      %span.term
-        = params[:q]
-    %h4
-      %small
-        = t('.looking_for', :tag_link => tag_page_link(params[:q])).html_safe
+  = search_header
+  = looking_for_tag_link
 .span-15
   %hr
 .clearfix

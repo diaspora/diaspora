@@ -12,6 +12,7 @@ Diaspora::Application.routes.draw do
 
   resources :posts, :only => [:show, :destroy] do
     resources :likes, :only => [:create, :destroy, :index]
+    resources :participations, :only => [:create, :destroy, :index]
     resources :comments, :only => [:new, :create, :destroy, :index]
   end
   get 'p/:id' => 'posts#show', :as => 'short_post'
@@ -21,8 +22,12 @@ Diaspora::Application.routes.draw do
   end
 
   # Streams
+  get "participate" => "streams#activity", :as => "activity_stream" # legacy
+  get "explore" => "streams#multi", :as => "stream"                 # legacy
+
+  get "activity" => "streams#activity", :as => "activity_stream"
+  get "stream" => "streams#multi", :as => "stream"
   get "public" => "streams#public", :as => "public_stream"
-  get "stream" => "streams#multi", :as => "multi_stream"
   get "followed_tags" => "streams#followed_tags", :as => "followed_tags_stream"
   get "mentions" => "streams#mentioned", :as => "mentioned_stream"
   get "liked" => "streams#liked", :as => "liked_stream"

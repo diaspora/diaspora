@@ -1,38 +1,59 @@
--#   Copyright (c) 2010-2011, Diaspora Inc.  This file is
+-#   Copyright (c) 2010-2012, Diaspora Inc.  This file is
 -#   licensed under the Affero General Public License version 3 or later.  See
 -#   the COPYRIGHT file.
 
-= include_javascripts :jquery
-= include_javascripts :main
-= include_stylesheets :default, :media => 'all'
-= stylesheet_link_tag "blueprint/screen", :media => 'screen'
-= javascript_include_tag "publisher.js"
+!!!
+%html{:lang => I18n.locale.to_s, :dir => (rtl?) ? 'rtl' : 'ltr'}
+  %head
+    %meta{:charset => 'utf-8'}
 
-:javascript
-  Diaspora.I18n.loadLocale(#{get_javascript_strings_for(current_user.language).to_json}, "#{current_user.language}");
-  $(document).ready(function() 
-    {
+    %title
+      = page_title yield(:page_title)
+
+    %meta{'http-equiv' => 'X-UA-Compatible', :content => 'IE=edge,chrome=1'}
+    %meta{"http-equiv"=>"Content-Type", :content=>"text/html; charset=utf-8"}/
+
+    %link{:rel => 'shortcut icon', :href => '/favicon.png'}
+    %link{:rel => 'apple-touch-icon', :href => '/apple-touch-icon.png'}
+
+    = csrf_meta_tag
+
+    = jquery_include_tag
+    = include_javascripts :main, :templates, :home
+    :javascript
+      Diaspora.I18n.loadLocale(#{get_javascript_strings_for(I18n.locale).to_json}, "#{I18n.locale}");
+    
+    = stylesheet_link_tag "blueprint/screen", :media => 'screen'
+    = include_stylesheets :default, :media => 'all'
+    :css
+      body { margin: 0; padding: 0; }
+      #new_status_message_pane { margin: 1em 0 0; }
+      #new_status_message_pane h4 { margin: 0 0 0 1em; }
+
+  %body
+    #new_status_message_pane
+      .span-15.last
+        %h4
+          =t('bookmarklet.post_something')
+        = render :partial => 'shared/publisher', :locals => { :aspect => :profile, :selected_aspects => @aspects,  :aspect_ids => @aspect_ids }
+
+    :javascript
       Publisher.bookmarklet = true;
+      app.publisher = new app.views.Publisher();
+      
       $("#publisher").bind('ajax:success', function(){
         $('h4').text("#{t('bookmarklet.post_success')}");
-        Publisher.close();
-
+        app.publisher.close();
         window.setTimeout(window.close, 2000, true);
       });
 
       var contents = "#{params[:title]} - #{params[:url]}";
-      if ("#{params[:notes]}".length > 0){
-        contents = contents + " - #{params[:notes]}";
+      var notes    = "#{escape_javascript params[:notes]}";
+      if (notes.length > 0){
+        contents = contents + " - " + notes;
       }
 
       $("#publisher #status_message_fake_text").val(contents);
       $("#publisher #status_message_text").val(contents);
       $('input.button')[0].removeAttribute('disabled');
-  });
-
-#new_status_message_pane
-  .span-15.last
-    %h4
-      =t('bookmarklet.post_something')
-    = render :partial => 'shared/publisher', :locals => { :aspect => :profile, :selected_aspects => @aspects,  :aspect_ids => @aspect_ids }
 

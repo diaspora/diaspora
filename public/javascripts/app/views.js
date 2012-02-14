@@ -1,4 +1,5 @@
 app.views.Base =  Backbone.View.extend({
+
   presenter : function(){
     return this.defaultPresenter()
   },
@@ -22,18 +23,8 @@ app.views.Base =  Backbone.View.extend({
   },
 
   renderTemplate : function(){
-    var templateHTML //don't forget to regenerate your jasmine fixtures ;-)
     var presenter = _.isFunction(this.presenter) ? this.presenter() : this.presenter
-
-    if(this.legacyTemplate) {
-      templateHTML = $(this.template_name).html();
-      this.template = _.template(templateHTML);
-    } else {
-      window.templateCache = window.templateCache || {}
-      templateHTML = $("#" + this.templateName + "-template").html(); //don't forget to regenerate your jasmine fixtures ;-)
-      this.template = templateCache[this.templateName] = templateCache[this.templateName] || Handlebars.compile(templateHTML);
-    }
-
+    this.template = JST[this.templateName]
     $(this.el).html(this.template(presenter));
     this.postRenderTemplate();
   },

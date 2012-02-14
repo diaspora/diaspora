@@ -11,7 +11,7 @@ describe("app.views.Post", function(){
         }
       }})
 
-      var posts = $.parseJSON(spec.readFixture("multi_stream_json"))["posts"];
+      var posts = $.parseJSON(spec.readFixture("stream_json"))["posts"];
 
       this.collection = new app.collections.Posts(posts);
       this.statusMessage = this.collection.models[0];
@@ -22,16 +22,15 @@ describe("app.views.Post", function(){
       this.statusMessage.set({reshares_count : 2})
       var view = new app.views.Post({model : this.statusMessage}).render();
 
-      expect(view.$(".post_initial_info").html()).toContain(Diaspora.I18n.t('stream.reshares', {count: 2}))
+      expect($(view.el).html()).toContain(Diaspora.I18n.t('stream.reshares', {count: 2}))
     })
 
     it("does not display a reshare count for 'zero'", function(){
       this.statusMessage.set({reshares_count : 0})
       var view = new app.views.Post({model : this.statusMessage}).render();
 
-      expect(view.$(".post_initial_info").html()).not.toContain("0 Reshares")
+      expect($(view.el).html()).not.toContain("0 Reshares")
     })
-
 
     context("embed_html", function(){
       it("provides oembed html from the model response", function(){
@@ -63,21 +62,21 @@ describe("app.views.Post", function(){
 
     context("NSFW", function(){
       it("contains a shield element", function(){
-        this.statusMessage.set({text : "this is safe for work. #sfw"});
+        this.statusMessage.set({nsfw: true});
 
         var view = new app.views.Post({model : this.statusMessage}).render();
         var statusElement = $(view.el)
 
-        expect(statusElement.find(".shield").html()).toBeNull();
+        expect(statusElement.find(".nsfw-shield").length).toBe(1)
       })
 
       it("does not contain a shield element", function(){
-        this.statusMessage.set({text : "nudie magazine day! #nsfw"});
+        this.statusMessage.set({nsfw: false});
 
         var view = new app.views.Post({model : this.statusMessage}).render();
         var statusElement = $(view.el)
 
-        expect(statusElement.find(".shield").html()).toNotBe(null);
+        expect(statusElement.find(".shield").html()).toBe(null);
       })
     })
   })

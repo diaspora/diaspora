@@ -173,18 +173,20 @@ describe 'a user receives a post' do
 
     context 'remote' do
       before do
-        connect_users(alice, @alices_aspect, eve, @eves_aspect)
-        @post = alice.post(:status_message, :text => "hello", :to => @alices_aspect.id)
+        fantasy_resque do
+          connect_users(alice, @alices_aspect, eve, @eves_aspect)
+          @post = alice.post(:status_message, :text => "hello", :to => @alices_aspect.id)
 
-        xml = @post.to_diaspora_xml
+          xml = @post.to_diaspora_xml
 
-        receive_with_zord(bob, alice.person, xml)
-        receive_with_zord(eve, alice.person, xml)
+          receive_with_zord(bob, alice.person, xml)
+          receive_with_zord(eve, alice.person, xml)
 
-        comment = eve.comment('tada',:post => @post)
-        comment.parent_author_signature = comment.sign_with_key(alice.encryption_key)
-        @xml = comment.to_diaspora_xml
-        comment.delete
+          comment = eve.comment!(@post, 'tada')
+          comment.parent_author_signature = comment.sign_with_key(alice.encryption_key)
+          @xml = comment.to_diaspora_xml
+          comment.delete
+        end
       end
 
       it 'should correctly attach the user already on the pod' do
@@ -235,12 +237,14 @@ describe 'a user receives a post' do
       end
 
       it 'does not raise a `Mysql2::Error: Duplicate entry...` exception on save' do
-        @comment = bob.comment('tada',:post => @post)
-        @xml = @comment.to_diaspora_xml
+        fantasy_resque do
+          @comment = bob.comment!(@post, 'tada')
+          @xml = @comment.to_diaspora_xml
 
-        lambda {
-          receive_with_zord(alice, bob.person, @xml)
-        }.should_not raise_exception
+          lambda {
+            receive_with_zord(alice, bob.person, @xml)
+          }.should_not raise_exception
+        end
       end
     end
   end

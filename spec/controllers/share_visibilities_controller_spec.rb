@@ -11,19 +11,10 @@ describe ShareVisibilitiesController do
   end
 
   describe '#update' do
-    before do
-      @controller.stub(:update_cache)
-    end
-
     context "on a post you can see" do
       it 'succeeds' do
         put :update, :format => :js, :id => 42, :post_id => @status.id
         response.should be_success
-      end
-
-      it 'calls #update_cache' do
-        RedisCache.should_receive(:update_cache_for).with(an_instance_of(User), an_instance_of(Post), true)
-        put :update, :format => :js, :id => 42, :post_id => @status.id
       end
 
       it 'it calls toggle_hidden_shareable' do

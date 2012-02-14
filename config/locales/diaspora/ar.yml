@@ -304,13 +304,6 @@ ar:
         other: "%{count} كرهو هذا"
         two: "%{count} كرها"
         zero: "لا أحد يكره هذا"
-      people_like_this:
-        few: "%{count} إعجابات"
-        many: "%{count} إعجابًا"
-        one: "إعجابٌ واحد"
-        other: "%{count} إعجابًا"
-        two: "%{count} إعجابان"
-        zero: "لا إعجابات"
       people_like_this_comment:
         few: "%{count} إعجابات"
         many: "%{count} إعجابًا"
@@ -318,6 +311,13 @@ ar:
         other: "%{count} إعجاب"
         two: "%{count} أعجبهما"
         zero: "لا إعجابات"
+      people_pin_this:
+        few: "%{count} pins"
+        many: "%{count} pins"
+        one: "%{count} pin"
+        other: "%{count} pins"
+        two: "%{count} pins"
+        zero: "no pins"
   limited: محدود
   more: أكثر
   next: التالي
@@ -722,9 +722,7 @@ ar:
     stream_element:
       dislike: "لم يعجبني"
       hide_and_mute: "أخـفِ وأسكـتْ"
-      like: أعجبني
       shared_with: "مُشَارك مع: %{aspect_names}"
-      unlike: "إلغاء إعجابي"
       via: "بواسطة %{link}"
       viewable_to_anyone: "يستطيع أي شخص على الشابكة رؤية هذه المشاركة."
   status_messages:
@@ -753,8 +751,14 @@ ar:
       two: "Show two more comments"
       zero: "No more comments"
   streams:
+    like_stream:
+      contacts_title: "People whose posts you like"
+      title: "Like Stream"
     mentions:
       title: "Your Mentions"
+    multi:
+      contacts_title: "People in your Stream"
+      title: Stream
     tags:
       contacts_title: "People who dig these tags"
   tag_followings:

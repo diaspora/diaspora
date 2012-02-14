@@ -45,6 +45,10 @@ class Notification < ActiveRecord::Base
     raise NotImplementedError.new('Subclass this.')
   end
 
+  def effective_target
+    self.popup_translation_key == "notifications.mentioned" ? self.target.post : self.target
+  end
+
 private
   def self.concatenate_or_create(recipient, target, actor, notification_type)
     return nil if suppress_notification?(recipient, target)

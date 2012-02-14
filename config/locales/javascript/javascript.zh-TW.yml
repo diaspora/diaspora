@@ -35,6 +35,8 @@ zh-TW:
       hey: "嘿, {{name}}!"
       no_tags: "嘿, 你還沒有追蹤任何標籤! 要往下一步嗎?"
       preparing_your_stream: 整理你個人的流水帳中...
+    header:
+      search: "Find people or #tags"
     infinite_scroll:
       no_more: 沒有貼文了.
     photo_uploader:
@@ -48,6 +50,7 @@ zh-TW:
     search_for: "搜尋 {{name}}"
     show_more: 顯示更多
     stream:
+      like: Like
       likes:
         few: "<%= count %> Likes"
         many: "<%= count %> Likes"
@@ -69,6 +72,7 @@ zh-TW:
         other: "<%= count %> Reshares"
         two: "<%= count %> Reshares"
         zero: "<%= count %> Reshares"
+      unlike: Unlike
     tags:
       wasnt_that_interesting: "OK, 我想 #{{tagName}} 大概沒那麼有趣..."
     timeago:

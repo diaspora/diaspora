@@ -1,8 +1,9 @@
 //this file is the scary no-no-zone bad-touch of our backbone code.
 //after re-writing/eliminating the existing Publisher let's re-write
-//this with PANACHE!
+//this with PANACHE!    <333 Dennis
 
 app.views.Publisher = Backbone.View.extend({
+  
   el : "#publisher",
 
   events : {
@@ -33,7 +34,12 @@ app.views.Publisher = Backbone.View.extend({
     }, {
       url : "/status_messages",
       success : function() {
-        app.stream.posts.add(statusMessage.toJSON());
+        if(app.publisher) {
+          $(app.publisher.el).trigger('ajax:success');
+        }
+        if(app.stream) {
+          app.stream.posts.add(statusMessage.toJSON());
+        }
       }
     });
 

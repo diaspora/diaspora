@@ -4,11 +4,12 @@ When /^(.*) in the header$/ do |action|
   end
 end
 
+And /^I submit the form$/ do
+  click_button :submit
+end
+
 And /^I expand the publisher$/ do
-  page.execute_script('
-    $("#publisher").removeClass("closed");
-    $("#publisher").find("textarea").focus();
-    ')
+ click_publisher
 end
 
 When 'I click the aspects title' do
@@ -49,7 +50,7 @@ When /^I click to delete the first post$/ do
 end
 
 When /^I click to delete the first comment$/ do
-  page.execute_script('$(".comment").first().find(".comment_delete").click()')
+  find(".comment").find(".comment_delete").click()
 end
 
 When /^I click to delete the first uploaded photo$/ do
@@ -103,7 +104,7 @@ Then /^(?:|I )should not see a "([^\"]*)"(?: within "([^\"]*)")?$/ do |selector,
 end
 
 When /^I wait for the ajax to finish$/ do
-  wait_until(15) { evaluate_script("$.active") == 0 }
+  wait_for_ajax_to_finish
 end
 
 When /^I have turned off jQuery effects$/ do

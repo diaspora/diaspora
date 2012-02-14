@@ -35,6 +35,8 @@ eo:
       hey: "Hej, {{name}}!"
       no_tags: "Hej, vi ne sekvas iun etikedon! Ĉu tamen daŭrigi?"
       preparing_your_stream: "Preparante vian personan torenton..."
+    header:
+      search: "Find people or #tags"
     infinite_scroll:
       no_more: "Neniu plua afiŝo."
     photo_uploader:
@@ -48,6 +50,7 @@ eo:
     search_for: "Serĉi por {{name}}"
     show_more: "vidi plu"
     stream:
+      like: Like
       likes:
         few: "<%= count %> Likes"
         many: "<%= count %> Likes"
@@ -69,6 +72,7 @@ eo:
         other: "<%= count %> Reshares"
         two: "<%= count %> Reshares"
         zero: "<%= count %> Reshares"
+      unlike: Unlike
     tags:
       wasnt_that_interesting: "Nu, mi supozas, ke #{{tagName}} ne estis tiel interese..."
     timeago:

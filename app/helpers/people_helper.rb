@@ -4,6 +4,18 @@
 
 module PeopleHelper
   include ERB::Util
+
+  def search_header
+    if search_query.blank?
+      content_tag(:h2, t('people.index.no_results'))
+    else
+      content_tag(:h2, :id => 'search_title') do 
+        t('people.index.results_for').html_safe + ' ' +
+        content_tag(:span, search_query, :class => 'term') 
+      end
+    end
+  end
+
   def request_partial single_aspect_form
     if single_aspect_form
       'requests/new_request_with_aspect_to_person'
@@ -13,8 +25,8 @@ module PeopleHelper
   end
 
   def search_or_index
-    if params[:q]
-      I18n.t 'people.helper.results_for',:params => params[:q]
+    if search_query
+      I18n.t 'people.helper.results_for',:params => search_query
     else
       I18n.t "people.helper.people_on_pod_are_aware_of"
     end

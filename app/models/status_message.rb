@@ -32,14 +32,6 @@ class StatusMessage < Post
     joins(:mentions).where(:mentions => {:person_id => person.id})
   }
 
-  scope :commented_by, lambda { |person|
-    select('DISTINCT posts.*').joins(:comments).where(:comments => {:author_id => person.id})
-  }
-
-  scope :liked_by, lambda { |person|
-    joins(:likes).where(:likes => {:author_id => person.id})
-  }
-
   def self.guids_for_author(person)
     Post.connection.select_values(Post.where(:author_id => person.id).select('posts.guid').to_sql)
   end
@@ -66,8 +58,13 @@ class StatusMessage < Post
     write_attribute(:text, text)
   end
 
-  def nsfw?
-    self.raw_message.match(/#nsfw/i)
+  def attach_photos_by_ids(photo_ids)
+    return [] unless photo_ids.present?
+    self.photos << Photo.where(:id => photo_ids, :author_id => self.author_id).all
+  end
+
+  def nsfw
+    self.raw_message.match(/#nsfw/i) || super
   end
 
   def formatted_message(opts={})
@@ -79,8 +76,7 @@ class StatusMessage < Post
   end
 
   def format_mentions(text, opts = {})
-    regex = /@\{([^;]+); ([^\}]+)\}/
-    form_message = text.to_str.gsub(regex) do |matched_string|
+    form_message = text.to_str.gsub(Mention::REGEX) do |matched_string|
       people = self.mentioned_people
       person = people.detect{ |p|
         p.diaspora_handle == $~[2] unless p.nil?
@@ -104,6 +100,10 @@ class StatusMessage < Post
     end
   end
 
+  def mentioned_people_names
+    self.mentioned_people.map(&:name).join(', ')
+  end
+
   def create_mentions
     mentioned_people_from_string.each do |person|
       self.mentions.create(:person => person)
@@ -119,8 +119,7 @@ class StatusMessage < Post
   end
 
   def mentioned_people_from_string
-    regex = /@\{([^;]+); ([^\}]+)\}/
-    identifiers = self.raw_message.scan(regex).map do |match|
+    identifiers = self.raw_message.scan(Mention::REGEX).map do |match|
       match.last
     end
     identifiers.empty? ? [] : Person.where(:diaspora_handle => identifiers)
@@ -142,15 +141,20 @@ class StatusMessage < Post
     XML
   end
 
-  def after_dispatch sender
-    unless self.photos.empty?
-      self.photos.update_all(:pending => false, :public => self.public)
-      for photo in self.photos
+  def after_dispatch(sender)
+    self.update_and_dispatch_attached_photos(sender)
+  end
+
+  def update_and_dispatch_attached_photos(sender)
+    if self.photos.any?
+      self.photos.update_all(:public => self.public)
+      self.photos.each do |photo|
         if photo.pending
           sender.add_to_streams(photo, self.aspects)
           sender.dispatch_post(photo)
         end
       end
+      self.photos.update_all(:pending => false)
     end
   end
 

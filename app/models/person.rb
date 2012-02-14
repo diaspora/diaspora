@@ -44,6 +44,7 @@ class Person < ActiveRecord::Base
   has_many :posts, :foreign_key => :author_id, :dependent => :destroy # This person's own posts
   has_many :photos, :foreign_key => :author_id, :dependent => :destroy # This person's own photos
   has_many :comments, :foreign_key => :author_id, :dependent => :destroy # This person's own comments
+  has_many :participations, :foreign_key => :author_id, :dependent => :destroy
 
   belongs_to :owner, :class_name => 'User'
 
@@ -67,9 +68,17 @@ class Person < ActiveRecord::Base
   # @note user is passed in here defensively
   scope :all_from_aspects, lambda { |aspect_ids, user|
     joins(:contacts => :aspect_memberships).
-         where(:contacts => {:user_id => user.id},
-               :aspect_memberships => {:aspect_id => aspect_ids}).
-         select("DISTINCT people.*")
+         where(:contacts => {:user_id => user.id}, :aspect_memberships => {:aspect_id => aspect_ids})
+  }
+
+  scope :unique_from_aspects, lambda{ |aspect_ids, user|
+    all_from_aspects(aspect_ids, user).select('DISTINCT people.*')
+  }
+
+  #not defensive
+  scope :in_aspects, lambda { |aspect_ids|
+    joins(:contacts => :aspect_memberships).
+        where(:contacts => { :aspect_memberships => {:aspect_id => aspect_ids}})
   }
 
   scope :profile_tagged_with, lambda{|tag_name| joins(:profile => :tags).where(:profile => {:tags => {:name => tag_name}}).where('profiles.searchable IS TRUE') }
@@ -210,7 +219,7 @@ class Person < ActiveRecord::Base
   end
 
   def public_key_hash
-    Base64.encode64 OpenSSL::Digest::SHA256.new(self.exported_key).to_s
+    Base64.encode64(OpenSSL::Digest::SHA256.new(self.exported_key).to_s)
   end
 
   def public_key

@@ -24,7 +24,7 @@ class ApplicationController < ActionController::Base
                 :open_publisher
 
   def ensure_http_referer_is_set
-    request.env['HTTP_REFERER'] ||= '/aspects'
+    request.env['HTTP_REFERER'] ||= root_path
   end
 
   # Overwriting the sign_out redirect path method
@@ -63,6 +63,10 @@ class ApplicationController < ActionController::Base
     @only_sharing_count ||= current_user.contacts.only_sharing.count
   end
 
+  def tags
+    @tags ||= current_user.followed_tags
+  end
+
   def ensure_page
     params[:page] = params[:page] ? params[:page].to_i : 1
   end
@@ -84,7 +88,7 @@ class ApplicationController < ActionController::Base
 
   def redirect_unless_admin
     unless current_user.admin?
-      redirect_to multi_stream_url, :notice => 'you need to be an admin to do that'
+      redirect_to stream_url, :notice => 'you need to be an admin to do that'
       return
     end
   end
@@ -112,20 +116,7 @@ class ApplicationController < ActionController::Base
   end
 
   def after_sign_in_path_for(resource)
-    stored_location_for(:user) || (current_user.getting_started? ? getting_started_path : multi_stream_path)
-  end
-
-  def tag_followings
-    if current_user
-      if @tag_followings == nil
-        @tag_followings = current_user.tag_followings
-      end
-      @tag_followings
-    end
-  end
-
-  def tags
-    @tags ||= current_user.followed_tags
+    stored_location_for(:user) || (current_user.getting_started? ? getting_started_path : stream_path)
   end
 
   def max_time

@@ -14,9 +14,10 @@ describe RelayableRetraction do
 
   describe '#subscribers' do
     before do
-      @comment= @local_luke.comment("yo", :post => @local_parent)
+      @comment= @local_luke.comment!(@local_parent, "yo")
       @retraction= @local_luke.retract(@comment)
     end
+
     it 'delegates it to target' do
       arg = mock()
       @retraction.target.should_receive(:subscribers).with(arg)
@@ -26,7 +27,7 @@ describe RelayableRetraction do
 
   describe '#receive' do
     it 'discards a retraction with a nil target' do
-      @comment= @local_luke.comment("yo", :post => @local_parent)
+      @comment= @local_luke.comment!(@local_parent, "yo")
       @retraction= @local_luke.retract(@comment)
 
       @retraction.instance_variable_set(:@target, nil)
@@ -34,42 +35,49 @@ describe RelayableRetraction do
       @retraction.should_not_receive(:perform)
       @retraction.receive(@local_luke, @remote_raphael)
     end
+
     context 'from the downstream author' do
       before do
-        @comment = @local_leia.comment("yo", :post => @local_parent)
+        @comment = @local_leia.comment!(@local_parent, "yo")
         @retraction = @local_leia.retract(@comment)
         @recipient = @local_luke
       end
+
       it 'signs' do
         @retraction.should_receive(:sign_with_key) do |key|
           key.to_s.should ==  @recipient.encryption_key.to_s
         end
         @retraction.receive(@recipient, @comment.author)
       end
+
       it 'dispatches' do
         zord = mock()
         zord.should_receive(:post)
         Postzord::Dispatcher.should_receive(:build).with(@local_luke, @retraction).and_return zord
         @retraction.receive(@recipient, @comment.author)
       end
+
       it 'performs' do
         @retraction.should_receive(:perform).with(@local_luke)
         @retraction.receive(@recipient, @comment.author)
       end
     end
+
     context 'from the upstream owner' do
       before do
-        @comment = @local_luke.comment("Yeah, it was great", :post => @remote_parent)
+        @comment = @local_luke.comment!(@remote_parent, "Yeah, it was great")
         @retraction = RelayableRetraction.allocate
         @retraction.sender = @remote_raphael
         @retraction.target = @comment
         @retraction.stub!(:parent_author_signature_valid?).and_return(true)
         @recipient = @local_luke
       end
+
       it 'performs' do
         @retraction.should_receive(:perform).with(@recipient)
         @retraction.receive(@recipient, @remote_raphael)
       end
+
       it 'does not dispatch' do
         Postzord::Dispatcher.should_not_receive(:build)
         @retraction.receive(@recipient, @remote_raphael)
@@ -79,37 +87,45 @@ describe RelayableRetraction do
 
   describe 'xml' do
     before do
-      @comment = @local_leia.comment("yo", :post => @local_parent)
+      @comment = @local_leia.comment!(@local_parent, "yo")
       @retraction = RelayableRetraction.build(@local_leia, @comment)
       @retraction.parent_author_signature = 'PARENTSIGNATURE'
       @retraction.target_author_signature = 'TARGETSIGNATURE'
       @xml = @retraction.to_xml.to_s
     end
+
     describe '#to_xml' do
       it 'serializes target_guid' do
         @xml.should include(@comment.guid)
       end
+
       it 'serializes target_type' do
         @xml.should include(@comment.class.to_s)
       end
+
       it 'serializes sender_handle' do
         @xml.should include(@local_leia.diaspora_handle)
       end
+
       it 'serializes signatures' do
         @xml.should include('TARGETSIGNATURE')
         @xml.should include('PARENTSIGNATURE')
       end
     end
+
     describe '.from_xml' do
       before do
         @marshalled = RelayableRetraction.from_xml(@xml)
       end
+
       it 'marshals the target' do
         @marshalled.target.should == @comment
       end
+
       it 'marshals the sender' do
         @marshalled.sender.should == @local_leia.person
       end
+
       it 'marshals the signature' do
         @marshalled.target_author_signature.should == 'TARGETSIGNATURE'
         @marshalled.parent_author_signature.should == 'PARENTSIGNATURE'

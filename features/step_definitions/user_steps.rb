@@ -7,28 +7,22 @@ Given /^a user with username "([^\"]*)" and password "([^\"]*)"$/ do |username, 
 end
 
 Given /^a user with email "([^\"]*)"$/ do |email|
-  user = Factory(:user, :email => email, :password => 'password',
-                 :password_confirmation => 'password', :getting_started => false)
-  user.aspects.create(:name => "Besties")
-  user.aspects.create(:name => "Unicorns")
+  create_user(:email => email)
 end
 
 Given /^a user with username "([^\"]*)"$/ do |username|
-  user = Factory(:user, :email => username + "@" + username + '.' + username, :username => username,
-                 :password => 'password', :password_confirmation => 'password', :getting_started => false)
-  user.aspects.create(:name => "Besties")
-  user.aspects.create(:name => "Unicorns")
+  create_user(:email => username + "@" + username + '.' + username, :username => username)
 end
 
 Given /^a user named "([^\"]*)" with email "([^\"]*)"$/ do |name, email|
   first, last = name.split
-  username = "#{first}_#{last}" if first
-  user = Factory(:user, :email => email, :password => 'password', :username => "#{first}_#{last}",
-                 :password_confirmation => 'password', :getting_started => false)
-
+  user = create_user(:email => email, :username => "#{first}_#{last}")
   user.profile.update_attributes!(:first_name => first, :last_name => last) if first
-  user.aspects.create!(:name => "Besties")
-  user.aspects.create!(:name => "Unicorns")
+end
+
+Given /^a nsfw user with email "([^\"]*)"$/ do |email|
+  user = create_user(:email => email)
+  user.profile.update_attributes(:nsfw => true)
 end
 
 Given /^I have been invited by an admin$/ do
