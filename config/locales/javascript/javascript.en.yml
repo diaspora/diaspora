@@ -25,8 +25,8 @@ en:
         year: "about a year"
         years: "%d years"
 
-      participate: "Participate"
-      explore: "Explore"
+      my_activity: "My Activity"
+      my_stream: "Stream"
 
       videos:
           watch: "Watch this video on <%= provider %>"
