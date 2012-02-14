@@ -15,11 +15,8 @@ module Jobs
       begin
         yield
       rescue Exception => e
-        if DUMB_ERROR_MESSAGES.include?(e.message)
-          Rails.logger.error(e.message)
-        else
-          raise e
-        end
+        FEDERATION_LOGGER.info(e.message)
+        raise e
       end
     end
   end

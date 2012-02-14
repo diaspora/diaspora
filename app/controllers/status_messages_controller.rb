@@ -54,9 +54,9 @@ class StatusMessagesController < ApplicationController
 
       current_user.dispatch_post(@status_message, :url => short_post_url(@status_message.guid), :service_types => receiving_services)
       
-      @status_message.photos.each do |photo|
-        current_user.dispatch_post(photo)
-      end
+      # @status_message.photos.each do |photo|
+      #   current_user.dispatch_post(photo)
+      # end
 
       current_user.participate!(@status_message)
 

@@ -9,6 +9,8 @@ class Postzord::Receiver::Public < Postzord::Receiver
   def initialize(xml)
     @salmon = Salmon::Slap.from_xml(xml)
     @author = Webfinger.new(@salmon.author_id).fetch
+
+    FEDERATION_LOGGER.info("Receving public post from person:#{@author.id}")
   end
 
   # @return [Boolean]
@@ -18,14 +20,16 @@ class Postzord::Receiver::Public < Postzord::Receiver
 
   # @return [void]
   def receive!
-    return false unless verified_signature?
-    return false unless save_object
+    raise 'not valid signature' unless verified_signature?
+    raise 'unable to save object' unless save_object
 
+    FEDERATION_LOGGER.info("received a #{@object.class}:#{@object.guid} with author #{@object.author.diaspora_handle}")
     if @object.respond_to?(:relayable?)
       receive_relayable
     elsif @object.is_a?(AccountDeletion)
       #nothing
     else
+      FEDERATION_LOGGER.info("queuing local batchjob")
       Resque.enqueue(Jobs::ReceiveLocalBatch, @object.class.to_s, @object.id, self.recipient_user_ids)
       true
     end
@@ -47,7 +51,7 @@ class Postzord::Receiver::Public < Postzord::Receiver
   def save_object
     @object = Diaspora::Parser::from_xml(@salmon.parsed_data)
     raise "Object is not public" if object_can_be_public_and_it_is_not?
-    @object.save  if @object
+    @object.save!  if @object
   end
 
   # @return [Array<Integer>] User ids
