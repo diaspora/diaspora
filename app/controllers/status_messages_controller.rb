@@ -53,6 +53,11 @@ class StatusMessagesController < ApplicationController
       receiving_services = Service.titles(services)
 
       current_user.dispatch_post(@status_message, :url => short_post_url(@status_message.guid), :service_types => receiving_services)
+      
+      @status_message.photos.each do |photo|
+        current_user.dispatch_post(photo)
+      end
+
       current_user.participate!(@status_message)
 
       if coming_from_profile_page? # if this is a post coming from a profile page
