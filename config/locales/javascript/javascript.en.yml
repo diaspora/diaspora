@@ -83,7 +83,9 @@ en:
         reshare: "Reshare"
         comment: "Comment"
         original_post_deleted: "Original post deleted by author."
-        show_post: "Show post"
+        show_nsfw_post: "Show post"
+        show_nsfw_posts: "Show all"
+        hide_nsfw_posts: "Hide #nsfw posts"
         follow: "Follow"
         unfollow: "Unfollow"
 

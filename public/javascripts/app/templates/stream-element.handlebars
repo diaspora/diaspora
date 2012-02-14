@@ -44,24 +44,37 @@
       </span>
     </div>
 
-    {{#if nsfw}}
-      <div class="nsfw-shield">
-        <strong>
-          NSFW
-        </strong>
-        |
-        <a href="#">
-          {{t "stream.show_post"}}
-        </a>
-      </div>
-
-    {{else}}
-
+    {{#if showPost}}
+        {{#if nsfw}}
+          <div class="nsfw_off">
+            <strong>
+              #NSFW
+            </strong>
+            |
+            <a href="#" class="toggle_nsfw_state">
+                {{t "stream.hide_nsfw_posts"}}
+            </a>
+          </div>
+        {{/if}}
       <div class="post-content"> </div>
 
       <div class="feedback"> </div>
       <div class="likes"> </div>
       <div class="comments"> </div>
+    {{else}}
+      <div class="nsfw-shield">
+        <strong>
+          #NSFW
+        </strong>
+        |
+        <a href="#" class="show_nsfw_post">
+          {{t "stream.show_nsfw_post"}}
+        </a>
+        |
+        <a href="#" class="toggle_nsfw_state">
+          {{t "stream.show_nsfw_posts"}}
+        </a>
+      </div>
     {{/if}}
 
   </div>

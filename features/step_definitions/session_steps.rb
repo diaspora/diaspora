@@ -21,13 +21,13 @@ When /^I try to sign in manually$/ do
   step %(I press "Sign in")
 end
 
-When /^I sign in as "([^"]*)"$/ do |email|
+When /^I (?:sign|log) in as "([^"]*)"$/ do |email|
   @me = User.find_by_email(email)
   @me.password ||= 'password'
   step 'I am signed in'
 end
 
-When /^I sign in with password "([^"]*)"$/ do |password|
+When /^I (?:sign|log) in with password "([^"]*)"$/ do |password|
   @me.password = password
   step 'I am signed in'
 end

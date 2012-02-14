@@ -6,7 +6,9 @@ app.views.Post = app.views.StreamObject.extend({
 
   events: {
     "click .focus_comment_textarea": "focusCommentTextarea",
-    "click .nsfw-shield a": "removeNsfwShield",
+    "click .show_nsfw_post": "removeNsfwShield",
+    "click .toggle_nsfw_state": "toggleNsfwState",
+
     "click .remove_post": "destroyModel",
     "click .hide_post": "hidePost",
     "click .block_user": "blockUser"
@@ -49,15 +51,24 @@ app.views.Post = app.views.StreamObject.extend({
 
   presenter : function() {
     return _.extend(this.defaultPresenter(), {
-      authorIsCurrentUser : this.authorIsCurrentUser()
+      authorIsCurrentUser : this.authorIsCurrentUser(),
+      showPost : this.showPost()
     })
+  },
+
+  showPost : function() {
+    return (app.user() && app.user().get("showNsfw")) || !this.model.get("nsfw")
   },
 
   removeNsfwShield: function(evt){
     if(evt){ evt.preventDefault(); }
     this.model.set({nsfw : false})
     this.render();
-    return this;
+  },
+
+  toggleNsfwState: function(evt){
+    if(evt){ evt.preventDefault(); }
+    app.user().toggleNsfwState();
   },
 
   blockUser: function(evt){
