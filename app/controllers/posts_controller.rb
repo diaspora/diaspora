@@ -50,7 +50,7 @@ class PostsController < ApplicationController
       respond_to do |format|
         format.js {render 'destroy'}
         format.json { render :nothing => true, :status => 204 }
-        format.all {redirect_to explore_path}
+        format.all {redirect_to stream_path}
       end
     else
       Rails.logger.info "event=post_destroy status=failure user=#{current_user.diaspora_handle} reason='User does not own post'"

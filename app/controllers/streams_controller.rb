@@ -8,7 +8,7 @@ require File.join(Rails.root, "lib", "stream", "comments")
 require File.join(Rails.root, "lib", "stream", "likes")
 require File.join(Rails.root, "lib", "stream", "mention")
 require File.join(Rails.root, "lib", "stream", "followed_tag")
-require File.join(Rails.root, "lib", "stream", "participate")
+require File.join(Rails.root, "lib", "stream", "activity")
 
 
 class StreamsController < ApplicationController
@@ -31,8 +31,8 @@ class StreamsController < ApplicationController
     stream_responder(Stream::Public)
   end
 
-  def participate
-    stream_responder(Stream::Participate)
+  def activity
+    stream_responder(Stream::Activity)
   end
 
   def multi

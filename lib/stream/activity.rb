@@ -1,6 +1,6 @@
-class Stream::Participate < Stream::Base
+class Stream::Activity < Stream::Base
   def link(opts={})
-    Rails.application.routes.url_helpers.participate_path(opts)
+    Rails.application.routes.url_helpers.activity_streams_path(opts)
   end
 
   def order
@@ -8,7 +8,7 @@ class Stream::Participate < Stream::Base
   end
 
   def title
-    I18n.translate("streams.participate.title")
+    I18n.translate("streams.activity.title")
   end
 
   # @return [ActiveRecord::Association<Post>] AR association of posts

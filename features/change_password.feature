@@ -11,7 +11,7 @@ Feature: Change password
     Then I should see "Password changed"
     Then I should be on the new user session page
     When I sign in with password "newsecret"
-    Then I should be on the explore page
+    Then I should be on the stream page
 
   Scenario: Reset my password
     Given a user with email "forgetful@users.net"
