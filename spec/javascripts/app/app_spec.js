@@ -5,7 +5,7 @@ describe("app", function() {
 
       app.user({name: "alice"});
 
-      expect(app.user()).toEqual({name: "alice"});
+      expect(app.user().get("name")).toEqual("alice");
     });
     
     it("returns false if the current_user isn't set", function() {

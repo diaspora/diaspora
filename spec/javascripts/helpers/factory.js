@@ -35,15 +35,15 @@ factory = {
 
   userAttrs : function(overrides){
     var id = this.id.next()
-      var defaultAttrs = {
-        "name":"Awesome User" + id,
-        "id": id,
-        "diaspora_id": "bob@bob.com",
-        "avatar":{
-          "large":"http://localhost:3000/images/user/uma.jpg",
-          "medium":"http://localhost:3000/images/user/uma.jpg",
-          "small":"http://localhost:3000/images/user/uma.jpg"}
-      }
+    var defaultAttrs = {
+      "name":"Awesome User" + id,
+      "id": id,
+      "diaspora_id": "bob@bob.com",
+      "avatar":{
+        "large":"http://localhost:3000/images/user/uma.jpg",
+        "medium":"http://localhost:3000/images/user/uma.jpg",
+        "small":"http://localhost:3000/images/user/uma.jpg"}
+    }
 
     return _.extend(defaultAttrs, overrides)
   },

@@ -4,8 +4,8 @@ var app = {
   helpers: {},
   views: {},
 
-  user: function(user) {
-    if(user) { return this._user = user }
+  user: function(userAttrs) {
+    if(userAttrs) { return this._user = new app.models.User(userAttrs) }
     return this._user || false
   },
 
