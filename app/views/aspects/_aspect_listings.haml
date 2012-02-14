@@ -4,7 +4,7 @@
 
 %ul#aspect_nav.left_nav.sub
   %li.all_aspects
-    = link_to t('aspects.index.your_aspects'), aspects_path, :class => 'home_selector'
+    = link_to t('streams.aspects.title'), aspects_path, :class => 'home_selector'
 
     - if @stream.is_a?(Stream::Aspect)
       %ul.sub_nav

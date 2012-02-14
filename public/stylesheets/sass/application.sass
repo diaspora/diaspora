@@ -935,7 +935,6 @@ img.scaled_full
   :float right
 
   :margin
-    :top -1px
     :right 10px
 
   form
@@ -949,6 +948,9 @@ img.scaled_full
 
       :border 1px solid #222
 
+      :font-size 13px
+      :padding 4px
+
       &:hover
         :background-color #555
 
@@ -961,11 +963,10 @@ img.scaled_full
         :background-color white
         :width 200px
 
-      &[type='search']
-        &::-webkit-input-placeholder
-          :text-shadow none
-        &:-moz-placeholder
-          :text-shadow none
+      &::-webkit-input-placeholder
+        :text-shadow none
+      &:-moz-placeholder
+        :text-shadow none
 
 ul#settings_nav
   :display inline
