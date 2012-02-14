@@ -12,6 +12,7 @@ Diaspora::Application.routes.draw do
 
   resources :posts, :only => [:show, :destroy] do
     resources :likes, :only => [:create, :destroy, :index]
+    resources :participations, :only => [:create, :destroy, :index]
     resources :comments, :only => [:new, :create, :destroy, :index]
   end
   get 'p/:id' => 'posts#show', :as => 'short_post'

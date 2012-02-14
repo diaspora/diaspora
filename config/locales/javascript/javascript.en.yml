@@ -84,6 +84,8 @@ en:
         comment: "Comment"
         original_post_deleted: "Original post deleted by author."
         show_post: "Show post"
+        follow: "Follow"
+        unfollow: "Unfollow"
 
         likes:
           zero: "<%= count %> Likes"

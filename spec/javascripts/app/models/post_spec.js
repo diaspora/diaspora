@@ -7,7 +7,7 @@ describe("app.models.Post", function() {
     it("should be /posts when it doesn't have an id", function(){
       expect(new app.models.Post().url()).toBe("/posts")
     })
-  
+
     it("should be /posts/id when it doesn't have an id", function(){
       expect(new app.models.Post({id: 5}).url()).toBe("/posts/5")
     })
@@ -60,4 +60,45 @@ describe("app.models.Post", function() {
       expect(app.models.Like.prototype.destroy).toHaveBeenCalled();
     })
   })
+
+  describe("toggleFollow", function(){
+    it("calls unfollow when the user_participation exists", function(){
+      this.post.set({user_participation: "123"});
+      spyOn(this.post, "unfollow").andReturn(true);
+
+      this.post.toggleFollow();
+      expect(this.post.unfollow).toHaveBeenCalled();
+    })
+
+    it("calls follow when the user_participation does not exist", function(){
+      this.post.set({user_participation: null});
+      spyOn(this.post, "follow").andReturn(true);
+
+      this.post.toggleFollow();
+      expect(this.post.follow).toHaveBeenCalled();
+    })
+  })
+
+  describe("follow", function(){
+    it("calls create on the participations collection", function(){
+      spyOn(this.post.participations, "create");
+
+      this.post.follow();
+      expect(this.post.participations.create).toHaveBeenCalled();
+    })
+  })
+
+  describe("unfollow", function(){
+    it("calls destroy on the participations collection", function(){
+      var participation = new app.models.Participation();
+      this.post.set({user_participation : participation.toJSON()})
+
+      spyOn(app.models.Participation.prototype, "destroy");
+
+      this.post.unfollow();
+      expect(app.models.Participation.prototype.destroy).toHaveBeenCalled();
+    })
+  })
+
+
 });
