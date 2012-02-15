@@ -6,7 +6,7 @@ class HomeController < ApplicationController
 
   def show
     if current_user
-      redirect_to explore_path if current_user
+      redirect_to stream_path if current_user
     elsif is_mobile_device?
       redirect_to user_session_path
     else

@@ -81,7 +81,6 @@ es:
         other: "Mostrar <%= count %> comentarios más"
         two: "Mostrar <%= count %> comentarios más"
         zero: "Mostrar <%= count %> comentarios más"
-      nsfw: "Esta publicación puede tener contenido ofensivo, pornográfico o violento #NSFW."
       original_post_deleted: "Publicación original borrada por el autor."
       public: Público
       reshare: Compartir
@@ -92,7 +91,6 @@ es:
         other: "Compartido <%= count %> veces"
         two: "Compartido <%= count %> veces"
         zero: "Comparido <%= count %> veces"
-      show: Mostrar
       unlike: Desmarcar
     tags:
       wasnt_that_interesting: "OK, supongo que #<%= tagName %> no era tan interesante..."

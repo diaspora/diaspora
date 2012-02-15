@@ -21,30 +21,35 @@ describe StatusMessagesController do
                          :title => 'Surprised Kitty',
                          :notes => text}
     end
-    
+
     it 'succeeds' do
       get :bookmarklet
       response.should be_success
-      
-      #TODO replace response.body with html_for('body') as soon as there is a <body>
-      save_fixture(response.body, 'empty_bookmarklet') 
+    end
+
+    it 'contains a complete html document' do
+      get :bookmarklet
+
+      doc = Nokogiri(response.body)
+      doc.xpath('//head').count.should equal 1
+      doc.xpath('//body').count.should equal 1
+
+      save_fixture(html_for('body'), 'empty_bookmarklet') 
     end
 
     it 'accepts get params' do
       pass_test_args
       response.should be_success
-      
-      #TODO replace response.body with html_for('body') as soon as there is a <body>
-      save_fixture(response.body, 'prefilled_bookmarklet')
+
+      save_fixture(html_for('body'), 'prefilled_bookmarklet')
     end
-    
+
     it 'correctly deals with dirty input' do
       test_text = "**love** This is such a\n\n great \"cute kitty\" '''blabla'''"
       pass_test_args(test_text)
       response.should be_success
-      
-      #TODO replace response.body with html_for('body') as soon as there is a <body>
-      save_fixture(response.body, 'prefilled_bookmarklet_dirty')
+
+      save_fixture(html_for('body'), 'prefilled_bookmarklet_dirty')
     end
   end
 

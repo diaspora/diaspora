@@ -131,7 +131,6 @@ tr:
         heading: "Servisleri ilişkilendir"
       unfollow_tag: "#%{tag}'i takip etmeyi bırak"
       welcome_to_diaspora: "Diaspora'ya Hoş Geldin, %{name}!"
-      your_aspects: Yönlerin
     many: "%{count} yön"
     move_contact:
       error: "Kişi taşıma problemi: %{inspect}"
@@ -333,6 +332,13 @@ tr:
         other: "%{count} kişi beğenmedi"
         two: "%{count} beğenmeme"
         zero: "beğenmeyen yok"
+      people_like_this:
+        few: "%{count} kişi beğendi"
+        many: "%{count} kişi beğendi"
+        one: "1 kişi beğendi"
+        other: "%{count} kişi beğendi"
+        two: "%{count} kişi beğendi"
+        zero: "beğenme yok"
       people_like_this_comment:
         few: "%{count} kişi bunu beğendi"
         many: "%{count} kişi bunu beğendi!"
@@ -340,13 +346,6 @@ tr:
         other: "%{count} beğenme"
         two: "%{count} kişi bunu beğendi"
         zero: "beğenen yok"
-      people_pin_this:
-        few: "%{count} kez iğnelendi"
-        many: "%{count} kez iğnelendi"
-        one: "%{count} kez iğnelendi"
-        other: "%{count} kez iğnelendi"
-        two: "%{count} kez iğnelendi"
-        zero: "hiç iğnelenmemiş"
   limited: Sınırlı
   more: "Daha fazla"
   next: sonraki
@@ -777,11 +776,11 @@ tr:
       hide_and_mute: "Gönderiyi gizle ve sustur"
       ignore_user: "%{name} isimli kullanıcıyı görmezden gel"
       ignore_user_description: "Kullanıcı görmezden gelinip tüm yönlerden kaldırılsın mı?"
+      like: Beğen
       nsfw: "Bu gönderi yazarı tarafından NSFW ile etiketlenmiştir. %{link}"
-      pin: İğnele
       shared_with: "%{aspect_names} ile paylaşıldı"
       show: göster
-      unpin: "İğnelemeyi kaldır"
+      unlike: Beğenme
       via: "%{link} ile"
       viewable_to_anyone: "Bu gönderi web üzerindeki herkes tarafından görünebilir."
   status_messages:
@@ -833,8 +832,6 @@ tr:
     multi:
       contacts_title: "Göz atma akışındaki kişiler"
       title: "Göz at"
-    participate:
-      title: Katıl
     public:
       contacts_title: "Yeni Düzen"
       title: "Genel Aktiviteler"

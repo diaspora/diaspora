@@ -50,7 +50,6 @@ he:
     search_for: " {{name}}חיפוש אחר"
     show_more: "הצגת עוד"
     stream:
-      like: Like
       likes:
         few: "<%= count %> Likes"
         many: "<%= count %> Likes"
@@ -72,7 +71,6 @@ he:
         other: "<%= count %> Reshares"
         two: "<%= count %> Reshares"
         zero: "<%= count %> Reshares"
-      unlike: Unlike
     tags:
       wasnt_that_interesting: "...זה לא היה כל כך מעניין#{{tagName}} אוקיי, אני מניח "
     timeago:

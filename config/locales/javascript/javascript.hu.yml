@@ -80,7 +80,6 @@ hu:
         other: "Mutasd a többi <%= count %> hozzászólást"
         two: "Mutasd a többi <%= count %> hozzászólást"
         zero: "Mutasd a többi <%= count %> hozzászólást"
-      nsfw: "A bejegyzés \"nem biztonságosnak\" lett jelölve a szerzője által."
       original_post_deleted: "Eredeti bejegyzés törölve a szerzője által."
       public: Publikus
       reshare: Megosztás
@@ -91,7 +90,6 @@ hu:
         other: "<%= count %> megosztás"
         two: "<%= count %> megosztás"
         zero: "<%= count %> megosztás"
-      show: Megmutat
       unlike: "Nem tetszik"
     tags:
       wasnt_that_interesting: "Oké, azt hiszem a #<%= tagName %> nem volt annyira érdekes."

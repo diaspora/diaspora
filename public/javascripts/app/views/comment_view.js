@@ -16,11 +16,11 @@ app.views.Comment = app.views.Content.extend({
   },
 
   ownComment : function() {
-    return this.model.get("author").diaspora_id == app.user().diaspora_id
+    return this.model.get("author").diaspora_id == app.user().get("diaspora_id")
   },
 
   postOwner : function() {
-    return this.model.get("parent").author.diaspora_id == app.user().diaspora_id
+    return this.model.get("parent").author.diaspora_id == app.user().get("diaspora_id")
   },
 
   canRemove : function() {

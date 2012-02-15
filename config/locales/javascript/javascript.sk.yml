@@ -81,7 +81,6 @@ sk:
         other: "Zobraziť ďalších <%= count %> komentárov"
         two: "Zobraziť ďalšie <%= count %> komentáre"
         zero: "Zobraziť ďalších <%= count %> komentárov"
-      nsfw: "Tento príspevok označil jeho autor ako nevhodný v práci."
       original_post_deleted: "Pôvodný príspevok odstránil autor."
       public: Verejný
       reshare: "Znova zdieľať"
@@ -92,7 +91,6 @@ sk:
         other: "<%= count %> opätovných zdieľaní"
         two: "<%= count %> opätovné zdieľania"
         zero: "<%= count %> opätovných zdieľaní"
-      show: Zobraziť
       unlike: "Odobrať špendlík"
     tags:
       wasnt_that_interesting: "OK, značka #<%= tagName %> asi vôbec nebola zaujímavá..."

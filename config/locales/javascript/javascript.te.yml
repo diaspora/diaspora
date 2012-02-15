@@ -22,7 +22,6 @@ te:
     comments:
       hide: "వ్యాఖ్యలను దాచు"
       show: "అన్ని వ్యాఖ్యలను చూపించు"
-    failed_to_like: "Failed to like!"
     getting_started:
       hey: "ఓయ్, {{name}}!"
     header:
@@ -34,7 +33,6 @@ te:
     search_for: "{{name}} కోసం వెతకండి"
     show_more: "మరిన్ని చూపించు"
     stream:
-      like: Like
       likes:
         few: "<%= count %> Likes"
         many: "<%= count %> Likes"
@@ -56,7 +54,6 @@ te:
         other: "<%= count %> Reshares"
         two: "<%= count %> Reshares"
         zero: "<%= count %> Reshares"
-      unlike: Unlike
     tags:
       wasnt_that_interesting: "OK, I suppose #{{tagName}} wasn't all that interesting..."
     timeago:

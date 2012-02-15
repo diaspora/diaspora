@@ -46,12 +46,14 @@ ko:
       notifications: 알림
       profile: 프로필
       recent_notifications: "최근 알림"
-      search: "사람이나 #태그 를 찾으세요"
+      search: 검색
       settings: 설정
       view_all: "모두 보기"
     ignore: 무시하기
     infinite_scroll:
       no_more: "게시물이 더 없습니다."
+    my_activity: "내 활동"
+    my_stream: 스트림
     photo_uploader:
       looking_good: "와! 멋져요!"
     publisher:
@@ -64,6 +66,7 @@ ko:
     show_more: "더 보기"
     stream:
       comment: 댓글
+      follow: 팔로우
       hide: 숨기기
       like: 좋아요
       likes:
@@ -81,7 +84,6 @@ ko:
         other: "댓글 <%= count %>개 더 보기"
         two: "댓글 <%= count %>개 더 보기"
         zero: "댓글이 더 없습니다"
-      nsfw: "작성자가 이 게시물을 유해매체로 표시했습니다."
       original_post_deleted: "작성자가 원본을 지웠습니다."
       public: 공개
       reshare: 재공유
@@ -92,8 +94,8 @@ ko:
         other: "<%= count %>명이 재공유했습니다."
         two: "<%= count %>명이 재공유했습니다"
         zero: "아무도 재공유하지 않았습니다."
-      show: 보이기
-      unlike: "좋아하지 않아요"
+      unfollow: "팔로우 취소"
+      unlike: "좋아요 취소"
     tags:
       wasnt_that_interesting: "알겠습니다. #<%= tagName %> 태그는 흥미롭지 않았군요?"
     timeago:

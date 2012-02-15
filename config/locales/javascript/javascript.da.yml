@@ -64,7 +64,6 @@ da:
     stream:
       comment: Kommentér
       hide: Skjul
-      like: Like
       likes:
         few: "<%= count %> Likes"
         many: "<%= count %> Likes"
@@ -80,7 +79,6 @@ da:
         other: "Vis <%= count %> ekstra kommentarer"
         two: "Vis <%= count %> ekstra kommentarer"
         zero: "Vis <%= count %> ekstra kommentarer"
-      nsfw: "Dette indlæg er markeret som uegnet til arbejdsvisning af forfatteren."
       original_post_deleted: "Originalt indlæg er slettet af forfatteren."
       public: Offentlig
       reshare: Videredel
@@ -91,8 +89,6 @@ da:
         other: "<%= count %> videredelinger"
         two: "<%= count %> videredelinger"
         zero: "<%= count %> videredelinger"
-      show: Vis
-      unlike: Unlike
     tags:
       wasnt_that_interesting: "OK, jeg formoder #<%= tagName %> ikke var så spændende igen..."
     timeago:

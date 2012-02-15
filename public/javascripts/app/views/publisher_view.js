@@ -34,7 +34,12 @@ app.views.Publisher = Backbone.View.extend({
     }, {
       url : "/status_messages",
       success : function() {
-        app.stream.posts.add(statusMessage.toJSON());
+        if(app.publisher) {
+          $(app.publisher.el).trigger('ajax:success');
+        }
+        if(app.stream) {
+          app.stream.posts.add(statusMessage.toJSON());
+        }
       }
     });
 

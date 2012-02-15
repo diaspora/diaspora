@@ -54,7 +54,7 @@ describe StreamsController do
       :liked => Stream::Likes,
       :mentioned => Stream::Mention,
       :followed_tags => Stream::FollowedTag,
-      :participate => Stream::Participate
+      :activity => Stream::Activity
   }
 
   streams.each do |stream_path, stream_class|

@@ -81,7 +81,6 @@ bg:
         other: "Покажи останалите <%= count %> коментара"
         two: "Show <%= count %> more comments"
         zero: "Покажи осталите <%= count %> коментара"
-      nsfw: "Публикацията Не е Подходяща за Работното Място (NSFW), според автора."
       original_post_deleted: "Авторът на оригиналната публикация я е изтрил."
       public: Публично
       reshare: Споделяне
@@ -92,7 +91,6 @@ bg:
         other: "<%= count %> споделяния"
         two: "<%= count %> Reshares"
         zero: "<%= count %> споделяния"
-      show: Показване
       unlike: "Не ми харесва"
     tags:
       wasnt_that_interesting: "Е, вероятно марката #<%= tagName %> не е чак толкова интересна..."

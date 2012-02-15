@@ -38,7 +38,6 @@ zh-CN:
     search_for: "搜索 {{name}}"
     show_more: 查看更多
     stream:
-      like: Like
       likes:
         few: "<%= count %> Likes"
         many: "<%= count %> Likes"
@@ -60,7 +59,6 @@ zh-CN:
         other: "<%= count %> Reshares"
         two: "<%= count %> Reshares"
         zero: "<%= count %> Reshares"
-      unlike: Unlike
     tags:
       wasnt_that_interesting: "OK, I suppose #{{tagName}} wasn't all that interesting..."
     timeago:

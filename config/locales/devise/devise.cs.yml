@@ -20,7 +20,7 @@ cs:
       unauthenticated: "Pro pokračování se musíte přihlásit nebo si vytvořit účet."
       unconfirmed: "Před pokračováním musíte potvrdit svůj účet."
     invitations:
-      invitation_token_invalid: "Pozvánka je neplatná!"
+      invitation_token_invalid: "Omlouváme se! Tato pozvánka je neplatná."
       send_instructions: "Vaše pozvánka byla odeslána."
       updated: "Vaše heslo bylo úspěšně změněno. Nyní jste přihlášen."
     mailer:
@@ -32,12 +32,12 @@ cs:
       invitation_instructions:
         accept: "Přijmout pozvání"
         be_yourself: "Buďte sami sebou"
-        displaying_correctly: "Email not displaying correctly? %{link} in your browser"
+        displaying_correctly: "E-mail se nezobrazuje správně? %{link}"
         ignore: "Pokud nechcete přijmout pozvání, prosím ignorujte tento e-mail."
         no_account_till: "Váš účet nebude vytvořen dokud nepřistoupíte na uvedený odkaz a zaregistrujete se."
         or: nebo
         subject: "Byli jste pozváni na Diasporu!"
-        view_in: "View in"
+        view_in: "Zobrazte si jej ve svém prohlížeči."
       reset_password_instructions:
         change: "Změnit moje heslo"
         ignore: "Pokud nechcete potvrdit pozvání, tento e-mail prosím ignorujte."

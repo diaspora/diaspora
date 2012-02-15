@@ -80,7 +80,6 @@ eu:
         other: "Erakutsi <%= count %> iruzkin gehiago"
         two: "Erakutsi <%= count %> iruzkin gehiago"
         zero: "Erakutsi <%= count %> iruzkin gehiago"
-      nsfw: "Mezu hau NSFW gisa markatu du bere egileak."
       original_post_deleted: "Jatorrizko mezua egileak ezabatu du."
       public: Publikoa
       reshare: Birpartekatu
@@ -91,7 +90,6 @@ eu:
         other: "<%= count %> Birpatekaketa"
         two: "<%= count %> Birpatekaketa"
         zero: "<%= count %> Birpatekaketa"
-      show: Erakutsi
       unlike: "Ez dut gustuko"
     tags:
       wasnt_that_interesting: "Beno, suposatzen dut #<%= tagName %> ez zela oso interesgarria..."

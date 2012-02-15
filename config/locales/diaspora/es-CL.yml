@@ -128,7 +128,6 @@ es-CL:
         heading: "Servicios que puedes enlazar"
       unfollow_tag: "Dejar de seguir #%{tag}"
       welcome_to_diaspora: "Bienvenido a Diaspora, %{name}!"
-      your_aspects: "Tus Aspectos"
     many: "%{count} aspectos"
     move_contact:
       error: "Error al mover el contacto: %{inspect}"
@@ -323,6 +322,13 @@ es-CL:
         other: "%{count} personas no les gusta esto"
         two: "%{count} no me gusta"
         zero: "a ninguna persona le disgusta esto"
+      people_like_this:
+        few: "%{count} personas les gusta esto"
+        many: "%{count} personas les gusta esto"
+        one: "1 persona le gusta esto"
+        other: "%{count} personas les gusta esto"
+        two: "%{count} likes"
+        zero: "a nadie le gusta esto aun"
       people_like_this_comment:
         few: "a %{count} les gusta esto"
         many: "a %{count} les gusta esto"
@@ -330,13 +336,6 @@ es-CL:
         other: "a %{count} les gusta esto"
         two: "%{count} me gusta"
         zero: "a nadie le gusta esto aun"
-      people_pin_this:
-        few: "%{count} pins"
-        many: "%{count} pins"
-        one: "%{count} pin"
-        other: "%{count} pins"
-        two: "%{count} pins"
-        zero: "no pins"
   limited: Restringido
   more: Más
   next: Siguiente
@@ -760,7 +759,9 @@ es-CL:
       hide_and_mute: "Ignorar este post"
       ignore_user: "Ignorar a %{name}"
       ignore_user_description: "Ignorar y remover al usuario de todos tus aspectos?"
+      like: "Me gusta esto"
       shared_with: "Compartir con: %{aspect_names}"
+      unlike: "No me gusta"
       viewable_to_anyone: "Este post es visible para cualquiera en la web"
   status_messages:
     create:
@@ -810,7 +811,6 @@ es-CL:
       title: "@Menciones"
     multi:
       contacts_title: "Gente en tu Stream"
-      title: Stream
     public:
       contacts_title: "Posters recientes"
       title: "Actividad publica"

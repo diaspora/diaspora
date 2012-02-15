@@ -14,14 +14,30 @@ Scenario: Setting not safe for work
   And I submit the form
   Then I should see the "you are safe for work" message
 
-Scenario: NSFWs users posts are nsfw
+Scenario: Toggling nsfw state
+  #Nsfw users posts are marked nsfw
   Given a nsfw user with email "tommy@pr0nking.com"
-  And I sign in as "tommy@pr0nking.com"
-  Then I should not see "I love 0bj3ction4bl3 c0nt3nt!"
-  #And I post "I love 0bj3ction4bl3 c0nt3nt!"
-  #Then the post "I love 0bj3ction4bl3 c0nt3nt!" should be marked nsfw
+  And a user with email "laura@officeworkers.com"
+  And a user with email "laura@officeworkers.com" is connected with "tommy@pr0nking.com"
+  When I sign in as "tommy@pr0nking.com"
+  And I post "I love 0bj3ction4bl3 c0nt3nt!"
+  And I post "Sexy Senators Gone Wild!"
+  Then I should have 2 nsfw posts
 
-#  And I log out
-#  And I log in as an office worker
-#  And I am folllowing "tommy@pr0n.xxx"
-#  Then I should not see "I love 0bj3ction4bl3 c0nt3nt!" in my stream
+  #toggling global nsfw state
+  When I log out
+  And I sign in as "laura@officeworkers.com"
+  Then I should not see "I love 0bj3ction4bl3 c0nt3nt!"
+  When I toggle nsfw posts
+  Then I should see "I love 0bj3ction4bl3 c0nt3nt!"
+  And I should see "Sexy Senators Gone Wild!"
+
+  #cookies
+  #When I refresh the page
+  #Then I should see "I love 0bj3ction4bl3 c0nt3nt!"
+  #And I should see "Sexy Senators Gone Wild!"
+
+  #hiding
+  When I toggle nsfw posts
+  Then I should not see "I love 0bj3ction4bl3 c0nt3nt!"
+  And I should not see "Sexy Senators Gone Wild!"

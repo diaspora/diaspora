@@ -11,12 +11,16 @@ app.views.Stream = Backbone.View.extend({
     this.setupEvents()
     this.setupInfiniteScroll()
     this.setupLightbox()
+    this.postViews = []
   },
 
   setupEvents : function(){
     this.stream.bind("fetched", this.removeLoader, this)
     this.stream.bind("allPostsLoaded", this.unbindInfScroll, this)
     this.collection.bind("add", this.addPost, this);
+    app.user().bind("nsfwChanged", function() {
+        _.map(this.postViews, function(view){ view.render() })
+      }, this)
   },
 
   addPost : function(post) {
@@ -28,6 +32,7 @@ app.views.Stream = Backbone.View.extend({
         : "append"
     ](postView.render().el);
 
+    this.postViews.push(postView)
     return this;
   },
 

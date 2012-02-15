@@ -11,7 +11,7 @@ describe("app.views.Post", function(){
         }
       }})
 
-      var posts = $.parseJSON(spec.readFixture("explore_json"))["posts"];
+      var posts = $.parseJSON(spec.readFixture("stream_json"))["posts"];
 
       this.collection = new app.collections.Posts(posts);
       this.statusMessage = this.collection.models[0];
@@ -61,23 +61,40 @@ describe("app.views.Post", function(){
     })
 
     context("NSFW", function(){
-      it("contains a shield element", function(){
+      beforeEach(function(){
         this.statusMessage.set({nsfw: true});
+        this.view = new app.views.Post({model : this.statusMessage}).render();
 
-        var view = new app.views.Post({model : this.statusMessage}).render();
-        var statusElement = $(view.el)
+        this.hiddenPosts = function(){
+           return this.view.$(".nsfw-shield")
+         }
+      });
 
-        expect(statusElement.find(".nsfw-shield").length).toBe(1)
+      it("contains a shield element", function(){
+        expect(this.hiddenPosts().length).toBe(1)
+      });
+
+      it("does not contain a shield element when nsfw is false", function(){
+        this.statusMessage.set({nsfw: false});
+        this.view.render();
+        expect(this.hiddenPosts()).not.toExist();
       })
 
-      it("does not contain a shield element", function(){
-        this.statusMessage.set({nsfw: false});
+      context("showing a single post", function(){
+        it("removes the shields when the post is clicked", function(){
+          expect(this.hiddenPosts()).toExist();
+          this.view.$(".nsfw-shield .show_nsfw_post").click();
+          expect(this.hiddenPosts()).not.toExist();
+        });
+      });
 
-        var view = new app.views.Post({model : this.statusMessage}).render();
-        var statusElement = $(view.el)
-
-        expect(statusElement.find(".shield").html()).toBe(null);
+      context("clicking the toggle nsfw link toggles it on the user", function(){
+        it("calls toggleNsfw on the user", function(){
+          spyOn(app.user(), "toggleNsfwState")
+          this.view.$(".toggle_nsfw_state").first().click();
+          expect(app.user().toggleNsfwState).toHaveBeenCalled();
+        });
       })
     })
   })
-})
+});

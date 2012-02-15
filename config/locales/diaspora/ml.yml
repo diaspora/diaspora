@@ -130,7 +130,6 @@ ml:
         heading: "Connect Services"
       unfollow_tag: "Stop following #%{tag}"
       welcome_to_diaspora: "Welcome to Diaspora, %{name}!"
-      your_aspects: "Your Aspects"
     many: "%{count} പരിചയങ്ങള്‍"
     move_contact:
       error: "സമ്പര്‍ക്കം മാറ്റാന്‍ സാധിക്കുന്നില്ല : %{inspect}"
@@ -338,6 +337,13 @@ ml:
         other: "%{count} പേര്‍ ഇത് ഇഷ്ടപ്പെടുന്നില്ല"
         two: "%{count} dislikes"
         zero: "ആരും ഇത് ഇഷ്ടപ്പെടുന്നില്ല"
+      people_like_this:
+        few: "%{count} ആളുകള്‍ ഇത് ഇഷ്ടപ്പെടുന്നു"
+        many: "%{count} ആളുകള്‍ ഇത് ഇഷ്ട്പ്പെടുന്നു"
+        one: "ഒരാള്‍ ഇത് ഇഷ്ടപ്പെടുന്നു"
+        other: "%{count} ആളുകള്‍ ഇത് ഇഷ്ടപ്പെടുന്നു"
+        two: "%{count} likes"
+        zero: "ആരും ഇതു ഇഷ്ടപ്പെടുന്നില്ല."
       people_like_this_comment:
         few: "%{count} likes"
         many: "%{count} likes"
@@ -345,13 +351,6 @@ ml:
         other: "%{count} likes"
         two: "%{count} likes"
         zero: "no likes"
-      people_pin_this:
-        few: "%{count} pins"
-        many: "%{count} pins"
-        one: "%{count} pin"
-        other: "%{count} pins"
-        two: "%{count} pins"
-        zero: "no pins"
   limited: "Limited"
   more: കൂടുതല്‍
   next: അടുത്തത്
@@ -786,11 +785,11 @@ ml:
       hide_and_mute: "Hide and mute post"
       ignore_user: "Ignore %{name}"
       ignore_user_description: "Ignore and remove user from all aspects?"
+      like: ഇഷ്ടപ്പെടുന്നു
       nsfw: "This post has been flagged as NSFW by its author. %{link}"
-      pin: "Pin"
       shared_with: "Shared with: %{aspect_names}"
       show: "show"
-      unpin: "Unpin"
+      unlike: "Unlike"
       via: "via %{link}"
       viewable_to_anyone: "This post is viewable to anyone on the web"
   status_messages:

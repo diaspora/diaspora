@@ -1,7 +1,11 @@
 app.Router = Backbone.Router.extend({
   routes: {
+    "activity": "stream",
+    "stream": "stream",
+
     "participate": "stream",
     "explore": "stream",
+
     "aspects:query": "stream",
     "commented": "stream",
     "liked": "stream",

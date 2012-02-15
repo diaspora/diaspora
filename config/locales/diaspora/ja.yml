@@ -243,6 +243,13 @@ ja:
         other: "これが嫌いな人：%{count}人"
         two: "%{count} dislikes"
         zero: これが嫌いな人：0人
+      people_like_this:
+        few: "これが好きな人：%{count}人"
+        many: "これが好きな人：%{count}人"
+        one: これが好きな人：1人
+        other: "これが好きな人：%{count}人"
+        two: "%{count} likes"
+        zero: これが好きな人：0人
       people_like_this_comment:
         few: "%{count} likes"
         many: "%{count} likes"
@@ -250,13 +257,6 @@ ja:
         other: "%{count} likes"
         two: "%{count} likes"
         zero: "no likes"
-      people_pin_this:
-        few: "%{count} pins"
-        many: "%{count} pins"
-        one: "%{count} pin"
-        other: "%{count} pins"
-        two: "%{count} pins"
-        zero: "no pins"
   more: 続き
   next: 次へ
   no_results: 詮索結果はありません
@@ -623,6 +623,8 @@ ja:
     stream_element:
       dislike: これ嫌い！
       hide_and_mute: "Hide and Mute"
+      like: これ好き！
+      unlike: これ好き！を取り消す
   status_messages:
     create:
       success: "%{names}を参照するのに成功しました。"
@@ -649,14 +651,10 @@ ja:
       two: "Show two more comments"
       zero: "No more comments"
   streams:
-    like_stream:
-      contacts_title: "People whose posts you like"
-      title: "Like Stream"
+    aspects:
+      title: "Your Aspects"
     mentions:
       title: "Your Mentions"
-    multi:
-      contacts_title: "People in your Stream"
-      title: Stream
     tags:
       contacts_title: "People who dig these tags"
   tag_followings:
@@ -696,7 +694,6 @@ ja:
       edit_account: アカウント編集
       email_awaiting_confirmation: "We have sent you an activation link to %{unconfirmed_email}. Till you follow this link and activate the new address, we will continue to use your original address %{email}."
       export_data: データ出力
-      liked: "...someone likes your post?"
       mentioned: 投稿に自分がメンションされたとき
       new_password: 新しいパスワード
       private_message: 非公開メッセージが届いたとき

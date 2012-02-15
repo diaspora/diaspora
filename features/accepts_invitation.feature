@@ -16,7 +16,7 @@ Feature: invitation acceptance
 
       And I preemptively confirm the alert
       And I follow "awesome_button"
-      Then I should be on the explore page
+      Then I should be on the stream page
 
     Scenario: accept invitation from user
       Given I have been invited by a user
@@ -34,7 +34,7 @@ Feature: invitation acceptance
 
       And I preemptively confirm the alert
       And I follow "awesome_button"
-      Then I should be on the explore page
+      Then I should be on the stream page
 
     Scenario: sends an invitation
       Given a user with email "bob@bob.bob"

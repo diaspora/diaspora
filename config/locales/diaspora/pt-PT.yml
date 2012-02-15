@@ -129,7 +129,6 @@ pt-PT:
         heading: "Conectar Serviços"
       unfollow_tag: "Deixar de seguir #%{tag}"
       welcome_to_diaspora: "Bem-vindo ao Diaspora, %{name}!"
-      your_aspects: "Os Seus Aspectos"
     many: "%{count} aspectos"
     move_contact:
       error: "Erro ao mover o contacto: %{inspect}"
@@ -333,6 +332,13 @@ pt-PT:
         other: "%{count} pessoa não gosta"
         two: "%{count} não gostam"
         zero: "nenhuma pessoa não gosta disto"
+      people_like_this:
+        few: "%{count} pessoas gostam"
+        many: "%{count} pessoas não gostam"
+        one: "%{count} pessoa gosta"
+        other: "%{count} pessoas gostam"
+        two: "%{count} gostam"
+        zero: "ninguém gosta"
       people_like_this_comment:
         few: "%{count} gostos"
         many: "%{count} gostos"
@@ -340,13 +346,6 @@ pt-PT:
         other: "%{count} gostos"
         two: "%{count} gostam"
         zero: "não há gostos"
-      people_pin_this:
-        few: "%{count} marcaram"
-        many: "%{count} marcaram"
-        one: "%{count} marcou"
-        other: "%{count} marcaram"
-        two: "%{count} marcaram"
-        zero: "Sem marcas"
   limited: Limitado
   more: Mais
   next: próximo
@@ -775,11 +774,11 @@ pt-PT:
       hide_and_mute: "Ocultar e Silenciar"
       ignore_user: "Ignorar %{name}"
       ignore_user_description: "Ignorar e remover o utilizador de todos os aspectos?"
+      like: Gosto
       nsfw: "Este artigo foi marcado pelo seu autor como tendo conteúdo impróprio. %{link}"
-      pin: Marcar
       shared_with: "Partilhado com: %{aspect_names}"
       show: Mostrae
-      unpin: "Desmarcar "
+      unlike: "Não Gosto"
       viewable_to_anyone: "Esta publicação é visível para todos na internet"
   status_messages:
     create:
@@ -829,8 +828,6 @@ pt-PT:
     multi:
       contacts_title: "Pessoas no seu Fluxo"
       title: Fluxo
-    participate:
-      title: Participar
     public:
       contacts_title: "Cartazes Recentes"
       title: "Actividade Geral"

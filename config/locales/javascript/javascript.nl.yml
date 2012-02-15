@@ -78,7 +78,6 @@ nl:
         other: "Toon nog <%= count %> reacties"
         two: "Toon nog <%= count %> reacties"
         zero: "Toon nog <%= count %> reacties"
-      nsfw: "Deze post is aangemerkt als NSFW door de auteur."
       original_post_deleted: "Originele post verwijderd door de auteur."
       public: Openbaar
       reshare: Doorgeven
@@ -89,7 +88,6 @@ nl:
         other: "<%= count %> Doorgaven"
         two: "<%= count %> Doorgaven"
         zero: "<%= count %> doorgaven"
-      show: Toon
       unlike: Losprikken
     tags:
       wasnt_that_interesting: "#<%= tagName %> zal dan toch niet zo interessant geweest zijn..."
