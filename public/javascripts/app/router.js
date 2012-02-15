@@ -15,8 +15,8 @@ app.Router = Backbone.Router.extend({
     "u/:name": "stream",
     "followed_tags": "stream",
     "tags/:name": "stream",
-    "posts/:id": "stream",
-    "p/:id": "stream"
+    "posts/:id": "singlePost",
+    "p/:id": "singlePost"
   },
 
   stream : function() {
@@ -35,6 +35,18 @@ app.Router = Backbone.Router.extend({
     app.page = new app.views.Photos({model : app.photos}).render();
 
     $("#main_stream").html(app.page.el);
+  },   
+
+  singlePost : function(id) {
+    new app.models.Post({id : id}).fetch({success : function(resp){
+      var postAttrs = resp.get("posts");
+
+      var view = new app.views.Post({
+        model : new app.models.Post(postAttrs)
+      }).render();
+
+      $("#main_stream").html(view.el);
+    }})
   }
 });
 
