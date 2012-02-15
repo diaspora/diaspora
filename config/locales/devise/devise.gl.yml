@@ -2,93 +2,120 @@
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
-
-
 gl:
+  errors:
+    messages:
+      not_found: "non se atopou"
+      already_confirmed: "xa foi confirmado"
+      not_locked: "non foi bloqueado"
+
   devise:
-    confirmations:
-      confirmed: "Confirmouse a súa conta, e xa está en Diaspora."
-      new:
-        resend_confirmation: "Volver enviar as instrucións de confirmación"
-      send_instructions: "Nuns minutos recibirá un correo electrónico con instrucións para confirmar a súa conta."
     failure:
-      inactive: "Aínda non se activou a súa conta."
-      invalid: "O correo electrónico ou contrasinal son incorrectos."
-      invalid_token: "A invitación non é válida."
-      locked: "A súa conta está bloqueada."
-      timeout: "A súa sesión rematou, volva identificarse para continuar."
-      unauthenticated: "Ten que identificarse ou rexistrarte para continuar."
-      unconfirmed: "Ten que confirmar a súa conta para continuar."
-    invitations:
-      invitation_token_invalid: "O código de confirmación da invitación non é correcto!"
-      send_instructions: "Enviouse a invitación."
-      updated: "O novo contrasinal gardouse correctamente, e xa está identificado con el."
-    mailer:
-      confirmation_instructions:
-        confirm: "Confirmar a conta"
-        subject: "Instrucións de confirmación"
-        you_can_confirm: "Pode confirmar a súa conta mediante a seguinte ligazón:"
-      hello: "Ola, %{email}!"
-      invitation_instructions:
-        accept: "Aceptar a invitación"
-        ignore: "Se non quere aceptar a invitación, non ten máis que ignorar esta mensaxe."
-        no_account_till: "A súa conta non se creará ata que prema a ligazón anterior e se rexistre."
-        subject: "Invitáronte a formar parte de Diaspora!"
-      reset_password_instructions:
-        change: "Cambiar o contrasinal"
-        ignore: "Se non foi vostede quen solicitou este cambio, non ten máis que ignorar esta mensaxe."
-        someone_requested: "Alguén pediu unha ligazón para cambiar o seu contrasinal, pode facelo coa seguinte ligazón:"
-        subject: "Instrucións para cambiar o contrasinal"
-        wont_change: "Para cambiar o contrasinal, prema a seguinte ligazón e escolla un novo."
-      unlock_instructions:
-        account_locked: "A súa conta bloqueouse por mor do gran número de intentos errados de identificación."
-        click_to_unlock: "Prema a seguinte ligazón para desbloqueala:"
-        subject: "Instrucións para desbloquear a conta"
-        unlock: "Desbloquear a conta"
-      welcome: "Benvido, %{email}!"
+      unauthenticated: 'Ten que acceder ou rexistrarse para continuar.'
+      unconfirmed: 'Ten que confirmar a súa conta para continuar.'
+      locked: 'A súa conta está bloqueada.'
+      invalid: 'O correo electrónico ou contrasinal son incorrectos.'
+      invalid_token: 'O código de autenticación é incorrecto.'
+      timeout: 'A súa sesión rematou, volva identificarse para continuar.'
+      inactive: 'Aínda non se activou a súa conta.'
+    sessions:
+      new:
+        login: 'Nome de usuario'
+        username: 'Nome de usuario'
+        password: 'Contrasinal'
+        sign_in: 'Acceder'
+        remember_me: "Lembrar os datos."
+        alpha_software: 'Vai empregar software nas súas primeiras etapas de desenvolvemento (“alfa”).'
+        bugs_and_feedback: 'Queda avisado de que atopará erros. Animámoslle a usar o botón «Informar» —situado na parte dereita de calquera páxina— para informar de calquera erro que atope, por pequeno que pareza. Intentaremos solucionalos canto antes.'
+        bugs_and_feedback_mobile: 'Queda avisado de que atopará erros. Animámoslle a que nos informe deles para que podamos solucionalos canto antes.'
+        modern_browsers: 'só é compatíbel con navegadores web modernos.'
+      signed_in: 'Accedeu correctamente.'
+      signed_out: 'Saíu correctamente.'
     passwords:
+      send_instructions: 'Nuns minutos recibirá un correo electrónico con instrucións para cambiar o contrasinal.'
+      updated: 'O seu contrasinal cambiouse correctamente, e xa está identificado co novo.'
       edit:
         change_password: "Cambiar o contrasinal"
       new:
         forgot_password: "Esqueceu o contrasinal?"
-        no_account: "O enderezo non se corresponde con ningunha conta. Se está a agardar a que lle chegue unha invitación, saiba que facemos todo canto está nas nosas mans para repartilas canto antes."
-        send_password_instructions: "Recibir instrucións para cambiar o contrasinal"
-      send_instructions: "Nuns minutos recibirá un correo con instrucións para cambiar o contrasinal."
-      updated: "O seu contrasinal cambiou correctamente, e xa está identificado con el."
-    registrations:
-      destroyed: "A súa conta cancelouse correctamente. Ata outra!"
-      signed_up: "Rexistrouse correctamente. Envióuselle un correo electrónico de confirmación."
-      updated: "A súa conta actualizouse correctamente."
-    sessions:
+        no_account: 'O enderezo non se corresponde con ningunha conta. Se está a agardar a que lle chegue unha invitación, saiba que facemos todo canto está nas nosas mans para repartilas canto antes.'
+        send_password_instructions: "Recibir instrucións para cambiar de contrasinal"
+    confirmations:
+      send_instructions: 'Nuns minutos recibirá un correo electrónico con instrucións para confirmar a súa conta.'
+      confirmed: 'Confirmouse a súa conta, e xa está identificado con ela.'
       new:
-        alpha_software: "Vai empregar software en fase “alfa”."
-        bugs_and_feedback: "Queda avisado de que atopará erros. Animámoslle a usar o botón “Informar” que atopará na parte dereita de calquera páxina para informar de calquera erro que atope. Intentaremos solucionalos canto antes."
-        bugs_and_feedback_mobile: "Queda avisado de que atopará erros. Animámoslle a que nos informe deles para que podamos solucionalos canto antes."
-        login: "Nome de usuario"
-        modern_browsers: "só é compatíbel con navegadores web modernos."
-        password: Contrasinal
-        remember_me: "Lembrar os datos."
-        sign_in: Identificarse
-        username: "Nome de usuario"
-      signed_in: "Identificouse correctamente."
-      signed_out: "Saíu correctamente."
-    shared:
-      links:
-        forgot_your_password: "Esqueceu o contrasinal?"
-        receive_confirmation: "Non recibiu as instrucións de confirmación?"
-        receive_unlock: "Non recibiu as instrucións de desbloqueo?"
-        sign_in: Identificarse
-        sign_up: Rexistrarse
-        sign_up_closed: "Nestes momentos non poden rexistrarse novas contas."
-      mail_signup_form:
-        sign_up_for_an_invite: "Solicitar unha invitación!"
+        resend_confirmation: "Volver enviar as instrucións de confirmación"
+    registrations:
+      signed_up: 'Rexistrouse correctamente. Se así o solicitou, enviaráselle un correo electrónico de confirmación.'
+      updated: 'A súa conta actualizouse correctamente.'
+      destroyed: 'A súa conta cancelouse correctamente. Ata outra!'
     unlocks:
+      send_instructions: 'Nuns minutos recibirá un correo electrónico con instrucións para desbloquear a súa conta.'
+      unlocked: 'Desbloqueouse a súa conta, e xa está identificado con ela.'
       new:
         resend_unlock: "Volver enviar as instrucións de desbloqueo"
-      send_instructions: "Nuns minutos recibirá un correo electrónico con instrucións para desbloquear a súa conta."
-      unlocked: "Desbloqueouse a súa conta."
-  errors:
-    messages:
-      already_confirmed: "xa foi confirmado"
-      not_found: "non se atopou"
-      not_locked: "non foi bloqueado"
+    invitations:
+      send_instructions: 'Envióuselle unha invitación.'
+      invitation_token_invalid: 'O código da invitación non é correcto.'
+      updated: 'Estableceuse o seu contrasinal, e xa está identificado con el.'
+    mailer:
+      welcome: "Benvido, %{email}!"
+      hello: "Ola, %{email}!"
+      confirmation_instructions:
+        subject: 'Instrucións de confirmación'
+        you_can_confirm: "Pode confirmar a súa conta mediante a seguinte ligazón:"
+        confirm: "Confirmar a conta"
+      reset_password_instructions:
+        subject: 'Instrucións para cambiar o contrasinal'
+        someone_requested: "Alguén (probabelmente vostede) solicitou cambiar de contrasinal. Para facelo, siga a seguinte ligazón:"
+        change: "Cambiar de contrasinal"
+        wont_change: "Para cambiar de contrasinal, prema a seguinte ligazón e escolla un novo."
+        ignore: "Se non foi vostede quen solicitou o cambio, pode ignorar esta mensaxe."
+      unlock_instructions:
+        subject: 'Instrucións para desbloquear a conta'
+        account_locked: "A súa conta bloqueouse por mor do gran número de intentos errados de identificarse con ela."
+        click_to_unlock: "Siga a seguinte ligazón para desbloqueala:"
+        unlock: "Desbloquear a conta"
+      invitation_instructions:
+        displaying_correctly: "Non se amosa correctamente o enderezo de correo electrónico? %{link}"
+        view_in: "Velo no navegador web."
+        finally: "Por fin chegou!"
+        arrived: "Chegou a rede social que estaba esperando. Cun novo deseño, maior seguridade, e con moita máis diversión, %{strong_diaspora} axudaralle a compartir e explorar a web como nunca antes o fixera."
+        sign_up_now: "Rexístrese &rarr;"
+        friends_saying: "O que contan os seus contactos…"
+        more_people: "E hai máis xente esperándoo!"
+        get_connected: "Conéctese"
+        get_connected_paragraph: "Un movemento internacional cunha visión en común por unha web mellor, a primeira funcionalidade de %{strong_diaspora} é a comunidade. Coñeza xente, conéctese cos seus amigos, e a pasalo ben!"
+        be_yourself: "Sexa vostede mesmo"
+        be_yourself_paragraph: "A Internet tróuxonos formas únicas de expresarnos. %{strong_diaspora} permítelle ser vostede mesmo e compartir como queira, con ou sen o seu nome real."
+        have_fun: "Páseo ben"
+        cubbies: "Cubbi.es"
+        have_fun_paragraph: "%{strong_diaspora} consiste en descubrir persoas e contidos interesantes na rede. %{link}, o primeiro aplicativo %{strong_diaspora}, non é máis que o principio. Coleccione e comparta a web en todo o seu esplendor."
+        made_by_people: "%{strong_diaspora} está feita por xente que gusta da Internet tanto coma vostede. %{jointeam}, ou %{helpfund}!"
+        join_team: "Únase a nós"
+        or: "ou"
+        help_fund: "axude a manter Diaspora"
+        unsubscribe: "Siga a ligazón «%{link}» para cancelar a súa subscrición."
+        here: "aquí"
+        love: "Amor,"
+        team_diaspora: "Equipo de Diaspora"
+        email_us: "Para consultas xerais ou axuda coa súa conta en Diaspora, envíenos un correo electrónico a %{email}."
+        email_address: "questions@joindiaspora.com"
+        subject: "Invitárono a unirse a Diaspora!"
+        accept: "Acertar a invitación"
+        ignore: "Se non quere aceptar a invitación, non ten máis que ignorar esta mensaxe."
+        no_account_till: "Non se creará a súa conta ata que siga a anterior ligazón e se rexistre."
+      inviter:
+        has_invited_you: "%{name}"
+        have_invited_you: "%{names} invitárono a unirse a Diaspora"
+        accept_at: "en %{url}, pode aceptar seguindo a seguinte ligazón."
+    shared:
+      mail_signup_form:
+        sign_up_for_an_invite: "Solicitar unha invitación!"
+      links:
+        sign_in: 'Acceder'
+        sign_up: 'Rexistrarse'
+        sign_up_closed: 'Nestes momentos non poden rexistrarse contas.'
+        forgot_your_password: 'Esqueceu o contrasinal?'
+        receive_confirmation: 'Non recibiu as instrucións de confirmación?'
+        receive_unlock: 'Non recibiu as instrucións de desbloqueo?'

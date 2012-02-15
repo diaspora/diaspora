@@ -6,44 +6,126 @@
 
 gl:
   javascripts:
-    aspect_dropdown:
-      add_to_aspect: "Engadir a un aspecto"
-      toggle:
-        few: "En <%= count %> aspectos"
-        many: "En <%= count %> aspectos"
-        one: "Nun aspecto"
-        other: "En <%= count %> aspectos"
-        zero: "Engadir a un aspecto"
-    comments:
-      hide: "Agochar os comentarios"
-      show: "Amosar todos os comentarios"
-    confirm_dialog: "Está seguro?"
-    failed_to_like: "Non se puido indicar que lle gusta a publicación!"
-    failed_to_post_message: "Non se puido publicar a mensaxe!"
-    infinite_scroll:
-      no_more: "Non hai máis publicacións."
-    publisher:
-      at_least_one_aspect: "Ten que publicalo polo menos nun aspecto."
-    search_for: "Buscar por «<%= name %>»"
-    show_more: "Amosar máis"
-    timeago:
-      day: "un día."
-      days: "%d días."
-      hour: "unha hora."
-      hours: "%d horas."
-      minute: "un minuto."
-      minutes: "%d minutos."
-      month: "un mes."
-      months: "%d meses."
-      prefixAgo: Hai
-      prefixFromNow: "Dentro de"
-      seconds: "menos dun minuto."
-      suffixAgo: ""
-      suffixFromNow: ""
-      year: "un ano."
-      years: "%d anos."
-    videos:
-      unknown: "Tipo de vídeo descoñecido"
-      watch: "Ver o vídeo en <%= provider %>"
-    web_sockets:
-      disconnected: "Pechouse o conector web, as publicacións deixarán de aparecer en canto se publiquen."
+      confirm_dialog: "Está seguro?"
+      delete: "Eliminar"
+      ignore: "Ignorar"
+      timeago:
+        prefixAgo: "Hai"
+        prefixFromNow: "Dentro de"
+        suffixAgo: ""
+        suffixFromNow: ""
+        seconds: "menos dun minuto."
+        minute: "un minuto."
+        minutes: "%d minutos."
+        hours: "%d horas."
+        hour: "unha hora."
+        day: "un día."
+        days: "%d días."
+        month: "un mes."
+        months: "%d meses."
+        year: "un ano."
+        years: "%d anos."
+
+      my_activity: "Actividade"
+      my_stream: "Onda"
+
+      videos:
+        watch: "Ver o vídeo en <%= provider %>"
+        unknown: "Tipo de vídeo descoñecido"
+      search_for: "Buscar «<%= name %>»"
+      publisher:
+        at_least_one_aspect: "Ten que publicalo polo menos nun aspecto."
+        limited: "Limitado. Só poderá velo a xente coa que comparte."
+        public: "Público. Poderá velo calquera, e aparecerá nos motores de busca."
+      infinite_scroll:
+        no_more: "Non hai máis publicacións."
+      aspect_dropdown:
+        add_to_aspect: "Engadir como contacto"
+        select_aspects: "Seleccionar aspectos"
+        all_aspects: "Todos os aspectos"
+        stopped_sharing_with: "Deixou de compartir con <%= name %>."
+        started_sharing_with: "Comezou a compartir con <%= name %>!"
+        error: "Non se puido empezar a compartir con <%= name %>.  Está ignorando a esa persoa?"
+        toggle:
+          zero: "Engadir a un aspecto"
+          one: "Nun aspecto"
+          two: "En dous aspectos"
+          few: "En <%= count %> aspectos"
+          many: "En <%= count %> aspectos"
+          other: "En <%= count %> aspectos"
+      show_more: "Amosar máis"
+      failed_to_like: "Non se puido indicar que lle gusta a publicación!"
+      failed_to_post_message: "Non se puido publicar a mensaxe!"
+      comments:
+        hide: "Agochar os comentarios"
+        show: "Amosar os comentarios"
+      reshares:
+        duplicate: "Moi interesante ten que ser iso para que o repitas outra vez!"
+      aspect_navigation:
+        select_all: "Escollelos todos"
+        deselect_all: "Non escoller ningún"
+        no_aspects: "Non se escolleu ningún"
+      getting_started:
+        hey: "Ola, <%= name %>!"
+        no_tags: "Eh, non está a seguir ningunha etiqueta! Quere continuar aínda así?"
+        alright_ill_wait: "Como queira, esperarei."
+        preparing_your_stream: "Preparando a súa onda personalizada…"
+      photo_uploader:
+        looking_good: "Ghuapo ghuapo non é, pero ten unha pelaxe…"
+      tags:
+        wasnt_that_interesting: "Vale, supoño que #<%= tagName %> non era tan interesante…"
+
+      stream:
+        hide: "Agochar"
+        public: "Público"
+        limited: "Limitado"
+        like: "Gústame"
+        unlike: "Xa non me gusta"
+        reshare: "Repetir"
+        comment: "Comentar"
+        original_post_deleted: "O autor eliminou a publicación orixinal."
+        show_post: "Amosar a publicación"
+        follow: "Seguir"
+        unfollow: "Deixar de seguir"
+
+        likes:
+          zero: "Non lle gusta a ninguén."
+          one: "Gústalle a unha persoa."
+          two: "Gústalle a dúas persoas"
+          few: "Gústalle a <%= count %> persoas."
+          many: "Gústalle a <%= count %> persoas."
+          other: "Gústalle a <%= count %> persoas."
+
+        reshares:
+          zero: "Ningunha repetición."
+          one: "Unha repetición."
+          two: "Dúas repeticións."
+          few: "<%= count %> repeticións."
+          many: "<%= count %> repeticións."
+          other: "<%= count %> repeticións."
+
+        more_comments:
+          zero: "Non hai máis comentarios"
+          one: "Amosar o comentario que falta"
+          two: "Amosar os dous comentarios que faltan"
+          few: "Amosar <%= count %> comentarios máis"
+          many: "Amosar <%= count %> comentarios máis"
+          other: "Amosar <%= count %> comentarios máis"
+
+      header:
+        home: "Inicio"
+        profile: "Perfil"
+        contacts: "Contactos"
+        settings: "Configuración"
+        admin: "Administración"
+        log_out: "Saír"
+
+        notifications: "Notificacións"
+        messages: "Mensaxes"
+
+        search: "Atopar xente ou #etiquetas"
+
+        recent_notifications: "Últimas notificacións"
+        mark_all_as_read: "Marcalas todas como lidas"
+        view_all: "Velas todas"
+
