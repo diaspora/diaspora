@@ -50,7 +50,6 @@ el:
     search_for: "Αναζήτηση για {{name}}"
     show_more: "Προβολή περισσότερων"
     stream:
-      like: Like
       likes:
         few: "<%= count %> Likes"
         many: "<%= count %> Likes"
@@ -72,7 +71,6 @@ el:
         other: "<%= count %> Reshares"
         two: "<%= count %> Reshares"
         zero: "<%= count %> Reshares"
-      unlike: Unlike
     tags:
       wasnt_that_interesting: "OK, φαντάζομαι πως το #{{tagName}} δεν ήταν και τόσο ενδιαφέρον τελικά..."
     timeago:

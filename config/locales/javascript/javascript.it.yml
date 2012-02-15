@@ -29,8 +29,7 @@ it:
       show: "mostra tutti i commenti"
     confirm_dialog: "Sei sicuro?"
     delete: Elimina
-    explore: Esplora
-    failed_to_like: "Errore, non è stato possibile annotare!"
+    failed_to_like: "Errore, il \"mi piace\" non è stato inviato!"
     failed_to_post_message: "Invio messaggio fallito!"
     getting_started:
       alright_ill_wait: "Perfetto, aspetterò."
@@ -52,7 +51,7 @@ it:
     ignore: Ignora
     infinite_scroll:
       no_more: "Non ci sono altri post."
-    participate: Partecipa
+    my_activity: Attività
     photo_uploader:
       looking_good: "Accidenti, sei in splendida forma!"
     publisher:
@@ -65,15 +64,16 @@ it:
     show_more: continua...
     stream:
       comment: Commenta
+      follow: Segui
       hide: Nascondi
-      like: Annota
+      like: "Mi piace"
       likes:
-        few: "<%= count %> annota"
-        many: "<%= count %> annota"
-        one: "<%= count %> annota"
-        other: "<%= count %> annota"
-        two: "<%= count %> annota"
-        zero: "<%= count %> annota"
+        few: "<%= count %> mi piace"
+        many: "<%= count %> mi piace"
+        one: "<%= count %> mi piace"
+        other: "<%= count %> mi piace"
+        two: "<%= count %> mi piace"
+        zero: "<%= count %> mi piace"
       limited: "Non pubblico"
       more_comments:
         few: "Mostra gli altri <%= count %> commenti"
@@ -82,7 +82,6 @@ it:
         other: "Mostra gli altri <%= count %> commenti"
         two: "Mostra gli altri <%= count %> commenti"
         zero: "Mostra gli altri <%= count %> commenti"
-      nsfw: "Questo post è stato dichiarato dal suo autore non adatto a un luogo di lavoro (NSFW)."
       original_post_deleted: "Il post originale è stato rimosso dall'autore."
       public: Pubblico
       reshare: Condividi
@@ -93,8 +92,8 @@ it:
         other: "<%= count %> Condivisioni"
         two: "<%= count %> Condivisioni"
         zero: "<%= count %> Condivisioni"
-      show: Mostra
-      unlike: "Non annotare"
+      unfollow: "Non seguire più"
+      unlike: "Non mi piace più"
     tags:
       wasnt_that_interesting: "OK, immagino che #<%= tagName %> non fosse così interessante..."
     timeago:

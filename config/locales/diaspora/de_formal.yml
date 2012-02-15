@@ -128,7 +128,6 @@ de_formal:
         heading: "Verbinde Dienste"
       unfollow_tag: "#%{tag} nicht mehr folgen"
       welcome_to_diaspora: "Willkommen bei Diaspora, %{name}!"
-      your_aspects: "Ihre Aspekte"
     many: "%{count} Aspekte"
     move_contact:
       error: "Fehler beim Verschieben des Kontakts: %{inspect}"
@@ -329,6 +328,13 @@ de_formal:
         other: "%{count} Personen gefällt das nicht"
         two: "%{count} Personen gefällt das nicht"
         zero: "Keinem gefällt das nicht"
+      people_like_this:
+        few: "%{count} Personen gefällt das"
+        many: "%{count} Personen gefällt das"
+        one: "Einer Person gefällt das"
+        other: "%{count} Personen gefällt das"
+        two: "%{count} Personen gefällt das"
+        zero: "Keinem gefällt das"
       people_like_this_comment:
         few: "Gefällt %{count}"
         many: "Gefällt %{count}"
@@ -336,13 +342,6 @@ de_formal:
         other: "Gefällt %{count}"
         two: "%{count} Personen gefällt das"
         zero: "Gefällt niemandem"
-      people_pin_this:
-        few: "%{count} pins"
-        many: "%{count} pins"
-        one: "%{count} pin"
-        other: "%{count} pins"
-        two: "%{count} pins"
-        zero: "no pins"
   limited: Begrenzt
   more: Mehr
   next: Nächste
@@ -765,7 +764,9 @@ de_formal:
       hide_and_mute: "Verbergen und stummschalten"
       ignore_user: "%{name} ignorieren"
       ignore_user_description: "Benutzer ignorieren und aus allen Aspekten entfernen?"
+      like: "Gefällt mir"
       shared_with: "Geteilt mit: %{aspect_names}"
+      unlike: "Gefällt mir nicht mehr"
       viewable_to_anyone: "Dieser Beitrag ist für jeden im Web sichtbar"
   status_messages:
     create:
@@ -803,16 +804,12 @@ de_formal:
       follow: Folgen
       title: "#Gefolgte Tags"
     followed_tags_stream: "#Gefolgte Tags"
-    like_stream:
-      contacts_title: "People whose posts you like"
-      title: "Like Stream"
     mentioned_stream: "@Erwähnungen"
     mentions:
       contacts_title: "Personen, die Sie erwähnt haben"
       title: "Ihre Erwähnungen"
     multi:
       contacts_title: "Personen in Ihrem Stream"
-      title: Stream
     public:
       contacts_title: "Aktuelle Poster"
       title: "Öffentliche Aktivität"

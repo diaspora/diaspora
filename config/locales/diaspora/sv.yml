@@ -127,7 +127,6 @@ sv:
         heading: "Ihopkopplade tjänster"
       unfollow_tag: "Sluta följa #%{tag}"
       welcome_to_diaspora: "Välkommen till Diaspora, %{name}!"
-      your_aspects: "Dina aspekter"
     many: "%{count} aspekter"
     move_contact:
       error: "Kunde inte flytta kontakt: %{inspect}"
@@ -322,6 +321,13 @@ sv:
         other: "%{count} personer ogillar det här"
         two: "Två personer gillar inte"
         zero: "inga personer ogillar det här"
+      people_like_this:
+        few: "%{count} personer gillar det här"
+        many: "%{count} personer gillar det här"
+        one: "1 person gillar det här"
+        other: "%{count} personer gillar det här"
+        two: "Två personer gillar"
+        zero: "inga personer gillar det här"
       people_like_this_comment:
         few: "%{count} gillar"
         many: "%{count} gillar"
@@ -329,13 +335,6 @@ sv:
         other: "%{count} gillar"
         two: "Två personer gillar"
         zero: "Ingen gillar"
-      people_pin_this:
-        few: "%{count} pins"
-        many: "%{count} pins"
-        one: "%{count} pin"
-        other: "%{count} pins"
-        two: "%{count} pins"
-        zero: "no pins"
   limited: Begränsad
   more: Mer
   next: nästa
@@ -758,9 +757,11 @@ sv:
       hide_and_mute: "Dölj och ignorera"
       ignore_user: "Ignorera %{name}"
       ignore_user_description: "Ignorera och ta bort användaren från alla aspekter?"
+      like: "Jag gillar det här"
       nsfw: "Detta inlägg har blivit flaggat som NSFW av författaren . %{link}"
       shared_with: "Delas med: %{aspect_names}"
       show: visa
+      unlike: "Sluta gilla"
       viewable_to_anyone: "Detta inlägg är synligt för alla på nätet"
   status_messages:
     create:

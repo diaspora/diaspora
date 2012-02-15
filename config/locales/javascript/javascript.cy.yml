@@ -46,7 +46,6 @@ cy:
     search_for: "Chwilio am {{name}}"
     show_more: "dangos mwy"
     stream:
-      like: Like
       likes:
         few: "<%= count %> Likes"
         many: "<%= count %> Likes"
@@ -68,7 +67,6 @@ cy:
         other: "<%= count %> Reshares"
         two: "<%= count %> Reshares"
         zero: "<%= count %> Reshares"
-      unlike: Unlike
     tags:
       wasnt_that_interesting: "OK, mae'n debyg nid yw #{{tagName}} yn ddiddorol iawn..."
     timeago:

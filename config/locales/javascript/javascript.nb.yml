@@ -50,7 +50,6 @@ nb:
     search_for: "Søk etter {{name}}"
     show_more: "vis mer"
     stream:
-      like: Like
       likes:
         few: "<%= count %> Likes"
         many: "<%= count %> Likes"
@@ -72,7 +71,6 @@ nb:
         other: "<%= count %> Reshares"
         two: "<%= count %> Reshares"
         zero: "<%= count %> Reshares"
-      unlike: Unlike
     tags:
       wasnt_that_interesting: "OK, jeg skjønner at #{{tagName}} ikke var så spennende likevel..."
     timeago:

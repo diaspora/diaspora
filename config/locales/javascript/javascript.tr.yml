@@ -50,7 +50,6 @@ tr:
     search_for: "{{name}} Ara"
     show_more: "daha fazlasını göster"
     stream:
-      like: Like
       likes:
         few: "<%= count %> Likes"
         many: "<%= count %> Likes"
@@ -72,7 +71,6 @@ tr:
         other: "<%= count %> Reshares"
         two: "<%= count %> Reshares"
         zero: "<%= count %> Reshares"
-      unlike: Unlike
     tags:
       wasnt_that_interesting: "Tamam, benim #{{tagName}} o kadar da ilginç değil..."
     timeago:

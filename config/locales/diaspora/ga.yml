@@ -174,6 +174,13 @@ ga:
         other: "%{count} people disliked this"
         two: "%{count} dislikes"
         zero: "no people disliked this"
+      people_like_this:
+        few: "%{count} people liked this"
+        many: "%{count} people liked this"
+        one: "1 person liked this"
+        other: "%{count} people liked this"
+        two: "%{count} likes"
+        zero: "no people liked this"
       people_like_this_comment:
         few: "%{count} likes"
         many: "%{count} likes"
@@ -181,13 +188,6 @@ ga:
         other: "%{count} likes"
         two: "%{count} likes"
         zero: "no likes"
-      people_pin_this:
-        few: "%{count} pins"
-        many: "%{count} pins"
-        one: "%{count} pin"
-        other: "%{count} pins"
-        two: "%{count} pins"
-        zero: "no pins"
   next: "ar aghaidh"
   notifications:
     also_commented:
@@ -506,6 +506,7 @@ ga:
     stream_element:
       dislike: "I dislike this"
       hide_and_mute: "Hide and Mute"
+      like: "I like this"
   status_messages:
     helper:
       no_message_to_display: "Níl aon teachtaireacht chun taispeáint."
@@ -526,14 +527,10 @@ ga:
       two: "Show two more comments"
       zero: "No more comments"
   streams:
-    like_stream:
-      contacts_title: "People whose posts you like"
-      title: "Like Stream"
+    aspects:
+      title: "Your Aspects"
     mentions:
       title: "Your Mentions"
-    multi:
-      contacts_title: "People in your Stream"
-      title: Stream
     tags:
       contacts_title: "People who dig these tags"
   tag_followings:
@@ -564,7 +561,6 @@ ga:
       edit_account: "Athraigh cúntas"
       email_awaiting_confirmation: "We have sent you an activation link to %{unconfirmed_email}. Till you follow this link and activate the new address, we will continue to use your original address %{email}."
       export_data: "Easpórtáil Sonraí"
-      liked: "...someone likes your post?"
       new_password: "Pasfhocal nua"
       receive_email_notifications: "Fháil fógraí ríomhphost?"
       your_email: "Do seola ríomhphost"

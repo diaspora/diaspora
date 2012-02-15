@@ -50,7 +50,6 @@ zh-TW:
     search_for: "搜尋 {{name}}"
     show_more: 顯示更多
     stream:
-      like: Like
       likes:
         few: "<%= count %> Likes"
         many: "<%= count %> Likes"
@@ -72,7 +71,6 @@ zh-TW:
         other: "<%= count %> Reshares"
         two: "<%= count %> Reshares"
         zero: "<%= count %> Reshares"
-      unlike: Unlike
     tags:
       wasnt_that_interesting: "OK, 我想 #{{tagName}} 大概沒那麼有趣..."
     timeago:

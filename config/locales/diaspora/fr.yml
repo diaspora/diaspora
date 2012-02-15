@@ -125,7 +125,6 @@ fr:
         heading: "Services connectés"
       unfollow_tag: "Arrêter de suivre #%{tag}"
       welcome_to_diaspora: "Bienvenue sur Diaspora*, %{name} !"
-      your_aspects: "Vos aspects"
     many: "%{count} aspects"
     move_contact:
       error: "Erreur lors du déplacement du contact : %{inspect}"
@@ -327,6 +326,13 @@ fr:
         other: "%{count} personnes n'aiment pas"
         two: "%{count} n'aiment pas"
         zero: "Personne n'aime pas"
+      people_like_this:
+        few: "%{count} personnes aiment"
+        many: "%{count} personnes aiment"
+        one: "%{count} personne aime"
+        other: "%{count} personnes aiment"
+        two: "%{count} aiment"
+        zero: "Personne n'aime ça"
       people_like_this_comment:
         few: "%{count} aiment"
         many: "%{count} aiment"
@@ -334,13 +340,6 @@ fr:
         other: "%{count} aiment"
         two: "%{count} aiment"
         zero: "personne n'aime"
-      people_pin_this:
-        few: "Épinglé %{count} fois"
-        many: "Épinglé %{count} fois"
-        one: "Épinglé %{count} fois"
-        other: "Épinglé %{count} fois"
-        two: "Épinglé %{count} fois"
-        zero: "Pas encore épinglé"
   limited: Limité
   more: Plus
   next: suivant
@@ -767,11 +766,11 @@ fr:
       hide_and_mute: "Masquer et mettre le message en sourdine"
       ignore_user: "Ignorez %{name}"
       ignore_user_description: "Ignorez et supprimer l'utilisateur de tous les aspects ?"
+      like: J'aime
       nsfw: "Le message a été marqué par son auteur comme étant EXPLICITE. %{link}"
-      pin: Épingler
       shared_with: "Partagé avec : %{aspect_names}"
       show: montrer
-      unpin: "Ne plus épingler"
+      unlike: "Je n'aime plus"
       viewable_to_anyone: "Publication visible par n'importe qui sur le web"
   status_messages:
     create:
@@ -819,8 +818,6 @@ fr:
     multi:
       contacts_title: "Personnes dans votre flux d'exploration"
       title: Explorer
-    participate:
-      title: Participer
     public:
       contacts_title: "Posteurs récents"
       title: "Activité publique"

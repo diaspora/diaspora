@@ -122,7 +122,6 @@ nl:
         heading: "Verbind Services"
       unfollow_tag: "Stop met volgen van #%{tag}"
       welcome_to_diaspora: "Welkom bij Diaspora, %{name}!"
-      your_aspects: "Jouw Aspecten"
     many: "%{count} aspecten"
     move_contact:
       error: "Probleem bij het verplaatsen van contact: %{inspect}"
@@ -315,6 +314,13 @@ nl:
         other: "%{count} mensen vinden dit niet leuk"
         two: "%{count} niet leuk"
         zero: "niemand vindt dit niet leuk"
+      people_like_this:
+        few: "%{count} mensen vinden dit leuk"
+        many: "%{count} mensen vinden dit leuk"
+        one: "%{count} persoon vindt dit leuk"
+        other: "%{count} mensen vinden dit leuk"
+        two: "%{count} leuk"
+        zero: "niemand vindt dit leuk"
       people_like_this_comment:
         few: "%{count} likes"
         many: "%{count} likes"
@@ -322,13 +328,6 @@ nl:
         other: "%{count} likes"
         two: "%{count} leuk"
         zero: "geen likes"
-      people_pin_this:
-        few: "%{count} keer vastgeprikt"
-        many: "%{count} keer vastgeprikt"
-        one: "%{count} keer vastgeprikt"
-        other: "%{count} keer vastgeprikt"
-        two: "%{count} keer vastgeprikt"
-        zero: "niet vastgeprikt"
   limited: Beperkt
   more: Meer
   next: volgende
@@ -752,11 +751,11 @@ nl:
       hide_and_mute: "Verberg en blokkeer bericht"
       ignore_user: "Negeer %{name}"
       ignore_user_description: "Gebruiker negeren en hem uit alle aspecten verwijderen?"
+      like: "Vind ik leuk"
       nsfw: "Dit bericht is geflagd als NSFW door de auteur.  %{link}"
-      pin: Vastprikken
       shared_with: "Gedeeld met: %{aspect_names}"
       show: "laat zien"
-      unpin: Losprikken
+      unlike: "vind ik niet meer leuk"
       viewable_to_anyone: "Deze post is zichtbaar voor iedereen op het internet"
   status_messages:
     create:
@@ -806,8 +805,6 @@ nl:
     multi:
       contacts_title: "Volk in je Verkenstream"
       title: Verkennen
-    participate:
-      title: Deelnemen
     public:
       contacts_title: "Recente Posters"
       title: "Publieke activiteit"

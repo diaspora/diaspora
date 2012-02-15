@@ -130,7 +130,6 @@ es:
         heading: Servicios
       unfollow_tag: "Dejar de seguir a #%{tag}"
       welcome_to_diaspora: "¡Bienvenid@ a Diaspora, %{name}!"
-      your_aspects: Aspectos
     many: "%{count} aspectos"
     move_contact:
       error: "Error moviendo el contacto: %{inspect}"
@@ -335,6 +334,13 @@ es:
         other: "%{count} no quieron marcarla"
         two: "%{count} no quieron marcarla"
         zero: "No quieron marcarla"
+      people_like_this:
+        few: "%{count} likes"
+        many: "%{count} likes"
+        one: "%{count} like"
+        other: "%{count} likes"
+        two: "%{count} likes"
+        zero: "no likes"
       people_like_this_comment:
         few: "%{count} personas lo marcaron"
         many: "%{count} personas lo marcaron"
@@ -342,13 +348,6 @@ es:
         other: "%{count} personas lo marcaron"
         two: "%{count} personas lo marcaron"
         zero: "Nadie lo marcó"
-      people_pin_this:
-        few: "%{count} marcas"
-        many: "%{count} marcas"
-        one: "%{count} marca"
-        other: "%{count} marcas"
-        two: "%{count} marcas"
-        zero: "ninguna marca"
   limited: Restringido
   more: Más
   next: siguiente
@@ -779,10 +778,8 @@ es:
       ignore_user: "Ignorar a %{name}"
       ignore_user_description: "¿Ignorar y quitar a esa persona de todos los aspectos?"
       nsfw: "Esta publicación es considerada por su autor como no segura para ciertos entornos de trabajo (#NSFW - Not safe for work). %{link}"
-      pin: Marca
       shared_with: "Compartido con: %{aspect_names}"
       show: mostrar
-      unpin: Desmarcar
       via: "vía %{link}"
       viewable_to_anyone: "Esta publicación podrá verla cualquiera en internet"
   status_messages:
@@ -834,8 +831,6 @@ es:
     multi:
       contacts_title: "Gente en tu Entrada"
       title: Entrada
-    participate:
-      title: Participar
     public:
       contacts_title: "Publicadores recientes"
       title: "Actividad Pública"

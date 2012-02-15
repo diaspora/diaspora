@@ -80,7 +80,6 @@ sv:
         other: "Visa <%= count %> till kommentarer"
         two: "Visa <%= count %> till kommentarer"
         zero: "Visa <%= count %> till kommentarer"
-      nsfw: "Detta inlägg har flaggats som NSFW av författaren."
       original_post_deleted: "Original inlägget är raderat av författaren."
       public: Publik
       reshare: "Sprid vidare"
@@ -91,7 +90,6 @@ sv:
         other: "<%= count %> sprider vidare"
         two: "<%= count %> sprider vidare"
         zero: "Ingen sprider vidare"
-      show: Visa
       unlike: Ogillar
     tags:
       wasnt_that_interesting: "OK, jag antar att #<%= tagName %> inte var så intressant..."

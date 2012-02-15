@@ -126,7 +126,6 @@ sl:
         heading: "Povežite storitve"
       unfollow_tag: "Nehaj slediti #%{tag}"
       welcome_to_diaspora: "Dobrodošli v Diaspori, %{name}!"
-      your_aspects: "Vaši pogledi"
     many: "%{count} pogledov"
     move_contact:
       error: "Prestavljanje stika neuspešno: %{inspect}"
@@ -322,6 +321,13 @@ sl:
         other: "%{count} oseb ne mara"
         two: "%{count} osebi ne marata"
         zero: "ni osebe, ki ne mara"
+      people_like_this:
+        few: "%{count} osebam je všeč"
+        many: "% {Count} osebam je všeč"
+        one: "1 osebi je všeč"
+        other: "%{count} osebam je všeč"
+        two: "%{count} osebama je všeč"
+        zero: "nobenemu ni všeč"
       people_like_this_comment:
         few: "%{count} osebam je všeč"
         many: "%{count} osebam je všeč"
@@ -329,13 +335,6 @@ sl:
         other: "%{count} osebam je všeč."
         two: "%{count} osebama je všeč"
         zero: "nobenemu ni všeč"
-      people_pin_this:
-        few: "%{count} pins"
-        many: "%{count} pins"
-        one: "%{count} pin"
-        other: "%{count} pins"
-        two: "%{count} pins"
-        zero: "no pins"
   limited: Omejeno
   more: Več
   next: naslednja
@@ -760,9 +759,11 @@ sl:
       hide_and_mute: "Skrij in utišaj objavo"
       ignore_user: "Ignoriraj osebo %{name}"
       ignore_user_description: "Ignoriraj in odstrani osebo iz vseh pogledov?"
+      like: "Več mi je"
       nsfw: "To objavo je avtor označil kot neprimerno za delo. %{link}"
       shared_with: "Deljeno z: %{aspect_names}"
       show: prikaži
+      unlike: "Ni mi všeč"
       via: "preko %{link}"
       viewable_to_anyone: "Ta objava je vidna vsakomur na spletu"
   status_messages:
