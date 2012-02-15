@@ -78,7 +78,6 @@ fr:
         other: "Montrer <%= count %> commentaires en plus"
         two: "Montrer <%= count %> commentaires en plus"
         zero: "Montrer <%= count %> commentaires en plus"
-      nsfw: "Ce message a été marqué comme non sûr par son auteur."
       original_post_deleted: "Le message original a été effacé par son auteur."
       reshare: Repartager
       reshares:
@@ -88,7 +87,6 @@ fr:
         other: "<%= count %> repartages"
         two: "<%= count %> Repartages"
         zero: "<%= count %> repartages"
-      show: Montrer
       unlike: "Je n'aime plus"
     tags:
       wasnt_that_interesting: "Ok, je suppose que #<%= tagName %> n'est pas la seule chose qui vous intéresse..."

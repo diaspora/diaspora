@@ -50,7 +50,6 @@ sq:
     search_for: "Kërkoni për {{name}}"
     show_more: "shfaq më tepër"
     stream:
-      like: Like
       likes:
         few: "<%= count %> Likes"
         many: "<%= count %> Likes"
@@ -72,7 +71,6 @@ sq:
         other: "<%= count %> Reshares"
         two: "<%= count %> Reshares"
         zero: "<%= count %> Reshares"
-      unlike: Unlike
     tags:
       wasnt_that_interesting: "OK, Them se #{{tagName}} nuk qe kushedi se çë interesant..."
     timeago:

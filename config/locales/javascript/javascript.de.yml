@@ -29,7 +29,7 @@ de:
       show: "Alle Kommentare zeigen"
     confirm_dialog: "Bist du dir sicher?"
     delete: Löschen
-    failed_to_like: "Gefällt mir fehlgeschlagen."
+    failed_to_like: "Anpinnen fehlgeschlagen!"
     failed_to_post_message: "Konnte Beitrag nicht senden!"
     getting_started:
       alright_ill_wait: "Alles klar, ich warte."
@@ -43,7 +43,7 @@ de:
       notifications: Benachrichtigungen
       profile: Profil
       recent_notifications: "Neuste Benachrichtigungen"
-      search: "Suche Leute oder #Tags"
+      search: Suchen
       settings: Einstellungen
       view_all: "Alle anzeigen"
     ignore: Ignorieren
@@ -62,14 +62,14 @@ de:
     stream:
       comment: Kommentar
       hide: Ausblenden
-      like: "Gefällt mir"
+      like: Pinnen
       likes:
-        few: "Gefällt <%= count %>"
-        many: "Gefällt <%= count %>"
-        one: "Gefällt <%= count %>"
-        other: "Gefällt <%= count %>"
-        two: "Gefällt <%= count %>"
-        zero: "Gefällt keinem"
+        few: "<%= count %> Pins"
+        many: "<%= count %> Pins"
+        one: "<%= count %> Pin"
+        other: "<%= count %> Pins"
+        two: "<%= count %> Pins"
+        zero: "<%= count %> Pins"
       limited: Begrenzt
       more_comments:
         few: "Zeige <%= count %> weitere Kommentare"
@@ -78,7 +78,6 @@ de:
         other: "Zeige <%= count %> weitere Kommentare"
         two: "Zeige <%= count %> weitere Kommentare"
         zero: "Keine weiteren Kommentare"
-      nsfw: "Dieser Beitrag wurde als NSFW von seinem Autor gekennzeichnet."
       original_post_deleted: "Originalbeitrag wurde vom Autor entfernt."
       public: Öffentlich
       reshare: Weitersagen
@@ -89,8 +88,7 @@ de:
         other: "<%= count %> mal weitergesagt"
         two: "<%= count %> mal weitergesagt"
         zero: "<%= count %> mal weitergesagt"
-      show: Zeigen
-      unlike: "Gefällt mir nicht mehr"
+      unlike: Abpinnen
     tags:
       wasnt_that_interesting: "OK, ich nehme an, #<%= tagName %> war nicht so interessant..."
     timeago:

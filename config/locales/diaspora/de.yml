@@ -130,7 +130,6 @@ de:
         heading: "Verbinde Dienste"
       unfollow_tag: "#%{tag} nicht mehr folgen"
       welcome_to_diaspora: "Willkommen bei Diaspora, %{name}!"
-      your_aspects: "Deine Aspekte"
     many: "%{count} Aspekte"
     move_contact:
       error: "Fehler beim Verschieben des Kontakts: %{inspect}"
@@ -337,6 +336,13 @@ de:
         other: "%{count} Personen gefällt das nicht"
         two: "%{count} Personen gefällt das nicht"
         zero: "Keinem gefällt das nicht"
+      people_like_this:
+        few: "%{count} Personen gefällt das"
+        many: "%{count} Personen gefällt das"
+        one: "Einer Person gefällt das"
+        other: "%{count} Personen gefällt das"
+        two: "%{count} Personen gefällt das"
+        zero: "Keinem gefällt das"
       people_like_this_comment:
         few: "Gefällt %{count}"
         many: "Gefällt %{count}"
@@ -344,13 +350,6 @@ de:
         other: "Gefällt %{count}"
         two: "Gefällt %{count}"
         zero: "Gefällt niemandem"
-      people_pin_this:
-        few: "%{count} pins"
-        many: "%{count} pins"
-        one: "%{count} pin"
-        other: "%{count} pins"
-        two: "%{count} pins"
-        zero: "no pins"
   limited: Begrenzt
   more: Mehr
   next: Nächste
@@ -397,19 +396,19 @@ de:
       mark_all_as_read: "Markiere alle als gelesen"
       notifications: Benachrichtigungen
     liked:
-      few: "%{actors} gefällt dein %{post_link}."
-      many: "%{actors} gefällt dein %{post_link}."
-      one: "%{actors} gefällt dein %{post_link}."
-      other: "%{actors} gefällt dein %{post_link}."
-      two: "%{actors} mag deinen %{post_link}."
-      zero: "Niemandem gefällt dein %{post_link}."
+      few: "%{actors} haben deinen %{post_link} gepinnt."
+      many: "%{actors} haben deinen %{post_link} gepinnt."
+      one: "%{actors} hat deinen %{post_link} gepinnt."
+      other: "%{actors} hat deinen %{post_link} gepinnt."
+      two: "%{actors} haben deinen %{post_link} gepinnt."
+      zero: "Niemandem hat dein %{post_link} gepinnt."
     liked_post_deleted:
-      few: "%{actors} gefällt dein gelöschter Beitrag."
-      many: "%{actors} gefällt dein gelöschter Beitrag."
-      one: "%{actors} gefällt dein gelöschter Beitrag."
-      other: "%{actors} gefällt dein gelöschter Beitrag."
-      two: "%{actors} gefällt dein gelöschter Beitrag."
-      zero: "Niemandem gefällt dein gelöschter Beitrag."
+      few: "%{actors} haben deinen gelöschten Beitrag gepinnt."
+      many: "%{actors} haben deinen gelöschten Beitrag gepinnt."
+      one: "%{actors} haben deinen gelöschten Beitrag gepinnt."
+      other: "%{actors} haben deinen gelöschten Beitrag gepinnt."
+      two: "%{actors} haben deinen gelöschten Beitrag gepinnt."
+      zero: "Niemand hat deinen gelöschten Beitrag gepinnt."
     mentioned:
       few: "%{actors} haben dich in einem %{post_link} erwähnt."
       many: "%{actors} haben dich in einem %{post_link} erwähnt."
@@ -464,7 +463,7 @@ de:
     email_sent_by_diaspora: "Diese E-Mail wurde von Diaspora verschickt. Falls du solche E-Mails nicht mehr erhalten willst,"
     hello: "Hallo %{name}!"
     liked:
-      liked: "%{name} gefällt dein Beitrag"
+      liked: "%{name} hat dein Beitrag gepinnt"
       view_post: "Beitrag betrachten >"
     mentioned:
       mentioned: "hat dich in einem Beitrag erwähnt:"
@@ -781,9 +780,11 @@ de:
       hide_and_mute: "Beitrag verbergen und stummschalten"
       ignore_user: "%{name} ignorieren"
       ignore_user_description: "Diesen Benutzer ignorieren und aus allen Aspekten entfernen?"
+      like: "Gefällt mir"
       nsfw: "Dieser Post wurde vom Autor als NSFW markiert. %{link}"
       shared_with: "Geteilt mit: %{aspect_names}"
       show: zeigen
+      unlike: "Gefällt mir nicht mehr"
       viewable_to_anyone: "Dieser Beitrag ist für jeden im Web sichtbar"
   status_messages:
     create:
@@ -825,17 +826,14 @@ de:
       title: "#Tags, denen du folgst"
     followed_tags_stream: "#Tags, denen du folgst"
     like_stream:
-      contacts_title: "Leute, deren Beiträge du magst"
-      title: "\"Gefällt mir\"-Stream"
+      contacts_title: "Leute, deren Beiträge du gepinnt hast"
+      title: "\"Pin\"-Stream"
     mentioned_stream: "@Erwähnungen"
     mentions:
       contacts_title: "Personen, die dich erwähnt haben"
       title: "@Erwähnungen"
     multi:
       contacts_title: "Personen in deinem Stream"
-      title: Stream
-    participate:
-      title: Teilnehmen
     public:
       contacts_title: "Aktuelle Poster"
       title: "Öffentliche Aktivität"
@@ -910,7 +908,7 @@ de:
       export_data: "Daten exportieren"
       following: Folgen-Einstellungen
       getting_started: "Einstellungen für neue Nutzer"
-      liked: "… wenn jemandem dein Beitrag gefällt?"
+      liked: "… wenn jemand dein Beitrag pinnt?"
       mentioned: "… du in einem Beitrag erwähnt wirst?"
       new_password: "Neues Kennwort"
       photo_export_unavailable: "Exportieren von Fotos derzeit nicht verfügbar"

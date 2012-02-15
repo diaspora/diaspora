@@ -86,7 +86,6 @@ ms:
         tag_question: "#question"
       unfollow_tag: "berhenti mengikut #%{tag}"
       welcome_to_diaspora: "Selamat datang ke Diaspora, %{name}!"
-      your_aspects: "Aspek Anda"
     many: "%{count} aspek"
     move_contact:
       error: "Ralat memindah kenalan: %{inspect}"
@@ -204,6 +203,13 @@ ms:
         other: "%{count} dislikes"
         two: "%{count} dislikes"
         zero: "no dislikes"
+      people_like_this:
+        few: "%{count} likes"
+        many: "%{count} suka"
+        one: "%{count} suka"
+        other: "%{count} suka"
+        two: "%{count} suka"
+        zero: "tiada suka"
       people_like_this_comment:
         few: "%{count} suka"
         many: "%{count} suka"
@@ -211,13 +217,6 @@ ms:
         other: "%{count} suka"
         two: "%{count} likes"
         zero: "tiada suka"
-      people_pin_this:
-        few: "%{count} pins"
-        many: "%{count} pins"
-        one: "%{count} pin"
-        other: "%{count} pins"
-        two: "%{count} pins"
-        zero: "no pins"
   limited: Terhad
   more: "lebih banyak"
   next: seterusnya
@@ -322,8 +321,6 @@ ms:
   notifier:
     a_post_you_shared: pos.
     click_here: "klik di sini"
-    liked:
-      liked: "%{name} liked your post"
     to_change_your_notification_settings: "untuk menukar tetapan pemberitahuan anda"
   or: atau
   password: "kata laluan"
@@ -425,15 +422,10 @@ ms:
       two: "Show two more comments"
       zero: "No more comments"
   streams:
-    like_stream:
-      contacts_title: "People whose posts you like"
-      title: "Like Stream"
-    multi:
-      contacts_title: "People in your Stream"
-      title: Stream
+    aspects:
+      title: "Your Aspects"
   users:
     edit:
       close_account:
         what_we_delete: "We delete all of your posts, profile data, as soon as humanly possible. Your comments will hang around, but be associated with your Diaspora Handle."
-      liked: "...someone likes your post?"
       your_handle: "Your diaspora id"

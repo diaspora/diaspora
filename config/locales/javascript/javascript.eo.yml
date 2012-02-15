@@ -50,7 +50,6 @@ eo:
     search_for: "Serĉi por {{name}}"
     show_more: "vidi plu"
     stream:
-      like: Like
       likes:
         few: "<%= count %> Likes"
         many: "<%= count %> Likes"
@@ -72,7 +71,6 @@ eo:
         other: "<%= count %> Reshares"
         two: "<%= count %> Reshares"
         zero: "<%= count %> Reshares"
-      unlike: Unlike
     tags:
       wasnt_that_interesting: "Nu, mi supozas, ke #{{tagName}} ne estis tiel interese..."
     timeago:

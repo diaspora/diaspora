@@ -80,7 +80,6 @@ pt-PT:
         other: "Mostrar <%= count %> mais comentários"
         two: "Mostrar <%= count %> mais comentários"
         zero: "Mostrar <%= count %> mais comentários"
-      nsfw: "Este artigo foi marcado pelo seu autor como tendo conteúdo impróprio"
       original_post_deleted: "Publicação original eliminada pelo autor."
       public: Publico
       reshare: Partilhar
@@ -91,7 +90,6 @@ pt-PT:
         other: "<%= count %> Partilhas"
         two: "<%= count %> Partilhas"
         zero: "<%= count %> Partilhas"
-      show: Mostrar
       unlike: Desmarcar
     tags:
       wasnt_that_interesting: "OK, suponho que #{{tagName}} não era assim tão interessante..."

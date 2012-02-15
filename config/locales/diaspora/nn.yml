@@ -106,7 +106,6 @@ nn:
         content: "Du kan kopla desse tenestene til Diaspora:"
         heading: "Kopla tenester"
       unfollow_tag: "Slutt å følgja #%{tag}"
-      your_aspects: "Aspekta dine"
     many: "%{count} aspekt"
     move_contact:
       error: "Klarte ikkje å flytta kontakten: %{inspect}"
@@ -276,6 +275,13 @@ nn:
         other: "%{count} dislikes"
         two: "%{count} dislikes"
         zero: "no dislikes"
+      people_like_this:
+        few: "%{count} likes"
+        many: "%{count} likes"
+        one: "%{count} like"
+        other: "%{count} likes"
+        two: "%{count} likes"
+        zero: "no likes"
       people_like_this_comment:
         few: "%{count} likes"
         many: "%{count} likes"
@@ -283,13 +289,6 @@ nn:
         other: "%{count} likes"
         two: "%{count} likes"
         zero: "no likes"
-      people_pin_this:
-        few: "%{count} pins"
-        many: "%{count} pins"
-        one: "%{count} pin"
-        other: "%{count} pins"
-        two: "%{count} pins"
-        zero: "no pins"
   limited: Avgrensa
   next: neste
   no_results: "Fann ingen resultat"
@@ -687,7 +686,9 @@ nn:
     stream_element:
       dislike: Mislik
       hide_and_mute: "Gøym og demp"
+      like: Lik
       shared_with: "Delt med: %{aspect_names}"
+      unlike: "Lik ikkje lenger"
       viewable_to_anyone: "Alle kan sjå dette innlegget"
   status_messages:
     create:
@@ -715,14 +716,10 @@ nn:
       two: "Show two more comments"
       zero: "No more comments"
   streams:
-    like_stream:
-      contacts_title: "People whose posts you like"
-      title: "Like Stream"
+    aspects:
+      title: "Your Aspects"
     mentions:
       title: "@Nemningar"
-    multi:
-      contacts_title: "People in your Stream"
-      title: Stream
     tags:
       contacts_title: "Personar som elskar denne etiketten"
   tag_followings:

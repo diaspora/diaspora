@@ -19,7 +19,6 @@ is:
         two: "In <%= count %> aspects"
         zero: "Add to aspect"
     confirm_dialog: "Ertu viss?"
-    failed_to_like: "Failed to like!"
     getting_started:
       hey: "Hey, {{name}}!"
       preparing_your_stream: "Preparing your personialized stream..."
@@ -29,7 +28,6 @@ is:
       duplicate: "You've already reshared that post!"
     search_for: "Search for {{name}}"
     stream:
-      like: Like
       likes:
         few: "<%= count %> Likes"
         many: "<%= count %> Likes"
@@ -51,7 +49,6 @@ is:
         other: "<%= count %> Reshares"
         two: "<%= count %> Reshares"
         zero: "<%= count %> Reshares"
-      unlike: Unlike
     tags:
       wasnt_that_interesting: "OK, I suppose #{{tagName}} wasn't all that interesting..."
     timeago:

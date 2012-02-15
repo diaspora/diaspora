@@ -50,7 +50,6 @@ vi:
     search_for: "Tìm {{name}}"
     show_more: "hiện thêm"
     stream:
-      like: Like
       likes:
         few: "<%= count %> Likes"
         many: "<%= count %> Likes"
@@ -72,7 +71,6 @@ vi:
         other: "<%= count %> Reshares"
         two: "<%= count %> Reshares"
         zero: "<%= count %> Reshares"
-      unlike: Unlike
     tags:
       wasnt_that_interesting: "Tôi cho rằng #{{tagName}} không thú vị..."
     timeago:

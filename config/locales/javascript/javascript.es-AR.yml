@@ -50,7 +50,6 @@ es-AR:
     search_for: "Buscar a {{name}}"
     show_more: "mostrar más"
     stream:
-      like: Like
       likes:
         few: "<%= count %> Likes"
         many: "<%= count %> Likes"
@@ -72,7 +71,6 @@ es-AR:
         other: "<%= count %> Reshares"
         two: "<%= count %> Reshares"
         zero: "<%= count %> Reshares"
-      unlike: Unlike
     tags:
       wasnt_that_interesting: "OK, supongamos que #{{tagName}} no era tan interesante..."
     timeago:

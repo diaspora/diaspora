@@ -130,7 +130,6 @@ sk:
         heading: "Pripojiť sa k službám"
       unfollow_tag: "Prestať sledovať #%{tag}"
       welcome_to_diaspora: "Vitajte na Diaspore, %{name}!"
-      your_aspects: "Vaše kategórie"
     many: "%{count} kategórií"
     move_contact:
       error: "Chyba pri presúvaní kontaktu: %{inspect}"
@@ -337,6 +336,13 @@ sk:
         other: "%{count} ľuďom sa to nepáči"
         two: "%{count} ľuďom sa to nepáči"
         zero: "nie sú takí, ktorým sa to nepáči"
+      people_like_this:
+        few: "%{count} likes"
+        many: "%{count} likes"
+        one: "%{count} like"
+        other: "%{count} likes"
+        two: "%{count} likes"
+        zero: "no likes"
       people_like_this_comment:
         few: "%{count} ľuďom sa to páči"
         many: "%{count} ľuďom sa to páči"
@@ -344,13 +350,6 @@ sk:
         other: "%{count} ľuďom sa to páči"
         two: "%{count} ľuďom sa to páči"
         zero: "žiadne ohlasy"
-      people_pin_this:
-        few: "%{count} špendlíkov"
-        many: "%{count} špendlíkov"
-        one: "%{count} špendlík"
-        other: "%{count} špendlíkov"
-        two: "%{count} špendlíky"
-        zero: "žiadne špendlíky"
   limited: Obmedzený
   more: Viac
   next: ďalej
@@ -781,10 +780,8 @@ sk:
       ignore_user: "Ignorovať použ. %{name}"
       ignore_user_description: "Ignorovať použ. a odstrániť ho (ju)  zo všetkých kategórií?"
       nsfw: "Autor(ka) označil(a) tento príspevok za nevhodný v práci. %{link}"
-      pin: Špendlík
       shared_with: "Na vedomie: %{aspect_names}"
       show: Zobraziť
-      unpin: "Odobrať špendlík"
       via: "na %{link}"
       viewable_to_anyone: "Tento príspevok si môže pozrieť každý na webe"
   status_messages:
@@ -836,8 +833,6 @@ sk:
     multi:
       contacts_title: "Ľudia vo vašom prehľadávaní"
       title: Prehľadávať
-    participate:
-      title: Účasť
     public:
       contacts_title: "Autori najnovších príspevkov"
       title: "Verejná aktivita"

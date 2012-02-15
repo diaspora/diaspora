@@ -126,7 +126,6 @@ bg:
         heading: "Свързване към услуги"
       unfollow_tag: "Прекратяване следенето на #%{tag}"
       welcome_to_diaspora: "Добре дошли в Diaspora, %{name}!"
-      your_aspects: "Вашите аспекти"
     many: "%{count} аспекта"
     move_contact:
       error: "Грешка при преместване на контакт: %{inspect}"
@@ -328,6 +327,13 @@ bg:
         other: "не е харесана %{count} пъти"
         two: "не е харесана %{count} пъти"
         zero: "всички са я харесали"
+      people_like_this:
+        few: "харесана %{count} пъти"
+        many: "харесана %{count} пъти"
+        one: "харесана %{count} път"
+        other: "харесана %{count} пъти"
+        two: "харесана %{count} пъти"
+        zero: "не е харесана"
       people_like_this_comment:
         few: "харесан %{count} пъти"
         many: "харесан %{count} пъти"
@@ -335,13 +341,6 @@ bg:
         other: "харесан %{count} пъти"
         two: "харесан %{count} пъти"
         zero: "не е харесан"
-      people_pin_this:
-        few: "%{count} pins"
-        many: "%{count} pins"
-        one: "%{count} pin"
-        other: "%{count} pins"
-        two: "%{count} pins"
-        zero: "no pins"
   limited: Ограничена
   more: Още
   next: следваща
@@ -763,8 +762,10 @@ bg:
       hide_and_mute: "Скриване и прекратяване на известяването за публикацията"
       ignore_user: "Игнориране на %{name}"
       ignore_user_description: "Игнориране и премахване на потребителя от всички аспекти?"
+      like: "Харесва ми"
       nsfw: "Публикацията Не е Подходяща за Работното Място (NSFW), според автора. %{link}"
       shared_with: "Споделена с: %{aspect_names}"
+      unlike: "Не ми харесва"
       via: "чрез %{link}"
       viewable_to_anyone: "Публикацията е видима за всеки"
   status_messages:

@@ -38,7 +38,6 @@ en_shaw:
     search_for: "𐑕𐑻𐑗 𐑓𐑹 {{name}}"
     show_more: "𐑖𐑴 𐑥𐑹"
     stream:
-      like: Like
       likes:
         few: "<%= count %> Likes"
         many: "<%= count %> Likes"
@@ -60,7 +59,6 @@ en_shaw:
         other: "<%= count %> Reshares"
         two: "<%= count %> Reshares"
         zero: "<%= count %> Reshares"
-      unlike: Unlike
     tags:
       wasnt_that_interesting: "OK, I suppose #{{tagName}} wasn't all that interesting..."
     timeago:

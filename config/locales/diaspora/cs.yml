@@ -111,6 +111,7 @@ cs:
       keep_us_running: "Pomozte %{pod} udržet rychlý, kupte našim serverům dávku kávy."
       new_here:
         learn_more: "Zjistit více"
+        title: "Přivítejte nové uživatele"
       no_contacts: "Žádné kontakty"
       no_tags: "+ Najít nějaký štítek ke sledování"
       people_sharing_with_you: "Lidé, kteří s vámi sdílí"
@@ -119,7 +120,7 @@ cs:
         content: "Můžete připojit následující služby na Diasporu:"
         heading: "Připojit služby"
       unfollow_tag: "Přestat sledovat #%{tag}"
-      your_aspects: "Vaše aspekty"
+      welcome_to_diaspora: "Vítejte na Diaspoře, %{name}!"
     many: "%{count} aspektů"
     move_contact:
       error: "Chyba při přesunu kontaktu: %{inspect}"
@@ -298,6 +299,13 @@ cs:
         other: "%{count} lidem se to nelíbí"
         two: "%{count} dislikes"
         zero: "žádná záporná hodnocení"
+      people_like_this:
+        few: "%{count} lidem se to líbí"
+        many: "%{count} lidem se to líbí"
+        one: "1 osobě se to líbí"
+        other: "%{count} lidem se to líbí"
+        two: "%{count} likes"
+        zero: "žádná kladná hodnocení"
       people_like_this_comment:
         few: "%{count} likes"
         many: "%{count} likes"
@@ -305,13 +313,6 @@ cs:
         other: "%{count} likes"
         two: "%{count} likes"
         zero: "no likes"
-      people_pin_this:
-        few: "%{count} pins"
-        many: "%{count} pins"
-        one: "%{count} pin"
-        other: "%{count} pins"
-        two: "%{count} pins"
-        zero: "no pins"
   limited: Omezený
   more: Více
   next: další
@@ -689,6 +690,7 @@ cs:
     public_explain:
       logged_in: "přihlášen do %{service}"
       manage: "upravit připojené služby"
+      new_user_welcome_message: "Používejte #štítky k označení vašich zpráv a hledání lídí se stejnými zájmy. K oslovení lidí používejte @Zmínky."
       outside: "Veřejné příspěvky budou dostupné pro ostatní mimo Diasporu."
       share: Sdílet
       title: "Nastavit související služby"
@@ -713,7 +715,9 @@ cs:
       dislike: "to se mi nelíbí"
       hide_and_mute: "Hide and Mute"
       ignore_user: "Ignorovat %{name}"
+      like: "to se mi líbí"
       shared_with: "Sdíleno s: %{aspect_names}"
+      unlike: "to se mi už nelíbí"
       via: "skrz %{link}"
       viewable_to_anyone: "Tento příspěvek je viditelný komukoli na webu"
   status_messages:
@@ -749,19 +753,14 @@ cs:
       add_a_tag: "Přidat štítek"
       title: "#Sledované štítky"
     followed_tags_stream: "#Sledované štítky"
-    like_stream:
-      contacts_title: "People whose posts you like"
-      title: "Like Stream"
     mentions:
       title: "Your Mentions"
-    multi:
-      contacts_title: "People in your Stream"
-      title: Stream
     tags:
       contacts_title: "People who dig these tags"
   tag_followings:
     create:
       failure: "Nepodařilo se následovat: #%{name}"
+      none: "Nemůžete sledovat prázdný štítek!"
       success: "Začal jste sledovat: #%{name}"
     destroy:
       failure: "Nepodařilo se ukončit sledování: #%{name}"
@@ -818,6 +817,7 @@ cs:
       your_handle: "Vaše Diaspora ID"
     getting_started:
       hashtag_explanation: "Štítky vám dovolují sledovat, o co se zajímáte, a diskutovat. Je to také skvělý způsob, jak najít nové lidi na Diaspoře."
+      hashtag_suggestions: "Zkuste sledovat třeba štítky #art, #movies, #gif, atd."
       saved: Uloženo!
       what_facebook_does: "to Diaspora. This will pull your name and photo, and enable cross-positng."
     privacy_settings:

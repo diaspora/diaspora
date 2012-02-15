@@ -81,7 +81,6 @@ fi:
         other: "Näytä <%= count %> muuta kommenttia"
         two: "Näytä <%= count %> muuta kommenttia"
         zero: "Näytä <%= count %> muuta kommenttia"
-      nsfw: "Lähettäjä on merkinnyt tämän viestin sopimattomaksi työpaikalla katsomiseen."
       original_post_deleted: "Lähettäjä on poistanut alkuperäisen viestin."
       public: Julkinen
       reshare: "Jaa uudelleen"
@@ -92,8 +91,6 @@ fi:
         other: "<%= count %> uudelleenjakoa"
         two: "<%= count %> uudelleenjakoa"
         zero: "<%= count %> uudelleenjakoa"
-      show: Näytä
-      unlike: Unlike
     tags:
       wasnt_that_interesting: "OK, #<%= tagName %> ei tainnut ollakaan kovin kiinnostava aihe..."
     timeago:

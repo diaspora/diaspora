@@ -107,7 +107,6 @@ en_shaw:
       services:
         content: "𐑿 𐑒𐑨𐑯 𐑒𐑩𐑯𐑧𐑒𐑑 𐑞 𐑓𐑪𐑤𐑴𐑦𐑙 𐑕𐑻𐑝𐑦𐑕𐑩𐑟 𐑑 ·𐑛𐑦𐑨𐑕𐑐𐑹𐑩:"
         heading: "𐑒𐑩𐑯𐑧𐑒𐑑 𐑕𐑻𐑝𐑦𐑕𐑩𐑟"
-      your_aspects: "𐑿𐑼 𐑨𐑕𐑐𐑧𐑒𐑑𐑕"
     many: "%{count} 𐑨𐑕𐑐𐑧𐑒𐑑𐑕"
     move_contact:
       error: "𐑺𐑼 𐑥𐑵𐑝𐑦𐑙 𐑒𐑪𐑯𐑑𐑨𐑒𐑑: %{inspect}"
@@ -267,6 +266,13 @@ en_shaw:
         other: "%{count} 𐑛𐑦𐑕𐑤𐑲𐑒𐑕"
         two: "%{count} dislikes"
         zero: "𐑯𐑴 𐑛𐑦𐑕𐑤𐑲𐑒𐑕"
+      people_like_this:
+        few: "%{count} 𐑤𐑲𐑒𐑕"
+        many: "%{count} 𐑤𐑲𐑒𐑕"
+        one: "%{count} 𐑤𐑲𐑒"
+        other: "%{count} 𐑤𐑲𐑒𐑕"
+        two: "%{count} likes"
+        zero: "𐑯𐑴 𐑤𐑲𐑒𐑕"
       people_like_this_comment:
         few: "%{count} 𐑤𐑲𐑒𐑕"
         many: "%{count} 𐑤𐑲𐑒𐑕"
@@ -274,13 +280,6 @@ en_shaw:
         other: "%{count} 𐑤𐑲𐑒𐑕"
         two: "%{count} likes"
         zero: "𐑯𐑴 𐑤𐑲𐑒𐑕"
-      people_pin_this:
-        few: "%{count} pins"
-        many: "%{count} pins"
-        one: "%{count} pin"
-        other: "%{count} pins"
-        two: "%{count} pins"
-        zero: "no pins"
   limited: 𐑤𐑦𐑥𐑦𐑑𐑩𐑛
   more: 𐑥𐑹
   next: 𐑯𐑧𐑒𐑕𐑑
@@ -670,7 +669,9 @@ en_shaw:
     stream_element:
       dislike: 𐑛𐑦𐑕𐑤𐑲𐑒
       hide_and_mute: "Hide and Mute"
+      like: 𐑤𐑲𐑒
       shared_with: "𐑖𐑺𐑛 𐑢𐑦𐑞: %{aspect_names}"
+      unlike: 𐑩𐑯𐑤𐑲𐑒
       via: "𐑝𐑾 %{link}"
       viewable_to_anyone: "𐑞𐑦𐑕 𐑐𐑴𐑕𐑑 𐑦𐑟 𐑝𐑿𐑩𐑚𐑩𐑤 𐑑 𐑧𐑯𐑦𐑢𐑩𐑯 𐑪𐑯 𐑞 𐑢𐑧𐑚"
   status_messages:
@@ -699,14 +700,10 @@ en_shaw:
       two: "Show two more comments"
       zero: "No more comments"
   streams:
-    like_stream:
-      contacts_title: "People whose posts you like"
-      title: "Like Stream"
+    aspects:
+      title: "Your Aspects"
     mentions:
       title: "Your Mentions"
-    multi:
-      contacts_title: "People in your Stream"
-      title: Stream
     tags:
       contacts_title: "People who dig these tags"
   tag_followings:

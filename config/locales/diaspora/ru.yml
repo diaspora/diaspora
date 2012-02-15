@@ -127,7 +127,6 @@ ru:
         heading: "Подключенные службы"
       unfollow_tag: "Не следить за меткой #%{tag}"
       welcome_to_diaspora: "Добро пожаловать в Диаспору, %{name}!"
-      your_aspects: Аспекты
     many: "%{count} аспект[-а, -ов]"
     move_contact:
       error: "Ошибка при перемещении контакта: %{inspect}"
@@ -333,6 +332,13 @@ ru:
         other: "%{count} не понравилось "
         two: "%{count} не понравилось"
         zero: "никому не понравилось"
+      people_like_this:
+        few: "%{count} likes"
+        many: "%{count} likes"
+        one: "%{count} like"
+        other: "%{count} likes"
+        two: "%{count} likes"
+        zero: "no likes"
       people_like_this_comment:
         few: "%{count} понравилось"
         many: "%{count} понравилось"
@@ -340,13 +346,6 @@ ru:
         other: "%{count} понравилось"
         two: "%{count} понравилось"
         zero: "не понравилось никому"
-      people_pin_this:
-        few: "Прикололи: %{count}"
-        many: "Прикололи: %{count}"
-        one: "Прикололи: %{count}"
-        other: "Прикололи: %{count}"
-        two: "Прикололи: %{count}"
-        zero: "Прикололи: 0"
   limited: Ограниченная
   more: Еще
   next: далее
@@ -778,10 +777,8 @@ ru:
       ignore_user: "Блокировать пользователя %{name}"
       ignore_user_description: "Блокировать и удалить пользователя из всех аспектов?"
       nsfw: "Автор пометил эту запись как \"только для взрослых\". %{link}"
-      pin: Приколоть
       shared_with: "Для аспектов: %{aspect_names}"
       show: показать
-      unpin: Открепить
       via: "через %{link}"
       viewable_to_anyone: "Эту запись может видеть любой в интернете"
   status_messages:
@@ -833,8 +830,6 @@ ru:
     multi:
       contacts_title: "В вашем потоке"
       title: Исследуйте
-    participate:
-      title: Участвовать
     public:
       contacts_title: "Последние публиковавшие"
       title: "Публичная активность"

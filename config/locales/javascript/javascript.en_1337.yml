@@ -45,7 +45,6 @@ en_1337:
     search_for: "S34RCH F0R {{name}}"
     show_more: "5H0W M0R3!"
     stream:
-      like: Like
       likes:
         few: "<%= count %> Likes"
         many: "<%= count %> Likes"
@@ -67,7 +66,6 @@ en_1337:
         other: "<%= count %> Reshares"
         two: "<%= count %> Reshares"
         zero: "<%= count %> Reshares"
-      unlike: Unlike
     tags:
       wasnt_that_interesting: "OK, I suppose #{{tagName}} wasn't all that interesting..."
     timeago:

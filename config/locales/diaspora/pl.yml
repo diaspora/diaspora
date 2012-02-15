@@ -131,7 +131,6 @@ pl:
         heading: "Podłącz usługi"
       unfollow_tag: "Przestań obserwować #%{tag}"
       welcome_to_diaspora: "Witaj w Diasporze, %{name}!"
-      your_aspects: "Twoje Aspekty"
     many: "Aspekty: %{count}"
     move_contact:
       error: "Błąd przy przenoszeniu kontaktu: %{inspect}"
@@ -337,6 +336,13 @@ pl:
         other: "%{count} os. tego nie lubi"
         two: "%{count} os. tego nie lubi"
         zero: "nikt tego nie nielubi"
+      people_like_this:
+        few: "%{count} likes"
+        many: "%{count} likes"
+        one: "%{count} like"
+        other: "%{count} likes"
+        two: "%{count} likes"
+        zero: "no likes"
       people_like_this_comment:
         few: "%{count} os. to lubi"
         many: "%{count} os. to lubi"
@@ -344,13 +350,6 @@ pl:
         other: "%{count} os. to lubi"
         two: "%{count} ososby to lubią"
         zero: "nikt nie lubi"
-      people_pin_this:
-        few: "%{count} przypięć"
-        many: "%{count} przypięć"
-        one: "%{count} przypięcie"
-        other: "%{count} przypięcia"
-        two: "%{count} przypięcia"
-        zero: "brak przypięć"
   limited: Ograniczone
   more: Więcej
   next: dalej
@@ -782,10 +781,8 @@ pl:
       ignore_user: "Ignoruj - %{name}"
       ignore_user_description: "Dodać użytkownika do listy ignorowanych i usunąć ze wszystkich aspektów?"
       nsfw: "Ten wpis został oznaczony przez jego autora jako NSFW (Not suitable/safe for work). %{link}"
-      pin: Przypnij
       shared_with: "Opublikowano w: %{aspect_names}"
       show: wyświetl
-      unpin: Odepnij
       via: "przez %{link}"
       viewable_to_anyone: "Ten wpis jest widoczny dla każdego"
   status_messages:
@@ -837,8 +834,6 @@ pl:
     multi:
       contacts_title: "Osoby w Strumieniu Poznawania"
       title: Poznawaj
-    participate:
-      title: "Przyłącz się"
     public:
       contacts_title: "Ostatnio dodawali"
       title: "Działalność publiczna"
