@@ -32,7 +32,26 @@ var List = {
           };
         }
     });
+  },
+  runDelayedSearch: function( searchTerm ) {
+      $.ajax({
+        dataType: 'json',
+        url: '/people/refresh_search',
+        data: { q: searchTerm },
+        success: List.handleSearchRefresh
+      });
+  },
+  handleSearchRefresh: function( data ) {
+    if ( data.search_count > 0 ) {
+      $("#people_stream.stream").html( data.search_html );
+    } else {
+      $("#people_stream.stream").html( "<p>" + Diaspora.I18n.t("people.not_found") + "</p>" );
+    }
+  },
+  startSearchDelay: function ( theSearch ) {
+    setTimeout( "List.runDelayedSearch('" + theSearch + "')", 10000);
   }
+
 };
 
 $(document).ready(function() {

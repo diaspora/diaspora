@@ -3,30 +3,27 @@
 *   the COPYRIGHT file.
 */
 
-describe("Publisher", function() {
+describe("List", function() {
 
   describe("runDelayedSearch", function() {
     beforeEach( function(){
-      spec.loadFixture('pending_external_people_search');
-      Publisher.open();
     });
 
     it('gets called on initialize', function(){
-      spyOn(Publisher, 'runDelayedSearch');
-      Publisher.initialize();
-      expect(Publisher.runDelayedSearch).toHaveBeenCalled();
+      spyOn( List, 'startSearchDelay');
+      spec.loadFixture('pending_external_people_search');
+      expect(List.startSearchDelay).toHaveBeenCalled();
     });
   });
 
   describe("runDelayedSearch", function() {
     beforeEach( function(){
       spec.loadFixture('empty_people_search');
-      Publisher.open();
+      List.initialize();
     });
 
     it('inserts contact html', function(){
-      Publisher.initialize();
-      Publisher.handleSearchRefresh( "<div class='testing_insert_div'>hello</div>");
+      List.handleSearchRefresh( { count:1,search_html: '<div class='testing_insert_div'>hello</div>' } );
       expect($(".testing_insert_div").text().toEqual( "hello" ));
 
     });

@@ -22,7 +22,7 @@
         %p
           =t('.searching')
         :javascript
-          $(document).ready(function() { setTimeout("runDelayedSearch('#{@background_query}')", 10000); });
+          $(document).ready(function() { List.startSearchDelay('#{@background_query}') } );
       - else
         %p
           =t('.no_one_found')
