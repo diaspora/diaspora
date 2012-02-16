@@ -11,30 +11,56 @@
 :javascript
   $(function(){
     $(document).keypress(function(event){
-      console.log(event.which);
         $('#text').focus();
         $('#comment').modal();
-        $('#text').focus();
       });
 
     $(document).keydown(function(e){
-      console.log(e.keyCode);
-      if (e.keyCode == 37) { 
-
+      if (e.keyCode == 37) {
          window.location = $('#back').attr('href');
-
       }else if(e.keyCode == 39) {
-
          window.location = $('#forward').attr('href');
-
-      }else{}
-
+      }
     });
   });
 
-#post-author-header
-  = person_image_tag @post.author
-  = @post.author.name
+.header
+  .header-container
+    #post-author.media
+      .img
+        = person_image_link @post.author
+      .bd
+        = person_link(@post.author, :class => 'author-name')
+
+        .post-time
+          %i.icon-time
+          = time_ago_in_words(@post.created_at) + ' ago'
+
+        .post-vitals
+          %span
+            %i.icon-heart
+            = @post.likes.size
+
+          %span
+            %i.icon-plus
+            = @post.participations.size
+
+          %span
+            %i.icon-retweet
+            = @post.reshares.size
+
+          %span
+            %i.icon-comment
+            = @post.comments.size
+
+
+    - if current_user
+      #user-controls
+        = link_to "Like", "#", :class => "label"
+        = link_to "Follow", "#", :class => "label"
+        = link_to "Reshare", "#", :class => "label"
+        = link_to "Comment", "#", :class => "label"
+        = person_image_link(current_user.person)
 
 #post-content
 
@@ -43,7 +69,7 @@
 
 #comment.modal.fade
   .modal-body
-    = form_tag comments_path, :remote => true do 
+    = form_tag comments_path, :remote => true do
       = text_area_tag :text, ''
       = hidden_field_tag :post_id, @post.id
       = submit_tag 'submit', :onclick => "$('#comment').modal('hide'); $('#text').text('')"

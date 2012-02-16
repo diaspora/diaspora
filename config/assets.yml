@@ -98,7 +98,7 @@ javascripts:
     - public/javascripts/ie.js
 stylesheets:
   bootstrap:
-    - public/stylesheets/bootstrap.min.css
+    - public/stylesheets/bootstrap.css
   blueprint:
     - public/stylesheets/blueprint/screen.css
   login:

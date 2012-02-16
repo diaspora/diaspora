@@ -1,5 +1,6 @@
 /* variables */
 
+$light-grey: #999;
 
 /* mixins */
 @mixin center($orient:vertical) {
@@ -58,6 +59,10 @@
   p {
     font-size: 20px;
     line-height: 28px;
+  }
+
+  h1 {
+    margin-bottom: 1em;
   }
 }
 
@@ -143,18 +148,54 @@
   }
 }
 
-#post-author-header {
-  top: 20px;
-  left: 20px;
+.header {
   position: fixed;
+  top: 0;
+  left: 0;
   z-index: 10;
-  font-size: 18px;
-  font-weight: bold;
+  width: 100%;
+}
 
-  img {
-    height: 50px;
-    width: 50px;
-    float: left;
-    margin-right: 10px;
+.header-container {
+  padding: 20px;
+}
+
+#post-author {
+  float: left;
+  margin: 0;
+
+  .avatar {
+    height: 52px;
+    width: 52px;
   }
+
+  .author-name {
+    color: inherit;
+    font-weight: bold;
+  }
+
+  .post-time {
+    color: $light-grey;
+    font-style: italic;
+  }
+
+  .post-vitals {
+    span {
+      padding-right: 8px;
+    }
+  }
+}
+
+#user-controls {
+  float: right;
+
+  .avatar {
+    vertical-align: top;
+    height: 27px;
+    width: 27px;
+  }
+}
+
+#post-content {
+  padding-top: 50px;
 }
