@@ -40,9 +40,11 @@ app.Router = Backbone.Router.extend({
   singlePost : function(id) {
     new app.models.Post({id : id}).fetch({success : function(resp){
       var postAttrs = resp.get("post");
+      var templateName = resp.get("templateName");
 
-      var view = new app.views.Post({
-        model : new app.models.Post(postAttrs)
+      var view = new app.views.SinglePost({
+        model : new app.models.Post(postAttrs),
+        templateName : templateName
       }).render();
 
       $("#main_stream").html(view.el);

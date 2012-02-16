@@ -106,6 +106,7 @@ stylesheets:
   default:
     - public/stylesheets/application.css
     - public/stylesheets/loader.css
+    - public/stylesheets/new-templates.css
     - public/stylesheets/ui.css
     - public/stylesheets/lightbox.css
     - public/stylesheets/autocomplete.css

@@ -23,8 +23,9 @@ app.views.Post = app.views.StreamObject.extend({
 
   tooltipSelector : ".delete, .block_user, .post_scope",
 
-  initialize : function() {
-    $(this.el).attr("id", this.model.get("guid"));
+  initialize : function(options) {
+    // allow for a custom template name to be passed in via the options hash
+    this.templateName = options.templateName || this.templateName
 
     this.model.bind('remove', this.remove, this);
     this.model.bind('destroy', this.destroy, this);

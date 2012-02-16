@@ -1,0 +1,96 @@
+/* variables */
+
+
+/* mixins */
+@mixin pushdown() {
+  /* temp hack... should use box model here */
+  padding-top: 10%;
+}
+
+/* styles */
+
+.multi-photo {
+  .img-bounding-box {
+    display: inline-block;
+    margin-left: 10px;
+    height: 500px;
+    width: 300px;
+  }
+
+  img {
+    max-width: 100%;
+    max-height: 100%;
+  }
+}
+
+.note {
+  width: 500px;
+}
+
+.status {
+  @include pushdown();
+
+  text-align: center;
+
+  h1 {
+    font-weight: bold;
+    font-size: 60px;
+  }
+}
+
+.backdrop,
+.photo-backdrop {
+  position: fixed;
+
+  top: 0;
+  left: 0;
+
+  background: no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+
+  width: 100%;
+  height: 100%;
+}
+
+.photo-backdrop {
+  h1 {
+    color: #fff;
+    z-index: 100;
+  }
+}
+
+.rich-media {
+  @include pushdown();
+
+  text-align: center;
+
+  background-color: #333;
+
+  h3 {
+    color: #999;
+  }
+
+  iframe {
+    box-shadow: 0 3px 15px #000;
+
+    width: 857px;
+    height: 480px;
+  }
+}
+
+/* temp */
+#post-nav {
+  position: fixed;
+  bottom: 10px;
+  height: 50px;
+
+  z-index: 100;
+  background: rgba(255,255,255,0.8);
+
+  a {
+    padding: 30px;
+  }
+}
