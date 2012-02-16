@@ -105,6 +105,7 @@ stylesheets:
     - public/stylesheets/login.css
   default:
     - public/stylesheets/application.css
+    - public/stylesheets/loader.css
     - public/stylesheets/ui.css
     - public/stylesheets/lightbox.css
     - public/stylesheets/autocomplete.css
