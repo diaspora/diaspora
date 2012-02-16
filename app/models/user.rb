@@ -98,6 +98,14 @@ class User < ActiveRecord::Base
     where('last_sign_in_at > ?', time)
   end
 
+  def unread_notifications
+    notifications.where(:unread => true)
+  end
+
+  def unread_message_count
+    ConversationVisibility.sum(:unread, :conditions => "person_id = #{self.person.id}")
+  end
+
   # @return [User]
   def self.find_by_invitation(invitation)
     service = invitation.service

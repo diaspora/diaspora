@@ -41,6 +41,8 @@ class NotificationsController < ApplicationController
     end
     @group_days = @notifications.group_by{|note| I18n.l(note.created_at, :format => I18n.t('date.formats.fullmonth_day')) }
 
+    @unread_notification_count = current_user.unread_notifications.count
+
     respond_to do |format|
       format.html
       format.xml { render :xml => @notifications.to_xml }
