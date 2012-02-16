@@ -35,7 +35,7 @@ class PeopleController < ApplicationController
         if diaspora_id?(search_query)
           @people =  Person.where(:diaspora_handle => search_query.downcase)
           Webfinger.in_background(search_query) if @people.empty?
-          @background_query = search_query
+          @background_query = search_query.downcase
         end
         @people = @people.paginate(:page => params[:page], :per_page => 15)
         @hashes = hashes_for_people(@people, @aspects)

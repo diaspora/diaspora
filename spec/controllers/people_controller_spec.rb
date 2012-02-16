@@ -52,6 +52,11 @@ describe PeopleController do
           get :index, :q => "Eugene@Example.ORG"
           assigns[:people][0].id.should == @unsearchable_eugene.id
         end
+
+        it 'sets the background query task' do
+          get :index, :q => "Eugene@Example.ORG"
+          assigns[:background_query].should == "eugene@example.org"
+        end
       end
 
       context 'query is a tag' do
@@ -75,6 +80,11 @@ describe PeopleController do
         it 'assigns hashes' do
           get :index, :q => "Korth"
           assigns[:hashes].should_not be_nil
+        end
+
+        it 'does not set the background query task' do
+          get :index, :q => "Korth"
+          assigns[:background_query].should_not be_present
         end
 
         it "assigns people" do
