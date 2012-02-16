@@ -12,7 +12,7 @@ class Post < ActiveRecord::Base
   has_many :participations, :dependent => :delete_all, :as => :target
 
   attr_accessor :user_like,
-                :user_participation
+                :user_participation,
                 :likes_count
   # NOTE API V1 to be extracted
   acts_as_api
