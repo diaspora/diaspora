@@ -44,3 +44,7 @@ end
 When /^I click the publisher and post "([^"]*)"$/ do |text|
   click_and_post(text)
 end
+
+When /^I post a photo with a token$/ do
+  pending # express the regexp above with the code you wish you had
+end
