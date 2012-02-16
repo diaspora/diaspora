@@ -66,6 +66,7 @@ it:
       comment: Commenta
       follow: Segui
       hide: Nascondi
+      hide_nsfw_posts: "Nascondi i post #nsfw"
       like: "Mi piace"
       likes:
         few: "<%= count %> mi piace"
@@ -92,6 +93,8 @@ it:
         other: "<%= count %> Condivisioni"
         two: "<%= count %> Condivisioni"
         zero: "<%= count %> Condivisioni"
+      show_nsfw_post: "Mostra il post"
+      show_nsfw_posts: "Mostra tutti i post"
       unfollow: "Non seguire più"
       unlike: "Non mi piace più"
     tags:

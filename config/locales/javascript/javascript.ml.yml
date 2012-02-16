@@ -67,6 +67,7 @@ ml:
       comment: "Comment"
       follow: "Follow"
       hide: "Hide"
+      hide_nsfw_posts: "Hide #nsfw posts"
       like: "Like"
       likes:
         few: "<%= count %> Likes"
@@ -93,7 +94,8 @@ ml:
         other: "<%= count %> Reshares"
         two: "<%= count %> Reshares"
         zero: "<%= count %> Reshares"
-      show_post: "Show post"
+      show_nsfw_post: "Show post"
+      show_nsfw_posts: "Show all"
       unfollow: "Unfollow"
       unlike: "Unlike"
     tags:

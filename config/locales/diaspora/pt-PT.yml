@@ -392,19 +392,19 @@ pt-PT:
       mark_all_as_read: "Marcar Tudo como Lido"
       notifications: Notificações
     liked:
-      few: "%{actors} marcaram o seu %{post_link}."
-      many: "%{actors} marcaram o seu %{post_link}."
-      one: "%{actors} marcou o seu %{post_link}."
-      other: "%{actors} marcaram o seu %{post_link}."
-      two: "%{actors} marcaram o seu %{post_link}."
-      zero: "%{actors} marcaram o seu %{post_link}."
+      few: "%{actors} gostaram do seu %{post_link}."
+      many: "%{actors} gostaram do seu %{post_link}."
+      one: "%{actors} gostou do seu %{post_link}."
+      other: "%{actors} gostaram do seu %{post_link}."
+      two: "%{actors} gostaram do seu %{post_link}."
+      zero: "%{actors} gostaram do seu %{post_link}."
     liked_post_deleted:
-      few: "%{actors} marcaram o seu artigo eliminado."
-      many: "%{actors} marcaram o seu artigo eliminado"
-      one: "%{actors} marcou o seu artigo eliminado."
-      other: "%{actors} marcaram o seu artigo eliminado."
-      two: "%{actors} marcaram o seu artigo eliminado."
-      zero: "%{actors} marcaram o seu artigo eliminado."
+      few: "%{actors} gostaram da sua publicação eliminada"
+      many: "%{actors} gostaram da sua publicação eliminada."
+      one: "%{actors} gostou da sua publicação eliminada."
+      other: "%{actors} gostaram da sua publicação eliminada."
+      two: "%{actors} gostaram do seu artigo eliminado."
+      zero: "%{actors} gostaram da sua publicação eliminada."
     mentioned:
       few: "%{actors} mencionou-o(a) numa %{post_link}."
       many: "%{actors} mencionou-o(a) numa %{post_link}."
@@ -459,7 +459,7 @@ pt-PT:
     email_sent_by_diaspora: "Este email foi enviado pelo Diaspora.  Se deseja deixar de receber emails deste tipo,"
     hello: "Olá %{name}!"
     liked:
-      liked: "%{name} marcou o seu artigo"
+      liked: "%{name} gostou da sua publicação"
       view_post: "Ver a publicação >"
     mentioned:
       mentioned: "mencionou-o numa publicação:"
@@ -807,7 +807,7 @@ pt-PT:
       zero: "Sem mais comentários"
   streams:
     aspects:
-      title: "Os Teus Aspectos"
+      title: "Meus Aspectos"
     aspects_stream: Aspectos
     comment_stream:
       contacts_title: "Pessoas cujas publicações você comentou"
@@ -820,8 +820,8 @@ pt-PT:
       title: "Etiquetas #Seguidas"
     followed_tags_stream: "Etiquetas #Seguidas"
     like_stream:
-      contacts_title: "Pessoas cujas publicações você marcou"
-      title: "Artigos marcados"
+      contacts_title: "Pessoas cujas publicações você gostou"
+      title: "Publicações que gostou"
     mentions:
       contacts_title: "Pessoas que o mencionaram"
       title: "Suas Menções"

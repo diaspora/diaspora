@@ -70,12 +70,12 @@ pl:
       hide: Ukryj
       like: "Lubię to!"
       likes:
-        few: "Przypięć: <%= count %>"
-        many: "Przypięć: <%= count %>"
-        one: "<%= count %> przypięcie"
-        other: "<%= count %> przypięć"
-        two: "<%= count %> przypięcia"
-        zero: "<%= count %> przypięć"
+        few: "Polubienia: <%= count %>"
+        many: "Polubienia: <%= count %>"
+        one: "<%= count %> polubienie"
+        other: "<%= count %> polubienia"
+        two: "<%= count %> polubienia"
+        zero: "<%= count %> polubień"
       limited: Ograniczone
       more_comments:
         few: "Wyświetl <%= count %> więcej komentarzy"
@@ -95,7 +95,7 @@ pl:
         two: "<%= count %> razy przekazano dalej"
         zero: "<%= count %> razy przekazano dalej"
       unfollow: "Nie obserwuj"
-      unlike: Odepnij
+      unlike: "Nie lubię"
     tags:
       wasnt_that_interesting: "OK, przypuszczam, że #<%= tagName %> nie był, aż tak interesujący..."
     timeago:

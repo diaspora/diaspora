@@ -803,6 +803,8 @@ it:
       two: "Mostra gli altri 2 commenti"
       zero: "Nessun altro commento"
   streams:
+    activity:
+      title: Attività
     aspects:
       title: Aspetti
     aspects_stream: Aspetti
@@ -824,7 +826,7 @@ it:
       contacts_title: "Persone che ti hanno menzionato"
       title: "@Menzioni"
     multi:
-      contacts_title: Persone
+      contacts_title: "Persone nel tuo Stream"
     public:
       contacts_title: "Chi ha postato di recente"
       title: "Attività pubblica"

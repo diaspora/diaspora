@@ -52,6 +52,8 @@ es:
     ignore: Ignorar
     infinite_scroll:
       no_more: "No hay más publicaciones."
+    my_activity: "Mi Actividad"
+    my_stream: Entrada
     photo_uploader:
       looking_good: "¡Guau, estás increíble!"
     publisher:
@@ -64,15 +66,17 @@ es:
     show_more: "mostrar más"
     stream:
       comment: Comentar
+      follow: Seguir
       hide: Ocultar
+      hide_nsfw_posts: "Ocultar publicaciones con #nsfw"
       like: Marcar
       likes:
-        few: "ha sido marcada por <%= count %> personas"
-        many: "ha sido marcada por <%= count %> personas"
-        one: "ha sido marcada por <%= count %> persona"
-        other: "ha sido marcada por <%= count %> personas"
-        two: "ha sido marcada por <%= count %> personas"
-        zero: "ha sido marcada por <%= count %> personas"
+        few: "le gusta a <%= count %> personas"
+        many: "le gusta a <%= count %> personas"
+        one: "le gusta a <%= count %> persona"
+        other: "le gusta a <%= count %> personas"
+        two: "le gusta a <%= count %> personas"
+        zero: "le gusta a <%= count %> personas"
       limited: Restringido
       more_comments:
         few: "Mostrar <%= count %> comentarios más"
@@ -91,7 +95,10 @@ es:
         other: "Compartido <%= count %> veces"
         two: "Compartido <%= count %> veces"
         zero: "Comparido <%= count %> veces"
-      unlike: Desmarcar
+      show_nsfw_post: "Mostrar publicación"
+      show_nsfw_posts: "Mostrar todas las publicaciones"
+      unfollow: "No seguir"
+      unlike: "No me gusta"
     tags:
       wasnt_that_interesting: "OK, supongo que #<%= tagName %> no era tan interesante..."
     timeago:
