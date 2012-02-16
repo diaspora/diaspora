@@ -2,22 +2,51 @@
 
 
 /* mixins */
-@mixin pushdown() {
-  /* temp hack... should use box model here */
-  padding-top: 10%;
+@mixin center() {
+  display: -webkit-box;
+  -webkit-box-orient: horizontal;
+  -webkit-box-pack: center;
+  -webkit-box-align: center;
+
+  display: -moz-box;
+  -moz-box-orient: horizontal;
+  -moz-box-pack: center;
+  -moz-box-align: center;
+
+  display: box;
+  box-orient: horizontal;
+  box-pack: center;
+  box-align: center;
+}
+
+@mixin box-shadow($left, $top, $blur, $color) {
+  -webkit-box-shadow: $left $top $blur $color;
+  -moz-box-shadow: $left $top $blur $color;
+  box-shadow: $left $top $blur $color;
+}
+
+@mixin background-cover() {
+  background: no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }
 
 /* styles */
 
 .multi-photo {
   .img-bounding-box {
-    display: inline-block;
+    @include center();
+
     margin-left: 10px;
     height: 500px;
-    width: 300px;
+    width: 400px;
   }
 
   img {
+    @include box-shadow(0, 3px, 15px, #999);
+
     max-width: 100%;
     max-height: 100%;
   }
@@ -28,28 +57,38 @@
 }
 
 .status {
-  @include pushdown();
-
-  text-align: center;
-
   h1 {
     font-weight: bold;
-    font-size: 60px;
+    font-size: 40px;
   }
+
+  &.photo-backdrop {
+    h1 {
+      font-size: 100px;
+    }
+  }
+}
+
+.darken {
+  @include center();
+
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0,0,0,0.3);
 }
 
 .backdrop,
 .photo-backdrop {
+  @include center();
+  @include background-cover();
+
   position: fixed;
 
   top: 0;
   left: 0;
-
-  background: no-repeat center center fixed;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
 
   width: 100%;
   height: 100%;
@@ -63,8 +102,6 @@
 }
 
 .rich-media {
-  @include pushdown();
-
   text-align: center;
 
   background-color: #333;
@@ -74,7 +111,7 @@
   }
 
   iframe {
-    box-shadow: 0 3px 15px #000;
+    @include box-shadow(0, 3px, 15px, #000);
 
     width: 857px;
     height: 480px;
