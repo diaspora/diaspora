@@ -61,6 +61,7 @@ GEM
       rack-mount (~> 0.6.14)
       rack-test (~> 0.5.7)
       tzinfo (~> 0.3.23)
+    active_reload (0.6.1)
     activemodel (3.0.11)
       activesupport (= 3.0.11)
       builder (~> 2.1.2)
@@ -430,6 +431,7 @@ PLATFORMS
 
 DEPENDENCIES
   SystemTimer (= 1.2.3)
+  active_reload
   activerecord-import
   acts-as-taggable-on!
   acts_as_api

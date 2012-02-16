@@ -2,6 +2,8 @@
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
+require Rails.root.join("app", "presenters", "post_presenter")
+
 class PostsController < ApplicationController
   before_filter :authenticate_user!, :except => :show
   before_filter :set_format_if_malformed_from_status_net, :only => :show
@@ -31,7 +33,7 @@ class PostsController < ApplicationController
       respond_to do |format|
         format.xml{ render :xml => @post.to_diaspora_xml }
         format.mobile{render 'posts/show.mobile.haml'}
-        format.json{ render :json => {:posts => @post.as_api_response(:backbone)}, :status => 201 }
+        format.json{ render :json => PostPresenter.new(@post).to_json }
         format.any{render 'posts/show.html.haml'}
       end
 
