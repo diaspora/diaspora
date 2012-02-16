@@ -6,75 +6,26 @@
 %html{:lang => I18n.locale.to_s, :dir => (rtl?) ? 'rtl' : 'ltr'}
   %head
     %meta{:charset => 'utf-8'}
-
-    %title
-      = page_title yield(:page_title)
-
     %meta{'http-equiv' => 'X-UA-Compatible', :content => 'IE=edge,chrome=1'}
+    %meta{"http-equiv"=>"Content-Type", :content=>"text/html; charset=utf-8"}
 
-    %meta{"http-equiv"=>"Content-Type", :content=>"text/html; charset=utf-8"}/
+    %meta{:name => "description", :content => "Diaspora*"}
+    %meta{:name => "author", :content => "Diaspora, Inc."}
 
     %link{:rel => 'shortcut icon', :href => '/favicon.png'}
     %link{:rel => 'apple-touch-icon', :href => '/apple-touch-icon.png'}
 
-    :css
-      @-webkit-keyframes fade-in {
-        0%   { opacity: 0; }
-        100% { opacity: 1; }
-      }
+    %title
+      = page_title yield(:page_title)
 
-      @-webkit-keyframes spin {
-        0%   { -webkit-transform: rotate(0deg); }
-        100% { -webkit-transform: rotate(360deg); }
-      }
-
-      @-moz-keyframes fade-in {
-        0%   { opacity: 0; }
-        100% { opacity: 1; }
-      }
-
-      @-moz-keyframes spin {
-        0%   { -moz-transform: rotate(0deg); }
-        100% { -moz-transform: rotate(360deg); }
-      }
-
-      .loaded {
-        -webkit-animation: fade-in 0.16s linear;
-        -moz-animation: fade-in 0.16s linear;
-      }
-
-      .loader {
-        -webkit-animation: spin 1s infinite ease-in-out,
-                           fade-in 0.2s ease-in;
-        -moz-animation: spin 1s infinite ease-in-out,
-                           fade-in 0.2s ease-in;
-
-      }
-
-    / bootstrap/blueprint switch
-    - if @aspect == :getting_started || @page == :logged_out
-      = include_stylesheets :bootstrap
-    - else
-      = include_stylesheets :blueprint, :media => 'screen'
-
+    = include_base_css_framework
     = include_stylesheets :login, :media => 'screen'
-
     = include_stylesheets :default, :media => 'all'
+
     - if rtl?
       = include_stylesheets :rtl, :media => 'all'
 
-    :javascript
-      // Support for older browsers
-      if(Array.isArray === undefined) {  
-        Array.isArray = function (arg) {  
-          return Object.prototype.toString.call(arg) == '[object Array]';  
-        };  
-      }
-      if ((window.history) && (window.history.pushState === undefined)) {
-        window.history.pushState = function() { };
-      }
-
-    = csrf_meta_tag
+    = old_browser_js_support
     <!--[if IE]>
     = include_javascripts :ie
     <![endif]-->
@@ -82,55 +33,28 @@
     = jquery_include_tag
     - unless @landing_page
       = include_javascripts :main, :templates
-      
-      :javascript
-        Diaspora.I18n.loadLocale(#{get_javascript_strings_for(I18n.locale).to_json}, "#{I18n.locale}");
-        Diaspora.Page = "#{params[:controller].camelcase}#{params[:action].camelcase}";
+      = load_javascript_locales
 
-    :javascript
-      app.baseImageUrl("#{ENV['ASSET_HOST']}")
-
-    - if current_user
-      :javascript
-        app.user(
-          _.extend(#{current_user.person.as_api_response(:backbone).to_json}, {
-            notifications_count : #{notification_count},
-            unread_messages_count : #{unread_message_count},
-            admin : #{current_user.admin?}
-          })
-        );
+    = set_asset_host
+    = set_current_user_in_javascript
+    = translation_missing_warnings
+    = current_user_atom_tag
 
     = yield(:head)
+    = csrf_meta_tag
 
-    -unless Rails.env == "production"
-      :css
-        .translation_missing {
-          color: purple;
-          background-color: red;
-        }
-
-    - if @person
-      %link{:rel => "alternate", :href => "#{@person.public_url}.atom", :type => "application/atom+xml", :title => "#{t('.public_feed', :name => @person.name)}"}
-
-  %body{:class => "#{yield(:body_class)}"}
-
-    - unless @page == :logged_out
-      - flash.each do |name, msg|
-        %div{:id => "flash_#{name}"}
-          .message
-            = msg
-
-      #notifications
+  %body
+    = flash_messages
 
     - unless current_user
       %header
         = render 'layouts/header'
 
-    .container{:style=> "#{yield(:break_the_mold)}"}
+    .container
       - if @aspsect == :getting_started || @page == :logged_out
         = yield
       - else
-        .span-24.last{:style=> "#{yield(:break_the_mold)}"}
+        .span-24.last
           = yield
 
     - unless @landing_page
