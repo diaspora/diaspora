@@ -36,16 +36,11 @@ module LayoutHelper
 
   def set_current_user_in_javascript
     return unless current_user
-
+    current_user_presenter = UserPresenter.new(current_user)
+    
     content_tag(:script) do
       <<-JS.html_safe
-        app.user(
-          _.extend(#{current_user.person.as_api_response(:backbone).to_json}, {
-            notifications_count : #{notification_count},
-            unread_messages_count : #{unread_message_count},
-            admin : #{current_user.admin?}
-          })
-        );
+        app.user(#{current_user_presenter.to_json});
       JS
     end
   end

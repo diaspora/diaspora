@@ -1,8 +1,8 @@
 #notifications_content
   .span-13
     %h2
-      %span.notification_count{:class => ('unread' if notification_count > 0)}
-        = notification_count
+      %span.notification_count{:class => ('unread' if @unread_notification_count >0  )}
+        = @unread_notification_count
       = t('.notifications')
   .span-8.last
     = link_to t('.mark_all_as_read'), notifications_read_all_path, :class => 'button'
