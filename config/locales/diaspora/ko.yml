@@ -815,6 +815,8 @@ ko:
       two: "댓글 두 개 더 보기"
       zero: "댓글이 더 없습니다"
   streams:
+    activity:
+      title: "내 활동"
     aspects:
       title: "내 애스펙"
     aspects_stream: 애스펙

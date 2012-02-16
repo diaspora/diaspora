@@ -29,7 +29,7 @@ de:
       show: "Alle Kommentare zeigen"
     confirm_dialog: "Bist du dir sicher?"
     delete: Löschen
-    failed_to_like: "Anpinnen fehlgeschlagen!"
+    failed_to_like: "Gefällt mir fehlgeschlagen!"
     failed_to_post_message: "Konnte Beitrag nicht senden!"
     getting_started:
       alright_ill_wait: "Alles klar, ich warte."
@@ -62,14 +62,14 @@ de:
     stream:
       comment: Kommentar
       hide: Ausblenden
-      like: Pinnen
+      like: "Gefällt mir"
       likes:
-        few: "<%= count %> Pins"
-        many: "<%= count %> Pins"
-        one: "<%= count %> Pin"
-        other: "<%= count %> Pins"
-        two: "<%= count %> Pins"
-        zero: "<%= count %> Pins"
+        few: "<%= count %> Personen gefällt das"
+        many: "<%= count %> Personen gefällt das"
+        one: " Einer Person gefällt das"
+        other: "<%= count %> Personen gefällt das"
+        two: "<%= count %> Personen gefällt das"
+        zero: "Keinem gefällt das"
       limited: Begrenzt
       more_comments:
         few: "Zeige <%= count %> weitere Kommentare"
@@ -88,7 +88,7 @@ de:
         other: "<%= count %> mal weitergesagt"
         two: "<%= count %> mal weitergesagt"
         zero: "<%= count %> mal weitergesagt"
-      unlike: Abpinnen
+      unlike: "Gefällt mir nicht mehr"
     tags:
       wasnt_that_interesting: "OK, ich nehme an, #<%= tagName %> war nicht so interessant..."
     timeago:

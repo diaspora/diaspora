@@ -337,12 +337,12 @@ pl:
         two: "%{count} os. tego nie lubi"
         zero: "nikt tego nie nielubi"
       people_like_this:
-        few: "%{count} likes"
-        many: "%{count} likes"
-        one: "%{count} like"
-        other: "%{count} likes"
-        two: "%{count} likes"
-        zero: "no likes"
+        few: "%{count} os. to lubi"
+        many: "%{count} os. to lubi"
+        one: "%{count} os. to lubi"
+        other: "%{count} os. to lubi"
+        two: "%{count} os. to lubią"
+        zero: "nikt nie lubi"
       people_like_this_comment:
         few: "%{count} os. to lubi"
         many: "%{count} os. to lubi"
@@ -396,19 +396,19 @@ pl:
       mark_all_as_read: "Oznacz wszystkie jako przeczytane"
       notifications: Powiadomienia
     liked:
-      few: "%{actors} przypięło Twój %{post_link}."
-      many: "%{actors} przypięło Twój %{post_link}."
-      one: "%{actors} przypi@{m:ął|f:ęła|n:ął/ęła} Twój %{post_link}."
-      other: "%{actors} przypięli Twój %{post_link}."
-      two: "%{actors} przypięły Twój %{post_link}."
-      zero: "%{actors} przypi@{m:ął|f:ęła|n:ął/ęła} Twój wpis."
+      few: "%{actors} polubiło Twój %{post_link}."
+      many: "%{actors} polubiło Twój %{post_link}."
+      one: "%{actors} polubi@{m:ł|f:ła|n:ł/ła} Twój %{post_link}."
+      other: "%{actors} polubili Twój %{post_link}."
+      two: "%{actors} polubiło Twój %{post_link}."
+      zero: "%{actors} polibi@{m:ł|f:ła|n:ł/ła} Twój wpis."
     liked_post_deleted:
-      few: "%{actors} przypięli Twój usunięty wpis."
-      many: "%{actors} przypięło Twój usunięty wpis."
-      one: "%{actors} przypi@{m:ął|f:ęła|n:ął/ęła} Twój usunięty wpis."
-      other: "%{actors} przypi@{m:ął|f:ęła|n:ął/ęła} Twój usunięty wpis."
-      two: "%{actors} przypięli Twój usunięty wpis."
-      zero: "%{actors} przypię@{m:ło|f:ła|n:ło/ła} Twój usunięty wpis."
+      few: "%{actors} polubiło Twój usunięty wpis."
+      many: "%{actors} polubiło Twój usunięty wpis."
+      one: "%{actors} polubi@{m:ł|f:ła|n:ł/ła} Twój usunięty wpis."
+      other: "%{actors} polubi@{m:ł|f:ła|n:ł/ła} Twój usunięty wpis."
+      two: "%{actors} polubili Twój usunięty wpis."
+      zero: "%{actors} polubiło Twój usunięty wpis."
     mentioned:
       few: "%{actors} wspomnieli o Tobie w %{post_link}."
       many: "%{actors} wspomnieli o Tobie w %{post_link}."
@@ -463,7 +463,7 @@ pl:
     email_sent_by_diaspora: "Ta wiadomość została wysłana przez Diasporę. Jeśli nie chcesz otrzymywać takich wiadomości,"
     hello: "Cześć %{name}!"
     liked:
-      liked: "%{name} przypi@{m:ął|f:ęła|n:ł} Twój wpis"
+      liked: "%{name} polubi@{m:ł|f:ła|n:ł/ła} Twój wpis"
       view_post: "Wyświetl wpis >"
     mentioned:
       mentioned: "wspomniał(a) o Tobie we wpisie:"
@@ -780,9 +780,11 @@ pl:
       hide_and_mute: "Ukryj i wycisz wpis"
       ignore_user: "Ignoruj - %{name}"
       ignore_user_description: "Dodać użytkownika do listy ignorowanych i usunąć ze wszystkich aspektów?"
+      like: "Lubię to!"
       nsfw: "Ten wpis został oznaczony przez jego autora jako NSFW (Not suitable/safe for work). %{link}"
       shared_with: "Opublikowano w: %{aspect_names}"
       show: wyświetl
+      unlike: "Nie lubię"
       via: "przez %{link}"
       viewable_to_anyone: "Ten wpis jest widoczny dla każdego"
   status_messages:
@@ -812,7 +814,7 @@ pl:
       zero: "Nie ma więcej komentarzy"
   streams:
     aspects:
-      title: "Twoje Aspekty"
+      title: "Moje aspekty"
     aspects_stream: Aspekty
     comment_stream:
       contacts_title: "Osoby których wpisy zostały skomentowane przez Ciebie"
@@ -825,15 +827,15 @@ pl:
       title: "#Obserwowane znaczniki"
     followed_tags_stream: "#Obserwowane znaczniki"
     like_stream:
-      contacts_title: "Osoby, których wpisy przypi@{m:ąłeś|f:ęłaś|n:ąłeś/ęłaś}"
-      title: "Strumień przypiętych"
+      contacts_title: "Osoby, których wpisy polubi@{m:łeś|f:łaś|n:łeś/łaś}"
+      title: "Strumień polubionych"
     mentioned_stream: "@Wzmianki"
     mentions:
       contacts_title: "Wspomnieli o Tobie"
       title: "@Wzmianki"
     multi:
       contacts_title: "Osoby w Strumieniu Poznawania"
-      title: Poznawaj
+      title: Strumień
     public:
       contacts_title: "Ostatnio dodawali"
       title: "Działalność publiczna"
@@ -909,7 +911,7 @@ pl:
       export_data: "Eksport danych"
       following: "Ustawienia obserwowania"
       getting_started: "Preferencje nowego użytkownika"
-      liked: "...ktoś przypiął mój wpis"
+      liked: "...ktoś polubił mój wpis"
       mentioned: "...ktoś o mnie wspomniał we wpisie"
       new_password: "Nowe hasło"
       photo_export_unavailable: "Eksportowanie zdjęć jest aktualnie niedostępne"

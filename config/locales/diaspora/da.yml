@@ -325,12 +325,12 @@ da:
         two: "%{count} synes ikke om"
         zero: "ingen synes ikke om"
       people_like_this:
-        few: "%{count} likes"
-        many: "%{count} likes"
-        one: "%{count} like"
-        other: "%{count} likes"
-        two: "%{count} likes"
-        zero: "no likes"
+        few: "%{count} synes om dette"
+        many: "%{count} synes om dette"
+        one: "%{count} synes om dette"
+        other: "%{count} synes om dette"
+        two: "%{count} synes om dette"
+        zero: "ingen synes om dette"
       people_like_this_comment:
         few: "%{count} synes om"
         many: "%{count} synes om"
@@ -386,8 +386,8 @@ da:
     liked:
       few: "%{actors} har lige syntes om dit %{post_link}."
       many: "%{actors} har lige syntes om dit %{post_link}."
-      one: "%{actors} har syntes om dit %{post_link}."
-      other: "%{actors} har syntes om dit %{post_link}."
+      one: "%{actors} har lige syntes om dit %{post_link}."
+      other: "%{actors} har lige syntes om dit %{post_link}."
       two: "%{actors} har lige syntes om dit %{post_link}."
       zero: "%{actors} har lige syntes om dit %{post_link}."
     liked_post_deleted:
@@ -470,6 +470,7 @@ da:
       view_profile: "Vis %{navn}s profil"
     thanks: "Tak,"
     to_change_your_notification_settings: "for at ændre dine indstillinger for meddelelser"
+  nsfw: "Uegnet til arbejdsvisning (NSFW)"
   or: eller
   password: Adgangskode
   password_confirmation: "Adgangskode bekræftelse"
@@ -763,9 +764,11 @@ da:
       hide_and_mute: "Skjul indlægget og dets kommentarer"
       ignore_user: "Ignorer %{name}"
       ignore_user_description: "Ignorer og fjern bruger fra alle aspekter?"
+      like: "Synes om"
       nsfw: "Dette indlæg er markeret af forfatteren som 'uegnet til arbejdsvisning'. %{link}"
       shared_with: "Delt med: %{aspect_names}"
       show: vis
+      unlike: "Synes ikke om"
       viewable_to_anyone: "Dette indlæg er synlig for alle på internettet"
   status_messages:
     create:
@@ -793,6 +796,8 @@ da:
       two: "Vis to kommentarer til"
       zero: "Ikke flere kommentarer"
   streams:
+    activity:
+      title: "Min aktivitet"
     aspects:
       title: "Dine aspekter"
     aspects_stream: Aspekter
@@ -814,8 +819,8 @@ da:
       contacts_title: "Personer der har nævnt dig"
       title: "Dine omtaler"
     multi:
-      contacts_title: "Personer i din Udforskningsstrøm"
-      title: Udforsk
+      contacts_title: "Personer i din Strøm"
+      title: Strøm
     public:
       contacts_title: "Seneste indlæg"
       title: "Offentlig Aktivitet"
@@ -885,6 +890,7 @@ da:
       edit_account: "Rediger konto"
       email_awaiting_confirmation: "Vi har sendt dig et aktiveringslink til %{unconfirmed_email}. Indtil du følger dette link og aktiverer den nye adresse, vil vi fortsætte med at bruge din oprindelige adresse %{email}."
       export_data: "Eksportér data"
+      following: Følgeskabsindstillinger
       getting_started: "Ny bruger opsætning"
       liked: "...nogen synes om dit indlæg?"
       mentioned: "...du er nævnt i et indlæg?"
@@ -925,6 +931,8 @@ da:
       does_not_exist: "Brugeren %{username} findes ikke!"
     update:
       email_notifications_changed: "E-mail notifikation ændret"
+      follow_settings_changed: "Følgeskabsindstillinger ændret"
+      follow_settings_not_changed: "Ændring af følgeskabsindstillinger mislykkedes."
       language_changed: "Sprog ændret"
       language_not_changed: "Kunne ikke ændre sprog"
       password_changed: "Adgangskode ændret"

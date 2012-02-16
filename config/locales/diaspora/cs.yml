@@ -747,7 +747,7 @@ cs:
       zero: "Žádné další komentáře"
   streams:
     aspects:
-      title: "Vaše aspekty"
+      title: "Moje aspekty"
     aspects_stream: Aspekty
     followed_tag:
       add_a_tag: "Přidat štítek"
