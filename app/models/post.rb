@@ -13,7 +13,7 @@ class Post < ActiveRecord::Base
 
   attr_accessor :user_like,
                 :user_participation
-
+                :likes_count
   # NOTE API V1 to be extracted
   acts_as_api
   api_accessible :backbone do |t|
