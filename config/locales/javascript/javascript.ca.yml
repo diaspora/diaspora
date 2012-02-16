@@ -27,6 +27,8 @@ ca:
         months: "%d mesos"
         year: "aproximadament un any"
         years: "%d anys"
+      my_activity: "La meua activitat"
+      my_stream: "Flux"
       videos:
           watch: "Visualitza aquest video a <%= provider %>"
           unknown: "El tipus de vídeo és desconegut"
@@ -82,8 +84,11 @@ ca:
         reshare: "Torna a compartir"
         comment: "Comenta"
         original_post_deleted: "Publicació original suprimida per l'autor."
-        nsfw: "Aquesta publicació ha estat etiquetada com no apropiada per a entorns de treball (NSFW) pel seu autor."
-        show: "Mostra"
+        show_nsfw_post: "Mostra la publicació"
+        show_nsfw_posts: "Mostra-les totes"
+        hide_nsfw_posts: "Amaga les publicacions #nsfw"
+        follow: "Segueix"
+        unfollow: "Deixa de seguir"
 
         likes:
           zero: "a cap persona li agrada"
@@ -120,7 +125,7 @@ ca:
         notifications: "Notificacions"
         messages: "Missatges"
 
-        search: "Cerqueu gent o #etiquetes"
+        search: "Cerca"
 
         recent_notifications: "Notificacions recents"
         mark_all_as_read: "Marca'ls tots com llegits"
