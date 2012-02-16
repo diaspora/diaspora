@@ -19,7 +19,7 @@ var app = {
 
     if(this._user){
       app.header = new app.views.Header;
-      $("body").prepend(app.header.el);
+      $("header").prepend(app.header.el);
       app.header.render();
     }
 
@@ -36,6 +36,6 @@ var app = {
   }
 };
 
-$(function() { 
+$(function() {
   app.initialize();
 });

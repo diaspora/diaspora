@@ -18,7 +18,7 @@
     %title
       = page_title yield(:page_title)
 
-    = include_base_css_framework
+    = include_base_css_framework(:bootstrap)
     = include_stylesheets :login, :media => 'screen'
     = include_stylesheets :default, :media => 'all'
 
@@ -46,28 +46,4 @@
   %body
     = flash_messages
 
-    %header
-      - unless current_user
-        = render 'layouts/header'
-
-    .container
-      - if @aspsect == :getting_started || @page == :logged_out
-        = yield
-      - else
-        .span-24.last
-          = yield
-
-    - unless @landing_page
-      %a{:id=>"back-to-top", :title=>"#{I18n.t('.back_to_top')}", :href=>"#"}
-        &#8679;
-
-    %footer
-      .container
-        %ul#footer_nav
-          %li= link_to '@joindiaspora', "http://twitter.com/joindiaspora"
-          %li= link_to 'github', "https://github.com/diaspora/diaspora"
-          %li= link_to t('layouts.header.blog'), "http://blog.joindiaspora.com"
-          %li= link_to t('layouts.header.code'), "#{root_url.chomp('/')}/source.tar.gz" unless request.url.match(/joindiaspora.com/)
-          %li= link_to t('.whats_new'), 'https://github.com/diaspora/diaspora/wiki/Changelog'
-          %li= link_to(t('layouts.application.toggle'), toggle_mobile_path)  if is_mobile_device?
-        = image_tag 'powered_by_diaspora.png', :height => "11px", :width => "145px"
+    = yield

@@ -34,7 +34,7 @@ class PostsController < ApplicationController
         format.xml{ render :xml => @post.to_diaspora_xml }
         format.mobile{render 'posts/show.mobile.haml'}
         format.json{ render :json => PostPresenter.new(@post).to_json }
-        format.any{render 'posts/show.html.haml'}
+        format.any{render 'posts/show.html.haml', :layout => 'layouts/post'}
       end
 
     else

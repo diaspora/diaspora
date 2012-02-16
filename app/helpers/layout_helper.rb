@@ -60,8 +60,8 @@ module LayoutHelper
     end
   end
 
-  def include_base_css_framework
-    if @aspect == :getting_started || @page == :logged_out
+  def include_base_css_framework(use_bootstrap=false)
+    if use_bootstrap || @aspect == :getting_started || @page == :logged_out
       include_stylesheets :bootstrap
     else
       include_stylesheets :blueprint, :media => 'screen'
