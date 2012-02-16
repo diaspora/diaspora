@@ -11,10 +11,25 @@
 :javascript
   $(function(){
     $(document).keypress(function(event){
+      console.log(event.which);
         $('#text').focus();
         $('#comment').modal();
         $('#text').focus();
       });
+
+    $(document).keydown(function(e){
+      console.log(e.keyCode);
+      if (e.keyCode == 37) { 
+
+         window.location = $('#back').attr('href');
+
+      }else if(e.keyCode == 39) {
+
+         window.location = $('#forward').attr('href');
+
+      }else{}
+
+    });
   });
 
 #post-author-header
@@ -23,8 +38,8 @@
 
 #post-content
 
-= link_to image_tag('arrow-left.png'), post_path(@post.id-1), :class => 'nav-arrow left'
-= link_to image_tag('arrow-right.png'), post_path(@post.id+1), :class => 'nav-arrow right'
+= link_to image_tag('arrow-left.png'), post_path(@post.id-1), :class => 'nav-arrow left', :id => 'back'
+= link_to image_tag('arrow-right.png'), post_path(@post.id+1), :class => 'nav-arrow right', :id => 'forward'
 
 #comment.modal.fade
   .modal-body
