@@ -21,7 +21,7 @@ class CommentsController < ApplicationController
     if @comment
       respond_to do |format|
         format.json{ render :json => @comment.as_api_response(:backbone), :status => 201 }
-        format.html{ render :nothing => true, :status => 201 }
+        format.html{ redirect_to :back}
         format.mobile{ render :partial => 'comment', :locals => {:post => @comment.post, :comment => @comment} }
       end
     else

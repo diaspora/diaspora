@@ -5,6 +5,18 @@
 - content_for :page_title do
   = post_page_title @post
 
+- content_for :head do
+  =javascript_include_tag 'vendor/bootstrap/bootstrap-transition', 'vendor/bootstrap/bootstrap-modal'
+
+:javascript
+  $(function(){
+    $(document).keypress(function(event){
+        $('#text').focus();
+        $('#comment').modal();
+        $('#text').focus();
+      });
+  });
+
 #post-author-header
   = person_image_tag @post.author
   = @post.author.name
@@ -13,3 +25,10 @@
 
 = link_to image_tag('arrow-left.png'), post_path(@post.id-1), :class => 'nav-arrow left'
 = link_to image_tag('arrow-right.png'), post_path(@post.id+1), :class => 'nav-arrow right'
+
+#comment.modal.fade
+  .modal-body
+    = form_tag comments_path, :remote => true do 
+      = text_area_tag :text, ''
+      = hidden_field_tag :post_id, @post.id
+      = submit_tag 'submit', :onclick => "$('#comment').modal('hide'); $('#text').text('')"
