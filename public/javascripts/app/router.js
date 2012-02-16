@@ -47,7 +47,7 @@ app.Router = Backbone.Router.extend({
         templateName : templateName
       }).render();
 
-      $("#main_stream").html(view.el);
+      $("#post-content").html(view.el);
     }})
   }
 });

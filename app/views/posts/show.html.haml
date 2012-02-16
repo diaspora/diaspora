@@ -5,12 +5,11 @@
 - content_for :page_title do
   = post_page_title @post
 
+#post-author-header
+  = person_image_tag @post.author
+  = @post.author.name
 
-#main_stream
-%br
-%br
-%br
+#post-content
 
-#post-nav
-  = link_to 'prev', post_path(@post.id-1)
-  = link_to 'next', post_path(@post.id+1)
+= link_to image_tag('arrow-left.png'), post_path(@post.id-1), :class => 'nav-arrow left'
+= link_to image_tag('arrow-right.png'), post_path(@post.id+1), :class => 'nav-arrow right'
