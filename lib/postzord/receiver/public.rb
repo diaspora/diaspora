@@ -20,16 +20,15 @@ class Postzord::Receiver::Public < Postzord::Receiver
 
   # @return [void]
   def receive!
-    raise 'not valid signature' unless verified_signature?
-    raise 'unable to save object' unless save_object
+    return false unless verified_signature?
+    return false unless save_object
 
-    FEDERATION_LOGGER.info("received a #{@object.class}:#{@object.guid} with author #{@object.author.diaspora_handle}")
+    FEDERATION_LOGGER.info("received a #{@object.inspect}")
     if @object.respond_to?(:relayable?)
       receive_relayable
     elsif @object.is_a?(AccountDeletion)
       #nothing
     else
-      FEDERATION_LOGGER.info("queuing local batchjob")
       Resque.enqueue(Jobs::ReceiveLocalBatch, @object.class.to_s, @object.id, self.recipient_user_ids)
       true
     end

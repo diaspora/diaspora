@@ -28,7 +28,7 @@ class Postzord::Receiver::Private < Postzord::Receiver
       end
     rescue Exception => e
       #this sucks
-      FEDERATION_LOGGER.info("Failure to receive #{@object.class}:#{@object.id} for sender:#{@sender.id} for user:#{@user.id}: #{e.message}")
+      FEDERATION_LOGGER.info("Failure to receive #{@object.inspect} for sender:#{@sender.id} for user:#{@user.id}: #{e.message}")
       raise e
     end
   end
@@ -53,7 +53,7 @@ class Postzord::Receiver::Private < Postzord::Receiver
   def receive_object
     obj = @object.receive(@user, @author)
     Notification.notify(@user, obj, @author) if obj.respond_to?(:notification_type)
-    FEDERATION_LOGGER.info("user:#{@user.id} successfully received private post from person#{@sender.guid} #{@object.class}:#{@object.guid}")
+    FEDERATION_LOGGER.info("user:#{@user.id} successfully received private post from person#{@sender.guid} #{@object.inspect}")
     obj
   end
 

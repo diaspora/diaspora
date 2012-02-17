@@ -51,7 +51,7 @@ class Webfinger
     else
       person = make_person_from_webfinger
     end
-    FEDERATION_LOGGER.logger.info("successfully webfingered#{@account}")
+    FEDERATION_LOGGER.info("successfully webfingered#{@account}")
     person
   end
 
