@@ -56,11 +56,19 @@
 
     - if current_user
       #user-controls
-        = link_to "Like", "#", :class => "label"
-        = link_to "Follow", "#", :class => "label"
-        = link_to "Reshare", "#", :class => "label"
-        = link_to "Comment", "#", :class => "label"
-        = person_image_link(current_user.person)
+        = link_to "#", :class => "label" do
+          %i.icon-heart.icon-white
+
+        = link_to "#", :class => "label" do
+          %i.icon-plus.icon-white
+
+        = link_to "#", :class => "label" do
+          %i.icon-retweet.icon-white
+
+        = link_to "#", :class => "label",  do
+          %i.icon-comment.icon-white
+
+        = link_to person_image_tag(current_user.person), root_path
 
 #post-content
 
@@ -68,8 +76,21 @@
 = link_to image_tag('arrow-right.png'), post_path(@post.id+1), :class => 'nav-arrow right', :id => 'forward'
 
 #comment.modal.fade
+  .modal-header
+    %h3
+      Responses
+
   .modal-body
-    = form_tag comments_path, :remote => true do
-      = text_area_tag :text, ''
-      = hidden_field_tag :post_id, @post.id
-      = submit_tag 'submit', :onclick => "$('#comment').modal('hide'); $('#text').text('')"
+    - @post.comments.each do |c|
+      .media
+        .img
+          = person_image_link c.author
+        .bd
+          %strong= person_link(c.author)
+          %br
+          = c.text
+    .modal-footer
+      = form_tag comments_path, :remote => true do
+        = text_area_tag :text, '', :class => 'span6'
+        = hidden_field_tag :post_id, @post.id
+        = submit_tag 'submit', :onclick => "$('#comment').modal('hide'); $('#text').text('')"
