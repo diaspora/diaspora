@@ -38,19 +38,19 @@ it:
         email_us: "Per domande generali e per avere aiuto riguardo al tuo account Diaspora, scrivi pure a %{email}."
         finally: "Finalmente - è qui"
         friends_saying: "Cosa dicono i tuoi amici..."
-        get_connected: Connettiti
+        get_connected: "Connettiti"
         get_connected_paragraph: "Una comunità internazionale, con una visione condivisa per un web migliore, la funzionalità n°1 di %{strong_diaspora} è la sua community. Trova persone nuove, stai in contatto con gli amici e divertiti."
-        have_fun: Divertiti
+        have_fun: "Divertiti"
         have_fun_paragraph: "%{strong_diaspora} è fatta per sorprenderti con nuovi contenuti e nuove persone online. %{link}, la prima applicazione al mondo per %{strong_diaspora}, è solo l'inizio. Colleziona e condividi quel che trovi in rete in tutto il suo splendore."
         help_fund: "aiuta a finanziare Diaspora"
-        here: qui
+        here: "qui"
         ignore: "Se non vuoi accettare l'invito, per favore ignora questa email."
         join_team: "Entra nel nostro team"
         love: "Con affetto,"
         made_by_people: "%{strong_diaspora} è fatta di persone che amano internet tanto quanto te. %{jointeam}, o %{helpfund}!"
         more_people: "Tante altre persone son felici di trovarti qui!"
         no_account_till: "Il tuo account non sarà creato finché non cliccherai sul link qua sopra ed effettuerai la registrazione."
-        or: oppure
+        or: "oppure"
         sign_up_now: "Iscriviti adesso &rarr;"
         subject: "Hai un invito per iscriverti a Diaspora!"
         team_diaspora: "Il team di Diaspora"
@@ -92,8 +92,8 @@ it:
         bugs_and_feedback_mobile: "Stai attento, troverai dei bug. Incoraggiamo gli utenti a usare il pulsante Feedback sulla destra del browser per segnalare qualunque errore! Lavoreremo il più velocemente possibile per risolvere i problemi che ci segnali."
         login: "Effettua l'accesso"
         modern_browsers: "supporta soltano i browser recenti."
-        remember_me: Ricordami
-        sign_in: Accedi
+        remember_me: "Ricordami"
+        sign_in: "Accedi"
         username: "Nome utente"
       signed_in: "Accesso effettuato con successo."
       signed_out: "Disconnessione effettuata con successo."
@@ -102,8 +102,8 @@ it:
         forgot_your_password: "Hai dimenticato la password?"
         receive_confirmation: "Non hai ricevuto le istruzioni per la conferma?"
         receive_unlock: "Non hai ricevuto le istruzioni per lo sblocco?"
-        sign_in: Accedi
-        sign_up: Registrati
+        sign_in: "Accedi"
+        sign_up: "Registrati"
         sign_up_closed: "Le iscrizioni pubbliche sono chiuse al momento."
       mail_signup_form:
         sign_up_for_an_invite: "Registrati per ricevere un invito!"

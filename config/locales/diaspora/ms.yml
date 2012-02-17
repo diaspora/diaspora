@@ -5,13 +5,13 @@
 
 
 ms:
-  _applications: Aplikasi
+  _applications: "Aplikasi"
   _comments: komen-komen
   _contacts: Kenalan-kenalan
   _home: "Laman Utama"
-  _photos: gambar
-  _services: Perkhidmatan
-  account: Akaun
+  _photos: "gambar"
+  _services: "Perkhidmatan"
+  account: "Akaun"
   activerecord:
     errors:
       models:
@@ -58,7 +58,7 @@ ms:
     edit:
       add_existing: "Tambah kenalan yang sedia ada"
       confirm_remove_aspect: "Adakah anda pasti anda mahu memadam aspek ini?"
-      done: Selesai
+      done: "Selesai"
       make_aspect_list_visible: "membuat kenalan dalam aspek ini dapat dilihat antara satu sama lain?"
       remove_aspect: "Padam aspek ini"
       update: "kemas kini"
@@ -67,7 +67,7 @@ ms:
     helper:
       are_you_sure: "Adakah anda pasti anda mahu memadam aspek ini?"
       aspect_not_empty: "Aspek tidak kosong"
-      remove: buang
+      remove: "buang"
     index:
       cubbies:
         explanation: "Cubbi.es adalah aplikasi pertama Diaspora dalam pembangunan."
@@ -77,7 +77,7 @@ ms:
         content_1: "ID Diaspora anda adalah:"
         content_2: "Beri kepada sesiapa dan mereka akan dapat mencari anda di Diaspora."
         heading: "ID Diaspora"
-      donate: Derma
+      donate: "Derma"
       handle_explanation: "Ini adalah diaspora id anda. Seperti alamat e-mel, anda boleh memberikan orang-orang ini untuk mencapai anda."
       help:
         do_you: "Adakah anda:"
@@ -92,7 +92,7 @@ ms:
       failure: "tidak berfungsi %{inspect}"
       success: "Orang berpindah kepada aspek baru"
     new:
-      create: Cipta
+      create: "Cipta"
       name: "Nama (hanya boleh dilihat oleh anda)"
     no_contacts_message:
       community_spotlight: "komuniti sorotan"
@@ -104,20 +104,20 @@ ms:
     one: "1 aspek"
     other: "%{count} aspek"
     seed:
-      acquaintances: kenalan
-      family: Famili
-      friends: Rakan
-      work: Kerja
+      acquaintances: "kenalan"
+      family: "Famili"
+      friends: "Rakan"
+      work: "Kerja"
     two: "%{count} aspects"
     zero: "no aspects"
   bookmarklet:
     post_success: "Telah Di Pos! Tutup!"
-  cancel: Batal
+  cancel: "Batal"
   comments:
     few: "%{count} komen"
     many: "%{count} komen"
     new_comment:
-      comment: Komen
+      comment: "Komen"
       commenting: Mengulas...
     one: "1 komen"
     other: "%{count} komen"
@@ -134,11 +134,6 @@ ms:
       many_people_are_you_sure: "Adakah anda pasti anda mahu untuk memulakan perbualan peribadi dengan lebih daripada% {suggested_limit} kenalan? Posting ke aspek ini mungkin cara yang lebih baik untuk menghubungi mereka."
       my_contacts: "Kenalan Saya"
       only_sharing_with_me: "Hanya berkongsi dengan saya"
-    many: "%{count} contacts"
-    one: "1 contact"
-    other: "%{count} contacts"
-    two: "%{count} contacts"
-    zero: contacts
   conversations:
     helper:
       new_messages:
@@ -157,17 +152,17 @@ ms:
       no_messages: "tiada mesej"
     new:
       abandon_changes: "Batalkan perubahan?"
-      send: Hantar
+      send: "Hantar"
       sending: Menghantar...
-      subject: subjek
-      to: kepada
+      subject: "subjek"
+      to: "kepada"
     new_message:
       fail: "mesej tidak sah"
     show:
       delete: "memadam dan menyekat perbualan"
-      reply: balas
+      reply: "balas"
       replying: Membalas...
-  delete: Padam
+  delete: "Padam"
   invitations:
     create:
       already_contacts: "Anda telah disambungkan dengan orang ini"
@@ -181,16 +176,16 @@ ms:
       your_account_awaits: "Akaun anda menanti!"
     new:
       already_invited: "Orang-orang yang berikut tidak menerima jemputan anda:"
-      aspect: Aspek
+      aspect: "Aspek"
       comma_seperated_plz: "Anda boleh memasukkan pelbagai alamat e-mel yang dipisahkan dengan koma."
       if_they_accept_info: "jika mereka menerima, mereka akan dimasukkan ke dalam aspek awak telah menjemput mereka."
       invite_someone_to_join: "Menjemput seseorang untuk menyertai Diaspora!"
-      language: Bahasa
+      language: "Bahasa"
       personal_message: "Mesej peribadi"
       resend: "Hantar semula"
       send_an_invitation: "Menghantar jemputan"
       send_invitation: "Hantar jemputan"
-      to: Kepada
+      to: "Kepada"
   layouts:
     application:
       powered_by: "DI KUASA OLEH DIASPORA*"
@@ -217,9 +212,9 @@ ms:
         other: "%{count} suka"
         two: "%{count} likes"
         zero: "tiada suka"
-  limited: Terhad
+  limited: "Terhad"
   more: "lebih banyak"
-  next: seterusnya
+  next: "seterusnya"
   no_results: "Tiada Hasil Dijumpai"
   notifications:
     also_commented:
@@ -252,7 +247,7 @@ ms:
         two: "%{count} new notifications"
         zero: "No new notifications"
     index:
-      and: dan
+      and: "dan"
       and_others:
         few: "dan %{count} lain-lain"
         many: "dan %{count} lain-lain"
@@ -261,7 +256,7 @@ ms:
         two: "dan %{count} lain-lain"
         zero: "dan tiada siapa lagi"
       mark_all_as_read: "Tandakan Semua sebagai Sudah Baca"
-      notifications: Pemberitahuan
+      notifications: "Pemberitahuan"
     liked:
       few: "%{actors} menyukai anda %{post_link}."
       many: "%{actors} telah menyukai anda %{post_link}."
@@ -322,7 +317,7 @@ ms:
     a_post_you_shared: pos.
     click_here: "klik di sini"
     to_change_your_notification_settings: "untuk menukar tetapan pemberitahuan anda"
-  or: atau
+  or: "atau"
   password: "kata laluan"
   password_confirmation: "pengesahan kata laluan"
   people:
@@ -351,7 +346,7 @@ ms:
       to_accept_or_ignore: "untuk menerima atau tidak mengendahkan."
     sub_header:
       add_some: "menambah beberapa"
-      edit: mengedit
+      edit: "mengedit"
       you_have_no_tags: "anda tiada tag!"
     two: "%{count} orang"
     webfinger:
@@ -395,7 +390,7 @@ ms:
         one: "1 reshare"
         other: "%{count} reshares"
         two: "%{count} reshares"
-        zero: Reshare
+        zero: "Reshare"
   shared:
     aspect_dropdown:
       toggle:

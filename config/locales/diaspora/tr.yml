@@ -5,13 +5,13 @@
 
 
 tr:
-  _applications: Uygulamalar
-  _comments: Yorumlar
+  _applications: "Uygulamalar"
+  _comments: "Yorumlar"
   _contacts: Kişiler
-  _home: Ev
+  _home: "Ev"
   _photos: fotoğraflar
-  _services: Servisler
-  account: Hesap
+  _services: "Servisler"
+  account: "Hesap"
   activerecord:
     errors:
       models:
@@ -82,7 +82,7 @@ tr:
       aspect_list_is_not_visible: "yön listesi yöndeki diğer kişilere gösterilmiyor"
       aspect_list_is_visible: "yön listesi yöndeki diğer kişilere gösteriliyor"
       confirm_remove_aspect: "Bu yönü silmek istediğinden emin misin?"
-      done: Bitti
+      done: "Bitti"
       make_aspect_list_visible: "Bu yöndeki kişilerin birbirlerini görmesine izin verilsin mi?"
       remove_aspect: "Yönü sil"
       rename: "yeniden adlandır"
@@ -92,7 +92,7 @@ tr:
     helper:
       are_you_sure: "Bu yönü silmek istediğinden emin misin?"
       aspect_not_empty: "Yön boş değil"
-      remove: sil
+      remove: "sil"
     index:
       cubbies:
         explanation: "İlk Diaspora uygulaması Cubbi.es, geliştirilme aşamasındadır."
@@ -112,9 +112,9 @@ tr:
         have_a_question: "... bir %{link} mu sormak istiyorsun?"
         here_to_help: "Diaspora topluluğu burada!"
         need_help: "Yardıma mı ihtiyacın var?"
-        tag_bug: hata
+        tag_bug: "hata"
         tag_feature: işlev
-        tag_question: soru
+        tag_question: "soru"
         tutorials_wiki_and_forum: "%{tutorial} & %{wiki} & %{forum}: Topluluğun oluşturduğu haberler, belgeler ve yardımlar"
       introduce_yourself: "Bu sizin akışınızdır. Atla ve kendini tanıt."
       keep_us_running: "%{pod} ağının daha hızlı ve hatasız olması için geliştiricilere kahve ısmarla!"
@@ -150,7 +150,7 @@ tr:
     other: "%{count} yön"
     seed:
       acquaintances: Tanıdıklar
-      family: Aile
+      family: "Aile"
       friends: Arkadaşlar
       work: İş
     selected_contacts:
@@ -169,7 +169,7 @@ tr:
     index:
       no_applications: "Henüz kayıtlı bir uygulama yok."
       revoke_access: "Erişimi Kaldır"
-  back: Geri
+  back: "Geri"
   blocks:
     create:
       failure: "Bu kullanıcıyı görmezden gelemedim.  #evasion"
@@ -248,15 +248,15 @@ tr:
       abandon_changes: "Değişiklikler silinsin mi?"
       send: Gönder
       sending: Gönderiliyor...
-      subject: konu
-      to: kime
+      subject: "konu"
+      to: "kime"
     new_message:
       fail: "Geçersiz mesaj"
     show:
       delete: "iletişimi sil ya da engelle"
       reply: yanıtla
       replying: Yanıtlanıyor...
-  delete: Sil
+  delete: "Sil"
   email: E-posta
   error_messages:
     helper:
@@ -264,7 +264,7 @@ tr:
       invalid_fields: "Geçersiz Alanlar"
   fill_me_out: "Beni doldur"
   find_people: "Kişi ve #tag bul"
-  hide: Gizle
+  hide: "Gizle"
   home:
     show:
       already_account: "Zaten bir hesabın var mı?"
@@ -272,10 +272,10 @@ tr:
       choice_explanation: "Diaspora bağlantılarınızı yön adı verilen gruplar halinde sıralamanızı sağlar. Diaspora'ya özgü olarak, yönleri, fotoğrafları, hikayeleri ve şakaları sadece istediğiniz insanlarla paylaşırsınız."
       learn_about_host: "Sunucunuzda Diaspora'yı sunmak için bilgi edin."
       login_here: "buradan oturum açın"
-      ownership: Sahiplik
+      ownership: "Sahiplik"
       ownership_explanation: "Kendi resimlerinin sahibi sensin, paylaşabilmek için bu hakkından olmaman lâzım. Diaspora'da paylaştığın her şeyin sahibi sen olmaya devam edersin ve yayılmasında tüm kontrol sendedir."
       share_what_you_want: "İstediğinle, istediğini paylaş."
-      simplicity: Sadelik
+      simplicity: "Sadelik"
       simplicity_explanation: "Diaspora, sadeliğe,kolay paylaşıma ve gizliliklere önem verir. Doğal olarak özeldir, Diaspora Java ayarları sayfalarıyla saklama yapmaz. Bu yüzden güvenlidir."
       tagline_first_half: "İstediğiniz ne ise paylaşın,"
       tagline_second_half: istediğiniz.
@@ -300,12 +300,12 @@ tr:
       comma_seperated_plz: "Virgülle ayırarak birden fazla e-posta adresi girebilirsin."
       if_they_accept_info: "kabul ederseler, yönünüze eklenecekler."
       invite_someone_to_join: "Diaspora'ya birilerini davet et!"
-      language: Dil
+      language: "Dil"
       personal_message: "Kişisel mesaj"
       resend: "Tekrar gönder"
       send_an_invitation: "Bir davet yolla"
       send_invitation: "Davetiye yolla"
-      to: Kime
+      to: "Kime"
   layouts:
     application:
       back_to_top: "Sayfa başına dön"
@@ -316,12 +316,12 @@ tr:
       your_aspects: "sizin yönleriniz"
     header:
       admin: yönetici
-      code: kod
+      code: "kod"
       login: "giriş yap"
       logout: "Çıkış yap"
-      profile: Profil
+      profile: "Profil"
       recent_notifications: "Son bildirimler"
-      settings: Ayarlar
+      settings: "Ayarlar"
       view_all: "Tümünü göster"
   likes:
     likes:
@@ -348,7 +348,7 @@ tr:
         zero: "beğenen yok"
   limited: Sınırlı
   more: "Daha fazla"
-  next: sonraki
+  next: "sonraki"
   no_results: "Sonuç Bulunamadı"
   notifications:
     also_commented:
@@ -381,7 +381,7 @@ tr:
         two: "%{count} yeni bildirim"
         zero: "Yeni bildirim yok"
     index:
-      and: ve
+      and: "ve"
       and_others:
         few: "ve %{count} diğer kişi"
         many: "ve %{count} diğer kişi"
@@ -390,7 +390,7 @@ tr:
         two: "ve %{count} diğer kişi"
         zero: "ve başka hiç kimse"
       mark_all_as_read: "Tümünü okundu olarak işaretle"
-      notifications: Bildirimler
+      notifications: "Bildirimler"
     liked:
       few: "%{actors} senin %{post_link} unsurunu iğneledi."
       many: "%{actors} senin %{post_link} unsurunu iğneledi."
@@ -450,7 +450,7 @@ tr:
       zero: "%{actors} sizinle paylaşıma başladı."
   notifier:
     a_post_you_shared: gönderi
-    click_here: buraya
+    click_here: "buraya"
     comment_on_post:
       reply: "Yanıtla ya da %{name} gönderisini görüntüle >"
     confirm_email:
@@ -478,9 +478,9 @@ tr:
       view_profile: "%{name} kişisinin profilini görüntüle"
     thanks: "Teşekkürler,"
     to_change_your_notification_settings: "tıklayarak bildirim ayarlarınızı değiştirebilirsiniz"
-  ok: Tamam
+  ok: "Tamam"
   or: "ya da"
-  password: Parola
+  password: "Parola"
   password_confirmation: "Parola doğrulama"
   people:
     add_contact_small:
@@ -509,9 +509,9 @@ tr:
       bio: hakkında
       born: "doğum günü"
       edit_my_profile: "Profilimi düzenle"
-      gender: cinsiyet
+      gender: "cinsiyet"
       in_aspects: yönleriyle
-      location: yer
+      location: "yer"
       remove_contact: "kişiyi kaldır"
       remove_from: "%{name}, %{aspect} yönünden kaldırılsın mı?"
     show:
@@ -520,8 +520,8 @@ tr:
       has_not_shared_with_you_yet: "%{name} seninle henüz bir şey paylaşmamış!"
       ignoring: "%{name} isimli kullanıcının tüm gönderilerini görmezden geliyorsun."
       incoming_request: "%{name} seninle paylaşımda bulunmak istiyor"
-      mention: Bahset
-      message: Mesaj
+      mention: "Bahset"
+      message: "Mesaj"
       not_connected: "Bu kişiyle paylaşımda bulunmuyorsun"
       recent_posts: "Son Gönderiler"
       recent_public_posts: "Son Genel Gönderiler"
@@ -573,7 +573,7 @@ tr:
       notice: "Fotoğraf başarıyla güncellendi."
   posts:
     show:
-      destroy: Sil
+      destroy: "Sil"
       not_found: "Üzgünüz, bu gönderi bulamadı."
       permalink: "kalıcı bağlantı"
       photos_by:
@@ -585,19 +585,19 @@ tr:
         zero: "%{author} tarafından fotoğraf yok"
       reshare_by: "%{author} tarafından tekrar paylaşım"
   previous: önceki
-  privacy: Gizlilik
+  privacy: "Gizlilik"
   privacy_policy: "Gizlilik Politikası"
-  profile: Profil
+  profile: "Profil"
   profiles:
     edit:
       allow_search: "Diaspora aramaları ile bulunmana izin ver"
       edit_profile: "Profil düzenle"
-      first_name: Ad
-      last_name: Soyad
+      first_name: "Ad"
+      last_name: "Soyad"
       update_profile: "Profili Güncelle"
       your_bio: Hakkında
       your_birthday: "Doğum günün"
-      your_gender: Cinsiyetin
+      your_gender: "Cinsiyetin"
       your_location: "Bulunduğun yer"
       your_name: Adın
       your_photo: Fotoğrafın
@@ -608,7 +608,7 @@ tr:
     update:
       failed: "Profil güncellemesi başarısız"
       updated: "Profil güncellendi"
-  public: Genel
+  public: "Genel"
   reactions:
     few: "%{count} tepki"
     many: "%{count} tepki"
@@ -673,7 +673,7 @@ tr:
       reshare_original: "Orijinali tekrar paylaş"
       reshared_via: "tekrar paylaşıldı, bununla:"
       show_original: "Orijinali görüntüle"
-  search: Ara
+  search: "Ara"
   services:
     create:
       already_authorized: "%{diaspora_id} diaspora kimliği bulunan bir kullanıcı zaten %{service_name} hesabına izin verdi."
@@ -703,7 +703,7 @@ tr:
       invite: "davet et"
       not_on_diaspora: "Henüz Diaspora'da değil"
       resend: "tekrar gönder"
-  settings: Ayarlar
+  settings: "Ayarlar"
   share_visibilites:
     update:
       post_hidden_and_muted: "%{name} isimli kullanıcının gönderisi saklandı ve bildirimleri susturuldu."
@@ -736,7 +736,7 @@ tr:
       invitations_left: "%{count} kaldı"
       invite_someone: "Birisini davet et"
       invite_your_friends: "Arkadaşlarını davet et"
-      invites: Davetiyeler
+      invites: "Davetiyeler"
       invites_closed: "Bu Diaspora'da davet kapalı görünüyor"
     notification:
       new: "%{from}'den yeni %{type}"
@@ -751,7 +751,7 @@ tr:
       title: "Bağlı hizmetler"
       visibility_dropdown: "Açılan menüden gönderinizin görünürlüğünü değiştirebilirsiniz. (İlk olarak Genel yapmanızı öneririz.)"
     publisher:
-      all: hepsi
+      all: "hepsi"
       all_contacts: "tüm bağlantılar"
       discard_post: "Gönderiyi sil"
       make_public: "herkese görünür yap"
@@ -759,7 +759,7 @@ tr:
         hello: "Hey herkes, Ben #%{new_user_tag}. "
         i_like: "İlgimi çeken şunlardır: %{tags}."
         invited_by: "Davet için teşekkürler, "
-        newhere: YeniyimBurada
+        newhere: "YeniyimBurada"
       post_a_message_to: "%{aspect} yönüne mesaj gönder "
       posting: Gönderiliyor...
       publishing_to: "buraya yayınlanıyor:"

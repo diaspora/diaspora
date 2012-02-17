@@ -83,7 +83,7 @@ nn:
       month: "om lag ein månad"
       months: "%d månader"
       seconds: "mindre enn eit minutt"
-      suffixAgo: sidan
+      suffixAgo: "sidan"
       suffixFromNow: "frå no"
       year: "om lag eit år"
       years: "%d år"

@@ -26,7 +26,7 @@ nl:
     mailer:
       confirmation_instructions:
         confirm: "Bevestig mijn account"
-        subject: Bevestigingsinstructies
+        subject: "Bevestigingsinstructies"
         you_can_confirm: "Je kunt je account bevestigen via onderstaande link:"
       hello: "Hallo %{email}!"
       invitation_instructions:
@@ -42,14 +42,14 @@ nl:
         have_fun: "Veel plezier"
         have_fun_paragraph: "%{strong_diaspora} draait helemaal om het online ontdekken van geweldige content en mensen. %{link}, 's werelds eerste %{strong_diaspora} toepassing is nog maar het begin. Verzamel en deel het web in al zijn glorie."
         help_fund: "Help ons Diaspora te financieren."
-        here: hier
+        here: "hier"
         ignore: "Als je de uitnodiging niet wilt accepteren, negeer dan deze E-mail."
         join_team: "Sluit je aan bij ons Team"
         love: "Liefs,"
         made_by_people: "%{strong_diaspora} is gemaakt door mensen die net zoveel van het Internet houden als jij. %{jointeam}, of %{helpfund}!"
         more_people: "Nog meer mensen zijn enthousiast je te zien!"
         no_account_till: "Je account wordt niet aangemaakt totdat je de bovenstaande link bezoekt en je aanmeldt."
-        or: of
+        or: "of"
         sign_up_now: "Meld je nu aan &rarr;"
         subject: "Je bent uitgenodigd om lid te worden van Diaspora!"
         unsubscribe: "Om je af te melden, klik %{link}."
@@ -66,7 +66,7 @@ nl:
       unlock_instructions:
         account_locked: "Je account is vergrendeld vanwege te veel mislukte aanmeldpogingen."
         click_to_unlock: "Klik op onderstaande link om je account te ontgrendelen:"
-        subject: Ontgrendelingsinstructies
+        subject: "Ontgrendelingsinstructies"
         unlock: "Ontgrendel mijn account"
       welcome: "Welkom %{email}!"
     passwords:
@@ -87,12 +87,12 @@ nl:
         alpha_software: "Je staat op het punt om alpha software te gebruiken."
         bugs_and_feedback: "In dit stadium zul je waarschijnlijk nog bugs tegenkomen. We raden je aan de Feedback-button aan de rechterzijde van je browser te gebruiken om deze bugs te melden (in het Engels)!  Vervolgens zullen wij zo hard mogelijk werken om deze op te lossen."
         bugs_and_feedback_mobile: "Wees ervan bewust dat je zeker weten bugs zult tegenkomen.  We raden je aan deze vooral te rapporteren!  We doen ons uiterste best om deze problemen zo snel mogelijk op te lossen."
-        login: Inloggen
+        login: "Inloggen"
         modern_browsers: "ondersteunt alleen moderne browsers."
-        password: Wachtwoord
+        password: "Wachtwoord"
         remember_me: "Onthoud mij"
         sign_in: "Log in"
-        username: Gebruikersnaam
+        username: "Gebruikersnaam"
       signed_in: "Je bent succesvol ingelogd."
       signed_out: "Je bent succesvol uitgelogd."
     shared:
@@ -100,8 +100,8 @@ nl:
         forgot_your_password: "Wachtwoord vergeten?"
         receive_confirmation: "Geen bevestigingsinstructies ontvangen?"
         receive_unlock: "Geen ontgrendelinstructies ontvangen?"
-        sign_in: Inloggen
-        sign_up: Registreer
+        sign_in: "Inloggen"
+        sign_up: "Registreer"
         sign_up_closed: "Vrij registreren is momenteel niet mogelijk."
       mail_signup_form:
         sign_up_for_an_invite: "Meld je aan voor een uitnodiging!"

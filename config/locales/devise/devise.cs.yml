@@ -35,7 +35,7 @@ cs:
         displaying_correctly: "E-mail se nezobrazuje správně? %{link}"
         ignore: "Pokud nechcete přijmout pozvání, prosím ignorujte tento e-mail."
         no_account_till: "Váš účet nebude vytvořen dokud nepřistoupíte na uvedený odkaz a zaregistrujete se."
-        or: nebo
+        or: "nebo"
         subject: "Byli jste pozváni na Diasporu!"
         view_in: "Zobrazte si jej ve svém prohlížeči."
       reset_password_instructions:
@@ -70,7 +70,7 @@ cs:
         bugs_and_feedback_mobile: "Upozorňujeme na možnost výskytu chyb. Doporučujeme vám, abyste hlásili jakékoli problémy. Budeme pracovat nejrychleji jak můžeme, abychom vyřešili nahlášené problémy."
         login: Přihlásit
         modern_browsers: "podporuje pouze moderní prohlížeče."
-        password: Heslo
+        password: "Heslo"
         remember_me: "Zapamatovat si mě"
         sign_in: Přihlásit
         username: "Uživatelské jméno"
@@ -94,5 +94,5 @@ cs:
   errors:
     messages:
       already_confirmed: "již bylo potvrzeno"
-      not_found: nenalezeno
+      not_found: "nenalezeno"
       not_locked: "nebylo zamčeno"

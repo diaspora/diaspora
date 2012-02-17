@@ -5,12 +5,12 @@
 
 
 sl:
-  _applications: Aplikacije
-  _comments: Komentarji
-  _contacts: Stiki
-  _home: Domov
-  _photos: slike
-  _services: Storitve
+  _applications: "Aplikacije"
+  _comments: "Komentarji"
+  _contacts: "Stiki"
+  _home: "Domov"
+  _photos: "slike"
+  _services: "Storitve"
   account: "Uporabniki račun"
   activerecord:
     errors:
@@ -84,14 +84,14 @@ sl:
       done: Končano
       make_aspect_list_visible: "stiki v tem pogledu naj bodo vidni med sabo?"
       remove_aspect: "Izbriši ta pogled"
-      rename: preimenuj
-      update: posodobi
-      updating: posodabljam
+      rename: "preimenuj"
+      update: "posodobi"
+      updating: "posodabljam"
     few: "%{count} pogledi"
     helper:
       are_you_sure: "Ste prepričani, da želite izbrisati ta pogled?"
       aspect_not_empty: "Pogled vsebuje stike"
-      remove: odstrani
+      remove: "odstrani"
     index:
       cubbies:
         explanation: "Cubbi.es je prva aplikacija Diaspore in je v razvoju."
@@ -100,7 +100,7 @@ sl:
       diaspora_id:
         content_1: "Vaš Diaspora ID je:"
         content_2: "Svoj Diaspora ID delite z drugimi, da vas bodo lahko našli."
-      donate: Prispevaj
+      donate: "Prispevaj"
       handle_explanation: "To je vaš Diaspora ID naslov. Tako kot vaš e-naslov,  ga lahko uporabite kot naslov s pomočjo katerega drugi stopijo v stik z vami."
       help:
         do_you: "Ali:"
@@ -132,7 +132,7 @@ sl:
       failure: "ni uspelo %{inspect}"
       success: "Oseba je prestavljena v novo skupino"
     new:
-      create: Ustvari
+      create: "Ustvari"
       name: "Ime (vidno samo tebi)"
     no_contacts_message:
       community_spotlight: "vsebino skupnosti"
@@ -144,9 +144,9 @@ sl:
     one: "1 pogled"
     other: "%{count} pogledov"
     seed:
-      acquaintances: Poznanstva
+      acquaintances: "Poznanstva"
       family: Družina
-      friends: Prijatelji
+      friends: "Prijatelji"
       work: Služba
     selected_contacts:
       manage_your_aspects: "Urejanje pogledov."
@@ -164,7 +164,7 @@ sl:
     index:
       no_applications: "Niste povezali še nobene aplikacije."
       revoke_access: "Prekliči dostop"
-  back: Nazaj
+  back: "Nazaj"
   blocks:
     create:
       failure: "Nisem mogel ignorirati tega uporabnika. #evasion"
@@ -175,7 +175,7 @@ sl:
   bookmarklet:
     explanation: "Objavite na Diasporo s kjerkoli, da shraniš %{link}."
     explanation_link_text: "to povezavo"
-    heading: Zaznamek
+    heading: "Zaznamek"
     post_something: "Objavite nekaj na Diasporo"
     post_success: "Objavljeno! Zapiram!"
   cancel: Prekliči
@@ -183,7 +183,7 @@ sl:
     few: "%{count} komentarje"
     many: "%{count} komentarjev"
     new_comment:
-      comment: komentiraj
+      comment: "komentiraj"
       commenting: komentiranje...
     one: "1 komentar"
     other: "%{count} komentarjev"
@@ -203,7 +203,7 @@ sl:
       only_sharing_with_me: "Delijo samo z mano"
       remove_person_from_aspect: "Odstrani %{person_name} iz \"%{aspect_name}\""
       start_a_conversation: "Začni pogovor"
-      title: Stiki
+      title: "Stiki"
       your_contacts: "Vaši stiki"
     many: "%{count} stikov"
     one: "1 stik"
@@ -213,7 +213,7 @@ sl:
     spotlight:
       community_spotlight: "Vsebina skupnosti"
     two: "%{count} stika"
-    zero: stiki
+    zero: "stiki"
   conversations:
     create:
       fail: "Neveljavno sporočilo"
@@ -230,7 +230,7 @@ sl:
         zero: "ni novih sporočil"
     index:
       create_a_new_message: "ustvari novo sporočilo"
-      inbox: Prejeto
+      inbox: "Prejeto"
       message_inbox: "Prejeta sporočila"
       new_message: "Novo sporočilo"
       no_conversation_selected: "označen ni bil noben pogovor"
@@ -239,13 +239,13 @@ sl:
       abandon_changes: "Opusti spremembe?"
       send: Pošlji
       sending: Pošiljam...
-      subject: zadeva
-      to: za
+      subject: "zadeva"
+      to: "za"
     new_message:
       fail: "Neveljavno sporočilo"
     show:
       delete: "izbriši in blokiraj pogovor"
-      reply: odgovori
+      reply: "odgovori"
       replying: Odgovarjam...
   delete: Izbriši
   email: E-pošta
@@ -255,18 +255,18 @@ sl:
       invalid_fields: "Neveljavna polja"
   fill_me_out: "Izpolni me"
   find_people: "Poišči ljudi ali #zaznamke"
-  hide: Skrij
+  hide: "Skrij"
   home:
     show:
       already_account: "Že imate uporabniški račun?"
-      choice: Izbira
+      choice: "Izbira"
       choice_explanation: "V omrežju Diaspora lahko vaše stike razvrščate s pomočjo pogledov. Pogledi kot takšni so unikatni in vam omogočajo, da so vaše slike, zgodbe in šale dostopne le osebam katerim ste jih namenili."
       learn_about_host: "Preberite več o tem, kako gostiti lasten Diaspora  strežnik."
       login_here: "prijavite se tukaj"
       ownership: Lastništvo
       ownership_explanation: "Vaše slike so vaša last in zato je prav, da jih lahko delite, ne da bi jih s tem komerkoli posredovali. Vsebina, ki jo delite v  omrežju Diaspora, se ohrani v vaši lasti, kot tudi kontrola nad distribucijo le-te."
       share_what_you_want: "Delite kar želite, s komerkoli želite."
-      simplicity: Preprostost
+      simplicity: "Preprostost"
       simplicity_explanation: "Diaspora omogoča preprosto izmenjavo z upoštevanjem vaše zasebnosti. Za ohranjanje zasebnosti v Diaspori ni potrebno skozi neskončen seznam različnih nastavitev in možnosti."
       tagline_first_half: "Delite kar želite,"
       tagline_second_half: "s komerkoli želite."
@@ -286,16 +286,16 @@ sl:
       your_account_awaits: "Vaš račun vas že čaka!"
     new:
       already_invited: "Naslednje osebe še niso potrdile vašega povabila:"
-      aspect: Pogled
+      aspect: "Pogled"
       comma_seperated_plz: "Vnesete lahko več e-naslovov, ki naj bodo med seboj ločeni z vejico."
       if_they_accept_info: "v kolikor sprejmejo vaše povabilo, bodo samodejno  dodani pogledom v katere ste jih povabili."
       invite_someone_to_join: "Povabite nekoga v omrežje Diaspora!"
-      language: Jezik
+      language: "Jezik"
       personal_message: "Osebno sporočilo"
       resend: "Ponovno pošlji"
       send_an_invitation: "Pošlji povabilo"
       send_invitation: "Pošlji povabilo"
-      to: Za
+      to: "Za"
   layouts:
     application:
       powered_by: "STRAN POGANJA DIASPORA*"
@@ -304,13 +304,13 @@ sl:
       whats_new: "kaj je novega?"
       your_aspects: "vaše skupine"
     header:
-      admin: administrator
+      admin: "administrator"
       code: "izvorna koda"
-      login: prijava
+      login: "prijava"
       logout: "Odjavi me"
-      profile: Profil
+      profile: "Profil"
       recent_notifications: "Nedavna obvestila"
-      settings: Nastavitve
+      settings: "Nastavitve"
       view_all: "Prikaži vse"
   likes:
     likes:
@@ -335,9 +335,9 @@ sl:
         other: "%{count} osebam je všeč."
         two: "%{count} osebama je všeč"
         zero: "nobenemu ni všeč"
-  limited: Omejeno
+  limited: "Omejeno"
   more: Več
-  next: naslednja
+  next: "naslednja"
   no_results: "Ni zadetkov"
   notifications:
     also_commented:
@@ -370,7 +370,7 @@ sl:
         two: "%{count} nova obvestila"
         zero: "Ni novih obvestil"
     index:
-      and: in
+      and: "in"
       and_others:
         few: "in %{count} drugi"
         many: "in %{count} drugih"
@@ -408,7 +408,7 @@ sl:
       other: "%{actors} je omenilo vas v izbrisani objavi."
       two: "%{actors} sta vas omenila v izbrisani objavi."
       zero: "%{actors}  je omenilo vas v izbrisani objavi."
-    post: objava
+    post: "objava"
     private_message:
       few: "%{actors} so vam poslali sporočilo."
       many: "%{actors} jih je poslalo sporočilo."
@@ -467,8 +467,8 @@ sl:
       view_profile: "Poglej profil osebe %{name}"
     thanks: "Hvala,"
     to_change_your_notification_settings: "da spremenite nastavitve obvestil"
-  or: ali
-  password: Geslo
+  or: "ali"
+  password: "Geslo"
   password_confirmation: "Potrditev gesla"
   people:
     add_contact_small:
@@ -497,9 +497,9 @@ sl:
       bio: Življenjepis
       born: "datum rojstva"
       edit_my_profile: "Uredi moj profil"
-      gender: spol
+      gender: "spol"
       in_aspects: "v skupinah"
-      location: lokacija
+      location: "lokacija"
       remove_contact: "odstrani stik"
       remove_from: "Ali odstranim %{name} iz skupine %{aspect}?"
     show:
@@ -508,7 +508,7 @@ sl:
       has_not_shared_with_you_yet: "%{name} še ni izmenjalo objave z vami!"
       ignoring: "Vi ignorirate vse prispevke osebe %{name}."
       incoming_request: "%{name} želi deliti z vami."
-      mention: Omemba
+      mention: "Omemba"
       message: Sporočilo
       not_connected: "S to osebo ne delite"
       recent_posts: "Zadnje objave"
@@ -519,7 +519,7 @@ sl:
       to_accept_or_ignore: "sprejmite ali zavrnite."
     sub_header:
       add_some: "dodaj nekaj"
-      edit: uredi
+      edit: "uredi"
       you_have_no_tags: "Nimate nobene oznake!"
     two: "%{count} osebi"
     webfinger:
@@ -534,7 +534,7 @@ sl:
     destroy:
       notice: "Slika izbrisana."
     edit:
-      editing: Urejanje
+      editing: "Urejanje"
     new:
       back_to_list: "Nazaj na seznam"
       new_photo: "Nova slika"
@@ -550,7 +550,7 @@ sl:
       view_all: "ogled vseh slik osebe %{name}"
     show:
       delete_photo: "Izbriši sliko"
-      edit: uredi
+      edit: "uredi"
       edit_delete_photo: "Dodaj opis slike ali izbriši sliko"
       make_profile_photo: "uporabi sliko za moj profil"
       show_original_post: "Prikaži originalno objavo"
@@ -570,15 +570,15 @@ sl:
         two: "Two photos by %{author}"
         zero: "No photos by %{author}"
   previous: prejšnja
-  privacy: Zasebnost
+  privacy: "Zasebnost"
   privacy_policy: "Pravila o zasebnosti"
-  profile: Profil
+  profile: "Profil"
   profiles:
     edit:
       allow_search: "Dovoli, da te drugi lahko iščejo v Diaspori"
       edit_profile: "Uredi profil"
-      first_name: Ime
-      last_name: Priimek
+      first_name: "Ime"
+      last_name: "Priimek"
       update_profile: "Posodobi profil"
       your_bio: "Vaš življenjepis"
       your_birthday: "Tvoj rojstni dan"
@@ -593,7 +593,7 @@ sl:
     update:
       failed: "Posodobitev profila ni uspela"
       updated: "Profil posodobljen"
-  public: Javni
+  public: "Javni"
   reactions:
     few: "%{count} reakcije"
     many: "%{count} reakcij"
@@ -611,7 +611,7 @@ sl:
       leave_blank: "(v kolikor ne želite spremeniti pustite prazno)"
       password_to_confirm: "(spremembo je potrebno potrditi z vašim trenutnim  geslom)"
       unhappy: "Ste nezadovoljni?"
-      update: Posodobi
+      update: "Posodobi"
     new:
       create_my_account: "Ustvari moj račun!"
       enter_email: "Vpišite e-naslov"
@@ -658,7 +658,7 @@ sl:
       reshare_original: "Deli izvirnik"
       reshared_via: "ponovno deljeno preko"
       show_original: "Prikaži izvirnik"
-  search: Najdi
+  search: "Najdi"
   services:
     create:
       already_authorized: "Uporabnik z diaspora id %{diaspora_id} je že dovolil ta %{service_name} račun."
@@ -685,10 +685,10 @@ sl:
       click_link_to_accept_invitation: "Kliknite na povezavo za potrditev vašega povabila"
       join_me_on_diaspora: "Pridruži se mi na DIASPORI*"
     remote_friend:
-      invite: povabi
+      invite: "povabi"
       not_on_diaspora: "Še nisi na Diaspori"
       resend: "pošlji ponovno"
-  settings: Nastavitve
+  settings: "Nastavitve"
   share_visibilites:
     update:
       post_hidden_and_muted: "Objava osebe %{name} je bila skrita in vsa obvestila za to objavo so bila onemogočena."
@@ -721,7 +721,7 @@ sl:
       invitations_left: "(še %{count})"
       invite_someone: "Povabi osebo"
       invite_your_friends: "Povabi prijatelje"
-      invites: Povabila
+      invites: "Povabila"
       invites_closed: "Za ta 'Diaspora pod' so povabila trenutno onemogočena."
     notification:
       new: "Novo %{type} od %{from}"
@@ -731,11 +731,11 @@ sl:
       manage: "uredi povezane servise"
       new_user_welcome_message: "Uporabite #oznake za razvrstitev vaših objav in da bi našli ljudi, ki imajo podobne interese. Izpostavite ljudi z @Omembami"
       outside: "Javna sporočila bodo na ogled tudi osebam izven Diaspore."
-      share: Deli
+      share: "Deli"
       title: "Objavili boste javno sporočilo!"
       visibility_dropdown: "Uporabite ta spustni seznam za spremembo vidnosti vaše objave. (Priporočamo vam, da naj bo prva objava javna.)"
     publisher:
-      all: vsi
+      all: "vsi"
       all_contacts: "vsi stiki"
       discard_post: "Zavrzi objavo"
       make_public: "objavi kot javno"
@@ -746,7 +746,7 @@ sl:
       post_a_message_to: "Objavi sporočilo v %{aspect}"
       posting: Objavljam...
       publishing_to: "objavljanje do: "
-      share: Objavi
+      share: "Objavi"
       share_with: "deli s/z"
       upload_photos: "Naložite fotografije"
       whats_on_your_mind: "Bi želeli kaj sporočiti?"
@@ -794,7 +794,7 @@ sl:
   streams:
     aspects:
       title: "Vaši pogledi"
-    aspects_stream: Pogledi
+    aspects_stream: "Pogledi"
     comment_stream:
       contacts_title: "Ljudje, katerim ste komentirali objave"
       title: "Komentirane objave"
@@ -802,7 +802,7 @@ sl:
     followed_tag:
       add_a_tag: "Dodaj oznako"
       contacts_title: "Ljudje, ki so izbrskali te oznake"
-      follow: Sledi
+      follow: "Sledi"
       title: "#Vaše oznake"
     followed_tags_stream: "#Vaše oznake"
     like_stream:
@@ -813,7 +813,7 @@ sl:
       title: "@Omembe"
     multi:
       contacts_title: "Ljudje v vašem toku"
-      title: Vir
+      title: "Vir"
     public:
       contacts_title: "Zadnji objavljajoči"
       title: "Javna aktivnost"
@@ -832,7 +832,7 @@ sl:
   tags:
     show:
       follow: "Sledite #%{tag}"
-      followed_by: sledi
+      followed_by: "sledi"
       following: "Sledenje #%{tag}"
       nobody_talking: "Nihče še ni govoril o %{tag}."
       none: "Prazna oznaka ne obstaja!"
@@ -865,7 +865,7 @@ sl:
     edit:
       also_commented: "...nekdo tudi komentira objavo vašega stika?"
       auto_follow_back: "Automatically follow back if a someone follows you"
-      change: Spremeni
+      change: "Spremeni"
       change_email: "Spremeni e-naslov"
       change_language: "Spremeni jezik"
       change_password: "Spremeni geslo"

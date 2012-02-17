@@ -5,13 +5,13 @@
 
 
 sv:
-  _applications: Applikationer
-  _comments: Kommentarer
-  _contacts: Kontakter
-  _home: Hem
-  _photos: foton
+  _applications: "Applikationer"
+  _comments: "Kommentarer"
+  _contacts: "Kontakter"
+  _home: "Hem"
+  _photos: "foton"
   _services: Tjänster
-  account: Konto
+  account: "Konto"
   activerecord:
     errors:
       models:
@@ -85,8 +85,8 @@ sv:
       make_aspect_list_visible: "ska kontakterna i denna aspekt vara synliga för varandra? "
       remove_aspect: "Ta bort den här aspekten"
       rename: "byt namn"
-      update: uppdatera
-      updating: uppdaterar
+      update: "uppdatera"
+      updating: "uppdaterar"
     few: "%{count} aspekter"
     helper:
       are_you_sure: "Är du säker på att du vill ta bort den här aspekten?"
@@ -101,7 +101,7 @@ sv:
         content_1: "Ditt Diaspora-ID är:"
         content_2: "Med hjälp av det kan alla hitta dig på Diaspora."
         heading: Diaspora-ID
-      donate: Donera
+      donate: "Donera"
       handle_explanation: "Det här är ditt Diaspora-ID. Det är det här du ska ge till dina vänner om du vill att de ska lägga till dig på Diaspora."
       help:
         do_you: "Har du:"
@@ -133,7 +133,7 @@ sv:
       failure: "fungerade inte %{inspect}"
       success: "Personen flyttades till den nya aspekten"
     new:
-      create: Skapa
+      create: "Skapa"
       name: "Namn (endast synligt för dig)"
     no_contacts_message:
       community_spotlight: "gemenskapens rampljus"
@@ -145,10 +145,10 @@ sv:
     one: "1 aspekt"
     other: "%{count} aspekter"
     seed:
-      acquaintances: Bekanta
-      family: Familj
+      acquaintances: "Bekanta"
+      family: "Familj"
       friends: Vänner
-      work: Arbete
+      work: "Arbete"
     selected_contacts:
       manage_your_aspects: "Hantera dina aspekter."
       no_contacts: "Du har ännu inte några kontakter här."
@@ -165,7 +165,7 @@ sv:
     index:
       no_applications: "Du har inte registrerat några applikationer än."
       revoke_access: "Neka tillträde"
-  back: Tillbaka
+  back: "Tillbaka"
   blocks:
     create:
       failure: "Jag kunde inte ignorera den användaren.  #evasion"
@@ -178,12 +178,12 @@ sv:
     explanation_link_text: "denna länk"
     post_something: "Posta något till Diaspora"
     post_success: "Postat! Stänger!"
-  cancel: Avbryt
+  cancel: "Avbryt"
   comments:
     few: "%{count} kommentarer"
     many: "%{count} kommentarer"
     new_comment:
-      comment: Kommentera
+      comment: "Kommentera"
       commenting: Kommenterar...
     one: "1 kommentar"
     other: "%{count} kommentarer"
@@ -203,7 +203,7 @@ sv:
       only_sharing_with_me: "Delar enbart med mig"
       remove_person_from_aspect: "Ta bort %{person_name} från \"%{aspect_name}\""
       start_a_conversation: "Påbörja en konversation"
-      title: Kontakter
+      title: "Kontakter"
       your_contacts: "Dina kontakter"
     many: "%{count} kontakter"
     one: "1 kontakt"
@@ -213,7 +213,7 @@ sv:
     spotlight:
       community_spotlight: "Gemenskapens lampljus"
     two: "%{count} kontakter"
-    zero: kontakter
+    zero: "kontakter"
   conversations:
     create:
       fail: "Ogiltigt meddelande"
@@ -231,21 +231,21 @@ sv:
     index:
       create_a_new_message: "skapa ett nytt meddelande"
       inbox: Inlåda
-      message_inbox: Meddelandeinkorg
+      message_inbox: "Meddelandeinkorg"
       new_message: "Nytt meddelande"
       no_conversation_selected: "ingen konversation vald"
       no_messages: "inga meddelanden"
     new:
       abandon_changes: "Förkasta ändringar?"
-      send: Skicka
+      send: "Skicka"
       sending: Skickar...
       subject: ämne
-      to: till
+      to: "till"
     new_message:
       fail: "Ogiltigt meddelande"
     show:
       delete: "ta bort och blockera konversation"
-      reply: svara
+      reply: "svara"
       replying: Svarar...
   delete: "Ta bort"
   email: E-post
@@ -259,14 +259,14 @@ sv:
   home:
     show:
       already_account: "har du redan ett konto?"
-      choice: Valfrihet
+      choice: "Valfrihet"
       choice_explanation: "Diaspora låter dig dela in dina kontakter i grupper som kallas aspekter. Aspekter, som är unika för Diaspora, förhindrar att dina foton, meddelanden och skämt kan ses av någon annan än de personer som du valt."
       learn_about_host: "Lär dig hur du sätter upp en egen Diasporaserver."
       login_here: "logga in här"
       ownership: Ägandeskap
       ownership_explanation: "Du äger dina bilder, och du ska inte behöva frångå det när vill dela med dig av dem. Du behåller äganderätten till allt du delar med dig av på Diaspora, vilket ger dig full kontroll över hur det distribueras."
       share_what_you_want: "Dela vad du vill, med vem du vill."
-      simplicity: Enkelhet
+      simplicity: "Enkelhet"
       simplicity_explanation: "Diaspora gör det lätt att att dela meddelanden och bilder med rätt personer. Lika lätt är det att behålla den personliga integriteten, med Diaspora tvingas du inte vada igenom sidor av inställningar och alternativ bara för att hålla din profil säker."
       tagline_first_half: "Dela vad du vill,"
       tagline_second_half: "med vem du vill."
@@ -286,7 +286,7 @@ sv:
       your_account_awaits: "Ditt konto väntar på dig!"
     new:
       already_invited: "Följande har inte accepterat din inbjudan:"
-      aspect: Aspekt
+      aspect: "Aspekt"
       comma_seperated_plz: "Du kan ange flera e-postadresser åtskiljda av kommatecken."
       if_they_accept_info: "om de accepterar, kommer de läggas till i den aspekt du angav vid inbjudan."
       invite_someone_to_join: "Bjud in en vän till Diaspora!"
@@ -295,7 +295,7 @@ sv:
       resend: "Skicka igen"
       send_an_invitation: "Skicka en inbjudan"
       send_invitation: "Skicka inbjudan"
-      to: Till
+      to: "Till"
   layouts:
     application:
       back_to_top: "Åter till början"
@@ -304,12 +304,12 @@ sv:
       whats_new: "några nyheter?"
       your_aspects: "dina aspekter"
     header:
-      blog: blogg
+      blog: "blogg"
       code: källkod
       login: "Logga in"
       logout: "Logga ut"
-      profile: Profil
-      recent_notifications: Tidigare
+      profile: "Profil"
+      recent_notifications: "Tidigare"
       settings: Inställningar
       view_all: "Se alla"
   likes:
@@ -336,7 +336,7 @@ sv:
         two: "Två personer gillar"
         zero: "Ingen gillar"
   limited: Begränsad
-  more: Mer
+  more: "Mer"
   next: nästa
   no_results: "Inga sökresultat"
   notifications:
@@ -370,7 +370,7 @@ sv:
         two: "Två nya notiser"
         zero: "Inga nya notiser"
     index:
-      and: och
+      and: "och"
       and_others:
         few: "och %{count} till"
         many: "och %{count} till"
@@ -379,7 +379,7 @@ sv:
         two: "och två till"
         zero: "och ingen mer"
       mark_all_as_read: "Markera alla som lästa"
-      notifications: Notiser
+      notifications: "Notiser"
     liked:
       few: "%{actors} personer gillar din %{post_link}."
       many: "%{actors} personer gillar din %{post_link}."
@@ -465,7 +465,7 @@ sv:
       view_profile: "Se %{name}s profil"
     thanks: "Tack,"
     to_change_your_notification_settings: "för att ändra dina notisinställningar"
-  or: eller
+  or: "eller"
   password: Lösenord
   password_confirmation: "Bekräfta lösenord"
   people:
@@ -496,7 +496,7 @@ sv:
       edit_my_profile: "Ändra min profil"
       gender: kön
       in_aspects: "i aspekter"
-      location: plats
+      location: "plats"
       remove_contact: "ta bort kontakt"
       remove_from: "Ta bort %{name} från %{aspect}?"
     show:
@@ -516,7 +516,7 @@ sv:
       to_accept_or_ignore: "for att acceptera eller ignorera."
     sub_header:
       add_some: "lägg till"
-      edit: redigera
+      edit: "redigera"
       you_have_no_tags: "du har inga taggar!"
     two: "%{count} personer"
     webfinger:
@@ -570,15 +570,15 @@ sv:
         zero: "Inga foton av %{author}"
       reshare_by: "Sprids vidare av %{author}"
   previous: föregående
-  privacy: Sekretess
-  privacy_policy: Integritetspolicy
-  profile: Profil
+  privacy: "Sekretess"
+  privacy_policy: "Integritetspolicy"
+  profile: "Profil"
   profiles:
     edit:
       allow_search: "Tillåter andra att söka efter dig inom Diaspora"
       edit_profile: "Redigera profil"
       first_name: Förnamn
-      last_name: Efternamn
+      last_name: "Efternamn"
       update_profile: "Uppdatera profil"
       your_bio: "Din biografi"
       your_birthday: "Din födelsedag"
@@ -593,7 +593,7 @@ sv:
     update:
       failed: "Kunde inte uppdatera profilen"
       updated: "Profilen har uppdaterats"
-  public: Publik
+  public: "Publik"
   reactions:
     few: "%{count} reaktioner"
     many: "%{count} reaktioner"
@@ -611,7 +611,7 @@ sv:
       leave_blank: "(lämna tomt om du inte vill ändra det)"
       password_to_confirm: "(det nuvarande lösenordet krävs för att bekräfta ändringarna)"
       unhappy: Missnöjd?
-      update: Uppdatera
+      update: "Uppdatera"
     new:
       create_my_account: "Skapa mitt konto!"
       enter_email: "Ange en e-postadress"
@@ -621,7 +621,7 @@ sv:
       sign_up_message: "Socialt nätverkande med ♥"
   requests:
     create:
-      sending: Skickar
+      sending: "Skickar"
       sent: "Du har begärt att dela med %{name}.  De kommer att få veta det nästa gång som de loggar in på Diaspora."
     destroy:
       error: "Var god välj en sida!"
@@ -719,7 +719,7 @@ sv:
       invitations_left: "%{count} kvar"
       invite_someone: "Bjud in en kontakt"
       invite_your_friends: "Bjud in dina vänner"
-      invites: Inbjudningar
+      invites: "Inbjudningar"
       invites_closed: "För närvarande är inbjudningar avstängda på denna Diasporaserver"
     notification:
       new: "Ny %{type} från %{from}"
@@ -729,11 +729,11 @@ sv:
       manage: "hantera anslutna tjänster"
       new_user_welcome_message: "Använd #hashtaggar för att klassificera dina inlägg och hitta folk som delar dina intressen. Ropa ut till häftiga personer med @Mentions"
       outside: "Publika meddelanden kan läsas av användare utanför Diaspora."
-      share: Dela
+      share: "Dela"
       title: "Hantera anslutna tjänster"
       visibility_dropdown: "Använd den här rullisten för att bestämma vilka som kan se ditt inlägg (vi föreslår att du gör det här första inlägget publikt)."
     publisher:
-      all: alla
+      all: "alla"
       all_contacts: "alla kontakter"
       discard_post: "Släng inlägg"
       make_public: "gör publik"
@@ -744,7 +744,7 @@ sv:
       post_a_message_to: "Skicka ett meddelande till %{aspect}"
       posting: Skickar...
       publishing_to: "publicerar till: "
-      share: Dela
+      share: "Dela"
       share_with: "dela med"
       upload_photos: "Ladda upp foton"
       whats_on_your_mind: "Vad har du på hjärtat?"
@@ -760,7 +760,7 @@ sv:
       like: "Jag gillar det här"
       nsfw: "Detta inlägg har blivit flaggat som NSFW av författaren . %{link}"
       shared_with: "Delas med: %{aspect_names}"
-      show: visa
+      show: "visa"
       unlike: "Sluta gilla"
       viewable_to_anyone: "Detta inlägg är synligt för alla på nätet"
   status_messages:
@@ -791,7 +791,7 @@ sv:
   streams:
     aspects:
       title: "Dina aspekter"
-    aspects_stream: Aspekter
+    aspects_stream: "Aspekter"
     comment_stream:
       contacts_title: "Personer vars inlägg du har kommenterat på"
       title: "Kommenterade inlägg"
@@ -836,7 +836,7 @@ sv:
       people_tagged_with: "Personer taggade med %{tag}"
       posts_tagged_with: "Poster taggade med #%{tag}"
       stop_following: "Sluta följa #%{tag}"
-  terms_and_conditions: Vilkor
+  terms_and_conditions: "Vilkor"
   tokens:
     show:
       connect_to_cubbies: "Koppla till Cubbi.es"

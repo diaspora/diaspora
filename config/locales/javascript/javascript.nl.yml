@@ -28,27 +28,31 @@ nl:
       hide: "verberg reacties"
       show: "laat reacties zien"
     confirm_dialog: "Weet je het zeker?"
-    delete: Verwijder
+    delete: "Verwijder"
     failed_to_like: "Vastprikken mislukt!"
     failed_to_post_message: "Bericht plaatsen mislukt!"
     getting_started:
       alright_ill_wait: "Prima, ik wacht wel."
-      no_tags: "Hey, je volgt geen tags! Toch doorgaan?"
+      hey: "Hallo, <%= name %>!"
+      no_tags: "He, je volgt geen tags! Toch doorgaan?"
       preparing_your_stream: "Je gepersonaliseerde stream klaarmaken..."
     header:
-      contacts: Contacten
+      admin: "Beheer"
+      contacts: "Contacten"
       log_out: "Log uit"
       mark_all_as_read: "Markeer alles gelezen"
-      messages: Berichten
-      notifications: Notificaties
-      profile: Profiel
+      messages: "Berichten"
+      notifications: "Notificaties"
+      profile: "Profiel"
       recent_notifications: "Recente Notificaties"
       search: "Vind mensen of #tags"
-      settings: Instellingen
+      settings: "Instellingen"
       view_all: "Bekijk alle"
-    ignore: Negeer
+    ignore: "Negeer"
     infinite_scroll:
       no_more: "Geen posts meer."
+    my_activity: "Mijn activiteit"
+    my_stream: "Kanaal"
     photo_uploader:
       looking_good: "Wow, wat ben je knap!"
     publisher:
@@ -60,9 +64,9 @@ nl:
     search_for: "Zoek naar <%= name %>"
     show_more: "laat meer zien"
     stream:
-      comment: Reageer
-      hide: Verberg
-      like: Vastprikken
+      comment: "Reageer"
+      hide: "Verberg"
+      like: "Vastprikken"
       likes:
         few: "<%= count %> keer vastgeprikt"
         many: "<%= count %> keer vastgeprikt"
@@ -79,8 +83,8 @@ nl:
         two: "Toon nog <%= count %> reacties"
         zero: "Toon nog <%= count %> reacties"
       original_post_deleted: "Originele post verwijderd door de auteur."
-      public: Openbaar
-      reshare: Doorgeven
+      public: "Openbaar"
+      reshare: "Doorgeven"
       reshares:
         few: "<%= count %> Doorgaven"
         many: "<%= count %> Doorgaven"
@@ -88,7 +92,7 @@ nl:
         other: "<%= count %> Doorgaven"
         two: "<%= count %> Doorgaven"
         zero: "<%= count %> doorgaven"
-      unlike: Losprikken
+      unlike: "Loslaten"
     tags:
       wasnt_that_interesting: "#<%= tagName %> zal dan toch niet zo interessant geweest zijn..."
     timeago:
@@ -101,7 +105,7 @@ nl:
       month: "ongeveer een maand"
       months: "%d maanden"
       seconds: "iets minder dan een minuut"
-      suffixAgo: geleden
+      suffixAgo: "geleden"
       suffixFromNow: "vanaf nu"
       year: "ongeveer een jaar"
       years: "%d jaar"

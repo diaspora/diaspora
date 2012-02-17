@@ -26,7 +26,7 @@ nb:
     mailer:
       confirmation_instructions:
         confirm: "Bekreft kontoen min"
-        subject: Bekreftelsesinstrukser
+        subject: "Bekreftelsesinstrukser"
         you_can_confirm: "Du kan bekrefte kontoen via linken nedenfor:"
       hello: "Hei %{email}!"
       invitation_instructions:
@@ -42,14 +42,14 @@ nb:
         have_fun: "Ha det gøy"
         have_fun_paragraph: "%{strong_diaspora} handler om å finne utrolig nytt innhold og nye mennesker online. %{link}, den første %{strong_diaspora} applikasjonen i verden, er bare begynnelsen. Finn og del alt som gjør nettet til et fantastisk sted."
         help_fund: "hjelp med å finansiere Diaspora"
-        here: her
+        here: "her"
         ignore: "Hvis du ikke ønsker å godta invitasjonen, kan du se bort fra denne e-posten."
         join_team: "Bli med på laget"
         love: "Hilsen,"
         made_by_people: "%{strong_diaspora} er lagd av folk som er like glade i Internet som du er. %{jointeam}, eller %{helpfund}!"
         more_people: "Enda flere mennesker er glade for å se deg!"
         no_account_till: "Brukeren din vil ikke opprettes før du besøker lenken over og registrerer deg."
-        or: eller
+        or: "eller"
         sign_up_now: "Registrer deg nå &rarr;"
         subject: "Du har blitt invitert til Diaspora!"
         unsubscribe: "For å avregistrere deg klikk på %{link}."
@@ -88,10 +88,10 @@ nb:
         bugs_and_feedback_mobile: "Vær advart, du vil oppleve bugs. Vi oppfordrer deg til å rapportere feil! Vi vil arbeide så fort vi kan for å løse eventuelle problemer du rapporterer."
         login: "Logg inn"
         modern_browsers: "støtter bare moderne nettlesere."
-        password: Passord
+        password: "Passord"
         remember_me: "Husk meg"
         sign_in: "Logg inn"
-        username: Brukernavn
+        username: "Brukernavn"
       signed_in: "Innlogginga var vellykka."
       signed_out: "Utlogginga var vellykka."
     shared:

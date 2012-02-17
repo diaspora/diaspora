@@ -85,42 +85,30 @@ fil:
       no_contacts: "No mateys"
     many: "%{count} crews"
     new:
-      name: Name
+      name: "Name"
     no_contacts_message:
       try_adding_some_more_contacts: "You can search (top) or invite (right) more contacts."
     one: "1 crew"
     other: "%{count} crews"
     seed:
-      acquaintances: Landlubbers
-      family: Kin
-      friends: Mateys
-      work: Shipmates
+      acquaintances: "Landlubbers"
+      family: "Kin"
+      friends: "Mateys"
+      work: "Shipmates"
     two: "%{count} aspects"
     zero: "no aspects"
   authorizations:
     index:
       no_applications: "Hindi ka pa nakapag-sumite ng applikasyon."
       revoke_access: "Bawiin ang Access"
-  comments:
-    few: "%{count} comments"
-    many: "%{count} comments"
-    one: "1 comment"
-    other: "%{count} comments"
-    two: "%{count} comments"
-    zero: "no comments"
   contacts:
     few: "%{count} contacts"
     index:
       add_to_aspect: "Add contacts to %{name}"
       all_contacts: "All yer mateys"
       no_contacts: "No contacts."
-      title: Mateys
+      title: "Mateys"
       your_contacts: "Yer Mateys"
-    many: "%{count} contacts"
-    one: "1 contact"
-    other: "%{count} contacts"
-    two: "%{count} contacts"
-    zero: "no contacts"
   conversations:
     helper:
       new_messages:
@@ -135,8 +123,8 @@ fil:
       toggle: "toggle mobile site"
     header:
       logout: "abandon ship"
-      profile: profile
-      settings: settings
+      profile: "profile"
+      settings: "settings"
   likes:
     likes:
       people_dislike_this:
@@ -160,7 +148,7 @@ fil:
         other: "%{count} likes"
         two: "%{count} likes"
         zero: "no likes"
-  limited: Limitado
+  limited: "Limitado"
   notifications:
     also_commented:
       few: "%{actors} also commented on %{post_author}'s %{post_link}."
@@ -281,7 +269,7 @@ fil:
       born: "date o' birth"
     sub_header:
       add_some: "magdagdag ng ilan"
-      edit: baguhin
+      edit: "baguhin"
       you_have_no_tags: "wala ka pang mga tag!"
     two: "%{count} na tao"
     zero: "no people"
@@ -328,7 +316,7 @@ fil:
         one: "1 reshare"
         other: "%{count} reshares"
         two: "%{count} reshares"
-        zero: Reshare
+        zero: "Reshare"
   services:
     inviter:
       click_link_to_accept_invitation: "Click this link to accept your invitation"

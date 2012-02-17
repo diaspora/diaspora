@@ -94,7 +94,7 @@ is:
         password: Lykilorð
         remember_me: "Muna eftir mér"
         sign_in: Innskrá
-        username: Notandanafn
+        username: "Notandanafn"
       signed_in: "Þú ert nú skráð/ur inn."
       signed_out: "Þú hefur verið skráð/ur út."
     shared:
