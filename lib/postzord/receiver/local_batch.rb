@@ -14,7 +14,7 @@ class Postzord::Receiver::LocalBatch < Postzord::Receiver
   end
 
   def receive!
-    FEDERATION_LOGGER.info("receiving local batch for #{@object.class}:#{@object.guid}")
+    FEDERATION_LOGGER.info("receiving local batch for #{@object.inspect}")
     if @object.respond_to?(:relayable?)
       receive_relayable
     else
@@ -25,7 +25,7 @@ class Postzord::Receiver::LocalBatch < Postzord::Receiver
     # 09/27/11 this is slow
     notify_users
 
-    FEDERATION_LOGGER.info("receiving local batch completed for #{@object.class}:#{@object.guid}")
+    FEDERATION_LOGGER.info("receiving local batch completed for #{@object.inspect}")
     true
   end
 

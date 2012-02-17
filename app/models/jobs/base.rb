@@ -15,8 +15,10 @@ module Jobs
       begin
         yield
       rescue Exception => e
-        FEDERATION_LOGGER.info(e.message)
-        raise e
+        Rails.info("error in job: #{e.message}")
+        unless DUMB_ERROR_MESSAGES.include?(e.message) 
+          raise e
+        end
       end
     end
   end
