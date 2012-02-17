@@ -9,7 +9,6 @@ class Webfinger
   def initialize(account)
     self.account = account 
     self.ssl = true
-    Rails.logger.info("event=webfinger status=initialized target=#{account}")
   end
 
 
@@ -46,12 +45,13 @@ class Webfinger
   end
 
   def create_or_update_person_from_webfinger_profile!
+    FEDERATION_LOGGER.info("webfingering #{account}, it is not known or needs updating")
     if person #update my profile please
       person.assign_new_profile_from_hcard(self.hcard)
     else
       person = make_person_from_webfinger
     end
-    Rails.logger.info("event=webfinger status=success route=remote target=#{@account}")
+    FEDERATION_LOGGER.info("successfully webfingered#{@account}")
     person
   end
 

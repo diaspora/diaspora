@@ -9,6 +9,8 @@ class Postzord::Receiver::Public < Postzord::Receiver
   def initialize(xml)
     @salmon = Salmon::Slap.from_xml(xml)
     @author = Webfinger.new(@salmon.author_id).fetch
+
+    FEDERATION_LOGGER.info("Receving public post from person:#{@author.id}")
   end
 
   # @return [Boolean]
@@ -21,6 +23,7 @@ class Postzord::Receiver::Public < Postzord::Receiver
     return false unless verified_signature?
     return false unless save_object
 
+    FEDERATION_LOGGER.info("received a #{@object.inspect}")
     if @object.respond_to?(:relayable?)
       receive_relayable
     elsif @object.is_a?(AccountDeletion)
@@ -47,7 +50,7 @@ class Postzord::Receiver::Public < Postzord::Receiver
   def save_object
     @object = Diaspora::Parser::from_xml(@salmon.parsed_data)
     raise "Object is not public" if object_can_be_public_and_it_is_not?
-    @object.save  if @object
+    @object.save!  if @object
   end
 
   # @return [Array<Integer>] User ids

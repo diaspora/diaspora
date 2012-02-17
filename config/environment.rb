@@ -37,6 +37,7 @@ USERNAME_BLACKLIST = ['admin', 'administrator', 'hostmaster', 'info', 'postmaste
 
 # Initialize the rails application
 Diaspora::Application.initialize!
+require File.join(Rails.root, 'lib/federation_logger')
 
 # allow token auth only for posting activitystream photos
 module Devise

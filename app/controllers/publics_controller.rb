@@ -50,6 +50,7 @@ class PublicsController < ApplicationController
       return
     end
 
+    FEDERATION_LOGGER.info("webfinger profile request for :#{@person.id}")
     render 'webfinger', :content_type => 'application/xrd+xml'
   end
 
@@ -58,6 +59,7 @@ class PublicsController < ApplicationController
   end
 
   def receive_public
+    FEDERATION_LOGGER.info("recieved a public message")
     Resque.enqueue(Jobs::ReceiveUnencryptedSalmon, CGI::unescape(params[:xml]))
     render :nothing => true, :status => :ok
   end
@@ -72,6 +74,8 @@ class PublicsController < ApplicationController
     end
 
     @user = person.owner
+
+    FEDERATION_LOGGER.info("recieved a private message for user:#{@user.id}")
     Resque.enqueue(Jobs::ReceiveEncryptedSalmon, @user.id, CGI::unescape(params[:xml]))
 
     render :nothing => true, :status => 202

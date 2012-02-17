@@ -9,8 +9,13 @@ module Jobs
     @queue = :receive
 
     def self.perform(xml)
-      receiver = Postzord::Receiver::Public.new(xml)
-      receiver.perform!
+      begin
+        receiver = Postzord::Receiver::Public.new(xml)
+        receiver.perform!
+      rescue Exception => e
+        FEDERATION_LOGGER.info(e.message)
+        raise e
+      end
     end
   end
 end
