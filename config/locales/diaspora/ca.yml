@@ -36,6 +36,7 @@ ca:
   public: "Públic"
   limited: "Limitat"
   search: "Cerca"
+  nsfw: "NSFW"
   find_people: "Cerqueu gent o #etiquetes"
   _home: "Inici"
   more: "Més"
@@ -165,7 +166,6 @@ ca:
     index:
       donate: "Doneu"
       keep_us_running: "Mantingueu %{pod} en marxa i compreu-li als nostres servidors la seva dosi de cafeïna amb una donació mensual!"
-      your_aspects: "Els vostres aspectes"
       no_tags: "+ Cerqueu una etiqueta per seguir-la"
       unfollow_tag: "Deixa de seguir #%{tag}"
       handle_explanation: "Aquest és el vostre identificador de Diàspora. Com les adreces de correu, podeu donar això a la gent per a que us contacte."
@@ -355,6 +355,7 @@ ca:
       aspect: "Aspecte"
       already_invited: "Les persones següents no han acceptat la vostra invitació:"
       resend: "Torna-la a enviar"
+      check_out_diaspora: "Pegueu-li una ullada al Diàspora!"
     check_token:
       not_found: "No s'ha trobat el testimoni de la invitació"
     edit:
@@ -671,6 +672,8 @@ ca:
       update_profile: "Actualitza el perfil"
       allow_search: "Permet que la gent em cerqui dins del Diàspora"
       edit_profile: "Edita el perfil"
+      you_are_nsfw: "Us heu marcat com a no apropiats per a entorns de treball. El vostre contingut no es mostrarà als fluxos de la gent que ha decidit no veure continguts potencialment ofensiu."
+      you_are_safe_for_work: "Us heu marcat com a apropiats per a entorns de treball. Això vol dir que esteu d'acord en què el vostre contingut compleixi les guies de comportament de la comunitat."
     update:
       updated: "S'ha actualitzat el perfil"
       failed: "No s'ha pogut actualitzar el perfil"
@@ -961,7 +964,9 @@ ca:
       title: "Flux"
       contacts_title: "Gent al vostre flux"
     aspects:
-      title: "Els vostres aspectes"
+      title: "Els meus aspectes"
+    activity:
+      title: "La meua activitat"
 
   users:
     logged_out: "Heu sortit del Diàspora*"
