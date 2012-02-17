@@ -2,7 +2,7 @@
 
   {{#if current_user}}
     <div class="controls">
-      {{#if authorIsCurrentUser}}
+      {{#if authorIsNotCurrentUser}}
         <a href="#" rel=nofollow>
           <img src="{{imageUrl "/images/icons/ignoreuser.png"}}"" alt="Ignoreuser" class="block_user control_icon" title="{{t "ignore"}}" />
         </a>
