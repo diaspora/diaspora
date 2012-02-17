@@ -71,11 +71,11 @@ ro:
         alpha_software: "Sunteţi pe cale de a utiliza software alfa."
         bugs_and_feedback: "Aveţi grijă, puteţi experimenta probleme. Vă încurajăm să utilizaţi butonul Feedback de pe partea dreaptă a browser-ului pentru a raporta orice problemă! Vom lucra cât mai repede posibil pentru a rezolva orice dificultăţi veţi întâmpina."
         bugs_and_feedback_mobile: "Aveţi grijă, veţi experimenta probleme. Vă încurajăm să raportaţi orice problemă! Vom lucra cât mai repede posibil pentru a rezolva orice dificultăţi veţi întâmpina."
-        login: Autentificare
+        login: "Autentificare"
         modern_browsers: "suportă doar browser-ele moderne."
-        password: Parola
+        password: "Parola"
         remember_me: "Nu mă uita"
-        sign_in: Autentificare
+        sign_in: "Autentificare"
         username: "Nume de utilizator"
       signed_in: "Autentificare cu succes."
       signed_out: "Deconectare cu succes."
@@ -84,7 +84,7 @@ ro:
         forgot_your_password: "Aţi uitat parola?"
         receive_confirmation: "Nu aţi primit instrucţiunile de confirmare?"
         receive_unlock: "Nu aţi primit instrucţiunile de deblocare?"
-        sign_in: Autentificare
+        sign_in: "Autentificare"
         sign_up: Înregistrează-te
         sign_up_closed: "Înscrierile sunt închise în acest moment."
       mail_signup_form:
@@ -97,5 +97,5 @@ ro:
   errors:
     messages:
       already_confirmed: "a fost deja confirmat"
-      not_found: Inexistent
+      not_found: "Inexistent"
       not_locked: "nu a fost blocat"

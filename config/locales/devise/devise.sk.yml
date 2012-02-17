@@ -43,14 +43,14 @@ sk:
         have_fun: "Bavte sa"
         have_fun_paragraph: "%{strong_diaspora} je o objavovaní úžasného obsahu a úžasných ľudí online. %{link}, prvá aplikácia na sieti %{strong_diaspora} na svete je len začiatok. Zbierajte a deľte sa o web v celej jeho sláve."
         help_fund: "pomôžte financovať Diasporu"
-        here: sem
+        here: "sem"
         ignore: "Ak nechcete prijať toto pozvanie, ignorujte, prosím, tento e-mail."
         join_team: "Pripojte sa k nášmu tímu"
         love: "S láskou"
         made_by_people: "%{strong_diaspora} vznikla vďaka ľuďom, ktorí majú radi internet tak ako vy. %{jointeam} alebo %{helpfund}!"
         more_people: "Ešte viac ľudí vás chce stretnúť!"
         no_account_till: "Váš účet sa nevytvorí, kým nekliknete na odkaz vyššie a nezaregistrujete sa."
-        or: alebo
+        or: "alebo"
         sign_up_now: "Zaregistrujte sa teraz &rarr;"
         subject: "Pozvali vás na Diasporu!"
         team_diaspora: "Tím Diaspory"
@@ -91,7 +91,7 @@ sk:
         bugs_and_feedback_mobile: "Je možné, že občas narazíte na chyby. Ak nám ich nahlásite, budeme sa ich snažiť čo najrýchlejšie opraviť."
         login: "Prihlasovacie meno"
         modern_browsers: "podporuje len moderné prehliadače."
-        password: Heslo
+        password: "Heslo"
         remember_me: "Pamätať si ma"
         sign_in: "Prihlásiť sa"
         username: "Používateľské meno"

@@ -28,7 +28,7 @@ pt-PT:
       hide: "ocultar comentários"
       show: "mostrar todos os comentários"
     confirm_dialog: "Tem a certeza?"
-    delete: Eliminar
+    delete: "Eliminar"
     failed_to_like: "Falhou em gostar!"
     failed_to_post_message: "Falhou ao publicar a mensagem!"
     getting_started:
@@ -39,20 +39,20 @@ pt-PT:
     header:
       contacts: "Contactos "
       home: "Inicio "
-      log_out: Sair
+      log_out: "Sair"
       mark_all_as_read: "Marcar tudo como lido"
-      messages: Mensagens
+      messages: "Mensagens"
       notifications: Notificações
-      profile: Perfil
+      profile: "Perfil"
       recent_notifications: "Últimas Notificações"
-      search: Procurar
+      search: "Procurar"
       settings: Definições
       view_all: "Ver tudo"
-    ignore: Ignorar
+    ignore: "Ignorar"
     infinite_scroll:
       no_more: "Não há mais publicações."
     my_activity: "Minha Atividade "
-    my_stream: Fluxo
+    my_stream: "Fluxo"
     photo_uploader:
       looking_good: "OMD, tu estás fantástico(a)!"
     publisher:
@@ -64,10 +64,10 @@ pt-PT:
     search_for: "Procurar por {{name}}"
     show_more: "mostrar mais"
     stream:
-      comment: Comentar
-      follow: Seguir
-      hide: Ocultar
-      like: Gosto
+      comment: "Comentar"
+      follow: "Seguir"
+      hide: "Ocultar"
+      like: "Gosto"
       likes:
         few: "<%= count %> que gosto"
         many: "<%= count %> que gosto"
@@ -75,7 +75,7 @@ pt-PT:
         other: "<%= count %> que gosto"
         two: "<%= count %> que gosto"
         zero: "<%= count %> que gosto"
-      limited: Limitado
+      limited: "Limitado"
       more_comments:
         few: "Mostrar <%= count %> mais comentários"
         many: "Mostrar <%= count %> mais comentários"
@@ -84,8 +84,8 @@ pt-PT:
         two: "Mostrar <%= count %> mais comentários"
         zero: "Mostrar <%= count %> mais comentários"
       original_post_deleted: "Publicação original eliminada pelo autor."
-      public: Publico
-      reshare: Partilhar
+      public: "Publico"
+      reshare: "Partilhar"
       reshares:
         few: "<%= count %> Partilhas"
         many: "<%= count %> Partilhas"

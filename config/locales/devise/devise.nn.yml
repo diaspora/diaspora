@@ -26,7 +26,7 @@ nn:
     mailer:
       confirmation_instructions:
         confirm: "Stadfest kontoen min"
-        subject: Stadfestingsrettleiing
+        subject: "Stadfestingsrettleiing"
         you_can_confirm: "Du kan stadfesta kontoen din ved å nytta lenkja nedanfor:"
       hello: "Hei %{email}."
       invitation_instructions:
@@ -71,10 +71,10 @@ nn:
         bugs_and_feedback_mobile: "Ver merksam på at du vil oppleva feil. Vi ber deg om å rapportera dei til oss. Så skal vi prøva å ordna dei så fort råd er."
         login: Pålogging
         modern_browsers: "kan berre nytta moderne nettlesarar."
-        password: Passord
+        password: "Passord"
         remember_me: "Hugs meg"
         sign_in: "Logg på"
-        username: Brukarnamn
+        username: "Brukarnamn"
       signed_in: "Er pålogga."
       signed_out: "Er utlogga."
     shared:

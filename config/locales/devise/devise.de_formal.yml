@@ -69,12 +69,12 @@ de_formal:
         alpha_software: "Diese Software befindet sich im Alpha-Stadium."
         bugs_and_feedback: "Seien Sie gewarnt, Fehler werden auftreten. Wir empfehlen Ihnen, den Feedback-Knopf am rechten Browserrand zu nutzen, um alle Störungen zu berichten. Wir werden so schnell wir können arbeiten, um alle Probleme, die Sie melden, zu lösen."
         bugs_and_feedback_mobile: "Seien Sie gewarnt, Fehler werden auftreten. Wir empfehlen Ihnen, alle Störungen zu melden! Wir werden so schnell wir können arbeiten, um alle Probleme, die Sie melden, zu lösen."
-        login: Einloggen
+        login: "Einloggen"
         modern_browsers: "unterstützt nur moderne Browser."
-        password: Kennwort
+        password: "Kennwort"
         remember_me: "Angemeldet bleiben"
-        sign_in: Anmelden
-        username: Benutzername
+        sign_in: "Anmelden"
+        username: "Benutzername"
       signed_in: Angemeldet.
       signed_out: Abgemeldet.
     shared:
@@ -82,8 +82,8 @@ de_formal:
         forgot_your_password: "Kennwort vergessen?"
         receive_confirmation: "Keine Bestätigungsanleitung erhalten?"
         receive_unlock: "Keine Entsperr-Anweisungen erhalten?"
-        sign_in: Anmelden
-        sign_up: Registrieren
+        sign_in: "Anmelden"
+        sign_up: "Registrieren"
         sign_up_closed: "Öffentliche Registrierungen sind momentan nicht möglich."
       mail_signup_form:
         sign_up_for_an_invite: "Registrieren Sie sich für eine Einladung!"

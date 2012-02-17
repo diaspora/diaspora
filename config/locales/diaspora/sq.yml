@@ -5,13 +5,13 @@
 
 
 sq:
-  _applications: Zbatime
-  _comments: Komente
-  _contacts: Kontakte
-  _home: Hyrja
-  _photos: foto
+  _applications: "Zbatime"
+  _comments: "Komente"
+  _contacts: "Kontakte"
+  _home: "Hyrja"
+  _photos: "foto"
   _services: Shërbime
-  account: Llogari
+  account: "Llogari"
   activerecord:
     errors:
       models:
@@ -91,7 +91,7 @@ sq:
     helper:
       are_you_sure: "Jeni i sigurt se doni të fshihet ky aspekt?"
       aspect_not_empty: "Aspekt jo i zbrazët"
-      remove: hiqe
+      remove: "hiqe"
     index:
       cubbies:
         explanation: "Cubbi.es është zbatimi i parë Diaspora në zhvillim e sipër."
@@ -101,7 +101,7 @@ sq:
         content_1: "ID-ja juaj në Diaspora është:"
         content_2: "Jepjani kujtdo dhe kështu do të jenë në gjendje t'ju gjejnë në Diaspora."
         heading: "ID Diaspora"
-      donate: Dhuroni
+      donate: "Dhuroni"
       handle_explanation: "Kjo është id-ja juaj e diasporas. Pak a shumë si një adresë email, mund t'ua jepni njerëzve që të lidhen me ju."
       help:
         do_you: ":"
@@ -113,7 +113,7 @@ sq:
         need_help: "Ju Duhet Ndihmë?"
         tag_bug: "të metë"
         tag_feature: "veçori të re"
-        tag_question: pyetje
+        tag_question: "pyetje"
         tutorials_wiki_and_forum: "%{tutorial} & %{wiki} & %{forum}: Përkujdesore, how-to dhe lajme nga bashkësia"
       introduce_yourself: "Kjo është rrëkeza juaj.  Fillojani duke prezantuar vetveten."
       keep_us_running: "Mbajeni të shpejtë xhirimin e %{pod}-it dhe u blini shërbyesve kafenë e ditës përmes një dhurimi të përmuajshëm!"
@@ -136,7 +136,7 @@ sq:
       failure: "nuk funksionoi %{inspect}"
       success: "Personi u lëviz te aspekt i ri"
     new:
-      create: Krijoje
+      create: "Krijoje"
       name: "Emër (i dukshëm vetëm për ju)"
     no_contacts_message:
       community_spotlight: "prozhektorit mbi bashkësinë"
@@ -150,7 +150,7 @@ sq:
     seed:
       acquaintances: "Të njohur"
       family: "Të familjes"
-      friends: Miq
+      friends: "Miq"
       work: "Të punës"
     selected_contacts:
       manage_your_aspects: "Administroni aspektet tuaja."
@@ -164,19 +164,19 @@ sq:
       failure: "Aspekti juaj %{name} e kish emrin shumë të gjatë për t'ia ruajtur."
       success: "Aspekti juaj %{name} u përpunua me sukses."
     zero: "pa aspekte"
-  back: Mbrapsht
+  back: "Mbrapsht"
   bookmarklet:
     explanation: "Postoni te Diaspora prej kudo qofshi, duke faqeruajtur %{link}."
     explanation_link_text: "këtë lidhje"
     heading: "Zbatimth Faqerojtës"
     post_something: "Postoni diçka te Diaspora"
     post_success: "U postua! Po mbyllet!"
-  cancel: Anuloje
+  cancel: "Anuloje"
   comments:
     few: "%{count} komente"
     many: "%{count} komente"
     new_comment:
-      comment: Koment
+      comment: "Koment"
       commenting: "Po komentohet..."
     one: "1 koment"
     other: "%{count} komente"
@@ -196,7 +196,7 @@ sq:
       only_sharing_with_me: "Vetëm ata që ndajnë gjëra me mua"
       remove_person_from_aspect: "Hiqe %{person_name} prej \"%{aspect_name}\""
       start_a_conversation: "Filloni një bashkëbisedim"
-      title: Kontakte
+      title: "Kontakte"
       your_contacts: "Kontaktet Tuaja"
     many: "%{count} kontakte"
     one: "1 kontakt"
@@ -206,7 +206,7 @@ sq:
     spotlight:
       community_spotlight: "Prozhektori i Bashkësisë"
     two: "%{count} kontakte"
-    zero: kontakte
+    zero: "kontakte"
   conversations:
     create:
       fail: "Mesazh i mangët"
@@ -232,7 +232,7 @@ sq:
       abandon_changes: "Të braktisen ndryshimet?"
       send: Dërgoje
       sending: "Po dërgohet..."
-      subject: subjekt
+      subject: "subjekt"
       to: për
     new_message:
       fail: "Mesazh i mangët"
@@ -240,17 +240,17 @@ sq:
       delete: "fshije dhe bllokoje bashkëbisedimin"
       reply: përgjigjuni
       replying: "Po përgjigjeni..."
-  delete: Fshije
+  delete: "Fshije"
   error_messages:
     helper:
       correct_the_following_errors_and_try_again: "Ndreqni gabimet vijuese dhe riprovoni."
       invalid_fields: "Fusha të Pavlefshme"
   find_people: "Gjeni persona ose #tags"
-  hide: Fshihe
+  hide: "Fshihe"
   home:
     show:
       already_account: "keni tashmë një llogari?"
-      choice: Zgjedhjet
+      choice: "Zgjedhjet"
       choice_explanation: "Diaspora ju lejon t'i gruponi lidhjet tuaja në grupe të quajtura aspekte. Veçanti e Diaspora-s, aspektet bëjnë të mundur që fotot tuaj, ngjarjet dhe barsaletat që tregoni, ndahen vetëm me personat që doni."
       learn_about_host: "Mësoni se si të strehoni shërbyesin tuaj Diaspora."
       login_here: "hyni prej këtu"
@@ -276,7 +276,7 @@ sq:
       your_account_awaits: "Llogaria juaj pret!"
     new:
       already_invited: "Ftesa juaj nuk është pranuar nga personat vijues:"
-      aspect: Aspekt
+      aspect: "Aspekt"
       comma_seperated_plz: "Mund të fusni shumë adresa email njëherësh, duke i ndarë me presje."
       if_they_accept_info: "nëse pranojnë, do të shtohen te aspekti prej nga ku i ftuat."
       invite_someone_to_join: "Ftoni dikë që të marrë pjesë në Diaspora!"
@@ -293,12 +293,12 @@ sq:
       whats_new: "ç'ka të re?"
       your_aspects: "aspektet tuaja"
     header:
-      code: kod
-      login: hyni
-      logout: Dilni
-      profile: Profil
+      code: "kod"
+      login: "hyni"
+      logout: "Dilni"
+      profile: "Profil"
       recent_notifications: "Njoftime së fundi"
-      settings: Rregullime
+      settings: "Rregullime"
       view_all: "Shihini krejt"
   likes:
     likes:
@@ -325,7 +325,7 @@ sq:
         zero: "no likes"
   limited: "E kufizuar"
   more: "Më tepër"
-  next: pasuesja
+  next: "pasuesja"
   no_results: "Nuk u Gjetën Përfundime"
   notifications:
     also_commented:
@@ -358,7 +358,7 @@ sq:
         two: "%{count} njoftime të reja"
         zero: "Pa njoftime të reja"
     index:
-      and: dhe
+      and: "dhe"
       and_others:
         few: "dhe %{count} të tjerë"
         many: "dhe %{count} të tjerë"
@@ -367,7 +367,7 @@ sq:
         two: "dhe %{count} të tjerë"
         zero: "dhe askush tjetër"
       mark_all_as_read: "Vëru Shenjë të Tërave Si të Lexuara"
-      notifications: Njoftime
+      notifications: "Njoftime"
     liked:
       few: "%{post_link} tuaj e kanë përlqyer %{actors}."
       many: "%{post_link} tuaj e kanë përlqyer %{actors}."
@@ -454,7 +454,7 @@ sq:
       view_profile: "Shihni profilin për %{name}"
     thanks: "Faleminderit,"
     to_change_your_notification_settings: "që të ndryshoni rregullimet tuaja mbi njoftimet"
-  or: ose
+  or: "ose"
   password: Fjalëkalim
   password_confirmation: "Ripohim fjalëkalimi"
   people:
@@ -482,9 +482,9 @@ sq:
     profile_sidebar:
       born: datëlindje
       edit_my_profile: "Përpunim i profilit tim"
-      gender: gjini
+      gender: "gjini"
       in_aspects: "në aspektet"
-      location: venndodhje
+      location: "venndodhje"
       remove_contact: "hiqe kontaktin"
       remove_from: "Hiqe %{name} prej %{aspect}?"
     show:
@@ -494,7 +494,7 @@ sq:
       ignoring: "Po shpërfillni krejt postimet prej %{name}."
       incoming_request: "%{name} dëshiron të ndajë diçka me ju"
       mention: Përmendje
-      message: Mesazh
+      message: "Mesazh"
       not_connected: "Nuk ndani gjë me këtë person"
       recent_posts: "Postime Së Fundi"
       recent_public_posts: "Postime Publike Së Fundi"
@@ -546,9 +546,9 @@ sq:
       notice: "Fotoja u përditësua me sukses."
   posts:
     show:
-      destroy: Fshije
+      destroy: "Fshije"
       not_found: "Na ndjeni nuk e gjetëm dot atë postim."
-      permalink: permalidhje
+      permalink: "permalidhje"
       photos_by:
         few: "%{count} photos by %{author}"
         many: "%{count} photos by %{author}"
@@ -559,13 +559,13 @@ sq:
   previous: "e mëparshmja"
   privacy: Privatësi
   privacy_policy: "Rregulla Privatësie"
-  profile: Profil
+  profile: "Profil"
   profiles:
     edit:
       allow_search: "Lejojuni njerëzve të kërkojnë për ju brenda Diaspora-s"
       edit_profile: "Përpunoje profilin"
-      first_name: Emri
-      last_name: Mbiemri
+      first_name: "Emri"
+      last_name: "Mbiemri"
       update_profile: "Përditësoni Profilin"
       your_bio: "Jetëshkrimi juaj"
       your_birthday: "Datëlindja juaj"
@@ -577,7 +577,7 @@ sq:
       your_public_profile: "Profili juaj publik"
       your_tags: "Përshkruani veten me 5 fjalë"
       your_tags_placeholder: "fjala vjen #filma #lepujt #udhëtime #mësues #Pukë"
-  public: Publike
+  public: "Publike"
   reactions:
     few: "%{count} kundërpërgjigje"
     many: "%{count} kundërpërgjigje"
@@ -602,9 +602,9 @@ sq:
         one: "1 reshare"
         other: "%{count} reshares"
         two: "%{count} reshares"
-        zero: Reshare
+        zero: "Reshare"
   search: Kërkoni
-  settings: Rregullime
+  settings: "Rregullime"
   share_visibilites:
     update:
       post_hidden_and_muted: "Postimi %{name} u fsheh dhe njoftimet u pezulluan."

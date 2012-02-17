@@ -63,7 +63,7 @@ br:
       month: "war-dro ur mizvezhiad"
       months: "%d a vizioù"
       seconds: "dindan ur vunutenn"
-      suffixAgo: zo
+      suffixAgo: "zo"
       suffixFromNow: diwar-vremañ
       year: "war-dro ur bloavezh"
       years: "%d a vloavezhioù"

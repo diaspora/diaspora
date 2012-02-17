@@ -43,14 +43,14 @@ pt-PT:
         have_fun: Divirta-se
         have_fun_paragraph: "%{strong_diaspora} é sobre descobrir incríveis conteúdos novos e pessoas online. %{link}, %{strong_diaspora} é a primeira aplicação mundial e é só o inicio. Colete e partilhe a Web em toda a sua glória."
         help_fund: "ajude a financiar a Diaspora"
-        here: aqui
+        here: "aqui"
         ignore: "Se não deseja aceitar o convite, por favor ignore este email."
         join_team: "Junte-se à nossa equipa\n"
         love: "Gostar,"
         made_by_people: "%{strong_diaspora} é feita por pessoas que gostam tanto da Internet como você. %{jointeam}, ou %{helpfund}!"
         more_people: "Mais pessoas estão entusiasmadas para vê-lo(a)!"
         no_account_till: "A sua conta não será criada até que aceda à hiperligação acima e se registe."
-        or: ou
+        or: "ou"
         sign_up_now: "Registe-se agora &rarr;"
         subject: "Foi convidado para se juntar ao Diaspora!"
         team_diaspora: "Equipa Diaspora"

@@ -67,7 +67,6 @@ te:
       months: "%d నెలల"
       seconds: "కొన్ని క్షణాల"
       suffixAgo: క్రితం
-      suffixFromNow: ""
       year: "దాదాపు సంవత్సరం"
       years: "%d సంవత్సరాల"
     videos:

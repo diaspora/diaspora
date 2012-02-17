@@ -43,14 +43,14 @@ fr:
         have_fun: "Prenez plaisir"
         have_fun_paragraph: "%{strong_diaspora} est tout un projet étonnant permettant de découvrir de nouveaux contenus et des gens en ligne. %{link}, la première application %{strong_diaspora}, et c'est juste le commencement. Recueillir et partager sur le Web dans toute sa gloire."
         help_fund: "aider à financer Diaspora"
-        here: ici
+        here: "ici"
         ignore: "Si vous ne voulez pas accepter l'invitation, merci d'ignorer ce courriel."
         join_team: "Rejoignez notre Équipe"
         love: "Cordialement,"
         made_by_people: "%{strong_diaspora} est fait par des gens qui aiment l'Internet autant que vous. %{jointeam}, ou %{helpfund} !"
         more_people: "Encore plus de gens sont ravis de vous voir !"
         no_account_till: "Votre compte ne sera créé que lorsque vous irez sur le lien ci-dessus et que vous vous inscrirez."
-        or: ou
+        or: "ou"
         sign_up_now: "Inscrivez-vous →"
         subject: "Vous avez été invité à rejoindre Diaspora!"
         team_diaspora: "L'Équipe Diaspora"
@@ -86,14 +86,13 @@ fr:
       updated: "Vous avez mis à jour votre compte."
     sessions:
       new:
-        alpha_software: ""
         bugs_and_feedback: "Ne vous étonnez pas, vous allez rencontrer des bugs. Nous vous encourageons à utiliser le bouton Feedback sur le côté droit de votre navigateur pour signaler tout dysfonctionnement ! Nous travaillerons au plus vite pour régler chaque problème que vous signalerez."
         bugs_and_feedback_mobile: "Ne vous étonnez pas, vous allez rencontrer des bugs. Nous vous encourageons à nous signaler tout dysfonctionnement ! Nous travaillerons au plus vite pour régler chaque problème que vous signalerez."
         login: "Se connecter"
         modern_browsers: "supporte seulement des navigateurs modernes."
         password: "Mot de passe"
         remember_me: "Se souvenir de moi"
-        sign_in: Connexion
+        sign_in: "Connexion"
         username: "Nom d'utilisateur"
       signed_in: "Vous êtes à présent connecté(e)."
       signed_out: "Vous êtes à présent déconnecté(e)."
@@ -102,8 +101,8 @@ fr:
         forgot_your_password: "Mot de passe oublié ?"
         receive_confirmation: "Vous n'avez pas reçu les instructions de confirmation ?"
         receive_unlock: "Vous n'avez pas reçu les instructions de déblocage ?"
-        sign_in: Connexion
-        sign_up: Inscription
+        sign_in: "Connexion"
+        sign_up: "Inscription"
         sign_up_closed: "Les inscriptions sont fermées pour l'instant."
       mail_signup_form:
         sign_up_for_an_invite: "Demander une invitation !"
@@ -115,5 +114,5 @@ fr:
   errors:
     messages:
       already_confirmed: "a déjà été confirmé"
-      not_found: introuvable
+      not_found: "introuvable"
       not_locked: "n’a pas été verrouillé"

@@ -49,7 +49,7 @@ ms:
         made_by_people: "% {strong_diaspora} dibuat oleh orang-orang yang suka internet sebanyak seperti yang anda lakukan. % {jointeam}, atau% {helpfund}!"
         more_people: "Lebih ramai orang teruja untuk melihat anda!"
         no_account_till: "Akaun anda tidak akan diwujudkan sehingga anda mengakses pautan di atas dan daftar."
-        or: atau
+        or: "atau"
         sign_up_now: "Daftar sekarang &rarr;"
         subject: "Anda telah dijemput untuk menyertai Diaspora!"
         team_diaspora: "Kumpulan Diaspora"
@@ -88,11 +88,11 @@ ms:
         alpha_software: "Anda akan menggunakan perisian alfa."
         bugs_and_feedback: "Dinasihatkan, anda akan mengalami ralat. Kami menggalakkan anda untuk menggunakan butang Maklum balas pada sebelah kanan pelayar anda untuk melaporkan sebarang rintangan! Kita akan berusaha secepat mungkin agar kita boleh menyelesaikan apa-apa isu yang anda laporkan."
         bugs_and_feedback_mobile: "Dinasihatkan, anda akan mengalami ralat. Kami menggalakkan anda untuk melaporkan apa-apa rintangan! Kita akan berusaha secepat mungkin agar kita boleh menyelesaikan apa-apa isu yang anda laporkan."
-        login: Masuk
+        login: "Masuk"
         modern_browsers: "hanya menyokong pelayar moden."
         password: "Kata Laluan"
         remember_me: "Ingat saya"
-        sign_in: Masuk
+        sign_in: "Masuk"
         username: "Nama pengguna"
       signed_in: "Ditandatangani dengan jayanya."
       signed_out: "Signed dengan jayanya."
@@ -102,7 +102,7 @@ ms:
         receive_confirmation: "Tidak menerima arahan pengesahan?"
         receive_unlock: "Tidak menerima arahan membuka kunci?"
         sign_in: "Daftar masuk"
-        sign_up: Daftar
+        sign_up: "Daftar"
         sign_up_closed: "Pendaftaran terbuka ditutup pada masa ini."
       mail_signup_form:
         sign_up_for_an_invite: "Daftar untuk jemputan!"

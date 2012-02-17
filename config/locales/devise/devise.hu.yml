@@ -43,14 +43,14 @@ hu:
         have_fun: "Jó szórakozást"
         have_fun_paragraph: "%{strong_diaspora} az érdekes új dolgok felfedezéséről szól. %{link}, a világ első %{strong_diaspora} applikációja épp most indult. Gyűjtsd össze és oszd meg a web érdekességeit."
         help_fund: "segíts a Diaspora* fenntartásában"
-        here: itt
+        here: "itt"
         ignore: "Ha nem szeretnél csatlakozni csak hagyd figyelmen kívül ezt a levelet."
         join_team: "Csatlakozz a Csapatunkhoz"
         love: "Szeretettel,"
         made_by_people: "A %{strong_diaspora} olyan emberek munkája, akik annyira szeretik az Internetet, mint te magad. %{jointeam}, vagy %{helpfund}!"
         more_people: "Egyre több személy szeretne kapcsolatba lépni veled!"
         no_account_till: "A fiókod addig nem készül el amíg be nem lépsz a megadott linkkel és be nem regisztrálsz."
-        or: vagy
+        or: "vagy"
         sign_up_now: "Regisztrálj most &rarr;"
         subject: "Meghívtak, hogy csatlakozz a Diaspora* közösségi hálóhoz."
         team_diaspora: "Diaspora* Csapat"

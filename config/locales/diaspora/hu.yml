@@ -150,7 +150,7 @@ hu:
       acquaintances: Ismerősök
       family: Család
       friends: Barátok
-      work: Munka
+      work: "Munka"
     selected_contacts:
       manage_your_aspects: "Csoportok kezelése"
       no_contacts: "Itt még nincs ismerősöd."
@@ -167,7 +167,7 @@ hu:
     index:
       no_applications: "Még nem regisztráltál egyetlen alkalmazást sem."
       revoke_access: "Hozzáférés visszavonása"
-  back: Vissza
+  back: "Vissza"
   blocks:
     create:
       failure: "Nem tudtam figyelmen kívül hagyni azt a felhasználót. #elkerülés"
@@ -203,7 +203,7 @@ hu:
       all_contacts: "Összes ismerős"
       community_spotlight: "Közösségi Reflektorfény"
       many_people_are_you_sure: "Biztos, hogy privát beszélgetést akarsz kezdeményezni több mint %{suggested_limit} személlyel? Talán jobb lenne, ha bejegyzést írnál ennek a csoportnak."
-      my_contacts: Kapcsolataim
+      my_contacts: "Kapcsolataim"
       no_contacts: "Nincs ismerősöd."
       no_contacts_message: "Csekkold le ezt is: %{community_spotlight}"
       no_contacts_message_with_aspect: "Csekkold le ezt is %{community_spotlight} vagy ezt %{add_to_aspect_link}"
@@ -264,11 +264,11 @@ hu:
       invalid_fields: "Érvénytelen adatok"
   fill_me_out: "Tölts ki"
   find_people: "Emberek vagy #címkék keresése"
-  hide: Elrejt
+  hide: "Elrejt"
   home:
     show:
       already_account: "már van fiókod?"
-      choice: Csoportok
+      choice: "Csoportok"
       choice_explanation: "A Diaspora* közösségi oldalon különböző szempontok alapján Csoportokba rendezheted a kapcsolataidat. Ezek segítségével mindig a megfelelő emberekkel oszthatod meg a történeteidet, vicceidet, képeidet."
       learn_about_host: "Így indíthatod el saját Diaspora* szervered."
       login_here: "Jelentkezz be"
@@ -295,11 +295,11 @@ hu:
       your_account_awaits: "A fiókod vár!"
     new:
       already_invited: "A következő személy nem fogadta el a meghívásod:"
-      aspect: Csoport
+      aspect: "Csoport"
       comma_seperated_plz: "Megadhatsz több e-mail címet is vesszővel elválasztva."
       if_they_accept_info: "Ha elfogadják felkérésed, akkor belekerülnek abba a csoportba amelyikbe meghívtad őket."
       invite_someone_to_join: "Hívj meg valakit, hogy csatlakozzon a Diaspora-hoz!"
-      language: Nyelv
+      language: "Nyelv"
       personal_message: "Személyes üzenet"
       resend: Újraküld
       send_an_invitation: "Küldj egy meghívót"
@@ -312,13 +312,13 @@ hu:
       public_feed: "Nyílvános Diaspora hírfolyam neki: %{name}"
       toggle: "mobil változat"
       whats_new: belépés
-      your_aspects: csoportjaid
+      your_aspects: "csoportjaid"
     header:
-      admin: rendszergazda
+      admin: "rendszergazda"
       code: kód
       login: bejelentkezés
       logout: Kijelentkezés
-      profile: Profil
+      profile: "Profil"
       recent_notifications: "Legújabb jelzések"
       settings: Beállítások
       view_all: "Az összes megtekintése"
@@ -477,8 +477,8 @@ hu:
       view_profile: "%{name} profiljának megtekintése"
     thanks: "Köszi,"
     to_change_your_notification_settings: "hogy megváltoztasd az értesítési beállításaidat."
-  ok: Rendben
-  or: vagy
+  ok: "Rendben"
+  or: "vagy"
   password: Jelszó
   password_confirmation: "Jelszó megerősítése"
   people:
@@ -508,9 +508,9 @@ hu:
       bio: személyes
       born: születésnap
       edit_my_profile: "Profilom szerkesztése"
-      gender: nem
-      in_aspects: csoportokban
-      location: hely
+      gender: "nem"
+      in_aspects: "csoportokban"
+      location: "hely"
       remove_contact: "kapcsolat törlése"
       remove_from: "Törlöd %{name}-t a %{aspect} csoportból?"
     show:
@@ -585,7 +585,7 @@ hu:
   previous: előző
   privacy: Adatvédelem
   privacy_policy: Adatvédelem
-  profile: Profil
+  profile: "Profil"
   profiles:
     edit:
       allow_search: "Megtalálható legyek a Diaspora keresőben"
@@ -595,9 +595,9 @@ hu:
       update_profile: "Profil frissítése"
       your_bio: Rólam
       your_birthday: Szülinapom
-      your_gender: Nem
+      your_gender: "Nem"
       your_location: Helység
-      your_name: Nevem
+      your_name: "Nevem"
       your_photo: Fényképem
       your_private_profile: "Személyes profilod"
       your_public_profile: "Nyilvános profilod"
@@ -726,9 +726,9 @@ hu:
       all_contacts: "Összes kapcsolat"
     footer:
       logged_in_as: "bejelentkezve, mint %{name}"
-      your_aspects: csoportjaid
+      your_aspects: "csoportjaid"
     invitations:
-      by_email: emailben
+      by_email: "emailben"
       dont_have_now: "Nincs több meghívód, de hamarosan kapsz még!"
       from_facebook: Facebook-ról
       invitations_left: "%{count} maradt"
@@ -746,7 +746,7 @@ hu:
           Használj kettőskeresztet(#), hogy felcímkézd a bejegyzésedet. Címkék alapján találhatsz veled azonos érdeklődésű embereket.
           A kukac(@) jellel, pedig személyeket említhetsz meg a bejegyzésedben.
       outside: "A publikus üzeneteket a Diaspora-n kívüli személyek is láthatják."
-      share: Megoszt
+      share: "Megoszt"
       title: "Kapcsolódó szolgáltatások beállítása"
       visibility_dropdown: "Használd ezt a legördülő menüt, hogy módosítsd a bejegyzésed láthatóságát."
     publisher:
@@ -775,10 +775,10 @@ hu:
       hide_and_mute: "Bejegyzés elrejtése és némítása"
       ignore_user: "Mellőz: %{name}"
       ignore_user_description: "A felhasználó eltávolítása és mellőzése az összes körből?"
-      like: Tetszik
+      like: "Tetszik"
       nsfw: "Ez a bejegyzés \"nem biztonságos\" jelölést kapott a szerzőjétől. %{link}"
       shared_with: "Megosztva vele: %{aspect_names}"
-      show: megmutat
+      show: "megmutat"
       unlike: "Nem tetszik"
       via: "ezen keresztül: %{link}"
       viewable_to_anyone: "Ez a bejegyzés bárki számára megtekinthető az interneten."
@@ -809,8 +809,8 @@ hu:
       zero: "Nincs több hozzászólás"
   streams:
     aspects:
-      title: Csoportjaid
-    aspects_stream: Csoportok
+      title: "Csoportjaid"
+    aspects_stream: "Csoportok"
     comment_stream:
       contacts_title: "Emberek, akiknek a bejegyzéséhez hozzászóltál."
       title: "Hozzászólt bejegyzések"
@@ -823,7 +823,7 @@ hu:
     followed_tags_stream: "#Követett címkék"
     like_stream:
       contacts_title: "Ismerősök, akiknek kedveled a bejegyzéseit"
-      title: Kedveled
+      title: "Kedveled"
     mentioned_stream: "@említések"
     mentions:
       contacts_title: "Emberek, akik megemlítettek"

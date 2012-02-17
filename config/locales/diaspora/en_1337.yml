@@ -5,13 +5,13 @@
 
 
 en_1337:
-  _applications: 4PPL1C4710N5
-  _comments: 5P4M
-  _contacts: N00B5
+  _applications: "4PPL1C4710N5"
+  _comments: "5P4M"
+  _contacts: "N00B5"
   _home: "127.0.0.1"
-  _photos: P1CZ
-  _services: 53RV1C35
-  account: 4CC0UN7
+  _photos: "P1CZ"
+  _services: "53RV1C35"
+  account: "4CC0UN7"
   activerecord:
     errors:
       models:
@@ -72,17 +72,17 @@ en_1337:
       aspect_list_is_not_visible: "45P3C7 L157 15 H1DD3N 2 07H3R5 1N 45P3C7!"
       aspect_list_is_visible: "45P3C7 L157 15 V151BL3 2 07H3R5 1N 45P3C7!"
       confirm_remove_aspect: 5UR3?
-      done: K
+      done: "K"
       make_aspect_list_visible: "M4K3 N00B5 V151BL3 2 34CH 07H3R?"
       remove_aspect: "D3L373 7H15 45P3C7!"
-      rename: R3N4M3
-      update: UPD473
+      rename: "R3N4M3"
+      update: "UPD473"
       updating: UPD471NG...
     few: "%{count} 45P3C75"
     helper:
       are_you_sure: 5UR3?
       aspect_not_empty: "45P3C7 N07 3MP7Y!"
-      remove: R3M0V3
+      remove: "R3M0V3"
     index:
       cubbies:
         explanation: "CUBB1.35 15 7H3 F1R57 4PP F0R D*!"
@@ -119,7 +119,7 @@ en_1337:
       failure: "PWND %{inspect}"
       success: "N00B M0V3D 2 N3W 45P3C7!"
     new:
-      create: CR3473
+      create: "CR3473"
       name: "N4M3 (JU57 F0R U)"
     no_contacts_message:
       try_adding_some_more_contacts: "U C4N 534RCH (70P) 0R 1NV173 50M3 N00B5 (R1GH7)"
@@ -129,9 +129,9 @@ en_1337:
     one: "1 45P3C7"
     other: "%{count} 45P3C75"
     seed:
-      acquaintances: PR05
-      family: RL
-      friends: N00B5
+      acquaintances: "PR05"
+      family: "RL"
+      friends: "N00B5"
       work: RL-N00B5
     selected_contacts:
       manage_your_aspects: "M4N4G3 Y0UR 45P3C75!"
@@ -152,15 +152,15 @@ en_1337:
   bookmarklet:
     explanation: "5P4M FR0M 4NYWH3R3, 4NY71M3! %{link}."
     explanation_link_text: "7H15 L1NK"
-    heading: B00KM4RKL37
+    heading: "B00KM4RKL37"
     post_something: "5P4M 50M37H1NG 2 D*"
     post_success: "5P4MM3D! CL051NG!"
-  cancel: C4NC3L
+  cancel: "C4NC3L"
   comments:
     few: "%{count} 5P4M5"
     many: "%{count} 5P4M5"
     new_comment:
-      comment: 5P4M
+      comment: "5P4M"
       commenting: 5P4MM1NG...
     one: "1 5P4M"
     other: "%{count} 5P4M5"
@@ -180,7 +180,7 @@ en_1337:
       only_sharing_with_me: "0NLY 5H4R1NG W17H U"
       remove_person_from_aspect: "R3M0V3 %{person_name} FR0M \"%{aspect_name}\""
       start_a_conversation: "574R7 4 N3W C0NV3R54710N!"
-      title: N00B5
+      title: "N00B5"
       your_contacts: "Y0UR N00B5"
     many: "%{count} N00B5"
     one: "1 N00B"
@@ -188,7 +188,7 @@ en_1337:
     sharing:
       people_sharing: "N00B5 5H4R1NG W17H U:"
     two: "%{count} N00B5"
-    zero: N00B5
+    zero: "N00B5"
   conversations:
     create:
       fail: "1NV4L1D M3554G3!"
@@ -205,25 +205,25 @@ en_1337:
         zero: "N0 N3W M3554G35"
     index:
       create_a_new_message: "5P4M 50M30N3!"
-      inbox: 1NB0X
+      inbox: "1NB0X"
       message_inbox: "M3554G3 1NB0X"
       new_message: "N3W 5P4M"
       no_conversation_selected: "N0 C0NV3R54710N 53L3C73D!"
       no_messages: "N0 5P4M5"
     new:
       abandon_changes: "D0N7 54V3?"
-      send: 5P4M
+      send: "5P4M"
       sending: 5P4MM1NG...
-      subject: N00B
+      subject: "N00B"
       to: "2"
     new_message:
       fail: "1NV4L1D M3554G3!"
     show:
       delete: "PWN 7H47 C0NV3R54710N!"
-      reply: R3PLY
+      reply: "R3PLY"
       replying: R3PLY1NG...
-  delete: D3L373
-  email: M41L
+  delete: "D3L373"
+  email: "M41L"
   error_messages:
     helper:
       correct_the_following_errors_and_try_again: "C0RR3C7 Y0UR 3RR0R5 4ND 7RY 4G41N!"
@@ -234,14 +234,14 @@ en_1337:
   home:
     show:
       already_account: "4LR34DY H4V3 4N 4CC0UN7?"
-      choice: CH01C3
+      choice: "CH01C3"
       choice_explanation: "D* L375 U 50R7 Y0UR N00B5 1N GR0UP5 C4LL3D 45P3C75! UN1QU3 70 D*, 45P3C75 3N5UR3 7H47 Y0UR 74RG375, J0K35 4ND PR0N 4R3 5H4R3D 0NLY W17H 7H3 N00B5 U W4N7 2!"
       learn_about_host: "L34RN 4B0U7 H0W 2 H057 Y0UR 0WN D* 53RV3R!"
       login_here: "L0G 1N H3R3!"
       ownership: 0WN(3R5H1P)
       ownership_explanation: "U 0WN Y0UR PR0N, 4ND U 5H0ULDN7 H4V3 2 G1V3 7H47 UP JU57 2 5H4R3 17! U M41N741N 0WN3R5H1P 0N 3V3RY7H1NG U 5H4R3 0N D*, G1V1NG U FULL C0N7R0L 0V3R H0W 175 C0N7R1BU73D!"
       share_what_you_want: "5P4M WH0 U W4N7, W17H WH47 U W4N7!"
-      simplicity: 51MPL1C17Y
+      simplicity: "51MPL1C17Y"
       simplicity_explanation: "D* M4K35 5H4R1NG CL34N 4ND 345Y F0R N00B5 – 4ND 7H15 G035 F0R PR1V4CY 2! 1NH3R3N7LY PR1V473, D* D035N7 M4K3 U W4D3 7HR0UGH P5G35 0F 53771NG5 4ND 0P710N5 JU57 2 K33P Y0UR PR0F1L3 53CUR3!"
       tagline_first_half: "5P4M WH0 U W4N7,"
       tagline_second_half: "W17H WH47 U W4N7!"
@@ -261,7 +261,7 @@ en_1337:
       your_account_awaits: "Y0UR 4CC0UN7 W4175!"
     new:
       already_invited: "7H3 F0LL0W1NG N00B5 F4C3P4LM3D 7H3M53LV35:"
-      aspect: 45P3C7
+      aspect: "45P3C7"
       comma_seperated_plz: "U C4N 5P4M MUL71PL3 M41L5, 53P3R473 7H3M BY 4 C0MM4!"
       if_they_accept_info: "1F 7H3Y 4CC3P7, 7H3Y W1LL B3 4DD3D 2 7H3 45P3C7 U 1NV173D 7H3M!"
       invite_someone_to_join: "5P4M 50M30N3 2 J01N D*!"
@@ -269,7 +269,7 @@ en_1337:
       resend: R35P4M!
       send_an_invitation: "53ND 4 5P4M!"
       send_invitation: "53ND 5P4M!"
-      to: 7o
+      to: "7o"
   layouts:
     application:
       powered_by: "P0W3R3D BY D*"
@@ -279,13 +279,13 @@ en_1337:
       your_aspects: "Y0UR 45P3C75"
     header:
       admin: G0DM0D3!
-      blog: BL0G
-      code: C0D3
+      blog: "BL0G"
+      code: "C0D3"
       login: "L0G 1N"
-      logout: K7HXB41
-      profile: PR0F1L3
+      logout: "K7HXB41"
+      profile: "PR0F1L3"
       recent_notifications: "R3C3N7 N071F1C4710N5!"
-      settings: 53771NG5
+      settings: "53771NG5"
       view_all: "V13W 4LL!"
   likes:
     likes:
@@ -310,9 +310,9 @@ en_1337:
         other: "%{count} <3"
         two: "%{count} <3"
         zero: "N0 <3"
-  limited: V1P
-  more: M0R3
-  next: N3X7
+  limited: "V1P"
+  more: "M0R3"
+  next: "N3X7"
   no_results: "N07H1NG F0UND!"
   notifications:
     also_commented:
@@ -345,7 +345,7 @@ en_1337:
         two: "%{count} N3W N071F1C4710N5"
         zero: "N0 N3W N071F1C4710N5"
     index:
-      and: 4ND
+      and: "4ND"
       and_others:
         few: "4ND %{count} 07H3R5"
         many: "4ND %{count} 07H3R5"
@@ -354,7 +354,7 @@ en_1337:
         two: "4ND %{count} 07H3R5"
         zero: "4ND N0B0DY 3l53"
       mark_all_as_read: "M4RK 4LL 45 R34D"
-      notifications: N071F1C4710N5
+      notifications: "N071F1C4710N5"
     liked:
       few: "%{actors} H45 JU57 <3 Y0UR %{post_link}."
       many: "%{actors} H45 JU57 <3 Y0UR %{post_link}."
@@ -440,8 +440,8 @@ en_1337:
       view_profile: "V13W %{name}'s PR0F1L3"
     thanks: "7HX, "
     to_change_your_notification_settings: "2 CH4NG3 Y0UR N071F1C4710N 53771NG5"
-  ok: K
-  or: 0R
+  ok: "K"
+  or: "0R"
   password: "*****"
   password_confirmation: "***** C0NF1RM4710N"
   people:
@@ -467,20 +467,20 @@ en_1337:
       pending_request: "P3ND1NG R3QU357"
       thats_you: "7H475 U!"
     profile_sidebar:
-      bio: B10
+      bio: "B10"
       born: B-D4Y
       edit_my_profile: "3D17 MY PR0F1L3"
-      gender: G3ND3R
+      gender: "G3ND3R"
       in_aspects: "1N 45P3C75"
-      location: 1P
+      location: "1P"
       remove_contact: "PWN N00B"
       remove_from: "R3M0V3 %{name} FR0M %{aspect}?"
     show:
       does_not_exist: "N00B != 3X1571NG"
       has_not_shared_with_you_yet: "%{name} H45 N07 5H4R3D 4NY 5P4M W17H U!"
       incoming_request: "%{name} W4N75 2 5H4R3 W17H U!"
-      mention: M3N710N
-      message: 5P4M
+      mention: "M3N710N"
+      message: "5P4M"
       not_connected: "U 4R3 N07 5H4R1NG W17H 7H15 P3R50N!"
       recent_posts: "R3C3N7 5P4M"
       recent_public_posts: "R3C3N7 PUBL1C 5P4M"
@@ -490,7 +490,7 @@ en_1337:
       to_accept_or_ignore: "2 4CC3P7 0R PWN 7H15 N00B"
     sub_header:
       add_some: "4DD 50M3"
-      edit: 3D17
+      edit: "3D17"
       you_have_no_tags: "U H4V3 N0 74G5!"
     two: "%{count} N00B5"
     webfinger:
@@ -505,7 +505,7 @@ en_1337:
     destroy:
       notice: "PR0N D3L373D!"
     edit:
-      editing: 3D171NG
+      editing: "3D171NG"
     new:
       back_to_list: "B4CK 2 L157"
       new_photo: "N3W PH070!"
@@ -521,7 +521,7 @@ en_1337:
     show:
       collection_permalink: "C0LL3C710N P3RM4L1NK"
       delete_photo: "D3L373 P1C"
-      edit: 3D17
+      edit: "3D17"
       edit_delete_photo: "3D17 P1C D35CR1P710N / D3L373 P1C"
       make_profile_photo: "M4K3 PR0F1L3 P1C"
       show_original_post: "5H0W 0R1G1N4L 5P4M!"
@@ -531,9 +531,9 @@ en_1337:
       notice: "P1C 5UCC35FULLY UPD473D!"
   posts:
     show:
-      destroy: D3L373
+      destroy: "D3L373"
       not_found: "50RRY, W3 C0ULDN7 F1ND 7H47 5P4M!"
-      permalink: P3RM4L1NK
+      permalink: "P3RM4L1NK"
       photos_by:
         few: "%{count} photos by %{author}"
         many: "%{count} photos by %{author}"
@@ -541,8 +541,8 @@ en_1337:
         other: "%{count} photos by %{author}"
         two: "Two photos by %{author}"
         zero: "No photos by %{author}"
-  previous: PR3V10U5
-  profile: PR0F1L3
+  previous: "PR3V10U5"
+  profile: "PR0F1L3"
   profiles:
     edit:
       allow_search: "4LL0W N00B5 2 534RCH F0R U!"
@@ -563,7 +563,7 @@ en_1337:
     update:
       failed: "F41L3D 2 UPD473 PR0F1L3!"
       updated: "PR0F1L3 UPD473D"
-  public: PUBL1C
+  public: "PUBL1C"
   reactions:
     few: "%{count} R34C710N5"
     many: "%{count} R34C710N5"
@@ -581,7 +581,7 @@ en_1337:
       leave_blank: "(L34V3 BL4NK 1F U D0N7 W4N7 2 CH4NG3 17)"
       password_to_confirm: "(W3 N33D Y0UR CURR3N7 ***** 2 C0NF1RM CH4NG35!)"
       unhappy: UNH4PPY?
-      update: UPD473
+      update: "UPD473"
     new:
       create_my_account: "CR3473 MY 4CC0UN7!"
       enter_email: "3N73R 4N 3M41L!"
@@ -592,7 +592,7 @@ en_1337:
       sign_up_message: "Social Networking with a <3"
   requests:
     create:
-      sending: 5P4MM1NG
+      sending: "5P4MM1NG"
       sent: "U H4V3 45K3D 2 5H4R3 W17H %{name}.  7H3Y 50ULD 533 17 N3X7 71M3 7H3Y V1517 D*!"
     destroy:
       error: "PL3453 53L3C7 4N 45P3C7!"
@@ -623,12 +623,12 @@ en_1337:
         one: "1 R35P4M"
         other: "%{count} R35P4M5"
         two: "%{count} R35P4M5"
-        zero: R35P4M
+        zero: "R35P4M"
       reshare_confirmation: "R35P4M %{author}'s 5P4M?"
       reshare_original: "R35P4M 0R1G1N4L"
       reshared_via: "R35P4MM3D V14"
       show_original: "5H0W 0R1G1N4L"
-  search: 534RCH
+  search: "534RCH"
   services:
     create:
       success: "4U7H3N71F1C4710N 5UCC355FULL"
@@ -643,7 +643,7 @@ en_1337:
       connect_to_facebook: "C0NN3C7 2 FB"
       connect_to_tumblr: "C0NN3C7 2 7UMBLR"
       connect_to_twitter: "C0NN3C7 2 7W1773R"
-      disconnect: D15C0NN3C7
+      disconnect: "D15C0NN3C7"
       edit_services: "3D17 53RV1C35!"
       logged_in_as: "L0GG3D 1N 45"
       no_services: "U H4V3 N07 C0NN3C73D 4NY 53RV1C35 Y37!"
@@ -652,10 +652,10 @@ en_1337:
       click_link_to_accept_invitation: "F0LL0W 7H15 L1NK 2 4CC3P7 Y0UR 1NV174710N!"
       join_me_on_diaspora: "J01N M3 0N D*"
     remote_friend:
-      invite: 1NV173
+      invite: "1NV173"
       not_on_diaspora: "N07 Y37 0N D*!"
-      resend: R35P4M
-  settings: 53771NG5
+      resend: "R35P4M"
+  settings: "53771NG5"
   shared:
     add_contact:
       add_new_contact: "4DD 4 N3W N00B"
@@ -685,7 +685,7 @@ en_1337:
       invitations_left: "%{count} L3F7"
       invite_someone: "1NV173 50M30N3!"
       invite_your_friends: "1NV173 Y0UR FR13ND5!"
-      invites: 1NV1735
+      invites: "1NV1735"
       invites_closed: "1NV1735 4R3 CURR3N7LY CL053D 0N 7H15 P0D!"
     notification:
       new: "N3W %{type} FR0M %{from}"
@@ -695,7 +695,7 @@ en_1337:
       outside: "PUBL1C 5P4M5 W1LL B3 4V14BL3 2 07H3R5 0U751D3 0F D* 2 533!"
       title: "537 UP C0NN3C73D 53RV1C35"
     publisher:
-      all: 4LL
+      all: "4LL"
       all_contacts: "4LL N00B5"
       discard_post: "D15C4RD P057"
       make_public: "M4K3 PUBL1C"
@@ -704,14 +704,14 @@ en_1337:
       post_a_message_to: "5P4M 7H15 45P3C7: %{aspect}"
       posting: 5P4MM1NG...
       publishing_to: "PUBL15H1NG 2: "
-      share: 5P4M
+      share: "5P4M"
       share_with: "5H4R3 W17H"
       upload_photos: "UPL04D P1C5"
       whats_on_your_mind: "WH475 0N Y0UR M1ND?"
     reshare:
-      reshare: R35P4M
+      reshare: "R35P4M"
     stream_element:
-      dislike: PWN
+      dislike: "PWN"
       hide_and_mute: "H1D3 4ND PWN"
       like: <3
       shared_with: "5H4R3D W17H: %{aspect_names}"
@@ -780,7 +780,7 @@ en_1337:
       via: "(V14 %{link})"
       what_is_cubbies: "CUBB135 15 7H3 W0RLD5 F1R57 D* 4PPL1C4710N! 175 4L50 7H3 B357 W4Y 2 C0LL3C7 P1C5 0NL1N3!"
   undo: UND0?
-  username: N1CKN4M3
+  username: "N1CKN4M3"
   users:
     confirm_email:
       email_confirmed: "M41L %{email} 4C71V473D!"
@@ -788,7 +788,7 @@ en_1337:
     edit:
       also_commented: "...50M30N3 4L50 5P4M5 0N 4 N00B5 5P4M?"
       auto_follow_back: "Automatically follow back if a someone follows you"
-      change: CH4NG3
+      change: "CH4NG3"
       change_email: "CH4NG3 M41L"
       change_language: "CH4NG3 L4NGU4G3"
       change_password: "CH4NG3 *****"

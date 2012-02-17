@@ -5,11 +5,11 @@
 
 
 lt:
-  _comments: Komentarai
+  _comments: "Komentarai"
   _home: Pradžia
-  _photos: Nuotraukos
-  _services: Paslaugos
-  account: Paskyra
+  _photos: "Nuotraukos"
+  _services: "Paslaugos"
+  account: "Paskyra"
   activerecord:
     errors:
       models:
@@ -57,7 +57,7 @@ lt:
       failure: "nepavyko %{inspect}"
       success: "Kontaktas perkeltas į aspektą"
     new:
-      name: Name
+      name: "Name"
     no_contacts_message:
       try_adding_some_more_contacts: "You can search (top) or invite (right) more contacts."
     no_posts_message:
@@ -66,14 +66,14 @@ lt:
     other: "%{count} aspects"
     seed:
       family: Šeima
-      work: Darbas
+      work: "Darbas"
     show:
       edit_aspect: "keisti aspektą"
     two: "%{count} aspects"
     update:
       success: "Aspektas \"%{name}\" pakeistas sėkmingai."
     zero: "no aspects"
-  back: Atgal
+  back: "Atgal"
   bookmarklet:
     explanation: "%{link} from anywhere by bookmarking this link."
     explanation_link_text: "Post to Diaspora"
@@ -83,22 +83,13 @@ lt:
     few: "%{count} comments"
     many: "%{count} comments"
     new_comment:
-      comment: Komentuoti
+      comment: "Komentuoti"
       commenting: "Siunčiamas komentaras..."
-    one: "1 comment"
-    other: "%{count} comments"
-    two: "%{count} comments"
-    zero: "no comments"
   contacts:
     few: "%{count} contacts"
     index:
       add_to_aspect: "Add contacts to %{name}"
       no_contacts: "No contacts."
-    many: "%{count} contacts"
-    one: "1 contact"
-    other: "%{count} contacts"
-    two: "%{count} contacts"
-    zero: "no contacts"
   conversations:
     helper:
       new_messages:
@@ -119,14 +110,14 @@ lt:
   home:
     show:
       already_account: "jau turi paskyrą?"
-      choice: Pasirinkimas
+      choice: "Pasirinkimas"
       choice_explanation: "Diaspora tau leidžia tvarkyti susijungimus naudojant vadinamuosius aspektus. Unikaliai Diasporai, aspektai garantuoja, kad tavo nuotraukos, istorijos ir pokštai yra prieinamos tik žmonėms, kuriuos tu pasirinkai."
       learn_about_host: "Sužinok, kaip paleisti savo paties Diasporos serverį"
       login_here: "prisijunk čia"
       ownership: Nuosavybė
       ownership_explanation: "Tau priklauso tavo nuotraukos, ir tu neturėtum atsisakyti nuosavybės vien dėl to, kad jomis pasidalinai. Tau priklauso viskas, kuo daliniesi Diasporoje. Tai duoda tau visišką platinimo kontrolę."
       share_what_you_want: "Dalykis, kuo tik nori, su kuo tik nori."
-      simplicity: Paprastumas
+      simplicity: "Paprastumas"
       simplicity_explanation: "Diaspora supaprastina ir palengvina dalijimąsi - tas pats dar dvigubai labiau privatumui. Iš prigimties privati, Diaspora neturi nustatymų ir pasirinkimų puslapių, kuriuos tau tektų perbristi, norint profilį turėti saugų ir pagal tavo skonį."
   invitations:
     check_token:
@@ -142,17 +133,17 @@ lt:
       personal_message: "Asmeninė žinutė"
       send_an_invitation: "Nusiųsk kvietimą"
       send_invitation: "Siųsti kvietimą"
-      to: Kam
+      to: "Kam"
   layouts:
     application:
       powered_by: "TINKLAPĮ LEIDŽIA DIASPORA*"
       toggle: "toggle mobile site"
     header:
       blog: blog'as
-      login: prisijungti
-      logout: atsijungti
-      profile: profile
-      settings: settings
+      login: "prisijungti"
+      logout: "atsijungti"
+      profile: "profile"
+      settings: "settings"
   likes:
     likes:
       people_dislike_this:
@@ -284,8 +275,8 @@ lt:
       subject: "A message from your Diaspora administrator:"
     started_sharing:
       subject: "%{name} has started sharing with you on Diaspora*"
-  ok: gerai
-  or: arba
+  ok: "gerai"
+  or: "arba"
   password: Slaptažodis
   password_confirmation: "Slaptažodžio patvirtinimas"
   people:
@@ -304,11 +295,11 @@ lt:
       pending_request: "laukiamas prašymas"
       thats_you: "tai tu!"
     profile_sidebar:
-      bio: biografija
+      bio: "biografija"
       born: "gimimo data"
       edit_my_profile: "Redaguoti mano profilį"
-      gender: lytis
-      in_aspects: aspektuose
+      gender: "lytis"
+      in_aspects: "aspektuose"
       remove_contact: "pašalinti kontaktą"
       remove_from: "Ar pašalinti kontaktą \"%{name}\" iš aspekto \"%{aspect}\"?"
     show:
@@ -323,7 +314,7 @@ lt:
     destroy:
       notice: "Nuotrauka pašalinta."
     edit:
-      editing: Redagavimas
+      editing: "Redagavimas"
     new:
       back_to_list: "Atgal į sąrašą"
       new_photo: "Nauja nuotrauka"
@@ -336,7 +327,7 @@ lt:
       view_all: "rodyti visas nuotraukas, kurias įkėlė %{name}"
     show:
       delete_photo: "Pašalinti nuotrauką"
-      edit: redaguoti
+      edit: "redaguoti"
       edit_delete_photo: "Redaguoti nuotraukos aprašymą / pašalinti nuotrauką"
       make_profile_photo: "padaryti profilio nuotrauką"
       update_photo: "Atnaujinti nuotrauką"
@@ -352,7 +343,7 @@ lt:
         other: "%{count} photos by %{author}"
         two: "Two photos by %{author}"
         zero: "No photos by %{author}"
-  profile: Profilis
+  profile: "Profilis"
   profiles:
     edit:
       your_tags: "You: in 5 #tags"
@@ -374,7 +365,7 @@ lt:
       leave_blank: "(palik tuščią, jei nenori pakeisti)"
       password_to_confirm: "(tavo slaptažodis reikalingas, kad patvirtintume pakeitimus)"
       unhappy: Nesmagu?
-      update: Atnaujinimas
+      update: "Atnaujinimas"
     new:
       create_my_account: "Create my account"
       enter_email: "Enter an e-mail"
@@ -410,7 +401,7 @@ lt:
         one: "1 Reshare"
         other: "%{count} Reshares"
         two: "%{count} reshares"
-        zero: Reshare
+        zero: "Reshare"
       reshare_confirmation: "Reshare %{author} - %{text}?"
       reshare_original: "Reshare orignial"
       show_original: "Show Original"
@@ -423,12 +414,12 @@ lt:
     index:
       connect_to_facebook: "Prijungti facebook"
       connect_to_twitter: "Prijungti twitter"
-      disconnect: atjungti
+      disconnect: "atjungti"
       logged_in_as: "sujungta su"
       really_disconnect: "atjungti %{service}?"
     inviter:
       click_link_to_accept_invitation: "Click this link to accept your invitation"
-  settings: Nustatymai
+  settings: "Nustatymai"
   shared:
     add_contact:
       create_request: "Rask pagal Diaspora naudotojo vardą"
@@ -460,14 +451,14 @@ lt:
       outside: "Viešos žinutės bus matomos kitiems už Diasporos ribų."
       title: "Tu ketini skelbti viešą žinutę!"
     publisher:
-      all: viskas
+      all: "viskas"
       all_contacts: "visi kontaktai"
       make_public: paviešinti
       new_user_prefill:
         i_like: "I'm interested in %{tags}."
       post_a_message_to: "Parašyti žinutę į aspektą \"%{aspect}\""
       posting: Rašoma...
-      share: Skelbti
+      share: "Skelbti"
       share_with: "Skelbti aspekte \"%{aspect}\""
       whats_on_your_mind: "what's on your mind?"
     reshare:

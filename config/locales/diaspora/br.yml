@@ -9,7 +9,7 @@ br:
   _home: Kêr
   _photos: fotoioù
   _services: Servijoù
-  account: Kont
+  account: "Kont"
   activerecord:
     errors:
       models:
@@ -36,11 +36,11 @@ br:
   are_you_sure: "Sur emaoc'h?"
   aspects:
     edit:
-      done: Graet
+      done: "Graet"
       make_aspect_list_visible: "lakaat an holl arvezioù war-wel?"
       remove_aspect: "Dilemel an arvez-mañ"
       rename: "cheñch an anv"
-      update: nevesaat
+      update: "nevesaat"
       updating: "o nevesaat"
     few: "%{count} arvez"
     helper:
@@ -57,7 +57,7 @@ br:
       no_tags: "No tags"
     many: "%{count} arvez"
     new:
-      name: Name
+      name: "Name"
     no_contacts_message:
       try_adding_some_more_contacts: "You can search (top) or invite (right) more contacts."
     no_posts_message:
@@ -65,8 +65,8 @@ br:
     one: "1 arvez"
     other: "%{count} arvez"
     seed:
-      family: Familh
-      work: Labour
+      family: "Familh"
+      work: "Labour"
     two: "%{count} aspects"
     zero: "arvez ebet"
   back: Distreiñ
@@ -81,12 +81,8 @@ br:
     few: "%{count} embann"
     many: "%{count} embann"
     new_comment:
-      comment: embann
+      comment: "embann"
       commenting: "Oc'h embann..."
-    one: "1 embann"
-    other: "%{count} embann"
-    two: "%{count} comments"
-    zero: "embann ebet"
   contacts:
     few: "%{count} contacts"
     index:
@@ -114,18 +110,18 @@ br:
       new_message: "Kemennadenn Nevez"
       no_messages: "kemennadenn ebet"
     new:
-      send: Kaset
-      subject: sujed
-      to: da
+      send: "Kaset"
+      subject: "sujed"
+      to: "da"
     show:
-      reply: respont
+      reply: "respont"
   delete: Skarzhañ
-  email: Postel
+  email: "Postel"
   find_people: "Find people"
-  hide: Kuzhaat
+  hide: "Kuzhaat"
   home:
     show:
-      choice: Dibab
+      choice: "Dibab"
   invitations:
     check_token:
       not_found: "Ar bilhed-pediñ n'eo ket bet kaset"
@@ -133,17 +129,17 @@ br:
       already_invited: "Already invited"
       resend: "Kas en dro"
       send_an_invitation: "Kas ur bedadenn"
-      to: Da
+      to: "Da"
   layouts:
     application:
       powered_by: "DEGASET GANT DIASPORA*"
       toggle: "toggle mobile site"
       whats_new: "petra nevez?"
     header:
-      code: kod
-      login: login
+      code: "kod"
+      login: "login"
       logout: "mont kuit"
-      profile: patrom
+      profile: "patrom"
       settings: dibaboù
   likes:
     likes:
@@ -201,7 +197,7 @@ br:
         two: "%{count} new notifications"
         zero: "no new notifications"
     index:
-      and: ha
+      and: "ha"
       and_others:
         few: "and %{count} others"
         many: "and %{count} others"
@@ -276,7 +272,7 @@ br:
     started_sharing:
       subject: "%{name} has started sharing with you on Diaspora*"
   ok: "MAT EO"
-  or: pe
+  or: "pe"
   password: Ger-kuzh
   password_confirmation: "Kadarnaat ar ger-kuzh"
   people:
@@ -285,14 +281,14 @@ br:
     one: "1 person"
     other: "%{count} people"
     profile_sidebar:
-      bio: buhez
+      bio: "buhez"
       born: deiziad-ganidigezh
-      gender: reizh
-      location: chomaj
+      gender: "reizh"
+      location: "chomaj"
       remove_contact: "skarzhañ an darempred"
       remove_from: "Fellout a ra deoc'h skarzhañ %{name} diwar %{aspect}?"
     show:
-      message: Kemmenadenn
+      message: "Kemmenadenn"
     two: "%{count} people"
     webfinger:
       fail: "Siwazh, n'eus ket moaien kavout %{handle}."
@@ -326,7 +322,7 @@ br:
         two: "Two photos by %{author}"
         zero: "No photos by %{author}"
   previous: war-raok
-  profile: Patrom
+  profile: "Patrom"
   profiles:
     edit:
       edit_profile: "Kempenn ar patrom"
@@ -383,11 +379,11 @@ br:
         one: "1 Reshare"
         other: "%{count} Reshares"
         two: "%{count} reshares"
-        zero: Reshare
+        zero: "Reshare"
       reshare_confirmation: "Reshare %{author} - %{text}?"
       reshare_original: "Reshare orignial"
       show_original: "Show Original"
-  search: Klask
+  search: "Klask"
   services:
     index:
       connect_to_facebook: "Connect to facebook"
@@ -426,7 +422,7 @@ br:
         i_like: "I'm interested in %{tags}."
       post_a_message_to: "Skrivañ ur c'hemennad da %{aspect}"
       posting: "Oc'h embann..."
-      share: Kas
+      share: "Kas"
       whats_on_your_mind: "petra zo e-barzh ho penn?"
     reshare:
       reshare: Adkevrennañ

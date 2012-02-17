@@ -56,7 +56,7 @@ mk:
       failure: "не проработи %{inspect}"
       success: "Личноста е преместена во нов аспект"
     new:
-      name: Name
+      name: "Name"
     no_contacts_message:
       try_adding_some_more_contacts: "You can search (top) or invite (right) more contacts."
     no_posts_message:
@@ -84,20 +84,11 @@ mk:
     new_comment:
       comment: Коментар
       commenting: Коментирање...
-    one: "1 comment"
-    other: "%{count} comments"
-    two: "%{count} comments"
-    zero: "no comments"
   contacts:
     few: "%{count} contacts"
     index:
       add_to_aspect: "Add contacts to %{name}"
       no_contacts: "No contacts."
-    many: "%{count} contacts"
-    one: "1 contact"
-    other: "%{count} contacts"
-    two: "%{count} contacts"
-    zero: "no contacts"
   conversations:
     helper:
       new_messages:
@@ -148,8 +139,8 @@ mk:
       blog: блог
       login: "најави се"
       logout: "одјави се"
-      profile: profile
-      settings: settings
+      profile: "profile"
+      settings: "settings"
   likes:
     likes:
       people_dislike_this:
@@ -401,7 +392,7 @@ mk:
         one: "1 Reshare"
         other: "%{count} Reshares"
         two: "%{count} reshares"
-        zero: Reshare
+        zero: "Reshare"
       reshare_confirmation: "Reshare %{author} - %{text}?"
       reshare_original: "Reshare orignial"
       show_original: "Show Original"

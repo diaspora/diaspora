@@ -28,7 +28,7 @@ eu:
       hide: "iruzkinak ezkutatu"
       show: "iruzkin guztiak erakutsi"
     confirm_dialog: "Ziur al zaude?"
-    delete: Ezabatu
+    delete: "Ezabatu"
     failed_to_like: "Huts gustoko egitean!"
     failed_to_post_message: "Huts egin du mezuaren bidalketak!"
     getting_started:
@@ -37,18 +37,18 @@ eu:
       no_tags: "Aizu, ez duzu etiketarik jarraitzen! Jarraitu hala ere?"
       preparing_your_stream: "Zure kronologia pertsonalizatua prestatzen..."
     header:
-      contacts: Lagunak
-      home: Hasiera
-      log_out: Atera
+      contacts: "Lagunak"
+      home: "Hasiera"
+      log_out: "Atera"
       mark_all_as_read: "Guztiak irakurri gisa markatu"
       messages: "Mezu pribatuak"
-      notifications: Jakinarazpenak
-      profile: Profila
+      notifications: "Jakinarazpenak"
+      profile: "Profila"
       recent_notifications: "Jakinarazpen Berrienak"
       search: "Aurkitu jendea edo #etiketak"
-      settings: Ezarpenak
+      settings: "Ezarpenak"
       view_all: "Guztiak ikusi"
-    ignore: Isildu
+    ignore: "Isildu"
     infinite_scroll:
       no_more: "Mezu gehiagorik ez dago."
     photo_uploader:
@@ -62,8 +62,8 @@ eu:
     search_for: "Bilatu <%= name %>"
     show_more: "erakutsi gehiago"
     stream:
-      comment: Iruzkindu
-      hide: Ezkutatu
+      comment: "Iruzkindu"
+      hide: "Ezkutatu"
       like: "Gustuko dut"
       likes:
         few: "<%= count %>(e)k gustuko dute"
@@ -72,7 +72,7 @@ eu:
         other: "<%= count %>(e)k gustuko dute"
         two: "<%= count %>(e)k gustuko dute"
         zero: "<%= count %>(e)k gustuko dute"
-      limited: Mugatua
+      limited: "Mugatua"
       more_comments:
         few: "Erakutsi <%= count %> iruzkin gehiago"
         many: "Erakutsi <%= count %> iruzkin gehiago"
@@ -81,8 +81,8 @@ eu:
         two: "Erakutsi <%= count %> iruzkin gehiago"
         zero: "Erakutsi <%= count %> iruzkin gehiago"
       original_post_deleted: "Jatorrizko mezua egileak ezabatu du."
-      public: Publikoa
-      reshare: Birpartekatu
+      public: "Publikoa"
+      reshare: "Birpartekatu"
       reshares:
         few: "<%= count %> Birpartekaketa"
         many: "<%= count %> Birpartekaketa"
@@ -102,10 +102,9 @@ eu:
       minutes: "%d minutu"
       month: "hilabete bat"
       months: "%d hilabete"
-      prefixAgo: duela
+      prefixAgo: "duela"
       seconds: "minutu bat baino gutxiago"
-      suffixAgo: ""
-      suffixFromNow: barru
+      suffixFromNow: "barru"
       year: "urte bat"
       years: "%d urte"
     videos:

@@ -28,7 +28,7 @@ da:
       hide: "Skjul kommentarer"
       show: "Vis alle kommentarer"
     confirm_dialog: "Er du sikker?"
-    delete: Slet
+    delete: "Slet"
     failed_to_like: "Kunne ikke synes om!"
     failed_to_post_message: "Kunne ikke indsende besked!"
     getting_started:
@@ -37,18 +37,18 @@ da:
       no_tags: "Du har ikke fulgt nogen tags! Vil du fortsætte alligevel?"
       preparing_your_stream: "Forbereder din personlige strøm..."
     header:
-      contacts: Kontakter
-      home: Hjem
+      contacts: "Kontakter"
+      home: "Hjem"
       log_out: "Log ud"
       mark_all_as_read: "Marker alle som læst"
-      messages: Beskeder
-      notifications: Meddelelser
-      profile: Profil
+      messages: "Beskeder"
+      notifications: "Meddelelser"
+      profile: "Profil"
       recent_notifications: "Seneste Meddelelser"
       search: Søg
-      settings: Indstillinger
+      settings: "Indstillinger"
       view_all: "Se alle"
-    ignore: Ignorer
+    ignore: "Ignorer"
     infinite_scroll:
       no_more: "Ikke flere indlæg."
     my_activity: "Min aktivitet"
@@ -66,7 +66,7 @@ da:
     stream:
       comment: Kommentér
       follow: Følg
-      hide: Skjul
+      hide: "Skjul"
       hide_nsfw_posts: "Skjul #nsfw indlæg"
       like: "Synes om"
       likes:
@@ -85,8 +85,8 @@ da:
         two: "Vis <%= count %> ekstra kommentarer"
         zero: "Vis <%= count %> ekstra kommentarer"
       original_post_deleted: "Originalt indlæg er slettet af forfatteren."
-      public: Offentlig
-      reshare: Videredel
+      public: "Offentlig"
+      reshare: "Videredel"
       reshares:
         few: "<%= count %> videredelinger"
         many: "<%= count %> videredelinger"
@@ -109,10 +109,10 @@ da:
       minutes: "%d minutter"
       month: "ca. en måned"
       months: "%d måneder"
-      prefixAgo: for
-      prefixFromNow: om
+      prefixAgo: "for"
+      prefixFromNow: "om"
       seconds: "mindre end et minut"
-      suffixAgo: siden
+      suffixAgo: "siden"
       suffixFromNow: "fra nu"
       year: "ca. et år"
       years: "%d år"

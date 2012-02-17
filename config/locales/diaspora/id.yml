@@ -5,9 +5,9 @@
 
 
 id:
-  _photos: foto
-  _services: Layanan
-  account: Akun
+  _photos: "foto"
+  _services: "Layanan"
+  account: "Akun"
   activerecord:
     errors:
       models:
@@ -38,7 +38,7 @@ id:
     few: "%{count} aspects"
     helper:
       aspect_not_empty: "Aspek tidak kosong"
-      remove: hapus
+      remove: "hapus"
     index:
       handle_explanation: "This is your diaspora handle.  Like an email address, you can give this to people to reach you."
       help:
@@ -50,7 +50,7 @@ id:
       no_tags: "No tags"
     many: "%{count} aspects"
     new:
-      name: Name
+      name: "Name"
     no_contacts_message:
       try_adding_some_more_contacts: "You can search (top) or invite (right) more contacts."
     no_posts_message:
@@ -65,26 +65,17 @@ id:
     explanation: "%{link} from anywhere by bookmarking this link."
     explanation_link_text: "Post to Diaspora"
     heading: "Diaspora Bookmarklet"
-  cancel: Batal
+  cancel: "Batal"
   comments:
     few: "%{count} comments"
     many: "%{count} comments"
     new_comment:
-      comment: Komentar
-    one: "1 comment"
-    other: "%{count} comments"
-    two: "%{count} comments"
-    zero: "no comments"
+      comment: "Komentar"
   contacts:
     few: "%{count} contacts"
     index:
       add_to_aspect: "Add contacts to %{name}"
       no_contacts: "No contacts."
-    many: "%{count} contacts"
-    one: "1 contact"
-    other: "%{count} contacts"
-    two: "%{count} contacts"
-    zero: "no contacts"
   conversations:
     helper:
       new_messages:
@@ -94,7 +85,7 @@ id:
         other: "%{count} new messages"
         two: "%{count} new messages"
         zero: "no new messages"
-  delete: Hapus
+  delete: "Hapus"
   email: E-mail
   error_messages:
     helper:
@@ -119,15 +110,15 @@ id:
       invite_someone_to_join: "Undang seseorang untuk bergabung di Diaspora!"
       send_an_invitation: "Kirim sebuah undangan"
       send_invitation: "Kirim undangan"
-      to: Ke
+      to: "Ke"
   layouts:
     application:
       toggle: "toggle mobile site"
     header:
-      login: login
-      logout: logout
-      profile: profile
-      settings: settings
+      login: "login"
+      logout: "logout"
+      profile: "profile"
+      settings: "settings"
   likes:
     likes:
       people_dislike_this:
@@ -258,8 +249,8 @@ id:
       subject: "A message from your Diaspora administrator:"
     started_sharing:
       subject: "%{name} has started sharing with you on Diaspora*"
-  ok: Oke
-  or: atau
+  ok: "Oke"
+  or: "atau"
   password: "Kata sandi"
   password_confirmation: "Pengesahan kata sandi"
   people:
@@ -273,7 +264,7 @@ id:
       pending_request: "permintaan tertunda"
       thats_you: "Itu anda!"
     profile_sidebar:
-      born: born
+      born: "born"
       edit_my_profile: "Sunting profil saya"
     show:
       does_not_exist: "Orang tidak ada!"
@@ -285,7 +276,7 @@ id:
     destroy:
       notice: "Foto dihapus."
     edit:
-      editing: Mengubah
+      editing: "Mengubah"
     new:
       back_to_list: "Kembali ke Daftar"
       new_photo: "Foto Baru"
@@ -346,7 +337,7 @@ id:
         one: "1 Reshare"
         other: "%{count} Reshares"
         two: "%{count} reshares"
-        zero: Reshare
+        zero: "Reshare"
       reshare_confirmation: "Reshare %{author} - %{text}?"
       reshare_original: "Reshare orignial"
       show_original: "Show Original"
@@ -383,7 +374,7 @@ id:
     publisher:
       new_user_prefill:
         i_like: "I'm interested in %{tags}."
-      share: Bagikan
+      share: "Bagikan"
       share_with: "Share with %{aspect}"
       whats_on_your_mind: "what's on your mind?"
     stream_element:

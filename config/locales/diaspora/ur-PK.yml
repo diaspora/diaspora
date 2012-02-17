@@ -147,23 +147,11 @@ ur-PK:
       no_applications: "آپ نے ابھی تک کسی بھی ایپلیکیشن کا اندرج نہیں کیا ہے۔"
       revoke_access: "رسائی منسوخ کیجیے"
   back: واپس
-  comments:
-    few: "%{count} comments"
-    many: "%{count} comments"
-    one: "1 comment"
-    other: "%{count} comments"
-    two: "%{count} comments"
-    zero: "no comments"
   contacts:
     few: "%{count} contacts"
     index:
       add_to_aspect: "Add contacts to %{name}"
       no_contacts: "No contacts."
-    many: "%{count} contacts"
-    one: "1 contact"
-    other: "%{count} contacts"
-    two: "%{count} contacts"
-    zero: "no contacts"
   conversations:
     helper:
       new_messages:
@@ -178,8 +166,8 @@ ur-PK:
       toggle: "toggle mobile site"
     header:
       logout: "log out"
-      profile: profile
-      settings: settings
+      profile: "profile"
+      settings: "settings"
   likes:
     likes:
       people_dislike_this:
@@ -304,13 +292,6 @@ ur-PK:
       liked: "%{name} just liked your post"
     reshared:
       reshared: "%{name} just reshared your post"
-  people:
-    few: "%{count} people"
-    many: "%{count} people"
-    one: "1 person"
-    other: "%{count} people"
-    two: "%{count} people"
-    zero: "no people"
   posts:
     show:
       photos_by:
@@ -348,7 +329,7 @@ ur-PK:
         one: "1 reshare"
         other: "%{count} reshares"
         two: "%{count} reshares"
-        zero: Reshare
+        zero: "Reshare"
   services:
     inviter:
       click_link_to_accept_invitation: "Click this link to accept your invitation"

@@ -49,18 +49,18 @@ cy:
       updated: "Diweddarwyd eich cyfrif yn llwyddiannus."
     sessions:
       new:
-        login: Mewngofnodi
-        password: Cyfrinair
+        login: "Mewngofnodi"
+        password: "Cyfrinair"
         remember_me: "Cofiwch mi"
-        sign_in: Mewngofnodi
+        sign_in: "Mewngofnodi"
         username: "Enw Defnyddiwr"
       signed_in: "Arwyddwyd i fewn yn llwyddiannus."
       signed_out: "Arwyddwyd allan yn llwyddiannus."
     shared:
       links:
         forgot_your_password: "Wedi anghofio eich cyfrinair?"
-        sign_in: Mewngofnodi
-        sign_up: Cofrestrwch
+        sign_in: "Mewngofnodi"
+        sign_up: "Cofrestrwch"
     unlocks:
       send_instructions: "Byddwch yn derbyn e-bost gyda cyfarwyddiadau ar sut i agor eich cyfrif mewn ychydig funudau."
       unlocked: "Datglowyd eich cyfrif yn llwyddiannus. Rydych chi wedi arwyddo i fewn."

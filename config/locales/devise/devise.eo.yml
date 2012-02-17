@@ -81,12 +81,12 @@ eo:
         alpha_software: "Vi estas uzonta alfaprogramaron."
         bugs_and_feedback: "Memoru, vi trovos erarojn. Bonvolu uzi la „Feedback“ butonon dekstre por informi nin pri iuj ajn eraroj!  Ni tre rapide laboros, por ke ni riparu la erarojn, pri kiuj vi informis nin."
         bugs_and_feedback_mobile: "Memoru, vi trovos erarojn.  Bonvolu informi nin pri iuj ajn eraroj!  Ni tre rapide laboros, por ke ni riparu la erarojn, pri kiuj vi informis nin."
-        login: Kontonomo
+        login: "Kontonomo"
         modern_browsers: "nur funkcias per modernaj retumiloj"
-        password: Pasvorto
+        password: "Pasvorto"
         remember_me: "Memori min"
-        sign_in: Ensaluti
-        username: Uzantnomo
+        sign_in: "Ensaluti"
+        username: "Uzantnomo"
       signed_in: "Sukcese ensalutis."
       signed_out: "Sukcese elsalutis."
     shared:
@@ -94,7 +94,7 @@ eo:
         forgot_your_password: "Ĉu vi forgesis vian pasvorton?"
         receive_confirmation: "Ĉu vi ne ricevis instruojn por konfirmi?"
         receive_unlock: "Ĉu vi ne ricevis instruojn por malŝlosi?"
-        sign_in: Ensaluti
+        sign_in: "Ensaluti"
         sign_up: Enskribiĝi
         sign_up_closed: "Nun ne estas libera registrado."
       mail_signup_form:

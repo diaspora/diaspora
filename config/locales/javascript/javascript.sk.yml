@@ -38,16 +38,16 @@ sk:
       preparing_your_stream: "Pripravuje sa vaša upravená nástenka..."
     header:
       admin: Administrátor
-      contacts: Kontakty
-      home: Domov
+      contacts: "Kontakty"
+      home: "Domov"
       log_out: "Odhlásiť sa"
       mark_all_as_read: "Označiť všetky ako prečítané"
       messages: Správy
-      notifications: Oznamy
-      profile: Profil
+      notifications: "Oznamy"
+      profile: "Profil"
       recent_notifications: "Najnovšie oznamy"
       search: "Nájsť ľudí alebo #značky"
-      settings: Nastavenia
+      settings: "Nastavenia"
       view_all: "Zobraziť všetko"
     ignore: Ignorovať
     infinite_scroll:
@@ -104,8 +104,6 @@ sk:
       month: "asi pred mesiacom"
       months: "pred %d mesiacmi"
       seconds: "pred menej ako minútou"
-      suffixAgo: ""
-      suffixFromNow: ""
       year: "asi pred rokom"
       years: "pred %d rokmi"
     videos:
