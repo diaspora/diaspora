@@ -10,7 +10,6 @@ en_1337:
       confirmed: "M41L 0K"
       new:
         resend_confirmation: "R353ND C0NF1RM471ON!"
-      send_instructions: ""
     failure:
       inactive: "4CC N07 4C71V3 Y37!"
       invalid: "N1CK C0LLU510N!"
@@ -69,14 +68,14 @@ en_1337:
         alpha_software: "U U53 3XP3R3M3NT4L 57UFF!"
         bugs_and_feedback: "G0NN4 3XP3R13NC3 BUGZ!"
         bugs_and_feedback_mobile: "G0NN4 3XP3R13NC3 BUGZ!"
-        login: L0G1N
+        login: "L0G1N"
         modern_browsers: "N0 IE < 9!"
         password: "*****"
         remember_me: "C47CH M3 (1F U C4N!)"
         sign_in: "51GN 1N"
-        username: N1CK
+        username: "N1CK"
       signed_in: G07CH4!
-      signed_out: KTHXB41
+      signed_out: "KTHXB41"
     shared:
       links:
         forgot_your_password: "F0RG07 Y0UR *****?"

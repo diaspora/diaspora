@@ -70,13 +70,13 @@ cy:
     tags:
       wasnt_that_interesting: "OK, mae'n debyg nid yw #{{tagName}} yn ddiddorol iawn..."
     timeago:
-      day: diwrnod
+      day: "diwrnod"
       days: "%d diwrnod"
-      hour: awr
+      hour: "awr"
       hours: "%d awr"
       minute: "tua funud"
       minutes: "%d munud"
-      month: mis
+      month: "mis"
       months: "%d mis"
       seconds: "rhai na munud"
       suffixAgo: "yn ôl"

@@ -3,6 +3,7 @@
 #   the COPYRIGHT file.
 
 
+
 ml:
   javascripts:
     aspect_dropdown:
@@ -67,6 +68,7 @@ ml:
       comment: "Comment"
       follow: "Follow"
       hide: "Hide"
+      hide_nsfw_posts: "Hide #nsfw posts"
       like: "Like"
       likes:
         few: "<%= count %> Likes"
@@ -93,7 +95,8 @@ ml:
         other: "<%= count %> Reshares"
         two: "<%= count %> Reshares"
         zero: "<%= count %> Reshares"
-      show_post: "Show post"
+      show_nsfw_post: "Show post"
+      show_nsfw_posts: "Show all"
       unfollow: "Unfollow"
       unlike: "Unlike"
     tags:
@@ -107,7 +110,6 @@ ml:
       minutes: "%d മിനിട്ടുകള്‍"
       month: "ഉദ്ദേശം ഒരു മാസം"
       months: "%d മാസങ്ങള്‍"
-      prefixAgo: ""
       prefixFromNow: "ഇപ്പോള്‍ മുതല്‍"
       seconds: "ഏതാനും നിമിഷങ്ങള്‍"
       suffixAgo: മുന്‍പ്

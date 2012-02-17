@@ -69,11 +69,11 @@ id:
         alpha_software: "Anda akan menggunakan perangkat lunak alpha."
         bugs_and_feedback: "Dapat dipastikan, anda akan mengalami gangguan. Kami mendorong anda untuk menggunakan tombol Umpan balik yang berada di bagian kanan penjelajah internet anda untuk melaporkan gangguan sekecil apapun! Kami akan bekerja secepat mungkin untuk menyelesaikan masalah apapun yang anda laporkan."
         bugs_and_feedback_mobile: "Dapat dipastikan, Anda akan mengalami gangguan. Kami mendorong Anda untuk melaporkan gangguan kecil apapun! Kami akan bekerja secepat mungkin untuk menyelesaikan masalah apapun yang Anda laporkan."
-        login: Masuk
+        login: "Masuk"
         modern_browsers: "hanya mendukung penjelajah-penjelajah internet modern."
         password: "Kata sandi"
         remember_me: "Ingat saya"
-        sign_in: Masuk
+        sign_in: "Masuk"
         username: "Nama pengguna"
       signed_in: "Berhasil masuk."
       signed_out: "Berhasil keluar."
@@ -82,8 +82,8 @@ id:
         forgot_your_password: "Lupa kata sandi anda?"
         receive_confirmation: "Tidak menerima instruksi pengesahan?"
         receive_unlock: "Tidak menerima instruksi untuk membuka?"
-        sign_in: Masuk
-        sign_up: Mendaftar
+        sign_in: "Masuk"
+        sign_up: "Mendaftar"
         sign_up_closed: "Pendaftaran terbuka sedang ditutup saat ini."
       mail_signup_form:
         sign_up_for_an_invite: "Mendaftar untuk undangan!"

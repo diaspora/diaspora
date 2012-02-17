@@ -106,7 +106,6 @@ bg:
       prefixAgo: преди
       prefixFromNow: след
       seconds: "по-малко от минута"
-      suffixAgo: ""
       suffixFromNow: "от сега"
       year: "около година"
       years: "%d години"

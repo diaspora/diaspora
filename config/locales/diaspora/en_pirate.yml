@@ -5,9 +5,9 @@
 
 
 en_pirate:
-  _contacts: Mateys
+  _contacts: "Mateys"
   _home: "Home Port"
-  _photos: Portraits
+  _photos: "Portraits"
   activerecord:
     errors:
       models:
@@ -54,25 +54,16 @@ en_pirate:
       no_contacts: "No mateys"
     many: "%{count} crews"
     new:
-      name: Name
+      name: "Name"
     no_contacts_message:
       try_adding_some_more_contacts: "You can search (top) or invite (right) more contacts."
     one: "1 crew"
     other: "%{count} crews"
     seed:
-      acquaintances: Landlubbers
-      family: Kin
-      friends: Mateys
-      work: Shipmates
-    two: "%{count} aspects"
-    zero: "no aspects"
-  comments:
-    few: "%{count} comments"
-    many: "%{count} comments"
-    one: "1 comment"
-    other: "%{count} comments"
-    two: "%{count} comments"
-    zero: "no comments"
+      acquaintances: "Landlubbers"
+      family: "Kin"
+      friends: "Mateys"
+      work: "Shipmates"
   contacts:
     few: "%{count} contacts"
     index:
@@ -80,13 +71,8 @@ en_pirate:
       all_contacts: "All yer mateys"
       my_contacts: "Me Mateys"
       no_contacts: "No contacts."
-      title: Mateys
+      title: "Mateys"
       your_contacts: "Yer Mateys"
-    many: "%{count} contacts"
-    one: "1 contact"
-    other: "%{count} contacts"
-    two: "%{count} contacts"
-    zero: "no contacts"
   conversations:
     helper:
       new_messages:
@@ -279,8 +265,8 @@ en_pirate:
         one: "1 reshare"
         other: "%{count} reshares"
         two: "%{count} reshares"
-        zero: Reshare
-  search: Scour
+        zero: "Reshare"
+  search: "Scour"
   services:
     inviter:
       click_link_to_accept_invitation: "Click this link to accept your invitation"

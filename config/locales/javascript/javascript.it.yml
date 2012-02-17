@@ -7,7 +7,7 @@
 it:
   javascripts:
     aspect_dropdown:
-      add_to_aspect: Aggiungi
+      add_to_aspect: "Aggiungi"
       all_aspects: "Tutti gli aspetti"
       error: "Non è possibile condividere con <%= name %>. È tra gli utenti ignorati?"
       select_aspects: "Scegli gli aspetti"
@@ -28,7 +28,7 @@ it:
       hide: "nascondi i commenti"
       show: "mostra tutti i commenti"
     confirm_dialog: "Sei sicuro?"
-    delete: Elimina
+    delete: "Elimina"
     failed_to_like: "Errore, il \"mi piace\" non è stato inviato!"
     failed_to_post_message: "Invio messaggio fallito!"
     getting_started:
@@ -37,18 +37,18 @@ it:
       no_tags: "Non hai scelto di seguire alcun tag, vuoi continuare comunque?"
       preparing_your_stream: "Sto preparando il tuo stream personalizzato..."
     header:
-      admin: Amministrazione
-      contacts: Contatti
-      log_out: Esci
+      admin: "Amministrazione"
+      contacts: "Contatti"
+      log_out: "Esci"
       mark_all_as_read: "Segna tutti come letti"
-      messages: Messaggi
-      notifications: Notifiche
-      profile: Profilo
+      messages: "Messaggi"
+      notifications: "Notifiche"
+      profile: "Profilo"
       recent_notifications: "Notifiche recenti"
-      search: Cerca
-      settings: Impostazioni
+      search: "Cerca"
+      settings: "Impostazioni"
       view_all: "Vedi tutti"
-    ignore: Ignora
+    ignore: "Ignora"
     infinite_scroll:
       no_more: "Non ci sono altri post."
     my_activity: Attività
@@ -63,9 +63,10 @@ it:
     search_for: "Ricerca per <%= name %>"
     show_more: continua...
     stream:
-      comment: Commenta
-      follow: Segui
-      hide: Nascondi
+      comment: "Commenta"
+      follow: "Segui"
+      hide: "Nascondi"
+      hide_nsfw_posts: "Nascondi i post #nsfw"
       like: "Mi piace"
       likes:
         few: "<%= count %> mi piace"
@@ -83,8 +84,8 @@ it:
         two: "Mostra gli altri <%= count %> commenti"
         zero: "Mostra gli altri <%= count %> commenti"
       original_post_deleted: "Il post originale è stato rimosso dall'autore."
-      public: Pubblico
-      reshare: Condividi
+      public: "Pubblico"
+      reshare: "Condividi"
       reshares:
         few: "<%= count %> Condivisioni"
         many: "<%= count %> Condivisioni"
@@ -92,6 +93,8 @@ it:
         other: "<%= count %> Condivisioni"
         two: "<%= count %> Condivisioni"
         zero: "<%= count %> Condivisioni"
+      show_nsfw_post: "Mostra il post"
+      show_nsfw_posts: "Mostra tutti i post"
       unfollow: "Non seguire più"
       unlike: "Non mi piace più"
     tags:
@@ -105,10 +108,9 @@ it:
       minutes: "%d minuti"
       month: "circa un mese"
       months: "%d mesi"
-      prefixFromNow: fra
+      prefixFromNow: "fra"
       seconds: "meno di un minuto"
-      suffixAgo: fa
-      suffixFromNow: ""
+      suffixAgo: "fa"
       year: "circa un anno"
       years: "%d anni"
     videos:

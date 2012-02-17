@@ -6,11 +6,11 @@
 
 ro:
   _applications: Aplicaţii
-  _comments: Comentarii
+  _comments: "Comentarii"
   _home: Acasă
-  _photos: Fotografii
-  _services: Servicii
-  account: Cont
+  _photos: "Fotografii"
+  _services: "Servicii"
+  account: "Cont"
   activerecord:
     errors:
       models:
@@ -71,12 +71,12 @@ ro:
       aspect_list_is_not_visible: "lista de aspecte nu este vizibila persoanelor adaugate"
       aspect_list_is_visible: "lista de aspecte este vizibila persoanelor adaugate"
       confirm_remove_aspect: "Eşti sigur că doreşti să ştergi acest aspect?"
-      done: Gata
+      done: "Gata"
       make_aspect_list_visible: "make aspect list visible?"
       remove_aspect: "Şterge acest aspect"
       rename: redenumeşte
-      update: actualizare
-      updating: actualizare
+      update: "actualizare"
+      updating: "actualizare"
     few: "%{count} aspecte"
     helper:
       are_you_sure: "Eşti sigur că doreşti să ştergi acest aspect?"
@@ -104,7 +104,7 @@ ro:
       success: "S-a mutat persoana la noul aspect"
     new:
       create: Crează
-      name: Name
+      name: "Name"
     no_contacts_message:
       try_adding_some_more_contacts: "You can search (top) or invite (right) more contacts."
     no_posts_message:
@@ -112,9 +112,9 @@ ro:
     one: "1 aspect"
     other: "%{count} aspecte"
     seed:
-      family: Familie
-      friends: Prieteni
-      work: Lucru
+      family: "Familie"
+      friends: "Prieteni"
+      work: "Lucru"
     selected_contacts:
       view_all_contacts: "Vezi toate contactele"
     show:
@@ -135,7 +135,7 @@ ro:
     few: "%{count} comentarii"
     many: "%{count} comentarii"
     new_comment:
-      comment: Comentariu
+      comment: "Comentariu"
       commenting: Comentând...
     one: "1 comentariu"
     other: "%{count} comentarii"
@@ -151,13 +151,13 @@ ro:
       all_contacts: "Toate contactele"
       my_contacts: "Contactele mele"
       no_contacts: "No contacts."
-      title: Contacte
+      title: "Contacte"
       your_contacts: "Contactele Tale"
     many: "%{count} contacte"
     one: "1 contact"
     other: "%{count} contacte"
     two: "%{count} contacts"
-    zero: contacte
+    zero: "contacte"
   conversations:
     create:
       sent: "Mesaj trimis"
@@ -179,13 +179,13 @@ ro:
       no_conversation_selected: "nicio conversaţie selectată"
       no_messages: "niciun mesaj"
     new:
-      send: Trimite
+      send: "Trimite"
       sending: Trimitere...
-      subject: subiect
+      subject: "subiect"
       to: către
     show:
       delete: "sterge si blocheaza conversatia"
-      reply: raspunde
+      reply: "raspunde"
   delete: Şterge
   email: E-mail
   error_messages:
@@ -194,18 +194,18 @@ ro:
       invalid_fields: "Câmpuri invalide"
   fill_me_out: Umple-mă
   find_people: "Find people"
-  hide: Ascunde
+  hide: "Ascunde"
   home:
     show:
       already_account: "ai deja cont?"
-      choice: Alegere
+      choice: "Alegere"
       choice_explanation: "Diaspora allows you to sort your connections into groups called Aspects. Unique to Diaspora, Aspects ensure your photos, stories and jokes are shared with only the people you want them to be."
       learn_about_host: "Learn about how to host your own Diaspora server"
       login_here: "intrarea e aici"
-      ownership: Proprietate
+      ownership: "Proprietate"
       ownership_explanation: "You own your pictures, and you shouldn’t have to give that up just in order to share them. You maintain ownership of everything you share on Diaspora, giving you full control over how it is distributed."
       share_what_you_want: "Impartaseste ce doresti, cu cine doresti."
-      simplicity: Simplitate
+      simplicity: "Simplitate"
       simplicity_explanation: "Diaspora makes sharing clean and easy – this goes doubly so for privacy. Innherently private, Diaspora doesn’t have pages of settings and options to wade through to keep your profile secure and to your liking."
   invitations:
     a_facebook_user: "Un utilizator Facebook"
@@ -226,19 +226,19 @@ ro:
       resend: "Mai trimite odata"
       send_an_invitation: "Trimite o invitaţie"
       send_invitation: "Trimite invitaţie"
-      to: Pentru
+      to: "Pentru"
   layouts:
     application:
       toggle: "toggle mobile site"
       whats_new: "ce mai e nou?"
       your_aspects: "aspectele tale"
     header:
-      code: codul
-      login: login
+      code: "codul"
+      login: "login"
       logout: Ieşire
-      profile: profile
+      profile: "profile"
       recent_notifications: "Notificări recente"
-      settings: settings
+      settings: "settings"
       view_all: "Arata tot"
   likes:
     likes:
@@ -263,7 +263,7 @@ ro:
         other: "%{count} likes"
         two: "%{count} likes"
         zero: "no likes"
-  limited: Limitat
+  limited: "Limitat"
   more: "Mai mult"
   next: următorul
   no_results: "Niciun Rezultat Găsit"
@@ -336,7 +336,7 @@ ro:
       other: "%{actors} te-au amintit intro publicatie deja stearsa."
       two: "%{actors} mentioned you in a deleted post."
       zero: "%{actors} mentioned you in a deleted post."
-    post: publicatie
+    post: "publicatie"
     private_message:
       few: "%{actors} sent you a message."
       many: "%{actors} sent you a message."
@@ -390,8 +390,8 @@ ro:
       view_profile: "Vezi profilul lui %{name}"
     thanks: "Mulţumim,"
     to_change_your_notification_settings: "pentru a schimba setăriile notificărilor"
-  or: sau
-  password: Parola
+  or: "sau"
+  password: "Parola"
   password_confirmation: "Confirmă parola"
   people:
     aspect_list:
@@ -415,10 +415,10 @@ ro:
       pending_request: "Cerere în aşteptare"
       thats_you: "Eşti tu!"
     profile_sidebar:
-      bio: biografie
+      bio: "biografie"
       born: "Zi de naştere"
       edit_my_profile: "Editează profilul meu"
-      gender: gen
+      gender: "gen"
       in_aspects: "în aspecte"
       location: locaţie
       remove_contact: "Elimină contactul"
@@ -429,7 +429,7 @@ ro:
       has_not_shared_with_you_yet: "%{name} nu a publicat inca nimic!"
       ignoring: "De acum toate publicatiile de la %{name} vor fi ignorate."
       incoming_request: "You have an incoming request from this person."
-      message: Mesaj
+      message: "Mesaj"
       not_connected: "You are not connected with this person"
       recent_posts: "Publicări Recente"
       recent_public_posts: "Ultimele Postari Publice"
@@ -437,12 +437,12 @@ ro:
       see_all: "Vezi tot"
       to_accept_or_ignore: "pentru acceptare / ignorare."
     sub_header:
-      edit: editare
+      edit: "editare"
       you_have_no_tags: "nu aveti nici un marcaj!"
     two: "%{count} people"
     webfinger:
       fail: "Ne pare rău, nu am putut găsi %{handle}."
-    zero: nimeni
+    zero: "nimeni"
   photos:
     create:
       integrity_error: "Încărcarea fotografiei a eşuat. Eşti sigur că a fost o imagine?"
@@ -451,7 +451,7 @@ ro:
     destroy:
       notice: "Fotografie eliminată."
     edit:
-      editing: Modificare
+      editing: "Modificare"
     new:
       back_to_list: "Înapoi la Listă"
       new_photo: "Nouă Fotografie"
@@ -485,8 +485,8 @@ ro:
         other: "%{count} photos by %{author}"
         two: "Two photos by %{author}"
         zero: "No photos by %{author}"
-  previous: anterioare
-  profile: Profil
+  previous: "anterioare"
+  profile: "Profil"
   profiles:
     edit:
       allow_search: "Permiteti sa fiti gasit prin cautarea pe Diaspora"
@@ -560,7 +560,7 @@ ro:
         one: "1 Reshare"
         other: "%{count} Reshares"
         two: "%{count} reshares"
-        zero: Reshare
+        zero: "Reshare"
       reshare_confirmation: "Reshare %{author} - %{text}?"
       reshare_original: "Reshare orignial"
       show_original: "Show Original"
@@ -585,7 +585,7 @@ ro:
     inviter:
       click_link_to_accept_invitation: "Click pe acest link pentru a accepta invitaţia"
     remote_friend:
-      invite: invitati
+      invite: "invitati"
       resend: "mai trimite odata"
   settings: Setări
   shared:
@@ -623,7 +623,7 @@ ro:
       outside: "Mesajele publice vor fi disponibile pentru cei ce nu fac parte din Diaspora."
       title: "Sunteţi pe cale de a publica un mesaj public!"
     publisher:
-      all: toate
+      all: "toate"
       all_contacts: "toate contactele"
       discard_post: "Anuleaza publicatia"
       make_public: "Vizibil pentru toti"
@@ -631,11 +631,11 @@ ro:
         i_like: "I'm interested in %{tags}."
       post_a_message_to: "Postati un mesaj catre %{aspect}"
       posting: Publicare...
-      share: Distribuie
+      share: "Distribuie"
       share_with: "Share with %{aspect}"
       whats_on_your_mind: "what's on your mind?"
     reshare:
-      reshare: Redistribuie
+      reshare: "Redistribuie"
     stream_element:
       dislike: "I dislike this"
       hide_and_mute: "Hide and Mute"

@@ -74,7 +74,7 @@ ms:
     tags:
       wasnt_that_interesting: "OK, saya mengandaikan # {{tagName}} tidak semua yang menarik..."
     timeago:
-      day: sehari
+      day: "sehari"
       days: "%d hari"
       hour: "kira-kira sejam"
       hours: "kira-kira %d jam"
@@ -85,7 +85,7 @@ ms:
       prefixAgo: "javascripts:timeago:prefixAgo"
       prefixFromNow: "javascripts:timeago:prefixFromNow"
       seconds: "kurang daripada satu minit"
-      suffixAgo: lalu
+      suffixAgo: "lalu"
       suffixFromNow: "dari sekarang"
       year: "kira-kira setahun"
       years: "%d tahun"

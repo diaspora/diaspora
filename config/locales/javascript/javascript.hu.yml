@@ -29,7 +29,7 @@ hu:
       show: "összes hozzászólás"
     confirm_dialog: "Biztos vagy benne?"
     delete: Töröl
-    failed_to_like: Hiba
+    failed_to_like: "Hiba"
     failed_to_post_message: "Üzenet elküldése sikertelen!"
     getting_started:
       alright_ill_wait: "Rendben, várok!"
@@ -43,7 +43,7 @@ hu:
       mark_all_as_read: "Összes olvasottnak jelölése"
       messages: Üzenetek
       notifications: Értesítések
-      profile: Profil
+      profile: "Profil"
       recent_notifications: "Friss értesítések"
       search: "Ismerős vagy #címke keresése"
       settings: Beállítások
@@ -63,8 +63,8 @@ hu:
     show_more: tovább
     stream:
       comment: Hozzászólás
-      hide: Elrejt
-      like: Tetszik
+      hide: "Elrejt"
+      like: "Tetszik"
       likes:
         few: "<%= count %> kedveli"
         many: "<%= count %> kedveli"
@@ -81,7 +81,7 @@ hu:
         two: "Mutasd a többi <%= count %> hozzászólást"
         zero: "Mutasd a többi <%= count %> hozzászólást"
       original_post_deleted: "Eredeti bejegyzés törölve a szerzője által."
-      public: Publikus
+      public: "Publikus"
       reshare: Megosztás
       reshares:
         few: "<%= count %> megosztás"

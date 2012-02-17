@@ -28,7 +28,7 @@ es:
       hide: "ocultar comentarios"
       show: "ver todos los comentarios"
     confirm_dialog: "¿Estás seguro?"
-    delete: Borrar
+    delete: "Borrar"
     failed_to_like: "¡Ha fallado tu intento de marcar la publicación!"
     failed_to_post_message: "¡Fallo al publicar el mensaje!"
     getting_started:
@@ -37,21 +37,23 @@ es:
       no_tags: "¡Eih, aún no sigues ninguna etiqueta! ¿Quieres continuar de todas formas?"
       preparing_your_stream: "Preparando tus novedades personalizadas..."
     header:
-      admin: Administrar
-      contacts: Contactos
-      home: Inicio
-      log_out: Salir
+      admin: "Administrar"
+      contacts: "Contactos"
+      home: "Inicio"
+      log_out: "Salir"
       mark_all_as_read: "Marcar todo como leido"
-      messages: Mensajes
-      notifications: Notificaciones
-      profile: Perfil
+      messages: "Mensajes"
+      notifications: "Notificaciones"
+      profile: "Perfil"
       recent_notifications: "Notificaciones recientes"
       search: "Encuentra gente o #etiquetas"
-      settings: Ajustes
+      settings: "Ajustes"
       view_all: "Ver todo"
-    ignore: Ignorar
+    ignore: "Ignorar"
     infinite_scroll:
       no_more: "No hay más publicaciones."
+    my_activity: "Mi Actividad"
+    my_stream: "Entrada"
     photo_uploader:
       looking_good: "¡Guau, estás increíble!"
     publisher:
@@ -63,17 +65,19 @@ es:
     search_for: "Buscar a <%= name %>"
     show_more: "mostrar más"
     stream:
-      comment: Comentar
-      hide: Ocultar
-      like: Marcar
+      comment: "Comentar"
+      follow: "Seguir"
+      hide: "Ocultar"
+      hide_nsfw_posts: "Ocultar publicaciones con #nsfw"
+      like: "Me gusta"
       likes:
-        few: "ha sido marcada por <%= count %> personas"
-        many: "ha sido marcada por <%= count %> personas"
-        one: "ha sido marcada por <%= count %> persona"
-        other: "ha sido marcada por <%= count %> personas"
-        two: "ha sido marcada por <%= count %> personas"
-        zero: "ha sido marcada por <%= count %> personas"
-      limited: Restringido
+        few: "le gusta a <%= count %> personas"
+        many: "le gusta a <%= count %> personas"
+        one: "le gusta a <%= count %> persona"
+        other: "le gusta a <%= count %> personas"
+        two: "le gusta a <%= count %> personas"
+        zero: "le gusta a <%= count %> personas"
+      limited: "Restringido"
       more_comments:
         few: "Mostrar <%= count %> comentarios más"
         many: "Mostrar <%= count %> comentarios más"
@@ -83,7 +87,7 @@ es:
         zero: "Mostrar <%= count %> comentarios más"
       original_post_deleted: "Publicación original borrada por el autor."
       public: Público
-      reshare: Compartir
+      reshare: "Compartir"
       reshares:
         few: "Compartido <%= count %> veces"
         many: "Compartido <%= count %> veces"
@@ -91,7 +95,10 @@ es:
         other: "Compartido <%= count %> veces"
         two: "Compartido <%= count %> veces"
         zero: "Comparido <%= count %> veces"
-      unlike: Desmarcar
+      show_nsfw_post: "Mostrar publicación"
+      show_nsfw_posts: "Mostrar todas las publicaciones"
+      unfollow: "No seguir"
+      unlike: "No me gusta"
     tags:
       wasnt_that_interesting: "OK, supongo que #<%= tagName %> no era tan interesante..."
     timeago:
@@ -103,11 +110,10 @@ es:
       minutes: "%d minutos"
       month: "1 mes aproximadamente"
       months: "%d meses"
-      prefixAgo: hace
+      prefixAgo: "hace"
       prefixFromNow: "dentro de"
       seconds: "menos de 1 minuto"
-      suffixAgo: ""
-      suffixFromNow: ""
+      suffixAgo: "hace"
       year: "1 año aproximadamente"
       years: "%d años"
     videos:

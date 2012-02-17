@@ -5,8 +5,8 @@
 
 
 cy:
-  _contacts: Cysylltiadau
-  _photos: Photos
+  _contacts: "Cysylltiadau"
+  _photos: "Photos"
   activerecord:
     errors:
       models:
@@ -59,7 +59,7 @@ cy:
     move_contact:
       success: "Unigolyn wedi symud i agwedd newydd"
     new:
-      name: Name
+      name: "Name"
     no_contacts_message:
       try_adding_some_more_contacts: "You can search (top) or invite (right) more contacts."
       you_should_add_some_more_contacts: "Dylech chi ychwanegu mwy o gysylltiadau!"
@@ -81,16 +81,12 @@ cy:
     explanation: "%{link} from anywhere by bookmarking this link."
     explanation_link_text: "Post to Diaspora"
     heading: "Diaspora Bookmarklet"
-  cancel: Diddymu
+  cancel: "Diddymu"
   comments:
     few: "%{count} comments"
     many: "%{count} comments"
     new_comment:
-      comment: Sylw
-    one: "1 comment"
-    other: "%{count} comments"
-    two: "%{count} comments"
-    zero: "no comments"
+      comment: "Sylw"
   contacts:
     few: "%{count} contacts"
     index:
@@ -100,7 +96,7 @@ cy:
       my_contacts: "Fy nghysylltiadau"
       no_contacts: "No contacts."
       remove_person_from_aspect: "Tynnu %{person_name} oddi ar \"%{aspect_name}\""
-      title: Cysylltiadau
+      title: "Cysylltiadau"
       your_contacts: "Eich Cysylltiadau chi"
     many: "%{count} contacts"
     one: "1 contact"
@@ -121,7 +117,7 @@ cy:
     index:
       message_inbox: "Neges Inbox"
       new_message: "Neges Newydd"
-  delete: Dileu
+  delete: "Dileu"
   email: E-bost
   find_people: "Dod o hyd i bobl neu # tagiau"
   home:
@@ -135,17 +131,17 @@ cy:
       sent: "Your invitation has been sent."
     new:
       already_invited: "Already invited"
-      aspect: Agwedd
-      to: I
+      aspect: "Agwedd"
+      to: "I"
   layouts:
     application:
       toggle: "toggle mobile site"
       your_aspects: "eich agweddau"
     header:
-      login: login
-      logout: Allgofnodi
-      profile: profile
-      settings: Gosodiadau
+      login: "login"
+      logout: "Allgofnodi"
+      profile: "profile"
+      settings: "Gosodiadau"
       view_all: "Gweld popeth"
   likes:
     likes:
@@ -170,8 +166,8 @@ cy:
         other: "%{count} likes"
         two: "%{count} likes"
         zero: "no likes"
-  limited: Cyfyngedig
-  next: nesaf
+  limited: "Cyfyngedig"
+  next: "nesaf"
   notifications:
     also_commented:
       few: "Mae %{actors} hefyd wedi sylwi ar %{post_link} %{post_author}."
@@ -203,7 +199,7 @@ cy:
         two: "%{count} new notifications"
         zero: "no new notifications"
     index:
-      and: a
+      and: "a"
       and_others:
         few: "and %{count} others"
         many: "and %{count} others"
@@ -212,7 +208,7 @@ cy:
         two: "and %{count} others"
         zero: "and nobody else"
       mark_all_as_read: "Nodiad pob wedi darllen"
-      notifications: Hysbysiadau
+      notifications: "Hysbysiadau"
     liked:
       few: "Mae %{actors} wedi newydd hoffi eich %{post_link}."
       many: "Mae %{actors} wedi newydd hoffi eich %{post_link}."
@@ -241,7 +237,7 @@ cy:
       other: "%{actors} mentioned you in a deleted post."
       two: "%{actors} mentioned you in a deleted post."
       zero: "%{actors} mentioned you in a deleted post."
-    post: bost
+    post: "bost"
     private_message:
       few: "Mae %{actors} wedi anfon neges iddych chi."
       many: "Mae %{actors} wedi anfon neges iddych chi."
@@ -291,8 +287,8 @@ cy:
       sharing: "wedi dechrau rhannu gyda chi!"
       subject: "Mae %{name} wedi dechrau rhannu gyda chi i mewn Diaspora*"
     thanks: "Diolch,"
-  or: neu
-  password: Cyfrinair
+  or: "neu"
+  password: "Cyfrinair"
   password_confirmation: "Cadarnhad Cyfrinair"
   people:
     few: "%{count} pobl"
@@ -304,19 +300,19 @@ cy:
       pending_request: "pending request"
       thats_you: "chi sy hyn!"
     profile_sidebar:
-      born: born
+      born: "born"
       in_aspects: "i mewn agweddau"
       remove_contact: "dileu cysylltiad"
     show:
       does_not_exist: "Dydy'r unigolyn ddim yn bodoli!"
       incoming_request: "You have an incoming request from this person."
-      message: Neges
+      message: "Neges"
       not_connected: "You are not connected with this person"
       return_to_aspects: "Mynd yn ôl i dudalen agweddau"
       see_all: "Gweld popeth"
       start_sharing: "dechrau rhannu"
     sub_header:
-      edit: golygu
+      edit: "golygu"
     two: "%{count} people"
     zero: "no people"
   photos:
@@ -340,8 +336,8 @@ cy:
         other: "%{count} photos by %{author}"
         two: "Two photos by %{author}"
         zero: "No photos by %{author}"
-  previous: blaenorol
-  profile: Proffil
+  previous: "blaenorol"
+  profile: "Proffil"
   profiles:
     edit:
       edit_profile: "Golygu proffil"
@@ -391,9 +387,9 @@ cy:
         one: "Rhannwyd unwaith"
         other: "rhannwyd %{count} waith"
         two: "rhannwyd %{count} waith"
-        zero: Ailrhannu
+        zero: "Ailrhannu"
       reshare_confirmation: "Ailrhannu post %{author}?"
-      reshare_original: Ailrhannu
+      reshare_original: "Ailrhannu"
       reshared_via: "ailrhannwyd gan"
       show_original: "Dangos yr wreiddiol"
   services:
@@ -408,13 +404,13 @@ cy:
       connect_to_facebook: "Cysylltiad gyda Facebook"
       connect_to_tumblr: "Cysylltiad gyda Tumblr"
       connect_to_twitter: "Cysylltiad gyda Twitter"
-      disconnect: datgysylltu
+      disconnect: "datgysylltu"
       logged_in_as: "mewngofnodi fel"
       really_disconnect: "datgysylltu %{service}?"
     inviter:
       click_link_to_accept_invitation: "Click this link to accept your invitation"
       join_me_on_diaspora: "Cysylltu gyda fi mewn DIASPORA*"
-  settings: Gosodiadau
+  settings: "Gosodiadau"
   shared:
     add_contact:
       create_request: "Find by Diaspora handle"
@@ -481,7 +477,7 @@ cy:
   streams:
     aspects:
       title: "Eich Agweddau"
-    aspects_stream: Agweddau
+    aspects_stream: "Agweddau"
     followed_tag:
       add_a_tag: "Ychwanegu tag"
       title: "#Tagiau ddilynwyd"
@@ -490,7 +486,7 @@ cy:
       title: "Your Mentions"
     multi:
       contacts_title: "Pobol yn eich ffrwd"
-      title: Ffrwd
+      title: "Ffrwd"
     tags:
       contacts_title: "People who dig these tags"
   tag_followings:

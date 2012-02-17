@@ -99,7 +99,7 @@ ja:
       failure: "連絡先を移動させるのに失敗しました：%{inspect}"
       success: 連絡先を新しいアスペクトに移動させました。
     new:
-      name: Name
+      name: "Name"
     no_contacts_message:
       try_adding_some_more_contacts: "You can search (top) or invite (right) more contacts."
     no_posts_message:
@@ -543,7 +543,7 @@ ja:
         one: "1 Reshare"
         other: "%{count} Reshares"
         two: "%{count} reshares"
-        zero: Reshare
+        zero: "Reshare"
       reshare_confirmation: "Reshare %{author} - %{text}?"
       reshare_original: "Reshare orignial"
       show_original: "Show Original"

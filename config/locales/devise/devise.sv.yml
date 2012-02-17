@@ -50,7 +50,7 @@ sv:
         made_by_people: "%{strong_diaspora} är gjord av människor som älskar internet lika mycket som du gör. %{jointeam} eller % {helpfund}!"
         more_people: "Ännu fler människor är glada att se dig!"
         no_account_till: "Ditt konto kommer inte att skapas förrän du besöker länken ovan och registrerar dig."
-        or: eller
+        or: "eller"
         sign_up_now: "Registrera dig nu →"
         subject: "Du har blivit inbjuden att gå med i Diaspora!"
         unsubscribe: "Klicka %{link} för att avregistrera dig."

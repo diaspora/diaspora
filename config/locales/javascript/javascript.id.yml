@@ -51,7 +51,7 @@ id:
     tags:
       wasnt_that_interesting: "OK, I suppose #{{tagName}} wasn't all that interesting..."
     timeago:
-      day: sehari
+      day: "sehari"
       days: "%d hari"
       hour: "sekitar sejam"
       hours: "sekitar %d jam"

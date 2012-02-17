@@ -28,7 +28,7 @@ da:
       hide: "Skjul kommentarer"
       show: "Vis alle kommentarer"
     confirm_dialog: "Er du sikker?"
-    delete: Slet
+    delete: "Slet"
     failed_to_like: "Kunne ikke synes om!"
     failed_to_post_message: "Kunne ikke indsende besked!"
     getting_started:
@@ -37,20 +37,22 @@ da:
       no_tags: "Du har ikke fulgt nogen tags! Vil du fortsætte alligevel?"
       preparing_your_stream: "Forbereder din personlige strøm..."
     header:
-      contacts: Kontakter
-      home: Hjem
+      contacts: "Kontakter"
+      home: "Hjem"
       log_out: "Log ud"
       mark_all_as_read: "Marker alle som læst"
-      messages: Beskeder
-      notifications: Meddelelser
-      profile: Profil
+      messages: "Beskeder"
+      notifications: "Meddelelser"
+      profile: "Profil"
       recent_notifications: "Seneste Meddelelser"
-      search: "Find personnel eller #tags"
-      settings: Indstillinger
+      search: Søg
+      settings: "Indstillinger"
       view_all: "Se alle"
-    ignore: Ignorer
+    ignore: "Ignorer"
     infinite_scroll:
       no_more: "Ikke flere indlæg."
+    my_activity: "Min aktivitet"
+    my_stream: Strøm
     photo_uploader:
       looking_good: "OMG, du ser sej ud!"
     publisher:
@@ -63,14 +65,17 @@ da:
     show_more: "Vis mere"
     stream:
       comment: Kommentér
-      hide: Skjul
+      follow: Følg
+      hide: "Skjul"
+      hide_nsfw_posts: "Skjul #nsfw indlæg"
+      like: "Synes om"
       likes:
-        few: "<%= count %> Likes"
-        many: "<%= count %> Likes"
-        one: "<%= count %> Like"
-        other: "<%= count %> Likes"
-        two: "<%= count %> Likes"
-        zero: "<%= count %> Likes"
+        few: "<%= count %> synes om dette"
+        many: "<%= count %> synes om dette"
+        one: "<%= count %> synes om dette"
+        other: "<%= count %> synes om dette"
+        two: "<%= count %> synes om dette"
+        zero: "<%= count %> synes om dette"
       limited: Begrænset
       more_comments:
         few: "Show <%= count %> flere kommentarer"
@@ -80,8 +85,8 @@ da:
         two: "Vis <%= count %> ekstra kommentarer"
         zero: "Vis <%= count %> ekstra kommentarer"
       original_post_deleted: "Originalt indlæg er slettet af forfatteren."
-      public: Offentlig
-      reshare: Videredel
+      public: "Offentlig"
+      reshare: "Videredel"
       reshares:
         few: "<%= count %> videredelinger"
         many: "<%= count %> videredelinger"
@@ -89,6 +94,10 @@ da:
         other: "<%= count %> videredelinger"
         two: "<%= count %> videredelinger"
         zero: "<%= count %> videredelinger"
+      show_nsfw_post: "Vis indlæg"
+      show_nsfw_posts: "Vis alle"
+      unfollow: "Følg ikke"
+      unlike: "Synes ikke om"
     tags:
       wasnt_that_interesting: "OK, jeg formoder #<%= tagName %> ikke var så spændende igen..."
     timeago:
@@ -100,10 +109,10 @@ da:
       minutes: "%d minutter"
       month: "ca. en måned"
       months: "%d måneder"
-      prefixAgo: for
-      prefixFromNow: om
+      prefixAgo: "for"
+      prefixFromNow: "om"
       seconds: "mindre end et minut"
-      suffixAgo: siden
+      suffixAgo: "siden"
       suffixFromNow: "fra nu"
       year: "ca. et år"
       years: "%d år"

@@ -333,12 +333,12 @@ ru:
         two: "%{count} не понравилось"
         zero: "никому не понравилось"
       people_like_this:
-        few: "%{count} likes"
-        many: "%{count} likes"
-        one: "%{count} like"
-        other: "%{count} likes"
-        two: "%{count} likes"
-        zero: "no likes"
+        few: "Понравилось: %{count}"
+        many: "Понравилось: %{count}"
+        one: "Понравилось: %{count}"
+        other: "Понравилось: %{count}"
+        two: "Понравилось: %{count}"
+        zero: "Понравилось: 0"
       people_like_this_comment:
         few: "%{count} понравилось"
         many: "%{count} понравилось"
@@ -459,7 +459,7 @@ ru:
     email_sent_by_diaspora: "Это письмо было послано Диаспорой. Если вы не хотите получать подобные письма,"
     hello: "Привет, %{name}!"
     liked:
-      liked: "%{name} понравилось ваше сообщение"
+      liked: "%{name} понравилась ваша запись"
       view_post: "Посмотреть запись >"
     mentioned:
       mentioned: "упомянул вас в сообщении:"
@@ -478,6 +478,7 @@ ru:
       view_profile: "%{name} - посмотреть профиль"
     thanks: "Спасибо,"
     to_change_your_notification_settings: "чтобы изменить ваши настройки уведомлений"
+  nsfw: 18+
   ok: Ок
   or: или
   password: Пароль
@@ -595,6 +596,8 @@ ru:
       first_name: Имя
       last_name: Фамилия
       update_profile: "Обновить профиль"
+      you_are_nsfw: "Вы отметили свой аккаунт как \"небезопасный для рабочего места\". Ваши записи будут недоступны людям, которые отключили показ потоков спорного содержания."
+      you_are_safe_for_work: "Вы отметили свой аккаунт как \"безопасный для рабочего места\". Это означает, что ваши записи соответствуют требованиям сообщества."
       your_bio: "Ваша биография"
       your_birthday: "Ваш день рождения"
       your_gender: "Ваш пол"
@@ -776,9 +779,11 @@ ru:
       hide_and_mute: "Скрыть и отключить уведомления"
       ignore_user: "Блокировать пользователя %{name}"
       ignore_user_description: "Блокировать и удалить пользователя из всех аспектов?"
+      like: Нравится
       nsfw: "Автор пометил эту запись как \"только для взрослых\". %{link}"
       shared_with: "Для аспектов: %{aspect_names}"
       show: показать
+      unlike: "Не нравится"
       via: "через %{link}"
       viewable_to_anyone: "Эту запись может видеть любой в интернете"
   status_messages:
@@ -807,8 +812,10 @@ ru:
       two: "Показать еще два комментария"
       zero: "Больше нет комментариев"
   streams:
+    activity:
+      title: "Моя активность"
     aspects:
-      title: Аспекты
+      title: "Мои аспекты"
     aspects_stream: Аспекты
     comment_stream:
       contacts_title: "Люди, чьи записи вы прокомментировали"
@@ -829,7 +836,7 @@ ru:
       title: "@Упоминания"
     multi:
       contacts_title: "В вашем потоке"
-      title: Исследуйте
+      title: Поток
     public:
       contacts_title: "Последние публиковавшие"
       title: "Публичная активность"
@@ -904,7 +911,7 @@ ru:
       export_data: "Экспорт информации"
       following: "Настройки подписок"
       getting_started: "Новые пользовательские настройки"
-      liked: "...кому-то понравилось ваше сообщение."
+      liked: "...кому-то понравилась ваша запись."
       mentioned: "...вы были упомянуты в сообщении."
       new_password: "Новый пароль"
       photo_export_unavailable: "Экспорт фотографий сейчас недоступен"

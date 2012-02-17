@@ -3,6 +3,7 @@
 #   the COPYRIGHT file.
 
 
+
 ml:
   _applications: "Applications"
   _comments: അഭിപ്രായങ്ങള്‍
@@ -818,6 +819,8 @@ ml:
       two: "Show two more comments"
       zero: "No more comments"
   streams:
+    activity:
+      title: "My Activity"
     aspects:
       title: "Your Aspects"
     aspects_stream: "Aspects"
@@ -841,8 +844,6 @@ ml:
     multi:
       contacts_title: "People in your Stream"
       title: "Stream"
-    participate:
-      title: "Participate"
     public:
       contacts_title: "Recent Posters"
       title: "Public Activity"

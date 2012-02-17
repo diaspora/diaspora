@@ -50,7 +50,7 @@ es-CL:
         made_by_people: "%{strong_diaspora} está hecha por personas que aman Internet tanto como tú. ¡%{jointeam} o %{helpfund}!"
         more_people: "¡Incluso hay más personas que están esperando verte!"
         no_account_till: "Tu cuenta no será creada hasta que no accedas al enlace superior para registrarte."
-        or: o
+        or: "o"
         sign_up_now: "Regístrate ahora →"
         subject: "¡Has sido invitado a unirte a Diaspora*!"
         team_diaspora: "Equipo Diaspora*"
@@ -92,8 +92,8 @@ es-CL:
         login: "Iniciar sesión"
         modern_browsers: "Solo es compatible con navegadores modernos."
         password: Contraseña
-        remember_me: Recordarme
-        sign_in: Entrar
+        remember_me: "Recordarme"
+        sign_in: "Entrar"
         username: "Nombre de usuario"
       signed_in: "Has entrado correctamente. A navegar libre..."
       signed_out: "Has salido correctamente."
@@ -102,8 +102,8 @@ es-CL:
         forgot_your_password: "¿Olvidaste tu contraseña?"
         receive_confirmation: "¿No has recibido las instrucciones de confirmación?"
         receive_unlock: "¿No has recibido las instrucciones de desbloqueo?"
-        sign_in: Acceder
-        sign_up: Registrarse
+        sign_in: "Acceder"
+        sign_up: "Registrarse"
         sign_up_closed: "Los registros no estan disponibles en este momento."
       mail_signup_form:
         sign_up_for_an_invite: "¡Regístrate para ser invitado!"

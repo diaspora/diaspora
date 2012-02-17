@@ -29,26 +29,27 @@ de:
       show: "Alle Kommentare zeigen"
     confirm_dialog: "Bist du dir sicher?"
     delete: Löschen
-    failed_to_like: "Anpinnen fehlgeschlagen!"
+    failed_to_like: "Gefällt mir fehlgeschlagen!"
     failed_to_post_message: "Konnte Beitrag nicht senden!"
     getting_started:
       alright_ill_wait: "Alles klar, ich warte."
       no_tags: "Hey, du folgst noch keinen Tags! Trotzdem weitermachen?"
       preparing_your_stream: "Dein persönlicher Stream wird zusammengestellt …"
     header:
-      contacts: Kontakte
-      log_out: Abmelden
+      contacts: "Kontakte"
+      log_out: "Abmelden"
       mark_all_as_read: "Alle als gelesen markieren"
-      messages: Nachrichten
-      notifications: Benachrichtigungen
-      profile: Profil
+      messages: "Nachrichten"
+      notifications: "Benachrichtigungen"
+      profile: "Profil"
       recent_notifications: "Neuste Benachrichtigungen"
-      search: Suchen
-      settings: Einstellungen
+      search: "Suchen"
+      settings: "Einstellungen"
       view_all: "Alle anzeigen"
-    ignore: Ignorieren
+    ignore: "Ignorieren"
     infinite_scroll:
       no_more: "Keine weiteren Beiträge."
+    my_activity: "Meine Aktivitäten"
     photo_uploader:
       looking_good: "OMG, du siehst toll aus!"
     publisher:
@@ -60,17 +61,19 @@ de:
     search_for: "Nach <%= name %> suchen"
     show_more: "Mehr zeigen"
     stream:
-      comment: Kommentar
-      hide: Ausblenden
-      like: Pinnen
+      comment: "Kommentar"
+      follow: "Folgen"
+      hide: "Ausblenden"
+      hide_nsfw_posts: "#nsfw-Posts verstecken"
+      like: "Gefällt mir"
       likes:
-        few: "<%= count %> Pins"
-        many: "<%= count %> Pins"
-        one: "<%= count %> Pin"
-        other: "<%= count %> Pins"
-        two: "<%= count %> Pins"
-        zero: "<%= count %> Pins"
-      limited: Begrenzt
+        few: "<%= count %> Personen gefällt das"
+        many: "<%= count %> Personen gefällt das"
+        one: " Einer Person gefällt das"
+        other: "<%= count %> Personen gefällt das"
+        two: "<%= count %> Personen gefällt das"
+        zero: "Keinem gefällt das"
+      limited: "Begrenzt"
       more_comments:
         few: "Zeige <%= count %> weitere Kommentare"
         many: "Zeige <%= count %> weitere Kommentare"
@@ -80,7 +83,7 @@ de:
         zero: "Keine weiteren Kommentare"
       original_post_deleted: "Originalbeitrag wurde vom Autor entfernt."
       public: Öffentlich
-      reshare: Weitersagen
+      reshare: "Weitersagen"
       reshares:
         few: "<%= count %> mal weitergesagt"
         many: "<%= count %> mal weitergesagt"
@@ -88,7 +91,10 @@ de:
         other: "<%= count %> mal weitergesagt"
         two: "<%= count %> mal weitergesagt"
         zero: "<%= count %> mal weitergesagt"
-      unlike: Abpinnen
+      show_nsfw_post: "Beitrag anzeigen"
+      show_nsfw_posts: "Alle zeigen"
+      unfollow: "Nicht mehr folgen"
+      unlike: "Gefällt mir nicht mehr"
     tags:
       wasnt_that_interesting: "OK, ich nehme an, #<%= tagName %> war nicht so interessant..."
     timeago:
@@ -100,11 +106,10 @@ de:
       minutes: "%d Minuten"
       month: "etwa einem Monat"
       months: "%d Monaten"
-      prefixAgo: vor
-      prefixFromNow: in
-      seconds: "wenigen Sekunden"
-      suffixAgo: ""
-      suffixFromNow: ""
+      prefixAgo: "vor"
+      prefixFromNow: "in"
+      seconds: "weniger als eine Minute"
+      suffixFromNow: "ab jetzt"
       year: "etwa einem Jahr"
       years: "%d Jahren"
     videos:

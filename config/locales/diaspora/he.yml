@@ -107,7 +107,7 @@ he:
       donate: תרומה
       handle_explanation: "זהו שם המשתמש שלך בדיאספורה. בדיוק כמו כתובת דואר אלקטרוני, ניתן לחלוק אותו עם אנשים כדי שיגיעו אליך"
       help:
-        do_you: ":האם אתה"
+        do_you: !ruby/symbol "האם אתה"
         email_feedback: "התגובה שלך,אם אתה מעוניין %{link} "
         feature_suggestion: "?רעיונות %{link} יש לך"
         find_a_bug: "? %{link} חפש "

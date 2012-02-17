@@ -210,12 +210,12 @@ test:
   no_follow_diasporahq: true
   serve_static_assets: true
 
-integration_1:
+integration1:
   <<: *defaults
   pod_url: "http://localhost:45789/"
   serve_static_assets: true
 
-integration_2:
+integration2:
   <<: *defaults
   pod_url: "http://localhost:34658/"
   serve_static_assets: true

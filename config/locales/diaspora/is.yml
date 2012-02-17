@@ -5,12 +5,12 @@
 
 
 is:
-  _comments: Athugasemdir
+  _comments: "Athugasemdir"
   _contacts: Tengiliðir
   _home: Forsíða
-  _photos: Myndir
+  _photos: "Myndir"
   _services: Þjónusta
-  account: Notandastillingar
+  account: "Notandastillingar"
   activerecord:
     errors:
       models:
@@ -92,7 +92,7 @@ is:
       failure: "virkaði ekki %{inspect}"
       success: "Fólk flutt í nýja ásýnd"
     new:
-      name: Name
+      name: "Name"
     no_contacts_message:
       try_adding_some_more_contacts: "You can search (top) or invite (right) more contacts."
     no_posts_message:
@@ -101,7 +101,7 @@ is:
     other: "%{count} aspects"
     seed:
       family: Fjölskylda
-      work: Vinna
+      work: "Vinna"
     show:
       edit_aspect: "Breyta ásýndum"
     two: "%{count} aspects"
@@ -119,7 +119,7 @@ is:
     few: "%{count} comments"
     many: "%{count} comments"
     new_comment:
-      comment: Athugasemd
+      comment: "Athugasemd"
       commenting: "Athugasemd gerð..."
     one: "1 comment"
     other: "%{count} comments"
@@ -132,11 +132,6 @@ is:
     index:
       add_to_aspect: "Add contacts to %{name}"
       no_contacts: "No contacts."
-    many: "%{count} contacts"
-    one: "Ein tengsl"
-    other: "%{count} tengsl"
-    two: "%{count} contacts"
-    zero: "Engin tengsl"
   conversations:
     helper:
       new_messages:
@@ -151,7 +146,7 @@ is:
       birthday_with_year: "%d %B %Y"
       fullmonth_day: "%d %B"
   delete: Eyða
-  email: Netfang
+  email: "Netfang"
   error_messages:
     helper:
       correct_the_following_errors_and_try_again: "Það þarf að lagfæra eftirfarandi villur og reyna síðan aftur. "
@@ -160,14 +155,14 @@ is:
   home:
     show:
       already_account: "nú þegar með notandastillingar?"
-      choice: Valkostur
+      choice: "Valkostur"
       choice_explanation: "Diaspora gerir þér kleift að raða tengingum í hópa sem kallast ásýndir. Einungis í Diaspora tryggja ásýndir að myndir þínar, sögur og brandarar séu einungis samnýtt með þeim sem þú ætlar. "
       learn_about_host: "Lærðu hvernig á að hýsa sinn eigin Diaspora miðlara."
       login_here: "innskráning hér"
       ownership: Eignarréttur
       ownership_explanation: "Þú átt þínar myndir og þú ættir ekki að þurfa að gefa þær frá þér þótt þú deilir þeim. Þú heldur eign þinni á öllu því sem þú deilir um Diaspora, sem gefur þér fulla stjórn á því hvernig því er dreift."
       share_what_you_want: "Deildu því sem þú vilt, með þeim sem þú vilt."
-      simplicity: Einfaldleiki
+      simplicity: "Einfaldleiki"
       simplicity_explanation: "Diaspora gerir samnýtingu hreina og auðvelda - og það gildir líka fyrir friðhelgi. Þar sem Diaspora er í eðli sínu persónulegt, þarftu ekki að vaða í gegnum síður með stillingum og möguleikum til að halda síðunni þinni öruggri."
       tagline_first_half: "Deildu því sem þú vilt,"
       tagline_second_half: "með þeim sem þú vilt."
@@ -185,10 +180,10 @@ is:
       if_they_accept_info: "ef þau þiggja boðið, verður þeim bætt við þá ásýnd sem þú bauðst þeim á."
       invite_someone_to_join: "Bjóddu einhverjum að tengjast Díaspora!"
       personal_message: "Persónuleg skilaboð"
-      resend: Endursenda
+      resend: "Endursenda"
       send_an_invitation: "Sendu boðsmiða"
       send_invitation: "Senda boðsmiða"
-      to: Til
+      to: "Til"
   layouts:
     application:
       powered_by: "DÍASPORA* STJÓRNAR HÉR"
@@ -196,11 +191,11 @@ is:
       whats_new: "hvað er að frétta?"
       your_aspects: "þínar ásýndir"
     header:
-      blog: blogg
+      blog: "blogg"
       login: Innskráning
       logout: Útskrá
-      profile: profile
-      settings: settings
+      profile: "profile"
+      settings: "settings"
   likes:
     likes:
       people_dislike_this:
@@ -224,7 +219,7 @@ is:
         other: "%{count} likes"
         two: "%{count} likes"
         zero: "no likes"
-  more: Meira
+  more: "Meira"
   next: næsta
   notifications:
     also_commented:
@@ -265,7 +260,7 @@ is:
         two: "and %{count} others"
         zero: "and nobody else"
       mark_all_as_read: "Merkja allt sem lesið"
-      notifications: Tilkynningar
+      notifications: "Tilkynningar"
     liked:
       few: "%{actors} has just liked your %{post_link}."
       many: "%{actors} has just liked your %{post_link}."
@@ -365,7 +360,7 @@ is:
     profile_sidebar:
       born: afmælisdagur
       edit_my_profile: "Breyta síðunni minni"
-      gender: kyn
+      gender: "kyn"
       in_aspects: "í ásýnd"
       remove_contact: "fjarlægja tengilið"
       remove_from: "Fjarlægja %{name} úr %{aspect}?"
@@ -388,7 +383,7 @@ is:
     destroy:
       notice: "Mynd eytt."
     edit:
-      editing: Breyti
+      editing: "Breyti"
     new:
       back_to_list: "Til baka í listann"
       post_it: "færa inn!"
@@ -403,7 +398,7 @@ is:
     show:
       collection_permalink: "safn varanlegra tengla"
       delete_photo: "Eyða mynd"
-      edit: breyta
+      edit: "breyta"
       edit_delete_photo: "Breyta lýsingu við mynd / eyða mynd"
       make_profile_photo: "setja mynd á síðuna mína"
       update_photo: "Uppfæra mynd"
@@ -419,13 +414,13 @@ is:
         other: "%{count} photos by %{author}"
         two: "Two photos by %{author}"
         zero: "No photos by %{author}"
-  previous: fyrra
+  previous: "fyrra"
   profile: "Síðan mín"
   profiles:
     edit:
       allow_search: "Leyfa fólki að leita að þér á Díaspora"
       edit_profile: "Breyta síðunni minni"
-      first_name: Fornafn
+      first_name: "Fornafn"
       last_name: Kenninafn/Eftirnafn
       update_profile: "Uppfæra síðuna mína"
       your_bio: "Ferilskrá þín"
@@ -465,7 +460,7 @@ is:
       sign_up_message: "Social Networking with a <3"
   requests:
     create:
-      sending: Sendi
+      sending: "Sendi"
       sent: "%{name} hefur verið beðin(n) um að tengjast þér.  Þau ættu að sjá það þegar þau logga næst inn í Díaspora."
     destroy:
       error: "Þú þarft að velja ásýnd!"
@@ -490,11 +485,11 @@ is:
         one: "1 Reshare"
         other: "%{count} Reshares"
         two: "%{count} reshares"
-        zero: Reshare
+        zero: "Reshare"
       reshare_confirmation: "Reshare %{author} - %{text}?"
       reshare_original: "Reshare orignial"
       show_original: "Show Original"
-  search: Leita
+  search: "Leita"
   services:
     create:
       success: "Auðkenning tókst."
@@ -503,7 +498,7 @@ is:
     index:
       connect_to_facebook: "Tengja við facebook"
       connect_to_twitter: "Tengja við twitter"
-      disconnect: aftengja
+      disconnect: "aftengja"
       edit_services: "Breyta þjónustum"
       logged_in_as: "innskráning þín sem "
       really_disconnect: "aftengja %{service}?"
@@ -512,8 +507,8 @@ is:
       join_me_on_diaspora: "Tengstu mér á DIASPORA*"
     remote_friend:
       invite: bjóða
-      resend: endursenda
-  settings: Stillingar
+      resend: "endursenda"
+  settings: "Stillingar"
   shared:
     add_contact:
       create_request: "Finna fólk eftir Díaspora netfangi"
@@ -546,18 +541,18 @@ is:
       outside: "Almennt aðgengileg skilaboð verða sýnileg öðrum utan Diaspora."
       title: "Þú ert að fara að setja þetta á almannafæri!"
     publisher:
-      all: allt
+      all: "allt"
       all_contacts: "Allir tengiliðir"
       make_public: "gera almennt"
       new_user_prefill:
         i_like: "I'm interested in %{tags}."
       post_a_message_to: "Skrifa skilaboð til %{aspect}"
       posting: Senda...
-      share: Deila
+      share: "Deila"
       share_with: "deila með"
       whats_on_your_mind: "hvað er þér efst í huga?"
     reshare:
-      reshare: Endurdeila
+      reshare: "Endurdeila"
     stream_element:
       dislike: "I dislike this"
       hide_and_mute: "Hide and Mute"
@@ -600,14 +595,14 @@ is:
   tokens:
     show:
       connecting_is_simple: "Connecting your Diaspora account is as simple as filling out two fields on your Cubbi.es account page."
-  username: Notandanafn
+  username: "Notandanafn"
   users:
     confirm_email:
       email_confirmed: "E-Mail %{email} activated"
       email_not_confirmed: "E-Mail could not be activated. Wrong link?"
     edit:
       auto_follow_back: "Automatically follow back if a someone follows you"
-      change: Breyting
+      change: "Breyting"
       change_email: "Change E-Mail"
       change_language: "Breyta um tungumál"
       change_password: "Breyta lykilorði"

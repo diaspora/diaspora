@@ -61,11 +61,11 @@ lt:
       new:
         alpha_software: "Ši programinė įranga nėra pilnai užbaigta."
         bugs_and_feedback: "Naudojantis gali pasitaikyti klaidų. Apie pasitaikiusius nesklandumus galima praneštis naudojantis mygtuku naršyklės dešinėje. Klaidas stengsimės ištaisyti kuo skubiau."
-        login: Prisijungti
+        login: "Prisijungti"
         modern_browsers: "palaiko tik modernias naršykles."
         password: Slaptažodis
-        remember_me: Prisiminti
-        sign_in: Prisijungti
+        remember_me: "Prisiminti"
+        sign_in: "Prisijungti"
         username: "Vartotojo vardas"
       signed_in: "Sėkmingai prisijungta."
       signed_out: "Sėkmingai atsijungta."
@@ -74,8 +74,8 @@ lt:
         forgot_your_password: "Pamiršai slaptažodį?"
         receive_confirmation: "Negavai nurodymų, kaip patvirtinti paskyrą?"
         receive_unlock: "Negavai nurodymų, kaip atrakinti paskyrą?"
-        sign_in: Prisijungti
-        sign_up: Registruotis
+        sign_in: "Prisijungti"
+        sign_up: "Registruotis"
         sign_up_closed: "Atviri prisijungimai šiuo metu uždaryti."
     unlocks:
       new:
@@ -85,5 +85,5 @@ lt:
   errors:
     messages:
       already_confirmed: "jau patvirtinta"
-      not_found: nerasta
+      not_found: "nerasta"
       not_locked: "nebuvo užrakinta"

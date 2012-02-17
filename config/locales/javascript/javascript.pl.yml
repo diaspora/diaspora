@@ -37,19 +37,19 @@ pl:
       no_tags: "Hej, nie obserwujesz żadnych znaczników! Kontynuować mimo to?"
       preparing_your_stream: "Przygotowanie spersonalizowanego strumienia..."
     header:
-      admin: Administrator
-      contacts: Kontakty
+      admin: "Administrator"
+      contacts: "Kontakty"
       home: "Strona główna"
-      log_out: Wyloguj
+      log_out: "Wyloguj"
       mark_all_as_read: "Oznacz wszystkie jako przeczytane"
       messages: Wiadomości
-      notifications: Powiadomienia
-      profile: Profil
+      notifications: "Powiadomienia"
+      profile: "Profil"
       recent_notifications: "Ostatnie powiadomienia"
-      search: Szukaj
-      settings: Ustawienia
+      search: "Szukaj"
+      settings: "Ustawienia"
       view_all: "Wyświetl wszystko"
-    ignore: Ignoruj
+    ignore: "Ignoruj"
     infinite_scroll:
       no_more: "Nie ma więcej wpisów."
     my_activity: "Moja aktywność"
@@ -65,18 +65,19 @@ pl:
     search_for: "Znajdź: <%= name %>"
     show_more: "wyświetl więcej"
     stream:
-      comment: Skomentuj
-      follow: Obserwuj
-      hide: Ukryj
+      comment: "Skomentuj"
+      follow: "Obserwuj"
+      hide: "Ukryj"
+      hide_nsfw_posts: "Ukryj wpisy #nsfw"
       like: "Lubię to!"
       likes:
-        few: "Przypięć: <%= count %>"
-        many: "Przypięć: <%= count %>"
-        one: "<%= count %> przypięcie"
-        other: "<%= count %> przypięć"
-        two: "<%= count %> przypięcia"
-        zero: "<%= count %> przypięć"
-      limited: Ograniczone
+        few: "Polubienia: <%= count %>"
+        many: "Polubienia: <%= count %>"
+        one: "<%= count %> polubienie"
+        other: "<%= count %> polubienia"
+        two: "<%= count %> polubienia"
+        zero: "<%= count %> polubień"
+      limited: "Ograniczone"
       more_comments:
         few: "Wyświetl <%= count %> więcej komentarzy"
         many: "Wyświetl <%= count %> więcej komentarzy"
@@ -85,7 +86,7 @@ pl:
         two: "Wyświetl <%= count %> komentarze więcej"
         zero: "Wyświetl <%= count %> komentarzy więcej"
       original_post_deleted: "Oryginalny wpis został usunięty przez autora."
-      public: Publiczny
+      public: "Publiczny"
       reshare: "Przekaż dalej"
       reshares:
         few: "<%= count %> razy przekazano dalej"
@@ -94,8 +95,10 @@ pl:
         other: "<%= count %> razy przekazano dalej"
         two: "<%= count %> razy przekazano dalej"
         zero: "<%= count %> razy przekazano dalej"
+      show_nsfw_post: "Wyświetl wpis"
+      show_nsfw_posts: "Wyświetl wszystko"
       unfollow: "Nie obserwuj"
-      unlike: Odepnij
+      unlike: "Nie lubię"
     tags:
       wasnt_that_interesting: "OK, przypuszczam, że #<%= tagName %> nie był, aż tak interesujący..."
     timeago:
@@ -107,10 +110,9 @@ pl:
       minutes: "%d minut"
       month: "około miesiąca"
       months: "%d miesięcy"
-      prefixAgo: " "
       prefixFromNow: "javascripts:timeago:prefixFromNow"
       seconds: "mniej niż minutę"
-      suffixAgo: temu
+      suffixAgo: "temu"
       suffixFromNow: "od teraz"
       year: "około roku"
       years: "%d lat"

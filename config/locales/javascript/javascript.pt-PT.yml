@@ -14,11 +14,11 @@ pt-PT:
       started_sharing_with: "Começou a partilhar com {{name}}!"
       stopped_sharing_with: "Deixou de partilhar com {{name}}."
       toggle:
-        few: "Em {{count}} aspectos"
-        many: "Em {{count}} aspectos"
-        one: "Em {{count}} aspecto"
-        other: "Em {{count}} aspectos"
-        two: "Em {{count}} aspectos"
+        few: "Em {{count}} aspetos"
+        many: "Em {{count}} aspetos  "
+        one: "Em {{count}} aspeto "
+        other: "Em {{count}} aspetos"
+        two: "Em {{count}} aspetos "
         zero: "Seleccione os aspectos"
     aspect_navigation:
       deselect_all: "Desmarcar todos"
@@ -28,8 +28,8 @@ pt-PT:
       hide: "ocultar comentários"
       show: "mostrar todos os comentários"
     confirm_dialog: "Tem a certeza?"
-    delete: Eliminar
-    failed_to_like: "Falhou em marcar!"
+    delete: "Eliminar"
+    failed_to_like: "Falhou em gostar!"
     failed_to_post_message: "Falhou ao publicar a mensagem!"
     getting_started:
       alright_ill_wait: "Tudo bem, eu esperarei."
@@ -39,18 +39,20 @@ pt-PT:
     header:
       contacts: "Contactos "
       home: "Inicio "
-      log_out: Sair
+      log_out: "Sair"
       mark_all_as_read: "Marcar tudo como lido"
-      messages: Mensagens
+      messages: "Mensagens"
       notifications: Notificações
-      profile: Perfil
+      profile: "Perfil"
       recent_notifications: "Últimas Notificações"
-      search: "Encontrar pessoas ou #tags"
+      search: "Procurar"
       settings: Definições
       view_all: "Ver tudo"
-    ignore: Ignorar
+    ignore: "Ignorar"
     infinite_scroll:
       no_more: "Não há mais publicações."
+    my_activity: "Minha Atividade "
+    my_stream: "Fluxo"
     photo_uploader:
       looking_good: "OMD, tu estás fantástico(a)!"
     publisher:
@@ -62,17 +64,18 @@ pt-PT:
     search_for: "Procurar por {{name}}"
     show_more: "mostrar mais"
     stream:
-      comment: Comentar
-      hide: Ocultar
-      like: Marcar
+      comment: "Comentar"
+      follow: "Seguir"
+      hide: "Ocultar"
+      like: "Gosto"
       likes:
-        few: "<%= count %> Marcados"
-        many: "<%= count %> Marcados"
-        one: "<%= count %> Marcado"
-        other: "<%= count %> Marcados"
-        two: "<%= count %> Likes"
-        zero: "<%= count %> Marcados"
-      limited: Limitado
+        few: "<%= count %> que gosto"
+        many: "<%= count %> que gosto"
+        one: "<%= count %> que gosto"
+        other: "<%= count %> que gosto"
+        two: "<%= count %> que gosto"
+        zero: "<%= count %> que gosto"
+      limited: "Limitado"
       more_comments:
         few: "Mostrar <%= count %> mais comentários"
         many: "Mostrar <%= count %> mais comentários"
@@ -81,8 +84,8 @@ pt-PT:
         two: "Mostrar <%= count %> mais comentários"
         zero: "Mostrar <%= count %> mais comentários"
       original_post_deleted: "Publicação original eliminada pelo autor."
-      public: Publico
-      reshare: Partilhar
+      public: "Publico"
+      reshare: "Partilhar"
       reshares:
         few: "<%= count %> Partilhas"
         many: "<%= count %> Partilhas"
@@ -90,7 +93,8 @@ pt-PT:
         other: "<%= count %> Partilhas"
         two: "<%= count %> Partilhas"
         zero: "<%= count %> Partilhas"
-      unlike: Desmarcar
+      unfollow: "Não seguir"
+      unlike: "Não gosto"
     tags:
       wasnt_that_interesting: "OK, suponho que #{{tagName}} não era assim tão interessante..."
     timeago:

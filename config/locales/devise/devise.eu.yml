@@ -30,7 +30,7 @@ eu:
         you_can_confirm: "Zure kontua baieztatu dezakezu esteka hau jarraituz:"
       hello: "Kaixo %{email}!"
       invitation_instructions:
-        accept: Gonbidapena
+        accept: "Gonbidapena"
         arrived: "Espero zenuen sare soziala iritsi da. Berria, seguruago, eta dibertigarriagoa, %{strong_diaspora} prest dago weba partekatu eta esploratzeko modu berri batean."
         be_yourself: "Izan Zaitez Zu Zeu"
         be_yourself_paragraph: "Internetek aditzera emateko bide berriak sortu ditu. %{strong_diaspora}k zu zeu izaten eta nahi duzuna partekatzen ahalbidetzen du, bai zure izena erabiliz, bai gabe."
@@ -43,14 +43,14 @@ eu:
         have_fun: "Dibertitu Zaitez"
         have_fun_paragraph: "%{strong_diaspora} edukin eta jende berria ezagutzean datza. %{link}, munduko lehenengo %{strong_diaspora} aplikazioa hasiera da soilik. Arakatu eta partekatu weba ezinhobean!"
         help_fund: "lagundu diruaz Diaspora"
-        here: hemen
+        here: "hemen"
         ignore: "Ez baduzu gonbidapena onartu nahi, mesedez egin iezaiozu ez-ikusi mezu honi."
         join_team: "Batu gure Taldera"
         love: "Adeitasunez,"
         made_by_people: "%{strong_diaspora} zuk bezala Internet maite duen jendeak egin du. %{jointeam}, edo %{helpfund}!"
         more_people: "Oraindik jende gehiago pozik daude zu ikusteaz!"
         no_account_till: "Zure kontua ez da sortuko hemengo esteka jarraitu eta izena eman arte."
-        or: edo
+        or: "edo"
         sign_up_now: "Izena eman orain →"
         subject: "Diasporara batzera gonbidatua izan zara!"
         team_diaspora: "Diaspora Taldea"
@@ -89,12 +89,12 @@ eu:
         alpha_software: "Alpha softwarea erabiltzear zaude."
         bugs_and_feedback: "Jakin dezazula aktsak aurkituko dituzula. Feedback botoia erabiltzera animatzen zaitugu (eskubian) edozein akats bidaltzeko! Ahal dugun azkarren konponduko dugu."
         bugs_and_feedback_mobile: "Jakin dezazula akatsak aurkitu dituzula. Akatsak bidaltzera animatzen zaitugu! Ahal dugun azkarren egingo dugu lan horiek konpontzeko."
-        login: Sartu
+        login: "Sartu"
         modern_browsers: "bakarrik nabigatzaile modernoak onartzen ditu."
-        password: Pasahitza
+        password: "Pasahitza"
         remember_me: "Gogoratu nazazu"
-        sign_in: Sartu
-        username: Erabiltzailea
+        sign_in: "Sartu"
+        username: "Erabiltzailea"
       signed_in: "Arrakastaz sartu zara."
       signed_out: "Arrakastaz atera zara."
     shared:
@@ -102,7 +102,7 @@ eu:
         forgot_your_password: "Zure pasahitza ahaztu duzu?"
         receive_confirmation: "Ez duzu baieztapen emailik jaso?"
         receive_unlock: "Ez duzu askapen argibiderik jaso?"
-        sign_in: Sartu
+        sign_in: "Sartu"
         sign_up: "Izena eman"
         sign_up_closed: "Izen-emate irekiak ez daude erabilgarri momentu hontan."
       mail_signup_form:

@@ -7,9 +7,9 @@
 sk:
   _applications: Aplikácie
   _comments: Komentáre
-  _contacts: Kontakty
-  _home: Domov
-  _photos: Fotky
+  _contacts: "Kontakty"
+  _home: "Domov"
+  _photos: "Fotky"
   _services: Služby
   account: Účet
   activerecord:
@@ -81,7 +81,7 @@ sk:
       aspect_list_is_not_visible: "zoznam z kategórie ostatní  v kategórii nevidia"
       aspect_list_is_visible: "zoznam z kategórie ostatní v kategórii uvidia"
       confirm_remove_aspect: "Ste si istý, že chcete zmazať túto kategóriu?"
-      done: Hotovo
+      done: "Hotovo"
       make_aspect_list_visible: "majú sa ľudia v kontaktoch  v tejto kategórii navzájom vidieť?"
       remove_aspect: "Zmazať túto kategóriu"
       rename: premenovať
@@ -111,8 +111,8 @@ sk:
         have_a_question: "&ndash; máte %{link}?"
         here_to_help: "Komunita Diaspory je tu!"
         need_help: "Potrebujete pomoc?"
-        tag_bug: chybu
-        tag_feature: funkciu
+        tag_bug: "chybu"
+        tag_feature: "funkciu"
         tag_question: otázku
         tutorials_wiki_and_forum: "%{tutorial}, %{wiki} a %{forum}: príručky, ktoré vytvorili členovia komunity, návody  a novinky"
       introduce_yourself: "Toto je vaša nástenka.  Poďte sa predstaviť."
@@ -149,7 +149,7 @@ sk:
     other: "%{count} kategórií"
     seed:
       acquaintances: Známi
-      family: Rodina
+      family: "Rodina"
       friends: Kamaráti
       work: Práca
     selected_contacts:
@@ -210,7 +210,7 @@ sk:
       only_sharing_with_me: "Tí, ktorí sa delia iba  so mnou"
       remove_person_from_aspect: "Odstrániť použ. %{person_name} z kategórie %{aspect_name}"
       start_a_conversation: "Začať rozhovor"
-      title: Kontakty
+      title: "Kontakty"
       your_contacts: "Vaše kontakty"
     many: "%{count} kontaktov"
     one: "1 kontakt"
@@ -220,7 +220,7 @@ sk:
     spotlight:
       community_spotlight: "Aktuality z komunity"
     two: "%{count} kontakty"
-    zero: kontakty
+    zero: "kontakty"
   conversations:
     create:
       fail: "Neplatná správa"
@@ -246,7 +246,7 @@ sk:
       abandon_changes: "Zrušiť zmeny?"
       send: Poslať
       sending: "Posiela sa..."
-      subject: predmet
+      subject: "predmet"
       to: príjemca
     new_message:
       fail: "Neplatná správa"
@@ -303,7 +303,7 @@ sk:
       comma_seperated_plz: "Môžete vložiť viacero adries; oddeľte ich čiarkou."
       if_they_accept_info: "Po odsúhlasení budú pozvaní používatelia pridaní  do príslušnej kategórie."
       invite_someone_to_join: "Pozvite niekoho na Diasporu*!"
-      language: Jazyk
+      language: "Jazyk"
       personal_message: "Súkromná správa"
       resend: Preposlať
       send_an_invitation: "Poslať pozvánku"
@@ -319,13 +319,13 @@ sk:
       your_aspects: "Vaše kategórie"
     header:
       admin: správca
-      blog: Blog
+      blog: "Blog"
       code: kód
       login: "Prihlásiť sa"
       logout: "Odhlásiť sa"
-      profile: Profil
+      profile: "Profil"
       recent_notifications: "Najnovšie oznamy"
-      settings: Nastavenia
+      settings: "Nastavenia"
       view_all: "Zobraziť všetko"
   likes:
     likes:
@@ -351,7 +351,7 @@ sk:
         two: "%{count} ľuďom sa to páči"
         zero: "žiadne ohlasy"
   limited: Obmedzený
-  more: Viac
+  more: "Viac"
   next: ďalej
   no_results: "Žiadne výsledky sa nenašli"
   notifications:
@@ -385,7 +385,7 @@ sk:
         two: "%{count} nové oznamy"
         zero: "Žiadne nové oznamy"
     index:
-      and: a
+      and: "a"
       and_others:
         few: " a %{count} ďalších"
         many: " a %{count} ďalších"
@@ -394,7 +394,7 @@ sk:
         two: " a %{count} ďalších"
         zero: " a nikto viac"
       mark_all_as_read: "Všetky označiť ako prečítané"
-      notifications: Oznamy
+      notifications: "Oznamy"
     liked:
       few: "%{actors} ľudia pridali špendlíky na %{post_link}."
       many: "%{actors} ľudia pridali špendlíky na %{post_link}."
@@ -482,8 +482,8 @@ sk:
       view_profile: "Zobraziť profil použ. %{name}"
     thanks: "Vďaka,"
     to_change_your_notification_settings: "ak chcete zmeniť nastavenie oznamov"
-  or: alebo
-  password: Heslo
+  or: "alebo"
+  password: "Heslo"
   password_confirmation: "Potvrdenie hesla"
   people:
     add_contact_small:
@@ -512,9 +512,9 @@ sk:
       bio: "Niečo o vás"
       born: "dátum narodenia"
       edit_my_profile: "Upraviť si profil"
-      gender: pohlavie
+      gender: "pohlavie"
       in_aspects: "v kategóriách"
-      location: bydlisko
+      location: "bydlisko"
       remove_contact: "odstrániť kontakt"
       remove_from: "Odstrániť používateľa %{name} z kategórie %{aspect}?"
     show:
@@ -523,7 +523,7 @@ sk:
       has_not_shared_with_you_yet: "%{name} sa s vami ešte nepodelil(a)  o žiadne príspevky!"
       ignoring: "Ignorujete všetky príspevky, ktoré vytvoril(a) %{name}."
       incoming_request: "%{name} si vás chce pridať do kontaktov"
-      mention: Zmienka
+      mention: "Zmienka"
       message: Správa
       not_connected: "S týmto človekom sa o nič nedelíte"
       recent_posts: "Najnovšie príspevky"
@@ -531,7 +531,6 @@ sk:
       return_to_aspects: "Vrátiť sa na stránku s kategóriami"
       see_all: "Zobraziť všetko"
       start_sharing: "začať zdieľať"
-      to_accept_or_ignore: ""
     sub_header:
       add_some: "pridať nejaké"
       edit: upraviť
@@ -590,13 +589,13 @@ sk:
   previous: Predchádzajúce
   privacy: "Ochrana súkromia"
   privacy_policy: "Ochrana osobných údajov"
-  profile: Profil
+  profile: "Profil"
   profiles:
     edit:
       allow_search: "Povoliť ostatným, aby vás našli na Diaspore"
       edit_profile: "Upraviť profil"
       first_name: "Krstné meno"
-      last_name: Priezvisko
+      last_name: "Priezvisko"
       update_profile: "Aktualizovať profil"
       your_bio: "Niečo o mne"
       your_birthday: "Dátum narodenia"
@@ -706,7 +705,7 @@ sk:
       invite: pozvať
       not_on_diaspora: "Ešte nie je na Diaspore"
       resend: preposlať
-  settings: Nastavenia
+  settings: "Nastavenia"
   share_visibilites:
     update:
       post_hidden_and_muted: "Príspevok, ktorý vytvoril(a) %{name} ste schovali  a posielanie oznamov bolo zastavené."
@@ -851,14 +850,14 @@ sk:
   tags:
     show:
       follow: "Sledovať #%{tag}"
-      followed_by: sleduje
+      followed_by: "sleduje"
       following: "Sledujete #%{tag}"
       nobody_talking: "Nikto ešte nehovorí o téme %{tag}."
       none: "Prázdna značka neexistuje!"
       people_tagged_with: "Ľudia označení s %{tag}"
       posts_tagged_with: "Príspevky označené značkou #%{tag}"
       stop_following: "Prestať sledovať #%{tag}"
-  terms_and_conditions: Podmienky
+  terms_and_conditions: "Podmienky"
   tokens:
     show:
       connect_to_cubbies: "Pripojiť sa na Cubbi.es"

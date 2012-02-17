@@ -25,7 +25,7 @@ ko:
       no_aspects: "에스팩이 선택되지 않았음"
       select_all: "모두 선택"
     comments:
-      hide: "댓글 감추기"
+      hide: "댓글 숨기기"
       show: "모든 댓글 보기"
     confirm_dialog: 확실합니까?
     delete: 지우기
@@ -68,6 +68,7 @@ ko:
       comment: 댓글
       follow: 팔로우
       hide: 숨기기
+      hide_nsfw_posts: "#유해매체 숨기기"
       like: 좋아요
       likes:
         few: "<%= count %>명이 좋아합니다"
@@ -94,6 +95,8 @@ ko:
         other: "<%= count %>명이 재공유했습니다."
         two: "<%= count %>명이 재공유했습니다"
         zero: "아무도 재공유하지 않았습니다."
+      show_nsfw_post: "게시물 보기"
+      show_nsfw_posts: "모두 보기"
       unfollow: "팔로우 취소"
       unlike: "좋아요 취소"
     tags:

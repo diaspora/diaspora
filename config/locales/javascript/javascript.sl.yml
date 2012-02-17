@@ -83,8 +83,6 @@ sl:
       month: "pred približno mesecem"
       months: "pred %d meseci"
       seconds: "pred manj kot minuto"
-      suffixAgo: ""
-      suffixFromNow: ""
       year: "pred približno letom dni"
       years: "pred %d leti"
     videos:

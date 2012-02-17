@@ -82,11 +82,9 @@ es-AR:
       minutes: "%d minutos"
       month: "cerca de un mes"
       months: "%d meses"
-      prefixAgo: hace
+      prefixAgo: "hace"
       prefixFromNow: "dentro de"
       seconds: "menos de un minuto"
-      suffixAgo: ""
-      suffixFromNow: ""
       year: "cerca de un año"
       years: "%d años"
     videos:

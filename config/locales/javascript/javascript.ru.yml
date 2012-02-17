@@ -46,12 +46,14 @@ ru:
       notifications: Уведомления
       profile: Профиль
       recent_notifications: "Последние уведомления"
-      search: "Поиск людей или #меток"
+      search: Поиск
       settings: Настройки
       view_all: "Посмотреть все"
     ignore: Блокировать
     infinite_scroll:
       no_more: "Сообщений больше нет."
+    my_activity: "Моя активность"
+    my_stream: Поток
     photo_uploader:
       looking_good: "Боже мой, вы выглядите потрясающе!"
     publisher:
@@ -64,7 +66,9 @@ ru:
     show_more: "показать больше"
     stream:
       comment: Комментировать
+      follow: Следить
       hide: Скрыть
+      hide_nsfw_posts: "Скрыть записи #nsfw"
       like: Нравится
       likes:
         few: "Понравилось: <%= count %>"
@@ -91,6 +95,9 @@ ru:
         other: "Поделились: <%= count %>"
         two: "Поделились: <%= count %>"
         zero: "Поделились: <%= count %>"
+      show_nsfw_post: "Показать запись"
+      show_nsfw_posts: "Показать все"
+      unfollow: "Не следить"
       unlike: "Не нравится"
     tags:
       wasnt_that_interesting: "Что ж, видимо, метка #<%= tagName %> была не такой уж интересной..."

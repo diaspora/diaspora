@@ -51,7 +51,7 @@ app.views.Post = app.views.StreamObject.extend({
 
   presenter : function() {
     return _.extend(this.defaultPresenter(), {
-      authorIsCurrentUser : this.authorIsCurrentUser(),
+      authorIsNotCurrentUser : this.authorIsNotCurrentUser(),
       showPost : this.showPost()
     })
   },
@@ -114,7 +114,7 @@ app.views.Post = app.views.StreamObject.extend({
     return this;
   },
 
-  authorIsCurrentUser : function() {
+  authorIsNotCurrentUser : function() {
     return this.model.get("author").id != (!!app.user() && app.user().id)
   }
 });

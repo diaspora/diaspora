@@ -5,10 +5,10 @@
 
 
 nn:
-  _applications: Program
-  _comments: Merknader
-  _photos: foto
-  account: Konto
+  _applications: "Program"
+  _comments: "Merknader"
+  _photos: "foto"
+  account: "Konto"
   activerecord:
     errors:
       models:
@@ -74,13 +74,13 @@ nn:
       make_aspect_list_visible: "skal kontaktane i dette aspektet kunna sjå kvarandre?"
       remove_aspect: "Slett dette aspektet"
       rename: "gje nytt namn"
-      update: oppdatering
-      updating: oppdaterer
+      update: "oppdatering"
+      updating: "oppdaterer"
     few: "%{count} aspekt"
     helper:
       are_you_sure: "Er du trygg på at du vil sletta dette aspektet?"
       aspect_not_empty: "Aspektet er ikkje tomt"
-      remove: fjern
+      remove: "fjern"
     index:
       cubbies:
         explanation: "Cubbi.es er den første Diaspora-applikasjonen som vert utvikla."
@@ -90,7 +90,7 @@ nn:
         content_1: "Diaspora-ID-en din er:"
         content_2: "Gje han til kven som helst så kan dei finna deg på Diaspora."
         heading: Diaspora-ID
-      donate: Doner
+      donate: "Doner"
       handle_explanation: "Dette er Diaspora-ID-en din. Nett som ei e-postadresse kan du gje han til folk slik at dei kan nå deg."
       help:
         here_to_help: "Diaspora-felleskapen er her!"
@@ -112,7 +112,7 @@ nn:
       failure: "verka ikkje %{inspect}"
       success: "Personen vart flytta til eit nytt aspekt"
     new:
-      create: Lag
+      create: "Lag"
       name: "Namn (berre du kan sjå det)"
     no_contacts_message:
       try_adding_some_more_contacts: "Du kan søkja etter eller invitera fleire kontaktar."
@@ -122,10 +122,10 @@ nn:
     one: "1 aspekt"
     other: "%{count} aspekt"
     seed:
-      acquaintances: Kjende
-      family: Familie
-      friends: Vener
-      work: Arbeid
+      acquaintances: "Kjende"
+      family: "Familie"
+      friends: "Vener"
+      work: "Arbeid"
     selected_contacts:
       manage_your_aspects: "Handsam aspekta dine."
       no_contacts: "Du har ingen kontaktar her enno."
@@ -141,18 +141,18 @@ nn:
     index:
       no_applications: "Du har enno ikkje registrert nokon applikasjonar."
       revoke_access: "Trekk attende tilgangen"
-  back: Attende
+  back: "Attende"
   bookmarklet:
     explanation: "Send til Diaspora frå kor som helst ved å lagra %{link} som bokmerke."
     explanation_link_text: "denne lenkja"
     post_something: "Send noko til Diaspora"
     post_success: "Sendt. Lukkar."
-  cancel: Avbryt
+  cancel: "Avbryt"
   comments:
     few: "%{count} kommentarar"
     many: "%{count} kommentarar"
     new_comment:
-      comment: Kommenter
+      comment: "Kommenter"
       commenting: "Kommenterer …"
     one: "1 kommentar"
     other: "%{count} kommentarar"
@@ -171,7 +171,7 @@ nn:
       only_sharing_with_me: "Deler berre med meg"
       remove_person_from_aspect: "Fjerna %{person_name} frå \"%{aspect_name}\""
       start_a_conversation: "Start ein samtale"
-      title: Kontaktar
+      title: "Kontaktar"
       your_contacts: "Kontaktane dine"
     many: "%{count} kontaktar"
     one: "1 kontakt"
@@ -179,7 +179,7 @@ nn:
     sharing:
       people_sharing: "Personar som deler med deg:"
     two: "%{count} kontaktar"
-    zero: kontaktar
+    zero: "kontaktar"
   conversations:
     create:
       fail: "Ugyldig melding"
@@ -196,23 +196,23 @@ nn:
         zero: "Ingen nye meldingar"
     index:
       create_a_new_message: "skriv ei ny melding"
-      inbox: Innkorg
-      message_inbox: Innkorga
+      inbox: "Innkorg"
+      message_inbox: "Innkorga"
       new_message: "Ny melding"
       no_conversation_selected: "ingen samtale er vald"
       no_messages: "ingen meldingar"
     new:
       abandon_changes: "Sjå vekk frå endringane?"
       sending: "Sender …"
-      subject: emne
-      to: til
+      subject: "emne"
+      to: "til"
     new_message:
       fail: "Ugyldig melding"
     show:
       delete: "slett og blokker samtalen"
-      reply: svar
+      reply: "svar"
       replying: "Svarer …"
-  delete: Slett
+  delete: "Slett"
   error_messages:
     helper:
       correct_the_following_errors_and_try_again: "Rett opp desse feila og prøv på nytt."
@@ -222,8 +222,8 @@ nn:
   hide: Gøym
   home:
     show:
-      choice: Val
-      ownership: Eigarskap
+      choice: "Val"
+      ownership: "Eigarskap"
       ownership_explanation: "Du eig bileta dine. Det burde du gjera òg etter å ha delt dei. Du har framleis eigarskapen til alt du deler i Diaspora. På det viset har du full kontroll med korleis tinga blir delte."
       share_what_you_want: "Del kva du vil med kven du vil."
       tagline_second_half: "med kven du vil."
@@ -241,7 +241,7 @@ nn:
       your_account_awaits: "Kontoen din ventar på deg."
     new:
       already_invited: "Desse personane har ikkje godteke invitasjonen din:"
-      aspect: Aspekt
+      aspect: "Aspekt"
       comma_seperated_plz: "Du kan skriva fleire e-postadresser om du skil dei med komma."
       if_they_accept_info: "om dei godtek, vil dei verta lagde til aspektet du inviterte dei til."
       invite_someone_to_join: "Inviter nokon til å bli med Diaspora!"
@@ -249,7 +249,7 @@ nn:
       resend: "Send på nytt"
       send_an_invitation: "Send ein invitasjon"
       send_invitation: "Send invitasjonen"
-      to: Til
+      to: "Til"
   layouts:
     application:
       powered_by: "DRIVEN AV DIASPORA*"
@@ -258,13 +258,13 @@ nn:
       whats_new: "kva er nytt?"
       your_aspects: "aspekta dine"
     header:
-      blog: blogg
-      code: kode
+      blog: "blogg"
+      code: "kode"
       login: "logg på"
       logout: "Logg ut"
-      profile: Profil
+      profile: "Profil"
       recent_notifications: "Nylege varsel"
-      settings: Innstillingar
+      settings: "Innstillingar"
       view_all: "Syn alt"
   likes:
     likes:
@@ -289,8 +289,8 @@ nn:
         other: "%{count} likes"
         two: "%{count} likes"
         zero: "no likes"
-  limited: Avgrensa
-  next: neste
+  limited: "Avgrensa"
+  next: "neste"
   no_results: "Fann ingen resultat"
   notifications:
     also_commented:
@@ -323,7 +323,7 @@ nn:
         two: "%{count} nye varsel"
         zero: "Ingen nye varsel"
     index:
-      and: og
+      and: "og"
       and_others:
         few: "og %{count} andre"
         many: "og %{count} andre"
@@ -332,7 +332,7 @@ nn:
         two: "og %{count} andre"
         zero: "og ingen andre"
       mark_all_as_read: "Merk alle som lesne"
-      notifications: Varsel
+      notifications: "Varsel"
     liked:
       few: "%{actors} har likt %{post_link} ditt."
       many: "%{actors} har likt %{post_link} ditt."
@@ -361,7 +361,7 @@ nn:
       other: "%{actors} nemnde deg i eit sletta innlegg."
       two: "%{actors} nemnde deg i eit sletta innlegg."
       zero: "%{actors} nemnde deg i eit sletta innlegg."
-    post: innlegg
+    post: "innlegg"
     private_message:
       few: "%{actors} sende deg ei melding."
       many: "%{actors} sende deg ei melding."
@@ -420,8 +420,8 @@ nn:
       view_profile: "Syn %{name} sin profil"
     thanks: "Takk,"
     to_change_your_notification_settings: "for å endra varslingsinnstillingane dine"
-  or: eller
-  password_confirmation: Passordstadfesting
+  or: "eller"
+  password_confirmation: "Passordstadfesting"
   people:
     add_contact_small:
       add_contact_from_tag: "legg til kontakt frå etiketten"
@@ -445,20 +445,20 @@ nn:
       pending_request: "Ventande førespurnad"
       thats_you: Deg!
     profile_sidebar:
-      bio: livshistorie
+      bio: "livshistorie"
       born: fødselsdag
       edit_my_profile: "Endra profilen min"
       gender: kjønn
       in_aspects: "i aspekta"
-      location: stad
+      location: "stad"
       remove_contact: "fjern kontakten"
       remove_from: "Fjerna %{name} frå %{aspect}?"
     show:
       does_not_exist: "Personen finst ikkje."
       has_not_shared_with_you_yet: "%{name} har enno ikkje delt noko innlegg med deg."
       incoming_request: "%{name} ønskjer å dela med deg"
-      mention: Omtale
-      message: Melding
+      mention: "Omtale"
+      message: "Melding"
       not_connected: "Du deler ikkje med denne personen"
       recent_posts: "Nylege innlegg"
       recent_public_posts: "Nylege offentlege innlegg"
@@ -468,7 +468,7 @@ nn:
       to_accept_or_ignore: "å godta eller forkasta det."
     sub_header:
       add_some: "legg til noko"
-      edit: endra
+      edit: "endra"
       you_have_no_tags: "du har ingen etikettar."
     two: "%{count} personar"
     webfinger:
@@ -483,7 +483,7 @@ nn:
     destroy:
       notice: "Biletet er sletta."
     edit:
-      editing: Endrar
+      editing: "Endrar"
     new:
       back_to_list: "Tilbake til lista"
       new_photo: "Nytt bilete"
@@ -499,7 +499,7 @@ nn:
     show:
       collection_permalink: "permanent lenkje til samlinga"
       delete_photo: "Slett biletet"
-      edit: endra
+      edit: "endra"
       edit_delete_photo: "Endra biletskildringa / slett biletet"
       make_profile_photo: "lag profilbilete"
       show_original_post: "Syn den opphavlege meldinga"
@@ -509,9 +509,9 @@ nn:
       notice: "Biletet vart oppdatert."
   posts:
     show:
-      destroy: Sletta
+      destroy: "Sletta"
       not_found: "Vi klarte dessverre ikkje å finna innlegget."
-      permalink: permlenkje
+      permalink: "permlenkje"
       photos_by:
         few: "%{count} photos by %{author}"
         many: "%{count} photos by %{author}"
@@ -520,13 +520,13 @@ nn:
         two: "Two photos by %{author}"
         zero: "No photos by %{author}"
   previous: førre
-  profile: Profil
+  profile: "Profil"
   profiles:
     edit:
       allow_search: "Tillat at folk kan søkja etter deg i Diaspora"
       edit_profile: "Endra profilen"
-      first_name: Fornamn
-      last_name: Etternamn
+      first_name: "Fornamn"
+      last_name: "Etternamn"
       update_profile: "Oppdater profilen"
       your_bio: "Livshistoria din"
       your_birthday: "Fødselsdagen din"
@@ -541,7 +541,7 @@ nn:
     update:
       failed: "Klarte ikkje å oppdatera profilen"
       updated: "Profilen vart oppdatert"
-  public: Offentleg
+  public: "Offentleg"
   reactions:
     few: "%{count} reactions"
     many: "%{count} reactions"
@@ -559,7 +559,7 @@ nn:
       leave_blank: "(lat vera tomt om du ikkje vil endra)"
       password_to_confirm: "(vi treng det gjeldande passordet ditt for å kunna stadfesta endringane)"
       unhappy: Ulukkeleg?
-      update: Oppdater
+      update: "Oppdater"
     new:
       create_my_account: "Lag kontoen min."
       enter_email: "Skriv ei e-postadresse"
@@ -570,7 +570,7 @@ nn:
       sign_up_message: "Sosialt nettverk med eit <3"
   requests:
     create:
-      sending: Sender
+      sending: "Sender"
       sent: "Du bad om å dela med %{name}. Dei ser det neste gong dei loggar seg på Diaspora."
     destroy:
       error: "Vel eit aspekt."
@@ -588,7 +588,7 @@ nn:
       existing: "Eksisterande kontaktar"
       manage_within: "Handsam kontaktane i"
     new_request_to_person:
-      sent: sendt
+      sent: "sendt"
   reshares:
     create:
       failure: "Klarte ikkje å dela dette innlegget på nytt."
@@ -626,10 +626,10 @@ nn:
       click_link_to_accept_invitation: "Godta invitasjonen ved å klikka på denne lenkja"
       join_me_on_diaspora: "Ver med meg på DIASPORA*"
     remote_friend:
-      invite: inviter
+      invite: "inviter"
       not_on_diaspora: "Enno ikkje på Diaspora"
       resend: "send på nytt"
-  settings: Innstillingar
+  settings: "Innstillingar"
   shared:
     add_contact:
       add_new_contact: "Legg til ein ny kontakt"
@@ -658,7 +658,7 @@ nn:
       invitations_left: "%{count} igjen"
       invite_someone: "Inviter nokon"
       invite_your_friends: "Inviter venene dine"
-      invites: Invitasjonar
+      invites: "Invitasjonar"
       invites_closed: "Denne Diaspora-noden gjev for tida ikkje ut invitasjonar"
     notification:
       new: "Ny %{type} frå %{from}"
@@ -668,7 +668,7 @@ nn:
       outside: "Andre utanfor Diaspora vil kunna sjå dei offentlege meldingane."
       title: "Setja opp tilkopla tenester"
     publisher:
-      all: alle
+      all: "alle"
       all_contacts: "alle kontaktane"
       discard_post: "Forkast innlegget"
       make_public: "gjer offentlig"
@@ -677,16 +677,16 @@ nn:
       post_a_message_to: "Send ei melding til %{aspect}"
       posting: "Sender …"
       publishing_to: "publiserer til:"
-      share: Del
+      share: "Del"
       share_with: "del med"
       upload_photos: "Last opp bilete"
       whats_on_your_mind: "Kva tenkjer du på?"
     reshare:
       reshare: "Del på nytt"
     stream_element:
-      dislike: Mislik
+      dislike: "Mislik"
       hide_and_mute: "Gøym og demp"
-      like: Lik
+      like: "Lik"
       shared_with: "Delt med: %{aspect_names}"
       unlike: "Lik ikkje lenger"
       viewable_to_anyone: "Alle kan sjå dette innlegget"
@@ -749,7 +749,7 @@ nn:
       typical_userpage: "Ei typisk brukarside på cubbie.es"
       what_is_cubbies: "Cubbi.es er det første Diaspora-programmet i verda og er òg den beste måten å samla bilete på nettet."
   undo: "Gjera om?"
-  username: Brukarnamn
+  username: "Brukarnamn"
   users:
     confirm_email:
       email_confirmed: "E-post %{email} teken i bruk"
@@ -757,7 +757,7 @@ nn:
     edit:
       also_commented: "… nokon òg kommenterer kontakten din sitt innlegg?"
       auto_follow_back: "Automatically follow back if a someone follows you"
-      change: Endra
+      change: "Endra"
       change_email: "Endra e-posten"
       change_language: "Endra språket"
       change_password: "Skift passord"

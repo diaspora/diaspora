@@ -5,13 +5,13 @@
 
 
 de:
-  _applications: Anwendungen
-  _comments: Kommentare
-  _contacts: Kontakte
-  _home: Startseite
-  _photos: Fotos
-  _services: Dienste
-  account: Konto
+  _applications: "Anwendungen"
+  _comments: "Kommentare"
+  _contacts: "Kontakte"
+  _home: "Startseite"
+  _photos: "Fotos"
+  _services: "Dienste"
+  account: "Konto"
   activerecord:
     errors:
       models:
@@ -81,17 +81,17 @@ de:
       aspect_list_is_not_visible: "Die Aspektliste wird vor anderen im Aspekt versteckt"
       aspect_list_is_visible: "Die Aspektliste ist für andere im Aspekt sichtbar"
       confirm_remove_aspect: "Bist du dir sicher, dass du diesen Aspekt löschen möchtest?"
-      done: Fertig
+      done: "Fertig"
       make_aspect_list_visible: "Kontakte aus diesem Aspekt öffentlich machen?"
       remove_aspect: "Diesen Aspekt löschen"
-      rename: umbenennen
+      rename: "umbenennen"
       update: Ändern
       updating: "Ändere …"
     few: "%{count} Aspekte"
     helper:
       are_you_sure: "Möchtest du diesen Aspekt wirklich löschen?"
       aspect_not_empty: "Aspekt ist nicht leer"
-      remove: entfernen
+      remove: "entfernen"
     index:
       cubbies:
         explanation: "Cubbi.es ist die momentan in Entwicklung befindliche, erste Diaspora-Anwendung."
@@ -101,7 +101,7 @@ de:
         content_1: "Deine Diaspora-ID ist:"
         content_2: "Gib diese weiter und sei somit auf Diaspora leicht zu finden."
         heading: Diaspora-ID
-      donate: Spenden
+      donate: "Spenden"
       handle_explanation: "Das ist deine Diaspora-ID. Du kannst sie wie eine E-Mail-Adresse weitergeben, damit andere Nutzer mit dir Kontakt aufnehmen können."
       help:
         do_you: "Hast du:"
@@ -111,9 +111,9 @@ de:
         have_a_question: "… eine %{link}?"
         here_to_help: "Die Diaspora-Gemeinschaft ist für dich da!"
         need_help: "Benötigst du Hilfe?"
-        tag_bug: problem
-        tag_feature: verbesserung
-        tag_question: frage
+        tag_bug: "problem"
+        tag_feature: "verbesserung"
+        tag_question: "frage"
         tutorials_wiki_and_forum: "%{tutorial} & %{wiki} & %{forum}: Von der Gemeinschaft erstellte Tutorials, Anleitungen und Nachrichten"
       introduce_yourself: "Das ist dein Stream. Leg' los und stell dich vor."
       keep_us_running: "Hilf %{pod}, schnell zu arbeiten und spendiere unseren Servern ihre Tasse Kaffee mit einer monatlichen Spende!"
@@ -136,7 +136,7 @@ de:
       failure: "hat nicht funktioniert: %{inspect}"
       success: "Person in neuen Aspekt verschoben"
     new:
-      create: Erstellen
+      create: "Erstellen"
       name: "Name (nur für dich sichtbar)"
     no_contacts_message:
       community_spotlight: Gemeinschafts-Schaukasten
@@ -148,10 +148,10 @@ de:
     one: "Ein Aspekt"
     other: "%{count} Aspekte"
     seed:
-      acquaintances: Bekannte
-      family: Familie
-      friends: Freunde
-      work: Arbeit
+      acquaintances: "Bekannte"
+      family: "Familie"
+      friends: "Freunde"
+      work: "Arbeit"
     selected_contacts:
       manage_your_aspects: "Verwalte deine Aspekte."
       no_contacts: "Du hast hier noch keine Kontakte."
@@ -181,12 +181,12 @@ de:
     explanation_link_text: "diesen Link"
     post_something: "Erstelle einen Beitrag in Diaspora"
     post_success: "Erstellt! Schließen …"
-  cancel: Abbrechen
+  cancel: "Abbrechen"
   comments:
     few: "%{count} Kommentare"
     many: "%{count} Kommentare"
     new_comment:
-      comment: Kommentieren
+      comment: "Kommentieren"
       commenting: "Kommentieren …"
     one: "Ein Kommentar"
     other: "%{count} Kommentare"
@@ -210,7 +210,7 @@ de:
       only_sharing_with_me: "Nur mit dir Teilende"
       remove_person_from_aspect: "Entferne %{person_name} aus \"%{aspect_name}\""
       start_a_conversation: "Beginne eine Unterhaltung"
-      title: Kontakte
+      title: "Kontakte"
       your_contacts: "Deine Kontakte"
     many: "%{count} Kontakte"
     one: "Ein Kontakt"
@@ -220,7 +220,7 @@ de:
     spotlight:
       community_spotlight: Gemeinschafts-Schaukasten
     two: "%{count} Kontakte"
-    zero: Kontakte
+    zero: "Kontakte"
   conversations:
     create:
       fail: "Ungültige Nachricht"
@@ -237,22 +237,22 @@ de:
         zero: "Keine neuen Nachrichten"
     index:
       create_a_new_message: "Erstelle eine neue Nachricht"
-      inbox: Eingang
-      message_inbox: Nachrichteneingang
+      inbox: "Eingang"
+      message_inbox: "Nachrichteneingang"
       new_message: "Neue Nachricht"
       no_conversation_selected: "Keine Konversation ausgewählt"
       no_messages: "Keine Nachrichten"
     new:
       abandon_changes: "Änderungen verwerfen?"
-      send: Senden
+      send: "Senden"
       sending: "Senden …"
-      subject: Betreff
-      to: An
+      subject: "Betreff"
+      to: "An"
     new_message:
       fail: "Ungültige Nachricht"
     show:
       delete: "Diese Konversation löschen und blockieren"
-      reply: Antworten
+      reply: "Antworten"
       replying: "Antworten …"
   date:
     formats:
@@ -267,7 +267,7 @@ de:
       invalid_fields: "Ungültige Felder"
   fill_me_out: "Füll’ mich aus"
   find_people: "Leute oder #Tags finden"
-  hide: Ausblenden
+  hide: "Ausblenden"
   home:
     show:
       already_account: "bereits registriert?"
@@ -298,17 +298,17 @@ de:
       your_account_awaits: "Dein Konto wartet!"
     new:
       already_invited: "Die folgenden Personen haben deine Einladung nicht angenommen:"
-      aspect: Aspekt
+      aspect: "Aspekt"
       check_out_diaspora: "Erkunde Diaspora!"
       comma_seperated_plz: "Du kannst mehrere E-Mail-Adressen durch Trennen mit Kommata eintragen."
       if_they_accept_info: "Wenn sie deine Einladung annehmen, werden sie zu dem Aspekt hinzugefügt, in den du sie eingeladen hast."
       invite_someone_to_join: "Lade jemanden zu Diaspora ein!"
-      language: Sprache
+      language: "Sprache"
       personal_message: "Persönliche Nachricht"
       resend: "Erneut senden"
       send_an_invitation: "Eine Einladung senden"
       send_invitation: "Einladung senden"
-      to: An
+      to: "An"
   layouts:
     application:
       back_to_top: "Zurück zum Anfang"
@@ -318,14 +318,14 @@ de:
       whats_new: "Was gibt's Neues?"
       your_aspects: "Deine Aspekte"
     header:
-      admin: Administrator
-      blog: Blog
-      code: Code
-      login: Anmelden
-      logout: Abmelden
-      profile: Profil
+      admin: "Administrator"
+      blog: "Blog"
+      code: "Code"
+      login: "Anmelden"
+      logout: "Abmelden"
+      profile: "Profil"
       recent_notifications: "Letzte Benachrichtigungen"
-      settings: Einstellungen
+      settings: "Einstellungen"
       view_all: "Alle anzeigen"
   likes:
     likes:
@@ -350,8 +350,8 @@ de:
         other: "Gefällt %{count}"
         two: "Gefällt %{count}"
         zero: "Gefällt niemandem"
-  limited: Begrenzt
-  more: Mehr
+  limited: "Begrenzt"
+  more: "Mehr"
   next: Nächste
   no_results: "Keine Ergebnisse gefunden."
   notifications:
@@ -385,7 +385,7 @@ de:
         two: "%{count} neue Benachrichtigungen"
         zero: "Keine neuen Benachrichtigungen"
     index:
-      and: und
+      and: "und"
       and_others:
         few: "und %{count} anderen"
         many: "und %{count} anderen"
@@ -394,21 +394,21 @@ de:
         two: "und %{count} andere"
         zero: "und niemand sonst"
       mark_all_as_read: "Markiere alle als gelesen"
-      notifications: Benachrichtigungen
+      notifications: "Benachrichtigungen"
     liked:
-      few: "%{actors} haben deinen %{post_link} gepinnt."
-      many: "%{actors} haben deinen %{post_link} gepinnt."
-      one: "%{actors} hat deinen %{post_link} gepinnt."
-      other: "%{actors} hat deinen %{post_link} gepinnt."
-      two: "%{actors} haben deinen %{post_link} gepinnt."
-      zero: "Niemandem hat dein %{post_link} gepinnt."
+      few: "%{actors} gefällt dein %{post_link}."
+      many: "%{actors} gefällt dein %{post_link}."
+      one: "%{actors} gefällt dein %{post_link}."
+      other: "%{actors} gefällt dein %{post_link}."
+      two: "%{actors} gefällt dein %{post_link}."
+      zero: "Niemandem gefällt dein %{post_link}."
     liked_post_deleted:
-      few: "%{actors} haben deinen gelöschten Beitrag gepinnt."
-      many: "%{actors} haben deinen gelöschten Beitrag gepinnt."
-      one: "%{actors} haben deinen gelöschten Beitrag gepinnt."
-      other: "%{actors} haben deinen gelöschten Beitrag gepinnt."
-      two: "%{actors} haben deinen gelöschten Beitrag gepinnt."
-      zero: "Niemand hat deinen gelöschten Beitrag gepinnt."
+      few: "%{actors} gefällt dein gelöschter Beitrag."
+      many: "%{actors} gefällt dein gelöschter Beitrag."
+      one: "%{actors} gefällt dein gelöschter Beitrag."
+      other: "%{actors} gefällt dein gelöschter Beitrag."
+      two: "%{actors} gefällt dein gelöschter Beitrag."
+      zero: "Niemandem gefällt dein gelöschter Beitrag."
     mentioned:
       few: "%{actors} haben dich in einem %{post_link} erwähnt."
       many: "%{actors} haben dich in einem %{post_link} erwähnt."
@@ -423,7 +423,7 @@ de:
       other: "%{actors} haben dich in einem gelöschten Beitrag erwähnt."
       two: "%{actors} hat dich in einem bereits gelöschten Beitrag erwähnt."
       zero: "Niemand hat dich in einem gelöschten Beitrag erwähnt."
-    post: Beitrag
+    post: "Beitrag"
     private_message:
       few: "%{actors} haben dir eine Nachricht gesendet."
       many: "%{actors} haben dir eine Nachricht gesendet."
@@ -463,7 +463,7 @@ de:
     email_sent_by_diaspora: "Diese E-Mail wurde von Diaspora verschickt. Falls du solche E-Mails nicht mehr erhalten willst,"
     hello: "Hallo %{name}!"
     liked:
-      liked: "%{name} hat dein Beitrag gepinnt"
+      liked: "%{name} gefällt dein Beitrag"
       view_post: "Beitrag betrachten >"
     mentioned:
       mentioned: "hat dich in einem Beitrag erwähnt:"
@@ -482,8 +482,9 @@ de:
       view_profile: "Schau dir %{name}s Profil an"
     thanks: "Danke,"
     to_change_your_notification_settings: "um deine Benachrichtigungs-Einstellungen zu ändern"
-  or: oder
-  password: Kennwort
+  nsfw: "NSFW"
+  or: "oder"
+  password: "Kennwort"
   password_confirmation: Kennwort-Bestätigung
   people:
     add_contact_small:
@@ -509,12 +510,12 @@ de:
       pending_request: "Ausstehende Anfrage"
       thats_you: "Das bist du!"
     profile_sidebar:
-      bio: Beschreibung
-      born: Geburtstag
+      bio: "Beschreibung"
+      born: "Geburtstag"
       edit_my_profile: "Mein Profil bearbeiten"
-      gender: Geschlecht
+      gender: "Geschlecht"
       in_aspects: "in Aspekten"
-      location: Ort
+      location: "Ort"
       remove_contact: "Kontakt entfernen"
       remove_from: "%{name} aus %{aspect} entfernen?"
     show:
@@ -524,7 +525,7 @@ de:
       ignoring: "Du ignorierst alle Beiträge von %{name}."
       incoming_request: "Du hast eine eingehende Anfrage von %{name}."
       mention: Erwähnen
-      message: Nachricht
+      message: "Nachricht"
       not_connected: "Du teilst nicht mit dieser Person"
       recent_posts: "Neueste Beiträge"
       recent_public_posts: "Neueste, öffentliche Beiträge"
@@ -534,12 +535,12 @@ de:
       to_accept_or_ignore: "um zu akzeptieren oder zu ignorieren."
     sub_header:
       add_some: "Füge neue hinzu"
-      edit: Bearbeiten
+      edit: "Bearbeiten"
       you_have_no_tags: "Du hast keine Tags!"
     two: "%{count} Personen"
     webfinger:
       fail: "Entschuldigung, wir konnten %{handle} nicht finden."
-    zero: niemand
+    zero: "niemand"
   photos:
     comment_email_subject: "%{name}s Foto"
     create:
@@ -549,7 +550,7 @@ de:
     destroy:
       notice: "Foto gelöscht."
     edit:
-      editing: Bearbeiten
+      editing: "Bearbeiten"
     new:
       back_to_list: "Zurück zur Liste"
       new_photo: "Neues Foto"
@@ -566,7 +567,7 @@ de:
     show:
       collection_permalink: "Sammlung Permalink"
       delete_photo: "Foto löschen"
-      edit: Bearbeiten
+      edit: "Bearbeiten"
       edit_delete_photo: "Fotobeschreibung bearbeiten / Foto löschen"
       make_profile_photo: "Als Profilbild verwenden"
       show_original_post: "Zeige ursprünglichen Beitrag"
@@ -578,7 +579,7 @@ de:
     show:
       destroy: Löschen
       not_found: "Entschuldige, wir konnten den Beitrag leider nicht finden."
-      permalink: Permanentlink
+      permalink: "Permanentlink"
       photos_by:
         few: "%{count} Fotos von %{author}"
         many: "%{count} Fotos von %{author}"
@@ -587,17 +588,19 @@ de:
         two: "Zwei Fotos von %{author}"
         zero: "Keine Fotos von %{author}"
       reshare_by: "Weitergesagt von %{author}"
-  previous: Vorherige
+  previous: "Vorherige"
   privacy: Privatsphäre
-  privacy_policy: Datenschutzrichtlinien
-  profile: Profil
+  privacy_policy: "Datenschutzrichtlinien"
+  profile: "Profil"
   profiles:
     edit:
       allow_search: "Anderen erlauben, auf Diaspora nach dir zu suchen"
       edit_profile: "Profil bearbeiten"
-      first_name: Vorname
-      last_name: Nachname
+      first_name: "Vorname"
+      last_name: "Nachname"
       update_profile: "Profil aktualisieren"
+      you_are_nsfw: "Du hast dich selbst als Not Safe For Work markiert, was bedeutet, dass deine Beiträge bei Personen, die anstößige Inhalte automatisch ausblenden, standardmäßig ausgeblendet werden."
+      you_are_safe_for_work: "Du hast dich als Safe For Work markiert, wodurch du dich damit einverstanden erklärst, dass deine Beiträge, soweit nicht anders angegeben, den Community-Richtlinien entsprechen."
       your_bio: "Deine Beschreibung"
       your_birthday: "Dein Geburtstag"
       your_gender: "Dein Geschlecht"
@@ -629,7 +632,7 @@ de:
       leave_blank: "(Du willst nichts ändern? Einfach leer lassen.)"
       password_to_confirm: "(wir brauchen dein aktuelles Kennwort, um deine Änderungen zu bestätigen)"
       unhappy: Unglücklich?
-      update: Aktualisieren
+      update: "Aktualisieren"
     new:
       create_my_account: "Konto erstellen!"
       enter_email: "Gib eine E-Mail-Adresse an"
@@ -671,12 +674,12 @@ de:
         one: "Einmal weitergesagt"
         other: "%{count} mal weitergesagt"
         two: "%{count} mal weitergesagt"
-        zero: Weitersagen
+        zero: "Weitersagen"
       reshare_confirmation: "%{author}s Beitrag weitersagen?"
       reshare_original: "Ursprünglichen Beitrag weitersagen"
       reshared_via: "weitergesagt durch"
       show_original: "Original anzeigen"
-  search: Suche
+  search: "Suche"
   services:
     create:
       already_authorized: "Ein anderer Nutzer mit der Diaspora ID %{diaspora_id} hat diesen %{service_name}-Account bereits autorisiert."
@@ -703,10 +706,10 @@ de:
       click_link_to_accept_invitation: "Öffne diesen Link, um die Einladung zu akzeptieren:"
       join_me_on_diaspora: "Folge mir auf DIASPORA*"
     remote_friend:
-      invite: Einladen
+      invite: "Einladen"
       not_on_diaspora: "Noch nicht auf Diaspora"
       resend: "Erneut senden"
-  settings: Einstellungen
+  settings: "Einstellungen"
   share_visibilites:
     update:
       post_hidden_and_muted: "%{name}'s Beitrag wurde ausgeblendet und die Benachrichtigungen abgeschaltet."
@@ -740,7 +743,7 @@ de:
       invitations_left: "%{count} übrig"
       invite_someone: "Jemanden einladen"
       invite_your_friends: "Lade deine Freunde ein"
-      invites: Einladungen
+      invites: "Einladungen"
       invites_closed: "Einladungen sind auf diesem Diaspora-Pod derzeit nicht verfügbar."
     notification:
       new: "Neue %{type} von %{from}"
@@ -751,11 +754,11 @@ de:
       manage: "Verbundene Dienste verwalten"
       new_user_welcome_message: "Benutze #Hashtags, um deine Beiträge einzuordnen und Leute zu finden, die deine Interessen teilen. Benenne tolle Leute mit @Mentions"
       outside: "Öffentliche Nachrichten werden für andere außerhalb von Diaspora sichtbar sein."
-      share: Teilen
+      share: "Teilen"
       title: "Verbundene Dienste verwalten"
       visibility_dropdown: "Benutze dieses Auswahlmenü, um die Sichtbarkeit deines Beitrags zu ändern. (Wir empfehlen Dir, diesen ersten Beitrag öffentlich zu machen.)"
     publisher:
-      all: alle
+      all: "alle"
       all_contacts: "Alle Kontakte"
       discard_post: "Beitrag verwerfen"
       make_public: veröffentlichen
@@ -763,16 +766,16 @@ de:
         hello: "Hallo zusammen, ich bin #%{new_user_tag}. "
         i_like: "Ich interessiere mich für %{tags}."
         invited_by: "Danke für die Einladung,"
-        newhere: NeuHier
+        newhere: "NeuHier"
       post_a_message_to: "Sende eine Nachricht an %{aspect}"
       posting: "Senden …"
       publishing_to: "Veröffentlichen an: "
-      share: Teilen
+      share: "Teilen"
       share_with: "Teile mit"
       upload_photos: "Fotos hochladen"
       whats_on_your_mind: "Woran denkst du gerade?"
     reshare:
-      reshare: Weitersagen
+      reshare: "Weitersagen"
     stream_element:
       connect_to_comment: "Verbinde dich mit diesem Benutzer, um seinen Beitrag zu kommentieren"
       currently_unavailable: "Kommentieren derzeit nicht verfügbar"
@@ -783,8 +786,9 @@ de:
       like: "Gefällt mir"
       nsfw: "Dieser Post wurde vom Autor als NSFW markiert. %{link}"
       shared_with: "Geteilt mit: %{aspect_names}"
-      show: zeigen
+      show: "zeigen"
       unlike: "Gefällt mir nicht mehr"
+      via: "via %{link}"
       viewable_to_anyone: "Dieser Beitrag ist für jeden im Web sichtbar"
   status_messages:
     create:
@@ -812,9 +816,11 @@ de:
       two: "Zeige zwei weitere Kommentare"
       zero: "Keine weiteren Kommentare"
   streams:
+    activity:
+      title: "Meine Aktivitäten"
     aspects:
-      title: "Deine Aspekte"
-    aspects_stream: Aspekte
+      title: "Meine Aspekte"
+    aspects_stream: "Aspekte"
     comment_stream:
       contacts_title: "Leute, deren Beiträge du kommentiert hast"
       title: "Kommentierte Beiträge"
@@ -822,12 +828,12 @@ de:
     followed_tag:
       add_a_tag: "Füge einen Tag hinzu"
       contacts_title: "Leute, denen diese Tags gefallen"
-      follow: Folgen
+      follow: "Folgen"
       title: "#Tags, denen du folgst"
     followed_tags_stream: "#Tags, denen du folgst"
     like_stream:
-      contacts_title: "Leute, deren Beiträge du gepinnt hast"
-      title: "\"Pin\"-Stream"
+      contacts_title: "Leute, deren Beiträge dir gefallen"
+      title: "\"Gefällt mir\"-Stream"
     mentioned_stream: "@Erwähnungen"
     mentions:
       contacts_title: "Personen, die dich erwähnt haben"
@@ -870,9 +876,10 @@ de:
       screenshot_explanation: "%{link1}. Dieses »Cubby« ist mit %{link2} verknüpft."
       sign_up_today: "Jetzt registrieren!"
       typical_userpage: "Eine typische cubbi.es-Benutzerseite"
+      via: "(via %{link})"
       what_is_cubbies: "Cubbi.es ist die erste Diaspora-Anwendung der Welt und ist auch die ideale Möglichkeit online Fotos zu sammeln."
   undo: "Rückgängig machen?"
-  username: Benutzername
+  username: "Benutzername"
   users:
     confirm_email:
       email_confirmed: "E-Mail %{email} wurde aktiviert"
@@ -908,7 +915,7 @@ de:
       export_data: "Daten exportieren"
       following: Folgen-Einstellungen
       getting_started: "Einstellungen für neue Nutzer"
-      liked: "… wenn jemand dein Beitrag pinnt?"
+      liked: "… wenn jemandem dein Beitrag gefällt?"
       mentioned: "… du in einem Beitrag erwähnt wirst?"
       new_password: "Neues Kennwort"
       photo_export_unavailable: "Exportieren von Fotos derzeit nicht verfügbar"

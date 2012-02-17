@@ -44,7 +44,7 @@ pa:
       no_tags: "No tags"
     many: "%{count} aspects"
     new:
-      name: Name
+      name: "Name"
     no_contacts_message:
       try_adding_some_more_contacts: "You can search (top) or invite (right) more contacts."
     no_posts_message:
@@ -68,20 +68,11 @@ pa:
     new_comment:
       comment: ਟਿੱਪਣੀ
       commenting: "ਟਿੱਪਣੀ ਕੀਤੀ ਜਾ ਰਹੀ ਹੈ..."
-    one: "1 comment"
-    other: "%{count} comments"
-    two: "%{count} comments"
-    zero: "no comments"
   contacts:
     few: "%{count} contacts"
     index:
       add_to_aspect: "Add contacts to %{name}"
       no_contacts: "No contacts."
-    many: "%{count} contacts"
-    one: "1 ਸੰਪਰਕ"
-    other: "%{count} ਸੰਪਰਕ"
-    two: "%{count} contacts"
-    zero: "ਕੋਈ ਸੰਪਰਕ ਨਹੀਂ"
   conversations:
     helper:
       new_messages:
@@ -110,8 +101,8 @@ pa:
       code: ਕੋਡ
       login: ਲਾਗਇਨ
       logout: ਲਾਗਆਉਟ
-      profile: profile
-      settings: settings
+      profile: "profile"
+      settings: "settings"
   likes:
     likes:
       people_dislike_this:
@@ -261,8 +252,6 @@ pa:
       thats_you: "thats you!"
     show:
       not_connected: "You are not sharing with %{name}"
-    two: "%{count} people"
-    zero: "no people"
   posts:
     show:
       photos_by:
@@ -318,7 +307,7 @@ pa:
         one: "1 Reshare"
         other: "%{count} Reshares"
         two: "%{count} reshares"
-        zero: Reshare
+        zero: "Reshare"
       reshare_confirmation: "Reshare %{author} - %{text}?"
       reshare_original: "Reshare orignial"
       show_original: "Show Original"

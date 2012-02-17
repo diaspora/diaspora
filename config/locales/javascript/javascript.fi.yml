@@ -28,7 +28,7 @@ fi:
       hide: "piilota kommentit"
       show: "näytä kaikki kommentit"
     confirm_dialog: "Oletko varma?"
-    delete: Poista
+    delete: "Poista"
     failed_to_like: "Tykkääminen epäonnistui!"
     failed_to_post_message: "Viestin lähetys epäonnistui!"
     getting_started:
@@ -38,18 +38,18 @@ fi:
       preparing_your_stream: "Yksilöllistä virtaasi valmistellaan..."
     header:
       admin: Ylläpitäjä
-      contacts: Kontaktit
-      home: Koti
+      contacts: "Kontaktit"
+      home: "Koti"
       log_out: "Kirjaudu ulos"
       mark_all_as_read: "Merkitse kaikki luetuiksi"
-      messages: Viestit
-      notifications: Ilmoitukset
-      profile: Profiili
+      messages: "Viestit"
+      notifications: "Ilmoitukset"
+      profile: "Profiili"
       recent_notifications: "Tuoreet ilmoitukset"
       search: "Etsi ihmisiä tai #tageja"
-      settings: Asetukset
+      settings: "Asetukset"
       view_all: "Näytä kaikki"
-    ignore: Sivuuta
+    ignore: "Sivuuta"
     infinite_scroll:
       no_more: "Ei enempää viestejä."
     photo_uploader:
@@ -63,8 +63,8 @@ fi:
     search_for: "Etsi nimellä <%= name %>"
     show_more: "näytä lisää"
     stream:
-      comment: Kommentoi
-      hide: Piilota
+      comment: "Kommentoi"
+      hide: "Piilota"
       like: Tykkää
       likes:
         few: "<%= count %> tykkäystä"
@@ -73,7 +73,7 @@ fi:
         other: "<%= count %> tykkäystä"
         two: "<%= count %> tykkäystä"
         zero: "<%= count %> tykkäystä"
-      limited: Rajoitettu
+      limited: "Rajoitettu"
       more_comments:
         few: "Näytä <%= count %> muuta kommenttia"
         many: "Näytä <%= count %> muuta kommenttia"
@@ -82,7 +82,7 @@ fi:
         two: "Näytä <%= count %> muuta kommenttia"
         zero: "Näytä <%= count %> muuta kommenttia"
       original_post_deleted: "Lähettäjä on poistanut alkuperäisen viestin."
-      public: Julkinen
+      public: "Julkinen"
       reshare: "Jaa uudelleen"
       reshares:
         few: "<%= count %> uudelleenjakoa"
@@ -103,7 +103,7 @@ fi:
       month: "noin kuukausi"
       months: "%d kuukautta"
       seconds: "alle minuutti"
-      suffixAgo: sitten
+      suffixAgo: "sitten"
       suffixFromNow: "tästä alkaen"
       year: "noin vuosi"
       years: "%d vuotta"

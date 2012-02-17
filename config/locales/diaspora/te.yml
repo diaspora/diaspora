@@ -47,22 +47,10 @@ te:
   bookmarklet:
     explanation_link_text: "ఈ లంకె"
   cancel: రద్దుచేయి
-  comments:
-    few: "%{count} వ్యాఖ్యలు"
-    many: "%{count} వ్యాఖ్యలు"
-    one: "1 వ్యాఖ్య"
-    other: "%{count} వ్యాఖ్యలు"
-    two: "%{count} వ్యాఖ్యలు"
-    zero: "వ్యాఖ్యలు లేవు"
   contacts:
     few: "%{count} పరిచయాలు"
     index:
       your_contacts: "మీ పరిచయాలు"
-    many: "%{count} contacts"
-    one: "1 contact"
-    other: "%{count} contacts"
-    two: "%{count} contacts"
-    zero: contacts
   conversations:
     helper:
       new_messages:
@@ -281,7 +269,7 @@ te:
         one: "1 పంచుకోలు"
         other: "%{count} పంచుకోళ్ళు"
         two: "%{count} పంచుకోళ్ళు"
-        zero: Reshare
+        zero: "Reshare"
   search: వెతుకు
   settings: అమరికలు
   shared:
