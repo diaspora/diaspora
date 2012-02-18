@@ -9,7 +9,7 @@ describe("app.models.Photo", function() {
       expect(new app.models.Photo().url()).toBe("/photos");
     });
   
-    it("should be /photos/id when it doesn't have an id", function(){
+    it("should be /photos/id when it has an id", function(){
       expect(new app.models.Photo({id: 5}).url()).toBe("/photos/5");
     });
   });
