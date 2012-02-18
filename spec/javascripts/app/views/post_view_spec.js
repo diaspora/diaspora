@@ -96,5 +96,28 @@ describe("app.views.Post", function(){
         });
       })
     })
+
+    context("user views their own post", function(){
+      beforeEach(function(){
+        this.statusMessage.set({ author: {
+          id : app.user().id
+        }});
+        this.view = new app.views.Post({model : this.statusMessage}).render();
+      })
+
+      it("contains remove post", function(){
+        expect(this.view.$(".remove_post")).toExist();
+      })
+
+      it("destroys the view when they delete a their post from the show page", function(){
+        spyOn(window, "confirm").andReturn(true);
+
+        this.view.$(".remove_post").click();
+
+        expect(window.confirm).toHaveBeenCalled();
+        expect(this.view).not.toExist();
+      })
+    })
+
   })
 });

@@ -119,10 +119,12 @@ app.views.Post = app.views.StreamObject.extend({
     return this.model.get("author").id != (!!app.user() && app.user().id)
   },
 
-  destroy : function() {
-    var posts_uri = new RegExp(this.model.collection.url + '\/[0-9]+$');
+  isOnShowPage : function() {
+    return (!this.model.collection) && (this.model.url() == document.location.pathname);
+  },
 
-    if ((this.model.collection.length == 1) && (posts_uri.test(document.location.pathname))) {
+  destroy : function() {
+    if (this.isOnShowPage()) {
       document.location.replace(Backbone.history.options.root);
     }
   }
