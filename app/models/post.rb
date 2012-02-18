@@ -68,6 +68,14 @@ class Post < ActiveRecord::Base
     joins(:likes).where(:likes => {:author_id => person.id})
   }
 
+  def self.next(post)
+    where("posts.id > ?", post.id)
+  end
+
+  def self.previous(post)
+    where("posts.id < ?", post.id)
+  end
+
   def post_type
     self.class.name
   end

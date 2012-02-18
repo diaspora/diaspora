@@ -52,6 +52,9 @@ module Diaspora
       end
     end
 
+
+
+
     def diaspora_handle
       read_attribute(:diaspora_handle) || self.author.diaspora_handle
     end

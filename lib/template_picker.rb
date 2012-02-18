@@ -14,9 +14,11 @@ class TemplatePicker
   end
 
   def template_name
-    for template in TEMPLATES
+    TEMPLATES.each do |template|
       return template.gsub("_", '-') if self.send("#{template}?".to_sym)
     end
+
+    'status' #default
   end
 
   def status_with_photo_backdrop?
@@ -36,7 +38,7 @@ class TemplatePicker
   end
 
   def photo_backdrop?
-    post.photos.size == 1
+    post.photos.size == 1 
   end
 
   def status?

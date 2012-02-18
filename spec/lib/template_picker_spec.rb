@@ -2,7 +2,10 @@ require File.join(File.dirname(__FILE__), '..', '..', 'lib', 'template_picker')
 
 describe TemplatePicker do
   before do
-    @post_stubs = {:photos => stub(:present? => true, :size => 2), :o_embed_cache => stub(:present? => true), :text? => true, :text => stub(:length => 400)}
+    @post_stubs = {:type => 'StatusMessage', :photos => stub(:size => 2), 
+                   :o_embed_cache => stub(:present? => true), 
+                   :text? => true, :text => stub(:length => 400)
+                  }
   end
 
   let(:post) {
@@ -16,11 +19,13 @@ describe TemplatePicker do
 
   describe '#template_name' do
     it 'returns the coolest template if the post has lots of cool stuff' do
-      puts TemplatePicker.new(post).template_name
+      TemplatePicker.new(post).template_name.should_not be_nil
     end
   end
+
   describe '#status_with_photo_backdrop?' do
-    it 'is true if the post contains a photo and text' do
+    it 'is true if the post contains a single photo and text' do
+      @post_stubs.merge!(:photos => stub(:size => 1))
       TemplatePicker.new(post).should be_status_with_photo_backdrop
     end
   end
@@ -48,6 +53,7 @@ describe TemplatePicker do
       @post_stubs.merge!(:photos => stub(:size => 1))
       TemplatePicker.new(post).should be_photo_backdrop
     end
+
   end
 
   describe '#status?' do
