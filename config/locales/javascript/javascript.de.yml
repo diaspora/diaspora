@@ -77,7 +77,7 @@ de:
       more_comments:
         few: "Zeige <%= count %> weitere Kommentare"
         many: "Zeige <%= count %> weitere Kommentare"
-        one: "Zeige einen weiteren Kommentare"
+        one: "Zeige einen weiteren Kommentar"
         other: "Zeige <%= count %> weitere Kommentare"
         two: "Zeige <%= count %> weitere Kommentare"
         zero: "Keine weiteren Kommentare"

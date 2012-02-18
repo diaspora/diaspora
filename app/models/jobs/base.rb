@@ -15,9 +15,8 @@ module Jobs
       begin
         yield
       rescue Exception => e
-        if DUMB_ERROR_MESSAGES.include?(e.message)
-          Rails.logger.error(e.message)
-        else
+        Rails.info("error in job: #{e.message}")
+        unless DUMB_ERROR_MESSAGES.include?(e.message) 
           raise e
         end
       end

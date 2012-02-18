@@ -44,6 +44,7 @@ ru:
   all_aspects: "Все аспекты"
   application:
     helper:
+      diaspora_alpha: "ДИАСПОРА* АЛЬФА"
       unknown_person: "неизвестная персона"
       video_title:
         unknown: "Неизвестное название видеозаписи"
@@ -111,6 +112,9 @@ ru:
         have_a_question: "... хотите задать вопрос (%{link})?"
         here_to_help: "Сообщество Диаспоры всегда рядом!"
         need_help: "Нужна помощь?"
+        tag_bug: ошибка
+        tag_feature: функция
+        tag_question: вопрос
         tutorials_wiki_and_forum: "%{tutorial}, %{wiki} и %{forum}: составляемые сообществом справочные пособия, инструкции и новости."
       introduce_yourself: "Это ваш поток. Ныряйте и осваивайтесь здесь."
       keep_us_running: "Помогите %{pod} работать быстро — купите нашим серверам дозу кофе, сделав ежемесячное пожертвование!"
@@ -256,7 +260,9 @@ ru:
     formats:
       birthday: "%d %B"
       birthday_with_year: "%d %B %Y"
+      fullmonth_day: "%d %B"
   delete: Удалить
+  email: E-mail
   error_messages:
     helper:
       correct_the_following_errors_and_try_again: "Исправьте ошибки и попробуйте снова."
@@ -715,6 +721,7 @@ ru:
     add_contact:
       add_new_contact: "Добавить контакт"
       create_request: "Поиск по идентификатору в Диаспоре"
+      diaspora_handle: diaspora@pod.org
       enter_a_diaspora_username: "Введите имя пользователя Диаспоры:"
       know_email: "Знаете их email адреса? Вы можете предложить им присоединиться к Диаспоре "
       your_diaspora_username_is: "Ваше имя пользователя Диаспоры: %{diaspora_handle}"
@@ -873,6 +880,7 @@ ru:
       screenshot_explanation: "%{link1}.  Этот аккаунт cubbi связан с %{link2}."
       sign_up_today: "Зарегистрируйтесь прямо сейчас!"
       typical_userpage: "Типичная cubbi.es страница"
+      via: "(через %{link})"
       what_is_cubbies: "Cubbi.es - это первое в мире приложение для Диаспоры. Кроме того, это лучший способ создания коллекции фотографий в Интернете."
   undo: Отменить?
   username: "Имя пользователя"

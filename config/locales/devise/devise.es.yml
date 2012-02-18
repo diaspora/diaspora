@@ -60,6 +60,7 @@ es:
         view_in: "Ver en el navegador."
       inviter:
         accept_at: "en %{url}, puedes aceptar en el enlace inferior."
+        has_invited_you: "%{name} te ha invitado a unirte a Diaspora"
         have_invited_you: "%{names} te ha invitado a unirte a Diaspora*"
       reset_password_instructions:
         change: "Cambiar mi contraseña"
