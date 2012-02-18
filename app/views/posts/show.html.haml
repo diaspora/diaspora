@@ -14,46 +14,30 @@
         = person_image_link @post.author
       .bd
         = person_link(@post.author, :class => 'author-name')
-
         .post-time
           %i.icon-time
           = time_ago_in_words(@post.created_at) + ' ago'
 
-        .post-vitals
-          %span
-            %i.icon-heart
-            = @post.likes.size
-
-          %span
-            %i.icon-plus
-            = @post.participations.size
-
-          %span
-            %i.icon-retweet
-            = @post.reshares.size
-
-          %span
-            %i.icon-comment
-            = @post.comments.size
-
-
-    - if current_user
-      #user-controls
-        = link_to "#", :class => "label" do
-          %i.icon-heart.icon-white
-
-        = link_to "#", :class => "label" do
-          %i.icon-plus.icon-white
-
-        = link_to "#", :class => "label" do
-          %i.icon-retweet.icon-white
-
-        = link_to "#", :class => "label",  do
-          %i.icon-comment.icon-white
-
-        = link_to person_image_tag(current_user.person), root_path
 
 #post-content
+
+- if current_user
+  #user-controls
+    = link_to "#", :class => "label",  do
+      %i.icon-user.icon-white
+
+    = link_to "#", :class => "label" do
+      %i.icon-heart.icon-white
+
+    = link_to "#", :class => "label" do
+      %i.icon-plus.icon-white
+
+    = link_to "#", :class => "label" do
+      %i.icon-retweet.icon-white
+
+    = link_to "#", :class => "label",  do
+      %i.icon-comment.icon-white
+
 
 = link_to image_tag('arrow-left.png'), '#', :class => 'nav-arrow left', :id => 'back'
 = link_to image_tag('arrow-right.png'), '#', :class => 'nav-arrow right', :id => 'forward'

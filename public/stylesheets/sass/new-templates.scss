@@ -38,6 +38,13 @@ $light-grey: #999;
   opacity: $val;
 }
 
+@mixin transition($type, $speed) {
+  -o-transition: $type $speed;
+  -moz-transition: $type $speed;
+  -webkit-transition: $type $speed;
+  transition: $type $speed;
+}
+
 /* styles */
 
 .multi-photo {
@@ -117,7 +124,6 @@ $light-grey: #999;
 
 .rich-media {
   text-align: center;
-
   background-color: #333;
 
   h3 {
@@ -133,23 +139,36 @@ $light-grey: #999;
 }
 
 .nav-arrow {
-  @include opacity(0.2);
-
-  -o-transition: opacity 0.3s;
-  -moz-transition: opacity 0.3s;
-  -webkit-transition: opacity 0.3s;
-  transition: opacity 0.3s;
+  @include opacity(0.8);
+  @include transition(background-color, 0.3s);
+  @include center();
 
   position: fixed;
+  height: 100%;
   z-index: 3;
+  top: 0;
+  padding: 0 13px;
+  background-color: rgba(0,0,0,0);
 
-  top: 45%;
+  img {
+    @include opacity(0.5);
 
-  &.left { left: 0; }
-  &.right { right: 0; }
+    height: 30px;
+    width: 30px;
+  }
+
+  &.left {
+    left: 0;
+    padding-right: 19px;
+  }
+
+  &.right {
+    right: 0;
+    padding-left: 19px;
+  }
 
   &:hover {
-    @include opacity(0.6);
+    background-color: rgba(0,0,0,0.1)
   }
 }
 
@@ -169,13 +188,9 @@ $light-grey: #999;
   float: left;
   margin: 0;
 
-  background-color: rgba(255,255,255,0.8);
-
-  max-height: 52px;
-
   .avatar {
-    height: 52px;
-    width: 52px;
+    height: 35px;
+    width: 35px;
   }
 
   .author-name {
@@ -196,7 +211,12 @@ $light-grey: #999;
 }
 
 #user-controls {
-  float: right;
+  position: fixed;
+  height: 30px;
+  width: 100%;
+  bottom: 0;
+  left: 0;
+  text-align: center;
 
   .avatar {
     vertical-align: top;
@@ -205,7 +225,11 @@ $light-grey: #999;
   }
 
   .label {
-    @include opacity(0.5);
+    @include opacity(0.6);
+    @include transition(opacity, 0.3s);
+
+    box-shadow: 0 0 2px rgba(255,255,255,0.9);
+
     padding: 5px;
     margin-right: 5px;
     line-height: 24px;
@@ -220,6 +244,11 @@ $light-grey: #999;
 
     background-color: #000;
     color: #fff;
+
+    &:last-child {
+      padding-right: 5px;
+      margin-right: 0;
+    }
 
     &:hover {
       @include opacity(1);
