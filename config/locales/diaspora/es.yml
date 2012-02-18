@@ -602,7 +602,7 @@ es:
       first_name: "Nombre"
       last_name: "Apellidos"
       update_profile: "Actualizar perfil"
-      you_are_nsfw: "Ha marcado como no apto para todos los públicos, el contenido no se mostrará a las personas que decidieron seguir publicaciones aptas para todos los públicos."
+      you_are_nsfw: "Ha marcado como no apto para el lugar de trabajo, el contenido no se mostrará a las personas que decidieron seguir publicaciones aptas para todos los públicos."
       you_are_safe_for_work: "Ha marcado como apto para todos públicos, esto significa que usted está de acuerdo en que el contenido que publique respetará las normas de toda la comunidad."
       your_bio: Biografía
       your_birthday: "Fecha de nacimiento"
@@ -787,7 +787,7 @@ es:
       ignore_user: "Ignorar a %{name}"
       ignore_user_description: "¿Ignorar y quitar a esa persona de todos los aspectos?"
       like: "Me gusta"
-      nsfw: "Esta publicación es considerada por su autor como no segura para ciertos entornos de trabajo (#NSFW - Not safe for work). %{link}"
+      nsfw: "Esta publicación ha sido calificada por su autor como no apta para todos los públicos. %{link}"
       shared_with: "Compartido con: %{aspect_names}"
       show: "mostrar"
       unlike: "No me gusta"

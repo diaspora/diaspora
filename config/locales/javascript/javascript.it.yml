@@ -39,6 +39,7 @@ it:
     header:
       admin: "Amministrazione"
       contacts: "Contatti"
+      home: "Home"
       log_out: "Esci"
       mark_all_as_read: "Segna tutti come letti"
       messages: "Messaggi"
@@ -52,6 +53,7 @@ it:
     infinite_scroll:
       no_more: "Non ci sono altri post."
     my_activity: Attività
+    my_stream: "Stream"
     photo_uploader:
       looking_good: "Accidenti, sei in splendida forma!"
     publisher:
@@ -108,9 +110,11 @@ it:
       minutes: "%d minuti"
       month: "circa un mese"
       months: "%d mesi"
+      prefixAgo: "fa"
       prefixFromNow: "fra"
       seconds: "meno di un minuto"
       suffixAgo: "fa"
+      suffixFromNow: "da adesso"
       year: "circa un anno"
       years: "%d anni"
     videos:

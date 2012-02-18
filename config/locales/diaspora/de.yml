@@ -482,7 +482,7 @@ de:
       view_profile: "Schau dir %{name}s Profil an"
     thanks: "Danke,"
     to_change_your_notification_settings: "um deine Benachrichtigungs-Einstellungen zu ändern"
-  nsfw: "NSFW"
+  nsfw: "NSFW (unpassend für den Arbeitsplatz)"
   or: "oder"
   password: "Kennwort"
   password_confirmation: Kennwort-Bestätigung
@@ -599,8 +599,8 @@ de:
       first_name: "Vorname"
       last_name: "Nachname"
       update_profile: "Profil aktualisieren"
-      you_are_nsfw: "Du hast dich selbst als Not Safe For Work markiert, was bedeutet, dass deine Beiträge bei Personen, die anstößige Inhalte automatisch ausblenden, standardmäßig ausgeblendet werden."
-      you_are_safe_for_work: "Du hast dich als Safe For Work markiert, wodurch du dich damit einverstanden erklärst, dass deine Beiträge, soweit nicht anders angegeben, den Community-Richtlinien entsprechen."
+      you_are_nsfw: "Du hast dich selbst als unpassend für den Arbeitsplatz (NSFW) markiert, was bedeutet, dass deine Beiträge bei Personen, die anstößige Inhalte automatisch ausblenden, standardmäßig ausgeblendet werden."
+      you_are_safe_for_work: "Du hast dich als passend für den Arbeitsplatz markiert, wodurch du dich damit einverstanden erklärst, dass deine Beiträge, soweit nicht anders angegeben, den Community-Richtlinien entsprechen."
       your_bio: "Deine Beschreibung"
       your_birthday: "Dein Geburtstag"
       your_gender: "Dein Geschlecht"
@@ -859,7 +859,7 @@ de:
     show:
       follow: "#%{tag} folgen"
       followed_by: "gefolgt von"
-      following: "#%{tag} folgen"
+      following: "Du folgst #%{tag}"
       nobody_talking: "Niemand hat bisher etwas über %{tag} gesagt."
       none: "Der leere Tag existiert nicht!"
       people_tagged_with: "Personen, die mit %{tag} getaggt sind"

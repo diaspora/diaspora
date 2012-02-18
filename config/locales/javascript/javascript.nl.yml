@@ -39,6 +39,7 @@ nl:
     header:
       admin: "Beheer"
       contacts: "Contacten"
+      home: "Home"
       log_out: "Log uit"
       mark_all_as_read: "Markeer alles gelezen"
       messages: "Berichten"
@@ -65,7 +66,9 @@ nl:
     show_more: "laat meer zien"
     stream:
       comment: "Reageer"
+      follow: "Volg"
       hide: "Verberg"
+      hide_nsfw_posts: "Verberg #nsfw berichten"
       like: "Vastprikken"
       likes:
         few: "<%= count %> keer vastgeprikt"
@@ -92,6 +95,9 @@ nl:
         other: "<%= count %> Doorgaven"
         two: "<%= count %> Doorgaven"
         zero: "<%= count %> doorgaven"
+      show_nsfw_post: "Toon bericht"
+      show_nsfw_posts: "Toon alles"
+      unfollow: "Ontvolg"
       unlike: "Loslaten"
     tags:
       wasnt_that_interesting: "#<%= tagName %> zal dan toch niet zo interessant geweest zijn..."
@@ -104,6 +110,8 @@ nl:
       minutes: "%d minuten"
       month: "ongeveer een maand"
       months: "%d maanden"
+      prefixAgo: javascripts.timeago.prefixAgo
+      prefixFromNow: javascripts.timeago.prefixFromNow
       seconds: "iets minder dan een minuut"
       suffixAgo: "geleden"
       suffixFromNow: "vanaf nu"

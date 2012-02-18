@@ -8,8 +8,10 @@ it:
   _applications: "Applicazioni"
   _comments: "Commenti"
   _contacts: "Contatti"
+  _home: "Home"
   _photos: "foto"
   _services: "Servizi"
+  account: "Account"
   activerecord:
     errors:
       models:
@@ -42,6 +44,7 @@ it:
   all_aspects: "Tutti gli aspetti"
   application:
     helper:
+      diaspora_alpha: "DIASPORA* ALPHA"
       unknown_person: "persona sconosciuta"
       video_title:
         unknown: "Video Senza Nome"
@@ -177,6 +180,7 @@ it:
   bookmarklet:
     explanation: "Condividi su Diaspora in qualsiasi momento aggiungendo come segnalibro %{link}."
     explanation_link_text: "questo link"
+    heading: "Bookmarklet"
     post_something: "Pubblica qualcosa su Diaspora"
     post_success: "Inviato! Sta per chiudersi!"
   cancel: "Annulla"
@@ -258,6 +262,7 @@ it:
       birthday_with_year: "%d %B %Y"
       fullmonth_day: "%d %B"
   delete: "Elimina"
+  email: "Email"
   error_messages:
     helper:
       correct_the_following_errors_and_try_again: "Correggi i seguenti errori e riprova."
@@ -315,6 +320,8 @@ it:
       whats_new: novità
       your_aspects: "i tuoi aspetti"
     header:
+      admin: "admin"
+      blog: "blog"
       code: "codice"
       login: "accedi"
       logout: "Esci"
@@ -418,6 +425,7 @@ it:
       other: "%{actors} ti ha menzionato in un post che è stato eliminato."
       two: "%{actors} ti hanno menzionato in un post che è stato eliminato."
       zero: "%{actors} ti ha menzionato in un post che è stato eliminato."
+    post: "post"
     private_message:
       few: "%{actors} ti hanno inviato un messaggio."
       many: "%{actors} ti hanno inviato un messaggio."
@@ -477,7 +485,9 @@ it:
     thanks: "Grazie,"
     to_change_your_notification_settings: "per cambiare le opzioni delle notifiche"
   nsfw: "NSFW (non adatto ad un luogo di lavoro)"
+  ok: "OK"
   or: "o"
+  password: "Password"
   password_confirmation: "Conferma password"
   people:
     add_contact_small:
@@ -503,6 +513,7 @@ it:
       pending_request: "Richiesta in sospeso"
       thats_you: "Sei tu!"
     profile_sidebar:
+      bio: "biografia"
       born: "data di nascita"
       edit_my_profile: "Modifica il mio profilo"
       gender: "sesso"
@@ -571,6 +582,7 @@ it:
     show:
       destroy: "Elimina"
       not_found: "Ci scusiamo, non possiamo trovare il post."
+      permalink: "permalink"
       photos_by:
         few: "%{count} foto di %{author}"
         many: "%{count} foto di %{author}"
@@ -580,6 +592,7 @@ it:
         zero: "Nessuna foto di %{author}"
       reshare_by: "Condiviso da %{author}"
   previous: "precedente"
+  privacy: "Privacy"
   privacy_policy: "Norme sulla privacy"
   profile: "Profilo"
   profiles:
@@ -708,6 +721,7 @@ it:
     add_contact:
       add_new_contact: "Aggiungi un nuovo contatto"
       create_request: "Cerca per ID"
+      diaspora_handle: diaspora@pod.org
       enter_a_diaspora_username: "Inserisci un nome utente Diaspora"
       know_email: "Conosci i loro indirizzi email? Dovresti invitarli"
       your_diaspora_username_is: "Il tuo ID è: %{diaspora_handle}"
@@ -737,6 +751,7 @@ it:
     notification:
       new: "Nuovo %{type} da %{from}"
     public_explain:
+      atom_feed: "Atom feed"
       control_your_audience: "Controlla il tuo pubblico"
       logged_in: "accesso effettuato a %{service}"
       manage: "gestisci i servizi collegati"
@@ -776,6 +791,7 @@ it:
       shared_with: "Condiviso con: %{aspect_names}"
       show: "mostra"
       unlike: "Non mi piace più"
+      via: "via %{link}"
       viewable_to_anyone: "Questo post è visibile a tutti sul web"
   status_messages:
     create:
@@ -827,6 +843,7 @@ it:
       title: "@Menzioni"
     multi:
       contacts_title: "Persone nel tuo Stream"
+      title: "Stream"
     public:
       contacts_title: "Chi ha postato di recente"
       title: "Attività pubblica"
@@ -863,6 +880,7 @@ it:
       screenshot_explanation: "%{link1}.  Questa pagina di cubby è collegata all' %{link2}."
       sign_up_today: "Registrati oggi!"
       typical_userpage: "Una tipica pagina utente di cubbi.es"
+      via: "(via %{link})"
       what_is_cubbies: "Cubbi.es è la prima applicazione Diaspora nel mondo.  E' anche il miglior modo di raccogliere le foto online."
   undo: Annullare?
   username: "Nome Utente"

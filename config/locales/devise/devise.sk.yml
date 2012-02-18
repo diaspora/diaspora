@@ -9,7 +9,7 @@ sk:
     confirmations:
       confirmed: "Váš účet bol úspešne potvrdený. Teraz ste prihlásený."
       new:
-        resend_confirmation: "Zaslať pokyny na potvrdenie"
+        resend_confirmation: "Znova mi pošlite pokyny na potvrdenie"
       send_instructions: "O niekoľko minút dostanete e-mail s pokynmi na potvrdenie svojho účtu."
     failure:
       inactive: "Váš účet ešte nebol aktivovaný."
@@ -34,7 +34,9 @@ sk:
         arrived: "Sociálna sieť, na ktorú ste čakali, je tu. %{strong_diaspora} je vylepšená, bezpečnejšia, zábavnejšia a&nbsp;pripravená pomôcť vám deliť sa s&nbsp;ostatnými a&nbsp;skúmať web úplne inak."
         be_yourself: "Buďte sami sebou"
         be_yourself_paragraph: "Internet pre nás vytvoril jedinečné nové spôsoby na sebaprezentáciu.  %{strong_diaspora} vám umožňuje, aby ste boli sami sebou a podelili sa s hocičím, s čím chcete pod svojím skutočným menom alebo bez neho."
+        cubbies: Cubbi.es
         displaying_correctly: "Nezobrazuje sa e-mail správne? %{link}"
+        email_address: questions@joindiaspora.com
         email_us: "So všeobecnými otázkami alebo žiadosťami o technickú podporu vášho účtu na Diaspore nám, prosím, napíšte na %{email}."
         finally: "Napokon – je to tu"
         friends_saying: "Čo hovoria vaši priatelia..."
@@ -58,6 +60,7 @@ sk:
         view_in: "Pozrite si ho v&nbsp;svojom internetovom prehliadači."
       inviter:
         accept_at: "Kliknutím na odkaz na stránku %{url} ho môžete prijať."
+        has_invited_you: "%{name}"
         have_invited_you: "%{names} vás pozvali na Diasporu"
       reset_password_instructions:
         change: "Zmeniť si heslo"
@@ -115,5 +118,5 @@ sk:
   errors:
     messages:
       already_confirmed: "už bol potvrdený"
-      not_found: nenájdený
+      not_found: "nenašli sa"
       not_locked: "nebol zamknutý"
