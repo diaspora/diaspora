@@ -68,7 +68,7 @@ es:
       comment: "Comentar"
       follow: "Seguir"
       hide: "Ocultar"
-      hide_nsfw_posts: "Ocultar publicaciones con #nsfw"
+      hide_nsfw_posts: "Ocultar publicaciones no aptas para todos los públicos"
       like: "Me gusta"
       likes:
         few: "le gusta a <%= count %> personas"
@@ -114,6 +114,7 @@ es:
       prefixFromNow: "dentro de"
       seconds: "menos de 1 minuto"
       suffixAgo: "hace"
+      suffixFromNow: "a partir de ahora"
       year: "1 año aproximadamente"
       years: "%d años"
     videos:

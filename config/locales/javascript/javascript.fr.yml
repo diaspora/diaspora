@@ -38,9 +38,12 @@ fr:
       preparing_your_stream: "Préparation de votre flux personnalisé..."
     header:
       admin: "Administration"
+      contacts: "Contacts"
       home: "Accueil"
       log_out: "Se déconnecter"
       mark_all_as_read: "Tout marquer comme lu"
+      messages: "Messages"
+      notifications: "Notifications"
       profile: "Profil"
       recent_notifications: "Notifications récentes"
       search: "Trouver des personnes ou #tags"
@@ -49,6 +52,8 @@ fr:
     ignore: "Ignorer"
     infinite_scroll:
       no_more: "Pas d'autres messages."
+    my_activity: "Mon activité"
+    my_stream: "Flux"
     photo_uploader:
       looking_good: "Impressionnant, vous avez un super look !"
     publisher:
@@ -61,7 +66,9 @@ fr:
     show_more: "Voir plus"
     stream:
       comment: "Commenter"
+      follow: "Suivre"
       hide: "Masquer"
+      hide_nsfw_posts: "Masquer les messages #nsfw"
       like: J'aime
       likes:
         few: "<%= count %> J'aime"
@@ -79,6 +86,7 @@ fr:
         two: "Montrer <%= count %> commentaires en plus"
         zero: "Montrer <%= count %> commentaires en plus"
       original_post_deleted: "Le message original a été effacé par son auteur."
+      public: "Public"
       reshare: "Repartager"
       reshares:
         few: "<%= count %> repartages"
@@ -87,6 +95,9 @@ fr:
         other: "<%= count %> repartages"
         two: "<%= count %> Repartages"
         zero: "<%= count %> repartages"
+      show_nsfw_post: "Montrer le message"
+      show_nsfw_posts: "Tout montrer"
+      unfollow: "Ne pas suivre"
       unlike: "Je n'aime plus"
     tags:
       wasnt_that_interesting: "Ok, je suppose que #<%= tagName %> n'est pas la seule chose qui vous intéresse..."
@@ -102,6 +113,8 @@ fr:
       prefixAgo: "il y a"
       prefixFromNow: d'ici
       seconds: "moins d'une minute"
+      suffixAgo: "il y a"
+      suffixFromNow: "maintenant"
       year: "un an"
       years: "%d ans"
     videos:

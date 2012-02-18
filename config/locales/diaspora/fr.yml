@@ -5,9 +5,12 @@
 
 
 fr:
+  _applications: "Applications"
   _comments: "Commentaires"
+  _contacts: "Contacts"
   _home: "Accueil"
   _photos: "Photos"
+  _services: "Services"
   account: "Compte"
   activerecord:
     errors:
@@ -41,6 +44,7 @@ fr:
   all_aspects: "Tous les aspects"
   application:
     helper:
+      diaspora_alpha: "DIASPORA* ALPHA"
       unknown_person: "Personne inconnue"
       video_title:
         unknown: "Titre de vidéo inconnu"
@@ -108,7 +112,9 @@ fr:
         have_a_question: "... une %{link} ?"
         here_to_help: "La communauté Diaspora est là !"
         need_help: "Besoin d'aide ?"
+        tag_bug: "bug"
         tag_feature: "suggestion"
+        tag_question: "question"
         tutorials_wiki_and_forum: "%{tutorial} & %{wiki} & %{forum}: Tutoriels créés par la communauté, astuces, et infos"
       introduce_yourself: "Ceci est votre flux. Rejoignez-nous et présentez-vous."
       keep_us_running: "Permettez à %{pod} de fonctionner rapidement et achetez une dose de café par mois à nos serveurs !"
@@ -174,6 +180,7 @@ fr:
   bookmarklet:
     explanation: "Publiez sur Diaspora depuis n'importe où en ajoutant %{link} à vos marque-pages."
     explanation_link_text: "ce lien"
+    heading: "Bookmarklet"
     post_something: "Publiez quelque chose sur Diaspora"
     post_success: "Publié ! Fermeture !"
   cancel: "Annuler"
@@ -205,6 +212,7 @@ fr:
       only_sharing_with_me: "Partage uniquement avec moi"
       remove_person_from_aspect: "Enlever %{person_name} de \"%{aspect_name}\""
       start_a_conversation: "Démarrer une conversation"
+      title: "Contacts"
       your_contacts: "Vos contacts"
     many: "%{count} contacts"
     one: "1 contact"
@@ -292,6 +300,7 @@ fr:
       your_account_awaits: "Votre compte vous attend !"
     new:
       already_invited: "Les personnes suivantes n'ont pas accepté votre invitation :"
+      aspect: "Aspect"
       check_out_diaspora: "Essayez Diaspora !"
       comma_seperated_plz: "Vous pouvez entrer plusieurs adresses de courrier électronique séparées par des virgules."
       if_they_accept_info: "s'ils acceptent, ils seront ajoutés à l'aspect dans lequel vous les avez invités."
@@ -311,6 +320,9 @@ fr:
       whats_new: "Quoi de neuf ?"
       your_aspects: "vos aspects"
     header:
+      admin: "admin"
+      blog: "blog"
+      code: "code"
       login: "connexion"
       logout: Déconnexion
       profile: "Profil"
@@ -384,6 +396,7 @@ fr:
         two: "et %{count} autres"
         zero: "et personne d'autre"
       mark_all_as_read: "Tout marquer comme lu"
+      notifications: "Notifications"
     liked:
       few: "%{actors} ont épinglé votre %{post_link}."
       many: "%{actors} ont épinglé votre %{post_link}."
@@ -471,6 +484,8 @@ fr:
       view_profile: "Voir le profil de %{name}"
     thanks: "Merci,"
     to_change_your_notification_settings: "pour changer vos paramètres de notification"
+  nsfw: "NSFW"
+  ok: "OK"
   or: "ou"
   password: "Mot de passe"
   password_confirmation: "Confirmation du mot de passe"
@@ -513,6 +528,7 @@ fr:
       ignoring: "Vous ignorez tous les messages de %{name}."
       incoming_request: "%{name} désire partager avec vous"
       mention: "Mentionner"
+      message: "Message"
       not_connected: "Vous n'êtes pas connecté(e) avec cette personne"
       recent_posts: "Messages récents"
       recent_public_posts: "Messages publics récents"
@@ -586,6 +602,8 @@ fr:
       first_name: Prénom
       last_name: "Nom de famille"
       update_profile: "Mettre à jour le profil"
+      you_are_nsfw: "Vous vous êtes marqué comme non-sûr (NSFW), vos messages pourrons ne pas apparaître chez les utilisateurs ayant demandé de ne pas afficher les contenus non-sûrs dans leur flux."
+      you_are_safe_for_work: "Vous vous êtes marqué comme sûr (SFW), donc vos messages devront suivre les règles de la communauté."
       your_bio: "Votre biographie"
       your_birthday: "Votre anniversaire"
       your_gender: "Votre sexe"
@@ -599,6 +617,7 @@ fr:
     update:
       failed: "Impossible de mettre à jour le profil"
       updated: "Profil mis à jour"
+  public: "Public"
   reactions:
     few: "%{count} réactions"
     many: "%{count} réactions"
@@ -702,6 +721,7 @@ fr:
     add_contact:
       add_new_contact: "Ajouter un nouveau contact"
       create_request: "Rechercher par identifiant Diaspora"
+      diaspora_handle: diaspora@pod.org
       enter_a_diaspora_username: "Entrez un nom d'utilisateur Diaspora :"
       know_email: "Connaissez-vous leur adresse de courrier électronique ? Vous devriez les inviter"
       your_diaspora_username_is: "Votre nom d'utilisateur Diaspora est : %{diaspora_handle}"
@@ -771,6 +791,7 @@ fr:
       shared_with: "Partagé avec : %{aspect_names}"
       show: "montrer"
       unlike: "Je n'aime plus"
+      via: "via %{link}"
       viewable_to_anyone: "Publication visible par n'importe qui sur le web"
   status_messages:
     create:
@@ -798,8 +819,11 @@ fr:
       two: "Montrer deux commentaires supplémentaires"
       zero: "Plus de commentaire."
   streams:
+    activity:
+      title: "Mon activité"
     aspects:
       title: "Vos aspects"
+    aspects_stream: "Aspects"
     comment_stream:
       contacts_title: "Vos commentaires apportés sur les messages d'autres personnes"
       title: "Messages commentés"
@@ -813,8 +837,10 @@ fr:
     like_stream:
       contacts_title: "Personnes dont vous avec épinglé les commentaires"
       title: "Flux des éléments épinglés"
+    mentioned_stream: "@Mentions"
     mentions:
       contacts_title: "Personnes qui vous ont mentionné"
+      title: "@Mentions"
     multi:
       contacts_title: "Personnes dans votre flux d'exploration"
       title: "Explorer"
@@ -854,6 +880,7 @@ fr:
       screenshot_explanation: "%{link1}. Cette page cubbi est liée au %{link2}."
       sign_up_today: "Inscrivez-vous dès aujourd'hui !"
       typical_userpage: "Une page d'utilisateur typique sur cubbi.es"
+      via: "(via %{link})"
       what_is_cubbies: "Cubbi.es est la toute première application Diaspora. C'est aussi la meilleure manière de collectionner des photos en ligne."
   undo: "Annuler ?"
   username: "Nom d'utilisateur"

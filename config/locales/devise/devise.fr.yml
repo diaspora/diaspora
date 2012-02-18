@@ -34,7 +34,9 @@ fr:
         arrived: "Le réseau social que vous avez tant attendu est arrivé. Redessiné, plus sûr et plus fun, {strong_diaspora} est prêt à vous aider pour partager et explorer le web d'une toute nouvelle manière."
         be_yourself: "Soyez vous-même"
         be_yourself_paragraph: "L'Internet a créé de nouvelles façons uniques pour nous de nous exprimer. %{strong_diaspora} vous permet d'être vous-même et de partager comme vous le voulez, avec ou sans votre vrai nom."
+        cubbies: Cubbi.es
         displaying_correctly: "Ce courriel ne s'affiche pas correctement ? %{link}"
+        email_address: questions@joindiaspora.com
         email_us: "Pour des renseignements généraux ou de l'aide sur votre compte Diaspora, merci de nous envoyer un courriel à %{email}."
         finally: "Enfin - c'est ici"
         friends_saying: "Ce que disent vos amis..."
@@ -58,6 +60,7 @@ fr:
         view_in: "L'afficher dans votre navigateur."
       inviter:
         accept_at: "à %{url}, vous pouvez l'accepter à travers le lien ci-dessous."
+        has_invited_you: "%{name}"
         have_invited_you: "%{names} vous a invité à rejoindre Diaspora"
       reset_password_instructions:
         change: "Changer mon mot de passe"
@@ -86,6 +89,7 @@ fr:
       updated: "Vous avez mis à jour votre compte."
     sessions:
       new:
+        alpha_software: "Vous savez que vous utilisez un logiciel en version alpha."
         bugs_and_feedback: "Ne vous étonnez pas, vous allez rencontrer des bugs. Nous vous encourageons à utiliser le bouton Feedback sur le côté droit de votre navigateur pour signaler tout dysfonctionnement ! Nous travaillerons au plus vite pour régler chaque problème que vous signalerez."
         bugs_and_feedback_mobile: "Ne vous étonnez pas, vous allez rencontrer des bugs. Nous vous encourageons à nous signaler tout dysfonctionnement ! Nous travaillerons au plus vite pour régler chaque problème que vous signalerez."
         login: "Se connecter"

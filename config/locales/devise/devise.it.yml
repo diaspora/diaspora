@@ -14,7 +14,7 @@ it:
     failure:
       inactive: "Il tuo account non è ancora stato attivato."
       invalid: "Nome utente o password errati."
-      invalid_token: "Token di autenticazione errato."
+      invalid_token: "Token di autenticazione non valido."
       locked: "Il tuo account è bloccato."
       timeout: "La tua sessione è scaduta, effettua di nuovo l'accesso per continuare."
       unauthenticated: "Devi effettuare l'accesso o registrarti prima di continuare."
@@ -34,7 +34,9 @@ it:
         arrived: "Il social network che stavi aspettando è arrivato. Rinnovato, più sicuro e più divertente, %{strong_diaspora} è pronto ad aiutarti nel condividere ed esplorare la rete in un modo tutto nuovo."
         be_yourself: "Sii te stesso"
         be_yourself_paragraph: "Internet ha creato nuovi modi per poterci esprimere. %{strong_diaspora} ti permette di essere te stesso e di condividere come vuoi tu, con o senza il tuo vero nome."
+        cubbies: Cubbi.es
         displaying_correctly: "L'email non compare correttamente? %{link}"
+        email_address: questions@joindiaspora.com
         email_us: "Per domande generali e per avere aiuto riguardo al tuo account Diaspora, scrivi pure a %{email}."
         finally: "Finalmente - è qui"
         friends_saying: "Cosa dicono i tuoi amici..."
@@ -88,10 +90,11 @@ it:
     sessions:
       new:
         alpha_software: "Stai per usare software in alpha."
-        bugs_and_feedback: "Stai attento, troverai dei bug. Incoraggiamo gli utenti a usare il pulsante di Feedback sulla destra del browser per segnalare qualunque errore! Lavoreremo più veloce possibile per risolvere i problemi che segnali."
-        bugs_and_feedback_mobile: "Stai attento, troverai dei bug. Incoraggiamo gli utenti a usare il pulsante Feedback sulla destra del browser per segnalare qualunque errore! Lavoreremo il più velocemente possibile per risolvere i problemi che ci segnali."
-        login: "Effettua l'accesso"
-        modern_browsers: "supporta soltano i browser recenti."
+        bugs_and_feedback: "Fai attenzione, troverai dei bug. Ti incoraggiamo a usare il pulsante di Feedback sulla destra del browser per segnalare gli intoppi! Cercheremo di risolvere il prima possibile i problemi segnalati."
+        bugs_and_feedback_mobile: "Fai attenzione, troverai dei bug. Ti incoraggiamo a segnalare gli intoppi! Cercheremo di risolvere il prima possibile i problemi segnalati."
+        login: "Accedi"
+        modern_browsers: "supporta soltano i browser moderni."
+        password: "Password"
         remember_me: "Ricordami"
         sign_in: "Accedi"
         username: "Nome utente"
