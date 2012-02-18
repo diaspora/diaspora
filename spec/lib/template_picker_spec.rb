@@ -61,4 +61,12 @@ describe TemplatePicker do
       TemplatePicker.new(post).should be_status
     end
   end
+
+  describe '#activity_stream_photo' do
+    it 'is true if the post is of type activity_streams_photo' do
+      photo = stub(:type => "ActivityStreams::Photo")      
+      TemplatePicker.new(photo).should be_activity_streams_photo
+    end
+  end
+
 end

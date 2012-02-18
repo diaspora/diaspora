@@ -6,6 +6,7 @@ class TemplatePicker
                   rich_media
                   multi_photo
                   photo_backdrop
+                  activity_streams_photo
                   status
                 }
 
@@ -39,6 +40,10 @@ class TemplatePicker
 
   def photo_backdrop?
     post.photos.size == 1 
+  end
+
+  def activity_streams_photo?
+    post.type == "ActivityStreams::Photo"
   end
 
   def status?
