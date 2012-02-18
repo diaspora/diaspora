@@ -17,7 +17,7 @@ class PostPresenter
     }
   end
 
- 
+
   def next_post_url
     if n = next_post
       Rails.application.routes.url_helpers.post_path(n)
@@ -40,12 +40,11 @@ class PostPresenter
 
   protected
 
-  def post_base 
-    scope = if current_user
-      Post.owned_or_visible_by_user(current_user)
+  def post_base
+    if current_user
+      current_user.posts_from(self.post.author)
     else
-      Post.all_public
+      self.post.author.posts.all_public
     end
-    scope.where(:author_id => post.author_id)
   end
 end
