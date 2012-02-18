@@ -41,10 +41,11 @@ class PostPresenter
   protected
 
   def post_base 
-    if current_user
+    scope = if current_user
       Post.owned_or_visible_by_user(current_user)
     else
       Post.all_public
     end
+    scope.where(:author_id => post.author_id)
   end
 end
