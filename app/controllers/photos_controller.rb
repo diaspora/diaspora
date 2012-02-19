@@ -29,9 +29,12 @@ class PhotosController < ApplicationController
         @contacts_of_contact_count = 0
       end
 
-      @posts = current_user.photos_from(@person).paginate(:page => params[:page])
-
-      render 'people/show'
+      @posts = current_user.photos_from(@person)
+      
+      respond_to do |format|
+        format.all { render 'people/show' }
+        format.json{ render_for_api :backbone, :json => @posts, :root => :photos }
+      end
 
     else
       flash[:error] = I18n.t 'people.show.does_not_exist'
