@@ -64,6 +64,11 @@ $light-grey: #999;
   }
 }
 
+.photoset {
+  @include center(horizontal);
+  width: 100%;
+}
+
 .note {
   width: 550px;
 
