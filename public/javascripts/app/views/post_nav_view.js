@@ -1,6 +1,6 @@
 app.views.PostViewerNav = app.views.Base.extend({
 
-  templateName: "post-viewer-nav",
+  templateName: "post-viewer/nav",
 
   postRenderTemplate : function() {
     var mappings = {"#forward" : "next_post",

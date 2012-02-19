@@ -6,7 +6,6 @@ app.pages.PostViewer = app.views.Base.extend({
     "#post-content" : "postView",
     "#post-nav" : "navView",
     "#post-feedback" : "feedbackView"
-    // "#post-author" : "authorView"
   },
 
   postView : function(){

@@ -12,6 +12,7 @@ javascripts:
 
   templates:
     - public/javascripts/app/templates/*.handlebars
+    - public/javascripts/app/templates/**/*.handlebars
 
   main:
     - public/javascripts/vendor/underscore.js
