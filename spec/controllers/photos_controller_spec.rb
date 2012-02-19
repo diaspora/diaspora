@@ -80,6 +80,14 @@ describe PhotosController do
       assigns[:person].should == bob.person
       assigns[:posts].should == [@bobs_photo]
     end
+
+    it "returns json when requested" do
+      request.env['HTTP_ACCEPT'] = 'application/json'
+      get :index, :person_id => alice.person.guid.to_s
+
+      response.headers['Content-Type'].should match 'application/json.*'
+      save_fixture(response.body, "photos_json")
+    end
   end
 
   describe '#show' do

@@ -40,7 +40,9 @@ describe("app.helpers.textFormatter", function(){
       var wrapper = $("<div>").html(formattedText);
 
       _.each(links, function(link) {
-        expect(wrapper.find("a[href='" + link + "']").text()).toContain(link)
+        var linkElement = wrapper.find("a[href='" + link + "']");
+        expect(linkElement.text()).toContain(link);
+        expect(linkElement.attr("target")).toContain("_blank");
       })
     })
   })

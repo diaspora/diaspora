@@ -19,6 +19,7 @@ module MarkdownifyHelper
 
     render_options[:filter_html] = true
     render_options[:hard_wrap] ||= true
+    render_options[:safe_links_only] = true
 
     # This ugly little hack basically means
     #   "Give me the rawest contents of target available"
