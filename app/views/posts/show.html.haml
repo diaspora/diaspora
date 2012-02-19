@@ -15,6 +15,13 @@
         = person_image_link @post.author
       .bd
         = person_link(@post.author, :class => 'author-name')
+
+        - if @post.is_a?(Reshare) && @post.root.present?
+          reshared via
+          = person_link(@post.root.author, :class => "author-name")
+
+
+
         .post-time
           %i.icon-time
           = time_ago_in_words(@post.created_at) + ' ago'
