@@ -12,6 +12,11 @@
 
   textFormatter.markdownify = function markdownify(text){
     var converter = Markdown.getSanitizingConverter();
+    
+    converter.hooks.chain("postConversion", function (text) {
+      return text.replace(/(\"(?:(?:http|https):\/\/)?[a-zA-Z0-9\-\.]+\.[a-zA-Z]{2,3}(?:\/\S*)?\")(\>)/g, '$1 target="_blank">')
+    });
+
     return converter.makeHtml(text)
   };
 
