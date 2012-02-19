@@ -19,29 +19,7 @@
           %i.icon-time
           = time_ago_in_words(@post.created_at) + ' ago'
 
-
-#post-content
-
-- if current_user
-  #user-controls
-    = link_to "#", :class => "label",  do
-      %i.icon-user.icon-white
-
-    = link_to "#", :class => "label" do
-      %i.icon-heart.icon-white
-
-    = link_to "#", :class => "label" do
-      %i.icon-plus.icon-white
-
-    = link_to "#", :class => "label" do
-      %i.icon-retweet.icon-white
-
-    = link_to "#", :class => "label",  do
-      %i.icon-comment.icon-white
-
-
-= link_to image_tag('arrow-left.png'), '#', :class => 'nav-arrow left', :id => 'forward'
-= link_to image_tag('arrow-right.png'), '#', :class => 'nav-arrow right', :id => 'back'
+#container
 
 #comment.modal.fade
   .modal-header

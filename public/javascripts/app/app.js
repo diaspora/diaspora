@@ -3,6 +3,7 @@ var app = {
   models: {},
   helpers: {},
   views: {},
+  pages: {},
 
   user: function(userAttrs) {
     if(userAttrs) { return this._user = new app.models.User(userAttrs) }
