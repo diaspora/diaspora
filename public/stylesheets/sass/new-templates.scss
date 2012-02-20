@@ -38,6 +38,12 @@ $light-grey: #999;
   opacity: $val;
 }
 
+@mixin border-radius($pixels:3px) {
+  -webkit-border-radius: $pixels;
+  -moz-border-radius: $pixels;
+  border-radius: $pixels;
+}
+
 @mixin transition($type, $speed) {
   -o-transition: $type $speed;
   -moz-transition: $type $speed;
@@ -237,28 +243,31 @@ $light-grey: #999;
 }
 
 #post-author {
+  @include border-radius();
+
   float: left;
   margin: 0;
 
+  padding: 5px;
+  padding-right: 10px;
+
+  background-color: rgba(255,255,255,0.6);
+  max-height: 35px;
+
   .avatar {
+    @include border-radius();
     height: 35px;
     width: 35px;
   }
 
-  i.icon-time,
-  i.icon-retweet {
-    @include opacity(0.5);
-  }
-
   .author-name {
-    text-shadow: 0 0 2px rgba(255,255,255,0.9);
     color: inherit;
     font-weight: bold;
   }
 
   .post-time {
-    color: $light-grey;
-    font-style: italic;
+    color: #000;
+    @include opacity(0.5);
   }
 
   .post-vitals {
