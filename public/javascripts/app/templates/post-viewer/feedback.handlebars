@@ -5,16 +5,28 @@
 -->
 
 <a href="#" class="label like" title="{{#if user_like}} Unlike {{else}} Like {{/if}}">
-  <i class="icon-heart icon-white"></i>
+  {{#if user_like}}
+    <i class="icon-heart icon-red"></i>
+  {{else}}
+    <i class="icon-heart icon-white"></i>
+  {{/if}}
 </a>
 
-<a href="#" class="label follow" title="Follow Post">
-  <i class="icon-plus icon-white"></i>
+<a href="#" class="label follow" title="{{#if user_participation}} Stop Following {{else}} Follow {{/if}} Post">
+  {{#if user_participation}}
+    <i class="icon-plus icon-green"></i>
+  {{else}}
+    <i class="icon-plus icon-white"></i>
+  {{/if}}
 </a>
 
 {{#if userCanReshare}}
-  <a href="#" class="label reshare" title="Reshare">
-    <i class="icon-retweet icon-white"></i>
+  <a href="#" class="label reshare" title="{{#if user_reshare}} Reshared {{else}} Reshare {{/if}}">
+    {{#if user_reshare}}
+      <i class="icon-retweet icon-blue"></i>
+    {{else}}
+      <i class="icon-retweet icon-white"></i>
+    {{/if}}
   </a>
 {{/if}}
 
