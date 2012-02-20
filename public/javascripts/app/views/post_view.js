@@ -24,7 +24,6 @@ app.views.Post = app.views.StreamObject.extend({
   tooltipSelector : ".delete, .block_user, .post_scope",
 
   initialize : function(options) {
-    console.log(this.model.attributes)
     // allow for a custom template name to be passed in via the options hash
     this.templateName = options.templateName || this.templateName
 

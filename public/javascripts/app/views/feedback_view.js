@@ -1,4 +1,4 @@
-app.views.Feedback = app.views.StreamObject.extend({
+app.views.Feedback = app.views.Base.extend({
 
   templateName: "feedback",
 

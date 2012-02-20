@@ -32,16 +32,15 @@ app.pages.PostViewer = app.views.Base.extend({
   setKeyMappings : function() {
     var nextPostLocation = this.model.get("next_post");
     var previousPostLocation = this.model.get("previous_post");
-    var doc = $(document);
 
     /* focus modal */
-    doc.keypress(function(){
-      $('#text').focus();
-      $('#comment').modal();
-    });
+    // doc.keypress(function(){
+      // $('#text').focus();
+      // $('#comment').modal();
+    // });
 
     /* navagation hooks */
-    doc.keydown(function(e){
+    $(document).keydown(function(e){
       if (e.keyCode == 37 && nextPostLocation) {
         window.location = nextPostLocation
 

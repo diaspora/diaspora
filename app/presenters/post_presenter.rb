@@ -11,10 +11,20 @@ class PostPresenter
   def to_json(options = {})
     {
       :post => self.post.as_api_response(:backbone).update(
-        { :next_post => next_post_url,
-      :previous_post => previous_post_url}),
+        {
+        :user_like => self.user_like,
+        :next_post => self.next_post_url,
+        :previous_post => self.previous_post_url
+      }),
       :templateName => TemplatePicker.new(self.post).template_name
     }
+  end
+
+  def user_like
+    return unless self.current_user.present?
+    if like = Like.where(:target_id => self.post.id, :target_type => "Post", :author_id => current_user.person.id).first
+      like.as_api_response(:backbone)
+    end
   end
 
   def next_post_url
