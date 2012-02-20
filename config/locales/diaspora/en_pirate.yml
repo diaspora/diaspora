@@ -283,7 +283,7 @@ en_pirate:
     publisher:
       new_user_prefill:
         i_like: "I'm interested in %{tags}."
-      share: Fire!
+      share: "Fire!"
       whats_on_your_mind: "What be botherin' you?"
     stream_element:
       hide_and_mute: "Hide and Mute"

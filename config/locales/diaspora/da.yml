@@ -81,10 +81,10 @@ da:
       aspect_list_is_not_visible: "aspekt liste er gemt for andre i aspektet"
       aspect_list_is_visible: "aspektliste er synlig for andre i aspektet"
       confirm_remove_aspect: "Er du sikker på du vil slette dette aspekt?"
-      done: Gennemført
+      done: "Gennemført"
       make_aspect_list_visible: "gør kontakter i dette aspekt synlige for hinanden?"
       remove_aspect: "Slet dette aspekt"
-      rename: omdøb
+      rename: "omdøb"
       update: "Opdater"
       updating: "opdaterer"
     few: "%{count} aspekter"
@@ -100,7 +100,7 @@ da:
       diaspora_id:
         content_1: "Dit Diaspora ID er:"
         content_2: "Giv det til hvem som helst og de vil kunne finde dig på Diaspora."
-      donate: Donér
+      donate: "Donér"
       handle_explanation: "Dette er dit Diaspora ID. Som med en e-mail-adresse, kan du give denne til folk, så de kan kontakte dig."
       help:
         do_you: "Har du:"
@@ -177,12 +177,12 @@ da:
     explanation_link_text: "dette link"
     post_something: "Post noget til Diaspora"
     post_success: "Posted! Lukker!"
-  cancel: Annullér
+  cancel: "Annullér"
   comments:
     few: "%{count} kommentarer"
     many: "%{count} kommentarer"
     new_comment:
-      comment: Kommentér
+      comment: "Kommentér"
       commenting: "Kommenterer ..."
     one: "1 kommentar"
     other: "%{count} kommentarer"
@@ -237,7 +237,7 @@ da:
       no_messages: "ingen beskeder"
     new:
       abandon_changes: "Opgiv ændringer?"
-      sending: Sender...
+      sending: "Sender..."
       subject: "emne"
       to: "til"
     new_message:
@@ -245,14 +245,14 @@ da:
     show:
       delete: "slet og bloker samtalen"
       reply: "Svar"
-      replying: Svarer...
+      replying: "Svarer..."
   date:
     formats:
       birthday: "%d %B"
       birthday_with_year: "%d %B %Y"
       fullmonth_day: "%d %B"
   delete: "Slet"
-  email: E-mail
+  email: "E-mail"
   error_messages:
     helper:
       correct_the_following_errors_and_try_again: "Ret følgende fejl og prøv igen."
@@ -263,7 +263,7 @@ da:
   home:
     show:
       already_account: "har du allerede en konto?"
-      choice: Vælg
+      choice: "Vælg"
       choice_explanation: "Diaspora lader dig sortere dine kontakter i grupper kaldet aspekter. Diaspora er unik idet aspekter sikrer at dine billeder, historier og vittigheder kun er delt med dem du vil. "
       learn_about_host: "Se hvordan man hoster sin egen Diaspora server."
       login_here: "log ind her"
@@ -338,9 +338,9 @@ da:
         other: "%{count} synes om"
         two: "%{count} synes om"
         zero: "ingen synes om"
-  limited: Begrænset
+  limited: "Begrænset"
   more: "Mere"
-  next: Næste
+  next: "Næste"
   no_results: "Ingen resultater fundet"
   notifications:
     also_commented:
@@ -411,7 +411,7 @@ da:
       other: "%{actors} har nævnt dig i et slettet indlæg."
       two: "%{actors} har nævnt dig i et slettet indlæg."
       zero: "%{actors} har nævnt dig i et slettet indlæg."
-    post: indlæg
+    post: "indlæg"
     private_message:
       few: "%{actors} har sendt dig en besked."
       many: "%{actors} har sendt dig en besked."
@@ -498,9 +498,9 @@ da:
       pending_request: "afventende anmodning"
       thats_you: "det er dig!"
     profile_sidebar:
-      born: fødselsdag
+      born: "fødselsdag"
       edit_my_profile: "Redigér min profil"
-      gender: køn
+      gender: "køn"
       in_aspects: "i aspekter"
       location: "placering"
       remove_contact: "fjern kontakt"
@@ -511,7 +511,7 @@ da:
       has_not_shared_with_you_yet: "%{name} har ikke delt nogen indlæg med dig endnu!"
       ignoring: "Du ignorerer alle indlæg fra %{name}."
       incoming_request: "%{name} vil gerne dele med dig."
-      mention: Nævn
+      mention: "Nævn"
       message: "Besked"
       not_connected: "Du er ikke forbundet til denne person."
       recent_posts: "Nylige indlæg"
@@ -522,7 +522,7 @@ da:
       to_accept_or_ignore: "at godkende eller ignorere det."
     sub_header:
       add_some: "tilføje nogle"
-      edit: redigér
+      edit: "redigér"
       you_have_no_tags: "du har ingen tags!"
     two: "%{count} personer"
     webfinger:
@@ -554,7 +554,7 @@ da:
     show:
       collection_permalink: "samling permalink"
       delete_photo: "Slet billede"
-      edit: Redigér
+      edit: "Redigér"
       edit_delete_photo: "Redigér billedbeskrivelse / slet billede"
       make_profile_photo: "Gør til profilbillede"
       show_original_post: "Vis oprindeligt indlæg"
@@ -615,8 +615,8 @@ da:
       edit: "Redigér %{name}"
       leave_blank: "(Lad være tom hvis du ikke ønsker at ændre det)"
       password_to_confirm: "(Vi har brug for din nuværende adgangskode for at bekræfte dine ændringer)"
-      unhappy: Ulykkelig?
-      update: Opdatér
+      unhappy: "Ulykkelig?"
+      update: "Opdatér"
     new:
       create_my_account: "Opret min konto!"
       enter_email: "Indtast e-mail"
@@ -645,7 +645,7 @@ da:
       existing: "Eksisterende kontaktpersoner"
       manage_within: "Administrér kontaktpersoner indenfor"
     new_request_to_person:
-      sent: afsendt!
+      sent: "afsendt!"
   reshares:
     comment_email_subject: "%{resharer}s deling af %{author}s indlæg"
     create:
@@ -663,7 +663,7 @@ da:
       reshare_original: "Del original"
       reshared_via: "delt via"
       show_original: "Vis original"
-  search: Søg
+  search: "Søg"
   services:
     create:
       already_authorized: "En bruger med diaspora ID %{diaspora_id} har allerede godkendt den %{service_name} konto."
@@ -743,13 +743,13 @@ da:
       all: "alle"
       all_contacts: "alle kontaktpersoner"
       discard_post: "Kassér indlæg"
-      make_public: offentliggør
+      make_public: "offentliggør"
       new_user_prefill:
         hello: "Hej allesammen, jeg er #%{new_user_tag}. "
         i_like: "Jeg interesserer mig for %{tags}."
         invited_by: "Tak for invitationen, "
       post_a_message_to: "Send en besked til %{aspect}"
-      posting: Sender...
+      posting: "Sender..."
       publishing_to: "del med: "
       share: "Del"
       share_with: "Del med"
@@ -808,7 +808,7 @@ da:
     followed_tag:
       add_a_tag: "Tilføj et tag"
       contacts_title: "Personer der følger disse tags"
-      follow: Følg
+      follow: "Følg"
       title: "#Fulgte tags"
     followed_tags_stream: "#Fulgte tags"
     like_stream:
@@ -820,7 +820,7 @@ da:
       title: "Dine omtaler"
     multi:
       contacts_title: "Personer i din Strøm"
-      title: Strøm
+      title: "Strøm"
     public:
       contacts_title: "Seneste indlæg"
       title: "Offentlig Aktivitet"
@@ -858,7 +858,7 @@ da:
       sign_up_today: "Tilmeld dig i dag!"
       typical_userpage: "En typisk cubbi.es brugerside"
       what_is_cubbies: "Cubbi.es er verdens første Diaspora applikation. Det er også den bedste måde at samle billeder på nettet."
-  undo: Fortryd?
+  undo: "Fortryd?"
   username: "Brugernavn"
   users:
     confirm_email:
@@ -890,12 +890,12 @@ da:
       edit_account: "Rediger konto"
       email_awaiting_confirmation: "Vi har sendt dig et aktiveringslink til %{unconfirmed_email}. Indtil du følger dette link og aktiverer den nye adresse, vil vi fortsætte med at bruge din oprindelige adresse %{email}."
       export_data: "Eksportér data"
-      following: Følgeskabsindstillinger
+      following: "Følgeskabsindstillinger"
       getting_started: "Ny bruger opsætning"
       liked: "...nogen synes om dit indlæg?"
       mentioned: "...du er nævnt i et indlæg?"
       new_password: "Nyt adgangskode"
-      photo_export_unavailable: Følg
+      photo_export_unavailable: "Følg"
       private_message: "...du har modtaget en besked?"
       receive_email_notifications: "Modtag e-mail notifikation når..."
       reshared: "... nogen deler dit indlæg?"
@@ -911,9 +911,9 @@ da:
       hashtag_explanation: "Hashtags giver dig mulighed for at tale om og følge dine interesser. De er også en fantastisk måde at finde nye folk på diaspora."
       hashtag_suggestions: "Prøv med følgende tags som #kunst, #film, #gif, osv."
       hooking_up_fb: "forbind din Facebook-konto"
-      saved: Gemt!
+      saved: "Gemt!"
       we_can_speed_things_up: "Vi kan gøre det hele lidt hurtigere ved at"
-      well_hello_there: Hejsa!
+      well_hello_there: "Hejsa!"
       what_are_you_in_to: "Hvad er dine interesser?"
       what_facebook_does: "til diaspora. Dette vil hente dit navn og foto, samt gøre det muligt at skrive indlæg på tværs af platforme."
       who_are_you: "Hvem er du?"
@@ -947,7 +947,7 @@ da:
     no_person_constructed: "Ingen person kunne konstrueres fra dette hcard."
     not_enabled: "det ser ikke ud til at webfinger er aktiveret på %{account}s domæne"
     xrd_fetch_failed: "der opstod en fejl i forbindelse med hentning af xrd fra kontoen %{account}"
-  welcome: Velkommen!
+  welcome: "Velkommen!"
   will_paginate:
     next_label: "næste &raquo;"
     previous_label: "&laquo; forrige"

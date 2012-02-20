@@ -82,11 +82,11 @@ tr:
       minutes: "%d dakika"
       month: "yaklaşık 1 ay"
       months: "%d ay"
-      prefixAgo: önce
-      prefixFromNow: önce
+      prefixAgo: "önce"
+      prefixFromNow: "önce"
       seconds: "1 dakikadan az"
-      suffixAgo: önce
-      suffixFromNow: şimdi
+      suffixAgo: "önce"
+      suffixFromNow: "şimdi"
       year: "yaklaşık 1 yıl"
       years: "%d yıl"
     videos:

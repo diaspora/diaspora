@@ -58,7 +58,7 @@ nb:
       failure: "Kunne ikke legge kontakt til aspektet."
       success: "Kontakt lagt til aspekt."
     aspect_contacts:
-      done_editing: fullfør
+      done_editing: "fullfør"
     aspect_listings:
       add_an_aspect: "+ Lag et nytt aspekt"
       edit_aspect: "Rediger %{name}"
@@ -96,7 +96,7 @@ nb:
         learn_more: "Lær mer"
       diaspora_id:
         content_1: "Diaspora-ID-en din er:"
-        heading: Diaspora-ID
+        heading: "Diaspora-ID"
       donate: "Doner"
       handle_explanation: "This is your diaspora handle.  Like an email address, you can give this to people to reach you."
       help:
@@ -163,7 +163,7 @@ nb:
     many: "%{count} kommentarer"
     new_comment:
       comment: "Kommenter"
-      commenting: Kommenterer...
+      commenting: "Kommenterer..."
     one: "1 kommentar"
     other: "%{count} kommentarer"
     two: "%{count} kommentarer"
@@ -220,7 +220,7 @@ nb:
     show:
       delete: "slett og blokkér samtalen"
       reply: "svar"
-      replying: Svarer...
+      replying: "Svarer..."
   delete: "Slett"
   email: "Epost"
   error_messages:
@@ -260,7 +260,7 @@ nb:
       comma_seperated_plz: "Du kan skrive inn flere epostadresser delt med komma."
       if_they_accept_info: "Hvis de aksepterer, vil de bli lagt til i aspektet du valgte."
       invite_someone_to_join: "Inviter noen til Diaspora!"
-      language: Språk
+      language: "Språk"
       personal_message: "Personlig melding"
       resend: "Send på nytt"
       send_an_invitation: "Send en invitasjon"
@@ -464,9 +464,9 @@ nb:
       pending_request: "Venter på svar"
       thats_you: "Det er deg!"
     profile_sidebar:
-      born: født
+      born: "født"
       edit_my_profile: "Endre profilen min"
-      gender: kjønn
+      gender: "kjønn"
       in_aspects: "i aspekt"
       location: "sted"
       remove_contact: "fjern kontakt"
@@ -575,7 +575,7 @@ nb:
       edit: "Endre %{name}"
       leave_blank: "(La stå tom hvis du ikke ønsker å endre det)"
       password_to_confirm: "(vi trenger ditt nåværende passord for å bekrefte endringene)"
-      unhappy: Ulykkelig?
+      unhappy: "Ulykkelig?"
       update: "Oppdater"
     new:
       create_my_account: "Create my account"
@@ -586,7 +586,7 @@ nb:
       sign_up_message: "Social Networking with a <3"
   requests:
     create:
-      sending: Sending...
+      sending: "Sending..."
       sent: "Du har bedt om å dele med %{name}.  De burde se det neste gang de logger inn på Diaspora"
     destroy:
       error: "Velg et aspekt først!"
@@ -604,7 +604,7 @@ nb:
       existing: "Eksisterende kontakter"
       manage_within: "Administrer kontakter innen"
     new_request_to_person:
-      sent: sendt!
+      sent: "sendt!"
   reshares:
     create:
       failure: "Noe gikk galt med å dele dette innlegget."
@@ -621,7 +621,7 @@ nb:
       reshare_original: "Reshare orignial"
       reshared_via: "delt via"
       show_original: "Show Original"
-  search: Søk
+  search: "Søk"
   services:
     create:
       already_authorized: "En bruker med diaspora id %{diaspora_id} har alllerede autorisert denne %{service_name} kontoen."
@@ -701,7 +701,7 @@ nb:
         hello: "Hei alle sammen, jeg er #%{new_user_tag}. "
         i_like: "Jeg er interessert i %{tags}."
       post_a_message_to: "Post et innlegg til %{aspect}"
-      posting: Poster...
+      posting: "Poster..."
       publishing_to: "publiserer til:"
       share: "Del"
       share_with: "del med"
@@ -751,7 +751,7 @@ nb:
     comment_stream:
       contacts_title: "Personer hvis poster du har kommentert"
     followed_tag:
-      follow: Følg
+      follow: "Følg"
     like_stream:
       contacts_title: "Personer hvis poster du liker"
     mentions:
@@ -789,7 +789,7 @@ nb:
       sign_up_today: "Registrer deg nå!"
       typical_userpage: "En typisk cubbi.es brukerside"
       what_is_cubbies: "Cubbi.es er verdens første Diasporaapplikasjon. Det er også den beste måten å samle bilder på nettet."
-  undo: Angre?
+  undo: "Angre?"
   username: "Brukernavn"
   users:
     confirm_email:
@@ -833,7 +833,7 @@ nb:
       community_welcome: "Diaspora-felleskapet er glad for å ha deg med på laget!"
       hashtag_suggestions: "Prøv å følge tags som #art, #movies, #gif, osv."
       hooking_up_fb: "koble til din Facebook-konto"
-      saved: Lagret!
+      saved: "Lagret!"
       what_facebook_does: "to Diaspora. This will pull your name and photo, and enable cross-positng."
     logged_out:
       on_your_mobile_device: "på din mobile enhet for å logge på Diaspora* mobile."
@@ -861,4 +861,4 @@ nb:
     no_person_constructed: "Ingen personer kunne konstrueres fra dette hCard."
     not_enabled: "det virker ikke som webfinger er aktivert for % {account}'s vert"
     xrd_fetch_failed: "kunne ikke få xrd fra kontoen %{account}"
-  welcome: Velkommen!
+  welcome: "Velkommen!"

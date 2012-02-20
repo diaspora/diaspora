@@ -34,9 +34,9 @@ pl:
         arrived: "Sieć społecznościowa na którą czekałeś lub czekałaś właśnie stała się faktem. Przebudowana, bezpieczniejsza i zabawniejsza %{strong_diaspora} jest gotowa pomóc Ci dzielić się i odkrywać internet w zupełnie nowy sposób."
         be_yourself: "Bądź sobą"
         be_yourself_paragraph: "Internet dostarcza wiele zupełnie nowych sposobów wyrażania siebie. %{strong_diaspora} pozwala Ci być sobą i udostępniać cokolwiek chcesz, podając lub nie swoje prawdziwe imię i nazwisko."
-        cubbies: Cubbi.es
+        cubbies: "Cubbi.es"
         displaying_correctly: "Wiadomość nie jest wyświetlana prawidłowo? %{link}"
-        email_address: questions@joindiaspora.com
+        email_address: "questions@joindiaspora.com"
         email_us: "Pytania ogólne oraz zgłoszenia problemów z kontem na Diasporze należy kierować do nas na adres %{email}."
         finally: "Nareszcie - jest tutaj"
         friends_saying: "Co mówią Twoi znajomi..."
@@ -94,7 +94,7 @@ pl:
         bugs_and_feedback_mobile: "Informujemy o możliwości występowania błędów.  Zachęcamy do informowania o nich! Postaramy się jak najszybciej je zlikwidować. "
         login: "Zaloguj"
         modern_browsers: "obsługuje wyłącznie nowoczesne przeglądarki."
-        password: Hasło
+        password: "Hasło"
         remember_me: "Zapamiętaj mnie"
         sign_in: "Zaloguj się"
         username: "Nazwa użytkownika"

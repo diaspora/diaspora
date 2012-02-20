@@ -74,7 +74,7 @@ sl:
     tags:
       wasnt_that_interesting: "Vredu, mislim, da zaznamek #{{tagName}} ni bil tako zanimiv ..."
     timeago:
-      day: včeraj
+      day: "včeraj"
       days: "pred %d dnem"
       hour: "pred približno uro"
       hours: "pred približno %d urami"
@@ -82,7 +82,11 @@ sl:
       minutes: "pred %d minutami"
       month: "pred približno mesecem"
       months: "pred %d meseci"
+      prefixAgo: ""
+      prefixFromNow: ""
       seconds: "pred manj kot minuto"
+      suffixAgo: ""
+      suffixFromNow: ""
       year: "pred približno letom dni"
       years: "pred %d leti"
     videos:

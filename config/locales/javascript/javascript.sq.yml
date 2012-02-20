@@ -82,6 +82,8 @@ sq:
       minutes: "%d minuta"
       month: "rreth një muaj"
       months: "%d muaj"
+      prefixAgo: ""
+      prefixFromNow: ""
       seconds: "më pak se një minutë"
       suffixAgo: "më parë"
       suffixFromNow: "nga tani"

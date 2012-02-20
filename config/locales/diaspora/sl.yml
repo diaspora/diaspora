@@ -81,7 +81,7 @@ sl:
       aspect_list_is_not_visible: "seznam pogledov ni viden drugim stikom  pogleda"
       aspect_list_is_visible: "seznam pogledov je viden drugim stikom pogleda"
       confirm_remove_aspect: "Ali ste prepričani, da bi radi izbrisali ta pogled?"
-      done: Končano
+      done: "Končano"
       make_aspect_list_visible: "stiki v tem pogledu naj bodo vidni med sabo?"
       remove_aspect: "Izbriši ta pogled"
       rename: "preimenuj"
@@ -145,9 +145,9 @@ sl:
     other: "%{count} pogledov"
     seed:
       acquaintances: "Poznanstva"
-      family: Družina
+      family: "Družina"
       friends: "Prijatelji"
-      work: Služba
+      work: "Služba"
     selected_contacts:
       manage_your_aspects: "Urejanje pogledov."
       no_contacts: "Zaenkrat ste še brez stikov."
@@ -178,13 +178,13 @@ sl:
     heading: "Zaznamek"
     post_something: "Objavite nekaj na Diasporo"
     post_success: "Objavljeno! Zapiram!"
-  cancel: Prekliči
+  cancel: "Prekliči"
   comments:
     few: "%{count} komentarje"
     many: "%{count} komentarjev"
     new_comment:
       comment: "komentiraj"
-      commenting: komentiranje...
+      commenting: "komentiranje..."
     one: "1 komentar"
     other: "%{count} komentarjev"
     two: "%{count} komentarja"
@@ -237,8 +237,8 @@ sl:
       no_messages: "ni sporočil"
     new:
       abandon_changes: "Opusti spremembe?"
-      send: Pošlji
-      sending: Pošiljam...
+      send: "Pošlji"
+      sending: "Pošiljam..."
       subject: "zadeva"
       to: "za"
     new_message:
@@ -246,9 +246,9 @@ sl:
     show:
       delete: "izbriši in blokiraj pogovor"
       reply: "odgovori"
-      replying: Odgovarjam...
-  delete: Izbriši
-  email: E-pošta
+      replying: "Odgovarjam..."
+  delete: "Izbriši"
+  email: "E-pošta"
   error_messages:
     helper:
       correct_the_following_errors_and_try_again: "Popravite naslednje napake  in poskusite znova."
@@ -263,7 +263,7 @@ sl:
       choice_explanation: "V omrežju Diaspora lahko vaše stike razvrščate s pomočjo pogledov. Pogledi kot takšni so unikatni in vam omogočajo, da so vaše slike, zgodbe in šale dostopne le osebam katerim ste jih namenili."
       learn_about_host: "Preberite več o tem, kako gostiti lasten Diaspora  strežnik."
       login_here: "prijavite se tukaj"
-      ownership: Lastništvo
+      ownership: "Lastništvo"
       ownership_explanation: "Vaše slike so vaša last in zato je prav, da jih lahko delite, ne da bi jih s tem komerkoli posredovali. Vsebina, ki jo delite v  omrežju Diaspora, se ohrani v vaši lasti, kot tudi kontrola nad distribucijo le-te."
       share_what_you_want: "Delite kar želite, s komerkoli želite."
       simplicity: "Preprostost"
@@ -336,7 +336,7 @@ sl:
         two: "%{count} osebama je všeč"
         zero: "nobenemu ni všeč"
   limited: "Omejeno"
-  more: Več
+  more: "Več"
   next: "naslednja"
   no_results: "Ni zadetkov"
   notifications:
@@ -379,7 +379,7 @@ sl:
         two: "in %{count} druga"
         zero: "in nihče drug"
       mark_all_as_read: "Označi vse kot prebrano"
-      notifications: Sporočila
+      notifications: "Sporočila"
     liked:
       few: "%{actors} so pravkar všečkali vašo %{post_link}."
       many: "%{actors} jih je pravkar všečkalo vašo %{post_link}."
@@ -438,7 +438,7 @@ sl:
       two: "%{actors} sta začela deliti z vami."
       zero: "%{actors} jih ni začelo deliti z vami."
   notifier:
-    a_post_you_shared: objava.
+    a_post_you_shared: "objava."
     click_here: "kliknite tukaj"
     comment_on_post:
       reply: "Odgovorite ali poglejte objavo osebe %{name} >"
@@ -494,7 +494,7 @@ sl:
       pending_request: "Čakajoče zahteve"
       thats_you: "To ste vi!"
     profile_sidebar:
-      bio: Življenjepis
+      bio: "Življenjepis"
       born: "datum rojstva"
       edit_my_profile: "Uredi moj profil"
       gender: "spol"
@@ -509,7 +509,7 @@ sl:
       ignoring: "Vi ignorirate vse prispevke osebe %{name}."
       incoming_request: "%{name} želi deliti z vami."
       mention: "Omemba"
-      message: Sporočilo
+      message: "Sporočilo"
       not_connected: "S to osebo ne delite"
       recent_posts: "Zadnje objave"
       recent_public_posts: "Zadnje javne objave"
@@ -538,7 +538,7 @@ sl:
     new:
       back_to_list: "Nazaj na seznam"
       new_photo: "Nova slika"
-      post_it: objavi!
+      post_it: "objavi!"
     new_photo:
       empty: "Datoteka {file} je prazna, prosimo ponovno izberite datoteke brez  nje."
       invalid_ext: "Datoteka {file} ni veljavna. Dovoljene so samo naslednje  vrste datotek {extensions}."
@@ -560,7 +560,7 @@ sl:
       notice: "Slika uspešno posodobljena."
   posts:
     show:
-      destroy: Izbriši
+      destroy: "Izbriši"
       not_found: "Oprostite, te objave nismo mogli najti."
       photos_by:
         few: "%{count} photos by %{author}"
@@ -569,7 +569,7 @@ sl:
         other: "%{count} photos by %{author}"
         two: "Two photos by %{author}"
         zero: "No photos by %{author}"
-  previous: prejšnja
+  previous: "prejšnja"
   privacy: "Zasebnost"
   privacy_policy: "Pravila o zasebnosti"
   profile: "Profil"
@@ -622,7 +622,7 @@ sl:
       sign_up_message: "Socialno omrežje s <3"
   requests:
     create:
-      sending: Pošiljam
+      sending: "Pošiljam"
       sent: "%{name} ste vprašali, če bi delili z vami. Vaše vprašanje bodo  videli, ko se bodo prijavili v Diasporo."
     destroy:
       error: "Prosim izberite skupino!"
@@ -640,7 +640,7 @@ sl:
       existing: "Obstoječi stiki"
       manage_within: "Uredi stike znotraj"
     new_request_to_person:
-      sent: poslano!
+      sent: "poslano!"
   reshares:
     comment_email_subject: "%{resharer} je delil objavo od osebe %{author}"
     create:
@@ -744,7 +744,7 @@ sl:
         i_like: "Zanimajo me naslednje oznake %{tags}."
         invited_by: "Hvala za povabilo,"
       post_a_message_to: "Objavi sporočilo v %{aspect}"
-      posting: Objavljam...
+      posting: "Objavljam..."
       publishing_to: "objavljanje do: "
       share: "Objavi"
       share_with: "deli s/z"
@@ -762,7 +762,7 @@ sl:
       like: "Več mi je"
       nsfw: "To objavo je avtor označil kot neprimerno za delo. %{link}"
       shared_with: "Deljeno z: %{aspect_names}"
-      show: prikaži
+      show: "prikaži"
       unlike: "Ni mi všeč"
       via: "preko %{link}"
       viewable_to_anyone: "Ta objava je vidna vsakomur na spletu"
@@ -852,7 +852,7 @@ sl:
       typical_userpage: "Tipična uporabniška stran cubbi.es"
       via: "(preko %{link})"
       what_is_cubbies: "Cubbi.es je prva aplikacija  Diaspore na svetu. Ta aplikacija je tudi najboljši način za zbiranje fotografij na spletu."
-  undo: Razveljavi?
+  undo: "Razveljavi?"
   username: "Uporabniško ime"
   users:
     confirm_email:
@@ -906,7 +906,7 @@ sl:
       hashtag_explanation: "Oznake vam omogočajo, da govorite in sledite vašim interesom. So tudi dober način za iskanje novih ljudi na Diaspori."
       hashtag_suggestions: "Poskusite lahko oznake, kot so #art, #movies, #gif in podobno."
       hooking_up_fb: "povezavo vašega Facebook računa"
-      saved: Shranjeno!
+      saved: "Shranjeno!"
       we_can_speed_things_up: "Mi lahko malo pospešimo stvari z"
       well_hello_there: "No, Pozdravljeni!"
       what_are_you_in_to: "Kaj vas zanima?"
@@ -940,7 +940,7 @@ sl:
     no_person_constructed: "Iz te 'hCard' kartice ni bilo mogoče razpoznati nobene osebe."
     not_enabled: "račun gostitelja (host) %{account} se ne odziva na  'webfinger' protokol"
     xrd_fetch_failed: "pri pridobivanju 'XRD' iz uporabniškega računa  %{account} je prišlo do napake"
-  welcome: Dobrodošli!
+  welcome: "Dobrodošli!"
   will_paginate:
     next_label: "naslednja &raquo;"
     previous_label: "&laquo; prejšnja"

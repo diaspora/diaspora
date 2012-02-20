@@ -26,7 +26,7 @@ it:
     mailer:
       confirmation_instructions:
         confirm: "Conferma il mio account"
-        subject: "Istruzioni di conferma"
+        subject: "Istruzioni per la conferma"
         you_can_confirm: "Puoi confermare il tuo account attraverso il link sottostante:"
       hello: "Ciao %{email}!"
       invitation_instructions:
@@ -34,14 +34,14 @@ it:
         arrived: "Il social network che stavi aspettando è arrivato. Rinnovato, più sicuro e più divertente, %{strong_diaspora} è pronto ad aiutarti nel condividere ed esplorare la rete in un modo tutto nuovo."
         be_yourself: "Sii te stesso"
         be_yourself_paragraph: "Internet ha creato nuovi modi per poterci esprimere. %{strong_diaspora} ti permette di essere te stesso e di condividere come vuoi tu, con o senza il tuo vero nome."
-        cubbies: Cubbi.es
+        cubbies: "Cubbi.es"
         displaying_correctly: "L'email non compare correttamente? %{link}"
-        email_address: questions@joindiaspora.com
+        email_address: "questions@joindiaspora.com"
         email_us: "Per domande generali e per avere aiuto riguardo al tuo account Diaspora, scrivi pure a %{email}."
         finally: "Finalmente - è qui"
         friends_saying: "Cosa dicono i tuoi amici..."
         get_connected: "Connettiti"
-        get_connected_paragraph: "Una comunità internazionale, con una visione condivisa per un web migliore, la funzionalità n°1 di %{strong_diaspora} è la sua community. Trova persone nuove, stai in contatto con gli amici e divertiti."
+        get_connected_paragraph: "Una comunità internazionale, con una visione condivisa per un web migliore: la funzionalità n°1 di %{strong_diaspora} è la sua community. Trova persone nuove, stai in contatto con gli amici e divertiti."
         have_fun: "Divertiti"
         have_fun_paragraph: "%{strong_diaspora} è fatta per sorprenderti con nuovi contenuti e nuove persone online. %{link}, la prima applicazione al mondo per %{strong_diaspora}, è solo l'inizio. Colleziona e condividi quel che trovi in rete in tutto il suo splendore."
         help_fund: "aiuta a finanziare Diaspora"
@@ -65,9 +65,9 @@ it:
       reset_password_instructions:
         change: "Cambia la mia password"
         ignore: "Se non hai effettuato la richiesta, per favore ignora questa email."
-        someone_requested: "qualcuno ha richiesto un link per cambiare la tua password, puoi farlo cliccando sul link sottostante."
+        someone_requested: "Qualcuno ha richiesto un link per cambiare la tua password, puoi farlo cliccando sul link sottostante."
         subject: "Istruzioni per reimpostare la password"
-        wont_change: "La tua password non verrà cambiata finché non visiti il link sopra e ne crei una nuova."
+        wont_change: "La tua password non verrà cambiata finché non visiterai il link creandone una nuova."
       unlock_instructions:
         account_locked: "Il tuo account è stato bloccato per i troppi tentativi di accesso falliti."
         click_to_unlock: "Clicca il link sottostante per sbloccare il tuo account:"

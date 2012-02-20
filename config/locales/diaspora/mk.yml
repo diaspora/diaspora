@@ -5,10 +5,10 @@
 
 
 mk:
-  _comments: Коментари
-  _home: Дома
-  _photos: фотографии
-  _services: Сервиси
+  _comments: "Коментари"
+  _home: "Дома"
+  _photos: "фотографии"
+  _services: "Сервиси"
   account: "Корисничка сметка"
   activerecord:
     errors:
@@ -40,7 +40,7 @@ mk:
     few: "%{count} aspects"
     helper:
       aspect_not_empty: "Аспектот не е празен"
-      remove: одстрани
+      remove: "одстрани"
     index:
       handle_explanation: "Ова е вашето diaspora корисничко име. Исто како е-маил адреса, можете да го давате на луѓе за да се сврзат со вас."
       help:
@@ -64,26 +64,26 @@ mk:
     one: "1 aspect"
     other: "%{count} aspects"
     seed:
-      family: Фамилија
-      work: Работа
+      family: "Фамилија"
+      work: "Работа"
     show:
       edit_aspect: "уреди аспект"
     two: "%{count} aspects"
     update:
       success: "Вашиот аспект, %{name}, беше успешно уреден."
     zero: "no aspects"
-  back: Назад
+  back: "Назад"
   bookmarklet:
     explanation: "%{link} from anywhere by bookmarking this link."
     explanation_link_text: "Post to Diaspora"
     heading: "Diaspora Bookmarklet"
-  cancel: Откажи
+  cancel: "Откажи"
   comments:
     few: "%{count} comments"
     many: "%{count} comments"
     new_comment:
-      comment: Коментар
-      commenting: Коментирање...
+      comment: "Коментар"
+      commenting: "Коментирање..."
   contacts:
     few: "%{count} contacts"
     index:
@@ -98,8 +98,8 @@ mk:
         other: "%{count} new messages"
         two: "%{count} new messages"
         zero: "no new messages"
-  delete: Избриши
-  email: Е-маил
+  delete: "Избриши"
+  email: "Е-маил"
   error_messages:
     helper:
       correct_the_following_errors_and_try_again: "Поправете ги следниве грешки и обидете се повторно."
@@ -109,14 +109,14 @@ mk:
   home:
     show:
       already_account: "веќе имате корисничка сметка?"
-      choice: Избор
+      choice: "Избор"
       choice_explanation: "Diaspora ви овозможува сортирање на вашите врски во групи наречени аспекти. Особеност на Diaspora, аспектите осигураат дека вашите слики, стории и шеги се споделени само со луѓето кои вие ќе ги назначите."
       learn_about_host: "Научете како вие можете да хостирате Diaspora сервер."
       login_here: "најави се овде"
-      ownership: Сопственост
+      ownership: "Сопственост"
       ownership_explanation: "Вие ги поседувате вашите слики, и не треба да се откажете од нивната сопственост само за да ги споделите. Во Diaspora секоја содржина која ја споделувате останува во ваша сопственост, давајќи ви целосна контрола врз начинот на нејзиното ширење."
       share_what_you_want: "Споделувајте се што сакате, со оние кои вие ги изберете."
-      simplicity: Едноставност
+      simplicity: "Едноставност"
       simplicity_explanation: "Diaspora овозможува споделување кое е чисто и едноставно - ова се однесува и за приватноста. Благодарение на вградената приватност, Diaspora не ве тера да пребарувате низ страници со подесувања и опции само за да си го заштитите профилот."
   invitations:
     check_token:
@@ -131,12 +131,12 @@ mk:
       invite_someone_to_join: "Поканете некој да се придружи на Diaspora!"
       send_an_invitation: "Испрати покана"
       send_invitation: "Испрати покана"
-      to: До
+      to: "До"
   layouts:
     application:
       toggle: "toggle mobile site"
     header:
-      blog: блог
+      blog: "блог"
       login: "најави се"
       logout: "одјави се"
       profile: "profile"
@@ -271,9 +271,9 @@ mk:
       subject: "A message from your Diaspora administrator:"
     started_sharing:
       subject: "%{name} has started sharing with you on Diaspora*"
-  ok: ОК
-  or: или
-  password: Лозинка
+  ok: "ОК"
+  or: "или"
+  password: "Лозинка"
   password_confirmation: "Потврда на лозинка"
   people:
     few: "%{count} people"
@@ -291,10 +291,10 @@ mk:
       pending_request: "престоечко барање"
       thats_you: "тоа си ти!"
     profile_sidebar:
-      bio: биографија
-      born: роденден
+      bio: "биографија"
+      born: "роденден"
       edit_my_profile: "Уреди го мојот профил"
-      gender: пол
+      gender: "пол"
       in_aspects: "во аспекти"
       remove_contact: "одстрани контакт"
       remove_from: "Одстрани %{name} од %{aspect}?"
@@ -308,11 +308,11 @@ mk:
     destroy:
       notice: "Сликата е избришана."
     edit:
-      editing: Уредување
+      editing: "Уредување"
     new:
       back_to_list: "Назад кон листа"
       new_photo: "Нова слика"
-      post_it: објави!
+      post_it: "објави!"
     new_photo:
       empty: "{file} е празен, изберете датотеки без него."
       invalid_ext: "{file} има невалидна екстензија. Само овие {extensions} се дозволени."
@@ -321,7 +321,7 @@ mk:
       view_all: "погледни ги сите слики на %{name}"
     show:
       delete_photo: "Избриши слика"
-      edit: уреди
+      edit: "уреди"
       edit_delete_photo: "Уреди опис на слика/избриши слика"
       make_profile_photo: "направи ја профил слика"
       update_photo: "Ажурирај слика"
@@ -337,7 +337,7 @@ mk:
         other: "%{count} photos by %{author}"
         two: "Two photos by %{author}"
         zero: "No photos by %{author}"
-  profile: Профил
+  profile: "Профил"
   profiles:
     edit:
       your_tags: "You: in 5 #tags"
@@ -358,15 +358,15 @@ mk:
       edit: "Уреди %{name}"
       leave_blank: "(оставете го празно ако не сакате да го измените)"
       password_to_confirm: "(потребна е вашата тековна лозинка за потврдување на измените)"
-      unhappy: Незадоволни?
-      update: Ажурирај
+      unhappy: "Незадоволни?"
+      update: "Ажурирај"
     new:
       create_my_account: "Create my account"
       enter_email: "Enter an e-mail"
       sign_up_message: "Social Networking with a <3"
   requests:
     create:
-      sending: Испраќање
+      sending: "Испраќање"
     destroy:
       error: "Ве молиме изберете аспект!"
       ignore: "Игнорирано контакт барање."
@@ -383,7 +383,7 @@ mk:
       existing: "Постоечки контакти"
       manage_within: "Менаџирај контакти во"
     new_request_to_person:
-      sent: испратено!
+      sent: "испратено!"
   reshares:
     reshare:
       reshare:
@@ -396,7 +396,7 @@ mk:
       reshare_confirmation: "Reshare %{author} - %{text}?"
       reshare_original: "Reshare orignial"
       show_original: "Show Original"
-  search: Барај
+  search: "Барај"
   services:
     create:
       success: "Автентификацијата е успешна!"
@@ -405,12 +405,12 @@ mk:
     index:
       connect_to_facebook: "Конектирај се со facebook"
       connect_to_twitter: "Конектирај се со twitter"
-      disconnect: прекини
+      disconnect: "прекини"
       logged_in_as: "најавен како"
       really_disconnect: "прекини %{service}?"
     inviter:
       click_link_to_accept_invitation: "Click this link to accept your invitation"
-  settings: Подесувања
+  settings: "Подесувања"
   shared:
     add_contact:
       create_request: "Најди според Diaspora корисничко име"
@@ -440,14 +440,14 @@ mk:
       outside: "Јавните пораки ќе бидат достапни за сите кои се надвор од Diaspora."
       title: "На пат сте да испратите јавна порака!"
     publisher:
-      all: сите
+      all: "сите"
       all_contacts: "сите контакти"
       make_public: "направи јавен"
       new_user_prefill:
         i_like: "I'm interested in %{tags}."
       post_a_message_to: "Додај порака во %{aspect}"
-      posting: Објавување...
-      share: Сподели
+      posting: "Објавување..."
+      share: "Сподели"
       share_with: "Сподели со %{aspect}"
       whats_on_your_mind: "what's on your mind?"
     reshare:

@@ -6,7 +6,7 @@
 
 lt:
   _comments: "Komentarai"
-  _home: Pradžia
+  _home: "Pradžia"
   _photos: "Nuotraukos"
   _services: "Paslaugos"
   account: "Paskyra"
@@ -41,7 +41,7 @@ lt:
     few: "%{count} aspects"
     helper:
       aspect_not_empty: "Aspektas netuščias"
-      remove: šalinti
+      remove: "šalinti"
     index:
       handle_explanation: "Tai tavo identifikatorius Diaspora tinkle. Jis, kaip ir el. pašto adresas, leidžia kitiems žmonėms susisiekti su jumis."
       help:
@@ -65,7 +65,7 @@ lt:
     one: "1 aspect"
     other: "%{count} aspects"
     seed:
-      family: Šeima
+      family: "Šeima"
       work: "Darbas"
     show:
       edit_aspect: "keisti aspektą"
@@ -78,7 +78,7 @@ lt:
     explanation: "%{link} from anywhere by bookmarking this link."
     explanation_link_text: "Post to Diaspora"
     heading: "Diaspora Bookmarklet"
-  cancel: Atšaukti
+  cancel: "Atšaukti"
   comments:
     few: "%{count} comments"
     many: "%{count} comments"
@@ -99,13 +99,13 @@ lt:
         other: "%{count} new messages"
         two: "%{count} new messages"
         zero: "Nėra naujų pranešimų"
-  delete: Šalinti
+  delete: "Šalinti"
   email: "El. paštas"
   error_messages:
     helper:
       correct_the_following_errors_and_try_again: "Ištaisyk šias klaidas ir bandyk vėl."
       invalid_fields: "Neteisingi laukai"
-  fill_me_out: Užpildyk
+  fill_me_out: "Užpildyk"
   find_people: "Find people"
   home:
     show:
@@ -114,7 +114,7 @@ lt:
       choice_explanation: "Diaspora tau leidžia tvarkyti susijungimus naudojant vadinamuosius aspektus. Unikaliai Diasporai, aspektai garantuoja, kad tavo nuotraukos, istorijos ir pokštai yra prieinamos tik žmonėms, kuriuos tu pasirinkai."
       learn_about_host: "Sužinok, kaip paleisti savo paties Diasporos serverį"
       login_here: "prisijunk čia"
-      ownership: Nuosavybė
+      ownership: "Nuosavybė"
       ownership_explanation: "Tau priklauso tavo nuotraukos, ir tu neturėtum atsisakyti nuosavybės vien dėl to, kad jomis pasidalinai. Tau priklauso viskas, kuo daliniesi Diasporoje. Tai duoda tau visišką platinimo kontrolę."
       share_what_you_want: "Dalykis, kuo tik nori, su kuo tik nori."
       simplicity: "Paprastumas"
@@ -139,7 +139,7 @@ lt:
       powered_by: "TINKLAPĮ LEIDŽIA DIASPORA*"
       toggle: "toggle mobile site"
     header:
-      blog: blog'as
+      blog: "blog'as"
       login: "prisijungti"
       logout: "atsijungti"
       profile: "profile"
@@ -277,7 +277,7 @@ lt:
       subject: "%{name} has started sharing with you on Diaspora*"
   ok: "gerai"
   or: "arba"
-  password: Slaptažodis
+  password: "Slaptažodis"
   password_confirmation: "Slaptažodžio patvirtinimas"
   people:
     few: "%{count} people"
@@ -318,7 +318,7 @@ lt:
     new:
       back_to_list: "Atgal į sąrašą"
       new_photo: "Nauja nuotrauka"
-      post_it: paskelbti!
+      post_it: "paskelbti!"
     new_photo:
       empty: "{file} yra tuščias, pasirink failus iš naujo."
       invalid_ext: "{file} turi neteisingą galūnę. Yra leidžiamos tik {extensions}."
@@ -364,7 +364,7 @@ lt:
       edit: "Redaguoti %{name}"
       leave_blank: "(palik tuščią, jei nenori pakeisti)"
       password_to_confirm: "(tavo slaptažodis reikalingas, kad patvirtintume pakeitimus)"
-      unhappy: Nesmagu?
+      unhappy: "Nesmagu?"
       update: "Atnaujinimas"
     new:
       create_my_account: "Create my account"
@@ -375,11 +375,11 @@ lt:
       sign_up_message: "Social Networking with a <3"
   requests:
     create:
-      sending: Siunčiama
+      sending: "Siunčiama"
     destroy:
       error: "Pasirink aspektą!"
       ignore: "Ignoruotas prašymas draugauti."
-      success: Susidraugavai.
+      success: "Susidraugavai."
     helper:
       new_requests:
         few: "%{count} new requests!"
@@ -392,7 +392,7 @@ lt:
       existing: "Egzistuojantys kontaktai"
       manage_within: "Valdyti kontaktus ties"
     new_request_to_person:
-      sent: išsiųsta!
+      sent: "išsiųsta!"
   reshares:
     reshare:
       reshare:
@@ -405,7 +405,7 @@ lt:
       reshare_confirmation: "Reshare %{author} - %{text}?"
       reshare_original: "Reshare orignial"
       show_original: "Show Original"
-  search: Paieška
+  search: "Paieška"
   services:
     create:
       success: "Prijungimas sėkmingas."
@@ -423,7 +423,7 @@ lt:
   shared:
     add_contact:
       create_request: "Rask pagal Diaspora naudotojo vardą"
-      diaspora_handle: diaspora@handle.org
+      diaspora_handle: "diaspora@handle.org"
       enter_a_diaspora_username: "Įveskite naudotojo vardą:"
       your_diaspora_username_is: "Tavo Diaspora tinklo naudotojo vardas yra: %{diaspora_handle}"
     aspect_dropdown:
@@ -453,11 +453,11 @@ lt:
     publisher:
       all: "viskas"
       all_contacts: "visi kontaktai"
-      make_public: paviešinti
+      make_public: "paviešinti"
       new_user_prefill:
         i_like: "I'm interested in %{tags}."
       post_a_message_to: "Parašyti žinutę į aspektą \"%{aspect}\""
-      posting: Rašoma...
+      posting: "Rašoma..."
       share: "Skelbti"
       share_with: "Skelbti aspekte \"%{aspect}\""
       whats_on_your_mind: "what's on your mind?"

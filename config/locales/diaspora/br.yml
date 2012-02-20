@@ -5,10 +5,10 @@
 
 
 br:
-  _comments: Embannoù
-  _home: Kêr
-  _photos: fotoioù
-  _services: Servijoù
+  _comments: "Embannoù"
+  _home: "Kêr"
+  _photos: "fotoioù"
+  _services: "Servijoù"
   account: "Kont"
   activerecord:
     errors:
@@ -44,7 +44,7 @@ br:
       updating: "o nevesaat"
     few: "%{count} arvez"
     helper:
-      remove: skarzhañ
+      remove: "skarzhañ"
     index:
       handle_explanation: "Ar postel-mañ zo ho skor diaspora. E-giz ur chomlec'h-postel e c'hellit skignat anezhañ a-benn bezañ kavet gant an dud."
       help:
@@ -69,14 +69,14 @@ br:
       work: "Labour"
     two: "%{count} aspects"
     zero: "arvez ebet"
-  back: Distreiñ
+  back: "Distreiñ"
   bookmarklet:
     explanation: "%{link} adalek pep lec'h dre lakaat al liamm-se e-barzh ho sinedoù."
     explanation_link_text: "Embann e-barzh Diaspora"
     heading: "Diaspora Bookmarklet"
     post_something: "Embann un dra bennak e-barzh Diaspora"
     post_success: "Embannet! O serriñ!"
-  cancel: Nullañ
+  cancel: "Nullañ"
   comments:
     few: "%{count} embann"
     many: "%{count} embann"
@@ -106,7 +106,7 @@ br:
         zero: "kemenadenn nevez ebet"
     index:
       create_a_new_message: "sevel ur gemennadenn nevez"
-      inbox: Boest-lizhiri
+      inbox: "Boest-lizhiri"
       new_message: "Kemennadenn Nevez"
       no_messages: "kemennadenn ebet"
     new:
@@ -115,7 +115,7 @@ br:
       to: "da"
     show:
       reply: "respont"
-  delete: Skarzhañ
+  delete: "Skarzhañ"
   email: "Postel"
   find_people: "Find people"
   hide: "Kuzhaat"
@@ -140,7 +140,7 @@ br:
       login: "login"
       logout: "mont kuit"
       profile: "patrom"
-      settings: dibaboù
+      settings: "dibaboù"
   likes:
     likes:
       people_dislike_this:
@@ -164,7 +164,7 @@ br:
         other: "%{count} likes"
         two: "%{count} likes"
         zero: "no likes"
-  more: Muioc'h
+  more: "Muioc'h"
   no_results: "Disoc'h Ebet"
   notifications:
     also_commented:
@@ -273,7 +273,7 @@ br:
       subject: "%{name} has started sharing with you on Diaspora*"
   ok: "MAT EO"
   or: "pe"
-  password: Ger-kuzh
+  password: "Ger-kuzh"
   password_confirmation: "Kadarnaat ar ger-kuzh"
   people:
     few: "%{count} people"
@@ -282,7 +282,7 @@ br:
     other: "%{count} people"
     profile_sidebar:
       bio: "buhez"
-      born: deiziad-ganidigezh
+      born: "deiziad-ganidigezh"
       gender: "reizh"
       location: "chomaj"
       remove_contact: "skarzhañ an darempred"
@@ -299,14 +299,14 @@ br:
     new:
       back_to_list: "Distreiñ da'r rollad"
       new_photo: "Foto Nevez"
-      post_it: postit!
+      post_it: "postit!"
     new_profile_photo:
       upload: "Kas ur poltred nevez!"
     photo:
       view_all: "sellet ouzh an holl fotoioù gant %{name}"
     show:
       delete_photo: "Skarzhañ ar Foto"
-      edit: kemmañ
+      edit: "kemmañ"
       edit_delete_photo: "Kemmañ deskrivadenn ar foto / skarzhañ ar foto"
       make_profile_photo: "lakaat e-giz poltred"
       update_photo: "Nevesaat ar Foto"
@@ -321,12 +321,12 @@ br:
         other: "%{count} photos by %{author}"
         two: "Two photos by %{author}"
         zero: "No photos by %{author}"
-  previous: war-raok
+  previous: "war-raok"
   profile: "Patrom"
   profiles:
     edit:
       edit_profile: "Kempenn ar patrom"
-      last_name: Anv-familh
+      last_name: "Anv-familh"
       your_bio: "Ho puhez"
       your_birthday: "Ho teiziad-ganidigezh"
       your_gender: "Ho reizh"
@@ -370,7 +370,7 @@ br:
         two: "%{count} new requests!"
         zero: "no new requests"
     new_request_to_person:
-      sent: kaset!
+      sent: "kaset!"
   reshares:
     reshare:
       reshare:
@@ -393,7 +393,7 @@ br:
   shared:
     add_contact:
       create_request: "Klask diwar ar skor Diaspora"
-      diaspora_handle: diaspora@handle.org
+      diaspora_handle: "diaspora@handle.org"
       your_diaspora_username_is: "Setu hoc'h anv-implijer war Diaspora: %{diaspora_handle}"
     aspect_dropdown:
       add_to_aspect: "Add to aspect"
@@ -411,7 +411,7 @@ br:
       from_facebook: "Diwar Facebook"
       invitations_left: "(%{count} a chom deoc'h)"
       invite_your_friends: "Klaskit mignoned"
-      invites: Pedadennoù
+      invites: "Pedadennoù"
     public_explain:
       title: "You are about to post a public message!"
     publisher:
@@ -425,7 +425,7 @@ br:
       share: "Kas"
       whats_on_your_mind: "petra zo e-barzh ho penn?"
     reshare:
-      reshare: Adkevrennañ
+      reshare: "Adkevrennañ"
     stream_element:
       dislike: "Ne blij ket din"
       hide_and_mute: "Hide and Mute"
@@ -472,14 +472,14 @@ br:
     show:
       connecting_is_simple: "Connecting your Diaspora account is as simple as filling out two fields on your Cubbi.es account page."
   undo: "Mont war-gil?"
-  username: Anv-implijer
+  username: "Anv-implijer"
   users:
     confirm_email:
       email_confirmed: "E-Mail %{email} activated"
       email_not_confirmed: "E-Mail could not be activated. Wrong link?"
     edit:
       auto_follow_back: "Automatically follow back if a someone follows you"
-      change: Cheñch
+      change: "Cheñch"
       change_email: "Change E-Mail"
       change_language: "Cheñch Yezh"
       change_password: "Cheñch ar Ger-Kuzh"

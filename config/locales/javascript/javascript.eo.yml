@@ -85,6 +85,8 @@ eo:
       prefixAgo: "antaŭ "
       prefixFromNow: "post "
       seconds: "malpli ol unu minuto"
+      suffixAgo: ""
+      suffixFromNow: ""
       year: "ĉirkaŭ unu jaro"
       years: "%d jaroj"
     videos:

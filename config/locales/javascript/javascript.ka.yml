@@ -74,7 +74,7 @@ ka:
     tags:
       wasnt_that_interesting: "კარგი, მე ვფიქრობ რომ #{{tagName}} არც ისე საინტერესო იყო..."
     timeago:
-      day: დღე
+      day: "დღე"
       days: "%d დღე"
       hour: "დაახლოებით ერთი საათი"
       hours: "დაახლოებით %d საათი"
@@ -85,8 +85,8 @@ ka:
       prefixAgo: "javascripts:timeago:prefixAgo"
       prefixFromNow: "javascripts:timeago:prefixFromNow"
       seconds: "წუთზე ნაკლები"
-      suffixAgo: წინ
-      suffixFromNow: ამიერიდან
+      suffixAgo: "წინ"
+      suffixFromNow: "ამიერიდან"
       year: "დაახლოებით ერთი წელი"
       years: "%d წელი"
     videos:

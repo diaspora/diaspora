@@ -63,7 +63,7 @@ lt:
         bugs_and_feedback: "Naudojantis gali pasitaikyti klaidų. Apie pasitaikiusius nesklandumus galima praneštis naudojantis mygtuku naršyklės dešinėje. Klaidas stengsimės ištaisyti kuo skubiau."
         login: "Prisijungti"
         modern_browsers: "palaiko tik modernias naršykles."
-        password: Slaptažodis
+        password: "Slaptažodis"
         remember_me: "Prisiminti"
         sign_in: "Prisijungti"
         username: "Vartotojo vardas"

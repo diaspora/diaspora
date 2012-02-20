@@ -9,7 +9,7 @@ vi:
   _comments: "Bình luận"
   _contacts: "Liên lạc"
   _home: "Trang chủ"
-  _photos: ảnh
+  _photos: "ảnh"
   _services: "Dịch vụ"
   account: "Tài khoản"
   activerecord:
@@ -133,7 +133,7 @@ vi:
       error: "Lỗi khi dời liên lạc: %{inspect}"
       success: "Đã chuyển người sang mối quan hệ mới"
     new:
-      create: Tạo
+      create: "Tạo"
       name: "Tên (chỉ bạn nhìn thấy)"
     no_contacts_message:
       community_spotlight: "nổi bật từ cộng đồng"
@@ -233,17 +233,17 @@ vi:
       no_messages: "không có tin nhắn"
     new:
       abandon_changes: "Huỷ bỏ thay đổi?"
-      send: Gửi
+      send: "Gửi"
       sending: "Đang gửi..."
       subject: "tựa đề"
-      to: đến
+      to: "đến"
     new_message:
       fail: "Tin nhắn không hợp lệ"
     show:
       delete: "xóa và khóa cuộc trò chuyện"
       reply: "trả lời"
       replying: "Đang trả lời..."
-  delete: Xóa
+  delete: "Xóa"
   email: "Thư điện tử"
   error_messages:
     helper:
@@ -251,7 +251,7 @@ vi:
       invalid_fields: "Trường không hợp lệ"
   fill_me_out: "Điền đầy đủ"
   find_people: "Tìm người hoặc #tags"
-  hide: Ẩn
+  hide: "Ẩn"
   home:
     show:
       already_account: "đã có tài khoản?"
@@ -277,7 +277,7 @@ vi:
       resend: "Gửi lại"
       send_an_invitation: "Gửi một lời mời"
       send_invitation: "Gửi lời mời"
-      to: Đến
+      to: "Đến"
   layouts:
     application:
       toggle: "chuyển sang di động"
@@ -349,7 +349,7 @@ vi:
         two: "%{count} thông báo mới"
         zero: "Không có thông báo mới"
     index:
-      and: và
+      and: "và"
       and_others:
         few: "and %{count} others"
         many: "and %{count} others"
@@ -438,15 +438,15 @@ vi:
   profiles:
     edit:
       edit_profile: "Chỉnh sửa hồ sơ"
-      first_name: Tên
-      last_name: Họ
+      first_name: "Tên"
+      last_name: "Họ"
       update_profile: "Cập nhật hồ sơ"
       your_bio: "Tiểu sử"
       your_birthday: "Ngày sinh"
       your_gender: "Giới tính"
       your_location: "Nơi sinh sống"
-      your_name: Tên
-      your_photo: Ảnh
+      your_name: "Tên"
+      your_photo: "Ảnh"
       your_private_profile: "Hồ sơ cá nhân"
       your_public_profile: "Hồ sơ công khai"
       your_tags: "Mo tả bản thân qua 5 từ"

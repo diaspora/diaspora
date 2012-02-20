@@ -10,7 +10,7 @@ sq:
   _contacts: "Kontakte"
   _home: "Hyrja"
   _photos: "foto"
-  _services: Shërbime
+  _services: "Shërbime"
   account: "Llogari"
   activerecord:
     errors:
@@ -84,9 +84,9 @@ sq:
       done: "U bë"
       make_aspect_list_visible: "të bëhen kontaktet e këtij aspekti të dukshëm për njëri-tjetrin?"
       remove_aspect: "Fshije këtë aspekt"
-      rename: riemërtojeni
-      update: përditësoje
-      updating: përditësim
+      rename: "riemërtojeni"
+      update: "përditësoje"
+      updating: "përditësim"
     few: "%{count} aspekte"
     helper:
       are_you_sure: "Jeni i sigurt se doni të fshihet ky aspekt?"
@@ -230,15 +230,15 @@ sq:
       no_messages: "pa mesazhe"
     new:
       abandon_changes: "Të braktisen ndryshimet?"
-      send: Dërgoje
+      send: "Dërgoje"
       sending: "Po dërgohet..."
       subject: "subjekt"
-      to: për
+      to: "për"
     new_message:
       fail: "Mesazh i mangët"
     show:
       delete: "fshije dhe bllokoje bashkëbisedimin"
-      reply: përgjigjuni
+      reply: "përgjigjuni"
       replying: "Po përgjigjeni..."
   delete: "Fshije"
   error_messages:
@@ -254,10 +254,10 @@ sq:
       choice_explanation: "Diaspora ju lejon t'i gruponi lidhjet tuaja në grupe të quajtura aspekte. Veçanti e Diaspora-s, aspektet bëjnë të mundur që fotot tuaj, ngjarjet dhe barsaletat që tregoni, ndahen vetëm me personat që doni."
       learn_about_host: "Mësoni se si të strehoni shërbyesin tuaj Diaspora."
       login_here: "hyni prej këtu"
-      ownership: Pronësia
+      ownership: "Pronësia"
       ownership_explanation: "Fotot tuaja janë pronë e juaja, dhe nuk do të duhej të hiqnit dorë nga kjo pronësi thjesht vetëm që të mundni t'i ndani ato me të tjerët. Pronësia e gjithçkaje që ndani me të tjerët në Diaspora ju mbetet po juve, duke pasur kështu kontroll të plotë mbi mënyrat se si shpërndahen ato."
       share_what_you_want: "Ndani çfarë të doni, me kë të doni."
-      simplicity: Thjeshtësia
+      simplicity: "Thjeshtësia"
       simplicity_explanation: "Diaspora e bën ndarjen e gjërave me të tjerët të qëruar dhe të pastër – dhe kjo vlen po njësoj për privatësinë. Me privatësinë në gen, Diaspora nuk ju bën të endeni nëpër faqe të tëra me rregullime dhe mundësi thjesht vetëm për të profilin tuaj të sigurt."
       tagline_first_half: "Ndani çfarë të doni,"
       tagline_second_half: "me kë të doni."
@@ -280,12 +280,12 @@ sq:
       comma_seperated_plz: "Mund të fusni shumë adresa email njëherësh, duke i ndarë me presje."
       if_they_accept_info: "nëse pranojnë, do të shtohen te aspekti prej nga ku i ftuat."
       invite_someone_to_join: "Ftoni dikë që të marrë pjesë në Diaspora!"
-      language: Gjuhë
+      language: "Gjuhë"
       personal_message: "Mesazh personal"
-      resend: Ridërgoje
+      resend: "Ridërgoje"
       send_an_invitation: "Dërgoni një ftesë"
       send_invitation: "Dërgoje ftesën"
-      to: Për
+      to: "Për"
   layouts:
     application:
       public_feed: "Prurje Publike Diaspora për %{name}"
@@ -425,7 +425,7 @@ sq:
       two: "%{actors} filluan të ndajnë gjëra me ju."
       zero: "%{actors} që ndajnë gjëra me ju."
   notifier:
-    a_post_you_shared: postim.
+    a_post_you_shared: "postim."
     click_here: "klikoni këtu"
     comment_on_post:
       reply: "Përgjigjjuni ose shihni postimin nga %{name} >"
@@ -455,7 +455,7 @@ sq:
     thanks: "Faleminderit,"
     to_change_your_notification_settings: "që të ndryshoni rregullimet tuaja mbi njoftimet"
   or: "ose"
-  password: Fjalëkalim
+  password: "Fjalëkalim"
   password_confirmation: "Ripohim fjalëkalimi"
   people:
     add_contact_small:
@@ -480,7 +480,7 @@ sq:
       pending_request: "Në pritje të miratimit"
       thats_you: "Ky jeni ju!"
     profile_sidebar:
-      born: datëlindje
+      born: "datëlindje"
       edit_my_profile: "Përpunim i profilit tim"
       gender: "gjini"
       in_aspects: "në aspektet"
@@ -493,7 +493,7 @@ sq:
       has_not_shared_with_you_yet: "%{name} nuk ka ndarë ende ndonjë postim me ju!"
       ignoring: "Po shpërfillni krejt postimet prej %{name}."
       incoming_request: "%{name} dëshiron të ndajë diçka me ju"
-      mention: Përmendje
+      mention: "Përmendje"
       message: "Mesazh"
       not_connected: "Nuk ndani gjë me këtë person"
       recent_posts: "Postime Së Fundi"
@@ -504,7 +504,7 @@ sq:
       to_accept_or_ignore: "që ta pranoni ose shpërfillni."
     sub_header:
       add_some: "shtoni ndonjë"
-      edit: përpunoni
+      edit: "përpunoni"
       you_have_no_tags: "nuk keni etiketa!"
     two: "%{count} vetë"
     webfinger:
@@ -523,7 +523,7 @@ sq:
     new:
       back_to_list: "Mbrapsht te Lista"
       new_photo: "Foto e Re"
-      post_it: postoje!
+      post_it: "postoje!"
     new_photo:
       empty: "{file} është e zbrazët, ju lutem, përzgjidhni sërish kartela, por pa të."
       invalid_ext: "{file} ka zgjatim të  pavlefshëm. Lejohen vetëm {extensions}."
@@ -536,7 +536,7 @@ sq:
     show:
       collection_permalink: "permalidhje koleksioni"
       delete_photo: "Fshije Foton"
-      edit: përpunojeni
+      edit: "përpunojeni"
       edit_delete_photo: "Përpunoni përshkrim fotoje / fshijeni foton"
       make_profile_photo: "kaloje si foto profili"
       show_original_post: "Shfaq postimin origjinal"
@@ -557,7 +557,7 @@ sq:
         two: "Two photos by %{author}"
         zero: "No photos by %{author}"
   previous: "e mëparshmja"
-  privacy: Privatësi
+  privacy: "Privatësi"
   privacy_policy: "Rregulla Privatësie"
   profile: "Profil"
   profiles:
@@ -603,7 +603,7 @@ sq:
         other: "%{count} reshares"
         two: "%{count} reshares"
         zero: "Reshare"
-  search: Kërkoni
+  search: "Kërkoni"
   settings: "Rregullime"
   share_visibilites:
     update:

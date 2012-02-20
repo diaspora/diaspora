@@ -62,9 +62,11 @@ br:
       minutes: "%d a vunutennoù"
       month: "war-dro ur mizvezhiad"
       months: "%d a vizioù"
+      prefixAgo: ""
+      prefixFromNow: ""
       seconds: "dindan ur vunutenn"
       suffixAgo: "zo"
-      suffixFromNow: diwar-vremañ
+      suffixFromNow: "diwar-vremañ"
       year: "war-dro ur bloavezh"
       years: "%d a vloavezhioù"
     videos:

@@ -5,12 +5,12 @@
 
 
 pt-PT:
-  _applications: Aplicações
-  _comments: Comentários
+  _applications: "Aplicações"
+  _comments: "Comentários"
   _contacts: "Contactos"
-  _home: Início
+  _home: "Início"
   _photos: "Fotografias"
-  _services: Serviços
+  _services: "Serviços"
   account: "Conta"
   activerecord:
     errors:
@@ -112,7 +112,7 @@ pt-PT:
         here_to_help: "A comunidade do Diaspora está aqui!"
         need_help: "Precisa de ajuda?"
         tag_feature: "funcionalidade"
-        tag_question: questão
+        tag_question: "questão"
         tutorials_wiki_and_forum: "%{tutorial} & %{wiki} & %{forum}: Tutoriais, Como Fazer e Notícias desenvolvidos pela comunidade"
       introduce_yourself: "Este é o seu fluxo.  Venha daí e apresente-se."
       keep_us_running: "Mantenha o %{pod} a funcionar rapidamente e compre aos servidores a sua dose de café com uma doação mensal!"
@@ -147,7 +147,7 @@ pt-PT:
     other: "%{count} aspectos"
     seed:
       acquaintances: "Conhecidos"
-      family: Família
+      family: "Família"
       friends: "Amigos"
       work: "Trabalho"
     selected_contacts:
@@ -262,7 +262,7 @@ pt-PT:
     helper:
       correct_the_following_errors_and_try_again: "Corrija os seguintes erros e volte a tentar."
       invalid_fields: "Campos Inválidos"
-  fill_me_out: Informe-me
+  fill_me_out: "Informe-me"
   find_people: "Encontrar pessoas ou #etiquetas"
   hide: "Esconder"
   home:
@@ -316,12 +316,12 @@ pt-PT:
     header:
       admin: "administrador"
       blog: "blogue"
-      code: código
+      code: "código"
       login: "iniciar sessão"
       logout: "Terminar sessão"
       profile: "Perfil"
       recent_notifications: "Notificações recentes"
-      settings: Definições
+      settings: "Definições"
       view_all: "Ver tudo"
   likes:
     likes:
@@ -348,7 +348,7 @@ pt-PT:
         zero: "não há gostos"
   limited: "Limitado"
   more: "Mais"
-  next: próximo
+  next: "próximo"
   no_results: "Não Foram Encontrados Resultados"
   notifications:
     also_commented:
@@ -390,7 +390,7 @@ pt-PT:
         two: "e %{count} outros"
         zero: "e mais ninguém"
       mark_all_as_read: "Marcar Tudo como Lido"
-      notifications: Notificações
+      notifications: "Notificações"
     liked:
       few: "%{actors} gostaram do seu %{post_link}."
       many: "%{actors} gostaram do seu %{post_link}."
@@ -419,7 +419,7 @@ pt-PT:
       other: "%{actors} mencionaram-no numa publicação apagada."
       two: "%{actors} mencionaram-no numa publicação apagada."
       zero: "%{actors} mencionaram-no numa publicação apagada."
-    post: publicação
+    post: "publicação"
     private_message:
       few: "%{actors} enviaram-lhe uma mensagem."
       many: "%{actors} enviaram-lhe uma mensagem."
@@ -479,7 +479,7 @@ pt-PT:
     thanks: "Obrigado,"
     to_change_your_notification_settings: "para alterar as suas definições de notificação"
   or: "ou"
-  password: Palavra-passe
+  password: "Palavra-passe"
   password_confirmation: "Confirmação de palavra-passe"
   people:
     add_contact_small:
@@ -508,9 +508,9 @@ pt-PT:
       bio: "biografia"
       born: "data de nascimento"
       edit_my_profile: "Editar o meu perfil"
-      gender: género
+      gender: "género"
       in_aspects: "nos aspectos"
-      location: localização
+      location: "localização"
       remove_contact: "remover contacto"
       remove_from: "Remover %{name} de %{aspect}?"
     show:
@@ -549,7 +549,7 @@ pt-PT:
     new:
       back_to_list: "Voltar à Lista"
       new_photo: "Nova Foto"
-      post_it: Publique!
+      post_it: "Publique!"
     new_photo:
       empty: "{file} está vazio, por favor seleccione de novo os ficheiros sem este último."
       invalid_ext: "{file} tem uma extensão inválida. Apenas são permitidas as extensões {extensions}."
@@ -606,7 +606,7 @@ pt-PT:
     update:
       failed: "Falhou ao actualizar o perfil"
       updated: "Perfil actualizado"
-  public: Público
+  public: "Público"
   reactions:
     few: "%{count} reacções"
     many: "%{count} reacções"
@@ -623,7 +623,7 @@ pt-PT:
       edit: "Editar %{name}"
       leave_blank: "(deixe em branco se não quiser modificar)"
       password_to_confirm: "(necessitamos da sua palavra-passe actual para confirmar as modificações)"
-      unhappy: Descontente?
+      unhappy: "Descontente?"
       update: "Actualizar"
     new:
       create_my_account: "Criar a minha conta!"
@@ -653,7 +653,7 @@ pt-PT:
       existing: "Contactos existentes"
       manage_within: "Gerir contactos dentro de"
     new_request_to_person:
-      sent: enviado!
+      sent: "enviado!"
   reshares:
     comment_email_subject: "repartilha de %{resharer} da publicação de %{author}"
     create:
@@ -701,7 +701,7 @@ pt-PT:
       invite: "convite"
       not_on_diaspora: "Ainda não está no Diaspora"
       resend: "reenviar"
-  settings: Definições
+  settings: "Definições"
   share_visibilites:
     update:
       post_hidden_and_muted: "A mensagem de %{name} foi ocultada e as notificações foram silenciadas."
@@ -865,7 +865,7 @@ pt-PT:
       sign_up_today: "Registe-se hoje!"
       typical_userpage: "Uma típica página de utilizador do cubbi.es"
       what_is_cubbies: "O Cubbi.es é a primeira aplicação Diaspora do mundo.  É também a melhor forma de coleccionar fotografias online."
-  undo: Anular?
+  undo: "Anular?"
   username: "Nome de utilizador"
   users:
     confirm_email:
@@ -923,7 +923,7 @@ pt-PT:
       hashtag_explanation: "Hashtags permitem-lhe falar sobre e seguir os seus interesses.  Também são uma óptima forma de conhecer novas pessoas no Diaspora."
       hashtag_suggestions: "Siga etiquetas como #arte, #cinema, #gif, etc."
       hooking_up_fb: "ligar à sua conta de Facebook"
-      saved: Guardado!
+      saved: "Guardado!"
       we_can_speed_things_up: "Podemos acelerar as coisas um pouco mais ao"
       well_hello_there: "Oh, olá!"
       what_are_you_in_to: "O que gostas mais?"
@@ -959,7 +959,7 @@ pt-PT:
     no_person_constructed: "Nenhuma pessoa pôde ser construída através deste hcard."
     not_enabled: "webfinger parece não estar activado para o anfitrião de %{account}"
     xrd_fetch_failed: "ocorreu um erro ao obter o xrd da conta %{account}"
-  welcome: Bem-vindo(a)!
+  welcome: "Bem-vindo(a)!"
   will_paginate:
     next_label: "seguinte &raquo;"
     previous_label: "&laquo; anterior"

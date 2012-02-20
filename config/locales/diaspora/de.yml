@@ -44,6 +44,7 @@ de:
   all_aspects: "Alle Aspekte"
   application:
     helper:
+      diaspora_alpha: "DIASPORA* ALPHA"
       unknown_person: "Unbekannte Person"
       video_title:
         unknown: "Unbekannter Videotitel"
@@ -85,7 +86,7 @@ de:
       make_aspect_list_visible: "Kontakte aus diesem Aspekt öffentlich machen?"
       remove_aspect: "Diesen Aspekt löschen"
       rename: "umbenennen"
-      update: Ändern
+      update: "Ändern"
       updating: "Ändere …"
     few: "%{count} Aspekte"
     helper:
@@ -100,7 +101,7 @@ de:
       diaspora_id:
         content_1: "Deine Diaspora-ID ist:"
         content_2: "Gib diese weiter und sei somit auf Diaspora leicht zu finden."
-        heading: Diaspora-ID
+        heading: "Diaspora-ID"
       donate: "Spenden"
       handle_explanation: "Das ist deine Diaspora-ID. Du kannst sie wie eine E-Mail-Adresse weitergeben, damit andere Nutzer mit dir Kontakt aufnehmen können."
       help:
@@ -139,7 +140,7 @@ de:
       create: "Erstellen"
       name: "Name (nur für dich sichtbar)"
     no_contacts_message:
-      community_spotlight: Gemeinschafts-Schaukasten
+      community_spotlight: "Gemeinschafts-Schaukasten"
       or_spotlight: "Du kannst auch mit %{link} teilen"
       try_adding_some_more_contacts: "Du kannst weitere Kontakte suchen oder welche einladen."
       you_should_add_some_more_contacts: "Du solltest ein paar neue Kontakte hinzufügen!"
@@ -168,7 +169,7 @@ de:
     index:
       no_applications: "Du hast noch keine Anwendung registriert."
       revoke_access: "Zugriff widerrufen"
-  back: Zurück
+  back: "Zurück"
   blocks:
     create:
       failure: "Ich konnte diesen Benutzer nicht ignorieren. #evasion"
@@ -201,7 +202,7 @@ de:
       add_to_aspect: "Füge Kontakte zu %{name} hinzu"
       add_to_aspect_link: "füge Kontakte zu »%{name}« hinzu"
       all_contacts: "Alle Kontakte"
-      community_spotlight: Gemeinschafts-Focus
+      community_spotlight: "Gemeinschafts-Focus"
       many_people_are_you_sure: "Bist du dir sicher, dass du eine private Unterhaltung mit mehr als %{suggested_limit} Kontakten beginnen möchtest? Einen Beitrag in diesen Aspekt zu schreiben könnte ein besserer Weg sein, um sie zu kontaktieren."
       my_contacts: "Meine Kontakte"
       no_contacts: "Sieht so aus, als müsstest du einige Kontakte hinzufügen!"
@@ -218,7 +219,7 @@ de:
     sharing:
       people_sharing: "Leute, die mit dir teilen:"
     spotlight:
-      community_spotlight: Gemeinschafts-Schaukasten
+      community_spotlight: "Gemeinschafts-Schaukasten"
     two: "%{count} Kontakte"
     zero: "Kontakte"
   conversations:
@@ -259,8 +260,8 @@ de:
       birthday: "%d. %B"
       birthday_with_year: "%d. %B %Y"
       fullmonth_day: "%d. %B"
-  delete: Löschen
-  email: E-Mail
+  delete: "Löschen"
+  email: "E-Mail"
   error_messages:
     helper:
       correct_the_following_errors_and_try_again: "Korrigiere die folgenden Fehler und versuche es erneut."
@@ -352,7 +353,7 @@ de:
         zero: "Gefällt niemandem"
   limited: "Begrenzt"
   more: "Mehr"
-  next: Nächste
+  next: "Nächste"
   no_results: "Keine Ergebnisse gefunden."
   notifications:
     also_commented:
@@ -483,9 +484,10 @@ de:
     thanks: "Danke,"
     to_change_your_notification_settings: "um deine Benachrichtigungs-Einstellungen zu ändern"
   nsfw: "NSFW (unpassend für den Arbeitsplatz)"
+  ok: "OK"
   or: "oder"
   password: "Kennwort"
-  password_confirmation: Kennwort-Bestätigung
+  password_confirmation: "Kennwort-Bestätigung"
   people:
     add_contact_small:
       add_contact_from_tag: "Füge Kontakt über einen Hashtag hinzu"
@@ -524,7 +526,7 @@ de:
       has_not_shared_with_you_yet: "%{name} hat bisher noch keine Beiträge mit dir geteilt!"
       ignoring: "Du ignorierst alle Beiträge von %{name}."
       incoming_request: "Du hast eine eingehende Anfrage von %{name}."
-      mention: Erwähnen
+      mention: "Erwähnen"
       message: "Nachricht"
       not_connected: "Du teilst nicht mit dieser Person"
       recent_posts: "Neueste Beiträge"
@@ -554,7 +556,7 @@ de:
     new:
       back_to_list: "Zurück zur Liste"
       new_photo: "Neues Foto"
-      post_it: Teilen!
+      post_it: "Teilen!"
     new_photo:
       empty: "{file} ist leer, bitte wähle erneut Dateien aus."
       invalid_ext: "{file} hat keine gültige Erweiterung. Nur {extensions} sind erlaubt."
@@ -577,7 +579,7 @@ de:
       notice: "Foto erfolgreich aktualisiert."
   posts:
     show:
-      destroy: Löschen
+      destroy: "Löschen"
       not_found: "Entschuldige, wir konnten den Beitrag leider nicht finden."
       permalink: "Permanentlink"
       photos_by:
@@ -589,7 +591,7 @@ de:
         zero: "Keine Fotos von %{author}"
       reshare_by: "Weitergesagt von %{author}"
   previous: "Vorherige"
-  privacy: Privatsphäre
+  privacy: "Privatsphäre"
   privacy_policy: "Datenschutzrichtlinien"
   profile: "Profil"
   profiles:
@@ -614,7 +616,7 @@ de:
     update:
       failed: "Fehler beim Aktualisieren deines Profils"
       updated: "Profil aktualisiert"
-  public: Öffentlich
+  public: "Öffentlich"
   reactions:
     few: "%{count} Reaktionen"
     many: "%{count} Reaktionen"
@@ -631,7 +633,7 @@ de:
       edit: "%{name} bearbeiten"
       leave_blank: "(Du willst nichts ändern? Einfach leer lassen.)"
       password_to_confirm: "(wir brauchen dein aktuelles Kennwort, um deine Änderungen zu bestätigen)"
-      unhappy: Unglücklich?
+      unhappy: "Unglücklich?"
       update: "Aktualisieren"
     new:
       create_my_account: "Konto erstellen!"
@@ -661,7 +663,7 @@ de:
       existing: "Bestehende Kontakte"
       manage_within: "Kontakte verwalten in"
     new_request_to_person:
-      sent: Gesendet!
+      sent: "Gesendet!"
   reshares:
     comment_email_subject: "%{resharer}s Version von %{author}s Beitrag"
     create:
@@ -718,7 +720,7 @@ de:
     add_contact:
       add_new_contact: "Einen neuen Kontakt hinzufügen"
       create_request: "Mittels Diaspora-ID finden"
-      diaspora_handle: diaspora@beispiel.org
+      diaspora_handle: "diaspora@beispiel.org"
       enter_a_diaspora_username: "Gib bitte einen Diaspora-Benutzernamen ein:"
       know_email: "Du kennst die E-Mail-Adresse? Sende eine Einladung!"
       your_diaspora_username_is: "Dein Diaspora-Nutzername ist: %{diaspora_handle}"
@@ -748,7 +750,7 @@ de:
     notification:
       new: "Neue %{type} von %{from}"
     public_explain:
-      atom_feed: Atom-Feed
+      atom_feed: "Atom-Feed"
       control_your_audience: "Kontrolliere deine Zielgruppe"
       logged_in: "Eingeloggt in %{service}"
       manage: "Verbundene Dienste verwalten"
@@ -761,7 +763,7 @@ de:
       all: "alle"
       all_contacts: "Alle Kontakte"
       discard_post: "Beitrag verwerfen"
-      make_public: veröffentlichen
+      make_public: "veröffentlichen"
       new_user_prefill:
         hello: "Hallo zusammen, ich bin #%{new_user_tag}. "
         i_like: "Ich interessiere mich für %{tags}."
@@ -824,7 +826,7 @@ de:
     comment_stream:
       contacts_title: "Leute, deren Beiträge du kommentiert hast"
       title: "Kommentierte Beiträge"
-    community_spotlight_stream: Gemeinschafts-Fokus
+    community_spotlight_stream: "Gemeinschafts-Fokus"
     followed_tag:
       add_a_tag: "Füge einen Tag hinzu"
       contacts_title: "Leute, denen diese Tags gefallen"
@@ -892,7 +894,7 @@ de:
       also_commented: "… jemand ebenfalls den Beitrag eines Kontaktes kommentiert?"
       auto_follow_aspect: "Aspekt für automatisch gefolgten Benutzern:"
       auto_follow_back: "Folge Benutzern automatisch, wenn sie dir folgen"
-      change: Ändern
+      change: "Ändern"
       change_email: "E-Mail-Adresse ändern"
       change_language: "Sprache ändern"
       change_password: "Kennwort ändern"
@@ -913,7 +915,7 @@ de:
       edit_account: "Konto bearbeiten"
       email_awaiting_confirmation: "Wir haben dir einen Aktivierungslink zu %{unconfirmed_email} geschickt. Solange du dem Link nicht gefolgt bist und die neue Adresse aktiviert hast, werden wir weiterhin deine ursprüngliche E-Mail-Adresse %{email} verwenden."
       export_data: "Daten exportieren"
-      following: Folgen-Einstellungen
+      following: "Folgen-Einstellungen"
       getting_started: "Einstellungen für neue Nutzer"
       liked: "… wenn jemandem dein Beitrag gefällt?"
       mentioned: "… du in einem Beitrag erwähnt wirst?"
@@ -925,7 +927,7 @@ de:
       show_community_spotlight: "Gemeinschafts-Schaukasten im Stream anzeigen?"
       show_getting_started: "Einstiegshinweise wieder aktivieren"
       started_sharing: "… jemand mit dir zu teilen anfängt?"
-      stream_preferences: Stream-Einstellungen
+      stream_preferences: "Stream-Einstellungen"
       your_email: "Deine E-Mail-Adresse"
       your_handle: "Deine Diaspora ID"
     getting_started:
@@ -934,7 +936,7 @@ de:
       hashtag_explanation: "Hashtags ermöglichen dir, über deine Interessen zu reden und ihnen zu folgen. Sie sind auch ein guter Weg, neue Leute bei Diaspora zu treffen!"
       hashtag_suggestions: "Probier mal Tags wie #kunst, #musik oder #gif zu folgen."
       hooking_up_fb: "du deinen Facebook-Account"
-      saved: Gespeichert!
+      saved: "Gespeichert!"
       we_can_speed_things_up: "Wir können die Dinge ein wenig beschleunigen wenn"
       well_hello_there: "Also, Hallöchen!"
       what_are_you_in_to: "Was machst du so?"
@@ -949,7 +951,7 @@ de:
     privacy_settings:
       ignored_users: "Benutzer, die ignoriert werden"
       stop_ignoring: "Aufhören, zu ignorieren"
-      title: Privatsphären-Einstellungen
+      title: "Privatsphären-Einstellungen"
     public:
       does_not_exist: "Benutzer %{username} existiert nicht!"
     update:
@@ -970,7 +972,7 @@ de:
     no_person_constructed: "Konnte keine Person aus dieser hcard erstellen."
     not_enabled: "Webfinger scheint nicht für den Server von %{account} verfügbar zu sein."
     xrd_fetch_failed: "Die XRD-Datei von %{account} konnte nicht heruntergeladen werden."
-  welcome: Willkommen!
+  welcome: "Willkommen!"
   will_paginate:
     next_label: "nächstes &raquo;"
     previous_label: "&laquo; voriges"

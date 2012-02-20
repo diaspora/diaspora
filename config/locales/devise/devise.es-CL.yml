@@ -38,12 +38,12 @@ es-CL:
         email_us: "Para consultas generales o soporte sobre tu cuenta Diaspora*, por favor escríbenos a %{email}."
         finally: "Finalmente - Está aquí"
         friends_saying: "Lo que tus amigos están diciendo..."
-        get_connected: Conéctate
+        get_connected: "Conéctate"
         get_connected_paragraph: "Un movimiento mundial que comparte la visión de conseguir una red mejor, la primera característica de %{strong_diaspora} es su comunidad. Conoce gente nueva, conecta con amigos y únete a la fiesta."
-        have_fun: Diviértete
+        have_fun: "Diviértete"
         have_fun_paragraph: "%{strong_diaspora} trata de descubrir nueva e interesante información como gente conectada. %{Link}, es sólo el principio, es la primera aplicación de %{strong_diaspora} en el mundo. Colecciona y comparte la red en todo su explendor."
         help_fund: "ayuda a financiar Diaspora*"
-        here: aquí
+        here: "aquí"
         ignore: "Si no quieres aceptar la invitación, ignora este email."
         join_team: "Únete al equipo"
         love: "Hola,"
@@ -91,7 +91,7 @@ es-CL:
         bugs_and_feedback_mobile: "Ten en cuenta, puedes recibir errores. ¡Te animamos a que nos informes de cualquier error! Vamos a trabajar tan rápido como nos sea posible para resolver cualquier problema que nos informes."
         login: "Iniciar sesión"
         modern_browsers: "Solo es compatible con navegadores modernos."
-        password: Contraseña
+        password: "Contraseña"
         remember_me: "Recordarme"
         sign_in: "Entrar"
         username: "Nombre de usuario"

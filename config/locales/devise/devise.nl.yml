@@ -34,9 +34,9 @@ nl:
         arrived: "Het sociale netwerk waar je op hebt gewacht is hier. Vernieuwd, veiliger, leuker, %{strong_diaspora} is laat je het web op een hele nieuwe manier delen en verkennen."
         be_yourself: "Wees jezelf"
         be_yourself_paragraph: "Het Internet heeft unieke nieuwe manieren mogelijk gemaakt om onszelf te uiten. %{strong_diaspora} laat jou jezelf zijn en laat jou delen hoe je dat wilt, met of zonder je echte naam."
-        cubbies: Cubbi.es
+        cubbies: "Cubbi.es"
         displaying_correctly: "Ziet deze e-mail er niet goed uit? %{link}"
-        email_address: questions@joindiaspora.com
+        email_address: "questions@joindiaspora.com"
         email_us: "Voor algemene vragen of hulp met je Diaspora account kun je een e-mail sturen naar %{email}."
         finally: "Eindelijk - het is er"
         friends_saying: "Wat je vrienden zeggen..."

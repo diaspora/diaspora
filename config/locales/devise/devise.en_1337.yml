@@ -29,7 +29,7 @@ en_1337:
         you_can_confirm: "4CC C0MF1RM471ON -> L1NK B3L0W"
       hello: "H3Y %{email}!"
       invitation_instructions:
-        accept: J01N!
+        accept: "J01N!"
         displaying_correctly: "Email not displaying correctly? %{link} in your browser"
         ignore: "1M 4 N00B!"
         no_account_till: "51GN UP -> L1NK!"
@@ -74,7 +74,7 @@ en_1337:
         remember_me: "C47CH M3 (1F U C4N!)"
         sign_in: "51GN 1N"
         username: "N1CK"
-      signed_in: G07CH4!
+      signed_in: "G07CH4!"
       signed_out: "KTHXB41"
     shared:
       links:

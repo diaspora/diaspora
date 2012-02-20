@@ -34,7 +34,7 @@ de:
         arrived: "Das soziale Netzwerk, auf das du schon immer gewartet hast, ist da. Aufpoliert, sicherer und lustiger ist %{strong_diaspora} dafür da, dir dabei zu helfen, das Web auf eine ganz neue Weise zu entdecken."
         be_yourself: "Sei du selbst"
         be_yourself_paragraph: "Das Internet hat einzigartige Möglichkeiten entwickelt, um uns auszudrücken. %{strong_diaspora} lässt dich du selbst sein und teilen, was du möchtest, mit oder ohne deinem echten Namen."
-        cubbies: Cubbi.es
+        cubbies: "Cubbi.es"
         displaying_correctly: "E-Mail-Darstellung nicht lesbar? %{link}"
         email_us: "Für allgemeine Anfragen oder Unterstützung für dein Diaspora-Konto, schreibe uns ein E-Mail an %{email}."
         finally: "Endlich - Es ist da"
@@ -54,7 +54,7 @@ de:
         or: "oder"
         sign_up_now: "Jetzt registrieren &rarr;"
         subject: "Du wurdest zu Diaspora eingeladen!"
-        team_diaspora: Diaspora-Team
+        team_diaspora: "Diaspora-Team"
         unsubscribe: "Zum Abbestellen bitte %{link} klicken."
         view_in: "In deinem Webbrowser anzeigen"
       inviter:
@@ -96,8 +96,8 @@ de:
         remember_me: "Angemeldet bleiben"
         sign_in: "Anmelden"
         username: "Benutzername"
-      signed_in: Angemeldet.
-      signed_out: Abgemeldet.
+      signed_in: "Angemeldet."
+      signed_out: "Abgemeldet."
     shared:
       links:
         forgot_your_password: "Kennwort vergessen?"

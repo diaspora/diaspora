@@ -34,8 +34,8 @@ ro:
         be_yourself_paragraph: "Internetul a creat moduri unice de a ne exprima %{strong_diaspora} te lasa sa fi tu insuti si sa arati ce vrei, cum vrei - cu sau fara numele tau adevarat."
         displaying_correctly: "Email not displaying correctly? %{link} in your browser"
         email_us: "Pentru intrebari generice sau probleme cu contul de Diaspora, trimiteti un email la %{email}."
-        get_connected: Conecteaza-te
-        have_fun: Distractie!
+        get_connected: "Conecteaza-te"
+        have_fun: "Distractie!"
         ignore: "Dacă nu doreşti sa accepţi invitaţia, ignoră acest mesaj."
         join_team: "Haideti in echipa"
         no_account_till: "Contul dvs. nu va fi creat până când nu veţi accesa linkul de mai sus şi vă veţi înscrie."
@@ -85,7 +85,7 @@ ro:
         receive_confirmation: "Nu aţi primit instrucţiunile de confirmare?"
         receive_unlock: "Nu aţi primit instrucţiunile de deblocare?"
         sign_in: "Autentificare"
-        sign_up: Înregistrează-te
+        sign_up: "Înregistrează-te"
         sign_up_closed: "Înscrierile sunt închise în acest moment."
       mail_signup_form:
         sign_up_for_an_invite: "Înscrie-te pentru o invitaţie!"

@@ -5,13 +5,13 @@
 
 
 ka:
-  _applications: პროგრამები
-  _comments: კომენტარები
-  _contacts: კონტაქტები
-  _home: სახლი
-  _photos: ფოტოები
-  _services: მომსახურებები
-  account: ანგარიში
+  _applications: "პროგრამები"
+  _comments: "კომენტარები"
+  _contacts: "კონტაქტები"
+  _home: "სახლი"
+  _photos: "ფოტოები"
+  _services: "მომსახურებები"
+  account: "ანგარიში"
   activerecord:
     errors:
       models:
@@ -54,7 +54,7 @@ ka:
         zero: "No new messages"
   invitations:
     new:
-      language: ენა
+      language: "ენა"
   likes:
     likes:
       people_dislike_this:
@@ -181,7 +181,7 @@ ka:
         other: "%{count} photos by %{author}"
         two: "Two photos by %{author}"
         zero: "No photos by %{author}"
-  public: საჯაროდ
+  public: "საჯაროდ"
   reactions:
     few: "%{count} reactions"
     many: "%{count} reactions"

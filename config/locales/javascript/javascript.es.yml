@@ -29,7 +29,7 @@ es:
       show: "ver todos los comentarios"
     confirm_dialog: "¿Estás seguro?"
     delete: "Borrar"
-    failed_to_like: "¡Ha fallado tu intento de marcar la publicación!"
+    failed_to_like: "¡Ha fallado tu aprobación!"
     failed_to_post_message: "¡Fallo al publicar el mensaje!"
     getting_started:
       alright_ill_wait: "Está bien, esperaré."
@@ -86,7 +86,7 @@ es:
         two: "Mostrar <%= count %> comentarios más"
         zero: "Mostrar <%= count %> comentarios más"
       original_post_deleted: "Publicación original borrada por el autor."
-      public: Público
+      public: "Público"
       reshare: "Compartir"
       reshares:
         few: "Compartido <%= count %> veces"

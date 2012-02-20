@@ -59,6 +59,8 @@ id:
       minutes: "%d menit"
       month: "sekitar sebulan"
       months: "%d tahun"
+      prefixAgo: ""
+      prefixFromNow: ""
       seconds: "kurang dari semenit"
       suffixAgo: "yang lalu"
       suffixFromNow: "dari sekarang"

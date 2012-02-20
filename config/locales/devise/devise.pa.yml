@@ -36,8 +36,8 @@ pa:
       updated: "ਤੁਹਾਡਾ ਪਾਸਵਰਡ ਠੀਕ ਤਹ੍ਹਾਂ ਬਦਲਿਆ ਗਿਆ ਹੈ। ਹੁਣ ਤੁਸੀਂ ਸਾਈਨ ਇਨ ਕਰ ਸਕਦੇ ਹੋ।"
     sessions:
       new:
-        login: ਲਾਗਇਨ
-        password: ਪਾਸਵਰਡ
+        login: "ਲਾਗਇਨ"
+        password: "ਪਾਸਵਰਡ"
     shared:
       links:
         forgot_your_password: "ਆਪਣਾ ਪਾਸਵਰਡ ਭੁੱਲ ਗਏ?"

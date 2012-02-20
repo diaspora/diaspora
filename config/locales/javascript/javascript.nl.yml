@@ -110,8 +110,8 @@ nl:
       minutes: "%d minuten"
       month: "ongeveer een maand"
       months: "%d maanden"
-      prefixAgo: javascripts.timeago.prefixAgo
-      prefixFromNow: javascripts.timeago.prefixFromNow
+      prefixAgo: "javascripts.timeago.prefixAgo"
+      prefixFromNow: "javascripts.timeago.prefixFromNow"
       seconds: "iets minder dan een minuut"
       suffixAgo: "geleden"
       suffixFromNow: "vanaf nu"

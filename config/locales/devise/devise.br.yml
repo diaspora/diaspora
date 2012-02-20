@@ -26,7 +26,7 @@ br:
     mailer:
       confirmation_instructions:
         confirm: "Kadarnaat ma c'hont"
-        subject: Titouroù-kadarnaat
+        subject: "Titouroù-kadarnaat"
         you_can_confirm: "Moaien zo deoc'h kadarnaat ho kont gant al liamm dindan:"
       hello: "Demat, %{email}!"
       invitation_instructions:
@@ -64,10 +64,10 @@ br:
         bugs_and_feedback_mobile: "Deoc'h da c'hoût e vo kavet vioù-koukoug ganeoc'h. Reiñ a reomp ton deoc'h evit kelaouiñ ac'hanomp pep gwech ma vo kavet fazioù ganeoc'h! Labourat a rimp ar buanañ a c'hellomp evit diluziañ pep kudenn a vo disklaeriet ganeoc'h."
         login: "Mont e-barzh"
         modern_browsers: "ne c'hell mont en dro gant merdeidi modern nemetken."
-        password: Ger-kuzh
+        password: "Ger-kuzh"
         remember_me: "Dalc'hen soñj deus ma fenn"
         sign_in: "Mont e-barzh"
-        username: Anv-implijer
+        username: "Anv-implijer"
       signed_in: "Luget mat."
       signed_out: "Diluget mat."
     shared:

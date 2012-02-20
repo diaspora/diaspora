@@ -39,7 +39,7 @@ sl:
         finally: "Končno je tukaj"
         friends_saying: "Kar vaši prijatelji pravijo ..."
         get_connected: "Povežite se"
-        have_fun: Uživajte
+        have_fun: "Uživajte"
         have_fun_paragraph: "%{strong_diaspora} je vse o odkrivanju nove vsebine in ljudi na spletu.%{link}, prva aplikacija %{strong_diaspora} je šele začetek. Zberite in delite splet v vsej njeni slavi."
         help_fund: "pomagaj pri financiranju Diaspore"
         here: "tukaj"

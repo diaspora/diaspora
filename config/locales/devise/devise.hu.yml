@@ -38,7 +38,7 @@ hu:
         email_us: "Felhasználói fiókoddal kapcsolatos kérdésekkel kérjük írj a %{email} címre."
         finally: "Végre - Itt van!"
         friends_saying: "Miről beszélnek az ismerőseid..."
-        get_connected: Kapcsolódj
+        get_connected: "Kapcsolódj"
         get_connected_paragraph: "Nemzetközi megmozdulás egy közös álom a jobb webről. A %{strong_diaspora} fő funkciója a közösség. Ismerkedj új emberekkel, tartsd a kapcsolatot barátaiddal."
         have_fun: "Jó szórakozást"
         have_fun_paragraph: "%{strong_diaspora} az érdekes új dolgok felfedezéséről szól. %{link}, a világ első %{strong_diaspora} applikációja épp most indult. Gyűjtsd össze és oszd meg a web érdekességeit."
@@ -89,12 +89,12 @@ hu:
         alpha_software: "Alfa állapotú szoftvert fogsz használni."
         bugs_and_feedback: "Légy felkészülve, hogy találsz majd hibákat a rendszerben. Ajánljuk, hogy használd a Visszajelzés gombot a jobb oldalon, hogy jelezd a hibákat felénk. Mi minden tőlünk telhetőt megteszünk, hogy minél gyorsabban kijavítsuk a hibát."
         bugs_and_feedback_mobile: "Légy türelmes, hibákat fogsz találni. Szeretnénk, ha minden hibát jelentenél nekünk. Megpróbáljuk olyan gyorsan megoldani őket, ahogy csak tudjuk."
-        login: Bejelentkezés
+        login: "Bejelentkezés"
         modern_browsers: "csak modern böngészőket támogatunk."
-        password: Jelszó
+        password: "Jelszó"
         remember_me: "Emlékezzen rám"
-        sign_in: Bejelentkezés
-        username: Felhasználónév
+        sign_in: "Bejelentkezés"
+        username: "Felhasználónév"
       signed_in: "Sikeresen bejelentkeztél."
       signed_out: "Sikeresen kijelentkeztél."
     shared:
@@ -102,8 +102,8 @@ hu:
         forgot_your_password: "Elfelejtetted a jelszavad?"
         receive_confirmation: "Nem kaptál megerősítési utasítást?"
         receive_unlock: "Nem kaptad meg feloldási utasítást?"
-        sign_in: Bejelentkezés
-        sign_up: Regisztrálj
+        sign_in: "Bejelentkezés"
+        sign_up: "Regisztrálj"
         sign_up_closed: "Nincs nyílt regisztráció jelenleg."
       mail_signup_form:
         sign_up_for_an_invite: "Iratkozz fel egy meghívóra!"

@@ -86,7 +86,7 @@ id:
         two: "%{count} new messages"
         zero: "no new messages"
   delete: "Hapus"
-  email: E-mail
+  email: "E-mail"
   error_messages:
     helper:
       correct_the_following_errors_and_try_again: "Perbaiki kesalahan berikut dan coba lagi."
@@ -280,7 +280,7 @@ id:
     new:
       back_to_list: "Kembali ke Daftar"
       new_photo: "Foto Baru"
-      post_it: posting!
+      post_it: "posting!"
     show:
       delete_photo: "Hapus Foto"
       make_profile_photo: "membuat foto profil"
@@ -316,7 +316,7 @@ id:
       sign_up_message: "Social Networking with a <3"
   requests:
     create:
-      sending: Sending...
+      sending: "Sending..."
     destroy:
       error: "Silahkan pilih sebuah aspek!"
       ignore: "Permintaan pertemanan yang diabaikan."

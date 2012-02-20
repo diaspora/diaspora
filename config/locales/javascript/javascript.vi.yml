@@ -82,8 +82,10 @@ vi:
       minutes: "%d phút"
       month: "khoảng một tháng"
       months: "%d tháng"
+      prefixAgo: ""
+      prefixFromNow: ""
       seconds: "ít hơn một phút"
-      suffixAgo: trước
+      suffixAgo: "trước"
       suffixFromNow: "kể từ đây"
       year: "khoảng một năm"
       years: "%d năm"
