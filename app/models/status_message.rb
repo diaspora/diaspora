@@ -127,10 +127,12 @@ class StatusMessage < Post
 
   def to_activity(opts={})
     author = opts[:author] || self.author #Use an already loaded author if passed in.
+
+    post_text = x(self.formatted_message(:plain_text => true))
     <<-XML
   <entry>
-    <title>#{x(self.formatted_message(:plain_text => true))}</title>
-    <content>#{x(self.formatted_message(:plain_text => true))}</content>
+    <title>#{post_text.truncate(100)}</title>
+    <content>#{post_text}</content>
     <link rel="alternate" type="text/html" href="#{author.url}p/#{self.id}"/>
     <id>#{author.url}p/#{self.id}</id>
     <published>#{self.created_at.xmlschema}</published>

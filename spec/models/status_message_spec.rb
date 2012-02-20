@@ -290,8 +290,20 @@ STR
 
 
     describe '#to_activity' do
+      before do
+        @trunc_text = "I hate WALRUSES! I hate pandas and especially hate bushbabies. But the animal I hate most of all,..."
+        @long_text = "I hate WALRUSES! I hate pandas and especially hate bushbabies. But the animal I hate most of all, is the lesser spotted llama"
+
+        @message = Factory(:status_message, :text => @long_text, :author => @user.person)
+        @xml = @message.to_xml.to_s
+      end
+
       it 'should render a string' do
         @message.to_activity.should_not be_blank
+      end
+
+      it 'truncates the title attribute' do
+        @message.to_activity.should include(@trunc_text)
       end
     end
   end
