@@ -6,10 +6,10 @@
 
 is:
   _comments: "Athugasemdir"
-  _contacts: Tengiliðir
-  _home: Forsíða
+  _contacts: "Tengiliðir"
+  _home: "Forsíða"
   _photos: "Myndir"
-  _services: Þjónusta
+  _services: "Þjónusta"
   account: "Notandastillingar"
   activerecord:
     errors:
@@ -75,7 +75,7 @@ is:
     helper:
       are_you_sure: "Ertu viss um að þú viljir eyða þessari ásýnd?"
       aspect_not_empty: "Ásýnd er ekki tóm"
-      remove: fjarlægja
+      remove: "fjarlægja"
     index:
       handle_explanation: "Þetta er netfangið þitt hjá Díaspora. Eins og með venjulegt netfang, geturðu gefið fólki það svo þau geti haft samband við þig. "
       help:
@@ -100,7 +100,7 @@ is:
     one: "1 aspect"
     other: "%{count} aspects"
     seed:
-      family: Fjölskylda
+      family: "Fjölskylda"
       work: "Vinna"
     show:
       edit_aspect: "Breyta ásýndum"
@@ -145,7 +145,7 @@ is:
     formats:
       birthday_with_year: "%d %B %Y"
       fullmonth_day: "%d %B"
-  delete: Eyða
+  delete: "Eyða"
   email: "Netfang"
   error_messages:
     helper:
@@ -159,7 +159,7 @@ is:
       choice_explanation: "Diaspora gerir þér kleift að raða tengingum í hópa sem kallast ásýndir. Einungis í Diaspora tryggja ásýndir að myndir þínar, sögur og brandarar séu einungis samnýtt með þeim sem þú ætlar. "
       learn_about_host: "Lærðu hvernig á að hýsa sinn eigin Diaspora miðlara."
       login_here: "innskráning hér"
-      ownership: Eignarréttur
+      ownership: "Eignarréttur"
       ownership_explanation: "Þú átt þínar myndir og þú ættir ekki að þurfa að gefa þær frá þér þótt þú deilir þeim. Þú heldur eign þinni á öllu því sem þú deilir um Diaspora, sem gefur þér fulla stjórn á því hvernig því er dreift."
       share_what_you_want: "Deildu því sem þú vilt, með þeim sem þú vilt."
       simplicity: "Einfaldleiki"
@@ -175,7 +175,7 @@ is:
       sent: "Boðsmiðar hafa verið sendir til:"
     new:
       already_invited: "Nu þegar boðið"
-      aspect: Ásýnd
+      aspect: "Ásýnd"
       comma_seperated_plz: "Þú getur sett inn mörg netföng með því að aðskilja þau með kommu. "
       if_they_accept_info: "ef þau þiggja boðið, verður þeim bætt við þá ásýnd sem þú bauðst þeim á."
       invite_someone_to_join: "Bjóddu einhverjum að tengjast Díaspora!"
@@ -192,8 +192,8 @@ is:
       your_aspects: "þínar ásýndir"
     header:
       blog: "blogg"
-      login: Innskráning
-      logout: Útskrá
+      login: "Innskráning"
+      logout: "Útskrá"
       profile: "profile"
       settings: "settings"
   likes:
@@ -220,7 +220,7 @@ is:
         two: "%{count} likes"
         zero: "no likes"
   more: "Meira"
-  next: næsta
+  next: "næsta"
   notifications:
     also_commented:
       few: "%{actors} also commented on %{post_author}'s %{post_link}."
@@ -335,8 +335,8 @@ is:
     started_sharing:
       subject: "%{name} has started sharing with you on Diaspora*"
     thanks: "Takk,"
-  or: eða
-  password: Lykilorð
+  or: "eða"
+  password: "Lykilorð"
   password_confirmation: "Staðfesting lykilorðs"
   people:
     aspect_list:
@@ -358,7 +358,7 @@ is:
       pending_request: "pending request"
       thats_you: "thats you!"
     profile_sidebar:
-      born: afmælisdagur
+      born: "afmælisdagur"
       edit_my_profile: "Breyta síðunni minni"
       gender: "kyn"
       in_aspects: "í ásýnd"
@@ -421,7 +421,7 @@ is:
       allow_search: "Leyfa fólki að leita að þér á Díaspora"
       edit_profile: "Breyta síðunni minni"
       first_name: "Fornafn"
-      last_name: Kenninafn/Eftirnafn
+      last_name: "Kenninafn/Eftirnafn"
       update_profile: "Uppfæra síðuna mína"
       your_bio: "Ferilskrá þín"
       your_birthday: "Fæðingardagur þinn"
@@ -449,8 +449,8 @@ is:
       edit: "Breyta %{name}"
       leave_blank: "(Skildu eftir autt ef þú vilt ekki gera breytingu)"
       password_to_confirm: "(Við þurfum núverandi lykilorðið þitt til að staðfesta breytingar þínar)"
-      unhappy: Óhamingjusamur?
-      update: Uppfæra
+      unhappy: "Óhamingjusamur?"
+      update: "Uppfæra"
     new:
       create_my_account: "Create my account"
       enter_email: "Gefðu upp netfang"
@@ -506,13 +506,13 @@ is:
       click_link_to_accept_invitation: "Smelltu á þessa krækju til að þiggja boðið"
       join_me_on_diaspora: "Tengstu mér á DIASPORA*"
     remote_friend:
-      invite: bjóða
+      invite: "bjóða"
       resend: "endursenda"
   settings: "Stillingar"
   shared:
     add_contact:
       create_request: "Finna fólk eftir Díaspora netfangi"
-      diaspora_handle: diaspora@handle.org
+      diaspora_handle: "diaspora@handle.org"
       enter_a_diaspora_username: "Skrifaðu notandanafn hjá Diaspora:"
       know_email: "Veistu netföngin þeirra? Þú ættir að senda þeim boðsmiða"
       your_diaspora_username_is: "Þitt Diaspora notandanafn er: %{diaspora_handle}"
@@ -534,7 +534,7 @@ is:
       invitations_left: "(%{count} eftir)"
       invite_someone: "Bjóddu einhverjum"
       invite_your_friends: "Bjóddu vinafólki þínu"
-      invites: Boðsmiðar
+      invites: "Boðsmiðar"
     notification:
       new: "Nýtt %{type} frá %{from}"
     public_explain:
@@ -547,7 +547,7 @@ is:
       new_user_prefill:
         i_like: "I'm interested in %{tags}."
       post_a_message_to: "Skrifa skilaboð til %{aspect}"
-      posting: Senda...
+      posting: "Senda..."
       share: "Deila"
       share_with: "deila með"
       whats_on_your_mind: "hvað er þér efst í huga?"

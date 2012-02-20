@@ -83,7 +83,7 @@ pt-BR:
       month: "cerca de um mês"
       months: "%d meses"
       seconds: "menos de um minuto"
-      suffixAgo: atrás
+      suffixAgo: "atrás"
       suffixFromNow: "a partir de agora"
       year: "cerca de um ano"
       years: "%d anos"

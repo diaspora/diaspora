@@ -28,7 +28,7 @@ hu:
       hide: "hozzászólások elrejtése"
       show: "összes hozzászólás"
     confirm_dialog: "Biztos vagy benne?"
-    delete: Töröl
+    delete: "Töröl"
     failed_to_like: "Hiba"
     failed_to_post_message: "Üzenet elküldése sikertelen!"
     getting_started:
@@ -37,18 +37,18 @@ hu:
       no_tags: "Hékás, nem követtél egy #címkét sem! Így is folytatod?"
       preparing_your_stream: "Személyre szabott hírfolyamod előkészítése..."
     header:
-      contacts: Ismerősök
-      home: Kezdőlap
-      log_out: Kijelentkezés
+      contacts: "Ismerősök"
+      home: "Kezdőlap"
+      log_out: "Kijelentkezés"
       mark_all_as_read: "Összes olvasottnak jelölése"
-      messages: Üzenetek
-      notifications: Értesítések
+      messages: "Üzenetek"
+      notifications: "Értesítések"
       profile: "Profil"
       recent_notifications: "Friss értesítések"
       search: "Ismerős vagy #címke keresése"
-      settings: Beállítások
-      view_all: Összes
-    ignore: Elutasít
+      settings: "Beállítások"
+      view_all: "Összes"
+    ignore: "Elutasít"
     infinite_scroll:
       no_more: "Nincs több bejegyzés."
     photo_uploader:
@@ -60,9 +60,9 @@ hu:
     reshares:
       duplicate: "Jó mi? De már egyszer megosztottad ezt a bejegyzést!"
     search_for: "<%= name %> keresése."
-    show_more: tovább
+    show_more: "tovább"
     stream:
-      comment: Hozzászólás
+      comment: "Hozzászólás"
       hide: "Elrejt"
       like: "Tetszik"
       likes:
@@ -72,7 +72,7 @@ hu:
         other: "<%= count %> kedveli"
         two: "<%= count %> kedveli"
         zero: "<%= count %> kedveli"
-      limited: Korlátozott
+      limited: "Korlátozott"
       more_comments:
         few: "Mutasd a többi <%= count %> hozzászólást"
         many: "Mutasd a további <%= count %> hozzászólást"
@@ -82,7 +82,7 @@ hu:
         zero: "Mutasd a többi <%= count %> hozzászólást"
       original_post_deleted: "Eredeti bejegyzés törölve a szerzője által."
       public: "Publikus"
-      reshare: Megosztás
+      reshare: "Megosztás"
       reshares:
         few: "<%= count %> megosztás"
         many: "<%= count %> megosztás"
@@ -103,8 +103,8 @@ hu:
       month: "körülbelül egy hónappal"
       months: "%d hónappal"
       seconds: "kevesebb mint egy perccel"
-      suffixAgo: ezelőtt
-      suffixFromNow: mostantól
+      suffixAgo: "ezelőtt"
+      suffixFromNow: "mostantól"
       year: "körülbelül egy évvel"
       years: "%d évvel"
     videos:

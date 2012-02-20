@@ -5,13 +5,13 @@
 
 
 te:
-  _applications: అనువర్తనాలు
-  _comments: వ్యాఖ్యలు
-  _contacts: పరిచయాలు
-  _home: ముంగిలి
-  _photos: ఫొటోలు
-  _services: సేవలు
-  account: ఖాతా
+  _applications: "అనువర్తనాలు"
+  _comments: "వ్యాఖ్యలు"
+  _contacts: "పరిచయాలు"
+  _home: "ముంగిలి"
+  _photos: "ఫొటోలు"
+  _services: "సేవలు"
+  account: "ఖాతా"
   ago: "%{time} క్రితం"
   all_aspects: "అన్ని కోణాలు"
   application:
@@ -22,8 +22,8 @@ te:
         unknown: "తెలియని వీడియో శీర్షిక"
   aspects:
     edit:
-      done: పూర్తయ్యింది
-      rename: పేరుమార్చు
+      done: "పూర్తయ్యింది"
+      rename: "పేరుమార్చు"
     few: "%{count} aspects"
     index:
       cubbies:
@@ -39,14 +39,14 @@ te:
     one: "1 aspect"
     other: "%{count} aspects"
     seed:
-      family: కుటుంబం
-      friends: స్నేహితులు
-      work: సహోద్యోగులు
+      family: "కుటుంబం"
+      friends: "స్నేహితులు"
+      work: "సహోద్యోగులు"
     two: "%{count} aspects"
     zero: "no aspects"
   bookmarklet:
     explanation_link_text: "ఈ లంకె"
-  cancel: రద్దుచేయి
+  cancel: "రద్దుచేయి"
   contacts:
     few: "%{count} పరిచయాలు"
     index:
@@ -61,10 +61,10 @@ te:
         two: "%{count} కొత్త సందేశాలు"
         zero: "కొత్త సందేశాలు లేవు"
     new:
-      subject: విషయం
-  delete: తొలగించు
-  fill_me_out: పూరించండి
-  hide: దాచు
+      subject: "విషయం"
+  delete: "తొలగించు"
+  fill_me_out: "పూరించండి"
+  hide: "దాచు"
   home:
     show:
       already_account: "ఇప్పటికే ఖాతా ఉందా?"
@@ -73,11 +73,11 @@ te:
       already_sent: "ఈ వ్యక్తిని మీరు ఇప్పటికే ఆహ్వానించారు."
       no_more: "మీకు ఆహ్వానాలేమీ లేవు."
     new:
-      language: భాష
+      language: "భాష"
   layouts:
     header:
-      blog: బ్లాగు
-      settings: అమరికలు
+      blog: "బ్లాగు"
+      settings: "అమరికలు"
   likes:
     likes:
       people_dislike_this:
@@ -101,7 +101,7 @@ te:
         other: "%{count} likes"
         two: "%{count} likes"
         zero: "no likes"
-  limited: పరిమితం
+  limited: "పరిమితం"
   notifications:
     also_commented:
       few: "%{actors} also commented on %{post_author}'s %{post_link}."
@@ -133,7 +133,7 @@ te:
         two: "%{count} new notifications"
         zero: "No new notifications"
     index:
-      and: మరియు
+      and: "మరియు"
       and_others:
         few: "ఇంకా %{count}గురు ఇతరులు"
         many: "and %{count} others"
@@ -199,9 +199,9 @@ te:
       zero: "%{actors} started sharing with you."
   notifier:
     click_here: "ఇక్కడ నొక్కండి"
-  ok: సరే
-  or: లేదా
-  password: సంకేతపదం
+  ok: "సరే"
+  or: "లేదా"
+  password: "సంకేతపదం"
   password_confirmation: "సంకేతపదపు నిర్ధారణ"
   people:
     few: "%{count} people"
@@ -212,8 +212,8 @@ te:
       thats_you: "అది మీరే!"
     profile_sidebar:
       born: "పుట్టిన రోజు"
-      gender: లింగం
-      location: ప్రాంతం
+      gender: "లింగం"
+      location: "ప్రాంతం"
     show:
       recent_posts: "ఇటీవలి టపాలు"
       recent_public_posts: "ఇటీవలి బహిరంగ టపాలు"
@@ -222,8 +222,8 @@ te:
     zero: "no people"
   posts:
     show:
-      destroy: తొలగించు
-      permalink: స్థిరలంకె
+      destroy: "తొలగించు"
+      permalink: "స్థిరలంకె"
       photos_by:
         few: "%{count} photos by %{author}"
         many: "%{count} photos by %{author}"
@@ -231,7 +231,7 @@ te:
         other: "%{count} photos by %{author}"
         two: "Two photos by %{author}"
         zero: "No photos by %{author}"
-  privacy: అంతరంగికత
+  privacy: "అంతరంగికత"
   privacy_policy: "అంతరంగికత విధానం"
   profiles:
     edit:
@@ -241,7 +241,7 @@ te:
       your_location: "మీ ప్రాంతం"
       your_name: "మీ పేరు"
       your_photo: "మీ ఫొటో"
-  public: బహిరంగం
+  public: "బహిరంగం"
   reactions:
     few: "%{count} reactions"
     many: "%{count} reactions"
@@ -270,8 +270,8 @@ te:
         other: "%{count} పంచుకోళ్ళు"
         two: "%{count} పంచుకోళ్ళు"
         zero: "Reshare"
-  search: వెతుకు
-  settings: అమరికలు
+  search: "వెతుకు"
+  settings: "అమరికలు"
   shared:
     add_contact:
       your_diaspora_username_is: "మీ డయస్పోరా వాడుకరి పేరు: %{diaspora_handle}"
@@ -284,7 +284,7 @@ te:
         two: "In %{count} aspects"
         zero: "Add contact"
     stream_element:
-      show: చూపించు
+      show: "చూపించు"
   status_messages:
     too_long:
       few: "please make your status messages less than %{count} characters"
@@ -307,7 +307,7 @@ te:
   terms_and_conditions: "నియమాలు మరియు నిబంధనలు"
   users:
     edit:
-      change: మార్చు
+      change: "మార్చు"
       change_language: "భాష మార్పు"
       change_password: "సంకేతపదం మార్పు"
       close_account:
@@ -326,7 +326,7 @@ te:
       language_not_changed: "భాష మార్పు విఫలమైంది"
       password_changed: "సంకేతపదాన్ని మార్చాం.  మీరు ఇప్పుడు మీ కొత్త సంకేతపదంలో ప్రవేశించవచ్చు."
       password_not_changed: "సంకేతపదం మార్పు విఫలమైంది"
-  welcome: స్వాగతం!
+  welcome: "స్వాగతం!"
   will_paginate:
     next_label: "తదుపరి &raquo;"
     previous_label: "&laquo; గత"

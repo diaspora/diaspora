@@ -64,7 +64,7 @@ br:
       months: "%d a vizioù"
       seconds: "dindan ur vunutenn"
       suffixAgo: "zo"
-      suffixFromNow: diwar-vremañ
+      suffixFromNow: "diwar-vremañ"
       year: "war-dro ur bloavezh"
       years: "%d a vloavezhioù"
     videos:

@@ -37,7 +37,7 @@ fi:
       no_tags: "Hei, et seuraa yhtäkään tagia!  Jatketaanko silti?"
       preparing_your_stream: "Yksilöllistä virtaasi valmistellaan..."
     header:
-      admin: Ylläpitäjä
+      admin: "Ylläpitäjä"
       contacts: "Kontaktit"
       home: "Koti"
       log_out: "Kirjaudu ulos"
@@ -65,7 +65,7 @@ fi:
     stream:
       comment: "Kommentoi"
       hide: "Piilota"
-      like: Tykkää
+      like: "Tykkää"
       likes:
         few: "<%= count %> tykkäystä"
         many: "<%= count %> tykkäystä"
@@ -94,7 +94,7 @@ fi:
     tags:
       wasnt_that_interesting: "OK, #<%= tagName %> ei tainnut ollakaan kovin kiinnostava aihe..."
     timeago:
-      day: päivä
+      day: "päivä"
       days: "%d päivää"
       hour: "noin tunti"
       hours: "noin %d tuntia"

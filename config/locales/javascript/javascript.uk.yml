@@ -74,7 +74,7 @@ uk:
     tags:
       wasnt_that_interesting: "OK, мабуть, стежити за міткою #{{tagName}} було не так вже цікаво..."
     timeago:
-      day: день
+      day: "день"
       days: "%d днів[-я]"
       hour: "близько години"
       hours: "близько %d годин"
@@ -82,10 +82,10 @@ uk:
       minutes: "%d хвилин[-и]"
       month: "близько місяця"
       months: "%d місяця[-ів]"
-      prefixAgo: близько
-      prefixFromNow: через
+      prefixAgo: "близько"
+      prefixFromNow: "через"
       seconds: "декілька секунд"
-      suffixAgo: назад
+      suffixAgo: "назад"
       suffixFromNow: "з цієї миті"
       year: "близько року"
       years: "%d років"

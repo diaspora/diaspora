@@ -43,7 +43,7 @@ sv:
         have_fun: "Ha det så roligt"
         have_fun_paragraph: "%{strong_diaspora} handlar om att upptäcka otroliga saker och personer online. %{link}, den första %{strong_diaspora}applikationen är bara början. Samla och dela allt."
         help_fund: "hjälp till med att stödja Diaspora"
-        here: här
+        here: "här"
         ignore: "Om du inte vill acceptera inbjudan, var snäll och ignorera detta mail."
         join_team: "Gå med i vårt arbetslag"
         love: "Varma hälsningar,"
@@ -90,10 +90,10 @@ sv:
         bugs_and_feedback_mobile: "Tänk på att du kommer att uppleva buggar.Vi uppmanar dig att rapportera alla fel! Vi kommer att arbeta så fort som möjligt med att lösa dom problem som du rapporterar."
         login: "Logga in"
         modern_browsers: "stöder endast moderna webbläsare."
-        password: Lösenord
+        password: "Lösenord"
         remember_me: "Kom ihåg mig"
         sign_in: "Logga in"
-        username: Användarnamn
+        username: "Användarnamn"
       signed_in: "Inloggning ok."
       signed_out: "Utloggning ok."
     shared:

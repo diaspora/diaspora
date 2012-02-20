@@ -28,7 +28,7 @@ de:
       hide: "Kommentare verbergen"
       show: "Alle Kommentare zeigen"
     confirm_dialog: "Bist du dir sicher?"
-    delete: Löschen
+    delete: "Löschen"
     failed_to_like: "Gefällt mir fehlgeschlagen!"
     failed_to_post_message: "Konnte Beitrag nicht senden!"
     getting_started:
@@ -36,6 +36,7 @@ de:
       no_tags: "Hey, du folgst noch keinen Tags! Trotzdem weitermachen?"
       preparing_your_stream: "Dein persönlicher Stream wird zusammengestellt …"
     header:
+      admin: "Admin"
       contacts: "Kontakte"
       log_out: "Abmelden"
       mark_all_as_read: "Alle als gelesen markieren"
@@ -82,7 +83,7 @@ de:
         two: "Zeige <%= count %> weitere Kommentare"
         zero: "Keine weiteren Kommentare"
       original_post_deleted: "Originalbeitrag wurde vom Autor entfernt."
-      public: Öffentlich
+      public: "Öffentlich"
       reshare: "Weitersagen"
       reshares:
         few: "<%= count %> mal weitergesagt"

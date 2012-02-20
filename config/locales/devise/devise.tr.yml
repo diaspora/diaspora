@@ -89,7 +89,7 @@ tr:
         alpha_software: "Alfa programını kullanmak üzeresiniz."
         bugs_and_feedback: "Sitede bazı hatalarla karşılaşabilirsiniz. Karşılaştığınız herhangi hata için sağ üstteki Geri Bildirim düğmesini kullanmanızı tavsiye ederiz. Raporlarınız bize ulaşır ulaşmaz, sorunu düzeltmek için çalışacağız."
         bugs_and_feedback_mobile: "Aklınızda bulunsun, hatalarla karşılacaksınız. Karşılaştığınız hataları bildirmenizi istiyoruz.  Bildiriminizi alır almaz konu hakkında çalışmaya başlayacağız."
-        login: Giriş
+        login: "Giriş"
         modern_browsers: "sadece güncel tarayıcılar destekleniyor."
         password: "Parola"
         remember_me: "Beni hatırla"
@@ -115,5 +115,5 @@ tr:
   errors:
     messages:
       already_confirmed: "zaten doğrulandı"
-      not_found: bulunamadı
+      not_found: "bulunamadı"
       not_locked: "kilitlenmedi"

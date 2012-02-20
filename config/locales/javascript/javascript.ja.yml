@@ -18,16 +18,16 @@ ja:
         other: "In {{count}} aspects"
         two: "In <%= count %> aspects"
         zero: "Add to aspect"
-    confirm_dialog: 本当にいいですか。
+    confirm_dialog: "本当にいいですか。"
     getting_started:
       hey: "Hey, {{name}}!"
       preparing_your_stream: "Preparing your personialized stream..."
     header:
       search: "Find people or #tags"
     infinite_scroll:
-      no_more: 投稿はこれ以上ありません。
+      no_more: "投稿はこれ以上ありません。"
     publisher:
-      at_least_one_aspect: アスペクトを選択してから投稿してください。
+      at_least_one_aspect: "アスペクトを選択してから投稿してください。"
     reshares:
       duplicate: "You've already reshared that post!"
     search_for: "{{name}}を検索する"
@@ -56,20 +56,20 @@ ja:
     tags:
       wasnt_that_interesting: "OK, I suppose #{{tagName}} wasn't all that interesting..."
     timeago:
-      day: 1日
+      day: "1日"
       days: "%d日"
-      hour: 大体1時間
-      hours: 大体%d時間
-      minute: 約1分
+      hour: "大体1時間"
+      hours: "大体%d時間"
+      minute: "約1分"
       minutes: "%d分"
-      month: 大体1ヶ月
+      month: "大体1ヶ月"
       months: "%dヶ月"
-      prefixFromNow: 今から
-      seconds: 1分未満
-      suffixAgo: 前
-      suffixFromNow: 後
-      year: 大体1年
+      prefixFromNow: "今から"
+      seconds: "1分未満"
+      suffixAgo: "前"
+      suffixFromNow: "後"
+      year: "大体1年"
       years: "%d年"
     videos:
-      unknown: 動画の種類が不明です
+      unknown: "動画の種類が不明です"
       watch: "{{provider}}で動画を視聴する"

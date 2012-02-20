@@ -27,8 +27,8 @@ sk:
     comments:
       hide: "Skryť komentáre"
       show: "Zobraziť všetky komentáre"
-    confirm_dialog: Určite?
-    delete: Odstrániť
+    confirm_dialog: "Určite?"
+    delete: "Odstrániť"
     failed_to_like: "Nepodarilo sa pridať špendlík!"
     failed_to_post_message: "Správu sa nepodarilo poslať!"
     getting_started:
@@ -37,23 +37,23 @@ sk:
       no_tags: "Hej, nesledujete žiadne značky!  Chcete aj tak pokračovať?"
       preparing_your_stream: "Pripravuje sa vaša upravená nástenka..."
     header:
-      admin: Administrátor
+      admin: "Administrátor"
       contacts: "Kontakty"
       home: "Úvodná stránka"
       log_out: "Odhlásiť sa"
       mark_all_as_read: "Označiť všetky ako prečítané"
-      messages: Správy
+      messages: "Správy"
       notifications: "Oznamy"
       profile: "Profil"
       recent_notifications: "Najnovšie oznamy"
       search: "Nájsť ľudí alebo #značky"
       settings: "Nastavenia"
       view_all: "Zobraziť všetko"
-    ignore: Ignorovať
+    ignore: "Ignorovať"
     infinite_scroll:
       no_more: "Žiadne ďalšie príspevky."
     my_activity: "Moja aktivita"
-    my_stream: Nástenka
+    my_stream: "Nástenka"
     photo_uploader:
       looking_good: "No teda, vyzeráš super!"
     publisher:
@@ -65,9 +65,9 @@ sk:
     search_for: "Hľadať <%= name %>"
     show_more: "Zobraziť viac"
     stream:
-      comment: Okomentovať
-      follow: Sledovať
-      hide: Schovať
+      comment: "Okomentovať"
+      follow: "Sledovať"
+      hide: "Schovať"
       hide_nsfw_posts: "Schovať príspevky #nsfw"
       like: "Pridať špendlík"
       likes:
@@ -77,7 +77,7 @@ sk:
         other: "<%= count %> ľuďom sa to páči"
         two: "<%= count %> špendlíky"
         zero: "<%= count %> ľuďom sa to páči"
-      limited: Súkromný
+      limited: "Súkromný"
       more_comments:
         few: "Zobraziť ešte <%= count %> komentáre"
         many: "Zobraziť ďalších <%= count %> komentárov"
@@ -86,7 +86,7 @@ sk:
         two: "Zobraziť ďalšie <%= count %> komentáre"
         zero: "Zobraziť ešte <%= count %> komentárov"
       original_post_deleted: "Pôvodný príspevok odstránil autor."
-      public: Verejný
+      public: "Verejný"
       reshare: "Znova zdieľať"
       reshares:
         few: "<%= count %> opätovné zdieľania"
@@ -97,12 +97,12 @@ sk:
         zero: "<%= count %> opätovných zdieľaní"
       show_nsfw_post: "Zobraziť príspevok"
       show_nsfw_posts: "Zobraziť všetky"
-      unfollow: Nesledovať
+      unfollow: "Nesledovať"
       unlike: "Už sa mi to nepáči"
     tags:
       wasnt_that_interesting: "OK, značka #<%= tagName %> asi vôbec nebola zaujímavá..."
     timeago:
-      day: včera
+      day: "včera"
       days: "pred %d dňami"
       hour: "asi pred hodinou"
       hours: "asi pred %d hodinami"

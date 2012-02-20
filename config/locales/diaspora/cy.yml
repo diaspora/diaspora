@@ -118,7 +118,7 @@ cy:
       message_inbox: "Neges Inbox"
       new_message: "Neges Newydd"
   delete: "Dileu"
-  email: E-bost
+  email: "E-bost"
   find_people: "Dod o hyd i bobl neu # tagiau"
   home:
     show:
@@ -267,7 +267,7 @@ cy:
       two: "Mae %{actors} wedi dechrau rhannu gyda chi."
       zero: "Mae %{actors} wedi dechrau rhannu gyda chi."
   notifier:
-    a_post_you_shared: post.
+    a_post_you_shared: "post."
     click_here: "cliciwch yma"
     comment_on_post:
       reply: "Ateb neu gweld post %{name} >"
@@ -362,7 +362,7 @@ cy:
       sign_up_message: "Social Networking with a <3"
   requests:
     create:
-      sending: Sending...
+      sending: "Sending..."
       sent: "Rydych chi wedi gofyn i rannu gyda %{name}. Dylen nhw ei weld tro nesaf y byddant yn mewngofnodi i Diaspora."
     destroy:
       error: "Dewiswch agwedd!"

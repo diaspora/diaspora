@@ -168,7 +168,7 @@ es-AR:
     index:
       no_applications: "No registraste ninguna aplicación todavía."
       revoke_access: "Revocar Acceso"
-  back: Atrás
+  back: "Atrás"
   blocks:
     create:
       failure: "No se puede ignorar ese usuario.  #evasion"
@@ -188,7 +188,7 @@ es-AR:
     many: "%{count} comentarios"
     new_comment:
       comment: "Comentar"
-      commenting: Comentando...
+      commenting: "Comentando..."
     one: "1 comentario"
     other: "%{count} comentarios"
     two: "%{count} comentarios"
@@ -242,7 +242,7 @@ es-AR:
     new:
       abandon_changes: "Abandonar los cambios?"
       send: "Enviar"
-      sending: Enviando...
+      sending: "Enviando..."
       subject: "asunto"
       to: "para"
     new_message:
@@ -250,7 +250,7 @@ es-AR:
     show:
       delete: "eliminar y bloquear conversación"
       reply: "responder"
-      replying: Contestando...
+      replying: "Contestando..."
   date:
     formats:
       birthday: "%d de %B"
@@ -268,7 +268,7 @@ es-AR:
   home:
     show:
       already_account: "¿Ya tenés una cuenta?"
-      choice: Elección
+      choice: "Elección"
       choice_explanation: "Diáspora* te permite organizar conexiones en grupos llamados aspectos. Algo único de Diáspora*, los aspectos permiten que tus fotos, historias y bromas sean compartidas sólo con quien vos quieras."
       learn_about_host: "Aprendé cómo hospedar tu propio servidor Diáspora*."
       login_here: "conectate acá"
@@ -314,12 +314,12 @@ es-AR:
       your_aspects: "tus aspectos"
     header:
       admin: "administrar"
-      code: código
+      code: "código"
       login: "conectarse"
       logout: "Salir"
       profile: "Perfil"
       recent_notifications: "Notificaciones recientes"
-      settings: Configuración
+      settings: "Configuración"
       view_all: "Ver todo"
   likes:
     likes:
@@ -345,7 +345,7 @@ es-AR:
         two: "a %{count} les gusta"
         zero: "a nadie le gusta esto"
   limited: "Limitado"
-  more: Más
+  more: "Más"
   next: "siguiente"
   no_results: "No hay resultados"
   notifications:
@@ -417,7 +417,7 @@ es-AR:
       other: "%{actors} te mencionaron en una publicación eliminada."
       two: "%{actors} te mencionó en un mensaje eliminado."
       zero: "%{actors} te mencionó en una publicación eliminada."
-    post: publicación
+    post: "publicación"
     private_message:
       few: "%{actors} te enviaron un mensaje."
       many: "%{actors} te enviaron un mensaje."
@@ -477,7 +477,7 @@ es-AR:
     thanks: "Gracias,"
     to_change_your_notification_settings: "para cambiar la configuración de tus notificaciones"
   or: "o"
-  password: Contraseña
+  password: "Contraseña"
   password_confirmation: "Confirmación de contraseña"
   people:
     add_contact_small:
@@ -503,12 +503,12 @@ es-AR:
       pending_request: "Solicitud pendiente"
       thats_you: "¡Ése sos vos!"
     profile_sidebar:
-      bio: biografía
+      bio: "biografía"
       born: "nacimiento"
       edit_my_profile: "Editar mi perfil"
-      gender: género/sexo
+      gender: "género/sexo"
       in_aspects: "en aspectos"
-      location: ubicación
+      location: "ubicación"
       remove_contact: "eliminar contacto"
       remove_from: "¿Querés eliminar a %{name} de %{aspect}?"
     show:
@@ -516,7 +516,7 @@ es-AR:
       has_not_shared_with_you_yet: "¡%{name} no compartió ninguna publicación con vos todavía!"
       ignoring: "Estás ignorando todas las publicaciones de %{name}."
       incoming_request: "%{name} quiere compartir con vos"
-      mention: Mención
+      mention: "Mención"
       message: "Mensaje"
       not_connected: "No estás conectado con esa persona"
       recent_posts: "Publicaciones recientes"
@@ -546,7 +546,7 @@ es-AR:
     new:
       back_to_list: "Volver a la lista"
       new_photo: "Foto nueva"
-      post_it: ¡Publicalo!
+      post_it: "¡Publicalo!"
     new_photo:
       empty: "{file} está vacío, por favor seleccioná archivos sin él."
       invalid_ext: "{file} tiene una extensión incorrecta. Sólo se permiten {extensions}."
@@ -602,7 +602,7 @@ es-AR:
     update:
       failed: "No pudo actualizarse el perfil"
       updated: "Perfil actualizado"
-  public: Público
+  public: "Público"
   reactions:
     few: "%{count} reacciones "
     many: "%{count} reacciones"
@@ -619,7 +619,7 @@ es-AR:
       edit: "Editar %{name}"
       leave_blank: "(dejalo en blanco si no querés cambiarlo)"
       password_to_confirm: "(necesitamos tu contraseña actual para confirmar los cambios)"
-      unhappy: ¿Insatisfecho?
+      unhappy: "¿Insatisfecho?"
       update: "Actualizar"
     new:
       create_my_account: "¡Crear mi cuenta!"
@@ -649,7 +649,7 @@ es-AR:
       existing: "Contactos existentes"
       manage_within: "Gestioná tus contactos"
     new_request_to_person:
-      sent: ¡Enviado!
+      sent: "¡Enviado!"
   reshares:
     comment_email_subject: "%{resharer} compartió una publicación de %{author}"
     create:
@@ -697,7 +697,7 @@ es-AR:
       invite: "invitar"
       not_on_diaspora: "Todavía no está en Diáspora"
       resend: "reenviar"
-  settings: Configuración
+  settings: "Configuración"
   share_visibilites:
     update:
       post_hidden_and_muted: "La publicación de %{name} ha sido ocultada y sus notificaciones desactivadas."
@@ -754,7 +754,7 @@ es-AR:
         invited_by: "Gracias por la invitación, "
         newhere: "Hola"
       post_a_message_to: "Publicar un mensaje en %{aspect}"
-      posting: Publicando...
+      posting: "Publicando..."
       publishing_to: "publicar en: "
       share: "Compartir"
       share_with: "compartir con"
@@ -860,7 +860,7 @@ es-AR:
       typical_userpage: "Una típica página de usuario de cubbi.es"
       via: "(vía %{link})"
       what_is_cubbies: "Cubbi.es es la primera aplicación de Diáspora*. Es, también, la mejor forma de coleccionar fotos en línea."
-  undo: ¿Deshacer?
+  undo: "¿Deshacer?"
   username: "Nombre de usuario"
   users:
     confirm_email:
@@ -905,7 +905,7 @@ es-AR:
       hashtag_explanation: "Los hashtags te permiten seguir y hablar sobre tus intereses. También son una gran manera de encontrar gente nueva en Diáspora."
       hashtag_suggestions: "Probá siguiendo tags como #arte, #películas, #activismo, #geek."
       hooking_up_fb: "conectando tu cuenta de Facebook"
-      saved: ¡Guardado!
+      saved: "¡Guardado!"
       we_can_speed_things_up: "Podemos acelerar las cosas un poquito"
       well_hello_there: "Bueno, ¡hola!"
       what_are_you_in_to: "¿Qué sos por dentro?"
@@ -939,4 +939,4 @@ es-AR:
     no_person_constructed: "No pudo crearse ninguna persona a partir de esta 'hcard'."
     not_enabled: "Parece que webfinger no está habilitado para el servidor de %{account}"
     xrd_fetch_failed: "Hubo un error al buscar el 'xrd' de %{account}"
-  welcome: ¡Bienvenido!
+  welcome: "¡Bienvenido!"

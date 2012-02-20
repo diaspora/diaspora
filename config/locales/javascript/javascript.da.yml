@@ -45,14 +45,14 @@ da:
       notifications: "Meddelelser"
       profile: "Profil"
       recent_notifications: "Seneste Meddelelser"
-      search: Søg
+      search: "Søg"
       settings: "Indstillinger"
       view_all: "Se alle"
     ignore: "Ignorer"
     infinite_scroll:
       no_more: "Ikke flere indlæg."
     my_activity: "Min aktivitet"
-    my_stream: Strøm
+    my_stream: "Strøm"
     photo_uploader:
       looking_good: "OMG, du ser sej ud!"
     publisher:
@@ -64,8 +64,8 @@ da:
     search_for: "Søg efter <%= name %>"
     show_more: "Vis mere"
     stream:
-      comment: Kommentér
-      follow: Følg
+      comment: "Kommentér"
+      follow: "Følg"
       hide: "Skjul"
       hide_nsfw_posts: "Skjul #nsfw indlæg"
       like: "Synes om"
@@ -76,7 +76,7 @@ da:
         other: "<%= count %> synes om dette"
         two: "<%= count %> synes om dette"
         zero: "<%= count %> synes om dette"
-      limited: Begrænset
+      limited: "Begrænset"
       more_comments:
         few: "Show <%= count %> flere kommentarer"
         many: "Show <%= count %> flere kommentarer"

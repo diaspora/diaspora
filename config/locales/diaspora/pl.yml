@@ -8,9 +8,9 @@ pl:
   _applications: "Aplikacje"
   _comments: "Komentarze"
   _contacts: "Kontakty"
-  _home: Główna
-  _photos: zdjęcia
-  _services: Usługi
+  _home: "Główna"
+  _photos: "zdjęcia"
+  _services: "Usługi"
   account: "Konto"
   activerecord:
     errors:
@@ -92,7 +92,7 @@ pl:
     helper:
       are_you_sure: "@{m,f:Jesteś|n:Czy na}{ pew}{m:ien|f:na|n:no}{m,f:, że } chcesz usunąć ten aspekt?"
       aspect_not_empty: "Aspekt nie jest pusty"
-      remove: usuń
+      remove: "usuń"
     index:
       cubbies:
         explanation: "Cubbi.es to pierwsza aplikacja dedykowana projektowi Diaspora."
@@ -102,7 +102,7 @@ pl:
         content_1: "Twój identyfikator Diaspory to: "
         content_2: "Dzięki temu każdy będzie mógł Cię znaleźć na Diasporze."
         heading: "Identyfikator Diaspory"
-      donate: Wspomóż
+      donate: "Wspomóż"
       handle_explanation: "Oto Twój identyfikator Diaspory. Tak jak adres e-mail, możesz podać go osobom, z którymi chcesz być w kontakcie."
       help:
         do_you: "Czy:"
@@ -112,7 +112,7 @@ pl:
         have_a_question: "... masz %{link}?"
         here_to_help: "Społeczności Diaspory jest tutaj!"
         need_help: "Potrzebujesz pomocy?"
-        tag_bug: błąd
+        tag_bug: "błąd"
         tag_feature: "funkcja"
         tag_question: "pytanie"
         tutorials_wiki_and_forum: "%{tutorial} & %{wiki} & %{forum}: Samouczki, instrukcje i aktualności dostarczane przez Społeczność"
@@ -137,7 +137,7 @@ pl:
       failure: "nie zadziałało %{inspect}"
       success: "Osoba została przeniesiona do nowego aspektu"
     new:
-      create: Stwórz
+      create: "Stwórz"
       name: "Nazwa (widoczna tylko dla Ciebie)"
     no_contacts_message:
       community_spotlight: "w centrum uwagi społeczności"
@@ -169,7 +169,7 @@ pl:
     index:
       no_applications: "Nie zarejstrowa@{m:łeś|f:łaś|n:ano} jeszcze żadnej aplikacji!"
       revoke_access: "Zablokuj dostęp"
-  back: Powrót
+  back: "Powrót"
   blocks:
     create:
       failure: "Nie mogę zignorować tego użytkownika. #evasion"
@@ -246,8 +246,8 @@ pl:
       no_messages: "brak wiadomości"
     new:
       abandon_changes: "Porzucić zmiany?"
-      send: Wyślij
-      sending: Wysyłanie...
+      send: "Wyślij"
+      sending: "Wysyłanie..."
       subject: "temat"
       to: "do"
     new_message:
@@ -255,14 +255,14 @@ pl:
     show:
       delete: "usuń i zablokuj rozmowę"
       reply: "odpowiedz"
-      replying: Odpowiadanie...
+      replying: "Odpowiadanie..."
   date:
     formats:
       birthday: "%d %B"
       birthday_with_year: "%d %B %Y"
       fullmonth_day: "%d %B"
-  delete: Usuń
-  email: E-mail
+  delete: "Usuń"
+  email: "E-mail"
   error_messages:
     helper:
       correct_the_following_errors_and_try_again: "Popraw poniższe błędy i spróbuj ponownie."
@@ -273,11 +273,11 @@ pl:
   home:
     show:
       already_account: "masz już konto?"
-      choice: Wybór
+      choice: "Wybór"
       choice_explanation: "Diaspora pozwala Ci przypisać znajomych do grup zwanych Aspektami. Aspekty, dostępne wyłącznie w Diasporze, gwarantują, że zdjęcia, wpisy i wiadomości są widoczne wyłącznie dla osób które wybierzesz."
       learn_about_host: "Dowiedz się, jak założyć własny serwer Diaspory."
       login_here: "zaloguj się tutaj"
-      ownership: Własność
+      ownership: "Własność"
       ownership_explanation: "Twoje zdjęcia są należą tylko do Ciebie i nie musisz zrzekać się tego prawa, aby się nimi dzielić. Zarządzasz prawem własności w stosunku do wszystkich materiałów umieszczanych w Diasporze, dzięki czemu masz kontrolę nad sposobem ich rozpowszechniania."
       share_what_you_want: "Udostępniaj co chcesz i komu chcesz."
       simplicity: "Prostota"
@@ -305,7 +305,7 @@ pl:
       comma_seperated_plz: "Możesz podać kilka adresów e-mail, oddzielając je przecinkami."
       if_they_accept_info: "Jeśli wybrana osoba przyjmie zaproszenie, zostanie dodana do aspektów, do których ją zapros@{m:iłeś|f:iłaś|n:zono}."
       invite_someone_to_join: "Zaproś kogoś do Diaspory!"
-      language: Język
+      language: "Język"
       personal_message: "Dodatkowa wiadomość"
       resend: "Wyślij ponownie"
       send_an_invitation: "Wyślij zaproszenie"
@@ -353,7 +353,7 @@ pl:
         two: "%{count} ososby to lubią"
         zero: "nikt nie lubi"
   limited: "Ograniczone"
-  more: Więcej
+  more: "Więcej"
   next: "dalej"
   no_results: "Niczego nie znaleziono"
   notifications:
@@ -455,7 +455,7 @@ pl:
       two: "%{actors} zaczęli Ci udostępniać"
       zero: "%{actors} zaczęli Ci udostępniać."
   notifier:
-    a_post_you_shared: wpis.
+    a_post_you_shared: "wpis."
     click_here: "kliknij tutaj"
     comment_on_post:
       reply: "Odpowiedz lub wyświetl wpis użytkownika %{name} >"
@@ -487,7 +487,7 @@ pl:
   nsfw: "NSFW"
   ok: "OK"
   or: "lub"
-  password: Hasło
+  password: "Hasło"
   password_confirmation: "Potwierdzenie hasła"
   people:
     add_contact_small:
@@ -516,7 +516,7 @@ pl:
       bio: "notka biograficzna"
       born: "urodziny"
       edit_my_profile: "Edycja mojego profilu"
-      gender: płeć
+      gender: "płeć"
       in_aspects: "w aspektach"
       location: "lokalizacja"
       remove_contact: "usuń kontakt"
@@ -528,7 +528,7 @@ pl:
       ignoring: "Ignorujesz wszystkie wpisy od %{name}."
       incoming_request: "%{name} chce Ci udostępniać"
       mention: "Wspomnij"
-      message: Wiadomość
+      message: "Wiadomość"
       not_connected: "Nie udostępniasz tej osobie"
       recent_posts: "Ostatnie wpisy"
       recent_public_posts: "Ostatnie wpisy publiczne"
@@ -557,7 +557,7 @@ pl:
     new:
       back_to_list: "Powrót do listy"
       new_photo: "Nowe zdjęcie"
-      post_it: opublikuj!
+      post_it: "opublikuj!"
     new_photo:
       empty: "Plik {file} jest pusty. Wybierz proszę jeszcze raz odpowiednie pliki, pomijając ten."
       invalid_ext: "Plik {file} ma niewłaściwe rozszerzenie. Akceptowane rozszerzenia: {extensions}"
@@ -580,7 +580,7 @@ pl:
       notice: "Pomyślnie zaktualizowano zdjęcie."
   posts:
     show:
-      destroy: Usuń
+      destroy: "Usuń"
       not_found: "Nie można odnaleźć wskazanego wpisu."
       permalink: "permalink"
       photos_by:
@@ -592,14 +592,14 @@ pl:
         zero: "Brak zdjęć od %{author}"
       reshare_by: "Przekazane dalej przez %{author}"
   previous: "poprzedni"
-  privacy: Prywatność
+  privacy: "Prywatność"
   privacy_policy: "Polityka prywatności"
   profile: "Profil"
   profiles:
     edit:
       allow_search: "Pozwól ludziom znaleźć Cię w Diasporze"
       edit_profile: "Edycja profilu"
-      first_name: Imię
+      first_name: "Imię"
       last_name: "Nazwisko"
       update_profile: "Aktualizacja profilu"
       you_are_nsfw: "Oznaczyłeś/aś siebie jako NSFW, wszystkie dodane przez Ciebie treści nie będą wyświetlane osobom, które zrezygnowały z wyświetlania dyskusyjnych treści w strumieniach."
@@ -608,7 +608,7 @@ pl:
       your_birthday: "Twoje urodziny"
       your_gender: "Twoja płeć"
       your_location: "Lokalizacja"
-      your_name: Imię
+      your_name: "Imię"
       your_photo: "Twoje zdjęcie"
       your_private_profile: "Twój profil prywatny"
       your_public_profile: "Twój profil publiczny"
@@ -646,7 +646,7 @@ pl:
       sign_up_message: "Social Networking z ♥"
   requests:
     create:
-      sending: Wysyłanie
+      sending: "Wysyłanie"
       sent: "Zażąda@{m:łeś|f:łaś|n:no} współdzielenia z %{name}. Otrzyma komunikat, gdy tylko zaloguje się w Diasporze."
     destroy:
       error: "Wybierz aspekt!"
@@ -664,7 +664,7 @@ pl:
       existing: "Istniejące kontakty"
       manage_within: "Zarządzanie kontaktami w"
     new_request_to_person:
-      sent: wysłano!
+      sent: "wysłano!"
   reshares:
     comment_email_subject: "%{resharer} podzieli@{m:ł|f:ła|n:ło} się z innymi wpisem %{author}"
     create:
@@ -682,7 +682,7 @@ pl:
       reshare_original: "Przekaż dalej oryginał"
       reshared_via: "Przekazano dalej przez "
       show_original: "Wyświetl oryginał"
-  search: Znajdź
+  search: "Znajdź"
   services:
     create:
       already_authorized: "Użytkownik o identyfikatorze w diasporze \"%{diaspora_id\"} już autoryzował to konto w usłudze \"%{service_name}\"."
@@ -700,7 +700,7 @@ pl:
       connect_to_facebook: "Połącz z Facebookiem"
       connect_to_tumblr: "Połącz z Tumblrem"
       connect_to_twitter: "Połącz z Twitterem"
-      disconnect: rozłącz
+      disconnect: "rozłącz"
       edit_services: "Edycja usług"
       logged_in_as: "zalogowano jako"
       no_services: "Żadne usługi nie zostały jeszcze połączone."
@@ -709,7 +709,7 @@ pl:
       click_link_to_accept_invitation: "Kliknij te łącze, aby przyjąć zaproszenie"
       join_me_on_diaspora: "Dołącz do mnie w serwisie DIASPORA*"
     remote_friend:
-      invite: zaproś
+      invite: "zaproś"
       not_on_diaspora: "Nie ma jeszcze konta na Diasporze"
       resend: "wyślij ponownie"
   settings: "Ustawienia"
@@ -721,7 +721,7 @@ pl:
     add_contact:
       add_new_contact: "Dodaj nowy kontakt"
       create_request: "Szukaj wg Identyfikatora Diaspory"
-      diaspora_handle: diaspora@pod.org
+      diaspora_handle: "diaspora@pod.org"
       enter_a_diaspora_username: "Wpisz nazwę użytkownika Diaspory:"
       know_email: "Znasz ich adresy e-mail? Powi@{m:nieneś|f:nnaś|n:nni}{ }{m,f:ich zaprosić|n:zostać zaproszeni}!"
       your_diaspora_username_is: "Twój identyfikator w Diasporze: %{diaspora_handle}"
@@ -771,10 +771,10 @@ pl:
         invited_by: "Dzięki za zaproszenie,"
         newhere: "NowiTutaj"
       post_a_message_to: "Wyślij wiadomość do %{aspect}"
-      posting: Publikowanie...
+      posting: "Publikowanie..."
       publishing_to: "publikuj na:"
-      share: Udostępnij
-      share_with: udostępnij
+      share: "Udostępnij"
+      share_with: "udostępnij"
       upload_photos: "Prześlij zdjęcia"
       whats_on_your_mind: "O czym myślisz?"
     reshare:
@@ -789,7 +789,7 @@ pl:
       like: "Lubię to!"
       nsfw: "Ten wpis został oznaczony przez jego autora jako NSFW (Not suitable/safe for work). %{link}"
       shared_with: "Opublikowano w: %{aspect_names}"
-      show: wyświetl
+      show: "wyświetl"
       unlike: "Nie lubię"
       via: "przez %{link}"
       viewable_to_anyone: "Ten wpis jest widoczny dla każdego"
@@ -843,7 +843,7 @@ pl:
       title: "@Wzmianki"
     multi:
       contacts_title: "Osoby w Strumieniu Poznawania"
-      title: Strumień
+      title: "Strumień"
     public:
       contacts_title: "Ostatnio dodawali"
       title: "Działalność publiczna"
@@ -882,7 +882,7 @@ pl:
       typical_userpage: "Typowa strona użytkownika cubbi.es"
       via: "(przez %{link})"
       what_is_cubbies: "Cubbi.es jest pierwszą aplikacją Diaspory. To także najlepszy sposób na zebranie swoich zdjęć z sieci w jedno miejsce."
-  undo: Cofnąć?
+  undo: "Cofnąć?"
   username: "Nazwa użytkownika"
   users:
     confirm_email:
@@ -896,7 +896,7 @@ pl:
       also_commented: "...ktoś także skomentuje wpis jednego z z moich kontaktów"
       auto_follow_aspect: "Aspekt dla automatycznie obserwowanych użytkowników:"
       auto_follow_back: "Automatycznie zacznij obserwować, gdy ktoś zaczyna obserwować mnie"
-      change: Zmień
+      change: "Zmień"
       change_email: "Zmiana adresu e-mail"
       change_language: "Zmiana języka"
       change_password: "Zmiana hasła"
@@ -938,7 +938,7 @@ pl:
       hashtag_explanation: "Znaczniki pozwalają łatwo odnaleźć interesujące Cię tematy. Są także świetnym sposobem na nawiązywanie znajomości na Diasporze."
       hashtag_suggestions: "Spróbuj obserwować znaczniki takie jak #sztuka, #filmy, #gif, itd."
       hooking_up_fb: "podpinanie Twojego konta na Facebooku"
-      saved: Zapisano!
+      saved: "Zapisano!"
       we_can_speed_things_up: "Możemy przyspieszyć nieco dzięki"
       well_hello_there: "No, witam!"
       what_are_you_in_to: "Czym się interesujesz?"
@@ -974,7 +974,7 @@ pl:
     no_person_constructed: "Nie udało się utworzyć osoby używając tego zbioru hcard."
     not_enabled: "Usługa Webfinger nie działa w systemie utrzymującym konto użytkownika %{account}"
     xrd_fetch_failed: "wystąpił błąd podczas pobierania xrd z konta %{account}"
-  welcome: Witamy!
+  welcome: "Witamy!"
   will_paginate:
     next_label: "dalej &raquo;"
     previous_label: "&laquo; wstecz"

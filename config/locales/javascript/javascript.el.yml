@@ -28,7 +28,7 @@ el:
       hide: "απόκρυψη σχολίων"
       show: "προβολή όλων των σχολίων"
     confirm_dialog: "Είστε σίγουρος/η;"
-    failed_to_like: Αποτυχία!
+    failed_to_like: "Αποτυχία!"
     failed_to_post_message: "Αποτυχία δημοσίευσης μηνύματος!"
     getting_started:
       alright_ill_wait: "Εντάξει, θα περιμένω."
@@ -83,7 +83,7 @@ el:
       month: "περίπου ένα μήνα"
       months: "%d μήνες"
       seconds: "λιγότερο από ένα λεπτό"
-      suffixAgo: πριν
+      suffixAgo: "πριν"
       suffixFromNow: "από τώρα"
       year: "περίπου ένα χρόνο"
       years: "%d χρόνια"

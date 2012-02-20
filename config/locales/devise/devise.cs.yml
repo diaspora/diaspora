@@ -68,11 +68,11 @@ cs:
         alpha_software: "Používáte testovací verzi."
         bugs_and_feedback: "Upozorňujeme na možnost výskytu chyb. Doporučujeme vám použít tlačítko Zpětná vazba na pravé straně vašeho prohlížeče pro nahlášení problémů! Budeme pracovat nejrychleji jak můžeme, abychom vyřešili nahlášené problémy."
         bugs_and_feedback_mobile: "Upozorňujeme na možnost výskytu chyb. Doporučujeme vám, abyste hlásili jakékoli problémy. Budeme pracovat nejrychleji jak můžeme, abychom vyřešili nahlášené problémy."
-        login: Přihlásit
+        login: "Přihlásit"
         modern_browsers: "podporuje pouze moderní prohlížeče."
         password: "Heslo"
         remember_me: "Zapamatovat si mě"
-        sign_in: Přihlásit
+        sign_in: "Přihlásit"
         username: "Uživatelské jméno"
       signed_in: "Přihlášení proběhlo úspěšně."
       signed_out: "Odhlášení proběhlo úspěšně."
@@ -81,7 +81,7 @@ cs:
         forgot_your_password: "Zapomněli jste heslo?"
         receive_confirmation: "Neobdrželi jste instrukce na potvrzení?"
         receive_unlock: "Neobdrželi jste instrukce na odblokování?"
-        sign_in: Přihlášení
+        sign_in: "Přihlášení"
         sign_up: "Zapsat se"
         sign_up_closed: "Momentálně jsou další registrace pozastavené."
       mail_signup_form:

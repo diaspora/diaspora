@@ -34,9 +34,9 @@ ml:
         arrived: "The social network you have been waiting for has arrived. Revamped, more secure, and more fun, %{strong_diaspora} is ready to help you share and explore the web in a whole new way."
         be_yourself: "Be Yourself"
         be_yourself_paragraph: "The Internet has created unique new ways for us to express ourselves. %{strong_diaspora} lets you be yourself and share however you want, with or without your real name."
-        cubbies: Cubbi.es
+        cubbies: "Cubbi.es"
         displaying_correctly: "ഇമെയില്‍ ശരിക്ക് കാണുന്നില്ലേ? %{link}"
-        email_address: questions@joindiaspora.com
+        email_address: "questions@joindiaspora.com"
         email_us: "For general inquiries or support with your Diaspora account, please email us at %{email}."
         finally: "Finally - it's here"
         friends_saying: "What your friends are saying..."
@@ -52,7 +52,7 @@ ml:
         made_by_people: "%{strong_diaspora} is made by people who love the Internet as much as you do. %{jointeam}, or %{helpfund}!"
         more_people: "Even more people are excited to see you!"
         no_account_till: "Your account won't be created until you access the link above and sign up."
-        or: അല്ലെങ്കില്‍
+        or: "അല്ലെങ്കില്‍"
         sign_up_now: "ഇപ്പോള്‍ തന്നെ കയറു &rarr;"
         subject: "ഡയസ്പോറയില്‍ ചേരാന്‍ താങ്കളെ ക്ഷണിച്ചിരിക്കുന്നു!"
         team_diaspora: "Team Diaspora"
@@ -92,12 +92,12 @@ ml:
         alpha_software: "You are about to use alpha software."
         bugs_and_feedback: "Be advised, you will experience bugs.  We encourage you to use the Feedback button on the right hand side of your browser to report any hiccups!  We will work as fast as we can to resolve any issues you report."
         bugs_and_feedback_mobile: "Be advised, you will experience bugs.  We encourage you to report any hiccups!  We will work as fast as we can to resolve any issues you report."
-        login: പ്രവേശിക്കു
+        login: "പ്രവേശിക്കു"
         modern_browsers: "ആധുനിക ബ്രൌസറുകള്‍ മാത്രം പിന്‍തുണയ്ക്കുന്നു."
-        password: രഹസ്യവാക്ക്
-        remember_me: ഓര്‍മ്മിക്കു
-        sign_in: പ്രവേശിക്കു
-        username: ഉപയോക്തനാമം
+        password: "രഹസ്യവാക്ക്"
+        remember_me: "ഓര്‍മ്മിക്കു"
+        sign_in: "പ്രവേശിക്കു"
+        username: "ഉപയോക്തനാമം"
       signed_in: "വിജയകരമായി പ്രവേശിച്ചിരിക്കുന്നു."
       signed_out: "വിജയകരമായി പുറത്ത് കടന്നു."
     shared:
@@ -105,8 +105,8 @@ ml:
         forgot_your_password: "താങ്കളുടെ രഹസ്യവാക്ക് മറന്നോ?"
         receive_confirmation: "സ്ഥിരീകരിക്കുവാനുള്ള വിവരങ്ങള്‍ ലഭിച്ചില്ലേ?"
         receive_unlock: "തുറക്കാനുള്ള വിവരങ്ങള്‍ ലഭിച്ചില്ലേ?"
-        sign_in: പ്രവേശിക്കു
-        sign_up: ചേരു
+        sign_in: "പ്രവേശിക്കു"
+        sign_up: "ചേരു"
         sign_up_closed: "Open signups are closed at this time."
       mail_signup_form:
         sign_up_for_an_invite: "ഒരു ക്ഷണത്തിനായി ചേരു!"
@@ -119,4 +119,4 @@ ml:
     messages:
       already_confirmed: "ഇതിനകം തന്നെ സ്ഥിരീകരിച്ചു"
       not_found: "സന്ദേശങ്ങള്‍ കണ്ടെത്തിയില്ല"
-      not_locked: പൂട്ടിയിട്ടില്ല
+      not_locked: "പൂട്ടിയിട്ടില്ല"

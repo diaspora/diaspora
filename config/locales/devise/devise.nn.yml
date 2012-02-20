@@ -48,7 +48,7 @@ nn:
       unlock_instructions:
         account_locked: "Kontoen din er låst grunna for mange mislykka påloggingsforsøk."
         click_to_unlock: "Klikk på lenkja nedanfor for å låsa opp kontoen din:"
-        subject: Opplåsingsrettleiing
+        subject: "Opplåsingsrettleiing"
         unlock: "Lås opp kontoen min"
       welcome: "Velkomen %{email}."
     passwords:
@@ -69,7 +69,7 @@ nn:
         alpha_software: "Du er på veg til å ta i bruk alfa-program."
         bugs_and_feedback: "Ver merksam på at du vil oppleva feil. Vi ber deg om å rapportera dei til oss ved å nytta tilbakemeldingsknappen på nettlesaren si høgre side. Så skal vi prøva å ordna dei så fort råd er."
         bugs_and_feedback_mobile: "Ver merksam på at du vil oppleva feil. Vi ber deg om å rapportera dei til oss. Så skal vi prøva å ordna dei så fort råd er."
-        login: Pålogging
+        login: "Pålogging"
         modern_browsers: "kan berre nytta moderne nettlesarar."
         password: "Passord"
         remember_me: "Hugs meg"
@@ -83,7 +83,7 @@ nn:
         receive_confirmation: "Har du ikkje fått stadfestingsrettleiinga?"
         receive_unlock: "Fekk du ikkje nullstillingsrettleiinga?"
         sign_in: "Logg på"
-        sign_up: Påmelding
+        sign_up: "Påmelding"
         sign_up_closed: "Du kan ikkje melda deg på no."
       mail_signup_form:
         sign_up_for_an_invite: "Meld deg på for å få ein invitasjon."

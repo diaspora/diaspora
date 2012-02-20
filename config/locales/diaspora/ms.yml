@@ -6,8 +6,8 @@
 
 ms:
   _applications: "Aplikasi"
-  _comments: komen-komen
-  _contacts: Kenalan-kenalan
+  _comments: "komen-komen"
+  _contacts: "Kenalan-kenalan"
   _home: "Laman Utama"
   _photos: "gambar"
   _services: "Perkhidmatan"
@@ -118,7 +118,7 @@ ms:
     many: "%{count} komen"
     new_comment:
       comment: "Komen"
-      commenting: Mengulas...
+      commenting: "Mengulas..."
     one: "1 komen"
     other: "%{count} komen"
     two: "%{count} komen"
@@ -153,7 +153,7 @@ ms:
     new:
       abandon_changes: "Batalkan perubahan?"
       send: "Hantar"
-      sending: Menghantar...
+      sending: "Menghantar..."
       subject: "subjek"
       to: "kepada"
     new_message:
@@ -161,7 +161,7 @@ ms:
     show:
       delete: "memadam dan menyekat perbualan"
       reply: "balas"
-      replying: Membalas...
+      replying: "Membalas..."
   delete: "Padam"
   invitations:
     create:
@@ -314,7 +314,7 @@ ms:
       two: "%{actors} mula berkongsi dengan anda."
       zero: "%{actors} mula berkongsi dengan anda."
   notifier:
-    a_post_you_shared: pos.
+    a_post_you_shared: "pos."
     click_here: "klik di sini"
     to_change_your_notification_settings: "untuk menukar tetapan pemberitahuan anda"
   or: "atau"

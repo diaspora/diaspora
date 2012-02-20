@@ -5,13 +5,13 @@
 
 
 uk:
-  _applications: Додатки
-  _comments: Коментарі
-  _contacts: Контакти
-  _home: Головна
-  _photos: фотографій
-  _services: Сервіси
-  account: Аккаунт
+  _applications: "Додатки"
+  _comments: "Коментарі"
+  _contacts: "Контакти"
+  _home: "Головна"
+  _photos: "фотографій"
+  _services: "Сервіси"
+  account: "Аккаунт"
   activerecord:
     errors:
       models:
@@ -36,7 +36,7 @@ uk:
             email:
               taken: "вже зайнято."
             person:
-              invalid: недійсний.
+              invalid: "недійсний."
             username:
               invalid: "не підходить. Можна використати тільки букви, цифри і знак підкреслення."
               taken: "вже зайнято."
@@ -81,17 +81,17 @@ uk:
       aspect_list_is_not_visible: "список аспектів прихований від інших користувачів"
       aspect_list_is_visible: "список аспектів видно іншим користувачам"
       confirm_remove_aspect: "Ви упевнені, що хочете видалити цей аспект?"
-      done: Виконано
+      done: "Виконано"
       make_aspect_list_visible: "зробити контакти в цьому аспекті видимими один одному?"
       remove_aspect: "Видалити цей аспект"
-      rename: перейменувати
-      update: зміна
-      updating: оновлення
+      rename: "перейменувати"
+      update: "зміна"
+      updating: "оновлення"
     few: "%{count} аспект[-и, -ів]"
     helper:
       are_you_sure: "Ви упевнені в тому, що хочете видалити цей аспект?"
       aspect_not_empty: "Аспект не порожній"
-      remove: видалити
+      remove: "видалити"
     index:
       cubbies:
         explanation: "Cubbi.es це перша програма з розвитку діаспори."
@@ -101,7 +101,7 @@ uk:
         content_1: "Ваш ідентифікатор в Діаспорі:"
         content_2: "По ньому будь-хто зможе знайти вас в Діаспорі."
         heading: "Ідентифікатор в Діаспорі"
-      donate: Пожертвувати
+      donate: "Пожертвувати"
       handle_explanation: "Це ваш ідентифікатор в Діаспорі. Як і адреса електронної пошти, ви можете дати його людям для зв'язку з вами."
       help:
         do_you: "Ви:"
@@ -133,7 +133,7 @@ uk:
       failure: "не працює %{inspect}"
       success: "Персона переміщена в новий аспект"
     new:
-      create: Створити
+      create: "Створити"
       name: "Ім'я (видно тільки вам)"
     no_contacts_message:
       community_spotlight: "рекомендованими користувачами"
@@ -145,10 +145,10 @@ uk:
     one: "1 аспект"
     other: "%{count} аспект[-и, -ів]"
     seed:
-      acquaintances: Знайомі
-      family: Сім'я
-      friends: Друзі
-      work: Робота
+      acquaintances: "Знайомі"
+      family: "Сім'я"
+      friends: "Друзі"
+      work: "Робота"
     selected_contacts:
       manage_your_aspects: "Управління аспектами."
       no_contacts: "У вас тут доки немає жодного контакту."
@@ -165,7 +165,7 @@ uk:
     index:
       no_applications: "Ви ще не зареєстрували жодного додатку."
       revoke_access: "Відмінити доступ"
-  back: Назад
+  back: "Назад"
   blocks:
     create:
       failure: "Я не можу заблокувати цього користувача. #evasion"
@@ -179,13 +179,13 @@ uk:
     heading: "Букмарклет Діаспори"
     post_something: "Повідомте що-небудь Діаспорі"
     post_success: "Опубліковано! Закриття!"
-  cancel: Відміна
+  cancel: "Відміна"
   comments:
     few: "%{count} коментарів"
     many: "%{count} коментарів"
     new_comment:
-      comment: Коментувати
-      commenting: Коментування...
+      comment: "Коментувати"
+      commenting: "Коментування..."
     one: "1 коментар"
     other: "%{count} коментарів"
     two: "%{count} коментарів"
@@ -204,7 +204,7 @@ uk:
       only_sharing_with_me: "Що тільки діляться зі мною"
       remove_person_from_aspect: "Видалити %{person_name} з \"%{aspect_name}\""
       start_a_conversation: "Почати бесіду"
-      title: Контакти
+      title: "Контакти"
       your_contacts: "Ваші контакти"
     many: "%{count} контакт[-у, -iв]"
     one: "1 контакт"
@@ -214,7 +214,7 @@ uk:
     spotlight:
       community_spotlight: "У центрі уваги"
     two: "%{count} контакту"
-    zero: контактів
+    zero: "контактів"
   conversations:
     create:
       fail: "Невірне повідомлення"
@@ -231,42 +231,42 @@ uk:
         zero: "Нових повідомлень немає"
     index:
       create_a_new_message: "написати нове повідомлення"
-      inbox: Вхідні
+      inbox: "Вхідні"
       message_inbox: "Вхідні повідомлення"
       new_message: "Нове повідомлення"
       no_conversation_selected: "розмова не вибрана"
       no_messages: "немає повідомлень"
     new:
       abandon_changes: "Відмовитися від змін?"
-      send: Відправити
-      sending: Відправка...
-      subject: тема
-      to: кому
+      send: "Відправити"
+      sending: "Відправка..."
+      subject: "тема"
+      to: "кому"
     new_message:
       fail: "Невірне повідомлення"
     show:
       delete: "видалити і заблокувати розмову"
-      reply: відповісти
-      replying: Відповідь...
-  delete: Видалити
+      reply: "відповісти"
+      replying: "Відповідь..."
+  delete: "Видалити"
   error_messages:
     helper:
       correct_the_following_errors_and_try_again: "Виправіть помилки і спробуйте знову."
       invalid_fields: "Недійсні поля"
-  fill_me_out: Заповнити
+  fill_me_out: "Заповнити"
   find_people: "Пошук людей або міток"
-  hide: Приховати
+  hide: "Приховати"
   home:
     show:
       already_account: "вже є обліковий запис?"
-      choice: Вибір
+      choice: "Вибір"
       choice_explanation: "Діаспора дозволяє сортувати групи контактів, що називаються аспектами. Аспекти - унікальна особливість діаспори. Вони дозволяють забезпечити приватность ваших фотографій, історій і так далі. Останні будуть доступні тільки для тих людей, які належать відповідному аспекту."
       learn_about_host: "Дізнайтеся про те, як організувати свій власний сервер Діаспори."
       login_here: "Увійти тут"
-      ownership: Власність
+      ownership: "Власність"
       ownership_explanation: "Ви зберігаєте право власності на усе, що ви надаєте Діаспорі, це дає вам повний контроль над тим, як це поширюється."
       share_what_you_want: "Діліться чим хочете, з ким хочете."
-      simplicity: Простота
+      simplicity: "Простота"
       simplicity_explanation: "Діаспора робить обмін прозорим і простим - це поширюється і на приватне життя. По суті, діаспора не примушує вас пробиратися через сторінки налаштувань і опцій для того, щоб тримати ваш профіль у безпеці."
       tagline_first_half: "Поділіться чим хочете,"
       tagline_second_half: "з ким ви хочете."
@@ -286,16 +286,16 @@ uk:
       your_account_awaits: "Ваш аккаунт чекає вас!"
     new:
       already_invited: "Наступні люди не прийняли ваше запрошення:"
-      aspect: Аспект
+      aspect: "Аспект"
       comma_seperated_plz: "Ви можете ввести декілька адрес електронної пошти через кому."
       if_they_accept_info: "після згоди з їх боку, вони будуть додані в запропонований вами аспект."
       invite_someone_to_join: "Запросити кого-небудь в Діаспору!"
-      language: Мова
+      language: "Мова"
       personal_message: "Особисте повідомлення"
       resend: "Ще раз послати"
       send_an_invitation: "Відправити запрошення"
       send_invitation: "Відправити запрошення"
-      to: Для
+      to: "Для"
   layouts:
     application:
       powered_by: "ПІДТРИМУЄТЬСЯ ДІАСПОРОЮ*"
@@ -304,14 +304,14 @@ uk:
       whats_new: "Що нового?"
       your_aspects: "Ваші аспекти"
     header:
-      admin: адмін
-      blog: блог
-      code: код
-      login: логін
-      logout: вийти
-      profile: профіль
+      admin: "адмін"
+      blog: "блог"
+      code: "код"
+      login: "логін"
+      logout: "вийти"
+      profile: "профіль"
       recent_notifications: "Останні сповіщення"
-      settings: налаштування
+      settings: "налаштування"
       view_all: "Подивитися усе"
   likes:
     likes:
@@ -336,9 +336,9 @@ uk:
         other: "%{count} сподобалося"
         two: "%{count} сподобалося"
         zero: "не сподобалося нікому"
-  limited: Обмежена
-  more: Ще
-  next: далі
+  limited: "Обмежена"
+  more: "Ще"
+  next: "далі"
   no_results: "Результатів не знайдено"
   notifications:
     also_commented:
@@ -371,7 +371,7 @@ uk:
         two: "%{count} нових повідомлень"
         zero: "Нових сповіщень немає"
     index:
-      and: і
+      and: "і"
       and_others:
         few: "і %{count} інших"
         many: "і %{count} інших"
@@ -380,7 +380,7 @@ uk:
         two: "і %{count} інших"
         zero: "і більше нікому"
       mark_all_as_read: "Відмітити усі як прочитані"
-      notifications: Повідомлення
+      notifications: "Повідомлення"
     liked:
       few: "%{actors} сподобався ваш %{post_link}."
       many: "%{actors} сподобався ваш %{post_link}."
@@ -409,7 +409,7 @@ uk:
       other: "%{actors} згадали вас у видаленому повідомленні."
       two: "%{actors} згадали вас у видаленому записі."
       zero: "%{actors} згадали вас у видаленому повідомленні."
-    post: запис
+    post: "запис"
     private_message:
       few: "%{actors} відправили вам повідомлення."
       many: "%{actors} відправили вам повідомлення."
@@ -439,7 +439,7 @@ uk:
       two: "%{actors} почав(ла) ділитися з вами."
       zero: "%{actors} почав(ла) ділитися з вами."
   notifier:
-    a_post_you_shared: запис.
+    a_post_you_shared: "запис."
     click_here: "натисніть сюди"
     comment_on_post:
       reply: "Відповісти або подивитися запис %{name} >"
@@ -468,9 +468,9 @@ uk:
       view_profile: "%{name} - подивитися профіль"
     thanks: "Спасибі,"
     to_change_your_notification_settings: "щоб змінити ваші налаштування повідомлень"
-  ok: Ок
-  or: або
-  password: Пароль
+  ok: "Ок"
+  or: "або"
+  password: "Пароль"
   password_confirmation: "Підтвердження пароля"
   people:
     add_contact_small:
@@ -499,7 +499,7 @@ uk:
       bio: "Про себе"
       born: "день народження"
       edit_my_profile: "Редагувати профіль"
-      gender: стать
+      gender: "стать"
       in_aspects: "у аспектах"
       location: "місце розташування"
       remove_contact: "видалити контакт"
@@ -510,18 +510,18 @@ uk:
       has_not_shared_with_you_yet: "%{name} ще не ділився записами з вами!"
       ignoring: "Ви блокуєте усі записи користувача %{name}."
       incoming_request: "%{name} хоче поділитися з вами"
-      mention: Згадати
-      message: Повідомлення
+      mention: "Згадати"
+      message: "Повідомлення"
       not_connected: "Ви не ділитеся з цією людиною"
       recent_posts: "Останні записи"
       recent_public_posts: "Останні Публічні Пости"
       return_to_aspects: "Повернутися на сторінку аспектів"
       see_all: "Показати усе"
-      start_sharing: поділитися
+      start_sharing: "поділитися"
       to_accept_or_ignore: "прийняти або ігнорувати."
     sub_header:
-      add_some: додати
-      edit: редагувати
+      add_some: "додати"
+      edit: "редагувати"
       you_have_no_tags: "у вас немає міток!"
     two: "%{count} людина[и]"
     webfinger:
@@ -536,11 +536,11 @@ uk:
     destroy:
       notice: "Фотографія видалена."
     edit:
-      editing: Редагування
+      editing: "Редагування"
     new:
       back_to_list: "Повернутися до списку"
       new_photo: "Нова Фотографія"
-      post_it: Опублікувати!
+      post_it: "Опублікувати!"
     new_photo:
       empty: "{file} порожній, виберіть будь ласка файл повторно."
       invalid_ext: "{file} має неприпустиме розширення. Дозволені тільки {extensions}."
@@ -553,7 +553,7 @@ uk:
     show:
       collection_permalink: "постійне посилання на колекцію"
       delete_photo: "Видалити фотографію"
-      edit: редагувати
+      edit: "редагувати"
       edit_delete_photo: "Змінити опис фотографії / видалити фотографію"
       make_profile_photo: "зробити фотографією профілю"
       show_original_post: "Показати початковий запис"
@@ -563,7 +563,7 @@ uk:
       notice: "Фотографія успішно завантажена."
   posts:
     show:
-      destroy: Видалити
+      destroy: "Видалити"
       not_found: "Вибачте, ми не змогли знайти цей запис."
       permalink: "постiйне посилання"
       photos_by:
@@ -573,16 +573,16 @@ uk:
         other: "%{count} photos by %{author}"
         two: "Two photos by %{author}"
         zero: "No photos by %{author}"
-  previous: попередня
-  privacy: Приватность
+  previous: "попередня"
+  privacy: "Приватность"
   privacy_policy: "Політика конфіденційності"
-  profile: Профіль
+  profile: "Профіль"
   profiles:
     edit:
       allow_search: "Дозволити усім шукати вас в Діаспорі"
       edit_profile: "Редагувати профіль"
-      first_name: Ім'я
-      last_name: Прізвище
+      first_name: "Ім'я"
+      last_name: "Прізвище"
       update_profile: "Оновити профіль"
       your_bio: "Ваша біографія"
       your_birthday: "Ваш день народження"
@@ -597,7 +597,7 @@ uk:
     update:
       failed: "Не вдалося оновити профіль"
       updated: "Профіль оновлено"
-  public: Публічна
+  public: "Публічна"
   reactions:
     few: "Відгуки: %{count}"
     many: "Відгуки: %{count}"
@@ -614,8 +614,8 @@ uk:
       edit: "Редагувати %{name}"
       leave_blank: "(Залиште порожнім, якщо не хочете міняти)"
       password_to_confirm: "(введіть ваш поточний пароль для підтвердження змін)"
-      unhappy: Нещасні?
-      update: Відновити
+      unhappy: "Нещасні?"
+      update: "Відновити"
     new:
       create_my_account: "Створити мій аккаунт!"
       enter_email: "Введіть email"
@@ -626,7 +626,7 @@ uk:
       sign_up_message: "Соціальна мережа з ♥"
   requests:
     create:
-      sending: Відправка
+      sending: "Відправка"
       sent: "Ви просили поділитися з %{name}. Вони повинні побачити це при наступному вході в Діаспору."
     destroy:
       error: "Виберіть, будь ласка, один аспект!"
@@ -644,7 +644,7 @@ uk:
       existing: "Існуючі контакти"
       manage_within: "Управління контактами в"
     new_request_to_person:
-      sent: відправлено!
+      sent: "відправлено!"
   reshares:
     comment_email_subject: "Перепост %{resharer} запису %{author}"
     create:
@@ -657,12 +657,12 @@ uk:
         one: "Поділився: 1"
         other: "Поділилися: %{count}"
         two: "Поділилися: %{count}"
-        zero: Поділитися
+        zero: "Поділитися"
       reshare_confirmation: "Поділитися записом %{author}?"
       reshare_original: "Поділитися початковим записом"
       reshared_via: "поділився користувач"
       show_original: "Показати початковий запис"
-  search: Пошук
+  search: "Пошук"
   services:
     create:
       already_authorized: "Користувач з ідентифікатором %{diaspora_id} вже авторизував цей обліковий запис %{service_name}."
@@ -680,7 +680,7 @@ uk:
       connect_to_facebook: "Підключення до Facebook"
       connect_to_tumblr: "Підключення до Tumblr"
       connect_to_twitter: "Підключення до Twitter"
-      disconnect: роз'єднати
+      disconnect: "роз'єднати"
       edit_services: "Редагувати сервіси"
       logged_in_as: "Ви увійшли як"
       no_services: "Ви ще не підключили жодної служби."
@@ -689,10 +689,10 @@ uk:
       click_link_to_accept_invitation: "Перейдіть по цьому посиланню для прийняття вашого запрошення"
       join_me_on_diaspora: "Приєднуйтеся до мене в DIASPORA*"
     remote_friend:
-      invite: запрошення
+      invite: "запрошення"
       not_on_diaspora: "Ще немає в Діаспорі"
       resend: "відправити повторно"
-  settings: Налаштування
+  settings: "Налаштування"
   share_visibilites:
     update:
       post_hidden_and_muted: "Запис користувача %{name} приховано, а повідомлення відключені."
@@ -725,7 +725,7 @@ uk:
       invitations_left: "залишилося %{count}"
       invite_someone: "Запросити кого-небудь"
       invite_your_friends: "Запросити друзів"
-      invites: Запрошення
+      invites: "Запрошення"
       invites_closed: "В даний момент можливість запрошень закрита в цій частині Діаспори"
     notification:
       new: "Новий %{type} з %{from}"
@@ -735,11 +735,11 @@ uk:
       manage: "управління підключеними сервісами"
       new_user_welcome_message: "Використовуйте #мітки для класифікації своїх записів та пошуку людей зі схожими інтересами. Привертайте увагу цікавих людей за допомогою @згадувань"
       outside: "Публічні повідомлення доступні для читання усім, навіть за межами вашої Діаспори."
-      share: Діліться
+      share: "Діліться"
       title: "Налаштування підключених послуг"
       visibility_dropdown: "Використайте це випадне меню для зміни видимості вашого запису (ми пропонуємо вам зробити перший запис публічним)."
     publisher:
-      all: усі
+      all: "усі"
       all_contacts: "всі контакти"
       discard_post: "Відмінити запис"
       make_public: "зробити публічним"
@@ -747,11 +747,11 @@ uk:
         hello: "Привіт всім, я тут #%{new_user_tag}."
         i_like: "Я цікавлюся %{tags}."
         invited_by: "Спасибі за запрошення,"
-        newhere: Новачок
+        newhere: "Новачок"
       post_a_message_to: "Опублікувати повідомлення для %{aspect}"
-      posting: Відправка...
+      posting: "Відправка..."
       publishing_to: "публікація в:"
-      share: Поділитися
+      share: "Поділитися"
       share_with: "поділитися з"
       upload_photos: "Завантажити фотографії"
       whats_on_your_mind: "Про що ви думаєте?"
@@ -767,7 +767,7 @@ uk:
       like: "Мені подобається"
       nsfw: "Автор помітив цей запис як тільки для дорослих\". %{link}"
       shared_with: "Для аспектів: %{aspect_names}"
-      show: показати
+      show: "показати"
       unlike: "Не подобається"
       via: "через %{link}"
       viewable_to_anyone: "Цей запис може бачити будь-хто в Інтернеті"
@@ -799,27 +799,27 @@ uk:
   streams:
     aspects:
       title: "Ваші аспекти"
-    aspects_stream: Аспекти
+    aspects_stream: "Аспекти"
     comment_stream:
       contacts_title: "Люди, чиї записи ви прокоментували"
-      title: Прокоментовані
+      title: "Прокоментовані"
     community_spotlight_stream: "У центрі уваги"
     followed_tag:
       add_a_tag: "Додати мітку"
       contacts_title: "Люди, що цікавляться цими мітками"
-      follow: Cтежити
+      follow: "Cтежити"
       title: "#Відстежувані мітки"
     followed_tags_stream: "#Відстежувані мітки"
     like_stream:
       contacts_title: "Люди, чиї записи вам сподобалися"
-      title: Вподобані
+      title: "Вподобані"
     mentioned_stream: "@Згадування"
     mentions:
       contacts_title: "Люди, що згадали вас"
       title: "@Згадування"
     multi:
       contacts_title: "Люди у вашому Потоці"
-      title: Потік
+      title: "Потік"
     public:
       contacts_title: "Нещодавно написали"
       title: "Публічна Активність"
@@ -838,7 +838,7 @@ uk:
   tags:
     show:
       follow: "Стежити за міткою #%{tag}"
-      followed_by: Спостерігають
+      followed_by: "Спостерігають"
       following: "Ви стежите за міткою #%{tag}"
       nobody_talking: "Ніхто доки не говорив про %{tag}."
       none: "Порожня мітка не існує!"
@@ -857,7 +857,7 @@ uk:
       sign_up_today: "Зареєструйтеся прямо зараз!"
       typical_userpage: "Типова cubbi.es сторінка"
       what_is_cubbies: "Cubbi.es - це перший у світі додаток для Діаспори. Крім того, це кращий спосіб створення колекції фотографій в Інтернеті."
-  undo: Відмінити?
+  undo: "Відмінити?"
   username: "Ім'я користувача"
   users:
     confirm_email:
@@ -869,7 +869,7 @@ uk:
       wrong_password: "Введений вами пароль не співпадає з вашим поточним паролем."
     edit:
       also_commented: "... хтось коментував повідомлення ваших контактів?"
-      change: Змінити
+      change: "Змінити"
       change_email: "Змінити адресу"
       change_language: "Змінити мову"
       change_password: "Змінити пароль"
@@ -910,7 +910,7 @@ uk:
       hashtag_explanation: "Мітки дозволяють вам обговорювати і стежити за темами, що цікавлять вас. Це також відмінний спосіб пошуку однодумців в Діаспорі."
       hashtag_suggestions: "Спробуйте наступні мітки, наприклад #мистецтво, #кіно, #gif і т.п."
       hooking_up_fb: "підключивши ваш обліковий запис Facebook"
-      saved: Збережено!
+      saved: "Збережено!"
       we_can_speed_things_up: "Реєстрацію можна прискорити"
       well_hello_there: "Вітаємо вас!"
       what_are_you_in_to: "Чим ви цікавитеся?"

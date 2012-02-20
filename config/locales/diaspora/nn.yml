@@ -70,7 +70,7 @@ nn:
       aspect_list_is_not_visible: "aspektet er gøymt frå andre i aspektet"
       aspect_list_is_visible: "aspektlista er synleg for andre i aspektet"
       confirm_remove_aspect: "Er du sikker på at du vil sletta aspektet?"
-      done: Utført
+      done: "Utført"
       make_aspect_list_visible: "skal kontaktane i dette aspektet kunna sjå kvarandre?"
       remove_aspect: "Slett dette aspektet"
       rename: "gje nytt namn"
@@ -89,7 +89,7 @@ nn:
       diaspora_id:
         content_1: "Diaspora-ID-en din er:"
         content_2: "Gje han til kven som helst så kan dei finna deg på Diaspora."
-        heading: Diaspora-ID
+        heading: "Diaspora-ID"
       donate: "Doner"
       handle_explanation: "Dette er Diaspora-ID-en din. Nett som ei e-postadresse kan du gje han til folk slik at dei kan nå deg."
       help:
@@ -219,7 +219,7 @@ nn:
       invalid_fields: "Ugyldige felt"
   fill_me_out: "Fyll meg ut"
   find_people: "Finn personar eller #merke"
-  hide: Gøym
+  hide: "Gøym"
   home:
     show:
       choice: "Val"
@@ -443,12 +443,12 @@ nn:
       add_contact: "legg til kontakt"
       already_connected: "Allereie tilkopla"
       pending_request: "Ventande førespurnad"
-      thats_you: Deg!
+      thats_you: "Deg!"
     profile_sidebar:
       bio: "livshistorie"
-      born: fødselsdag
+      born: "fødselsdag"
       edit_my_profile: "Endra profilen min"
-      gender: kjønn
+      gender: "kjønn"
       in_aspects: "i aspekta"
       location: "stad"
       remove_contact: "fjern kontakten"
@@ -519,7 +519,7 @@ nn:
         other: "%{count} photos by %{author}"
         two: "Two photos by %{author}"
         zero: "No photos by %{author}"
-  previous: førre
+  previous: "førre"
   profile: "Profil"
   profiles:
     edit:
@@ -558,7 +558,7 @@ nn:
       edit: "Endra %{name}"
       leave_blank: "(lat vera tomt om du ikkje vil endra)"
       password_to_confirm: "(vi treng det gjeldande passordet ditt for å kunna stadfesta endringane)"
-      unhappy: Ulukkeleg?
+      unhappy: "Ulukkeleg?"
       update: "Oppdater"
     new:
       create_my_account: "Lag kontoen min."

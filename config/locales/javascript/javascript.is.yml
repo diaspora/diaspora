@@ -61,7 +61,7 @@ is:
       month: "um það bil mánuð"
       months: "%d mánuðir"
       seconds: "minna en mínútu"
-      suffixAgo: síðan
+      suffixAgo: "síðan"
       year: "um það bil ár"
       years: "%d ára"
     videos:

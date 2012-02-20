@@ -5,13 +5,13 @@
 
 
 he:
-  _applications: יישומים
-  _comments: תגובות
+  _applications: "יישומים"
+  _comments: "תגובות"
   _contacts: "אנשי קשר"
-  _home: בית
-  _photos: תמונות
-  _services: שירותים
-  account: חשבון
+  _home: "בית"
+  _photos: "תמונות"
+  _services: "שירותים"
+  account: "חשבון"
   activerecord:
     errors:
       models:
@@ -36,7 +36,7 @@ he:
             email:
               taken: "כבר תפוס"
             person:
-              invalid: שגוי
+              invalid: "שגוי"
             username:
               invalid: "שגוי. אנו מרשים להשתמש באותיות, מספרים וקווים תחתיים בלבד."
               taken: "כבר תפוס"
@@ -48,7 +48,7 @@ he:
       unknown_person: "אדם לא ידוע"
       video_title:
         unknown: "כותרת הווידאו אינה ידועה"
-  are_you_sure: בבטחה
+  are_you_sure: "בבטחה"
   are_you_sure_delete_account: "האם אתה בטוח שברצונך לסגור את החשבון? הדבר אינו אפשרי"
   aspect_memberships:
     destroy:
@@ -84,17 +84,17 @@ he:
       aspect_list_is_not_visible: "רשימת ההיבטים מוסתרת בפני אחרים בהיבט"
       aspect_list_is_visible: "רשימת ההיבטים גלויה לאחרים בהיבט"
       confirm_remove_aspect: "האם אכן ברצונך למחוק את תחום העניין"
-      done: בוצע
+      done: "בוצע"
       make_aspect_list_visible: "האם לאפשר לאנשי הקשר בהיבט זה לראות זה את זה?"
       remove_aspect: "מחיקת תחום עניין זה"
       rename: "שינוי שם"
-      update: עדכון
-      updating: בעדכון
+      update: "עדכון"
+      updating: "בעדכון"
     few: "%{count} היבטים"
     helper:
       are_you_sure: "?האם אכן ברצונך למחוק תחום עניין זה"
       aspect_not_empty: "תחום העניין אינו ריק"
-      remove: הסרה
+      remove: "הסרה"
     index:
       cubbies:
         explanation: "Cubbi.es הנו היישום הראשון תחת דיאספורה הנמצא בפיתוח."
@@ -104,7 +104,7 @@ he:
         content_1: "המזהה שלך בדיאספורה הוא:"
         content_2: "באמצעות מזהה זה כל אחד יוכל למצוא אותך בדיאספורה."
         heading: "מזהה בדיאספורה"
-      donate: תרומה
+      donate: "תרומה"
       handle_explanation: "זהו שם המשתמש שלך בדיאספורה. בדיוק כמו כתובת דואר אלקטרוני, ניתן לחלוק אותו עם אנשים כדי שיגיעו אליך"
       help:
         do_you: !ruby/symbol "האם אתה"
@@ -114,9 +114,9 @@ he:
         have_a_question: "? %{link}יש לך  "
         here_to_help: "קהילת דיאספורה לרשותך!"
         need_help: "?צריך עזרה "
-        tag_bug: תקלה
-        tag_feature: מאפיין
-        tag_question: שאלה
+        tag_bug: "תקלה"
+        tag_feature: "מאפיין"
+        tag_question: "שאלה"
         tutorials_wiki_and_forum: "הדרכה על ידי הקהילה, איך לעשות דברים וחדשות: %{tutorial} & %{wiki} & %{forum}"
       introduce_yourself: "אלו החדשות שלך, היכנס והצג את עצמך"
       keep_us_running: "כדי שהפוד %{pod} ימשיך לפעול במהירות ולרכוש שרתים נוספים שימו כמה דולרים כל חודש כדי לממן להם איזה כוס קפה!"
@@ -139,7 +139,7 @@ he:
       failure: " לא עבד %{inspect}"
       success: "האדם הועבר לתחום עניין חדש"
     new:
-      create: יצירה
+      create: "יצירה"
       name: "שם (מופיע בפניך בלבד)"
     no_contacts_message:
       community_spotlight: "דברים חשובים בקהילה"
@@ -151,10 +151,10 @@ he:
     one: "היבט אחד"
     other: "%{count} היבטים"
     seed:
-      acquaintances: מכרים
-      family: משפחה
-      friends: חברים
-      work: עבודה
+      acquaintances: "מכרים"
+      family: "משפחה"
+      friends: "חברים"
+      work: "עבודה"
     selected_contacts:
       manage_your_aspects: "ניהול ההיבטים שלך."
       no_contacts: "אין לך עדיין אנשי קשר כאן."
@@ -173,7 +173,7 @@ he:
     index:
       no_applications: "לא נרשמת לאף אפליקציה עדיין"
       revoke_access: "שלילת הגישה"
-  back: חזרה
+  back: "חזרה"
   blocks:
     create:
       failure: "  #evasion לא יכולתי להתעלם מהמשתמש הזה"
@@ -184,15 +184,15 @@ he:
   bookmarklet:
     explanation: "פרסום ישירות לדיאספורה מכל מקום על ידי הוספת %{link} לסימניות."
     explanation_link_text: "קישור זה"
-    heading: סימנייה
+    heading: "סימנייה"
     post_something: "פרסום משהו לתוך דיאספורה"
     post_success: "פורסם! נסגר!"
-  cancel: ביטול
+  cancel: "ביטול"
   comments:
     few: "%{count} תגובות"
     many: "%{count} תגובות"
     new_comment:
-      comment: תגובה
+      comment: "תגובה"
       commenting: "נוספת הערה"
     one: "תגובה אחת"
     other: "%{count} תגובות"
@@ -246,41 +246,41 @@ he:
       no_messages: "אין הודעות"
     new:
       abandon_changes: "האם להתעלם מהשינויים?"
-      send: שליחה
-      sending: בשליחה...
-      subject: נושא
-      to: אל
+      send: "שליחה"
+      sending: "בשליחה..."
+      subject: "נושא"
+      to: "אל"
     new_message:
       fail: "הודעה בלתי תקנית"
     show:
       delete: "מחיקה וחסימת הדיון"
-      reply: תגובה
+      reply: "תגובה"
       replying: "...שולח תגובה"
   date:
     formats:
       birthday: "%d %B"
       birthday_with_year: "%d %B %Y"
       fullmonth_day: "%d %B"
-  delete: מחיקה
-  email: דוא״ל
+  delete: "מחיקה"
+  email: "דוא״ל"
   error_messages:
     helper:
       correct_the_following_errors_and_try_again: "יש לתקן את השגיאות הבאות ולנסות שוב"
       invalid_fields: "שדות שגויים"
   fill_me_out: "נא לרשום אותי"
   find_people: "חיפוש אנשים או #תגיות"
-  hide: הסתרה
+  hide: "הסתרה"
   home:
     show:
       already_account: "כבר יש לך חשבון"
-      choice: בחירה
+      choice: "בחירה"
       choice_explanation: "מערכת דיאספורה מאפשרת לך לסדר את אנשי הקשר שלך לקבוצות הנקראות היבטים. תכונה זו הנה ייחודית לדיאספורה, היבטים מסייעים לך לוודא שהתמונות, הסיפורים והבדיחות שלך ישותפו רק עם אלו להם ייעדת אותם"
       learn_about_host: "הסברים בנוגע לאחסון שרת דיאספורה משלך"
       login_here: "הכניסה מכאן"
-      ownership: בעלות
+      ownership: "בעלות"
       ownership_explanation: "התמונות שלך הן בבעלותך, ואין עליך לוותר עליהן רק כדי לשתף אותן. הבעלות הבלעדית על מה שמשותף בדיאספורה על ידיך היא שלך, כך ניתנת לך השליטה על האופן בו מופץ המידע שלך"
       share_what_you_want: "שתף מה שבא לך, עם מי שבא לך"
-      simplicity: פשטות
+      simplicity: "פשטות"
       simplicity_explanation: "דיאספורה מאפשרת לך לשתף בצורה נקייה ונוחה - ואמרה זו נוגעת גם לשמירה על פרטיותך. דיאספורה מאפשרת להוריש את הגדרות הפרטיות בין הפריטים השונים ובכך נחסך ממך השיטוט בנבכי עמודי ההגדרות והאפשרויות רק כדי לדאוג שהפרופיל שלך יהיה מאובטח"
       tagline_first_half: "שיתוף מה שבא לך"
       tagline_second_half: "עם מי שבא לך"
@@ -304,12 +304,12 @@ he:
       comma_seperated_plz: "באפשרותך להזין מספר כתובות דוא״ל ולהפרידן בפסיקים"
       if_they_accept_info: "אם הם יאשרו, הם יתווספו לתחום העניין שאליו הזמנת אותם"
       invite_someone_to_join: " הזמן מישהו להשתמש בדיאספורה"
-      language: שפה
+      language: "שפה"
       personal_message: "הודעה אישית"
       resend: "שליחה חוזרת"
       send_an_invitation: "שליחת הזמנה"
       send_invitation: "שליחת הזמנה"
-      to: אל
+      to: "אל"
   layouts:
     application:
       powered_by: "DIASPORA* מופעל על ידי "
@@ -318,14 +318,14 @@ he:
       whats_new: "מה חדש"
       your_aspects: "תחומי העניין שלך"
     header:
-      admin: מנהל
-      blog: בלוג
-      code: קוד
-      login: כניסה
-      logout: יציאה
-      profile: פרופיל
+      admin: "מנהל"
+      blog: "בלוג"
+      code: "קוד"
+      login: "כניסה"
+      logout: "יציאה"
+      profile: "פרופיל"
       recent_notifications: "התרעות אחרונות"
-      settings: הגדרות
+      settings: "הגדרות"
       view_all: "צפייה בהכול"
   likes:
     likes:
@@ -350,9 +350,9 @@ he:
         other: "%{count} אהבו"
         two: "%{count} מתעניין"
         zero: "אף אחד לא אהב"
-  limited: מוגבל
-  more: המשך
-  next: הבאה
+  limited: "מוגבל"
+  more: "המשך"
+  next: "הבאה"
   no_results: "לא נמצאו תוצאות"
   notifications:
     also_commented:
@@ -394,7 +394,7 @@ he:
         two: "אחרים %{count} ו"
         zero: "ואף אחד אחר"
       mark_all_as_read: "סימון הכול כלאחר קריאה"
-      notifications: התראות
+      notifications: "התראות"
     liked:
       few: "%{post_link}התעניינו ב  %{actors}"
       many: " %{post_link}התעניין ב%{actors}"
@@ -423,7 +423,7 @@ he:
       other: "%{actors} ציין/ה אותך ברשומה שנמחקה."
       two: "%{actors} הזכירו אותך ברשומות שנמחקו"
       zero: "%{actors} ציינו אותך ברשומה שנמחקה."
-    post: רשומה
+    post: "רשומה"
     private_message:
       few: "%{actors} שלחו לך הודעה."
       many: "%{actors} שלחו לך הודעה."
@@ -453,7 +453,7 @@ he:
       two: "התחיל לשתף אותך %{actors} "
       zero: "%{actors} החלו לשתף אתך."
   notifier:
-    a_post_you_shared: רשומה.
+    a_post_you_shared: "רשומה."
     click_here: "יש ללחוץ כאן"
     comment_on_post:
       reply: "שליחת תגובה או צפייה ברשומה של %{name} >"
@@ -482,9 +482,9 @@ he:
       view_profile: "צפייה בפרופיל של %{name}"
     thanks: "רב תודות"
     to_change_your_notification_settings: "כדי לשנות את הגדרות ההתרעה שלך"
-  ok: אישור
-  or: או
-  password: סיסמה
+  ok: "אישור"
+  or: "או"
+  password: "סיסמה"
   password_confirmation: "אישור הסיסמה"
   people:
     add_contact_small:
@@ -510,12 +510,12 @@ he:
       pending_request: "בקשה ממתינה"
       thats_you: "מדובר בך"
     profile_sidebar:
-      bio: פרטים
+      bio: "פרטים"
       born: "תאריך הלידה"
       edit_my_profile: "עריכת הפרופיל שלי"
-      gender: מגדר
+      gender: "מגדר"
       in_aspects: "בתחומי העניין"
-      location: מיקום
+      location: "מיקום"
       remove_contact: "הסרת איש קשר"
       remove_from: "?%{aspect}מ %{name} האם להסיר את "
     show:
@@ -524,8 +524,8 @@ he:
       has_not_shared_with_you_yet: "%{name} עדיין לא שיתף אתך רשומות כלל!"
       ignoring: " %{name}אתה מתעלם מכל הרשומות מ "
       incoming_request: "רוצה לשתף אתך%{name}"
-      mention: אזכור
-      message: הודעה
+      mention: "אזכור"
+      message: "הודעה"
       not_connected: "אין לך שיתוף עם אדם זה"
       recent_posts: "רשומות אחרונות"
       recent_public_posts: "הרשומות הציבוריות האחרונות"
@@ -535,7 +535,7 @@ he:
       to_accept_or_ignore: "כדי לקבל או לדחות אותה"
     sub_header:
       add_some: "הוספת כמה"
-      edit: עריכה
+      edit: "עריכה"
       you_have_no_tags: "אין לך תגיות כלל!"
     two: "%{count} אנשים"
     webfinger:
@@ -550,11 +550,11 @@ he:
     destroy:
       notice: "התמונה נמחקה"
     edit:
-      editing: עריכה
+      editing: "עריכה"
     new:
       back_to_list: "חזרה לרשימה"
       new_photo: "תמונה חדשה"
-      post_it: פרסום
+      post_it: "פרסום"
     new_photo:
       empty: " ריק, נא לבחור שוב קבצים אבל בלעדיו{file}"
       invalid_ext: "מותרת{extensions} יש סיומת לא מוכרת. רק הסיומת{file}  "
@@ -567,7 +567,7 @@ he:
     show:
       collection_permalink: "קישור קבוע לאוסף"
       delete_photo: "מחיקת תמונה"
-      edit: עריכה
+      edit: "עריכה"
       edit_delete_photo: "עריכת תיאור תמונה / מחיקת תמונה"
       make_profile_photo: "יצירת תמונת פרופיל"
       show_original_post: "הצגת הרשומה המקורית"
@@ -577,7 +577,7 @@ he:
       notice: "התמונה עודכנה בהצלחה"
   posts:
     show:
-      destroy: מחיקה
+      destroy: "מחיקה"
       not_found: "לא ניתן למצוא רשומה זו, עמך הסליחה."
       permalink: "קישור קבוע"
       photos_by:
@@ -587,10 +587,10 @@ he:
         other: "%{count} photos by %{author}"
         two: "Two photos by %{author}"
         zero: "No photos by %{author}"
-  previous: הקודמת
-  privacy: פרטיות
+  previous: "הקודמת"
+  privacy: "פרטיות"
   privacy_policy: "מדיניות פרטיות"
-  profile: פרופיל
+  profile: "פרופיל"
   profiles:
     edit:
       allow_search: "מתן אישור לאנשים לחפש אחריך ברשת דיאספורה"
@@ -602,7 +602,7 @@ he:
       your_birthday: "יום ההולדת שלך"
       your_gender: "המגדר שלך"
       your_location: "המיקום שלך"
-      your_name: שמך
+      your_name: "שמך"
       your_photo: "התמונה שלך"
       your_private_profile: "הפרופיל הפרטי שלך"
       your_public_profile: "הפרופיל הציבורי שלך"
@@ -611,7 +611,7 @@ he:
     update:
       failed: "אירע כשל בעדכון הפרופיל"
       updated: "הפרופיל עודכן"
-  public: ציבורי
+  public: "ציבורי"
   reactions:
     few: "תגובות %{count} "
     many: "תגובות %{count} "
@@ -629,7 +629,7 @@ he:
       leave_blank: "(יש להשאיר ריק אם אין ברצונך לשנות זאת)"
       password_to_confirm: "(נזדקק לססמה הנוכחית שלך כדי לאמת את השינויים)"
       unhappy: "?לא מרוצה"
-      update: עדכון
+      update: "עדכון"
     new:
       create_my_account: "יצירת החשבון שלי"
       enter_email: "נא להזין כתובת דוא״ל"
@@ -640,7 +640,7 @@ he:
       sign_up_message: "♥ רשת חברתית עם"
   requests:
     create:
-      sending: בשליחה
+      sending: "בשליחה"
       sent: |-
           %{name} ביקשת לשתף עם
           אמורים לראות זאת בפעם הבאה שייכנסו לדיאספורה
@@ -660,7 +660,7 @@ he:
       existing: "אנשי הקשר הקיימים"
       manage_within: "ניהול אנשי קשר בתוך"
     new_request_to_person:
-      sent: נשלחה
+      sent: "נשלחה"
   reshares:
     comment_email_subject: "שיתוף מחדש על ידי %{resharer} לרשומה של %{author}"
     create:
@@ -678,7 +678,7 @@ he:
       reshare_original: "שיתוף המקור מחדש"
       reshared_via: "שיתף מחדש דרך"
       show_original: "הצגת המקור"
-  search: חיפוש
+  search: "חיפוש"
   services:
     create:
       already_authorized: " חשבון %{service_name}כבר אושר ב %{diaspora_id}משתמש עם זיהוי בדיאספורה "
@@ -696,7 +696,7 @@ he:
       connect_to_facebook: "התחברות לפייסבוק"
       connect_to_tumblr: "התחברות ל־Tumblr"
       connect_to_twitter: "התחברות לטוויטר"
-      disconnect: ניתוק
+      disconnect: "ניתוק"
       edit_services: "עריכת שירותים"
       logged_in_as: "נכנסת בשם"
       no_services: "לא קישרת אף שירות עדיין."
@@ -705,10 +705,10 @@ he:
       click_link_to_accept_invitation: "יש ללחוץ על קישור זה כדי לקבל את ההזמנה שלך"
       join_me_on_diaspora: "DIASPORA*למה שלא להצטרף אלי ב"
     remote_friend:
-      invite: הזמנה
+      invite: "הזמנה"
       not_on_diaspora: "עדיין לא בדיאספורה"
       resend: "שליחה שוב"
-  settings: הגדרות
+  settings: "הגדרות"
   share_visibilites:
     update:
       post_hidden_and_muted: "רשומה הוסתרה, וההתראות הושתקו %{name}'s "
@@ -735,13 +735,13 @@ he:
       logged_in_as: "נכנסת בשם %{name}"
       your_aspects: "ההיבטים שלך"
     invitations:
-      by_email: בדוא״ל
+      by_email: "בדוא״ל"
       dont_have_now: "אין לך כרגע, אך יתווספו לך הזמנות בקרוב"
       from_facebook: "Facebookמ־ "
       invitations_left: "נותרו %{count} "
       invite_someone: "שליחת הזמנה"
       invite_your_friends: "הזמנת החברים שלך"
-      invites: הזמנות
+      invites: "הזמנות"
       invites_closed: "נכון לעכשיו ההזמנות לפוד זה של דיאספורה סגורות"
     notification:
       new: "%{from} חדש מאת %{type}"
@@ -753,13 +753,13 @@ he:
           כדי לתייג את הרשומות ולמצוא אנשים בעלי תחומי עניין משותפים #hashtags השתמש ב
           @Mentions הזמן חברים מיוחדים עם
       outside: "ההודעות הציבוריות יהיו זמינות לצפייה חיצונית גם מחוץ לרשת דיאספורה"
-      share: שתף
+      share: "שתף"
       title: "הגדרת שירותים מקושרים"
       visibility_dropdown: |-
           השתמש בגרירה למטה כדי לשנות את המראה של הרשומה (אנחנו מציעים לך שהרשומה הראשונה
           .(שלך תהיה ציבורית
     publisher:
-      all: הכול
+      all: "הכול"
       all_contacts: "כל אנשי הקשר"
       discard_post: "התעלמות מרשומה"
       make_public: "הפיכה לציבורי"
@@ -771,7 +771,7 @@ he:
       post_a_message_to: " %{aspect}פרסם הודעה ל"
       posting: "...מפרסם"
       publishing_to: "פרסום אל:"
-      share: שתף
+      share: "שתף"
       share_with: "שיתוף עם"
       upload_photos: "העלאת תמונות"
       whats_on_your_mind: "מה עובר לך בראש"
@@ -784,10 +784,10 @@ he:
       hide_and_mute: "הסתר והשתק"
       ignore_user: " %{name} התעלם"
       ignore_user_description: "?התעלם והסר את המשתמש מכל תחומי העניין"
-      like: אהבתי
+      like: "אהבתי"
       nsfw: "%{link}על ידי הכותב NSFW הרשומה הזאת סומנה כ"
       shared_with: "משותף עם: %{aspect_names}"
-      show: הצג
+      show: "הצג"
       unlike: "לא אהבתי"
       via: "באמצעות %{link}"
       viewable_to_anyone: "רשומה זו ניתנת לצפייה לכל גולשי הרשת"
@@ -839,7 +839,7 @@ he:
       title: "האזכורים שלך"
     multi:
       contacts_title: "אנשים בחדשות שלך"
-      title: חדשות
+      title: "חדשות"
     public:
       contacts_title: "מודעות חדשות"
       title: "פעילות ציבורית"
@@ -893,7 +893,7 @@ he:
     edit:
       also_commented: "...מישהו הגיב גם על הרשומה של איש הקשר שלך?"
       auto_follow_back: "Automatically follow back if a someone follows you"
-      change: שינוי
+      change: "שינוי"
       change_email: "החלפת כתובת הדוא״ל"
       change_language: "החלפת השפה"
       change_password: "החלפת הססמה"
@@ -975,4 +975,4 @@ he:
   welcome: "!ברוך הבא"
   will_paginate:
     next_label: "»הבא "
-    previous_label: «הקודם
+    previous_label: "«הקודם"

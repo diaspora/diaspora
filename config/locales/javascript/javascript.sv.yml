@@ -46,7 +46,7 @@ sv:
       profile: "Profil"
       recent_notifications: "Tidigare notiser"
       search: "Hitta användare eller #taggar"
-      settings: Inställningar
+      settings: "Inställningar"
       view_all: "Visa alla"
     ignore: "Ignorera"
     infinite_scroll:
@@ -63,7 +63,7 @@ sv:
     show_more: "visa mer"
     stream:
       comment: "Kommentar"
-      hide: Göm
+      hide: "Göm"
       like: "Gilla"
       likes:
         few: "<%= count %> gillar"
@@ -72,7 +72,7 @@ sv:
         other: "<%= count %> gillar"
         two: "<%= count %> gillar"
         zero: "<%= count %> gillar"
-      limited: Begränsad
+      limited: "Begränsad"
       more_comments:
         few: "Visa <%= count %> till kommentarer"
         many: "Visa <%= count %> till kommentarer"
@@ -102,7 +102,7 @@ sv:
       minutes: "%d minuter"
       month: "ungefär en månad"
       months: "%d månader"
-      prefixAgo: För
+      prefixAgo: "För"
       prefixFromNow: "om"
       seconds: "mindre än en minut"
       suffixAgo: "sedan"

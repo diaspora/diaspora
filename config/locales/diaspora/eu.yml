@@ -185,7 +185,7 @@ eu:
     many: "%{count} iruzkin"
     new_comment:
       comment: "Iruzkindu"
-      commenting: Iruzkintzen...
+      commenting: "Iruzkintzen..."
     one: "iruzkin 1"
     other: "%{count} iruzkin"
     two: "%{count} iruzkin"
@@ -231,15 +231,15 @@ eu:
         zero: "Mezu pribatu berririk ez"
     index:
       create_a_new_message: "mezu berria sortu"
-      inbox: Sarrera-ontzia
-      message_inbox: Sarrera-ontzia
+      inbox: "Sarrera-ontzia"
+      message_inbox: "Sarrera-ontzia"
       new_message: "Mezu Berria"
       no_conversation_selected: "ez da aukeratu elkarrizketarik"
       no_messages: "mezurik ez"
     new:
       abandon_changes: "Aldaketak bertan behera utzi?"
       send: "Bidali"
-      sending: Bidaltzen...
+      sending: "Bidaltzen..."
       subject: "gaia"
       to: "nori:"
     new_message:
@@ -247,12 +247,12 @@ eu:
     show:
       delete: "ezabatu eta giltzapetu elkarrizketa"
       reply: "erantzun"
-      replying: Erantzuten...
+      replying: "Erantzuten..."
   date:
     formats:
       birthday_with_year: "%Y (e)ko &B ren %d an"
   delete: "Ezabatu"
-  email: E-posta
+  email: "E-posta"
   error_messages:
     helper:
       correct_the_following_errors_and_try_again: "Zuzendu honako akatsak eta saiatu berriro."
@@ -618,7 +618,7 @@ eu:
       edit: "%{name} aldatu"
       leave_blank: "(hutsik utzi aldatu nahi ez baduzu)"
       password_to_confirm: "(zure pasahitza behar dugu zure aldaketak gauzatzeko)"
-      unhappy: Goibel?
+      unhappy: "Goibel?"
       update: "Eguneratu"
     new:
       create_my_account: "Nire kontua sortu!"
@@ -648,7 +648,7 @@ eu:
       existing: "Adiskideak"
       manage_within: "Adiskideak kudeatu hemen:"
     new_request_to_person:
-      sent: bidalia!
+      sent: "bidalia!"
   reshares:
     comment_email_subject: "%{author}(r)en mezuaren %{resharer}(r)en birpartekaketa"
     create:
@@ -753,7 +753,7 @@ eu:
         invited_by: "Eskerrik asko gonbidapenagatik, "
         newhere: "Berria"
       post_a_message_to: "%{aspect}(e)n mezu bat partekatu"
-      posting: Partekatzen...
+      posting: "Partekatzen..."
       publishing_to: "hemen partekatzen:"
       share: "Partekatu"
       share_with: "honekin partekatu:"
@@ -862,7 +862,7 @@ eu:
       typical_userpage: "Cubbi.es erabiltzaile orrialde tipiko bat"
       via: "(%{link}(r)en bidez)"
       what_is_cubbies: "Cubbi.es munduko lehen Diaspora aplikazioa da. Argazkiak metatzeko biderik onena ere da."
-  undo: Desegin?
+  undo: "Desegin?"
   username: "Erabiltzailea"
   users:
     confirm_email:
@@ -918,7 +918,7 @@ eu:
       hashtag_explanation: "Hashtagek gustuko duen jendea eta gauzak jarraitzea ahalbidetzen dizu.  Jende berria ezagutzeko bide on bat dira baita ere."
       hashtag_suggestions: "Saiatu #artea, #filmak, #gif, etab. bezalako etiketak jarraitzen"
       hooking_up_fb: "zure Facebook kontua lotzen"
-      saved: Gordeta!
+      saved: "Gordeta!"
       we_can_speed_things_up: "Gauzak azkartu ditzakegu"
       well_hello_there: "Beno, kaixo!"
       what_are_you_in_to: "Zelan zabiltza?"
@@ -954,7 +954,7 @@ eu:
     no_person_constructed: "Ezin izan da pertsona sortu hcard erabiliz."
     not_enabled: "webfinger ez dago aktibatuta %{account} zerbitzariarengatik"
     xrd_fetch_failed: "akatsa sortu da %{account}(e)tik xrd lortzean"
-  welcome: Ongietorri!
+  welcome: "Ongietorri!"
   will_paginate:
     next_label: "hurrengoa »"
     previous_label: "« aurrekoa"

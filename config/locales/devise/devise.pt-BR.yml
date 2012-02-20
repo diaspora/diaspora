@@ -40,7 +40,7 @@ pt-BR:
         friends_saying: "O que seus amigos estão dizendo..."
         get_connected: "Ser Conectado"
         get_connected_paragraph: "Um movimento internacional com uma visão compartilhada para uma Web melhor, %{strong_diaspora}'s #1 características é a sua comunidade. Conhecer novas pessoas, se conectar com os amigos e se divertir."
-        have_fun: Divirta-se
+        have_fun: "Divirta-se"
         have_fun_paragraph: "%{strong_diaspora} é tudo sobre as novas descobertas dos conteúdos incríveis e pessoas online. %{link}, o primeiro mundo %{strong_diaspora} aplicação é apenas o começo. Coletar e compartilhar a Web em toda a sua glória."
         help_fund: "ajudar a financiar Diaspora"
         here: "aqui"
@@ -103,7 +103,7 @@ pt-BR:
         receive_confirmation: "Não recebeu instruções de confirmação?"
         receive_unlock: "Não recebeu instruções de desbloqueio?"
         sign_in: "Entrar"
-        sign_up: Cadastre-se
+        sign_up: "Cadastre-se"
         sign_up_closed: "Registros abertos estão encerrados no momento."
       mail_signup_form:
         sign_up_for_an_invite: "Registre-se para receber um convite!"

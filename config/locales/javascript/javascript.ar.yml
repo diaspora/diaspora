@@ -39,7 +39,7 @@ ar:
     reshares:
       duplicate: "رائع، أليس كذلك؟ أعدت نشر هذه المشاركة مسبقا"
     search_for: "إبحث عن {{name}}"
-    show_more: المزيد
+    show_more: "المزيد"
     stream:
       likes:
         few: "<%= count %> Likes"

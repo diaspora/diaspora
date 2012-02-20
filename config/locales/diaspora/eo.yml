@@ -5,7 +5,7 @@
 
 
 eo:
-  _applications: Aplikaĵoj
+  _applications: "Aplikaĵoj"
   _comments: "Komentoj"
   _contacts: "Kontaktoj"
   _home: "Hejmo"
@@ -86,8 +86,8 @@ eo:
       make_aspect_list_visible: "Ĉu kontaktoj en ĉi tiu aspekto povu vidi unu la aliajn?"
       remove_aspect: "Forviŝu tiun ĉi aspekton"
       rename: "renomi"
-      update: ĝisdatigi
-      updating: ĝisdatiganta
+      update: "ĝisdatigi"
+      updating: "ĝisdatiganta"
     few: "%{count} aspektoj"
     helper:
       are_you_sure: "Ĉu vi certas, ke vi volas forviŝi tiun ĉi aspekton?"
@@ -169,7 +169,7 @@ eo:
     index:
       no_applications: "Vi ne jam registris iujn aplikaĵojn."
       revoke_access: "Revoki Permeson"
-  back: Antaŭen
+  back: "Antaŭen"
   blocks:
     create:
       failure: "Mi ne povis ignori tiun uzanton. #evasion"
@@ -189,7 +189,7 @@ eo:
     many: "%{count} komentoj"
     new_comment:
       comment: "Komenti"
-      commenting: Komentanta...
+      commenting: "Komentanta..."
     one: "1 komento"
     other: "%{count} komentoj"
     two: "%{count} komentoj"
@@ -236,15 +236,15 @@ eo:
         zero: "neniuj novaj mesaĝoj"
     index:
       create_a_new_message: "krei novan mesaĝon"
-      inbox: Poŝtujo
-      message_inbox: Poŝtujo
+      inbox: "Poŝtujo"
+      message_inbox: "Poŝtujo"
       new_message: "Nova mesaĝo"
       no_conversation_selected: "neniu interparolado elektita"
       no_messages: "neniuj mesaĝoj"
     new:
       abandon_changes: "Ĉu forlasi ŝanĝojn?"
       send: "Sendi"
-      sending: Poŝtanta...
+      sending: "Poŝtanta..."
       subject: "temo"
       to: "al"
     new_message:
@@ -252,16 +252,16 @@ eo:
     show:
       delete: "forigi kaj bloki interparoladon"
       reply: "respondi"
-      replying: Respondanta...
-  delete: Forviŝi
-  email: Retpoŝtadreso
+      replying: "Respondanta..."
+  delete: "Forviŝi"
+  email: "Retpoŝtadreso"
   error_messages:
     helper:
       correct_the_following_errors_and_try_again: "Ĝustigu la postajn erarojn kaj reprovu."
       invalid_fields: "Malvalidaj kampoj"
   fill_me_out: "Kompletu min"
   find_people: "Trovi homojn aŭ #etikedojn"
-  hide: Kaŝi
+  hide: "Kaŝi"
   home:
     show:
       already_account: "ĉu vi jam havas konton?"
@@ -415,7 +415,7 @@ eo:
       other: "%{actors} menciis vin en forigita afiŝo."
       two: "%{actors} menciis vin en foritan afiŝon."
       zero: "%{actors} menciis vin en forigita afiŝo."
-    post: afiŝo
+    post: "afiŝo"
     private_message:
       few: "%{actors} sendis al vi poŝton."
       many: "%{actors} sendis al vi poŝton."
@@ -445,7 +445,7 @@ eo:
       two: "%{actors} komenis partopreni kun vi."
       zero: "%{actors} komencis konigi kun vi."
   notifier:
-    a_post_you_shared: afiŝo.
+    a_post_you_shared: "afiŝo."
     click_here: "kliku tie ĉi"
     comment_on_post:
       reply: "Respondi aŭ vidi afiŝon de %{name} >"
@@ -475,7 +475,7 @@ eo:
     thanks: "Dankon,"
     to_change_your_notification_settings: "ŝanĝi viajn sciigajn agordojn"
   ok: "Nu"
-  or: aŭ
+  or: "aŭ"
   password: "Pasvorto"
   password_confirmation: "Pasvorta konfirmado"
   people:
@@ -503,7 +503,7 @@ eo:
       thats_you: "Jen vi!"
     profile_sidebar:
       bio: "pri mi"
-      born: naskiĝtago
+      born: "naskiĝtago"
       edit_my_profile: "Redakti mian profilon"
       gender: "sekso"
       in_aspects: "en aspektoj"
@@ -516,7 +516,7 @@ eo:
       ignoring: "Vi estas ignoranta ĉiujn afiŝojn de %{name}."
       incoming_request: "%{name} volas konigi kun vi"
       mention: "Mencii"
-      message: Mesaĝo
+      message: "Mesaĝo"
       not_connected: "Vi ne estas dividanta kun tiu ĉi homo"
       recent_posts: "Freŝaj Afiŝoj"
       recent_public_posts: "Freŝaj Publikaj Afiŝoj"
@@ -570,7 +570,7 @@ eo:
     show:
       destroy: "Forlasi"
       not_found: "Ni bedaŭras, sed ni ne povis trovi tiun afiŝon."
-      permalink: malŝanĝantligilo
+      permalink: "malŝanĝantligilo"
       photos_by:
         few: "%{count} bildoj de %{author}"
         many: "%{count} bildoj de %{author}"
@@ -578,7 +578,7 @@ eo:
         other: "%{count} bildoj de %{author}"
         two: "Du bildoj de %{author}"
         zero: "Neniuj bildoj de %{author}"
-  previous: antaŭa
+  previous: "antaŭa"
   privacy: "Privateco"
   profile: "Profilo"
   profiles:
@@ -619,7 +619,7 @@ eo:
       leave_blank: "(lasu blanka, se vi ne volas ŝanĝi ĝin)"
       password_to_confirm: "(ni bezonas vian nunan pasvorton por konfirmi viajn ŝanĝojn)"
       unhappy: "ĉu malfeliĉas?"
-      update: Ĝisdatigi
+      update: "Ĝisdatigi"
     new:
       create_my_account: "Krei mian konton!"
       enter_email: "Enskribu retpoŝtadreson"
@@ -648,7 +648,7 @@ eo:
       existing: "Ekzistantaj kontaktoj"
       manage_within: "Administri kontaktojn ene de"
     new_request_to_person:
-      sent: sendita!
+      sent: "sendita!"
   reshares:
     comment_email_subject: "Rekonigo de %{resharer} de la afiŝo de %{author}"
     create:
@@ -666,7 +666,7 @@ eo:
       reshare_original: "Rekonigi la originalon"
       reshared_via: "rekonigita per"
       show_original: "Montri la originalon"
-  search: Serĉi
+  search: "Serĉi"
   services:
     create:
       already_authorized: "Uzanto kun Diaspora nomo %{diaspora_id} jam sankciis tiun %{service_name} konton."
@@ -743,7 +743,7 @@ eo:
       title: "Agordi ligitajn servojn"
       visibility_dropdown: "Uzu tiun falliston por ŝanĝi videblecon de via afiŝo. (Ni sugestas, ke vi faru publika tiun unuan afiŝon.)"
     publisher:
-      all: ĉiuj
+      all: "ĉiuj"
       all_contacts: "ĉiuj kontaktoj"
       discard_post: "Forviŝi afiŝon"
       make_public: "publikigi"
@@ -752,7 +752,7 @@ eo:
         i_like: "Mi interesiĝas pri %{tags}."
         invited_by: "Dankon pro la invito,"
       post_a_message_to: "Afiŝi al %{aspect}"
-      posting: Afiŝanta...
+      posting: "Afiŝanta..."
       publishing_to: "koniganta al: "
       share: "Konigi"
       share_with: "konigi kun"
@@ -763,11 +763,11 @@ eo:
     stream_element:
       connect_to_comment: "konektu al tiu uzanto por komenti al lia afiŝo"
       currently_unavailable: "komentado intertempe ne eblas"
-      dislike: Malŝati
+      dislike: "Malŝati"
       hide_and_mute: "Kaŝi kaj muti afiŝon"
       ignore_user: "Ignori %{name}"
       ignore_user_description: "Ignori kaj forigi uzanton de ĉiuj aspektoj?"
-      like: Ŝati
+      like: "Ŝati"
       nsfw: "Ĉi tiun afiŝon signigis la aŭtoro kiel NSFW. %{link}"
       shared_with: "Partoprenita kun: %{aspect_names}"
       unlike: "Ne plu ŝati"
@@ -864,7 +864,7 @@ eo:
     edit:
       also_commented: "...iu ankaŭ komentis pri la afiŝo de via kontakto?"
       auto_follow_back: "Automatically follow back if a someone follows you"
-      change: Ŝanĝi
+      change: "Ŝanĝi"
       change_email: "Redakti retpoŝtadreso"
       change_language: "Ŝanĝi lingvon"
       change_password: "Ŝanĝi pasvorton"
@@ -897,7 +897,7 @@ eo:
       hashtag_explanation: "Etikedoj lasu vin pridiri kaj aboni viajn interesigojn.  Ili ankaŭ estas bona metodo trovi novajn homojn ĉe DIASPORA*."
       hashtag_suggestions: "Provu sekvi etikedojn kiel #arto, #filmoj, #gif, ktp."
       hooking_up_fb: "alkroĉi vian Facebook konton"
-      saved: Konservita!
+      saved: "Konservita!"
       we_can_speed_things_up: "Ni povas iomete rapidigi ĝin per"
       well_hello_there: "Bone, saluton tie!"
       what_are_you_in_to: "Pri kio vi ŝatokupiĝas?"
@@ -931,4 +931,4 @@ eo:
     no_person_constructed: "Neniu persono povis esti kreita per tiu ĉi hcard."
     not_enabled: "webfinger ŝajnas ne esti ŝaltita ĉe la servilo de %{account}"
     xrd_fetch_failed: "estis eraro dum la venigado de al xrd de konto %{account}"
-  welcome: Bonvenon!
+  welcome: "Bonvenon!"

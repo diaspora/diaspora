@@ -166,7 +166,7 @@ es-CL:
     index:
       no_applications: "Todavía no has registrado ninguna aplicación."
       revoke_access: "Revocar el Acceso"
-  back: Atrás
+  back: "Atrás"
   blocks:
     create:
       failure: "No pude ignorar ese usuario. #evasión"
@@ -186,7 +186,7 @@ es-CL:
     many: "%{count} comentarios"
     new_comment:
       comment: "Comentar"
-      commenting: Comentando...
+      commenting: "Comentando..."
     one: "1 comentario"
     other: "%{count} comentarios"
     two: "%{count} comentarios"
@@ -240,7 +240,7 @@ es-CL:
     new:
       abandon_changes: "Descartar los cambios?"
       send: "Enviar"
-      sending: Enviando...
+      sending: "Enviando..."
       subject: "asunto"
       to: "para"
     new_message:
@@ -248,20 +248,20 @@ es-CL:
     show:
       delete: "Eliminar y bloquear conversación"
       reply: "responder"
-      replying: Respondiendo...
+      replying: "Respondiendo..."
   delete: "Borrar"
   email: "Correo electrónico"
   error_messages:
     helper:
       correct_the_following_errors_and_try_again: "Corrige los siguientes errores e inténtalo de nuevo."
       invalid_fields: "Campos Inválidos"
-  fill_me_out: Complétame
+  fill_me_out: "Complétame"
   find_people: "Buscar personas o #tags"
   hide: "Ocultar"
   home:
     show:
       already_account: "¿Ya tienes una cuenta?"
-      choice: Opción
+      choice: "Opción"
       choice_explanation: "Diaspora te permite organizar conexiones en grupos llamados aspectos. En Diaspora, los aspectos aseguran que tus fotos, historias y bromas sean compartidas sólo con la gente que tu quieras."
       learn_about_host: "Aprende como hostear tu propio servidor Diaspora."
       login_here: "iniciar sesión aquí"
@@ -311,7 +311,7 @@ es-CL:
       logout: "Salir"
       profile: "Perfil"
       recent_notifications: "Notificaciones recientes"
-      settings: Configuración
+      settings: "Configuración"
       view_all: "Ver todo"
   likes:
     likes:
@@ -337,7 +337,7 @@ es-CL:
         two: "%{count} me gusta"
         zero: "a nadie le gusta esto aun"
   limited: "Restringido"
-  more: Más
+  more: "Más"
   next: "Siguiente"
   no_results: "No se encontraron resultados"
   notifications:
@@ -468,7 +468,7 @@ es-CL:
     thanks: "Gracias,"
     to_change_your_notification_settings: "para cambiar tu configuración de notificaciones"
   or: "o"
-  password: Contraseña
+  password: "Contraseña"
   password_confirmation: "Confirmar contraseña"
   people:
     add_contact_small:
@@ -494,12 +494,12 @@ es-CL:
       pending_request: "Solicitud pendiente"
       thats_you: "¡Ese eres tú!"
     profile_sidebar:
-      bio: biografía
-      born: Cumpleaños
+      bio: "biografía"
+      born: "Cumpleaños"
       edit_my_profile: "Editar mi perfil"
       gender: "sexo"
       in_aspects: "en aspectos"
-      location: Ubicación
+      location: "Ubicación"
       remove_contact: "eliminar contacto"
       remove_from: "¿Eliminar a %{name} de %{aspect}?"
     show:
@@ -537,7 +537,7 @@ es-CL:
     new:
       back_to_list: "Volver a la lista"
       new_photo: "Nueva Foto"
-      post_it: ¡postéalo!
+      post_it: "¡postéalo!"
     new_photo:
       empty: "{file} está vacío, por favor, seleccione los archivos nuevamente sin éste último"
       invalid_ext: "{file} tiene una extensión no válida. Solo están permitidas {extensions}."
@@ -609,7 +609,7 @@ es-CL:
       edit: "Editar %{name}"
       leave_blank: "(déjalo en blanco si no quieres cambiarlo)"
       password_to_confirm: "(necesitamos tu contraseña actual para confirmar los cambios)"
-      unhappy: ¿Triste?
+      unhappy: "¿Triste?"
       update: "Actualizar"
     new:
       create_my_account: "¡Crear mi cuenta!"
@@ -639,7 +639,7 @@ es-CL:
       existing: "Los contactos existen"
       manage_within: "Manejar los contactos en"
     new_request_to_person:
-      sent: ¡enviado!
+      sent: "¡enviado!"
   reshares:
     comment_email_subject: "%{resharer} compartió el post de %{author}"
     create:
@@ -687,7 +687,7 @@ es-CL:
       invite: "invitar"
       not_on_diaspora: "Aun no en Diaspora"
       resend: "reenviar"
-  settings: Configuración
+  settings: "Configuración"
   share_visibilites:
     update:
       post_hidden_and_muted: "Los post de %{name} se han escondido, y las notificaciones se han silenciado."
@@ -744,7 +744,7 @@ es-CL:
         invited_by: "Gracias por la invitación,"
         newhere: "Hola"
       post_a_message_to: "Postear un mensaje a %{aspect}"
-      posting: Posteando...
+      posting: "Posteando..."
       publishing_to: "publicar en: "
       share: "Compartir"
       share_with: "Compartir con "
@@ -845,7 +845,7 @@ es-CL:
       sign_up_today: "Registrate hoy mismo!"
       typical_userpage: "Una tipica pagina de usuario de cubbi.es "
       what_is_cubbies: "Cubbi.es es la primera aplicación en el mundo de Diaspora.  Es también la mejor manera de coleccionar fotos online."
-  undo: Deshacer?
+  undo: "Deshacer?"
   username: "Nombre de usuario"
   users:
     confirm_email:
@@ -890,7 +890,7 @@ es-CL:
       hashtag_explanation: "Los Hashtags te permiten hablar y seguir sobre tus intereses. También son una manera genial de encontrar nuevas personas en Diaspora."
       hashtag_suggestions: "Prueba siguiendo tags como #arte, #películas, #gif, etc."
       hooking_up_fb: "conectar tu cuenta de Facebook"
-      saved: Guardado!
+      saved: "Guardado!"
       we_can_speed_things_up: "Podemos acelerar un poco las cosas"
       well_hello_there: "Bueno, hola!"
       what_are_you_in_to: "En que estas?"
@@ -924,4 +924,4 @@ es-CL:
     no_person_constructed: "Ninguna persona puede ser construida a partir de ésta hcard"
     not_enabled: "el webfinger parece no estar disponible para el host de %{account}"
     xrd_fetch_failed: "hubo un error al recibir el crd desde la cuenta %{account}"
-  welcome: Bienvenido!
+  welcome: "Bienvenido!"

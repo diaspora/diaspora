@@ -27,33 +27,33 @@ ko:
     comments:
       hide: "댓글 숨기기"
       show: "모든 댓글 보기"
-    confirm_dialog: 확실합니까?
-    delete: 지우기
+    confirm_dialog: "확실합니까?"
+    delete: "지우기"
     failed_to_like: "좋아요를 실패했습니다!"
     failed_to_post_message: "메시지 게시를 실패하였습니다!"
     getting_started:
-      alright_ill_wait: 기다릴게요.
+      alright_ill_wait: "기다릴게요."
       hey: "<%= name %>님 안녕하세요?"
       no_tags: "태그를 팔로우하지 않았습니다. 그래도 계속하시겠습니까?"
       preparing_your_stream: "개인 스트림을 준비하고있습니다···"
     header:
-      admin: 관리
-      contacts: 컨택
-      home: 처음
-      log_out: 로그아웃
+      admin: "관리"
+      contacts: "컨택"
+      home: "처음"
+      log_out: "로그아웃"
       mark_all_as_read: "읽음으로 표시"
-      messages: 쪽지
-      notifications: 알림
-      profile: 프로필
+      messages: "쪽지"
+      notifications: "알림"
+      profile: "프로필"
       recent_notifications: "최근 알림"
-      search: 검색
-      settings: 설정
+      search: "검색"
+      settings: "설정"
       view_all: "모두 보기"
-    ignore: 무시하기
+    ignore: "무시하기"
     infinite_scroll:
       no_more: "게시물이 더 없습니다."
     my_activity: "내 활동"
-    my_stream: 스트림
+    my_stream: "스트림"
     photo_uploader:
       looking_good: "와! 멋져요!"
     publisher:
@@ -65,11 +65,11 @@ ko:
     search_for: "<%= name %> 검색"
     show_more: "더 보기"
     stream:
-      comment: 댓글
-      follow: 팔로우
-      hide: 숨기기
+      comment: "댓글"
+      follow: "팔로우"
+      hide: "숨기기"
       hide_nsfw_posts: "#유해매체 숨기기"
-      like: 좋아요
+      like: "좋아요"
       likes:
         few: "<%= count %>명이 좋아합니다"
         many: "<%= count %>명이 좋아합니다"
@@ -77,7 +77,7 @@ ko:
         other: "<%= count %>명이 좋아합니다"
         two: "<%= count %>명이 좋아합니다"
         zero: "<%= count %>명이 좋아합니다"
-      limited: 제한됨
+      limited: "제한됨"
       more_comments:
         few: "댓글 <%= count %>개 더 보기"
         many: "댓글 <%= count %>개 더 보기"
@@ -86,8 +86,8 @@ ko:
         two: "댓글 <%= count %>개 더 보기"
         zero: "댓글이 더 없습니다"
       original_post_deleted: "작성자가 원본을 지웠습니다."
-      public: 공개
-      reshare: 재공유
+      public: "공개"
+      reshare: "재공유"
       reshares:
         few: "<%= count %>명이 재공유했습니다."
         many: "<%= count %>명이 재공유했습니다."
@@ -102,7 +102,7 @@ ko:
     tags:
       wasnt_that_interesting: "알겠습니다. #<%= tagName %> 태그는 흥미롭지 않았군요?"
     timeago:
-      day: 하루
+      day: "하루"
       days: "%d일"
       hour: "약 한 시간"
       hours: "약 %d시간"
@@ -110,9 +110,9 @@ ko:
       minutes: "%d분"
       month: "약 한 달"
       months: "%d개월"
-      prefixFromNow: 지금부터
-      seconds: 방금
-      suffixAgo: 전
+      prefixFromNow: "지금부터"
+      seconds: "방금"
+      suffixAgo: "전"
       suffixFromNow: "지금으로 부터"
       year: "한 해"
       years: "%d년"

@@ -43,7 +43,7 @@ es-AR:
         have_fun: "Divertite"
         have_fun_paragraph: "%{strong_diaspora} es descubrir contenido nuevo y sorprendente de personas que están online. %{link}, la primera aplicación del mundo para %{strong_diaspora} es sólo el comienzo. Recopilar y compartir en la web en toda su gloria."
         help_fund: "ayudá a financiar Diaspora"
-        here: aquí
+        here: "aquí"
         ignore: "Si no querés aceptar la invitación, por favor ignorá este correo."
         join_team: "Unite a nuestro Equipo"
         love: "Con amor,"
@@ -92,7 +92,7 @@ es-AR:
         bugs_and_feedback_mobile: "Tené en cuenta que podés experimentar errores.  ¡Te alentamos informarnos cualquier inconveniente!  Trabajaremos tan rápido como podamos para resolver cualquier problema que reportes."
         login: "Iniciar sesión"
         modern_browsers: "Sólo es compatible con navegadores modernos."
-        password: Contraseña
+        password: "Contraseña"
         remember_me: "Recordarme"
         sign_in: "Conectarse"
         username: "Nombre de usuario"

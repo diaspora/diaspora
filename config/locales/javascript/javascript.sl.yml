@@ -74,7 +74,7 @@ sl:
     tags:
       wasnt_that_interesting: "Vredu, mislim, da zaznamek #{{tagName}} ni bil tako zanimiv ..."
     timeago:
-      day: včeraj
+      day: "včeraj"
       days: "pred %d dnem"
       hour: "pred približno uro"
       hours: "pred približno %d urami"

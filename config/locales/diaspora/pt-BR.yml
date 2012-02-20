@@ -5,12 +5,12 @@
 
 
 pt-BR:
-  _applications: Aplicações
-  _comments: Comentários
+  _applications: "Aplicações"
+  _comments: "Comentários"
   _contacts: "Contatos"
-  _home: Início
+  _home: "Início"
   _photos: "Fotos"
-  _services: Serviços
+  _services: "Serviços"
   account: "Conta"
   activerecord:
     errors:
@@ -81,7 +81,7 @@ pt-BR:
       aspect_list_is_not_visible: "a lista de usuários não é visível para os integrantes do grupo"
       aspect_list_is_visible: "a lista está visível aos outros no grupo"
       confirm_remove_aspect: "Tem certeza que deseja deletar este grupo?"
-      done: Pronto!
+      done: "Pronto!"
       make_aspect_list_visible: "Tornar contatos nesse grupo visiveis entre si?"
       remove_aspect: "Deletar este grupo"
       rename: "Renomear"
@@ -148,7 +148,7 @@ pt-BR:
     other: "%{count} grupos"
     seed:
       acquaintances: "Conhecidos"
-      family: Família
+      family: "Família"
       friends: "Amigos"
       work: "Trabalho"
     selected_contacts:
@@ -187,7 +187,7 @@ pt-BR:
     many: "%{count} comentários"
     new_comment:
       comment: "Comentar"
-      commenting: Comentando...
+      commenting: "Comentando..."
     one: "1 comentário"
     other: "%{count} comentários"
     two: "%{count} comentários"
@@ -241,7 +241,7 @@ pt-BR:
     new:
       abandon_changes: "Abandonar modificações?"
       send: "Enviar"
-      sending: Enviando...
+      sending: "Enviando..."
       subject: "assunto"
       to: "para"
     new_message:
@@ -249,7 +249,7 @@ pt-BR:
     show:
       delete: "deletar e bloquear conversa"
       reply: "responder"
-      replying: Respondendo...
+      replying: "Respondendo..."
   date:
     formats:
       birthday: "%d %B"
@@ -311,12 +311,12 @@ pt-BR:
     header:
       admin: "Administrador"
       blog: "Blog"
-      code: Código
+      code: "Código"
       login: "Entrar"
       logout: "Sair"
       profile: "Perfil"
       recent_notifications: "Notificações recentes"
-      settings: Configurações
+      settings: "Configurações"
       view_all: "Ver tudo"
   likes:
     likes:
@@ -343,7 +343,7 @@ pt-BR:
         zero: "ninguém curtiu"
   limited: "Limitado"
   more: "Mais"
-  next: Próximo
+  next: "Próximo"
   no_results: "Nenhum Resultado Encontrado"
   notifications:
     also_commented:
@@ -385,7 +385,7 @@ pt-BR:
         two: "e %{count} outros"
         zero: "e mais ninguém"
       mark_all_as_read: "Marcar Todos como Lido"
-      notifications: Notificações
+      notifications: "Notificações"
     liked:
       few: "%{actors} curtiu sua postagem %{post_link}."
       many: "%{actors} curtiu sua postagem %{post_link}."
@@ -501,11 +501,11 @@ pt-BR:
       thats_you: "Esse é você!"
     profile_sidebar:
       bio: "Biografia"
-      born: Aniversário
+      born: "Aniversário"
       edit_my_profile: "Editar Meu Perfil"
       gender: "Sexo"
       in_aspects: "em grupos"
-      location: Localização
+      location: "Localização"
       remove_contact: "remover contato"
       remove_from: "Remover %{name} de %{aspect}?"
     show:
@@ -544,7 +544,7 @@ pt-BR:
     new:
       back_to_list: "Voltar para Lista"
       new_photo: "Nova Foto"
-      post_it: Enviar!
+      post_it: "Enviar!"
     new_photo:
       empty: "{file} está vazio, por favor, selecione os arquivos novamente."
       invalid_ext: "{file} possui uma extensão inválida. Somente {extensions} são permitidos."
@@ -601,7 +601,7 @@ pt-BR:
     update:
       failed: "Erro em atualizar perfil."
       updated: "Perfil Atualizado!"
-  public: Público
+  public: "Público"
   reactions:
     few: "%{count} reações"
     many: "%{count} reactions"
@@ -618,7 +618,7 @@ pt-BR:
       edit: "Editar %{name}"
       leave_blank: "(deixe em branco se não quiser alterar)"
       password_to_confirm: "(digite a senha atual para as alterações)"
-      unhappy: Infeliz?
+      unhappy: "Infeliz?"
       update: "Atualizar"
     new:
       create_my_account: "Criar minha conta!"
@@ -648,7 +648,7 @@ pt-BR:
       existing: "Contatos existentes"
       manage_within: "Gerenciar contatos dentro"
     new_request_to_person:
-      sent: Enviado!
+      sent: "Enviado!"
   reshares:
     comment_email_subject: "%{resharer}'s postagem compartilhada por %{author}"
     create:
@@ -696,7 +696,7 @@ pt-BR:
       invite: "Convidar"
       not_on_diaspora: "Não está ainda em Diaspora"
       resend: "Reenviar"
-  settings: Configurações
+  settings: "Configurações"
   share_visibilites:
     update:
       post_hidden_and_muted: "%{name}'s postagens foram escondidas, e as notificações silenciadas."
@@ -752,7 +752,7 @@ pt-BR:
         i_like: "Estou interessado em %{tags}."
         invited_by: "Obrigado pelo convite, "
       post_a_message_to: "Postar uma mensagem para %{aspect}"
-      posting: Postando...
+      posting: "Postando..."
       publishing_to: "publicando para:"
       share: "Compartilhar"
       share_with: "Compartilhar com %{aspect}"
@@ -859,8 +859,8 @@ pt-BR:
       sign_up_today: "Registre-se hoje!"
       typical_userpage: "Uma típica página do cubbi.es"
       what_is_cubbies: "Cubbi.es é a primeira aplicação do mundo feita para Diaspora. E também a melhor maneira de coletar imagens online."
-  undo: Desfazer?
-  username: Usuário
+  undo: "Desfazer?"
+  username: "Usuário"
   users:
     confirm_email:
       email_confirmed: "Email %{email} ativado"
@@ -912,7 +912,7 @@ pt-BR:
       hashtag_explanation: "As hashtags permitem à você compartilhar e acompanhar os teus interesses. Elas também são uma ótima maneira de encontrar novas pessoas em Diaspora."
       hashtag_suggestions: "Tente tags como #art, #movies, #gif, etc."
       hooking_up_fb: "ligar sua conta do Facebook"
-      saved: Salvo!
+      saved: "Salvo!"
       we_can_speed_things_up: "Podemos acelerar as coisas um pouco por "
       well_hello_there: "Bem, olá!"
       what_are_you_in_to: "Onde você está?"

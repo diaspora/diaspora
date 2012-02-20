@@ -43,7 +43,7 @@ fi:
         have_fun: "Pidä hauskaa"
         have_fun_paragraph: "%{strong_diaspora} on uusien ja ihmeellisten sisältöjen ja ihmisten paikka. %{link}, maailman ensimmäinen %{strong_diaspora}-sovellus on vain alkua. Kerää ja jaa webin sisältöä."
         help_fund: "tue Diasporaa lahjoituksella"
-        here: tästä
+        here: "tästä"
         ignore: "Mikäli et halua hyväksyä kutsua, voit jättää tämän viestin huomioimatta."
         join_team: "Liity mukaan"
         love: "Rakkaudella,"
@@ -53,7 +53,7 @@ fi:
         or: "tai"
         sign_up_now: "Rekisteröidy heti &rarr;"
         subject: "Sinut on kutsuttu käyttämään Diasporaa!"
-        team_diaspora: Diaspora-tiimi
+        team_diaspora: "Diaspora-tiimi"
         unsubscribe: "Voit poistua postituslistalta napsauttamalla %{link}."
         view_in: "View in"
       inviter:
@@ -69,7 +69,7 @@ fi:
       unlock_instructions:
         account_locked: "Käyttäjätilisi on lukittu liian usean epäonnistuneen kirjautumisyrityksen vuoksi."
         click_to_unlock: "Poista käyttäjätilisi lukitus alla olevasta linkistä:"
-        subject: Lukituksenpoisto-ohjeet
+        subject: "Lukituksenpoisto-ohjeet"
         unlock: "Poista käyttäjätilini lukitus"
       welcome: "Tervetuloa %{email}!"
     passwords:
@@ -95,7 +95,7 @@ fi:
         password: "Salasana"
         remember_me: "Muista minut"
         sign_in: "Kirjaudu sisään"
-        username: Käyttäjänimi
+        username: "Käyttäjänimi"
       signed_in: "Sisäänkirjautuminen onnistui."
       signed_out: "Uloskirjautuminen onnistui."
     shared:
@@ -104,7 +104,7 @@ fi:
         receive_confirmation: "Etkö saanut vahvistusohjeita?"
         receive_unlock: "Etkö saanut lukituksenpoisto-ohjeita?"
         sign_in: "Kirjaudu"
-        sign_up: Rekisteröidy
+        sign_up: "Rekisteröidy"
         sign_up_closed: "Avoin rekisteröityminen on tällä hetkellä suljettu."
       mail_signup_form:
         sign_up_for_an_invite: "Rekisteröidy saadaksesi kutsun!"

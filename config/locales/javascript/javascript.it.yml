@@ -52,7 +52,7 @@ it:
     ignore: "Ignora"
     infinite_scroll:
       no_more: "Non ci sono altri post."
-    my_activity: Attività
+    my_activity: "Attività"
     my_stream: "Stream"
     photo_uploader:
       looking_good: "Accidenti, sei in splendida forma!"
@@ -62,8 +62,8 @@ it:
       public: "Pubblico - il tuo post sarà visibile a tutti, inclusi i motori di ricerca"
     reshares:
       duplicate: "Bello eh? Ma hai già condiviso quel post!"
-    search_for: "Ricerca per <%= name %>"
-    show_more: continua...
+    search_for: "Ricerca su <%= name %>"
+    show_more: "continua..."
     stream:
       comment: "Commenta"
       follow: "Segui"
@@ -110,7 +110,6 @@ it:
       minutes: "%d minuti"
       month: "circa un mese"
       months: "%d mesi"
-      prefixAgo: "fa"
       prefixFromNow: "fra"
       seconds: "meno di un minuto"
       suffixAgo: "fa"

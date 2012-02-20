@@ -82,7 +82,7 @@ fr:
       aspect_list_is_not_visible: "la liste d'aspect est masquée pour les autres membres de cet aspect"
       aspect_list_is_visible: "la liste d'aspect est visible pour les autres membres de cet aspect"
       confirm_remove_aspect: "Voulez-vous vraiment supprimer cet aspect ?"
-      done: Terminé
+      done: "Terminé"
       make_aspect_list_visible: "permettre aux contacts de cet aspect de se voir entre eux ?"
       remove_aspect: "Supprimer cet aspect"
       rename: "renommer"
@@ -137,7 +137,7 @@ fr:
       failure: "n'a pas fonctionné %{inspect}"
       success: "Personne déplacée vers le nouvel aspect"
     new:
-      create: Créer
+      create: "Créer"
       name: "Nom (uniquement visible par vous)"
     no_contacts_message:
       community_spotlight: "actualités de la communauté"
@@ -247,14 +247,14 @@ fr:
     new:
       abandon_changes: "Abandonner les changements ?"
       send: "Envoyer"
-      sending: Envoi…
+      sending: "Envoi…"
       subject: "sujet"
       to: "pour"
     new_message:
       fail: "Message invalide"
     show:
       delete: "supprimer et bloquer la conversation"
-      reply: répondre
+      reply: "répondre"
       replying: "En réponse..."
   date:
     formats:
@@ -267,7 +267,7 @@ fr:
     helper:
       correct_the_following_errors_and_try_again: "Corrigez les erreurs suivantes, puis réessayez."
       invalid_fields: "Champs invalides"
-  fill_me_out: Remplissez-moi
+  fill_me_out: "Remplissez-moi"
   find_people: "Rechercher des personnes ou des #tags"
   hide: "Masquer"
   home:
@@ -277,10 +277,10 @@ fr:
       choice_explanation: "Diaspora vous laisse trier vos connexions dans des groupes appelés aspects. Spécifiques à Diaspora, les aspects garantissent que vos photos, histoires et blagues ne sont partagées qu'avec les personnes avec qui vous souhaitez les partager."
       learn_about_host: "Apprenez comment héberger votre propre serveur Diaspora."
       login_here: "connectez-vous ici"
-      ownership: Propriété
+      ownership: "Propriété"
       ownership_explanation: "Vous êtes le propriétaire de vos images, et vous ne devriez pas être obligé de renoncer à cela juste pour les partager. Vous conservez la propriété de tout ce que vous partagez sur Diaspora, ce qui vous donne le contrôle total de la manière dont cela est distribué."
       share_what_you_want: "Partagez ce que vous voulez, avec qui vous voulez."
-      simplicity: Simplicité
+      simplicity: "Simplicité"
       simplicity_explanation: "Diaspora rend le partage propre et facile - et cela est également valable pour la vie privée. Intrinsèquement privé, Diaspora ne vous contraint pas à vous frayer un chemin à travers des pages de configuration et d'options uniquement pour maintenir votre profil sécurisé."
       tagline_first_half: "Partagez ce que vous voulez,"
       tagline_second_half: "avec qui vous voudrez."
@@ -310,7 +310,7 @@ fr:
       resend: "Envoyer à nouveau"
       send_an_invitation: "Envoyer une invitation"
       send_invitation: "Envoyer l'invitation"
-      to: À
+      to: "À"
   layouts:
     application:
       back_to_top: "Retour en haut"
@@ -324,10 +324,10 @@ fr:
       blog: "blog"
       code: "code"
       login: "connexion"
-      logout: Déconnexion
+      logout: "Déconnexion"
       profile: "Profil"
       recent_notifications: "Notifications"
-      settings: Paramètres
+      settings: "Paramètres"
       view_all: "Tout afficher"
   likes:
     likes:
@@ -352,7 +352,7 @@ fr:
         other: "%{count} aiment"
         two: "%{count} aiment"
         zero: "personne n'aime"
-  limited: Limité
+  limited: "Limité"
   more: "Plus"
   next: "suivant"
   no_results: "Aucun résultat trouvé"
@@ -591,7 +591,7 @@ fr:
         two: "Deux photos par %{author}"
         zero: "Pas de photos par %{author}"
       reshare_by: "Repartagé par %{author}"
-  previous: précédent
+  previous: "précédent"
   privacy: "Vie privée"
   privacy_policy: "Règles de confidentialité"
   profile: "Profil"
@@ -599,10 +599,10 @@ fr:
     edit:
       allow_search: "Permettre à tous de vous rechercher dans Diaspora"
       edit_profile: "Modifier le profil"
-      first_name: Prénom
+      first_name: "Prénom"
       last_name: "Nom de famille"
       update_profile: "Mettre à jour le profil"
-      you_are_nsfw: "Vous vous êtes marqué comme non-sûr (NSFW), vos messages pourrons ne pas apparaître chez les utilisateurs ayant demandé de ne pas afficher les contenus non-sûrs dans leur flux."
+      you_are_nsfw: "Vous vous êtes marqué comme non-sûr (NSFW), vos messages pourront ne pas apparaître chez les utilisateurs ayant demandé de ne pas afficher les contenus non-sûrs dans leur flux."
       you_are_safe_for_work: "Vous vous êtes marqué comme sûr (SFW), donc vos messages devront suivre les règles de la communauté."
       your_bio: "Votre biographie"
       your_birthday: "Votre anniversaire"
@@ -664,7 +664,7 @@ fr:
       existing: "Contacts existants"
       manage_within: "Gérer les contacts de"
     new_request_to_person:
-      sent: envoyée !
+      sent: "envoyée !"
   reshares:
     comment_email_subject: "Partage par %{resharer} d'un message de %{author}"
     create:
@@ -700,7 +700,7 @@ fr:
       connect_to_facebook: "Connecter à Facebook"
       connect_to_tumblr: "Connecter à Tumblr"
       connect_to_twitter: "Connecter à Twitter"
-      disconnect: déconnecter
+      disconnect: "déconnecter"
       edit_services: "Modifier les services"
       logged_in_as: "connecté(e) en tant que"
       no_services: "Vous n'êtes connecté à aucun service pour le moment."
@@ -721,7 +721,7 @@ fr:
     add_contact:
       add_new_contact: "Ajouter un nouveau contact"
       create_request: "Rechercher par identifiant Diaspora"
-      diaspora_handle: diaspora@pod.org
+      diaspora_handle: "diaspora@pod.org"
       enter_a_diaspora_username: "Entrez un nom d'utilisateur Diaspora :"
       know_email: "Connaissez-vous leur adresse de courrier électronique ? Vous devriez les inviter"
       your_diaspora_username_is: "Votre nom d'utilisateur Diaspora est : %{diaspora_handle}"
@@ -771,12 +771,12 @@ fr:
         invited_by: "Merci pour l'invitation, "
         newhere: "NouveauIci"
       post_a_message_to: "Publier un message dans %{aspect}"
-      posting: Publication…
+      posting: "Publication…"
       publishing_to: "publication vers : "
       share: "Partager"
       share_with: "Partager avec"
       upload_photos: "Envoyer des photos"
-      whats_on_your_mind: exprimez-vous
+      whats_on_your_mind: "exprimez-vous"
     reshare:
       reshare: "Repartager"
     stream_element:
@@ -786,7 +786,7 @@ fr:
       hide_and_mute: "Masquer et mettre le message en sourdine"
       ignore_user: "Ignorez %{name}"
       ignore_user_description: "Ignorez et supprimer l'utilisateur de tous les aspects ?"
-      like: J'aime
+      like: "J'aime"
       nsfw: "Le message a été marqué par son auteur comme étant EXPLICITE. %{link}"
       shared_with: "Partagé avec : %{aspect_names}"
       show: "montrer"

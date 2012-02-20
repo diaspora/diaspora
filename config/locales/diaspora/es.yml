@@ -149,7 +149,7 @@ es:
     one: "1 aspecto"
     other: "%{count} aspectos"
     seed:
-      acquaintances: Conocid@s
+      acquaintances: "Conocid@s"
       family: "Familia"
       friends: "Contactos"
       work: "Trabajo"
@@ -169,7 +169,7 @@ es:
     index:
       no_applications: "Aún no tienes registrada ninguna aplicación."
       revoke_access: "Revocar acceso"
-  back: Atrás
+  back: "Atrás"
   blocks:
     create:
       failure: "No podría ignorar a esa persona. #evasion"
@@ -189,7 +189,7 @@ es:
     many: "%{count} comentarios"
     new_comment:
       comment: "Comentar"
-      commenting: Comentando...
+      commenting: "Comentando..."
     one: "1 comentario"
     other: "%{count} comentarios"
     two: "%{count} comentarios"
@@ -247,7 +247,7 @@ es:
     new:
       abandon_changes: "¿Descartar los cambios?"
       send: "Enviar"
-      sending: Enviando...
+      sending: "Enviando..."
       subject: "asunto"
       to: "para"
     new_message:
@@ -255,7 +255,7 @@ es:
     show:
       delete: "Eliminar y bloquear conversación"
       reply: "responder"
-      replying: Respondiendo...
+      replying: "Respondiendo..."
   date:
     formats:
       birthday: "%d %B "
@@ -267,13 +267,13 @@ es:
     helper:
       correct_the_following_errors_and_try_again: "Corrija los siguientes errores e inténtelo de nuevo."
       invalid_fields: "Campos inválidos"
-  fill_me_out: Complétame
+  fill_me_out: "Complétame"
   find_people: "Encuentra gente o #etiquetas"
   hide: "Ocultar"
   home:
     show:
       already_account: "¿Tienes ya una cuenta?"
-      choice: Elección
+      choice: "Elección"
       choice_explanation: "Diaspora* te permite organizar conexiones en grupos llamados aspectos. En Diaspora*, los aspectos aseguran que tus fotos, historias y bromas sean compartidas sólo con la gente que tu quieras."
       learn_about_host: "Aprende acerca de cómo hostear tu propio servidor Diaspora*."
       login_here: "accede aquí"
@@ -322,7 +322,7 @@ es:
     header:
       admin: "Administrar"
       blog: "blog"
-      code: código
+      code: "código"
       login: "acceder"
       logout: "Salir"
       profile: "Perfil"
@@ -353,7 +353,7 @@ es:
         two: "A %{count} personas les gusta"
         zero: "sin votos"
   limited: "Restringido"
-  more: Más
+  more: "Más"
   next: "siguiente"
   no_results: "No hay resultados"
   notifications:
@@ -425,7 +425,7 @@ es:
       other: "%{actors} te mencionaron en una publicación eliminada."
       two: "%{actors} te mencionaron en una publicación eliminada."
       zero: "%{actors} te mencionó en una publicación eliminada."
-    post: publicación
+    post: "publicación"
     private_message:
       few: "%{actors} te enviaron un mensaje."
       many: "%{actors} te enviaron un mensaje."
@@ -465,7 +465,7 @@ es:
     email_sent_by_diaspora: "Este email fue enviado por Diaspora*. Si te gustaría dejar de recibir emails como este,"
     hello: "¡Hola %{name}!"
     liked:
-      liked: "%{name} marcó tu publicación"
+      liked: "A %{name} le gustó tu publicación"
       view_post: "Ver comentario >"
     mentioned:
       mentioned: "te mencionó en una publicación:"
@@ -487,7 +487,7 @@ es:
   nsfw: "No apto para todos los públicos"
   ok: "Aceptar"
   or: "o"
-  password: Contraseña
+  password: "Contraseña"
   password_confirmation: "Confirmación de contraseña"
   people:
     add_contact_small:
@@ -513,10 +513,10 @@ es:
       pending_request: "Solicitud pendiente"
       thats_you: "¡Ese eres tú!"
     profile_sidebar:
-      bio: Biografía
+      bio: "Biografía"
       born: "Fecha de nacimiento"
       edit_my_profile: "Editar mi perfil"
-      gender: Género
+      gender: "Género"
       in_aspects: "en aspectos"
       location: "Ubicación "
       remove_contact: "quitar contacto"
@@ -527,7 +527,7 @@ es:
       has_not_shared_with_you_yet: "¡%{name} todavía no ha compartido ninguna publicación contigo!"
       ignoring: "Estás ignorando todas las publicaciones de %{name}."
       incoming_request: "%{name} quisiera compartir contigo"
-      mention: Mención
+      mention: "Mención"
       message: "Mensaje"
       not_connected: "No estás compartiendo con esta persona."
       recent_posts: "Últimas publicaciones"
@@ -557,7 +557,7 @@ es:
     new:
       back_to_list: "Volver a la lista"
       new_photo: "Nueva foto"
-      post_it: ¡Publícalo!
+      post_it: "¡Publícalo!"
     new_photo:
       empty: "{file} está vacío, por favor selecciona otros archivos."
       invalid_ext: "{file} tiene una extensión inválida. Sólo {extensions} están permitidas."
@@ -602,12 +602,12 @@ es:
       first_name: "Nombre"
       last_name: "Apellidos"
       update_profile: "Actualizar perfil"
-      you_are_nsfw: "Ha marcado como no apto para el lugar de trabajo, el contenido no se mostrará a las personas que decidieron seguir publicaciones aptas para todos los públicos."
-      you_are_safe_for_work: "Ha marcado como apto para todos públicos, esto significa que usted está de acuerdo en que el contenido que publique respetará las normas de toda la comunidad."
-      your_bio: Biografía
+      you_are_nsfw: "Has marcado tu perfil como no apto para el lugar de trabajo, tu contenido no se mostrará a las personas que hayan descartado publicaciones no aptas para todos los públicos."
+      you_are_safe_for_work: "Has marcado tu perfil como apto para todos públicos, esto significa que aceptas que el contenido que publiques respetará las normas de toda la comunidad."
+      your_bio: "Biografía"
       your_birthday: "Fecha de nacimiento"
-      your_gender: Género
-      your_location: Ubicación
+      your_gender: "Género"
+      your_location: "Ubicación"
       your_name: "Nombre"
       your_photo: "Foto"
       your_private_profile: "Perfil privado"
@@ -617,7 +617,7 @@ es:
     update:
       failed: "Error actualizando el perfil"
       updated: "Perfil actualizado"
-  public: Público
+  public: "Público"
   reactions:
     few: "%{count} reacciones"
     many: "%{count} reacciones"
@@ -634,7 +634,7 @@ es:
       edit: "Editar %{name}"
       leave_blank: "(déjalo en blanco si no quieres cambiarlo)"
       password_to_confirm: "(necesitamos tu contraseña actual para confirmar los cambios)"
-      unhappy: ¿Triste?
+      unhappy: "¿Triste?"
       update: "Actualizar"
     new:
       create_my_account: "¡Crear mi cuenta!"
@@ -664,7 +664,7 @@ es:
       existing: "Contactos existentes"
       manage_within: "Gestión de contactos"
     new_request_to_person:
-      sent: ¡Enviado!
+      sent: "¡Enviado!"
   reshares:
     comment_email_subject: "%{resharer} compartió la publicación de %{author}"
     create:
@@ -721,7 +721,7 @@ es:
     add_contact:
       add_new_contact: "Añade un nuevo contacto"
       create_request: "Encontrar por la dirección Diaspora*"
-      diaspora_handle: diaspora@pod.org
+      diaspora_handle: "diaspora@pod.org"
       enter_a_diaspora_username: "Introduce un nombre de usuario Diaspora*:"
       know_email: "¿Conoces sus direcciones de email? Podrías invitarles"
       your_diaspora_username_is: "Tu nombre de usuario Diaspora* es: %{diaspora_handle}"
@@ -771,7 +771,7 @@ es:
         invited_by: "Gracias por la invitación, "
         newhere: "Hola"
       post_a_message_to: "Publicar un mensaje en %{aspect}"
-      posting: Publicando...
+      posting: "Publicando..."
       publishing_to: "publicar en:"
       share: "Compartir"
       share_with: "compartir con"
@@ -882,7 +882,7 @@ es:
       typical_userpage: "Una página de un usuario de cubbi.es"
       via: "(vía %{link})"
       what_is_cubbies: "Cubbi.es es la primera aplicación de Diaspora en el mundo.  Es también la mejor forma de coleccionar fotos en línea."
-  undo: ¿Deshacer?
+  undo: "¿Deshacer?"
   username: "Nombre de usuario"
   users:
     confirm_email:
@@ -938,7 +938,7 @@ es:
       hashtag_explanation: "Las etiquetas te permiten hablar sobre tus intereses así como seguirlos. Además es una forma genial de encontrar gente nueva en Diaspora. "
       hashtag_suggestions: "Prueba a seguir etiquetas como #arte, #cine, #activismo, #geek, etc."
       hooking_up_fb: "conectando tu cuenta de Facebook"
-      saved: ¡Guardado!
+      saved: "¡Guardado!"
       we_can_speed_things_up: "Podemos acelerar las cosas un poquito"
       well_hello_there: "Bueno, ¿qué tal?"
       what_are_you_in_to: "¿En qué estás?"
@@ -974,7 +974,7 @@ es:
     no_person_constructed: "Ninguna persona pudo ser creada a partir de este hcard."
     not_enabled: "El webfinger parece no estar habilitado para el host de %{account}"
     xrd_fetch_failed: "Hubo un error al recibir el xrd desde la cuenta %{account}"
-  welcome: ¡Bienvenid@!
+  welcome: "¡Bienvenid@!"
   will_paginate:
     next_label: "siguiente »"
     previous_label: "« anterior"

@@ -112,8 +112,8 @@ ml:
       months: "%d മാസങ്ങള്‍"
       prefixFromNow: "ഇപ്പോള്‍ മുതല്‍"
       seconds: "ഏതാനും നിമിഷങ്ങള്‍"
-      suffixAgo: മുന്‍പ്
-      suffixFromNow: വരെ
+      suffixAgo: "മുന്‍പ്"
+      suffixFromNow: "വരെ"
       year: "ഉദ്ദേശം ഒരു വര്‍ഷം"
       years: "%d വര്‍ഷങ്ങള്‍ക്ക്"
     videos:

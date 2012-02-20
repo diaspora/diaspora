@@ -37,12 +37,12 @@ cs:
       contacts: "Kontakty"
       log_out: "Odhlásit se"
       mark_all_as_read: "Označit vše jako přečtené"
-      messages: Zprávy
-      notifications: Oznámení
+      messages: "Zprávy"
+      notifications: "Oznámení"
       profile: "Profil"
       recent_notifications: "Poslední oznámení"
       search: "Hledejte lidi nebo #štítky"
-      settings: Nastavení
+      settings: "Nastavení"
       view_all: "Zobrazit vše"
     infinite_scroll:
       no_more: "Žádné další příspěvky."
@@ -56,7 +56,7 @@ cs:
     show_more: "zobrazit více"
     stream:
       comment: "Okomentovat"
-      hide: Skrýt
+      hide: "Skrýt"
       likes:
         few: "<%= count %> Likes"
         many: "<%= count %> Likes"
@@ -64,7 +64,7 @@ cs:
         other: "<%= count %> Likes"
         two: "<%= count %> Likes"
         zero: "<%= count %> Likes"
-      limited: Omezený
+      limited: "Omezený"
       more_comments:
         few: "Zobrazit <%= count %> dalších komentářů"
         many: "Zobrazit <%= count %> dalších komentářů"
@@ -73,7 +73,7 @@ cs:
         two: "Zobrazit <%= count %> další komentáře"
         zero: "Show <%= count %> more comments"
       original_post_deleted: "Původní zpráva byla odstraněna jejím autorem."
-      public: Veřejný
+      public: "Veřejný"
       reshares:
         few: "<%= count %> Reshares"
         many: "<%= count %> Reshares"
@@ -92,7 +92,7 @@ cs:
       minutes: "%d minutami"
       month: "1 měsícem"
       months: "%d měsíci"
-      prefixAgo: před
+      prefixAgo: "před"
       seconds: "méně než minutou"
       year: "1 rokem"
       years: "%d roky"

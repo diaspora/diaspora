@@ -7,10 +7,10 @@
 zh-TW:
   javascripts:
     aspect_dropdown:
-      add_to_aspect: 加聯絡人
-      all_aspects: 所有面向
+      add_to_aspect: "加聯絡人"
+      all_aspects: "所有面向"
       error: "無法開始和 {{name}} 分享. 你還在忽視他們嗎?"
-      select_aspects: 選面向
+      select_aspects: "選面向"
       started_sharing_with: "你開始和 {{name}} 分享了!"
       stopped_sharing_with: "你停止和 {{name}} 分享了."
       toggle:
@@ -19,36 +19,36 @@ zh-TW:
         one: "在{{count}}個面向中"
         other: "在{{count}}個面向中"
         two: "在{{count}}個面向中"
-        zero: 選面向
+        zero: "選面向"
     aspect_navigation:
-      deselect_all: 全不選
-      no_aspects: 沒選任何一個面向
-      select_all: 全選
+      deselect_all: "全不選"
+      no_aspects: "沒選任何一個面向"
+      select_all: "全選"
     comments:
-      hide: 隱藏意見
-      show: 顯示所有意見
-    confirm_dialog: 你確定嗎?
-    failed_to_like: 說讚失敗!
-    failed_to_post_message: 貼文失敗!
+      hide: "隱藏意見"
+      show: "顯示所有意見"
+    confirm_dialog: "你確定嗎?"
+    failed_to_like: "說讚失敗!"
+    failed_to_post_message: "貼文失敗!"
     getting_started:
       alright_ill_wait: "好吧, 以後再說."
       hey: "嘿, {{name}}!"
       no_tags: "嘿, 你還沒有追蹤任何標籤! 要往下一步嗎?"
-      preparing_your_stream: 整理你個人的流水帳中...
+      preparing_your_stream: "整理你個人的流水帳中..."
     header:
       search: "Find people or #tags"
     infinite_scroll:
-      no_more: 沒有貼文了.
+      no_more: "沒有貼文了."
     photo_uploader:
       looking_good: "天啊, 你看起來真帥!"
     publisher:
-      at_least_one_aspect: 發表時請至少選擇一個面向
+      at_least_one_aspect: "發表時請至少選擇一個面向"
       limited: "限制 - 只有你想分享的人才看得到你的貼文"
       public: "公開 - 所有人都能看到你的貼文, 包括搜尋引擎"
     reshares:
       duplicate: "很棒對吧? 你已經轉貼過該篇貼文了!"
     search_for: "搜尋 {{name}}"
-    show_more: 顯示更多
+    show_more: "顯示更多"
     stream:
       likes:
         few: "<%= count %> Likes"
@@ -74,21 +74,21 @@ zh-TW:
     tags:
       wasnt_that_interesting: "OK, 我想 #{{tagName}} 大概沒那麼有趣..."
     timeago:
-      day: 一天
+      day: "一天"
       days: "%d天"
-      hour: 約一小時
-      hours: 約%d小時
-      minute: 約一分鐘
+      hour: "約一小時"
+      hours: "約%d小時"
+      minute: "約一分鐘"
       minutes: "%d分鐘"
-      month: 約一個月
+      month: "約一個月"
       months: "%d個月"
-      prefixAgo: 在
-      prefixFromNow: 距今
-      seconds: 少於一分鐘
-      suffixAgo: 前
-      suffixFromNow: 前
-      year: 約一年
+      prefixAgo: "在"
+      prefixFromNow: "距今"
+      seconds: "少於一分鐘"
+      suffixAgo: "前"
+      suffixFromNow: "前"
+      year: "約一年"
       years: "%d年"
     videos:
-      unknown: 不明的影片類別
+      unknown: "不明的影片類別"
       watch: "從 {{provider}} 看這部影片"

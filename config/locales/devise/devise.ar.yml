@@ -32,7 +32,7 @@ ar:
       invitation_instructions:
         accept: "إقبل الدعوة"
         displaying_correctly: "Email not displaying correctly? %{link} in your browser"
-        have_fun: إستمتع
+        have_fun: "إستمتع"
         ignore: "رجاء تجاهل هذا البريد الإلكتروني في حال لم ترغب بقبول الدعوة"
         join_team: "إنضم إلى فريقنا"
         no_account_till: "لن يتم إنشاء حسابك حتى تلج الرابط أعلاه وتسجل"
@@ -72,12 +72,12 @@ ar:
         alpha_software: "أنت على وشك استخدام برنامج تجريبي ألفا"
         bugs_and_feedback: "للتذكير، ستواجه خلال تجربتك بعض المشاكل التقنية.  نشجعك على استخدام زر التبليغ -الموجود بالجانب الأيمن من متصفحك- من أجل تنبيه المطورين لأي معضلة واجهتها, وسنعمل بأسرع ما يمكن لحل أي مشكلة تقنية تم الإبلاغ عنها."
         bugs_and_feedback_mobile: "للتذكير، ستواجه خلال تجربتك بعض المشاكل التقنية.  نشجعك على استخدام زر التبليغ من أجل تنبيه المطورين لأي معضلة واجهتها, وسنعمل بأسرع ما يمكن لحل أي مشكلة تقنية تم الإبلاغ عنها"
-        login: لُج
+        login: "لُج"
         modern_browsers: "الدعم حصري للمتصفحات الحديثة."
         password: "كلمة المرور"
-        remember_me: تذكرني
-        sign_in: لُج
-        username: المعرف
+        remember_me: "تذكرني"
+        sign_in: "لُج"
+        username: "المعرف"
       signed_in: "تم تسجيل الدخول بنجاح"
       signed_out: "تم تسجيل الخروج بنجاح"
     shared:
@@ -85,8 +85,8 @@ ar:
         forgot_your_password: "نسيت كلمة المرور؟"
         receive_confirmation: "لم تصلك تعليمات تأكيد حسابك؟"
         receive_unlock: "لم تصلك تعليمات إعادة فتح حسابك؟"
-        sign_in: لُج
-        sign_up: سجِل
+        sign_in: "لُج"
+        sign_up: "سجِل"
         sign_up_closed: "التسجيلات مغلقة حاليا"
       mail_signup_form:
         sign_up_for_an_invite: "سجل في قائمة انتظار الدعوات"

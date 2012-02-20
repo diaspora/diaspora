@@ -28,7 +28,7 @@ pl:
       hide: "ukryj komentarze"
       show: "wyświetl wszystkie komentarze"
     confirm_dialog: "Czy @{m,f:jesteś|n:na}{ pew}{m:ien|f:na|n:no}?"
-    delete: Usuń
+    delete: "Usuń"
     failed_to_like: "Nie udało się pulubić!"
     failed_to_post_message: "Nie można wysłać wiadomości!"
     getting_started:
@@ -42,7 +42,7 @@ pl:
       home: "Strona główna"
       log_out: "Wyloguj"
       mark_all_as_read: "Oznacz wszystkie jako przeczytane"
-      messages: Wiadomości
+      messages: "Wiadomości"
       notifications: "Powiadomienia"
       profile: "Profil"
       recent_notifications: "Ostatnie powiadomienia"
@@ -53,7 +53,7 @@ pl:
     infinite_scroll:
       no_more: "Nie ma więcej wpisów."
     my_activity: "Moja aktywność"
-    my_stream: Strumień
+    my_stream: "Strumień"
     photo_uploader:
       looking_good: "O rety! Świetnie wyglądasz!"
     publisher:
@@ -102,7 +102,7 @@ pl:
     tags:
       wasnt_that_interesting: "OK, przypuszczam, że #<%= tagName %> nie był, aż tak interesujący..."
     timeago:
-      day: dzień
+      day: "dzień"
       days: "%d dni"
       hour: "około godziny"
       hours: "około %d godzin"

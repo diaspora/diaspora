@@ -5,26 +5,26 @@
 
 
 ja:
-  _comments: コメント
-  _home: ホーム
-  _photos: 写真
-  _services: サービス
-  account: アカウント
+  _comments: "コメント"
+  _home: "ホーム"
+  _photos: "写真"
+  _services: "サービス"
+  account: "アカウント"
   activerecord:
     errors:
       models:
         contact:
           attributes:
             person_id:
-              taken: このユーザの他の連絡先と重複してはいけません。
+              taken: "このユーザの他の連絡先と重複してはいけません。"
         person:
           attributes:
             diaspora_handle:
-              taken: 既に使われています。
+              taken: "既に使われています。"
         request:
           attributes:
             from_id:
-              taken: 既存のリクエストと重複しています。
+              taken: "既存のリクエストと重複しています。"
         reshare:
           attributes:
             root_guid:
@@ -32,224 +32,224 @@ ja:
         user:
           attributes:
             email:
-              taken: 既に使われています。
+              taken: "既に使われています。"
             person:
-              invalid: 無効です。
+              invalid: "無効です。"
             username:
               invalid: "is invalid. We only allow letters, numbers, and underscores"
-              taken: 既に使われています。
+              taken: "既に使われています。"
   ago: "%{time}前"
-  all_aspects: 全てのアスペクト
+  all_aspects: "全てのアスペクト"
   application:
     helper:
-      diaspora_alpha: ダイアスポラ＊アルファ
-      unknown_person: 不明な連絡先
+      diaspora_alpha: "ダイアスポラ＊アルファ"
+      unknown_person: "不明な連絡先"
       video_title:
-        unknown: 不明な動画タイトル
-  are_you_sure: 本当にいいですか。
+        unknown: "不明な動画タイトル"
+  are_you_sure: "本当にいいですか。"
   aspect_memberships:
     destroy:
-      failure: 連絡先をアスペクトから除外するのに失敗しました。
-      no_membership: 選択した連絡先はそのアスペクト内に見つかりませんでした
-      success: 連絡先をアスペクトから除外するのに成功しました。
+      failure: "連絡先をアスペクトから除外するのに失敗しました。"
+      no_membership: "選択した連絡先はそのアスペクト内に見つかりませんでした"
+      success: "連絡先をアスペクトから除外するのに成功しました。"
   aspects:
     add_to_aspect:
-      failure: 連絡先をアスペクトに追加するのに失敗しました。
-      success: 連絡先をアスペクトに追加するのに成功しました。
+      failure: "連絡先をアスペクトに追加するのに失敗しました。"
+      success: "連絡先をアスペクトに追加するのに成功しました。"
     aspect_contacts:
-      done_editing: 編集完了
-    contacts_not_visible: このアスペクトの連絡先はお互いの存在が確認できません。
-    contacts_visible: このアスペクトの連絡先はお互いの存在が確認できます。
+      done_editing: "編集完了"
+    contacts_not_visible: "このアスペクトの連絡先はお互いの存在が確認できません。"
+    contacts_visible: "このアスペクトの連絡先はお互いの存在が確認できます。"
     create:
-      failure: アスペクトを作成するのに失敗しました。
+      failure: "アスペクトを作成するのに失敗しました。"
       success: "新しいアスペクト「%{name}」を作成しました。"
     destroy:
       failure: "%{name}に連絡先が残っているので削除できません。"
       success: "%{name}さんを除外するのに成功しました。"
     edit:
-      add_existing: 既存の連絡先を追加する
-      aspect_list_is_not_visible: このアスペクトのメンバー一覧はメンバーへ公開されていません
-      aspect_list_is_visible: このアスペクトのメンバー一覧はメンバーに公開されています
-      confirm_remove_aspect: このアスペクトを本当に削除していいですか。
-      done: 完了
-      make_aspect_list_visible: アスペクトのメンバー一覧を公開しますか。
-      remove_aspect: このアスペクトを削除する
-      rename: 名前の変更
-      update: 更新
-      updating: 更新中
+      add_existing: "既存の連絡先を追加する"
+      aspect_list_is_not_visible: "このアスペクトのメンバー一覧はメンバーへ公開されていません"
+      aspect_list_is_visible: "このアスペクトのメンバー一覧はメンバーに公開されています"
+      confirm_remove_aspect: "このアスペクトを本当に削除していいですか。"
+      done: "完了"
+      make_aspect_list_visible: "アスペクトのメンバー一覧を公開しますか。"
+      remove_aspect: "このアスペクトを削除する"
+      rename: "名前の変更"
+      update: "更新"
+      updating: "更新中"
     few: "アスペクト%{count}集"
     helper:
-      are_you_sure: 本当にこのアスペクトを削除しますか。
-      aspect_not_empty: アスペクトは空ではありません。
-      remove: 削除
+      are_you_sure: "本当にこのアスペクトを削除しますか。"
+      aspect_not_empty: "アスペクトは空ではありません。"
+      remove: "削除"
     index:
-      handle_explanation: これがあなたのハンドル名です。メールアドレスと同じようにほかの人に教えて、ダイアスポラで連絡を取り合うことができます。
+      handle_explanation: "これがあなたのハンドル名です。メールアドレスと同じようにほかの人に教えて、ダイアスポラで連絡を取り合うことができます。"
       help:
         here_to_help: "Diaspora community is here to help!"
         tag_bug: "#bug"
         tag_feature: "#feature"
         tag_question: "#question"
       keep_us_running: "Keep %{pod} running fast, buy our servers their monthly coffee fix!"
-      no_contacts: 連絡先無し
+      no_contacts: "連絡先無し"
       no_tags: "No tags"
-      post_a_message: 投稿する
+      post_a_message: "投稿する"
     many: "アスペクト%{count}集"
     move_contact:
       error: "連絡先の移動にエラーが発生しました： %{inspect}"
       failure: "連絡先を移動させるのに失敗しました：%{inspect}"
-      success: 連絡先を新しいアスペクトに移動させました。
+      success: "連絡先を新しいアスペクトに移動させました。"
     new:
       name: "Name"
     no_contacts_message:
       try_adding_some_more_contacts: "You can search (top) or invite (right) more contacts."
     no_posts_message:
-      start_talking: 投稿がまだありません。会話を始めましょう！
-    one: アスペクト1集
+      start_talking: "投稿がまだありません。会話を始めましょう！"
+    one: "アスペクト1集"
     other: "アスペクト%{count}集"
     seed:
-      family: 家族
-      work: 仕事
+      family: "家族"
+      work: "仕事"
     show:
-      edit_aspect: アスペクトを編集する
+      edit_aspect: "アスペクトを編集する"
     two: "%{count} aspects"
     update:
       failure: "アスペクト名「%{name}」は長すぎて保存できませんでした。"
       success: "アスペクト「%{name}」の編集するのに成功しました。"
-    zero: アスペクト無し
-  back: 前へ
+    zero: "アスペクト無し"
+  back: "前へ"
   bookmarklet:
     explanation: "このリンクをお気に入りに登録すると、どこからでも%{link}できます。"
-    explanation_link_text: ダイアスポラに投稿
+    explanation_link_text: "ダイアスポラに投稿"
     heading: "Diaspora Bookmarklet"
-    post_something: ダイアスポラに投稿
-    post_success: 投稿完了！ウィンドウを閉じます。
-  cancel: 取り消す
+    post_something: "ダイアスポラに投稿"
+    post_success: "投稿完了！ウィンドウを閉じます。"
+  cancel: "取り消す"
   comments:
     few: "コメント%{count}件"
     many: "コメント%{count}件"
     new_comment:
-      comment: コメント
-      commenting: コメント投稿中…
-    one: コメント1件
+      comment: "コメント"
+      commenting: "コメント投稿中…"
+    one: "コメント1件"
     other: "コメント%{count}件"
     two: "%{count} comments"
-    zero: コメントがありません
+    zero: "コメントがありません"
   contacts:
     create:
-      failure: 連絡先を作成するのに失敗しました。
+      failure: "連絡先を作成するのに失敗しました。"
     few: "連絡先%{count}件"
     index:
       add_to_aspect: "Add contacts to %{name}"
       no_contacts: "No contacts."
     many: "連絡先%{count}件"
-    one: 連絡先1件
+    one: "連絡先1件"
     other: "連絡先%{count}件"
     two: "%{count} contacts"
-    zero: 連絡先無し
+    zero: "連絡先無し"
   conversations:
     create:
-      sent: メッセージを送信しました
+      sent: "メッセージを送信しました"
     destroy:
-      success: 会話を削除するのに成功しました。
+      success: "会話を削除するのに成功しました。"
     helper:
       new_messages:
         few: "新着メッセージ%{count}通"
         many: "新着メッセージ%{count}通"
-        one: 新着メッセージ1通
+        one: "新着メッセージ1通"
         other: "新着メッセージ%{count}通"
         two: "%{count} new messages"
-        zero: 新着メッセージ無し
+        zero: "新着メッセージ無し"
     index:
-      create_a_new_message: 新しいメッセージを作成する
-      inbox: 受信トレイ
-      message_inbox: メッセージ受信トレイ
-      new_message: 新しいメッセージ
-      no_conversation_selected: 選択中の会話がありません
-      no_messages: メッセージがありません
+      create_a_new_message: "新しいメッセージを作成する"
+      inbox: "受信トレイ"
+      message_inbox: "メッセージ受信トレイ"
+      new_message: "新しいメッセージ"
+      no_conversation_selected: "選択中の会話がありません"
+      no_messages: "メッセージがありません"
     new:
-      send: 送信する
-      subject: 件名
-      to: 宛先
+      send: "送信する"
+      subject: "件名"
+      to: "宛先"
     show:
-      delete: 会話を削除して、ブロックする
-      reply: 返信
+      delete: "会話を削除して、ブロックする"
+      reply: "返信"
   date:
     formats:
       birthday: "%m月%d日"
       birthday_with_year: "%Y年%m月%d日"
       fullmonth_day: "%m月%d日"
-  delete: 削除
-  email: メール
+  delete: "削除"
+  email: "メール"
   error_messages:
     helper:
-      correct_the_following_errors_and_try_again: 次の問題を解決してからやり直してください。
-      invalid_fields: 不正なフィールド名
-  fill_me_out: 記入して
+      correct_the_following_errors_and_try_again: "次の問題を解決してからやり直してください。"
+      invalid_fields: "不正なフィールド名"
+  fill_me_out: "記入して"
   find_people: "Find people"
-  hide: 隠す
+  hide: "隠す"
   home:
     show:
-      already_account: アカウントは既にお持ちですか。
-      choice: 自由
-      choice_explanation: ダイアスポラ＊で連絡先をアスペクトと呼ばれる集団に分けることができます。アスペクトはダイアスポラ＊独特の機能で、これによってあなたの写真、話、冗談などが目的の知り合いだけに共有されることが保証されます。
-      learn_about_host: ダイアスポラ＊サーバーの立ち上げ方をお教えします。
-      login_here: ここからログイン
-      ownership: 所有
-      ownership_explanation: 写真は自分の持ち物で、シェアしたいからと言って権利を譲る必要はありません。ダイアスポラでシェアしたものでも所有権は保全されますので、自由に配給などを制御することができます。
-      share_what_you_want: 好きなものだけを、好きな人だけに。
-      simplicity: 平易
-      simplicity_explanation: ダイアスポラ＊は簡潔に共有を可能にしながら、プライバシーも簡潔にします。ダイアスポラ＊は根本的なプライバシー主義で、プロフィールを保護するために何ページもの複雑な設定を使いこなす必要はありません。
-      tagline_first_half: 好きなことだけ共有する
-      tagline_second_half: 好きな人に。
+      already_account: "アカウントは既にお持ちですか。"
+      choice: "自由"
+      choice_explanation: "ダイアスポラ＊で連絡先をアスペクトと呼ばれる集団に分けることができます。アスペクトはダイアスポラ＊独特の機能で、これによってあなたの写真、話、冗談などが目的の知り合いだけに共有されることが保証されます。"
+      learn_about_host: "ダイアスポラ＊サーバーの立ち上げ方をお教えします。"
+      login_here: "ここからログイン"
+      ownership: "所有"
+      ownership_explanation: "写真は自分の持ち物で、シェアしたいからと言って権利を譲る必要はありません。ダイアスポラでシェアしたものでも所有権は保全されますので、自由に配給などを制御することができます。"
+      share_what_you_want: "好きなものだけを、好きな人だけに。"
+      simplicity: "平易"
+      simplicity_explanation: "ダイアスポラ＊は簡潔に共有を可能にしながら、プライバシーも簡潔にします。ダイアスポラ＊は根本的なプライバシー主義で、プロフィールを保護するために何ページもの複雑な設定を使いこなす必要はありません。"
+      tagline_first_half: "好きなことだけ共有する"
+      tagline_second_half: "好きな人に。"
   invitations:
     check_token:
-      not_found: 招待トークンが見つかりません。
+      not_found: "招待トークンが見つかりません。"
     create:
-      already_contacts: 既に連絡先として登録しています。
-      already_sent: 既に招待しました。
-      no_more: 招待権がもう残っていません。
-      rejected: 次のメールアドレスに問題が発生しました：
-      sent: 次の人々に招待を送信しました：
+      already_contacts: "既に連絡先として登録しています。"
+      already_sent: "既に招待しました。"
+      no_more: "招待権がもう残っていません。"
+      rejected: "次のメールアドレスに問題が発生しました："
+      sent: "次の人々に招待を送信しました："
     new:
-      already_invited: 招待済み
-      aspect: アスペクト
-      comma_seperated_plz: 複数のメールアドレスはコンマ区切りで入力可能です。
-      if_they_accept_info: 招待を承諾してくれた場合、招待時のアスペクトに追加されます。
-      invite_someone_to_join: 知り合いをダイアスポラ＊に招待しましょう！
-      personal_message: 個人メッセージ
-      resend: 再送する
-      send_an_invitation: 招待を送信する
-      send_invitation: 招待を送信する
-      to: 宛先：
+      already_invited: "招待済み"
+      aspect: "アスペクト"
+      comma_seperated_plz: "複数のメールアドレスはコンマ区切りで入力可能です。"
+      if_they_accept_info: "招待を承諾してくれた場合、招待時のアスペクトに追加されます。"
+      invite_someone_to_join: "知り合いをダイアスポラ＊に招待しましょう！"
+      personal_message: "個人メッセージ"
+      resend: "再送する"
+      send_an_invitation: "招待を送信する"
+      send_invitation: "招待を送信する"
+      to: "宛先："
   layouts:
     application:
       public_feed: "%{name}さんの公開ダイアスポラフィード"
-      toggle: 携帯サイトを切替える
-      whats_new: 更新履歴
-      your_aspects: アスペクト
+      toggle: "携帯サイトを切替える"
+      whats_new: "更新履歴"
+      your_aspects: "アスペクト"
     header:
-      blog: ブログ
-      code: ソース
-      login: ログイン
-      logout: ログアウト
-      profile: プロフィール
-      settings: 設定
+      blog: "ブログ"
+      code: "ソース"
+      login: "ログイン"
+      logout: "ログアウト"
+      profile: "プロフィール"
+      settings: "設定"
   likes:
     likes:
       people_dislike_this:
         few: "これが嫌いな人：%{count}人"
         many: "これが嫌いな人：%{count}人"
-        one: これが嫌いな人：1人
+        one: "これが嫌いな人：1人"
         other: "これが嫌いな人：%{count}人"
         two: "%{count} dislikes"
-        zero: これが嫌いな人：0人
+        zero: "これが嫌いな人：0人"
       people_like_this:
         few: "これが好きな人：%{count}人"
         many: "これが好きな人：%{count}人"
-        one: これが好きな人：1人
+        one: "これが好きな人：1人"
         other: "これが好きな人：%{count}人"
         two: "%{count} likes"
-        zero: これが好きな人：0人
+        zero: "これが好きな人：0人"
       people_like_this_comment:
         few: "%{count} likes"
         many: "%{count} likes"
@@ -257,9 +257,9 @@ ja:
         other: "%{count} likes"
         two: "%{count} likes"
         zero: "no likes"
-  more: 続き
-  next: 次へ
-  no_results: 詮索結果はありません
+  more: "続き"
+  next: "次へ"
+  no_results: "詮索結果はありません"
   notifications:
     also_commented:
       few: "%{actors} also commented on %{post_author}'s %{post_link}."
@@ -286,12 +286,12 @@ ja:
       new_notifications:
         few: "新着通知%{count}件"
         many: "新着通知%{count}件"
-        one: 新着通知1件
+        one: "新着通知1件"
         other: "新着通知%{count}件"
         two: "%{count} new notifications"
-        zero: 新着通知無し
+        zero: "新着通知無し"
     index:
-      and: 又は
+      and: "又は"
       and_others:
         few: "and %{count} others"
         many: "and %{count} others"
@@ -299,8 +299,8 @@ ja:
         other: "and %{count} others"
         two: "and %{count} others"
         zero: "and nobody else"
-      mark_all_as_read: 全件を既読にする
-      notifications: 通知
+      mark_all_as_read: "全件を既読にする"
+      notifications: "通知"
     liked:
       few: "%{actors} has just liked your %{post_link}."
       many: "%{actors} has just liked your %{post_link}."
@@ -329,7 +329,7 @@ ja:
       other: "%{actors} mentioned you in a deleted post."
       two: "%{actors} mentioned you in a deleted post."
       zero: "%{actors} mentioned you in a deleted post."
-    post: （投稿で）
+    post: "（投稿で）"
     private_message:
       few: "%{actors} sent you a message."
       many: "%{actors} sent you a message."
@@ -366,98 +366,98 @@ ja:
     liked:
       liked: "%{name} has just liked your post: "
     mentioned:
-      mentioned: さんは投稿であなたをメンションしました。
+      mentioned: "さんは投稿であなたをメンションしました。"
       subject: "%{name}さんはダイアスポラ＊であなたをメンションしました。"
     reshared:
       reshared: "%{name} just reshared your post"
     single_admin:
-      admin: ダイアスポラ＊管理者
-      subject: ダイアスポラ＊アカウントの重要なお知らせ：
+      admin: "ダイアスポラ＊管理者"
+      subject: "ダイアスポラ＊アカウントの重要なお知らせ："
     started_sharing:
       subject: "%{name} has started sharing with you on Diaspora*"
-    thanks: ありがとうございます。
-  ok: 了解
-  or: または
-  password: パスワード
-  password_confirmation: パスワード確認
+    thanks: "ありがとうございます。"
+  ok: "了解"
+  or: "または"
+  password: "パスワード"
+  password_confirmation: "パスワード確認"
   people:
     add_contact_small:
-      add_contact_from_tag: タグより連絡先を追加する
+      add_contact_from_tag: "タグより連絡先を追加する"
     aspect_list:
-      edit_membership: アスペクト所属を編集する
+      edit_membership: "アスペクト所属を編集する"
     few: "%{count}人の連絡先"
     helper:
-      people_on_pod_are_aware_of: 人のポッドメンバーが知っています
+      people_on_pod_are_aware_of: "人のポッドメンバーが知っています"
       results_for: "%{params}の検索結果"
     index:
-      couldnt_find_them_send_invite: 見つかりませんでしたか。招待メールを送信しましょう！
-      no_one_found: …1人も見つかりませんでした。
-      no_results: 何かを検索しないといけません。
-      results_for: 検索結果：
+      couldnt_find_them_send_invite: "見つかりませんでしたか。招待メールを送信しましょう！"
+      no_one_found: "…1人も見つかりませんでした。"
+      no_results: "何かを検索しないといけません。"
+      results_for: "検索結果："
     many: "%{count}人の連絡先"
-    one: 1人の連絡先
+    one: "1人の連絡先"
     other: "%{count}人の連絡先"
     person:
-      add_contact: 連絡先を追加する
-      already_connected: 既につながっています
-      pending_request: 共有の承認待ち
-      thats_you: あなた自身です！
+      add_contact: "連絡先を追加する"
+      already_connected: "既につながっています"
+      pending_request: "共有の承認待ち"
+      thats_you: "あなた自身です！"
     profile_sidebar:
-      bio: 略歴
-      born: 誕生日
-      edit_my_profile: プロフィールを編集する
-      gender: 性別
-      in_aspects: アスペクトで
-      location: 所在地
-      remove_contact: 連絡先を削除する
+      bio: "略歴"
+      born: "誕生日"
+      edit_my_profile: "プロフィールを編集する"
+      gender: "性別"
+      in_aspects: "アスペクトで"
+      location: "所在地"
+      remove_contact: "連絡先を削除する"
       remove_from: "%{name}さんを%{aspect}から除外しますか。"
     show:
-      does_not_exist: 存在しない連絡先です！
+      does_not_exist: "存在しない連絡先です！"
       incoming_request: "%{name}さんは共有の許可を求めています"
-      mention: メンション
-      message: メッセージ
-      not_connected: この連絡先と共有していません
-      recent_posts: 最近の投稿
-      recent_public_posts: 最近の公開投稿
-      return_to_aspects: アスペクトページに戻る
-      see_all: 全て表示
-      start_sharing: 共有を開始する
-      to_accept_or_ignore: 承諾するか無視するか決めて下さい。
+      mention: "メンション"
+      message: "メッセージ"
+      not_connected: "この連絡先と共有していません"
+      recent_posts: "最近の投稿"
+      recent_public_posts: "最近の公開投稿"
+      return_to_aspects: "アスペクトページに戻る"
+      see_all: "全て表示"
+      start_sharing: "共有を開始する"
+      to_accept_or_ignore: "承諾するか無視するか決めて下さい。"
     two: "%{count} people"
     webfinger:
       fail: "%{handle}が見つかりませんでした。"
-    zero: 連絡先無し
+    zero: "連絡先無し"
   photos:
     create:
-      integrity_error: 写真のアップロードに失敗しました。確かに画像ファイルだったのでしょうか。
-      runtime_error: 写真のアップロードに失敗しました。シートベルトはしっかりとお締めでしょうか。
-      type_error: 写真のアップロードに失敗しました。確かに画像ファイルを添付しましたか。
+      integrity_error: "写真のアップロードに失敗しました。確かに画像ファイルだったのでしょうか。"
+      runtime_error: "写真のアップロードに失敗しました。シートベルトはしっかりとお締めでしょうか。"
+      type_error: "写真のアップロードに失敗しました。確かに画像ファイルを添付しましたか。"
     destroy:
-      notice: 写真を削除しました。
+      notice: "写真を削除しました。"
     edit:
-      editing: 編集中
+      editing: "編集中"
     new:
-      back_to_list: 一覧に戻る
-      new_photo: 新しい写真
-      post_it: 投稿する！
+      back_to_list: "一覧に戻る"
+      new_photo: "新しい写真"
+      post_it: "投稿する！"
     new_photo:
       empty: "{file}は空です。取り除いてファイルを選択しなおしてください。"
       invalid_ext: "{file}のファイル名は不正です。{extensions}以外の拡張子は使えません。"
       size_error: "{file}は大きすぎます。ファイルサイズの上限は{sizeLimit}です。"
     new_profile_photo:
-      upload: 新しいプロフィール写真をアップロードする！
+      upload: "新しいプロフィール写真をアップロードする！"
     photo:
       view_all: "%{name}の写真をすべてみる"
     show:
-      collection_permalink: コレクションのパーマリンク
-      delete_photo: 写真を削除する
-      edit: 編集
-      edit_delete_photo: 写真の説明を編集する／写真を削除する
-      make_profile_photo: プロフィール写真にする
-      update_photo: 写真を更新する
+      collection_permalink: "コレクションのパーマリンク"
+      delete_photo: "写真を削除する"
+      edit: "編集"
+      edit_delete_photo: "写真の説明を編集する／写真を削除する"
+      make_profile_photo: "プロフィール写真にする"
+      update_photo: "写真を更新する"
     update:
-      error: 写真の編集に失敗しました。
-      notice: 写真の更新に成功しました。
+      error: "写真の編集に失敗しました。"
+      notice: "写真の更新に成功しました。"
   posts:
     show:
       photos_by:
@@ -467,28 +467,28 @@ ja:
         other: "%{count} photos by %{author}"
         two: "Two photos by %{author}"
         zero: "No photos by %{author}"
-  previous: 前へ
-  profile: プロフィール
+  previous: "前へ"
+  profile: "プロフィール"
   profiles:
     edit:
-      allow_search: ダイアスポラ内の検索を許可します
-      edit_profile: プロフィールを編集する
-      first_name: 名
-      last_name: 姓
-      update_profile: プロフィール更新
-      your_bio: 略歴
-      your_birthday: 誕生日
-      your_gender: 性別
-      your_location: 所在地
-      your_name: 姓名
-      your_photo: 写真
-      your_private_profile: 非公開プロフィール
-      your_public_profile: 公開プロフィール
+      allow_search: "ダイアスポラ内の検索を許可します"
+      edit_profile: "プロフィールを編集する"
+      first_name: "名"
+      last_name: "姓"
+      update_profile: "プロフィール更新"
+      your_bio: "略歴"
+      your_birthday: "誕生日"
+      your_gender: "性別"
+      your_location: "所在地"
+      your_name: "姓名"
+      your_photo: "写真"
+      your_private_profile: "非公開プロフィール"
+      your_public_profile: "公開プロフィール"
       your_tags: "自分を表す５つの#タグ"
       your_tags_placeholder: "例：#diaspora #kaji #nyanko #ongaku"
     update:
-      failed: プロフィール更新に失敗しました
-      updated: プロフィールを更新しました
+      failed: "プロフィール更新に失敗しました"
+      updated: "プロフィールを更新しました"
   reactions:
     few: "%{count} reactions"
     many: "%{count} reactions"
@@ -497,44 +497,44 @@ ja:
     two: "%{count} reactions"
     zero: "0 reactions"
   registrations:
-    closed: このダイアスポラ＊ポッドでは新規登録を受け付けていません。
+    closed: "このダイアスポラ＊ポッドでは新規登録を受け付けていません。"
     create:
-      success: ダイアスポラの新規登録が完了しました！
+      success: "ダイアスポラの新規登録が完了しました！"
     edit:
-      cancel_my_account: アカウント登録を取り消す
+      cancel_my_account: "アカウント登録を取り消す"
       edit: "%{name}を編集する"
-      leave_blank: （変更したくない場合は空白のままにしてください）
-      password_to_confirm: （確認のため、現パスワードも必要です）
-      unhappy: 何かご不満ですか。
-      update: 更新
+      leave_blank: "（変更したくない場合は空白のままにしてください）"
+      password_to_confirm: "（確認のため、現パスワードも必要です）"
+      unhappy: "何かご不満ですか。"
+      update: "更新"
     new:
       create_my_account: "Create my account"
-      enter_email: メールアドレスを入力してください。
-      enter_password: パスワードを入力してください。
-      enter_password_again: もう一度同じパスワードを入力してください。
-      enter_username: ユーザ名を選択してください。（半角英数字とアンダーバーのみ）
+      enter_email: "メールアドレスを入力してください。"
+      enter_password: "パスワードを入力してください。"
+      enter_password_again: "もう一度同じパスワードを入力してください。"
+      enter_username: "ユーザ名を選択してください。（半角英数字とアンダーバーのみ）"
       sign_up_message: "Social Networking with a <3"
   requests:
     create:
-      sending: 送信中
+      sending: "送信中"
       sent: "共有リクエストを送信しました。%{name}さんは次回のログイン時に見るでしょう。"
     destroy:
-      error: アスペクトを選択して下さい。
-      ignore: 共有リクエストを無視しました。
-      success: 現在共有しています。
+      error: "アスペクトを選択して下さい。"
+      ignore: "共有リクエストを無視しました。"
+      success: "現在共有しています。"
     helper:
       new_requests:
         few: "新リクエスト%{count}件！"
         many: "新リクエスト%{count}件！"
-        one: 新リクエスト！
+        one: "新リクエスト！"
         other: "新リクエスト%{count}件！"
         two: "%{count} new requests!"
-        zero: 新リクエスト無し
+        zero: "新リクエスト無し"
     manage_aspect_contacts:
-      existing: 現在の連絡先
-      manage_within: 次のアスペクトの連絡先を管理：
+      existing: "現在の連絡先"
+      manage_within: "次のアスペクトの連絡先を管理："
     new_request_to_person:
-      sent: 送信しました！
+      sent: "送信しました！"
   reshares:
     reshare:
       reshare:
@@ -547,34 +547,34 @@ ja:
       reshare_confirmation: "Reshare %{author} - %{text}?"
       reshare_original: "Reshare orignial"
       show_original: "Show Original"
-  search: 検索
+  search: "検索"
   services:
     create:
-      success: 認証に成功しました。
+      success: "認証に成功しました。"
     destroy:
-      success: 認証を削除するのに成功しました。
+      success: "認証を削除するのに成功しました。"
     failure:
-      error: サービスへ接続中にエラーが発生しました。
+      error: "サービスへ接続中にエラーが発生しました。"
     index:
-      connect_to_facebook: Facebookに接続する
-      connect_to_twitter: ツイッターに接続する
-      disconnect: 切断
-      edit_services: サービスを編集する
-      logged_in_as: ログイン済みユーザ名：
+      connect_to_facebook: "Facebookに接続する"
+      connect_to_twitter: "ツイッターに接続する"
+      disconnect: "切断"
+      edit_services: "サービスを編集する"
+      logged_in_as: "ログイン済みユーザ名："
       really_disconnect: "%{service}から切断しますか。"
     inviter:
-      click_link_to_accept_invitation: 招待を承諾するにはこのリンクにクリックしてください。
-      join_me_on_diaspora: ダイアスポラ＊に参加しませんか。
+      click_link_to_accept_invitation: "招待を承諾するにはこのリンクにクリックしてください。"
+      join_me_on_diaspora: "ダイアスポラ＊に参加しませんか。"
     remote_friend:
-      invite: 招待
-      resend: 再送
-  settings: 設定
+      invite: "招待"
+      resend: "再送"
+  settings: "設定"
   shared:
     add_contact:
-      create_request: ダイアスポラのハンドル名で検索
-      diaspora_handle: diaspora@handle.org
-      enter_a_diaspora_username: ダイアスポラのユーザ名を入力してください。
-      know_email: メールアドレスをご存じなら招待しましょう！
+      create_request: "ダイアスポラのハンドル名で検索"
+      diaspora_handle: "diaspora@handle.org"
+      enter_a_diaspora_username: "ダイアスポラのユーザ名を入力してください。"
+      know_email: "メールアドレスをご存じなら招待しましょう！"
       your_diaspora_username_is: "あなたのハンドル名は%{diaspora_handle}です。"
     aspect_dropdown:
       add_to_aspect: "Add to aspect"
@@ -586,52 +586,52 @@ ja:
         two: "In %{count} aspects"
         zero: "Add to aspect"
     contact_list:
-      all_contacts: 全ての連絡先
+      all_contacts: "全ての連絡先"
     footer:
       logged_in_as: "%{name}としてログイン済"
-      your_aspects: アスペクト
+      your_aspects: "アスペクト"
     invitations:
-      by_email: メールで
-      dont_have_now: 現在、招待権が残っていません。少々お待ち下さい。
-      from_facebook: Facebookから
+      by_email: "メールで"
+      dont_have_now: "現在、招待権が残っていません。少々お待ち下さい。"
+      from_facebook: "Facebookから"
       invitations_left: "（残り%{count}回）"
-      invite_someone: 誰かを招待する
-      invite_your_friends: 知り合いを検索する
-      invites: 招待
-      invites_closed: 現在このダイアスポラポッドへの招待を締め切らせて頂いています
+      invite_someone: "誰かを招待する"
+      invite_your_friends: "知り合いを検索する"
+      invites: "招待"
+      invites_closed: "現在このダイアスポラポッドへの招待を締め切らせて頂いています"
     notification:
       new: "%{from}さんから新しい%{type}"
     public_explain:
       logged_in: "%{service}へログインしました。"
-      manage: 提携サービスを管理する
-      outside: 公開投稿はダイアスポラ外の人にも表示されます。
-      title: 提携サービスを設定する
+      manage: "提携サービスを管理する"
+      outside: "公開投稿はダイアスポラ外の人にも表示されます。"
+      title: "提携サービスを設定する"
     publisher:
-      all: すべて
-      all_contacts: 全ての連絡先
-      make_public: 公開にする
+      all: "すべて"
+      all_contacts: "全ての連絡先"
+      make_public: "公開にする"
       new_user_prefill:
         i_like: "I'm interested in %{tags}."
       post_a_message_to: "%{aspect}に投稿する"
-      posting: 投稿中
-      publishing_to: 公開先：
-      share: 共有
-      share_with: 共有先：
-      whats_on_your_mind: いま何を考えている？
+      posting: "投稿中"
+      publishing_to: "公開先："
+      share: "共有"
+      share_with: "共有先："
+      whats_on_your_mind: "いま何を考えている？"
     reshare:
-      reshare: 再共有
+      reshare: "再共有"
     stream_element:
-      dislike: これ嫌い！
+      dislike: "これ嫌い！"
       hide_and_mute: "Hide and Mute"
-      like: これ好き！
-      unlike: これ好き！を取り消す
+      like: "これ好き！"
+      unlike: "これ好き！を取り消す"
   status_messages:
     create:
       success: "%{names}を参照するのに成功しました。"
     destroy:
-      failure: 投稿を削除するのに失敗しました。
+      failure: "投稿を削除するのに失敗しました。"
     helper:
-      no_message_to_display: 表示するメッセージがありません。
+      no_message_to_display: "表示するメッセージがありません。"
     new:
       mentioning: "%{person}さんのメンション"
     too_long:
@@ -642,7 +642,7 @@ ja:
       two: "please make your status messages less than %{count} characters"
       zero: "please make your status messages less than %{count} characters"
   stream_helper:
-    hide_comments: コメントを非表示にする
+    hide_comments: "コメントを非表示にする"
     show_comments:
       few: "Show %{count} more comments"
       many: "Show %{count} more comments"
@@ -672,49 +672,49 @@ ja:
   tokens:
     show:
       connecting_is_simple: "Connecting your Diaspora account is as simple as filling out two fields on your Cubbi.es account page."
-  undo: 元に戻す
-  username: ユーザ名
+  undo: "元に戻す"
+  username: "ユーザ名"
   users:
     confirm_email:
       email_confirmed: "E-Mail %{email} activated"
       email_not_confirmed: "E-Mail could not be activated. Wrong link?"
     edit:
-      also_commented: 他の人も連絡先の投稿にコメントしたとき
+      also_commented: "他の人も連絡先の投稿にコメントしたとき"
       auto_follow_back: "Automatically follow back if a someone follows you"
-      change: 変更
+      change: "変更"
       change_email: "Change E-Mail"
-      change_language: 言語変更
-      change_password: パスワード変更
+      change_language: "言語変更"
+      change_password: "パスワード変更"
       close_account:
         what_we_delete: "We delete all of your posts, profile data, as soon as humanly possible. Your comments will hang around, but be associated with your Diaspora Handle."
-      comment_on_post: 自分の投稿にコメントがあったとき
-      current_password: 現在のパスワード
-      download_photos: 写真をダウンロードする
-      download_xml: XMLをダウンロードする
-      edit_account: アカウント編集
+      comment_on_post: "自分の投稿にコメントがあったとき"
+      current_password: "現在のパスワード"
+      download_photos: "写真をダウンロードする"
+      download_xml: "XMLをダウンロードする"
+      edit_account: "アカウント編集"
       email_awaiting_confirmation: "We have sent you an activation link to %{unconfirmed_email}. Till you follow this link and activate the new address, we will continue to use your original address %{email}."
-      export_data: データ出力
-      mentioned: 投稿に自分がメンションされたとき
-      new_password: 新しいパスワード
-      private_message: 非公開メッセージが届いたとき
-      receive_email_notifications: 通知メールの送信設定
-      your_email: メールアドレス
-      your_handle: ダイアスポラのユーザ名
+      export_data: "データ出力"
+      mentioned: "投稿に自分がメンションされたとき"
+      new_password: "新しいパスワード"
+      private_message: "非公開メッセージが届いたとき"
+      receive_email_notifications: "通知メールの送信設定"
+      your_email: "メールアドレス"
+      your_handle: "ダイアスポラのユーザ名"
     getting_started:
       what_facebook_does: "to Diaspora. This will pull your name and photo, and enable cross-positng."
     public:
       does_not_exist: "ユーザ名「%{username}」は存在しません。"
     update:
-      email_notifications_changed: メール通知の設定を変更しました。
-      language_changed: 言語の設定を変更しました
-      language_not_changed: 言語の選択に失敗しました
-      password_changed: パスワードを変更しました
-      password_not_changed: パスワードの変更に失敗しました
+      email_notifications_changed: "メール通知の設定を変更しました。"
+      language_changed: "言語の設定を変更しました"
+      language_not_changed: "言語の選択に失敗しました"
+      password_changed: "パスワードを変更しました"
+      password_not_changed: "パスワードの変更に失敗しました"
       unconfirmed_email_changed: "E-Mail Changed. Needs activation."
       unconfirmed_email_not_changed: "E-Mail Change Failed"
   webfinger:
     fetch_failed: "%{profile_url} のwebfingerプロフィールの取得に失敗しました。"
     hcard_fetch_failed: "%{account}のhcard取得に問題が発生しました。"
-    no_person_constructed: このhcardから連絡先人を生成することができませんでした。
+    no_person_constructed: "このhcardから連絡先人を生成することができませんでした。"
     not_enabled: "%{account}のポッドではwebfingerが無効になっているようです。"
     xrd_fetch_failed: "%{account}のxrd取得にエラーが発生しました。"

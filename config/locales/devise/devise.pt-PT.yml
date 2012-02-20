@@ -38,9 +38,9 @@ pt-PT:
         email_us: "Para informações gerais ou apoio com a sua conta Diáspora, por favor envie-nos um email para %{email}."
         finally: "Finalmente - está aqui"
         friends_saying: "O que os seus amigos estão a dizer..."
-        get_connected: Ligue-se
+        get_connected: "Ligue-se"
         get_connected_paragraph: "Um movimento internacional com um ideal comum para uma melhor Web, a primeira característica da %{strong_diaspora} é a sua comunidade. Conheça novas pessoas, ligue-se a amigos e junte-se à diversão."
-        have_fun: Divirta-se
+        have_fun: "Divirta-se"
         have_fun_paragraph: "%{strong_diaspora} é sobre descobrir incríveis conteúdos novos e pessoas online. %{link}, %{strong_diaspora} é a primeira aplicação mundial e é só o inicio. Colete e partilhe a Web em toda a sua glória."
         help_fund: "ajude a financiar a Diaspora"
         here: "aqui"
@@ -91,7 +91,7 @@ pt-PT:
         bugs_and_feedback_mobile: "Tenha em conta que irão ocorrer erros.  Encorajamo-lo a relatar quaisquer anomalias!  Trabalharemos tão rapidamente quanto possível para resolver quaisquer problemas que relate."
         login: "Iniciar sessão"
         modern_browsers: "apenas suporta navegadores modernos."
-        password: Palavra-passe
+        password: "Palavra-passe"
         remember_me: "Lembrar-se de mim"
         sign_in: "Iniciar sessão"
         username: "Nome de Utilizador"
@@ -103,7 +103,7 @@ pt-PT:
         receive_confirmation: "Não recebeu as instruções de confirmação?"
         receive_unlock: "Não recebeu as instruções de desbloqueio?"
         sign_in: "Iniciar sessão"
-        sign_up: Registe-se
+        sign_up: "Registe-se"
         sign_up_closed: "Os registos abertos não estão disponíveis por agora."
       mail_signup_form:
         sign_up_for_an_invite: "Inscreva-se para receber um convite!"

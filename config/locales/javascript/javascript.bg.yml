@@ -21,14 +21,14 @@ bg:
         two: "В <%= count %> аспекта"
         zero: "Избиране на аспект(и)"
     aspect_navigation:
-      deselect_all: Никой
+      deselect_all: "Никой"
       no_aspects: "Няма избран аспект"
-      select_all: Всички
+      select_all: "Всички"
     comments:
       hide: "скриване на коментарите"
       show: "показване на коментарите"
     confirm_dialog: "Сигурни ли сте?"
-    delete: Изтриване
+    delete: "Изтриване"
     failed_to_like: "Публикацията не бе харесана!"
     failed_to_post_message: "Съобщението не бе публикувано!"
     getting_started:
@@ -37,19 +37,19 @@ bg:
       no_tags: "Не следите нито една марка!  Желаете ли да продължите въпреки това?"
       preparing_your_stream: "Вашият персонализиран поток се подготвя..."
     header:
-      admin: Администриране
-      contacts: Контакти
-      home: Начало
-      log_out: Отписване
+      admin: "Администриране"
+      contacts: "Контакти"
+      home: "Начало"
+      log_out: "Отписване"
       mark_all_as_read: "Маркирай вс. като прочетени"
-      messages: Съобщения
-      notifications: Известия
-      profile: Профил
-      recent_notifications: Скорошни
+      messages: "Съобщения"
+      notifications: "Известия"
+      profile: "Профил"
+      recent_notifications: "Скорошни"
       search: "Намерете хора или #диез-марки"
-      settings: Настройки
+      settings: "Настройки"
       view_all: "Покажи всички"
-    ignore: Игнориране
+    ignore: "Игнориране"
     infinite_scroll:
       no_more: "Няма други публикации."
     photo_uploader:
@@ -63,8 +63,8 @@ bg:
     search_for: "Търсене за <%= name %>"
     show_more: "покажи още"
     stream:
-      comment: Коментиране
-      hide: Скриване
+      comment: "Коментиране"
+      hide: "Скриване"
       like: "Харесва ми"
       likes:
         few: "<%= count %> Likes"
@@ -73,7 +73,7 @@ bg:
         other: "<%= count %> Likes"
         two: "<%= count %> Likes"
         zero: "<%= count %> Likes"
-      limited: Ограничено
+      limited: "Ограничено"
       more_comments:
         few: "Покажи останалите <%= count %> коментара"
         many: "Покажи останалите <%= count %> коментара"
@@ -82,8 +82,8 @@ bg:
         two: "Show <%= count %> more comments"
         zero: "Покажи осталите <%= count %> коментара"
       original_post_deleted: "Авторът на оригиналната публикация я е изтрил."
-      public: Публично
-      reshare: Споделяне
+      public: "Публично"
+      reshare: "Споделяне"
       reshares:
         few: "<%= count %> споделяния"
         many: "<%= count %> споделяния"
@@ -95,7 +95,7 @@ bg:
     tags:
       wasnt_that_interesting: "Е, вероятно марката #<%= tagName %> не е чак толкова интересна..."
     timeago:
-      day: ден
+      day: "ден"
       days: "%d дни"
       hour: "около час"
       hours: "около %d часа"
@@ -103,8 +103,8 @@ bg:
       minutes: "%d минути"
       month: "около месец"
       months: "%d месеца"
-      prefixAgo: преди
-      prefixFromNow: след
+      prefixAgo: "преди"
+      prefixFromNow: "след"
       seconds: "по-малко от минута"
       suffixFromNow: "от сега"
       year: "около година"
