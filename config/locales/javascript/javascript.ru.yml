@@ -69,7 +69,7 @@ ru:
       follow: "Следить"
       hide: "Скрыть"
       hide_nsfw_posts: "Скрыть записи #nsfw"
-      like: "Нравится"
+      like: "Мне нравится"
       likes:
         few: "Понравилось: <%= count %>"
         many: "Понравилось: <%= count %>"
@@ -110,6 +110,7 @@ ru:
       minutes: "%d минут[-ы]"
       month: "около месяца"
       months: "%d месяца[-ев]"
+      prefixAgo: ""
       prefixFromNow: "через"
       seconds: "несколько секунд"
       suffixAgo: "назад"

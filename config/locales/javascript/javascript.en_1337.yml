@@ -77,6 +77,8 @@ en_1337:
       minutes: "%d M1NU735"
       month: "4B0U7 4 M0N7H"
       months: "%d M0N7H5"
+      prefixAgo: ""
+      prefixFromNow: ""
       seconds: "L355 7H3N 4 M1NU73"
       suffixAgo: "4G0"
       suffixFromNow: "FR0M N0W"

@@ -110,6 +110,7 @@ it:
       minutes: "%d minuti"
       month: "circa un mese"
       months: "%d mesi"
+      prefixAgo: ""
       prefixFromNow: "fra"
       seconds: "meno di un minuto"
       suffixAgo: "fa"

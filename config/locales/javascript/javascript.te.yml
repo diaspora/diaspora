@@ -65,8 +65,11 @@ te:
       minutes: "%d నిమిషాల"
       month: "దాదాపు నెల"
       months: "%d నెలల"
+      prefixAgo: ""
+      prefixFromNow: ""
       seconds: "కొన్ని క్షణాల"
       suffixAgo: "క్రితం"
+      suffixFromNow: ""
       year: "దాదాపు సంవత్సరం"
       years: "%d సంవత్సరాల"
     videos:

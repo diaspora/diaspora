@@ -102,6 +102,8 @@ fi:
       minutes: "%d minuuttia"
       month: "noin kuukausi"
       months: "%d kuukautta"
+      prefixAgo: ""
+      prefixFromNow: ""
       seconds: "alle minuutti"
       suffixAgo: "sitten"
       suffixFromNow: "tästä alkaen"

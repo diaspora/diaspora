@@ -102,6 +102,8 @@ hu:
       minutes: "%d perccel"
       month: "körülbelül egy hónappal"
       months: "%d hónappal"
+      prefixAgo: ""
+      prefixFromNow: ""
       seconds: "kevesebb mint egy perccel"
       suffixAgo: "ezelőtt"
       suffixFromNow: "mostantól"

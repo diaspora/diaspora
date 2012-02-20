@@ -82,6 +82,8 @@ el:
       minutes: "%d λεπτά"
       month: "περίπου ένα μήνα"
       months: "%d μήνες"
+      prefixAgo: ""
+      prefixFromNow: ""
       seconds: "λιγότερο από ένα λεπτό"
       suffixAgo: "πριν"
       suffixFromNow: "από τώρα"

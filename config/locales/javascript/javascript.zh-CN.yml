@@ -70,6 +70,8 @@ zh-CN:
       minutes: "%d分钟"
       month: "约1个月"
       months: "%d个月"
+      prefixAgo: ""
+      prefixFromNow: ""
       seconds: "少于1分钟"
       suffixAgo: "前"
       suffixFromNow: "后"

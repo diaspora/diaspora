@@ -110,6 +110,7 @@ ko:
       minutes: "%d분"
       month: "약 한 달"
       months: "%d개월"
+      prefixAgo: ""
       prefixFromNow: "지금부터"
       seconds: "방금"
       suffixAgo: "전"

@@ -60,8 +60,11 @@ is:
       minutes: "%d mínútur"
       month: "um það bil mánuð"
       months: "%d mánuðir"
+      prefixAgo: ""
+      prefixFromNow: ""
       seconds: "minna en mínútu"
       suffixAgo: "síðan"
+      suffixFromNow: ""
       year: "um það bil ár"
       years: "%d ára"
     videos:

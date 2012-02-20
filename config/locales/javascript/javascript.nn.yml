@@ -82,6 +82,8 @@ nn:
       minutes: "%d minutt"
       month: "om lag ein månad"
       months: "%d månader"
+      prefixAgo: ""
+      prefixFromNow: ""
       seconds: "mindre enn eit minutt"
       suffixAgo: "sidan"
       suffixFromNow: "frå no"

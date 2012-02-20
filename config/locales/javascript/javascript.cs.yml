@@ -93,7 +93,10 @@ cs:
       month: "1 měsícem"
       months: "%d měsíci"
       prefixAgo: "před"
+      prefixFromNow: ""
       seconds: "méně než minutou"
+      suffixAgo: ""
+      suffixFromNow: ""
       year: "1 rokem"
       years: "%d roky"
     videos:

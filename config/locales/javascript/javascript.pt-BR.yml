@@ -82,6 +82,8 @@ pt-BR:
       minutes: "%d minutos"
       month: "cerca de um mês"
       months: "%d meses"
+      prefixAgo: ""
+      prefixFromNow: ""
       seconds: "menos de um minuto"
       suffixAgo: "atrás"
       suffixFromNow: "a partir de agora"

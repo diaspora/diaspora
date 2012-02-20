@@ -64,6 +64,7 @@ ja:
       minutes: "%d分"
       month: "大体1ヶ月"
       months: "%dヶ月"
+      prefixAgo: ""
       prefixFromNow: "今から"
       seconds: "1分未満"
       suffixAgo: "前"

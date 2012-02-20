@@ -54,7 +54,7 @@ fr:
         no_account_till: "Votre compte ne sera créé que lorsque vous irez sur le lien ci-dessus et que vous vous inscrirez."
         or: "ou"
         sign_up_now: "Inscrivez-vous →"
-        subject: "Vous avez été invité à rejoindre Diaspora!"
+        subject: "Vous avez été invité à rejoindre Diaspora !"
         team_diaspora: "L'Équipe Diaspora"
         unsubscribe: "Pour vous désinscrire, merci de cliquer sur %{link}."
         view_in: "L'afficher dans votre navigateur."
@@ -67,7 +67,7 @@ fr:
         ignore: "Si vous n'avez pas demandé cela, merci d'ignorer cet e-mail."
         someone_requested: "Quelqu'un a demandé un lien pour changer votre mot de passe, vous pouvez effectuer cela en cliquant sur le lien ci-dessous."
         subject: "Instructions de réinitialisation de mot de passe"
-        wont_change: "Votre mot de passe ne changera pas avant que vous n'en créiez un nouveau en accédant au lien ci-dessus. "
+        wont_change: "Votre mot de passe ne changera pas tant que vous n'en aurez pas créé un nouveau en accédant au lien ci-dessus."
       unlock_instructions:
         account_locked: "Votre compte a été bloqué à cause d'un nombre excessif de tentatives infructueuses de connexion."
         click_to_unlock: "Cliquez sur le lien ci-dessous pour débloquer votre compte :"

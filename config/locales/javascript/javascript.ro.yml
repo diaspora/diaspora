@@ -84,6 +84,7 @@ ro:
       prefixAgo: "acum"
       prefixFromNow: "in timp de"
       seconds: "mai putin de un minut"
+      suffixAgo: ""
       suffixFromNow: "in urma"
       year: "un an"
       years: "%d ani"

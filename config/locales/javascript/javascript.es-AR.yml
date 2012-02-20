@@ -85,6 +85,8 @@ es-AR:
       prefixAgo: "hace"
       prefixFromNow: "dentro de"
       seconds: "menos de un minuto"
+      suffixAgo: ""
+      suffixFromNow: ""
       year: "cerca de un año"
       years: "%d años"
     videos:

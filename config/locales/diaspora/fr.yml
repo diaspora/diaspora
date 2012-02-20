@@ -566,7 +566,7 @@ fr:
       or_select_one_existing: "ou choisissez parmi vos photos existantes %{photos}"
       upload: "Mettre une nouvelle photo de profil !"
     photo:
-      view_all: "Voir toute les photos de %{name}"
+      view_all: "Voir toutes les photos de %{name}"
     show:
       collection_permalink: "Lien permanent à la collection"
       delete_photo: "Supprimer la photo"
@@ -755,11 +755,11 @@ fr:
       control_your_audience: "Contrôlez votre audience"
       logged_in: "connecté(e) à %{service}"
       manage: "gérer les services connectés"
-      new_user_welcome_message: "Utilisez les #tags pour classer vos messages et trouver des personnes qui partagent vos intérêts. Interpellez des personnes géniales avec les @Mentions"
+      new_user_welcome_message: "Utilisez les #tags pour classer vos messages et trouver des personnes qui partagent vos intérêts. Interpelez des personnes géniales avec les @Mentions"
       outside: "Les messages publics pourront être vus par d'autres en dehors de Diaspora."
       share: "Partager"
       title: "Mettre en place des services connectés"
-      visibility_dropdown: "Utilisez ce menu déroulant pour modifier la visibilité de votre message. (Nous vous conseillons de faire ce premier message public.)"
+      visibility_dropdown: "Utilisez ce menu déroulant pour modifier la visibilité de votre message. (Nous vous conseillons de rendre public ce premier message.)"
     publisher:
       all: "tous"
       all_contacts: "tous les contacts"
@@ -825,7 +825,7 @@ fr:
       title: "Vos aspects"
     aspects_stream: "Aspects"
     comment_stream:
-      contacts_title: "Vos commentaires apportés sur les messages d'autres personnes"
+      contacts_title: "Les personnes dont vous avez commenté les messages"
       title: "Messages commentés"
     community_spotlight_stream: "Actualités de la communauté"
     followed_tag:
@@ -835,7 +835,7 @@ fr:
       title: "#Tags Suivis"
     followed_tags_stream: "#Tags Suivis"
     like_stream:
-      contacts_title: "Personnes dont vous avec épinglé les commentaires"
+      contacts_title: "Personnes dont vous avez épinglé les commentaires"
       title: "Flux des éléments épinglés"
     mentioned_stream: "@Mentions"
     mentions:
@@ -901,14 +901,14 @@ fr:
       change_language: "Changer la langue"
       change_password: "Changer le mot de passe"
       close_account:
-        dont_go: "Hey, s'il vous plait ne partez pas !"
+        dont_go: "Hey, s'il vous plaît ne partez pas !"
         if_you_want_this: "Si vous le voulez vraiment, tapez votre mot de passe ci-dessous et cliquez sur 'Supprimer le compte'"
         lock_username: "Ceci bloquera votre nom d'utilisateur si jamais vous décidiez de revenir."
         locked_out: "Vous serez déconnecté et bloqué de votre compte."
         make_diaspora_better: "Nous avons besoin de vous pour rendre Diaspora meilleur, vous devriez nous aider au lieu de partir. Si vous voulez partir, on voudrait que vous sachiez ce qu'il se passera prochainement."
         mr_wiggles: "Mr Wiggles sera triste de vous voir partir."
         no_turning_back: "Pour l'instant, on ne peut pas revenir en arrière."
-        what_we_delete: "Nous enlevons tous vos envois, les données de votre profil, aussi tôt que c'est humainement possible. Vos commentaires resterons sur le site, mais seront associés à votre identifiant Diaspora."
+        what_we_delete: "Nous enlevons tous vos envois, les données de votre profil, aussi tôt que c'est humainement possible. Vos commentaires resteront sur le site, mais seront associés à votre identifiant Diaspora."
       close_account_text: "Fermer le compte"
       comment_on_post: "…quelqu'un commente votre publication ?"
       current_password: "Mot de passe actuel"

@@ -106,6 +106,7 @@ sv:
       prefixFromNow: "om"
       seconds: "mindre än en minut"
       suffixAgo: "sedan"
+      suffixFromNow: ""
       year: "ungefär ett år"
       years: "%d år"
     videos:

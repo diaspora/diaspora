@@ -50,5 +50,10 @@ en_pirate:
         zero: "<%= count %> Reshares"
     tags:
       wasnt_that_interesting: "OK, I suppose #{{tagName}} wasn't all that interesting..."
+    timeago:
+      prefixAgo: ""
+      prefixFromNow: ""
+      suffixAgo: ""
+      suffixFromNow: ""
     videos:
       watch: "Watch this video on {{provider}}"

@@ -113,6 +113,7 @@ fr:
       prefixAgo: "il y a"
       prefixFromNow: "d'ici"
       seconds: "moins d'une minute"
+      suffixAgo: ""
       suffixFromNow: "maintenant"
       year: "un an"
       years: "%d ans"

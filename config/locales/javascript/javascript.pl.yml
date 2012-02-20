@@ -110,6 +110,7 @@ pl:
       minutes: "%d minut"
       month: "około miesiąca"
       months: "%d miesięcy"
+      prefixAgo: ""
       prefixFromNow: "javascripts:timeago:prefixFromNow"
       seconds: "mniej niż minutę"
       suffixAgo: "temu"

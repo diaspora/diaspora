@@ -110,6 +110,7 @@ de:
       prefixAgo: "vor"
       prefixFromNow: "in"
       seconds: "weniger als eine Minute"
+      suffixAgo: ""
       suffixFromNow: "ab jetzt"
       year: "etwa einem Jahr"
       years: "%d Jahren"

@@ -111,7 +111,10 @@ sk:
       month: "asi pred mesiacom"
       months: "pred %d mesiacmi"
       prefixAgo: "pred"
+      prefixFromNow: ""
       seconds: "pred menej ako minútou"
+      suffixAgo: ""
+      suffixFromNow: ""
       year: "asi pred rokom"
       years: "pred %d rokmi"
     videos:

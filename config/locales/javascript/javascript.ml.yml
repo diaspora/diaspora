@@ -110,6 +110,7 @@ ml:
       minutes: "%d മിനിട്ടുകള്‍"
       month: "ഉദ്ദേശം ഒരു മാസം"
       months: "%d മാസങ്ങള്‍"
+      prefixAgo: ""
       prefixFromNow: "ഇപ്പോള്‍ മുതല്‍"
       seconds: "ഏതാനും നിമിഷങ്ങള്‍"
       suffixAgo: "മുന്‍പ്"

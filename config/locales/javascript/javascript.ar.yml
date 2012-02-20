@@ -73,8 +73,11 @@ ar:
       minutes: "منذ %d دقائق"
       month: "منذ شهر"
       months: "منذ %d شهور"
+      prefixAgo: ""
       prefixFromNow: "من الآن"
       seconds: "منذ ثواني"
+      suffixAgo: ""
+      suffixFromNow: ""
       year: "منذ عام"
       years: "منذ %d أعوام"
     videos:

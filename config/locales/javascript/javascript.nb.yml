@@ -86,6 +86,7 @@ nb:
       prefixFromNow: "om"
       seconds: "under ett minutt"
       suffixAgo: "siden"
+      suffixFromNow: ""
       year: "ca. et år"
       years: "%d år"
     videos:
