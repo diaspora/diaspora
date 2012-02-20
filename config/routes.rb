@@ -110,7 +110,6 @@ Diaspora::Application.routes.draw do
     get   :admin_inviter
     get   :weekly_user_stats
     get   :correlations
-    get   :resque
     get   :stats, :as => 'pod_stats'
   end
 
