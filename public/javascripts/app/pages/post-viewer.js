@@ -26,28 +26,43 @@ app.pages.PostViewer = app.views.Base.extend({
   },
 
   postRenderTemplate : function() {
-    this.setKeyMappings();
+    this.bindNavHooks();
   },
 
-  setKeyMappings : function() {
-    var nextPostLocation = this.model.get("next_post");
-    var previousPostLocation = this.model.get("previous_post");
-
+  bindQuickCommenting : function() {
     /* focus modal */
     // doc.keypress(function(){
       // $('#text').focus();
       // $('#comment').modal();
     // });
+  },
 
+  bindNavHooks : function() {
     /* navagation hooks */
-    $(document).keydown(function(e){
-      if (e.keyCode == 37 && nextPostLocation) {
-        window.location = nextPostLocation
+    var nextPostLocation = this.model.get("next_post");
+    var previousPostLocation = this.model.get("previous_post");
 
-      }else if(e.keyCode == 39 && previousPostLocation) {
-        window.location = previousPostLocation
+    $(document).keydown(function(e){
+      switch(e.keyCode) {
+        case 37:
+          navigate(nextPostLocation, "left"); break;
+        case 39:
+          navigate(previousPostLocation, "right"); break;
+        default:
+          break;
       }
     })
+
+    function navigate(loc, direction) {
+      loc ? window.location = loc : bump(direction)
+    }
+
+    function bump(direction) {
+      $(".backdrop").addClass("bump-" + direction)
+      setTimeout( function(){
+        $(".backdrop").removeClass("bump-" + direction)
+      }, 200)
+    }
   }
 
 })

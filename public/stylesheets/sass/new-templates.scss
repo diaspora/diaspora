@@ -45,7 +45,54 @@ $light-grey: #999;
   transition: $type $speed;
 }
 
+@mixin animation($name, $speed:0.2s, $easing:ease-in-out) {
+  -webkit-animation: $name $speed $easing;
+  -moz-animation: $name $speed $easing;
+  -ms-animation: $name $speed $easing;
+}
+
+/* keyframes */
+
+@-webkit-keyframes bump-left {
+  0%   { left: 0; }
+  40%  { left: 20px; }
+  100% { left: 0; }
+}
+
+@-moz-keyframes bump-left {
+  0%   { left: 0; }
+  40%  { left: 20px; }
+  100% { left: 0; }
+}
+
+@-ms-keyframes bump-left {
+  0%   { left: 0; }
+  40%  { left: 20px; }
+  100% { left: 0; }
+}
+
+@-webkit-keyframes bump-right {
+  0%   { left: 0; }
+  40%  { left: -20px; }
+  100% { left: 0; }
+}
+
+@-moz-keyframes bump-right {
+  0%   { left: 0; }
+  40%  { left: -20px; }
+  100% { left: 0; }
+}
+
+@-ms-keyframes bump-right {
+  0%   { left: 0; }
+  40%  { left: 20px; }
+  100% { left: 0; }
+}
+
 /* styles */
+
+.bump-left { @include animation(bump-left) }
+.bump-right { @include animation(bump-right) }
 
 .multi-photo {
   .img-bounding-box {
