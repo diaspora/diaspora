@@ -23,7 +23,7 @@ class PostsController < ApplicationController
     end
 
     if @post
-      @commenting_disabled = can_not_comment_on_post?
+      # @commenting_disabled = can_not_comment_on_post?
       # mark corresponding notification as read
       if user_signed_in? && notification = Notification.where(:recipient_id => current_user.id, :target_id => @post.id).first
         notification.unread = false

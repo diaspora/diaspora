@@ -2,6 +2,10 @@ app.views.PostViewerNav = app.views.Base.extend({
 
   templateName: "post-viewer/nav",
 
+  events : {
+    "click a" : "pjax"
+  },
+
   postRenderTemplate : function() {
     var mappings = {"#forward" : "next_post",
                     "#back" : "previous_post"};
@@ -13,6 +17,11 @@ app.views.PostViewerNav = app.views.Base.extend({
 
   setArrow : function(arrow, loc) {
     loc ? arrow.attr('href', loc) : arrow.remove()
+  },
+
+  pjax : function(evt) {
+    if(evt) { evt.preventDefault(); }
+    app.router.navigate($(evt.target).attr("href").substring(1), true)
   }
 
 })
