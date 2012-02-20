@@ -69,11 +69,11 @@ class Post < ActiveRecord::Base
   }
 
   def self.next(post)
-    where("posts.created_at > ?", post.created_at)
+    where("posts.created_at > ?", post.created_at).order('posts.created_at ASC').last
   end
 
   def self.previous(post)
-    where("posts.created_at < ?", post.created_at)
+    where("posts.created_at < ?", post.created_at).first
   end
 
   def post_type

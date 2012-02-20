@@ -17,7 +17,6 @@ class PostPresenter
     }
   end
 
-
   def next_post_url
     if n = next_post
       Rails.application.routes.url_helpers.post_path(n)
@@ -31,11 +30,11 @@ class PostPresenter
   end
 
   def next_post
-    post_base.next(post).first
+    post_base.next(post)
   end
 
   def previous_post
-    post_base.previous(post).first
+    post_base.previous(post)
   end
 
   protected
