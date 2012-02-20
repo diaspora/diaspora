@@ -198,7 +198,13 @@ $light-grey: #999;
     width: 35px;
   }
 
+  i.icon-time,
+  i.icon-retweet {
+    @include opacity(0.5);
+  }
+
   .author-name {
+    text-shadow: 0 0 2px rgba(255,255,255,0.9);
     color: inherit;
     font-weight: bold;
   }

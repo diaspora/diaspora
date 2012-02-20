@@ -17,10 +17,8 @@
         = person_link(@post.author, :class => 'author-name')
 
         - if @post.is_a?(Reshare) && @post.root.present?
-          reshared via
+          %i.icon-retweet
           = person_link(@post.root.author, :class => "author-name")
-
-
 
         .post-time
           %i.icon-time
