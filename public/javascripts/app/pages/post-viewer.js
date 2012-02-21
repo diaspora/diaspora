@@ -11,7 +11,7 @@ app.pages.PostViewer = app.views.Base.extend({
   postView : function(){
     return new app.views.Post({
       model : this.model,
-      className : "loaded",
+      className : "dd",
       templateName : "post-viewer/content/" + this.options.postTemplateName
     })
   },

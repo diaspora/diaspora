@@ -137,6 +137,7 @@ $light-grey: #999;
 
 .note {
   width: 550px;
+  padding-bottom: 50px;
 
   p {
     font-size: 20px;
@@ -306,6 +307,7 @@ $light-grey: #999;
 
 #post-interactions {
   @include center(horizontal);
+  z-index: 20;
 
   #post-interactions-container {
     @include box-shadow(0, 6px, 15px, #000);
@@ -316,6 +318,7 @@ $light-grey: #999;
     border-left: 1px solid #444;
 
     width: 420px;
+    background-color: #444;
     background-image: url("../images/hatched-bg-dark.png");
 
     color: #ccc;
@@ -329,7 +332,7 @@ $light-grey: #999;
   }
 
   #new-post-comment {
-    border: 2px solid #333;
+    border-top: 2px solid #333;
     text-align: left;
     background-image: url("../images/hatched-bg-dark.png");
   }

@@ -2,6 +2,8 @@
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
+require Rails.root.join("app", "presenters", "post_presenter")
+
 class LikesController < ApplicationController
   include ApplicationHelper
   before_filter :authenticate_user!
@@ -17,7 +19,7 @@ class LikesController < ApplicationController
       respond_to do |format|
         format.html { render :nothing => true, :status => 201 }
         format.mobile { redirect_to post_path(@like.post_id) }
-        format.json { render :json => @like.parent.as_api_response(:backbone), :status => 201 }
+        format.json { render :json => PostPresenter.new(@like.parent, current_user).to_json, :status => 201 }
       end
     else
       render :nothing => true, :status => 422

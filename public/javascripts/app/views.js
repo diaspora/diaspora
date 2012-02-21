@@ -1,4 +1,8 @@
-app.views.Base =  Backbone.View.extend({
+app.views.Base = Backbone.View.extend({
+
+  initialize : function(options) {
+    this.setupRenderEvents();
+  },
 
   presenter : function(){
     return this.defaultPresenter()
@@ -18,6 +22,7 @@ app.views.Base =  Backbone.View.extend({
     this.renderTemplate()
     this.renderSubviews()
     this.renderPluginWidgets()
+    this.removeTooltips()
 
     return this
   },
@@ -45,5 +50,9 @@ app.views.Base =  Backbone.View.extend({
   renderPluginWidgets : function() {
     this.$(this.tooltipSelector).twipsy();
     this.$("time").timeago();
+  },
+
+  removeTooltips : function() {
+    $(".twipsy").remove();
   }
 })

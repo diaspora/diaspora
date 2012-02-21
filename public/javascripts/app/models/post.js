@@ -38,7 +38,10 @@ app.models.Post = Backbone.Model.extend({
   },
 
   follow : function() {
-    this.set({ user_participation : this.participations.create() });
+    var self = this;
+    this.participations.create({}, {success : function(resp){
+      self.set(resp.attributes.post)
+    }});
   },
 
   unfollow : function() {
@@ -59,7 +62,10 @@ app.models.Post = Backbone.Model.extend({
   },
 
   like : function() {
-    this.set({ user_like : this.likes.create() });
+    var self = this;
+    this.likes.create({}, {success : function(resp){
+      self.set(resp.attributes.post)
+    }});
   },
 
   unlike : function() {
