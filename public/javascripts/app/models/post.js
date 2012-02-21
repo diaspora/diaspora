@@ -41,6 +41,7 @@ app.models.Post = Backbone.Model.extend({
     var self = this;
     this.participations.create({}, {success : function(resp){
       self.set(resp.attributes.post)
+      self.trigger('feedback', self)
     }});
   },
 
@@ -50,6 +51,8 @@ app.models.Post = Backbone.Model.extend({
 
     participationModel.destroy();
     this.set({ user_participation : null });
+
+    this.trigger('feedback', this)
   },
 
   toggleLike : function() {
@@ -65,6 +68,7 @@ app.models.Post = Backbone.Model.extend({
     var self = this;
     this.likes.create({}, {success : function(resp){
       self.set(resp.attributes.post)
+      self.trigger('feedback', self)
     }});
   },
 
@@ -74,5 +78,6 @@ app.models.Post = Backbone.Model.extend({
 
     likeModel.destroy();
     this.set({ user_like : null });
+    this.trigger('feedback', this)
   }
 });

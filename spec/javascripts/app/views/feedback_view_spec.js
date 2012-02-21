@@ -16,6 +16,14 @@ describe("app.views.Feedback", function(){
   });
 
 
+  describe("triggers", function() {
+    it('re-renders when the model triggers feedback', function(){
+      spyOn(this.view, "postRenderTemplate")
+      this.view.model.trigger("feedback")
+      expect(this.view.postRenderTemplate).toHaveBeenCalled()
+    })
+  })
+
   describe(".render", function(){
     beforeEach(function(){
       this.link = function(){ return this.view.$(".like_action"); }

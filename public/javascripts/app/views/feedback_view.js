@@ -10,6 +10,14 @@ app.views.Feedback = app.views.Base.extend({
     "click .reshare_action": "resharePost"
   },
 
+  initialize : function() {
+    this.model.bind('feedback', this.render, this);
+  },
+
+  postRenderTemplate : function(){
+    console.log('fuck')
+  },
+
   presenter : function() {
     return _.extend(this.defaultPresenter(), {
       userCanReshare : this.userCanReshare()

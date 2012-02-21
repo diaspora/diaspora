@@ -10,7 +10,11 @@ app.views.Base = Backbone.View.extend({
 
   setupRenderEvents : function(){
     this.model.bind('remove', this.remove, this);
-    this.model.bind('change', this.render, this);
+
+    // this line is too generic.  we usually only want to re-render on
+    // feedback changes as the post content, author, and time do not change.
+    //
+    // this.model.bind('change', this.render, this);
   },
 
   defaultPresenter : function(){
