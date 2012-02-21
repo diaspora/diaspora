@@ -5,7 +5,7 @@
     <div id="post-author" class="media">
       <div class="img">
         <a href="/people/{{author.guid}}" class="author-name">
-          <img src="{{author.avatar.small}}" class="avatar"/>
+          <img src="{{author.avatar.small}}" class="avatar smaller"/>
         </a>
       </div>
 
@@ -23,7 +23,45 @@
   </div>
 </div>
 
-
 <div id="post-content"></div>
 <div id="post-nav"></div>
-<div id="post-feedback"></div>
+
+<div id="post-reactions">
+  <div id="post-feedback"></div>
+
+  <div id="post-interactions" style="display:none;">
+    <div id="post-interactions-container">
+      <div id="post-comments">
+        {{#each last_three_comments}}
+          <div class="post-comment media">
+            <div class="img">
+              <a href="/people/{{author.guid}}" class="author-name">
+                <img src="{{author.avatar.small}}" class="avatar smaller"/>
+              </a>
+            </div>
+
+            <div class="bd">
+              <div>
+                <a href="/people/{{author.guid}}" class="author-name">
+                  {{author.name}}
+                </a>
+              </div>
+
+              <div class="comment-content">
+                {{text}}
+              </div>
+            </div>
+          </div>
+        {{/each}}
+      </div>
+
+      <div id="new-post-comment">
+        <div id="new-post-comment-container">
+          <textarea class="new-comment-text" placeholder="Comment"></textarea>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+

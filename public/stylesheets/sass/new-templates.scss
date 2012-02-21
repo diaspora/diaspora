@@ -255,8 +255,21 @@ $light-grey: #999;
   padding: 20px;
 }
 
+.avatar.smaller {
+  height: 35px;
+  width: 35px;
+}
+
+.author-name {
+  color: inherit;
+  font-weight: bold;
+}
+
 #post-author {
   @include border-radius();
+
+  border: 1px solid rgba(255,255,255,0.2);
+  border-top: 1px solid rgba(255,255,255,0.5);
 
   float: left;
   margin: 0;
@@ -269,13 +282,6 @@ $light-grey: #999;
 
   .avatar {
     @include border-radius();
-    height: 35px;
-    width: 35px;
-  }
-
-  .author-name {
-    color: inherit;
-    font-weight: bold;
   }
 
   .post-time {
@@ -290,13 +296,80 @@ $light-grey: #999;
   }
 }
 
-#user-controls {
+#post-reactions {
   position: fixed;
-  height: 30px;
   width: 100%;
   bottom: 0;
   left: 0;
   text-align: center;
+}
+
+#post-interactions {
+  @include center(horizontal);
+
+  #post-interactions-container {
+    @include box-shadow(0, 6px, 15px, #000);
+    @include border-radius();
+
+    border-top: 1px solid #555;
+    border-right: 1px solid #444;
+    border-left: 1px solid #444;
+
+    width: 420px;
+    background-image: url("../images/hatched-bg-dark.png");
+
+    color: #ccc;
+  }
+
+  #post-comments {
+    text-align: left;
+    padding-top: 0;
+    max-height: 500px;
+    overflow: auto;
+  }
+
+  #new-post-comment {
+    border: 2px solid #333;
+    text-align: left;
+    background-image: url("../images/hatched-bg-dark.png");
+  }
+
+  #new-post-comment-container {
+    padding: 10px;
+
+    textarea{
+      width: 390px;
+      height: 18px;
+    }
+  }
+}
+
+.post-comment {
+  box-shadow: 0 1px 2px -2px #999;
+  border-bottom: 1px solid #333;
+
+  &:last-child {
+    box-shadow: none;
+    border-bottom: none;
+  }
+
+  padding: 10px;
+  padding-right: 40px;
+  margin: 0px;
+
+  .avatar {
+    @include border-radius();
+  }
+
+  text-shadow: 0 1px 3px #222;
+
+  a {
+    color: inherit;
+  }
+}
+
+#user-controls {
+  height: 30px;
 
   .avatar {
     vertical-align: top;

@@ -14,9 +14,9 @@ app.views.PostViewerFeedback = app.views.Feedback.extend({
 
   tooltipSelector : ".label",
 
-  comment : function(){
-    console.log(this.model)
+  comment : function(evt){
+    if(evt) { evt.preventDefault() }
+    $("#post-interactions").slideToggle()
   }
 
 })
-
