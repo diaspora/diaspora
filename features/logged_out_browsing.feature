@@ -11,3 +11,7 @@ Feature: Browsing Diaspora as a logged out user
     Scenario: Visiting a profile page
       When I am on "bob@bob.bob"'s page
       Then I should see "public stuff"
+
+    Scenario: Visiting a post show page
+      When I view "bob@bob.bob"'s first post
+      Then I should see "public stuff"
