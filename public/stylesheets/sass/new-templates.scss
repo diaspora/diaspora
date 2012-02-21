@@ -285,7 +285,8 @@ $light-grey: #999;
     @include border-radius();
   }
 
-  .post-time {
+  .post-time,
+  .icon-retweet {
     color: #000;
     @include opacity(0.5);
   }

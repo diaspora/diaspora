@@ -5,27 +5,4 @@
 - content_for :page_title do
   = post_page_title @post
 
-/- content_for :head do
-/  = javascript_include_tag 'vendor/bootstrap/bootstrap-transition', 'vendor/bootstrap/bootstrap-modal'
-
 #container
-
--# #comment.modal.fade
-  -# .modal-header
-    -# %h3
-      -# Responses
-
-  -# .modal-body
-    -# - @post.comments.each do |c|
-      -# .media
-        -# .img
-          -# = person_image_link c.author
-        -# .bd
-          -# %strong= person_link(c.author)
-          -# %br
-          -# = c.text
-    -# .modal-footer
-      -# = form_tag comments_path, :remote => true do
-        -# = text_area_tag :text, '', :class => 'span6'
-        -# = hidden_field_tag :post_id, @post.id
-        -# = submit_tag 'submit', :onclick => "$('#comment').modal('hide'); $('#text').text('')"

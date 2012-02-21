@@ -9,6 +9,15 @@
     {{author.name}}
   </a>
 
+  {{#if root}}
+    <i class="icon-retweet"></i>
+    {{#with root}}
+      <a href="/people/{{author.guid}}" class="author-name">
+        {{author.name}}
+      </a>
+    {{/with}}
+  {{/if}}
+
   <div class="post-time">
     <i class="icon-time"></i>
     <time datetime="{{created_at}}" />

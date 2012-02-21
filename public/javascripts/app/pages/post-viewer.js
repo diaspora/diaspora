@@ -34,14 +34,6 @@ app.pages.PostViewer = app.views.Base.extend({
     this.bindNavHooks();
   },
 
-  bindQuickCommenting : function() {
-    /* focus modal */
-    // doc.keypress(function(){
-      // $('#text').focus();
-      // $('#comment').modal();
-    // });
-  },
-
   bindNavHooks : function() {
     /* navagation hooks */
     var nextPostLocation = this.model.get("next_post");
