@@ -21,7 +21,10 @@ app.views.PostViewerNav = app.views.Base.extend({
 
   pjax : function(evt) {
     if(evt) { evt.preventDefault(); }
-    app.router.navigate($(evt.target).attr("href").substring(1), true)
+    var link;
+
+    evt.target.tagName == "IMG" ? link = $(evt.target).closest("a") : link = $(evt.target)
+    app.router.navigate(link.attr("href").substring(1), true)
   }
 
 })
