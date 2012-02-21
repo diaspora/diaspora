@@ -14,10 +14,6 @@ app.views.Feedback = app.views.Base.extend({
     this.model.bind('feedback', this.render, this);
   },
 
-  postRenderTemplate : function(){
-    console.log('fuck')
-  },
-
   presenter : function() {
     return _.extend(this.defaultPresenter(), {
       userCanReshare : this.userCanReshare()
