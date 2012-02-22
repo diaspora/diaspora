@@ -314,12 +314,16 @@ $light-grey: #999;
 }
 
 #post-reactions {
+  max-height: 350px;
   overflow: auto;
+  margin-top: 5px;
 }
 
 #post-info {
   @include center(horizontal);
   z-index: 20;
+
+  margin-top: -33px;
 
   #post-info-container {
     @include box-shadow(0, 6px, 20px, #000);
@@ -328,6 +332,8 @@ $light-grey: #999;
     border-top: 1px solid #555;
     border-right: 1px solid #444;
     border-left: 1px solid #444;
+
+    padding-top: 22px;
 
     width: 420px;
     background-color: #444;
@@ -364,7 +370,6 @@ $light-grey: #999;
   #post-comments {
     text-align: left;
     padding-top: 0;
-    max-height: 500px;
   }
 
   #new-post-comment {

@@ -1,51 +1,59 @@
-<div class="well media">
-  <div class="img">
-    <i class="icon-heart icon-red"></i>
+{{# if likes}}
+  <div id="post-likes">
+    <div class="well media">
+      <div class="img">
+        <i class="icon-heart icon-red"></i>
+      </div>
+      <div class="bd">
+        {{#each likes}}
+          {{#with author}}
+            <a href="/people/{{guid}}">
+              <img src="{{avatar.small}}" class="avatar micro" title="{{name}}"/ >
+            </a>
+          {{/with}}
+        {{/each}}
+      </div>
+    </div>
   </div>
-  <div id="post-likes" class="bd">
-    {{#each likes}}
-      {{#with author}}
-        <a href="/people/{{guid}}">
-          <img src="{{avatar.small}}" class="avatar micro" title="{{name}}"/ >
-        </a>
-      {{/with}}
-    {{/each}}
-  </div>
-</div>
+{{/if}}
 
-<div id="post-follows">
-  <div class="well media">
-    <div class="img">
-      <i class="icon-plus icon-green"></i>
-    </div>
-    <div id="post-likes" class="bd">
-      {{#each participations}}
-        {{#with author}}
-          <a href="/people/{{guid}}">
-            <img src="{{avatar.small}}" class="avatar micro" title="{{name}}"/ >
-          </a>
-        {{/with}}
-      {{/each}}
+{{# if participations}}
+  <div id="post-follows">
+    <div class="well media">
+      <div class="img">
+        <i class="icon-plus icon-green"></i>
+      </div>
+      <div class="bd">
+        {{#each participations}}
+          {{#with author}}
+            <a href="/people/{{guid}}">
+              <img src="{{avatar.small}}" class="avatar micro" title="{{name}}"/ >
+            </a>
+          {{/with}}
+        {{/each}}
+      </div>
     </div>
   </div>
-</div>
+{{/if}}
 
-<div id="post-reshares">
-  <div class="well media">
-    <div class="img">
-      <i class="icon-retweet icon-blue"></i>
-    </div>
-    <div id="post-likes" class="bd">
-      {{#each reshares}}
-        {{#with author}}
-          <a href="/people/{{guid}}">
-            <img src="{{avatar.small}}" class="avatar micro" title="{{name}}"/ >
-          </a>
-        {{/with}}
-      {{/each}}
+{{# if reshares}}
+  <div id="post-reshares">
+    <div class="well media">
+      <div class="img">
+        <i class="icon-retweet icon-blue"></i>
+      </div>
+      <div class="bd">
+        {{#each reshares}}
+          {{#with author}}
+            <a href="/people/{{guid}}">
+              <img src="{{avatar.small}}" class="avatar micro" title="{{name}}"/ >
+            </a>
+          {{/with}}
+        {{/each}}
+      </div>
     </div>
   </div>
-</div>
+{{/if}}
 
 <div id="post-comments">
   {{#each last_three_comments}}
