@@ -30,8 +30,7 @@ class ParticipationsController < ApplicationController
     if @participation
       current_user.retract(@participation)
       respond_to do |format|
-        format.any { }
-        format.json{ render :json => @participation.parent.as_api_response(:backbone), :status => 202 }
+        format.json { render :json => PostPresenter.new(@participation.parent, current_user).to_json, :status => 202 }
       end
     else
       respond_to do |format|

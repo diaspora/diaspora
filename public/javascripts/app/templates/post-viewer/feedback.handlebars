@@ -10,6 +10,7 @@
   {{else}}
     <i class="icon-heart icon-white"></i>
   {{/if}}
+  {{likes_count}}
 </a>
 
 <a href="#" class="label follow" title="{{#if user_participation}} Stop Following {{else}} Follow {{/if}} Post">
@@ -18,6 +19,7 @@
   {{else}}
     <i class="icon-plus icon-white"></i>
   {{/if}}
+  {{participations_count}}
 </a>
 
 {{#if userCanReshare}}
@@ -27,9 +29,11 @@
     {{else}}
       <i class="icon-retweet icon-white"></i>
     {{/if}}
+    {{reshares_count}}
   </a>
 {{/if}}
 
 <a href="#" class="label comment" title="Comment">
   <i class="icon-comment icon-white"></i>
+  {{comments_count}}
 </a>

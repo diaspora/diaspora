@@ -46,13 +46,14 @@ app.models.Post = Backbone.Model.extend({
   },
 
   unfollow : function() {
+    var self = this;
     var participationModel = new app.models.Participation(this.get("user_participation"));
     participationModel.url = this.participations.url + "/" + participationModel.id;
 
-    participationModel.destroy();
-    this.set({ user_participation : null });
-
-    this.trigger('feedback', this)
+    participationModel.destroy({success : function(model, resp){
+      self.set(resp.post);
+      self.trigger('feedback', this)
+    }});
   },
 
   toggleLike : function() {
@@ -67,17 +68,19 @@ app.models.Post = Backbone.Model.extend({
   like : function() {
     var self = this;
     this.likes.create({}, {success : function(resp){
-      self.set(resp.attributes.post)
+      self.set(resp.get("post"))
       self.trigger('feedback', self)
     }});
   },
 
   unlike : function() {
+    var self = this;
     var likeModel = new app.models.Like(this.get("user_like"));
     likeModel.url = this.likes.url + "/" + likeModel.id;
 
-    likeModel.destroy();
-    this.set({ user_like : null });
-    this.trigger('feedback', this)
+    likeModel.destroy({success : function(model, resp) {
+      self.set(resp.post);
+      self.trigger('feedback', this)
+    }});
   }
 });

@@ -14,6 +14,9 @@ class PostPresenter
         {
         :user_like => self.user_like,
         :user_participation => self.user_participation,
+        :likes_count => self.post.likes.count,
+        :participations_count => self.post.participations.count,
+        :reshares_count => self.post.reshares.count,
         :user_reshare => self.user_reshare,
         :next_post => self.next_post_url,
         :previous_post => self.previous_post_url
