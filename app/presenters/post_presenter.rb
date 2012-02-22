@@ -19,10 +19,25 @@ class PostPresenter
         :reshares_count => self.post.reshares.count,
         :user_reshare => self.user_reshare,
         :next_post => self.next_post_path,
-        :previous_post => self.previous_post_path
+        :previous_post => self.previous_post_path,
+        :likes => self.likes,
+        :reshares => self.reshares,
+        :comments => self.comments
       }),
       :templateName => template_name
     }
+  end
+
+  def comments
+    as_api(post.comments)
+  end
+
+  def likes
+    as_api(post.likes)
+  end
+
+  def reshares
+    as_api(post.reshares)
   end
 
   def user_like
@@ -69,6 +84,12 @@ class PostPresenter
   end
 
   protected
+
+  def as_api(collection)
+    collection.includes(:author => :profile).all.map do |element|
+      element.as_api_response(:backbone)
+    end
+  end
 
   def post_base
     if current_user
