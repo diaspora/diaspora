@@ -1,5 +1,5 @@
 require File.join(File.dirname(__FILE__), '..', '..', 'lib', 'template_picker')
-
+require 'spec_helper'
 describe TemplatePicker do
   before do
     @post_stubs = {:type => 'StatusMessage', :photos => stub(:size => 2), 
@@ -66,6 +66,18 @@ describe TemplatePicker do
     it 'is true if the post is of type activity_streams_photo' do
       photo = stub(:type => "ActivityStreams::Photo")      
       TemplatePicker.new(photo).should be_activity_streams_photo
+    end
+  end
+
+  describe 'factories' do
+    TemplatePicker::TEMPLATES.each do |template|
+      describe "#{template} factory" do
+        it 'works' do
+          post = Factory(template.to_sym, :author => alice.person).reload
+          template_name = TemplatePicker.new(post).template_name.gsub('-', '_')
+          template_name.should == template
+        end
+      end
     end
   end
 

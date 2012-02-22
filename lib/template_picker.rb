@@ -16,7 +16,7 @@ class TemplatePicker
 
   def template_name
     TEMPLATES.each do |template|
-      return template.gsub("_", '-') if self.send("#{template}?".to_sym)
+      return TemplatePicker.jsonify_name(template) if self.send("#{template}?".to_sym)
     end
 
     'status' #default
@@ -48,5 +48,13 @@ class TemplatePicker
 
   def status?
     post.text?
+  end
+
+  def self.jsonified_templates
+    TEMPLATES.map{|x| jsonify_name(x)}
+  end
+
+  def self.jsonify_name(name)
+    name.gsub('_', '-')
   end
 end
