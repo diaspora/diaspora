@@ -18,40 +18,39 @@ class PostPresenter
         :participations_count => self.post.participations.count,
         :reshares_count => self.post.reshares.count,
         :user_reshare => self.user_reshare,
-        :next_post => self.next_post_url,
-        :previous_post => self.previous_post_url
+        :next_post => self.next_post_path,
+        :previous_post => self.previous_post_path
       }),
-      :templateName => TemplatePicker.new(self.post).template_name
+      :templateName => template_name
     }
   end
 
   def user_like
-    return unless self.current_user.present?
-    if like = Like.where(:target_id => self.post.id, :target_type => "Post", :author_id => current_user.person.id).first
+    return unless user_signed_in?
+    if like = post.likes.where(:author_id => person.id).first
       like.as_api_response(:backbone)
     end
   end
 
   def user_participation
-    return unless self.current_user.present?
-
-    if participation = Participation.where(:target_id => self.post.id, :target_type => "Post", :author_id => current_user.person.id).first
+    return unless user_signed_in?
+    if participation = post.participations.where(:author_id => person.id).first
       participation.as_api_response(:backbone)
     end
   end
 
   def user_reshare
-    return unless self.current_user.present?
-    Reshare.where(:root_guid => self.post.guid, :author_id => current_user.person.id).exists?
+    return unless user_signed_in?
+    self.post.reshares.where(:author_id => person.id).first
   end
 
-  def next_post_url
+  def next_post_path
     if n = next_post
       Rails.application.routes.url_helpers.post_path(n)
     end
   end
 
-  def previous_post_url
+  def previous_post_path
     if p = previous_post
       Rails.application.routes.url_helpers.post_path(p)
     end
@@ -65,6 +64,10 @@ class PostPresenter
     post_base.previous(post)
   end
 
+  def template_name
+    @template_name ||= TemplatePicker.new(post).template_name
+  end
+
   protected
 
   def post_base
@@ -73,5 +76,13 @@ class PostPresenter
     else
       self.post.author.posts.all_public
     end
+  end
+
+  def person
+    self.current_user.person
+  end
+
+  def user_signed_in?
+    current_user.present?
   end
 end
