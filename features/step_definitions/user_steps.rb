@@ -161,3 +161,9 @@ Given /^I have (\d+) contacts$/ do |n|
   end
   AspectMembership.import(aspect_memberships)
 end
+
+When /^I view "([^\"]*)"'s first post$/ do |email|
+  user = User.find_by_email(email)
+  post = user.posts.first
+  visit post_path(post)
+end
