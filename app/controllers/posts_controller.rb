@@ -18,6 +18,13 @@ class PostsController < ApplicationController
 
     if user_signed_in?
       @post = current_user.find_visible_shareable_by_id(Post, params[:id], :key => key)
+      if @post && like = Like.where(:target_id => @post.id, :target_type => "Post", :author_id => current_user.person.id).first
+        @post.user_like = like
+      end
+
+      if @post && participation = Participation.where(:target_id => @post.id, :target_type => "Post", :author_id => current_user.person.id).first
+        @post.user_participation = participation
+      end
     else
       @post = Post.where(key => params[:id], :public => true).includes(:author, :comments => :author).first
     end
