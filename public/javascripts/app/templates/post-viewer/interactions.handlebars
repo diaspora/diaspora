@@ -1,0 +1,88 @@
+<div id="post-feedback"></div>
+
+<div id="post-info" style="display:none;">
+  <div id="post-info-container">
+
+    <div id="post-reactions">
+      <div class="well media">
+        <div class="img">
+          <i class="icon-heart icon-red"></i>
+        </div>
+        <div id="post-likes" class="bd">
+          {{#each likes}}
+            {{#with author}}
+              <a href="/people/{{guid}}">
+                <img src="{{avatar.small}}" class="avatar micro" title="{{name}}"/ >
+              </a>
+            {{/with}}
+          {{/each}}
+        </div>
+      </div>
+
+      <div id="post-follows">
+        <div class="well media">
+          <div class="img">
+            <i class="icon-plus icon-green"></i>
+          </div>
+          <div id="post-likes" class="bd">
+            {{#each participations}}
+              {{#with author}}
+                <a href="/people/{{guid}}">
+                  <img src="{{avatar.small}}" class="avatar micro" title="{{name}}"/ >
+                </a>
+              {{/with}}
+            {{/each}}
+          </div>
+        </div>
+      </div>
+
+      <div id="post-reshares">
+        <div class="well media">
+          <div class="img">
+            <i class="icon-retweet icon-blue"></i>
+          </div>
+          <div id="post-likes" class="bd">
+            {{#each reshares}}
+              {{#with author}}
+                <a href="/people/{{guid}}">
+                  <img src="{{avatar.small}}" class="avatar micro" title="{{name}}"/ >
+                </a>
+              {{/with}}
+            {{/each}}
+          </div>
+        </div>
+      </div>
+
+      <div id="post-comments">
+        {{#each last_three_comments}}
+          <div class="post-comment media">
+            <div class="img">
+              <a href="/people/{{author.guid}}" class="author-name">
+                <img src="{{author.avatar.small}}" class="avatar smaller"/>
+              </a>
+            </div>
+
+            <div class="bd">
+              <div>
+                <a href="/people/{{author.guid}}" class="author-name">
+                  {{author.name}}
+                </a>
+              </div>
+
+              <div class="comment-content">
+                {{text}}
+              </div>
+            </div>
+          </div>
+        {{/each}}
+      </div>
+    </div>
+
+    <div id="new-post-comment">
+      <div id="new-post-comment-container">
+        <textarea class="new-comment-text" placeholder="Comment"></textarea>
+      </div>
+    </div>
+
+  </div>
+</div>

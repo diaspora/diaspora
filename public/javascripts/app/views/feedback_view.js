@@ -11,7 +11,7 @@ app.views.Feedback = app.views.Base.extend({
   },
 
   initialize : function() {
-    this.model.bind('feedback', this.render, this);
+    this.model.bind('interacted', this.render, this);
   },
 
   presenter : function() {
@@ -42,7 +42,7 @@ app.views.Feedback = app.views.Base.extend({
         app.stream && app.stream.add(reshare);
 
         model.set(resp.get("post"))
-        model.trigger("feedback")
+        model.trigger("interacted")
       }
     });
   },

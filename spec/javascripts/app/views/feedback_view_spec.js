@@ -19,7 +19,7 @@ describe("app.views.Feedback", function(){
   describe("triggers", function() {
     it('re-renders when the model triggers feedback', function(){
       spyOn(this.view, "postRenderTemplate")
-      this.view.model.trigger("feedback")
+      this.view.model.trigger("interacted")
       expect(this.view.postRenderTemplate).toHaveBeenCalled()
     })
   })

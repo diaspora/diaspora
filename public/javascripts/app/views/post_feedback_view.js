@@ -9,6 +9,7 @@ app.views.PostViewerFeedback = app.views.Feedback.extend({
     "click .like" : "toggleLike",
     "click .follow" : "toggleFollow",
     "click .reshare" : "resharePost",
+
     "click .comment" : "comment"
   },
 
@@ -16,7 +17,10 @@ app.views.PostViewerFeedback = app.views.Feedback.extend({
 
   comment : function(evt){
     if(evt) { evt.preventDefault() }
-    $("#post-interactions").slideToggle()
+    $("#post-info").slideToggle()
+
+    this.removeTooltips()
+    console.log(this.model)
   }
 
 })

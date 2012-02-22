@@ -22,7 +22,8 @@ class PostPresenter
         :previous_post => self.previous_post_path,
         :likes => self.likes,
         :reshares => self.reshares,
-        :comments => self.comments
+        :comments => self.comments,
+        :participations => self.participations
       }),
       :templateName => template_name
     }
@@ -39,6 +40,11 @@ class PostPresenter
   def reshares
     as_api(post.reshares)
   end
+
+  def participations
+    as_api(post.participations)
+  end
+
 
   def user_like
     return unless user_signed_in?

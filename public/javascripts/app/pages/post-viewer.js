@@ -5,7 +5,7 @@ app.pages.PostViewer = app.views.Base.extend({
   subviews : {
     "#post-content" : "postView",
     "#post-nav" : "navView",
-    "#post-feedback" : "feedbackView",
+    "#post-feedback" : "interactionsView",
     "#header-container" : "authorView"
   },
 
@@ -22,9 +22,8 @@ app.pages.PostViewer = app.views.Base.extend({
     return new app.views.PostViewerNav({ model : this.model })
   },
 
-  feedbackView : function() {
-    if(!window.app.user()) { return null }
-    return new app.views.PostViewerFeedback({ model : this.model })
+  interactionsView : function() {
+    return new app.views.PostViewerInteractions({ model : this.model })
   },
 
   authorView : function() {

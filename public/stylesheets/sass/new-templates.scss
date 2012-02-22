@@ -38,10 +38,10 @@ $light-grey: #999;
   opacity: $val;
 }
 
-@mixin border-radius($pixels:3px) {
-  -webkit-border-radius: $pixels;
-  -moz-border-radius: $pixels;
-  border-radius: $pixels;
+@mixin border-radius($top:3px, $bottom:$top) {
+  -webkit-border-radius: $top $top $bottom $bottom;
+  -moz-border-radius: $top $top $bottom $bottom;
+  border-radius: $top $top $bottom $bottom;
 }
 
 @mixin transition($type, $speed) {
@@ -256,9 +256,16 @@ $light-grey: #999;
   padding: 20px;
 }
 
-.avatar.smaller {
-  height: 35px;
-  width: 35px;
+.avatar {
+  &.micro {
+    height: 20px;
+    width: 20px;
+  }
+
+  &.smaller {
+    height: 35px;
+    width: 35px;
+  }
 }
 
 .author-name {
@@ -298,7 +305,7 @@ $light-grey: #999;
   }
 }
 
-#post-reactions {
+#post-interactions {
   position: fixed;
   width: 100%;
   bottom: 0;
@@ -306,13 +313,17 @@ $light-grey: #999;
   text-align: center;
 }
 
-#post-interactions {
+#post-reactions {
+  overflow: auto;
+}
+
+#post-info {
   @include center(horizontal);
   z-index: 20;
 
-  #post-interactions-container {
-    @include box-shadow(0, 6px, 15px, #000);
-    @include border-radius();
+  #post-info-container {
+    @include box-shadow(0, 6px, 20px, #000);
+    @include border-radius(3px, 0px);
 
     border-top: 1px solid #555;
     border-right: 1px solid #444;
@@ -325,11 +336,35 @@ $light-grey: #999;
     color: #ccc;
   }
 
+  .well {
+    margin: 5px;
+    padding: 5px;
+    text-align: left;
+
+    max-height: 20px;
+    overflow: hidden;
+
+    background: {
+      color: #222;
+      color: rgba(0,0,0,0.3);
+    }
+
+    border: {
+      bottom: 1px solid #444;
+      top: 1px solid #111;
+    }
+
+    .avatar {
+      @include border-radius();
+      margin-right: 2px;
+    }
+
+  }
+
   #post-comments {
     text-align: left;
     padding-top: 0;
     max-height: 500px;
-    overflow: auto;
   }
 
   #new-post-comment {
