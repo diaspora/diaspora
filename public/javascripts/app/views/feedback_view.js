@@ -34,10 +34,15 @@ app.views.Feedback = app.views.Base.extend({
     if(evt) { evt.preventDefault(); }
     if(!window.confirm("Reshare " + this.model.reshareAuthor().name + "'s post?")) { return }
     var reshare = this.model.reshare()
+    var model = this.model
+
     reshare.save({}, {
       url: this.model.createReshareUrl,
-      success : function(){
-        app.stream.add(reshare);
+      success : function(resp){
+        app.stream && app.stream.add(reshare);
+
+        model.set(resp.get("post"))
+        model.trigger("feedback")
       }
     });
   },
