@@ -112,12 +112,16 @@ $light-grey: #999;
 
 /* styles */
 .multi-photo {
-  .img-bounding-box {
-    @include center(horizontal);
+  display: table;
 
-    margin: 20px;
-    height: 500px;
-    width: 400px;
+  .img-bounding-box {
+    display: table-cell;
+    text-align: center;
+    vertical-align: middle;
+
+    padding: 20px;
+    height: 400px;
+    width: 300px;
   }
 
   img {
@@ -341,7 +345,7 @@ $light-grey: #999;
 }
 
 #post-info {
-  @include center(horizontal);
+  text-align: center;
   z-index: 20;
 
   margin-top: -33px;
@@ -349,6 +353,8 @@ $light-grey: #999;
   #post-info-container {
     @include box-shadow(0, 6px, 20px, #000);
     @include border-radius(3px, 0px);
+
+    display: inline-block;
 
     border-top: 1px solid #555;
     border-right: 1px solid #444;

@@ -5,7 +5,7 @@ app.pages.PostViewer = app.views.Base.extend({
   subviews : {
     "#post-content" : "postView",
     "#post-nav" : "navView",
-    "#post-feedback" : "interactionsView",
+    "#post-interactions" : "interactionsView",
     "#header-container" : "authorView"
   },
 
