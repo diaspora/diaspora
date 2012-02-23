@@ -109,7 +109,6 @@ stylesheets:
   default:
     - public/stylesheets/media-box.css
     - public/stylesheets/loader.css
-    - public/stylesheets/ui.css
     - public/stylesheets/lightbox.css
     - public/stylesheets/autocomplete.css
     - public/stylesheets/mentions.css
@@ -122,6 +121,7 @@ stylesheets:
 
   application:
     - public/stylesheets/application.css
+    - public/stylesheets/ui.css
 
   new_templates:
     - public/stylesheets/new-templates.css

@@ -35,6 +35,8 @@ $light-grey: #999;
 }
 
 @mixin opacity($val) {
+  -moz-opacity: $val;
+  filter:alpha(opacity=$val*100);
   opacity: $val;
 }
 
@@ -333,7 +335,7 @@ $light-grey: #999;
     border-right: 1px solid #444;
     border-left: 1px solid #444;
 
-    padding-top: 22px;
+    padding-top: 25px;
 
     width: 420px;
     background-color: #444;
@@ -343,6 +345,10 @@ $light-grey: #999;
   }
 
   .well {
+    -webkit-box-shadow: inset 0 2px 2px rgba(0,0,0,0.10);
+    -moz-box-shadow: inset 0 2px 2px rgba(0,0,0,0.10);
+    box-shadow: inset 0 2px 2px rgba(0,0,0,0.10);
+
     margin: 5px;
     padding: 5px;
     text-align: left;
@@ -352,11 +358,13 @@ $light-grey: #999;
 
     background: {
       color: #222;
-      color: rgba(0,0,0,0.3);
+      color: rgba(0,0,0,0.2);
     }
 
     border: {
-      bottom: 1px solid #444;
+      left: 1px solid #444;
+      right: 1px solid #444;
+      bottom: 1px solid #555;
       top: 1px solid #111;
     }
 
@@ -373,7 +381,11 @@ $light-grey: #999;
   }
 
   #new-post-comment {
-    border-top: 2px solid #333;
+    -webkit-box-shadow: 0 -3px 6px -5px rgba(0,0,0,0.8);
+    -moz-box-shadow: 0 -3px 6px -5px rgba(0,0,0,0.8);
+    box-shadow: 0 -3px 6px -5px rgba(0,0,0,0.8);
+
+    border-top: 1px solid #444;
     text-align: left;
     background-image: url("../images/hatched-bg-dark.png");
   }
@@ -401,7 +413,10 @@ $light-grey: #999;
 }
 
 .post-comment {
+  -moz-box-shadow: 0 1px 2px -2px #999;
+  -webkit-box-shadow: 0 1px 2px -2px #999;
   box-shadow: 0 1px 2px -2px #999;
+
   border-bottom: 1px solid #333;
 
   &:last-child {
@@ -415,6 +430,13 @@ $light-grey: #999;
 
   .avatar {
     @include border-radius();
+
+    border: {
+      top: 1px solid #222;
+      right: 1px solid #444;
+      left: 1px solid #444;
+      bottom: 1px solid #666;
+    }
   }
 
   text-shadow: 0 1px 3px rgba(0,0,0,0.3);
@@ -445,7 +467,7 @@ $light-grey: #999;
 
   &:hover {
     .controls {
-      @include opacity(0.3);
+      @include opacity(0.4);
 
       &:hover {
         @include opacity(1);
@@ -466,8 +488,7 @@ $light-grey: #999;
   .label {
     @include opacity(0.6);
     @include transition(opacity, 0.3s);
-
-    box-shadow: 0 0 2px rgba(255,255,255,0.9);
+    @include box-shadow(0, 0, 2px, rgba(255,255,255,0.9));
 
     padding: 5px;
     margin-right: 5px;

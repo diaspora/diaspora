@@ -4,6 +4,8 @@ app.views.PostViewerReactions = app.views.Base.extend({
 
   templateName: "post-viewer/reactions",
 
+  tooltipSelector : ".avatar",
+
   initialize : function() {
     this.model.bind('interacted', this.render, this);
   },
