@@ -219,7 +219,8 @@ $light-grey: #999;
 .nav-arrow {
   @include opacity(0.8);
   @include transition(background-color, 0.3s);
-  @include center();
+
+  display: table;
 
   position: fixed;
   height: 100%;
@@ -227,6 +228,12 @@ $light-grey: #999;
   top: 0;
   padding: 0 13px;
   background-color: rgba(0,0,0,0);
+
+  .nav-arrow-inner {
+    padding: 0; margin: 0;
+    display: table-cell;
+    vertical-align: middle;
+  }
 
   img {
     @include opacity(0.5);

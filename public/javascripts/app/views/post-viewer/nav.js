@@ -23,7 +23,7 @@ app.views.PostViewerNav = app.views.Base.extend({
     if(evt) { evt.preventDefault(); }
     var link;
 
-    evt.target.tagName == "IMG" ? link = $(evt.target).closest("a") : link = $(evt.target)
+    evt.target.tagName != "A" ? link = $(evt.target).closest("a") : link = $(evt.target)
     app.router.navigate(link.attr("href").substring(1), true)
   }
 
