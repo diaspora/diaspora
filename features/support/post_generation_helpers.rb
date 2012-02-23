@@ -14,6 +14,7 @@ module PostGenerationHelpers
   def visit_posts_and_collect_template_names(user)
     visit(post_path(user.posts.last))
     user.posts.map do |post|
+      sleep 0.25
       post = find('.post')
       template_name = post['data-template']
       click_next_button
