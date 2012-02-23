@@ -121,7 +121,7 @@ describe ParticipationsController do
 
       it 'returns the parent post presenter' do
         delete :destroy, :format => :json, id_field => @participation.target_id, :id => @participation.id
-        response.body.should == PostPresenter.new(@participation.parent, alice).to_json.to_s
+        response.body.should include 'post'
       end
     end
   end

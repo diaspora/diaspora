@@ -129,7 +129,7 @@ describe LikesController do
 
         it 'returns the parent post presenter' do
           delete :destroy, :format => :json, id_field => @like.target_id, :id => @like.id
-          response.body.should == PostPresenter.new(@like.parent, alice).to_json.to_s
+          response.body.should include 'post' if class_const != Comment
         end
       end
     end
