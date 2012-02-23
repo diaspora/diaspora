@@ -12,6 +12,7 @@ app.views.CommentStream = app.views.Base.extend({
 
   initialize: function(options) {
     this.model.comments.bind('add', this.appendComment, this);
+    this.commentTemplate = options.commentTemplate;
   },
 
   postRenderTemplate : function() {

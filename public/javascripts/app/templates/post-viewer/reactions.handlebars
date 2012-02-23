@@ -55,26 +55,5 @@
   </div>
 {{/if}}
 
-<div id="post-comments">
-  {{#each last_three_comments}}
-    <div class="post-comment media">
-      <div class="img">
-        <a href="/people/{{author.guid}}" class="author-name">
-          <img src="{{author.avatar.small}}" class="avatar smaller"/>
-        </a>
-      </div>
+<div id="post-comments"> </div>
 
-      <div class="bd">
-        <div>
-          <a href="/people/{{author.guid}}" class="author-name">
-            {{author.name}}
-          </a>
-        </div>
-
-        <div class="comment-content">
-          {{text}}
-        </div>
-      </div>
-    </div>
-  {{/each}}
-</div>

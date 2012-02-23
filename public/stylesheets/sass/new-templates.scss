@@ -44,7 +44,7 @@ $light-grey: #999;
   border-radius: $top $top $bottom $bottom;
 }
 
-@mixin transition($type, $speed) {
+@mixin transition($type, $speed:0.2s) {
   -o-transition: $type $speed;
   -moz-transition: $type $speed;
   -webkit-transition: $type $speed;
@@ -379,11 +379,23 @@ $light-grey: #999;
   }
 
   #new-post-comment-container {
+    position: relative;
+
     padding: 10px;
 
     textarea{
-      width: 390px;
       height: 18px;
+      width: 300px;
+    }
+
+    form {
+      margin-bottom: 0;
+    }
+
+    .btn {
+      position: absolute;
+      right: 10px;
+      bottom: 10px;
     }
   }
 }
@@ -409,6 +421,36 @@ $light-grey: #999;
 
   a {
     color: inherit;
+  }
+
+  time {
+    color: #666;
+    font-size: smaller;
+  }
+
+  .controls {
+    @include transition(opacity);
+    @include opacity(0);
+
+    float: right;
+    margin-right: -40px;
+
+    a {
+      padding: 3px 5px;
+      &:hover {
+        text-decoration: none;
+      }
+    }
+  }
+
+  &:hover {
+    .controls {
+      @include opacity(0.3);
+
+      &:hover {
+        @include opacity(1);
+      }
+    }
   }
 }
 

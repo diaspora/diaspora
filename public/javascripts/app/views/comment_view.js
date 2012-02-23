@@ -2,7 +2,7 @@ app.views.Comment = app.views.Content.extend({
 
   templateName: "comment",
 
-  className : "comment",
+  className : "comment media",
 
   events : {
     "click .comment_delete": "destroyModel"

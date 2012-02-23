@@ -19,8 +19,7 @@
       = page_title yield(:page_title)
 
     = include_base_css_framework(:bootstrap)
-    = include_stylesheets :login, :media => 'screen'
-    = include_stylesheets :default, :media => 'all'
+    = include_stylesheets :default, :new_templates, :media => 'all'
 
     - if rtl?
       = include_stylesheets :rtl, :media => 'all'
