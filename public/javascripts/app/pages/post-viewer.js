@@ -56,8 +56,8 @@ app.pages.PostViewer = app.views.Base.extend({
   },
 
   commentAnywhere : function(evt) {
-    /* ignore enter and space bar */
-    if(evt.keyCode == 13 || evt.keyCode == 32) { return }
+    /* ignore enter, space bar, arrow keys */
+    if(_.include([13, 32, 37, 38, 39, 40], evt.keyCode)) { return }
 
     this.interactionsView.invokePane();
     $('#new-post-comment textarea').focus();

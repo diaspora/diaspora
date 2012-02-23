@@ -136,6 +136,8 @@ $light-grey: #999;
 .note-content {
   width: 550px;
   padding-bottom: 50px;
+  display: inline-block;
+  text-align: left;
 
   p {
     font-size: 20px;
@@ -164,31 +166,37 @@ $light-grey: #999;
 }
 
 .darken {
-  @include center();
-
   position: fixed;
   top: 0;
   left: 0;
   height: 100%;
   width: 100%;
   background-color: rgba(0,0,0,0.5);
+
+  display: table;
+
+  .darken-content {
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+
+    height: 100%;
+    width: 100%;
+  }
 }
 
 .post {
-  @include center();
-
-  position: absolute;
-
-  top: 0;
-  left: 0;
-
-  width: 100%;
-  height: 100%;
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center;
 }
 
 .photo-fill {
   @include background-cover();
+
   position: absolute;
+  top: 0;
+  left: 0;
   height: 100%;
   width: 100%;
 }
@@ -526,4 +534,12 @@ $light-grey: #999;
       text-decoration: none;
     }
   }
+}
+
+#post-content {
+  display: table;
+
+  position: absolute;
+  height: 100%;
+  width: 100%;
 }
