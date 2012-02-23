@@ -111,10 +111,6 @@ $light-grey: #999;
 }
 
 /* styles */
-
-.bump-left { @include animation(bump-left) }
-.bump-right { @include animation(bump-right) }
-
 .multi-photo {
   .img-bounding-box {
     @include center(horizontal);
@@ -137,7 +133,7 @@ $light-grey: #999;
   width: 100%;
 }
 
-.note {
+.note-content {
   width: 550px;
   padding-bottom: 50px;
 
@@ -151,16 +147,19 @@ $light-grey: #999;
   }
 }
 
-.status {
+.status,
+.status-with-photo-backdrop
+{
   h1 {
     font-weight: bold;
     font-size: 40px;
   }
+}
 
-  &.photo-backdrop {
-    h1 {
-      font-size: 100px;
-    }
+.status-with-photo-backdrop {
+  h1 {
+    font-size: 100px;
+    color: #fff;
   }
 }
 
@@ -175,10 +174,8 @@ $light-grey: #999;
   background-color: rgba(0,0,0,0.5);
 }
 
-.backdrop,
-.photo-backdrop {
+.post {
   @include center();
-  @include background-cover();
 
   position: absolute;
 
@@ -187,6 +184,13 @@ $light-grey: #999;
 
   width: 100%;
   height: 100%;
+}
+
+.photo-fill {
+  @include background-cover();
+  position: absolute;
+  height: 100%;
+  width: 100%;
 }
 
 .photo-backdrop {
@@ -515,8 +519,4 @@ $light-grey: #999;
       text-decoration: none;
     }
   }
-}
-
-#post-content {
-  padding-top: 50px;
 }
