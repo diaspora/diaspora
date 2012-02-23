@@ -10,17 +10,13 @@ app.views.PostViewerFeedback = app.views.Feedback.extend({
     "click .follow" : "toggleFollow",
     "click .reshare" : "resharePost",
 
-    "click .comment" : "comment"
+    "click .comment" : "invokePane"
   },
 
   tooltipSelector : ".label",
 
-  comment : function(evt){
-    if(evt) { evt.preventDefault() }
-    $("#post-info").slideToggle()
-
-    this.removeTooltips()
-    console.log(this.model)
+  invokePane : function(evt){
+    this.trigger("invokePane")
   }
 
 })

@@ -339,7 +339,7 @@ $light-grey: #999;
     background-color: #444;
     background-image: url("../images/hatched-bg-dark.png");
 
-    color: #ccc;
+    color: #ddd;
   }
 
   .well {
@@ -417,10 +417,10 @@ $light-grey: #999;
     @include border-radius();
   }
 
-  text-shadow: 0 1px 3px #222;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.3);
 
-  a {
-    color: inherit;
+  a:hover {
+    color: #99CCFF
   }
 
   time {

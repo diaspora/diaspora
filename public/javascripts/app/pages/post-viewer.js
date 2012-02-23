@@ -9,25 +9,25 @@ app.pages.PostViewer = app.views.Base.extend({
     "#header-container" : "authorView"
   },
 
-  postView : function(){
-    return new app.views.Post({
+  initialize : function() {
+    this.initViews();
+
+    $(document).bind("keypress", _.bind(this.commentAnywhere, this))
+    $(document).bind("keypress", _.bind(this.invokePane, this))
+    $(document).bind("keyup", _.bind(this.closePane, this))
+  },
+
+  initViews : function() {
+    this.authorView = new app.views.PostViewerAuthor({ model : this.model });
+    this.interactionsView = new app.views.PostViewerInteractions({ model : this.model });
+    this.navView = new app.views.PostViewerNav({ model : this.model });
+
+    this.postView = new app.views.Post({
       model : this.model,
       className : "post loaded",
       templateName : "post-viewer/content/" + this.options.postTemplateName,
       attributes : {"data-template" : this.options.postTemplateName}
-    })
-  },
-
-  navView : function() {
-    return new app.views.PostViewerNav({ model : this.model })
-  },
-
-  interactionsView : function() {
-    return new app.views.PostViewerInteractions({ model : this.model })
-  },
-
-  authorView : function() {
-    return new app.views.PostViewerAuthor({ model : this.model })
+    });
   },
 
   postRenderTemplate : function() {
@@ -42,24 +42,36 @@ app.pages.PostViewer = app.views.Base.extend({
     $(document).keydown(function(e){
       switch(e.keyCode) {
         case 37:
-          navigate(nextPostLocation, "left"); break;
+          navigate(nextPostLocation); break;
         case 39:
-          navigate(previousPostLocation, "right"); break;
+          navigate(previousPostLocation); break;
         default:
           break;
       }
     })
 
-    function navigate(loc, direction) {
-      loc ? window.location = loc : bump(direction)
+    function navigate(loc) {
+      loc ? window.location = loc : null
     }
+  },
 
-    function bump(direction) {
-      $(".backdrop").addClass("bump-" + direction)
-      setTimeout( function(){
-        $(".backdrop").removeClass("bump-" + direction)
-      }, 200)
-    }
+  commentAnywhere : function(evt) {
+    /* ignore enter and space bar */
+    if(evt.keyCode == 13 || evt.keyCode == 32) { return }
+
+    this.interactionsView.invokePane();
+    $('#new-post-comment textarea').focus();
+  },
+
+  invokePane : function(evt) {
+    if(evt.keyCode != 32) { return }
+
+    this.interactionsView.invokePane();
+  },
+
+  closePane : function(evt) {
+    if(evt.keyCode != 27) { return }
+    this.interactionsView.hidePane();
   }
 
 })
