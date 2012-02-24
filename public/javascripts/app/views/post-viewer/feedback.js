@@ -10,7 +10,7 @@ app.views.PostViewerFeedback = app.views.Feedback.extend({
     "click .follow" : "toggleFollow",
     "click .reshare" : "resharePost",
 
-    "click .comment" : "invokePane"
+    "click *[rel='interaction-pane']" : "invokePane"
   },
 
   tooltipSelector : ".label",
@@ -18,5 +18,4 @@ app.views.PostViewerFeedback = app.views.Feedback.extend({
   invokePane : function(evt){
     this.trigger("invokePane")
   }
-
 })

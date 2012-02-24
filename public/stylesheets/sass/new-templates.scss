@@ -59,6 +59,32 @@ $light-grey: #999;
   -ms-animation: $name $speed $easing;
 }
 
+@mixin info-container() {
+  @include box-shadow(0, 6px, 20px, #000);
+  @include border-radius(3px, 0px);
+  @include dark-hatched-bg();
+
+  display: inline-block;
+
+  border-top: 1px solid #555;
+  border-right: 1px solid #444;
+  border-left: 1px solid #444;
+
+  padding-top: 25px;
+
+  width: 420px;
+
+  color: #ddd;
+
+  /* webkit acceleration */
+  -webkit-transform: translateZ(0);
+}
+
+@mixin dark-hatched-bg() {
+  background-color: #444;
+  background-image: url("../images/hatched-bg-dark.png");
+}
+
 /* keyframes */
 
 @-webkit-keyframes bump-left {
@@ -344,29 +370,16 @@ $light-grey: #999;
   margin-top: 5px;
 }
 
-#post-info {
+
+#post-info,
+#post-info-sneaky {
   text-align: center;
-  z-index: 20;
+  z-index: 10;
 
   margin-top: -33px;
 
   #post-info-container {
-    @include box-shadow(0, 6px, 20px, #000);
-    @include border-radius(3px, 0px);
-
-    display: inline-block;
-
-    border-top: 1px solid #555;
-    border-right: 1px solid #444;
-    border-left: 1px solid #444;
-
-    padding-top: 25px;
-
-    width: 420px;
-    background-color: #444;
-    background-image: url("../images/hatched-bg-dark.png");
-
-    color: #ddd;
+    @include info-container();
   }
 
   .well {
@@ -397,7 +410,6 @@ $light-grey: #999;
       @include border-radius();
       margin-right: 2px;
     }
-
   }
 
   #post-comments {
@@ -434,6 +446,34 @@ $light-grey: #999;
       right: 10px;
       bottom: 10px;
     }
+  }
+}
+
+#post-info-sneaky {
+  @include transition(all, 0.2s);
+
+  z-index: 1;
+  position: fixed;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  bottom: 0;
+
+  margin-bottom: -60px;
+  min-height: 20px;
+
+  #post-info-container-sneaky {
+    @include info-container();
+
+    padding: 10px 0;
+    min-height: 20px;
+  }
+}
+
+#post-feedback:hover {
+  #post-info-sneaky:not(.passive) {
+    @include opacity(1);
+    margin-bottom: -13px;
   }
 }
 
@@ -515,6 +555,10 @@ $light-grey: #999;
     @include transition(opacity, 0.3s);
     @include box-shadow(0, 0, 2px, rgba(255,255,255,0.9));
 
+    position: relative;
+
+    z-index: 20;
+
     padding: 5px;
     margin-right: 5px;
     line-height: 24px;
@@ -548,4 +592,10 @@ $light-grey: #999;
   position: absolute;
   height: 100%;
   width: 100%;
+}
+
+#post-feedback {
+  /* fixes flicker on hover... no idea as to why */
+  position: relative;
+  z-index: 30;
 }

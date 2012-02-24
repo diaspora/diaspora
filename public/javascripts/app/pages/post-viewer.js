@@ -65,7 +65,6 @@ app.pages.PostViewer = app.views.Base.extend({
 
   invokePane : function(evt) {
     if(evt.keyCode != 32) { return }
-
     this.interactionsView.invokePane();
   },
 
