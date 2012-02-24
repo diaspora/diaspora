@@ -256,9 +256,31 @@ $pane-width: 420px;
   }
 }
 
+#post-nav {
+  @include transition(opacity, 0.5s);
+  @include opacity(1);
+}
+
+body.idle {
+  #post-nav {
+    @include opacity(0);
+
+    .nav-arrow{
+      &.right {
+        margin-right: -40px;
+      }
+
+      &.left {
+        margin-left: -40px;
+      }
+    }
+
+  }
+}
+
 .nav-arrow {
   @include opacity(0.8);
-  @include transition(background-color, 0.3s);
+  @include transition(all, 0.3s);
 
   display: table;
 

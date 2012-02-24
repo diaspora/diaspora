@@ -11,6 +11,7 @@ app.pages.PostViewer = app.views.Base.extend({
 
   initialize : function() {
     this.initViews();
+    this.prepIdleHooks();
 
     $(document).bind("keypress", _.bind(this.commentAnywhere, this))
     $(document).bind("keypress", _.bind(this.invokePane, this))
@@ -26,6 +27,18 @@ app.pages.PostViewer = app.views.Base.extend({
       className : this.model.get("templateName") + " post loaded",
       templateName : "post-viewer/content/" + this.model.get("templateName"),
       attributes : {"data-template" : this.model.get("templateName")}
+    });
+  },
+
+  prepIdleHooks : function () {
+    $.idleTimer(2000);
+
+    $(document).bind("idle.idleTimer", function(){
+      $("body").addClass('idle');
+    });
+
+    $(document).bind("active.idleTimer", function(){
+      $("body").removeClass('idle');
     });
   },
 

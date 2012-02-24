@@ -46,6 +46,7 @@ javascripts:
     - public/javascripts/vendor/jquery.events.input.js
     - public/javascripts/vendor/jquery.elastic.js
     - public/javascripts/vendor/jquery.mentionsInput.js
+    - public/javascripts/vendor/jquery.idle-timer.js
     - public/javascripts/jquery.infinitescroll-custom.js
     - public/javascripts/jquery.autocomplete-custom.js
     - public/javascripts/keycodes.js
