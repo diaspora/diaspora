@@ -47,7 +47,7 @@
         window.setTimeout(window.close, 2000, true);
       });
 
-      var contents = "#{params[:title]} - #{params[:url]}";
+      var contents = "#{escape_javascript params[:title]} - #{escape_javascript params[:url]}";
       var notes    = "#{escape_javascript params[:notes]}";
       if (notes.length > 0){
         contents = contents + " - " + notes;

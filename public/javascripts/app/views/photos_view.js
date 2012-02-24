@@ -7,7 +7,7 @@ app.views.Photos = Backbone.View.extend({
     this.collection = this.model.photos;
 
     this.setupEvents();
-    //this.setupLightbox(); ERROR: "imageThumb is undefined" ...
+    this.setupLightbox();
   },
 
   setupEvents : function(){
@@ -50,6 +50,10 @@ app.views.Photos = Backbone.View.extend({
 
   setupLightbox : function(){
     this.lightbox = Diaspora.BaseWidget.instantiate("Lightbox");
+    this.lightbox.set({
+      imageParent: '#main_stream',
+      imageSelector: 'img.photo'
+    });
     $(this.el).delegate("a.photo-link", "click", this.lightbox.lightboxImageClicked);
   },
 
