@@ -82,7 +82,7 @@ gem 'ruby-oembed'
 # queue
 
 gem 'resque', '1.19.0'
-gem 'resque-ensure-connected', :git => 'https://github.com/socialcast/resque-ensure-connected.git'
+gem 'resque-ensure-connected', :git => 'git://github.com/socialcast/resque-ensure-connected.git'
 gem 'resque-timeout', '1.0.0'
 gem 'SystemTimer', '1.2.3', :platforms => :ruby_18
 

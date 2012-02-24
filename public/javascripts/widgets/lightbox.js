@@ -20,6 +20,11 @@ jQuery.fn.center = (function() {
   var Lightbox = function() {
     var self = this;
 
+    self.options = {
+      imageParent: '.stream_element',
+      imageSelector: 'img.stream-photo'
+    };
+
     this.subscribe("widget/ready", function(evt) {
       $.extend(self, {
         lightbox: $("#lightbox"),
@@ -88,9 +93,9 @@ jQuery.fn.center = (function() {
     this.lightboxImageClicked = function(evt) {
       evt.preventDefault();
 
-      var selectedImage = $(this).find("img.stream-photo"),
+      var selectedImage = $(this).find(self.options.imageSelector),
         imageUrl = selectedImage.attr("data-full-photo"),
-        images = selectedImage.parents('.stream_element').find('img.stream-photo'),
+        images = selectedImage.parents(self.options.imageParent).find(self.options.imageSelector),
         imageThumb;
 
       if( $.browser.msie ) {
@@ -146,6 +151,10 @@ jQuery.fn.center = (function() {
     this.resetLightbox = function() {
       self.lightbox.hide();
       self.body.removeClass("lightboxed");
+    };
+
+    this.set = function(opts) {
+      $.extend(self.options, opts);
     };
   };
 

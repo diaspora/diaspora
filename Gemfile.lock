@@ -32,7 +32,7 @@ GIT
       sinatra
 
 GIT
-  remote: https://github.com/socialcast/resque-ensure-connected.git
+  remote: git://github.com/socialcast/resque-ensure-connected.git
   revision: 8ac0f9e4658495097fb333a93db81d54ba9a5311
   specs:
     resque-ensure-connected (0.2.0)
