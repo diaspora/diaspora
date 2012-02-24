@@ -71,6 +71,7 @@ app.models.Post = Backbone.Model.extend({
       self.set(resp.get("post"))
       self.trigger('interacted', self)
     }});
+
   },
 
   unlike : function() {

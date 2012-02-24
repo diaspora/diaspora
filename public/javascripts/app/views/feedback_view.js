@@ -40,8 +40,6 @@ app.views.Feedback = app.views.Base.extend({
       url: this.model.createReshareUrl,
       success : function(resp){
         app.stream && app.stream.add(reshare);
-
-        model.set(resp.get("post"))
         model.trigger("interacted")
       }
     });
