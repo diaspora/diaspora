@@ -52,8 +52,6 @@
   %br
   %br
   %br
-  %br
-  %br
   %hr
 
 
@@ -65,63 +63,12 @@
     %b
       #{@posts[:day_before]/@user_count.to_f}
 
-  /%h3
-  /  Posts over time
-
-  /#stats_graph{:style => "text-align:right;position:relative;vertical-align:bottom;background-color:#eee;"}
-  /  = @posts_per_day.inspect
-  /  /- @posts_per_day.each do |key, val|
-  /    /.asdo{:style => "display:inline-block;width:35px;vertical-align:bottom;background-color:#666;height:#{(val/@most_posts_within)*200}px;"}
-           
-
-  %br
-  %br
-  %br
-  %br
-    
-    
-
-%br
-%br
-%br
-%br
-%br
-%br
-%br
-%br
-%br
-%br
-%br
-%br
-%br
-%br
-%br
-%br
-%br
-%br
-%br
-
 .span-24.last
-  %h2
-    Misc Stuff
-  %br
-  %br
-
   %h3
-    = for tg in @popular_tags
-      = link_to tg, tags_path(tg)
-
-%br
-%br
-
-.span-12
-  %h3
-    New public posts
-  /.stream
-  /  /= render 'shared/stream', :posts => @new_public_posts
-
-.span-12.last
-  %h3
-    Most Liked
-  .stream
-    = render 'shared/stream', :posts => @most_liked_posts
+    50 Most Popular Tags
+  - @popular_tags.each do |name,count|
+    Tag Name:
+    %b= name
+    Count:
+    %b= count
+    %br
