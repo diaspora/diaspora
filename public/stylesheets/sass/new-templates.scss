@@ -576,7 +576,7 @@ $pane-width: 420px;
     background-color: #000;
     color: #fff;
 
-    &:last-child {
+    &.comment {
       padding-right: 5px;
       margin-right: 0;
     }
