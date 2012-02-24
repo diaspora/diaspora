@@ -39,14 +39,9 @@ app.Router = Backbone.Router.extend({
   },   
 
   singlePost : function(id) {
-    new app.models.Post({id : id}).fetch({success : function(resp){
 
-      var page = new app.pages.PostViewer({
-        model : new app.models.Post(resp)
-      }).render();
-
-      $("#container").html(page.el);
-    }})
-  }
+    var page = new app.pages.PostViewer({ id: id }).render();
+    $("#container").html(page.el);
+   }
 });
 

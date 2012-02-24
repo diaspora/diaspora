@@ -9,8 +9,10 @@ app.pages.PostViewer = app.views.Base.extend({
     "#header-container" : "authorView"
   },
 
-  initialize : function() {
-    this.initViews();
+  initialize : function(options) {
+    this.model = new app.models.Post({ id : options.id });
+    this.model.fetch().success(_.bind(this.initViews, this));
+
     this.prepIdleHooks();
 
     $(document).bind("keypress", _.bind(this.commentAnywhere, this))
@@ -28,6 +30,8 @@ app.pages.PostViewer = app.views.Base.extend({
       templateName : "post-viewer/content/" + this.model.get("templateName"),
       attributes : {"data-template" : this.model.get("templateName")}
     });
+
+    this.render();
   },
 
   prepIdleHooks : function () {
