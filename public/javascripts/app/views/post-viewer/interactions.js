@@ -14,6 +14,7 @@ app.views.PostViewerInteractions = app.views.Base.extend({
     this.initViews();
 
     this.feedbackView.bind("invokePane", this.invokePane, this)
+    this.feedbackView.bind("hidePane", this.hidePane, this)
   },
 
   initViews : function() {
@@ -29,23 +30,17 @@ app.views.PostViewerInteractions = app.views.Base.extend({
   togglePane : function(evt) {
     if(evt) { evt.preventDefault() }
     this.$("#post-info").slideToggle(300)
+    this.$("#post-info-sneaky").toggleClass('passive')
     this.removeTooltips()
   },
 
   invokePane : function(evt) {
     if(evt) { evt.preventDefault() }
-    if(this.$("#post-info").is(":visible")) { return }
-
-    this.togglePane()
-    this.$("#post-info-sneaky").addClass('passive')
+    if(!this.$("#post-info").is(":visible")) { this.togglePane() }
   },
 
   hidePane : function(evt) {
     if(evt) { evt.preventDefault() }
-    if(!this.$("#post-info").is(":visible")) { return }
-
-    this.togglePane()
-    setTimeout(function(){
-      this.$("#post-info-sneaky").removeClass('passive')}, 300)
+    if(this.$("#post-info").is(":visible")) { this.togglePane() }
   }
 })

@@ -27,15 +27,22 @@
   </a>
 {{/if}}
 
-<a href="#" class="label comment" rel="interaction-pane" title="Comment">
+<a href="#" class="label comment" rel="invoke-interaction-pane" title="Comment">
   <i class="icon-comment icon-white"></i>
   {{comments_count}}
 </a>
 
 <!-- this acts as a dock underlay -->
 <div id="post-info-sneaky">
-  <a href="#" rel="interaction-pane">
-    <div id="post-info-container-sneaky"> </div>
+  <a href="#" rel="invoke-interaction-pane">
+    <div id="post-info-container-sneaky">
+      <img src="/images/up-tick-inset.png" class="info-tick"/>
+    </div>
   </a>
+</div>
+
+<!-- this closes an open interaction pane -->
+<div id="close-reactions-pane-container">
+  <a href="#" id="close-reactions-pane" rel="hide-interaction-pane"> </a>
 </div>
 
