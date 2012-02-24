@@ -9,8 +9,7 @@ class PostPresenter
   end
 
   def to_json(options = {})
-    {
-      :post => self.post.as_api_response(:backbone).update(
+    self.post.as_api_response(:backbone).update(
         {
         :user_like => self.user_like,
         :user_participation => self.user_participation,
@@ -23,10 +22,9 @@ class PostPresenter
         :likes => self.likes,
         :reshares => self.reshares,
         :comments => self.comments,
-        :participations => self.participations
-      }),
-      :templateName => template_name
-    }
+        :participations => self.participations,
+        :templateName => template_name
+      })
   end
 
   def comments

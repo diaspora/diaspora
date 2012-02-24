@@ -10,9 +10,5 @@ app.models.Reshare = app.models.Post.extend({
 
   reshareAuthor : function(){
     return this.rootPost().reshareAuthor()
-  },
-
-  parse: function(resp){
-    return resp.post
   }
 });
