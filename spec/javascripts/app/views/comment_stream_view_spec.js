@@ -1,6 +1,7 @@
 describe("app.views.CommentStream", function(){
   beforeEach(function(){
     this.view = new app.views.CommentStream({model : factory.post()})
+    loginAs({})
   })
 
   describe("postRenderTemplate", function(){

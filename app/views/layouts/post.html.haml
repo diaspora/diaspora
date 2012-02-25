@@ -30,12 +30,14 @@
     <![endif]-->
 
     = jquery_include_tag
+
+    = set_current_user_in_javascript
+
     - unless @landing_page
       = include_javascripts :main, :templates
       = load_javascript_locales
 
     = set_asset_host
-    = set_current_user_in_javascript
     = translation_missing_warnings
     = current_user_atom_tag
 
