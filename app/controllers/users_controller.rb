@@ -105,7 +105,7 @@ class UsersController < ApplicationController
           @posts = StatusMessage.where(:author_id => @user.person.id, :public => true).order('created_at DESC').limit(25)
         end
 
-        format.any { redirect_to person_path(user.person) }
+        format.any { redirect_to person_path(@user.person) }
       end
     else
       redirect_to stream_path, :error => I18n.t('users.public.does_not_exist', :username => params[:username])
