@@ -16,6 +16,7 @@ app.views.Stream = Backbone.View.extend({
 
   setupEvents : function(){
     this.stream.bind("fetched", this.removeLoader, this)
+    this.stream.bind("fetched", this.postRender, this)
     this.stream.bind("allPostsLoaded", this.unbindInfScroll, this)
     this.collection.bind("add", this.addPost, this);
     if(window.app.user()) {
@@ -51,6 +52,39 @@ app.views.Stream = Backbone.View.extend({
     };
 
     return this;
+  },
+
+  postRender : function() {
+    // collapse long posts
+    var collHeight = 170,
+        collElem = $(this.el).find(".collapsible");
+
+    _.each(collElem, function(elem) {
+      var elem = $(elem),
+          oembed = elem.find('.oembed');
+      
+      // only collapse if we are more than 20% too high
+      if( elem.height() > (collHeight*1.2) && !elem.is('.collapsed') ) {
+        elem.data('orig-height', elem.height() );
+
+        elem
+          .height(collHeight)
+          .addClass('collapsed')
+          .append(
+            $('<div />')
+              .addClass('expander')
+              .text( Diaspora.I18n.t("show_more") )
+              .click(function(){
+                var el = $(this).parents('.collapsible');
+                el.animate({'height':el.data('orig-height')}, 750).removeClass('collapsed');
+                oembed.find('*').show();
+                $(this).hide();
+              })
+          );
+          
+        oembed.find('*').hide();
+      }
+    });
   },
 
   appendLoader: function(){
