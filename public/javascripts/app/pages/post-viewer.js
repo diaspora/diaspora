@@ -55,8 +55,13 @@ app.pages.PostViewer = app.views.Base.extend({
     var nextPostLocation = this.model.get("next_post");
     var previousPostLocation = this.model.get("previous_post");
 
-    $(document).keydown(function(e){
-      switch(e.keyCode) {
+
+    $(document).keydown(function(evt){
+      /* prevent nav from happening if the user is using the arrow
+       * keys to navigate through their comment text */
+      if($(evt.target).is("textarea")) { return }
+
+      switch(evt.keyCode) {
         case 37:
           navigate(nextPostLocation); break;
         case 39:
