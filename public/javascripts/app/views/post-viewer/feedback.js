@@ -16,6 +16,16 @@ app.views.PostViewerFeedback = app.views.Feedback.extend({
 
   tooltipSelector : ".label",
 
+  postRenderTemplate : function() {
+    this.sneakyVisiblity()
+  },
+
+  sneakyVisiblity : function() {
+    if(!$("#post-info").is(":visible")) {
+      this.$("#post-info-sneaky").removeClass('passive')
+    }
+  },
+
   invokePane : function(evt){ this.trigger("invokePane") },
   hidePane : function(evt){ this.trigger("hidePane") }
 

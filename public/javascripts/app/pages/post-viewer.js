@@ -35,7 +35,7 @@ app.pages.PostViewer = app.views.Base.extend({
   },
 
   prepIdleHooks : function () {
-    $.idleTimer(2000);
+    $.idleTimer(3000);
 
     $(document).bind("idle.idleTimer", function(){
       $("body").addClass('idle');

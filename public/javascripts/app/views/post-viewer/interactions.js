@@ -34,13 +34,11 @@ app.views.PostViewerInteractions = app.views.Base.extend({
     this.removeTooltips()
   },
 
-  invokePane : function(evt) {
-    if(evt) { evt.preventDefault() }
+  invokePane : function() {
     if(!this.$("#post-info").is(":visible")) { this.togglePane() }
   },
 
-  hidePane : function(evt) {
-    if(evt) { evt.preventDefault() }
+  hidePane : function() {
     if(this.$("#post-info").is(":visible")) { this.togglePane() }
   }
 })
