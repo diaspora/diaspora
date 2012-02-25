@@ -36,11 +36,10 @@ app.Router = Backbone.Router.extend({
     app.page = new app.views.Photos({model : app.photos}).render();
 
     $("#main_stream").html(app.page.el);
-  },   
+  },
 
   singlePost : function(id) {
-
-    var page = new app.pages.PostViewer({ id: id }).render();
+    var page = new app.pages.PostViewer({ id: id });
     $("#container").html(page.el);
    }
 });

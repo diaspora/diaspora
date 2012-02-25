@@ -110,7 +110,7 @@ class PeopleController < ApplicationController
 
   def last_post
     @person = Person.find_from_guid_or_username(params)
-    last_post = Post.visible_from_author(@person, current_user).last
+    last_post = Post.visible_from_author(@person, current_user).order('posts.created_at DESC').first
     redirect_to post_path(last_post)
   end
 

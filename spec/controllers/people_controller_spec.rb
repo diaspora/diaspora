@@ -84,7 +84,7 @@ describe PeopleController do
           get :index, :q => "Eug"
           assigns[:people].map { |x| x.id }.should =~ [@eugene.id, eugene2.id]
         end
-        
+
         it "succeeds if there is exactly one match" do
           get :index, :q => "Korth"
           assigns[:people].length.should == 1
