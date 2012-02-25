@@ -35,12 +35,11 @@ module LayoutHelper
   end
 
   def set_current_user_in_javascript
-    return unless current_user
-    current_user_presenter = UserPresenter.new(current_user)
-    
+    return unless user_signed_in?
+    user = UserPresenter.new(current_user).to_json
     content_tag(:script) do
       <<-JS.html_safe
-        app.user(#{current_user_presenter.to_json});
+        window.current_user_attributes = #{user}
       JS
     end
   end
@@ -92,4 +91,5 @@ module LayoutHelper
       end
     end.join(' ').html_safe
   end
+
 end

@@ -50,9 +50,9 @@ app.views.Feedback = app.views.Base.extend({
     var rootExists = (isReshare ? this.model.get("root") : true)
 
     var publicPost = this.model.get("public");
-    var userIsNotAuthor = this.model.get("author").diaspora_id != app.user().get("diaspora_id");
-    var userIsNotRootAuthor = rootExists && (isReshare ? this.model.get("root").author.diaspora_id != app.user().get("diaspora_id") : true)
+    var userIsNotAuthor = this.model.get("author").diaspora_id != app.currentUser.get("diaspora_id");
+    var userIsNotRootAuthor = rootExists && (isReshare ? this.model.get("root").author.diaspora_id != app.currentUser.get("diaspora_id") : true)
 
-    return publicPost && userIsNotAuthor && userIsNotRootAuthor;
+    return publicPost && app.currentUser.authenticated() && userIsNotAuthor && userIsNotRootAuthor;
   }
 })

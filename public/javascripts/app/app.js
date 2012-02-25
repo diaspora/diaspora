@@ -18,11 +18,15 @@ var app = {
   initialize: function() {
     app.router = new app.Router();
 
-    if(this._user){
+    app.currentUser = app.user(window.current_user_attributes) || new app.models.User()
+
+
+    if(app.currentUser.authenticated()){
       app.header = new app.views.Header;
       $("header").prepend(app.header.el);
       app.header.render();
     }
+
 
     Backbone.history.start({pushState: true});
 

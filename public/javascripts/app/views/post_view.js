@@ -41,7 +41,7 @@ app.views.Post = app.views.StreamObject.extend({
   },
 
   feedbackView : function(){
-    if(!window.app.user()) { return null }
+    if(!app.currentUser.authenticated()) { return null }
     return new app.views.Feedback({model : this.model});
   },
 
@@ -60,7 +60,7 @@ app.views.Post = app.views.StreamObject.extend({
   },
 
   showPost : function() {
-    return (app.user() && app.user().get("showNsfw")) || !this.model.get("nsfw")
+    return (app.currentUser.get("showNsfw")) || !this.model.get("nsfw")
   },
 
   removeNsfwShield: function(evt){
@@ -71,7 +71,7 @@ app.views.Post = app.views.StreamObject.extend({
 
   toggleNsfwState: function(evt){
     if(evt){ evt.preventDefault(); }
-    app.user().toggleNsfwState();
+    app.currentUser.toggleNsfwState();
   },
 
   blockUser: function(evt){
@@ -118,7 +118,7 @@ app.views.Post = app.views.StreamObject.extend({
   },
 
   authorIsNotCurrentUser : function() {
-    return this.model.get("author").id != (!!app.user() && app.user().id)
+    return this.model.get("author").id != app.user().id
   },
 
   isOnShowPage : function() {

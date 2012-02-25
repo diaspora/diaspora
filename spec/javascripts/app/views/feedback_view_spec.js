@@ -108,7 +108,7 @@ describe("app.views.Feedback", function(){
 
     context("when the current user owns the post", function(){
       beforeEach(function(){
-        this.post.attributes.author = window.current_user;
+        this.post.attributes.author = app.currentUser;
         this.view.render();
       })
 

@@ -75,6 +75,13 @@ class PostPresenter
     end
   end
 
+
+  def template_name
+    @template_name ||= TemplatePicker.new(post).template_name
+  end
+
+  protected
+
   def next_post
     post_base.next(post)
   end
@@ -83,12 +90,6 @@ class PostPresenter
     post_base.previous(post)
   end
 
-  def template_name
-    @template_name ||= TemplatePicker.new(post).template_name
-  end
-
-  protected
-
   def as_api(collection)
     collection.includes(:author => :profile).all.map do |element|
       element.as_api_response(:backbone)
@@ -96,11 +97,7 @@ class PostPresenter
   end
 
   def post_base
-    if current_user
-      current_user.posts_from(self.post.author)
-    else
-      self.post.author.posts.all_public
-    end
+    Post.visible_from_author(self.post.author, current_user)
   end
 
   def person

@@ -13,15 +13,15 @@ app.views.PostViewerInteractions = app.views.Base.extend({
   initialize : function() {
     this.initViews();
 
-    this.feedbackView.bind("invokePane", this.invokePane, this)
-    this.feedbackView.bind("hidePane", this.hidePane, this)
+    this.feedbackView && this.feedbackView.bind("invokePane", this.invokePane, this)
+    this.feedbackView && this.feedbackView.bind("hidePane", this.hidePane, this)
   },
 
   initViews : function() {
     this.reactionsView = new app.views.PostViewerReactions({ model : this.model })
 
     /* subviews that require user */
-    if(window.app.user()) {
+    if(app.currentUser.authenticated()) {
       this.feedbackView = new app.views.PostViewerFeedback({ model : this.model })
       this.newCommentView = new app.views.PostViewerNewComment({ model : this.model })
     }
