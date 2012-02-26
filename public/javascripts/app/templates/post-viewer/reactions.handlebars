@@ -6,11 +6,9 @@
       </div>
       <div class="bd">
         {{#each likes}}
-          {{#with author}}
-            <a href="/people/{{guid}}">
-              <img src="{{avatar.small}}" class="avatar micro" title="{{name}}"/ >
-            </a>
-          {{/with}}
+          {{#linkToPerson author}}
+            {{{avatar this "small" "micro"}}}
+          {{/linkToPerson}}
         {{/each}}
       </div>
     </div>
@@ -25,11 +23,9 @@
       </div>
       <div class="bd">
         {{#each participations}}
-          {{#with author}}
-            <a href="/people/{{guid}}">
-              <img src="{{avatar.small}}" class="avatar micro" title="{{name}}"/ >
-            </a>
-          {{/with}}
+          {{#linkToPerson author}}
+            {{{avatar this "small" "micro"}}}
+          {{/linkToPerson}}
         {{/each}}
       </div>
     </div>
@@ -44,11 +40,9 @@
       </div>
       <div class="bd">
         {{#each reshares}}
-          {{#with author}}
-            <a href="/people/{{guid}}">
-              <img src="{{avatar.small}}" class="avatar micro" title="{{name}}"/ >
-            </a>
-          {{/with}}
+          {{#linkToPerson author}}
+            {{{avatar this "small" "micro"}}}
+          {{/linkToPerson}}
         {{/each}}
       </div>
     </div>

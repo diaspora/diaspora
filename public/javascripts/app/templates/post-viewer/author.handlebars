@@ -1,21 +1,19 @@
 <div class="img">
-  <a href="/people/{{author.guid}}" class="author-name">
-    <img src="{{author.avatar.small}}" class="avatar smaller"/>
-  </a>
+  {{#linkToPerson author}}
+    {{{avatar this "small"}}}
+  {{/linkToPerson}}
 </div>
 
 <div class="bd">
-  <a href="/people/{{author.guid}}" class="author-name">
-    {{author.name}}
-  </a>
+  {{#linkToPerson author}}
+    {{name}}
+  {{/linkToPerson}}
 
   {{#if root}}
     <i class="icon-retweet"></i>
-    {{#with root}}
-      <a href="/people/{{author.guid}}" class="author-name">
-        {{author.name}}
-      </a>
-    {{/with}}
+    {{#linkToPerson root.author}}
+      {{name}}
+    {{/linkToPerson}}
   {{/if}}
 
   <div class="post-time">
