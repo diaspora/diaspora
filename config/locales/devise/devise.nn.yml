@@ -1,4 +1,4 @@
-#   Copyright (c) 2010-2011, Diaspora Inc.  This file is
+#   Copyright (c) 2010-2012, Diaspora Inc.  This file is
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
@@ -31,13 +31,30 @@ nn:
       hello: "Hei %{email}."
       invitation_instructions:
         accept: "Godta invitasjonen"
+        be_yourself: "Ver deg sjølv"
+        be_yourself_paragraph: "Internettet har laga nye, unike vegar for korleis me kan uttrykka oss. %{strong_diaspora} lar deg vere deg sjølv og dele på den måten du ynskjer, både med eller utan det ekte namnet ditt."
+        cubbies: "Cubbi.es"
         displaying_correctly: "Email not displaying correctly? %{link} in your browser"
+        email_address: "questions@joindiaspora.com"
+        finally: "Endeleg er det her!"
+        friends_saying: "Dette seier venene dine..."
+        get_connected: "Vert tilknytt"
+        have_fun: "Ha det gama"
+        here: "her"
         ignore: "Om du ikkje ønskjer å godta invitasjonen, lèt du berre vera å svara på meldinga."
+        join_team: "Ver med på laget"
+        love: "Med kjærleg helsing,"
+        made_by_people: "%{strong_diaspora} er laga av folk som elskar verdsveven like mykje som du gjer. %{jointeam}, eller %{helpfund}!"
+        more_people: "Enno fleire menneske gler seg til å sjå deg!"
         no_account_till: "Kontoen din vil ikkje verta oppretta før du nyttar lenkja ovanfor og loggar deg på."
+        or: "eller"
+        sign_up_now: "Meld deg inn no →"
         subject: "Du er vorten invitert til å vera med i Diaspora."
+        team_diaspora: "Team Diaspora"
         view_in: "View in"
       inviter:
         accept_at: "på %{url}, du kan godta det gjennom lenkja nedanfor."
+        has_invited_you: "%{name}"
         have_invited_you: "%{names} har invitert deg til å verta med i Diaspora"
       reset_password_instructions:
         change: "Endra passordet mitt"

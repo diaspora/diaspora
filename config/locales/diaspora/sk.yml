@@ -1,4 +1,4 @@
-#   Copyright (c) 2010-2011, Diaspora Inc.  This file is
+#   Copyright (c) 2010-2012, Diaspora Inc.  This file is
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
@@ -156,7 +156,7 @@ sk:
     selected_contacts:
       manage_your_aspects: "Upravte svoje kategórie."
       no_contacts: "Nemáte tu ešte žiadne kontakty."
-      view_all_community_spotlight: "Zobraziť všetko, čo je v centre pozornosti komunity"
+      view_all_community_spotlight: "Zobraziť všetky aktuality z komunity"
       view_all_contacts: "Zobraziť všetky kontakty"
     show:
       edit_aspect: "upraviť kategóriu"
@@ -203,7 +203,7 @@ sk:
       add_to_aspect: "Pridať kontakty do kategórie %{name}"
       add_to_aspect_link: "pridať kontakt do %{name}"
       all_contacts: "Všetky kontakty"
-      community_spotlight: "V centre pozornosti komunity"
+      community_spotlight: "Aktuality z komunity"
       many_people_are_you_sure: "Určite chcete začať súkromný rozhovor s viac ako %{suggested_limit} ľuďmi? Poslanie príspevku do tejto kategórie môže byť lepší spôsob, ako sa s nimi spojiť."
       my_contacts: "Moje kontakty"
       no_contacts: "Zdá sa, že treba pridať pár kontaktov!"
@@ -359,24 +359,18 @@ sk:
   notifications:
     also_commented:
       few: "%{actors} tiež okomentovali príspevok %{post_link} od použ. %{post_author}."
-      many: "%{actors} tiež okomentovali príspevok %{post_link} od použ. %{post_author}."
       one: "%{actors} tiež okomentoval(a) príspevok %{post_link} od použ. %{post_author}."
       other: "%{actors} tiež okomentovali príspevok %{post_link} od použ. %{post_author}."
-      two: "%{actors} ľudia okomentovali  aj príspevok %{post_link} od použ. %{post_author}."
       zero: "%{actors} tiež okomentovalo príspevok %{post_link} od použ. %{post_author}."
     also_commented_deleted:
       few: "%{actors} okomentovali váš vymazaný príspevok."
-      many: "%{actors} ľudia okomentovali váš vymazaný príspevok."
       one: "%{actors} okomentoval(a) váš vymazaný príspevok."
       other: "%{actors} okomentovali váš vymazaný príspevok."
-      two: "%{actors} okomentovali vymazaný príspevok."
       zero: "%{actors} ľudí okomentovalo váš vymazaný príspevok."
     comment_on_post:
       few: "%{actors} okomentovali váš príspevok %{post_link}."
-      many: "%{actors} okomentovali váš príspevok %{post_link}."
       one: "%{actors} okomentoval(a) váš príspevok %{post_link}."
       other: "%{actors} ľudí okomentovali váš príspevok %{post_link}."
-      two: "%{actors} okomentovali váš príspevok %{post_link}."
       zero: "%{actors} ľudí okomentovalo váš príspevok %{post_link}."
     helper:
       new_notifications:
@@ -390,69 +384,51 @@ sk:
       and: "a"
       and_others:
         few: " a ešte %{count}"
-        many: " a %{count} ďalších"
         one: " a ešte %{count}"
         other: " a ešte %{count}"
-        two: " a %{count} ďalších"
         zero: " a žiadne ďalšie"
       mark_all_as_read: "Všetky označiť ako prečítané"
       notifications: "Oznamy"
     liked:
       few: "%{actors} označili, že sa im páči %{post_link}."
-      many: "%{actors} ľudia pridali špendlíky na %{post_link}."
       one: "%{actors} označil(a), že sa mu/jej páči %{post_link}."
       other: "%{actors} ľudí označili, že sa im páči %{post_link}."
-      two: "%{actors} ľudia práve pridali špendlíky na %{post_link}."
       zero: "%{actors} ľudí označilo, že sa im páči %{post_link}."
     liked_post_deleted:
       few: "%{actors} označili, že sa im páči váš vymazaný príspevok."
-      many: "%{actors} ľudia pridali špendlíky na váš vymazaný príspevok."
       one: "%{actors} označil(a), že sa mu/jej páči váš vymazaný príspevok."
       other: "%{actors} označili, že sa im páči váš vymazaný príspevok."
-      two: "%{actors} ľudia pridali špendlíky na váš vymazaný príspevok."
       zero: "%{actors} ľuďom sa páčil váš vymazaný príspevok."
     mentioned:
       few: "%{actors} vás spomenuli v príspevku %{post_link}."
-      many: "%{actors} vás spomenuli v príspevku %{post_link}."
       one: "%{actors} vás spomenul(a) v príspevku %{post_link}."
       other: "%{actors} vás spomenulo v príspevku %{post_link}."
-      two: "%{actors} vás spomenuli v %{post_link}."
       zero: "%{actors} vás spomenulo v príspevku %{post_link}."
     mentioned_deleted:
       few: "%{actors} vás spomenuli vo vymazanom príspevku."
-      many: "%{actors} ľudia vás spomenuli  vo vymazanom príspevku."
       one: "%{actors} vás spomenul(a) vo vymazanom príspevku."
       other: "%{actors} vás spomenuli vo vymazanom príspevku."
-      two: "%{actors} vás spomenuli vo vymazanom príspevku."
       zero: "%{actors} vás spomenulo vo vymazanom príspevku."
     post: "príspevok"
     private_message:
       few: "%{actors} vám poslali správu."
-      many: "%{actors} ľudia vám poslali správu."
       one: "%{actors} vám poslal(a) správu."
       other: "%{actors} vám poslali správu."
-      two: "%{actors} vám poslali správu."
       zero: "%{actors} ľudí vám poslalo správu."
     reshared:
       few: "%{actors} ukázali %{post_link} priateľom."
-      many: "%{actors} ľudí ukázalo %{post_link} priateľom."
       one: "%{actors} ukázal(a) %{post_link} priateľom."
       other: "%{actors} ukázali %{post_link} priateľom."
-      two: "%{actors} ľudia ukázali %{post_link} priateľom."
       zero: "%{actors} ľudí ukázalo %{post_link} priateľom."
     reshared_post_deleted:
       few: "%{actors} ukázali váš vymazaný príspevok priateľom."
-      many: "%{actors} ukázal(a) váš vymazaný príspevok priateľom."
       one: "%{actors} ukázal(a) váš vymazaný príspevok priateľom."
       other: "%{actors} ukázali váš vymazaný príspevok ďalším."
-      two: "%{actors} ľudia ukázali váš vymazaný príspevok priateľom."
       zero: "%{actors} ľudí ukázalo príspevok ďalším."
     started_sharing:
       few: "%{actors} si vás pridali do kontaktov."
-      many: "%{actors} si vás pridali do kontaktov."
       one: "%{actors} si vás pridal do kontaktov."
       other: "%{actors} si vás pridali do kontaktov."
-      two: "%{actors} si vás pridali do kontaktov."
       zero: "%{actors} si vás pridalo do kontaktov."
   notifier:
     a_post_you_shared: "príspevok."
@@ -620,10 +596,8 @@ sk:
   public: "Verejný"
   reactions:
     few: "%{count} reakcie"
-    many: "%{count} reakcií"
     one: "1 reakcia"
     other: "%{count} reakcií"
-    two: "%{count} reakcie"
     zero: "0 reakcií"
   registrations:
     closed: "Registrácie sú na tomto pode Diaspory pozastavené."
@@ -827,7 +801,7 @@ sk:
     comment_stream:
       contacts_title: "Ľudia, ktorých príspevky ste okomentovali"
       title: "Okomentované príspevky"
-    community_spotlight_stream: "V centre pozornosti komunity"
+    community_spotlight_stream: "Aktuality z komunity"
     followed_tag:
       add_a_tag: "Pridať značku"
       contacts_title: "Ľudia, ktorí sledujú tieto značky"
@@ -926,7 +900,7 @@ sk:
       private_message: "...dostanete súkromnú správu?"
       receive_email_notifications: "Poslať oznam e-mailom, ak"
       reshared: "...sa niekto znova podelí o váš príspevok?"
-      show_community_spotlight: "Zobraziť, čo je v centre pozornosti komunity na nástenke?"
+      show_community_spotlight: "Zobraziť aktuality z komunity na nástenke?"
       show_getting_started: "Znova spustiť začiatočné nastavenia"
       started_sharing: "...sa niekto s vami o niečo podelí?"
       stream_preferences: "Nastavenia nástenky"

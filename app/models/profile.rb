@@ -3,10 +3,8 @@
 #   the COPYRIGHT file.
 
 class Profile < ActiveRecord::Base
-  require File.join(Rails.root, 'lib/diaspora/webhooks')
-  include Diaspora::Webhooks
+  include Diaspora::Federated::Base
   include Diaspora::Taggable
-  include ROXML
 
   attr_accessor :tag_string
 

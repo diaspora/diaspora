@@ -1,4 +1,4 @@
-#   Copyright (c) 2010-2011, Diaspora Inc.  This file is
+#   Copyright (c) 2010-2012, Diaspora Inc.  This file is
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
@@ -10,8 +10,9 @@ ar:
       add_to_aspect: "أضف مراسلا"
       all_aspects: "جميع الفئات"
       error: "Couldn't start sharing with {{name}}.  Are you ignoring them?"
-      started_sharing_with: "You have started sharing with {{name}}!"
-      stopped_sharing_with: "You have stopped sharing with {{name}}."
+      select_aspects: "إختر فئات"
+      started_sharing_with: "لقد بدأت المشاركة مع <%= name %> !"
+      stopped_sharing_with: "لقد توقفت عن المشاركة مع <%= name %>"
       toggle:
         few: "في {{count}} فئات"
         many: "في {{count}} فئات"
@@ -19,19 +20,39 @@ ar:
         other: "في {{count}} فئات"
         two: "في {{count}} فئات"
         zero: "حدّد الفئات"
+    aspect_navigation:
+      deselect_all: "ألغِ اختيار الكل"
+      no_aspects: "لم يتم اختيار فئات"
+      select_all: "اختر الكل"
     comments:
       hide: "أخفِ التعليقات"
       show: "إعرض جميع التعليقات"
     confirm_dialog: "هل أنت متأكد؟"
+    delete: "حذف"
     failed_to_like: "فشل في [أعجبني]"
     failed_to_post_message: "فشل في نشر رسالة!"
     getting_started:
+      alright_ill_wait: "حسناً , سأنتظر."
       hey: "Hey, {{name}}!"
       preparing_your_stream: "Preparing your personialized stream..."
     header:
-      search: "Find people or #tags"
+      admin: "مدير"
+      contacts: "جهات الاتصال"
+      home: "المنزل"
+      log_out: "خروج"
+      messages: "رسائل"
+      notifications: "تنبيهات"
+      profile: "الصفحة الشخصية"
+      recent_notifications: "آخر التنبيهات"
+      search: "ابحث"
+      settings: "إعدادات"
+      view_all: "عرض الجميع"
+    ignore: "تجاهل"
     infinite_scroll:
       no_more: "لا توجد أية رسائل أخرى"
+    my_activity: "نشاطي"
+    photo_uploader:
+      looking_good: "يا إلهي , تبدو رائعاً !"
     publisher:
       at_least_one_aspect: "حدد فئة واحدة على الأقل"
       limited: "محدودة - مشاركتك ستكون متاحة لجهات إتصالك فقط"
@@ -41,6 +62,10 @@ ar:
     search_for: "إبحث عن {{name}}"
     show_more: "المزيد"
     stream:
+      comment: "تعليق"
+      follow: "تابِع"
+      hide: "إخفاء"
+      like: "أعجبني"
       likes:
         few: "<%= count %> Likes"
         many: "<%= count %> Likes"
@@ -48,6 +73,7 @@ ar:
         other: "<%= count %> Likes"
         two: "<%= count %> Likes"
         zero: "<%= count %> Likes"
+      limited: "محدود"
       more_comments:
         few: "Show <%= count %> more comments"
         many: "Show <%= count %> more comments"
@@ -55,6 +81,8 @@ ar:
         other: "Show <%= count %> more comments"
         two: "Show <%= count %> more comments"
         zero: "Show <%= count %> more comments"
+      original_post_deleted: "لقد حذف المؤلف مشاركته الأصلية."
+      public: "عام"
       reshares:
         few: "<%= count %> Reshares"
         many: "<%= count %> Reshares"
@@ -62,6 +90,8 @@ ar:
         other: "<%= count %> Reshares"
         two: "<%= count %> Reshares"
         zero: "<%= count %> Reshares"
+      unfollow: "ألغِ المتابعة"
+      unlike: "إلغاء إعجابي"
     tags:
       wasnt_that_interesting: "OK, I suppose #{{tagName}} wasn't all that interesting..."
     timeago:
@@ -76,8 +106,8 @@ ar:
       prefixAgo: ""
       prefixFromNow: "من الآن"
       seconds: "منذ ثواني"
-      suffixAgo: ""
-      suffixFromNow: ""
+      suffixAgo: "مضت"
+      suffixFromNow: "من اﻵن"
       year: "منذ عام"
       years: "منذ %d أعوام"
     videos:

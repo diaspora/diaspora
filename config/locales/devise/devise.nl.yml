@@ -1,4 +1,4 @@
-#   Copyright (c) 2010-2011, Diaspora Inc.  This file is
+#   Copyright (c) 2010-2012, Diaspora Inc.  This file is
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
@@ -55,7 +55,7 @@ nl:
         or: "of"
         sign_up_now: "Meld je nu aan &rarr;"
         subject: "Je bent uitgenodigd om lid te worden van Diaspora!"
-        team_diaspora: "Team Diaspora"
+        team_diaspora: "Het Diaspora Team"
         unsubscribe: "Om je af te melden, klik %{link}."
         view_in: "Toon het in je browser."
       inviter:

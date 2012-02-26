@@ -3,8 +3,7 @@
 #   the COPYRIGHT file.
 
 class Retraction
-  include ROXML
-  include Diaspora::Webhooks
+  include Diaspora::Federated::Base
 
   xml_accessor :post_guid
   xml_accessor :diaspora_handle

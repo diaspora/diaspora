@@ -1,4 +1,4 @@
-#   Copyright (c) 2010-2011, Diaspora Inc.  This file is
+#   Copyright (c) 2010-2012, Diaspora Inc.  This file is
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
@@ -76,11 +76,8 @@ de:
         zero: "Keinem gefällt das"
       limited: "Begrenzt"
       more_comments:
-        few: "Zeige <%= count %> weitere Kommentare"
-        many: "Zeige <%= count %> weitere Kommentare"
         one: "Zeige einen weiteren Kommentar"
         other: "Zeige <%= count %> weitere Kommentare"
-        two: "Zeige <%= count %> weitere Kommentare"
         zero: "Keine weiteren Kommentare"
       original_post_deleted: "Originalbeitrag wurde vom Autor entfernt."
       public: "Öffentlich"

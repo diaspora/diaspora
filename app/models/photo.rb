@@ -5,8 +5,10 @@
 class Photo < ActiveRecord::Base
   require 'carrierwave/orm/activerecord'
 
+  include Diaspora::Federated::Shareable
   include Diaspora::Commentable
   include Diaspora::Shareable
+
 
 
   # NOTE API V1 to be extracted

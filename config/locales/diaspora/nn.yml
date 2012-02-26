@@ -1,4 +1,4 @@
-#   Copyright (c) 2010-2011, Diaspora Inc.  This file is
+#   Copyright (c) 2010-2012, Diaspora Inc.  This file is
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
@@ -7,6 +7,8 @@
 nn:
   _applications: "Program"
   _comments: "Merknader"
+  _contacts: "Kontaktar"
+  _home: "Heim"
   _photos: "foto"
   account: "Konto"
   activerecord:
@@ -37,6 +39,8 @@ nn:
             username:
               invalid: "er ugyldig. Du kan berre bruka bokstavar, tal og understrekingsteikn."
               taken: "er allereie i bruk."
+  ago: "%{time} sida"
+  all_aspects: "Alle aspekta"
   application:
     helper:
       diaspora_alpha: "DIASPORA* ALFA"
@@ -57,6 +61,8 @@ nn:
       done_editing: "endringar er ferdige"
     aspect_listings:
       add_an_aspect: "+ Legg til eit aspekt"
+    aspect_stream:
+      stay_updated: "Hald deg oppdatert"
     contacts_not_visible: "Kontaktar i dette aspektet vil ikkje kunna sjå kvarandre."
     contacts_visible: "Kontaktar i dette aspektet vil kunna sjå kvarandre."
     create:
@@ -94,10 +100,15 @@ nn:
       handle_explanation: "Dette er Diaspora-ID-en din. Nett som ei e-postadresse kan du gje han til folk slik at dei kan nå deg."
       help:
         here_to_help: "Diaspora-felleskapen er her!"
+        need_help: "Treng du hjelp?"
         tag_bug: "#bug"
         tag_feature: "#feature"
         tag_question: "#question"
+      introduce_yourself: "Dette er straumen din.   Hiv deg med og introduser deg sjølv."
       keep_us_running: "Sjå til at %{pod} kjører raskt. Gjev tenarane ein kveik ved å gje ein månadleg donasjon."
+      new_here:
+        learn_more: "Lær meir"
+        title: "Sei velkomen til nye brukarar"
       no_contacts: "Ingen kontaktar"
       no_tags: "+ Finn ein etikett du vil følgja"
       people_sharing_with_you: "Folk som deler med deg"
@@ -106,6 +117,7 @@ nn:
         content: "Du kan kopla desse tenestene til Diaspora:"
         heading: "Kopla tenester"
       unfollow_tag: "Slutt å følgja #%{tag}"
+      welcome_to_diaspora: "Velkomen til Diaspora, %{name}!"
     many: "%{count} aspekt"
     move_contact:
       error: "Klarte ikkje å flytta kontakten: %{inspect}"
@@ -213,6 +225,7 @@ nn:
       reply: "svar"
       replying: "Svarer …"
   delete: "Slett"
+  email: "E-post"
   error_messages:
     helper:
       correct_the_following_errors_and_try_again: "Rett opp desse feila og prøv på nytt."
@@ -290,6 +303,7 @@ nn:
         two: "%{count} likes"
         zero: "no likes"
   limited: "Avgrensa"
+  more: "Meir"
   next: "neste"
   no_results: "Fann ingen resultat"
   notifications:
@@ -421,6 +435,7 @@ nn:
     thanks: "Takk,"
     to_change_your_notification_settings: "for å endra varslingsinnstillingane dine"
   or: "eller"
+  password: "Passord"
   password_confirmation: "Passordstadfesting"
   people:
     add_contact_small:
@@ -603,6 +618,7 @@ nn:
         zero: "Del vidare"
       reshare_original: "Del originalen vidare"
       show_original: "Syn original"
+  search: "Søk"
   services:
     create:
       success: "Vellukka autentisering."
@@ -634,6 +650,7 @@ nn:
     add_contact:
       add_new_contact: "Legg til ein ny kontakt"
       create_request: "Finn ved hjelp av Diaspora-id-en"
+      diaspora_handle: "diaspora@pod.org"
       enter_a_diaspora_username: "Skriv inn eit Diaspora-brukarnamn:"
       know_email: "Kjenner du epostadressene deira? Du burde invitera dei"
       your_diaspora_username_is: "Diaspora-brukarnamnet ditt er: %{diaspora_handle}"
@@ -674,6 +691,7 @@ nn:
       make_public: "gjer offentlig"
       new_user_prefill:
         i_like: "I'm interested in %{tags}."
+        newhere: "NyHer"
       post_a_message_to: "Send ei melding til %{aspect}"
       posting: "Sender …"
       publishing_to: "publiserer til:"
@@ -718,6 +736,7 @@ nn:
   streams:
     aspects:
       title: "Your Aspects"
+    mentioned_stream: "@Nemningar"
     mentions:
       title: "@Nemningar"
     tags:
@@ -794,3 +813,4 @@ nn:
       unconfirmed_email_not_changed: "Klarte ikkje å endra e-postkontoen"
   webfinger:
     no_person_constructed: "Klarte ikkje å laga nokon person frå hcard-fila."
+  welcome: "Velkomen"

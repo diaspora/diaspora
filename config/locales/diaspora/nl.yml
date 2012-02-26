@@ -1,4 +1,4 @@
-#   Copyright (c) 2010-2011, Diaspora Inc.  This file is
+#   Copyright (c) 2010-2012, Diaspora Inc.  This file is
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
@@ -425,7 +425,7 @@ nl:
       other: "%{actors} hebben jou genoemd in een verwijderde post."
       two: "%{actors} hebben je genoemd in een verwijderde post."
       zero: "%{actors} heeft jou genoemd in een verwijderde post."
-    post: "plaatsen"
+    post: "post"
     private_message:
       few: "%{actors} hebben je een bericht gestuurd."
       many: "%{actors} hebben je een bericht gestuurd."

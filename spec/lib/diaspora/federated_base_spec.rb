@@ -4,11 +4,11 @@
 
 require 'spec_helper'
 
-describe Diaspora::Webhooks do
+describe Diaspora::Federated::Base do
   describe '#subscribers' do
     it 'throws an error if the including module does not redefine it' do
       class Foo
-        include Diaspora::Webhooks
+        include Diaspora::Federated::Base 
       end
 
       f = Foo.new

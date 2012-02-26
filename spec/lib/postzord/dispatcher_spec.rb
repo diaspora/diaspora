@@ -42,7 +42,7 @@ describe Postzord::Dispatcher do
     it 'raises and gives you a helpful message if the object can not federate' do
       expect {
         Postzord::Dispatcher.build(alice, [])
-      }.should raise_error /Diaspora::Webhooks/
+      }.should raise_error /Diaspora::Federated::Base/
     end
   end
 

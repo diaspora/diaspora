@@ -1,4 +1,4 @@
-#   Copyright (c) 2010-2011, Diaspora Inc.  This file is
+#   Copyright (c) 2010-2012, Diaspora Inc.  This file is
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
@@ -231,11 +231,8 @@ it:
       success: "Conversazione rimossa con successo"
     helper:
       new_messages:
-        few: "%{count} nuovi messaggi"
-        many: "%{count} nuovi messaggi"
         one: "%{count} nuovo messaggio"
         other: "%{count} nuovi messaggi"
-        two: "%{count} nuovi messaggi"
         zero: "Nessun nuovo messaggio"
     index:
       create_a_new_message: "scrivi un nuovo messaggio"
@@ -365,11 +362,8 @@ it:
       two: "Anche %{actors} hanno commentato il %{post_link} di %{post_author}."
       zero: "%{actors} ha commentato il %{post_link} di %{post_author}."
     also_commented_deleted:
-      few: "%{actors} hanno commentato il messaggio che hai eliminato."
-      many: "%{actors} hanno commentato il messaggio che hai eliminato."
       one: "%{actors} ha commentato un post che è stato eliminato."
       other: "%{actors} hanno commentato un post che è stato eliminato."
-      two: "%{actors} hanno commentato il post che hai eliminato."
       zero: "%{actors} ha commentato un post che è stato eliminato."
     comment_on_post:
       few: "%{actors} hanno commentato il tuo %{post_link}."
@@ -380,11 +374,8 @@ it:
       zero: "%{actors} ha commentato il tuo %{post_link}."
     helper:
       new_notifications:
-        few: "%{count} nuove notifiche"
-        many: "%{count} nuove notifiche"
         one: "%{count} nuova notifica"
         other: "%{count} nuove notifiche"
-        two: "%{count} nuove notifiche"
         zero: "Nessuna nuova notifica"
     index:
       and: "e"
@@ -434,11 +425,8 @@ it:
       two: "%{actors} ti hanno inviato un messaggio."
       zero: "%{actors} ti ha inviato un messaggio."
     reshared:
-      few: "%{actors} hanno condiviso il tuo %{post_link}."
-      many: "%{actors} hanno condiviso il tuo %{post_link}."
       one: "%{actors} ha condiviso il tuo %{post_link}."
       other: "%{actors} hanno condiviso il tuo %{post_link}."
-      two: "%{actors} hanno condiviso il tuo %{post_link}."
       zero: "%{actors} ha condiviso il tuo %{post_link}."
     reshared_post_deleted:
       few: "%{actors} hanno condiviso il post che hai eliminato."
@@ -672,11 +660,8 @@ it:
     reshare:
       deleted: "Il post originale è stato eliminato dall'autore."
       reshare:
-        few: "%{count} condivisioni"
-        many: "%{count} condivisioni"
         one: "%{count} condivisione"
         other: "%{count} condivisioni"
-        two: "%{count} condivisioni"
         zero: "%{count} condivisioni"
       reshare_confirmation: "Vuoi condividere il post di %{author} con i tuoi contatti?"
       reshare_original: "Condividi l'originale"

@@ -1,4 +1,4 @@
-#   Copyright (c) 2010-2011, Diaspora Inc.  This file is
+#   Copyright (c) 2010-2012, Diaspora Inc.  This file is
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
@@ -72,28 +72,22 @@ sk:
       like: "Pridať špendlík"
       likes:
         few: "<%= count %> ľuďom sa to páči"
-        many: "<%= count %> špendlíkov"
         one: "<%= count %> človeku sa to páči"
         other: "<%= count %> ľuďom sa to páči"
-        two: "<%= count %> špendlíky"
         zero: "<%= count %> ľuďom sa to páči"
       limited: "Súkromný"
       more_comments:
         few: "Zobraziť ešte <%= count %> komentáre"
-        many: "Zobraziť ďalších <%= count %> komentárov"
         one: "Zobraziť ešte <%= count %> komentár"
         other: "Zobraziť ešte <%= count %> komentárov"
-        two: "Zobraziť ďalšie <%= count %> komentáre"
         zero: "Zobraziť ešte <%= count %> komentárov"
       original_post_deleted: "Pôvodný príspevok odstránil autor."
       public: "Verejný"
       reshare: "Znova zdieľať"
       reshares:
         few: "<%= count %> opätovné zdieľania"
-        many: "<%= count %> opätovných zdieľaní"
         one: "<%= count %> opätovné zdieľanie"
         other: "<%= count %> opätovných zdieľaní"
-        two: "<%= count %> opätovné zdieľania"
         zero: "<%= count %> opätovných zdieľaní"
       show_nsfw_post: "Zobraziť príspevok"
       show_nsfw_posts: "Zobraziť všetky"

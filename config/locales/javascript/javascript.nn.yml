@@ -1,4 +1,4 @@
-#   Copyright (c) 2010-2011, Diaspora Inc.  This file is
+#   Copyright (c) 2010-2012, Diaspora Inc.  This file is
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
@@ -28,6 +28,7 @@ nn:
       hide: "gøym merknader"
       show: "syn alle merknadene"
     confirm_dialog: "Er du sikker?"
+    delete: "Slett"
     failed_to_like: "Like-funksjonen feila."
     failed_to_post_message: "Klarte ikkje å senda meldinga."
     getting_started:
@@ -36,9 +37,23 @@ nn:
       no_tags: "Du har ikkje følgt nokon etikett. Vil du likevel halda fram?"
       preparing_your_stream: "Lagar den tilpassa straumen din …"
     header:
+      admin: "Admin"
+      contacts: "Kontaktar"
+      home: "Heim"
+      log_out: "Logg ut"
+      mark_all_as_read: "Merk alle som lesne"
+      messages: "Meldingar"
+      notifications: "Varsel"
+      profile: "Profil"
+      recent_notifications: "Nylege varsel"
       search: "Find people or #tags"
+      settings: "Innstillingar"
+      view_all: "Syn alle"
+    ignore: "Oversjå"
     infinite_scroll:
       no_more: "Ingen fleire meldingar."
+    my_activity: "Min aktivitet"
+    my_stream: "Straum"
     photo_uploader:
       looking_good: "Du verda, du ser flott ut!"
     publisher:
@@ -50,6 +65,11 @@ nn:
     search_for: "Leit etter {{name}}"
     show_more: "syn meir"
     stream:
+      comment: "Kommenter"
+      follow: "Følg"
+      hide: "Gøym"
+      hide_nsfw_posts: "Gøym innlegg merka med #nsfw"
+      like: "Lik"
       likes:
         few: "<%= count %> Likes"
         many: "<%= count %> Likes"
@@ -57,6 +77,7 @@ nn:
         other: "<%= count %> Likes"
         two: "<%= count %> Likes"
         zero: "<%= count %> Likes"
+      limited: "Avgrensa"
       more_comments:
         few: "Show <%= count %> more comments"
         many: "Show <%= count %> more comments"
@@ -64,6 +85,8 @@ nn:
         other: "Show <%= count %> more comments"
         two: "Show <%= count %> more comments"
         zero: "Show <%= count %> more comments"
+      original_post_deleted: "Det opprinnelege innlegget er sletta av forfattaren."
+      public: "Offentleg"
       reshares:
         few: "<%= count %> Reshares"
         many: "<%= count %> Reshares"
@@ -71,6 +94,10 @@ nn:
         other: "<%= count %> Reshares"
         two: "<%= count %> Reshares"
         zero: "<%= count %> Reshares"
+      show_nsfw_post: "Syn innlegg"
+      show_nsfw_posts: "Syn alt"
+      unfollow: "Ikkje følg"
+      unlike: "Lik ikkje lenger"
     tags:
       wasnt_that_interesting: "Greitt, #{{tagName}} var vel kanskje ikkje så interessant …"
     timeago:

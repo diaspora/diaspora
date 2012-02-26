@@ -2,13 +2,7 @@
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
-require 'spec_helper'
-
-class Object
-  def id
-    super
-  end
-end
+require 'spec_helper' 
 
 describe SessionsController do
   include Devise::TestHelpers

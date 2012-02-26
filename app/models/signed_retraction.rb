@@ -3,8 +3,8 @@
 #   the COPYRIGHT file.
 
 class SignedRetraction
-  include ROXML
-  include Diaspora::Webhooks
+  include Diaspora::Federated::Base
+  
   include Diaspora::Encryptable
 
   xml_name :signed_retraction
