@@ -1,7 +1,6 @@
 class Conversation < ActiveRecord::Base
-  include ROXML
+  include Diaspora::Federated::Base
   include Diaspora::Guid
-  include Diaspora::Webhooks
 
   xml_attr :subject
   xml_attr :created_at

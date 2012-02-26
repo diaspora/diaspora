@@ -1,9 +1,7 @@
 class NotVisibleError < RuntimeError; end
 class Message < ActiveRecord::Base
-  include ROXML
-
+  include Diaspora::Federated::Base
   include Diaspora::Guid
-  include Diaspora::Webhooks
   include Diaspora::Relayable
 
   xml_attr :text

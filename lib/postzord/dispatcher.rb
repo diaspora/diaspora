@@ -25,7 +25,7 @@ class Postzord::Dispatcher
   # @return [Postzord::Dispatcher] Public or private dispatcher depending on the object's intended audience
   def self.build(user, object, opts={})
     unless object.respond_to? :to_diaspora_xml
-      raise 'This object does not respond_to? to_diaspora xml.  Try including Diaspora::Webhooks into your object'
+      raise 'This object does not respond_to? to_diaspora xml.  Try including Diaspora::Federated::Base into your object'
     end
 
     if self.object_should_be_processed_as_public?(object)

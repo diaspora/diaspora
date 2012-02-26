@@ -3,9 +3,9 @@
 #   the COPYRIGHT file.
 
 class Comment < ActiveRecord::Base
-  include ROXML
 
-  include Diaspora::Webhooks
+  include Diaspora::Federated::Base
+  
   include Diaspora::Guid
   include Diaspora::Relayable
 

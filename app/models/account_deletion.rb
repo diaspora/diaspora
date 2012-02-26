@@ -3,8 +3,7 @@
 #   the COPYRIGHT file.
 
 class AccountDeletion < ActiveRecord::Base
-  include ROXML
-  include Diaspora::Webhooks
+  include Diaspora::Federated::Base
 
 
   belongs_to :person
@@ -14,6 +13,7 @@ class AccountDeletion < ActiveRecord::Base
 
   xml_name :account_deletion
   xml_attr :diaspora_handle
+
 
   def person=(person)
     self[:diaspora_handle] = person.diaspora_handle
