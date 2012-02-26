@@ -683,7 +683,7 @@ form p.checkbox_select
   input
     :height 100%
     :width 100%
-    :cursor pointer
+    :cursor pointer  
 
 #publisher
   :z-index 1
@@ -1737,9 +1737,6 @@ ul#press_logos
     :top 14px
     :padding
       :bottom 5px
-    :text-overflow ellipsis
-    :overflow hidden
-    :white-space nowrap
 
     a
       :color inherit
@@ -1908,8 +1905,8 @@ ul#press_logos
       :weight normal
 
   .timestamp
-    :position absolute
-    :right 10px
+    :position relative
+    :float right
     :font
       :weight normal
     :color $blue
@@ -2728,9 +2725,6 @@ a.toggle_selector
     :bottom 10px
   h1,h3
     :color #fff
-    :text-overflow ellipsis
-    :overflow hidden
-    :white-space nowrap
   :background orange
   &:hover
     #gs-skip-x
@@ -2826,5 +2820,4 @@ a.toggle_selector
   :font-size smaller
   :color #999
   a
-    :color #666
     :color #666
