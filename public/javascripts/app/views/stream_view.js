@@ -61,14 +61,19 @@ app.views.Stream = Backbone.View.extend({
 
     _.each(collElem, function(elem) {
       var elem = $(elem),
-          oembed = elem.find('.oembed');
-      
+          oembed = elem.find('.oembed'),
+          addHeight = 0;
+
+      if( $.trim(oembed.html()) != "" ) {
+        addHeight = oembed.height();
+      }
+
       // only collapse if we are more than 20% too high
-      if( elem.height() > (collHeight*1.2) && !elem.is('.collapsed') ) {
+      if( elem.height() > ((collHeight*1.2)+addHeight) && !elem.is('.opened') ) {
         elem.data('orig-height', elem.height() );
 
         elem
-          .height(collHeight)
+          .height( Math.max(collHeight, addHeight) )
           .addClass('collapsed')
           .append(
             $('<div />')
@@ -76,13 +81,13 @@ app.views.Stream = Backbone.View.extend({
               .text( Diaspora.I18n.t("show_more") )
               .click(function(){
                 var el = $(this).parents('.collapsible');
-                el.animate({'height':el.data('orig-height')}, 750).removeClass('collapsed');
-                oembed.find('*').show();
+                el.animate({'height':el.data('orig-height')}, 750).removeClass('collapsed').addClass('opened');
+                oembed.find('*').toggle();
                 $(this).hide();
               })
           );
           
-        oembed.find('*').hide();
+        oembed.find('*').toggle();
       }
     });
   },

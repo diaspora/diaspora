@@ -1823,10 +1823,11 @@ ul#press_logos
     :overflow hidden
     :position relative
 
-    &.collapsed
-      .oembed
-        :background lighten($light-grey, 10%)
-        :min-height 170px
+    .oembed
+      :background lighten($light-grey, 10%)
+
+      .thumb
+        :display none
 
     .expander
       :position absolute
