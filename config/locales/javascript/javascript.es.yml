@@ -1,4 +1,4 @@
-#   Copyright (c) 2010-2011, Diaspora Inc.  This file is
+#   Copyright (c) 2010-2012, Diaspora Inc.  This file is
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
@@ -113,8 +113,8 @@ es:
       prefixAgo: "hace"
       prefixFromNow: "dentro de"
       seconds: "menos de 1 minuto"
-      suffixAgo: "hace"
-      suffixFromNow: "a partir de ahora"
+      suffixAgo: ""
+      suffixFromNow: ""
       year: "1 año aproximadamente"
       years: "%d años"
     videos:

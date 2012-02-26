@@ -1,4 +1,4 @@
-#   Copyright (c) 2010-2011, Diaspora Inc.  This file is
+#   Copyright (c) 2010-2012, Diaspora Inc.  This file is
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
@@ -28,6 +28,7 @@ el:
       hide: "απόκρυψη σχολίων"
       show: "προβολή όλων των σχολίων"
     confirm_dialog: "Είστε σίγουρος/η;"
+    delete: "Διαγραφή"
     failed_to_like: "Αποτυχία!"
     failed_to_post_message: "Αποτυχία δημοσίευσης μηνύματος!"
     getting_started:
@@ -36,9 +37,22 @@ el:
       no_tags: "Γεια, δεν ακολουθείς ακόμα καμία ετικέτα! Συνεχίζουμε παρ' όλ' αυτά;"
       preparing_your_stream: "Ετοιμάζεται η προσωπική σας ροή..."
     header:
+      admin: "Διαχείριση"
+      contacts: "Επαφές"
+      home: "Αρχική"
+      log_out: "Αποσύνδεση"
+      mark_all_as_read: "Σήμανση όλων ως διαβασμένα"
+      messages: "Μηνύματα"
+      notifications: "Ειδοποιήσεις"
+      profile: "Προφίλ"
+      recent_notifications: "Πρόσφατες Ειδοποιήσεις"
       search: "Find people or #tags"
+      settings: "Ρυθμίσεις"
+      view_all: "Προβολή όλων"
     infinite_scroll:
       no_more: "Δεν υπάρχουν άλλες δημοσιεύσεις."
+    my_activity: "Η δραστηριότητα μου"
+    my_stream: "Ροή"
     photo_uploader:
       looking_good: "Ναι! Σκίζεις!"
     publisher:
@@ -50,6 +64,10 @@ el:
     search_for: "Αναζήτηση για {{name}}"
     show_more: "Προβολή περισσότερων"
     stream:
+      comment: "Σχόλιο"
+      follow: "Ακολουθήστε"
+      hide: "Απόκρυψη"
+      like: "Μου αρέσει"
       likes:
         few: "<%= count %> Likes"
         many: "<%= count %> Likes"
@@ -57,6 +75,7 @@ el:
         other: "<%= count %> Likes"
         two: "<%= count %> Likes"
         zero: "<%= count %> Likes"
+      limited: "Περιορισμένο"
       more_comments:
         few: "Show <%= count %> more comments"
         many: "Show <%= count %> more comments"
@@ -64,6 +83,7 @@ el:
         other: "Show <%= count %> more comments"
         two: "Show <%= count %> more comments"
         zero: "Show <%= count %> more comments"
+      public: "Δημόσιο"
       reshares:
         few: "<%= count %> Reshares"
         many: "<%= count %> Reshares"
@@ -71,6 +91,9 @@ el:
         other: "<%= count %> Reshares"
         two: "<%= count %> Reshares"
         zero: "<%= count %> Reshares"
+      show_nsfw_post: "Προβολή δημοσίευσης"
+      show_nsfw_posts: "Προβολή όλων"
+      unlike: "Δεν μου αρέσει"
     tags:
       wasnt_that_interesting: "OK, φαντάζομαι πως το #{{tagName}} δεν ήταν και τόσο ενδιαφέρον τελικά..."
     timeago:

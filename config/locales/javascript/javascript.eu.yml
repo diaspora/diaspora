@@ -1,4 +1,4 @@
-#   Copyright (c) 2010-2011, Diaspora Inc.  This file is
+#   Copyright (c) 2010-2012, Diaspora Inc.  This file is
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
@@ -37,6 +37,7 @@ eu:
       no_tags: "Aizu, ez duzu etiketarik jarraitzen! Jarraitu hala ere?"
       preparing_your_stream: "Zure kronologia pertsonalizatua prestatzen..."
     header:
+      admin: "Kudeatu"
       contacts: "Lagunak"
       home: "Hasiera"
       log_out: "Atera"
@@ -51,6 +52,8 @@ eu:
     ignore: "Isildu"
     infinite_scroll:
       no_more: "Mezu gehiagorik ez dago."
+    my_activity: "Nire Jarduera"
+    my_stream: "Kronologia"
     photo_uploader:
       looking_good: "Ene bada, oso jatorra dirudizu!"
     publisher:
@@ -63,7 +66,9 @@ eu:
     show_more: "erakutsi gehiago"
     stream:
       comment: "Iruzkindu"
+      follow: "Jarraitu"
       hide: "Ezkutatu"
+      hide_nsfw_posts: "Ezkutatu #nsfw mezuak"
       like: "Gustuko dut"
       likes:
         few: "<%= count %>(e)k gustuko dute"
@@ -90,6 +95,9 @@ eu:
         other: "<%= count %> Birpatekaketa"
         two: "<%= count %> Birpatekaketa"
         zero: "<%= count %> Birpatekaketa"
+      show_nsfw_post: "Mezua erakutsi"
+      show_nsfw_posts: "Guztiak erakutsi"
+      unfollow: "Ez jarraitu"
       unlike: "Ez dut gustuko"
     tags:
       wasnt_that_interesting: "Beno, suposatzen dut #<%= tagName %> ez zela oso interesgarria..."
@@ -105,7 +113,7 @@ eu:
       prefixAgo: "duela"
       prefixFromNow: ""
       seconds: "minutu bat baino gutxiago"
-      suffixAgo: ""
+      suffixAgo: "d(ir)ela"
       suffixFromNow: "barru"
       year: "urte bat"
       years: "%d urte"

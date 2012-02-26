@@ -1,4 +1,4 @@
-#   Copyright (c) 2010-2011, Diaspora Inc.  This file is
+#   Copyright (c) 2010-2012, Diaspora Inc.  This file is
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
@@ -84,7 +84,7 @@ ru:
       send_instructions: "Вы получите email с инструкцией по сбросу пароля в течении нескольких минут."
       updated: "Ваш пароль изменён."
     registrations:
-      destroyed: "До свиданья! Ваш аккаунт удалён. Мы будем рады видеть вас вновь."
+      destroyed: "До свидания! Ваш аккаунт удалён. Мы будем рады видеть вас вновь."
       signed_up: "Регистрация аккаунта завершена. Вам отправлен email с дальнейшими указаниями."
       updated: "Ваш аккаунт обновлён."
     sessions:

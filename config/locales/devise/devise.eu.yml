@@ -1,4 +1,4 @@
-#   Copyright (c) 2010-2011, Diaspora Inc.  This file is
+#   Copyright (c) 2010-2012, Diaspora Inc.  This file is
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
@@ -34,7 +34,9 @@ eu:
         arrived: "Espero zenuen sare soziala iritsi da. Berria, seguruago, eta dibertigarriagoa, %{strong_diaspora} prest dago weba partekatu eta esploratzeko modu berri batean."
         be_yourself: "Izan Zaitez Zu Zeu"
         be_yourself_paragraph: "Internetek aditzera emateko bide berriak sortu ditu. %{strong_diaspora}k zu zeu izaten eta nahi duzuna partekatzen ahalbidetzen du, bai zure izena erabiliz, bai gabe."
+        cubbies: "Cubbi.es"
         displaying_correctly: "Emaila ez da ondo ikusten? %{link}"
+        email_address: "questions@joindiaspora.com"
         email_us: "Galdera orrokorrentzako, bidali mezu bat bidali %{email}(e)ra."
         finally: "Azkenik - iritsi da"
         friends_saying: "Zure lagunak esaten ari direna..."
@@ -58,6 +60,7 @@ eu:
         view_in: "Ikus ezazu zure nabigatzailean."
       inviter:
         accept_at: "%{url}(e)n, onartu dezakezu beheko esteka jarraituz."
+        has_invited_you: "%{name}"
         have_invited_you: "%{names}(e)k Diasporara batzera gonbidatu zaituzte"
       reset_password_instructions:
         change: "Pasahitza aldatu"

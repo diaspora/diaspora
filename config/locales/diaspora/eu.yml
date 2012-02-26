@@ -1,4 +1,4 @@
-#   Copyright (c) 2010-2011, Diaspora Inc.  This file is
+#   Copyright (c) 2010-2012, Diaspora Inc.  This file is
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
@@ -44,6 +44,7 @@ eu:
   all_aspects: "Alderdi guztiak"
   application:
     helper:
+      diaspora_alpha: "DIASPORA ALPHA*"
       unknown_person: "pertsona ezezaguna"
       video_title:
         unknown: "Bideo izen ezezaguna"
@@ -111,6 +112,9 @@ eu:
         have_a_question: "... %{link} bat duzu?"
         here_to_help: "Diaspora komunitatea hemen dago!"
         need_help: "Laguntza Behar Duzu?"
+        tag_bug: "errorea"
+        tag_feature: "funtzioa"
+        tag_question: "galdera"
         tutorials_wiki_and_forum: "%{tutorial}, %{wiki} eta %{forum}: Komunitateak egindako tutorialak, nola-eginak eta berriak"
       introduce_yourself: "Hau zure kronologia da.  Animatu eta zure burua aurkeztu."
       keep_us_running: "Mantendu %{pod} azkar izaten, erosiezu gure ostalariei hilabeteroko kafe-konponketa!"
@@ -197,10 +201,14 @@ eu:
     index:
       add_a_new_aspect: "Alderdi berria gehitu"
       add_to_aspect: "Adiskideak gehitu %{name}(e)n"
+      add_to_aspect_link: "gehitu lagunak %{name}(e)ra"
       all_contacts: "Adiskide Guztiak"
+      community_spotlight: "Komunitateko nabarmenduak"
       many_people_are_you_sure: "Ziur al zaude elkarrizketa pribatu bat hasi nahi duzula %{suggested_limit} baino lagun gehiagorekin? Alderdi horretan mezu bat bidaltzea beharbada haiekin harremanetan egoteko modu hobea izan daiteke."
       my_contacts: "Nire Adiskideak"
       no_contacts: "Badirudi lagun batzuk gehitu behar dituzula!"
+      no_contacts_message: "Ikus ezazu %{community_spotlight}"
+      no_contacts_message_with_aspect: "Ikus ezazu %{community_spotlight} edo %{add_to_aspect_link}"
       only_sharing_with_me: "Bakarrik nirekin harremanetan"
       remove_person_from_aspect: "Ezabatu %{person_name} \"%{aspect_name}\"(e)tik"
       start_a_conversation: "Elkarrizketa bat hasi"
@@ -250,7 +258,9 @@ eu:
       replying: "Erantzuten..."
   date:
     formats:
+      birthday: "%d %B"
       birthday_with_year: "%Y (e)ko &B ren %d an"
+      fullmonth_day: "%d %B"
   delete: "Ezabatu"
   email: "E-posta"
   error_messages:
@@ -291,6 +301,7 @@ eu:
     new:
       already_invited: "Pertsona hauek ez dute zure gonbidapena onartu:"
       aspect: "Alderdia"
+      check_out_diaspora: "Probatu Diaspora!"
       comma_seperated_plz: "Nahi dituzun e-posta guztiak idatzi ditzakezu, koma batez bananduta."
       if_they_accept_info: "eskaera onartzen badute, gonbidatutako arlora batuko dira"
       invite_someone_to_join: "Gonbida ezazu norbait Diasporan izen ematera!"
@@ -302,6 +313,7 @@ eu:
       to: "Jasotzailea:"
   layouts:
     application:
+      back_to_top: "Gora"
       powered_by: "DIASPORAK ESKAINIA"
       public_feed: "%{name}(r)en Diaspora Feed publikoa"
       toggle: "gaitu mugikorreko orrialdea"
@@ -472,6 +484,7 @@ eu:
       view_profile: "Ikusi %{name}(r)en profila"
     thanks: "Milesker,"
     to_change_your_notification_settings: "zure jakinarazpenen lehentasunak aldatzeko"
+  nsfw: "NSFW"
   ok: "Onartu"
   or: "edo"
   password: "Pasahitza"
@@ -569,6 +582,7 @@ eu:
     show:
       destroy: "Ezabatu"
       not_found: "Barkatu, baina ezin izan dugu mezu hori aurkitu."
+      permalink: "permalinka"
       photos_by:
         few: "%{count} argazki %{author}(r)en eskutik"
         many: "%{count} argazki %{author}(r)en eskutik"
@@ -588,6 +602,8 @@ eu:
       first_name: "Izena"
       last_name: "Abizena"
       update_profile: "Profila Eguneratu"
+      you_are_nsfw: "Lanerako egoki ez gisa markatu duzu zeure burua, zure mezuak horrelako edukinak ez izatea aukeratu dutenek ez dituzte zure mezuak ikusiko."
+      you_are_safe_for_work: "Lanerako egoki gisa markatu duzu zeure burua, hau da, komunitateko mezuen arauekin bat zaude."
       your_bio: "Zuri buruz"
       your_birthday: "Zure urtemuga"
       your_gender: "Zure sexua"
@@ -705,6 +721,7 @@ eu:
     add_contact:
       add_new_contact: "Adiskide berria gehitu"
       create_request: "Diaspora IDaren arabera bilatu"
+      diaspora_handle: "diaspora@pod.org"
       enter_a_diaspora_username: "Diaspora erabiltzaile izena idatzi:"
       know_email: "Badakizu beraien e-posta? Gonbida itzazu!"
       your_diaspora_username_is: "Zure Diaspora helbidea honakoa da: %{diaspora_handle}"
@@ -734,6 +751,7 @@ eu:
     notification:
       new: "%{type} berria %{from}(r)en eskutik"
     public_explain:
+      atom_feed: "Atom feeda"
       control_your_audience: "Zure Jarraitzalieak kontrolatu"
       logged_in: "%{service}(e)n sartuta"
       manage: "kudeatu lotutako zerbitzuak"
@@ -801,6 +819,8 @@ eu:
       two: "Erakutsi bi iruzkin gehiago"
       zero: "Ez dago iruzkin gehiago"
   streams:
+    activity:
+      title: "Nire Jarduera"
     aspects:
       title: "Zure Alderdiak"
     aspects_stream: "Alderdiak"

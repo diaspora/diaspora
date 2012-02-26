@@ -1,4 +1,4 @@
-#   Copyright (c) 2010-2011, Diaspora Inc.  This file is
+#   Copyright (c) 2010-2012, Diaspora Inc.  This file is
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
@@ -44,6 +44,7 @@ el:
   all_aspects: "Όλες οι πτυχές"
   application:
     helper:
+      diaspora_alpha: "DIASPORA* ALPHA"
       unknown_person: "άγνωστο άτομο"
       video_title:
         unknown: "Άγνωστος τίτλος video"
@@ -111,6 +112,8 @@ el:
         have_a_question: "... έχεις ένα %{link}?"
         here_to_help: "Η κοινότητα του Diaspora είναι εδώ για να σε βοηθήσει!"
         need_help: "Χρειάζεστε βοήθεια;"
+        tag_bug: "σφάλμα"
+        tag_question: "ερώτηση"
         tutorials_wiki_and_forum: "%{tutorial} & %{wiki} & %{forum}: Οδηγοί από την κοινότητα του Diaspora, how-to, και νέα"
       introduce_yourself: "Αυτή είναι η Ροή σας. Μπείτε και συστηθείτε."
       keep_us_running: "Διατηρείστε τη καλή λειτουργία του %{pod}, παρέχοντας στους servers μας τη καφείνη τους!"
@@ -196,7 +199,9 @@ el:
     index:
       add_a_new_aspect: "Προσθέστε μια νέα πτυχή"
       add_to_aspect: "Προσθέστε επαφές στο %{name}"
+      add_to_aspect_link: "Προσθέστε επαφές στο %{name}"
       all_contacts: "Όλες οι Επαφές"
+      community_spotlight: "Αναρτήσεις Κοινότητας"
       many_people_are_you_sure: "Είστε σίγουρος/η ότι θέλετε να ξεκινήσετε μια ιδιωτική συνομιλία με περισσότερες από %{suggested_limit} επαφές? Η δημοσίευση σε αυτή την πτυχή ίσως είναι ένας καλύτερος τρόπος για να επικοινωνήσετε μαζί τους."
       my_contacts: "Οι Επαφές μου"
       no_contacts: "Φαίνεται πως χρειάζεται να προσθέσετε μερικές επαφές! "
@@ -247,7 +252,13 @@ el:
       delete: "διαγραφή και φραγή συζήτησης"
       reply: "απάντηση"
       replying: "Απάντηση..."
+  date:
+    formats:
+      birthday: "%B %d"
+      birthday_with_year: "%B %d %Y"
+      fullmonth_day: "%B %d"
   delete: "Διαγραφή"
+  email: "Email"
   error_messages:
     helper:
       correct_the_following_errors_and_try_again: "Διορθώστε τα ακόλουθα σφάλματα και προσπαθήστε ξανά."
@@ -297,12 +308,14 @@ el:
       to: "Στον"
   layouts:
     application:
+      powered_by: "POWERED BY DIASPORA*"
       public_feed: "Δημόσια ανατροφοδότηση (feed) του Diaspora για τον χρήστη %{name}"
       toggle: "εναλλαγή σε κινητό"
       whats_new: "Τι νέα?"
       your_aspects: "οι πτυχές σας"
     header:
       admin: "διαχειριστής"
+      blog: "blog"
       code: "κώδικας"
       login: "Είσοδος"
       logout: "Αποσύνδεση"
@@ -465,6 +478,8 @@ el:
       view_profile: "Δείτε το προφίλ του χρήστη %{name}"
     thanks: "Ευχαριστώ,"
     to_change_your_notification_settings: "για να αλλάξετε τις ρυθμίσεις των ειδοποιήσεων"
+  nsfw: "NSFW"
+  ok: "ΟΚ"
   or: "ή"
   password: "Κωδικός"
   password_confirmation: "Επαλήθευση κωδικού"
@@ -561,6 +576,7 @@ el:
     show:
       destroy: "Διαγραφή"
       not_found: "Λυπούμαστε, δεν καταφέραμε να βρούμε αυτή την ανάρτηση."
+      permalink: "permalink"
       photos_by:
         few: "%{count} photos by %{author}"
         many: "%{count} photos by %{author}"
@@ -696,6 +712,7 @@ el:
     add_contact:
       add_new_contact: "Προσθέστε μια νέα επαφή"
       create_request: "Εύρεση βάσει Diaspora ID"
+      diaspora_handle: "diaspora@pod.org"
       enter_a_diaspora_username: "Εισάγετε όνομα χρήστη Diaspora:"
       know_email: "Ξέρετε τις ηλεκτρονικές τους διευθύνσεις; Τότε πρέπει να τους προσκαλέσετε"
       your_diaspora_username_is: "Το όνομα χρήστη σας στο Diaspora είναι: %{diaspora_handle}"
@@ -792,6 +809,8 @@ el:
       two: "Εμφάνιση δυο ακόμα σχολίων"
       zero: "Δεν υπάρχουν άλλα σχόλια"
   streams:
+    activity:
+      title: "Η δραστηριότητα μου"
     aspects:
       title: "Οι Πτυχές σας"
     aspects_stream: "Πτυχές"
