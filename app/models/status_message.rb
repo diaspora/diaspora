@@ -70,9 +70,10 @@ class StatusMessage < Post
   def formatted_message(opts={})
     return self.raw_message unless self.raw_message
 
-    escaped_message = opts[:plain_text] ? self.raw_message: ERB::Util.h(self.raw_message)
+    escaped_message = opts[:plain_text] ? self.raw_message : ERB::Util.h(self.raw_message)
     mentioned_message = self.format_mentions(escaped_message, opts)
-    Diaspora::Taggable.format_tags(mentioned_message, opts.merge(:no_escape => true))
+    tagged_message = Diaspora::Taggable.format_tags(mentioned_message, opts.merge(:no_escape => true))
+    opts[:active_links] ? tagged_message.gsub(/(http(s?):\/\/\S+)/, '<a href="\1">\1</a>') : tagged_message    
   end
 
   def format_mentions(text, opts = {})
@@ -130,7 +131,7 @@ class StatusMessage < Post
     <<-XML
   <entry>
     <title>#{x(self.formatted_message(:plain_text => true))}</title>
-    <content>#{x(self.formatted_message(:plain_text => true))}</content>
+    <content type="html">#{x(self.formatted_message(:active_links => true))}</content>
     <link rel="alternate" type="text/html" href="#{author.url}p/#{self.id}"/>
     <id>#{author.url}p/#{self.id}</id>
     <published>#{self.created_at.xmlschema}</published>
