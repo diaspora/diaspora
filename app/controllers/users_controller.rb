@@ -3,7 +3,6 @@
 #   the COPYRIGHT file.
 
 class UsersController < ApplicationController
-  require File.join(Rails.root, 'lib/diaspora/ostatus_builder')
   require File.join(Rails.root, 'lib/diaspora/exporter')
   require File.join(Rails.root, 'lib/collect_user_photos')
 
