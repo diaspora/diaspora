@@ -3,8 +3,6 @@
 $light-grey: #999;
 $pane-width: 420px;
 
-$large-type: 40px;
-
 /* mixins */
 @mixin center($orient:vertical) {
   display: -webkit-box;
@@ -21,13 +19,6 @@ $large-type: 40px;
   box-orient: $orient;
   box-pack: center;
   box-align: center;
-}
-
-@mixin rotate($orient) {
-  -o-transform: rotate($orient);
-  -moz-transform: rotate($orient);
-  -ms-transform: rotate($orient);
-  -webkit-transform: rotate($orient);
 }
 
 @mixin box-shadow($left, $top, $blur, $color) {
@@ -196,7 +187,7 @@ $large-type: 40px;
 {
   h1 {
     font-weight: bold;
-    font-size: $large-type;
+    font-size: 40px;
   }
 }
 
@@ -614,7 +605,6 @@ body.idle {
   }
 }
 
-#nsfw-post-content,
 #post-content {
   display: table;
 
@@ -651,22 +641,4 @@ body.idle {
   position: absolute;
   right: 8px;
   top: 8px;
-}
-
-#nsfw-post-content {
-  @include opacity(0.95);
-}
-
-#nsfw-shield {
-  height: 100%;
-  width: 100%;
-  background-image: url('../img/hatched-bg.jpg');
-  background-transparency: url('../img/hatched-bg.jpg');
-
-  h2 {
-    @include rotate(-15deg);
-
-    text-transform: uppercase;
-    color: #979893;
-  }
 }
