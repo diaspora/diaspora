@@ -175,7 +175,8 @@ $large-type: 40px;
 }
 
 .note-content {
-  width: 550px;
+  min-width: 350px;
+  max-width: 550px;
   padding-bottom: 50px;
   display: inline-block;
   text-align: left;
@@ -380,12 +381,6 @@ body.idle {
   .icon-retweet {
     color: #000;
     @include opacity(0.5);
-  }
-
-  .post-vitals {
-    span {
-      padding-right: 8px;
-    }
   }
 }
 
