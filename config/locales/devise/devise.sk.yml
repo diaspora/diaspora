@@ -47,7 +47,7 @@ sk:
         help_fund: "pomôžte financovať Diasporu"
         here: "sem"
         ignore: "Ak nechcete prijať toto pozvanie, ignorujte, prosím, tento e-mail."
-        join_team: "Pripojte sa k nášmu tímu"
+        join_team: "Pridajte sa k nášmu tímu"
         love: "S láskou"
         made_by_people: "%{strong_diaspora} vznikla vďaka ľuďom, ktorí majú radi internet tak ako vy. %{jointeam} alebo %{helpfund}!"
         more_people: "Ešte viac ľudí vás chce stretnúť!"

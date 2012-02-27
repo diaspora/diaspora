@@ -603,7 +603,7 @@ fr:
       last_name: "Nom de famille"
       update_profile: "Mettre à jour le profil"
       you_are_nsfw: "Vous vous êtes marqué comme non-sûr (NSFW), vos messages pourront ne pas apparaître chez les utilisateurs ayant demandé de ne pas afficher les contenus non-sûrs dans leur flux."
-      you_are_safe_for_work: "Vous vous êtes marqué comme sûr (SFW), donc vos messages devront suivre les règles de la communauté."
+      you_are_safe_for_work: "Vous vous êtes marqué comme sûr (SFW) ; cela signifie que vos messages devront suivre les règles de la communauté."
       your_bio: "Votre biographie"
       your_birthday: "Votre anniversaire"
       your_gender: "Votre sexe"

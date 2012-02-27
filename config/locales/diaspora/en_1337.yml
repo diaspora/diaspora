@@ -535,12 +535,12 @@ en_1337:
       not_found: "50RRY, W3 C0ULDN7 F1ND 7H47 5P4M!"
       permalink: "P3RM4L1NK"
       photos_by:
-        few: "%{count} photos by %{author}"
-        many: "%{count} photos by %{author}"
-        one: "One photo by %{author}"
-        other: "%{count} photos by %{author}"
-        two: "Two photos by %{author}"
-        zero: "No photos by %{author}"
+        few: "%{count} P1CZ BY %{author}"
+        many: "%{count} P1CZ BY %{author}"
+        one: "1 P1C BY %{author}"
+        other: "%{count} P1CZ BY %{author}"
+        two: "2 P1CZ BY %{author}"
+        zero: "N0 P1CZ BY %{author}"
   previous: "PR3V10U5"
   profile: "PR0F1L3"
   profiles:
@@ -589,7 +589,7 @@ en_1337:
       enter_password_again: "3N73R 17 4G41N!"
       enter_username: "P1CK 4 N1CK (0NLY L3773R5 NUMB3R5 4ND UND3R5C0R35!)"
       join_the_movement: "J01N 7H3 M0V3M3N7!"
-      sign_up_message: "Social Networking with a <3"
+      sign_up_message: "50C14L N37W0RK1NG W17H 4 <3"
   requests:
     create:
       sending: "5P4MM1NG"
@@ -700,7 +700,7 @@ en_1337:
       discard_post: "D15C4RD P057"
       make_public: "M4K3 PUBL1C"
       new_user_prefill:
-        i_like: "I'm interested in %{tags}."
+        i_like: "1 575LK: %{tags}."
       post_a_message_to: "5P4M 7H15 45P3C7: %{aspect}"
       posting: "5P4MM1NG..."
       publishing_to: "PUBL15H1NG 2: "
@@ -737,15 +737,15 @@ en_1337:
   stream_helper:
     hide_comments: "H1D3 4LL 5P4M5!"
     show_comments:
-      few: "Show %{count} more comments"
-      many: "Show %{count} more comments"
-      one: "Show one more comment"
-      other: "Show %{count} more comments"
-      two: "Show two more comments"
-      zero: "No more comments"
+      few: "5H0W %{count} M0R3 C0MM3N75"
+      many: "5H0W %{count} M0R3 C0MM3N75"
+      one: "5H0W 1 M0R3 C0MM3N75"
+      other: "5H0W %{count} M0R3 C0MM3N75"
+      two: "5H0W 2 M0R3 C0MM3N75"
+      zero: "N0 C0MM3N75!"
   streams:
     aspects:
-      title: "Your Aspects"
+      title: "UR 45P3C75"
     mentions:
       contacts_title: "N00B5 WH0 M3N710N3D U"
       title: "Y0UR M3N710N5"
@@ -787,13 +787,13 @@ en_1337:
       email_not_confirmed: "M41L C0ULD N07 B3 4C71V473D, WR0NG L1NK?"
     edit:
       also_commented: "...50M30N3 4L50 5P4M5 0N 4 N00B5 5P4M?"
-      auto_follow_back: "Automatically follow back if a someone follows you"
+      auto_follow_back: "4U70M471C4LLY 574LK PPL 1F 7H3Y 574LK U"
       change: "CH4NG3"
       change_email: "CH4NG3 M41L"
       change_language: "CH4NG3 L4NGU4G3"
       change_password: "CH4NG3 *****"
       close_account:
-        what_we_delete: "We delete all of your posts, profile data, as soon as humanly possible. Your comments will hang around, but be associated with your Diaspora Handle."
+        what_we_delete: "W3 D3L373 4LL 0F UR P0575 4ND PR0F1L3 D474 L1K3 4 B055. UR C0MM3N75 W1LL H4NG 4R0UND, BU7 B3 4550C1473D W17H UR D* ID."
       comment_on_post: "...50M30N3 5P4M5 Y0UR 5P4M?"
       current_password: "CURR3N7 *****"
       download_photos: "D0WNL04D MY PR0N"
@@ -813,7 +813,7 @@ en_1337:
     getting_started:
       community_welcome: "7H3 D* C0MMUN17Y 15 H4PPY 2 H4V3 U 4B04RD!"
       hashtag_explanation: "H45H74G5 4LL0W U 2 74LK 4B0U7 4ND F0LL0W Y0UR 1N73R3575! 7H3YR3 4L50 4 GR347 W4Y 2 F1ND N3W N00B5 0N D*!"
-      what_facebook_does: "to Diaspora. This will pull your name and photo, and enable cross-positng."
+      what_facebook_does: "2 D*. 7H15 W1LL PULL UR N4M3 4ND P1C, 4ND 3N4BL3 CR055 P0571NG! "
     logged_out:
       go_mobile: "N0W G0 M0B1L3!"
       on_your_mobile_device: "0N Y0UR M0B1L3 D3V1C3 2 4CC355 D* M0B1L3!"
