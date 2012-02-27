@@ -18,5 +18,8 @@
 
   <div class="post-time">
     <time datetime="{{created_at}}" />
+    {{#unless public}}
+      <i class="icon-lock"> </i>
+    {{/unless}}
   </div>
 </div>

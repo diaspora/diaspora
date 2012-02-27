@@ -32,6 +32,7 @@ app.views.PostViewerFeedback = app.views.Feedback.extend({
   hidePane : function(evt){ this.trigger("hidePane") },
 
   requireAuth : function(evt) {
+    if( app.currentUser.authenticated() ) { return }
     alert("you must be logged in to do that!")
     return false;
   }
