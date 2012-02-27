@@ -15,6 +15,10 @@ Handlebars.registerHelper('linkToPerson', function(context, block) {
 })
 
 Handlebars.registerHelper('personImage', function(person, size, imageClass) {
+  /* we return here if person.avatar is blank, because this happens when a
+   * user is unauthenticated.  we don't know why this happens... */
+  if(typeof(person.avatar) == "undefined") { return }
+
   size = (typeof(size) != "string" ? "small" : size);
   imageClass = (typeof(imageClass) != "string" ? size : imageClass);
 
