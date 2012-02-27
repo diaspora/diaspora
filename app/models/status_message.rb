@@ -125,22 +125,6 @@ class StatusMessage < Post
     identifiers.empty? ? [] : Person.where(:diaspora_handle => identifiers)
   end
 
-  def to_activity(opts={})
-    author = opts[:author] || self.author #Use an already loaded author if passed in.
-    <<-XML
-  <entry>
-    <title>#{x(self.formatted_message(:plain_text => true))}</title>
-    <content>#{x(self.formatted_message(:plain_text => true))}</content>
-    <link rel="alternate" type="text/html" href="#{author.url}p/#{self.id}"/>
-    <id>#{author.url}p/#{self.id}</id>
-    <published>#{self.created_at.xmlschema}</published>
-    <updated>#{self.updated_at.xmlschema}</updated>
-    <activity:verb>http://activitystrea.ms/schema/1.0/post</activity:verb>
-    <activity:object-type>http://activitystrea.ms/schema/1.0/note</activity:object-type>
-  </entry>
-    XML
-  end
-
   def after_dispatch(sender)
     self.update_and_dispatch_attached_photos(sender)
   end

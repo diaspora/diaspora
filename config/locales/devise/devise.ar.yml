@@ -1,4 +1,4 @@
-#   Copyright (c) 2010-2011, Diaspora Inc.  This file is
+#   Copyright (c) 2010-2012, Diaspora Inc.  This file is
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
@@ -31,13 +31,45 @@ ar:
       hello: "مرحبا %{email}!"
       invitation_instructions:
         accept: "إقبل الدعوة"
-        displaying_correctly: "Email not displaying correctly? %{link} in your browser"
+        arrived: |-
+            الشبكة الاجتماعية التي إنتظرت قد وصلت. متطورة و أكثر أمانا ومرحا
+            , %{strong_diaspora}  جاهز لمساعدتك على مشاركة واستكشاف الوِب
+            بطريقة جديدة كليا.
+        be_yourself: "كن كما أنت"
+        be_yourself_paragraph: |-
+            أنشأت اﻹنترنت لنا طرق جديدة و فريدة نعبر بها عن أنفسنا.
+            %{strong_diaspora} يتيح لك أن تكون نفسك وتشارك ما تريد
+            باسمك الحقيقي أو بدونه.
+        displaying_correctly: "البريد الالكتروني لا يظهر بشكل صحيح؟ %{link}"
+        email_address: "questions@joindiaspora.com"
+        email_us: "للاستفسار والدعم ، رجاء راسلنا على %{email}"
+        finally: "وأخيراً - هاهي"
+        friends_saying: "ما يقوله أصدقائك..."
+        get_connected: "إبق على اتصال"
+        get_connected_paragraph: |-
+            حركة عالمية برؤية مُشتركة لشبكة عالمية أفضل.
+            أهم خصائص %{strong_diaspora} هي مجتمعه.
+            قابل أناس جدد وتواصل مع أصدقاء وشارك بالمرح.
         have_fun: "إستمتع"
+        have_fun_paragraph: |-
+            %{strong_diaspora} كله يدور حول اِكْتِشاف محتوى جديد مدهش وكذلك أشخاص.
+            %{link} ، هو أول تطبيق في العالم لـ %{strong_diaspora} وماهو إلا بداية.
+            جمّع و شارك الوب بكل رونقها.
+        help_fund: "ساعد بتمويل دياسبرا"
+        here: "هنا"
         ignore: "رجاء تجاهل هذا البريد الإلكتروني في حال لم ترغب بقبول الدعوة"
         join_team: "إنضم إلى فريقنا"
+        made_by_people: |-
+            %{strong_diaspora} صُنع من قبل أشخاص يحبون اﻹنترنت بقدر ما تحبه أنت.
+            %{jointeam} أو %{helpfund}
+        more_people: "هناك الكثير من الناس متحمسين لرؤيتك!"
         no_account_till: "لن يتم إنشاء حسابك حتى تلج الرابط أعلاه وتسجل"
+        or: "أو"
+        sign_up_now: "→ سجّل اﻵن"
         subject: "تم دعوتك للإنضمام لدياسبرا"
-        view_in: "View in"
+        team_diaspora: "فريق دياسبرا"
+        unsubscribe: "ﻹلغاء الاشتراك انقر %{link} رجاء."
+        view_in: "أظهِره في متصفحك."
       inviter:
         accept_at: ", %{url}, يمكنك قبولها عبر الرابط التالي"
         has_invited_you: "%{name} يدعوك للإنضمام إلى دياسبرا"

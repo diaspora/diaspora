@@ -3,9 +3,7 @@ module Federated
     self.abstract_class = true
 
     #crazy ordering issues - DEATH TO ROXML
-    include ROXML
-
-    include Diaspora::Webhooks
+    include Diaspora::Federated::Base
     include Diaspora::Guid
 
     #seriously, don't try to move this shit around until you have killed ROXML

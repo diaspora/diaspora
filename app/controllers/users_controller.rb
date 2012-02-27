@@ -3,7 +3,6 @@
 #   the COPYRIGHT file.
 
 class UsersController < ApplicationController
-  require File.join(Rails.root, 'lib/diaspora/ostatus_builder')
   require File.join(Rails.root, 'lib/diaspora/exporter')
   require File.join(Rails.root, 'lib/collect_user_photos')
 
@@ -99,16 +98,13 @@ class UsersController < ApplicationController
   end
 
   def public
-    if user = User.find_by_username(params[:username])
+    if @user = User.find_by_username(params[:username])
       respond_to do |format|
         format.atom do
-          posts = StatusMessage.where(:author_id => user.person.id, :public => true).order('created_at DESC').limit(25)
-          director = Diaspora::Director.new
-          ostatus_builder = Diaspora::OstatusBuilder.new(user, posts)
-          render :xml => director.build(ostatus_builder), :content_type => 'application/atom+xml'
+          @posts = StatusMessage.where(:author_id => @user.person.id, :public => true).order('created_at DESC').limit(25)
         end
 
-        format.any { redirect_to person_path(user.person) }
+        format.any { redirect_to person_path(@user.person) }
       end
     else
       redirect_to stream_path, :error => I18n.t('users.public.does_not_exist', :username => params[:username])

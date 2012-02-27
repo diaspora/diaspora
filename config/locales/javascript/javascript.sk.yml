@@ -1,4 +1,4 @@
-#   Copyright (c) 2010-2011, Diaspora Inc.  This file is
+#   Copyright (c) 2010-2012, Diaspora Inc.  This file is
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
@@ -29,7 +29,7 @@ sk:
       show: "Zobraziť všetky komentáre"
     confirm_dialog: "Určite?"
     delete: "Odstrániť"
-    failed_to_like: "Nepodarilo sa pridať špendlík!"
+    failed_to_like: "Nepodarilo sa označiť, že sa vám to páči!"
     failed_to_post_message: "Správu sa nepodarilo poslať!"
     getting_started:
       alright_ill_wait: "V poriadku, počkám."
@@ -69,31 +69,25 @@ sk:
       follow: "Sledovať"
       hide: "Schovať"
       hide_nsfw_posts: "Schovať príspevky #nsfw"
-      like: "Pridať špendlík"
+      like: "Páči sa mi to"
       likes:
         few: "<%= count %> ľuďom sa to páči"
-        many: "<%= count %> špendlíkov"
         one: "<%= count %> človeku sa to páči"
         other: "<%= count %> ľuďom sa to páči"
-        two: "<%= count %> špendlíky"
         zero: "<%= count %> ľuďom sa to páči"
       limited: "Súkromný"
       more_comments:
-        few: "Zobraziť ešte <%= count %> komentáre"
-        many: "Zobraziť ďalších <%= count %> komentárov"
-        one: "Zobraziť ešte <%= count %> komentár"
-        other: "Zobraziť ešte <%= count %> komentárov"
-        two: "Zobraziť ďalšie <%= count %> komentáre"
-        zero: "Zobraziť ešte <%= count %> komentárov"
+        few: "Zobraziť ďalšie <%= count %> komentáre"
+        one: "Zobraziť ďalší <%= count %> komentár"
+        other: "Zobraziť ďalších <%= count %> komentárov"
+        zero: "Zobraziť ďalších <%= count %> komentárov"
       original_post_deleted: "Pôvodný príspevok odstránil autor."
       public: "Verejný"
       reshare: "Znova zdieľať"
       reshares:
         few: "<%= count %> opätovné zdieľania"
-        many: "<%= count %> opätovných zdieľaní"
         one: "<%= count %> opätovné zdieľanie"
         other: "<%= count %> opätovných zdieľaní"
-        two: "<%= count %> opätovné zdieľania"
         zero: "<%= count %> opätovných zdieľaní"
       show_nsfw_post: "Zobraziť príspevok"
       show_nsfw_posts: "Zobraziť všetky"
@@ -110,7 +104,7 @@ sk:
       minutes: "pred %d minútami"
       month: "asi pred mesiacom"
       months: "pred %d mesiacmi"
-      prefixAgo: "pred"
+      prefixAgo: ""
       prefixFromNow: ""
       seconds: "pred menej ako minútou"
       suffixAgo: ""

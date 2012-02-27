@@ -1,5 +1,5 @@
-.stream_element.contact{:id => friend.id}
-  .right
+.stream_element{:id => friend.id}
+  .float-right
 
     - if friend.already_invited?
       = link_to t('.resend'), service_inviter_path(:uid => friend.uid, :provider => 'facebook', :invitation_id => friend.invitation_id), :class => 'button resend'
@@ -8,17 +8,19 @@
     - else
       = render 'shared/aspect_dropdown', :selected_aspects => contact_proxy(friend).aspects, :person => friend.person, :hang => 'left', :dropdown_class => 'inviter', :service_uid => friend.uid
 
-  - if friend.on_diaspora?
-    = person_image_link(friend.person, :size => :thumb_small)
-  - else
-    = image_tag(friend.photo_url, :class => 'avatar')
-
-  .content
-    %span.from.name
-      - if friend.on_diaspora?
-        = link_to friend.name, local_or_remote_person_path(friend.person)
-      - else
-        = friend.name
+  .media
+    - if friend.on_diaspora?
+      .img
+        = person_image_link(friend.person, :size => :thumb_small)
+    - else
+      .img
+        = image_tag(friend.photo_url, :class => 'avatar')
+    .content
+      %span.from.name
+        - if friend.on_diaspora?
+          = link_to friend.name, local_or_remote_person_path(friend.person)
+        - else
+          = friend.name
 
 
     .info

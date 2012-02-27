@@ -5,9 +5,12 @@
 class Post < ActiveRecord::Base
   include ApplicationHelper
 
+  include Diaspora::Federated::Shareable
+
   include Diaspora::Likeable
   include Diaspora::Commentable
   include Diaspora::Shareable
+
 
   has_many :participations, :dependent => :delete_all, :as => :target
 

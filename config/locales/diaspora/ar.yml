@@ -1,4 +1,4 @@
-#   Copyright (c) 2010-2011, Diaspora Inc.  This file is
+#   Copyright (c) 2010-2012, Diaspora Inc.  This file is
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
@@ -49,6 +49,7 @@ ar:
       video_title:
         unknown: "فيديو غير مُعَنْوَن"
   are_you_sure: "أواثقٌ أنت؟"
+  are_you_sure_delete_account: "هل تريد حقا إغلاق حسابك؟ هذه الخطوة لا يمكن التراجع عنها!"
   aspect_memberships:
     destroy:
       failure: "فشل في حذف عضو من الفئة"
@@ -62,6 +63,11 @@ ar:
       done_editing: "اتمام التغييرات"
     aspect_listings:
       add_an_aspect: "+ أضف فئة جديدة"
+      deselect_all: "ألغِ اختيار الكل"
+      edit_aspect: "تعديل %{name}"
+      select_all: "اختر الكل"
+    aspect_stream:
+      stay_updated: "إبقَ على اطلاع"
     contacts_not_visible: "رؤية عضو لآخر في هاته الفئة غير متاحة"
     contacts_visible: "رؤية عضو لآخر في هاته الفئة متاحة"
     create:
@@ -107,6 +113,8 @@ ar:
         tag_feature: "#feature"
         tag_question: "#question"
       keep_us_running: "حافظ على %{pod} سريعا عبر تبرع شهري لصيانة السيرفرات "
+      new_here:
+        title: "مرحبا أيها الزوار الجدد"
       no_contacts: "لا أعضاء"
       no_tags: "+ جِـد وسما لمتابعته"
       people_sharing_with_you: "أعضاء يتشاركون معك"
@@ -115,6 +123,7 @@ ar:
         content: "يمكنك وصل حساب ديسبورا الخاص بك بالخدمات الآتية:"
         heading: "صل حسابك بالخدمات"
       unfollow_tag: "أَوقِف متابعة #%{tag}"
+      welcome_to_diaspora: "مرحبا بك في دياسبرا , %{name} !"
     many: "%{count} فئات"
     move_contact:
       error: "خطأ خلال تحريك عضو: %{inspect}"
@@ -152,7 +161,7 @@ ar:
       revoke_access: "إلغاء الوصول"
   back: "عودة"
   bookmarklet:
-    explanation: "%{link} انشر في ديسبورا من أي مكان بحفظ الرابط في مفضلتك/علاماتك"
+    explanation: "%{link} انشر في دياسبرا من أي مكان بحفظ الرابط في مفضلتك/علاماتك"
     explanation_link_text: "هذا الرابط"
     heading: "زر المفضلة"
     post_something: "انشر شيئا على دياسبرا"
@@ -272,6 +281,7 @@ ar:
       comma_seperated_plz: "يمكن إدخال أكثر من بريد إلكتروني واحد باستعمال علامة التوقف فاصلة, بين كل بريد وآخر"
       if_they_accept_info: "إذا قبلوا دعوتك ، سيتم إضافتهم إلى الفئة التي دعوتهم إليها"
       invite_someone_to_join: "دعوة صديق للإنضمام إلى دياسبرا"
+      language: "اللغة"
       personal_message: "رسالة شخصية"
       resend: "إعادة إرسال"
       send_an_invitation: "إرسال دعوة"
@@ -551,6 +561,8 @@ ar:
         two: "Two photos by %{author}"
         zero: "No photos by %{author}"
   previous: "السابق"
+  privacy: "خصوصية"
+  privacy_policy: "سياسة الخصوصية"
   profile: "الصفحة الشخصية"
   profiles:
     edit:
@@ -701,6 +713,7 @@ ar:
       logged_in: "ولوج بـ %{service}"
       manage: "أَدِر الخدمات المتصلة"
       outside: "الرسائل العامة، متاحة للجميع حتى لمن هم خارج دياسبرا."
+      share: "شارك"
       title: "اضبُط الخدمات المتصلة"
     publisher:
       all: "الجميع"
@@ -721,6 +734,7 @@ ar:
     stream_element:
       dislike: "لم يعجبني"
       hide_and_mute: "أخـفِ وأسكـتْ"
+      ignore_user: "تجاهل %{name}"
       like: "أعجبني"
       shared_with: "مُشَارك مع: %{aspect_names}"
       unlike: "إلغاء إعجابي"
@@ -752,15 +766,24 @@ ar:
       two: "Show two more comments"
       zero: "No more comments"
   streams:
+    activity:
+      title: "نشاطي"
     aspects:
       title: "Your Aspects"
+    aspects_stream: "الفئات"
+    followed_tag:
+      follow: "تابِع"
+    followed_tags_stream: "الوسوم #المُتابعه"
+    mentioned_stream: "@اﻹشارات"
     mentions:
+      contacts_title: "الأشخاص الذين أشاروا إليك"
       title: "Your Mentions"
     tags:
       contacts_title: "People who dig these tags"
   tag_followings:
     create:
       failure: "فشل في متابعة: #%{name}"
+      none: "لا تستطيع متابعة وسم فارغ!"
       success: "بدأت بنجاح متابعة: #%{name}"
     destroy:
       failure: "فشل في إيقاف متابعة: #%{name}"
@@ -768,6 +791,7 @@ ar:
   tags:
     show:
       follow: "تابع #%{tag}"
+      followed_by: "يُتابعه"
       following: "أنت تتابع #%{tag}"
       nobody_talking: "لم يتحدث أحدٌ عن %{tag} بعد"
       people_tagged_with: "أشخاص موسومون بـ %{tag}"
@@ -799,6 +823,7 @@ ar:
       change_password: "تغيير كلمة المرور"
       close_account:
         what_we_delete: "We delete all of your posts, profile data, as soon as humanly possible. Your comments will hang around, but be associated with your Diaspora Handle."
+      close_account_text: "أغلق الحساب"
       comment_on_post: "...علق أحدهم على رسالتك"
       current_password: "كلمة المرور الحالية"
       download_photos: "تحميل صوري"
@@ -834,3 +859,4 @@ ar:
     no_person_constructed: "هذا الـ hcard غير صالح."
     not_enabled: "webfinger غير مفعل للمضيف %{account}"
     xrd_fetch_failed: "خطأ خلال استرجاع xrd من الحساب %{account}"
+  welcome: "أهلا وسهلا !"

@@ -1,4 +1,4 @@
-#   Copyright (c) 2010-2011, Diaspora Inc.  This file is
+#   Copyright (c) 2010-2012, Diaspora Inc.  This file is
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
@@ -602,7 +602,7 @@ es:
       first_name: "Nombre"
       last_name: "Apellidos"
       update_profile: "Actualizar perfil"
-      you_are_nsfw: "Has marcado tu perfil como no apto para el lugar de trabajo, tu contenido no se mostrará a las personas que hayan descartado publicaciones no aptas para todos los públicos."
+      you_are_nsfw: "Has marcado tu perfil como no apto para todos los públicos, tu contenido no se mostrará a las personas que hayan descartado ver ese tipo de publicaciones."
       you_are_safe_for_work: "Has marcado tu perfil como apto para todos públicos, esto significa que aceptas que el contenido que publiques respetará las normas de toda la comunidad."
       your_bio: "Biografía"
       your_birthday: "Fecha de nacimiento"

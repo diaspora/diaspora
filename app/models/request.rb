@@ -4,8 +4,7 @@
 #   the COPYRIGHT file.
 
 class Request
-  include ROXML
-  include Diaspora::Webhooks
+  include Diaspora::Federated::Base
   include ActiveModel::Validations
 
   attr_accessor :sender, :recipient, :aspect

@@ -47,12 +47,10 @@ describe UsersController do
     end
 
     it 'redirects to a profile page if html is requested' do
-      Diaspora::OstatusBuilder.should_not_receive(:new)
       get :public, :username => @user.username
       response.should be_redirect
     end
     it 'redirects to a profile page if mobile is requested' do
-      Diaspora::OstatusBuilder.should_not_receive(:new)
       get :public, :username => @user.username, :format => :mobile
       response.should be_redirect
     end

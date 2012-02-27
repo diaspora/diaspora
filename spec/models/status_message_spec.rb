@@ -287,13 +287,6 @@ STR
         @marshalled.diaspora_handle.should == @message.diaspora_handle
       end
     end
-
-
-    describe '#to_activity' do
-      it 'should render a string' do
-        @message.to_activity.should_not be_blank
-      end
-    end
   end
 
   describe '#after_dispatch' do
