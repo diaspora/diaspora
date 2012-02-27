@@ -1,6 +1,12 @@
 app.models.Post = Backbone.Model.extend({
   urlRoot : "/posts",
+
   initialize : function() {
+    this.setupCollections();
+    this.bind("change", this.setupCollections, this)
+  },
+
+  setupCollections: function() {
     this.comments = new app.collections.Comments(this.get("comments") || this.get("last_three_comments"), {post : this});
     this.likes = new app.collections.Likes([], {post : this}); // load in the user like initially
     this.participations = new app.collections.Participations([], {post : this}); // load in the user like initially
