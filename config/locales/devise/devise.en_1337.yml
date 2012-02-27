@@ -30,11 +30,11 @@ en_1337:
       hello: "H3Y %{email}!"
       invitation_instructions:
         accept: "J01N!"
-        displaying_correctly: "Email not displaying correctly? %{link} in your browser"
+        displaying_correctly: "M41L != C0RR3C7? %{link} 1N UR BR0W53R"
         ignore: "1M 4 N00B!"
         no_account_till: "51GN UP -> L1NK!"
         subject: "U H4V3 B33N 1NV173D 70 D*!"
-        view_in: "View in"
+        view_in: "V13W 1N"
       inviter:
         accept_at: "@ %{url}, U C4N 4CC3P7 17 -> L1NK!"
         have_invited_you: "%{names} H4V3 1NV173D Y0U 2 J01N!"
@@ -55,7 +55,7 @@ en_1337:
         change_password: "CH4NG3 MY *****"
       new:
         forgot_password: "F0RG07 Y0UR *****?"
-        no_account: "404 - Not Found"
+        no_account: "404 - N07 F0UND!"
         send_password_instructions: "R3537 MY *****!!"
       send_instructions: "G0NN4 R3C113V3 R3537 1N57RUC71ON5 BY M41L!"
       updated: "***** CH4NG3D"
@@ -93,6 +93,6 @@ en_1337:
       unlocked: "4CC UNL0CK3D!"
   errors:
     messages:
-      already_confirmed: "409 - Conflicting Request"
-      not_found: "404 - Not Found"
-      not_locked: "1337 - Not Locked"
+      already_confirmed: "409 - C0NFL1C71NG R3QU357"
+      not_found: "404 - N07 F0UND"
+      not_locked: "1337 - N07 L0CK3D"
