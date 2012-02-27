@@ -6,6 +6,8 @@ app.views.PostViewerFeedback = app.views.Feedback.extend({
   templateName: "post-viewer/feedback",
 
   events : {
+    "click *[rel='auth-required']" : "requireAuth",
+
     "click .like" : "toggleLike",
     "click .follow" : "toggleFollow",
     "click .reshare" : "resharePost",
@@ -27,6 +29,11 @@ app.views.PostViewerFeedback = app.views.Feedback.extend({
   },
 
   invokePane : function(evt){ this.trigger("invokePane") },
-  hidePane : function(evt){ this.trigger("hidePane") }
+  hidePane : function(evt){ this.trigger("hidePane") },
+
+  requireAuth : function(evt) {
+    alert("you must be logged in to do that!")
+    return false;
+  }
 
 })

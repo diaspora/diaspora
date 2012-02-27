@@ -21,8 +21,8 @@ app.views.PostViewerInteractions = app.views.Base.extend({
     this.reactionsView = new app.views.PostViewerReactions({ model : this.model })
 
     /* subviews that require user */
+    this.feedbackView = new app.views.PostViewerFeedback({ model : this.model })
     if(app.currentUser.authenticated()) {
-      this.feedbackView = new app.views.PostViewerFeedback({ model : this.model })
       this.newCommentView = new app.views.PostViewerNewComment({ model : this.model })
     }
   },

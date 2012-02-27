@@ -1,4 +1,4 @@
-<a href="#" class="label like" title="{{#if user_like}} Unlike {{else}} Like {{/if}}">
+<a href="#" rel="auth-required" class="label like" title="{{#if user_like}} Unlike {{else}} Like {{/if}}">
   {{#if user_like}}
     <i class="icon-heart icon-red"></i>
   {{else}}
@@ -7,7 +7,7 @@
   {{likes_count}}
 </a>
 
-<a href="#" class="label follow" title="{{#if user_participation}} Stop Following {{else}} Follow {{/if}} Post">
+<a href="#" rel="auth-required" class="label follow" title="{{#if user_participation}} Stop Following {{else}} Follow {{/if}} Post">
   {{#if user_participation}}
     <i class="icon-plus icon-green"></i>
   {{else}}
@@ -17,7 +17,7 @@
 </a>
 
 {{#if userCanReshare}}
-  <a href="#" class="label reshare" title="{{#if user_reshare}} Reshared {{else}} Reshare {{/if}}">
+  <a href="#" rel="auth-required" class="label reshare" title="{{#if user_reshare}} Reshared {{else}} Reshare {{/if}}">
     {{#if user_reshare}}
       <i class="icon-retweet icon-blue"></i>
     {{else}}

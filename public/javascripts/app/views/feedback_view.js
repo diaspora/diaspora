@@ -5,9 +5,9 @@ app.views.Feedback = app.views.Base.extend({
   className : "info",
 
   events: {
-    "click .like_action": "toggleLike",
-    "click .participate_action": "toggleFollow",
-    "click .reshare_action": "resharePost"
+    "click .like_action" : "toggleLike",
+    "click .participate_action" : "toggleFollow",
+    "click .reshare_action" : "resharePost"
   },
 
   initialize : function() {
