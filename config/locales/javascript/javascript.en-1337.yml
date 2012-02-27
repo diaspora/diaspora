@@ -9,9 +9,9 @@ en_1337:
     aspect_dropdown:
       add_to_aspect: "4DD N00B"
       all_aspects: "4LL 45P3C75"
-      error: "Couldn't start sharing with {{name}}.  Are you ignoring them?"
-      started_sharing_with: "You have started sharing with {{name}}!"
-      stopped_sharing_with: "You have stopped sharing with {{name}}."
+      error: "C0ULDN7 574LK {{name}}. H4V3 U PWND H1M?"
+      started_sharing_with: "U 574R73D 574LK1NG {{name}}!"
+      stopped_sharing_with: "U 570PP3D 574LK1NG {{name}}."
       toggle:
         few: "1N {{count}} 45P3C75"
         many: "1N {{count}} 45P3C75"
@@ -30,10 +30,10 @@ en_1337:
     failed_to_like: "F41L3D 2 <3!"
     failed_to_post_message: "F41L3D 2 53ND 5P4M!"
     getting_started:
-      hey: "Hey, {{name}}!"
+      hey: "H3Y, {{name}}!"
       preparing_your_stream: "Preparing your personialized stream..."
     header:
-      search: "Find people or #tags"
+      search: "F1ND N00B5 0R #74G5"
     infinite_scroll:
       no_more: "EOF"
     publisher:
@@ -46,28 +46,28 @@ en_1337:
     show_more: "5H0W M0R3!"
     stream:
       likes:
-        few: "<%= count %> Likes"
-        many: "<%= count %> Likes"
-        one: "<%= count %> Like"
-        other: "<%= count %> Likes"
-        two: "<%= count %> Likes"
-        zero: "<%= count %> Likes"
+        few: "<%= count %> <3"
+        many: "<%= count %> <3"
+        one: "<%= count %> <3"
+        other: "<%= count %> <3"
+        two: "<%= count %> <3"
+        zero: "<%= count %> <3"
       more_comments:
-        few: "Show <%= count %> more comments"
-        many: "Show <%= count %> more comments"
-        one: "Show <%= count %> more comment"
-        other: "Show <%= count %> more comments"
-        two: "Show <%= count %> more comments"
-        zero: "Show <%= count %> more comments"
+        few: "5H0W <%= count %> M0R3 C0MM3N75"
+        many: "5H0W <%= count %> M0R3 C0MM3N75"
+        one: "5H0W <%= count %> M0R3 C0MM3N7"
+        other: "5H0W <%= count %> M0R3 C0MM3N75"
+        two: "5H0W <%= count %> M0R3 C0MM3N75"
+        zero: "5H0W <%= count %> M0R3 C0MM3N75"
       reshares:
-        few: "<%= count %> Reshares"
-        many: "<%= count %> Reshares"
-        one: "<%= count %> Reshare"
-        other: "<%= count %> Reshares"
-        two: "<%= count %> Reshares"
-        zero: "<%= count %> Reshares"
+        few: "<%= count %> R35H4R35"
+        many: "<%= count %> R35H4R35"
+        one: "<%= count %> R35H4R3"
+        other: "<%= count %> R35H4R35"
+        two: "<%= count %> R35H4R35"
+        zero: "<%= count %> R35H4R35"
     tags:
-      wasnt_that_interesting: "OK, I suppose #{{tagName}} wasn't all that interesting..."
+      wasnt_that_interesting: "0K, 1 5UPP053 #{{tagName}} W45N7 7H47 1N73R3571NG..."
     timeago:
       day: "4 D4Y"
       days: "%d D4Y5"
