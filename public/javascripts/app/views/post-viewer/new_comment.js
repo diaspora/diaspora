@@ -30,12 +30,8 @@ app.views.PostViewerNewComment = app.views.Base.extend({
     this.model.trigger("interacted")
     this.toggleFormState()
     this.$("textarea").val("")
-    this.$("textarea").css('height', '18px')
-
-    /* scroll to bottom without animation */
-    $(this.scrollableArea).scrollTop($(this.scrollableArea).prop("scrollHeight"))
-
-    this.$("textarea").focus()
+      .css('height', '18px')
+      .focus()
   },
 
   toggleFormState : function() {
@@ -43,7 +39,7 @@ app.views.PostViewerNewComment = app.views.Base.extend({
   },
 
   scrollToBottom : function() {
-    $(this.scrollableArea).animate({ scrollTop: $(this.scrollableArea).prop("scrollHeight") }, 1000);
+    $(this.scrollableArea).scrollTop($(this.scrollableArea).prop("scrollHeight"))
   }
 
 })
