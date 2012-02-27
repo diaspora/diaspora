@@ -12,7 +12,15 @@ describe("app.views.Feedback", function(){
     var posts = $.parseJSON(spec.readFixture("stream_json"))["posts"];
 
     this.post = new app.models.Post(posts[0]);
-    this.view = new app.views.Feedback({model: this.post});
+    this.feedbackModel = new app.models.Feedback({
+      "like" : this.post.get("user_like"),
+      "likes": this.post.likes,
+      "post" : this.post,
+      "public" : this.post.get("public"),
+      "participation" : this.post.get("user_participation"),
+      "participations": this.post.participations
+    });
+    this.view = new app.views.Feedback({model: this.feedbackModel});
   });
 
 
@@ -25,10 +33,10 @@ describe("app.views.Feedback", function(){
     context("likes", function(){
       it("calls 'toggleLike' on the target post", function(){
         this.view.render();
-        spyOn(this.post, "toggleLike");
+        spyOn(this.feedbackModel, "toggleLike");
 
         this.link().click();
-        expect(this.post.toggleLike).toHaveBeenCalled();
+        expect(this.feedbackModel.toggleLike).toHaveBeenCalled();
       })
 
       context("when the user likes the post", function(){
@@ -40,7 +48,7 @@ describe("app.views.Feedback", function(){
 
       context("when the user doesn't yet like the post", function(){
         beforeEach(function(){
-          this.view.model.set({user_like : null});
+          this.feedbackModel.set({like : null});
           this.view.render();
         })
 
@@ -63,6 +71,7 @@ describe("app.views.Feedback", function(){
     context("when the post is public", function(){
       beforeEach(function(){
         this.post.attributes.public = true;
+        this.feedbackModel.set({public: true});
         this.view.render();
       })
 

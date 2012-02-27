@@ -81,7 +81,8 @@ app.views.Stream = Backbone.View.extend({
               .text( Diaspora.I18n.t("show_more") )
               .click(function(){
                 var el = $(this).parents('.collapsible');
-                el.animate({'height':el.data('orig-height')}, 750).removeClass('collapsed').addClass('opened');
+                el.removeClass('collapsed').addClass('opened');
+                el.animate({'height':el.data('orig-height')}, 750);
                 oembed.find('*').toggle();
                 $(this).hide();
               })

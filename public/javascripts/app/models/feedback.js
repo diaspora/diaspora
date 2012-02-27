@@ -1,17 +1,15 @@
 app.models.Feedback = Backbone.Model.extend({
 
   reshareAuthor : function(){
-    return this.get("post").get("author");
+    return this.get("post").reshareAuthor();
   },
 
-  createReshareUrl : "/reshares",
-
   reshare : function(){
-    return this._reshare = this._reshare || new app.models.Reshare({root_guid : this.get("post").get("guid")});
+    return this.get("post").reshare();
   },
 
   toggleLike : function() {
-    var userLike = this.get("like")
+    var userLike = this.get("like");
     if(userLike) {
       this.doUnlike()
     } else {
