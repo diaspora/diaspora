@@ -14,7 +14,7 @@ Handlebars.registerHelper('linkToPerson', function(context, block) {
   return html
 })
 
-Handlebars.registerHelper('avatar', function(person, size, imageClass) {
+Handlebars.registerHelper('personImage', function(person, size, imageClass) {
   size = (typeof(size) != "string" ? "small" : size);
   imageClass = (typeof(imageClass) != "string" ? size : imageClass);
 

@@ -7,9 +7,9 @@
 {{/if}}
 
 <div class="img">
-  <a href="/people/{{author.guid}}">
-    <img src="{{author.avatar.small}}" class="avatar smaller" />
-  </a>
+  {{#linkToPerson author}}
+    {{{personImage this "small" "small"}}}
+  {{/linkToPerson}}
 </div>
 
 <div class="bd">

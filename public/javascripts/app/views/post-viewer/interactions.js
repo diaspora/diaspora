@@ -30,15 +30,26 @@ app.views.PostViewerInteractions = app.views.Base.extend({
   togglePane : function(evt) {
     if(evt) { evt.preventDefault() }
     this.$("#post-info").slideToggle(300)
-    this.$("#post-info-sneaky").toggleClass('passive')
     this.removeTooltips()
   },
 
   invokePane : function() {
-    if(!this.$("#post-info").is(":visible")) { this.togglePane() }
+    if(!this.$("#post-info").is(":visible")) {
+      this.$("#post-info-sneaky").addClass("passive")
+      this.togglePane()
+    }
   },
 
   hidePane : function() {
-    if(this.$("#post-info").is(":visible")) { this.togglePane() }
+    if(this.$("#post-info").is(":visible")) {
+
+      /* it takes about 400ms for the pane to hide.  we need to keep
+       * the sneaky hidden until the slide is complete */
+      setTimeout(function(){
+        this.$("#post-info-sneaky").removeClass("passive")
+      }, 400)
+
+      this.togglePane()
+    }
   }
 })

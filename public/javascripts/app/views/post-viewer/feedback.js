@@ -14,7 +14,7 @@ app.views.PostViewerFeedback = app.views.Feedback.extend({
     "click *[rel='hide-interaction-pane']" : "hidePane"
   },
 
-  tooltipSelector : ".label",
+  tooltipSelector : ".label, .home-button",
 
   postRenderTemplate : function() {
     this.sneakyVisiblity()
