@@ -29,6 +29,7 @@ app.views.PostViewerInteractions = app.views.Base.extend({
 
   togglePane : function(evt) {
     if(evt) { evt.preventDefault() }
+    $("#post-interactions").toggleClass("active")
     this.$("#post-info").slideToggle(300)
     this.removeTooltips()
   },
