@@ -684,12 +684,6 @@ form p.checkbox_select
 *:-moz-placeholder
   @include placeholder_styles
 
-#file-upload
-  input
-    :height 100%
-    :width 100%
-    :cursor pointer
-
 #publisher
   :z-index 1
   :color #999
@@ -770,38 +764,33 @@ form p.checkbox_select
       :top 1em
 
   #file-upload
-    :position absolute !important
     :bottom 1px !important
-    :right 6px
-    :z-index 10
-    :margin 0
-
     :display inline-block
-
+    :margin 0
     :padding .3em .3em 3px
-    :cursor pointer
+    :position absolute !important
+    :right 6px
+
+    input[type='file']
+      :top initial !important
+      :right initial !important
 
     img
       @include opacity(0.4)
+
       :vertical-align bottom
-      :display inline-block
-      :margin 0
-      :padding 0
-      :margin
-        :bottom 1px
 
     &:hover
-      :background
-        :color none
+      :color #666
       :cursor pointer
 
-      :color #666
       img
         @include opacity(0.8)
 
     &:active
-      :text-shadow 0 1px 0 #fafafa
       :color #444
+      :text-shadow 0 1px 0 #fafafa
+
       img
         @include opacity(1)
 
