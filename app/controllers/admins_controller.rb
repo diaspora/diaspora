@@ -10,6 +10,10 @@ class AdminsController < ApplicationController
     @users = params[:user].empty? ? [] : User.where(params[:user])
   end
 
+  def user_list
+    @users = User.all
+  end
+
   def admin_inviter 
     user = User.find_by_email params[:idenitifer]
     unless user
