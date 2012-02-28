@@ -146,6 +146,11 @@ $pane-width: 420px;
 .multi-photo {
   display: table;
 
+  p {
+    font-weight: bold;
+    font-size: 20px;
+  }
+
   .img-bounding-box {
     display: table-cell;
     text-align: center;
@@ -179,7 +184,8 @@ $pane-width: 420px;
   p {
     font-size: 20px;
     line-height: 28px;
-    font-family: georgia, times, serif;
+    font-family: Palatino, times, georgia, serif;
+    margin-bottom: 30px;
   }
 }
 
@@ -198,6 +204,8 @@ $pane-width: 420px;
 .status-with-photo-backdrop {
   p {
     color: #fff;
+    font-size: 80px;
+    line-height: 90px;
 
     a {
       @include transition(background-color, 0.3s);
@@ -273,7 +281,7 @@ $pane-width: 420px;
   text-align: center;
   background-color: #333;
 
-  h3 {
+  p {
     color: #999;
   }
 
