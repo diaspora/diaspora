@@ -19,7 +19,10 @@ app.views.Base = Backbone.View.extend({
 
   defaultPresenter : function(){
     var modelJson = this.model ? this.model.toJSON() : {}
-    return _.extend(modelJson, {current_user: app.currentUser.attributes});
+    return _.extend(modelJson, {
+      current_user : app.currentUser.attributes,
+      loggedIn : app.currentUser.authenticated()
+    });
   },
 
   render : function() {
