@@ -21,6 +21,7 @@ app.pages.PostViewer = app.views.Base.extend({
   },
 
   initViews : function() {
+    /* init view */
     this.authorView = new app.views.PostViewerAuthor({ model : this.model });
     this.interactionsView = new app.views.PostViewerInteractions({ model : this.model });
     this.navView = new app.views.PostViewerNav({ model : this.model });
@@ -47,6 +48,10 @@ app.pages.PostViewer = app.views.Base.extend({
   },
 
   postRenderTemplate : function() {
+    /* set the document title */
+    console.log(this.model)
+    document.title = this.model.get("title");
+
     this.bindNavHooks();
   },
 

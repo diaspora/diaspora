@@ -78,7 +78,7 @@ class PostPresenter
 
   def title
     if post.text.present?
-      post.text
+      post.text(:plain_text => true)
     else
       I18n.translate('posts.presenter.title', :name => post.author.name)
     end  

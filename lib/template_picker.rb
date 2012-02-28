@@ -27,7 +27,7 @@ class TemplatePicker
   end
 
   def note?
-    self.status? && post.text.length > 300
+    self.status? && post.text(:plain_text => true).length > 200
   end
 
   def rich_media?
