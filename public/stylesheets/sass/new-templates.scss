@@ -598,6 +598,10 @@ body.idle {
 
   border-bottom: 1px solid #333;
 
+  p:last-child {
+    margin-bottom: 0;
+  }
+
   &:last-child {
     box-shadow: none;
     border-bottom: none;
