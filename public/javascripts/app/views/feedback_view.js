@@ -1,13 +1,17 @@
-app.views.Feedback = app.views.StreamObject.extend({
+app.views.Feedback = app.views.Base.extend({
 
   templateName: "feedback",
 
   className : "info",
 
   events: {
-    "click .like_action": "toggleLike",
-    "click .participate_action": "toggleFollow",
-    "click .reshare_action": "resharePost"
+    "click .like_action" : "toggleLike",
+    "click .participate_action" : "toggleFollow",
+    "click .reshare_action" : "resharePost"
+  },
+
+  initialize : function() {
+    this.model.bind('interacted', this.render, this);
   },
 
   presenter : function() {
@@ -30,10 +34,13 @@ app.views.Feedback = app.views.StreamObject.extend({
     if(evt) { evt.preventDefault(); }
     if(!window.confirm("Reshare " + this.model.reshareAuthor().name + "'s post?")) { return }
     var reshare = this.model.reshare()
+    var model = this.model
+
     reshare.save({}, {
       url: this.model.createReshareUrl,
-      success : function(){
-        app.stream.add(reshare);
+      success : function(resp){
+        app.stream && app.stream.add(reshare);
+        model.trigger("interacted")
       }
     });
   },
@@ -43,9 +50,9 @@ app.views.Feedback = app.views.StreamObject.extend({
     var rootExists = (isReshare ? this.model.get("root") : true)
 
     var publicPost = this.model.get("public");
-    var userIsNotAuthor = this.model.get("author").diaspora_id != app.user().get("diaspora_id");
-    var userIsNotRootAuthor = rootExists && (isReshare ? this.model.get("root").author.diaspora_id != app.user().get("diaspora_id") : true)
+    var userIsNotAuthor = this.model.get("author").diaspora_id != app.currentUser.get("diaspora_id");
+    var userIsNotRootAuthor = rootExists && (isReshare ? this.model.get("root").author.diaspora_id != app.currentUser.get("diaspora_id") : true)
 
-    return publicPost && userIsNotAuthor && userIsNotRootAuthor;
+    return publicPost && app.currentUser.authenticated() && userIsNotAuthor && userIsNotRootAuthor;
   }
 })

@@ -10,7 +10,12 @@ Then /^the first comment field should be closed$/ do
   find("#main_stream .stream_element .new_comment").should_not be_visible
 end
 
-
 When /^I comment "([^"]*)" on "([^"]*)"$/ do |comment_text, post_text|
   comment_on_post(post_text, comment_text)
+end
+
+When /^I make a show page comment "([^"]*)"$/ do |comment_text|
+  find(".label.comment").click
+  fill_in "new-comment-text", :with => comment_text
+  click_button :submit
 end

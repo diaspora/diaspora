@@ -23,8 +23,9 @@ app.views.Post = app.views.StreamObject.extend({
 
   tooltipSelector : ".delete, .block_user, .post_scope",
 
-  initialize : function() {
-    $(this.el).attr("id", this.model.get("guid"));
+  initialize : function(options) {
+    // allow for a custom template name to be passed in via the options hash
+    this.templateName = options.templateName || this.templateName
 
     this.model.bind('remove', this.remove, this);
     this.model.bind('destroy', this.destroy, this);
@@ -40,8 +41,8 @@ app.views.Post = app.views.StreamObject.extend({
   },
 
   feedbackView : function(){
-    if(!window.app.user()) { return null }
-    return new  app.views.Feedback({model : this.model});
+    if(!app.currentUser.authenticated()) { return null }
+    return new app.views.Feedback({model : this.model});
   },
 
   postContentView: function(){
@@ -53,12 +54,13 @@ app.views.Post = app.views.StreamObject.extend({
   presenter : function() {
     return _.extend(this.defaultPresenter(), {
       authorIsNotCurrentUser : this.authorIsNotCurrentUser(),
-      showPost : this.showPost()
+      showPost : this.showPost(),
+      text : app.helpers.textFormatter(this.model)
     })
   },
 
   showPost : function() {
-    return (app.user() && app.user().get("showNsfw")) || !this.model.get("nsfw")
+    return (app.currentUser.get("showNsfw")) || !this.model.get("nsfw")
   },
 
   removeNsfwShield: function(evt){
@@ -69,7 +71,7 @@ app.views.Post = app.views.StreamObject.extend({
 
   toggleNsfwState: function(evt){
     if(evt){ evt.preventDefault(); }
-    app.user().toggleNsfwState();
+    app.currentUser.toggleNsfwState();
   },
 
   blockUser: function(evt){
@@ -116,7 +118,7 @@ app.views.Post = app.views.StreamObject.extend({
   },
 
   authorIsNotCurrentUser : function() {
-    return this.model.get("author").id != (!!app.user() && app.user().id)
+    return this.model.get("author").id != app.user().id
   },
 
   isOnShowPage : function() {

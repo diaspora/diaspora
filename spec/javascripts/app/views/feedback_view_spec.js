@@ -16,6 +16,14 @@ describe("app.views.Feedback", function(){
   });
 
 
+  describe("triggers", function() {
+    it('re-renders when the model triggers feedback', function(){
+      spyOn(this.view, "postRenderTemplate")
+      this.view.model.trigger("interacted")
+      expect(this.view.postRenderTemplate).toHaveBeenCalled()
+    })
+  })
+
   describe(".render", function(){
     beforeEach(function(){
       this.link = function(){ return this.view.$(".like_action"); }
@@ -100,7 +108,7 @@ describe("app.views.Feedback", function(){
 
     context("when the current user owns the post", function(){
       beforeEach(function(){
-        this.post.attributes.author = window.current_user;
+        this.post.attributes.author = app.currentUser;
         this.view.render();
       })
 

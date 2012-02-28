@@ -8,6 +8,10 @@ app.views.LikesInfo = app.views.StreamObject.extend({
 
   tooltipSelector : ".avatar",
 
+  initialize : function() {
+    this.model.bind('expandedLikes', this.render, this)
+  },
+
   presenter : function() {
     return _.extend(this.defaultPresenter(), {
       likes : this.model.likes.models
@@ -21,6 +25,7 @@ app.views.LikesInfo = app.views.StreamObject.extend({
       .done(function(resp){
       // set like attribute and like collection
       self.model.set({likes : self.model.likes.reset(resp)})
+      self.model.trigger("expandedLikes")
     })
   }
 });

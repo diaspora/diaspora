@@ -1,0 +1,57 @@
+<a href="#" rel="auth-required" class="label like" title="{{#if user_like}} {{t "viewer.unlike"}} {{else}} {{t "viewer.like"}} {{/if}}">
+  {{#if user_like}}
+    <i class="icon-heart icon-red"></i>
+  {{else}}
+    <i class="icon-heart icon-white"></i>
+  {{/if}}
+  {{likes_count}}
+</a>
+
+<a href="#" rel="auth-required" class="label follow" title="{{#if user_participation}} {{t "viewer.stop_following_post"}} {{else}} {{t "viewer.follow_post"}} {{/if}}">
+  {{#if user_participation}}
+    <i class="icon-plus icon-green"></i>
+  {{else}}
+    <i class="icon-plus icon-white"></i>
+  {{/if}}
+  {{participations_count}}
+</a>
+
+{{#if userCanReshare}}
+  <a href="#" rel="auth-required" class="label reshare" title="{{#if user_reshare}} {{t "viewer.reshared"}} {{else}} {{t "viewer.reshare"}} {{/if}}">
+    {{#if user_reshare}}
+      <i class="icon-retweet icon-blue"></i>
+    {{else}}
+      <i class="icon-retweet icon-white"></i>
+    {{/if}}
+    {{reshares_count}}
+  </a>
+{{/if}}
+
+<a href="#" class="label comment" rel="invoke-interaction-pane" title="{{t "viewer.comment"}}">
+  <i class="icon-comment icon-white"></i>
+  {{comments_count}}
+</a>
+
+<!-- this acts as a dock underlay -->
+<div id="post-info-sneaky" class="passive">
+  <div id="post-info-container-sneaky">
+    <a href="#" rel="invoke-interaction-pane" class="invoker">
+      <img src="/images/up-tick-inset.png" class="info-tick"/>
+      <a href="/" title="{{t "header.home"}}" class="home-button">
+        <i class="icon-home icon-white"></i>
+      </a>
+    </a>
+  </div>
+</div>
+
+<!-- this closes an open interaction pane -->
+<div id="close-reactions-pane">
+  <div id="close-reactions-pane-container">
+    <a href="#" rel="hide-interaction-pane" class="invoker">
+      <a href="/" title="{{t "header.home"}}" class="home-button">
+        <i class="icon-home icon-white"></i>
+      </a>
+    </a>
+  </div>
+</div>
+

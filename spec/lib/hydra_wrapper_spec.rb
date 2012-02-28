@@ -31,13 +31,13 @@ describe HydraWrapper do
     end
   end
 
-  describe '#salmon' do
+  describe '#xml_factory' do
     it 'calls the salmon method on the dispatcher class (and memoizes)' do
       Base64.stub(:decode64).and_return(@wrapper.encoded_object_xml + 'decoded')
       decoded = Base64.decode64(@wrapper.encoded_object_xml)
       @wrapper.dispatcher_class.should_receive(:salmon).with(@wrapper.user, decoded).once.and_return(true)
-      @wrapper.salmon
-      @wrapper.salmon
+      @wrapper.xml_factory
+      @wrapper.xml_factory
     end
   end
 

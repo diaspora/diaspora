@@ -1,8 +1,8 @@
 app.views.Header = app.views.Base.extend({
-  
+
   templateName : "header",
 
-  tagName : "header",
+  className : "dark-header",
 
   events : {
     "click ul.dropdown li:first-child" : "toggleDropdown"

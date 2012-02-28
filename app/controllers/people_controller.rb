@@ -5,7 +5,7 @@
 require File.join(Rails.root, "lib", 'stream', "person")
 
 class PeopleController < ApplicationController
-  before_filter :authenticate_user!, :except => [:show]
+  before_filter :authenticate_user!, :except => [:show, :last_post]
   before_filter :redirect_if_tag_search, :only => [:index]
 
   respond_to :html, :except => [:tag_index]
@@ -106,6 +106,12 @@ class PeopleController < ApplicationController
       format.all { respond_with @person, :locals => {:post_type => :all} }
       format.json{ render_for_api :backbone, :json => @stream.stream_posts, :root => :posts }
     end
+  end
+
+  def last_post
+    @person = Person.find_from_guid_or_username(params)
+    last_post = Post.visible_from_author(@person, current_user).order('posts.created_at DESC').first
+    redirect_to post_path(last_post)
   end
 
   def retrieve_remote

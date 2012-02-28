@@ -1,6 +1,6 @@
 app.models.Reshare = app.models.Post.extend({
   rootPost : function(){
-    this._rootPost = this._rootPost || new app.models.Post(this.get("root"))
+    this._rootPost = this._rootPost || new app.models.Post(this.get("root"));
     return this._rootPost
   },
 
