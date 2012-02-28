@@ -612,6 +612,8 @@ en:
     comment_email_subject: "%{name}'s photo"
 
   posts:
+    presenter:
+      title: "A post from %{name}"
     show:
       destroy: "Delete"
       permalink: "permalink"

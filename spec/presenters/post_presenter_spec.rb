@@ -67,4 +67,21 @@ describe PostPresenter do
       @presenter.previous_post_path.should ==  Rails.application.routes.url_helpers.post_path(@sm)
     end
   end
+  
+  describe '#title' do 
+    it 'includes the text if it is present' do
+      @sm = stub(:text => "lalalalalalala", :author => bob.person)
+      @presenter.post = @sm
+      @presenter.title.should == @sm.text
+    end
+
+    context 'with posts without text' do
+      it ' displays a messaage with the post class' do
+
+        @sm = stub(:text => "", :author => bob.person)
+        @presenter.post = @sm
+        @presenter.title.should == "A post from #{@sm.author.name}"
+      end
+    end
+  end
 end

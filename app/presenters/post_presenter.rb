@@ -23,7 +23,8 @@ class PostPresenter
         :reshares => self.reshares,
         :comments => self.comments,
         :participations => self.participations,
-        :templateName => template_name
+        :templateName => template_name,
+        :title => title
       })
   end
 
@@ -75,6 +76,13 @@ class PostPresenter
     end
   end
 
+  def title
+    if post.text.present?
+      post.text
+    else
+      I18n.translate('posts.presenter.title', :name => post.author.name)
+    end  
+  end
 
   def template_name
     @template_name ||= TemplatePicker.new(post).template_name
@@ -107,4 +115,5 @@ class PostPresenter
   def user_signed_in?
     current_user.present?
   end
+
 end
