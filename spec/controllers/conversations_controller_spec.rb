@@ -34,20 +34,29 @@ describe ConversationsController do
   end
 
   describe '#index' do
-    it 'succeeds' do
-      get :index
-      response.should be_success
-    end
-
-    it 'retrieves all conversations for a user' do
+    before do
       hash = {
         :author => alice.person,
         :participant_ids => [alice.contacts.first.person.id, alice.person.id],
         :subject => 'not spam',
         :messages_attributes => [ {:author => alice.person, :text => 'cool stuff'} ]
       }
-      3.times { Conversation.create(hash) }
-
+      @conversations = Array.new(3) { Conversation.create(hash) }
+    end
+    
+    it 'succeeds' do
+      get :index
+      response.should be_success
+      assigns[:conversations].should == @conversations
+    end
+    
+    it 'succeeds with json' do
+      get :index, :format => :json
+      response.should be_success
+      response.body.should == @conversations.to_json
+    end
+    
+    it 'retrieves all conversations for a user' do
       get :index
       assigns[:conversations].count.should == 3
     end
@@ -137,10 +146,17 @@ describe ConversationsController do
       @conversation = Conversation.create(hash)
     end
     
-    it 'succeeds' do
+    it 'succeeds with js' do
       get :show, :id => @conversation.id, :format => :js
       response.should be_success
       assigns[:conversation].should == @conversation
+    end
+    
+    it 'succeeds with json' do
+      get :show, :id => @conversation.id, :format => :json
+      response.should be_success
+      assigns[:conversation].should == @conversation
+      response.body.should == @conversation.to_json
     end
 
     it 'redirects to index' do
