@@ -91,6 +91,11 @@ $pane-width: 420px;
   @include box-shadow(0, 3px, 15px, #999);
 }
 
+@mixin media-text() {
+  font-weight: bold;
+  font-size: 20px;
+}
+
 /* keyframes */
 
 @-webkit-keyframes bump-left {
@@ -147,8 +152,7 @@ $pane-width: 420px;
   display: table;
 
   p {
-    font-weight: bold;
-    font-size: 20px;
+    @include media-text();
   }
 
   .img-bounding-box {
@@ -278,11 +282,23 @@ $pane-width: 420px;
 }
 
 .rich-media {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+
   text-align: center;
   background-color: #333;
 
   p {
+    @include media-text();
     color: #999;
+
+    a {
+      font-weight: normal;
+      font-size: smaller;
+    }
   }
 
   iframe {
@@ -291,6 +307,17 @@ $pane-width: 420px;
     width: 857px;
     height: 480px;
   }
+}
+
+.rich-media-container {
+  display: table;
+  height: 100%;
+  width: 100%;
+}
+
+.rich-media-container2 {
+  display: table-cell;
+  vertical-align: middle;
 }
 
 #post-nav {
