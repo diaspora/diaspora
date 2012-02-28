@@ -1817,6 +1817,33 @@ ul#press_logos
       :size 12px
     :color #777
 
+  .collapsible
+    :overflow hidden
+    :position relative
+
+    .oembed
+      :background lighten($light-grey, 10%)
+
+      .thumb
+        :display none
+
+    .expander
+      :position absolute
+      :bottom 0
+      :left 0
+      :right 0
+      :height 30px
+      :text-align center
+      :line-height 48px
+      :font-size .8em
+      :color $grey
+      :text-shadow 0 0 7px #FFF
+      :cursor pointer
+      :border-bottom 2px solid #DDD
+      @include border-radius(0, 0, 3px, 3px)
+      @include linear-gradient(rgba(255,255,255,0) , #EEE, 0%, 95%)
+      :background-color transparent
+
 .conversation_participants
   :z-index 3
   :background

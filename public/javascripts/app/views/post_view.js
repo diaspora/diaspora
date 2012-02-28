@@ -41,7 +41,15 @@ app.views.Post = app.views.StreamObject.extend({
 
   feedbackView : function(){
     if(!window.app.user()) { return null }
-    return new  app.views.Feedback({model : this.model});
+    var feedbackModel = new app.models.Feedback({
+      "like" : this.model.get("user_like"),
+      "likes": this.model.likes,
+      "post" : this.model,
+      "public" : this.model.get("public"),
+      "participation" : this.model.get("user_participation"),
+      "participations": this.model.participations
+    });
+    return new  app.views.Feedback({model : feedbackModel});
   },
 
   postContentView: function(){

@@ -15,7 +15,7 @@ class ParticipationsController < ApplicationController
     if @participation
       respond_to do |format|
         format.mobile { redirect_to post_path(@participation.post_id) }
-        format.json { render :json => @participation.parent.as_api_response(:backbone), :status => 201 }
+        format.json { render :json => @participation.as_api_response(:backbone), :status => 201 }
       end
     else
       render :nothing => true, :status => 422

@@ -19,7 +19,7 @@ app.views.Base =  Backbone.View.extend({
     this.renderSubviews()
     this.renderPluginWidgets()
 
-    return this
+    return this;
   },
 
   renderTemplate : function(){

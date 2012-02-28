@@ -16,5 +16,12 @@
 
 <div class="collapsible">
   {{{text}}}
-  {{{o_embed_html}}}
+  {{#if o_embed_cache}}
+  <div class="oembed">
+    {{#if o_embed_cache.data.thumbnail_url}}
+    <img src="{{o_embed_cache.data.thumbnail_url}}" class="thumb" />
+    {{/if}}
+    {{{o_embed_html}}}
+  </div>
+  {{/if}}
 </div>

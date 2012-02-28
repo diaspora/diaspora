@@ -10,6 +10,10 @@ app.views.Feedback = app.views.StreamObject.extend({
     "click .reshare_action": "resharePost"
   },
 
+  initialize: function() {
+    this.model.bind('change', this.render, this);
+  },
+
   presenter : function() {
     return _.extend(this.defaultPresenter(), {
       userCanReshare : this.userCanReshare()
@@ -31,7 +35,7 @@ app.views.Feedback = app.views.StreamObject.extend({
     if(!window.confirm("Reshare " + this.model.reshareAuthor().name + "'s post?")) { return }
     var reshare = this.model.reshare()
     reshare.save({}, {
-      url: this.model.createReshareUrl,
+      url: this.model.get("post").createReshareUrl,
       success : function(){
         app.stream.add(reshare);
       }
@@ -39,12 +43,12 @@ app.views.Feedback = app.views.StreamObject.extend({
   },
 
   userCanReshare : function() {
-    var isReshare = this.model.get("post_type") == "Reshare"
-    var rootExists = (isReshare ? this.model.get("root") : true)
+    var isReshare = this.model.get("post").get("post_type") == "Reshare"
+    var rootExists = (isReshare ? this.model.get("post").get("root") : true)
 
-    var publicPost = this.model.get("public");
-    var userIsNotAuthor = this.model.get("author").diaspora_id != app.user().get("diaspora_id");
-    var userIsNotRootAuthor = rootExists && (isReshare ? this.model.get("root").author.diaspora_id != app.user().get("diaspora_id") : true)
+    var publicPost = this.model.get("post").get("public");
+    var userIsNotAuthor = this.model.get("post").get("author").diaspora_id != app.user().get("diaspora_id");
+    var userIsNotRootAuthor = rootExists && (isReshare ? this.model.get("post").get("root").author.diaspora_id != app.user().get("diaspora_id") : true)
 
     return publicPost && userIsNotAuthor && userIsNotRootAuthor;
   }
