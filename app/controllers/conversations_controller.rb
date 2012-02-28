@@ -19,6 +19,11 @@ class ConversationsController < ApplicationController
 
     @conversation = Conversation.joins(:conversation_visibilities).where(
       :conversation_visibilities => {:person_id => current_user.person.id, :conversation_id => params[:conversation_id]}).first
+
+    respond_with do |format|
+      format.html
+      format.json { render :json => @conversations, :status => 200 }
+    end
   end
 
   def create
@@ -56,6 +61,7 @@ class ConversationsController < ApplicationController
       respond_to do |format|
         format.html { redirect_to conversations_path(:conversation_id => @conversation.id) }
         format.js
+        format.json { render :json => @conversation, :status => 200 }
       end
     else
       redirect_to conversations_path
