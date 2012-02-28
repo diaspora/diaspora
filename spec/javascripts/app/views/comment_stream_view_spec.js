@@ -4,6 +4,14 @@ describe("app.views.CommentStream", function(){
     loginAs({})
   })
 
+  describe("binds", function() {
+    it("re-renders on a commentsExpanded trigger", function(){
+      spyOn(this.view, "render")
+      this.view.model.trigger("commentsExpanded")
+      expect(this.view.render).toHaveBeenCalled()
+    })
+  })
+
   describe("postRenderTemplate", function(){
     it("applies infield labels", function(){
       spyOn($.fn, "placeholder")

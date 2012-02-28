@@ -8,8 +8,8 @@ app.models.Post = Backbone.Model.extend({
 
   setupCollections: function() {
     this.comments = new app.collections.Comments(this.get("comments") || this.get("last_three_comments"), {post : this});
-    this.likes = new app.collections.Likes([], {post : this}); // load in the user like initially
-    this.participations = new app.collections.Participations([], {post : this}); // load in the user like initially
+    this.likes = this.likes || new app.collections.Likes([], {post : this}); // load in the user like initially
+    this.participations = this.participations || new app.collections.Participations([], {post : this}); // load in the user like initially
   },
 
   createdAt : function() {
