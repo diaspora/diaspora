@@ -3,11 +3,11 @@
     var text = model.get("text");
     var mentions = model.get("mentioned_people");
 
-    return $(textFormatter.mentionify(
+    return textFormatter.mentionify(
       textFormatter.hashtagify(
         textFormatter.markdownify(text)
         ), mentions
-      )).html()
+      )
   };
 
   textFormatter.markdownify = function markdownify(text){

@@ -87,6 +87,10 @@ $pane-width: 420px;
   background-image: url("../images/hatched-bg-dark.png");
 }
 
+@mixin photo-shadow() {
+  @include box-shadow(0, 3px, 15px, #999);
+}
+
 /* keyframes */
 
 @-webkit-keyframes bump-left {
@@ -153,7 +157,7 @@ $pane-width: 420px;
   }
 
   img {
-    @include box-shadow(0, 3px, 15px, #999);
+    @include photo-shadow();
 
     max-width: 100%;
     max-height: 100%;
@@ -175,26 +179,40 @@ $pane-width: 420px;
   p {
     font-size: 20px;
     line-height: 28px;
-  }
-
-  h1 {
-    margin-bottom: 1em;
+    font-family: georgia, times, serif;
   }
 }
 
 .status,
 .status-with-photo-backdrop
 {
-  h1 {
+  p {
     font-weight: bold;
     font-size: 40px;
+    line-height: 45px;
+    padding-bottom: 0;
+    margin-bottom: 0;
   }
 }
 
 .status-with-photo-backdrop {
-  h1 {
-    font-size: 100px;
+  p {
     color: #fff;
+
+    a {
+      @include transition(background-color, 0.3s);
+
+      color: #000;
+      background-color: #fff;
+      background-color: rgba(255,255,255,0.7);
+      padding: 0 5px;
+
+      &:hover {
+        text-decoration: none;
+        background-color: #fff;
+        background-color: rgba(255,255,255,1);
+      }
+    }
   }
 }
 
@@ -212,6 +230,8 @@ $pane-width: 420px;
     display: table-cell;
     vertical-align: middle;
     text-align: center;
+
+    padding: 70px 10%;
 
     height: 100%;
     width: 100%;
@@ -235,9 +255,17 @@ $pane-width: 420px;
 }
 
 .photo-backdrop {
-  h1 {
+  p {
     color: #fff;
     z-index: 2;
+  }
+
+  img {
+    position: relative;
+  }
+
+  .photo-fill {
+    @include opacity(0.2)
   }
 }
 
@@ -381,6 +409,7 @@ body.idle {
   bottom: 0;
   left: 0;
   text-align: center;
+  z-index: 100;
 }
 
 #post-reactions {
@@ -639,9 +668,15 @@ body.idle {
 #post-content {
   display: table;
 
+  padding: 70px 10%;
+
   position: absolute;
   height: 100%;
   width: 100%;
+
+  img {
+    @include photo-shadow();
+  }
 }
 
 #post-feedback {
