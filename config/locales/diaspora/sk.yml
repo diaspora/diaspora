@@ -40,7 +40,7 @@ sk:
             username:
               invalid: "je neplatné. Povolené sú len písmená, číslice a podčiarkovníky."
               taken: "je už obsadený."
-  ago: "pred %{time}"
+  ago: "%{time}"
   all_aspects: "Všetky kategórie"
   application:
     helper:
@@ -206,10 +206,10 @@ sk:
       community_spotlight: "Aktuality z komunity"
       many_people_are_you_sure: "Určite chcete začať súkromný rozhovor s viac ako %{suggested_limit} ľuďmi? Poslanie príspevku do tejto kategórie môže byť lepší spôsob, ako sa s nimi spojiť."
       my_contacts: "Moje kontakty"
-      no_contacts: "Zdá sa, že treba pridať pár kontaktov!"
+      no_contacts: "Zdá sa, že potrebujete pridať pár kontaktov!"
       no_contacts_message: "Pozrite si %{community_spotlight}"
       no_contacts_message_with_aspect: "Pozrite si %{community_spotlight} alebo %{add_to_aspect_link}"
-      only_sharing_with_me: "Tí, ktorí sa delia iba  so mnou"
+      only_sharing_with_me: "Tí, ktorí majú v kontaktoch iba mňa"
       remove_person_from_aspect: "Odstrániť použ. %{person_name} z kategórie %{aspect_name}"
       start_a_conversation: "Začať rozhovor"
       title: "Kontakty"
@@ -218,7 +218,7 @@ sk:
     one: "1 kontakt"
     other: "%{count} kontaktov"
     sharing:
-      people_sharing: "Ľudia, ktorí sa  s vami podelili:"
+      people_sharing: "Ľudia, ktorí vás majú v kontaktoch:"
     spotlight:
       community_spotlight: "Aktuality z komunity"
     two: "%{count} kontakty"
@@ -383,9 +383,9 @@ sk:
     index:
       and: "a"
       and_others:
-        few: " a ešte %{count}"
-        one: " a ešte %{count}"
-        other: " a ešte %{count}"
+        few: " a ďalšie %{count}"
+        one: " a ďalší %{count}"
+        other: " a ďalších %{count}"
         zero: " a žiadne ďalšie"
       mark_all_as_read: "Všetky označiť ako prečítané"
       notifications: "Oznamy"
@@ -441,7 +441,7 @@ sk:
     email_sent_by_diaspora: "Tento e-mail poslala Diaspora. Ak nechcete dostávať takéto e-maily,"
     hello: "Ahoj %{name}!"
     liked:
-      liked: "%{name} pridal(a) špendlík na váš príspevok"
+      liked: "%{name} označil(a), že sa mu (jej) páči váš príspevok"
       view_post: "Zobraziť príspevok >"
     mentioned:
       mentioned: "vás spomenul(a) v príspevku:"
@@ -786,9 +786,9 @@ sk:
   stream_helper:
     hide_comments: "schovať komentáre"
     show_comments:
-      few: "Zobraziť ďalších %{count} komentárov"
+      few: "Zobraziť ďalšie %{count} komentárov"
       many: "Zobraziť ďalších %{count} komentárov"
-      one: "Zobraziť ešte jeden komentár"
+      one: "Zobraziť ešte %{count} komentár"
       other: "Zobraziť ďalších %{count} komentárov"
       two: "Zobraziť ďalšie dva komentáre"
       zero: "Žiadne ďalšie komentáre nie sú"
@@ -809,8 +809,8 @@ sk:
       title: "#Značky, ktoré sledujete"
     followed_tags_stream: "#Značky, ktoré sledujete"
     like_stream:
-      contacts_title: "Ľudia, ktorých príspevky ste pripli špendlíkom"
-      title: "Špendlíky"
+      contacts_title: "Ľudia, ktorých príspevky sa vám páčia"
+      title: "Nástenka so všetkým, čo sa mi páči"
     mentioned_stream: "@Zmienky"
     mentions:
       contacts_title: "Ľudia, ktorí vás spomenuli"
@@ -893,7 +893,7 @@ sk:
       export_data: "Exportovať dáta"
       following: "Nastavenia sledovania"
       getting_started: "Nové nastavenia používateľa"
-      liked: "...niekto pridá špendlík na váš príspevok?"
+      liked: "...sa niekomu zapáči váš príspevok?"
       mentioned: "...vás spomenuli v príspevku?"
       new_password: "Nové heslo"
       photo_export_unavailable: "Momentálne sa fotky nedajú exportovať"

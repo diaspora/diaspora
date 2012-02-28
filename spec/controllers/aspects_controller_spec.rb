@@ -104,6 +104,14 @@ describe AspectsController do
       put('update', :id => @alices_aspect_1.id, "aspect" => params)
       Aspect.find(@alices_aspect_1.id).user_id.should == alice.id
     end
+
+    it "should return the name and id of the updated item" do
+      params = {"name" => "Bruisers"}
+      put('update', :id => @alices_aspect_1.id, "aspect" => params)
+
+      puts( response.inspect )
+      response.body.should == { :id => @alices_aspect_1.id, :name => "Bruisers" }.to_json
+    end
   end
 
   describe '#edit' do
