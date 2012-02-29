@@ -12,6 +12,9 @@ app.views.CommentStream = app.views.Base.extend({
 
   initialize: function(options) {
     this.model.comments.bind('add', this.appendComment, this);
+    this.commentTemplate = options.commentTemplate;
+
+    this.model.bind("commentsExpanded", this.render, this)
   },
 
   postRenderTemplate : function() {
@@ -59,9 +62,12 @@ app.views.CommentStream = app.views.Base.extend({
 
     var self = this;
     this.model.comments.fetch({
-      success : function(){
-        self.model.set({all_comments_loaded : true});
-        self.render();
+      success : function(resp){
+        self.model.set({
+          comments : resp.models,
+          all_comments_loaded : true
+        })
+        self.model.trigger("commentsExpanded", self)
       }
     });
   }

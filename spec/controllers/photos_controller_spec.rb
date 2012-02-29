@@ -90,105 +90,6 @@ describe PhotosController do
     end
   end
 
-  describe '#show' do
-    context "user's own photo" do
-      before do
-        get :show, :id => @alices_photo.id
-      end
-
-      it "succeeds" do
-        response.should be_success
-      end
-
-      it "assigns the photo" do
-        assigns[:photo].should == @alices_photo
-        @controller.ownership.should be_true
-      end
-    end
-
-    context "private photo user can see" do
-      it "succeeds" do
-        get :show, :id => @bobs_photo.id
-        response.should be_success
-      end
-
-      it "assigns the photo" do
-        get :show, :id => @bobs_photo.id
-        assigns[:photo].should == @bobs_photo
-        @controller.ownership.should be_false
-      end
-
-      it 'succeeds with a like present' do
-        sm = bob.post(:status_message, :text => 'parent post', :to => 'all')
-        @bobs_photo.status_message_guid = sm.guid
-        @bobs_photo.save!
-        alice.like!(@bobs_photo.status_message)
-        get :show, :id => @bobs_photo.id
-        response.should be_success
-      end
-    end
-
-    context "private photo user cannot see" do
-      before do
-        user3 = Factory(:user_with_aspect)
-        @photo = user3.post(:photo, :user_file => uploaded_photo, :to => user3.aspects.first.id)
-      end
-
-      it "redirects to the referrer" do
-        request.env["HTTP_REFERER"] = "http://google.com"
-        get :show, :id => @photo.to_param
-        response.should redirect_to("http://google.com")
-      end
-
-      it "redirects to the aspects page if there's no referrer" do
-        request.env.delete("HTTP_REFERER")
-        get :show, :id => @photo.to_param
-        response.should redirect_to(root_path)
-      end
-      
-      it 'redirects to the sign in page if not logged in' do
-        controller.stub(:user_signed_in?).and_return(false) #sign_out :user doesn't work
-        get :show, :id => @photo.to_param
-        response.should redirect_to new_user_session_path
-      end
-    end
-
-    context "public photo" do
-      before do
-        user3 = Factory(:user_with_aspect)
-        @photo = user3.post(:photo, :user_file => uploaded_photo, :to => user3.aspects.first.id, :public => true)
-      end
-      context "user logged in" do
-        before do
-          get :show, :id => @photo.to_param
-        end
-
-        it "succeeds" do
-          response.should be_success
-        end
-
-        it "assigns the photo" do
-          assigns[:photo].should == @photo
-          @controller.ownership.should be_false
-        end
-      end
-      context "not logged in" do
-        before do
-          sign_out :user
-          get :show, :id => @photo.to_param
-        end
-
-        it "succeeds" do
-          response.should be_success
-        end
-
-        it "assigns the photo" do
-          assigns[:photo].should == @photo
-        end
-      end
-    end
-  end
-
   describe '#edit' do
     it "succeeds when user owns the photo" do
       get :edit, :id => @alices_photo.id
@@ -200,7 +101,6 @@ describe PhotosController do
       response.should redirect_to(:action => :index, :person_id => alice.person.guid.to_s)
     end
   end
-
 
   describe '#destroy' do
     it 'let a user delete his message' do
@@ -263,59 +163,4 @@ describe PhotosController do
     end
   end
 
-
-  describe 'data helpers' do
-    describe '.ownership' do
-      it 'is true if current user owns the photo' do
-        get :show, :id => @alices_photo.id
-        @controller.ownership.should be_true
-      end
-
-      it 'is true if current user owns the photo' do
-        get :show, :id => @bobs_photo.id
-        @controller.ownership.should be_false
-      end
-    end
-
-    describe 'parent' do
-      it 'grabs the status message of the photo if a parent exsists' do
-        sm = alice.post(:status_message, :text => 'yes', :to => alice.aspects.first)
-        @alices_photo.status_message = sm
-        @alices_photo.save
-        get :show, :id => @alices_photo.id
-        @controller.parent.id.should == sm.id
-      end
-
-      it 'uses the photo if no status_message exsists' do
-        get :show, :id => @alices_photo.id
-        @controller.parent.id.should == @alices_photo.id
-      end
-    end
-
-    describe '.photo' do
-      it 'returns a visible photo, based on the :id param' do
-        get :show, :id => @alices_photo.id
-        @controller.photo.id.should == @alices_photo.id
-
-      end
-    end
-
-    describe '.additional_photos' do
-      it 'finds all of a parent status messages photos' do
-        sm = alice.post(:status_message, :text => 'yes', :to => alice.aspects.first)
-        @alices_photo.status_message = sm
-        @alices_photo.save
-        get :show, :id => @alices_photo.id
-        @controller.additional_photos.should include(@alices_photo)
-      end
-    end
-
-    describe '.next_photo' do
-
-    end
-
-    describe '.previous_photo' do
-
-    end
-  end
 end

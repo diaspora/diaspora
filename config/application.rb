@@ -26,7 +26,8 @@ module Diaspora
 
     # Add additional load paths for your own custom dirs
      #config.autoload_paths += %W(#{config.root}/lib)
-     config.autoload_paths += %W(#{config.root}/lib)
+     config.autoload_paths += %W(#{config.root}/lib #{config.root}/app/presenters)
+     #OMG HAX PLZ FIX MAKE ALL LIB AUTOLOAD KTHNX
      config.autoload_paths += %W(#{config.root}/lib/*)
      config.autoload_paths += %W(#{config.root}/lib/*/*)
      config.autoload_paths += %W(#{config.root}/lib/*/*/*)

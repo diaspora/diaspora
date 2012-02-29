@@ -15,6 +15,7 @@
     = person.name
   %span.diaspora_handle
     = person.diaspora_handle
+    = link_to t('people.last_post'), last_post_person_path(person.to_param)
 
   .description
     - if !person.profile.tag_string.blank? && user_signed_in?

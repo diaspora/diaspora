@@ -47,13 +47,13 @@ describe ConversationsController do
     it 'succeeds' do
       get :index
       response.should be_success
-      assigns[:conversations].should == @conversations
+      assigns[:conversations].should =~ @conversations
     end
     
     it 'succeeds with json' do
       get :index, :format => :json
       response.should be_success
-      response.body.should == @conversations.to_json
+      response.body.should =~ @conversations.to_json
     end
     
     it 'retrieves all conversations for a user' do

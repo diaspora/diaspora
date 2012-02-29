@@ -575,6 +575,7 @@ en:
     add_contact_small:
       add_contact_from_tag: "add contact from tag"
 
+    last_post: "Last Post"
   photos:
     show:
       delete_photo: "Delete Photo"
@@ -611,6 +612,8 @@ en:
     comment_email_subject: "%{name}'s photo"
 
   posts:
+    presenter:
+      title: "A post from %{name}"
     show:
       destroy: "Delete"
       permalink: "permalink"

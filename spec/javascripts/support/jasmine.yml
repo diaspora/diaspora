@@ -26,6 +26,7 @@ src_files:
   - public/javascripts/vendor/jquery.expander.js
   - public/javascripts/vendor/jquery.charcount.js
   - public/javascripts/vendor/jquery.mentionsInput.js
+  - public/javascripts/vendor/jquery.idle-timer.js
   - public/javascripts/vendor/timeago.js
   - public/javascripts/vendor/facebox.js
   - public/javascripts/vendor/markdown/*
@@ -49,7 +50,8 @@ src_files:
   - public/javascripts/app/collections/*
   - public/javascripts/app/views/stream_object_view.js
   - public/javascripts/app/views/content_view.js
-  - public/javascripts/app/views/*
+  - public/javascripts/app/views/*.js
+  - public/javascripts/app/views/**/*.js
 
   - public/javascripts/mobile.js
   - public/javascripts/contact-list.js

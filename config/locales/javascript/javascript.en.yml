@@ -5,128 +5,136 @@
 
 en:
   javascripts:
-      confirm_dialog: "Are you sure?"
-      delete: "Delete"
-      ignore: "Ignore"
-      timeago:
-        prefixAgo: ""
-        prefixFromNow: ""
-        suffixAgo: "ago"
-        suffixFromNow: "from now"
-        seconds: "less than a minute"
-        minute: "about a minute"
-        minutes: "%d minutes"
-        hour: "about an hour"
-        hours: "about %d hours"
-        day: "a day"
-        days: "%d days"
-        month: "about a month"
-        months: "%d months"
-        year: "about a year"
-        years: "%d years"
+    confirm_dialog: "Are you sure?"
+    delete: "Delete"
+    ignore: "Ignore"
+    timeago:
+      prefixAgo: ""
+      prefixFromNow: ""
+      suffixAgo: "ago"
+      suffixFromNow: "from now"
+      seconds: "less than a minute"
+      minute: "about a minute"
+      minutes: "%d minutes"
+      hour: "about an hour"
+      hours: "about %d hours"
+      day: "a day"
+      days: "%d days"
+      month: "about a month"
+      months: "%d months"
+      year: "about a year"
+      years: "%d years"
 
-      my_activity: "My Activity"
-      my_stream: "Stream"
+    my_activity: "My Activity"
+    my_stream: "Stream"
 
-      videos:
-          watch: "Watch this video on <%= provider %>"
-          unknown: "Unknown video type"
-      search_for: "Search for <%= name %>"
-      publisher:
-        at_least_one_aspect: "You must publish to at least one aspect"
-        limited: "Limited - your post will only be seen by people you are sharing with"
-        public: "Public - your post will be visible to everyone and found by search engines"
-      infinite_scroll:
-        no_more: "No more posts."
-      aspect_dropdown:
-        add_to_aspect: "Add contact"
-        select_aspects: "Select aspects"
-        all_aspects: "All aspects"
-        stopped_sharing_with: "You have stopped sharing with <%= name %>."
-        started_sharing_with: "You have started sharing with <%= name %>!"
-        error: "Couldn't start sharing with <%= name %>.  Are you ignoring them?"
-        toggle:
-          zero: "Select aspects"
-          one: "In <%= count %> aspect"
-          two: "In <%= count %> aspects"
-          few: "In <%= count %> aspects"
-          many: "In <%= count %> aspects"
-          other: "In <%= count %> aspects"
-      show_more: "show more"
-      failed_to_like: "Failed to like!"
-      failed_to_post_message: "Failed to post message!"
-      comments:
-        show: "show all comments"
-        hide: "hide comments"
+    videos:
+        watch: "Watch this video on <%= provider %>"
+        unknown: "Unknown video type"
+    search_for: "Search for <%= name %>"
+    publisher:
+      at_least_one_aspect: "You must publish to at least one aspect"
+      limited: "Limited - your post will only be seen by people you are sharing with"
+      public: "Public - your post will be visible to everyone and found by search engines"
+    infinite_scroll:
+      no_more: "No more posts."
+    aspect_dropdown:
+      add_to_aspect: "Add contact"
+      select_aspects: "Select aspects"
+      all_aspects: "All aspects"
+      stopped_sharing_with: "You have stopped sharing with <%= name %>."
+      started_sharing_with: "You have started sharing with <%= name %>!"
+      error: "Couldn't start sharing with <%= name %>.  Are you ignoring them?"
+      toggle:
+        zero: "Select aspects"
+        one: "In <%= count %> aspect"
+        two: "In <%= count %> aspects"
+        few: "In <%= count %> aspects"
+        many: "In <%= count %> aspects"
+        other: "In <%= count %> aspects"
+    show_more: "show more"
+    failed_to_like: "Failed to like!"
+    failed_to_post_message: "Failed to post message!"
+    comments:
+      show: "show all comments"
+      hide: "hide comments"
+    reshares:
+      duplicate: "That good, huh?  You've already reshared that post!"
+    aspect_navigation:
+      select_all: "Select all"
+      deselect_all: "Deselect all"
+      no_aspects: "No aspects selected"
+    getting_started:
+      hey: "Hey, <%= name %>!"
+      no_tags: "Hey, you haven't followed any tags!  Continue anyway?"
+      alright_ill_wait: "Alright, I'll wait."
+      preparing_your_stream: "Preparing your personalized stream..."
+    photo_uploader:
+      looking_good: "OMG, you look awesome!"
+    tags:
+      wasnt_that_interesting: "OK, I suppose #<%= tagName %> wasn't all that interesting..."
+
+    stream:
+      hide: "Hide"
+      public: "Public"
+      limited: "Limited"
+      like: "Like"
+      unlike: "Unlike"
+      reshare: "Reshare"
+      comment: "Comment"
+      original_post_deleted: "Original post deleted by author."
+      show_nsfw_post: "Show post"
+      show_nsfw_posts: "Show all"
+      hide_nsfw_posts: "Hide #nsfw posts"
+      follow: "Follow"
+      unfollow: "Unfollow"
+
+      likes:
+        zero: "<%= count %> Likes"
+        one: "<%= count %> Like"
+        two: "<%= count %> Likes"
+        few: "<%= count %> Likes"
+        many: "<%= count %> Likes"
+        other: "<%= count %> Likes"
+
       reshares:
-        duplicate: "That good, huh?  You've already reshared that post!"
-      aspect_navigation:
-        select_all: "Select all"
-        deselect_all: "Deselect all"
-        no_aspects: "No aspects selected"
-      getting_started:
-        hey: "Hey, <%= name %>!"
-        no_tags: "Hey, you haven't followed any tags!  Continue anyway?"
-        alright_ill_wait: "Alright, I'll wait."
-        preparing_your_stream: "Preparing your personalized stream..."
-      photo_uploader:
-        looking_good: "OMG, you look awesome!"
-      tags:
-        wasnt_that_interesting: "OK, I suppose #<%= tagName %> wasn't all that interesting..."
+        zero: "<%= count %> Reshares"
+        one: "<%= count %> Reshare"
+        two: "<%= count %> Reshares"
+        few: "<%= count %> Reshares"
+        many: "<%= count %> Reshares"
+        other: "<%= count %> Reshares"
 
-      stream:
-        hide: "Hide"
-        public: "Public"
-        limited: "Limited"
-        like: "Like"
-        unlike: "Unlike"
-        reshare: "Reshare"
-        comment: "Comment"
-        original_post_deleted: "Original post deleted by author."
-        show_nsfw_post: "Show post"
-        show_nsfw_posts: "Show all"
-        hide_nsfw_posts: "Hide #nsfw posts"
-        follow: "Follow"
-        unfollow: "Unfollow"
+      more_comments:
+        zero: "Show <%= count %> more comments"
+        one: "Show <%= count %> more comment"
+        two: "Show <%= count %> more comments"
+        few: "Show <%= count %> more comments"
+        many: "Show <%= count %> more comments"
+        other: "Show <%= count %> more comments"
 
-        likes:
-          zero: "<%= count %> Likes"
-          one: "<%= count %> Like"
-          two: "<%= count %> Likes"
-          few: "<%= count %> Likes"
-          many: "<%= count %> Likes"
-          other: "<%= count %> Likes"
+    header:
+      home: "Home"
+      profile: "Profile"
+      contacts: "Contacts"
+      settings: "Settings"
+      admin: "Admin"
+      log_out: "Log out"
 
-        reshares:
-          zero: "<%= count %> Reshares"
-          one: "<%= count %> Reshare"
-          two: "<%= count %> Reshares"
-          few: "<%= count %> Reshares"
-          many: "<%= count %> Reshares"
-          other: "<%= count %> Reshares"
+      notifications: "Notifications"
+      messages: "Messages"
 
-        more_comments:
-          zero: "Show <%= count %> more comments"
-          one: "Show <%= count %> more comment"
-          two: "Show <%= count %> more comments"
-          few: "Show <%= count %> more comments"
-          many: "Show <%= count %> more comments"
-          other: "Show <%= count %> more comments"
+      search: "Search"
 
-      header:
-        home: "Home"
-        profile: "Profile"
-        contacts: "Contacts"
-        settings: "Settings"
-        admin: "Admin"
-        log_out: "Log out"
+      recent_notifications: "Recent Notifications"
+      mark_all_as_read: "Mark all as read"
+      view_all: "View all"
 
-        notifications: "Notifications"
-        messages: "Messages"
-
-        search: "Search"
-
-        recent_notifications: "Recent Notifications"
-        mark_all_as_read: "Mark all as read"
-        view_all: "View all"
-
+    viewer:
+      stop_following_post: "Stop following post"
+      follow_post: "Follow post"
+      like: "Like"
+      unlike: "Unlike"
+      reshare: "Reshare"
+      reshared: "Reshared"
+      comment: "Comment"
