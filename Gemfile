@@ -152,6 +152,8 @@ group :development do
   gem 'ruby-debug', :platforms => :mri_18
   gem 'yard', :require => false
 
+  # rails 3.2 goodness
+  gem 'active_reload'
 
   # for tracing AR object instantiation and memory usage per request
   gem 'oink'

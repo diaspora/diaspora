@@ -12,23 +12,9 @@ javascripts:
 
   templates:
     - public/javascripts/app/templates/*.handlebars
+    - public/javascripts/app/templates/**/*.handlebars
 
   main:
-    - public/javascripts/vendor/underscore.js
-    - public/javascripts/vendor/backbone.js
-    - public/javascripts/vendor/handlebars-1.0.0.beta.6.js
-    - public/javascripts/vendor/markdown/*
-    - public/javascripts/app/app.js
-    - public/javascripts/app/helpers/*
-    - public/javascripts/app/router.js
-    - public/javascripts/app/views.js
-    - public/javascripts/app/models/post.js
-    - public/javascripts/app/models/*
-    - public/javascripts/app/collections/*
-    - public/javascripts/app/views/stream_object_view.js
-    - public/javascripts/app/views/content_view.js
-    - public/javascripts/app/views/*
-
     - public/javascripts/rails.validations.js
     - public/javascripts/rails.js
     - public/javascripts/vendor/jquery.hotkeys.js
@@ -43,15 +29,33 @@ javascripts:
     - public/javascripts/vendor/jquery.events.input.js
     - public/javascripts/vendor/jquery.elastic.js
     - public/javascripts/vendor/jquery.mentionsInput.js
+    - public/javascripts/vendor/jquery.idle-timer.js
     - public/javascripts/jquery.infinitescroll-custom.js
     - public/javascripts/jquery.autocomplete-custom.js
     - public/javascripts/keycodes.js
     - public/javascripts/fileuploader-custom.js
 
     - public/javascripts/diaspora.js
-    - public/javascripts/pages/*.js
     - public/javascripts/helpers/*.js
+    - public/javascripts/pages/*.js
     - public/javascripts/widgets/*.js
+
+    - public/javascripts/vendor/underscore.js
+    - public/javascripts/vendor/backbone.js
+    - public/javascripts/vendor/handlebars-1.0.0.beta.6.js
+    - public/javascripts/vendor/markdown/*
+    - public/javascripts/app/app.js
+    - public/javascripts/app/helpers/*
+    - public/javascripts/app/router.js
+    - public/javascripts/app/views.js
+    - public/javascripts/app/models/post.js
+    - public/javascripts/app/models/*
+    - public/javascripts/app/pages/*
+    - public/javascripts/app/collections/*
+    - public/javascripts/app/views/stream_object_view.js
+    - public/javascripts/app/views/content_view.js
+    - public/javascripts/app/views/*.js
+    - public/javascripts/app/views/**/*.js
 
     - public/javascripts/view.js
     - public/javascripts/aspects-dropdown.js
@@ -65,6 +69,7 @@ javascripts:
 
   login:
     - public/javascripts/login.js
+
   mobile:
     - public/javascripts/vendor/jquery-1.7.1.min.js
     - public/javascripts/vendor/jquery.charcount.js
@@ -98,15 +103,15 @@ javascripts:
     - public/javascripts/ie.js
 stylesheets:
   bootstrap:
-    - public/stylesheets/bootstrap.min.css
+    - public/stylesheets/bootstrap.css
   blueprint:
     - public/stylesheets/blueprint/screen.css
   login:
     - public/stylesheets/login.css
+
   default:
-    - public/stylesheets/application.css
+    - public/stylesheets/media-box.css
     - public/stylesheets/loader.css
-    - public/stylesheets/ui.css
     - public/stylesheets/lightbox.css
     - public/stylesheets/autocomplete.css
     - public/stylesheets/mentions.css
@@ -116,6 +121,14 @@ stylesheets:
     - public/stylesheets/vendor/fileuploader.css
     - public/stylesheets/vendor/autoSuggest.css
     - public/stylesheets/interim-bootstrap.css
+
+  application:
+    - public/stylesheets/application.css
+    - public/stylesheets/ui.css
+
+  new_templates:
+    - public/stylesheets/new-templates.css
+
   rtl:
     - public/stylesheets/rtl.css
 

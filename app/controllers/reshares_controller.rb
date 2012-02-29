@@ -9,6 +9,6 @@ class ResharesController < ApplicationController
       current_user.dispatch_post(@reshare, :url => post_url(@reshare), :additional_subscribers => @reshare.root.author)
     end
 
-    render :json => @reshare.as_api_response(:backbone), :status => 201
+    render :json => PostPresenter.new(@reshare, current_user).to_json, :status => 201
   end
 end

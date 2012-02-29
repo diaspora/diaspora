@@ -5,8 +5,6 @@
 class PhotosController < ApplicationController
   before_filter :authenticate_user!, :except => :show
 
-  helper_method :parent, :photo, :additional_photos, :next_photo, :previous_photo, :ownership
-
   respond_to :html, :json
 
   def index
@@ -143,22 +141,6 @@ class PhotosController < ApplicationController
     end
   end
 
-  def show
-    if user_signed_in?
-      @photo = current_user.find_visible_shareable_by_id(Photo, params[:id])
-    else
-      @photo = Photo.where(:id => params[:id], :public => true).first
-    end
-
-    if @photo
-      respond_with @photo
-    elsif user_signed_in?
-      redirect_to :back
-    else
-      redirect_to new_user_session_path
-    end
-  end
-
   def edit
     if @photo = current_user.photos.where(:id => params[:id]).first
       respond_with @photo
@@ -185,36 +167,6 @@ class PhotosController < ApplicationController
     else
       redirect_to person_photos_path(current_user.person)
     end
-  end
-
-  # helpers
-
-  def ownership
-    @ownership ||= (current_user.present? && current_user.owns?(photo))
-  end
-
-  def parent
-    @parent ||= StatusMessage.where(:guid => photo.status_message_guid).includes(:photos).first if photo.status_message_guid
-    @parent ||= photo
-  end
-
-  def photo
-    @photo ||= current_user.find_visible_shareable_by_id(Photo, params[:id])
-  end
-
-  def additional_photos
-    if photo.status_message_guid?
-      @additional_photos ||= photo.status_message.photos
-    end
-  end
-
-  def next_photo
-    @next_photo ||= additional_photos[additional_photos.index(photo)+1]
-    @next_photo ||= additional_photos.first
-  end
-
-  def previous_photo
-    @previous_photo ||= additional_photos[additional_photos.index(photo)-1]
   end
 
   private

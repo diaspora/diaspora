@@ -2,7 +2,7 @@ app.views.Comment = app.views.Content.extend({
 
   templateName: "comment",
 
-  className : "comment",
+  className : "comment media",
 
   events : {
     "click .comment_delete": "destroyModel"
@@ -16,15 +16,14 @@ app.views.Comment = app.views.Content.extend({
   },
 
   ownComment : function() {
-    return this.model.get("author").diaspora_id == app.user().get("diaspora_id")
+    return app.currentUser.authenticated() && this.model.get("author").diaspora_id == app.currentUser.get("diaspora_id")
   },
 
   postOwner : function() {
-    return this.model.get("parent").author.diaspora_id == app.user().get("diaspora_id")
+    return  app.currentUser.authenticated() && this.model.get("parent").author.diaspora_id == app.currentUser.get("diaspora_id")
   },
 
   canRemove : function() {
-    if(!app.user()){ return false }
-    return this.ownComment() || this.postOwner()
+    return app.currentUser.authenticated() && (this.ownComment() || this.postOwner())
   }
 });

@@ -3,6 +3,7 @@ var app = {
   models: {},
   helpers: {},
   views: {},
+  pages: {},
 
   user: function(userAttrs) {
     if(userAttrs) { return this._user = new app.models.User(userAttrs) }
@@ -17,11 +18,15 @@ var app = {
   initialize: function() {
     app.router = new app.Router();
 
-    if(this._user){
+    app.currentUser = app.user(window.current_user_attributes) || new app.models.User()
+
+
+    if(app.currentUser.authenticated()){
       app.header = new app.views.Header;
-      $("body").prepend(app.header.el);
+      $("header").prepend(app.header.el);
       app.header.render();
     }
+
 
     Backbone.history.start({pushState: true});
 
@@ -36,6 +41,6 @@ var app = {
   }
 };
 
-$(function() { 
+$(function() {
   app.initialize();
 });

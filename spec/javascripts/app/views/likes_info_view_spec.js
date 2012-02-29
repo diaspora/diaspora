@@ -28,6 +28,12 @@ describe("app.views.LikesInfo", function(){
 
       expect($(this.view.el).html().trim()).toBe("");
     })
+
+    it("fires on a model change", function(){
+      spyOn(this.view, "postRenderTemplate")
+      this.view.model.trigger('expandedLikes')
+      expect(this.view.postRenderTemplate).toHaveBeenCalled()
+    })
   })
 
   describe("showAvatars", function(){

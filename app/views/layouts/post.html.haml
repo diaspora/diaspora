@@ -1,0 +1,50 @@
+-#   Copyright (c) 2010-2011, Diaspora Inc.  This file is
+-#   licensed under the Affero General Public License version 3 or later.  See
+-#   the COPYRIGHT file.
+
+!!!
+%html{:lang => I18n.locale.to_s, :dir => (rtl?) ? 'rtl' : 'ltr'}
+  %head
+    %meta{:charset => 'utf-8'}
+    %meta{'http-equiv' => 'X-UA-Compatible', :content => 'IE=edge,chrome=1'}
+    %meta{"http-equiv"=>"Content-Type", :content=>"text/html; charset=utf-8"}
+
+    %meta{:name => "description", :content => "Diaspora*"}
+    %meta{:name => "author", :content => "Diaspora, Inc."}
+
+    %link{:rel => 'shortcut icon', :href => '/favicon.png'}
+    %link{:rel => 'apple-touch-icon', :href => '/apple-touch-icon.png'}
+
+    %title
+      = page_title yield(:page_title)
+
+    = include_base_css_framework(:bootstrap)
+    = include_stylesheets :default, :new_templates, :media => 'all'
+
+    - if rtl?
+      = include_stylesheets :rtl, :media => 'all'
+
+    = old_browser_js_support
+    <!--[if IE]>
+    = include_javascripts :ie
+    <![endif]-->
+
+    = jquery_include_tag
+
+    = set_current_user_in_javascript
+
+    - unless @landing_page
+      = include_javascripts :main, :templates
+      = load_javascript_locales
+
+    = set_asset_host
+    = translation_missing_warnings
+    = current_user_atom_tag
+
+    = yield(:head)
+    = csrf_meta_tag
+
+  %body
+    = flash_messages
+
+    = yield
