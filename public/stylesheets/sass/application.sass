@@ -684,10 +684,11 @@ form p.checkbox_select
 *:-moz-placeholder
   @include placeholder_styles
 
-#file-upload
-   input
-     :height 100%
-     :width 100%
+#file-upload 
+  input
+    :height 100%
+    :width 100%
+    :cursor pointer
 
 #publisher
   :z-index 1
@@ -775,11 +776,11 @@ form p.checkbox_select
     :padding .3em .3em 3px
     :position absolute !important
     :right 6px
-
+    :cursor pointer
+    
 
     input[type='file']
       :cursor pointer
-      :top initial !important
       :right initial !important
       :height 100%
       :width 100%
