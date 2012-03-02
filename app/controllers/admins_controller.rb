@@ -27,16 +27,16 @@ class AdminsController < ApplicationController
 
   def weekly_user_stats
     @created_users_by_day = User.where("username IS NOT NULL") #"date(created_at)" 
-    @created_users_by_week = []
+    #@created_users_by_week = {}
     @created_users_by_day.each do |k| 
       unless k.nil?
-        day = k.created_at
-        if @created_users_by_week[date(day).beginning_of_week].blank?
-          @created_users_by_week[date(day).beginning_of_week] = k.username 
+        @created_users_by_week + k.created_at.beginning_of_week.strftime("%d-%b-%Y") = []
+        if @created_users_by_week + k.created_at.beginning_of_week.strftime("%d-%b-%Y").blank?
+          @created_users_by_week + k.created_at.beginning_of_week.strftime("%d-%b-%Y") << k.username 
         else
-          @created_users_by_week[date(day).beginning_of_week] += k.username
+          @created_users_by_week + k.created_at.beginning_of_week.strftime("%d-%b-%Y") << k.username
         end
-      end
+        end
     end
   end
 
