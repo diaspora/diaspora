@@ -8,6 +8,7 @@
   %h2
     = "Users per week (Current server date is: #{Time.now.to_date}) "
   %ul
-    - @created_users_by_week.keys.sort.reverse.each do |k|
+    - @created_users_by_week.each do |k|
       %li
-        = "Week starting on #{k} , #{@created_users_by_week[k]}"
+        = "Week starting on #{k} ," 
+
