@@ -119,5 +119,13 @@ describe("app.views.Post", function(){
       })
     })
 
+    context("legacy browsers", function(){
+      it("supports iso8501 utc timestamps", function(){
+        var timestamp = new Date(this.statusMessage.get("created_at")) /1000;
+
+        expect(this.statusMessage.legacyTimeOf("created_at")).toEqual(timestamp);
+      })
+    })
+
   })
 });
