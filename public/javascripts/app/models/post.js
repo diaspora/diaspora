@@ -24,7 +24,7 @@ app.models.Post = Backbone.Model.extend({
     var timestamp = new Date(this.get(field)) /1000;
 
     if (isNaN(timestamp)) {
-	timestamp = this.legacyTimeOf(field);
+      timestamp = this.legacyTimeOf(field);
     }
 
     return timestamp;
