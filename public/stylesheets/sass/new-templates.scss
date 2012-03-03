@@ -582,7 +582,16 @@ body.idle {
   left: 0;
   width: 100%;
   height: 100%;
+  border-bottom: 1px solid #474746;
+  box-shadow: 1px 4px 9px #222;
 }
+
+.comment-content h1, .comment-content h2, .comment-content h3, .comment-content h4, .comment-content h5, .comment-content h6 {
+color: white;
+text-shadow: 1px 1px black;
+text-rendering: optimizelegibility;
+}
+
 
 #post-feedback:hover {
   #post-info-sneaky:not(.passive) {
