@@ -53,7 +53,8 @@ describe ConversationsController do
     it 'succeeds with json' do
       get :index, :format => :json
       response.should be_success
-      response.body.should =~ @conversations.to_json
+      json = JSON.parse(response.body)
+      json.first['conversation'].should be_present
     end
     
     it 'retrieves all conversations for a user' do

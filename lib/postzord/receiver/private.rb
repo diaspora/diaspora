@@ -26,7 +26,7 @@ class Postzord::Receiver::Private < Postzord::Receiver
         FEDERATION_LOGGER.info("event=receive status=abort recipient=#{@user.diaspora_handle} sender=#{@salmon.author_id} reason='not_verified for key'")
         false
       end
-    rescue Exception => e
+    rescue => e
       #this sucks
       FEDERATION_LOGGER.info("Failure to receive #{@object.inspect} for sender:#{@sender.id} for user:#{@user.id}: #{e.message}")
       raise e

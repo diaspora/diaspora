@@ -57,7 +57,7 @@ namespace :migrations do
           key.public_link();
           puts "Uploaded #{current} of #{count}"
           current += 1
-        rescue Exception => e
+        rescue => e
           puts "error #{e} on #{current} (#{file_name}), retrying"
           retry
         end

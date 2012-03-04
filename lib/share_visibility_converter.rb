@@ -44,7 +44,7 @@ class ShareVisibilityConverter
           u.hidden_shareables[type] ||= []
           u.hidden_shareables[type] << id unless u.hidden_shareables[type].include?(id)
           u.save!(:validate => false)
-        rescue Exception =>e
+        rescue => e
           puts "ERROR: #{e.message} skipping pv with id: #{visibility.id}"
         end
       end
