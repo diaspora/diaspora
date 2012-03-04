@@ -47,9 +47,7 @@ end
     #returns the message
 def legit_post_from_user1_to_user2(user1, user2)
   original_message = user1.post(:status_message, :text => 'store this!', :to => user1.aspects.find_by_name("generic").id)
-  salmon_xml = user1.salmon(original_message).xml_for(user2.person)
-  zord = Postzord::Receiver::Private.new(user2, :salmon_xml => salmon_xml)
-  zord.perform!
+  receive(original_message, :from => user1, :by => user2)
   original_message
 end
 
@@ -59,7 +57,9 @@ describe "attack vectors" do
   let(:alices_aspect) { alice.aspects.find_by_name("generic") }
 
   context "testing side effects of validation phase" do
+
     describe 'Contact Required Unless Request' do
+      #CUSTOM SETUP; cant use helpers here
       it 'does not save a post from a non-contact as a side effect' do
         salmon_xml = nil
         bad_post_guid = nil
@@ -82,6 +82,8 @@ describe "attack vectors" do
         user_should_not_see_guid(bob, bad_post_guid)
       end
 
+
+      #CUSTOM SETUP; cant use helpers here
       it 'other users can not grant visiblity to another users posts by sending their friends post to themselves (even if they are contacts)' do
         #setup: eve has a message. then, alice is connected to eve.
         #(meaning alice can not see the old post, but it exists in the DB)
