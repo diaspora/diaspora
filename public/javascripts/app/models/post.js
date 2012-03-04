@@ -21,31 +21,7 @@ app.models.Post = Backbone.Model.extend({
   },
 
   timeOf: function(field) {
-    var timestamp = new Date(this.get(field)) /1000;
-
-    if (isNaN(timestamp)) {
-      timestamp = this.legacyTimeOf(field);
-    }
-
-    return timestamp;
-  },
-
-  legacyTimeOf: function(field) {
-    var iso8601_utc_pattern = /^(\d{4})-(\d{2})-(\d{2})T(\d{2}):(\d{2}):(\d{2})(.(\d{3}))?Z$/;
-    var time_components = this.get(field).match(iso8601_utc_pattern);
-    var timestamp = 0;
-
-    if (time_components != null) {
-      if (time_components[8] == undefined) {
-        time_components[8] = 0;
-      }
-
-      timestamp = Date.UTC(time_components[1], time_components[2] - 1, time_components[3],
-                           time_components[4], time_components[5], time_components[6],
-                           time_components[8]);
-    }
-
-    return timestamp /1000;
+    return app.helpers.dateFormatter.parse(this.get(field)) / 1000;
   },
 
   createReshareUrl : "/reshares",
