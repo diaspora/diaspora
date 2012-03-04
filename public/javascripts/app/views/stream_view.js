@@ -16,6 +16,7 @@ app.views.Stream = Backbone.View.extend({
 
   setupEvents : function(){
     this.stream.bind("fetched", this.removeLoader, this)
+    this.stream.bind("fetched", this.postRender, this)
     this.stream.bind("allPostsLoaded", this.unbindInfScroll, this)
     this.collection.bind("add", this.addPost, this);
     if(window.app.user()) {
@@ -53,6 +54,23 @@ app.views.Stream = Backbone.View.extend({
     return this;
   },
 
+  postRender: function() {
+    var collElem = $(this.el).find('.collapsible');
+    _.each(collElem, function(elem) {
+      var elem   = $(elem),
+          oembed = elem.find('.oembed'),
+          thumb  = oembed.find('.thumb');
+
+      if( thumb.length > 0 && oembed.is(':visible') ) {
+        thumb.click(function(){
+          oembed.find('*').toggle();
+          $(this).hide();
+        });
+        oembed.find('*').toggle();
+      }
+    });
+  },
+  
   appendLoader: function(){
     $("#paginate").html($("<img>", {
       src : "/images/static-loader.png",
