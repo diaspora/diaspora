@@ -11,7 +11,7 @@ class Services::Facebook < Service
     begin
       post_params = self.create_post_params(message)
       Faraday.post("https://graph.facebook.com/me/feed", post_params.to_param)
-    rescue Exception => e
+    rescue => e
       Rails.logger.info("#{e.message} failed to post to facebook")
     end
   end

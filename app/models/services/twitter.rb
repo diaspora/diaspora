@@ -16,7 +16,7 @@ class Services::Twitter < Service
 
     begin
       Twitter.update(message)
-    rescue Exception => e
+    rescue => e
       Rails.logger.info e.message
     end
   end

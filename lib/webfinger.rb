@@ -30,7 +30,7 @@ class Webfinger
     Rails.logger.info("Getting: #{url} for #{account}")
     begin 
       Faraday.get(url).body
-    rescue Exception => e
+    rescue => e
       Rails.logger.info("Failed to fetch: #{url} for #{account}; #{e.message}")
       raise e
     end
@@ -59,7 +59,7 @@ class Webfinger
   def host_meta_xrd
     begin
       get(host_meta_url)
-    rescue Exception => e
+    rescue => e
       if self.ssl
         self.ssl = false
         retry

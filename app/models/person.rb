@@ -199,7 +199,7 @@ class Person < ActiveRecord::Base
       url = "#{uri.scheme}://#{uri.host}"
       url += ":#{uri.port}" unless ["80", "443"].include?(uri.port.to_s)
       url += "/"
-    rescue Exception => e
+    rescue => e
       url = @attributes['url']
     end
     url
