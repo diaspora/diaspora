@@ -199,7 +199,7 @@ FactoryGirl.define do
 
   factory(:o_embed_cache) do
     url "http://youtube.com/kittens"
-    data Hash.new('data' => "stuff").to_s
+    data {{'data' => 'foo'}}
   end
 
   factory(:tag_following) do
