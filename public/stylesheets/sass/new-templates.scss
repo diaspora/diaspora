@@ -592,6 +592,12 @@ body.idle {
   }
 }
 
+.comment-content h1, .comment-content h2, .comment-content h3, .comment-content h4, .comment-content h5, .comment-content h6 {  
+color: white; 
+text-shadow: 1px 1px black;
+text-rendering: optimizelegibility;  
+}
+
 .post-comment {
   -moz-box-shadow: 0 1px 2px -2px #999;
   -webkit-box-shadow: 0 1px 2px -2px #999;
