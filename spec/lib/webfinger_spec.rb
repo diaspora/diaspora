@@ -130,7 +130,7 @@ describe Webfinger do
     end
 
     it 'should retry with ssl off a second time' do
-      finger.should_receive(:get).and_raise
+      finger.should_receive(:get).and_raise(StandardError)
       finger.should_receive(:get)
       finger.host_meta_xrd
       finger.ssl.should be false

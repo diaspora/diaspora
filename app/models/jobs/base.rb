@@ -14,7 +14,7 @@ module Jobs
     def self.suppress_annoying_errors(&block)
       begin
         yield
-      rescue Exception => e
+      rescue => e
         Rails.logger.info("error in job: #{e.message}")
         unless DUMB_ERROR_MESSAGES.include?(e.message) 
           raise e

@@ -12,7 +12,7 @@ module Jobs
       begin
         receiver = Postzord::Receiver::Public.new(xml)
         receiver.perform!
-      rescue Exception => e
+      rescue => e
         FEDERATION_LOGGER.info(e.message)
         raise e
       end
