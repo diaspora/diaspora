@@ -27,6 +27,11 @@ $pane-width: 420px;
   box-shadow: $left $top $blur $color;
 }
 
+@mixin pane-width() {
+  width: $pane-width;
+  max-width: 100%;
+}
+
 @mixin background-cover() {
   background: no-repeat center center fixed;
   -webkit-background-size: cover;
@@ -64,6 +69,7 @@ $pane-width: 420px;
   @include box-shadow(0, 6px, 20px, #000);
   @include border-radius(3px, 0px);
   @include dark-hatched-bg();
+  @include pane-width();
 
   display: inline-block;
   position: relative;
@@ -73,8 +79,6 @@ $pane-width: 420px;
   border-left: 1px solid #444;
 
   padding-top: 25px;
-
-  width: $pane-width;
 
   color: #ddd;
 
@@ -92,46 +96,14 @@ $pane-width: 420px;
 }
 
 @mixin media-text() {
-  font-weight: bold;
-  font-size: 20px;
-}
+  font: {
+    weight: bold;
+    size: 2em;
+  }
 
-/* keyframes */
-
-@-webkit-keyframes bump-left {
-  0%   { left: 0; }
-  40%  { left: 20px; }
-  100% { left: 0; }
-}
-
-@-moz-keyframes bump-left {
-  0%   { left: 0; }
-  40%  { left: 20px; }
-  100% { left: 0; }
-}
-
-@-ms-keyframes bump-left {
-  0%   { left: 0; }
-  40%  { left: 20px; }
-  100% { left: 0; }
-}
-
-@-webkit-keyframes bump-right {
-  0%   { left: 0; }
-  40%  { left: -20px; }
-  100% { left: 0; }
-}
-
-@-moz-keyframes bump-right {
-  0%   { left: 0; }
-  40%  { left: -20px; }
-  100% { left: 0; }
-}
-
-@-ms-keyframes bump-right {
-  0%   { left: 0; }
-  40%  { left: 20px; }
-  100% { left: 0; }
+  line-height: 2em;
+  padding-bottom: 0;
+  margin-bottom: 0;
 }
 
 /* bootstrap extentions */
@@ -179,17 +151,19 @@ $pane-width: 420px;
 }
 
 .note-content {
-  min-width: 350px;
+  min-width: 250px;
+  width: 90%;
   max-width: 550px;
-  padding-bottom: 50px;
+  padding-bottom: 2em;
   display: inline-block;
   text-align: left;
 
   p {
-    font-size: 20px;
-    line-height: 28px;
+    font-size: 1.25em;
+    line-height: 1.5em;
     font-family: Palatino, times, georgia, serif;
-    margin-bottom: 30px;
+    margin-bottom: 1em;
+    padding: 0 5%;
   }
 }
 
@@ -197,19 +171,13 @@ $pane-width: 420px;
 .status-with-photo-backdrop
 {
   p {
-    font-weight: bold;
-    font-size: 40px;
-    line-height: 45px;
-    padding-bottom: 0;
-    margin-bottom: 0;
+    @include media-text();
   }
 }
 
 .status-with-photo-backdrop {
   p {
     color: #fff;
-    font-size: 80px;
-    line-height: 90px;
 
     a {
       @include transition(background-color, 0.3s);
@@ -229,12 +197,12 @@ $pane-width: 420px;
 }
 
 .darken {
-  position: fixed;
+  position: absolute;
   top: 0;
   left: 0;
   height: 100%;
   width: 100%;
-  background-color: rgba(0,0,0,0.5);
+  background-color: rgba(0,0,0,0.3);
 
   display: table;
 
@@ -306,6 +274,8 @@ $pane-width: 420px;
 
     width: 857px;
     height: 480px;
+    max-width: 100%;
+    max-height: 100%;
   }
 }
 
@@ -352,7 +322,8 @@ body.idle {
   height: 100%;
   z-index: 3;
   top: 0;
-  padding: 0 13px;
+  padding: 0 1.2%;
+
   background-color: rgba(0,0,0,0);
 
   .nav-arrow-inner {
@@ -366,6 +337,12 @@ body.idle {
 
     height: 30px;
     width: 30px;
+
+    /* half the size of the nav arrows on mobile phones */
+    @media (max-width: 480px) {
+      height: 15px;
+      width: 15px;
+    }
   }
 
   &.left {
@@ -384,15 +361,28 @@ body.idle {
 }
 
 .header {
+
   position: fixed;
+
+  /* position absolute for mobile */
+  @media (max-width: 480px) {
+    position: absolute !important;
+  }
+
   top: 0;
   left: 0;
   z-index: 10;
   width: 100%;
+  overflow-x: hidden;
 }
 
 #header-container {
-  padding: 20px;
+  padding: 1.2%;
+
+  /* don't pad the header if we're mobile */
+  @media (max-width: 480px) {
+    padding: 0 !important;
+  }
 }
 
 .avatar {
@@ -425,6 +415,16 @@ body.idle {
   padding-right: 10px;
 
   background-color: rgba(255,255,255,0.6);
+
+  /* don't pad the header if we're mobile */
+  @media (max-width: 480px) {
+    @include border-radius(0);
+    background-color: rgba(255,255,255,0.4);
+    width: 100% !important;
+    border: none !important;
+    padding: none !important;
+  }
+
   max-height: 35px;
 
   .avatar {
@@ -448,6 +448,7 @@ body.idle {
 }
 
 #post-reactions {
+  height: 80%;
   max-height: 350px;
   overflow: auto;
   margin-top: 5px;
@@ -734,7 +735,7 @@ body.idle {
   top: -3px;
 
   #close-reactions-pane-container {
-    width: $pane-width;
+    @include pane-width();
     top: 0;
 
     min-height: 30px;

@@ -101,11 +101,15 @@ javascripts:
     - public/javascripts/vendor/jquery.autoSuggest.custom.js
   ie:
     - public/javascripts/ie.js
+
 stylesheets:
   bootstrap:
+    - public/stylesheets/bootstrap-responsive.css
     - public/stylesheets/bootstrap.css
+
   blueprint:
     - public/stylesheets/blueprint/screen.css
+
   login:
     - public/stylesheets/login.css
 
