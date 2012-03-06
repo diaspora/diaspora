@@ -16,6 +16,7 @@ app.Router = Backbone.Router.extend({
     "followed_tags": "stream",
     "tags/:name": "stream",
 
+    "posts/new" : "newPost",
     "posts/:id": "singlePost",
     "p/:id": "singlePost"
   },
@@ -36,6 +37,11 @@ app.Router = Backbone.Router.extend({
     app.page = new app.views.Photos({model : app.photos}).render();
 
     $("#main_stream").html(app.page.el);
+  },
+
+  newPost : function(){
+    var page = new app.pages.PostNew();
+    $("#container").html(page.render().el)
   },
 
   singlePost : function(id) {
