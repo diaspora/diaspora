@@ -61,13 +61,9 @@ app.views.Stream = Backbone.View.extend({
           oembed = elem.find('.oembed'),
           thumb  = oembed.find('.thumb');
 
-      if( thumb.length > 0 && oembed.is(':visible') ) {
-        thumb.click(function(){
-          oembed.find('*').toggle();
-          $(this).hide();
-        });
-        oembed.find('*').toggle();
-      }
+      if( thumb.length > 0 /*&& oembed.is(':visible')*/ ) {
+        thumb.show();
+      } 
     });
   },
   

@@ -19,9 +19,13 @@
   {{#if o_embed_cache}}
   <div class="oembed">
     {{#if o_embed_cache.data.thumbnail_url}}
-    <img src="{{o_embed_cache.data.thumbnail_url}}" class="thumb" />
-    {{/if}}
+    <div class="thumb">
+      <img src="{{o_embed_cache.data.thumbnail_url}}" />
+      <div class="video-overlay"></div>
+    </div>
+    {{else}}
     {{{o_embed_html}}}
+    {{/if}}
   </div>
   {{/if}}
 </div>
