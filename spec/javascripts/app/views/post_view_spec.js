@@ -8,6 +8,11 @@ describe("app.views.Post", function(){
         reshares : {
           one : "<%= count %> reshare",
           other : "<%= count %> reshares"
+        },
+        likes : {
+          zero : "<%= count %> Likes",
+          one : "<%= count %> Like",
+          other : "<%= count %> Likes"
         }
       }})
 
@@ -18,18 +23,35 @@ describe("app.views.Post", function(){
       this.reshare = this.collection.models[1];
     })
 
-    it("displays a reshare count", function(){
-      this.statusMessage.set({reshares_count : 2})
-      var view = new app.views.Post({model : this.statusMessage}).render();
+    context("reshare", function(){
+        it("displays a reshare count", function(){
+          this.statusMessage.set({reshares_count : 2})
+          var view = new app.views.Post({model : this.statusMessage}).render();
 
-      expect($(view.el).html()).toContain(Diaspora.I18n.t('stream.reshares', {count: 2}))
+          expect($(view.el).html()).toContain(Diaspora.I18n.t('stream.reshares', {count: 2}))
+        })
+
+        it("does not display a reshare count for 'zero'", function(){
+          this.statusMessage.set({reshares_count : 0})
+          var view = new app.views.Post({model : this.statusMessage}).render();
+
+          expect($(view.el).html()).not.toContain("0 Reshares")
+        })
     })
+    
+    context("likes", function(){
+        it("displays a like count", function(){
+          this.statusMessage.set({likes_count : 1})
+          var view = new app.views.Post({model : this.statusMessage}).render();
 
-    it("does not display a reshare count for 'zero'", function(){
-      this.statusMessage.set({reshares_count : 0})
-      var view = new app.views.Post({model : this.statusMessage}).render();
+          expect($(view.el).html()).toContain(Diaspora.I18n.t('stream.likes', {count: 1}))
+        })
+        it("does not display a like count for 'zero'", function(){
+          this.statusMessage.set({likes_count : 0})
+          var view = new app.views.Post({model : this.statusMessage}).render();
 
-      expect($(view.el).html()).not.toContain("0 Reshares")
+          expect($(view.el).html()).not.toContain("0 Likes")
+        })
     })
 
     context("embed_html", function(){
