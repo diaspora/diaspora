@@ -45,7 +45,6 @@ describe("app.views.Feedback", function(){
         })
       })
 
-
       context("when the user doesn't yet like the post", function(){
         beforeEach(function(){
           this.view.model.set({user_like : null});
@@ -64,6 +63,26 @@ describe("app.views.Feedback", function(){
 
           this.link().click();
           expect(this.link().text()).toContain(Diaspora.I18n.t('stream.like'))
+        })
+      })
+
+      context("when the user like the post", function(){
+        beforeEach(function(){
+          this.view.render();
+        })
+
+        it("the like action should be 'Unlike'", function(){
+          expect(this.link().text()).toContain(Diaspora.I18n.t('stream.unlike'))
+        })
+
+        it("allows for liking a just-unliked post", function(){
+          expect(this.link().text()).toContain(Diaspora.I18n.t('stream.unlike'))
+
+          this.link().click();
+          expect(this.link().text()).toContain(Diaspora.I18n.t('stream.like'))
+
+          this.link().click();
+          expect(this.link().text()).toContain(Diaspora.I18n.t('stream.unlike'))
         })
       })
     })
