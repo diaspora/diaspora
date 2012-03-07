@@ -71,6 +71,7 @@ javascripts:
 
     - public/javascripts/vendor/bootstrap/bootstrap-twipsy.js
     - public/javascripts/vendor/bootstrap/bootstrap-popover.js
+    - public/javascripts/vendor/bootstrap/bootstrap-dropdown.js
 
   login:
     - public/javascripts/login.js

@@ -1,0 +1,25 @@
+<div class="btn-group aspect_ids check-group">
+    <a class="btn btn-info dropdown-toggle" data-toggle="dropdown" href="#">All Aspects <span class="caret"></span></a>
+    <ul class="dropdown-menu">
+        <li>
+            <label class="checkbox">
+                <input type="checkbox" value="public"/>Public
+            </label>
+        </li>
+        <li>
+            <label class="checkbox">
+                <input type="checkbox" value="all"/>All Aspects
+            </label>
+        </li>
+        <li class="divider"></li>
+
+        {{#each current_user.aspects}}
+
+        <li>
+            <label class="checkbox">
+                <input type="checkbox" value="{{id}}"/> {{name}}
+            </label>
+        </li>
+        {{/each}}
+    </ul>
+</div>

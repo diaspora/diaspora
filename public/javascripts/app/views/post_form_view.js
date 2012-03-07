@@ -5,9 +5,17 @@ app.views.PostForm = app.views.Base.extend({
     'submit form' : 'setModelAttributes'
   },
 
+//  subviews : {
+//    ".aspect_form" : "aspectDropdown"
+//  },
+
   formAttrs : {
     ".text" : "text"
   },
+
+//  initialize : function(){
+////    this.aspectsDropdown = new app.views.AspectDropdown()
+//  },
 
   setModelAttributes : function(evt){
     if(evt){ evt.preventDefault(); }
