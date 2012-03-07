@@ -199,6 +199,14 @@ STR
         @sm.create_mentions
         @sm.mentions(true).map{|m| m.person}.to_set.should == @people.to_set
       end
+
+      it 'does not barf if it gets called twice' do
+        @sm.create_mentions
+
+        expect{
+          @sm.create_mentions
+        }.should_not raise_error
+      end
     end
     describe '#mentioned_people' do
       it 'calls create_mentions if there are no mentions in the db' do

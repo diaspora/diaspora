@@ -106,7 +106,7 @@ class StatusMessage < Post
 
   def create_mentions
     mentioned_people_from_string.each do |person|
-      self.mentions.create(:person => person)
+      self.mentions.find_or_create_by_person_id(person.id)
     end
   end
 
