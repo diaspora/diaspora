@@ -9,12 +9,15 @@ class UserPresenter
     self.user.person.as_api_response(:backbone).update(
       { :notifications_count => notifications_count,
         :unread_messages_count => unread_messages_count,
-        :admin => admin
+        :admin => admin,
+        :aspects => aspects
       }
     ).to_json(options)
   end
 
-  protected
+  def aspects
+    AspectPresenter.as_collection(user.aspects)
+  end
 
   def notifications_count
     @notification_count ||= user.unread_notifications.count 
