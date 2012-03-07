@@ -43,6 +43,7 @@ javascripts:
     - public/javascripts/app/helpers/*
     - public/javascripts/app/router.js
     - public/javascripts/app/views.js
+    - public/javascripts/app/forms.js
     - public/javascripts/app/models/post.js
     - public/javascripts/app/models/*
     - public/javascripts/app/pages/*
@@ -51,6 +52,7 @@ javascripts:
     - public/javascripts/app/views/content_view.js
     - public/javascripts/app/views/*.js
     - public/javascripts/app/views/**/*.js
+    - public/javascripts/app/forms/*.js
 
     - public/javascripts/diaspora.js
     - public/javascripts/helpers/*.js

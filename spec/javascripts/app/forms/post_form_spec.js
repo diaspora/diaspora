@@ -1,7 +1,7 @@
-describe("app.views.PostForm", function(){
+describe("app.forms.Post", function(){
   beforeEach(function(){
     this.post = new app.models.Post();
-    this.view = new app.views.PostForm({model : this.post})
+    this.view = new app.forms.Post({model : this.post})
   })
 
   describe("rendering", function(){

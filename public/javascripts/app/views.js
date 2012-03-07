@@ -9,7 +9,10 @@ app.views.Base = Backbone.View.extend({
   },
 
   setupRenderEvents : function(){
-    this.model.bind('remove', this.remove, this);
+    if(this.model) {
+      //this should be in streamobjects view
+      this.model.bind('remove', this.remove, this);
+    }
 
     // this line is too generic.  we usually only want to re-render on
     // feedback changes as the post content, author, and time do not change.

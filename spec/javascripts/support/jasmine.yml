@@ -46,6 +46,7 @@ src_files:
   - public/javascripts/app/helpers/*
   - public/javascripts/app/router.js
   - public/javascripts/app/views.js
+  - public/javascripts/app/forms.js
   - public/javascripts/app/models/post.js
   - public/javascripts/app/models/*
   - public/javascripts/app/collections/*
@@ -54,6 +55,7 @@ src_files:
   - public/javascripts/app/views/*.js
   - public/javascripts/app/views/**/*.js
   - public/javascripts/app/pages/**/*.js
+  - public/javascripts/app/forms/**/*.js
 
   - public/javascripts/mobile.js
   - public/javascripts/contact-list.js
