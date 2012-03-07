@@ -16,7 +16,7 @@ describe Services::Tumblr do
     end
 
     it 'swallows exception raised by tumblr not being webscale' do
-      OAuth::AccessToken.any_instance.should_receive(:post).and_raise
+      OAuth::AccessToken.any_instance.should_receive(:post).and_raise(StandardError)
       @service.post(@post)
     end
   end

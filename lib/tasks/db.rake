@@ -23,11 +23,11 @@ namespace :db do
       puts envs.inspect
       envs.each do |env|
         puts "dropping #{env}..."
-        `cd #{Rails.root} && RAILS_ENV=#{env} bundle exec rake db:drop`
+        `cd "#{Rails.root}" && RAILS_ENV=#{env} bundle exec rake db:drop`
         puts "creating #{env}..."
-        `cd #{Rails.root} && RAILS_ENV=#{env} bundle exec rake db:create`
+        `cd "#{Rails.root}" && RAILS_ENV=#{env} bundle exec rake db:create`
         puts "migrating #{env}..."
-        `cd #{Rails.root} && RAILS_ENV=#{env} bundle exec rake db:migrate`
+        `cd "#{Rails.root}" && RAILS_ENV=#{env} bundle exec rake db:migrate`
       end
     end
   end

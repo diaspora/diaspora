@@ -16,7 +16,7 @@ describe Services::Twitter do
     end
 
      it 'swallows exception raised by twitter always being down' do
-      Twitter.should_receive(:update).and_raise
+      Twitter.should_receive(:update).and_raise(StandardError)
       @service.post(@post)
     end
 

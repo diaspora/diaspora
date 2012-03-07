@@ -40,7 +40,7 @@ class WebfingerProfile
       begin
         pubkey = text_of_attribute( doc.at('Link[rel=diaspora-public-key]'), 'href')
         @public_key = Base64.decode64 pubkey
-      rescue Exception => e
+      rescue => e
         Rails.logger.info("event => :invalid_profile, :identifier => #{@account}")
       end
     end

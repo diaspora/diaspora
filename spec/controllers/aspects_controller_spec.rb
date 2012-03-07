@@ -108,8 +108,6 @@ describe AspectsController do
     it "should return the name and id of the updated item" do
       params = {"name" => "Bruisers"}
       put('update', :id => @alices_aspect_1.id, "aspect" => params)
-
-      puts( response.inspect )
       response.body.should == { :id => @alices_aspect_1.id, :name => "Bruisers" }.to_json
     end
   end

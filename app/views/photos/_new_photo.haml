@@ -29,7 +29,7 @@
         $('#file-upload').addClass("loading");
         $('#publisher').find("input[type='submit']").attr('disabled','disabled');
 
-        $("#publisher textarea").addClass("with_attachments");
+        Publisher.wrapper().addClass("with_attachments");
         $('#photodropzone').append(
           "<li class='publisher_photo loading' style='position:relative;'>" +
             "<img src='/images/ajax-loader2.gif' />" +
@@ -43,7 +43,7 @@
             url = responseJSON.data.photo.unprocessed_image.url,
             currentPlaceholder = $('li.loading').first();
 
-        $("#publisher textarea").addClass("with_attachments");
+        Publisher.wrapper().addClass("with_attachments");
         $('#new_status_message').append("<input type='hidden' value='" + id + "' name='photos[]' />");
 
         // replace image placeholders
@@ -68,10 +68,8 @@
                   success: function() {
                             photo.fadeOut(400, function(){
                               photo.remove();
-                              textarea.css('paddingBottom', $("#photodropzone").height() + 10);
                               if ( $('.publisher_photo').length  == 0){
-                                textarea.removeClass("with_attachments");
-                                textarea.css('paddingBottom', '');
+                                Publisher.wrapper().removeClass("with_attachments");
                               }
                             });
                           }

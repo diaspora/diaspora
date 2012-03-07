@@ -12,7 +12,6 @@ module MarkdownifyHelper
       :fenced_code_blocks  => true,
       :space_after_headers => true,
       :strikethrough       => true,
-      :superscript         => true,
       :tables              => true,
       :no_intra_emphasis   => true,
     }
