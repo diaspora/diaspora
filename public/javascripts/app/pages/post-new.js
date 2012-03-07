@@ -4,9 +4,13 @@ app.pages.PostNew = app.views.Base.extend({
   subviews : { "#new-post" : "postForm"},
 
   initialize : function(){
-    console.log("In the page")
-
-    this.model = new app.models.Post()
+    this.model = new app.models.StatusMessage()
     this.postForm = new app.views.PostForm({model : this.model})
+
+    this.model.bind("setFromForm", this.saveModel, this)
+  },
+
+  saveModel : function(){
+    this.model.mungeAndSave();
   }
 })

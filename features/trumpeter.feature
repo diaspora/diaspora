@@ -8,5 +8,5 @@ Feature: Creating a new post
     When I trumpet
     And I write "Rectangles are awesome"
     And I press "Share"
-#    When I go to the stream page
-#    Then I should see "Rectangles are awesome" as the first post in my stream
+    When I go to "/stream"
+    Then I should see "Rectangles are awesome" as the first post in my stream
