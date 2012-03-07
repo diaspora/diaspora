@@ -8,7 +8,7 @@ app.views.Publisher = Backbone.View.extend({
 
   events : {
     "focus textarea" : "open",
-    "click #hide_publisher" : "close",
+    "click #hide_publisher" : "clear",
     "submit form" : "createStatusMessage"
   },
 
@@ -48,10 +48,8 @@ app.views.Publisher = Backbone.View.extend({
   },
 
   clear : function() {
-    this.$('textarea')
-      .removeClass("with_attachments")
-      .css("paddingBottom", "")
-      .val("");
+    this.$('textarea').val("");
+    this.$('#publisher_textarea_wrapper').removeClass("with_attachments");
 
     // remove photos
     this.$("#photodropzone").find('li').remove();
