@@ -66,8 +66,11 @@ app.models.Post = Backbone.Model.extend({
     var userLike = this.get("user_like")
     if(userLike) {
       this.unlike()
+      this.set({ likes_count : this.get("likes_count") - 1 })
     } else {
       this.like()
+      this.set({ likes_count : this.get("likes_count") + 1 })
+
     }
   },
 
