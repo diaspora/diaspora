@@ -6,7 +6,7 @@ app.forms.Post = app.forms.Base.extend({
   },
 
   formAttrs : {
-    ".text" : "text",
+    "textarea.text" : "text",
     "input.aspect_ids" : "aspect_ids"
   },
 
