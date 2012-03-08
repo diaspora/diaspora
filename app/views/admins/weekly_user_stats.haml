@@ -8,7 +8,6 @@
   %h2
     = "Users per week (Current server date is: #{Time.now.to_date}) "
   %ul
-    = @created_users_by_week.keys.sort.each do |k|
-      %li
-        = puts "#{k} :  #{@created_users_by_week[k]}"
+    - @created_users_by_week.keys.each do |k|
+      %li #{k} : #{@created_users_by_week[k]}
 
