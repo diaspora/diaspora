@@ -26,4 +26,4 @@ app.views.StreamFaces = app.views.Base.extend({
 
     this.render();
   }
-})
+});

@@ -1,4 +1,4 @@
-package_assets: on
+package_assets: always
 embed_assets: datauri
 compress_assets: on
 gzip_assets: off
@@ -43,14 +43,19 @@ javascripts:
     - public/javascripts/app/helpers/*
     - public/javascripts/app/router.js
     - public/javascripts/app/views.js
-    - public/javascripts/app/models/post.js
+    - public/javascripts/app/models/post.js 
     - public/javascripts/app/models/*
     - public/javascripts/app/pages/*
     - public/javascripts/app/collections/*
     - public/javascripts/app/views/stream_object_view.js
     - public/javascripts/app/views/content_view.js
     - public/javascripts/app/views/*.js
-    - public/javascripts/app/views/**/*.js
+    - public/javascripts/app/views/**/*.js 
+
+    - public/javascripts/diaspora.js
+    - public/javascripts/helpers/*.js
+    - public/javascripts/pages/*.js
+    - public/javascripts/widgets/*.js
 
     - public/javascripts/diaspora.js
     - public/javascripts/helpers/*.js

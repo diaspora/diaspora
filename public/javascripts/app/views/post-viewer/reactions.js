@@ -31,4 +31,4 @@ app.views.PostViewerReactions = app.views.Base.extend({
     }).render().el);
   }
 
-})
+});

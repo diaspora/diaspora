@@ -5,5 +5,4 @@ app.views.PostViewerAuthor = app.views.Base.extend({
 
   templateName: "post-viewer/author"
 
-})
-
+});

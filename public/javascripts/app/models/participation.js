@@ -1,1 +1,1 @@
-app.models.Participation = Backbone.Model.extend({ })
+app.models.Participation = Backbone.Model.extend({ });

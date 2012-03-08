@@ -27,5 +27,4 @@ app.views.PostViewerNav = app.views.Base.extend({
     app.router.navigate(link.attr("href").substring(1), true)
   }
 
-})
-
+});

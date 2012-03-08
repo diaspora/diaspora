@@ -99,4 +99,4 @@ app.pages.PostViewer = app.views.Base.extend({
     this.interactionsView.hidePane();
   }
 
-})
+});

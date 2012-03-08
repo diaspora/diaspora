@@ -64,4 +64,4 @@ app.models.Stream = Backbone.Collection.extend({
   add : function(models){
     this.posts.add(models)
   }
-})
+});

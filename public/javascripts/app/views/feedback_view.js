@@ -55,4 +55,4 @@ app.views.Feedback = app.views.Base.extend({
 
     return publicPost && app.currentUser.authenticated() && userIsNotAuthor && userIsNotRootAuthor;
   }
-})
+});
