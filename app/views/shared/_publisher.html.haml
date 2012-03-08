@@ -12,7 +12,7 @@
   .content_creation
     = form_for(StatusMessage.new) do |status|
       = status.error_messages
-      %p
+      %div
         %params
           #publisher_textarea_wrapper
             = link_to( image_tag('deletelabel.png'), "#", :id => "hide_publisher", :title => t('.discard_post'))

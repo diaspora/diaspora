@@ -21,7 +21,7 @@ app.models.Post = Backbone.Model.extend({
   },
 
   timeOf: function(field) {
-    return new Date(this.get(field)) /1000;
+    return app.helpers.dateFormatter.parse(this.get(field)) / 1000;
   },
 
   createReshareUrl : "/reshares",
