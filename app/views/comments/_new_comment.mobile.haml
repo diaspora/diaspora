@@ -7,5 +7,5 @@
     = hidden_field_tag :post_id,  post_id, :id => "post_id_on_#{post_id}"
     = text_area_tag :text, nil, :class => "span12 comment_box", :id => "comment_text_on_#{post_id}", :placeholder => t('.comment'), :autofocus => true
 
-    = link_to "Cancel", post_path(post_id), :class => "cancel_new_comment btn"
+    = link_to t('cancel'), post_path(post_id), :class => "cancel_new_comment btn"
     = submit_tag t('.comment'), :id => "comment_submit_#{post_id}", :disable_with => t('.commenting'), :class => "btn primary"
