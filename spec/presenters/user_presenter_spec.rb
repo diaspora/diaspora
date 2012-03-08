@@ -18,4 +18,12 @@ describe UserPresenter do
       @presenter.aspects.first[:name].should == aspect.name
     end
   end
+
+  describe '#services' do
+    it 'provides an array of jsonifed services' do
+      fakebook = stub(:provider => 'fakebook')
+      bob.stub(:services).and_return([fakebook])
+      @presenter.services.should include(:provider => 'fakebook')
+    end
+  end
 end

@@ -16,7 +16,7 @@ app.views.AspectsDropdown = app.views.Base.extend({
           'custom' : setCustom
         }
 
-    visibilityCallbacks[link.data("visibility") || "all-aspects"].call(this)
+    visibilityCallbacks[link.data("visibility")].call(this)
 
     function setPublic (){
       this.setAspectIds("public")

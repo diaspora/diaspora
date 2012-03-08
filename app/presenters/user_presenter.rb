@@ -1,6 +1,6 @@
 class UserPresenter
   attr_accessor :user
-  
+
   def initialize(user)
     self.user = user
   end
@@ -10,9 +10,14 @@ class UserPresenter
       { :notifications_count => notifications_count,
         :unread_messages_count => unread_messages_count,
         :admin => admin,
-        :aspects => aspects
+        :aspects => aspects,
+        :services => services
       }
     ).to_json(options)
+  end
+
+  def services
+    ServicePresenter.as_collection(user.services)
   end
 
   def aspects
@@ -20,7 +25,7 @@ class UserPresenter
   end
 
   def notifications_count
-    @notification_count ||= user.unread_notifications.count 
+    @notification_count ||= user.unread_notifications.count
   end
 
   def unread_messages_count

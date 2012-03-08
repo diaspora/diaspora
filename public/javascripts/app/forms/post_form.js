@@ -2,7 +2,8 @@ app.forms.Post = app.forms.Base.extend({
   templateName : "post-form",
 
   subviews : {
-    ".aspect_selector" : "aspectsDropdown"
+    ".aspect_selector" : "aspectsDropdown",
+    ".service_selector" : "servicesSelector"
   },
 
   formAttrs : {
@@ -11,6 +12,7 @@ app.forms.Post = app.forms.Base.extend({
   },
 
   initialize : function(){
-    this.aspectsDropdown = new app.views.AspectsDropdown()
+    this.aspectsDropdown = new app.views.AspectsDropdown();
+    this.servicesSelector = new app.views.ServicesSelector();
   }
 });
