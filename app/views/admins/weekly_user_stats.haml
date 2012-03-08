@@ -11,3 +11,5 @@
     - @created_users_by_week.keys.each do |k|
       %li #{k} : #{@created_users_by_week[k]}
 
+
+  = select_tag(:weeks, options_for_select(@created_users_by_week.keys))
