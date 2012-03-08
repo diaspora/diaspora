@@ -18,13 +18,14 @@
 .span-15.append-1
   #people_stream.stream
     - if @hashes.empty?
-      %p#not_found{:class => @background_query.nil? ? "" : "hidden" }
-        =t('.no_one_found')
-      %p#searching{:class => @background_query.nil? ? "hidden" : "" }
-        =t('.searching')
-      - if ! @background_query.nil?
+      - if @background_query.present?
+        %p
+          =t('.searching')
         :javascript
           $(document).ready(function() { setTimeout("runDelayedSearch('#{@background_query}')", 10000); });
+      - else
+        %p
+          =t('.no_one_found')
     - else
       - for hash in @hashes
         = render :partial => 'people/person', :locals => hash

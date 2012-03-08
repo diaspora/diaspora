@@ -20,7 +20,6 @@ function handleSearchRefresh(data) {
   if ( data.search_count > 0 ) {
     $("#people_stream.stream").html( data.search_html );
   } else {
-    $("p#not_found").removeClass( 'hidden' );
-    $("p#searching").addClass( 'hidden' );
+    $("#people_stream.stream").html( "<p>" + Diaspora.I18n.t("people.not_found") + "</p>" );
   }
 }

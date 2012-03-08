@@ -373,7 +373,6 @@ describe PeopleController do
       end
       it 'returns with a found name' do
         get :refresh_search, :q => @korth.diaspora_handle
-        puts JSON.parse( response.body ).inspect
         JSON.parse( response.body )["search_count"].should == 1
       end
     end

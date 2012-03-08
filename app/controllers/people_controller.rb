@@ -46,15 +46,16 @@ class PeopleController < ApplicationController
   def refresh_search
     @aspect = :search
     @people =  Person.where(:diaspora_handle => search_query.downcase)
-    @people = @people.paginate(:page => params[:page], :per_page => 15)
-    @hashes = hashes_for_people(@people, @aspects)
     @answer_html = ""
+    unless @people.empty?
+      @people = @people.paginate(:page => params[:page], :per_page => 15)
+      @hashes = hashes_for_people(@people, @aspects)
 
-    self.formats = self.formats + [:html]
-    @hashes.each do |hash|
-      @answer_html += render_to_string :partial => 'people/person', :locals => hash
+      self.formats = self.formats + [:html]
+      @hashes.each do |hash|
+        @answer_html += render_to_string :partial => 'people/person', :locals => hash
+      end
     end
-
     render :json => { :search_count => @people.count, :search_html => @answer_html }.to_json
   end
 
