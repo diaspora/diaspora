@@ -53,4 +53,4 @@ app.views.PostViewerInteractions = app.views.Base.extend({
       this.togglePane()
     }
   }
-})
+});

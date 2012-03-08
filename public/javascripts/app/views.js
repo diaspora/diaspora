@@ -62,4 +62,4 @@ app.views.Base = Backbone.View.extend({
   removeTooltips : function() {
     $(".twipsy").remove();
   }
-})
+});

@@ -42,4 +42,4 @@ app.views.PostViewerNewComment = app.views.Base.extend({
     $(this.scrollableArea).scrollTop($(this.scrollableArea).prop("scrollHeight"))
   }
 
-})
+});

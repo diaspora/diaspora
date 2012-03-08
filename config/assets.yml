@@ -35,11 +35,6 @@ javascripts:
     - public/javascripts/keycodes.js
     - public/javascripts/fileuploader-custom.js
 
-    - public/javascripts/diaspora.js
-    - public/javascripts/helpers/*.js
-    - public/javascripts/pages/*.js
-    - public/javascripts/widgets/*.js
-
     - public/javascripts/vendor/underscore.js
     - public/javascripts/vendor/backbone.js
     - public/javascripts/vendor/handlebars-1.0.0.beta.6.js
@@ -48,14 +43,24 @@ javascripts:
     - public/javascripts/app/helpers/*
     - public/javascripts/app/router.js
     - public/javascripts/app/views.js
-    - public/javascripts/app/models/post.js
+    - public/javascripts/app/models/post.js 
     - public/javascripts/app/models/*
     - public/javascripts/app/pages/*
     - public/javascripts/app/collections/*
     - public/javascripts/app/views/stream_object_view.js
     - public/javascripts/app/views/content_view.js
     - public/javascripts/app/views/*.js
-    - public/javascripts/app/views/**/*.js
+    - public/javascripts/app/views/**/*.js 
+
+    - public/javascripts/diaspora.js
+    - public/javascripts/helpers/*.js
+    - public/javascripts/pages/*.js
+    - public/javascripts/widgets/*.js
+
+    - public/javascripts/diaspora.js
+    - public/javascripts/helpers/*.js
+    - public/javascripts/pages/*.js
+    - public/javascripts/widgets/*.js
 
     - public/javascripts/view.js
     - public/javascripts/aspects-dropdown.js

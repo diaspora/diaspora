@@ -37,4 +37,4 @@ app.views.PostViewerFeedback = app.views.Feedback.extend({
     return false;
   }
 
-})
+});

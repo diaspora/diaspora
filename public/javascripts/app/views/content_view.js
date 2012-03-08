@@ -29,7 +29,7 @@ app.views.Content = app.views.StreamObject.extend({
     if(!photos || photos.length < 2) { return }
     return photos.slice(1,8)
   }
-})
+});
 
 app.views.StatusMessage = app.views.Content.extend({
   templateName : "status-message"
