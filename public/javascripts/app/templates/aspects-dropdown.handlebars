@@ -1,25 +1,18 @@
-<div class="btn-group aspect_ids check-group">
+
+<div class="btn-group aspects_dropdown check-group">
     <a class="btn btn-info dropdown-toggle" data-toggle="dropdown" href="#">All Aspects <span class="caret"></span></a>
     <ul class="dropdown-menu">
-        <li>
-            <label class="checkbox">
-                <input type="checkbox" value="public"/>Public
-            </label>
-        </li>
-        <li>
-            <label class="checkbox">
-                <input type="checkbox" value="all"/>All Aspects
-            </label>
-        </li>
-        <li class="divider"></li>
-
-        {{#each current_user.aspects}}
-
-        <li>
-            <label class="checkbox">
-                <input type="checkbox" value="{{id}}"/> {{name}}
-            </label>
-        </li>
-        {{/each}}
+        <li><a href="#" class="public" data-visibility="public">Public</a></li>
+        <li><a href="#" class="all-aspects" data-visibility="all-aspects">All Aspects</a></li>
+        <!--<li class="divider"></li>-->
+        <!--<li><a href="#" data-value="custom">Custom</a></li>-->
     </ul>
 </div>
+
+<input type="hidden" class="aspect_ids"/>
+
+<!--<select multiple=multiple>-->
+    <!--{{#each current_user.aspects}}-->
+        <!--<option value="{{id}}"> {{name}}</option>-->
+    <!--{{/each}}-->
+<!--</select>-->

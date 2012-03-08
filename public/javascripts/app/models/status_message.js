@@ -4,8 +4,11 @@ app.models.StatusMessage = app.models.Post.extend({
   },
 
   mungeAndSave : function(){
-    var mungedAttrs = {status_message : _.clone(this.attributes), aspect_ids : ["public"]}
-
+    var mungedAttrs = {status_message : _.clone(this.attributes), aspect_ids : mungeAspects(this.get("aspect_ids"))}
     this.save(mungedAttrs)
+
+    function mungeAspects (value){
+      return [value]
+    }
   }
 });

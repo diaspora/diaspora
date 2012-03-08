@@ -12,11 +12,13 @@ describe("app.forms.Post", function(){
     describe("submitting a valid form", function(){
       beforeEach(function(){
         this.view.$("form .text").val("Oh My")
+        this.view.$("form .aspect_ids").val("public")
       })
 
       it("instantiates a post on form submit", function(){
         this.view.$("form").submit()
         expect(this.view.model.get("text")).toBe("Oh My")
+        expect(this.view.model.get("aspect_ids")).toBe("public")
       })
 
       it("triggers a  'setFromForm' event", function(){

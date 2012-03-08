@@ -7,7 +7,7 @@ app.forms.Post = app.forms.Base.extend({
 
   formAttrs : {
     ".text" : "text",
-//    ".aspect_ids" : "aspect_ids"
+    "input.aspect_ids" : "aspect_ids"
   },
 
   initialize : function(){
