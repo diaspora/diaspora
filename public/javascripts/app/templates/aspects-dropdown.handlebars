@@ -1,4 +1,3 @@
-
 <div class="btn-group aspects_dropdown check-group">
     <a class="btn btn-info dropdown-toggle" data-toggle="dropdown" href="#">
         <span class="text"></span> <span class="caret"></span>
@@ -6,15 +5,14 @@
     <ul class="dropdown-menu">
         <li><a href="#" class="public" data-visibility="public">Public</a></li>
         <li><a href="#" class="all-aspects" data-visibility="all-aspects">All Aspects</a></li>
-        <!--<li class="divider"></li>-->
-        <!--<li><a href="#" data-value="custom">Custom</a></li>-->
+
+        <li class="divider"></li>
+        {{#each current_user.aspects}}
+            <li><a href="#" data-aspect-id="{{id}}"  data-visibility="custom">{{name}}</a></li>
+        {{/each}}
+
     </ul>
 </div>
 
 <input type="hidden" class="aspect_ids"/>
 
-<!--<select multiple=multiple>-->
-    <!--{{#each current_user.aspects}}-->
-        <!--<option value="{{id}}"> {{name}}</option>-->
-    <!--{{/each}}-->
-<!--</select>-->

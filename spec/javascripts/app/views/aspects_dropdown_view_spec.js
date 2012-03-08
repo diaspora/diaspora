@@ -1,5 +1,13 @@
 describe("app.views.AspectsDropdown", function(){
   beforeEach(function(){
+    loginAs(factory.user({
+      aspects : [
+        { id : 3, name : "sauce" },
+        { id : 5, name : "conf" },
+        { id : 7, name : "lovers" }
+      ]
+    }))
+
     this.view = new app.views.AspectsDropdown
   })
 
@@ -38,6 +46,21 @@ describe("app.views.AspectsDropdown", function(){
 
       it("sets the dropdown title to 'public'", function(){
         expect($.trim(this.view.$(".dropdown-toggle .text").text())).toBe("All Aspects")
+      })
+    })
+
+
+    describe("selecting An Aspect", function(){
+      beforeEach(function(){
+        this.view.$("a:contains('lovers')").click()
+      })
+
+      it("calls set aspect_ids to to the aspect id", function(){
+        expect(this.view.$("input.aspect_ids").val()).toBe("7")
+      })
+
+      it("sets the dropdown title to the aspect title", function(){
+        expect($.trim(this.view.$(".dropdown-toggle .text").text())).toBe("lovers")
       })
     })
   })

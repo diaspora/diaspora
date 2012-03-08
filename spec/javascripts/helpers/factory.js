@@ -33,6 +33,10 @@ factory = {
     return new app.models.Comment(_.extend(defaultAttrs, overrides))
   },
 
+  user : function(overrides) {
+    return new app.models.User(factory.userAttrs(overrides))
+  },
+
   userAttrs : function(overrides){
     var id = this.id.next()
     var defaultAttrs = {

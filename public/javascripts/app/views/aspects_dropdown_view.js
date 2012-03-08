@@ -12,7 +12,8 @@ app.views.AspectsDropdown = app.views.Base.extend({
     var link = $(evt.target)
       , visibilityCallbacks = {
           'public' : setPublic,
-          'all-aspects' : setPrivate
+          'all-aspects' : setPrivate,
+          'custom' : setCustom
         }
 
     visibilityCallbacks[link.data("visibility") || "all-aspects"].call(this)
@@ -24,6 +25,11 @@ app.views.AspectsDropdown = app.views.Base.extend({
 
     function setPrivate (){
       this.setAspectIds("all_aspects")
+      this.setDropdownText(link.text())
+    }
+
+    function setCustom (){
+      this.setAspectIds(link.data("aspect-id"))
       this.setDropdownText(link.text())
     }
   },
