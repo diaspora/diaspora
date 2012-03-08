@@ -8,7 +8,8 @@ app.forms.Post = app.forms.Base.extend({
 
   formAttrs : {
     "textarea.text" : "text",
-    "input.aspect_ids" : "aspect_ids"
+    "input.aspect_ids" : "aspect_ids",
+    'input.service:checked' : 'services'
   },
 
   initialize : function(){

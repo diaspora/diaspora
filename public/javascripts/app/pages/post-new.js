@@ -13,4 +13,4 @@ app.pages.PostNew = app.views.Base.extend({
   saveModel : function(){
     this.model.mungeAndSave();
   }
-})
+});

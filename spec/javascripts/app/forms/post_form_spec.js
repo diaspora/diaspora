@@ -13,12 +13,28 @@ describe("app.forms.Post", function(){
       beforeEach(function(){
         this.view.$("form .text").val("Oh My")
         this.view.$("form .aspect_ids").val("public")
+
+        /* appending checkboxes */
+        this.view.$("form").append($("<input/>", {
+          value : "fakeBook",
+          checked : "checked",
+          "class" : "service",
+          "type" : "checkbox"
+        }))
+
+        this.view.$("form").append($("<input/>", {
+          value : "twitter",
+          checked : "checked",
+          "class" : "service",
+          "type" : "checkbox"
+        }))
       })
 
       it("instantiates a post on form submit", function(){
         this.view.$("form").submit()
         expect(this.view.model.get("text")).toBe("Oh My")
         expect(this.view.model.get("aspect_ids")).toBe("public")
+        expect(this.view.model.get("services").length).toBe(2)
       })
 
       it("triggers a  'setFromForm' event", function(){
