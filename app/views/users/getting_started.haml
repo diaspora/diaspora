@@ -34,7 +34,7 @@
           = form_tag profile_path, :method => :put, :remote => true, :id => 'edit_profile' do
             %fieldset
               .clearfix
-                = label_tag 'profile[first_name]', "Your name", :class => "bootstrapped"
+                = label_tag 'profile[first_name]', t('profiles.edit.your_name'), :class => "bootstrapped"
                 .input
                   = text_field_tag 'profile[first_name]', current_user.person.profile.first_name
                   = image_tag 'ajax-loader.gif', :id => "gs-name-form-spinner", :class => "hidden"
@@ -44,7 +44,7 @@
                 = t(".saved")
 
             .clearfix
-              = label_tag :your_photo, "Your photo", :class => "bootstrapped"
+              = label_tag :your_photo, t('profiles.edit.your_photo'), :class => "bootstrapped"
               .input{:style => "position:relative;"}
                 = render 'photos/new_profile_photo', :aspect => :getting_started, :person => current_user.person
       %br
@@ -58,15 +58,13 @@
       .row
         %p
           = t('.hashtag_explanation')
-          %i
-            = t('.hashtag_suggestions')
 
       .row
         .span13
           = form_tag(multiple_tag_followings_path, :method => 'post', :class => "tag_input search_form") do
             %fieldset
               .clearfix
-                = label_tag 'follow_tags', "Follow tags", :class => "bootstrapped"
+                = label_tag 'follow_tags', t('.hashtag_suggestions'), :class => "bootstrapped"
                 .input
                   = text_field_tag 'follow_tags', nil, :class => "nostrap"
 
