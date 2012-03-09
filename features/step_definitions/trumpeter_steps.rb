@@ -6,6 +6,17 @@ When /^I write "([^"]*)"$/ do |text|
   fill_in :text, :with => text
 end
 
+Then /I mention "([^"]*)"$/ do |text|
+  fill_in_autocomplete('textarea.text', '@a')
+  sleep(5)
+  find("li.active").click
+end
+
+def fill_in_autocomplete(selector, value)
+  page.execute_script %Q{$('#{selector}').val('#{value}').keyup()}
+end
+
+
 def aspects_dropdown
   find(".dropdown-toggle")
 end

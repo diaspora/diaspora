@@ -31,6 +31,7 @@ javascripts:
     - public/javascripts/vendor/jquery.idle-timer.js
     - public/javascripts/jquery.infinitescroll-custom.js
     - public/javascripts/jquery.autocomplete-custom.js
+    - public/javascripts/vendor/jquery.textchange.min.js
     - public/javascripts/keycodes.js
     - public/javascripts/fileuploader-custom.js
 
@@ -93,7 +94,6 @@ javascripts:
     - public/javascripts/friend-finder.js
   home:
     - public/javascripts/publisher.js
-    - public/javascripts/vendor/jquery.textchange.min.js
     - public/javascripts/aspect-edit-pane.js
     - public/javascripts/fileuploader-custom.js
   people:

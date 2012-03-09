@@ -17,6 +17,7 @@ app.models.StatusMessage = app.models.Post.extend({
     }
 
     function mungeServices (values) {
+      if(!values) { return; }
       return values.length > 1 ?  values :  [values]
     }
   }
