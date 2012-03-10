@@ -447,7 +447,7 @@ DEPENDENCIES
   acts_as_api
   addressable (= 2.2.4)
   airbrake
-  bundler (>= 1.1.rc.8)
+  bundler (>= 1.1.0)
   capistrano (~> 2.9.0)
   capistrano-ext (= 1.2.1)
   capistrano_colors
