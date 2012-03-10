@@ -12,8 +12,9 @@
   = select_tag(:week, options_for_select(@created_users_by_week.keys))
   = submit_tag 'go'
 
-= unless @counter.nil?
-  amount of new users this week:  
-  = @counter
+amount of new users this week:
+= @counter
 %br
-= @segment
+- @created_users_by_week[(params[:week])].each do |m|
+  = link_to m, "/u/#{m}"
+  %br
