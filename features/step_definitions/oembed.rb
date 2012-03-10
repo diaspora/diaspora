@@ -36,6 +36,9 @@ Given /^I have several oEmbed data in cache$/ do
 	            type=\"application/x-shockwave-flash\" width=\"425\" height=\"344\"
 	            allowscriptaccess=\"always\" allowfullscreen=\"true\"></embed>
           </object>",
+        "thumbnail_url" => "http://i2.ytimg.com/vi/M3r2XDceM6A/hqdefault.jpg",
+        "thumbnail_height" => 360,
+        "thumbnail_width" => 480,
       },
       "link_url" => "http://youtube.com/watch?v=M3r2XDceM6A&format=json",
       "oembed_get_request" => "http://www.youtube.com/oembed?format=json&frame=1&iframe=1&maxheight=420&maxwidth=420&url=http://youtube.com/watch?v=M3r2XDceM6A",
@@ -54,6 +57,9 @@ Given /^I have several oEmbed data in cache$/ do
 	            type=\"application/x-shockwave-flash\" width=\"425\" height=\"344\"
 	            allowscriptaccess=\"always\" allowfullscreen=\"true\"></embed>
           </object>",
+        "thumbnail_url" => "http://i2.ytimg.com/vi/M3r2XDceM6A/hqdefault.jpg",
+        "thumbnail_height" => 360,
+        "thumbnail_width" => 480,
       },
       "link_url" => "http://myrichtube.com/watch?v=M3r2XDceM6A&format=json",
       "discovery_data" => '<link rel="alternate" type="application/json+oembed" href="http://www.mytube.com/oembed?format=json&frame=1&iframe=1&maxheight=420&maxwidth=420&url=http://mytube.com/watch?v=M3r2XDceM6A" />',
@@ -75,6 +81,9 @@ Given /^I have several oEmbed data in cache$/ do
 	            type=\"application/x-shockwave-flash\" width=\"425\" height=\"344\"
 	            allowscriptaccess=\"always\" allowfullscreen=\"true\"></embed>
           </object>",
+        "thumbnail_url" => "http://i2.ytimg.com/vi/M3r2XDceM6A/hqdefault.jpg",
+        "thumbnail_height" => 360,
+        "thumbnail_width" => 480,
       },
       "link_url" => "http://yourichtube.com/watch?v=M3r2XDceM6A&format=json",
       "oembed_get_request" => "http://www.youtube.com/oembed?format=json&frame=1&iframe=1&maxheight=420&maxwidth=420&url=http://youtube.com/watch?v=M3r2XDceM6A",
@@ -93,6 +102,9 @@ Given /^I have several oEmbed data in cache$/ do
 	            type=\"application/x-shockwave-flash\" width=\"425\" height=\"344\"
 	            allowscriptaccess=\"always\" allowfullscreen=\"true\"></embed>
           </object>",
+        "thumbnail_url" => "http://i2.ytimg.com/vi/M3r2XDceM6A/hqdefault.jpg",
+        "thumbnail_height" => 360,
+        "thumbnail_width" => 480,
       },
       "link_url" => "http://mytube.com/watch?v=M3r2XDceM6A&format=json",
       "discovery_data" => '<link rel="alternate" type="application/json+oembed" href="http://www.mytube.com/oembed?format=json&frame=1&iframe=1&maxheight=420&maxwidth=420&url=http://mytube.com/watch?v=M3r2XDceM6A" />',
@@ -103,7 +115,9 @@ Given /^I have several oEmbed data in cache$/ do
     unless type=='unsupported'
       url = data['oembed_get_request'].split('?')[0]
       store_data = data['oembed_data'].merge('trusted_endpoint_url' => url)
-      OEmbedCache.new(:url => data['link_url'], :data => store_data.to_json);
+      oembed = OEmbedCache.new(:url => data['link_url']);
+      oembed.data = store_data
+      oembed.save!
     end
   end
 end

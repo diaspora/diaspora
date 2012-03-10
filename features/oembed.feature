@@ -17,6 +17,8 @@ Feature: oembed
 
     And I follow "My Aspects"
     Then I should see a video player
+    And I should see a ".oembed" within ".post-content"
+    And I should see a "img" within ".oembed"
 
   Scenario: Post an unsecure video link
     Given I expand the publisher
