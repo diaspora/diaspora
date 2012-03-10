@@ -9,7 +9,11 @@
     = "Current server date is: #{Time.now.to_date}) "
 
 = form_tag('/admins/weekly_user_stats', :method => 'get') do
-  = select_tag(:week, options_for_select(@created_users_by_week.keys, @created_users_by_week[Date.today.beginning_of_week.strftime("%Y-%m-%d")]))
+  = select_tag(:week, options_for_select(@created_users_by_week.keys))
   = submit_tag 'go'
 
+= unless @counter.nil?
+  amount of new users this week:  
+  = @counter
+%br
 = @segment

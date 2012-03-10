@@ -10,10 +10,6 @@ class AdminsController < ApplicationController
     @users = params[:user].empty? ? [] : User.where(params[:user])
   end
 
-  def user_list
-    @users = User.all
-  end
-
   def admin_inviter 
     user = User.find_by_email params[:idenitifer]
     unless user
@@ -34,14 +30,11 @@ class AdminsController < ApplicationController
         end
       end
 
-    @created_users_by_week.keys.each do |p|
-      unless p.nil?
-        if p == (params[:week])
-          @segment = "#{@created_users_by_week[p]}" 
-        else
-          @segment = "date not found"
-        end
-      end
+    unless(params[:week]).nil?
+      @segment = "#{@created_users_by_week[(params[:week])]}" 
+      @counter = "#{@created_users_by_week[(params[:week])].count}"
+    else
+      @segment = "date not found"
     end
   end
 
