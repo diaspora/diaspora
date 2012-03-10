@@ -120,3 +120,11 @@ pl:
     videos:
       unknown: "Nieznany typ wideo"
       watch: "Zobacz ten film na <%= provider %>"
+    viewer:
+      comment: "Skomentuj"
+      follow_post: "Obserwuj wpis"
+      like: "Lubię to!"
+      reshare: "Przekaż dalej"
+      reshared: "Przekazano dalej"
+      stop_following_post: "Przestań obserwować wpis"
+      unlike: "Nie lubię"

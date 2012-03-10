@@ -504,6 +504,7 @@ pl:
       no_one_found: "...i nikogo nie odnaleziono."
       no_results: "Hej! Musisz coś wpisać w pole wyszukiwarki!"
       results_for: "wyniki wyszukiwania dla"
+    last_post: "Ostatni wpis"
     many: "Osoby: %{count}"
     one: "1 osoba"
     other: "Osoby: %{count}"
@@ -579,6 +580,8 @@ pl:
       error: "Błąd podczas edycji zdjęcia."
       notice: "Pomyślnie zaktualizowano zdjęcie."
   posts:
+    presenter:
+      title: "Wpis od %{name}"
     show:
       destroy: "Usuń"
       not_found: "Nie można odnaleźć wskazanego wpisu."

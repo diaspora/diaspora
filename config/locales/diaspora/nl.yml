@@ -30,7 +30,7 @@ nl:
         reshare:
           attributes:
             root_guid:
-              taken: "Je hebt deze post al gedeeld!"
+              taken: "Je hebt dit bericht al doorgegeven!"
         user:
           attributes:
             email:
@@ -226,24 +226,21 @@ nl:
   conversations:
     create:
       fail: "Ongeldig bericht"
-      sent: "Bericht verzonden"
+      sent: "Privébericht verzonden"
     destroy:
-      success: "Conversatie succesvol verwijderd"
+      success: "Privégesprek succesvol verwijderd"
     helper:
       new_messages:
-        few: "%{count} nieuwe berichten"
-        many: "%{count} nieuwe berichten"
-        one: "1 nieuw bericht"
-        other: "%{count} nieuwe berichten"
-        two: "%{count} nieuwe berichten"
-        zero: "Geen nieuwe berichten"
+        one: "1 nieuw privébericht"
+        other: "%{count} nieuwe privéberichten"
+        zero: "Geen nieuwe privéberichten"
     index:
-      create_a_new_message: "maak een nieuw bericht"
+      create_a_new_message: "schrijf een nieuw privébericht"
       inbox: "Postvak In"
-      message_inbox: "Berichten Inbox"
-      new_message: "Nieuw Bericht"
-      no_conversation_selected: "geen conversatie geselecteerd"
-      no_messages: "geen berichten"
+      message_inbox: "Privébericht Inbox"
+      new_message: "Nieuw privébericht"
+      no_conversation_selected: "geen privégesprek geselecteerd"
+      no_messages: "geen privéberichten"
     new:
       abandon_changes: "Wijzigingen annuleren?"
       send: "Verstuur"
@@ -253,7 +250,7 @@ nl:
     new_message:
       fail: "Ongeldig bericht"
     show:
-      delete: "verwijder en blokkeer conversatie"
+      delete: "verwijder en blokkeer privégesprek"
       reply: "beantwoord"
       replying: "Beantwoorden..."
   date:
@@ -398,18 +395,12 @@ nl:
       mark_all_as_read: "Markeer alles gelezen"
       notifications: "Notificaties"
     liked:
-      few: "%{actors} hebben je %{post_link} vastgeprikt."
-      many: "%{actors} hebben je %{post_link} vastgeprikt."
       one: "%{actors} vind jou %{post_link} leuk."
       other: "%{actors} vinden jou %{post_link} leuk."
-      two: "%{actors} hebben je %{post_link} vastgeprikt."
       zero: "%{actors} vind jou %{post_link} leuk."
     liked_post_deleted:
-      few: "%{actors} hadden je verwijderde post vastgeprikt."
-      many: "%{actors} hadden je verwijderde post vastgeprikt."
       one: "%{actors} vond jou inmiddels verwijderde bericht leuk."
       other: "%{actors} vonden jou inmiddels verwijderde bericht leuk."
-      two: "%{actors} hadden je verwijderde vastgeprikt."
       zero: "%{actors} vonden jou inmiddels verwijderde bericht leuk."
     mentioned:
       few: "%{actors} hebben je genoemd in een %{post_link}."
@@ -441,11 +432,8 @@ nl:
       two: "%{actors} hebben jouw %{post_link} doorgegeven."
       zero: "%{actors} hebben jouw %{post_link} doorgegeven."
     reshared_post_deleted:
-      few: "%{actors} hebben jouw verwijderde post doorgegeven."
-      many: "%{actors} hebben jouw verwijderde post doorgegeven."
       one: "%{actors} hebben jouw verwijderde bericht doorgegeven."
       other: "%{actors} hebben jouw verwijderde bericht doorgegeven."
-      two: "%{actors} hebben je verwijderde post doorgegeven."
       zero: "%{actors} hebben jouw verwijderde bericht doorgegeven."
     started_sharing:
       few: "%{actors} delen nu met jou."
@@ -471,9 +459,9 @@ nl:
       mentioned: "heeft jou vermeld in een bericht:"
       subject: "%{name} heeft jou vermeld op Diaspora*"
     private_message:
-      reply_to_or_view: "Reageer op of bekijk deze conversatie >"
+      reply_to_or_view: "Reageer op of bekijk dit privégesprek >"
     reshared:
-      reshared: "%{name} heeft jouw post doorgegeven"
+      reshared: "%{name} heeft jouw bericht doorgegeven"
       view_post: "Bekijk bericht >"
     single_admin:
       admin: "Je Diaspora administrator"
@@ -590,7 +578,7 @@ nl:
         other: "%{count} foto's door %{author}"
         two: "Twee foto's door %{author}"
         zero: "Geen foto's van %{author}"
-      reshare_by: "Gedeeld door %{author}"
+      reshare_by: "Doorgegeven door %{author}"
   previous: "vorige"
   privacy: "Privacy"
   privacy_policy: "Privacybeleid"
@@ -670,17 +658,14 @@ nl:
     create:
       failure: "Er is een fout opgetreden bij het herdelen van deze post."
     reshare:
-      deleted: "De originele post is verwijderd door de auteur."
+      deleted: "Het originele bericht is verwijderd door de auteur."
       reshare:
-        few: "%{count}x doorgegeven"
-        many: "%{count}x doorgegeven"
-        one: "1x gedeeld"
-        other: "%{count}x gedeeld"
-        two: "%{count} doorgiften"
-        zero: "Delen"
-      reshare_confirmation: "%{author}'s post delen met je contacten?"
-      reshare_original: "Origineel delen"
-      reshared_via: "gedeeld via"
+        one: "1 keer doorgegeven"
+        other: "%{count} keer doorgegeven"
+        zero: "Doorgeven"
+      reshare_confirmation: "%{author}'s post doorgeven?"
+      reshare_original: "Origineel doorgeven"
+      reshared_via: "doorgegeven via"
       show_original: "Toon origineel"
   search: "Zoek"
   services:
@@ -778,7 +763,7 @@ nl:
       upload_photos: "Upload fotos"
       whats_on_your_mind: "Waar denk je aan?"
     reshare:
-      reshare: "Delen"
+      reshare: "Doorgeven"
     stream_element:
       connect_to_comment: "Verbind met deze gebruiker om op zijn of haar berichten te reageren"
       currently_unavailable: "reageren nog niet beschikbaar"
@@ -925,7 +910,7 @@ nl:
       photo_export_unavailable: "Foto's exporteren is op dit moment niet beschikbaar"
       private_message: "...je een privébericht ontvangt?"
       receive_email_notifications: "Ontvang e-mail notificaties wanneer..."
-      reshared: "...iemand je post doorgeeft?"
+      reshared: "...iemand jou bericht doorgeeft?"
       show_community_spotlight: "Laat Community Spotlight zien in Stream?"
       show_getting_started: "Maak Beginnen Opnieuw Mogelijk"
       started_sharing: "...iemand met je begint te delen?"

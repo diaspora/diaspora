@@ -40,6 +40,8 @@ nn:
         friends_saying: "Dette seier venene dine..."
         get_connected: "Vert tilknytt"
         have_fun: "Ha det gama"
+        have_fun_paragraph: "%{strong_diaspora} handlar om å oppdage framifrå nytt innhald og nye folk på nettet. %{link}, verda si fyrste %{strong_diaspora}-tilleggsprogram er berre byrja. Samle og el nettet i all si prakt."
+        help_fund: "gje ein slant til Diaspora"
         here: "her"
         ignore: "Om du ikkje ønskjer å godta invitasjonen, lèt du berre vera å svara på meldinga."
         join_team: "Ver med på laget"
@@ -51,6 +53,7 @@ nn:
         sign_up_now: "Meld deg inn no →"
         subject: "Du er vorten invitert til å vera med i Diaspora."
         team_diaspora: "Team Diaspora"
+        unsubscribe: "For å melde deg av, klikk på %{link}."
         view_in: "View in"
       inviter:
         accept_at: "på %{url}, du kan godta det gjennom lenkja nedanfor."

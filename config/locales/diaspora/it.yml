@@ -182,7 +182,7 @@ it:
     explanation_link_text: "questo link"
     heading: "Bookmarklet"
     post_something: "Pubblica qualcosa su Diaspora"
-    post_success: "Inviato! Sta per chiudersi!"
+    post_success: "Inviato! Chiusura in corso!"
   cancel: "Annulla"
   comments:
     few: "%{count} commenti"
@@ -492,6 +492,7 @@ it:
       no_one_found: "...e nessuno è stato trovato."
       no_results: "Ehi! Devi inserire qualcosa da cercare."
       results_for: "risultati della ricerca di"
+    last_post: "Ultimo post"
     many: "%{count} persone"
     one: "una persona"
     other: "%{count} persone"
@@ -567,6 +568,8 @@ it:
       error: "Modifica della foto fallita."
       notice: "Foto aggiornata con successo."
   posts:
+    presenter:
+      title: "Un post di %{name}"
     show:
       destroy: "Elimina"
       not_found: "Ci scusiamo, non possiamo trovare il post."

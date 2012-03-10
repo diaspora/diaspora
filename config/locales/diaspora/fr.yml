@@ -504,6 +504,7 @@ fr:
       no_one_found: "… et personne n'a été trouvé."
       no_results: "Hé ! Vous devez rechercher quelque chose."
       results_for: "résultats de la recherche pour"
+    last_post: "Dernier message"
     many: "%{count} personnes"
     one: "1 personne"
     other: "%{count} personnes"
@@ -579,6 +580,8 @@ fr:
       error: "La modification de la photo a échoué."
       notice: "La photo a été mise à jour."
   posts:
+    presenter:
+      title: "Un message de %{name}"
     show:
       destroy: "Supprimer"
       not_found: "Désolé, nous n'avons pas pu trouver ce message."

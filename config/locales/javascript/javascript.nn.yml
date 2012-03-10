@@ -87,6 +87,7 @@ nn:
         zero: "Show <%= count %> more comments"
       original_post_deleted: "Det opprinnelege innlegget er sletta av forfattaren."
       public: "Offentleg"
+      reshare: "Del"
       reshares:
         few: "<%= count %> Reshares"
         many: "<%= count %> Reshares"
@@ -101,7 +102,7 @@ nn:
     tags:
       wasnt_that_interesting: "Greitt, #{{tagName}} var vel kanskje ikkje så interessant …"
     timeago:
-      day: "om dagen"
+      day: "i går"
       days: "%d dagar"
       hour: "om lag ein time"
       hours: "om lag %d timar"
@@ -119,3 +120,11 @@ nn:
     videos:
       unknown: "Ukjend videotype"
       watch: "Sjå denne videoen hos {{provider}}"
+    viewer:
+      comment: "Kommenter"
+      follow_post: "Følg innlegg"
+      like: "Lik"
+      reshare: "Del"
+      reshared: "Delt"
+      stop_following_post: "Ikkje følg innlegg meir"
+      unlike: "Lik ikkje lenger"

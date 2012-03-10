@@ -39,7 +39,7 @@ nn:
             username:
               invalid: "er ugyldig. Du kan berre bruka bokstavar, tal og understrekingsteikn."
               taken: "er allereie i bruk."
-  ago: "%{time} sida"
+  ago: "for %{time} sida"
   all_aspects: "Alle aspekta"
   application:
     helper:
@@ -177,9 +177,13 @@ nn:
     index:
       add_a_new_aspect: "Legg til eit nytt aspekt"
       add_to_aspect: "legg kontaktar til %{name}"
+      add_to_aspect_link: "legg kontaktar til i %{name}"
       all_contacts: "Alle kontaktane"
+      many_people_are_you_sure: "Er du sikker på at du vil starte ein privat samtale med meir enn %{suggested_limit} kontaktar? Å dele dette i eit aspekt kan vere ein betre måte å kontakte dei på."
       my_contacts: "Kontaktane mine"
       no_contacts: "Du må leggja til nokre kontaktar."
+      no_contacts_message: "Ta ein titt på %{community_spotlight}"
+      no_contacts_message_with_aspect: "Ta ein titt på %{community_spotlight} eller %{add_to_aspect_link}"
       only_sharing_with_me: "Deler berre med meg"
       remove_person_from_aspect: "Fjerna %{person_name} frå \"%{aspect_name}\""
       start_a_conversation: "Start ein samtale"
@@ -231,14 +235,20 @@ nn:
       correct_the_following_errors_and_try_again: "Rett opp desse feila og prøv på nytt."
       invalid_fields: "Ugyldige felt"
   fill_me_out: "Fyll meg ut"
-  find_people: "Finn personar eller #merke"
+  find_people: "Finn personar eller #grindmerke"
   hide: "Gøym"
   home:
     show:
+      already_account: "Har du allereie ein konto?"
       choice: "Val"
+      choice_explanation: "Diaspora let deg sortera kontaktane dine i grupper me kallar aspekt. Aspekta sørgar for at bileta, historiene og vitsane dine berre vert delt med dei du vil at dei skal delast med. Dette er unikt for Diaspora."
+      learn_about_host: "Lær om korleis du kan vere vert for din eigen Diaspora-server."
+      login_here: "Logg på her"
       ownership: "Eigarskap"
       ownership_explanation: "Du eig bileta dine. Det burde du gjera òg etter å ha delt dei. Du har framleis eigarskapen til alt du deler i Diaspora. På det viset har du full kontroll med korleis tinga blir delte."
       share_what_you_want: "Del kva du vil med kven du vil."
+      simplicity: "Enkelheit"
+      tagline_first_half: "Del kva du vil"
       tagline_second_half: "med kven du vil."
   invitations:
     a_facebook_user: "Ein Facebook-brukar"
@@ -255,9 +265,11 @@ nn:
     new:
       already_invited: "Desse personane har ikkje godteke invitasjonen din:"
       aspect: "Aspekt"
+      check_out_diaspora: "Ta ein kikk på Diaspora!"
       comma_seperated_plz: "Du kan skriva fleire e-postadresser om du skil dei med komma."
       if_they_accept_info: "om dei godtek, vil dei verta lagde til aspektet du inviterte dei til."
       invite_someone_to_join: "Inviter nokon til å bli med Diaspora!"
+      language: "Språk"
       personal_message: "Personleg melding"
       resend: "Send på nytt"
       send_an_invitation: "Send ein invitasjon"
@@ -265,12 +277,14 @@ nn:
       to: "Til"
   layouts:
     application:
+      back_to_top: "Attende til toppen"
       powered_by: "DRIVEN AV DIASPORA*"
       public_feed: "Offentleg Diaspora-straum for %{name}"
       toggle: "slå på mobilnettstad"
       whats_new: "kva er nytt?"
       your_aspects: "aspekta dine"
     header:
+      admin: "Admin"
       blog: "blogg"
       code: "kode"
       login: "logg på"
@@ -391,12 +405,9 @@ nn:
       two: "%{actors} har delt %{post_link} ditt."
       zero: "%{actors} har delt %{post_link} ditt."
     reshared_post_deleted:
-      few: "%{actors} delte på nytt den sletta posten din."
-      many: "%{actors} delte på nytt den sletta posten din."
-      one: "%{actors} delte på nytt den sletta posten din."
-      other: "%{actors} delte på nytt den sletta posten din."
-      two: "%{actors} delte på nytt den sletta posten din."
-      zero: "%{actors} delte på nytt den sletta posten din."
+      one: "%{actors} delte den sletta posten din på nytt."
+      other: "%{actors} delte den sletta posten din på nytt."
+      zero: "%{actors} delte den sletta posten din på nytt."
     started_sharing:
       few: "%{actors} byrja å dela med deg."
       many: "%{actors} byrja å dela med deg."
@@ -448,9 +459,11 @@ nn:
       results_for: " resultat for %{params}"
     index:
       couldnt_find_them_send_invite: "Finn du dei ikkje? Send dei ei innbyding."
+      looking_for: "Ser du etter innlegg merka med %{tag_link}?"
       no_one_found: "… og ingen vart funnen."
       no_results: "Du må søkja etter noko."
       results_for: "søkjeresultat for"
+    last_post: "Siste innlegg"
     many: "%{count} personar"
     one: "1 person"
     other: "%{count} personar"
@@ -469,8 +482,10 @@ nn:
       remove_contact: "fjern kontakten"
       remove_from: "Fjerna %{name} frå %{aspect}?"
     show:
+      closed_account: "Denne kontoen er låst."
       does_not_exist: "Personen finst ikkje."
       has_not_shared_with_you_yet: "%{name} har enno ikkje delt noko innlegg med deg."
+      ignoring: "Du ser ikkje innlegg frå %{name} lengjer."
       incoming_request: "%{name} ønskjer å dela med deg"
       mention: "Omtale"
       message: "Melding"
@@ -582,7 +597,7 @@ nn:
       enter_password_again: "Skriv passordet éin gong til"
       enter_username: "Vel eit brukarnamn (berre bokstavar, tal og understrekingsteikn)"
       join_the_movement: "Vert med i rørsla!"
-      sign_up_message: "Sosialt nettverk med eit <3"
+      sign_up_message: "Sosialt nettverk med eit ♥"
   requests:
     create:
       sending: "Sender"
@@ -617,6 +632,7 @@ nn:
         two: "%{count} reshares"
         zero: "Del vidare"
       reshare_original: "Del originalen vidare"
+      reshared_via: "delt via"
       show_original: "Syn original"
   search: "Søk"
   services:
@@ -690,7 +706,9 @@ nn:
       discard_post: "Forkast innlegget"
       make_public: "gjer offentlig"
       new_user_prefill:
-        i_like: "I'm interested in %{tags}."
+        hello: "Hei alle saman! Eg er #%{new_user_tag}. "
+        i_like: "Eg interesserer meg for %{tags}. "
+        invited_by: "Takk for innbydinga, "
         newhere: "NyHer"
       post_a_message_to: "Send ei melding til %{aspect}"
       posting: "Sender …"

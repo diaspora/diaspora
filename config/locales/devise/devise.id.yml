@@ -31,11 +31,14 @@ id:
       hello: "Halo %{email}!"
       invitation_instructions:
         accept: "Setuju menerima undangan"
+        be_yourself: "Jadi diri anda sendiri"
         displaying_correctly: "Email not displaying correctly? %{link} in your browser"
+        friends_saying: "Apa yang teman-teman anda katakan..."
         ignore: "Mohon abaikan e-mail ini, jika anda tidak setuju untuk menerima undangan ini."
         no_account_till: "Akun anda tidak akan diciptakan sampai anda mengakses tautan di atas dan mendaftar."
+        sign_up_now: "Daftar sekarang"
         subject: "Anda telah diundang untuk bergabung di Diaspora!"
-        view_in: "View in"
+        view_in: "Lihat di browser anda"
       inviter:
         accept_at: "di %{url}, anda dapat menerimanya melalui tautan di bawah ini."
         have_invited_you: "%{names} telah mengundang anda untuk bergabung di Diaspora"
@@ -56,7 +59,7 @@ id:
         change_password: "Ubah kata sandi saya"
       new:
         forgot_password: "Lupa kata sandi anda?"
-        no_account: "Tidak ditemukan akun dengan E-mail. Jika anda menunggu undangan, kami akan menyebarkannya secepatnya"
+        no_account: "Tidak ditemukan akun dengan E-mail ini. Jika anda menunggu undangan, kami akan menyebarkannya secepatnya"
         send_password_instructions: "Kirimkan saya instruksi untuk membuat ulang kata sandi"
       send_instructions: "Anda akan menerima email berisi petunjuk cara membuat ulang kata sandi Anda dalam beberapa menit."
       updated: "Kata kunci Anda telah berhasil diubah. Anda sekarang sudah masuk."

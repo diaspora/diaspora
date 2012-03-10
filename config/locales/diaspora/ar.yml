@@ -104,6 +104,8 @@ ar:
       donate: "تبرّع"
       handle_explanation: "هذا وسيط دياسبرا. مثل البريد الالكتروني، يمكنك منحه للأصدقاء حتى تستطيع التواصل معهم."
       help:
+        do_you: "هل:"
+        email_feedback: "أرسل لنا ملاحظاتك إذا أردت %{link}"
         feature_suggestion: "... تملك %{link} اقتراحا؟"
         find_a_bug: "... وجدت %{link}?"
         have_a_question: "... تملك %{link}?"
@@ -112,8 +114,12 @@ ar:
         tag_bug: "#bug"
         tag_feature: "#feature"
         tag_question: "#question"
+        tutorials_wiki_and_forum: "%{tutorial} و %{wiki} و %{forum} : دروس وشروحات وأخبار من المُجتمع."
+      introduce_yourself: "هذا هو تيّارك.  هيا قدم نفسك."
       keep_us_running: "حافظ على %{pod} سريعا عبر تبرع شهري لصيانة السيرفرات "
       new_here:
+        follow: "تابِع %{link} ورحب بالمُستخدمين الجدد لدياسبرا !"
+        learn_more: "اعرف المزيد"
         title: "مرحبا أيها الزوار الجدد"
       no_contacts: "لا أعضاء"
       no_tags: "+ جِـد وسما لمتابعته"
@@ -133,6 +139,7 @@ ar:
       create: "أنشئ"
       name: "إسم"
     no_contacts_message:
+      community_spotlight: "أضواء على المجتمع"
       try_adding_some_more_contacts: "إبحث عن (أنظر بالأعلى) أو أُدعُ (أُنظر يمينا) أعضاءً جددا."
       you_should_add_some_more_contacts: "يُستحسن إضافة مزيد من الأعضاء"
     no_posts_message:
@@ -147,6 +154,7 @@ ar:
     selected_contacts:
       manage_your_aspects: "أَدِر فئاتك."
       no_contacts: "لا تملك أية جهات اتصال هنا بعد."
+      view_all_community_spotlight: "شاهد الجميع"
       view_all_contacts: "أظهر كل جهات الاتصال"
     show:
       edit_aspect: "تحرير الفئة"
@@ -797,6 +805,7 @@ ar:
       people_tagged_with: "أشخاص موسومون بـ %{tag}"
       posts_tagged_with: "مشاركات موسومة بـ #%{tag}"
       stop_following: "أوقف متابعة #%{tag}"
+  terms_and_conditions: "الشروط والأحكام"
   tokens:
     show:
       connect_to_cubbies: "صِل حسابك بـ Cubbi.es"

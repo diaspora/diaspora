@@ -504,6 +504,7 @@ es:
       no_one_found: "...y nadie fue encontrado."
       no_results: "¡Eh! Tienes que buscar algo."
       results_for: "buscar resultados para"
+    last_post: "Última publicación"
     many: "%{count} personas"
     one: "1 persona"
     other: "%{count} personas"
@@ -579,6 +580,8 @@ es:
       error: "Error editando la foto."
       notice: "Foto actualizada con éxito."
   posts:
+    presenter:
+      title: "Una publicación de %{name}"
     show:
       destroy: "Eliminar"
       not_found: "Lo sentimos, no podemos encontrar ese comentario."

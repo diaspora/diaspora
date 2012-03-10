@@ -34,7 +34,9 @@ pt-BR:
         arrived: "Finalmente a rede social que você estava esperando chegou. Renovada, mais segura e mais divertida, %{strong_diaspora} está pronta para ajudar você a compartilhar e a explorar a Web de uma forma totalmente nova."
         be_yourself: "Seja você mesmo"
         be_yourself_paragraph: "A Internet criou novas formas originais para que possamos nos expressar. %{strong_diaspora} permite que você seja você mesmo(a) e que compartilhe como quiser, com ou sem o seu nome verdadeiro."
+        cubbies: "Cubbi.es"
         displaying_correctly: "E-mail não está sendo exibido corretamente? %{link} no seu navegador"
+        email_address: "questions@joindiaspora.com"
         email_us: "Para maiores informações ou suporte sobre a sua conta, por favor envie um e-mail para %{email}."
         finally: "Finalmente - está aqui"
         friends_saying: "O que seus amigos estão dizendo..."
@@ -58,6 +60,7 @@ pt-BR:
         view_in: "Ver em "
       inviter:
         accept_at: "em %{url}, você pode aceitar através do link abaixo."
+        has_invited_you: "%{name}"
         have_invited_you: "%{names} convidou você para participar em Diaspora"
       reset_password_instructions:
         change: "Alterar minha senha"

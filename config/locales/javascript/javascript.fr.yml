@@ -120,3 +120,11 @@ fr:
     videos:
       unknown: "Type de vidéo inconnu"
       watch: "Voir cette vidéo sur <%= provider %>"
+    viewer:
+      comment: "Commenter"
+      follow_post: "Suivre cette discussion"
+      like: "J'aime"
+      reshare: "Repartager"
+      reshared: "Repartagé"
+      stop_following_post: "Ne plus suivre cette discussion"
+      unlike: "Je n'aime plus"

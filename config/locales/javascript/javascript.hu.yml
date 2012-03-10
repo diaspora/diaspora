@@ -11,8 +11,8 @@ hu:
       all_aspects: "Összes csoport"
       error: "Nem indult el a megosztás vele: <%= name %>. Visszavonod?"
       select_aspects: "Csoportok kiválasztása"
-      started_sharing_with: "Mostantól megosztassz vele: <%= name %>!"
-      stopped_sharing_with: "Nem osztassz meg többé vele: <%= name %>."
+      started_sharing_with: "Mostantól megosztasz vele: <%= name %>!"
+      stopped_sharing_with: "Nem osztasz meg többé vele: <%= name %>."
       toggle:
         few: "<%= count %> csoportban"
         many: "<%= count %> csoportban"
@@ -37,6 +37,7 @@ hu:
       no_tags: "Hékás, nem követtél egy #címkét sem! Így is folytatod?"
       preparing_your_stream: "Személyre szabott hírfolyamod előkészítése..."
     header:
+      admin: "Adminisztráció"
       contacts: "Ismerősök"
       home: "Kezdőlap"
       log_out: "Kijelentkezés"
@@ -51,6 +52,8 @@ hu:
     ignore: "Elutasít"
     infinite_scroll:
       no_more: "Nincs több bejegyzés."
+    my_activity: "Tevékenységeim"
+    my_stream: "Hírfolyam"
     photo_uploader:
       looking_good: "Azta! Remekül nézek ki!"
     publisher:
@@ -63,7 +66,9 @@ hu:
     show_more: "tovább"
     stream:
       comment: "Hozzászólás"
+      follow: "Követem"
       hide: "Elrejt"
+      hide_nsfw_posts: "#nsfw bejegyzések rejtése"
       like: "Tetszik"
       likes:
         few: "<%= count %> kedveli"
@@ -90,6 +95,9 @@ hu:
         other: "<%= count %> megosztás"
         two: "<%= count %> megosztás"
         zero: "<%= count %> megosztás"
+      show_nsfw_post: "Bejegyzés megjelenítése"
+      show_nsfw_posts: "Összes megjelenítése"
+      unfollow: "Nem követem"
       unlike: "Nem tetszik"
     tags:
       wasnt_that_interesting: "Oké, azt hiszem a #<%= tagName %> nem volt annyira érdekes."
@@ -112,3 +120,11 @@ hu:
     videos:
       unknown: "Ismeretlen videó tipus"
       watch: "Videó megtekintése itt: <%= provider %>"
+    viewer:
+      comment: "Hozzászólás"
+      follow_post: "Követem"
+      like: "Tetszik"
+      reshare: "Megosztás"
+      reshared: "Megosztva"
+      stop_following_post: "Nem követem többé"
+      unlike: "Nem tetszik"
