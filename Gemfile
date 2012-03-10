@@ -2,7 +2,7 @@ source 'http://rubygems.org'
 
 gem 'rails', '3.0.11'
 
-gem 'bundler', '>= 1.0.0'
+gem 'bundler', '>= 1.1.0'
 gem 'foreman', '0.34.1'
 gem 'whenever'
 
@@ -74,7 +74,7 @@ gem 'rails-i18n'
 
 # parsing
 
-gem 'nokogiri', '~> 1.5.0'
+gem 'nokogiri', '1.5.0'
 gem 'redcarpet', "2.0.1"
 gem 'roxml', :git => 'git://github.com/Empact/roxml.git', :ref => '7ea9a9ffd2338aaef5b0'
 gem 'ruby-oembed'
@@ -141,7 +141,7 @@ end
 
 group :development do
   gem 'heroku'
-  gem 'heroku_san'
+  gem 'heroku_san', '1.3.0'
   gem 'capistrano', '~> 2.9.0', :require => false
   gem 'capistrano_colors', :require => false
   gem 'capistrano-ext', '1.2.1', :require => false
