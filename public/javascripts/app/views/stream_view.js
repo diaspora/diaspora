@@ -52,7 +52,7 @@ app.views.Stream = Backbone.View.extend({
 
     return this;
   },
-
+  
   appendLoader: function(){
     $("#paginate").html($("<img>", {
       src : "/images/static-loader.png",
