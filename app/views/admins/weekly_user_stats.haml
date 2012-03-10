@@ -11,5 +11,8 @@
     - @created_users_by_week.keys.each do |k|
       %li #{k} : #{@created_users_by_week[k]}
 
+= form_tag('/admins/weekly_user_stats', :method => 'get') do
+  = select_tag(:week, options_for_select(@created_users_by_week.keys, @created_users_by_week[Date.today.beginning_of_week.strftime("%Y-%m-%d")]))
+  = submit_tag 'go'
 
-  = select_tag(:weeks, options_for_select(@created_users_by_week.keys))
+= @segment
