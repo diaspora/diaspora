@@ -9,28 +9,47 @@ app.views.AspectsDropdown = app.views.Base.extend({
   },
 
   setVisibility : function(evt){
-    var link = $(evt.target)
+    var self = this
+      , link = $(evt.target).closest("a")
       , visibilityCallbacks = {
           'public' : setPublic,
           'all-aspects' : setPrivate,
           'custom' : setCustom
         }
 
-    visibilityCallbacks[link.data("visibility")].call(this)
+    visibilityCallbacks[link.data("visibility")]()
+
+    this.setAspectIds()
 
     function setPublic (){
-      this.setAspectIds("public")
-      this.setDropdownText(link.text())
+      deselectAll()
+      selectAspect()
+      self.setDropdownText(link.text())
     }
 
     function setPrivate (){
-      this.setAspectIds("all_aspects")
-      this.setDropdownText(link.text())
+      deselectAll()
+      selectAspect()
+      self.setDropdownText(link.text())
     }
 
     function setCustom (){
-      this.setAspectIds(link.data("aspect-id"))
-      this.setDropdownText(link.text())
+      deselectOverrides()
+      link.parents("li").toggleClass("selected")
+      self.setDropdownText(link.text())
+      evt.stopImmediatePropagation();
+    }
+
+    function selectAspect() {
+      link.parents("li").addClass("selected")
+    }
+
+    function deselectOverrides() {
+      self.$("a.public, a.all-aspects").parent().removeClass("selected")
+    }
+
+    function deselectAll() {
+      self.$("li.selected").removeClass("selected")
     }
   },
 
@@ -38,7 +57,12 @@ app.views.AspectsDropdown = app.views.Base.extend({
     $.trim(this.$(".dropdown-toggle .text").text(text))
   },
 
-  setAspectIds : function(val){
-    this.$("input.aspect_ids").val(val)
+  setAspectIds : function(){
+    var selectedAspects = this.$("li.selected a")
+    var aspectIds = _.map(selectedAspects, function(aspect){
+      return $(aspect).data("aspect-id")}
+    )
+
+    this.$("input.aspect_ids").val(aspectIds)
   }
 })

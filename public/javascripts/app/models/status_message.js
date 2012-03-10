@@ -6,15 +6,11 @@ app.models.StatusMessage = app.models.Post.extend({
   mungeAndSave : function(){
     var mungedAttrs = {
       status_message : _.clone(this.attributes),
-      aspect_ids : mungeAspects(this.get("aspect_ids")),
+      'aspect_ids[]' : this.get("aspect_ids"),
       services : mungeServices(this.get("services"))
     }
 
     this.save(mungedAttrs)
-
-    function mungeAspects (value){
-      return [value]
-    }
 
     function mungeServices (values) {
       if(!values) { return; }

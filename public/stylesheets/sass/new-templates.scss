@@ -764,3 +764,17 @@ text-rendering: optimizelegibility;
   right: 8px;
   top: 8px;
 }
+
+.aspects_dropdown {
+  i {
+    display: none;
+  }
+
+  .selected i {
+    display: inline-block;
+  }
+
+  a {
+    display : inline-block;
+  }
+}
