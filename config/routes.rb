@@ -107,7 +107,6 @@ Diaspora::Application.routes.draw do
 
   scope 'admins', :controller => :admins do
     match :user_search
-    get   :user_list
     get   :admin_inviter
     get   :weekly_user_stats
     get   :correlations
