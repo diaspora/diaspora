@@ -12,12 +12,11 @@ class PublicsController < ApplicationController
   # We use newrelic_ignore to prevent artifical RPM bloat; however,
   # I am commenting this line out for the time being to debug some apparent
   # issues on Heroku.
-  # 
+  #
   # newrelic_ignore if EnviromentConfiguration.using_new_relic?
 
   skip_before_filter :set_header_data
   skip_before_filter :set_grammatical_gender
-  before_filter :allow_cross_origin, :only => [:hcard, :host_meta, :webfinger]
   before_filter :check_for_xml, :only => [:receive, :receive_public]
   before_filter :authenticate_user!, :only => [:index]
 
@@ -80,12 +79,6 @@ class PublicsController < ApplicationController
 
     render :nothing => true, :status => 202
   end
-
-
-  def allow_cross_origin
-    headers["Access-Control-Allow-Origin"] = "*"
-  end
-
 
 
   private

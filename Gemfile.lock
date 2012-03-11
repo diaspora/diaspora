@@ -300,6 +300,8 @@ GEM
     polyglot (0.3.3)
     proxies (0.2.1)
     rack (1.2.5)
+    rack-cors (0.2.4)
+      rack
     rack-fiber_pool (0.9.2)
     rack-google-analytics (0.10.0)
     rack-mobile-detect (0.3.0)
@@ -496,6 +498,7 @@ DEPENDENCIES
   omniauth-twitter
   parallel_tests
   pg
+  rack-cors (~> 0.2.4)
   rack-google-analytics
   rack-piwik
   rack-rewrite (~> 1.2.1)
