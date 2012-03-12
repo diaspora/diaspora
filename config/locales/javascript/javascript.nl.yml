@@ -61,21 +61,18 @@ nl:
       limited: "Gelimiteerd - je post is alleen zichtbaar voor de mensen waarmee je hem deelt"
       public: "Openbaar - je post is zichtbaar voor iedereen en kan gevonden worden door zoekmachines"
     reshares:
-      duplicate: "Je hebt deze post al doorgegeven! Is hij echt zo goed?"
+      duplicate: "Je hebt dit bericht al doorgegeven! Is hij echt zo goed?"
     search_for: "Zoek naar <%= name %>"
     show_more: "laat meer zien"
     stream:
-      comment: "Reageer"
+      comment: "Reageren"
       follow: "Volgen"
       hide: "Verberg"
       hide_nsfw_posts: "Verberg #nsfw berichten"
       like: "Vind ik leuk"
       likes:
-        few: "<%= count %> keer vastgeprikt"
-        many: "<%= count %> keer vastgeprikt"
         one: "<%= count %> persoon vind dit leuk"
         other: "<%= count %> mensen vinden dit leuk"
-        two: "<%= count %> keer vastgeprikt"
         zero: "<%= count %> mensen vinden dit leuk"
       limited: "Beperkt zichtbaar"
       more_comments:
@@ -87,13 +84,10 @@ nl:
         zero: "Toon nog <%= count %> reacties"
       original_post_deleted: "Originele bericht verwijderd door de auteur."
       public: "Openbaar"
-      reshare: "Delen"
+      reshare: "Doorgeven"
       reshares:
-        few: "<%= count %> Doorgaven"
-        many: "<%= count %> Doorgaven"
         one: "<%= count %>x gedeeld"
         other: "<%= count %>x gedeeld"
-        two: "<%= count %> Doorgaven"
         zero: "<%= count %>x gedeeld"
       show_nsfw_post: "Toon bericht"
       show_nsfw_posts: "Toon alles"
@@ -120,3 +114,11 @@ nl:
     videos:
       unknown: "Onbekend video type"
       watch: "Bekijk deze video op <%= provider %>"
+    viewer:
+      comment: "Reageren"
+      follow_post: "Volgen"
+      like: "Vind ik leuk"
+      reshare: "Doorgeven"
+      reshared: "Doorgegeven"
+      stop_following_post: "Niet meer volgen"
+      unlike: "Niet meer leuk"

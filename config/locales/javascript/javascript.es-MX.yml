@@ -1,0 +1,118 @@
+#   Copyright (c) 2010-2012, Diaspora Inc.  This file is
+#   licensed under the Affero General Public License version 3 or later.  See
+#   the COPYRIGHT file.
+
+
+
+es-MX:
+  javascripts:
+    aspect_dropdown:
+      add_to_aspect: "Añadir contacto"
+      all_aspects: "Todos los aspectos"
+      error: "No se pudo empezar a compartir con <%= name %>. ¿Le estás ignorando?"
+      select_aspects: "Seleccionar aspectos"
+      started_sharing_with: "¡Has comenzado a compartir con <%= name %>!"
+      stopped_sharing_with: "Has dejado de compartir con <%= name %>."
+      toggle:
+        one: "En <%= count %> aspecto"
+        other: "En <%= count %> aspectos"
+        zero: "Elige los aspectos"
+    aspect_navigation:
+      deselect_all: "Desmarcar todos"
+      no_aspects: "No hay aspectos seleccionados"
+      select_all: "Marcar todos"
+    comments:
+      hide: "ocultar comentarios"
+      show: "mostrar todos los comentarios"
+    confirm_dialog: "¿Estás seguro?"
+    delete: "Borrar"
+    failed_to_like: "¡No se pudo marcar como «Me gusta»!"
+    failed_to_post_message: "¡No se pudo publicar el mensaje!"
+    getting_started:
+      alright_ill_wait: "Muy bien, esperaré."
+      hey: "¡Hola, <%= name %>!"
+      no_tags: "¡Eh, no has seguido ninguna etiqueta! ¿Deseas continuar de todas formas?"
+      preparing_your_stream: "Preparando tu entrada personalizada…"
+    header:
+      admin: "Administrador"
+      contacts: "Contactos"
+      home: "Inicio"
+      log_out: "Salir"
+      mark_all_as_read: "Marcar todo como leído"
+      messages: "Mensajes"
+      notifications: "Notificaciones"
+      profile: "Perfil"
+      recent_notifications: "Notificaciones recientes"
+      search: "Buscar"
+      settings: "Preferencias"
+      view_all: "Ver todo"
+    ignore: "Ignorar"
+    infinite_scroll:
+      no_more: "No hay más publicaciones."
+    my_activity: "Mi actividad"
+    my_stream: "Entrada"
+    photo_uploader:
+      looking_good: "¡Ah, te ves increíble!"
+    publisher:
+      at_least_one_aspect: "Debes publicar al menos un aspecto"
+      limited: "Limitado – tu publicación solo será vista por ia gente con quien compartes"
+      public: "Público – tu publicación será visible para todos, y encontrada por buscadores"
+    reshares:
+      duplicate: "Qué bien, ¿eh? ¡Ya has compartido esta publicación!"
+    search_for: "Buscar a <%= name %>"
+    show_more: "mostrar más"
+    stream:
+      comment: "Comentar"
+      follow: "Seguir"
+      hide: "Ocultar"
+      hide_nsfw_posts: "Ocultar publicaciones no aptas para todo público"
+      like: "Me gusta"
+      likes:
+        one: "Le gusta a <%= count %> persona"
+        other: "Le gusta a <%= count %> personas"
+        zero: "Le gusta a <%= count %> personas"
+      limited: "Limitado"
+      more_comments:
+        one: "Mostrar <%= count %> comentario más"
+        other: "Mostrar <%= count %> comentarios más"
+        zero: "Mostrar <%= count %> comentarios más"
+      original_post_deleted: "La publicación original fue eliminada por el autor"
+      public: "Público"
+      reshare: "Volver a compartir"
+      reshares:
+        one: "Compartido <%= count %> vez"
+        other: "Compartido <%= count %> veces"
+        zero: "Compartido <%= count %> veces"
+      show_nsfw_post: "Mostrar publicación"
+      show_nsfw_posts: "Mostrar todo"
+      unfollow: "Dejar de seguir"
+      unlike: "No me gusta"
+    tags:
+      wasnt_that_interesting: "Muy bien, supongo que #<%= tagName %> no era tan interesante…"
+    timeago:
+      day: "un día"
+      days: "%d días"
+      hour: "una hora aproximadamente"
+      hours: "%d horas aproximadamente"
+      minute: "un minuto aproximadamente"
+      minutes: "%d minutos"
+      month: "un mes aproximadamente"
+      months: "%d meses"
+      prefixAgo: "hace"
+      prefixFromNow: "dentro de"
+      seconds: "menos de un minuto"
+      suffixAgo: ""
+      suffixFromNow: ""
+      year: "un año aproximadamente"
+      years: "%d años"
+    videos:
+      unknown: "Tipo de video desconocido"
+      watch: "Ver este video en <%= provider %>"
+    viewer:
+      comment: "Comentar"
+      follow_post: "Seguir esta publicación"
+      like: "Me gusta"
+      reshare: "Compartir"
+      reshared: "Compartido"
+      stop_following_post: "Dejar de seguir esta publicación"
+      unlike: "No me gusta"

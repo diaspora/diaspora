@@ -8,6 +8,10 @@ gem 'whenever'
 
 gem 'thin', '~> 1.3.1',    :require => false
 
+# cross-origin resource sharing
+
+gem 'rack-cors', '~> 0.2.4', :require => 'rack/cors'
+
 # authentication
 
 gem 'devise', '~> 1.3.1'

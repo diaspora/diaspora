@@ -34,7 +34,9 @@ sv:
         arrived: "Det sociala nätverket som du har väntat på har kommit. Moderniserat, säkrare och roligare, % {strong_diaspora} är redo att hjälpa dig dela och utforska webben på ett helt nytt sätt."
         be_yourself: "Var Dig själv"
         be_yourself_paragraph: "Internet har skapat helt nya unika sätt att uttrycka sig på. %{strong_diaspora} låter dig vara dig själv och dela vad du vill, med eller utan ditt riktiga namn."
+        cubbies: "Cubbi.es"
         displaying_correctly: "Visas inte e-mail korrekt? %{link}"
+        email_address: "questions@joindiaspora.com"
         email_us: "För allmänna frågor eller support med ditt Diaspora konto, vänligen maila oss på %{email}."
         finally: "Äntligen - den är här"
         friends_saying: "Vad dina vänner säger ..."
@@ -53,10 +55,12 @@ sv:
         or: "eller"
         sign_up_now: "Registrera dig nu →"
         subject: "Du har blivit inbjuden att gå med i Diaspora!"
+        team_diaspora: "Diaspora-gruppen"
         unsubscribe: "Klicka %{link} för att avregistrera dig."
         view_in: "Se den i din webbläsare."
       inviter:
         accept_at: "via %{url}. Du accepterar genom att klicka på länken nedan."
+        has_invited_you: "%{name}"
         have_invited_you: "%{names} har bjudit in dig att gå med i Diaspora"
       reset_password_instructions:
         change: "Återställ mitt lösenord"
@@ -114,5 +118,5 @@ sv:
   errors:
     messages:
       already_confirmed: "är redan bekräftad"
-      not_found: "kan ej hitta"
+      not_found: "inte funnet"
       not_locked: "var ej låst"

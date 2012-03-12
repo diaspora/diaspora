@@ -90,7 +90,7 @@ eu:
     sessions:
       new:
         alpha_software: "Alpha softwarea erabiltzear zaude."
-        bugs_and_feedback: "Jakin dezazula aktsak aurkituko dituzula. Feedback botoia erabiltzera animatzen zaitugu (eskubian) edozein akats bidaltzeko! Ahal dugun azkarren konponduko dugu."
+        bugs_and_feedback: "Jakin dezazula akatsak aurkituko dituzula. Feedback botoia erabiltzera animatzen zaitugu (eskubian) edozein akats bidaltzeko! Ahal dugun azkarren konponduko dugu."
         bugs_and_feedback_mobile: "Jakin dezazula akatsak aurkitu dituzula. Akatsak bidaltzera animatzen zaitugu! Ahal dugun azkarren egingo dugu lan horiek konpontzeko."
         login: "Sartu"
         modern_browsers: "bakarrik nabigatzaile modernoak onartzen ditu."

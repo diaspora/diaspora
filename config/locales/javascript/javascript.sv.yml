@@ -37,6 +37,7 @@ sv:
       no_tags: "Du, du följer ju inte några taggar! Vill du fortsätta ändå?"
       preparing_your_stream: "Förbereder din personliga ström..."
     header:
+      admin: "Administratör"
       contacts: "Kontakter"
       home: "Hem"
       log_out: "Logga ut"
@@ -51,6 +52,8 @@ sv:
     ignore: "Ignorera"
     infinite_scroll:
       no_more: "Inga fler inlägg."
+    my_activity: "Min aktivitet"
+    my_stream: "Ström"
     photo_uploader:
       looking_good: "OMG, du ser grym ut!"
     publisher:
@@ -63,7 +66,9 @@ sv:
     show_more: "visa mer"
     stream:
       comment: "Kommentar"
+      follow: "Följ"
       hide: "Göm"
+      hide_nsfw_posts: "Dölj #nsfw-inlägg"
       like: "Gilla"
       likes:
         few: "<%= count %> gillar"
@@ -90,6 +95,9 @@ sv:
         other: "<%= count %> sprider vidare"
         two: "<%= count %> sprider vidare"
         zero: "Ingen sprider vidare"
+      show_nsfw_post: "Visa inlägg"
+      show_nsfw_posts: "Visa alla"
+      unfollow: "Sluta följ"
       unlike: "Ogillar"
     tags:
       wasnt_that_interesting: "OK, jag antar att #<%= tagName %> inte var så intressant..."
@@ -106,9 +114,17 @@ sv:
       prefixFromNow: "om"
       seconds: "mindre än en minut"
       suffixAgo: "sedan"
-      suffixFromNow: ""
+      suffixFromNow: "från nu"
       year: "ungefär ett år"
       years: "%d år"
     videos:
       unknown: "Okänd videotyp"
       watch: "Se den här videon på <%= provider %>"
+    viewer:
+      comment: "Kommentar"
+      follow_post: "Följ inlägg"
+      like: "Gilla"
+      reshare: "Återdela"
+      reshared: "Återdelad"
+      stop_following_post: "Sluta att följa inlägg"
+      unlike: "Sluta gilla"

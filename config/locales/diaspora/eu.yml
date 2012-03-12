@@ -40,7 +40,7 @@ eu:
             username:
               invalid: "baliogabea da. Hizkiak, zenbakiak eta barrabaxuak soilik onartzen ditugu."
               taken: "erabilpenean dago jada."
-  ago: "%{time} d(ir)ela"
+  ago: "%{time}"
   all_aspects: "Alderdi guztiak"
   application:
     helper:

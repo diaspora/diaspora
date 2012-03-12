@@ -120,3 +120,11 @@ ko:
     videos:
       unknown: "알 수 없는 동영상 형식"
       watch: "동영상을 <%= provider %>에서 보기"
+    viewer:
+      comment: "댓글"
+      follow_post: "게시물 팔로우하기"
+      like: "좋아요"
+      reshare: "재공유"
+      reshared: "재공유"
+      stop_following_post: "게시물 팔로우 멈추기"
+      unlike: "좋아요 취소"

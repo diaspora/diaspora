@@ -787,10 +787,8 @@ sk:
     hide_comments: "schovať komentáre"
     show_comments:
       few: "Zobraziť ďalšie %{count} komentárov"
-      many: "Zobraziť ďalších %{count} komentárov"
       one: "Zobraziť ešte %{count} komentár"
       other: "Zobraziť ďalších %{count} komentárov"
-      two: "Zobraziť ďalšie dva komentáre"
       zero: "Žiadne ďalšie komentáre nie sú"
   streams:
     activity:

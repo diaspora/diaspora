@@ -120,3 +120,11 @@ ru:
     videos:
       unknown: "Неизвестный видеоформат"
       watch: "Смотреть это видео на <%= provider %>"
+    viewer:
+      comment: "Комментировать"
+      follow_post: "Следить за записью"
+      like: "Мне нравится"
+      reshare: "Поделиться"
+      reshared: "Поделились"
+      stop_following_post: "Не следить за записью"
+      unlike: "Мне не нравится"

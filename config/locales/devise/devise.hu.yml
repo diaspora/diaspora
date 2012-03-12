@@ -34,7 +34,9 @@ hu:
         arrived: "Megérkezett az a közösségi hálózat amire vártál. Átalakított, biztonságosabb és szórakoztatóbb, %{strong_diaspora} készen áll arra, hogy segítsen neked a web felfedezésében és megosztásában. "
         be_yourself: "Légy Önmagad"
         be_yourself_paragraph: "Az Internet egy új lehetőséged ad az önkifejezésre. A %{strong_diaspora} lehetőséged ad, hogy önmagad légy,  megossz amit akarsz, valódi neveddel vagy anélkül."
+        cubbies: "Cubbi.es"
         displaying_correctly: "Levelünk hibásan jelenik meg? %{link}"
+        email_address: "questions@joindiaspora.com"
         email_us: "Felhasználói fiókoddal kapcsolatos kérdésekkel kérjük írj a %{email} címre."
         finally: "Végre - Itt van!"
         friends_saying: "Miről beszélnek az ismerőseid..."
@@ -58,6 +60,7 @@ hu:
         view_in: "Megtekintés böngészőben"
       inviter:
         accept_at: "Meghívás elfogadása: %{url}"
+        has_invited_you: "%{name} meghívott a Diaspora* közösségi oldalra."
         have_invited_you: "%{names} meghívott a Diaspora* közösségi oldalra."
       reset_password_instructions:
         change: "Jelszavam módosítása"
@@ -82,7 +85,7 @@ hu:
       updated: "A jelszavad megváltozott. Be vagy jelentkezve vele."
     registrations:
       destroyed: "Viszlát! A fiókod törölve. Reméljük hamarosan újra látunk. =)"
-      signed_up: "Sikeresen regisztrált. Ha engedélyezve van, akkor egy megerősítő e-mailt küldünk."
+      signed_up: "Sikeresen regisztráltál. Ha engedélyezve van, akkor egy megerősítő e-mailt küldünk."
       updated: "Fiókod frissítve."
     sessions:
       new:

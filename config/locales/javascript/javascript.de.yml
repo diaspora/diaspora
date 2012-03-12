@@ -33,6 +33,7 @@ de:
     failed_to_post_message: "Konnte Beitrag nicht senden!"
     getting_started:
       alright_ill_wait: "Alles klar, ich warte."
+      hey: "Hey, <%= name %>!"
       no_tags: "Hey, du folgst noch keinen Tags! Trotzdem weitermachen?"
       preparing_your_stream: "Dein persönlicher Stream wird zusammengestellt …"
     header:

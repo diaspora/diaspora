@@ -14,20 +14,18 @@ pt-BR:
       started_sharing_with: "Você começou a compartilhar com {{name}}!"
       stopped_sharing_with: "Você parou de compartilhar com {{name}}."
       toggle:
-        few: "Em {{count}} aspectos"
-        many: "Em {{count}} aspectos"
-        one: "Em {{count}} aspecto"
-        other: "Em {{count}} aspectos"
-        two: "Em {{count}} aspectos"
-        zero: "Adicione para aspecto"
+        one: "Em <%= count %> grupo"
+        other: "Em <%= count %> grupos"
+        zero: "Selecione grupos"
     aspect_navigation:
       deselect_all: "Desmarcar tudo"
-      no_aspects: "Sem aspecto selecionado"
+      no_aspects: "Sem grupo selecionado"
       select_all: "Marcar tudo"
     comments:
       hide: "ocultar comentários"
       show: "mostrar todos comentários"
     confirm_dialog: "Tem certeza?"
+    delete: "Apagar"
     failed_to_like: "Falhou ao curtir!"
     failed_to_post_message: "Falha em postar a mensagem!"
     getting_started:
@@ -36,13 +34,27 @@ pt-BR:
       no_tags: "Ei, você não está seguindo todas as tags! Continuar assim mesmo?"
       preparing_your_stream: "Preparando seu fluxo personalizado..."
     header:
+      admin: "Administrador"
+      contacts: "Contatos"
+      home: "Páginal Inicial"
+      log_out: "Sair"
+      mark_all_as_read: "Marcar Todas como Lidas"
+      messages: "Mensagens"
+      notifications: "Notificações"
+      profile: "Perfil"
+      recent_notifications: "Notificações Recentes"
       search: "Find people or #tags"
+      settings: "Opções"
+      view_all: "Ver todas"
+    ignore: "Ignorar"
     infinite_scroll:
       no_more: "Não há mais postagem."
+    my_activity: "Minhas Atividades"
+    my_stream: "Fluxo"
     photo_uploader:
       looking_good: "OMG, veja você é incrível!"
     publisher:
-      at_least_one_aspect: "Você deve publicar pelo menos um aspecto"
+      at_least_one_aspect: "Você deve publicar pelo menos um grupo"
       limited: "Limitada - a sua postagem será visível apenas para as pessoas que você compartilha."
       public: "Pública - a sua postagem será totalmente visível na web e poderá ser encontrada pelos mecanismos de buscas, Google, Bing e etc..."
     reshares:
@@ -50,6 +62,11 @@ pt-BR:
     search_for: "Procurar por {{name}}"
     show_more: "mostrar mais"
     stream:
+      comment: "Comentar"
+      follow: "Seguir"
+      hide: "Ocultar"
+      hide_nsfw_posts: "Esconder posts não apto para todos os públicos"
+      like: "Curtir"
       likes:
         few: "<%= count %> Likes"
         many: "<%= count %> Likes"
@@ -57,6 +74,7 @@ pt-BR:
         other: "<%= count %> Likes"
         two: "<%= count %> Likes"
         zero: "<%= count %> Likes"
+      limited: "Limitado"
       more_comments:
         few: "Show <%= count %> more comments"
         many: "Show <%= count %> more comments"
@@ -64,6 +82,9 @@ pt-BR:
         other: "Show <%= count %> more comments"
         two: "Show <%= count %> more comments"
         zero: "Show <%= count %> more comments"
+      original_post_deleted: "A postagem original foi deletada pelo autor."
+      public: "Público"
+      reshare: "Recompartilhar"
       reshares:
         few: "<%= count %> Reshares"
         many: "<%= count %> Reshares"
@@ -71,6 +92,10 @@ pt-BR:
         other: "<%= count %> Reshares"
         two: "<%= count %> Reshares"
         zero: "<%= count %> Reshares"
+      show_nsfw_post: "Mostrar post"
+      show_nsfw_posts: "Mostrar tudo"
+      unfollow: "Parar de seguir"
+      unlike: "Descurtir"
     tags:
       wasnt_that_interesting: "Ok, eu acho que #{{tagName}} não era tão interessante..."
     timeago:
@@ -82,8 +107,8 @@ pt-BR:
       minutes: "%d minutos"
       month: "cerca de um mês"
       months: "%d meses"
-      prefixAgo: ""
-      prefixFromNow: ""
+      prefixAgo: "atrás"
+      prefixFromNow: "dentro de"
       seconds: "menos de um minuto"
       suffixAgo: "atrás"
       suffixFromNow: "a partir de agora"
@@ -92,3 +117,11 @@ pt-BR:
     videos:
       unknown: "Tipo de vídeo desconhecido"
       watch: "Assista este vídeo no {{provider}}"
+    viewer:
+      comment: "Comentário"
+      follow_post: "Seguir posts"
+      like: "Curtir"
+      reshare: "Recompartilhar"
+      reshared: "Recompartilhado"
+      stop_following_post: "Parar de seguir post"
+      unlike: "Descurtir"

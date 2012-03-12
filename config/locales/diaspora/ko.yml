@@ -503,6 +503,7 @@ ko:
       no_one_found: "검색 결과가 없습니다"
       no_results: "검색 결과가 없습니다"
       results_for: "검색 결과:"
+    last_post: "최근 게시물"
     many: "%{count}명"
     one: "한 명"
     other: "%{count}명"
@@ -578,6 +579,8 @@ ko:
       error: "사진 고치기 실패."
       notice: "사진을 성공적으로 업데이트했습니다."
   posts:
+    presenter:
+      title: "%{name}님의 게시물"
     show:
       destroy: "지우기"
       not_found: "해당 게시물을 찾을 수 없습니다."
@@ -660,6 +663,7 @@ ko:
         two: "새 요청이 %{count}개 있습니다!"
         zero: "요청 없음"
     manage_aspect_contacts:
+      existing: "기존 컨택"
       manage_within: "컨택 관리하기:"
     new_request_to_person:
       sent: "보냈습니다."

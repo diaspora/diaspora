@@ -1,4 +1,6 @@
 default: "en"
+
+
 available:
   ar: "العربية"
   bg: "български език"
@@ -18,6 +20,7 @@ available:
   es: "Castellano"
   es-AR: "Castellano - Argentina"
   es-CL: "Castellano - Chile"
+  es-MX: "Español, México"
   eu: "Euskara"
   fi: "Suomi"
   fil: "Filipino"
@@ -55,6 +58,8 @@ available:
   vi: "Tiếng Việt"
   zh-CN: "中文"
   zh-TW: "台灣中文"
+
+
 fallbacks:
   en-GB:
     - :en
@@ -80,6 +85,8 @@ fallbacks:
     - :es
   es-CL:
     - :es
+  es-MX:
+    - :es
   gl:
     - :gl-ES
   zh:
@@ -89,6 +96,8 @@ fallbacks:
     - :ur
   de_formal:
     - :de
+
+
 rtl:
   - :ar
   - :he

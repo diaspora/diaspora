@@ -120,3 +120,11 @@ it:
     videos:
       unknown: "Tipo di video sconosciuto"
       watch: "Guarda questo video su <%= provider %>"
+    viewer:
+      comment: "Commenta"
+      follow_post: "Segui il post"
+      like: "Mi piace"
+      reshare: "Condividi"
+      reshared: "Condiviso"
+      stop_following_post: "Smetti di seguire il post"
+      unlike: "Non mi piace più"

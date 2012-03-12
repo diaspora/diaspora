@@ -44,6 +44,7 @@ sv:
   all_aspects: "Alla aspekter"
   application:
     helper:
+      diaspora_alpha: "DIASPORA* ALPHA"
       unknown_person: "okänd person"
       video_title:
         unknown: "Okänd videotitel"
@@ -111,6 +112,9 @@ sv:
         have_a_question: "... en %{link}?"
         here_to_help: "Diaspora-communityn finns här!"
         need_help: "Behöver du hjälp?"
+        tag_bug: "bugg"
+        tag_feature: "särdrag"
+        tag_question: "fråga"
         tutorials_wiki_and_forum: "%{tutorial} & %{wiki} & %{forum}: Handledning, guider och nyheter från gemenskapen"
       introduce_yourself: "Det här är din ström. Hoppa in och presentera dig själv."
       keep_us_running: "Håll farten hos %{pod} uppe och köp kaffe till servrarna genom en månadsdonation!"
@@ -176,6 +180,7 @@ sv:
   bookmarklet:
     explanation: "Bokmärk %{link} för att posta på Diaspora ifrån varsomhelst. "
     explanation_link_text: "denna länk"
+    heading: "Bookmarklet"
     post_something: "Posta något till Diaspora"
     post_success: "Postat! Stänger!"
   cancel: "Avbryt"
@@ -196,10 +201,14 @@ sv:
     index:
       add_a_new_aspect: "Lägg till en ny aspekt"
       add_to_aspect: "lägg till kontakter i %{name}"
+      add_to_aspect_link: "lägg till kontakter till %{name}"
       all_contacts: "Alla kontakter"
+      community_spotlight: "Gemenskapens rampljus"
       many_people_are_you_sure: "Är du säker på att du vill starta en privat konversation mer mer än %{suggested_limit} kontakter? Ett bättre sätt kan vara att posta inlägget i denna aspekt."
       my_contacts: "Mina kontakter"
       no_contacts: "Det verkar som om att du skulle behöva några fler kontakter!"
+      no_contacts_message: "Kolla in %{community_spotlight}"
+      no_contacts_message_with_aspect: "Kolla in %{community_spotlight} eller %{add_to_aspect_link}"
       only_sharing_with_me: "Delar enbart med mig"
       remove_person_from_aspect: "Ta bort %{person_name} från \"%{aspect_name}\""
       start_a_conversation: "Påbörja en konversation"
@@ -247,6 +256,11 @@ sv:
       delete: "ta bort och blockera konversation"
       reply: "svara"
       replying: "Svarar..."
+  date:
+    formats:
+      birthday: "%d %B"
+      birthday_with_year: "%d %B, %Y"
+      fullmonth_day: "%d %B"
   delete: "Ta bort"
   email: "E-post"
   error_messages:
@@ -287,6 +301,7 @@ sv:
     new:
       already_invited: "Följande har inte accepterat din inbjudan:"
       aspect: "Aspekt"
+      check_out_diaspora: "Kolla in Diaspora!"
       comma_seperated_plz: "Du kan ange flera e-postadresser åtskiljda av kommatecken."
       if_they_accept_info: "om de accepterar, kommer de läggas till i den aspekt du angav vid inbjudan."
       invite_someone_to_join: "Bjud in en vän till Diaspora!"
@@ -299,11 +314,13 @@ sv:
   layouts:
     application:
       back_to_top: "Åter till början"
+      powered_by: "DRIVS AV DIASPORA*"
       public_feed: "Offentligt Diasporaflöde för %{name}"
       toggle: "byt till mobilanpassad "
       whats_new: "några nyheter?"
       your_aspects: "dina aspekter"
     header:
+      admin: "administratör"
       blog: "blogg"
       code: "källkod"
       login: "Logga in"
@@ -440,6 +457,8 @@ sv:
   notifier:
     a_post_you_shared: "ett inlägg."
     click_here: "klicka här"
+    comment_on_post:
+      reply: "Svara eller se %{name}s inlägg >"
     confirm_email:
       click_link: "För att aktivera din nya e-postadress %{unconfirmed_email}, klicka här:"
       subject: "Var vänlig och aktivera din nya e-postadress %{unconfirmed_email}"
@@ -465,6 +484,8 @@ sv:
       view_profile: "Se %{name}s profil"
     thanks: "Tack,"
     to_change_your_notification_settings: "för att ändra dina notisinställningar"
+  nsfw: "NSFW"
+  ok: "Ok"
   or: "eller"
   password: "Lösenord"
   password_confirmation: "Bekräfta lösenord"
@@ -483,6 +504,7 @@ sv:
       no_one_found: "...och ingen hittades."
       no_results: "Du måste söka efter något."
       results_for: "Sökresultat för"
+    last_post: "Sista inlägget"
     many: "%{count} personer"
     one: "1 person"
     other: "%{count} personer"
@@ -492,6 +514,7 @@ sv:
       pending_request: "Väntande förfrågningar"
       thats_you: "Detta är du!"
     profile_sidebar:
+      bio: "biografi"
       born: "födelsedag"
       edit_my_profile: "Ändra min profil"
       gender: "kön"
@@ -557,6 +580,8 @@ sv:
       error: "Misslyckades med att ändra fotot."
       notice: "Fotot är nu uppdaterat."
   posts:
+    presenter:
+      title: "Ett inlägg från %{name}"
     show:
       destroy: "Ta bort"
       not_found: "Tyvärr, men vi kan inte hitta det inlägget."
@@ -580,6 +605,8 @@ sv:
       first_name: "Förnamn"
       last_name: "Efternamn"
       update_profile: "Uppdatera profil"
+      you_are_nsfw: "Du har markerat dig som inte arbetsplatssäker. Ditt innehåll kommer således att inte visas för personer som har valt bort att visa strömmar med stötande innehåll."
+      you_are_safe_for_work: "Du har markerat dig själv som arbetsplatssäker. Detta betyder att du accepterar att bara skicka inlägg som följer gemenskapens riktlinjer."
       your_bio: "Din biografi"
       your_birthday: "Din födelsedag"
       your_gender: "Ditt kön"
@@ -618,6 +645,7 @@ sv:
       enter_password: "Skriv in ett lösenord"
       enter_password_again: "Skriv in samma lösenord som tidigare"
       enter_username: "Välj ett användarnamn (endast bokstäver, nummer eller understreck)"
+      join_the_movement: "Gå med i rörelsen!"
       sign_up_message: "Socialt nätverkande med ♥"
   requests:
     create:
@@ -682,6 +710,7 @@ sv:
       really_disconnect: "koppla från %{service}?"
     inviter:
       click_link_to_accept_invitation: "Klicka på den här länken för att acceptera din inbjudan"
+      join_me_on_diaspora: "Följ med mig på DIASPORA*"
     remote_friend:
       invite: "bjud in"
       not_on_diaspora: "Ännu inte på Diaspora"
@@ -695,6 +724,7 @@ sv:
     add_contact:
       add_new_contact: "Lägg till en ny kontakt"
       create_request: "Sök på Diaspora-ID"
+      diaspora_handle: "diaspora@pod.org"
       enter_a_diaspora_username: "Ange ett Diaspora-användarnamn:"
       know_email: "Kan du deras e-postadress? Du borde bjuda in dem"
       your_diaspora_username_is: "Ditt Diaspora-användarnamn är: %{diaspora_handle}"
@@ -724,6 +754,7 @@ sv:
     notification:
       new: "Ny %{type} från %{from}"
     public_explain:
+      atom_feed: "Atom-flöde"
       control_your_audience: "Ha kontrollen över din publik"
       logged_in: "inloggad på %{service}"
       manage: "hantera anslutna tjänster"
@@ -741,6 +772,7 @@ sv:
         hello: "Hej allihop, jag är #%{new_user_tag}. "
         i_like: "Jag är intresserad av %{tags}."
         invited_by: "Tack för inbjudan, "
+        newhere: "NyHär"
       post_a_message_to: "Skicka ett meddelande till %{aspect}"
       posting: "Skickar..."
       publishing_to: "publicerar till: "
@@ -762,6 +794,7 @@ sv:
       shared_with: "Delas med: %{aspect_names}"
       show: "visa"
       unlike: "Sluta gilla"
+      via: "via %{link}"
       viewable_to_anyone: "Detta inlägg är synligt för alla på nätet"
   status_messages:
     create:
@@ -789,6 +822,8 @@ sv:
       two: "Visa två ytterligare kommentarer"
       zero: "Inga fler kommentarer"
   streams:
+    activity:
+      title: "Min aktivitet"
     aspects:
       title: "Dina aspekter"
     aspects_stream: "Aspekter"
@@ -805,6 +840,7 @@ sv:
     like_stream:
       contacts_title: "Personer vars inlägg du gillar"
       title: "Omtyckta strömmar"
+    mentioned_stream: "@Omnämnanden"
     mentions:
       contacts_title: "Personer som omnämnt dig"
       title: "Omnämnanden"
@@ -847,6 +883,7 @@ sv:
       screenshot_explanation: "%{link1}. Just denna cubby är länkad till %{link2}."
       sign_up_today: "Registrera dig idag!"
       typical_userpage: "En typisk cubbi.es sida"
+      via: "(via %{link})"
       what_is_cubbies: "Cubbi.es är världens först Diaspora applikation. Den är också bäst på att samla ihop dina online fotografier."
   undo: "Ångra?"
   username: "Användarnamn"
