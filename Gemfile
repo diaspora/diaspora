@@ -17,6 +17,7 @@ gem 'rack-cors', '~> 0.2.4', :require => 'rack/cors'
 gem 'devise', '1.5.3'
 gem 'jwt'
 gem 'oauth2-provider', '0.0.19'
+gem 'remotipart', '~> 1.0'
 
 gem 'omniauth', '1.0.1'
 gem 'omniauth-facebook'

@@ -25,6 +25,8 @@ javascripts:
     - public/javascripts/vendor/timeago.js
     - public/javascripts/vendor/facebox.js
     - public/javascripts/vendor/underscore.js
+    - public/javascripts/vendor/jquery.iframe-transport.js
+    - public/javascripts/vendor/jquery.remotipart.js
     - public/javascripts/vendor/jquery.events.input.js
     - public/javascripts/vendor/jquery.elastic.js
     - public/javascripts/vendor/jquery.mentionsInput.js

@@ -1,0 +1,15 @@
+= form_for Photo.new, :html => { :multipart => true }, :remote => true do |f|
+  = f.label :user_file
+  = f.file_field :user_file
+  = f.submit
+
+:javascript
+  $(function(){
+    console.log($('#new_photo'))
+    $('#new_photo').bind('ajax:success', function(event, data) {
+      alert("happy day")
+      console.log(data)
+      console.log(new Backbone.Model(data)); // Your newly created Backbone.js model
+
+    });
+  });
