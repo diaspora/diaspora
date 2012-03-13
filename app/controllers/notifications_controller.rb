@@ -36,8 +36,10 @@ class NotificationsController < ApplicationController
 
       pager.replace(result)
     end
-    @notifications.each do |n|
-      n[:note_html] = render_to_string( :partial => 'notify_popup_item', :locals => { :n => n } )
+    if request.format != :json
+      @notifications.each do |n|
+        n[:note_html] = render_to_string( :partial => 'notify_popup_item', :locals => { :n => n } )
+      end
     end
     @group_days = @notifications.group_by{|note| I18n.l(note.created_at, :format => I18n.t('date.formats.fullmonth_day')) }
 
@@ -55,6 +57,7 @@ class NotificationsController < ApplicationController
     Notification.where(:recipient_id => current_user.id).update_all(:unread => false)
     respond_to do |format|
       format.html { redirect_to stream_path }
+      format.mobile{ redirect_to stream_path}
       format.xml { render :xml => {}.to_xml }
       format.json { render :json => {}.to_json }
     end
