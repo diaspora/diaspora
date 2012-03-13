@@ -18,9 +18,14 @@
 .span-15.append-1
   #people_stream.stream
     - if @hashes.empty?
-      %p
-        =t('.no_one_found')
-
+      - if @background_query.present?
+        %p
+          =t('.searching')
+        :javascript
+          $(document).ready(function() { List.startSearchDelay('#{@background_query}') } );
+      - else
+        %p
+          =t('.no_one_found')
     - else
       - for hash in @hashes
         = render :partial => 'people/person', :locals => hash

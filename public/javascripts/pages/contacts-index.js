@@ -5,4 +5,5 @@ Diaspora.Pages.ContactsIndex = function() {
     self.infiniteScroll = self.instantiate("InfiniteScroll");
     $('.conversation_button').twipsy({position: 'below'});
   });
+
 };
