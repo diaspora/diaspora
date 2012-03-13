@@ -3,8 +3,9 @@ app.forms.Post = app.forms.Base.extend({
 
   subviews : {
     ".aspect_selector" : "aspectsDropdown",
-    ".service_selector" : "servicesSelector"
-  },
+    ".service_selector" : "servicesSelector",
+    ".new_picture" : "pictureForm"
+   },
 
   formAttrs : {
     "textarea#text_with_markup" : "text",
@@ -15,6 +16,7 @@ app.forms.Post = app.forms.Base.extend({
   initialize : function() {
     this.aspectsDropdown = new app.views.AspectsDropdown();
     this.servicesSelector = new app.views.ServicesSelector();
+    this.pictureForm = new app.forms.Picture();
   },
 
   postRenderTemplate : function() {

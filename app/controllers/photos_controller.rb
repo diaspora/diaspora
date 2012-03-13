@@ -41,38 +41,11 @@ class PhotosController < ApplicationController
   end
 
   def create
-    raise "THAT IS NOT OKAY"
-    rescuing_photo_errors do |p|
+    rescuing_photo_errors do
       if remotipart_submitted?
          @photo = current_user.build_post(:photo, params[:photo])
       else
-        raise "not remotipart" unless params[:photo][:aspect_ids]
-
-        if params[:photo][:aspect_ids] == "all"
-          params[:photo][:aspect_ids] = current_user.aspects.collect { |x| x.id }
-        elsif params[:photo][:aspect_ids].is_a?(Hash)
-          params[:photo][:aspect_ids] = params[:photo][:aspect_ids].values
-        end
-
-        params[:photo][:user_file] = file_handler(params)
-
-        @photo = current_user.build_post(:photo, params[:photo])
-
-        if @photo.save
-        aspects = current_user.aspects_from_ids(params[:photo][:aspect_ids])
-
-        unless @photo.pending
-          current_user.add_to_streams(@photo, aspects)
-          current_user.dispatch_post(@photo, :to => params[:photo][:aspect_ids])
-        end
-
-        if params[:photo][:set_profile_photo]
-          profile_params = {:image_url => @photo.url(:thumb_large),
-                            :image_url_medium => @photo.url(:thumb_medium),
-                            :image_url_small => @photo.url(:thumb_small)}
-          current_user.update_profile(profile_params)
-        end
-        end
+        legacy_create
       end
 
       if @photo.save
@@ -194,6 +167,33 @@ class PhotosController < ApplicationController
     end
   end
 
+  def legacy_create
+    if params[:photo][:aspect_ids] == "all"
+      params[:photo][:aspect_ids] = current_user.aspects.collect { |x| x.id }
+    elsif params[:photo][:aspect_ids].is_a?(Hash)
+      params[:photo][:aspect_ids] = params[:photo][:aspect_ids].values
+    end
+
+    params[:photo][:user_file] = file_handler(params)
+
+    @photo = current_user.build_post(:photo, params[:photo])
+
+    if @photo.save
+      aspects = current_user.aspects_from_ids(params[:photo][:aspect_ids])
+
+      unless @photo.pending
+        current_user.add_to_streams(@photo, aspects)
+        current_user.dispatch_post(@photo, :to => params[:photo][:aspect_ids])
+      end
+
+      if params[:photo][:set_profile_photo]
+        profile_params = {:image_url => @photo.url(:thumb_large),
+                          :image_url_medium => @photo.url(:thumb_medium),
+                          :image_url_small => @photo.url(:thumb_small)}
+        current_user.update_profile(profile_params)
+      end
+    end
+  end
 
   def rescuing_photo_errors
     begin
