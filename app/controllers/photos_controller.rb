@@ -41,6 +41,7 @@ class PhotosController < ApplicationController
   end
 
   def create
+    raise "THAT IS NOT OKAY"
     rescuing_photo_errors do |p|
       if remotipart_submitted?
          @photo = current_user.build_post(:photo, params[:photo])

@@ -4,12 +4,15 @@
   = f.submit
 
 :javascript
+ //  ugly hax to take us from remotipart land to normal backbone land
   $(function(){
-    console.log($('#new_photo'))
-    $('#new_photo').bind('ajax:success', function(event, data) {
-      alert("happy day")
-      console.log(data)
-      console.log(new Backbone.Model(data)); // Your newly created Backbone.js model
-
+    $('#new_photo').bind('ajax:complete', function(evt, xhr) {
+      resp = JSON.parse(xhr.responseText)
+      if(resp.success) {
+        console.log("response was successful");
+      } else {
+        console.log(resp.error);
+      };
     });
+          //console.log(new Backbone.Model(data)); // Your newly created Backbone.js model
   });
