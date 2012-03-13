@@ -32,7 +32,10 @@
       #main_stream.stream
         = render 'shared/stream', :posts => @stream.stream_posts
         #pagination
-          =link_to(t('more'), next_page_path, :class => 'paginate')
+          %a.more-link.paginate{:href => next_page_path}
+            %h1
+              = t("more")
+
   - else
     #main_stream
       %div{:style=>"text-align:center;", :class => "dull"}
