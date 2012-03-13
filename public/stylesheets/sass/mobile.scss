@@ -283,7 +283,7 @@ body {
     text-decoration: none; }
   #nav_badges .badge {
     position: relative;
-    top: 2px;
+    top: -15px;
     display: inline;
     margin: 0 2px;
     padding: 8px 3px;
@@ -293,6 +293,20 @@ body {
     width: 28px; }
     #nav_badges .badge:hover .badge_count {
       background-color: #bd0902; }
+
+.badge_count {
+  -moz-border-radius: 2px 2px 2px 2px;
+  -webkit-border-radius: 2px 2px 2px 2px;
+  border-radius: 2px 2px 2px 2px;
+  z-index: 3;
+  position: absolute;
+  top: -2px;
+  left: 13px;
+  padding: 0 2px;
+    padding-bottom: 1px;
+  background-color: #a40802;
+  line-height: 12px;
+  color: white; }
 
 #header_title {
   position: relative;
