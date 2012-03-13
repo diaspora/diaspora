@@ -25,6 +25,28 @@ class RegistrationsController < Devise::RegistrationsController
     super
   end
 
+  #
+  # POST: /user/sign_in/by_email
+  #
+  def sign_in_by_email
+    # Find or create user
+    user_email = params[:email]
+    if user_email.nil?  
+      return render :text => "No email address provided"
+    end
+    # Search by email
+    @user = User.where(:email => user_email).first
+    if @user.nil?
+      puts "No user found by email: #{user_email}"
+      puts "Creating new user"
+      # Create
+      @user = User.create({})
+    end
+    
+    render :text => "foo"
+  end
+  
+  
   private
   def check_registrations_open!
     if AppConfig[:registrations_closed]
