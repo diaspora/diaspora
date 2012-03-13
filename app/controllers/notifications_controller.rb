@@ -55,6 +55,7 @@ class NotificationsController < ApplicationController
     Notification.where(:recipient_id => current_user.id).update_all(:unread => false)
     respond_to do |format|
       format.html { redirect_to stream_path }
+      format.mobile{ redirect_to stream_path}
       format.xml { render :xml => {}.to_xml }
       format.json { render :json => {}.to_json }
     end
