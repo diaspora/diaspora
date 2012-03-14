@@ -53,9 +53,14 @@ describe PeopleController do
           assigns[:people][0].id.should == @unsearchable_eugene.id
         end
 
-        it 'sets the background query task' do
+        it 'does not the background query task if the user is found' do
           get :index, :q => "Eugene@Example.ORG"
-          assigns[:background_query].should == "eugene@example.org"
+          assigns[:background_query].should == nil
+        end
+
+        it 'sets background query task if the user is not found' do
+          get :index, :q => "Eugene@Example1.ORG"
+          assigns[:background_query].should == "eugene@example1.org"
         end
       end
 
