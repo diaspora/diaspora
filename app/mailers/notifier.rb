@@ -4,6 +4,8 @@ class Notifier < ActionMailer::Base
   helper :notifier
   helper :people
   
+  default :from => AppConfig[:smtp_sender_address]
+  
   def self.admin(string, recipients, opts = {})
     mails = []
     recipients.each do |rec|
