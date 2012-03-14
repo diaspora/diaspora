@@ -1,0 +1,46 @@
+mysql: &mysql
+  adapter: mysql2
+  host: "localhost"
+  port: 3306
+  username: "root"
+  password: ""
+#  socket: /tmp/mysql.sock
+  charset: utf8
+  collation: utf8_bin
+
+postgres: &postgres
+  adapter: postgresql
+  host: 77.92.68.105
+  port: 10301
+  username: bilachofaobn158h
+  password: h2ozgjuzm4sgydqe8k3ir2ximn2qryad
+  encoding: unicode
+
+
+common: &common
+  # Choose one of the following
+  #<<: *mysql
+  <<: *postgres
+
+
+development:
+  <<: *common
+  #database: vh0lvkofoamto0l2uje
+  development:
+  adapter: sqlite3
+  database: db/development.sqlite3
+  pool: 5
+  timeout: 5000
+
+production:
+  <<: *common
+  database: z74cfi0sx20py9pc
+test:
+  <<: *common
+  database: "diaspora_test<%= ENV['TEST_ENV_NUMBER'] %>"
+integration1:
+  <<: *common
+  database: diaspora_integration1
+integration2:
+  <<: *common
+  database: diaspora_integration2

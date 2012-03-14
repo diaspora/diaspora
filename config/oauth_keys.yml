@@ -1,0 +1,9 @@
+twitter:
+  consumer_key: <%= AppConfig['twitter_consumer_key'] %>
+  consumer_secret: <%= AppConfig['twitter_consumer_secret'] %>
+facebook:
+  app_id: <%=AppConfig['facebook_app_id'] %>
+  app_secret: <%= AppConfig['facebook_app_secret'] %>
+tumblr:
+  consumer_key: <%= AppConfig['tumblr_consumer_key'] %>
+  consumer_secret: <%= AppConfig['tumblr_consumer_secret'] %>

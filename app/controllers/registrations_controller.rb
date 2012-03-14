@@ -26,7 +26,7 @@ class RegistrationsController < Devise::RegistrationsController
   end
 
   #
-  # POST: /user/sign_in/by_email
+  # POST: /user/sign_up/by_email
   #
   def sign_in_by_email
     # Find or create user
