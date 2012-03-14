@@ -53,20 +53,20 @@
 #end
 
 
-Diaspora::Application.configure do
+#Diaspora::Application.configure do
 #  config.action_mailer.default_url_options = {
 #    :protocol => AppConfig[:pod_uri].scheme,
 #    :host => AppConfig[:pod_uri].authority   
 #  }
 #  config.action_mailer.asset_host = AppConfig[:pod_uri].to_s
   
-  config.action_mailer.smtp_settings = {
-          :address => AppConfig[:smtp_address],
-          :port => AppConfig[:smtp_port],
-          :domain => AppConfig[:smtp_domain],
-          :authentication => :plain,
-          :user_name => AppConfig[:smtp_username],
-          :password => AppConfig[:smtp_password],
-          :enable_starttls_auto => AppConfig[:smtp_starttls_auto],
-        }
-end
+#  config.action_mailer.smtp_settings = {
+#          :address => AppConfig[:smtp_address],
+#          :port => AppConfig[:smtp_port],
+#          :domain => AppConfig[:smtp_domain],
+#          :authentication => :plain,
+#          :user_name => AppConfig[:smtp_username],
+#          :password => AppConfig[:smtp_password],
+#          :enable_starttls_auto => AppConfig[:smtp_starttls_auto],
+#        }
+#end

@@ -38,3 +38,13 @@ Diaspora::Application.configure do
     end
   end
 end
+
+
+NEW_RELIC_ID          = '91551'
+NEW_RELIC_LICENSE_KEY = 'a6de1e6bfe0a03cd05d9c82e3fd99cfa9f8c06f2'
+NEW_RELIC_LOG         = 'stdout'
+NEW_RELIC_APP_NAME = 'strong-flower-7533'
+
+SENDGRID_PASSWORD     = 'yg3nxdej'
+SENDGRID_USERNAME     = 'app3272450@heroku.com'
+
