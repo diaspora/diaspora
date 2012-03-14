@@ -70,6 +70,12 @@ describe NotificationsController do
       Factory(:notification, :recipient => alice, :target => @post)
     end
 
+    it 'succeeds for notification dropdown' do
+      get :index, :format => :json
+      response.should be_success
+      response.body.should =~ /note_html/
+    end
+
     it 'paginates the notifications' do
       25.times { Factory(:notification, :recipient => alice, :target => @post) }
       get :index
