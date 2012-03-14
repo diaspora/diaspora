@@ -8,4 +8,4 @@ if [ "$(gem --version)" != "1.8.15" ]; then
 fi
 
 gem uninstall bundler --all --ignore-dependencies --executables 
-gem install bundle --version '~> 1.0.0'
+gem install bundler --version '~> 1.0.0'
