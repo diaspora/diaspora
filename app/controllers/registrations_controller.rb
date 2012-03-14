@@ -42,7 +42,18 @@ class RegistrationsController < Devise::RegistrationsController
       puts "No user found by email: #{user_email}"
       puts "Creating new user"
       # Create
-      @user = User.create({})
+      password_token = User.reset_password_token
+      @user = User.build({
+          :username => user_email.split("@").first+"_"+rand(100).to_s,
+          :email => user_email,
+          :reset_password_token => password_token,
+          :password => password_token,
+        })
+      if @user.save
+        rs = "User successfuly saved. Email: #{user_email}"
+      else
+        rs = "Error: User not saved. Email: #{user_email}"
+      end
     else
       rs = "User found by email address: #{user_email}"
       puts "User found by email address: #{user_email}"
