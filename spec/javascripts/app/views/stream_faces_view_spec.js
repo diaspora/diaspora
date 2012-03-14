@@ -43,7 +43,7 @@ describe("app.views.StreamFaces", function(){
     it("rerenders when people are added, but caps to 15 people", function(){
       var posts = _.map(_.range(20), function(){ return factory.post()})
       this.posts.reset(posts) //add 20 posts silently to the collection
-      this.posts.add(factory.post) //trigger an update
+      this.posts.add(factory.post()) //trigger an update
       expect(this.view.$("img").length).toBe(15)
     })
   })
