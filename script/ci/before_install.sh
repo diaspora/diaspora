@@ -7,5 +7,5 @@ if [ "$(gem --version)" != "1.8.15" ]; then
   echo "Changed RubyGems version to $(gem --version)."
 fi
 
-gem uninstall bundler
+gem uninstall bundler --all --ignore-dependencies --executables 
 gem install bundle --version '~> 1.0.0'
