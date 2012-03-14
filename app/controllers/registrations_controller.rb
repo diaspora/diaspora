@@ -36,14 +36,19 @@ class RegistrationsController < Devise::RegistrationsController
     end
     # Search by email
     @user = User.where(:email => user_email).first
+    rs = ""
     if @user.nil?
+      rs = "No user found by email: #{user_email}"
       puts "No user found by email: #{user_email}"
       puts "Creating new user"
       # Create
       @user = User.create({})
+    else
+      rs = "User found by email address: #{user_email}"
+      puts "User found by email address: #{user_email}"
     end
     
-    render :text => "foo"
+    render :text => rs
   end
   
   
