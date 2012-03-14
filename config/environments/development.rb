@@ -18,7 +18,10 @@ Diaspora::Application.configure do
 
   
   # Don't care if the mailer can't send
-  config.action_mailer.raise_delivery_errors = false
+  #   But we do care => added.
+  config.action_mailer.raise_delivery_errors = true
+  config.action_mailer.default_url_options = { :host => 'http://localhost:3000/' }
+  
   config.active_support.deprecation = [:stderr, :log]
   #config.threadsafe!
   # Monkeypatch around the nasty "2.5MB exception page" issue, caused by very large environment vars

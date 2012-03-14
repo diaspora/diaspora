@@ -111,14 +111,17 @@ defaults: &defaults
   # Setting this to true enables Diaspora's "send email" functionality,
   # requiring meaningful smtp_* settings. These are options for RoR's
   # ActionMailer class.
-  mailer_on: false
+  #
+  # Notice: The default mailer settings were override in mailer_config.rb
+  mailer_on: true
 
   # Address/port to smtp server handling outgoing mail.
   smtp_address: 'smtp.sendgrid.net'
-  smtp_port: '587'
+  smtp_port: 587
 
   # This chooses which mailer should be used. 'smtp' for a smtp
-  # connection or 'sendmail' to use the sendmail binary, or messagebus, to use the messagebus service
+  # connection or 'sendmail' to use the sendmail binary, 
+  # or messagebus, to use the messagebus service
   mailer_method: 'smtp'
 
   #API key if you are using message bus
@@ -139,14 +142,16 @@ defaults: &defaults
   smtp_starttls_auto: true
 
   # OpenSSL verify mode used when connecting to a SMTP server with TLS.
-  # Set this to none if you have a self signed certificate, keep it empty (not '') for the default
+  # Set this to none if you have a self signed certificate, 
+  # keep it empty (not '') for the default
   # Possible values: none, peer, client_once, fail_if_no_peer_cert
-  smtp_openssl_verify_mode:
+  smtp_openssl_verify_mode: 'none'
 
   # Domain of smtp server.
   # This should match the common name of the certificate
   # the SMTP server sends. If he sends one
-  smtp_domain: 'smtp.sendgrid.net'
+#  smtp_domain: 'smtp.sendgrid.net'
+  smtp_domain: 'heroku.com'
 
   # Credentials to log in to the SMTP server - may be necessary if
   # smtp_authentication is not 'none'
