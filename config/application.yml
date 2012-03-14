@@ -25,7 +25,7 @@ defaults: &defaults
 
   # URL for a remote redis, on the default port. Don't forget to restrict IP access!
   # leave it empty for the default (localhost)
-  redis_url: ''
+  redis_url: 'redis://redistogo:e7c965f2cb6fff41f8d6839fecb20c63@herring.redistogo.com:9456/'
 
   # Amazon S3 for photos
 
