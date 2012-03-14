@@ -47,10 +47,12 @@ app.views.Content = app.views.StreamObject.extend({
   expandPost: function(evt) {
     var el = $(this.el).find('.collapsible');
     el.removeClass('collapsed').addClass('opened');
-    el.animate({'height':el.data('orig-height')}, 550);
+    el.animate({'height':el.data('orig-height')}, 550, function() {
+      el.css('height','auto');
+    });
     $(evt.currentTarget).hide();
   }
-  
+
 });
 
 app.views.StatusMessage = app.views.Content.extend({
