@@ -117,7 +117,7 @@ es-MX:
         tag_question: "pregunta"
         tutorials_wiki_and_forum: "%{tutorial} & %{wiki} & %{forum}: Tutoriales hechos por la comunidad, guías y noticias"
       introduce_yourself: "Esta es tu entrada. Adelante, preséntate."
-      keep_us_running: "!Haz que %{pod} siga yendo rápido, y compra a nuestros servidores su dosis de café con una donación mensual!"
+      keep_us_running: "¡Haz que %{pod} siga yendo rápido, y compra a nuestros servidores su dosis de café con una donación mensual!"
       new_here:
         follow: "¡Sigue %{link} y da la bienvenida a nuevos usuarios de Diaspora*!"
         learn_more: "Aprende más"
@@ -487,7 +487,7 @@ es-MX:
       start_sharing: "comenzar a compartir"
       to_accept_or_ignore: "aceptar o ignorar."
     sub_header:
-      add_some: "agregar algunos"
+      add_some: "agregar algunas"
       edit: "editar"
       you_have_no_tags: "¡no tienes etiquetas!"
     two: "%{count} personas"
@@ -767,6 +767,7 @@ es-MX:
     followed_tags_stream: "#Etiquetas seguidas"
     like_stream:
       contacts_title: "Personas cuyas publicaciones te gustan"
+      title: "Tus preferidos"
     mentioned_stream: "@Menciones"
     mentions:
       contacts_title: "Personas que te han mencionado"

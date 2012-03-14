@@ -39,6 +39,7 @@ de:
     header:
       admin: "Admin"
       contacts: "Kontakte"
+      home: "Startseite"
       log_out: "Abmelden"
       mark_all_as_read: "Alle als gelesen markieren"
       messages: "Nachrichten"
@@ -115,3 +116,11 @@ de:
     videos:
       unknown: "Unbekanntes Videoformat"
       watch: "Dieses Video auf {{provider}} ansehen"
+    viewer:
+      comment: "Kommentar"
+      follow_post: "Diesen Beitrag verfolgen"
+      like: "Gefällt mir"
+      reshare: "Weitersagen"
+      reshared: "Weitergesagt"
+      stop_following_post: "Diesen Beitrag nicht mehr verfolgen"
+      unlike: "Gefällt mir nicht mehr"

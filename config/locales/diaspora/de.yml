@@ -503,6 +503,7 @@ de:
       no_one_found: "… und niemand wurde gefunden."
       no_results: "Hey! Du musst nach etwas suchen."
       results_for: "Suchergebnisse für"
+    last_post: "Letzter Beitrag"
     many: "%{count} Personen"
     one: "einer Person"
     other: "%{count} Personen"
@@ -578,6 +579,8 @@ de:
       error: "Bearbeiten des Fotos fehlgeschlagen."
       notice: "Foto erfolgreich aktualisiert."
   posts:
+    presenter:
+      title: "Ein Beitrag von %{name}"
     show:
       destroy: "Löschen"
       not_found: "Entschuldige, wir konnten den Beitrag leider nicht finden."

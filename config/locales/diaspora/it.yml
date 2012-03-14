@@ -642,7 +642,7 @@ it:
     destroy:
       error: "Seleziona un aspetto!"
       ignore: "Richiesta di contatto ignorata."
-      success: "Adesso potete condividere."
+      success: "Hai attivato la condivisione"
     helper:
       new_requests:
         few: "%{count} nuove richieste!"
