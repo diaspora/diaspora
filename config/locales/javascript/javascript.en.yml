@@ -29,8 +29,8 @@ en:
     my_stream: "Stream"
 
     videos:
-        watch: "Watch this video on <%= provider %>"
-        unknown: "Unknown video type"
+      watch: "Watch this video on <%= provider %>"
+      unknown: "Unknown video type"
     search_for: "Search for <%= name %>"
     publisher:
       at_least_one_aspect: "You must publish to at least one aspect"
@@ -73,6 +73,8 @@ en:
       looking_good: "OMG, you look awesome!"
     tags:
       wasnt_that_interesting: "OK, I suppose #<%= tagName %> wasn't all that interesting..."
+    people:
+      not_found: "and no one was found..."
 
     stream:
       hide: "Hide"

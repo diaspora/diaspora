@@ -124,6 +124,7 @@ Diaspora::Application.routes.draw do
 
   get 'community_spotlight' => "contacts#spotlight", :as => 'community_spotlight'
 
+  get 'people/refresh_search' => "people#refresh_search"
   resources :people, :except => [:edit, :update] do
     resources :status_messages
     resources :photos

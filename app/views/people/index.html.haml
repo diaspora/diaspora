@@ -8,6 +8,9 @@
 - content_for :head do
   = include_javascripts :people
   = javascript_include_tag 'contact-list'
+  - if @background_query.present?
+    :javascript
+        $(document).ready(function() { List.startSearchDelay('#{@background_query}') } );
 
 .span-24.last
   = search_header
@@ -18,9 +21,13 @@
 .span-15.append-1
   #people_stream.stream
     - if @hashes.empty?
-      %p
-        =t('.no_one_found')
-
+      - if @background_query.present?
+        %p 
+          = t('.searching')
+          = image_tag '/images/static-loader.png', :class => 'loader'
+      - else
+        %p
+          = t('.no_one_found')
     - else
       - for hash in @hashes
         = render :partial => 'people/person', :locals => hash
