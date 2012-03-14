@@ -10,7 +10,6 @@ env:
   - DB=postgres BUILD_TYPE=cucumber
 
 before_install: 
-  - gem install bundler
   - "./script/ci/before_install.sh"
 
 bundler_args: "--without development production heroku"

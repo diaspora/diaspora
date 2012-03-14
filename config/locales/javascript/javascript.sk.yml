@@ -114,3 +114,11 @@ sk:
     videos:
       unknown: "Neznámy typ videa"
       watch: "Sledujte toto video na <%= provider %>"
+    viewer:
+      comment: "Komentár"
+      follow_post: "Sledovať príspevok"
+      like: "Páči sa mi to"
+      reshare: "Ukázať príspevok priateľom"
+      reshared: "Znova ukázané"
+      stop_following_post: "Prestať sledovať príspevok"
+      unlike: "Už sa mi to nepáči"

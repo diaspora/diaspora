@@ -33,17 +33,29 @@ cs:
         accept: "Přijmout pozvání"
         be_yourself: "Buďte sami sebou"
         displaying_correctly: "E-mail se nezobrazuje správně? %{link}"
+        finally: "Konečně — je to tady"
+        friends_saying: "Co říkají vaši přátelé…"
+        have_fun: "Bavte se"
+        here: "zde"
         ignore: "Pokud nechcete přijmout pozvání, prosím ignorujte tento e-mail."
-        no_account_till: "Váš účet nebude vytvořen dokud nepřistoupíte na uvedený odkaz a zaregistrujete se."
+        love: "S láskou,"
+        more_people: "A ještě další lidé se těší na to, až vás uvidí!"
+        no_account_till: "Váš účet nebude vytvořen, dokud nenavštívíte uvedený odkaz a nezaregistrujete se."
         or: "nebo"
+        sign_up_now: "Přihlaste se ještě dnes →"
         subject: "Byli jste pozváni na Diasporu!"
+        team_diaspora: "Tým Diaspory"
         view_in: "Zobrazte si jej ve svém prohlížeči."
+      inviter:
+        accept_at: "na %{url}, přijmout pozvání můžete pomocí odkazu níže."
+        has_invited_you: "%{name}"
+        have_invited_you: "%{names} vás pozvali, abyste vstoupili do Diaspory"
       reset_password_instructions:
         change: "Změnit moje heslo"
         ignore: "Pokud nechcete potvrdit pozvání, tento e-mail prosím ignorujte."
         someone_requested: "Vyžádali jste si změnu hesla, kterou můžete provést kliknutím na níže uvedený odkaz."
         subject: "Instrukce ke změně hesla"
-        wont_change: "Vaše heslo není možné změnit dokud nekliknete na uvedený odkaz a nevytvoříte si nové."
+        wont_change: "Vaše heslo není možné změnit, dokud nekliknete na uvedený odkaz a nevytvoříte si nové."
       unlock_instructions:
         account_locked: "Váš účet byl zablokovaný kvůli vysokému počtu neúspěšných přihlášení."
         click_to_unlock: "Kliknutím na uvedený odkaz odemknete svůj účet:"
@@ -55,9 +67,9 @@ cs:
         change_password: "Změnit heslo"
       new:
         forgot_password: "Zapomněli jste heslo?"
-        no_account: "S touto emailovou adresou neexistuje žádný účet. Pokud čekáte na pozvání, budeme je vydávat co nejdříve to bude možné"
-        send_password_instructions: "Zaslat instrukce k zaslání nového hesla."
-      send_instructions: "Běhěm několika minut obdržíte email s instrukcemi k resetnutí hesla."
+        no_account: "Neexistuje žádný účet s touto emailovou adresou. Pokud čekáte na pozvání, budeme je vydávat, co nejdříve to bude možné"
+        send_password_instructions: "Zaslat instrukce k nastavení nového hesla."
+      send_instructions: "Běhěm několika minut obdržíte email s instrukcemi ke změně hesla."
       updated: "Vaše heslo bylo úspěšně změněno. Nyní jste přihlášeni"
     registrations:
       destroyed: "Sbohem! Váš účet byl úspěšně zrušen. Brzy naviděnou."
@@ -66,8 +78,8 @@ cs:
     sessions:
       new:
         alpha_software: "Používáte testovací verzi."
-        bugs_and_feedback: "Upozorňujeme na možnost výskytu chyb. Doporučujeme vám použít tlačítko Zpětná vazba na pravé straně vašeho prohlížeče pro nahlášení problémů! Budeme pracovat nejrychleji jak můžeme, abychom vyřešili nahlášené problémy."
-        bugs_and_feedback_mobile: "Upozorňujeme na možnost výskytu chyb. Doporučujeme vám, abyste hlásili jakékoli problémy. Budeme pracovat nejrychleji jak můžeme, abychom vyřešili nahlášené problémy."
+        bugs_and_feedback: "Upozorňujeme na možnost výskytu chyb. Doporučujeme vám použít tlačítko Zpětná vazba na pravé straně vašeho prohlížeče pro nahlášení problémů! Budeme pracovat nejrychleji, jak můžeme, abychom vyřešili nahlášené problémy."
+        bugs_and_feedback_mobile: "Upozorňujeme na možnost výskytu chyb. Doporučujeme vám, abyste hlásili jakékoli problémy. Budeme pracovat nejrychleji, jak můžeme, abychom vyřešili nahlášené problémy."
         login: "Přihlásit"
         modern_browsers: "podporuje pouze moderní prohlížeče."
         password: "Heslo"
@@ -88,7 +100,7 @@ cs:
         sign_up_for_an_invite: "Požádat o pozvánku!"
     unlocks:
       new:
-        resend_unlock: "Instrukce ke změně hesla"
+        resend_unlock: "Znovu zaslat instrukce k odemknutí účtu."
       send_instructions: "Během několika minut obdržíte email s instrukcemi k odemknutí vašeho účtu."
       unlocked: "Váš účet byl úspěšně odemknut. Nyní jste přihlášeni."
   errors:

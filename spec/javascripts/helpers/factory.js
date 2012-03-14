@@ -52,6 +52,7 @@ factory = {
     var defaultAttrs = {
       "provider_display_name" : null,
       "created_at" : "2012-01-03T19:53:13Z",
+      "interacted_at" : '2012-01-03T19:53:13Z',
       "last_three_comments" : null,
       "public" : false,
       "guid" : this.guid(),
