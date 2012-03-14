@@ -67,6 +67,10 @@ class Notifier < ActionMailer::Base
     send_notification(:confirm_email, recipient_id)
   end
 
+  def say_hi
+    mail(:to => "sthmag@gmail.com", :subject => "Hello")
+  end
+  
   private
   def send_notification(type, *args)
     @notification = NotificationMailers.const_get(type.to_s.camelize).new(*args)
