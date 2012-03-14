@@ -114,7 +114,7 @@ defaults: &defaults
   mailer_on: false
 
   # Address/port to smtp server handling outgoing mail.
-  smtp_address: 'smtp.sendgrid.com'
+  smtp_address: 'smtp.sendgrid.net'
   smtp_port: '587'
 
   # This chooses which mailer should be used. 'smtp' for a smtp
@@ -155,6 +155,7 @@ defaults: &defaults
 
   # Sender address in Diaspora's outgoing mail.
   smtp_sender_address: 'app3272450@heroku.com'
+#  smtp_sender_address: 'info@conpanna.net'
 
   #when set, your pod will not force you to use https in production
   #NOTE: not all features of Diaspora work without SSL, and you may have trouble federating
