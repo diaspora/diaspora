@@ -112,7 +112,7 @@ gem 'client_side_validations'
 
 gem 'faraday'
 gem 'faraday-stack'
-gem 'em-synchrony', :platforms => :ruby_19
+gem 'em-synchrony', '1.0.0', :platforms => :ruby_19
 
 # jazzy jasmine
 
