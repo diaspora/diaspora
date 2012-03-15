@@ -105,7 +105,7 @@ gem 'typhoeus'
 gem 'haml'
 gem 'mobile-fu'
 gem 'sass'
-gem 'bootstrap-will_paginate'
+gem 'will_paginate'
 gem 'client_side_validations'
 
 # web
