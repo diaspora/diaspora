@@ -37,7 +37,7 @@ app.views.Content = app.views.StreamObject.extend({
 
   showOembedContent: function() {
     var oembed = $(this.el).find(".oembed");
-    var insertHTML = jQuery( this.embedHTML() );
+    var insertHTML = $( this.embedHTML() );
     var paramSeparator = ( /\?/.test(insertHTML.attr("src")) ) ? "&" : "?";
     insertHTML.attr("src", insertHTML.attr("src") + paramSeparator + "autoplay=1");
     oembed.html( insertHTML );
