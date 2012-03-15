@@ -601,9 +601,17 @@ select {
 
 .navbar-fixed-top {
   position: fixed !important;
-
   max-height: 45px !important;
   min-height: 45px !important;
   height: 45px !important;
   overflow: hidden;
 }
+
+.notifications {
+  list-style: none;
+}
+
+.notification_day_header {
+  margin-bottom: 5px;
+}
+

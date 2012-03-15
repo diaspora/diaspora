@@ -17,7 +17,7 @@
     - if @contacts.size > 0
       - for contact in @contacts
         = render 'people/person', :person => contact.person, :contact => contact
-      = will_paginate @contacts
+      = will_paginate @contacts, :renderer => WillPaginate::ActionView::BootstrapLinkRenderer
     - else
       %h3.no_contacts
         = t('.no_contacts')
