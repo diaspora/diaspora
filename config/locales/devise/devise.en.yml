@@ -16,7 +16,7 @@ en:
       inactive: 'Your account was not activated yet.'
     sessions:
       new:
-        login: 'Login'
+        login: 'Log in'
         username: 'Username'
         password: 'Password'
         sign_in: 'Sign in'
