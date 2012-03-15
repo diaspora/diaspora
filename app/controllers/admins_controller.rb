@@ -11,16 +11,22 @@ class AdminsController < ApplicationController
   end
 
   def admin_inviter 
-    email = params[:idenitifer]
+    inviter = InvitationCode.default_inviter_or(current_user)
+    email = params[:identifier]
     user = User.find_by_email(email)
     
     unless user
-      EmailInviter.new(email).send!
+      EmailInviter.new(email, inviter).send!
       flash[:notice] = "invitation sent to #{email}"
     else
       flash[:notice]= "error sending invite to #{email}"
     end
     redirect_to user_search_path, :notice => flash[:notice]
+  end
+
+  def add_invites
+    InvitationCode.find_by_token(params[:invite_code_id]).add_invites!
+    redirect_to user_search_path
   end
 
   def weekly_user_stats

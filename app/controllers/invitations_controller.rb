@@ -26,7 +26,7 @@ class InvitationsController < ApplicationController
 
 
   def create
-    inviter = EmailInviter.new(params[:email_inviter][:emails], params[:email_inviter])
+    inviter = EmailInviter.new(params[:email_inviter][:emails], current_user, params[:email_inviter])
     inviter.send!
     redirect_to :back, :notice => "Great! Invites were sent off to #{inviter.emails.join(', ')}" 
   end

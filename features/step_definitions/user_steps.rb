@@ -26,13 +26,15 @@ Given /^a nsfw user with email "([^\"]*)"$/ do |email|
 end
 
 Given /^I have been invited by an admin$/ do
-  i = EmailInviter.new("new_invitee@example.com")
+  admin = Factory(:user)
+  bob.invitation_code
+  i = EmailInviter.new("new_invitee@example.com", bob)
   i.send!
 end
 
 Given /^I have been invited by a user$/ do
   @inviter = Factory(:user)
-  i = EmailInviter.new("new_invitee@example.com", :inviter => @inviter)
+  i = EmailInviter.new("new_invitee@example.com", @inviter)
   i.send!
 end
 

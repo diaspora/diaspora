@@ -70,7 +70,7 @@ class Invitation < ActiveRecord::Base
   # @return [Invitation] self
   def send!
     if email_like_identifer
-      EmailInviter.new(self.identifier).send! 
+      EmailInviter.new(self.identifier, sender).send! 
     else
       puts "broken facebook invitation_token"
     end

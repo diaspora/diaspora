@@ -26,6 +26,11 @@ module RakeHelpers
       possible_invite = Invitation.find_by_identifier(backer_email)
       possible_user ||= possible_invite.recipient if possible_invite.present?
 
+      admin_account = User.find_by_username(AppConfig[:admin_account])
+      raise "no admin_account in application.yml" unless admin_account.present?
+      admin_account.invitation_code.count += num_to_process
+      admin_account.invitation_code.save
+
       unless possible_user
         puts "#{n}: sending email to: #{backer_name} #{backer_email}" unless Rails.env == 'test'
         unless test

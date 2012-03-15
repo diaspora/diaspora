@@ -83,7 +83,6 @@ class User < ActiveRecord::Base
     User.joins(:contacts).where(:contacts => {:person_id => person.id})
   end
 
-<<<<<<< HEAD
   def self.monthly_actives(start_day = Time.now)
     logged_in_since(start_day - 1.month)
   end
@@ -108,28 +107,18 @@ class User < ActiveRecord::Base
     ConversationVisibility.sum(:unread, :conditions => "person_id = #{self.person.id}")
   end
 
-  # @return [User]
-  def self.find_by_invitation(invitation)
-    service = invitation.service
-    identifier = invitation.identifier
-
-    if service == 'email'
-      existing_user = User.where(:email => identifier).first
-    else
-      existing_user = User.joins(:services).where(:services => {:type => "Services::#{service.titleize}", :uid => identifier}).first
-=======
   #should be deprecated
   def ugly_accept_invitation_code
     begin
       self.invitations_to_me.first.sender.invitation_code
     rescue Exception => e
       nil
->>>>>>> invite_link functionailty mostly works
     end
   end
 
   def process_invite_acceptence(invite)
     self.invited_by = invite.user
+    invite.use!
   end
 
 

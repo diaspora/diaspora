@@ -20,8 +20,8 @@ describe InvitationsController do
     end
 
     it 'creates an EmailInviter'  do
-      inviter = stub(:emails => ['mbs@gmail.com'])
-      EmailInviter.should_receive(:new).with(@invite['email_inviter']['emails'], @invite['email_inviter']).
+      inviter = stub(:emails => ['mbs@gmail.com'], :send! => true)
+      EmailInviter.should_receive(:new).with(@invite['email_inviter']['emails'], @user, @invite['email_inviter']).
         and_return(inviter)
       post :create,  @invite
     end
@@ -40,7 +40,6 @@ describe InvitationsController do
       response.should redirect_to("http://test.host/cats/foo")
     end
   end
-
 
   describe '#new' do
     it 'renders' do

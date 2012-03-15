@@ -1,10 +1,10 @@
 class EmailInviter
   attr_accessor :emails, :message, :inviter, :locale
 
-  def initialize(emails, options={})
+  def initialize(emails, inviter, options={})
     self.message = options[:message]
-    self.inviter = options[:inviter]
     self.locale = options.fetch(:locale, 'en')
+    self.inviter = inviter 
     self.emails = emails
   end
 
@@ -15,12 +15,7 @@ class EmailInviter
   end
 
   def invitation_code
-    @invitation_code ||= inviter.nil? ? EmailInviter.admin_code : inviter.invitation_code 
-  end
-
-  def self.admin_code
-    puts "FIX ME"
-    "foo"
+    @invitation_code ||= inviter.invitation_code 
   end
 
   def send!
