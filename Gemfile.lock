@@ -384,7 +384,7 @@ GEM
       linecache19 (>= 0.5.11)
       ruby-debug-base19 (>= 0.11.19)
     ruby-hmac (0.4.0)
-    ruby-oembed (0.8.5)
+    ruby-oembed (0.8.7)
     ruby-progressbar (0.0.10)
     ruby_core_source (0.1.5)
       archive-tar-minitar (>= 0.5.2)
@@ -523,7 +523,7 @@ DEPENDENCIES
   rspec-rails (>= 2.0.0)
   ruby-debug
   ruby-debug19
-  ruby-oembed
+  ruby-oembed (~> 0.8.7)
   sass
   selenium-webdriver (~> 2.16.0)
   settingslogic!
