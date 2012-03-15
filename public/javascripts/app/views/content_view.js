@@ -3,7 +3,7 @@ app.views.Content = app.views.StreamObject.extend({
   events: {
     "click .oembed .thumb": "showOembedContent"
   },
-  
+
   presenter : function(){
     return _.extend(this.defaultPresenter(), {
       text : app.helpers.textFormatter(this.model),
@@ -37,10 +37,10 @@ app.views.Content = app.views.StreamObject.extend({
 
   showOembedContent: function() {
     var oembed = $(this.el).find(".oembed");
-    var embedHTML = $( this.embedHTML() );
-    var paramSeparator = ( /\\?/.test(embedHTML.attr("href")) ) ? "&" : "?";
-    embedHTML.attr("src", embedHTML.attr("src") + paramSeparator + "autoplay=1");
-    oembed.html( embedHTML );
+    var insertHTML = jQuery( this.embedHTML() );
+    var paramSeparator = ( /\?/.test(insertHTML.attr("src")) ) ? "&" : "?";
+    insertHTML.attr("src", insertHTML.attr("src") + paramSeparator + "autoplay=1");
+    oembed.html( insertHTML );
   }
 });
 
