@@ -320,19 +320,24 @@ STR
     end
   end
 
-  describe '#contains_url_in_text?' do
-    it 'returns an array of all urls found in the raw message' do
-      sm = Factory(:status_message, :text => 'http://youtube.com is so cool.  so is https://joindiaspora.com')
-      sm.contains_oembed_url_in_text?.should_not be_nil
-      sm.oembed_url.should == 'http://youtube.com'
-    end
-  end
-
   describe 'oembed' do
+    before do
+      @youtube_url = "https://www.youtube.com/watch?v=3PtFwlKfvHI"
+      @message_text = "#{@youtube_url} is so cool. so is this link -> https://joindiaspora.com"
+    end
+
     it 'should queue a GatherOembedData if it includes a link' do
-      sm = Factory.build(:status_message, :text => 'http://youtube.com is so cool.  so is https://joindiaspora.com')
+      sm = Factory.build(:status_message, :text => @message_text)
       Resque.should_receive(:enqueue).with(Jobs::GatherOEmbedData, instance_of(Fixnum), instance_of(String))
       sm.save
+    end
+
+    describe '#contains_oembed_url_in_text?' do
+      it 'returns the oembed urls found in the raw message' do
+        sm = Factory(:status_message, :text => @message_text)
+        sm.contains_oembed_url_in_text?.should_not be_nil
+        sm.oembed_url.should == @youtube_url
+      end
     end
   end
 end
