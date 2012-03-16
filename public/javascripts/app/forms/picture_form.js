@@ -2,12 +2,24 @@ app.forms.Picture = app.forms.Base.extend({
   templateName : "picture-form",
 
   events : {
-    'ajax:complete .new_photo' : "photoUploaded"
+    'ajax:complete .new_photo' : "photoUploaded",
+    "change input[name='photo[user_file]']" : "submitForm"
   },
 
   initialize : function() {
     this.photos = new Backbone.Collection()
     this.photos.bind("add", this.render, this)
+  },
+
+  postRenderTemplate : function(){
+    this.$("input[name=authenticity_token]").val($("meta[name=csrf-token]").attr("content"))
+    this.$("input[name=photo_ids]").val(this.photos.pluck("id"))
+    this.renderPhotos();
+  },
+
+  submitForm : function (){
+    console.log("meow")
+    this.$("form").submit();
   },
 
   photoUploaded : function(evt, xhr) {
@@ -17,12 +29,6 @@ app.forms.Picture = app.forms.Base.extend({
     } else {
       alert("Upload failed!  Please try again. " + resp.error);
     }
-  },
-
-  postRenderTemplate : function(){
-    this.$("input[name=authenticity_token]").val($("meta[name=csrf-token]").attr("content"))
-    this.$("input[name=photo_ids]").val(this.photos.pluck("id"))
-    this.renderPhotos();
   },
 
   renderPhotos : function(){

@@ -6,11 +6,25 @@ describe("app.forms.Picture", function(){
     }).prependTo("head")
 
     this.form = new app.forms.Picture().render()
-  })
+  });
 
   it("sets the authenticity token from the meta tag", function(){
     expect(this.form.$("input[name='authenticity_token']").val()).toBe("supersecrettokenlol")
-  })
+  });
+
+  describe("selecting a photo", function(){
+    it("submits the form", function(){
+      var submitSpy = jasmine.createSpy();
+
+      this.form.$("form").submit(function(event){
+        event.preventDefault();
+        submitSpy();
+      });
+
+      this.form.$("input[name='photo[user_file]']").change()
+      expect(submitSpy).toHaveBeenCalled();
+    })
+  });
 
   describe("when a photo is suceessfully submitted", function(){
     beforeEach(function(){

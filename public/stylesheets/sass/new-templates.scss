@@ -778,3 +778,9 @@ text-rendering: optimizelegibility;
     display : inline-block;
   }
 }
+
+.new_photo .photo{
+  display: inline;
+  max-width: 200px;
+  max-height: 200px;
+}

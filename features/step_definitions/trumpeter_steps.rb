@@ -43,7 +43,6 @@ end
 When /^I upload a fixture picture with filename "([^"]*)"$/ do |file_name|
   within ".new_photo" do
     attach_file "photo[user_file]", Rails.root.join("spec", "fixtures", file_name)
-    click_button :submit
   end
 
   @image_source = find(".photos img")["src"]
