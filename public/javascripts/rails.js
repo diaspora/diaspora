@@ -139,7 +139,6 @@
             return rails.fire(element, 'ajax:beforeSend', [xhr, settings]);
           },
           success: function(data, status, xhr) {
-            alert("hella boner jamz")
             element.trigger('ajax:success', [data, status, xhr]);
           },
           complete: function(xhr, status) {

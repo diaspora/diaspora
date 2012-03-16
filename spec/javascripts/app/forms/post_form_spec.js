@@ -15,14 +15,14 @@ describe("app.forms.Post", function(){
         this.view.$("form .aspect_ids").val("public")
 
         /* appending checkboxes */
-        this.view.$("form").append($("<input/>", {
+        this.view.$(".new-post").append($("<input/>", {
           value : "fakeBook",
           checked : "checked",
           "class" : "service",
           "type" : "checkbox"
         }))
 
-        this.view.$("form").append($("<input/>", {
+        this.view.$(".new-post").append($("<input/>", {
           value : "twitter",
           checked : "checked",
           "class" : "service",
@@ -31,7 +31,7 @@ describe("app.forms.Post", function(){
       })
 
       it("instantiates a post on form submit", function(){
-        this.view.$("form").submit()
+        this.view.$(".new-post").submit()
         expect(this.view.model.get("text")).toBe("Oh My")
         expect(this.view.model.get("aspect_ids")).toBe("public")
         expect(this.view.model.get("services").length).toBe(2)
@@ -40,7 +40,7 @@ describe("app.forms.Post", function(){
       it("triggers a  'setFromForm' event", function(){
         var spy = jasmine.createSpy();
         this.view.model.bind("setFromForm", spy);
-        this.view.$("form").submit();
+        this.view.$(".new-post").submit();
         expect(spy).toHaveBeenCalled();
       })
     })

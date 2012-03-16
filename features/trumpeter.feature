@@ -21,11 +21,17 @@ Feature: Creating a new post
     Then I should see "This is super skrunkle" as the first post in my stream
     Then "This is super skrunkle" should be a limited post in my stream
 
-   Scenario: Mention a contact
-     Given a user named "Alice Smith" with email "alice@alice.alice"
-     And a user with email "bob@bob.bob" is connected with "alice@alice.alice"
-     And I mention "alice@alice.alice"
-     And I press "Share"
-     And I go to "/stream"
-     Then I follow "Alice Smith"
+  Scenario: Mention a contact
+   Given a user named "Alice Smith" with email "alice@alice.alice"
+   And a user with email "bob@bob.bob" is connected with "alice@alice.alice"
+   And I mention "alice@alice.alice"
+   And I press "Share"
+   And I go to "/stream"
+   Then I follow "Alice Smith"
 
+  Scenario: Uploading a photo
+    When I write "check out this picture"
+    And I upload a fixture picture with filename "button.gif"
+    And I press "Share"
+    And I go to "/stream"
+    Then "check out this picture" should have my photo

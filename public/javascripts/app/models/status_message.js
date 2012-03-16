@@ -7,6 +7,7 @@ app.models.StatusMessage = app.models.Post.extend({
     var mungedAttrs = {
       status_message : _.clone(this.attributes),
       'aspect_ids[]' : this.get("aspect_ids"),
+      photos : this.photos.pluck("id"),
       services : mungeServices(this.get("services"))
     }
 

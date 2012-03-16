@@ -43,18 +43,16 @@ class PhotosController < ApplicationController
   def create
     rescuing_photo_errors do
       if remotipart_submitted?
-         @photo = current_user.build_post(:photo, params[:photo])
-      else
-        legacy_create
-      end
-
-      if @photo.save
-        respond_to do |format|
-          format.json{ render(:layout => false , :json => {"success" => true, "data" => @photo}.to_json )}
-          format.html{ render(:layout => false , :json => {"success" => true, "data" => @photo}.to_json )}
+        @photo = current_user.build_post(:photo, params[:photo])
+        if @photo.save
+          respond_to do |format|
+            format.json { render :json => {"success" => true, "data" => @photo.as_api_response(:backbone)} }
+          end
+        else
+          respond_with @photo, :location => photos_path, :error => message
         end
       else
-        respond_with @photo, :location => photos_path, :error => message
+        legacy_create
       end
     end
   end
@@ -192,6 +190,13 @@ class PhotosController < ApplicationController
                           :image_url_small => @photo.url(:thumb_small)}
         current_user.update_profile(profile_params)
       end
+
+      respond_to do |format|
+        format.json{ render(:layout => false , :json => {"success" => true, "data" => @photo}.to_json )}
+        format.html{ render(:layout => false , :json => {"success" => true, "data" => @photo}.to_json )}
+      end
+    else
+      respond_with @photo, :location => photos_path, :error => message
     end
   end
 
