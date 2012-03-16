@@ -32,5 +32,5 @@
       - for hash in @hashes
         = render :partial => 'people/person', :locals => hash
 
-    = will_paginate @people
+    = will_paginate @people, :renderer => WillPaginate::ActionView::BootstrapLinkRenderer
 

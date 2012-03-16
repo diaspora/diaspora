@@ -7,6 +7,6 @@ else
   rvm --create use ruby-1.9.2-p290@diaspora
 fi
 
-if [ "$(gem --version)" != "1.8.15" ]; then
-  rvm rubygems 1.8.15
+if [ "$(gem --version)" != "1.8.17" ]; then
+  rvm rubygems 1.8.17
 fi

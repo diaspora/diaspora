@@ -955,6 +955,8 @@ en:
       change_email: "Change email"
       new_password: "New password"
       current_password: "Current password"
+      current_password_expl: "the one you sign in with..."
+      character_minimum_expl: "must be at least six characters"
       download_xml: "download my xml"
       download_photos: "download my photos"
       your_handle: "Your Diaspora ID"
