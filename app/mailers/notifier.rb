@@ -27,7 +27,8 @@ class Notifier < ActionMailer::Base
 
     default_opts = {:to => @receiver.email,
          :from => AppConfig[:smtp_sender_address],
-         :subject => I18n.t('notifier.single_admin.subject'),  :host => AppConfig[:pod_uri].host}
+         :subject => I18n.t('notifier.single_admin.subject'), 
+         :host => AppConfig[:pod_uri].host}
     default_opts.merge!(opts)
 
 

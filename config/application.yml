@@ -16,6 +16,7 @@ defaults: &defaults
   # you have to start over as it's hardcoded into the database.
   # For development and testing, you can leave this as is.
   pod_url: "https://strong-flower-7533.herokuapp.com/"
+  pod_uri: "https://strong-flower-7533.herokuapp.com/"
 
   # Setting the root certificate bundle (this is operating system specific). Examples, uncomment one:
 #  ca_file: '/etc/pki/tls/certs/ca-bundle.crt' # CentOS
@@ -94,8 +95,11 @@ defaults: &defaults
 
   # Miscellaneous
 
-  NEW_RELIC_LICENSE_KEY: '<%= ENV['NEW_RELIC_LICENSE_KEY'] %>'
-  new_relic_app_name: '<%= ENV['NEW_RELIC_APP_NAME'] %>'
+  NEW_RELIC_LICENSE_KEY: 'a6de1e6bfe0a03cd05d9c82e3fd99cfa9f8c06f2'
+  new_relic_app_name: 'strong-flower-7533'
+  NEW_RELIC_ID: '91551'
+  NEW_RELIC_LOG: 'stdout'
+  NEW_RELIC_APP_NAME: 'strong-flower-7533'
 
   # If set to true Diaspora will work with just the appserver, thin by default,
   # running, however this makes it quite slow as all the time intensive jobs
@@ -160,7 +164,6 @@ defaults: &defaults
 
   # Sender address in Diaspora's outgoing mail.
   smtp_sender_address: 'app3272450@heroku.com'
-#  smtp_sender_address: 'info@conpanna.net'
 
   #when set, your pod will not force you to use https in production
   #NOTE: not all features of Diaspora work without SSL, and you may have trouble federating
@@ -193,6 +196,13 @@ defaults: &defaults
   # Leave this blank to not show the request for donations
   # Use paypal for recurring donations
   paypal_hosted_button_id: ""
+
+  # 
+  # SendGrid
+  # 
+  
+  SENDGRID_PASSWORD: 'yg3nxdej'
+  SENDGRID_USERNAME: 'app3272450@heroku.com'
 
 #
 # Use this section to override default settings in specific environments

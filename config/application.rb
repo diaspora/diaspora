@@ -72,8 +72,8 @@ module Diaspora
       :port => 587,
       :authentication => :plain,
       :enable_starttls_auto => true,
-      :user_name => ENV['SENDGRID_USERNAME'],
-      :password => ENV['SENDGRID_PASSWORD']
+      :user_name => 'app3272450@heroku.com',
+      :password => 'yg3nxdej'
     }
     
   end
