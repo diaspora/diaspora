@@ -76,6 +76,7 @@ class Postzord::Receiver::Private < Postzord::Receiver
   def validate_object
     raise "Contact required unless request" if contact_required_unless_request
     raise "Relayable object, but no parent object found" if relayable_without_parent?
+    raise "Message from person the recipient is not receiving from" if message_from_person_not_receiving_from?
 
     assign_sender_handle_if_request
 
@@ -111,6 +112,15 @@ class Postzord::Receiver::Private < Postzord::Receiver
     unless @object.is_a?(Request) || @user.contact_for(@sender)
       FEDERATION_LOGGER.info("event=receive status=abort reason='sender not connected to recipient' recipient=#{@user_person.diaspora_handle} sender=#{@sender.diaspora_handle}")
       return true 
+    end
+  end
+
+  def message_from_person_not_receiving_from?
+    if @object.is_a?(Message) || @object.is_a?(Conversation)
+      unless @user.receiving_from(@sender)
+        FEDERATION_LOGGER.info("event=receive status=abort reason='message from person the recipient is not receiving from' recipient=#{@user_person.diaspora_handle} sender=#{@sender.diaspora_handle}")
+        return true
+      end
     end
   end
 
