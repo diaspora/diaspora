@@ -3,14 +3,11 @@ Then /^the post "([^"]*)" should be marked nsfw$/ do |text|
 end
 
 Then /^the post should be collapsed$/ do
-  find(".collapsible").should have_css(".expander")
-  find(".collapsible").has_selector?(".collapsed")
+  first_post_collapsed?
 end
 
 Then /^the post should be expanded$/ do
-  find(".expander").should_not be_visible
-  find(".collapsible").has_no_selector?(".collapsed")
-  find(".collapsible").has_selector?(".opened")
+  first_post_expanded?
 end
 
 Then /^I should see an uploaded image within the photo drop zone$/ do
@@ -44,8 +41,7 @@ When /^I click on the first block button/ do
 end
 
 When /^I expand the post$/ do
-  find(".expander").click
-  wait_until{ !find(".expander").visible? }
+  expand_first_post
 end
 
 Then /^I should see "([^"]*)" as the first post in my stream$/ do |text|
