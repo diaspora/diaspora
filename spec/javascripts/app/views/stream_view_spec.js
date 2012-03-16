@@ -39,30 +39,6 @@ describe("app.views.Stream", function() {
     });
   });
 
-  describe('clicking read more', function() {
-    var readMoreLink;
-
-    beforeEach(function() {
-      this.statusMessage = this.stream.posts.models[0];
-      this.statusElement = $(this.view.$(".stream_element")[0]);
-      readMoreLink = this.statusElement.find('.expander');
-      readMoreLink.text("read more");
-
-      $(this.view.el).find('.collapsible').css('width', 400); // make content narrow like in real stream
-      setFixtures(this.view.el);
-      this.view.postRender();
-    });
-
-    it('expands the post', function() {
-      // TODO
-      var textElement = this.statusElement.find('.collapsible');
-      expect(textElement.hasClass('collapsed')).toBeTruthy();
-      readMoreLink.click();
-      expect(textElement.hasClass('collapsed')).toBeFalsy();
-      expect(textElement.hasClass('opened')).toBeTruthy();
-    });
-  });
-
   describe("infScroll", function() {
     // NOTE: inf scroll happens at 500px
 

@@ -2,6 +2,17 @@ Then /^the post "([^"]*)" should be marked nsfw$/ do |text|
   assert_nsfw(text)
 end
 
+Then /^the post should be collapsed$/ do
+  find(".collapsible").should have_css(".expander")
+  find(".collapsible").has_selector?(".collapsed")
+end
+
+Then /^the post should be expanded$/ do
+  find(".expander").should_not be_visible
+  find(".collapsible").has_no_selector?(".collapsed")
+  find(".collapsible").has_selector?(".opened")
+end
+
 Then /^I should see an uploaded image within the photo drop zone$/ do
   find("#photodropzone img")["src"].should include("uploads/images")
 end
@@ -32,6 +43,10 @@ When /^I click on the first block button/ do
   find(".block_user").click
 end
 
+When /^I expand the post$/ do
+  find(".expander").click
+  wait_until{ !find(".expander").visible? }
+end
 
 Then /^I should see "([^"]*)" as the first post in my stream$/ do |text|
   first_post_text.should include(text)
@@ -43,4 +58,8 @@ end
 
 When /^I click the publisher and post "([^"]*)"$/ do |text|
   click_and_post(text)
+end
+
+When /^I post an extremely long status message$/ do
+  click_and_post("I am a very interesting message " * 64)
 end
