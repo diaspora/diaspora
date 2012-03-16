@@ -3,7 +3,7 @@
 #   the COPYRIGHT file.
 
 class RegistrationsController < Devise::RegistrationsController
-  before_filter :check_registrations_open_or_vaild_invite!
+  before_filter :check_registrations_open_or_vaild_invite!, :check_valid_invite!
 
   def create
     @user = User.build(params[:user])
@@ -16,7 +16,7 @@ class RegistrationsController < Devise::RegistrationsController
       Rails.logger.info("event=registration status=successful user=#{@user.diaspora_handle}")
     else
       @user.errors.delete(:person)
-
+      
       flash[:error] = @user.errors.full_messages.join(";")
       Rails.logger.info("event=registration status=failure errors='#{@user.errors.full_messages.join(', ')}'")
       render :new
@@ -28,6 +28,12 @@ class RegistrationsController < Devise::RegistrationsController
   end
 
   private
+  def check_valid_invite!
+    return true if invite.can_be_used?
+    flash[:error] = t('registrations.invalid_invite')
+    redirect_to new_user_session_path
+  end
+
   def check_registrations_open_or_vaild_invite!
     return true if invite.present?
     if AppConfig[:registrations_closed]

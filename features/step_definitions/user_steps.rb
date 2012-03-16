@@ -27,13 +27,13 @@ end
 
 Given /^I have been invited by an admin$/ do
   admin = Factory(:user)
-  bob.invitation_code
-  i = EmailInviter.new("new_invitee@example.com", bob)
+  admin.invitation_code
+  i = EmailInviter.new("new_invitee@example.com", admin)
   i.send!
 end
 
-Given /^I have been invited by a user$/ do
-  @inviter = Factory(:user)
+Given /^I have been invited by bob$/ do
+  @inviter = Factory(:user, :email => 'bob@bob.bob')
   i = EmailInviter.new("new_invitee@example.com", @inviter)
   i.send!
 end

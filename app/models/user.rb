@@ -107,7 +107,7 @@ class User < ActiveRecord::Base
     ConversationVisibility.sum(:unread, :conditions => "person_id = #{self.person.id}")
   end
 
-  #should be deprecated
+  #@deprecated
   def ugly_accept_invitation_code
     begin
       self.invitations_to_me.first.sender.invitation_code

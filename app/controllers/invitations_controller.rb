@@ -18,6 +18,8 @@ class InvitationsController < ApplicationController
 
   # this is  for legacy invites.  We try to look the person who sent them the 
   # invite, and use their new invite code
+  # owe will be removing this eventually
+  # @depreciated
   def edit
     user = User.find_by_invitation_token(params[:invitation_token])
     invitation_code = user.ugly_accept_invitation_code

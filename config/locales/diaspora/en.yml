@@ -682,6 +682,7 @@ en:
       update: "Update"
       cancel_my_account: "Cancel my account"
     closed: "Signups are closed on this Diaspora pod."
+    invalid_invite: "The invite link you provided is no longer valid!"
 
   requests:
     manage_aspect_contacts:

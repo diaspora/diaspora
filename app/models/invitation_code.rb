@@ -9,6 +9,10 @@ class InvitationCode < ActiveRecord::Base
     token 
   end
 
+  def can_be_used?
+    self.count > 0
+  end
+
   def add_invites!
     self.update_attributes(:count => self.count+100)
   end
