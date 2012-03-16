@@ -6,9 +6,10 @@ describe("app.views.CommentStream", function(){
 
   describe("binds", function() {
     it("re-renders on a commentsExpanded trigger", function(){
-      spyOn(this.view, "render")
-      this.view.model.trigger("commentsExpanded")
-      expect(this.view.render).toHaveBeenCalled()
+      spyOn(this.view, "render");
+      this.view.setupBindings();
+      this.view.model.trigger("commentsExpanded");
+      expect(this.view.render).toHaveBeenCalled();
     })
   })
 

@@ -20,7 +20,7 @@ Feature: Change password
     And I press "Send me reset password instructions"
     Then I should see "You will receive an email with instructions"
     And I follow the "Change my password" link from the last sent email
-    Then I should see "Change your password"
+    Then I should see "Change my password"
     And I fill in "Password" with "supersecret"
     And I fill in "Password confirmation" with "supersecret"
     And I press "Change my password"

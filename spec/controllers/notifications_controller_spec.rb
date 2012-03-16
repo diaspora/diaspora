@@ -57,6 +57,11 @@ describe NotificationsController do
       get :read_all, :format => :html
       response.should redirect_to(stream_path)
     end
+    it "should redirect to the stream in the mobile version" do
+      Factory(:notification, :recipient => alice)
+      get :read_all, :format => :mobile
+      response.should redirect_to(stream_path)
+    end
     it "should return a dummy value in the json version" do
       Factory(:notification, :recipient => alice)
       get :read_all, :format => :json
@@ -76,6 +81,11 @@ describe NotificationsController do
       response.body.should =~ /note_html/
     end
 
+    it 'succeeds on mobile' do
+      get :index, :format => :mobile
+      response.should be_success
+    end
+    
     it 'paginates the notifications' do
       25.times { Factory(:notification, :recipient => alice, :target => @post) }
       get :index
@@ -104,8 +114,6 @@ describe NotificationsController do
 
         Nokogiri(response.body).css('.aspect_membership').should_not be_empty
       end
-
-
       
     end
   end

@@ -8,9 +8,6 @@
 - content_for :head do
   = include_javascripts :people
   = javascript_include_tag 'contact-list'
-  - if @background_query.present?
-    :javascript
-        $(document).ready(function() { List.startSearchDelay('#{@background_query}') } );
 
 .span-24.last
   = search_header
@@ -22,7 +19,14 @@
   #people_stream.stream
     - if @hashes.empty?
       - if @background_query.present?
-        %p 
+
+        / this is gross, and should be extracted!
+        :javascript
+          $(document).ready( function() {
+            List.startSearchDelay('#{@background_query}')
+          } );
+
+        %p
           = t('.searching')
           = image_tag '/images/static-loader.png', :class => 'loader'
       - else
