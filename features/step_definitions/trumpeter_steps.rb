@@ -1,4 +1,5 @@
 def fill_in_autocomplete(selector, value)
+  pending #make me work if yr board, investigate send_keys
   page.execute_script %Q{$('#{selector}').val('#{value}').keyup()}
 end
 
