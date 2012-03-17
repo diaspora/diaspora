@@ -55,6 +55,10 @@ describe RegistrationsController do
   describe "#create" do
     context "with valid parameters" do
       before do
+        AppConfig[:registrations_closed] = false
+      end
+
+      before do
         user = Factory.build(:user)
         User.stub!(:build).and_return(user)
       end

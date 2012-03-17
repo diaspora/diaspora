@@ -34,8 +34,13 @@ end
 
 Given /^I have been invited by bob$/ do
   @inviter = Factory(:user, :email => 'bob@bob.bob')
+  @inviter_invite_count = @inviter.invitation_code.count
   i = EmailInviter.new("new_invitee@example.com", @inviter)
   i.send!
+end
+
+When /^I should see one less invite$/ do
+  step "I should see \"#{@inviter_invite_count -1} invites left\""
 end
 
 When /^I click on my name$/ do

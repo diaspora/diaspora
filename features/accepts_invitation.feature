@@ -38,7 +38,7 @@ Feature: invitation acceptance
       And I log out
       And I sign in as "bob@bob.bob"
       And I follow "By email"
-      Then I should see "9 invites left"
+      Then I should see one less invite
 
     Scenario: sends an invitation
       Given a user with email "bob@bob.bob"

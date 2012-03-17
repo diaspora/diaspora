@@ -29,7 +29,8 @@ class RegistrationsController < Devise::RegistrationsController
 
   private
   def check_valid_invite!
-    return true if invite.can_be_used?
+    return true unless AppConfig[:registrations_closed] #this sucks
+    return true if invite && invite.can_be_used?
     flash[:error] = t('registrations.invalid_invite')
     redirect_to new_user_session_path
   end
