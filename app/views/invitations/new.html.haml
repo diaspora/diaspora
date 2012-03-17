@@ -34,9 +34,9 @@
   .clearfix
     .span-7.prepend-3.last
 
-      or paste them this link!
+      = t('.paste_link')
       = invite_link(@invite_code)
-      = "#{@invite_code.count} invites left on this code"
+      = t('.codes_left', :count => @invite_code.count)
 
   %br
   %br

@@ -339,6 +339,14 @@ en:
       personal_message: "Personal message"
       send_an_invitation: "Send an invitation"
       send_invitation: "Send invitation"
+      paste_link: "or paste them this link!"
+      codes_left:
+        zero:  "No invites left on this code"
+        one:  "One invite left on this code"
+        two:  "%{count} invites left on this code"
+        few:  "%{count} invites left on this code"
+        many:  "%{count} invites left on this code"
+        other:  "%{count} invites left on this code"
       aspect: "Aspect"
       already_invited: "The following people have not accepted your invitation:"
       resend: "Resend"
@@ -522,6 +530,24 @@ en:
     confirm_email:
         subject: "Please activate your new email address %{unconfirmed_email}"
         click_link: "To activate your new email address %{unconfirmed_email}, please follow this link:"
+    accept_invite: "Accept Your Diaspora* invite!"
+    invited_you: "%{name} invited you to Diaspora*"
+    invite:
+      message: |-
+        Hello!
+        
+        You have been invited to join Diaspora*!
+        
+        Click this link to get started
+        
+        %{invite_url}
+        <%= invite_code_url(@invitation_code)%>
+        
+        
+        Love,
+        
+        The Diaspora* email robot!
+  
   people:
     zero: "no people"
     one: "1 person"
@@ -578,8 +604,10 @@ en:
       edit_membership: "edit aspect membership"
     add_contact_small:
       add_contact_from_tag: "add contact from tag"
-
     last_post: "Last Post"
+    add_contact:
+      invited_by: "you were invited by"
+
   photos:
     show:
       delete_photo: "Delete Photo"

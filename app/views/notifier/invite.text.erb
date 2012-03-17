@@ -1,12 +1,1 @@
-Hello!
-
-You have been invited to join Diaspora*!
-
-Click this link to get started
-
-<%= invite_code_url(@invitation_code)%>
-
-
-Love,
-
-The Diaspora* email robot!
+<%= t('.message', :invite_url => invite_code_url(@invitation_code)) %>

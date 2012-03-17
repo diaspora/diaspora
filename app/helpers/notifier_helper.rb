@@ -26,9 +26,9 @@ module NotifierHelper
 
   def invite_email_title
     if @inviter.present?
-      "#{@inviter.person.name} invited you to Diaspora*"
+      I18n.t 'notifier.invited_you', :name => @inviter.person.name
     else
-      "Accept Your Diaspora* invite!"
+      I18n.t 'notifier.accept_invite'
     end
   end
 end
