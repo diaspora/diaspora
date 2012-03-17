@@ -11,16 +11,19 @@
     = t('welcome')
   %h3.accept_invitation_text
     = t('.sign_up_message')
+
   - flash.each do |name, msg|
     %p{:class => "login_#{name}"}= msg
 
   = image_tag 'diaspora_collage.png', :style => "margin-left:-50px;"
-
 .span-10
   %br
   %br
   %br
   %br
+
+  = invite_welcome_message
+
   = form_for(resource, :as => resource_name, :html => {:class => 'new_user_form'}, :url => registration_path(resource_name), :validate => true) do |f|
     %fieldset
       .clearfix
@@ -41,6 +44,10 @@
         %b
           = t('password_confirmation')
         = f.password_field :password_confirmation, :title => t('registrations.new.enter_password_again') 
+
+      .clearfix
+
+        = invite_hidden_tag(invite)
 
       .submit_field
         = f.submit t('registrations.new.create_my_account'), :class => 'in_aspects'

@@ -11,6 +11,7 @@ Then /^I should see the "(.*)" message$/ do |message|
              I18n.translate('profiles.edit.you_are_nsfw')
            else
              raise "muriel, you don't have that message key, add one here"
-         end
+           end
+
   page.should have_content(text)
 end

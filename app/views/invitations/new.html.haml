@@ -8,34 +8,35 @@
       .description
         = t('.if_they_accept_info')
         %br
-  .span-7.append-1
+  .span-7.append-1.last
     #email_invitation
-      = form_for User.new, :url => invitation_path(User) do |invite|
+      = form_tag new_user_invitation_path  do
         %h4
           = t('email')
-        = invite.text_field :email, :title => t('.comma_seperated_plz'), :placeholder => 'foo@bar.com, max@foo.com...'
-        %br
-
-        %h4
-          = t('.aspect')
-        = invite.select(:aspects, options_from_collection_for_select(all_aspects, 'id', 'name'))
-
+        = text_field_tag 'email_inviter[emails]' ,nil, :title => t('.comma_seperated_plz'), :placeholder => 'foo@bar.com, max@foo.com...'
         %br
         %br
 
         %h4
           = t('.language')	
-        = invite.select(:language, available_language_options, :selected => current_user.language)
+        = select_tag('email_inviter[locale]',  options_from_collection_for_select(available_language_options, "second", "first", :selected => current_user.language))
 
         %br
         %br
 
         %h4
           = t('.personal_message')
-        = invite.text_area :invite_messages, :rows => 3, :value => t('.check_out_diaspora')
+        = text_area_tag 'email_inviter[message]',nil, :rows => 3, :value => t('.check_out_diaspora')
 
         %p
-          = invite.submit t('.send_an_invitation')
+          = submit_tag t('.send_an_invitation')
+
+  .clearfix
+    .span-7.prepend-3.last
+
+      or paste them this link!
+      = invite_link(@invite_code)
+      = "#{@invite_code.count} invites left on this code"
 
   %br
   %br
