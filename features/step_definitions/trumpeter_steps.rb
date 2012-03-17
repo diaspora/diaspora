@@ -41,13 +41,23 @@ Then /^"([^"]*)" should be a (limited|public) post in my stream$/ do |post_text,
 end
 
 When /^I upload a fixture picture with filename "([^"]*)"$/ do |file_name|
+  orig_photo_count = all(".photos img").size
+
   within ".new_photo" do
     attach_file "photo[user_file]", Rails.root.join("spec", "fixtures", file_name)
+    wait_until { all(".photos img").size == orig_photo_count + 1 }
   end
 
-  @image_source = find(".photos img")["src"]
+  @image_sources ||= {}
+  @image_sources[file_name] = all(".photos img").last["src"]
+  @image_sources[file_name].should be_present
 end
 
-Then /^"([^"]*)" should have my photo$/ do |status_text|
-  find_post_by_text(status_text).find(".photo_attachments img")["src"].should == @image_source
+Then /^"([^"]*)" should have the "([^"]*)" picture$/ do |post_text, file_name|
+  image = find_post_by_text(post_text).find(".photo_attachments img[src='#{@image_sources[file_name]}']")
+  image.should be_present
+end
+
+Then /^"([^"]*)" should have (\d+) pictures$/ do |post_text, number_of_pictures|
+  find_post_by_text(post_text).all(".photo_attachments img").size.should == number_of_pictures.to_i
 end

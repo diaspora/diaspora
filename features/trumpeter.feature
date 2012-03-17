@@ -5,13 +5,15 @@ Feature: Creating a new post
     And I sign in as "bob@bob.bob"
     And I trumpet
 
-  Scenario: Posting a public message
-    And I write "Rectangles are awesome"
+  Scenario: Posting a public message with a photo
+    And I write "I love RMS"
     When I select "Public" in my aspects dropdown
+    And I upload a fixture picture with filename "button.gif"
     When I press "Share"
     When I go to "/stream"
-    Then I should see "Rectangles are awesome" as the first post in my stream
-    And "Rectangles are awesome" should be a public post in my stream
+    Then I should see "I love RMS" as the first post in my stream
+    And "I love RMS" should be a public post in my stream
+    Then "I love RMS" should have the "button.gif" picture
 
   Scenario: Posting to Aspects
     And I write "This is super skrunkle"
@@ -29,9 +31,10 @@ Feature: Creating a new post
    And I go to "/stream"
    Then I follow "Alice Smith"
 
-  Scenario: Uploading a photo
-    When I write "check out this picture"
+  Scenario: Uploading multiple photos
+    When I write "check out these pictures"
+    And I upload a fixture picture with filename "button.gif"
     And I upload a fixture picture with filename "button.gif"
     And I press "Share"
     And I go to "/stream"
-    Then "check out this picture" should have my photo
+    Then "check out these pictures" should have 2 pictures
