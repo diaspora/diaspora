@@ -438,7 +438,7 @@ class User < ActiveRecord::Base
     self.unconfirmed_email = nil if unconfirmed_email.blank? || unconfirmed_email == email
 
     if unconfirmed_email_changed?
-      self.confirm_email_token = unconfirmed_email ? ActiveSupport::SecureRandom.hex(15) : nil
+      self.confirm_email_token = unconfirmed_email ? SecureRandom.hex(15) : nil
     end
   end
 
@@ -495,7 +495,7 @@ class User < ActiveRecord::Base
     end
     self[:email] = "deletedaccount_#{self[:id]}@example.org"
 
-    random_password = ActiveSupport::SecureRandom.hex(20)
+    random_password = SecureRandom.hex(20)
     self.password = random_password
     self.password_confirmation = random_password
     self.save(:validate => false)

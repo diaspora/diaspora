@@ -3,7 +3,7 @@ namespace :generate do
   task :secret_token do
 
   path = File.join(Rails.root, 'config', 'initializers', 'secret_token.rb')
-  secret = ActiveSupport::SecureRandom.hex(40)
+  secret = SecureRandom.hex(40)
   File.open(path, 'w') do |f|
     f.write <<"EOF"
 #   Copyright (c) 2010-2011, Diaspora Inc.  This file is

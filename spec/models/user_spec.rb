@@ -846,7 +846,7 @@ describe User do
     describe "#clear_account!" do
       it 'resets the password to a random string' do
         random_pass = "12345678909876543210"
-        ActiveSupport::SecureRandom.should_receive(:hex).and_return(random_pass)
+        SecureRandom.should_receive(:hex).and_return(random_pass)
         @user.clear_account!
         @user.valid_password?(random_pass)
       end
