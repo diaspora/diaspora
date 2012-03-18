@@ -4,8 +4,10 @@ app.views.Comment = app.views.Content.extend({
 
   className : "comment media",
 
-  events : {
-    "click .comment_delete": "destroyModel"
+  events : function() {
+    return _.extend(app.views.Content.prototype.events, {
+      "click .comment_delete": "destroyModel"
+    });
   },
 
   presenter : function() {
