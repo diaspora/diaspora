@@ -33,7 +33,8 @@ class Notifier < ActionMailer::Base
 
 
 
-    mail(default_opts)
+#    mail(default_opts)
+    mail(default_opts).deliver
   end
 
   def started_sharing(recipient_id, sender_id)
@@ -69,7 +70,7 @@ class Notifier < ActionMailer::Base
   end
 
   def say_hi
-    mail(:to => "sthmag@gmail.com", :subject => "Hello")
+    mail(:to => "sthmag@gmail.com", :subject => "Hello").deliver
   end
   
   private
@@ -77,7 +78,8 @@ class Notifier < ActionMailer::Base
     @notification = NotificationMailers.const_get(type.to_s.camelize).new(*args)
 
     with_recipient_locale do
-      mail(@notification.headers)
+#      mail(@notification.headers)
+      mail(@notification.headers).deliver
     end
   end
 
