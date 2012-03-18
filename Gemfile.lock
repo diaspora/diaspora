@@ -349,7 +349,7 @@ GEM
     redis (2.2.2)
     redis-namespace (1.0.3)
       redis (< 3.0.0)
-    resque (1.19.0)
+    resque (1.20.0)
       multi_json (~> 1.0)
       redis-namespace (~> 1.0.2)
       sinatra (>= 0.9.2)
@@ -521,7 +521,7 @@ DEPENDENCIES
   rails-i18n
   rails_autolink
   redcarpet (= 2.0.1)
-  resque (= 1.19.0)
+  resque (= 1.20.0)
   resque-ensure-connected!
   resque-timeout (= 1.0.0)
   rest-client (= 1.6.7)

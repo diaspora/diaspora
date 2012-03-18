@@ -5,6 +5,8 @@
 require 'spec_helper'
 
 describe PeopleHelper do
+  include Rails.application.routes.url_helpers
+
  before do
     @user = alice
     @person = Factory(:person)

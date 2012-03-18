@@ -4,6 +4,7 @@
 
 module PeopleHelper
   include ERB::Util
+  include Rails.application.routes.url_helpers
 
   def search_header
     if search_query.blank?
