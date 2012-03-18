@@ -339,7 +339,7 @@ en:
       personal_message: "Personal message"
       send_an_invitation: "Send an invitation"
       send_invitation: "Send invitation"
-      paste_link: "or paste them this link!"
+      paste_link: "Share this link with your friends to invite them to Diaspora*, or email them the link directly."
       codes_left:
         zero:  "No invites left on this code"
         one:  "One invite left on this code"
