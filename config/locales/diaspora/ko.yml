@@ -503,6 +503,7 @@ ko:
       no_one_found: "검색 결과가 없습니다"
       no_results: "검색 결과가 없습니다"
       results_for: "검색 결과:"
+      searching: "검색중입니다, 잠시만 기다려주십시오···"
     last_post: "최근 게시물"
     many: "%{count}명"
     one: "한 명"

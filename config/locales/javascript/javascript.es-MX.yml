@@ -51,6 +51,8 @@ es-MX:
       no_more: "No hay más publicaciones."
     my_activity: "Mi actividad"
     my_stream: "Entrada"
+    people:
+      not_found: "y nadie fue encontrado…"
     photo_uploader:
       looking_good: "¡Ah, te ves increíble!"
     publisher:

@@ -504,6 +504,7 @@ fr:
       no_one_found: "… et personne n'a été trouvé."
       no_results: "Hé ! Vous devez rechercher quelque chose."
       results_for: "résultats de la recherche pour"
+      searching: "Recherche en cours, veuillez patienter ..."
     last_post: "Dernier message"
     many: "%{count} personnes"
     one: "1 personne"
@@ -903,6 +904,7 @@ fr:
       change_email: "Changer d'adresse électronique"
       change_language: "Changer la langue"
       change_password: "Changer le mot de passe"
+      character_minimum_expl: "doit comporter au moins six caractères"
       close_account:
         dont_go: "Hey, s'il vous plaît ne partez pas !"
         if_you_want_this: "Si vous le voulez vraiment, tapez votre mot de passe ci-dessous et cliquez sur 'Supprimer le compte'"
@@ -915,6 +917,7 @@ fr:
       close_account_text: "Fermer le compte"
       comment_on_post: "…quelqu'un commente votre publication ?"
       current_password: "Mot de passe actuel"
+      current_password_expl: "Celui avec lequel vous vous connectez"
       download_photos: "télécharger mes photos"
       download_xml: "télécharger mon XML"
       edit_account: "Modifier le compte"

@@ -54,6 +54,8 @@ ru:
       no_more: "Сообщений больше нет."
     my_activity: "Моя активность"
     my_stream: "Поток"
+    people:
+      not_found: "и не найдено никого..."
     photo_uploader:
       looking_good: "Боже мой, вы выглядите потрясающе!"
     publisher:

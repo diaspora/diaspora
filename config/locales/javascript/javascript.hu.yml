@@ -46,7 +46,7 @@ hu:
       notifications: "Értesítések"
       profile: "Profil"
       recent_notifications: "Friss értesítések"
-      search: "Ismerős vagy #címke keresése"
+      search: "Keresés"
       settings: "Beállítások"
       view_all: "Összes"
     ignore: "Elutasít"
@@ -54,6 +54,8 @@ hu:
       no_more: "Nincs több bejegyzés."
     my_activity: "Tevékenységeim"
     my_stream: "Hírfolyam"
+    people:
+      not_found: "és nem találni senkit..."
     photo_uploader:
       looking_good: "Azta! Remekül nézek ki!"
     publisher:

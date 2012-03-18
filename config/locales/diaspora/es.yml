@@ -284,6 +284,8 @@ es:
       simplicity_explanation: "Diaspora* hace que compartir sea transparente y fácil — y esto también va por la privacidad. Inheréntemente privado, Diaspora* no te hace ir a través de configuraciones y opciones solo para mantener tu perfil seguro."
       tagline_first_half: "Comparte lo que quieras, "
       tagline_second_half: "con quien te gustaría"
+  invitation_codes:
+    excited: "%{name} está encantado de verle por aquí."
   invitations:
     a_facebook_user: "Un usuario de Facebook"
     check_token:
@@ -306,6 +308,7 @@ es:
       if_they_accept_info: "Si acepta, se añadirá al aspecto seleccionado."
       invite_someone_to_join: "¡Invita a alguien a unirse a Diaspora*!"
       language: "Idioma"
+      paste_link: "¡Comparte este enlace con tus amigos para invitarles a Diáspora*, o envíales directamente el enlace por correo electrónico!"
       personal_message: "Mensaje personal"
       resend: "Reenviar"
       send_an_invitation: "Enviar una invitación"
@@ -456,6 +459,7 @@ es:
       zero: "%{actors} ahora sigue tus mensajes públicos."
   notifier:
     a_post_you_shared: "una publicación."
+    accept_invite: "Aceptar tu invitación para Diaspora*"
     click_here: "pulsa aquí"
     comment_on_post:
       reply: "Responder o ver los comentarios de %{name} >"
@@ -464,6 +468,23 @@ es:
       subject: "Por favor activa tu nueva dirección de email %{unconfirmed_email}"
     email_sent_by_diaspora: "Este email fue enviado por Diaspora*. Si te gustaría dejar de recibir emails como este,"
     hello: "¡Hola %{name}!"
+    invite:
+      message: |-
+          ¡Hola!
+
+          ¡Has sido invitado a unirte a Diaspora*!
+
+          Marque el enlace para empezar
+
+          %{invite_url}
+          <%= invite_code_url(@invitation_code)%>
+
+
+          Saludos,
+
+          ¡El generador de correo automático de Diaspora*!
+            
+    invited_you: "%{name} le ha invitado a Diaspora*"
     liked:
       liked: "A %{name} le gustó tu publicación"
       view_post: "Ver comentario >"
@@ -490,6 +511,8 @@ es:
   password: "Contraseña"
   password_confirmation: "Confirmación de contraseña"
   people:
+    add_contact:
+      invited_by: "fueron invitados por"
     add_contact_small:
       add_contact_from_tag: "añadir contacto desde una etiqueta"
     aspect_list:
@@ -504,6 +527,7 @@ es:
       no_one_found: "...y nadie fue encontrado."
       no_results: "¡Eh! Tienes que buscar algo."
       results_for: "buscar resultados para"
+      searching: "buscando, por favor sea paciente..."
     last_post: "Última publicación"
     many: "%{count} personas"
     one: "1 persona"
@@ -639,6 +663,7 @@ es:
       password_to_confirm: "(necesitamos tu contraseña actual para confirmar los cambios)"
       unhappy: "¿Triste?"
       update: "Actualizar"
+    invalid_invite: "¡El enlace de la invitación ya no es válido!"
     new:
       create_my_account: "¡Crear mi cuenta!"
       enter_email: "Escribe un email"
@@ -903,6 +928,7 @@ es:
       change_email: "Cambiar email"
       change_language: "Cambiar idioma"
       change_password: "Cambiar contraseña"
+      character_minimum_expl: "debe tener al menos seis caracteres"
       close_account:
         dont_go: "¡Eih, no te vayas!"
         if_you_want_this: "Si realmente quieres eliminarla, teclea tu contraseña debajo y haz click en 'Eliminar Cuenta'"
@@ -915,6 +941,7 @@ es:
       close_account_text: "Eliminar Cuenta"
       comment_on_post: "...alguien comenta en tu publicación?"
       current_password: "Contraseña actual"
+      current_password_expl: "con la que inicia sesión..."
       download_photos: "Descargar mis fotos"
       download_xml: "Descargar mi XML"
       edit_account: "Editar cuenta"

@@ -54,6 +54,8 @@ pl:
       no_more: "Nie ma więcej wpisów."
     my_activity: "Moja aktywność"
     my_stream: "Strumień"
+    people:
+      not_found: "...i nikogo nie odnaleziono."
     photo_uploader:
       looking_good: "O rety! Świetnie wyglądasz!"
     publisher:

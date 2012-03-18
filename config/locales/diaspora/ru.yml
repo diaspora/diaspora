@@ -9,7 +9,7 @@ ru:
   _comments: "Коментарии"
   _contacts: "Контакты"
   _home: "Главная"
-  _photos: "фотографий"
+  _photos: "фотографии"
   _services: "Сервисы"
   account: "Аккаунт"
   activerecord:
@@ -504,6 +504,7 @@ ru:
       no_one_found: "...не удалось никого найти."
       no_results: "Введите текст для поиска."
       results_for: "результаты поиска для"
+      searching: "идет поиск: пожалуйста, подождите..."
     last_post: "Последняя запись"
     many: "%{count} человек[-a]"
     one: "1 человек"
@@ -903,6 +904,7 @@ ru:
       change_email: "Изменить адрес"
       change_language: "Изменить язык"
       change_password: "Изменить пароль"
+      character_minimum_expl: "должен быть не менее шести символов"
       close_account:
         dont_go: "Пожалуйста, не уходите!"
         if_you_want_this: "Если вы действительно хотите это сделать, введите ваш пароль и нажмите 'Закрыть аккаунт'."
@@ -915,6 +917,7 @@ ru:
       close_account_text: "Закрыть аккаунт"
       comment_on_post: "...кто-то прокомментировал вашу запись."
       current_password: "Текущий пароль"
+      current_password_expl: "который вы используете для входа..."
       download_photos: "Скачать мои фотографии"
       download_xml: "Скачать мою информацию в xml"
       edit_account: "Редактировать аккаунт"

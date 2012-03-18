@@ -54,6 +54,8 @@ ko:
       no_more: "게시물이 더 없습니다."
     my_activity: "내 활동"
     my_stream: "스트림"
+    people:
+      not_found: "아무도 찾을 수 없습니다···"
     photo_uploader:
       looking_good: "와! 멋져요!"
     publisher:

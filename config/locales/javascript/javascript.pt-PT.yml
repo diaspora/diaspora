@@ -8,22 +8,19 @@ pt-PT:
   javascripts:
     aspect_dropdown:
       add_to_aspect: "Adicionar contacto"
-      all_aspects: "Todos os aspectos"
+      all_aspects: "Todos os grupos"
       error: "Não foi possível começar a partilhar com {{name}}. Você está a ignorá-los?"
-      select_aspects: "Seleccionar aspectos"
+      select_aspects: "Selecionar grupos"
       started_sharing_with: "Começou a partilhar com {{name}}!"
       stopped_sharing_with: "Deixou de partilhar com {{name}}."
       toggle:
-        few: "Em {{count}} aspetos"
-        many: "Em {{count}} aspetos  "
-        one: "Em {{count}} aspeto "
-        other: "Em {{count}} aspetos"
-        two: "Em {{count}} aspetos "
-        zero: "Seleccione os aspectos"
+        one: "Em <%=count %> grupo"
+        other: "Em <%=count %> grupos"
+        zero: "Selecione os grupos"
     aspect_navigation:
       deselect_all: "Desmarcar todos"
-      no_aspects: "Nenhuns aspectos seleccionados"
-      select_all: "Seleccionar todos"
+      no_aspects: "Nenhuns aspectos selecionados"
+      select_all: "Selecionar todos"
     comments:
       hide: "ocultar comentários"
       show: "mostrar todos os comentários"
@@ -37,6 +34,7 @@ pt-PT:
       no_tags: "Ei, não está a seguir nenhuma etiqueta! Continuar mesmo assim?"
       preparing_your_stream: "A preparar o seu Stream personalizado..."
     header:
+      admin: "Administrador"
       contacts: "Contactos "
       home: "Inicio "
       log_out: "Sair"
@@ -51,12 +49,14 @@ pt-PT:
     ignore: "Ignorar"
     infinite_scroll:
       no_more: "Não há mais publicações."
-    my_activity: "Minha Atividade "
+    my_activity: "Minha atividade"
     my_stream: "Fluxo"
+    people:
+      not_found: "e ninguém foi encontrado..."
     photo_uploader:
       looking_good: "OMD, tu estás fantástico(a)!"
     publisher:
-      at_least_one_aspect: "Tem de publicar em pelo menos um aspecto"
+      at_least_one_aspect: "Tem de publicar em pelo menos um grupo"
       limited: "Limitado - a sua publicação só será vista pelas pessoas com as quais está a partilhar"
       public: "Público - A sua publicação será visível para todos e encontrada por motores de busca"
     reshares:
@@ -67,14 +67,12 @@ pt-PT:
       comment: "Comentar"
       follow: "Seguir"
       hide: "Ocultar"
+      hide_nsfw_posts: "Ocultar publicações #nsfw"
       like: "Gosto"
       likes:
-        few: "<%= count %> que gosto"
-        many: "<%= count %> que gosto"
-        one: "<%= count %> que gosto"
-        other: "<%= count %> que gosto"
-        two: "<%= count %> que gosto"
-        zero: "<%= count %> que gosto"
+        one: "<%= count %> gosto"
+        other: "<%= count %> gostos"
+        zero: "<%= count %> gosto"
       limited: "Limitado"
       more_comments:
         few: "Mostrar <%= count %> mais comentários"
@@ -84,15 +82,14 @@ pt-PT:
         two: "Mostrar <%= count %> mais comentários"
         zero: "Mostrar <%= count %> mais comentários"
       original_post_deleted: "Publicação original eliminada pelo autor."
-      public: "Publico"
+      public: "Público"
       reshare: "Partilhar"
       reshares:
-        few: "<%= count %> Partilhas"
-        many: "<%= count %> Partilhas"
-        one: "<%= count %> Partilha"
-        other: "<%= count %> Partilhas"
-        two: "<%= count %> Partilhas"
-        zero: "<%= count %> Partilhas"
+        one: "<%= count %> repartilha"
+        other: "<%= count %> repartilhas"
+        zero: "<%= count %> repartilhas"
+      show_nsfw_post: "Mostrar publicação"
+      show_nsfw_posts: "Mostrar todos"
       unfollow: "Não seguir"
       unlike: "Não gosto"
     tags:
@@ -116,3 +113,11 @@ pt-PT:
     videos:
       unknown: "Formato de vídeo desconhecido"
       watch: "Veja este vídeo no {{provider}}"
+    viewer:
+      comment: "Comentário"
+      follow_post: "Seguir a publicação"
+      like: "Gostar"
+      reshare: "Repartilhar"
+      reshared: "Repartilhado"
+      stop_following_post: "Parar de seguir a publicação"
+      unlike: "Não gostar"
