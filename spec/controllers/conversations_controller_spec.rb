@@ -154,10 +154,12 @@ describe ConversationsController do
     end
     
     it 'succeeds with json' do
-      get :show, :id => @conversation.id, :format => :json
-      response.should be_success
-      assigns[:conversation].should == @conversation
-      response.body.should == @conversation.to_json
+      Timecop.freeze do
+        get :show, :id => @conversation.id, :format => :json
+        response.should be_success
+        assigns[:conversation].should == @conversation
+        response.body.should == @conversation.to_json
+      end
     end
 
     it 'redirects to index' do
