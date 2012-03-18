@@ -36,12 +36,6 @@
             </td></tr>
 
 
-          <% if @inviter.present? %>
-            <%= @inviter.inspect %>
-          <% end %>
-
-
-
             <tr><td style="padding: 20px 20px 0px; background: rgb(255, 255, 255) none repeat scroll 0%; -moz-background-clip: -moz-initial; -moz-background-origin: -moz-initial; -moz-background-inline-policy: -moz-initial; font-size: 44px; font-weight: bold; color: rgb(0, 0, 0);">
                 1. <%= t('devise.mailer.invitation_instructions.get_connected') %></td></tr>
             <tr><td>

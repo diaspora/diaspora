@@ -8,7 +8,6 @@ class InvitationsController < ApplicationController
 
   def new
     @invite_code = current_user.invitation_code
-    @sent_invitations = current_user.invitations_from_me.includes(:recipient)
     respond_to do |format|
       format.html do
         render :layout => false
