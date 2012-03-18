@@ -8,12 +8,11 @@ require 'rest-client'
 
 class User < ActiveRecord::Base
   include Encryptor::Private
-
   include Connecting
   include Querying
   include SocialActions
 
-  devise :invitable, :database_authenticatable, :registerable,
+  devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable,
          :timeoutable, :token_authenticatable, :lockable,
          :lock_strategy => :none, :unlock_strategy => :none
@@ -40,7 +39,10 @@ class User < ActiveRecord::Base
   has_many :invitations_from_me, :class_name => 'Invitation', :foreign_key => :sender_id
   has_many :invitations_to_me, :class_name => 'Invitation', :foreign_key => :recipient_id
   has_many :aspects, :order => 'order_id ASC'
+
   belongs_to  :auto_follow_back_aspect, :class_name => 'Aspect'
+  belongs_to :invited_by, :class_name => 'User' 
+
   has_many :aspect_memberships, :through => :aspects
 
   has_many :contacts
@@ -64,7 +66,6 @@ class User < ActiveRecord::Base
   before_save :guard_unconfirmed_email,
               :save_person!
 
-  before_create :infer_email_from_invitation_provider
 
   attr_accessible :getting_started,
                   :password,
@@ -106,32 +107,23 @@ class User < ActiveRecord::Base
     ConversationVisibility.sum(:unread, :conditions => "person_id = #{self.person.id}")
   end
 
-  # @return [User]
-  def self.find_by_invitation(invitation)
-    service = invitation.service
-    identifier = invitation.identifier
-
-    if service == 'email'
-      existing_user = User.where(:email => identifier).first
-    else
-      existing_user = User.joins(:services).where(:services => {:type => "Services::#{service.titleize}", :uid => identifier}).first
+  #@deprecated
+  def ugly_accept_invitation_code
+    begin
+      self.invitations_to_me.first.sender.invitation_code
+    rescue Exception => e
+      nil
     end
-
-   if existing_user.nil?
-    i = Invitation.where(:service => service, :identifier => identifier).first
-    existing_user = i.recipient if i
-   end
-
-   existing_user
   end
 
-  # @return [User]
-  def self.find_or_create_by_invitation(invitation)
-    if existing_user = self.find_by_invitation(invitation)
-      existing_user
-    else
-     self.create_from_invitation!(invitation)
-    end
+  def process_invite_acceptence(invite)
+    self.invited_by = invite.user
+    invite.use!
+  end
+
+
+  def invitation_code
+    InvitationCode.find_or_create_by_user_id(self.id)
   end
 
   def hidden_shareables
@@ -389,39 +381,6 @@ class User < ActiveRecord::Base
     end
   end
 
-  # This method is called when an invited user accepts his invitation
-  #
-  # @param [Hash] opts the options to accept the invitation with
-  # @option opts [String] :username The username the invited user wants.
-  # @option opts [String] :password
-  # @option opts [String] :password_confirmation
-  def accept_invitation!(opts = {})
-    log_hash = {:event => :invitation_accepted, :username => opts[:username], :uid => self.id}
-    log_hash[:inviter] = invitations_to_me.first.sender.diaspora_handle if invitations_to_me.first && invitations_to_me.first.sender
-
-    if self.invited?
-      self.setup(opts)
-      self.invitation_token = nil
-      self.password              = opts[:password]
-      self.password_confirmation = opts[:password_confirmation]
-
-      self.save
-      return unless self.errors.empty?
-
-      # moved old Invitation#share_with! logic into here,
-      # but i don't think we want to destroy the invitation
-      # anymore.  we may want to just call self.share_with
-      invitations_to_me.each do |invitation|
-        if !invitation.admin? && invitation.sender.share_with(self.person, invitation.aspect)
-          invitation.destroy
-        end
-      end
-
-      log_hash[:status] = "success"
-      Rails.logger.info(log_hash)
-      self
-    end
-  end
 
   ###Helpers############
   def self.build(opts = {})
@@ -511,14 +470,6 @@ class User < ActiveRecord::Base
     self.person
   end
 
-  # Set the User's email to the one they've been invited at, if the user
-  # is being created via an invitation.
-  #
-  # @return [User]
-  def infer_email_from_invitation_provider
-    self.email = self.invitation_identifier if self.invitation_service == 'email'
-    self
-  end
 
   def no_person_with_same_username
     diaspora_id = "#{self.username}#{User.diaspora_id_host}"

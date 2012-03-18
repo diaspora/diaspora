@@ -1,0 +1,5 @@
+.alert-message.block-message.success
+  = t('.invited_by')
+  = person_image_link inviter
+  = person_link inviter
+  = aspect_membership_dropdown(contact, inviter, false)

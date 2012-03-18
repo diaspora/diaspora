@@ -33,6 +33,21 @@ class Notifier < ActionMailer::Base
     mail(default_opts)
   end
 
+  def invite(email, message, inviter, invitation_code, locale)
+    @inviter = inviter
+    @message = message
+    @locale = locale
+    @invitation_code = invitation_code
+
+    mail_opts = {:to => email, :from => AppConfig[:smtp_sender_address],
+                 :subject => I18n.t('notifier.invited!'),  
+                 :host => AppConfig[:pod_uri].host}
+
+    I18n.with_locale(locale) do
+      mail(mail_opts)
+    end
+  end
+
   def started_sharing(recipient_id, sender_id)
     send_notification(:started_sharing, recipient_id, sender_id)
   end

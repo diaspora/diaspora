@@ -12,20 +12,18 @@ describe RakeHelpers do
   describe '#process_emails' do
     before do
       Devise.mailer.deliveries = []
-    end
-    it 'should send emails to each backer' do
-      expect{
-        process_emails(@csv, 100, 1, false)
-        }.to change(User, :count).by(3)
+      @old_admin = AppConfig[:admin_account]
+      AppConfig[:admin_account] = Factory(:user).username
     end
 
-    it 'should not send the email to the same email twice' do
-      process_emails(@csv, 100, 1, false)
+    after do
+      AppConfig[:admin_account] = @old_admin
+    end
 
-      Devise.mailer.deliveries.count.should == 3
-      process_emails(@csv, 100, 1, false)
+    it 'should send emails to each email' do
 
-      Devise.mailer.deliveries.count.should == 3
+      EmailInviter.should_receive(:new).exactly(3).times.and_return(stub.as_null_object)
+      process_emails(@csv, 100, 1, false)
     end
   end
 end

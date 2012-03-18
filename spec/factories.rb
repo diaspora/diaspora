@@ -130,6 +130,12 @@ FactoryGirl.define do
     end
   end
 
+  factory :invitation_code do
+    sequence(:token){|n| "sdfsdsf#{n}"}
+    association :user
+    count 0
+  end
+
   factory :service do |service|
     nickname "sirrobertking"
     type "Services::Twitter"

@@ -319,6 +319,8 @@ en:
       simplicity_explanation: "Diaspora makes sharing clean and easy – and this goes for privacy too. Inherently private, Diaspora doesn’t make you wade through pages of settings and options just to keep your profile secure."
       learn_about_host: "Learn about how to host your own Diaspora server."
 
+  invitation_codes:
+    excited: "%{name} is excited to see you here."
   invitations:
     create:
       sent: "Invitations have been sent to: "
@@ -332,10 +334,19 @@ en:
       invite_someone_to_join: "Invite someone to join Diaspora!"
       if_they_accept_info: "if they accept, they will be added to the aspect you invited them."
       comma_seperated_plz: "You can enter multiple email addresses separated by commas."
+      check_out_diaspora: "Hey! You should check out Diaspora*"
       to: "To"
       personal_message: "Personal message"
       send_an_invitation: "Send an invitation"
       send_invitation: "Send invitation"
+      paste_link: "or paste them this link!"
+      codes_left:
+        zero:  "No invites left on this code"
+        one:  "One invite left on this code"
+        two:  "%{count} invites left on this code"
+        few:  "%{count} invites left on this code"
+        many:  "%{count} invites left on this code"
+        other:  "%{count} invites left on this code"
       aspect: "Aspect"
       already_invited: "The following people have not accepted your invitation:"
       resend: "Resend"
@@ -519,6 +530,24 @@ en:
     confirm_email:
         subject: "Please activate your new email address %{unconfirmed_email}"
         click_link: "To activate your new email address %{unconfirmed_email}, please follow this link:"
+    accept_invite: "Accept Your Diaspora* invite!"
+    invited_you: "%{name} invited you to Diaspora*"
+    invite:
+      message: |-
+        Hello!
+        
+        You have been invited to join Diaspora*!
+        
+        Click this link to get started
+        
+        %{invite_url}
+        <%= invite_code_url(@invitation_code)%>
+        
+        
+        Love,
+        
+        The Diaspora* email robot!
+  
   people:
     zero: "no people"
     one: "1 person"
@@ -575,8 +604,10 @@ en:
       edit_membership: "edit aspect membership"
     add_contact_small:
       add_contact_from_tag: "add contact from tag"
-
     last_post: "Last Post"
+    add_contact:
+      invited_by: "you were invited by"
+
   photos:
     show:
       delete_photo: "Delete Photo"
@@ -679,6 +710,7 @@ en:
       update: "Update"
       cancel_my_account: "Cancel my account"
     closed: "Signups are closed on this Diaspora pod."
+    invalid_invite: "The invite link you provided is no longer valid!"
 
   requests:
     manage_aspect_contacts:
