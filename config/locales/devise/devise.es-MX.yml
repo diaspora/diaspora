@@ -33,7 +33,7 @@ es-MX:
         accept: "Aceptar la invitación"
         arrived: "La red social que has estado esperando ha llegado. Renovada, más segura, y más divertida, %{strong_diaspora} está lista para ayudarte a compartir y explorar la red de una manera completamente nueva."
         be_yourself: "Sé tú mismo"
-        be_yourself_paragraph: "El internet ha creado nuevas y únicas formas para expresarnos. %{strong_diaspora} te permite que seas tú mismo y compartas como quieras, con o sin tu nombre real."
+        be_yourself_paragraph: "El internet ha creado nuevas y únicas formas para expresarnos. %{strong_diaspora} te permite que seas tú mismo, y compartas como quieras, con o sin tu nombre real."
         cubbies: "Cubbi.es"
         displaying_correctly: "¿El correo electrónico no se visualiza correctamente? %{link}"
         email_address: "questions@joindiaspora.com"

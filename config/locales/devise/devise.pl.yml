@@ -92,7 +92,7 @@ pl:
         alpha_software: "Masz zamiar korzystać z oprogramowania w wersji alfa."
         bugs_and_feedback: "Miej świadomość, że napotkasz na błędy. Zachęcamy do korzystania z łącza \"Feedback\" umieszczonego po prawej stronie okna przeglądarki, aby zgłaszać wszelkie problemy. Pracujemy najszybciej jak się da, aby rozwiązać wszystkie zgłaszane problemy."
         bugs_and_feedback_mobile: "Informujemy o możliwości występowania błędów.  Zachęcamy do informowania o nich! Postaramy się jak najszybciej je zlikwidować. "
-        login: "Zaloguj"
+        login: "Zaloguj się"
         modern_browsers: "obsługuje wyłącznie nowoczesne przeglądarki."
         password: "Hasło"
         remember_me: "Zapamiętaj mnie"
