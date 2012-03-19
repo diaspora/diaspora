@@ -94,7 +94,7 @@ class RegistrationsController < Devise::RegistrationsController
   #   comment_note: StatusMessage.text for the prodect
   #
   def udpate_status
-    
+    render :text => "Hello \n"
   end
   
   #
@@ -119,6 +119,9 @@ class RegistrationsController < Devise::RegistrationsController
   #   --- the comment id of Bizmarket user.id
   # }
   #
+  def update_matching
+    
+  end
   
   private
   def check_registrations_open!
