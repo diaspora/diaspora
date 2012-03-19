@@ -164,8 +164,8 @@ class RegistrationsController < Devise::RegistrationsController
   #   comment_request_note: StatusMessage.text of the seller on the user
   #   status_offer_id: StatusMessage.id of the seller
   #   status_request_note: StatusMessage.text of the seller
-  #   comment_offer_note: StatusMessage.text of Bizmarket user
   #   bizmarket_user_id: The ID of Bizmarket user 
+  #   comment_offer_note: StatusMessage.text of Bizmarket user
   #
   #
   # return :json => {
@@ -174,7 +174,68 @@ class RegistrationsController < Devise::RegistrationsController
   # }
   #
   def update_matching
-    render :text => "Action: update matching \n"
+    # Validate params
+    validate_params = [
+      :post_type,
+      :status_request_id,
+      :seller_id,
+      :comment_request_note,
+      :status_offer_id,
+      :status_request_note,
+      :comment_offer_note,
+      :bizmarket_user_id,
+    ]
+    validate_params.each do |param_name|
+      if params[param_name].nil?
+        return render :json => {:status => 403, :message => "No #{param_name} was provided."}
+      end
+    end
+    
+    user_status_message=  Post.find(params[:status_request_id].to_i)
+    if user_status_message.nil?
+      return render :json => {:status => 404, :message => "user_status_message not found"}
+    end
+    seller = Profile.find(params[:seller_id].to_i)
+    if seller.nil?
+      return render :json => {:status => 404, :message => "seller_id not found"}
+    end
+    offer = Post.find(params[:status_offer_id].to_i)
+    if offer.nil?
+      return render :json => {:status => 404, :message => "status_offer_id not found"}
+    end
+    bizmarket_user = Person.find(params[:bizmarket_user_id])
+    if bizmarket_user.nil?
+      return render :json => {:status => 404, :message => "bizmarket_user_id not found"}
+    end
+
+    puts "-----------------"
+    puts "status mesage:"
+    user_status_message.text
+    puts "seller"
+    seller.full_name
+    puts "offer"
+    offer.text
+    puts "bizmarket_user"
+    bizmarket_user.full_name
+    puts "-----------------"
+    
+    user_status_message.text  = params[:status_request_note]
+    offer.text                = params[:comment_request_note]
+    seller_status             = StatusMessage.new
+    seller_status.text        = params[:status_request_note]
+    seller_status.public      = true
+    seller_status.author_id   = params[:seller_id]
+    bizmarket_user.author_id  = params[:bizmarket_user_id]
+    bizmarket_user.text       = params[:comment_offer_note]
+    
+    if ((!user_status_message.save) || (!seller_status.save) || (!offer.save) || (!bizmarket_user.save))
+      return render :json => {:status => 500, :message => "Error on saving data."+user_status_message.errors.to_s+" "+offer.errors.to_s+" "+seller_status.errors.to_s+" "+bizmarket_user.errors.to_s}
+    end
+    
+    render :json => {
+      :status => 200,
+      :message => "Data successfully updated"
+    }
   end
   
   private
