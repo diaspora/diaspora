@@ -78,7 +78,7 @@ class RegistrationsController < Devise::RegistrationsController
   end
   
   #
-  # POST: /user/update_status
+  # POST: /users/update_message_status
   #
   # 1. Update StatusMessage.text of the user
   # 2. Add a comment to the product page
@@ -93,12 +93,71 @@ class RegistrationsController < Devise::RegistrationsController
   #   group_comment_id: StatusMessage.id of the prodct
   #   comment_note: StatusMessage.text for the prodect
   #
-  def udpate_status
+  #     - commentable_id = Post.find(params[:status_id)
+  #     - comment = Comment.where(:commentable_id => 
+  #     
+  #     - Post.comments.first {
+  #          :commentable_id = Post.id
+  #       }
+  #
+  def update_message_status
+    # Validate params
+    validate_params = [
+      :post_type,
+      :status_id,
+      :change_note,
+      :product_id,
+      :group_comment_id,
+      :comment_note,
+    ]
+    validate_params.each do |param_name|
+      if params[param_name].nil?
+        return render :json => {:status => 403, :message => "No #{param_name} is provided."}
+      end
+    end
+    # Validate the status_id
+#    user_status = StatusMessage.where(:id => params[:status_id]).first
+    user_status = Post.where(:id => params[:status_id]).first
+#    user_status = Comment.where(:commentable_id => params[:status_id]).first
+    if user_status.nil?
+      return render :json => {:status => 404, :message => "Post for status_id not found"}
+    end
+    # Validate product_id
+    person = Person.where(:id => params[:product_id]).first
+    if person.nil?
+      return render :json => {:status => 404, :message => "Person (product_id) not found"}
+    end
+    # Validate group_comment_id
+#    comment = Comment.where(:id => params[:id]).first
+    # To lower the number of DB queries
+    comment = user_status.comments.find(params[:group_comment_id].to_i)
+    if comment.nil?
+      return render :json => {:status => 404, :message => "Post for group_comment_id not found"}
+    end
+    
+    puts "Output ---------------------"
+    puts "Comment: "
+    puts comment.id
+    puts comment.text
+    puts "Post: "
+    puts user_status.id
+    puts user_status.text
+    
+    # Update the data with all of the params
+    user_status.text = params[:change_note]
+    comment.text = params[:comment_note]
+    if ((!user_status.save) || (!comment.save))
+      return render :json =>{:status => 500, :message => "There was a problem to save the data. "+user_status.errors.to_s+" ; "+comment.errors.to_s}
+    end
+    
+    puts "Update Message Status ----------------------"
+    puts params[:status_id]
+    puts "----------------------------"
     render :text => "Hello \n"
   end
   
   #
-  # POST: /user/matching
+  # POST: /users/matching
   # 
   # 1. 
   # 
@@ -120,7 +179,7 @@ class RegistrationsController < Devise::RegistrationsController
   # }
   #
   def update_matching
-    
+    render :text => "Action: update matching \n"
   end
   
   private
