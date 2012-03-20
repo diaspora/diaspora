@@ -792,3 +792,15 @@ text-rendering: optimizelegibility;
 .aspect_selector {
   float: right;
 }
+
+.post-view {
+  display: table;
+  height: 100%;
+  width: 100%;
+}
+
+#post-content {
+  button {
+    position: absolute;
+  }
+}
