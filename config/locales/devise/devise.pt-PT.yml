@@ -95,7 +95,7 @@ pt-PT:
         login: "Iniciar sessão"
         modern_browsers: "apenas suporta navegadores modernos."
         password: "Palavra-passe"
-        remember_me: "Lembrar-se de mim"
+        remember_me: "Memorizar"
         sign_in: "Iniciar sessão"
         username: "Nome de Utilizador"
       signed_in: "A sessão foi iniciada com sucesso."

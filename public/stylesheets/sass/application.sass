@@ -1828,8 +1828,29 @@ ul#press_logos
     :color #777
 
   .collapsible
+    :overflow hidden
+    :position relative
+
+    .expander
+      :position absolute
+      :bottom 0
+      :left 0
+      :right 0
+      :height 30px
+      :text-align center
+      :line-height 48px
+      :font-size .8em
+      :color $grey
+      :text-shadow 0 0 7px #FFF
+      :cursor pointer
+      :border-bottom 2px solid #DDD
+      @include border-radius(0, 0, 3px, 3px)
+      @include linear-gradient(rgba(255,255,255,0) , #EEE, 0%, 95%)
+      :background-color transparent
+
     .oembed
       :background url('/images/ajax-loader2.gif') no-repeat center center
+      :display inline-block
 
       .thumb
         :position relative

@@ -8,12 +8,8 @@ class Services::Facebook < Service
   def post(post, url='')
     Rails.logger.debug("event=post_to_service type=facebook sender_id=#{self.user_id}")
     message = public_message(post, url)
-    begin
-      post_params = self.create_post_params(message)
-      Faraday.post("https://graph.facebook.com/me/feed", post_params.to_param)
-    rescue => e
-      Rails.logger.info("#{e.message} failed to post to facebook")
-    end
+    post_params = self.create_post_params(message)
+    Faraday.post("https://graph.facebook.com/me/feed", post_params.to_param)
   end
 
   def create_post_params(message)
