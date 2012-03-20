@@ -282,7 +282,7 @@ es-MX:
       tagline_first_half: "Comparte lo que quieras,"
       tagline_second_half: "con quien tú quieras."
   invitation_codes:
-    excited: "%{name} está encantado de verte aquí."
+    excited: "%{name} está entusiasmado por verte aquí."
   invitations:
     a_facebook_user: "Un usuario de Facebook"
     check_token:
@@ -301,10 +301,15 @@ es-MX:
       already_invited: "Las siguientes personas no aceptaron tu invitación:"
       aspect: "Aspecto"
       check_out_diaspora: "¡Echa un vistazo a Diaspora!"
+      codes_left:
+        one: "Una invitación restante con este código"
+        other: "%{count} invitaciones restantes con este código"
+        zero: "No quedan invitaciones restantes con este código"
       comma_seperated_plz: "Puedes introducir múltiples direcciones de correo electrónico separadas por comas."
       if_they_accept_info: "si aceptan, serán añadidos al aspecto al cual los invitaste."
       invite_someone_to_join: "¡Invita a alguien a unirse a Diaspora!"
       language: "Idioma"
+      paste_link: "Comparte este enlace con tus amigos para invitarlos a Diaspora*, o envíales directamente el enlace por correo electrónico"
       personal_message: "Mensaje personal"
       resend: "Reenviar"
       send_an_invitation: "Enviar una invitación"

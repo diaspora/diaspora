@@ -304,6 +304,10 @@ es:
       already_invited: "La siguiente persona no ha aceptado tu invitación:"
       aspect: "Aspecto"
       check_out_diaspora: "¡Échale un ojo a Diaspora!"
+      codes_left:
+        one: "%{count} invitación restante con este código"
+        other: "%{count} invitaciones restantes con este código"
+        zero: "No quedan invitaciones con este código"
       comma_seperated_plz: "Puedes escribir múltiples direcciones de email separadas por comas."
       if_they_accept_info: "Si acepta, se añadirá al aspecto seleccionado."
       invite_someone_to_join: "¡Invita a alguien a unirse a Diaspora*!"

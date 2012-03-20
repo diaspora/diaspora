@@ -309,7 +309,7 @@ it:
       if_they_accept_info: "se accettano, saranno aggiunti all'aspetto in cui li hai invitati."
       invite_someone_to_join: "Invita qualcuno ad entrare in Diaspora!"
       language: "Lingua"
-      paste_link: "oppure copia e invia questo link!"
+      paste_link: "Condividi questo link con i tuoi amici per invitarli su Diaspora*, puoi anche inviarlo per email."
       personal_message: "Messaggio privato"
       resend: "Invia di nuovo"
       send_an_invitation: "Invia un invito"
