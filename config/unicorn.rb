@@ -12,6 +12,8 @@ preload_app true
 # How long to wait before killing an unresponsive worker
 timeout 30
 
+@resque_pid = nil
+
 #pid '/var/run/diaspora/diaspora.pid'
 #listen '/var/run/diaspora/diaspora.sock', :backlog => 2048
 
@@ -24,6 +26,10 @@ end
 before_fork do |server, worker|
   # If using preload_app, enable this line
   ActiveRecord::Base.connection.disconnect!
+
+  if !AppConfig.single_process_mode?
+    @resque_pid ||= spawn('bundle exec rake resque:work QUEUES=*')
+  end
 
   # disconnect redis if in use
   if !AppConfig.single_process_mode?
