@@ -1,7 +1,8 @@
 app.views.Content = app.views.StreamObject.extend({
 
   events: {
-    "click .oembed .thumb": "showOembedContent"
+    "click .oembed .thumb": "showOembedContent",
+    "click .expander": "expandPost"
   },
 
   presenter : function(){
@@ -41,7 +42,17 @@ app.views.Content = app.views.StreamObject.extend({
     var paramSeparator = ( /\?/.test(insertHTML.attr("src")) ) ? "&" : "?";
     insertHTML.attr("src", insertHTML.attr("src") + paramSeparator + "autoplay=1");
     oembed.html( insertHTML );
+  },
+
+  expandPost: function(evt) {
+    var el = $(this.el).find('.collapsible');
+    el.removeClass('collapsed').addClass('opened');
+    el.animate({'height':el.data('orig-height')}, 550, function() {
+      el.css('height','auto');
+    });
+    $(evt.currentTarget).hide();
   }
+
 });
 
 app.views.StatusMessage = app.views.Content.extend({
