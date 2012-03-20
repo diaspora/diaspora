@@ -34,6 +34,7 @@ class RegistrationsController < Devise::RegistrationsController
   #   for debugging.
   # @status_note: text
   # @profile_id: the profile id for the prodect user id.
+  #   - change it to profile_email
   # @group_comment_id: StatusMessage.id of the product user.
   # @comment_note: StatusMessage.text of the product user.
   # 
@@ -42,17 +43,27 @@ class RegistrationsController < Devise::RegistrationsController
   # }
   #
   def sign_in_by_email
-    # Find or create user
-    user_email = params[:email]
-    if user_email.nil?  
-      return render :text => "No email address provided \n"
+    # Validate params
+    validate_params = [
+      :post_type,
+      :status_note,
+      :profile_email,
+      :group_comment_id,
+      :comment_note,
+    ]
+    validate_params.each do |param_name|
+      if params[param_name].nil?
+        return render :json => {:status => 403, :message => "No #{param_name} was provided."}
+      end
     end
+    # Find params
+    
     # Search by email
-    @user = User.where(:email => user_email).first
-    rs = ""
+    @user = User.where(:email => params[:profile_email]).first
+    feedback_message = ""
     if @user.nil?
-      rs = "No user found by email: #{user_email} \n"
-      puts "No user found by email: #{user_email}"
+      feedback_message << "No user found by email: #{params[:profile_email]} \n"
+      puts "No user found by email: #{params[:profile_email]}"
       puts "Creating new user"
       # Create
       password_token = User.reset_password_token
@@ -63,17 +74,44 @@ class RegistrationsController < Devise::RegistrationsController
           :password => password_token,
         })
       if @user.save
-        rs = "User successfuly saved. Email: #{user_email} \n"
+        feedback_message << "User successfuly saved. Email: #{user_email} \n"
       else
-        rs = "Error: User not saved. Email: #{user_email}"
+        feedback_message << "Error: User not saved. Email: #{user_email}"
+        return render :json => {
+          :status => 500,
+          :message => feedback_message
+        }
       end
     else
-      rs = "User found by email address: #{user_email} \n"
+      feedback_message << "User found by email address: #{user_email} \n"
       puts "User found by email address: #{user_email}"
     end
     
-    render :json => {
-      :body => rs.to_json
+    # Update status
+    comment = Comment.find(params[:group_comment_id].to_i)
+    if comment.nil?
+      return render :json => {
+        :status => 400,
+        :message => feedback_message+" \n comment not found by #{params[:group_comment_id]}"
+      }
+    end
+    comment.text = params[:comment_note]
+    
+    # Updsate the user status
+    user_post = Post.new
+    user_post.type = params[:post_type]
+    user_post.text  params[:status_note]
+      
+    if ((!comment.save) || (!user_post.save))
+      return render :json => {
+        :status => 500,
+        :message => feedback_message+" \n Error on saving. #{user_post.errors}; #{comment.errors}"
+      }
+    end
+    
+    return render :json => {
+      :status => 200,
+      :message => feedback_message
     }
   end
   
