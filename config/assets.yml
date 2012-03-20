@@ -130,6 +130,7 @@ stylesheets:
     - public/stylesheets/vendor/fileuploader.css
     - public/stylesheets/vendor/autoSuggest.css
     - public/stylesheets/interim-bootstrap.css
+    - public/stylesheets/bizmarket.css
 
   application:
     - public/stylesheets/application.css

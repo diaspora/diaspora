@@ -16,4 +16,7 @@
     body{
       margin-top: 20px;
     }
-  = image_tag "hello.png", :title => "שלום!", :alt => "שלום!"
+    
+  %div.welcome
+    = image_tag "hello.png", :title => "שלום!", :alt => "שלום!", :class => "hello-message"
+    = link_to "התחבר", "/users/sign_in", :class => "button creation"

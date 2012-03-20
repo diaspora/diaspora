@@ -45,11 +45,11 @@ module Diaspora
     config.time_zone = 'Jerusalem'
 
     # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
-#    config.i18n.load_path += Dir[Rails.root.join('config','locales','diaspora', '*.{rb,yml}').to_s]
-#    config.i18n.load_path += Dir[Rails.root.join('config','locales','devise', '*.{rb,yml}').to_s]
-#    config.i18n.load_path += Dir[Rails.root.join('config','locales','javascript', '*.{rb,yml}').to_s]
+    config.i18n.load_path += Dir[Rails.root.join('config','locales','diaspora', '*.{rb,yml}').to_s]
+    config.i18n.load_path += Dir[Rails.root.join('config','locales','devise', '*.{rb,yml}').to_s]
+    config.i18n.load_path += Dir[Rails.root.join('config','locales','javascript', '*.{rb,yml}').to_s]
     # config.i18n.default_locale = :de
-    config.i18n.default_locale = :de
+    config.i18n.default_locale = :he
 
     # Configure generators values. Many other options are available, be sure to check the documentation.
      config.generators do |g|
