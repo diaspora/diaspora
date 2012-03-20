@@ -102,7 +102,8 @@ Diaspora::Application.routes.draw do
   get 'users/invitation/accept' => 'invitations#edit'
   get 'invitations/email' => 'invitations#email', :as => 'invite_email'
   get 'users/invitations' => 'invitations#new', :as => 'new_user_invitation'
-
+  post 'users/invitations' => 'invitations#create', :as => 'new_user_invitation'
+  
   get 'login' => redirect('/users/sign_in')
 
   scope 'admins', :controller => :admins do
