@@ -11,8 +11,16 @@ describe Services::Facebook do
 
   describe '#post' do
     it 'posts a status message to facebook' do
-      @service.post(@post)
-      WebMock.should have_requested(:post, "https://graph.facebook.com/me/feed").with(:body => {:message => @post.text, :access_token => @service.access_token}.to_param)
+
+stub_request(:post, "https://graph.facebook.com/me/feed").
+  with(:body => "access_token=yeah&message=hello", 
+       :headers => {'Accept'=>'*/*', 'User-Agent'=>'Ruby'}).
+  to_return(:status => 200, :body => "", :headers => {})
+
+
+
+      
+        @service.post(@post)
     end
 
     it 'swallows exception raised by facebook always being down' do
@@ -23,6 +31,10 @@ describe Services::Facebook do
     end
 
     it 'should call public message' do
+          stub_request(:post, "https://graph.facebook.com/me/feed").
+      with(:body => "access_token=yeah&message=", 
+           :headers => {'Accept'=>'*/*', 'User-Agent'=>'Ruby'}).
+      to_return(:status => 200, :body => "", :headers => {})
       url = "foo"
       @service.should_receive(:public_message).with(@post, url)
       @service.post(@post, url)
