@@ -27,8 +27,8 @@ config/mailing_list.csv
 
 # Generated files
 log/*
-#public/stylesheets/*.css
-#public/diaspora
+public/stylesheets/*.css
+public/diaspora
 spec/fixtures/*.y*ml
 spec/fixtures/*.fixture.*
 coverage/*
