@@ -62,29 +62,31 @@ class RegistrationsController < Devise::RegistrationsController
     @user = User.where(:email => params[:profile_email]).first
     feedback_message = ""
     if @user.nil?
+      is_new_user = true
       feedback_message << "No user found by email: #{params[:profile_email]} \n"
       puts "No user found by email: #{params[:profile_email]}"
       puts "Creating new user"
       # Create
       password_token = User.reset_password_token
       @user = User.build({
-          :username => user_email.split("@").first+"_"+rand(100).to_s,
-          :email => user_email,
+          :username => params[:profile_email].split("@").first+"_"+rand(100).to_s,
+          :email => params[:profile_email],
           :reset_password_token => password_token,
           :password => password_token,
         })
       if @user.save
-        feedback_message << "User successfuly saved. Email: #{user_email} \n"
+        feedback_message << "User successfuly saved. Email: #{params[:profile_email]} \n"
       else
-        feedback_message << "Error: User not saved. Email: #{user_email}"
+        is_new_user = false
+        feedback_message << "Error: User not saved. Email: #{params[:profile_email]}"
         return render :json => {
           :status => 500,
           :message => feedback_message
         }
       end
     else
-      feedback_message << "User found by email address: #{user_email} \n"
-      puts "User found by email address: #{user_email}"
+      feedback_message << "User found by email address: #{params[:profile_email]} \n"
+      puts "User found by email address: #{params[:profile_email]}"
     end
     
     # Update status
@@ -97,7 +99,7 @@ class RegistrationsController < Devise::RegistrationsController
     end
     comment.text = params[:comment_note]
     
-    # Updsate the user status
+    # Create new status
     user_post = Post.new
     user_post.type = params[:post_type]
     user_post.text  params[:status_note]
@@ -111,7 +113,11 @@ class RegistrationsController < Devise::RegistrationsController
     
     return render :json => {
       :status => 200,
-      :message => feedback_message
+      :message => feedback_message,
+      :result => {
+        :user_post => user_post.to_json,
+        :group_comment => comment.to_json,
+      }
     }
   end
   
