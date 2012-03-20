@@ -44,7 +44,10 @@ Feature: Creating a new post
     And I upload a fixture picture with filename "button.gif"
     And I start the framing process
     Then I should see "This is hella customized" in the framer preview
+    When I select the template "awesome"
+    Then I should see an "awesome" framer preview
     When I finalize my frame
     And I go to "/stream"
     Then "This is hella customized" should be post 1
+    And "This is hella customized" should render with the "awesome" template
 

@@ -25,10 +25,18 @@ def finalize_frame
   click_button "done"
 end
 
+def post_div
+  find(".post")
+end
+
 def within_frame_preview
-  within ".post-view .post" do
+  within post_div do
     yield
   end
+end
+
+def assert_template(template_name)
+  post_div["data-template"].should == template_name
 end
 
 When /^I trumpet$/ do
@@ -36,7 +44,7 @@ When /^I trumpet$/ do
 end
 
 When /^I write "([^"]*)"$/ do |text|
-  fill_in :text, :with => text
+  fill_in 'text', :with => text
 end
 
 Then /I mention "([^"]*)"$/ do |text|
@@ -90,7 +98,14 @@ Then /^"([^"]*)" should have (\d+) pictures$/ do |post_text, number_of_pictures|
   find_post_by_text(post_text).all(".photo_attachments img").size.should == number_of_pictures.to_i
 end
 
-
 Then /^I should see "([^"]*)" in the framer preview$/ do |post_text|
   within_frame_preview { page.should have_content(post_text) }
+end
+
+When /^I select the template "([^"]*)"$/ do |template_name|
+  select template_name, :from => 'template'
+end
+
+Then /^I should see an "([^"]*)" framer preview$/ do |template_name|
+  assert_template(template_name)
 end

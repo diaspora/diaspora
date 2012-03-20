@@ -39,3 +39,7 @@ When /^I should see "([^"]*)" aspect unselected$/ do |aspect_name|
     page.has_css?("li[data-aspect_id='#{aspect.id}']:not(.active)").should be_true
   end
 end
+
+When /^"([^"]*)" should render with the "([^"]*)" template$/ do |post_text, template_name|
+  within find_post_by_text(post_text) { assert_template(template_name) }
+end
