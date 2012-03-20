@@ -1,9 +1,11 @@
 module InvitationCodesHelper
   def invite_welcome_message
     if invite.present?
-      content_tag(:div) do
-        person_image_link(invite.user.person) +  
-        I18n.translate('invitation_codes.excited', :name => invite.user.name)
+      content_tag(:div, :class => 'media well') do
+        person_image_link(invite.user.person, :class => 'img') +  
+        content_tag(:div, :class => 'bd') do
+          I18n.translate('invitation_codes.excited', :name => invite.user.name)
+        end
       end
     end
   end

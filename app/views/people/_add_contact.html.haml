@@ -1,5 +1,8 @@
-.alert-message.block-message.success
+.span7.offset1.well
   = t('.invited_by')
-  = person_image_link inviter
-  = person_link inviter
-  = aspect_membership_dropdown(contact, inviter, false)
+  .media
+    .float-right
+      = aspect_membership_dropdown(contact, inviter, false)
+    = person_image_link(inviter, :class => 'img')
+    .bd
+      = person_link(inviter)
