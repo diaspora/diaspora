@@ -25,6 +25,12 @@ def finalize_frame
   click_button "done"
 end
 
+def within_frame_preview
+  within ".post-view .post" do
+    yield
+  end
+end
+
 When /^I trumpet$/ do
   visit new_post_path
 end
@@ -84,6 +90,7 @@ Then /^"([^"]*)" should have (\d+) pictures$/ do |post_text, number_of_pictures|
   find_post_by_text(post_text).all(".photo_attachments img").size.should == number_of_pictures.to_i
 end
 
+
 Then /^I should see "([^"]*)" in the framer preview$/ do |post_text|
-  pending
+  within_frame_preview { page.should have_content(post_text) }
 end

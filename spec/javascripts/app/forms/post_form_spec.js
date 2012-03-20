@@ -37,13 +37,6 @@ describe("app.forms.Post", function(){
         expect(this.view.model.get("aspect_ids")).toBe("public")
         expect(this.view.model.get("services").length).toBe(2)
       })
-
-      it("triggers a  'setFromForm' event", function(){
-        var spy = jasmine.createSpy();
-        this.view.model.bind("setFromForm", spy);
-        this.view.$(".new-post").submit();
-        expect(spy).toHaveBeenCalled();
-      })
     })
   })
 })

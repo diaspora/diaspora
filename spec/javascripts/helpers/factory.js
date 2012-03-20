@@ -52,8 +52,8 @@ factory = {
     return _.extend(defaultAttrs, overrides)
   },
 
-  post :  function(overrides) {
-    var defaultAttrs = {
+  postAttrs : function(){
+    return  {
       "provider_display_name" : null,
       "created_at" : "2012-01-03T19:53:13Z",
       "interacted_at" : '2012-01-03T19:53:13Z',
@@ -61,7 +61,6 @@ factory = {
       "public" : false,
       "guid" : this.guid(),
       "image_url" : null,
-      "author" : this.author(),
       "o_embed_cache" : null,
       "photos" : [],
       "text" : "jasmine is bomb",
@@ -73,8 +72,16 @@ factory = {
       "likes_count" : 0,
       "comments_count" : 0
     }
+  },
 
+  post :  function(overrides) {
+    defaultAttrs = _.extend(factory.postAttrs(),  {"author" : this.author()})
     return new app.models.Post(_.extend(defaultAttrs, overrides))
+  },
+
+  statusMessage : function(overrides){
+    //intentionally doesn't have an author to mirror creation process, maybe we should change the creation process
+    return new app.models.StatusMessage(_.extend(factory.postAttrs(), overrides))
   },
 
   comment: function(overrides) {

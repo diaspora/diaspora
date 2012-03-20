@@ -40,10 +40,11 @@ Feature: Creating a new post
     Then "check out these pictures" should have 2 pictures
 
   Scenario: Framing your frame
-    When I write "This shit is super customized"
+    When I write "This is hella customized"
     And I upload a fixture picture with filename "button.gif"
     And I start the framing process
-    Then I should see "This shit is super customized" in the framer preview
+    Then I should see "This is hella customized" in the framer preview
     When I finalize my frame
-    Then "This is super skrunkle" should be the first post in my stream
+    And I go to "/stream"
+    Then "This is hella customized" should be post 1
 

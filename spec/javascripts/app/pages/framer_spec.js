@@ -1,6 +1,7 @@
 describe("app.pages.Framer", function(){
   beforeEach(function(){
-    app.frame = new app.models.StatusMessage();
+    loginAs(factory.user())
+    app.frame = new factory.statusMessage();
     this.page = new app.pages.Framer();
   });
 
