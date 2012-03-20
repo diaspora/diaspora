@@ -18,7 +18,6 @@ app.forms.Picture = app.forms.Base.extend({
   },
 
   submitForm : function (){
-    console.log("meow")
     this.$("form").submit();
   },
 

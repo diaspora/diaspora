@@ -9,6 +9,7 @@ describe("app.forms.Post", function(){
       this.view.render()
     })
 
+
     describe("submitting a valid form", function(){
       beforeEach(function(){
         this.view.$("form #text_with_markup").val("Oh My")

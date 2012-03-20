@@ -9,7 +9,7 @@ Feature: Creating a new post
     And I write "I love RMS"
     When I select "Public" in my aspects dropdown
     And I upload a fixture picture with filename "button.gif"
-    When I press "Share"
+    When I go through the default composer
     When I go to "/stream"
     Then I should see "I love RMS" as the first post in my stream
     And "I love RMS" should be a public post in my stream
@@ -18,7 +18,7 @@ Feature: Creating a new post
   Scenario: Posting to Aspects
     And I write "This is super skrunkle"
     When I select "All Aspects" in my aspects dropdown
-    And I press "Share"
+    And I go through the default composer
     When I go to "/stream"
     Then I should see "This is super skrunkle" as the first post in my stream
     Then "This is super skrunkle" should be a limited post in my stream
@@ -27,7 +27,7 @@ Feature: Creating a new post
    Given a user named "Alice Smith" with email "alice@alice.alice"
    And a user with email "bob@bob.bob" is connected with "alice@alice.alice"
    And I mention "alice@alice.alice"
-   And I press "Share"
+   And I go through the default composer
    And I go to "/stream"
    Then I follow "Alice Smith"
 
@@ -35,6 +35,15 @@ Feature: Creating a new post
     When I write "check out these pictures"
     And I upload a fixture picture with filename "button.gif"
     And I upload a fixture picture with filename "button.gif"
-    And I press "Share"
+    And I go through the default composer
     And I go to "/stream"
     Then "check out these pictures" should have 2 pictures
+
+  Scenario: Framing your frame
+    When I write "This shit is super customized"
+    And I upload a fixture picture with filename "button.gif"
+    And I start the framing process
+    Then I should see "This shit is super customized" in the framer preview
+    When I finalize my frame
+    Then "This is super skrunkle" should be the first post in my stream
+

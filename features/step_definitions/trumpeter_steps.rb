@@ -17,6 +17,14 @@ def select_from_dropdown(option_text, dropdown)
   #assert dropdown text is link
 end
 
+def go_to_framer
+  click_button "Next"
+end
+
+def finalize_frame
+  click_button "done"
+end
+
 When /^I trumpet$/ do
   visit new_post_path
 end
@@ -59,6 +67,23 @@ Then /^"([^"]*)" should have the "([^"]*)" picture$/ do |post_text, file_name|
   image.should be_present
 end
 
+When /^I go through the default composer$/ do
+  go_to_framer
+  finalize_frame
+end
+
+When /^I start the framing process$/ do
+  go_to_framer
+end
+
+When /^I finalize my frame$/ do
+  finalize_frame
+end
+
 Then /^"([^"]*)" should have (\d+) pictures$/ do |post_text, number_of_pictures|
   find_post_by_text(post_text).all(".photo_attachments img").size.should == number_of_pictures.to_i
+end
+
+Then /^I should see "([^"]*)" in the framer preview$/ do |post_text|
+  pending
 end
