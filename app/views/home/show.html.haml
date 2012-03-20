@@ -16,5 +16,4 @@
     body{
       margin-top: 20px;
     }
-  :erb
-    <%= File.open(File.join(Rails.root, 'public/default.html')).read %>
+  = image_tag "hello.png", :title => "שלום!", :alt => "שלום!"

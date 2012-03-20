@@ -1,0 +1,83 @@
+/* Mixin file for sass.  Here is where we define our variables and
+   browser compatability functions used in all scss/sass files */
+/* Diapora's default color palate */
+/* Transision defaults */
+/* Style includes */
+/* Style includes */
+/* Browser compatability */
+#login {
+  width: 400px;
+  text-align: center;
+  display: inline-block; }
+  #login form input,
+  #login form label {
+    display: inline; }
+  #login form label {
+    top: 10px;
+    left: 12px;
+    text-shadow: none; }
+  #login form input[type='text'],
+  #login form input[type='password'] {
+    -webkit-box-shadow: 0 1px 0px white, 0 -1px 0px #888888;
+    -moz-box-shadow: 0 1px 0px white, 0 -1px 0px #888888;
+    box-shadow: 0 1px 0px white, 0 -1px 0px #888888;
+    width: 180px;
+    max-width: 180px;
+    font-size: 14px; }
+  #login form p {
+    display: inline-block;
+    position: relative;
+    width: 200px; }
+    #login form p span {
+      display: inline-block; }
+    #login form p.submit {
+      width: auto;
+      bottom: 15px; }
+      #login form p.submit input {
+        width: auto;
+        position: relative;
+        height: 40px;
+        top: 0px;
+        color: #666666;
+        margin-bottom: 10px; }
+        #login form p.submit input:hover {
+          color: #444444; }
+  #login form #forgot_password_link {
+    text-align: left;
+    position: absolute;
+    left: 205px;
+    top: 2em;
+    width: 150px;
+    color: #aaa; }
+  #login form #controls {
+    -webkit-transition: opacity 0.1s linear;
+    -moz-transition: opacity 0.1s linear;
+    -o-transition: opacity 0.1s linear;
+    transition: opacity 0.1s linear; }
+    #login form #controls.hidden {
+      filter: alpha(opacity=0);
+      -moz-opacity: 0;
+      -khtml-opacity: 0;
+      opacity: 0; }
+
+@-webkit-keyframes rotate {
+  from {
+    -webkit-transform: rotate(0deg); }
+
+  to {
+    -webkit-transform: rotate(360deg); } }
+
+@-moz-keyframes rotate {
+  from {
+    -moz-transform: rotate(0deg); }
+
+  to {
+    -moz-transform: rotate(360deg); } }
+
+.rideSpinners {
+  -webkit-animation-name: rotate;
+  -webkit-animation-duration: 5s;
+  -webkit-animation-iteration-count: infinite;
+  -moz-animation-name: rotate;
+  -moz-animation-duration: 5s;
+  -moz-animation-iteration-count: infinite; }

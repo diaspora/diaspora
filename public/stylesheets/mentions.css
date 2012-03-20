@@ -1,0 +1,86 @@
+/* Mixin file for sass.  Here is where we define our variables and
+   browser compatability functions used in all scss/sass files */
+/* Diapora's default color palate */
+/* Transision defaults */
+/* Style includes */
+/* Style includes */
+/* Browser compatability */
+.mentions-input-box {
+  background: #fff;
+  position: relative; }
+  .mentions-input-box textarea {
+    display: block;
+    background: transparent;
+    border: 1px solid #dcdcdc;
+    border-radius: 3px;
+    outline: 0;
+    overflow: hidden;
+    position: relative;
+    resize: none;
+    width: 100%;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box; }
+  .mentions-input-box .mentions-autocomplete-list {
+    background: white;
+    display: none;
+    left: 0;
+    margin-left: -1px;
+    position: absolute;
+    right: 0;
+    z-index: 10000; }
+    .mentions-input-box .mentions-autocomplete-list ul {
+      border: 1px solid #999;
+      margin: 0;
+      padding: 0;
+      -moz-border-radius: 0px 0px 5px 5px;
+      -webkit-border-radius: 0px 0px 5px 5px;
+      border-radius: 0px 0px 5px 5px; }
+      .mentions-input-box .mentions-autocomplete-list ul li {
+        color: #444;
+        background: white;
+        border-bottom: 1px solid #ccc;
+        cursor: pointer;
+        font-size: 15px;
+        height: 26px;
+        line-height: 26px;
+        list-style: none;
+        margin: 0;
+        overflow: hidden;
+        padding: 5px;
+        white-space: nowrap; }
+        .mentions-input-box .mentions-autocomplete-list ul li:hover, .mentions-input-box .mentions-autocomplete-list ul li.active {
+          background: #eee; }
+        .mentions-input-box .mentions-autocomplete-list ul li:last-child {
+          -moz-border-radius: 0px 0px 5px 5px;
+          -webkit-border-radius: 0px 0px 5px 5px;
+          border-radius: 0px 0px 5px 5px; }
+        .mentions-input-box .mentions-autocomplete-list ul li img, .mentions-input-box .mentions-autocomplete-list ul li div.icon {
+          float: left;
+          height: 25px;
+          margin-right: 5px;
+          width: 25px; }
+  .mentions-input-box .mentions {
+    bottom: 0;
+    color: white;
+    font-size: 14px;
+    font-family: Arial, Helvetica, sans-serif;
+    left: 4px;
+    line-height: normal;
+    overflow: hidden;
+    padding: 6px 0px 3px;
+    position: absolute;
+    right: 0;
+    top: -2px;
+    white-space: pre-wrap;
+    word-wrap: break-word; }
+    .mentions-input-box .mentions > div {
+      color: white;
+      white-space: pre-wrap;
+      width: 100%; }
+      .mentions-input-box .mentions > div strong {
+        background: #d8dfea;
+        font-weight: normal; }
+
+#publisher .mentions-autocomplete-list ul {
+  width: 483px; }
