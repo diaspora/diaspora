@@ -28,7 +28,7 @@
 
         %p
           = t('.searching')
-          = image_tag '/images/static-loader.png', :class => 'loader'
+          = image_tag('static-loader.png', :class => 'loader')
       - else
         %p
           = t('.no_one_found')
@@ -36,7 +36,7 @@
       - for hash in @hashes
         = render :partial => 'people/person', :locals => hash
 
-      = will_paginate @people
+      = will_paginate(@people)
 
 .span-8.last
   %h4

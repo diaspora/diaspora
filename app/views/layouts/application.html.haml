@@ -22,7 +22,7 @@
     = stylesheet_link_tag 'login', 'application', 'default'
 
     - if rtl?
-      = include_stylesheets :rtl, :media => 'all'
+      = stylesheet_link_tag :rtl, :media => 'all'
 
     = old_browser_js_support
     <!--[if IE]>

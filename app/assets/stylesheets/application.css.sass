@@ -1,6 +1,4 @@
-//= require_self
-//= require ui
-
+@import 'ui.css.sass'
 @import '_mixins.css.scss'
 
 /* ====== media ====== */
@@ -167,7 +165,7 @@ header
 
   :background
     :color rgb(40,35,35)
-    :image url('/images/header-bg.png')
+    :image url('/assets/header-bg.png')
 
   :z-index 1001
   :padding 6px 0
@@ -1515,7 +1513,7 @@ ul#landing_nav
 
 #diaspora_description
   :background
-    :image url('../images/ball.png')
+    :image url('/assets/ball.png')
     :repeat no-repeat
     :position top center
 
@@ -1849,7 +1847,7 @@ ul#press_logos
       :background-color transparent
 
     .oembed
-      :background url('/images/ajax-loader2.gif') no-repeat center center
+      :background url('/assets/ajax-loader2.gif') no-repeat center center
       :display inline-block
       :max-width 100%
 
@@ -1858,7 +1856,7 @@ ul#press_logos
         :cursor pointer
 
         .video-overlay
-          :background url('/images/video-overlay.png') no-repeat center center
+          :background url('/assets/video-overlay.png') no-repeat center center
           :position absolute
           :top 0
           :left 0
@@ -2278,7 +2276,7 @@ ul.left_nav
 
     > a.aspect_selector
       :background
-        :image url(../images/icons/check_yes_ok.png)
+        :image url("/assets/icons/check_yes_ok.png")
         :position 3px 50%
         :repeat no-repeat
 
