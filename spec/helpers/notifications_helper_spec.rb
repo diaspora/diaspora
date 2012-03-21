@@ -3,8 +3,7 @@ require 'spec_helper'
 
 describe NotificationsHelper do
   include ApplicationHelper
-  include Rails.application.routes.url_helpers
-  
+
   before do
     @user = Factory(:user)
     @person = Factory(:person)

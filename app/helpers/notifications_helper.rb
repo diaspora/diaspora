@@ -1,7 +1,5 @@
 module NotificationsHelper
   include PeopleHelper
-  include Rails.application.routes.url_helpers
-
 
   def object_link(note, actors)
     target_type = note.popup_translation_key

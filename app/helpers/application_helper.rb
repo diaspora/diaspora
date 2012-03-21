@@ -3,8 +3,6 @@
 #   the COPYRIGHT file.
 
 module ApplicationHelper
-  include Rails.application.routes.url_helpers
-
   def how_long_ago(obj)
     timeago(obj.created_at)
   end
