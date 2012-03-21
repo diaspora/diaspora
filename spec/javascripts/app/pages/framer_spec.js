@@ -5,6 +5,14 @@ describe("app.pages.Framer", function(){
     this.page = new app.pages.Framer();
   });
 
+  it("passes the model down to the template picker", function(){
+    expect(this.page.templatePicker.model).toBe(app.frame)
+  });
+
+  it("passes the model down to the post view", function(){
+    expect(this.page.postView.model).toBe(app.frame)
+  });
+
   describe("rendering", function(){
     beforeEach(function(){
       this.page.render();
