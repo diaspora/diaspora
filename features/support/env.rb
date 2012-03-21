@@ -16,6 +16,8 @@ require 'cucumber/api_steps'
 # Ensure we know the appservers port
 Capybara.server_port = 9887
 
+# Set the asset host for the pipeline
+ActionController::Base.asset_host = Capybara.app_host
 
 # Capybara defaults to XPath selectors rather than Webrat's default of CSS3. In
 # order to ease the transition to Capybara we set the default here. If you'd
@@ -95,3 +97,4 @@ end
 After('@localserver') do
   CapybaraSettings.instance.restore
 end
+
