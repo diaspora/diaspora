@@ -73,7 +73,7 @@ Feature: following and being followed
     And I wait for the ajax to finish
 
     And I fill in "Name" with "Super People" in the modal window
-    And I press "aspect_submit" in the modal window
+    And I press "Create" in the modal window
     And I wait for the ajax to finish
 
     When I go to the home page
