@@ -107,6 +107,15 @@ gem 'sass'
 gem 'will_paginate'
 gem 'client_side_validations'
 
+# assets
+
+group :assets do
+  gem 'sass-rails'
+  gem 'uglifier'
+end
+
+gem 'jquery-rails'
+
 # web
 
 gem 'faraday'

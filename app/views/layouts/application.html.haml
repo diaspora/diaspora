@@ -19,8 +19,7 @@
       = page_title yield(:page_title)
 
     = include_base_css_framework
-    = include_stylesheets :login, :media => 'screen'
-    = include_stylesheets :application, :default, :media => 'all'
+    = stylesheet_link_tag 'login', 'application', 'default'
 
     - if rtl?
       = include_stylesheets :rtl, :media => 'all'
@@ -30,7 +29,8 @@
     = include_javascripts :ie
     <![endif]-->
 
-    = jquery_include_tag
+    = javascript_include_tag 'jquery', 'jquery_ujs'
+
     - unless @landing_page
       = include_javascripts :main, :templates
       = load_javascript_locales

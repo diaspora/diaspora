@@ -46,10 +46,17 @@ Diaspora::Application.configure do
   # Disable delivery errors, bad email addresses will be ignored
   # config.action_mailer.raise_delivery_errors = false
 
+  # Compress JavaScript and CSS
+  config.assets.compress = true
+
+  # Don't fallback to assets pipeline
+  config.assets.compile = false
+
+  # Generate digests for assets URLs
+  config.assets.digest = true
+
   config.threadsafe!
 end
 
-# Sacrifice readability for a 10% performance boost
-Haml::Template::options[:ugly] = true
 GC.enable_stats if GC.respond_to?(:enable_stats)
 GC::Profiler.enable if defined?(GC::Profiler) && GC::Profiler.respond_to?(:enable)

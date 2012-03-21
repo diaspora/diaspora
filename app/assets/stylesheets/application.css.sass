@@ -1,7 +1,7 @@
-//   licensed under the Affero General Public License version 3 or later.  See
-//   the COPYRIGHT file.
+//= require_self
+//= require ui
 
-@import 'mixins'
+@import '_mixins.css.scss'
 
 /* ====== media ====== */
 .media
@@ -684,7 +684,7 @@ form p.checkbox_select
 *:-moz-placeholder
   @include placeholder_styles
 
-#file-upload 
+#file-upload
   input
     :height 100%
     :width 100%
@@ -777,7 +777,7 @@ form p.checkbox_select
     :position absolute !important
     :right 6px
     :cursor pointer
-    
+
 
     input[type='file']
       :cursor pointer
