@@ -23,7 +23,7 @@ class InvitationCode < ActiveRecord::Base
 
   def generate_token
     begin
-      self.token = ActiveSupport::SecureRandom.hex(6)
+      self.token = SecureRandom.hex(6)
     end while InvitationCode.exists?(:token => self[:token])
   end
 

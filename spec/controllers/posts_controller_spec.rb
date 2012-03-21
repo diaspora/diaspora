@@ -49,7 +49,7 @@ describe PostsController do
         get :show, :id => photo.id
         response.should be_success
       end
-      
+
       it 'redirects if the post is missing' do
         get :show, :id => 1234567
         response.should be_redirect
@@ -94,7 +94,7 @@ describe PostsController do
         end
 
         it 'assumes guids less than 8 chars are ids and not guids' do
-          Post.should_receive(:where).with(hash_including(:id => @status.id)).and_return(Post)
+          Post.should_receive(:where).with(hash_including(:id => @status.id.to_s)).and_return(Post)
           get :show, :id => @status.id
           response.should be_success
         end

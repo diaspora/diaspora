@@ -9,9 +9,9 @@ module PeopleHelper
     if search_query.blank?
       content_tag(:h2, t('people.index.no_results'))
     else
-      content_tag(:h2, :id => 'search_title') do 
+      content_tag(:h2, :id => 'search_title') do
         t('people.index.results_for').html_safe + ' ' +
-        content_tag(:span, search_query, :class => 'term') 
+        content_tag(:span, search_query, :class => 'term')
       end
     end
   end
@@ -66,13 +66,13 @@ module PeopleHelper
   def person_href(person, opts={})
     "href=\"#{local_or_remote_person_path(person, opts)}\"".html_safe
   end
-  
-  
+
+
   # Rails.application.routes.url_helpers is needed since this is indirectly called from a model
   def local_or_remote_person_path(person, opts={})
     opts.merge!(:protocol => AppConfig[:pod_uri].scheme, :host => AppConfig[:pod_uri].authority)
     absolute = opts.delete(:absolute)
-    
+
     if person.local?
       username = person.diaspora_handle.split('@')[0]
       unless username.include?('.')
@@ -84,7 +84,7 @@ module PeopleHelper
         end
       end
     end
-    
+
     if absolute
       return Rails.application.routes.url_helpers.person_url(person, opts)
     else

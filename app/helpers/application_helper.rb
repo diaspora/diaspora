@@ -3,7 +3,6 @@
 #   the COPYRIGHT file.
 
 module ApplicationHelper
-
   def how_long_ago(obj)
     timeago(obj.created_at)
   end

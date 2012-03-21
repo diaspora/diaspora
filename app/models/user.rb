@@ -41,7 +41,7 @@ class User < ActiveRecord::Base
   has_many :aspects, :order => 'order_id ASC'
 
   belongs_to  :auto_follow_back_aspect, :class_name => 'Aspect'
-  belongs_to :invited_by, :class_name => 'User' 
+  belongs_to :invited_by, :class_name => 'User'
 
   has_many :aspect_memberships, :through => :aspects
 
@@ -438,7 +438,7 @@ class User < ActiveRecord::Base
     self.unconfirmed_email = nil if unconfirmed_email.blank? || unconfirmed_email == email
 
     if unconfirmed_email_changed?
-      self.confirm_email_token = unconfirmed_email ? ActiveSupport::SecureRandom.hex(15) : nil
+      self.confirm_email_token = unconfirmed_email ? SecureRandom.hex(15) : nil
     end
   end
 
@@ -454,10 +454,10 @@ class User < ActiveRecord::Base
   def generate_keys
     key_size = (Rails.env == 'test' ? 512 : 4096)
 
-    self.serialized_private_key = OpenSSL::PKey::RSA::generate(key_size) if self.serialized_private_key.blank?
+    self.serialized_private_key = OpenSSL::PKey::RSA::generate(key_size).to_s if self.serialized_private_key.blank?
 
     if self.person && self.person.serialized_public_key.blank?
-      self.person.serialized_public_key = OpenSSL::PKey::RSA.new(self.serialized_private_key).public_key
+      self.person.serialized_public_key = OpenSSL::PKey::RSA.new(self.serialized_private_key).public_key.to_s
     end
   end
 
@@ -495,7 +495,7 @@ class User < ActiveRecord::Base
     end
     self[:email] = "deletedaccount_#{self[:id]}@example.org"
 
-    random_password = ActiveSupport::SecureRandom.hex(20)
+    random_password = SecureRandom.hex(20)
     self.password = random_password
     self.password_confirmation = random_password
     self.save(:validate => false)

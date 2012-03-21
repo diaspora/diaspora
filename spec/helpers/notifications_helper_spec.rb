@@ -3,6 +3,7 @@ require 'spec_helper'
 
 describe NotificationsHelper do
   include ApplicationHelper
+
   before do
     @user = Factory(:user)
     @person = Factory(:person)

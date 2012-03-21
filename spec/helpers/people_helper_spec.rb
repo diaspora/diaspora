@@ -9,6 +9,7 @@ describe PeopleHelper do
     @user = alice
     @person = Factory(:person)
   end
+
  describe "#person_image_link" do
     it "returns an empty string if person is nil" do
       person_image_link(nil).should == ""
@@ -62,12 +63,12 @@ describe PeopleHelper do
   describe "#person_href" do
     it "calls local_or_remote_person_path and passes through the options" do
       opts = {:absolute => true}
-      
+
       self.should_receive(:local_or_remote_person_path).with(@person, opts).exactly(1).times
-      
+
       person_href(@person, opts)
     end
-    
+
     it "returns a href attribute" do
       person_href(@person).should include "href="
     end
@@ -77,7 +78,7 @@ describe PeopleHelper do
     before do
       @user = Factory(:user)
     end
-    
+
     it "links by id if there is a period in the user's username" do
       @user.username = "invalid.username"
       @user.save(:validate => false).should == true
@@ -91,7 +92,7 @@ describe PeopleHelper do
     it 'links by username for a local user' do
       local_or_remote_person_path(@user.person).should == user_profile_path(:username => @user.username)
     end
-    
+
     it 'links by id for a remote person' do
       local_or_remote_person_path(@person).should == person_path(@person)
     end
