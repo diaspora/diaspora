@@ -28,7 +28,7 @@
                     %div
                       %time
                         = timeago(note.created_at)
-                      = link_to "Mark unread", "#", :class => "unread-setter"
+                      = link_to t('.mark_unread'), "#", :class => "unread-setter"
                       
       = will_paginate @notifications
 
