@@ -63,5 +63,8 @@ module Diaspora
     config.filter_parameters += [:text]
     config.filter_parameters += [:bio]
 
+     # Enable the asset pipeline
+     config.assets.enabled = true
+
   end
 end

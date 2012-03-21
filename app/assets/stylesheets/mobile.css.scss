@@ -1,4 +1,8 @@
-@import "mixins";
+//= require_self
+//= require vendor/bootstrap
+//= require vendor/bootstrap-responsive
+
+@import "_mixins.css.scss";
 
 $blue: #3f8fba;
 
