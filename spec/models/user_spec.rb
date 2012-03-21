@@ -12,7 +12,9 @@ describe User do
 
     it 'marshalls the key to and from the db correctly' do
       user = User.build(:username => 'max', :email => 'foo@bar.com', :password => 'password', :password_confirmation => 'password')
+
       user.save!
+      user.serialized_private_key.should be_present
 
       expect{
         user.reload.encryption_key
