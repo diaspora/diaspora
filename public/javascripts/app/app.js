@@ -20,7 +20,6 @@ var app = {
 
     app.currentUser = app.user(window.current_user_attributes) || new app.models.User()
 
-
     if(app.currentUser.authenticated()){
       app.header = new app.views.Header;
       $("header").prepend(app.header.el);

@@ -1,7 +1,5 @@
-//= require_self
-//= require vendor/bootstrap
-//= require vendor/bootstrap-responsive
-
+@import 'vendor/bootstrap.css'
+@import 'vendor/bootstrap-responsive.css'
 @import "_mixins.css.scss";
 
 $blue: #3f8fba;
@@ -14,7 +12,7 @@ a {
 
 body {
   background: {
-    image: url('/images/hatched-bg.jpg');
+    image: url('/assets/hatched-bg.jpg');
     position: fixed;
     /* scale background image down for iOS retina display */
     size: 200px;
@@ -269,7 +267,7 @@ body {
   @include box-shadow(0,1px,2px,#333);
 
   background: {
-    image: url("/images/header-bg-long.jpg");
+    image: url("/assets/header-bg-long.jpg");
   }
 
   width: 100%;
@@ -370,7 +368,7 @@ footer {
         right: 14px;
       }
       background: {
-        image: url("/images/icons/arrow_down_small.png");
+        image: url("/assets/icons/arrow_down_small.png");
         position: center right;
         repeat: no-repeat;
       }
@@ -453,28 +451,28 @@ footer {
     left: 5px; };
 
   &.loading {
-    background-image: url("/images/mobile-spinner.gif");
+    background-image: url("/assets/mobile-spinner.gif");
   }
 }
 
 .reshare_action {
-  background-image: url("/images/icons/reshare_mobile.png");
+  background-image: url("/assets/icons/reshare_mobile.png");
   &.active {
-    background-image: url("/images/icons/reshare_mobile_active.png");
+    background-image: url("/assets/icons/reshare_mobile_active.png");
   }
 }
 
 .like_action {
-  background-image: url("/images/icons/heart_mobile_grey.png");
+  background-image: url("/assets/icons/heart_mobile_grey.png");
   &.active {
-    background-image: url("/images/icons/heart_mobile_red.png");
+    background-image: url("/assets/icons/heart_mobile_red.png");
   }
 }
 
 .comment_action.image_link {
-  background-image: url("/images/icons/pencil_mobile_grey_active.png");
+  background-image: url("/assets/icons/pencil_mobile_grey_active.png");
   &.inactive {
-    background-image: url("/images/icons/pencil_mobile_grey.png");
+    background-image: url("/assets/icons/pencil_mobile_grey.png");
   }
 }
 

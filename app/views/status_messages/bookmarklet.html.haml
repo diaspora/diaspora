@@ -23,8 +23,8 @@
     :javascript
       Diaspora.I18n.loadLocale(#{get_javascript_strings_for(I18n.locale).to_json}, "#{I18n.locale}");
     
-    = stylesheet_link_tag "blueprint/screen", :media => 'screen'
-    = include_stylesheets :default, :media => 'all'
+    = stylesheet_link_tag "blueprint", :media => 'screen'
+    = stylesheet_link_tag :default, :media => 'all'
     :css
       body { margin: 0; padding: 0; }
       #new_status_message_pane { margin: 1em 0 0; }

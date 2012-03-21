@@ -23,10 +23,10 @@
       = page_title yield(:page_title)
 
     = include_base_css_framework(:bootstrap)
-    = include_stylesheets :default, :new_templates, :media => 'all'
+    = stylesheet_link_tag :default, :new_templates, :media => 'all'
 
     - if rtl?
-      = include_stylesheets :rtl, :media => 'all'
+      = stylesheet_link_tag :rtl, :media => 'all'
 
     = old_browser_js_support
     <!--[if IE]>
