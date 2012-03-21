@@ -24,7 +24,7 @@ var Publisher = {
   },
 
   submit: function(){
-    return Publisher.cachedSubmit = Publisher.cachedSubmit || Publisher.form().find('#status_message_submit');
+    return Publisher.cachedSubmit = Publisher.cachedSubmit || Publisher.form().find("input[type='submit']");
   },
 
   determineSubmitAvailability: function(){
@@ -32,8 +32,8 @@ var Publisher = {
         isSubmitDisabled = Publisher.submit().attr('disabled'),
         isPhotoAttached = ($("#photodropzone").children().length > 0);
 
-    if ((onlyWhitespaces &&  !isPhotoAttached) && !isSubmitDisabled) {
-      Publisher.submit().attr('disabled', true);
+    if ((onlyWhitespaces && !isPhotoAttached) && !isSubmitDisabled) {
+      Publisher.submit().attr('disabled', 'disabled');
     } else if ((!onlyWhitespaces || isPhotoAttached) && isSubmitDisabled) {
       Publisher.submit().removeAttr('disabled');
     }
@@ -43,6 +43,8 @@ var Publisher = {
     $("#photodropzone").find('li').remove();
     Publisher.input().mentionsInput("reset");
     Publisher.wrapper().removeClass("with_attachments");
+    Publisher.hiddenInput().val('');
+    Publisher.determineSubmitAvailability()
   },
 
   bindServiceIcons: function(){

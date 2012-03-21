@@ -44,8 +44,9 @@ class AspectMembershipsController < ApplicationController
   def create
     @person = Person.find(params[:person_id])
     @aspect = current_user.aspects.where(:id => params[:aspect_id]).first
+    @contact = current_user.share_with(@person, @aspect)
 
-    if @contact = current_user.share_with(@person, @aspect)
+    if @contact
       flash.now[:notice] =  I18n.t('aspects.add_to_aspect.success')
       respond_with AspectMembership.where(:contact_id => @contact.id, :aspect_id => @aspect.id).first
     else
