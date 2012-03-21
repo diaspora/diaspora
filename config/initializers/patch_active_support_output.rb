@@ -8,7 +8,7 @@ class ERB
       if s.html_safe?
         s
       else
-        s.gsub(/[&"><]/) { |special| HTML_ESCAPE[special] }.html_safe
+        silence_warnings { s.gsub(/[&"><]/n) { |special| HTML_ESCAPE[special] }.html_safe }
       end
     end
   end
