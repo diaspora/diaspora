@@ -19,6 +19,7 @@ module PeopleHelper
   def request_partial single_aspect_form
     if single_aspect_form
       'requests/new_request_with_aspect_to_person'
+
     else
       'requests/new_request_to_person'
     end
@@ -66,7 +67,6 @@ module PeopleHelper
   def person_href(person, opts={})
     "href=\"#{local_or_remote_person_path(person, opts)}\"".html_safe
   end
-
 
   # Rails.application.routes.url_helpers is needed since this is indirectly called from a model
   def local_or_remote_person_path(person, opts={})

@@ -34,6 +34,9 @@ Diaspora::Application.configure do
   config.serve_static_assets = true
   config.static_cache_control = "public, max-age=3600"
 
+  config.assets.enabled = true
+  config.assets.debug = true
+
   # Allow pass debug_assets=true as a query parameter to load pages with unpackaged assets
   config.assets.allow_debugging = true
 
