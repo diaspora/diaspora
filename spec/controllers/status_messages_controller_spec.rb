@@ -79,6 +79,40 @@ describe StatusMessagesController do
       :aspect_ids => [@aspect1.id.to_s] }
     }
 
+    it 'creates with valid html' do
+      post :create, status_message_hash
+      response.status.should == 302
+      response.should be_redirect
+    end
+    
+    it 'creates with invalid html' do
+      post :create, status_message_hash.merge(:status_message => { :text => "0123456789" * 7000 })
+      response.status.should == 302
+      response.should be_redirect
+    end
+    
+    it 'creates with valid json' do
+      post :create, status_message_hash.merge(:format => 'json')
+      response.status.should == 201
+    end
+    
+    it 'creates with invalid json' do
+      post :create, status_message_hash.merge(:status_message => { :text => "0123456789" * 7000 }, :format => 'json')
+      response.status.should == 403
+    end
+    
+    it 'creates with valid mobile' do
+      post :create, status_message_hash.merge(:format => 'mobile')
+      response.status.should == 302
+      response.should be_redirect
+    end
+    
+    it 'creates with invalid mobile' do
+      post :create, status_message_hash.merge(:status_message => { :text => "0123456789" * 7000 }, :format => 'mobile')
+      response.status.should == 302
+      response.should be_redirect
+    end
+    
     it 'removes getting started from new users' do
       @controller.should_receive(:remove_getting_started)
       post :create, status_message_hash
