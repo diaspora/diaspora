@@ -71,7 +71,7 @@ class StatusMessagesController < ApplicationController
       end
     else
       respond_to do |format|
-        format.json { render :nothing, :status => 403 }
+        format.json { render :nothing => true , :status => 403 }
         format.html { redirect_to :back }
       end
     end

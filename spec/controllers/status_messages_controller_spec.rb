@@ -79,6 +79,11 @@ describe StatusMessagesController do
       :aspect_ids => [@aspect1.id.to_s] }
     }
 
+    it 'creates with valid json' do
+      post :create, status_message_hash.merge(:format => 'json')
+      response.status.should == 201
+    end
+    
     it 'removes getting started from new users' do
       @controller.should_receive(:remove_getting_started)
       post :create, status_message_hash
