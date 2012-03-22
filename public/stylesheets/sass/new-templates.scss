@@ -226,7 +226,7 @@ $pane-width: 420px;
 
 .photo-fill {
   @include background-cover();
-
+  z-index : -5000; //so the framer controls don't get lost
   position: absolute;
   top: 0;
   left: 0;
@@ -250,6 +250,7 @@ $pane-width: 420px;
 }
 
 .rich-media {
+  z-index : -5000; //so the framer controls don't get lost
   position: absolute;
   height: 100%;
   width: 100%;

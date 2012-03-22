@@ -29,6 +29,7 @@ app.forms.Post = app.forms.Base.extend({
     this.model.set(_.inject(this.formAttrs, setValueFromField, {}))
     //pass collections across
     this.model.photos = this.pictureForm.photos
+    this.model.set({"photos": this.model.photos.toJSON() })
 
     function setValueFromField(memo, attribute, selector){
       var selectors = form.find(selector);

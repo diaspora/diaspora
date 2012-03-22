@@ -44,6 +44,7 @@ Feature: Creating a new post
     And I upload a fixture picture with filename "button.gif"
     And I start the framing process
     Then I should see "This is hella customized" in the framer preview
+#    And I should see the image "button.gif"
     When I select the template "note"
     Then I should see an "note" framer preview
     When I finalize my frame
