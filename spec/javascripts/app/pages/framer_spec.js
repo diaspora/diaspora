@@ -10,7 +10,7 @@ describe("app.pages.Framer", function(){
   });
 
   it("passes the model down to the post view", function(){
-    expect(this.page.postView.model).toBe(app.frame)
+    expect(this.page._postView.model).toBe(app.frame)
   });
 
   describe("rendering", function(){

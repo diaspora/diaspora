@@ -44,11 +44,11 @@ Feature: Creating a new post
     And I upload a fixture picture with filename "button.gif"
     And I start the framing process
     Then I should see "This is hella customized" in the framer preview
-#    And I should see the image "button.gif"
+#    And I should see the image "button.gif" background
     When I select the template "note"
-    Then I should see an "note" framer preview
+    Then the post should be rendered as a "note"
     When I finalize my frame
     And I go to "/stream"
     Then "This is hella customized" should be post 1
-    And "This is hella customized" should render with the "note" template
-
+    When I click the show page link for "This is hella customized"
+    Then the post should still be rendered as a "note"

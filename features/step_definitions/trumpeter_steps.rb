@@ -25,18 +25,14 @@ def finalize_frame
   click_button "done"
 end
 
-def post_div
-  find(".post")
-end
-
 def within_frame_preview
-  within post_div do
+  within find(".post") do
     yield
   end
 end
 
-def assert_template(template_name)
-  post_div["data-template"].should == template_name
+def assert_post_renders_with(template_name)
+  find(".post")["data-template"].should == template_name
 end
 
 When /^I trumpet$/ do
@@ -106,6 +102,6 @@ When /^I select the template "([^"]*)"$/ do |template_name|
   select template_name, :from => 'template'
 end
 
-Then /^I should see an "([^"]*)" framer preview$/ do |template_name|
-  assert_template(template_name)
+Then /^the post should (?:still |)be rendered as a "([^"]*)"$/ do |template_name|
+  assert_post_renders_with(template_name)
 end

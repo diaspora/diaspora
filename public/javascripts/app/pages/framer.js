@@ -24,17 +24,18 @@ app.pages.Framer = app.views.Base.extend({
 
     var templateType = this.model.get("templateName")
 
-    var postView = new app.views.Post({
+     this._postView = new app.views.Post({
       model : this.model,
       className : templateType + " post loaded",
       templateName : "post-viewer/content/" + templateType,
       attributes : {"data-template" : templateType}
     });
 
-    postView.feedbackView = new Backbone.View
+    this._postView.feedbackView = new Backbone.View
+
     this.model.authorIsNotCurrentUser = function(){ return false }
 
-    return postView
+    return this._postView
   },
 
   saveFrame : function(){
