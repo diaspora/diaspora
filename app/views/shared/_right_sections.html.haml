@@ -6,7 +6,7 @@
 - if AppConfig[:open_invitations]
   .section
     .title
-      = image_tag('/images/icons/plus.png')
+      = image_tag('icons/plus.png')
       %h5
         = t('shared.invitations.invite_your_friends')
     .content
@@ -15,7 +15,7 @@
 - unless has_connected_cubbies?
   .section
     .title
-      = image_tag('/images/icons/cubbies.png')
+      = image_tag('icons/cubbies.png')
       %h5
         = t('aspects.index.cubbies.heading')
     .content
@@ -23,7 +23,7 @@
       = link_to t('aspects.index.cubbies.learn_more'), token_path
 .section
   .title
-    = image_tag('/images/icons/heart.png')
+    = image_tag('icons/heart.png')
     %h5
       = t('aspects.index.new_here.title')
   .content
@@ -33,7 +33,7 @@
 
 .section
   .title
-    = image_tag('/images/icons/question.png')
+    = image_tag('icons/question.png')
     %h5
       = t('aspects.index.help.need_help')
   .content
@@ -56,7 +56,7 @@
 - unless AppConfig.configured_services.blank? || all_services_connected?
   .section
     .title
-      = image_tag('/images/icons/monotone_wrench_settings.png')
+      = image_tag('icons/monotone_wrench_settings.png')
       %h5
         = t('aspects.index.services.heading')
     .content
@@ -70,7 +70,7 @@
 
 .section
   .title
-    = image_tag('/images/icons/bookmark.png')
+    = image_tag('icons/bookmark.png')
     %h5
       = t('bookmarklet.heading')
   .content
@@ -79,7 +79,7 @@
 - if AppConfig[:paypal_hosted_button_id].present?
   .section
     .title
-      = image_tag('/images/icons/coffee.png')
+      = image_tag('icons/coffee.png')
       %h5
         = t('aspects.index.donate')
     .content

@@ -35,11 +35,4 @@ module ApplicationHelper
   def diaspora_id_host
     User.diaspora_id_host
   end
-
-  def jquery_include_tag
-    "<script src='//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js' type='text/javascript'></script>".html_safe +
-    content_tag(:script) do
-      "!window.jQuery && document.write(unescape(\"#{escape_javascript(include_javascripts(:jquery))}\")); jQuery.ajaxSetup({'cache': false});".html_safe
-    end
-  end
 end
