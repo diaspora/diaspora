@@ -4,7 +4,7 @@
 
 
 - content_for :head do
-  = include_javascripts :people
+  = javascript_include_tag :people
   :javascript
     Mentions.options.prefillMention = #{@person.to_json};
 

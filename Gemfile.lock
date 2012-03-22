@@ -45,10 +45,6 @@ GIT
 GEM
   remote: http://rubygems.org/
   specs:
-    POpen4 (0.1.4)
-      Platform (>= 0.4.0)
-      open4
-    Platform (0.4.0)
     SystemTimer (1.2.3)
     actionmailer (3.1.4)
       actionpack (= 3.1.4)
@@ -196,6 +192,10 @@ GEM
     gherkin (2.9.1)
       json (>= 1.4.6)
     haml (3.1.4)
+    handlebars_assets (0.4.1)
+      execjs (>= 1.2.9)
+      sprockets (>= 2.0.3)
+      tilt
     hashie (1.2.0)
     heroku (2.21.3)
       launchy (>= 0.3.2)
@@ -217,12 +217,6 @@ GEM
       actionpack (~> 3.0)
       i18n-inflector (~> 2.6)
       railties (~> 3.0)
-    jammit (0.6.5)
-      yui-compressor (>= 0.9.3)
-    jammit-s3 (0.6.0.2)
-      jammit (>= 0.5.4)
-      mimemagic (>= 0.1.7)
-      s3 (>= 0.3.7)
     jasmine (1.1.2)
       jasmine-core (>= 1.1.0)
       rack (>= 1.1)
@@ -249,7 +243,6 @@ GEM
       treetop (~> 1.4.8)
     messagebus_ruby_api (1.0.3)
     mime-types (1.18)
-    mimemagic (0.1.8)
     mini_magick (3.4)
       subexec (~> 0.2.1)
     mobile-fu (1.0.0)
@@ -299,14 +292,12 @@ GEM
       omniauth-oauth (~> 1.0)
     omniauth-twitter (0.0.8)
       omniauth-oauth (~> 1.0)
-    open4 (1.3.0)
     orm_adapter (0.0.6)
     parallel (0.5.16)
     parallel_tests (0.7.2)
       parallel
     pg (0.13.2)
     polyglot (0.3.3)
-    proxies (0.2.1)
     rack (1.3.6)
     rack-cache (1.2)
       rack (>= 0.4)
@@ -399,8 +390,6 @@ GEM
     ruby_core_source (0.1.5)
       archive-tar-minitar (>= 0.5.2)
     rubyzip (0.9.6.1)
-    s3 (0.3.11)
-      proxies (~> 0.2.0)
     sass (3.1.15)
     sass-rails (3.1.6)
       actionpack (~> 3.1.0)
@@ -463,8 +452,6 @@ GEM
     xpath (0.1.4)
       nokogiri (~> 1.3)
     yard (0.7.5)
-    yui-compressor (0.9.6)
-      POpen4 (>= 0.1.4)
 
 PLATFORMS
   ruby
@@ -500,11 +487,11 @@ DEPENDENCIES
   foreman (= 0.34.1)
   fuubar (= 0.0.6)
   haml
+  handlebars_assets
   heroku
   heroku_san (= 1.3.0)
   http_accept_language (~> 1.0.2)
   i18n-inflector-rails (~> 1.0)
-  jammit-s3
   jasmine (~> 1.1.2)
   jquery-rails
   json
