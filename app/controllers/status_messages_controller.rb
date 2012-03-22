@@ -65,14 +65,15 @@ class StatusMessagesController < ApplicationController
       end
 
       respond_to do |format|
-        format.html { redirect_to :back}
-        format.mobile{ redirect_to stream_path}
-        format.json{ render :json => @status_message.as_api_response(:backbone), :status => 201 }
+        format.html { redirect_to :back }
+        format.mobile { redirect_to stream_path }
+        format.json { render :json => @status_message.as_api_response(:backbone), :status => 201 }
       end
     else
       respond_to do |format|
-        format.json { render :nothing, :status => 403 }
         format.html { redirect_to :back }
+        format.mobile { redirect_to stream_path }
+        format.json { render :nothing => true , :status => 403 }
       end
     end
   end
