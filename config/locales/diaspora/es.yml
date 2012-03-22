@@ -404,6 +404,7 @@ es:
         zero: "y nadie más"
       mark_all_as_read: "Marcar todo como leído"
       notifications: "Notificaciones"
+      mark_unread: "Marcar como no leído"
     liked:
       few: "A %{actors} les gustó tu %{post_link}."
       many: "A %{actors} les gustó tu %{post_link}."

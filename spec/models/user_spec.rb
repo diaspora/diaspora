@@ -12,7 +12,9 @@ describe User do
 
     it 'marshalls the key to and from the db correctly' do
       user = User.build(:username => 'max', :email => 'foo@bar.com', :password => 'password', :password_confirmation => 'password')
+
       user.save!
+      user.serialized_private_key.should be_present
 
       expect{
         user.reload.encryption_key
@@ -846,7 +848,7 @@ describe User do
     describe "#clear_account!" do
       it 'resets the password to a random string' do
         random_pass = "12345678909876543210"
-        ActiveSupport::SecureRandom.should_receive(:hex).and_return(random_pass)
+        SecureRandom.should_receive(:hex).and_return(random_pass)
         @user.clear_account!
         @user.valid_password?(random_pass)
       end

@@ -62,45 +62,45 @@ available:
 
 fallbacks:
   en-GB:
-    - :en
+    - "en"
   en-US:
-    - :en
+    - "en"
   en_shaw:
-    - :en
-    - :en-GB
-    - :en-US
+    - "en"
+    - "en-GB"
+    - "en-US"
   en_pirate:
-    - :en
-    - :en-GB
-    - :en-US
+    - "en"
+    - "en-GB"
+    - "en-US"
   en_1337:
-    - :en
-    - :en-GB
-    - :en-US
+    - "en"
+    - "en-GB"
+    - "en-US"
   sv:
-    - :sv-SE
+    - "sv-SE"
   he:
-    - :he-IL
+    - "he-IL"
   es-AR:
-    - :es
+    - "es"
   es-CL:
-    - :es
+    - "es"
   es-MX:
-    - :es
+    - "es"
   gl:
-    - :gl-ES
+    - "gl-ES"
   zh:
-    - :zh-CN
-    - :zh-TW
+    - "zh-CN"
+    - "zh-TW"
   ur-PK:
-    - :ur
+    - "ur"
   de_formal:
-    - :de
+    - "de"
 
 
 rtl:
-  - :ar
-  - :he
-  - :ur
-  - :ur-PK
-  - :ms
+  - "ar"
+  - "he"
+  - "ur"
+  - "ur-PK"
+  - "ms"

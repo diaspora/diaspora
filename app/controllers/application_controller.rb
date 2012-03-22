@@ -71,6 +71,7 @@ class ApplicationController < ActionController::Base
     else
       locale = request.preferred_language_from AVAILABLE_LANGUAGE_CODES
       locale ||= request.compatible_language_from AVAILABLE_LANGUAGE_CODES
+      locale ||= DEFAULT_LANGUAGE
       I18n.locale = locale
     end
   end

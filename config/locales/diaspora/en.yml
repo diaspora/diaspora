@@ -483,6 +483,7 @@ en:
     index:
       notifications: "Notifications"
       mark_all_as_read: "Mark All as Read"
+      mark_unread: "Mark unread"
       and_others:
         zero: "and nobody else"
         one: "and one more"

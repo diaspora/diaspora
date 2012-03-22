@@ -27,9 +27,7 @@ describe Person do
           Person.for_json.first.serialized_public_key
         }.should raise_error ActiveModel::MissingAttributeError
       end
-      it 'eager loads profiles' do
-        Person.for_json.first.loaded_profile?.should be_true
-      end
+
       it 'selects distinct people' do
         aspect = bob.aspects.create(:name => 'hilarious people')
         aspect.contacts << bob.contact_for(eve.person)

@@ -30,17 +30,17 @@ describe Services::Twitter do
   end
   describe "message size limits" do
     before :each do
-      @long_message_start = ActiveSupport::SecureRandom.hex(25)
-      @long_message_end = ActiveSupport::SecureRandom.hex(25)
+      @long_message_start = SecureRandom.hex(25)
+      @long_message_end = SecureRandom.hex(25)
     end
 
     it "should not truncate a short message" do
-      short_message = ActiveSupport::SecureRandom.hex(20)
+      short_message = SecureRandom.hex(20)
       short_post = stub(:text => short_message )
       @service.public_message(short_post, '').should == short_message
     end
     it "should truncate a long message" do
-      long_message = ActiveSupport::SecureRandom.hex(220)
+      long_message = SecureRandom.hex(220)
       long_post = stub(:text => long_message )
       @service.public_message(long_post, '').should == long_message.first(137) + "..."
     end
