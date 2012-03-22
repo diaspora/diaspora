@@ -207,12 +207,9 @@ GEM
     hike (1.2.1)
     hodel_3000_compliant_logger (0.1.0)
     http_accept_language (1.0.2)
-<<<<<<< HEAD
-    i18n (0.5.0)
-=======
     http_parser.rb (0.5.3)
+    i18n (0.5.0)
     i18n (0.6.0)
->>>>>>> f213500451dcaf2732f34ee76160f37cef57ed4a
     i18n-inflector (2.6.6)
       i18n (>= 0.4.1)
     i18n-inflector-rails (1.0.6)
