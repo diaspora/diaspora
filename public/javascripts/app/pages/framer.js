@@ -22,7 +22,7 @@ app.pages.Framer = app.views.Base.extend({
   postView : function(){
     //we might be leaky like cray cray with this
 
-    var templateType = this.model.get("templateName")
+    var templateType = this.model.get("frame_name")
 
      this._postView = new app.views.Post({
       model : this.model,

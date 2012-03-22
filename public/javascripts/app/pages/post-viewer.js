@@ -25,11 +25,13 @@ app.pages.PostViewer = app.views.Base.extend({
     this.authorView = new app.views.PostViewerAuthor({ model : this.model });
     this.interactionsView = new app.views.PostViewerInteractions({ model : this.model });
     this.navView = new app.views.PostViewerNav({ model : this.model });
+
+    var frameName = this.model.get("frame_name")
     this.postView = new app.views.Post({
       model : this.model,
-      className : this.model.get("templateName") + " post loaded",
-      templateName : "post-viewer/content/" + this.model.get("templateName"),
-      attributes : {"data-template" : this.model.get("templateName")}
+      className :  frameName + " post loaded",
+      templateName : "post-viewer/content/" + frameName,
+      attributes : {"data-template" : frameName}
     });
 
     this.render();
