@@ -12,7 +12,7 @@ namespace :ci do
         system("bundle exec #{cmd}")
         raise "#{cmd} failed!" unless $?.exitstatus == 0
       end
-      ['jammit', "rake jasmine:ci", "rake cucumber"].each do |cmd|
+      ["rake jasmine:ci", "rake cucumber"].each do |cmd|
         puts "Running bundle exec #{cmd}..."
         system("export DISPLAY=:99.0 && GROUP=oauth bundle exec #{cmd}")
         raise "#{cmd} failed!" unless $?.exitstatus == 0

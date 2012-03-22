@@ -56,7 +56,7 @@ $(document).ready(function(){
     debug: false,
     donetext: "no more.",
     loadingText: "",
-    loadingImg: '/images/ajax-loader.gif'
+    loadingImg: '/assets/ajax-loader.gif'
   }, function(){
     $('.conversation', '.stream').bind('mousedown', function(){
       bindIt($(this));

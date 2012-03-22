@@ -123,7 +123,8 @@ gem 'em-synchrony', '1.0.0', :platforms => :ruby_19
 
 # jazzy jasmine
 
-gem 'jasmine', '~> 1.1.2'
+# Use the latest Jasmine from github for asset pipeline compatibility
+gem 'jasmine', :git => 'git://github.com/pivotal/jasmine-gem.git'
 
 ### GROUPS ####
 

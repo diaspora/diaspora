@@ -2,6 +2,9 @@
  *   licensed under the Affero General Public License version 3 or later.  See
  *   the COPYRIGHT file.
  */
+//= require jquery_ujs
+//= require underscore
+//= require backbone
 //= require rails.validations
 //= require jquery.hotkeys
 //= require jquery.autoresize
@@ -10,7 +13,6 @@
 //= require jquery.placeholder
 //= require timeago
 //= require facebox
-//= require underscore
 //= require jquery.events.input
 //= require jquery.elastic
 //= require jquery.mentionsInput
@@ -19,9 +21,10 @@
 //= require jquery.autocomplete-custom
 //= require keycodes
 //= require fileuploader-custom
-//= require backbone
 //= require handlebars-1.0.0.beta.6
 //= require markdown
+//= require clear-form
+//= require validation
 //= require app/app
 //= require diaspora
 //= require_tree ./helpers

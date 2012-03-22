@@ -73,7 +73,8 @@ module Diaspora
     # Javascripts
     config.assets.precompile += [ "finder.js", "home.js", "ie.js", "inbox.js",
       "jquery.js", "jquery_ujs.js", "login.js", "mailchimp.js", "main.js",
-      "mobile.js", "profile.js", "people.js", "photos.js", "templates.js" ]
+      "mobile.js", "profile.js", "people.js", "photos.js", "templates.js",
+      "validation.js" ]
 
     # Stylesheets
     config.assets.precompile += [ "blueprint.css", "bootstrap.css", "default.css",

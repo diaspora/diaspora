@@ -2,6 +2,7 @@
  *   licensed under the Affero General Public License version 3 or later.  See
  *   the COPYRIGHT file.
  */
+//= require mailchimp/jquery.form
 var View = {
   initialize: function() {
     /* Buttons */
@@ -63,8 +64,8 @@ var View = {
     $(document.body).click(this.dropdowns.removeFocus);
 
     /* facebox */
-    $.facebox.settings.closeImage = '/images/facebox/closelabel.png';
-    $.facebox.settings.loadingImage = '/images/facebox/loading.gif';
+    $.facebox.settings.closeImage = '/assets/facebox/closelabel.png';
+    $.facebox.settings.loadingImage = '/assets/facebox/loading.gif';
     $.facebox.settings.opacity = 0.75;
 
     $('a[rel*=facebox]').facebox();
