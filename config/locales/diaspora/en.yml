@@ -88,6 +88,8 @@ en:
       pod_stats: "Pod Stats"
       correlations: "Correlations"
       resque_overview: "Resque Overview"
+    correlations:
+      correlations_count: "Correlations with Sign In Count:"
   application:
     helper:
       unknown_person: "unknown person"
