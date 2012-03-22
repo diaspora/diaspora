@@ -5,46 +5,32 @@
   .span-12.last
     %h2
       = t('.invite_someone_to_join')
-      .description
-        = t('.if_they_accept_info')
-        %br
-  .span-7.append-1
+      %br
+  .span-7.append-1.last
+    %b= t('.paste_link')
+    %br
+    %br
+    = invite_link(@invite_code)
+    = t('.codes_left', :count => @invite_code.count)
+    %br
+    %br
     #email_invitation
-      = form_for User.new, :url => invitation_path(User) do |invite|
+
+      = form_tag new_user_invitation_path  do
         %h4
           = t('email')
-        = invite.text_field :email, :title => t('.comma_seperated_plz'), :placeholder => 'foo@bar.com, max@foo.com...'
-        %br
-
-        %h4
-          = t('.aspect')
-        = invite.select(:aspects, options_from_collection_for_select(all_aspects, 'id', 'name'))
-
-        %br
+        = text_field_tag 'email_inviter[emails]' ,nil, :title => t('.comma_seperated_plz'), :placeholder => 'foo@bar.com, max@foo.com...'
         %br
 
         %h4
           = t('.language')	
-        = invite.select(:language, available_language_options, :selected => current_user.language)
+        = select_tag('email_inviter[locale]',  options_from_collection_for_select(available_language_options, "second", "first", :selected => current_user.language))
 
-        %br
         %br
 
         %h4
           = t('.personal_message')
-        = invite.text_area :invite_messages, :rows => 3, :value => t('.check_out_diaspora')
+        = text_area_tag 'email_inviter[message]',nil, :rows => 3, :value => t('.check_out_diaspora')
 
         %p
-          = invite.submit t('.send_an_invitation')
-
-  %br
-  %br
-  - unless @sent_invitations.empty?
-    .span-6.prepend-3.last
-      #already_invited_pane
-        %h4
-          = t('.already_invited')
-        - for invitation in @sent_invitations
-          = invitation.recipient_identifier
-          = link_to t('.resend'), invitation_resend_path(invitation), :confirm => t('are_you_sure')
-          %br
+          = submit_tag t('.send_an_invitation')

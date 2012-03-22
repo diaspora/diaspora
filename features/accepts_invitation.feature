@@ -19,7 +19,7 @@ Feature: invitation acceptance
       Then I should be on the stream page
 
     Scenario: accept invitation from user
-      Given I have been invited by a user
+      Given I have been invited by bob
       And I am on my acceptance form page
       And I fill in the following:
         | user_username              | ohai           |
@@ -35,11 +35,15 @@ Feature: invitation acceptance
       And I preemptively confirm the alert
       And I follow "awesome_button"
       Then I should be on the stream page
+      And I log out
+      And I sign in as "bob@bob.bob"
+      And I follow "By email"
+      Then I should see one less invite
 
     Scenario: sends an invitation
       Given a user with email "bob@bob.bob"
       When I sign in as "bob@bob.bob"
       And I follow "By email"
-      And I fill in "user_email" with "alex@example.com"
+      And I fill in "email_inviter_emails" with "alex@example.com"
       And I press "Send an invitation"
       Then I should have 1 Devise email delivery

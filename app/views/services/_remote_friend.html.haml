@@ -1,9 +1,6 @@
 .stream_element{:id => friend.id}
   .float-right
-
-    - if friend.already_invited?
-      = link_to t('.resend'), service_inviter_path(:uid => friend.uid, :provider => 'facebook', :invitation_id => friend.invitation_id), :class => 'button resend'
-    - elsif friend.on_diaspora?
+    - if friend.on_diaspora?
       = aspect_membership_dropdown(contact_proxy(friend), friend.person, 'left')
     - else
       = render 'shared/aspect_dropdown', :selected_aspects => contact_proxy(friend).aspects, :person => friend.person, :hang => 'left', :dropdown_class => 'inviter', :service_uid => friend.uid

@@ -44,7 +44,7 @@ pt-BR:
       profile: "Perfil"
       recent_notifications: "Notificações Recentes"
       search: "Find people or #tags"
-      settings: "Opções"
+      settings: "Configurações"
       view_all: "Ver todas"
     ignore: "Ignorar"
     infinite_scroll:
@@ -65,7 +65,7 @@ pt-BR:
       comment: "Comentar"
       follow: "Seguir"
       hide: "Ocultar"
-      hide_nsfw_posts: "Esconder posts não apto para todos os públicos"
+      hide_nsfw_posts: "Esconder posts não recomendáveis para serem visualizados no escritório."
       like: "Curtir"
       likes:
         few: "<%= count %> Likes"

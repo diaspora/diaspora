@@ -284,6 +284,8 @@ pl:
       simplicity_explanation: "Diaspora sprawia, że dzielenie się ze znajomymi jest miłe, łatwe i przyjemne, zwłaszcza w odniesieniu do ochrony prywatności. Dbając o prywatność Dispora nie każe Ci korzystać z mnóstwa stron ustawień czy opcji, przez które trzeba się przedzierać, aby zabezpieczyć profil."
       tagline_first_half: "Dziel się czym chcesz,"
       tagline_second_half: "i z kim chcesz."
+  invitation_codes:
+    excited: "%{name} cieszy się, że Cię tutaj widzi."
   invitations:
     a_facebook_user: "Użytkownik Facebooka"
     check_token:
@@ -302,10 +304,16 @@ pl:
       already_invited: "Te osoby nie zaakceptowały jeszcze Twojego zaproszenia:"
       aspect: "Aspekt"
       check_out_diaspora: "Wypróbuj Diasporę!"
+      codes_left:
+        few: "%{count} zaproszenia na ten kod"
+        one: "Jedno zaproszenie na ten kod"
+        other: "%{count} zaproszeń na ten kod"
+        zero: "Brak zaproszeń na ten kod"
       comma_seperated_plz: "Możesz podać kilka adresów e-mail, oddzielając je przecinkami."
       if_they_accept_info: "Jeśli wybrana osoba przyjmie zaproszenie, zostanie dodana do aspektów, do których ją zapros@{m:iłeś|f:iłaś|n:zono}."
       invite_someone_to_join: "Zaproś kogoś do Diaspory!"
       language: "Język"
+      paste_link: "Udostępnij to łącze znajomym, aby zaprosić ich do Diaspory* lub wyślij je do nich przez e-mail."
       personal_message: "Dodatkowa wiadomość"
       resend: "Wyślij ponownie"
       send_an_invitation: "Wyślij zaproszenie"
@@ -456,6 +464,7 @@ pl:
       zero: "%{actors} zaczęli Ci udostępniać."
   notifier:
     a_post_you_shared: "wpis."
+    accept_invite: "Zaakceptuj zaproszenie do Diaspory*!"
     click_here: "kliknij tutaj"
     comment_on_post:
       reply: "Odpowiedz lub wyświetl wpis użytkownika %{name} >"
@@ -464,6 +473,21 @@ pl:
       subject: "Aktywuj nowy adres e-mail %{unconfirmed_email}"
     email_sent_by_diaspora: "Ta wiadomość została wysłana przez Diasporę. Jeśli nie chcesz otrzymywać takich wiadomości,"
     hello: "Cześć %{name}!"
+    invite:
+      message: |-
+          Cześć!
+
+          Zapraszamy Cię do dołączenia do Diaspory*!
+
+          Kliknij to łącze, aby dołączyć
+
+          %{invite_url}
+          <%= invite_code_url(@invitation_code)%>
+
+          Pozdrawiam,
+
+          Robot e-mail Diaspory*
+    invited_you: "%{name} zaprasza Cię do Diaspory*"
     liked:
       liked: "%{name} polubi@{m:ł|f:ła|n:ł/ła} Twój wpis"
       view_post: "Wyświetl wpis >"
@@ -490,6 +514,8 @@ pl:
   password: "Hasło"
   password_confirmation: "Potwierdzenie hasła"
   people:
+    add_contact:
+      invited_by: "zaproszenie wysłane przez"
     add_contact_small:
       add_contact_from_tag: "Dodaj znajomego ze znacznika"
     aspect_list:
@@ -504,6 +530,7 @@ pl:
       no_one_found: "...i nikogo nie odnaleziono."
       no_results: "Hej! Musisz coś wpisać w pole wyszukiwarki!"
       results_for: "wyniki wyszukiwania dla"
+      searching: "wyszukiwanie, proszę czekać..."
     last_post: "Ostatni wpis"
     many: "Osoby: %{count}"
     one: "1 osoba"
@@ -639,6 +666,7 @@ pl:
       password_to_confirm: "(potrzebujemy obecnego hasła, żeby zatwierdzić zmiany)"
       unhappy: "Coś Ci się nie podoba?"
       update: "Aktualizacja"
+    invalid_invite: "Podane łącze do zaproszenia jest nieważne!"
     new:
       create_my_account: "Utwórz konto!"
       enter_email: "Wpisz adres e-mail"
@@ -903,6 +931,7 @@ pl:
       change_email: "Zmiana adresu e-mail"
       change_language: "Zmiana języka"
       change_password: "Zmiana hasła"
+      character_minimum_expl: "musi składać się z przynajmniej sześciu znaków"
       close_account:
         dont_go: "Prosimy, nie odchodź!"
         if_you_want_this: "Jeśli naprawdę tego chcesz, wpisz swoje hasło poniżej i kliknij \"Zamknij konto\"."
@@ -915,6 +944,7 @@ pl:
       close_account_text: "Zamknij konto"
       comment_on_post: "...ktoś dodał komentarz do mojego wpisu"
       current_password: "Bieżące hasło"
+      current_password_expl: "to, którego używasz do logowania"
       download_photos: "pobierz moje zdjęcia"
       download_xml: "pobierz mój xml"
       edit_account: "Edycja konta"

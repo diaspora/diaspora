@@ -17,8 +17,6 @@ describe Notification do
       :actors => [@person],
       :recipient_id => @user.id}
     @note = Notification.new(@opts)
-    @note.type = 'Notifications::CommentOnPost'
-    @note.actors =[ @person]
   end
 
   it 'destoys the associated notification_actor' do

@@ -34,13 +34,30 @@ class PeopleController < ApplicationController
         #only do it if it is an email address
         if diaspora_id?(search_query)
           @people =  Person.where(:diaspora_handle => search_query.downcase)
-          Webfinger.in_background(search_query) if @people.empty?
+          if @people.empty?
+            Webfinger.in_background(search_query) 
+            @background_query = search_query.downcase
+          end
         end
         @people = @people.paginate(:page => params[:page], :per_page => 15)
         @hashes = hashes_for_people(@people, @aspects)
       end
     end
   end
+
+  def refresh_search
+    @aspect = :search
+    @people =  Person.where(:diaspora_handle => search_query.downcase)
+    @answer_html = ""
+    unless @people.empty?
+      @hashes = hashes_for_people(@people, @aspects)
+
+      self.formats = self.formats + [:html]
+      @answer_html = render_to_string :partial => 'people/person', :locals => @hashes.first
+    end
+    render :json => { :search_count => @people.count, :search_html => @answer_html }.to_json
+  end
+
 
   def tag_index
     profiles = Profile.tagged_with(params[:name]).where(:searchable => true).select('profiles.id, profiles.person_id')

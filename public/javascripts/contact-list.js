@@ -20,6 +20,7 @@ var List = {
       });
     });
   },
+
   disconnectUser: function(contact_id){
     $.ajax({
         url: "/contacts/" + contact_id,
@@ -32,26 +33,49 @@ var List = {
           };
         }
     });
+  },
+
+  runDelayedSearch: function( searchTerm ) {
+    $.getJSON('/people/refresh_search',
+      { q: searchTerm },
+      List.handleSearchRefresh
+    );
+  },
+
+  handleSearchRefresh: function( data ) {
+    var streamEl = $("#people_stream.stream");
+    var string = data.search_html || $("<p>", {
+        text : Diaspora.I18n.t("people.not_found")
+      });
+
+    streamEl.html(string);
+  },
+
+  startSearchDelay: function (theSearch) {
+    setTimeout( "List.runDelayedSearch('" + theSearch + "')", 10000);
   }
+
 };
 
 $(document).ready(function() {
-  $('.added').live('ajax:loading', function() {
-    $(this).addClass('disabled');
-    $(this).fadeTo(200,0.4);
+  $('.added').bind('ajax:loading', function() {
+    var $this = $(this);
+
+    $this.addClass('disabled');
+    $this.fadeTo(200,0.4);
   });
 
-  $('.add').live('ajax:loading', function() {
-    $(this).addClass('disabled');
-    $(this).fadeTo(200,0.4);
-  });
+  $('.added').bind('hover',
+    function() {
+      var $this = $(this)
+      $this.addClass("remove");
+      $this.children("img").attr("src","/images/icons/monotone_close_exit_delete.png");
+    },
 
-  $('.added').live('mouseover', function() {
-    $(this).addClass("remove");
-    $(this).children("img").attr("src","/images/icons/monotone_close_exit_delete.png");
-  }).live('mouseout', function() {
-    $(this).removeClass("remove");
-    $(this).children("img").attr("src","/images/icons/monotone_check_yes.png");
+    function() {
+      var $this = $(this)
+      $this.removeClass("remove");
+      $this.children("img").attr("src","/images/icons/monotone_check_yes.png");
   });
 
   List.initialize();

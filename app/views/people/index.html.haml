@@ -18,9 +18,20 @@
 .span-15.append-1
   #people_stream.stream
     - if @hashes.empty?
-      %p
-        =t('.no_one_found')
+      - if @background_query.present?
 
+        / this is gross, and should be extracted!
+        :javascript
+          $(document).ready( function() {
+            List.startSearchDelay('#{@background_query}')
+          } );
+
+        %p
+          = t('.searching')
+          = image_tag '/images/static-loader.png', :class => 'loader'
+      - else
+        %p
+          = t('.no_one_found')
     - else
       - for hash in @hashes
         = render :partial => 'people/person', :locals => hash

@@ -480,6 +480,7 @@ sk:
       no_one_found: "...a nikto sa nenašiel."
       no_results: "Hej! Musíte niečo vyhľadať."
       results_for: "Výsledky vyhľadávania pre"
+    last_post: "Posledný príspevok"
     many: "%{count} ľudí"
     one: "1 človek"
     other: "%{count} ľudí"
@@ -555,6 +556,8 @@ sk:
       error: "Nepodarilo sa upraviť fotku."
       notice: "Fotka bola úspešne aktualizovaná."
   posts:
+    presenter:
+      title: "Príspevok, ktorý napísal(a) %{name}"
     show:
       destroy: "Odstrániť"
       not_found: "Prepáčte, tento príspevok sa nepodarilo nájsť."

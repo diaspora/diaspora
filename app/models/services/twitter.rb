@@ -14,11 +14,7 @@ class Services::Twitter < Service
 
     configure_twitter
 
-    begin
-      Twitter.update(message)
-    rescue => e
-      Rails.logger.info e.message
-    end
+    Twitter.update(message)
   end
 
 

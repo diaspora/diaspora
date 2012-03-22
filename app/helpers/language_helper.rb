@@ -26,6 +26,6 @@ module LanguageHelper
   end
 
   def rtl?
-    @rtl ||= RTL_LANGUAGES.include? I18n.locale
+    @rtl ||= RTL_LANGUAGES.include? I18n.locale.to_s
   end
 end

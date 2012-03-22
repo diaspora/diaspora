@@ -11,27 +11,38 @@ class AdminsController < ApplicationController
   end
 
   def admin_inviter 
-    user = User.find_by_email params[:idenitifer]
+    inviter = InvitationCode.default_inviter_or(current_user)
+    email = params[:identifier]
+    user = User.find_by_email(email)
+    
     unless user
-      Invitation.create(:service => 'email', :identifier => params[:identifier], :admin => true)
-      flash[:notice] = "invitation sent to #{params[:identifier]}"
+      EmailInviter.new(email, inviter).send!
+      flash[:notice] = "invitation sent to #{email}"
     else
-      flash[:notice]= "error sending invite to #{params[:identifier]}"
+      flash[:notice]= "error sending invite to #{email}"
     end
     redirect_to user_search_path, :notice => flash[:notice]
   end
 
+  def add_invites
+    InvitationCode.find_by_token(params[:invite_code_id]).add_invites!
+    redirect_to user_search_path
+  end
+
   def weekly_user_stats
-    @created_users_by_day = User.where("username IS NOT NULL").count(:group => "date(created_at)") 
-    @created_users_by_week = {}
-    @created_users_by_day.keys.each do |k| 
-      unless k.nil?
-        if @created_users_by_week[k.beginning_of_week].blank?
-          @created_users_by_week[k.beginning_of_week] = @created_users_by_day[k] 
-        else
-          @created_users_by_week[k.beginning_of_week] += @created_users_by_day[k] 
+    @created_users = User.where("username IS NOT NULL")
+    @created_users_by_week =  Hash.new{ |h,k| h[k] = [] }
+    @created_users.each do |u| 
+      unless u.nil?
+          @created_users_by_week[u.created_at.beginning_of_week.strftime("%Y-%m-%d")].push("#{u.username}")
         end
       end
+
+    unless(params[:week]).nil?
+      # @segment = "#{@created_users_by_week[(params[:week])]}" 
+      @counter = "#{@created_users_by_week[(params[:week])].count}"
+    else
+      @segment = "date not found"
     end
   end
 

@@ -54,6 +54,8 @@ sv:
       no_more: "Inga fler inlägg."
     my_activity: "Min aktivitet"
     my_stream: "Ström"
+    people:
+      not_found: "och ingen hittades..."
     photo_uploader:
       looking_good: "OMG, du ser grym ut!"
     publisher:

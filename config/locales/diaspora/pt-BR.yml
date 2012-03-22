@@ -484,7 +484,7 @@ pt-BR:
       view_profile: "Ver perfil de %{name}'s "
     thanks: "Obrigado,"
     to_change_your_notification_settings: "para alterar tuas configurações de notificações"
-  nsfw: "Não apto para todos os públicos"
+  nsfw: "Não recomendável para ser visualizado no escritório."
   ok: "OK"
   or: "ou"
   password: "Senha"

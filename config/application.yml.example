@@ -49,6 +49,12 @@ defaults: &defaults
   # Set this to true if you want users to invite as many people as they want
   open_invitations: true
 
+  #the 'admin' account for your pod... ie for jd.com, this is diasporahq
+  admin_account: ''
+
+  #the default amount of invitiations for an invite link
+  invite_count: 25
+
   # Set this to true if you don't want your users to follow the diasporahq@joindiaspora.com
   # account on account creation.  The diasporahq account helps users start with some
   # activity in their stream and get news about Diaspora, but if you don't want your server

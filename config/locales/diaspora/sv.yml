@@ -284,6 +284,8 @@ sv:
       simplicity_explanation: "Diaspora gör det lätt att att dela meddelanden och bilder med rätt personer. Lika lätt är det att behålla den personliga integriteten, med Diaspora tvingas du inte vada igenom sidor av inställningar och alternativ bara för att hålla din profil säker."
       tagline_first_half: "Dela vad du vill,"
       tagline_second_half: "med vem du vill."
+  invitation_codes:
+    excited: "%{name} är glad för att du är här."
   invitations:
     a_facebook_user: "En Facebookanvändare"
     check_token:
@@ -302,10 +304,15 @@ sv:
       already_invited: "Följande har inte accepterat din inbjudan:"
       aspect: "Aspekt"
       check_out_diaspora: "Kolla in Diaspora!"
+      codes_left:
+        one: "%{count} inbjudning kvar för denna kod."
+        other: "%{count} inbjudningar kvar för denna kod."
+        zero: "Det finns inga inbjudningar kvar för denna kod."
       comma_seperated_plz: "Du kan ange flera e-postadresser åtskiljda av kommatecken."
       if_they_accept_info: "om de accepterar, kommer de läggas till i den aspekt du angav vid inbjudan."
       invite_someone_to_join: "Bjud in en vän till Diaspora!"
       language: "Språk"
+      paste_link: "Ge denna länk till dina vänner för att bjuda in dem till Diaspora*, eller e-posta den till dem på en gång."
       personal_message: "Personligt meddelande"
       resend: "Skicka igen"
       send_an_invitation: "Skicka en inbjudan"
@@ -456,6 +463,7 @@ sv:
       zero: "Ingen delar ännu något med dig."
   notifier:
     a_post_you_shared: "ett inlägg."
+    accept_invite: "Godtag din Diaspora*-inbjudan."
     click_here: "klicka här"
     comment_on_post:
       reply: "Svara eller se %{name}s inlägg >"
@@ -464,6 +472,22 @@ sv:
       subject: "Var vänlig och aktivera din nya e-postadress %{unconfirmed_email}"
     email_sent_by_diaspora: "Detta e-mail har skickats av Diaspora. Vill du inte har några mer liknade e-mail,"
     hello: "Hej %{name}!"
+    invite:
+      message: |-
+          Hej!
+
+          Du har blivit inbjuden till Diaspora*.
+
+          Klicka på länken nedan för att börja.
+
+          %{invite_url}
+          <%= invite_code_url(@invitation_code)%>
+
+
+          Med vänlig hälsning,
+
+          Diasporas e-postrobot.
+    invited_you: "%{name} har bjudt in dig till Diaspora*."
     liked:
       liked: "%{name} gillar ditt inlägg "
       view_post: "Se inlägg >"
@@ -490,6 +514,8 @@ sv:
   password: "Lösenord"
   password_confirmation: "Bekräfta lösenord"
   people:
+    add_contact:
+      invited_by: "du blev inbjuden av"
     add_contact_small:
       add_contact_from_tag: "lägg till kontakt från tagg"
     aspect_list:
@@ -504,6 +530,7 @@ sv:
       no_one_found: "...och ingen hittades."
       no_results: "Du måste söka efter något."
       results_for: "Sökresultat för"
+      searching: "söker, var god och vänta..."
     last_post: "Sista inlägget"
     many: "%{count} personer"
     one: "1 person"
@@ -639,6 +666,7 @@ sv:
       password_to_confirm: "(det nuvarande lösenordet krävs för att bekräfta ändringarna)"
       unhappy: "Missnöjd?"
       update: "Uppdatera"
+    invalid_invite: "Den angivna inbjudningslänken gäller inte längre."
     new:
       create_my_account: "Skapa mitt konto!"
       enter_email: "Ange en e-postadress"
@@ -903,6 +931,7 @@ sv:
       change_email: "Ändra e-postadress"
       change_language: "Ändra språk"
       change_password: "Ändra lösenord"
+      character_minimum_expl: "måste åtminstone vara sex tecken"
       close_account:
         dont_go: "Snälla, lämna oss inte!"
         if_you_want_this: "Om du verkligen är säker, skriv in ditt lösenord nedan och klicka på 'Stäng Kontot'"
@@ -915,6 +944,7 @@ sv:
       close_account_text: "Stäng kontot"
       comment_on_post: "...någon kommenterar din post?"
       current_password: "Nuvarande lösenord"
+      current_password_expl: "den som du loggar in med..."
       download_photos: "Ladda ner mina foton"
       download_xml: "Ladda ner min xml"
       edit_account: "Ändra konto"

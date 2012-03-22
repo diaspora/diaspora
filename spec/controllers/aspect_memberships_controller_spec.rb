@@ -43,6 +43,8 @@ describe AspectMembershipsController do
     end
 
     it 'creates a contact' do
+      #argggg why?
+      alice.contacts.reload
       lambda {
         post :create,
           :format => 'js',

@@ -117,7 +117,7 @@ es-MX:
         tag_question: "pregunta"
         tutorials_wiki_and_forum: "%{tutorial} & %{wiki} & %{forum}: Tutoriales hechos por la comunidad, guías y noticias"
       introduce_yourself: "Esta es tu entrada. Adelante, preséntate."
-      keep_us_running: "!Haz que %{pod} siga yendo rápido, y compra a nuestros servidores su dosis de café con una donación mensual!"
+      keep_us_running: "¡Haz que %{pod} siga yendo rápido, y compra a nuestros servidores su dosis de café con una donación mensual!"
       new_here:
         follow: "¡Sigue %{link} y da la bienvenida a nuevos usuarios de Diaspora*!"
         learn_more: "Aprende más"
@@ -281,6 +281,8 @@ es-MX:
       simplicity_explanation: "Diaspora hace que compartir sea fácil y transparente – y esto incluye la privacidad también. Siendo intrínsecamente privada, Diaspora no te hace navegar a lo largo de páginas de configuración y opciones solo para mantener tu perfil seguro."
       tagline_first_half: "Comparte lo que quieras,"
       tagline_second_half: "con quien tú quieras."
+  invitation_codes:
+    excited: "%{name} está entusiasmado por verte aquí."
   invitations:
     a_facebook_user: "Un usuario de Facebook"
     check_token:
@@ -299,10 +301,15 @@ es-MX:
       already_invited: "Las siguientes personas no aceptaron tu invitación:"
       aspect: "Aspecto"
       check_out_diaspora: "¡Echa un vistazo a Diaspora!"
+      codes_left:
+        one: "Una invitación restante con este código"
+        other: "%{count} invitaciones restantes con este código"
+        zero: "No quedan invitaciones restantes con este código"
       comma_seperated_plz: "Puedes introducir múltiples direcciones de correo electrónico separadas por comas."
       if_they_accept_info: "si aceptan, serán añadidos al aspecto al cual los invitaste."
       invite_someone_to_join: "¡Invita a alguien a unirse a Diaspora!"
       language: "Idioma"
+      paste_link: "Comparte este enlace con tus amigos para invitarlos a Diaspora*, o envíales directamente el enlace por correo electrónico"
       personal_message: "Mensaje personal"
       resend: "Reenviar"
       send_an_invitation: "Enviar una invitación"
@@ -405,6 +412,7 @@ es-MX:
       zero: "%{actors} comenzó a compartir contigo."
   notifier:
     a_post_you_shared: "una publicación."
+    accept_invite: "¡Acepta tu invitación de Diaspora*!"
     click_here: "Haz click aquí"
     comment_on_post:
       reply: "Responder o ver la publicación de %{name} >"
@@ -413,6 +421,22 @@ es-MX:
       subject: "Por favor, activa tu nueva dirección de correo electrónico %{unconfirmed_email}"
     email_sent_by_diaspora: "Este correo electrónico fue enviado por Diaspora. Si quieres dejar de recibir correos como este,"
     hello: "¡Hola %{name}!"
+    invite:
+      message: |-
+          ¡Hola!
+
+          ¡Has sido invitado a unirte a Diaspora*!
+
+          Haz click en este enlace para comenzar
+
+          %{invite_url}
+          <%= invite_code_url(@invitation_code)%>
+
+
+          Saludos,
+
+          ¡El generador de correo automático de Diaspora*!
+    invited_you: "%{name} te ha invitado a Diaspora*"
     liked:
       liked: "A %{name} le gustó tu publicación"
       view_post: "Ver publicación >"
@@ -439,6 +463,8 @@ es-MX:
   password: "Contraseña"
   password_confirmation: "Confirmación de contraseña"
   people:
+    add_contact:
+      invited_by: "fuiste invitado por"
     add_contact_small:
       add_contact_from_tag: "añadir contacto desde una etiqueta"
     aspect_list:
@@ -453,6 +479,7 @@ es-MX:
       no_one_found: "…y nadie fue encontrado."
       no_results: "¡Eh! Necesitas buscar algo."
       results_for: "buscar resultados para"
+      searching: "buscando, por favor sé paciente…"
     last_post: "Última publicación"
     many: "%{count} personas"
     one: "1 persona"
@@ -487,7 +514,7 @@ es-MX:
       start_sharing: "comenzar a compartir"
       to_accept_or_ignore: "aceptar o ignorar."
     sub_header:
-      add_some: "agregar algunos"
+      add_some: "agregar algunas"
       edit: "editar"
       you_have_no_tags: "¡no tienes etiquetas!"
     two: "%{count} personas"
@@ -582,6 +609,7 @@ es-MX:
       password_to_confirm: "(necesitamos tu contraseña actual para confirmar tus cambios)"
       unhappy: "¿Insatisfecho?"
       update: "Actualizar"
+    invalid_invite: "¡El enlace de invitación que proporcionaste ya no es válido!"
     new:
       create_my_account: "¡Crear mi cuenta!"
       enter_email: "Ingresa un correo electrónico"
@@ -767,6 +795,7 @@ es-MX:
     followed_tags_stream: "#Etiquetas seguidas"
     like_stream:
       contacts_title: "Personas cuyas publicaciones te gustan"
+      title: "Tus preferidos"
     mentioned_stream: "@Menciones"
     mentions:
       contacts_title: "Personas que te han mencionado"
@@ -830,6 +859,7 @@ es-MX:
       change_email: "Cambiar correo electrónico"
       change_language: "Cambiar idioma"
       change_password: "Cambiar contraseña"
+      character_minimum_expl: "debe tener al menos seis caracteres"
       close_account:
         dont_go: "¡Eh, por favor no te vayas!"
         if_you_want_this: "Si realmente es lo que deseas, ingresa tu contraseña debajo y pulsa «Eliminar cuenta»."
@@ -841,6 +871,7 @@ es-MX:
       close_account_text: "Cerrar cuenta"
       comment_on_post: "…alguien comenta en tu publicación?"
       current_password: "Contraseña actual"
+      current_password_expl: "con la que inicias sesión…"
       download_photos: "descargar mis fotos"
       download_xml: "descargar mi XML"
       edit_account: "Editar cuenta"

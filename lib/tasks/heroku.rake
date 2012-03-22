@@ -9,7 +9,7 @@ namespace :heroku do
 
   task :generate_secret_token do
     puts "Generating and setting a new secret token"
-    token = ActiveSupport::SecureRandom.hex(40)#reloads secret token every time you reload vars.... this expires cookies, and kinda sucks
+    token = SecureRandom.hex(40)#reloads secret token every time you reload vars.... this expires cookies, and kinda sucks
     command = "#{HEROKU_CONFIG_ADD_COMMAND} SECRET_TOKEN=#{token}"
     puts command
     system command

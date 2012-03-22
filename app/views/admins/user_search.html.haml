@@ -1,65 +1,47 @@
 
 .span-24
   = render :partial => 'admins/admin_bar.haml'
-%br
-%br
+.span-24.prepend-4
 
-%h3
-  = form_tag 'admin_inviter', :method => :get do
-    email to invite:
-    = text_field_tag 'identifier'
-    = submit_tag 'invite'
+  %h3
+    you currently have
+    = current_user.invitation_code.count
+    invites left
+    = link_to "add_invites", add_invites_path(current_user.invitation_code)
 
-
-
-%h3
-  user search
-= form_tag 'user_search', :method => :get do
-  username:
-  = text_field_tag 'user[username]', params[:user][:username]
-
-  email:
-  = text_field_tag 'user[email]', params[:user][:email]
-
-  invitation identifier:
-  = text_field_tag 'user[invitation_identifier]', params[:user][:invitation_identifier]
-
-  invitation token:
-  = text_field_tag 'user[invitation_token]', params[:user][:invitation_token]
-  = submit_tag 'go'
+    = form_tag 'admin_inviter', :method => :get do
+      email to invite:
+      = text_field_tag 'identifier'
+      = submit_tag 'invite'
 
 
-= "#{@users.count} users found"
-%br
-%br
-= for user in @users
-  = user.inspect
+
+  %h3
+    user search
+  = form_tag 'user_search', :method => :get do
+    username:
+    = text_field_tag 'user[username]', params[:user][:username]
+
+    email:
+    = text_field_tag 'user[email]', params[:user][:email]
+
+    = submit_tag 'go'
+
+
+  = "#{@users.count} users found"
   %br
-  - if user.person
-    = user.person.inspect
+  %br
+  - @users.each do |user|
+    = user.inspect
     %br
-    - if user.person.profile
-      = user.person.profile.inspect
+    - if user.person
+      = user.person.inspect
+      %br
+      - if user.person.profile
+        = user.person.profile.inspect
+      %br
+    = "invite token: #{invite_code_url(user.invited_by.invite_code)}" if user.invited_by.present?
+    = link_to "add_invites", add_invites_path(user.invitation_code)
     %br
-  = "invite token: #{accept_invitation_url(user, :invitation_token => user.invitation_token)}" if user.invitation_token
-  %br
-  %br
-  %br
-%br
-= javascript_include_tag 'apiconsole'
-#query
-  %h3 api console
-  = text_field_tag :api
-  = submit_tag 'ping this api', :id => 'api_submit'
-
-  response:
-  %br
-  %br
-  #resp
-
-
-%br
-  post to Diaspora v1
-
-
-
+    %br
+    %br

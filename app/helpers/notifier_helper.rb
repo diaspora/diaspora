@@ -25,11 +25,10 @@ module NotifierHelper
   end
 
   def invite_email_title
-    names = @invites.collect{|x| x.sender.person.name}.uniq
-    if @invites.empty? && names.empty?
-      "Accept Your Diaspora* invite!"
+    if @inviter.present?
+      I18n.t 'notifier.invited_you', :name => @inviter.person.name
     else
-      "#{names.to_sentence} invited you to Diaspora*"
+      I18n.t 'notifier.accept_invite'
     end
   end
 end
