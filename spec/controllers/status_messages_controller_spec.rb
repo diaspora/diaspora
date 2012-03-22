@@ -79,9 +79,21 @@ describe StatusMessagesController do
       :aspect_ids => [@aspect1.id.to_s] }
     }
 
+    it 'creates with valid html' do
+      post :create, status_message_hash.merge(:format => 'html')
+      response.status.should == 302
+      response.should be_redirect
+    end
+    
     it 'creates with valid json' do
       post :create, status_message_hash.merge(:format => 'json')
       response.status.should == 201
+    end
+    
+    it 'creates with valid mobile' do
+      post :create, status_message_hash.merge(:format => 'mobile')
+      response.status.should == 302
+      response.should be_redirect
     end
     
     it 'removes getting started from new users' do
