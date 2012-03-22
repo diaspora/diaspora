@@ -96,7 +96,6 @@ Diaspora::Application.routes.draw do
 
   devise_for :users, :controllers => {:registrations => "registrations",
                                       :password      => "devise/passwords",
-<<<<<<< HEAD
                                       :sessions      => "sessions",
                                       :invitations   => "invitations"} do
     get 'invitations/resend/:id' => 'invitations#resend', :as => 'invitation_resend'
@@ -106,16 +105,12 @@ Diaspora::Application.routes.draw do
     post 'users/update_matching' => 'registrations#update_matching'
   end
 
-=======
-                                      :sessions      => "sessions"}
-
   #legacy routes to support old invite routes
   get 'users/invitation/accept' => 'invitations#edit'
   get 'invitations/email' => 'invitations#email', :as => 'invite_email'
   get 'users/invitations' => 'invitations#new', :as => 'new_user_invitation'
   post 'users/invitations' => 'invitations#create', :as => 'new_user_invitation'
   
->>>>>>> f213500451dcaf2732f34ee76160f37cef57ed4a
   get 'login' => redirect('/users/sign_in')
 
   scope 'admins', :controller => :admins do
