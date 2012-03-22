@@ -42,6 +42,14 @@ es:
               taken: "ya está ocupado."
   ago: "hace %{time} "
   all_aspects: "Todos los aspectos"
+  admins:
+    admin_bar:
+      pages: "Páginas"
+      user_search: "Buscar gente"
+      weekly_user_stats: "Estadísticas de Registro"
+      pod_stats: "Estadísticas"
+      correlations: "Correlationes"
+      resque_overview: "Resque"
   application:
     helper:
       diaspora_alpha: "DIASPORA* ALPHA"

@@ -80,7 +80,14 @@ en:
       invalid_fields: "Invalid Fields"
       correct_the_following_errors_and_try_again: "Correct the following errors and try again."
 
-
+  admins:
+    admin_bar:
+      pages: "Pages"
+      user_search: "User Search"
+      weekly_user_stats: "Weekly User Stats"
+      pod_stats: "Pod Stats"
+      correlations: "Correlations"
+      resque_overview: "Resque Overview"
   application:
     helper:
       unknown_person: "unknown person"
