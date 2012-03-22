@@ -50,6 +50,8 @@ es:
       pod_stats: "Estadísticas"
       correlations: "Correlationes"
       resque_overview: "Resque"
+    correlations:
+      correlations_count: "Correlación entre cuentas:"
   application:
     helper:
       diaspora_alpha: "DIASPORA* ALPHA"
