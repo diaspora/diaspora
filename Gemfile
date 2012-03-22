@@ -64,8 +64,6 @@ gem 'fastercsv', '1.5.4', :require => false
 gem 'mini_magick', '3.4'
 gem 'rest-client', '1.6.7'
 
-gem 'jammit-s3'
-
 # JSON and API
 
 gem 'json'
@@ -113,6 +111,7 @@ group :assets do
   gem 'sass-rails'
   gem 'uglifier'
 end
+gem 'handlebars_assets'
 
 gem 'jquery-rails'
 

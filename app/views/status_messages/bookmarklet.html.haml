@@ -19,7 +19,7 @@
     = csrf_meta_tag
 
     = jquery_include_tag
-    = include_javascripts :main, :templates, :home
+    = javascript_include_tag :main, :templates, :home
     :javascript
       Diaspora.I18n.loadLocale(#{get_javascript_strings_for(I18n.locale).to_json}, "#{I18n.locale}");
     

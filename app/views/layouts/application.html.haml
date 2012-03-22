@@ -26,13 +26,13 @@
 
     = old_browser_js_support
     <!--[if IE]>
-    = include_javascripts :ie
+    = javascript_include_tag :ie
     <![endif]-->
 
     = javascript_include_tag 'jquery', 'jquery_ujs'
 
     - unless @landing_page
-      = include_javascripts :main, :templates
+      = javascript_include_tag :main, :templates
       = load_javascript_locales
 
     = set_asset_host

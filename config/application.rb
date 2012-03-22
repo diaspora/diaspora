@@ -63,8 +63,24 @@ module Diaspora
     config.filter_parameters += [:text]
     config.filter_parameters += [:bio]
 
-     # Enable the asset pipeline
-     config.assets.enabled = true
+    # Enable the asset pipeline
+    config.assets.enabled = true
+
+    # For easier deployment to Heroku
+    config.assets.initialize_on_precompile = false
+
+    # Precompile additional assets (application.js, application.css, and all non-JS/CSS are already added)
+    # Javascripts
+    config.assets.precompile += [ "finder.js", "home.js", "ie.js", "inbox.js",
+      "jquery.js", "jquery_ujs.js", "login.js", "mailchimp.js", "main.js",
+      "mobile.js", "profile.js", "people.js", "photos.js", "templates.js" ]
+
+    # Stylesheets
+    config.assets.precompile += [ "blueprint.css", "bootstrap.css", "default.css",
+      "login.css", "mobile.css", "new_templates.css", "rtl.css" ]
+
+    # Version of your assets, change this if you want to expire all your assets
+    config.assets.version = '1.0'
 
   end
 end
