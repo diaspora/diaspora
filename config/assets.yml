@@ -14,7 +14,6 @@ javascripts:
 
   main:
     - public/javascripts/rails.validations.js
-    - public/javascripts/rails.js
     - public/javascripts/vendor/jquery.hotkeys.js
     - public/javascripts/vendor/jquery.autoresize.js
     - public/javascripts/vendor/jquery-ui-1.8.9.custom.min.js
@@ -80,9 +79,7 @@ javascripts:
     - public/javascripts/login.js
 
   mobile:
-    - public/javascripts/vendor/jquery-1.7.1.min.js
     - public/javascripts/vendor/jquery.charcount.js
-    - public/javascripts/rails.js # we only include this to hijack ajax requests
     - public/javascripts/vendor/mbp-helper.js
     - public/javascripts/mobile.js
 
