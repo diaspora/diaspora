@@ -283,7 +283,7 @@ body {
     text-decoration: none; }
   #nav_badges .badge {
     position: relative;
-    top: -15px;
+    top: -12px;
     display: inline;
     margin: 0 2px;
     padding: 8px 3px;
@@ -613,5 +613,29 @@ select {
 
 .notification_day_header {
   margin-bottom: 5px;
+}
+
+#header-nav {
+    font-weight: bold;
+    height: 100%;
+    margin-right: 5px;
+    margin-top: 3px;
+display: inline-block;	
+}
+
+#header-nav a {
+    padding: 0 10px;
+    width: 100%;
+    color: #939393;
+}
+
+#header-nav > div {
+  display: inline;
+    font-weight: bold;
+    margin: 0 2px;
+    padding: 8px 3px 9px;
+    position: relative;
+    top: -15px;
+    width: 28px;
 }
 
