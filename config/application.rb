@@ -50,7 +50,7 @@ module Diaspora
 #    config.i18n.load_path += Dir[Rails.root.join('config','locales','javascript', 'javascript.he.yml').to_s]
     config.i18n.load_path += Dir[Rails.root.join('lib','diaspora','locales', '*.yml').to_s]
     # config.i18n.default_locale = :de
-    config.i18n.default_locale = :he
+#    config.i18n.default_locale = :he
 
 #    
 #    !i translations

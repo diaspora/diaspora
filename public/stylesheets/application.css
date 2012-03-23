@@ -1517,30 +1517,57 @@ ul#press_logos {
 .stream_element .last_author {
   font-size: 12px;
   color: #777777; }
-.stream_element .collapsible .oembed {
-  background: url("/images/ajax-loader2.gif") no-repeat center center; }
-  .stream_element .collapsible .oembed .thumb {
-    position: relative;
-    cursor: pointer; }
-    .stream_element .collapsible .oembed .thumb .video-overlay {
-      background: url("/images/video-overlay.png") no-repeat center center;
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0; }
+.stream_element .collapsible {
+  overflow: hidden;
+  position: relative; }
+  .stream_element .collapsible .expander {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 30px;
+    text-align: center;
+    line-height: 48px;
+    font-size: 0.8em;
+    color: #2b2b2b;
+    text-shadow: 0 0 7px white;
+    cursor: pointer;
+    border-bottom: 2px solid #dddddd;
+    -moz-border-radius: 0 0 3px 3px;
+    -webkit-border-radius: 0 0 3px 3px;
+    border-radius: 0 0 3px 3px;
+    background-color: rgba(238, 238, 238, 0.5);
+    filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0, startColorstr=$from, endColorstr=$to);
+    -ms-filter: "progid:DXImageTransform.Microsoft.gradient (GradientType=0, startColorstr=rgba(255, 255, 255, 0), endColorstr=#eeeeee)";
+    background-image: -webkit-gradient(linear, 0% 0%, 0% 95%, from(rgba(255, 255, 255, 0)), to(#eeeeee));
+    background-image: -moz-linear-gradient(top, rgba(255, 255, 255, 0) 0%, #eeeeee 95%);
+    background-image: -o-linear-gradient(top, rgba(255, 255, 255, 0) 0%, #eeeeee 95%);
+    background-color: transparent; }
+  .stream_element .collapsible .oembed {
+    background: url("/images/ajax-loader2.gif") no-repeat center center;
+    display: inline-block; }
+    .stream_element .collapsible .oembed .thumb {
+      position: relative;
+      cursor: pointer; }
+      .stream_element .collapsible .oembed .thumb .video-overlay {
+        background: url("/images/video-overlay.png") no-repeat center center;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0; }
 
 .conversation_participants {
   z-index: 3;
   background-color: white;
-  position: fixed;
+  position: relative;
   margin-bottom: 10px;
   -webkit-box-shadow: 0 2px 3px -3px #666666;
   -moz-box-shadow: 0 2px 3px -3px #666666;
   box-shadow: 0 2px 3px -3px #666666;
   line-height: 0;
   border-bottom: 1px solid #dddddd;
-  padding: 15px;
+  padding: 10px;
     padding-top: 101px;
     padding-bottom: 10px;
   width: 560px;
@@ -1556,6 +1583,8 @@ ul#press_logos {
   .conversation_participants .avatar {
     height: 30px;
     width: 30px; }
+  .conversation_participants a img {
+    margin-bottom: 4px; }
   .conversation_participants .conversation_controls {
     margin-bottom: 10px; }
     .conversation_participants .conversation_controls a {

@@ -1,7 +1,12 @@
 body {
   direction: rtl;
   text-align: right; }
-
+.rtl{
+    direction: rtl;
+}
+.ltr{
+    direction: ltr;
+}
 #user_menu {
   left: 0;
   right: auto; }
@@ -238,6 +243,10 @@ ul.comments li.posted .controls .delete {
 
 ul.left_nav .contact_count, ul.left_nav .edit {
   float: left; }
+ul.left_nav ul.sub_nav li{
+    width: auto;
+    direction: ltr;
+}
 
 .conversation_participants .right, .stream .new_message .right {
   right: auto;
