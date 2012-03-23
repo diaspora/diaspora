@@ -38,7 +38,7 @@ describe("app.views.Post", function(){
           expect($(view.el).html()).not.toContain("0 Reshares")
         })
     })
-    
+
     context("likes", function(){
         it("displays a like count", function(){
           this.statusMessage.set({likes_count : 1})
@@ -140,6 +140,18 @@ describe("app.views.Post", function(){
         expect(this.view).not.toExist();
       })
     })
+
+    context("markdown rendering", function() {
+      it("correctly handles non-ascii characters in urls", function() {
+        // example from issue #2665
+        var evilUrl = "http://www.bürgerentscheid-krankenhäuser.de";
+        this.statusMessage.set({text: "<"+evilUrl+">"});
+        var view = new app.views.Post({model : this.statusMessage}).render();
+
+        expect($(view.el).html()).toContain("http://www.xn--brgerentscheid-krankenhuser-xkc78d.de");
+        expect($(view.el).html()).toContain(evilUrl);
+      });
+    });
 
   })
 });
