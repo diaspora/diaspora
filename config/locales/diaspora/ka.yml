@@ -23,11 +23,68 @@ ka:
           attributes:
             diaspora_handle:
               taken: "უკვე დაკავებულია."
+        request:
+          attributes:
+            from_id:
+              taken: "არის უკვე არსებული მოთხოვნის ასლი."
+        reshare:
+          attributes:
+            root_guid:
+              taken: "ასეთი მაგარია?  თქვენ უკვე გააზიარეთ ეს პოსტი!"
+        user:
+          attributes:
+            email:
+              taken: "უკვე დაკავებულია."
+            person:
+              invalid: "არასწორია."
+            username:
+              invalid: "არასწორია. დაშვებულია მხოლოდ ასოების, ციფრების და ტირეების გამოყენება."
+              taken: "უკვე დაკავებულია."
   ago: "%{time} წინ"
+  all_aspects: "ყველა ასპექტი"
+  application:
+    helper:
+      diaspora_alpha: "DIASPORA* ALPHA"
+      unknown_person: "უცნობი ადამიანი"
+      video_title:
+        unknown: "ვიდეოს სათაური უცნობია"
+  are_you_sure: "დარწმუნებული ხართ?"
+  are_you_sure_delete_account: "დარწმუნებული ხართ რომ თქვენი ანგარიშის დახურვა გსურთ? ამის დაბრუნება შეუძლებელია!"
   aspects:
+    add_to_aspect:
+      failure: "კონტაქტის ასპექტში დამატება ჩაიშალა."
+      success: "კონტაქტი წარმატებით დაემატა ასპექტში."
+    aspect_contacts:
+      done_editing: "რედაქტირების დასრულება"
     aspect_listings:
+      add_an_aspect: "+ ასპექტის დამატება"
+      deselect_all: "ყველა მონიშვნის მოხსნა"
+      edit_aspect: "%{name}-ს რედაქტირება"
       select_all: "ყველას არჩევა"
+    contacts_not_visible: "ამ ასპექტებში არსებული კონტაქტები ვერ შეძლებენ ერთმანეთის დანახვას."
+    contacts_visible: "ამ ასპექტში არსებული კონტაქტები შეძლებენ ერთმანეთის დანახვას."
+    create:
+      failure: "ასპექტის შექმნა ჩაიშალა"
+      success: "თქვენი ახალი ასპექტი %{name} შეიქმნა"
+    destroy:
+      failure: "%{name} ცარიელია და მას ვერ წაშლით."
+      success: "%{name} წარმატებით წაიშალა."
+    edit:
+      add_existing: "არსებული კონტაქტის დამატება"
+      aspect_list_is_not_visible: "ასპექტის სია დამალულია ამ ასპექტში მყოფთათვის."
+      aspect_list_is_visible: "ასპექტის სია ხილულია ამ ასპექტში მყოფთათვის"
+      confirm_remove_aspect: "დარწმუნებული ხართ რომ ამ ასპექტის წაშლა გსურთ?"
+      done: "დასრულება"
+      make_aspect_list_visible: "გახდნენ ამ ასპექტში არსებული კონტაქტები ერთმანეთისთვის ხილულნი?"
+      remove_aspect: "ამ ასპექტის წაშლა"
+      rename: "გადარქმევა"
+      update: "განახლება"
+      updating: "ნახლდება"
     few: "%{count} aspects"
+    helper:
+      are_you_sure: "დარწმუნებული ხართ რომ ამ ასპექტის წაშლა გსურთ?"
+      aspect_not_empty: "ასპექტი არ არის ცარიელი"
+      remove: "წაშლა"
     index:
       cubbies:
         heading: "Cubbi.es-თან დაკავშირება"
@@ -43,6 +100,43 @@ ka:
         feature_suggestion: "... გაქვთ %{link} რჩევა?"
         find_a_bug: "... იპოვეთ %{link}?"
         need_help: "გესაჭიროებათ დახმარება?"
+      keep_us_running: "დაეხმარეთ %{pod}-ს სწრაფად მუშაობასი - უყიდეთ ჩვენ სერვერებს ყავა, გააკეთეთ ყოველთვიური შემოწირულობა!"
+    many: "%{count} ასპექტი"
+    move_contact:
+      error: "კონტაქტის გადაყვანისას დაფიქსირდა შეცდომა: %{inspect}"
+      failure: "არ მუშაობს %{inspect}"
+      success: "პერსონა გადაყვანილია ახალ ასპექტში"
+    new:
+      create: "შექმნა"
+      name: "სახელი (ხედავთ მხოლოდ თქვენ)"
+    no_contacts_message:
+      community_spotlight: "ყურადღების ცენტრში"
+      or_spotlight: "ან თქვენ შეგიძლიათ გააზიაროთ %{link}-ის გამოყენებით"
+      try_adding_some_more_contacts: "თქვენ შეგიძლიათ მოძებნოთ ან მოიწვიოთ მეტი კონტაქტი."
+      you_should_add_some_more_contacts: "თქვენ უნდა დაამატოთ მეტი კონტაქტი!"
+    no_posts_message:
+      start_talking: "ჯერ არავის არაფერი არ უთქვამს!"
+    one: "1 ასპექტი"
+    other: "%{count} ასპექტი"
+    seed:
+      acquaintances: "ნაცნობები"
+      family: "ოჯახი"
+      friends: "მეგობრები"
+      work: "სამსახური"
+    selected_contacts:
+      manage_your_aspects: "თქვენი ასპექტების მართვა."
+      no_contacts: "თქვენ ჯერ არცერთი კონტაქტი არ გყავთ."
+      view_all_community_spotlight: "ყველა რეკომენდაციის ნახვა"
+      view_all_contacts: "ყველა კონტაქტის ნახვა"
+    show:
+      edit_aspect: "ასპექტის რედაქტირება"
+    two: "%{count} ასპექტი"
+    update:
+      failure: "თქვენს ასპექტს, %{name}, აქვს ძალიან დიდი სახელი და ვერ შეინახება."
+      success: "თქვენი ასპექტი, %{name}, წარმატებით დარედაქტირდა."
+    zero: "ასპექტები არ არის"
+  back: "უკან"
+  cancel: "გაუქმება"
   conversations:
     helper:
       new_messages:
@@ -52,9 +146,38 @@ ka:
         other: "%{count} new messages"
         two: "%{count} new messages"
         zero: "No new messages"
+  delete: "წაშლა"
+  email: "ელ-ფოსტა"
+  error_messages:
+    helper:
+      correct_the_following_errors_and_try_again: "გამოასწორეთ შემდეგი შეცდომები და ხელახლა ცადეთ."
+      invalid_fields: "არასწორი ველები"
+  fill_me_out: "შევსება"
+  find_people: "იპოვეთ ადამიანები ან #ტეგები"
+  hide: "დამალვა"
+  home:
+    show:
+      already_account: "უკვე გაქვთ ანგარიში?"
+      choice: "არჩევანი"
+      choice_explanation: "დიასპორა საშუალებას გაძლევთ თქვენი კავშირები დააჯგუფოთ ეგრედ წოდებულ ასპექტებში. ეს არის დიასპორის უნიკალური ფუნქცია, რაც უზრუნველყოფს რომ თქვენი ფოტოები, ამბები და ხუმრობები გაზიარდება მხოლოდ იმ ხალხთან რომელთანაც თქვენ გსურთ."
+      learn_about_host: "გაიგეთ თუ როგორ ხდება დიასპორის საკუთარი სერვერის დაჰოსტვა."
+      login_here: "შემოდით აქ"
+      ownership: "მფლობელობა"
+      ownership_explanation: "თქვენ ფლობთ თქვენს სურათებს, და ამ უფლებებს არც მათი გაზიარების შემდეგ კარგავთ. თქვენ ინარჩუნებთ იმ ყველაფრის საავტორო უფლებებს რასაც დიასპორაში გააზიარებთ."
+      share_what_you_want: "გააზიარეთ ის რაც გსურთ, ვისთანაც გსურთ."
+      simplicity: "უბრალოება"
+      simplicity_explanation: "დიასპორა გაზიარებას ხდის სუფთას და მარტივს – ეს ეხება კონფიდენციალურობასაც. დიასპორაში თქვენ არ დაგჭირდებათ პარამეტრების გვერდებში ძრომიალი რათა თქვენი პროფილი უსაფრთხო გახდეს."
+      tagline_first_half: "გააზიარეთ ის რაც გსურთ,"
   invitations:
+    edit:
+      your_account_awaits: "თქვენი მოსაწვევი გელოდებათ!"
     new:
       language: "ენა"
+  layouts:
+    application:
+      whats_new: "რა არის ახალი?"
+    header:
+      profile: "პროფილი"
   likes:
     likes:
       people_dislike_this:
@@ -78,6 +201,10 @@ ka:
         other: "%{count} likes"
         two: "%{count} likes"
         zero: "no likes"
+  limited: "შეზღუდული"
+  more: "მეტი"
+  next: "შემდეგი"
+  no_results: "შედეგი ვერ მოიძებნა"
   notifications:
     also_commented:
       few: "%{actors} also commented on %{post_author}'s %{post_link}."
@@ -172,6 +299,20 @@ ka:
       other: "%{actors} started sharing with you."
       two: "%{actors} started sharing with you."
       zero: "%{actors} started sharing with you."
+  notifier:
+    started_sharing:
+      view_profile: "%{name}-ს პროფილის ნახვა"
+  nsfw: "18+"
+  ok: "კარგი"
+  or: "ან"
+  password: "პაროლი"
+  password_confirmation: "პაროლის დადასტურება"
+  people:
+    profile_sidebar:
+      edit_my_profile: "ჩემი პროფილის რედაქტირება"
+  photos:
+    new_profile_photo:
+      upload: "ახალი პროფილის ფოტოს ატვირთვა!"
   posts:
     show:
       photos_by:
@@ -181,6 +322,31 @@ ka:
         other: "%{count} photos by %{author}"
         two: "Two photos by %{author}"
         zero: "No photos by %{author}"
+  previous: "წინა"
+  privacy: "კონფიდენციალურობა"
+  privacy_policy: "კონფიდენციალურობის პოლიტიკა"
+  profile: "პროფილი"
+  profiles:
+    edit:
+      allow_search: "მიეცეს ხალხს დიასპორაში თქვენი მოძებნის საშუალება"
+      edit_profile: "პროფილის რედაქტირება"
+      first_name: "სახელი"
+      last_name: "გვარი"
+      update_profile: "პროფილის განახლება"
+      you_are_nsfw: "თქვენ თქვენი ანგარიში მონიშნეთ როგორც \"სამსახურისთვის საფრთხიანი\",  თქვენს მიერ გამოქვეყნებული შიგთავსი არ გამოჩნდება იმ ადამიანებისთვის რომელთაც მონიშნული არ აქვთ ამ შიგთავსის მქონე ნაკადების ნახვა."
+      you_are_safe_for_work: "თქვენ თქვენი ანგარიში მონიშნეთ როგორც \"სამსახურისთვის უსაფრთხო\", ამით თქვენ ეთანხმებით რომ თქვენს მიერ გამოქვეყნებული შიგთავსი არ არღვევს საზოგადოებრივ წესებს."
+      your_bio: "თქვენი ბიოგრაფია"
+      your_birthday: "თქვენი დაბადების თარიღი"
+      your_gender: "თქვენი სქესი"
+      your_location: "თქვენი მდებარეობა"
+      your_name: "თქვენი სახელი"
+      your_photo: "თქვენი ფოტო"
+      your_private_profile: "თქვენი პირადი პროფილი"
+      your_public_profile: "თქვენი საჯარო პროფილი"
+      your_tags: "აღწერეთ თქვენი თავი 5 სიტყვით"
+    update:
+      failed: "პროფილის განახლება ჩაიშალა"
+      updated: "პროფილი განახლდა"
   public: "საჯაროდ"
   reactions:
     few: "%{count} reactions"
@@ -189,6 +355,13 @@ ka:
     other: "%{count} reactions"
     two: "%{count} reactions"
     zero: "0 reactions"
+  registrations:
+    edit:
+      cancel_my_account: "ჩემი ანგარიშის გაუქმება"
+      password_to_confirm: "(ჩვენ თქვენი მიმდინარე პაროლი ცვილელების დასადასტურებლად გვჭირდება)"
+    new:
+      enter_password: "შეიყვანეთ პაროლი"
+      enter_password_again: "შეივყანეთ იგივე პაროლი რაც წინაზე"
   requests:
     helper:
       new_requests:
@@ -207,6 +380,8 @@ ka:
         other: "%{count} reshares"
         two: "%{count} reshares"
         zero: "Reshare"
+  search: "ძებნა"
+  settings: "პარამეტრები"
   shared:
     aspect_dropdown:
       toggle:
@@ -218,6 +393,8 @@ ka:
         zero: "Add contact"
     invitations:
       invite_your_friends: "მოიწვიეთ თქვენი მეგობრები"
+    stream_element:
+      nsfw: "ეს პოსტი მისმა ავტორმა მონიშნა როგორც 18+. %{link}"
   status_messages:
     too_long:
       few: "please make your status messages less than %{count} characters"
@@ -237,12 +414,39 @@ ka:
   streams:
     aspects:
       title: "Your Aspects"
+  terms_and_conditions: "ვადები და პირობები"
+  undo: "დაბრუნდეს?"
+  username: "მომხმარებლის სახელი"
   users:
+    destroy:
+      no_password: "ანგარიშის დასახურდა გთხოვთ შეიყვანეთ თქვენი მიმდინარე პაროლი."
+      wrong_password: "შეყვანილი პაროლი არ ემთხვევა თქვენს მიმდინარე პაროლს."
     edit:
+      change: "შეცვლა"
+      change_email: "ელ-ფოსტის შეცვლა"
       change_language: "ენის შეცვლა"
+      change_password: "პაროლის შეცვლა"
+      character_minimum_expl: "უნდა შეიცავდეს მინიმუმ ექვს სიმბოლოს"
       close_account:
+        dont_go: "ჰეი, გთხოვ არ წახვიდე!"
+        if_you_want_this: "თუ მართლა გსურთ ამის გაკეთება, ჩაწერეთ თქვენი პაროლი ქვემოთ და დააწკაპუნეთ ღილაკს \"ანგარიშის დახურვა\""
+        locked_out: "თქვენ გამოხვალთ და თქვენი ანგარიში დაიხურება."
         what_we_delete: "We delete all of your posts, profile data, as soon as humanly possible. Your comments will hang around, but be associated with your Diaspora Handle."
-      your_handle: "Your diaspora id"
+      close_account_text: "ანგარიშის დახურვა"
+      current_password: "მიმდინარე პაროლი"
+      current_password_expl: "რომლითაც შემოდიხართ..."
+      edit_account: "ანგარიშის რედაქტირება"
+      new_password: "ახალი პაროლი"
+      show_community_spotlight: "გსურთ რეკომენდებული მომხმარებლების ნახვა ნაკადში?"
+      stream_preferences: "ნაკადის პარამეტრები"
+      your_handle: "თქვენი იდენტიფიკატორი Diaspora-ში"
+    privacy_settings:
+      ignored_users: "დაიგნორებული მომხმარებლები"
+      stop_ignoring: "იგნორირების შეწყვეტა"
+      title: "კონფიდენციალურობის პარამეტრები"
     update:
       language_changed: "ენა შიეცვალა"
       language_not_changed: "ენის შეცვლა ვერ მოხერხდა"
+      password_changed: "პაროლი შეიცვალა. თქვენ ახლა უკვე შეგიძლიათ თქვენი ახალი პაროლით შემოსვლა."
+      unconfirmed_email_not_changed: "ელ-ფოსტის შეცვლა ჩაიშალა"
+  welcome: "მოგესალმებით!"

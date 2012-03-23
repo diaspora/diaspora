@@ -116,7 +116,7 @@ ko:
       prefixFromNow: "지금부터"
       seconds: "방금"
       suffixAgo: "전"
-      suffixFromNow: "지금으로 부터"
+      suffixFromNow: ""
       year: "한 해"
       years: "%d년"
     videos:

@@ -40,6 +40,14 @@ fr:
             username:
               invalid: "n'est pas valide. Nous n'autorisons que les lettres, chiffres et caractères de soulignement."
               taken: "est déjà pris."
+  admins:
+    admin_bar:
+      correlations: "Corrélations"
+      pages: "Pages"
+      pod_stats: "Statistiques du \"pod\""
+      resque_overview: "Vue d'ensemble des tâches"
+      user_search: "Chercher un utilisateur"
+      weekly_user_stats: "Statistiques hebdomadaires"
   ago: "Il y a %{time}"
   all_aspects: "Tous les aspects"
   application:
@@ -403,6 +411,7 @@ fr:
         two: "et %{count} autres"
         zero: "et personne d'autre"
       mark_all_as_read: "Tout marquer comme lu"
+      mark_unread: "Marquer comme non lu"
       notifications: "Notifications"
     liked:
       few: "%{actors} ont épinglé votre %{post_link}."

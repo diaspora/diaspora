@@ -394,6 +394,7 @@ it:
         two: "e altre %{count} persone"
         zero: "e nessun altro"
       mark_all_as_read: "Segna come lette"
+      mark_unread: "Segna come non letti"
       notifications: "Notifiche"
     liked:
       few: "A %{actors} piace il tuo %{post_link}."

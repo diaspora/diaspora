@@ -53,6 +53,8 @@ de:
     infinite_scroll:
       no_more: "Keine weiteren Beiträge."
     my_activity: "Meine Aktivitäten"
+    people:
+      not_found: "und niemand wurde gefunden..."
     photo_uploader:
       looking_good: "OMG, du siehst toll aus!"
     publisher:

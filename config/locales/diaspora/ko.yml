@@ -925,7 +925,7 @@ ko:
       change_email: "이메일 바꾸기"
       change_language: "언어 바꾸기"
       change_password: "암호 바꾸기"
-      character_minimum_expl: "적어도 6자가 필요합니다"
+      character_minimum_expl: "6자 이상"
       close_account:
         dont_go: "제발 가지 마세요!"
         if_you_want_this: "정말로 없애고 싶다면 암호를 입력한 뒤 아래의 '계정 없애기'를 클릭하세요."
@@ -938,6 +938,7 @@ ko:
       close_account_text: "계정 없애기"
       comment_on_post: "내 게시물에 댓글이 달렸을 때"
       current_password: "원래 암호"
+      current_password_expl: "로그인할 때 썻던 암호"
       download_photos: "내 사진 다운로드"
       download_xml: "내 xml 다운로드"
       edit_account: "계정 고치기"

@@ -40,6 +40,14 @@ ru:
             username:
               invalid: "не подходит. Можно использовать только буквы, цифры и знак подчеркивания."
               taken: "уже занято."
+  admins:
+    admin_bar:
+      correlations: "Корреляции"
+      pages: "Страницы"
+      pod_stats: "Статистика пода"
+      resque_overview: "Обзор Resque"
+      user_search: "Поиск пользователей"
+      weekly_user_stats: "Еженедельная пользовательская статистика"
   ago: "%{time} назад"
   all_aspects: "Все аспекты"
   application:
@@ -284,6 +292,8 @@ ru:
       simplicity_explanation: "Диаспора делает обмен прозрачным и простым - это распространяется и на частную жизнь. По существу, диаспора не заставляет вас пробираться через страницы настроек и опций для того, чтобы держать ваш профиль в безопасности."
       tagline_first_half: "Поделитесь чем хотите,"
       tagline_second_half: "с кем вы хотите."
+  invitation_codes:
+    excited: "%{name} рад видеть вас здесь."
   invitations:
     a_facebook_user: "Пользователь Facebook"
     check_token:
@@ -302,10 +312,17 @@ ru:
       already_invited: "Следующие люди не приняли ваше приглашение:"
       aspect: "Аспект"
       check_out_diaspora: "Попробуйте Диаспору!"
+      codes_left:
+        few: "По этому коду осталось приглашений: %{count}"
+        many: "По этому коду осталось приглашений: %{count}"
+        one: "По этому коду осталось приглашений: %{count}"
+        other: "По этому коду осталось приглашений: %{count}"
+        zero: "По этому коду не осталось приглашений."
       comma_seperated_plz: "Вы можете ввести несколько адресов электронной почты через запятую."
       if_they_accept_info: "после согласия с их стороны, они будут добавлены в предложенный вами аспект."
       invite_someone_to_join: "Пригласить кого-либо в Диаспору!"
       language: "Язык"
+      paste_link: "Поделитесь этой ссылкой с друзьями, чтобы пригласить их в Диаспору*."
       personal_message: "Личное сообщение"
       resend: "Ещё раз послать"
       send_an_invitation: "Отправить приглашение"
@@ -396,6 +413,7 @@ ru:
         two: "и %{count} других"
         zero: "и больше никому"
       mark_all_as_read: "Отметить все как прочитанные"
+      mark_unread: "пометить как непрочитанное"
       notifications: "Уведомления"
     liked:
       few: "%{actors} понравилась ваша %{post_link}."
@@ -456,6 +474,7 @@ ru:
       zero: "%{actors} начали делиться с вами."
   notifier:
     a_post_you_shared: "запись."
+    accept_invite: "Примите ваше приглашение в Диаспору*!"
     click_here: "нажмите сюда,"
     comment_on_post:
       reply: "Ответить или посмотреть запись %{name} >"
@@ -464,6 +483,22 @@ ru:
       subject: "Пожалуйста, активируйте ваш новый адрес %{unconfirmed_email}"
     email_sent_by_diaspora: "Это письмо было послано Диаспорой. Если вы не хотите получать подобные письма,"
     hello: "Привет, %{name}!"
+    invite:
+      message: |-
+          Привет!
+
+          Вас пригласили присоединиться к сети Диаспора*!
+
+          Для начала, перейдите по этой ссылке
+
+          %{invite_url}
+          <%= invite_code_url(@invitation_code)%>
+
+
+          С любовью,
+
+          почтовый робот Диаспоры*!
+    invited_you: "%{name} пригласил(а) вас в Диаспору*"
     liked:
       liked: "%{name} понравилась ваша запись"
       view_post: "Посмотреть запись >"
@@ -490,6 +525,8 @@ ru:
   password: "Пароль"
   password_confirmation: "Подтверждение пароля"
   people:
+    add_contact:
+      invited_by: "вас пригласил пользователь"
     add_contact_small:
       add_contact_from_tag: "добавить контакт из метки"
     aspect_list:
@@ -640,6 +677,7 @@ ru:
       password_to_confirm: "(введите ваш текущий пароль для подтверждения изменений)"
       unhappy: "Недовольны?"
       update: "Обновить"
+    invalid_invite: "Это приглашение уже недействительно!"
     new:
       create_my_account: "Создать мой аккаунт!"
       enter_email: "Введите email"

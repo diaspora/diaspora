@@ -40,6 +40,14 @@ pl:
             username:
               invalid: "jest nieprawidłowe. Dozwolone są tylko litery, cyfry i podkreślniki."
               taken: "jest już zajęta."
+  admins:
+    admin_bar:
+      correlations: "Współzależności"
+      pages: "Strony"
+      pod_stats: "Statystyki dla Podu"
+      resque_overview: "Przegląd resque"
+      user_search: "Wyszukiwanie użytkowników"
+      weekly_user_stats: "Tygodniowe statystyki użytkownika"
   ago: "%{time} temu"
   all_aspects: "Wszystkie aspekty"
   application:
