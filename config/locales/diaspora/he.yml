@@ -1,3 +1,4 @@
+# encoding: utf-8
 #   Copyright (c) 2010-2012, Diaspora Inc.  This file is
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
@@ -132,7 +133,7 @@ he:
         content: "ניתן לקשר את השירותים הבאים לדיאספורה:"
         heading: "שירותים מקושרים"
       unfollow_tag: "הפסקת המעקב אחר #%{tag}"
-      welcome_to_diaspora: " !%{name}ברוך הבא לדיאספורה"
+      welcome_to_diaspora: " !%{name} ברוך הבא לדיאספורה"
     many: "%{count} היבטים"
     move_contact:
       error: " %{inspect}שגיאה בהעברת איש הקשר ל  "
@@ -712,6 +713,7 @@ he:
       reshared_via: "שיתף מחדש דרך"
       show_original: "הצגת המקור"
   search: "חיפוש"
+  what_do_you_like_to_find: "מה ברצונך לחפש אנשים/מוצרים/מידע?"
   services:
     create:
       already_authorized: " חשבון %{service_name}כבר אושר ב %{diaspora_id}משתמש עם זיהוי בדיאספורה "

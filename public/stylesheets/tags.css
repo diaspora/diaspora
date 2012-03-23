@@ -1,0 +1,8 @@
+.tags_show .side_stream .stream_element .add_contact {
+  display: inline;
+  float: right;
+  font-size: 10px; }
+  .tags_show .side_stream .stream_element .add_contact .button {
+    padding: 5px 1px 4px 1px;
+    margin-right: 3px;
+    font-size: 10px; }

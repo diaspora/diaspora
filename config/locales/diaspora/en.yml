@@ -33,6 +33,7 @@ en:
   public: "Public"
   limited: "Limited"
   search: "Search"
+  what_do_you_like_to_find: "What to you like to find?"
   nsfw: "NSFW"
   find_people: "Find people or #tags"
   _home: "Home"

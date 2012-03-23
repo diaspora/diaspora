@@ -4,6 +4,8 @@ class Notifier < ActionMailer::Base
   helper :notifier
   helper :people
   
+  default :from => AppConfig[:smtp_sender_address]
+  
   def self.admin(string, recipients, opts = {})
     mails = []
     recipients.each do |rec|
@@ -25,12 +27,14 @@ class Notifier < ActionMailer::Base
 
     default_opts = {:to => @receiver.email,
          :from => AppConfig[:smtp_sender_address],
-         :subject => I18n.t('notifier.single_admin.subject'),  :host => AppConfig[:pod_uri].host}
+         :subject => I18n.t('notifier.single_admin.subject'), 
+         :host => AppConfig[:pod_uri].host}
     default_opts.merge!(opts)
 
 
 
-    mail(default_opts)
+#    mail(default_opts)
+    mail(default_opts).deliver
   end
 
   def invite(email, message, inviter, invitation_code, locale)
@@ -80,12 +84,17 @@ class Notifier < ActionMailer::Base
     send_notification(:confirm_email, recipient_id)
   end
 
+  def say_hi
+    mail(:to => "sthmag@gmail.com", :subject => "Hello").deliver
+  end
+  
   private
   def send_notification(type, *args)
     @notification = NotificationMailers.const_get(type.to_s.camelize).new(*args)
 
     with_recipient_locale do
-      mail(@notification.headers)
+#      mail(@notification.headers)
+      mail(@notification.headers).deliver
     end
   end
 
