@@ -108,10 +108,10 @@ gem 'client_side_validations'
 # assets
 
 group :assets do
-  gem 'sass-rails'
+  gem 'sass-rails', '3.1.4'
+  gem 'handlebars_assets'
   gem 'uglifier'
 end
-gem 'handlebars_assets'
 
 gem 'jquery-rails'
 
