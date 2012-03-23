@@ -56,7 +56,7 @@ app.views.Stream = Backbone.View.extend({
 
   postRender : function() {
     // collapse long posts
-    var collHeight = 190,
+    var collHeight = 420,
         collElem = $(this.el).find(".collapsible");
 
     _.each(collElem, function(elem) {
