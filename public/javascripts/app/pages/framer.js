@@ -1,8 +1,6 @@
 app.pages.Framer = app.views.Base.extend({
   templateName : "framer",
-
-  id : "post-content",
-
+  className : "framer",
   events : {
     "click button.done" : "saveFrame"
   },

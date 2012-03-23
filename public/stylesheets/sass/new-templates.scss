@@ -226,7 +226,6 @@ $pane-width: 420px;
 
 .photo-fill {
   @include background-cover();
-  z-index : -5000; //so the framer controls don't get lost
   position: absolute;
   top: 0;
   left: 0;
@@ -250,7 +249,6 @@ $pane-width: 420px;
 }
 
 .rich-media {
-  z-index : -5000; //so the framer controls don't get lost
   position: absolute;
   height: 100%;
   width: 100%;
@@ -800,8 +798,14 @@ text-rendering: optimizelegibility;
   width: 100%;
 }
 
-#post-content {
-  button {
+.framer { //make this look way more glamourous, just providing structure.
+  .template-picker {
     position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding : 20px;
+    background-color: #f0f0f0;
+    border-top: 1px solid #ccc;
   }
 }
