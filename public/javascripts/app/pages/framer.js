@@ -33,7 +33,7 @@ app.pages.Framer = app.views.Base.extend({
 
     this._postView.feedbackView = new Backbone.View
 
-    this.model.authorIsNotCurrentUser = function(){ return false }
+    this.model.authorIsCurrentUser = function(){ return true }
 
     return this._postView
   },
