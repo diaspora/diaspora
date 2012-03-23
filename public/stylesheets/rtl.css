@@ -65,8 +65,8 @@ footer ul#footer_nav {
   padding-left: 0; }
 
 #publisher_textarea_wrapper textarea {
-  left: auto;
   direction: rtl;
+  left: auto;
 }
 
 #publisher_textarea_wrapper #file-upload, #publisher_textarea_wrapper #hide_publisher, #facebox .close {
