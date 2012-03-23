@@ -40,6 +40,14 @@ hu:
             username:
               invalid: "érvénytelen. Csak betűk, számok és aláhúzás használható."
               taken: "már foglalt."
+  admins:
+    admin_bar:
+      correlations: "Viszonyok"
+      pages: "Oldalak"
+      pod_stats: "Kiszolgáló statisztika"
+      resque_overview: "Resque áttekintés"
+      user_search: "Felhasználó keresés"
+      weekly_user_stats: "Heti statisztika"
   ago: "ezelőtt"
   all_aspects: "Összes csoport"
   application:
@@ -402,6 +410,7 @@ hu:
         two: "és %{count} másik"
         zero: "és senki más"
       mark_all_as_read: "Mind megjelölése olvasottként"
+      mark_unread: "olvasatlannak jelöl"
       notifications: "Értesítések"
     liked:
       few: "%{actors} kedveli a %{post_link}edet."

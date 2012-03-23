@@ -28,6 +28,7 @@ ka:
       hide: "კომენტარების დამალვა"
       show: "ყველა კომენტარის ჩვენება"
     confirm_dialog: "დარწმუნებული ხართ?"
+    delete: "წაშლა"
     failed_to_like: "მოწონება ჩაიშალა!"
     failed_to_post_message: "შეტყობინების გამოცხადება ჩაიშალა!"
     getting_started:
@@ -36,9 +37,23 @@ ka:
       no_tags: "ჰეი, თქვენ არ მიყვებით არცერთ ტეგს! მაინც გსურთ გაგრძელება?"
       preparing_your_stream: "თქვენი პერსონალიზებული ნაკადი მზადდება..."
     header:
+      admin: "ადმინისტრატორი"
+      contacts: "კონტაქტები"
+      home: "სახლი"
+      log_out: "გამოსვლა"
+      mark_all_as_read: "ყველას წაკითხულად მონიშვნა"
+      messages: "წერილები"
+      notifications: "შეტყობინებები"
+      profile: "პროფილი"
+      recent_notifications: "ბოლო შეტყობინებები"
       search: "Find people or #tags"
+      settings: "პარამეტრები"
+      view_all: "ყველას ჩვენება"
+    ignore: "იგნორირება"
     infinite_scroll:
       no_more: "მეტი პოსტი არ არის."
+    my_activity: "ჩემი აქტივობა"
+    my_stream: "ნაკადი"
     photo_uploader:
       looking_good: "OMG, ძალიან კარგად გამოიყურები!"
     publisher:
@@ -47,9 +62,14 @@ ka:
       public: "საჯარო - თქვენს პოსტს დაინახავს ყველა და მას მოძებნილი იქნებიან საძიბო სისტემებით"
     reshares:
       duplicate: "ასეთი მაგარია?  თქვენ უკვე გააზიარეთ ეს პოსტი!"
-    search_for: "ძებნა {{name}}"
+    search_for: "<%= name %>-ს მოძებნა"
     show_more: "მეტის ჩვენება"
     stream:
+      comment: "კომენტარი"
+      follow: "გაყოლა"
+      hide: "დამალვა"
+      hide_nsfw_posts: "#nsfw პოსტების დამალვა"
+      like: "მოწონება"
       likes:
         few: "<%= count %> Likes"
         many: "<%= count %> Likes"
@@ -57,6 +77,7 @@ ka:
         other: "<%= count %> Likes"
         two: "<%= count %> Likes"
         zero: "<%= count %> Likes"
+      limited: "შეზღუდული"
       more_comments:
         few: "Show <%= count %> more comments"
         many: "Show <%= count %> more comments"
@@ -64,6 +85,9 @@ ka:
         other: "Show <%= count %> more comments"
         two: "Show <%= count %> more comments"
         zero: "Show <%= count %> more comments"
+      original_post_deleted: "ავტორმა წაშალა ორიგინალი პოსტი."
+      public: "საჯარო"
+      reshare: "ხელახლა გაზიარება"
       reshares:
         few: "<%= count %> Reshares"
         many: "<%= count %> Reshares"
@@ -71,6 +95,10 @@ ka:
         other: "<%= count %> Reshares"
         two: "<%= count %> Reshares"
         zero: "<%= count %> Reshares"
+      show_nsfw_post: "პოსტის ჩვენება"
+      show_nsfw_posts: "ყველას ჩვენება"
+      unfollow: "გაყოლის შეწყვეტა"
+      unlike: "არ მოწონება"
     tags:
       wasnt_that_interesting: "კარგი, მე ვფიქრობ რომ #{{tagName}} არც ისე საინტერესო იყო..."
     timeago:
@@ -82,9 +110,9 @@ ka:
       minutes: "%d წუთი"
       month: "დაახლოებით ერთი თვე"
       months: "%d თვე"
-      prefixAgo: "javascripts:timeago:prefixAgo"
-      prefixFromNow: "javascripts:timeago:prefixFromNow"
-      seconds: "წუთზე ნაკლები"
+      prefixAgo: ""
+      prefixFromNow: ""
+      seconds: "წუთზე ნაკლების"
       suffixAgo: "წინ"
       suffixFromNow: "ამიერიდან"
       year: "დაახლოებით ერთი წელი"

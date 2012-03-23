@@ -68,6 +68,7 @@ ar:
       select_all: "اختر الكل"
     aspect_stream:
       stay_updated: "إبقَ على اطلاع"
+      stay_updated_explanation: "تيّارك الرئيس مَمْلُوءٌ بجميع جهات إتصالك و الوسوم التي تتابع و منشورات من بعض أعضاء المجتمع المبدعين."
     contacts_not_visible: "رؤية عضو لآخر في هاته الفئة غير متاحة"
     contacts_visible: "رؤية عضو لآخر في هاته الفئة متاحة"
     create:
@@ -140,6 +141,7 @@ ar:
       name: "إسم"
     no_contacts_message:
       community_spotlight: "أضواء على المجتمع"
+      or_spotlight: "أو يمكنك المشاركة مع %{link}"
       try_adding_some_more_contacts: "إبحث عن (أنظر بالأعلى) أو أُدعُ (أُنظر يمينا) أعضاءً جددا."
       you_should_add_some_more_contacts: "يُستحسن إضافة مزيد من الأعضاء"
     no_posts_message:
@@ -168,6 +170,9 @@ ar:
       no_applications: "لم تُسجِّل أي تطبيقات بعد."
       revoke_access: "إلغاء الوصول"
   back: "عودة"
+  blocks:
+    create:
+      success: "حسنا ، لن ترى ذلك المُستخدم في تيّارك مرة أخرى. #silencio!"
   bookmarklet:
     explanation: "%{link} انشر في دياسبرا من أي مكان بحفظ الرابط في مفضلتك/علاماتك"
     explanation_link_text: "هذا الرابط"
@@ -192,6 +197,7 @@ ar:
     index:
       add_a_new_aspect: "أضف فئة جديدة"
       add_to_aspect: "Add contacts to %{name}"
+      add_to_aspect_link: "أضف جهات الاتصال إلى %{name}"
       all_contacts: "كل جهات الاتصال"
       many_people_are_you_sure: "هل أنت متأكد من بدأ هذه المحادثة الخاصة مع أكثر من %{suggested_limit} جهات اتصال? من الأفضل إرسال مشاركة لهذه الفئة لتتصل بهم."
       my_contacts: "جهات الاتصال الخاصة بي"
@@ -297,6 +303,7 @@ ar:
       to: "إلى"
   layouts:
     application:
+      back_to_top: "عُد إلى الاعلى"
       powered_by: "بدعم DIASPORA*"
       public_feed: "ملقم دياسبرا العام لـ %{name}"
       toggle: "حَوِّل لموقع الهواتف المحمولة"
@@ -482,6 +489,7 @@ ar:
       results_for: " نتائج من أجل %{params}"
     index:
       couldnt_find_them_send_invite: "لم تجدهم؟ أرسل دعوة"
+      looking_for: "تبحث عن مشاركات مَوسومة بـ %{tag_link} ؟"
       no_one_found: "...ولم يعثر على أحد"
       no_results: "يجب تحديد شيء للبحث عنه"
       results_for: "نتائج البحث عن"
@@ -505,6 +513,7 @@ ar:
     show:
       does_not_exist: "هذا العضو غير موجود"
       has_not_shared_with_you_yet: "%{name} لمْ يشارك أي مشاركة معك بعد"
+      ignoring: "أنت تتجاهل جميع المشاركات من %{name}"
       incoming_request: "%{name} يريد المشاركة معك"
       mention: "إشارة"
       message: "رسالة"
@@ -568,6 +577,7 @@ ar:
         other: "%{count} photos by %{author}"
         two: "Two photos by %{author}"
         zero: "No photos by %{author}"
+      reshare_by: "نشرها %{author}"
   previous: "السابق"
   privacy: "خصوصية"
   privacy_policy: "سياسة الخصوصية"
@@ -659,6 +669,7 @@ ar:
   search: "بحث"
   services:
     create:
+      failure: "فشل التوثيق"
       success: "تمت المصادقة بنجاح"
     destroy:
       success: "تم مسح المصادقة بنجاح"
@@ -684,6 +695,9 @@ ar:
       not_on_diaspora: "ليس بعد على دياسبرا"
       resend: "إعادة إرسال"
   settings: "إعدادات"
+  share_visibilites:
+    update:
+      post_hidden_and_muted: "مشاركة %{name} تم إخفائها والتنبيهات أوقِفت"
   shared:
     add_contact:
       add_new_contact: "أضف جهة اتصال جديدة"

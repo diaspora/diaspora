@@ -376,6 +376,7 @@ es-MX:
         other: "y %{count} más"
         zero: "y nadie más"
       mark_all_as_read: "Marcar todo como leído"
+      mark_unread: "Marcar como no leído"
       notifications: "Notificaciones"
     liked:
       one: "A %{actors} le gustó tu %{post_link}."
@@ -648,7 +649,7 @@ es-MX:
         zero: "Compartir"
       reshare_confirmation: "¿Compartir la publicación de %{author}?"
       reshare_original: "Compartir el original"
-      reshared_via: "compartido a través de"
+      reshared_via: "compartido vía"
       show_original: "Mostrar el original"
   search: "Buscar"
   services:

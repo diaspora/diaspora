@@ -49,10 +49,13 @@ el:
       search: "Find people or #tags"
       settings: "Ρυθμίσεις"
       view_all: "Προβολή όλων"
+    ignore: "Αγνόησε:"
     infinite_scroll:
       no_more: "Δεν υπάρχουν άλλες δημοσιεύσεις."
     my_activity: "Η δραστηριότητα μου"
     my_stream: "Ροή"
+    people:
+      not_found: "και κανείς δεν βρέθηκε..."
     photo_uploader:
       looking_good: "Ναι! Σκίζεις!"
     publisher:
@@ -67,6 +70,7 @@ el:
       comment: "Σχόλιο"
       follow: "Ακολουθήστε"
       hide: "Απόκρυψη"
+      hide_nsfw_posts: "Απόκριψη των \"μη ασφαλών για εργασία\" δημοσιεύσεων"
       like: "Μου αρέσει"
       likes:
         few: "<%= count %> Likes"
@@ -83,7 +87,9 @@ el:
         other: "Show <%= count %> more comments"
         two: "Show <%= count %> more comments"
         zero: "Show <%= count %> more comments"
+      original_post_deleted: "Η αρχική δημοσίευση διαγράφτηκε από τον δημιουργό της."
       public: "Δημόσιο"
+      reshare: "Επαναμοιράσου"
       reshares:
         few: "<%= count %> Reshares"
         many: "<%= count %> Reshares"
@@ -115,3 +121,7 @@ el:
     videos:
       unknown: "Άγνωστος τύπος βίντεο"
       watch: "Δείτε το βίντεο στο {{provider}}"
+    viewer:
+      like: "Μου αρέσει"
+      reshare: "Επαναμοιράσου"
+      unlike: "Δεν μου αρέσει"

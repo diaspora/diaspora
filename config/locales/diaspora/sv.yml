@@ -403,6 +403,7 @@ sv:
         two: "och två till"
         zero: "och ingen mer"
       mark_all_as_read: "Markera alla som lästa"
+      mark_unread: "Markera som oläst"
       notifications: "Notiser"
     liked:
       few: "%{actors} personer gillar din %{post_link}."
@@ -463,7 +464,7 @@ sv:
       zero: "Ingen delar ännu något med dig."
   notifier:
     a_post_you_shared: "ett inlägg."
-    accept_invite: "Godtag din Diaspora*-inbjudan."
+    accept_invite: "Godtag din Diaspora*-inbjudan!"
     click_here: "klicka här"
     comment_on_post:
       reply: "Svara eller se %{name}s inlägg >"

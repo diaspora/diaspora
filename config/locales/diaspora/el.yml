@@ -40,6 +40,11 @@ el:
             username:
               invalid: "μη έγκυρο. Επιτρέπονται μόνο γράμματα, νούμερα και \"κάτω παύλες\" (_)"
               taken: "είναι ήδη σε χρήση."
+  admins:
+    admin_bar:
+      pages: "Σελίδες"
+      user_search: "Αναζήτηση χρηστών"
+      weekly_user_stats: "Εβδομαδιαία  στατιστηκά χρηστών"
   ago: "%{time} πριν"
   all_aspects: "Όλες οι πτυχές"
   application:
@@ -113,6 +118,7 @@ el:
         here_to_help: "Η κοινότητα του Diaspora είναι εδώ για να σε βοηθήσει!"
         need_help: "Χρειάζεστε βοήθεια;"
         tag_bug: "σφάλμα"
+        tag_feature: "Λειτουργία"
         tag_question: "ερώτηση"
         tutorials_wiki_and_forum: "%{tutorial} & %{wiki} & %{forum}: Οδηγοί από την κοινότητα του Diaspora, how-to, και νέα"
       introduce_yourself: "Αυτή είναι η Ροή σας. Μπείτε και συστηθείτε."
@@ -179,6 +185,7 @@ el:
   bookmarklet:
     explanation: "Δημοσιεύστε στο Diaspora από οπουδήποτε προσθέτοντας %{link}."
     explanation_link_text: "αυτόν τον σύνδεσμο"
+    heading: "Σελιδοδείκτης"
     post_something: "Αναρτήστε κάτι στο Diaspora"
     post_success: "Αναρτήθηκε! Κλείνει!"
   cancel: "Ακύρωση"
@@ -201,10 +208,12 @@ el:
       add_to_aspect: "Προσθέστε επαφές στο %{name}"
       add_to_aspect_link: "Προσθέστε επαφές στο %{name}"
       all_contacts: "Όλες οι Επαφές"
-      community_spotlight: "Αναρτήσεις Κοινότητας"
+      community_spotlight: "Αναρτήσεις κοινότητας"
       many_people_are_you_sure: "Είστε σίγουρος/η ότι θέλετε να ξεκινήσετε μια ιδιωτική συνομιλία με περισσότερες από %{suggested_limit} επαφές? Η δημοσίευση σε αυτή την πτυχή ίσως είναι ένας καλύτερος τρόπος για να επικοινωνήσετε μαζί τους."
       my_contacts: "Οι Επαφές μου"
       no_contacts: "Φαίνεται πως χρειάζεται να προσθέσετε μερικές επαφές! "
+      no_contacts_message: "Δες Και %{community_spotlight}"
+      no_contacts_message_with_aspect: "Δες Και %{community_spotlight} ή %{add_to_aspect_link}"
       only_sharing_with_me: "Μοιράζονται μόνο με εμένα"
       remove_person_from_aspect: "Μετακίνηση του χρήστη %{person_name} από την πτυχή \"%{aspect_name}\""
       start_a_conversation: "Ξεκινήστε μια συζήτηση"
@@ -280,6 +289,8 @@ el:
       simplicity_explanation: "Το Diaspora σας επιτρέπει να μοιράζεστε εύκολα και διάφανα – και αυτό ισχύει και για την ιδιωτικότητα σας. Από τη φύση του ιδιωτικό, το Diaspora δεν έχει σελίδες επί σελίδων με ρυθμίσεις και επιλογές ώστε να διατηρείτε το προφίλ σας ασφαλές."
       tagline_first_half: "Μοιραστείτε ό,τι θέλετε,"
       tagline_second_half: "με όποιον θέλετε."
+  invitation_codes:
+    excited: "Ο/Η %{name} χαίρεται που σε βλέπει εδώ."
   invitations:
     a_facebook_user: "Ένας χρήστης του Facebook"
     check_token:
@@ -297,6 +308,11 @@ el:
     new:
       already_invited: "Τα παρακάτω άτομα δεν αποδέχτηκαν την πρόσκληση σας:"
       aspect: "Πτυχή"
+      check_out_diaspora: "Δοκίμασε το Diaspora!"
+      codes_left:
+        one: "Μία πρόσκληση απομένει γι' αυτό τον κωδικό"
+        other: "%{count} προσκλήσεις απομένουν γι' αυτό τον κωδικό"
+        zero: "Δεν απομένουν προσκλήσεις γι' αυτό τον κωδικό"
       comma_seperated_plz: "Μπορείτε να εισάγετε πολλαπλές διευθύνσεις ηλεκτρονικού ταχυδρομείου διαχωρισμένες με κόμμα."
       if_they_accept_info: "αν δεχτούν, θα προστεθούν στην πτυχή που τους πρασκαλέσατε. "
       invite_someone_to_join: "Προσκαλέστε κάποιον στο Diaspora!"
@@ -308,6 +324,7 @@ el:
       to: "Στον"
   layouts:
     application:
+      back_to_top: "Πίσω στην αρχή"
       powered_by: "POWERED BY DIASPORA*"
       public_feed: "Δημόσια ανατροφοδότηση (feed) του Diaspora για τον χρήστη %{name}"
       toggle: "εναλλαγή σε κινητό"
@@ -315,7 +332,7 @@ el:
       your_aspects: "οι πτυχές σας"
     header:
       admin: "διαχειριστής"
-      blog: "blog"
+      blog: "Iστολόγιo"
       code: "κώδικας"
       login: "Είσοδος"
       logout: "Αποσύνδεση"
@@ -390,6 +407,7 @@ el:
         two: "και %{count} άλλοι"
         zero: "και κανένας άλλος"
       mark_all_as_read: "Σήμανση όλων ως διαβασμένα"
+      mark_unread: "Σήμανε ως μη διαβασμένο"
       notifications: "Ειδοποιήσεις"
     liked:
       few: "Η %{post_link} άρεσε στους χρήστες %{actors}."
@@ -450,6 +468,7 @@ el:
       zero: "Ο χρήστης %{actors} άρχισε να διαμοιράζεται μαζί σας."
   notifier:
     a_post_you_shared: "μια ανάρτηση."
+    accept_invite: "Αποδέξου την πρόσκληση στο Diaspora*!"
     click_here: "πατήστε εδώ"
     comment_on_post:
       reply: "Απαντήστε ή δείτε την ανάρτηση του χρήστη %{name} >"
@@ -458,6 +477,22 @@ el:
       subject: "Παρακαλούμε ενεργοποιήστε την καινούρια διεύθυνση ηλεκτρονικού ταχυδρομείου %{unconfirmed_email}"
     email_sent_by_diaspora: "Αυτό το μήνυμα εστάλη από το Diaspora. Εάν δεν θέλετε να λαμβάνετε πλεόν μηνύματα σαν κι αυτό,"
     hello: "Γειά σου %{name}!"
+    invite:
+      message: |-
+          Γειά Σου!
+
+          Έχεις προσκληθεί  στο Diapora*!
+
+          Κάνε κλικ στο σύνδεσμο για να ξεκινήσεις
+
+          %{invite_url}
+          <%= invite_code_url(@invitation_code)%>
+
+
+          Με Αγάπη,
+
+          Το ρομπότ αυτόματης αποστολής e-mail του Diaspora*!
+    invited_you: "O/H %{name} σε προσκάλεσε στο Diaspora*"
     liked:
       liked: "στο χρήστη %{name} αρέσει η δημοσίευση σας"
       view_post: "Δείτε την ανάρτηση >"
@@ -484,6 +519,8 @@ el:
   password: "Κωδικός"
   password_confirmation: "Επαλήθευση κωδικού"
   people:
+    add_contact:
+      invited_by: "προσκλήθηκες από"
     add_contact_small:
       add_contact_from_tag: "προσθήκη επαφής από ετικέτα"
     aspect_list:
@@ -498,6 +535,7 @@ el:
       no_one_found: "...κανένας δεν βρέθηκε. "
       no_results: "Επ! Χρειάζεται να ψάξετε για κάτι."
       results_for: "αποτελέσματα αναζήτησης για"
+      searching: "αναζητηση,παρακαλώ περιμένετε..."
     many: "%{count} άτομα"
     one: "1 άτομο"
     other: "%{count} άτομα"
@@ -576,7 +614,7 @@ el:
     show:
       destroy: "Διαγραφή"
       not_found: "Λυπούμαστε, δεν καταφέραμε να βρούμε αυτή την ανάρτηση."
-      permalink: "permalink"
+      permalink: "Μόνιμος σύνδεσμος:"
       photos_by:
         few: "%{count} photos by %{author}"
         many: "%{count} photos by %{author}"
@@ -584,6 +622,7 @@ el:
         other: "%{count} photos by %{author}"
         two: "Two photos by %{author}"
         zero: "No photos by %{author}"
+      reshare_by: "Επαναμοίραση από %{author}"
   previous: "προηγούμενο"
   privacy: "Απόρρητο"
   privacy_policy: "Πολιτική Ιδιωτικού Απορρήτου"
@@ -595,6 +634,8 @@ el:
       first_name: "Όνομα"
       last_name: "Επώνυμο"
       update_profile: "Ενημέρωση Προφίλ"
+      you_are_nsfw: "Σήμανες τον εαυτό σου ως μη ασφαλή για εργασία,το περιεχόμενο σου δεν θα εμφανίζεται σε άτομα που έχουν επιλέξει να μην βλέπουν ροές αμφιλεγόμενου περιεχομένου."
+      you_are_safe_for_work: "Σήμανες τον εαυτό σου ως μη ασφαλή για εργασία,αυτό σημαίνει πως συμφωνείς ότι το περιεχόμενο που θα δημοσιεύεις θα συμφωνεί με τις οδηγίες της κοινότητας"
       your_bio: "To βιογραφικό σας"
       your_birthday: "Τα γενέθλιά σας"
       your_gender: "Tο φύλο σας"
@@ -627,6 +668,7 @@ el:
       password_to_confirm: "(χρειαζόμαστε τον τρέχοντα κωδικό σας για να επιβεβαιώσετε τις αλλαγές σας)"
       unhappy: "Δεν είσαι ικανοποιημένος/η;"
       update: "Ενημέρωση"
+    invalid_invite: "Ο σύνδεσμος που έδωσες δεν είναι πια έγκυρος!"
     new:
       create_my_account: "Δημιουργία λογαριασμού!"
       enter_email: "Εισάγετε μια διεύθυνση ηλεκτρονικού ταχυδρομείου"
@@ -826,6 +868,7 @@ el:
     followed_tags_stream: "#Ετικέτες που ακολουθείτε"
     like_stream:
       contacts_title: "Χρήστες των οποίων αναρτήσεις σας αρέσουν"
+      title: "Αυτή η ροή μου αρέσει"
     mentioned_stream: "@Αναφορές"
     mentions:
       contacts_title: "Άτομα που σας έχουν αναφέρει"
@@ -883,11 +926,13 @@ el:
       wrong_password: "Ο κωδικός που εισάγατε δεν ταιριάζει με τον τωρινό κωδικό σας."
     edit:
       also_commented: "...κάποιος επίσης σχολίασε σε δημοσίευση επαφής σας;"
+      auto_follow_aspect: "Πτυχή για αυτόματη ακολούθηση"
       auto_follow_back: "Automatically follow back if a someone follows you"
       change: "Αλλαγή"
       change_email: "Αλλαγή διεύθυνσης ηλεκτρονικού ταχυδρομείου"
       change_language: "Αλλαγή Γλώσσας"
       change_password: "Αλλαγή κωδικού πρόσβασης"
+      character_minimum_expl: "πρέπει να είναι τουλάχιστον έξι χαρακτήρες"
       close_account:
         dont_go: "Εη, σε παρακαλώ μη φεύγεις!"
         if_you_want_this: "Εάν πραγματικά αυτό θες, γράψε το κωδικό σου παρακάτω και πάτα \"Κλείσιμο Λογαριασμού\""
@@ -905,6 +950,7 @@ el:
       edit_account: "Επεξεργασία λογαριασμού"
       email_awaiting_confirmation: "Σας στείλαμε έναν σύνδεσμο ενεργοποίησης στο %{unconfirmed_email}. Μέχρι να ακολουθήσετε αυτόν τον σύνδεσμο και να ενεργοποιήσετε τη νέα διεύθυνση, θα συνεχίσουμε να χρησιμοποιούμε την αρχική σας %{email}."
       export_data: "Εξαγωγή Δεδομένων"
+      following: "Ρυθμίσεις Ακολούθησης"
       getting_started: "Προτιμήσεις Νέου Χρήστη"
       liked: "...σε κάποιον αρέσει η δημοσίευση σας;"
       mentioned: "...επισημανθήκατε σε μία φωτογραφία?"
@@ -945,6 +991,8 @@ el:
       does_not_exist: "Ο χρήστης %{username} δεν υπάρχει!"
     update:
       email_notifications_changed: "Αλλαγή ειδοποιήσεων ηλεκτρονικού ταχυδρομείου,επιτυχής"
+      follow_settings_changed: "Οι ρυθμίσεις ακολούθησης έχουν αλλάξει"
+      follow_settings_not_changed: "Η αλλαγή ρυθμίσεων ακολούθησης απέτυχε."
       language_changed: "Αλλαγή Γλώσσας επιτυχής"
       language_not_changed: "Η αλλαγή γλώσσας απέτυχε"
       password_changed: "Ο κωδικός σας άλλαξε. Μπορείτε τώρα να συνδεθείτε με τον νέο κωδικό. "

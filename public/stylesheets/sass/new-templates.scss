@@ -714,11 +714,14 @@ text-rendering: optimizelegibility;
 #post-content {
   display: table;
 
-  padding: 70px 10%;
 
   position: absolute;
   height: 100%;
   width: 100%;
+
+  .post {
+    padding: 70px 10%;
+  }
 
   img {
     @include photo-shadow();

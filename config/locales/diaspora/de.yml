@@ -40,6 +40,11 @@ de:
             username:
               invalid: "ist ungültig. Wir erlauben nur Buchstaben, Zahlen und Unterstriche."
               taken: "ist schon vergeben."
+  admins:
+    admin_bar:
+      pod_stats: "Pod Statistik"
+      user_search: "Benutzer Suche"
+      weekly_user_stats: "Wöchentliche Benutzerstatistik"
   ago: "Vor %{time}"
   all_aspects: "Alle Aspekte"
   application:
@@ -395,6 +400,7 @@ de:
         two: "und %{count} andere"
         zero: "und niemand sonst"
       mark_all_as_read: "Markiere alle als gelesen"
+      mark_unread: "als ungelesen markieren"
       notifications: "Benachrichtigungen"
     liked:
       few: "%{actors} gefällt dein %{post_link}."
@@ -455,6 +461,7 @@ de:
       zero: "Niemand hat angefangen mit dir zu teilen."
   notifier:
     a_post_you_shared: "ein Beitrag."
+    accept_invite: "Bestätige Deine Diaspora* Einladung!"
     click_here: "Hier klicken"
     comment_on_post:
       reply: "Antworte oder schau dir %{name}s Beitrag an >"
@@ -463,6 +470,22 @@ de:
       subject: "Bitte aktiviere deine neue E-Mail-Adresse %{unconfirmed_email}"
     email_sent_by_diaspora: "Diese E-Mail wurde von Diaspora verschickt. Falls du solche E-Mails nicht mehr erhalten willst,"
     hello: "Hallo %{name}!"
+    invite:
+      message: |-
+          Hallo!
+
+          Du wurdest eingeladen Diaspora* beizutreten!
+
+          Klick auf diesen Link um loszulegen
+
+          %{invite_url}
+          <%= invite_code_url(@invitation_code)%>
+
+
+          Alles Liebe,
+
+          der Diaspora* E-Mail Roboter!
+    invited_you: "%{name} hat Dich zu Diaspora* eingeladen"
     liked:
       liked: "%{name} gefällt dein Beitrag"
       view_post: "Beitrag betrachten >"
@@ -489,6 +512,8 @@ de:
   password: "Kennwort"
   password_confirmation: "Kennwort-Bestätigung"
   people:
+    add_contact:
+      invited_by: "Du wurdest eingeladen von"
     add_contact_small:
       add_contact_from_tag: "Füge Kontakt über einen Hashtag hinzu"
     aspect_list:
@@ -503,6 +528,7 @@ de:
       no_one_found: "… und niemand wurde gefunden."
       no_results: "Hey! Du musst nach etwas suchen."
       results_for: "Suchergebnisse für"
+      searching: "suche, bitte warten..."
     last_post: "Letzter Beitrag"
     many: "%{count} Personen"
     one: "einer Person"
@@ -901,6 +927,7 @@ de:
       change_email: "E-Mail-Adresse ändern"
       change_language: "Sprache ändern"
       change_password: "Kennwort ändern"
+      character_minimum_expl: "bitte mindestens sechs zeichen eingeben"
       close_account:
         dont_go: "Hey, bitte geh nicht!"
         if_you_want_this: "Wenn du das wirklich möchtest, gib dein Kennwort ein und klicke auf 'Konto schließen'"
@@ -913,6 +940,7 @@ de:
       close_account_text: "Konto schließen"
       comment_on_post: "… jemand deinen Beitrag kommentiert?"
       current_password: "Derzeitiges Kennwort"
+      current_password_expl: "das mit dem Du dich anmeldest..."
       download_photos: "Meine Fotos herunterladen"
       download_xml: "Daten herunterladen (XML)"
       edit_account: "Konto bearbeiten"
