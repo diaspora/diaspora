@@ -51,6 +51,10 @@
         .container{:style => "position: relative;"}
           = link_to(image_tag('header-logo2x.png', :height => 40, :width => 40, :id => 'header_title'), stream_path)
           - if user_signed_in?
+            #header-nav
+              .activity-nav
+                = link_to(t('.my_activity'), activity_stream_path)
+            
             #nav_badges
               .badge{:id => "notification_badge"}            
                 = link_to(image_tag('icons/notifications_grey.png', :height => 16, :width => 16, :id => 'notification-flag'), notifications_path)
