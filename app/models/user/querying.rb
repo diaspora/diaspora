@@ -100,6 +100,11 @@ module User::Querying
     contact_for_person_id(person.id)
   end
 
+  def receiving_from(person)
+    return nil unless person
+    receiving_from_person_id(person.id)
+  end
+
   def aspects_with_shareable(base_class_name_or_class, shareable_id)
     base_class_name = base_class_name_or_class
     base_class_name = base_class_name_or_class.base_class.to_s if base_class_name_or_class.is_a?(Class)
@@ -108,6 +113,10 @@ module User::Querying
 
   def contact_for_person_id(person_id)
     Contact.where(:user_id => self.id, :person_id => person_id).includes(:person => :profile).first
+  end
+
+  def receiving_from_person_id(person_id)
+    Contact.where(:user_id => self.id, :person_id => person_id, :receiving => true).includes(:person => :profile).first
   end
 
   # @param [Person] person
