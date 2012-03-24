@@ -12,7 +12,7 @@ a {
 
 body {
   background: {
-    image: url('/assets/hatched-bg.jpg');
+    image: image-url('hatched-bg.jpg');
     position: fixed;
     /* scale background image down for iOS retina display */
     size: 200px;
@@ -276,7 +276,7 @@ body {
   @include box-shadow(0,1px,2px,#333);
 
   background: {
-    image: url("/assets/header-bg-long.jpg");
+    image: image-url("header-bg-long.jpg");
   }
 
   width: 100%;
@@ -377,7 +377,7 @@ footer {
         right: 14px;
       }
       background: {
-        image: url("/assets/icons/arrow_down_small.png");
+        image: image-url("icons/arrow_down_small.png");
         position: center right;
         repeat: no-repeat;
       }
@@ -460,28 +460,28 @@ footer {
     left: 5px; };
 
   &.loading {
-    background-image: url("/assets/mobile-spinner.gif");
+    background-image: image-url("mobile-spinner.gif");
   }
 }
 
 .reshare_action {
-  background-image: url("/assets/icons/reshare_mobile.png");
+  background-image: image-url("icons/reshare_mobile.png");
   &.active {
-    background-image: url("/assets/icons/reshare_mobile_active.png");
+    background-image: image-url("icons/reshare_mobile_active.png");
   }
 }
 
 .like_action {
-  background-image: url("/assets/icons/heart_mobile_grey.png");
+  background-image: image-url("icons/heart_mobile_grey.png");
   &.active {
-    background-image: url("/assets/icons/heart_mobile_red.png");
+    background-image: image-url("icons/heart_mobile_red.png");
   }
 }
 
 .comment_action.image_link {
-  background-image: url("/assets/icons/pencil_mobile_grey_active.png");
+  background-image: image-url("icons/pencil_mobile_grey_active.png");
   &.inactive {
-    background-image: url("/assets/icons/pencil_mobile_grey.png");
+    background-image: image-url("icons/pencil_mobile_grey.png");
   }
 }
 
