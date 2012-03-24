@@ -23,13 +23,14 @@
       });
 
       // process links
-      var linkRegex = /(\[.*\]:\s)?(<|\()((https?|ftp):[^'">\s]+)(>|\))/gi;
+      var linkRegex = /(\[.*\]:\s)?(<|\()(((https?|ftp):\/{1,3})([^'">\s]+))(>|\))/gi;
       text = text.replace(linkRegex, function() {
-        var unicodeUrl = arguments[3];
-        var asciiUrl = punycode.toASCII(unicodeUrl);
+        var protocol = arguments[4];
+        var unicodeUrl = arguments[6];
+        var asciiUrl = protocol+punycode.toASCII(unicodeUrl);
         if(arguments[1] == "") { // inline link
-          if(arguments[2] == "<") return "["+unicodeUrl+"]("+asciiUrl+")"; // without link text
-          else return arguments[2]+asciiUrl+arguments[5]; // with link text
+          if(arguments[2] == "<") return "["+protocol+unicodeUrl+"]("+asciiUrl+")"; // without link text
+          else return arguments[2]+asciiUrl+arguments[7]; // with link text
         } else { // reference style link
           return arguments[1]+asciiUrl;
         }

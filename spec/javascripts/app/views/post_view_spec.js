@@ -171,8 +171,18 @@ describe("app.views.Post", function(){
         var view = new app.views.Post({model: this.statusMessage}).render();
 
         expect($(view.el).html()).not.toContain(this.evilUrl);
+        expect($(view.el).html()).toContain(this.asciiUrl);
       });
-    });
 
+      it("correctly handles images with non-ascii urls", function() {
+        var postContent = "![logo](http://bündnis-für-krankenhäuser.de/wp-content/uploads/2011/11/cropped-logohp.jpg)";
+        var niceImg = '"http://xn--bndnis-fr-krankenhuser-i5b27cha.de/wp-content/uploads/2011/11/cropped-logohp.jpg"';
+        this.statusMessage.set({text: postContent});
+        var view = new app.views.Post({model: this.statusMessage}).render();
+
+        expect($(view.el).html()).toContain(niceImg);
+      });
+
+    });
   })
 });
