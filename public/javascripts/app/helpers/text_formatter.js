@@ -15,18 +15,27 @@
 
     // punycode non-ascii chars in urls
     converter.hooks.chain("preConversion", function(text) {
-      // remove < > around markdown-style urls
-      var mdUrlRegex = /<((https?|ftp):[^'">\s]+)>/gi;
-      text = text.replace(mdUrlRegex, function(wholematch, m1) {
-        return m1;
+
+      // add < > around plain urls, effectively making them "autolinks"
+      var urlRegex = /(^|\s)\b((?:[a-z][\w-]+:(?:\/{1,3}|[a-z0-9%])|www\d{0,3}[.]|[a-z0-9.\-]+[.][a-z]{2,4}\/)(?:[^\s()<>]+|\(([^\s()<>]+|(\([^\s()<>]+\)))*\))+(?:\(([^\s()<>]+|(\([^\s()<>]+\)))*\)|[^\s`!()\[\]{};:'".,<>?«»“”‘’]))/gi;
+      text = text.replace(urlRegex, function(wholematch, space, url) {
+        return space+"<"+url+">";
       });
 
-      // regex shamelessly copied from http://daringfireball.net/2010/07/improved_regex_for_matching_urls
-      var urlRegex = /\b((?:[a-z][\w-]+:(?:\/{1,3}|[a-z0-9%])|www\d{0,3}[.]|[a-z0-9.\-]+[.][a-z]{2,4}\/)(?:[^\s()<>]+|\(([^\s()<>]+|(\([^\s()<>]+\)))*\))+(?:\(([^\s()<>]+|(\([^\s()<>]+\)))*\)|[^\s`!()\[\]{};:'".,<>?«»“”‘’]))/g;
-      return text.replace(urlRegex, function(url){
-        var newUrl = "["+url+"]("+punycode.toASCII(url)+")"; // console.log( punycode.toASCII(url) );
-        return newUrl;
+      // process links
+      var linkRegex = /(\[.*\]:\s)?(<|\()((https?|ftp):[^'">\s]+)(>|\))/gi;
+      text = text.replace(linkRegex, function() {
+        var unicodeUrl = arguments[3];
+        var asciiUrl = punycode.toASCII(unicodeUrl);
+        if(arguments[1] == "") { // inline link
+          if(arguments[2] == "<") return "["+unicodeUrl+"]("+asciiUrl+")"; // without link text
+          else return arguments[2]+asciiUrl+arguments[5]; // with link text
+        } else { // reference style link
+          return arguments[1]+asciiUrl;
+        }
       });
+
+      return text;
     });
 
     converter.hooks.chain("postConversion", function (text) {

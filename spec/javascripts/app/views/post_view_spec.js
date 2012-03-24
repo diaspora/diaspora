@@ -142,14 +142,35 @@ describe("app.views.Post", function(){
     })
 
     context("markdown rendering", function() {
-      it("correctly handles non-ascii characters in urls", function() {
+      beforeEach(function() {
         // example from issue #2665
-        var evilUrl = "http://www.bürgerentscheid-krankenhäuser.de";
-        this.statusMessage.set({text: "<"+evilUrl+">"});
+        this.evilUrl  = "http://www.bürgerentscheid-krankenhäuser.de";
+        this.asciiUrl = "http://www.xn--brgerentscheid-krankenhuser-xkc78d.de";
+      });
+
+      it("correctly handles non-ascii characters in urls", function() {
+        this.statusMessage.set({text: "<"+this.evilUrl+">"});
         var view = new app.views.Post({model : this.statusMessage}).render();
 
-        expect($(view.el).html()).toContain("http://www.xn--brgerentscheid-krankenhuser-xkc78d.de");
-        expect($(view.el).html()).toContain(evilUrl);
+        expect($(view.el).html()).toContain(this.asciiUrl);
+        expect($(view.el).html()).toContain(this.evilUrl);
+      });
+
+      it("doesn't break link texts for non-ascii urls", function() {
+        var linkText = "check out this awesome link!";
+        this.statusMessage.set({text: "["+linkText+"]("+this.evilUrl+")"});
+        var view = new app.views.Post({model: this.statusMessage}).render();
+
+        expect($(view.el).html()).toContain(this.asciiUrl);
+        expect($(view.el).html()).toContain(linkText);
+      });
+
+      it("doesn't break reference style links for non-ascii urls", function() {
+        var postContent = "blabla blab [my special link][1] bla blabla\n\n[1]: "+this.evilUrl+" and an optional title)";
+        this.statusMessage.set({text: postContent});
+        var view = new app.views.Post({model: this.statusMessage}).render();
+
+        expect($(view.el).html()).not.toContain(this.evilUrl);
       });
     });
 
