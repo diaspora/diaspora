@@ -30,6 +30,7 @@ src_files:
   - public/javascripts/vendor/timeago.js
   - public/javascripts/vendor/facebox.js
   - public/javascripts/vendor/markdown/*
+  - public/javascripts/vendor/punycode.js
   - public/javascripts/vendor/jquery.placeholder.js
   - public/javascripts/vendor/backbone.js
   - public/javascripts/fileuploader-custom.js
