@@ -38,7 +38,7 @@ describe("app.views.Post", function(){
           expect($(view.el).html()).not.toContain("0 Reshares")
         })
     })
-    
+
     context("likes", function(){
         it("displays a like count", function(){
           this.statusMessage.set({likes_count : 1})
@@ -141,5 +141,48 @@ describe("app.views.Post", function(){
       })
     })
 
+    context("markdown rendering", function() {
+      beforeEach(function() {
+        // example from issue #2665
+        this.evilUrl  = "http://www.bürgerentscheid-krankenhäuser.de";
+        this.asciiUrl = "http://www.xn--brgerentscheid-krankenhuser-xkc78d.de";
+      });
+
+      it("correctly handles non-ascii characters in urls", function() {
+        this.statusMessage.set({text: "<"+this.evilUrl+">"});
+        var view = new app.views.Post({model : this.statusMessage}).render();
+
+        expect($(view.el).html()).toContain(this.asciiUrl);
+        expect($(view.el).html()).toContain(this.evilUrl);
+      });
+
+      it("doesn't break link texts for non-ascii urls", function() {
+        var linkText = "check out this awesome link!";
+        this.statusMessage.set({text: "["+linkText+"]("+this.evilUrl+")"});
+        var view = new app.views.Post({model: this.statusMessage}).render();
+
+        expect($(view.el).html()).toContain(this.asciiUrl);
+        expect($(view.el).html()).toContain(linkText);
+      });
+
+      it("doesn't break reference style links for non-ascii urls", function() {
+        var postContent = "blabla blab [my special link][1] bla blabla\n\n[1]: "+this.evilUrl+" and an optional title)";
+        this.statusMessage.set({text: postContent});
+        var view = new app.views.Post({model: this.statusMessage}).render();
+
+        expect($(view.el).html()).not.toContain(this.evilUrl);
+        expect($(view.el).html()).toContain(this.asciiUrl);
+      });
+
+      it("correctly handles images with non-ascii urls", function() {
+        var postContent = "![logo](http://bündnis-für-krankenhäuser.de/wp-content/uploads/2011/11/cropped-logohp.jpg)";
+        var niceImg = '"http://xn--bndnis-fr-krankenhuser-i5b27cha.de/wp-content/uploads/2011/11/cropped-logohp.jpg"';
+        this.statusMessage.set({text: postContent});
+        var view = new app.views.Post({model: this.statusMessage}).render();
+
+        expect($(view.el).html()).toContain(niceImg);
+      });
+
+    });
   })
 });
