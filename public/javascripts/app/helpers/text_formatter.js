@@ -28,7 +28,7 @@
         var protocol = arguments[4];
         var unicodeUrl = arguments[6];
         var asciiUrl = protocol+punycode.toASCII(unicodeUrl);
-        if(arguments[1] == "") { // inline link
+        if( !arguments[1] || arguments[1] == "") { // inline link
           if(arguments[2] == "<") return "["+protocol+unicodeUrl+"]("+asciiUrl+")"; // without link text
           else return arguments[2]+asciiUrl+arguments[7]; // with link text
         } else { // reference style link
