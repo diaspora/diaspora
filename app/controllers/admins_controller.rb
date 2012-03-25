@@ -52,16 +52,16 @@ class AdminsController < ApplicationController
     case params[:range]
     when "week"
       range = 1.week
-      @segment = "week"
+      @segment = t('admins.stats.week_rb')
     when "2weeks"
       range = 2.weeks
-      @segment = "2 week"
+      @segment = t('admins.stats.2weeks_rb')
     when "month"
       range = 1.month
-      @segment = "month"
+      @segment = t('admins.stats.month_rb')
     else
       range = 1.day
-      @segment = "daily"
+      @segment = t('admins.stats.daily_rb')
     end
 
     [Post, Comment, AspectMembership, User].each do |model|

@@ -6,26 +6,26 @@
 
 .span-24.last
   %h1
-    Usage Statistics
+    = t('.usage_statistic')
     %div{:style => "float:right;"}
       = form_tag('/admins/stats', :method => 'get') do
         %select{:name => 'range'}
           %option{:value => 'daily', :selected => ('selected' if params[:range] == 'daily')}
-            Daily
+            = t('.daily')
           %option{:value => 'week', :selected => ('selected' if params[:range] == 'week')}
-            Week
+            = t('.week')
           %option{:value => '2weeks', :selected => ('selected' if params[:range] == '2weeks')}
-            2 Weeks
+            = t('.2_weeks')
           %option{:value => 'month', :selected => ('selected' if params[:range] == 'month')}
-            Month
+            = t('.month')
 
-        = submit_tag 'go'
+        = submit_tag t('.go')
   %br
   %h3
-    Displaying results from the
+    = t('.displating_results')
     %b
       = @segment
-    segment
+    = t('.segment')
   
   %br
   %br
@@ -38,9 +38,15 @@
   - [:posts, :comments, :aspect_memberships, :users].each do |name|
     - model = eval("@#{name.to_s}")
     - if name == :aspect_memberships
-      - name = :shares
+      - name = t('.shares')
+    - if name == :posts
+      - name = t('.posts')
+    - if name == :comments
+      - name = t('.comments')
+    - if name == :users
+      - name = t('.users')    
 
-    .span-6{:class => ('last' if name == :users)}
+    .span-6{:class => ('last' if name == t('.users'))}
       %h2{:style => 'font-weight:bold;'}
         = model[:yesterday]
         = name.to_s
@@ -56,19 +62,19 @@
 
 
   %p{:style => "text-align:center;"}
-    The current segment is averaging
+    = t('.current_segment')
     %b
       #{@posts[:yesterday]/@user_count.to_f}
-    posts per user, from
+    = t('.posts_per')
     %b
       #{@posts[:day_before]/@user_count.to_f}
 
 .span-24.last
   %h3
-    50 Most Popular Tags
+    = t('.50_most')
   - @popular_tags.each do |name,count|
-    Tag Name:
+    = t('.tag_name')
     %b= name
-    Count:
+    = t('.count')
     %b= count
     %br

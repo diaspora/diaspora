@@ -90,6 +90,28 @@ en:
       resque_overview: "Resque Overview"
     correlations:
       correlations_count: "Correlations with Sign In Count:"
+    stats:
+      usage_statistic: "Usage Statistics"
+      daily: "Daily"
+      week: "Week"
+      2_weeks: "2 Weeks"
+      month: "Month"
+      go: "go"
+      displating_results: "Displaying results from the"
+      segment: "segment"
+      week_rb: "week"
+      2weeks_rb: "2 week"
+      month_rb: "month"
+      daily_rb: "daily"
+      posts: "post"
+      comments: "comments"
+      shares: "shares"
+      users: "users"
+      current_segment: "The current segment is averaging"
+      posts_per: "posts per user, from"
+      50_most: "50 Most Popular Tags"
+      tag_name: "Tag Name:"
+      count: "Count:"
   application:
     helper:
       unknown_person: "unknown person"
