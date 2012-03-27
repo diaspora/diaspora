@@ -3,6 +3,8 @@
 -#   the COPYRIGHT file.
 
 #main_stream.stream
+  - flash.each do |name, msg|
+    %p{:class => "login_#{name}"}= msg
   #login_form
     .login-container
       = form_for(resource, :as => resource_name, :url => session_path(resource_name), :html => {:class => 'form-horizontal'}) do |f|

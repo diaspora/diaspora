@@ -105,6 +105,15 @@ body {
     top: 1px solid #ccc; };
 }
 
+.login_error,
+.login_alert {
+  color: rgb(208, 49, 43);
+  text-shadow: 1px 1px 20px rgb(208, 49, 43); }
+
+.login_notice {
+  color: rgb(10, 150, 10);
+  text-shadow: 1px 1px 20px rgb(126, 240, 77); }
+
 #login_form {
   padding: 0;
 

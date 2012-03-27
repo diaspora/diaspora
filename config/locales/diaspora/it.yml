@@ -40,6 +40,16 @@ it:
             username:
               invalid: "non è valido. Sono permessi solamente lettere, numeri e underscore."
               taken: "è già stato preso."
+  admins:
+    admin_bar:
+      correlations: "Correlazioni"
+      pages: "Pagine"
+      pod_stats: "Statistiche pod"
+      resque_overview: "Supervisione Resque"
+      user_search: "Cerca utente"
+      weekly_user_stats: "Statistiche settimanali utenti"
+    correlations:
+      correlations_count: "Correlazioni con il numero di login"
   ago: "%{time} fa"
   all_aspects: "Tutti gli aspetti"
   application:

@@ -48,6 +48,8 @@ ru:
       resque_overview: "Обзор Resque"
       user_search: "Поиск пользователей"
       weekly_user_stats: "Еженедельная пользовательская статистика"
+    correlations:
+      correlations_count: "Связь с числом входов:"
   ago: "%{time} назад"
   all_aspects: "Все аспекты"
   application:

@@ -40,6 +40,16 @@ ko:
             username:
               invalid: ": 유효하지 않은 사용자명입니다. 로마자, 아라비아 숫자, 밑줄 문자(_)만 쓸 수 있습니다"
               taken: ": 이미 쓰이고 있습니다."
+  admins:
+    admin_bar:
+      correlations: "상관 관계"
+      pages: "페이지"
+      pod_stats: "팟 통계"
+      resque_overview: "Resque 개요"
+      user_search: "사용자 찾기"
+      weekly_user_stats: "주간 사용자 통계"
+    correlations:
+      correlations_count: "로그인 횟수와의 상관 관계"
   ago: "%{time} 전"
   all_aspects: "모든 애스펙"
   application:
@@ -401,6 +411,7 @@ ko:
         two: "과 %{count}명"
         zero: "and nobody else"
       mark_all_as_read: "모두 읽음으로 표시"
+      mark_unread: "읽지 않음으로 표시"
       notifications: "알림"
     liked:
       few: "%{actors}님 등이 내 %{post_link}을 좋아합니다."
@@ -857,6 +868,7 @@ ko:
     community_spotlight_stream: "커뮤니티 스포트라이트"
     followed_tag:
       add_a_tag: "태그 추가"
+      contacts_title: "이 태그들을 파고있는 사람들"
       follow: "팔로우"
       title: "#팔로우한 태그"
     followed_tags_stream: "#팔로우한 태그"
@@ -874,6 +886,7 @@ ko:
       contacts_title: "최근 게시자"
       title: "공개 활동"
     tags:
+      contacts_title: "이 태그를 파고있는 사람들"
       tag_prefill_text: "%{tag_name} 태그를 달고 공유하세요!"
       title: "태그: %{tags}"
   tag_followings:

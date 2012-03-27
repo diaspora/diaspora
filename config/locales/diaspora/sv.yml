@@ -40,6 +40,16 @@ sv:
             username:
               invalid: "är felaktig. Vi tillåter endast bokstäver, siffror och understreck."
               taken: "används redan."
+  admins:
+    admin_bar:
+      correlations: "Korrelationer"
+      pages: "Sidor"
+      pod_stats: "podstatistik"
+      resque_overview: "Resque-översyn"
+      user_search: "Användarsökning"
+      weekly_user_stats: "Veckovis användarstatistik"
+    correlations:
+      correlations_count: "Korrelationer med antalet inloggningar."
   ago: "%{time} sedan"
   all_aspects: "Alla aspekter"
   application:

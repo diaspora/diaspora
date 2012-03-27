@@ -34,14 +34,6 @@ GIT
       rack-fiber_pool
       sinatra
 
-GIT
-  remote: git://github.com/socialcast/resque-ensure-connected.git
-  revision: 8ac0f9e4658495097fb333a93db81d54ba9a5311
-  specs:
-    resque-ensure-connected (0.2.0)
-      activerecord (>= 2.3.5)
-      resque (>= 1.10.0)
-
 GEM
   remote: http://rubygems.org/
   specs:
@@ -329,7 +321,7 @@ GEM
       activesupport (= 3.1.4)
       bundler (~> 1.0)
       railties (= 3.1.4)
-    rails-i18n (0.5.2)
+    rails-i18n (0.6.1)
       i18n (~> 0.5)
     rails_autolink (1.0.6)
       rails (~> 3.1)
@@ -522,7 +514,6 @@ DEPENDENCIES
   rails_autolink
   redcarpet (= 2.0.1)
   resque (= 1.20.0)
-  resque-ensure-connected!
   resque-timeout (= 1.0.0)
   rest-client (= 1.6.7)
   roxml!

@@ -25,6 +25,15 @@
     {{/if}}
     {{reshares_count}}
   </a>
+{{else}}
+  <a class="label reshare-viewonly" title="{{#if user_reshare}} {{t "viewer.reshared"}} {{else}} {{t "viewer.reshare"}} {{/if}}">
+    {{#if user_reshare}}
+      <i class="icon-retweet icon-blue"></i>
+    {{else}}
+      <i class="icon-retweet icon-white"></i>
+    {{/if}}
+    {{reshares_count}}
+   </a>
 {{/if}}
 
 <a href="#" class="label comment" rel="invoke-interaction-pane" title="{{t "viewer.comment"}}">
