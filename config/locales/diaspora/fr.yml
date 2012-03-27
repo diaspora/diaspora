@@ -48,6 +48,8 @@ fr:
       resque_overview: "Vue d'ensemble des tâches"
       user_search: "Chercher un utilisateur"
       weekly_user_stats: "Statistiques hebdomadaires"
+    correlations:
+      correlations_count: "Corrélations avec le nombre d'inscrits :"
   ago: "Il y a %{time}"
   all_aspects: "Tous les aspects"
   application:

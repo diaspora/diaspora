@@ -42,12 +42,14 @@ hu:
               taken: "már foglalt."
   admins:
     admin_bar:
-      correlations: "Viszonyok"
+      correlations: "Korrelációk"
       pages: "Oldalak"
       pod_stats: "Kiszolgáló statisztika"
-      resque_overview: "Resque áttekintés"
+      resque_overview: "Feladatok áttekintése"
       user_search: "Felhasználó keresés"
       weekly_user_stats: "Heti statisztika"
+    correlations:
+      correlations_count: "Belépések számával való korrelációk:"
   ago: "ezelőtt"
   all_aspects: "Összes csoport"
   application:
@@ -215,8 +217,8 @@ hu:
       many_people_are_you_sure: "Biztos, hogy privát beszélgetést akarsz kezdeményezni több mint %{suggested_limit} személlyel? Talán jobb lenne, ha bejegyzést írnál ennek a csoportnak."
       my_contacts: "Kapcsolataim"
       no_contacts: "Nincs ismerősöd."
-      no_contacts_message: "Csekkold le ezt is: %{community_spotlight}"
-      no_contacts_message_with_aspect: "Csekkold le ezt is %{community_spotlight} vagy ezt %{add_to_aspect_link}"
+      no_contacts_message: "Vess egy pillantást erre is: %{community_spotlight}"
+      no_contacts_message_with_aspect: "Vess egy pillantást erre is: %{community_spotlight} vagy próbáld ki ezt: %{add_to_aspect_link}"
       only_sharing_with_me: "Csak velem oszt meg"
       remove_person_from_aspect: "%{person_name} eltávolítása a(z) \"%{aspect_name}\" csoportból."
       start_a_conversation: "Beszélgetés indítása"
@@ -922,7 +924,7 @@ hu:
       sign_up_today: "Regisztrálj még ma!"
       typical_userpage: "Tipikus 'cubbi.es' oldal"
       via: "(forrás: %{link})"
-      what_is_cubbies: "Cubbi.es a világ első Diaspora* applikációja. Egyben a legjobb mód az online fotógyűjtésre!"
+      what_is_cubbies: "Cubbi.es a világ első Diaspora* alkalmazása. Egyben a legjobb mód az online fotógyűjtésre!"
   undo: "Visszavonod?"
   username: "Felhasználónév"
   users:

@@ -48,6 +48,8 @@ pl:
       resque_overview: "Przegląd resque"
       user_search: "Wyszukiwanie użytkowników"
       weekly_user_stats: "Tygodniowe statystyki użytkownika"
+    correlations:
+      correlations_count: "Współzależności z licznikiem logowań:"
   ago: "%{time} temu"
   all_aspects: "Wszystkie aspekty"
   application:

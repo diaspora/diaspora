@@ -40,6 +40,16 @@ es-MX:
             username:
               invalid: "no es válido. Solo se permiten letras, números y guiones bajos."
               taken: "ya está tomado."
+  admins:
+    admin_bar:
+      correlations: "Correlaciones"
+      pages: "Páginas"
+      pod_stats: "Estadísticas del servidor"
+      resque_overview: "Información general de Resque"
+      user_search: "Búsqueda de usuario"
+      weekly_user_stats: "Estadísticas semanales de usuario"
+    correlations:
+      correlations_count: "Correlaciones con el conteo de inicio de sesión:"
   ago: "hace %{time}"
   all_aspects: "Todos los aspectos"
   application:

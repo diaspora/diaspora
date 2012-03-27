@@ -40,6 +40,9 @@ ar:
             username:
               invalid: "غير صالح، يـسمح بالحروف، الأرقام وخطوط التأكيد (-_) فقط"
               taken: "حُجِزَ بالفعل."
+  admins:
+    admin_bar:
+      pages: "صفحات"
   ago: "منذ %{time}"
   all_aspects: "كل الفئات"
   application:
@@ -87,7 +90,7 @@ ar:
       remove_aspect: "حذف هذه الفئة"
       rename: "إعادة تسمية"
       update: "تحديث"
-      updating: "تحديث"
+      updating: "جارى التحديث"
     few: "%{count} فئة"
     helper:
       are_you_sure: "تأكيد حذف هذه الفئة؟"
@@ -99,9 +102,9 @@ ar:
         heading: "صِل حسابك بـ Cubbi.es"
         learn_more: "اعرف المزيد"
       diaspora_id:
-        content_1: "وسيط ديسبورا خاصتك هو:"
+        content_1: "معرف دياسبورا الخاص بك هو:"
         content_2: "أعطه لأي شخص وسيتمكن من إيجادك على ديسبورا."
-        heading: "وسيط ديسبورا"
+        heading: "معرف دياسبورا"
       donate: "تبرّع"
       handle_explanation: "هذا وسيط دياسبرا. مثل البريد الالكتروني، يمكنك منحه للأصدقاء حتى تستطيع التواصل معهم."
       help:
@@ -113,14 +116,14 @@ ar:
         here_to_help: "مجتمع دياسبرا متأهب للمساعدة"
         need_help: "تحتاج للمساعدة؟"
         tag_bug: "#bug"
-        tag_feature: "#feature"
-        tag_question: "#question"
+        tag_feature: "ميزة"
+        tag_question: "سؤال"
         tutorials_wiki_and_forum: "%{tutorial} و %{wiki} و %{forum} : دروس وشروحات وأخبار من المُجتمع."
       introduce_yourself: "هذا هو تيّارك.  هيا قدم نفسك."
       keep_us_running: "حافظ على %{pod} سريعا عبر تبرع شهري لصيانة السيرفرات "
       new_here:
         follow: "تابِع %{link} ورحب بالمُستخدمين الجدد لدياسبرا !"
-        learn_more: "اعرف المزيد"
+        learn_more: "تعلم المزيد"
         title: "مرحبا أيها الزوار الجدد"
       no_contacts: "لا أعضاء"
       no_tags: "+ جِـد وسما لمتابعته"
@@ -172,6 +175,7 @@ ar:
   back: "عودة"
   blocks:
     create:
+      failure: "لم استطع تجاهل هذا المستخدم. evasion#"
       success: "حسنا ، لن ترى ذلك المُستخدم في تيّارك مرة أخرى. #silencio!"
   bookmarklet:
     explanation: "%{link} انشر في دياسبرا من أي مكان بحفظ الرابط في مفضلتك/علاماتك"
@@ -185,7 +189,7 @@ ar:
     many: "%{count} تعليقًا"
     new_comment:
       comment: "علِّق"
-      commenting: "يُرسل التعليق ..."
+      commenting: "جارى التعليق..."
     one: "تعليقٌ واحد"
     other: "%{count} تعليق"
     two: "%{count} تعليقان"
@@ -213,7 +217,7 @@ ar:
     sharing:
       people_sharing: "أعضاء يتشاركون معك:"
     two: "%{count} عضوان"
-    zero: "لا يوجد أعضاء"
+    zero: "جهات الاتصال"
   conversations:
     create:
       fail: "رسالة غير صالحة"
@@ -239,7 +243,7 @@ ar:
       abandon_changes: "أأتجاهل التغييرات؟"
       send: "أَرْسِل"
       sending: "يُرسـَل..."
-      subject: "العنوان"
+      subject: "موضوع"
       to: "إلى"
     new_message:
       fail: "رسالة غير صالحة"
@@ -477,8 +481,10 @@ ar:
   ok: "حسنًا"
   or: "أو"
   password: "كلمة المرور"
-  password_confirmation: "تأكيد كلمة المرور الجديدة"
+  password_confirmation: "تأكيد كلمة المرور"
   people:
+    add_contact:
+      invited_by: "تمت دعوتك بواسطة"
     add_contact_small:
       add_contact_from_tag: "إضافة مراسل من tag"
     aspect_list:
@@ -493,6 +499,7 @@ ar:
       no_one_found: "...ولم يعثر على أحد"
       no_results: "يجب تحديد شيء للبحث عنه"
       results_for: "نتائج البحث عن"
+      searching: "جارى البحث، كن صبوراً من فضلك..."
     many: "%{count} أعضاء"
     one: "1 عضو"
     other: "%{count} عضو"
@@ -511,6 +518,7 @@ ar:
       remove_contact: "إحذف العضو"
       remove_from: "حذف %{name} من %{aspect}?"
     show:
+      closed_account: "لقد تم إغلاق هذا الحساب."
       does_not_exist: "هذا العضو غير موجود"
       has_not_shared_with_you_yet: "%{name} لمْ يشارك أي مشاركة معك بعد"
       ignoring: "أنت تتجاهل جميع المشاركات من %{name}"
@@ -744,6 +752,7 @@ ar:
       make_public: "عَمِّمْهَا"
       new_user_prefill:
         i_like: "I'm interested in %{tags}."
+        invited_by: "شكراً على الدعوة، "
       post_a_message_to: "انشر رسالة إلى %{aspect}"
       posting: "يَنشُر ..."
       publishing_to: "نشر إلى: "
@@ -754,11 +763,14 @@ ar:
     reshare:
       reshare: "أَعِد النشر"
     stream_element:
+      connect_to_comment: "اتصل بهذا المستخدم لتعلق على رسائله"
+      currently_unavailable: "التعليق غير متاح حالياً"
       dislike: "لم يعجبني"
       hide_and_mute: "أخـفِ وأسكـتْ"
       ignore_user: "تجاهل %{name}"
       like: "أعجبني"
       shared_with: "مُشَارك مع: %{aspect_names}"
+      show: "إظهر"
       unlike: "إلغاء إعجابي"
       via: "بواسطة %{link}"
       viewable_to_anyone: "يستطيع أي شخص على الشابكة رؤية هذه المشاركة."
@@ -789,7 +801,7 @@ ar:
       zero: "No more comments"
   streams:
     activity:
-      title: "نشاطي"
+      title: "نشاطى"
     aspects:
       title: "Your Aspects"
     aspects_stream: "الفئات"
@@ -833,17 +845,21 @@ ar:
       via: "(عبر %{link})"
       what_is_cubbies: "Cubbi.es هو أول تطبيق دياسبرا في العالم.  وأيضا أفضل وسيلة لتجميع الصور على الويب."
   undo: "أَأَتَرَاجَع؟"
-  username: "معرف"
+  username: "إسم المستخدم"
   users:
     confirm_email:
       email_confirmed: "فُعِّل البريد الإلكتروني %{email} بنجاح"
       email_not_confirmed: "لا يمكن تفعيل البريد الإلكتروني، أهو رابط خاطئ؟"
+    destroy:
+      no_password: "من فضلك أدخل كلمة المرور الحالية لتغلق حسابك."
+      wrong_password: "كلمة المرور المدخلة لم تطابق كلمة مرورك الحالية."
     edit:
       also_commented: "...علق أحدهم على منشور مراسلك"
       change: "تغيير"
       change_email: "عدِّل البريد الإلكتروني"
       change_language: "تغيير اللغة"
       change_password: "تغيير كلمة المرور"
+      character_minimum_expl: "يجب أن تكون ستة أحرف على الأقل."
       close_account:
         what_we_delete: "We delete all of your posts, profile data, as soon as humanly possible. Your comments will hang around, but be associated with your Diaspora Handle."
       close_account_text: "أغلق الحساب"
@@ -865,7 +881,14 @@ ar:
       your_handle: "وسيط ديسبورا الخاص بك"
     getting_started:
       hashtag_explanation: "الوسوم تسمح لك بالحديث عن اهتماماتك ومتابعتها.  وهي أيضا طريقة عبقرية للعثور على أناس جدد بدياسبرا."
+      saved: "حفظت!"
       what_facebook_does: "to Diaspora. This will pull your name and photo, and enable cross-positng."
+      who_are_you: "من أنت؟"
+    logged_out:
+      works_on_modern: "يعمل على جميع الهواتف الذكية الحديثة"
+    privacy_settings:
+      ignored_users: "المستخدمين الذين تم تجاهلهم"
+      stop_ignoring: "اوقف التجاهل"
     public:
       does_not_exist: "هذا المستخدم %{username} غير موجود"
     update:
@@ -882,4 +905,4 @@ ar:
     no_person_constructed: "هذا الـ hcard غير صالح."
     not_enabled: "webfinger غير مفعل للمضيف %{account}"
     xrd_fetch_failed: "خطأ خلال استرجاع xrd من الحساب %{account}"
-  welcome: "أهلا وسهلا !"
+  welcome: "مرحبا!"
