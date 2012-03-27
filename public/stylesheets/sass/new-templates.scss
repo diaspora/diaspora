@@ -805,3 +805,7 @@ text-rendering: optimizelegibility;
     position: absolute;
   }
 }
+
+.headline p{
+  @include media-text();
+}

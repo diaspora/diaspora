@@ -40,7 +40,9 @@ app.views.Base = Backbone.View.extend({
   renderTemplate : function(){
     var presenter = _.isFunction(this.presenter) ? this.presenter() : this.presenter
     this.template = JST[this.templateName]
-    $(this.el).html(this.template(presenter));
+    $(this.el)
+      .html(this.template(presenter))
+      .attr("data-template", _.last(this.templateName.split("/")));
     this.postRenderTemplate();
   },
 

@@ -14,28 +14,14 @@ app.pages.Framer = app.views.Base.extend({
 
   initialize : function(){
     this.model = app.frame
+    this.model.authorIsCurrentUser = function(){ return true }
 
     this.model.bind("change", this.render, this)
     this.templatePicker = new app.views.TemplatePicker({ model: this.model })
   },
 
   postView : function(){
-    //we might be leaky like cray cray with this
-
-    var templateType = this.model.get("frame_name")
-
-     this._postView = new app.views.Post({
-      model : this.model,
-      className : templateType + " post loaded",
-      templateName : "post-viewer/content/" + templateType,
-      attributes : {"data-template" : templateType}
-    });
-
-    this._postView.feedbackView = new Backbone.View
-
-    this.model.authorIsCurrentUser = function(){ return true }
-
-    return this._postView
+    return app.views.Post.showFactory(this.model)
   },
 
   saveFrame : function(){

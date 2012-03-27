@@ -42,13 +42,18 @@ Feature: Creating a new post
   Scenario: Framing your frame
     When I write "This is hella customized"
     And I upload a fixture picture with filename "button.gif"
+
     And I start the framing process
     Then I should see "This is hella customized" in the framer preview
-#    And I should see the image "button.gif" background
-    When I select the template "note"
-    Then the post should be rendered as a "note"
+  # Then the default mood for the post should be "Wallpaper"
+  # And I should see the image "button.gif" background
+    When I select the mood "Day"
+    Then the post's mood should be "Day"
+    And "button.gif" should be in the post's picture viewer
+    And I should see "This is hella customized" in the framer preview
+
     When I finalize my frame
     And I go to "/stream"
     Then "This is hella customized" should be post 1
-    When I click the show page link for "This is hella customized"
-    Then the post should still be rendered as a "note"
+    And I click the show page link for "This is hella customized"
+    And the post's mood should still be "Day"

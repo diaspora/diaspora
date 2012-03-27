@@ -19,15 +19,7 @@ app.views.TemplatePicker = app.views.Base.extend({
 
   presenter : function() {
     return _.extend(this.defaultPresenter(), {
-      templates : [
-        "status-with-photo-backdrop",
-        "note",
-        "rich-media",
-        "multi-photo",
-        "photo-backdrop",
-        "activity-streams-photo",
-        "status"
-      ]
+      templates : _.union(app.models.Post.frameMoods, app.models.Post.legacyTemplateNames)
     })
   }
 })
