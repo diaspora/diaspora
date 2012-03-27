@@ -140,7 +140,7 @@ describe CommentsController do
       comments = [alice, bob, eve].map{ |u| u.comment!(@message, "hey") }
 
       get :index, :post_id => @message.id, :format => 'js'
-      assigns[:comments].should == comments
+      assigns[:comments].map(&:id).should =~ comments.map(&:id)
     end
 
     it 'returns a 404 on a nonexistent post' do
