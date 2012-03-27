@@ -18,8 +18,8 @@ src_files:
   - public/javascripts/vendor/underscore.js
   - public/javascripts/vendor/jquery-1.7.1.min.js
   - public/javascripts/vendor/jquery-ui-1.8.9.custom.min.js
-  - public/javascripts/vendor/bootstrap/bootstrap-popover.js
   - public/javascripts/vendor/bootstrap/bootstrap-twipsy.js
+  - public/javascripts/vendor/bootstrap/bootstrap-popover.js
   - public/javascripts/vendor/jquery.tipsy.js
   - public/javascripts/vendor/jquery.infinitescroll.min.js
   - public/javascripts/vendor/jquery.autoresize.js
@@ -46,6 +46,7 @@ src_files:
   - public/javascripts/app/helpers/*
   - public/javascripts/app/router.js
   - public/javascripts/app/views.js
+  - public/javascripts/app/forms.js
   - public/javascripts/app/models/post.js
   - public/javascripts/app/models/*
   - public/javascripts/app/collections/*
@@ -53,6 +54,8 @@ src_files:
   - public/javascripts/app/views/content_view.js
   - public/javascripts/app/views/*.js
   - public/javascripts/app/views/**/*.js
+  - public/javascripts/app/pages/**/*.js
+  - public/javascripts/app/forms/**/*.js
 
   - public/javascripts/mobile.js
   - public/javascripts/contact-list.js

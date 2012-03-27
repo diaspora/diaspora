@@ -41,55 +41,19 @@ class PhotosController < ApplicationController
   end
 
   def create
-    begin
-      raise unless params[:photo][:aspect_ids]
-
-      if params[:photo][:aspect_ids] == "all"
-        params[:photo][:aspect_ids] = current_user.aspects.collect{|x| x.id}
-      elsif params[:photo][:aspect_ids].is_a?(Hash)
-        params[:photo][:aspect_ids] = params[:photo][:aspect_ids].values
-      end
-
-      params[:photo][:user_file] = file_handler(params)
-
-      @photo = current_user.build_post(:photo, params[:photo])
-
-      if @photo.save
-
-        aspects = current_user.aspects_from_ids(params[:photo][:aspect_ids])
-
-        unless @photo.pending
-          current_user.add_to_streams(@photo, aspects)
-          current_user.dispatch_post(@photo, :to => params[:photo][:aspect_ids])
-        end
-
-        if params[:photo][:set_profile_photo]
-          profile_params = {:image_url => @photo.url(:thumb_large),
-                           :image_url_medium => @photo.url(:thumb_medium),
-                           :image_url_small => @photo.url(:thumb_small)}
-          current_user.update_profile(profile_params)
-        end
-
-        respond_to do |format|
-          format.json{ render(:layout => false , :json => {"success" => true, "data" => @photo}.to_json )}
-          format.html{ render(:layout => false , :json => {"success" => true, "data" => @photo}.to_json )}
+    rescuing_photo_errors do
+      if remotipart_submitted?
+        @photo = current_user.build_post(:photo, params[:photo])
+        if @photo.save
+          respond_to do |format|
+            format.json { render :json => {"success" => true, "data" => @photo.as_api_response(:backbone)} }
+          end
+        else
+          respond_with @photo, :location => photos_path, :error => message
         end
       else
-        respond_with @photo, :location => photos_path, :error => message
+        legacy_create
       end
-
-    rescue TypeError
-      message = I18n.t 'photos.create.type_error'
-      respond_with @photo, :location => photos_path, :error => message
-
-    rescue CarrierWave::IntegrityError
-      message = I18n.t 'photos.create.integrity_error'
-      respond_with @photo, :location => photos_path, :error => message
-
-    rescue RuntimeError => e
-      message = I18n.t 'photos.create.runtime_error'
-      respond_with @photo, :location => photos_path, :error => message
-      raise e
     end
   end
 
@@ -198,6 +162,59 @@ class PhotosController < ApplicationController
       Tempfile.send(:define_method, "content_type") {return att_content_type}
       Tempfile.send(:define_method, "original_filename") {return file_name}
       file
+    end
+  end
+
+  def legacy_create
+    if params[:photo][:aspect_ids] == "all"
+      params[:photo][:aspect_ids] = current_user.aspects.collect { |x| x.id }
+    elsif params[:photo][:aspect_ids].is_a?(Hash)
+      params[:photo][:aspect_ids] = params[:photo][:aspect_ids].values
+    end
+
+    params[:photo][:user_file] = file_handler(params)
+
+    @photo = current_user.build_post(:photo, params[:photo])
+
+    if @photo.save
+      aspects = current_user.aspects_from_ids(params[:photo][:aspect_ids])
+
+      unless @photo.pending
+        current_user.add_to_streams(@photo, aspects)
+        current_user.dispatch_post(@photo, :to => params[:photo][:aspect_ids])
+      end
+
+      if params[:photo][:set_profile_photo]
+        profile_params = {:image_url => @photo.url(:thumb_large),
+                          :image_url_medium => @photo.url(:thumb_medium),
+                          :image_url_small => @photo.url(:thumb_small)}
+        current_user.update_profile(profile_params)
+      end
+
+      respond_to do |format|
+        format.json{ render(:layout => false , :json => {"success" => true, "data" => @photo}.to_json )}
+        format.html{ render(:layout => false , :json => {"success" => true, "data" => @photo}.to_json )}
+      end
+    else
+      respond_with @photo, :location => photos_path, :error => message
+    end
+  end
+
+  def rescuing_photo_errors
+    begin
+      yield
+    rescue TypeError
+      message = I18n.t 'photos.create.type_error'
+      respond_with @photo, :location => photos_path, :error => message
+
+    rescue CarrierWave::IntegrityError
+      message = I18n.t 'photos.create.integrity_error'
+      respond_with @photo, :location => photos_path, :error => message
+
+    rescue RuntimeError => e
+      message = I18n.t 'photos.create.runtime_error'
+      respond_with @photo, :location => photos_path, :error => message
+      raise e
     end
   end
 end

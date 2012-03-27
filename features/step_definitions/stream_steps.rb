@@ -17,3 +17,9 @@ end
 Then /^I should have (\d+) nsfw posts$/ do |num_posts|
   all(".nsfw-shield").size.should == num_posts.to_i
 end
+
+When /^I click the show page link for "([^"]*)"$/ do |post_text|
+  within(find_post_by_text(post_text)) do
+    find("time").click
+  end
+end

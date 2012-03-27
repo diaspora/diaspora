@@ -9,8 +9,6 @@ class Photo < ActiveRecord::Base
   include Diaspora::Commentable
   include Diaspora::Shareable
 
-
-
   # NOTE API V1 to be extracted
   acts_as_api
   api_accessible :backbone do |t|

@@ -8,11 +8,14 @@ Diaspora::Application.routes.draw do
 
   resources :status_messages, :only => [:new, :create]
 
-  resources :posts, :only => [:show, :destroy] do
+  resources :posts, :only => [:show, :new, :destroy] do
     resources :likes, :only => [:create, :destroy, :index]
     resources :participations, :only => [:create, :destroy, :index]
     resources :comments, :only => [:new, :create, :destroy, :index]
   end
+
+  match "/framer" => redirect("/posts/new")
+
   get 'p/:id' => 'posts#show', :as => 'short_post'
   # roll up likes into a nested resource above
   resources :comments, :only => [:create, :destroy] do
@@ -32,7 +35,6 @@ Diaspora::Application.routes.draw do
   get "commented" => "streams#commented", :as => "commented_stream"
   get "aspects" => "streams#aspects", :as => "aspects_stream"
   
-
   resources :aspects do
     put :toggle_contact_visibility
   end

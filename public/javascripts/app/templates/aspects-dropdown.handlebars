@@ -1,0 +1,18 @@
+<div class="btn-group aspects_dropdown check-group">
+    <a class="btn btn-info dropdown-toggle" data-toggle="dropdown" href="#">
+        <span class="text"></span> <span class="caret"></span>
+    </a>
+    <ul class="dropdown-menu">
+        <li><i class='icon-ok'/><a href="#" class="public" data-aspect-id="public" data-visibility="public">Public</a></li>
+        <li><i class='icon-ok'/><a href="#" class="all-aspects" data-aspect-id="all_aspects" data-visibility="all-aspects">All Aspects</a></li>
+
+        <li class="divider"></li>
+        {{#each current_user.aspects}}
+            <li><i class='icon-ok'/><a href="#" data-aspect-id="{{id}}"  data-visibility="custom">{{name}}</a></li>
+        {{/each}}
+
+    </ul>
+</div>
+
+<input type="hidden" class="aspect_ids"/>
+
