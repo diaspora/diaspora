@@ -16,6 +16,7 @@ class PostsController < ApplicationController
              :xml
 
   def new
+    redirect_to "/stream" and return unless FeatureFlags.new_publisher
     render :text => "", :layout => true
   end
 
