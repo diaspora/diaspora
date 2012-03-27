@@ -143,7 +143,7 @@ end
 
 group :development do
   gem 'heroku'
-  gem 'heroku_san', '1.3.0'
+  gem 'heroku_san'
   gem 'capistrano', '~> 2.9.0', :require => false
   gem 'capistrano_colors', :require => false
   gem 'capistrano-ext', '1.2.1', :require => false
