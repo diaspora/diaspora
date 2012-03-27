@@ -226,7 +226,7 @@ $pane-width: 420px;
 
 .photo-fill {
   @include background-cover();
-
+  z-index : -5000; //so the framer controls don't get lost
   position: absolute;
   top: 0;
   left: 0;
@@ -250,6 +250,7 @@ $pane-width: 420px;
 }
 
 .rich-media {
+  z-index : -5000; //so the framer controls don't get lost
   position: absolute;
   height: 100%;
   width: 100%;
@@ -763,4 +764,48 @@ text-rendering: optimizelegibility;
   position: absolute;
   right: 8px;
   top: 8px;
+}
+
+.aspects_dropdown {
+  i {
+    display: none;
+  }
+
+  .selected i {
+    display: inline-block;
+  }
+
+  a {
+    display : inline-block;
+  }
+}
+
+.new_photo .photo{
+  display: inline;
+  max-width: 200px;
+  max-height: 200px;
+}
+
+.new-post-section {
+  margin-top: 100px;
+}
+
+.aspect_selector {
+  float: right;
+}
+
+.post-view {
+  display: table;
+  height: 100%;
+  width: 100%;
+}
+
+#post-content {
+  button {
+    position: absolute;
+  }
+}
+
+.headline p{
+  @include media-text();
 }

@@ -25,7 +25,25 @@ var View = {
     /* Avatars */
     $(this.avatars.selector).error(this.avatars.fallback);
 
-    /* Clear forms after successful submit */
+    /* Clear forms after successful submit, this is some legacy dan hanson stuff, do we still want it? */
+    $.fn.clearForm = function() {
+      return this.each(function() {
+        if ($(this).is('form')) {
+          return $(':input', this).clearForm();
+        }
+        if ($(this).hasClass('clear_on_submit') || $(this).is(':text') || $(this).is(':password') || $(this).is('textarea')) {
+          $(this).val('');
+        } else if ($(this).is(':checkbox') || $(this).is(':radio')) {
+          $(this).attr('checked', false);
+        } else if ($(this).is('select')) {
+          this.selectedIndex = -1;
+        } else if ($(this).attr('name') == 'photos[]') {
+          $(this).val('');
+        }
+        $(this).blur();
+      });
+    };
+
     $('form[data-remote]').live('ajax:success', function (e) {
       $(this).clearForm();
       $(this).focusout();

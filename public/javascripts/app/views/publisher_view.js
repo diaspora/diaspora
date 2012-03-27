@@ -22,8 +22,9 @@ app.views.Publisher = Backbone.View.extend({
 
     var serializedForm = $(evt.target).closest("form").serializeObject();
 
-    // save status message
-    var statusMessage = new app.models.StatusMessage();
+    // lulz this code should be killed.
+    var statusMessage = new app.models.Post();
+
     statusMessage.save({
       "status_message" : {
         "text" : serializedForm["status_message[text]"]

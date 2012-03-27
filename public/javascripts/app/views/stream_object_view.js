@@ -1,6 +1,5 @@
 app.views.StreamObject = app.views.Base.extend({
-
-  destroyModel: function(evt) {
+   destroyModel: function(evt) {
     if (evt) {
       evt.preventDefault();
     }

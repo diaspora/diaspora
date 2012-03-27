@@ -25,12 +25,15 @@ javascripts:
     - public/javascripts/vendor/timeago.js
     - public/javascripts/vendor/facebox.js
     - public/javascripts/vendor/underscore.js
+    - public/javascripts/vendor/jquery.iframe-transport.js
+    - public/javascripts/vendor/jquery.remotipart.js
     - public/javascripts/vendor/jquery.events.input.js
     - public/javascripts/vendor/jquery.elastic.js
     - public/javascripts/vendor/jquery.mentionsInput.js
     - public/javascripts/vendor/jquery.idle-timer.js
     - public/javascripts/jquery.infinitescroll-custom.js
     - public/javascripts/jquery.autocomplete-custom.js
+    - public/javascripts/vendor/jquery.textchange.min.js
     - public/javascripts/keycodes.js
     - public/javascripts/fileuploader-custom.js
 
@@ -43,6 +46,7 @@ javascripts:
     - public/javascripts/app/helpers/*
     - public/javascripts/app/router.js
     - public/javascripts/app/views.js
+    - public/javascripts/app/forms.js
     - public/javascripts/app/models/post.js
     - public/javascripts/app/models/*
     - public/javascripts/app/pages/*
@@ -51,6 +55,7 @@ javascripts:
     - public/javascripts/app/views/content_view.js
     - public/javascripts/app/views/*.js
     - public/javascripts/app/views/**/*.js
+    - public/javascripts/app/forms/*.js
 
     - public/javascripts/diaspora.js
     - public/javascripts/helpers/*.js
@@ -71,6 +76,7 @@ javascripts:
 
     - public/javascripts/vendor/bootstrap/bootstrap-twipsy.js
     - public/javascripts/vendor/bootstrap/bootstrap-popover.js
+    - public/javascripts/vendor/bootstrap/bootstrap-dropdown.js
 
   login:
     - public/javascripts/login.js
@@ -90,7 +96,6 @@ javascripts:
     - public/javascripts/friend-finder.js
   home:
     - public/javascripts/publisher.js
-    - public/javascripts/vendor/jquery.textchange.min.js
     - public/javascripts/aspect-edit-pane.js
     - public/javascripts/fileuploader-custom.js
   people:

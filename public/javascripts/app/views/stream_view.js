@@ -27,7 +27,7 @@ app.views.Stream = Backbone.View.extend({
   },
 
   addPost : function(post) {
-    var postView = new app.views.Post({ model: post });
+    var postView = new app.views.StreamPost({ model: post });
 
     $(this.el)[
       (this.collection.at(0).id == post.id)
