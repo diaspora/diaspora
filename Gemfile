@@ -88,7 +88,7 @@ gem 'SystemTimer', '1.2.3', :platforms => :ruby_18
 
 # tags
 
-gem 'acts-as-taggable-on', :git => 'git://github.com/diaspora/acts-as-taggable-on.git'
+gem 'acts-as-taggable-on'
 
 # URIs and HTTP
 
