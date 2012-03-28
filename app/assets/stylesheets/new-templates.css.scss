@@ -3,6 +3,9 @@
 
 $light-grey: #999;
 $pane-width: 420px;
+$night-background-color : #333;
+$night-text-color : #999;
+
 
 /* mixins */
 @mixin center($orient:vertical) {
@@ -259,7 +262,7 @@ $pane-width: 420px;
   left: 0;
 
   text-align: center;
-  background-color: #333;
+  background-color: $night-background-color;
 
   p {
     @include media-text();
@@ -807,6 +810,27 @@ text-rendering: optimizelegibility;
   }
 }
 
-.headline p{
-  @include media-text();
+article { //mood posts
+  $big-text-size : 3em;
+  $medium-text-size : 2em;
+  $small-text-size: 1.5em;
+
+  header, header p{
+    //big text
+    @include media-text();
+    font-size: $big-text-size;
+  }
+
+  section.body{
+    font-size: $small-text-size;
+
+    &.short_body{
+     font-size: $medium-text-size;
+    }
+  }
+
+  &.night{
+    background-color : $night-background-color;
+    color : $night-text-color;
+  }
 }

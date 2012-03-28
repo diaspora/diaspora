@@ -89,11 +89,25 @@ app.models.Post = Backbone.Model.extend({
       self.set(resp);
       self.trigger('interacted', this)
     }});
+  },
+
+  headline : function() {
+    var headline = this.get("text").trim()
+      , newlineIdx = headline.lastIndexOf("\n")
+    return (newlineIdx > 0 ) ? headline.substr(0, newlineIdx) : headline
+  },
+
+  body : function(){
+    var body = this.get("text").trim()
+      , newlineIdx = body.lastIndexOf("\n")
+    return (newlineIdx > 0 ) ? body.substr(newlineIdx+1, body.length) : ""
   }
 }, {
+  headlineLimit : 118,
 
   frameMoods : [
-    "Day"
+    "Day",
+    "Night"
   ],
 
   legacyTemplateNames : [
