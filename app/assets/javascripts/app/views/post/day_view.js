@@ -1,3 +1,4 @@
+//= require ../post_view
 app.views.Post.Day = app.views.Post.extend({
   templateName : "day",
   className : "day post loaded",

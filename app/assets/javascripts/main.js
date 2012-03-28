@@ -30,7 +30,6 @@
 //= require_tree ./helpers
 //= require_tree ./pages
 //= require_tree ./widgets
-//= require_tree ./forms
 //= require view
 //= require aspects-dropdown
 //= require contact-edit

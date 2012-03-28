@@ -1,4 +1,5 @@
 //= require ./stream_object_view
+
 app.views.Post = app.views.StreamObject.extend({
   presenter : function() {
     return _.extend(this.defaultPresenter(), {

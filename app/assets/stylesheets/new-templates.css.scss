@@ -1,4 +1,5 @@
 /* variables */
+
 $light-grey: #999;
 $pane-width: 420px;
 
@@ -87,7 +88,7 @@ $pane-width: 420px;
 
 @mixin dark-hatched-bg() {
   background-color: #444;
-  background-image: image-url("hatched-bg-dark.png");
+  background-image: url("../images/hatched-bg-dark.png");
 }
 
 @mixin photo-shadow() {
@@ -107,15 +108,15 @@ $pane-width: 420px;
 
 /* bootstrap extentions */
 .icon-red {
-  background-image: url("/img/glyphicons-halflings-red.png");
+  background-image: url(../img/glyphicons-halflings-red.png);
 }
 
 .icon-green {
-  background-image: url("/img/glyphicons-halflings-green.png");
+  background-image: url(../img/glyphicons-halflings-green.png);
 }
 
 .icon-blue {
-  background-image: url("/img/glyphicons-halflings-blue.png");
+  background-image: url(../img/glyphicons-halflings-blue.png);
 }
 
 /* styles */
@@ -515,7 +516,7 @@ body.idle {
 
     border-top: 1px solid #444;
     text-align: left;
-    background-image: image-url("hatched-bg-dark.png");
+    background-image: url("../images/hatched-bg-dark.png");
   }
 
   #new-post-comment-container {
