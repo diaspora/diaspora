@@ -6,6 +6,7 @@
 //= require backbone
 //= require rails.validations
 //= require jquery.hotkeys
+//= require jquery.remotipart
 //= require jquery.autoresize
 //= require jquery-ui-1.8.9.custom.min
 //= require jquery.charcount
@@ -29,6 +30,7 @@
 //= require_tree ./helpers
 //= require_tree ./pages
 //= require_tree ./widgets
+//= require_tree ./forms
 //= require view
 //= require aspects-dropdown
 //= require contact-edit
