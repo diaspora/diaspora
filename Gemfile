@@ -143,6 +143,7 @@ group :test do
   gem 'spork', '~> 1.0rc'
   gem 'guard-rspec'
   gem 'guard-spork'
+  gem 'guard-cucumber'
 end
 
 group :development do
