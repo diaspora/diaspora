@@ -137,7 +137,7 @@ group :test do
 
   gem 'timecop'
                           #"0.1.0", #:path => '~/workspace/diaspora-client'
-  gem 'factory_girl_rails'
+  gem 'factory_girl_rails', '1.7.0'
   gem 'fixture_builder', '0.3.1'
   gem 'fuubar', '0.0.6'
   gem 'mongrel', :require => false, :platforms => :ruby_18

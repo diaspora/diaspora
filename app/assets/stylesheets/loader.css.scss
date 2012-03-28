@@ -24,7 +24,7 @@
 }
 
 .loader {
-  -webkit-mask-image: url('/images/static-loader.png');
+  -webkit-mask-image: image-url('static-loader.png');
   -webkit-animation: spin 1s infinite ease-in-out,
   fade-in 0.2s ease-in;
   -moz-animation: spin 1s infinite ease-in-out,

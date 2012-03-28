@@ -42,8 +42,8 @@ class TagFollowingsController < ApplicationController
 
     if params[:remote]
       respond_to do |format|
-        format.all {}
         format.js { render 'tags/update' }
+        format.any {}
       end
     else
       if @tag_unfollowed
