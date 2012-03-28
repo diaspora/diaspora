@@ -23,14 +23,14 @@
       = page_title yield(:page_title)
 
     = include_base_css_framework(:bootstrap)
-    = include_stylesheets :default, :new_templates, :media => 'all'
+    = stylesheet_link_tag :default, 'new-templates', :media => 'all'
 
     - if rtl?
-      = include_stylesheets :rtl, :media => 'all'
+      = stylesheet_link_tag :rtl, :media => 'all'
 
     = old_browser_js_support
     <!--[if IE]>
-    = include_javascripts :ie
+    = javascript_include_tag :ie
     <![endif]-->
 
     = jquery_include_tag
@@ -38,7 +38,7 @@
     = set_current_user_in_javascript
 
     - unless @landing_page
-      = include_javascripts :main, :templates
+      = javascript_include_tag :main, :templates
       = load_javascript_locales
 
     = set_asset_host

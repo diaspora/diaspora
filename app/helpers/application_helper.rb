@@ -36,10 +36,18 @@ module ApplicationHelper
     User.diaspora_id_host
   end
 
+  # Require jQuery from CDN if possible, falling back to vendored copy, and require
+  # vendored jquery_ujs
   def jquery_include_tag
-    "<script src='//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js' type='text/javascript'></script>".html_safe +
-    content_tag(:script) do
-      "!window.jQuery && document.write(unescape(\"#{escape_javascript(include_javascripts(:jquery))}\")); jQuery.ajaxSetup({'cache': false});".html_safe
+    buf = []
+    if AppConfig[:jquery_cdn]
+      version = Jquery::Rails::JQUERY_VERSION
+      buf << [ javascript_include_tag("//ajax.googleapis.com/ajax/libs/jquery/#{version}/jquery.min.js") ]
+      buf << [ javascript_tag("!window.jQuery && document.write(unescape('#{j javascript_include_tag("jquery")}'));") ]
+    else
+      buf << [ javascript_include_tag('jquery') ]
     end
+    buf << [ javascript_include_tag('jquery_ujs') ]
+    buf.join("\n").html_safe
   end
 end

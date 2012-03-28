@@ -1,7 +1,7 @@
 module ContactsHelper
   def contact_aspect_dropdown(contact)
     if @aspect
-      link_to(image_tag('/images/icons/monotone_close_exit_delete.png', :height => 20, :width => 20),
+      link_to(image_tag('icons/monotone_close_exit_delete.png', :height => 20, :width => 20),
       {:controller => "aspect_memberships",
         :action => 'destroy',
          :id => 42,
