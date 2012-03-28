@@ -75,7 +75,7 @@ describe StatusMessagesController do
       { :status_message => {
         :public  => "true",
         :text => "facebook, is that you?",
-        },
+      },
       :aspect_ids => [@aspect1.id.to_s] }
     }
 

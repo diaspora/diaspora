@@ -1,8 +1,8 @@
 desc "include custom landing page before heroku san deploys"
 task :before_deploy => :environment do
 
-  each_heroku_app do |name, app, repo| 
-    home_file = @app_settings[name]['config']['HOME_FILE']
+    each_heroku_app do |stage|
+      home_file = stage.config['HOME_FILE']
     # Perform this task only if custom landing page is not present in app/views/home/_show.html.haml
     if home_file.present?
       puts "-----> custom landing page detected..."

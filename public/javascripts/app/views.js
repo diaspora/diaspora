@@ -9,7 +9,10 @@ app.views.Base = Backbone.View.extend({
   },
 
   setupRenderEvents : function(){
-    this.model.bind('remove', this.remove, this);
+    if(this.model) {
+      //this should be in streamobjects view
+      this.model.bind('remove', this.remove, this);
+    }
 
     // this line is too generic.  we usually only want to re-render on
     // feedback changes as the post content, author, and time do not change.
@@ -18,7 +21,7 @@ app.views.Base = Backbone.View.extend({
   },
 
   defaultPresenter : function(){
-    var modelJson = this.model ? this.model.toJSON() : {}
+    var modelJson = this.model ? _.clone(this.model.attributes) : {}
     return _.extend(modelJson, {
       current_user : app.currentUser.attributes,
       loggedIn : app.currentUser.authenticated()
@@ -37,7 +40,9 @@ app.views.Base = Backbone.View.extend({
   renderTemplate : function(){
     var presenter = _.isFunction(this.presenter) ? this.presenter() : this.presenter
     this.template = JST[this.templateName]
-    $(this.el).html(this.template(presenter));
+    $(this.el)
+      .html(this.template(presenter))
+      .attr("data-template", _.last(this.templateName.split("/")));
     this.postRenderTemplate();
   },
 
