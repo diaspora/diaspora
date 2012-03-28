@@ -23,7 +23,7 @@
       = page_title yield(:page_title)
 
     = include_base_css_framework(:bootstrap)
-    = stylesheet_link_tag :default, :new_templates, :media => 'all'
+    = stylesheet_link_tag :default, 'new-templates', :media => 'all'
 
     - if rtl?
       = stylesheet_link_tag :rtl, :media => 'all'
