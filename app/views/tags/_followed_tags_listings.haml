@@ -18,4 +18,4 @@
           %li
             = form_for TagFollowing.new do |tg|
               = text_field_tag :name, "", :class => "tag_input", :placeholder => t('streams.followed_tag.add_a_tag')
-              = tg.submit t('streams.followed_tag.follow'), :class => "button hidden"
+              = tg.submit t('streams.followed_tag.follow'), :class => "button"

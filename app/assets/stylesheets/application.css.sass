@@ -1,0 +1,2879 @@
+@import 'ui.css.sass'
+@import '_mixins.css.scss'
+
+/* ====== media ====== */
+.media
+  :margin 10px
+
+.media, .bd
+  :overflow hidden
+  :_overflow visible
+  :zoom 1
+
+.media .img
+  :float left
+  :margin-right 10px
+
+.media .img img
+  :display block
+
+.media .imgEt
+  :float right
+  :margin-left 10px
+/* ====== ----- ====== */
+
+body
+  :padding 2em
+  :margin 0
+    :top 33px
+  :background-color $background
+
+  :font
+    :family "Helvetica Neue",Helvetica,Arial,sans-serif
+    :size 13px
+
+a
+  :color $blue
+  :text
+    :decoration none
+  &:hover
+    :color $blue
+    :text
+      :decoration underline
+
+p
+  :word-wrap break-word
+
+h1, h2, h3, h4
+  :margin
+    :bottom 5px
+
+  small
+    :font-size small
+    :color #999
+
+ul > li
+  :list-style none
+
+.content ul li
+  :list-style disc
+
+.rtl
+  :direction rtl
+  :text-align right
+
+.hidden
+  :display none
+
+.avatar
+  :-webkit-box-shadow rgba(0,0,0,0.12) 0px 0px 5px inset
+  :-moz-box-shadow rgba(0,0,0,0.12) 0px 0px 5px inset
+
+  :background
+    :color #eee
+
+  :width 50px
+  :height 50px
+
+  :overflow hidden
+
+#content
+  :background
+    :color #fff
+  :border 1px solid #ccc
+  :height 100%
+
+#flash_notice,
+#flash_error,
+#flash_alert
+  :z-index 999
+  :position fixed
+  :color #666
+  :top -100px
+
+  :left 0
+
+  :width 100%
+
+  :font
+    :weight bold
+  :text
+    :align center
+
+  .message
+    @include border-radius(6px)
+    @include box-shadow(0, 1px, 5px, rgba(0,0,0,0.4))
+    :display inline-block
+    :min-width 400px
+    :max-width 800px
+    :padding
+      :top 45px
+      :bottom 8px
+      :left 12px
+      :right 12px
+
+#flash_notice
+  .message
+    :background
+      :color #F4F899
+    :border 1px solid darken(#F4F899, 40%)
+
+#flash_error,
+#flash_alert
+  .message
+    :color #fff
+    :background
+      :color #CA410B
+    :border 1px solid darken(#CA410B, 10%)
+
+.login_error,
+.login_alert
+  :color rgb(208,49,43)
+  :text-shadow 1px 1px 20px rgb(208,49,43)
+
+.login_notice
+  :color rgb(10,150,10)
+  :text-shadow 1px 1px 20px rgb(126,240,77)
+
+.fieldWithErrors
+  :display inline
+
+.error_messages
+  :width 400px
+  :border 2px solid #CF0000
+  :padding 0
+  :padding-bottom 12px
+  :margin-bottom 20px
+  :background-color #f0f0f0
+  :font
+    :size 12px
+  h2
+    :text-align left
+    :padding 5px 5px 5px 15px
+    :margin 0
+    :font
+      :weight bold
+      :size 12px
+    :background-color #c00
+  p
+    :margin 8px 10px
+  ul
+    :margin 0
+
+header
+  @include box-shadow(0,1px,3px,rgba(0,0,0,0.9))
+
+  :background
+    :color rgb(40,35,35)
+    :image image-url('header-bg.png')
+
+  :z-index 1001
+  :padding 6px 0
+  :color #CCC
+  :height 26px
+
+  :position fixed
+
+  :width 100%
+  :top 0
+  :left 0
+
+  :border
+    :bottom 1px solid #000
+
+  a
+    :color #CCC
+    :color rgb(147,147,147)
+
+    &:hover
+      :background none
+      :color #fafafa
+
+  &.landing
+    .right
+      :top 10px
+    :height 40px
+
+  ul#user_menu
+    :overflow hidden
+    :white-space nowrap
+    :text-overflow ellipsis
+    :text-shadow 0 1px 0 #000
+    :color rgb(147,147,147)
+
+    :min-width 100px
+
+    :cursor pointer
+
+    :z-index 10
+    :padding 5px 0
+      :left 32px
+      :right 7px
+    :margin 0
+      :top -2px
+      :right -5px
+
+    :border
+      :left 1px solid #333
+      :right 1px solid #333
+
+    :display inline
+
+    :top -4px
+    :float right
+
+    li
+      a
+        :padding 4px
+        :height 100%
+        :color #939393
+        &:hover
+          :background
+            :color $blue
+          :color #fff
+          :text
+            :decoration none
+
+      &:first-child
+        :padding 5px 0
+        a
+          :padding
+            :right 15px
+          &:hover
+            :background
+              :color transparent
+            :text
+              :decoration none
+          &:focus
+            :outline none
+        .right
+          :right 5px
+
+    &.active
+      @include dropdown-shadow
+
+      :margin
+        :top -3px
+        :right -5px
+      :background
+        :color rgb(34,30,30)
+      :border 1px solid #999
+
+    .avatar
+      :height 22px
+      :width 22px
+      :position absolute
+      :left 7px
+      :top 9px
+      :display block
+
+  .header-nav
+    :font-weight bold
+    :float left
+    :height 100%
+    :margin-right 5px
+    :margin-top 3px
+
+    a
+      :padding 0 10px
+      :width 100%
+      &:hover
+        :text-decoration none
+
+    > span
+      :height 100%
+      :display inline-block
+      :margin-left -4px
+      :border
+        :left 1px solid #333
+        :right 1px solid #333
+
+      &:last-child
+        :margin-left -5px
+
+
+header.ie-user-menu-active
+  :height 150px
+
+//////////////////////////////////
+ul.dropdown
+  :padding 0
+
+  li
+    :display none
+    a
+      :display block
+
+    &:first-child
+      :display block
+      a
+        :height auto
+        :display inline
+
+  &.active
+    :z-index 30
+    li
+      :display block
+
+//////////////////////////////////
+//hacks for tagging plugin...
+ul.as-selections
+  :width 100% !important
+//////////////////////////////////
+
+.unread
+  :background-color #E6E6E6
+  :color #333 !important
+  time
+    :color #333 !important
+
+.diaspora_header_logo
+  :float left
+  :margin-top -6px
+
+.stream
+  audio
+    :display block
+    :margin 5px 0
+
+  .stream_element
+    :border
+      :bottom 1px solid #ddd
+
+    p
+      &:last-child
+        :padding-bottom 0
+        :margin-bottom 0
+
+    &:first-child
+      :border
+        :top none
+
+    ul
+      li
+        :list-style disc
+
+    .youtube-player, .vimeo-player
+      :border none
+      :height 304px
+      :width 410px
+
+#author_info
+  :position relative
+
+  .avatar img
+    :position relative
+    :top 0px
+    :display inline-block
+    :height 30px
+    :width 30px
+
+  .from
+    :display inline-block
+
+  &.profile
+    .from
+      :padding 0
+
+  h2,
+  h3,
+  h4,
+  h5
+    :display inline-block
+    :margin
+      :bottom 10px
+      :right 10px
+  h2
+    :margin
+      :bottom 0
+
+  &.show
+    a
+      :margin
+        :right 1em
+      :font
+        :weight normal
+    h4,
+    h5
+      :margin 0
+      :padding 0
+
+  .right
+    :top 10px
+
+  .description
+    :margin
+      :bottom 10px
+
+.stream_element
+  a.author
+    :font-weight bold
+
+  .photo_attachments
+    :margin
+      :top 7px
+
+  img
+    :max-width 100%
+
+  .stream_photo
+    :float left
+    :margin
+      :top 6px
+
+  &:hover
+    .controls:first-child
+      @include opacity(0.5)
+
+.info
+  :font-size smaller
+
+  .control_icon
+    @include opacity(0.3)
+    :padding 5px
+
+    &:hover
+      @include opacity(1)
+
+.controls
+  @include transition(opacity)
+  @include opacity(0)
+  :z-index 6
+  :float right
+
+  &:hover
+    @include opacity(1)
+
+.status_message_show
+  .comment_box
+    :width 653px
+    :margin
+      :bottom 5px
+
+.grey,
+.grey *
+  :color #999
+
+.details,
+.details *
+  :font
+    :weight normal
+
+.post_scope
+  :cursor default
+
+.time,
+.timeago,
+.via
+  :color #aaa
+  a
+    :color #999
+  :text
+    :decoration none
+  :border none
+
+#user_name
+  :margin
+    :bottom 20px
+
+  img
+    :margin
+      :right 10px
+    :display inline-block
+    :float left
+    :height 40px
+
+  h1
+    :margin
+      :bottom 7px
+    :line-height 18px
+    a
+      :color #000
+
+  span
+    :size small
+    :font
+      :weight normal
+    :color #999
+  #latest_message_time
+    :font-style italic
+  ul
+    :display inline
+    :margin 0
+    :padding 0
+
+    > li
+      :display inline
+      :margin
+        :right 1em
+
+.stream.show
+  &:hover
+    > li
+      :background none
+      :border none
+
+.submit_button
+  input
+    :float right
+
+.stream_element .reshare,
+.comment
+  .avatar
+    :width 30px
+    :height 30px
+
+.likes,
+.stream_element .reshare
+  :font
+    :size 12px
+
+.comment.no-border
+  :border none
+
+.comment
+  &.media
+    :margin
+      :left 0
+      :right 0
+
+  :border
+    :bottom 1px dotted #aaa
+
+  .youtube-player, .vimeo-player
+    :border none
+    :height 250px
+    :width 400px
+
+  .ltr
+    ol, ul
+      :padding-left 2em
+      li
+        :padding 0px
+        :border none
+        :list-style inherit
+
+  .right
+    :right 4px
+
+
+.stream_element .reshare
+  :border-left 2px solid #ddd
+
+form.new_comment
+  input
+    :display none
+
+  textarea
+    :height 21px
+    :font-size 12px
+    :width 355px
+
+  &.open
+    input
+      :display block
+
+
+.profile_photo
+  img
+    :height auto
+    :width 200px
+
+#profile
+  h3
+    :margin
+      :bottom 0
+  ul
+    :margin 0
+    :padding 0
+
+  ul#profile_information
+    :margin 1em 0
+    > li
+      :margin
+        :bottom 2em
+        :right 2em
+      h4
+        :font-weight bold
+
+#paginate, #infscr-loading
+  :display block
+
+  :margin
+    :top 10px
+
+  :padding 8px 0
+  :text-align center
+  :width 100%
+  img
+    :border none
+
+#photo_container
+  :text
+    :align center
+
+#show_photo
+  :z-index 11
+  :position relative
+  :display inline-block
+  :max-width 100%
+
+  img
+    :max-width 100%
+
+  #photo_spinner
+    :z-index 1
+    :position absolute
+    :height 100px
+    :width 100px
+
+  #caption
+    :min-height 20px
+    :padding 0 10px
+    :font
+      :size 16px
+    :color #333
+
+input:not([type='submit']):not([type='reset']):not([type='hidden']):not(.as-input),
+textarea
+  @include border-radius(2px)
+  :margin-top 1px
+  :font
+    :family "Arial", "Helvetica", sans-serif
+    :size 14px
+
+  :padding 0.3em
+
+  :display block
+  :border 1px solid #ccc
+  :height auto
+
+input[type='checkbox']
+  :width auto !important
+
+form p
+  :position relative
+  :padding 0
+  :margin 0
+
+form p.checkbox_select
+  :width 75%
+  label
+    :left 25px
+    :top 3px
+    :position absolute
+    :font-size 1em
+  img
+    :position relative
+    :top 6px
+
+@mixin placeholder_styles
+  :color #999
+  :text-shadow 0 1px 1px #eee
+  :font-weight normal
+
+.placeholder
+  @include placeholder_styles
+
+/* those can't be combined, see: http://stackoverflow.com/questions/2610497 */
+*::-webkit-input-placeholder
+  @include placeholder_styles
+
+*:-moz-placeholder
+  @include placeholder_styles
+
+#file-upload
+  input
+    :height 100%
+    :width 100%
+    :cursor pointer
+
+#publisher
+  :z-index 1
+  :color #999
+  :position relative
+  :margin
+    :top 0
+    :bottom 0
+  :padding 12px
+    :top 0
+    :bottom 22px
+  :top 0
+
+  :border
+    :bottom 1px #eee solid
+
+  form
+    textarea
+      :resize none
+      :width 455px
+      :height 50px
+      :margin 0
+
+  &.mention_popup
+    :padding 1px 12px
+    :margin
+      :bottom 0
+    :border
+      :bottom none
+
+  &.closed
+    .options_and_submit
+      :display none !important
+
+    .counter
+      :display none
+
+  &:not(.closed)
+    textarea
+      :margin
+        :bottom 30px
+
+  .options_and_submit
+    :min-height 21px
+    :clear both
+    :position relative
+    :padding
+      :top 6px
+    :margin
+      :bottom -2px
+
+    input
+      :display inline
+
+    .public_toggle
+      :text
+        :align right
+      .dropdown
+        :text
+          :align left
+
+    #publisher_service_icons
+      :position relative
+      :top 3px
+      :margin
+        :right 10px
+
+    #fileInfo
+      :display inline
+      :position relative
+      :top -2px
+
+  #status_message_fake_text
+    :min-height 20px
+
+
+  .content_creation
+    :margin
+      :top 1em
+
+  #file-upload
+    :bottom 1px !important
+    :display inline-block
+    :margin 0
+    :padding .3em .3em 3px
+    :position absolute !important
+    :right 6px
+    :cursor pointer
+
+
+    input[type='file']
+      :cursor pointer
+      :right initial !important
+      :height 100%
+      :width 100%
+
+    img
+      @include opacity(0.4)
+
+      :vertical-align bottom
+
+    &:hover
+      :color #666
+      :cursor pointer
+
+      img
+        @include opacity(0.8)
+
+    &:active
+      :color #444
+      :text-shadow 0 1px 0 #fafafa
+
+      img
+        @include opacity(1)
+
+    &.loading
+      @include opacity(0.5)
+
+#publisher_textarea_wrapper
+  #hide_publisher
+    @include opacity(0.3)
+    :z-index 5
+    :padding 3px
+    :position absolute
+    :right 6px
+    :top 0
+
+    &:hover
+      @include opacity(1)
+
+  @include border-radius(2px)
+
+  :border 1px solid #ccc
+  :background #fff
+
+  &.active
+    :border 1px solid #999
+
+  :position relative
+  :padding
+    :right 10px
+
+  textarea
+    :z-index 2
+    :border none
+
+    &:focus
+      :outline 0
+      :background transparent
+
+  &.with_attachments
+    :padding-bottom 38px
+
+  #photodropzone
+    :z-index 3
+    :position absolute
+    :bottom 0
+    :width 435px
+    :left 5px
+    :padding 0
+
+    li
+      :display inline-block
+      :margin-right 4px
+      img
+        :width 50px
+        :max-height 55px
+      .circle
+        @include border-radius(20px)
+
+        :display none
+        :z-index 1
+        :position absolute
+        :right -7px
+        :top -5px
+        :background
+          :color #333
+
+        :width 20px
+        :max-width 20px
+        :height 20px
+        :max-height 20px
+
+        :border 1px solid #fff
+
+      .x
+        :display none
+        :z-index 2
+        :position absolute
+        :top -3px
+        :right -1px
+        :font
+          :size small
+          :weight bold
+
+      &:hover
+        :cursor default
+        .circle
+          :display block
+        .x
+          :display block
+
+  .counter
+    :position absolute
+  .warning
+    :color orange
+  .exceeded
+    :color red
+.field_with_submit
+  input[type='text']
+    :width 82%
+    :display inline
+
+#publisher.closed
+  #publisher_textarea_wrapper
+    #hide_publisher
+      :display none
+
+.dim
+  @include opacity(0.3)
+
+img.thumb_small
+  :max-height 50px
+  :max-width 50px
+img.thumb_medium
+  :max-height 100px
+  :max-width 100px
+img.thumb_large
+  :max-height 300px
+  :max-width 300px
+img.scaled_full
+  :max-height 700px
+  :max-width 700px
+
+#thumbnails
+  a
+    :display inline-block
+    :height 140px
+    :min-height 100px
+    :margin
+      :bottom 5px
+      :right 2px
+
+    img
+      :height 140px
+
+#global_search
+  :float right
+
+  :margin
+    :right 10px
+
+  :position relative
+
+  form
+    :position absolute
+    :right 0
+    input
+      @include box-shadow(0,1px,1px,#444)
+      @include border-radius(15px)
+      @include transition(width)
+
+      :width 100px
+      :background-color #444
+
+      :border 1px solid #222
+
+      :font-size 13px
+      :padding 4px
+
+      &:hover
+        :background-color #555
+
+      &.active
+        :background-color #fafafa
+        :background-color rgba(160,160,160,0.6)
+
+      &:focus
+        :outline none
+        :background-color white
+        :width 200px
+
+      &::-webkit-input-placeholder
+        :text-shadow none
+      &:-moz-placeholder
+        :text-shadow none
+
+ul#settings_nav
+  :display inline
+  :padding 0
+  :font
+    :size large
+  :position absolute
+  :left 198px
+  :top 5px
+
+  > li
+    :display inline
+    :margin
+      :right 1em
+    :font
+      :weight 700
+
+    a
+      :padding 2px
+      :font
+        :weight normal
+
+.settings_pane
+  :display none
+
+#account_data
+  a
+    :line-height 30px
+
+.contact_pictures.horizontal
+  img
+    :margin-right -5px
+
+#thumbnails
+  :line-height 14px
+
+#aspect_list
+  :margin 0
+  :padding 0
+
+.dull
+  :color #aaa
+  :font
+    :style italic
+
+  a
+    :color #69AEDD
+
+h1,h2,h3,h4
+  .description
+    :font
+      :size 70%
+      :weight 100
+    :color #aaa
+    :margin
+      :top 0.5em
+
+h2,h3,h4
+  .description
+    :font
+      :size 80%
+      :weight 200
+
+input[type="search"]
+  :-webkit-appearance textfield
+  :-moz-appearance textfield
+
+.facebox_content
+  :display none
+
+#photo_edit_options
+  :display none
+
+#photodropzone
+  :padding 0px
+  :margin 0px
+
+#section_header
+  :width 100%
+  :border
+    :bottom 2px solid #777
+  :position relative
+
+  :margin
+    :bottom 2em
+  :padding
+    :bottom 1em
+
+  h2
+    :display inline
+
+  .right
+    :margin
+      :top 10px
+
+.photo_options
+  :color #888
+  :text
+    :align center
+
+.inline
+  :display inline
+
+.floating
+  @include box-shadow(0,1px,3px,#333)
+
+  :position relative
+  :padding 12px
+  :margin
+    :bottom 2em
+  :background
+    :color rgb(255,255,255)
+
+  :border
+    :bottom 1px solid #ccc
+    :top 1px solid #fff
+
+  .submit_block
+    :position absolute
+    :bottom 13px
+    :right 12px
+
+  form
+    :display relative
+
+.inline_aspect_listing
+  :margin 0
+  :padding 0
+  :display inline
+  > li
+    :display inline
+    :font
+      :weight normal
+
+    &:after
+      :content ", "
+
+    &:last-child
+      &:before
+        :content "and "
+      &:after
+        :content "."
+
+#user_photo_uploader
+  .avatar
+    @include border-radius(5px)
+
+    :height 100px
+    :width 100px
+
+#publisher_photo_upload
+  :position absolute
+  :display inline
+  :left 600px
+  :top 0
+  :z-index 10
+
+#profile_photo_upload
+  :margin
+    :top 5px
+  :min-height 100px
+  :position relative
+
+  img
+    @include border-radius(5px)
+    @include box-shadow(0,1px,2px,#666)
+
+    :position absolute
+    :left 0
+    :height 100px
+    :width 100px
+
+    &.avatar
+      @include transition(opacity, 0.5s)
+      &.loading
+        @include opacity(0.3)
+
+  :padding
+    :left 120px
+
+h3 span.current_gs_step
+  :color #22C910
+
+#notifications
+  :z-index 10
+  :position fixed
+  :bottom 21px
+  :right 12px
+
+  .notification
+    @include border-radius(5px)
+    @include box-shadow(0,2px,3px,#333)
+
+    :margin
+      :bottom 10px
+
+    :background
+      :color rgb(30,30,30)
+      :color rgba(30,30,30,0.9)
+
+    :min-width 200px
+    :padding 12px
+    :color #fff
+
+    :vertical
+      :align middle
+
+    .avatar
+      :display inline-block
+      :height 20px
+      :width 20px
+      :margin
+        :right 5px
+      :vertical
+        :align middle
+
+#nav_badges
+  :display inline-block
+  :margin-top 2px
+  :float left
+
+  a:hover
+    :text
+      :decoration none
+
+  .badge
+    :position relative
+    :top 2px
+    :display inline
+    :margin 0 2px
+    :padding 8px 3px
+      :bottom 9px
+    :font
+      :weight bold
+      :size smaller
+    :width 28px
+
+    &:hover
+      .badge_count
+        :background
+          :color lighten(#A40802, 5%)
+
+#message_inbox_badge
+  img
+    :position relative
+    :top -2px
+
+#notification_badge
+  img
+    :position relative
+
+.badge_count
+  @include border-radius(2px)
+
+  :z-index 3
+  :position absolute
+  :top -2px
+  :left 13px
+  :padding 0 2px
+    :bottom 1px
+  :background
+    :color #A40802
+  :line
+    :height 12px
+
+  :color #fff
+
+ul#request_result
+  :padding 0
+  :margin 0
+  li
+    :margin
+      :bottom 25px
+    input.add
+      :color green
+  .stream_element
+    .content
+      :display inline
+      :position relative
+      :bottom 2.5em
+      :padding 0
+
+.contact_list_controls
+  :height 30px
+  :margin
+    :bottom 5px
+  :vertical-align middle
+  :position relative
+
+#contact_list_search
+  :width 200px
+  :margin
+    :top 0
+  :float right
+
+.contact_list,
+.aspect_list
+  @include border-radius(3px)
+
+  :height 300px
+  :max-height 300px
+
+  :overflow-y auto
+  :overflow-x hidden
+
+  :border 1px solid #bbb
+
+  :background
+    :color rgb(252,252,252)
+
+  .avatar
+    :float left
+    :height 50px
+    :width 50px
+    :margin
+      :right 10px !important
+
+  .button.share
+    :padding
+      :right 20px
+    .right
+      :right 8px
+      :top 3px
+
+  > .contacts
+    :margin 0
+    :padding 5px
+      :right 0
+
+    > .contact
+      @include border-radius(3px)
+      @include box-shadow(0, 1px, 5px, #ccc)
+      :background
+        :color #fff
+      :float left
+      :overflow-x hidden
+      :overflow-y hidden
+
+      :position relative
+      :display inline-block
+
+      &.hidden
+        :display none
+
+      :height 50px
+      :width 170px
+
+      :margin
+        :bottom 5px
+        :right 5px
+
+      :padding 5px
+      :border 1px solid #999
+
+      > .name
+        :white-space nowrap
+
+      &.remote_friend
+        :width 285px
+
+      a.button
+        @include box-shadow(0,0,0)
+
+        :border
+          :bottom none
+
+        :height 12px !important
+        :width 12px !important
+
+        :padding
+          :right 4px
+          :left 4px
+
+        &.added
+          @include linear-gradient(rgb(158,255,153), rgb(92,199,86))
+
+        &.added.remove
+          @include linear-gradient(rgb(255,153,153), rgb(199,86,86))
+
+          &:active
+            @include linear-gradient(rgb(199,119,119), rgb(130,55,55))
+
+.aspect_list
+  :height 300px
+  :max-height 300px
+
+  .name
+    :left 1em
+
+  ul
+    > li
+      :padding 1em
+      :height 1em
+
+      .right
+        :top 2px
+        :right 1em
+
+footer
+  :width 100%
+  :left 0
+  :bottom 0
+  :color #999
+
+  .container
+    :margin
+      :top 4em
+    :padding 0
+      :top 0.5em
+    :border
+      :top 1px solid #ddd
+
+  img
+    :margin-top 2px
+
+  ul#footer_nav
+    :margin 0
+    :padding 0
+    :display inline-block
+    :float right
+
+    > li
+      :display inline
+      :margin
+        :right 1em
+
+      &:last-child
+        :margin 0
+    a
+      :color #777
+
+ul#landing_nav
+  :margin 0
+  :padding 0
+
+  :position absolute
+  :top 4px
+  :right 0
+
+  > li
+    :display inline
+    :margin
+      :right 0.5em
+
+    &:last-child
+      :margin
+        :right 0
+
+    a
+      :color $blue
+
+      &.login
+        @include border-radius(5px)
+        @include box-shadow(0,1px,1px,#666)
+
+        :padding 5px 8px
+
+        :background
+          :color #000
+
+        :border
+          :top 1px solid #000
+
+        &:hover
+          :background
+            :color #222
+
+    :text-shadow 0 1px 0 #000
+
+#signup_field
+  :margin
+    :top -200px
+  :height 46px
+  :padding 0
+  :width 400px
+  :display inline
+
+  div
+    :display inline
+
+  #mce-responses
+    :margin
+      :top 12px
+    :font
+      :size 12px
+    :display block
+    :color #888
+    :text-shadow 0 1px 0 #fff
+
+    #mce-error-response
+      :color red
+
+    #mce-success-response
+      :color green
+
+  input[type='text']
+    :top -1px
+    :margin 0
+      :right -3px
+    :width 300px
+
+
+    :border-radius 5px 0 0 5px
+    :-webkit-border-radius 5px 0 0 5px
+    :-moz-border-radius 5px 0 0 5px
+
+    :position relative
+    :display inline
+    :padding 12px
+    :font
+      :size 18px
+
+  #big_action_button, input[type='submit']
+    @include linear-gradient(rgb(65,182,250),rgb(0,123,194))
+
+    :height 47px
+    :margin 0
+    :background
+      :color $blue
+
+    :-webkit-border-radius 0 5px 5px 0
+    :-moz-border-radius 0 5px 5px 0
+    :border-radius 0 5px 5px 0
+    :border 1px solid #CCC
+
+    :padding 12px
+    :font
+      :size 18px
+      :weight bold
+    :color #eee
+    :text-shadow 0 1px 0 #333
+
+    :text
+      :align center
+
+    &:hover
+      @include linear-gradient(rgb(0,136,209),rgb(113,204,255))
+
+#diaspora_description
+  :background
+    :image image-url('ball.png')
+    :repeat no-repeat
+    :position top center
+
+  :padding
+    :top 250px
+  :margin
+    :top -200px
+
+
+  :font
+    :size 3.3em
+    :weight bold
+  :text-shadow 0 1px 3px #999
+
+  p
+    @include box-shadow(0,1px,3px,#ccc)
+    :padding 12px
+    :background
+      :color #fff
+
+#login_field
+  :text
+    :align left
+  :font
+    :style italic
+  :margin
+    :top 14px
+    :left 540px
+  :color #888
+
+
+ul#press_logos
+  :margin 0
+    :top 100px
+  :padding 0
+  > li
+    :display inline
+    :margin
+      :right 30px
+
+    img
+      :height 40px
+
+    &:last-child
+      :margin
+        :right 0
+
+#landing_content
+  :margin
+    :top 100px
+  :text
+    :align center
+
+#why
+  :margin
+    :bottom 48px
+
+  h2
+    :text-shadow 0 1px #fff
+    :border
+      :bottom 3px solid #eee
+
+#signup
+  :margin
+    :bottom 48px
+
+#already_invited_pane
+  h4
+    :color #666
+  :color #666
+
+#search_title
+  :font
+    :weight 200
+
+  .term
+    :font
+      :weight bold
+
+.aspects
+  :position relative
+  :margin
+    :top 1em
+
+  .right
+    :right 12px
+
+  .contact_list
+    :height auto
+    :max-height auto
+    :width 500px
+
+.aspects .aspect_badge
+  :font
+    :size 1em
+
+.share_with
+  :min-width 430px
+
+  .avatar
+    :width 50px
+    :height 50px
+    :float left
+
+  h4,p
+    :padding
+      :left 64px
+
+  p
+    :color #eee
+
+#aspects_list
+  :height auto
+
+.notifications_for_day
+  .stream_element
+    :padding 0.2em 0.5em
+    :width 500px
+
+.day_group
+  :min-height 100px
+  :margin
+    :bottom 10px
+  .stream_element
+    &:last-child
+      :border none
+
+.stream.notifications
+  > li:hover
+    :background none
+    :border
+      :bottom 1px solid #eee
+
+.show_comments
+  :border
+    :top 1px solid #ddd
+  :margin
+    :top 5px
+
+.show_comments,
+.likes_container
+  a
+    :color #999
+
+.likes
+  .img
+    :margin-top 3px
+    :margin-right 5px
+
+  img
+    :height 12px
+    :width 12px
+
+.mark_all_read
+  :position relative
+  :top 10px
+
+#inner_account_delete
+  :width 810px
+
+#aspect_edit_pane
+  :width 810px
+  .person_tiles
+    .tile
+      @include border-radius(2px)
+
+      :padding 6px
+        :left 65px
+      :margin 3px
+        :left 0
+      :display inline-block
+      :width 126px
+      :height 50px
+
+      :border 1px solid #eee
+
+      :position relative
+
+      img
+        :position absolute
+        :left 6px
+
+  &.larger
+    :width 650px
+
+#facebox_header
+  :position relative
+  :padding
+    :bottom 10px
+
+  .right
+    :z-index 3
+    :right 1em
+    :top 14px
+    :color #ccc
+
+    img
+      :vertical
+        :align top
+      :position relative
+      :top 0px
+
+  h3,
+  h4
+    .description
+      :margin
+        :top 0px
+
+  .tiny_text
+    :font
+      :size 11px
+      :weight normal
+
+#aspect_edit_controls
+  :margin
+    :top 8px
+
+#home_user_badge
+  :position relative
+
+  img
+    :position absolute
+    :left 0
+
+  h4
+    :position relative
+    :top 14px
+    :padding
+      :bottom 5px
+    :text-overflow ellipsis
+    :overflow hidden
+    :white-space nowrap
+
+    a
+      :color inherit
+
+  :margin
+    :bottom 54px
+
+  :padding
+    :left 60px
+
+#email_invitation
+  input
+    :width 100%
+  textarea
+    :width 100%
+
+.share_with
+  .add_aspect
+    @include border-radius(5px)
+
+    :margin
+      :top 0.5em
+    :background
+      :color #ddd
+    p
+      :padding
+        :left 1em
+      input[type='text']
+        :width 95%
+
+      &.checkbox_select
+        label
+          :padding
+            :left 15px
+          :top 0
+        :height 2em
+    .right
+      :z-index 5
+      :top 34px
+      :right 1em
+
+  .done
+    :padding 1em
+      :bottom 2em
+    .right
+      :right 1em
+
+.invite_friends
+  :padding 1em
+  :background
+    :color #eee
+  :border 1px solid #ccc
+
+#remember_me
+  input[type='checkbox']
+    :display inline
+    :height auto !important
+    :top 2px !important
+  label
+    :font-size inherit !important
+    :position static
+
+.public_icon, .service_icon
+  :cursor pointer
+
+.stream_element
+  .subject
+    :font
+      :size 13px
+      :weight bold
+    :color #444
+    :overflow hidden
+    :white-space nowrap
+
+  .last_author
+    :font
+      :size 12px
+    :color #777
+
+  .collapsible
+    :overflow hidden
+    :position relative
+
+    .expander
+      :position absolute
+      :bottom 0
+      :left 0
+      :right 0
+      :height 30px
+      :text-align center
+      :line-height 48px
+      :font-size .8em
+      :color $grey
+      :text-shadow 0 0 7px #FFF
+      :cursor pointer
+      :border-bottom 2px solid #DDD
+      @include border-radius(0, 0, 3px, 3px)
+      @include linear-gradient(rgba(255,255,255,0) , #EEE, 0%, 95%)
+      :background-color transparent
+
+    .oembed
+      :background image-url('ajax-loader2.gif') no-repeat center center
+      :display inline-block
+      :max-width 100%
+
+      .thumb
+        :position relative
+        :cursor pointer
+
+        .video-overlay
+          :background image-url('video-overlay.png') no-repeat center center
+          :position absolute
+          :top 0
+          :left 0
+          :right 0
+          :bottom 0
+
+.conversation_participants
+  :z-index 3
+  :background
+    :color $background
+  :position relative
+  :margin
+    :bottom 10px
+
+  :-webkit-box-shadow 0 2px 3px -3px #666
+  :-moz-box-shadow 0 2px 3px -3px #666
+  :box-shadow 0 2px 3px -3px #666
+
+  .right
+    :top 118px
+    :right 5px
+
+  h3
+    :margin 0
+      :top 6px
+      :bottom 0px
+    :padding
+      :bottom 10px
+
+  .avatar
+    :height 30px
+    :width 30px
+
+  :line
+    :height 0
+
+  a img
+    :margin
+      :bottom 4px
+
+  .conversation_controls
+    a
+      :margin
+        :right 10px
+
+    :margin
+      :bottom 10px
+
+  :border
+    :bottom 1px solid #ddd
+  :padding 10px
+    :top 101px
+    :bottom 10px
+  :width 560px
+  :margin
+    :top -100px
+
+  .avatars
+    :text
+      :align right
+    :margin
+      :top 9px
+
+.stream_element.conversation
+  :padding 8px
+
+  .message_count
+    @include border-radius(5px)
+
+    :float right
+    :right 0px
+    :padding 0 5px
+    :position relative
+    :background
+      :color #999
+    :color #eee
+    :font
+      :size 12px
+      :weight normal
+
+  .unread_message_count
+    @include border-radius(5px)
+
+    :float right
+    :right 5px
+    :padding 0 5px
+    :position relative
+    :background
+      :color #b11
+    :color #eee
+    :font
+      :size 12px
+      :weight normal
+
+  .participant_count
+    :font
+      :weight normal
+
+  .timestamp
+    :position relative
+    :float right
+    :font
+      :weight normal
+    :color $blue
+
+  .avatar
+    :display inline
+    :width 35px
+    :height 35px
+    :margin
+      :right 10px
+
+  &:hover:not(.selected)
+    :background
+      :color #fafafa
+
+  &.selected:hover
+    :background
+      :color lighten($blue,5%)
+
+  &:hover
+    :cursor pointer
+
+.conversation.unread
+  :background
+    :color darken($background,5%)
+
+.conversation.selected
+  :background
+    :color $blue
+  .subject
+    :color #fff
+  .last_author
+    :color #fff
+  .timestamp
+    :color #eee
+  :border
+    :bottom 1px solid darken($blue, 10%)
+    :top 1px solid darken($blue, 10%)
+
+#conversation_inbox
+  :height 100%
+  :overflow-y auto
+  :overflow-x none
+
+  a:hover
+    :text
+      :decoration none
+
+#left_pane
+  :position fixed
+  :width 337px
+
+  h3
+    :padding
+      :bottom 0
+    :margin
+      :bottom 15px
+
+  #left_pane_header
+    :padding 10px
+    :height 55px
+    :border
+      :bottom 1px solid #ddd
+
+#no_conversation_text
+  :font
+    :size 20px
+    :weight bold
+  :color #ccc
+  :text
+    :align center
+  :margin
+    :top 100px
+
+#no_conversation_controls
+  :text
+    :align center
+  :font
+    :size 12px
+
+#contact_visibility_padlock:hover
+  @include opacity(0.7)
+
+.side_stream
+  .stream_element
+    :padding 10px 0
+  .avatar
+    :float left
+
+.tag
+  :display inline-block
+  &:hover
+    :text
+      :decoration underline
+    :background
+      :color lighten($blue, 47%)
+
+  :font
+    :weight bold
+
+h1.tag
+  :border
+    :bottom 2px dotted $blue
+  &:hover
+    :border
+      :bottom 2px dotted $blue
+
+.info
+  .tag
+    :background
+      :color #efefef
+    :color #999
+    :border
+      :bottom 1px dotted #999
+
+    &:hover
+      :border
+        :bottom 1px solid #999
+
+.diaspora_handle
+  :font
+    :size 12px
+    :weight normal
+  :color #555
+
+.add_tags
+  :font
+    :weight normal
+    :size 11px
+
+.hover_edit
+  :display none
+  :font
+    :weight normal
+    :size 11px
+  :margin
+    :left 5px
+
+.description:hover
+  .hover_edit
+    :display inline
+
+#contacts_of_contact
+  .section
+    :margin
+      :bottom 4px
+  .see_all
+    :text-align center
+
+  .avatar
+    :height 45px
+    :width 45px
+
+.date
+  :background
+    :color #e6e6e6
+  :border-radius 8px
+  :padding 5px
+  :color #999
+
+  :text-align center
+  .day
+    :font-size 50px
+    :font-weight 200
+    :margin-bottom -15px
+    :margin-top -10px
+
+  .month
+    :font-size 14px
+
+.notification_count
+  :background
+    :color #f0f0f0
+  :color #999
+  :font
+    :weight normal
+
+  :padding 0 5px
+    :left 11px
+  :margin
+    :right 5px
+  :border
+    :radius 5px
+
+  &.unread
+    :background
+      :color lighten(#A40802, 5%)
+    :color #eee !important
+    :font
+      :weight bold
+
+.rightBar
+  .title
+    :position relative
+    :border
+      :bottom 1px solid #ddd
+    :padding 2px 0
+      :top 0
+      :left 22px
+
+    &.no_icon
+      :padding
+        :left 8px
+
+    .right
+      :right 4px
+      :top 3px
+      :font-size smaller
+      :font-weight bold
+      :color #777
+
+    h5
+      :font-size 12px
+      :margin 0
+      :color #666
+
+    img
+      :position absolute
+      :left 3px
+      :top 0px
+
+  .section
+    .content
+      :padding 8px
+      :color #999
+      :font-size 11px
+    :margin
+      :bottom 25px
+
+.subtle
+  :color #888
+  :font
+    :style italic
+
+.cubbies_steps
+  li
+    :margin
+      :bottom 12px
+    :vertical-align top
+
+.cubbies-settings-image
+  @include box-shadow(3px, 3px, 15px, #333)
+  :margin
+    :bottom 5px
+
+.button.sign_up
+  @include linear-gradient(#D9FFA9,#B9E68A)
+  :text-shadow none
+  :color #333
+
+  &:hover
+    @include linear-gradient(darken(#D9FFA9,10%),darken(#B9E68A,10%))
+
+  &:active
+    @include linear-gradient(darken(#D9FFA9,20%),darken(#B9E68A,20%))
+
+#facebox
+  input[type='text'], input.text
+    :width 98%
+
+#client-application-image
+  :max-width 100%
+
+#service_stream
+  :margin 0
+  :padding 0
+
+#authorize
+  :text-align center
+
+#application-description
+  :display inline-block
+  :width 300px
+  :padding-bottom 20px
+
+ul#requested-scopes
+  :vertical-align middle
+  li
+    :display inline-block
+    :padding 5px
+
+    img
+      :height 30px
+      :width 30px
+
+    .scope-description
+      :display none
+
+ul.left_nav
+  :margin 0
+    :bottom 15px
+  :padding 0
+
+  &.sub
+    :padding-left 6px
+
+  a
+    :color #777
+    :font-weight bold
+
+  li
+    :position relative
+    :width 100%
+
+  li.active
+    > a.home_selector:not(.sub_selected)
+      :font
+        :weight 700
+
+    > a:not(.sub_selected)
+      :color #333
+      .contact_count
+        :font
+          :weight 700
+        :color #666
+
+    > a.aspect_selector
+      :background
+        :image image-url("icons/check_yes_ok.png")
+        :position 3px 50%
+        :repeat no-repeat
+
+  a.aspect_selector,
+  a.home_selector,
+  a.tag_selector,
+  a.element_selector
+    &:active
+      :cursor -webkit-grabbing
+      :cursor -moz-grabbing
+      :cursor grabbing
+
+  a.aspect_selector,
+  a.home_selector,
+  a.tag_selector,
+  a.element_selector,
+  .root_element
+    :display block
+    :width 100%
+    :padding 3px 7px
+
+  a.aspect_selector,
+  a.home_selector,
+  a.tag_selector,
+  a.element_selector
+    &:hover
+      @include border-radius(2px)
+      :background
+        :color lighten($blue,45%)
+      :text
+        :decoration none
+
+  .edit,
+  .unfollow_icon
+    :margin-top 4px
+    @include transition(opacity)
+    @include opacity(0.3)
+    :float right
+    :display none
+    &:hover
+      @include opacity(1)
+
+  .contact_count
+    :float right
+    @include border-radius(4px)
+    :margin-top 1px
+    :color #999
+    :background
+      :color #eee
+    :padding 0 5px
+    :display inline
+    :font
+      :size 11px
+
+  ul.sub_nav
+    :padding 0
+    :margin 0
+    li
+      :width 162px
+
+    a.aspect_selector,
+    a.toggle_selector,
+    .new_aspect,
+    a.tag_selector
+      :padding
+        :left 25px
+      :width 172px
+
+.section
+  .left_nav
+    a.aspect_selector,
+    a.home_selector
+      :width 150px
+    ul.sub_nav
+      :width 140px
+
+      a.aspect_selector,
+      a.tag_selector
+        :width 140px
+
+      li:hover,
+      li.hover
+        .edit,
+        .unfollow_icon
+          :display inline-block
+
+  .user_card
+    :margin-left 8px
+
+.unread-setter
+  :display none
+
+.stream_container
+  :min-height 500px
+
+  h3
+    :margin
+      :bottom 0
+  :border
+    :left 1px solid #ddd
+  :padding
+    :left 10px
+    :top 20px
+  :margin
+    :left -10px
+    :top -20px
+
+#aspect_stream_header
+  :padding 0 12px
+
+.new_aspect,
+a.toggle_selector
+  :outline none
+  :color #999
+  :font
+    :style italic
+
+  &:hover
+    :color #777
+
+.no_contacts
+  :position relative
+  :text-align center
+  :top 50px
+
+#people_stream.contacts
+  .stream_element
+    :padding 10px
+    :min-height 30px
+    .right
+      :top 16px
+
+      a
+        @include opacity(0.3)
+
+        &:hover
+          @include opacity(1)
+
+    .from
+      :position relative
+      a
+        :color rgb(85,80,80)
+
+    .content
+      :padding
+        :left 40px
+    .info
+      :margin
+        :top -2px
+
+  .avatar
+    :height 30px
+    :width 30px
+
+#aspect_controls
+  @include border-radius(2px)
+  :background
+    :color #fafafa
+  :border 1px solid #ccc
+  :padding 10px
+  :min-height 23px
+
+  .conversation_button
+    :float right
+
+#selected_aspect_contacts
+  .avatar
+    :height 32px
+    :width 32px
+    :margin
+      :bottom -2px
+
+#view_all_contacts_link
+  @include border-radius(2px)
+  :display block
+  :padding 5px
+  :border 1px dotted #aaa
+  :text-align center
+  :margin 5px 0
+
+.bottom_submit_section
+  :display block
+  :position relative
+
+  form
+    :display inline-block
+  :text-align right
+
+#no_contacts
+  :text-align center
+  :padding 10px
+  :background
+    :color #eee
+  :color #666
+
+.left
+  :position absolute
+  :left 0
+
+#notification_dropdown
+  @include dropdown-shadow
+
+  :background white
+  :border solid #888 1px
+  :left 300px
+  :width 380px
+  :display none
+  :margin-top 8px
+
+  :color #444
+
+  .right
+    :font-size smaller
+    :display inline
+    :position relative
+    :float right
+    :top 4px
+    :font
+      :weight bold
+
+  a
+    :color $blue
+
+  .header
+    :padding 10px
+    h4
+      :padding
+        :bottom 0
+      :margin
+        :bottom 0
+
+  .notification_element,
+  .header
+    :border
+      :bottom 1px solid #ddd
+
+  .ajax_loader
+    :text-align center
+    :padding 15px
+
+  .notification_element
+    :padding 10px
+    :min-height 30px
+    &:hover
+      :background-color #FAFAFA
+    > img
+      :height 30px
+      :width 30px
+      :float left
+      :margin
+        :right 10px
+
+    &.unread
+      :background
+        :color #eee
+      :color #000
+      :font
+        :weight bold
+
+#notification_badge.active
+  :z-index 10
+  :background
+    :color #fff
+  :border 1px solid #888
+    :bottom none
+  :margin
+    :left 0px
+  :padding
+    :bottom 10px
+
+.cubbies_collage
+  :position absolute
+  :right 50px
+  :top -50px
+  :z-index -1
+
+.cubbies_screenshot
+  :position absolute
+  :right -20px
+  :z-index 1
+
+.cubbies_infographic
+  :height 450px
+  :margin
+    :top 30px
+
+#community_spotlight
+  .avatar
+    :height 140px
+    :width 140px
+
+.user_card
+  @include border-radius(3px)
+  @include box-shadow(0,1px,5px,#ccc)
+  :padding 10px
+    :bottom 30px
+  :margin
+    :bottom 15px
+    :right 10px
+
+  :position relative
+
+  :min-height 220px
+
+  :vertical-align top
+
+  :border 1px solid #ccc
+  :display inline-block
+
+  :width 140px
+
+  .tags
+    :color #999
+
+  h4
+    :margin
+      :bottom 0
+    :padding
+      :bottom 2px
+
+  .dropdown
+    :width 100%
+
+.add_user_to_aspect
+  :bottom 12px
+  :right 5px
+  :position absolute
+
+#right_service_icons
+  :text-align center
+  :padding 10px
+    :bottom 0
+
+.cubbies_images
+  :margin-left 15px
+
+.cubbies_user_page_small
+  :position absolute
+  :left 270px
+
+#featured_users_pane
+  :padding 10px 0
+
+  .featured_user_card_small
+    :height 30px
+
+    :vertical-align top
+    :position relative
+
+    :border
+      :bottom 1px solid #ddd
+
+    :padding 5px
+    :margin
+      :bottom 5px
+
+    a
+      :font
+        :weight bold
+
+    .tags
+      a
+        :color #999
+
+    .avatar
+      :height 30px
+      :width 30px
+      :margin
+        :right 5px
+      :float left
+
+.action_item
+  :padding-right 5px
+
+.accept_invitation_form,
+.sign_up_form
+  :min-height 350px
+  :font-size 16px
+  input[type='text'],
+  input[type='password'],
+  input[type='email']
+    :font-size 16px !important
+    :width 378px !important
+
+  .diaspora_id_text
+    :font-size 12px
+    :text-align right
+    :color #999
+    :margin
+      :top -8px
+    :padding 0
+
+  .submit_field
+    :text-align right
+
+.accept_invitation_text
+  :font
+    :weight lighter
+
+.red
+  :color $red
+
+.green
+  :color green
+.resend
+  :color black
+  &:hover
+    :text-decoration none
+    :color black
+    &:hover
+      :text-decoration none
+
+#admin_nav
+  :font-size 1em
+  :border
+    :bottom 2px solid #777
+  :margin
+    :bottom 20px
+  ul
+    :display inline
+  li
+    :font-size 0.8em
+    :display inline
+    :margin
+      :right 0.5em
+
+#grey_header
+  @include box-shadow(0,1px,1px,#eee)
+  :background
+    :color #fafafa
+  :width 100%
+  :position absolute
+  :left 0
+  :top 0
+  :padding
+    :top 80px
+    :bottom 20px
+  :text
+    :align center
+  :border
+    :bottom 1px solid #ddd
+
+.mobile_row
+  :margin
+    :bottom 50px
+
+.field_with_errors
+  :position relative
+
+  input
+    @include box-shadow(0,0,8px,lighten(#D00,30%))
+    :border 1px solid #D00 !important
+
+.field_with_errors .message
+  :color #D00
+  :font-size 12px
+  :position absolute
+  :top 4px
+  :right 10px
+  :left auto
+
+.new_user_form fieldset, .accept_invitation_form fieldset
+  @include border-radius(3px)
+
+  :background
+    :color #fff
+    :color rgba(255,255,255,0.95)
+
+  .submit_field
+    :margin
+      :top 15px
+  span.host_uri
+    :float right
+    :margin-top -28px
+    :color #999
+    :padding-right 9px
+
+.center
+  :text-align center
+
+.nostrap,
+.nostrap:focus
+  :-webkit-box-shadow none
+  :-moz-box-shadow none
+  :box-shadow none
+
+#welcome-to-diaspora
+  :-webkit-box-shadow inset 0 -2px 10px rgba(0,0,0,0.35)
+  :-moz-box-shadow inset 0 -2px 10px rgba(0,0,0,0.35)
+
+  :position absolute
+  :width 100%
+  :left 0
+  :top 0
+  :padding
+    :top 50px
+    :bottom 10px
+  h1,h3
+    :color #fff
+    :text-overflow ellipsis
+    :overflow hidden
+    :white-space nowrap
+  :background orange
+  &:hover
+    #gs-skip-x
+      @include opacity(0.4)
+      @include transition(opacity, 0.25s)
+
+      &:hover
+        @include opacity(1)
+
+#gs-shim
+  :position absolute
+  :top 380px
+
+#gs-skip-x
+  @include opacity(0)
+  @include transition(opacity, 0.25s)
+
+  img
+    :position relative
+    :right 4px
+    :height 20px
+
+
+.avatar.micro
+  :height 20px
+  :width 20px
+
+#gs-name-form-spinner
+  :position absolute
+  :top 24px
+  :right -33px
+
+.left_nav
+  #new_tag_following
+    :margin
+      :left 24px
+
+    input[type='text']
+      :font
+        :size 13px
+
+  #tag_following_submit
+    &.hidden
+      :display none
+
+.popover
+  .close
+    @include opacity(0)
+    @include transition(opacity, 0.2s)
+
+    :float right
+    :position relative
+    :top -9px
+    :right -5px
+
+  &:hover
+    .close
+      @include opacity(0.5)
+
+      &:hover
+        @include opacity(1)
+
+.nsfw-shield
+  @include border-radius(3px)
+  :background-color #eee
+  :width 90%
+  :padding 5px 10px
+  :border 1px solid #ddd
+  :color #999
+
+#back-to-top
+  :display block
+  :color white
+  :position fixed
+  :z-index 49
+  :right 20px
+  :bottom 20px
+  :opacity 0
+  :font-size 3em
+  :padding 0 11px 0 12px
+  :border-radius 10px
+  :background-color #aaa
+  &:hover
+    :opacity 0.85 !important
+  &:visible
+    :opacity 0.5
+
+.float-right
+  :float right
+  :margin-top 5px
+
+.nsfw_off
+  :font-size smaller
+  :color #999
+  a
+    :color #666
+    :color #666
+

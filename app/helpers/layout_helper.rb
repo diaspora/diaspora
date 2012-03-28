@@ -18,9 +18,10 @@ module LayoutHelper
   end
 
   def set_asset_host
+    path = ENV['ASSET_HOST'].to_s + '/assets/'
     content_tag(:script) do
       <<-JS.html_safe
-        app.baseImageUrl("#{ENV['ASSET_HOST']}")
+        app.baseImageUrl("#{path}")
       JS
     end
   end
@@ -61,9 +62,9 @@ module LayoutHelper
 
   def include_base_css_framework(use_bootstrap=false)
     if use_bootstrap || @aspect == :getting_started || @page == :logged_out
-      include_stylesheets :bootstrap
+      stylesheet_link_tag 'bootstrap'
     else
-      include_stylesheets :blueprint, :media => 'screen'
+      stylesheet_link_tag 'blueprint', :media => 'screen'
     end
   end
 

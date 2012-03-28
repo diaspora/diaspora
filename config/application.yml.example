@@ -39,6 +39,9 @@ defaults: &defaults
   # let your reverse proxy/webserver do it.
   serve_static_assets: false
 
+  # Serve jQuery from Google's CDN
+  jquery_cdn: true
+
   #
   # Settings
   #

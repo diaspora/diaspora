@@ -34,13 +34,19 @@ GIT
       rack-fiber_pool
       sinatra
 
+GIT
+  remote: git://github.com/pivotal/jasmine-gem.git
+  revision: 34c1529c3f7b78ebd81ac16006f141fc6b7cf013
+  specs:
+    jasmine (1.2.0.rc2)
+      jasmine-core (>= 1.2.0.rc1)
+      rack (>= 1.1)
+      rspec (>= 1.3.1)
+      selenium-webdriver (>= 0.1.3)
+
 GEM
   remote: http://rubygems.org/
   specs:
-    POpen4 (0.1.4)
-      Platform (>= 0.4.0)
-      open4
-    Platform (0.4.0)
     SystemTimer (1.2.3)
     actionmailer (3.1.4)
       actionpack (= 3.1.4)
@@ -144,7 +150,9 @@ GEM
       eventmachine (>= 1.0.0.beta.1)
     erubis (2.7.0)
     eventmachine (1.0.0.beta.4)
-    excon (0.12.0)
+    excon (0.13.2)
+    execjs (1.3.0)
+      multi_json (~> 1.0)
     factory_girl (2.6.4)
       activesupport (>= 2.3.9)
     factory_girl_rails (1.7.0)
@@ -162,9 +170,9 @@ GEM
     fixture_builder (0.3.1)
       activerecord (>= 2)
       activesupport (>= 2)
-    fog (1.3.0)
+    fog (1.3.1)
       builder
-      excon (~> 0.12.0)
+      excon (~> 0.13.0)
       formatador (~> 0.2.0)
       mime-types
       multi_json (~> 1.0)
@@ -183,9 +191,13 @@ GEM
       rspec-instafail (~> 0.1.8)
       ruby-progressbar (~> 0.0.10)
     gem_plugin (0.2.3)
-    gherkin (2.9.1)
+    gherkin (2.9.3)
       json (>= 1.4.6)
     haml (3.1.4)
+    handlebars_assets (0.4.1)
+      execjs (>= 1.2.9)
+      sprockets (>= 2.0.3)
+      tilt
     hashie (1.2.0)
     heroku (2.23.0)
       launchy (>= 0.3.2)
@@ -207,24 +219,16 @@ GEM
       actionpack (~> 3.0)
       i18n-inflector (~> 2.6)
       railties (~> 3.0)
-    jammit (0.6.5)
-      yui-compressor (>= 0.9.3)
-    jammit-s3 (0.6.0.2)
-      jammit (>= 0.5.4)
-      mimemagic (>= 0.1.7)
-      s3 (>= 0.3.7)
-    jasmine (1.1.2)
-      jasmine-core (>= 1.1.0)
-      rack (>= 1.1)
-      rspec (>= 1.3.1)
-      selenium-webdriver (>= 0.1.3)
-    jasmine-core (1.1.0)
+    jasmine-core (1.2.0.rc1)
+    jquery-rails (1.0.19)
+      railties (~> 3.0)
+      thor (~> 0.14)
     json (1.6.6)
     jsonpath (0.5.0)
       multi_json
     jwt (0.1.4)
       json (>= 1.2.4)
-    kgio (2.7.3)
+    kgio (2.7.4)
     launchy (2.0.3)
     linecache (0.46)
       rbx-require-relative (> 0.0.4)
@@ -236,13 +240,12 @@ GEM
       treetop (~> 1.4.8)
     messagebus_ruby_api (1.0.3)
     mime-types (1.18)
-    mimemagic (0.1.8)
     mini_magick (3.4)
       subexec (~> 0.2.1)
     mobile-fu (1.0.0)
       rack-mobile-detect
       rails
-    mock_redis (0.4.0)
+    mock_redis (0.4.1)
     mongrel (1.1.5)
       cgi_multipart_eof_fix (>= 2.4)
       daemons (>= 1.0.3)
@@ -286,14 +289,12 @@ GEM
       omniauth-oauth (~> 1.0)
     omniauth-twitter (0.0.8)
       omniauth-oauth (~> 1.0)
-    open4 (1.3.0)
-    orm_adapter (0.0.6)
+    orm_adapter (0.0.7)
     parallel (0.5.16)
     parallel_tests (0.7.2)
       parallel
     pg (0.13.2)
     polyglot (0.3.3)
-    proxies (0.2.1)
     rack (1.3.6)
     rack-cache (1.2)
       rack (>= 0.4)
@@ -387,9 +388,13 @@ GEM
     ruby_core_source (0.1.5)
       archive-tar-minitar (>= 0.5.2)
     rubyzip (0.9.6.1)
-    s3 (0.3.11)
-      proxies (~> 0.2.0)
     sass (3.1.15)
+    sass-rails (3.1.4)
+      actionpack (~> 3.1.0)
+      railties (~> 3.1.0)
+      sass (>= 3.1.4)
+      sprockets (~> 2.0.0)
+      tilt (~> 1.3.2)
     selenium-webdriver (2.16.0)
       childprocess (>= 0.2.5)
       ffi (~> 1.0.9)
@@ -425,7 +430,10 @@ GEM
     typhoeus (0.3.3)
       mime-types
     tzinfo (0.3.32)
-    unicorn (4.2.0)
+    uglifier (1.2.4)
+      execjs (>= 0.3.0)
+      multi_json (>= 1.0.2)
+    unicorn (4.2.1)
       kgio (~> 2.6)
       rack
       raindrops (~> 0.7)
@@ -443,8 +451,6 @@ GEM
     xpath (0.1.4)
       nokogiri (~> 1.3)
     yard (0.7.5)
-    yui-compressor (0.9.6)
-      POpen4 (>= 0.1.4)
 
 PLATFORMS
   ruby
@@ -470,7 +476,7 @@ DEPENDENCIES
   devise (= 1.5.3)
   diaspora-client!
   em-synchrony (= 1.0.0)
-  factory_girl_rails
+  factory_girl_rails (= 1.7.0)
   faraday
   faraday-stack
   fastercsv (= 1.5.4)
@@ -480,12 +486,13 @@ DEPENDENCIES
   foreman (= 0.34.1)
   fuubar (= 0.0.6)
   haml
+  handlebars_assets
   heroku
   heroku_san
   http_accept_language (~> 1.0.2)
   i18n-inflector-rails (~> 1.0)
-  jammit-s3
-  jasmine (~> 1.1.2)
+  jasmine!
+  jquery-rails
   json
   jwt
   linecache (= 0.46)
@@ -528,6 +535,7 @@ DEPENDENCIES
   ruby-debug19
   ruby-oembed (~> 0.8.7)
   sass
+  sass-rails (= 3.1.4)
   selenium-webdriver (~> 2.16.0)
   settingslogic!
   sqlite3
@@ -535,6 +543,7 @@ DEPENDENCIES
   timecop
   twitter (= 2.0.2)
   typhoeus
+  uglifier
   unicorn (~> 4.2.0)
   webmock
   whenever
