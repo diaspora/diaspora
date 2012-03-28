@@ -1,3 +1,4 @@
+//= require ../post_view
 app.views.Post.Mood = app.views.Post.extend({
   templateName : "mood",
   className : "post loaded",
