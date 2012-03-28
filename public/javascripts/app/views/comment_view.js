@@ -22,7 +22,7 @@ app.views.Comment = app.views.Content.extend({
   },
 
   postOwner : function() {
-    return  app.currentUser.authenticated() && this.model.get("parent").author.diaspora_id == app.currentUser.get("diaspora_id")
+    return  app.currentUser.authenticated() && this.model.get("parent").status_message.author.diaspora_id == app.currentUser.get("diaspora_id")
   },
 
   canRemove : function() {

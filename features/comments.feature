@@ -56,3 +56,25 @@ Feature: commenting
     And I make a show page comment "I think thats a cat"
     When I go to "alice@alice.alice"'s page
     Then I should see "I think thats a cat"
+
+  Scenario: a different user writes another comment
+    Given a user named "Donny Jepp" with email "donny@jepp.jepp"
+    And a user with email "donny@jepp.jepp" is connected with "alice@alice.alice"
+   
+    When "alice@alice.alice" has posted a status message with a photo 
+
+    When I sign in as "bob@bob.bob"
+    And I am on "alice@alice.alice"'s page
+    When I focus the comment field
+    And I fill in "text" with "such a nice picture"
+    And I press "Comment"
+    And I log out
+
+    When I sign in as "donny@jepp.jepp"
+    And I am on "alice@alice.alice"'s page
+    Then I should see "such a nice picture"
+
+    When I focus the comment field
+    And I fill in "text" with "I like dogs"
+    And I press "Comment"
+    Then I should see "I like dogs"
