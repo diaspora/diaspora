@@ -141,6 +141,8 @@ group :test do
   gem 'mock_redis'
 
   gem 'spork', '~> 1.0rc'
+  gem 'guard-rspec'
+  gem 'guard-spork'
 end
 
 group :development do
