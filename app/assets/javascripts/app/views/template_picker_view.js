@@ -2,7 +2,7 @@ app.views.TemplatePicker = app.views.Base.extend({
   templateName : "template-picker",
 
   initialize : function(){
-    this.model.set({frame_name : 'status'})
+    this.model.set({frame_name : 'Day'})
   },
 
   events : {
@@ -19,7 +19,7 @@ app.views.TemplatePicker = app.views.Base.extend({
 
   presenter : function() {
     return _.extend(this.defaultPresenter(), {
-      templates : _.union(app.models.Post.frameMoods, app.models.Post.legacyTemplateNames)
+      templates : _.union(app.models.Post.frameMoods, _.without(app.models.Post.legacyTemplateNames, ["status"]))
     })
   }
 })

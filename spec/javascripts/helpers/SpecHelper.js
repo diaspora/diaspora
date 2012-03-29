@@ -33,6 +33,7 @@ beforeEach(function() {
 
 afterEach(function() {
   //spec.clearLiveEventBindings();
+  $("#jasmine_content").empty()
   expect(spec.loadFixtureCount).toBeLessThan(2);
   spec.loadFixtureCount = 0;
 });
