@@ -32,7 +32,7 @@ atom_feed({'xmlns:thr' => 'http://purl.org/syndication/thread/1.0',
       :id => "#{@user.person.url}p/#{post.id}" do |entry|
 
       entry.title truncate(post.formatted_message(:plain_text => true), :length => 50)
-      entry.content post.formatted_message(:plain_text => true), :type => 'html'
+      entry.content auto_link(post.formatted_message(:plain_text => true)), :type => 'html'
       entry.tag! 'activity:verb', 'http://activitystrea.ms/schema/1.0/post'
       entry.tag! 'activity:object-type', 'http://activitystrea.ms/schema/1.0/note'
     end
