@@ -41,6 +41,13 @@ describe InvitationsController do
     end
   end
 
+  describe '#email' do
+    it 'succeeds' do
+      get :email, :invitation_code => "anycode"
+      response.should be_success
+    end
+  end
+
   describe '#new' do
     it 'renders' do
       sign_in :user, @user
