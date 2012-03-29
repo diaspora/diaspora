@@ -45,6 +45,16 @@ describe UsersController do
       get :public, :username => @user.username, :format => :atom
       response.body.should include(sm.text)
     end
+    
+    it 'renders xml if atom is requested with clickalbe urls' do
+      sm = Factory(:status_message, :public => true, :author => @user.person)
+      @user.person.posts.each do |p|
+        p.text = "Goto http://diasporaproject.org/ now!"
+        p.save
+      end
+      get :public, :username => @user.username, :format => :atom
+      response.body.should include('&lt;a href="http://diasporaproject.org/"&gt;http://diasporaproject.org/&lt;/a&gt;')
+    end
 
     it 'redirects to a profile page if html is requested' do
       get :public, :username => @user.username
