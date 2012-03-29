@@ -515,6 +515,15 @@ ul.as-selections
   .right
     :right 4px
 
+.status-message-location
+  .near-from
+    :font-size 12px
+    :color #aaa
+    :width 65px
+    :float left
+  .address
+    :font-size 11px
+    :color #bbb
 
 .stream_element .post-content .reshare
   :border-left 2px solid #ddd
@@ -640,6 +649,8 @@ form p.checkbox_select
     :height 100%
     :width 100%
     :cursor pointer
+  img
+    :margin-right 20px
 
 #publisher
   :z-index 1
@@ -797,7 +808,7 @@ form p.checkbox_select
     :z-index 3
     :position absolute
     :bottom 0
-    :width 435px
+    :width 430px
     :left 5px
     :padding 0
 
@@ -2838,3 +2849,38 @@ a.toggle_selector
     :color #666
     :color #666
 
+#publisher-images
+  #locator
+    :bottom 1px !important
+    :display inline-block
+    :margin 0
+    :position absolute !important
+    :right 30px
+    :cursor pointer
+    img
+      :padding-top 2px
+  .btn
+    :height 19px
+    :width 19px
+
+#location
+  :border 1px solid #999
+  :height 20px
+  #location_address
+    :border none
+    :color #aaa
+    :height 10px
+    :width 430px
+    :float left
+  a#hide_location
+    :position absolute
+    :right 22px
+    :filter alpha(opacity=30)
+    :-moz-opacity 0.3
+    :-khtml-opacity 0.3
+    :opacity 0.3
+    :z-index 5
+  a#hide_location:hover
+    :-khtml-opacity 1
+    :opacity 1 
+    :cursor pointer
