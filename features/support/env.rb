@@ -16,9 +16,6 @@ require 'cucumber/api_steps'
 # Ensure we know the appservers port
 Capybara.server_port = 9887
 
-# Set the asset host for the pipeline
-ActionController::Base.asset_host = Capybara.app_host
-
 # Capybara defaults to XPath selectors rather than Webrat's default of CSS3. In
 # order to ease the transition to Capybara we set the default here. If you'd
 # prefer to use XPath just remove this line and adjust any selectors in your
@@ -80,11 +77,7 @@ silence_warnings do
 end
 
 require File.join(File.dirname(__FILE__), "..", "..", "spec", "support", "fake_resque")
-
-
 require File.join(File.dirname(__FILE__), 'run_resque_in_process')
-require File.join(File.dirname(__FILE__), 'always_use_local_jquery')
-require File.join(File.dirname(__FILE__), 'never_ajax_stream')
 
 
 Before('@localserver') do
