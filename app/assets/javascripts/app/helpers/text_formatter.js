@@ -31,7 +31,7 @@
         var addr = parse_url(unicodeUrl);
         var asciiUrl = // rebuild the url
           (!addr.scheme ? '' : addr.scheme +
-          (!addr.scheme=="mailto" ? ':' : '://')) +
+          ( (addr.scheme.toLowerCase()=="mailto") ? ':' : '://')) +
           (!addr.user ? '' : addr.user +
           (!addr.pass ? '' : ':'+addr.pass) + '@') +
           punycode.toASCII(addr.host) +
