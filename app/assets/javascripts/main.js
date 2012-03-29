@@ -23,6 +23,7 @@
 //= require fileuploader-custom
 //= require handlebars-1.0.0.beta.6
 //= require markdown
+//= require punycode
 //= require clear-form
 //= require validation
 //= require app/app
