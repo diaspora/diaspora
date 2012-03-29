@@ -25,8 +25,8 @@ def finalize_frame
   click_button "done"
 end
 
-def assert_post_renders_with(template_name)
-  find(".post")["data-template"].should == template_name.downcase
+def assert_post_renders_with(mood)
+  find(".post.#{mood.downcase}").should be_present
 end
 
 def find_image_by_filename(filename)

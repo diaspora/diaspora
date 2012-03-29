@@ -29,7 +29,7 @@ Feature: Creating a new post
    And I mention "alice@alice.alice"
    And I go through the default composer
    And I go to "/stream"
-   Then I follow "Alice Smith"
+   Then the first post should mention "Alice Smith"
 
   Scenario: Uploading multiple photos
     When I write "check out these pictures"
