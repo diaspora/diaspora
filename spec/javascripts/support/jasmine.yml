@@ -30,7 +30,7 @@ stylesheets:
   - assets/default.css
   - assets/login.css
   #- assets/mobile.css
-  - assets/new_templates.css
+  - assets/new-templates.css
   #- assets/rtl.css
 
 # helpers
