@@ -25,6 +25,16 @@ class InvitationsController < ApplicationController
     redirect_to invite_code_path(invitation_code)
   end
 
+  def email
+    if params[:invitation_token]
+      # this is  for legacy invites.
+      user = User.find_by_invitation_token(params[:invitation_token])
+      @invitation_code = user.ugly_accept_invitation_code
+    else
+      @invitation_code = params[:invitation_code]
+    end
+    render 'notifier/invite', :layout => false
+  end
 
   def create
     inviter = EmailInviter.new(params[:email_inviter][:emails], current_user, params[:email_inviter])
