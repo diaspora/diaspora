@@ -38,3 +38,4 @@
 //= require mentions
 //= require bootstrap/bootstrap-twipsy
 //= require bootstrap/bootstrap-popover
+//= require bootstrap/bootstrap-dropdown
