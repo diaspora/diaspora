@@ -18,6 +18,8 @@ class StatusMessage < Post
 
   has_many :photos, :dependent => :destroy, :foreign_key => :status_message_guid, :primary_key => :guid
 
+  has_one :location
+
   # a StatusMessage is federated before its photos are so presence_of_content() fails erroneously if no text is present
   # therefore, we put the validation in a before_destory callback instead of a validation
   before_destroy :presence_of_content
@@ -162,6 +164,10 @@ class StatusMessage < Post
   def contains_oembed_url_in_text?
     urls = URI.extract(self.raw_message, ['http', 'https'])
     self.oembed_url = urls.find{ |url| !TRUSTED_OEMBED_PROVIDERS.find(url).nil? }
+  end
+
+  def address
+    location.try(:address)
   end
 
   protected
