@@ -45,6 +45,7 @@ Feature: Creating a new post
 
     And I start the framing process
     Then I should see "This is hella customized" in the framer preview
+  #### Will test the template picker being ported to JS ####
   # Then the default mood for the post should be "Wallpaper"
   # And I should see the image "button.gif" background
     When I select the mood "Day"
@@ -57,3 +58,12 @@ Feature: Creating a new post
     Then "This is hella customized" should be post 1
     And I click the show page link for "This is hella customized"
     And the post's mood should still be "Day"
+
+  Scenario: The Wallpaper mood
+    When I write "This is a pithy status" with body "And this is a long body"
+    And I upload a fixture picture with filename "button.gif"
+    And I start the framing process
+    When I select the mood "Wallpaper"
+    Then it should be a wallpaper frame with the background "button.gif"
+    And the frame's headline should be "This is a pithy status"
+    And the frame's body should be "And this is a long body"

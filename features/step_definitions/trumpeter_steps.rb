@@ -29,14 +29,17 @@ def assert_post_renders_with(mood)
   find(".post.#{mood.downcase}").should be_present
 end
 
-def find_image_by_filename(filename)
-  find("img[src='#{@image_sources[filename]}']")
+def get_image_filename(filename)
+  @image_sources[filename].tap {|src| src.should be_present}
 end
 
-def store_image_filename(file_name)
+def set_image_filename(file_name)
   @image_sources ||= {}
-  @image_sources[file_name] = all(".photos img").last["src"]
-  @image_sources[file_name].should be_present
+  @image_sources[file_name] = all(".photos img").last["src"].tap {|src| src.should be_present}
+end
+
+def find_image_by_filename(filename)
+  find("img[src='#{get_image_filename(filename)}']")
 end
 
 def upload_photo(file_name)
@@ -47,15 +50,15 @@ def upload_photo(file_name)
     wait_until { all(".photos img").size == orig_photo_count + 1 }
   end
 
-  store_image_filename(file_name)
+  set_image_filename(file_name)
 end
 
 When /^I trumpet$/ do
   visit new_post_path
 end
 
-When /^I write "([^"]*)"$/ do |text|
-  fill_in 'text', :with => text
+When /^I write "([^"]*)"(?:| with body "([^"]*)")$/ do |headline, body|
+  fill_in 'text', :with => [headline, body].join("\n")
 end
 
 Then /I mention "([^"]*)"$/ do |text|
@@ -105,16 +108,29 @@ Then /^I should see "([^"]*)" in the framer preview$/ do |post_text|
   within(find(".post")) { page.should have_content(post_text) }
 end
 
-When /^I select the mood "([^"]*)"$/ do |template_name|
-  select template_name, :from => 'template'
+When /^I select the mood "([^"]*)"$/ do |mood|
+  select mood, :from => 'template'
 end
 
-Then /^the post's mood should (?:still |)be "([^"]*)"$/ do |template_name|
-  assert_post_renders_with(template_name)
+Then /^the post's mood should (?:still |)be "([^"]*)"$/ do |mood|
+  assert_post_renders_with(mood)
 end
 
 When /^"([^"]*)" should be in the post's picture viewer$/ do |file_name|
   within(".photo_viewer") do
     find_image_by_filename(file_name).should be_present
   end
+end
+
+Then /^it should be a wallpaper frame with the background "([^"]*)"$/ do |file_name|
+  assert_post_renders_with("Wallpaper")
+  find("div.photo-fill")["data-img-src"].should == get_image_filename(file_name)
+end
+
+When /^the frame's headline should be "([^"]*)"$/ do |header_text|
+  find("header").text.should == header_text
+end
+
+When /^the frame's body should be "([^"]*)"$/ do |body_text|
+  find("section.body").text.should == body_text
 end

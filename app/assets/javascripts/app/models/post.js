@@ -107,7 +107,8 @@ app.models.Post = Backbone.Model.extend({
 
   frameMoods : [
     "Day",
-    "Night"
+    "Night",
+    "Wallpaper"
   ],
 
   legacyTemplateNames : [
