@@ -19,7 +19,7 @@ app.views.TemplatePicker = app.views.Base.extend({
 
   presenter : function() {
     return _.extend(this.defaultPresenter(), {
-      templates : _.union(app.models.Post.frameMoods, _.without(app.models.Post.legacyTemplateNames, ["status"]))
+      templates : _.union(app.models.Post.frameMoods, _.without(app.models.Post.legacyTemplateNames, ["status", "status-with-photo-backdrop", "photo-backdrop", "activity-streams-photo"])) //subtract re-implemented templates
     })
   }
 })

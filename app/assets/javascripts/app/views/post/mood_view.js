@@ -35,3 +35,8 @@ app.views.Post.Day = app.views.Post.Mood.extend({
 app.views.Post.Night = app.views.Post.Mood.extend({
   mood : "night"
 })
+
+app.views.Post.Wallpaper = app.views.Post.Mood.extend({
+  mood : "wallpaper",
+  templateName : "wallpaper-mood"
+})

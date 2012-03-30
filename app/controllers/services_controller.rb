@@ -3,6 +3,11 @@
 #   the COPYRIGHT file.
 
 class ServicesController < ApplicationController
+  # We need to take a raw POST from an omniauth provider with no authenticity token.
+  # See https://github.com/intridea/omniauth/issues/203
+  # See also http://www.communityguides.eu/articles/16
+  skip_before_filter :verify_authenticity_token, :only => :create
+
   before_filter :authenticate_user!
 
   respond_to :html

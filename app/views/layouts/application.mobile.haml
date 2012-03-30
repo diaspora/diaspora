@@ -49,11 +49,11 @@
     .navbar.navbar-fixed-top
       .navbar-inner
         .container{:style => "position: relative;"}
-          = link_to(image_tag('header-logo2x.png', :height => 40, :width => 40, :id => 'header_title'), stream_path)
+          = link_to(image_tag('branding/header-logo2x.png', :height => 40, :width => 40, :id => 'header_title'), stream_path)
           - if user_signed_in?
             #header-nav
               .activity-nav
-                = link_to(t('.my_activity'), activity_stream_path)
+                = link_to(t('streams.activity.title'), activity_stream_path)
             
             #nav_badges
               .badge{:id => "notification_badge"}            

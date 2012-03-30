@@ -16,9 +16,9 @@
 .container{:style => 'text-align:center;'}
   #login
     %p
-      = image_tag('asterisk.png', :id => 'asterisk', :class => 'logo', :height => 154, :width => 154)
+      = image_tag('branding/asterisk.png', :id => 'asterisk', :class => 'logo', :height => 154, :width => 154)
     %p
-      = image_tag('logo_caps.png', :id => 'logo', :width => 98, :height => 14)
+      = image_tag('branding/logo_caps.png', :id => 'logo', :width => 98, :height => 14)
 
     - flash.each do |name, msg|
       %p{:class => "login_#{name}"}= msg

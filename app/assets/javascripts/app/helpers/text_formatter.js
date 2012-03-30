@@ -17,20 +17,31 @@
     converter.hooks.chain("preConversion", function(text) {
 
       // add < > around plain urls, effectively making them "autolinks"
+      // regex copied from: http://daringfireball.net/2010/07/improved_regex_for_matching_urls (slightly modified)
       var urlRegex = /(^|\s)\b((?:[a-z][\w-]+:(?:\/{1,3}|[a-z0-9%])|www\d{0,3}[.]|[a-z0-9.\-]+[.][a-z]{2,4}\/)(?:[^\s()<>]+|\(([^\s()<>]+|(\([^\s()<>]+\)))*\))+(?:\(([^\s()<>]+|(\([^\s()<>]+\)))*\)|[^\s`!()\[\]{};:'".,<>?«»“”‘’]))/gi;
       text = text.replace(urlRegex, function(wholematch, space, url) {
         return space+"<"+url+">";
       });
 
       // process links
-      var linkRegex = /(\[.*\]:\s)?(<|\()(((https?|ftp):\/{1,3})([^'">\s]+))(>|\))/gi;
+      // regex copied from: https://code.google.com/p/pagedown/source/browse/Markdown.Converter.js#1198 (and slightly expanded)
+      var linkRegex = /(\[.*\]:\s)?(<|\()((https?|ftp):[^'">\s]+)(>|\))/gi;
       text = text.replace(linkRegex, function() {
-        var protocol = arguments[4];
-        var unicodeUrl = arguments[6];
-        var asciiUrl = protocol+punycode.toASCII(unicodeUrl);
+        var unicodeUrl = arguments[3];
+        var addr = parse_url(unicodeUrl);
+        var asciiUrl = // rebuild the url
+          (!addr.scheme ? '' : addr.scheme +
+          ( (addr.scheme.toLowerCase()=="mailto") ? ':' : '://')) +
+          (!addr.user ? '' : addr.user +
+          (!addr.pass ? '' : ':'+addr.pass) + '@') +
+          punycode.toASCII(addr.host) +
+          (!addr.port ? '' : ':' + addr.port) +
+          (!addr.path ? '' : addr.path) +
+          (!addr.query ? '' : '?' + addr.query) +
+          (!addr.fragment ? '' : '#' + addr.fragment);
         if( !arguments[1] || arguments[1] == "") { // inline link
-          if(arguments[2] == "<") return "["+protocol+unicodeUrl+"]("+asciiUrl+")"; // without link text
-          else return arguments[2]+asciiUrl+arguments[7]; // with link text
+          if(arguments[2] == "<") return "["+unicodeUrl+"]("+asciiUrl+")"; // without link text
+          else return arguments[2]+asciiUrl+arguments[5]; // with link text
         } else { // reference style link
           return arguments[1]+asciiUrl;
         }
