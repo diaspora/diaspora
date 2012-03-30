@@ -16,13 +16,19 @@ describe("app.views.Publisher", function() {
   });
 
   describe("#close", function() {
-    it("removes the 'active' class from the publisher element", function(){
-      $(this.view.el).removeClass("closed");
+    beforeEach(function() {
+      this.view.open($.Event());
+    });
 
-      expect($(this.view.el)).not.toHaveClass("closed");
+    it("removes the 'active' class from the publisher element", function(){
       this.view.close($.Event());
       expect($(this.view.el)).toHaveClass("closed");
     })
+
+    it("resets the element's height", function() {
+      this.view.close($.Event());
+      expect($(this.view.el).find("#status_message_fake_text").attr("style")).not.toContain("height");
+    });
   });
 
   describe("#clear", function() {
