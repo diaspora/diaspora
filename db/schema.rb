@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120330103021) do
+ActiveRecord::Schema.define(:version => 20120330144057) do
 
   create_table "account_deletions", :force => true do |t|
     t.string  "diaspora_handle"
@@ -342,6 +342,7 @@ ActiveRecord::Schema.define(:version => 20120330103021) do
   add_index "posts", ["author_id", "root_guid"], :name => "index_posts_on_author_id_and_root_guid", :unique => true
   add_index "posts", ["author_id"], :name => "index_posts_on_person_id"
   add_index "posts", ["guid"], :name => "index_posts_on_guid", :unique => true
+  add_index "posts", ["id", "type", "created_at"], :name => "index_posts_on_id_and_type_and_created_at"
   add_index "posts", ["root_guid"], :name => "index_posts_on_root_guid"
   add_index "posts", ["status_message_guid", "pending"], :name => "index_posts_on_status_message_guid_and_pending"
   add_index "posts", ["status_message_guid"], :name => "index_posts_on_status_message_guid"
@@ -483,6 +484,7 @@ ActiveRecord::Schema.define(:version => 20120330103021) do
     t.string   "unconfirmed_email"
     t.string   "confirm_email_token",                :limit => 30
     t.datetime "locked_at"
+    t.string   "sha512_encrypted_password",          :limit => 128
     t.boolean  "show_community_spotlight_in_stream",                :default => true,  :null => false
     t.boolean  "auto_follow_back",                                  :default => false
     t.integer  "auto_follow_back_aspect_id"
