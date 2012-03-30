@@ -30,6 +30,11 @@ describe PostsController do
         response.should be_success
       end
 
+      it 'renders the application layout on mobile' do
+        get :show, :id => @message.id, :format => :mobile
+        response.should render_template('layouts/application')
+      end
+
       it 'succeeds on mobile with a reshare' do
         get :show, "id" => Factory(:reshare, :author => alice.person).id, :format => :mobile
         response.should be_success
