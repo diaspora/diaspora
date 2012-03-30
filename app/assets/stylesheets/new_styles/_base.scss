@@ -1,0 +1,295 @@
+@import "_new_mixins";
+
+/* variables */
+$light-grey: #999;
+$pane-width: 420px;
+$night-background-color : #333;
+$night-text-color : #999;
+
+/* bootstrap extentions and overrides for asset pipeline */
+.icon-white { background-image: image_url("img/glyphicons-halflings-white.png"); }
+.icon-black { background-image: image_url("img/glyphicons-halflings.png");       }
+.icon-red   { background-image: image_url("img/glyphicons-halflings-red.png");   }
+.icon-green { background-image: image_url("img/glyphicons-halflings-green.png"); }
+.icon-blue  { background-image: image_url("img/glyphicons-halflings-blue.png");  }
+
+/* styles */
+.multi-photo {
+  display: table;
+
+  p {
+    @include media-text();
+  }
+
+  .img-bounding-box {
+    display: table-cell;
+    text-align: center;
+    vertical-align: middle;
+
+    padding: 20px;
+    height: 400px;
+    width: 300px;
+  }
+
+  img {
+    @include photo-shadow();
+
+    max-width: 100%;
+    max-height: 100%;
+  }
+}
+
+.photoset {
+  @include center(horizontal);
+  width: 100%;
+}
+
+.rich-media {
+  z-index : -5000; //so the framer controls don't get lost
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+
+  text-align: center;
+  background-color: $night-background-color;
+
+  p {
+    @include media-text();
+    color: #999;
+
+    a {
+      font-weight: normal;
+      font-size: smaller;
+    }
+  }
+
+  iframe {
+    @include box-shadow(0, 3px, 15px, #000);
+
+    width: 857px;
+    height: 480px;
+    max-width: 100%;
+    max-height: 100%;
+  }
+}
+
+.rich-media-container {
+  display: table;
+  height: 100%;
+  width: 100%;
+}
+
+.rich-media-container2 {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.header {
+  position: fixed;
+
+  /* position absolute for mobile */
+  @media (max-width: 480px) {
+    position: absolute !important;
+  }
+
+  top: 0;
+  left: 0;
+  z-index: 10;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+#header-container {
+  padding: 1.2%;
+
+  /* don't pad the header if we're mobile */
+  @media (max-width: 480px) {
+    padding: 0 !important;
+  }
+}
+
+.avatar {
+  &.micro {
+    height: 20px;
+    width: 20px;
+  }
+
+  &.small {
+    height: 35px;
+    width: 35px;
+  }
+}
+
+.author-name {
+  color: inherit;
+  font-weight: bold;
+}
+
+#post-author {
+  @include border-radius();
+
+  border: 1px solid rgba(255,255,255,0.2);
+  border-top: 1px solid rgba(255,255,255,0.5);
+
+  float: left;
+  margin: 0;
+
+  padding: 5px;
+  padding-right: 10px;
+
+  background-color: rgba(255,255,255,0.6);
+
+/* don't pad the header if we're mobile */
+  @media (max-width: 480px) {
+    @include border-radius(0);
+    background-color: rgba(255,255,255,0.4);
+    width: 100% !important;
+    border: none !important;
+    padding: none !important;
+  }
+
+  max-height: 35px;
+
+  .avatar {
+    @include border-radius();
+  }
+
+  .post-time,
+  .icon-retweet {
+    color: #000;
+    @include opacity(0.5);
+  }
+}
+
+
+.post-view {
+  display: table;
+  height: 100%;
+  width: 100%;
+}
+
+//this is for the framer button, I should be removed
+#post-content {
+  button {
+    position: absolute;
+  }
+}
+
+
+#post-content {
+  display: table;
+  position: absolute;
+
+  height: 100%;
+  width: 100%;
+
+  img {
+    @include photo-shadow();
+  }
+}
+
+article { //mood posts
+  //default frame show styles
+  $big-text-size : 3em;
+  $medium-text-size : 2em;
+  $small-text-size: 1.5em;
+
+  @include centered-frame();
+
+  header, header p{
+  //big text
+  @include media-text();
+    font-size: $big-text-size;
+  }
+
+  section.body{
+    font-size: $small-text-size;
+
+    &.short_body{
+      font-size: $medium-text-size;
+    }
+  }
+
+  &.night{
+    background-color : $night-background-color;
+    color : $night-text-color;
+  }
+
+  &.newspaper {
+    text-align: left;
+    @include newspaper-type();
+    width: 960px;
+    .photo_viewer {
+      float: left;
+    }
+  }
+
+  &.wallpaper{
+    color : #fff;
+  }
+}
+
+.status-with-photo-backdrop {
+  p {
+    color: #fff;
+
+    a {
+      @include transition(background-color, 0.3s);
+
+      color: #000;
+      background-color: #fff;
+      background-color: rgba(255,255,255,0.7);
+      padding: 0 5px;
+
+      &:hover {
+        text-decoration: none;
+        background-color: #fff;
+        background-color: rgba(255,255,255,1);
+      }
+    }
+  }
+}
+
+.darken {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0,0,0,0.3);
+
+  display: table;
+
+  .darken-content {
+    @include centered-frame();
+    height: 100%;
+    width: 100%;
+  }
+}
+
+.photo-fill {
+  @include background-cover();
+  z-index : -5000; //so the framer controls don't get lost
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+}
+
+.photo-backdrop {
+  p {
+    color: #fff;
+    z-index: 2;
+  }
+
+  img {
+    position: relative;
+  }
+
+  .photo-fill {
+    @include opacity(0.2)
+  }
+}

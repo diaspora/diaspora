@@ -1,0 +1,115 @@
+
+/* mixins */
+@mixin center($orient:vertical) {
+  display: -webkit-box;
+  -webkit-box-orient: $orient;
+  -webkit-box-pack: center;
+  -webkit-box-align: center;
+
+  display: -moz-box;
+  -moz-box-orient: $orient;
+  -moz-box-pack: center;
+  -moz-box-align: center;
+
+  display: box;
+  box-orient: $orient;
+  box-pack: center;
+  box-align: center;
+}
+
+@mixin box-shadow($left, $top, $blur, $color) {
+  -webkit-box-shadow: $left $top $blur $color;
+  -moz-box-shadow: $left $top $blur $color;
+  box-shadow: $left $top $blur $color;
+}
+
+@mixin pane-width() {
+  width: $pane-width;
+  max-width: 100%;
+}
+
+@mixin background-cover() {
+  background: no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+@mixin opacity($val) {
+  -moz-opacity: $val;
+  filter:alpha(opacity=$val*100);
+  opacity: $val;
+}
+
+@mixin border-radius($top:3px, $bottom:$top) {
+  -webkit-border-radius: $top $top $bottom $bottom;
+  -moz-border-radius: $top $top $bottom $bottom;
+  border-radius: $top $top $bottom $bottom;
+}
+
+@mixin transition($type, $speed:0.2s) {
+  -o-transition: $type $speed;
+  -moz-transition: $type $speed;
+  -webkit-transition: $type $speed;
+  transition: $type $speed;
+}
+
+@mixin animation($name, $speed:0.2s, $easing:ease-in-out) {
+  -webkit-animation: $name $speed $easing;
+  -moz-animation: $name $speed $easing;
+  -ms-animation: $name $speed $easing;
+}
+
+@mixin info-container() {
+  @include box-shadow(0, 6px, 20px, #000);
+  @include border-radius(3px, 0px);
+  @include dark-hatched-bg();
+  @include pane-width();
+
+  display: inline-block;
+  position: relative;
+
+  border-top: 1px solid #555;
+  border-right: 1px solid #444;
+  border-left: 1px solid #444;
+
+  padding-top: 25px;
+
+  color: #ddd;
+
+/* webkit acceleration */
+  -webkit-transform: translateZ(0);
+}
+
+@mixin dark-hatched-bg() {
+  background-color: #444;
+  background-image: image-url("hatched-bg-dark.png");
+}
+
+@mixin photo-shadow() {
+  @include box-shadow(0, 3px, 15px, #999);
+}
+
+@mixin media-text() {
+  font: {
+    weight: bold;
+    size: 2em;
+  }
+
+  line-height: 2em;
+  padding-bottom: 0;
+  margin-bottom: 0;
+}
+
+@mixin newspaper-type() {
+  font-family: Palatino, times, georgia, serif;
+  margin-bottom: 1em;
+  padding: 0 5%;
+}
+
+@mixin centered-frame(){
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center;
+}

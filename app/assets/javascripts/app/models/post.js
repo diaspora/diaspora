@@ -107,13 +107,13 @@ app.models.Post = Backbone.Model.extend({
 
   headline : function() {
     var headline = this.get("text").trim()
-      , newlineIdx = headline.lastIndexOf("\n")
+      , newlineIdx = headline.indexOf("\n")
     return (newlineIdx > 0 ) ? headline.substr(0, newlineIdx) : headline
   },
 
   body : function(){
     var body = this.get("text").trim()
-      , newlineIdx = body.lastIndexOf("\n")
+      , newlineIdx = body.indexOf("\n")
     return (newlineIdx > 0 ) ? body.substr(newlineIdx+1, body.length) : ""
   }
 }, {
@@ -122,7 +122,8 @@ app.models.Post = Backbone.Model.extend({
   frameMoods : [
     "Day",
     "Night",
-    "Wallpaper"
+    "Wallpaper",
+    "Newspaper"
   ],
 
   legacyTemplateNames : [
