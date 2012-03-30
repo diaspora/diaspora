@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120301143226) do
+ActiveRecord::Schema.define(:version => 20120330103021) do
 
   create_table "account_deletions", :force => true do |t|
     t.string  "diaspora_handle"
@@ -261,6 +261,9 @@ ActiveRecord::Schema.define(:version => 20120301143226) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "participations", ["guid"], :name => "index_participations_on_guid"
+  add_index "participations", ["target_id", "target_type", "author_id"], :name => "index_participations_on_target_id_and_target_type_and_author_id"
 
   create_table "people", :force => true do |t|
     t.string   "guid",                                     :null => false
