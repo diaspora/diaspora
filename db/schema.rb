@@ -484,7 +484,6 @@ ActiveRecord::Schema.define(:version => 20120330144057) do
     t.string   "unconfirmed_email"
     t.string   "confirm_email_token",                :limit => 30
     t.datetime "locked_at"
-    t.string   "sha512_encrypted_password",          :limit => 128
     t.boolean  "show_community_spotlight_in_stream",                :default => true,  :null => false
     t.boolean  "auto_follow_back",                                  :default => false
     t.integer  "auto_follow_back_aspect_id"
