@@ -149,7 +149,7 @@ FactoryGirl.define do
     sequence(:uid) { |id| "a#{id}"}
     sequence(:name) { |num| "Rob Fergus the #{num.ordinalize}" }
     association :service
-    photo_url "/images/user/adams.jpg"
+    photo_url "/assets/user/adams.jpg"
   end
 
   factory(:comment) do
@@ -170,7 +170,7 @@ FactoryGirl.define do
 
   factory(:activity_streams_photo, :class => ActivityStreams::Photo) do
     association(:author, :factory => :person)
-    image_url "#{AppConfig[:pod_url]}/images/asterisk.png"
+    image_url "#{AppConfig[:pod_url]}/assets/asterisk.png"
     image_height 154
     image_width 154
     object_url "http://example.com/awesome_things.gif"
@@ -185,7 +185,7 @@ FactoryGirl.define do
     sequence(:application_base_url) { |token| "http://chubbi#{token}.es/" }
 
     description "The best way to chub on the ne"
-    icon_url "/images/chubbies48.png"
+    icon_url "/assets/chubbies48.png"
     permissions_overview "I will use the permissions this way!"
     sequence(:public_key) {|n| OpenSSL::PKey::RSA.new(2048) }
   end
