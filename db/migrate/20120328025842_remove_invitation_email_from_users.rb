@@ -2,7 +2,7 @@ class RemoveInvitationEmailFromUsers < ActiveRecord::Migration
   def self.up
     execute <<-SQL
       UPDATE users
-      SET email = concat('invitemail_', id, '@example.org')
+      SET email = 'invitemail_' || id || '@example.org'
       WHERE invitation_token IS NOT NULL
     SQL
   end
