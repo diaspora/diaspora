@@ -76,7 +76,9 @@ module PublishingCukeHelpers
   end
 
   def wait_for_ajax_to_finish(wait_time=15)
-    #wait_until(wait_time) { evaluate_script("$.active") == 0 }
+    wait_until(wait_time) do
+      evaluate_script("$.active") == 0
+    end
   end
 
   def assert_nsfw(text)
