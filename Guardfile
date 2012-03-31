@@ -19,7 +19,7 @@ guard 'rspec', :version => 2, :all_on_start => false do
   watch(%r{^app/views/(.+)/.*\.(erb|haml)$})          { |m| "spec/requests/#{m[1]}_spec.rb" }
 end
 
-guard 'spork', :cucumber_env => { 'RAILS_ENV' => 'test' }, :rspec_env => { 'RAILS_ENV' => 'test' }, :all_on_start => false  do
+guard 'spork', :cucumber_env => { 'RAILS_ENV' => 'test' }, :rspec_env => { 'RAILS_ENV' => 'test' }, :all_on_start => false , :wait => 70 do
   watch('config/application.rb')
   watch('config/environment.rb')
   watch(%r{^config/environments/.+\.rb$})
@@ -31,7 +31,7 @@ guard 'spork', :cucumber_env => { 'RAILS_ENV' => 'test' }, :rspec_env => { 'RAIL
   watch(%r{features/support/}) { :cucumber }
 end
 
-guard 'cucumber' do
+guard 'cucumber', :all_on_start => false do
   watch(%r{^features/.+\.feature$})
   watch(%r{^features/support/.+$})          { 'features' }
   watch(%r{^features/step_definitions/(.+)_steps\.rb$}) { |m| Dir[File.join("**/#{m[1]}.feature")][0] || 'features' }
