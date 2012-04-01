@@ -39,6 +39,7 @@ app.views.Publisher = Backbone.View.extend({
           $(app.publisher.el).trigger('ajax:success');
         }
         if(app.stream) {
+          statusMessage.set({"user_participation": new app.models.Participation});
           app.stream.posts.add(statusMessage.toJSON());
         }
       }
