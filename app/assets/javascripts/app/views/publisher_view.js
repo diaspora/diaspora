@@ -68,7 +68,7 @@ app.views.Publisher = Backbone.View.extend({
   open : function() {
     $(this.el).removeClass('closed');
     this.$("#publisher_textarea_wrapper").addClass('active');
-    this.$("textarea.ac_input").css('min-height', '42px');
+    this.$("textarea").css('height', '42px');
 
     return this;
   },
@@ -76,7 +76,7 @@ app.views.Publisher = Backbone.View.extend({
   close : function() {
     $(this.el).addClass("closed");
     this.$("#publisher_textarea_wrapper").removeClass("active");
-    this.$("textarea.ac_input").css('min-height', '');
+    this.$("textarea").css('height', '');
 
     return this;
   }
