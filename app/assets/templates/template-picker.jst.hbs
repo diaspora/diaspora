@@ -1,5 +1,3 @@
-<select name="template">
-    {{#each templates}}
-        <option value="{{.}}">{{.}}</option>
-    {{/each}}
-</select>
+{{#each templates}}
+    <a class="mood" data-mood={{.}} href="#">{{.}}</a>
+{{/each}}

@@ -1,4 +1,4 @@
-@import "base";
+@import '../mixins';
 
 #post-nav {
   @include transition(opacity, 0.5s);

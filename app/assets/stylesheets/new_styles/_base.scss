@@ -1,11 +1,5 @@
 @import "_new_mixins";
 
-/* variables */
-$light-grey: #999;
-$pane-width: 420px;
-$night-background-color : #333;
-$night-text-color : #999;
-
 /* bootstrap extentions and overrides for asset pipeline */
 .icon-white { background-image: image_url("img/glyphicons-halflings-white.png"); }
 .icon-black { background-image: image_url("img/glyphicons-halflings.png");       }
@@ -170,14 +164,6 @@ $night-text-color : #999;
   width: 100%;
 }
 
-//this is for the framer button, I should be removed
-#post-content {
-  button {
-    position: absolute;
-  }
-}
-
-
 #post-content {
   display: table;
   position: absolute;
@@ -293,3 +279,42 @@ article { //mood posts
     @include opacity(0.2)
   }
 }
+
+$bring-dark-accent-forward-color: #DDD;
+
+.framer-controls {
+  @include info-container-base();
+
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+
+  .controls {
+    margin: 20px auto;
+    max-width: 960px;
+
+    text-align: center;
+
+    button {
+      float : right;
+    }
+  }
+
+  a.mood {
+    @include border-radius();
+    margin-right: 20px;
+    padding: 5px;
+    color: #999;
+    font-size: 20px;
+
+    &#selected_mood {
+      background-color: #222;
+    }
+
+    &:hover {
+      background-color: #222;
+      text-decoration: none;
+    }
+  }
+}
+
