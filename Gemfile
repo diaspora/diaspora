@@ -109,6 +109,14 @@ gem 'client_side_validations'
 
 group :assets do
   gem 'sass-rails', '3.1.4'
+
+  # Windows and OSX have an execjs compatible runtime built-in, Linux users should
+  # install Node.js or use 'therubyracer'.
+  #
+  # See https://github.com/sstephenson/execjs#readme for more supported runtimes
+  
+  # gem 'therubyracer', :platform => :ruby
+  
   gem 'handlebars_assets'
   gem 'uglifier'
 end
