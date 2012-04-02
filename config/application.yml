@@ -1,0 +1,221 @@
+#   Copyright (c) 2010-2011, Diaspora Inc.  This file is
+#   licensed under the Affero General Public License version 3 or later.  See
+#   the COPYRIGHT file.
+
+defaults: &defaults
+
+  #
+  # Environment
+  #
+
+  # Hostname of the machine you're running Diaspora on, as seen from the internet.
+  # This should be the URL you want to use to access the pod. So if you plan to
+  # reverse proxy it, it should be the URL the proxy listens on.
+  # DO NOT CHNANGE THIS AFTER INITIAL SETUP UNLESS YOU KNOW WHAT YOU'RE DOING!
+  # However changing http to https is okay and has no consquences. If you do change it
+  # you have to start over as it's hardcoded into the database.
+  # For development and testing, you can leave this as is.
+  pod_url: "http://localhost:3000/"
+
+  # Setting the root certificate bundle (this is operating system specific). Examples, uncomment one:
+  ca_file: '/etc/pki/tls/certs/ca-bundle.crt' # CentOS
+  #ca_file: '/etc/ssl/certs/ca-certificates.crt' # Debian
+  #ca_file: '/etc/ssl/certs/ca-certificates.crt' # Gentoo
+
+  # URL for a remote redis, on the default port. Don't forget to restrict IP access!
+  # leave it empty for the default (localhost)
+  redis_url: ''
+
+  # Amazon S3 for photos
+
+  # s3 config - if set, carrierwave will store your photos on s3. Otherwise they're on the filesystem.
+  #s3_key: 'key'
+  #s3_secret: 'secret'
+  #s3_bucket: 'my_photos'
+  s3_region: 'us-east-1'
+
+
+  # Serve static assets via the appserver, this is not recommended for production use,
+  # let your reverse proxy/webserver do it.
+  serve_static_assets: false
+
+  #
+  # Settings
+  #
+
+  # Set this to true to prevent people from signing up for your pod without an invitation.
+  registrations_closed: false
+
+  # Set this to true if you want users to invite as many people as they want
+  open_invitations: true
+
+  # Set this to true if you don't want your users to follow the diasporahq@joindiaspora.com
+  # account on account creation.  The diasporahq account helps users start with some
+  # activity in their stream and get news about Diaspora, but if you don't want your server
+  # to contact joindiaspora.com, set this to true:
+  no_follow_diasporahq: false
+
+  # Community Spotlight
+  # (expressed as an array of Diaspora IDs)
+  community_spotlight:
+    - 'diasporahq@joindiaspora.com'
+  
+  # Email to send spotlight suggestions to
+  spotlight_suggest_email: ''
+
+  # List of users who have admin privileges
+  # (expressed as an array of local usernames)
+  admins:
+    - 'example_user1dsioaioedfhgoiesajdigtoearogjaidofgjo'
+
+  # Mount resque-web into routes
+  # This allows an administrator to see info about the workers
+  mount_resque_web: true
+
+  # Logging setup
+
+  # Enable extensive logging to log/{development,test,production}.log
+  debug: false
+
+  # Airbrake api key, send failures to http://projectname.airbrake.io/ (Former Hoptoad)
+  airbrake_api_key: ''
+
+  #social media setup
+  facebook_app_id:  ''
+  facebook_app_secret: ''
+
+  twitter_consumer_key: ''
+  twitter_consumer_secret: ''
+
+  tumblr_consumer_key: ''
+  tumblr_consumer_secret: '' 
+
+  # Miscellaneous
+
+  NEW_RELIC_LICENSE_KEY: ''
+  new_relic_app_name: ''
+
+  # If set to true Diaspora will work with just the appserver, thin by default,
+  # running, however this makes it quite slow as all the time intensive jobs
+  # must be run inside the request cycle. Also the live updates from the Websocket
+  # will be disabled.
+  single_process_mode: false
+
+  # Diaspora is only tested against this default pubsub server. You probably don't want to change this.
+  pubsub_server: 'https://pubsubhubbub.appspot.com/'
+
+  # Email
+
+  # Setting this to true enables Diaspora's "send email" functionality,
+  # requiring meaningful smtp_* settings. These are options for RoR's
+  # ActionMailer class.
+  mailer_on: false
+
+  # Address/port to smtp server handling outgoing mail.
+  smtp_address: 'smtp.example.com'
+  smtp_port: '587'
+
+  # This chooses which mailer should be used. 'smtp' for a smtp
+  # connection or 'sendmail' to use the sendmail binary, or messagebus, to use the messagebus service
+  mailer_method: 'smtp'
+
+  #API key if you are using message bus
+  message_bus_api_key: ''
+
+  # The path to the sendmail binary. Ignored if mailer_method is not set to sendmail
+  sendmail_location: '/usr/sbin/sendmail'
+  
+  # Set this to true if you want to use exim and sendmail
+  sendmail_exim_fix: false
+
+  # Authentication required to send mail. Use one of 'plain',
+  # 'login' or 'cram_md5'. Use 'none' if server does not support
+  # authentication
+  smtp_authentication: 'plain'
+
+  # Automatically enable TLS? Ignored if smtp_authentication is set to none
+  smtp_starttls_auto: true
+
+  # OpenSSL verify mode used when connecting to a SMTP server with TLS.
+  # Set this to none if you have a self signed certificate, keep it empty (not '') for the default
+  # Possible values: none, peer, client_once, fail_if_no_peer_cert
+  smtp_openssl_verify_mode:
+
+  # Domain of smtp server.
+  # This should match the common name of the certificate
+  # the SMTP server sends. If he sends one
+  smtp_domain: 'example.com'
+
+  # Credentials to log in to the SMTP server - may be necessary if
+  # smtp_authentication is not 'none'
+  smtp_username: 'smtp_username'
+  smtp_password: 'secret'
+
+  # Sender address in Diaspora's outgoing mail.
+  smtp_sender_address: 'no-reply@joindiaspora.com'
+
+  #when set, your pod will not force you to use https in production
+  #NOTE: not all features of Diaspora work without SSL, and you may have trouble federating
+  # with other pods
+  circumvent_ssl_requirement: false
+
+  image_redirect_url: ''
+  
+  # Web tracking
+
+  # google analytics key - if false, no javascript included
+  google_a_site: false
+
+  # piwik integration - if not set, no javascript included
+  piwik_id:
+  # the site url in raw format (e.g. pikwik.examplehost.com)
+  piwik_url:
+
+  # Backups
+  backup_retention_days: 3
+
+  # cloudfiles username and api-key - used for backups
+  cloudfiles_username: 'example'
+  cloudfiles_api_key:  'abc123'
+  cloudfiles_db_container: 'Database Backup'
+  cloudfiles_images_container: 'Image Backup'
+  
+  # Donations
+
+  # Leave this blank to not show the request for donations
+  # Use paypal for recurring donations
+  paypal_hosted_button_id: ""
+
+#
+# Use this section to override default settings in specific environments
+#
+
+development:
+  <<: *defaults
+  serve_static_assets: true
+  no_follow_diasporahq: true
+
+production:
+  <<: *defaults
+
+#
+# Do not touch unless you know what you're doing
+#
+
+test:
+  <<: *defaults
+  pod_url: "http://localhost:9887/"
+  socket_port: 8081
+  open_invitations: true
+  no_follow_diasporahq: true
+  serve_static_assets: true
+
+integration1:
+  <<: *defaults
+  pod_url: "http://localhost:45789/"
+  serve_static_assets: true
+
+integration2:
+  <<: *defaults
+  pod_url: "http://localhost:34658/"
+  serve_static_assets: true

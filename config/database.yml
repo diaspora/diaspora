@@ -1,0 +1,29 @@
+mysql: &mysql
+  adapter: mysql2
+  host: "localhost"
+  port: 3306
+  username: "root"
+  charset: utf8
+  collation: utf8_bin
+
+common: &common
+  # Choose one of the following
+  <<: *mysql
+  #<<: *postgres
+
+
+development:
+  <<: *common
+  database: diaspora_development
+production:
+  <<: *common
+  database: diaspora_production
+test:
+  <<: *common
+  database: "diaspora_test<%= ENV['TEST_ENV_NUMBER'] %>"
+integration1:
+  <<: *common
+  database: diaspora_integration1
+integration2:
+  <<: *common
+  database: diaspora_integration2
