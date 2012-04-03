@@ -1,10 +1,10 @@
 describe("app.views.ServicesSelector", function(){
   beforeEach(function(){
-    loginAs(factory.user({
+    loginAs({
       services : [
         { provider : "fakeBook" }
       ]
-    }));
+    });
 
     this.view = new app.views.ServicesSelector();
   });
@@ -16,7 +16,6 @@ describe("app.views.ServicesSelector", function(){
 
     it("displays all services", function(){
       var checkboxes = $(this.view.el).find('input[type="checkbox"]');
-
       expect(checkboxes.val()).toBe("fakeBook");
     });
   });

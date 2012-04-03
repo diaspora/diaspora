@@ -44,7 +44,6 @@ app.pages.PostViewer = app.views.Base.extend({
 
   postRenderTemplate : function() {
     /* set the document title */
-    console.log(this.model)
     document.title = this.model.get("title");
 
     this.bindNavHooks();

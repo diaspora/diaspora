@@ -5,8 +5,11 @@ Feature: The activity stream
     When I sign in as "bob@bob.bob"
 
     And I post "A- I like turtles"
+    And I wait for 1 second
     And I post "B- barack obama is your new bicycle"
+    And I wait for 1 second
     And I post "C- barack obama is a square"
+    And I wait for 1 second
 
     When I go to the activity stream page
     Then "C- barack obama is a square" should be post 1

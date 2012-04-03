@@ -65,6 +65,13 @@ Spork.prefork do
   require File.join(File.dirname(__FILE__), "..", "..", "spec", "support", "fake_resque")
 
   require File.join(File.dirname(__FILE__), 'run_resque_in_process')
+
+  #hax to get rubymine to run spork, set RUBYMINE_HOME in your .bash_profile
+  if ENV["RUBYMINE_HOME"]
+    puts "Loading rubymine spork extensions"
+    $:.unshift(File.expand_path("rb/testing/patch/common", ENV["RUBYMINE_HOME"]))
+    $:.unshift(File.expand_path("rb/testing/patch/bdd", ENV["RUBYMINE_HOME"]))
+  end
 end
 
 Spork.each_run do

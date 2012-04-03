@@ -34,7 +34,11 @@ module PublishingCukeHelpers
   end
 
   def first_post_text
-    find('.stream_element:first .post-content').text()
+    stream_element_numbers_content(1).text()
+  end
+
+  def stream_element_numbers_content(position)
+    find(".stream_element:nth-child(#{position}) .post-content")
   end
 
   def find_post_by_text(text)

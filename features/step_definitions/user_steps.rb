@@ -99,11 +99,10 @@ Then /^I should have (\d) contacts? in "([^"]*)"$/ do |n_contacts, aspect_name|
 end
 
 When /^I (?:add|remove) the person (?:to|from) my "([^\"]*)" aspect$/ do |aspect_name|
-  steps %Q{
-    And I press the first ".toggle.button"
-    And I click on selector ".dropdown.active .dropdown_list li[data-aspect_id=#{@me.aspects.where(:name => aspect_name).first.id}]"
-    And I press the first ".toggle.button"
-  }
+    aspects_dropdown = find(".aspect_membership .toggle.button:first")
+    aspects_dropdown.click
+    find(".dropdown.active .dropdown_list li:contains('#{aspect_name}')").click
+    aspects_dropdown.click
 end
 
 When /^I post a status with the text "([^\"]*)"$/ do |text|
