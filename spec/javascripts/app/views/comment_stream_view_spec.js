@@ -30,6 +30,10 @@ describe("app.views.CommentStream", function(){
   })
 
   describe("createComment", function(){
+    beforeEach(function(){
+      spyOn(this.view.model.comments, "create")
+    })
+
     it("clears the new comment textarea", function(){
       var comment = {
         "id": 1234,
@@ -43,6 +47,7 @@ describe("app.views.CommentStream", function(){
       $(this.view.el).html($("<textarea/>", {"class" : 'comment_box'}).val(comment.text))
       this.view.createComment()
       expect(this.view.$(".comment_box").val()).toBe("")
+      expect(this.view.model.comments.create).toHaveBeenCalled()
     })
   })
 

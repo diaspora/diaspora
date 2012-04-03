@@ -8,14 +8,6 @@ describe("View", function() {
     expect(typeof View === "object").toBeTruthy();
   });
 
-  describe("initialize", function() {
-    it("is called on DOM ready", function() {
-      spyOn(View, "initialize");
-      $(View.initialize);
-      expect(View.initialize).toHaveBeenCalled();
-    });
-  });
-
   describe("publisher", function() {
     beforeEach(function() {
       $("#jasmine_content").html(
