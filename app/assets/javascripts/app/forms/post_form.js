@@ -46,7 +46,7 @@ app.forms.Post = app.forms.Base.extend({
   },
 
   postRenderTemplate : function() {
-    this.prepAndBindMentions()
+    //this.prepAndBindMentions()
   },
 
   prepAndBindMentions : function(){

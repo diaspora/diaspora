@@ -12,7 +12,7 @@ describe("app.forms.Post", function(){
 
     describe("submitting a valid form", function(){
       beforeEach(function(){
-        this.view.$("form #text_with_markup").val("Oh My")
+        this.view.$("form .text").val("Oh My")
         this.view.$("form .aspect_ids").val("public")
 
         /* appending checkboxes */

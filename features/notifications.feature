@@ -64,6 +64,7 @@ Feature: Notifications
     And I focus the comment field
     And I fill in "text" with "great post!"
     And I press "Comment"
+    And I wait for the ajax to finish
     And I go to the destroy user session page
     When I sign in as "alice@alice.alice"
     And I follow "Notifications" in the header
