@@ -20,4 +20,17 @@ namespace :heroku do
     system 'heroku addons:add logging:expanded'
     system 'heroku addons:add redistogo:nano'
   end
+
+  task :set_up_s3_sync => [:environment] do
+    fog_provider = "FOG_PROVIDER=AWS"
+    aws_access_key_id = "AWS_ACCESS_KEY_ID=#{AppConfig[:s3_key]}"
+    aws_secret_access_key = "AWS_SECRET_ACCESS_KEY=#{AppConfig[:s3_secret]}"
+    fog = "FOG_DIRECTORY=#{AppConfig[:s3_bucket]}"
+    asset_host = "ASSET_HOST=https://#{AppConfig[:s3_bucket]}.s3.amazonaws.com"
+    
+    each_heroku_app do |stage|
+      system("heroku labs:enable user_env_compile -a #{stage.app}")
+      stage.run('config:add', "#{fog} #{fog_provider} #{fog} #{aws_secret_access_key} #{aws_access_key_id} ASSET_HOST=#{asset_host}")
+    end
+  end
 end
