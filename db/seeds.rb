@@ -20,7 +20,7 @@ bob   = Factory(:user_with_aspect, :username => "bob", :password => 'evankorth')
 eve   = Factory(:user_with_aspect, :username => "eve", :password => 'evankorth')
 
 def url_hash(name)
-  image_url = "/assets/user/#{name}jpg"
+  image_url = "/assets/user/#{name}.jpg"
   {
     :image_url => image_url,
     :image_url_small => image_url,

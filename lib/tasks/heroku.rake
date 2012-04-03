@@ -9,7 +9,7 @@ namespace :heroku do
 
   task :generate_secret_token do
     puts "Generating and setting a new secret token"
-    token = SecureRandom.hex(40)#reloads secret token every time you reload vars.... this expires cookies, and kinda sucks
+    token = SecureRandom.hex(40) #reloads secret token every time you reload vars.... this expires cookies, and kinda sucks
     command = "#{HEROKU_CONFIG_ADD_COMMAND} SECRET_TOKEN=#{token}"
     puts command
     system command
@@ -30,7 +30,7 @@ namespace :heroku do
     
     each_heroku_app do |stage|
       system("heroku labs:enable user_env_compile -a #{stage.app}")
-      stage.run('config:add', "#{fog} #{fog_provider} #{fog} #{aws_secret_access_key} #{aws_access_key_id} ASSET_HOST=#{asset_host}")
+      stage.run('config:add', "#{fog} #{fog_provider} #{aws_secret_access_key} #{aws_access_key_id} ASSET_HOST=#{asset_host}")
     end
   end
 end
