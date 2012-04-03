@@ -27,7 +27,7 @@ Spork.prefork do
   # Capybara.default_wait_time = 30
 
   # While there are a lot of failures, wait less, avoiding travis timeout
-  Capybara.default_wait_time = 3
+  Capybara.default_wait_time = 5
 
   # If you set this to false, any error raised from within your app will bubble
   # up to your step definition and out to cucumber unless you catch it somewhere
