@@ -78,5 +78,9 @@ describe ApplicationHelper do
     it 'inclues jquery_ujs.js' do
       jquery_include_tag.should match(/jquery_ujs\.js/)
     end
+
+    it "disables ajax caching" do
+      jquery_include_tag.should match(/jQuery\.ajaxSetup/)
+    end
   end
 end
