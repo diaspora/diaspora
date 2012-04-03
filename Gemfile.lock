@@ -90,6 +90,9 @@ GEM
       builder
     archive-tar-minitar (0.5.2)
     arel (2.2.3)
+    asset_sync (0.3.1)
+      activemodel
+      fog
     bcrypt-ruby (3.0.1)
     builder (3.0.0)
     capistrano (2.9.0)
@@ -475,6 +478,7 @@ DEPENDENCIES
   acts_as_api
   addressable (= 2.2.4)
   airbrake
+  asset_sync
   bundler (~> 1.1.0)
   capistrano (~> 2.9.0)
   capistrano-ext (= 1.2.1)

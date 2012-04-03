@@ -119,6 +119,7 @@ group :assets do
   
   gem 'handlebars_assets'
   gem 'uglifier'
+  gem "asset_sync"
 end
 
 gem 'jquery-rails'
