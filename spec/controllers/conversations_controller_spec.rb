@@ -159,7 +159,7 @@ describe ConversationsController do
       get :show, :id => @conversation.id, :format => :json
       response.should be_success
       assigns[:conversation].should == @conversation
-      response.body.should == @conversation.to_json
+      response.body.should include @conversation.guid
     end
 
     it 'redirects to index' do
