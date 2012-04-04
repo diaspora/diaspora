@@ -11,7 +11,6 @@ Spork.prefork do
   require 'capybara/cucumber'
   require 'capybara/session'
   #require 'cucumber/rails/capybara_javascript_emulation' # Lets you click links with onclick javascript handlers without using @culerity or @javascript
-  require 'cucumber/api_steps'
 
   # Ensure we know the appservers port
   Capybara.server_port = 9887
@@ -54,8 +53,8 @@ Spork.prefork do
   require File.join(File.dirname(__FILE__), "..", "..", "spec", "support","user_methods")
   include HelperMethods
 
-  require 'webmock/cucumber'
-  WebMock.disable_net_connect!(:allow_localhost => true)
+  # require 'webmock/cucumber'
+  # WebMock.disable_net_connect!(:allow_localhost => true)
 
   silence_warnings do
     SERVICES['facebook'] = {'app_id' => :fake, 'app_secret' => 'sdoigjosdfijg'}
