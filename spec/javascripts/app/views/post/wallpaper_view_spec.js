@@ -8,7 +8,7 @@ describe("app.views.Post.Wallpaper", function(){
     it("has the image as the photo-fill", function(){
       this.view.render()
       expect(this.view.$(".photo-fill").data("img-src")).toBe("http://omgimabackground.com/wow.gif") //for the cuke
-      expect(this.view.$(".photo-fill").css("background-image")).toBe("url(http://omgimabackground.com/wow.gif)")
+      expect(this.view.$(".photo-fill").css("background-image")).toMatch('http://omgimabackground.com/wow.gif')
     })
   })
 })
