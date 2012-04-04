@@ -10,6 +10,13 @@ namespace :migrations do
     ShareVisibilityConverter.copy_hidden_share_visibilities_to_users
   end
 
+  task :invitations => [:environment] do
+    User.where('username is NULL AND length(email) > 0').select([:id, :email]).find_in_batches do |users|
+      users.each{|x| puts x.email }
+      puts "BATCH"
+    end
+  end
+
   desc 'absolutify all existing image references'
   task :absolutify_image_references do
     require File.join(File.dirname(__FILE__), '..', '..', 'config', 'environment')
