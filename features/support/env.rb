@@ -78,6 +78,7 @@ Spork.each_run do
   Before do
     @no_follow_diaspora_hq_setting = AppConfig[:no_follow_diasporahq]
     AppConfig[:no_follow_diasporahq] = true
+    ActiveRecord::Base.verify_active_connections! if postgres?
     DatabaseCleaner.clean
     Devise.mailer.deliveries = []
   end
