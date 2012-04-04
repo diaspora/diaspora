@@ -101,7 +101,7 @@ gem 'typhoeus'
 
 gem 'haml'
 gem 'mobile-fu'
-gem 'sass'
+
 gem 'will_paginate'
 gem 'client_side_validations'
 
@@ -139,7 +139,7 @@ gem 'jasmine', :git => 'git://github.com/pivotal/jasmine-gem.git'
 
 group :test do
   gem 'capybara', '~> 1.1.2'
-  gem 'cucumber-rails', '1.2.1', :require => false
+  gem 'cucumber-rails', '1.3.0', :require => false
   gem 'database_cleaner', '0.7.1'
   gem 'diaspora-client', :git => 'git://github.com/diaspora/diaspora-client.git'
 
@@ -150,15 +150,16 @@ group :test do
   gem 'fuubar', '0.0.6'
   gem 'mongrel', :require => false, :platforms => :ruby_18
   gem 'rspec', '>= 2.0.0'
-  gem 'rspec-core', '~> 2.8.0'
+  gem 'rspec-core', '~> 2.9.0'
   gem 'rspec-instafail', '>= 0.1.7', :require => false
-  gem 'rspec-rails', '>= 2.0.0'
-  gem 'selenium-webdriver', '~> 2.16.0'
+  gem "rspec-rails", "~> 2.9.0" 
+  gem 'selenium-webdriver', '~> 2.19.0'
+
   gem 'webmock', :require => false
   gem 'sqlite3'
   gem 'mock_redis'
 
-  gem 'spork', '~> 1.0rc'
+  gem 'spork', '~> 1.0rc2'
   gem 'guard-rspec'
   gem 'guard-spork'
   gem 'guard-cucumber'
