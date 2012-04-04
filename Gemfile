@@ -119,7 +119,9 @@ group :assets do
   
   gem 'handlebars_assets'
   gem 'uglifier'
-  gem "asset_sync"
+  
+  # asset_sync is required as needed by application.rb
+  gem "asset_sync", :require => nil
 end
 
 gem 'jquery-rails'
