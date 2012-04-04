@@ -70,13 +70,21 @@ module PublishingCukeHelpers
     wait_for_ajax_to_finish
   end
 
-  def make_comment(text)
-    fill_in "text", :with => text
+  def comment_on_show_page(comment_text)
+    within("#post-interactions") do 
+      focus_comment_box(".label.comment")
+      make_comment(comment_text, "new-comment-text")
+    end
+    wait_for_ajax_to_finish
+  end
+
+  def make_comment(text, elem="text")
+    fill_in elem, :with => text
     click_button :submit
   end
 
-  def focus_comment_box
-    find("a.focus_comment_textarea").click
+  def focus_comment_box(elem="a.focus_comment_textarea")
+    find(elem).click
   end
 
   def wait_for_ajax_to_finish(wait_time=15)
