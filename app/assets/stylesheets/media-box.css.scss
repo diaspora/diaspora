@@ -10,6 +10,8 @@
 .media .img {
   float: left;
   margin-right: 10px;
+  height: 50px;
+  overflow: hidden;
 }
 
 .media .img img { display: block }
