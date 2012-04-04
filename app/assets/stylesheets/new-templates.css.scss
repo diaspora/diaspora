@@ -111,17 +111,11 @@ $night-text-color : #999;
 }
 
 /* bootstrap extentions */
-.icon-red {
-  background-image: image-url("img/glyphicons-halflings-red.png");
-}
-
-.icon-green {
-  background-image: image-url("img/glyphicons-halflings-green.png");
-}
-
-.icon-blue {
-  background-image: image-url("img/glyphicons-halflings-blue.png");
-}
+.icon-white { background-image: image_url("img/glyphicons-halflings-white.png"); }
+.icon-black { background-image: image_url("img/glyphicons-halflings.png");       }
+.icon-red   { background-image: image-url("img/glyphicons-halflings-red.png");   }
+.icon-green { background-image: image-url("img/glyphicons-halflings-green.png"); }
+.icon-blue  { background-image: image-url("img/glyphicons-halflings-blue.png");  }
 
 /* styles */
 .multi-photo {
