@@ -4,7 +4,6 @@
 
 require File.join(Rails.root, 'lib/salmon/salmon')
 require File.join(Rails.root, 'lib/postzord/dispatcher')
-require 'rest-client'
 
 class User < ActiveRecord::Base
   include Encryptor::Private
