@@ -134,3 +134,7 @@ end
 When /^the frame's body should be "([^"]*)"$/ do |body_text|
   find("section.body").text.should == body_text
 end
+
+Then /^the first post should mention "([^"]*)"$/ do |user_name|
+  pending
+end

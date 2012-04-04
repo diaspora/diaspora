@@ -1,7 +1,8 @@
 branches:
   only:
     - 'serendipitous'
-
+    - 'rails3.2'
+    
 language: ruby
 rvm:
   - 1.9.2

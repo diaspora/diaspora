@@ -9,6 +9,10 @@ app.views.PostViewerNewComment = app.views.Base.extend({
 
   scrollableArea : "#post-reactions",
 
+  initialize : function(){
+    this.model.comments.bind("sync", this.clearAndReactivateForm, this)
+  },
+
   postRenderTemplate : function() {
     this.$("textarea").placeholder();
     this.$("textarea").autoResize({'extraSpace' : 0});
@@ -16,14 +20,8 @@ app.views.PostViewerNewComment = app.views.Base.extend({
 
   createComment: function(evt) {
     if(evt){ evt.preventDefault(); }
-
-    var self = this;
-
     this.toggleFormState()
-    this.model.comments.create({
-      "text" : this.$("textarea").val()
-    }, {success : _.bind(self.clearAndReactivateForm, self)});
-
+    this.model.comment(this.$("textarea").val());
   },
 
   clearAndReactivateForm : function() {

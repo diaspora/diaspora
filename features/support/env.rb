@@ -11,7 +11,6 @@ Spork.prefork do
   require 'capybara/cucumber'
   require 'capybara/session'
   #require 'cucumber/rails/capybara_javascript_emulation' # Lets you click links with onclick javascript handlers without using @culerity or @javascript
-  require 'cucumber/api_steps'
 
   # Ensure we know the appservers port
   Capybara.server_port = 9887
@@ -27,7 +26,7 @@ Spork.prefork do
   # Capybara.default_wait_time = 30
 
   # While there are a lot of failures, wait less, avoiding travis timeout
-  Capybara.default_wait_time = 3
+  Capybara.default_wait_time = 10
 
   # If you set this to false, any error raised from within your app will bubble
   # up to your step definition and out to cucumber unless you catch it somewhere
@@ -54,8 +53,8 @@ Spork.prefork do
   require File.join(File.dirname(__FILE__), "..", "..", "spec", "support","user_methods")
   include HelperMethods
 
-  require 'webmock/cucumber'
-  WebMock.disable_net_connect!(:allow_localhost => true)
+  # require 'webmock/cucumber'
+  # WebMock.disable_net_connect!(:allow_localhost => true)
 
   silence_warnings do
     SERVICES['facebook'] = {'app_id' => :fake, 'app_secret' => 'sdoigjosdfijg'}
@@ -65,6 +64,13 @@ Spork.prefork do
   require File.join(File.dirname(__FILE__), "..", "..", "spec", "support", "fake_resque")
 
   require File.join(File.dirname(__FILE__), 'run_resque_in_process')
+
+  #hax to get rubymine to run spork, set RUBYMINE_HOME in your .bash_profile
+  if ENV["RUBYMINE_HOME"]
+    puts "Loading rubymine spork extensions"
+    $:.unshift(File.expand_path("rb/testing/patch/common", ENV["RUBYMINE_HOME"]))
+    $:.unshift(File.expand_path("rb/testing/patch/bdd", ENV["RUBYMINE_HOME"]))
+  end
 end
 
 Spork.each_run do

@@ -1,12 +1,12 @@
 describe("app.views.AspectsDropdown", function(){
   beforeEach(function(){
-    loginAs(factory.user({
+    loginAs({
       aspects : [
         { id : 3, name : "sauce" },
         { id : 5, name : "conf" },
         { id : 7, name : "lovers" }
       ]
-    }))
+    })
 
     this.view = new app.views.AspectsDropdown
   })
@@ -62,7 +62,9 @@ describe("app.views.AspectsDropdown", function(){
 
     describe("selecting An Aspect", function(){
       beforeEach(function(){
+
         this.link = this.view.$("a:contains('lovers')")
+        console.log(app.currentUser.get("aspects"), $("a:contains('lovers')", this.view.el))
         this.link.click()
       })
 

@@ -38,15 +38,7 @@ app.views.CommentStream = app.views.Base.extend({
 
   createComment: function(evt) {
     if(evt){ evt.preventDefault(); }
-
-    this.model.comments.create({
-      "text" : this.$(".comment_box").val()
-    }, {
-      error: function() {
-        alert(Diaspora.I18n.t("failed_to_post_message"));
-      }
-    });
-
+    this.model.comment(this.$(".comment_box").val());
     this.$(".comment_box").val("")
     return this;
   },
