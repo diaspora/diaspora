@@ -15,7 +15,5 @@ When /^I comment "([^"]*)" on "([^"]*)"$/ do |comment_text, post_text|
 end
 
 When /^I make a show page comment "([^"]*)"$/ do |comment_text|
-  find(".label.comment").click
-  fill_in "new-comment-text", :with => comment_text
-  click_button :submit
+  comment_on_show_page(comment_text)
 end
