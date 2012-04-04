@@ -14,9 +14,12 @@ end
 
 require 'rails/all'
 
+# Sanitize groups to make matching :assets easier
+RAILS_GROUPS = Rails.groups(:assets => %w(development test)).map { |group| group.to_sym }
+
 if defined?(Bundler)
   # If you precompile assets before deploying to production, use this line
-  Bundler.require(*Rails.groups(:assets => %w(development test)))
+  Bundler.require(*RAILS_GROUPS)
   # If you want your assets lazily compiled in production, use this line
   # Bundler.require(:default, :assets, Rails.env)
 end
@@ -89,4 +92,9 @@ module Diaspora
     config.assets.version = '1.0'
 
   end
+end
+
+# Only load asset_sync if S3 is configured
+if RAILS_GROUPS.include?(:assets) && ENV['AWS_ACCESS_KEY_ID']
+  require 'asset_sync'
 end
