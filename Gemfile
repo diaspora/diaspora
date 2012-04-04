@@ -139,6 +139,7 @@ gem 'jasmine', :git => 'git://github.com/pivotal/jasmine-gem.git'
 
 group :test do
   gem 'capybara', '~> 1.1.2'
+  gem 'capybara-webkit'
   gem 'cucumber-rails', '1.2.1', :require => false
   gem 'cucumber-api-steps', '0.6', :require => false
   gem 'database_cleaner', '0.7.1'

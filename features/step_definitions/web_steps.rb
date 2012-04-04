@@ -215,6 +215,16 @@ Then /^(?:|I )should have the following query string:$/ do |expected_pairs|
   end
 end
 
+Then /^show me the money$/ do
+  #show me the page for capybara webkit
+  begin
+    page.driver.render "tmp/snapshot.png"
+    require "launchy"
+    Launchy.open("file://" + Rails.root.join("tmp", "snapshot.png").to_s)
+  rescue
+  end
+end
+
 Then /^show me the page$/ do
   save_and_open_page
 end

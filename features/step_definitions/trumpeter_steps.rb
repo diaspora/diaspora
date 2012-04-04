@@ -3,8 +3,17 @@ def fill_in_autocomplete(selector, value)
   page.execute_script %Q{$('#{selector}').val('#{value}').keyup()}
 end
 
+def write_post(headline="", body="")
+  fill_in 'text', :with => [headline, body].join("\n")
+end
+
 def aspects_dropdown
   find(".dropdown-toggle")
+end
+
+def default_framer_flow
+  go_to_framer
+  finalize_frame
 end
 
 def select_from_dropdown(option_text, dropdown)
@@ -58,7 +67,7 @@ When /^I trumpet$/ do
 end
 
 When /^I write "([^"]*)"(?:| with body "([^"]*)")$/ do |headline, body|
-  fill_in 'text', :with => [headline, body].join("\n")
+  write_post(headline, body)
 end
 
 Then /I mention "([^"]*)"$/ do |text|
@@ -87,9 +96,9 @@ Then /^"([^"]*)" should have the "([^"]*)" picture$/ do |post_text, file_name|
   end
 end
 
+
 When /^I go through the default composer$/ do
-  go_to_framer
-  finalize_frame
+  default_framer_flow
 end
 
 When /^I start the framing process$/ do
@@ -137,4 +146,10 @@ end
 
 Then /^the first post should mention "([^"]*)"$/ do |user_name|
   pending
+end
+
+When /^I make a new school post "([^"]*)"$/ do |post_text|
+  visit new_post_path
+  write_post(post_text)
+  default_framer_flow
 end

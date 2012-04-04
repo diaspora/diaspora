@@ -13,6 +13,8 @@ Spork.prefork do
   #require 'cucumber/rails/capybara_javascript_emulation' # Lets you click links with onclick javascript handlers without using @culerity or @javascript
   require 'cucumber/api_steps'
 
+  Capybara.javascript_driver = :webkit
+
   # Ensure we know the appservers port
   Capybara.server_port = 9887
 

@@ -1,5 +1,5 @@
 @javascript
-Feature: posting
+Feature: Following Tags
   In order to take over humanity for the good of society
   As a rock star
   I want to see what humanity is saying about particular tags
@@ -9,10 +9,17 @@ Feature: posting
     And a user with username "alice"
 
     When I sign in as "bob@bob.bob"
-    And I post a status with the text "I am da #boss"
+    And I make a new school post "I am da #boss"
+    And I wait for 5 seconds
+    And I go to "/stream"
+    Then "I am da #boss" should be post 1
+    And show me the money
     When I go to the destroy user session page
     And I sign in as "alice@alice.alice"
     And I search for "#boss"
+    And I wait for 10 seconds
+    And I wait for the ajax to finish
+    And show me the money
     And I press "Follow #boss"
     And I wait for the ajax to finish
 

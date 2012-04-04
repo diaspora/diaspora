@@ -131,9 +131,24 @@ Then /^I should get download alert$/ do
   page.evaluate_script("window.alert = function() { return true; }")
 end
 
+
+
+def keypress_on(selector, key, charCode = 0)
+  keyCode = case key
+              when :enter then 13
+              else key.to_i
+            end
+  #puts elem.base.class
+  #
+  #elem.base.invoke('keypress', false, false, false, false, keyCode, charCode);
+
+  keypress_script = "var e = $.Event('keydown', { keyCode: #{keyCode} }); $('#{selector}').trigger(e);"
+  page.driver.browser.execute_script(keypress_script)
+end
+
 When /^I search for "([^\"]*)"$/ do |search_term|
   fill_in "q", :with => search_term
-  find_field("q").native.send_key(:enter)
+  keypress_on("#q", 13, 13)
 end
 
 Then /^the "([^"]*)" field(?: within "([^"]*)")? should be filled with "([^"]*)"$/ do |field, selector, value|

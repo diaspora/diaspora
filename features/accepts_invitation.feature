@@ -46,4 +46,5 @@ Feature: invitation acceptance
       And I follow "By email"
       And I fill in "email_inviter_emails" with "alex@example.com"
       And I press "Send an invitation"
+      And I wait for the ajax to finish
       Then I should have 1 Devise email delivery

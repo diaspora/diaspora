@@ -111,6 +111,9 @@ GEM
       rack-test (>= 0.5.4)
       selenium-webdriver (~> 2.0)
       xpath (~> 0.1.4)
+    capybara-webkit (0.11.0)
+      capybara (>= 1.0.0, < 1.2)
+      json
     carrierwave (0.5.8)
       activesupport (~> 3.0)
     cgi_multipart_eof_fix (2.5.0)
@@ -484,6 +487,7 @@ DEPENDENCIES
   capistrano-ext (= 1.2.1)
   capistrano_colors
   capybara (~> 1.1.2)
+  capybara-webkit
   carrierwave (= 0.5.8)
   client_side_validations
   cucumber-api-steps (= 0.6)
