@@ -29,7 +29,17 @@ Diaspora::Application.configure do
   # Don't care if the mailer can't send
   config.action_mailer.raise_delivery_errors = false
   config.active_support.deprecation = [:stderr, :log]
+
+
+
+    # Raise exception on mass assignment protection for Active Record models
+  config.active_record.mass_assignment_sanitizer = :strict
+
+  # Log the query plan for queries taking more than this (works
+  # with SQLite, MySQL, and PostgreSQL)
+  config.active_record.auto_explain_threshold_in_seconds = 0.5
   #config.threadsafe!
+  
   # Monkeypatch around the nasty "2.5MB exception page" issue, caused by very large environment vars
   # This snippet via: http://stackoverflow.com/questions/3114993/exception-pages-in-development-mode-take-upwards-of-15-30-seconds-to-render-why
   # Relevant Rails ticket: https://rails.lighthouseapp.com/projects/8994/tickets/5027-_request_and_responseerb-and-diagnosticserb-take-an-increasingly-long-time-to-render-in-development-with-multiple-show-tables-calls
@@ -39,7 +49,7 @@ Diaspora::Application.configure do
         "<#{self.class.name} - tooooo long>"
       end
     end
-    [ActionController::Base, ActionDispatch::RemoteIp::RemoteIpGetter, OmniAuth::Strategy, Warden::Proxy].each do |klazz|
+    [ActionController::Base, OmniAuth::Strategy, Warden::Proxy].each do |klazz|
       klazz.send(:include, SmallInspect)
     end
   end

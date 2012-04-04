@@ -22,7 +22,7 @@ describe Diaspora::Encryptable do
     end
 
     it 'does not verify the fallback after rollout window' do
-      sig = Base64.encode64s(bob.encryption_key.sign( "SHA", @comment.signable_string )) 
+      sig = Base64.strict_encode64(bob.encryption_key.sign( "SHA", @comment.signable_string )) 
       @comment.verify_signature(sig, bob.person).should be_false
     end
   end

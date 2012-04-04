@@ -106,7 +106,7 @@ class Postzord::Dispatcher
   def queue_remote_delivery_job(remote_people)
     Resque.enqueue(Jobs::HttpMulti,
                    @sender.id,
-                   Base64.encode64s(@object.to_diaspora_xml),
+                   Base64.strict_encode64(@object.to_diaspora_xml),
                    remote_people.map{|p| p.id},
                    self.class.to_s)
   end

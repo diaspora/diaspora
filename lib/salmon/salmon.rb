@@ -10,7 +10,7 @@ module Base64
   # Alphabet'' in RFC 4648.
   # The alphabet uses '-' instead of '+' and '_' instead of '/'.
   def urlsafe_encode64(bin)
-    self.encode64s(bin).tr("+/", "-_")
+    self.strict_encode64(bin).tr("+/", "-_")
   end
 
   # Returns the Base64-decoded version of +str+.

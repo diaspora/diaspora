@@ -77,9 +77,9 @@ class PostsController < ApplicationController
     current_user.retract(@post)
 
     respond_to do |format|
-      format.js { render 'destroy' }
+      format.js { render 'destroy',:layout => false,  :format => :js }
       format.json { render :nothing => true, :status => 204 }
-      format.all { redirect_to stream_path }
+      format.any { redirect_to stream_path }
     end
   end
 
