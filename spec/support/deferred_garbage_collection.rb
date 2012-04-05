@@ -12,9 +12,9 @@ class DeferredGarbageCollection
   end
 
   def self.memory_threshold
-    mem = %x(free 2>/dev/null).to_s.split(" ")
-    return nil if mem.empty?
-    mem[8].to_i / (mem[7].to_i/100)
+    @mem = %x(free 2>/dev/null).to_s.split(" ")
+    return nil if @mem.empty?
+    @mem[8].to_i / (@mem[7].to_i/100)
   end
 
   def self.reconsider
@@ -22,7 +22,11 @@ class DeferredGarbageCollection
 
     if (percent_used = self.memory_threshold)
       running_out_of_memory = percent_used > 90
-      puts "percent memory used #{percent_used}" # just for info, as soon as we got some numbers remove it
+
+      # just for info, as soon as we got some numbers remove it
+      swap_percent_used = @mem[19].to_i / (@mem[18].to_i/100) rescue 0
+      puts "percent memory used #{percent_used} (#{@mem[8]} of #{@mem[7]})"
+      puts "percent swap used   #{swap_percent_used} (#{@mem[19]} of #{@mem[18]})"
     else
       running_out_of_memory = false
     end

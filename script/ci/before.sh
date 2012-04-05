@@ -14,7 +14,7 @@ sh -e /etc/init.d/xvfb start
 
 # setup swapfile
 echo "creating a swapfile"
-sudo dd if=/dev/zero of=swapfile bs=1M count=64
+sudo dd if=/dev/zero of=swapfile bs=1M count=128
 sudo mkswap swapfile
 sudo swapon swapfile
 
