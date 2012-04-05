@@ -1,0 +1,21 @@
+#   Copyright (c) 2010-2012, Diaspora Inc.  This file is
+#   licensed under the Affero General Public License version 3 or later.  See
+#   the COPYRIGHT file.
+
+
+
+art_nvi:
+  devise:
+    mailer:
+      hello: "Kaltxì %{email}!"
+      invitation_instructions:
+        be_yourself: "nga läpu"
+        finally: "Nì'i'a - fì'u lu fìtsenge"
+        here: "fìtsenge"
+        or: "fu"
+      inviter:
+        has_invited_you: "%{name}"
+        have_invited_you: "%{names} polawm ngati txo säpung Diasporaru"
+  errors:
+    messages:
+      not_found: "ke rìmun"

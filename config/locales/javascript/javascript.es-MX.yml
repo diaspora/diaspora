@@ -56,11 +56,11 @@ es-MX:
     photo_uploader:
       looking_good: "¡Ah, te ves increíble!"
     publisher:
-      at_least_one_aspect: "Debes publicar al menos un aspecto"
+      at_least_one_aspect: "Debes publicar al menos en un aspecto"
       limited: "Limitado – tu publicación solo será vista por ia gente con quien compartes"
       public: "Público – tu publicación será visible para todos, y encontrada por buscadores"
     reshares:
-      duplicate: "Qué bien, ¿eh? ¡Ya has compartido esta publicación!"
+      duplicate: "Qué bien, ¿eh? ¡Ya has compartido esa publicación!"
     search_for: "Buscar a <%= name %>"
     show_more: "mostrar más"
     stream:

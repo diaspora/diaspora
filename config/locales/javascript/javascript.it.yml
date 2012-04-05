@@ -116,7 +116,7 @@ it:
       prefixFromNow: "fra"
       seconds: "meno di un minuto"
       suffixAgo: "fa"
-      suffixFromNow: "da adesso"
+      suffixFromNow: "da ora"
       year: "circa un anno"
       years: "%d anni"
     videos:

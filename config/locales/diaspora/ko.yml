@@ -830,6 +830,7 @@ ko:
       show: "보기"
       unlike: "좋아요 취소"
       via: "%{link}에서"
+      via_mobile: "via 모바일"
       viewable_to_anyone: "이 게시물은 웹의 누구든지 볼 수 있습니다"
   status_messages:
     create:

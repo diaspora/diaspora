@@ -18,11 +18,11 @@ es-MX:
         contact:
           attributes:
             person_id:
-              taken: "debe ser único entre los contactos de esta persona"
+              taken: "debe ser único entre los contactos de este usuario"
         person:
           attributes:
             diaspora_handle:
-              taken: "ya está tomado."
+              taken: "ya está ocupado."
         request:
           attributes:
             from_id:
@@ -34,12 +34,12 @@ es-MX:
         user:
           attributes:
             email:
-              taken: "ya está tomado."
+              taken: "ya está ocupado."
             person:
               invalid: "no es válido."
             username:
               invalid: "no es válido. Solo se permiten letras, números y guiones bajos."
-              taken: "ya está tomado."
+              taken: "ya está ocupado."
   admins:
     admin_bar:
       correlations: "Correlaciones"
@@ -59,7 +59,7 @@ es-MX:
       video_title:
         unknown: "Título de video desconocido"
   are_you_sure: "¿Estás seguro?"
-  are_you_sure_delete_account: "¿Estás seguro de que deseas eliminar tu cuenta? ¡Esto no se puede deshacer!"
+  are_you_sure_delete_account: "¿Estás seguro de que quieres eliminar tu cuenta? ¡Esto no se puede deshacer!"
   aspect_memberships:
     destroy:
       failure: "No se pudo eliminar a la persona del aspecto"
@@ -139,7 +139,7 @@ es-MX:
       services:
         content: "Puedes conectar los siguientes servicios a Diaspora:"
         heading: "Conectar servicios"
-      unfollow_tag: "Dejar de seguir a #%{tag}"
+      unfollow_tag: "Dejar de seguir #%{tag}"
       welcome_to_diaspora: "¡Bienvenido a Diaspora, %{name}!"
     many: "%{count} aspectos"
     move_contact:
@@ -150,10 +150,10 @@ es-MX:
       create: "Crear"
       name: "Nombre (solo es visible para ti)"
     no_contacts_message:
-      community_spotlight: "Lo más destacado de la comunidad"
+      community_spotlight: "lo más destacado de la comunidad"
       or_spotlight: "O puedes compartir con %{link}"
       try_adding_some_more_contacts: "Puedes buscar o invitar a más contactos."
-      you_should_add_some_more_contacts: "¡Deberías añadir algunos contactos más!"
+      you_should_add_some_more_contacts: "¡Deberías añadir algunos contactos!"
     no_posts_message:
       start_talking: "¡Nadie ha dicho nada aún!"
     one: "1 aspecto"
@@ -742,7 +742,7 @@ es-MX:
       discard_post: "Descartar publicación"
       make_public: "hacer público"
       new_user_prefill:
-        hello: "Hola a todos, soy %{new_user_tag}. "
+        hello: "Hola a todos, soy #%{new_user_tag}. "
         i_like: "Estoy interesado en %{tags}. "
         invited_by: "Gracias por la invitación, "
         newhere: "NuevoAquí"
@@ -768,6 +768,7 @@ es-MX:
       show: "mostrar"
       unlike: "No me gusta"
       via: "vía %{link}"
+      via_mobile: "vía móvil"
       viewable_to_anyone: "Esta publicación puede ser vista por cualquiera en la web"
   status_messages:
     create:
@@ -876,7 +877,8 @@ es-MX:
         if_you_want_this: "Si realmente es lo que deseas, ingresa tu contraseña debajo y pulsa «Eliminar cuenta»."
         lock_username: "Esto bloqueará tu nombre de usuario si decides volver a registrarte."
         locked_out: "Cerrarás tu sesión y tu cuenta será bloqueada."
-        make_diaspora_better: "Queremos que nos ayudes a mejorar Diaspora, así que deberías hacerlo en vez de marcharte. Si no quieres irte, queremos que sepas lo que sucede después."
+        make_diaspora_better: "Queremos que nos ayudes a mejorar Diaspora, así que deberías ayudarnos en vez de marcharte. Si en verdad quieres irte, queremos que sepas lo que sucede después."
+        mr_wiggles: "El gatito estará triste por verte partir."
         no_turning_back: "Actualmente, no hay vuelta atrás."
         what_we_delete: "Eliminamos todas tus publicaciones, tu información de perfil, tan pronto como nos es posible. Tus comentarios estarán en línea, pero estarán asociados a tu cuenta de Diaspora."
       close_account_text: "Cerrar cuenta"

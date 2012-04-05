@@ -1,6 +1,6 @@
 (function(){
-  var textFormatter = function textFormatter(model) {
-    var text = model.get("text");
+  //make it so I take text and mentions rather than the modelapp.helpers.textFormatter(
+  var textFormatter = function textFormatter(text, model) {
     var mentions = model.get("mentioned_people");
 
     return textFormatter.mentionify(
@@ -25,7 +25,7 @@
 
       // process links
       // regex copied from: https://code.google.com/p/pagedown/source/browse/Markdown.Converter.js#1198 (and slightly expanded)
-      var linkRegex = /(\[.*\]:\s)?(<|\()((https?|ftp):[^'">\s]+)(>|\))/gi;
+      var linkRegex = /(\[.*\]:\s)?(<|\()((https?|ftp):\/\/[^\/'">\s][^'">\s]+)(>|\))/gi;
       text = text.replace(linkRegex, function() {
         var unicodeUrl = arguments[3];
         var addr = parse_url(unicodeUrl);
@@ -34,7 +34,7 @@
           ( (addr.scheme.toLowerCase()=="mailto") ? ':' : '://')) +
           (!addr.user ? '' : addr.user +
           (!addr.pass ? '' : ':'+addr.pass) + '@') +
-          punycode.toASCII(addr.host) +
+         punycode.toASCII(addr.host) +
           (!addr.port ? '' : ':' + addr.port) +
           (!addr.path ? '' : addr.path) +
           (!addr.query ? '' : '?' + addr.query) +

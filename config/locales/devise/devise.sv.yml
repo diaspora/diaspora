@@ -117,6 +117,6 @@ sv:
       unlocked: "Ditt konto har är nu upplåst och du är inloggad"
   errors:
     messages:
-      already_confirmed: "är redan bekräftad"
+      already_confirmed: "var redan bekräftad"
       not_found: "inte funnet"
       not_locked: "var ej låst"

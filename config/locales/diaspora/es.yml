@@ -42,15 +42,15 @@ es:
               taken: "ya está ocupado."
   admins:
     admin_bar:
-      correlations: "Correlaciones"
+      correlations: "Similitudes"
       pages: "Páginas"
-      pod_stats: "Estadísticas del Pod"
+      pod_stats: "Estadísticas del Pod o Servidor"
       resque_overview: "Información de Resque"
-      user_search: "Buscar Usuario"
-      weekly_user_stats: "Estadísticas Semanales"
+      user_search: "Buscar usuario"
+      weekly_user_stats: "Estadísticas Semanales del Usuario"
     correlations:
-      correlations_count: "Correlaciones con número de cuentas:"
-  ago: "hace %{time} "
+      correlations_count: "Cuentas similares:"
+  ago: "Hace %{time}"
   all_aspects: "Todos los aspectos"
   application:
     helper:
@@ -122,12 +122,12 @@ es:
         have_a_question: "- Realices alguna %{link}."
         here_to_help: "¡La comunidad Diaspora está aquí!"
         need_help: "Ayuda"
-        tag_bug: "error"
+        tag_bug: "error."
         tag_feature: "idea"
         tag_question: "pregunta"
         tutorials_wiki_and_forum: "%{tutorial} & %{wiki} & %{forum}: Tutoriales, wiki y noticias"
       introduce_yourself: "Esta es tu entrada principal. Adelante, preséntate..."
-      keep_us_running: "Haz que %{pod} vaya más rápido, ¡compra a nuestros servidores sus dosis de café mensual!"
+      keep_us_running: "Haz que %{pod} vaya más rápido, ¡compra a nuestros servidores su dosis de café mensual!"
       new_here:
         follow: "¡Sigue %{link} y da la bienvenida a los nuevos miembros de Diaspora*!"
         learn_more: "Más información"
@@ -210,15 +210,15 @@ es:
     few: "%{count} contactos"
     index:
       add_a_new_aspect: "Añade un nuevo aspecto"
-      add_to_aspect: "añade contactos a %{name}"
-      add_to_aspect_link: "añadir contactos a %{name}"
+      add_to_aspect: "Añadir contactos a %{name}"
+      add_to_aspect_link: "añade contactos a %{name}"
       all_contacts: "Todos los contactos"
       community_spotlight: "Comunidad Creativa"
       many_people_are_you_sure: "¿Estás seguro que quieres comenzar una conversación privada con más de %{suggested_limit} contactos? Publicar en sus aspectos podría ser mejor para contactar con ellos."
       my_contacts: "Mis Contactos"
       no_contacts: "¡Parece que necesitas añadir algunos contactos!"
-      no_contacts_message: "Echa un vistazo a %{community_spotlight}"
-      no_contacts_message_with_aspect: "Echa un vistazo a %{community_spotlight} o %{add_to_aspect_link}"
+      no_contacts_message: "Echa un vistazo a la %{community_spotlight}"
+      no_contacts_message_with_aspect: "Echa un vistazo a la %{community_spotlight} o %{add_to_aspect_link}"
       only_sharing_with_me: "Solo compartiendo conmigo"
       remove_person_from_aspect: "Eliminar a %{person_name} de \"%{aspect_name}\""
       start_a_conversation: "Inicia una conversación"
@@ -279,7 +279,7 @@ es:
       invalid_fields: "Campos inválidos"
   fill_me_out: "Complétame"
   find_people: "Encuentra gente o #etiquetas"
-  hide: "Ocultar"
+  hide: "Ocultar publicación"
   home:
     show:
       already_account: "¿Tienes ya una cuenta?"
@@ -295,7 +295,7 @@ es:
       tagline_first_half: "Comparte lo que quieras, "
       tagline_second_half: "con quien te gustaría"
   invitation_codes:
-    excited: "%{name} está encantado de verle por aquí."
+    excited: "%{name} está encantado de verte por aquí."
   invitations:
     a_facebook_user: "Un usuario de Facebook"
     check_token:
@@ -315,8 +315,8 @@ es:
       aspect: "Aspecto"
       check_out_diaspora: "¡Échale un ojo a Diaspora!"
       codes_left:
-        one: "%{count} invitación restante con este código"
-        other: "%{count} invitaciones restantes con este código"
+        one: "Queda %{count} invitación con este código"
+        other: "Quedan %{count} invitaciones con este código"
         zero: "No quedan invitaciones con este código"
       comma_seperated_plz: "Puedes escribir múltiples direcciones de email separadas por comas."
       if_they_accept_info: "Si acepta, se añadirá al aspecto seleccionado."
@@ -349,11 +349,8 @@ es:
   likes:
     likes:
       people_dislike_this:
-        few: "A %{count} no les gusta"
-        many: "A %{count} no les gusta"
         one: "A 1 persona no le gusta"
-        other: "A %{count} no les gusta"
-        two: "A %{count} personas no les gusta"
+        other: "A %{count} personas no les gusta"
         zero: "A nadie le disgusta"
       people_like_this:
         few: "A %{count} les gusta"
@@ -474,7 +471,7 @@ es:
       zero: "%{actors} ahora sigue tus mensajes públicos."
   notifier:
     a_post_you_shared: "una publicación."
-    accept_invite: "Aceptar tu invitación para Diaspora*"
+    accept_invite: "¡Acepta tu invitación a Diaspora*!"
     click_here: "pulsa aquí"
     comment_on_post:
       reply: "Responder o ver los comentarios de %{name} >"
@@ -487,9 +484,9 @@ es:
       message: |-
           ¡Hola!
 
-          ¡Ha sido invitado a unirse a Diaspora*!
+          ¡Has sido invitado a unirte a Diaspora*!
 
-          Marque el enlace para empezar
+          Sigue este enlace para empezar
 
           %{invite_url}
           <%= invite_code_url(@invitation_code)%>
@@ -497,8 +494,8 @@ es:
 
           Saludos,
 
-          ¡El generador de correo automático de Diaspora*!
-    invited_you: "%{name} le ha invitado a Diaspora*"
+          ¡El correo automático de Diaspora*!
+    invited_you: "¡%{name} te ha invitado a Diaspora*!"
     liked:
       liked: "A %{name} le gustó tu publicación"
       view_post: "Ver comentario >"
@@ -526,7 +523,7 @@ es:
   password_confirmation: "Confirmación de contraseña"
   people:
     add_contact:
-      invited_by: "fueron invitados por"
+      invited_by: "fuiste invitado por"
     add_contact_small:
       add_contact_from_tag: "añadir contacto desde una etiqueta"
     aspect_list:
@@ -541,7 +538,7 @@ es:
       no_one_found: "...y nadie fue encontrado."
       no_results: "¡Eh! Tienes que buscar algo."
       results_for: "buscar resultados para"
-      searching: "buscando, por favor sea paciente..."
+      searching: "buscando, por favor sé paciente…"
     last_post: "Última publicación"
     many: "%{count} personas"
     one: "1 persona"
@@ -834,6 +831,7 @@ es:
       show: "mostrar"
       unlike: "No me gusta"
       via: "vía %{link}"
+      via_mobile: "vía móvil"
       viewable_to_anyone: "Esta publicación podrá verla cualquiera en internet"
   status_messages:
     create:
@@ -955,7 +953,7 @@ es:
       close_account_text: "Eliminar Cuenta"
       comment_on_post: "...alguien comenta en tu publicación?"
       current_password: "Contraseña actual"
-      current_password_expl: "con la que inicia sesión..."
+      current_password_expl: "con la que inicias sesión..."
       download_photos: "Descargar mis fotos"
       download_xml: "Descargar mi XML"
       edit_account: "Editar cuenta"

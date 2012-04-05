@@ -8,7 +8,7 @@ app.views.Content = app.views.StreamObject.extend({
 
   presenter : function(){
     return _.extend(this.defaultPresenter(), {
-      text : app.helpers.textFormatter(this.model),
+      text : app.helpers.textFormatter(this.model.get("text"), this.model),
       o_embed_html : this.embedHTML(),
       largePhoto : this.largePhoto(),
       smallPhotos : this.smallPhotos()

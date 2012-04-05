@@ -42,7 +42,10 @@ de:
               taken: "ist schon vergeben."
   admins:
     admin_bar:
+      correlations: "Korrelationen"
+      pages: "Seiten"
       pod_stats: "Pod Statistik"
+      resque_overview: "Resque Übersicht"
       user_search: "Benutzer Suche"
       weekly_user_stats: "Wöchentliche Benutzerstatistik"
   ago: "Vor %{time}"
@@ -288,6 +291,8 @@ de:
       simplicity_explanation: "Diaspora macht das Teilen von Inhalten klar und einfach – dasselbe gilt für den Schutz deiner Privatsphäre. Diaspora ist von sich aus privat, seitenweise Einstellungen für die Profilsicherheit sind nicht nötig."
       tagline_first_half: "Teile was du willst,"
       tagline_second_half: "mit wem du willst."
+  invitation_codes:
+    excited: "%{name} freut sich dich hier zu sehen."
   invitations:
     a_facebook_user: "Ein Facebook-Nutzer"
     check_token:
@@ -306,6 +311,10 @@ de:
       already_invited: "Die folgenden Personen haben deine Einladung nicht angenommen:"
       aspect: "Aspekt"
       check_out_diaspora: "Erkunde Diaspora!"
+      codes_left:
+        one: "%{count} Einladung auf diesem Code übrig."
+        other: "%{count} Einladungen auf diesem Code übrig."
+        zero: "Keine Einladung mehr auf diesem Code übrig."
       comma_seperated_plz: "Du kannst mehrere E-Mail-Adressen durch Trennen mit Kommata eintragen."
       if_they_accept_info: "Wenn sie deine Einladung annehmen, werden sie zu dem Aspekt hinzugefügt, in den du sie eingeladen hast."
       invite_someone_to_join: "Lade jemanden zu Diaspora ein!"
@@ -820,6 +829,7 @@ de:
       show: "zeigen"
       unlike: "Gefällt mir nicht mehr"
       via: "via %{link}"
+      via_mobile: "über mobil"
       viewable_to_anyone: "Dieser Beitrag ist für jeden im Web sichtbar"
   status_messages:
     create:

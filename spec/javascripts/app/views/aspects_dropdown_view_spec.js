@@ -62,9 +62,7 @@ describe("app.views.AspectsDropdown", function(){
 
     describe("selecting An Aspect", function(){
       beforeEach(function(){
-
         this.link = this.view.$("a:contains('lovers')")
-        console.log(app.currentUser.get("aspects"), $("a:contains('lovers')", this.view.el))
         this.link.click()
       })
 

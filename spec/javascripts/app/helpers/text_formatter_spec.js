@@ -11,7 +11,7 @@ describe("app.helpers.textFormatter", function(){
       spyOn(app.helpers.textFormatter, "hashtagify")
       spyOn(app.helpers.textFormatter, "markdownify")
 
-      app.helpers.textFormatter(this.statusMessage)
+      app.helpers.textFormatter(this.statusMessage.get("text"), this.statusMessage)
       expect(app.helpers.textFormatter.mentionify).toHaveBeenCalled()
       expect(app.helpers.textFormatter.hashtagify).toHaveBeenCalled()
       expect(app.helpers.textFormatter.markdownify).toHaveBeenCalled()

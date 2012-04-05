@@ -1,10 +1,8 @@
-{{#each photos}}
-  <div class="photo-fill" data-img-src="{{sizes.large}}" style="background-image: url({{sizes.large}})">
-    <div class="darken">
-      <div class="darken-content">
-        <header>{{../headline}}</header>
-        <section class="body">{{../body}}</section>
-      </div>
+<div class="photo-fill" data-img-src="{{backgroundUrl}}" style="background-image: url({{backgroundUrl}})">
+  <div class="darken">
+    <div class="darken-content">
+      <header>{{{headline}}}</header>
+      <section class="body">{{{body}}}</section>
     </div>
   </div>
-{{/each}}
+</div>

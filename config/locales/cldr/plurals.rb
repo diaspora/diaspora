@@ -45,5 +45,6 @@
   :uk => { :i18n => {:plural => { :keys => [:one, :few, :many, :other], :rule => lambda { |n| n % 10 == 1 && n % 100 != 11 ? :one : [2, 3, 4].include?(n % 10) && ![12, 13, 14].include?(n % 100) ? :few : n % 10 == 0 || [5, 6, 7, 8, 9].include?(n % 10) || [11, 12, 13, 14].include?(n % 100) ? :many : :other }, :js_rule => 'function (n) { return n % 10 == 1 && n % 100 != 11 ? "one" : jQuery.inArray(n % 10, [2, 3, 4]) != -1 && !jQuery.inArray(n % 100, [12, 13, 14]) != -1 ? "few" : n % 10 == 0 || jQuery.inArray(n % 10, [5, 6, 7, 8, 9]) != -1 || jQuery.inArray(n % 100, [11, 12, 13, 14]) != -1 ? "many" : "other" }' } } },
   :ur => { :i18n => {:plural => { :keys => [:one, :other], :rule => lambda { |n| n == 1 ? :one : :other }, :js_rule => 'function (n) { return n == 1 ? "one" : "other" }' } } },
   :vi => { :i18n => {:plural => { :keys => [:other], :rule => lambda { |n| :other }, :js_rule => 'function (n) { return "other" }' } } },
-  :zh => { :i18n => {:plural => { :keys => [:other], :rule => lambda { |n| :other }, :js_rule => 'function (n) { return "other" }' } } }
+  :zh => { :i18n => {:plural => { :keys => [:other], :rule => lambda { |n| :other }, :js_rule => 'function (n) { return "other" }' } } },
+  :art_nvi => { :i18n => {:plural => { :keys => [:zero, :one, :two, :few, :other], :rule => lambda { |n| n == 0 ? :zero : n == 1 ? :one : n == 2 ? :two : n == 3 ? :few : :other }, :js_rule => 'function (n) { return n == 0 ? "zero" : n == 1 ? "one" : n == 2 ? "two" : n == 3 ? "few" : "other" }' } } }
 }

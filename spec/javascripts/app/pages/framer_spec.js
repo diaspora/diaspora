@@ -23,5 +23,11 @@ describe("app.pages.Framer", function(){
       this.page.$("button.done").click();
       expect(app.frame.save).toHaveBeenCalled();
     });
+
+    it("navigates on save", function(){
+      spyOn(app.router, "navigate")
+      this.page.model.trigger("sync")
+      expect(app.router.navigate).toHaveBeenCalled()
+    })
   });
 });

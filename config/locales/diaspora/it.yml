@@ -819,6 +819,7 @@ it:
       show: "mostra"
       unlike: "Non mi piace più"
       via: "via %{link}"
+      via_mobile: "tramite dispositivo mobile"
       viewable_to_anyone: "Questo post è visibile a tutti sul web"
   status_messages:
     create:

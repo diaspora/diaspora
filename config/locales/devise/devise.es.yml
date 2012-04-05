@@ -90,9 +90,9 @@ es:
     sessions:
       new:
         alpha_software: "Estás a punto de utilizar software en versión alpha."
-        bugs_and_feedback: "Ten en cuenta que puedes sufrir errores. ¡Te animamos a que utilices el botón de Feedback situado a la derecha de tu navegador para informar cualquier fallo! Trabajaremos tan rápido como nos sea posible para resolver cualquier problema que nos remitas."
-        bugs_and_feedback_mobile: "Ten en cuenta que puedes sufrir errores. ¡Te animamos a informar de cualquier fallo! Trabajaremos tan rápido como nos sea posible para resolver cualquier problema que nos remitas."
-        login: "Iniciar sesión"
+        bugs_and_feedback: "Ten en cuenta que puedes encontrar errores. ¡Te animamos a que utilices el botón de Feedback situado a la derecha de tu navegador para informar de cualquier fallo! Trabajaremos tan rápido como nos sea posible para resolver cualquier problema que nos remitas."
+        bugs_and_feedback_mobile: "Ten en cuenta que puedes encontrar errores. ¡Te animamos a informar de cualquier fallo! Trabajaremos tan rápido como nos sea posible para resolver cualquier problema que nos remitas."
+        login: "Acceder"
         modern_browsers: "Sólo es compatible con navegadores modernos."
         password: "Contraseña"
         remember_me: "Recordarme"
@@ -117,6 +117,6 @@ es:
       unlocked: "Tu cuenta ha sido desbloqueada. Ya has accedido a tu cuenta."
   errors:
     messages:
-      already_confirmed: "Ya ha sido confirmada"
-      not_found: "No encontrado"
+      already_confirmed: "ya ha sido confirmada"
+      not_found: "no se ha encontrado"
       not_locked: "No fue bloqueado"
