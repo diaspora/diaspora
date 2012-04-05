@@ -104,8 +104,8 @@ end
 # https://makandracards.com/makandra/950-speed-up-rspec-by-deferring-garbage-collection
 require File.join(File.dirname(__FILE__), "..", "..", "spec", "support", "deferred_garbage_collection")
 Before do
-  DeferredGarbageCollection.start
+  DeferredGarbageCollection.start unless ENV['TRAVIS']
 end
 After do
-  DeferredGarbageCollection.reconsider
+  DeferredGarbageCollection.reconsider unless ENV['TRAVIS']
 end
