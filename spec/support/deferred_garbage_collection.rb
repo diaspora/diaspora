@@ -11,7 +11,12 @@ class DeferredGarbageCollection
   end
 
   def self.reconsider
-    if DEFERRED_GC_THRESHOLD > 0 && Time.now - @@last_gc_run >= DEFERRED_GC_THRESHOLD
+    mem = %x(free).split(" ")
+    percent_used = mem[8].to_i / (mem[7].to_i/100)
+
+    puts "percent memory used #{percent_used}" # just for info, as soon as we got some numbers remove it
+
+    if( (DEFERRED_GC_THRESHOLD > 0 && Time.now - @@last_gc_run >= DEFERRED_GC_THRESHOLD) || percent_used > 90 )
       GC.enable
       GC.start
       GC.disable
