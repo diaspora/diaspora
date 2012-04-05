@@ -12,9 +12,9 @@ namespace :migrations do
 
   desc 'puts out information about old invited users'
   task :invitations => [:environment] do
-    puts "email, invitation_token"
-    User.where('username is NULL AND length(email) > 0').select([:id, :email, :invitation_token]).find_in_batches do |users|
-      users.each{|x| puts "#{x.email}, #{x.invitation_token}" }
+    puts "email, invitation_token, :invited_by_id, :invitation_identifier"
+    User.where('username is NULL').select([:id, :email, :invitation_token, :invited_by_id, :invitation_identifier]).find_in_batches do |users|
+      users.each{|x| puts "#{x.email}, #{x.invitation_token}, #{x.invited_by_id}, #{x.invitation_identifier}" }
     end
     puts "done"
   end
