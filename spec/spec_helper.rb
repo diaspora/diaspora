@@ -105,9 +105,9 @@ end
 # https://makandracards.com/makandra/950-speed-up-rspec-by-deferring-garbage-collection
 RSpec.configure do |config|
   config.before(:all) do
-    DeferredGarbageCollection.start unless ENV['TRAVIS']
+    DeferredGarbageCollection.start
   end
   config.after(:all) do
-    DeferredGarbageCollection.reconsider unless ENV['TRAVIS']
+    DeferredGarbageCollection.reconsider 
   end
 end
