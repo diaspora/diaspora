@@ -69,5 +69,12 @@ describe("app.views.Post", function(){
       expect($(view.el).html()).toContain(specialLink);
       expect($(view.el).html()).toContain(normalLink);
     });
+    it("works when three slashes are present in the url", function(){
+      var badURL = "http:///scholar.google.com/citations?view_op=top_venues"
+      this.statusMessage.set({text : badURL});
+      var view = new app.views.StreamPost({model: this.statusMessage}).render();
+
+    })
+    
   });
 });
