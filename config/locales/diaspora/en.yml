@@ -863,6 +863,7 @@ en:
       currently_unavailable: 'commenting currently unavailable'
       via: "via %{link}"
       via_mobile: "via mobile"
+      mobile: "mobile"
       ignore_user: "Ignore %{name}"
       ignore_user_description: "Ignore and remove user from all aspects?"
       hide_and_mute: "Hide and mute post"
