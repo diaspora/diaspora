@@ -5,7 +5,7 @@ app.views.Post = app.views.StreamObject.extend({
     return _.extend(this.defaultPresenter(), {
       authorIsCurrentUser : this.authorIsCurrentUser(),
       showPost : this.showPost(),
-      text : app.helpers.textFormatter(this.model)
+      text : app.helpers.textFormatter(this.model.get("text"), this.model)
     })
   },
 
@@ -23,10 +23,10 @@ app.views.Post = app.views.StreamObject.extend({
 
     //translate obsolete template names to the new Moods, should be removed when template picker comes cliente side.
     var map = {
-      'status-with-photo-backdrop' : 'Wallpaper',
-      'status' : 'Day',
-      'note' : 'Newspaper',
-      'photo-backdrop' : 'Day'
+      'status-with-photo-backdrop' : 'Wallpaper', //equivalent
+      'status' : 'Day', //equivalent
+      'note' : 'Newspaper', //equivalent
+      'photo-backdrop' : 'Day' //that theme was bad
     }
 
     frameName = map[frameName] || frameName
@@ -50,6 +50,7 @@ app.views.Post = app.views.StreamObject.extend({
 });
 
 app.views.Post.Legacy = app.views.Post.extend({
+  tagName : "article",
   initialize : function(options) {
     this.templateName = options.templateName || this.templateName
   }

@@ -12,8 +12,8 @@ app.views.Post.Mood = app.views.Post.extend({
   presenter : function(){
     var model = this.model
     return _.extend(this.defaultPresenter(), {
-      headline : model.headline(),
-      body : model.body()
+      headline : $(app.helpers.textFormatter(model.headline(), model)).html(),
+      body : app.helpers.textFormatter(model.body(), model)
     })
   },
 

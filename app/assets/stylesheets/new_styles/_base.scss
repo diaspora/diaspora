@@ -7,39 +7,13 @@
 .icon-green { background-image: image_url("img/glyphicons-halflings-green.png"); }
 .icon-blue  { background-image: image_url("img/glyphicons-halflings-blue.png");  }
 
-/* styles */
-.multi-photo {
-  display: table;
-
-  p {
-    @include media-text();
-  }
-
-  .img-bounding-box {
-    display: table-cell;
-    text-align: center;
-    vertical-align: middle;
-
-    padding: 20px;
-    height: 400px;
-    width: 300px;
-  }
-
-  img {
-    @include photo-shadow();
-
-    max-width: 100%;
-    max-height: 100%;
-  }
-}
-
 .photoset {
   @include center(horizontal);
   width: 100%;
 }
 
 .rich-media {
-  z-index : -5000; //so the framer controls don't get lost
+  //z-index : -5000; //so the framer controls don't get lost
   position: absolute;
   height: 100%;
   width: 100%;
@@ -181,8 +155,13 @@ article { //mood posts
   $big-text-size : 3em;
   $medium-text-size : 2em;
   $small-text-size: 1.5em;
+  width: 960px;
+  margin: 0 auto;
 
   @include centered-frame();
+  .container {
+    padding: 70px 0;
+  }
 
   header, header p{
   //big text
@@ -191,10 +170,12 @@ article { //mood posts
   }
 
   section.body{
-    font-size: $small-text-size;
+    p { font-size: $small-text-size;}
 
     &.short_body{
-      font-size: $medium-text-size;
+      p{
+        font-size: $medium-text-size;
+      }
     }
   }
 
@@ -204,16 +185,57 @@ article { //mood posts
   }
 
   &.newspaper {
-    text-align: left;
     @include newspaper-type();
-    width: 960px;
+
+    text-align: left;
+
+    .container {
+      width: 600px;
+    }
+
     .photo_viewer {
-      float: left;
+      float: right;
+      margin-left: 20px;
+      max-width: 320px;
+    }
+
+    header {
+      margin-bottom: 1em;
+      line-height: 1em;
+    }
+
+    .body p {
+      @include newspaper-type();
+      font-size: 1.2em;
+      line-height: 1.7em;
+      margin-bottom: 1.2em;
     }
   }
 
   &.wallpaper{
     color : #fff;
+  }
+
+  &.multi-photo {
+    p {
+      @include media-text();
+    }
+
+    .img-bounding-box {
+      display: table-cell;
+      text-align: center;
+      vertical-align: middle;
+
+      padding: 20px;
+      height: 400px;
+      width: 300px;
+    }
+
+    img {
+      @include photo-shadow();
+      max-width: 100%;
+      max-height: 100%;
+    }
   }
 }
 
@@ -284,6 +306,7 @@ $bring-dark-accent-forward-color: #DDD;
 
 .framer-controls {
   @include info-container-base();
+  z-index: 999;
 
   position: fixed;
   width: 100%;

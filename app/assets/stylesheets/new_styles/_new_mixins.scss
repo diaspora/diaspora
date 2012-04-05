@@ -81,8 +81,6 @@ $night-text-color : #999;
 
 @mixin newspaper-type() {
   font-family: Palatino, times, georgia, serif;
-  margin-bottom: 1em;
-  padding: 0 5%;
 }
 
 @mixin centered-frame(){
