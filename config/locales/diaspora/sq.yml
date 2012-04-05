@@ -98,7 +98,7 @@ sq:
       invalid_fields: "Fusha të Pavlefshme"
       correct_the_following_errors_and_try_again: "Ndreqni gabimet vijuese dhe riprovoni."
 
-admins:
+  admins:
     admin_bar:
       pages: "Faqe"
       user_search: "Kërkime Përdoruesi"
@@ -1037,7 +1037,7 @@ admins:
       email_awaiting_confirmation: "Ju kemi dërguar një lidhje aktivizimi te %{unconfirmed_email}. Deri të ndiqni këtë lidhje dhe të aktivizoni adresën e re, do të vazhdojmë të përdorim adresën tuaj origjinale %{email}."
       stream_preferences: "Parapëlqime për Rrëkezën"
       show_community_spotlight: "Të shfaqet në Rrëkezë Prozhektori i Bashkësisë?"
-      show_getting_started: 'Riaktivizo Si T'ia Fillohet'
+      show_getting_started: "Riaktivizo Si T'ia Fillohet"
       getting_started: 'Parapëlqime për Përdorues të Re'
       following: "Rregullime Ndjekjeje"
       auto_follow_back: "Nëse dikush ju ndjek, ndiqeni vetvetiu edhe ju"
@@ -1047,7 +1047,7 @@ admins:
       close_account:
         dont_go: "Hej, ju lutem, mos ikni!"
         make_diaspora_better: "Duam që të na ndihmoni ta bëjmë Diaspora-n më të mirë, ndaj do të ishte mirë ta ndihmoni, në vend që të largoheni. Nëse dëshironi të largoheni, duam t'ju bëjmë me dije se ç'do të ndodhë më pas."
-        mr_wiggles: 'Z. Wiggles do të trishtohet, kur t'ju shohë që po largoheni'
+        mr_wiggles: "Z. Wiggles do të trishtohet, kur t'ju shohë që po largoheni"
         what_we_delete: "Ne i fshijmë krejt postimet tuaja, të dhënat e profilit, sa më shpejt që mundemi. Komentet tuaja do të jenë prapë këtu, por do të jenë të përshoqëruara nga ID-ja juaj Diaspora."
         locked_out: "Do të bëhet çregjistrimi juaj dhe nuk do t'ju lejohet më hyrja në llogarinë tuaj."
         lock_username: "Nga kjo do të bllokohet emri juaj i përdoruesit, në rast se vendosët të regjistroheni sërish."
