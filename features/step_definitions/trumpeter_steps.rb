@@ -109,7 +109,7 @@ Then /^I should see "([^"]*)" in the framer preview$/ do |post_text|
 end
 
 When /^I select the mood "([^"]*)"$/ do |mood|
-  select mood, :from => 'template'
+  click_link mood
 end
 
 Then /^the post's mood should (?:still |)be "([^"]*)"$/ do |mood|
