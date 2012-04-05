@@ -832,6 +832,7 @@ fr:
       show: "montrer"
       unlike: "Je n'aime plus"
       via: "via %{link}"
+      via_mobile: "envoyé d'un mobile"
       viewable_to_anyone: "Publication visible par n'importe qui sur le web"
   status_messages:
     create:

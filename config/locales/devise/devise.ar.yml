@@ -9,16 +9,16 @@ ar:
     confirmations:
       confirmed: "تم تأكيد حسابك، وتسجيل دخولك"
       new:
-        resend_confirmation: "أعِد إرسال لتعليمات التأكيد"
+        resend_confirmation: "أعِد إرسال تعليمات التأكيد"
       send_instructions: "ستصلك في بضع دقائق رسالة إلكترونية تحوي تعليمات تأكيد الحساب الخاص بك"
     failure:
       inactive: ".لم يتم تفعيل حسابك بعد"
       invalid: "اسم المستخدم غير صحيح أو كلمة المرور غير صحيحة."
       invalid_token: ".الإقليد غير صالح"
-      locked: ".تم وصد حسابك"
+      locked: "تم قفل حسابك"
       timeout: ".انقضت مدة جلستك، رجاء لُج من جديد للمتابعة"
-      unauthenticated: ".لُج أو سجل قبل المتابعة"
-      unconfirmed: ".أكِد حسابك قبل المتابعة"
+      unauthenticated: "عليك تسجيل الدخول او التسجيل قبل المتابعة."
+      unconfirmed: "عليك تأكيد حسابك قبل المتابعة."
     invitations:
       invitation_token_invalid: "نأسف! هذه الدعوة غير صالحة."
       send_instructions: "تم إرسال دعوتك"
@@ -32,9 +32,9 @@ ar:
       invitation_instructions:
         accept: "إقبل الدعوة"
         arrived: |-
-            الشبكة الاجتماعية التي إنتظرت قد وصلت. متطورة و أكثر أمانا ومرحا
-            , %{strong_diaspora}  جاهز لمساعدتك على مشاركة واستكشاف الوِب
-            بطريقة جديدة كليا.
+            الشبكة الاجتماعية التي إنتظرتها قد وصلت. متطورة ، أكثر أمانا وأكثر مرحاً
+            ، %{strong_diaspora}  جاهز لمساعدتك على مشاركة واستكشاف الوِب
+            بطريقة جديدة كلياً.
         be_yourself: "كن كما أنت"
         be_yourself_paragraph: |-
             أنشأت اﻹنترنت لنا طرق جديدة و فريدة نعبر بها عن أنفسنا.
@@ -109,17 +109,17 @@ ar:
         modern_browsers: "تدعم المتصفحات الحديثة فقط."
         password: "كلمة المرور"
         remember_me: "تذكرني"
-        sign_in: "لُج"
+        sign_in: "تسجيل الدخول"
         username: "إسم المستخدم"
-      signed_in: "تم تسجيل الدخول بنجاح"
+      signed_in: "تم تسجيل الدخول بنجاح."
       signed_out: "تم تسجيل الخروج بنجاح"
     shared:
       links:
         forgot_your_password: "نسيت كلمة المرور؟"
         receive_confirmation: "لم تصلك تعليمات تأكيد حسابك؟"
         receive_unlock: "لم تصلك تعليمات إعادة فتح حسابك؟"
-        sign_in: "لُج"
-        sign_up: "سجِل"
+        sign_in: "تسجيل الدخول"
+        sign_up: "التسجيل"
         sign_up_closed: "التسجيلات مغلقة حاليا"
       mail_signup_form:
         sign_up_for_an_invite: "سجل في قائمة انتظار الدعوات"

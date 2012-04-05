@@ -10,7 +10,7 @@ ar:
   _contacts: "جهات الاتصال"
   _home: "الرئيسية"
   _photos: "صور"
-  _services: "خدمات"
+  _services: "الخدمات"
   account: "الحساب الشخصي"
   activerecord:
     errors:
@@ -102,8 +102,8 @@ ar:
         heading: "صِل حسابك بـ Cubbi.es"
         learn_more: "اعرف المزيد"
       diaspora_id:
-        content_1: "معرف دياسبورا الخاص بك هو:"
-        content_2: "أعطه لأي شخص وسيتمكن من إيجادك على ديسبورا."
+        content_1: "معرف دياسبرا الخاص بك هو:"
+        content_2: "أعطه لأي شخص وسيتمكن من إيجادك على دياسبرا."
         heading: "معرف دياسبورا"
       donate: "تبرّع"
       handle_explanation: "هذا وسيط دياسبرا. مثل البريد الالكتروني، يمكنك منحه للأصدقاء حتى تستطيع التواصل معهم."
@@ -130,7 +130,7 @@ ar:
       people_sharing_with_you: "أعضاء يتشاركون معك"
       post_a_message: "انشر رسالة >>"
       services:
-        content: "يمكنك وصل حساب ديسبورا الخاص بك بالخدمات الآتية:"
+        content: "يمكنك توصيل حساب ديسبورا الخاص بك بالخدمات الآتية:"
         heading: "صل حسابك بالخدمات"
       unfollow_tag: "أَوقِف متابعة #%{tag}"
       welcome_to_diaspora: "مرحبا بك في دياسبرا , %{name} !"
@@ -159,8 +159,8 @@ ar:
     selected_contacts:
       manage_your_aspects: "أَدِر فئاتك."
       no_contacts: "لا تملك أية جهات اتصال هنا بعد."
-      view_all_community_spotlight: "شاهد الجميع"
-      view_all_contacts: "أظهر كل جهات الاتصال"
+      view_all_community_spotlight: "شاهد كل أضواء المجتمع"
+      view_all_contacts: "عرض كل جهات الاتصال"
     show:
       edit_aspect: "تحرير الفئة"
     two: "%{count} فئتان"
@@ -182,8 +182,8 @@ ar:
     explanation_link_text: "هذا الرابط"
     heading: "زر المفضلة"
     post_something: "انشر شيئا على دياسبرا"
-    post_success: "تم النشر, إغلاق"
-  cancel: "أَلْغِ"
+    post_success: "تم النشر, إغلاق!"
+  cancel: "إلغاء"
   comments:
     few: "%{count} تعليقات"
     many: "%{count} تعليقًا"
@@ -203,6 +203,7 @@ ar:
       add_to_aspect: "Add contacts to %{name}"
       add_to_aspect_link: "أضف جهات الاتصال إلى %{name}"
       all_contacts: "كل جهات الاتصال"
+      community_spotlight: "ضوء المجتمع"
       many_people_are_you_sure: "هل أنت متأكد من بدأ هذه المحادثة الخاصة مع أكثر من %{suggested_limit} جهات اتصال? من الأفضل إرسال مشاركة لهذه الفئة لتتصل بهم."
       my_contacts: "جهات الاتصال الخاصة بي"
       no_contacts: "لا توجد جهات اتصال."
@@ -216,6 +217,8 @@ ar:
     other: "%{count} أعضاء"
     sharing:
       people_sharing: "أعضاء يتشاركون معك:"
+    spotlight:
+      community_spotlight: "ضوء المجتمع"
     two: "%{count} عضوان"
     zero: "جهات الاتصال"
   conversations:
@@ -231,14 +234,14 @@ ar:
         one: "رسالةٌ واحدةٌ جديدة"
         other: "%{count} رسالة جديدة"
         two: "%{count} رسالتان جديدتان"
-        zero: "لا يوجد رسائل جديدة"
+        zero: "لا توجد رسائل جديدة"
     index:
       create_a_new_message: "اكتُب رسالةً جديدة"
       inbox: "الوارد"
       message_inbox: "البريد الوارد"
       new_message: "رسالة جديدة"
       no_conversation_selected: "لم تحدد أية محادثة"
-      no_messages: "لا يوجد رسائل"
+      no_messages: "لا توجد رسائل"
     new:
       abandon_changes: "أأتجاهل التغييرات؟"
       send: "أَرْسِل"
@@ -260,7 +263,7 @@ ar:
   email: "بريد إلكتروني"
   error_messages:
     helper:
-      correct_the_following_errors_and_try_again: ".صَحِّح الأخطاء التالية ثم أعد المحاولة"
+      correct_the_following_errors_and_try_again: "صَحِّح الأخطاء التالية ثم أعد المحاولة."
       invalid_fields: "حقولٌ غير صالحة"
   fill_me_out: "إملأني"
   find_people: "ابحث عن الأصدقاء أو #الوسوم"
@@ -273,7 +276,7 @@ ar:
       learn_about_host: "تعلم كيفية استضافة سيرفر دياسبرا الخاص بك"
       login_here: "لُج هنا"
       ownership: "ملكية"
-      ownership_explanation: "صورك هي ملكية خاصة لك، وليس عليك التخلي عن ملكيتها بمجرد مشاركتها. لك الملكية المطلقة لكل ما تشاركه في دياسبرا، نعطيك كل الصلاحيات في كيفية مشاركتها"
+      ownership_explanation: "صورك هي ملكية خاصة لك، وليس عليك التخلي عن ملكيتها بمجرد مشاركتها. لك الملكية المطلقة لكل ما تشاركه في دياسبرا، نعطيك كل الصلاحيات في كيفية مشاركتها."
       share_what_you_want: "شارك ما تريد، مع من تريد"
       simplicity: "بساطة"
       simplicity_explanation: "مع دياسبرا المشاركة والخصوصية هي ترادف للسهولة والشفافية. دياسبرا صنعت لاحترام الخصوصية، فليس وجوبا عليك الخوص في صفحات عديدة من الإعدادات والخيارات لتبقي حسابك آمنا وكما تريده."
@@ -319,10 +322,10 @@ ar:
       code: "شيفرة"
       login: "لُج"
       logout: "خروج"
-      profile: "الصفحة الشخصية"
+      profile: "الملف الشخصى"
       recent_notifications: "آخر التنبيهات"
       settings: "إعدادات"
-      view_all: "أظهر الكل"
+      view_all: "عرض الكل"
   likes:
     likes:
       people_dislike_this:
@@ -359,12 +362,12 @@ ar:
       two: "%{actors} علقا أيضا على %{post_link} مشاركة %{post_author}."
       zero: "%{actors} علق أيضا على %{post_link} %{post_author}."
     also_commented_deleted:
-      few: "%{actors} علقوا على المنشور المحذوف."
-      many: "%{actors} علقوا على المنشور المحذوف."
-      one: "%{actors} علق على المنشور المحذوف."
-      other: "%{actors} علقوا على المنشور المحذوف."
+      few: "%{actors} علقوا على المشاركة المحذوفة."
+      many: "%{actors} علقوا على المشاركة المحذوفة."
+      one: "%{actors} علق على المشاركة المحذوفة."
+      other: "%{actors} علقوا على المشاركة المحذوفة."
       two: "%{actors} علقا على مشاركتك المحذوفة."
-      zero: "%{actors} علق على المنشور المحذوف."
+      zero: "%{actors} علق على المشاركة المحذوفة."
     comment_on_post:
       few: "%{actors} علقوا على %{post_link}."
       many: "%{actors} علقوا على %{post_link}."
@@ -390,6 +393,7 @@ ar:
         two: "و %{count} آخران"
         zero: "و لا أحد"
       mark_all_as_read: "وضع الجميع كمقروء"
+      mark_unread: "غير مقروء"
       notifications: "تنبيهات"
     liked:
       few: "%{actors} أعجبوا لتوهم بـ %{post_link}."
@@ -399,12 +403,12 @@ ar:
       two: "%{actors} أعجبا لتوهما بـ %{post_link}."
       zero: "%{actors} أعجب لتوه بـ %{post_link}."
     liked_post_deleted:
-      few: "%{actors} أعجبوا بالمنشور المحذوف."
-      many: "%{actors} أعجبوا بالمنشور المحذوف."
-      one: "%{actors} أعجب بالمنشور المحذوف."
-      other: "%{actors} أعجبوا بالمنشور المحذوف."
+      few: "%{actors} أعجبوا بمشاركتك المحذوفة."
+      many: "%{actors} أعجبوا بمشاركتك المحذوفة."
+      one: "%{actors} أعجب بمشاركتك المحذوفة."
+      other: "%{actors} أعجبوا بمشاركتك المحذوفة."
       two: "%{actors} أعجبتهما مشاركتك المحذوفة."
-      zero: "%{actors} أعجب بالمنشور المحذوف."
+      zero: "%{actors} أعجب بمشاركتك المحذوفة."
     mentioned:
       few: "%{actors} أشاروا إليك في %{post_link}."
       many: "%{actors} أشاروا إليك في %{post_link}."
@@ -413,12 +417,12 @@ ar:
       two: "%{actors} أشارا إليك في %{post_link}."
       zero: "%{actors} أشار إليك في %{post_link}."
     mentioned_deleted:
-      few: "%{actors} أشاروا إليك في منشور محذوف."
-      many: "%{actors} أشاروا إليك في منشور محذوف."
-      one: "%{actors} أشار إليك في منشور محذوف."
-      other: "%{actors} أشاروا إليك في منشور محذوف."
+      few: "%{actors} أشاروا إليك في مشاركة محذوفة."
+      many: "%{actors} أشاروا إليك في مشاركة محذوفة."
+      one: "%{actors} أشار إليك في مشاركة محذوفة."
+      other: "%{actors} أشاروا إليك في مشاركة محذوفة."
       two: "%{actors} أشارا إليك في مشاركة محذوفة."
-      zero: "%{actors} أشار إليك في منشور محذوف."
+      zero: "%{actors} أشار إليك في مشاركة محذوفة."
     post: "مشاركة"
     private_message:
       few: "%{actors} راسلوك."
@@ -459,8 +463,8 @@ ar:
     email_sent_by_diaspora: "أُرسِلَت هذه الرسالة بواسطة ديسبورا.  إذا أردت إيقاف مثل هذه الرسالة، "
     hello: "مرحبا %{name}!"
     liked:
-      liked: "%{name} أعجبه منشورك"
-      view_post: "اعرض المشاركة >"
+      liked: "%{name} أعجبته مشاركتك."
+      view_post: "عرض المشاركة >"
     mentioned:
       mentioned: "قام بذكرك في مشاركة:"
       subject: "%{name} قام بذكرك في دياسبرا"
@@ -468,14 +472,14 @@ ar:
       reply_to_or_view: "رُد أو اعرض هذه المحادثة >"
     reshared:
       reshared: "%{name} أعاد نشر مشاركتك."
-      view_post: "إعرِض المشاركة >"
+      view_post: "عرض المشاركة >"
     single_admin:
       admin: "إدارة دياسبرا"
       subject: "رسالة من إدارة دياسبرا:"
     started_sharing:
       sharing: "بدأ المشاركة معك!"
       subject: "%{name} بدأ المشاركة معك بدياسبرا"
-      view_profile: "اعرض ملف %{name} الشخصي"
+      view_profile: "عرض ملف %{name} الشخصي"
     thanks: "شكرا,"
     to_change_your_notification_settings: "لتعديل إعدادات التنبيهات خاصتك"
   ok: "حسنًا"
@@ -500,6 +504,7 @@ ar:
       no_results: "يجب تحديد شيء للبحث عنه"
       results_for: "نتائج البحث عن"
       searching: "جارى البحث، كن صبوراً من فضلك..."
+    last_post: "آخر مشاركة"
     many: "%{count} أعضاء"
     one: "1 عضو"
     other: "%{count} عضو"
@@ -511,7 +516,7 @@ ar:
     profile_sidebar:
       bio: "سيرة"
       born: "تاريخ الميلاد"
-      edit_my_profile: "تحرير صفحتي الشخصية"
+      edit_my_profile: "تحرير ملفى الشخصى"
       gender: "الجنس"
       in_aspects: "في الفئة"
       location: "المكان"
@@ -526,8 +531,8 @@ ar:
       mention: "إشارة"
       message: "رسالة"
       not_connected: "أنت لا تتشارك مع هذا العضو"
-      recent_posts: "منشورات حديثة"
-      recent_public_posts: "منشورات عامة حديثة"
+      recent_posts: "مشاركات حديثة"
+      recent_public_posts: "مشاركات عامة حديثة"
       return_to_aspects: "العودة إلى صفحة الفئات"
       see_all: "مشاهدة الكل"
       start_sharing: "بدء المشاركة"
@@ -553,7 +558,7 @@ ar:
     new:
       back_to_list: "عُد إلى القائمة"
       new_photo: "صورة جديدة"
-      post_it: "أنشرها"
+      post_it: "شاركها!"
     new_photo:
       empty: "{file} فارغ، رجاءًا أَعِد تحديد الملفات دونه."
       invalid_ext: "{file} له صيغة غير صالحة. {extensions} هي الصيغ الوحيدة المسموح بها."
@@ -561,19 +566,21 @@ ar:
     new_profile_photo:
       upload: "ارْفَع صورةً شخصيةً جديدة"
     photo:
-      view_all: "شاهد كل صور %{name}"
+      view_all: "عرض كل صور %{name}"
     show:
       collection_permalink: "رابط دائم للمجموعة"
       delete_photo: "احْذِف الصورة"
       edit: "عَدِّل"
       edit_delete_photo: "عَدِّل وصف الصورة / احْذِف الصورة"
-      make_profile_photo: "اجعلها صورة شخصية"
+      make_profile_photo: "اجعلها صورة الملف الشخصى"
       show_original_post: "إِعرِضْ المشاركة الأصلية"
       update_photo: "حَدِّث الصورة"
     update:
       error: "فشل تحرير الصورة."
       notice: "حُدِّثَت الصورة بنجاح."
   posts:
+    presenter:
+      title: "مشاركة من %{name}"
     show:
       destroy: "احذف"
       not_found: "عفوًا، لم نجد هذه المشاركة."
@@ -587,29 +594,29 @@ ar:
         zero: "No photos by %{author}"
       reshare_by: "نشرها %{author}"
   previous: "السابق"
-  privacy: "خصوصية"
+  privacy: "الخصوصية"
   privacy_policy: "سياسة الخصوصية"
-  profile: "الصفحة الشخصية"
+  profile: "الملف الشخصى"
   profiles:
     edit:
       allow_search: "اسمَح للجميع بالبحث عنك من خلال دياسبرا"
-      edit_profile: "حَرِّر صفحتك الشخصية"
+      edit_profile: "حَرِّر الملف الشخصى"
       first_name: "اسمُك"
       last_name: "لقبُك"
-      update_profile: "حَدِّث الصفحة الشخصية"
+      update_profile: "حَدِّث الملف الشخصى"
       your_bio: "سيرتُك الشخصية"
-      your_birthday: "تاريخ مولدك"
+      your_birthday: "تاريخ ميلادك"
       your_gender: "جِنسُك"
       your_location: "مكانُك"
       your_name: "اسمك"
       your_photo: "صورتُك"
-      your_private_profile: "معلوماتك الخاصة"
-      your_public_profile: "معلوماتك العامة"
+      your_private_profile: "ملفك الشخصى الخاص"
+      your_public_profile: "ملفك الشخصى العام"
       your_tags: "صِف نفسك في 5 كلمات"
       your_tags_placeholder: "مثال: #دياسبرا #إسلام #عرب #موسيقى #فن"
     update:
-      failed: "فشل في تحديث صفحتك الشخصية"
-      updated: "حُدِّثَت صفحتِك الشخصية"
+      failed: "فشل فى تحديث ملفك الشخصى"
+      updated: "تم تحديث ملفك الشخصى"
   public: "عام"
   reactions:
     few: "%{count} reactions"
@@ -673,6 +680,7 @@ ar:
         zero: "أَعِد النشر"
       reshare_confirmation: "هل أُعِيد نشر مشاركة %{author} ؟"
       reshare_original: "أعد نشر المشاركة الأصلية"
+      reshared_via: "أعيد مشاركتها عبر"
       show_original: "اعرض الأصلية"
   search: "بحث"
   services:
@@ -709,7 +717,7 @@ ar:
   shared:
     add_contact:
       add_new_contact: "أضف جهة اتصال جديدة"
-      create_request: "ابحث باستخدام وسيط ديسبورا"
+      create_request: "ابحث باستخدام معرف دياسبرا"
       diaspora_handle: "ديسبورا@فرع.org"
       enter_a_diaspora_username: "أدخل معرف دياسبرا:"
       know_email: "أتَعرِف بُرُدَهم الإلكترونية؟ يَجدر بك دعوتهم"
@@ -763,7 +771,7 @@ ar:
     reshare:
       reshare: "أَعِد النشر"
     stream_element:
-      connect_to_comment: "اتصل بهذا المستخدم لتعلق على رسائله"
+      connect_to_comment: "اتصل بهذا المستخدم لتعلق على مشاركاته"
       currently_unavailable: "التعليق غير متاح حالياً"
       dislike: "لم يعجبني"
       hide_and_mute: "أخـفِ وأسكـتْ"
@@ -771,16 +779,17 @@ ar:
       like: "أعجبني"
       shared_with: "مُشَارك مع: %{aspect_names}"
       show: "إظهر"
-      unlike: "إلغاء إعجابي"
+      unlike: "إلغاء إعجابى"
       via: "بواسطة %{link}"
-      viewable_to_anyone: "يستطيع أي شخص على الشابكة رؤية هذه المشاركة."
+      via_mobile: "عبر المحمول"
+      viewable_to_anyone: "يستطيع أي شخص على الشبكة رؤية هذه المشاركة."
   status_messages:
     create:
       success: "ذَكَرْتَ بنجاح: %{names}"
     destroy:
       failure: "فشل حذفُ المشاركة"
     helper:
-      no_message_to_display: "ما من رسائل لعرضها."
+      no_message_to_display: "ﻻ توجد رسائل لعرضها."
     new:
       mentioning: "اذْكُر: %{person}"
     too_long:
@@ -806,12 +815,15 @@ ar:
       title: "Your Aspects"
     aspects_stream: "الفئات"
     followed_tag:
+      add_a_tag: "أضف وسم"
       follow: "تابِع"
     followed_tags_stream: "الوسوم #المُتابعه"
     mentioned_stream: "@اﻹشارات"
     mentions:
       contacts_title: "الأشخاص الذين أشاروا إليك"
       title: "Your Mentions"
+    multi:
+      title: "ساحة المشاركات"
     tags:
       contacts_title: "People who dig these tags"
   tag_followings:
@@ -828,6 +840,7 @@ ar:
       followed_by: "يُتابعه"
       following: "أنت تتابع #%{tag}"
       nobody_talking: "لم يتحدث أحدٌ عن %{tag} بعد"
+      none: "الوسم الفارغ غير موجود!"
       people_tagged_with: "أشخاص موسومون بـ %{tag}"
       posts_tagged_with: "مشاركات موسومة بـ #%{tag}"
       stop_following: "أوقف متابعة #%{tag}"
@@ -835,7 +848,7 @@ ar:
   tokens:
     show:
       connect_to_cubbies: "صِل حسابك بـ Cubbi.es"
-      connecting_is_simple: "اتصال حسابك في ديسبورا بسيط! فقط أدخل وسيط ديسبورا الخاص بك (<b>%{diaspora_id}</b>) من <a href='%{href_link}'>صفحة إعداداتك</a> في Cubbies ثم اضغط \"اتصِل\"."
+      connecting_is_simple: "توصيل حساب دياسبرا الخاص بك بسيط! فقط أدخل معرف دياسبرا الخاص بك (<b>%{diaspora_id}</b>) من <a href='%{href_link}'>صفحة إعداداتك</a> في Cubbies ثم اضغط \"اتصِل\"."
       daniels_account: "حساب دياسبرا الخاص بدانييل"
       love_to_try: "نحبذ أن تجربه."
       making_the_connection: "ابدأ الإتصال"
@@ -860,26 +873,25 @@ ar:
       change_language: "تغيير اللغة"
       change_password: "تغيير كلمة المرور"
       character_minimum_expl: "يجب أن تكون ستة أحرف على الأقل."
-      close_account:
-        what_we_delete: "We delete all of your posts, profile data, as soon as humanly possible. Your comments will hang around, but be associated with your Diaspora Handle."
       close_account_text: "أغلق الحساب"
-      comment_on_post: "...علق أحدهم على رسالتك"
+      comment_on_post: "...علق أحدهم على مشاركتك"
       current_password: "كلمة المرور الحالية"
       download_photos: "تحميل صوري"
       download_xml: "تحميل xml خاصتي"
       edit_account: "تعديل الحساب"
       email_awaiting_confirmation: "لقد أرسلنا إليك رابط تفعيل إلى %{unconfirmed_email}. وحتى تتبع هذا الرابط وتفعل العنوان الجديد، سنستمر في استخدام بريدك الأساسي %{email}."
       export_data: "تصدير البيانات"
-      liked: "...أعجب أحدهم بمنشورك"
+      liked: "...أعجب أحدهم بمشاركتك"
       mentioned: "...تم ذكرك في رسالة"
       new_password: "كلمة مرور جديدة"
       private_message: "...وصلتك راسلة خاصة"
       receive_email_notifications: "استقبال تنبيهات عبر البريد الإلكتروني؟"
-      reshared: "...أعاد أحدهم نشر مشاركتك?"
+      reshared: "...أعاد أحدهم نشر مشاركتك؟"
       started_sharing: "...بدأ أحدهم المشاركة معك؟"
       your_email: "بريدك الإلكتروني"
       your_handle: "وسيط ديسبورا الخاص بك"
     getting_started:
+      awesome_take_me_to_diaspora: "مدهش! خذنى إلى دياسبرا*"
       hashtag_explanation: "الوسوم تسمح لك بالحديث عن اهتماماتك ومتابعتها.  وهي أيضا طريقة عبقرية للعثور على أناس جدد بدياسبرا."
       saved: "حفظت!"
       what_facebook_does: "to Diaspora. This will pull your name and photo, and enable cross-positng."
@@ -889,6 +901,7 @@ ar:
     privacy_settings:
       ignored_users: "المستخدمين الذين تم تجاهلهم"
       stop_ignoring: "اوقف التجاهل"
+      title: "إعدادات الخصوصية"
     public:
       does_not_exist: "هذا المستخدم %{username} غير موجود"
     update:
@@ -897,12 +910,17 @@ ar:
       language_not_changed: "فشل تغيير اللغة"
       password_changed: "غُيِّرت كلمة المرور بنجاح. يمكنك الولوج بكلمة سرك الجديدة."
       password_not_changed: "فشل تغيير كلمة المرور"
+      settings_not_updated: "فشل تحديث الإعدادات"
+      settings_updated: "تم تحديث اﻹعدادات"
       unconfirmed_email_changed: "عُدَِل البريد الإلكتروني. بحاجة إلى التفعيل."
       unconfirmed_email_not_changed: "فشل تعديل البريد الإلكتروني"
   webfinger:
-    fetch_failed: "فشل تحميل webfinger الحساب لـ %{profile_url}"
+    fetch_failed: "فشل تحميل webfinger الملف الشخصى لـ %{profile_url}"
     hcard_fetch_failed: "خطأ خلال تحميل hcard الخاص بـ #{@account}"
     no_person_constructed: "هذا الـ hcard غير صالح."
     not_enabled: "webfinger غير مفعل للمضيف %{account}"
     xrd_fetch_failed: "خطأ خلال استرجاع xrd من الحساب %{account}"
   welcome: "مرحبا!"
+  will_paginate:
+    next_label: "التالى >>"
+    previous_label: "<< السابق"

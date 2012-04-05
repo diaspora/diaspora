@@ -836,6 +836,7 @@ ru:
       show: "показать"
       unlike: "Не нравится"
       via: "через %{link}"
+      via_mobile: "с мобильного устройства"
       viewable_to_anyone: "Эту запись может видеть любой в интернете"
   status_messages:
     create:

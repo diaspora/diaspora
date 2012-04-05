@@ -44,12 +44,12 @@ sv:
     admin_bar:
       correlations: "Korrelationer"
       pages: "Sidor"
-      pod_stats: "podstatistik"
+      pod_stats: "Podstatistik"
       resque_overview: "Resque-översyn"
       user_search: "Användarsökning"
       weekly_user_stats: "Veckovis användarstatistik"
     correlations:
-      correlations_count: "Korrelationer med antalet inloggningar."
+      correlations_count: "Korrelationer med antalet inloggningar:"
   ago: "%{time} sedan"
   all_aspects: "Alla aspekter"
   application:
@@ -117,7 +117,7 @@ sv:
       help:
         do_you: "Har du:"
         email_feedback: "%{link} din feedback, om du föredrar det"
-        feature_suggestion: "... ett %{link} förslag?"
+        feature_suggestion: "... ett %{link}-förslag?"
         find_a_bug: "... hittat en %{link}?"
         have_a_question: "... en %{link}?"
         here_to_help: "Diaspora-communityn finns här!"
@@ -834,6 +834,7 @@ sv:
       show: "visa"
       unlike: "Sluta gilla"
       via: "via %{link}"
+      via_mobile: "via mobiltelefon"
       viewable_to_anyone: "Detta inlägg är synligt för alla på nätet"
   status_messages:
     create:

@@ -40,6 +40,10 @@ pt-PT:
             username:
               invalid: "é inválido. Só permitimos letras, números e underscores."
               taken: "já foi escolhido."
+  admins:
+    admin_bar:
+      pages: "Páginas"
+      weekly_user_stats: "Estatísticas Semanais"
   ago: "Há %{time} atrás"
   all_aspects: "Todos os grupos"
   application:
@@ -284,6 +288,8 @@ pt-PT:
       simplicity_explanation: "O Diaspora torna a partilha clara e fácil – e o mesmo se aplica à privacidade. Privado por definição, o Diaspora não o obriga a percorrer inúmeras páginas de definições e opções de forma a manter o seu perfil seguro."
       tagline_first_half: "Partilhe o que desejar,"
       tagline_second_half: "com quem desejar."
+  invitation_codes:
+    excited: "%{name} está contente por ver-te aqui."
   invitations:
     a_facebook_user: "Um utilizador do Facebook"
     check_token:
@@ -475,6 +481,8 @@ pt-PT:
   password: "Palavra-passe"
   password_confirmation: "Confirmação de palavra-passe"
   people:
+    add_contact:
+      invited_by: "foste convidado por"
     add_contact_small:
       add_contact_from_tag: "adicionar contacto pela etiqueta"
     aspect_list:
@@ -622,6 +630,7 @@ pt-PT:
       password_to_confirm: "(necessitamos da sua palavra-passe atual para confirmar as modificações)"
       unhappy: "Descontente?"
       update: "Atualizar"
+    invalid_invite: "O link com o convite não é mais válido."
     new:
       create_my_account: "Criar a minha conta!"
       enter_email: "Introduza um endereço de email"
@@ -882,6 +891,7 @@ pt-PT:
       change_email: "Mudar de email"
       change_language: "Mudar de idioma"
       change_password: "Alterar a palavra-passe"
+      character_minimum_expl: "tem que ter no mínimo seis caracteres"
       close_account:
         dont_go: "Ei, por favor não vá!"
         if_you_want_this: "Se realmente quer isto, digite a seguir a sua palavra-passe e clique em 'Fechar Conta'"

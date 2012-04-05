@@ -833,6 +833,7 @@ pl:
       show: "wyświetl"
       unlike: "Nie lubię"
       via: "przez %{link}"
+      via_mobile: "przez urządzenie przenośne"
       viewable_to_anyone: "Ten wpis jest widoczny dla każdego"
   status_messages:
     create:

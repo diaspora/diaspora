@@ -49,13 +49,13 @@ es:
       search: "Encuentra gente o #etiquetas"
       settings: "Ajustes"
       view_all: "Ver todo"
-    ignore: "Ignorar"
+    ignore: "Ignorar persona"
     infinite_scroll:
       no_more: "No hay más publicaciones."
     my_activity: "Mi Actividad"
     my_stream: "Entrada"
     people:
-      not_found: "y no se encontró a nadie..."
+      not_found: "...y no se encontró a nadie."
     photo_uploader:
       looking_good: "¡Guau, estás increíble!"
     publisher:
@@ -69,16 +69,16 @@ es:
     stream:
       comment: "Comentar"
       follow: "Seguir"
-      hide: "Ocultar"
+      hide: "Ocultar publicación"
       hide_nsfw_posts: "Ocultar publicaciones no aptas para todos los públicos"
       like: "Me gusta"
       likes:
         few: "le gusta a <%= count %> personas"
         many: "le gusta a <%= count %> personas"
-        one: "le gusta a <%= count %> persona"
-        other: "le gusta a <%= count %> personas"
+        one: "A <%= count %> persona le gusta "
+        other: "A <%= count %> personas les gusta "
         two: "le gusta a <%= count %> personas"
-        zero: "le gusta a <%= count %> personas"
+        zero: "A <%= count %> personas les gusta"
       limited: "Restringido"
       more_comments:
         few: "Mostrar <%= count %> comentarios más"
@@ -112,7 +112,7 @@ es:
       minutes: "%d minutos"
       month: "1 mes aproximadamente"
       months: "%d meses"
-      prefixAgo: "hace"
+      prefixAgo: "Hace"
       prefixFromNow: "dentro de"
       seconds: "menos de 1 minuto"
       suffixAgo: ""

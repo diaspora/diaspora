@@ -1,0 +1,156 @@
+#   Copyright (c) 2010-2012, Diaspora Inc.  This file is
+#   licensed under the Affero General Public License version 3 or later.  See
+#   the COPYRIGHT file.
+
+
+
+art_nvi:
+  _comments: "Aysäplltxevi"
+  _home: "Kelutral"
+  _photos: "ayrel"
+  ago: "%{time} kam"
+  application:
+    helper:
+      unknown_person: "tute astxong"
+  aspects:
+    destroy:
+      success: "%{name}l 'ìlmaku fìtsengeta."
+    edit:
+      done: "Hasey"
+    index:
+      cubbies:
+        learn_more: "nume nì'ul"
+      donate: "Tìng"
+      help:
+        need_help: "fngo' srungit srak?"
+        tag_bug: "tìngäzìk"
+        tag_feature: "'u amip"
+        tag_question: "tìpawn"
+      new_here:
+        learn_more: "nume nì'ul"
+      no_contacts: "Kea 'eylan"
+      post_a_message: "plltxe 'upxareit >>"
+    new:
+      create: "Ngop"
+    seed:
+      friends: "Eylan"
+      work: "Tìkangkem"
+  back: "ne'ìm"
+  cancel: "Ftang"
+  comments:
+    few: "%{count} aysäplltxevi"
+    many: "%{count} aysäplltxevi"
+    one: "1 säplltxevi"
+    other: "%{count} aysäplltxevi"
+    two: "%{count} mesäplltxevi"
+    zero: "Kea aysäplltxevi"
+  conversations:
+    create:
+      fail: "kxeyey 'upxare"
+      sent: "'Upxare fpìme'"
+    helper:
+      new_messages:
+        po: "%{count} upxare amip"
+        yml: "%{count} upxare amip"
+        zero: "'upxare amip"
+    index:
+      new_message: "'Upxare amip"
+      no_messages: "Kea upxare"
+    new:
+      send: "fpe'"
+      sending: "fpere'"
+    new_message:
+      fail: "kxeyey 'upxare"
+  delete: "'aku"
+  find_people: "Run suteti fu #säsulìnit"
+  hide: "Wan"
+  invitations:
+    new:
+      language: "Lì'fya"
+  layouts:
+    header:
+      blog: "pìlok"
+      logout: "Hum"
+      recent_notifications: "Upxare asop"
+  more: "nì'ul"
+  notifications:
+    index:
+      and: "ulte"
+  notifier:
+    single_admin:
+      subject: "'Upxare teri ngeyä Diaspora:"
+  ok: "Tam"
+  or: "fu"
+  people:
+    helper:
+      results_for: " u %{params}ir"
+    one: "Tute"
+    person:
+      thats_you: "Fì'u nga lu!"
+    profile_sidebar:
+      born: "ftxozä"
+      remove_from: "'aku %{name}it ta %{aspect} srak?"
+    show:
+      message: "'upxare"
+      recent_posts: "Upxare asop"
+      see_all: "Tse'a nìwotx"
+    zero: "Kea sute"
+  photos:
+    comment_email_subject: "%{name}yä rel"
+    destroy:
+      notice: "Relìl 'aìmku"
+    edit:
+      editing: "leratem"
+    new:
+      new_photo: "Rel amip"
+    show:
+      delete_photo: "'aku relit"
+      edit: "latem"
+      edit_delete_photo: "latem relit tìsla'tsuti fu 'aku relit"
+  posts:
+    show:
+      destroy: "'aku"
+  profiles:
+    edit:
+      first_name: "tstxo nì'awve"
+      last_name: "tstxo asyen"
+      your_birthday: "Ngeyä sngä'itrr"
+      your_location: "ngeyä tsenge"
+      your_name: "ngeyä tstxo"
+      your_photo: "ngeyä rel"
+  registrations:
+    edit:
+      edit: "Latem %{name}it"
+      unhappy: "Nga lu keftxo srak?"
+    new:
+      sign_up_message: "Tsenge eylanìri tsnì zamunge ♥"
+  requests:
+    create:
+      sending: "fpere'"
+    new_request_to_person:
+      sent: "fpìme'!"
+  search: "Fwew"
+  services:
+    index:
+      connect_to_facebook: "'awstengyem Facebookur"
+      connect_to_tumblr: "'awstengyem Tumblrur"
+      connect_to_twitter: "'awstengyem Twitterur"
+  shared:
+    publisher:
+      upload_photos: "Fpe' relit"
+    stream_element:
+      via: "ìlä %{link}"
+  tokens:
+    show:
+      via: "(ìlä %{link})"
+  users:
+    edit:
+      change: "Latem"
+      change_language: "latem lì'fyati"
+    getting_started:
+      well_hello_there: "Tse, kaltxì tsatseng!"
+      who_are_you: "Pesu nga lu"
+    logged_out:
+      works_on_modern: "Fì'u tìkangkem si mì syawyu lefngap lefkrr nìwotx"
+    update:
+      language_changed: "lì'fyal lìmatem"
