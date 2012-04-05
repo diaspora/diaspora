@@ -122,7 +122,7 @@ es:
         have_a_question: "- Realices alguna %{link}."
         here_to_help: "¡La comunidad Diaspora está aquí!"
         need_help: "Ayuda"
-        tag_bug: "error."
+        tag_bug: "error"
         tag_feature: "idea"
         tag_question: "pregunta"
         tutorials_wiki_and_forum: "%{tutorial} & %{wiki} & %{forum}: Tutoriales, wiki y noticias"
