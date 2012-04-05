@@ -14,7 +14,7 @@ class DeferredGarbageCollection
   def self.memory_threshold
     @mem = %x(free 2>/dev/null).to_s.split(" ")
     return nil if @mem.empty?
-    @mem[8].to_i / (@mem[7].to_i/100)
+    @mem[15].to_i / (@mem[7].to_i/100)
   end
 
   def self.reconsider

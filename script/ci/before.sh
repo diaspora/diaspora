@@ -14,9 +14,10 @@ sh -e /etc/init.d/xvfb start
 
 # setup swapfile
 echo "creating a swapfile"
-sudo dd if=/dev/zero of=swapfile bs=1M count=128
+sudo dd if=/dev/zero of=swapfile bs=1M count=96
 sudo mkswap swapfile
 sudo swapon swapfile
+sudo sysctl vm.swappiness=100
 
 # Create a database.yml for the right database
 echo "Setting up database.yml for $DB"
