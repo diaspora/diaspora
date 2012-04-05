@@ -2,7 +2,7 @@
 # https://makandracards.com/makandra/950-speed-up-rspec-by-deferring-garbage-collection
 class DeferredGarbageCollection
 
-  DEFERRED_GC_THRESHOLD = (ENV['DEFER_GC'] || 5.0).to_f
+  DEFERRED_GC_THRESHOLD = (ENV['DEFER_GC'] || 2.0).to_f #used to be 10.0
 
   @@last_gc_run = Time.now
 
