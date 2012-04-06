@@ -1,94 +1,142 @@
-#   Copyright (c) 2010-2012, Diaspora Inc.  This file is
+#   Copyright (c) 2010-2011, Diaspora Inc.  This file is
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
 
-
 sq:
-  javascripts:
-    aspect_dropdown:
-      add_to_aspect: "Shtoni kontakt"
-      all_aspects: "Krejt aspektet"
-      error: "Nuk u fillua dot ndarja e gjërave me {{name}}.  Mos po e shpërfillni?"
-      select_aspects: "Përzgjidhni aspekte"
-      started_sharing_with: "Filluat të ndani gjëra me {{name}}!"
-      stopped_sharing_with: "Reshtët së ndari gjëra me {{name}}."
-      toggle:
-        few: "Në {{count}} aspekte"
-        many: "Në {{count}} aspekte"
-        one: "Në {{count}} aspekt"
-        other: "Në {{count}} aspekte"
-        two: "Në {{count}} aspekte"
-        zero: "Përzgjidhni aspekte"
-    aspect_navigation:
-      deselect_all: "Çpërzgjidhi krejt"
-      no_aspects: "Nuk janë përzgjedhur aspekte"
-      select_all: "Përzgjidhi krejt"
-    comments:
-      hide: "fshihi komentet"
-      show: "shfaqi krejt komentet"
+javascripts:
     confirm_dialog: "Jeni i sigurt?"
-    failed_to_like: "Pëlqimi dështoi!"
-    failed_to_post_message: "Postimi i mesazhit dështoi!"
-    getting_started:
-      alright_ill_wait: "Në rregull, do të pres."
-      hey: "Hej, {{name}}!"
-      no_tags: "Hej, nuk jeni duke ndjekur ndonjë etiketë!  Të vazhdohet, sido qoftë?"
-      preparing_your_stream: "Po përgatitet rrëkeja juaj e personalizuar..."
-    header:
-      search: "Find people or #tags"
-    infinite_scroll:
-      no_more: "Nuk ka më postime."
-    photo_uploader:
-      looking_good: "O Zot, sa bukur që dukeni!"
+    delete: "Fshije"
+    ignore: "Shpërfille"
+    timeago:
+      prefixAgo: ""
+      prefixFromNow: ""
+      suffixAgo: "më parë"
+      suffixFromNow: "nga tani"
+      seconds: "më pak se një minutë"
+      minute: "rreth një minutë"
+      minutes: "%d minuta"
+      hour: "rreth një orë"
+      hours: "rreth %d orë"
+      day: "një ditë"
+      days: "%d ditë"
+      month: "rreth një muaj"
+      months: "%d muaj"
+      year: "rreth një vit"
+      years: "%d vjetë"
+  
+    my_activity: "Veprimtaria Ime"
+    my_stream: "Rrjedhë"
+
+    videos:
+      watch: "Shiheni këtë video te <%= provider %>"
+      unknown: "Lloj i panjohur videoje"
+    search_for: "Kërkoni për <%= name %>"
     publisher:
       at_least_one_aspect: "Duhet të publikoni të paktën një aspekt"
       limited: "I kufizuar - postimi juaj do të shihet vetëm nga persona me të cilët ndani gjëra"
       public: "Publik - postimi juaj do të jetë i dukshëm nga kushdo dhe dhe motorët e kërkimeve do të jenë në gjendje ta kapin"
+    infinite_scroll:
+      no_more: "Nuk ka më postime."
+    aspect_dropdown:
+      add_to_aspect: "Shtoni kontakt"
+      select_aspects: "Përzgjidhni aspekte"
+      all_aspects: "Krejt aspektet"
+      stopped_sharing_with: "Reshtët së ndari gjëra me <%= name %>."
+      started_sharing_with: "Filluat të ndani gjëra me <%= name %>!"
+      error: "Nuk u fillua dot ndarja e gjërave me <%= name %>.  Mos po e shpërfillni?"
+      toggle:
+        zero: "Përzgjidhni aspekte"
+        one: "Në <%= count %> aspekt"
+        two: "Në <%= count %> aspekte"
+        few: "Në <%= count %> aspekte"
+        many: "Në <%= count %> aspekte"
+        other: "Në <%= count %> aspekte"
+    show_more: "shfaq më tepër"
+    failed_to_like: "Pëlqimi dështoi!"
+    failed_to_post_message: "Postimi i mesazhit dështoi!"
+    comments:
+      show: "shfaqi krejt komentet"
+      hide: "fshihi komentet"
     reshares:
       duplicate: "I bukur ky, hë?  E keni ndarë një herë me të tjerët atë postim!"
-    search_for: "Kërkoni për {{name}}"
-    show_more: "shfaq më tepër"
-    stream:
-      likes:
-        few: "<%= count %> Likes"
-        many: "<%= count %> Likes"
-        one: "<%= count %> Like"
-        other: "<%= count %> Likes"
-        two: "<%= count %> Likes"
-        zero: "<%= count %> Likes"
-      more_comments:
-        few: "Show <%= count %> more comments"
-        many: "Show <%= count %> more comments"
-        one: "Show <%= count %> more comment"
-        other: "Show <%= count %> more comments"
-        two: "Show <%= count %> more comments"
-        zero: "Show <%= count %> more comments"
-      reshares:
-        few: "<%= count %> Reshares"
-        many: "<%= count %> Reshares"
-        one: "<%= count %> Reshare"
-        other: "<%= count %> Reshares"
-        two: "<%= count %> Reshares"
-        zero: "<%= count %> Reshares"
+    aspect_navigation:
+      select_all: "Përzgjidhi krejt"
+      deselect_all: "Çpërzgjidhi krejt"
+      no_aspects: "Nuk janë përzgjedhur aspekte"
+    getting_started:
+      hey: "Hej, <%= name %>!"
+      no_tags: "Hej, nuk jeni duke ndjekur ndonjë etiketë!  Të vazhdohet, sido qoftë?"
+      alright_ill_wait: "Në rregull, do të pres."
+      preparing_your_stream: "Po përgatitet rrjedha juaj e personalizuar..."
+    photo_uploader:
+      looking_good: "O Zot, sa bukur që dukeni!"
     tags:
-      wasnt_that_interesting: "OK, Them se #{{tagName}} nuk qe kushedi se çë interesant..."
-    timeago:
-      day: "një ditë"
-      days: "%d ditë"
-      hour: "rreth një orë"
-      hours: "rreth %d orë"
-      minute: "rreth një minutë"
-      minutes: "%d minuta"
-      month: "rreth një muaj"
-      months: "%d muaj"
-      prefixAgo: ""
-      prefixFromNow: ""
-      seconds: "më pak se një minutë"
-      suffixAgo: "më parë"
-      suffixFromNow: "nga tani"
-      year: "rreth një vit"
-      years: "%d vjetë"
-    videos:
-      unknown: "Lloj i panjohur videoje"
-      watch: "Shiheni këtë video në {{provider}}"
+      wasnt_that_interesting: "OK, them se #<%= tagName %> nuk qe kushedi se çë interesant..."
+    people:
+      not_found: "dhe nuk u gjet ndonjë..."
+
+    stream:
+      hide: "Fshihe"
+      public: "Publike"
+      limited: "E kufizuar"
+      like: "Pëlqejeni"
+      unlike: "Çpëlqejeni"
+      reshare: "Rindajeni"
+      comment: "Komentojeni"
+      original_post_deleted: "Postimi origjinal është fshirë nga autori."
+      show_nsfw_post: "Shfaqe postimin"
+      show_nsfw_posts: "Shfaqi krejt"
+      hide_nsfw_posts: "Fshihi postimet #nsfw"
+      follow: "Ndiqe"
+      unfollow: "Mos e Ndiq Më"
+
+      likes:
+        zero: "<%= count %> Pëlqime"
+        one: "<%= count %> Pëlqim"
+        two: "<%= count %> Pëlqime"
+        few: "<%= count %> Pëlqime"
+        many: "<%= count %> Pëlqime"
+        other: "<%= count %> Pëlqime"
+
+      reshares:
+        zero: "<%= count %> Rindarje"
+        one: "<%= count %> Rindarje"
+        two: "<%= count %> Rindarje"
+        few: "<%= count %> Rindarje"
+        many: "<%= count %> Rindarje"
+        other: "<%= count %> Rindarje"
+
+      more_comments:
+        zero: "Shfaq <%= count %> komente të tjera"
+        one: "Shfaq edhe <%= count %> koment"
+        two: "Shfaq edhe <%= count %> komente"
+        few: "Shfaq edhe <%= count %> komente"
+        many: "Shfaq edhe <%= count %> komente"
+        other: "Shfaq edhe <%= count %> komente"
+
+    header:
+      home: "Kreu"
+      profile: "Profil"
+      contacts: "Kontakte"
+      settings: "Rregullime"
+      admin: "Admin"
+      log_out: "Dilni"
+
+      notifications: "Njoftime"
+      messages: "Mesazhe"
+
+      search: "Kërko"
+
+      recent_notifications: "Njoftime Së Fundmi"
+      mark_all_as_read: "Shënoji krejt si të lexuara"
+      view_all: "Shihini krejt"
+
+    viewer:
+      stop_following_post: "Resht së ndjekuri postimin"
+      follow_post: "Ndiqe postimin"
+      like: "Pëlqejeni"
+      unlike: "Çpëlqejeni"
+      reshare: "Rindajeni"
+      reshared: "I rindarë"
+      comment: "Komentojeni"

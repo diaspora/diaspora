@@ -100,3 +100,12 @@ Spork.each_run do
     CapybaraSettings.instance.restore
   end
 end
+
+# https://makandracards.com/makandra/950-speed-up-rspec-by-deferring-garbage-collection
+require File.join(File.dirname(__FILE__), "..", "..", "spec", "support", "deferred_garbage_collection")
+Before do
+  DeferredGarbageCollection.start
+end
+After do
+  DeferredGarbageCollection.reconsider 
+end

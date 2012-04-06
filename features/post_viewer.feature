@@ -7,7 +7,8 @@ Feature: Post Viewer
   Background:
     Given a user with email "alice@alice.com"
     And I sign in as "alice@alice.com"
-
+    
+  @wip
   Scenario: Paging through posts
     Given I have posts for each type of template
     Then I visit all of my posts

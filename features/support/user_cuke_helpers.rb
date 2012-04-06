@@ -6,7 +6,7 @@ module UserCukeHelpers
         :getting_started => false
     }
 
-    user = Factory(:user, default_attrs.merge!(overrides))
+    user = Factory(:user, default_attrs.merge(overrides))
     add_standard_aspects(user)
     user
   end

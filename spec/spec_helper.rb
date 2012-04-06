@@ -101,3 +101,13 @@ Spork.each_run do
   AppConfig.load!
   AppConfig.setup!
 end
+
+# https://makandracards.com/makandra/950-speed-up-rspec-by-deferring-garbage-collection
+RSpec.configure do |config|
+  config.before(:all) do
+    DeferredGarbageCollection.start
+  end
+  config.after(:all) do
+    DeferredGarbageCollection.reconsider 
+  end
+end
