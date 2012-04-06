@@ -1,11 +1,5 @@
 # Diaspora
 
-** We're currently migrating to the asset-pipeline, as such master is broken, if you are running a pod don't pull until it's fixed 
-see the pre-asset-pipeline tag for the last ref before this.
-**
-
-
-
 Welcome to the Diaspora project, the privacy aware, personally controlled, do-it-all, open source social
 network. [Diaspora Project](http://diasporaproject.org)
 
