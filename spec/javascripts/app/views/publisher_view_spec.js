@@ -26,6 +26,7 @@ describe("app.views.Publisher", function() {
     })
 
     it("resets the element's height", function() {
+      $(this.view.el).find("#status_message_fake_text").height(100);
       this.view.close($.Event());
       expect($(this.view.el).find("#status_message_fake_text").attr("style")).not.toContain("height");
     });
