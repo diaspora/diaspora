@@ -30,7 +30,7 @@ class DeferredGarbageCollection
     else
       running_out_of_memory = false
     end
- 
+
     if( (DEFERRED_GC_THRESHOLD > 0 && Time.now - @@last_gc_run >= DEFERRED_GC_THRESHOLD) || running_out_of_memory )
       GC.enable
       GC.start
@@ -40,7 +40,7 @@ class DeferredGarbageCollection
   end
 
   def self.unsupported_enviroment
-    # ENV['TRAVIS']
+    ENV['TRAVIS'] # TODO: enable for ruby 1.9.3 or more RAM
   end
 
 end
