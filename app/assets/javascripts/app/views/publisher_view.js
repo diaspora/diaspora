@@ -68,7 +68,6 @@ app.views.Publisher = Backbone.View.extend({
   open : function() {
     $(this.el).removeClass('closed');
     this.$("#publisher_textarea_wrapper").addClass('active');
-    this.$("textarea").css('height', '42px');
 
     return this;
   },
