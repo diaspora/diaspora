@@ -6,22 +6,9 @@
 # See http://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
 #Shih për sqarime për
-#      thats_you: "That's you!"
 #
 #      people_on_pod_are_aware_of: " people on pod are aware
-#
-#Call out awesome people with @Mentions"
-#
-#    notification:
-#      new: "New %{type} from %{from}" sa lloje janë
-#       screenshot_explanation: "%{link1}.  Kjo cubby e dhënë është e lidhur te %{link2}."
-#
-#    mentioned_stream: "@Mentions"
-#   followed_tags_stream: "#Followed Tags"
-#
-#   Diaspora Handle
-#
-#         no_turning_back: "Currently, there is no turning back."
+#      no_turning_back: "Currently, there is no turning back."
 
 sq:
   settings: "Rregullime"
@@ -194,7 +181,7 @@ sq:
       people_sharing_with_you: "Persona që ndajnë gjëra me ju"
 
       welcome_to_diaspora: "Mirë se vini te Diaspora, %{name}!"
-      introduce_yourself: "Kjo është rrëkeza juaj.  Fillojani duke prezantuar vetveten."
+      introduce_yourself: "Kjo është rrjedha juaj.  Fillojani duke prezantuar vetveten."
 
       new_here:
         title: "Mirë se vini, Përdorues i Ri"
@@ -227,7 +214,7 @@ sq:
 
     aspect_stream:
       stay_updated: "Jini Përherë i Përditësuar"
-      stay_updated_explanation: "Rrëkeza juaj kryesore mbushet me krejt kontaktet tuaj, etiketat që ndiqni, dhe postime prej disa anëtarëve me krijimtari të bashkësisë."
+      stay_updated_explanation: "Rrjedha juaj kryesore mbushet me krejt kontaktet tuaj, etiketat që ndiqni, dhe postime prej disa anëtarëve me krijimtari të bashkësisë."
 
   aspect_memberships:
     destroy:
@@ -518,7 +505,7 @@ sq:
         few: "dhe %{count} të tjerë"
         many: "dhe %{count} të tjerë"
         other: "dhe %{count} të tjerë"
-      and: 'dhe'
+      and: "dhe"
     helper:
       new_notifications:
         zero: "Pa njoftime të reja"
@@ -788,7 +775,7 @@ sq:
       connect_to_facebook: "Lidhu te Facebook"
       connect_to_tumblr: "Lidhu te Tumblr"
       edit_services: "Përpunoni shërbime"
-      no_services: 'Nuk jeni lidhur ende me ndonjë shërbim.'
+      no_services: "Nuk jeni lidhur ende me ndonjë shërbim."
     create:
       success: "Mirëfilltësim i suksesshëm."
       failure: "Mirëfilltësimi dështoi."
@@ -811,7 +798,7 @@ sq:
 
   blocks:
     create:
-      success: "Në rregull, nuk keni për ta parë sërish atë përdorues te rrëkeza juaj. #silencio!"
+      success: "Në rregull, nuk keni për ta parë sërish atë përdorues te rrjedha juaj. #silencio!"
       failure: "Nuk e shpërfillja dot atë përdorues.  #evasion"
     destroy:
       success: "Pa të shohim se ç'kanë për të thënë! #sayhello"
@@ -879,7 +866,7 @@ sq:
     stream_element:
       viewable_to_anyone: "Ky postim është i dukshëm për këdo në web"
       connect_to_comment: "Lidhuni me këtë përdorues që të komentoni në postimin e tij"
-      currently_unavailable: 'hëpërhë nuk mund të bëni komentim'
+      currently_unavailable: "hëpërhë nuk mund të bëni komentim"
       via: "përmes %{link}"
       via_mobile: "përmes celularit"
       ignore_user: "Shpërfille %{name}"
@@ -929,7 +916,7 @@ sq:
       follow: "Ndiqeni #%{tag}"
       following: "Po ndiqet #%{tag}"
       stop_following: "Resht Së Ndjekuri #%{tag}"
-      followed_by: 'ndjekur nga'
+      followed_by: "ndjekur nga"
       none: "Etiketa e zbrazët nuk ka kuptim!"
   tag_followings:
     create:
@@ -961,11 +948,11 @@ sq:
   streams:
     community_spotlight_stream: "Prozhektori i Bashkësisë"
     aspects_stream: "Aspekte"
-    mentioned_stream: "@Mentions"
-    followed_tags_stream: "#Followed Tags"
+    mentioned_stream: "@Përmendje"
+    followed_tags_stream: "Etiketa të #Ndjekura"
 
     mentions:
-      title: "@Mentions"
+      title: "@Përmendje"
       contacts_title: "Persona që ju kanë përmendur"
 
     comment_stream:
@@ -973,11 +960,11 @@ sq:
       contacts_title: "Persona te postimet e të cilëve keni komentuar"
 
     like_stream:
-      title: "Rrëkeza Më të Pëlqyerat"
+      title: "Rrjedhat Më të Pëlqyera"
       contacts_title: "Persona postimet e të cilëve i pëlqeni"
 
     followed_tag:
-      title: "Etiketa #Followed"
+      title: "Etiketa të #Ndjekura"
       contacts_title: "Persona që ndjekin këto etiketa"
       add_a_tag: "Shtoni një etiketë"
       follow: "Ndiqe"
@@ -992,8 +979,8 @@ sq:
       contacts_title: "Postuesa Së Fundmi"
 
     multi:
-      title: "Stream"
-      contacts_title: "Persona në Rrëkezën tuaj"
+      title: "Rrjedhë"
+      contacts_title: "Persona në Rrjedhën tuaj"
 
     aspects:
       title: "Aspektet e Mi"
@@ -1035,10 +1022,10 @@ sq:
       reshared: "...dikush rindan me të tjerët një postim tuajin?"
       change: "Ndryshoje"
       email_awaiting_confirmation: "Ju kemi dërguar një lidhje aktivizimi te %{unconfirmed_email}. Deri të ndiqni këtë lidhje dhe të aktivizoni adresën e re, do të vazhdojmë të përdorim adresën tuaj origjinale %{email}."
-      stream_preferences: "Parapëlqime për Rrëkezën"
-      show_community_spotlight: "Të shfaqet në Rrëkezë Prozhektori i Bashkësisë?"
+      stream_preferences: "Parapëlqime për Rrjedhën"
+      show_community_spotlight: "Të shfaqet në Rrjedhë Prozhektori i Bashkësisë?"
       show_getting_started: "Riaktivizo Si T'ia Fillohet"
-      getting_started: 'Parapëlqime për Përdorues të Re'
+      getting_started: "Parapëlqime për Përdorues të Ri"
       following: "Rregullime Ndjekjeje"
       auto_follow_back: "Nëse dikush ju ndjek, ndiqeni vetvetiu edhe ju"
       auto_follow_aspect: "Aspekt për përdorues të ndjekur vetvetiu:"
@@ -1051,7 +1038,7 @@ sq:
         what_we_delete: "Ne i fshijmë krejt postimet tuaja, të dhënat e profilit, sa më shpejt që mundemi. Komentet tuaja do të jenë prapë këtu, por do të jenë të përshoqëruara nga ID-ja juaj Diaspora."
         locked_out: "Do të bëhet çregjistrimi juaj dhe nuk do t'ju lejohet më hyrja në llogarinë tuaj."
         lock_username: "Nga kjo do të bllokohet emri juaj i përdoruesit, në rast se vendosët të regjistroheni sërish."
-        if_you_want_this: "Nëse e dëshironi vërtet këtë, shtypni më poshtë fjalëkalimin tuaj dhe klikoni mbi 'Mbylle Llogarinë'"
+        if_you_want_this: "Nëse e dëshironi vërtet këtë, shtypni më poshtë fjalëkalimin tuaj dhe klikoni mbi Mbylle Llogarinë"
 
     privacy_settings:
       title: "Rregullime Privatësie"
