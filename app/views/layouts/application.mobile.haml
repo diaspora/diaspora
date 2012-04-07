@@ -33,11 +33,6 @@
     = stylesheet_link_tag :mobile, :format => 'all'
     = yield(:custom_css)
 
-    %script{:src => "/javascripts/vendor/mbp-modernizr-custom.js"}
-    / Media Queries Polyfill https://github.com/shichuan/mobile-html5-boilerplate/wiki/Media-Queries-Polyfill
-    :javascript
-      Modernizr.mq('(min-width:0)') || document.write('<script src="javascripts/vendor/mbp-respond.min.js">\x3C/script>')
-
     = csrf_meta_tag
 
     - if rtl?
