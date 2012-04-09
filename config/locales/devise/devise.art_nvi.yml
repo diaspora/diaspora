@@ -6,16 +6,46 @@
 
 art_nvi:
   devise:
+    failure:
+      invalid: "Ke lu kangay tstxo fu ftemlì'u"
     mailer:
       hello: "Kaltxì %{email}!"
       invitation_instructions:
+        accept: "mll'an"
         be_yourself: "nga läpu"
+        email_address: "questions@joindiaspora.com"
+        email_us: "Txo nga kin srung sivi tsní lu teri Diaspora, rutxe fpe' 'upxareti Diasporaru ro %{email}"
         finally: "Nì'i'a - fì'u lu fìtsenge"
+        friends_saying: "'upe ngeyä eylan pamrel seri..."
         here: "fìtsenge"
+        ignore: "Txo nga ke new mll'ivan stxenu, rutxe tswa' fì'upxare."
+        more_people: "ní'ul sute lu lefpom fte tse'a ngati!"
+        no_account_till: "oeyä Diaspora ke ngalyop vaykrr ngal sar io tsengit ulte 'awstengyem ayoe."
         or: "fu"
+        subject: "Tuteol pílmawm ngati txo new slivu Diaspora hxpaitu!"
+        team_diaspora: "Pongu Diaspora"
       inviter:
         has_invited_you: "%{name}"
         have_invited_you: "%{names} polawm ngati txo säpung Diasporaru"
+      reset_password_instructions:
+        change: "Latem oeyä ftemlí'u"
+        someone_requested: "Tsengeäo lu fte nga tsun livatem ngeyä ftemlí'u talun tuteo pímawm ayoe txo tíng fí'uti ngaur."
+        subject: "aysänume fte zeyko oeyä ftemlì'uti"
+    passwords:
+      edit:
+        change_password: "Latem oeyä ftemlí'u"
+      new:
+        forgot_password: "Nga tswama' ngeyä ftemlí'u srak?"
+    sessions:
+      new:
+        bugs_and_feedback: "Eltu si, ngal tsìsye'a keyey. Ayoel mok futa ngal sar <Feedback Button> a mì skiena pa'o fte ayoeru piveng. Ayoe tìkangkem sayi nìwin fte zeykivo keyeyti a ngal wìntxu."
+        bugs_and_feedback_mobile: "Eltu si, ngal tsìsye'a keyey. Ayoel mok futa ngal ayoeru piveng teri sa'u. Ayoe tìkangkem sayi nìwin fte zeykivo keyeyti a ngal wìntxu."
+        password: "Ftemlì'u"
+        username: "Saryutstxo"
+    shared:
+      mail_signup_form:
+        sign_up_for_an_invite: "Ngal 'awstengyem ayoeti Diasporari!"
   errors:
     messages:
+      already_confirmed: "li stameftxaw"
       not_found: "ke rìmun"

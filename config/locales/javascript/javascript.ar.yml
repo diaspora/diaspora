@@ -21,7 +21,7 @@ ar:
         two: "في {{count}} فئات"
         zero: "حدّد الفئات"
     aspect_navigation:
-      deselect_all: "ألغِ اختيار الكل"
+      deselect_all: "إلغاء اختيار الكل"
       no_aspects: "لم يتم اختيار فئات"
       select_all: "اختر الكل"
     comments:
@@ -53,7 +53,7 @@ ar:
     infinite_scroll:
       no_more: "لا توجد مشاركات أخرى,"
     my_activity: "نشاطى"
-    my_stream: "تَيّار"
+    my_stream: "ساحة المشاركات"
     photo_uploader:
       looking_good: "يا إلهى , تبدو رائعاً !"
     publisher:
@@ -86,7 +86,7 @@ ar:
         zero: "Show <%= count %> more comments"
       original_post_deleted: "لقد حذف المؤلف مشاركته الأصلية."
       public: "عام"
-      reshare: "أعِد النشر"
+      reshare: "إعادة المشاركة"
       reshares:
         few: "<%= count %> Reshares"
         many: "<%= count %> Reshares"
@@ -97,7 +97,7 @@ ar:
       show_nsfw_post: "أظهِر المشاركة"
       show_nsfw_posts: "أظهِر الكل"
       unfollow: "ألغِ المتابعة"
-      unlike: "إلغاء إعجابي"
+      unlike: "إلغاء إعجابى"
     tags:
       wasnt_that_interesting: "OK, I suppose #{{tagName}} wasn't all that interesting..."
     timeago:
@@ -123,6 +123,6 @@ ar:
       comment: "تعليق"
       follow_post: "اتبع المشاركة"
       like: "أعجبنى"
-      reshare: "أعد مشاركته"
+      reshare: "أعد المشاركة"
       stop_following_post: "توقف عن متابعة المشاركة"
-      unlike: "إلغى إعجابى"
+      unlike: "إلغاء إعجابى"

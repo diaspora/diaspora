@@ -1,0 +1,63 @@
+#   Copyright (c) 2010-2012, Diaspora Inc.  This file is
+#   licensed under the Affero General Public License version 3 or later.  See
+#   the COPYRIGHT file.
+
+
+
+et:
+  devise:
+    confirmations:
+      confirmed: "Sinu konto on edukalt kinnitatud. Oled nüüd sisse logitud."
+      new:
+        resend_confirmation: "Saada kinnituse juhised uuesti"
+      send_instructions: "Sa saad mõne minuti jooksul e-kirja juhistega oma konto kinnitamiseks."
+    failure:
+      inactive: "Sinu konto ei ole veel aktiveeritud."
+      invalid: "Vigane kasutajanimi või parool."
+      invalid_token: "Vigane autentimisvõti või parool."
+      locked: "Sinu konto on lukustatud."
+      timeout: "Sinu seanss aegus, palun logi jätkamiseks uuesti sisse."
+      unauthenticated: "Enne jätkamist pead konto looma või sisse logima."
+      unconfirmed: "Enne jätkamist pead oma konto kinnitama."
+    mailer:
+      confirmation_instructions:
+        confirm: "Kinnita mu konto"
+        subject: "Kinnitamise juhised"
+        you_can_confirm: "Sa saad oma konto kinnitada järgmise lingi abil:"
+      hello: "Tere %{email}!"
+      reset_password_instructions:
+        change: "Muuda parooli"
+        subject: "Parooli taastamise juhised"
+      welcome: "%{email}, tere tulemast!"
+    passwords:
+      edit:
+        change_password: "Muuda parooli"
+      new:
+        forgot_password: "Kas unustasid parooli?"
+        no_account: "Ühtegi selle e-mailiga kontot pole. Kui sa ootad kutset, siis need me saadame välja esimesel võimalusel"
+        send_password_instructions: "Saada mulle parooli lähtestamise juhised"
+      send_instructions: "Mõne minuti jooksul saad e-kirja juhistega oma parooli muutmiseks."
+      updated: "Sinu parool on edukalt muudetud. Nüüd oled sisse loginud."
+    registrations:
+      destroyed: "Nägemist! Sinu konto on tühistatud. Loodetavasti näeme sind varsti jälle."
+      updated: "Sinu konto on edukalt uuendatud."
+    sessions:
+      new:
+        alpha_software: "See on alfa-staatuses tarkvara."
+        bugs_and_feedback: "Sa kohtad vigu. Palun kasuta brauseri paremas ääres asuvat tagasiside nuppu ja raporteeri kõigist vigadest. Me teeme oma parima, et võimalikult kiiresti parandada kõik vead, millest on teatatud."
+        bugs_and_feedback_mobile: "Sa kohtad vigu. Palun raporteeri kõigist vigadest. Me teeme oma parima, et võimalikult kiiresti parandada kõik vead, millest on teatatud."
+        login: "Sisene"
+        modern_browsers: "toetab ainult kaasaegseid brausereid."
+        password: "Parool"
+        remember_me: "Mäleta mind"
+        sign_in: "Registreeru"
+        username: "Kasutajanimi"
+      signed_in: "Edukalt sisse logitud."
+      signed_out: "Edukalt välja logitud."
+    unlocks:
+      send_instructions: "Sa saad mõne minuti jooksul e-kirjaga juhised kuidas oma konto lukust lahti teha."
+  errors:
+    messages:
+      already_confirmed: "on juba kinnitatud"
+      not_found: "ei leitud"
+      not_locked: "ei ole lukustatud"

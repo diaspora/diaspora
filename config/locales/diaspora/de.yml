@@ -177,6 +177,9 @@ de:
     index:
       no_applications: "Du hast noch keine Anwendung registriert."
       revoke_access: "Zugriff widerrufen"
+    new:
+      autorize: "Autorisieren"
+      false: "Nein"
   back: "Zurück"
   blocks:
     create:
