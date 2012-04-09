@@ -488,7 +488,6 @@ de:
           Klick auf diesen Link um loszulegen
 
           %{invite_url}
-          <%= invite_code_url(@invitation_code)%>
 
 
           Alles Liebe,
