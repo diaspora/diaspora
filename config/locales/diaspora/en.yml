@@ -551,7 +551,6 @@ en:
         Click this link to get started
         
         %{invite_url}
-        <%= invite_code_url(@invitation_code)%>
         
         
         Love,
