@@ -1,8 +1,12 @@
 module PublishingCukeHelpers
   def make_post(text)
-    fill_in 'status_message_fake_text', :with => text
-    click_button :submit
-    wait_for_ajax_to_finish
+    @@last_post_time ||= Time.now
+    Timecop.travel @@last_post_time += 1.minute do
+      fill_in 'status_message_fake_text', :with => text
+      click_button :submit
+      wait_for_ajax_to_finish
+    end
+    Timecop.return
   end
 
   def click_and_post(text)
