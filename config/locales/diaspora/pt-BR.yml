@@ -40,6 +40,16 @@ pt-BR:
             username:
               invalid: "é inválido. Só permitimos letras, números e sublinhados."
               taken: "já foi feito."
+  admins:
+    admin_bar:
+      correlations: "Correlações"
+      pages: "Páginas"
+      pod_stats: "Status do Servidor"
+      resque_overview: "Informação de Resque"
+      user_search: "Busca Usuários"
+      weekly_user_stats: "Estatísticas Semanais"
+    correlations:
+      correlations_count: "Contas similares:"
   ago: "%{time} atrás"
   all_aspects: "Todos os Grupos"
   application:
@@ -284,6 +294,8 @@ pt-BR:
       simplicity_explanation: "Diaspora* torna o ato de compartilhar com privacidade simples e fácil. Inerentemente privada, Diaspora* não possui páginas de configurações e opções para percorrer a fim de manter seu perfil seguro e do jeito que você gostaria."
       tagline_first_half: "Compartilhe o que você quer,"
       tagline_second_half: "com quem você quer."
+  invitation_codes:
+    excited: "%{name} está contente em te ver aqui."
   invitations:
     a_facebook_user: "Um usuário do Facebook"
     check_token:
@@ -302,10 +314,15 @@ pt-BR:
       already_invited: "As seguintes pessoas não aceitaram o teu convite:"
       aspect: "Grupo"
       check_out_diaspora: "Descubra Diaspora!"
+      codes_left:
+        one: "%{count} convite restante neste código"
+        other: "%{count} convites restantes neste código"
+        zero: "Nenhum convite restante neste código"
       comma_seperated_plz: "Você pode adicionar vários endereços de emails, mas todos devem estar separados por vírgulas."
       if_they_accept_info: "Se aceitarem, eles serão adicionados ao grupo para o qual você os convidou."
       invite_someone_to_join: "Convide os amigos para participar de Diaspora!"
       language: "Idioma"
+      paste_link: "Compartilhe esse link com seus amigos para convidá-los para Diaspora*, ou envie um email com o link diretamente para eles."
       personal_message: "Mensagem pessoal"
       resend: "Reenviar"
       send_an_invitation: "Enviar um convite"
@@ -396,6 +413,7 @@ pt-BR:
         two: "e %{count} outros"
         zero: "e mais ninguém"
       mark_all_as_read: "Marcar Todos como Lido"
+      mark_unread: "Marcar como não lida"
       notifications: "Notificações"
     liked:
       few: "%{actors} curtiu sua postagem %{post_link}."
@@ -456,6 +474,7 @@ pt-BR:
       zero: "%{actors}, está compartilhando com você agora."
   notifier:
     a_post_you_shared: "uma postagem."
+    accept_invite: "Aceite Seu Convite Para Diaspora*!"
     click_here: "clique aqui"
     comment_on_post:
       reply: "Responder ou visualizar a postagem de %{name} >"
@@ -464,6 +483,22 @@ pt-BR:
       subject: "Por favor, ative o seu novo endereço de email %{unconfirmed_email}"
     email_sent_by_diaspora: "Este email foi enviado por Diaspora. Se você quer parar de receber emails como este,"
     hello: "Olá %{name}!"
+    invite:
+      message: |-
+          Olá!
+
+          Você foi convidado a se juntar ao Diaspora*!
+
+          Clique neste link para começar
+
+          %{invite_url}
+          <%= invite_code_url(@invitation_code)%>
+
+
+          Com amor,
+
+          O robô de emails do Diaspora*!
+    invited_you: "%{name} te convidou para Diaspora*"
     liked:
       liked: "%{name} curtiu sua postagem."
       view_post: "Ver postagem >"
@@ -490,6 +525,8 @@ pt-BR:
   password: "Senha"
   password_confirmation: "Confirmação de senha"
   people:
+    add_contact:
+      invited_by: "você foi convidado por"
     add_contact_small:
       add_contact_from_tag: "adicionar contato de tag"
     aspect_list:
@@ -504,6 +541,7 @@ pt-BR:
       no_one_found: "...e não foi encontrado ninguém."
       no_results: "Ei! Você precisa procurar por alguma coisa."
       results_for: "resultado da busca por"
+      searching: "pesquisando, por favor aguarde..."
     last_post: "Último post"
     many: "%{count} pessoas"
     one: "1 pessoa"
@@ -639,6 +677,7 @@ pt-BR:
       password_to_confirm: "(digite a senha atual para as alterações)"
       unhappy: "Infeliz?"
       update: "Atualizar"
+    invalid_invite: "O link com o convite não é mais válido."
     new:
       create_my_account: "Criar minha conta!"
       enter_email: "Digite teu email"
@@ -792,6 +831,7 @@ pt-BR:
       show: "mostrar"
       unlike: "Descurtir"
       via: "via %{link}"
+      via_mobile: "via celular"
       viewable_to_anyone: "Essa postagem é visível para qualquer pessoa na internet"
   status_messages:
     create:
@@ -900,6 +940,7 @@ pt-BR:
       change_email: "Alterar Email"
       change_language: "Alterar Idioma"
       change_password: "Alterar Senha"
+      character_minimum_expl: "deve ter no mínimo seis caracteres"
       close_account:
         dont_go: "Ei, por favor não vá!"
         if_you_want_this: "Se você realmente quer isso, digite sua senha abaixo e clique em 'Cancelar conta'"
@@ -912,6 +953,7 @@ pt-BR:
       close_account_text: "Cancelar Conta"
       comment_on_post: "...alguém comentou em sua postagem?"
       current_password: "Senha Atual"
+      current_password_expl: "o que você usa atualmente..."
       download_photos: "Baixar minhas fotos"
       download_xml: "Baixar Meu XML"
       edit_account: "Editar Conta"
@@ -931,7 +973,7 @@ pt-BR:
       started_sharing: "...alguém começou a compartilhar com você?"
       stream_preferences: "Preferências de Fluxos"
       your_email: "Seu Email"
-      your_handle: "Sua Diaspora ID"
+      your_handle: "Seu Diaspora ID"
     getting_started:
       awesome_take_me_to_diaspora: "Incrível! Leve-me para Diaspora*."
       community_welcome: "A comunidade Diaspora* está feliz em tê-lo(a) a bordo!"

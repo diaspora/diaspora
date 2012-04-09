@@ -117,9 +117,9 @@ sk:
       help:
         do_you: "Povedzte:"
         email_feedback: "Ak vám to viac vyhovuje, svoje podnety nám môžete poslať na %{link}"
-        feature_suggestion: "&ndash; máte nápad na novú funkciu %{link}?"
-        find_a_bug: "&ndash; našli ste %{link}?"
-        have_a_question: "&ndash; máte %{link}?"
+        feature_suggestion: "... máte nápad na novú %{link}?"
+        find_a_bug: "... našli ste %{link}?"
+        have_a_question: "... máte %{link}?"
         here_to_help: "Komunita Diaspory je tu!"
         need_help: "Potrebujete pomoc?"
         tag_bug: "chybu"

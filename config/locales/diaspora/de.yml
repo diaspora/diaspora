@@ -177,6 +177,9 @@ de:
     index:
       no_applications: "Du hast noch keine Anwendung registriert."
       revoke_access: "Zugriff widerrufen"
+    new:
+      autorize: "Autorisieren"
+      false: "Nein"
   back: "Zurück"
   blocks:
     create:
@@ -488,7 +491,6 @@ de:
           Klick auf diesen Link um loszulegen
 
           %{invite_url}
-          <%= invite_code_url(@invitation_code)%>
 
 
           Alles Liebe,

@@ -51,6 +51,8 @@ pt-BR:
       no_more: "Não há mais postagem."
     my_activity: "Minhas Atividades"
     my_stream: "Fluxo"
+    people:
+      not_found: "e ninguém foi encontrado..."
     photo_uploader:
       looking_good: "OMG, veja você é incrível!"
     publisher:

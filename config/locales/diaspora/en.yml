@@ -551,7 +551,6 @@ en:
         Click this link to get started
         
         %{invite_url}
-        <%= invite_code_url(@invitation_code)%>
         
         
         Love,
@@ -938,6 +937,10 @@ en:
     index:
       revoke_access: "Revoke Access"
       no_applications: "You haven't registered any applications yet."
+    new:
+      cubbies_will: "Cubbies will be able to post photos on your behalf"
+      autorize: "Authorize"
+      no: "No"
 
   streams:
     community_spotlight_stream: "Community Spotlight"

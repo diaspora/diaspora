@@ -10,7 +10,7 @@ sv:
       confirmed: "Ditt konto har verifierats och du är inloggad."
       new:
         resend_confirmation: "Skicka instruktioner för att bekräfta kontot igen"
-      send_instructions: "Du kommer att få ett mail med instruktioner för att verifiera ditt konto inom några minuter."
+      send_instructions: "Du kommer att få ett e-brev med instruktioner för att verifiera ditt konto inom några minuter."
     failure:
       inactive: "Ditt konto är inte aktiverat."
       invalid: "Felaktigt användarnamn eller lösenord."
@@ -31,25 +31,25 @@ sv:
       hello: "Hej %{email}!"
       invitation_instructions:
         accept: "Acceptera inbjudan"
-        arrived: "Det sociala nätverket som du har väntat på har kommit. Moderniserat, säkrare och roligare, % {strong_diaspora} är redo att hjälpa dig dela och utforska webben på ett helt nytt sätt."
+        arrived: "Det sociala nätverket som du har väntat på har kommit. Moderniserat, säkrare och roligare, %{strong_diaspora} är redo att hjälpa dig dela och utforska webben på ett helt nytt sätt."
         be_yourself: "Var Dig själv"
         be_yourself_paragraph: "Internet har skapat helt nya unika sätt att uttrycka sig på. %{strong_diaspora} låter dig vara dig själv och dela vad du vill, med eller utan ditt riktiga namn."
         cubbies: "Cubbi.es"
         displaying_correctly: "Visas inte e-mail korrekt? %{link}"
         email_address: "questions@joindiaspora.com"
         email_us: "För allmänna frågor eller support med ditt Diaspora konto, vänligen maila oss på %{email}."
-        finally: "Äntligen - den är här"
+        finally: "Äntligen är den här"
         friends_saying: "Vad dina vänner säger ..."
         get_connected: "Anslut dig"
-        get_connected_paragraph: "En internationell rörelse med en gemensam vision för en bättre webb, %{strong_diaspora} främsta specialitet är dess gemenskap. Träffa nya människor, ha kontakt med vänner och ha roligt."
+        get_connected_paragraph: "En internationell rörelse med en gemensam vision för en bättre webb, %{strong_diaspora}s främsta särdrag är dess gemenskap. Träffa nya människor, ha kontakt med vänner och ha roligt."
         have_fun: "Ha det så roligt"
         have_fun_paragraph: "%{strong_diaspora} handlar om att upptäcka otroliga saker och personer online. %{link}, den första %{strong_diaspora}applikationen är bara början. Samla och dela allt."
         help_fund: "hjälp till med att stödja Diaspora"
         here: "här"
-        ignore: "Om du inte vill acceptera inbjudan, var snäll och ignorera detta mail."
+        ignore: "Om du inte vill acceptera inbjudan, var snäll och ignorera detta e-brev."
         join_team: "Gå med i vårt arbetslag"
         love: "Varma hälsningar,"
-        made_by_people: "%{strong_diaspora} är gjord av människor som älskar internet lika mycket som du gör. %{jointeam} eller % {helpfund}!"
+        made_by_people: "%{strong_diaspora} är gjord av människor som älskar internet lika mycket som du gör. %{jointeam} eller %{helpfund}!"
         more_people: "Ännu fler människor är glada att se dig!"
         no_account_till: "Ditt konto kommer inte att skapas förrän du besöker länken ovan och registrerar dig."
         or: "eller"
@@ -81,7 +81,7 @@ sv:
         forgot_password: "Glömt ditt lösenord?"
         no_account: "Det finns inget konto med den här mailadressen. Väntar du på en inbjudan så skickar vi ut dem så snart som möjligt."
         send_password_instructions: "Skicka information om hur jag återställer lösenordet"
-      send_instructions: "Du kommer att få ett mail med instruktioner för att återställa lösenordet inom några minuter."
+      send_instructions: "Du kommer att få ett e-brev med instruktioner för att återställa lösenordet inom några minuter."
       updated: "Ditt lösenord har ändrats och du är inloggad."
     registrations:
       destroyed: "Ditt konto är avslutat. Välkommen åter!"
@@ -91,7 +91,7 @@ sv:
       new:
         alpha_software: "Du är på väg att använda mjukvara i alpha-stadium."
         bugs_and_feedback: "Var beredd på att stöta på buggar och problem. Använd gärna feedback-knappen till höger för att rapportera dessa, vi kommer att försöka ordna problemen så snart som möjligt."
-        bugs_and_feedback_mobile: "Tänk på att du kommer att uppleva buggar.Vi uppmanar dig att rapportera alla fel! Vi kommer att arbeta så fort som möjligt med att lösa dom problem som du rapporterar."
+        bugs_and_feedback_mobile: "Tänk på att du kommer att uppleva buggar. Vi uppmanar dig därför att rapportera alla fel! Vi kommer att arbeta så fort som möjligt med att lösa de problem som du rapporterar."
         login: "Logga in"
         modern_browsers: "stöder endast moderna webbläsare."
         password: "Lösenord"
@@ -113,7 +113,7 @@ sv:
     unlocks:
       new:
         resend_unlock: "Skicka upplåsningsinstruktioner igen"
-      send_instructions: "Du kommer att få ett mail med instruktioner för att låsa upp ditt konto inom några minuter."
+      send_instructions: "Du kommer att få ett e-brev med instruktioner för att låsa upp ditt konto inom några minuter."
       unlocked: "Ditt konto har är nu upplåst och du är inloggad"
   errors:
     messages:

@@ -87,7 +87,7 @@ sv:
         other: "Visa <%= count %> till kommentarer"
         two: "Visa <%= count %> till kommentarer"
         zero: "Visa <%= count %> till kommentarer"
-      original_post_deleted: "Original inlägget är raderat av författaren."
+      original_post_deleted: "Det ursprungliga inlägget har blivit borttaget av författaren."
       public: "Publik"
       reshare: "Sprid vidare"
       reshares:
@@ -102,7 +102,7 @@ sv:
       unfollow: "Sluta följ"
       unlike: "Ogillar"
     tags:
-      wasnt_that_interesting: "OK, jag antar att #<%= tagName %> inte var så intressant..."
+      wasnt_that_interesting: "Ok, jag antar att #<%= tagName %> inte var så intressant..."
     timeago:
       day: "en dag"
       days: "%d dagar"

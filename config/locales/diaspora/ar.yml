@@ -43,6 +43,7 @@ ar:
   admins:
     admin_bar:
       pages: "صفحات"
+      user_search: "بحث عن عضو"
   ago: "منذ %{time}"
   all_aspects: "كل الفئات"
   application:
@@ -66,7 +67,7 @@ ar:
       done_editing: "اتمام التغييرات"
     aspect_listings:
       add_an_aspect: "+ أضف فئة جديدة"
-      deselect_all: "ألغِ اختيار الكل"
+      deselect_all: "الغاء اختيار الكل"
       edit_aspect: "تعديل %{name}"
       select_all: "اختر الكل"
     aspect_stream:
@@ -119,12 +120,12 @@ ar:
         tag_feature: "ميزة"
         tag_question: "سؤال"
         tutorials_wiki_and_forum: "%{tutorial} و %{wiki} و %{forum} : دروس وشروحات وأخبار من المُجتمع."
-      introduce_yourself: "هذا هو تيّارك.  هيا قدم نفسك."
+      introduce_yourself: "هذه هى ساحة مشاركاتك.  هيا قدم نفسك."
       keep_us_running: "حافظ على %{pod} سريعا عبر تبرع شهري لصيانة السيرفرات "
       new_here:
         follow: "تابِع %{link} ورحب بالمُستخدمين الجدد لدياسبرا !"
         learn_more: "تعلم المزيد"
-        title: "مرحبا أيها الزوار الجدد"
+        title: "مرحبا بالمستخدمين الجدد"
       no_contacts: "لا أعضاء"
       no_tags: "+ جِـد وسما لمتابعته"
       people_sharing_with_you: "أعضاء يتشاركون معك"
@@ -176,7 +177,9 @@ ar:
   blocks:
     create:
       failure: "لم استطع تجاهل هذا المستخدم. evasion#"
-      success: "حسنا ، لن ترى ذلك المُستخدم في تيّارك مرة أخرى. #silencio!"
+      success: "حسناً ، لن ترى ذلك المُستخدم في ساحة مشاركاتك مرة أخرى. #silencio!"
+    destroy:
+      success: "لنرى ماذا لديهم ليقولوه! # قل مرحباً"
   bookmarklet:
     explanation: "%{link} انشر في دياسبرا من أي مكان بحفظ الرابط في مفضلتك/علاماتك"
     explanation_link_text: "هذا الرابط"
@@ -274,7 +277,7 @@ ar:
       choice: "خيار"
       choice_explanation: "دياسبرا تسمح لك بتصنيف مراسليك إلى مجموعات تدعى الفئات. حصريا في دياسبرا، الفئات تضمن أن صورك، قصصك، طرائفك المنشورة لا تصل إلا إلى من تريد أنت أن تصلهم"
       learn_about_host: "تعلم كيفية استضافة سيرفر دياسبرا الخاص بك"
-      login_here: "لُج هنا"
+      login_here: "سجل دخولك هنا"
       ownership: "ملكية"
       ownership_explanation: "صورك هي ملكية خاصة لك، وليس عليك التخلي عن ملكيتها بمجرد مشاركتها. لك الملكية المطلقة لكل ما تشاركه في دياسبرا، نعطيك كل الصلاحيات في كيفية مشاركتها."
       share_what_you_want: "شارك ما تريد، مع من تريد"
@@ -310,7 +313,7 @@ ar:
       to: "إلى"
   layouts:
     application:
-      back_to_top: "عُد إلى الاعلى"
+      back_to_top: "الذهاب إلى الاعلى"
       powered_by: "بدعم DIASPORA*"
       public_feed: "ملقم دياسبرا العام لـ %{name}"
       toggle: "حَوِّل لموقع الهواتف المحمولة"
@@ -320,7 +323,7 @@ ar:
       admin: "المشرف"
       blog: "مدونة"
       code: "شيفرة"
-      login: "لُج"
+      login: "تسجيل الدخول"
       logout: "خروج"
       profile: "الملف الشخصى"
       recent_notifications: "آخر التنبيهات"
@@ -462,6 +465,15 @@ ar:
       subject: "من فضلك، فَعِّل عنوان بريدك الإلكتروني الجديد %{unconfirmed_email}"
     email_sent_by_diaspora: "أُرسِلَت هذه الرسالة بواسطة ديسبورا.  إذا أردت إيقاف مثل هذه الرسالة، "
     hello: "مرحبا %{name}!"
+    invite:
+      message: |-
+          مرحباً!
+          لقد تمت دعوتك لتنضم إلى دياسبرا*!
+          إضغط على هذا الرابط لتبدأ
+          %{invite_url}
+          <%= invite_code_url(@invitation_code)%>
+          مع الحب،
+          البريد الالكترونى اﻵلى لدياسبرا*
     liked:
       liked: "%{name} أعجبته مشاركتك."
       view_post: "عرض المشاركة >"
@@ -592,7 +604,7 @@ ar:
         other: "%{count} photos by %{author}"
         two: "Two photos by %{author}"
         zero: "No photos by %{author}"
-      reshare_by: "نشرها %{author}"
+      reshare_by: "أعيد مشاركتها بواسطة %{author}"
   previous: "السابق"
   privacy: "الخصوصية"
   privacy_policy: "سياسة الخصوصية"
@@ -748,6 +760,7 @@ ar:
     notification:
       new: "%{type} جديد من %{from}"
     public_explain:
+      control_your_audience: "التحكم في من يتابعونك"
       logged_in: "ولوج بـ %{service}"
       manage: "أَدِر الخدمات المتصلة"
       outside: "الرسائل العامة، متاحة للجميع حتى لمن هم خارج دياسبرا."
@@ -759,8 +772,10 @@ ar:
       discard_post: "تجاهل المشاركة"
       make_public: "عَمِّمْهَا"
       new_user_prefill:
+        hello: "الى الجميع انا #%{new_user_tag}. "
         i_like: "I'm interested in %{tags}."
         invited_by: "شكراً على الدعوة، "
+        newhere: "الجديد هنا"
       post_a_message_to: "انشر رسالة إلى %{aspect}"
       posting: "يَنشُر ..."
       publishing_to: "نشر إلى: "
@@ -776,6 +791,7 @@ ar:
       dislike: "لم يعجبني"
       hide_and_mute: "أخـفِ وأسكـتْ"
       ignore_user: "تجاهل %{name}"
+      ignore_user_description: "تجاهل و حذف المستخدم من كل المجموعات؟"
       like: "أعجبني"
       shared_with: "مُشَارك مع: %{aspect_names}"
       show: "إظهر"
@@ -814,16 +830,22 @@ ar:
     aspects:
       title: "Your Aspects"
     aspects_stream: "الفئات"
+    comment_stream:
+      title: "المشاركات التى تم التعليق عليها"
     followed_tag:
       add_a_tag: "أضف وسم"
       follow: "تابِع"
-    followed_tags_stream: "الوسوم #المُتابعه"
+    followed_tags_stream: "الوسوم #المُتتبعه"
+    like_stream:
+      contacts_title: "الأشخاص الذين يفضلون مشاركاتك"
     mentioned_stream: "@اﻹشارات"
     mentions:
       contacts_title: "الأشخاص الذين أشاروا إليك"
       title: "Your Mentions"
     multi:
       title: "ساحة المشاركات"
+    public:
+      contacts_title: "الملصقات الحالية"
     tags:
       contacts_title: "People who dig these tags"
   tag_followings:
@@ -837,7 +859,7 @@ ar:
   tags:
     show:
       follow: "تابع #%{tag}"
-      followed_by: "يُتابعه"
+      followed_by: "يُتابع بواسطة"
       following: "أنت تتابع #%{tag}"
       nobody_talking: "لم يتحدث أحدٌ عن %{tag} بعد"
       none: "الوسم الفارغ غير موجود!"
@@ -873,6 +895,9 @@ ar:
       change_language: "تغيير اللغة"
       change_password: "تغيير كلمة المرور"
       character_minimum_expl: "يجب أن تكون ستة أحرف على الأقل."
+      close_account:
+        dont_go: "عزيزى , من فضلك لا تذهب"
+        mr_wiggles: "الاستاذ . ويجليس سيكون حزين لانه يراك تذهب"
       close_account_text: "أغلق الحساب"
       comment_on_post: "...علق أحدهم على مشاركتك"
       current_password: "كلمة المرور الحالية"
@@ -881,9 +906,11 @@ ar:
       edit_account: "تعديل الحساب"
       email_awaiting_confirmation: "لقد أرسلنا إليك رابط تفعيل إلى %{unconfirmed_email}. وحتى تتبع هذا الرابط وتفعل العنوان الجديد، سنستمر في استخدام بريدك الأساسي %{email}."
       export_data: "تصدير البيانات"
+      following: "إعدادات المتابعة"
       liked: "...أعجب أحدهم بمشاركتك"
-      mentioned: "...تم ذكرك في رسالة"
+      mentioned: "...تم ذكرك فى رسالة؟"
       new_password: "كلمة مرور جديدة"
+      photo_export_unavailable: "رفع الصور حاليا غير متاح"
       private_message: "...وصلتك راسلة خاصة"
       receive_email_notifications: "استقبال تنبيهات عبر البريد الإلكتروني؟"
       reshared: "...أعاد أحدهم نشر مشاركتك؟"
@@ -893,10 +920,12 @@ ar:
     getting_started:
       awesome_take_me_to_diaspora: "مدهش! خذنى إلى دياسبرا*"
       hashtag_explanation: "الوسوم تسمح لك بالحديث عن اهتماماتك ومتابعتها.  وهي أيضا طريقة عبقرية للعثور على أناس جدد بدياسبرا."
-      saved: "حفظت!"
+      saved: "تم الحفظ!"
       what_facebook_does: "to Diaspora. This will pull your name and photo, and enable cross-positng."
       who_are_you: "من أنت؟"
     logged_out:
+      go_mobile: "اذهب الى الجوال"
+      signed_out: "تم تسجيل خروجك من دياسبرا"
       works_on_modern: "يعمل على جميع الهواتف الذكية الحديثة"
     privacy_settings:
       ignored_users: "المستخدمين الذين تم تجاهلهم"

@@ -26,7 +26,7 @@
       - elsif scope == "AS_photo:post"
         %li
           .scope-photo
-            = image_tag('/images/icons/photo.png', :title => "Cubbies will be able to post photos on your behalf")
+            = image_tag('/assets/icons/photo.png', :title => t('.cubbies_will'))
 
           .scope-description
             %strong
@@ -38,6 +38,5 @@
     :url => oauth_authorize_path(params.slice(:redirect_uri, :client_id, :client_secret)) do |form|
     %br
     %p
-      = form.submit "Fuck Yeah!", :value => "Authorize", :class => 'button'
-      = form.submit "Hell No.", :value => "No", :class => 'button'
-
+      = form.submit "Fuck Yeah!", :value => t('.autorize'), :class => 'button'
+      = form.submit "Hell No.", :value => t('.no'), :class => 'button'
