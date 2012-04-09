@@ -76,14 +76,17 @@
   .content
     != t('bookmarklet.explanation', :link => link_to(t('bookmarklet.explanation_link_text'), bookmarklet))
 
-- if AppConfig[:paypal_hosted_button_id].present?
-  .section
-    .title
-      = image_tag('icons/coffee.png')
-      %h5
-        = t('aspects.index.donate')
-    .content
-      = t('aspects.index.keep_us_running', :pod => URI.parse(AppConfig[:pod_url]).host)
+.section
+  .title
+    = image_tag('icons/coffee.png')
+    %h5
+      = t('aspects.index.donate')
+  .content
+    - if AppConfig[:paypal_hosted_button_id].present?
+      = t('aspects.index.keep_pod_running', :pod => URI.parse(AppConfig[:pod_url]).host)
       %br
-      = render 'shared/donate'
-
+      = render 'shared/donatepod'
+    - else
+      = t('aspects.index.keep_diaspora_running')
+      %br
+      = render 'shared/donatediaspora'
