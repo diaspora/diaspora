@@ -87,7 +87,7 @@ module PublishingCukeHelpers
     find(elem).click
   end
 
-  def wait_for_ajax_to_finish(wait_time=15)
+  def wait_for_ajax_to_finish(wait_time=30)
     wait_until(wait_time) do
       evaluate_script("$.active") == 0
     end
