@@ -18,7 +18,7 @@ Feature: public repost
     And I preemptively confirm the alert
     And I follow "Reshare"
     And I wait for the ajax to finish
-    And I wait for 2 seconds
+    And I sleep for 2 seconds
 
     When I am on "alice@alice.alice"'s page
     Then I should see "reshare this!"
