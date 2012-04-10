@@ -1,7 +1,8 @@
-Broadcast:
-{{#each current_user.services}}
-    <input type="checkbox" name="services" class="service" value="{{provider}}" />
-    <img src="/images/social_media_logos/{{provider}}-16x16.png" />
-    <br />
-{{/each}}
-<br />
+<span class="service-selector-title">Broadcast:</span>
+<div class="services">
+    {{#each current_user.services}}
+        <input type="checkbox" name="services" class="service" value="{{provider}}" />
+        <img class="legacy-provider-image" src="/assets/social_media_logos/{{provider}}-16x16.png" />
+    {{/each}}
+</div>
+
