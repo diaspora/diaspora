@@ -31,7 +31,7 @@ module User::Querying
     opts[:by_members_of] ||= self.aspect_ids
 
     post_ids = klass.connection.select_values(visible_shareable_sql(klass, opts)).map { |id| id.to_i }
-    post_ids += klass.connection.select_values(construct_public_followings_sql(opts).to_sql).map {|id| id.to_i }
+    post_ids += klass.connection.select_values("#{construct_public_followings_sql(opts).to_sql} LIMIT #{opts[:limit]}").map {|id| id.to_i }
   end
 
   def visible_shareable_sql(klass, opts={})
