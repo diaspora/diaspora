@@ -38,3 +38,6 @@ integration1:
 integration2:
   <<: *common
   database: diaspora_integration2
+postgres_travis: &postgres_travis
+  adapter: postgresql
+  username: postgres
