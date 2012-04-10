@@ -68,7 +68,7 @@ Then /I mention "([^"]*)"$/ do |text|
 end
 
 When /^I select "([^"]*)" in my aspects dropdown$/ do |title|
-  within ".aspect_selector" do
+  within ".aspect-selector" do
     select_from_dropdown(title, aspects_dropdown)
   end
 end

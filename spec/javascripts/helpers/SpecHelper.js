@@ -11,9 +11,6 @@
 
 beforeEach(function() {
   $('#jasmine_content').html(spec.readFixture("underscore_templates"));
-
-  // NOTE Commented (as well as in afterEach) to keep the listeners from rails.js alive.
-  //spec.clearLiveEventBindings();
   jasmine.Clock.useMock();
 
 

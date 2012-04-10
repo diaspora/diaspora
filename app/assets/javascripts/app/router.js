@@ -18,7 +18,7 @@ app.Router = Backbone.Router.extend({
     "followed_tags": "stream",
     "tags/:name": "stream",
 
-    "posts/new" : "newPost",
+    "posts/new" : "composer",
     "posts/:id": "singlePost",
     "p/:id": "singlePost",
     "framer": "framer"
@@ -41,8 +41,8 @@ app.Router = Backbone.Router.extend({
     $("#main_stream").html(app.page.render().el);
   },
 
-  newPost : function(){
-    var page = new app.pages.PostNew();
+  composer : function(){
+    var page = new app.pages.Composer();
     $("#container").html(page.render().el)
   },
 
