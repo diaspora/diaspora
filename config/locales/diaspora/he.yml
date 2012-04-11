@@ -119,7 +119,6 @@ he:
         tag_question: "שאלה"
         tutorials_wiki_and_forum: "הדרכה על ידי הקהילה, איך לעשות דברים וחדשות: %{tutorial} & %{wiki} & %{forum}"
       introduce_yourself: "אלו החדשות שלך, היכנס והצג את עצמך"
-      keep_us_running: "כדי שהפוד %{pod} ימשיך לפעול במהירות ולרכוש שרתים נוספים שימו כמה דולרים כל חודש כדי לממן להם איזה כוס קפה!"
       new_here:
         follow: "Diaspora*! וקבל בברכה משתמשים חדשים ל %{link} עקוב אחרי"
         learn_more: "למד יותר"

@@ -114,7 +114,6 @@ de_formal:
         tag_feature: "#feature"
         tag_question: "#question"
       introduce_yourself: "Das ist ihr Stream. Legen Sie los und stellen Sie sich vor."
-      keep_us_running: "Helfen Sie, %{pod} schnell zu arbeiten und kaufen Sie unseren Servern ihren monatlichen Schuss Kaffee!"
       new_here:
         follow: "Folgen Sie %{link} und heißen Sie neue Benutzer auf Diaspora* willkommen!"
         learn_more: "Mehr erfahren"

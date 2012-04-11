@@ -122,7 +122,6 @@ el:
         tag_question: "ερώτηση"
         tutorials_wiki_and_forum: "%{tutorial} & %{wiki} & %{forum}: Οδηγοί από την κοινότητα του Diaspora, how-to, και νέα"
       introduce_yourself: "Αυτή είναι η Ροή σας. Μπείτε και συστηθείτε."
-      keep_us_running: "Διατηρείστε τη καλή λειτουργία του %{pod}, παρέχοντας στους servers μας τη καφείνη τους!"
       new_here:
         follow: "Ακολουθήστε τη %{link} και καλωσορίστε νέους χρήστες στο Diaspora*!"
         learn_more: "Μάθετε περισσότερα"

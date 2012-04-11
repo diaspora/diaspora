@@ -120,14 +120,13 @@ sv:
         feature_suggestion: "... ett %{link}-förslag?"
         find_a_bug: "... hittat en %{link}?"
         have_a_question: "... en %{link}?"
-        here_to_help: "Diaspora-communityn finns här!"
+        here_to_help: "Diaspora-gemenskapen finns här!"
         need_help: "Behöver du hjälp?"
         tag_bug: "bugg"
         tag_feature: "särdrag"
         tag_question: "fråga"
         tutorials_wiki_and_forum: "%{tutorial} & %{wiki} & %{forum}: Handledning, guider och nyheter från gemenskapen"
       introduce_yourself: "Det här är din ström. Hoppa in och presentera dig själv."
-      keep_us_running: "Håll farten hos %{pod} uppe och köp kaffe till servrarna genom en månadsdonation!"
       new_here:
         follow: "Följ %{link} och välkomna nya användare till Diaspora*!"
         learn_more: "Läs mer"
@@ -179,6 +178,9 @@ sv:
     index:
       no_applications: "Du har inte registrerat några applikationer än."
       revoke_access: "Neka tillträde"
+    new:
+      autorize: "Godkänn"
+      cubbies_will: "Cubbies kommer att kunna skicka foton i ditt namn"
   back: "Tillbaka"
   blocks:
     create:
@@ -188,7 +190,7 @@ sv:
       failure: "Jag kunde inte sluta ignorera den användaren.  #evasion"
       success: "Låt oss se vad de har att säga! #sayhello"
   bookmarklet:
-    explanation: "Bokmärk %{link} för att posta på Diaspora ifrån varsomhelst. "
+    explanation: "Bokmärk %{link} för att skicka inlägg på Diaspora varifrån som helst."
     explanation_link_text: "denna länk"
     heading: "Bookmarklet"
     post_something: "Posta något till Diaspora"
@@ -272,7 +274,7 @@ sv:
       birthday_with_year: "%d %B, %Y"
       fullmonth_day: "%d %B"
   delete: "Ta bort"
-  email: "E-post"
+  email: "E-posta"
   error_messages:
     helper:
       correct_the_following_errors_and_try_again: "Rätta till följande fel och försök igen."
@@ -492,7 +494,6 @@ sv:
           Klicka på länken nedan för att börja.
 
           %{invite_url}
-          <%= invite_code_url(@invitation_code)%>
 
 
           Med vänlig hälsning,
@@ -539,18 +540,18 @@ sv:
       couldnt_find_them_send_invite: "Fanns de inte här?  Skicka en inbjudan!"
       looking_for: "Letar du efter inlägg som taggats med %{tag_link}?"
       no_one_found: "...och ingen hittades."
-      no_results: "Du måste söka efter något."
+      no_results: "Hördu! Du måste söka efter någonting."
       results_for: "Sökresultat för"
       searching: "söker, var god och vänta..."
     last_post: "Sista inlägget"
     many: "%{count} personer"
-    one: "1 person"
+    one: "En person"
     other: "%{count} personer"
     person:
       add_contact: "lägg till kontakt"
       already_connected: "Redan ansluten"
       pending_request: "Väntande förfrågningar"
-      thats_you: "Detta är du!"
+      thats_you: "Det är du!"
     profile_sidebar:
       bio: "biografi"
       born: "födelsedag"
@@ -562,19 +563,19 @@ sv:
       remove_from: "Ta bort %{name} från %{aspect}?"
     show:
       closed_account: "Detta konto har stängts."
-      does_not_exist: "Den här personen finns inte!"
+      does_not_exist: "Personen finns inte!"
       has_not_shared_with_you_yet: "%{name} har inte delat några inlägg med dig än!"
       ignoring: "Du ignorerar alla inlägg från %{name}."
       incoming_request: "%{name} vill dela med dig"
       mention: "Omnämn"
       message: "Skicka meddelande"
       not_connected: "Du delar inte med dig till den här personen"
-      recent_posts: "Postat nyligen"
-      recent_public_posts: "Senaste publika inlägg"
+      recent_posts: "Senaste inläggen"
+      recent_public_posts: "Senaste publika inläggen"
       return_to_aspects: "Återgå till översikten"
       see_all: "Visa alla"
       start_sharing: "börja dela"
-      to_accept_or_ignore: "for att acceptera eller ignorera."
+      to_accept_or_ignore: "för att acceptera eller ignorera det."
     sub_header:
       add_some: "lägg till"
       edit: "redigera"
@@ -582,15 +583,15 @@ sv:
     two: "%{count} personer"
     webfinger:
       fail: "Förlåt, vi kunde inte hitta %{handle}."
-    zero: "0 personer"
+    zero: "Inga personer"
   photos:
     comment_email_subject: "Ett foto av %{name}"
     create:
       integrity_error: "Fotouppladdning misslyckades. Är du säker på att det var en bild?"
-      runtime_error: "Fotouppladdning misslyckades. Har du på dig ditt säkerhetsbälte?"
+      runtime_error: "Fotouppladdning misslyckades. Har du säkerhetsbältet på?"
       type_error: "Fotouppladdning misslyckades. Är du säker på att en bild blev tillagd?"
     destroy:
-      notice: "Fotot borttaget."
+      notice: "Fotot är borttaget."
     edit:
       editing: "Ändrar"
     new:
@@ -605,7 +606,7 @@ sv:
       or_select_one_existing: "eller välj ett av dina tidigare %{photos}"
       upload: "Ladda upp en ny profilbild!"
     photo:
-      view_all: "visa alla foton som %{name} laddat upp"
+      view_all: "visa alla %{name}s foton"
     show:
       collection_permalink: "permanent samlingslänk"
       delete_photo: "Ta bort foto"
@@ -623,7 +624,7 @@ sv:
     show:
       destroy: "Ta bort"
       not_found: "Tyvärr, men vi kan inte hitta det inlägget."
-      permalink: "permalänk"
+      permalink: "permanent länk"
       photos_by:
         few: "%{count} foton av %{author}"
         many: "%{count} foton av %{author}"

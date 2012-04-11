@@ -127,7 +127,6 @@ ko:
         tag_question: "질문"
         tutorials_wiki_and_forum: "%{tutorial}과 %{wiki}와  %{forum}: 커뮤니티가 운영하는 튜토리얼, 사용 방법과 소식"
       introduce_yourself: "내 스트림입니다. 자기소개 어때요?"
-      keep_us_running: "%{pod} 팟이 빠르게 동작하고 서버와 디아스포라 팀이 마시는 커피를 살 수 있도록 정기후원을 해 주세요!"
       new_here:
         follow: "%{link} 태그를 팔로우해서 디아스포라*의 새 사용자를 맞으세요!"
         learn_more: "자세히"

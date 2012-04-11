@@ -50,7 +50,6 @@ en_pirate:
       handle_explanation: "This is your diaspora id. Like an email address, you can give this to people to reach you."
       help:
         here_to_help: "Diaspora community is here to help!"
-      keep_us_running: "Keep %{pod} running fast, buy our servers their monthly coffee fix!"
       no_contacts: "No mateys"
     many: "%{count} crews"
     new:

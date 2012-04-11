@@ -117,7 +117,6 @@ tr:
         tag_question: "soru"
         tutorials_wiki_and_forum: "%{tutorial} & %{wiki} & %{forum}: Topluluğun oluşturduğu haberler, belgeler ve yardımlar"
       introduce_yourself: "Bu sizin akışınızdır. Atla ve kendini tanıt."
-      keep_us_running: "%{pod} ağının daha hızlı ve hatasız olması için geliştiricilere kahve ısmarla!"
       new_here:
         follow: "%{link} unsurunu izle ve yeni Diaspora* kullanıcılarını karşıla!"
         learn_more: "Daha fazla bilgi"

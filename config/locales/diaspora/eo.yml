@@ -117,7 +117,6 @@ eo:
         tag_question: "demando"
         tutorials_wiki_and_forum: "%{tutorial} & %{wiki} & %{forum}: Instruiloj, lerniloj kaj novaĵoj funkciigitaj de la komunumo"
       introduce_yourself: "Tio estas via torento. Ensaltu kaj prezentu vin mem."
-      keep_us_running: "Helpu %{pod} rapide funkcii kaj aĉetu por niaj servkomputiloj ilian kaforiparon per ĉiumonata donatado!"
       new_here:
         follow: "Sekvu %{link} kaj bonvenu novajn uzantojn al Diaspora*!"
         learn_more: "Lerni pli"

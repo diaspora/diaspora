@@ -112,7 +112,6 @@ bg:
         tag_question: "въпрос"
         tutorials_wiki_and_forum: "%{tutorial}, %{wiki} и %{forum} - ръководства, съвети и новини от общността."
       introduce_yourself: "Това е вашият поток.  Включете се и се представете."
-      keep_us_running: "Осигурете бързата работа на %{pod} като дарите пари за месечната издръжка на сървърите!"
       new_here:
         follow: "Следете %{link} и приветствайте новите потребители на Diaspora*!"
         learn_more: "Научете повече"

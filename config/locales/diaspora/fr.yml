@@ -44,7 +44,7 @@ fr:
     admin_bar:
       correlations: "Corrélations"
       pages: "Pages"
-      pod_stats: "Statistiques du \"pod\""
+      pod_stats: "Statistiques du pod"
       resque_overview: "Vue d'ensemble des tâches"
       user_search: "Chercher un utilisateur"
       weekly_user_stats: "Statistiques hebdomadaires"
@@ -127,7 +127,7 @@ fr:
         tag_question: "question"
         tutorials_wiki_and_forum: "%{tutorial} & %{wiki} & %{forum}: Tutoriels créés par la communauté, astuces, et infos"
       introduce_yourself: "Ceci est votre flux. Rejoignez-nous et présentez-vous."
-      keep_us_running: "Permettez à %{pod} de fonctionner rapidement et achetez une dose de café par mois à nos serveurs !"
+      keep_diaspora_running: "Participez à un développement rapide de Diaspora avec un don mensuel !"
       new_here:
         follow: "Suivez %{link} et souhaitez la bienvenue aux nouveaux utilisateurs de Diaspora*!"
         learn_more: "En savoir plus"
@@ -179,6 +179,10 @@ fr:
     index:
       no_applications: "Vous n'avez pas encore enregistré d'application."
       revoke_access: "Révoquer l'accès"
+    new:
+      autorize: "Autoriser"
+      cubbies_will: "Cubbies pourra poster des photos en votre nom"
+      nope: "Non"
   back: "Retour"
   blocks:
     create:
@@ -495,7 +499,7 @@ fr:
 
           Bien le bonjour chez vous,
 
-          Le robot-courriel de Diaspora*
+          Le robot de courriel de Diaspora*
     invited_you: "%{name} vous a invité(e) sur Diaspora*"
     liked:
       liked: "%{name} a épinglé votre message"

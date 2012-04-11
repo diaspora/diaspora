@@ -117,7 +117,6 @@ zh-TW:
         tag_question: "問題"
         tutorials_wiki_and_forum: "%{tutorial} 和 %{wiki} 和 %{forum}: 社群運作的入門, 指南, 與新聞網站"
       introduce_yourself: "這是你的流水帳. 跳進來介紹你自己吧."
-      keep_us_running: "為了讓 %{pod} 高速奔馳, 用每月捐款來提供些咖啡存量給我們的伺服器吧!"
       new_here:
         follow: "追蹤 %{link} 來歡迎 Diaspora* 的新使用者!"
         learn_more: "了解詳情"

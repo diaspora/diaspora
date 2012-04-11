@@ -105,7 +105,6 @@ nn:
         tag_feature: "#feature"
         tag_question: "#question"
       introduce_yourself: "Dette er straumen din.   Hiv deg med og introduser deg sjølv."
-      keep_us_running: "Sjå til at %{pod} kjører raskt. Gjev tenarane ein kveik ved å gje ein månadleg donasjon."
       new_here:
         learn_more: "Lær meir"
         title: "Sei velkomen til nye brukarar"

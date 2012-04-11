@@ -125,7 +125,6 @@ de:
         tag_question: "frage"
         tutorials_wiki_and_forum: "%{tutorial} & %{wiki} & %{forum}: Von der Gemeinschaft erstellte Tutorials, Anleitungen und Nachrichten"
       introduce_yourself: "Das ist dein Stream. Leg' los und stell dich vor."
-      keep_us_running: "Hilf %{pod}, schnell zu arbeiten und spendiere unseren Servern ihre Tasse Kaffee mit einer monatlichen Spende!"
       new_here:
         follow: "Folge %{link} und begrüße neue Benutzer bei Diaspora*!"
         learn_more: "mehr erfahren"
@@ -179,7 +178,6 @@ de:
       revoke_access: "Zugriff widerrufen"
     new:
       autorize: "Autorisieren"
-      false: "Nein"
   back: "Zurück"
   blocks:
     create:

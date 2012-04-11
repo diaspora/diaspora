@@ -127,7 +127,6 @@ sk:
         tag_question: "otázku"
         tutorials_wiki_and_forum: "%{tutorial}, %{wiki} a %{forum}: príručky, ktoré vytvorili členovia komunity, návody  a novinky"
       introduce_yourself: "Toto je vaša nástenka.  Predstavte sa."
-      keep_us_running: "Umožnite %{pod}, aby bol rýchly a kúpte serverom ich dávku kávy  vo forme opráv mesačných príspevkom!"
       new_here:
         follow: "Sledujte %{link}  a privítajte nových používateľov na Diaspore*!"
         learn_more: "Zistiť viac"

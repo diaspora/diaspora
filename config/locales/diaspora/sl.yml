@@ -112,7 +112,6 @@ sl:
         need_help: "Potrebujete pomoč?"
         tutorials_wiki_and_forum: "%{tutorial} & %{wiki} & %{forum}: Vodiči, navodila in novice iz skupnosti"
       introduce_yourself: "To je vaš tok. Vskoči in predstavi se."
-      keep_us_running: "Pomagajte %{pod}, da bo tekel hitreje, kupite našim  strežnikom mesečno dozo kave!"
       new_here:
         follow: "Sledite %{link} in pozdravite nove uporabnike *Diaspore!"
         learn_more: "Več o tem"
