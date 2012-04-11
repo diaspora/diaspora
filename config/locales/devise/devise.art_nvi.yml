@@ -6,8 +6,13 @@
 
 art_nvi:
   devise:
+    confirmations:
+      confirmed: "Ngeyä Diaspora lílmatem. Nga fpxílmäkim."
+      send_instructions: "Nga tayel sänumeti ikä Ikran lí'u teri nga leratem ngeyä Diaspora."
     failure:
       invalid: "Ke lu kangay tstxo fu ftemlì'u"
+      unauthenticated: "Ngal kin 'ivastengyem ayoeti fu fpxäkim ayoe fte salew Diasporaru."
+      unconfirmed: "Ngal kin stiveftxaw ngeyä Diasporati fte fpxäkim."
     mailer:
       hello: "Kaltxì %{email}!"
       invitation_instructions:
@@ -31,17 +36,28 @@ art_nvi:
         change: "Latem oeyä ftemlí'u"
         someone_requested: "Tsengeäo lu fte nga tsun livatem ngeyä ftemlí'u talun tuteo pímawm ayoe txo tíng fí'uti ngaur."
         subject: "aysänume fte zeyko oeyä ftemlì'uti"
+      welcome: "Zola'u nìprrte, ma %{email}!"
     passwords:
       edit:
         change_password: "Latem oeyä ftemlí'u"
       new:
         forgot_password: "Nga tswama' ngeyä ftemlí'u srak?"
+        no_account: "Kea Diaspora hu fíIkraníl lí'ul fkeytok. Txo perey Diasporati, ayoe teríng ayDiaspora ye'rín"
+        send_password_instructions: "Ngal fpe' oeti aysänume fte oe tsun livatem oeyä ftemlí'u"
+      send_instructions: "Ngal tayel Ikranit lì'uti sänumehu teri fyape nga latem ngeyä ftemlí'u."
+      updated: "Ngeyä ftemlí'u límatem. Nga tung fítsengmí set."
     sessions:
       new:
         bugs_and_feedback: "Eltu si, ngal tsìsye'a keyey. Ayoel mok futa ngal sar <Feedback Button> a mì skiena pa'o fte ayoeru piveng. Ayoe tìkangkem sayi nìwin fte zeykivo keyeyti a ngal wìntxu."
         bugs_and_feedback_mobile: "Eltu si, ngal tsìsye'a keyey. Ayoel mok futa ngal ayoeru piveng teri sa'u. Ayoe tìkangkem sayi nìwin fte zeykivo keyeyti a ngal wìntxu."
+        login: "Fpxäkim"
+        modern_browsers: "Diasporal ní'aw tung eltuti lefpom nariti asop"
         password: "Ftemlì'u"
+        remember_me: "Zerok oeti"
+        sign_in: "Fpxäkim"
         username: "Saryutstxo"
+      signed_in: "Ngati tímung fítsengmí set."
+      signed_out: "Nga hímum set."
     shared:
       mail_signup_form:
         sign_up_for_an_invite: "Ngal 'awstengyem ayoeti Diasporari!"

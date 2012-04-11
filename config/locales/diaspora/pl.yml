@@ -179,6 +179,10 @@ pl:
     index:
       no_applications: "Nie zarejstrowa@{m:łeś|f:łaś|n:ano} jeszcze żadnej aplikacji!"
       revoke_access: "Zablokuj dostęp"
+    new:
+      autorize: "Autoryzuj"
+      cubbies_will: "Usługa Cubbies będzie mogła zamieszczać zdjęcia w Twoim imieniu"
+      false: "Nie"
   back: "Powrót"
   blocks:
     create:
@@ -487,16 +491,16 @@ pl:
       message: |-
           Cześć!
 
-          Zapraszamy Cię do dołączenia do Diaspory*!
+          Ktoś zaprosił Cię do dołączenia do Diaspory*!
 
-          Kliknij to łącze, aby dołączyć
+          Kliknij to łącze, aby rozpocząć
 
           %{invite_url}
-          <%= invite_code_url(@invitation_code)%>
 
-          Pozdrawiam,
 
-          Robot e-mail Diaspory*
+          Z poważaniem,
+
+          Robot e-mail projektu Diaspora*!
     invited_you: "%{name} zaprasza Cię do Diaspory*"
     liked:
       liked: "%{name} polubi@{m:ł|f:ła|n:ł/ła} Twój wpis"

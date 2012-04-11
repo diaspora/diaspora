@@ -44,7 +44,7 @@ fr:
     admin_bar:
       correlations: "Corrélations"
       pages: "Pages"
-      pod_stats: "Statistiques du \"pod\""
+      pod_stats: "Statistiques du pod"
       resque_overview: "Vue d'ensemble des tâches"
       user_search: "Chercher un utilisateur"
       weekly_user_stats: "Statistiques hebdomadaires"
@@ -179,6 +179,10 @@ fr:
     index:
       no_applications: "Vous n'avez pas encore enregistré d'application."
       revoke_access: "Révoquer l'accès"
+    new:
+      autorize: "Autoriser"
+      cubbies_will: "Cubbies pourra poster des photos en votre nom"
+      false: "Non"
   back: "Retour"
   blocks:
     create:
@@ -495,7 +499,7 @@ fr:
 
           Bien le bonjour chez vous,
 
-          Le robot-courriel de Diaspora*
+          Le robot de courriel de Diaspora*
     invited_you: "%{name} vous a invité(e) sur Diaspora*"
     liked:
       liked: "%{name} a épinglé votre message"

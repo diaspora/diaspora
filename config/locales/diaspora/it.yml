@@ -179,6 +179,10 @@ it:
     index:
       no_applications: "Non hai ancora autorizzato nessuna applicazione."
       revoke_access: "Revoca l'autorizzazione"
+    new:
+      autorize: "Autorizza"
+      cubbies_will: "Cubbies potrà pubblicare le foto sul tuo account"
+      false: "No"
   back: "Indietro"
   blocks:
     create:
@@ -477,10 +481,9 @@ it:
 
           Hai ricevuto un invito per entrare in Diaspora*!
 
-          Clicca questo indirizzo per cominciare
+          Clicca questo link per cominciare
 
           %{invite_url}
-          <%= invite_code_url(@invitation_code)%>
 
 
           Con affetto,

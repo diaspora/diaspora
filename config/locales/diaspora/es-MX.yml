@@ -179,6 +179,10 @@ es-MX:
     index:
       no_applications: "Aún no has registrado ninguna aplicación."
       revoke_access: "Revocar acceso"
+    new:
+      autorize: "Autorizar"
+      cubbies_will: "Cubbies podrá publicar fotos por ti"
+      false: "No"
   back: "Atrás"
   blocks:
     create:
@@ -441,7 +445,6 @@ es-MX:
           Haz click en este enlace para comenzar
 
           %{invite_url}
-          <%= invite_code_url(@invitation_code)%>
 
 
           Saludos,
@@ -824,12 +827,12 @@ es-MX:
       title: "Publicaciones etiquetadas: %{tags}"
   tag_followings:
     create:
-      failure: "Error al seguir a #%{name}. ¿Ya lo estás siguiendo?"
+      failure: "Error al seguir #%{name}. ¿Ya lo estás siguiendo?"
       none: "¡No puedes sequir una etiqueta en blanco!"
-      success: "¡Bien! Ahora estás siguiendo a #%{name}."
+      success: "¡Bien! Ahora estás siguiendo #%{name}."
     destroy:
       failure: "Error al dejar de sequir a #%{name}. ¿Tal vez ya dejaste de seguirlo?"
-      success: "¡Ay! Ya no estás siguiendo a %{name}."
+      success: "¡Ay! Ya no estás siguiendo #%{name}."
   tags:
     show:
       follow: "Seguir #%{tag}"
