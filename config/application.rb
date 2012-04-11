@@ -84,9 +84,9 @@ module Diaspora
       "profile.js", "publisher.js", "templates.js", "validation.js" ]
 
     # Stylesheets
-    config.assets.precompile += [ "blueprint.css", "bootstrap.css", "default.css",
-      "login.css", "mobile.css", "new-templates.css", "rtl.css", "vendor/bootstrap.css",
-      "vendor/bootstrap-responsive.css" ]
+    config.assets.precompile += [ "blueprint.css", "bootstrap.css", "bootstrap-complete.css",
+      "bootstrap-responsive.css", "default.css", "login.css", "mobile.css", "new-templates.css",
+      "rtl.css" ]
 
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'

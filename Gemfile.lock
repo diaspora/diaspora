@@ -94,6 +94,7 @@ GEM
       activemodel
       fog
     bcrypt-ruby (3.0.1)
+    bootstrap-sass (2.0.2)
     builder (3.0.0)
     capistrano (2.9.0)
       highline
@@ -473,6 +474,7 @@ DEPENDENCIES
   addressable (= 2.2.4)
   airbrake
   asset_sync
+  bootstrap-sass (~> 2.0.2)
   bundler (~> 1.1.0)
   capistrano (~> 2.9.0)
   capistrano-ext (= 1.2.1)

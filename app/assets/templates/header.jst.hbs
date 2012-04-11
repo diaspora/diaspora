@@ -19,7 +19,7 @@
   </span>
 
   <div id="nav_badges">
-    <div class="badge" id="notification_badge">
+    <div class="badge badge-inverse" id="notification_badge">
       <a href="/notifications" title="{{t "header.notifications"}}">
         <img alt="{{t "header.notifications"}}" id="notification-flag" src="{{imageUrl "icons/notifications_grey.png"}}" />
         <div class="badge_count {{#unless current_user.notifications_count}} hidden {{/unless}}">
@@ -28,7 +28,7 @@
       </a>
     </div>
 
-    <div class="badge" id="message_inbox_badge">
+    <div class="badge badge-inverse" id="message_inbox_badge">
       <a href="/conversations" title="{{t "header.messages"}}">
         <img alt="{{t "header.messages"}}" src="{{imageUrl "icons/mail_grey.png"}}" />
         <div class="badge_count {{#unless current_user.unread_messages_count}} hidden {{/unless}}">

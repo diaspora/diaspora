@@ -7,7 +7,7 @@
 *= require tags
 *= require hovercard
 
-*= require vendor/interim-bootstrap
+*= require bootstrap-complete
 *= require vendor/facebox
 *= require vendor/fileuploader
 *= require vendor/autoSuggest

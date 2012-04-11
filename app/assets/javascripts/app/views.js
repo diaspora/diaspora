@@ -61,11 +61,11 @@ app.views.Base = Backbone.View.extend({
   },
 
   renderPluginWidgets : function() {
-    this.$(this.tooltipSelector).twipsy();
+    this.$(this.tooltipSelector).tooltip();
     this.$("time").timeago();
   },
 
   removeTooltips : function() {
-    $(".twipsy").remove();
+    $(".tooltip").remove();
   }
 });
