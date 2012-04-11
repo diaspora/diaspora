@@ -1,4 +1,4 @@
-app.forms.Picture = app.forms.Base.extend({
+app.forms.Picture = app.views.Base.extend({
   templateName : "picture-form",
 
   events : {

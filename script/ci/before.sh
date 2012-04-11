@@ -23,7 +23,7 @@ sh -e /etc/init.d/xvfb start
 echo "Setting up database.yml for $DB"
 cp config/database.yml.example config/database.yml
 if [ "$DB" = "postgres" ]; then
-  sed -i 's/*mysql/*postgres/' config/database.yml
+  sed -i 's/*mysql/*postgres_travis/' config/database.yml
 fi
 
 # Set up database

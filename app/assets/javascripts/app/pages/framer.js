@@ -1,15 +1,11 @@
 app.pages.Framer = app.views.Base.extend({
-  templateName : "framer",
+  templateName : "flow",
 
   id : "post-content",
 
-  events : {
-    "click button.done" : "saveFrame"
-  },
-
   subviews : {
-    ".post-view" : "postView",
-    ".template-picker" : "templatePicker"
+    ".flow-content" : "postView",
+    ".flow-controls .controls" : "framerControls"
   },
 
   initialize : function(){
@@ -18,7 +14,8 @@ app.pages.Framer = app.views.Base.extend({
 
     this.model.bind("change", this.render, this)
     this.model.bind("sync", this.navigateToShow, this)
-    this.templatePicker = new app.views.TemplatePicker({ model: this.model })
+
+    this.framerControls = new app.views.framerControls({model : this.model})
   },
 
   postView : function(){
@@ -27,6 +24,22 @@ app.pages.Framer = app.views.Base.extend({
 
   navigateToShow : function(){
     app.router.navigate(this.model.url(), {trigger: true, replace: true})
+  }
+})
+
+app.views.framerControls = app.views.Base.extend({
+  templateName : 'framer-controls',
+
+  events : {
+    "click button.done" : "saveFrame"
+  },
+
+  subviews : {
+    ".template-picker" : 'templatePicker'
+  },
+
+  initialize : function(){
+    this.templatePicker = new app.views.TemplatePicker({ model: this.model })
   },
 
   saveFrame : function(){

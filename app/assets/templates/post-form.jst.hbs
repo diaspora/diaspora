@@ -1,21 +1,17 @@
-<div class='row'>
-    <div class='span8 offset2 new-post-section'>
-        <div class="new_picture"/>
+<div class="container">
+    <div id="new-post" class="row">
+        <div class='span8 offset2 new-post-section'>
+            <form class="new-post">
+                <fieldset>
+                    <legend>
+                        New Post
+                    </legend>
+                    <textarea name="text" class="text span8"/>
+                    <textarea id="text_with_markup" style="display:none;"/>
+                </fieldset>
+            </form>
 
-        <form class="new-post">
-            <fieldset>
-              <legend>
-                New Post
-              </legend>
-              <label>
-                text
-                <textarea class="text span8"/>
-              </label>
-              <textarea id="text_with_markup" style="display:none;"/>
-
-              <div class="aspect_selector"></div>
-              <div class="service_selector"></div>
-            </fieldset>
-        </form>
+            <div class="new_picture"/>
+        </div>
     </div>
 </div>

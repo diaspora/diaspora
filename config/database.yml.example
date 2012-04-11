@@ -16,13 +16,20 @@ postgres: &postgres
   password:
   encoding: unicode
 
+# You can ignore this
+postgres_travis: &postgres_travis
+  adapter: postgresql
+  username: postgres
 
+# Comment the the mysql line and uncomment the postgres line
+# if you want to use postgres
 common: &common
   # Choose one of the following
   <<: *mysql
   #<<: *postgres
 
 
+# Normally you don't need to touch anything here
 development:
   <<: *common
   database: diaspora_development

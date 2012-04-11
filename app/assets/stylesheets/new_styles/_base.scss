@@ -304,7 +304,27 @@ article { //mood posts
 
 $bring-dark-accent-forward-color: #DDD;
 
-.framer-controls {
+
+
+div[data-template=flow] {
+  display : table;
+  width : 100%;
+  height : 100%;
+  position : absolute;
+}
+
+.flow-content {
+  display : table;
+  width : 100%;
+  height : 100%;
+}
+
+.post-form {
+  display : table-cell;
+  vertical-align : middle;
+}
+
+.flow-controls {
   @include info-container-base();
   z-index: 999;
 
@@ -312,8 +332,14 @@ $bring-dark-accent-forward-color: #DDD;
   width: 100%;
   bottom: 0;
 
+  padding: 20px 0;
+  max-height: 68px;
+
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+
   .controls {
-    margin: 20px auto;
+    margin: 0 auto;
     max-width: 960px;
 
     text-align: center;
@@ -321,6 +347,34 @@ $bring-dark-accent-forward-color: #DDD;
     button {
       float : right;
     }
+  }
+
+  .aspect-selector {
+    float: left;
+
+    i {
+      display: none;
+    }
+
+    .selected i {
+      display: inline-block;
+    }
+
+    a {
+      display : inline-block;
+    }
+  }
+
+  .service-selector {
+    float: left;
+    margin-left: 100px;
+
+  }
+
+  .dropdown-menu {
+    bottom : 0;
+    top: auto;
+    text-align: left;
   }
 
   a.mood {

@@ -1,27 +1,5 @@
-.aspects_dropdown {
-  i {
-    display: none;
-  }
-
-  .selected i {
-    display: inline-block;
-  }
-
-  a {
-    display : inline-block;
-  }
-}
-
 .new_photo .photo{
   display: inline;
   max-width: 200px;
   max-height: 200px;
-}
-
-.new-post-section {
-  margin-top: 100px;
-}
-
-.aspect_selector {
-  float: right;
 }
