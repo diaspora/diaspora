@@ -134,12 +134,11 @@ gem 'em-synchrony', '1.0.0', :platforms => :ruby_19
 
 # jazzy jasmine
 
-# Use the latest Jasmine from github for asset pipeline compatibility
-gem 'jasmine', :git => 'git://github.com/pivotal/jasmine-gem.git'
-
 ### GROUPS ####
 
 group :test do
+
+
   gem 'capybara', '~> 1.1.2'
   gem 'cucumber-rails', '1.3.0', :require => false
   gem 'database_cleaner', '0.7.1'
@@ -165,6 +164,11 @@ group :test do
   gem 'guard-rspec'
   gem 'guard-spork'
   gem 'guard-cucumber'
+end
+
+group :test, :development do
+  # Use the latest Jasmine from github for asset pipeline compatibility
+  gem 'jasmine', :git => 'git://github.com/pivotal/jasmine-gem.git'
 end
 
 group :development do
