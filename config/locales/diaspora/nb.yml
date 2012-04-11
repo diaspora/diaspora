@@ -106,7 +106,6 @@ nb:
         tag_feature: "#feature"
         tag_question: "#question"
       introduce_yourself: "Dette er strømmen din. Hopp inn og presenter deg selv."
-      keep_us_running: "Keep %{pod} running fast, buy our servers their monthly coffee fix!"
       new_here:
         learn_more: "Lær mer"
       no_contacts: "Ingen kontakter"

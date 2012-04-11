@@ -127,7 +127,6 @@ hu:
         tag_question: "kérdés"
         tutorials_wiki_and_forum: "%{tutorial} & %{wiki} & %{forum}: Közösségi leckék, módszerek, hírek"
       introduce_yourself: "Ez a te Hírfolyamod. Kezdd is el gyorsan egy bemutatkozással!"
-      keep_us_running: "Hogy közös örömünkre gyors maradjon ez a kiszolgáló (%{pod}), adományozz havonta némi kávéra valót a szervereknek ;)"
       new_here:
         follow: "Kövesd az %{link} címkét és üdvözöld az új Diaspora* felhasználókat!"
         learn_more: "Tudj meg többet"
@@ -179,6 +178,9 @@ hu:
     index:
       no_applications: "Még nem regisztráltál egyetlen alkalmazást sem."
       revoke_access: "Hozzáférés visszavonása"
+    new:
+      autorize: "engedélyezés"
+      cubbies_will: "A Cubbies jogosult fotókat küldeni a nevedben"
   back: "Vissza"
   blocks:
     create:
@@ -289,7 +291,7 @@ hu:
       login_here: "Jelentkezz be"
       ownership: "Biztonság"
       ownership_explanation: "A képeid a sajátjaid, és ezt nem kell feladnod, hogy megoszthasd őket másokkal. Minden megosztás felett teljes irányításod van a Diaspora* közösségi oldalon."
-      share_what_you_want: "Ossz meg bármit... akivel csak szeretnéd!"
+      share_what_you_want: "Ossz meg bármit... akivel szeretnél!"
       simplicity: "Egyszerűség"
       simplicity_explanation: "A Diaspora megkönnyíti és átláthatóvá teszi a megosztást - és ez a személyes dolgaidra is vonatkozik. Nem kell hosszú beállító oldalakon átvergődnöd, hogy biztonságban tudd a profilodat."
       tagline_first_half: "Ossz meg bármit..."
@@ -491,7 +493,6 @@ hu:
           Kattints erre a linkre a kezdéshez:
 
           %{invite_url}
-          <%= invite_code_url(@invitation_code)%>
 
 
           üdv:

@@ -111,7 +111,6 @@ cs:
         tag_feature: "vlastnost"
         tag_question: "otázku"
       introduce_yourself: "Tohle je váš proud.   Naskočte a představte se."
-      keep_us_running: "Pomozte %{pod} udržet rychlý, přispějte našim serverům na jejich měsíční dávku kávy!"
       new_here:
         learn_more: "Zjistit více"
         title: "Přivítejte nové uživatele"

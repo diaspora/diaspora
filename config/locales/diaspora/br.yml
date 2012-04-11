@@ -52,7 +52,6 @@ br:
         tag_bug: "#bug"
         tag_feature: "#feature"
         tag_question: "#question"
-      keep_us_running: "Keep %{pod} running fast, buy our servers their monthly coffee fix!"
       no_contacts: "Darempred ebet"
       no_tags: "No tags"
     many: "%{count} arvez"

@@ -116,7 +116,6 @@ es-AR:
         tag_question: "pregunta"
         tutorials_wiki_and_forum: "%{tutorial} & %{wiki} & %{forum}: Tutoriales, wiki, noticias."
       introduce_yourself: "Este es tu stream.  Zambullite en el y presentate."
-      keep_us_running: "¡Haz que %{pod} vaya más rapido comprando a nuestros servidores su dosis de café mensual!"
       new_here:
         follow: "Sigue %{link} y da la bienvenida a los nuevos miembros de Diaspora*!"
         learn_more: "Más información"

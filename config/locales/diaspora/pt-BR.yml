@@ -127,7 +127,6 @@ pt-BR:
         tag_question: "#question"
         tutorials_wiki_and_forum: "%{tutorial} & %{wiki} & %{forum}: Tutoriais produzidos pela comunidade, dicas, e notícias"
       introduce_yourself: "Este é seu fluxo. Se apresente!"
-      keep_us_running: "Mantenha %{pod} rodando bem e compre o nosso café com uma doação mensal!"
       new_here:
         follow: "Siga %{link} e dê boas vindas aos novos usuários de Diaspora*!"
         learn_more: "Saiba mais"

@@ -114,7 +114,6 @@ es-CL:
         tag_question: "pregunta"
         tutorials_wiki_and_forum: "%{tutorial} & %{wiki} & %{forum}: Tutoriales hechos por la comunidad, how-to, y noticias"
       introduce_yourself: "Esta es tu corriente. Entra y preséntate."
-      keep_us_running: "Mantén %{pod} rápido, !compra a nuestros servidores su dosis mensual de café!"
       new_here:
         follow: "Sigue %{link} y bienvenido nuevo usuario de Diaspora*!"
         learn_more: "Aprende más"

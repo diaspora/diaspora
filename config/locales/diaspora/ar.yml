@@ -121,7 +121,6 @@ ar:
         tag_question: "سؤال"
         tutorials_wiki_and_forum: "%{tutorial} و %{wiki} و %{forum} : دروس وشروحات وأخبار من المُجتمع."
       introduce_yourself: "هذه هى ساحة مشاركاتك.  هيا قدم نفسك."
-      keep_us_running: "حافظ على %{pod} سريعا عبر تبرع شهري لصيانة السيرفرات "
       new_here:
         follow: "تابِع %{link} ورحب بالمُستخدمين الجدد لدياسبرا !"
         learn_more: "تعلم المزيد"

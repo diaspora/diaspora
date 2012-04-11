@@ -117,7 +117,6 @@ nl:
         tag_question: "vraag"
         tutorials_wiki_and_forum: "%{tutorial} & %{wiki} & %{forum}: Community-gedreven tutorials, instructies, en nieuws."
       introduce_yourself: "Dit is jouw Stream.  Spring erin en introduceer jezelf."
-      keep_us_running: "Houd %{pod} snel door bij te dragen aan de maandelijkse koffie kosten!"
       new_here:
         follow: "Volg %{link} en verwelkom nieuwe Diaspora* gebruikers!"
         learn_more: "Meer informatie"

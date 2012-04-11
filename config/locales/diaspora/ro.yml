@@ -92,7 +92,6 @@ ro:
         tag_bug: "#bug"
         tag_feature: "#feature"
         tag_question: "#question"
-      keep_us_running: "Keep %{pod} running fast, buy our servers their monthly coffee fix!"
       no_contacts: "Niciun contact"
       no_tags: "No tags"
       post_a_message: "publicati un mesaj >>"

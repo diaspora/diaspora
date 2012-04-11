@@ -76,7 +76,7 @@ gem 'rails-i18n'
 
 # parsing
 
-gem 'nokogiri', '1.5.0'
+gem 'nokogiri', '1.5.2'
 gem 'redcarpet', "2.0.1"
 gem 'roxml', :git => 'git://github.com/Empact/roxml.git', :ref => '7ea9a9ffd2338aaef5b0'
 gem 'ruby-oembed', '~> 0.8.7'
@@ -147,14 +147,14 @@ group :test do
   gem 'timecop'
                           #"0.1.0", #:path => '~/workspace/diaspora-client'
   gem 'factory_girl_rails', '1.7.0'
-  gem 'fixture_builder', '0.3.1'
-  gem 'fuubar', '0.0.6'
+  gem 'fixture_builder', '0.3.3'
+  gem 'fuubar', '>= 1.0'
   gem 'mongrel', :require => false, :platforms => :ruby_18
   gem 'rspec', '>= 2.0.0'
   gem 'rspec-core', '~> 2.9.0'
   gem 'rspec-instafail', '>= 0.1.7', :require => false
   gem "rspec-rails", "~> 2.9.0" 
-  gem 'selenium-webdriver', '~> 2.19.0'
+  gem 'selenium-webdriver'
 
   gem 'webmock', :require => false
   gem 'sqlite3'
@@ -174,9 +174,9 @@ end
 group :development do
   gem 'heroku'
   gem 'heroku_san'
-  gem 'capistrano', '~> 2.9.0', :require => false
+  gem 'capistrano', :require => false
   gem 'capistrano_colors', :require => false
-  gem 'capistrano-ext', '1.2.1', :require => false
+  gem 'capistrano-ext', :require => false
   gem 'linecache', '0.46', :platforms => :mri_18
   gem 'parallel_tests', :require => false
   gem 'ruby-debug-base19', '0.11.23' if RUBY_VERSION.include? '1.9.1'

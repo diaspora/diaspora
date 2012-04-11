@@ -117,7 +117,6 @@ eu:
         tag_question: "galdera"
         tutorials_wiki_and_forum: "%{tutorial}, %{wiki} eta %{forum}: Komunitateak egindako tutorialak, nola-eginak eta berriak"
       introduce_yourself: "Hau zure kronologia da.  Animatu eta zure burua aurkeztu."
-      keep_us_running: "Mantendu %{pod} azkar izaten, erosiezu gure ostalariei hilabeteroko kafe-konponketa!"
       new_here:
         follow: "Jarraitu %{link} eta emaiezu ongietorria Diasporako erabiltzaile berriei!"
         learn_more: "Ikasi gehiago"

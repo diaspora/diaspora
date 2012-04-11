@@ -43,6 +43,7 @@ pt-PT:
   admins:
     admin_bar:
       pages: "Páginas"
+      user_search: "Pesquisa do utilizador"
       weekly_user_stats: "Estatísticas Semanais"
   ago: "Há %{time} atrás"
   all_aspects: "Todos os grupos"
@@ -121,7 +122,6 @@ pt-PT:
         tag_question: "questão"
         tutorials_wiki_and_forum: "%{tutorial} & %{wiki} & %{forum}: Tutoriais, Como Fazer e Notícias desenvolvidos pela comunidade"
       introduce_yourself: "Este é o seu fluxo. Venha daí e apresente-se."
-      keep_us_running: "Mantenha o %{pod} a funcionar rapidamente e compre aos servidores a sua dose de café com uma doação mensal!"
       new_here:
         follow: "Siga %{link} e dê as boas-vindas aos novos utilizadores ao Diaspora*!"
         learn_more: "Saiba mais"
@@ -173,6 +173,8 @@ pt-PT:
     index:
       no_applications: "Ainda não registou nenhuma aplicação."
       revoke_access: "Revogar o acesso"
+    new:
+      autorize: "Autorizar"
   back: "Voltar"
   blocks:
     create:
@@ -447,6 +449,7 @@ pt-PT:
       zero: "%{actors} começou a partilhar consigo."
   notifier:
     a_post_you_shared: "uma publicação."
+    accept_invite: "Aceite o seu convite Diaspora*!"
     click_here: "clique aqui"
     comment_on_post:
       reply: "Responder ou ver a publicação de %{name} >"
@@ -455,6 +458,21 @@ pt-PT:
       subject: "Por favor ative o seu novo endereço de email %{unconfirmed_email}"
     email_sent_by_diaspora: "Este email foi enviado pelo Diaspora. Se deseja deixar de receber emails deste tipo,"
     hello: "Olá %{name}!"
+    invite:
+      message: |-
+          Olá!
+
+          Foi convidado para se juntar ao Diaspora*!
+
+          Clique nesta ligação para começar
+
+          %{invite_url}
+
+
+          Cordialmente,
+
+          O robot de email do Diaspora*!
+    invited_you: "%{name} convidou-o para o Diaspora*"
     liked:
       liked: "%{name} gostou da sua publicação"
       view_post: "Ver a publicação >"

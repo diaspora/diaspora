@@ -941,7 +941,7 @@ en:
     new:
       cubbies_will: "Cubbies will be able to post photos on your behalf"
       autorize: "Authorize"
-      'no': "No"
+      nope: "No"
 
   streams:
     community_spotlight_stream: "Community Spotlight"

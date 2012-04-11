@@ -30,7 +30,7 @@ vi:
         reshare:
           attributes:
             root_guid:
-              taken: "Bạn đã chia sẻ lại tin!"
+              taken: "Bạn đã chia sẻ lại bài đăng đó!"
         user:
           attributes:
             email:
@@ -44,11 +44,12 @@ vi:
   all_aspects: "Tất cả mối quan hệ"
   application:
     helper:
+      diaspora_alpha: "DIASPORA* ALPHA"
       unknown_person: "người lạ"
       video_title:
         unknown: "Chưa biết tựa đề video"
   are_you_sure: "Bạn có chắc không?"
-  are_you_sure_delete_account: "Bạn có chắc chắn khóa vĩnh viễn tài khoản không? Mọi dữ liệu về bạn sẽ bị xóa khỏi hệ thống!"
+  are_you_sure_delete_account: "Bạn có chắc đóng vĩnh viễn tài khoản không? Mọi dữ liệu về bạn sẽ bị xóa khỏi hệ thống!"
   aspect_memberships:
     destroy:
       failure: "Thất bại khi loại bỏ người khỏi mối quan hệ"
@@ -68,7 +69,7 @@ vi:
     aspect_stream:
       stay_updated: "Vẫn còn cập nhật"
       stay_updated_explanation: "Luồng chính của bạn hầu hết là từ các liên lạc, thẻ, và tin từ một vài thành viên trong cộng đồng."
-    contacts_not_visible: "Các liên lạc trong mối quan hệ này sẽ không thể nhìn thấy nhau."
+    contacts_not_visible: "Các liên lạc trong mối quan hệ này không thể nhìn thấy nhau."
     contacts_visible: "Các liên lạc trong mối quan hệ này có thể nhìn thấy nhau."
     create:
       failure: "Tạo mối quan hệ thất bại."
@@ -100,6 +101,7 @@ vi:
       diaspora_id:
         content_1: "ID Diaspora của bạn:"
         content_2: "Cho người khác biết và họ có thể tìm thấy bạn trên Diaspora."
+        heading: "ID Diaspora"
       donate: "Quyên góp"
       handle_explanation: "Đây là id diaspora của bạn. Giống như một địa chỉ thư điện tử, người khác có thể liên lạc với bạn thông qua nó."
       help:
@@ -131,6 +133,7 @@ vi:
     many: "%{count} mối quan hệ"
     move_contact:
       error: "Lỗi khi dời liên lạc: %{inspect}"
+      failure: "%{inspect} không làm việc"
       success: "Đã chuyển người sang mối quan hệ mới"
     new:
       create: "Tạo"
@@ -165,11 +168,16 @@ vi:
     index:
       no_applications: "Bạn chưa đăng kí bất kì ứng dụng nào."
       revoke_access: "Thu hồi quyền truy cập"
+    new:
+      autorize: "Xác thực"
   back: "Trở lại"
   blocks:
     create:
       failure: "Không thể bỏ qua người dùng.  #evasion"
       success: "Bạn sẽ không thấy #silencio trong luồng của bạn nữa!"
+    destroy:
+      failure: "Tôi không thể dừng bỏ người đó.  #evasion"
+      success: "Hãy xem họ đã nói gì! #sayhello"
   bookmarklet:
     explanation: "Đăng tin lên Diaspora từ bất kì đâu bằng cách đánh dấu %{link}."
     explanation_link_text: "liên kết này"
@@ -194,10 +202,14 @@ vi:
     index:
       add_a_new_aspect: "Thêm mối quan hệ mới"
       add_to_aspect: "thêm liên lạc vào %{name}"
+      add_to_aspect_link: "thêm liên lạc vào %{name}"
       all_contacts: "Tất cả liên lạc"
+      community_spotlight: "Nổi bật từ cộng đồng"
       many_people_are_you_sure: "Bạn có chắc là muốn trò chuyện với hơn %{suggested_limit} người khác? Posting to this aspect may be a better way to contact them."
       my_contacts: "Liên lạc của tôi"
       no_contacts: "Có vẻ như bạn cần thêm vài liên lạc!"
+      no_contacts_message: "Kiểm tra %{community_spotlight}"
+      no_contacts_message_with_aspect: "Kiểm tra %{community_spotlight} hoặc %{add_to_aspect_link}"
       only_sharing_with_me: "Chỉ chia sẻ với tôi"
       remove_person_from_aspect: "Loại bỏ %{person_name} khỏi \"%{aspect_name}\""
       start_a_conversation: "Bắt đầu một cuộc trò chuyện"
@@ -208,6 +220,8 @@ vi:
     other: "%{count} liên lạc"
     sharing:
       people_sharing: "Người đang chia sẻ với bạn:"
+    spotlight:
+      community_spotlight: "Nổi bật từ cộng đồng"
     two: "%{count} liên lạc"
     zero: "contacts"
   conversations:
@@ -243,11 +257,16 @@ vi:
       delete: "xóa và khóa cuộc trò chuyện"
       reply: "trả lời"
       replying: "Đang trả lời..."
+  date:
+    formats:
+      birthday: "%B %d"
+      birthday_with_year: "%B %d %Y"
+      fullmonth_day: "%B %d"
   delete: "Xóa"
   email: "Thư điện tử"
   error_messages:
     helper:
-      correct_the_following_errors_and_try_again: "Sửa lỗi sau và thử lại."
+      correct_the_following_errors_and_try_again: "Sửa những lỗi sau và thử lại."
       invalid_fields: "Trường không hợp lệ"
   fill_me_out: "Điền đầy đủ"
   find_people: "Tìm người hoặc #tags"
@@ -256,6 +275,10 @@ vi:
     show:
       already_account: "đã có tài khoản?"
       choice: "Lựa chọn"
+      login_here: "đăng nhập tại đây"
+      share_what_you_want: "Chia sẻ những gì, với ai mà bạn muốn."
+      tagline_first_half: "Chia sẻ những gì bạn muốn,"
+      tagline_second_half: "với người mà bạn muốn."
   invitations:
     a_facebook_user: "Người dùng Facebook"
     create:
@@ -269,6 +292,7 @@ vi:
       accept_your_invitation: "Chấp nhận lời mời của bạn"
     new:
       already_invited: "Những người sau không chấp nhận lời mời của bạn:"
+      aspect: "Mối quan hệ"
       comma_seperated_plz: "Bạn có thể nhập nhiều địa chỉ thư điện tử và ngăn cách chúng bằng dấu phẩy."
       if_they_accept_info: "nếu chấp nhận, họ sẽ được thêm vào mối quan hệ mà bạn đã mời."
       invite_someone_to_join: "Mời người khác tham gia Diaspora!"
@@ -280,11 +304,15 @@ vi:
       to: "Đến"
   layouts:
     application:
+      back_to_top: "Cuộn lên trên"
+      powered_by: "ĐƯỢC HỖ TRỢ BỞI DIASPORA*"
+      public_feed: "Nguồn tin Diaspora công khai cho %{name}"
       toggle: "chuyển sang di động"
       whats_new: "có gì mới?"
       your_aspects: "mối quan hệ của bạn"
     header:
       admin: "quản trị"
+      blog: "blog"
       code: "mã nguồn"
       login: "đăng nhập"
       logout: "Đăng xuất"
@@ -315,9 +343,10 @@ vi:
         other: "%{count} người thích"
         two: "%{count} người thích"
         zero: "không có người thích"
-  limited: "Bị giới hạn"
+  limited: "Giới hạn"
+  more: "Thêm nữa"
   next: "tiếp theo"
-  no_results: "Không tìm thấy kết quả"
+  no_results: "Không có kết quả"
   notifications:
     also_commented:
       few: "%{actors} also commented on %{post_author}'s %{post_link}."
@@ -387,6 +416,7 @@ vi:
       other: "%{actors} mentioned you in a deleted post."
       two: "%{actors} mentioned you in a deleted post."
       zero: "%{actors} mentioned you in a deleted post."
+    post: "bài đăng"
     private_message:
       few: "%{actors} gửi cho bạn một tin nhắn."
       many: "%{actors} gửi cho bạn một tin nhắn."
@@ -418,16 +448,131 @@ vi:
   notifier:
     a_post_you_shared: "một bài đăng."
     click_here: "nhấn vào đây"
+    comment_on_post:
+      reply: "Trả lời hoặc xem bài đăng của %{name}"
     confirm_email:
       click_link: "Để kích hoạt địa chỉ thư điện tử mới của bạn - %{unconfirmed_email}, hãy vào liên kết này:"
       subject: "Vui lòng kích hoạt địa chỉ thư điện tử %{unconfirmed_email} của bạn"
+    email_sent_by_diaspora: "Thư này được gửi bởi Diaspora.  Nếu bạn không muốn nhận những thư như thế này,"
     hello: "Xin chào %{name}!"
     liked:
       liked: "%{name} just liked your post"
+      view_post: "Xem bài đăng >"
+    mentioned:
+      mentioned: "đã nhắc đến bạn trong một bài đăng."
+      subject: "%{name} đã nhắc đến bạn trên Diaspora*"
+    private_message:
+      reply_to_or_view: "Trả lời hoặc xem cuộc trò chuyện này >"
     reshared:
       reshared: "%{name} just reshared your post"
-  posts:
+      view_post: "Xem bài đăng >"
+    single_admin:
+      admin: "Quản trị tài khoản Diaspora của bạn"
+      subject: "Một tin nhắn về tài khoản Diaspora của bạn:"
+    started_sharing:
+      sharing: "đã bắt đầu chia sẻ với bạn!"
+      subject: "%{name} đã bắt đầu chia sẻ với bạn trên Diaspora*"
+      view_profile: "Xem hồ sơ của %{name}"
+    thanks: "Cám ơn,"
+    to_change_your_notification_settings: "để đổi thiết lập thông báo"
+  nsfw: "NSFW"
+  ok: "OK"
+  or: "hoặc"
+  password: "Mật khẩu"
+  password_confirmation: "Xác nhận mật khẩu"
+  people:
+    add_contact_small:
+      add_contact_from_tag: "thêm liên lạc từ thẻ"
+    few: "%{count} người"
+    helper:
+      results_for: " kết quả cho %{params}"
+    index:
+      couldnt_find_them_send_invite: "Không thể tìm thấy họ?  Hãy gửi lời mời!"
+      looking_for: "Tìm các bài đăng có thẻ %{tag_link}?"
+      no_one_found: "...và không tìm thấy ai."
+      no_results: "Bạn cần tìm gì đó."
+      results_for: "kết quả tìm kiếm cho"
+      searching: "đang tìm, vui lòng chờ..."
+    last_post: "Bài đăng cuối"
+    many: "%{count} người"
+    one: "1 người"
+    other: "%{count} người"
+    person:
+      add_contact: "thêm liên lạc"
+      already_connected: "Đã kết nối"
+      pending_request: "Yêu cầu đang chờ"
+      thats_you: "Đó là bạn!"
+    profile_sidebar:
+      bio: "tiểu sử"
+      born: "ngày sinh"
+      edit_my_profile: "Chỉnh sửa hồ sơ của tôi"
+      gender: "giới tính"
+      in_aspects: "trong mối quan hệ"
+      location: "vị trí"
+      remove_contact: "loại bỏ liên lạc"
+      remove_from: "Loại bỏ %{name} khỏi %{aspect}?"
     show:
+      closed_account: "Tài khoản này đã bị đóng."
+      does_not_exist: "Người không tồn tại!"
+      has_not_shared_with_you_yet: "%{name} chưa từng chia sẻ gì với bạn!"
+      ignoring: "Bạn đang huỷ tất cả bài đăng từ %{name}."
+      incoming_request: "%{name} muốn chia sẻ với bạn"
+      mention: "Nhắc đến"
+      message: "Tin nhắn"
+      not_connected: "Hiện bạn không chia sẻ với người này"
+      recent_posts: "Bài đăng gần đây"
+      recent_public_posts: "Bài đăng công khai gần đây"
+      return_to_aspects: "Trở về trang các mối quan hệ của bạn"
+      see_all: "Xem tất cả"
+      start_sharing: "bắt đầu chia sẻ"
+      to_accept_or_ignore: "để chấp nhận hoặc từ chối."
+    sub_header:
+      add_some: "thêm"
+      edit: "chỉnh sửa"
+      you_have_no_tags: "bạn không có thẻ nào!"
+    two: "%{count} người"
+    webfinger:
+      fail: "Xin lỗi, chúng tôi không thể tìm %{handle}."
+    zero: "không có ai"
+  photos:
+    comment_email_subject: "Ảnh của %{name}"
+    create:
+      type_error: "Tải ảnh lên thất bại,  Bạn có chắc ảnh đã được thêm?"
+    destroy:
+      notice: "Ảnh đã xoá."
+    edit:
+      editing: "Chỉnh sửa"
+    new:
+      back_to_list: "Trở về danh sách"
+      new_photo: "Ảnh mới"
+      post_it: "đăng nó!"
+    new_photo:
+      empty: "{file} rỗng, chọn lại tập tin."
+      invalid_ext: "{file} có phần mở rộng không hợp lệ. Chỉ chấp nhận phần mở rộng {extensions}."
+      size_error: "{file} quá to, dung lượng tối đa cho phép là {sizeLimit}."
+    new_profile_photo:
+      or_select_one_existing: "hoặc chọn từ ảnh đang có trong %{photos}"
+      upload: "Tải lên ảnh hồ sơ mới!"
+    photo:
+      view_all: "xem tất cả ảnh của %{name}"
+    show:
+      collection_permalink: "đường dẫn của bộ sưu tập"
+      delete_photo: "Xoá ảnh"
+      edit: "chỉnh sửa"
+      edit_delete_photo: "Sửa mô tả/xoá ảnh"
+      make_profile_photo: "làm ảnh hồ sơ"
+      show_original_post: "Xem bài đăng gốc"
+      update_photo: "Cập nhật ảnh"
+    update:
+      error: "Không thể chỉnh sửa ảnh."
+      notice: "Đã cập nhật ảnh."
+  posts:
+    presenter:
+      title: "Một bài đăng từ %{name}"
+    show:
+      destroy: "Xoá"
+      not_found: "Xin lỗi, chúng tôi không tìm thấy bài đăng đó."
+      permalink: "đường dẫn cố định"
       photos_by:
         few: "%{count} photos by %{author}"
         many: "%{count} photos by %{author}"
@@ -435,8 +580,14 @@ vi:
         other: "%{count} photos by %{author}"
         two: "Two photos by %{author}"
         zero: "No photos by %{author}"
+      reshare_by: "Chia sẻ lại từ %{author}"
+  previous: "trước"
+  privacy: "Bảo mật"
+  privacy_policy: "Chính sách bảo mật"
+  profile: "Hồ sơ"
   profiles:
     edit:
+      allow_search: "Cho phép người khác trong Diaspora tìm thấy bạn"
       edit_profile: "Chỉnh sửa hồ sơ"
       first_name: "Tên"
       last_name: "Họ"
@@ -470,6 +621,7 @@ vi:
       edit: "Chỉnh sửa %{name}"
       leave_blank: "(để trống nếu bạn không muốn thay đổi)"
       password_to_confirm: "(bạn cần cung cấp mật khẩu hiện tai để xác nhận thay đổi)"
+      unhappy: "Không vui?"
       update: "Cập nhật"
     new:
       create_my_account: "Tạo tài khoản"
@@ -479,6 +631,13 @@ vi:
       enter_username: "Tên người dùng (chỉ gồm chữ cái, số và dấu gạch dưới _)"
       sign_up_message: "Social Networking with a <3"
   requests:
+    create:
+      sending: "Gửi"
+      sent: "Bạn đã yêu cầu chia sẻ với %{name}.  Họ sẽ nhìn thấy trong lần đăng nhập sau vào Diaspora."
+    destroy:
+      error: "Vui lòng chọn một mối quan hệ!"
+      ignore: "Từ chối yêu cầu liên lạc."
+      success: "Bạn đang chia sẻ."
     helper:
       new_requests:
         few: "%{count} new requests!"
@@ -487,8 +646,17 @@ vi:
         other: "%{count} new requests!"
         two: "%{count} new requests!"
         zero: "no new requests"
+    manage_aspect_contacts:
+      existing: "Liên lạc đang tồn tại"
+      manage_within: "Quản lí liên lạc"
+    new_request_to_person:
+      sent: "đã gửi!"
   reshares:
+    comment_email_subject: "Bài chia sẻ lại của %{resharer} từ %{author}"
+    create:
+      failure: "Có lỗi khi chia sẻ lại bài đăng này."
     reshare:
+      deleted: "Bài đăng gốc đã bị tác giả xoá."
       reshare:
         few: "%{count} reshares"
         many: "%{count} reshares"
@@ -496,8 +664,53 @@ vi:
         other: "%{count} reshares"
         two: "%{count} reshares"
         zero: "Reshare"
+      reshare_confirmation: "Chia sẻ lại bài đăng của %{author}?"
+      reshare_original: "Chia sẻ lại bài gốc"
+      reshared_via: "chia sẻ lại qua"
+      show_original: "Hiện bài đăng gốc"
+  search: "Tìm"
+  services:
+    create:
+      already_authorized: "Một người dùng với id diaspora %{diaspora_id} đã xác thực với tài khoản %{service_name}."
+      failure: "Xác thực thất bại."
+      success: "Xác thực thành công."
+    destroy:
+      success: "Đã xoá xác thực."
+    failure:
+      error: "có lỗi khi kết nối đến dịch vụ đó"
+    finder:
+      no_friends: "Không tìm thấy bạn Facebook."
+      service_friends: "Bạn bè %{service}"
+    index:
+      connect_to_facebook: "Kết nối với Facebook"
+      connect_to_tumblr: "Kết nối với Tumblr"
+      connect_to_twitter: "Kết nối với Twitter"
+      disconnect: "ngắt kết nối"
+      edit_services: "Chỉnh sửa dịch vụ"
+      logged_in_as: "đã đăng nhập với tên"
+      no_services: "Bạn chưa kết nối đến dịch vụ nào."
+      really_disconnect: "ngắt kết nối với %{service}?"
+    inviter:
+      click_link_to_accept_invitation: "Theo dõi liên kết này để chấp nhận lời mời của bạn"
+    remote_friend:
+      invite: "mời"
+      not_on_diaspora: "Chưa có trên Diaspora"
+      resend: "gửi lại"
+  settings: "Thiết lập"
+  share_visibilites:
+    update:
+      post_hidden_and_muted: "Bài đăng của %{name} đã bị ẩn, và các thông báo đã bị tắt."
+      see_it_on_their_profile: "Nếu bạn muốn xem cập nhật từ bài đăng này, xem trang hồ sơ của %{name}."
   shared:
+    add_contact:
+      add_new_contact: "Thêm liên lạc mới"
+      create_request: "Tìm bằng ID Diaspora"
+      diaspora_handle: "diaspora@pod.org"
+      enter_a_diaspora_username: "Nhập tên người dùng Diaspora:"
+      know_email: "Biết địa chỉ thư điện tử của họ? Bạn có thể mời họ."
+      your_diaspora_username_is: "Tên người dùng Diaspora của bạn là: %{diaspora_handle}"
     aspect_dropdown:
+      add_to_aspect: "Thêm liên lạc"
       toggle:
         few: "In %{count} aspects"
         many: "In %{count} aspects"
@@ -505,12 +718,66 @@ vi:
         other: "In %{count} aspects"
         two: "In %{count} aspects"
         zero: "Add contact"
+    contact_list:
+      all_contacts: "Tất cả liên lạc"
+    footer:
+      logged_in_as: "đăng nhập với tên %{name}"
+      your_aspects: "các mối quan hệ của bạn"
+    invitations:
+      by_email: "Bằng thư điện tử"
+      dont_have_now: "Bạn đã hết lời mời, những sẽ có thêm nữa!"
+      from_facebook: "Từ Facebook"
+      invitations_left: "Còn lại %{count}"
+      invite_someone: "Mời vài người"
+      invite_your_friends: "Mời bạn"
+      invites: "Mời"
+    public_explain:
+      atom_feed: "Nguồn tin"
+      logged_in: "đã đăng nhập vào %{service}"
+      manage: "quản lí các dịch vụ đã được kết nối"
+      share: "Chia sẻ"
+      title: "Cài đặt các dịch vụ đã được kết nối"
     publisher:
+      all: "tất cả"
+      all_contacts: "tất cả liên lạc"
+      discard_post: "Huỷ bài đăng"
+      make_public: "công khai hoá"
       new_user_prefill:
         i_like: "I'm interested in %{tags}."
+        invited_by: "Cám ơn lời mời, "
+      post_a_message_to: "Gửi tin nhắn đến %{aspect}"
+      posting: "Đăng bài..."
+      publishing_to: "chia sẻ với: "
+      share: "Chia sẻ"
+      share_with: "chia sẻ với"
+      upload_photos: "Tải ảnh lên"
+      whats_on_your_mind: "Bạn đang nghĩ gì?"
+    reshare:
+      reshare: "Chia sẻ lại"
     stream_element:
-      hide_and_mute: "Hide and Mute"
+      connect_to_comment: "Kết nối đến người dùng này để bình luận trong bài đăng của họ"
+      currently_unavailable: "hiện không bình luận được"
+      dislike: "Không thích"
+      hide_and_mute: "Ẩn và tắt bài đăng"
+      ignore_user: "Bỏ qua %{name}"
+      ignore_user_description: "Bỏ qua và loại bỏ người dùng từ tất cả mối quan hệ?"
+      like: "Thích"
+      nsfw: "Bài đăng được đánh dấu NSFW bởi tác giả. %{link}"
+      shared_with: "Đã chia sẻ với: %{aspect_names}"
+      show: "hiện"
+      unlike: "Bỏ thích"
+      via: "thông qua %{link}"
+      via_mobile: "qua di động"
+      viewable_to_anyone: "Bài đăng này được mọi người trên web nhìn thấy"
   status_messages:
+    create:
+      success: "Đã nhắc đến: %{names}"
+    destroy:
+      failure: "Không thể xoá bài đăng"
+    helper:
+      no_message_to_display: "Không có tin nhắn."
+    new:
+      mentioning: "Đang nhắc đến: %{person}"
     too_long:
       few: "please make your status messages less than %{count} characters"
       many: "please make your status messages less than %{count} characters"
@@ -519,6 +786,7 @@ vi:
       two: "please make your status messages less than %{count} characters"
       zero: "please make your status messages less than %{count} characters"
   stream_helper:
+    hide_comments: "Ẩn tất cả bình luận"
     show_comments:
       few: "Show %{count} more comments"
       many: "Show %{count} more comments"
@@ -527,19 +795,61 @@ vi:
       two: "Show two more comments"
       zero: "No more comments"
   streams:
+    activity:
+      title: "Hoạt động của tôi"
     aspects:
       title: "Your Aspects"
+    aspects_stream: "Mối quan hệ"
+    comment_stream:
+      contacts_title: "Người đăng bình luận của bạn trên"
+      title: "Bài đăng đã bình luận"
+    followed_tag:
+      add_a_tag: "Thêm thẻ"
+      contacts_title: "Người khai thác các thẻ này"
+      follow: "Theo dõi"
+    like_stream:
+      contacts_title: "Người đăng thích của bạn"
+      title: "Thích luồng"
     mentions:
+      contacts_title: "Người đã nhắc đến bạn"
       title: "Tin của bạn"
+    multi:
+      contacts_title: "Người trong luồng của bạn"
+      title: "Luồng"
+    public:
+      contacts_title: "Người đăng gần đây"
+      title: "Hoạt động công khai"
     tags:
       contacts_title: "People who dig these tags"
   tag_followings:
     create:
       failure: "Theo dõi thất bại: #%{name}"
+      none: "Bạn không thể theo dõi một thẻ trống!"
       success: "Theo dõi thành công: #%{name}"
     destroy:
       failure: "Dừng theo dõi #%{name} thất bại. Có lẽ bạn đã dừng theo dõi rồi?"
       success: "Đã dừng theo dõi: #%{name}"
+  tags:
+    show:
+      follow: "Theo dõi #%{tag}"
+      followed_by: "được theo dõi bởi"
+      following: "Đang theo dõi #%{tag}"
+      nobody_talking: "Không có ai đang nói về %{tag}."
+      none: "Thẻ rỗng không tồn tại!"
+      stop_following: "Dừng theo dõi #%{tag}"
+  terms_and_conditions: "Điều khoản và điều kiện"
+  tokens:
+    show:
+      connect_to_cubbies: "Kết nối với Cubbi.es"
+      connecting_is_simple: "Chỉ cần nhập ID Diaspora của bạn (<b>%{diaspora_id}</b>) từ %{href_link}<a href='%{href_link}'>trang thiết lập cubbies</a> và nhấn kết nối"
+      daniels_account: "Tài khoản Diaspora của Daniel"
+      love_to_try: "Xin mời bạn dùng thử."
+      making_the_connection: "Tạo kết nối"
+      sign_up_today: "Đăng kí!"
+      via: "(thông qua %{link})"
+      what_is_cubbies: "Cubbi.es là ứng dụng đầu tiên của Diaspora.  Đó cũng là cách tốt nhất để thu thập ảnh trực tuyến."
+  undo: "Hoàn lại?"
+  username: "Tên người dùng"
   users:
     confirm_email:
       email_confirmed: "Địa chỉ %{email} đã được kích hoạt"
@@ -549,19 +859,28 @@ vi:
       success: "Tài khoản của bạn đã bị khoá. Có thể mất 20 phút để đóng tài khoản của bạn. Cám ơn vì đã dùng Diaspora."
       wrong_password: "Mật khẩu đã nhập không khớp với mật khẩu hiện tại."
     edit:
+      also_commented: "...ai đó bình luận vào bài đăng trong liên lạc của bạn?"
+      auto_follow_back: "Tự động theo dõi lại người theo dõi bạn"
       change: "Thay đổi"
       change_email: "Đổi địa chỉ thư điện tử"
       change_language: "Đổi ngôn ngữ"
       change_password: "Đổi mật khẩu"
+      character_minimum_expl: "có ít nhất sáu kí tự"
       close_account:
+        locked_out: "Bạn sẽ bị đăng xuất và khoá tài khoản."
         what_we_delete: "We delete all of your posts, profile data, as soon as humanly possible. Your comments will hang around, but be associated with your Diaspora Handle."
+      close_account_text: "Đóng tài khoản"
+      comment_on_post: "...ai đó bình luận vào bài đăng của bạn?"
       current_password: "Mật khẩu hiện tại"
       download_photos: "tải ảnh của tôi"
       download_xml: "tải xml của tôi"
       edit_account: "Chỉnh sửa tài khoản"
       email_awaiting_confirmation: "Chúng tôi đã gửi đường dẫn kích hoạt đến %{unconfirmed_email}. Chúng tôi vẫn dùng địa chỉ gốc của bạn %{email} cho đến khi bạn xác nhận địa chỉ mới."
       export_data: "Xuất dữ liệu"
+      following: "Thiết lập theo dõi"
       getting_started: "Tuỳ chỉnh người dùng mới"
+      liked: "...ai đó thích bài đăng của bạn?"
+      mentioned: "...bạn được nhắc đến trong một bài đăng?"
       new_password: "Mật khẩu mới"
       photo_export_unavailable: "Chức năng xuất ảnh hiện chưa hoạt động"
       private_message: "...bạn nhận được một tin nhắn cá nhân?"
@@ -573,9 +892,11 @@ vi:
       your_handle: "ID Diaspora của bạn"
     getting_started:
       awesome_take_me_to_diaspora: "Tuyệt vời! Đưa tối đến Diaspora*"
+      saved: "Đã lưu!"
       what_facebook_does: "to Diaspora. This will pull your name and photo, and enable cross-positng."
       who_are_you: "Bạn là ai?"
     logged_out:
+      on_your_mobile_device: "trên thiết bị di động của bạn để truy cập Diaspora*"
       signed_out: "Bạn đã đăng xuất khỏi Diaspora*"
       works_on_modern: "Hoạt động trên mọi điện thoại thông minh hiện đại"
     privacy_settings:
@@ -584,6 +905,8 @@ vi:
       does_not_exist: "Người dùng %{username} không tồn tại!"
     update:
       email_notifications_changed: "Đã đổi thông báo qua thư điện tử"
+      follow_settings_changed: "Đã đổi thiết lập theo dõi"
+      follow_settings_not_changed: "Đổi thiết lập theo dõi thất bại."
       language_changed: "Đã đổi ngôn ngữ"
       language_not_changed: "Đổi ngôn ngữ thất bại"
       password_changed: "Đã đổi mật khẩu. Bây giờ bạn có thể đăng nhập với mật khẩu mới."
@@ -593,3 +916,6 @@ vi:
       unconfirmed_email_changed: "Đã đổi thư điện tử. Cần kích hoạt ngay."
       unconfirmed_email_not_changed: "Đổi thư điện tử thất bại"
   welcome: "Chào mừng!"
+  will_paginate:
+    next_label: "sau &raquo;"
+    previous_label: "&laquo; trước"

@@ -90,7 +90,6 @@ zh-CN:
         tag_bug: "#bug"
         tag_feature: "#feature"
         tag_question: "#question"
-      keep_us_running: "Keep %{pod} running fast, buy our servers their monthly coffee fix!"
       no_contacts: "没有任何好友"
       no_tags: "No tags"
       people_sharing_with_you: "与您分享的人"
