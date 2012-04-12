@@ -11,6 +11,7 @@ If you want to do something big, reach out on IRC or the mailing list first, so 
 ************************
 
 With Diaspora you can:
+
 - Run and host your own pod and have control over your own social experience.
 - Own your own data.
 - Make friends across other pods seamlessly.
