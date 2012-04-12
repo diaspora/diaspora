@@ -11,9 +11,9 @@ If you want to do something big, reach out on IRC or the mailing list first, so 
 ************************
 
 With Diaspora you can:
--Run and host your own pod and have control over your own social experience.
--Own your own data.
--Make friends across other pods seamlessly.
+- Run and host your own pod and have control over your own social experience.
+- Own your own data.
+- Make friends across other pods seamlessly.
 
 Documentation is available on our [wiki](https://github.com/diaspora/diaspora/wiki)
 
@@ -45,9 +45,9 @@ Here's how you can get a development environment up and running. You can check o
 
 ## Resources:
 
--[Wiki](https://github.com/diaspora/diaspora/wiki)
--[Podmin Resources](https://github.com/diaspora/diaspora/wiki/Podmin-Resources)
--[Contributing](https://github.com/diaspora/diaspora/wiki/Getting-Started-With-Contributing)
--[Dev List](https://groups.google.com/forum/?fromgroups#!forum/diaspora-dev)
--[Discuss List](https://groups.google.com/forum/?fromgroups#!forum/diaspora-discuss)
--[IRC](http://webchat.freenode.net?channels=diaspora-dev)
+- [Wiki](https://github.com/diaspora/diaspora/wiki)
+- [Podmin Resources](https://github.com/diaspora/diaspora/wiki/Podmin-Resources)
+- [Contributing](https://github.com/diaspora/diaspora/wiki/Getting-Started-With-Contributing)
+- [Dev List](https://groups.google.com/forum/?fromgroups#!forum/diaspora-dev)
+- [Discuss List](https://groups.google.com/forum/?fromgroups#!forum/diaspora-discuss)
+- [IRC](http://webchat.freenode.net?channels=diaspora-dev)
