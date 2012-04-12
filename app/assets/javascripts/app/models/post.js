@@ -12,6 +12,15 @@ app.models.Post = Backbone.Model.extend({
     this.participations = this.participations || new app.collections.Participations([], {post : this}); // load in the user like initially
   },
 
+  setFrameName : function(){
+    this.set({frame_name : findTheme(this)})
+
+
+    function findTheme(model) {
+      return model.get("photos").length == 1 ? "Wallpaper" : "Day"
+    }
+  },
+
   createdAt : function() {
     return this.timeOf("created_at");
   },

@@ -6,7 +6,7 @@ app.views.TemplatePicker = app.views.Base.extend({
   },
 
   initialize : function(){
-    this.model.set({frame_name : 'Day'})
+    this.model.setFrameName()
   },
 
   postRenderTemplate : function(){
