@@ -16,7 +16,7 @@ module User::Querying
   def visible_shareables(klass, opts={})
     opts = prep_opts(klass, opts)
     shareable_ids = visible_shareable_ids(klass, opts)
-    klass.where(:id => shareable_ids).select('DISTINCT '+klass.to_s.tableize+'.*').limit(opts[:limit]).order(opts[:order_with_table])
+    klass.where(:id => shareable_ids).select('DISTINCT '+klass.to_s.tableize+'.*').limit(opts[:limit]).order(opts[:order_with_table]).order(klass.table_name+".id DESC")
   end
 
   def visible_shareable_ids(klass, opts={})
@@ -48,7 +48,7 @@ module User::Querying
   def ugly_select_clause(query, opts)
     klass = opts[:klass]
     select_clause ='DISTINCT %s.id, %s.updated_at AS updated_at, %s.created_at AS created_at' % [klass.table_name, klass.table_name, klass.table_name]
-    query.select(select_clause).order(opts[:order_with_table]).order(klass.table_name+'.id DESC').where(klass.arel_table[opts[:order_field]].lt(opts[:max_time]))
+    query.select(select_clause).order(opts[:order_with_table]).where(klass.arel_table[opts[:order_field]].lt(opts[:max_time]))
   end
 
   def construct_shareable_from_others_query(opts)
