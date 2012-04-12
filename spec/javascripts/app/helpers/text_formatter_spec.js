@@ -107,6 +107,21 @@ describe("app.helpers.textFormatter", function(){
         })
       });
 
+      it("returns mentions for on posts that haven't been saved yet (framer posts)", function(){
+        var freshBob = factory.author({
+          name : "Bob Grimm",
+          handle : "bob@example.com",
+          url : 'googlebot.com',
+          id : "666"
+        })
+
+        this.statusMessage.set({'mentioned_people' : [freshBob] })
+
+        var formattedText = this.formatter.mentionify(this.statusMessage.get("text"), this.statusMessage.get("mentioned_people"))
+        var wrapper = $("<div>").html(formattedText);
+        expect(wrapper.find("a[href='googlebot.com']").text()).toContain(freshBob.name)
+      })
+
       it('returns the name of the mention if the mention does not exist in the array', function(){
         var text = "hey there @{Chris Smith; chris@example.com}"
         var formattedText = this.formatter.mentionify(text, [])

@@ -1,21 +1,18 @@
-def mention_alice(user_name)
-  #find(selector).native.send_keys(value)
-  page.execute_script <<-JAVASCRIPT
-    var mentionsInput = $("textarea.text")
-
-    triggerKeypress(64) //@
-    triggerKeypress(97) //a
-    mentionsInput.trigger("input") //bring up c
-
-
-    function triggerKeypress(keyCode){
+def type_to_mention(typed, user_name)
+  #add each of the charcters to jquery.mentionsInput's buffer
+  typed.each_char do |char|
+    key_code = char.ord
+    page.execute_script <<-JAVASCRIPT
       var e = new $.Event("keypress")
-      e.which = keyCode //@
-      mentionsInput.trigger(e)
-    }
-  JAVASCRIPT
-  page.find(".mentions-autocomplete-list li:contains('Alice Smith')").click()
-  sleep(1)
+      e.which = #{key_code}
+      $("textarea.text").trigger(e)
+    JAVASCRIPT
+  end
+
+  #trigger event that brings up mentions input
+  page.execute_script('$("textarea.text").trigger("input")')
+
+  page.find(".mentions-autocomplete-list li:contains('#{user_name}')").click()
 end
 
 def aspects_dropdown
@@ -76,8 +73,8 @@ When /^I write "([^"]*)"(?:| with body "([^"]*)")$/ do |headline, body|
   fill_in 'text', :with => [headline, body].join("\n")
 end
 
-Then /I mention "([^"]*)"$/ do |text|
-  mention_alice('@a')
+Then /I type "([^"]*)" to mention "([^"]*)"$/ do |typed, user_name|
+  type_to_mention(typed, user_name)
 end
 
 When /^I select "([^"]*)" in my aspects dropdown$/ do |title|

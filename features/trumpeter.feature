@@ -28,8 +28,10 @@ Feature: Creating a new post
    And a user with email "bob@bob.bob" is connected with "alice@alice.alice"
    And I trumpet
    And I wait for the ajax to finish
-   And I mention "Alice Smith"
-   And I go through the default composer
+   And I type "@a" to mention "Alice Smith"
+   And I start the framing process
+   Then the post should mention "Alice Smith"
+   When I finalize my frame
    Then the post should mention "Alice Smith"
 
   Scenario: Uploading multiple photos
