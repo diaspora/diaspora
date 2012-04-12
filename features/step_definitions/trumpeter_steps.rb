@@ -1,6 +1,21 @@
-def fill_in_autocomplete(selector, value)
-  pending #make me work if yr board, investigate send_keys
-  page.execute_script %Q{$('#{selector}').val('#{value}').keyup()}
+def mention_alice(user_name)
+  #find(selector).native.send_keys(value)
+  page.execute_script <<-JAVASCRIPT
+    var mentionsInput = $("textarea.text")
+
+    triggerKeypress(64) //@
+    triggerKeypress(97) //a
+    mentionsInput.trigger("input") //bring up c
+
+
+    function triggerKeypress(keyCode){
+      var e = new $.Event("keypress")
+      e.which = keyCode //@
+      mentionsInput.trigger(e)
+    }
+  JAVASCRIPT
+  page.find(".mentions-autocomplete-list li:contains('Alice Smith')").click()
+  sleep(1)
 end
 
 def aspects_dropdown
@@ -62,9 +77,7 @@ When /^I write "([^"]*)"(?:| with body "([^"]*)")$/ do |headline, body|
 end
 
 Then /I mention "([^"]*)"$/ do |text|
-  fill_in_autocomplete('textarea.text', '@a')
-  sleep(5)
-  find("li.active").click
+  mention_alice('@a')
 end
 
 When /^I select "([^"]*)" in my aspects dropdown$/ do |title|
@@ -135,6 +148,6 @@ When /^the frame's body should be "([^"]*)"$/ do |body_text|
   find("section.body").text.should == body_text
 end
 
-Then /^the first post should mention "([^"]*)"$/ do |user_name|
-  pending
+Then /^the post should mention "([^"]*)"$/ do |user_name|
+  within('#post-content') { find("a:contains('#{user_name}')").should be_present }
 end

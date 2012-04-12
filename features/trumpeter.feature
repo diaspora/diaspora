@@ -23,14 +23,14 @@ Feature: Creating a new post
     Then I should see "This is super skrunkle" as the first post in my stream
     Then "This is super skrunkle" should be a limited post in my stream
 
-  @wip
   Scenario: Mention a contact
    Given a user named "Alice Smith" with email "alice@alice.alice"
    And a user with email "bob@bob.bob" is connected with "alice@alice.alice"
-   And I mention "alice@alice.alice"
+   And I trumpet
+   And I wait for the ajax to finish
+   And I mention "Alice Smith"
    And I go through the default composer
-   And I go to "/stream"
-   Then the first post should mention "Alice Smith"
+   Then the post should mention "Alice Smith"
 
   Scenario: Uploading multiple photos
     When I write "check out these pictures"

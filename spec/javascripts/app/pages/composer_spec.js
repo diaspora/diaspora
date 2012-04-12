@@ -46,9 +46,12 @@ describe("app.pages.Composer", function(){
 
         it("instantiates a post on form submit", function(){
           this.page.$("button.next").click()
-          expect(this.page.model.get("text")).toBe("Oh My")
-          expect(this.page.model.get("aspect_ids")).toBe("public")
-          expect(this.page.model.get("services").length).toBe(2)
+          waitsFor(function(){ return this.page.$("#text_with_markup").text() == "Oh My" })
+          runs(function(){
+            expect(this.page.model.get("aspect_ids")).toBe("public")
+            expect(this.page.model.get("services").length).toBe(2)
+            expect(this.page.model.get("text")).toBe("Oh My"))
+          })
         })
       });
     })

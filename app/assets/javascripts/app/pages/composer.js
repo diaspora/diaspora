@@ -11,8 +11,7 @@ app.pages.Composer = app.views.Base.extend({
   },
 
   formAttrs : {
-//    "textarea#text_with_markup" : "text",  //fix mentions
-    "textarea.text" : "text",
+    "textarea#text_with_markup" : "text",
     "input.aspect_ids" : "aspect_ids",
     "input.service:checked" : "services"
   },
@@ -25,8 +24,13 @@ app.pages.Composer = app.views.Base.extend({
   },
 
   navigateNext : function(){
-    this.setModelAttributes();
-    app.router.navigate("framer", true);
+    this.$("form textarea.text").mentionsInput('val',
+      _.bind(function(markup){
+        $('#text_with_markup').val(markup);
+        this.setModelAttributes();
+        app.router.navigate("framer", true);
+      }, this)
+    );
   },
 
   setModelAttributes : function(evt){
@@ -57,7 +61,7 @@ app.views.ComposerControls = app.views.Base.extend({
 
   subviews : {
     ".aspect-selector" : "aspectsDropdown",
-    ".service-selector" : "servicesSelector",
+    ".service-selector" : "servicesSelector"
   },
 
   initialize : function() {
