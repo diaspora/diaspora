@@ -187,7 +187,7 @@ Then 'I press the attached image' do
 end
 
 And "I wait for the popovers to appear" do
-  wait_until(30) { evaluate_script('$(".popover").length') == 3 }
+  wait_until(5) { evaluate_script('$(".popover").length') == 3 }
 end
 
 And /^I click close on all the popovers$/ do
@@ -195,6 +195,7 @@ And /^I click close on all the popovers$/ do
           function(index, element){ setTimeout(function(){ $(element).click()},time);
           time += 800;
  });")
+  wait_until(5) { evaluate_script('$(".popover").length') == 0 }
 end
 
 Then /^I should see first post deletion link$/ do

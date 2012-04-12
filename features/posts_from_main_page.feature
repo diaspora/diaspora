@@ -26,6 +26,7 @@ Feature: posting from the main page
 
     Scenario: posting a message appends it to the top of the stream
       When I click the publisher and post "sup dog"
+      And I wait for 1 second
       And I click the publisher and post "hello there"
       Then I should see "hello there" as the first post in my stream
 

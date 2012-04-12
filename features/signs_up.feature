@@ -34,6 +34,5 @@ Feature: new user registration
     And I have turned off jQuery effects
     And I wait for the popovers to appear
     And I click close on all the popovers
-    And I wait for 3 seconds
     And I go to the home page
     Then I should not see "Welcome to Diaspora"
