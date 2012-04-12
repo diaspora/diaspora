@@ -1,10 +1,6 @@
 @import "_new_mixins";
 
-/* bootstrap extentions and overrides for asset pipeline
- * The glyphicons-halflings and glyphicons-halflings-white sprites are included in
- * bootstrap-sass.
- */
-.icon-black { background-image: image_url("glyphicons-halflings.png") }
+/* bootstrap extentions */
 .icon-red   { background-image: image_url("img/glyphicons-halflings-red.png");   }
 .icon-green { background-image: image_url("img/glyphicons-halflings-green.png"); }
 .icon-blue  { background-image: image_url("img/glyphicons-halflings-blue.png");  }

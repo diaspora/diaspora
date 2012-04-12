@@ -54,7 +54,7 @@
       - if @aspect == :getting_started || @page == :logged_out
         = yield
       - else
-        .row
+        .span-24.last
           = yield
 
     - unless @landing_page
