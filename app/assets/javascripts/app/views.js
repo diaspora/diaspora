@@ -44,6 +44,7 @@ app.views.Base = Backbone.View.extend({
     if(!this.template) {
       console.log(this.templateName ? ("no template for " + this.templateName) : "no templateName specified")
     }
+
     this.$el
       .html(this.template(presenter))
       .attr("data-template", _.last(this.templateName.split("/")));

@@ -1,5 +1,10 @@
 @import 'mixins';
+
+/* mainly for the post viewer & composer */
 @import 'new_styles/base';
 @import 'new_styles/composer';
 @import 'new_styles/interactions';
 @import 'new_styles/viewer_nav';
+
+/* profile */
+@import 'new_styles/canvas';

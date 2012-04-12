@@ -19,6 +19,7 @@
 //= require jquery.idle-timer
 //= require jquery.infinitescroll-custom
 //= require jquery.autocomplete-custom
+//= require jquery.isotope.min
 //= require keycodes
 //= require fileuploader-custom
 //= require handlebars-1.0.0.beta.6

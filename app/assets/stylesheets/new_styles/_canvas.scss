@@ -1,0 +1,35 @@
+body {
+
+  background-color : #F6F6F6;
+}
+
+#canvas {
+  margin-top : 100px;
+}
+
+.canvas-frame {
+  float: left;
+  margin: 10px;
+  width: 270px;
+
+  .content {
+    @include box-shadow(0,1px,3px,rgba(0,0,0,0.2));
+    background-color : #fff;
+    min-height : 180px;
+    max-height : 180px;
+
+    overflow : hidden;
+    padding : 10px;
+    margin-bottom : 5px;
+  }
+
+  /* larger declarations */
+  &.x2.width {
+    width : 560px;
+  }
+
+  &.x2.height .content {
+    min-height : 429px;
+    max-height : 429px;
+  }
+}

@@ -120,7 +120,14 @@ class PeopleController < ApplicationController
     end
 
     respond_to do |format|
-      format.all { respond_with @person, :locals => {:post_type => :all} }
+      format.all do
+        if params[:ex]
+          @page = :experimental
+          render 'experimental', :layout => 'post'
+        else
+          respond_with @person, :locals => {:post_type => :all}
+        end
+      end
       format.json{ render_for_api :backbone, :json => @stream.stream_posts, :root => :posts }
     end
   end

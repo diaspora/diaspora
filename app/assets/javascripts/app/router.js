@@ -12,9 +12,11 @@ app.Router = Backbone.Router.extend({
     "commented": "stream",
     "liked": "stream",
     "mentions": "stream",
-    "people/:id": "stream",
+
+    "people/:id": "profile",
+    "u/:name": "profile",
+
     "people/:id/photos": "photos",
-    "u/:name": "stream",
     "followed_tags": "stream",
     "tags/:name": "stream",
 
@@ -24,7 +26,16 @@ app.Router = Backbone.Router.extend({
     "framer": "framer"
   },
 
-  stream : function() {
+  profile : function(page) {
+    this.isExperimental(page) ? this.newProfile() : this.stream()
+  },
+
+  newProfile : function() {
+    app.page = new app.pages.Profile();
+    $("#container").html(app.page.render().el)
+  },
+
+  stream : function(page) {
     app.stream = new app.models.Stream();
     app.stream.fetch();
     app.page = new app.views.Stream({model : app.stream});
@@ -57,6 +68,10 @@ app.Router = Backbone.Router.extend({
   singlePost : function(id) {
     var page = new app.pages.PostViewer({ id: id });
     $("#container").html(page.el);
-   }
+   },
+
+  isExperimental : function(query) {
+   return query.search("ex=true") != -1
+  }
 });
 
