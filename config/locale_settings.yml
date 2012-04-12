@@ -3,7 +3,7 @@ default: "en"
 
 available:
   ar: "العربية"
-  art_nvi: "Na'vi"
+  art-nvi: "Na'vi"
   bg: "български език"
   br: "Brezhoneg"
   ca: "Català"
@@ -98,6 +98,8 @@ fallbacks:
     - "ur"
   de_formal:
     - "de"
+  art_nvi:
+    - "art-nvi"
 
 
 rtl:
