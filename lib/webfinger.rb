@@ -83,9 +83,9 @@ class Webfinger
   end
 
   def webfinger_profile_url
-    doc = Nokogiri::XML::Document.parse(self.host_meta_xrd)
+    doc = Nokogiri::XML(self.host_meta_xrd)
     return nil if doc.namespaces["xmlns"] != "http://docs.oasis-open.org/ns/xri/xrd-1.0"
-    swizzle doc.at('Link[rel=lrdd]').attribute('template').value
+    swizzle doc.search('Link').find{|x| x['rel']=='lrdd'}['template']
   end
 
   def webfinger_profile_xrd

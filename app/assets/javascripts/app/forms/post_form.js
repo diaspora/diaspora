@@ -11,19 +11,7 @@ app.forms.Post = app.views.Base.extend({
   },
 
   postRenderTemplate : function() {
-    //this.prepAndBindMentions()
-  },
-
-  prepAndBindMentions : function(){
     Mentions.initialize(this.$("textarea.text"));
-    Mentions.fetchContacts();
-
-    this.$("textarea.text").bind("textchange", $.proxy(this.updateTextWithMarkup, this))
-  },
-
-  updateTextWithMarkup : function() {
-    this.$("form textarea.text").mentionsInput('val', function(markup){
-      $('#text_with_markup').val(markup);
-    });
+    Mentions.fetchContacts(); //mentions should use app.currentUser
   }
 });

@@ -1,6 +1,18 @@
-def fill_in_autocomplete(selector, value)
-  pending #make me work if yr board, investigate send_keys
-  page.execute_script %Q{$('#{selector}').val('#{value}').keyup()}
+def type_to_mention(typed, user_name)
+  #add each of the charcters to jquery.mentionsInput's buffer
+  typed.each_char do |char|
+    key_code = char.ord
+    page.execute_script <<-JAVASCRIPT
+      var e = new $.Event("keypress")
+      e.which = #{key_code}
+      $("textarea.text").trigger(e)
+    JAVASCRIPT
+  end
+
+  #trigger event that brings up mentions input
+  page.execute_script('$("textarea.text").trigger("input")')
+
+  page.find(".mentions-autocomplete-list li:contains('#{user_name}')").click()
 end
 
 def aspects_dropdown
@@ -61,10 +73,8 @@ When /^I write "([^"]*)"(?:| with body "([^"]*)")$/ do |headline, body|
   fill_in 'text', :with => [headline, body].join("\n")
 end
 
-Then /I mention "([^"]*)"$/ do |text|
-  fill_in_autocomplete('textarea.text', '@a')
-  sleep(5)
-  find("li.active").click
+Then /I type "([^"]*)" to mention "([^"]*)"$/ do |typed, user_name|
+  type_to_mention(typed, user_name)
 end
 
 When /^I select "([^"]*)" in my aspects dropdown$/ do |title|
@@ -135,6 +145,6 @@ When /^the frame's body should be "([^"]*)"$/ do |body_text|
   find("section.body").text.should == body_text
 end
 
-Then /^the first post should mention "([^"]*)"$/ do |user_name|
-  pending
+Then /^the post should mention "([^"]*)"$/ do |user_name|
+  within('#post-content') { find("a:contains('#{user_name}')").should be_present }
 end

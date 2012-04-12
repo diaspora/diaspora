@@ -68,10 +68,16 @@
     var mentionRegex = /@\{([^;]+); ([^\}]+)\}/g
     return text.replace(mentionRegex, function(mentionText, fullName, diasporaId) {
       var person = _.find(mentions, function(person){
-        return person.diaspora_id == diasporaId
+        return (diasporaId == person.diaspora_id || person.handle) //jquery.mentionsInput gives us person.handle
       })
+      if(person) {
+        var url = person.url || "/people/" + person.guid //jquery.mentionsInput gives us person.url
+          , personText = "<a href='" + url + "' class='mention'>" + fullName + "</a>"
+      } else {
+        personText = fullName;
+      }
 
-      return person ? "<a href='/people/" + person.guid + "' class='mention'>" + fullName + "</a>" : fullName;
+      return personText
     })
   }
 
