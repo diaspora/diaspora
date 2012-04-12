@@ -13,12 +13,8 @@ app.models.Post = Backbone.Model.extend({
   },
 
   setFrameName : function(){
-    this.set({frame_name : findTheme(this)})
-
-
-    function findTheme(model) {
-      return model.get("photos").length == 1 ? "Wallpaper" : "Day"
-    }
+    var templatePicker = new app.models.Post.TemplatePicker(this)
+    this.set({frame_name : templatePicker.getFrameName()})
   },
 
   createdAt : function() {
