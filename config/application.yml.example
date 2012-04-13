@@ -203,9 +203,12 @@ development:
   <<: *defaults
   serve_static_assets: true
   no_follow_diasporahq: true
+  single_process_mode: true
 
 production:
   <<: *defaults
+  single_process_mode: false 
+  serve_static_assets: false
 
 #
 # Do not touch unless you know what you're doing
