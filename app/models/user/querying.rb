@@ -16,7 +16,7 @@ module User::Querying
   def visible_shareables(klass, opts={})
     opts = prep_opts(klass, opts)
     shareable_ids = visible_shareable_ids(klass, opts)
-    klass.where(:id => shareable_ids).select('DISTINCT '+klass.to_s.tableize+'.*').limit(opts[:limit]).order(opts[:order_with_table]).order(klass.table_name+".id DESC")
+    klass.where(:id => shareable_ids).select('DISTINCT '+klass.to_s.tableize+'.*').limit(opts[:limit]).order(opts[:order_with_table])
   end
 
   def visible_shareable_ids(klass, opts={})

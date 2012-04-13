@@ -73,4 +73,21 @@ describe Stream::Multi do
       @stream.send(:welcome?).should be_false
     end
   end
+
+  describe "posts with the same timestamp" do
+    before do
+      aspect_id = alice.aspects.where(:name => "generic").first.id
+      Timecop.freeze Time.now do
+        alice.post :status_message, :text => "first", :to => aspect_id
+        alice.post :status_message, :text => "second", :to => aspect_id
+      end
+    end
+
+    let(:posts) { Stream::Multi.new(alice, :max_time => Time.now).stream_posts }
+
+    it "returns them in reverse creation order" do
+      posts.first.text.should == "second"
+      posts.last.text.should == "first"
+    end
+  end
 end
