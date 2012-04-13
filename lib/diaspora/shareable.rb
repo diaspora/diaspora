@@ -33,10 +33,15 @@ module Diaspora
                select("DISTINCT #{self.table_name}.*")
         end
 
-        def self.for_visible_shareable_sql(max_time, order, limit = 15, types = Stream::Base::TYPES_OF_POST_IN_STREAM)
-          by_max_time(max_time, order).
-          where(:type => types).
-          limit(limit)
+        def self.for_visible_shareable_sql(max_time, order_cls, limit = 15, types = Stream::Base::TYPES_OF_POST_IN_STREAM)
+          order_cls = {:primary=>order_cls} unless order_cls.is_a? Hash
+          return_sql = by_max_time(max_time, order_cls[:primary]).
+                         where(:type => types).
+                         limit(limit)
+
+          return_sql = return_sql.order("#{order_cls[:secondary]} desc") if order_cls.key?(:secondary)
+
+          return_sql
         end
 
         def self.by_max_time(max_time, order='created_at')

@@ -92,8 +92,9 @@ class Stream::Base
   end
 
   def order=(order_string)
-    @order = order_string
-    @order ||= 'created_at'
+    @order ||= {}
+    @order[:primary] = order_string
+    @order[:primary] ||= 'created_at'
   end
 
   protected

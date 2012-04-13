@@ -57,7 +57,7 @@ module EvilQuery
     end
 
     def aspects_post_ids!
-      @user.visible_shareable_ids(Post, :limit => 15, :order => "#{@order} DESC", :max_time => @max_time, :all_aspects? => true, :by_members_of => @user.aspect_ids)
+      @user.visible_shareable_ids(Post, :limit => 15, :order => "#{@order[:primary]} DESC", :max_time => @max_time, :all_aspects? => true, :by_members_of => @user.aspect_ids)
     end
 
     def followed_tags_posts!
