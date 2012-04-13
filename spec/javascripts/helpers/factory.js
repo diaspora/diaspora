@@ -75,11 +75,12 @@ factory = {
   },
 
   photoAttrs : function(overrides){
+    var id = this.id.next();
     return _.extend({
       author: factory.userAttrs(),
       created_at: "2012-03-27T20:11:52Z",
-      guid: "8b0db16a4c4307b2",
-      id: 117,
+      guid: "8b0db16a4c4307b2" + id,
+      id: id,
       sizes: {
           large: "http://localhost:3000/uploads/images/scaled_full_d85410bd19db1016894c.jpg",
           medium: "http://localhost:3000/uploads/images/thumb_medium_d85410bd19db1016894c.jpg",

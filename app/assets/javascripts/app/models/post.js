@@ -12,6 +12,11 @@ app.models.Post = Backbone.Model.extend({
     this.participations = this.participations || new app.collections.Participations([], {post : this}); // load in the user like initially
   },
 
+  setFrameName : function(){
+    var templatePicker = new app.models.Post.TemplatePicker(this)
+    this.set({frame_name : templatePicker.getFrameName()})
+  },
+
   createdAt : function() {
     return this.timeOf("created_at");
   },

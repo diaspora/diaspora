@@ -3,11 +3,6 @@ describe("app.pages.Composer", function(){
     this.page = new app.pages.Composer()
   })
 
-  it("stores a reference to the form as app.composer" , function(){
-    expect(this.page.model).toBeDefined()
-    expect(app.frame).toBe(this.page.model)
-  });
-
   describe("rendering", function(){
     beforeEach(function(){
       this.page.render();
@@ -15,12 +10,12 @@ describe("app.pages.Composer", function(){
 
     describe("clicking next", function(){
       beforeEach(function(){
-        spyOn(app.router, "navigate")
+       this.navigateSpy = spyOn(app.router, "navigate")
       })
 
       it("navigates to the framer", function(){
         this.page.$("button.next").click()
-        expect(app.router.navigate).toHaveBeenCalledWith("framer", true)
+        expect(this.navigateSpy).toHaveBeenCalledWith("framer", true)
       });
 
       describe(" setting the model's attributes from the various form fields", function(){
@@ -46,14 +41,19 @@ describe("app.pages.Composer", function(){
 
         it("instantiates a post on form submit", function(){
           this.page.$("button.next").click()
-          waitsFor(function(){ app.router.navigate.callCount > 1 })
+          waitsFor(function(){ return this.navigateSpy.wasCalled })
           runs(function(){
             expect(this.page.model.get("aspect_ids")).toBe("public")
             expect(this.page.model.get("services").length).toBe(2)
-            expect(this.page.model.get("text")).toBe("Oh My"))
+            expect(this.page.model.get("text")).toBe("Oh My")
           })
         })
       });
     })
   })
+
+  it("stores a reference to the form as app.composer" , function(){
+    expect(this.page.model).toBeDefined()
+    expect(app.frame).toBe(this.page.model)
+  });
 });
