@@ -207,7 +207,6 @@ development:
 
 production:
   <<: *defaults
-  pod_url: "http://example.com"
   single_process_mode: false 
   serve_static_assets: false
 
