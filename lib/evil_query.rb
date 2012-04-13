@@ -17,7 +17,7 @@ module EvilQuery
     end
 
     def posts
-      Post.joins(:participations).where(:participations => {:author_id => @user.person.id}).order("posts.interacted_at DESC")
+      Post.joins(:participations).where(:participations => {:author_id => @user.person.id}).order("posts.interacted_at DESC").order("participations.id DESC")
     end
   end
 
