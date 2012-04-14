@@ -73,9 +73,9 @@ describe("app.views.Base", function(){
       it("initializes tooltips declared with the view's tooltipSelector property", function(){
         this.view.tooltipSelector = ".christopher_columbus, .barrack_obama, .block_user"
 
-        spyOn($.fn, "twipsy")
+        spyOn($.fn, "tooltip")
         this.view.render()
-        expect($.fn.twipsy.mostRecentCall.object.selector).toBe(".christopher_columbus, .barrack_obama, .block_user")
+        expect($.fn.tooltip.mostRecentCall.object.selector).toBe(".christopher_columbus, .barrack_obama, .block_user")
       })
     })
   })
