@@ -199,6 +199,7 @@ defaults: &defaults
 # Use this section to override default settings in specific environments
 #
 
+
 development:
   <<: *defaults
   serve_static_assets: true
