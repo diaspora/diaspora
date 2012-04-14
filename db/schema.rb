@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120330144057) do
+ActiveRecord::Schema.define(:version => 20120414005431) do
 
   create_table "account_deletions", :force => true do |t|
     t.string  "diaspora_handle"
@@ -371,6 +371,19 @@ ActiveRecord::Schema.define(:version => 20120330144057) do
   add_index "profiles", ["full_name", "searchable"], :name => "index_profiles_on_full_name_and_searchable"
   add_index "profiles", ["full_name"], :name => "index_profiles_on_full_name"
   add_index "profiles", ["person_id"], :name => "index_profiles_on_person_id"
+
+  create_table "rails_admin_histories", :force => true do |t|
+    t.text     "message"
+    t.string   "username"
+    t.integer  "item"
+    t.string   "table"
+    t.integer  "month",      :limit => 2
+    t.integer  "year",       :limit => 8
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "rails_admin_histories", ["item", "table", "month", "year"], :name => "index_rails_admin_histories"
 
   create_table "service_users", :force => true do |t|
     t.string   "uid",                          :null => false

@@ -25,6 +25,7 @@ gem 'omniauth-tumblr'
 gem 'omniauth-twitter'
 
 gem 'twitter', '2.0.2'
+gem 'rails_admin', :git => 'git://github.com/sferik/rails_admin.git'
 
 # mail
 
@@ -109,6 +110,7 @@ gem 'client_side_validations'
 
 group :assets do
   gem 'sass-rails', '3.1.4'
+  gem 'bootstrap-sass', '~> 2.0.2'
 
   # Windows and OSX have an execjs compatible runtime built-in, Linux users should
   # install Node.js or use 'therubyracer'.

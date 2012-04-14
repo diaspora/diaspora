@@ -1,8 +1,6 @@
 @import "_new_mixins";
 
-/* bootstrap extentions and overrides for asset pipeline */
-.icon-white { background-image: image_url("img/glyphicons-halflings-white.png"); }
-.icon-black { background-image: image_url("img/glyphicons-halflings.png");       }
+/* bootstrap extentions */
 .icon-red   { background-image: image_url("img/glyphicons-halflings-red.png");   }
 .icon-green { background-image: image_url("img/glyphicons-halflings-green.png"); }
 .icon-blue  { background-image: image_url("img/glyphicons-halflings-blue.png");  }
@@ -358,10 +356,17 @@ div[data-template=flow] {
 
     .selected i {
       display: inline-block;
+      position: absolute;
+      left : 3px;
+      margin-top : 1px;
     }
 
     a {
-      display : inline-block;
+      display : block;
+
+      span {
+        padding-left: 5px;
+      }
     }
   }
 
