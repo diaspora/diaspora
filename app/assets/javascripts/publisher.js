@@ -163,7 +163,7 @@ var Publisher = {
   },
 
   triggerGettingStarted: function(){
-    Publisher.setUpPopovers("#publisher .dropdown", {trigger: 'manual', offset: 10, id: "message_visibility_explain", placement:'below', html:true}, 1000);
+    Publisher.setUpPopovers("#publisher .dropdown", {trigger: 'manual', offset: 10, id: "message_visibility_explain", placement:'bottom', html:true}, 1000);
     Publisher.setUpPopovers("#publisher #status_message_fake_text", {trigger: 'manual', placement: 'right', offset: 30, id: "first_message_explain", html:true}, 600);
     Publisher.setUpPopovers("#gs-shim", {trigger: 'manual', placement: 'left', id:"stream_explain", offset: -5, html:true}, 1400);
 
