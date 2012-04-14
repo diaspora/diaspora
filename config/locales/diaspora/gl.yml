@@ -132,7 +132,7 @@ gl:
       community_spotlight: "estrelas da comunidade"
     aspect_listings:
       select_all: "Escollelos todos"
-      deselect_all: "Non escoller ningún"
+      deselect_all: "Ningún"
       edit_aspect: "Modificar %{name}"
       add_an_aspect: "Engadir un novo"
     selected_contacts:
@@ -505,7 +505,7 @@ gl:
         few: "e %{count} máis"
         many: "e %{count} máis"
         other: "e %{count} máis"
-      and: 'e'
+      and: "e"
     helper:
       new_notifications:
         zero: "Non hai notificacións novas."
@@ -561,12 +561,12 @@ gl:
         O robot do correo de Diaspora*
         
   people:
-    zero: "Non hai xente."
-    one: "Hai unha persoa."
-    two: "Hai dúas persoas."
-    few: "Hai %{count} persoas."
-    many: "Hai %{count} persoas."
-    other: "Hai %{count} persoas."
+    zero: "ninguén."
+    one: "unha persoa."
+    two: "dúas persoas."
+    few: "%{count} persoas."
+    many: "%{count} persoas."
+    other: "%{count} persoas."
     person:
       pending_request: "Solicitude pendente"
       already_connected: "Xa están conectados"
@@ -752,11 +752,11 @@ gl:
       reshare_original: "Repetir o orixinal"
       reshare:
         zero: "Repetir"
-        one: "Unha repetición."
-        two: "Dúas repeticións."
-        few: "%{count} repeticións."
-        many: "%{count} repeticións."
-        other: "%{count} repeticións."
+        one: "Repetida unha vez."
+        two: "Repetida dúas veces."
+        few: "Repetida %{count} veces."
+        many: "Repetida %{count} veces."
+        other: "Repetida %{count} veces."
       show_original: "Amosar o orixinal"
       reshare_confirmation: "Repetir a publicación de %{author}?"
       deleted: "O autor da publicación orixinal eliminouna."
