@@ -11,38 +11,25 @@ app.views.AspectsDropdown = app.views.Base.extend({
   setVisibility : function(evt){
     var self = this
       , link = $(evt.target).closest("a")
-      , visibilityCallbacks = {
-          'public' : setPublic,
-          'all-aspects' : setPrivate,
-          'custom' : setCustom
-        }
 
-    visibilityCallbacks[link.data("visibility")]()
-
-    this.setAspectIds()
-
-    function setPublic (){
+    if(_.include(['public', 'all-aspects'], link.data('visibility'))) {
       deselectAll()
-      selectAspect()
+      link.parents("li").addClass("selected")
       self.setDropdownText(link.text())
-    }
-
-    function setPrivate (){
-      deselectAll()
-      selectAspect()
-      self.setDropdownText(link.text())
-    }
-
-    function setCustom (){
+    } else {
       deselectOverrides()
       link.parents("li").toggleClass("selected")
-      self.setDropdownText(link.text())
-      evt.stopImmediatePropagation();
+      evt.stopImmediatePropagation(); //stop dropdown from going awaay
+
+      var selectedAspects = this.$("li.selected")
+      if(selectedAspects.length > 1) {
+        self.setDropdownText("In " + this.$("li.selected").length + " aspects")
+      } else {
+        self.setDropdownText(selectedAspects.text() || "Private")
+      }
     }
 
-    function selectAspect() {
-      link.parents("li").addClass("selected")
-    }
+    this.setAspectIds()
 
     function deselectOverrides() {
       self.$("a.public, a.all-aspects").parent().removeClass("selected")

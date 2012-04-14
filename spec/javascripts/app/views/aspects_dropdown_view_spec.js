@@ -27,7 +27,7 @@ describe("app.views.AspectsDropdown", function(){
        this.link.click()
       })
 
-      it("calls set aspect_ids to 'public'", function(){
+      it("sets aspect_ids to 'public'", function(){
         expect(this.view.$("input.aspect_ids").val()).toBe("public")
       })
 
@@ -87,11 +87,22 @@ describe("app.views.AspectsDropdown", function(){
           expect(this.view.$("input.aspect_ids").val()).toBe("3,7")
         })
 
+        it("sets the button text to the number of selected aspects", function(){
+          expect($.trim(this.view.$(".dropdown-toggle .text").text())).toBe("In 2 aspects")
+          this.view.$("a:contains('conf')").click()
+          expect($.trim(this.view.$(".dropdown-toggle .text").text())).toBe("In 3 aspects")
+          this.view.$("a:contains('conf')").click()
+          expect($.trim(this.view.$(".dropdown-toggle .text").text())).toBe("In 2 aspects")
+
+        })
+
         describe("deselecting another aspect", function(){
           it("removes the clicked aspect", function(){
             expect(this.view.$("input.aspect_ids").val()).toBe("3,7")
+            expect($.trim(this.view.$(".dropdown-toggle .text").text())).toBe("In 2 aspects")
             this.view.$("a:contains('lovers')").click()
             expect(this.view.$("input.aspect_ids").val()).toBe("3")
+            expect($.trim(this.view.$(".dropdown-toggle .text").text())).toBe("sauce")
           })
         })
 
