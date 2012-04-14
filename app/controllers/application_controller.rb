@@ -22,7 +22,7 @@ class ApplicationController < ActionController::Base
                 :open_publisher
 
   def ensure_http_referer_is_set
-    request.env['HTTP_REFERER'] ||= root_path
+    request.env['HTTP_REFERER'] ||= '/'
   end
 
   # Overwriting the sign_out redirect path method

@@ -3,6 +3,8 @@
 #   the COPYRIGHT file.
 
 Diaspora::Application.routes.draw do
+  mount RailsAdmin::Engine => '/admin_panel', :as => 'rails_admin'
+
   # Posting and Reading
   resources :reshares
 
