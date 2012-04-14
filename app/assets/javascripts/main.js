@@ -38,6 +38,6 @@
 //= require contact-list
 //= require aspect-sorting
 //= require mentions
-//= require bootstrap/bootstrap-twipsy
-//= require bootstrap/bootstrap-popover
-//= require bootstrap/bootstrap-dropdown
+//= require bootstrap-tooltip
+//= require bootstrap-popover
+//= require bootstrap-dropdown

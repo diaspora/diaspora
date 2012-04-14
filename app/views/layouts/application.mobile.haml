@@ -56,7 +56,7 @@
                 = link_to(t('streams.activity.title'), activity_stream_path)
             
             #nav_badges
-              .badge{:id => "notification_badge"}            
+              .badge{:class => "badge-inverse", :id => "notification_badge"}            
                 = link_to(image_tag('icons/notifications_grey.png', :height => 16, :width => 16, :id => 'notification-flag'), notifications_path)
                 - if current_user.unread_notifications.count > 0
                   .badge_count
