@@ -5,7 +5,7 @@ Diaspora.Pages.InvitationsNew = function() {
     var rtl = $('html').attr('dir') == 'rtl',
         position = rtl ? 'left' : 'right';
 
-    $('#new_user [title]').twipsy({trigger: 'focus', placement: position});
+    $('#new_user [title]').tooltip({trigger: 'focus', placement: position});
     $('#user_email').focus();
   });
 };

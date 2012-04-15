@@ -3,6 +3,6 @@ Diaspora.Pages.InvitationsEdit = function() {
 
   this.subscribe("page/ready", function(evt, body) {
     jQuery.ajaxSetup({'cache': true});
-    $('#user_username').twipsy({trigger: 'select', placement: 'right'});
+    $('#user_username').tooltip({trigger: 'focus', placement: 'right'});
   });
 };
