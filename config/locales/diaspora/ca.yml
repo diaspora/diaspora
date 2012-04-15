@@ -871,7 +871,7 @@ ca:
       invitations_left: "en queden %{count}"
       dont_have_now: "No en teniu cap ara mateix, però aviat arribaran més invitacions!"
       invites_closed: "Actualment, les invitacions són tancades a aquesta beina de Diàspora"
-      invite_your_friends: "Convideu el vostres amics"
+      invite_your_friends: "Convideu els vostres amics"
       from_facebook: "Des del Facebook"
       by_email: "Per correu electrònic"
     reshare:
