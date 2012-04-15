@@ -362,7 +362,7 @@ ca:
       language: "Llengua"
       invite_someone_to_join: "Convideu algú a unir-se al Diàspora!"
       if_they_accept_info: "si accepten, seran afegits a l'aspecte al qual l'heu convidat."
-      comma_seperated_plz: "Podeu introduir múltiples adreces de correu separades per comes."
+      comma_separated_plz: "Podeu introduir múltiples adreces de correu separades per comes."
       check_out_diaspora: "Ei! Hauríeu de pegar-li una ullada al Diàspora*!"
       to: "A"
       personal_message: "Missatge personal"
@@ -981,7 +981,7 @@ ca:
       no_applications: "Encara no heu registrat cap aplicació."
     new:
       cubbies_will: "Cubbies podrà publicar fotos en el vostre nom"
-      autorize: "Autoritza"
+      authorize: "Autoritza"
       nope: "No"
 
 
