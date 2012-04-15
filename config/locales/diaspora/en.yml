@@ -940,7 +940,7 @@ en:
       no_applications: "You haven't registered any applications yet."
     new:
       cubbies_will: "Cubbies will be able to post photos on your behalf"
-      autorize: "Authorize"
+      authorize: "Authorize"
       nope: "No"
 
   streams:
