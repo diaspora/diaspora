@@ -343,7 +343,7 @@ en:
       language: "Language"
       invite_someone_to_join: "Invite someone to join Diaspora!"
       if_they_accept_info: "if they accept, they will be added to the aspect you invited them."
-      comma_seperated_plz: "You can enter multiple email addresses separated by commas."
+      comma_separated_plz: "You can enter multiple email addresses separated by commas."
       check_out_diaspora: "Hey! You should check out Diaspora*"
       to: "To"
       personal_message: "Personal message"
@@ -940,7 +940,7 @@ en:
       no_applications: "You haven't registered any applications yet."
     new:
       cubbies_will: "Cubbies will be able to post photos on your behalf"
-      autorize: "Authorize"
+      authorize: "Authorize"
       nope: "No"
 
   streams:

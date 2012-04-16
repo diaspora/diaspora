@@ -85,6 +85,18 @@ ca:
       correct_the_following_errors_and_try_again: "Corregiu els errors següents i torneu-ho a provar."
 
 
+  admins:
+    admin_bar:
+      pages: "Pàgines"
+      user_search: "Cerca d'usuaris"
+      weekly_user_stats: "Estadístiques setmanals d'usuaris"
+      pod_stats: "Estadístiques de la beina"
+      correlations: "Correlacions"
+      resque_overview: "Resum del resque"
+    correlations:
+      correlations_count: "Correlacions amb el compte d'autenticacions"
+
+
   application:
     helper:
       unknown_person: "persona desconeguda"
@@ -165,7 +177,8 @@ ca:
       friends: "Amistats"
     index:
       donate: "Doneu"
-      keep_us_running: "Mantingueu %{pod} en marxa i compreu-li als nostres servidors la seva dosi de cafeïna amb una donació mensual!"
+      keep_pod_running: "Mantingueu %{pod} en marxa i compreu-li als nostres servidors la seva dosi de cafeïna amb una donació mensual!"
+      keep_diaspora_running: "Ajudeu a què el desenvolupament del Diàspora* continue sent ràpid amb una donació mensual!"
       no_tags: "+ Cerqueu una etiqueta per seguir-la"
       unfollow_tag: "Deixa de seguir #%{tag}"
       handle_explanation: "Aquest és el vostre identificador de Diàspora. Com les adreces de correu, podeu donar això a la gent per a que us contacte."
@@ -335,6 +348,8 @@ ca:
       learn_about_host: "Aprengueu com hostatjar el vostre servidor de Diàspora propi."
 
 
+  invitation_codes:
+    excited: "%{name} és molt content de trobar-vos aquí."
   invitations:
     create:
       sent: "S'ha enviat invitacions a: "
@@ -347,11 +362,20 @@ ca:
       language: "Llengua"
       invite_someone_to_join: "Convideu algú a unir-se al Diàspora!"
       if_they_accept_info: "si accepten, seran afegits a l'aspecte al qual l'heu convidat."
-      comma_seperated_plz: "Podeu introduir múltiples adreces de correu separades per comes."
+      comma_separated_plz: "Podeu introduir múltiples adreces de correu separades per comes."
+      check_out_diaspora: "Ei! Hauríeu de pegar-li una ullada al Diàspora*!"
       to: "A"
       personal_message: "Missatge personal"
       send_an_invitation: "Envia una invitació"
       send_invitation: "Envia una invitació"
+      paste_link: "Compartiu aquest enllaç amb els vostres amics per convidar-los al Diàspora*, o envieu-los-hi l'enllaç directament."
+      codes_left:
+        zero: "No queda cap invitació per a aquest codi"
+        one: "Queda una invitació per a aquest codi"
+        two: "Queden %{count} invitacions per a aquest codi"
+        few: "Queden %{count} invitacions per a aquest codi"
+        many: "Queden %{count} invitacions per a aquest codi"
+        other: "Queden %{count} invitacions per a aquest codi"
       aspect: "Aspecte"
       already_invited: "Les persones següents no han acceptat la vostra invitació:"
       resend: "Torna-la a enviar"
@@ -491,6 +515,7 @@ ca:
     index:
       notifications: "Notificacions"
       mark_all_as_read: "Marca-les totes com a llegides"
+      mark_unread: "Marca com a no llegit"
       and_others:
         zero: "i ningú més"
         one: "i una més"
@@ -539,6 +564,21 @@ ca:
     confirm_email:
       subject: "Activeu la vostra adreça de correu electrònic %{unconfirmed_email}"
       click_link: "Per activar la vostra adreça de correu electrònic %{unconfirmed_email}, seguiu aquest enllaç:"
+    accept_invite: "Accepteu la vostra invitació al Diàspora*!"
+    invited_you: "%{name} us ha convidat al Diàspora*"
+    invite:
+      message: |-
+        Hola!
+        
+        Heu estat convidat/da per a unir-vos al Diàspora*!
+        
+        Feu clic en aquest enllaç per començar
+        
+        %{invite_url}
+        
+        Amb amor,
+        
+        El robot de correu del Diàspora*!
 
 
   people:
@@ -558,6 +598,7 @@ ca:
       no_results: "Ep! Heu de cercar alguna cosa."
       couldnt_find_them_send_invite: "No l'heu trobat? Envieu-li una invitació!"
       no_one_found: "… i no s'ha trobat ningú."
+      searching: "S'està cercant, sigueu pacient…"
       looking_for: "Esteu buscant les publicacions etiquetades amb %{tag_link}?"
     webfinger:
       fail: "No s'ha trobat a %{handle}."
@@ -596,6 +637,9 @@ ca:
       edit_membership: "edita la pertinença de l'aspecte"
     add_contact_small:
       add_contact_from_tag: "afegeix un contacte d'una etiqueta"
+    last_post: "Darrera publicació"
+    add_contact:
+      invited_by: "Vau ser convidats per"
 
 
   photos:
@@ -635,6 +679,8 @@ ca:
 
 
   posts:
+    presenter:
+      title: "Una publicació de %{author}"
     show:
       destroy: "Suprimeix"
       permalink: "enllaç permanent"
@@ -672,8 +718,8 @@ ca:
       update_profile: "Actualitza el perfil"
       allow_search: "Permet que la gent em cerqui dins del Diàspora"
       edit_profile: "Edita el perfil"
-      you_are_nsfw: "Us heu marcat com a no apropiats per a entorns de treball. El vostre contingut no es mostrarà als fluxos de la gent que ha decidit no veure continguts potencialment ofensiu."
-      you_are_safe_for_work: "Us heu marcat com a apropiats per a entorns de treball. Això vol dir que esteu d'acord en què el vostre contingut compleixi les guies de comportament de la comunitat."
+      you_are_nsfw: "Us heu marcat com a no apropiat per a entorns de treball. El vostre contingut no es mostrarà als fluxos de la gent que ha decidit no veure continguts potencialment ofensiu."
+      you_are_safe_for_work: "Us heu marcat com a apropiat per a entorns de treball. Això vol dir que esteu d'acord en què el vostre contingut compleixi les guies de comportament de la comunitat."
     update:
       updated: "S'ha actualitzat el perfil"
       failed: "No s'ha pogut actualitzar el perfil"
@@ -701,6 +747,7 @@ ca:
       update: "Actualitza"
       cancel_my_account: "Canceŀla el meu compte"
     closed: "Els registres són tancats en aquesta beina del Diàspora."
+    invalid_invite: "L'enllaç d'invitació que heu emprat ja no és vàlid!"
 
 
   requests:
@@ -824,7 +871,7 @@ ca:
       invitations_left: "en queden %{count}"
       dont_have_now: "No en teniu cap ara mateix, però aviat arribaran més invitacions!"
       invites_closed: "Actualment, les invitacions són tancades a aquesta beina de Diàspora"
-      invite_your_friends: "Convideu el vostres amics"
+      invite_your_friends: "Convideu els vostres amics"
       from_facebook: "Des del Facebook"
       by_email: "Per correu electrònic"
     reshare:
@@ -848,6 +895,7 @@ ca:
       connect_to_comment: "Connecteu-vos a aquest usuari per comentar la seva publicació"
       currently_unavailable: "els comentaris no són disponibles ara mateix"
       via: "via %{link}"
+      via_mobile: "via mòbil"
       ignore_user: "Ignora l'usuari %{name}"
       ignore_user_description: "Voleu ignorar l'usuari i suprimir-lo de tots els aspectes?"
       hide_and_mute: "Amaga i silencia la publicació"
@@ -931,6 +979,10 @@ ca:
     index:
       revoke_access: "Revoca l'accés"
       no_applications: "Encara no heu registrat cap aplicació."
+    new:
+      cubbies_will: "Cubbies podrà publicar fotos en el vostre nom"
+      authorize: "Autoritza"
+      nope: "No"
 
 
   streams:
@@ -966,7 +1018,7 @@ ca:
     aspects:
       title: "Els meus aspectes"
     activity:
-      title: "La meua activitat"
+      title: "La meva activitat"
 
   users:
     logged_out: "Heu sortit del Diàspora*"
@@ -979,6 +1031,8 @@ ca:
       change_email: "Canvia el correu electrònic"
       new_password: "Contrasenya nova"
       current_password: "Contrasenya actual"
+      current_password_expl: "La que empreu per autenticar-vos…"
+      character_minimum_expl: "Ha de ser d'almenys sis caràcters"
       download_xml: "baixa el meu XML"
       download_photos: "baixa les meues fotos"
       your_handle: "El vostre identificador de Diàspora"

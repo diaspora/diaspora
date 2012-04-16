@@ -19,7 +19,7 @@
       = form_tag new_user_invitation_path  do
         %h4
           = t('email')
-        = text_field_tag 'email_inviter[emails]' ,nil, :title => t('.comma_seperated_plz'), :placeholder => 'foo@bar.com, max@foo.com...'
+        = text_field_tag 'email_inviter[emails]' ,nil, :title => t('.comma_separated_plz'), :placeholder => 'foo@bar.com, max@foo.com...'
         %br
 
         %h4
