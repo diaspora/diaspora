@@ -4,11 +4,11 @@
 
 
 
-"art-nvi":
+art-nvi:
   devise:
     confirmations:
-      confirmed: "Ngeyä Diaspora lílmatem. Nga fpxílmäkim."
-      send_instructions: "Nga tayel sänumeti ikä Ikran lí'u teri nga leratem ngeyä Diaspora."
+      confirmed: "Ngeyä Diaspora lìlmatem. Nga fpxìlmäkim."
+      send_instructions: "Nga tayel sänumeti ikä Ikran lì'u teri nga leratem ngeyä Diaspora."
     failure:
       invalid: "Ke lu kangay tstxo fu ftemlì'u"
       unauthenticated: "Ngal kin 'ivastengyem ayoeti fu fpxäkim ayoe fte salew Diasporaru."
@@ -18,47 +18,52 @@
       invitation_instructions:
         accept: "mll'an"
         be_yourself: "nga läpu"
+        cubbies: "Cubbi.es"
         email_address: "questions@joindiaspora.com"
-        email_us: "Txo nga kin srung sivi tsní lu teri Diaspora, rutxe fpe' 'upxareti Diasporaru ro %{email}"
+        email_us: "Txo nga kin srung sivi tsnì lu teri Diaspora, rutxe fpe' 'upxareti Diasporaru ro %{email}"
         finally: "Nì'i'a - fì'u lu fìtsenge"
         friends_saying: "'upe ngeyä eylan pamrel seri..."
+        have_fun: "Fì'u a'o'"
         here: "fìtsenge"
         ignore: "Txo nga ke new mll'ivan stxenu, rutxe tswa' fì'upxare."
-        more_people: "ní'ul sute lu lefpom fte tse'a ngati!"
+        love: "Hu tìyawn,"
+        more_people: "nì'ul sute lu lefpom fte tse'a ngati!"
         no_account_till: "oeyä Diaspora ke ngalyop vaykrr ngal sar io tsengit ulte 'awstengyem ayoe."
         or: "fu"
-        subject: "Tuteol pílmawm ngati txo new slivu Diaspora hxpaitu!"
+        subject: "Tuteol pìlmawm ngati txo new slivu Diaspora hxpaitu!"
         team_diaspora: "Pongu Diaspora"
       inviter:
         has_invited_you: "%{name}"
         have_invited_you: "%{names} polawm ngati txo säpung Diasporaru"
       reset_password_instructions:
-        change: "Latem oeyä ftemlí'u"
-        someone_requested: "Tsengeäo lu fte nga tsun livatem ngeyä ftemlí'u talun tuteo pímawm ayoe txo tíng fí'uti ngaur."
+        change: "Latem oeyä ftemlì'u"
+        someone_requested: "Tsengeäo lu fte nga tsun livatem ngeyä ftemlì'u talun tuteo pìmawm ayoe txo tìng fì'uti ngaur."
         subject: "aysänume fte zeyko oeyä ftemlì'uti"
       welcome: "Zola'u nìprrte, ma %{email}!"
     passwords:
       edit:
-        change_password: "Latem oeyä ftemlí'u"
+        change_password: "Leykatem oeyä ftemlì'ut"
       new:
-        forgot_password: "Nga tswama' ngeyä ftemlí'u srak?"
-        no_account: "Kea Diaspora hu fíIkraníl lí'ul fkeytok. Txo perey Diasporati, ayoe teríng ayDiaspora ye'rín"
-        send_password_instructions: "Ngal fpe' oeti aysänume fte oe tsun livatem oeyä ftemlí'u"
-      send_instructions: "Ngal tayel Ikranit lì'uti sänumehu teri fyape nga latem ngeyä ftemlí'u."
-      updated: "Ngeyä ftemlí'u límatem. Nga tung fítsengmí set."
+        forgot_password: "Ngal tswama' ngeyä ftemlì'uti srak?"
+        no_account: "Kea Diaspora a hu fìImeyl fkeytok. Diasporari txo perey, ayoe terìng ayDiasporat ye'rìn"
+        send_password_instructions: "Fpe' oeru aysänumet fte oe tsivun leykivatem oeyä ftemlì'ut"
+      send_instructions: "Ngal tayel Imeylit a wìntxu ngaru fya'ot a ngal leykatem ngeyä ftemlì'ut."
+      updated: "Ngeyä ftemlì'u lìmatem. Nga tung fìtsengmì set."
     sessions:
       new:
         bugs_and_feedback: "Eltu si, ngal tsìsye'a keyey. Ayoel mok futa ngal sar <Feedback Button> a mì skiena pa'o fte ayoeru piveng. Ayoe tìkangkem sayi nìwin fte zeykivo keyeyti a ngal wìntxu."
         bugs_and_feedback_mobile: "Eltu si, ngal tsìsye'a keyey. Ayoel mok futa ngal ayoeru piveng teri sa'u. Ayoe tìkangkem sayi nìwin fte zeykivo keyeyti a ngal wìntxu."
         login: "Fpxäkim"
-        modern_browsers: "Diasporal ní'aw tung eltuti lefpom nariti asop"
+        modern_browsers: "Diasporal nì'aw tung eltuti lefpom nariti asop"
         password: "Ftemlì'u"
         remember_me: "Zerok oeti"
         sign_in: "Fpxäkim"
         username: "Saryutstxo"
-      signed_in: "Ngati tímung fítsengmí set."
-      signed_out: "Nga hímum set."
+      signed_in: "Ngati tìmung fìtsengmì set."
+      signed_out: "Nga hìmum set."
     shared:
+      links:
+        forgot_your_password: "Nga tswama' ngeyä ftemlì'u srak?"
       mail_signup_form:
         sign_up_for_an_invite: "Ngal 'awstengyem ayoeti Diasporari!"
   errors:

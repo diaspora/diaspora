@@ -35,7 +35,7 @@ sv:
         be_yourself: "Var Dig själv"
         be_yourself_paragraph: "Internet har skapat helt nya unika sätt att uttrycka sig på. %{strong_diaspora} låter dig vara dig själv och dela vad du vill, med eller utan ditt riktiga namn."
         cubbies: "Cubbi.es"
-        displaying_correctly: "Visas inte e-mail korrekt? %{link}"
+        displaying_correctly: "Visas inte e-brevet korrekt? Använd länken: %{link}"
         email_address: "questions@joindiaspora.com"
         email_us: "För allmänna frågor eller support med ditt Diaspora konto, vänligen maila oss på %{email}."
         finally: "Äntligen är den här"
@@ -85,7 +85,7 @@ sv:
       updated: "Ditt lösenord har ändrats och du är inloggad."
     registrations:
       destroyed: "Ditt konto är avslutat. Välkommen åter!"
-      signed_up: "Du har skapat ett konto. Beroende på dina inställningar kan ett bekräftelsemail ha skickats till dig."
+      signed_up: "Du har skapat ett konto. Beroende på dina inställningar kan en bekräftelse ha skickats till din e-postadress."
       updated: "Ditt konto har uppdateras."
     sessions:
       new:

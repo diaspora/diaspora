@@ -127,6 +127,8 @@ it:
         tag_question: "domanda"
         tutorials_wiki_and_forum: "%{tutorial} & %{wiki} & %{forum}: Per le ultime notizie, le guide e i suggerimenti della comunità"
       introduce_yourself: "Questo è il tuo stream. Sali a bordo e presentati!"
+      keep_diaspora_running: "Fai andare veloce lo sviluppo di Diaspora con una donazione mensile!"
+      keep_pod_running: "Mantieni %{pod} veloce e scattante, la tua donazione mensile sarà il caffè per i nostri server!"
       new_here:
         follow: "Segui %{link} per dare il benvenuto ai nuovi iscritti su Diaspora*!"
         learn_more: "Scopri i dettagli"
@@ -181,6 +183,7 @@ it:
     new:
       autorize: "Autorizza"
       cubbies_will: "Cubbies potrà pubblicare le foto sul tuo account"
+      nope: "No"
   back: "Indietro"
   blocks:
     create:

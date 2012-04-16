@@ -118,7 +118,7 @@ es:
         do_you: "Tal vez:"
         email_feedback: "Si lo prefieres, envía tus comentarios a este %{link}."
         feature_suggestion: "- Propongas alguna %{link}."
-        find_a_bug: "- Encuentres algún %{link}"
+        find_a_bug: "- Encuentres algún %{link}."
         have_a_question: "- Realices alguna %{link}."
         here_to_help: "¡La comunidad Diaspora está aquí!"
         need_help: "Ayuda"
@@ -127,6 +127,8 @@ es:
         tag_question: "pregunta"
         tutorials_wiki_and_forum: "%{tutorial} & %{wiki} & %{forum}: Tutoriales, wiki y noticias"
       introduce_yourself: "Esta es tu entrada principal. Adelante, preséntate..."
+      keep_diaspora_running: "¡Haz que el desarrollo de Diaspora vaya más rápido con una donación mensual!"
+      keep_pod_running: "Haz que %{pod} vaya más rápido, ¡deja a nuestros servidores su dosis de café mensual con una doncación mensual!"
       new_here:
         follow: "¡Sigue %{link} y da la bienvenida a los nuevos miembros de Diaspora*!"
         learn_more: "Más información"
@@ -181,6 +183,7 @@ es:
     new:
       autorize: "Autorizar"
       cubbies_will: "Cubbies podrá publicar fotos por ti"
+      nope: "No"
   back: "Atrás"
   blocks:
     create:

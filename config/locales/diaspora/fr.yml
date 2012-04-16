@@ -128,6 +128,7 @@ fr:
         tutorials_wiki_and_forum: "%{tutorial} & %{wiki} & %{forum}: Tutoriels créés par la communauté, astuces, et infos"
       introduce_yourself: "Ceci est votre flux. Rejoignez-nous et présentez-vous."
       keep_diaspora_running: "Participez à un développement rapide de Diaspora avec un don mensuel !"
+      keep_pod_running: "Permettez à %{pod} de fonctionner rapidement et offrez une dose de café mensuelle à nos serveurs !"
       new_here:
         follow: "Suivez %{link} et souhaitez la bienvenue aux nouveaux utilisateurs de Diaspora*!"
         learn_more: "En savoir plus"

@@ -127,6 +127,8 @@ pl:
         tag_question: "pytanie"
         tutorials_wiki_and_forum: "%{tutorial} & %{wiki} & %{forum}: Samouczki, instrukcje i aktualności dostarczane przez Społeczność"
       introduce_yourself: "Oto Twoj strumień. Wskocz do niego i przedstaw się."
+      keep_diaspora_running: "Ułatw sprawny rozwój Diaspory dzięki miesięcznej darowiźnie!"
+      keep_pod_running: "Aby %{pod} działał szybko podaruj serwerom dawkę kofeiny w postaci miesięcznej darowizny!"
       new_here:
         follow: "Obserwuj %{link} i powitaj nowych użytkowników Diaspory*!"
         learn_more: "Dowiedz się więcej"
@@ -181,6 +183,7 @@ pl:
     new:
       autorize: "Autoryzuj"
       cubbies_will: "Usługa Cubbies będzie mogła zamieszczać zdjęcia w Twoim imieniu"
+      nope: "Nie"
   back: "Powrót"
   blocks:
     create:

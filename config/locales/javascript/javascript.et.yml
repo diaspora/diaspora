@@ -1,0 +1,31 @@
+#   Copyright (c) 2010-2012, Diaspora Inc.  This file is
+#   licensed under the Affero General Public License version 3 or later.  See
+#   the COPYRIGHT file.
+
+
+
+et:
+  javascripts:
+    confirm_dialog: "Kas oled kindel?"
+    delete: "Kustuta"
+    getting_started:
+      alright_ill_wait: "Olgu, ma ootan."
+    ignore: "Eira"
+    my_activity: "Minu tegevused"
+    my_stream: "Voog"
+    timeago:
+      day: "üks päev"
+      days: "%d päeva"
+      hour: "umbes üks tund"
+      hours: "umbes %d tundi"
+      minute: "umbes üks minut"
+      minutes: "%d minutit"
+      month: "umbes kuu aega"
+      months: "%d kuud"
+      prefixAgo: ""
+      prefixFromNow: ""
+      seconds: "vähem kui üks minut"
+      suffixAgo: "tagasi"
+      suffixFromNow: "hiljem"
+      year: "umbes üks aasta"
+      years: "%d aastat"

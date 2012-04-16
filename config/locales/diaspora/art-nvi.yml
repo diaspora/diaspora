@@ -4,14 +4,28 @@
 
 
 
-"art-nvi":
+art-nvi:
+  _applications: "Lapo aydiaspora"
   _comments: "Aysäplltxevi"
+  _contacts: "Eylan"
   _home: "Kelutral"
   _photos: "ayrel"
+  _services: "Hìte'e"
+  account: "Ngeyä Diaspora"
+  activerecord:
+    errors:
+      models:
+        user:
+          attributes:
+            person:
+              invalid: "lu kxeyey"
   ago: "%{time} kam"
+  all_aspects: "Nìwotx Aypongu"
   application:
     helper:
       unknown_person: "tute astxong"
+  are_you_sure: "Nga lu law srak?"
+  are_you_sure_delete_account: "Nga lu law tsnì new tspivang ngeyä Diasporati srak? fìkem ke laytem mawkrr!"
   aspects:
     destroy:
       success: "%{name}l 'ìlmaku fìtsengeta."
@@ -19,22 +33,39 @@
       done: "Hasey"
     index:
       cubbies:
+        heading: "'awstengyem ne Cubbi.es"
         learn_more: "nume nì'ul"
+      diaspora_id:
+        content_1: "Ngeyä Diaspora Tstxo lu:"
+        content_2: "Fpe' fì'u"
+        heading: "Diaspora Tstxo"
       donate: "Tìng"
       help:
+        feature_suggestion: "... %{link} tìmok srak?"
+        find_a_bug: "... tìng oeti %{link}ur"
+        have_a_question: "... %{link} srak?"
         need_help: "fngo' srungit srak?"
         tag_bug: "tìngäzìk"
         tag_feature: "'u amip"
         tag_question: "tìpawn"
+      introduce_yourself: "Fì'u lu ngeyä payfya. Nga mäpuwìntxu."
       new_here:
+        follow: "Sutx %{link}it ulte zola'u nìprrte' sute amip ne Diaspora*!"
         learn_more: "nume nì'ul"
+        title: "Zola'u nìprrte' ma sute amip"
       no_contacts: "Kea 'eylan"
       post_a_message: "plltxe 'upxareit >>"
+      unfollow_tag: "Ke serutx #%{tag}"
+      welcome_to_diaspora: "Zola'u nìprrte' ne Diaspora ma %{name}!"
     new:
       create: "Ngop"
     seed:
+      family: "Soaia"
       friends: "Eylan"
       work: "Tìkangkem"
+  authorizations:
+    new:
+      nope: "Kea"
   back: "ne'ìm"
   cancel: "Ftang"
   comments:
@@ -44,6 +75,14 @@
     other: "%{count} aysäplltxevi"
     two: "%{count} mesäplltxevi"
     zero: "Kea aysäplltxevi"
+  contacts:
+    index:
+      add_a_new_aspect: "Ngop ponguti amip"
+      all_contacts: "Nìwotx Eylan"
+      my_contacts: "Oeyä Eylan"
+      start_a_conversation: "Nga sngä'i tìpängkxoti"
+      title: "Eylan"
+      your_contacts: "Ngeyä Eylan"
   conversations:
     create:
       fail: "kxeyey 'upxare"
@@ -54,6 +93,8 @@
         yml: "%{count} upxare amip"
         zero: "'upxare amip"
     index:
+      inbox: "'Upxare tsenge"
+      message_inbox: "'Upxare tsenge"
       new_message: "'Upxare amip"
       no_messages: "Kea upxare"
     new:
@@ -61,7 +102,12 @@
       sending: "fpere'"
     new_message:
       fail: "kxeyey 'upxare"
+    show:
+      reply: "'eyng"
+      replying: "'ereyng..."
   delete: "'aku"
+  email: "Ikran lì'u"
+  fill_me_out: "Pamrel si mì oe"
   find_people: "Run suteti fu #säsulìnit"
   hide: "Wan"
   invitations:
@@ -71,8 +117,12 @@
     header:
       blog: "pìlok"
       logout: "Hum"
+      profile: "Txin"
       recent_notifications: "Upxare asop"
+      settings: "Sìfkeytok"
   more: "nì'ul"
+  next: "hay"
+  no_results: "Ke rìmun."
   notifications:
     index:
       and: "ulte"
@@ -81,6 +131,8 @@
       subject: "'Upxare teri ngeyä Diaspora:"
   ok: "Tam"
   or: "fu"
+  password: "Ftemlì'u"
+  password_confirmation: "Ftemlì'u latem"
   people:
     helper:
       results_for: " u %{params}ir"
@@ -88,12 +140,17 @@
     person:
       thats_you: "Fì'u nga lu!"
     profile_sidebar:
+      bio: "teri oe"
       born: "ftxozä"
+      gender: "fnepe tokx"
+      location: "Kelku"
       remove_from: "'aku %{name}it ta %{aspect} srak?"
     show:
       message: "'upxare"
       recent_posts: "Upxare asop"
       see_all: "Tse'a nìwotx"
+    sub_header:
+      edit: "latem"
     zero: "Kea sute"
   photos:
     comment_email_subject: "%{name}yä rel"
@@ -110,6 +167,10 @@
   posts:
     show:
       destroy: "'aku"
+  previous: "ham"
+  privacy: "Le'aw 'awpoä Sìfkeytok"
+  privacy_policy: "Le'aw 'awpoä sìfkeytok aysänume"
+  profile: "Txin"
   profiles:
     edit:
       first_name: "tstxo nì'awve"
@@ -118,6 +179,7 @@
       your_location: "ngeyä tsenge"
       your_name: "ngeyä tstxo"
       your_photo: "ngeyä rel"
+  public: "Frapo tsun tsive'a fì'u"
   registrations:
     edit:
       edit: "Latem %{name}it"
@@ -135,22 +197,63 @@
       connect_to_facebook: "'awstengyem Facebookur"
       connect_to_tumblr: "'awstengyem Tumblrur"
       connect_to_twitter: "'awstengyem Twitterur"
+  settings: "Sìfkeytok"
   shared:
+    invitations:
+      by_email: "ìlä email"
+      from_facebook: "Ta Facebook"
+      invite_your_friends: "pawm ngeyä eylanti fìtseng"
     publisher:
       upload_photos: "Fpe' relit"
     stream_element:
+      like: "Sunu"
+      unlike: "Ke Sunu"
       via: "ìlä %{link}"
+  streams:
+    activity:
+      title: "Oeyä Tìn"
+    aspects:
+      title: "Oeyä Aypongu"
+    aspects_stream: "Aypengu"
+    followed_tag:
+      follow: "Sutx"
+    followed_tags_stream: "#samutx sìn"
+    mentioned_stream: "@plltxole"
+    mentions:
+      title: "@plltxole"
+    multi:
+      contacts_title: "Sute ngeyä Payfyamì"
+      title: "Payfya"
+  terms_and_conditions: "Horen"
   tokens:
     show:
       via: "(ìlä %{link})"
+  undo: "Tätxaw srefxiset?"
+  username: "Tstxo"
   users:
     edit:
       change: "Latem"
+      change_email: "latem ngeyä Ikran lì'u"
       change_language: "latem lì'fyati"
+      change_password: "Latem ngeyä ftemlì'u"
+      character_minimum_expl: "zene livu to pukap ngim"
+      close_account_text: "'aku diasporati"
+      current_password: "Lefkrr ftemlì'u"
+      current_password_expl: "nga fpxäkìm fìftemlì'uhu..."
+      edit_account: "Latem ngeyä Diaspora"
+      new_password: "Ftemlì'u amip"
+      your_email: "Ngeyä Ikran lì'u"
     getting_started:
       well_hello_there: "Tse, kaltxì tsatseng!"
       who_are_you: "Pesu nga lu"
     logged_out:
+      go_mobile: "Sar hì'ia eltuti lefngap."
+      on_your_mobile_device: "mì ngeyä hì'ia eltu lefngap fte sar diasporati ahì'i"
+      signed_out: "Nga holum Diasporait"
+      simply_visit: "Frrfen"
       works_on_modern: "Fì'u tìkangkem si mì syawyu lefngap lefkrr nìwotx"
+    privacy_settings:
+      title: "Le'aw 'awpoä Sìfkeytok"
     update:
       language_changed: "lì'fyal lìmatem"
+  welcome: "Zola'u nìprrte'!"

@@ -127,6 +127,8 @@ es-MX:
         tag_question: "pregunta"
         tutorials_wiki_and_forum: "%{tutorial} & %{wiki} & %{forum}: Tutoriales hechos por la comunidad, guías y noticias"
       introduce_yourself: "Esta es tu entrada. Adelante, preséntate."
+      keep_diaspora_running: "¡Haz que el desarrollo de Diaspora siga yendo rápido con una donación mensual!"
+      keep_pod_running: "¡Haz que %{pod} siga yendo rápido, y compra a nuestros servidores su dosis de café, con una donación mensual!"
       new_here:
         follow: "¡Sigue %{link} y da la bienvenida a nuevos usuarios de Diaspora*!"
         learn_more: "Aprende más"
@@ -181,6 +183,7 @@ es-MX:
     new:
       autorize: "Autorizar"
       cubbies_will: "Cubbies podrá publicar fotos por ti"
+      nope: "No"
   back: "Atrás"
   blocks:
     create:

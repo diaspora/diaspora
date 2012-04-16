@@ -293,7 +293,7 @@ ko:
       tagline_first_half: "원하는 사람들과"
       tagline_second_half: "원하는 걸 공유하자."
   invitation_codes:
-    excited: "%{name}님이 나를 여기서 보길 기대하고 있습니다."
+    excited: "%{name}님이 나를 기다리고 있습니다."
   invitations:
     a_facebook_user: "페이스북 사욤자"
     check_token:
@@ -493,7 +493,7 @@ ko:
 
 
           디아스포라* 이메일 로봇 보냄!
-    invited_you: "%{name}님이 나를 디아스포라*로 초대핬습니다."
+    invited_you: "%{name}님이 나를 디아스포라*로 초대했습니다."
     liked:
       liked: "%{name}님이 내 게시물을 좋아합니다:"
       view_post: "게시물 보기 >"
