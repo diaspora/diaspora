@@ -59,8 +59,8 @@ class AuthorizationsController < ApplicationController
       public_key = OpenSSL::PKey::RSA.new(packaged_manifest['public_key'])
       manifest = JWT.decode(packaged_manifest['jwt'], public_key)
     rescue => e
-      puts "there was a problem with getting a token for the following diaspora id"
-      puts "#{app_url}, #{public_key.to_s} #{manifest.to_s}"
+      puts "DIASPORA_CONNECT there was a problem with getting a token for the following diaspora id"
+      puts "DIASPORA_CONNECT #{app_url}, #{public_key.to_s} #{manifest.to_s}"
       raise e
     end
 
