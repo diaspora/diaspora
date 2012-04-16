@@ -44,7 +44,59 @@ describe("app.helpers.textFormatter", function(){
         expect(linkElement.text()).toContain(link);
         expect(linkElement.attr("target")).toContain("_blank");
       })
-    })
+    });
+
+    context("non-ascii urls", function() {
+      beforeEach(function() {
+        this.evilUrls = [
+          "http://www.bürgerentscheid-krankenhäuser.de", // example from issue #2665 
+          "http://bündnis-für-krankenhäuser.de/wp-content/uploads/2011/11/cropped-logohp.jpg",
+          "http://موقع.وزارة-الاتصالات.مصر/", // example from #3082
+          "http:///scholar.google.com/citations?view_op=top_venues",
+          "http://lyricstranslate.com/en/someone-you-നിന്നെ-പോലൊരാള്‍.html" // example from #3063
+        ];
+        this.asciiUrls = [
+          "http://www.xn--brgerentscheid-krankenhuser-xkc78d.de",
+          "http://xn--bndnis-fr-krankenhuser-i5b27cha.de/wp-content/uploads/2011/11/cropped-logohp.jpg",
+          "http://xn--4gbrim.xn----ymcbaaajlc6dj7bxne2c.xn--wgbh1c/",
+          "http:///scholar.google.com/citations?view_op=top_venues",
+          "http://lyricstranslate.com/en/someone-you-%E0%B4%A8%E0%B4%BF%E0%B4%A8%E0%B5%8D%E0%B4%A8%E0%B5%86-%E0%B4%AA%E0%B5%8B%E0%B4%B2%E0%B5%8A%E0%B4%B0%E0%B4%BE%E0%B4%B3%E0%B5%8D%E2%80%8D.html"
+        ];
+      });
+
+      it("correctly encode to punycode", function() {
+        _.each(this.evilUrls, function(url, num) {
+          var text = this.formatter.markdownify( "<" + url + ">" );
+          expect(text).toContain(this.asciiUrls[num]);
+        }, this);
+      });
+
+      it("don't break link texts", function() {
+        var linkText = "check out this awesome link!";
+        var text = this.formatter.markdownify( "["+linkText+"]("+this.evilUrls[0]+")" );
+
+        expect(text).toContain(this.asciiUrls[0]);
+        expect(text).toContain(linkText);
+      });
+
+      it("don't break reference style links", function() {
+        var postContent = "blabla blab [my special link][1] bla blabla\n\n[1]: "+this.evilUrls[0]+" and an optional title)";
+        var text = this.formatter.markdownify(postContent);
+
+        expect(text).not.toContain(this.evilUrls[0]);
+        expect(text).toContain(this.asciiUrls[0]);
+      });
+
+      it("can be used as img src", function() {
+        var postContent = "![logo]("+ this.evilUrls[1] +")";
+        var niceImg = '"'+ this.asciiUrls[1] +'"'; // the "" are from src=""
+        var text = this.formatter.markdownify(postContent);
+
+        expect(text).toContain(niceImg);
+      });
+
+    });
+
   })
 
   describe(".hashtagify", function(){
