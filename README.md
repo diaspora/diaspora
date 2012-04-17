@@ -22,21 +22,24 @@ Documentation is available on our [wiki](https://github.com/diaspora/diaspora/wi
 
 Here's how you can get a development environment up and running. You can check out system-specific guides [here](https://github.com/diaspora/diaspora/wiki/Installation-Guides).
 
-### Step 1: Clone the repo 
+### Step 1: Clone the repo in your working directory
 ```git clone git@github.com:diaspora/diaspora.git
 ```
 
 ### Step 2: Navigate to your cloned repository
-```cd ../diaspora
+```cd diaspora
 ```
 
 ### Step 3: Install Bundler and gems (depending on [OS Vendor](https://github.com/diaspora/diaspora/wiki/Installation-Guides))
-```sudo gem install bundler && sudo bundle install
+``` gem install bundler && bundle install
 ```
 
-### Step 4: Edit database.yml, and rename application.yml.example to just application.yml 
+### Step 4: Edit database.yml, and rename application.yml.example to just application.yml
+``` cp application.yml.example application.yml 
+    cp database.yml.example database.yml
+```
 
-### Step 5: Create and migrate the database
+### Step 5: Create and migrate the database (make sure your database of choice is started!)
 ```rake db:create && rake db:migrate
 ```
 
