@@ -121,6 +121,7 @@ ar:
         tag_question: "سؤال"
         tutorials_wiki_and_forum: "%{tutorial} و %{wiki} و %{forum} : دروس وشروحات وأخبار من المُجتمع."
       introduce_yourself: "هذه هى ساحة مشاركاتك.  هيا قدم نفسك."
+      keep_diaspora_running: "حافظ على التطور السريع ل ديسبرا بتبرعاتك الشهرية"
       new_here:
         follow: "تابِع %{link} ورحب بالمُستخدمين الجدد لدياسبرا !"
         learn_more: "تعلم المزيد"
@@ -172,6 +173,9 @@ ar:
     index:
       no_applications: "لم تُسجِّل أي تطبيقات بعد."
       revoke_access: "إلغاء الوصول"
+    new:
+      autorize: "مسؤل "
+      nope: "لا"
   back: "عودة"
   blocks:
     create:
@@ -517,7 +521,7 @@ ar:
       searching: "جارى البحث، كن صبوراً من فضلك..."
     last_post: "آخر مشاركة"
     many: "%{count} أعضاء"
-    one: "1 عضو"
+    one: "1شخص"
     other: "%{count} عضو"
     person:
       add_contact: "إضافة عضو"
@@ -530,7 +534,7 @@ ar:
       edit_my_profile: "تحرير ملفى الشخصى"
       gender: "الجنس"
       in_aspects: "في الفئة"
-      location: "المكان"
+      location: "مكان"
       remove_contact: "إحذف العضو"
       remove_from: "حذف %{name} من %{aspect}?"
     show:
@@ -681,15 +685,15 @@ ar:
     create:
       failure: "هناك خطأ ما في إعادة نشر هذه المشاركة."
     reshare:
-      deleted: "لقد حذف المؤلف مشاركته الأصلية."
+      deleted: "لقد تم حذف المشاركة الأصلية بواسطة المسؤل ."
       reshare:
-        few: "%{count} إعادة نشر"
-        many: "%{count} إعادة نشر"
-        one: "أُعِيدَ نشرها مرة واحدة"
-        other: "%{count} إعادة نشر"
-        two: "%{count} إعادتا نشر"
-        zero: "أَعِد النشر"
-      reshare_confirmation: "هل أُعِيد نشر مشاركة %{author} ؟"
+        few: "%{count} إعادة النشر"
+        many: "%{count} إعادة النشر"
+        one: "إعادة نشرها مرات عديدة"
+        other: "%{count} إعادة النشر"
+        two: "%{count} إعادة النشر مرة واحدة  "
+        zero: "إعادة النشر"
+      reshare_confirmation: "هل أُعِيد نشرالمشاركة %{author} ؟"
       reshare_original: "أعد نشر المشاركة الأصلية"
       reshared_via: "أعيد مشاركتها عبر"
       show_original: "اعرض الأصلية"
@@ -707,16 +711,16 @@ ar:
       service_friends: "%{service} الأصدقاء"
     index:
       connect_to_facebook: "إتصل بـ فيسبوك"
-      connect_to_tumblr: "صل حسابك بـ Tumblr"
+      connect_to_tumblr: "صل حسابك بـ تمبللر"
       connect_to_twitter: "إتصل بتويتر"
-      disconnect: "فصل الإتصال"
+      disconnect: "قطع الإتصال"
       edit_services: "تعديل الخدمات"
       logged_in_as: "متصل بحساب"
-      no_services: "لم تَصِل أي خدمة بحسابك بعد."
-      really_disconnect: "فصل إتصال %{service}?"
+      no_services: "غير متصل بأي خدمة بعد."
+      really_disconnect: "قطع إتصال %{service}?"
     inviter:
       click_link_to_accept_invitation: "إتبع هذا الرابط لقبول دعوتك"
-      join_me_on_diaspora: "انضم إلي في DIASPORA*"
+      join_me_on_diaspora: "انضم معى إلي  DIASPORA*"
     remote_friend:
       invite: "دعوة"
       not_on_diaspora: "ليس بعد على دياسبرا"
@@ -727,11 +731,11 @@ ar:
       post_hidden_and_muted: "مشاركة %{name} تم إخفائها والتنبيهات أوقِفت"
   shared:
     add_contact:
-      add_new_contact: "أضف جهة اتصال جديدة"
+      add_new_contact: "أضف متصل جديد"
       create_request: "ابحث باستخدام معرف دياسبرا"
       diaspora_handle: "ديسبورا@فرع.org"
       enter_a_diaspora_username: "أدخل معرف دياسبرا:"
-      know_email: "أتَعرِف بُرُدَهم الإلكترونية؟ يَجدر بك دعوتهم"
+      know_email: "أتَعرِف عناوين بريدهم الإلكترونية ؟  يَجدر بك دعوتهم"
       your_diaspora_username_is: "وسيط دياسبورا خاصتك هو: %{diaspora_handle}"
     aspect_dropdown:
       add_to_aspect: "أضف إلى فئة"
@@ -748,39 +752,41 @@ ar:
       logged_in_as: "ولوج بـ %{name}"
       your_aspects: "فئاتُك"
     invitations:
-      by_email: "عبر رسالة بالبريد الإلكتروني"
+      by_email: "عبر البريد الإلكتروني"
       dont_have_now: "لا تملك دعوات حاليا، لكنها قادمة قريبا"
       from_facebook: "عبر فسبوك"
       invitations_left: "%{count} متبقية"
-      invite_someone: "دعوة شخص"
+      invite_someone: "دعوة شخص ما"
       invite_your_friends: "ادعُ أصدقاءك"
       invites: "دعوات"
       invites_closed: "الدعوات غير متاحة على هذه المنصة حاليا"
     notification:
       new: "%{type} جديد من %{from}"
     public_explain:
+      atom_feed: "إمداد"
       control_your_audience: "التحكم في من يتابعونك"
-      logged_in: "ولوج بـ %{service}"
+      logged_in: "دخول الى  %{service}"
       manage: "أَدِر الخدمات المتصلة"
-      outside: "الرسائل العامة، متاحة للجميع حتى لمن هم خارج دياسبرا."
+      outside: "الرسائل العامة، متاحة  لمن هم خارج دياسبرا."
       share: "شارك"
       title: "اضبُط الخدمات المتصلة"
+      visibility_dropdown: "استخدم القائمة المنسدلة لتغير رؤية مشالركاتك (نقترح ألإختار الأول )"
     publisher:
       all: "الجميع"
       all_contacts: "جميع الفئات"
       discard_post: "تجاهل المشاركة"
-      make_public: "عَمِّمْهَا"
+      make_public: "انشرها للجميع"
       new_user_prefill:
-        hello: "الى الجميع انا #%{new_user_tag}. "
+        hello: "فلينتبه الجمبع انا #%{new_user_tag}. "
         i_like: "I'm interested in %{tags}."
         invited_by: "شكراً على الدعوة، "
-        newhere: "الجديد هنا"
+        newhere: "جديد هنا"
       post_a_message_to: "انشر رسالة إلى %{aspect}"
       posting: "يَنشُر ..."
       publishing_to: "نشر إلى: "
       share: "شَارِك"
       share_with: "شارِك مع %{aspect}"
-      upload_photos: "ارفع صور"
+      upload_photos: "حمل الصور"
       whats_on_your_mind: "ماذا يجول في خاطرك؟"
     reshare:
       reshare: "أَعِد النشر"
@@ -806,23 +812,23 @@ ar:
     helper:
       no_message_to_display: "ﻻ توجد رسائل لعرضها."
     new:
-      mentioning: "اذْكُر: %{person}"
+      mentioning: "ذكر %{person}"
     too_long:
-      few: "رجاءًا لا تتجاوز حد %{count} حروف في مشاركاتك"
-      many: "رجاءًا لا تتجاوز حد %{count} حرفا في مشاركاتك"
-      one: "رجاءًا لا تتجاوز حد الحرف الواحد في مشاركاتك"
-      other: "رجاء لا تتجاوز حد %{count} حرفًا في مشاركاتك"
-      two: "رجاء لا تتجاوز %{count} حرفا في مشاركاتك"
-      zero: "رجاءًا لا تضع في مشاركاتك أية حروف "
+      few: "المرجو ان تكون رسالتك أقل من %{count} حرف"
+      many: "المرجو ان تكون رسالتك أقل من %{count} حرف"
+      one: "المرجو ان تكون رسالتك أقل من %{count} حروف"
+      other: "المرجو ان تكون رسالتك أقل من %{count} حروف"
+      two: "المرجو ان تكون رسالتك أقل من %{count} حرف"
+      zero: "المرجو ان تكون رسالتك أقل من %{count} حروف"
   stream_helper:
     hide_comments: "أخْفِ كل التعليقات"
     show_comments:
-      few: "Show %{count} more comments"
-      many: "Show %{count} more comments"
-      one: "Show one more comment"
-      other: "Show %{count} more comments"
-      two: "Show two more comments"
-      zero: "No more comments"
+      few: "اعرض %{count} تعليقات أخرى "
+      many: "اعرض  تعليقين أخرين "
+      one: "اعرض %{count} تعليقات أخرى "
+      other: "لا توجد تعليقات أخرى "
+      two: "اعرض تعليقا أخر"
+      zero: "اعرض %{count} تعليقات أخرى "
   streams:
     activity:
       title: "نشاطى"
@@ -830,17 +836,20 @@ ar:
       title: "Your Aspects"
     aspects_stream: "الفئات"
     comment_stream:
+      contacts_title: "الأشخاص الذين علقت عليهم"
       title: "المشاركات التى تم التعليق عليها"
+    community_spotlight_stream: "مجتمع فى دائرة الضوء"
     followed_tag:
       add_a_tag: "أضف وسم"
       follow: "تابِع"
+      title: "#الوسم المتتبع"
     followed_tags_stream: "الوسوم #المُتتبعه"
     like_stream:
       contacts_title: "الأشخاص الذين يفضلون مشاركاتك"
     mentioned_stream: "@اﻹشارات"
     mentions:
       contacts_title: "الأشخاص الذين أشاروا إليك"
-      title: "Your Mentions"
+      title: "إاشاراتك"
     multi:
       title: "ساحة المشاركات"
     public:

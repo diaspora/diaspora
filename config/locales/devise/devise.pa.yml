@@ -6,6 +6,9 @@
 
 pa:
   devise:
+    confirmations:
+      new:
+        resend_confirmation: "ਪੁਸ਼ਟੀ ਨਿਰਦੇਸ਼ ਦੁਬਾਰਾ ਭੇਜੋ"
     failure:
       inactive: "ਤੁਹਾਡਾ ਅਕਾਊਂਟ ਹਾਲੇ ਐਕਟੀਵੇਟ ਨਹੀਂ ਹੋਇਆ ਹੈ।"
       invalid: "ਗਲਤ ਈਮੇਲ ਜਾਂ ਪਾਸਵਰਡ ਹੈ।"
@@ -15,14 +18,31 @@ pa:
       unconfirmed: "ਜਾਰੀ ਰੱਖਣ ਤੋਂ ਪਹਿਲਾਂ ਤੁਹਾਨੂੰ ਆਪਣੇ ਅਕਾਊਂਟ ਦੀ ਪੁਸ਼ਟੀ ਕਰਨੀ ਪੈਣੀ ਹੈ।"
     invitations:
       invitation_token_invalid: "The invitation token provided is not valid!"
+      send_instructions: "ਤੁਹਾਡਾ ਸੱਦਾ ਭੇਜ ਦਿੱਤਾ ਗਿਆ ਹੈ "
     mailer:
       confirmation_instructions:
         confirm: "ਮੇਰੇ ਅਕਾਊਂਟ ਦੀ ਪੁਸ਼ਟੀ ਕਰੋ"
         subject: "ਪੁਸ਼ਟੀ ਹਦਾਇਤਾਂ"
+      hello: "ਸਤਿ ਸ੍ਰੀ ਅਕਾਲ %{email}!"
       invitation_instructions:
+        accept: "ਸੱਦਾ ਮਨਜ਼ੂਰ ਕਰੋ"
         displaying_correctly: "Email not displaying correctly? %{link} in your browser"
+        have_fun: "ਮਜ਼ਾ ਕਰੋ"
+        here: "ਇਥੇ"
+        join_team: "ਸਾਡੀ ਟੀਮ ਨਾਲ ਜੁੜੋ"
+        love: "ਪਿਆਰ,"
+        or: "ਜਾਂ"
+        sign_up_now: "ਹੁਣੇ ਸਾਇਨਅਪ ਕਰੋ →"
+        subject: "ਤੁਹਾਨੂੰ ਡਿਆਸਪਰਾ ਨਾਲ ਜੁੜਨ ਲਈ ਸੱਦਿਆ ਜਾਂਦਾ ਹੈ!"
+        team_diaspora: "ਡਿਆਸਪਰਾ ਟੀਮ"
         view_in: "View in"
+      inviter:
+        has_invited_you: "%{name}"
+        have_invited_you: "%{names} ਨੇ ਤੁਹਾਨੂੰ ਡਿਆਸਪਰਾ ਨਾਲ ਜੁੜਨ ਲਈ ਸੱਦਿਆ ਹੈ"
+      reset_password_instructions:
+        change: "ਮੇਰਾ ਪਾਸਵਰਡ ਬਦਲੋ"
       unlock_instructions:
+        account_locked: "ਬਹੁਤ ਸਾਰੇ ਨਾਕਾਮਯਾਬ ਲਾਗਇਨ ਕਰਨ ਕਾਰਣ ਤੁਹਾਡਾ ਅਕਾਉਂਟ ਲਾਕ ਕਰ ਦਿੱਤਾ ਗਿਆ ਹੈ"
         click_to_unlock: "ਆਪਣਾ ਅਕਾਊਂਟ ਅਣ-ਲਾਕ ਕਰਨ ਲਈ ਹੇਠਲੇ ਲਿੰਕ ਉੱਤੇ ਕਲਿੱਕ ਕਰੋ:"
         subject: "ਅਣ-ਲਾਕ ਹਦਾਇਤਾਂ"
         unlock: "ਮੇਰਾ ਅਕਾਊਂਟ ਅਣ-ਲਾਕ ਕਰੋ"
@@ -38,11 +58,16 @@ pa:
       new:
         login: "ਲਾਗਇਨ"
         password: "ਪਾਸਵਰਡ"
+        sign_in: "ਸਾਇਨ ਇਨ"
+        username: "ਯੂਜ਼ਰ ਨਾਂ"
     shared:
       links:
         forgot_your_password: "ਆਪਣਾ ਪਾਸਵਰਡ ਭੁੱਲ ਗਏ?"
         sign_in: "ਸਾਇਨ ਇਨ"
         sign_up: "ਸਾਇਨ ਅੱਪ"
+    unlocks:
+      new:
+        resend_unlock: "ਅਨਲਾਕ ਨਿਰਦੇਸ਼ ਦੁਬਾਰਾ ਭੇਜੋ"
   errors:
     messages:
       already_confirmed: "ਪਹਿਲਾਂ ਹੀ ਪੁਸ਼ਟੀ ਹੋ ਚੁੱਕੀ ਸੀ"

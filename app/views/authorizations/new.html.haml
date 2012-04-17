@@ -38,5 +38,5 @@
     :url => oauth_authorize_path(params.slice(:redirect_uri, :client_id, :client_secret)) do |form|
     %br
     %p
-      = form.submit "Fuck Yeah!", :value => t('.autorize'), :class => 'button'
+      = form.submit "Fuck Yeah!", :value => t('.authorize'), :class => 'button'
       = form.submit "Hell No.", :value => t('.nope'), :class => 'button'

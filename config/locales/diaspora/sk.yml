@@ -127,6 +127,8 @@ sk:
         tag_question: "otázku"
         tutorials_wiki_and_forum: "%{tutorial}, %{wiki} a %{forum}: príručky, ktoré vytvorili členovia komunity, návody  a novinky"
       introduce_yourself: "Toto je vaša nástenka.  Predstavte sa."
+      keep_diaspora_running: "Udržte vývoj Diaspory mesačným príspevkom v rýchlom tempe!"
+      keep_pod_running: "Udržte %{pod} v dobrom tempe a kúpte mesačným príspevkom serverom ich dávku kávy vo forme opráv!"
       new_here:
         follow: "Sledujte %{link}  a privítajte nových používateľov na Diaspore*!"
         learn_more: "Zistiť viac"
@@ -178,6 +180,10 @@ sk:
     index:
       no_applications: "Ešte ste nezaregistrovali žiadne aplikácie."
       revoke_access: "Zamedziť prístup"
+    new:
+      autorize: "Povoliť"
+      cubbies_will: "Cubbies bude môcť posielať fotky vo vašom mene"
+      nope: "Nie"
   back: "Späť"
   blocks:
     create:
@@ -472,7 +478,7 @@ sk:
 
           S pozdravom,
 
-          Emailový robot Diaspory*!
+          e-mailový robot Diaspory*!
     invited_you: "%{name} Vás pozval(a) na Diasporu*"
     liked:
       liked: "%{name} označil(a), že sa mu (jej) páči váš príspevok"

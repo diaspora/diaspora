@@ -54,6 +54,10 @@ et:
         username: "Kasutajanimi"
       signed_in: "Edukalt sisse logitud."
       signed_out: "Edukalt välja logitud."
+    shared:
+      links:
+        forgot_your_password: "Kas unustasid parooli?"
+        sign_up: "Liitu"
     unlocks:
       send_instructions: "Sa saad mõne minuti jooksul e-kirjaga juhised kuidas oma konto lukust lahti teha."
   errors:
