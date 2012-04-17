@@ -35,24 +35,6 @@ GIT
       sinatra
 
 GIT
-  remote: git://github.com/diaspora/rails_admin_smaller.git
-  revision: bd66ed784081e13ff383171b1d541ce1c299f722
-  specs:
-    rails_admin (0.0.1)
-      bbenezech-nested_form (~> 0.0.6)
-      bootstrap-sass (~> 2.0)
-      builder (~> 3.0)
-      coffee-rails (~> 3.1)
-      haml (~> 3.1)
-      jquery-rails (>= 1.0)
-      jquery-ui-rails (~> 0.2.2)
-      kaminari (~> 0.12)
-      rack-pjax (~> 0.5)
-      rails (~> 3.1)
-      remotipart (~> 1.0)
-      sass-rails (~> 3.1)
-
-GIT
   remote: git://github.com/pivotal/jasmine-gem.git
   revision: c72e8d248d49a1ebe53f31a09ac511194ad4edf1
   specs:
@@ -370,6 +352,19 @@ GEM
       railties (= 3.1.4)
     rails-i18n (0.6.3)
       i18n (~> 0.5)
+    rails_admin (0.0.1)
+      bbenezech-nested_form (~> 0.0.6)
+      bootstrap-sass (~> 2.0)
+      builder (~> 3.0)
+      coffee-rails (~> 3.1)
+      haml (~> 3.1)
+      jquery-rails (>= 1.0)
+      jquery-ui-rails (~> 0.2.2)
+      kaminari (~> 0.12)
+      rack-pjax (~> 0.5)
+      rails (~> 3.1)
+      remotipart (~> 1.0)
+      sass-rails (~> 3.1)
     rails_autolink (1.0.6)
       rails (~> 3.1)
     railties (3.1.4)
@@ -570,7 +565,7 @@ DEPENDENCIES
   rack-ssl
   rails (= 3.1.4)
   rails-i18n
-  rails_admin!
+  rails_admin
   rails_autolink
   redcarpet (= 2.0.1)
   remotipart (~> 1.0)
