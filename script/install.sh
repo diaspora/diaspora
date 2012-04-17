@@ -32,7 +32,7 @@ other ideas what we could do
 #                                                                   #
 ####                                                             ####
 
-BINARIES="git ruby gem bundle"       # required programs
+BINARIES="git ruby gem bundle sed"       # required programs
 
 D_GIT_CLONE_PATH="/srv/diaspora"     # path for diaspora
 
@@ -42,6 +42,15 @@ D_WIKI_URL="https://github.com/diaspora/diaspora/wiki"
 
 D_IRC_URL="irc://freenode.net/diaspora"
 
+D_DB="mysql"
+
+D_DB_CONFIG_FILE="config/database.yml"
+
+D_DB_HOST="localhost"
+
+D_DB_USER="diaspora"
+
+D_DB_PASS="diaspora"
 
 ####                                                             ####
 #                                                                   #
@@ -75,7 +84,7 @@ error() {
 }
 
 # check if all necessary binaries are available
-sane_environment_check() {
+binaries_check() {
   for exe in $BINARIES; do
     echo -n "checking for $exe... " 
     which "$exe"
@@ -86,29 +95,92 @@ sane_environment_check() {
   echo ""
 }
 
+# check for rvm
+define RVM_MSG <<'EOT'
+RVM was not found on your system (or it isn't working properly).
+It is higly recommended to use it, since it's making it extremely easy
+to install, manage and work with multiple ruby environments.
+
+For more details check out https://rvm.io//
+EOT
+rvm_check() {
+  echo "checking for rvm..."
+  rvm >/dev/null 2>&1
+  if [ $? -gt 0 ]; then
+    echo "$RVM_MSG"
+    read -p "Press [Enter] to continue without RVM or abort this script and install RVM"
+  fi
+  echo ""
+}
+
+# do some sanity checking
+sane_environment_check() {
+  binaries_check
+  rvm_check
+}
+
 # find or set up a working git environment
 git_stuff_check() {
-  echo "Where would you like to put the git clone?\n(or, where is your git clone)? "
-  read -e -p "-> " -i "$D_GIT_CLONE_PATH" D_GIT_CLONE_PATH
+  echo "Where would you like to put the git clone?"
+  echo "(or, where is your existing git clone)?"
+  read -e -p "-> " D_GIT_CLONE_PATH
   echo ""
 
   test -d "$D_GIT_CLONE_PATH" \
     && cd "$D_GIT_CLONE_PATH" \
-    && git status "$D_GIT_CLONE_PATH"  # folder exists? go there. is a good git clone?
+    && git status # folder exists? go there. is a good git clone?
   if [ $? -gt 0 ]; then
     mkdir "$D_GIT_CLONE_PATH" # only if it doesn't exist
     # not a git repo, create it?
-    echo "the folder you specified does not contain a git repo, create one?"
-    select choice in "Yes" "No"; do
-      case $choice in
-        Yes ) git clone "$D_REMOTE_REPO_URL" "$D_GIT_CLONE_PATH"; break ;;
-        No ) error "please make sure you have a git clone somewhere" ;;
-      esac
-    done
+    echo "the folder you specified does not contain a git repo"
+    read -p "Press [Enter] to create it... "
+    git clone "$D_REMOTE_REPO_URL" "$D_GIT_CLONE_PATH"
   else
     git checkout master
     git pull
   fi
+  echo ""
+}
+
+# handle database decision
+database_question() {
+  echo "Which database type are you using?"
+  select choice in "MySQL" "PgSQL"; do
+    case $choice in
+      MySQL )
+        D_DB="mysql"
+        # we're done, mysql is default
+        break
+        ;;
+      PgSQL )
+        D_DB="postgres"
+        # replace default with postgres
+        sed -i'' -r 's/(<<: \*mysql)/#\1/g' $D_DB_CONFIG_FILE
+        sed -i'' -r 's/(#(<<: \*postgres))/\2/g' $D_DB_CONFIG_FILE
+        break
+        ;;
+    esac
+  done
+}
+
+# ask for database credentials
+database_credentials() {
+  read -e -p "hostname: " D_DB_HOST
+  read -e -p "username: " D_DB_USER
+  read -e -p "password: " D_DB_PASS
+
+  sed -i'' -r "s/(host:)[^\n]*/\1 $D_DB_HOST/g" $D_DB_CONFIG_FILE
+  sed -i'' -r "s/(username:)[^\n]*/\1 $D_DB_USER/g" $D_DB_CONFIG_FILE
+  sed -i'' -r "s/(password:)[^\n]*/\1 $D_DB_PASS/g" $D_DB_CONFIG_FILE
+}
+
+# setup database
+# (assume we are in the Diaspora directory)
+database_setup() {
+  echo "Database setup"
+  cp config/database.yml.example config/database.yml
+  database_question
+  database_credentials
   echo ""
 }
 
@@ -145,10 +217,9 @@ git_stuff_check
 cd "$D_GIT_CLONE_PATH"
 
 
-echo "initializing Diaspora*"
-echo "copying database.yml.example to database.yml"
-cp config/database.yml.example config/database.yml
-echo ""
+# configure database setup
+database_setup
+
 
 echo "copying application.yml.example to application.yml"
 cp config/application.yml.example config/application.yml
