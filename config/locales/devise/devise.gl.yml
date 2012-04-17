@@ -20,7 +20,7 @@ gl:
       inactive: 'Aínda non se activou a súa conta.'
     sessions:
       new:
-        login: 'Nome de usuario'
+        login: 'Acceder'
         username: 'Nome de usuario'
         password: 'Contrasinal'
         sign_in: 'Acceder'
