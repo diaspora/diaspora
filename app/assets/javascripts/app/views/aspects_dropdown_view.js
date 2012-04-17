@@ -5,7 +5,7 @@ app.views.AspectsDropdown = app.views.Base.extend({
   },
 
   postRenderTemplate : function(){
-    this.setVisibility({target : this.$("a[data-visibility='all-aspects']").first()})
+    this.setVisibility({target : this.$("a[data-visibility='public']").first()})
   },
 
   setVisibility : function(evt){

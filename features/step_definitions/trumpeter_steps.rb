@@ -122,7 +122,7 @@ When /^I select the mood "([^"]*)"$/ do |mood|
   click_link mood
 end
 
-Then /^the post's mood should (?:still |)be "([^"]*)"$/ do |mood|
+Then /^the post's (?:default |)mood should (?:still |)be "([^"]*)"$/ do |mood|
   assert_post_renders_with(mood)
 end
 

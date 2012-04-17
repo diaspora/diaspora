@@ -47,10 +47,11 @@ Feature: Creating a new post
     And I upload a fixture picture with filename "button.gif"
 
     And I start the framing process
+    #defaults to the prettiest mood
+    Then the post's default mood should be "Wallpaper"
+    Then it should be a wallpaper frame with the background "button.gif"
     Then I should see "This is hella customized" in the framer preview
-  #### Will test the template picker being ported to JS ####
-  # Then the default mood for the post should be "Wallpaper"
-  # And I should see the image "button.gif" background
+    #changing the mood changes the presentation
     When I select the mood "Day"
     Then the post's mood should be "Day"
     And "button.gif" should be in the post's picture viewer
