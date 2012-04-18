@@ -45,7 +45,7 @@ defaults: &defaults
   # running, however this makes it quite slow as all the time intensive jobs
   # must be run inside the request cycle. Also the live updates from the Websocket
   # will be disabled.
-  single_process_mode: false
+  single_process_mode: true
 
   ## Use Amazon S3 instead of your local filesystem
   ## to handle uploaded pictures.
