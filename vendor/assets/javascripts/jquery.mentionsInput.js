@@ -200,8 +200,10 @@
     }
 
     function onInputBoxKeyPress(e) {
-      var typedValue = String.fromCharCode(e.which || e.keyCode);
-      inputBuffer.push(typedValue);
+      if(e.keyCode != KEY.BACKSPACE) {
+        var typedValue = String.fromCharCode(e.which || e.keyCode);
+        inputBuffer.push(typedValue);
+      }
     }
 
     function onInputBoxKeyDown(e) {
