@@ -4,136 +4,160 @@
 
 defaults: &defaults
 
-  #
-  # Environment
-  #
+  ######################################################
+  # Environment Configuration
+  ######################################################
 
-  # Hostname of the machine you're running Diaspora on, as seen from the internet.
-  # This should be the URL you want to use to access the pod. So if you plan to
-  # reverse proxy it, it should be the URL the proxy listens on.
-  # DO NOT CHNANGE THIS AFTER INITIAL SETUP UNLESS YOU KNOW WHAT YOU'RE DOING!
-  # However changing http to https is okay and has no consquences. If you do change it
-  # you have to start over as it's hardcoded into the database.
-  # For development and testing, you can leave this as is.
+  ## Set the hostname of the machine you're running Diaspora on, as seen
+  ## from the internet. This should be the URL you want to use to
+  ## access the pod. So if you plan to  reverse proxy it, it should be
+  ## the URL the proxy listens on.
+  ## DO NOT CHNANGE THIS AFTER INITIAL SETUP
+  ## UNLESS YOU KNOW WHAT YOU'RE DOING!
+  ## However changing http to https is okay and has no consquences.
+  ## If you do change it you have to start over as it's hardcoded into
+  ## the database.
   pod_url: "http://localhost:3000/"
 
-  # Setting the root certificate bundle (this is operating system specific). Examples, uncomment one:
-  ca_file: '/etc/pki/tls/certs/ca-bundle.crt' # CentOS
-  #ca_file: '/etc/ssl/certs/ca-certificates.crt' # Debian
-  #ca_file: '/etc/ssl/certs/ca-certificates.crt' # Gentoo
+  ## Setting the bundle of certificate authorities (CA) certificates.
+  ## This is operating system specific.
+  ## Examples, uncomment one or add your own:
+  ca_file: '/etc/pki/tls/certs/ca-bundle.crt'
 
-  # URL for a remote redis, on the default port. Don't forget to restrict IP access!
-  # leave it empty for the default (localhost)
+  ## URL for a remote redis, on the default port.
+  ## Don't forget to restrict IP access!
+  ## Leave it empty for the default (localhost)
   redis_url: ''
 
-  # Amazon S3 for photos
+  ## Serve static assets via the appserver.
+  ## This is highly not recommended for production use,
+  ## let your reverse proxy/webserver do it by serving the files
+  ## under public/ directly.
+  serve_static_assets: false
 
+  ## Disable SSL requirement
+  #when set, your pod will not force you to use https in production
+  #NOTE: not all features of Diaspora work without SSL, and you may have trouble federating
+  # with other pods
+  circumvent_ssl_requirement: false
+
+  # If set to true Diaspora will work with just the appserver, thin by default,
+  # running, however this makes it quite slow as all the time intensive jobs
+  # must be run inside the request cycle. Also the live updates from the Websocket
+  # will be disabled.
+  single_process_mode: true
+
+  ## Use Amazon S3 instead of your local filesystem
+  ## to handle uploaded pictures.
   # s3 config - if set, carrierwave will store your photos on s3. Otherwise they're on the filesystem.
   #s3_key: 'key'
   #s3_secret: 'secret'
   #s3_bucket: 'my_photos'
   s3_region: 'us-east-1'
 
+  ## Related to S3 you can set a url to redirect all requests to uploaded
+  ## images to another host. If you for example set
+  ## https://images.example.org here, all requests made to
+  ## pictures under /uploads/images will be redirected to
+  ## https://images.example.org/uploads/images/...
+  image_redirect_url: ''
 
-  # Serve static assets via the appserver, this is not recommended for production use,
-  # let your reverse proxy/webserver do it.
-  serve_static_assets: false
+  ## Diaspora is only tested against this default pubsub server.
+  ## You probably don't want to change this.
+  pubsub_server: 'https://pubsubhubbub.appspot.com/'
 
-  # Serve jQuery from Google's CDN
+  ## Include jQuery from Google's CDN
+  ## This potentially saves you some traffic and speeds up
+  ## load time since most clients already have this one cached
   jquery_cdn: true
 
-  #
-  # Settings
-  #
+  ## Provide a key to enable tracking by Google Analytics 
+  google_a_site: false
 
-  # Set this to true to prevent people from signing up for your pod without an invitation.
+  ## Piwik Tracking
+  ## Provide a site ID and the host piwik is running on to enable
+  ## tracking through Piwik.
+  # piwik integration - if not set, no javascript included
+  piwik_id:
+  # the site url in raw format (e.g. pikwik.examplehost.com)
+  piwik_url:
+
+  ######################################################
+  # General Pod Settings
+  ######################################################
+
+  ## Set this to true to prevent people from signing up for your pod
+  ## without an invitation. Note that this needs to be true even for
+  ## the first registration (you).
   registrations_closed: false
 
-  # Set this to true if you want users to invite as many people as they want
-  open_invitations: true
+  ## Set this to true if you don't want your users to follow the
+  ## diasporahq@joindiaspora.com account on account creation.
+  ## The diasporahq account helps users start with some activity in
+  ## their stream and get news about Diaspora, but if you don't want
+  ## your server to contact joindiaspora.com, set this to false:
+  no_follow_diasporahq: false
 
   #the 'admin' account for your pod... ie for jd.com, this is diasporahq
   admin_account: ''
 
+  ## Here, you can turn specific users into admins
+  admins:
+  #- 'admin'
+  #- 'me'
+
+  ## Settings about invitations
+
+  # Set this to true if you want users to invite as many people as they want
+  open_invitations: true
+
   #the default amount of invitiations for an invite link
   invite_count: 25
 
-  # Set this to true if you don't want your users to follow the diasporahq@joindiaspora.com
-  # account on account creation.  The diasporahq account helps users start with some
-  # activity in their stream and get news about Diaspora, but if you don't want your server
-  # to contact joindiaspora.com, set this to true:
-  no_follow_diasporahq: false
+  ## Paypal donations
+  ## You can provide the ID of a hosted Paypal button here to kindly ask
+  ## your users for donations to run their pod. If you leave this out
+  ## we kindly ask your users to donate to the Diaspora Foundation :)
+  paypal_hosted_button_id: ""
 
-  # Community Spotlight
-  # (expressed as an array of Diaspora IDs)
+
+  ## Community Spotlight
+  ## The community spotlight gives new users a starting point on who
+  ## could be interesting Diasporas community.
   community_spotlight:
-    - 'diasporahq@joindiaspora.com'
-  
-  # Email to send spotlight suggestions to
+  #list:
+  #- 'diasporahq@joindiaspora.com'
+  #- 'me@example.org'
+
+  ## E-Mail address users can make suggestions about who should be
+  ## in the spotlight to.
   spotlight_suggest_email: ''
 
-  # List of users who have admin privileges
-  # (expressed as an array of local usernames)
-  admins:
-    - 'example_user1dsioaioedfhgoiesajdigtoearogjaidofgjo'
+  ######################################################
+  # Email Configuration
+  ######################################################
 
-  # Mount resque-web into routes
-  # This allows an administrator to see info about the workers
-  mount_resque_web: true
-
-  # Logging setup
-
-  # Enable extensive logging to log/{development,test,production}.log
-  debug: false
-
-  # Airbrake api key, send failures to http://projectname.airbrake.io/ (Former Hoptoad)
-  airbrake_api_key: ''
-
-  #social media setup
-  facebook_app_id:  ''
-  facebook_app_secret: ''
-
-  twitter_consumer_key: ''
-  twitter_consumer_secret: ''
-
-  tumblr_consumer_key: ''
-  tumblr_consumer_secret: '' 
-
-  # Miscellaneous
-
-  NEW_RELIC_LICENSE_KEY: ''
-  new_relic_app_name: ''
-
-  # If set to true Diaspora will work with just the appserver, thin by default,
-  # running, however this makes it quite slow as all the time intensive jobs
-  # must be run inside the request cycle. Also the live updates from the Websocket
-  # will be disabled.
-  single_process_mode: false
-
-  # Diaspora is only tested against this default pubsub server. You probably don't want to change this.
-  pubsub_server: 'https://pubsubhubbub.appspot.com/'
-
-  # Email
-
-  # Setting this to true enables Diaspora's "send email" functionality,
-  # requiring meaningful smtp_* settings. These are options for RoR's
-  # ActionMailer class.
+  ## First you need to enable it ;)
   mailer_on: false
+
+  ## Sender address used in mail send by Diaspora
+  #sender_address: 'no-reply@example.org'
+
+  ## This selects which mailer should be used. Take 'smtp' for a smtp
+  ## connection, 'sendmail' to use the sendmail binary or
+  ## 'messagebus' to use the messagebus service.
+  mailer_method: 'smtp'
 
   # Address/port to smtp server handling outgoing mail.
   smtp_address: 'smtp.example.com'
   smtp_port: '587'
-
-  # This chooses which mailer should be used. 'smtp' for a smtp
-  # connection or 'sendmail' to use the sendmail binary, or messagebus, to use the messagebus service
-  mailer_method: 'smtp'
 
   #API key if you are using message bus
   message_bus_api_key: ''
 
   # The path to the sendmail binary. Ignored if mailer_method is not set to sendmail
   sendmail_location: '/usr/sbin/sendmail'
-  
+
   # Set this to true if you want to use exim and sendmail
   sendmail_exim_fix: false
 
@@ -163,56 +187,56 @@ defaults: &defaults
   # Sender address in Diaspora's outgoing mail.
   smtp_sender_address: 'no-reply@joindiaspora.com'
 
-  #when set, your pod will not force you to use https in production
-  #NOTE: not all features of Diaspora work without SSL, and you may have trouble federating
-  # with other pods
-  circumvent_ssl_requirement: false
+  ######################################################
+  # Social Service Configuration
+  ######################################################
 
-  image_redirect_url: ''
-  
-  # Web tracking
+  ## OAuth credentials for Facebook:
+  facebook_app_id:  ''
+  facebook_app_secret: ''
 
-  # google analytics key - if false, no javascript included
-  google_a_site: false
 
-  # piwik integration - if not set, no javascript included
-  piwik_id:
-  # the site url in raw format (e.g. pikwik.examplehost.com)
-  piwik_url:
+  ## OAuth credentials for Twitter:
+  twitter_consumer_key: ''
+  twitter_consumer_secret: ''
 
-  # Backups
-  backup_retention_days: 3
+  ## OAuth credentials for Tumblr
+  tumblr_consumer_key: ''
+  tumblr_consumer_secret: ''
 
-  # cloudfiles username and api-key - used for backups
-  cloudfiles_username: 'example'
-  cloudfiles_api_key:  'abc123'
-  cloudfiles_db_container: 'Database Backup'
-  cloudfiles_images_container: 'Image Backup'
-  
-  # Donations
 
-  # Leave this blank to not show the request for donations
-  # Use paypal for recurring donations
-  paypal_hosted_button_id: ""
+  ######################################################
+  # Debugging Service Tool Integration
+  ######################################################
 
-#
-# Use this section to override default settings in specific environments
-#
+  ## Resque is the background processing sysem used by Diaspora
+  ## Resque web is an admin tool for it. This settings decides wheter
+  ## or not to inline it into Diaspora.
+  mount_resque_web: true
+
+  ## If you use Airbrake provide your API key here:
+  airbrake_api_key: ''
+
+  ## If you use NewRelic provide your credentials here:
+  NEW_RELIC_LICENSE_KEY: ''
+  new_relic_app_name: ''
+
+######################################################
+# Overrides
+######################################################
 
 development:
   <<: *defaults
   serve_static_assets: true
   no_follow_diasporahq: true
-  single_process_mode: true
 
 production:
   <<: *defaults
-  single_process_mode: false 
-  serve_static_assets: false
 
-#
-# Do not touch unless you know what you're doing
-#
+##################################################
+# FEDERATION LOGGER ##############################
+# Do not touch unless you know what you're doing!#
+##################################################
 
 test:
   <<: *defaults

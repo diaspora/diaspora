@@ -15,34 +15,25 @@ app.models.Stream = Backbone.Collection.extend({
     return _.any(this.posts.models) ? this.timeFilteredPath() : this.basePath()
   },
 
-  _fetching : false,
-
   fetch: function() {
-    if(this._fetching) { return false; }
-    var self = this
-
-    // we're fetching the collection... there is probably a better way to do this
-    self._fetching = true;
-
-    this.posts
-      .fetch({
+    if(this.isFetching()){ return false }
+    var url = this.url()
+    this.deferred = this.posts.fetch({
         add : true,
-        url : self.url()
-      })
-      .done(
-        function(resp){
-          // we're done fetching... there is probably a better way to handle this
-          self._fetching = false;
+        url : url
+    }).done(_.bind(this.triggerFetchedEvents, this))
+  },
 
-          self.trigger("fetched", self);
+  isFetching : function(){
+    return this.deferred && this.deferred.state() == "pending"
+  },
 
-          // all loaded?
-          if(resp.posts && (resp.posts.author || resp.posts.length == 0)) {
-            self.trigger("allPostsLoaded", self);
-          }
-        }
-      )
-    return this;
+  triggerFetchedEvents : function(resp){
+    this.trigger("fetched", this);
+    // all loaded?
+    if(resp.posts && (resp.posts.author || resp.posts.length == 0)) {
+      this.trigger("allPostsLoaded", this);
+    }
   },
 
   basePath : function(){

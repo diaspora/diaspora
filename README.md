@@ -22,26 +22,23 @@ Documentation is available on our [wiki](https://github.com/diaspora/diaspora/wi
 
 Here's how you can get a development environment up and running. You can check out system-specific guides [here](https://github.com/diaspora/diaspora/wiki/Installation-Guides).
 
-### Step 1: Clone the repo 
-```git clone git@github.com:diaspora/diaspora.git
+### Step 1: Download the script
+```wget https://raw.github.com/diaspora/diaspora/ec5289bd3b9b5608d339b28e1e30272f380a9211/script/install.sh
 ```
 
-### Step 2: Navigate to your cloned repository
-```cd ../diaspora
+### Step 2: Set permissions and run
+```chmod +x install.sh && install.sh
 ```
 
-### Step 3: Install Bundler and gems (depending on [OS Vendor](https://github.com/diaspora/diaspora/wiki/Installation-Guides))
-```sudo gem install bundler && sudo bundle install
-```
+### Step 3: Follow the instructions
 
-### Step 4: Edit database.yml, and rename application.yml.example to just application.yml 
 
-### Step 5: Create and migrate the database
-```rake db:create && rake db:migrate
-```
-
-### Step 6: Start the test server
+### Step 4: Run the test server
 ```rails s
+```
+
+### Step 5: Run tests
+```rake tests
 ```
 
 ## Resources:

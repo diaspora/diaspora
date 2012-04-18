@@ -25,12 +25,12 @@ app.views.StreamPost = app.views.Post.extend({
     this.model.bind('remove', this.remove, this);
 
     //subviews
-    this.commentStreamView = new app.views.CommentStream({ model : this.model});
+    this.commentStreamView = new app.views.CommentStream({model : this.model});
   },
 
 
   likesInfoView : function(){
-    return new app.views.LikesInfo({ model : this.model});
+    return new app.views.LikesInfo({model : this.model});
   },
 
   feedbackView : function(){
@@ -39,9 +39,10 @@ app.views.StreamPost = app.views.Post.extend({
   },
 
   postContentView: function(){
-    var normalizedClass = this.model.get("post_type").replace(/::/, "__");
-    var postClass = app.views[normalizedClass] || app.views.StatusMessage;
-    return new postClass({ model : this.model });
+    var normalizedClass = this.model.get("post_type").replace(/::/, "__")
+      , postClass = app.views[normalizedClass] || app.views.StatusMessage;
+
+    return new postClass({ model : this.model })
   },
 
   removeNsfwShield: function(evt){

@@ -40,8 +40,10 @@ app.views.Base = Backbone.View.extend({
   renderTemplate : function(){
     var presenter = _.isFunction(this.presenter) ? this.presenter() : this.presenter
     this.template = JST[this.templateName]
-    if(!this.template) {console.log("no template for " + this.templateName) }
-    $(this.el)
+    if(!this.template) {
+      console.log(this.templateName ? ("no template for " + this.templateName) : "no templateName specified")
+    }
+    this.$el
       .html(this.template(presenter))
       .attr("data-template", _.last(this.templateName.split("/")));
     this.postRenderTemplate();

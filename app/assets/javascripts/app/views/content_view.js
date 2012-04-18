@@ -52,8 +52,35 @@ app.views.Content = app.views.StreamObject.extend({
       el.css('height','auto');
     });
     $(evt.currentTarget).hide();
-  }
+  },
 
+  collapseOversized : function() {
+    var collHeight = 200
+      , elem = this.$(".collapsible")
+      , oembed = elem.find(".oembed")
+      , addHeight = 0;
+
+    if($.trim(oembed.html()) != "") {
+      addHeight = oembed.height();
+    }
+
+    // only collapse if height exceeds collHeight+20%
+    if( elem.height() > ((collHeight*1.2)+addHeight) && !elem.is(".opened") ) {
+      elem.data("orig-height", elem.height() );
+      elem
+        .height( Math.max(collHeight, addHeight) )
+        .addClass("collapsed")
+        .append(
+        $('<div />')
+          .addClass('expander')
+          .text( Diaspora.I18n.t("show_more") )
+      );
+    }
+  },
+
+  postRenderTemplate : function(){
+    _.defer(_.bind(this.collapseOversized, this))
+  }
 });
 
 app.views.StatusMessage = app.views.Content.extend({

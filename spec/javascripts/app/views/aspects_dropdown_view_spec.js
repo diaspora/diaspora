@@ -16,9 +16,9 @@ describe("app.views.AspectsDropdown", function(){
       this.view.render()
     })
 
-    it("defaults to All Aspects Visibility", function(){
-      expect(this.view.$("input.aspect_ids").val()).toBe("all_aspects")
-      expect($.trim(this.view.$(".dropdown-toggle .text").text())).toBe("All Aspects")
+    it("defaults to Public Visibility", function(){
+      expect(this.view.$("input.aspect_ids").val()).toBe("public")
+      expect($.trim(this.view.$(".dropdown-toggle .text").text())).toBe("Public")
     })
 
     describe("selecting Public", function(){
