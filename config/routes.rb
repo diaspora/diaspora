@@ -123,6 +123,8 @@ Diaspora::Application.routes.draw do
   end
 
   resource :profile, :only => [:edit, :update]
+  resources :profiles, :only => [:show]
+
 
   resources :contacts,           :except => [:update, :create] do
     get :sharing, :on => :collection

@@ -95,7 +95,7 @@ app.views.infiniteScrollMixin = {
     $(window).scroll(throttledScroll);
   },
 
-  renderTemplate : function() {
+  postRenderTemplate : function() {
     if(this.stream.isFetching()) { this.showLoader() }
   },
 

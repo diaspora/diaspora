@@ -33,7 +33,7 @@ class User < ActiveRecord::Base
   serialize :hidden_shareables, Hash
 
   has_one :person, :foreign_key => :owner_id
-  delegate :public_key, :posts, :photos, :owns?, :diaspora_handle, :name, :public_url, :profile, :first_name, :last_name, :participations, :to => :person
+  delegate :guid, :public_key, :posts, :photos, :owns?, :diaspora_handle, :name, :public_url, :profile, :first_name, :last_name, :participations, :to => :person
 
   has_many :invitations_from_me, :class_name => 'Invitation', :foreign_key => :sender_id
   has_many :invitations_to_me, :class_name => 'Invitation', :foreign_key => :recipient_id

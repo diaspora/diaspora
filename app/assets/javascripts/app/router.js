@@ -13,6 +13,7 @@ app.Router = Backbone.Router.extend({
     "liked": "stream",
     "mentions": "stream",
 
+    "people/:id?ex=true": "newProfile",
     "people/:id": "profile",
     "u/:name": "profile",
 
@@ -26,13 +27,25 @@ app.Router = Backbone.Router.extend({
     "framer": "framer"
   },
 
-  profile : function(page) {
-    this.isExperimental(page) ? this.newProfile() : this.stream()
+
+  newProfile : function(personId) {
+    this.renderPage(new app.pages.Profile({ personId : personId }));
   },
 
-  newProfile : function() {
-    app.page = new app.pages.Profile();
-    $("#container").html(app.page.render().el)
+  composer : function(){
+    this.renderPage(new app.pages.Composer());
+  },
+
+  framer : function(){
+    this.renderPage(new app.pages.Framer());
+  },
+
+  singlePost : function(id) {
+    this.renderPage(new app.pages.PostViewer({ id: id }));
+  },
+
+  profile : function(page) {
+    this.stream()
   },
 
   stream : function(page) {
@@ -55,23 +68,13 @@ app.Router = Backbone.Router.extend({
     $("#main_stream").html(app.page.render().el);
   },
 
-  composer : function(){
-    var page = new app.pages.Composer();
-    $("#container").html(page.render().el)
-  },
-
-  framer : function(){
-    var page = new app.pages.Framer();
-    $("#container").html(page.render().el)
-  },
-
-  singlePost : function(id) {
-    var page = new app.pages.PostViewer({ id: id });
-    $("#container").html(page.el);
-   },
-
   isExperimental : function(query) {
    return query.search("ex=true") != -1
+  },
+
+  renderPage : function(page){
+    app.page = page
+    $("#container").html(app.page.render().el)
   }
 });
 

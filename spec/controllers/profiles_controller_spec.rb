@@ -10,6 +10,13 @@ describe ProfilesController do
     sign_in :user, @user
   end
 
+  describe '#show' do
+    it "returns the user as json" do
+      get :show, :id => @user.person.guid, :format => :json
+      response.body.should == @user.person.profile.to_json
+    end
+  end
+
   describe '#edit' do 
     it 'succeeds' do
       get :edit
