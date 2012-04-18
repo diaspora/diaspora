@@ -40,13 +40,13 @@ describe("app.views.Stream", function() {
   describe("infScroll", function() {
     // NOTE: inf scroll happens at 500px
 
-    it("calls render when the user is at the bottom of the page", function() {
+    it("fetches moar when the user is at the bottom of the page", function() {
       spyOn($.fn, "height").andReturn(0);
       spyOn($.fn, "scrollTop").andReturn(100);
-      spyOn(this.view, "render");
+      spyOn(this.view, "fetchAndAppendLoader");
 
       this.view.infScroll();
-      expect(this.view.render).toHaveBeenCalled();
+      expect(this.view.fetchAndAppendLoader).toHaveBeenCalled();
     });
   });
 

@@ -26,6 +26,7 @@ app.Router = Backbone.Router.extend({
 
   stream : function() {
     app.stream = new app.models.Stream();
+    app.stream.fetch();
     app.page = new app.views.Stream({model : app.stream});
     app.publisher = app.publisher || new app.views.Publisher({collection : app.stream.posts});
 

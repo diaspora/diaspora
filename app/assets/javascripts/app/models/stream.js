@@ -16,12 +16,16 @@ app.models.Stream = Backbone.Collection.extend({
   },
 
   fetch: function() {
-    if(this.deferred && !this.deferred.isResolved()){ return false }
+    if(this.isFetching()){ return false }
     var url = this.url()
     this.deferred = this.posts.fetch({
         add : true,
         url : url
     }).done(_.bind(this.triggerFetchedEvents, this))
+  },
+
+  isFetching : function(){
+    return this.deferred && this.deferred.state() == "pending"
   },
 
   triggerFetchedEvents : function(resp){
