@@ -5,6 +5,7 @@
 Diaspora::Application.routes.draw do
   mount RailsAdmin::Engine => '/admin_panel', :as => 'rails_admin'
 
+  get 'oembed' => 'posts#oembed', :as => 'oembed'
   # Posting and Reading
   resources :reshares
 
