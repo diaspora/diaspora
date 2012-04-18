@@ -4,7 +4,7 @@ describe("app.views.Photos", function() {
 
     this._photos = $.parseJSON(spec.readFixture("photos_json"))["photos"];
 
-    this.photos = new app.models.Photos();
+    this.photos = new app.models.Stream([], {collection: app.collections.Photos});
     this.photos.add(this._photos);
 
     this.view = new app.views.Photos({model : this.photos});
@@ -22,7 +22,7 @@ describe("app.views.Photos", function() {
 
   describe("#render", function() {
     beforeEach(function() {
-      this.photo = this.photos.photos.models[0];
+      this.photo = this.photos.items.models[0];
       this.photoElement = $(this.view.$("#" + this.photo.get("guid")));
     });
 
@@ -41,5 +41,5 @@ describe("app.views.Photos", function() {
       expect($("#paginate")).toBeEmpty();
     });
   });
-  
+
 });

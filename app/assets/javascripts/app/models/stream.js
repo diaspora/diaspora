@@ -1,24 +1,27 @@
 //= require ../collections/posts
+//= require ../collections/photos
 app.models.Stream = Backbone.Collection.extend({
-  initialize : function(){
-    this.posts = new app.collections.Posts([], this.postOptions());
+  initialize : function(models, options){
+    var collection = app.collections.Posts;
+    if( options && options.collection ) collection = options.collection;
+    this.items = new collection([], this.collectionOptions());
   },
 
-  postOptions :function(){
+  collectionOptions :function(){
       var order = this.sortOrder();
       return {
-          comparator : function(post) { return -post[order](); }
+          comparator : function(item) { return -item[order](); }
       }
   },
 
   url : function(){
-    return _.any(this.posts.models) ? this.timeFilteredPath() : this.basePath()
+    return _.any(this.items.models) ? this.timeFilteredPath() : this.basePath()
   },
 
   fetch: function() {
     if(this.isFetching()){ return false }
     var url = this.url()
-    this.deferred = this.posts.fetch({
+    this.deferred = this.items.fetch({
         add : true,
         url : url
     }).done(_.bind(this.triggerFetchedEvents, this))
@@ -31,8 +34,9 @@ app.models.Stream = Backbone.Collection.extend({
   triggerFetchedEvents : function(resp){
     this.trigger("fetched", this);
     // all loaded?
-    if(resp.posts && (resp.posts.author || resp.posts.length == 0)) {
-      this.trigger("allPostsLoaded", this);
+    var respItems = this.items.parse(resp);
+    if(respItems && (respItems.author || respItems.length == 0)) {
+      this.trigger("allItemsLoaded", this);
     }
   },
 
@@ -45,7 +49,7 @@ app.models.Stream = Backbone.Collection.extend({
   },
 
   maxTime: function(){
-    var lastPost = _.last(this.posts.models);
+    var lastPost = _.last(this.items.models);
     return lastPost[this.sortOrder()]()
   },
 
@@ -54,6 +58,6 @@ app.models.Stream = Backbone.Collection.extend({
   },
 
   add : function(models){
-    this.posts.add(models)
+    this.items.add(models)
   }
 });
