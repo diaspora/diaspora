@@ -9,8 +9,6 @@ describe("app.views.Stream", function() {
 
     this.view = new app.views.Stream({model : this.stream});
 
-    app.stream.bind("fetched", this.collectionFetched, this); //untested
-
     // do this manually because we've moved loadMore into render??
     this.view.render();
     _.each(this.view.collection.models, function(post) {
