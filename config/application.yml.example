@@ -60,7 +60,7 @@ defaults: &defaults
   ## https://images.example.org here, all requests made to
   ## pictures under /uploads/images will be redirected to
   ## https://images.example.org/uploads/images/...
-  image_redirect_url: 'https://images.example.org'
+  image_redirect_url: ''
 
   ## Diaspora is only tested against this default pubsub server.
   ## You probably don't want to change this.
