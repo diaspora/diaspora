@@ -43,10 +43,17 @@ describe("app.views.Stream", function() {
     it("fetches moar when the user is at the bottom of the page", function() {
       spyOn($.fn, "height").andReturn(0);
       spyOn($.fn, "scrollTop").andReturn(100);
-      spyOn(this.view, "fetchAndAppendLoader");
+      spyOn(this.view.model, "fetch");
 
       this.view.infScroll();
-      expect(this.view.fetchAndAppendLoader).toHaveBeenCalled();
+
+      waitsFor(function(){
+        return this.view.model.fetch.wasCalled
+      }, "the infinite scroll function didn't fetch the stream")
+
+      runs(function(){
+        expect(this.view.model.fetch).toHaveBeenCalled()
+      })
     });
   });
 
