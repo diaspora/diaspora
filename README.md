@@ -27,7 +27,7 @@ Before submitting code, feel free to sign our [Contributor License Agreement](ht
 Here's how you can get a development environment up and running. You can check out system-specific guides [here](https://github.com/diaspora/diaspora/wiki/Installation-Guides).
 
 ### Step 1: Download the script
-```curl https://raw.github.com/diaspora/diaspora/ec5289bd3b9b5608d339b28e1e30272f380a9211/script/install.sh | /bin/sh
+```curl https://raw.github.com/diaspora/diaspora/master/script/install.sh | /bin/sh
 ```
 
 ### Step 2: Follow the instructions
