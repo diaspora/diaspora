@@ -19,6 +19,7 @@ With Diaspora you can:
 Documentation is available on our [wiki](https://github.com/diaspora/diaspora/wiki)
 
 [Pull Request Guidelines](https://github.com/diaspora/diaspora/wiki/Pull-Request-Guidelines)
+
 Before submitting code, feel free to sign our [Contributor License Agreement](https://github.com/diaspora/diaspora/wiki/New-CLA--12-13-10) [Sign Here](https://spreadsheets.google.com/a/joindiaspora.com/spreadsheet/viewform?formkey=dFdRTnY0TGtfaklKQXZNUndsMlJ2eGc6MQ)
 
 ## Quick Start:
