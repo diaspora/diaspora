@@ -44,14 +44,11 @@ app.views.Stream = Backbone.View.extend({
   },
   
   appendLoader: function(){
-    $("#paginate").html($("<img>", {
-      src : "/assets/static-loader.png",
-      "class" : "loader"
-    }));
+    $("#paginate .loader").removeClass("hidden")
   },
 
   removeLoader: function() {
-    $("#paginate").empty();
+    $("#paginate .loader").addClass("hidden")
   },
 
   setupLightbox : function(){

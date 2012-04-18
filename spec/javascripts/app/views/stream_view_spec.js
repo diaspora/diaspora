@@ -50,15 +50,6 @@ describe("app.views.Stream", function() {
     });
   });
 
-  describe("removeLoader", function() {
-    it("emptys the pagination div when the stream is fetched", function() {
-      $("#jasmine_content").append($('<div id="paginate">OMG</div>'));
-      expect($("#paginate").text()).toBe("OMG");
-      this.view.stream.trigger("fetched");
-      expect($("#paginate")).toBeEmpty();
-    });
-  });
-
   describe("unbindInfScroll", function() {
     it("unbinds scroll", function() {
       spyOn($.fn, "unbind");
