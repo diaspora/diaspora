@@ -19,6 +19,8 @@ Diaspora::Application.routes.draw do
   match "/framer" => redirect("/posts/new")
 
   get 'p/:id' => 'posts#show', :as => 'short_post'
+  get 'p/:id/iframe' => 'posts#iframe', :as => 'iframe'
+
   # roll up likes into a nested resource above
   resources :comments, :only => [:create, :destroy] do
     resources :likes, :only => [:create, :destroy, :index]

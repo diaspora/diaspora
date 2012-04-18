@@ -5,6 +5,12 @@
 .icon-green { background-image: image_url("img/glyphicons-halflings-green.png"); }
 .icon-blue  { background-image: image_url("img/glyphicons-halflings-blue.png");  }
 
+ @media (max-width: 770px) { //why is 770 a magic number?
+    body {
+      padding: 0;
+    }
+  }
+
 .photoset {
   @include center(horizontal);
   width: 100%;

@@ -112,6 +112,13 @@ describe PostsController do
       end
     end
   end
+  
+  describe 'iframe' do
+    it 'contains an iframe' do
+      get :iframe, :id => @message.id
+      response.body.should match /iframe/
+    end
+  end
 
   describe '#destroy' do
     before do

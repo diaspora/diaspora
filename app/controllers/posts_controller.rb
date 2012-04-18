@@ -5,7 +5,9 @@
 require Rails.root.join("app", "presenters", "post_presenter")
 
 class PostsController < ApplicationController
-  before_filter :authenticate_user!, :except => :show
+  include PostsHelper
+  
+  before_filter :authenticate_user!, :except => [:show, :iframe]
   before_filter :set_format_if_malformed_from_status_net, :only => :show
 
   layout 'post'
@@ -51,6 +53,10 @@ class PostsController < ApplicationController
       flash[:error] = I18n.t('posts.show.not_found')
       redirect_to :back
     end
+  end
+
+  def iframe
+    render :text => post_iframe_url(params[:id]), :layout => false
   end
 
   def destroy
