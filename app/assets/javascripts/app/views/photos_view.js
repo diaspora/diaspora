@@ -4,7 +4,7 @@ app.views.Photos = Backbone.View.extend({
 
   initialize : function(options) {
     this.photos = this.model;
-    this.collection = this.model.photos;
+    this.collection = this.model.items;
 
     this.setupEvents();
     this.setupLightbox();
@@ -33,7 +33,7 @@ app.views.Photos = Backbone.View.extend({
     if(this.model.fetch()) {
       this.appendLoader();
     };
-    
+
     return this;
   },
 

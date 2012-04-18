@@ -1,7 +1,7 @@
 app.views.Stream = Backbone.View.extend({
   initialize: function(options) {
     this.stream = this.model
-    this.collection = this.model.posts
+    this.collection = this.model.items
 
     this.setupEvents()
     this.setupInfiniteScroll()
@@ -11,7 +11,7 @@ app.views.Stream = Backbone.View.extend({
 
   setupEvents : function(){
     this.stream.bind("fetched", this.removeLoader, this)
-    this.stream.bind("allPostsLoaded", this.unbindInfScroll, this)
+    this.stream.bind("allItemsLoaded", this.unbindInfScroll, this)
     this.collection.bind("add", this.addPost, this);
 
     app.currentUser.bind("nsfwChanged", reRenderPostViews, this)
@@ -42,7 +42,7 @@ app.views.Stream = Backbone.View.extend({
     this.stream.fetch()
     this.appendLoader()
   },
-  
+
   appendLoader: function(){
     $("#paginate").html($("<img>", {
       src : "/assets/static-loader.png",
