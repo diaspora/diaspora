@@ -56,8 +56,12 @@ class PostsController < ApplicationController
   def oembed
     post_id = OEmbedPresenter.id_from_url(params.delete(:url))
     post = find_by_guid_or_id_with_current_user(post_id) 
-    oembed = OEmbedPresenter.new(post, params.slice(:format, :maxheight, :minheight))
-    render :json => oembed
+    if post.present?
+      oembed = OEmbedPresenter.new(post, params.slice(:format, :maxheight, :minheight))
+      render :json => oembed
+    else
+      render :nothing => true, :status => 404
+    end
   end
 
   def destroy
