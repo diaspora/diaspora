@@ -44,6 +44,8 @@
     = set_asset_host
     = translation_missing_warnings
     = current_user_atom_tag
+    - if @post.present?
+      %link{:rel => 'alternate', :type => "application/json+oembed", :href => "#{oembed_url(:url => post_url(@post))}"}
 
     = yield(:head)
     = csrf_meta_tag

@@ -29,6 +29,8 @@
       text = text.replace(linkRegex, function() {
         var unicodeUrl = arguments[3];
         var addr = parse_url(unicodeUrl);
+        if( !addr.host ) addr.host = ""; // must not be 'undefined'
+
         var asciiUrl = // rebuild the url
           (!addr.scheme ? '' : addr.scheme +
           ( (addr.scheme.toLowerCase()=="mailto") ? ':' : '://')) +
