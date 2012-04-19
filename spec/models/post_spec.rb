@@ -162,7 +162,7 @@ describe Post do
       describe ".older" do
         it 'returns the previous post in the array' do
           Post.older(@posts[3]).created_at.to_s.should == @posts[4].created_at.to_s #its the older post, not the oldest
-          @post[3].created_at.should > @post[4].created_at #post 4 is older
+          @posts[3].created_at.should > @posts[4].created_at #post 4 is older
         end
       end
     end
