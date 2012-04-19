@@ -26,7 +26,7 @@ describe("app.views.Stream", function() {
 
   describe("#render", function() {
     beforeEach(function() {
-      this.statusMessage = this.stream.posts.models[0];
+      this.statusMessage = this.stream.items.models[0];
       this.statusElement = $(this.view.$(".stream_element")[0]);
     });
 

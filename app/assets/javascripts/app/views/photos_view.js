@@ -1,52 +1,16 @@
-app.views.Photos = Backbone.View.extend({
-
-  events : {},
-
+app.views.Photos = Backbone.View.extend(_.extend({
   initialize : function(options) {
-    this.photos = this.model;
-    this.collection = this.model.photos;
+    this.stream = this.model;
+    this.collection = this.stream.items;
 
-    this.setupEvents();
-    this.setupLightbox();
+    // viable for extraction
+    this.stream.fetch();
+
+    this.setupLightbox()
+    this.setupInfiniteScroll()
   },
 
-  setupEvents : function(){
-    this.photos.bind("fetched", this.removeLoader, this)
-    this.collection.bind("add", this.addPhoto, this);
-  },
-
-  addPhoto : function(photo) {
-    var photoView = new app.views.Photo({ model: photo });
-
-    $(this.el)[
-      (this.collection.at(0).id == photo.id)
-        ? "prepend"
-        : "append"
-    ](photoView.render().el);
-
-    return this;
-  },
-
-  render : function(evt) {
-    if(evt) {evt.preventDefault(); }
-
-    if(this.model.fetch()) {
-      this.appendLoader();
-    };
-    
-    return this;
-  },
-
-  appendLoader: function(){
-    $("#paginate").html($("<img>", {
-      src : "/assets/static-loader.png",
-      "class" : "loader"
-    }));
-  },
-
-  removeLoader: function() {
-    $("#paginate").empty();
-  },
+  postClass : app.views.Photo,
 
   setupLightbox : function(){
     this.lightbox = Diaspora.BaseWidget.instantiate("Lightbox");
@@ -55,6 +19,5 @@ app.views.Photos = Backbone.View.extend({
       imageSelector: 'img.photo'
     });
     $(this.el).delegate("a.photo-link", "click", this.lightbox.lightboxImageClicked);
-  },
-
-});
+  }
+}, app.views.infiniteScrollMixin));

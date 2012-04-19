@@ -9,14 +9,14 @@ describe("app.models.Stream", function() {
     beforeEach(function(){
       postFetch = new $.Deferred()
 
-      spyOn(this.stream.posts, "fetch").andCallFake(function(){
+      spyOn(this.stream.items, "fetch").andCallFake(function(){
         return postFetch
       })
     })
 
-    it("it fetches posts from the window's url, and ads them to tthe collection", function() {
+    it("it fetches posts from the window's url, and ads them to the collection", function() {
       this.stream.fetch()
-      expect(this.stream.posts.fetch).toHaveBeenCalledWith({ add : true, url : this.expectedPath});
+      expect(this.stream.items.fetch).toHaveBeenCalledWith({ add : true, url : this.expectedPath});
     });
 
     it("returns the json path with max_time if the collection has models", function() {
@@ -25,7 +25,7 @@ describe("app.models.Stream", function() {
       this.stream.add(post);
 
       this.stream.fetch()
-      expect(this.stream.posts.fetch).toHaveBeenCalledWith({ add : true, url : this.expectedPath + "?max_time=1234"});
+      expect(this.stream.items.fetch).toHaveBeenCalledWith({ add : true, url : this.expectedPath + "?max_time=1234"});
     });
 
     it("triggers fetched on the stream when it is fetched", function(){
@@ -36,17 +36,17 @@ describe("app.models.Stream", function() {
       expect(fetchedSpy).toHaveBeenCalled()
     })
 
-    it("triggers allPostsLoaded on the stream when zero posts are returned", function(){
+    it("triggers allItemsLoaded on the stream when zero posts are returned", function(){
       var fetchedSpy = jasmine.createSpy()
-      this.stream.bind('allPostsLoaded', fetchedSpy)
+      this.stream.bind('allItemsLoaded', fetchedSpy)
       this.stream.fetch()
       postFetch.resolve({posts : []})
       expect(fetchedSpy).toHaveBeenCalled()
     })
 
-    it("triggers allPostsLoaded on the stream when a Post is returned", function(){
+    it("triggers allItemsLoaded on the stream when a Post is returned", function(){
       var fetchedSpy = jasmine.createSpy()
-      this.stream.bind('allPostsLoaded', fetchedSpy)
+      this.stream.bind('allItemsLoaded', fetchedSpy)
       this.stream.fetch()
       postFetch.resolve({posts : factory.post().attributes})
       expect(fetchedSpy).toHaveBeenCalled()

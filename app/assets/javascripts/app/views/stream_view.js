@@ -1,7 +1,8 @@
 app.views.Stream = Backbone.View.extend(_.extend({
   initialize: function(options) {
     this.stream = this.model
-    this.collection = this.model.posts
+    this.collection = this.stream.items
+
     this.postViews = []
 
     this.setupNSFW()

@@ -11,7 +11,7 @@ describe("app.views.StreamFaces", function(){
 
     app.stream = new app.models.Stream()
     app.stream.add([this.post1, this.post2, this.post3, this.post4, this.post5, this.post6, this.post7]);
-    this.posts = app.stream.posts
+    this.posts = app.stream.items
 
     this.view = new app.views.StreamFaces({collection : this.posts})
   })
