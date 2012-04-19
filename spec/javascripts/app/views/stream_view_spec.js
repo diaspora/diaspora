@@ -26,7 +26,7 @@ describe("app.views.Stream", function() {
 
   describe("#render", function() {
     beforeEach(function() {
-      this.statusMessage = this.stream.posts.models[0];
+      this.statusMessage = this.stream.items.models[0];
       this.statusElement = $(this.view.$(".stream_element")[0]);
     });
 
@@ -43,19 +43,17 @@ describe("app.views.Stream", function() {
     it("fetches moar when the user is at the bottom of the page", function() {
       spyOn($.fn, "height").andReturn(0);
       spyOn($.fn, "scrollTop").andReturn(100);
-      spyOn(this.view, "fetchAndAppendLoader");
+      spyOn(this.view.model, "fetch");
 
       this.view.infScroll();
-      expect(this.view.fetchAndAppendLoader).toHaveBeenCalled();
-    });
-  });
 
-  describe("removeLoader", function() {
-    it("emptys the pagination div when the stream is fetched", function() {
-      $("#jasmine_content").append($('<div id="paginate">OMG</div>'));
-      expect($("#paginate").text()).toBe("OMG");
-      this.view.stream.trigger("fetched");
-      expect($("#paginate")).toBeEmpty();
+      waitsFor(function(){
+        return this.view.model.fetch.wasCalled
+      }, "the infinite scroll function didn't fetch the stream")
+
+      runs(function(){
+        expect(this.view.model.fetch).toHaveBeenCalled()
+      })
     });
   });
 

@@ -28,17 +28,19 @@ app.Router = Backbone.Router.extend({
     app.stream = new app.models.Stream();
     app.stream.fetch();
     app.page = new app.views.Stream({model : app.stream});
-    app.publisher = app.publisher || new app.views.Publisher({collection : app.stream.posts});
+    app.publisher = app.publisher || new app.views.Publisher({collection : app.stream.items});
 
-    var streamFacesView = new app.views.StreamFaces({collection : app.stream.posts});
+    var streamFacesView = new app.views.StreamFaces({collection : app.stream.items});
 
     $("#main_stream").html(app.page.render().el);
     $('#selected_aspect_contacts .content').html(streamFacesView.render().el);
   },
 
   photos : function() {
-    app.photos = new app.models.Photos();
+    app.photos = new app.models.Stream([], {collection: app.collections.Photos});
     app.page = new app.views.Photos({model : app.photos});
+
+
     $("#main_stream").html(app.page.render().el);
   },
 

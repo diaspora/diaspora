@@ -120,6 +120,19 @@ describe PostsController do
     end
   end
 
+  describe 'oembed' do
+    it 'works when you can see it' do
+      sign_in alice
+      get :oembed, :url => "/posts/#{@message.id}"
+      response.body.should match /iframe/
+    end
+
+    it 'returns a 404 response when the post is not found' do
+      get :oembed, :url => "/posts/#{@message.id}"
+      response.should_not be_success
+    end
+  end
+
   describe '#destroy' do
     before do
       sign_in alice
