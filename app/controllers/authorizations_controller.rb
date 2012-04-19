@@ -36,7 +36,7 @@ class AuthorizationsController < ApplicationController
   end
 
   def create
-    if params[:commit] == "Authorize"
+    if params['confirm']
       grant_authorization_code(current_user)
     else
       deny_authorization_code
