@@ -410,7 +410,7 @@ div[data-template=flow] {
 // if you change this, check toggling the new publisher service broadcasts is still sensible
 // the checkbox should be hidden, and in the off state the service icons should be lighter
 // when the service icons are clicked they should be lighter, and toggle the hidden checkbox.
-.services {
+.magic-service-selector {
   label { display : inline;}
 
   input:not(:checked) + label {
