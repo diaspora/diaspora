@@ -1,5 +1,4 @@
 app.pages.PostViewer = app.views.Base.extend({
-
   templateName: "post-viewer",
 
   subviews : {
@@ -92,5 +91,4 @@ app.pages.PostViewer = app.views.Base.extend({
     if(evt.keyCode != 27) { return }
     this.interactionsView.hidePane();
   }
-
 });

@@ -1,35 +1,19 @@
 //= require ../views/small_frame
 
-app.pages.Profile = app.views.Base.extend(_.extend(app.views.infiniteScrollMixin, {
+app.pages.Profile = app.views.Base.extend({
 
   templateName : "profile",
 
-//  subviews : {
-//    "#canvas" : "canvasView"
-//  },
+  subviews : {
+    "#canvas" : "canvasView"
+  },
 
   initialize : function(options) {
     this.model = new app.models.Profile.findByGuid(options.personId)
     this.stream = options && options.stream || new app.models.Stream()
-    this.collection = this.stream.posts
     this.stream.fetch();
+    this.model.bind("change", this.render, this) //this should go on profile info view when it gets Extracted
 
-    this.model.bind("change", this.render, this)
-
-//    this.initViews()
-
-//    this.setupInfiniteScroll()
-  },
-
-  postClass : app.views.SmallFrame,
-
-//  mason : function() {
-//    this.$el.isotope({
-//      itemSelector : '.canvas-frame'
-//    })
-//  }
-
-//  initViews : function() {
-//    this.canvasView = new app.views.Canvas({model : this.model})
-//  }
-}));
+    this.canvasView = new app.views.Canvas({model : this.stream})
+  }
+});
