@@ -1,6 +1,4 @@
-@wip
-#@javascript @oauth-group
-#when you want to get this working remove @wip tag and uncomment the next line
+@wip @javascript @oauth-group
 Feature: oauth
   Exchanging oauth credentials
 
