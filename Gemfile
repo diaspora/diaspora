@@ -25,7 +25,7 @@ gem 'omniauth-tumblr'
 gem 'omniauth-twitter'
 
 gem 'twitter', '2.0.2'
-gem 'rails_admin'
+gem 'rails_admin', :require => false
 
 # mail
 
@@ -139,8 +139,6 @@ gem 'jasmine', :git => 'git://github.com/pivotal/jasmine-gem.git'
 ### GROUPS ####
 
 group :test do
-
-
   gem 'capybara', '~> 1.1.2'
   gem 'cucumber-rails', '1.3.0', :require => false
   gem 'database_cleaner', '0.7.1'
@@ -162,7 +160,7 @@ group :test do
   gem 'sqlite3'
   gem 'mock_redis'
 
-  gem 'spork', '~> 1.0rc2'
+  gem 'spork', '~> 1.0rc3'
   gem 'guard-rspec'
   gem 'guard-spork'
   gem 'guard-cucumber'

@@ -91,11 +91,11 @@ class PostPresenter
   protected
 
   def next_post
-    post_base.next(post)
+    post_base.newer(post)
   end
 
   def previous_post
-    post_base.previous(post)
+    post_base.older(post)
   end
 
   def as_api(collection)

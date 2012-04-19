@@ -12,6 +12,9 @@ Spork.prefork do
   # if you change any configuration or code from libraries loaded here, you'll
   # need to restart spork for it take effect.
 
+  #require "rails/application"
+  #Spork.trap_method(Rails::Application::RoutesReloader, :reload!)
+
   ENV["RAILS_ENV"] ||= 'test'
   require File.join(File.dirname(__FILE__), '..', 'config', 'environment') unless defined?(Rails)
   require 'helper_methods'
