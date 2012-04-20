@@ -153,7 +153,6 @@ describe Post do
       # @posts[0] is the newest, @posts[5] is the oldest
       describe ".newer" do
         it 'returns the next post in the array' do
-          @posts.each_with_index {|p, i| p p.created_at, i }
           @posts[3].created_at.should < @posts[2].created_at #post 2 is newer
           Post.newer(@posts[3]).created_at.to_s.should == @posts[2].created_at.to_s #its the newer post, not the newest
         end
