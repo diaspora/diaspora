@@ -125,7 +125,11 @@ describe Photo do
 
   context 'with a saved photo' do
     before do
+      UnprocessedImage.enable_processing = true
+
       @photo.unprocessed_image.store! File.open(@fixture_name)
+      UnprocessedImage.enable_processing = false
+
     end
     it 'should have text' do
       @photo.text= "cool story, bro"
@@ -144,6 +148,12 @@ describe Photo do
     it 'should not use the imported filename as the url' do
       @photo.url.include?(@fixture_filename).should be false
       @photo.url(:thumb_medium).include?("/" + @fixture_filename).should be false
+    end
+
+    it 'should save the image dimensions' do
+
+      @photo.width.should == 40
+      @photo.height.should ==  40
     end
   end
 
