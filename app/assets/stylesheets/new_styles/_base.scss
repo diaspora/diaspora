@@ -379,8 +379,8 @@ div[data-template=flow] {
   .service-selector {
     float: left;
     margin-left: 100px;
-
   }
+
 
   .dropdown-menu {
     bottom : 0;
@@ -406,3 +406,18 @@ div[data-template=flow] {
   }
 }
 
+// this is about the service toggle icons, there is a jasmine test that tests this in service_selector spec
+// if you change this, check toggling the new publisher service broadcasts is still sensible
+// the checkbox should be hidden, and in the off state the service icons should be lighter
+// when the service icons are clicked they should be lighter, and toggle the hidden checkbox.
+.magic-service-selector {
+  label { display : inline;}
+
+  input:not(:checked) + label {
+    @include opacity(0.4);
+  }
+
+  input {
+    display : none;
+  }
+}

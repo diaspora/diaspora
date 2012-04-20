@@ -32,5 +32,6 @@
       - current_user.aspects.each do |aspect|
         %option{:value => aspect.id}
           = "· #{aspect.name}"
-
+= form_for Photo.new, :html => {:multipart => true} do |f|
+  = f.file_field :image
 

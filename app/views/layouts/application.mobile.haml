@@ -18,7 +18,7 @@
     %meta{:name => "MobileOptimized", :content => "320"}
     / Force cleartype on WP7
     %meta{'http-equiv' => "cleartype", :content => 'on'}
-
+    = og_site_name
     / Home screen icon (sized for retina displays)
     %link{:rel => 'apple-touch-icon', :href => '/apple-touch-icon.png'}
     / For Nokia devices
@@ -30,13 +30,10 @@
     /%link{:rel => "apple-touch-startup-image", :href => "/images/apple-splash.png"}
 
     / Stylesheets
+
     = stylesheet_link_tag :mobile, :format => 'all'
     = yield(:custom_css)
 
-    %script{:src => "/javascripts/vendor/mbp-modernizr-custom.js"}
-    / Media Queries Polyfill https://github.com/shichuan/mobile-html5-boilerplate/wiki/Media-Queries-Polyfill
-    :javascript
-      Modernizr.mq('(min-width:0)') || document.write('<script src="javascripts/vendor/mbp-respond.min.js">\x3C/script>')
 
     = csrf_meta_tag
 

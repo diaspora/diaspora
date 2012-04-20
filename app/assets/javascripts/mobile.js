@@ -3,6 +3,8 @@
  *   the COPYRIGHT file.
  */
 //= require jquery.charcount
+//= require mbp-modernizr-custom
+//= require mbp-respond.min
 //= require mbp-helper
 $(document).ready(function(){
 

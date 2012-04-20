@@ -270,6 +270,7 @@ body {
 
 .navbar {
   @include box-shadow(0,1px,2px,#333);
+  padding: 0 20px;
 }
 
 .navbar-inner {
@@ -289,12 +290,11 @@ body {
 
 #nav_badges {
   display: inline-block;
-  margin-top: 2px; }
+}
   #nav_badges a:hover {
     text-decoration: none; }
   #nav_badges .badge {
     position: relative;
-    top: -12px;
     display: inline;
     margin: 0 2px;
     padding: 8px 3px;
@@ -644,9 +644,7 @@ display: inline-block;
   display: inline;
     font-weight: bold;
     margin: 0 2px;
-    padding: 8px 3px 9px;
     position: relative;
-    top: -15px;
     width: 28px;
 }
 

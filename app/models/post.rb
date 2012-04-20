@@ -71,11 +71,11 @@ class Post < ActiveRecord::Base
     joins(:likes).where(:likes => {:author_id => person.id})
   }
 
-  def self.next(post)
+  def self.newer(post)
     where("posts.created_at > ?", post.created_at).order('posts.created_at ASC').first
   end
 
-  def self.previous(post)
+  def self.older(post)
     where("posts.created_at < ?", post.created_at).order('posts.created_at DESC').first
   end
 
@@ -86,6 +86,7 @@ class Post < ActiveRecord::Base
       author.posts.all_public
     end
   end
+
   def post_type
     self.class.name
   end

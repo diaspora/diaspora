@@ -1,4 +1,4 @@
-@javascript @oauth-group
+@wip @javascript @oauth-group
 Feature: oauth
   Exchanging oauth credentials
 

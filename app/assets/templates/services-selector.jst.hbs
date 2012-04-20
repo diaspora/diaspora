@@ -1,8 +1,10 @@
-<span class="service-selector-title">Broadcast:</span>
-<div class="services">
+<span class="service-selector-title">Broadcast</span>
+
+<!--*CSS MAGIC* CHECKBOX IS HIDDEN AND IS CHECKED BY CLICKING THE LABEL, CHANGE THIS AT YOUR OWN PERIL, RUN JASMINE AFTER-->
+<div class="magic-service-selector">
     {{#each current_user.services}}
-        <img class="legacy-provider-image" src="/assets/social_media_logos/{{provider}}-16x16.png" />
-        <input type="checkbox" name="services" class="service" value="{{provider}}" />
+        <input id="service_toggle_{{provider}}" type="checkbox" name="services" class="service" value="{{provider}}" />
+        <label for="service_toggle_{{provider}}"><img class="legacy-provider-image" src="/assets/social_media_logos/{{provider}}-16x16.png" data-provider="{{provider}}" /></label>
     {{/each}}
 </div>
 
