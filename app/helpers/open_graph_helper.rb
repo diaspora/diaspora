@@ -12,8 +12,9 @@ module OpenGraphHelper
   end
 
   def og_image(post)
-    img_url = post.photos.present? ? post.photos.first.url(:thumb_medium) : "#{root_url.chop}#{image_path('asterisk.png')}"
-    meta_tag_with_property('og:image', img_url)
+    tags = post.photos.map{|x| meta_tag_with_property('og:image', x.url(:thumb_small))}
+    tags << meta_tag_with_property('og:image',  "#{root_url.chop}#{image_path('asterisk.png')}") if tags.empty?
+    tags.join(' ')
   end
 
   def og_site_name
