@@ -36,6 +36,10 @@ module ApplicationHelper
     User.diaspora_id_host
   end
 
+  def modernizer_responsive_tag
+    javascript_tag("Modernizr.mq('(min-width:0)') ||  document.write(unescape('#{j javascript_include_tag("mbp-respond.min")}'));")
+  end
+
   # Require jQuery from CDN if possible, falling back to vendored copy, and require
   # vendored jquery_ujs
   def jquery_include_tag
