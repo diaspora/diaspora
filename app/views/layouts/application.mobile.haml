@@ -18,7 +18,7 @@
     %meta{:name => "MobileOptimized", :content => "320"}
     / Force cleartype on WP7
     %meta{'http-equiv' => "cleartype", :content => 'on'}
-
+    = og_site_name
     / Home screen icon (sized for retina displays)
     %link{:rel => 'apple-touch-icon', :href => '/apple-touch-icon.png'}
     / For Nokia devices
@@ -30,6 +30,7 @@
     /%link{:rel => "apple-touch-startup-image", :href => "/images/apple-splash.png"}
 
     / Stylesheets
+
     = stylesheet_link_tag :mobile, :format => 'all'
     = yield(:custom_css)
 
