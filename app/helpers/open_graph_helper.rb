@@ -1,6 +1,6 @@
 module OpenGraphHelper
   def og_title(post)
-    meta_tag_with_property('og:title', post_page_title(post))
+    meta_tag_with_property('og:title', post_page_title(post, :length => 140))
   end
 
   def og_type(post)
@@ -23,7 +23,7 @@ module OpenGraphHelper
   end
 
   def og_description(post)
-    meta_tag_with_property('og:description', post_page_title(post))
+    meta_tag_with_property('og:description', post_page_title(post, :length => 1000))
   end
 
   def og_page_specific_tags(post)
