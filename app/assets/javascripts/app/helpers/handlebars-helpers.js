@@ -24,3 +24,11 @@ Handlebars.registerHelper('personImage', function(person, size, imageClass) {
 
   return "<img src=\"" + person.avatar[size] +"\" class=\"avatar " + imageClass + "\" title=\"" + person.name +"\" />";
 })
+
+Handlebars.registerHelper('ifequal', function(lvalue,rvalue,options) {
+    if( lvalue!=rvalue ) {
+        return options.inverse(this);
+    } else {
+        return options.fn(this);
+    }
+})

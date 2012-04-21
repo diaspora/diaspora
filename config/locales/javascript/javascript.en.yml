@@ -90,6 +90,8 @@ en:
       hide_nsfw_posts: "Hide #nsfw posts"
       follow: "Follow"
       unfollow: "Unfollow"
+      via_provider: "via <%= provider %>"
+      via_mobile: "via mobile"
 
       likes:
         zero: "<%= count %> Likes"
