@@ -8,6 +8,12 @@ app.views.SmallFrame = app.views.Base.extend({
     "click .content" : "goToPost"
   },
 
+  presenter : function(){
+    //todo : we need to have something better for small frame text, probably using the headline() scenario.
+    return _.extend(this.defaultPresenter(),
+      {text : this.model && app.helpers.textFormatter(this.model.get("text"), this.model)})
+  },
+
   postRenderTemplate : function() {
     this.$el.addClass(this.photoClass() + ' ' + this.textClass())
   },

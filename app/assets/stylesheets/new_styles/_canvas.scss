@@ -49,6 +49,12 @@ body {
       -webkit-transform : scale(0.98);
     }
 
+    //hax to deal with markdownify
+    p {
+      font-size: inherit;
+      line-height: inherit;
+    }
+
     position : relative;
 
     background-color : #fff;
