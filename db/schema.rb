@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120414005431) do
+ActiveRecord::Schema.define(:version => 20120420185823) do
 
   create_table "account_deletions", :force => true do |t|
     t.string  "diaspora_handle"
@@ -297,6 +297,8 @@ ActiveRecord::Schema.define(:version => 20120414005431) do
     t.string   "unprocessed_image"
     t.string   "status_message_guid"
     t.integer  "comments_count"
+    t.integer  "height"
+    t.integer  "width"
   end
 
   add_index "photos", ["status_message_guid"], :name => "index_photos_on_status_message_guid"

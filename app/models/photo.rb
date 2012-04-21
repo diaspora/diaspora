@@ -21,6 +21,8 @@ class Photo < ActiveRecord::Base
         :medium => photo.url(:thumb_medium),
         :large => photo.url(:scaled_full) }
     }, :as => :sizes
+    t.add :height
+    t.add :width
   end
 
   mount_uploader :processed_image, ProcessedImage
@@ -31,6 +33,9 @@ class Photo < ActiveRecord::Base
 
   xml_attr :text
   xml_attr :status_message_guid
+
+  xml_attr :height
+  xml_attr :width
 
   belongs_to :status_message, :foreign_key => :status_message_guid, :primary_key => :guid
   validates_associated :status_message

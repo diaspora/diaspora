@@ -4,6 +4,13 @@
 
 require 'spec_helper'
 
+def with_carrierwave_processing(&block)
+  UnprocessedImage.enable_processing = true
+  val = yield
+  UnprocessedImage.enable_processing = false
+  val
+end
+
 describe Photo do
   before do
     @user = alice
@@ -125,7 +132,9 @@ describe Photo do
 
   context 'with a saved photo' do
     before do
-      @photo.unprocessed_image.store! File.open(@fixture_name)
+      with_carrierwave_processing do
+        @photo.unprocessed_image.store! File.open(@fixture_name)
+      end
     end
     it 'should have text' do
       @photo.text= "cool story, bro"
@@ -142,8 +151,13 @@ describe Photo do
     end
 
     it 'should not use the imported filename as the url' do
-      @photo.url.include?(@fixture_filename).should be false
-      @photo.url(:thumb_medium).include?("/" + @fixture_filename).should be false
+      @photo.url.should_not include @fixture_filename
+      @photo.url(:thumb_medium).should_not include ("/" + @fixture_filename)
+    end
+
+    it 'should save the image dimensions' do
+      @photo.width.should == 40
+      @photo.height.should ==  40
     end
   end
 
@@ -159,7 +173,9 @@ describe Photo do
 
   describe 'serialization' do
     before do
-      Jobs::ProcessPhoto.perform(@saved_photo.id)
+      @saved_photo = with_carrierwave_processing do
+         @user.build_post(:photo, :user_file => File.open(@fixture_name), :to => @aspect.id)
+      end
       @xml = @saved_photo.to_xml.to_s
     end
 
@@ -170,6 +186,12 @@ describe Photo do
 
     it 'serializes the diaspora_handle' do
       @xml.include?(@user.diaspora_handle).should be true
+    end
+
+    it 'serializes the height and width' do
+      @xml.should include 'height'
+      @xml.include?('width').should be true
+      @xml.include?('40').should be true
     end
   end
 
