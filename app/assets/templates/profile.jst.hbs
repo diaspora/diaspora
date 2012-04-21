@@ -1,14 +1,11 @@
 <section id="profile_info">
     <h1>{{full_name}}</h1>
-    <div>
-        Gender: {{gender}}
-    </div>
-    <div>
-        Bio: {{bio}}
-    </div>
-    <div>
-        Birthday: {{birthday}}
-    </div>
+    <dl>
+        <dt>Location:</dt><dd>{{location}}</dd>
+        <dt>Bio:</dt><dd>{{bio}}</dd>
+        <dt>Birthday:</dt><dd>{{birthday}}</dd>
+        <dt>Gender:</dt><dd>{{gender}}</dd>
+    </dl>
 </section>
 
 <a href="/posts/new">COMPOSE</a>
@@ -16,3 +13,5 @@
 <section id="canvas">
 
 </section>
+
+<div id=paginate><span class="loader hidden"/></div>

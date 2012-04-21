@@ -13,7 +13,7 @@
 #main_stream.stream
 
 #paginate
-  = image_tag "static-loader.png", :height => 14, :width => 14, :class => "loader hidden"
+  %span.loader.hidden
 
 - if current_user.contacts.size < 2
   = render 'aspects/no_contacts_message'
