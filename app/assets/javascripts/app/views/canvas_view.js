@@ -8,7 +8,7 @@ app.views.Canvas = app.views.Base.extend(_.extend(app.views.infiniteScrollMixin,
 
   renderTemplate : function() {
     this.postRenderTemplate();
-   setTimeout(_.bind(this.mason, this), 1000)
+    setTimeout(_.bind(this.mason, this), 1000)
   },
 
   mason : function() {

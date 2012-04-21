@@ -4,6 +4,10 @@ app.views.SmallFrame = app.views.Base.extend({
 
   templateName : "small-frame",
 
+  events : {
+    "click .content" : "goToPost"
+  },
+
   postRenderTemplate : function() {
     this.$el.addClass(this.photoClass() + ' ' + this.textClass())
   },
@@ -36,7 +40,9 @@ app.views.SmallFrame = app.views.Base.extend({
     } else {
       return baseClass + 'many'
     }
+  },
+
+  goToPost : function() {
+    app.router.navigate(this.model.url(), true)
   }
-
-
 });

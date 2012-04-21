@@ -26,7 +26,17 @@ body {
   //clear : both; // here for testing!
 
   .content {
+    @include transition(box-shadow);
     @include box-shadow(0,1px,3px,rgba(0,0,0,0.2));
+
+    &:hover {
+      @include box-shadow(0,1px,3px,rgba(0,0,0,0.5));
+      cursor : pointer;
+    }
+
+    &:active {
+      -webkit-transform : scale(0.98);
+    }
 
     position : relative;
 
