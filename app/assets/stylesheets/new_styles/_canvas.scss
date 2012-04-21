@@ -1,13 +1,25 @@
+$container-width : 1170;
+
+$margin-between-columns : 20;
+$column-width : 255 - $margin-between-columns;
+$two-column-width : ($column-width * 2) + ($margin-between-columns * 2);
+
+
+$margin-between-rows : 20;
+
+$row-height : $column-width;
+$two-row-height : $two-column-width;
+
 @mixin tall() {
-  height : 405px;
-  max-height : 405px;
-  min-height : 405px;
+  height : $two-column-width + px;
+  min-height : $two-column-width + px;
+  max-height : $two-column-width + px;
 }
 
 @mixin wide() {
-  //width : 560px;
-  //min-width : 560px;
-  //max-width : 560px;
+  width : $two-column-width + px;
+  min-width : $two-column-width + px;
+  max-width : $two-column-width + px;
 }
 
 body {
@@ -19,9 +31,8 @@ body {
 }
 
 .canvas-frame {
-  float: left;
-  margin: 10px;
-  width: 270px;
+  float : left;
+  margin : 10px;
 
   //clear : both; // here for testing!
 
@@ -41,12 +52,15 @@ body {
     position : relative;
 
     background-color : #fff;
-    min-height : 140px;
-    max-height : 140px;
+    min-height : $column-width + px;
+    max-height : $column-width + px;
+
+    width : $column-width + px;
+    min-width : $column-width + px;
+    max-width : $column-width + px;
 
     overflow : hidden;
-    padding : 20px;
-    margin-bottom : 5px;
+    padding : 10px;
 
     /* used in masking photos with overflow: hidden; */
     .image-container {
@@ -95,10 +109,13 @@ body {
 
   &.photo {
     &.one  .content {
-      padding : 0;
-      min-height : 180px;
-      max-height : 180px;
-
+      //padding : 0;
+      //
+      //min-height : $column-width + 10 + px;
+      //max-height : $column-width + 10 +  px;
+      //
+      //min-width : $column-width + 10 + px;
+      //max-width : $column-width + 10 +  px;
 
       .text-content {
         position : absolute;
