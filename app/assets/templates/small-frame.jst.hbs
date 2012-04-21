@@ -1,8 +1,18 @@
-<div class="canvas-frame">
-    <div class="content">
+<div class="content">
+
+    {{#if photos}}
+        <div class="image-set">
+            {{#each photos}}
+                <div class="image-container">
+                    <img src="{{sizes.large}}" />
+                </div>
+            {{/each}}
+        </div>
+    {{/if}}
+
+    <div class="text-content">
         {{text}}
     </div>
-    <div class="info">
-        {{author.name}}
-    </div>
+</div>
+<div class="info">
 </div>

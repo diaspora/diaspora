@@ -2,6 +2,8 @@
 
 app.pages.Profile = app.views.Base.extend({
 
+  className : "container",
+
   templateName : "profile",
 
   subviews : {
