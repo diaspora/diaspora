@@ -7,12 +7,12 @@ $two-column-width : ($column-width * 2) + ($margin-between-columns * 2);
 $margin-between-rows : 20;
 
 $row-height : $column-width;
-$two-row-height : $two-column-width;
+$two-row-height : $two-column-width + $margin-between-rows;
 
 @mixin tall() {
-  height : $two-column-width + px;
-  min-height : $two-column-width + px;
-  max-height : $two-column-width + px;
+  height : $two-row-height + px;
+  min-height : $two-row-height + px;
+  max-height : $two-row-height + px;
 }
 
 @mixin wide() {
@@ -101,6 +101,17 @@ body {
     z-index : 100;
     top : 10px;
     right : 10px;
+  }
+
+  .info {
+    @include opacity(0.7);
+
+    padding : 5px;
+    max-height : 10px;
+    text-align : right;
+    i {
+      margin-left:  3px;
+    }
   }
 
   /* larger declarations */
