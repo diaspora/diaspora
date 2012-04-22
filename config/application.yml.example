@@ -204,6 +204,10 @@ defaults: &defaults
   tumblr_consumer_key: ''
   tumblr_consumer_secret: ''
 
+  ## OAuth credentials for Identica:
+  identica_consumer_key: ''
+  identica_consumer_secret: ''
+
 
   ######################################################
   # Debugging Service Tool Integration
