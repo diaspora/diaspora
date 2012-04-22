@@ -25,12 +25,14 @@ app.views.SmallFrame = app.views.Base.extend({
     if(!firstPhoto ||
       (firstPhoto && !firstPhoto.dimensions.height || !firstPhoto.dimensions.width)) { return className }
 
+    if(this.model.get("o_embed_cache")) {
+      return("x2 width")
+    }
+
     return(className + ratio(firstPhoto.dimensions))
 
     function ratio(dimensions) {
       var ratio = (dimensions.width / dimensions.height)
-
-      console.log(ratio, dimensions)
 
       if(ratio > 1.5) {
         return "x2 width"

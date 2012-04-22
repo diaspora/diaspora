@@ -8,6 +8,13 @@
         </div>
     {{/if}}
 
+    {{#if o_embed_cache.data}}
+        <div class="embed-frame">
+            {{{o_embed_cache.data.html}}}
+        </div>
+    {{/if}}
+
+
     <div class="text-content">
         {{{text}}}
     </div>

@@ -84,6 +84,19 @@ body {
     }
   }
 
+  .embed-frame {
+    position : absolute;
+    top : 0;
+    left : 0;
+    width : 100%;
+    height : 100%;
+
+    iframe {
+      height : 100%;
+      width : 100%;
+    }
+  }
+
   /* larger declarations */
   &.x2.width  .content { @include wide(); }
   &.x2.height .content { @include tall(); }
