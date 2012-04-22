@@ -79,6 +79,15 @@ class PostsController < ApplicationController
     end
   end
 
+  def update
+    @post = current_user.posts.find(params[:id])
+    if @post
+      @post.favorite = !@post.favorite
+      @post.save
+      render :nothing => true, :status => 202
+    end
+  end
+
   private
 
   def find_by_guid_or_id_with_current_user(id)

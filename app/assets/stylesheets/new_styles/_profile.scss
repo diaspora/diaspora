@@ -1,0 +1,36 @@
+#edit-controls {
+  @include transition(opacity);
+  @include opacity(0);
+
+  position : fixed;
+
+  width : 100%;
+  top : 0;
+  left : 0;
+
+  text-align : center;
+
+  z-index : 999;
+  background-color : rgba(0,0,0,0.6);
+
+  color : #eee;
+
+  padding : 10px 0;
+}
+
+.canvas-frame .fav {
+  @include transition(opacity);
+  @include opacity(0)
+}
+
+/* functionality under edit mode */
+.edit-mode {
+  #edit-controls {
+    @include opacity(1);
+    //display : block;
+  }
+
+  .canvas-frame .fav {
+    @include opacity(1)
+  }
+}

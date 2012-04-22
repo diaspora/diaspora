@@ -96,6 +96,13 @@ body {
     }
   }
 
+  .fav {
+    position : absolute;
+    z-index : 100;
+    top : 10px;
+    right : 10px;
+  }
+
   /* larger declarations */
   &.x2.width  .content { @include wide(); }
   &.x2.height .content { @include tall(); }

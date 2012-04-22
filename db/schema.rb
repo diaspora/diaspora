@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120420185823) do
+ActiveRecord::Schema.define(:version => 20120422072257) do
 
   create_table "account_deletions", :force => true do |t|
     t.string  "diaspora_handle"
@@ -340,6 +340,7 @@ ActiveRecord::Schema.define(:version => 20120420185823) do
     t.integer  "reshares_count",                      :default => 0
     t.datetime "interacted_at"
     t.string   "frame_name"
+    t.boolean  "favorite",                            :default => false
   end
 
   add_index "posts", ["author_id", "root_guid"], :name => "index_posts_on_author_id_and_root_guid", :unique => true

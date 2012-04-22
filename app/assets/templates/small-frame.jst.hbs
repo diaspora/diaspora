@@ -1,5 +1,13 @@
 <div class="content">
 
+    <a href="#" class="fav">
+        {{#if favorite}}
+            NOT WORTHY
+        {{else}}
+            FAVE IT
+        {{/ if}}
+    </a>
+
     {{#if photos}}
         <div class="image-container">
             {{#each photos}}
