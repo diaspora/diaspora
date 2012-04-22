@@ -21,8 +21,10 @@ class Photo < ActiveRecord::Base
         :medium => photo.url(:thumb_medium),
         :large => photo.url(:scaled_full) }
     }, :as => :sizes
-    t.add :height
-    t.add :width
+    t.add lambda { |photo|
+      { :height => photo.height,
+        :width => photo.width }
+    }, :as => :dimensions
   end
 
   mount_uploader :processed_image, ProcessedImage

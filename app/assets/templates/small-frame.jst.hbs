@@ -1,0 +1,23 @@
+<div class="content">
+
+    {{#if photos}}
+        <div class="image-container">
+            {{#each photos}}
+                <img src="{{sizes.large}}" />
+            {{/each}}
+        </div>
+    {{/if}}
+
+    {{#if o_embed_cache.data}}
+        <div class="embed-frame">
+            {{{o_embed_cache.data.html}}}
+        </div>
+    {{/if}}
+
+
+    <div class="text-content">
+        {{{text}}}
+    </div>
+</div>
+<div class="info">
+</div>

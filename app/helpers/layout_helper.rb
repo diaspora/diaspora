@@ -46,6 +46,8 @@ module LayoutHelper
   end
 
   def current_user_atom_tag
+    return #temp hax
+
     return unless @person.present?
     content_tag(:link, '', :rel => 'alternate', :href => "#{@person.public_url}.atom", :type => "application/atom+xml", :title => t('.public_feed', :name => @person.name))
   end
@@ -61,7 +63,7 @@ module LayoutHelper
   end
 
   def include_base_css_framework(use_bootstrap=false)
-    if use_bootstrap || @aspect == :getting_started || @page == :logged_out
+    if use_bootstrap || @aspect == :getting_started || @page == :logged_out || @page == :experimental
       stylesheet_link_tag 'bootstrap-complete'
     else
       stylesheet_link_tag 'blueprint', :media => 'screen'

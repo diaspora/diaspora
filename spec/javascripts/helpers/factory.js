@@ -74,6 +74,31 @@ factory = {
     }
   },
 
+  profile : function(overrides) {
+    var id = overrides && overrides.id || factory.id.next()
+    var defaults = {
+      "bio": "I am a cat lover and I love to run",
+      "birthday": "2012-04-17",
+      "created_at": "2012-04-17T23:48:35Z",
+      "diaspora_handle": "bob@localhost:3000",
+      "first_name": "Bob",
+      "full_name": "bob grimm",
+      "gender": "robot",
+      "id": id,
+      "image_url": "http:\/\/localhost:3000\/assets\/user\/wolf.jpg",
+      "image_url_medium": "http:\/\/localhost:3000\/assets\/user\/wolf.jpg",
+      "image_url_small": "http:\/\/localhost:3000\/assets\/user\/wolf.jpg",
+      "last_name": "Grimm",
+      "location": "Earth",
+      "nsfw": false,
+      "person_id": "person" + id,
+      "searchable": true,
+      "updated_at": "2012-04-17T23:48:36Z"
+    }
+
+    return new app.models.Profile(_.extend(defaults, overrides))
+  },
+
   photoAttrs : function(overrides){
     var id = this.id.next();
     return _.extend({

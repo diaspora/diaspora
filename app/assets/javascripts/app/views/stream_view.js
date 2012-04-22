@@ -1,4 +1,4 @@
-app.views.Stream = Backbone.View.extend(_.extend({
+app.views.Stream = Backbone.View.extend(_.extend( app.views.infiniteScrollMixin, {
   initialize: function(options) {
     this.stream = this.model
     this.collection = this.stream.items
@@ -24,4 +24,4 @@ app.views.Stream = Backbone.View.extend(_.extend({
       _.map(this.postViews, function(view){ view.render() })
     }
   }
-}, app.views.infiniteScrollMixin));
+}));

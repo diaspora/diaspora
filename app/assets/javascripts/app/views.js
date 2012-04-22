@@ -44,6 +44,7 @@ app.views.Base = Backbone.View.extend({
     if(!this.template) {
       console.log(this.templateName ? ("no template for " + this.templateName) : "no templateName specified")
     }
+
     this.$el
       .html(this.template(presenter))
       .attr("data-template", _.last(this.templateName.split("/")));
@@ -94,7 +95,7 @@ app.views.infiniteScrollMixin = {
     $(window).scroll(throttledScroll);
   },
 
-  renderTemplate : function() {
+  postRenderTemplate : function() {
     if(this.stream.isFetching()) { this.showLoader() }
   },
 

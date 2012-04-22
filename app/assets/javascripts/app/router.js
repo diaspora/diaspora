@@ -12,9 +12,12 @@ app.Router = Backbone.Router.extend({
     "commented": "stream",
     "liked": "stream",
     "mentions": "stream",
-    "people/:id": "stream",
+
+    "people/:id?ex=true": "newProfile",
+    "people/:id": "profile",
+    "u/:name": "profile",
+
     "people/:id/photos": "photos",
-    "u/:name": "stream",
     "followed_tags": "stream",
     "tags/:name": "stream",
 
@@ -24,7 +27,28 @@ app.Router = Backbone.Router.extend({
     "framer": "framer"
   },
 
-  stream : function() {
+
+  newProfile : function(personId) {
+    this.renderPage(new app.pages.Profile({ personId : personId }));
+  },
+
+  composer : function(){
+    this.renderPage(new app.pages.Composer());
+  },
+
+  framer : function(){
+    this.renderPage(new app.pages.Framer());
+  },
+
+  singlePost : function(id) {
+    this.renderPage(new app.pages.PostViewer({ id: id }));
+  },
+
+  profile : function(page) {
+    this.stream()
+  },
+
+  stream : function(page) {
     app.stream = new app.models.Stream();
     app.stream.fetch();
     app.page = new app.views.Stream({model : app.stream});
@@ -44,19 +68,13 @@ app.Router = Backbone.Router.extend({
     $("#main_stream").html(app.page.render().el);
   },
 
-  composer : function(){
-    var page = new app.pages.Composer();
-    $("#container").html(page.render().el)
+  isExperimental : function(query) {
+   return query.search("ex=true") != -1
   },
 
-  framer : function(){
-    var page = new app.pages.Framer();
-    $("#container").html(page.render().el)
-  },
-
-  singlePost : function(id) {
-    var page = new app.pages.PostViewer({ id: id });
-    $("#container").html(page.el);
-   }
+  renderPage : function(page){
+    app.page = page
+    $("#container").html(app.page.render().el)
+  }
 });
 

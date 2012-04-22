@@ -27,6 +27,8 @@ module NavigationHelpers
         person_path(User.find_by_email($1).person)
       when /^my account settings page$/
         edit_user_path
+      when /^my new profile page$/
+        person_path(@me.person,  :ex => true)
       when /^"(\/.*)"/
         $1
       else

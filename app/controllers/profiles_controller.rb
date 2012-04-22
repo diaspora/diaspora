@@ -5,8 +5,17 @@
 class ProfilesController < ApplicationController
   before_filter :authenticate_user!
 
-  respond_to :html
+  respond_to :html, :except => [:show]
   respond_to :js, :only => :update
+
+  def show
+    @profile  = Person.find_by_guid!(params[:id]).profile
+
+    respond_to do |format|
+      format.json { render :json => @profile }
+    end
+  end
+
   def edit
     @person = current_user.person
     @aspect  = :person_edit
