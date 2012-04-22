@@ -68,20 +68,19 @@ body {
 
     /* used in masking photos with overflow: hidden; */
     .image-container {
-      float : left;
+      position : absolute;
       overflow : hidden;
+
+      width : 100%;
+      top : 0;
+      left : 0;
+
+      width : 100%;
 
       img {
         max-height : 100%;
         max-width : 100%;
       }
-    }
-
-    .image-set {
-      position : absolute;
-      top : 0;
-      left : 0;
-      clear : all;
     }
   }
 

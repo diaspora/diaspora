@@ -1,11 +1,9 @@
 <div class="content">
 
     {{#if photos}}
-        <div class="image-set">
+        <div class="image-container">
             {{#each photos}}
-                <div class="image-container">
-                    <img src="{{sizes.large}}" />
-                </div>
+                <img src="{{sizes.large}}" />
             {{/each}}
         </div>
     {{/if}}
