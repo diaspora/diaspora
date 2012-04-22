@@ -25,4 +25,5 @@ Rails.application.config.middleware.use OmniAuth::Builder do
   end
   if SERVICES['identica'] && SERVICES['identica']['consumer_key'] && SERVICES['identica']['consumer_secret']
     provider :identica, SERVICES['identica']['consumer_key'], SERVICES['identica']['consumer_secret']
+  end
 end
