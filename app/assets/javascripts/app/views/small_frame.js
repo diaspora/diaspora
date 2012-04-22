@@ -39,7 +39,11 @@ app.views.SmallFrame = app.views.Base.extend({
       } else if(ratio < 0.75) {
         return "x2 height"
       } else {
-        return ""
+        if(ratio > 1) {
+          return "scale-vertical"
+        } else {
+          return "scale-horizontal"
+        }
       }
     }
   },

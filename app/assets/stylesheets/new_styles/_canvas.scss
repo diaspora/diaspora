@@ -71,11 +71,10 @@ body {
       position : absolute;
       overflow : hidden;
 
-      width : 100%;
       top : 0;
       left : 0;
 
-      width : 100%;
+      min-width : 100%;
 
       img {
         max-height : 100%;
@@ -103,5 +102,12 @@ body {
 
   &.x2.width .content img  { max-height: none; max-width: none; min-width: 100%; }
   &.x2.height .content img { max-width: none; max-height: none; min-height: 100%; }
+
+  &.scale-vertical .content img,
+  &.scale-vertical .content .image-container {height : 100%; max-width : none; }
+
+  &.scale-horizontal .content img,
+  &.scale-horizontal .content .image-container {width : 100%; max-height : none; }
+
 
 }
