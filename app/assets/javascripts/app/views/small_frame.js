@@ -16,7 +16,22 @@ app.views.SmallFrame = app.views.Base.extend({
   },
 
   postRenderTemplate : function() {
-    this.$el.addClass(this.dimensionsClass())
+    this.$el.addClass(this.dimensionsClass() + " " + this.colorClass())
+  },
+
+  colorClass : function() {
+    var text = this.model.get("text");
+    if(text == "" || this.model.get("photos").length > 0) { return "" }
+
+    if(text.length > 240) {
+      return "purple x2 width"
+    } else if(text.length > 140) {
+      return "green"
+    } else if(text.length > 50) {
+      return "cyan"
+    } else {
+      return "yellow"
+    }
   },
 
   dimensionsClass : function() {
@@ -27,7 +42,7 @@ app.views.SmallFrame = app.views.Base.extend({
       , className = "photo ";
 
     if(!firstPhoto ||
-      (firstPhoto && !firstPhoto.dimensions.height || !firstPhoto.dimensions.width)) { return className }
+      (firstPhoto && !firstPhoto.dimensions.height || !firstPhoto.dimensions.width)) { return "" }
 
     if(this.model.get("o_embed_cache")) {
       return("x2 width")

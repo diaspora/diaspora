@@ -9,6 +9,12 @@ $margin-between-rows : 20;
 $row-height : $column-width;
 $two-row-height : $two-column-width + $margin-between-rows;
 
+/* colors : http://www.colourlovers.com/palette/2134203/Awezome_in_argyle */
+$cyan : rgb(8,204,249);
+$yellow : rgb(242,244,9);
+$green : rgb(29,235,134);
+$purple : rgb(220,23,166);
+
 @mixin tall() {
   height : $two-row-height + px;
   min-height : $two-row-height + px;
@@ -38,13 +44,15 @@ body {
     @include transition(box-shadow);
     @include box-shadow(0,1px,3px,rgba(0,0,0,0.2));
 
+    background-image : image_url("paper-texture-1.jpg");
+
     &:hover {
       @include box-shadow(0,1px,5px,rgba(0,0,0,0.5));
       cursor : pointer;
     }
 
     &:active {
-      -webkit-transform : scale(0.98);
+      -webkit-transform : scale(0.99);
     }
 
     //hax to deal with markdownify
@@ -104,7 +112,7 @@ body {
   }
 
   .info {
-    @include opacity(0.7);
+    @include opacity(0.3);
 
     padding : 5px;
     max-height : 10px;
@@ -113,6 +121,62 @@ body {
       margin-left:  3px;
     }
   }
+
+  .background-color {
+    height : 100%;
+    width : 100%;
+    position: absolute;
+    top : 0;
+    left : 0;
+  }
+
+  .text-content {
+    @include opacity(0.65);
+    position : relative;
+    z-index : 10;
+    color : #000;
+
+    text-shadow : 0 2px 0 rgba(#fff,0.6), 0 -1px 2px rgba(#555, 0.1);
+    font-weight : bold;
+    font-size : 1.5em;
+    line-height : 1.2em;
+  }
+
+  &.cyan .background-color   { background-color : rgba($cyan, 0.2); }
+  &.green .background-color  { background-color : rgba($green, 0.2); }
+
+  /* blog */
+  &.purple {
+    //.background-color { background-color : rgba($purple, 0.2); }
+
+    .text-content {
+      padding : 10px;
+      @include opacity(0.9);
+
+      p {
+        text-shadow : 0 1px 0 #ccc;
+
+        font-family : Palatino, Georgia, Times, serif;
+        font-weight : normal;
+        font-size : 0.8em;
+        line-height : 1.5em;
+        text-align : justify;
+      }
+    }
+  }
+
+  &.yellow {
+    .background-color { background-color : rgba($yellow, 0.2); }
+
+    .text-content {
+      p {
+        font-size : 2.0em;
+        line-height : 1.7em;
+        text-align : center;
+      }
+    }
+  }
+
 
   /* larger declarations */
   &.x2.width  .content { @include wide(); }
