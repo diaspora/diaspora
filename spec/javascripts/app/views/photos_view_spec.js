@@ -12,7 +12,7 @@ describe("app.views.Photos", function() {
     // do this manually because we've moved loadMore into render??
     this.view.render();
     _.each(this.view.collection.models, function(photo) {
-      this.view.addPost(photo);
+      this.view.addPostView(photo);
     }, this);
   });
 

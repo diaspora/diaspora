@@ -55,5 +55,4 @@
   %body
     = flash_messages
     #container
-
-    = yield
+    = javascript_tag  "window.preLoadContent = '#{escape_javascript(yield)}'"

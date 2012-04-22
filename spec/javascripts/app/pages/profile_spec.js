@@ -18,10 +18,10 @@ describe("app.pages.Profile", function(){
     expect(this.page.canvasView.model).toBe(this.stream)
   });
 
-  it("fetches the stream for the user", function(){
-    spyOn(this.stream, "fetch")
+  it("preloads the stream for the user", function(){
+    spyOn(this.stream, "preload")
     new app.pages.Profile({stream : this.stream})
-    expect(this.stream.fetch).toHaveBeenCalled()
+    expect(this.stream.preload).toHaveBeenCalled()
   })
 
   describe("rendering", function(){
