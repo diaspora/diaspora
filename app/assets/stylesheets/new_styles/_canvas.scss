@@ -1,9 +1,8 @@
 $container-width : 1170;
 
-$margin-between-columns : 20;
+$margin-between-columns : 30;
 $column-width : 255 - $margin-between-columns;
 $two-column-width : ($column-width * 2) + ($margin-between-columns * 2);
-
 
 $margin-between-rows : 20;
 
@@ -24,6 +23,7 @@ $two-row-height : $two-column-width;
 
 body {
   background-color : #F6F6F6;
+  background-image : image_url('pattern.jpg')
 }
 
 #canvas {
@@ -34,14 +34,12 @@ body {
   float : left;
   margin : 10px;
 
-  //clear : both; // here for testing!
-
   .content {
     @include transition(box-shadow);
     @include box-shadow(0,1px,3px,rgba(0,0,0,0.2));
 
     &:hover {
-      @include box-shadow(0,1px,3px,rgba(0,0,0,0.5));
+      @include box-shadow(0,1px,5px,rgba(0,0,0,0.5));
       cursor : pointer;
     }
 
@@ -66,7 +64,7 @@ body {
     max-width : $column-width + px;
 
     overflow : hidden;
-    padding : 10px;
+    padding : 20px;
 
     /* used in masking photos with overflow: hidden; */
     .image-container {
@@ -80,8 +78,10 @@ body {
     }
 
     .image-set {
-      float : left;
-      width : 100%;
+      position : absolute;
+      top : 0;
+      left : 0;
+      clear : all;
     }
   }
 
@@ -89,92 +89,7 @@ body {
   &.x2.width  .content { @include wide(); }
   &.x2.height .content { @include tall(); }
 
-  &.text {
-    &.extra-small .content {
-      font-weight : bold;
-      font-size: 2.5em;
-      line-height: 1em;
-    }
-
-    &.content {
-      display: table;
-    }
-
-    &.small  .content {
-      font-size: 1.4em;
-      line-height: 1.25em;
-
-      text-decoration: bold;
-    }
-    &.medium .content {
-      @include tall();
-      font-size: 1.6em;
-    }
-    &.large  .content { @include wide() }
-  }
-
-  &.photo {
-    &.one  .content {
-      //padding : 0;
-      //
-      //min-height : $column-width + 10 + px;
-      //max-height : $column-width + 10 +  px;
-      //
-      //min-width : $column-width + 10 + px;
-      //max-width : $column-width + 10 +  px;
-
-      .text-content {
-        position : absolute;
-        padding : 10px;
-        bottom : 0;
-        color : #eee;
-      }
-    }
-
-    &.two .content {
-    //  @include tall();
-    //  .image-container {
-    //    width : 50%;
-    //  }
-    }
-    &.many .content { @include tall(); @include wide(); }
-  }
-
-  &.text.small + .photo.one  .content {
-
-  }
-  &.text.small + .photo.two  .content { @include wide() }
-  &.text.small + .photo.many .content { @include tall(); @include wide(); }
-
-  &.text.medium + .photo.one  .content {}
-  &.text.medium + .photo.two  .content {}
-  &.text.medium + .photo.many .content {}
-
-  &.text.large.photo.one .content {
-    @include tall(); @include wide();
-    .text-content {
-      max-height: 26%;
-      padding : 20px;
-      color : #333;
-    }
-
-    .image-set {
-      height: 65%;
-      width: 100%;
-    }
-
-    .image-container {
-      width : 100%;
-      height : 100%;
-
-      img {
-        width : 100%;
-        max-height : none;
-      }
-    }
-
-  }
-  &.text.large + .photo.two  .content {}
-  &.text.large + .photo.many .content {}
+  &.x2.width .content img  { max-height: none; max-width: none; min-width: 100%; }
+  &.x2.height .content img { max-width: none; max-height: none; min-height: 100%; }
 
 }
