@@ -188,8 +188,4 @@ body {
   &.x2.width  .content { @include wide(); }
   &.sticky-note.x2.height  .content { @include tall(); }
 
-  &.scale-horizontal .content img,
-  &.scale-horizontal .content .image-container {width : 100%;  }
-
-
 }

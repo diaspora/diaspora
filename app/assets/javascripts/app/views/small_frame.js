@@ -41,33 +41,11 @@ app.views.SmallFrame = app.views.Base.extend({
     /* by default, make it big if it's a fav */
     if(this.model.get("favorite")) { return "x2 width height" }
 
-    var firstPhoto = this.model.get("photos")[0]
-      , className = "photo ";
-
-    if(!firstPhoto ||
-      (firstPhoto && !firstPhoto.dimensions.height || !firstPhoto.dimensions.width)) { return "" }
-
     if(this.model.get("o_embed_cache")) {
       return("x2 width")
     }
     return ''
-    return(className + ratio(firstPhoto.dimensions))
 
-    function ratio(dimensions) {
-      var ratio = (dimensions.width / dimensions.height)
-
-      if(ratio > 1.5) {
-        return "x2 width"
-      } else if(ratio < 0.75) {
-        return "x2 height"
-      } else {
-        if(ratio > 1) {
-          return "scale-vertical"
-        } else {
-          return "scale-horizontal"
-        }
-      }
-    }
   },
 
   favoritePost : function(evt) {
