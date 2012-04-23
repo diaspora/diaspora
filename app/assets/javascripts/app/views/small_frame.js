@@ -22,17 +22,19 @@ app.views.SmallFrame = app.views.Base.extend({
   colorClass : function() {
     var text = this.model.get("text");
     if(text == "" || this.model.get("photos").length > 0) { return "" }
-
+    var randomColor = _.first(_.shuffle(['cyan', 'green', 'yellow', 'purple', 'lime-green', 'orange', 'red', 'turquoise', 'sand']));
+    
     if(text.length > 240) {
-      return "purple x2 width"
+      return "blog-text x2 width"
     } else if(text.length > 140) {
-      return "green"
+      return randomColor
     } else if(text.length > 50) {
-      return "cyan"
+      return randomColor
     } else {
-      return "yellow"
+      return "big-text " + randomColor
     }
   },
+
 
   dimensionsClass : function() {
     /* by default, make it big if it's a fav */

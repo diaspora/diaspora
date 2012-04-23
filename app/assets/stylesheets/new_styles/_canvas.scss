@@ -15,6 +15,11 @@ $cyan : rgb(8,204,249);
 $yellow : rgb(242,244,9);
 $green : rgb(29,235,134);
 $purple : rgb(220,23,166);
+$lime-green : rgb(143, 199,10);
+$orange : rgb(237, 165, 13);
+$red : rgb(246, 68, 60);
+$turquoise : rgb(8, 224, 173);
+$sand : rgb(245, 239, 237);
 
 @mixin tall() {
   height : $two-row-height + px;
@@ -145,11 +150,15 @@ body {
 
   &.cyan .background-color   { background-color : rgba($cyan, 0.2); }
   &.green .background-color  { background-color : rgba($green, 0.2); }
+  &.yellow .background-color { background-color : rgba($yellow, 0.2); }
+  &.purple .background-color { background-color : rgba($purple, 0.2); }
+  &.lime-green .background-color { background-color : rgba($lime-green, 0.2); }
+  &.orange .background-color { background-color : rgba($orange, 0.2); }
+  &.red .background-color { background-color : rgba($red, 0.2); }
+  &.turquoise .background-color { background-color : rgba($turquoise, 0.2); }
+  &.sand .background-color { background-color : rgba($sand, 0.8); }
 
-  /* blog */
-  &.purple {
-    //.background-color { background-color : rgba($purple, 0.2); }
-
+  &.blog-text {
     .text-content {
       padding : 10px;
       @include opacity(0.9);
@@ -166,16 +175,14 @@ body {
     }
   }
 
-  &.yellow {
-    .background-color { background-color : rgba($yellow, 0.2); }
-
+  &.big-text {
     .text-content {
       p {
         font-size : 2.0em;
         line-height : 1.1em;
         text-align : center;
       }
-    }
+  }
   }
 
 
