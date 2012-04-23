@@ -4,6 +4,7 @@ app.views.Canvas = app.views.Base.extend(_.extend({}, app.views.infiniteScrollMi
     this.collection = this.stream.items
     this.postClass = app.views.SmallFrame
     this.setupInfiniteScroll()
+    this.stream.bind("reLayout", this.reRender, this)
   },
 
   renderTemplate : function() {
@@ -18,12 +19,16 @@ app.views.Canvas = app.views.Base.extend(_.extend({}, app.views.infiniteScrollMi
     _.defer(_.bind(function(){ this.$el.isotope("insert", this.createPostView(post).render().$el) }, this))
   },
 
-    mason : function() {
+  mason : function() {
     this.$el.isotope({
       itemSelector : '.canvas-frame',
       masonry : {
         columnWidth : 292.5
       }
     })
+  },
+
+  reRender : function(){
+    this.$el.isotope("reLayout")
   }
 }));

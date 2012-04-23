@@ -72,12 +72,13 @@ app.views.SmallFrame = app.views.Base.extend({
   favoritePost : function(evt) {
     if(evt) { evt.stopImmediatePropagation(); evt.preventDefault() }
 
-    if(this.model.get("favorite")) {
-      this.model.save({favorite : false})
-    } else {
-      this.model.save({favorite : true})
-      this.$el.addClass("x2 width height")
-    }
+    var prevDimension = this.dimensionsClass();
+    this.model.toggleFavorite();
+
+    this.$el.removeClass(prevDimension)
+    this.render()
+
+    app.page.stream.trigger("reLayout")
   },
 
   goToPost : function() {

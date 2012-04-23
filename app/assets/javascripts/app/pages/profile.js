@@ -26,7 +26,7 @@ app.pages.Profile = app.views.Base.extend({
   initialize : function(options) {
     this.model = new app.models.Profile.findByGuid(options.personId)
     this.stream = options && options.stream || new app.models.Stream()
-    this.stream.preload()
+    this.stream.preloadOrFetch();
 
     this.canvasView = new app.views.Canvas({ model : this.stream })
     this.profileInfo = new app.views.ProfileInfo({ model : this.model })

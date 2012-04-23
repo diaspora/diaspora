@@ -1,7 +1,7 @@
 describe("app.pages.Profile", function(){
   beforeEach(function(){
     this.guid = 'abcdefg123'
-    this.page = new app.pages.Profile({personId :this.guid });
+    app.page = this.page = new app.pages.Profile({personId :this.guid });
     this.stream = this.page.stream
   });
 
@@ -26,8 +26,27 @@ describe("app.pages.Profile", function(){
 
   describe("rendering", function(){
     beforeEach(function(){
-      this.page.render();
+      this.post = factory.post()
+      this.stream.add(this.post)
+      this.page.toggleEdit()
+      expect(this.page.editMode).toBeTruthy()
+      this.page.render()
     });
+
+    context("clicking fav", function(){
+      beforeEach(function(){
+        spyOn(this.post, 'toggleFavorite')
+        spyOn($.fn, "isotope")
+        this.page.$(".fav").click()
+      })
+
+      it("relayouts the page", function(){
+        expect($.fn.isotope).toHaveBeenCalledWith("reLayout")
+      })
+      it("toggles the favorite status on the model", function(){
+        expect(this.post.toggleFavorite).toHaveBeenCalled()
+      })
+    })
   });
 
   describe("edit mode", function(){
