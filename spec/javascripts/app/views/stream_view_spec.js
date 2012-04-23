@@ -12,7 +12,7 @@ describe("app.views.Stream", function() {
     // do this manually because we've moved loadMore into render??
     this.view.render();
     _.each(this.view.collection.models, function(post) {
-      this.view.addPost(post);
+      this.view.addPostView(post);
     }, this);
   });
 

@@ -8,6 +8,11 @@
 
   .loader {
     display: inline-block;
+
+    &.hidden{
+      display : none;
+    }
+
     width : 14px;
     height: 14px;
     background-image : url(asset_path("static-loader.png", "image"))

@@ -5,6 +5,7 @@ app.views.SmallFrame = app.views.Base.extend({
   templateName : "small-frame",
 
   events : {
+    "click .fav" : "favoritePost",
     "click .content" : "goToPost"
   },
 
@@ -15,15 +16,33 @@ app.views.SmallFrame = app.views.Base.extend({
   },
 
   postRenderTemplate : function() {
-    this.$el.addClass(this.dimensionsClass())
+    this.$el.addClass(this.dimensionsClass() + " " + this.colorClass())
+  },
+
+  colorClass : function() {
+    var text = this.model.get("text");
+    if(text == "" || this.model.get("photos").length > 0) { return "" }
+
+    if(text.length > 240) {
+      return "purple x2 width"
+    } else if(text.length > 140) {
+      return "green"
+    } else if(text.length > 50) {
+      return "cyan"
+    } else {
+      return "yellow"
+    }
   },
 
   dimensionsClass : function() {
+    /* by default, make it big if it's a fav */
+    if(this.model.get("favorite")) { return "x2 width height" }
+
     var firstPhoto = this.model.get("photos")[0]
       , className = "photo ";
 
     if(!firstPhoto ||
-      (firstPhoto && !firstPhoto.dimensions.height || !firstPhoto.dimensions.width)) { return className }
+      (firstPhoto && !firstPhoto.dimensions.height || !firstPhoto.dimensions.width)) { return "" }
 
     if(this.model.get("o_embed_cache")) {
       return("x2 width")
@@ -48,35 +67,16 @@ app.views.SmallFrame = app.views.Base.extend({
     }
   },
 
-//  textClass : function(){
-//    var textLength = this.model.get("text").length
-//      , baseClass = "text ";
-//
-//    if(textLength <= 20){
-//      return baseClass + "extra-small"
-//    } else if(textLength <= 140) {
-//      return baseClass + "small"
-//    } else if(textLength <= 500) {
-//      return baseClass + "medium"
-//    } else {
-//      return baseClass + "large"
-//    }
-//  },
-//
-//  photoClass : function(){
-//    var photoCount = this.model.get('photos').length
-//      , baseClass  = "photo ";
-//
-//    if(photoCount == 0 ) {
-//      return ""
-//    } else if(photoCount == 1){
-//      return baseClass + 'one'
-//    } else if(photoCount == 2 ) {
-//      return baseClass + 'two'
-//    } else {
-//      return baseClass + 'many'
-//    }
-//  },
+  favoritePost : function(evt) {
+    if(evt) { evt.stopImmediatePropagation(); evt.preventDefault() }
+
+    if(this.model.get("favorite")) {
+      this.model.save({favorite : false})
+    } else {
+      this.model.save({favorite : true})
+      this.$el.addClass("x2 width height")
+    }
+  },
 
   goToPost : function() {
     app.router.navigate(this.model.url(), true)

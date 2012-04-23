@@ -18,10 +18,10 @@ describe("app.pages.Profile", function(){
     expect(this.page.canvasView.model).toBe(this.stream)
   });
 
-  it("fetches the stream for the user", function(){
-    spyOn(this.stream, "fetch")
+  it("preloads the stream for the user", function(){
+    spyOn(this.stream, "preload")
     new app.pages.Profile({stream : this.stream})
-    expect(this.stream.fetch).toHaveBeenCalled()
+    expect(this.stream.preload).toHaveBeenCalled()
   })
 
   describe("rendering", function(){
@@ -29,4 +29,20 @@ describe("app.pages.Profile", function(){
       this.page.render();
     });
   });
+
+  describe("edit mode", function(){
+    describe("toggle edit", function(){
+      it("changes the page's global edit state", function(){
+        expect(this.page.editMode).toBeFalsy()
+        this.page.toggleEdit()
+        expect(this.page.editMode).toBeTruthy()
+      })
+
+      it("changes the page's class to 'edit-mode'", function(){
+        expect(this.page.$el).not.toHaveClass('edit-mode')
+        this.page.toggleEdit()
+        expect(this.page.$el).toHaveClass('edit-mode')
+      })
+    })
+  })
 });

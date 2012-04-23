@@ -1,6 +1,7 @@
 //= require_self
 //= require_tree ./helpers
 //= require ./router
+//= require ./models
 //= require ./views
 //= require_tree ./models
 //= require_tree ./pages
