@@ -16,6 +16,14 @@
         </div>
     {{/if}}
 
+    {{#if object_url}}
+        <div class="image-container">
+            <a href="{{object_url}}" class="stream-photo-link">
+                <img src="{{image_url}}" data-small-photo="{{image_url}}" data-full-photo="{{image_url}}" class="stream-photo" />
+            </a>
+        </div>
+    {{/if}}
+
     {{#if o_embed_cache.data}}
         <div class="embed-frame">
             {{{o_embed_cache.data.html}}}

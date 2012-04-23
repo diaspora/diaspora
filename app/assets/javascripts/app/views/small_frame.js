@@ -80,6 +80,9 @@ app.views.SmallFrame = app.views.Base.extend({
     this.render()
 
     app.page.stream.trigger("reLayout")
+    //trigger moar relayouts in the case of images WHOA GROSS HAX
+    _.delay(function(){app.page.stream.trigger("reLayout")}, 200)
+    _.delay(function(){app.page.stream.trigger("reLayout")}, 500)
   },
 
   goToPost : function() {

@@ -8,7 +8,7 @@ $two-column-width : $raw-two-column-width - 30;  //simply subtract an arbitrary 
 $margin-between-rows : 20;
 
 $row-height : $column-width;
-$two-row-height : $raw-two-column-width + $margin-between-rows;
+$two-row-height : $raw-two-column-width - 20;
 
 /* colors : http://www.colourlovers.com/palette/2134203/Awezome_in_argyle */
 $cyan : rgb(8,204,249);
@@ -66,7 +66,6 @@ body {
     position : relative;
 
     background-color : #fff;
-    min-height : $column-width + px;
 
     width : $column-width + px;
     min-width : $column-width + px;
@@ -138,6 +137,15 @@ body {
     line-height : 1.2em;
   }
 
+  &.sticky-note {
+    .content{
+      min-height : $column-width + px;
+      .text-content {
+        margin: 20px;
+      }
+    }
+  }
+
   &.cyan .background-color   { background-color : rgba($cyan, 0.2); }
   &.green .background-color  { background-color : rgba($green, 0.2); }
   &.yellow .background-color { background-color : rgba($yellow, 0.2); }
@@ -178,6 +186,7 @@ body {
 
   /* larger declarations */
   &.x2.width  .content { @include wide(); }
+  &.sticky-note.x2.height  .content { @include tall(); }
 
   &.scale-horizontal .content img,
   &.scale-horizontal .content .image-container {width : 100%;  }
