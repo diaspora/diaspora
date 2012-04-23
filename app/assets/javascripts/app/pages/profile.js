@@ -16,6 +16,12 @@ app.pages.Profile = app.views.Base.extend({
   },
 
   editMode : false,
+  presenter : function(){
+    var bio =  this.model.get("bio") || ''
+    return _.extend(this.defaultPresenter(),
+      {text : this.model && app.helpers.textFormatter(bio, this.model)})
+  },
+
 
   initialize : function(options) {
     this.model = new app.models.Profile.findByGuid(options.personId)
