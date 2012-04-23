@@ -20,7 +20,10 @@ app.views.Canvas = app.views.Base.extend(_.extend({}, app.views.infiniteScrollMi
 
     mason : function() {
     this.$el.isotope({
-      itemSelector : '.canvas-frame'
+      itemSelector : '.canvas-frame',
+      masonry : {
+        columnWidth : 292.5
+      }
     })
   }
 }));
