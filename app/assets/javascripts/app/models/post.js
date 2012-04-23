@@ -1,4 +1,4 @@
-app.models.Post = Backbone.Model.extend({
+app.models.Post = Backbone.Model.extend(_.extend({}, app.models.formatDateMixin, {
   urlRoot : "/posts",
 
   initialize : function() {
@@ -17,16 +17,8 @@ app.models.Post = Backbone.Model.extend({
     this.set({frame_name : templatePicker.getFrameName()})
   },
 
-  createdAt : function() {
-    return this.timeOf("created_at");
-  },
-
   interactedAt : function() {
     return this.timeOf("interacted_at");
-  },
-
-  timeOf: function(field) {
-    return app.helpers.dateFormatter.parse(this.get(field)) / 1000;
   },
 
   createReshareUrl : "/reshares",
@@ -121,7 +113,7 @@ app.models.Post = Backbone.Model.extend({
       , newlineIdx = body.indexOf("\n")
     return (newlineIdx > 0 ) ? body.substr(newlineIdx+1, body.length) : ""
   }
-}, {
+}), {
   headlineLimit : 118,
 
   frameMoods : [
