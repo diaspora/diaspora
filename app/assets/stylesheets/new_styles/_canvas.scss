@@ -1,9 +1,9 @@
 $container-width : 1170;
 
 $margin-between-columns : 30;
-$column-width : 255 - $margin-between-columns;
+$column-width : 295 - $margin-between-columns;
 $raw-two-column-width : ($column-width * 2) + ($margin-between-columns * 2) ;
-$two-column-width : $raw-two-column-width + 7;  //why do we need these extra 7?
+$two-column-width : $raw-two-column-width - 30;  //simply subtract an arbitrary ammount :)
 
 $margin-between-rows : 20;
 
@@ -67,27 +67,21 @@ body {
 
     background-color : #fff;
     min-height : $column-width + px;
-    max-height : $column-width + px;
 
     width : $column-width + px;
     min-width : $column-width + px;
     max-width : $column-width + px;
 
     overflow : hidden;
-    padding : 20px;
+    //padding : 20px;
 
     /* used in masking photos with overflow: hidden; */
     .image-container {
-      position : absolute;
       overflow : hidden;
-
-      top : 0;
-      left : 0;
-
-      min-width : 100%;
+      width : 100%;
 
       img {
-        max-height : 100%;
+        width: 100%;
         max-width : 100%;
       }
     }
@@ -184,16 +178,9 @@ body {
 
   /* larger declarations */
   &.x2.width  .content { @include wide(); }
-  &.x2.height .content { @include tall(); }
-
-  &.x2.width .content img  { max-height: none; max-width: none; min-width: 100%; }
-  &.x2.height .content img { max-width: none; max-height: none; min-height: 100%; }
-
-  &.scale-vertical .content img,
-  &.scale-vertical .content .image-container {height : 100%; max-width : none; }
 
   &.scale-horizontal .content img,
-  &.scale-horizontal .content .image-container {width : 100%; max-height : none; }
+  &.scale-horizontal .content .image-container {width : 100%;  }
 
 
 }

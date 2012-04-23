@@ -23,6 +23,7 @@ app.views.SmallFrame = app.views.Base.extend({
     var text = this.model.get("text");
     if(text == "" || this.model.get("photos").length > 0) { return "" }
     var randomColor = _.first(_.shuffle(['cyan', 'green', 'yellow', 'purple', 'lime-green', 'orange', 'red', 'turquoise', 'sand']));
+    randomColor += " sticky-note"
     
     if(text.length > 240) {
       return "blog-text x2 width"
@@ -49,7 +50,7 @@ app.views.SmallFrame = app.views.Base.extend({
     if(this.model.get("o_embed_cache")) {
       return("x2 width")
     }
-
+    return ''
     return(className + ratio(firstPhoto.dimensions))
 
     function ratio(dimensions) {
