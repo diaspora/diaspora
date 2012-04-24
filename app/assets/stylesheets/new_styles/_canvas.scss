@@ -50,6 +50,11 @@ body {
 
     &:hover {
       @include box-shadow(0,1px,5px,rgba(0,0,0,0.5));
+
+      .info {
+        bottom : 0;
+      }
+
       cursor : pointer;
     }
 
@@ -108,11 +113,19 @@ body {
   }
 
   .info {
-    @include opacity(0.3);
+    @include transition(bottom);
+    @include opacity(0.8);
+
+    background-color : rgba(255,255,255,0.4);
+
+    position : absolute;
+    bottom : -30px;
+    right : 0;
+    text-align : center;
+    width : 100%;
 
     padding : 5px;
-    max-height : 10px;
-    text-align : right;
+    padding-right : 8px;
     i {
       margin-left:  3px;
     }
@@ -191,9 +204,6 @@ body {
 
 
   &.wallpaper {
-    .info {
-      
-    }
     .content{
       display: table;
     }
