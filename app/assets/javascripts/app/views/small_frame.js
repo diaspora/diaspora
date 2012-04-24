@@ -16,7 +16,12 @@ app.views.SmallFrame = app.views.Base.extend({
   },
 
   postRenderTemplate : function() {
-    this.$el.addClass(this.dimensionsClass() + " " + this.colorClass())
+    this.$el.addClass([this.dimensionsClass(), this.colorClass(), this.frameClass()].join(' '))
+  },
+
+  frameClass : function(){
+    var name = this.model.get("frame_name") || ""
+    return name.toLowerCase()
   },
 
   colorClass : function() {

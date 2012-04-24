@@ -76,6 +76,7 @@ body {
 
     /* used in masking photos with overflow: hidden; */
     .image-container {
+
       overflow : hidden;
       width : 100%;
 
@@ -188,4 +189,37 @@ body {
   &.x2.width  .content { @include wide(); }
   &.sticky-note.x2.height  .content { @include tall(); }
 
+
+  &.wallpaper {
+    .info {
+      
+    }
+    .content{
+      display: table;
+    }
+
+    .image-container {
+      background-color: black;
+      display: table-cell;
+
+      img {
+        @include opacity(0.7);
+      }
+    }
+
+    .text-content {
+      position: absolute;
+      left: 0;
+      width: 100%;
+      top: 40%;
+      @include centered-frame();
+      font-size: 3em;
+      color: white;
+      @include opacity(1);
+      text-shadow : none;
+      font-weight: bold;
+
+
+    }
+  }
 }
