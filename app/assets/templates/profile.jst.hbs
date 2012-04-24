@@ -5,12 +5,14 @@
 <section id="profile-info"/>
 
 <section id="profile-controls">
-    <a href="/posts/new"  class="control">
-        <img src='{{imageUrl "buttons/add_post.jpg"}}' />
-    </a>
-    <a href="#" id="edit-mode-toggle" class="control">
-        <img src='{{imageUrl "buttons/edit_canvas.png"}}' />
-    </a>
+    {{#if isOwnProfile}}
+        <a href="/posts/new"  class="control">
+            <img src='{{imageUrl "buttons/add_post.jpg"}}' />
+        </a>
+        <a href="#" id="edit-mode-toggle" class="control">
+            <img src='{{imageUrl "buttons/edit_canvas.png"}}' />
+        </a>
+    {{/if}}
 </section>
 
 <section id="canvas">

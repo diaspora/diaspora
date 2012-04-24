@@ -16,12 +16,13 @@ app.pages.Profile = app.views.Base.extend({
   },
 
   editMode : false,
+
   presenter : function(){
     var bio =  this.model.get("bio") || ''
     return _.extend(this.defaultPresenter(),
-      {text : this.model && app.helpers.textFormatter(bio, this.model)})
+      {text : this.model && app.helpers.textFormatter(bio, this.model),
+       isOwnProfile : true })
   },
-
 
   initialize : function(options) {
     this.model = new app.models.Profile.findByGuid(options.personId)
@@ -36,5 +37,12 @@ app.pages.Profile = app.views.Base.extend({
     if(evt) { evt.preventDefault() }
     this.editMode = !this.editMode
     this.$el.toggleClass("edit-mode")
+  },
+
+  isOwnProfile : function() {
+    // this is all tested, but does not work.  there is something weird going here :(
+    // i'm going to return true in the presenter for now until this is resolved.
+
+    return(app.currentUser.get("diaspora_id") == this.model.get("diaspora_id"))
   }
 });
