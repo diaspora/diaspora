@@ -3,15 +3,15 @@
   {{#if current_user}}
     <div class="controls">
       {{#unless authorIsCurrentUser}}
-        <a href="#" rel=nofollow>
-          <img src="{{imageUrl "icons/ignoreuser.png"}}"" alt="Ignoreuser" class="block_user control_icon" title="{{t "ignore"}}" />
+        <a href="#" rel="nofollow" class="block_user">
+          <img src="{{imageUrl "icons/ignoreuser.png"}}"" alt="Ignoreuser" class="control_icon" title="{{t "ignore"}}" />
         </a>
-        <a href="#" rel=nofollow>
-          <img src="{{imageUrl "deletelabel.png"}}" class="delete control_icon hide_post" title="{{t "stream.hide"}}" />
+        <a href="#" rel="nofollow" class="hide_post">
+          <img src="{{imageUrl "deletelabel.png"}}" class="delete control_icon" title="{{t "stream.hide"}}" />
         </a>
       {{else}}
-        <a href="#" rel=nofollow>
-          <img src="{{imageUrl "deletelabel.png"}}" class="delete control_icon remove_post" title="{{t "delete"}}" />
+        <a href="#" rel="nofollow" class="remove_post">
+          <img src="{{imageUrl "deletelabel.png"}}" class="delete control_icon" title="{{t "delete"}}" />
         </a>
       {{/unless}}
     </div>
