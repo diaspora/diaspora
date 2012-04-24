@@ -8,11 +8,13 @@ class ProfilesController < ApplicationController
   respond_to :html, :except => [:show]
   respond_to :js, :only => :update
 
+  # this is terrible because we're actually serving up the associated person here;
+  # however, this is the effect that we want for now
   def show
-    @profile  = Person.find_by_guid!(params[:id]).profile
+    @person = Person.find_by_guid!(params[:id])
 
     respond_to do |format|
-      format.json { render :json => @profile }
+      format.json { render :json => @person.as_api_response(:backbone) }
     end
   end
 

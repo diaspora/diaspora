@@ -21,6 +21,7 @@ describe("app.views.SmallFrame", function(){
 
   describe("redirecting to a post", function(){
     beforeEach(function(){
+      app.page = {editMode : false}
       app.router = new app.Router()
       spyOn(app.router, "navigate")
     })
