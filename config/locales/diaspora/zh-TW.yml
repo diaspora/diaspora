@@ -294,7 +294,6 @@ zh-TW:
     new:
       already_invited: "這些人還沒接受你的邀請:"
       aspect: "面向"
-      comma_seperated_plz: "你可以輸入多個電子信箱, 只要以逗號分隔即可."
       if_they_accept_info: "如果他們接受, 就會被加入至你所邀請的面向中."
       invite_someone_to_join: "邀請某人來加入 Diaspora!"
       language: "語言"

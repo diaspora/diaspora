@@ -44,6 +44,7 @@ ar:
     admin_bar:
       pages: "صفحات"
       user_search: "بحث عن عضو"
+      weekly_user_stats: "إحصائيات المستخدم الإسبوعية"
   ago: "منذ %{time}"
   all_aspects: "كل الفئات"
   application:
@@ -144,9 +145,9 @@ ar:
       create: "أنشئ"
       name: "إسم"
     no_contacts_message:
-      community_spotlight: "أضواء على المجتمع"
+      community_spotlight: "أضواء المجتمع"
       or_spotlight: "أو يمكنك المشاركة مع %{link}"
-      try_adding_some_more_contacts: "إبحث عن (أنظر بالأعلى) أو أُدعُ (أُنظر يمينا) أعضاءً جددا."
+      try_adding_some_more_contacts: "تستطيع أن تبحث عن أو تدعو جهات إتصال أكثر."
       you_should_add_some_more_contacts: "يُستحسن إضافة مزيد من الأعضاء"
     no_posts_message:
       start_talking: "لم يتحدث أحد بعد!"
@@ -174,7 +175,7 @@ ar:
       no_applications: "لم تُسجِّل أي تطبيقات بعد."
       revoke_access: "إلغاء الوصول"
     new:
-      autorize: "مسؤل "
+      authorize: "صرح"
       nope: "لا"
   back: "عودة"
   blocks:
@@ -242,7 +243,7 @@ ar:
         two: "%{count} رسالتان جديدتان"
         zero: "لا توجد رسائل جديدة"
     index:
-      create_a_new_message: "اكتُب رسالةً جديدة"
+      create_a_new_message: "إنشئ رسالة جديدة."
       inbox: "الوارد"
       message_inbox: "البريد الوارد"
       new_message: "رسالة جديدة"
@@ -305,7 +306,6 @@ ar:
     new:
       already_invited: "لم يقبل هؤلاء الأشخاص دعوتك:"
       aspect: "فئة"
-      comma_seperated_plz: "يمكن إدخال أكثر من بريد إلكتروني واحد باستعمال علامة التوقف فاصلة, بين كل بريد وآخر"
       if_they_accept_info: "إذا قبلوا دعوتك ، سيتم إضافتهم إلى الفئة التي دعوتهم إليها"
       invite_someone_to_join: "دعوة صديق للإنضمام إلى دياسبرا"
       language: "اللغة"
@@ -474,7 +474,6 @@ ar:
           لقد تمت دعوتك لتنضم إلى دياسبرا*!
           إضغط على هذا الرابط لتبدأ
           %{invite_url}
-          <%= invite_code_url(@invitation_code)%>
           مع الحب،
           البريد الالكترونى اﻵلى لدياسبرا*
     liked:
@@ -490,7 +489,7 @@ ar:
       view_post: "عرض المشاركة >"
     single_admin:
       admin: "إدارة دياسبرا"
-      subject: "رسالة من إدارة دياسبرا:"
+      subject: "رسالة بخصوص حسابك:"
     started_sharing:
       sharing: "بدأ المشاركة معك!"
       subject: "%{name} بدأ المشاركة معك بدياسبرا"
@@ -767,6 +766,7 @@ ar:
       control_your_audience: "التحكم في من يتابعونك"
       logged_in: "دخول الى  %{service}"
       manage: "أَدِر الخدمات المتصلة"
+      new_user_welcome_message: "استخدم #الوسوم لتصنيف مشاركاتك وايجاد الاشخاص الذين يشاركونك اهتماماتك. استدعى أشخاص رائعون بواسطة @اشارات"
       outside: "الرسائل العامة، متاحة  لمن هم خارج دياسبرا."
       share: "شارك"
       title: "اضبُط الخدمات المتصلة"
@@ -851,9 +851,11 @@ ar:
       contacts_title: "الأشخاص الذين أشاروا إليك"
       title: "إاشاراتك"
     multi:
+      contacts_title: "اﻷشخاص فى ساحة مشاركاتك"
       title: "ساحة المشاركات"
     public:
       contacts_title: "الملصقات الحالية"
+      title: "النشاط العام"
     tags:
       contacts_title: "People who dig these tags"
   tag_followings:
@@ -919,15 +921,17 @@ ar:
       mentioned: "...تم ذكرك فى رسالة؟"
       new_password: "كلمة مرور جديدة"
       photo_export_unavailable: "رفع الصور حاليا غير متاح"
-      private_message: "...وصلتك راسلة خاصة"
+      private_message: "...وصلتك رسالة خاصة؟"
       receive_email_notifications: "استقبال تنبيهات عبر البريد الإلكتروني؟"
       reshared: "...أعاد أحدهم نشر مشاركتك؟"
       started_sharing: "...بدأ أحدهم المشاركة معك؟"
+      stream_preferences: "تفضيلات ساحة المشاركة"
       your_email: "بريدك الإلكتروني"
       your_handle: "وسيط ديسبورا الخاص بك"
     getting_started:
       awesome_take_me_to_diaspora: "مدهش! خذنى إلى دياسبرا*"
       hashtag_explanation: "الوسوم تسمح لك بالحديث عن اهتماماتك ومتابعتها.  وهي أيضا طريقة عبقرية للعثور على أناس جدد بدياسبرا."
+      hashtag_suggestions: "جرب الوسوم التالية احب #فن، #أفلام، #صور، إلخ."
       saved: "تم الحفظ!"
       what_facebook_does: "to Diaspora. This will pull your name and photo, and enable cross-positng."
       who_are_you: "من أنت؟"
@@ -943,6 +947,7 @@ ar:
       does_not_exist: "هذا المستخدم %{username} غير موجود"
     update:
       email_notifications_changed: "فشل تغيير اللغة"
+      follow_settings_changed: "تم تغيير إعدادات المتابعة"
       language_changed: "غُيِّرت اللغة بنجاح"
       language_not_changed: "فشل تغيير اللغة"
       password_changed: "غُيِّرت كلمة المرور بنجاح. يمكنك الولوج بكلمة سرك الجديدة."

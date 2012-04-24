@@ -296,7 +296,6 @@ tr:
       already_invited: "Aşağıdaki kişiler davetinizi kabul etmedi:"
       aspect: "Yön"
       check_out_diaspora: "Diaspora'yı deneyin!"
-      comma_seperated_plz: "Virgülle ayırarak birden fazla e-posta adresi girebilirsin."
       if_they_accept_info: "kabul ederseler, yönünüze eklenecekler."
       invite_someone_to_join: "Diaspora'ya birilerini davet et!"
       language: "Dil"

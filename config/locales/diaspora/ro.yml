@@ -218,7 +218,6 @@ ro:
       sent: "Invitaţia dvs. a fost trimisă."
     new:
       already_invited: "Deja invitat "
-      comma_seperated_plz: "Puteţi introduce multiple adrese de email separate prin virgulă."
       if_they_accept_info: "în cazul în care acceptă, vor fi adăugate la aspectul la care le-ai invitat."
       invite_someone_to_join: "Invită pe cineva pe Diaspora!"
       personal_message: "Mesaj personal"

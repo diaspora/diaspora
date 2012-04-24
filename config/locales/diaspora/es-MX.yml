@@ -181,7 +181,7 @@ es-MX:
       no_applications: "Aún no has registrado ninguna aplicación."
       revoke_access: "Revocar acceso"
     new:
-      autorize: "Autorizar"
+      authorize: "Autorizar"
       cubbies_will: "Cubbies podrá publicar fotos por ti"
       nope: "No"
   back: "Atrás"
@@ -320,7 +320,7 @@ es-MX:
         one: "Una invitación restante con este código"
         other: "%{count} invitaciones restantes con este código"
         zero: "No quedan invitaciones restantes con este código"
-      comma_seperated_plz: "Puedes introducir múltiples direcciones de correo electrónico separadas por comas."
+      comma_separated_plz: "Puedes introducir múltiples direcciones de correo electrónico, separadas por comas."
       if_they_accept_info: "si aceptan, serán añadidos al aspecto al cual los invitaste."
       invite_someone_to_join: "¡Invita a alguien a unirse a Diaspora!"
       language: "Idioma"

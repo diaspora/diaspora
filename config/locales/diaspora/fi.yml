@@ -292,7 +292,6 @@ fi:
     new:
       already_invited: "Seuraavat ihmiset eivät ole hyväksyneet kutsuasi:"
       aspect: "Näkymä"
-      comma_seperated_plz: "Voit syöttää useita sähköpostiosoitteita pilkuilla erotettuna."
       if_they_accept_info: "jos he hyväksyvät kutsun, heidät lisätään siihen näkymään, johon heidät kutsuit."
       invite_someone_to_join: "Kutsu joku Diasporan käyttäjäksi!"
       language: "Kieli"
