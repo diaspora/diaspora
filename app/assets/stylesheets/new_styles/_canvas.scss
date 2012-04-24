@@ -21,12 +21,6 @@ $red : rgb(246, 68, 60);
 $turquoise : rgb(8, 224, 173);
 $sand : rgb(245, 239, 237);
 
-@mixin tall() {
-  height : $two-row-height + px;
-  min-height : $two-row-height + px;
-  max-height : $two-row-height + px;
-}
-
 @mixin wide() {
   width : $two-column-width + px;
   min-width : $two-column-width + px;
@@ -153,6 +147,7 @@ body {
 
     img {
       max-width: 100%;
+      width: 100%;
     }
   }
 
@@ -160,7 +155,7 @@ body {
     .content{
       min-height : $column-width + px;
       .text-content {
-        margin: 20px;
+        margin: 20px 20px 30px;
       }
     }
 
@@ -230,9 +225,10 @@ body {
 
   /* larger declarations */
   &.x2.width  .content { @include wide(); }
-  &.sticky-note.x2.height  .content { @include tall(); }
 
-
+  &.sticky-note.x2.height  .content {
+    min-height : $two-row-height + px;
+  }
 
   &.rich-media {
     width: auto;
