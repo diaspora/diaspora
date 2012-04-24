@@ -7,5 +7,9 @@ app.models.User = Backbone.Model.extend({
 
   authenticated : function() {
     return !!this.id;
+  },
+
+  expProfileUrl : function(){
+    return "/people/" + app.currentUser.get("guid") + "?ex=true"
   }
 });
