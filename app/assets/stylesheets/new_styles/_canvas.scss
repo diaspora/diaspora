@@ -141,6 +141,7 @@ body {
 
   .text-content {
     @include opacity(0.65);
+
     position : relative;
     z-index : 10;
     color : #000;
@@ -149,6 +150,10 @@ body {
     font-weight : bold;
     font-size : 1.5em;
     line-height : 1.2em;
+
+    img {
+      max-width: 100%;
+    }
   }
 
   &.sticky-note {
@@ -234,8 +239,6 @@ body {
       @include opacity(1);
       text-shadow : none;
       font-weight: bold;
-
-
     }
   }
 }
