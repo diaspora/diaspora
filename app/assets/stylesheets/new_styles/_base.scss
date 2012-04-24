@@ -172,15 +172,19 @@ article { //mood posts
     max-width: 85%;
   }
 
+  header {
+    padding : 0 100px;
+  }
+
   header, header p{
   //big text
-  @include media-text();
-  font-size: $big-text-size;
-  line-height: 1.5em;
+    @include media-text();
+    font-size: $big-text-size;
+    line-height: 1.5em;
   }
 
   section.body{
-    p { font-size: $small-text-size;}
+    p { font-size: $small-text-size; }
 
     &.short_body{
       p{
