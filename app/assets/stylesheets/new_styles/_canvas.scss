@@ -203,6 +203,12 @@ body {
   &.sticky-note.x2.height  .content { @include tall(); }
 
 
+
+  &.rich-media {
+    width: auto;
+    height: auto;
+  }
+
   &.wallpaper {
     .content{
       display: table;
