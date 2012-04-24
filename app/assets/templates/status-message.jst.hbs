@@ -1,6 +1,5 @@
 {{#if largePhoto}}
   <div class="photo_attachments">
-
     <a href="#" class="stream-photo-link">
       {{#with largePhoto}}
         <img src="{{sizes.large}}" class="stream-photo big_stream_photo" data-small-photo="{{sizes.small}}" data-full-photo="{{sizes.large}}" rel="lightbox">
@@ -12,20 +11,10 @@
         <img src="{{sizes.small}}" class="stream-photo thumb_small" data-small-photo="{{sizes.small}}" data-full-photo="{{sizes.large}}" rel="lightbox">
       </a>
     {{/each}}
+  </div>
 {{/if}}
 
 <div class="collapsible">
   {{{text}}}
-  {{#if o_embed_cache}}
-  <div class="oembed">
-    {{#if o_embed_cache.data.thumbnail_url}}
-    <div class="thumb">
-      <img src="{{o_embed_cache.data.thumbnail_url}}" />
-      <div class="video-overlay"></div>
-    </div>
-    {{else}}
-    {{{o_embed_html}}}
-    {{/if}}
-  </div>
-  {{/if}}
+  <div class="oembed"></div>
 </div>

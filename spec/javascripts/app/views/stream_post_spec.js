@@ -65,15 +65,8 @@ describe("app.views.StreamPost", function(){
           }
         }})
 
-        var view = new app.views.Content({model : this.statusMessage});
-        expect(view.presenter().o_embed_html).toContain("some html")
-      })
-
-      it("does not provide oembed html from the model response if none is present", function(){
-        this.statusMessage.set({"o_embed_cache" : null})
-
-        var view = new app.views.Content({model : this.statusMessage});
-        expect(view.presenter().o_embed_html).toBe("");
+        var view = new app.views.StreamPost({model : this.statusMessage}).render();
+        expect(view.$el.html()).toContain("some html")
       })
     })
 
