@@ -163,6 +163,31 @@ body {
         margin: 20px;
       }
     }
+
+    &.big-text {
+      display : table;
+
+      .text-content {
+        display : table-cell;
+        position : absolute;
+
+        margin : 0;
+
+        margin-top : 40%;
+        height : 100%;
+        width : 100%;
+
+        top : 0;
+        left : 0;
+      }
+
+      p {
+        font-family : "Noteworthy", "Marker Felt", "Comic Sans";
+        font-style : italic;
+        text-align : center;
+        padding: 0 20px;
+      }
+    }
   }
 
   &.cyan .background-color   { background-color : rgba($cyan, 0.2); }
