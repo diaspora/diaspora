@@ -25,21 +25,27 @@ app.views.SmallFrame = app.views.Base.extend({
   },
 
   colorClass : function() {
-    var text = this.model.get("text");
-    if(text == "" || this.model.get("photos").length > 0) { return "" }
+    var text = this.model.get("text")
+      , baseClass = $.trim(text).length == 0 ? "no-text" : 'has-text';
+
+    if(baseClass == "no-text" || this.model.get("photos").length > 0) { return baseClass }
+
     var randomColor = _.first(_.shuffle(['cyan', 'green', 'yellow', 'purple', 'lime-green', 'orange', 'red', 'turquoise', 'sand']));
-    randomColor += " sticky-note"
-    
+
+    var textClass;
     if(text.length > 240) {
-      return "blog-text x2 width"
+      textClass = "blog-text x2 width"
     } else if(text.length > 140) {
-      return randomColor
-    } else if(text.length > 35) {
-      return randomColor
+      textClass = randomColor
+    } else if(text.length > 50) {
+      textClass = randomColor
     } else {
-      return "big-text " + randomColor
+      textClass =  "big-text " + randomColor
     }
+
+    return [baseClass, textClass, "sticky-note"].join(" ")
   },
+
 
   dimensionsClass : function() {
     /* by default, make it big if it's a fav */

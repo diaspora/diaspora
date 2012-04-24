@@ -29,7 +29,7 @@ $sand : rgb(245, 239, 237);
 
 body {
   background-color : #F6F6F6;
-  background-image : image_url('pattern.jpg');
+  background-image : image_url('pattern.jpg')
 }
 
 .canvas-frame {
@@ -60,7 +60,6 @@ body {
     p {
       font-size: inherit;
       line-height: inherit;
-      word-break : hyphenate;
     }
 
     position : relative;
@@ -103,19 +102,15 @@ body {
   .fav {
     position : absolute;
     z-index : 100;
-    top : 5px;
-    right : 5px;
+    top : 10px;
+    right : 10px;
   }
 
   .info {
     @include transition(bottom);
     @include opacity(0.8);
-    @include box-shadow(0,1px,5px,rgba(0,0,0,0.8));
 
-    border : 1px solid rgba(255,255,255,0.5);
-    background-color : rgb(255,255,255);
-
-    z-index : 30;
+    background-color : rgba(255,255,255,0.4);
 
     position : absolute;
     bottom : -30px;
@@ -139,6 +134,8 @@ body {
   }
 
   .text-content {
+    @include opacity(0.65);
+
     position : relative;
     z-index : 10;
     color : #000;
@@ -154,25 +151,10 @@ body {
     }
   }
 
-  &.day:not(.sticky-note),
-  &.night:not(.sticky-note) {
-    .text-content {
-      padding : 10px 15px;
-      padding-bottom : 5px;
-
-      p {
-        font-size : 14px;
-        line-height : 19px;
-        color : #555;
-      }
-    }
-  }
-
   &.sticky-note {
     .content{
       min-height : $column-width + px;
       .text-content {
-        @include opacity(0.65);
         margin: 20px 20px 30px;
       }
     }
@@ -199,7 +181,6 @@ body {
         font-style : italic;
         text-align : center;
         padding: 0 20px;
-        word-break : break-all;
       }
     }
   }
@@ -216,7 +197,7 @@ body {
 
   &.blog-text {
     .text-content {
-      padding : 40px;
+      padding : 10px;
       @include opacity(0.9);
 
       p {
@@ -241,6 +222,7 @@ body {
     }
   }
 
+
   /* larger declarations */
   &.x2.width  .content { @include wide(); }
 
@@ -261,11 +243,18 @@ body {
     .image-container {
       background-color: black;
       display: table-cell;
+    }
 
+    img { max-height: 100% }
+
+    &.has-text{
       img {
+        //image container background is black, lowering opacity darkens image
         @include opacity(0.7);
       }
     }
+
+
 
     .text-content {
       position: absolute;
@@ -273,7 +262,7 @@ body {
       width: 100%;
       top: 40%;
       @include centered-frame();
-      font-size: 2em;
+      font-size: 3em;
       color: white;
       @include opacity(1);
       text-shadow : none;
