@@ -37,7 +37,7 @@ app.views.SmallFrame = app.views.Base.extend({
       textClass = "blog-text x2 width"
     } else if(text.length > 140) {
       textClass = randomColor
-    } else if(text.length > 50) {
+    } else if(text.length > 40) {
       textClass = randomColor
     } else {
       textClass =  "big-text " + randomColor

@@ -109,14 +109,17 @@ body {
   .info {
     @include transition(bottom);
     @include opacity(0.8);
+    @include box-shadow(0,-1px,3px,rgba(0,0,0,0.3));
 
-    background-color : rgba(255,255,255,0.4);
+    background-color : rgba(255,255,255,0.8);
 
     position : absolute;
     bottom : -30px;
     right : 0;
     text-align : center;
     width : 100%;
+
+    z-index : 30;
 
     padding : 5px;
     padding-right : 8px;
@@ -212,6 +215,22 @@ body {
     }
   }
 
+  &.day:not(.sticky-note),
+  &.night:not(.sticky-note),
+  &.multi-photo:not(.sticky-note) {
+    .text-content {
+      @include opacity(1);
+      padding : 10px 20px;
+      font-size : 14px;
+      line-height : 18px;
+      color : #444;
+
+      p:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+
   &.big-text {
     .text-content {
       p {
@@ -254,15 +273,13 @@ body {
       }
     }
 
-
-
     .text-content {
       position: absolute;
       left: 0;
       width: 100%;
       top: 40%;
       @include centered-frame();
-      font-size: 3em;
+      font-size: 2em;
       color: white;
       @include opacity(1);
       text-shadow : none;
