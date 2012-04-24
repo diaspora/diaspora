@@ -68,6 +68,11 @@ app.models.Post = Backbone.Model.extend(_.extend({}, app.models.formatDateMixin,
     }
   },
 
+  toggleFavorite : function(){
+    this.set({favorite : !this.get("favorite")})
+    this.save()
+  },
+
   like : function() {
     var self = this;
     this.likes.create({}, {success : function(resp){

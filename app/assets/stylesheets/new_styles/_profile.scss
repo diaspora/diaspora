@@ -20,17 +20,77 @@
 
 .canvas-frame .fav {
   @include transition(opacity);
-  @include opacity(0)
+  @include opacity(0);
+
+  background-image : image_url('buttons/star_not_faved.png');
+  background-size : 30px 30px;
+  height : 30px;
+  width : 30px;
+
+  &.faved {
+    background-image : image_url('buttons/star_faved.png');
+  }
+
+  &:hover {
+    text-decoration : none;
+  }
+
 }
 
 /* functionality under edit mode */
 .edit-mode {
   #edit-controls {
     @include opacity(1);
-    //display : block;
   }
 
   .canvas-frame .fav {
     @include opacity(1)
   }
+
+  .canvas-frame {
+    .info {
+      display : none
+    }
+  }
+
+  #edit-mode-toggle.control {
+    @include opacity(1);
+  }
+}
+
+#profile-header {
+ text-align : center;
+ padding : 50px;
+}
+
+.profile-image-container {
+  border-radius: 140px;
+  border : 3px solid #fff;
+  box-shadow : 0 0 2px rgba(0,0,0,0.5), 0 0 10px rgba(0,0,0,0.6), inset 0 0 15px rgba(0,0,0,0.5), inset 0 -2px 4px rgba(255,255,255,0.3);
+
+  height : 140px;
+  width : 140px;
+  background-position : center;
+
+  display : inline-block;
+}
+
+#profile-controls {
+  text-align : right;
+  padding : 10px 18px;
+
+  .control {
+    @include transition(opacity);
+    @include opacity(0.4);
+
+    &:hover {
+      @include opacity(1);
+      text-decoration : none;
+    }
+
+    &:active {
+      @include opacity(0.8);
+    }
+  }
+
 }

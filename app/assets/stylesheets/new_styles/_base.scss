@@ -11,6 +11,10 @@
     }
   }
 
+img {
+  max-height: 70%;
+}
+
 .photoset {
   @include center(horizontal);
   width: 100%;
@@ -156,21 +160,23 @@
 
 article { //mood posts
   //default frame show styles
-  $big-text-size : 3em;
-  $medium-text-size : 2em;
-  $small-text-size: 1.5em;
+  $big-text-size : 2.5em;
+  $medium-text-size : 1.5em;
+  $small-text-size: 1em;
   width: 960px;
   margin: 0 auto;
 
   @include centered-frame();
   .container {
     padding: 70px 0;
+    max-width: 85%;
   }
 
   header, header p{
   //big text
   @include media-text();
-    font-size: $big-text-size;
+  font-size: $big-text-size;
+  line-height: 1.5em;
   }
 
   section.body{
@@ -179,6 +185,7 @@ article { //mood posts
     &.short_body{
       p{
         font-size: $medium-text-size;
+        margin-top: .5em;
       }
     }
   }
@@ -186,6 +193,12 @@ article { //mood posts
   &.night{
     background-color : $night-background-color;
     color : $night-text-color;
+
+    .photo-viewer {
+      img {
+        max-height: 80%;
+      }
+    }
   }
 
   &.newspaper {
@@ -205,7 +218,7 @@ article { //mood posts
 
     header {
       margin-bottom: 1em;
-      line-height: 1em;
+      line-height: 1.2em;
     }
 
     .body p {
@@ -218,6 +231,9 @@ article { //mood posts
 
   &.wallpaper{
     color : #fff;
+    header {
+      margin: 0 7%;
+    }
   }
 
   &.multi-photo {
@@ -231,7 +247,7 @@ article { //mood posts
       vertical-align: middle;
 
       padding: 20px;
-      height: 400px;
+      max-height: 400px;
       width: 300px;
     }
 

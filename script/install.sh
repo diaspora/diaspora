@@ -38,6 +38,8 @@ D_GIT_CLONE_PATH="/srv/diaspora"     # path for diaspora
 
 D_REMOTE_REPO_URL="git://github.com/diaspora/diaspora.git"
 
+D_INSTALL_SCRIPT_URL="https://raw.github.com/diaspora/diaspora/master/script/install.sh"
+
 D_WIKI_URL="https://github.com/diaspora/diaspora/wiki"
 
 D_IRC_URL="irc://freenode.net/diaspora"
@@ -81,6 +83,24 @@ error() {
   echo "        -- have a look at our wiki: $D_WIKI_URL"
   echo "        -- or join us on IRC: $D_IRC_URL"
   exit 1
+}
+
+# shell interactive or not
+interactive_check() {
+  case $- in
+    *i*) # interactive
+      # all is well, continue
+      ;;
+    *) # non-interactive
+      TMPFILE='mktemp'
+      curl -s -o "$TMPFILE" "$D_INSTALL_SCRIPT_URL"
+      chmod +x "$TMPFILE"
+      exec 0< /dev/tty
+      bash -i "$TMPFILE"
+      rm "$TMPFILE"
+      exit 0
+      ;;
+  esac
 }
 
 # check if all necessary binaries are available
@@ -192,6 +212,9 @@ database_setup() {
 #                                                                   #
 ####                                                             ####
 
+interactive_check
+
+
 # display a nice welcome message
 define WELCOME_MSG <<'EOT'
 #####################################################################
@@ -203,6 +226,7 @@ to get a copy of Diaspora* up and running
 
 EOT
 echo "$WELCOME_MSG"
+read -p "Press [Enter] to continue... "
 
 
 # check if we have everything we need

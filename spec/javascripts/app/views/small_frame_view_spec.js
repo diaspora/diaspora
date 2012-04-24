@@ -18,4 +18,26 @@ describe("app.views.SmallFrame", function(){
   describe("photos", function() {
     // ratio pending...
   })
+
+  describe("redirecting to a post", function(){
+    beforeEach(function(){
+      app.page = {editMode : false}
+      app.router = new app.Router()
+      spyOn(app.router, "navigate")
+    })
+
+    it("redirects", function() {
+      this.view.goToPost()
+      expect(app.router.navigate).toHaveBeenCalled()
+    })
+
+    it("doesn't redirect if the page is in edit mode, and instead favorites the post", function() {
+      app.page = {editMode : true}
+
+      spyOn(this.view, "favoritePost")
+      this.view.goToPost()
+      expect(app.router.navigate).not.toHaveBeenCalled()
+      expect(this.view.favoritePost).toHaveBeenCalled()
+    })
+  })
 });

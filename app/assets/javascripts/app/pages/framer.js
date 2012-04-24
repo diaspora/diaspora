@@ -23,7 +23,7 @@ app.pages.Framer = app.views.Base.extend({
   },
 
   navigateToShow : function(){
-    app.router.navigate(this.model.url(), {trigger: true, replace: true})
+    app.router.navigate(app.currentUser.expProfileUrl(), {trigger: true, replace: true})
   }
 })
 
