@@ -216,7 +216,7 @@ body {
   }
 
   &.day:not(.sticky-note),
-  &.has-text:not(.sticky-note),
+  &.has-text:not(.sticky-note):not(.wallpaper),
   &.night:not(.sticky-note),
   &.multi-photo:not(.sticky-note) {
     .text-content {

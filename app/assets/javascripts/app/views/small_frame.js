@@ -5,8 +5,8 @@ app.views.SmallFrame = app.views.Base.extend({
   templateName : "small-frame",
 
   events : {
-    "click .fav" : "favoritePost",
-    "click .content" : "goToPost"
+    "click .content" : "goToPost",
+    "click .fav" : "goToPost"
   },
 
   presenter : function(){
