@@ -20,7 +20,21 @@
 
 .canvas-frame .fav {
   @include transition(opacity);
-  @include opacity(0)
+  @include opacity(0);
+
+  background-image : image_url('buttons/star_not_faved.png');
+  background-size : 30px 30px;
+  height : 30px;
+  width : 30px;
+
+  &.faved {
+    background-image : image_url('buttons/star_faved.png');
+  }
+
+  &:hover {
+    text-decoration : none;
+  }
+
 }
 
 /* functionality under edit mode */
