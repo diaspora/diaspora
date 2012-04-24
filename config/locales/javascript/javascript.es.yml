@@ -7,7 +7,7 @@
 es:
   javascripts:
     aspect_dropdown:
-      add_to_aspect: "matar contacto"
+      add_to_aspect: "Añadir contacto"
       all_aspects: "Todos los aspectos"
       error: "No podrás compartir con <%= name %>. ¿Vas a ignonarle?"
       select_aspects: "Elige los aspectos"
@@ -27,8 +27,9 @@ es:
     comments:
       hide: "ocultar comentarios"
       show: "ver todos los comentarios"
-    confirm_dialog: "¿Estás idiota?"
-    failed_to_like: "a fallado diaspora jjaja vallase a facebook"
+    confirm_dialog: "¿Estás seguro?"
+    delete: "Borrar"
+    failed_to_like: "¡Ha fallado tu aprobación!"
     failed_to_post_message: "¡Fallo al publicar el mensaje!"
     getting_started:
       alright_ill_wait: "Está bien, esperaré."
@@ -37,24 +38,26 @@ es:
       preparing_your_stream: "Preparando tus novedades personalizadas..."
     header:
       admin: "Administrar"
-      contacts: "idiotas"
-      home: "fin"
-      log_out: "entrar"
+      contacts: "Contactos"
+      home: "Inicio"
+      log_out: "Salir"
       mark_all_as_read: "Marcar todo como leido"
+      messages: "Mensajes"
+      notifications: "Notificaciones"
       profile: "Perfil"
       recent_notifications: "Notificaciones recientes"
-      search: "Encuentra lameculos"
+      search: "Encuentra gente o #etiquetas"
       settings: "Ajustes"
       view_all: "Ver todo"
-    ignore: "Ignorante persona"
+    ignore: "Ignorar persona"
     infinite_scroll:
       no_more: "No hay más publicaciones."
-    my_activity: "gilipollas"
-    my_stream: "salida"
+    my_activity: "Mi Actividad"
+    my_stream: "Entrada"
     people:
       not_found: "...y no se encontró a nadie."
     photo_uploader:
-      looking_good: "¡Guau, estás orrible!!!"
+      looking_good: "¡Guau, estás increíble!"
     publisher:
       at_least_one_aspect: "Debes publicarlo al menos en un aspecto"
       limited: "Limitado - tu publicación solo es visible para gente con quien compartes"
@@ -64,11 +67,11 @@ es:
     search_for: "Buscar a <%= name %>"
     show_more: "mostrar más"
     stream:
-      comment: "no comente"
-      follow: "no Seguir"
+      comment: "Comentar"
+      follow: "Seguir"
       hide: "Ocultar publicación"
       hide_nsfw_posts: "Ocultar publicaciones no aptas para todos los públicos"
-      like: "no me gusta"
+      like: "Me gusta"
       likes:
         few: "le gusta a <%= count %> personas"
         many: "le gusta a <%= count %> personas"
@@ -83,21 +86,21 @@ es:
         one: "Mostrar <%= count %> comentario"
         other: "Mostrar <%= count %> comentarios más"
         two: "Mostrar <%= count %> comentarios más"
-        zero: "Mostrar <%= count %> comentarios m"
+        zero: "Mostrar <%= count %> comentarios más"
       original_post_deleted: "Publicación original borrada por el autor."
-      public: "Públco"
+      public: "Público"
       reshare: "Compartir"
       reshares:
         few: "Compartido <%= count %> veces"
         many: "Compartido <%= count %> veces"
-        one: "Compartido <%= count %> pez"
-        other: "Compartido <%= count %> peces"
+        one: "Compartido <%= count %> vez"
+        other: "Compartido <%= count %> veces"
         two: "Compartido <%= count %> veces"
         zero: "Comparido <%= count %> veces"
       show_nsfw_post: "Mostrar publicación"
       show_nsfw_posts: "Mostrar todas las publicaciones"
-      unfollow: "seguir"
-      unlike: "me guesta"
+      unfollow: "No seguir"
+      unlike: "No me gusta"
     tags:
       wasnt_that_interesting: "OK, supongo que #<%= tagName %> no era tan interesante..."
     timeago:
@@ -109,14 +112,15 @@ es:
       minutes: "%d minutos"
       month: "1 mes aproximadamente"
       months: "%d meses"
-      prefixAgo: "no hace"
+      prefixAgo: "Hace"
       prefixFromNow: "dentro de"
       seconds: "menos de 1 minuto"
       suffixAgo: ""
       suffixFromNow: ""
-      year: "1 ano aproximadamente"
+      year: "1 año aproximadamente"
       years: "%d años"
     videos:
+      unknown: "Tipo de video desconocido"
       watch: "Ver este video con <%= provider %>"
     viewer:
       comment: "Comentar"
