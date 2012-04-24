@@ -5,7 +5,7 @@
     {{#if photos}}
         <div class="image-container">
             {{#each photos}}
-                <img src="{{sizes.large}}" />
+                <img src="{{sizes.large}}" style="height:{{../adjustedImageHeight}}px;" />
             {{/each}}
         </div>
     {{/if}}

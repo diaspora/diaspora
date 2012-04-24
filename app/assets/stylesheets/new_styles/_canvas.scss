@@ -259,13 +259,8 @@ body {
   }
 
   &.wallpaper {
-    .content{
-      display: table;
-    }
-
     .image-container {
       background-color: black;
-      display: table-cell;
     }
 
     img { max-height: 100% }
