@@ -47,6 +47,10 @@
   .canvas-frame .fav {
     @include opacity(1)
   }
+
+  #edit-mode-toggle.control {
+    @include opacity(1);
+  }
 }
 
 #profile-header {

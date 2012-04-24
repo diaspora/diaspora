@@ -27,22 +27,10 @@ $sand : rgb(245, 239, 237);
   max-width : $two-column-width + px;
 }
 
-/* ROBOTO!!!!!! */
-@font-face {
-  font-family : Roboto;
-  src : image_url('fonts/Roboto-Regular.tff')
-}
-
-body, p, h1, h2, h3, h4, h5, h6 {
-  font-family : Roboto, Helvetica, sans;
-}
-
 body {
   background-color : #F6F6F6;
   background-image : image_url('pattern.jpg');
 }
-
-
 
 .canvas-frame {
   float : left;
@@ -72,6 +60,7 @@ body {
     p {
       font-size: inherit;
       line-height: inherit;
+      word-break : hyphenate;
     }
 
     position : relative;
@@ -121,7 +110,9 @@ body {
   .info {
     @include transition(bottom);
     @include opacity(0.8);
+    @include box-shadow(0, -1px, 3px, rgba(0,0,0,0.1));
 
+    border : 1px solid rgba(255,255,255,0.5);
     background-color : rgba(255,255,255,0.4);
 
     position : absolute;
@@ -193,6 +184,7 @@ body {
         font-style : italic;
         text-align : center;
         padding: 0 20px;
+        word-break : break-all;
       }
     }
   }
@@ -209,7 +201,7 @@ body {
 
   &.blog-text {
     .text-content {
-      padding : 10px;
+      padding : 20px;
       @include opacity(0.9);
 
       p {
@@ -233,7 +225,6 @@ body {
       }
     }
   }
-
 
   /* larger declarations */
   &.x2.width  .content { @include wide(); }

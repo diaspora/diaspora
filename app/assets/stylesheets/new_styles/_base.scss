@@ -168,8 +168,8 @@ article { //mood posts
   }
 
   header, header p{
-  //big text
-  @include media-text();
+    //big text
+    @include media-text();
     font-size: $big-text-size;
   }
 
