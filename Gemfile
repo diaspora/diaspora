@@ -25,7 +25,6 @@ gem 'omniauth-tumblr'
 gem 'omniauth-twitter'
 
 gem 'twitter', '2.0.2'
-gem 'rails_admin'
 
 # mail
 
