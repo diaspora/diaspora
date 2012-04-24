@@ -110,10 +110,12 @@ body {
   .info {
     @include transition(bottom);
     @include opacity(0.8);
-    @include box-shadow(0, -1px, 3px, rgba(0,0,0,0.1));
+    @include box-shadow(0,1px,5px,rgba(0,0,0,0.8));
 
     border : 1px solid rgba(255,255,255,0.5);
-    background-color : rgba(255,255,255,0.4);
+    background-color : rgb(255,255,255);
+
+    z-index : 30;
 
     position : absolute;
     bottom : -30px;
@@ -137,8 +139,6 @@ body {
   }
 
   .text-content {
-    @include opacity(0.65);
-
     position : relative;
     z-index : 10;
     color : #000;
@@ -154,10 +154,25 @@ body {
     }
   }
 
+  &.day:not(.sticky-note),
+  &.night:not(.sticky-note) {
+    .text-content {
+      padding : 10px 15px;
+      padding-bottom : 5px;
+
+      p {
+        font-size : 14px;
+        line-height : 19px;
+        color : #555;
+      }
+    }
+  }
+
   &.sticky-note {
     .content{
       min-height : $column-width + px;
       .text-content {
+        @include opacity(0.65);
         margin: 20px 20px 30px;
       }
     }

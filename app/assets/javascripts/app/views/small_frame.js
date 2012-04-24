@@ -34,13 +34,12 @@ app.views.SmallFrame = app.views.Base.extend({
       return "blog-text x2 width"
     } else if(text.length > 140) {
       return randomColor
-    } else if(text.length > 50) {
+    } else if(text.length > 35) {
       return randomColor
     } else {
       return "big-text " + randomColor
     }
   },
-
 
   dimensionsClass : function() {
     /* by default, make it big if it's a fav */
