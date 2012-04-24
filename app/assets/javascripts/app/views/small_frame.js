@@ -69,6 +69,7 @@ app.views.SmallFrame = app.views.Base.extend({
   },
 
   goToPost : function() {
+    if(app.page.editMode) { this.favoritePost(); return false; }
     app.router.navigate(this.model.url(), true)
   }
 });

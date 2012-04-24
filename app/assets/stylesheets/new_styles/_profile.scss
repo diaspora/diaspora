@@ -41,11 +41,16 @@
 .edit-mode {
   #edit-controls {
     @include opacity(1);
-    //display : block;
   }
 
   .canvas-frame .fav {
     @include opacity(1)
+  }
+
+  .canvas-frame {
+    .info {
+      display : none
+    }
   }
 
   #edit-mode-toggle.control {
