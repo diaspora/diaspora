@@ -9,6 +9,14 @@ app.views.SmallFrame = app.views.Base.extend({
     "click .fav" : "goToPost"
   },
 
+  subviews : {
+    '.embed-frame' : "oEmbedView"
+  },
+
+  oEmbedView : function(){
+    return new app.views.OEmbed({model : this.model})
+  },
+
   presenter : function(){
     //todo : we need to have something better for small frame text, probably using the headline() scenario.
     return _.extend(this.defaultPresenter(),
@@ -28,7 +36,7 @@ app.views.SmallFrame = app.views.Base.extend({
     var text = this.model.get("text")
       , baseClass = $.trim(text).length == 0 ? "no-text" : 'has-text';
 
-    if(baseClass == "no-text" || this.model.get("photos").length > 0) { return baseClass }
+    if(baseClass == "no-text" || this.model.get("photos").length > 0 || this.model.get("o_embed_cache")) { return baseClass }
 
     var randomColor = _.first(_.shuffle(['cyan', 'green', 'yellow', 'purple', 'lime-green', 'orange', 'red', 'turquoise', 'sand']));
 
@@ -48,14 +56,7 @@ app.views.SmallFrame = app.views.Base.extend({
 
 
   dimensionsClass : function() {
-    /* by default, make it big if it's a fav */
-    if(this.model.get("favorite")) { return "x2 width height" }
-
-    if(this.model.get("o_embed_cache")) {
-      return("x2 width")
-    }
-    return ''
-
+    return (this.model.get("favorite")) ?  "x2 width height" : ""
   },
 
   favoritePost : function(evt) {

@@ -14,9 +14,6 @@ a { color : rgb(42,156,235) !important; }
     }
   }
 
-img {
-  max-height: 70%;
-}
 
 .photoset {
   @include center(horizontal);
@@ -168,6 +165,10 @@ article { //mood posts
   $small-text-size: 1em;
   width: 960px;
   margin: 0 auto;
+
+  img {
+    max-height: 70%;
+  }
 
   @include centered-frame();
   .container {

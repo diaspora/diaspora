@@ -89,3 +89,14 @@ $default-border-radius: 3px;
   -moz-animation: $name $speed $easing;
   -ms-animation: $name $speed $easing;
 }
+
+@mixin video-overlay(){
+  .video-overlay {
+    background : image-url('video-overlay.png') no-repeat center center;
+    position : absolute;
+    top : 0;
+    left : 0;
+    right : 0;
+    bottom : 0;
+  }
+}
