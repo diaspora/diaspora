@@ -90,6 +90,17 @@ en:
       resque_overview: "Resque Overview"
     correlations:
       correlations_count: "Correlations with Sign In Count:"
+    user_search:
+      you_currently: "you currently have %{user_invitation} invites left %{link}"
+      add_invites: "add invites"
+      email_to: "Email to Invite"
+      users: 
+        zero: "%{count} users found"
+        one: "%{count} user found"
+        two: "%{count} users found"
+        few: "%{count} users found"
+        many: "%{count} users found"
+        other: "%{count} users found"
   application:
     helper:
       unknown_person: "unknown person"
