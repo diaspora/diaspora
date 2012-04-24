@@ -27,10 +27,22 @@ $sand : rgb(245, 239, 237);
   max-width : $two-column-width + px;
 }
 
+/* ROBOTO!!!!!! */
+@font-face {
+  font-family : Roboto;
+  src : image_url('fonts/Roboto-Regular.tff')
+}
+
+body, p, h1, h2, h3, h4, h5, h6 {
+  font-family : Roboto, Helvetica, sans;
+}
+
 body {
   background-color : #F6F6F6;
-  background-image : image_url('pattern.jpg')
+  background-image : image_url('pattern.jpg');
 }
+
+
 
 .canvas-frame {
   float : left;
