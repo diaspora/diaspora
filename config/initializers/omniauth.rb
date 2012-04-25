@@ -23,4 +23,7 @@ Rails.application.config.middleware.use OmniAuth::Builder do
     provider :facebook, SERVICES['facebook']['app_id'], SERVICES['facebook']['app_secret'],  { :scope => "publish_stream,email,offline_access",
                                                                                                :client_options => {:ssl => {:ca_file => EnviromentConfiguration.ca_cert_file_location}}}  
   end
+  if SERVICES['identica'] && SERVICES['identica']['consumer_key'] && SERVICES['identica']['consumer_secret']
+    provider :identica, SERVICES['identica']['consumer_key'], SERVICES['identica']['consumer_secret']
+  end
 end
