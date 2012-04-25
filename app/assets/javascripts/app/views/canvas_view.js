@@ -25,6 +25,8 @@ app.views.Canvas = app.views.Base.extend(_.extend({}, app.views.infiniteScrollMi
   mason : function() {
     this.$el.isotope({
       itemSelector : '.canvas-frame',
+      visibleStyle : {},
+      hiddenStyle : {},
       masonry : {
         columnWidth : 292.5
       }
@@ -43,9 +45,7 @@ app.views.Canvas = app.views.Base.extend(_.extend({}, app.views.infiniteScrollMi
     _.delay(_.bind(this.reLayout, this), 200)
     _.delay(_.bind(this.reLayout, this), 500)
     _.delay(_.bind(this.reLayout, this), 1000)
-    _.delay(_.bind(this.reLayout, this), 2000)
     _.delay(_.bind(this.reLayout, this), 3000)
-    _.delay(_.bind(this.reLayout, this), 4000)
     _.delay(_.bind(this.reLayout, this), 5000)
   }
 }));
