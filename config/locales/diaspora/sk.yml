@@ -181,7 +181,6 @@ sk:
       no_applications: "Ešte ste nezaregistrovali žiadne aplikácie."
       revoke_access: "Zamedziť prístup"
     new:
-      autorize: "Povoliť"
       cubbies_will: "Cubbies bude môcť posielať fotky vo vašom mene"
       nope: "Nie"
   back: "Späť"
@@ -324,7 +323,6 @@ sk:
         one: "Pre tento kód zostala %{count} pozvánka"
         other: "Pre tento kód zostalo %{count} pozvánok"
         zero: "Pre tento kód zostalo %{count} pozvánok"
-      comma_seperated_plz: "Môžete vložiť viacero adries; oddeľte ich čiarkou."
       if_they_accept_info: "Po odsúhlasení budú pozvaní používatelia pridaní  do príslušnej kategórie."
       invite_someone_to_join: "Pozvite niekoho na Diasporu*!"
       language: "Jazyk"

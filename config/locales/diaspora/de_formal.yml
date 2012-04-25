@@ -292,7 +292,6 @@ de_formal:
     new:
       already_invited: "Die folgenden Personen haben Ihre Einladung nicht angenommen:"
       aspect: "Aspekt"
-      comma_seperated_plz: "Sie können mehrere E-Mail-Adressen durch Trennen mit Kommata eintragen."
       if_they_accept_info: "Wenn sie akzeptieren, werden sie zu dem Aspekt hinzugefügt, in den Sie sie eingeladen haben."
       invite_someone_to_join: "Laden Sie jemanden zu Diaspora ein!"
       language: "Sprache"

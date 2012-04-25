@@ -317,7 +317,6 @@ pt-BR:
         one: "%{count} convite restante neste código"
         other: "%{count} convites restantes neste código"
         zero: "Nenhum convite restante neste código"
-      comma_seperated_plz: "Você pode adicionar vários endereços de emails, mas todos devem estar separados por vírgulas."
       if_they_accept_info: "Se aceitarem, eles serão adicionados ao grupo para o qual você os convidou."
       invite_someone_to_join: "Convide os amigos para participar de Diaspora!"
       language: "Idioma"

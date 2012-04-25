@@ -176,7 +176,6 @@ vi:
       no_applications: "Bạn chưa đăng kí bất kì ứng dụng nào."
       revoke_access: "Thu hồi quyền truy cập"
     new:
-      autorize: "Xác thực"
       cubbies_will: "Cubbies sẽ có thể đăng ảnh bằng tên của bạn"
       nope: "Không"
   back: "Trở lại"
@@ -316,7 +315,6 @@ vi:
       codes_left:
         other: "Còn lại %{count} lời mời cho liên kết này"
         zero: "Liên kết này không còn hiệu lực"
-      comma_seperated_plz: "Bạn có thể nhập nhiều địa chỉ thư điện tử và ngăn cách chúng bằng dấu phẩy."
       if_they_accept_info: "nếu chấp nhận, họ sẽ được thêm vào mối quan hệ mà bạn đã mời."
       invite_someone_to_join: "Mời người khác tham gia Diaspora!"
       language: "Ngôn ngữ"
@@ -421,11 +419,7 @@ vi:
       two: "%{actors} has just liked your %{post_link}."
       zero: "%{actors} has just liked your %{post_link}."
     liked_post_deleted:
-      few: "%{actors} thích bài đã bị xóa của bạn."
-      many: "%{actors} thích bài đã bị xóa của bạn."
-      one: "%{actors} thích bài đã bị xóa của bạn."
       other: "%{actors} người thích bài đã bị xóa của bạn."
-      two: "%{actors} thích bài đã bị xóa của bạn."
       zero: "Không có ai thích bài đã xoá của bạn."
     mentioned:
       few: "%{actors} has mentioned you in a %{post_link}."
@@ -443,12 +437,8 @@ vi:
       zero: "%{actors} mentioned you in a deleted post."
     post: "bài đăng"
     private_message:
-      few: "%{actors} gửi cho bạn một tin nhắn."
-      many: "%{actors} gửi cho bạn một tin nhắn."
-      one: "%{actors} gửi cho bạn một tin nhắn."
-      other: "%{actors} gửi cho bạn một tin nhắn."
-      two: "%{actors} gửi cho bạn một tin nhắn."
-      zero: "%{actors} gửi cho bạn một tin nhắn."
+      other: "%{actors} đã gửi cho bạn một tin nhắn."
+      zero: "Không có ai gửi tin nhắn cho bạn."
     reshared:
       few: "%{actors} đã chia sẻ lại tin %{post_link}."
       many: "%{actors} đã chia sẻ lại tin %{post_link}."
@@ -457,11 +447,7 @@ vi:
       two: "%{actors} đã chia sẻ lại tin %{post_link}."
       zero: "%{actors} đã chia sẻ lại tin %{post_link}."
     reshared_post_deleted:
-      few: "%{actors} đã chia sẻ lại tin đã xóa của bạn."
-      many: "%{actors} đã chia sẻ lại tin đã xóa của bạn."
-      one: "%{actors} đã chia sẻ lại tin đã xóa của bạn."
       other: "%{actors} đã chia sẻ lại tin đã xóa của bạn."
-      two: "%{actors} đã chia sẻ lại tin đã xóa của bạn."
       zero: "Không có ai chia sẻ lại tin đã xóa của bạn."
     started_sharing:
       few: "%{actors} đã bắt đầu chia sẻ với bạn."
@@ -770,7 +756,7 @@ vi:
     contact_list:
       all_contacts: "Tất cả liên lạc"
     footer:
-      logged_in_as: "đăng nhập với tên %{name}"
+      logged_in_as: "đã đăng nhập với tên %{name}"
       your_aspects: "các mối quan hệ"
     invitations:
       by_email: "Bằng thư điện tử"
@@ -928,7 +914,7 @@ vi:
       change_email: "Đổi địa chỉ thư điện tử"
       change_language: "Đổi ngôn ngữ"
       change_password: "Đổi mật khẩu"
-      character_minimum_expl: "có ít nhất sáu kí tự"
+      character_minimum_expl: "ít nhất phải có sáu kí tự"
       close_account:
         dont_go: "Đừng đi!"
         locked_out: "Bạn sẽ bị đăng xuất và khoá tài khoản."
@@ -937,6 +923,7 @@ vi:
       close_account_text: "Đóng tài khoản"
       comment_on_post: "...ai đó bình luận vào bài đăng của bạn?"
       current_password: "Mật khẩu hiện tại"
+      current_password_expl: "bạn dùng để đăng nhập..."
       download_photos: "tải ảnh của tôi"
       download_xml: "tải xml của tôi"
       edit_account: "Chỉnh sửa tài khoản"
@@ -951,6 +938,7 @@ vi:
       private_message: "...bạn nhận được một tin nhắn cá nhân?"
       receive_email_notifications: "Nhận thư điện tử thông báo khi..."
       reshared: "...ai đó chia sẻ lại tin của bạn?"
+      show_community_spotlight: "Hiện những tin từ cộng đồng?"
       show_getting_started: "Bật lại hướng dẫn cho người dùng mới"
       started_sharing: "...ai đó bắt đầu chia sẻ với bạn?"
       stream_preferences: "Tuỳ chỉnh luồng"

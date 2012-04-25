@@ -32,10 +32,10 @@ sv:
       invitation_instructions:
         accept: "Acceptera inbjudan"
         arrived: "Det sociala nätverket som du har väntat på har kommit. Moderniserat, säkrare och roligare, %{strong_diaspora} är redo att hjälpa dig dela och utforska webben på ett helt nytt sätt."
-        be_yourself: "Var Dig själv"
+        be_yourself: "Var dig själv"
         be_yourself_paragraph: "Internet har skapat helt nya unika sätt att uttrycka sig på. %{strong_diaspora} låter dig vara dig själv och dela vad du vill, med eller utan ditt riktiga namn."
         cubbies: "Cubbi.es"
-        displaying_correctly: "Visas inte e-brevet korrekt? Använd länken: %{link}"
+        displaying_correctly: "Visas e-brevet inte korrekt? Använd länken: %{link}"
         email_address: "questions@joindiaspora.com"
         email_us: "För allmänna frågor eller support med ditt Diaspora konto, vänligen maila oss på %{email}."
         finally: "Äntligen är den här"
@@ -56,14 +56,14 @@ sv:
         sign_up_now: "Registrera dig nu →"
         subject: "Du har blivit inbjuden att gå med i Diaspora!"
         team_diaspora: "Diaspora-gruppen"
-        unsubscribe: "Klicka %{link} för att avregistrera dig."
+        unsubscribe: "Klicka på %{link} för att avregistrera dig."
         view_in: "Se den i din webbläsare."
       inviter:
         accept_at: "via %{url}. Du accepterar genom att klicka på länken nedan."
         has_invited_you: "%{name}"
         have_invited_you: "%{names} har bjudit in dig att gå med i Diaspora"
       reset_password_instructions:
-        change: "Återställ mitt lösenord"
+        change: "Ändra mitt lösenord"
         ignore: "Om det inte är du som vill byta lösenord så kan du ignorera det här mailet."
         someone_requested: "Någon har efterfrågat en länk för att återställa ditt lösenord. För att återställa lösenordet, klicka på länken nedan."
         subject: "Instruktioner för att återställa lösenordet"
@@ -78,8 +78,8 @@ sv:
       edit:
         change_password: "Ändra mitt lösenord"
       new:
-        forgot_password: "Glömt ditt lösenord?"
-        no_account: "Det finns inget konto med den här mailadressen. Väntar du på en inbjudan så skickar vi ut dem så snart som möjligt."
+        forgot_password: "Har du glömt ditt lösenord?"
+        no_account: "Det finns inget konto med den här e-postadressen. Väntar du på en inbjudan så skickar vi ut dem så snart som möjligt."
         send_password_instructions: "Skicka information om hur jag återställer lösenordet"
       send_instructions: "Du kommer att få ett e-brev med instruktioner för att återställa lösenordet inom några minuter."
       updated: "Ditt lösenord har ändrats och du är inloggad."
@@ -89,17 +89,17 @@ sv:
       updated: "Ditt konto har uppdateras."
     sessions:
       new:
-        alpha_software: "Du är på väg att använda mjukvara i alpha-stadium."
-        bugs_and_feedback: "Var beredd på att stöta på buggar och problem. Använd gärna återkopplingsknappen till höger för att rapportera dessa, vi kommer att försöka ordna problemen så snart som möjligt."
+        alpha_software: "Du är på väg att använda mjukvara i alfa-stadium."
+        bugs_and_feedback: "Var beredd på att stöta på buggar och problem. Använd gärna återkopplingsknappen till höger för att rapportera dessa. Vi kommer att försöka ordna problemen så snart som möjligt."
         bugs_and_feedback_mobile: "Tänk på att du kommer att uppleva buggar. Vi uppmanar dig därför att rapportera alla fel! Vi kommer att arbeta så fort som möjligt med att lösa de problem som du rapporterar."
         login: "Logga in"
         modern_browsers: "stöder endast moderna webbläsare."
         password: "Lösenord"
-        remember_me: "Kom ihåg mig"
+        remember_me: "Minns mig"
         sign_in: "Logga in"
         username: "Användarnamn"
-      signed_in: "Inloggning ok."
-      signed_out: "Utloggning ok."
+      signed_in: "Inloggningen lyckades."
+      signed_out: "Utloggningen lyckades"
     shared:
       links:
         forgot_your_password: "Glömt ditt lösenord?"

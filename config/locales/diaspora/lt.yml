@@ -127,7 +127,6 @@ lt:
       sent: "Pakvietimas išsiųstas."
     new:
       already_invited: "Already invited"
-      comma_seperated_plz: "Keletą el. pašto adresų gali įvesti atskirdamas juos kableliais."
       invite_someone_to_join: "Pakviesk ką nors prisijungti prie Diasporos!"
       personal_message: "Asmeninė žinutė"
       send_an_invitation: "Nusiųsk kvietimą"

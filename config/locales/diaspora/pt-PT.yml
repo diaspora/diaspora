@@ -42,6 +42,7 @@ pt-PT:
               taken: "já foi escolhido."
   admins:
     admin_bar:
+      correlations: "Correlações"
       pages: "Páginas"
       user_search: "Pesquisa do utilizador"
       weekly_user_stats: "Estatísticas Semanais"
@@ -122,6 +123,7 @@ pt-PT:
         tag_question: "questão"
         tutorials_wiki_and_forum: "%{tutorial} & %{wiki} & %{forum}: Tutoriais, Como Fazer e Notícias desenvolvidos pela comunidade"
       introduce_yourself: "Este é o seu fluxo. Venha daí e apresente-se."
+      keep_diaspora_running: "Mantenha o desenvolvimento do Diaspora rápido com uma doação mensal!"
       new_here:
         follow: "Siga %{link} e dê as boas-vindas aos novos utilizadores ao Diaspora*!"
         learn_more: "Saiba mais"
@@ -174,7 +176,8 @@ pt-PT:
       no_applications: "Ainda não registou nenhuma aplicação."
       revoke_access: "Revogar o acesso"
     new:
-      autorize: "Autorizar"
+      authorize: "Autorizar"
+      nope: "Não"
   back: "Voltar"
   blocks:
     create:
@@ -310,10 +313,11 @@ pt-PT:
       already_invited: "As pessoas seguintes não aceitaram o seu convite:"
       aspect: "Grupo"
       check_out_diaspora: "Descubra a Diaspora*!"
-      comma_seperated_plz: "Pode inserir vários endereços de email separados por vírgulas."
+      comma_separated_plz: "Pode introduzir vários endereços de email separados por vírgulas."
       if_they_accept_info: "se aceitarem, serão adicionados ao grupo para o qual os convidou."
       invite_someone_to_join: "Convide alguém para se juntar ao Diaspora!"
       language: "Linguagem"
+      paste_link: "Partilhe este link com os seus amigos para os convidar para o Diaspora*, ou envie um email com o link diretamente para eles"
       personal_message: "Mensagem pessoal"
       resend: "Reenviar"
       send_an_invitation: "Envie um convite"
@@ -398,6 +402,7 @@ pt-PT:
         two: "e %{count} outros"
         zero: "e mais ninguém"
       mark_all_as_read: "Marcar Tudo como Lido"
+      mark_unread: "Marcar não lida"
       notifications: "Notificações"
     liked:
       few: "%{actors} gostaram do seu %{post_link}."
@@ -805,6 +810,7 @@ pt-PT:
       show: "Mostrar"
       unlike: "Não Gosto"
       via: "via %{link}"
+      via_mobile: "via telemóvel"
       viewable_to_anyone: "Esta publicação é visível para todos na internet"
   status_messages:
     create:

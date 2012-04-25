@@ -220,7 +220,6 @@ zh-CN:
     new:
       already_invited: "已邀请过"
       aspect: "视图"
-      comma_seperated_plz: "你可以输入多个邮箱，输入多个时以逗号分隔。"
       if_they_accept_info: "如果他们接受，就会自动被加入到您所邀请的视图中。"
       invite_someone_to_join: "邀请好友来加入到Diaspora！"
       language: "语言"

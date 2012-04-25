@@ -276,7 +276,6 @@ cs:
       already_invited: "Následující lidé nepřijali vaše pozvání:"
       aspect: "Aspekt"
       check_out_diaspora: "Vyzkoušejte Diasporu!"
-      comma_seperated_plz: "Můžete zadat více e-mailových adres oddělených čárkami."
       if_they_accept_info: "pokud pozvání přijme, bude přidán(a) do aspektu, do kterého byl(a) pozván(a)."
       invite_someone_to_join: "Pozvěte někoho na Diasporu!"
       language: "Jazyk"

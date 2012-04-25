@@ -286,7 +286,6 @@ sl:
     new:
       already_invited: "Naslednje osebe še niso potrdile vašega povabila:"
       aspect: "Pogled"
-      comma_seperated_plz: "Vnesete lahko več e-naslovov, ki naj bodo med seboj ločeni z vejico."
       if_they_accept_info: "v kolikor sprejmejo vaše povabilo, bodo samodejno  dodani pogledom v katere ste jih povabili."
       invite_someone_to_join: "Povabite nekoga v omrežje Diaspora!"
       language: "Jezik"
