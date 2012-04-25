@@ -1843,14 +1843,10 @@ ul#press_logos
       .thumb
         :position relative
         :cursor pointer
+        @include video-overlay()
 
-        .video-overlay
-          :background image-url('video-overlay.png') no-repeat center center
-          :position absolute
-          :top 0
-          :left 0
-          :right 0
-          :bottom 0
+
+
 
 .conversation_participants
   :z-index 3

@@ -6,7 +6,8 @@ app.views.StreamPost = app.views.Post.extend({
     ".feedback" : "feedbackView",
     ".likes" : "likesInfoView",
     ".comments" : "commentStreamView",
-    ".post-content" : "postContentView"
+    ".post-content" : "postContentView",
+    ".oembed" : "oEmbedView"
   },
 
   events: {
@@ -26,6 +27,7 @@ app.views.StreamPost = app.views.Post.extend({
 
     //subviews
     this.commentStreamView = new app.views.CommentStream({model : this.model});
+    this.oEmbedView = new app.views.OEmbed({model : this.model});
   },
 
 
@@ -75,6 +77,11 @@ app.views.StreamPost = app.views.Post.extend({
         })
       }
     })
+  },
+
+  remove : function() {
+    $(this.el).slideUp(400, _.bind(function(){this.$el.remove()}, this));
+    return this
   },
 
   hidePost : function(evt) {

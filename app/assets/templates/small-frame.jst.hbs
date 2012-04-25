@@ -1,11 +1,13 @@
 <div class="content">
-
-    <a href="#" class="fav {{#if favorite}}faved{{/if}}"></a>
+    <div class=controls>
+        <span href="#" class="fav {{#if favorite}}faved{{/if}}"></span>
+        <a href="#" class="delete"></a>
+    </div>
 
     {{#if photos}}
         <div class="image-container">
             {{#each photos}}
-                <img src="{{sizes.large}}" />
+                <img src="{{sizes.large}}" style="height:{{../adjustedImageHeight}}px;" />
             {{/each}}
         </div>
     {{/if}}
@@ -18,16 +20,12 @@
         </div>
     {{/if}}
 
-    {{#if o_embed_cache.data}}
-        <div class="embed-frame">
-            {{{o_embed_cache.data.html}}}
-        </div>
-    {{/if}}
+    <div class="embed-frame" />
 
-    <div class="text-content">
-        {{{text}}}
-    </div>
     {{#if text}}
+        <div class="text-content">
+            {{{text}}}
+        </div>
         <div class="background-color"></div>
     {{/if}}
 

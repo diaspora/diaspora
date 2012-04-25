@@ -29,7 +29,7 @@ $sand : rgb(245, 239, 237);
 
 body {
   background-color : #F6F6F6;
-  background-image : image_url('pattern.jpg');
+  background-image : image_url('pattern.jpg')
 }
 
 .canvas-frame {
@@ -60,7 +60,6 @@ body {
     p {
       font-size: inherit;
       line-height: inherit;
-      word-break : hyphenate;
     }
 
     position : relative;
@@ -88,38 +87,72 @@ body {
   }
 
   .embed-frame {
-    position : absolute;
-    top : 0;
-    left : 0;
-    width : 100%;
-    height : 100%;
+
+    .thumb {
+      position : relative;
+    }
+    img  {
+      width: 100%;
+    }
 
     iframe {
       height : 100%;
       width : 100%;
+      max-height: 222px;
     }
   }
 
-  .fav {
+  .controls{
     position : absolute;
     z-index : 100;
-    top : 5px;
-    right : 5px;
+    top : 10px;
+    right : 10px;
+
+    display : none;
+
+    .edit-mode & {
+      display : inline-block;
+    }
+
+    a, span {
+      display : inline-block;
+      background-size : 30px 30px;
+      height : 30px;
+      width : 30px;
+      text-decoration : none;
+    }
+
+    .delete {
+      background-image : image_url('buttons/delete.png');
+
+      &:hover {
+        background-image : image_url('buttons/delete_hover.png');
+      }
+    }
+
+    .fav {
+      background-image : image_url('buttons/star_not_faved.png');
+
+      &.faved, &:hover {
+        background-image : image_url('buttons/star_faved.png');
+      }
+    }
   }
+
 
   .info {
     @include transition(bottom);
-    @include opacity(0.8);
-    @include box-shadow(0, -1px, 3px, rgba(0,0,0,0.1));
+    @include box-shadow(0,-1px,3px,rgba(0,0,0,0.3));
 
-    border : 1px solid rgba(255,255,255,0.5);
-    background-color : rgba(255,255,255,0.4);
+    background-color : #fff;
 
     position : absolute;
     bottom : -30px;
     right : 0;
     text-align : center;
     width : 100%;
+
+    z-index : 30;
 
     padding : 5px;
     padding-right : 8px;
@@ -137,8 +170,6 @@ body {
   }
 
   .text-content {
-    @include opacity(0.65);
-
     position : relative;
     z-index : 10;
     color : #000;
@@ -151,6 +182,10 @@ body {
     img {
       max-width: 100%;
       width: 100%;
+    }
+
+    p:last-child {
+      margin-bottom: 0;
     }
   }
 
@@ -184,9 +219,12 @@ body {
         font-style : italic;
         text-align : center;
         padding: 0 20px;
-        word-break : break-all;
       }
     }
+  }
+
+  &.sticky-note .text-content {
+    color : #555;
   }
 
   &.cyan .background-color   { background-color : rgba($cyan, 0.2); }
@@ -201,8 +239,8 @@ body {
 
   &.blog-text {
     .text-content {
-      padding : 20px;
-      @include opacity(0.9);
+      padding : 10px;
+      color : #222;
 
       p {
         text-shadow : 0 1px 0 #ccc;
@@ -216,6 +254,18 @@ body {
     }
   }
 
+  &.day:not(.sticky-note),
+  &.has-text:not(.sticky-note):not(.wallpaper),
+  &.night:not(.sticky-note),
+  &.multi-photo:not(.sticky-note) {
+    .text-content {
+      padding : 10px 20px;
+      font-size : 14px;
+      line-height : 18px;
+      color : #444;
+    }
+  }
+
   &.big-text {
     .text-content {
       p {
@@ -225,6 +275,7 @@ body {
       }
     }
   }
+
 
   /* larger declarations */
   &.x2.width  .content { @include wide(); }
@@ -239,15 +290,15 @@ body {
   }
 
   &.wallpaper {
-    .content{
-      display: table;
-    }
-
     .image-container {
       background-color: black;
-      display: table-cell;
+    }
 
+    img { max-height: 100% }
+
+    &.has-text{
       img {
+        //image container background is black, lowering opacity darkens image
         @include opacity(0.7);
       }
     }

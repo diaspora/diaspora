@@ -13,3 +13,8 @@
 
 /* font overrides */
 @import 'new_styles/typography';
+
+/* isotope */
+@import 'new_styles/isotope_transitions';
+
+@include video-overlay();

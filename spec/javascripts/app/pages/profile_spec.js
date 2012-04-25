@@ -61,6 +61,27 @@ describe("app.pages.Profile", function(){
         expect(this.post.toggleFavorite).toHaveBeenCalled()
       })
     })
+
+    context("clicking delete", function(){
+      beforeEach(function () {
+        spyOn(window, "confirm").andReturn(true);
+        this.page.render()
+      })
+
+      it("kills the model", function(){
+        spyOn(this.post, "destroy")
+        this.page.$(".canvas-frame:first a.delete").click()
+        expect(this.post.destroy).toHaveBeenCalled()
+      })
+
+      it("removes the frame", function(){
+        spyOn($.fn, "remove").andCallThrough()
+        expect(this.page.$(".canvas-frame").length).toBe(1)
+        this.page.$(".canvas-frame:first a.delete").click()
+        waitsFor(function(){ return $.fn.remove.wasCalled })
+        runs(function(){ expect(this.page.$(".canvas-frame").length).toBe(0) })
+      })
+    })
   });
 
   describe("edit mode", function(){
@@ -82,7 +103,7 @@ describe("app.pages.Profile", function(){
   describe("isOwnProfile", function(){
     beforeEach(function(){
       this.user = new app.models.User(factory.author())
-      this.page.model = this.user
+      this.page.personGUID = this.user.get("guid")
     })
 
     it("returns true if app.currentUser matches the current profile's user", function(){
@@ -91,7 +112,7 @@ describe("app.pages.Profile", function(){
     })
 
     it("returns false if app.currentUser does not match the current profile's user", function(){
-      app.currentUser = new app.models.User(factory.author({diaspora_id : "foo@foo.com"}))
+      app.currentUser = new app.models.User(factory.author({guid : "nope!"}))
       expect(this.page.isOwnProfile()).toBeFalsy()
     })
   })

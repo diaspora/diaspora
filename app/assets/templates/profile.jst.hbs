@@ -12,11 +12,13 @@
         <a href="#" id="edit-mode-toggle" class="control">
             <img src='{{imageUrl "buttons/edit_canvas.png"}}' />
         </a>
+    {{else}}
+        <a href="#"  class="control">
+            <img src='{{imageUrl "buttons/follow_hover.png"}}' />
+        </a>
     {{/if}}
 </section>
 
-<section id="canvas">
-
-</section>
+<section id="canvas"></section>
 
 <div id=paginate><span class="loader hidden"/></div>

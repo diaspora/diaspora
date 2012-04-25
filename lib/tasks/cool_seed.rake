@@ -11,9 +11,10 @@ task :cool => :environment do
       new_post = Factory.build(:status_message, :public => true, :text => '', :author => user.person)
       new_post.text = post.fetch('text', '')
 
-      if p = post['photo'] 
+      if post['photo'].present? 
         new_photo = Factory.build(:photo)
-        new_photo.processed_image_url = p
+        new_photo.remote_processed_image_url = post['photo']
+        new_photo.remote_unprocessed_image_url = post['photo']
         new_photo.save
         new_photo.update_remote_path
         new_post.photos << new_photo
@@ -28,8 +29,11 @@ end
 
 def make_user_with_name(name)
   first, last = name.split
-  return user if user =  User.find_by_username(first)
-  person = Factory.build(:person)
+  puts first, last
+  user =  User.find_by_username(first)
+  return user if user.present?
+  puts Person.all.inspect
+  person = Factory.build(:person, :diaspora_handle => "#{first}@diaspora.dev")
   person.save!
   profile = Factory(:profile, :first_name => first, :last_name => last, :person => person)
 
@@ -41,8 +45,8 @@ def make_user_with_name(name)
   person.profile.destroy
   person.profile = profile
   profile.person_id = person.id
-  profile.save
+  profile.save! 
 
-  user.save
+  user.save(:validate => false)
   user
 end

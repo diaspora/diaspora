@@ -1,0 +1,10 @@
+{{#if o_embed_cache}}
+    {{#if o_embed_cache.data.thumbnail_url}}
+        <div class="thumb">
+            <img src="{{o_embed_cache.data.thumbnail_url}}" />
+            <div class="video-overlay"/>
+        </div>
+    {{else}}
+        {{{o_embed_html}}}
+    {{/if}}
+{{/if}}

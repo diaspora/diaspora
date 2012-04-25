@@ -18,39 +18,10 @@
   padding : 10px 0;
 }
 
-.canvas-frame .fav {
-  @include transition(opacity);
-  @include opacity(0);
-
-  background-image : image_url('buttons/star_not_faved.png');
-  background-size : 30px 30px;
-  height : 30px;
-  width : 30px;
-
-  &.faved {
-    background-image : image_url('buttons/star_faved.png');
-  }
-
-  &:hover {
-    text-decoration : none;
-  }
-
-}
-
 /* functionality under edit mode */
 .edit-mode {
   #edit-controls {
     @include opacity(1);
-  }
-
-  .canvas-frame .fav {
-    @include opacity(1)
-  }
-
-  .canvas-frame {
-    .info {
-      display : none
-    }
   }
 
   #edit-mode-toggle.control {
@@ -79,6 +50,9 @@
   text-align : right;
   padding : 10px 18px;
 
+  /* when our buttons aren't there, we still want to maintain a persistent height */
+  min-height : 35px;
+
   .control {
     @include transition(opacity);
     @include opacity(0.4);
@@ -92,5 +66,4 @@
       @include opacity(0.8);
     }
   }
-
 }

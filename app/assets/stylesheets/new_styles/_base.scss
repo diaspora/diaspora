@@ -1,5 +1,8 @@
 @import "_new_mixins";
 
+/* new link color */
+a { color : rgb(42,156,235) !important; }
+
 /* bootstrap extentions */
 .icon-red   { background-image: image_url("img/glyphicons-halflings-red.png");   }
 .icon-green { background-image: image_url("img/glyphicons-halflings-green.png"); }
@@ -11,9 +14,6 @@
     }
   }
 
-img {
-  max-height: 70%;
-}
 
 .photoset {
   @include center(horizontal);
@@ -166,21 +166,29 @@ article { //mood posts
   width: 960px;
   margin: 0 auto;
 
+  img {
+    max-height: 70%;
+  }
+
   @include centered-frame();
   .container {
     padding: 70px 0;
     max-width: 85%;
   }
 
+  header {
+    padding : 0 100px;
+  }
+
   header, header p{
   //big text
-  @include media-text();
-  font-size: $big-text-size;
-  line-height: 1.5em;
+    @include media-text();
+    font-size: $big-text-size;
+    line-height: 1.5em;
   }
 
   section.body{
-    p { font-size: $small-text-size;}
+    p { font-size: $small-text-size; }
 
     &.short_body{
       p{

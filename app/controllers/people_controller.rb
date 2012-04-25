@@ -81,15 +81,13 @@ class PeopleController < ApplicationController
 
   def show
     @person = Person.find_from_guid_or_username(params)
+    flag = FeatureFlagger.new(current_user)
+    logger.info(request.format)
 
-    if remote_profile_with_no_user_session?
-      raise ActiveRecord::RecordNotFound
-    end
-
-    if @person.closed_account?
-      redirect_to :back, :notice => t("people.show.closed_account")
-      return
-    end
+    raise(ActiveRecord::RecordNotFound) if remote_profile_with_no_user_session?
+    return redirect_to :back, :notice => t("people.show.closed_account") if @person.closed_account?
+    return redirect_to person_path(@person) if params[:ex] && !flag.new_profile?
+    return redirect_to person_path(@person, :ex => true) if !params[:ex] && flag.new_profile? && flag.new_hotness? && request.format == "text/html"
 
     @post_type = :all
     @aspect = :profile

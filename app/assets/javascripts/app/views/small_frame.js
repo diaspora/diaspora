@@ -1,18 +1,37 @@
-app.views.SmallFrame = app.views.Base.extend({
+//= require "./post_view"
+
+app.views.SmallFrame = app.views.Post.extend({
+
+  SINGLE_COLUMN_WIDTH : 265,
+  DOUBLE_COLUMN_WIDTH : 560,
 
   className : "canvas-frame",
 
   templateName : "small-frame",
 
   events : {
+    "click .content" : "goToPost",
     "click .fav" : "favoritePost",
-    "click .content" : "goToPost"
+    "click .delete" : "killPost"
+  },
+
+  subviews : {
+    '.embed-frame' : "oEmbedView"
+  },
+
+  oEmbedView : function(){
+    return new app.views.OEmbed({model : this.model})
   },
 
   presenter : function(){
     //todo : we need to have something better for small frame text, probably using the headline() scenario.
     return _.extend(this.defaultPresenter(),
-      {text : this.model && app.helpers.textFormatter(this.model.get("text"), this.model)})
+      {text : this.model && app.helpers.textFormatter(this.model.get("text"), this.model),
+       adjustedImageHeight : this.adjustedImageHeight()})
+  },
+
+  initialize : function() {
+    this.$el.addClass([this.dimensionsClass(), this.colorClass(), this.frameClass()].join(' '))
   },
 
   postRenderTemplate : function() {
@@ -25,32 +44,41 @@ app.views.SmallFrame = app.views.Base.extend({
   },
 
   colorClass : function() {
-    var text = this.model.get("text");
-    if(text == "" || this.model.get("photos").length > 0) { return "" }
+    var text = this.model.get("text")
+      , baseClass = $.trim(text).length == 0 ? "no-text" : 'has-text';
+
+    if(baseClass == "no-text" || this.model.get("photos").length > 0 || this.model.get("o_embed_cache")) { return baseClass }
+
     var randomColor = _.first(_.shuffle(['cyan', 'green', 'yellow', 'purple', 'lime-green', 'orange', 'red', 'turquoise', 'sand']));
-    randomColor += " sticky-note"
-    
+
+    var textClass;
     if(text.length > 240) {
-      return "blog-text x2 width"
+      textClass = "blog-text x2 width"
     } else if(text.length > 140) {
-      return randomColor
-    } else if(text.length > 50) {
-      return randomColor
+      textClass = randomColor
+    } else if(text.length > 40) {
+      textClass = randomColor
     } else {
-      return "big-text " + randomColor
+      textClass =  "big-text " + randomColor
     }
+
+    return [baseClass, textClass, "sticky-note"].join(" ")
   },
 
-
   dimensionsClass : function() {
-    /* by default, make it big if it's a fav */
-    if(this.model.get("favorite")) { return "x2 width height" }
+    return (this.model.get("favorite")) ?  "x2 width height" : ""
+  },
 
-    if(this.model.get("o_embed_cache")) {
-      return("x2 width")
-    }
-    return ''
+  adjustedImageHeight : function() {
+    if(!this.model.get("photos")[0]) { return }
 
+    var modifiers = [this.dimensionsClass(), this.colorClass()].join(' ')
+
+    var firstPhoto = this.model.get("photos")[0]
+      , width = (modifiers.search("x2") != -1 ? this.DOUBLE_COLUMN_WIDTH : this.SINGLE_COLUMN_WIDTH)
+      , ratio = width / firstPhoto.dimensions.width;
+
+    return(ratio * firstPhoto.dimensions.height)
   },
 
   favoritePost : function(evt) {
@@ -68,8 +96,13 @@ app.views.SmallFrame = app.views.Base.extend({
     _.delay(function(){app.page.stream.trigger("reLayout")}, 500)
   },
 
+  killPost : function(){
+    this.destroyModel()
+    _.delay(function(){app.page.stream.trigger("reLayout")}, 0)
+  },
+
   goToPost : function() {
-    if(app.page.editMode) { this.favoritePost(); return false; }
+    if(app.page.editMode) { return false; }
     app.router.navigate(this.model.url(), true)
   }
 });

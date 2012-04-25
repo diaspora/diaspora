@@ -4,6 +4,10 @@
   src : image_url('fonts/Roboto-Regular.ttf')
 }
 
-body, p, h1, h2, h3, h4, h5, h6, * {
+body, p, h1, h2, h3, h4, h5, h6, textarea, input, * {
   font-family : Roboto, Helvetica, sans;
+}
+
+a {
+  font-family : inherit;
 }
