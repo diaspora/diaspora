@@ -111,10 +111,9 @@ body {
 
   .info {
     @include transition(bottom);
-    @include opacity(0.8);
     @include box-shadow(0,-1px,3px,rgba(0,0,0,0.3));
 
-    background-color : rgba(255,255,255,0.8);
+    background-color : #fff;
 
     position : absolute;
     bottom : -30px;
@@ -140,8 +139,6 @@ body {
   }
 
   .text-content {
-    @include opacity(0.65);
-
     position : relative;
     z-index : 10;
     color : #000;
@@ -191,6 +188,10 @@ body {
     }
   }
 
+  &.sticky-note .text-content {
+    color : #555;
+  }
+
   &.cyan .background-color   { background-color : rgba($cyan, 0.2); }
   &.green .background-color  { background-color : rgba($green, 0.2); }
   &.yellow .background-color { background-color : rgba($yellow, 0.2); }
@@ -204,7 +205,7 @@ body {
   &.blog-text {
     .text-content {
       padding : 10px;
-      @include opacity(0.9);
+      color : #222;
 
       p {
         text-shadow : 0 1px 0 #ccc;
