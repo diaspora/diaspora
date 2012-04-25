@@ -61,6 +61,27 @@ describe("app.pages.Profile", function(){
         expect(this.post.toggleFavorite).toHaveBeenCalled()
       })
     })
+
+    context("clicking delete", function(){
+      beforeEach(function () {
+        spyOn(window, "confirm").andReturn(true);
+        this.page.render()
+      })
+
+      it("kills the model", function(){
+        spyOn(this.post, "destroy")
+        this.page.$(".canvas-frame:first a.delete").click()
+        expect(this.post.destroy).toHaveBeenCalled()
+      })
+
+      it("removes the frame", function(){
+        spyOn($.fn, "remove").andCallThrough()
+        expect(this.page.$(".canvas-frame").length).toBe(1)
+        this.page.$(".canvas-frame:first a.delete").click()
+        waitsFor(function(){ return $.fn.remove.wasCalled })
+        runs(function(){ expect(this.page.$(".canvas-frame").length).toBe(0) })
+      })
+    })
   });
 
   describe("edit mode", function(){

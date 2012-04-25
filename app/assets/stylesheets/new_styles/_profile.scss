@@ -18,38 +18,10 @@
   padding : 10px 0;
 }
 
-.canvas-frame .fav {
-  display : none;
-
-  background-image : image_url('buttons/star_not_faved.png');
-  background-size : 30px 30px;
-  height : 30px;
-  width : 30px;
-
-  &.faved {
-    background-image : image_url('buttons/star_faved.png');
-  }
-
-  &:hover {
-    text-decoration : none;
-  }
-
-}
-
 /* functionality under edit mode */
 .edit-mode {
   #edit-controls {
     @include opacity(1);
-  }
-
-  .canvas-frame .fav {
-    display : block;
-  }
-
-  .canvas-frame {
-    .info {
-      display : none
-    }
   }
 
   #edit-mode-toggle.control {
@@ -94,5 +66,4 @@
       @include opacity(0.8);
     }
   }
-
 }

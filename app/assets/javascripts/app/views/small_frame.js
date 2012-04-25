@@ -1,4 +1,6 @@
-app.views.SmallFrame = app.views.Base.extend({
+//= require "./post_view"
+
+app.views.SmallFrame = app.views.Post.extend({
 
   SINGLE_COLUMN_WIDTH : 265,
   DOUBLE_COLUMN_WIDTH : 560,
@@ -9,7 +11,8 @@ app.views.SmallFrame = app.views.Base.extend({
 
   events : {
     "click .content" : "goToPost",
-    "click .fav" : "goToPost"
+    "click .fav" : "favoritePost",
+    "click .delete" : "killPost"
   },
 
   subviews : {
@@ -93,8 +96,13 @@ app.views.SmallFrame = app.views.Base.extend({
     _.delay(function(){app.page.stream.trigger("reLayout")}, 500)
   },
 
+  killPost : function(){
+    this.destroyModel()
+    _.delay(function(){app.page.stream.trigger("reLayout")}, 0)
+  },
+
   goToPost : function() {
-    if(app.page.editMode) { this.favoritePost(); return false; }
+    if(app.page.editMode) { return false; }
     app.router.navigate(this.model.url(), true)
   }
 });

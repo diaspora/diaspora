@@ -8,6 +8,7 @@ app.views.Canvas = app.views.Base.extend(_.extend({}, app.views.infiniteScrollMi
   },
 
   renderTemplate : function() {
+    this.$el.empty()
     this.stream.items.each(_.bind(function(post){
       this.$el.append(this.createPostView(post).render().el);
     }, this))

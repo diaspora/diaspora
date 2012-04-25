@@ -79,6 +79,11 @@ app.views.StreamPost = app.views.Post.extend({
     })
   },
 
+  remove : function() {
+    $(this.el).slideUp(400, _.bind(function(){this.$el.remove()}, this));
+    return this
+  },
+
   hidePost : function(evt) {
     if(evt) { evt.preventDefault(); }
     if(!confirm(Diaspora.I18n.t('confirm_dialog'))) { return }
