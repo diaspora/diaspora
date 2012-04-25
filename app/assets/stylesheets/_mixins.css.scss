@@ -92,7 +92,15 @@ $default-border-radius: 3px;
 
 @mixin video-overlay(){
   .video-overlay {
-    background : image-url('video-overlay.png') no-repeat center center;
+    @include opacity(0.6);
+
+    background : {
+      image : image-url('buttons/playbtn.png');
+      repeat : no-repeat;
+      position : center center;
+      size : 60px 60px;
+    }
+
     position : absolute;
     top : 0;
     left : 0;
