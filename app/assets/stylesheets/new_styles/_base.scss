@@ -168,6 +168,11 @@ article { //mood posts
 
   img {
     max-height: 70%;
+    border : 10px solid #fff;
+  }
+
+  .photo_viewer {
+    margin-bottom : 20px;
   }
 
   @include centered-frame();
