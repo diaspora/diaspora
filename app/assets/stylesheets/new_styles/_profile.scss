@@ -78,6 +78,9 @@
   text-align : right;
   padding : 10px 18px;
 
+  /* when our buttons aren't there, we still want to maintain a persistent height */
+  min-height : 35px;
+
   .control {
     @include transition(opacity);
     @include opacity(0.4);

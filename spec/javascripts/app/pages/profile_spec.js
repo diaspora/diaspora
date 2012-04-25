@@ -82,7 +82,7 @@ describe("app.pages.Profile", function(){
   describe("isOwnProfile", function(){
     beforeEach(function(){
       this.user = new app.models.User(factory.author())
-      this.page.model = this.user
+      this.page.personGUID = this.user.get("guid")
     })
 
     it("returns true if app.currentUser matches the current profile's user", function(){
@@ -91,7 +91,7 @@ describe("app.pages.Profile", function(){
     })
 
     it("returns false if app.currentUser does not match the current profile's user", function(){
-      app.currentUser = new app.models.User(factory.author({diaspora_id : "foo@foo.com"}))
+      app.currentUser = new app.models.User(factory.author({guid : "nope!"}))
       expect(this.page.isOwnProfile()).toBeFalsy()
     })
   })
