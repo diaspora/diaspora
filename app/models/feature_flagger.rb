@@ -4,6 +4,25 @@ class FeatureFlagger
   end
 
   def new_publisher?
-    @current_user.admin? || !(Rails.env.production? || Rails.env.staging?)
+    admin? || developer?
   end
+
+  def new_profile?
+    admin?
+  end
+
+  def new_hotness?
+    ENV["NEW_HOTNESS"]
+  end
+
+  protected
+
+  def developer?
+    !(Rails.env.production? || Rails.env.staging?) #includes test, cucumber, or developer
+  end
+
+  def admin?
+    @current_user.try(:admin?)
+  end
+
 end
