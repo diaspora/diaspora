@@ -152,6 +152,10 @@ body {
       max-width: 100%;
       width: 100%;
     }
+
+    p:last-child {
+      margin-bottom: 0;
+    }
   }
 
   &.sticky-note {
@@ -224,15 +228,10 @@ body {
   &.night:not(.sticky-note),
   &.multi-photo:not(.sticky-note) {
     .text-content {
-      @include opacity(1);
       padding : 10px 20px;
       font-size : 14px;
       line-height : 18px;
       color : #444;
-
-      p:last-child {
-        margin-bottom: 0;
-      }
     }
   }
 
