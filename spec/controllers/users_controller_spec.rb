@@ -53,7 +53,7 @@ describe UsersController do
         p.save
       end
       get :public, :username => @user.username, :format => :atom
-      response.body.should include('&lt;a href="http://diasporaproject.org/"&gt;http://diasporaproject.org/&lt;/a&gt;')
+      response.body.should include('a href')
     end
 
     it 'redirects to a profile page if html is requested' do

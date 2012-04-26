@@ -291,7 +291,6 @@ da:
       already_invited: "Følgende personer har ikke accepteret din invitation:"
       aspect: "Aspekt"
       check_out_diaspora: "Check Diaspora ud!"
-      comma_seperated_plz: "Du kan indtaste flere e-mailadresser adskilt med komma."
       if_they_accept_info: "hvis de accepterer, vil de blive tilføjet til det aspekt du inviterede dem til."
       invite_someone_to_join: "Invitér en person til Diaspora!"
       language: "Sprog"

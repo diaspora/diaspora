@@ -181,7 +181,7 @@ it:
       no_applications: "Non hai ancora autorizzato nessuna applicazione."
       revoke_access: "Revoca l'autorizzazione"
     new:
-      autorize: "Autorizza"
+      authorize: "Autorizza"
       cubbies_will: "Cubbies potrà pubblicare le foto sul tuo account"
       nope: "No"
   back: "Indietro"
@@ -320,7 +320,7 @@ it:
         one: "Ti resta 1 invito"
         other: "Ti restano %{count} inviti"
         zero: "Ti restano 0 inviti"
-      comma_seperated_plz: "Puoi inserire più indirizzi email separati da virgole."
+      comma_separated_plz: "Puoi inserire più indirizzi di posta separati da virgole."
       if_they_accept_info: "se accettano, saranno aggiunti all'aspetto in cui li hai invitati."
       invite_someone_to_join: "Invita qualcuno ad entrare in Diaspora!"
       language: "Lingua"

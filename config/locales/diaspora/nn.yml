@@ -265,7 +265,6 @@ nn:
       already_invited: "Desse personane har ikkje godteke invitasjonen din:"
       aspect: "Aspekt"
       check_out_diaspora: "Ta ein kikk på Diaspora!"
-      comma_seperated_plz: "Du kan skriva fleire e-postadresser om du skil dei med komma."
       if_they_accept_info: "om dei godtek, vil dei verta lagde til aspektet du inviterte dei til."
       invite_someone_to_join: "Inviter nokon til å bli med Diaspora!"
       language: "Språk"

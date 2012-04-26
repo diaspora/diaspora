@@ -46,7 +46,7 @@ vi:
       notifications: "Thông báo"
       profile: "Hồ sơ"
       recent_notifications: "Thông báo gần đây"
-      search: "Tìm"
+      search: "Tìm kiếm"
       settings: "Thiết lập"
       view_all: "Xem tất cả"
     ignore: "Bỏ qua"
@@ -61,7 +61,7 @@ vi:
     publisher:
       at_least_one_aspect: "Bạn phải công khai ít nhất một mối quan hệ"
       limited: "Giới hạn - tin của bạn được những người chỉ định nhìn thấy"
-      public: "Công khai - tin của bạn được mọi người và máy tìm kiếm nhìn thấy"
+      public: "Công khai - bài đăng của bạn được mọi người và máy tìm kiếm nhìn thấy"
     reshares:
       duplicate: "Bạn đã chia sẻ lại tin đó!"
     search_for: "Tìm <%= name %>"

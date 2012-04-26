@@ -25,7 +25,8 @@ Feature: editing your profile
     And the "profile_date_day" field should be filled with "30"
 
     When I go to my new profile page
-    Then I should see "Gender: Fearless"
+#   #commented out until we bring back the profile info on new profile
+#    Then I should see "Gender: Fearless"
     And I should see "Boba Fett"
-    And I should see "Bio: This is a bio"
-    And I should see "Birthday: 1986-11-30"
+#    And I should see "Bio: This is a bio"
+#    And I should see "Birthday: 1986-11-30"

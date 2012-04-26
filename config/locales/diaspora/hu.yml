@@ -77,7 +77,7 @@ hu:
       edit_aspect: "Szerkesztés %{name}"
       select_all: "Mindent kijelöl"
     aspect_stream:
-      stay_updated: "Légy naprakész"
+      stay_updated: "Légy naprakész!"
       stay_updated_explanation: "A Hírfolyamodban megjelennek az ismerőseid bejegyzései, követett címkéid és a Reflektorfényben szereplő személyek bejegyzései."
     contacts_not_visible: "A csoporttagok nem láthatják egymást."
     contacts_visible: "A csoport tagjai láthatják egymást."
@@ -181,7 +181,7 @@ hu:
       no_applications: "Még nem regisztráltál egyetlen alkalmazást sem."
       revoke_access: "Hozzáférés visszavonása"
     new:
-      autorize: "engedélyezés"
+      authorize: "engedélyezés"
       cubbies_will: "A Cubbies jogosult fotókat küldeni a nevedben"
       nope: "nem"
   back: "Vissza"
@@ -322,7 +322,7 @@ hu:
       codes_left:
         other: "%{count} meghívó maradt még ezen a kódon"
         zero: "Nem maradt több meghívó ezen a kódon"
-      comma_seperated_plz: "Megadhatsz több e-mail címet is vesszővel elválasztva."
+      comma_separated_plz: "Megadhatsz több e-mail címet is vesszővel elválasztva."
       if_they_accept_info: "Ha elfogadják felkérésed, akkor belekerülnek abba a csoportba amelyikbe meghívtad őket."
       invite_someone_to_join: "Hívj meg valakit, hogy csatlakozzon a Diaspora-hoz!"
       language: "Nyelv"
@@ -560,7 +560,7 @@ hu:
       edit_my_profile: "Profilom szerkesztése"
       gender: "nem"
       in_aspects: "csoportokban"
-      location: "hely"
+      location: "lakóhely"
       remove_contact: "kapcsolat törlése"
       remove_from: "Törlöd %{name}-t a %{aspect} csoportból?"
     show:
@@ -641,18 +641,18 @@ hu:
   profile: "Profil"
   profiles:
     edit:
-      allow_search: "Megtalálható legyek a Diaspora keresőben"
+      allow_search: "megtalálható legyek a Diaspora keresőben"
       edit_profile: "Profil szerkesztése"
       first_name: "Keresztnév"
       last_name: "Vezetéknév"
       update_profile: "Profil frissítése"
       you_are_nsfw: "Jelenleg a \"munkahelyen nem illő\" (NSFW) beállítással jelölted magadat. A megosztott tartalmaid nem fognak közvetlenül megjelenni azon felhasználóknál, akik kikapcsolták a kifogásolható tartalmak megtekintését."
       you_are_safe_for_work: "Jelenleg a \"munkahelyen illő\" tartalmi beállítással jelölted magadat. Ezáltal elfogadod, hogy mindaz, amit megosztasz - míg nem adod meg másképpen - megfelel a közösségi irányelveknek."
-      your_bio: "Rólam"
+      your_bio: "Írj pár sort magadról"
       your_birthday: "Szülinapod"
-      your_gender: "Nem"
-      your_location: "Helység"
-      your_name: "Nevem"
+      your_gender: "Nemed"
+      your_location: "Lakóhelyed"
+      your_name: "Neved"
       your_photo: "Fényképed"
       your_private_profile: "Személyes profilod"
       your_public_profile: "Nyilvános profilod"
@@ -745,9 +745,9 @@ hu:
       connect_to_facebook: "Csatlakozás a Facebook-hoz"
       connect_to_tumblr: "Csatlakozás a Tumblr-hez"
       connect_to_twitter: "Csatlakozás a Twitter-hez"
-      disconnect: "Megszakít"
+      disconnect: "megszakít"
       edit_services: "Szolgáltatások szerkesztése"
-      logged_in_as: "Bejelentkezve, mint"
+      logged_in_as: "- bejelentkeztél ezen a néven:"
       no_services: "Még nem kapcsolódtál egy szolgáltatáshoz sem."
       really_disconnect: "Megszakítod a kapcsolatot ezzel: %{service}?"
     inviter:
@@ -797,14 +797,14 @@ hu:
       new: "Új %{type} %{from}-tól/től"
     public_explain:
       atom_feed: "Atom hírfolyamod (feed)"
-      control_your_audience: "Közönséged beállítása"
+      control_your_audience: "Válassz célközönséget!"
       logged_in: "bejelentkezve ide: %{service}"
       manage: "kapcsolódó szolgáltatások kezelése"
       new_user_welcome_message: |-
           Használj kettőskeresztet(#), hogy felcímkézd a bejegyzésedet. Címkék alapján találhatsz veled azonos érdeklődésű embereket.
-          A kukac(@) jellel, pedig személyeket említhetsz meg a bejegyzésedben.
+          A kukac(@) jellel pedig személyeket említhetsz meg a bejegyzésedben.
       outside: "A publikus üzeneteket a Diaspora-n kívüli személyek is láthatják."
-      share: "Megoszt"
+      share: "Ossz meg valamit!"
       title: "Kapcsolódó szolgáltatások beállítása"
       visibility_dropdown: "Használd ezt a legördülő menüt, hogy módosítsd a bejegyzésed láthatóságát."
     publisher:

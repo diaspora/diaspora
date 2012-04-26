@@ -42,9 +42,10 @@ app.pages.PostViewer = app.views.Base.extend({
   },
 
   postRenderTemplate : function() {
-    /* set the document title */
-    document.title = this.model.get("title");
-
+    /* set the document title, if it has one */
+    if(this.model.get("title")){
+      document.title = this.model.get("title");
+    }
     this.bindNavHooks();
   },
 

@@ -256,7 +256,6 @@ nb:
     new:
       already_invited: "Allerede innvitert"
       aspect: "Aspekt"
-      comma_seperated_plz: "Du kan skrive inn flere epostadresser delt med komma."
       if_they_accept_info: "Hvis de aksepterer, vil de bli lagt til i aspektet du valgte."
       invite_someone_to_join: "Inviter noen til Diaspora!"
       language: "Språk"

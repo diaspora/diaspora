@@ -1,7 +1,7 @@
 @import "_new_mixins";
 
 /* new link color */
-a { color : rgb(42,156,235) !important; }
+a { color : rgb(42,156,235)  }
 
 /* bootstrap extentions */
 .icon-red   { background-image: image_url("img/glyphicons-halflings-red.png");   }
@@ -168,6 +168,11 @@ article { //mood posts
 
   img {
     max-height: 70%;
+    border : 10px solid #fff;
+  }
+
+  .photo_viewer {
+    margin-bottom : 20px;
   }
 
   @include centered-frame();

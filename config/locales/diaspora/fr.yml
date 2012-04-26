@@ -181,7 +181,7 @@ fr:
       no_applications: "Vous n'avez pas encore enregistré d'application."
       revoke_access: "Révoquer l'accès"
     new:
-      autorize: "Autoriser"
+      authorize: "Autoriser"
       cubbies_will: "Cubbies pourra poster des photos en votre nom"
       nope: "Non"
   back: "Retour"
@@ -323,7 +323,7 @@ fr:
         one: "Plus qu'une invitation disponible avec ce code."
         other: "Encore %{count} invitations disponibles avec ce code."
         zero: "Plus d'invitation disponible avec ce code."
-      comma_seperated_plz: "Vous pouvez entrer plusieurs adresses de courrier électronique séparées par des virgules."
+      comma_separated_plz: "Vous pouvez entrer plusieurs adresses de courrier électronique séparées par des virgules."
       if_they_accept_info: "s'ils acceptent, ils seront ajoutés à l'aspect dans lequel vous les avez invités."
       invite_someone_to_join: "Inviter quelqu'un à rejoindre Diaspora !"
       language: "Langue"

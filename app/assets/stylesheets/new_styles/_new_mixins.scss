@@ -69,8 +69,7 @@ $night-text-color : #999;
 }
 
 @mixin media-text() {
-  font-size { size: 2em; }
-
+  font-size: 2em; 
   line-height: 1.2em;
   padding-bottom: 0;
   margin-bottom: 0;

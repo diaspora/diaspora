@@ -295,7 +295,6 @@ es-AR:
     new:
       already_invited: "Las siguientes personas no aceptaron tu invitación:"
       aspect: "Aspecto"
-      comma_seperated_plz: "Podés ingresar varias direcciones de correo electrónico separadas por comas."
       if_they_accept_info: "si aceptan, serán agregados al aspecto que selecciones."
       invite_someone_to_join: "¡Invitá a alguien a unirse a Diáspora*!"
       language: "Idioma"

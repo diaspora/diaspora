@@ -11,7 +11,7 @@ class TemplatePicker
                 }
 
   def initialize(post)
-    self.post = post
+    self.post = post.is_a?(Reshare) ? post.root : post
   end
 
   def template_name

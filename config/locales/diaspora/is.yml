@@ -175,7 +175,6 @@ is:
     new:
       already_invited: "Nu þegar boðið"
       aspect: "Ásýnd"
-      comma_seperated_plz: "Þú getur sett inn mörg netföng með því að aðskilja þau með kommu. "
       if_they_accept_info: "ef þau þiggja boðið, verður þeim bætt við þá ásýnd sem þú bauðst þeim á."
       invite_someone_to_join: "Bjóddu einhverjum að tengjast Díaspora!"
       personal_message: "Persónuleg skilaboð"

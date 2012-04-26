@@ -34,16 +34,16 @@ describe("app.pages.Profile", function(){
     });
 
     context("profile control pane", function(){
-      it("is shown", function() {
+      it("shows the edit and create buttons if it's your profile", function() {
         spyOn(this.page, "isOwnProfile").andReturn(true)
         this.page.render()
-        expect(this.page.$("#profile-controls .control").length).not.toBe(0)
+        expect(this.page.$("#profile-controls .control").length).toBe(2)
       })
 
-      it("is not shown", function() {
+      it("shows a follow button if not", function() {
         spyOn(this.page, "isOwnProfile").andReturn(false)
         this.page.render()
-        expect(this.page.$("#profile-controls .control").length).toBe(0)
+        expect(this.page.$("#profile-controls .control").length).toBe(1)
       })
     })
 

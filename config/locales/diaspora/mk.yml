@@ -126,7 +126,6 @@ mk:
       sent: "Поканите беа испратени кон:"
     new:
       already_invited: "Already invited"
-      comma_seperated_plz: "Можете да внесете повеќе е-маил адреси разделени со запирки."
       invite_someone_to_join: "Поканете некој да се придружи на Diaspora!"
       send_an_invitation: "Испрати покана"
       send_invitation: "Испрати покана"

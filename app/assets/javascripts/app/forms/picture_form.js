@@ -19,6 +19,7 @@ app.forms.Picture = app.views.Base.extend({
 
   submitForm : function (){
     this.$("form").submit();
+    this.$(".photos").append($('<span class="loader" style="margin-left: 80px;"></span>'))
   },
 
   photoUploaded : function(evt, xhr) {

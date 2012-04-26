@@ -7,7 +7,7 @@
 es:
   javascripts:
     aspect_dropdown:
-      add_to_aspect: "Añadir contacto"
+      add_to_aspect: "Añadir contactos"
       all_aspects: "Todos los aspectos"
       error: "No podrás compartir con <%= name %>. ¿Vas a ignonarle?"
       select_aspects: "Elige los aspectos"
@@ -28,8 +28,8 @@ es:
       hide: "ocultar comentarios"
       show: "ver todos los comentarios"
     confirm_dialog: "¿Estás seguro?"
-    delete: "Borrar"
-    failed_to_like: "¡Ha fallado tu aprobación!"
+    delete: "Eliminar"
+    failed_to_like: "¡No se pudo marcar como «Me gusta»!"
     failed_to_post_message: "¡Fallo al publicar el mensaje!"
     getting_started:
       alright_ill_wait: "Está bien, esperaré."
@@ -46,10 +46,10 @@ es:
       notifications: "Notificaciones"
       profile: "Perfil"
       recent_notifications: "Notificaciones recientes"
-      search: "Encuentra gente o #etiquetas"
+      search: "Buscar"
       settings: "Ajustes"
       view_all: "Ver todo"
-    ignore: "Ignorar persona"
+    ignore: "Ignorar"
     infinite_scroll:
       no_more: "No hay más publicaciones."
     my_activity: "Mi Actividad"
@@ -75,8 +75,8 @@ es:
       likes:
         few: "le gusta a <%= count %> personas"
         many: "le gusta a <%= count %> personas"
-        one: "A <%= count %> persona le gusta "
-        other: "A <%= count %> personas les gusta "
+        one: "A <%= count %> persona le gusta"
+        other: "A <%= count %> personas les gusta"
         two: "le gusta a <%= count %> personas"
         zero: "A <%= count %> personas les gusta"
       limited: "Restringido"
@@ -99,7 +99,7 @@ es:
         zero: "Comparido <%= count %> veces"
       show_nsfw_post: "Mostrar publicación"
       show_nsfw_posts: "Mostrar todas las publicaciones"
-      unfollow: "No seguir"
+      unfollow: "Dejar de seguir"
       unlike: "No me gusta"
     tags:
       wasnt_that_interesting: "OK, supongo que #<%= tagName %> no era tan interesante..."
@@ -117,10 +117,10 @@ es:
       seconds: "menos de 1 minuto"
       suffixAgo: ""
       suffixFromNow: ""
-      year: "1 año aproximadamente"
+      year: "un año aproximadamente"
       years: "%d años"
     videos:
-      unknown: "Tipo de video desconocido"
+      unknown: "Tipo de vídeo desconocido"
       watch: "Ver este video con <%= provider %>"
     viewer:
       comment: "Comentar"

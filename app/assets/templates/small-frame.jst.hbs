@@ -30,6 +30,12 @@
     {{/if}}
 
     <div class="info">
+        {{#if root}}
+            {{#linkToPerson root.author}}
+                {{{personImage this}}
+            {{/linkToPerson}}
+        {{/if}}
+
         <i class="icon-heart"></i> {{likes_count}}
         <i class="icon-retweet"></i> {{reshares_count}}
         <i class="icon-comment"></i> {{comments_count}}

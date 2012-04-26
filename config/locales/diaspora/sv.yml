@@ -181,23 +181,23 @@ sv:
       no_applications: "Du har inte registrerat några applikationer än."
       revoke_access: "Neka tillträde"
     new:
-      autorize: "Godkänn"
+      authorize: "Godkänn"
       cubbies_will: "Cubbies kommer att kunna skicka foton i ditt namn"
       nope: "Nej"
   back: "Tillbaka"
   blocks:
     create:
-      failure: "Jag kunde inte ignorera den användaren.  #evasion"
-      success: "Nåväl, du kommer inte att se den användaren i din ström igen. #silencio!"
+      failure: "Jag kunde inte ignorera den användaren.  #undvik"
+      success: "Nåväl, du kommer inte att se den användaren i din ström igen. #tystnad!"
     destroy:
-      failure: "Jag kunde inte sluta ignorera den användaren.  #evasion"
-      success: "Låt oss se vad de har att säga! #sayhello"
+      failure: "Jag kunde inte sluta ignorera den användaren.  #undvik"
+      success: "Låt oss se vad de har att säga! #säghej"
   bookmarklet:
     explanation: "Bokmärk %{link} för att skicka inlägg på Diaspora varifrån som helst."
     explanation_link_text: "denna länk"
     heading: "Bookmarklet"
     post_something: "Posta något till Diaspora"
-    post_success: "Postat! Stänger!"
+    post_success: "Skickat! Stänger!"
   cancel: "Avbryt"
   comments:
     few: "%{count} kommentarer"
@@ -205,7 +205,7 @@ sv:
     new_comment:
       comment: "Kommentera"
       commenting: "Kommenterar..."
-    one: "1 kommentar"
+    one: "en kommentar"
     other: "%{count} kommentarer"
     two: "%{count} kommentarer"
     zero: "inga kommentarer"
@@ -254,13 +254,13 @@ sv:
         zero: "Inga nya meddelanden"
     index:
       create_a_new_message: "skapa ett nytt meddelande"
-      inbox: "Inlåda"
+      inbox: "Inkorg"
       message_inbox: "Meddelandeinkorg"
       new_message: "Nytt meddelande"
       no_conversation_selected: "ingen konversation vald"
       no_messages: "inga meddelanden"
     new:
-      abandon_changes: "Förkasta ändringar?"
+      abandon_changes: "Vill du förkasta ändringarna?"
       send: "Skicka"
       sending: "Skickar..."
       subject: "ämne"
@@ -269,7 +269,7 @@ sv:
       fail: "Ogiltigt meddelande"
     show:
       delete: "ta bort och blockera konversation"
-      reply: "svara"
+      reply: "besvara"
       replying: "Svarar..."
   date:
     formats:
@@ -288,15 +288,15 @@ sv:
   home:
     show:
       already_account: "har du redan ett konto?"
-      choice: "Valfrihet"
+      choice: "Val"
       choice_explanation: "Diaspora låter dig dela in dina kontakter i grupper som kallas aspekter. Aspekter, som är unika för Diaspora, förhindrar att dina foton, meddelanden och skämt kan ses av någon annan än de personer som du valt."
-      learn_about_host: "Lär dig hur du sätter upp en egen Diasporaserver."
+      learn_about_host: "Läs om hur du sätter upp en egen Diasporaserver."
       login_here: "logga in här"
       ownership: "Ägandeskap"
       ownership_explanation: "Du äger dina bilder, och du ska inte behöva frångå det när du vill dela med dig av dem. Du behåller äganderätten till allt du delar med dig av på Diaspora, vilket ger dig full kontroll över hur det distribueras."
       share_what_you_want: "Dela vad du vill, med vem du vill."
       simplicity: "Enkelhet"
-      simplicity_explanation: "Diaspora gör det lätt att dela meddelanden och bilder med rätt personer. Lika lätt är det att behålla den personliga integriteten, med Diaspora tvingas du inte vada igenom sidor av inställningar och alternativ bara för att hålla din profil säker."
+      simplicity_explanation: "Med  Diaspora är det enkelt dela med sig av information och bilder till rätt personer. Det är lika lätt att behålla den personliga integriteten. Med Diaspora tvingas du inte vada igenom sidor av inställningar och alternativ bara för att hålla din profil säker."
       tagline_first_half: "Dela vad du vill,"
       tagline_second_half: "med vem du vill."
   invitation_codes:
@@ -323,7 +323,7 @@ sv:
         one: "%{count} inbjudning kvar för denna kod."
         other: "%{count} inbjudningar kvar för denna kod."
         zero: "Det finns inga inbjudningar kvar för denna kod."
-      comma_seperated_plz: "Du kan ange flera e-postadresser åtskiljda av kommatecken."
+      comma_separated_plz: "Du kan ange flera e-postadresser åtskilda av kommatecken."
       if_they_accept_info: "om de accepterar, kommer de läggas till i den aspekt du angav vid inbjudan."
       invite_someone_to_join: "Bjud in en vän till Diaspora!"
       language: "Språk"
@@ -354,25 +354,16 @@ sv:
   likes:
     likes:
       people_dislike_this:
-        few: "%{count} personer ogillar"
-        many: "%{count} personer ogillar det här"
         one: "en person ogillar det här"
         other: "%{count} personer ogillar det här"
-        two: "Två personer gillar inte"
         zero: "inga personer ogillar det här"
       people_like_this:
-        few: "%{count} personer gillar det här"
-        many: "%{count} personer gillar det här"
         one: "en person gillar det här"
         other: "%{count} personer gillar det här"
-        two: "Två personer gillar"
         zero: "inga personer gillar det här"
       people_like_this_comment:
-        few: "%{count} gillar"
-        many: "%{count} gillar"
         one: "en gillar"
         other: "%{count} gillar"
-        two: "Två personer gillar"
         zero: "ingen gillar"
   limited: "Begränsad"
   more: "Mer"
@@ -380,25 +371,16 @@ sv:
   no_results: "Inga sökresultat"
   notifications:
     also_commented:
-      few: "%{actors} personer har också kommenterat %{post_author}s %{post_link}."
-      many: "%{actors} personer har också kommenterat %{post_author}s %{post_link}."
       one: "%{actors} till har kommenterat %{post_author}s %{post_link}."
       other: "%{actors} har också kommenterat %{post_author}s %{post_link}."
-      two: "Två personer till har kommenterat %{post_author}s %{post_link}."
       zero: "ingen mer har kommenterat %{post_author}s %{post_link}."
     also_commented_deleted:
-      few: "%{actors} personer har kommenterat ett borttaget inlägg."
-      many: "%{actors} personer har kommenterat ett borttaget inlägg."
       one: "%{actors} har kommenterat ett borttaget inlägg."
       other: "%{actors} har kommenterat ett borttaget inlägg."
-      two: "Två personer har kommenterat ett raderat inlägg."
       zero: "Ingen har kommenterat ett borttaget inlägg."
     comment_on_post:
-      few: "%{actors} personer har kommenterat %{post_link}."
-      many: "%{actors} personer har kommenterat %{post_link}."
       one: "%{actors} har kommenterat %{post_link}."
       other: "%{actors} har kommenterat %{post_link}."
-      two: "Två personer har kommenterat %{post_link}."
       zero: "Ingen har kommenterat %{post_link}."
     helper:
       new_notifications:
@@ -421,61 +403,37 @@ sv:
       mark_unread: "Markera som oläst"
       notifications: "Notiser"
     liked:
-      few: "%{actors} personer gillar din %{post_link}."
-      many: "%{actors} personer gillar din %{post_link}."
       one: "%{actors} din %{post_link}."
       other: "%{actors} gillar din %{post_link}."
-      two: "Två personer gillar din %{post_link}."
       zero: "ingen gillar din %{post_link}."
     liked_post_deleted:
-      few: "%{actors} personer gillade ditt borttagna inlägg."
-      many: "%{actors} personer gillade ditt borttagna inlägg."
       one: "%{actors} gillade ditt borttagna inlägg."
       other: "%{actors} gillade ditt borttagna inlägg."
-      two: "Två personer gillade ditt borttagna inlägg."
       zero: "Ingen gillade ditt borttagna inlägg."
     mentioned:
-      few: "%{actors} personer har nämnt dig i %{post_link}."
-      many: "Omnämn"
       one: "%{actors} har nämnt dig i %{post_link}."
       other: "%{actors} har nämnt dig i %{post_link}."
-      two: "Två personer har nämnt dig i %{post_link}."
       zero: "ingen har nämnt dig i %{post_link}."
     mentioned_deleted:
-      few: "%{actors} personer har nämnt dig i ett raderat inlägg."
-      many: "%{actors} personer har nämnt dig i ett raderat inlägg."
       one: "%{actors} har nämnt dig i ett raderat inlägg."
       other: "%{actors} har nämnt dig i ett raderat inlägg."
-      two: "Två personer har nämnt dig i ett raderat inlägg."
       zero: "Ingen inlägg där du är nämnd har raderats."
     post: "inlägg"
     private_message:
-      few: "%{actors} har skickat dig ett meddelande."
-      many: "%{actors} personer har skickat dig ett meddelande."
       one: "%{actors} har skickat dig ett meddelande."
       other: "%{actors} har skickat dig ett meddelande."
-      two: "Två personer har skickat dig ett meddelande."
       zero: "ingen har ännu skickat något meddelande till dig."
     reshared:
-      few: "%{actors} personer har spridit ditt inlägg %{post_link} vidare."
-      many: "%{actors} personer har spridit ditt inlägg %{post_link} vidare."
       one: "%{actors} har spridit ditt inlägg %{post_link} vidare."
       other: "%{actors} har spridit ditt inlägg %{post_link} vidare."
-      two: "Två personer har spridit ditt inlägg %{post_link} vidare."
       zero: "ingen har ännu spridit ditt inlägg %{post_link} vidare."
     reshared_post_deleted:
-      few: "%{actors} personer har spridit ditt raderade inlägg vidare."
-      many: "%{actors} personer har spridit ditt raderade inlägg vidare."
       one: "%{actors} har spridit ditt raderade inlägg vidare."
       other: "%{actors} har spridit ditt raderade inlägg vidare."
-      two: "Två personer har spridit ditt raderade inlägg vidare."
       zero: "Ingen har spridit ditt raderade inlägg vidare."
     started_sharing:
-      few: "%{actors} personer har börjat att dela med dig."
-      many: "%{actors} personer har börjat att dela med dig."
       one: "%{actors} har börjat att dela med dig."
       other: "%{actors} har börjat att dela med dig."
-      two: "Två personer har börjat dela med dig."
       zero: "ingen delar ännu något med dig."
   notifier:
     a_post_you_shared: "ett inlägg."

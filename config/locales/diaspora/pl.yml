@@ -181,7 +181,7 @@ pl:
       no_applications: "Nie zarejstrowa@{m:łeś|f:łaś|n:ano} jeszcze żadnej aplikacji!"
       revoke_access: "Zablokuj dostęp"
     new:
-      autorize: "Autoryzuj"
+      authorize: "Autoryzuj"
       cubbies_will: "Usługa Cubbies będzie mogła zamieszczać zdjęcia w Twoim imieniu"
       nope: "Nie"
   back: "Powrót"
@@ -324,7 +324,7 @@ pl:
         one: "Jedno zaproszenie na ten kod"
         other: "%{count} zaproszeń na ten kod"
         zero: "Brak zaproszeń na ten kod"
-      comma_seperated_plz: "Możesz podać kilka adresów e-mail, oddzielając je przecinkami."
+      comma_separated_plz: "Można wprowadzić wiele adresów e-mail oddzielonych przecinkami."
       if_they_accept_info: "Jeśli wybrana osoba przyjmie zaproszenie, zostanie dodana do aspektów, do których ją zapros@{m:iłeś|f:iłaś|n:zono}."
       invite_someone_to_join: "Zaproś kogoś do Diaspory!"
       language: "Język"
