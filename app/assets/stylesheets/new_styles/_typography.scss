@@ -4,6 +4,11 @@
   src : image-url('fonts/Roboto-Regular.ttf')
 }
 
+@font-face {
+  font-family : Roboto-Bold;
+  src : image-url('fonts/Roboto-Bold.ttf')
+}
+
 body, p, h1, h2, h3, h4, h5, h6, textarea, input, * {
   font-family : Roboto, Helvetica, sans;
 }

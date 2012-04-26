@@ -1,6 +1,5 @@
 #edit-controls {
-  @include transition(opacity);
-  @include opacity(0);
+  display : none;
 
   position : fixed;
 
@@ -21,7 +20,7 @@
 /* functionality under edit mode */
 .edit-mode {
   #edit-controls {
-    @include opacity(1);
+    display : block;
   }
 
   #edit-mode-toggle.control {
@@ -69,5 +68,32 @@
     &:active {
       @include opacity(0.8);
     }
+  }
+}
+
+#home-button {
+  @include transition(opacity);
+  @include opacity(0.4);
+
+  position : absolute;
+  right : 10px;
+  top : 10px;
+
+  .label {
+    padding : 2px 5px;
+    padding-right : 7px;
+    padding-bottom : 3px;
+
+    span {
+      display : inline-block;
+      position : relative;
+      top : 1px;
+      font-family : Roboto-Bold;
+    }
+  }
+
+  &:hover {
+    @include opacity(0.75);
+    text-decoration : none;
   }
 }
