@@ -355,6 +355,9 @@ div[data-template=flow] {
 .post-form {
   display : table-cell;
   vertical-align : middle;
+  .container{
+    margin: 0 50px;
+  }
 }
 
 .flow-controls {
@@ -371,6 +374,7 @@ div[data-template=flow] {
   box-sizing: border-box;
   -moz-box-sizing: border-box;
 
+
   .controls {
     margin: 0 auto;
     max-width: 960px;
@@ -379,6 +383,9 @@ div[data-template=flow] {
 
     button {
       float : right;
+    }
+    #controls-wrapper {
+      margin: 0 9%;
     }
   }
 
