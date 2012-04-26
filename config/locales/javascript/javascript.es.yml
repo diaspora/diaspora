@@ -7,7 +7,7 @@
 es:
   javascripts:
     aspect_dropdown:
-      add_to_aspect: "Añadir contactos"
+      add_to_aspect: "Añadir contacto"
       all_aspects: "Todos los aspectos"
       error: "No podrás compartir con <%= name %>. ¿Vas a ignonarle?"
       select_aspects: "Elige los aspectos"
@@ -26,7 +26,7 @@ es:
       select_all: "Marcar todos"
     comments:
       hide: "ocultar comentarios"
-      show: "ver todos los comentarios"
+      show: "mostrar todos los comentarios"
     confirm_dialog: "¿Estás seguro?"
     delete: "Eliminar"
     failed_to_like: "¡No se pudo marcar como «Me gusta»!"
@@ -102,7 +102,7 @@ es:
       unfollow: "Dejar de seguir"
       unlike: "No me gusta"
     tags:
-      wasnt_that_interesting: "OK, supongo que #<%= tagName %> no era tan interesante..."
+      wasnt_that_interesting: "Muy bien, supongo que #<%= tagName %> no era tan interesante..."
     timeago:
       day: "1 día"
       days: "%d días"

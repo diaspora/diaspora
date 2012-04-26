@@ -9,7 +9,7 @@ es:
   _comments: "Comentarios"
   _contacts: "Contactos"
   _home: "Inicio"
-  _photos: "fotos"
+  _photos: "Fotos"
   _services: "Servicios"
   account: "Cuenta"
   activerecord:
@@ -54,9 +54,9 @@ es:
       add_invites: "añadir invitaciones"
       email_to: "Correo electrónico para invitar"
       users:
-        one: "%{count} usario encontrado"
-        other: "%{count} usarios encontrados"
-        zero: "ningún usario encontrado"
+        one: "%{count} usuario encontrado"
+        other: "%{count} usuarios encontrados"
+        zero: "%{count} usuarios encontrados"
       you_currently: "tu actuamente tienes %{user_invitation} invitaciones para enviar %{link}"
   ago: "Hace %{time}"
   all_aspects: "Todos los aspectos"
@@ -67,7 +67,7 @@ es:
       video_title:
         unknown: "Título de vídeo desconocido"
   are_you_sure: "¿Estás seguro?"
-  are_you_sure_delete_account: "¿Estás seguro de que quieres eliminar tu cuenta? ¡Esto no se puede deshacer!"
+  are_you_sure_delete_account: "¿Seguro que quieres eliminar tu cuenta? ¡Esto no se podrá deshacer!"
   aspect_memberships:
     destroy:
       failure: "No se pudo quitar a la persona del aspecto"
@@ -117,7 +117,7 @@ es:
         heading: "Conecta con Cubbi.es"
         learn_more: "Ver más"
       diaspora_id:
-        content_1: "Tu identidad Diaspora* es:"
+        content_1: "Tu identidad Diaspora es:"
         content_2: "Compártela con quien quieras que te encuentre rápidamente."
         heading: "Identidad Diaspora*"
       donate: "Donaciones"
@@ -125,17 +125,17 @@ es:
       help:
         do_you: "Tal vez:"
         email_feedback: "Si lo prefieres, envía tus comentarios a este %{link}."
-        feature_suggestion: "- Propongas alguna %{link}."
+        feature_suggestion: "- Sugieras alguna %{link}."
         find_a_bug: "- Encuentres algún %{link}."
         have_a_question: "- Realices alguna %{link}."
-        here_to_help: "¡La comunidad de Diaspora está aquí!"
+        here_to_help: "¡La comunidad Diaspora está aquí!"
         need_help: "¿Necesitas ayuda?"
         tag_bug: "error"
-        tag_feature: "característica"
+        tag_feature: "idea"
         tag_question: "pregunta"
         tutorials_wiki_and_forum: "%{tutorial} & %{wiki} & %{forum}: Tutoriales, wiki y noticias"
-      introduce_yourself: "Esta es tu entrada. Adelante, preséntate."
-      keep_diaspora_running: "¡Haz que el desarrollo de Diaspora siga yendo rápido con una donación mensual!"
+      introduce_yourself: "Esta es tu entrada principal. Adelante, preséntate..."
+      keep_diaspora_running: "¡Haz que el desarrollo de Diaspora vaya más rápido con una donación mensual!"
       keep_pod_running: "Haz que %{pod} vaya más rápido, ¡deja a nuestros servidores su dosis de café mensual con una doncación mensual!"
       new_here:
         follow: "¡Sigue %{link} y da la bienvenida a los nuevos miembros de Diaspora*!"
@@ -285,11 +285,11 @@ es:
       birthday_with_year: "%d %B %Y"
       fullmonth_day: "%d %B "
   delete: "Eliminar"
-  email: "Correo electrónico"
+  email: "correo electrónico"
   error_messages:
     helper:
       correct_the_following_errors_and_try_again: "Corrige los siguientes errores e inténtalo de nuevo."
-      invalid_fields: "Campos válidos"
+      invalid_fields: "Campos inválidos"
   fill_me_out: "Complétame"
   find_people: "Encuentra gente o #etiquetas"
   hide: "Ocultar publicación"
@@ -318,7 +318,7 @@ es:
       already_sent: "Ya has invitado a esta persona."
       no_more: "No tienes más invitaciones."
       own_address: "No puedes enviar una invitación a tu propio correo."
-      rejected: "Las siguientes direcciones de correo tuvieron problemas: "
+      rejected: "Hubo problemas con las siguientes direcciones de correo: "
       sent: "Invitaciones enviadas a:"
     edit:
       accept_your_invitation: "Aceptar tu invitación"
@@ -379,7 +379,7 @@ es:
         other: "A %{count} personas les gusta"
         two: "A %{count} personas les gusta"
         zero: "sin votos"
-  limited: "Restringido"
+  limited: "Limitado"
   more: "Más"
   next: "siguiente"
   no_results: "No hay resultados"
@@ -485,7 +485,7 @@ es:
   notifier:
     a_post_you_shared: "una publicación."
     accept_invite: "¡Acepta tu invitación a Diaspora*!"
-    click_here: "Haga clic aquí"
+    click_here: "pulsa aquí"
     comment_on_post:
       reply: "Responder o ver los comentarios de %{name} >"
     confirm_email:
@@ -528,8 +528,8 @@ es:
       view_profile: "Ver el perfil de %{name}"
     thanks: "Gracias,"
     to_change_your_notification_settings: "para cambiar tus ajustes de notificación"
-  nsfw: "No apto para todo público"
-  ok: "OK"
+  nsfw: "No apto para todos los públicos"
+  ok: "Aceptar"
   or: "o"
   password: "Contraseña"
   password_confirmation: "Confirmación de la contraseña"
@@ -643,7 +643,7 @@ es:
       reshare_by: "Vuelto a compartir por %{author}"
   previous: "anterior"
   privacy: "Privacidad"
-  privacy_policy: "Política de privacidad"
+  privacy_policy: "Política de Privacidad"
   profile: "Perfil"
   profiles:
     edit:
@@ -653,7 +653,7 @@ es:
       last_name: "Apellidos"
       update_profile: "Actualizar perfil"
       you_are_nsfw: "Has marcado tu perfil como no apto para todos los públicos, tu contenido no se mostrará a las personas que hayan descartado ver ese tipo de publicaciones."
-      you_are_safe_for_work: "Has marcado tu perfil como no apto para todos públicos, esto significa que no aceptas que el contenido que publiques no respetará las normas de toda la comunidad."
+      you_are_safe_for_work: "Has marcado tu perfil como apto para todos públicos, esto significa que aceptas que el contenido que publiques respetará las normas de toda la comunidad."
       your_bio: "Biografía"
       your_birthday: "Fecha de nacimiento"
       your_gender: "Género"
@@ -849,7 +849,7 @@ es:
     create:
       success: "Se ha mencionado con éxito a: %{names}"
     destroy:
-      failure: "Hubo un error al eliminar la publicación."
+      failure: "Hubo un error al eliminar la publicación"
     helper:
       no_message_to_display: "No hay mensajes que mostrar."
     new:
@@ -881,13 +881,13 @@ es:
       title: "Comentado"
     community_spotlight_stream: "Comunidad Creativa"
     followed_tag:
-      add_a_tag: "Añadir una etiqueta"
+      add_a_tag: "Añade una etiqueta"
       contacts_title: "Gente con esas etiquetas"
       follow: "Seguir"
       title: "#Etiquetas"
     followed_tags_stream: "#Etiquetas seguidas"
     like_stream:
-      contacts_title: "Personas cuyas publicaciones te gustan"
+      contacts_title: "Personas cuyas publicaciones te gustaron"
       title: "Me gusta"
     mentioned_stream: "@Menciones"
     mentions:
@@ -906,7 +906,7 @@ es:
   tag_followings:
     create:
       failure: "Error al seguir a #%{name}. ¿Estás siguiéndolo ya?"
-      none: "¡No puedes sequir una etiqueta vacía!"
+      none: "¡No puedes seguir una etiqueta vacía!"
       success: "¡Sí! Ahora sigues publicaciones sobre: #%{name}."
     destroy:
       failure: "Error al dejar de seguir #%{name}. ¿Tal vez ya lo hiciste?"
@@ -927,7 +927,7 @@ es:
       connect_to_cubbies: "Conecta con Cubbi.es"
       connecting_is_simple: "Conectar tu cuenta de Diaspora* es sencillo. Solo introduce tu identidad Diaspora*(<b>%{diaspora_id}</b>) desde tu página de <a href='%{href_link}'>ajustes</a> de cubbi y dale a conectar."
       daniels_account: "La cuenta de Diaspora de Daniel"
-      love_to_try: "Nos encantaría que lo pruebes."
+      love_to_try: "Nos encantaría que lo probases."
       making_the_connection: "Creando la conexión"
       screenshot_explanation: "%{link1}. Este cubby en particular está conectado con %{link2}."
       sign_up_today: "¡Regístrate hoy mismo!"
@@ -969,7 +969,7 @@ es:
       download_photos: "descargar mis fotos"
       download_xml: "Descargar mi XML"
       edit_account: "Editar cuenta"
-      email_awaiting_confirmation: "Te hemos enviado un enlace de activación a %{unconfirmed_email}. Hasta que sigas este enlace y actives la nueva dirección, continuaremos usando tu dirección original %{email}."
+      email_awaiting_confirmation: "Te hemos enviado un enlace de activación a %{unconfirmed_email}. Hasta que no sigas este enlace y actives la nueva dirección, continuaremos usando tu dirección original %{email}."
       export_data: "Exportar datos"
       following: "Ajustes de Seguimiento"
       getting_started: "Preferencias del Nuevo Usuario"

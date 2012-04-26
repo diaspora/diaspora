@@ -50,6 +50,14 @@ fr:
       weekly_user_stats: "Statistiques hebdomadaires"
     correlations:
       correlations_count: "Corrélations avec le nombre d'inscrits :"
+    user_search:
+      add_invites: "ajouter des invitations"
+      email_to: "Adresse e-mail de la personne à inviter"
+      users:
+        one: "%{count} utilisateur trouvé"
+        other: "%{count} utilisateurs trouvés"
+        zero: "aucun utilisateur trouvé"
+      you_currently: "Il vous reste actuellement %{user_invitation} invitations %{link}"
   ago: "Il y a %{time}"
   all_aspects: "Tous les aspects"
   application:
