@@ -16,7 +16,7 @@ class ProfilesController < ApplicationController
     respond_to do |format|
       format.json { render :json => @person.as_api_response(:backbone).merge({
           :location => @person.profile.location,
-          :birthday => @person.profile.birthday.to_formatted_s(:long) ,
+          :birthday => @person.profile.formatted_birthday,
           }) }
     end
   end
