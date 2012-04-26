@@ -19,14 +19,14 @@
 
 <section id="profile-controls">
     {{#if isOwnProfile}}
-        <a href="#composer" class="control" rel="facebox">
+        <a href="#composer" title="New Post" class="control" rel="facebox">
             <img src='{{imageUrl "buttons/add_post.jpg"}}' />
         </a>
-        <a href="#" id="edit-mode-toggle" class="control">
+        <a href="#" title="Edit Layout" id="edit-mode-toggle" class="control">
             <img src='{{imageUrl "buttons/edit_canvas.png"}}' />
         </a>
     {{else}}
-        <a href="#"  class="control">
+        <a href="#" class="control">
             <img src='{{imageUrl "buttons/follow_hover.png"}}' />
         </a>
     {{/if}}

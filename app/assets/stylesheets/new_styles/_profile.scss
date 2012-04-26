@@ -47,6 +47,8 @@
   background-position : center;
 
   display : inline-block;
+
+  margin-bottom : 5px;
 }
 
 #profile-controls {
@@ -95,5 +97,48 @@
   &:hover {
     @include opacity(0.75);
     text-decoration : none;
+  }
+}
+
+#profile-stats {
+  i,
+  .cake {
+    @include opacity(0.7);
+  }
+
+  .divider {
+    color : #999;
+  }
+
+  .cake {
+    position : relative;
+    top : -3px;
+  }
+
+  .stat {
+    margin : 10px 5px;
+
+    &.services {
+      @include opacity(0.5);
+
+      .service {
+        position : relative;
+        margin-right : 2px;
+        top : -2px;
+
+        img {
+          height : 13px;
+          width : 13px;
+        }
+
+        &:hover {
+          text-decoration : none;
+        }
+
+        &:last-child {
+          margin-right : 0;
+        }
+      }
+    }
   }
 }
