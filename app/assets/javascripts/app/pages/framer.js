@@ -43,6 +43,11 @@ app.views.framerControls = app.views.Base.extend({
   },
 
   saveFrame : function(){
-    this.model.save()
+    var parentDoc = parent;
+    this.model.save({}, {success : function(){ parentDoc.closeIFrame() }})
   }
-})
+});
+
+function closeIFrame(){
+  location.reload()
+};

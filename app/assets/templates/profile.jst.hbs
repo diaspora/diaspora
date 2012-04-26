@@ -13,9 +13,13 @@
 
 <section id="profile-info"/>
 
+<div id="composer" style="display:none;">
+    <iframe src="http://diaspora.dev/posts/new" height=600 width=900 style="border:none;"></iframe>
+</div>
+
 <section id="profile-controls">
     {{#if isOwnProfile}}
-        <a href="/posts/new"  class="control">
+        <a href="#composer" class="control" rel="facebox">
             <img src='{{imageUrl "buttons/add_post.jpg"}}' />
         </a>
         <a href="#" id="edit-mode-toggle" class="control">
