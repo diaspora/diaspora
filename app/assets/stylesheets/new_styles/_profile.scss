@@ -53,7 +53,7 @@
 
 #profile-controls {
   text-align : right;
-  padding : 10px 18px;
+  padding : 10px 12px;
 
   /* when our buttons aren't there, we still want to maintain a persistent height */
   min-height : 35px;
@@ -101,8 +101,7 @@
 }
 
 #profile-stats {
-  i,
-  .cake {
+  i {
     @include opacity(0.7);
   }
 
@@ -111,6 +110,9 @@
   }
 
   .cake {
+    @include opacity(0.63);
+
+    margin-right : 2px;
     position : relative;
     top : -3px;
   }
