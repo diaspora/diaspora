@@ -6,7 +6,11 @@ gem 'bundler', '~> 1.1.0'
 gem 'foreman', '0.41'
 gem 'whenever'
 
+
 gem 'thin', '~> 1.3.1',    :require => false
+
+# Better console outputs
+gem 'hirb', '~> 0.6.0'
 
 # cross-origin resource sharing
 

@@ -228,6 +228,7 @@ GEM
       rake
     highline (1.6.11)
     hike (1.2.1)
+    hirb (0.6.2)
     hodel_3000_compliant_logger (0.1.0)
     hpricot (0.8.6)
     http_accept_language (1.0.2)
@@ -535,6 +536,7 @@ DEPENDENCIES
   handlebars_assets
   heroku
   heroku_san
+  hirb (~> 0.6.0)
   http_accept_language (~> 1.0.2)
   i18n-inflector-rails (~> 1.0)
   jasmine!
