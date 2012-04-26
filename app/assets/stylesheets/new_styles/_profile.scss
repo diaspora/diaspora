@@ -27,6 +27,10 @@
   #edit-mode-toggle.control {
     @include opacity(1);
   }
+
+  .canvas-frame .info {
+    display : none;
+  }
 }
 
 #profile-header {
