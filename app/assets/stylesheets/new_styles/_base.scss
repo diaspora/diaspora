@@ -426,10 +426,11 @@ div[data-template=flow] {
 
   a.mood {
     @include border-radius();
-    margin-right: 20px;
-    padding: 5px;
+    margin-right: 11px;
+    padding: 7px;
     color: #999;
-    font-size: 20px;
+    font-size: 14px;
+    line-height: 2em;
 
     &#selected_mood {
       background-color: #222;
