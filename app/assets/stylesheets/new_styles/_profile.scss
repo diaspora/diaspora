@@ -103,7 +103,18 @@
 
 #profile-stats {
   i {
+    @include transition(opacity);
     @include opacity(0.7);
+  }
+
+  a:hover {
+    text-decoration : none;
+  }
+
+  a:hover > i,
+  a:hover > img
+  {
+    @include opacity(1);
   }
 
   .divider {
@@ -122,16 +133,21 @@
     margin : 10px 5px;
 
     &.services {
-      @include opacity(0.5);
-
       .service {
         position : relative;
         margin-right : 2px;
         top : -2px;
 
         img {
+          @include transition(opacity);
+          @include opacity(0.5);
+
           height : 14px;
           width : 14px;
+        }
+
+        & > img:hover {
+          @include opacity(1);
         }
 
         &:hover {

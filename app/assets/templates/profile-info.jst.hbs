@@ -7,7 +7,9 @@
     <div id="profile-stats">
         {{#if location}}
             <span class="stat">
-                <i class="icon-map-marker"></i>
+                <a href="http://maps.google.com/maps?q={{location}}" target="_blank">
+                    <i class="icon-map-marker"></i>
+                </a>
                 {{location}}
             </span>
             <span class="divider">•</span>
