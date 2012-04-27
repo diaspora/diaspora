@@ -2,13 +2,35 @@
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
+require File.join(Rails.root, "lib", 'stream', "aspect")
 class AspectsController < ApplicationController
   before_filter :authenticate_user!
-
+  before_filter :save_selected_aspects, :only => :index
+  before_filter :ensure_page, :only => :index
+  
   respond_to :html,
              :js,
              :json
 
+ def index
+    aspect_ids = (session[:a_ids] ? session[:a_ids] : [])
+    @stream = Stream::Aspect.new(current_user, aspect_ids,
+                                 :max_time => max_time)
+    stream_responder
+  end
+  
+    def stream_responder(stream_klass=nil)
+    if stream_klass.present?
+      @stream ||= stream_klass.new(current_user, :max_time => max_time)
+    end
+
+    respond_with do |format|
+      format.html { render 'layouts/main_stream' }
+      format.mobile { render 'layouts/main_stream' }
+      format.json { render_for_api :backbone, :json => @stream.stream_posts, :root => :posts }
+    end
+  end
+  
   def create
     @aspect = current_user.aspects.build(params[:aspect])
     aspecting_person_id = params[:aspect][:person_id]
@@ -120,4 +142,17 @@ class AspectsController < ApplicationController
     end
     @aspect.save
   end
+  
+  def ensure_page
+    params[:max_time] ||= Time.now + 1
+  end
+
+  private
+
+  def save_selected_aspects
+    if params[:a_ids].present?
+      session[:a_ids] = params[:a_ids]
+    end
+  end
+  
 end
