@@ -10,8 +10,7 @@ app.views.SmallFrame = app.views.Post.extend({
   templateName : "small-frame",
 
   events : {
-    "click .content" : "goToPost",
-    "click .fav" : "favoritePost",
+    "click .content" : "goToOrEditPost",
     "click .delete" : "killPost"
   },
 
@@ -102,8 +101,11 @@ app.views.SmallFrame = app.views.Post.extend({
     _.delay(function(){app.page.stream.trigger("reLayout")}, 0)
   },
 
-  goToPost : function() {
-    if(app.page.editMode) { return false; }
-    app.router.navigate(this.model.url(), true)
+  goToOrEditPost : function() {
+    if(app.page.editMode) {
+      this.favoritePost();
+    } else {
+      app.router.navigate(this.model.url(), true)
+    }
   }
 });

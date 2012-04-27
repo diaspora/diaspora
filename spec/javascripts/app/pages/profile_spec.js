@@ -51,12 +51,13 @@ describe("app.pages.Profile", function(){
       beforeEach(function(){
         spyOn(this.post, 'toggleFavorite')
         spyOn($.fn, "isotope")
-        this.page.$(".fav").click()
+        this.page.$(".content").click()
       })
 
       it("relayouts the page", function(){
         expect($.fn.isotope).toHaveBeenCalledWith("reLayout")
       })
+
       it("toggles the favorite status on the model", function(){
         expect(this.post.toggleFavorite).toHaveBeenCalled()
       })
