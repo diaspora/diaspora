@@ -85,6 +85,7 @@
   @include transition(opacity);
   @include opacity(0.4);
 
+  z-index: 10;
   position : absolute;
   right : 10px;
   top : 10px;
