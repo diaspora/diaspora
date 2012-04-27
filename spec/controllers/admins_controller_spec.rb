@@ -20,7 +20,7 @@ describe AdminsController do
 
     context 'admin signed in' do
       before do
-        AppConfig[:admins] = [@user.username]
+        Role.add_admin(@user.person)
       end
 
       it 'succeeds and renders user_search' do
@@ -70,7 +70,7 @@ describe AdminsController do
 
     context 'admin signed in' do
       before do
-        AppConfig[:admins] = [@user.username]
+        Role.add_admin(@user.person)
       end
 
       it 'does not die if you do it twice' do
@@ -90,7 +90,7 @@ describe AdminsController do
 
   describe '#stats' do
     before do
-      AppConfig[:admins] = [@user.username]
+      Role.add_admin(@user.person)
     end
 
     it 'succeeds and renders stats' do
