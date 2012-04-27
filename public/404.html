@@ -3,27 +3,76 @@
 <head>
   <title>The page you were looking for doesn't exist (404)</title>
   <style type="text/css">
-    body { background-color: #fff; color: #666; text-align: center; font-family: arial, sans-serif; }
-    div.dialog {
-      width: 25em;
-      padding: 0 4em;
-      margin: 4em auto 0 auto;
-      border: 1px solid #ccc;
-      border-right-color: #999;
-      border-bottom-color: #999;
+    @font-face{font-family:Roboto;src:url(https://s3.amazonaws.com/joindiaspora/fonts/Roboto-Regular.ttf)}
+    @font-face{font-family:Roboto-BoldCondensed;src:url(https://s3.amazonaws.com/joindiaspora/fonts/Roboto-BoldCondensed.ttf)}
+
+    body,
+    html {
+      overflow-y : hidden;
     }
-    h1 { font-size: 100%; color: #f00; line-height: 1.5em; text-align:center; }
+
+    body {
+      margin-bottom: 0;
+      padding-bottom: 0;
+      margin-top: 5%;
+      background-color: #fff;
+      color: #666;
+      text-align: center;
+      font-family: Roboto, Helvetica, Arial, sans-serif;
+      background-image: url(https://joindiaspora.s3.amazonaws.com/assets/pattern-4deadcd0b3ee298c791c9055bdef3377.png);
+      text-shadow: 0 1px 0 #fff;
+    }
+
+    #big-number {
+      font-family: Roboto-BoldCondensed, Helvetica, Arial, sans-serif;
+      font-size: 250px;
+      text-shadow: 0 2px 0 #fff, 0 -1px 0 #999;
+      color: #ddd;
+    }
+
+    a {
+      text-decoration : none;
+      color : rgb(42,156,235);
+    }
+
+    a:hover {
+      text-decoration : underline;
+    }
+
+    .transparent {
+      -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=80)";
+      filter: alpha(opacity=80);
+      -moz-opacity: 0.8;
+      -khtml-opacity: 0.8;
+      opacity: 0.8;
+    }
+
+    #cat-footer {
+      width: 100%;
+      position: fixed;
+      text-align: center;
+      bottom : -8px;
+      left : 0;
+    }
+
   </style>
 </head>
 
 <body>
   <!-- This file lives in public/404.html -->
-  <h1> 404: Not Found </h1>
-  <a href="javascript:history.go(-1)">
-    <img src="/assets/404.png"/>
+  <div id="big-number" class="transparent">
+    404
+  </div>
+
+  These are not the kittens you're looking for.  Move along.
+  <br/>
+  <br/>
+  <a href="/">
+    Go Back?
   </a>
-  <h1>
-    <a href="/"> Go Back </a>
-  </h1>
+
+  <div id="cat-footer" class="transparent">
+    <img src="https://s3.amazonaws.com/joindiaspora/peeping-tom.png">
+  </div>
 </body>
 </html>

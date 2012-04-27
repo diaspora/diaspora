@@ -177,7 +177,7 @@ end
 
 group :development do
   gem 'heroku'
-  gem 'heroku_san', :platforms => :mri_18
+  gem 'heroku_san', :platforms => :mri_19
   gem 'capistrano', :require => false
   gem 'capistrano_colors', :require => false
   gem 'capistrano-ext', :require => false

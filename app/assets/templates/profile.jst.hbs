@@ -1,24 +1,37 @@
 <div id="edit-controls">
-    editing...
+    CHANGE A POST'S SIZE BY CLICKING ON IT
 </div>
+
+<a href="/" id="home-button">
+    <span class="label label-inverse">
+        <i class="icon-home icon-white"></i>
+        <span>
+            HOME
+        </span>
+    </span>
+</a>
 
 <section id="profile-info"/>
 
+<div id="composer" style="display:none;">
+    <iframe src="/posts/new" height=500 width=700 style="border:none;"></iframe>
+</div>
+
 <section id="profile-controls">
     {{#if isOwnProfile}}
-        <a href="/posts/new"  class="control">
-            <img src='{{imageUrl "buttons/add_post.jpg"}}' />
+        <a href="#composer" title="New Post" class="control small" rel="facebox">
+            <img src='{{imageUrl "buttons/pub@2x.png"}}' />
         </a>
-        <a href="#" id="edit-mode-toggle" class="control">
-            <img src='{{imageUrl "buttons/edit_canvas.png"}}' />
+        <a href="#" title="Edit Layout" id="edit-mode-toggle" class="control small">
+            <img src='{{imageUrl "buttons/edit@2x.png"}}' />
         </a>
     {{else}}
-        <a href="#"  class="control">
+        <a href="#" class="control">
             <img src='{{imageUrl "buttons/follow_hover.png"}}' />
         </a>
     {{/if}}
 </section>
 
-<section id="canvas"></section>
+<section id="canvas"/>
 
-<div id=paginate><span class="loader hidden"/></div>
+<div id="paginate"><span class="loader hidden"/></div>

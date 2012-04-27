@@ -14,7 +14,6 @@ a { color : rgb(42,156,235)  }
     }
   }
 
-
 .photoset {
   @include center(horizontal);
   width: 100%;
@@ -353,8 +352,7 @@ div[data-template=flow] {
 }
 
 .post-form {
-  display : table-cell;
-  vertical-align : middle;
+  margin-top: 2%;
 }
 
 .flow-controls {
@@ -371,6 +369,7 @@ div[data-template=flow] {
   box-sizing: border-box;
   -moz-box-sizing: border-box;
 
+
   .controls {
     margin: 0 auto;
     max-width: 960px;
@@ -379,6 +378,9 @@ div[data-template=flow] {
 
     button {
       float : right;
+    }
+    #controls-wrapper {
+      margin: 0 9%;
     }
   }
 
@@ -419,10 +421,11 @@ div[data-template=flow] {
 
   a.mood {
     @include border-radius();
-    margin-right: 20px;
-    padding: 5px;
+    margin-right: 11px;
+    padding: 7px;
     color: #999;
-    font-size: 20px;
+    font-size: 14px;
+    line-height: 2em;
 
     &#selected_mood {
       background-color: #222;

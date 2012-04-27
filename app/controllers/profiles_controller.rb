@@ -14,7 +14,10 @@ class ProfilesController < ApplicationController
     @person = Person.find_by_guid!(params[:id])
 
     respond_to do |format|
-      format.json { render :json => @person.as_api_response(:backbone) }
+      format.json { render :json => @person.as_api_response(:backbone).merge({
+          :location => @person.profile.location,
+          :birthday => @person.profile.formatted_birthday,
+          }) }
     end
   end
 

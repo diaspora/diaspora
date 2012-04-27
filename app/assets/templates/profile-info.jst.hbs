@@ -3,6 +3,38 @@
     <h3>
         {{name}}
     </h3>
+
+    <div id="profile-stats">
+        {{#if location}}
+            <span class="stat">
+                <a href="http://maps.google.com/maps?q={{location}}" target="_blank">
+                    <i class="icon-map-marker"></i>
+                </a>
+                {{location}}
+            </span>
+            <span class="divider">•</span>
+        {{/if}}
+
+        {{#if birthday}}
+            <span class="stat">
+                <img src='{{imageUrl "buttons/bday@2x.png"}}' class="cake" />
+                {{birthday}}
+            </span>
+            <span class="divider">•</span>
+        {{/if}}
+
+        <span class="stat services">
+            <a href="https://facebook.com" class="service" target="_blank">
+                <img src='{{imageUrl "buttons/service-icons/fb@2x.png"}}' />
+            </a>
+            <a href="https://twitter.com" class="service" target="_blank">
+                <img src='{{imageUrl "buttons/service-icons/twitter@2x.png"}}' />
+            </a>
+            <a href="https://tumblr.com" class="service" target="_blank">
+                <img src='{{imageUrl "buttons/service-icons/tumblr@2x.png"}}' />
+            </a>
+        </span>
+    </div>
 </div>
 
 <!--<dl>-->

@@ -1,5 +1,31 @@
 .new_photo .photo{
   display: inline;
   max-width: 200px;
-  max-height: 200px;
+  max-height: 75px;
+  padding: 2px;
+}
+
+.new_picture{
+  margin-top: 4%;
+}
+
+#photo_upload_button {
+  position: relative;
+  margin-top: 9px;
+
+  input{
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    left: 0;  
+    height:100%;
+  }
+}
+
+.photos{
+  margin-top: 5px;
+}
+
+textarea#post_text{
+  height: 200px;
 }

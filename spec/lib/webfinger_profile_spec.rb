@@ -23,6 +23,12 @@ describe WebfingerProfile do
       it 'should handle a non-diaspora profile without blowing up' do
         proc{ WebfingerProfile.new("evan@status.net", not_diaspora_webfinger)}.should_not raise_error 
       end
+      
+      [:links, :hcard, :guid, :seed_location, :public_key].each do |field|
+        it 'should sets the #{field} field' do
+          profile.send(field).should be_present
+        end
+      end
     end
   end
 

@@ -130,6 +130,11 @@ class Profile < ActiveRecord::Base
     end
   end
 
+  def formatted_birthday
+    birthday.to_s(:long).gsub(', 1000', '') if birthday.present?
+  end
+
+
   def tag_string
     if @tag_string
       @tag_string

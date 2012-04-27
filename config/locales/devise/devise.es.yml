@@ -20,7 +20,7 @@ es:
       unauthenticated: "Necesitas acceder a tu cuenta o registrarte antes de continuar."
       unconfirmed: "Necesitas confirmar tu cuenta antes de continuar."
     invitations:
-      invitation_token_invalid: "¡Discúlpanos!, ese identificador de invitación no es valido."
+      invitation_token_invalid: "¡Discúlpanos! Ese identificador de invitación no es valido."
       send_instructions: "Tu invitación se ha enviado."
       updated: "Tu contraseña ha sido establecida con éxito. Ahora has accedido."
     mailer:
@@ -85,7 +85,7 @@ es:
       updated: "Tu contraseña ha sido modificada. Ya has accedido a tu cuenta."
     registrations:
       destroyed: "¡Adiós! Tu cuenta ha sido cancelada. Esperamos volver a verte pronto."
-      signed_up: "No se a registrado con éxito. no se envio mensaje de confirmación a tu correo."
+      signed_up: "Te has registrado con éxito. Un mensaje de confirmación ha sido enviado a tu email."
       updated: "Has actualizado tu cuenta con éxito."
     sessions:
       new:
@@ -97,7 +97,7 @@ es:
         password: "Contraseña"
         remember_me: "Recordarme"
         sign_in: "Acceder"
-        username: "Nombre de usuario"
+        username: "Usuario"
       signed_in: "Accediste con éxito. A navegar libre..."
       signed_out: "Saliste con éxito."
     shared:

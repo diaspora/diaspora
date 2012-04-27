@@ -57,7 +57,7 @@ describe("app.views.SmallFrame", function(){
     })
 
     it("redirects", function() {
-      this.view.goToPost()
+      this.view.goToOrEditPost()
       expect(app.router.navigate).toHaveBeenCalled()
     })
   })

@@ -13,11 +13,12 @@ es-MX:
       send_instructions: "Recibirás un correo electrónico con instrucciones para confirmar tu cuenta dentro de pocos minutos."
     failure:
       inactive: "Tu cuenta aún no ha sido activada."
-      invalid: "estas pendejo o k y aolvidsate la contraseña ja"
-      invalid_token: "jajajaa token es el de los anillos ljajaj"
-      locked: "ESRTAS LOCO SI USAS DIASPORA!!!! JAJAJAA"
-      unauthenticated: "jaja vallase a facebook mejor esto es una mierda jajaja"
-      unconfirmed: "puros putos bienen aki jaja mejor facebook"
+      invalid: "Nombre de usuario o contraseña inválidos."
+      invalid_token: "Identificador de autenticación inválido."
+      locked: "Tu cuenta está bloqueada."
+      timeout: "Tu sesión ha caducado, por favor accede nuevamente para continuar."
+      unauthenticated: "Necesitas iniciar sesión o registrarte antes de continuar."
+      unconfirmed: "Tienes que confirmar tu cuenta antes de continuar."
     invitations:
       invitation_token_invalid: "¡Discúlpanos! Ese identificador de invitación no es válido."
       send_instructions: "Tu invitación ha sido enviada."
@@ -30,7 +31,7 @@ es-MX:
       hello: "¡Hola %{email}!"
       invitation_instructions:
         accept: "Aceptar la invitación"
-        arrived: "la peor red sosial del mundo revamaped jaja no es segura ni nada bayase a otro lado aki no %{strong_diaspora}"
+        arrived: "La red social que has estado esperando ha llegado. Renovada, más segura, y más divertida, %{strong_diaspora} está lista para ayudarte a compartir y explorar la red de una manera completamente nueva."
         be_yourself: "Sé tú mismo"
         be_yourself_paragraph: "El internet ha creado nuevas y únicas formas para expresarnos. %{strong_diaspora} te permite que seas tú mismo, y compartas como quieras, con o sin tu nombre real."
         cubbies: "Cubbi.es"
@@ -49,7 +50,7 @@ es-MX:
         join_team: "Únete a nuestro equipo"
         love: "Saludos,"
         made_by_people: "%{strong_diaspora} está hecha por gente que ama al internet tanto como tú. ¡%{jointeam} o %{helpfund}!"
-        more_people: "nadie kiere verte jaja vete al facebook!!"
+        more_people: "¡Incluso hay más personas que estás emocionadas por verte!"
         no_account_till: "Tu cuenta no será creada hasta que accedas al enlace anterior y te registres."
         or: "o"
         sign_up_now: "Regístrate ahora →"
@@ -75,7 +76,7 @@ es-MX:
       welcome: "¡Bienvenido %{email}!"
     passwords:
       edit:
-        change_password: "A CHINGAR A SU MADREEE!!!!!!!!!!!!!!!!!!!!!!!!!!!! JAJAJAJAJAJAJAJAJA"
+        change_password: "Cambiar mi contraseña"
       new:
         forgot_password: "¿Olvidaste tu contraseña?"
         no_account: "No existe una cuenta con este correo. Si estás esperando una invitación, te la enviaremos lo antes posible."
@@ -83,20 +84,20 @@ es-MX:
       send_instructions: "Recibirás un correo electrónico con instrucciones para restablecer tu contraseña dentro de pocos minutos."
       updated: "Tu contraseña se ha modificado exitosamente. Has accedido a tu cuenta."
     registrations:
-      destroyed: "adios su cuenta se la yevo la chingaa no buelva nunca"
+      destroyed: "¡Adiós! Tu cuenta ha sido cancelada exitosamente. Esperamos verte de nuevo pronto."
       signed_up: "Te has registrado exitosamente. Un mensaje de confirmación ha sido enviado a tu correo electrónico."
       updated: "Has actualizado exitosamente tu cuenta."
     sessions:
       new:
-        alpha_software: "el macho alpha jaja"
-        bugs_and_feedback: "Esta madre no sirbe, mejor vallase a facebook y por hay chinge a su madre tambien! no trabajamos ni acemos nada"
+        alpha_software: "Estás a punto de utilizar software en versión alpha."
+        bugs_and_feedback: "Ten en cuenta que podrías experimentar errores. ¡Te animamos a que utilices el botón de Feedback situado a la derecha en tu navegador para reportar cualquier inconveniente! Trabajaremos tan rápido como podamos para resolver cualquier problema que reportes."
         bugs_and_feedback_mobile: "Ten en cuenta que podrías experimentar errores. ¡Te animamos a que reportes cualquier inconveniente! Trabajaremos tan rápido como podamos para resolver cualquier problema que reportes."
-        login: "chingatu madree"
+        login: "Iniciar sesión"
         modern_browsers: "Solo es compatible con navegadores modernos."
-        password: "no escriva nada"
-        remember_me: "ODIO DIASPORAA!!!! ES MEJOR FACEBOOK!!!!! JAJAJA"
-        sign_in: "salir jaaaaa"
-        username: "no entre"
+        password: "Contraseña"
+        remember_me: "Recordarme"
+        sign_in: "Entrar"
+        username: "Nombre de usuario"
       signed_in: "Has accedido exitosamente."
       signed_out: "Has salido exitosamente."
     shared:
@@ -116,6 +117,6 @@ es-MX:
       unlocked: "Tu cuenta ha sido desbloqueada exitosamente. Has accedido a tu cuenta."
   errors:
     messages:
-      already_confirmed: "pendejoss"
-      not_found: "ke pedo!! odio diaspora.... vallanse a facebook!! lajajajaja"
-      not_locked: "mueranse todos los de diaspora!!!!! vallanse a facebook jajajaaaaja"
+      already_confirmed: "ya ha sido confirmado"
+      not_found: "no encontrado"
+      not_locked: "no fue bloqueado"

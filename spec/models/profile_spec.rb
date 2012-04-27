@@ -263,6 +263,30 @@ describe Profile do
     it_should_behave_like 'it is taggable'
   end
 
+  describe '#formatted_birthday' do
+    before do
+      @profile = Factory.build(:profile)
+      @profile_hash =  { 'year' => '2000', 'month' => '01', 'day' => '01' }
+      @profile.date = @profile_hash
+    end
+
+    it 'returns a formatted date' do
+      @profile.formatted_birthday.should == "January  1, 2000"
+    end
+
+    it 'removes nil year birthdays' do
+      @profile_hash.delete('year')
+      @profile.date = @profile_hash
+      @profile.formatted_birthday.should == 'January  1'
+    end
+
+    it 'retuns nil if no birthday is set' do
+      @profile.date = {}
+      @profile.formatted_birthday.should == nil
+    end
+
+  end
+
   describe '#receive' do
     it 'updates the profile in place' do
       local_luke, local_leia, remote_raphael = set_up_friends

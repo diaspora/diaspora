@@ -43,6 +43,21 @@ app.views.framerControls = app.views.Base.extend({
   },
 
   saveFrame : function(){
-    this.model.save()
+    this.$('button').prop('disabled', 'disabled')
+    this.$('button').addClass('disabled')
+    // this is gross hack to make this action work in the iframe version and not iframe version.
+    var callback = {}
+    var parentDoc = parent;
+
+    if(parentDoc.location.pathname != '/framer'){
+      callback = {success : function(){ parentDoc.closeIFrame() }}
+    }
+
+    this.model.save({}, callback)
   }
-})
+});
+
+//crazy hack for model publisher.
+function closeIFrame(){
+  location.reload()
+};

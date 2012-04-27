@@ -1,6 +1,7 @@
 #edit-controls {
-  @include transition(opacity);
-  @include opacity(0);
+  display : none;
+
+  font-family : Roboto-Bold;
 
   position : fixed;
 
@@ -21,7 +22,7 @@
 /* functionality under edit mode */
 .edit-mode {
   #edit-controls {
-    @include opacity(1);
+    display : block;
   }
 
   #edit-mode-toggle.control {
@@ -42,17 +43,20 @@
   border-radius: 140px;
   border : 3px solid #fff;
   box-shadow : 0 0 2px rgba(0,0,0,0.5), 0 0 10px rgba(0,0,0,0.6), inset 0 0 15px rgba(0,0,0,0.5), inset 0 -2px 4px rgba(255,255,255,0.3);
+  background-size: 150px 150px;
 
   height : 140px;
   width : 140px;
   background-position : center;
 
   display : inline-block;
+
+  margin-bottom : 5px;
 }
 
 #profile-controls {
   text-align : right;
-  padding : 10px 18px;
+  padding : 10px 12px;
 
   /* when our buttons aren't there, we still want to maintain a persistent height */
   min-height : 35px;
@@ -61,6 +65,11 @@
     @include transition(opacity);
     @include opacity(0.4);
 
+    &.small img {
+      height : 40px;
+      width : 40px;
+    }
+
     &:hover {
       @include opacity(1);
       text-decoration : none;
@@ -68,6 +77,98 @@
 
     &:active {
       @include opacity(0.8);
+    }
+  }
+}
+
+#home-button {
+  @include transition(opacity);
+  @include opacity(0.4);
+
+  z-index: 10;
+  position : absolute;
+  right : 10px;
+  top : 10px;
+
+  .label {
+    padding : 2px 5px;
+    padding-right : 7px;
+    padding-bottom : 3px;
+
+    span {
+      display : inline-block;
+      position : relative;
+      top : 1px;
+      font-family : Roboto-Bold;
+    }
+  }
+
+  &:hover {
+    @include opacity(0.75);
+    text-decoration : none;
+  }
+}
+
+#profile-stats {
+  i {
+    @include transition(opacity);
+    @include opacity(0.7);
+  }
+
+  a:hover {
+    text-decoration : none;
+  }
+
+  a:hover > i,
+  a:hover > img
+  {
+    @include opacity(1);
+  }
+
+  .divider {
+    color : #999;
+  }
+
+  .cake {
+    @include opacity(0.63);
+
+    width : 11px;
+    height : 15px;
+
+    margin-right : 2px;
+    position : relative;
+    top : -3px;
+  }
+
+  .stat {
+    margin : 10px 5px;
+
+    &.services {
+      .service {
+        position : relative;
+        margin-right : 2px;
+        top : -2px;
+
+        img {
+          @include transition(opacity);
+          @include opacity(0.5);
+
+          height : 14px;
+          width : 14px;
+        }
+
+        & > img:hover {
+          @include opacity(1);
+        }
+
+        &:hover {
+          text-decoration : none;
+        }
+
+        &:last-child {
+          margin-right : 0;
+        }
+      }
     }
   }
 }
