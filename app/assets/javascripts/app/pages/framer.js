@@ -44,6 +44,7 @@ app.views.framerControls = app.views.Base.extend({
 
   saveFrame : function(){
     this.$('button').prop('disabled', 'disabled')
+    this.$('button').addClass('disabled')
     // this is gross hack to make this action work in the iframe version and not iframe version.
     var callback = {}
     var parentDoc = parent;
