@@ -8,7 +8,11 @@ Diaspora::Application.routes.draw do
   get 'oembed' => 'posts#oembed', :as => 'oembed'
   # Posting and Reading
   resources :reshares
-
+  
+  resources :aspects do
+    put :toggle_contact_visibility
+  end
+  
   resources :status_messages, :only => [:new, :create]
 
   resources :posts do
@@ -40,9 +44,6 @@ Diaspora::Application.routes.draw do
   get "commented" => "streams#commented", :as => "commented_stream"
   get "aspects" => "streams#aspects", :as => "aspects_stream"
   
-  resources :aspects do
-    put :toggle_contact_visibility
-  end
 
   get 'bookmarklet' => 'status_messages#bookmarklet'
 
