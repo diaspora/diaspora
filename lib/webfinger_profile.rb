@@ -20,7 +20,7 @@ class WebfingerProfile
     doc.remove_namespaces!
 
     account_string = doc.css('Subject').text.gsub('acct:', '').strip
-
+    
     raise "account in profile(#{account_string}) and account requested (#{@account}) do not match" if account_string != @account
 
     doc.css('Link').each do |l|
