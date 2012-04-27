@@ -96,7 +96,7 @@ describe ContactsController do
     end
 
     it 'gets queries for users in the app config' do
-      AppConfig[:community_spotlight] = [alice.diaspora_handle]
+      Role.add_spotlight(alice.person)
 
       get :spotlight
       assigns[:people].should == [alice.person]
