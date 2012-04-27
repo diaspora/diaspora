@@ -11,10 +11,12 @@
 
 #photo_upload_button {
   position: relative;
-  margin-top: 9px;
+  margin : {
+    bottom : 9px;
+  }
 
   input{
-    opacity: 0;
+    @include opacity(0);
     position: absolute;
     top: 0;
     left: 0;  
