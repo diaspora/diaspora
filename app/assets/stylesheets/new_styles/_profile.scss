@@ -65,6 +65,11 @@
     @include transition(opacity);
     @include opacity(0.4);
 
+    &.small img {
+      height : 40px;
+      width : 40px;
+    }
+
     &:hover {
       @include opacity(1);
       text-decoration : none;
@@ -125,6 +130,9 @@
 
   .cake {
     @include opacity(0.63);
+
+    width : 11px;
+    height : 15px;
 
     margin-right : 2px;
     position : relative;
