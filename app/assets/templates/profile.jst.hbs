@@ -15,11 +15,11 @@
 
 <section id="profile-controls">
     {{#if isOwnProfile}}
-        <a href="#composer" title="New Post" class="control small" rel="facebox">
-            <img src='{{imageUrl "buttons/pub@2x.png"}}' />
+        <a href="#composer" class="control small" rel="facebox">
+            <img src='{{imageUrl "buttons/pub@2x.png"}}' title="New Post" rel="tooltip"/>
         </a>
-        <a href="#" title="Edit Layout" id="edit-mode-toggle" class="control small">
-            <img src='{{imageUrl "buttons/edit@2x.png"}}' />
+        <a href="#" id="edit-mode-toggle" class="control small">
+            <img src='{{imageUrl "buttons/edit@2x.png"}}' title="Edit Posts" rel="tooltip"/>
         </a>
     {{/if}}
 </section>

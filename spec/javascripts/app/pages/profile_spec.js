@@ -44,7 +44,7 @@ describe("app.pages.Profile", function(){
 //        will fix this in the next commit.
 //        spyOn(this.page, "isOwnProfile").andReturn(false)
 //        this.page.render()
-//        expect(this.page.$("#profile-controls .control").length).toBe(1)
+//        expect(this.page.$("#follow .control").length).toBe(1)
       })
     })
 

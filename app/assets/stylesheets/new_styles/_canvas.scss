@@ -147,15 +147,19 @@ body {
       width : 29px;
     }
 
+    .timestamp,
+    .permalink {
+      margin : 1px 7px;
+    }
+
+    .timestamp {
+      float : left;
+      margin-top : 2px;
+    }
+
     .permalink {
       cursor : pointer;
-      position : absolute;
-      right : 10px;
-      margin-top : 2px;
-
-      &:hover {
-        background-color : #ddd;
-      }
+      float : right;
     }
   }
 

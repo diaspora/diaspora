@@ -15,6 +15,8 @@ app.pages.Profile = app.views.Base.extend({
     "click #edit-mode-toggle" : "toggleEdit"
   },
 
+  tooltipSelector : "*[rel=tooltip]",
+
   personGUID : null,
   editMode : false,
 
