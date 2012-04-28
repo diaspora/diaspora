@@ -12,7 +12,8 @@ app.pages.Profile = app.views.Base.extend({
   },
 
   events : {
-    "click #edit-mode-toggle" : "toggleEdit"
+    "click #edit-mode-toggle" : "toggleEdit",
+    "click #logout-button" : "logOutConfirm"
   },
 
   tooltipSelector : "*[rel=tooltip]",
@@ -47,6 +48,11 @@ app.pages.Profile = app.views.Base.extend({
     if(evt) { evt.preventDefault() }
     this.editMode = !this.editMode
     this.$el.toggleClass("edit-mode")
+  },
+
+  logOutConfirm : function(evt) {
+    if(!confirm("Are you sure you want to log out?"))
+      evt.preventDefault();
   },
 
   isOwnProfile : function() {

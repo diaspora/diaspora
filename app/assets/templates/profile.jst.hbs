@@ -19,6 +19,14 @@
             </span>
         </span>
     </a>
+
+    {{#if isOwnProfile}}
+        <a href="/users/sign_out" title="Log out" id="logout-button">
+            <span class="label label-inverse">
+                <i class="icon-off icon-white"></i>
+            </span>
+        </a>
+    {{/if}}
 </div>
 
 
