@@ -81,7 +81,7 @@ class PeopleController < ApplicationController
 
   def show
     @person = Person.find_from_guid_or_username(params)
-    flag = FeatureFlagger.new(current_user)
+    flag = FeatureFlagger.new(current_user, @person)
     logger.info(request.format)
 
     raise(ActiveRecord::RecordNotFound) if remote_profile_with_no_user_session?

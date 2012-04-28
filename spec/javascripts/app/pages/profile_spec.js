@@ -127,12 +127,17 @@ describe("app.pages.Profile", function(){
   describe("followingEnabled", function(){
     /* for legacy beta testers */
     it("returns false if following_count is zero", function(){
-      app.currentUser.set({following_count : 0})
+      loginAs({following_count : 0})
+      expect(this.page.followingEnabled()).toBeFalsy()
+    })
+
+    it("returns false if the user is not signed in", function(){
+      logout()
       expect(this.page.followingEnabled()).toBeFalsy()
     })
 
     it("returns false if following_count is zero", function(){
-      app.currentUser.set({following_count : 1})
+      loginAs({following_count : 1})
       expect(this.page.followingEnabled()).toBeTruthy()
     })
   })

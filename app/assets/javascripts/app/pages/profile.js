@@ -24,10 +24,13 @@ app.pages.Profile = app.views.Base.extend({
   presenter : function(){
     var bio =  this.model.get("bio") || ''
 
+    console.log(this.defaultPresenter().current_user)
+
     return _.extend(this.defaultPresenter(),
       {text : this.model && app.helpers.textFormatter(bio, this.model),
        isOwnProfile : this.isOwnProfile(),
-       showFollowButton : this.showFollowButton() })
+       showFollowButton : this.showFollowButton()
+      })
   },
 
   initialize : function(options) {
@@ -55,7 +58,8 @@ app.pages.Profile = app.views.Base.extend({
   },
 
   followingEnabled : function() {
-    return app.currentUser.get("following_count") != 0
+    var user = app.currentUser
+    return user.get("following_count") != 0 && user.get("diaspora_id") !== undefined
   },
 
   showFollowButton : function() {

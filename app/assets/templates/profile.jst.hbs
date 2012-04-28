@@ -10,14 +10,24 @@
         </a>
     {{/if}}
 
-    <a href="/" id="home-button">
-        <span class="label label-inverse">
-            <i class="icon-home icon-white"></i>
-            <span>
-                HOME
+    {{#if current_user.guid}}
+        <a href="/" id="home-button">
+            <span class="label label-inverse">
+                <i class="icon-home icon-white"></i>
+                <span>
+                    HOME
+                </span>
             </span>
-        </span>
-    </a>
+        </a>
+    {{else}}
+        <a href="/" id="home-button">
+            <span class="label label-inverse">
+                <span>
+                    DIASPORA
+                </span>
+            </span>
+        </a>
+    {{/if}}
 
     {{#if isOwnProfile}}
         <a href="/users/sign_out" title="Log out" id="logout-button">
