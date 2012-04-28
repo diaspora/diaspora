@@ -1,6 +1,5 @@
 <div id="top-right-nav">
-
-    {{#unless isOwnProfile}}
+    {{#if showFollowButton}}
         <a href="#" onClick="alert('Not yet implemented!')" id="follow-button">
             <span class="label label-inverse">
                 <i class="icon-plus icon-white"></i>
@@ -9,7 +8,7 @@
                 </span>
             </span>
         </a>
-    {{/unless}}
+    {{/if}}
 
     <a href="/" id="home-button">
         <span class="label label-inverse">
@@ -29,7 +28,6 @@
     {{/if}}
 </div>
 
-
 <section id="profile-info"/>
 
 <div id="composer" style="display:none;">
@@ -47,6 +45,6 @@
     {{/if}}
 </section>
 
-<section id="canvas"/>
+<section id="canvas"></section>
 
 <div id="paginate"><span class="loader hidden"/></div>

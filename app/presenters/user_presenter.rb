@@ -11,7 +11,8 @@ class UserPresenter
         :unread_messages_count => unread_messages_count,
         :admin => admin,
         :aspects => aspects,
-        :services => services
+        :services => services,
+        :following_count => self.user.contacts.receiving.count
       }
     ).to_json(options)
   end

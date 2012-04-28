@@ -24,11 +24,10 @@ app.pages.Profile = app.views.Base.extend({
   presenter : function(){
     var bio =  this.model.get("bio") || ''
 
-    console.log(this.isOwnProfile())
-
     return _.extend(this.defaultPresenter(),
       {text : this.model && app.helpers.textFormatter(bio, this.model),
-       isOwnProfile : this.isOwnProfile() })
+       isOwnProfile : this.isOwnProfile(),
+       showFollowButton : this.showFollowButton() })
   },
 
   initialize : function(options) {
@@ -53,6 +52,14 @@ app.pages.Profile = app.views.Base.extend({
   logOutConfirm : function(evt) {
     if(!confirm("Are you sure you want to log out?"))
       evt.preventDefault();
+  },
+
+  followingEnabled : function() {
+    return app.currentUser.get("following_count") != 0
+  },
+
+  showFollowButton : function() {
+    return this.followingEnabled() && !this.isOwnProfile()
   },
 
   isOwnProfile : function() {
