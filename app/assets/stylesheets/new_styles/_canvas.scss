@@ -146,6 +146,17 @@ body {
       height : 29px;
       width : 29px;
     }
+
+    .permalink {
+      cursor : pointer;
+      position : absolute;
+      right : 10px;
+      margin-top : 2px;
+
+      &:hover {
+        background-color : #ddd;
+      }
+    }
   }
 
   .background-color {
