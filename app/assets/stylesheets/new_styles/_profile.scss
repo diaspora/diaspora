@@ -57,34 +57,6 @@
   }
 }
 
-#home-button {
-  @include transition(opacity);
-  @include opacity(0.4);
-
-  z-index: 10;
-  position : absolute;
-  right : 10px;
-  top : 10px;
-
-  .label {
-    padding : 2px 5px;
-    padding-right : 7px;
-    padding-bottom : 3px;
-
-    span {
-      display : inline-block;
-      position : relative;
-      top : 1px;
-      font-family : Roboto-Bold;
-    }
-  }
-
-  &:hover {
-    @include opacity(0.75);
-    text-decoration : none;
-  }
-}
-
 #profile-stats {
   i {
     @include transition(opacity);
