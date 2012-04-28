@@ -12,7 +12,7 @@ app.views.SmallFrame = app.views.Post.extend({
   events : {
     "click .content" : "favoritePost",
     "click .delete" : "killPost",
-    "click .permalink" : "goToPost"
+    "click .info" : "goToPost"
   },
 
   subviews : {
