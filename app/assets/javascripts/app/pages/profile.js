@@ -15,11 +15,16 @@ app.pages.Profile = app.views.Base.extend({
     "click #edit-mode-toggle" : "toggleEdit"
   },
 
+  tooltipSelector : "*[rel=tooltip]",
+
   personGUID : null,
   editMode : false,
 
   presenter : function(){
     var bio =  this.model.get("bio") || ''
+
+    console.log(this.isOwnProfile())
+
     return _.extend(this.defaultPresenter(),
       {text : this.model && app.helpers.textFormatter(bio, this.model),
        isOwnProfile : this.isOwnProfile() })
@@ -33,7 +38,9 @@ app.pages.Profile = app.views.Base.extend({
     this.stream.preloadOrFetch();
 
     this.canvasView = new app.views.Canvas({ model : this.stream })
-    this.profileInfo = new app.views.ProfileInfo({ model : this.model })
+
+    // send in isOwnProfile data
+    this.profileInfo = new app.views.ProfileInfo({ model : this.model.set({isOwnProfile : this.isOwnProfile()}) })
   },
 
   toggleEdit : function(evt) {

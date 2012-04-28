@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120422072257) do
+ActiveRecord::Schema.define(:version => 20120427152648) do
 
   create_table "account_deletions", :force => true do |t|
     t.string  "diaspora_handle"
@@ -387,6 +387,13 @@ ActiveRecord::Schema.define(:version => 20120422072257) do
   end
 
   add_index "rails_admin_histories", ["item", "table", "month", "year"], :name => "index_rails_admin_histories"
+
+  create_table "roles", :force => true do |t|
+    t.integer  "person_id"
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "service_users", :force => true do |t|
     t.string   "uid",                          :null => false

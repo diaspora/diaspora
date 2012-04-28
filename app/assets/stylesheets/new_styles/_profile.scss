@@ -1,30 +1,5 @@
-#edit-controls {
-  display : none;
-
-  font-family : Roboto-Bold;
-
-  position : fixed;
-
-  width : 100%;
-  top : 0;
-  left : 0;
-
-  text-align : center;
-
-  z-index : 999;
-  background-color : rgba(0,0,0,0.6);
-
-  color : #eee;
-
-  padding : 10px 0;
-}
-
 /* functionality under edit mode */
 .edit-mode {
-  #edit-controls {
-    display : block;
-  }
-
   #edit-mode-toggle.control {
     @include opacity(1);
   }
@@ -37,13 +12,14 @@
 #profile-header {
  text-align : center;
  padding : 50px;
+ padding-bottom : 0;
 }
 
 .profile-image-container {
   border-radius: 140px;
   border : 3px solid #fff;
   box-shadow : 0 0 2px rgba(0,0,0,0.5), 0 0 10px rgba(0,0,0,0.6), inset 0 0 15px rgba(0,0,0,0.5), inset 0 -2px 4px rgba(255,255,255,0.3);
-  background-size: 150px 150px;
+  background-size: 100%;
 
   height : 140px;
   width : 140px;
@@ -59,7 +35,7 @@
   padding : 10px 12px;
 
   /* when our buttons aren't there, we still want to maintain a persistent height */
-  min-height : 35px;
+  min-height : 40px;
 
   .control {
     @include transition(opacity);
@@ -78,34 +54,6 @@
     &:active {
       @include opacity(0.8);
     }
-  }
-}
-
-#home-button {
-  @include transition(opacity);
-  @include opacity(0.4);
-
-  z-index: 10;
-  position : absolute;
-  right : 10px;
-  top : 10px;
-
-  .label {
-    padding : 2px 5px;
-    padding-right : 7px;
-    padding-bottom : 3px;
-
-    span {
-      display : inline-block;
-      position : relative;
-      top : 1px;
-      font-family : Roboto-Bold;
-    }
-  }
-
-  &:hover {
-    @include opacity(0.75);
-    text-decoration : none;
   }
 }
 
@@ -170,5 +118,19 @@
         }
       }
     }
+  }
+}
+
+#profile-bio {
+  display : none;
+
+  margin-top : 20px;
+  text-align : center;
+
+  p {
+    color : #777;
+    display : inline-block;
+    width : $two-column-width + px;
+    text-align : center;
   }
 }

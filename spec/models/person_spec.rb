@@ -476,13 +476,11 @@ describe Person do
 
   describe '.community_spotlight' do
     describe "when the pod owner hasn't set up any community spotlight members" do
-      before do
-        @existing_community_spotlight = AppConfig[:community_spotlight]
-        AppConfig[:community_spotlight] = nil
+      it 'returns people with the community spotlight role' do
+        Role.add_spotlight(bob.person)
+        Person.community_spotlight.should be_present
       end
-      after do
-        AppConfig[:community_spotlight] = @existing_community_spotlight
-      end
+
       it "returns an empty array" do
         Person.community_spotlight.should == []
       end

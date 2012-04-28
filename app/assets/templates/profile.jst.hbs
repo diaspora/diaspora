@@ -1,15 +1,26 @@
-<div id="edit-controls">
-    CHANGE A POST'S SIZE BY CLICKING ON IT
+<div id="top-right-nav">
+
+    {{#unless isOwnProfile}}
+        <a href="#" onClick="alert('Not yet implemented!')" id="follow-button">
+            <span class="label label-inverse">
+                <i class="icon-plus icon-white"></i>
+                <span>
+                    FOLLOW
+                </span>
+            </span>
+        </a>
+    {{/unless}}
+
+    <a href="/" id="home-button">
+        <span class="label label-inverse">
+            <i class="icon-home icon-white"></i>
+            <span>
+                HOME
+            </span>
+        </span>
+    </a>
 </div>
 
-<a href="/" id="home-button">
-    <span class="label label-inverse">
-        <i class="icon-home icon-white"></i>
-        <span>
-            HOME
-        </span>
-    </span>
-</a>
 
 <section id="profile-info"/>
 
@@ -19,15 +30,11 @@
 
 <section id="profile-controls">
     {{#if isOwnProfile}}
-        <a href="#composer" title="New Post" class="control small" rel="facebox">
-            <img src='{{imageUrl "buttons/pub@2x.png"}}' />
+        <a href="#composer" class="control small" rel="facebox">
+            <img src='{{imageUrl "buttons/pub@2x.png"}}' title="New Post" rel="tooltip"/>
         </a>
-        <a href="#" title="Edit Layout" id="edit-mode-toggle" class="control small">
-            <img src='{{imageUrl "buttons/edit@2x.png"}}' />
-        </a>
-    {{else}}
-        <a href="#" class="control">
-            <img src='{{imageUrl "buttons/follow_hover.png"}}' />
+        <a href="#" id="edit-mode-toggle" class="control small">
+            <img src='{{imageUrl "buttons/edit@2x.png"}}' title="Edit Posts" rel="tooltip"/>
         </a>
     {{/if}}
 </section>

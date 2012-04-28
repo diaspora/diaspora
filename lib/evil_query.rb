@@ -69,7 +69,7 @@ module EvilQuery
     end
 
     def community_spotlight_posts!
-      Post.all_public.where(:author_id => fetch_ids!(Person.community_spotlight, 'id'))
+      Post.all_public.where(:author_id => fetch_ids!(Person.community_spotlight, 'people.id'))
     end
 
     def ids!(query)

@@ -16,7 +16,6 @@ app.pages.Composer = app.views.Base.extend({
     "input.service:checked" : "services"
   },
 
-
   initialize : function(){
     app.frame = this.model = new app.models.StatusMessage();
     this.postForm = new app.forms.Post({model : this.model});

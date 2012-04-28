@@ -34,12 +34,19 @@
                 <img src='{{imageUrl "buttons/service-icons/tumblr@2x.png"}}' />
             </a>
         </span>
+
+        {{#if isOwnProfile}}
+            <span class="divider">•</span>
+            <a href="/profile/edit" title="Edit Profile" rel="tooltip" style="margin-left:2px;">
+                <i class="icon-cog"></i>
+            </a>
+        {{/if}}
+    </div>
+
+    <div id="profile-bio">
+        <p>
+            {{bio}}
+        </p>
     </div>
 </div>
 
-<!--<dl>-->
-    <!--<dt>Location:</dt><dd>{{location}}</dd>-->
-    <!--<dt>Bio:</dt><dd>{{bio}}</dd>-->
-    <!--<dt>Birthday:</dt><dd>{{birthday}}</dd>-->
-    <!--<dt>Gender:</dt><dd>{{gender}}</dd>-->
-<!--</dl>-->

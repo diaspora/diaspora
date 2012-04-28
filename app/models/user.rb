@@ -430,8 +430,9 @@ class User < ActiveRecord::Base
   end
 
   def admin?
-    AppConfig[:admins].present? && AppConfig[:admins].include?(self.username)
+    Role.is_admin?(self.person)
   end
+
 
   def guard_unconfirmed_email
     self.unconfirmed_email = nil if unconfirmed_email.blank? || unconfirmed_email == email
