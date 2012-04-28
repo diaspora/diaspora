@@ -1,5 +1,14 @@
 require 'spec_helper'
 
+describe EvilQuery::MultiStream do
+  let(:evil_query) { EvilQuery::MultiStream.new(alice, 'created_at', Time.now-1.week, true) }
+  describe 'community_spotlight_posts!' do
+    it 'does not raise an error' do
+      expect { evil_query.community_spotlight_posts! }.to_not raise_error
+    end
+  end
+end
+
 describe EvilQuery::Participation do
   before do
     @status_message = Factory(:status_message, :author => bob.person)
