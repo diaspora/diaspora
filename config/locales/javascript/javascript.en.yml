@@ -60,6 +60,7 @@ en:
       hide: "hide comments"
     reshares:
       duplicate: "That good, huh?  You've already reshared that post!"
+      successful: "The post was successfully reshared!"
     aspect_navigation:
       select_all: "Select all"
       deselect_all: "Deselect all"
