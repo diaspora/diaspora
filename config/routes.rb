@@ -213,9 +213,6 @@ Diaspora::Application.routes.draw do
     mount Resque::Server.new, :at => '/resque-jobs', :as => "resque_web"
   end
 
-  # Logout Page (go mobile)
-  get 'logged_out' => 'users#logged_out', :as => 'logged_out'
-
   # Startpage
   root :to => 'home#show'
 end

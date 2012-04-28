@@ -63,7 +63,7 @@ module LayoutHelper
   end
 
   def include_base_css_framework(use_bootstrap=false)
-    if use_bootstrap || @aspect == :getting_started || @page == :logged_out || @page == :experimental
+    if use_bootstrap || @aspect == :getting_started || @page == :experimental
       stylesheet_link_tag 'bootstrap-complete'
     else
       stylesheet_link_tag 'blueprint', :media => 'screen'
@@ -86,8 +86,6 @@ module LayoutHelper
   end
 
   def flash_messages
-    return if @page == :logged_out
-
     flash.map do |name, msg|
       content_tag(:div, :id => "flash_#{name}") do
         content_tag(:div, msg, :class => 'message')
