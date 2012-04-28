@@ -29,6 +29,7 @@ gem 'rails_admin'
 
 # mail
 
+gem 'markerb', '~> 1.0.0'
 gem 'messagebus_ruby_api', '1.0.3'
 gem 'airbrake'
 gem 'newrelic_rpm'
@@ -116,12 +117,12 @@ group :assets do
   # install Node.js or use 'therubyracer'.
   #
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
-  
+
   # gem 'therubyracer', :platform => :ruby
-  
+
   gem 'handlebars_assets'
   gem 'uglifier'
-  
+
   # asset_sync is required as needed by application.rb
   gem "asset_sync", :require => nil
 end

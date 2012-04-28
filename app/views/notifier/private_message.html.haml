@@ -1,4 +1,0 @@
-%p
-  = post_message(@notification.message, :process_newlines => true, :length => 2000)
-%p
-  = link_to t('.reply_to_or_view'), conversations_url(:conversation_id => @notification.conversation)

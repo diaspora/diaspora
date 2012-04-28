@@ -263,6 +263,8 @@ GEM
       i18n (>= 0.4.0)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
+    markerb (1.0.0)
+      redcarpet (>= 2.0)
     messagebus_ruby_api (1.0.3)
     mime-types (1.18)
     mini_magick (3.4)
@@ -543,6 +545,7 @@ DEPENDENCIES
   json
   jwt
   linecache (= 0.46)
+  markerb (~> 1.0.0)
   messagebus_ruby_api (= 1.0.3)
   mini_magick (= 3.4)
   mobile-fu
