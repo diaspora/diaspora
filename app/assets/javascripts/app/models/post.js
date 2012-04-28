@@ -31,34 +31,6 @@ app.models.Post = Backbone.Model.extend(_.extend({}, app.models.formatDateMixin,
     return this.get("author")
   },
 
-  toggleFollow : function() {
-    var userParticipation = this.get("user_participation");
-    if(userParticipation) {
-      this.unfollow();
-    } else {
-      this.follow();
-    }
-  },
-
-  follow : function() {
-    var self = this;
-    this.participations.create({}, {success : function(resp){
-      self.set(resp)
-      self.trigger('interacted', self)
-    }});
-  },
-
-  unfollow : function() {
-    var self = this;
-    var participationModel = new app.models.Participation(this.get("user_participation"));
-    participationModel.url = this.participations.url + "/" + participationModel.id;
-
-    participationModel.destroy({success : function(model, resp){
-      self.set(resp);
-      self.trigger('interacted', this)
-    }});
-  },
-
   toggleLike : function() {
     var userLike = this.get("user_like")
     if(userLike) {

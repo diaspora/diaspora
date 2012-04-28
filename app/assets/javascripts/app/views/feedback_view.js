@@ -6,7 +6,6 @@ app.views.Feedback = app.views.Base.extend({
 
   events: {
     "click .like_action" : "toggleLike",
-    "click .participate_action" : "toggleFollow",
     "click .reshare_action" : "resharePost"
   },
 
@@ -18,11 +17,6 @@ app.views.Feedback = app.views.Base.extend({
     return _.extend(this.defaultPresenter(), {
       userCanReshare : this.userCanReshare()
     })
-  },
-
-  toggleFollow : function(evt) {
-    if(evt) { evt.preventDefault(); }
-    this.model.toggleFollow();
   },
 
   toggleLike: function(evt) {

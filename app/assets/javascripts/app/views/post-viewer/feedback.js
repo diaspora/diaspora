@@ -10,7 +10,6 @@ app.views.PostViewerFeedback = app.views.Feedback.extend({
     "click *[rel='auth-required']" : "requireAuth",
 
     "click .like" : "toggleLike",
-    "click .follow" : "toggleFollow",
     "click .reshare" : "resharePost",
 
     "click *[rel='invoke-interaction-pane']" : "invokePane",

@@ -7,15 +7,6 @@
   {{likes_count}}
 </a>
 
-<a href="#" rel="auth-required" class="label follow" title="{{#if user_participation}} {{t "viewer.stop_following_post"}} {{else}} {{t "viewer.follow_post"}} {{/if}}">
-  {{#if user_participation}}
-    <i class="icon-plus icon-green"></i>
-  {{else}}
-    <i class="icon-plus icon-white"></i>
-  {{/if}}
-  {{participations_count}}
-</a>
-
 {{#if userCanReshare}}
   <a href="#" rel="auth-required" class="label reshare" title="{{#if user_reshare}} {{t "viewer.reshared"}} {{else}} {{t "viewer.reshare"}} {{/if}}">
     {{#if user_reshare}}
