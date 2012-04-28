@@ -37,6 +37,7 @@
 #profile-header {
  text-align : center;
  padding : 50px;
+ padding-bottom : 0;
 }
 
 .profile-image-container {
@@ -59,7 +60,7 @@
   padding : 10px 12px;
 
   /* when our buttons aren't there, we still want to maintain a persistent height */
-  min-height : 35px;
+  min-height : 40px;
 
   .control {
     @include transition(opacity);
@@ -170,5 +171,19 @@
         }
       }
     }
+  }
+}
+
+#profile-bio {
+  display : none;
+
+  margin-top : 20px;
+  text-align : center;
+
+  p {
+    color : #777;
+    display : inline-block;
+    width : $two-column-width + px;
+    text-align : center;
   }
 }
