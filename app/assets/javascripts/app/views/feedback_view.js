@@ -39,7 +39,11 @@ app.views.Feedback = app.views.Base.extend({
     reshare.save({}, {
       url: this.model.createReshareUrl,
       success : function(resp){
-        app.stream && app.stream.add(reshare);
+        var flash = new Diaspora.Widgets.FlashMessages;
+        flash.render({
+          success: true,
+          notice: Diaspora.I18n.t("reshares.successful")
+        });
         model.trigger("interacted")
       }
     });

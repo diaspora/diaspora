@@ -204,3 +204,15 @@ end
 Then /^I should not see ajax loader on deletion link place$/ do
   page.evaluate_script("$('.hide_loader').first().css('display')").should == "none"
 end
+
+Then /^I should see a flash message indicating success$/ do
+  flash_message_success?
+end
+
+Then /^I should see a flash message indicating failure$/ do
+  flash_message_failure?
+end
+
+Then /^I should see a flash message containing "(.+)"$/ do |text|
+  flash_message_containing? text
+end
