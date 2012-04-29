@@ -25,7 +25,6 @@ class TagFollowingsController < ApplicationController
         flash[:error] = I18n.t('tag_followings.create.failure', :name => name_normalized)
       end
     end
-
     redirect_to :back
   end
 
@@ -33,25 +32,23 @@ class TagFollowingsController < ApplicationController
   # DELETE /tag_followings/1.xml
   def destroy
     @tag = ActsAsTaggableOn::Tag.find_by_name(params[:name])
-    @tag_following = current_user.tag_followings.where(:tag_id => @tag.id).first
-    if @tag_following && @tag_following.destroy
-      @tag_unfollowed = true
+    tag_following = current_user.tag_followings.find_by_tag_id( @tag.id )
+    if tag_following && tag_following.destroy
+      tag_unfollowed = true
     else
-      @tag_unfollowed = false
+      tag_unfollowed = false
     end
 
-    if params[:remote]
-      respond_to do |format|
-        format.js { render 'tags/update' }
-        format.any {}
-      end
-    else
-      if @tag_unfollowed
-        flash[:notice] = I18n.t('tag_followings.destroy.success', :name => params[:name])
-      else
-        flash[:error] = I18n.t('tag_followings.destroy.failure', :name => params[:name])
-      end
-      redirect_to tag_path(:name => params[:name])
+    respond_to do |format|
+      format.js { render 'tags/update' }
+      format.any {
+        if tag_unfollowed
+          flash[:notice] = I18n.t('tag_followings.destroy.success', :name => params[:name])
+        else
+          flash[:error] = I18n.t('tag_followings.destroy.failure', :name => params[:name])
+        end
+        redirect_to tag_path(:name => params[:name])
+      }
     end
   end
 
