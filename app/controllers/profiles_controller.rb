@@ -18,7 +18,7 @@ class ProfilesController < ApplicationController
         public_json = @person.as_api_response(:backbone)
         extra_json = {}
 
-        if(current_user && current_user.contacts.receiving.where(:person_id => @person.id).first)
+        if(current_user && (current_user.person == @person || current_user.contacts.receiving.where(:person_id => @person.id).first))
           extra_json = {
               :location => @person.profile.location,
               :birthday => @person.profile.formatted_birthday,
