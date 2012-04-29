@@ -6,7 +6,7 @@ class UsersController < ApplicationController
   require File.join(Rails.root, 'lib/diaspora/exporter')
   require File.join(Rails.root, 'lib/collect_user_photos')
 
-  before_filter :authenticate_user!, :except => [:new, :create, :public, :user_photo, :logged_out]
+  before_filter :authenticate_user!, :except => [:new, :create, :public, :user_photo]
 
   respond_to :html
 
@@ -118,13 +118,6 @@ class UsersController < ApplicationController
     @profile  = @user.profile
 
     render "users/getting_started"
-  end
-
-  def logged_out
-    @page = :logged_out
-    if user_signed_in?
-      redirect_to stream_path
-    end
   end
 
   def getting_started_completed

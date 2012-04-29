@@ -15,23 +15,6 @@
   </div>
 {{/if}}
 
-{{# if participations}}
-  <div id="post-follows">
-    <div class="well media">
-      <div class="img">
-        <i class="icon-plus icon-green"></i>
-      </div>
-      <div class="bd">
-        {{#each participations}}
-          {{#linkToPerson author}}
-            {{{personImage this "small" "micro"}}}
-          {{/linkToPerson}}
-        {{/each}}
-      </div>
-    </div>
-  </div>
-{{/if}}
-
 {{# if reshares}}
   <div id="post-reshares">
     <div class="well media">

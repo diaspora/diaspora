@@ -5,7 +5,6 @@ a { color : rgb(42,156,235)  }
 
 /* bootstrap extentions */
 .icon-red   { background-image: image_url("img/glyphicons-halflings-red.png");   }
-.icon-green { background-image: image_url("img/glyphicons-halflings-green.png"); }
 .icon-blue  { background-image: image_url("img/glyphicons-halflings-blue.png");  }
 
  @media (max-width: 770px) { //why is 770 a magic number?
@@ -473,7 +472,6 @@ div[data-template=flow] {
 
   .label {
     padding : 2px 5px;
-    padding-right : 7px;
     padding-bottom : 3px;
 
     span {

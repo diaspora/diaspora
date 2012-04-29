@@ -52,7 +52,7 @@
         = render 'layouts/header'
 
     .container
-      - if @aspect == :getting_started || @page == :logged_out
+      - if @aspect == :getting_started
         = yield
       - else
         .span-24.last

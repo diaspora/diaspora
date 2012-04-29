@@ -6,7 +6,6 @@ app.views.Feedback = app.views.Base.extend({
 
   events: {
     "click .like_action" : "toggleLike",
-    "click .participate_action" : "toggleFollow",
     "click .reshare_action" : "resharePost"
   },
 
@@ -20,11 +19,6 @@ app.views.Feedback = app.views.Base.extend({
     })
   },
 
-  toggleFollow : function(evt) {
-    if(evt) { evt.preventDefault(); }
-    this.model.toggleFollow();
-  },
-
   toggleLike: function(evt) {
     if(evt) { evt.preventDefault(); }
     this.model.toggleLike();
@@ -32,14 +26,18 @@ app.views.Feedback = app.views.Base.extend({
 
   resharePost : function(evt) {
     if(evt) { evt.preventDefault(); }
-    if(!window.confirm("Reshare " + this.model.reshareAuthor().name + "'s post?")) { return }
+    if(!window.confirm(Diaspora.I18n.t("reshares.post", {name: this.model.reshareAuthor().name}))) { return }
     var reshare = this.model.reshare()
     var model = this.model
 
     reshare.save({}, {
       url: this.model.createReshareUrl,
       success : function(resp){
-        app.stream && app.stream.add(reshare);
+        var flash = new Diaspora.Widgets.FlashMessages;
+        flash.render({
+          success: true,
+          notice: Diaspora.I18n.t("reshares.successful")
+        });
         model.trigger("interacted")
       }
     });

@@ -3,10 +3,13 @@
 #   the COPYRIGHT file.
 
 class HomeController < ApplicationController
-
   def show
     if current_user
-      redirect_to stream_path if current_user
+      if(Role.is_beta?(current_user.person) || Role.is_admin?(current_user.person)) && current_user.contacts.receiving.count == 0
+        redirect_to person_path(current_user.person.guid)
+      else
+        redirect_to stream_path
+      end
     elsif is_mobile_device?
       redirect_to user_session_path
     else

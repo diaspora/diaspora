@@ -5,6 +5,7 @@ app.views.Canvas = app.views.Base.extend(_.extend({}, app.views.infiniteScrollMi
     this.postClass = app.views.SmallFrame
     this.setupInfiniteScroll()
     this.stream.bind("reLayout", this.reLayout, this)
+    this.stream.bind("fetched", this.triggerRelayoutAfterImagesLoaded, this)
   },
 
   renderTemplate : function() {
@@ -14,9 +15,7 @@ app.views.Canvas = app.views.Base.extend(_.extend({}, app.views.infiniteScrollMi
     }, this))
 
     //needs to be deferred so it happens after html rendering finishes
-    _.delay(_.bind(this.mason, this), 0)
-
-    this.triggerReLayouts()
+    _.defer(_.bind(this.mason, this))
   },
 
   addPostView : function(post) {
@@ -24,29 +23,24 @@ app.views.Canvas = app.views.Base.extend(_.extend({}, app.views.infiniteScrollMi
   },
 
   mason : function() {
-    this.$el.isotope({
-      itemSelector : '.canvas-frame',
-      visibleStyle : {scale : 1},
-      hiddenStyle : {scale : 0.001},
-      masonry : {
-        columnWidth : 292.5
-      }
+    var el = this.$el;
+    el.imagesLoaded(function(){
+      el.isotope({
+        itemSelector : '.canvas-frame',
+        visibleStyle : {scale : 1},
+        hiddenStyle : {scale : 0.001},
+        masonry : {
+          columnWidth : 292.5
+        }
+      })
     })
+  },
+
+  triggerRelayoutAfterImagesLoaded : function(){
+    this.$el.imagesLoaded(_.bind(this.reLayout, this))
   },
 
   reLayout : function(){
     this.$el.isotope("reLayout")
-  },
-
-  triggerReLayouts : function(){
-    // Images load slowly, which setting the height of the dom elements, use these hax for the momment to reLayout the page
-    // ever little bit for a while after loading
-    // gross hax, bro ;-p
-
-    _.delay(_.bind(this.reLayout, this), 200)
-    _.delay(_.bind(this.reLayout, this), 500)
-    _.delay(_.bind(this.reLayout, this), 1000)
-    _.delay(_.bind(this.reLayout, this), 3000)
-    _.delay(_.bind(this.reLayout, this), 5000)
   }
 }));

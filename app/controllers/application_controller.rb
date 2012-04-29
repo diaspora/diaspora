@@ -32,7 +32,7 @@ class ApplicationController < ActionController::Base
     if request.env['HTTP_USER_AGENT'].match(/mobile/i)
       root_path
     else
-      logged_out_path
+      new_user_session_path
     end
   end
 
@@ -106,7 +106,7 @@ class ApplicationController < ActionController::Base
   end
 
   def after_sign_in_path_for(resource)
-    stored_location_for(:user) || (current_user.getting_started? ? getting_started_path : stream_path)
+    stored_location_for(:user) || (current_user.getting_started? ? getting_started_path : root_path)
   end
 
   def max_time

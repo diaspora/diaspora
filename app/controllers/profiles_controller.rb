@@ -3,7 +3,7 @@
 #   the COPYRIGHT file.
 
 class ProfilesController < ApplicationController
-  before_filter :authenticate_user!
+  before_filter :authenticate_user!, :except => ['show']
 
   respond_to :html, :except => [:show]
   respond_to :js, :only => :update
@@ -14,11 +14,20 @@ class ProfilesController < ApplicationController
     @person = Person.find_by_guid!(params[:id])
 
     respond_to do |format|
-      format.json { render :json => @person.as_api_response(:backbone).merge({
-          :location => @person.profile.location,
-          :birthday => @person.profile.formatted_birthday,
-          :bio => @person.profile.bio
-          }) }
+      format.json {
+        public_json = @person.as_api_response(:backbone)
+        extra_json = {}
+
+        if(current_user && (current_user.person == @person || current_user.contacts.receiving.where(:person_id => @person.id).first))
+          extra_json = {
+              :location => @person.profile.location,
+              :birthday => @person.profile.formatted_birthday,
+              :bio => @person.profile.bio
+          }
+        end
+
+        render :json => public_json.merge(extra_json)
+      }
     end
   end
 

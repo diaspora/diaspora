@@ -40,11 +40,16 @@ describe("app.pages.Profile", function(){
         expect(this.page.$("#profile-controls .control").length).toBe(2)
       })
 
-      it("shows a follow button if not", function() {
-//        will fix this in the next commit.
-//        spyOn(this.page, "isOwnProfile").andReturn(false)
-//        this.page.render()
-//        expect(this.page.$("#follow .control").length).toBe(1)
+      it("shows a follow button if showFollowButton returns true", function() {
+        spyOn(this.page, "showFollowButton").andReturn(true)
+        this.page.render()
+        expect(this.page.$("#follow-button").length).toBe(1)
+      })
+
+      it("doesn't show a follow button if showFollowButton returns false", function() {
+        spyOn(this.page, "showFollowButton").andReturn(false)
+        this.page.render()
+        expect(this.page.$("#follow-button").length).toBe(0)
       })
     })
 
@@ -116,6 +121,37 @@ describe("app.pages.Profile", function(){
     it("returns false if app.currentUser does not match the current profile's user", function(){
       app.currentUser = new app.models.User(factory.author({guid : "nope!"}))
       expect(this.page.isOwnProfile()).toBeFalsy()
+    })
+  })
+
+  describe("followingEnabled", function(){
+    /* for legacy beta testers */
+    it("returns false if following_count is zero", function(){
+      loginAs({following_count : 0})
+      expect(this.page.followingEnabled()).toBeFalsy()
+    })
+
+    it("returns false if the user is not signed in", function(){
+      logout()
+      expect(this.page.followingEnabled()).toBeFalsy()
+    })
+
+    it("returns false if following_count is zero", function(){
+      loginAs({following_count : 1})
+      expect(this.page.followingEnabled()).toBeTruthy()
+    })
+  })
+
+  describe("followingEnabled", function(){
+    /* for legacy beta testers */
+    it("returns false if following_count is zero", function(){
+      app.currentUser.set({following_count : 0})
+      expect(this.page.followingEnabled()).toBeFalsy()
+    })
+
+    it("returns false if following_count is zero", function(){
+      app.currentUser.set({following_count : 1})
+      expect(this.page.followingEnabled()).toBeTruthy()
     })
   })
 });
