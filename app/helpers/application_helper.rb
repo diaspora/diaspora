@@ -43,7 +43,7 @@ module ApplicationHelper
   # This will *only* fire if analytics are configured (don't panic!)
   def include_advanced_segments
     segment = current_user ? current_user.role_name : "unauthenticated"
-    javascript_tag("if(window._gaq) { _gaq.push([1, 'Role', '#{segment}']) }")
+    javascript_tag("if(window._gaq) { _gaq.push(['_setCustomVar', 1, 'Role', '#{segment}']) }")
   end
 
   # Require jQuery from CDN if possible, falling back to vendored copy, and require
