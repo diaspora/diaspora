@@ -14,13 +14,6 @@ GIT
     settingslogic (2.0.8)
 
 GIT
-  remote: git://github.com/diaspora/acts-as-taggable-on.git
-  revision: c3592fe1a906f6ff1cd12766c5cf1152c51eec40
-  specs:
-    acts-as-taggable-on (2.0.6)
-      rails (>= 3.0)
-
-GIT
   remote: git://github.com/diaspora/diaspora-client.git
   revision: 99dd3728172834b01e2acae0604fe3865456d969
   specs:
@@ -80,6 +73,8 @@ GEM
       activesupport (= 3.1.4)
     activesupport (3.1.4)
       multi_json (~> 1.0)
+    acts-as-taggable-on (2.2.2)
+      rails (~> 3.0)
     acts_as_api (0.3.11)
       activemodel (>= 3.0.0)
       activesupport (>= 3.0.0)
@@ -501,7 +496,7 @@ DEPENDENCIES
   SystemTimer (= 1.2.3)
   active_reload
   activerecord-import (~> 0.2.9)
-  acts-as-taggable-on!
+  acts-as-taggable-on (~> 2.2.2)
   acts_as_api
   addressable (= 2.2.4)
   airbrake

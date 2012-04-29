@@ -40,9 +40,11 @@ app.models.Post = Backbone.Model.extend(_.extend({}, app.models.formatDateMixin,
     }
   },
 
-  toggleFavorite : function(){
+  toggleFavorite : function(options){
     this.set({favorite : !this.get("favorite")})
-    this.save()
+
+    /* guard against attempting to save a model that a user doesn't own */
+    if(options.save){ this.save() }
   },
 
   like : function() {

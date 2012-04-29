@@ -91,7 +91,8 @@ app.views.SmallFrame = app.views.Post.extend({
     }
 
     var prevDimension = this.dimensionsClass();
-    this.model.toggleFavorite();
+
+    this.model.toggleFavorite({save : this.model.get("author").diaspora_id == app.currentUser.get("diaspora_id")})
 
     this.$el.removeClass(prevDimension)
     this.render()
@@ -99,7 +100,6 @@ app.views.SmallFrame = app.views.Post.extend({
     app.page.stream.trigger("reLayout")
     //trigger moar relayouts in the case of images WHOA GROSS HAX
     _.delay(function(){app.page.stream.trigger("reLayout")}, 200)
-    _.delay(function(){app.page.stream.trigger("reLayout")}, 500)
   },
 
   killPost : function(){
