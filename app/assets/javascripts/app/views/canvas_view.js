@@ -15,8 +15,7 @@ app.views.Canvas = app.views.Base.extend(_.extend({}, app.views.infiniteScrollMi
     }, this))
 
     //needs to be deferred so it happens after html rendering finishes
-    _.delay(_.bind(this.mason, this), 0)
-
+    _.defer(_.bind(this.mason, this))
   },
 
   addPostView : function(post) {
@@ -38,10 +37,7 @@ app.views.Canvas = app.views.Base.extend(_.extend({}, app.views.infiniteScrollMi
   },
 
   triggerRelayoutAfterImagesLoaded : function(){
-    var self = this;
-    self.$el.imagesLoaded(function(){
-      self.reLayout()
-    })
+    this.$el.imagesLoaded(_.bind(this.reLayout, this))
   },
 
   reLayout : function(){
