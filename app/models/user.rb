@@ -434,8 +434,8 @@ class User < ActiveRecord::Base
   end
 
   def role_name
-    role = Role.find_by_person_id(self.person.id)
-    role ? role.name : "user"
+    role = Role.find_by_person_id_and_name(self.person.id, 'beta')
+    role ? role.name : 'user'
   end
 
   def guard_unconfirmed_email
