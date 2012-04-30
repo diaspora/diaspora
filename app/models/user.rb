@@ -433,6 +433,10 @@ class User < ActiveRecord::Base
     Role.is_admin?(self.person)
   end
 
+  def role_name
+    role = Role.find_by_person_id_and_name(self.person.id, 'beta')
+    role ? role.name : 'user'
+  end
 
   def guard_unconfirmed_email
     self.unconfirmed_email = nil if unconfirmed_email.blank? || unconfirmed_email == email
