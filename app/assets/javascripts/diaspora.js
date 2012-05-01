@@ -59,6 +59,7 @@
   Diaspora.BasePage = function(body) {
     $.extend(this, Diaspora.BaseWidget);
     $.extend(this, {
+      backToTop: this.instantiate("BackToTop", body.find("#back-to-top")),
       directionDetector: this.instantiate("DirectionDetector"),
       events: function() { return Diaspora.page.eventsContainer.data("events"); },
       flashMessages: this.instantiate("FlashMessages"),
