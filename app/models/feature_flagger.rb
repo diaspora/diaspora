@@ -5,7 +5,7 @@ class FeatureFlagger
   end
 
   def new_publisher?
-    admin? || developer?
+    person_is_beta? || developer?
   end
 
   def new_profile?
