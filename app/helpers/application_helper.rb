@@ -40,12 +40,6 @@ module ApplicationHelper
     javascript_tag("Modernizr.mq('(min-width:0)') ||  document.write(unescape('#{j javascript_include_tag("mbp-respond.min")}'));")
   end
 
-  # This will *only* fire if analytics are configured (don't panic!)
-  def include_advanced_segments
-    segment = current_user ? current_user.role_name : "unauthenticated"
-    javascript_tag("if(window._gaq) { _gaq.push(['_setCustomVar', 1, 'Role', '#{segment}']) }")
-  end
-
   # Require jQuery from CDN if possible, falling back to vendored copy, and require
   # vendored jquery_ujs
   def jquery_include_tag

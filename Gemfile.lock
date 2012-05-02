@@ -321,7 +321,6 @@ GEM
     rack-cors (0.2.4)
       rack
     rack-fiber_pool (0.9.2)
-    rack-google-analytics (0.10.0)
     rack-mobile-detect (0.3.0)
       rack
     rack-mount (0.8.3)
@@ -554,7 +553,6 @@ DEPENDENCIES
   parallel_tests
   pg
   rack-cors (~> 0.2.4)
-  rack-google-analytics
   rack-piwik
   rack-rewrite (~> 1.2.1)
   rack-ssl
