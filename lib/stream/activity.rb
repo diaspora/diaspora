@@ -4,7 +4,7 @@ class Stream::Activity < Stream::Base
   end
 
   def order
-    "interacted_at"
+    {:primary => "interacted_at", :secondary => "#{Participation.table_name}.id"}
   end
 
   def title

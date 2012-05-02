@@ -41,7 +41,7 @@ class Stream::Aspect < Stream::Base
     @posts ||= user.visible_shareables(Post, :all_aspects? => for_all_aspects?,
                                              :by_members_of => aspect_ids,
                                              :type => TYPES_OF_POST_IN_STREAM,
-                                             :order => "#{order} DESC",
+                                             :order => "#{order[:primary]} DESC",
                                              :max_time => max_time
                    )
   end

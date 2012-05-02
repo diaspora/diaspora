@@ -15,6 +15,10 @@ class Stream::Multi < Stream::Base
     I18n.t('streams.multi.contacts_title')
   end
 
+  def order
+    {:primary => "created_at", :secondary => "#{Post.table_name}.id"}
+  end
+
   def posts
     @posts ||= ::EvilQuery::MultiStream.new(user, order, max_time, include_community_spotlight?).make_relation!
   end
