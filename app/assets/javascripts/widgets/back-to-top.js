@@ -11,7 +11,7 @@
 
       self.button.click(self.backToTop);
 
-      var throttledScroll = _.throttle($.proxy(self.throttledScroll, self), 250);
+      var throttledScroll = _.throttle($.proxy(self.toggleVisibility, self), 250);
       self.window.scroll(throttledScroll);
     });
 

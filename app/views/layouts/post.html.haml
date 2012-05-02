@@ -45,7 +45,7 @@
     = set_asset_host
     = translation_missing_warnings
     = current_user_atom_tag
-    = include_advanced_segments
+    = include_google_analytics
 
     - if @post.present?
       %link{:rel => 'alternate', :type => "application/json+oembed", :href => "#{oembed_url(:url => post_url(@post))}"}
