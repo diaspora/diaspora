@@ -137,6 +137,11 @@ body {
     z-index : 30;
 
     padding : 5px 0;
+
+    &:hover {
+      @include opacity(0.9);
+    }
+
     i {
       margin-left:  3px;
     }
