@@ -10,7 +10,7 @@ module AnalyticsHelper
     javascript_tag do
       <<-JS
           var _gaq = _gaq || [];
-          _gaq.push(['_setAccount', "#{AppConfig[:google_a_site]}"]);
+          _gaq.push(['_setAccount', '#{AppConfig[:google_a_site]}']);
 
           _gaq.push(['_setCustomVar', 1, 'Role', '#{segment}']);
           _gaq.push(['_trackPageview']);
