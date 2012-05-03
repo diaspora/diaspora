@@ -20,6 +20,8 @@
     %link{:rel => 'apple-touch-icon', :href => '/apple-touch-icon.png'}
 
     = og_site_name
+    = chartbeat_head_block
+
     %title
       = page_title yield(:page_title)
 
@@ -58,3 +60,5 @@
     = flash_messages
     #container
     = javascript_tag  "window.preLoadContent = '#{escape_javascript(yield)}'"
+
+    = include_chartbeat

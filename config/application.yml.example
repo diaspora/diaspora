@@ -82,6 +82,9 @@ defaults: &defaults
   # the site url in raw format (e.g. pikwik.examplehost.com)
   piwik_url:
 
+  ## Chartbeat tracking
+  chartbeat_uid:
+
   ######################################################
   # General Pod Settings
   ######################################################

@@ -19,6 +19,8 @@
     %title
       = page_title yield(:page_title)
 
+    = chartbeat_head_block
+
     = include_base_css_framework
     = stylesheet_link_tag 'login', 'application', 'default'
 
@@ -73,3 +75,5 @@
           %li= link_to t('.whats_new'), 'https://github.com/diaspora/diaspora/wiki/Changelog'
           %li= link_to(t('layouts.application.toggle'), toggle_mobile_path)  if is_mobile_device?
         = image_tag 'branding/powered_by_diaspora.png', :height => "11px", :width => "145px"
+
+    = include_chartbeat
