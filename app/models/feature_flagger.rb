@@ -16,6 +16,10 @@ class FeatureFlagger
     ENV["NEW_HOTNESS"]
   end
 
+  def following_enabled?
+    person_is_beta? && @current_user.contacts.receiving.count == 0
+  end
+
   protected
 
   def developer?
