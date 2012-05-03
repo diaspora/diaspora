@@ -101,6 +101,8 @@ en:
         few: "%{count} users found"
         many: "%{count} users found"
         other: "%{count} users found"
+    stats:
+      go: go
   application:
     helper:
       unknown_person: "unknown person"
