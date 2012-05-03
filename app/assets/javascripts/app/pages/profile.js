@@ -36,12 +36,25 @@ app.pages.Profile = app.views.Base.extend({
 
     this.model = new app.models.Profile.findByGuid(options.personId)
     this.stream = options && options.stream || new app.models.Stream()
+
+    /* binds for getting started pulsation */
+    this.stream.bind("fetched", this.pulsateNewPostControl, this)
+    this.stream.items.bind("remove", this.pulsateNewPostControl, this)
+
     this.stream.preloadOrFetch();
 
     this.canvasView = new app.views.Canvas({ model : this.stream })
 
     // send in isOwnProfile data
     this.profileInfo = new app.views.ProfileInfo({ model : this.model.set({isOwnProfile : this.isOwnProfile()}) })
+  },
+
+  pulsateNewPostControl : function() {
+    this.$("#composer-button")[
+      this.stream.items.length == 0
+        ? 'addClass'
+        : 'removeClass'
+      ]("pulse")
   },
 
   toggleEdit : function(evt) {

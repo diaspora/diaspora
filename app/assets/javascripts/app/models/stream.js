@@ -72,6 +72,9 @@ app.models.Stream = Backbone.Collection.extend({
     var preloadJson = window.preLoadContent && JSON.parse(window.preLoadContent)
     delete window.preLoadContent // always do this just to be safe in preventing dirty state across navigates
 
-    if(preloadJson) { this.items.reset(preloadJson) }
+    if(preloadJson) {
+      this.items.reset(preloadJson)
+      this.trigger("fetched")
+    }
   }
 });

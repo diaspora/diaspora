@@ -1,0 +1,15 @@
+@-webkit-keyframes opacity-pulse {
+	0%   { @include opacity(0.3); }
+	65%  { @include opacity(0.9); }
+	100% { @include opacity(0.3); }
+}
+@-moz-keyframes opacity-pulse {
+	0%   { @include opacity(0.3); }
+	65%  { @include opacity(0.9); }
+	100% { @include opacity(0.3); }
+}
+@-ms-keyframes opacity-pulse {
+	0%   { @include opacity(0.3); }
+	65%  { @include opacity(0.9); }
+	100% { @include opacity(0.3); }
+}
