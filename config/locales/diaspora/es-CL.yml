@@ -44,10 +44,12 @@ es-CL:
   all_aspects: "Todos los Aspectos"
   application:
     helper:
+      diaspora_alpha: "DIASPORA* ALPHA"
       unknown_person: "persona desconocida"
       video_title:
         unknown: "Titulo de vídeo desconocido"
   are_you_sure: "¿Estás seguro?"
+  are_you_sure_delete_account: "¿Estás seguro de que quieres cerrar tu cuenta? ¡Esto no puede cambiarse!"
   aspect_memberships:
     destroy:
       failure: "No se pudo eliminar a la persona del Aspecto"
@@ -197,6 +199,7 @@ es-CL:
     index:
       add_a_new_aspect: "Agregar un nuevo aspecto"
       add_to_aspect: "Añadir contactos a %{name}"
+      add_to_aspect_link: "añadir contactos a %{name}"
       all_contacts: "Todos los Contactos"
       many_people_are_you_sure: "Estas seguro que quieres iniciar una conversación privada con más de %{suggested_limit} contactos? Postear algo en este aspecto quizás sea una mejor manera de contactarte con ellos."
       my_contacts: "Mis Contactos"
@@ -288,9 +291,15 @@ es-CL:
     new:
       already_invited: "Las siguientes personas no aceptaron tu invitación:"
       aspect: "Aspecto"
+      check_out_diaspora: "¡Échale un vistazo a Diaspora!"
+      codes_left:
+        one: "Quedan %{count} invitaciones disponibles con este código"
+        other: "Quedan %{count} invitaciones disponibles con este código"
+        zero: "Queda una invitación disponible con este código"
       if_they_accept_info: "Si aceptan, ellos se agregarán al aspecto que los invitaste."
       invite_someone_to_join: "¡Invita a alguien a unirse a Diaspora!"
       language: "Idioma"
+      paste_link: "Comparte este enlace con tus amigos para invitarlos a Diaspora*, o envíales el enlace directamente por correo electrónico."
       personal_message: "Mensaje personal"
       resend: "Reenviar"
       send_an_invitation: "Enviar una invitación"
@@ -298,12 +307,15 @@ es-CL:
       to: "A"
   layouts:
     application:
+      back_to_top: "Volver arriba"
+      powered_by: "POTENCIADO POR DIASPORA*"
       public_feed: "Canal publico de %{name}"
       toggle: "cambiar sitio móvil"
       whats_new: "¿Qué hay de nuevo?"
       your_aspects: "Tus Aspectos"
     header:
       admin: "administrar"
+      blog: "blog"
       code: "codigo"
       login: "entrar"
       logout: "Salir"
@@ -407,6 +419,7 @@ es-CL:
       other: "%{actors} te mencionó en un post eliminado."
       two: "%{actors} te mencionaron en un post eliminado."
       zero: "%{actors} te mencionó en un post eliminado."
+    post: "publicación"
     private_message:
       few: "%{actors} te envió un mensaje."
       many: "%{actors} te envió un mensaje."
@@ -437,6 +450,7 @@ es-CL:
       zero: "%{actors} comenzó a compartir contigo."
   notifier:
     a_post_you_shared: "un post."
+    accept_invite: "¡Acepta tu invitación a Diaspora*!"
     click_here: "haz click aquí"
     comment_on_post:
       reply: "Responde o mira el post de %{name}>"
@@ -465,6 +479,8 @@ es-CL:
       view_profile: "Ver el perfil de %{name}"
     thanks: "Gracias,"
     to_change_your_notification_settings: "para cambiar tu configuración de notificaciones"
+  nsfw: "No apto para todo público"
+  ok: "OK"
   or: "o"
   password: "Contraseña"
   password_confirmation: "Confirmar contraseña"
@@ -501,6 +517,7 @@ es-CL:
       remove_contact: "eliminar contacto"
       remove_from: "¿Eliminar a %{name} de %{aspect}?"
     show:
+      closed_account: "Esta cuenta ha sido cerrada."
       does_not_exist: "¡La persona no existe!"
       has_not_shared_with_you_yet: "%{name} todavía no ha compartido ningún post contigo!"
       ignoring: "Estas ignorando todos los post de %{name}."
@@ -560,6 +577,7 @@ es-CL:
     show:
       destroy: "ELiminar"
       not_found: "Lo sentimos, no pudimos encontrar ese post."
+      permalink: "permalink"
       photos_by:
         few: "%{count} photos by %{author}"
         many: "%{count} photos by %{author}"
@@ -567,8 +585,10 @@ es-CL:
         other: "%{count} photos by %{author}"
         two: "Two photos by %{author}"
         zero: "No photos by %{author}"
+      reshare_by: "Compartido por %{author}"
   previous: "Anterior"
   privacy: "Privacidad"
+  privacy_policy: "Política de Privacidad"
   profile: "Perfil"
   profiles:
     edit:
@@ -577,6 +597,8 @@ es-CL:
       first_name: "Nombre"
       last_name: "Apellido"
       update_profile: "Actualizar perfil"
+      you_are_nsfw: "Te has marcado como no apto para todo público, tu contenido no se mostrará a personas que han seleccionado no ver contenido dudoso en sus entradas."
+      you_are_safe_for_work: "Te has marcado como apto para todo público, esto significa que estás de acuerdo con que el contenido que publiques respetará las normas de la comunidad."
       your_bio: "Tu biografía"
       your_birthday: "Tu cumpleaños"
       your_gender: "Tu genero"
@@ -694,6 +716,7 @@ es-CL:
     add_contact:
       add_new_contact: "Agregar un nuevo contacto"
       create_request: "Encontrar por el ID de Diaspora"
+      diaspora_handle: "diaspora@pod.org"
       enter_a_diaspora_username: "Ingresa tu nombre de usuario Diaspora:"
       know_email: "¿Conoces sus direcciones de correo? Deberías invitarlos"
       your_diaspora_username_is: "Tu nombre de usuario Diaspora es: %{diaspora_handle}"
@@ -758,8 +781,11 @@ es-CL:
       ignore_user: "Ignorar a %{name}"
       ignore_user_description: "Ignorar y remover al usuario de todos tus aspectos?"
       like: "Me gusta esto"
+      nsfw: "Esta publicación ha sido marcada por su autor como no apta para todo público. %{link}"
       shared_with: "Compartir con: %{aspect_names}"
+      show: "mostrar"
       unlike: "No me gusta"
+      via: "via %{link}"
       viewable_to_anyone: "Este post es visible para cualquiera en la web"
   status_messages:
     create:
@@ -787,6 +813,8 @@ es-CL:
       two: "Mostrar 2 comentarios más"
       zero: "No más comentarios"
   streams:
+    activity:
+      title: "Mi Actividad"
     aspects:
       title: "Aspectos"
     aspects_stream: "Aspectos"
@@ -809,6 +837,7 @@ es-CL:
       title: "@Menciones"
     multi:
       contacts_title: "Gente en tu Stream"
+      title: "Entrada"
     public:
       contacts_title: "Posters recientes"
       title: "Actividad publica"
@@ -819,6 +848,7 @@ es-CL:
   tag_followings:
     create:
       failure: "Error al seguir: #%{name}. Tal vez ya lo hiciste..."
+      none: "¡No puedes seguir una etiqueta vacía!"
       success: "Bien, ahora sigues: #%{name}."
     destroy:
       failure: "Error al dejar de seguir: #%{name}. Tal vez ya lo hiciste..."
@@ -829,9 +859,11 @@ es-CL:
       followed_by: "seguido por"
       following: "Siguiendo a #%{tag}"
       nobody_talking: "Todavía nadie habla de %{tag}."
+      none: "¡La etiqueta vacía no existe!"
       people_tagged_with: "Personas etiquetadas en %{tag}"
       posts_tagged_with: "Posts etiquetados con #%{tag}"
       stop_following: "Dejar de seguir a #%{tag}"
+  terms_and_conditions: "Términos y Condiciones"
   tokens:
     show:
       connect_to_cubbies: "Conectarse a Cubbi.es"
@@ -842,6 +874,7 @@ es-CL:
       screenshot_explanation: "%{link1}.  Este cubby en particular esta linkeado a %{link2}."
       sign_up_today: "Registrate hoy mismo!"
       typical_userpage: "Una tipica pagina de usuario de cubbi.es "
+      via: "(via %{link})"
       what_is_cubbies: "Cubbi.es es la primera aplicación en el mundo de Diaspora.  Es también la mejor manera de coleccionar fotos online."
   undo: "Deshacer?"
   username: "Nombre de usuario"
@@ -855,12 +888,18 @@ es-CL:
       wrong_password: "La contraseña ingresada no concuerda con la contraseña actual."
     edit:
       also_commented: "...alguien comenta en el post de tu amigo?"
+      auto_follow_aspect: "Selecciona el aspecto al que se incuirán los usuarios a quienes sigues automáticamente:"
+      auto_follow_back: "Automaticamente seguir de vuelta a quien te siga"
       change: "Modificar"
       change_email: "Cambiar email"
       change_language: "Cambiar Idioma"
       change_password: "Cambiar Contraseña"
       close_account:
+        dont_go: "¡Oye, por favor no te vayas!"
+        make_diaspora_better: "Nos gustaría que nos ayudaras a hacer mejor a Diaspora, así que deberías ayudarnos en vez de irte. Si de verdad quieres irte, queremos que sepas lo que se viene después."
+        mr_wiggles: "El gatito estará triste por verte partir."
         what_we_delete: "We delete all of your posts, profile data, as soon as humanly possible. Your comments will hang around, but be associated with your Diaspora Handle."
+      close_account_text: "Cerrar Cuenta"
       comment_on_post: "...alguien comenta en tu post?"
       current_password: "Contraseña actual"
       download_photos: "descargar mis fotos"
@@ -923,3 +962,6 @@ es-CL:
     not_enabled: "el webfinger parece no estar disponible para el host de %{account}"
     xrd_fetch_failed: "hubo un error al recibir el crd desde la cuenta %{account}"
   welcome: "Bienvenido!"
+  will_paginate:
+    next_label: "siguiente »"
+    previous_label: "« anterior"

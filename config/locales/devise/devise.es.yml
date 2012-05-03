@@ -43,7 +43,7 @@ es:
         get_connected: "Conéctate"
         get_connected_paragraph: "Un movimiento mundial que comparte la visión de conseguir una red mejor, la primera característica de %{strong_diaspora} es su comunidad. Conoce gente nueva, conecta con amigos y únete a la fiesta."
         have_fun: "Diviértete"
-        have_fun_paragraph: "%{strong_diaspora} trata de descubrir tanto nueva e interesante información como gente conectada. %{Link}, es sólo el principio, es la primera aplicación de %{strong_diaspora} en el mundo. Colecciona y comparte la red en todo su explendor."
+        have_fun_paragraph: "%{strong_diaspora} trata de descubrir tanto nueva e interesante información como gente conectada. %{Link}, la primera aplicación de %{strong_diaspora} en el mundo es solo el principio. Colecciona y comparte la red en todo su esplendor."
         help_fund: "ayuda a financiar Diaspora*"
         here: "aquí"
         ignore: "Si no quieres aceptar la invitación, ignora este email."
@@ -113,10 +113,10 @@ es:
     unlocks:
       new:
         resend_unlock: "Volver a enviar las instrucciones de desbloqueo."
-      send_instructions: "Recibirás un email con instrucciones para desbloquear tu cuenta en pocos minutos."
+      send_instructions: "Recibirás un correo con instrucciones para desbloquear tu cuenta en pocos minutos."
       unlocked: "Tu cuenta ha sido desbloqueada. Ya has accedido a tu cuenta."
   errors:
     messages:
       already_confirmed: "ya ha sido confirmada"
       not_found: "no se ha encontrado"
-      not_locked: "No fue bloqueado"
+      not_locked: "no fue bloqueado"

@@ -21,7 +21,7 @@ vi:
       unconfirmed: "Bạn cần phải xác nhận tài khoản trước khi tiếp tục."
     invitations:
       invitation_token_invalid: "Xin cáo lỗi! Khoá mời không hợp lệ."
-      send_instructions: "Lời mời của bạn đã được gửi."
+      send_instructions: "Thư mời của bạn đã được gửi."
       updated: "Thiết lập mật khẩu thành công. Bạn đã đăng nhập."
     mailer:
       confirmation_instructions:
@@ -109,7 +109,7 @@ vi:
         sign_up: "Đăng kí"
         sign_up_closed: "Hiện không thể đăng kí mở."
       mail_signup_form:
-        sign_up_for_an_invite: "Đăng kí nhận lời mời!"
+        sign_up_for_an_invite: "Đăng kí nhận thư mời!"
     unlocks:
       new:
         resend_unlock: "Gửi lại chỉ dẫn mở khoá"

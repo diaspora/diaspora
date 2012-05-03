@@ -61,6 +61,8 @@ es-MX:
       public: "Público – tu publicación será visible para todos, y encontrada por buscadores"
     reshares:
       duplicate: "Qué bien, ¿eh? ¡Ya has compartido esa publicación!"
+      post: "¿Compartir la publicación de <%= name %>?"
+      successful: "¡La publicación se compartió exitosamente!"
     search_for: "Buscar a <%= name %>"
     show_more: "mostrar más"
     stream:

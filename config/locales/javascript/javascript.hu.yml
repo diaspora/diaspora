@@ -64,6 +64,8 @@ hu:
       public: "Nyilvános - ezt a bejegyzést bárki láthatja az interneten."
     reshares:
       duplicate: "Jó mi? De már egyszer megosztottad ezt a bejegyzést!"
+      post: "Szeretnéd újra megosztani <%= name %> bejegyzését?"
+      successful: "A bejegyzés újraosztása sikeres!"
     search_for: "<%= name %> keresése."
     show_more: "tovább"
     stream:

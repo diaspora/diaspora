@@ -50,6 +50,10 @@ ko:
       weekly_user_stats: "주간 사용자 통계"
     correlations:
       correlations_count: "로그인 횟수와의 상관 관계"
+    user_search:
+      users:
+        other: "사용자 %{count}명을 찾았습니다"
+        zero: "사용자를 찾을 수 없습니다"
   ago: "%{time} 전"
   all_aspects: "모든 애스펙"
   application:
@@ -127,6 +131,8 @@ ko:
         tag_question: "질문"
         tutorials_wiki_and_forum: "%{tutorial}과 %{wiki}와  %{forum}: 커뮤니티가 운영하는 튜토리얼, 사용 방법과 소식"
       introduce_yourself: "내 스트림입니다. 자기소개 어때요?"
+      keep_diaspora_running: "정기 후원으로 디아스포라 개발을 빠르게 유지해주세요!"
+      keep_pod_running: "%{pod} 팟이 빠르게 동작하고 서버와 디아스포라 팀이 마시는 커피를 살 수 있도록 정기후원을 해 주세요!"
       new_here:
         follow: "%{link} 태그를 팔로우해서 디아스포라*의 새 사용자를 맞으세요!"
         learn_more: "자세히"
@@ -178,6 +184,9 @@ ko:
     index:
       no_applications: "아직 애플리케이션을 등록하지 않았습니다."
       revoke_access: "접속권한 취소"
+    new:
+      authorize: "허가"
+      nope: "아니오"
   back: "돌아가기"
   blocks:
     create:
@@ -315,6 +324,7 @@ ko:
       codes_left:
         other: "이 코드에 초대장 %{count}개가 남았습니다"
         zero: "이 코드에 남은 초대장이 없습니다"
+      comma_separated_plz: "쉼표로 구분하여 여러 이메일 주소를 넣을 수 있습니다."
       if_they_accept_info: "수락한 친구는 초대했던 애스펙에 추가됩니다."
       invite_someone_to_join: "다이스포라에 친구를 초대하세요!"
       language: "언어"
@@ -950,7 +960,7 @@ ko:
       close_account_text: "계정 없애기"
       comment_on_post: "내 게시물에 댓글이 달렸을 때"
       current_password: "원래 암호"
-      current_password_expl: "로그인할 때 썻던 암호"
+      current_password_expl: "로그인할 때 썼던 암호"
       download_photos: "내 사진 다운로드"
       download_xml: "내 xml 다운로드"
       edit_account: "계정 고치기"

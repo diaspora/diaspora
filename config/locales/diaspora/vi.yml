@@ -45,6 +45,13 @@ vi:
       pages: "Trang"
       user_search: "Tìm người dùng"
       weekly_user_stats: "Thống kê người dùng hàng tuần"
+    user_search:
+      add_invites: "thêm lời mời"
+      email_to: "Địa chỉ được mời"
+      users:
+        other: "Tìm thấy %{count} người dùng"
+        zero: "Không tìm thấy ai"
+      you_currently: "hiện bạn còn lại %{user_invitation} thư mời %{link}"
   ago: "%{time} trước"
   all_aspects: "Tất cả mối quan hệ"
   application:
@@ -111,7 +118,7 @@ vi:
       handle_explanation: "Đây là id diaspora của bạn. Giống như một địa chỉ thư điện tử, người khác có thể liên lạc với bạn thông qua nó."
       help:
         do_you: "Bạn:"
-        email_feedback: "%{link} phản hồi hoặc góp ý, nếu muốn"
+        email_feedback: "%{link} phản hồi hoặc góp ý"
         feature_suggestion: "... có một đề nghị %{link}?"
         find_a_bug: "... tìm thấy lỗi %{link}?"
         have_a_question: "... có một %{link}?"
@@ -176,6 +183,7 @@ vi:
       no_applications: "Bạn chưa đăng kí bất kì ứng dụng nào."
       revoke_access: "Thu hồi quyền truy cập"
     new:
+      authorize: "Xác thực"
       cubbies_will: "Cubbies sẽ có thể đăng ảnh bằng tên của bạn"
       nope: "Không"
   back: "Trở lại"
@@ -271,7 +279,7 @@ vi:
       birthday_with_year: "%B %d %Y"
       fullmonth_day: "%B %d"
   delete: "Xóa"
-  email: "Thư điện tử"
+  email: "Gửi thư"
   error_messages:
     helper:
       correct_the_following_errors_and_try_again: "Sửa những lỗi sau và thử lại."
@@ -301,10 +309,10 @@ vi:
     create:
       already_contacts: "Bạn đã kết nối với người này"
       already_sent: "Bạn đã mời người này."
-      no_more: "Bạn không còn nhiều lời mời."
+      no_more: "Bạn đã hết thư mời."
       own_address: "Bạn không thể gửi lời mời đến địa chỉ riêng của bạn."
       rejected: "Địa chỉ thư điện tử sau có vấn đề: "
-      sent: "Lời mời đã được gửi đến: "
+      sent: "Thư mời đã được gửi đến: "
     edit:
       accept_your_invitation: "Chấp nhận lời mời của bạn"
       your_account_awaits: "Tài khoản của bạn đang chờ đợi!"
@@ -313,16 +321,17 @@ vi:
       aspect: "Mối quan hệ"
       check_out_diaspora: "Kiểm tra Diaspora!"
       codes_left:
-        other: "Còn lại %{count} lời mời cho liên kết này"
+        other: "Còn lại %{count} lượt mời cho liên kết này"
         zero: "Liên kết này không còn hiệu lực"
+      comma_separated_plz: "Bạn có thể nhập nhiều địa chỉ thư và ngăn cách chúng bằng dấu phẩy."
       if_they_accept_info: "nếu chấp nhận, họ sẽ được thêm vào mối quan hệ mà bạn đã mời."
       invite_someone_to_join: "Mời người khác tham gia Diaspora!"
       language: "Ngôn ngữ"
       paste_link: "Chia sẻ liên kết này với bạn của bạn để mời họ tham gia Diaspora*, hoặc gửi qua thư."
       personal_message: "Tin nhắn cá nhân"
       resend: "Gửi lại"
-      send_an_invitation: "Gửi một lời mời"
-      send_invitation: "Gửi lời mời"
+      send_an_invitation: "Gửi thư mời"
+      send_invitation: "Gửi thư mời"
       to: "Đến"
   layouts:
     application:
@@ -355,16 +364,16 @@ vi:
         few: "%{count} người thích"
         many: "%{count} người thích"
         one: "%{count} người thích"
-        other: "%{count} người thích"
+        other: "%{count} lượt thích"
         two: "%{count} người thích"
-        zero: "không có người thích"
+        zero: "không có ai thích"
       people_like_this_comment:
         few: "%{count} người thích"
         many: "%{count} người thích"
         one: "%{count} người thích"
-        other: "%{count} người thích"
+        other: "%{count} lượt thích"
         two: "%{count} người thích"
-        zero: "không có người thích"
+        zero: "không có ai thích"
   limited: "Giới hạn"
   more: "Thêm nữa"
   next: "tiếp theo"
@@ -458,7 +467,7 @@ vi:
       zero: "%{actors} đã bắt đầu chia sẻ với bạn."
   notifier:
     a_post_you_shared: "một bài đăng."
-    accept_invite: "Chấp nhận lời mời Diaspora*!"
+    accept_invite: "Chấp nhận lời mời từ Diaspora*!"
     click_here: "nhấn vào đây"
     comment_on_post:
       reply: "Trả lời hoặc xem bài đăng của %{name}"
@@ -515,7 +524,7 @@ vi:
     helper:
       results_for: " kết quả cho %{params}"
     index:
-      couldnt_find_them_send_invite: "Không thể tìm thấy họ?  Hãy gửi lời mời!"
+      couldnt_find_them_send_invite: "Không thể tìm thấy họ?  Hãy gửi thư mời!"
       looking_for: "Tìm các bài đăng có thẻ %{tag_link}?"
       no_one_found: "...và không tìm thấy ai."
       no_results: "Bạn cần tìm gì đó."
@@ -569,7 +578,7 @@ vi:
       runtime_error: "Tải ảnh lên thất bại.  Bạn có chắc an toàn không?"
       type_error: "Tải ảnh lên thất bại,  Bạn có chắc ảnh đã được thêm?"
     destroy:
-      notice: "Ảnh đã xoá."
+      notice: "Đã xóa ảnh."
     edit:
       editing: "Chỉnh sửa"
     new:
@@ -629,7 +638,7 @@ vi:
       your_gender: "Giới tính"
       your_location: "Nơi ở"
       your_name: "Họ và tên"
-      your_photo: "Ảnh"
+      your_photo: "Ảnh hồ sơ"
       your_private_profile: "Hồ sơ cá nhân"
       your_public_profile: "Hồ sơ công khai"
       your_tags: "Mô tả bản thân qua 5 từ"
@@ -677,9 +686,9 @@ vi:
         few: "%{count} new requests!"
         many: "%{count} new requests!"
         one: "new request!"
-        other: "%{count} new requests!"
+        other: "%{count} yêu cầu mới!"
         two: "%{count} new requests!"
-        zero: "no new requests"
+        zero: "không có yêu cầu mới"
     manage_aspect_contacts:
       existing: "Liên lạc đang tồn tại"
       manage_within: "Quản lí liên lạc"
@@ -695,9 +704,9 @@ vi:
         few: "%{count} reshares"
         many: "%{count} reshares"
         one: "1 reshare"
-        other: "%{count} reshares"
+        other: "%{count} lượt chia sẻ"
         two: "%{count} reshares"
-        zero: "Reshare"
+        zero: "Không có ai chia sẻ lại"
       reshare_confirmation: "Chia sẻ lại bài đăng của %{author}?"
       reshare_original: "Chia sẻ lại bài gốc"
       reshared_via: "chia sẻ lại qua"
@@ -759,9 +768,9 @@ vi:
       logged_in_as: "đã đăng nhập với tên %{name}"
       your_aspects: "các mối quan hệ"
     invitations:
-      by_email: "Bằng thư điện tử"
-      dont_have_now: "Bạn đã hết lời mời, những sẽ có thêm nữa!"
-      from_facebook: "Từ Facebook"
+      by_email: "Gửi thư mời"
+      dont_have_now: "Bạn đã hết lượt mời, nhưng sẽ có thêm nữa!"
+      from_facebook: "Facebook"
       invitations_left: "Còn lại %{count}"
       invite_someone: "Mời vài người"
       invite_your_friends: "Mời bạn"
@@ -783,8 +792,8 @@ vi:
             Xin chào mọi người,
             %{new_user_tag}.
         i_like: "I'm interested in %{tags}."
-        invited_by: "Cám ơn lời mời, "
-        newhere: "ngườimới"
+        invited_by: "Cám ơn vì lời mời, "
+        newhere: "NewHere"
       post_a_message_to: "Gửi tin nhắn đến %{aspect}"
       posting: "Đăng bài..."
       publishing_to: "chia sẻ với: "
@@ -851,8 +860,8 @@ vi:
       title: "#Thẻ đang theo dõi"
     followed_tags_stream: "#Thẻ đang theo dõi"
     like_stream:
-      contacts_title: "Người đăng thích của bạn"
-      title: "Thích luồng"
+      contacts_title: "Những người có bài đăng mà bạn thích"
+      title: "Luồng thích"
     mentions:
       contacts_title: "Người đã nhắc đến bạn"
       title: "Tin của bạn"

@@ -89,7 +89,7 @@ nn:
         alpha_software: "Du er på veg til å ta i bruk alfa-program."
         bugs_and_feedback: "Ver merksam på at du vil oppleva feil. Vi ber deg om å rapportera dei til oss ved å nytta tilbakemeldingsknappen på nettlesaren si høgre side. Så skal vi prøva å ordna dei så fort råd er."
         bugs_and_feedback_mobile: "Ver merksam på at du vil oppleva feil. Vi ber deg om å rapportera dei til oss. Så skal vi prøva å ordna dei så fort råd er."
-        login: "Pålogging"
+        login: "Logg på"
         modern_browsers: "kan berre nytta moderne nettlesarar."
         password: "Passord"
         remember_me: "Hugs meg"

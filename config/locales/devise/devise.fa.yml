@@ -1,0 +1,12 @@
+#   Copyright (c) 2010-2012, Diaspora Inc.  This file is
+#   licensed under the Affero General Public License version 3 or later.  See
+#   the COPYRIGHT file.
+
+
+
+fa:
+  errors:
+    messages:
+      already_confirmed: "قبلا تایید شد"
+      not_found: "یافت نشد"
+      not_locked: "قفل نشده است"

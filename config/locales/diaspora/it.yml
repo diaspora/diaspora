@@ -50,6 +50,14 @@ it:
       weekly_user_stats: "Statistiche settimanali utenti"
     correlations:
       correlations_count: "Correlazioni con il numero di login"
+    user_search:
+      add_invites: "aggiungi inviti"
+      email_to: "Email per l'invito"
+      users:
+        one: "trovato %{count} utente"
+        other: "trovati %{count} utenti"
+        zero: "trovati %{count} utenti"
+      you_currently: "al momento hai %{user_invitation} inviti a disposizione %{link}"
   ago: "%{time} fa"
   all_aspects: "Tutti gli aspetti"
   application:

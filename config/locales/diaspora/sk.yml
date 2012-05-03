@@ -44,12 +44,21 @@ sk:
     admin_bar:
       correlations: "Závislosti"
       pages: "Stránky"
-      pod_stats: "Štatistiky podu"
+      pod_stats: "Štatistiky servera"
       resque_overview: "Prehľad Resque"
       user_search: "Používateľské vyhľadávanie"
       weekly_user_stats: "Štatistiky používateľa za týždeň"
     correlations:
       correlations_count: "Závislosti s počtom prihlásených:"
+    user_search:
+      add_invites: "pridať pozvánky"
+      email_to: "Napíšte e-mail a pozvite"
+      users:
+        few: "našli sa %{count} používatelia"
+        one: "našiel sa %{count} používateľ"
+        other: "našlo sa %{count} používateľov"
+        zero: "našlo sa %{count} používateľov"
+      you_currently: "momentálne vám ostalo %{user_invitation} pozvánok %{link}"
   ago: "%{time}"
   all_aspects: "Všetky kategórie"
   application:
@@ -181,6 +190,7 @@ sk:
       no_applications: "Ešte ste nezaregistrovali žiadne aplikácie."
       revoke_access: "Zamedziť prístup"
     new:
+      authorize: "Povoliť"
       cubbies_will: "Cubbies bude môcť posielať fotky vo vašom mene"
       nope: "Nie"
   back: "Späť"
@@ -323,6 +333,7 @@ sk:
         one: "Pre tento kód zostala %{count} pozvánka"
         other: "Pre tento kód zostalo %{count} pozvánok"
         zero: "Pre tento kód zostalo %{count} pozvánok"
+      comma_separated_plz: "Môžete zadať viac e-mailových adries oddelených čiarkami."
       if_they_accept_info: "Po odsúhlasení budú pozvaní používatelia pridaní  do príslušnej kategórie."
       invite_someone_to_join: "Pozvite niekoho na Diasporu*!"
       language: "Jazyk"
@@ -644,7 +655,7 @@ sk:
     other: "%{count} reakcií"
     zero: "0 reakcií"
   registrations:
-    closed: "Registrácie sú na tomto pode Diaspory pozastavené."
+    closed: "Registrácie sú na tomto serveri Diaspory pozastavené."
     create:
       success: "Pridali ste sa k Diaspore!"
     edit:
@@ -766,7 +777,7 @@ sk:
       invite_someone: "Pozvať niekoho"
       invite_your_friends: "Pozvite svojich priateľov"
       invites: "Pozvánky"
-      invites_closed: "Pozývanie je na tomto pode Diaspory momentálne pozastavené"
+      invites_closed: "Pozývanie je na tomto serveri Diaspory momentálne pozastavené"
     notification:
       new: "Nový %{type} od použ. %{from}"
     public_explain:

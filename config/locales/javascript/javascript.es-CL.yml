@@ -1,0 +1,105 @@
+#   Copyright (c) 2010-2012, Diaspora Inc.  This file is
+#   licensed under the Affero General Public License version 3 or later.  See
+#   the COPYRIGHT file.
+
+
+
+es-CL:
+  javascripts:
+    aspect_dropdown:
+      add_to_aspect: "Añadir contacto"
+      all_aspects: "Todos los aspectos"
+      error: "No pudiste empezas a compartir con <%= name %>. ¿Lo estás ignorando?"
+      select_aspects: "Seleccionar aspectos"
+      started_sharing_with: "¡Has empezado a compartir con <%= name%>!"
+      stopped_sharing_with: "Has dejado de compartir con <%= name =%>"
+      toggle:
+        one: "En <%= count %> aspectos"
+        other: "En <%= count %> aspectos"
+        zero: "En <%= count %> aspecto"
+    aspect_navigation:
+      deselect_all: "Deseleccionar todo"
+      no_aspects: "No hay aspectos seleccionados"
+      select_all: "Seleccionar todo"
+    comments:
+      hide: "ocultar comentarios"
+      show: "mostrar todos los comentarios"
+    confirm_dialog: "¿Estás seguro/a?"
+    delete: "Eliminar"
+    failed_to_like: "¡Falló el 'Me gusta'!"
+    failed_to_post_message: "¡Falló la publicación del mensaje!"
+    getting_started:
+      alright_ill_wait: "Está bien, esperaré."
+      hey: "¡Hola, <%= name %>!"
+      no_tags: "¡Oye, no has seguido ningún tag!  ¿Continuar de todos modos?"
+      preparing_your_stream: "Preparando tu entrada personalizada..."
+    header:
+      admin: "Administración"
+      contacts: "Contactos"
+      home: "Inicio"
+      log_out: "Cerrar sesión"
+      mark_all_as_read: "Marcar todo como leído"
+      messages: "Mensajes"
+      notifications: "Notificaciones"
+      profile: "Perfil"
+      recent_notifications: "Notificaciones Recientes"
+      search: "Buscar"
+      settings: "Ajustes"
+      view_all: "Ver todo"
+    ignore: "Ignorar"
+    infinite_scroll:
+      no_more: "No más publicaciones."
+    my_activity: "Mi Actividad"
+    my_stream: "Entrada"
+    photo_uploader:
+      looking_good: "¡Guau, te ves genial!"
+    publisher:
+      at_least_one_aspect: "Debes publicar para al menos un aspecto"
+      limited: "Limitado - tu post sólo será visto por gente con la que compartes"
+      public: "Público - tu post será visible para todos y encontrado por mecanismos de búsqueda"
+    reshares:
+      duplicate: "¿Es genial, cierto?  ¡Ya has compartido esa publicación!"
+    search_for: "Buscar <%= name%>"
+    show_more: "mostrar más"
+    stream:
+      comment: "Comentar"
+      follow: "Seguir"
+      hide: "Ocultar"
+      hide_nsfw_posts: "Ocultar publicaciones no aptas para todo público (#nsfw)"
+      like: "Me gusta"
+      limited: "Limitado"
+      more_comments:
+        one: "Mostrar <%= count %> comentarios más"
+        other: "Mostrar <%= count %> comentarios más"
+        zero: "Mostrar un comentario más"
+      original_post_deleted: "La publicación original fue eliminada por el autor"
+      public: "Público"
+      reshare: "Compartir"
+      show_nsfw_post: "Mostrar publicación"
+      show_nsfw_posts: "Mostrar todo"
+      unfollow: "Dejar de seguir"
+      unlike: "No me gusta"
+    tags:
+      wasnt_that_interesting: "Bueno, supongo que #<%= tagName %> no era tan interesante..."
+    timeago:
+      day: "un día"
+      days: "%d días"
+      hour: "alrededor de una hora"
+      hours: "cerca de %d horas"
+      minute: "alrededor de un minuto"
+      minutes: "%d minutos"
+      month: "alrededor de un mes"
+      months: "%d meses"
+      prefixAgo: ""
+      prefixFromNow: ""
+      seconds: "hace menos de un minuto"
+      suffixAgo: ""
+      suffixFromNow: ""
+      year: "alrededor de un año"
+      years: "%d años"
+    videos:
+      unknown: "Tipo de video desconocido"
+      watch: "Mira este video en <%= provider %>"
+    viewer:
+      follow_post: "Seguir esta publicación"
+      stop_following_post: "Dejar de seguir esta publicación"

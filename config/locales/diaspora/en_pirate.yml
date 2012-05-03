@@ -212,15 +212,15 @@ en_pirate:
       liked: "%{name} just liked yer post"
     reshared:
       reshared: "%{name} just reshared yer post"
-  scallywags:
-    few: "%{count} scallywags"
-    many: "%{count} scallywags"
-    one: "1 scallywag"
-    other: "%{count} scallywags"
+  people:
+    few: "%{count} people"
+    many: "%{count} people"
+    one: "1 person"
+    other: "%{count} people"
     profile_sidebar:
       born: "date o' birth"
-    two: "%{count} scallywags"
-    zero: "no scallywags"
+    two: "%{count} people"
+    zero: "no people"
   photos:
     new:
       new_photo: "New Portrait"

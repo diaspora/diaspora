@@ -64,6 +64,8 @@ pl:
       public: "Publiczny - wpis będzie widoczny dla wszystkich i można go znaleźć przez wyszukiwarki"
     reshares:
       duplicate: "Już przekaza@{m:łeś|f:łaś|n:no} dalej ten wpis!"
+      post: "Przesłać dalej wpis użytkownika <%= name %>?"
+      successful: "Wpis został pomyślnie przesłany dalej!"
     search_for: "Znajdź: <%= name %>"
     show_more: "wyświetl więcej"
     stream:
