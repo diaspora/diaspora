@@ -34,7 +34,7 @@ module AnalyticsHelper
     return unless chartbeat_configured?
     javascript_tag do
       <<-JS
-        var _sf_async_config = { uid: #{AppConfig[:charbeat_uid]}, domain: '#{AppConfig[:pod_url]}' };
+        var _sf_async_config = { uid: #{AppConfig[:chartbeat_uid]}, domain: '#{AppConfig[:pod_url]}' };
         (function() {
           function loadChartbeat() {
             window._sf_endpt = (new Date()).getTime();
