@@ -54,6 +54,8 @@ eu:
       no_more: "Mezu gehiagorik ez dago."
     my_activity: "Nire Jarduera"
     my_stream: "Kronologia"
+    people:
+      not_found: "eta ez da inor aurkitu..."
     photo_uploader:
       looking_good: "Ene bada, oso jatorra dirudizu!"
     publisher:

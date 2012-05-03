@@ -11,35 +11,25 @@ describe Services::Facebook do
 
   describe '#post' do
     it 'posts a status message to facebook' do
-
-      stub_request(:post, "https://graph.facebook.com/me/feed").
-        to_return(:status => 200)
+      stub_request(:post, "https://graph.facebook.com/me/joindiaspora:make").
+          to_return(:status => 200, :body => "", :headers => {})
       @service.post(@post)
     end
 
     it 'swallows exception raised by facebook always being down' do
       pending "temporarily disabled to figure out while some requests are failing"
       
-      stub_request(:post,"https://graph.facebook.com/me/feed").
+      stub_request(:post,"https://graph.facebook.com/me/joindiaspora:make").
         to_raise(StandardError)
       @service.post(@post)
     end
 
     it 'should call public message' do
-      stub_request(:post, "https://graph.facebook.com/me/feed").
+      stub_request(:post, "https://graph.facebook.com/me/joindiaspora:make").
         to_return(:status => 200)
       url = "foo"
-      @service.should_receive(:public_message).with(@post, url)
+      @service.should_not_receive(:public_message)
       @service.post(@post, url)
-    end
-  end
-  
-  describe '#create_post_params' do
-    it 'should have a link when the message has a link' do
-      @service.create_post_params("http://example.com/ test message")[:link].should == "http://example.com/"
-    end
-    it 'should not have a link when the message has no link' do
-      @service.create_post_params("test message")[:link].should == nil
     end
   end
 

@@ -28,6 +28,7 @@ es-AR:
       hide: "ocultar los comentarios"
       show: "mostrar todos los comentarios"
     confirm_dialog: "¿Estás seguro?"
+    delete: "Borrar"
     failed_to_like: "¡No pudo marcarse como 'Me gusta'!"
     failed_to_post_message: "¡No pudo publicarse el mensaje!"
     getting_started:
@@ -36,9 +37,25 @@ es-AR:
       no_tags: "¡Che, no estás siguiendo ningún tag! ¿Continuar de todos modos?"
       preparing_your_stream: "Preparando tu stream personalizado..."
     header:
+      admin: "Administrador"
+      contacts: "Contactos"
+      home: "Inicio"
+      log_out: "Salir"
+      mark_all_as_read: "Marcar todo como leído"
+      messages: "Mensajes"
+      notifications: "Notificaciones"
+      profile: "Perfil"
+      recent_notifications: "Notificaciones recientes"
       search: "Find people or #tags"
+      settings: "Opciones"
+      view_all: "Ver todo"
+    ignore: "Ignorar"
     infinite_scroll:
       no_more: "No hay más publicaciones."
+    my_activity: "Mi actividad"
+    my_stream: "Entrada"
+    people:
+      not_found: "...y no se encontró a nadie."
     photo_uploader:
       looking_good: "¡Apa, te ves muy bien!"
     publisher:
@@ -47,9 +64,16 @@ es-AR:
       public: "Publica - tu publicación sera visible para cualquiera y los buscadores podrán encontrarla"
     reshares:
       duplicate: "¿Te gustó eh? ¡Ya habías compartido esa publicación!"
+      post: "¿Compartir la publicación de <%= name %>?"
+      successful: "¡La publicación se compartió correctamente!"
     search_for: "Buscar a {{name}}"
     show_more: "mostrar más"
     stream:
+      comment: "Comentar"
+      follow: "Seguir"
+      hide: "Ocultar"
+      hide_nsfw_posts: "Ocultar publicaciones no aptas para todo público (#nsfw)"
+      like: "Me gusta"
       likes:
         few: "<%= count %> Likes"
         many: "<%= count %> Likes"
@@ -57,6 +81,7 @@ es-AR:
         other: "<%= count %> Likes"
         two: "<%= count %> Likes"
         zero: "<%= count %> Likes"
+      limited: "Limitado"
       more_comments:
         few: "Show <%= count %> more comments"
         many: "Show <%= count %> more comments"
@@ -64,6 +89,9 @@ es-AR:
         other: "Show <%= count %> more comments"
         two: "Show <%= count %> more comments"
         zero: "Show <%= count %> more comments"
+      original_post_deleted: "La publicación original fue eliminada por el autor"
+      public: "Pública"
+      reshare: "Compartir"
       reshares:
         few: "<%= count %> Reshares"
         many: "<%= count %> Reshares"
@@ -71,6 +99,10 @@ es-AR:
         other: "<%= count %> Reshares"
         two: "<%= count %> Reshares"
         zero: "<%= count %> Reshares"
+      show_nsfw_post: "Mostrar publicación"
+      show_nsfw_posts: "Mostrar todo"
+      unfollow: "Dejar de seguir"
+      unlike: "No me gusta"
     tags:
       wasnt_that_interesting: "OK, supongamos que #{{tagName}} no era tan interesante..."
     timeago:
@@ -85,10 +117,18 @@ es-AR:
       prefixAgo: "hace"
       prefixFromNow: "dentro de"
       seconds: "menos de un minuto"
-      suffixAgo: ""
-      suffixFromNow: ""
+      suffixAgo: "hace"
+      suffixFromNow: "desde ahora"
       year: "cerca de un año"
       years: "%d años"
     videos:
       unknown: "Tipo de video desconocido"
       watch: "Ver este video en {{provider}}"
+    viewer:
+      comment: "Comentar"
+      follow_post: "Seguir esta publicación"
+      like: "Me gusta"
+      reshare: "Compartir"
+      reshared: "Compartido"
+      stop_following_post: "Dejar de seguir esta publicación"
+      unlike: "No me gusta"

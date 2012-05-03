@@ -1,5 +1,9 @@
 @import 'mixins';
+@import 'new_styles/new_mixins';
 @import 'new_styles/variables';
+
+/* custom animations */
+@import 'new_styles/animations';
 
 /* mainly for the post viewer & composer */
 @import 'new_styles/base';

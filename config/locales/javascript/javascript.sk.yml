@@ -64,6 +64,8 @@ sk:
       public: "Verejný – váš príspevok pomocou vyhľadávačov uvidí a nájde každý"
     reshares:
       duplicate: "Je to dobré, čo? O tento príspevok ste sa už raz znova podelili!"
+      post: "Znova ukázať priateľom príspevok, ktorý napísal(a) <%= name %>?"
+      successful: "Tento príspevok ste úspešne znova ukázali priateľom!"
     search_for: "Hľadať <%= name %>"
     show_more: "Zobraziť viac"
     stream:

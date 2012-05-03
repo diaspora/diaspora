@@ -64,6 +64,8 @@ it:
       public: "Pubblico - il tuo post sarà visibile a tutti, inclusi i motori di ricerca"
     reshares:
       duplicate: "Bello eh? Ma hai già condiviso quel post!"
+      post: "Vuoi condividere il post di <%= name %>?"
+      successful: "Il post è stato condiviso!"
     search_for: "Ricerca su <%= name %>"
     show_more: "continua..."
     stream:

@@ -5,7 +5,7 @@ class FeatureFlagger
   end
 
   def new_publisher?
-    admin? || developer?
+    person_is_beta? || admin? || developer?
   end
 
   def new_profile?
@@ -14,6 +14,10 @@ class FeatureFlagger
 
   def new_hotness?
     ENV["NEW_HOTNESS"]
+  end
+
+  def following_enabled?
+    person_is_beta? && @current_user.contacts.receiving.count == 0
   end
 
   protected

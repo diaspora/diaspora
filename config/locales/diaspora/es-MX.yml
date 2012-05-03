@@ -50,6 +50,14 @@ es-MX:
       weekly_user_stats: "Estadísticas semanales de usuario"
     correlations:
       correlations_count: "Correlaciones con el conteo de inicio de sesión:"
+    user_search:
+      add_invites: "añadir invitaciones"
+      email_to: "Mandar invitación por correo electrónico a"
+      users:
+        one: "%{count} usuario encontrado"
+        other: "%{count} usuarios encontrados"
+        zero: "Ningún usuario encontrado"
+      you_currently: "Actuamente tienes %{user_invitation} invitaciones para enviar %{link}"
   ago: "hace %{time}"
   all_aspects: "Todos los aspectos"
   application:

@@ -53,4 +53,4 @@ then visit 'http://localhost:3000' in your browser.
 - [Contributing](https://github.com/diaspora/diaspora/wiki/Getting-Started-With-Contributing)
 - [Dev List](https://groups.google.com/forum/?fromgroups#!forum/diaspora-dev)
 - [Discuss List](https://groups.google.com/forum/?fromgroups#!forum/diaspora-discuss)
-- [IRC](http://webchat.freenode.net?channels=diaspora-dev)
+- [IRC](https://github.com/diaspora/diaspora/wiki/How-we-use-IRC)

@@ -30,7 +30,7 @@ sv:
         reshare:
           attributes:
             root_guid:
-              taken: "Du gillar detta va? Du har nämligen redan spridit detta inlägg vidare!"
+              taken: "Du gillar detta va? Du har nämligen redan delat detta inlägg vidare!"
         user:
           attributes:
             email:
@@ -38,7 +38,7 @@ sv:
             person:
               invalid: "är ogiltig."
             username:
-              invalid: "är felaktig. Vi tillåter endast bokstäver, siffror och understreck."
+              invalid: "är otillåtet. Vi tillåter endast bokstäver, siffror och understreck."
               taken: "används redan."
   admins:
     admin_bar:
@@ -50,6 +50,14 @@ sv:
       weekly_user_stats: "Veckovis användarstatistik"
     correlations:
       correlations_count: "Korrelationer med antalet inloggningar:"
+    user_search:
+      add_invites: "lägg till inbjudningar"
+      email_to: "Skicka ett e-brev för att bjuda in"
+      users:
+        one: "En användare hittades"
+        other: "%{count} användare hittades"
+        zero: "Inga användare hittades"
+      you_currently: "du har %{user_invitation} inbjudningar kvar %{link}"
   ago: "%{time} sedan"
   all_aspects: "Alla aspekter"
   application:
@@ -79,8 +87,8 @@ sv:
     aspect_stream:
       stay_updated: "Håll dig uppdaterad"
       stay_updated_explanation: "Din huvudström innefattar alla dina kontakter, de taggar du följer och inlägg från några kreativa medlemmar i gemenskapen."
-    contacts_not_visible: "Kontakterna i den här aspekten kommer inte kunna se varandra."
-    contacts_visible: "Kontakterna i den här aspekten kommer kunna se varandra."
+    contacts_not_visible: "Kontakterna i den här aspekten kommer inte att kunna se varandra."
+    contacts_visible: "Kontakterna i den här aspekten kommer att kunna se varandra."
     create:
       failure: "Aspekten kunde inte skapas."
       success: "Din nya aspekt %{name} har skapats"
@@ -92,7 +100,7 @@ sv:
       aspect_list_is_not_visible: "aspektlistan visas inte för andra i aspekten"
       aspect_list_is_visible: "aspektlistan visas för andra i aspekten"
       confirm_remove_aspect: "Är du säker på att du vill ta bort den här aspekten?"
-      done: "Färdigt"
+      done: "Klar"
       make_aspect_list_visible: "ska kontakterna i denna aspekt vara synliga för varandra? "
       remove_aspect: "Ta bort den här aspekten"
       rename: "byt namn"
@@ -116,7 +124,7 @@ sv:
       handle_explanation: "Det här är ditt Diaspora-ID. Det är det här du ska ge till dina vänner om du vill att de ska lägga till dig på Diaspora."
       help:
         do_you: "Har du:"
-        email_feedback: "%{link} din respons, om du föredrar det"
+        email_feedback: "%{link}a din respons, om du föredrar det"
         feature_suggestion: "... ett %{link}-förslag?"
         find_a_bug: "... hittat en %{link}?"
         have_a_question: "... en %{link}?"
@@ -156,8 +164,8 @@ sv:
       try_adding_some_more_contacts: "Du kan söka efter eller bjuda in fler personer."
       you_should_add_some_more_contacts: "Du bör lägga till några fler kontakter!"
     no_posts_message:
-      start_talking: "Ingen har sagt något än!"
-    one: "1 aspekt"
+      start_talking: "Ingen har sagt någonting än!"
+    one: "En aspekt"
     other: "%{count} aspekter"
     seed:
       acquaintances: "Bekanta"
@@ -166,7 +174,7 @@ sv:
       work: "Arbete"
     selected_contacts:
       manage_your_aspects: "Hantera dina aspekter."
-      no_contacts: "Du har ännu inte några kontakter här."
+      no_contacts: "Du har ännu inga kontakter här."
       view_all_community_spotlight: "Se allt i gemenskapens rampljus"
       view_all_contacts: "Se alla kontakter"
     show:
@@ -277,7 +285,7 @@ sv:
       birthday_with_year: "%d %B, %Y"
       fullmonth_day: "%d %B"
   delete: "Ta bort"
-  email: "E-posta"
+  email: "E-post"
   error_messages:
     helper:
       correct_the_following_errors_and_try_again: "Rätta till följande fel och försök igen."
@@ -424,13 +432,13 @@ sv:
       other: "%{actors} har skickat dig ett meddelande."
       zero: "ingen har ännu skickat något meddelande till dig."
     reshared:
-      one: "%{actors} har spridit ditt inlägg %{post_link} vidare."
-      other: "%{actors} har spridit ditt inlägg %{post_link} vidare."
-      zero: "ingen har ännu spridit ditt inlägg %{post_link} vidare."
+      one: "%{actors} har delat vidare ditt inlägg %{post_link}."
+      other: "%{actors} har delat vidare ditt inlägg %{post_link}."
+      zero: "Ingen har delat vidare ditt inlägg %{post_link}."
     reshared_post_deleted:
-      one: "%{actors} har spridit ditt raderade inlägg vidare."
-      other: "%{actors} har spridit ditt raderade inlägg vidare."
-      zero: "Ingen har spridit ditt raderade inlägg vidare."
+      one: "%{actors} delade vidare ditt raderade inlägg."
+      other: "%{actors} delade vidare ditt raderade inlägg."
+      zero: "Ingen delade vidare ditt raderade inlägg."
     started_sharing:
       one: "%{actors} har börjat att dela med dig."
       other: "%{actors} har börjat att dela med dig."
@@ -470,7 +478,7 @@ sv:
     private_message:
       reply_to_or_view: "Svara på eller läs denna konversation >"
     reshared:
-      reshared: "%{name} sprider ditt inlägg vidare."
+      reshared: "%{name} delar ditt inlägg vidare."
       view_post: "Se inlägg >"
     single_admin:
       admin: "Din Diasporaadministratör"
@@ -593,7 +601,7 @@ sv:
         other: "%{count} foton av %{author}"
         two: "Två foton av %{author}"
         zero: "Inga foton av %{author}"
-      reshare_by: "Sprids vidare av %{author}"
+      reshare_by: "Delades vidare av %{author}"
   previous: "föregående"
   privacy: "Sekretess"
   privacy_policy: "Integritetspolicy"
@@ -664,7 +672,7 @@ sv:
     new_request_to_person:
       sent: "skickat!"
   reshares:
-    comment_email_subject: "Den vidarespridning som %{resharer} gjort av %{author}s inlägg."
+    comment_email_subject: "Den delning av %{author}s inlägg som %{resharer} har gjort"
     create:
       failure: "Ett fel uppstod när inlägget skulle spridas vidare."
     reshare:
@@ -672,13 +680,13 @@ sv:
       reshare:
         few: "%{count} sprider detta vidare"
         many: "%{count} sprider detta vidare"
-        one: "En sprider detta vidare"
-        other: "%{count} sprider detta vidare"
+        one: "En har delat vidare"
+        other: "%{count} har delat vidare"
         two: "Två sprider detta vidare"
-        zero: "Sprid vidare"
-      reshare_confirmation: "Vill du sprida %{author}s inlägg vidare?"
-      reshare_original: "Sprid originalet vidare"
-      reshared_via: "sprids vidare via"
+        zero: "Dela vidare"
+      reshare_confirmation: "Vill du dela %{author}s inlägg vidare?"
+      reshare_original: "Dela originalet vidare"
+      reshared_via: "delades vidare via"
       show_original: "Visa det ursprungliga inlägget"
   search: "Sök"
   services:
@@ -776,7 +784,7 @@ sv:
       upload_photos: "Ladda upp foton"
       whats_on_your_mind: "Vad har du på hjärtat?"
     reshare:
-      reshare: "Återdela"
+      reshare: "Dela vidare"
     stream_element:
       connect_to_comment: "Anslut till den här användaren för att kunna kommentera deras inlägg"
       currently_unavailable: "det går för närvarande inte att kommentera"
@@ -923,7 +931,7 @@ sv:
       photo_export_unavailable: "Det går för tillfället inte att exportera foton"
       private_message: "... du mottager ett privat meddelande."
       receive_email_notifications: "Skicka notiser via e-post när..."
-      reshared: "... någon sprider dina inlägg vidare."
+      reshared: "... någon delar vidare dina inlägg."
       show_community_spotlight: "Ska gemenskapens rampljus visas i din ström?"
       show_getting_started: "Återaktivera \"Komma igång\""
       started_sharing: "... någon börjar dela med sig till dig."

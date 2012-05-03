@@ -50,6 +50,15 @@ pl:
       weekly_user_stats: "Tygodniowe statystyki użytkownika"
     correlations:
       correlations_count: "Współzależności z licznikiem logowań:"
+    user_search:
+      add_invites: "dodaj zaproszenia"
+      email_to: "Zaproś przez e-mail"
+      users:
+        few: "%{count} znalezionych użytkowników"
+        one: "%{count} znaleziony użytkownik"
+        other: "%{count} znalezieni użytkownicy"
+        zero: "Nikogo nie znaleziono"
+      you_currently: "Pozostało Ci jeszcze %{user_invitation} zaproszeń %{link}"
   ago: "%{time} temu"
   all_aspects: "Wszystkie aspekty"
   application:
@@ -812,7 +821,7 @@ pl:
       discard_post: "Porzuć wpis"
       make_public: "upublicznij"
       new_user_prefill:
-        hello: "Witajcie wszyscy, jestem #%{new_user_tag}. "
+        hello: "Witajcie wszyscy, jestem tutaj nowy/a! #%{new_user_tag}. "
         i_like: "Interesują mnie %{tags}."
         invited_by: "Dzięki za zaproszenie,"
         newhere: "NowiTutaj"
@@ -947,7 +956,7 @@ pl:
       change_email: "Zmiana adresu e-mail"
       change_language: "Zmiana języka"
       change_password: "Zmiana hasła"
-      character_minimum_expl: "musi składać się z przynajmniej sześciu znaków"
+      character_minimum_expl: "minimum 6 znaków"
       close_account:
         dont_go: "Prosimy, nie odchodź!"
         if_you_want_this: "Jeśli naprawdę tego chcesz, wpisz swoje hasło poniżej i kliknij \"Zamknij konto\"."

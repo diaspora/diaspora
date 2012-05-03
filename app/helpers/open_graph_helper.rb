@@ -12,8 +12,8 @@ module OpenGraphHelper
   end
 
   def og_image(post)
-    tags = post.photos.map{|x| meta_tag_with_property('og:image', x.url(:thumb_small))}
-    tags << meta_tag_with_property('og:image',  "#{root_url.chop}#{image_path('asterisk.png')}") if tags.empty?
+    tags = post.photos.map{|x| meta_tag_with_property('og:image', x.url(:thumb_large))}
+    tags << meta_tag_with_property('og:image', "#{root_url.chop}#{image_path('asterisk.png')}") if tags.empty?
     tags.join(' ')
   end
 
@@ -25,8 +25,13 @@ module OpenGraphHelper
     meta_tag_with_property('og:description', post_page_title(post, :length => 1000))
   end
 
+  def og_type
+    # the diaspora og namespace was already taken :(
+    meta_tag_with_property('og:type', 'joindiaspora:post')
+  end
+
   def og_page_specific_tags(post)
-    [og_title(post), og_type(post), 
+    [og_title(post), og_type,
       og_url(post), og_image(post), 
       og_description(post)].join(' ').html_safe
   end

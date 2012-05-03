@@ -1,3 +1,10 @@
+/* getting started pulse animation */
+#composer-button.pulse {
+  -webkit-animation: opacity-pulse 1s infinite;
+  -moz-animation:    opacity-pulse 1s infinite;
+  -ms-animation:     opacity-pulse 1s infinite;
+}
+
 /* functionality under edit mode */
 .edit-mode {
   #edit-mode-toggle.control {

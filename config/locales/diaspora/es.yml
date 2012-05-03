@@ -52,12 +52,12 @@ es:
       correlations_count: "Cuentas similares:"
     user_search:
       add_invites: "añadir invitaciones"
-      email_to: "Correo electrónico para invitar"
+      email_to: "Dirección de correo electrónico a invitar"
       users:
         one: "%{count} usuario encontrado"
         other: "%{count} usuarios encontrados"
         zero: "%{count} usuarios encontrados"
-      you_currently: "tu actuamente tienes %{user_invitation} invitaciones para enviar %{link}"
+      you_currently: "Actualmente tienes %{user_invitation} invitaciones para enviar %{link}"
   ago: "Hace %{time}"
   all_aspects: "Todos los aspectos"
   application:
@@ -779,11 +779,8 @@ es:
     aspect_dropdown:
       add_to_aspect: "Añadir contacto"
       toggle:
-        few: "En %{count} aspectos"
-        many: "En %{count} aspectos"
         one: "En %{count} aspecto"
         other: "En %{count} aspectos"
-        two: "En %{count} aspectos"
         zero: "Añadir contacto"
     contact_list:
       all_contacts: "Todos los contactos"
@@ -817,7 +814,7 @@ es:
       discard_post: "Descartar publicación"
       make_public: "hacer público"
       new_user_prefill:
-        hello: "#%{new_user_tag}, acabo de llegar aquí."
+        hello: "#%{new_user_tag}, acabo de llegar aquí. "
         i_like: "Tengo interés en %{tags}. "
         invited_by: "Gracias por la invitación, "
         newhere: "Hola"
@@ -947,7 +944,7 @@ es:
     edit:
       also_commented: "...alguien comenta en la publicación de tu contacto?"
       auto_follow_aspect: "Aspecto para los usuarios seguidos automáticamente:"
-      auto_follow_back: "Seguir automáticamente a otros gilipollas"
+      auto_follow_back: "Seguir automáticamente a otros usuarios"
       change: "Cambiar"
       change_email: "Cambiar correo"
       change_language: "Cambiar idioma"

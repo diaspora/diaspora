@@ -50,6 +50,13 @@ hu:
       weekly_user_stats: "Heti statisztika"
     correlations:
       correlations_count: "Belépések számával való korrelációk:"
+    user_search:
+      add_invites: "meghívók hozzáadása"
+      email_to: "a meghívandó személy email címe"
+      users:
+        other: "%{count} felhasználó található"
+        zero: "nem található felhasználó"
+      you_currently: "jelenleg %{user_invitation} meghívó áll még rendelkezésedre %{link}"
   ago: "ezelőtt"
   all_aspects: "Összes csoport"
   application:
