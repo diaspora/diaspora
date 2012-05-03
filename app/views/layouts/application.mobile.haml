@@ -29,6 +29,8 @@
     /%meta{:name => "apple-mobile-web-app-capable", :content => "yes"}
     /%link{:rel => "apple-touch-startup-image", :href => "/images/apple-splash.png"}
 
+    = chartbeat_head_block
+
     / Stylesheets
 
     = stylesheet_link_tag :mobile, :format => 'all'
@@ -76,6 +78,4 @@
     / javascripts at the bottom
     = jquery_include_tag
     = javascript_include_tag :mobile
-
-    :javascript
-      MBP.hideUrlBar();
+    = include_chartbeat
