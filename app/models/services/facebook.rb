@@ -1,4 +1,6 @@
 class Services::Facebook < Service
+  include Rails.application.routes.url_helpers
+
   MAX_CHARACTERS = 420
 
   def provider
@@ -7,11 +9,15 @@ class Services::Facebook < Service
 
   def post(post, url='')
     Rails.logger.debug("event=post_to_service type=facebook sender_id=#{self.user_id}")
-    Faraday.post("https://graph.facebook.com/me/joindiaspora:make", {:access_token => self.access_token}.to_param)
+    Faraday.post("https://graph.facebook.com/me/joindiaspora:make", create_post_params(post).to_param)
+  end
+
+  def create_post_params(post)
+    {:post => "#{AppConfig[:pod_url]}#{short_post_path(post)}", :access_token => self.access_token}
   end
 
   def public_message(post, url)
-    super(post, MAX_CHARACTERS,  url)
+    super(post, MAX_CHARACTERS, url)
   end
 
   def finder(opts = {})
