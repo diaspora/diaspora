@@ -7,17 +7,7 @@ class Services::Facebook < Service
 
   def post(post, url='')
     Rails.logger.debug("event=post_to_service type=facebook sender_id=#{self.user_id}")
-    message = public_message(post, url)
-    post_params = self.create_post_params(message)
-    Faraday.post("https://graph.facebook.com/me/feed", post_params.to_param)
-  end
-
-  def create_post_params(message)
-    hash = {:message => message, :access_token => self.access_token}
-    if /https?:\/\/(\S+)/ =~ message
-    hash.merge!({:link => /https?:\/\/(\S+)/.match(message)[0]})
-    end
-    return hash
+    Faraday.post("https://graph.facebook.com/me/joindiaspora:make", {:access_token => self.access_token}.to_param)
   end
 
   def public_message(post, url)

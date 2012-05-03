@@ -33,15 +33,6 @@ describe Services::Facebook do
       @service.post(@post, url)
     end
   end
-  
-  describe '#create_post_params' do
-    it 'should have a link when the message has a link' do
-      @service.create_post_params("http://example.com/ test message")[:link].should == "http://example.com/"
-    end
-    it 'should not have a link when the message has no link' do
-      @service.create_post_params("test message")[:link].should == nil
-    end
-  end
 
   context 'finder' do
     before do
