@@ -11,6 +11,12 @@
   weight : normal;
 }
 
+@font-face {
+  font-family : Roboto-Light;
+  src : image-url('fonts/Roboto-Light.ttf');
+  weight : normal;
+}
+
 body, p, h1, h2, h3, h4, h5, h6, textarea, input, * {
   font-family : Roboto, Helvetica, sans-serif;
   font-weight : normal;
