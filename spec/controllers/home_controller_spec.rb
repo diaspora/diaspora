@@ -7,6 +7,7 @@ require 'spec_helper'
 describe HomeController do
   describe '#show' do
     it 'does not redirect' do
+      sign_out :user
       get :show
       response.should_not be_redirect
     end

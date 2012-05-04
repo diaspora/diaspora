@@ -11,7 +11,7 @@ describe Services::Twitter do
 
   describe '#post' do
     it 'posts a status message to twitter' do
-      Twitter.should_receive(:update).with(@post.text)
+      Twitter.should_receive(:update).with(instance_of(String))
       @service.post(@post)
     end
 
@@ -37,36 +37,38 @@ describe Services::Twitter do
     it "should not truncate a short message" do
       short_message = SecureRandom.hex(20)
       short_post = stub(:text => short_message )
-      @service.public_message(short_post, '').should == short_message
+      @service.public_message(short_post, '').should include(short_message)
     end
+
     it "should truncate a long message" do
       long_message = SecureRandom.hex(220)
-      long_post = stub(:text => long_message )
-      @service.public_message(long_post, '').should == long_message.first(137) + "..."
+      long_post = stub(:text => long_message, :id => 1 )
+      @service.public_message(long_post, '').should match long_message.first(100)
+
     end
+
     it "should not truncate a long message with an http url" do
-      long_message = @long_message_start + " http://joindiaspora.com/a-very-long-url-name-that-will-be-shortened.html " + @long_message_end
-      long_post = stub(:text => long_message )
-      answer = @service.public_message(long_post, '')
+      long_message = " http://joindiaspora.com/a-very-long-url-name-that-will-be-shortened.html " + @long_message_end
+      long_post = stub(:text => long_message, :id => 1 )
+      @post.text = long_message
+      answer = @service.public_message(@post, '')
 
-      answer.starts_with?( @long_message_start ).should be_true
-      answer.ends_with?( @long_message_end ).should be_true
+      answer.should_not match /\.\.\./
     end
+
     it "should not truncate a long message with an https url" do
-      long_message = @long_message_start + " https://joindiaspora.com/a-very-long-url-name-that-will-be-shortened.html " + @long_message_end
-      long_post = stub(:text => long_message )
-
-      answer = @service.public_message(long_post, '')
-      answer.starts_with?( @long_message_start ).should be_true
-      answer.ends_with?( @long_message_end ).should be_true
+      long_message = " https://joindiaspora.com/a-very-long-url-name-that-will-be-shortened.html " + @long_message_end
+      @post.text = long_message
+      answer = @service.public_message(@post, '')
+      answer.should_not match /\.\.\./
     end
+
     it "should truncate a long message with an ftp url" do
       long_message = @long_message_start + " ftp://joindiaspora.com/a-very-long-url-name-that-will-be-shortened.html " + @long_message_end
-      long_post = stub(:text => long_message )
+      long_post = stub(:text => long_message, :id => 1 )
       answer = @service.public_message(long_post, '')
 
-      answer.starts_with?( @long_message_start ).should be_true
-      answer.ends_with?( @long_message_end ).should_not be_true
+      answer.should match /\.\.\./
     end
 
   end

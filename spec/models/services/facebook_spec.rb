@@ -4,7 +4,7 @@ describe Services::Facebook do
 
   before do
     @user = alice
-    @post = @user.post(:status_message, :text => "hello", :to =>@user.aspects.first.id)
+    @post = @user.post(:status_message, :text => "hello", :to =>@user.aspects.first.id, :public =>true)
     @service = Services::Facebook.new(:access_token => "yeah")
     @user.services << @service
   end
