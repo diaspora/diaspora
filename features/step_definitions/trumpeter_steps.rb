@@ -150,7 +150,7 @@ Then /^the post should mention "([^"]*)"$/ do |user_name|
 end
 
 When /^I click the "([^"]*)" post$/ do |post_text|
-   find(".content:contains('#{post_text}')").click
+   find(".content:contains('#{post_text}') .permalink").click
 end
 
 Then /^"([^"]*)" should be the first canvas frame$/ do |post_text|
