@@ -56,9 +56,11 @@
     = yield(:head)
     = csrf_meta_tag
 
+    = include_gon(:camel_case => true, :namespace => :preloads)
+
   %body
     = flash_messages
     #container
-    = javascript_tag  "window.preLoadContent = '#{escape_javascript(yield)}'"
+    = yield
 
     = include_chartbeat
