@@ -42,6 +42,10 @@
   form#user_new {
     display : inline-block;
 
+    label {
+      color : #555;
+    }
+
     fieldset {
       @include border-radius(5px);
 
@@ -54,6 +58,7 @@
       border : 1px solid #888;
 
       input[type=text],
+      input[type=email],
       input[type=password] {
         @include box-shadow(0,0,0,0);
         @include border-radius(0);
@@ -63,13 +68,23 @@
         padding : 10px;
 
         margin-bottom : 0;
-        display : block;
         border : none;
+      }
+
+      /* mainly bootstrap overrides */
+      .control-group {
+        margin : 0;
         border-bottom : 1px solid #ddd;
 
-        &:last-child {
-          border-bottom : none;
+        .control-label,
+        input[type=text],
+        input[type=password] {
+          padding : 10px;
+          margin : 0;
         }
+
+        .controls { margin-left : 100px; }
+        .control-label { width : 80px; }
       }
     }
 
@@ -82,7 +97,6 @@
   }
 }
 
-
 /* buttons to be extracted? */
 .new-btn {
   @include transition(box-shadow);
@@ -94,6 +108,7 @@
   color : #888;
   border : 1px solid #888;
 
+  //font-family : Roboto-Bold;
   font-size : 14px;
   text-shadow : 0 1px 2px #eee;
 

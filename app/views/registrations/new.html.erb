@@ -19,12 +19,37 @@
       SIGN UP
     </h4>
 
-    <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
+    <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => {:class => "form-horizontal", :autocomplete => "off"}) do |f| %>
         <fieldset>
-          <%= f.text_field :email, :placeholder => "EMAIL", :title => t('registrations.new.enter_username') %>
-          <%= f.text_field :username, :placeholder => "USERNAME", :title => t('registrations.new.enter_username') %>
-          <%= f.password_field :password, :placeholder => "PASSWORD", :title => t('registrations.new.enter_password') %>
-          <%= invite_hidden_tag(invite) %>
+          <div class="control-group">
+            <label class="control-label" for="user_email">
+                EMAIL
+            </label>
+
+            <div class="controls">
+                <%= f.email_field :email, :placeholder => "luke@hoth.net", :title => t('registrations.new.enter_email'), :required => true %>
+            </div>
+          </div>
+
+          <div class="control-group">
+              <label class="control-label" for="user_username">
+                USERNAME
+              </label>
+
+              <div class="controls">
+                <%= f.text_field :username, :placeholder => "jedi_guy", :title => t('registrations.new.enter_username'), :required => true, :pattern => "[A-Za-z0-9_]+" %>
+              </div>
+          </div>
+
+          <div class="control-group">
+            <label class="control-label" for="user_password">
+                PASSWORD
+            </label>
+
+            <%= f.password_field :password, :placeholder => "••••••••", :title => t('registrations.new.enter_password'), :required => true, :pattern => "......+" %>
+              <%= invite_hidden_tag(invite) %>
+
+          </div>
         </fieldset>
 
         <%= f.submit "Continue", :class => "new-btn" %>
