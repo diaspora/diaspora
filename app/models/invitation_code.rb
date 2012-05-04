@@ -5,6 +5,7 @@ class InvitationCode < ActiveRecord::Base
 
   before_create :generate_token, :set_default_invite_count
 
+  delegate :beta?, :to => :user
   def to_param
     token 
   end
