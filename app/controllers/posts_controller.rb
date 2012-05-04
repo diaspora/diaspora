@@ -35,10 +35,10 @@ class PostsController < ApplicationController
       end
 
       respond_to do |format|
-        format.html{render 'posts/show.html.haml'}
+        format.html{ gon.post = postJson; render 'posts/show.html.haml' }
         format.xml{ render :xml => @post.to_diaspora_xml }
         format.mobile{render 'posts/show.mobile.haml', :layout => "application"}
-        format.json{ render :json => PostPresenter.new(@post, current_user).to_json }
+        format.json{ render :json => postJson }
       end
 
     else
@@ -88,7 +88,11 @@ class PostsController < ApplicationController
     end
   end
 
-  private
+  protected
+
+  def postJson
+    PostPresenter.new(@post, current_user).to_json
+  end
 
   def find_by_guid_or_id_with_current_user(id)
     key = id.to_s.length <= 8 ? :id : :guid

@@ -61,7 +61,7 @@ var app = {
       var preload = window.preloads[prop]
       delete window.preloads[prop] //prevent dirty state across navigates
 
-      return JSON.parse(preload)
+      return(preload)
   }
 };
 
