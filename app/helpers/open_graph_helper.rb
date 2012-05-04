@@ -13,7 +13,7 @@ module OpenGraphHelper
 
   def og_image(post)
     tags = post.photos.map{|x| meta_tag_with_property('og:image', x.url(:thumb_large))}
-    tags << meta_tag_with_property('og:image', "#{root_url.chop}#{image_path('asterisk.png')}") if tags.empty?
+    tags << meta_tag_with_property('og:image', default_image_url) if tags.empty?
     tags.join(' ')
   end
 
@@ -38,5 +38,16 @@ module OpenGraphHelper
 
   def meta_tag_with_property(name, content)
     content_tag(:meta, '', :property => name, :content => content)
+  end
+
+  private
+
+  # This method compensates for hosting assets off of s3
+  def default_image_url
+    if image_path('asterisk.png').include?("http")
+      image_path('asterisk.png')
+    else
+      "#{root_url.chop}#{image_path('asterisk.png')}"
+    end
   end
 end

@@ -13,5 +13,4 @@ Feature: user authentication
     Given I am signed in
     And I click on my name in the header
     And I follow "Log out"
-    Then I should be on the logged out page
-    And I should see "Now go mobile."
+    Then I should be on the new user session page

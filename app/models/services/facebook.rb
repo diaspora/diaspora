@@ -1,3 +1,4 @@
+require 'uri'
 class Services::Facebook < Service
   include Rails.application.routes.url_helpers
 
@@ -9,11 +10,24 @@ class Services::Facebook < Service
 
   def post(post, url='')
     Rails.logger.debug("event=post_to_service type=facebook sender_id=#{self.user_id}")
-    Faraday.post("https://graph.facebook.com/me/joindiaspora:make", create_post_params(post).to_param)
+    if post.public?
+      post_to_facebook("https://graph.facebook.com/me/joindiaspora:make", create_open_graph_params(post).to_param)
+    else
+      post_to_facebook("https://graph.facebook.com/me/feed", create_post_params(post).to_param)
+    end
+  end
+
+  def post_to_facebook(url, body)
+    Faraday.post(url, body)
+  end
+
+  def create_open_graph_params(post)
+    {:post => "#{AppConfig[:pod_url]}#{short_post_path(post)}", :access_token => self.access_token}
   end
 
   def create_post_params(post)
-    {:post => "#{AppConfig[:pod_url]}#{short_post_path(post)}", :access_token => self.access_token}
+    message = post.text(:plain_text => true)
+    {:message => message, :access_token => self.access_token, :link => URI.extract(message, ['https', 'http']).first}
   end
 
   def public_message(post, url)
