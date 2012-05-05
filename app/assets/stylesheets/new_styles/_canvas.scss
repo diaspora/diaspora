@@ -1,13 +1,7 @@
-
 @mixin wide() {
   width : $two-column-width + px;
   min-width : $two-column-width + px;
   max-width : $two-column-width + px;
-}
-
-body {
-  background-color : #F6F6F6;
-  background-image : image_url('pattern.png')
 }
 
 .canvas-frame {
@@ -28,7 +22,7 @@ body {
 
   .content {
     @include transition(box-shadow);
-    @include box-shadow(0,1px,3px,rgba(0,0,0,0.2));
+    @include box-shadow(0,1px,10px,rgba(0,0,0,0.9));
 
     background-image : image_url("paper-texture-1.jpg");
 
