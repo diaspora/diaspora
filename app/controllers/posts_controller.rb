@@ -9,6 +9,7 @@ class PostsController < ApplicationController
   
   before_filter :authenticate_user!, :except => [:show, :iframe, :oembed]
   before_filter :set_format_if_malformed_from_status_net, :only => :show
+  before_filter :find_post, :only => [:show, :next, :previous]
 
   layout 'post'
 
@@ -24,28 +25,19 @@ class PostsController < ApplicationController
   end
 
   def show
-    @post = find_by_guid_or_id_with_current_user(params[:id])
+    return log_and_redirect_back unless @post
+    # @commenting_disabled = can_not_comment_on_post?
+    # mark corresponding notification as read
+    if user_signed_in? && notification = Notification.where(:recipient_id => current_user.id, :target_id => @post.id).first
+      notification.unread = false
+      notification.save
+    end
 
-    if @post
-      # @commenting_disabled = can_not_comment_on_post?
-      # mark corresponding notification as read
-      if user_signed_in? && notification = Notification.where(:recipient_id => current_user.id, :target_id => @post.id).first
-        notification.unread = false
-        notification.save
-      end
-
-      respond_to do |format|
-        format.html{ gon.post = postJson; render 'posts/show.html.haml' }
-        format.xml{ render :xml => @post.to_diaspora_xml }
-        format.mobile{render 'posts/show.mobile.haml', :layout => "application"}
-        format.json{ render :json => postJson }
-      end
-
-    else
-      user_id = (user_signed_in? ? current_user : nil)
-      Rails.logger.info(":event => :link_to_nonexistent_post, :ref => #{request.env['HTTP_REFERER']}, :user_id => #{user_id}, :post_id => #{params[:id]}")
-      flash[:error] = I18n.t('posts.show.not_found')
-      redirect_to :back
+    respond_to do |format|
+      format.html{ gon.post = postJson; render 'posts/show.html.haml' }
+      format.xml{ render :xml => @post.to_diaspora_xml }
+      format.mobile{render 'posts/show.mobile.haml', :layout => "application"}
+      format.json{ render :json => postJson }
     end
   end
 
@@ -88,7 +80,30 @@ class PostsController < ApplicationController
     end
   end
 
+  def next
+    redirect_to post_path(post_base.newer(@post))
+  end
+
+  def previous
+    redirect_to post_path(post_base.older(@post))
+  end
+
   protected
+
+  def log_and_redirect_back #preserving old functionality, but this should probably be removed
+    user_id = (user_signed_in? ? current_user : nil)
+    Rails.logger.info(":event => :link_to_nonexistent_post, :ref => #{request.env['HTTP_REFERER']}, :user_id => #{user_id}, :post_id => #{params[:id]}")
+    flash[:error] = I18n.t('posts.show.not_found')
+    redirect_to :back
+  end
+
+  def find_post
+    @post = find_by_guid_or_id_with_current_user(params[:id])
+  end
+
+  def post_base
+    Post.visible_from_author(@post.author, current_user)
+  end
 
   def postJson
     PostPresenter.new(@post, current_user).to_json
@@ -101,7 +116,6 @@ class PostsController < ApplicationController
     else
       Post.where(key => id, :public => true).includes(:author, :comments => :author).first
     end
-
   end
 
   def set_format_if_malformed_from_status_net
