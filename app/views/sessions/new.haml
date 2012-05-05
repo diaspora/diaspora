@@ -3,8 +3,7 @@
 -#   the COPYRIGHT file.
 
 = content_for :page_title do
-  = t('devise.sessions.new.sign_in')
-  | DIASPORA* ALPHA
+  = "Diaspora* / #{t('devise.sessions.new.sign_in')}"
 
 = content_for :head do
   = javascript_include_tag :login

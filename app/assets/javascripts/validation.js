@@ -42,7 +42,7 @@ var Validation = {
   }
 };
 
-$(function() { 
-  $("#user_username").keypress(Validation.events.usernameKeypress);
-  $("#user_email").keypress(Validation.events.emailKeypress);
-});
+//$(function() {
+//  $("#user_username").keypress(Validation.events.usernameKeypress);
+//  $("#user_email").keypress(Validation.events.emailKeypress);
+//});

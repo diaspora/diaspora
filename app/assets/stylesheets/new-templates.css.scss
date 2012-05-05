@@ -22,4 +22,11 @@
 /* isotope */
 @import 'new_styles/isotope_transitions';
 
+/* login */
+@import 'new_styles/login';
+@import 'new_styles/registration';
+
+@import 'new_styles/forms';
+
+
 @include video-overlay();

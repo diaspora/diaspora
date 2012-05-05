@@ -10,7 +10,7 @@ app.pages.PostViewer = app.views.Base.extend({
 
   initialize : function(options) {
     this.model = new app.models.Post({ id : options.id });
-    this.model.fetch().success(_.bind(this.initViews, this));
+    this.model.preloadOrFetch().done(_.bind(this.initViews, this));
 
     this.prepIdleHooks();
 

@@ -7,7 +7,7 @@ class Role < ActiveRecord::Base
   end
 
   def self.is_beta?(person)
-    find_by_person_id_and_name(person.id, 'beta')
+    find_by_person_id_and_name(person.id, 'beta').present?
   end
 
   def self.add_beta(person)

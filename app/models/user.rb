@@ -106,6 +106,10 @@ class User < ActiveRecord::Base
     ConversationVisibility.sum(:unread, :conditions => "person_id = #{self.person.id}")
   end
 
+  def beta?
+    Role.is_beta?(self.person)
+  end
+
   #@deprecated
   def ugly_accept_invitation_code
     begin

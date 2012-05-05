@@ -20,6 +20,16 @@ describe InvitationCode do
     end
   end
 
+  describe '.beta?' do
+    it 'returns true if the invite code user is beta' do
+      code = Factory(:invitation_code)
+      Role.add_beta(code.user.person)
+      code.user.should be_beta
+      code.should be_beta
+    end
+  end
+
+
   describe '.default_inviter_or' do
     before do
       @old_account = AppConfig[:admin_account]

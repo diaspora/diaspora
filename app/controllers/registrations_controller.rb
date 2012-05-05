@@ -5,6 +5,8 @@
 class RegistrationsController < Devise::RegistrationsController
   before_filter :check_registrations_open_or_vaild_invite!, :check_valid_invite!
 
+  layout "post", :only => :new
+
   def create
     @user = User.build(params[:user])
     @user.process_invite_acceptence(invite) if invite.present?
@@ -12,6 +14,7 @@ class RegistrationsController < Devise::RegistrationsController
     if @user.save
       flash[:notice] = I18n.t 'registrations.create.success'
       @user.seed_aspects
+      Role.add_beta(@user.person) if invite.present? && invite.beta?
       sign_in_and_redirect(:user, @user)
       Rails.logger.info("event=registration status=successful user=#{@user.diaspora_handle}")
     else

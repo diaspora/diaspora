@@ -37,6 +37,8 @@ app.pages.Profile = app.views.Base.extend({
     this.model = new app.models.Profile.findByGuid(options.personId)
     this.stream = options && options.stream || new app.models.Stream()
 
+    this.model.bind("change", this.setPageTitle, this)
+
     /* binds for getting started pulsation */
     this.stream.bind("fetched", this.pulsateNewPostControl, this)
     this.stream.items.bind("remove", this.pulsateNewPostControl, this)
@@ -55,6 +57,11 @@ app.pages.Profile = app.views.Base.extend({
         ? 'addClass'
         : 'removeClass'
       ]("pulse")
+  },
+
+  setPageTitle : function() {
+    if(this.model.get("name"))
+      document.title = this.model.get("name")
   },
 
   toggleEdit : function(evt) {

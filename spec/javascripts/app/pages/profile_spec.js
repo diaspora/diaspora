@@ -20,8 +20,13 @@ describe("app.pages.Profile", function(){
 
   it("preloads the stream for the user", function(){
     spyOn(this.stream, "preload")
+
+    window.preloads = {stream : JSON.stringify(["unicorns"]) }
+
     new app.pages.Profile({stream : this.stream})
     expect(this.stream.preload).toHaveBeenCalled()
+
+    delete window.preloads //cleanup
   })
 
   describe("rendering", function(){

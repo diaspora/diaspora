@@ -91,6 +91,12 @@ app.models.Post = Backbone.Model.extend(_.extend({}, app.models.formatDateMixin,
     var body = this.get("text").trim()
       , newlineIdx = body.indexOf("\n")
     return (newlineIdx > 0 ) ? body.substr(newlineIdx+1, body.length) : ""
+  },
+
+  //returns a promise
+  preloadOrFetch : function(){
+    var action = app.hasPreload("post") ? this.set(app.parsePreload("post")) : this.fetch()
+    return $.when(action)
   }
 }), {
   headlineLimit : 118,
