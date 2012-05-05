@@ -90,6 +90,8 @@ gl:
       resque_overview: "Información de Resque"
     correlations:
       correlations_count: "Correlación entre contas:"
+    stats:
+      go: "Ir"
       
   application:
     helper:
@@ -710,7 +712,7 @@ gl:
 
       enter_email: "Escriba un enderezo de correo electrónico"
       enter_username: "Escolla un nome de usuario (só letras, números e guións baixos)"
-      enter_password: "Escriba un contrasinal"
+      enter_password: "Escriba un contrasinal (seis ou máis caracteres)"
       enter_password_again: "Repita o contrasinal"
     create:
       success: "Xa está en Diaspora!"
