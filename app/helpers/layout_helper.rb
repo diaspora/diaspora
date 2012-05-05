@@ -14,7 +14,7 @@ module LayoutHelper
 
   def page_title(text=nil)
     return text unless text.blank?
-    "Diaspora"
+    "Diaspora*"
   end
 
   def set_asset_host
