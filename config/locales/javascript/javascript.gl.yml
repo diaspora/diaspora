@@ -61,6 +61,8 @@ gl:
       show: "Amosar os comentarios"
     reshares:
       duplicate: "Moi interesante ten que ser iso para que o repitas outra vez!"
+      successful: "A publicación repetiuse correctamente."
+      post: "Quere repetir a publicación de <%= name %>?"
     aspect_navigation:
       select_all: "Escollelos todos"
       deselect_all: "Non escoller ningún"
@@ -139,4 +141,5 @@ gl:
       reshare: "Repetir"
       reshared: "Repetida"
       comment: "Comentar"
+      home: "Inicio"
 
