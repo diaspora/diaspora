@@ -3,8 +3,8 @@
   top : 0;
   left : 0;
   background-color : #afc652;
-  height : 100%;
-  width : 100%;
+  min-height : 100%;
+  min-width : 100%;
 
   color : #fff;
 
@@ -16,6 +16,7 @@
     font-family : Roboto-Light;
     font-size : 100px;
     line-height : 100px;
+    white-space : nowrap;
   }
 
   #diaspora-hearts {
@@ -23,6 +24,7 @@
     font-size : 24px;
     margin-top : 0.2em;
     margin-bottom : 1em;
+    white-space : nowrap;
   }
 
   #sign-up-text {
@@ -32,17 +34,20 @@
   }
 
   #collage {
-    float : left;
     width : 344px;
-    height : 639px;
-    margin-right : 20px;
-    margin-left : 110px;
+    height : auto;
+
+    max-width : 95%;
   }
 
   form#user_new {
     display : inline-block;
 
     label {
+      color : #555;
+    }
+
+    input:invalid {
       color : #555;
     }
 
@@ -78,13 +83,24 @@
 
         .control-label,
         input[type=text],
-        input[type=password] {
+        input[type=password],
+        .field_with_errors label {
           padding : 10px;
           margin : 0;
         }
 
-        .controls { margin-left : 100px; }
+        .controls { margin-left : 100px; position : relative; }
         .control-label { width : 80px; }
+
+        .controls .field_with_errors input {
+          color : #f15534;
+          background : {
+            image : image-url('invalid_fat@2x.png');
+            repeat : no-repeat;
+            position : 197px;
+            size: 20px 20px;
+          }
+        }
       }
     }
 
