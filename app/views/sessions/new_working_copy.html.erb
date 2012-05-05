@@ -1,0 +1,32 @@
+<div id="login">
+
+  <h1 id="huge-text">
+    DIASPORA
+  </h1>
+
+  <%= form_for(resource, :as => resource_name, :url => session_path(resource_name), :html => {:class => "form-horizontal block-form", :autocomplete => 'off'}) do |f| %>
+        <fieldset>
+          <div class="control-group">
+              <label class="control-label" for="user_username">
+                USERNAME
+              </label>
+
+              <div class="controls">
+                <%= f.text_field :username, :required => true, :pattern => "[A-Za-z0-9_]+" %>
+              </div>
+          </div>
+
+          <div class="control-group">
+            <label class="control-label" for="user_password">
+                PASSWORD
+            </label>
+
+            <div class="controls">
+                <%= f.password_field :password, :placeholder => "••••••••", :required => true, :pattern => "......+" %>
+            </div>
+          </div>
+        </fieldset>
+
+        <%= f.submit "Sign In", :class => "new-btn" %>
+    <% end %>
+</div>
