@@ -2,7 +2,7 @@ class WallpaperUploader < CarrierWave::Uploader::Base
   include CarrierWave::MiniMagick
 
   def store_dir
-    "uploads/images"
+    "uploads/images/wallpaper"
   end
 
   def extension_white_list

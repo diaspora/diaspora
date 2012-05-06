@@ -78,6 +78,13 @@ class ProfilesController < ApplicationController
   end
 
   def upload_wallpaper_image
+    unless params[:photo].present?
+      respond_to do |format|
+        format.json { render :json => {"success" => false} }
+      end
+      return
+    end
+
     if remotipart_submitted?
       profile = current_user.person.profile
 
@@ -85,6 +92,10 @@ class ProfilesController < ApplicationController
       if profile.save
         respond_to do |format|
           format.json { render :json => {"success" => true, "data" => {"wallpaper" => profile.wallpaper.url}} }
+        end
+      else
+        respond_to do |format|
+          format.json { render :json => {"success" => false} }
         end
       end
     end
