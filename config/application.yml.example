@@ -19,6 +19,9 @@ defaults: &defaults
   ## the database.
   pod_url: "http://localhost:3000/"
 
+  ## Name of your pod
+  pod_name: "Diaspora*"
+
   ## Setting the bundle of certificate authorities (CA) certificates.
   ## This is operating system specific.
   ## Examples, uncomment one or add your own:

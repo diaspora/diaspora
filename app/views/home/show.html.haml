@@ -5,7 +5,7 @@
 
 
 - content_for :page_title do
-  DIASPORA* ALPHA
+  = AppConfig[:pod_name]
 - begin
   = render :partial => 'home/show'
 - rescue
