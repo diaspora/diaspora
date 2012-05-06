@@ -29,6 +29,7 @@ app.views.Canvas = app.views.Base.extend(_.extend({}, app.views.infiniteScrollMi
         itemSelector : '.canvas-frame',
         visibleStyle : {scale : 1},
         hiddenStyle : {scale : 0.001},
+        containerStyle : {position : "relative"},
         masonry : {
           columnWidth : 292.5
         }

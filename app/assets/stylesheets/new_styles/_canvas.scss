@@ -7,6 +7,7 @@
 .canvas-frame {
   float : left;
   margin : 10px;
+  margin-bottom : 18px;
 
   /* expand / contract cursor declarations */
   &.x2 .content {
@@ -22,12 +23,12 @@
 
   .content {
     @include transition(box-shadow);
-    @include box-shadow(0,1px,10px,rgba(0,0,0,0.9));
+    @include box-shadow(0, 8px, 50px, rgba(0,0,0,0.9));
 
     background-image : image_url("paper-texture-1.jpg");
 
     &:hover {
-      @include box-shadow(0,1px,5px,rgba(0,0,0,0.5));
+      @include box-shadow(0, 3px, 10px,rgba(0,0,0,0.9));
 
       .info {
         top : 0;
@@ -53,11 +54,9 @@
     max-width : $column-width + px;
 
     overflow : hidden;
-    //padding : 20px;
 
     /* used in masking photos with overflow: hidden; */
     .image-container {
-
       overflow : hidden;
       width : 100%;
 
@@ -121,6 +120,8 @@
 
     background-color : rgba(255,255,255,0.8);
     border-bottom : 1px solid #fff;
+
+    color : #000;
 
     position : absolute;
     top : -32px;
