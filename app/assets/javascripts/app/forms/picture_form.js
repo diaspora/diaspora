@@ -4,7 +4,8 @@ app.forms.PictureBase = app.views.Base.extend({
     "change input[name='photo[user_file]']" : "submitForm"
   },
 
-  photoUploaded : $.noop,
+  onSubmit : $.noop,
+  uploadSuccess : $.noop,
 
   postRenderTemplate : function(){
     this.$("input[name=authenticity_token]").val($("meta[name=csrf-token]").attr("content"))
@@ -12,6 +13,16 @@ app.forms.PictureBase = app.views.Base.extend({
 
   submitForm : function (){
     this.$("form").submit();
+    this.onSubmit();
+  },
+
+  photoUploaded : function(evt, xhr) {
+    resp = JSON.parse(xhr.responseText)
+    if(resp.success) {
+      this.uploadSuccess(resp)
+    } else {
+      alert("Upload failed!  Please try again. " + resp.error);
+    }
   }
 });
 
@@ -30,18 +41,12 @@ app.forms.Picture = app.forms.PictureBase.extend({
     this.renderPhotos();
   },
 
-  submitForm : function (){
-    this.$("form").submit();
+  onSubmit : function (){
     this.$(".photos").append($('<span class="loader" style="margin-left: 80px;"></span>'))
   },
 
-  photoUploaded : function(evt, xhr) {
-    resp = JSON.parse(xhr.responseText)
-    if(resp.success) {
-      this.photos.add(new Backbone.Model(resp.data))
-    } else {
-      alert("Upload failed!  Please try again. " + resp.error);
-    }
+  uploadSuccess : function(resp) {
+    this.photos.add(new Backbone.Model(resp.data))
   },
 
   renderPhotos : function(){
@@ -57,12 +62,7 @@ app.forms.Picture = app.forms.PictureBase.extend({
 app.forms.Wallpaper = app.forms.PictureBase.extend({
   templateName : "wallpaper-form",
 
-  photoUploaded : function(evt, xhr) {
-    resp = JSON.parse(xhr.responseText)
-    if(resp.success) {
-      $("#profile").css("background-image", "url(" + resp.data.wallpaper + ")")
-    } else {
-      alert("Upload failed!  Please try again. " + resp.error);
-    }
+  uploadSuccess : function(resp) {
+    $("#profile").css("background-image", "url(" + resp.data.wallpaper + ")")
   }
 });

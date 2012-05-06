@@ -3,8 +3,6 @@ class WallpaperUploader < CarrierWave::Uploader::Base
 
   storage :file
 
-  process :darken
-
   def store_dir
     "uploads/images"
   end
@@ -13,9 +11,13 @@ class WallpaperUploader < CarrierWave::Uploader::Base
     %w(jpg jpeg png tiff)
   end
 
-  #def filename
-  #  SecureRandom.hex(10) + File.extname(@filename) if @filename
-  #end
+  # Filename is associated with the user's diaspora handle, ensuring uniqueness
+  # and that only one copy is kept in the filesystem.
+  def filename
+    Digest::MD5.hexdigest(model.diaspora_handle) + File.extname(@filename) if @filename
+  end
+
+  process :darken
 
   def darken
     manipulate! do |img|
