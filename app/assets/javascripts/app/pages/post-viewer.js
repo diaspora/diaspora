@@ -50,29 +50,20 @@ app.pages.PostViewer = app.views.Base.extend({
   },
 
   bindNavHooks : function() {
-    /* navagation hooks */
-    var nextPostLocation = this.model.get("next_post");
-    var previousPostLocation = this.model.get("previous_post");
-
-
+    var model = this.model;
     $(document).keydown(function(evt){
-      /* prevent nav from happening if the user is using the arrow
-       * keys to navigate through their comment text */
+      // prevent nav from happening if the user is using the arrow keys to navigate through their comment text
       if($(evt.target).is("textarea")) { return }
 
       switch(evt.keyCode) {
         case 37:
-          navigate(nextPostLocation); break;
+          app.router.navigate(model.get("next_post"), true); break;
         case 39:
-          navigate(previousPostLocation); break;
+          app.router.navigate(model.get("previous_post"), true); break;
         default:
           break;
       }
     })
-
-    function navigate(loc) {
-      loc ? window.location = loc : null
-    }
   },
 
   commentAnywhere : function(evt) {

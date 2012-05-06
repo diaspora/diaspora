@@ -23,10 +23,23 @@ app.Router = Backbone.Router.extend({
 
     "posts/new" : "composer",
     "posts/:id": "singlePost",
+    "posts/:id/next": "siblingPost",
+    "posts/:id/previous": "siblingPost",
+
     "p/:id": "singlePost",
     "framer": "framer"
   },
 
+  siblingPost : function(){ //next or previous
+    var post = new app.models.Post();
+    post.bind("change", setPreloadAttributesAndNavigate)
+    post.fetch({url : window.location})
+
+    function setPreloadAttributesAndNavigate(){
+      window.preloads.post = post.attributes
+      app.router.navigate(post.url(), true)
+    }
+  },
 
   newProfile : function(personId) {
     this.renderPage(new app.pages.Profile({ personId : personId }));
