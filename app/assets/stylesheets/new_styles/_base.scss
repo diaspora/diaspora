@@ -1,3 +1,7 @@
+body {
+  background-image : image_url("pattern.png");
+}
+
 /* new link color */
 a { color : rgb(42,156,235)  }
 
@@ -437,19 +441,6 @@ div[data-template=flow] {
   right : 10px;
   top : 10px;
 
-
-  .label {
-    padding : 2px 5px;
-    padding-bottom : 3px;
-
-    span {
-      display : inline-block;
-      position : relative;
-      top : 1px;
-      font-family : Roboto-Bold;
-    }
-  }
-
   & > a {
     @include transition(opacity);
     @include opacity(0.4);
@@ -460,5 +451,18 @@ div[data-template=flow] {
       @include opacity(0.75);
       text-decoration : none;
     }
+  }
+}
+
+/* bootstrap label fixes for Roboto */
+.label {
+  padding : 2px 5px;
+  padding-bottom : 3px;
+
+  span {
+    display : inline-block;
+    position : relative;
+    top : 1px;
+    font-family : Roboto-Bold;
   }
 }
