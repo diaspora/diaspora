@@ -19,7 +19,10 @@ class WallpaperUploader < CarrierWave::Uploader::Base
 
   def darken
     manipulate! do |img|
-      img.brightness_contrast "-40x-50"
+      # img.brightness_contrast "-40x-50"
+      # thanks, heroku.
+      img.modulate "40,40"
+
       img = yield(img) if block_given?
       img
     end
