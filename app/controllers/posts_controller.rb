@@ -26,18 +26,14 @@ class PostsController < ApplicationController
 
   def show
     return log_and_redirect_back unless @post
-    # @commenting_disabled = can_not_comment_on_post?
-    # mark corresponding notification as read
-    if user_signed_in? && notification = Notification.where(:recipient_id => current_user.id, :target_id => @post.id).first
-      notification.unread = false
-      notification.save
-    end
+
+    mark_corresponding_notification_read if user_signed_in?
 
     respond_to do |format|
-      format.html{ gon.post = postJson; render 'posts/show.html.haml' }
+      format.html{ gon.post = post_json(@post); render 'posts/show.html.haml' }
       format.xml{ render :xml => @post.to_diaspora_xml }
       format.mobile{render 'posts/show.mobile.haml', :layout => "application"}
-      format.json{ render :json => postJson }
+      format.json{ render :json => post_json(@post) }
     end
   end
 
@@ -81,11 +77,21 @@ class PostsController < ApplicationController
   end
 
   def next
-    redirect_to post_path(post_base.newer(@post))
+    next_post = visible_posts_from_author.newer(@post)
+
+    respond_to do |format|
+      format.html{ redirect_to post_path(next_post) }
+      format.json{ render :json => post_json(next_post) }
+    end
   end
 
   def previous
-    redirect_to post_path(post_base.older(@post))
+    previous_post = visible_posts_from_author.older(@post)
+
+    respond_to do |format|
+      format.html{ redirect_to post_path(previous_post) }
+      format.json{ render :json => post_json(previous_post) }
+    end
   end
 
   protected
@@ -101,12 +107,12 @@ class PostsController < ApplicationController
     @post = find_by_guid_or_id_with_current_user(params[:id])
   end
 
-  def post_base
+  def visible_posts_from_author
     Post.visible_from_author(@post.author, current_user)
   end
 
-  def postJson
-    PostPresenter.new(@post, current_user).to_json
+  def post_json(post)
+    PostPresenter.new(post, current_user).to_json
   end
 
   def find_by_guid_or_id_with_current_user(id)
@@ -122,17 +128,10 @@ class PostsController < ApplicationController
    request.format = :html if request.format == 'application/html+xml'
   end
 
-  def can_not_comment_on_post?
-    if !user_signed_in?
-      true
-    elsif @post.public && @post.author.local?
-      false
-    elsif current_user.contact_for(@post.author)
-      false
-    elsif current_user.owns?(@post)
-      false
-    else
-      true
+  def mark_corresponding_notification_read
+    if notification = Notification.where(:recipient_id => current_user.id, :target_id => @post.id).first
+      notification.unread = false
+      notification.save
     end
   end
 end

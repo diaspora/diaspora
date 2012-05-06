@@ -167,4 +167,58 @@ describe PostsController do
       StatusMessage.exists?(message.id).should be_true
     end
   end
+
+  describe "next" do
+    before do
+      sign_in alice
+      #lets make a class and unit test it, because this is still not working
+      @controller.stub_chain(:visible_posts_from_author, :newer).and_return(next_post)
+    end
+
+    let(:next_post){ mock_model(StatusMessage, :id => 34)}
+
+    context "GET .json" do
+      let(:mock_presenter) { mock(:to_json => {:title => "the unbearable lightness of being"}) }
+
+      it "should return a show presenter the next post" do
+        PostPresenter.should_receive(:new).with(next_post, alice).and_return(mock_presenter)
+        get :next, :id => 14, :format => :json
+        response.body.should == {:title => "the unbearable lightness of being"}.to_json
+      end
+    end
+
+    context "GET .html" do
+      it "should redirect to the next post" do
+        get :next, :id => 14
+        response.should redirect_to(post_path(next_post))
+      end
+    end
+  end
+
+  describe "previous" do
+    before do
+      sign_in alice
+      #lets make a class and unit test it, because this is still not working
+      @controller.stub_chain(:visible_posts_from_author, :older).and_return(previous_post)
+    end
+
+    let(:previous_post){ mock_model(StatusMessage, :id => 11)}
+
+    context "GET .json" do
+      let(:mock_presenter) { mock(:to_json => {:title => "existential crises"})}
+
+      it "should return a show presenter the next post" do
+        PostPresenter.should_receive(:new).with(previous_post, alice).and_return(mock_presenter)
+        get :previous, :id => 14, :format => :json
+        response.body.should == {:title => "existential crises"}.to_json
+      end
+    end
+
+    context "GET .html" do
+      it "should redirect to the next post" do
+        get :previous, :id => 14
+        response.should redirect_to(post_path(previous_post))
+      end
+    end
+  end
 end
