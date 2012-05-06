@@ -5,7 +5,7 @@ app.pages.PostViewer = app.views.Base.extend({
     "#post-content" : "postView",
     "#post-nav" : "navView",
     "#post-interactions" : "interactionsView",
-    "#header-container" : "authorView"
+    "#author-info" : "authorView"
   },
 
   initialize : function(options) {
