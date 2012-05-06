@@ -11,12 +11,7 @@ app.pages.PostViewer = app.views.Base.extend({
   initialize : function(options) {
     this.model = new app.models.Post({ id : options.id });
     this.model.preloadOrFetch().done(_.bind(this.initViews, this));
-
-    this.prepIdleHooks();
-
-    $(document).bind("keypress", _.bind(this.commentAnywhere, this))
-    $(document).bind("keypress", _.bind(this.invokePane, this))
-    $(document).bind("keyup", _.bind(this.closePane, this))
+    this.bindEvents()
   },
 
   initViews : function() {
@@ -29,6 +24,23 @@ app.pages.PostViewer = app.views.Base.extend({
     this.render();
   },
 
+  bindEvents : function(){
+    this.prepIdleHooks();
+    this.bindNavHooks();
+
+    $(document).bind("keypress", _.bind(this.commentAnywhere, this))
+    $(document).bind("keypress", _.bind(this.invokePane, this))
+    $(document).bind("keyup", _.bind(this.closePane, this))
+  },
+
+  unbind : function(){
+    $(document).unbind("idle.idleTimer")
+    $(document).unbind("active.idleTimer")
+    $(document).unbind('keydown')
+    $(document).unbind('keypress')
+    $(document).unbind('keyup')
+  },
+
   prepIdleHooks : function () {
     $.idleTimer(3000);
 
@@ -39,14 +51,6 @@ app.pages.PostViewer = app.views.Base.extend({
     $(document).bind("active.idleTimer", function(){
       $("body").removeClass('idle');
     });
-  },
-
-  postRenderTemplate : function() {
-    /* set the document title, if it has one */
-    if(this.model.get("title")){
-      document.title = this.model.get("title");
-    }
-    this.bindNavHooks();
   },
 
   bindNavHooks : function() {
@@ -64,6 +68,10 @@ app.pages.PostViewer = app.views.Base.extend({
           break;
       }
     })
+  },
+
+  postRenderTemplate : function() {
+    if(this.model.get("title")){ document.title = this.model.get("title"); }
   },
 
   commentAnywhere : function(evt) {

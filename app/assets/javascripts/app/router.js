@@ -42,19 +42,19 @@ app.Router = Backbone.Router.extend({
   },
 
   newProfile : function(personId) {
-    this.renderPage(new app.pages.Profile({ personId : personId }));
+    this.renderPage(function(){ return new app.pages.Profile({ personId : personId })});
   },
 
   composer : function(){
-    this.renderPage(new app.pages.Composer());
+    this.renderPage(function(){ return new app.pages.Composer()});
   },
 
   framer : function(){
-    this.renderPage(new app.pages.Framer());
+    this.renderPage(function(){ return new app.pages.Framer()});
   },
 
   singlePost : function(id) {
-    this.renderPage(new app.pages.PostViewer({ id: id }));
+    this.renderPage(function(){ return new app.pages.PostViewer({ id: id })});
   },
 
   profile : function(page) {
@@ -85,8 +85,9 @@ app.Router = Backbone.Router.extend({
    return query.search("ex=true") != -1
   },
 
-  renderPage : function(page){
-    app.page = page
+  renderPage : function(pageConstructor){
+    app.page && app.page.unbind && app.page.unbind() //old page might mutate global events $(document).keypress, so unbind before creating
+    app.page = pageConstructor() //create new page after the world is clean (like that will ever happen)
     $("#container").html(app.page.render().el)
   }
 });
