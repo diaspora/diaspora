@@ -9,7 +9,8 @@ app.pages.Profile = app.views.Base.extend({
 
   subviews : {
     "#profile-info" : "profileInfo",
-    "#canvas" : "canvasView"
+    "#canvas" : "canvasView",
+    "#wallpaper-upload" : "wallpaperForm"
   },
 
   events : {
@@ -38,7 +39,7 @@ app.pages.Profile = app.views.Base.extend({
     this.model = new app.models.Profile.findByGuid(options.personId)
     this.stream = options && options.stream || new app.models.Stream()
 
-    this.model.bind("change", this.setPageTitle, this)
+    this.model.bind("change", this.setPageTitleAndBackground, this)
 
     /* binds for getting started pulsation */
     this.stream.bind("fetched", this.pulsateNewPostControl, this)
@@ -47,6 +48,7 @@ app.pages.Profile = app.views.Base.extend({
     this.stream.preloadOrFetch();
 
     this.canvasView = new app.views.Canvas({ model : this.stream })
+    this.wallpaperForm = new app.forms.Wallpaper()
 
     // send in isOwnProfile data
     this.profileInfo = new app.views.ProfileInfo({ model : this.model.set({isOwnProfile : this.isOwnProfile()}) })
@@ -60,9 +62,11 @@ app.pages.Profile = app.views.Base.extend({
       ]("pulse")
   },
 
-  setPageTitle : function() {
-    if(this.model.get("name"))
+  setPageTitleAndBackground : function() {
+    if(this.model.get("name")) {
       document.title = this.model.get("name")
+      this.$el.css("background-image", "url(" + this.model.get("wallpaper") + ")")
+    }
   },
 
   toggleEdit : function(evt) {

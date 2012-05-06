@@ -13,7 +13,7 @@
        NOTE: I noticed that just turning the brightness down had an adverse affect on contrast,
        thus the "washing out" at -50 contrast.  For more info on this specific command, read the documentation
        on it here: http://www.imagemagick.org/script/command-line-options.php#brightness-contrast */
-    image : url('/imagetest.jpg');
+    //image : url('/imagetest.jpg');
 
     size : cover;
     attachment : fixed;

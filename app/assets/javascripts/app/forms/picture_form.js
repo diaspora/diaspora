@@ -1,10 +1,23 @@
-app.forms.Picture = app.views.Base.extend({
-  templateName : "picture-form",
-
+app.forms.PictureBase = app.views.Base.extend({
   events : {
     'ajax:complete .new_photo' : "photoUploaded",
     "change input[name='photo[user_file]']" : "submitForm"
   },
+
+  photoUploaded : $.noop,
+
+  postRenderTemplate : function(){
+    this.$("input[name=authenticity_token]").val($("meta[name=csrf-token]").attr("content"))
+  },
+
+  submitForm : function (){
+    this.$("form").submit();
+  }
+});
+
+/* multi photo uploader */
+app.forms.Picture = app.forms.PictureBase.extend({
+  templateName : "picture-form",
 
   initialize : function() {
     this.photos = new Backbone.Collection()
@@ -37,5 +50,19 @@ app.forms.Picture = app.views.Base.extend({
       var photoView = new app.views.Photo({model : photo}).render().el
       photoContainer.append(photoView)
     })
+  }
+});
+
+/* wallpaper uploader */
+app.forms.Wallpaper = app.forms.PictureBase.extend({
+  templateName : "wallpaper-form",
+
+  photoUploaded : function(evt, xhr) {
+    resp = JSON.parse(xhr.responseText)
+    if(resp.success) {
+      $("#profile").css("background-image", "url(" + resp.data.wallpaper + ")")
+    } else {
+      alert("Upload failed!  Please try again. " + resp.error);
+    }
   }
 });
