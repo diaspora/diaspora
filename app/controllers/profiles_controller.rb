@@ -14,20 +14,7 @@ class ProfilesController < ApplicationController
     @person = Person.find_by_guid!(params[:id])
 
     respond_to do |format|
-      format.json {
-        public_json = @person.as_api_response(:backbone)
-        extra_json = {:wallpaper => @person.profile.wallpaper.url}
-
-        if(current_user && (current_user.person == @person || current_user.contacts.receiving.where(:person_id => @person.id).first))
-          extra_json = extra_json.merge({
-              :location => @person.profile.location,
-              :birthday => @person.profile.formatted_birthday,
-              :bio => @person.profile.bio
-          })
-        end
-
-        render :json => public_json.merge(extra_json)
-      }
+      format.json { render :json => PersonPresenter.new(@person, current_user) }
     end
   end
 
