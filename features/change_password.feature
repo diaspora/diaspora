@@ -24,4 +24,4 @@ Feature: Change password
     And I fill in "Password" with "supersecret"
     And I fill in "Password confirmation" with "supersecret"
     And I press "Change my password"
-    Then I should see "Your password was changed successfully"
+    Then I should be on the stream page

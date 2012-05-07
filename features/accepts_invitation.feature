@@ -6,13 +6,12 @@ Feature: invitation acceptance
       And I fill in the following:
         | user_username              | ohai           |
         | user_email                 | woot@sweet.com |
-        | user_password         | secret         |
-        | user_password_confirmation | secret         |
-      And I press "Create my account"
+        | user_password              | secret         |
+      And I press "Continue"
       Then I should be on the getting started page
       And I should see "Well, hello there!"
       And I fill in the following:
-        | profile_first_name | O             |
+        | profile_first_name         | O             |
 
       And I preemptively confirm the alert
       And I follow "awesome_button"
@@ -24,13 +23,12 @@ Feature: invitation acceptance
       And I fill in the following:
         | user_username              | ohai           |
         | user_email                 | woot@sweet.com |
-        | user_password         | secret         |
-        | user_password_confirmation | secret         |
-      And I press "Create my account"
+        | user_password              | secret         |
+      And I press "Continue"
       Then I should be on the getting started page
       And I should see "Well, hello there!"
       And I fill in the following:
-        | profile_first_name | O             |
+        | profile_first_name         | O             |
 
       And I preemptively confirm the alert
       And I follow "awesome_button"
