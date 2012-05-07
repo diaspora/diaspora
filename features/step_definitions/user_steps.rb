@@ -183,7 +183,6 @@ When /^I fill in the new user form$/ do
   step 'I fill in "user_username" with "ohai"'
   step 'I fill in "user_email" with "ohai@example.com"'
   step 'I fill in "user_password" with "secret"'
-  step 'I fill in "user_password_confirmation" with "secret"'
 end
 
 And /^I should be able to friend Alice$/ do
