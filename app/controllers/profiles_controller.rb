@@ -16,14 +16,14 @@ class ProfilesController < ApplicationController
     respond_to do |format|
       format.json {
         public_json = @person.as_api_response(:backbone)
-        extra_json = {}
+        extra_json = {:wallpaper => @person.profile.wallpaper.url}
 
         if(current_user && (current_user.person == @person || current_user.contacts.receiving.where(:person_id => @person.id).first))
-          extra_json = {
+          extra_json = extra_json.merge({
               :location => @person.profile.location,
               :birthday => @person.profile.formatted_birthday,
               :bio => @person.profile.bio
-          }
+          })
         end
 
         render :json => public_json.merge(extra_json)
@@ -74,6 +74,30 @@ class ProfilesController < ApplicationController
           redirect_to edit_profile_path
         end
       }
+    end
+  end
+
+  def upload_wallpaper_image
+    unless params[:photo].present?
+      respond_to do |format|
+        format.json { render :json => {"success" => false} }
+      end
+      return
+    end
+
+    if remotipart_submitted?
+      profile = current_user.person.profile
+
+      profile.wallpaper.store! params[:photo][:user_file]
+      if profile.save
+        respond_to do |format|
+          format.json { render :json => {"success" => true, "data" => {"wallpaper" => profile.wallpaper.url}} }
+        end
+      else
+        respond_to do |format|
+          format.json { render :json => {"success" => false} }
+        end
+      end
     end
   end
 

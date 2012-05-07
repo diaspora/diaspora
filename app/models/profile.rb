@@ -5,6 +5,8 @@
 class Profile < ActiveRecord::Base
   self.include_root_in_json = false
 
+  mount_uploader :wallpaper, WallpaperUploader
+
   include Diaspora::Federated::Base
   include Diaspora::Taggable
 

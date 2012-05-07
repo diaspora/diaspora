@@ -133,6 +133,7 @@ en:
       recent_notifications: "Recent Notifications"
       mark_all_as_read: "Mark all as read"
       view_all: "View all"
+      close: "close"
 
     viewer:
       stop_following_post: "Stop following post"

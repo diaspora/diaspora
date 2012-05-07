@@ -54,6 +54,8 @@ Diaspora::Application.routes.draw do
     put :make_profile_photo
   end
 
+  post "upload_wallpaper" => 'profiles#upload_wallpaper_image'
+
   # ActivityStreams routes
   scope "/activity_streams", :module => "activity_streams", :as => "activity_streams" do
     resources :photos, :controller => "photos", :only => [:create]
