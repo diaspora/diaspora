@@ -168,7 +168,7 @@ describe PostsController do
     end
   end
 
-  describe "next" do
+  describe "#next" do
     before do
       sign_in alice
       #lets make a class and unit test it, because this is still not working

@@ -23,14 +23,14 @@ describe HomeController do
       end
 
       it "points to a user's profile page if a user is an admin without contacts" do
-        alice.contacts.delete_all
+        alice.contacts.destroy_all
         Role.add_admin(alice.person)
         get :show, :home => true
         response.should redirect_to(person_path(alice.person))
       end
 
       it "points to the root_path if a user is an admin without contacts" do
-        alice.contacts.delete_all
+        alice.contacts.destroy_all
         Role.add_beta(alice.person)
         get :show, :home => true
         response.should redirect_to(person_path(alice.person))

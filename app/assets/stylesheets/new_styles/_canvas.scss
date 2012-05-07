@@ -3,6 +3,11 @@
   min-width : $two-column-width + px;
   max-width : $two-column-width + px;
 }
+.no-post-message {
+  text-align: center;
+  margin-top: 50px;
+  font-size: 1.2em;
+}
 
 .canvas-frame {
   float : left;
