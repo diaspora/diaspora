@@ -2,16 +2,6 @@ body {
   background-image : image_url("pattern.png");
 }
 
-/* gross hax */
-#container {
-  position : absolute;
-  min-height : 100%;
-  width : 100%;
-
-  left : 0;
-  top : 0;
-}
-
 /* new link color */
 a { color : rgb(42,156,235)  }
 
