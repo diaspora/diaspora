@@ -22,34 +22,33 @@ With Diaspora you can:
 Here's how you can get a **[development](http://guides.rubyonrails.org/getting_started.html)** environment up and running.  This is where any new pod runner should start, as well as people
 looking to contribute to D*.  This script assumes you have [a basic Rails setup installed](http://railsapps.github.com/installing-rails-3-1.html).
 
-### Step 1: Download the script
+### Step 1: Run the script and follow the on screen instructions.
 ```
   curl https://raw.github.com/diaspora/diaspora/master/script/install.sh | /bin/sh
 ```
 
-### Step 2: Follow the instructions
 
-
-### Step 3: Run the the development server
+### Step 2: Run the the development server
 ```
   rails s
 ```
 
 then visit 'http://localhost:3000' in your browser.
 
-### Step 4: Run tests
+### Step 3 (for developers): Run tests
 ```
   rake
 ```
 
-## Want a production setup? Having trouble with install script? Want to install D* the slow way?
+### Want a production setup? Having trouble with install script? Want to install D* the slow way?
   Look to more specific install guides [here](https://github.com/diaspora/diaspora/wiki/Installation-Guides).
 
 ## Contributing
+We love community contributions, and we work extra hard to make sure every code contribution is looked at and given feedback. 
+To help everyone involved, please review our [Pull Request Guidelines](https://github.com/diaspora/diaspora/wiki/Pull-Request-Guidelines)
+to make sure all contributions are submitted smoothly.
 
 Documentation is available on our [wiki](https://github.com/diaspora/diaspora/wiki)
-
-[Pull Request Guidelines](https://github.com/diaspora/diaspora/wiki/Pull-Request-Guidelines)
 
 Before submitting code, please sign our [Contributor License Agreement](https://github.com/diaspora/diaspora/wiki/New-CLA--12-13-10) [Sign Here](https://spreadsheets.google.com/a/joindiaspora.com/spreadsheet/viewform?formkey=dFdRTnY0TGtfaklKQXZNUndsMlJ2eGc6MQ)
 
