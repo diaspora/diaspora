@@ -1,4 +1,6 @@
 #profile {
+  height : 100%;
+
   color : #fff;
   background : {
     color : #333;
@@ -8,12 +10,11 @@
 
        Optimal imagemagick manipulation settings for uploaded image (via trial & error):
 
-       `convert -brightness-contrast -40x-50`
+       `mogrify -brightness-contrast -40x-50`
 
        NOTE: I noticed that just turning the brightness down had an adverse affect on contrast,
        thus the "washing out" at -50 contrast.  For more info on this specific command, read the documentation
        on it here: http://www.imagemagick.org/script/command-line-options.php#brightness-contrast */
-    //image : url('/imagetest.jpg');
 
     size : cover;
     attachment : fixed;
