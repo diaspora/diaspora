@@ -111,7 +111,7 @@ GEM
     carrierwave (0.5.8)
       activesupport (~> 3.0)
     cgi_multipart_eof_fix (2.5.0)
-    childprocess (0.3.1)
+    childprocess (0.3.2)
       ffi (~> 1.0.6)
     chronic (0.6.7)
     client_side_validations (3.1.4)
@@ -253,6 +253,8 @@ GEM
       railties (>= 3.0.0)
     kgio (2.7.4)
     launchy (2.0.3)
+    libwebsocket (0.1.3)
+      addressable
     linecache (0.46)
       rbx-require-relative (> 0.0.4)
     linecache19 (0.5.12)
@@ -425,7 +427,7 @@ GEM
     ruby-progressbar (0.0.10)
     ruby_core_source (0.1.5)
       archive-tar-minitar (>= 0.5.2)
-    rubyzip (0.9.7)
+    rubyzip (0.9.8)
     sass (3.1.15)
     sass-rails (3.1.4)
       actionpack (~> 3.1.0)
@@ -433,10 +435,11 @@ GEM
       sass (>= 3.1.4)
       sprockets (~> 2.0.0)
       tilt (~> 1.3.2)
-    selenium-webdriver (2.19.0)
+    selenium-webdriver (2.22.0.rc1)
       childprocess (>= 0.2.5)
-      ffi (~> 1.0.9)
-      multi_json (~> 1.0.4)
+      ffi (~> 1.0)
+      libwebsocket (~> 0.1.3)
+      multi_json (~> 1.0)
       rubyzip
     simple_oauth (0.1.5)
     sinatra (1.3.2)
@@ -579,7 +582,7 @@ DEPENDENCIES
   ruby-debug19
   ruby-oembed (~> 0.8.7)
   sass-rails (= 3.1.4)
-  selenium-webdriver
+  selenium-webdriver (= 2.22.0.rc1)
   settingslogic!
   spork (~> 1.0rc2)
   sqlite3
