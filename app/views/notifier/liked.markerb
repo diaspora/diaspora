@@ -1,0 +1,7 @@
+<%= "#{t('.liked', :name => "#{@notification.sender.name}")}:" %>
+
+<%= post_message(@notification.like.target, :process_newlines => true) %>
+
+[<%= t('.view_post') %>][1]
+
+[1]: <%= post_url(@notification.like.target) %>
