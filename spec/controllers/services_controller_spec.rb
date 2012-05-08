@@ -47,18 +47,6 @@ describe ServicesController do
         }.to change(@user.services, :count).by(1)
       end
 
-      it 'redirects to getting started if the user is getting started' do
-        @user.getting_started = true
-        post :create, :provider => 'twitter'
-        response.should redirect_to getting_started_path
-      end
-
-      it 'redirects to services url if user is not getting started' do
-        @user.getting_started = false
-        post :create, :provider => 'twitter'
-        response.should redirect_to services_url
-      end
-
       it 'creates a twitter service' do
         Service.delete_all
         @user.getting_started = false

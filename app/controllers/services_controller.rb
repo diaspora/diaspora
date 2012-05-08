@@ -49,11 +49,7 @@ class ServicesController < ApplicationController
       end
     end
 
-    if current_user.getting_started
-      redirect_to  getting_started_path
-    else
-      redirect_to services_url
-    end
+    render :text => ("<script>window.close()</script>")
   end
 
   def failure

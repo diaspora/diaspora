@@ -12,7 +12,14 @@ describe("app.models.User", function(){
       this.user.set({id : 1})
       expect(this.user.authenticated()).toBeTruthy();
     });
+  });
 
+  describe("isServiceConnected", function(){
+    it("checks to see if the sent provider name is a configured service", function(){
+      this.user.set({configured_services : ["facebook"]})
+      expect(this.user.isServiceConfigured("facebook")).toBeTruthy()
+      expect(this.user.isServiceConfigured("tumblr")).toBeFalsy()
+    });
   });
 });
 

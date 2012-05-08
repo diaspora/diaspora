@@ -26,4 +26,12 @@ describe UserPresenter do
       @presenter.services.should include(:provider => 'fakebook')
     end
   end
+
+  describe '#configured_services' do
+    it 'displays a list of the users configured services' do
+      fakebook = stub(:provider => 'fakebook')
+      bob.stub(:services).and_return([fakebook])
+      @presenter.configured_services.should include("fakebook")
+    end
+  end
 end
