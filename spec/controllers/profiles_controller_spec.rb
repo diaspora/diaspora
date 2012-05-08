@@ -10,33 +10,15 @@ describe ProfilesController do
   end
 
   describe '#show' do
-    it "returns the user as json" do
-      get :show, :id => eve.person.guid, :format => :json
-      JSON.parse(response.body).should include(JSON.parse(eve.person.as_api_response(:backbone).to_json))
-    end
+    let(:mock_person) {mock_model(User)}
+    let(:mock_presenter) { mock(:as_json => {:rock_star => "Jamie Cai"})}
 
-    it "returns the user's public information if a user is not logged in" do
-      sign_out :user
-      get :show, :id => eve.person.guid, :format => :json
-      JSON.parse(response.body).should include(JSON.parse(eve.person.as_api_response(:backbone).to_json))
-    end
+    it "returns a post Presenter" do
+      Person.should_receive(:find_by_guid!).with("12345").and_return(mock_person)
+      PersonPresenter.should_receive(:new).with(mock_person, eve).and_return(mock_presenter)
 
-    it "returns the user's public information if a user is logged in and the visiting user is not receiving" do
-      sign_in :user, alice
-      get :show, :id => eve.person.guid, :format => :json
-      response.body.should_not match(/.location./)
-    end
-
-    it "returns the user's private information if a user is logged in and the visiting user is receiving" do
-      sign_in :user, bob
-      get :show, :id => eve.person.guid, :format => :json
-      response.body.should match(/.location./)
-    end
-
-    it "returns the user's private information if a user is logged in as herself" do
-      sign_in :user, eve
-      get :show, :id => eve.person.guid, :format => :json
-      response.body.should match(/.location./)
+      get :show, :id => 12345, :format => :json
+      response.body.should == {:rock_star => "Jamie Cai"}.to_json
     end
   end
 

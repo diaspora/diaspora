@@ -17,7 +17,7 @@ app.views.Canvas = app.views.Base.extend(_.extend({}, app.views.infiniteScrollMi
       if(person.get("is_own_profile")){
         message = "Make something to start the magic."
       } else {
-        var name = person.get("full_name") || ""
+        var name = person.get("name") || ""
         message = name + " hasn't posted anything yet."
       }
 

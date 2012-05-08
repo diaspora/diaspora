@@ -71,7 +71,7 @@ app.views.SmallFrame = app.views.Post.extend({
   },
 
   adjustedImageHeight : function() {
-    if(!this.model.get("photos")[0]) { return }
+    if(!(this.model.get("photos") || [])[0]) { return }
 
     var modifiers = [this.dimensionsClass(), this.colorClass()].join(' ')
 

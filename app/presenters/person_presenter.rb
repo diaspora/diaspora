@@ -29,6 +29,6 @@ class PersonPresenter
   protected
 
   def person_is_following_current_user
-    @current_user.contacts.receiving.where(:person_id => @person.id).first
+    @person.shares_with(@current_user)
   end
 end

@@ -37,9 +37,7 @@ app.pages.Profile = app.views.Base.extend({
 
     this.canvasView = new app.views.Canvas({ model : this.stream })
     this.wallpaperForm = new app.forms.Wallpaper()
-
-    // send in isOwnProfile data
-    this.profileInfo = new app.views.ProfileInfo({ model : this.model.set({isOwnProfile : this.isOwnProfile()}) })
+    this.profileInfo = new app.views.ProfileInfo({ model : this.model })
   },
 
   presenter : function(){
@@ -47,7 +45,6 @@ app.pages.Profile = app.views.Base.extend({
 
     return _.extend(this.defaultPresenter(),
       {text : this.model && app.helpers.textFormatter(bio, this.model),
-        isOwnProfile : this.isOwnProfile(),
         showFollowButton : this.showFollowButton()
       })
   },
@@ -84,10 +81,6 @@ app.pages.Profile = app.views.Base.extend({
   },
 
   showFollowButton : function() {
-    return this.followingEnabled() && !this.isOwnProfile()
-  },
-
-  isOwnProfile : function() {
-    return(app.currentUser.get("guid") == this.personGUID)
+    return this.followingEnabled() && !this.model.get("is_own_profile")
   }
 });

@@ -33,7 +33,7 @@ describe("app.pages.Profile", function(){
   describe("rendering", function(){
     context("with no posts", function(){
       beforeEach(function(){
-        this.profile.set({"full_name" : "Alice Waters", person_id : "889"})
+        this.profile.set({"name" : "Alice Waters", person_id : "889"})
       })
 
       it("has a message that there are no posts", function(){
@@ -59,7 +59,7 @@ describe("app.pages.Profile", function(){
 
       context("profile control pane", function(){
         it("shows the edit and create buttons if it's your profile", function() {
-          spyOn(this.page, "isOwnProfile").andReturn(true)
+          this.page.model.set({is_own_profile : true})
           this.page.render()
           expect(this.page.$("#profile-controls .control").length).toBe(2)
         })
@@ -129,23 +129,6 @@ describe("app.pages.Profile", function(){
         this.page.toggleEdit()
         expect(this.page.$el).toHaveClass('edit-mode')
       })
-    })
-  })
-
-  describe("isOwnProfile", function(){
-    beforeEach(function(){
-      this.user = new app.models.User(factory.author())
-      this.page.personGUID = this.user.get("guid")
-    })
-
-    it("returns true if app.currentUser matches the current profile's user", function(){
-      app.currentUser = this.user
-      expect(this.page.isOwnProfile()).toBeTruthy()
-    })
-
-    it("returns false if app.currentUser does not match the current profile's user", function(){
-      app.currentUser = new app.models.User(factory.author({guid : "nope!"}))
-      expect(this.page.isOwnProfile()).toBeFalsy()
     })
   })
 

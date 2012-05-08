@@ -1,4 +1,4 @@
-{{#if isOwnProfile}}
+{{#if is_own_profile}}
     <div id="wallpaper-upload"></div>
 {{/if}}
 
@@ -34,7 +34,7 @@
             </a>
         {{/if}}
 
-        {{#if isOwnProfile}}
+        {{#if is_own_profile}}
             <a href="/users/sign_out" title="Log out" id="logout-button">
                 <span class="label label-inverse">
                     <i class="icon-off icon-white"></i>
@@ -46,7 +46,7 @@
     <section id="profile-info"/>
 
     <section id="profile-controls">
-        {{#if isOwnProfile}}
+        {{#if is_own_profile}}
             <a href="#composer" id="composer-button" class="control small" rel="facebox">
                 <img src='{{imageUrl "buttons/pub@2x.png"}}' title="New Post" rel="tooltip"/>
             </a>
