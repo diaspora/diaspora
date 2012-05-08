@@ -475,7 +475,7 @@ GEM
     uglifier (1.2.4)
       execjs (>= 0.3.0)
       multi_json (>= 1.0.2)
-    unicorn (4.2.1)
+    unicorn (4.3.1)
       kgio (~> 2.6)
       rack
       raindrops (~> 0.7)
@@ -591,7 +591,7 @@ DEPENDENCIES
   twitter (= 2.0.2)
   typhoeus
   uglifier
-  unicorn (~> 4.2.0)
+  unicorn (~> 4.3.0)
   webmock
   whenever
   will_paginate
