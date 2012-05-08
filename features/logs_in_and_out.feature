@@ -13,4 +13,5 @@ Feature: user authentication
     Given I am signed in
     And I click on my name in the header
     And I follow "Log out"
+    And I wait for 1 seconds 
     Then I should be on the new user session page
