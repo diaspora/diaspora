@@ -1002,12 +1002,6 @@ pl:
       what_are_you_in_to: "Czym się interesujesz?"
       what_facebook_does: "do diaspory. Zostanie pobrane imię i nazwiskiem , zdjęcie oraz włączone wzajemne publikowanie."
       who_are_you: "Kim jesteś?"
-    logged_out:
-      go_mobile: "Teraz na urządzeniach przenośnych."
-      on_your_mobile_device: "na urządzeniu przenośnym by mieć dostęp do mobilnej wersji Diaspory*"
-      signed_out: "Wyrejestrowa@{m:łeś|f:łaś|n:no} się z Diaspory*"
-      simply_visit: "Wystarczy odwiedzić"
-      works_on_modern: "Działa na wszystkich nowoczesnych smartfonach"
     privacy_settings:
       ignored_users: "Ignorowani użytkownicy"
       stop_ignoring: "Przestań ignorować"

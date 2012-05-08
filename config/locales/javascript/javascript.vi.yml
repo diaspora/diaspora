@@ -86,7 +86,7 @@ vi:
       show_nsfw_post: "Hiện bài đăng"
       show_nsfw_posts: "Hiện tất cả"
       unfollow: "Bỏ theo dõi"
-      unlike: "Không thích"
+      unlike: "Bỏ thích"
     tags:
       wasnt_that_interesting: "Tôi cho rằng #<%= tagName %> không thú vị..."
     timeago:

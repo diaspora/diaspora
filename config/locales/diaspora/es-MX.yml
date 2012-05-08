@@ -50,6 +50,8 @@ es-MX:
       weekly_user_stats: "Estadísticas semanales de usuario"
     correlations:
       correlations_count: "Correlaciones con el conteo de inicio de sesión:"
+    stats:
+      go: "ir"
     user_search:
       add_invites: "añadir invitaciones"
       email_to: "Mandar invitación por correo electrónico a"
@@ -929,12 +931,6 @@ es-MX:
       what_are_you_in_to: "¿Qué te gusta hacer?"
       what_facebook_does: "a Diaspora. Esto mostrará tu nombre y tu foto, y permitirá publicaciones-cruzadas."
       who_are_you: "¿Quién eres?"
-    logged_out:
-      go_mobile: "Ahora desde tu celular."
-      on_your_mobile_device: "desde tu dispositivo móvil para acceder a Diaspora* móvil."
-      signed_out: "Has salido de Diaspora*"
-      simply_visit: "Simplemente visita"
-      works_on_modern: "Funciona en todos los smartphones modernos"
     privacy_settings:
       ignored_users: "Usuarios ignorados"
       stop_ignoring: "Dejar de ignorar"

@@ -127,6 +127,7 @@ it:
     viewer:
       comment: "Commenta"
       follow_post: "Segui il post"
+      home: "HOME"
       like: "Mi piace"
       reshare: "Condividi"
       reshared: "Condiviso"

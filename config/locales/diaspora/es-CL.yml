@@ -933,12 +933,6 @@ es-CL:
       what_are_you_in_to: "En que estas?"
       what_facebook_does: "con Diaspora. Esto mostrará tu nombre y foto, también activará la publicación cruzada."
       who_are_you: "Quien eres tu?"
-    logged_out:
-      go_mobile: "Ahora desde tu celular"
-      on_your_mobile_device: "desde tu celular para acceder a Diaspora* móvil."
-      signed_out: "Te has desconectado de Diaspora*"
-      simply_visit: "Simplemente visita"
-      works_on_modern: "Funciona en todos los smartphones modernos"
     privacy_settings:
       ignored_users: "Usuarios ignorados"
       stop_ignoring: "Dejar de ignorar"

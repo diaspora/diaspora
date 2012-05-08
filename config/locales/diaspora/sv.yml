@@ -50,6 +50,8 @@ sv:
       weekly_user_stats: "Veckovis användarstatistik"
     correlations:
       correlations_count: "Korrelationer med antalet inloggningar:"
+    stats:
+      go: "gå"
     user_search:
       add_invites: "lägg till inbjudningar"
       email_to: "Skicka ett e-brev för att bjuda in"
@@ -678,11 +680,8 @@ sv:
     reshare:
       deleted: "Det ursprungliga inlägget är raderat."
       reshare:
-        few: "%{count} sprider detta vidare"
-        many: "%{count} sprider detta vidare"
         one: "En har delat vidare"
         other: "%{count} har delat vidare"
-        two: "Två sprider detta vidare"
         zero: "Dela vidare"
       reshare_confirmation: "Vill du dela %{author}s inlägg vidare?"
       reshare_original: "Dela originalet vidare"
@@ -950,12 +949,6 @@ sv:
       what_are_you_in_to: "Vad gillar du?"
       what_facebook_does: "till Diaspora. Detta kommer att hämta ditt namn och foto, och tillåta inlägg att flöda mellan."
       who_are_you: "Vem är du?"
-    logged_out:
-      go_mobile: "Använd nu mobilen."
-      on_your_mobile_device: "i din mobil för att komma till Diaspora* mobile."
-      signed_out: "Du har loggat ut ifrån Diaspora*"
-      simply_visit: "Besök helt enkelt"
-      works_on_modern: "Fungerar på alla moderna smartphones"
     privacy_settings:
       ignored_users: "Ignorerade användare"
       stop_ignoring: "Sluta ignorera"

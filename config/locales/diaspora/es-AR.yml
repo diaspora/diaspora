@@ -1001,12 +1001,6 @@ es-AR:
       what_are_you_in_to: "¿Qué sos por dentro?"
       what_facebook_does: "con Diaspora. Esto mostraŕa tu nombre y foto, y activará la publicación cruzada."
       who_are_you: "¿Quién sos?"
-    logged_out:
-      go_mobile: "Ahora en tu celular."
-      on_your_mobile_device: "en tu dispositivo móvil para acceder a Diáspora* móvil."
-      signed_out: "Te desconectaste de Diáspora*"
-      simply_visit: "Simplemente visita"
-      works_on_modern: "Funciona en todos los smartphones modernos"
     privacy_settings:
       ignored_users: "Usuarios ignorados"
       stop_ignoring: "Dejar de ignorar"

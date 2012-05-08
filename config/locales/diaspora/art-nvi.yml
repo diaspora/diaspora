@@ -246,12 +246,6 @@ art-nvi:
     getting_started:
       well_hello_there: "Tse, kaltxì tsatseng!"
       who_are_you: "Pesu nga lu"
-    logged_out:
-      go_mobile: "Sar hì'ia eltuti lefngap."
-      on_your_mobile_device: "mì ngeyä hì'ia eltu lefngap fte sar diasporati ahì'i"
-      signed_out: "Nga holum Diasporait"
-      simply_visit: "Frrfen"
-      works_on_modern: "Fì'u tìkangkem si mì syawyu lefngap lefkrr nìwotx"
     privacy_settings:
       title: "Le'aw 'awpoä Sìfkeytok"
     update:

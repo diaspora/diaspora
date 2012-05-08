@@ -935,10 +935,6 @@ ar:
       saved: "تم الحفظ!"
       what_facebook_does: "to Diaspora. This will pull your name and photo, and enable cross-positng."
       who_are_you: "من أنت؟"
-    logged_out:
-      go_mobile: "اذهب الى الجوال"
-      signed_out: "تم تسجيل خروجك من دياسبرا"
-      works_on_modern: "يعمل على جميع الهواتف الذكية الحديثة"
     privacy_settings:
       ignored_users: "المستخدمين الذين تم تجاهلهم"
       stop_ignoring: "اوقف التجاهل"

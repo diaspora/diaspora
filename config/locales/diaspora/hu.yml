@@ -1001,12 +1001,6 @@ hu:
       what_are_you_in_to: "Mi érdekel?"
       what_facebook_does: "Így itt is megjelenik a képed, neved és engedélyezed a közös bejegyzéseket."
       who_are_you: "Ki is vagy?"
-    logged_out:
-      go_mobile: "Maradj kapcsolatban."
-      on_your_mobile_device: "címet a telefonodon és próbáld ki a Diaspora* mobil változatát."
-      signed_out: "Kijelentkeztél a Diaspora* rendszerből"
-      simply_visit: "Keresd fel a"
-      works_on_modern: "Az összes modern okostelefonon működik"
     privacy_settings:
       ignored_users: "Mellőzött felhasználók"
       stop_ignoring: "Mellőzés feloldása"

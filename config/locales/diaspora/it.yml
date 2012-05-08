@@ -50,6 +50,8 @@ it:
       weekly_user_stats: "Statistiche settimanali utenti"
     correlations:
       correlations_count: "Correlazioni con il numero di login"
+    stats:
+      go: "vai"
     user_search:
       add_invites: "aggiungi inviti"
       email_to: "Email per l'invito"
@@ -986,12 +988,6 @@ it:
       what_are_you_in_to: "Di cosa ti interessi?"
       what_facebook_does: "a Diaspora. Così scaricherai nome e foto, oltre ad abilitare l'invio dei post anche verso l'altro social network."
       who_are_you: "Chi sei?"
-    logged_out:
-      go_mobile: "Passa alla versione mobile."
-      on_your_mobile_device: "sul tuo cellulare per accedere a Diaspora* mobile."
-      signed_out: "Hai appena lasciato Diaspora*"
-      simply_visit: "Visita semplicemente"
-      works_on_modern: "Funziona su tutti i moderni smartphone"
     privacy_settings:
       ignored_users: "Utenti ignorati"
       stop_ignoring: "Smetti di ignorare"

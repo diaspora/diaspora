@@ -855,8 +855,6 @@ cs:
       well_hello_there: "Jé, ahojte!"
       what_facebook_does: "to Diaspora. This will pull your name and photo, and enable cross-positng."
       who_are_you: "Kdo jste?"
-    logged_out:
-      signed_out: "Odhlásili jste se z Diaspory*"
     privacy_settings:
       title: "Nastavení soukromí"
     public:
