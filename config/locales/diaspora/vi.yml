@@ -361,18 +361,10 @@ vi:
         two: "%{count} người không thích"
         zero: "chưa có người không thích"
       people_like_this:
-        few: "%{count} người thích"
-        many: "%{count} người thích"
-        one: "%{count} người thích"
         other: "%{count} lượt thích"
-        two: "%{count} người thích"
         zero: "không có ai thích"
       people_like_this_comment:
-        few: "%{count} người thích"
-        many: "%{count} người thích"
-        one: "%{count} người thích"
         other: "%{count} lượt thích"
-        two: "%{count} người thích"
         zero: "không có ai thích"
   limited: "Giới hạn"
   more: "Thêm nữa"
@@ -683,11 +675,7 @@ vi:
       success: "Bạn đang chia sẻ."
     helper:
       new_requests:
-        few: "%{count} new requests!"
-        many: "%{count} new requests!"
-        one: "new request!"
         other: "%{count} yêu cầu mới!"
-        two: "%{count} new requests!"
         zero: "không có yêu cầu mới"
     manage_aspect_contacts:
       existing: "Liên lạc đang tồn tại"
@@ -701,11 +689,7 @@ vi:
     reshare:
       deleted: "Bài đăng gốc đã bị tác giả xoá."
       reshare:
-        few: "%{count} reshares"
-        many: "%{count} reshares"
-        one: "1 reshare"
         other: "%{count} lượt chia sẻ"
-        two: "%{count} reshares"
         zero: "Không có ai chia sẻ lại"
       reshare_confirmation: "Chia sẻ lại bài đăng của %{author}?"
       reshare_original: "Chia sẻ lại bài gốc"
@@ -963,11 +947,6 @@ vi:
       well_hello_there: "Chào bạn!"
       what_facebook_does: "to Diaspora. This will pull your name and photo, and enable cross-positng."
       who_are_you: "Bạn là ai?"
-    logged_out:
-      go_mobile: "Chuyển qua di động."
-      on_your_mobile_device: "trên thiết bị di động của bạn để truy cập Diaspora*"
-      signed_out: "Bạn đã đăng xuất khỏi Diaspora*"
-      works_on_modern: "Hoạt động trên mọi điện thoại thông minh hiện đại"
     privacy_settings:
       ignored_users: "Người dùng bị bỏ qua"
       stop_ignoring: "Dừng bỏ qua"

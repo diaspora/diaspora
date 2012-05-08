@@ -154,5 +154,5 @@ When /^I click the "([^"]*)" post$/ do |post_text|
 end
 
 Then /^"([^"]*)" should be the first canvas frame$/ do |post_text|
-  find(".canvas-frame:first").should have_content(post_text)
-end
+  find(".canvas-frame").should have_content(post_text)
+end 

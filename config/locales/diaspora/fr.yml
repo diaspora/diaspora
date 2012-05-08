@@ -50,6 +50,8 @@ fr:
       weekly_user_stats: "Statistiques hebdomadaires"
     correlations:
       correlations_count: "Corrélations avec le nombre d'inscrits :"
+    stats:
+      go: "exécuter"
     user_search:
       add_invites: "ajouter des invitations"
       email_to: "Adresse e-mail de la personne à inviter"
@@ -1000,12 +1002,6 @@ fr:
       what_are_you_in_to: "Qu'aimez-vous faire ?"
       what_facebook_does: "à Diaspora*. Ça permettra d'importer votre nom et votre photo, et aussi d'y publier vos messages."
       who_are_you: "Qui êtes-vous ?"
-    logged_out:
-      go_mobile: "Maintenant sur mobiles."
-      on_your_mobile_device: "sur votre mobile pour accéder à Diaspora*."
-      signed_out: "Vous vous êtes déconnecté de Diaspora*"
-      simply_visit: "Il suffit de visiter"
-      works_on_modern: "Fonctionne sur tous les smartphones modernes"
     privacy_settings:
       ignored_users: "Utilisateurs ignorés"
       stop_ignoring: "Arrêter d'ignorer"

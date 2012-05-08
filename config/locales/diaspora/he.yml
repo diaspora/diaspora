@@ -983,12 +983,6 @@ he:
       what_are_you_in_to: "?במה אתה מעוניין"
       what_facebook_does: "עבור דיאספורה. זה יאפשר את מציאת השם והתמונה שלך, ויאפשר רשומות חופפות"
       who_are_you: "?מי אתה"
-    logged_out:
-      go_mobile: "עכשיו הצטרף לנייד"
-      on_your_mobile_device: "* במכשיר הנייד שלך תוכל להיכנס לדיאספורה"
-      signed_out: "Diaspora* התנתקת מ"
-      simply_visit: "פשוט תבקר "
-      works_on_modern: "פועל בכל הסמארטפונים"
     privacy_settings:
       ignored_users: "משתמשים חסומים"
       stop_ignoring: "הפסק לחסום/להתעלם"

@@ -999,12 +999,6 @@ pt-BR:
       what_are_you_in_to: "Onde você está?"
       what_facebook_does: "ao Diaspora. Isso vai importar seu nome, sua foto e permitir que você poste nesse serviço."
       who_are_you: "Quem é você?"
-    logged_out:
-      go_mobile: "Agora vá de móvel."
-      on_your_mobile_device: "em seu dispositivo móvel para acessar Diáspora* móvel."
-      signed_out: "Você saiu de Diaspora*"
-      simply_visit: "Basta visitar"
-      works_on_modern: "Funciona em todos smartphones modernos"
     privacy_settings:
       ignored_users: "Usuários Ignorados"
       stop_ignoring: "Para ignorações"

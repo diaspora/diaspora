@@ -907,12 +907,6 @@ fi:
       what_are_you_in_to: "Mistä olet kiinnostunut?"
       what_facebook_does: "Diasporaan. Nimesi ja kuvasi haetaan Diasporaan, ja tämän jälkeen voit myös lähettää viestejä Diasporasta Facebookiin."
       who_are_you: "Kuka olet?"
-    logged_out:
-      go_mobile: "Siirry nyt mobiiliin."
-      on_your_mobile_device: "mobiililaitteellasi päästäksesi Diasporan mobiilisivustolle."
-      signed_out: "Olet kirjautunut ulos Diasporasta"
-      simply_visit: "Voit yksinkertaisesti mennä osoitteeseen"
-      works_on_modern: "Toimii kaikilla moderneilla älypuhelimilla"
     privacy_settings:
       ignored_users: "Sivuutetut käyttäjät"
       stop_ignoring: "Lakkaa sivuuttamasta"

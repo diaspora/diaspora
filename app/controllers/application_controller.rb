@@ -106,10 +106,17 @@ class ApplicationController < ActionController::Base
   end
 
   def after_sign_in_path_for(resource)
-    stored_location_for(:user) || (current_user.getting_started? ? getting_started_path : root_path)
+    stored_location_for(:user) || current_user_redirect_path
   end
 
   def max_time
     params[:max_time] ? Time.at(params[:max_time].to_i) : Time.now + 1
+  end
+
+  private
+
+  def current_user_redirect_path
+    return person_path(current_user.person) if current_user.beta?
+    current_user.getting_started? ? getting_started_path : root_path
   end
 end

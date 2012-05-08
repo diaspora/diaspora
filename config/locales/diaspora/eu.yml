@@ -954,12 +954,6 @@ eu:
       what_are_you_in_to: "Zelan zabiltza?"
       what_facebook_does: "Diasporara. Honek zure izena eta argazkia erakutsiko ditu, eta zeharkako mezuak ahalbidetuko ditu."
       who_are_you: "Zein zara?"
-    logged_out:
-      go_mobile: "Mugikor bertsiora joan."
-      on_your_mobile_device: "zure gailu mugikorrean Diasporaren bertsio mugikorrera sartu ahal izateko."
-      signed_out: "Diasporatik atera zara"
-      simply_visit: "Bisitatu soilik"
-      works_on_modern: "Smartphone berri guztietan dabil"
     privacy_settings:
       ignored_users: "Sahiestutako Erabiltzaileak"
       stop_ignoring: "Utzi sahiesteari"

@@ -927,12 +927,6 @@ nl:
       what_are_you_in_to: "Wat interesseert je?"
       what_facebook_does: "met Diaspora. Je naam en foto worden dan overgezet, en je kan heen en weer posten."
       who_are_you: "Wie ben je?"
-    logged_out:
-      go_mobile: "Ga nu mobile."
-      on_your_mobile_device: "op jouw mobiele telefoon om toegang te krijgen tot Diaspora* mobile. "
-      signed_out: "Je bent nu uitgelogd uit Diaspora*"
-      simply_visit: "Bezoek simpelweg"
-      works_on_modern: "Werkt op alle moderne smartphones"
     privacy_settings:
       ignored_users: "Genegeerde Gebruikers"
       stop_ignoring: "Stop negeren"

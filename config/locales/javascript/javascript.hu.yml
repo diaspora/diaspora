@@ -127,6 +127,7 @@ hu:
     viewer:
       comment: "Hozzászólás"
       follow_post: "Követem"
+      home: "KEZDŐLAP"
       like: "Tetszik"
       reshare: "Megosztás"
       reshared: "Megosztva"

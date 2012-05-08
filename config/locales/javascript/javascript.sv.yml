@@ -93,11 +93,8 @@ sv:
       public: "Publik"
       reshare: "Dela vidare"
       reshares:
-        few: "<%= count %> sprider vidare"
-        many: "<%= count %> sprider vidare"
         one: "En delar vidare"
         other: "<%= count %> delar vidare"
-        two: "<%= count %> sprider vidare"
         zero: "Ingen delar vidare"
       show_nsfw_post: "Visa inlägg"
       show_nsfw_posts: "Visa alla"
@@ -127,6 +124,7 @@ sv:
     viewer:
       comment: "Kommentar"
       follow_post: "Följ inlägg"
+      home: "HEM"
       like: "Gilla"
       reshare: "Dela vidare"
       reshared: "Återdelad"

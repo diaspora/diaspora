@@ -915,12 +915,6 @@ da:
       what_are_you_in_to: "Hvad er dine interesser?"
       what_facebook_does: "til diaspora. Dette vil hente dit navn og foto, samt gøre det muligt at skrive indlæg på tværs af platforme."
       who_are_you: "Hvem er du?"
-    logged_out:
-      go_mobile: "Bliv mobil nu."
-      on_your_mobile_device: "på din mobile enhed til at få adgang til Diaspora* mobil."
-      signed_out: "Du er logget ud af Diaspora*"
-      simply_visit: "Du skal blot besøge"
-      works_on_modern: "Virker på alle moderne smartphones"
     privacy_settings:
       ignored_users: "Ignorerede brugere"
       stop_ignoring: "Hold op med at ignorere"

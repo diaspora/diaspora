@@ -17,14 +17,8 @@ describe LayoutHelper do
     end
 
     context "passed blank text" do
-      it "returns current_user.name if logged in" do
-        @current_user = @user
-        page_title.should == @user.name
-      end
-
-      it "returns default title if not logged in" do
-        @current_user = nil
-        page_title.should == I18n.t("application.helper.diaspora_alpha")
+      it "returns Diaspora*" do
+        page_title.should == "Diaspora*"
       end
     end
 

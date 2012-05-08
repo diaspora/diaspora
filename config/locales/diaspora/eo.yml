@@ -901,12 +901,6 @@ eo:
       what_are_you_in_to: "Pri kio vi ŝatokupiĝas?"
       what_facebook_does: "al Diaspora. Tio tiros vian nomon kaj foton, kaj ebligos krucreferencadon."
       who_are_you: "Kiu vi estas?"
-    logged_out:
-      go_mobile: "Nun uzu poŝtelefonan!"
-      on_your_mobile_device: "per via poŝtelefono uzi DIASPORA* poŝtelefonan."
-      signed_out: "Vi elsalutis je DIASPORA*."
-      simply_visit: "Nur iru al"
-      works_on_modern: "Funkcias per ĉiuj modernaj poŝtelefonoj"
     privacy_settings:
       ignored_users: "Ignoritaj Uzantoj"
       stop_ignoring: "Ĉesi ignori"

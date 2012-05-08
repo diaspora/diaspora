@@ -115,6 +115,7 @@ es-MX:
     viewer:
       comment: "Comentar"
       follow_post: "Seguir esta publicación"
+      home: "INICIO"
       like: "Me gusta"
       reshare: "Compartir"
       reshared: "Compartido"

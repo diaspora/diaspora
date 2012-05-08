@@ -127,6 +127,7 @@ fr:
     viewer:
       comment: "Commenter"
       follow_post: "Suivre cette discussion"
+      home: "Accueil"
       like: "J'aime"
       reshare: "Repartager"
       reshared: "Repartagé"

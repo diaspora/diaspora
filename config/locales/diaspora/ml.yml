@@ -942,12 +942,6 @@ ml:
       what_are_you_in_to: "What are you into?"
       what_facebook_does: "to Diaspora. This will pull your name and photo, and enable cross-posting."
       who_are_you: "Who are you?"
-    logged_out:
-      go_mobile: "Now go mobile."
-      on_your_mobile_device: "on your mobile device to access Diaspora* mobile."
-      signed_out: "You've signed out of Diaspora*"
-      simply_visit: "Simply visit"
-      works_on_modern: "Works on all modern smartphones"
     privacy_settings:
       ignored_users: "Ignored Users"
       stop_ignoring: "Stop ignoring"

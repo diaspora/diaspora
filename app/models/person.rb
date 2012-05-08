@@ -309,6 +309,11 @@ class Person < ActiveRecord::Base
     end
   end
 
+  #gross method pulled out from controller, not exactly sure how it should be used.
+  def shares_with(user)
+    user.contacts.receiving.where(:person_id => self.id).first if user
+  end
+
   # @param person [Person]
   # @param url [String]
   def update_url(url)
@@ -339,6 +344,7 @@ class Person < ActiveRecord::Base
   end
 
   private
+
   def fix_profile
     Webfinger.new(self.diaspora_handle).fetch
     self.reload

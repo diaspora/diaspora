@@ -975,12 +975,6 @@ el:
       what_are_you_in_to: "Με τι ασχολείστε?"
       what_facebook_does: "στο Diaspora. Θα πάρει το όνομα και τη φωτογραφία σας, και θα επιτρέψει την ανταλλαγή δημοσιεύσεων μεταξύ τους (cross-posting)."
       who_are_you: "Ποιός είστε;"
-    logged_out:
-      go_mobile: "Εναλλαγή σε κινητό."
-      on_your_mobile_device: "στη κινητή συσκευή σας για να έχετε πρόσβαση στη κινητή έκδοση του Diaspora*."
-      signed_out: "Έχετε αποσυνδεθεί από το Diaspora*"
-      simply_visit: "Απλά επισκεφθείτε "
-      works_on_modern: "Δουλεύει σε όλα τα μοντέρνα smartphones"
     privacy_settings:
       ignored_users: "Αγνοημένοι Χρήστες"
       stop_ignoring: "Διακοπή Αγνόησης"

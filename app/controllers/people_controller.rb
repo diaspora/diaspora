@@ -119,7 +119,9 @@ class PeopleController < ApplicationController
       format.all do
         if params[:ex]
           @page = :experimental
-          gon.stream = @stream.stream_posts.as_api_response(:backbone).as_json
+          gon.person = PersonPresenter.new(@person, current_user)
+          gon.stream = @stream.stream_posts.as_api_response(:backbone)
+
           render :nothing => true, :layout => 'post'
         else
           respond_with @person, :locals => {:post_type => :all}

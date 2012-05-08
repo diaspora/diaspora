@@ -10,9 +10,23 @@ app.views.Canvas = app.views.Base.extend(_.extend({}, app.views.infiniteScrollMi
 
   renderTemplate : function() {
     this.$el.empty()
-    this.stream.items.each(_.bind(function(post){
-      this.$el.append(this.createPostView(post).render().el);
-    }, this))
+
+    if(this.stream.items.isEmpty()){
+      var message
+        , person = app.page.model
+      if(person.get("is_own_profile")){
+        message = "Make something to start the magic."
+      } else {
+        var name = person.get("name") || ""
+        message = name + " hasn't posted anything yet."
+      }
+
+      this.$el.html("<p class='no-post-message'>" + message + "</p>")
+    } else {
+      this.stream.items.each(_.bind(function(post){
+        this.$el.append(this.createPostView(post).render().el);
+      }, this))
+    }
 
     //needs to be deferred so it happens after html rendering finishes
     _.defer(_.bind(this.mason, this))
