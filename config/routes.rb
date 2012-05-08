@@ -51,6 +51,7 @@ Diaspora::Application.routes.draw do
   end
 
   get 'bookmarklet' => 'status_messages#bookmarklet'
+  get 'new_bookmarklet' => 'status_messages#new_bookmarklet'
 
   resources :photos, :except => [:index] do
     put :make_profile_photo
