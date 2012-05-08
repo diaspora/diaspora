@@ -25,7 +25,10 @@ describe("app.views.ServicesSelector", function(){
     it("selects the checkbox when the image is clicked", function(){
       expect($("label[for=service_toggle_facebook]").css("opacity")).toBeLessThan(0.8) //floating point weirdness, be safe.
       this.view.$("input[value='facebook']").select()
-      expect($("label[for=service_toggle_facebook]").css("opacity")).toBe('1')
+
+        waitsFor(function(){
+          return $("label[for=service_toggle_facebook]").css("opacity") == 1
+      })
     })
   });
 });
