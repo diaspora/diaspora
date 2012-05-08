@@ -41,3 +41,18 @@ Scenario: Toggling nsfw state
   When I toggle nsfw posts
   Then I should not see "I love 0bj3ction4bl3 c0nt3nt!"
   And I should not see "Sexy Senators Gone Wild!"
+
+Scenario: Resharing an nsfw post
+  Given a nsfw user with email "tommy@pr0nking.com"
+  And a user with email "laura@officeworkers.com"
+  And a user with email "laura@officeworkers.com" is connected with "tommy@pr0nking.com"
+  And "tommy@pr0nking.com" has a public post with text "Sexy Senators Gone Wild!"
+  And I sign in as "laura@officeworkers.com"
+  And I toggle nsfw posts
+  And I preemptively confirm the alert
+  And I follow "Reshare"
+  And I wait for the ajax to finish
+  And I follow "Stream"
+  And I wait for the ajax to finish
+  Then I should have 2 nsfw posts
+  And I should not see "Sexy Senators Gone Wild!"
