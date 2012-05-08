@@ -6,8 +6,6 @@ mysql: &mysql
   charset: utf8
   collation: utf8_bin
 
-<<<<<<< HEAD:config/database.yml
-=======
 postgres: &postgres
   adapter: postgresql
   host: localhost
@@ -23,7 +21,6 @@ postgres_travis: &postgres_travis
 
 # Comment the the mysql line and uncomment the postgres line
 # if you want to use postgres
->>>>>>> c8f3bb3e9bc189367b50d263eb299e3d4b444f3d:config/database.yml.example
 common: &common
   # Choose one of the following
   <<: *mysql
