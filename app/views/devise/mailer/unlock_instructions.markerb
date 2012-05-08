@@ -1,0 +1,9 @@
+<%= t('devise.mailer.hello', :email => @resource.email) %>
+
+<%= t('.account_locked') %>
+
+<%= t('.click_to_unlock') %>
+
+[<%= t('.unlock') %>][1]
+
+[1]: <%= unlock_url(@resource, :unlock_token => @resource.unlock_token) %>

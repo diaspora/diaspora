@@ -1,0 +1,7 @@
+<%= "#{t('.reshared', :name => "#{@notification.sender.name}")}:" %>
+
+<%= post_message(@notification.reshare.root, :process_newlines => true) %>
+
+[<%= t('.view_post') %>][1]
+
+[1]: <%= post_url(@notification.reshare) %>

@@ -1,4 +1,0 @@
-!= t('notifier.hello', :name => @notification.recipient.profile.first_name)
-
-!= t('notifier.confirm_email.click_link', :unconfirmed_email => @notification.recipient.unconfirmed_email)
-!= confirm_email_url(:token => @notification.recipient.confirm_email_token)
