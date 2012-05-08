@@ -45,6 +45,7 @@ Feature: following and being followed
     And I am on "bob@bob.bob"'s page
 
     And I add the person to my "Besties" aspect
+    And I wait for the ajax to finish
     And I add the person to my "Unicorns" aspect
 
     When I go to the home page
@@ -73,7 +74,7 @@ Feature: following and being followed
     And I wait for the ajax to finish
 
     And I fill in "Name" with "Super People" in the modal window
-    And I press "aspect_submit" in the modal window
+    And I press "Create" in the modal window
     And I wait for the ajax to finish
 
     When I go to the home page

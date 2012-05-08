@@ -112,7 +112,6 @@ da:
         need_help: "Brug for hjælp?"
         tutorials_wiki_and_forum: "%{tutorial} & %{wiki} & %{forum}: Samfundsdrevne selvinstruktioner, vejledninger og nyheder"
       introduce_yourself: "Dette er din strøm. Hop ud i det og introducér dig selv."
-      keep_us_running: "Hold %{pod} kørende hurtigt og køb serverne deres kaffe fix med en månedlig donation!"
       new_here:
         follow: "Følg %{link} og byd nye brugere velkommen til Diaspora*!"
         learn_more: "Lær mere"
@@ -292,7 +291,6 @@ da:
       already_invited: "Følgende personer har ikke accepteret din invitation:"
       aspect: "Aspekt"
       check_out_diaspora: "Check Diaspora ud!"
-      comma_seperated_plz: "Du kan indtaste flere e-mailadresser adskilt med komma."
       if_they_accept_info: "hvis de accepterer, vil de blive tilføjet til det aspekt du inviterede dem til."
       invite_someone_to_join: "Invitér en person til Diaspora!"
       language: "Sprog"
@@ -917,12 +915,6 @@ da:
       what_are_you_in_to: "Hvad er dine interesser?"
       what_facebook_does: "til diaspora. Dette vil hente dit navn og foto, samt gøre det muligt at skrive indlæg på tværs af platforme."
       who_are_you: "Hvem er du?"
-    logged_out:
-      go_mobile: "Bliv mobil nu."
-      on_your_mobile_device: "på din mobile enhed til at få adgang til Diaspora* mobil."
-      signed_out: "Du er logget ud af Diaspora*"
-      simply_visit: "Du skal blot besøge"
-      works_on_modern: "Virker på alle moderne smartphones"
     privacy_settings:
       ignored_users: "Ignorerede brugere"
       stop_ignoring: "Hold op med at ignorere"

@@ -3,10 +3,21 @@
 #   the COPYRIGHT file.
 
 class ProfilesController < ApplicationController
-  before_filter :authenticate_user!
+  before_filter :authenticate_user!, :except => ['show']
 
-  respond_to :html
+  respond_to :html, :except => [:show]
   respond_to :js, :only => :update
+
+  # this is terrible because we're actually serving up the associated person here;
+  # however, this is the effect that we want for now
+  def show
+    @person = Person.find_by_guid!(params[:id])
+
+    respond_to do |format|
+      format.json { render :json => PersonPresenter.new(@person, current_user) }
+    end
+  end
+
   def edit
     @person = current_user.person
     @aspect  = :person_edit
@@ -50,6 +61,30 @@ class ProfilesController < ApplicationController
           redirect_to edit_profile_path
         end
       }
+    end
+  end
+
+  def upload_wallpaper_image
+    unless params[:photo].present?
+      respond_to do |format|
+        format.json { render :json => {"success" => false} }
+      end
+      return
+    end
+
+    if remotipart_submitted?
+      profile = current_user.person.profile
+
+      profile.wallpaper.store! params[:photo][:user_file]
+      if profile.save
+        respond_to do |format|
+          format.json { render :json => {"success" => true, "data" => {"wallpaper" => profile.wallpaper.url}} }
+        end
+      else
+        respond_to do |format|
+          format.json { render :json => {"success" => false} }
+        end
+      end
     end
   end
 

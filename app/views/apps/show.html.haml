@@ -6,7 +6,7 @@
   = "everything happening from #{@app}"
 
 - content_for :head do
-  = include_javascripts :home
+  = javascript_include_tag :home
 
 - content_for :body_class do
   = "apps_show"

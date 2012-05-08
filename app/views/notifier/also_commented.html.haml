@@ -1,4 +1,0 @@
-%p
-  = comment_message(@notification.comment, :process_newlines => true)
-%p
-  = link_to t('notifier.comment_on_post.reply', :name => @notification.comment.post.author.first_name), post_url(@notification.comment.post)

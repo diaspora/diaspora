@@ -22,7 +22,7 @@ class ApplicationController < ActionController::Base
                 :open_publisher
 
   def ensure_http_referer_is_set
-    request.env['HTTP_REFERER'] ||= root_path
+    request.env['HTTP_REFERER'] ||= '/'
   end
 
   # Overwriting the sign_out redirect path method
@@ -32,7 +32,7 @@ class ApplicationController < ActionController::Base
     if request.env['HTTP_USER_AGENT'].match(/mobile/i)
       root_path
     else
-      logged_out_path
+      new_user_session_path
     end
   end
 
@@ -71,6 +71,7 @@ class ApplicationController < ActionController::Base
     else
       locale = request.preferred_language_from AVAILABLE_LANGUAGE_CODES
       locale ||= request.compatible_language_from AVAILABLE_LANGUAGE_CODES
+      locale ||= DEFAULT_LANGUAGE
       I18n.locale = locale
     end
   end
@@ -105,10 +106,17 @@ class ApplicationController < ActionController::Base
   end
 
   def after_sign_in_path_for(resource)
-    stored_location_for(:user) || (current_user.getting_started? ? getting_started_path : stream_path)
+    stored_location_for(:user) || current_user_redirect_path
   end
 
   def max_time
     params[:max_time] ? Time.at(params[:max_time].to_i) : Time.now + 1
+  end
+
+  private
+
+  def current_user_redirect_path
+    return person_path(current_user.person) if current_user.beta?
+    current_user.getting_started? ? getting_started_path : root_path
   end
 end

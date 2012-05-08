@@ -102,7 +102,6 @@ ur-PK:
         tag_bug: "#bug"
         tag_feature: "#feature"
         tag_question: "#question"
-      keep_us_running: "Keep %{pod} running fast, buy our servers their monthly coffee fix!"
       no_contacts: "کوئ رابطہ نہیں"
       no_tags: "پیروی کرنے کے لئے ایک اصطلاح تلاش کریں +"
       people_sharing_with_you: "آپ کے ساتھ اشتراک کرنے والے افراد"

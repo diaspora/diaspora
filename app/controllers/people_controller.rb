@@ -82,14 +82,10 @@ class PeopleController < ApplicationController
   def show
     @person = Person.find_from_guid_or_username(params)
 
-    if remote_profile_with_no_user_session?
-      raise ActiveRecord::RecordNotFound
-    end
-
-    if @person.closed_account?
-      redirect_to :back, :notice => t("people.show.closed_account")
-      return
-    end
+    raise(ActiveRecord::RecordNotFound) if remote_profile_with_no_user_session?
+    return redirect_to :back, :notice => t("people.show.closed_account") if @person.closed_account?
+    return redirect_to person_path(@person) if cant_experimental
+    return redirect_to person_path(@person, :ex => true) if needs_experimental
 
     @post_type = :all
     @aspect = :profile
@@ -120,7 +116,17 @@ class PeopleController < ApplicationController
     end
 
     respond_to do |format|
-      format.all { respond_with @person, :locals => {:post_type => :all} }
+      format.all do
+        if params[:ex]
+          @page = :experimental
+          gon.person = PersonPresenter.new(@person, current_user)
+          gon.stream = @stream.stream_posts.as_api_response(:backbone)
+
+          render :nothing => true, :layout => 'post'
+        else
+          respond_with @person, :locals => {:post_type => :all}
+        end
+      end
       format.json{ render_for_api :backbone, :json => @stream.stream_posts, :root => :posts }
     end
   end
@@ -184,9 +190,21 @@ class PeopleController < ApplicationController
     end
   end
 
-  private
+  protected
+
+  def flag
+     @flag ||= FeatureFlagger.new(current_user, @person)
+  end
+
+  def cant_experimental
+    params[:ex] && !flag.new_profile?
+  end
+
+  def needs_experimental
+    !params[:ex] && flag.new_profile? && flag.new_hotness? && request.format == "text/html"
+  end
 
   def remote_profile_with_no_user_session?
-    @person && @person.remote? && !user_signed_in?
+    @person.try(:remote?) && !user_signed_in?
   end
 end

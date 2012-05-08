@@ -112,7 +112,6 @@ bg:
         tag_question: "въпрос"
         tutorials_wiki_and_forum: "%{tutorial}, %{wiki} и %{forum} - ръководства, съвети и новини от общността."
       introduce_yourself: "Това е вашият поток.  Включете се и се представете."
-      keep_us_running: "Осигурете бързата работа на %{pod} като дарите пари за месечната издръжка на сървърите!"
       new_here:
         follow: "Следете %{link} и приветствайте новите потребители на Diaspora*!"
         learn_more: "Научете повече"
@@ -291,7 +290,6 @@ bg:
     new:
       already_invited: "Следните хора не са потвърдили поканата ви:"
       aspect: "Аспект"
-      comma_seperated_plz: "Можете да въведете повече от една ел. поща като ги разделяте със запетаи."
       if_they_accept_info: "ако приемат поканата ще бъдат добавени към аспекта в който сте ги поканили."
       invite_someone_to_join: "Поканете някой в Diaspora!"
       language: "Език за поканата"
@@ -914,12 +912,6 @@ bg:
       what_are_you_in_to: "От какво се интересувате?"
       what_facebook_does: "с Diaspora. Така някои данни (име и снимка) ще бъдат попълнени автоматично и ще можете да публикувате съобщения във Facebook от Diaspora."
       who_are_you: "Кой сте вие?"
-    logged_out:
-      go_mobile: "Пробвайте и версията за мобилни устройства."
-      on_your_mobile_device: "от вашето мобилно устройство за достъп до мобилната версия на Diaspora*."
-      signed_out: "Отписахте се от Diaspora*"
-      simply_visit: "Просто посетете"
-      works_on_modern: "Съвместима е с всеки съвременен смартфон"
     privacy_settings:
       ignored_users: "Игнорирани потребители"
       stop_ignoring: "Прекратяване на игнорирането"

@@ -13,6 +13,7 @@ Feature: editing your profile
     And I select "30" from "profile_date_day"
 
     And I press "Update Profile"
+
     Then I should be on my edit profile page
     And I should see "Profile updated"
     And the "profile_gender" field should contain "Fearless"
@@ -22,3 +23,10 @@ Feature: editing your profile
     And the "profile_date_year" field should be filled with "1986"
     And the "profile_date_month" field should be filled with "11"
     And the "profile_date_day" field should be filled with "30"
+
+    When I go to my new profile page
+#   #commented out until we bring back the profile info on new profile
+#    Then I should see "Gender: Fearless"
+    And I should see "Boba Fett"
+#    And I should see "Bio: This is a bio"
+#    And I should see "Birthday: 1986-11-30"

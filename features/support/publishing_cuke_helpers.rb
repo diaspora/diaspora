@@ -17,8 +17,28 @@ module PublishingCukeHelpers
     ')
   end
 
+  def expand_first_post
+    find(".stream_element:first .expander").click
+    wait_until{ !find(".expander").visible? }
+  end
+
+  def first_post_collapsed?
+    find(".stream_element:first .collapsible").should have_css(".expander")
+    find(".stream_element:first .collapsible").has_selector?(".collapsed")
+  end
+
+  def first_post_expanded?
+    find(".stream_element:first .expander").should_not be_visible
+    find(".stream_element:first .collapsible").has_no_selector?(".collapsed")
+    find(".stream_element:first .collapsible").has_selector?(".opened")
+  end
+
   def first_post_text
-    find('.stream_element:first .post-content').text()
+    stream_element_numbers_content(1).text()
+  end
+
+  def stream_element_numbers_content(position)
+    find(".stream_element:nth-child(#{position}) .post-content")
   end
 
   def find_post_by_text(text)
@@ -50,17 +70,27 @@ module PublishingCukeHelpers
     wait_for_ajax_to_finish
   end
 
-  def make_comment(text)
-    fill_in "text", :with => text
+  def comment_on_show_page(comment_text)
+    within("#post-interactions") do 
+      focus_comment_box(".label.comment")
+      make_comment(comment_text, "new-comment-text")
+    end
+    wait_for_ajax_to_finish
+  end
+
+  def make_comment(text, elem="text")
+    fill_in elem, :with => text
     click_button :submit
   end
 
-  def focus_comment_box
-    find("a.focus_comment_textarea").click
+  def focus_comment_box(elem="a.focus_comment_textarea")
+    find(elem).click
   end
 
-  def wait_for_ajax_to_finish(wait_time=15)
-    wait_until(wait_time) { evaluate_script("$.active") == 0 }
+  def wait_for_ajax_to_finish(wait_time=30)
+    wait_until(wait_time) do
+      evaluate_script("$.active") == 0
+    end
   end
 
   def assert_nsfw(text)

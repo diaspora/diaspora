@@ -40,6 +40,26 @@ it:
             username:
               invalid: "non è valido. Sono permessi solamente lettere, numeri e underscore."
               taken: "è già stato preso."
+  admins:
+    admin_bar:
+      correlations: "Correlazioni"
+      pages: "Pagine"
+      pod_stats: "Statistiche pod"
+      resque_overview: "Supervisione Resque"
+      user_search: "Cerca utente"
+      weekly_user_stats: "Statistiche settimanali utenti"
+    correlations:
+      correlations_count: "Correlazioni con il numero di login"
+    stats:
+      go: "vai"
+    user_search:
+      add_invites: "aggiungi inviti"
+      email_to: "Email per l'invito"
+      users:
+        one: "trovato %{count} utente"
+        other: "trovati %{count} utenti"
+        zero: "trovati %{count} utenti"
+      you_currently: "al momento hai %{user_invitation} inviti a disposizione %{link}"
   ago: "%{time} fa"
   all_aspects: "Tutti gli aspetti"
   application:
@@ -117,7 +137,8 @@ it:
         tag_question: "domanda"
         tutorials_wiki_and_forum: "%{tutorial} & %{wiki} & %{forum}: Per le ultime notizie, le guide e i suggerimenti della comunità"
       introduce_yourself: "Questo è il tuo stream. Sali a bordo e presentati!"
-      keep_us_running: "Mantieni %{pod} veloce e scattante, la tua donazione mensile sarà il caffè per i nostri server!"
+      keep_diaspora_running: "Fai andare veloce lo sviluppo di Diaspora con una donazione mensile!"
+      keep_pod_running: "Mantieni %{pod} veloce e scattante, la tua donazione mensile sarà il caffè per i nostri server!"
       new_here:
         follow: "Segui %{link} per dare il benvenuto ai nuovi iscritti su Diaspora*!"
         learn_more: "Scopri i dettagli"
@@ -169,6 +190,10 @@ it:
     index:
       no_applications: "Non hai ancora autorizzato nessuna applicazione."
       revoke_access: "Revoca l'autorizzazione"
+    new:
+      authorize: "Autorizza"
+      cubbies_will: "Cubbies potrà pubblicare le foto sul tuo account"
+      nope: "No"
   back: "Indietro"
   blocks:
     create:
@@ -281,6 +306,8 @@ it:
       simplicity_explanation: "Diaspora permette una condivisione facile e veloce - e lo stesso accade per la gestione della privacy. Essendo riservata per natura, Diaspora non ti fa smarrire tra paginate di impostazioni e opzioni se vuoi tenere il tuo profilo sicuro."
       tagline_first_half: "Condividi ciò che desideri,"
       tagline_second_half: "con chi vuoi."
+  invitation_codes:
+    excited: "%{name} è entusiasta di vederti qui."
   invitations:
     a_facebook_user: "Un utente Facebook"
     check_token:
@@ -299,10 +326,15 @@ it:
       already_invited: "Le seguenti persone non hanno accettato il tuo invito:"
       aspect: "Aspetto"
       check_out_diaspora: "Prova Diaspora!"
-      comma_seperated_plz: "Puoi inserire più indirizzi email separati da virgole."
+      codes_left:
+        one: "Ti resta 1 invito"
+        other: "Ti restano %{count} inviti"
+        zero: "Ti restano 0 inviti"
+      comma_separated_plz: "Puoi inserire più indirizzi di posta separati da virgole."
       if_they_accept_info: "se accettano, saranno aggiunti all'aspetto in cui li hai invitati."
       invite_someone_to_join: "Invita qualcuno ad entrare in Diaspora!"
       language: "Lingua"
+      paste_link: "Condividi questo link con i tuoi amici per invitarli su Diaspora*, puoi anche inviarlo per email."
       personal_message: "Messaggio privato"
       resend: "Invia di nuovo"
       send_an_invitation: "Invia un invito"
@@ -387,6 +419,7 @@ it:
         two: "e altre %{count} persone"
         zero: "e nessun altro"
       mark_all_as_read: "Segna come lette"
+      mark_unread: "Segna come non letti"
       notifications: "Notifiche"
     liked:
       few: "A %{actors} piace il tuo %{post_link}."
@@ -444,6 +477,7 @@ it:
       zero: "%{actors} ha iniziato a condividere con te."
   notifier:
     a_post_you_shared: "un post."
+    accept_invite: "Accetta il tuo invito per Diaspora*!"
     click_here: "clicca qui"
     comment_on_post:
       reply: "Rispondi o leggi il post di %{name} >"
@@ -452,6 +486,21 @@ it:
       subject: "Per favore attiva il tuo nuovo indirizzo email %{unconfirmed_email}"
     email_sent_by_diaspora: "Questo messaggio è stato spedito da Diaspora. Se non vuoi ricevere questo tipo di email,"
     hello: "Ciao %{name}!"
+    invite:
+      message: |-
+          Ciao!
+
+          Hai ricevuto un invito per entrare in Diaspora*!
+
+          Clicca questo link per cominciare
+
+          %{invite_url}
+
+
+          Con affetto,
+
+          Il robot di Diaspora*
+    invited_you: "%{name} ti ha invitato su Diaspora*"
     liked:
       liked: "A %{name} piace il tuo post"
       view_post: "Leggi il post >"
@@ -478,6 +527,8 @@ it:
   password: "Password"
   password_confirmation: "Conferma password"
   people:
+    add_contact:
+      invited_by: "hai ricevuto l'invito da"
     add_contact_small:
       add_contact_from_tag: "aggiungi contatto dal #tag"
     aspect_list:
@@ -492,6 +543,7 @@ it:
       no_one_found: "...e nessuno è stato trovato."
       no_results: "Ehi! Devi inserire qualcosa da cercare."
       results_for: "risultati della ricerca di"
+      searching: "ricerca in corso..."
     last_post: "Ultimo post"
     many: "%{count} persone"
     one: "una persona"
@@ -627,6 +679,7 @@ it:
       password_to_confirm: "(abbiamo bisogno della tua password attuale per confermare le modifiche)"
       unhappy: "Triste?"
       update: "Aggiorna"
+    invalid_invite: "L'invito che hai usato non è più valido!"
     new:
       create_my_account: "Crea il mio account!"
       enter_email: "Inserisci un indirizzo email"
@@ -780,6 +833,7 @@ it:
       show: "mostra"
       unlike: "Non mi piace più"
       via: "via %{link}"
+      via_mobile: "via mobile"
       viewable_to_anyone: "Questo post è visibile a tutti sul web"
   status_messages:
     create:
@@ -888,6 +942,7 @@ it:
       change_email: "Cambia email"
       change_language: "Cambia lingua"
       change_password: "Cambia password"
+      character_minimum_expl: "deve essere di almeno sei caratteri"
       close_account:
         dont_go: "Dai, non te ne andare!"
         if_you_want_this: "Se vuoi davvero farlo, scrivi la tua password e clicca sul bottone 'Chiudi l'account'"
@@ -900,6 +955,7 @@ it:
       close_account_text: "Chiudi l'account"
       comment_on_post: "...qualcuno commenta un tuo post?"
       current_password: "Password attuale"
+      current_password_expl: "quella con cui accedi..."
       download_photos: "scarica le mie foto"
       download_xml: "scarica il mio xml"
       edit_account: "Modifica account"
@@ -932,12 +988,6 @@ it:
       what_are_you_in_to: "Di cosa ti interessi?"
       what_facebook_does: "a Diaspora. Così scaricherai nome e foto, oltre ad abilitare l'invio dei post anche verso l'altro social network."
       who_are_you: "Chi sei?"
-    logged_out:
-      go_mobile: "Passa alla versione mobile."
-      on_your_mobile_device: "sul tuo cellulare per accedere a Diaspora* mobile."
-      signed_out: "Hai appena lasciato Diaspora*"
-      simply_visit: "Visita semplicemente"
-      works_on_modern: "Funziona su tutti i moderni smartphone"
     privacy_settings:
       ignored_users: "Utenti ignorati"
       stop_ignoring: "Smetti di ignorare"

@@ -48,6 +48,7 @@ nn:
       video_title:
         unknown: "Ukjend filmtittel"
   are_you_sure: "Er du sikker?"
+  are_you_sure_delete_account: "Er du heilt sikker på at du vil stenge kontoen din? Dette kan ikkje gjerast om!"
   aspect_memberships:
     destroy:
       failure: "Klarte ikkje å fjerna personen frå aspektet"
@@ -61,6 +62,9 @@ nn:
       done_editing: "endringar er ferdige"
     aspect_listings:
       add_an_aspect: "+ Legg til eit aspekt"
+      deselect_all: "Vel vekk alle"
+      edit_aspect: "Endra %{name}"
+      select_all: "Vel alle"
     aspect_stream:
       stay_updated: "Hald deg oppdatert"
     contacts_not_visible: "Kontaktar i dette aspektet vil ikkje kunna sjå kvarandre."
@@ -99,14 +103,18 @@ nn:
       donate: "Doner"
       handle_explanation: "Dette er Diaspora-ID-en din. Nett som ei e-postadresse kan du gje han til folk slik at dei kan nå deg."
       help:
+        do_you: "Har du:"
+        feature_suggestion: "eit %{link}forslag?"
+        find_a_bug: "funne ein %{link}?"
+        have_a_question: "eit %{link}?"
         here_to_help: "Diaspora-felleskapen er her!"
         need_help: "Treng du hjelp?"
         tag_bug: "#bug"
         tag_feature: "#feature"
         tag_question: "#question"
       introduce_yourself: "Dette er straumen din.   Hiv deg med og introduser deg sjølv."
-      keep_us_running: "Sjå til at %{pod} kjører raskt. Gjev tenarane ein kveik ved å gje ein månadleg donasjon."
       new_here:
+        follow: "Følg %{link} og sei velkomen til nye brukarar på Diaspora*!"
         learn_more: "Lær meir"
         title: "Sei velkomen til nye brukarar"
       no_contacts: "Ingen kontaktar"
@@ -127,6 +135,7 @@ nn:
       create: "Lag"
       name: "Namn (berre du kan sjå det)"
     no_contacts_message:
+      or_spotlight: "Eller du kan dele med %{link}"
       try_adding_some_more_contacts: "Du kan søkja etter eller invitera fleire kontaktar."
       you_should_add_some_more_contacts: "Du bør leggja til nokre fleire kontaktar."
     no_posts_message:
@@ -266,7 +275,6 @@ nn:
       already_invited: "Desse personane har ikkje godteke invitasjonen din:"
       aspect: "Aspekt"
       check_out_diaspora: "Ta ein kikk på Diaspora!"
-      comma_seperated_plz: "Du kan skriva fleire e-postadresser om du skil dei med komma."
       if_they_accept_info: "om dei godtek, vil dei verta lagde til aspektet du inviterte dei til."
       invite_someone_to_join: "Inviter nokon til å bli med Diaspora!"
       language: "Språk"
@@ -831,4 +839,4 @@ nn:
       unconfirmed_email_not_changed: "Klarte ikkje å endra e-postkontoen"
   webfinger:
     no_person_constructed: "Klarte ikkje å laga nokon person frå hcard-fila."
-  welcome: "Velkomen"
+  welcome: "Velkomen!"

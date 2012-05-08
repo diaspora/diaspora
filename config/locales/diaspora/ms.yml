@@ -177,7 +177,6 @@ ms:
     new:
       already_invited: "Orang-orang yang berikut tidak menerima jemputan anda:"
       aspect: "Aspek"
-      comma_seperated_plz: "Anda boleh memasukkan pelbagai alamat e-mel yang dipisahkan dengan koma."
       if_they_accept_info: "jika mereka menerima, mereka akan dimasukkan ke dalam aspek awak telah menjemput mereka."
       invite_someone_to_join: "Menjemput seseorang untuk menyertai Diaspora!"
       language: "Bahasa"

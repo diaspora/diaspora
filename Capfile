@@ -3,6 +3,9 @@
 #   the COPYRIGHT file.
 
 load 'deploy' if respond_to?(:namespace) # cap2 differentiator
+# Precompile assets in deployment (for Capistrano >= 2.8.0)
+load 'deploy/assets' if respond_to?(:namespace)
+
 Dir['vendor/plugins/*/recipes/*.rb'].each { |plugin| load(plugin) }
 
 load 'config/deploy' # remove this line to skip loading any of the default tasks

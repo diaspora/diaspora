@@ -80,7 +80,29 @@ en:
       invalid_fields: "Invalid Fields"
       correct_the_following_errors_and_try_again: "Correct the following errors and try again."
 
-
+  admins:
+    admin_bar:
+      pages: "Pages"
+      user_search: "User Search"
+      weekly_user_stats: "Weekly User Stats"
+      pod_stats: "Pod Stats"
+      correlations: "Correlations"
+      resque_overview: "Resque Overview"
+    correlations:
+      correlations_count: "Correlations with Sign In Count:"
+    user_search:
+      you_currently: "you currently have %{user_invitation} invites left %{link}"
+      add_invites: "add invites"
+      email_to: "Email to Invite"
+      users: 
+        zero: "%{count} users found"
+        one: "%{count} user found"
+        two: "%{count} users found"
+        few: "%{count} users found"
+        many: "%{count} users found"
+        other: "%{count} users found"
+    stats:
+      go: go
   application:
     helper:
       unknown_person: "unknown person"
@@ -158,7 +180,8 @@ en:
       friends: "Friends"
     index:
       donate: "Donate"
-      keep_us_running: "Keep %{pod} running fast and buy servers their coffee fix with a monthly donation!"
+      keep_pod_running: "Keep %{pod} running fast and buy servers their coffee fix with a monthly donation!"
+      keep_diaspora_running: "Keep Diaspora development fast with a monthly donation!"
       no_tags: "+ Find a tag to follow"
       unfollow_tag: "Stop following #%{tag}"
       handle_explanation: "This is your Diaspora ID. Like an email address, you can give this to people to reach you."
@@ -319,6 +342,8 @@ en:
       simplicity_explanation: "Diaspora makes sharing clean and easy – and this goes for privacy too. Inherently private, Diaspora doesn’t make you wade through pages of settings and options just to keep your profile secure."
       learn_about_host: "Learn about how to host your own Diaspora server."
 
+  invitation_codes:
+    excited: "%{name} is excited to see you here."
   invitations:
     create:
       sent: "Invitations have been sent to: "
@@ -331,11 +356,20 @@ en:
       language: "Language"
       invite_someone_to_join: "Invite someone to join Diaspora!"
       if_they_accept_info: "if they accept, they will be added to the aspect you invited them."
-      comma_seperated_plz: "You can enter multiple email addresses separated by commas."
+      comma_separated_plz: "You can enter multiple email addresses separated by commas."
+      check_out_diaspora: "Hey! You should check out Diaspora*"
       to: "To"
       personal_message: "Personal message"
       send_an_invitation: "Send an invitation"
       send_invitation: "Send invitation"
+      paste_link: "Share this link with your friends to invite them to Diaspora*, or email them the link directly."
+      codes_left:
+        zero:  "No invites left on this code"
+        one:  "One invite left on this code"
+        two:  "%{count} invites left on this code"
+        few:  "%{count} invites left on this code"
+        many:  "%{count} invites left on this code"
+        other:  "%{count} invites left on this code"
       aspect: "Aspect"
       already_invited: "The following people have not accepted your invitation:"
       resend: "Resend"
@@ -472,6 +506,7 @@ en:
     index:
       notifications: "Notifications"
       mark_all_as_read: "Mark All as Read"
+      mark_unread: "Mark unread"
       and_others:
         zero: "and nobody else"
         one: "and one more"
@@ -519,6 +554,23 @@ en:
     confirm_email:
         subject: "Please activate your new email address %{unconfirmed_email}"
         click_link: "To activate your new email address %{unconfirmed_email}, please follow this link:"
+    accept_invite: "Accept Your Diaspora* invite!"
+    invited_you: "%{name} invited you to Diaspora*"
+    invite:
+      message: |-
+        Hello!
+        
+        You have been invited to join Diaspora*!
+        
+        Click this link to get started
+        
+        %{invite_url}
+        
+        
+        Love,
+        
+        The Diaspora* email robot!
+  
   people:
     zero: "no people"
     one: "1 person"
@@ -575,8 +627,10 @@ en:
       edit_membership: "edit aspect membership"
     add_contact_small:
       add_contact_from_tag: "add contact from tag"
-
     last_post: "Last Post"
+    add_contact:
+      invited_by: "you were invited by"
+
   photos:
     show:
       delete_photo: "Delete Photo"
@@ -667,7 +721,7 @@ en:
 
       enter_email: "Enter an email"
       enter_username: "Pick a username (only letters, numbers, and underscores)"
-      enter_password: "Enter a password"
+      enter_password: "Enter a password (six character minimum)"
       enter_password_again: "Enter the same password as before"
     create:
       success: "You've joined Diaspora!"
@@ -679,6 +733,7 @@ en:
       update: "Update"
       cancel_my_account: "Cancel my account"
     closed: "Signups are closed on this Diaspora pod."
+    invalid_invite: "The invite link you provided is no longer valid!"
 
   requests:
     manage_aspect_contacts:
@@ -820,6 +875,7 @@ en:
       connect_to_comment: "Connect to this user to comment on their post"
       currently_unavailable: 'commenting currently unavailable'
       via: "via %{link}"
+      via_mobile: "via mobile"
       ignore_user: "Ignore %{name}"
       ignore_user_description: "Ignore and remove user from all aspects?"
       hide_and_mute: "Hide and mute post"
@@ -895,6 +951,10 @@ en:
     index:
       revoke_access: "Revoke Access"
       no_applications: "You haven't registered any applications yet."
+    new:
+      cubbies_will: "Cubbies will be able to post photos on your behalf"
+      authorize: "Authorize"
+      nope: "No"
 
   streams:
     community_spotlight_stream: "Community Spotlight"
@@ -939,13 +999,6 @@ en:
     activity:
       title: "My Activity"
   users:
-    logged_out:
-      signed_out: "You've signed out of Diaspora*"
-      go_mobile: "Now go mobile."
-      simply_visit: "Simply visit"
-      on_your_mobile_device: "on your mobile device to access Diaspora* mobile."
-      works_on_modern: "Works on all modern smartphones"
-
     edit:
       export_data: "Export Data"
       photo_export_unavailable: "Photo exporting currently unavailable"

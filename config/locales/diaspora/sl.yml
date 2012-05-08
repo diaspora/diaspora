@@ -112,7 +112,6 @@ sl:
         need_help: "Potrebujete pomoč?"
         tutorials_wiki_and_forum: "%{tutorial} & %{wiki} & %{forum}: Vodiči, navodila in novice iz skupnosti"
       introduce_yourself: "To je vaš tok. Vskoči in predstavi se."
-      keep_us_running: "Pomagajte %{pod}, da bo tekel hitreje, kupite našim  strežnikom mesečno dozo kave!"
       new_here:
         follow: "Sledite %{link} in pozdravite nove uporabnike *Diaspore!"
         learn_more: "Več o tem"
@@ -287,7 +286,6 @@ sl:
     new:
       already_invited: "Naslednje osebe še niso potrdile vašega povabila:"
       aspect: "Pogled"
-      comma_seperated_plz: "Vnesete lahko več e-naslovov, ki naj bodo med seboj ločeni z vejico."
       if_they_accept_info: "v kolikor sprejmejo vaše povabilo, bodo samodejno  dodani pogledom v katere ste jih povabili."
       invite_someone_to_join: "Povabite nekoga v omrežje Diaspora!"
       language: "Jezik"
@@ -912,12 +910,6 @@ sl:
       what_are_you_in_to: "Kaj vas zanima?"
       what_facebook_does: "z Diasporo. Na ta način bodo prenešeni vaše ime in fotografija. Mogoče bo tudi navzkrižno objavljanje."
       who_are_you: "Kdo si?"
-    logged_out:
-      go_mobile: "Zdaj pa pojdi mobilno."
-      on_your_mobile_device: "na mobilni napravi za dostop do Diaspora* mobile."
-      signed_out: "Odjavili ste se z Diaspore*"
-      simply_visit: "Preprost obisk"
-      works_on_modern: "Deluje na vseh sodobnih pametnih telefonih"
     privacy_settings:
       ignored_users: "Ignorirane osebe"
       stop_ignoring: "Prekini ignoriranje"

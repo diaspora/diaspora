@@ -21,7 +21,7 @@ class StatusMessage < Post
   # therefore, we put the validation in a before_destory callback instead of a validation
   before_destroy :presence_of_content
 
-  attr_accessible :text, :provider_display_name
+  attr_accessible :text, :provider_display_name, :frame_name
   attr_accessor :oembed_url
 
   after_create :create_mentions

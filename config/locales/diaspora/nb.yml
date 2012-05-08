@@ -106,7 +106,6 @@ nb:
         tag_feature: "#feature"
         tag_question: "#question"
       introduce_yourself: "Dette er strømmen din. Hopp inn og presenter deg selv."
-      keep_us_running: "Keep %{pod} running fast, buy our servers their monthly coffee fix!"
       new_here:
         learn_more: "Lær mer"
       no_contacts: "Ingen kontakter"
@@ -257,7 +256,6 @@ nb:
     new:
       already_invited: "Allerede innvitert"
       aspect: "Aspekt"
-      comma_seperated_plz: "Du kan skrive inn flere epostadresser delt med komma."
       if_they_accept_info: "Hvis de aksepterer, vil de bli lagt til i aspektet du valgte."
       invite_someone_to_join: "Inviter noen til Diaspora!"
       language: "Språk"
@@ -835,11 +833,6 @@ nb:
       hooking_up_fb: "koble til din Facebook-konto"
       saved: "Lagret!"
       what_facebook_does: "to Diaspora. This will pull your name and photo, and enable cross-positng."
-    logged_out:
-      on_your_mobile_device: "på din mobile enhet for å logge på Diaspora* mobile."
-      signed_out: "Du er logget av Diaspora*"
-      simply_visit: "Bare besøk"
-      works_on_modern: "Funker på alle moderne smartphones"
     privacy_settings:
       ignored_users: "Ignorerte brukere"
       stop_ignoring: "Slutt å ignorere"

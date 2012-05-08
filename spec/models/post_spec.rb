@@ -47,6 +47,7 @@ describe Post do
       end
     end
 
+
     describe '.for_a_stream' do
       it 'calls #for_visible_shareable_sql' do
         time, order = stub, stub
@@ -112,7 +113,7 @@ describe Post do
       before do
         time_interval = 1000
         time_past = 1000000
-        @posts = (1..3).map do |n|
+        @posts = (1..5).map do |n|
           aspect_to_post = alice.aspects.where(:name => "generic").first
           post = alice.post :status_message, :text => "#{alice.username} - #{n}", :to => aspect_to_post.id
           post.created_at = (post.created_at-time_past) - time_interval
@@ -124,8 +125,6 @@ describe Post do
       end
 
       describe '.by_max_time' do
-        it 'respects time and order' do
-        end
 
         it 'returns the posts ordered and limited by unix time' do
           Post.for_a_stream(Time.now + 1, "created_at").should == @posts
@@ -149,6 +148,21 @@ describe Post do
           Post.for_visible_shareable_sql(Time.now + 1, "created_at")
         end
 
+      end
+
+      # @posts[0] is the newest, @posts[5] is the oldest
+      describe ".newer" do
+        it 'returns the next post in the array' do
+          @posts[3].created_at.should < @posts[2].created_at #post 2 is newer
+          Post.newer(@posts[3]).created_at.to_s.should == @posts[2].created_at.to_s #its the newer post, not the newest
+        end
+      end
+
+      describe ".older" do
+        it 'returns the previous post in the array' do
+          Post.older(@posts[3]).created_at.to_s.should == @posts[4].created_at.to_s #its the older post, not the oldest
+          @posts[3].created_at.should > @posts[4].created_at #post 4 is older
+        end
       end
     end
   end

@@ -56,15 +56,13 @@ describe PostPresenter do
 
   describe '#next_post_path' do
     it 'returns a string of the users next post' do
-      @presenter.should_receive(:next_post).and_return(@sm)
-      @presenter.next_post_path.should ==  Rails.application.routes.url_helpers.post_path(@sm)
+      @presenter.next_post_path.should == "#{Rails.application.routes.url_helpers.post_path(@sm)}/next"
     end
   end
 
   describe '#previous_post_path' do
     it 'returns a string of the users next post' do
-      @presenter.should_receive(:previous_post).and_return(@sm)
-      @presenter.previous_post_path.should ==  Rails.application.routes.url_helpers.post_path(@sm)
+      @presenter.previous_post_path.should == "#{Rails.application.routes.url_helpers.post_path(@sm)}/previous"
     end
   end
   

@@ -33,6 +33,10 @@ factory = {
     return new app.models.Comment(_.extend(defaultAttrs, overrides))
   },
 
+  user : function(overrides) {
+    return new app.models.User(factory.userAttrs(overrides))
+  },
+
   userAttrs : function(overrides){
     var id = this.id.next()
     var defaultAttrs = {
@@ -48,8 +52,8 @@ factory = {
     return _.extend(defaultAttrs, overrides)
   },
 
-  post :  function(overrides) {
-    var defaultAttrs = {
+  postAttrs : function(){
+    return  {
       "provider_display_name" : null,
       "created_at" : "2012-01-03T19:53:13Z",
       "interacted_at" : '2012-01-03T19:53:13Z',
@@ -57,7 +61,6 @@ factory = {
       "public" : false,
       "guid" : this.guid(),
       "image_url" : null,
-      "author" : this.author(),
       "o_embed_cache" : null,
       "photos" : [],
       "text" : "jasmine is bomb",
@@ -69,8 +72,56 @@ factory = {
       "likes_count" : 0,
       "comments_count" : 0
     }
+  },
 
+  profile : function(overrides) {
+    var id = overrides && overrides.id || factory.id.next()
+    var defaults = {
+      "bio": "I am a cat lover and I love to run",
+      "birthday": "2012-04-17",
+      "created_at": "2012-04-17T23:48:35Z",
+      "diaspora_handle": "bob@localhost:3000",
+      "first_name": "Bob",
+      "full_name": "bob grimm",
+      "gender": "robot",
+      "id": id,
+      "image_url": "http:\/\/localhost:3000\/assets\/user\/wolf.jpg",
+      "image_url_medium": "http:\/\/localhost:3000\/assets\/user\/wolf.jpg",
+      "image_url_small": "http:\/\/localhost:3000\/assets\/user\/wolf.jpg",
+      "last_name": "Grimm",
+      "location": "Earth",
+      "nsfw": false,
+      "person_id": "person" + id,
+      "searchable": true,
+      "updated_at": "2012-04-17T23:48:36Z"
+    }
+
+    return new app.models.Profile(_.extend(defaults, overrides))
+  },
+
+  photoAttrs : function(overrides){
+    var id = this.id.next();
+    return _.extend({
+      author: factory.userAttrs(),
+      created_at: "2012-03-27T20:11:52Z",
+      guid: "8b0db16a4c4307b2" + id,
+      id: id,
+      sizes: {
+          large: "http://localhost:3000/uploads/images/scaled_full_d85410bd19db1016894c.jpg",
+          medium: "http://localhost:3000/uploads/images/thumb_medium_d85410bd19db1016894c.jpg",
+          small: "http://localhost:3000/uploads/images/thumb_small_d85410bd19db1016894c.jpg"
+        }
+    }, overrides)
+  },
+
+  post :  function(overrides) {
+    defaultAttrs = _.extend(factory.postAttrs(),  {"author" : this.author()})
     return new app.models.Post(_.extend(defaultAttrs, overrides))
+  },
+
+  statusMessage : function(overrides){
+    //intentionally doesn't have an author to mirror creation process, maybe we should change the creation process
+    return new app.models.StatusMessage(_.extend(factory.postAttrs(), overrides))
   },
 
   comment: function(overrides) {

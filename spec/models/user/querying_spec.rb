@@ -113,6 +113,21 @@ describe User::Querying do
       Factory(:status_message, :public => true)
       bob.visible_shareables(Post).count.should == 0
     end
+    
+    context 'with two posts with the same timestamp' do
+      before do
+        aspect_id = alice.aspects.where(:name => "generic").first.id
+        Timecop.freeze Time.now do
+          alice.post :status_message, :text => "first", :to => aspect_id
+          alice.post :status_message, :text => "second", :to => aspect_id
+        end
+      end
+      
+      it "returns them in reverse creation order" do
+        bob.visible_shareables(Post).first.text.should == "second"
+        bob.visible_shareables(Post).last.text.should == "first"
+      end
+    end
 
     context 'with many posts' do
       before do

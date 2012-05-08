@@ -48,7 +48,6 @@ mk:
         tag_bug: "#bug"
         tag_feature: "#feature"
         tag_question: "#question"
-      keep_us_running: "Keep %{pod} running fast, buy our servers their monthly coffee fix!"
       no_tags: "No tags"
     many: "%{count} aspects"
     move_contact:
@@ -127,7 +126,6 @@ mk:
       sent: "Поканите беа испратени кон:"
     new:
       already_invited: "Already invited"
-      comma_seperated_plz: "Можете да внесете повеќе е-маил адреси разделени со запирки."
       invite_someone_to_join: "Поканете некој да се придружи на Diaspora!"
       send_an_invitation: "Испрати покана"
       send_invitation: "Испрати покана"

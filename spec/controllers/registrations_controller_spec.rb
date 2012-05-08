@@ -39,10 +39,27 @@ describe RegistrationsController do
       flash[:error].should == I18n.t('registrations.closed')
       response.should redirect_to new_user_session_path
     end
+
+    it 'does not redirect if there is a valid invite token' do
+      i = InvitationCode.create(:user => bob)
+      get :new, :invite => {:token => i.token}
+      response.should_not be_redirect
+    end
+
+    it 'does redirect if there is an  invalid invite token' do
+      get :new, :invite => {:token => 'fssdfsd'}
+      response.should be_redirect
+    end
   end
+
+
 
   describe "#create" do
     context "with valid parameters" do
+      before do
+        AppConfig[:registrations_closed] = false
+      end
+
       before do
         user = Factory.build(:user)
         User.stub!(:build).and_return(user)
@@ -67,7 +84,13 @@ describe RegistrationsController do
       it "redirects to the home path" do
         get :create, @valid_params
         response.should be_redirect
-        response.location.should match /^#{stream_url}\??$/
+        response.location.should match /^#{root_url}\??$/
+      end
+
+      it 'with an invite code from a beta users, make the user beta' do
+        Role.add_beta(bob.person)
+        get :create, @valid_params.merge(:invite => {:token => bob.invitation_code.token})
+        User.last.should be_beta
       end
     end
 

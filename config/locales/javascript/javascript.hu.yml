@@ -46,7 +46,7 @@ hu:
       notifications: "Értesítések"
       profile: "Profil"
       recent_notifications: "Friss értesítések"
-      search: "Ismerős vagy #címke keresése"
+      search: "Keresés"
       settings: "Beállítások"
       view_all: "Összes"
     ignore: "Elutasít"
@@ -54,6 +54,8 @@ hu:
       no_more: "Nincs több bejegyzés."
     my_activity: "Tevékenységeim"
     my_stream: "Hírfolyam"
+    people:
+      not_found: "és nem találni senkit..."
     photo_uploader:
       looking_good: "Azta! Remekül nézek ki!"
     publisher:
@@ -62,6 +64,8 @@ hu:
       public: "Nyilvános - ezt a bejegyzést bárki láthatja az interneten."
     reshares:
       duplicate: "Jó mi? De már egyszer megosztottad ezt a bejegyzést!"
+      post: "Szeretnéd újra megosztani <%= name %> bejegyzését?"
+      successful: "A bejegyzés újraosztása sikeres!"
     search_for: "<%= name %> keresése."
     show_more: "tovább"
     stream:
@@ -123,6 +127,7 @@ hu:
     viewer:
       comment: "Hozzászólás"
       follow_post: "Követem"
+      home: "KEZDŐLAP"
       like: "Tetszik"
       reshare: "Megosztás"
       reshared: "Megosztva"

@@ -14,13 +14,14 @@ module LayoutHelper
 
   def page_title(text=nil)
     return text unless text.blank?
-    current_user ? current_user.name : t("application.helper.diaspora_alpha")
+    "Diaspora*"
   end
 
   def set_asset_host
+    path = ENV['ASSET_HOST'].to_s + '/assets/'
     content_tag(:script) do
       <<-JS.html_safe
-        app.baseImageUrl("#{ENV['ASSET_HOST']}")
+        if(window.app) app.baseImageUrl("#{path}")
       JS
     end
   end
@@ -45,6 +46,8 @@ module LayoutHelper
   end
 
   def current_user_atom_tag
+    return #temp hax
+
     return unless @person.present?
     content_tag(:link, '', :rel => 'alternate', :href => "#{@person.public_url}.atom", :type => "application/atom+xml", :title => t('.public_feed', :name => @person.name))
   end
@@ -60,10 +63,10 @@ module LayoutHelper
   end
 
   def include_base_css_framework(use_bootstrap=false)
-    if use_bootstrap || @aspect == :getting_started || @page == :logged_out
-      include_stylesheets :bootstrap
+    if use_bootstrap || @aspect == :getting_started || @page == :experimental
+      stylesheet_link_tag 'bootstrap-complete'
     else
-      include_stylesheets :blueprint, :media => 'screen'
+      stylesheet_link_tag 'blueprint', :media => 'screen'
     end
   end
 
@@ -83,8 +86,6 @@ module LayoutHelper
   end
 
   def flash_messages
-    return if @page == :logged_out
-
     flash.map do |name, msg|
       content_tag(:div, :id => "flash_#{name}") do
         content_tag(:div, msg, :class => 'message')

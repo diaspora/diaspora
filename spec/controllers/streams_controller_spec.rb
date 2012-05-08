@@ -11,7 +11,7 @@ describe StreamsController do
 
   describe "#public" do
     it 'will succeed if admin' do
-      AppConfig[:admins] = [alice.username]
+      Role.add_admin(alice.person)
       get :public
       response.should be_success
     end

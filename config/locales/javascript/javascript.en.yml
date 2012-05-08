@@ -60,6 +60,8 @@ en:
       hide: "hide comments"
     reshares:
       duplicate: "That good, huh?  You've already reshared that post!"
+      successful: "The post was successfully reshared!"
+      post: "Reshare <%= name %>'s post?"
     aspect_navigation:
       select_all: "Select all"
       deselect_all: "Deselect all"
@@ -131,6 +133,7 @@ en:
       recent_notifications: "Recent Notifications"
       mark_all_as_read: "Mark all as read"
       view_all: "View all"
+      close: "close"
 
     viewer:
       stop_following_post: "Stop following post"
@@ -140,3 +143,4 @@ en:
       reshare: "Reshare"
       reshared: "Reshared"
       comment: "Comment"
+      home: "HOME"

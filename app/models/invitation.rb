@@ -22,8 +22,6 @@ class Invitation < ActiveRecord::Base
   validate :sender_owns_aspect?, :unless => :admin?
   validates_uniqueness_of :sender_id, :scope => [:identifier, :service], :unless => :admin?
 
-  after_create :queue_send! #TODO make this after_commit :queue_saved!, :on => :create
-
 
   # @note options hash is passed through to [Invitation.new]
   # @see [Invitation.new]
@@ -33,7 +31,7 @@ class Invitation < ActiveRecord::Base
   # @option opts [Aspect] :aspect
   # @option opts [String] :service
   # @return [Array<Invitation>] An array of [Invitation] models
-  #   the valid ones are saved, and the invalid ones are not.
+  #   the valid optsnes are saved, and the invalid ones are not.
   def self.batch_invite(emails, opts)
 
     users_on_pod = User.where(:email => emails, :invitation_token => nil)
@@ -66,36 +64,16 @@ class Invitation < ActiveRecord::Base
     !email_like_identifer
   end
 
-  # Attach a recipient [User] to the [Invitation] unless
-  # there is one already present.
-  #
-  # @return [User] The recipient.
-  def attach_recipient!
-    unless self.recipient.present?
-      self.recipient = User.find_or_create_by_invitation(self) 
-      self.save
-    end
-    self.recipient
-  end
-
   # Find or create user, and send that resultant User an
   # invitation.
   #
   # @return [Invitation] self
   def send!
-    self.attach_recipient!
-
-    # Sets an instance variable in User (set by devise invitable)
-    # This determines whether an email should be sent to the recipient.
-    recipient.skip_invitation = self.skip_email?
-
-    recipient.invite!
-
-    # Logging the invitation action
-    log_hash = {:event => :invitation_sent, :to => self[:identifier], :service => self[:service]}
-    log_hash.merge({:inviter => self.sender.diaspora_handle, :invitier_uid => self.sender.id, :inviter_created_at_unix => self.sender.created_at.to_i}) if self.sender
-    Rails.logger.info(log_hash)
-
+    if email_like_identifer
+      EmailInviter.new(self.identifier, sender).send! 
+    else
+      puts "broken facebook invitation_token"
+    end
     self
   end
 
@@ -135,19 +113,7 @@ class Invitation < ActiveRecord::Base
     when 'email'
       self.identifier
     when 'facebook'
-      if username = ServiceUser.username_of_service_user_by_uid(self.identifier) 
-        unless username.include?('profile.php?')
-          "#{username}@facebook.com"
-        else
-          nil
-        end
-      end
-    end
-  end
-
-  def queue_send!
-    unless self.recipient.present?
-      Resque.enqueue(Jobs::Mail::InviteUserByEmail, self.id) 
+      false
     end
   end
 

@@ -4,7 +4,7 @@
 
 
 - content_for :head do
-  = include_javascripts :people
+  = javascript_include_tag :people
   :javascript
     Mentions.options.prefillMention = #{@person.to_json};
 
@@ -34,3 +34,4 @@
           = t('.ignoring', :name => @person.first_name)
           
     #paginate
+      %span.loader.hidden

@@ -28,6 +28,7 @@ he:
       hide: "הסתרת תגובות"
       show: "הצגת כל התגובות"
     confirm_dialog: "בבטחה"
+    delete: "למחוק "
     failed_to_like: "הסימון ב'אהבתי' נכשל!"
     failed_to_post_message: "פרסום ההודעה נכשל!"
     getting_started:
@@ -36,9 +37,25 @@ he:
       no_tags: "?היי, לא עקבת אחרי אף תגית! לאן אתה רוצה להמשיך"
       preparing_your_stream: "החדשות האישיות שלך בשלבי הכנה"
     header:
+      admin: "מערכת"
+      contacts: "אנשי קשר "
+      home: "בית"
+      log_out: "התנתק"
+      mark_all_as_read: "סמן הכל כנקרא"
+      messages: "הודעות"
+      notifications: "הודעות"
+      profile: "פרופיל "
+      recent_notifications: "התראות אחרונות "
       search: "Find people or #tags"
+      settings: "הגדרות"
+      view_all: "הצג הכל"
+    ignore: "התעלם"
     infinite_scroll:
       no_more: "אין רשומות נוספות"
+    my_activity: "הפעילות שלי"
+    my_stream: "חדשות "
+    people:
+      not_found: "ואף אחד לא נמצא..."
     photo_uploader:
       looking_good: "! וואו, מדהים"
     publisher:
@@ -50,6 +67,11 @@ he:
     search_for: " {{name}}חיפוש אחר"
     show_more: "הצגת עוד"
     stream:
+      comment: "תגובה"
+      follow: "העבר"
+      hide: "הסתר"
+      hide_nsfw_posts: "הסתר את הרשומות nsfw#"
+      like: "מתעניין"
       likes:
         few: "<%= count %> Likes"
         many: "<%= count %> Likes"
@@ -57,6 +79,7 @@ he:
         other: "<%= count %> Likes"
         two: "<%= count %> Likes"
         zero: "<%= count %> Likes"
+      limited: "מוגבל"
       more_comments:
         few: "Show <%= count %> more comments"
         many: "Show <%= count %> more comments"
@@ -64,6 +87,9 @@ he:
         other: "Show <%= count %> more comments"
         two: "Show <%= count %> more comments"
         zero: "Show <%= count %> more comments"
+      original_post_deleted: "הרשומה המקורית נמחקה על ידי הכותב "
+      public: "ציבורי"
+      reshare: "לשתף שוב"
       reshares:
         few: "<%= count %> Reshares"
         many: "<%= count %> Reshares"
@@ -71,6 +97,10 @@ he:
         other: "<%= count %> Reshares"
         two: "<%= count %> Reshares"
         zero: "<%= count %> Reshares"
+      show_nsfw_post: "הצג את הרשומה"
+      show_nsfw_posts: "הצג הכל"
+      unfollow: "אל תעביר"
+      unlike: "לא מתעניין"
     tags:
       wasnt_that_interesting: "...זה לא היה כל כך מעניין#{{tagName}} אוקיי, אני מניח "
     timeago:
@@ -92,3 +122,11 @@ he:
     videos:
       unknown: "סוג הווידאו אינו ידוע"
       watch: " {{provider}}צפייה בסרטון וידאו זה באתר"
+    viewer:
+      comment: "תגובה"
+      follow_post: "עקוב אחר הרשומה"
+      like: "מתעניין"
+      reshare: "שתף שוב "
+      reshared: "שותף שוב. "
+      stop_following_post: "הפסק לעקוב אחר הרשומה"
+      unlike: "לא מתעניין"

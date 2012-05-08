@@ -1,0 +1,65 @@
+<div id="registration">
+  <div class="container">
+
+    <div class="row">
+        <div class="span4" id="image-container">
+            <%= image_tag('signupimages@2x_mini.jpg', :id => "collage") %>
+        </div>
+
+        <div class="span8">
+            <h1 id="create-something-text">
+              HEY,
+              <br/>
+              MAKE
+              <br/>
+              SOMETHING.
+            </h1>
+
+            <h3 id="diaspora-hearts">
+              <3 Diaspora*
+            </h3>
+
+            <h4 id="sign-up-text">
+              SIGN UP
+            </h4>
+
+            <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => {:class => "form-horizontal block-form", :autocomplete => "off"}, :validate => true) do |f| %>
+                <fieldset>
+                  <div class="control-group">
+                    <label class="control-label" for="user_email">
+                        EMAIL
+                    </label>
+
+                    <div class="controls">
+                        <%= f.email_field :email, :validate => {:presence => true}, :placeholder => "luke@hoth.net", :title => t('registrations.new.enter_email'), :required => true %>
+                    </div>
+                  </div>
+
+                  <div class="control-group">
+                      <label class="control-label" for="user_username">
+                        USERNAME
+                      </label>
+
+                      <div class="controls">
+                        <%= f.text_field :username, :validate => {:presence => true}, :placeholder => "jedi_guy", :title => t('registrations.new.enter_username'), :required => true, :pattern => "[A-Za-z0-9_]+" %>
+                      </div>
+                  </div>
+
+                  <div class="control-group">
+                    <label class="control-label" for="user_password">
+                        PASSWORD
+                    </label>
+
+                    <div class="controls">
+                        <%= f.password_field :password, :validate => {:presence => true}, :placeholder => "••••••••", :title => t('registrations.new.enter_password'), :required => true, :pattern => "......+" %>
+                    </div>
+                  </div>
+                  <%= invite_hidden_tag(invite) %>
+                </fieldset>
+
+                <%= f.submit "Continue", :class => "new-btn" %>
+            <% end %>
+        </div>
+    </div>
+  </div>
+</div>

@@ -166,7 +166,6 @@ class CreateImportTables < ActiveRecord::Migration
       t.string :language
       t.string :email
       t.database_authenticatable
-      t.invitable
       t.recoverable
       t.rememberable
       t.trackable

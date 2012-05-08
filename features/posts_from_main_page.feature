@@ -17,15 +17,16 @@ Feature: posting from the main page
 
     Scenario: post a text-only message to all aspects
       Given I expand the publisher
-      When I fill in "status_message_fake_text" with "I am eating a yogurt"
+      When I fill in "status_message_fake_text" with "I am eating yogurt"
       And I press "Share"
       And I wait for the ajax to finish
 
       And I go to the aspects page
-      Then I should see "I am eating a yogurt" within ".stream_element"
+      Then "I am eating yogurt" should be post 1
 
     Scenario: posting a message appends it to the top of the stream
       When I click the publisher and post "sup dog"
+      And I wait for 1 second
       And I click the publisher and post "hello there"
       Then I should see "hello there" as the first post in my stream
 

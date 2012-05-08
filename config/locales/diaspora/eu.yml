@@ -117,7 +117,6 @@ eu:
         tag_question: "galdera"
         tutorials_wiki_and_forum: "%{tutorial}, %{wiki} eta %{forum}: Komunitateak egindako tutorialak, nola-eginak eta berriak"
       introduce_yourself: "Hau zure kronologia da.  Animatu eta zure burua aurkeztu."
-      keep_us_running: "Mantendu %{pod} azkar izaten, erosiezu gure ostalariei hilabeteroko kafe-konponketa!"
       new_here:
         follow: "Jarraitu %{link} eta emaiezu ongietorria Diasporako erabiltzaile berriei!"
         learn_more: "Ikasi gehiago"
@@ -284,6 +283,8 @@ eu:
       simplicity_explanation: "Diasporak partekatzea erraza egiten du - pribatutasuna kontuan hartuz. Izatez pribatutasunera zuzenduta, Diasporak egitura sinplea du zure profila babesturik mantentzearren."
       tagline_first_half: "Partekatu nahi duzuna,"
       tagline_second_half: "nahi duzunarekin."
+  invitation_codes:
+    excited: "%{name} pozik dago zu ikusteaz"
   invitations:
     a_facebook_user: "Facebook erabiltzaile bat"
     check_token:
@@ -302,10 +303,14 @@ eu:
       already_invited: "Pertsona hauek ez dute zure gonbidapena onartu:"
       aspect: "Alderdia"
       check_out_diaspora: "Probatu Diaspora!"
-      comma_seperated_plz: "Nahi dituzun e-posta guztiak idatzi ditzakezu, koma batez bananduta."
+      codes_left:
+        one: "Gonbidapen bat geratzen zaizu kode honekin"
+        other: "%{count} gonbidapen geratzen zaizkizu kode honekin"
+        zero: "Ez zaizkizu geratzen gonbidapenak kode honekin"
       if_they_accept_info: "eskaera onartzen badute, gonbidatutako arlora batuko dira"
       invite_someone_to_join: "Gonbida ezazu norbait Diasporan izen ematera!"
       language: "Hizkuntza"
+      paste_link: "Partekatu esteka hau lagunekin Diasporara gonbidatzeko, edo bidali email bidez zuzenean."
       personal_message: "Mezu pertsonala"
       resend: "Berbidali"
       send_an_invitation: "Gonbidapen bat bidali"
@@ -456,6 +461,7 @@ eu:
       zero: "%{actors} zurekin harremanetan hasi d(ir)a"
   notifier:
     a_post_you_shared: "mezu bat."
+    accept_invite: "Onartu zure Diaspora* gonbidapena!"
     click_here: "sakatu hau"
     comment_on_post:
       reply: "Erantzun edo ikusi %{name}(r)en mezua >"
@@ -504,6 +510,7 @@ eu:
       no_one_found: "... ez da inor aurkitu."
       no_results: "Aizu! Zerbait bilatu behar duzu."
       results_for: "bilaketa emaitzak hontarako:"
+      searching: "bilatzen, mesedez itxaron pixka bat..."
     many: "%{count} pertsona"
     one: "pertsona 1"
     other: "%{count} pertsona"
@@ -636,6 +643,7 @@ eu:
       password_to_confirm: "(zure pasahitza behar dugu zure aldaketak gauzatzeko)"
       unhappy: "Goibel?"
       update: "Eguneratu"
+    invalid_invite: "Eman duzun gonbidapen esteka ez da jada baliagarria!"
     new:
       create_my_account: "Nire kontua sortu!"
       enter_email: "Idatzi zure e-posta"
@@ -900,6 +908,7 @@ eu:
       change_email: "Aldatu e-posta"
       change_language: "Hizkuntza aldatu"
       change_password: "Pasahitza aldatu"
+      character_minimum_expl: "gutxienez sei karaktere luze izan behar da"
       close_account:
         dont_go: "Aizu, ez joan mesedez!"
         if_you_want_this: "Bentan hau nahi baduzu, idatzi hemen zure pasahitza eta sakatu 'Kontua Ezabatu'"
@@ -912,6 +921,7 @@ eu:
       close_account_text: "Kontua Ezabatu"
       comment_on_post: "...norbaitek zure mezu bat iruzkintzen duenean?"
       current_password: "Pasahitz zaharra"
+      current_password_expl: "sartzen zarenarekin..."
       download_photos: "nire argazkiak jaitsi"
       download_xml: "nire xml jaitsi"
       edit_account: "Kontua aldatu"
@@ -944,12 +954,6 @@ eu:
       what_are_you_in_to: "Zelan zabiltza?"
       what_facebook_does: "Diasporara. Honek zure izena eta argazkia erakutsiko ditu, eta zeharkako mezuak ahalbidetuko ditu."
       who_are_you: "Zein zara?"
-    logged_out:
-      go_mobile: "Mugikor bertsiora joan."
-      on_your_mobile_device: "zure gailu mugikorrean Diasporaren bertsio mugikorrera sartu ahal izateko."
-      signed_out: "Diasporatik atera zara"
-      simply_visit: "Bisitatu soilik"
-      works_on_modern: "Smartphone berri guztietan dabil"
     privacy_settings:
       ignored_users: "Sahiestutako Erabiltzaileak"
       stop_ignoring: "Utzi sahiesteari"

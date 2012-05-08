@@ -117,7 +117,6 @@ ml:
         tag_question: "question"
         tutorials_wiki_and_forum: "%{tutorial} & %{wiki} & %{forum}: Community-powered tutorials, how-to, and news"
       introduce_yourself: "This is your stream.  Jump in and introduce yourself."
-      keep_us_running: "Keep %{pod} running fast, buy our servers their monthly coffee fix!"
       new_here:
         follow: "Follow %{link} and welcome new users to Diaspora*!"
         learn_more: "Learn more"
@@ -302,7 +301,6 @@ ml:
       already_invited: "The following people have not accepted your invitation:"
       aspect: "പരിചയം"
       check_out_diaspora: "Check out Diaspora!"
-      comma_seperated_plz: "താങ്കള്‍ക്ക് കോമാ ഉപയോഗിച്ച് ഒന്നില്‍ കൂടൂതല്‍ ഇമെയില്‍ വിലാസങ്ങള്‍ ചേര്‍ക്കാം."
       if_they_accept_info: "അവര്‍ അംഗീകരിക്കുകയാണെങ്കില്‍, അവരെ താങ്കള്‍ ക്ഷണിച്ച പരിചയത്തിലേയ്ക്ക് ചേര്‍ക്കും."
       invite_someone_to_join: "ഡയസ്പോറയില്‍ ചേരാന്‍ ആരെയെങ്കിലും ക്ഷണിക്കു!"
       language: "Language"
@@ -944,12 +942,6 @@ ml:
       what_are_you_in_to: "What are you into?"
       what_facebook_does: "to Diaspora. This will pull your name and photo, and enable cross-posting."
       who_are_you: "Who are you?"
-    logged_out:
-      go_mobile: "Now go mobile."
-      on_your_mobile_device: "on your mobile device to access Diaspora* mobile."
-      signed_out: "You've signed out of Diaspora*"
-      simply_visit: "Simply visit"
-      works_on_modern: "Works on all modern smartphones"
     privacy_settings:
       ignored_users: "Ignored Users"
       stop_ignoring: "Stop ignoring"

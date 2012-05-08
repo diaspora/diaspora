@@ -68,9 +68,7 @@ Feature: Notifications
     And I go to the destroy user session page
     When I sign in as "alice@alice.alice"
     And I follow "Notifications" in the header
-    And I wait for the ajax to finish
     Then the notification dropdown should be visible
-    And I wait for the ajax to finish
     Then I should see "commented on your post"
     And I should have 1 email delivery
 

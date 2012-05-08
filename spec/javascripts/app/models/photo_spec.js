@@ -23,5 +23,4 @@ describe("app.models.Photo", function() {
       expect(this.photo.createdAt()).toEqual(+date);
     });
   });
-
 });

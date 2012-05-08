@@ -3,6 +3,11 @@
 #   the COPYRIGHT file.
 
 class ServicesController < ApplicationController
+  # We need to take a raw POST from an omniauth provider with no authenticity token.
+  # See https://github.com/intridea/omniauth/issues/203
+  # See also http://www.communityguides.eu/articles/16
+  skip_before_filter :verify_authenticity_token, :only => :create
+
   before_filter :authenticate_user!
 
   respond_to :html
@@ -68,55 +73,5 @@ class ServicesController < ApplicationController
     @finder = true
     @service = current_user.services.where(:type => "Services::#{params[:provider].titleize}").first
     @friends = @service ? @service.finder(:remote => params[:remote]).paginate( :page => params[:page], :per_page => 15) : []
-  end
-
-  def inviter
-    @uid = params[:uid]
-
-    if i_id = params[:invitation_id]
-      invite = Invitation.find(i_id)
-      invited_user = invite.recipient
-    else
-      invite = Invitation.create(:service => params[:provider], :identifier => @uid, :sender => current_user, :aspect => current_user.aspects.find(params[:aspect_id]))
-      invited_user = invite.attach_recipient!
-    end
-
-    #to make sure a friend you just invited from facebook shows up as invited
-    service = current_user.services.where(:type => "Services::Facebook").first
-    su = ServiceUser.where(:service_id => service.id, :uid => @uid).first
-    su.attach_local_models
-    su.save
-
-    respond_to do |format|
-      format.html{ invite_redirect_url(invite, invited_user, su)}
-      format.json{ render :json => invite_redirect_json(invite, invited_user, su) }
-    end
-  end
-
-  def facebook_message_url(user, facebook_uid)
-    subject = t('services.inviter.join_me_on_diaspora')
-    message = <<MSG
-#{t('services.inviter.click_link_to_accept_invitation')}:
-\n
-\n
-#{accept_invitation_url(user, :invitation_token => user.invitation_token)}
-MSG
-    "https://www.facebook.com/messages/#{facebook_uid}?msg_prefill=#{message}"
-  end
-
-  def invite_redirect_json(invite, user, service_user)
-    if invite.email_like_identifer
-      {:message => t("invitations.create.sent") + service_user.name }
-    else
-      {:url => facebook_message_url(user, service_user.uid)}
-    end
-  end
-
-    def invite_redirect_url(invite, user, service_user)
-    if invite.email_like_identifer
-      redirect_to(friend_finder_path(:provider => 'facebook'), :notice => "you re-invited #{service_user.name}")
-    else
-      redirect_to(facebook_message_url(user, service_user.uid))
-    end
   end
 end

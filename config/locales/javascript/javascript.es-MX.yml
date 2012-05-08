@@ -51,14 +51,18 @@ es-MX:
       no_more: "No hay más publicaciones."
     my_activity: "Mi actividad"
     my_stream: "Entrada"
+    people:
+      not_found: "y nadie fue encontrado…"
     photo_uploader:
       looking_good: "¡Ah, te ves increíble!"
     publisher:
-      at_least_one_aspect: "Debes publicar al menos un aspecto"
+      at_least_one_aspect: "Debes publicar al menos en un aspecto"
       limited: "Limitado – tu publicación solo será vista por ia gente con quien compartes"
       public: "Público – tu publicación será visible para todos, y encontrada por buscadores"
     reshares:
-      duplicate: "Qué bien, ¿eh? ¡Ya has compartido esta publicación!"
+      duplicate: "Qué bien, ¿eh? ¡Ya has compartido esa publicación!"
+      post: "¿Compartir la publicación de <%= name %>?"
+      successful: "¡La publicación se compartió exitosamente!"
     search_for: "Buscar a <%= name %>"
     show_more: "mostrar más"
     stream:
@@ -111,6 +115,7 @@ es-MX:
     viewer:
       comment: "Comentar"
       follow_post: "Seguir esta publicación"
+      home: "INICIO"
       like: "Me gusta"
       reshare: "Compartir"
       reshared: "Compartido"

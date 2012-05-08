@@ -20,7 +20,7 @@ describe AdminsController do
 
     context 'admin signed in' do
       before do
-        AppConfig[:admins] = [@user.username]
+        Role.add_admin(@user.person)
       end
 
       it 'succeeds and renders user_search' do
@@ -70,12 +70,7 @@ describe AdminsController do
 
     context 'admin signed in' do
       before do
-        AppConfig[:admins] = [@user.username]
-      end
-
-      it 'succeeds' do
-        get :admin_inviter, :identifier => 'bob@moms.com'
-        response.should be_redirect
+        Role.add_admin(@user.person)
       end
 
       it 'does not die if you do it twice' do
@@ -85,7 +80,7 @@ describe AdminsController do
       end
 
       it 'invites a new user' do
-        Invitation.should_receive(:create)
+        EmailInviter.should_receive(:new).and_return(stub.as_null_object)
         get :admin_inviter, :identifier => 'bob@moms.com'
         response.should redirect_to user_search_path
         flash.notice.should include("invitation sent")
@@ -95,7 +90,7 @@ describe AdminsController do
 
   describe '#stats' do
     before do
-      AppConfig[:admins] = [@user.username]
+      Role.add_admin(@user.person)
     end
 
     it 'succeeds and renders stats' do

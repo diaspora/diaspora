@@ -117,7 +117,6 @@ eo:
         tag_question: "demando"
         tutorials_wiki_and_forum: "%{tutorial} & %{wiki} & %{forum}: Instruiloj, lerniloj kaj novaĵoj funkciigitaj de la komunumo"
       introduce_yourself: "Tio estas via torento. Ensaltu kaj prezentu vin mem."
-      keep_us_running: "Helpu %{pod} rapide funkcii kaj aĉetu por niaj servkomputiloj ilian kaforiparon per ĉiumonata donatado!"
       new_here:
         follow: "Sekvu %{link} kaj bonvenu novajn uzantojn al Diaspora*!"
         learn_more: "Lerni pli"
@@ -293,7 +292,6 @@ eo:
     new:
       already_invited: "Tiuj homoj ankoraŭ ne akceptis vian inviton:"
       aspect: "Aspekto"
-      comma_seperated_plz: "Vi povas aldoni multajn retpoŝtadresojn, apartate per komoj."
       if_they_accept_info: "se tiu akceptos, tiu aldoniĝos al la aspekto, en kiun vi invitis tiun."
       invite_someone_to_join: "Invitu iun aniĝi al DIASPORA*!"
       language: "Lingvo"
@@ -903,12 +901,6 @@ eo:
       what_are_you_in_to: "Pri kio vi ŝatokupiĝas?"
       what_facebook_does: "al Diaspora. Tio tiros vian nomon kaj foton, kaj ebligos krucreferencadon."
       who_are_you: "Kiu vi estas?"
-    logged_out:
-      go_mobile: "Nun uzu poŝtelefonan!"
-      on_your_mobile_device: "per via poŝtelefono uzi DIASPORA* poŝtelefonan."
-      signed_out: "Vi elsalutis je DIASPORA*."
-      simply_visit: "Nur iru al"
-      works_on_modern: "Funkcias per ĉiuj modernaj poŝtelefonoj"
     privacy_settings:
       ignored_users: "Ignoritaj Uzantoj"
       stop_ignoring: "Ĉesi ignori"

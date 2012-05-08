@@ -1,0 +1,54 @@
+#   Copyright (c) 2010-2012, Diaspora Inc.  This file is
+#   licensed under the Affero General Public License version 3 or later.  See
+#   the COPYRIGHT file.
+
+
+
+art-nvi:
+  javascripts:
+    aspect_dropdown:
+      add_to_aspect: "sung tuteti"
+    comments:
+      hide: "wan aysäplltxevi"
+      show: "wìntxu aysäplltxevi nìwotx"
+    confirm_dialog: "Nga lu law srak?"
+    delete: "'aku"
+    getting_started:
+      alright_ill_wait: "Tam, oe payey."
+      hey: "Kaltxì ma <%= name %>!"
+    header:
+      home: "Kelutral"
+      log_out: "Hum"
+      messages: "Upxare"
+      recent_notifications: "Upxare asop"
+      search: "fwew"
+      view_all: "Tse'a nìwotx"
+    infinite_scroll:
+      no_more: "Kea nì'ul upxare"
+    my_activity: "Oeyä Tìn"
+    my_stream: "Payfya"
+    search_for: "fwew <%= name %>ìri"
+    show_more: "wìntxu nì'ul"
+    stream:
+      comment: "plltxe"
+      follow: "Sutx"
+      like: "Sunu"
+      unfollow: "Ke sutx"
+      unlike: "Ke Sunu"
+    timeago:
+      day: "trr"
+      days: "%d srr"
+      month: "vospxì"
+      months: "%d ayvospxì"
+      prefixAgo: ""
+      prefixFromNow: ""
+      suffixAgo: ""
+      suffixFromNow: ""
+      year: "zìsìt"
+      years: "%d ayzìsìt"
+    videos:
+      unknown: "rusikxa rol fnel astxong"
+      watch: "Tse'a fìrusikxa rolit <%= provider %>mì"
+    viewer:
+      like: "Sunu"
+      unlike: "Ke Sunu"

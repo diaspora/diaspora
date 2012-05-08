@@ -1,4 +1,7 @@
+require 'uri'
 class Services::Facebook < Service
+  include Rails.application.routes.url_helpers
+
   MAX_CHARACTERS = 420
 
   def provider
@@ -7,25 +10,28 @@ class Services::Facebook < Service
 
   def post(post, url='')
     Rails.logger.debug("event=post_to_service type=facebook sender_id=#{self.user_id}")
-    message = public_message(post, url)
-    begin
-      post_params = self.create_post_params(message)
-      Faraday.post("https://graph.facebook.com/me/feed", post_params.to_param)
-    rescue => e
-      Rails.logger.info("#{e.message} failed to post to facebook")
+    if post.public?
+      post_to_facebook("https://graph.facebook.com/me/joindiaspora:make", create_open_graph_params(post).to_param)
+    else
+      post_to_facebook("https://graph.facebook.com/me/feed", create_post_params(post).to_param)
     end
   end
 
-  def create_post_params(message)
-    hash = {:message => message, :access_token => self.access_token}
-    if /https?:\/\/(\S+)/ =~ message
-    hash.merge!({:link => /https?:\/\/(\S+)/.match(message)[0]})
-    end
-    return hash
+  def post_to_facebook(url, body)
+    Faraday.post(url, body)
+  end
+
+  def create_open_graph_params(post)
+    {:post => "#{AppConfig[:pod_url]}#{short_post_path(post)}", :access_token => self.access_token}
+  end
+
+  def create_post_params(post)
+    message = post.text(:plain_text => true)
+    {:message => message, :access_token => self.access_token, :link => URI.extract(message, ['https', 'http']).first}
   end
 
   def public_message(post, url)
-    super(post, MAX_CHARACTERS,  url)
+    super(post, MAX_CHARACTERS, url)
   end
 
   def finder(opts = {})

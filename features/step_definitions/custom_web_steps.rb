@@ -134,6 +134,7 @@ end
 When /^I search for "([^\"]*)"$/ do |search_term|
   fill_in "q", :with => search_term
   find_field("q").native.send_key(:enter)
+  sleep(2)
 end
 
 Then /^the "([^"]*)" field(?: within "([^"]*)")? should be filled with "([^"]*)"$/ do |field, selector, value|
@@ -203,4 +204,16 @@ end
 
 Then /^I should not see ajax loader on deletion link place$/ do
   page.evaluate_script("$('.hide_loader').first().css('display')").should == "none"
+end
+
+Then /^I should see a flash message indicating success$/ do
+  flash_message_success?
+end
+
+Then /^I should see a flash message indicating failure$/ do
+  flash_message_failure?
+end
+
+Then /^I should see a flash message containing "(.+)"$/ do |text|
+  flash_message_containing? text
 end

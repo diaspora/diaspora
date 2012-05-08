@@ -36,7 +36,7 @@ describe UsersController do
     it 'should 404 if no user is found' do
       get :user_photo, :username => 'none'
       response.should_not be_success
-    end 
+    end
   end
 
   describe '#public' do
@@ -44,6 +44,16 @@ describe UsersController do
       sm = Factory(:status_message, :public => true, :author => @user.person)
       get :public, :username => @user.username, :format => :atom
       response.body.should include(sm.text)
+    end
+
+    it 'renders xml if atom is requested with clickalbe urls' do
+      sm = Factory(:status_message, :public => true, :author => @user.person)
+      @user.person.posts.each do |p|
+        p.text = "Goto http://diasporaproject.org/ now!"
+        p.save
+      end
+      get :public, :username => @user.username, :format => :atom
+      response.body.should include('a href')
     end
 
     it 'redirects to a profile page if html is requested' do
@@ -239,6 +249,28 @@ describe UsersController do
     it 'does not fail miserably on mobile' do
       get :getting_started, :format => :mobile
       response.should be_success
+    end
+  end
+
+  # This logic lives in application controller
+  describe "#after_sign_in_path_for" do
+    before do
+      @controller.stub(:current_user).and_return(eve)
+    end
+
+    context 'getting started true on user' do
+      before do
+        eve.update_attribute(:getting_started, true)
+      end
+
+      it "redirects to getting started if the user has getting started set to true" do
+        @controller.after_sign_in_path_for(eve).should == getting_started_path
+      end
+
+      it "does not redirect to getting started if the user is beta" do
+        Role.add_beta(eve.person)
+        @controller.after_sign_in_path_for(eve).should == person_path(eve.person)
+      end
     end
   end
 end

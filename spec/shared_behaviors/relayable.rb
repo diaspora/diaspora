@@ -9,10 +9,12 @@ describe Diaspora::Relayable do
 
     describe 'interacted_at' do
       it 'sets the interacted at of the parent to the created at of the relayable post' do
-        relayable = build_object
-        relayable.save
-        if relayable.parent.respond_to?(:interacted_at) #I'm sorry.
-          relayable.parent.interacted_at.to_i.should == relayable.created_at.to_i
+        Timecop.freeze Time.now do
+          relayable = build_object
+          relayable.save
+          if relayable.parent.respond_to?(:interacted_at) #I'm sorry.
+            relayable.parent.interacted_at.to_i.should == relayable.created_at.to_i
+          end
         end
       end
     end

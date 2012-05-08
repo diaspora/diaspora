@@ -36,6 +36,7 @@ class Person < ActiveRecord::Base
   accepts_nested_attributes_for :profile
 
   before_validation :downcase_diaspora_handle
+
   def downcase_diaspora_handle
     diaspora_handle.downcase! unless diaspora_handle.blank?
   end
@@ -45,6 +46,8 @@ class Person < ActiveRecord::Base
   has_many :photos, :foreign_key => :author_id, :dependent => :destroy # This person's own photos
   has_many :comments, :foreign_key => :author_id, :dependent => :destroy # This person's own comments
   has_many :participations, :foreign_key => :author_id, :dependent => :destroy
+
+  has_many :roles
 
   belongs_to :owner, :class_name => 'User'
 
@@ -88,7 +91,7 @@ class Person < ActiveRecord::Base
   }
 
   def self.community_spotlight
-    AppConfig[:community_spotlight].present? ? Person.where(:diaspora_handle => AppConfig[:community_spotlight]) : []
+    Person.joins(:roles).where(:roles => {:name => 'spotlight'})
   end
 
   # Set a default of an empty profile when a new Person record is instantiated.
@@ -306,6 +309,11 @@ class Person < ActiveRecord::Base
     end
   end
 
+  #gross method pulled out from controller, not exactly sure how it should be used.
+  def shares_with(user)
+    user.contacts.receiving.where(:person_id => self.id).first if user
+  end
+
   # @param person [Person]
   # @param url [String]
   def update_url(url)
@@ -336,6 +344,7 @@ class Person < ActiveRecord::Base
   end
 
   private
+
   def fix_profile
     Webfinger.new(self.diaspora_handle).fetch
     self.reload

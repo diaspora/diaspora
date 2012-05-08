@@ -1,0 +1,25 @@
+<div class="img">
+    {{#linkToPerson author}}
+        <div class="profile-image-container small" style="background-image : url('{{avatar.small}}');" data-placement="right"></div>
+    {{/linkToPerson}}
+</div>
+
+<div class="bd">
+    {{#linkToPerson author}}
+        {{name}}
+    {{/linkToPerson}}
+
+    {{#if root}}
+    <i class="icon-retweet"></i>
+        {{#linkToPerson root.author}}
+          {{name}}
+        {{/linkToPerson}}
+    {{/if}}
+
+    <div class="post-time">
+        <time datetime="{{created_at}}" />
+        {{#unless public}}
+          <i class="icon-lock"> </i>
+        {{/unless}}
+    </div>
+</div>

@@ -44,13 +44,15 @@ pt-BR:
       profile: "Perfil"
       recent_notifications: "Notificações Recentes"
       search: "Find people or #tags"
-      settings: "Opções"
+      settings: "Configurações"
       view_all: "Ver todas"
     ignore: "Ignorar"
     infinite_scroll:
       no_more: "Não há mais postagem."
     my_activity: "Minhas Atividades"
     my_stream: "Fluxo"
+    people:
+      not_found: "e ninguém foi encontrado..."
     photo_uploader:
       looking_good: "OMG, veja você é incrível!"
     publisher:
@@ -59,13 +61,15 @@ pt-BR:
       public: "Pública - a sua postagem será totalmente visível na web e poderá ser encontrada pelos mecanismos de buscas, Google, Bing e etc..."
     reshares:
       duplicate: "Você já compartilhou essa postagem."
+      post: "Compartilhar o post <%= name %>?"
+      successful: "O post foi compartilhado com sucesso!"
     search_for: "Procurar por {{name}}"
     show_more: "mostrar mais"
     stream:
       comment: "Comentar"
       follow: "Seguir"
       hide: "Ocultar"
-      hide_nsfw_posts: "Esconder posts não apto para todos os públicos"
+      hide_nsfw_posts: "Esconder posts não recomendáveis para serem visualizados no escritório."
       like: "Curtir"
       likes:
         few: "<%= count %> Likes"

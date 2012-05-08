@@ -1,0 +1,178 @@
+#profile {
+  min-height : 100%;
+
+  color : #fff;
+  background : {
+    color : #333;
+
+    /* The background-image property will be user-generated and set in `app.pages.Profile` (app/assets/javascripts/app/pages/profile.js)
+       and should ONLY be set once the image is fully loaded.
+
+       Optimal imagemagick manipulation settings for uploaded image (via trial & error):
+
+       `mogrify -brightness-contrast -40x-50`
+
+       NOTE: I noticed that just turning the brightness down had an adverse affect on contrast,
+       thus the "washing out" at -50 contrast.  For more info on this specific command, read the documentation
+       on it here: http://www.imagemagick.org/script/command-line-options.php#brightness-contrast */
+
+    size : cover;
+    attachment : fixed;
+  }
+}
+
+/* getting started pulse animation */
+#composer-button.pulse {
+  -webkit-animation: opacity-pulse 1s infinite;
+  -moz-animation:    opacity-pulse 1s infinite;
+  -ms-animation:     opacity-pulse 1s infinite;
+}
+
+/* functionality under edit mode */
+.edit-mode {
+  #edit-mode-toggle.control {
+    @include opacity(1);
+  }
+
+  .canvas-frame .info {
+    display : none;
+  }
+}
+
+#profile-header {
+ text-align : center;
+ padding : 50px;
+ padding-bottom : 0;
+}
+
+.profile-image-container {
+  border-radius: 140px;
+  border : 3px solid #fff;
+  box-shadow : 0 0 2px rgba(0,0,0,0.5), 0 0 10px rgba(0,0,0,0.6), inset 0 0 15px rgba(0,0,0,0.5), inset 0 -2px 4px rgba(255,255,255,0.3);
+  background-size: cover;
+
+  height : 140px;
+  width : 140px;
+  background-position : center;
+
+  display : inline-block;
+
+  margin-bottom : 5px;
+
+  &.small {
+    height : 40px;
+    width : 40px;
+    border : 2px solid #fff;
+  }
+
+  &.micro {
+    height : 24px;
+    width : 24px;
+    border : 2px solid #fff;
+  }
+}
+
+#profile-controls {
+  text-align : right;
+  padding : 10px 12px;
+
+  /* when our buttons aren't there, we still want to maintain a persistent height */
+  min-height : 40px;
+
+  .control {
+    @include transition(opacity);
+    @include opacity(0.4);
+
+    &.small img {
+      height : 40px;
+      width : 40px;
+    }
+
+    &:hover {
+      @include opacity(1);
+      text-decoration : none;
+    }
+
+    &:active {
+      @include opacity(0.8);
+    }
+  }
+}
+
+#profile-stats {
+  i {
+    @include transition(opacity);
+    @include opacity(0.7);
+  }
+
+  a:hover {
+    text-decoration : none;
+  }
+
+  a:hover > i,
+  a:hover > img
+  {
+    @include opacity(1);
+  }
+
+  .divider {
+    color : #999;
+  }
+
+  .cake {
+    @include opacity(0.63);
+
+    width : 11px;
+    height : 15px;
+
+    margin-right : 2px;
+    position : relative;
+    top : -3px;
+  }
+
+  .stat {
+    margin : 10px 5px;
+
+    &.services {
+      .service {
+        position : relative;
+        margin-right : 2px;
+        top : -2px;
+
+        img {
+          @include transition(opacity);
+          @include opacity(0.5);
+
+          height : 14px;
+          width : 14px;
+        }
+
+        & > img:hover {
+          @include opacity(1);
+        }
+
+        &:hover {
+          text-decoration : none;
+        }
+
+        &:last-child {
+          margin-right : 0;
+        }
+      }
+    }
+  }
+}
+
+#profile-bio {
+  display : none;
+
+  margin-top : 20px;
+  text-align : center;
+
+  p {
+    color : #777;
+    display : inline-block;
+    width : $two-column-width + px;
+    text-align : center;
+  }
+}

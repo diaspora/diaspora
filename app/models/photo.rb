@@ -9,8 +9,6 @@ class Photo < ActiveRecord::Base
   include Diaspora::Commentable
   include Diaspora::Shareable
 
-
-
   # NOTE API V1 to be extracted
   acts_as_api
   api_accessible :backbone do |t|
@@ -23,6 +21,10 @@ class Photo < ActiveRecord::Base
         :medium => photo.url(:thumb_medium),
         :large => photo.url(:scaled_full) }
     }, :as => :sizes
+    t.add lambda { |photo|
+      { :height => photo.height,
+        :width => photo.width }
+    }, :as => :dimensions
   end
 
   mount_uploader :processed_image, ProcessedImage
@@ -33,6 +35,9 @@ class Photo < ActiveRecord::Base
 
   xml_attr :text
   xml_attr :status_message_guid
+
+  xml_attr :height
+  xml_attr :width
 
   belongs_to :status_message, :foreign_key => :status_message_guid, :primary_key => :guid
   validates_associated :status_message
@@ -71,7 +76,7 @@ class Photo < ActiveRecord::Base
     photo.pending = params[:pending] if params[:pending]
     photo.diaspora_handle = photo.author.diaspora_handle
 
-    photo.random_string = ActiveSupport::SecureRandom.hex(10)
+    photo.random_string = SecureRandom.hex(10)
 
     if params[:user_file]
       image_file = params.delete(:user_file)

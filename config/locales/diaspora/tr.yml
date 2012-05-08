@@ -117,7 +117,6 @@ tr:
         tag_question: "soru"
         tutorials_wiki_and_forum: "%{tutorial} & %{wiki} & %{forum}: Topluluğun oluşturduğu haberler, belgeler ve yardımlar"
       introduce_yourself: "Bu sizin akışınızdır. Atla ve kendini tanıt."
-      keep_us_running: "%{pod} ağının daha hızlı ve hatasız olması için geliştiricilere kahve ısmarla!"
       new_here:
         follow: "%{link} unsurunu izle ve yeni Diaspora* kullanıcılarını karşıla!"
         learn_more: "Daha fazla bilgi"
@@ -297,7 +296,6 @@ tr:
       already_invited: "Aşağıdaki kişiler davetinizi kabul etmedi:"
       aspect: "Yön"
       check_out_diaspora: "Diaspora'yı deneyin!"
-      comma_seperated_plz: "Virgülle ayırarak birden fazla e-posta adresi girebilirsin."
       if_they_accept_info: "kabul ederseler, yönünüze eklenecekler."
       invite_someone_to_join: "Diaspora'ya birilerini davet et!"
       language: "Dil"
@@ -932,12 +930,6 @@ tr:
       what_are_you_in_to: "Ne yapıyorsun?"
       what_facebook_does: "Diaspora için. Bu adınızı girin ve fotoğrafınızı çekin."
       who_are_you: "Sen kimsin?"
-    logged_out:
-      go_mobile: "Şimdi mobil olun."
-      on_your_mobile_device: "mobil cihazınız üzerinden diaspora* mobile erişim."
-      signed_out: "Diaspora'dan çıkış yaptın"
-      simply_visit: "Basitçe ziyaret"
-      works_on_modern: "Tüm modern akıllı telefonlarda çalışır"
     privacy_settings:
       ignored_users: "Gözardı Edilen Kullanıcılar"
       stop_ignoring: "Görmezden gelmeye son ver"

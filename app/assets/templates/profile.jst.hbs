@@ -1,0 +1,68 @@
+{{#if is_own_profile}}
+    <div id="wallpaper-upload"></div>
+{{/if}}
+
+<div class="container">
+    <div id="top-right-nav">
+        {{#if showFollowButton}}
+            <a href="#" onClick="alert('Not yet implemented!')" id="follow-button">
+                <span class="label label-inverse">
+                    <i class="icon-plus icon-white"></i>
+                    <span>
+                        FOLLOW
+                    </span>
+                </span>
+            </a>
+        {{/if}}
+
+        {{#if current_user.guid}}
+            <a href="/" id="home-button">
+                <span class="label label-inverse">
+                    <i class="icon-home icon-white"></i>
+                    <span>
+                        HOME
+                    </span>
+                </span>
+            </a>
+        {{else}}
+            <a href="/" id="home-button">
+                <span class="label label-inverse">
+                    <span>
+                        DIASPORA
+                    </span>
+                </span>
+            </a>
+        {{/if}}
+
+        {{#if is_own_profile}}
+            <a href="/users/sign_out" title="Log out" id="logout-button">
+                <span class="label label-inverse">
+                    <i class="icon-off icon-white"></i>
+                </span>
+            </a>
+        {{/if}}
+    </div>
+
+    <section id="profile-info"/>
+
+    <section id="profile-controls">
+        {{#if is_own_profile}}
+            <a href="#composer" id="composer-button" class="control small" rel="facebox">
+                <img src='{{imageUrl "buttons/pub@2x.png"}}' title="New Post" rel="tooltip"/>
+            </a>
+            <a href="#" id="edit-mode-toggle" class="control small">
+                <img src='{{imageUrl "buttons/edit@2x.png"}}' title="Edit Posts" rel="tooltip"/>
+            </a>
+
+            <!-- only load up this iframe if the current user is on their own page.
+                 this should be ajax'ed in, regardless. -->
+            <div id="composer" style="display:none;">
+                <iframe src="/posts/new" height=500 width=700 style="border:none;"></iframe>
+            </div>
+        {{/if}}
+    </section>
+
+    <section id="canvas"></section>
+
+    <div id="paginate"><span class="loader hidden"/></div>
+</div>

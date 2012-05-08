@@ -18,8 +18,10 @@ describe ConversationsController do
       response.should be_success
     end
 
-    it "assigns a json list of contacts" do
-      assigns(:contacts_json).should include(alice.contacts.first.person.name)
+    it "assigns a json list of contacts that are sharing with the person" do
+      assigns(:contacts_json).should include(alice.contacts.where(:sharing => true).first.person.name)
+      alice.contacts << Contact.new(:person_id => eve.person.id, :user_id => alice.id, :sharing => false, :receiving => true)
+      assigns(:contacts_json).should_not include(alice.contacts.where(:sharing => false).first.person.name)
     end
 
     it "assigns a contact if passed a contact id" do
@@ -157,7 +159,7 @@ describe ConversationsController do
       get :show, :id => @conversation.id, :format => :json
       response.should be_success
       assigns[:conversation].should == @conversation
-      response.body.should == @conversation.to_json
+      response.body.should include @conversation.guid
     end
 
     it 'redirects to index' do

@@ -8,125 +8,136 @@
 
 ca:
   javascripts:
-      confirm_dialog: "N'esteu segur?"
-      delete: "Suprimeix"
-      ignore: "Omet"
-      timeago:
-        prefixAgo: "fa"
-        prefixFromNow: "fa"
-        suffixAgo: ""
-        suffixFromNow: ""
-        seconds: "menys d'un minut"
-        minute: "aproximadament un minut"
-        minutes: "%d minuts"
-        hour: "aproximadament una hora"
-        hours: "aproximadament %d hours"
-        day: "un dia"
-        days: "%d dies"
-        month: "aproximadament un mes"
-        months: "%d mesos"
-        year: "aproximadament un any"
-        years: "%d anys"
-      my_activity: "La meua activitat"
-      my_stream: "Flux"
-      videos:
-          watch: "Visualitza aquest video a <%= provider %>"
-          unknown: "El tipus de vídeo és desconegut"
-      search_for: "Cerca per <%= name %>"
-      publisher:
-        at_least_one_aspect: "Heu de publicar en almenys un aspecte."
-        limited: "Limitat - la vostra publicació només serà visible per a la gent amb qui esteu compartint"
-        public: "Públic - la vostra publicació serà visible per a tothom i serà trobada pels cercadors"
-      infinite_scroll:
-        no_more: "No hi ha més publicacions."
-      aspect_dropdown:
-        add_to_aspect: "Afegeix el contacte"
-        select_aspects: "Selecciona els aspectes"
-        all_aspects: "Tots els aspectes"
-        stopped_sharing_with: "Heu deixat de compartir amb <%= name %>."
-        started_sharing_with: "Heu començat a compartir amb <%= name %>!"
-        error: "No s'ha pogut començar a compartir amb <%= name %>. L'esteu ignorant?"
-        toggle:
-          zero: "Selecciona els aspectes"
-          one: "En <%= count %> aspecte"
-          two: "En <%= count %> aspectes"
-          few: "En <%= count %> aspectes"
-          many: "En <%= count %> aspectes"
-          other: "En <%= count %> aspectes"
-      show_more: "mostra'n més"
-      failed_to_like: "No s'ha pogut comunicar que us agrada!"
-      failed_to_post_message: "No s'ha pogut publicar el missatge!"
-      comments:
-        show: "mostra tots els comentaris"
-        hide: "amaga els comentaris"
+    confirm_dialog: "N'esteu segur?"
+    delete: "Suprimeix"
+    ignore: "Omet"
+    timeago:
+      prefixAgo: "fa"
+      prefixFromNow: "fa"
+      suffixAgo: ""
+      suffixFromNow: ""
+      seconds: "menys d'un minut"
+      minute: "aproximadament un minut"
+      minutes: "%d minuts"
+      hour: "aproximadament una hora"
+      hours: "aproximadament %d hours"
+      day: "un dia"
+      days: "%d dies"
+      month: "aproximadament un mes"
+      months: "%d mesos"
+      year: "aproximadament un any"
+      years: "%d anys"
+    my_activity: "La meva activitat"
+    my_stream: "Flux"
+    videos:
+      watch: "Visualitza aquest video a <%= provider %>"
+      unknown: "El tipus de vídeo és desconegut"
+    search_for: "Cerca per <%= name %>"
+    publisher:
+      at_least_one_aspect: "Heu de publicar en almenys un aspecte."
+      limited: "Limitat - la vostra publicació només serà visible per a la gent amb qui esteu compartint"
+      public: "Públic - la vostra publicació serà visible per a tothom i serà trobada pels cercadors"
+    infinite_scroll:
+      no_more: "No hi ha més publicacions."
+    aspect_dropdown:
+      add_to_aspect: "Afegeix el contacte"
+      select_aspects: "Selecciona els aspectes"
+      all_aspects: "Tots els aspectes"
+      stopped_sharing_with: "Heu deixat de compartir amb <%= name %>."
+      started_sharing_with: "Heu començat a compartir amb <%= name %>!"
+      error: "No s'ha pogut començar a compartir amb <%= name %>. L'esteu ignorant?"
+      toggle:
+        zero: "Selecciona els aspectes"
+        one: "En <%= count %> aspecte"
+        two: "En <%= count %> aspectes"
+        few: "En <%= count %> aspectes"
+        many: "En <%= count %> aspectes"
+        other: "En <%= count %> aspectes"
+    show_more: "mostra'n més"
+    failed_to_like: "No s'ha pogut comunicar que us agrada!"
+    failed_to_post_message: "No s'ha pogut publicar el missatge!"
+    comments:
+      show: "mostra tots els comentaris"
+      hide: "amaga els comentaris"
+    reshares:
+      duplicate: "És bona, oi? Ja heu tornat a compartir aquesta publicació!"
+    aspect_navigation:
+      select_all: "Selecciona'ls tots"
+      deselect_all: "Desselecciona'ls tots"
+      no_aspects: "No heu seleccionat cap aspecte"
+    getting_started:
+      hey: "Ei, <%= name %>!"
+      no_tags: "Ei, no heu seguit cap etiqueta! Voleu continuar igualment?"
+      alright_ill_wait: "D'acord, m'esperaré."
+      preparing_your_stream: "S'està preparant el vostre flux personalitzat…"
+    photo_uploader:
+      looking_good: "Vaja, teniu un aspecte fantàstic!"
+    tags:
+      wasnt_that_interesting: "D'acord, es possible que #<%= tagName %> no fos tan interessant…"
+    people:
+      not_found: "i no s'ha trobat ningú…"
+
+    stream:
+      hide: "Amaga"
+      public: "Públic"
+      limited: "Limitat"
+      like: "M'agrada"
+      unlike: "Ja no m'agrada"
+      reshare: "Torna a compartir"
+      comment: "Comenta"
+      original_post_deleted: "Publicació original suprimida per l'autor."
+      show_nsfw_post: "Mostra la publicació"
+      show_nsfw_posts: "Mostra-les totes"
+      hide_nsfw_posts: "Amaga les publicacions #nsfw"
+      follow: "Segueix"
+      unfollow: "Deixa de seguir"
+
+      likes:
+        zero: "a cap persona li agrada"
+        one: "li agrada a <%= count %> persona"
+        two: "li agrada a <%= count %> persones"
+        few: "li agrada a <%= count %> persones"
+        many: "li agrada a <%= count %> persones"
+        other: "li agrada a <%= count %> persones"
+
       reshares:
-        duplicate: "És bona, oi? Ja heu tornat a compartir aquesta publicació!"
-      aspect_navigation:
-        select_all: "Selecciona'ls tots"
-        deselect_all: "Desselecciona'ls tots"
-        no_aspects: "No heu seleccionat cap aspecte"
-      getting_started:
-        hey: "Ei, <%= name %>!"
-        no_tags: "Ei, no heu seguit cap etiqueta! Voleu continuar igualment?"
-        alright_ill_wait: "D'acord, m'esperaré."
-        preparing_your_stream: "S'està preparant el vostre flux personalitzat…"
-      photo_uploader:
-        looking_good: "Vaja, teniu un aspecte fantàstic!"
-      tags:
-        wasnt_that_interesting: "D'acord, es possible que #<%= tagName %> no fos tan interessant…"
+        zero: "Torna a compartir"
+        one: "<%= count %> vegada tornat a compartir"
+        two: "<%= count %> vegades tornat a compartir"
+        few: "<%= count %> vegades tornat a compartir"
+        many: "<%= count %> vegades tornat a compatir"
+        other: "<%= count %> vegades tornat a compatir"
 
-      stream:
-        hide: "Amaga"
-        public: "Públic"
-        limited: "Limitat"
-        like: "M'agrada"
-        unlike: "Ja no m'agrada"
-        reshare: "Torna a compartir"
-        comment: "Comenta"
-        original_post_deleted: "Publicació original suprimida per l'autor."
-        show_nsfw_post: "Mostra la publicació"
-        show_nsfw_posts: "Mostra-les totes"
-        hide_nsfw_posts: "Amaga les publicacions #nsfw"
-        follow: "Segueix"
-        unfollow: "Deixa de seguir"
+      more_comments:
+        zero: "Mostra <%= count %> comentaris més"
+        one: "Mostra <%= count %> comentari més"
+        two: "Mostra <%= count %> comentaris més"
+        few: "Mostra <%= count %> comentaris més"
+        many: "Mostra <%= count %> comentaris més"
+        other: "Mostra <%= count %> comentaris més"
 
-        likes:
-          zero: "a cap persona li agrada"
-          one: "li agrada a <%= count %> persona"
-          two: "li agrada a <%= count %> persones"
-          few: "li agrada a <%= count %> persones"
-          many: "li agrada a <%= count %> persones"
-          other: "li agrada a <%= count %> persones"
+    header:
+      home: "Inici"
+      profile: "Perfil"
+      contacts: "Contactes"
+      settings: "Paràmetres"
+      admin: "Administració"
+      log_out: "Surt"
 
-        reshares:
-          zero: "Torna a compartir"
-          one: "<%= count %> vegada tornat a compartir"
-          two: "<%= count %> vegades tornat a compartir"
-          few: "<%= count %> vegades tornat a compartir"
-          many: "<%= count %> vegades tornat a compatir"
-          other: "<%= count %> vegades tornat a compatir"
+      notifications: "Notificacions"
+      messages: "Missatges"
 
-        more_comments:
-          zero: "Mostra <%= count %> comentaris més"
-          one: "Mostra <%= count %> comentari més"
-          two: "Mostra <%= count %> comentaris més"
-          few: "Mostra <%= count %> comentaris més"
-          many: "Mostra <%= count %> comentaris més"
-          other: "Mostra <%= count %> comentaris més"
+      search: "Cerca"
 
-      header:
-        home: "Inici"
-        profile: "Perfil"
-        contacts: "Contactes"
-        settings: "Paràmetres"
-        admin: "Administració"
-        log_out: "Surt"
+      recent_notifications: "Notificacions recents"
+      mark_all_as_read: "Marca'ls tots com llegits"
+      view_all: "Visualitza'ls tots"
 
-        notifications: "Notificacions"
-        messages: "Missatges"
-
-        search: "Cerca"
-
-        recent_notifications: "Notificacions recents"
-        mark_all_as_read: "Marca'ls tots com llegits"
-        view_all: "Visualitza'ls tots"
+    viewer:
+      stop_following_post: "Deixa de seguir la publicació"
+      follow_post: "Segueix la publicació"
+      like: "M'agrada"
+      unlike: "Ja no m'agrada"
+      reshare: "Torna a compartir"
+      reshared: "Tornat a compartir"
+      comment: "Comenta"

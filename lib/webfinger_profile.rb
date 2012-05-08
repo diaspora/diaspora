@@ -17,9 +17,10 @@ class WebfingerProfile
 
   def set_fields
     doc = Nokogiri::XML.parse(webfinger_profile)
+    doc.remove_namespaces!
 
     account_string = doc.css('Subject').text.gsub('acct:', '').strip
-
+    
     raise "account in profile(#{account_string}) and account requested (#{@account}) do not match" if account_string != @account
 
     doc.css('Link').each do |l|
@@ -36,13 +37,11 @@ class WebfingerProfile
       end
     end
 
-    if doc.at('Link[rel=diaspora-public-key]')
-      begin
-        pubkey = text_of_attribute( doc.at('Link[rel=diaspora-public-key]'), 'href')
-        @public_key = Base64.decode64 pubkey
-      rescue => e
-        Rails.logger.info("event => :invalid_profile, :identifier => #{@account}")
-      end
+    begin
+      pubkey = text_of_attribute( doc.at('Link[rel=diaspora-public-key]'), 'href')
+      @public_key = Base64.decode64 pubkey
+    rescue => e
+      Rails.logger.info("event => :invalid_profile, :identifier => #{@account}")
     end
   end
 

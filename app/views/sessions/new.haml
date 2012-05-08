@@ -3,11 +3,10 @@
 -#   the COPYRIGHT file.
 
 = content_for :page_title do
-  = t('devise.sessions.new.sign_in')
-  | DIASPORA* ALPHA
+  = "Diaspora* / #{t('devise.sessions.new.sign_in')}"
 
 = content_for :head do
-  = include_javascripts :login
+  = javascript_include_tag :login
 
   :css
     header, #flash_alert { display:none; }
@@ -16,9 +15,9 @@
 .container{:style => 'text-align:center;'}
   #login
     %p
-      = image_tag('asterisk.png', :id => 'asterisk', :class => 'logo', :height => 154, :width => 154)
+      = image_tag('branding/asterisk.png', :id => 'asterisk', :class => 'logo', :height => 154, :width => 154)
     %p
-      = image_tag('logo_caps.png', :id => 'logo', :width => 98, :height => 14)
+      = image_tag('branding/logo_caps.png', :id => 'logo', :width => 98, :height => 14)
 
     - flash.each do |name, msg|
       %p{:class => "login_#{name}"}= msg

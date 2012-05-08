@@ -36,7 +36,7 @@ class AuthorizationsController < ApplicationController
   end
 
   def create
-    if params[:commit] == "Authorize"
+    if params['confirm']
       grant_authorization_code(current_user)
     else
       deny_authorization_code
@@ -54,9 +54,15 @@ class AuthorizationsController < ApplicationController
       return
     end
     
-    packaged_manifest = JSON.parse(RestClient.get("#{app_url}manifest.json").body)
-    public_key = OpenSSL::PKey::RSA.new(packaged_manifest['public_key'])
-    manifest = JWT.decode(packaged_manifest['jwt'], public_key)
+    begin
+      packaged_manifest = JSON.parse(RestClient.get("#{app_url}manifest.json").body)
+      public_key = OpenSSL::PKey::RSA.new(packaged_manifest['public_key'])
+      manifest = JWT.decode(packaged_manifest['jwt'], public_key)
+    rescue => e
+      puts "DIASPORA_CONNECT there was a problem with getting a token for the following diaspora id"
+      puts "DIASPORA_CONNECT #{app_url}, #{public_key.to_s} #{manifest.to_s}"
+      raise e
+    end
 
     message = verify(signed_string, Base64.decode64(params[:signature]), public_key, manifest)
     if not (message =='ok')

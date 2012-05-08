@@ -6,12 +6,31 @@ mysql: &mysql
   charset: utf8
   collation: utf8_bin
 
+<<<<<<< HEAD:config/database.yml
+=======
+postgres: &postgres
+  adapter: postgresql
+  host: localhost
+  port: 5432
+  username: postgres
+  password:
+  encoding: unicode
+
+# You can ignore this
+postgres_travis: &postgres_travis
+  adapter: postgresql
+  username: postgres
+
+# Comment the the mysql line and uncomment the postgres line
+# if you want to use postgres
+>>>>>>> c8f3bb3e9bc189367b50d263eb299e3d4b444f3d:config/database.yml.example
 common: &common
   # Choose one of the following
   <<: *mysql
   #<<: *postgres
 
 
+# Normally you don't need to touch anything here
 development:
   <<: *common
   database: diaspora_development

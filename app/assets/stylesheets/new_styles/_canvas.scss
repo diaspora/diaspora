@@ -1,0 +1,338 @@
+@mixin wide() {
+  width : $two-column-width + px;
+  min-width : $two-column-width + px;
+  max-width : $two-column-width + px;
+}
+.no-post-message {
+  text-align: center;
+  margin-top: 50px;
+  font-size: 1.2em;
+}
+
+.canvas-frame {
+  float : left;
+  margin : 10px;
+  margin-bottom : 18px;
+
+  /* expand / contract cursor declarations */
+  &.x2 .content {
+    cursor : nw-resize;
+    cursor : -moz-zoom-out;
+    cursor : -webkit-zoom-out;
+  }
+  .content {
+    cursor : nwse-resize;
+    cursor : -moz-zoom-in;
+    cursor : -webkit-zoom-in;
+  }
+
+  .content {
+    @include transition(box-shadow);
+    @include box-shadow(0, 8px, 50px, rgba(0,0,0,0.9));
+
+    background-image : image_url("paper-texture-1.jpg");
+
+    &:hover {
+      @include box-shadow(0, 3px, 10px,rgba(0,0,0,0.9));
+
+      .info {
+        top : 0;
+      }
+    }
+
+    &:active {
+      -webkit-transform : scale(0.99);
+    }
+
+    //hax to deal with markdownify
+    p {
+      font-size: inherit;
+      line-height: inherit;
+    }
+
+    position : relative;
+
+    background-color : #fff;
+
+    width : $column-width + px;
+    min-width : $column-width + px;
+    max-width : $column-width + px;
+
+    overflow : hidden;
+
+    /* used in masking photos with overflow: hidden; */
+    .image-container {
+      overflow : hidden;
+      width : 100%;
+
+      img {
+        width: 100%;
+        max-width : 100%;
+      }
+    }
+  }
+
+  .embed-frame {
+    .thumb {
+      position : relative;
+    }
+    img  {
+      width: 100%;
+    }
+
+    iframe {
+      height : 100%;
+      width : 100%;
+      max-height: 222px;
+    }
+  }
+
+  .controls{
+    position : absolute;
+    z-index : 100;
+    top : 10px;
+    right : 10px;
+
+    display : none;
+
+    .edit-mode & {
+      display : inline-block;
+    }
+
+    a, span {
+      display : inline-block;
+      background-size : 30px 30px;
+      height : 30px;
+      width : 30px;
+      text-decoration : none;
+    }
+
+    .delete {
+      background-image : image_url('buttons/delete.png');
+
+      &:hover {
+        background-image : image_url('buttons/delete_hover.png');
+      }
+    }
+  }
+
+  .info {
+    @include transition(top);
+    @include box-shadow(0,1px,3px,rgba(0,0,0,0.3));
+    @include opacity(0.8);
+
+    cursor : pointer;
+
+    background-color : rgba(255,255,255,0.8);
+    border-bottom : 1px solid #fff;
+
+    color : #000;
+
+    position : absolute;
+    top : -32px;
+    right : 0;
+    text-align : center;
+    width : 100%;
+
+    z-index : 30;
+
+    padding : 5px 0;
+
+    &:hover {
+      @include opacity(0.9);
+    }
+
+    i {
+      margin-left:  3px;
+    }
+
+    .avatar {
+      position : absolute;
+      top : 0;
+      left : 0;
+
+      height : 29px;
+      width : 29px;
+    }
+
+    .timestamp,
+    .permalink {
+      margin : 1px 7px;
+    }
+
+    .timestamp {
+      float : left;
+      margin-top : 2px;
+    }
+
+    .permalink {
+      cursor : pointer;
+      float : right;
+    }
+  }
+
+  .background-color {
+    height : 100%;
+    width : 100%;
+    position: absolute;
+    top : 0;
+    left : 0;
+  }
+
+  .text-content {
+    position : relative;
+    z-index : 10;
+    color : #000;
+
+    text-shadow : 0 2px 0 rgba(#fff,0.6), 0 -1px 2px rgba(#555, 0.1);
+    font-size : 1.5em;
+    line-height : 1.2em;
+
+    img {
+      max-width: 100%;
+      width: 100%;
+    }
+
+    p:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  &.sticky-note {
+    .content{
+      min-height : $column-width + px;
+      .text-content {
+        margin: 30px 20px;
+      }
+    }
+
+    &.big-text {
+      display : table;
+
+      .text-content {
+        display : table-cell;
+        position : absolute;
+
+        margin : 0;
+
+        margin-top : 20%;
+        height : 100%;
+        width : 100%;
+
+        top : 0;
+        left : 0;
+      }
+
+      p {
+        font-family : "Noteworthy", "Marker Felt", "Comic Sans";
+        font-style : italic;
+        text-align : center;
+        font-weight : bold;
+        padding: 0 20px;
+      }
+    }
+  }
+
+  &.sticky-note .text-content {
+    color : #555;
+  }
+
+  &.cyan .background-color   { background-color : rgba($cyan, 0.2); }
+  &.green .background-color  { background-color : rgba($green, 0.2); }
+  &.yellow .background-color { background-color : rgba($yellow, 0.2); }
+  &.purple .background-color { background-color : rgba($purple, 0.2); }
+  &.lime-green .background-color { background-color : rgba($lime-green, 0.2); }
+  &.orange .background-color { background-color : rgba($orange, 0.2); }
+  &.red .background-color { background-color : rgba($red, 0.2); }
+  &.turquoise .background-color { background-color : rgba($turquoise, 0.2); }
+  &.sand .background-color { background-color : rgba($sand, 0.8); }
+
+  &.blog-text {
+    .text-content {
+      padding : 10px;
+      color : #222;
+
+      p {
+        text-shadow : none;
+
+        font-family : Palatino, Georgia, Times, serif;
+        font-weight : normal;
+        font-size : 0.8em;
+        line-height : 1.5em;
+        text-align : justify;
+      }
+    }
+  }
+
+  &:no-text {
+    img {
+      border : none;
+    }
+  }
+
+  &.day:not(.sticky-note),
+  &.has-text:not(.sticky-note):not(.wallpaper),
+  &.night:not(.sticky-note),
+  &.multi-photo:not(.sticky-note) {
+    img {
+      border-bottom : 1px solid #ddd;
+    }
+
+    .text-content {
+      padding : 10px 20px;
+      font-size : 14px;
+      line-height : 18px;
+      color : #444;
+    }
+  }
+
+  &.big-text {
+    .text-content {
+      p {
+        font-size : 2.0em;
+        line-height : 1.1em;
+        text-align : center;
+      }
+    }
+  }
+
+
+  /* larger declarations */
+  &.x2.width  .content { @include wide(); }
+
+  &.sticky-note.x2.height  .content {
+    min-height : $two-row-height + px;
+  }
+
+  &.rich-media {
+    width: auto;
+    height: auto;
+  }
+
+  &.wallpaper {
+    .image-container {
+      background-color: black;
+    }
+
+    img { max-height: 100% }
+
+    &.has-text{
+      img {
+        //image container background is black, lowering opacity darkens image
+        @include opacity(0.7);
+      }
+    }
+
+    .text-content {
+      position: absolute;
+      left: 0;
+      width: 100%;
+      top: 40%;
+      @include centered-frame();
+      font-size: 2em;
+      color: white;
+      @include opacity(1);
+      text-shadow : none;
+    }
+  }
+}

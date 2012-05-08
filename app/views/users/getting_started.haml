@@ -3,7 +3,7 @@
 -#   the COPYRIGHT file.
 
 - content_for :head do
-  = include_javascripts :profile
+  = javascript_include_tag :profile
 
 %br
 
@@ -13,6 +13,8 @@
       = t('.well_hello_there')
     %p.center
       = t(".community_welcome")
+
+    = invited_by_message
 
     .clearfix
       %br

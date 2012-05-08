@@ -40,6 +40,20 @@ ko:
             username:
               invalid: ": 유효하지 않은 사용자명입니다. 로마자, 아라비아 숫자, 밑줄 문자(_)만 쓸 수 있습니다"
               taken: ": 이미 쓰이고 있습니다."
+  admins:
+    admin_bar:
+      correlations: "상관 관계"
+      pages: "페이지"
+      pod_stats: "팟 통계"
+      resque_overview: "Resque 개요"
+      user_search: "사용자 찾기"
+      weekly_user_stats: "주간 사용자 통계"
+    correlations:
+      correlations_count: "로그인 횟수와의 상관 관계"
+    user_search:
+      users:
+        other: "사용자 %{count}명을 찾았습니다"
+        zero: "사용자를 찾을 수 없습니다"
   ago: "%{time} 전"
   all_aspects: "모든 애스펙"
   application:
@@ -117,7 +131,8 @@ ko:
         tag_question: "질문"
         tutorials_wiki_and_forum: "%{tutorial}과 %{wiki}와  %{forum}: 커뮤니티가 운영하는 튜토리얼, 사용 방법과 소식"
       introduce_yourself: "내 스트림입니다. 자기소개 어때요?"
-      keep_us_running: "%{pod} 팟이 빠르게 동작하고 서버와 디아스포라 팀이 마시는 커피를 살 수 있도록 정기후원을 해 주세요!"
+      keep_diaspora_running: "정기 후원으로 디아스포라 개발을 빠르게 유지해주세요!"
+      keep_pod_running: "%{pod} 팟이 빠르게 동작하고 서버와 디아스포라 팀이 마시는 커피를 살 수 있도록 정기후원을 해 주세요!"
       new_here:
         follow: "%{link} 태그를 팔로우해서 디아스포라*의 새 사용자를 맞으세요!"
         learn_more: "자세히"
@@ -169,6 +184,9 @@ ko:
     index:
       no_applications: "아직 애플리케이션을 등록하지 않았습니다."
       revoke_access: "접속권한 취소"
+    new:
+      authorize: "허가"
+      nope: "아니오"
   back: "돌아가기"
   blocks:
     create:
@@ -283,6 +301,8 @@ ko:
       simplicity_explanation: "디아스포라에서는 깨끗하고 쉽게 공유합니다. 개인정보도 마친가지입니다. 본래 개인적인 디아스포라에서는 프로필 보안을 유지하기 위해 여러 페이지에 걸친 설정과 옵션을 힘겹게 거치지 않아도 됩니다."
       tagline_first_half: "원하는 사람들과"
       tagline_second_half: "원하는 걸 공유하자."
+  invitation_codes:
+    excited: "%{name}님이 나를 기다리고 있습니다."
   invitations:
     a_facebook_user: "페이스북 사욤자"
     check_token:
@@ -301,10 +321,14 @@ ko:
       already_invited: "내 초대를 수락하지 않은 사람들:"
       aspect: "애스펙"
       check_out_diaspora: "디아스포라를 써보세요!"
-      comma_seperated_plz: "쉼표로 구분하여 여러 이메일 주소를 넣을 수 있습니다."
+      codes_left:
+        other: "이 코드에 초대장 %{count}개가 남았습니다"
+        zero: "이 코드에 남은 초대장이 없습니다"
+      comma_separated_plz: "쉼표로 구분하여 여러 이메일 주소를 넣을 수 있습니다."
       if_they_accept_info: "수락한 친구는 초대했던 애스펙에 추가됩니다."
       invite_someone_to_join: "다이스포라에 친구를 초대하세요!"
       language: "언어"
+      paste_link: "이 링크를 친구들에게 공유해서 디아스포라*로 초대하거나, 이메일로 직접 보내세요."
       personal_message: "쪽지"
       resend: "다시 보내기"
       send_an_invitation: "초대장 보내기"
@@ -395,6 +419,7 @@ ko:
         two: "과 %{count}명"
         zero: "and nobody else"
       mark_all_as_read: "모두 읽음으로 표시"
+      mark_unread: "읽지 않음으로 표시"
       notifications: "알림"
     liked:
       few: "%{actors}님 등이 내 %{post_link}을 좋아합니다."
@@ -455,6 +480,7 @@ ko:
       zero: "%{actors}님이 나와 공유를 시작했습니다."
   notifier:
     a_post_you_shared: "게시물"
+    accept_invite: "디아스포라* 초대를 수락하세요!"
     click_here: "여기를 클릭"
     comment_on_post:
       reply: "%{name}님의 게시물에 댓글 달기 >"
@@ -463,6 +489,20 @@ ko:
       subject: "새 이메일 주소 %{unconfirmed_email} 를 활성화해주세요"
     email_sent_by_diaspora: "디아스포라가 보낸 이메일입니다. 앞으로 받고싶지 않다면, 내 알림 설정을 바꾸기 위해"
     hello: "%{name}님!"
+    invite:
+      message: |-
+          안녕하세요?
+
+          귀하를 디아스포라*로 초대합니다!
+
+          이 링크를 클릭해서 시작하세요.
+
+          %{invite_url}
+          <%=invite_code_url(@invitation_code)%>
+
+
+          디아스포라* 이메일 로봇 보냄!
+    invited_you: "%{name}님이 나를 디아스포라*로 초대했습니다."
     liked:
       liked: "%{name}님이 내 게시물을 좋아합니다:"
       view_post: "게시물 보기 >"
@@ -489,6 +529,8 @@ ko:
   password: "암호"
   password_confirmation: "암호 확인"
   people:
+    add_contact:
+      invited_by: "나를 초대한 사람:"
     add_contact_small:
       add_contact_from_tag: "태그에서 컨택 추가"
     aspect_list:
@@ -503,6 +545,7 @@ ko:
       no_one_found: "검색 결과가 없습니다"
       no_results: "검색 결과가 없습니다"
       results_for: "검색 결과:"
+      searching: "검색중입니다, 잠시만 기다려주십시오···"
     last_post: "최근 게시물"
     many: "%{count}명"
     one: "한 명"
@@ -638,6 +681,7 @@ ko:
       password_to_confirm: "(암호를 바꾸려면 원래 암호가 필요합니다)"
       unhappy: "무슨 문제라도?"
       update: "갱신하기"
+    invalid_invite: "내가 제공한 초대 링크가 더 이상 유효하지 않습니다!"
     new:
       create_my_account: "내 계정 만들기!"
       enter_email: "이메일 주소를 입력하세요"
@@ -794,6 +838,7 @@ ko:
       show: "보기"
       unlike: "좋아요 취소"
       via: "%{link}에서"
+      via_mobile: "via 모바일"
       viewable_to_anyone: "이 게시물은 웹의 누구든지 볼 수 있습니다"
   status_messages:
     create:
@@ -832,6 +877,7 @@ ko:
     community_spotlight_stream: "커뮤니티 스포트라이트"
     followed_tag:
       add_a_tag: "태그 추가"
+      contacts_title: "이 태그들을 파고있는 사람들"
       follow: "팔로우"
       title: "#팔로우한 태그"
     followed_tags_stream: "#팔로우한 태그"
@@ -849,6 +895,7 @@ ko:
       contacts_title: "최근 게시자"
       title: "공개 활동"
     tags:
+      contacts_title: "이 태그를 파고있는 사람들"
       tag_prefill_text: "%{tag_name} 태그를 달고 공유하세요!"
       title: "태그: %{tags}"
   tag_followings:
@@ -900,6 +947,7 @@ ko:
       change_email: "이메일 바꾸기"
       change_language: "언어 바꾸기"
       change_password: "암호 바꾸기"
+      character_minimum_expl: "6자 이상"
       close_account:
         dont_go: "제발 가지 마세요!"
         if_you_want_this: "정말로 없애고 싶다면 암호를 입력한 뒤 아래의 '계정 없애기'를 클릭하세요."
@@ -912,6 +960,7 @@ ko:
       close_account_text: "계정 없애기"
       comment_on_post: "내 게시물에 댓글이 달렸을 때"
       current_password: "원래 암호"
+      current_password_expl: "로그인할 때 썼던 암호"
       download_photos: "내 사진 다운로드"
       download_xml: "내 xml 다운로드"
       edit_account: "계정 고치기"
@@ -944,12 +993,6 @@ ko:
       what_are_you_in_to: "뭘 좋아해요?"
       what_facebook_does: "더 간편히 가입할 수 있습니다. 페이스북에서 이름과 사진을 가져올 수 있고, 두 서비스에 서로 게시할 수도 있습니다."
       who_are_you: "누구시죠?"
-    logged_out:
-      go_mobile: "이제 모바일로 즐기세요."
-      on_your_mobile_device: "에 접속하면 디아스포라* 모바일을 쓸 수 있습니다."
-      signed_out: "디아스포라*에서 로그아웃되었습니다."
-      simply_visit: "모바일 기기로"
-      works_on_modern: "모든 최신 스마트폰에서 작동합니다"
     privacy_settings:
       ignored_users: "내가 무시한 사용자"
       stop_ignoring: "무시하지 않기"

@@ -30,10 +30,24 @@ describe("app.views.CommentStream", function(){
   })
 
   describe("createComment", function(){
+    beforeEach(function(){
+      spyOn(this.view.model.comments, "create")
+    })
+
     it("clears the new comment textarea", function(){
-      $(this.view.el).html($("<textarea/>", {"class" : 'comment_box'}).val("hey"))
+      var comment = {
+        "id": 1234,
+        "text": "hey",
+        "author": "not_null"
+      };
+      spyOn($, "ajax").andCallFake(function(params) {
+        params.success(comment);
+      });
+
+      $(this.view.el).html($("<textarea/>", {"class" : 'comment_box'}).val(comment.text))
       this.view.createComment()
       expect(this.view.$(".comment_box").val()).toBe("")
+      expect(this.view.model.comments.create).toHaveBeenCalled()
     })
   })
 

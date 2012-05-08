@@ -89,7 +89,6 @@ ja:
         tag_bug: "#bug"
         tag_feature: "#feature"
         tag_question: "#question"
-      keep_us_running: "Keep %{pod} running fast, buy our servers their monthly coffee fix!"
       no_contacts: "連絡先無し"
       no_tags: "No tags"
       post_a_message: "投稿する"
@@ -213,7 +212,6 @@ ja:
     new:
       already_invited: "招待済み"
       aspect: "アスペクト"
-      comma_seperated_plz: "複数のメールアドレスはコンマ区切りで入力可能です。"
       if_they_accept_info: "招待を承諾してくれた場合、招待時のアスペクトに追加されます。"
       invite_someone_to_join: "知り合いをダイアスポラ＊に招待しましょう！"
       personal_message: "個人メッセージ"

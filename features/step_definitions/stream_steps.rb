@@ -7,7 +7,7 @@ Then /^I like the post "([^"]*)"$/ do |post_text|
 end
 
 Then /^"([^"]*)" should be post (\d+)$/ do |post_text, position|
-  find(".stream_element:nth-child(#{position}) .post-content").text.should == post_text
+  stream_element_numbers_content(position).text.should == post_text
 end
 
 When /^I toggle nsfw posts$/ do
@@ -16,4 +16,10 @@ end
 
 Then /^I should have (\d+) nsfw posts$/ do |num_posts|
   all(".nsfw-shield").size.should == num_posts.to_i
+end
+
+When /^I click the show page link for "([^"]*)"$/ do |post_text|
+  within(find_post_by_text(post_text)) do
+    find("time").click
+  end
 end

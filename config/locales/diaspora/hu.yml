@@ -5,7 +5,7 @@
 
 
 hu:
-  _applications: "Applikációk"
+  _applications: "Alkalmazások"
   _comments: "Hozzászólások"
   _contacts: "Ismerősök"
   _home: "Kezdőlap"
@@ -40,6 +40,23 @@ hu:
             username:
               invalid: "érvénytelen. Csak betűk, számok és aláhúzás használható."
               taken: "már foglalt."
+  admins:
+    admin_bar:
+      correlations: "Korrelációk"
+      pages: "Oldalak"
+      pod_stats: "Kiszolgáló statisztika"
+      resque_overview: "Feladatok áttekintése"
+      user_search: "Felhasználó keresés"
+      weekly_user_stats: "Heti statisztika"
+    correlations:
+      correlations_count: "Belépések számával való korrelációk:"
+    user_search:
+      add_invites: "meghívók hozzáadása"
+      email_to: "a meghívandó személy email címe"
+      users:
+        other: "%{count} felhasználó található"
+        zero: "nem található felhasználó"
+      you_currently: "jelenleg %{user_invitation} meghívó áll még rendelkezésedre %{link}"
   ago: "ezelőtt"
   all_aspects: "Összes csoport"
   application:
@@ -62,12 +79,12 @@ hu:
     aspect_contacts:
       done_editing: "szerkesztés kész"
     aspect_listings:
-      add_an_aspect: "+ Csoport hozzáadása"
-      deselect_all: "Összes kijelölés törlése"
+      add_an_aspect: "+ Új csoport"
+      deselect_all: "Kijelölések törlése"
       edit_aspect: "Szerkesztés %{name}"
       select_all: "Mindent kijelöl"
     aspect_stream:
-      stay_updated: "Légy naprakész"
+      stay_updated: "Légy naprakész!"
       stay_updated_explanation: "A Hírfolyamodban megjelennek az ismerőseid bejegyzései, követett címkéid és a Reflektorfényben szereplő személyek bejegyzései."
     contacts_not_visible: "A csoporttagok nem láthatják egymást."
     contacts_visible: "A csoport tagjai láthatják egymást."
@@ -95,7 +112,7 @@ hu:
       remove: "eltávolítás"
     index:
       cubbies:
-        explanation: "Cubbi.es az első fejlesztés alatt álló Diaspora applikáció."
+        explanation: "Cubbi.es az első fejlesztés alatt álló Diaspora alkalmazás."
         heading: "Kapcsolódás: Cubbi.es"
         learn_more: "Tudj meg többet"
       diaspora_id:
@@ -105,18 +122,20 @@ hu:
       donate: "Adományozz"
       handle_explanation: "Ez a Te Diaspora azonosítód. Megadhatod elérhetőségként, mint egy email címet."
       help:
+        do_you: "Mit szeretnél?"
         email_feedback: "Küldd el %{link}-ben a visszajelzésed"
-        feature_suggestion: "... van egy fejlesztési javaslatod? %{link}"
-        find_a_bug: "... hibát találtál? %{link}?"
-        have_a_question: "... kérdésed van? %{link}"
+        feature_suggestion: "...felötlött benned egy fejlesztési %{link}?"
+        find_a_bug: "...feltűnt egy %{link}?"
+        have_a_question: "...eszedbe jutott egy %{link}?"
         here_to_help: "A Diaspora közösség megérkezett!"
         need_help: "Segítségre van szükséged?"
         tag_bug: "hiba"
-        tag_feature: "funkció"
+        tag_feature: "javaslat"
         tag_question: "kérdés"
         tutorials_wiki_and_forum: "%{tutorial} & %{wiki} & %{forum}: Közösségi leckék, módszerek, hírek"
-      introduce_yourself: "Ez a te Hírfolyamod. Kezdd is el gyorsan egy bemutatkozással."
-      keep_us_running: "Hogy gyors maradjon ez a pod (%{pod}), kérlek adományozz pénzt."
+      introduce_yourself: "Ez a te Hírfolyamod. Kezdd is el gyorsan egy bemutatkozással!"
+      keep_diaspora_running: "Támogasd a Diaspora gyorsabb fejlesztését havi adományoddal!"
+      keep_pod_running: "Hogy gyors maradhasson ez a kiszolgáló (%{pod}), adományozz havonta egy kis kávéra valót a szervereknek ;)"
       new_here:
         follow: "Kövesd az %{link} címkét és üdvözöld az új Diaspora* felhasználókat!"
         learn_more: "Tudj meg többet"
@@ -168,6 +187,10 @@ hu:
     index:
       no_applications: "Még nem regisztráltál egyetlen alkalmazást sem."
       revoke_access: "Hozzáférés visszavonása"
+    new:
+      authorize: "engedélyezés"
+      cubbies_will: "A Cubbies jogosult fotókat küldeni a nevedben"
+      nope: "nem"
   back: "Vissza"
   blocks:
     create:
@@ -177,8 +200,8 @@ hu:
       failure: "Nem tudtam kikapcsolni annak a felhasználónak a figyelmen kívül hagyását. #elkerülés"
       success: "Lássuk mit akarnak mondani! #sayhello"
   bookmarklet:
-    explanation: "Küldj bejegyzést a Diaspora-ra bárhonnan, csak mentsd el ezt könyvjelzőként:"
-    explanation_link_text: "ez a link"
+    explanation: "Küldj bejegyzést a Diaspora-ra bárhonnan, csak mentsd el könyvjelzőként %{link}."
+    explanation_link_text: "ezt a linket"
     heading: "Könyvjelzők"
     post_something: "Írj valamit a Diasporára"
     post_success: "Elküldve! Bezárás!"
@@ -206,8 +229,8 @@ hu:
       many_people_are_you_sure: "Biztos, hogy privát beszélgetést akarsz kezdeményezni több mint %{suggested_limit} személlyel? Talán jobb lenne, ha bejegyzést írnál ennek a csoportnak."
       my_contacts: "Kapcsolataim"
       no_contacts: "Nincs ismerősöd."
-      no_contacts_message: "Csekkold le ezt is: %{community_spotlight}"
-      no_contacts_message_with_aspect: "Csekkold le ezt is %{community_spotlight} vagy ezt %{add_to_aspect_link}"
+      no_contacts_message: "Vess egy pillantást erre is: %{community_spotlight}"
+      no_contacts_message_with_aspect: "Vess egy pillantást erre is: %{community_spotlight} vagy próbáld ki ezt: %{add_to_aspect_link}"
       only_sharing_with_me: "Csak velem oszt meg"
       remove_person_from_aspect: "%{person_name} eltávolítása a(z) \"%{aspect_name}\" csoportból."
       start_a_conversation: "Beszélgetés indítása"
@@ -258,7 +281,7 @@ hu:
   date:
     formats:
       birthday: "%B %d"
-      birthday_with_year: "%Y. %B %d"
+      birthday_with_year: "%Y. %B %d."
       fullmonth_day: "%B %d"
   delete: "Törlés"
   email: "E-mail"
@@ -266,23 +289,25 @@ hu:
     helper:
       correct_the_following_errors_and_try_again: "Javítsd a következő hibákat, és próbáld újra."
       invalid_fields: "Érvénytelen adatok"
-  fill_me_out: "Tölts ki"
+  fill_me_out: "Töltsd ki"
   find_people: "Emberek vagy #címkék keresése"
   hide: "Elrejt"
   home:
     show:
       already_account: "már van fiókod?"
-      choice: "Csoportok"
-      choice_explanation: "A Diaspora* közösségi oldalon különböző szempontok alapján Csoportokba rendezheted a kapcsolataidat. Ezek segítségével mindig a megfelelő emberekkel oszthatod meg a történeteidet, vicceidet, képeidet."
-      learn_about_host: "Így indíthatod el saját Diaspora* szervered."
+      choice: "Szabadság"
+      choice_explanation: "A Diaspora* lehetővé teszi, hogy tetszőleges szempontok alapján Csoportokba rendezd a kapcsolataidat. Így mindig a megfelelő emberekkel oszthatod meg a történeteidet, vicceidet, képeidet."
+      learn_about_host: "Így indíthatsz el saját Diaspora* szervert."
       login_here: "Jelentkezz be"
-      ownership: "Sajátod"
+      ownership: "Biztonság"
       ownership_explanation: "A képeid a sajátjaid, és ezt nem kell feladnod, hogy megoszthasd őket másokkal. Minden megosztás felett teljes irányításod van a Diaspora* közösségi oldalon."
-      share_what_you_want: "Oszd meg... akivel akarod!"
+      share_what_you_want: "Ossz meg bármit... akivel szeretnél!"
       simplicity: "Egyszerűség"
-      simplicity_explanation: "A Diaspora könnyűvé és érthetővé teszi a megosztást - és ez a biztonságra is vonatkozik. Nem kell hosszú beállító oldalakon átvergődnöd, hogy biztonságban tudd a profilodat."
-      tagline_first_half: "Oszd meg..."
+      simplicity_explanation: "A Diaspora megkönnyíti és átláthatóvá teszi a megosztást - és ez a személyes dolgaidra is vonatkozik. Nem kell hosszú beállító oldalakon átvergődnöd, hogy biztonságban tudd a profilodat."
+      tagline_first_half: "Ossz meg bármit..."
       tagline_second_half: "akivel akarod!"
+  invitation_codes:
+    excited: "%{name} alig várja, hogy üdvözölhessen nálunk."
   invitations:
     a_facebook_user: "Egy Facebook felhazsnáló"
     check_token:
@@ -301,10 +326,14 @@ hu:
       already_invited: "A következő személy nem fogadta el a meghívásod:"
       aspect: "Csoport"
       check_out_diaspora: "Próbáld ki a Diaspora-t!"
-      comma_seperated_plz: "Megadhatsz több e-mail címet is vesszővel elválasztva."
+      codes_left:
+        other: "%{count} meghívó maradt még ezen a kódon"
+        zero: "Nem maradt több meghívó ezen a kódon"
+      comma_separated_plz: "Megadhatsz több e-mail címet is vesszővel elválasztva."
       if_they_accept_info: "Ha elfogadják felkérésed, akkor belekerülnek abba a csoportba amelyikbe meghívtad őket."
       invite_someone_to_join: "Hívj meg valakit, hogy csatlakozzon a Diaspora-hoz!"
       language: "Nyelv"
+      paste_link: "Ha meg szeretnéd hívni a barátaidat a Diaspora-ra, oszd meg ezt a linket velük, vagy küldd el nekik emailben."
       personal_message: "Személyes üzenet"
       resend: "Újraküld"
       send_an_invitation: "Küldj egy meghívót"
@@ -395,6 +424,7 @@ hu:
         two: "és %{count} másik"
         zero: "és senki más"
       mark_all_as_read: "Mind megjelölése olvasottként"
+      mark_unread: "olvasatlannak jelöl"
       notifications: "Értesítések"
     liked:
       few: "%{actors} kedveli a %{post_link}edet."
@@ -455,6 +485,7 @@ hu:
       zero: "%{actors} mostantól megoszt veled."
   notifier:
     a_post_you_shared: "egy bejegyzés."
+    accept_invite: "Fogadd el a Diaspora* meghívódat!"
     click_here: "kattints ide"
     comment_on_post:
       reply: "Válaszolok vagy megnézem %{name} bejegyzését >"
@@ -463,6 +494,21 @@ hu:
       subject: "Kérlek aktiváld az új email címedet: %{unconfirmed_email}"
     email_sent_by_diaspora: "Ezt az emailt a Diaspora küldte. Ha nem szeretnél ilyen leveleket kapni,"
     hello: "Szia %{name}!"
+    invite:
+      message: |-
+          Szia!
+
+          Meghívtak, hogy csatlakozz a Diaspora* közösséghez!
+
+          Kattints erre a linkre a kezdéshez:
+
+          %{invite_url}
+
+
+          üdv:
+
+          a Diaspora* levélküldő automatája
+    invited_you: "%{name} meghívott a Diaspora-ra"
     liked:
       liked: "%{name} kedveli a bejegyzésedet"
       view_post: "Bejegyzés megtekintése >"
@@ -489,6 +535,8 @@ hu:
   password: "Jelszó"
   password_confirmation: "Jelszó megerősítése"
   people:
+    add_contact:
+      invited_by: "ő hívott meg téged:"
     add_contact_small:
       add_contact_from_tag: "ismerős hozzáadása címkéből"
     aspect_list:
@@ -503,6 +551,7 @@ hu:
       no_one_found: "...és nem találni senkit."
       no_results: "Hé! Valamit keresned kell."
       results_for: "találatok keresése"
+      searching: "keresés folyamatban, légy türelmes..."
     last_post: "Legutolsó bejegyzés"
     many: "%{count} személy"
     one: "1 személy"
@@ -518,7 +567,7 @@ hu:
       edit_my_profile: "Profilom szerkesztése"
       gender: "nem"
       in_aspects: "csoportokban"
-      location: "hely"
+      location: "lakóhely"
       remove_contact: "kapcsolat törlése"
       remove_from: "Törlöd %{name}-t a %{aspect} csoportból?"
     show:
@@ -543,7 +592,7 @@ hu:
     two: "%{count} ember"
     webfinger:
       fail: "Sajnáljuk, de nem találjuk őt: %{handle}."
-    zero: "nincs személy"
+    zero: "senki"
   photos:
     comment_email_subject: "%{name} fényképe"
     create:
@@ -599,23 +648,23 @@ hu:
   profile: "Profil"
   profiles:
     edit:
-      allow_search: "Megtalálható legyek a Diaspora keresőben"
+      allow_search: "megtalálható legyek a Diaspora keresőben"
       edit_profile: "Profil szerkesztése"
       first_name: "Keresztnév"
       last_name: "Vezetéknév"
       update_profile: "Profil frissítése"
       you_are_nsfw: "Jelenleg a \"munkahelyen nem illő\" (NSFW) beállítással jelölted magadat. A megosztott tartalmaid nem fognak közvetlenül megjelenni azon felhasználóknál, akik kikapcsolták a kifogásolható tartalmak megtekintését."
       you_are_safe_for_work: "Jelenleg a \"munkahelyen illő\" tartalmi beállítással jelölted magadat. Ezáltal elfogadod, hogy mindaz, amit megosztasz - míg nem adod meg másképpen - megfelel a közösségi irányelveknek."
-      your_bio: "Rólam"
-      your_birthday: "Szülinapom"
-      your_gender: "Nem"
-      your_location: "Helység"
-      your_name: "Nevem"
-      your_photo: "Fényképem"
+      your_bio: "Írj pár sort magadról"
+      your_birthday: "Szülinapod"
+      your_gender: "Nemed"
+      your_location: "Lakóhelyed"
+      your_name: "Neved"
+      your_photo: "Fényképed"
       your_private_profile: "Személyes profilod"
       your_public_profile: "Nyilvános profilod"
       your_tags: "5 tulajdonság (#címke) rólad:"
-      your_tags_placeholder: "pl: #film #buli #cica #zene #newyork"
+      your_tags_placeholder: "pl: #film #túra #pécs #kutatás #fényképész"
     update:
       failed: "Profil frissítése sikertelen"
       updated: "Profil frissítve"
@@ -638,6 +687,7 @@ hu:
       password_to_confirm: "(Szükségünk van a jelenlegi jelszavadra, hogy jóváhagyd a változást)"
       unhappy: "Elégedetlen vagy?"
       update: "Frissítés"
+    invalid_invite: "Ez a meghívó többé nem érvényes!"
     new:
       create_my_account: "Fiók létrehozása!"
       enter_email: "Írd be az e-mail címed"
@@ -702,9 +752,9 @@ hu:
       connect_to_facebook: "Csatlakozás a Facebook-hoz"
       connect_to_tumblr: "Csatlakozás a Tumblr-hez"
       connect_to_twitter: "Csatlakozás a Twitter-hez"
-      disconnect: "Megszakít"
+      disconnect: "megszakít"
       edit_services: "Szolgáltatások szerkesztése"
-      logged_in_as: "Bejelentkezve, mint"
+      logged_in_as: "- bejelentkeztél ezen a néven:"
       no_services: "Még nem kapcsolódtál egy szolgáltatáshoz sem."
       really_disconnect: "Megszakítod a kapcsolatot ezzel: %{service}?"
     inviter:
@@ -754,14 +804,14 @@ hu:
       new: "Új %{type} %{from}-tól/től"
     public_explain:
       atom_feed: "Atom hírfolyamod (feed)"
-      control_your_audience: "Közönséged beállítása"
+      control_your_audience: "Válassz célközönséget!"
       logged_in: "bejelentkezve ide: %{service}"
       manage: "kapcsolódó szolgáltatások kezelése"
       new_user_welcome_message: |-
           Használj kettőskeresztet(#), hogy felcímkézd a bejegyzésedet. Címkék alapján találhatsz veled azonos érdeklődésű embereket.
-          A kukac(@) jellel, pedig személyeket említhetsz meg a bejegyzésedben.
+          A kukac(@) jellel pedig személyeket említhetsz meg a bejegyzésedben.
       outside: "A publikus üzeneteket a Diaspora-n kívüli személyek is láthatják."
-      share: "Megoszt"
+      share: "Ossz meg valamit!"
       title: "Kapcsolódó szolgáltatások beállítása"
       visibility_dropdown: "Használd ezt a legördülő menüt, hogy módosítsd a bejegyzésed láthatóságát."
     publisher:
@@ -796,6 +846,7 @@ hu:
       show: "megmutat"
       unlike: "Nem tetszik"
       via: "ezen keresztül: %{link}"
+      via_mobile: "mobilon keresztül"
       viewable_to_anyone: "Ez a bejegyzés bárki számára megtekinthető az interneten."
   status_messages:
     create:
@@ -853,7 +904,7 @@ hu:
       title: "Publikus tevékenység"
     tags:
       contacts_title: "Emberek, akik ezeket a címkéket követik"
-      tag_prefill_text: "Mi újság erről: %{tag_name} ?"
+      tag_prefill_text: "%{tag_name} témával kapcsolatban csak annyit, hogy... "
       title: "Bejegyzés megjelölve: %{tags}"
   tag_followings:
     create:
@@ -866,8 +917,8 @@ hu:
   tags:
     show:
       follow: "Címke követése"
-      followed_by: "figyelemmel kíséri"
-      following: "Követed #%{tag}"
+      followed_by: "figyelemmel kíséri:"
+      following: "#%{tag} követve"
       nobody_talking: "Senki nem beszélt még erről: %{tag}."
       none: "Az üres címke nem létezik!"
       people_tagged_with: "Személy felcímkézve: %{tag}"
@@ -885,7 +936,7 @@ hu:
       sign_up_today: "Regisztrálj még ma!"
       typical_userpage: "Tipikus 'cubbi.es' oldal"
       via: "(forrás: %{link})"
-      what_is_cubbies: "Cubbi.es a világ első Diaspora* applikációja. Egyben a legjobb mód az online fotógyűjtésre!"
+      what_is_cubbies: "Cubbi.es a világ első Diaspora* alkalmazása. Egyben a legjobb mód az online fotógyűjtésre!"
   undo: "Visszavonod?"
   username: "Felhasználónév"
   users:
@@ -904,18 +955,20 @@ hu:
       change_email: "Email megváltoztatása"
       change_language: "Nyelv megváltoztatása"
       change_password: "Jelszó módosítása"
+      character_minimum_expl: "legalább hat karakter legyen"
       close_account:
         dont_go: "Hé, kérlek ne menj!"
         if_you_want_this: "Ha tényleg ezt akarod, írd be a jelszavad és kattints a \"Fiók bezárása\" gombra."
         lock_username: "Le tudod védeni a felhasználóneved, ha esetleg mégis úgy döntenél, hogy újra regisztrálsz."
-        locked_out: "Ki leszel léptetve."
-        make_diaspora_better: "Ha el akarod hagyni az oldalt, kérlek olvasd el mi fog következni."
-        mr_wiggles: "Vuk szomorú lesz, mert lát téged elmenni."
+        locked_out: "Ki fogunk léptetni és kizárunk a fiókodból."
+        make_diaspora_better: "Azt szeretnénk, ha segítenél hogy jobbá tehessük a Diaspora-t, így a távozásod helyett szívesebben vennénk ha közreműködnél. Ám ha el akarod hagyni az oldalt, kérlek olvasd el mi fog következni."
+        mr_wiggles: "Vuk szomorú lesz, ha távozni lát."
         no_turning_back: "Nincs visszaút."
         what_we_delete: "Töröljük az összes bejegyzésedet és profil adataidat amint tudjuk. A kommentjeid megmaradnak."
       close_account_text: "Fiók bezárása"
       comment_on_post: "...valaki hozzászólt egy bejegyzésedhez?"
       current_password: "Jelenlegi jelszó"
+      current_password_expl: "amelyikkel bejelentkezel..."
       download_photos: "Képeim letöltése"
       download_xml: "Saját XML letöltése"
       edit_account: "Fiók szerkesztése"
@@ -923,16 +976,16 @@ hu:
       export_data: "Adatok exportálása"
       following: "Követési beállítások"
       getting_started: "Új felhasználó beállítások"
-      liked: "... valakinek tetszik a bejegyzésed?"
-      mentioned: "...meg vagy említve egy bejegyzésben?"
+      liked: "...valakinek tetszik a bejegyzésed?"
+      mentioned: "...megemlítettek téged egy bejegyzésben?"
       new_password: "Új jelszó"
       photo_export_unavailable: "Fénykép exportálás jelenleg felfüggesztve"
       private_message: "...privát üzenetet kaptál?"
-      receive_email_notifications: "Email értesítést kérek amikor..."
+      receive_email_notifications: "Szeretnél email értesítést kapni, ha..."
       reshared: "...valaki újraosztotta a bejegyzésedet?"
       show_community_spotlight: "Mutassa a Reflektorfényben szereplő dolgokat a Hírfolyamodban?"
       show_getting_started: "\"Kezdő lépések\" újra engedélyezése"
-      started_sharing: "...valaki megoszt veled?"
+      started_sharing: "...valaki elkezd megosztani veled?"
       stream_preferences: "Hírfolyam tulajdonságai"
       your_email: "E-mail címed"
       your_handle: "Diaspora azonosítód"
@@ -940,20 +993,14 @@ hu:
       awesome_take_me_to_diaspora: "Remek! Irány a Diaspora*"
       community_welcome: "A Diaspora közösség üdvözöl a fedélzeten!"
       hashtag_explanation: "A #címkék segítenek egy bizonyos téma megtalálásában, így akár új kapcsolatokra is szert tehetsz."
-      hashtag_suggestions: "Kövess pár téged érdeklő címkét. Például: #művészet, #fényképezés, #webdesign"
-      hooking_up_fb: "Kapcsold ide a Facebook fiókoadt"
+      hashtag_suggestions: "Kövess pár téged érdeklő címkét. Például: #művészet, #fényképezés, #webdesign, #filozófia"
+      hooking_up_fb: "összekapcsolod a Facebook fiókodat a Diaspora-val."
       saved: "Mentve!"
-      we_can_speed_things_up: "Tudjuk gyorsítani a dolgokat egy kicsi"
-      well_hello_there: "Nos, üdv itt!"
+      we_can_speed_things_up: "Fel tudod gyorsítani egy kicsit a dolgokat, ha"
+      well_hello_there: "Nos, üdv nálunk!"
       what_are_you_in_to: "Mi érdekel?"
-      what_facebook_does: "ide. Így itt is megjelenik a képed, neved és engedélyezed a közös bejegyzéseket."
-      who_are_you: "Ki vagy?"
-    logged_out:
-      go_mobile: "Maradj kapcsolatban."
-      on_your_mobile_device: "a mobiltelefonodon, hogy hozzáférj a Diaspora* mobil verzióhoz."
-      signed_out: "Kijelentkeztél a Diaspora* rendszerből"
-      simply_visit: "Tekintsd meg"
-      works_on_modern: "Az összes modern okostelefonon működik"
+      what_facebook_does: "Így itt is megjelenik a képed, neved és engedélyezed a közös bejegyzéseket."
+      who_are_you: "Ki is vagy?"
     privacy_settings:
       ignored_users: "Mellőzött felhasználók"
       stop_ignoring: "Mellőzés feloldása"

@@ -5,14 +5,23 @@
 %h3#aspect_stream_header.stream_title
   = stream.title
 
-= render 'shared/publisher', :selected_aspects => stream.aspects, :aspect_ids => stream.aspect_ids, :for_all_aspects => stream.for_all_aspects?, :aspect => stream.aspect
+- if current_user.beta?
+  = link_to "Make something", "#composer", :rel => "facebox", :class => "button primary", :style => "display: block; margin: 20px 10px; margin-bottom: 30px; padding: 10px; text-align:center; font-weight: bold;"
+
+  #composer{:style => "display:none;"}
+    %iframe{:src => '/posts/new', :height => 500, :width => 700, :style => "border:none;"}
+
+- else
+  = render 'shared/publisher', :selected_aspects => stream.aspects, :aspect_ids => stream.aspect_ids, :for_all_aspects => stream.for_all_aspects?, :aspect => stream.aspect
 = render 'aspects/no_posts_message'
 
-#gs-shim{:title => popover_with_close_html("3. #{t('.stay_updated')}"), 'data-content' => t('.stay_updated_explanation')}
+- unless current_user.beta?
+  #gs-shim{:title => popover_with_close_html("3. #{t('.stay_updated')}"), 'data-content' => t('.stay_updated_explanation')}
 
 #main_stream.stream
 
 #paginate
+  %span.loader.hidden
 
 - if current_user.contacts.size < 2
   = render 'aspects/no_contacts_message'

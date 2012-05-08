@@ -16,7 +16,7 @@ module User::Querying
   def visible_shareables(klass, opts={})
     opts = prep_opts(klass, opts)
     shareable_ids = visible_shareable_ids(klass, opts)
-    klass.where(:id => shareable_ids).select('DISTINCT '+klass.to_s.tableize+'.*').limit(opts[:limit]).order(opts[:order_with_table])
+    klass.where(:id => shareable_ids).select('DISTINCT '+klass.to_s.tableize+'.*').limit(opts[:limit]).order(opts[:order_with_table]).order(klass.table_name+".id DESC")
   end
 
   def visible_shareable_ids(klass, opts={})
@@ -31,7 +31,7 @@ module User::Querying
     opts[:by_members_of] ||= self.aspect_ids
 
     post_ids = klass.connection.select_values(visible_shareable_sql(klass, opts)).map { |id| id.to_i }
-    post_ids += klass.connection.select_values(construct_public_followings_sql(opts).to_sql).map {|id| id.to_i }
+    post_ids += klass.connection.select_values("#{construct_public_followings_sql(opts).to_sql} LIMIT #{opts[:limit]}").map {|id| id.to_i }
   end
 
   def visible_shareable_sql(klass, opts={})

@@ -18,7 +18,7 @@
     %meta{:name => "MobileOptimized", :content => "320"}
     / Force cleartype on WP7
     %meta{'http-equiv' => "cleartype", :content => 'on'}
-
+    = og_site_name
     / Home screen icon (sized for retina displays)
     %link{:rel => 'apple-touch-icon', :href => '/apple-touch-icon.png'}
     / For Nokia devices
@@ -29,19 +29,18 @@
     /%meta{:name => "apple-mobile-web-app-capable", :content => "yes"}
     /%link{:rel => "apple-touch-startup-image", :href => "/images/apple-splash.png"}
 
+    = chartbeat_head_block
+
     / Stylesheets
-    = include_stylesheets :mobile, :format => 'all'
+
+    = stylesheet_link_tag :mobile, :format => 'all'
     = yield(:custom_css)
 
-    %script{:src => "/javascripts/vendor/mbp-modernizr-custom.js"}
-    / Media Queries Polyfill https://github.com/shichuan/mobile-html5-boilerplate/wiki/Media-Queries-Polyfill
-    :javascript
-      Modernizr.mq('(min-width:0)') || document.write('<script src="javascripts/vendor/mbp-respond.min.js">\x3C/script>')
 
     = csrf_meta_tag
 
     - if rtl?
-      = include_stylesheets :rtl, :media => 'all'
+      = stylesheet_link_tag :rtl, :media => 'all'
 
     = yield(:head)
 
@@ -49,10 +48,14 @@
     .navbar.navbar-fixed-top
       .navbar-inner
         .container{:style => "position: relative;"}
-          = link_to(image_tag('header-logo2x.png', :height => 40, :width => 40, :id => 'header_title'), stream_path)
+          = link_to(image_tag('branding/header-logo2x.png', :height => 40, :width => 40, :id => 'header_title'), stream_path)
           - if user_signed_in?
+            #header-nav
+              .activity-nav
+                = link_to(t('streams.activity.title'), activity_stream_path)
+            
             #nav_badges
-              .badge{:id => "notification_badge"}            
+              .badge{:class => "badge-inverse", :id => "notification_badge"}            
                 = link_to(image_tag('icons/notifications_grey.png', :height => 16, :width => 16, :id => 'notification-flag'), notifications_path)
                 - if current_user.unread_notifications.count > 0
                   .badge_count
@@ -74,7 +77,5 @@
 
     / javascripts at the bottom
     = jquery_include_tag
-    = include_javascripts :mobile
-
-    :javascript
-      MBP.hideUrlBar();
+    = javascript_include_tag :mobile
+    = include_chartbeat

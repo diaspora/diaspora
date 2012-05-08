@@ -3,19 +3,29 @@
 #   the COPYRIGHT file.
 
 Diaspora::Application.routes.draw do
+  mount RailsAdmin::Engine => '/admin_panel', :as => 'rails_admin'
 
+  get 'oembed' => 'posts#oembed', :as => 'oembed'
   # Posting and Reading
-
   resources :reshares
 
   resources :status_messages, :only => [:new, :create]
 
-  resources :posts, :only => [:show, :destroy] do
+  resources :posts do
+    member do
+      get :next
+      get :previous
+    end
     resources :likes, :only => [:create, :destroy, :index]
     resources :participations, :only => [:create, :destroy, :index]
     resources :comments, :only => [:new, :create, :destroy, :index]
   end
+
+  match "/framer" => redirect("/posts/new")
+
   get 'p/:id' => 'posts#show', :as => 'short_post'
+  get 'posts/:id/iframe' => 'posts#iframe', :as => 'iframe'
+
   # roll up likes into a nested resource above
   resources :comments, :only => [:create, :destroy] do
     resources :likes, :only => [:create, :destroy, :index]
@@ -33,7 +43,7 @@ Diaspora::Application.routes.draw do
   get "liked" => "streams#liked", :as => "liked_stream"
   get "commented" => "streams#commented", :as => "commented_stream"
   get "aspects" => "streams#aspects", :as => "aspects_stream"
-
+  
   resources :aspects do
     put :toggle_contact_visibility
   end
@@ -43,6 +53,8 @@ Diaspora::Application.routes.draw do
   resources :photos, :except => [:index] do
     put :make_profile_photo
   end
+
+  post "upload_wallpaper" => 'profiles#upload_wallpaper_image'
 
   # ActivityStreams routes
   scope "/activity_streams", :module => "activity_streams", :as => "activity_streams" do
@@ -97,12 +109,14 @@ Diaspora::Application.routes.draw do
 
   devise_for :users, :controllers => {:registrations => "registrations",
                                       :password      => "devise/passwords",
-                                      :sessions      => "sessions",
-                                      :invitations   => "invitations"} do
-    get 'invitations/resend/:id' => 'invitations#resend', :as => 'invitation_resend'
-    get 'invitations/email' => 'invitations#email', :as => 'invite_email'
-  end
+                                      :sessions      => "sessions"}
 
+  #legacy routes to support old invite routes
+  get 'users/invitation/accept' => 'invitations#edit'
+  get 'invitations/email' => 'invitations#email', :as => 'invite_email'
+  get 'users/invitations' => 'invitations#new', :as => 'new_user_invitation'
+  post 'users/invitations' => 'invitations#create', :as => 'new_user_invitation'
+  
   get 'login' => redirect('/users/sign_in')
 
   scope 'admins', :controller => :admins do
@@ -111,9 +125,12 @@ Diaspora::Application.routes.draw do
     get   :weekly_user_stats
     get   :correlations
     get   :stats, :as => 'pod_stats'
+    get   "add_invites/:invite_code_id" => 'admins#add_invites', :as => 'add_invites'
   end
 
   resource :profile, :only => [:edit, :update]
+  resources :profiles, :only => [:show]
+
 
   resources :contacts,           :except => [:update, :create] do
     get :sharing, :on => :collection
@@ -122,7 +139,7 @@ Diaspora::Application.routes.draw do
   resources :share_visibilities,  :only => [:update]
   resources :blocks, :only => [:create, :destroy]
 
-  get 'community_spotlight' => "contacts#spotlight", :as => 'community_spotlight'
+  get 'i/:id' => 'invitation_codes#show', :as => 'invite_code'
 
   get 'people/refresh_search' => "people#refresh_search"
   resources :people, :except => [:edit, :update] do
@@ -189,7 +206,7 @@ Diaspora::Application.routes.draw do
     end
   end
 
-
+  get 'community_spotlight' => "contacts#spotlight", :as => 'community_spotlight'
   # Mobile site
 
   get 'mobile/toggle', :to => 'home#toggle_mobile', :as => 'toggle_mobile'
@@ -201,9 +218,6 @@ Diaspora::Application.routes.draw do
   if AppConfig[:mount_resque_web]
     mount Resque::Server.new, :at => '/resque-jobs', :as => "resque_web"
   end
-
-  # Logout Page (go mobile)
-  get 'logged_out' => 'users#logged_out', :as => 'logged_out'
 
   # Startpage
   root :to => 'home#show'
