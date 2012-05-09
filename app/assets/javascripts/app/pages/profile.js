@@ -27,7 +27,12 @@ app.pages.Profile = app.views.Base.extend({
     this.model = this.model ||  app.models.Profile.preloadOrFetch(this.personGUID)
     this.stream = options && options.stream || new app.models.Stream()
 
-    this.model.bind("change", this.setPageTitleAndBackground, this)
+    /* this needs to be fixed... used to be bound by this.model change event.
+    *  will most likely result in spontaneous results :(
+    *
+    *  note: defer to make sure the call stack is emptied before calling this, buying us a little more time */
+    _.defer(_.bind(this.setPageTitleAndBackground, this))
+
 
     /* binds for getting started pulsation */
     this.stream.bind("fetched", this.pulsateNewPostControl, this)

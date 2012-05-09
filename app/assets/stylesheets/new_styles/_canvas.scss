@@ -27,14 +27,12 @@
   }
 
   .content {
-    @include transition(box-shadow);
+    @include transition(-webkit-transform);
     @include box-shadow(0, 8px, 50px, rgba(0,0,0,0.9));
 
     background-image : image_url("paper-texture-1.jpg");
 
     &:hover {
-      @include box-shadow(0, 3px, 10px,rgba(0,0,0,0.9));
-
       .info {
         top : 0;
       }
@@ -42,6 +40,10 @@
 
     &:active {
       -webkit-transform : scale(0.99);
+    }
+
+    img {
+      border : none;
     }
 
     //hax to deal with markdownify
