@@ -38,8 +38,17 @@ app.views.Canvas = app.views.Base.extend(_.extend({}, app.views.infiniteScrollMi
 
   mason : function() {
     var el = this.$el;
-    el.imagesLoaded(function(){
-      el.isotope({
+
+    /* make two calls to isotope
+       1) on dom ready
+       2) on images ready
+     */
+    triggerIsotope(el) && el.imagesLoaded(function(){
+      triggerIsotope(el)
+    })
+
+    function triggerIsotope(element) {
+      return element.isotope({
         itemSelector : '.canvas-frame',
         visibleStyle : {scale : 1},
         hiddenStyle : {scale : 0.001},
@@ -48,7 +57,7 @@ app.views.Canvas = app.views.Base.extend(_.extend({}, app.views.infiniteScrollMi
           columnWidth : 292.5
         }
       })
-    })
+    }
   },
 
   triggerRelayoutAfterImagesLoaded : function(){
