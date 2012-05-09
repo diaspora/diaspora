@@ -416,17 +416,23 @@ div[data-template=flow] {
   label { display : inline;}
 
   img {
+    @include transition(opacity);
+
     cursor : pointer;
     height : 28px;
     width : 28px;
-
-    &:hover {
-      @include opacity(0.6);
-    }
   }
 
   input:not(:checked) + label {
-    @include opacity(0.4);
+    img {
+      @include opacity(0.4);
+    }
+  }
+
+  input:checked + label {
+    &:hover img {
+      @include opacity(1);
+    }
   }
 
   input {

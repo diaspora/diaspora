@@ -251,10 +251,10 @@ test:
 
 integration1:
   <<: *defaults
-  pod_url: "http://localhost:45789/"
+  pod_url: "http://localhost:3001/"
   serve_static_assets: true
 
 integration2:
   <<: *defaults
-  pod_url: "http://localhost:34658/"
+  pod_url: "http://localhost:3002/"
   serve_static_assets: true

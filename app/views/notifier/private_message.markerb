@@ -1,0 +1,5 @@
+<%= post_message(@notification.message, :process_newlines => true, :length => 2000) %>
+
+[<%= t('.reply_to_or_view') %>][1]
+
+[1]: <%= conversations_url(:conversation_id => @notification.conversation) %>
