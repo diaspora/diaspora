@@ -19,7 +19,7 @@ class PostsController < ApplicationController
              :xml
 
   def new
-    @feature_flag = FeatureFlagger.new(current_user) #I should be a global before filter so @feature_flag is accessible
+    @feature_flag = FeatureFlagger.new(current_user, current_user.person) #I should be a global before filter so @feature_flag is accessible
     redirect_to "/stream" and return unless @feature_flag.new_publisher?
     render :text => "", :layout => true
   end
