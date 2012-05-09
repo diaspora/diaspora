@@ -1,6 +1,6 @@
 # RailsAdmin config file. Generated on March 24, 2012 15:34
 # See github.com/sferik/rails_admin for more informations
-unless Rails.env.production?
+if Rails.env.production?
 RailsAdmin.config do |config|
    config.authorize_with do 
     redirect_to main_app.root_path unless current_user.try(:admin?)

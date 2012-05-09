@@ -3,7 +3,9 @@
 #   the COPYRIGHT file.
 
 Diaspora::Application.routes.draw do
-  mount RailsAdmin::Engine => '/admin_panel', :as => 'rails_admin'
+  if Rails.env.production?
+    mount RailsAdmin::Engine => '/admin_panel', :as => 'rails_admin'
+  end
 
   get 'oembed' => 'posts#oembed', :as => 'oembed'
   # Posting and Reading
