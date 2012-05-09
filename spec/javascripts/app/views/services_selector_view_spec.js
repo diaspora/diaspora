@@ -23,12 +23,22 @@ describe("app.views.ServicesSelector", function(){
     // this tests the crazy css we have in a bassackwards way
     // check out toggling the services on the new publisher and make sure it works if you change stuff.
     it("selects the checkbox when the image is clicked", function(){
-      expect($("label[for=service_toggle_facebook] img").css("opacity")).toBeLessThan(0.8) //floating point weirdness, be safe.
-      this.view.$("input[value='facebook']").select()
+      waitsFor(function() {
+        return ($("label[for=service_toggle_facebook] img").css("opacity") < 0.8);
+      });
 
-        waitsFor(function(){
-          return $("label[for=service_toggle_facebook] img").css("opacity") == 1
-      })
+      runs(function() {
+        expect($("label[for=service_toggle_facebook] img").css("opacity")).toBeLessThan(0.8) //floating point weirdness, be safe.
+        this.view.$("input[value='facebook']").select()
+      });
+
+      waitsFor(function(){
+        return $("label[for=service_toggle_facebook] img").css("opacity") == 1
+      });
+
+      runs(function() {
+        expect($("label[for=service_toggle_facebook] img").css("opacity")).toBeGreaterThan(0.8) //floating point weirdness, be safe.
+      });
     })
   });
 
