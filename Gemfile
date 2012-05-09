@@ -170,9 +170,7 @@ group :test do
 end
 
 group :test, :development do
-  # Use the latest Jasmine from github for asset pipeline compatibility
-  gem 'ruby-debug-base19', '0.11.23' if RUBY_VERSION.include? '1.9.1'
-  gem 'ruby-debug19', :platforms => :ruby_19
+  gem 'debugger', :platforms => :mri_19
   gem 'ruby-debug', :platforms => :mri_18
 end
 
