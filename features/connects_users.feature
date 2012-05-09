@@ -54,9 +54,7 @@ Feature: following and being followed
     Then I should have 1 contact in "Besties"
 
     When I am on the home page
-    And I expand the publisher
-    When I fill in "status_message_fake_text" with "I am following you back"
-    And I press "Share"
+    And I post "I am following you back"
     Then I go to the destroy user session page
 
     When I sign in as "bob@bob.bob"
