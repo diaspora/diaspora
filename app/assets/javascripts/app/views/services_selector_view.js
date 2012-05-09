@@ -6,6 +6,8 @@ app.views.ServicesSelector = app.views.Base.extend({
     "click label" : "askForAuth"
   },
 
+  tooltipSelector : "img",
+
   services : [
     'facebook',
     'twitter',

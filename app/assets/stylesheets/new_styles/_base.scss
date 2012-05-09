@@ -423,12 +423,6 @@ div[data-template=flow] {
     width : 28px;
   }
 
-  input + label {
-    &:hover img {
-      @include box-shadow(0, 0, 10px, rgba(255,255,255,0.6))
-    }
-  }
-
   input:not(:checked) + label {
     img {
       @include opacity(0.4);
