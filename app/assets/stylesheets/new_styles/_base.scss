@@ -1,15 +1,13 @@
+body {
+  background-image : image_url("pattern.png");
+}
+
 /* new link color */
 a { color : rgb(42,156,235)  }
 
 /* bootstrap extentions */
 .icon-red   { background-image: image_url("img/glyphicons-halflings-red.png");   }
 .icon-blue  { background-image: image_url("img/glyphicons-halflings-blue.png");  }
-
- @media (max-width: 770px) { //why is 770 a magic number?
-    body {
-      padding: 0;
-    }
-  }
 
 .photoset {
   @include center(horizontal);
@@ -58,30 +56,6 @@ a { color : rgb(42,156,235)  }
   vertical-align: middle;
 }
 
-.header {
-  position: fixed;
-
-  /* position absolute for mobile */
-  @media (max-width: 480px) {
-    position: absolute !important;
-  }
-
-  top: 0;
-  left: 0;
-  z-index: 10;
-  width: 100%;
-  overflow-x: hidden;
-}
-
-#header-container {
-  padding: 1.2%;
-
-  /* don't pad the header if we're mobile */
-  @media (max-width: 480px) {
-    padding: 0 !important;
-  }
-}
-
 .avatar {
   &.micro {
     height: 20px;
@@ -95,46 +69,46 @@ a { color : rgb(42,156,235)  }
 }
 
 .author-name {
+  font-family : Roboto;
   color: inherit;
-  font-weight: bold;
 }
 
-#post-author {
-  @include border-radius();
+#author-info {
+  position : absolute;
+  z-index : 300;
 
-  border: 1px solid rgba(255,255,255,0.2);
-  border-top: 1px solid rgba(255,255,255,0.5);
-
-  float: left;
-  margin: 0;
-
-  padding: 5px;
-  padding-right: 10px;
-
-  background-color: rgba(255,255,255,0.6);
-
-/* don't pad the header if we're mobile */
-  @media (max-width: 480px) {
-    @include border-radius(0);
-    background-color: rgba(255,255,255,0.4);
-    width: 100% !important;
-    border: none !important;
-    padding: none !important;
+  .author-name {
+    color: #555;
   }
 
-  max-height: 35px;
-
-  .avatar {
-    @include border-radius();
+  .bd {
+    margin-top : 5px;
   }
 
   .post-time,
   .icon-retweet {
-    color: #000;
+    color: #555;
     @include opacity(0.5);
   }
 }
 
+#post-author {
+  margin : 0;
+  padding : 10px;
+
+  &.status-with-photo-backdrop,
+  &.Wallpaper {
+    .author-name {
+      color : #fff;
+    }
+
+    .post-time,
+    .icon-retweet {
+      color: #fff;
+      @include opacity(0.5);
+    }
+  }
+}
 
 .post-view {
   display: table;
@@ -203,6 +177,10 @@ article { //mood posts
     background-color : $night-background-color;
     color : $night-text-color;
 
+    #author-info {
+      color : $night-text-color;
+    }
+
     .photo-viewer {
       img {
         max-height: 80%;
@@ -240,9 +218,6 @@ article { //mood posts
 
   &.wallpaper{
     color : #fff;
-    header {
-      margin: 0 7%;
-    }
   }
 
   &.multi-photo {
@@ -441,17 +416,23 @@ div[data-template=flow] {
   label { display : inline;}
 
   img {
+    @include transition(opacity);
+
     cursor : pointer;
     height : 28px;
     width : 28px;
-
-    &:hover {
-      @include opacity(0.6);
-    }
   }
 
   input:not(:checked) + label {
-    @include opacity(0.4);
+    img {
+      @include opacity(0.4);
+    }
+  }
+
+  input:checked + label {
+    &:hover img {
+      @include opacity(1);
+    }
   }
 
   input {
@@ -466,19 +447,6 @@ div[data-template=flow] {
   right : 10px;
   top : 10px;
 
-
-  .label {
-    padding : 2px 5px;
-    padding-bottom : 3px;
-
-    span {
-      display : inline-block;
-      position : relative;
-      top : 1px;
-      font-family : Roboto-Bold;
-    }
-  }
-
   & > a {
     @include transition(opacity);
     @include opacity(0.4);
@@ -489,5 +457,18 @@ div[data-template=flow] {
       @include opacity(0.75);
       text-decoration : none;
     }
+  }
+}
+
+/* bootstrap label fixes for Roboto */
+.label {
+  padding : 2px 5px;
+  padding-bottom : 3px;
+
+  span {
+    display : inline-block;
+    position : relative;
+    top : 1px;
+    font-family : Roboto-Bold;
   }
 }

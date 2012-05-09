@@ -1,3 +1,26 @@
+#profile {
+  min-height : 100%;
+
+  color : #fff;
+  background : {
+    color : #333;
+
+    /* The background-image property will be user-generated and set in `app.pages.Profile` (app/assets/javascripts/app/pages/profile.js)
+       and should ONLY be set once the image is fully loaded.
+
+       Optimal imagemagick manipulation settings for uploaded image (via trial & error):
+
+       `mogrify -brightness-contrast -40x-50`
+
+       NOTE: I noticed that just turning the brightness down had an adverse affect on contrast,
+       thus the "washing out" at -50 contrast.  For more info on this specific command, read the documentation
+       on it here: http://www.imagemagick.org/script/command-line-options.php#brightness-contrast */
+
+    size : cover;
+    attachment : fixed;
+  }
+}
+
 /* getting started pulse animation */
 #composer-button.pulse {
   -webkit-animation: opacity-pulse 1s infinite;
@@ -35,6 +58,18 @@
   display : inline-block;
 
   margin-bottom : 5px;
+
+  &.small {
+    height : 40px;
+    width : 40px;
+    border : 2px solid #fff;
+  }
+
+  &.micro {
+    height : 24px;
+    width : 24px;
+    border : 2px solid #fff;
+  }
 }
 
 #profile-controls {

@@ -59,5 +59,5 @@ app.views.framerControls = app.views.Base.extend({
 
 //crazy hack for model publisher.
 function closeIFrame(){
-  location.reload()
+  location = "/people/" + app.currentUser.get("guid")
 };

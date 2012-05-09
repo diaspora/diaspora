@@ -61,6 +61,10 @@ class Reshare < Post
     Notifications::Reshared if root.author == user.person
   end
 
+  def nsfw
+    root.nsfw
+  end
+
   private
 
   def after_parse

@@ -72,6 +72,11 @@ en_pirate:
       no_contacts: "No Mateys."
       title: "Mateys"
       your_contacts: "Yer Mateys"
+    many: "%{count} contacts"
+    one: "1 contact"
+    other: "%{count} contacts"
+    two: "%{count} contacts"
+    zero: "contacts"
   conversations:
     helper:
       new_messages:

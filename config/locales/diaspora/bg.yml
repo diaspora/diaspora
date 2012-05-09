@@ -912,12 +912,6 @@ bg:
       what_are_you_in_to: "От какво се интересувате?"
       what_facebook_does: "с Diaspora. Така някои данни (име и снимка) ще бъдат попълнени автоматично и ще можете да публикувате съобщения във Facebook от Diaspora."
       who_are_you: "Кой сте вие?"
-    logged_out:
-      go_mobile: "Пробвайте и версията за мобилни устройства."
-      on_your_mobile_device: "от вашето мобилно устройство за достъп до мобилната версия на Diaspora*."
-      signed_out: "Отписахте се от Diaspora*"
-      simply_visit: "Просто посетете"
-      works_on_modern: "Съвместима е с всеки съвременен смартфон"
     privacy_settings:
       ignored_users: "Игнорирани потребители"
       stop_ignoring: "Прекратяване на игнорирането"

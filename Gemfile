@@ -29,6 +29,7 @@ gem 'rails_admin'
 
 # mail
 
+gem 'markerb', '~> 1.0.0'
 gem 'messagebus_ruby_api', '1.0.3'
 gem 'airbrake'
 gem 'newrelic_rpm'
@@ -44,7 +45,7 @@ end
 
 group :heroku do
   gem 'pg'
-  gem 'unicorn', '~> 4.2.0', :require => false
+  gem 'unicorn', '~> 4.3.0', :require => false
 end
 
 gem 'settingslogic', :git => 'git://github.com/binarylogic/settingslogic.git'
@@ -116,12 +117,12 @@ group :assets do
   # install Node.js or use 'therubyracer'.
   #
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
-  
+
   # gem 'therubyracer', :platform => :ruby
-  
+
   gem 'handlebars_assets'
   gem 'uglifier'
-  
+
   # asset_sync is required as needed by application.rb
   gem "asset_sync", :require => nil
 end
@@ -156,7 +157,7 @@ group :test do
   gem 'rspec-core', '~> 2.9.0'
   gem 'rspec-instafail', '>= 0.1.7', :require => false
   gem "rspec-rails", "~> 2.9.0" 
-  gem 'selenium-webdriver'
+  gem 'selenium-webdriver', '2.22.0.rc1'
 
   gem 'webmock', :require => false
   gem 'sqlite3'

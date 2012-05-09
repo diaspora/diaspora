@@ -1,19 +1,20 @@
 describe("app.pages.Profile", function(){
   beforeEach(function(){
     this.guid = 'abcdefg123'
-    app.page = this.page = new app.pages.Profile({personId :this.guid });
+    this.profile = factory.profile({personId: this.guid})
+    app.page = this.page = new app.pages.Profile({model : this.profile });
     this.stream = this.page.stream
   });
 
   it("fetches the profile of the user with the params from the router and assigns it as the model", function(){
-    profile = new factory.profile()
+    var profile = new factory.profile()
     spyOn(app.models.Profile, 'findByGuid').andReturn(profile)
     var page =  new app.pages.Profile({personId : 'jarjabinkisthebest' })
     expect(app.models.Profile.findByGuid).toHaveBeenCalledWith('jarjabinkisthebest')
     expect(page.model).toBe(profile)
   })
 
-  it("passes the model down to the post view", function(){
+  it("passes the stream down to the canvas view", function(){
     expect(this.page.canvasView.model).toBeDefined()
     expect(this.page.canvasView.model).toBe(this.stream)
   });
@@ -30,68 +31,87 @@ describe("app.pages.Profile", function(){
   })
 
   describe("rendering", function(){
-    beforeEach(function(){
-      this.post = factory.post()
-      this.stream.add(this.post)
-      this.page.toggleEdit()
-      expect(this.page.editMode).toBeTruthy()
-      this.page.render()
-    });
-
-    context("profile control pane", function(){
-      it("shows the edit and create buttons if it's your profile", function() {
-        spyOn(this.page, "isOwnProfile").andReturn(true)
-        this.page.render()
-        expect(this.page.$("#profile-controls .control").length).toBe(2)
-      })
-
-      it("shows a follow button if showFollowButton returns true", function() {
-        spyOn(this.page, "showFollowButton").andReturn(true)
-        this.page.render()
-        expect(this.page.$("#follow-button").length).toBe(1)
-      })
-
-      it("doesn't show a follow button if showFollowButton returns false", function() {
-        spyOn(this.page, "showFollowButton").andReturn(false)
-        this.page.render()
-        expect(this.page.$("#follow-button").length).toBe(0)
-      })
-    })
-
-    context("clicking fav", function(){
+    context("with no posts", function(){
       beforeEach(function(){
-        spyOn(this.post, 'toggleFavorite')
-        spyOn($.fn, "isotope")
-        this.page.$(".content").click()
+        this.profile.set({"name" : "Alice Waters", person_id : "889"})
       })
 
-      it("relayouts the page", function(){
-        expect($.fn.isotope).toHaveBeenCalledWith("reLayout")
+      it("has a message that there are no posts", function(){
+        this.page.render()
+        expect(this.page.$("#canvas").text()).toBe("Alice Waters hasn't posted anything yet.")
       })
 
-      it("toggles the favorite status on the model", function(){
-        expect(this.post.toggleFavorite).toHaveBeenCalled()
+      it("tells you to post something if it's your profile", function(){
+        this.profile.set({is_own_profile : true})
+        this.page.render()
+        expect(this.page.$("#canvas").text()).toBe("Make something to start the magic.")
       })
     })
 
-    context("clicking delete", function(){
-      beforeEach(function () {
-        spyOn(window, "confirm").andReturn(true);
+    context("with a post", function(){
+      beforeEach(function(){
+        this.post = factory.post()
+        this.stream.add(this.post)
+        this.page.toggleEdit()
+        expect(this.page.editMode).toBeTruthy()
         this.page.render()
+      });
+
+      context("profile control pane", function(){
+        it("shows the edit and create buttons if it's your profile", function() {
+          this.page.model.set({is_own_profile : true})
+          this.page.render()
+          expect(this.page.$("#profile-controls .control").length).toBe(2)
+        })
+
+        it("shows a follow button if showFollowButton returns true", function() {
+          spyOn(this.page, "showFollowButton").andReturn(true)
+          this.page.render()
+          expect(this.page.$("#follow-button").length).toBe(1)
+        })
+
+        it("doesn't show a follow button if showFollowButton returns false", function() {
+          spyOn(this.page, "showFollowButton").andReturn(false)
+          this.page.render()
+          expect(this.page.$("#follow-button").length).toBe(0)
+        })
       })
 
-      it("kills the model", function(){
-        spyOn(this.post, "destroy")
-        this.page.$(".canvas-frame:first a.delete").click()
-        expect(this.post.destroy).toHaveBeenCalled()
+      context("clicking fav", function(){
+        beforeEach(function(){
+          spyOn(this.post, 'toggleFavorite')
+          spyOn($.fn, "isotope")
+          this.page.$(".content").click()
+        })
+
+        it("relayouts the page", function(){
+          expect($.fn.isotope).toHaveBeenCalledWith("reLayout")
+        })
+
+        it("toggles the favorite status on the model", function(){
+          expect(this.post.toggleFavorite).toHaveBeenCalled()
+        })
       })
 
-      it("removes the frame", function(){
-        spyOn($.fn, "remove").andCallThrough()
-        expect(this.page.$(".canvas-frame").length).toBe(1)
-        this.page.$(".canvas-frame:first a.delete").click()
-        waitsFor(function(){ return $.fn.remove.wasCalled })
-        runs(function(){ expect(this.page.$(".canvas-frame").length).toBe(0) })
+      context("clicking delete", function(){
+        beforeEach(function () {
+          spyOn(window, "confirm").andReturn(true);
+          this.page.render()
+        })
+
+        it("kills the model", function(){
+          spyOn(this.post, "destroy")
+          this.page.$(".canvas-frame:first a.delete").click()
+          expect(this.post.destroy).toHaveBeenCalled()
+        })
+
+        it("removes the frame", function(){
+          spyOn($.fn, "remove").andCallThrough()
+          expect(this.page.$(".canvas-frame").length).toBe(1)
+          this.page.$(".canvas-frame:first a.delete").click()
+          waitsFor(function(){ return $.fn.remove.wasCalled })
+          runs(function(){ expect(this.page.$(".canvas-frame").length).toBe(0) })
+        })
       })
     })
   });
@@ -109,23 +129,6 @@ describe("app.pages.Profile", function(){
         this.page.toggleEdit()
         expect(this.page.$el).toHaveClass('edit-mode')
       })
-    })
-  })
-
-  describe("isOwnProfile", function(){
-    beforeEach(function(){
-      this.user = new app.models.User(factory.author())
-      this.page.personGUID = this.user.get("guid")
-    })
-
-    it("returns true if app.currentUser matches the current profile's user", function(){
-      app.currentUser = this.user
-      expect(this.page.isOwnProfile()).toBeTruthy()
-    })
-
-    it("returns false if app.currentUser does not match the current profile's user", function(){
-      app.currentUser = new app.models.User(factory.author({guid : "nope!"}))
-      expect(this.page.isOwnProfile()).toBeFalsy()
     })
   })
 

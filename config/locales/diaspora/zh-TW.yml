@@ -917,12 +917,6 @@ zh-TW:
       what_are_you_in_to: "你對什麼有興趣?"
       what_facebook_does: "讓你儘快開始使用 Diaspora. 這個步驟會拿你在 Facebook 的名字和照片來用, 並開啟多重發表."
       who_are_you: "你是誰?"
-    logged_out:
-      go_mobile: "開始行動瀏覽."
-      on_your_mobile_device: "就可以使用 Diaspora* 行動版."
-      signed_out: "你已經登出 Diaspora* 了"
-      simply_visit: "只要在你的行動設備上輸入"
-      works_on_modern: "適用於所有新潮的智慧型手機"
     privacy_settings:
       ignored_users: "忽視的使用者"
       stop_ignoring: "停止忽視"

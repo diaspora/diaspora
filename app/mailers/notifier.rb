@@ -30,7 +30,10 @@ class Notifier < ActionMailer::Base
 
 
 
-    mail(default_opts)
+    mail(default_opts) do |format|
+      format.text
+      format.html
+    end
   end
 
   def invite(email, message, inviter, invitation_code, locale)
@@ -44,7 +47,10 @@ class Notifier < ActionMailer::Base
                  :host => AppConfig[:pod_uri].host}
 
     I18n.with_locale(locale) do
-      mail(mail_opts)
+      mail(mail_opts) do |format|
+        format.text
+        format.html
+      end
     end
   end
 
@@ -85,7 +91,10 @@ class Notifier < ActionMailer::Base
     @notification = NotificationMailers.const_get(type.to_s.camelize).new(*args)
 
     with_recipient_locale do
-      mail(@notification.headers)
+      mail(@notification.headers) do |format|
+        format.text
+        format.html
+      end
     end
   end
 

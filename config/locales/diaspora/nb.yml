@@ -833,11 +833,6 @@ nb:
       hooking_up_fb: "koble til din Facebook-konto"
       saved: "Lagret!"
       what_facebook_does: "to Diaspora. This will pull your name and photo, and enable cross-positng."
-    logged_out:
-      on_your_mobile_device: "på din mobile enhet for å logge på Diaspora* mobile."
-      signed_out: "Du er logget av Diaspora*"
-      simply_visit: "Bare besøk"
-      works_on_modern: "Funker på alle moderne smartphones"
     privacy_settings:
       ignored_users: "Ignorerte brukere"
       stop_ignoring: "Slutt å ignorere"

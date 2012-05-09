@@ -993,12 +993,6 @@ ko:
       what_are_you_in_to: "뭘 좋아해요?"
       what_facebook_does: "더 간편히 가입할 수 있습니다. 페이스북에서 이름과 사진을 가져올 수 있고, 두 서비스에 서로 게시할 수도 있습니다."
       who_are_you: "누구시죠?"
-    logged_out:
-      go_mobile: "이제 모바일로 즐기세요."
-      on_your_mobile_device: "에 접속하면 디아스포라* 모바일을 쓸 수 있습니다."
-      signed_out: "디아스포라*에서 로그아웃되었습니다."
-      simply_visit: "모바일 기기로"
-      works_on_modern: "모든 최신 스마트폰에서 작동합니다"
     privacy_settings:
       ignored_users: "내가 무시한 사용자"
       stop_ignoring: "무시하지 않기"

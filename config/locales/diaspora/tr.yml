@@ -930,12 +930,6 @@ tr:
       what_are_you_in_to: "Ne yapıyorsun?"
       what_facebook_does: "Diaspora için. Bu adınızı girin ve fotoğrafınızı çekin."
       who_are_you: "Sen kimsin?"
-    logged_out:
-      go_mobile: "Şimdi mobil olun."
-      on_your_mobile_device: "mobil cihazınız üzerinden diaspora* mobile erişim."
-      signed_out: "Diaspora'dan çıkış yaptın"
-      simply_visit: "Basitçe ziyaret"
-      works_on_modern: "Tüm modern akıllı telefonlarda çalışır"
     privacy_settings:
       ignored_users: "Gözardı Edilen Kullanıcılar"
       stop_ignoring: "Görmezden gelmeye son ver"

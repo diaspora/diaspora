@@ -118,6 +118,7 @@ es:
     viewer:
       comment: "Comentar"
       follow_post: "Seguir"
+      home: "INICIO"
       like: "Me gusta"
       reshare: "Compartir"
       reshared: "Compartido"

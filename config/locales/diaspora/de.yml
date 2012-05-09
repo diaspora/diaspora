@@ -986,12 +986,6 @@ de:
       what_are_you_in_to: "Was machst du so?"
       what_facebook_does: "mit Diaspora verbindest. Hierbei wird dein Name und dein Foto geladen, um das Veröffentlichen bei Facebook zu ermöglichen."
       who_are_you: "Wer bist Du?"
-    logged_out:
-      go_mobile: "Jetzt mobil werden."
-      on_your_mobile_device: "auf deinem mobilen Gerät, um die mobile Seite von Diaspora* aufzurufen."
-      signed_out: "Du hast dich aus Diaspora* ausgeloggt"
-      simply_visit: "Besuche einfach"
-      works_on_modern: "Funktioniert auf allen modernen Smartphones"
     privacy_settings:
       ignored_users: "Benutzer, die ignoriert werden"
       stop_ignoring: "Aufhören, zu ignorieren"

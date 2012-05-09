@@ -1,18 +1,18 @@
-
 @mixin wide() {
   width : $two-column-width + px;
   min-width : $two-column-width + px;
   max-width : $two-column-width + px;
 }
-
-body {
-  background-color : #F6F6F6;
-  background-image : image_url('pattern.png')
+.no-post-message {
+  text-align: center;
+  margin-top: 50px;
+  font-size: 1.2em;
 }
 
 .canvas-frame {
   float : left;
   margin : 10px;
+  margin-bottom : 18px;
 
   /* expand / contract cursor declarations */
   &.x2 .content {
@@ -28,12 +28,12 @@ body {
 
   .content {
     @include transition(box-shadow);
-    @include box-shadow(0,1px,3px,rgba(0,0,0,0.2));
+    @include box-shadow(0, 8px, 50px, rgba(0,0,0,0.9));
 
     background-image : image_url("paper-texture-1.jpg");
 
     &:hover {
-      @include box-shadow(0,1px,5px,rgba(0,0,0,0.5));
+      @include box-shadow(0, 3px, 10px,rgba(0,0,0,0.9));
 
       .info {
         top : 0;
@@ -59,11 +59,9 @@ body {
     max-width : $column-width + px;
 
     overflow : hidden;
-    //padding : 20px;
 
     /* used in masking photos with overflow: hidden; */
     .image-container {
-
       overflow : hidden;
       width : 100%;
 
@@ -127,6 +125,8 @@ body {
 
     background-color : rgba(255,255,255,0.8);
     border-bottom : 1px solid #fff;
+
+    color : #000;
 
     position : absolute;
     top : -32px;

@@ -2,13 +2,13 @@
 //= require ../views/profile_info_view
 
 app.pages.Profile = app.views.Base.extend({
-  className : "container",
-
   templateName : "profile",
+  id : "profile",
 
   subviews : {
     "#profile-info" : "profileInfo",
-    "#canvas" : "canvasView"
+    "#canvas" : "canvasView",
+    "#wallpaper-upload" : "wallpaperForm"
   },
 
   events : {
@@ -21,23 +21,13 @@ app.pages.Profile = app.views.Base.extend({
   personGUID : null,
   editMode : false,
 
-  presenter : function(){
-    var bio =  this.model.get("bio") || ''
-
-    return _.extend(this.defaultPresenter(),
-      {text : this.model && app.helpers.textFormatter(bio, this.model),
-       isOwnProfile : this.isOwnProfile(),
-       showFollowButton : this.showFollowButton()
-      })
-  },
-
   initialize : function(options) {
     this.personGUID = options.personId
 
-    this.model = new app.models.Profile.findByGuid(options.personId)
+    this.model = this.model ||  app.models.Profile.preloadOrFetch(this.personGUID)
     this.stream = options && options.stream || new app.models.Stream()
 
-    this.model.bind("change", this.setPageTitle, this)
+    this.model.bind("change", this.setPageTitleAndBackground, this)
 
     /* binds for getting started pulsation */
     this.stream.bind("fetched", this.pulsateNewPostControl, this)
@@ -46,9 +36,17 @@ app.pages.Profile = app.views.Base.extend({
     this.stream.preloadOrFetch();
 
     this.canvasView = new app.views.Canvas({ model : this.stream })
+    this.wallpaperForm = new app.forms.Wallpaper()
+    this.profileInfo = new app.views.ProfileInfo({ model : this.model })
+  },
 
-    // send in isOwnProfile data
-    this.profileInfo = new app.views.ProfileInfo({ model : this.model.set({isOwnProfile : this.isOwnProfile()}) })
+  presenter : function(){
+    var bio =  this.model.get("bio") || ''
+
+    return _.extend(this.defaultPresenter(),
+      {text : this.model && app.helpers.textFormatter(bio, this.model),
+        showFollowButton : this.showFollowButton()
+      })
   },
 
   pulsateNewPostControl : function() {
@@ -59,9 +57,11 @@ app.pages.Profile = app.views.Base.extend({
       ]("pulse")
   },
 
-  setPageTitle : function() {
-    if(this.model.get("name"))
+  setPageTitleAndBackground : function() {
+    if(this.model.get("name")) {
       document.title = this.model.get("name")
+      this.$el.css("background-image", "url(" + this.model.get("wallpaper") + ")")
+    }
   },
 
   toggleEdit : function(evt) {
@@ -81,10 +81,6 @@ app.pages.Profile = app.views.Base.extend({
   },
 
   showFollowButton : function() {
-    return this.followingEnabled() && !this.isOwnProfile()
-  },
-
-  isOwnProfile : function() {
-    return(app.currentUser.get("guid") == this.personGUID)
+    return this.followingEnabled() && !this.model.get("is_own_profile")
   }
 });

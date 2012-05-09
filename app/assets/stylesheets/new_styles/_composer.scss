@@ -11,9 +11,7 @@
 
 #photo_upload_button {
   position: relative;
-  margin : {
-    bottom : 9px;
-  }
+  margin-bottom : 9px;
 
   input{
     @include opacity(0);
@@ -21,6 +19,7 @@
     top: 0;
     left: 0;  
     height:100%;
+    cursor : pointer;
   }
 }
 
