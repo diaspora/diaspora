@@ -91,7 +91,7 @@ class PostInteractionPresenter
   def as_json(options={})
     {
         :likes => as_api(@post.likes),
-        :reshares => as_api(@post.reshares),
+        :reshares => PostPresenter.collection_json(@post.reshares, @current_user),
         :comments => CommentPresenter.as_collection(@post.comments),
         :participations => as_api(@post.participations)
     }
