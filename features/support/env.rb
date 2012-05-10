@@ -101,6 +101,14 @@ Spork.each_run do
   end
 end
 
+# give firefox more time to complete requests
+# http://ihswebdesign.com/knowledge-base/fixing-selenium-timeouterror/
+Capybara.register_driver :selenium do |app|
+  http_client = Selenium::WebDriver::Remote::Http::Default.new
+  http_client.timeout = 100
+  Capybara::Selenium::Driver.new(app, :browser => :firefox, :http_client => http_client)
+end
+
 # # https://makandracards.com/makandra/950-speed-up-rspec-by-deferring-garbage-collection
 # require File.join(File.dirname(__FILE__), "..", "..", "spec", "support", "deferred_garbage_collection")
 # Before do

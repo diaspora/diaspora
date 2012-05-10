@@ -3,7 +3,9 @@
 #   the COPYRIGHT file.
 
 Diaspora::Application.routes.draw do
-  mount RailsAdmin::Engine => '/admin_panel', :as => 'rails_admin'
+  if Rails.env.production?
+    mount RailsAdmin::Engine => '/admin_panel', :as => 'rails_admin'
+  end
 
   get 'oembed' => 'posts#oembed', :as => 'oembed'
   # Posting and Reading
@@ -49,6 +51,7 @@ Diaspora::Application.routes.draw do
   end
 
   get 'bookmarklet' => 'status_messages#bookmarklet'
+  get 'new_bookmarklet' => 'status_messages#new_bookmarklet'
 
   resources :photos, :except => [:index] do
     put :make_profile_photo

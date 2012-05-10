@@ -107,7 +107,7 @@ class User < ActiveRecord::Base
   end
 
   def beta?
-    Role.is_beta?(self.person)
+    @beta ||= Role.is_beta?(self.person)
   end
 
   #@deprecated

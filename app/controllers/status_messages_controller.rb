@@ -39,6 +39,10 @@ class StatusMessagesController < ApplicationController
     end
   end
 
+  def new_bookmarklet
+    render :layout => nil
+  end
+
   def create
     params[:status_message][:aspect_ids] = [*params[:aspect_ids]]
     normalize_public_flag!

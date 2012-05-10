@@ -234,9 +234,8 @@ en:
   bookmarklet:
     heading: "Bookmarklet"
     post_success: "Posted! Closing!"
-    post_something: "Post something to Diaspora"
-    explanation: "Post to Diaspora from anywhere by bookmarking %{link}."
-    explanation_link_text: "this link"
+    post_something: "Post to Diaspora"
+    explanation: "Post to Diaspora from anywhere by bookmarking this link => %{link}."
 
   comments:
     zero: "no comments"

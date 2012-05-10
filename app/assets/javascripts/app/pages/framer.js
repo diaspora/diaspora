@@ -48,9 +48,14 @@ app.views.framerControls = app.views.Base.extend({
     // this is gross hack to make this action work in the iframe version and not iframe version.
     var callback = {}
     var parentDoc = parent;
+    var parentPath = parentDoc.location.pathname
 
-    if(parentDoc.location.pathname != '/framer'){
-      callback = {success : function(){ parentDoc.closeIFrame() }}
+    if(parentPath == '/new_bookmarklet'){
+      callback.success = function(){ parentDoc.close() }
+    } else if(parentPath != '/framer'){
+      callback.success = function(){ parentDoc.goToCurrentUserProfile() }
+    } else{
+      // do nothing, and let the navigate event fire
     }
 
     this.model.save({}, callback)
@@ -58,6 +63,6 @@ app.views.framerControls = app.views.Base.extend({
 });
 
 //crazy hack for model publisher.
-function closeIFrame(){
+function goToCurrentUserProfile(){
   location = "/people/" + app.currentUser.get("guid")
 };

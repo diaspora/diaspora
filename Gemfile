@@ -25,7 +25,6 @@ gem 'omniauth-tumblr'
 gem 'omniauth-twitter'
 
 gem 'twitter', '2.0.2'
-gem 'rails_admin'
 
 # mail
 
@@ -36,6 +35,7 @@ gem 'newrelic_rpm'
 gem "rpm_contrib", "~> 2.1.7"
 
 group :production do # we don't install these on travis to speed up test runs
+  gem 'rails_admin'
   gem 'rack-ssl', :require => 'rack/ssl'
   gem 'rack-rewrite', '~> 1.2.1', :require => false
   gem 'rack-piwik', :require => 'rack/piwik'
@@ -170,9 +170,7 @@ group :test do
 end
 
 group :test, :development do
-  # Use the latest Jasmine from github for asset pipeline compatibility
-  gem 'ruby-debug-base19', '0.11.23' if RUBY_VERSION.include? '1.9.1'
-  gem 'ruby-debug19', :platforms => :ruby_19
+  gem 'debugger', :platforms => :mri_19
   gem 'ruby-debug', :platforms => :mri_18
 end
 
