@@ -101,7 +101,7 @@ interactive_check() {
     echo ""
   else
     # non-interactive
-    TMPFILE='mktemp'
+    TMPFILE=`mktemp`
     curl -s -o "$TMPFILE" "$D_INSTALL_SCRIPT_URL"
     chmod +x "$TMPFILE"
     exec 0< /dev/tty
@@ -223,7 +223,7 @@ database_setup() {
 #                                                                   #
 ####                                                             ####
 
-interactive_check
+#interactive_check
 
 
 # display a nice welcome message
