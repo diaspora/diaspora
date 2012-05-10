@@ -17,7 +17,7 @@ class ParticipationsController < ApplicationController
     if @participation
       respond_to do |format|
         format.mobile { redirect_to post_path(@participation.post_id) }
-        format.json { render :json => PostPresenter.new(@participation.parent, current_user).to_json, :status => 201 }
+        format.json { render :json => ExtremePostPresenter.new(@participation.parent, current_user), :status => 201 }
       end
     else
       render :nothing => true, :status => 422
@@ -30,7 +30,7 @@ class ParticipationsController < ApplicationController
     if @participation
       current_user.retract(@participation)
       respond_to do |format|
-        format.json { render :json => PostPresenter.new(@participation.parent, current_user).to_json, :status => 202 }
+        format.json { render :json => ExtremePostPresenter.new(@participation.parent, current_user), :status => 202 }
       end
     else
       respond_to do |format|

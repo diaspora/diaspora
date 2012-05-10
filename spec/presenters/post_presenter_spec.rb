@@ -11,13 +11,13 @@ describe PostPresenter do
     @presenter.should_not be_nil
   end
 
-  describe '#to_json' do
+  describe '#as_json' do
     it 'works with a user' do
-      @presenter.to_json.should be_a Hash
+      @presenter.as_json.should be_a Hash
     end
 
     it 'works without a user' do
-      @unauthenticated_presenter.to_json.should be_a Hash
+      @unauthenticated_presenter.as_json.should be_a Hash
     end
   end
 
