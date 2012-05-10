@@ -53,7 +53,10 @@
 
   height : 140px;
   width : 140px;
-  background-position : center;
+  background : {
+    position : center;
+    image : image-url('user/default.png');
+  }
 
   display : inline-block;
 
