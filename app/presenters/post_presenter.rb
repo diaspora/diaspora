@@ -27,9 +27,8 @@ class PostPresenter
         :post_type => @post.post_type,
         :image_url => @post.image_url,
         :object_url => @post.object_url,
-        :nsfw => @post.nsfw,
         :favorite => @post.favorite,
-        :last_three_comments => CommentPresenter.as_collection(@post.last_three_comments),
+        :nsfw => @post.nsfw,
         :author => @post.author.as_api_response(:backbone),
         :o_embed_cache => @post.o_embed_cache.try(:as_api_response, :backbone),
         :mentioned_people => @post.mentioned_people.as_api_response(:backbone),
@@ -40,8 +39,7 @@ class PostPresenter
         :next_post => next_post_path,
         :previous_post => previous_post_path,
         :user_like => user_like,
-        :user_participation => user_participation,
-        :user_reshare => user_reshare,
+        :user_reshare => user_reshare
     }
   end
 
@@ -51,18 +49,6 @@ class PostPresenter
 
   def previous_post_path
     Rails.application.routes.url_helpers.previous_post_path(@post)
-  end
-
-  def user_like
-    @post.like_for(@current_user).try(:as_api_response, :backbone)
-  end
-
-  def user_participation
-    @post.participation_for(@current_user).try(:as_api_response, :backbone)
-  end
-
-  def user_reshare
-    @post.reshare_for(@current_user)
   end
 
   def title
@@ -75,6 +61,14 @@ class PostPresenter
 
   def root
     PostPresenter.new(@post.root, current_user).as_json if @post.respond_to?(:root)
+  end
+
+  def user_like
+    @post.like_for(@current_user).try(:as_api_response, :backbone)
+  end
+
+  def user_reshare
+    @post.reshare_for(@current_user)
   end
 
   protected

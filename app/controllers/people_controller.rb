@@ -127,7 +127,7 @@ class PeopleController < ApplicationController
         end
       end
 
-      format.json { render :json => PostPresenter.collection_json(@stream.stream_posts, current_user) }
+      format.json { render :json => @stream.stream_posts.map { |p| LastThreeCommentsDecorator.new(PostPresenter.new(p, current_user)) }}
     end
   end
 

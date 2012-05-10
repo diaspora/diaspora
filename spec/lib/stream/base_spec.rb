@@ -16,7 +16,6 @@ describe Stream::Base do
       posts = mock
       @stream.stub(:posts).and_return(posts)
       @stream.stub(:like_posts_for_stream!)
-      @stream.stub(:participation_posts_for_stream!)
 
       posts.should_receive(:for_a_stream).with(anything, anything, alice).and_return(posts)
       @stream.stream_posts
