@@ -42,7 +42,17 @@ describe PostPresenter do
       @unauthenticated_presenter.user_reshare.should be_nil
     end
   end
-
+  
+  describe '#root' do
+    it 'does not raise if the root does not exists' do
+      reshare = Factory :reshare
+      reshare.root = nil
+      expect {
+        PostPresenter.new(reshare).root
+      }.to_not raise_error
+    end
+  end
+  
   describe '#next_post_path' do
     it 'returns a string of the users next post' do
       @presenter.next_post_path.should == "#{Rails.application.routes.url_helpers.post_path(@sm)}/next"
