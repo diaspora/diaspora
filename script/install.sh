@@ -246,7 +246,7 @@ js_runtime_check() {
     echo "ok"
   else
     echo "not ok"
-    echo $JS_RT_MSG
+    echo "$JS_RT_MSG"
     error "can't continue without a JS runtime"
   fi
   echo ""
