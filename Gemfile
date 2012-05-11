@@ -35,7 +35,7 @@ gem 'newrelic_rpm'
 gem "rpm_contrib", "~> 2.1.7"
 
 group :production do # we don't install these on travis to speed up test runs
-  gem 'rails_admin'
+  gem 'rails_admin', '~> 0.0.2'
   gem 'rack-ssl', :require => 'rack/ssl'
   gem 'rack-rewrite', '~> 1.2.1', :require => false
   gem 'rack-piwik', :require => 'rack/piwik'
