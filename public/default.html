@@ -1,163 +1,120 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>Diaspora: Getting Started</title>
+
     <style type="text/css">
-      ol {
-        padding: 0;
-      }
-      h1, h2, h3 {
-        letter-spacing: -1px;
-      }
-      h1 {
-        color: #111;
-        text-shadow: 2px 0 0 white;
-      }
 
-      h2 {
-        color: #444;
-      }
+        body {
+            margin-top: 50px;
+            background-color: white;
+            background-image : none;
+        }
 
-      h3 {
-        color: #777;
-      }
+        #steps {
+            text-align: center;
+        }
 
-      #steps li{
-        display: inline-block;
-        width: 30%;
-        padding: 1%;
-        text-align: center;
-        vertical-align: top;
-      }
+        hr {
+            border: none;
+            border-bottom: 1px solid #ccc;
+        }
 
-      p{
-        font-family: 'helvetica';
-      }
+        #banner {
+            border-bottom : 1px solid #ccc;
+            border-top : 1px solid #eee;
+            padding : 30px;
+            margin : 20px 0;
 
-      #links {
-        margin: 0;
-        padding: 0;
-      }
-      #links .section {
-        margin: 0;
-        padding: 0;
-        display: inline-block;
-        vertical-align: top;
-        width: 24%;
-        max-width: 24%;
-      }
+            -webkit-box-shadow : 0 9px 15px -10px rgba(0,0,0,0.7);
+        }
 
-      code {
-        background-color: #D9FFA9;
-      }
+        #links {
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
 
-      #login-link {
-        float: right;
-        padding: 3px 5px;
-        background: #f0f0f0;
-        border: 1px solid #ddd;
-        border-radius: 3px;
-        font-weight: bold;
-      }
+        #links .section {
+            margin: 0;
+            padding: 0;
+            display: inline-block;
+            vertical-align: top;
+            width: 24%;
+            max-width: 24%;
+        }
 
-      #login-link:hover{
-        text-decoration: none;
-        background-color: #fff;
-      }
+        #login-link {
+            float: right;
+        }
 
-      #change-page {
-        color: #999;
-        text-align: center;
-        font-style: italic;
-      }
+        #change-page {
+            color: #999;
+            text-align: center;
+            font-style: italic;
+        }
 
-      #change-page code {
-        background: none;
-      }
+        footer .container {
+            margin-top: 15px;
+        }
 
-      footer .container {
-        margin-top: 15px;
-      }
+        .helpful {
+            cursor: help;
+        }
 
-      .helpful {
-        cursor: help;
-      }
+        li {
+            list-style: none;
+        }
 
     </style>
-  </head>
+</head>
 
-  <body>
-    <div id="page">
-      <div id="contentr">
-        <div id="header" style="margin-bottom:24px;">
-          <a id="login-link" href="login">Log In</a>
-          <img src='assets/branding/logo_caps.png'/>
+<body>
+<div id="page" class="container">
+    <div id="content">
+        <div class="row">
+            <div id="header" style="margin-bottom:24px;">
+                <a id="login-link" href="login" class="btn">Log In</a>
+                <img src='assets/branding/logo_caps.png'/>
+            </div>
         </div>
 
-        <div id="about" style='display:none;'>
-          <h3><a href="rails/info/properties" onclick="about(); return false;">About your pod&rsquo;s environment</a></h3>
-          <div id="about-content" style="display: none"></div>
-        </div>
-
-        <hr>
         <div id="getting-started">
-          <h1>Welcome, friend.</h1>
-          <h3>You're about to change the Internet.  Let's get you set up, shall we?</h3>
+            <div class="row" style="text-align: center;">
+                <div id="banner">
+                <h1>Welcome, friend.</h1>
 
-          <hr>
-          <br>
-          <br>
+                <h3>You're about to change the Internet. Let's get you set up, shall we?</h3>
+                </div>
+            </div>
+            <br>
+            <br>
 
-          <ol id="steps">
-            <li>
-              <h2>Configure your <abbr class="helpful" title="A Diaspora installation">pod</abbr></h2>
-              <img src='assets/icons/cog.png'/>
-              <p>Look at <code class="helpful" title='General pod configuration (location to upload photos, SSL certs, etc.)'>config/application.yml.example</code> and <code class="helpful" title="mySQL username/password">config/database.yml.example</code> for help.</p>
-            </li>
+            <div id="steps" class="row">
+                <div class="span4">
+                    <h2>Configure your <abbr class="helpful" title="A Diaspora installation">pod</abbr></h2>
+                    <img src='assets/icons/cog.png'/>
 
-            <li>
-              <h2>Try it out</h2>
-              <img src='assets/icons/smiley_laughing.png'/>
-              <p>Start by <a href="users/sign_up">creating an account</a>.</p>
-            </li>
+                    <p>Look at <code class="helpful"
+                                     title='General pod configuration (location to upload photos, SSL certs, etc.)'>config/application.yml.example</code>
+                        and <code class="helpful" title="mySQL username/password">config/database.yml.example</code> for
+                        help.</p>
+                </div>
 
-            <li>
-              <h2>Make a contribution!</h2>
-              <img src='assets/icons/pen_write.png'/>
-              <p>Make Diaspora even better!  Fork the project on <a href="http://github.com/diaspora/diaspora/" title="github">github</a>, make some changes, and submit a pull request.</p>
-            </li>
-          </ol>
+                <div class="span4">
+
+                    <h2>Try it out</h2>
+                    <img src='assets/icons/smiley_laughing.png'/>
+
+                    <p>Start by <a href="users/sign_up">creating an account</a>.</p>
+                </div>
+
+                <div class="span4">
+                    <h2>Make a contribution!</h2>
+                    <img src='assets/icons/pen_write.png'/>
+
+                    <p>Make Diaspora even better! Fork the project on <a href="http://github.com/diaspora/diaspora/"
+                                                                         title="github">github</a>, make some changes,
+                        and submit a pull request.</p>
+                </div>
+            </div>
         </div>
-      </div>
-
-      <br>
-      <br>
-
-      <hr>
-
-      <br>
-
-
-      <h3>Useful Resources</h3>
-      <ul id="links">
-        <ul class="section">
-          <li><strong><a href="http://github.com/diaspora/diaspora/" title="Git repository">Codebase</a></strong></li>
-          <li><strong><a href="http://github.com/diaspora/diaspora/wiki" title="Wiki on github">Documentation</a></strong></li>
-          <br>
-          <li><a href="https://github.com/diaspora/diaspora/issues" title="Bug tracker">Find & Report bugs</a></li>
-        </ul>
-        <ul class="section">
-          <li><a href="http://webchat.freenode.net/?channels=diaspora" title="#diaspora">IRC - General</a></li>
-          <li><a href="http://webchat.freenode.net/?channels=diaspora-dev" title="#diaspora-dev">IRC - Development</a></li>
-        </ul>
-        <ul class="section">
-          <li><a href="http://groups.google.com/group/diaspora-discuss" title="General discussion mailing list">Discussion - General</a></li>
-          <li><a href="http://groups.google.com/group/diaspora-dev" title="Dev mailing list">Discussion - Development</a></li>
-        </ul>
-        <ul class="section">
-          <li><a href="http://guides.rubyonrails.org/">Learn more about Ruby On Rails!</a></li>
-        </ul>
-      </ul>
     </div>
 
     <br>
@@ -165,8 +122,41 @@
 
     <hr>
 
-    <div id="change-page">
-      This page can be changed to a custom landing page by creating <code>app/views/home/_show.html.haml</code>
-    </div>
-  </body>
-</html>
+    <br>
+
+
+    <h3 style="text-align:center;">Useful Resources</h3>
+    <br/>
+    <ul id="links">
+        <ul class="section">
+            <li><strong><a href="http://github.com/diaspora/diaspora/" title="Git repository">Codebase</a></strong></li>
+            <li><strong><a href="http://github.com/diaspora/diaspora/wiki"
+                           title="Wiki on github">Documentation</a></strong></li>
+            <br>
+            <li><a href="https://github.com/diaspora/diaspora/issues" title="Bug tracker">Find & Report bugs</a></li>
+        </ul>
+        <ul class="section">
+            <li><a href="http://webchat.freenode.net/?channels=diaspora" title="#diaspora">IRC - General</a></li>
+            <li><a href="http://webchat.freenode.net/?channels=diaspora-dev" title="#diaspora-dev">IRC - Development</a>
+            </li>
+        </ul>
+        <ul class="section">
+            <li><a href="http://groups.google.com/group/diaspora-discuss" title="General discussion mailing list">Discussion
+                - General</a></li>
+            <li><a href="http://groups.google.com/group/diaspora-dev" title="Dev mailing list">Discussion -
+                Development</a></li>
+        </ul>
+        <ul class="section">
+            <li><a href="http://guides.rubyonrails.org/">Learn more about Ruby On Rails!</a></li>
+        </ul>
+    </ul>
+
+<br>
+<br>
+
+<hr style="border-color:#ddd;">
+
+<div id="change-page">
+    This page can be changed to a custom landing page by creating <code>app/views/home/_show.html.haml</code>
+</div>
+</div>

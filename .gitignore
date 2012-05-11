@@ -1,8 +1,8 @@
 #trademark sillyness
-app/views/home/_show.html.haml
-app/views/home/_show.mobile.haml
-public/images/ball_small.png
-public/images/ball.png
+app/views/home/_show.*
+app/assets/images/custom/*
+
+
 # Configuration files
 config/app_config.yml
 config/app.yml

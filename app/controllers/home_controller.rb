@@ -16,7 +16,7 @@ class HomeController < ApplicationController
       redirect_to user_session_path
     else
       @landing_page = true
-      render :show
+      render :show, :layout => 'post'
     end
   end
 
