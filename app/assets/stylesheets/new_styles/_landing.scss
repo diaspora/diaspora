@@ -1,35 +1,36 @@
 /* animations */
 @-webkit-keyframes fly-in {
 	0%   { @include opacity(0); margin-top : -600px; }
-	100% { @include opacity(1); margin-top : auto; }
+	100% { @include opacity(1); margin-top : 0; }
 }
 @-moz-keyframes fly-in {
 	0%   { @include opacity(0); margin-top : -600px; }
-	100% { @include opacity(1); margin-top : auto; }
+	100% { @include opacity(1); margin-top : 0; }
 }
 @-ms-keyframes fly-in {
 	0%   { @include opacity(0); margin-top : -600px; }
-	100% { @include opacity(1); margin-top : auto; }
+	100% { @include opacity(1); margin-top : 0; }
 }
 
 @-webkit-keyframes fly-out {
-	0%   { @include opacity(1); margin-top : auto; }
-    50% { @include opacity(0); }
+	0%   { @include opacity(1); margin-top : 0; }
+    50%  { @include opacity(0); }
 	100% { @include opacity(0); margin-top : 500px; }
 }
 @-moz-keyframes fly-out {
-	0%   { @include opacity(1); margin-top : auto; }
-	50% { @include opacity(0); }
+	0%   { @include opacity(1); margin-top : 0; }
+	50%  { @include opacity(0); }
 	100% { @include opacity(0); margin-top : 500px; }
 }
 @-ms-keyframes fly-out {
-	0%   { @include opacity(1); margin-top : auto; }
-	50% { @include opacity(0); }
+	0%   { @include opacity(1); margin-top : 0; }
+	50%  { @include opacity(0); }
 	100% { @include opacity(0); margin-top : 500px; }
 }
 
 /* le declarations */
 #landing {
+  overflow : hidden;
   position : absolute;
   min-height : 100%;
   width : 100%;
@@ -109,36 +110,46 @@
   #screens {
     /* hardware acceleration */
     -webkit-transform : translateZ(0);
-       -moz-transform : translateZ(0);
 
     text-align : center;
 
     #s_container {
       display : inline-block;
+      position : relative;
       height : 417px;
       width : 516px;
 
       img {
         position : absolute;
         z-index : 1;
+        left : 0;
+        top : 0;
 
         height : 417px;
         width : 516px;
 
         &:nth-child(1) {
           -webkit-animation : fly-in 1.2s;
+             -moz-animation : fly-in 1.2s;
+              -ms-animation : fly-in 1.2s;
         }
 
         &:nth-child(2) {
           -webkit-animation : fly-in 1s;
+             -moz-animation : fly-in 1s;
+              -ms-animation : fly-in 1s;
         }
 
         &:nth-child(3) {
           -webkit-animation : fly-in 0.8s;
+             -moz-animation : fly-in 0.8s;
+              -ms-animation : fly-in 0.8s;
         }
 
         &:nth-child(4) {
           -webkit-animation : fly-in 0.6s;
+             -moz-animation : fly-in 0.6s;
+              -ms-animation : fly-in 0.6s;
         }
       }
 
@@ -146,18 +157,27 @@
         img {
           &:nth-child(1) {
             -webkit-animation : fly-out 1.2s;
+               -moz-animation : fly-out 1.2s;
+                -ms-animation : fly-out 0.6s;
           }
 
           &:nth-child(2) {
             -webkit-animation : fly-out 1s;
+               -moz-animation : fly-out 1s;
+                -ms-animation : fly-out 1s;
+
           }
 
           &:nth-child(3) {
             -webkit-animation : fly-out 0.8s;
+               -moz-animation : fly-out 0.8s;
+                -ms-animation : fly-out 0.8s;
           }
 
           &:nth-child(4) {
             -webkit-animation : fly-out 0.6s;
+               -moz-animation : fly-out 0.6s;
+                -ms-animation : fly-out 0.6s;
           }
         }
       }
