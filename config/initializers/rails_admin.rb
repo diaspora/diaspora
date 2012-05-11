@@ -1,6 +1,12 @@
 # RailsAdmin config file. Generated on March 24, 2012 15:34
 # See github.com/sferik/rails_admin for more informations
 if Rails.env.production?
+# Recommended way to deal with Kaminari vs. WillPaginate issues
+if defined?(WillPaginate)
+  Kaminari.configure do |config|
+    config.page_method_name = :per_page_kaminari
+  end
+end
 RailsAdmin.config do |config|
    config.authorize_with do 
     redirect_to main_app.root_path unless current_user.try(:admin?)
@@ -1127,18 +1133,5 @@ RailsAdmin.config do |config|
   #   create do; end
   #   update do; end
   # end
-end
-if defined?(WillPaginate)
-  module WillPaginate
-    module ActiveRecord
-      module RelationMethods
-        def per(value = nil) per_page(value) end
-        def total_count() count end
-      end
-    end
-    module CollectionMethods
-      alias_method :num_pages, :total_pages
-    end
-  end
 end
 end
