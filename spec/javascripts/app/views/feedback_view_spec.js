@@ -9,7 +9,7 @@ describe("app.views.Feedback", function(){
       'limited' : "Limted"
     }})
 
-    var posts = $.parseJSON(spec.readFixture("stream_json"))["posts"];
+    var posts = $.parseJSON(spec.readFixture("stream_json"));
 
     this.post = new app.models.Post(posts[0]);
     this.view = new app.views.Feedback({model: this.post});

@@ -70,9 +70,11 @@ class LikesController < ApplicationController
 
   def find_json_for_like
     if @like.parent.is_a? Post
-      PostPresenter.new(@like.parent, current_user).to_json
+      ExtremePostPresenter.new(@like.parent, current_user).as_json
+    elsif @like.parent.is_a? Comment
+      CommentPresenter.new(@like.parent)
     else
-      @like.parent.as_api_response(:backbone)
+      @like.parent.respond_to?(:as_api_response) ? @like.parent.as_api_response(:backbone) : @like.parent.as_json
     end
   end
 end

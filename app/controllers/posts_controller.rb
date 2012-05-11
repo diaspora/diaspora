@@ -30,10 +30,10 @@ class PostsController < ApplicationController
     mark_corresponding_notification_read if user_signed_in?
 
     respond_to do |format|
-      format.html{ gon.post = post_json(@post); render 'posts/show.html.haml' }
+      format.html{ gon.post = ExtremePostPresenter.new(@post, current_user); render 'posts/show.html.haml' }
       format.xml{ render :xml => @post.to_diaspora_xml }
       format.mobile{render 'posts/show.mobile.haml', :layout => "application"}
-      format.json{ render :json => post_json(@post) }
+      format.json{ render :json => ExtremePostPresenter.new(@post, current_user) }
     end
   end
 
@@ -81,7 +81,7 @@ class PostsController < ApplicationController
 
     respond_to do |format|
       format.html{ redirect_to post_path(next_post) }
-      format.json{ render :json => post_json(next_post) }
+      format.json{ render :json => ExtremePostPresenter.new(next_post, current_user)}
     end
   end
 
@@ -90,7 +90,7 @@ class PostsController < ApplicationController
 
     respond_to do |format|
       format.html{ redirect_to post_path(previous_post) }
-      format.json{ render :json => post_json(previous_post) }
+      format.json{ render :json => ExtremePostPresenter.new(previous_post, current_user)}
     end
   end
 
@@ -109,10 +109,6 @@ class PostsController < ApplicationController
 
   def visible_posts_from_author
     Post.visible_from_author(@post.author, current_user)
-  end
-
-  def post_json(post)
-    PostPresenter.new(post, current_user).to_json
   end
 
   def find_by_guid_or_id_with_current_user(id)

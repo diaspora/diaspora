@@ -326,21 +326,6 @@ en:
       birthday: "%B %d"
       birthday_with_year: "%B %d %Y"
 
-  home:
-    show:
-      share_what_you_want: "Share what you want, with whom you want."
-      tagline_first_half: "Share what you want,"
-      tagline_second_half: "with whom you want."
-      already_account: "already have an account?"
-      login_here: "log in here"
-      choice: "Choice"
-      choice_explanation: "Diaspora lets you sort your connections into groups called aspects. Unique to Diaspora, aspects ensure that your photos, stories and jokes are shared only with the people you intend."
-      ownership: "Ownership"
-      ownership_explanation: "You own your pictures, and you shouldn’t have to give that up just to share them. You maintain ownership of everything you share on Diaspora, giving you full control over how it's distributed."
-      simplicity: "Simplicity"
-      simplicity_explanation: "Diaspora makes sharing clean and easy – and this goes for privacy too. Inherently private, Diaspora doesn’t make you wade through pages of settings and options just to keep your profile secure."
-      learn_about_host: "Learn about how to host your own Diaspora server."
-
   invitation_codes:
     excited: "%{name} is excited to see you here."
   invitations:

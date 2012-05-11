@@ -24,7 +24,7 @@ looking to contribute to D*.  This script assumes you have [a basic Rails setup 
 
 ### Step 1: Run the script and follow the on screen instructions.
 ```
-  curl https://raw.github.com/diaspora/diaspora/master/script/install.sh | /bin/sh
+  bash <(curl https://raw.github.com/diaspora/diaspora/master/script/install.sh)
 ```
 
 

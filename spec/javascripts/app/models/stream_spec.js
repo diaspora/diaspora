@@ -32,7 +32,7 @@ describe("app.models.Stream", function() {
       var fetchedSpy = jasmine.createSpy()
       this.stream.bind('fetched', fetchedSpy)
       this.stream.fetch()
-      postFetch.resolve({posts : [1,2,3]})
+      postFetch.resolve([1,2,3])
       expect(fetchedSpy).toHaveBeenCalled()
     })
 
@@ -40,7 +40,7 @@ describe("app.models.Stream", function() {
       var fetchedSpy = jasmine.createSpy()
       this.stream.bind('allItemsLoaded', fetchedSpy)
       this.stream.fetch()
-      postFetch.resolve({posts : []})
+      postFetch.resolve([])
       expect(fetchedSpy).toHaveBeenCalled()
     })
 
@@ -48,7 +48,7 @@ describe("app.models.Stream", function() {
       var fetchedSpy = jasmine.createSpy()
       this.stream.bind('allItemsLoaded', fetchedSpy)
       this.stream.fetch()
-      postFetch.resolve({posts : factory.post().attributes})
+      postFetch.resolve(factory.post().attributes)
       expect(fetchedSpy).toHaveBeenCalled()
     })
   });

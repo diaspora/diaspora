@@ -103,10 +103,11 @@ end
 
 # give firefox more time to complete requests
 # http://ihswebdesign.com/knowledge-base/fixing-selenium-timeouterror/
-Capybara.register_driver :selenium do |app|
-  http_client = Selenium::WebDriver::Remote::Http::Default.new
-  http_client.timeout = 100
-  Capybara::Selenium::Driver.new(app, :browser => :firefox, :http_client => http_client)
+After do |scenario|
+  if scenario.exception.is_a? Timeout::Error
+    # restart Selenium driver
+    Capybara.send(:session_pool).delete_if { |key, value| key =~ /selenium/i }
+  end
 end
 
 # # https://makandracards.com/makandra/950-speed-up-rspec-by-deferring-garbage-collection

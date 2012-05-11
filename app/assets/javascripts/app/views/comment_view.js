@@ -1,8 +1,6 @@
 //= require ./content_view
 app.views.Comment = app.views.Content.extend({
-
   templateName: "comment",
-
   className : "comment media",
 
   events : function() {

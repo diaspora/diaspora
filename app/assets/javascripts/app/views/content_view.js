@@ -1,6 +1,5 @@
 //= require ./stream_object_view
 app.views.Content = app.views.StreamObject.extend({
-
   events: {
     "click .expander": "expandPost"
   },

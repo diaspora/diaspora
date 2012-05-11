@@ -35,7 +35,7 @@ class TagsController < ApplicationController
     @stream = Stream::Tag.new(current_user, params[:name], :max_time => max_time, :page => params[:page])
 
     respond_with do |format|
-      format.json{ render_for_api :backbone, :json => @stream.stream_posts, :root => :posts }
+      format.json{ render :json => PostPresenter.collection_json(@stream.stream_posts, current_user) }
     end
   end
 

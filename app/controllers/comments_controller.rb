@@ -20,7 +20,7 @@ class CommentsController < ApplicationController
 
     if @comment
       respond_to do |format|
-        format.json{ render :json => @comment.as_api_response(:backbone), :status => 201 }
+        format.json{ render :json => CommentPresenter.new(@comment), :status => 201 }
         format.html{ render :nothing => true, :status => 201 }
         format.mobile{ render :partial => 'comment', :locals => {:post => @comment.post, :comment => @comment} }
       end
@@ -56,7 +56,7 @@ class CommentsController < ApplicationController
 
     @comments = @post.comments.for_a_stream
     respond_with do |format|
-      format.json  { render :json => @comments.as_api_response(:backbone), :status => 200 }
+      format.json  { render :json => CommentPresenter.new(@comments), :status => 200 }
       format.mobile{render :layout => false}
     end
   end
