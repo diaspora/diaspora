@@ -77,22 +77,54 @@
 
 #profile-controls {
   text-align : right;
-  padding : 10px 12px;
+  padding : 10px 16px;
 
   /* when our buttons aren't there, we still want to maintain a persistent height */
   min-height : 40px;
 
   .control {
     @include transition(opacity);
-    @include opacity(0.4);
+    @include opacity(0.6);
+    @include border-radius(3px);
+    @include box-shadow(0, 1px, 2px, rgba(0,0,0,0.8));
 
-    &.small img {
-      height : 40px;
-      width : 40px;
+    font-family : Roboto-Bold;
+    color : #ccc;
+
+    position : relative;
+    top : 11px;
+
+    background-color : #000;
+    border : 1px solid #666;
+
+    padding : 10px;
+    padding-top : 10px;
+    margin-left : 8px;
+
+    &#composer-button {
+      position : relative;
+      font-size : 14px;
+      line-height : 14px;
+      padding-bottom : 8px;
+      padding-top : 9px;
+      padding-right : 8px;
+    }
+
+    &#edit-mode-toggle {
+      top : 10px;
+      padding-bottom : 10px;
+      img {
+        margin-top : -5px;
+      }
+    }
+
+    img {
+      height : 16px;
     }
 
     &:hover {
       @include opacity(1);
+      background-color : #000;
       text-decoration : none;
     }
 
