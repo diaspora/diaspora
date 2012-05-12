@@ -8,26 +8,22 @@
 
         <div class="span8">
             <h1 id="create-something-text">
-              HEY,
-              <br/>
-              MAKE
-              <br/>
-              SOMETHING.
+              <%= t('.hey_make').html_safe %>
             </h1>
 
             <h3 id="diaspora-hearts">
-              <3 Diaspora*
+              <%= t('.diaspora') %>
             </h3>
 
             <h4 id="sign-up-text">
-              SIGN UP
+              <%= t('.sign_up') %>
             </h4>
 
             <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => {:class => "form-horizontal block-form", :autocomplete => "off"}, :validate => true) do |f| %>
                 <fieldset>
                   <div class="control-group">
                     <label class="control-label" for="user_email">
-                        EMAIL
+                        <%= t('.email') %>
                     </label>
 
                     <div class="controls">
@@ -37,7 +33,7 @@
 
                   <div class="control-group">
                       <label class="control-label" for="user_username">
-                        USERNAME
+                        <%= t('.username') %>
                       </label>
 
                       <div class="controls">
@@ -47,7 +43,7 @@
 
                   <div class="control-group">
                     <label class="control-label" for="user_password">
-                        PASSWORD
+                        <%= t('.password') %>
                     </label>
 
                     <div class="controls">
@@ -57,7 +53,7 @@
                   <%= invite_hidden_tag(invite) %>
                 </fieldset>
 
-                <%= f.submit "Continue", :class => "new-btn" %>
+                <%= f.submit t('.continue'), :class => "new-btn" %>
             <% end %>
         </div>
     </div>
