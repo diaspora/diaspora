@@ -54,6 +54,13 @@ D_DB_USER="diaspora"
 
 D_DB_PASS="diaspora"
 
+D_RUBY_VERSION="1.9.2-p290"
+
+####                        INTERNAL VARS                        ####
+
+RVM_DETECTED=false
+JS_RUNTIME_DETECTED=false
+
 ####                                                             ####
 #                                                                   #
 #                          FUNCTIONS, etc.                          #
@@ -91,6 +98,11 @@ error() {
   echo "        -- have a look at our wiki: $D_WIKI_URL"
   echo "        -- or join us on IRC: $D_IRC_URL"
   exit 1
+}
+
+# check for functions
+fn_exists() {
+  type -t $1 | grep -q 'function'
 }
 
 # shell interactive or not
@@ -133,8 +145,20 @@ For more details check out https://rvm.io//
 EOT
 rvm_check() {
   echo -n "checking for rvm... "
-  rvm >/dev/null 2>&1
-  if [ $? -eq 0 ]; then
+  fn_exists rvm
+  if [ $? -eq 0 ] ; then
+    RVM_DETECTED=true
+
+  # seems we don't have it loaded, try to do so
+  elif [[ -s "$HOME/.rvm/scripts/rvm" ]] ; then
+    source "$HOME/.rvm/scripts/rvm" >/dev/null 2>&1
+    RVM_DETECTED=true
+  elif [[ -s "/usr/local/rvm/scripts/rvm" ]] ; then
+    source "/usr/local/rvm/scripts/rvm" >/dev/null 2>&1
+    RVM_DETECTED=true
+  fi
+
+  if $RVM_DETECTED ; then
     echo "found"
   else
     echo "not found"
@@ -142,6 +166,97 @@ rvm_check() {
     read -p "Press [Enter] to continue without RVM or abort this script and install RVM..."
   fi
   echo ""
+}
+
+# prepare ruby with rvm
+install_or_use_ruby() {
+  if ! $RVM_DETECTED ; then
+    return
+  fi
+
+  # make sure we have the correct ruby version available
+  echo -n "checking your ruby version... "
+  rvm use $D_RUBY_VERSION >/dev/null 2>&1
+  if [ $? -ne 0 ] ; then
+    echo "not ok"
+    rvm install $D_RUBY_VERSION >/dev/null 2>&1
+  else
+    echo "ok"
+  fi
+
+  echo ""
+}
+
+# trust and load rvmrc
+# do this in a directory that has a .rvmrc, only :)
+load_rvmrc() {
+  if ! $RVM_DETECTED ; then
+    return
+  fi
+
+  # trust rvmrc
+  rvm rvmrc is_trusted
+  if [ $? -ne 0 ] ; then
+    rvm rvmrc trust
+  fi
+
+  # load .rvmrc
+  echo -n "loading .rvmrc ... "
+  rvm rvmrc load
+  if [ $? -eq 0 ] ; then
+    echo "ok"
+  else 
+    echo "not ok"
+  fi
+  echo ""
+}
+
+# we need a valid js runtime...
+define JS_RT_MSG <<'EOT'
+This script was unable to find a JavaScript runtime compatible to ExecJS on
+your system. We recommend you install either Node.js or TheRubyRacer, since
+those have been proven to work.
+
+Node.js      -- http://nodejs.org/
+TheRubyRacer -- https://github.com/cowboyd/therubyracer
+
+For more information on ExecJS, visit
+-- https://github.com/sstephenson/execjs
+EOT
+js_runtime_check() {
+  echo -n "checking for a JavaScript runtime... "
+
+  # Node.js
+  which node >/dev/null 2>&1
+  if [ $? -eq 0 ] ; then
+    JS_RUNTIME_DETECTED=true
+  fi
+
+  # TheRubyRacer
+  gem which v8 >/dev/null 2>&1
+  if [ $? -eq 0 ] ; then
+    JS_RUNTIME_DETECTED=true
+  fi
+
+  ##
+  # add your favourite js runtime here...
+  ##
+
+  if $JS_RUNTIME_DETECTED ; then
+    echo "ok"
+  else
+    echo "not ok"
+    echo "$JS_RT_MSG"
+    error "can't continue without a JS runtime"
+  fi
+  echo ""
+}
+
+# make ourselves comfy
+prepare_install_env() {
+  install_or_use_ruby
+  load_rvmrc
+  js_runtime_check
 }
 
 # do some sanity checking
@@ -250,6 +365,7 @@ git_stuff_check
 
 # goto working directory
 run_or_error "cd \"$D_GIT_CLONE_PATH\""
+prepare_install_env
 
 
 # configure database setup
