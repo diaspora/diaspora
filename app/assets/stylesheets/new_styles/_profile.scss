@@ -214,6 +214,10 @@
 
 /* responsive */
 @media (max-width: 767px) {
+  #profile {
+    background-size : 767px;
+  }
+
   .profile-image-container {
     height : 100px;
     width : 100px;
@@ -225,7 +229,7 @@
   }
 
   #profile-header {
-    padding-bottom : 20px;
+    padding : 20px;
   }
 
   #wallpaper-upload,
