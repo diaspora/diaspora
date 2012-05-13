@@ -211,3 +211,24 @@
     text-align : center;
   }
 }
+
+/* canvas responsive */
+@media (max-width: 767px) {
+  .profile-image-container {
+    height : 100px;
+    width : 100px;
+    border-width : 2px;
+  }
+
+  #profile-controls {
+    display : none;
+  }
+
+  #profile-header {
+    padding-bottom : 20px;
+  }
+
+  #wallpaper-upload {
+    display : none;
+  }
+}
