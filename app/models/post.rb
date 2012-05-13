@@ -143,4 +143,15 @@ class Post < ActiveRecord::Base
   def nsfw
     self.author.profile.nsfw?
   end
+
+  def self.find_by_guid_or_id_with_user(id, user=nil)
+    key = id.to_s.length <= 8 ? :id : :guid
+    post = if user
+             user.find_visible_shareable_by_id(Post, id, :key => key)
+           else
+             Post.where(key => id, :public => true).includes(:author, :comments => :author).first
+           end
+
+    post || raise(ActiveRecord::RecordNotFound.new("could not find a post with id #{id}"))
+  end
 end

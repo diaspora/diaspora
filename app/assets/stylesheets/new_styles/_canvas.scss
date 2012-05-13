@@ -1,7 +1,5 @@
 @mixin wide() {
   width : $two-column-width + px;
-  min-width : $two-column-width + px;
-  max-width : $two-column-width + px;
 }
 .no-post-message {
   text-align: center;
@@ -13,6 +11,8 @@
   float : left;
   margin : 10px;
   margin-bottom : 18px;
+
+  max-width : 100%;
 
   /* expand / contract cursor declarations */
   &.x2 .content {
@@ -57,8 +57,7 @@
     background-color : #fff;
 
     width : $column-width + px;
-    min-width : $column-width + px;
-    max-width : $column-width + px;
+    max-width : 100%;
 
     overflow : hidden;
 
@@ -335,6 +334,27 @@
       color: white;
       @include opacity(1);
       text-shadow : none;
+    }
+  }
+}
+
+/* responsive */
+@media (max-width: 767px) {
+  body {
+    padding : 0;
+  }
+
+  .canvas-frame {
+    width : 100%;
+    margin-left : 0;
+    margin-right : 0;
+
+    margin-bottom : 10px;
+
+    .content {
+      font-size : 0.9em;
+      margin : 0 20px;
+      width : auto !important;
     }
   }
 }

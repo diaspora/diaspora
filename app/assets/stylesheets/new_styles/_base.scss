@@ -1,5 +1,6 @@
 body {
   background-image : image_url("pattern.png");
+  padding : none;
 }
 
 /* new link color */
@@ -471,4 +472,11 @@ div[data-template=flow] {
     top : 1px;
     font-family : Roboto-Bold;
   }
+}
+
+/* responsive */
+@media (max-width: 767px) {
+  body {
+    padding : 0;
+ }
 }

@@ -17,8 +17,10 @@ Diaspora::Application.routes.draw do
     member do
       get :next
       get :previous
+      get :interactions
     end
-    resources :likes, :only => [:create, :destroy, :index]
+
+    resources :likes, :only => [:create, :destroy, :index ]
     resources :participations, :only => [:create, :destroy, :index]
     resources :comments, :only => [:new, :create, :destroy, :index]
   end

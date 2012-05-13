@@ -20,9 +20,6 @@ class PostPresenter
         :public => @post.public,
         :created_at => @post.created_at,
         :interacted_at => @post.interacted_at,
-        :comments_count => @post.comments_count,
-        :likes_count => @post.likes_count,
-        :reshares_count => @post.reshares_count,
         :provider_display_name => @post.provider_display_name,
         :post_type => @post.post_type,
         :image_url => @post.image_url,
@@ -38,8 +35,14 @@ class PostPresenter
         :title => title,
         :next_post => next_post_path,
         :previous_post => previous_post_path,
-        :user_like => user_like,
-        :user_reshare => user_reshare
+
+        :interactions => {
+            :likes => [user_like].compact,
+            :reshares => [user_reshare].compact,
+            :comments_count => @post.comments_count,
+            :likes_count => @post.likes_count,
+            :reshares_count => @post.reshares_count,
+        }
     }
   end
 

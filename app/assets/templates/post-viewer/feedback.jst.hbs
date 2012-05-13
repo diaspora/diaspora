@@ -1,35 +1,35 @@
-<a href="#" rel="auth-required" class="label like" title="{{#if user_like}} {{t "viewer.unlike"}} {{else}} {{t "viewer.like"}} {{/if}}">
-  {{#if user_like}}
+<a href="#" rel="auth-required" class="label like" title="{{#if userLike}} {{t "viewer.unlike"}} {{else}} {{t "viewer.like"}} {{/if}}">
+  {{#if userLike}}
     <i class="icon-heart icon-red"></i>
   {{else}}
     <i class="icon-heart icon-white"></i>
   {{/if}}
-  {{likes_count}}
+  {{likesCount}}
 </a>
 
 {{#if userCanReshare}}
-  <a href="#" rel="auth-required" class="label reshare" title="{{#if user_reshare}} {{t "viewer.reshared"}} {{else}} {{t "viewer.reshare"}} {{/if}}">
-    {{#if user_reshare}}
+  <a href="#" rel="auth-required" class="label reshare" title="{{#if userReshare}} {{t "viewer.reshared"}} {{else}} {{t "viewer.reshare"}} {{/if}}">
+    {{#if userReshare}}
       <i class="icon-retweet icon-blue"></i>
     {{else}}
       <i class="icon-retweet icon-white"></i>
     {{/if}}
-    {{reshares_count}}
+    {{resharesCount}}
   </a>
 {{else}}
-  <a class="label reshare-viewonly" title="{{#if user_reshare}} {{t "viewer.reshared"}} {{else}} {{t "viewer.reshare"}} {{/if}}">
-    {{#if user_reshare}}
+  <a class="label reshare-viewonly" title="{{#if userReshare}} {{t "viewer.reshared"}} {{else}} {{t "viewer.reshare"}} {{/if}}">
+    {{#if userReshare}}
       <i class="icon-retweet icon-blue"></i>
     {{else}}
       <i class="icon-retweet icon-white"></i>
     {{/if}}
-    {{reshares_count}}
+    {{resharesCount}}
    </a>
 {{/if}}
 
 <a href="#" class="label comment" rel="invoke-interaction-pane" title="{{t "viewer.comment"}}">
   <i class="icon-comment icon-white"></i>
-  {{comments_count}}
+  {{commentsCount}}
 </a>
 
 <!-- this acts as a dock underlay -->

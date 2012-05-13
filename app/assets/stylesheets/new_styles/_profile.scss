@@ -211,3 +211,29 @@
     text-align : center;
   }
 }
+
+/* responsive */
+@media (max-width: 767px) {
+  #profile {
+    background-size : 767px;
+  }
+
+  .profile-image-container {
+    height : 100px;
+    width : 100px;
+    border-width : 2px;
+  }
+
+  #profile-controls {
+    display : none;
+  }
+
+  #profile-header {
+    padding : 20px;
+  }
+
+  #wallpaper-upload,
+  .edit-control {
+    display : none;
+  }
+}

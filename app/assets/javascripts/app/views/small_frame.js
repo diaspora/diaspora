@@ -26,8 +26,13 @@ app.views.SmallFrame = app.views.Post.extend({
   presenter : function(){
     //todo : we need to have something better for small frame text, probably using the headline() scenario.
     return _.extend(this.defaultPresenter(),
-      {text : this.model && app.helpers.textFormatter(this.model.get("text"), this.model),
-       adjustedImageHeight : this.adjustedImageHeight()})
+      {
+        text : this.model && app.helpers.textFormatter(this.model.get("text"), this.model),
+        adjustedImageHeight : this.adjustedImageHeight(),
+        likesCount : this.model.interactions.likesCount(),
+        resharesCount : this.model.interactions.resharesCount(),
+        commentsCount : this.model.interactions.commentsCount()
+      })
   },
 
   initialize : function() {
@@ -74,9 +79,17 @@ app.views.SmallFrame = app.views.Post.extend({
     if(!(this.model.get("photos") || [])[0]) { return }
 
     var modifiers = [this.dimensionsClass(), this.colorClass()].join(' ')
+      , width;
+
+    /* mobile width
+    *
+    *  currently does not re-calculate on orientation change */
+    if($(window).width() <= 767) {
+      width = $(window).width();
+    }
 
     var firstPhoto = this.model.get("photos")[0]
-      , width = (modifiers.search("x2") != -1 ? this.DOUBLE_COLUMN_WIDTH : this.SINGLE_COLUMN_WIDTH)
+      , width = width || (modifiers.search("x2") != -1 ? this.DOUBLE_COLUMN_WIDTH : this.SINGLE_COLUMN_WIDTH)
       , ratio = width / firstPhoto.dimensions.width;
 
     return(ratio * firstPhoto.dimensions.height)

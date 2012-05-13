@@ -77,9 +77,10 @@ describe User::SocialActions do
 
     it "does not allow multiple likes" do
       alice.like!(@status)
-      lambda {
-        alice.like!(@status)
-      }.should_not change(@status, :likes)
+      likes = @status.likes
+      expect { alice.like!(@status) }.to raise_error
+
+      @status.reload.likes.should == likes
     end
   end
 end
