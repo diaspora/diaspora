@@ -212,7 +212,7 @@
   }
 }
 
-/* canvas responsive */
+/* responsive */
 @media (max-width: 767px) {
   .profile-image-container {
     height : 100px;
@@ -228,7 +228,8 @@
     padding-bottom : 20px;
   }
 
-  #wallpaper-upload {
+  #wallpaper-upload,
+  .edit-control {
     display : none;
   }
 }

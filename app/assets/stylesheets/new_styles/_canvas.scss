@@ -338,7 +338,7 @@
   }
 }
 
-/* canvas responsive */
+/* responsive */
 @media (max-width: 767px) {
   body {
     padding : 0;
@@ -352,6 +352,7 @@
     margin-bottom : 10px;
 
     .content {
+      font-size : 0.9em;
       margin : 0 20px;
       width : auto !important;
     }

@@ -79,9 +79,17 @@ app.views.SmallFrame = app.views.Post.extend({
     if(!(this.model.get("photos") || [])[0]) { return }
 
     var modifiers = [this.dimensionsClass(), this.colorClass()].join(' ')
+      , width;
+
+    /* mobile width
+    *
+    *  currently does not re-calculate on orientation change */
+    if($(window).width() <= 767) {
+      width = $(window).width();
+    }
 
     var firstPhoto = this.model.get("photos")[0]
-      , width = (modifiers.search("x2") != -1 ? this.DOUBLE_COLUMN_WIDTH : this.SINGLE_COLUMN_WIDTH)
+      , width = width || (modifiers.search("x2") != -1 ? this.DOUBLE_COLUMN_WIDTH : this.SINGLE_COLUMN_WIDTH)
       , ratio = width / firstPhoto.dimensions.width;
 
     return(ratio * firstPhoto.dimensions.height)
