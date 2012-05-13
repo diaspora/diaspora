@@ -555,7 +555,7 @@ sq:
         
         Që t'ia filloni klikoni mbi këtë lidhje
         
-        %{invite_url}
+        [%{invite_url}][1]
         <%= invite_code_url(@invitation_code)%>
         
         
@@ -563,6 +563,7 @@ sq:
         
         Roboti i email-eve te Diaspora*!  
 
+        [1]: %{invite_url}
   people:
     zero: "asnjë person"
     one: "1 person"

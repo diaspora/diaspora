@@ -476,11 +476,13 @@ vi:
 
           Nhấn vào liên kết sau để bắt đầu
 
-          %{invite_url}
+          [%{invite_url}][1]
 
           Thân,
 
           Máy phát thư Diaspora*!
+
+          [1]: %{invite_url}
     invited_you: "%{name} đã mời bạn tham gia Diaspora*"
     liked:
       liked: "%{name} vừa thích bài đăng của bạn"

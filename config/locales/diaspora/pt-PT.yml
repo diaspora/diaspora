@@ -471,12 +471,14 @@ pt-PT:
 
           Clique nesta ligação para começar
 
-          %{invite_url}
+          [%{invite_url}][1]
 
 
           Cordialmente,
 
           O robot de email do Diaspora*!
+
+          [1]: %{invite_url}
     invited_you: "%{name} convidou-o para o Diaspora*"
     liked:
       liked: "%{name} gostou da sua publicação"

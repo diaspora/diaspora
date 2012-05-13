@@ -482,12 +482,14 @@ sk:
 
           Ak chcete začať, kliknite na tento odkaz
 
-          %{invite_url}
+          [%{invite_url}][1]
           <%= invite_code_url(@invitation_code)%>
 
           S pozdravom,
 
           e-mailový robot Diaspory*!
+
+          [1]: %{invite_url}
     invited_you: "%{name} Vás pozval(a) na Diasporu*"
     liked:
       liked: "%{name} označil(a), že sa mu (jej) páči váš príspevok"

@@ -455,12 +455,14 @@ es-MX:
 
           Haz click en este enlace para comenzar
 
-          %{invite_url}
+          [%{invite_url}][1]
 
 
           Saludos,
 
           ¡El generador de correo automático de Diaspora*!
+
+          [1]: %{invite_url}
     invited_you: "%{name} te ha invitado a Diaspora*"
     liked:
       liked: "A %{name} le gustó tu publicación"
