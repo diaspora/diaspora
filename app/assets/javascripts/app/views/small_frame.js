@@ -26,8 +26,13 @@ app.views.SmallFrame = app.views.Post.extend({
   presenter : function(){
     //todo : we need to have something better for small frame text, probably using the headline() scenario.
     return _.extend(this.defaultPresenter(),
-      {text : this.model && app.helpers.textFormatter(this.model.get("text"), this.model),
-       adjustedImageHeight : this.adjustedImageHeight()})
+      {
+        text : this.model && app.helpers.textFormatter(this.model.get("text"), this.model),
+        adjustedImageHeight : this.adjustedImageHeight(),
+        likesCount : this.model.interactions.likesCount(),
+        resharesCount : this.model.interactions.resharesCount(),
+        commentsCount : this.model.interactions.commentsCount()
+      })
   },
 
   initialize : function() {
