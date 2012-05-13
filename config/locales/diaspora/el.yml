@@ -484,7 +484,6 @@ el:
           Κάνε κλικ στο σύνδεσμο για να ξεκινήσεις
 
           [%{invite_url}][1]
-          <%= invite_code_url(@invitation_code)%>
 
 
           Με Αγάπη,

@@ -483,7 +483,6 @@ sk:
           Ak chcete začať, kliknite na tento odkaz
 
           [%{invite_url}][1]
-          <%= invite_code_url(@invitation_code)%>
 
           S pozdravom,
 

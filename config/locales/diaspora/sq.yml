@@ -556,7 +556,6 @@ sq:
         Që t'ia filloni klikoni mbi këtë lidhje
         
         [%{invite_url}][1]
-        <%= invite_code_url(@invitation_code)%>
         
         
         Me dashuri,

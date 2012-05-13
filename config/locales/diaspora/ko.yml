@@ -498,7 +498,6 @@ ko:
           이 링크를 클릭해서 시작하세요.
 
           [%{invite_url}][1]
-          <%=invite_code_url(@invitation_code)%>
 
 
           디아스포라* 이메일 로봇 보냄!

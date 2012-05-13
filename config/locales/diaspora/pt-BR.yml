@@ -505,7 +505,6 @@ pt-BR:
           Clique neste link para começar
 
           [%{invite_url}][1]
-          <%= invite_code_url(@invitation_code)%>
 
 
           Com amor,
