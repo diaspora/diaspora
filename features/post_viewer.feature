@@ -7,9 +7,10 @@ Feature: Post Viewer
   Background:
     Given a user with email "alice@alice.com"
     And I sign in as "alice@alice.com"
-    
-  @wip
-  Scenario: Paging through posts
-    Given I have posts for each type of template
-    Then I visit all of my posts
-    And I should have seen all of my posts displayed with the correct template
+
+#  Wip tag sad on new cucumber, commenting for now.
+#  @wip
+#  Scenario: Paging through posts
+#    Given I have posts for each type of template
+#    Then I visit all of my posts
+#    And I should have seen all of my posts displayed with the correct template

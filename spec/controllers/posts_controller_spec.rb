@@ -55,9 +55,8 @@ describe PostsController do
         response.should be_success
       end
 
-      it 'redirects if the post is missing' do
-        get :show, :id => 1234567
-        response.should be_redirect
+      it '404 if the post is missing' do
+        expect { get :show, :id => 1234567 }.to raise_error(ActiveRecord::RecordNotFound)
       end
     end
 
@@ -86,8 +85,7 @@ describe PostsController do
 
       it 'does not show a private post' do
         status = alice.post(:status_message, :text => "hello", :public => false, :to => 'all')
-        get :show, :id => status.id
-        response.status = 302
+        expect { get :show, :id => status.id }.to raise_error(ActiveRecord::RecordNotFound)
       end
 
       # We want to be using guids from now on for this post route, but do not want to break
@@ -128,8 +126,7 @@ describe PostsController do
     end
 
     it 'returns a 404 response when the post is not found' do
-      get :oembed, :url => "/posts/#{@message.id}"
-      response.should_not be_success
+      expect { get :oembed, :url => "/posts/#{@message.id}" }.to raise_error(ActiveRecord::RecordNotFound)
     end
   end
 
@@ -155,15 +152,13 @@ describe PostsController do
 
     it 'will not let you destroy posts visible to you' do
       message = bob.post(:status_message, :text => "hey", :to => bob.aspects.first.id)
-      delete :destroy, :format => :js, :id => message.id
-      response.should_not be_success
+      expect { delete :destroy, :format => :js, :id => message.id }.to raise_error(ActiveRecord::RecordNotFound)
       StatusMessage.exists?(message.id).should be_true
     end
 
     it 'will not let you destory posts you do not own' do
       message = eve.post(:status_message, :text => "hey", :to => eve.aspects.first.id)
-      delete :destroy, :format => :js, :id => message.id
-      response.should_not be_success
+      expect { delete :destroy, :format => :js, :id => message.id }.to raise_error(ActiveRecord::RecordNotFound)
       StatusMessage.exists?(message.id).should be_true
     end
   end
@@ -171,8 +166,8 @@ describe PostsController do
   describe "#next" do
     before do
       sign_in alice
-      #lets make a class and unit test it, because this is still not working
-      @controller.stub_chain(:visible_posts_from_author, :newer).and_return(next_post)
+      Post.stub(:find_by_guid_or_id_with_user).and_return(mock_model(Post, :author => 4))
+      Post.stub_chain(:visible_from_author, :newer).and_return(next_post)
     end
 
     let(:next_post){ mock_model(StatusMessage, :id => 34)}
@@ -181,7 +176,7 @@ describe PostsController do
       let(:mock_presenter) { mock(:as_json => {:title => "the unbearable lightness of being"}) }
 
       it "should return a show presenter the next post" do
-        ExtremePostPresenter.should_receive(:new).with(next_post, alice).and_return(mock_presenter)
+        PostPresenter.should_receive(:new).with(next_post, alice).and_return(mock_presenter)
         get :next, :id => 14, :format => :json
         response.body.should == {:title => "the unbearable lightness of being"}.to_json
       end
@@ -198,8 +193,8 @@ describe PostsController do
   describe "previous" do
     before do
       sign_in alice
-      #lets make a class and unit test it, because this is still not working
-      @controller.stub_chain(:visible_posts_from_author, :older).and_return(previous_post)
+      Post.stub(:find_by_guid_or_id_with_user).and_return(mock_model(Post, :author => 4))
+      Post.stub_chain(:visible_from_author, :older).and_return(previous_post)
     end
 
     let(:previous_post){ mock_model(StatusMessage, :id => 11)}
@@ -208,7 +203,7 @@ describe PostsController do
       let(:mock_presenter) { mock(:as_json => {:title => "existential crises"})}
 
       it "should return a show presenter the next post" do
-        ExtremePostPresenter.should_receive(:new).with(previous_post, alice).and_return(mock_presenter)
+        PostPresenter.should_receive(:new).with(previous_post, alice).and_return(mock_presenter)
         get :previous, :id => 14, :format => :json
         response.body.should == {:title => "existential crises"}.to_json
       end

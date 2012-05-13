@@ -5,7 +5,8 @@ app.views.PostViewerInteractions = app.views.Base.extend({
   subviews : {
     "#post-feedback" : "feedbackView",
     "#post-reactions" : "reactionsView",
-    "#new-post-comment" : "newCommentView"
+    "#new-post-comment" : "newCommentView",
+    ".interaction_counts" : "interactionCountsView"
   },
 
   templateName: "post-viewer/interactions",
@@ -18,7 +19,7 @@ app.views.PostViewerInteractions = app.views.Base.extend({
   },
 
   initViews : function() {
-    this.reactionsView = new app.views.PostViewerReactions({ model : this.model })
+    this.reactionsView = new app.views.PostViewerReactions({ model : this.model.interactions })
 
     /* subviews that require user */
     this.feedbackView = new app.views.PostViewerFeedback({ model : this.model })

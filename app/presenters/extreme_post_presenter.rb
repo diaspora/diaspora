@@ -9,6 +9,6 @@ class ExtremePostPresenter
   def as_json(options={})
     post = PostPresenter.new(@post, @current_user)
     interactions = PostInteractionPresenter.new(@post, @current_user)
-    post.as_json.merge!(interactions.as_json)
+    post.as_json.merge!(:interactions => interactions.as_json)
   end
 end

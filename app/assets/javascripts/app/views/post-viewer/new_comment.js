@@ -10,7 +10,7 @@ app.views.PostViewerNewComment = app.views.Base.extend({
   scrollableArea : "#post-reactions",
 
   initialize : function(){
-    this.model.comments.bind("sync", this.clearAndReactivateForm, this)
+    this.model.interactions.comments.bind("sync", this.clearAndReactivateForm, this)
   },
 
   postRenderTemplate : function() {
@@ -25,7 +25,6 @@ app.views.PostViewerNewComment = app.views.Base.extend({
   },
 
   clearAndReactivateForm : function() {
-    this.model.trigger("interacted")
     this.toggleFormState()
     this.$("textarea").val("")
       .css('height', '18px')

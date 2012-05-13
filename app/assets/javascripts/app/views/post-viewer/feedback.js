@@ -18,6 +18,11 @@ app.views.PostViewerFeedback = app.views.Feedback.extend({
 
   tooltipSelector : ".label, .home-button",
 
+  initialize : function(){
+    this.model.interactions.on("change", this.render, this)
+  },
+
+
   postRenderTemplate : function() {
     this.sneakyVisiblity()
   },
@@ -36,5 +41,4 @@ app.views.PostViewerFeedback = app.views.Feedback.extend({
     alert("you must be logged in to do that!")
     return false;
   }
-
 });

@@ -13,13 +13,13 @@ class LikesController < ApplicationController
              :json
 
   def create
-    @like = current_user.like!(target) if target
+    @like = current_user.like!(target) if target rescue ActiveRecord::RecordInvalid
 
     if @like
       respond_to do |format|
         format.html { render :nothing => true, :status => 201 }
         format.mobile { redirect_to post_path(@like.post_id) }
-        format.json { render :json => find_json_for_like, :status => 201 }
+        format.json { render :json => @like.as_api_response(:backbone), :status => 201 }
       end
     else
       render :nothing => true, :status => 422
@@ -27,32 +27,22 @@ class LikesController < ApplicationController
   end
 
   def destroy
-    @like = Like.where(:id => params[:id], :author_id => current_user.person.id).first
+    @like = Like.find_by_id_and_author_id!(params[:id], current_user.person.id)
 
-    if @like
-      current_user.retract(@like)
-      respond_to do |format|
-        format.json { render :json => find_json_for_like, :status => 202 }
-      end
-    else
-      respond_to do |format|
-        format.mobile { redirect_to :back }
-        format.json { render :nothing => true, :status => 403}
-      end
+    current_user.retract(@like)
+    respond_to do |format|
+      format.json { render :nothing => true, :status => 204 }
     end
   end
 
+  #I can go when the old stream goes.
   def index
-    if target
-      @likes = target.likes.includes(:author => :profile)
-      @people = @likes.map(&:author)
+    @likes = target.likes.includes(:author => :profile)
+    @people = @likes.map(&:author)
 
-      respond_to do |format|
-        format.all{ render :layout => false }
-        format.json{ render :json => @likes.as_api_response(:backbone) }
-      end
-    else
-      render :nothing => true, :status => 404
+    respond_to do |format|
+      format.all { render :layout => false }
+      format.json { render :json => @likes.as_api_response(:backbone) }
     end
   end
 
@@ -60,21 +50,11 @@ class LikesController < ApplicationController
 
   def target
     @target ||= if params[:post_id]
-      current_user.find_visible_shareable_by_id(Post, params[:post_id])
+      current_user.find_visible_shareable_by_id(Post, params[:post_id]) || raise(ActiveRecord::RecordNotFound.new)
     else
-      comment = Comment.find(params[:comment_id])
-      comment = nil unless current_user.find_visible_shareable_by_id(Post, comment.commentable_id)
-      comment
-    end
-  end
-
-  def find_json_for_like
-    if @like.parent.is_a? Post
-      ExtremePostPresenter.new(@like.parent, current_user).as_json
-    elsif @like.parent.is_a? Comment
-      CommentPresenter.new(@like.parent)
-    else
-      @like.parent.respond_to?(:as_api_response) ? @like.parent.as_api_response(:backbone) : @like.parent.as_json
+      Comment.find(params[:comment_id]).tap do |comment|
+       raise(ActiveRecord::RecordNotFound.new) unless current_user.find_visible_shareable_by_id(Post, comment.commentable_id)
+      end
     end
   end
 end

@@ -36,43 +36,4 @@ describe("app.models.Post", function() {
       expect(this.post.createdAt()).toEqual(+date);
     });
   });
-
-  describe("toggleLike", function(){
-    it("calls unliked when the user_like exists", function(){
-      this.post.set({user_like : "123"});
-      spyOn(this.post, "unlike").andReturn(true);
-
-      this.post.toggleLike();
-      expect(this.post.unlike).toHaveBeenCalled();
-    })
-
-    it("calls liked when the user_like does not exist", function(){
-      this.post.set({user_like : null});
-      spyOn(this.post, "like").andReturn(true);
-
-      this.post.toggleLike();
-      expect(this.post.like).toHaveBeenCalled();
-    })
-  })
-
-  describe("like", function(){
-    it("calls create on the likes collection", function(){
-      spyOn(this.post.likes, "create");
-
-      this.post.like();
-      expect(this.post.likes.create).toHaveBeenCalled();
-    })
-  })
-
-  describe("unlike", function(){
-    it("calls destroy on the likes collection", function(){
-      var like = new app.models.Like();
-      this.post.set({user_like : like.toJSON()})
-
-      spyOn(app.models.Like.prototype, "destroy");
-
-      this.post.unlike();
-      expect(app.models.Like.prototype.destroy).toHaveBeenCalled();
-    })
-  })
 });

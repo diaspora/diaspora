@@ -31,8 +31,9 @@ app.views.CommentStream = app.views.Base.extend({
 
   presenter: function(){
     return _.extend(this.defaultPresenter(), {
-      moreCommentsCount : (this.model.get("comments_count") - 3),
-      showExpandCommentsLink : (this.model.get("comments_count") > 3)
+      moreCommentsCount : (this.model.interactions.commentsCount() - 3),
+      showExpandCommentsLink : (this.model.interactions.commentsCount() > 3),
+      commentsCount : this.model.interactions.commentsCount()
     })
   },
 

@@ -1,4 +1,4 @@
-#   Copyright (c) 2010-2011, Diaspora Inc.  This file is
+  #   Copyright (c) 2010-2011, Diaspora Inc.  This file is
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
@@ -88,7 +88,7 @@ describe LikesController do
 
         it 'returns a 404 for a post not visible to the user' do
           sign_in eve
-          get :index, id_field => @message.id
+          expect{get :index, id_field => @message.id}.to raise_error(ActiveRecord::RecordNotFound)
         end
 
         it 'returns an array of likes for a post' do
@@ -114,22 +114,19 @@ describe LikesController do
           expect {
             delete :destroy, :format => :json, id_field => @like.target_id, :id => @like.id
           }.should change(Like, :count).by(-1)
-          response.status.should == 202
+          response.status.should == 204
         end
 
         it 'does not let a user destroy other likes' do
           like2 = eve.like!(@message)
 
+          like_count = Like.count
           expect {
             delete :destroy, :format => :json, id_field => like2.target_id, :id => like2.id
-          }.should_not change(Like, :count)
+          }.should raise_error(ActiveRecord::RecordNotFound)
 
-          response.status.should == 403
-        end
+          Like.count.should == like_count
 
-        it 'returns the parent post presenter' do
-          delete :destroy, :format => :json, id_field => @like.target_id, :id => @like.id
-          response.body.should include 'post' if class_const != Comment
         end
       end
     end

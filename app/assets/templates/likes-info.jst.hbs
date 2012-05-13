@@ -1,4 +1,4 @@
-{{#if likes_count}}
+{{#if likesCount}}
   <div class="comment">
     <div class="media">
       <span class="img">
@@ -6,21 +6,20 @@
       </span>
 
       <div class="bd">
-        {{#unless likes.length}}
+        {{#unless likes_fetched}}
           <a href="#" class="expand_likes grey">
-            {{t "stream.likes" count=likes_count}}
+            {{t "stream.likes" count=likesCount}}
           </a>
 
         {{else}}
 
           {{#each likes}}
-            {{#with attributes.author}}
+            {{#with author}}
               <a href="/people/{{guid}}">
                 <img src="{{avatar.small}}" class="avatar micro" title="{{name}}"/>
               </a>
             {{/with}}
           {{/each}}
-
         {{/unless}}
       </div>
     </div>
