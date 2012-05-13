@@ -1,10 +1,10 @@
 source 'http://rubygems.org'
 
-ruby '1.9.3'
+gem 'bundler', '> 1.1.0'
+ruby '1.9.3' if ENV['HEROKU']
 
 gem 'rails', '3.1.4'
 gem 'rails_autolink'
-gem 'bundler', '~> 1.1.0'
 gem 'foreman', '0.41'
 gem 'whenever'
 
