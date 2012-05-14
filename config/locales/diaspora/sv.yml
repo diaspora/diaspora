@@ -464,12 +464,14 @@ sv:
 
           Klicka på länken nedan för att börja.
 
-          %{invite_url}
+          [%{invite_url}][1]
 
 
           Med vänlig hälsning,
 
           Diasporas e-postrobot.
+
+          [1]: %{invite_url}
     invited_you: "%{name} har bjudt in dig till Diaspora*."
     liked:
       liked: "%{name} gillar ditt inlägg "

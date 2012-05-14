@@ -491,12 +491,14 @@ de:
 
           Klick auf diesen Link um loszulegen
 
-          %{invite_url}
+          [%{invite_url}][1]
 
 
           Alles Liebe,
 
           der Diaspora* E-Mail Roboter!
+
+          [1]: %{invite_url}
     invited_you: "%{name} hat Dich zu Diaspora* eingeladen"
     liked:
       liked: "%{name} gefällt dein Beitrag"

@@ -556,12 +556,13 @@ gl:
         
         Segue esta ligazón para comezar:
         
-        %{invite_url}
+        [%{invite_url}][1]
                 
         Un saúdo,
         
         O robot do correo de Diaspora*
         
+        [1]: %{invite_url}
   people:
     zero: "ninguén."
     one: "unha persoa."

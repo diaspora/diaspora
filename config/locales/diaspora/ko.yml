@@ -497,11 +497,12 @@ ko:
 
           이 링크를 클릭해서 시작하세요.
 
-          %{invite_url}
-          <%=invite_code_url(@invitation_code)%>
+          [%{invite_url}][1]
 
 
           디아스포라* 이메일 로봇 보냄!
+
+          [1]: %{invite_url}
     invited_you: "%{name}님이 나를 디아스포라*로 초대했습니다."
     liked:
       liked: "%{name}님이 내 게시물을 좋아합니다:"

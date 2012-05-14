@@ -494,12 +494,14 @@ it:
 
           Clicca questo link per cominciare
 
-          %{invite_url}
+          [%{invite_url}][1]
 
 
           Con affetto,
 
           Il robot di Diaspora*
+
+          [1]: %{invite_url}
     invited_you: "%{name} ti ha invitato su Diaspora*"
     liked:
       liked: "A %{name} piace il tuo post"

@@ -548,13 +548,14 @@ en:
         
         Click this link to get started
         
-        %{invite_url}
+        [%{invite_url}][1]
         
         
         Love,
         
         The Diaspora* email robot!
-  
+        
+        [1]: %{invite_url}
   people:
     zero: "no people"
     one: "1 person"

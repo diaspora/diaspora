@@ -506,11 +506,13 @@ fr:
 
           Pour commencer, cliquez sur ce lien :
 
-          %{invite_url}
+          [%{invite_url}][1]
 
           Bien le bonjour chez vous,
 
           Le robot de courriel de Diaspora*
+
+          [1]: %{invite_url}
     invited_you: "%{name} vous a invité(e) sur Diaspora*"
     liked:
       liked: "%{name} a épinglé votre message"
