@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120506053156) do
+ActiveRecord::Schema.define(:version => 20120514173048) do
 
   create_table "account_deletions", :force => true do |t|
     t.string  "diaspora_handle"
@@ -107,8 +107,6 @@ ActiveRecord::Schema.define(:version => 20120506053156) do
     t.datetime "updated_at"
   end
 
-  add_index "conversations", ["author_id"], :name => "conversations_author_id_fk"
-
   create_table "invitation_codes", :force => true do |t|
     t.string   "token"
     t.integer  "user_id"
@@ -134,6 +132,16 @@ ActiveRecord::Schema.define(:version => 20120506053156) do
   add_index "invitations", ["recipient_id"], :name => "index_invitations_on_recipient_id"
   add_index "invitations", ["sender_id"], :name => "index_invitations_on_sender_id"
 
+  create_table "key_rings", :force => true do |t|
+    t.text     "secured_encryption_key"
+    t.text     "public_encryption_key"
+    t.text     "secured_signing_key"
+    t.text     "public_verification_key"
+    t.integer  "person_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "likes", :force => true do |t|
     t.boolean  "positive",                              :default => true
     t.integer  "target_id"
@@ -146,7 +154,6 @@ ActiveRecord::Schema.define(:version => 20120506053156) do
     t.string   "target_type",             :limit => 60,                   :null => false
   end
 
-  add_index "likes", ["author_id"], :name => "likes_author_id_fk"
   add_index "likes", ["guid"], :name => "index_likes_on_guid", :unique => true
   add_index "likes", ["target_id", "author_id", "target_type"], :name => "index_likes_on_target_id_and_author_id_and_target_type", :unique => true
   add_index "likes", ["target_id"], :name => "index_likes_on_post_id"
@@ -172,7 +179,6 @@ ActiveRecord::Schema.define(:version => 20120506053156) do
   end
 
   add_index "messages", ["author_id"], :name => "index_messages_on_author_id"
-  add_index "messages", ["conversation_id"], :name => "messages_conversation_id_fk"
 
   create_table "notification_actors", :force => true do |t|
     t.integer  "notification_id"
@@ -204,7 +210,7 @@ ActiveRecord::Schema.define(:version => 20120506053156) do
     t.text   "data",                 :null => false
   end
 
-  add_index "o_embed_caches", ["url"], :name => "index_o_embed_caches_on_url", :length => {"url"=>255}
+  add_index "o_embed_caches", ["url"], :name => "index_o_embed_caches_on_url"
 
   create_table "oauth_access_tokens", :force => true do |t|
     t.integer  "authorization_id",                :null => false

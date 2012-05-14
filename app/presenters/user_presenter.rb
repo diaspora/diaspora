@@ -13,11 +13,12 @@ class UserPresenter
         :aspects => aspects,
         :services => services,
         :following_count => self.user.contacts.receiving.count,
-        :configured_services => self.configured_services
+        :configured_services => self.configured_services,
+        :key_ring => self.user.key_ring
       }
     ).to_json(options)
   end
-
+  
   def services
     ServicePresenter.as_collection(user.services)
   end
