@@ -17,7 +17,7 @@ module InvitationCodesHelper
   end
 
   def invite_link(invite_code)
-    text_field_tag :invite_code, invite_code_url(@invite_code), :readonly => true
+    text_field_tag :invite_code, invite_code_url(invite_code), :readonly => true
   end
 
   def invited_by_message

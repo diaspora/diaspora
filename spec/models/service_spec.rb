@@ -18,17 +18,6 @@ describe Service do
     alice.services.last.should be_invalid
   end
 
-  it 'destroys the associated service_user' do
-    @service.service_users = [ServiceUser.create(:service_id => @service.id,
-                                                 :uid => "abc123",
-                                                 :photo_url => "a.jpg",
-                                                 :name => "a",
-                                                :person_id => bob.person.id)]
-    lambda{
-      @service.destroy
-    }.should change(ServiceUser, :count).by(-1)
-  end
-
   it 'by default has no profile photo url' do
     Service.new.profile_photo_url.should be_nil
   end
