@@ -1,7 +1,3 @@
-- if AppConfig.configured_services.include?('facebook')
-  - if defined? remote
-    = link_to t('.from_facebook'), friend_finder_path('facebook', :remote => remote)
-  -else
-    = link_to t('.from_facebook'), friend_finder_path('facebook')
-  %br
+Share this link via email, blog, or favorite social network!
+= invite_link(current_user.invitation_code)
 = link_to t('.by_email'), new_user_invitation_path, :title => t('.invite_someone'), :rel => 'facebox'

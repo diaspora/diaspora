@@ -12,15 +12,6 @@
     .content
       = render "shared/invitations"
 
-- unless has_connected_cubbies?
-  .section
-    .title
-      = image_tag('icons/cubbies.png')
-      %h5
-        = t('aspects.index.cubbies.heading')
-    .content
-      = t('aspects.index.cubbies.explanation')
-      = link_to t('aspects.index.cubbies.learn_more'), token_path
 .section
   .title
     = image_tag('icons/heart.png')
