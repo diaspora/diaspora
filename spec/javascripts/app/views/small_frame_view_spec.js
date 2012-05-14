@@ -53,6 +53,7 @@ describe("app.views.SmallFrame", function(){
     beforeEach(function(){
       app.page = { editMode : false }
       app.router = new app.Router()
+      window.preloads = {}
       spyOn(app.router, "navigate")
     })
 
