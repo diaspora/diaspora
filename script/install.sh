@@ -32,7 +32,7 @@ other ideas what we could do
 #                                                                   #
 ####                                                             ####
 
-BINARIES="git ruby gem bundle sed"       # required programs
+BINARIES="git ruby gem bundle sed mktemp"       # required programs
 
 D_GIT_CLONE_PATH="/srv/diaspora"     # path for diaspora
 
@@ -257,6 +257,8 @@ prepare_install_env() {
   install_or_use_ruby
   load_rvmrc
   js_runtime_check
+
+  run_or_error "gem install bundler"
 }
 
 # do some sanity checking
@@ -344,10 +346,18 @@ database_setup() {
 # display a nice welcome message
 define WELCOME_MSG <<'EOT'
 #####################################################################
+
 DIASPORA* INSTALL SCRIPT
 
+----
+
 This script will guide you through the basic steps
-to get a copy of Diaspora* up and running
+to get a DEVELOPMENT setup of Diaspora* up and running
+
+For a PRODUCTION installation, please do *not* use this script!
+Follow the guide in our wiki, instead:
+-- https://github.com/diaspora/diaspora/wiki/Installation-Guides
+
 #####################################################################
 
 EOT
