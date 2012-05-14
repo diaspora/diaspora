@@ -574,13 +574,13 @@ ca:
         
         Feu clic en aquest enllaç per començar
         
-        %{invite_url}
+        [%{invite_url}][1]
         
         Amb amor,
         
         El robot de correu del Diàspora*!
 
-
+        [1]: %{invite_url}
   people:
     zero: "cap persona"
     one: "1 persona"

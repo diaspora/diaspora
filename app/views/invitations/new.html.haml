@@ -28,9 +28,5 @@
 
         %br
 
-        %h4
-          = t('.personal_message')
-        = text_area_tag 'email_inviter[message]',nil, :rows => 3, :value => t('.check_out_diaspora')
-
         %p
           = submit_tag t('.send_an_invitation')

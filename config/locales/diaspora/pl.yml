@@ -505,12 +505,14 @@ pl:
 
           Kliknij to łącze, aby rozpocząć
 
-          %{invite_url}
+          [%{invite_url}][1]
 
 
           Z poważaniem,
 
           Robot e-mail projektu Diaspora*!
+
+          [1]: %{invite_url}
     invited_you: "%{name} zaprasza Cię do Diaspory*"
     liked:
       liked: "%{name} polubi@{m:ł|f:ła|n:ł/ła} Twój wpis"

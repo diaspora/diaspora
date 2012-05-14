@@ -502,12 +502,14 @@ hu:
 
           Kattints erre a linkre a kezdéshez:
 
-          %{invite_url}
+          [%{invite_url}][1]
 
 
           üdv:
 
           a Diaspora* levélküldő automatája
+
+          [1]: %{invite_url}
     invited_you: "%{name} meghívott a Diaspora-ra"
     liked:
       liked: "%{name} kedveli a bejegyzésedet"

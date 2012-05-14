@@ -478,9 +478,10 @@ he:
       message: |-
           שלום!
           קיבלת הזמנה להצטרף ל Diaspora
-          לחץ כאן כדי להתחיל %{invite_url}
+          לחץ כאן כדי להתחיל [%{invite_url}][1]
           בברכה,
           צוות Diaspora
+          [1]: %{invite_url}
     invited_you: "%{name} הזמין אותך ל Diaspora"
     liked:
       liked: "התעניין ברשומה שלך %{name} "

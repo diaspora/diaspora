@@ -503,12 +503,14 @@ es:
 
           Sigue este enlace para empezar
 
-          %{invite_url}
+          [%{invite_url}][1]
 
 
           Saludos,
 
           ¡El correo automático de Diaspora*!
+
+          [1]: %{invite_url}
     invited_you: "¡%{name} te ha invitado a Diaspora*!"
     liked:
       liked: "A %{name} le gustó tu publicación"

@@ -483,13 +483,14 @@ el:
 
           Κάνε κλικ στο σύνδεσμο για να ξεκινήσεις
 
-          %{invite_url}
-          <%= invite_code_url(@invitation_code)%>
+          [%{invite_url}][1]
 
 
           Με Αγάπη,
 
           Το ρομπότ αυτόματης αποστολής e-mail του Diaspora*!
+
+          [1]: %{invite_url}
     invited_you: "O/H %{name} σε προσκάλεσε στο Diaspora*"
     liked:
       liked: "στο χρήστη %{name} αρέσει η δημοσίευση σας"
