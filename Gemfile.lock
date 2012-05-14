@@ -503,7 +503,7 @@ DEPENDENCIES
   airbrake
   asset_sync
   bootstrap-sass (~> 2.0.2)
-  bundler (~> 1.1.0)
+  bundler (> 1.1.0)
   capistrano
   capistrano-ext
   capistrano_colors
