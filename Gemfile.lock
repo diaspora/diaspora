@@ -172,8 +172,8 @@ GEM
       addressable (~> 2.2)
       multipart-post (~> 1.1)
       rack (~> 1.1)
-    faraday-stack (0.1.5)
-      faraday (>= 0.6, < 0.8)
+    faraday_middleware (0.8.7)
+      faraday (>= 0.7.4, < 0.9)
     fastercsv (1.5.4)
     fastthread (1.0.7)
     ffi (1.0.11)
@@ -518,7 +518,7 @@ DEPENDENCIES
   em-synchrony (= 1.0.0)
   factory_girl_rails (= 1.7.0)
   faraday
-  faraday-stack
+  faraday_middleware
   fastercsv (= 1.5.4)
   fixture_builder (= 0.3.3)
   fog
