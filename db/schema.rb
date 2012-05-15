@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120506053156) do
+ActiveRecord::Schema.define(:version => 20120510184853) do
 
   create_table "account_deletions", :force => true do |t|
     t.string  "diaspora_handle"
@@ -395,23 +395,6 @@ ActiveRecord::Schema.define(:version => 20120506053156) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
-
-  create_table "service_users", :force => true do |t|
-    t.string   "uid",                          :null => false
-    t.string   "name",                         :null => false
-    t.string   "photo_url",                    :null => false
-    t.integer  "service_id",                   :null => false
-    t.integer  "person_id"
-    t.integer  "contact_id"
-    t.integer  "request_id"
-    t.integer  "invitation_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.string   "username",      :limit => 127
-  end
-
-  add_index "service_users", ["service_id"], :name => "index_service_users_on_service_id"
-  add_index "service_users", ["uid", "service_id"], :name => "index_service_users_on_uid_and_service_id", :unique => true
 
   create_table "services", :force => true do |t|
     t.string   "type",          :limit => 127, :null => false

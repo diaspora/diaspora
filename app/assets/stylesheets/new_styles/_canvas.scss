@@ -315,8 +315,6 @@
       background-color: black;
     }
 
-    img { max-height: 100% }
-
     &.has-text{
       img {
         //image container background is black, lowering opacity darkens image
@@ -338,6 +336,21 @@
   }
 }
 
+/* new stream overrides */
+#stream {
+  color : #fff;
+  background-color : #333;
+}
+
+#stream-content {
+  .canvas-frame {
+    width: 100%;
+    .content {
+      width: 100%;
+    }
+  }
+}
+
 /* responsive */
 @media (max-width: 767px) {
   body {
@@ -353,7 +366,7 @@
 
     .content {
       font-size : 0.9em;
-      margin : 0 20px;
+      margin : 0;
       width : auto !important;
     }
   }

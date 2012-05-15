@@ -5,6 +5,6 @@ options = {:timeout => 25}
 
 options[:ssl] = {:ca_file => EnviromentConfiguration.ca_cert_file_location}
 Faraday.default_connection = Faraday::Connection.new(options) do |b|
-  b.use FaradayStack::FollowRedirects
+  b.use FaradayMiddleware::FollowRedirects
   b.adapter Faraday.default_adapter
 end

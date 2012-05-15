@@ -38,7 +38,7 @@ def finalize_frame
 end
 
 def assert_post_renders_with(mood)
-  find(".post.#{mood.downcase}").should be_present
+  find(".#{mood.downcase}").should be_present
 end
 
 def get_image_filename(filename)

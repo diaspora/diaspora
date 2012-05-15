@@ -76,8 +76,8 @@ app.views.Base = Backbone.View.extend({
 
 // Mixin to render a collection that fetches more via infinite scroll, for a view that has no template.
 //  Requires:
-//    a stream model, bound as this.stream
-//    a stream's posts, bound as this.collection
+//    a stream model, assigned to this.stream
+//    a stream's posts, assigned to this.collection
 //    a postClass to be declared
 //    a #paginate div in the layout
 //    a call to setupInfiniteScroll
@@ -113,6 +113,17 @@ app.views.infiniteScrollMixin = {
 
   unbindInfScroll : function() {
     $(window).unbind("scroll");
+  },
+
+  renderTemplate : function(){
+    this.renderInitialPosts()
+  },
+
+  renderInitialPosts : function(){
+    this.$el.empty()
+    this.stream.items.each(_.bind(function(post){
+      this.$el.append(this.createPostView(post).render().el);
+    }, this))
   },
 
   fetchAndshowLoader : function(){

@@ -7,7 +7,6 @@ class Service < ActiveRecord::Base
 
   belongs_to :user
   validates_uniqueness_of :uid, :scope => :type
-  has_many :service_users, :dependent => :destroy
 
   def self.titles(service_strings)
     service_strings.map{|s| "Services::#{s.titleize}"}

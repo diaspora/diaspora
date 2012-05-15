@@ -36,23 +36,11 @@ describe("app.views.SmallFrame", function(){
     })
   })
 
-  context("images", function() {
-    it("appends the correct dimensions to an image, given a model with an image", function(){
-      var firstPhoto = this.model.get("photos")[0]
-
-      this.view.SINGLE_COLUMN_WIDTH = 100
-      expect(this.view.adjustedImageHeight(firstPhoto)).toBe(200)
-      this.view.SINGLE_COLUMN_WIDTH = 200
-      expect(this.view.adjustedImageHeight(firstPhoto)).toBe(400)
-      this.view.SINGLE_COLUMN_WIDTH = 50
-      expect(this.view.adjustedImageHeight(firstPhoto)).toBe(100)
-    })
-  })
-
   describe("redirecting to a post", function(){
     beforeEach(function(){
       app.page = { editMode : false }
       app.router = new app.Router()
+      window.preloads = {}
       spyOn(app.router, "navigate")
     })
 

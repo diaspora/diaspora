@@ -504,13 +504,14 @@ pt-BR:
 
           Clique neste link para começar
 
-          %{invite_url}
-          <%= invite_code_url(@invitation_code)%>
+          [%{invite_url}][1]
 
 
           Com amor,
 
           O robô de emails do Diaspora*!
+
+          [1]: %{invite_url}
     invited_you: "%{name} te convidou para Diaspora*"
     liked:
       liked: "%{name} curtiu sua postagem."

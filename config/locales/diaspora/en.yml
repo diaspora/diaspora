@@ -548,13 +548,14 @@ en:
         
         Click this link to get started
         
-        %{invite_url}
+        [%{invite_url}][1]
         
         
         Love,
         
         The Diaspora* email robot!
-  
+        
+        [1]: %{invite_url}
   people:
     zero: "no people"
     one: "1 person"
@@ -707,6 +708,13 @@ en:
       enter_username: "Pick a username (only letters, numbers, and underscores)"
       enter_password: "Enter a password (six character minimum)"
       enter_password_again: "Enter the same password as before"
+      hey_make: "HEY,<br/>MAKE<br/>SOMETHING."
+      diaspora: "<3 Diaspora*"
+      sign_up: "SIGN UP"
+      email: "EMAIL"
+      username: "USERNAME"
+      password: "PASSWORD"
+      continue: "Continue"
     create:
       success: "You've joined Diaspora!"
     edit:

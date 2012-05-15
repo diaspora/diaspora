@@ -113,6 +113,10 @@ class ApplicationController < ActionController::Base
     params[:max_time] ? Time.at(params[:max_time].to_i) : Time.now + 1
   end
 
+  def flag
+    @flag ||= FeatureFlagger.new(current_user)
+  end
+
   private
 
   def current_user_redirect_path

@@ -2,16 +2,13 @@
 //= require ../collections/photos
 app.models.Stream = Backbone.Collection.extend({
   initialize : function(models, options){
-    var collection = app.collections.Posts;
-    if( options && options.collection ) collection = options.collection;
-    this.items = new collection([], this.collectionOptions());
+    var collectionClass = options && options.collection || app.collections.Posts;
+    this.items = new collectionClass([], this.collectionOptions());
   },
 
   collectionOptions :function(){
       var order = this.sortOrder();
-      return {
-          comparator : function(item) { return -item[order](); }
-      }
+      return { comparator : function(item) { return -item[order](); } }
   },
 
   url : function(){
@@ -61,13 +58,8 @@ app.models.Stream = Backbone.Collection.extend({
     this.items.add(models)
   },
 
-
   preloadOrFetch : function(){ //hai, plz test me THNX
-    if(app.hasPreload("stream")){
-      this.preload()
-    } else {
-      this.fetch()
-    }
+    return $.when(app.hasPreload("stream") ? this.preload() : this.fetch())
   },
 
   preload : function(){

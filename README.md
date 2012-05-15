@@ -40,6 +40,9 @@ then visit 'http://localhost:3000' in your browser.
   rake
 ```
 
+### Step 4 (for everyone): Party.
+
+
 ### Want a production setup? Having trouble with install script? Want to install D* the slow way?
   Look to more specific install guides [here](https://github.com/diaspora/diaspora/wiki/Installation-Guides).
 

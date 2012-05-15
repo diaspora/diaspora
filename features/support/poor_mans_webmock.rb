@@ -30,11 +30,4 @@ module Jobs
       # don't post to services in cucumber
     end
   end
-
-  class UpdateServiceUsers < Base
-    @queue = :http_service
-    def self.perform(service_id)
-      # don't update services in cucumber
-    end
-  end
 end

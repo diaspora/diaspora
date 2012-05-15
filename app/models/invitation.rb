@@ -2,6 +2,7 @@
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
+#TODO: kill me
 class Invitation < ActiveRecord::Base
 
   belongs_to :sender, :class_name => 'User'
@@ -99,11 +100,7 @@ class Invitation < ActiveRecord::Base
     when 'email'
       self.identifier
     when'facebook'
-      if su = ServiceUser.where(:uid => self.identifier).first
-        su.name
-      else
-        I18n.t('invitations.a_facebook_user')
-      end
+      I18n.t('invitations.a_facebook_user')
     end
   end
   
