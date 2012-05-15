@@ -3,7 +3,7 @@ source 'http://rubygems.org'
 gem 'bundler', '> 1.1.0'
 ruby '1.9.3' if ENV['HEROKU']
 
-gem 'rails', '3.2.3'
+gem 'rails', '3.2.2'
 
 gem 'foreman', '0.41'
 gem 'whenever'
