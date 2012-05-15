@@ -10,7 +10,7 @@ Rails.application.config.middleware.use OmniAuth::Builder do
     provider :tumblr, SERVICES['tumblr']['consumer_key'], SERVICES['tumblr']['consumer_secret']
   end
   if SERVICES['facebook'] && SERVICES['facebook']['app_id'] && SERVICES['facebook']['app_secret']
-    provider :facebook, SERVICES['facebook']['app_id'], SERVICES['facebook']['app_secret'],  { :display => "popup", :scope => "publish_stream,email,offline_access",
+    provider :facebook, SERVICES['facebook']['app_id'], SERVICES['facebook']['app_secret'],  { :display => "popup", :scope => "publish_actions,publish_stream,offline_access",
                                                                                                :client_options => {:ssl => {:ca_file => EnviromentConfiguration.ca_cert_file_location}}}  
   end
 end
