@@ -16,14 +16,6 @@ a { color : rgb(42,156,235)  }
 }
 
 .rich-media {
-  //z-index : -5000; //so the framer controls don't get lost
-  position: absolute;
-  height: 100%;
-  width: 100%;
-  top: 0;
-  left: 0;
-
-  text-align: center;
   background-color: $night-background-color;
 
   p {
