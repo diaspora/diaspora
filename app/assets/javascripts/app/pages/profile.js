@@ -24,21 +24,17 @@ app.pages.Profile = app.views.Base.extend({
   initialize : function(options) {
     this.personGUID = options.personId
 
-    this.model = this.model ||  app.models.Profile.preloadOrFetch(this.personGUID)
+    this.model = this.model || app.models.Profile.preloadOrFetch(this.personGUID)
     this.stream = options && options.stream || new app.models.Stream()
+
+    this.stream.preloadOrFetch().done(_.bind(this.pulsateNewPostControl, this));
+    this.stream.items.bind("remove", this.pulsateNewPostControl, this)
 
     /* this needs to be fixed... used to be bound by this.model change event.
     *  will most likely result in spontaneous results :(
     *
     *  note: defer to make sure the call stack is emptied before calling this, buying us a little more time */
     _.defer(_.bind(this.setPageTitleAndBackground, this))
-
-
-    /* binds for getting started pulsation */
-    this.stream.bind("fetched", this.pulsateNewPostControl, this)
-    this.stream.items.bind("remove", this.pulsateNewPostControl, this)
-
-    this.stream.preloadOrFetch();
 
     this.canvasView = new app.views.Canvas({ model : this.stream })
     this.wallpaperForm = new app.forms.Wallpaper()

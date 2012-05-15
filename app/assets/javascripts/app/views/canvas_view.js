@@ -2,15 +2,13 @@ app.views.Canvas = app.views.Base.extend(_.extend({}, app.views.infiniteScrollMi
   initialize: function(){
     this.stream = this.model
     this.collection = this.stream.items
-    this.postClass = app.views.SmallFrame
+    this.postClass = app.views.CanvasFrame
     this.setupInfiniteScroll()
     this.stream.bind("reLayout", this.reLayout, this)
     this.stream.bind("fetched", this.triggerRelayoutAfterImagesLoaded, this)
   },
 
   renderTemplate : function() {
-    this.$el.empty()
-
     if(this.stream.items.isEmpty()){
       var message
         , person = app.page.model
@@ -23,9 +21,7 @@ app.views.Canvas = app.views.Base.extend(_.extend({}, app.views.infiniteScrollMi
 
       this.$el.html("<p class='no-post-message'>" + message + "</p>")
     } else {
-      this.stream.items.each(_.bind(function(post){
-        this.$el.append(this.createPostView(post).render().el);
-      }, this))
+      this.renderInitialPosts()
     }
 
     //needs to be deferred so it happens after html rendering finishes

@@ -1,10 +1,6 @@
 //= require "./post_view"
 
 app.views.SmallFrame = app.views.Post.extend({
-
-  SINGLE_COLUMN_WIDTH : 265,
-  DOUBLE_COLUMN_WIDTH : 560,
-
   className : "canvas-frame",
 
   templateName : "small-frame",
@@ -24,11 +20,14 @@ app.views.SmallFrame = app.views.Post.extend({
   },
 
   presenter : function(){
+    return this.smallFramePresenter()
+  },
+
+  smallFramePresenter : function(){
     //todo : we need to have something better for small frame text, probably using the headline() scenario.
     return _.extend(this.defaultPresenter(),
       {
         text : this.model && app.helpers.textFormatter(this.model.get("text"), this.model),
-        adjustedImageHeight : this.adjustedImageHeight(),
         likesCount : this.model.interactions.likesCount(),
         resharesCount : this.model.interactions.resharesCount(),
         commentsCount : this.model.interactions.commentsCount()
@@ -73,26 +72,6 @@ app.views.SmallFrame = app.views.Post.extend({
 
   dimensionsClass : function() {
     return (this.model.get("favorite")) ?  "x2 width height" : ""
-  },
-
-  adjustedImageHeight : function() {
-    if(!(this.model.get("photos") || [])[0]) { return }
-
-    var modifiers = [this.dimensionsClass(), this.colorClass()].join(' ')
-      , width;
-
-    /* mobile width
-    *
-    *  currently does not re-calculate on orientation change */
-    if($(window).width() <= 767) {
-      width = $(window).width();
-    }
-
-    var firstPhoto = this.model.get("photos")[0]
-      , width = width || (modifiers.search("x2") != -1 ? this.DOUBLE_COLUMN_WIDTH : this.SINGLE_COLUMN_WIDTH)
-      , ratio = width / firstPhoto.dimensions.width;
-
-    return(ratio * firstPhoto.dimensions.height)
   },
 
   favoritePost : function(evt) {
