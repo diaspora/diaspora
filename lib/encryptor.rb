@@ -9,14 +9,14 @@ module Encryptor
       ciphertext = aes_encrypt(cleartext, aes_key)
       encrypted_key = encrypt_aes_key aes_key
       cipher_hash = {:aes_key => encrypted_key, :ciphertext => ciphertext}
-      Base64.encode64s( cipher_hash.to_json )
+      Base64.strict_encode64( cipher_hash.to_json )
     end
 
     def gen_aes_key
       cipher = OpenSSL::Cipher.new('AES-256-CBC')
       key = cipher.random_key
       iv = cipher.random_iv
-      {'key' => Base64.encode64s(key), 'iv' => Base64.encode64s(iv)}
+      {'key' => Base64.strict_encode64(key), 'iv' => Base64.strict_encode64(iv)}
     end
 
     def aes_encrypt(txt, key)
@@ -27,11 +27,11 @@ module Encryptor
       ciphertext = ''
       ciphertext << cipher.update(txt)
       ciphertext << cipher.final
-      Base64.encode64s(ciphertext)
+      Base64.strict_encode64(ciphertext)
     end
 
     def encrypt_aes_key key
-      Base64.encode64s(public_key.public_encrypt( key.to_json ))
+      Base64.strict_encode64(public_key.public_encrypt( key.to_json ))
     end
   end
 

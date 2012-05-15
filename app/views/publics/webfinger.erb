@@ -9,5 +9,5 @@
   <Link rel='http://webfinger.net/rel/profile-page' type='text/html' <%=person_href(@person, :absolute => true)%>/>
   <Link rel="http://schemas.google.com/g/2010#updates-from" type="application/atom+xml" href="<%=@person.public_url%>.atom"/>
 
-  <Link rel="diaspora-public-key" type = 'RSA' href="<%=Base64.encode64s(@person.exported_key)%>"/>
+  <Link rel="diaspora-public-key" type = 'RSA' href="<%=Base64.strict_encode64(@person.exported_key)%>"/>
 </XRD>

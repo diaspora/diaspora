@@ -26,7 +26,7 @@ module Diaspora
     # @param [OpenSSL::PKey::RSA] key An RSA key
     # @return [String] A Base64 encoded signature of #signable_string with key
     def sign_with_key(key)
-      sig = Base64.encode64s(key.sign( OpenSSL::Digest::SHA256.new, signable_string ))
+      sig = Base64.strict_encode64(key.sign( OpenSSL::Digest::SHA256.new, signable_string ))
       log_hash = {:event => :sign_with_key, :status => :complete}
       log_hash.merge(:model_id => self.id) if self.respond_to?(:persisted?)
       Rails.logger.info(log_hash)
