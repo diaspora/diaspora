@@ -51,7 +51,7 @@ es:
     correlations:
       correlations_count: "Cuentas similares:"
     stats:
-      go: "aceptar"
+      go: "adelante"
     user_search:
       add_invites: "añadir invitaciones"
       email_to: "Dirección de correo electrónico a invitar"
@@ -59,7 +59,7 @@ es:
         one: "%{count} usuario encontrado"
         other: "%{count} usuarios encontrados"
         zero: "%{count} usuarios encontrados"
-      you_currently: "Actualmente tienes %{user_invitation} invitaciones para enviar %{link}"
+      you_currently: "Te quedan %{user_invitation} invitaciones %{link}"
   ago: "Hace %{time}"
   all_aspects: "Todos los aspectos"
   application:
@@ -203,10 +203,9 @@ es:
       failure: "No podría dejar de ignorar a esa persona.  #evasion"
       success: "¡Vamos a ver qué tiene que decir! #sayhello"
   bookmarklet:
-    explanation: "Publica en Diaspora* desde donde quieras agregando a tus marcadores %{link}."
-    explanation_link_text: "este enlace"
+    explanation: "Publica en Diaspora* desde donde quieras agregando a tus marcadores este enlace => %{link}."
     heading: "Marcador"
-    post_something: "Publica algo en Diaspora"
+    post_something: "Publicar en Diaspora*"
     post_success: "¡Publicado! ¡Cerrando!"
   cancel: "Cancelar"
   comments:
@@ -295,20 +294,6 @@ es:
   fill_me_out: "Complétame"
   find_people: "Encuentra gente o #etiquetas"
   hide: "Ocultar publicación"
-  home:
-    show:
-      already_account: "¿Ya tienes una cuenta?"
-      choice: "Elección"
-      choice_explanation: "Diaspora* te permite organizar conexiones en grupos llamados aspectos. En Diaspora*, los aspectos aseguran que tus fotos, historias y bromas sean compartidas sólo con la gente que tu quieras."
-      learn_about_host: "Aprende cómo hospedar tu propio servidor de Diaspora."
-      login_here: "accede aquí"
-      ownership: "Propiedad"
-      ownership_explanation: "Eres dueño de tus propias imágenes, y no tendrías porqué renunciar a eso solo para compartirlas. En Diaspora mantienes la propiedad de todo lo que compartes, dándote total control acerca de cómo se distribuye."
-      share_what_you_want: "Comparte lo que quieras, con quien quieras."
-      simplicity: "Simplicidad"
-      simplicity_explanation: "Diaspora* hace que compartir sea transparente y fácil — y esto también va por la privacidad. Inheréntemente privado, Diaspora* no te hace ir a través de configuraciones y opciones solo para mantener tu perfil seguro."
-      tagline_first_half: "Comparte lo que quieras,"
-      tagline_second_half: "con quien tú quieras."
   invitation_codes:
     excited: "%{name} está encantado de verte por aquí."
   invitations:
@@ -503,14 +488,12 @@ es:
 
           Sigue este enlace para empezar
 
-          [%{invite_url}][1]
+          %{invite_url}
 
 
           Saludos,
 
           ¡El correo automático de Diaspora*!
-
-          [1]: %{invite_url}
     invited_you: "¡%{name} te ha invitado a Diaspora*!"
     liked:
       liked: "A %{name} le gustó tu publicación"
@@ -694,7 +677,7 @@ es:
     new:
       create_my_account: "¡Crear mi cuenta!"
       enter_email: "Escribe un correo"
-      enter_password: "Escribe una contraseña"
+      enter_password: "Escribe una contraseña (seis caracteres como mínimo)"
       enter_password_again: "Escribe la misma contraseña como antes"
       enter_username: "Elige un nombre de usuario (letras, números o guiones bajos)"
       join_the_movement: "¡Únete al movimiento!"
@@ -792,7 +775,7 @@ es:
       logged_in_as: "accediste como %{name}"
       your_aspects: "tus aspectos"
     invitations:
-      by_email: "Por correo"
+      by_email: "Por correo electrónico"
       dont_have_now: "No tienes invitaciones ahora mismo pero, ¡pronto llegarán más!"
       from_facebook: "Por Facebook"
       invitations_left: "%{count} restantes"
@@ -991,7 +974,7 @@ es:
       awesome_take_me_to_diaspora: "¡Increíble! Llévame a Diaspora*"
       community_welcome: "¡La comunidad de Diaspora está feliz de tenerte a bordo!"
       hashtag_explanation: "Las etiquetas te permiten hablar sobre tus intereses así como seguirlos. Además es una forma genial de encontrar gente nueva en Diaspora. "
-      hashtag_suggestions: "Prueba a seguir etiquetas como #arte, #cine, #activismo, #geek, etc."
+      hashtag_suggestions: "Prueba a seguir etiquetas como #arte, #cine, #activismo, #libros, etc."
       hooking_up_fb: "conectando tu cuenta de Facebook"
       saved: "¡Guardado!"
       we_can_speed_things_up: "Podemos acelerar un poco las cosas"

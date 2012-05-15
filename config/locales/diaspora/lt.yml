@@ -75,7 +75,6 @@ lt:
   back: "Atgal"
   bookmarklet:
     explanation: "%{link} from anywhere by bookmarking this link."
-    explanation_link_text: "Post to Diaspora"
     heading: "Diaspora Bookmarklet"
   cancel: "Atšaukti"
   comments:
@@ -106,18 +105,6 @@ lt:
       invalid_fields: "Neteisingi laukai"
   fill_me_out: "Užpildyk"
   find_people: "Find people"
-  home:
-    show:
-      already_account: "jau turi paskyrą?"
-      choice: "Pasirinkimas"
-      choice_explanation: "Diaspora tau leidžia tvarkyti susijungimus naudojant vadinamuosius aspektus. Unikaliai Diasporai, aspektai garantuoja, kad tavo nuotraukos, istorijos ir pokštai yra prieinamos tik žmonėms, kuriuos tu pasirinkai."
-      learn_about_host: "Sužinok, kaip paleisti savo paties Diasporos serverį"
-      login_here: "prisijunk čia"
-      ownership: "Nuosavybė"
-      ownership_explanation: "Tau priklauso tavo nuotraukos, ir tu neturėtum atsisakyti nuosavybės vien dėl to, kad jomis pasidalinai. Tau priklauso viskas, kuo daliniesi Diasporoje. Tai duoda tau visišką platinimo kontrolę."
-      share_what_you_want: "Dalykis, kuo tik nori, su kuo tik nori."
-      simplicity: "Paprastumas"
-      simplicity_explanation: "Diaspora supaprastina ir palengvina dalijimąsi - tas pats dar dvigubai labiau privatumui. Iš prigimties privati, Diaspora neturi nustatymų ir pasirinkimų puslapių, kuriuos tau tektų perbristi, norint profilį turėti saugų ir pagal tavo skonį."
   invitations:
     check_token:
       not_found: "Pakvietimo raktas nerastas"

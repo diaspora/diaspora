@@ -203,7 +203,6 @@ sk:
       success: "Pozrime sa, čo hovoria! #sayhello"
   bookmarklet:
     explanation: "Píšte na Diasporu z hocikiaľ tak, že si pridáte do záložiek %{link}."
-    explanation_link_text: "tento odkaz"
     heading: "Bookmarklet"
     post_something: "Pošlite niečo na Diasporu"
     post_success: "Odoslané! Zatvára sa!"
@@ -294,20 +293,6 @@ sk:
   fill_me_out: "Vyplňte, prosím, formulár"
   find_people: "Nájsť ľudí alebo #značky"
   hide: "Schovať"
-  home:
-    show:
-      already_account: "Máte už účet?"
-      choice: "Možnosť výberu"
-      choice_explanation: "Diaspora vám umožňuje roztriediť si všetky vaše kontakty do skupín, ktoré sa  v anglickej verzii nazývajú Aspekty. Je unikátna práve tým, že dokáže zabezpečiť, aby  k fotkám, správam  a statusom mali prístup len tí ľudia, ktorých určíte vy."
-      learn_about_host: "Dozvedieť sa viac  o tom, ako prevádzkovať vlastný server  s Diasporou."
-      login_here: "sa prihláste tu"
-      ownership: "Vlastníctvo"
-      ownership_explanation: "Vlastníte svoje fotky  a nemali by ste sa ich vzdávať len kvôli tomu, že sa  o ne chcete  s niekym podeliť. Vaše vlastnícke práva na všetko,  o čo sa na Diaspore podelíte, zostávajú nedotknuté,  a tak môžete úplne kontrolovať to, ako sa  s tým zaobchádza."
-      share_what_you_want: "Podeľte sa o čo chcete s kým chcete."
-      simplicity: "Jednoduchosť"
-      simplicity_explanation: "Zdieľanie na Diaspore je veľmi ľahké  a transparentné –  a to isté platí  aj o ochrane osobných údajov. Keďže Diaspora je súkromná sama  o sebe, nenúti vás prejsť  cez žiadne zložité stránky  s nastaveniami  a možnosťami iba kvôli tomu, aby ste zabezpečili svoj profil."
-      tagline_first_half: "Podeľte sa, o čo chcete,"
-      tagline_second_half: "s kým chcete."
   invitation_codes:
     excited: "%{name} Vás tu rád/rada vidí"
   invitations:
@@ -482,13 +467,12 @@ sk:
 
           Ak chcete začať, kliknite na tento odkaz
 
-          [%{invite_url}][1]
+          %{invite_url}
+          <%= invite_code_url(@invitation_code)%>
 
           S pozdravom,
 
           e-mailový robot Diaspory*!
-
-          [1]: %{invite_url}
     invited_you: "%{name} Vás pozval(a) na Diasporu*"
     liked:
       liked: "%{name} označil(a), že sa mu (jej) páči váš príspevok"

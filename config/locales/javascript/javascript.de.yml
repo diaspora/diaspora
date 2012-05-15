@@ -38,6 +38,7 @@ de:
       preparing_your_stream: "Dein persönlicher Stream wird zusammengestellt …"
     header:
       admin: "Admin"
+      close: "schließen"
       contacts: "Kontakte"
       home: "Startseite"
       log_out: "Abmelden"
@@ -63,6 +64,8 @@ de:
       public: "Öffentlich - dein Beitrag ist für alle sichtbar und kann von Suchmaschinen gefunden werden"
     reshares:
       duplicate: "Du hast diesen Beitrag bereits weitergesagt!"
+      post: "<%= name %>s Beitrag teilen?"
+      successful: "Der Beitrag wurde erfolgreich geteilt!"
     search_for: "Nach <%= name %> suchen"
     show_more: "Mehr zeigen"
     stream:
@@ -121,6 +124,7 @@ de:
     viewer:
       comment: "Kommentieren"
       follow_post: "Diesen Beitrag verfolgen"
+      home: "START"
       like: "Gefällt mir"
       reshare: "Weitersagen"
       reshared: "Weitergesagt"

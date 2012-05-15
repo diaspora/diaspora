@@ -78,7 +78,6 @@ cy:
       success: "Ôlreit, ni fyddwch yn gweld y defnyddiwr yn eich ffrwd yn y dyfodol. #silencio!"
   bookmarklet:
     explanation: "%{link} from anywhere by bookmarking this link."
-    explanation_link_text: "Post to Diaspora"
     heading: "Diaspora Bookmarklet"
   cancel: "Diddymu"
   comments:
@@ -119,12 +118,6 @@ cy:
   delete: "Dileu"
   email: "E-bost"
   find_people: "Dod o hyd i bobl neu # tagiau"
-  home:
-    show:
-      choice_explanation: "Diaspora allows you to sort your connections into groups called Aspects - (agweddau yng nghymraeg). Unique to Diaspora, Aspects ensure your photos, stories and jokes are shared with only the people you want them to be."
-      learn_about_host: "Learn about how to host your own Diaspora server"
-      ownership_explanation: "You own your pictures, and you shouldn’t have to give that up just in order to share them. You maintain ownership of everything you share on Diaspora, giving you full control over how it is distributed."
-      simplicity_explanation: "Diaspora makes sharing clean and easy – this goes doubly so for privacy. Innherently private, Diaspora doesn’t have pages of settings and options to wade through to keep your profile secure and to your liking."
   invitations:
     create:
       sent: "Your invitation has been sent."

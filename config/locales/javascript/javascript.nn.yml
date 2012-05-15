@@ -38,6 +38,7 @@ nn:
       preparing_your_stream: "Lagar den tilpassa straumen din …"
     header:
       admin: "Admin"
+      close: "lukk"
       contacts: "Kontaktar"
       home: "Heim"
       log_out: "Logg ut"
@@ -54,6 +55,8 @@ nn:
       no_more: "Ingen fleire meldingar."
     my_activity: "Min aktivitet"
     my_stream: "Straum"
+    people:
+      not_found: "orsak, me kunne ikkje finne nokon."
     photo_uploader:
       looking_good: "Du verda, du ser flott ut!"
     publisher:
@@ -62,6 +65,8 @@ nn:
       public: "Offentleg - alle kan sjå meldinga di og ho kan bli funnen av søkjemotorar"
     reshares:
       duplicate: "Så bra, altså? Men du har allereie delt meldinga :-)"
+      post: "Vil du dele <%= name %> sin post?"
+      successful: "Hurra, posten vart delt!"
     search_for: "Leit etter {{name}}"
     show_more: "syn meir"
     stream:
@@ -123,6 +128,7 @@ nn:
     viewer:
       comment: "Kommenter"
       follow_post: "Følg innlegg"
+      home: "HEIM"
       like: "Lik"
       reshare: "Del"
       reshared: "Delt"

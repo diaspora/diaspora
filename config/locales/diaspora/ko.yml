@@ -196,7 +196,6 @@ ko:
       failure: "해당 사용자를 무시하기를 멈출 수 없었습니다.  #evasion"
   bookmarklet:
     explanation: "%{link}를 북마크로 추가하면 어디서든 디아스포라에 게시할 수 있습니다."
-    explanation_link_text: "이 링크"
     heading: "북마클릿"
     post_something: "디아스포라에 게시하기"
     post_success: "올렸습니다! 닫힙니다!"
@@ -287,20 +286,6 @@ ko:
   fill_me_out: "채워주세요"
   find_people: "사람이나 #태그 를 찾아보세요"
   hide: "숨기기"
-  home:
-    show:
-      already_account: "이미 계정을 가지고 있습니까?"
-      choice: "선택"
-      choice_explanation: "디아스포라에서는 애스펙이라는 그룹으로 관계를 관리합니다. 디아스포라만의 독특함인 애스펙은 나의 사진, 이야기, 농담이 내가 의도한 사람들과만 공유되도록 보장합니다."
-      learn_about_host: "디아스포라 서버를 직접 운영하는 방법"
-      login_here: "여기서 로그인하세요"
-      ownership: "소유권"
-      ownership_explanation: "내 사진을 내가 소유합니다. 공유하기 위해 소유권을 포기하지 않아도 됩니다. 어떻게 배포될지를 온전히 제어함으로서 디아스포라에서 공유한 모든 것들의 소유권을 유지합니다."
-      share_what_you_want: "원하는 사람들과 원하는 걸 공유하자"
-      simplicity: "간편함"
-      simplicity_explanation: "디아스포라에서는 깨끗하고 쉽게 공유합니다. 개인정보도 마친가지입니다. 본래 개인적인 디아스포라에서는 프로필 보안을 유지하기 위해 여러 페이지에 걸친 설정과 옵션을 힘겹게 거치지 않아도 됩니다."
-      tagline_first_half: "원하는 사람들과"
-      tagline_second_half: "원하는 걸 공유하자."
   invitation_codes:
     excited: "%{name}님이 나를 기다리고 있습니다."
   invitations:
@@ -497,12 +482,11 @@ ko:
 
           이 링크를 클릭해서 시작하세요.
 
-          [%{invite_url}][1]
+          %{invite_url}
+          <%=invite_code_url(@invitation_code)%>
 
 
           디아스포라* 이메일 로봇 보냄!
-
-          [1]: %{invite_url}
     invited_you: "%{name}님이 나를 디아스포라*로 초대했습니다."
     liked:
       liked: "%{name}님이 내 게시물을 좋아합니다:"

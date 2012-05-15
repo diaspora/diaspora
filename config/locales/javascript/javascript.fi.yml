@@ -38,6 +38,7 @@ fi:
       preparing_your_stream: "Yksilöllistä virtaasi valmistellaan..."
     header:
       admin: "Ylläpitäjä"
+      close: "sulje"
       contacts: "Kontaktit"
       home: "Koti"
       log_out: "Kirjaudu ulos"
@@ -52,6 +53,10 @@ fi:
     ignore: "Sivuuta"
     infinite_scroll:
       no_more: "Ei enempää viestejä."
+    my_activity: "Oma toimintani"
+    my_stream: "Virta"
+    people:
+      not_found: "...ketään ei löytynyt."
     photo_uploader:
       looking_good: "OMG, näytät upealta!"
     publisher:
@@ -60,11 +65,15 @@ fi:
       public: "Julkinen - viestisi näkyvät kaikille mukaan lukien hakukoneet ja niiden tulokset"
     reshares:
       duplicate: "Olet jo uudelleenjakanut viesti!"
+      post: "Jaa käyttäjän <%= name %> viesti?"
+      successful: "Viesti jaettiin onnistuneesti!"
     search_for: "Etsi nimellä <%= name %>"
     show_more: "näytä lisää"
     stream:
       comment: "Kommentoi"
+      follow: "Seuraa"
       hide: "Piilota"
+      hide_nsfw_posts: "Piilota #nsfw viestit"
       like: "Tykkää"
       likes:
         few: "<%= count %> tykkäystä"
@@ -91,6 +100,10 @@ fi:
         other: "<%= count %> uudelleenjakoa"
         two: "<%= count %> uudelleenjakoa"
         zero: "<%= count %> uudelleenjakoa"
+      show_nsfw_post: "Näytä viesti"
+      show_nsfw_posts: "Näytä kaikki"
+      unfollow: "Lopeta seuraaminen"
+      unlike: "Älä tykkää"
     tags:
       wasnt_that_interesting: "OK, #<%= tagName %> ei tainnut ollakaan kovin kiinnostava aihe..."
     timeago:
@@ -112,3 +125,11 @@ fi:
     videos:
       unknown: "Tuntematon videomuoto"
       watch: "Katso video palvelussa <%= provider %>"
+    viewer:
+      comment: "Kommentoi"
+      follow_post: "Seuraa viestiä"
+      like: "Tykkää"
+      reshare: "Jaa uudelleen"
+      reshared: "Jaettu uudelleen"
+      stop_following_post: "Lopeta viestin seuraaminen"
+      unlike: "Älä tykkää"

@@ -58,7 +58,6 @@ pa:
   back: "ਪਿੱਛੇ"
   bookmarklet:
     explanation: "%{link} from anywhere by bookmarking this link."
-    explanation_link_text: "Post to Diaspora"
     heading: "Diaspora Bookmarklet"
   cancel: "ਰੱਦ ਕਰੋ"
   comments:
@@ -84,10 +83,6 @@ pa:
   delete: "ਹਟਾਓ"
   email: "ਈਮੇਲ"
   find_people: "Find people"
-  home:
-    show:
-      already_account: "ਪਹਿਲਾਂ ਹੀ ਅਕਾਊਂਟ ਹੈ?"
-      login_here: "ਇੱਥੇ ਲਾਗਇਨ ਕਰੋ"
   invitations:
     new:
       already_invited: "Already invited"

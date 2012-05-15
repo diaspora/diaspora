@@ -38,6 +38,7 @@ hu:
       preparing_your_stream: "Személyre szabott hírfolyamod előkészítése..."
     header:
       admin: "Adminisztráció"
+      close: "bezárás"
       contacts: "Ismerősök"
       home: "Kezdőlap"
       log_out: "Kijelentkezés"

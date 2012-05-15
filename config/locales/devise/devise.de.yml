@@ -88,7 +88,7 @@ de:
     sessions:
       new:
         alpha_software: "Diese Software befindet sich im Alpha-Stadium."
-        bugs_and_feedback: "Sei gewarnt, Fehler werden auftreten. Wir empfehlen dir, den Feedback-Knopf am rechten Browserrand zu nutzen, um alle Störungen zu berichten. Wir werden so schnell wir können arbeiten, um alle Probleme, die du meldest, zu lösen."
+        bugs_and_feedback: "Eine Warnung vorweg: Es gibt noch Bugs. Am besten du benutzt den Feedback Button auf der rechten Seite deines Browsers, um uns über die Probleme aufzuklären. Wir versuchen, diese so schnell wie möglich zu berichtigen."
         bugs_and_feedback_mobile: "Sei gewarnt, Fehler werden auftreten. Wir empfehlen dir, alle Störungen zu melden! Wir werden so schnell wir können arbeiten, um alle Probleme, die du meldest, zu lösen."
         login: "Anmelden"
         modern_browsers: "unterstützt nur moderne Browser."

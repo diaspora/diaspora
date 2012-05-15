@@ -38,6 +38,7 @@ fr:
       preparing_your_stream: "Préparation de votre flux personnalisé..."
     header:
       admin: "Administration"
+      close: "fermer"
       contacts: "Contacts"
       home: "Accueil"
       log_out: "Se déconnecter"

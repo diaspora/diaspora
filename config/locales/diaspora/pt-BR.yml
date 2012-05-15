@@ -202,7 +202,6 @@ pt-BR:
       success: "Vamos ver o que eles têm a dizer! #sayhello"
   bookmarklet:
     explanation: "Postar para Diaspora de qualquer lugar através dos favoritos %{link}."
-    explanation_link_text: "nesse link"
     heading: "Favoritos"
     post_something: "Postar algo em Diaspora"
     post_success: "Postado! Fechado!"
@@ -293,20 +292,6 @@ pt-BR:
   fill_me_out: "Preencha"
   find_people: "Procurar pessoas"
   hide: "Ocultar"
-  home:
-    show:
-      already_account: "Já tem uma conta?"
-      choice: "Escolha"
-      choice_explanation: "Diaspora* permite que você organize seus contatos em grupos chamados aspectos. Exclusivos à Diaspora, aspectos garantem que suas fotos, histórias e piadas sejam compartilhadas apenas com quem você desejar."
-      learn_about_host: "Aprenda como hospedar seu próprio servidor Diaspora."
-      login_here: "Entre aqui"
-      ownership: "Sua propriedade"
-      ownership_explanation: "Você é dono das suas imagens, e não devia deixar de sê-lo para compartilhá-las. Na Diaspora você controla como suas coisas são distribuídas, portanto você não perde a propriedade do que compartilha."
-      share_what_you_want: "Compartilhe o que você quer, com quem você desejar."
-      simplicity: "Simplicidade"
-      simplicity_explanation: "Diaspora* torna o ato de compartilhar com privacidade simples e fácil. Inerentemente privada, Diaspora* não possui páginas de configurações e opções para percorrer a fim de manter seu perfil seguro e do jeito que você gostaria."
-      tagline_first_half: "Compartilhe o que você quer,"
-      tagline_second_half: "com quem você quer."
   invitation_codes:
     excited: "%{name} está contente em te ver aqui."
   invitations:
@@ -504,14 +489,13 @@ pt-BR:
 
           Clique neste link para começar
 
-          [%{invite_url}][1]
+          %{invite_url}
+          <%= invite_code_url(@invitation_code)%>
 
 
           Com amor,
 
           O robô de emails do Diaspora*!
-
-          [1]: %{invite_url}
     invited_you: "%{name} te convidou para Diaspora*"
     liked:
       liked: "%{name} curtiu sua postagem."

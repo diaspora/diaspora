@@ -178,7 +178,6 @@ nl:
       success: "Eens zien wat ze te zeggen hebben! #zeghallo"
   bookmarklet:
     explanation: "Post vanaf overal naar Diaspora door %{link} op te slaan."
-    explanation_link_text: "deze link"
     heading: "Bookmarktlet"
     post_something: "Plaats iets op Diaspora"
     post_success: "Gepost!"
@@ -266,20 +265,6 @@ nl:
   fill_me_out: "Vul me in!"
   find_people: "Vind mensen of #tags"
   hide: "Verbergen"
-  home:
-    show:
-      already_account: "heb je al een account?"
-      choice: "Keuze"
-      choice_explanation: "Diaspora laat jou je contacten verdelen over verschillende groepen, genaamd 'Aspecten', welke uniek zijn voor Diaspora. Deze zorgen er voor dat je jouw foto's, verhalen en grappen alleen deelt met degenen waarmee je ze wilt delen."
-      learn_about_host: "Leer hoe je zelf een Diaspora server kunt opzetten."
-      login_here: "log hier in"
-      ownership: "Eigendom"
-      ownership_explanation: "Je bent zelf de eigenaar van je eigen foto's. Dus waarom zou je dat opgeven om ze met iemand te delen? Op Diaspora behoud je het eigendom over alles wat jij met anderen deelt, waardoor je volledige controle hebt over de distributie ervan."
-      share_what_you_want: "Deel wat je wilt delen, met degenen met wie je het wilt delen."
-      simplicity: "Eenvoud"
-      simplicity_explanation: "Diaspora maakt delen helder en simpel – vooral als het om privacy gaat. Je hoeft namelijk niet eindeloos door pagina's met instellingen en opties te klikken om je profiel veilig en afgeschermd te houden."
-      tagline_first_half: "Deel wat je wilt delen,"
-      tagline_second_half: "met degenen met wie je het wilt delen."
   invitations:
     a_facebook_user: "Een Facebook gebruiker"
     check_token:

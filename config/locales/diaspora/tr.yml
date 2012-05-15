@@ -178,7 +178,6 @@ tr:
       success: "Bakalım ne diyecekler! #sayhello"
   bookmarklet:
     explanation: "Diaspora'ya istediğin her yerden gönderi yapmak için %{link} yer imleri çubuğuna sürükle."
-    explanation_link_text: "bu bağlantıyı"
     heading: "Diaspora yer işareti"
     post_something: "Diaspora için birşey gönder"
     post_success: "Gönderildi! Kapatılıyor!"
@@ -264,20 +263,6 @@ tr:
   fill_me_out: "Beni doldur"
   find_people: "Kişi ve #tag bul"
   hide: "Gizle"
-  home:
-    show:
-      already_account: "Zaten bir hesabın var mı?"
-      choice: "Seçim"
-      choice_explanation: "Diaspora bağlantılarınızı yön adı verilen gruplar halinde sıralamanızı sağlar. Diaspora'ya özgü olarak, yönleri, fotoğrafları, hikayeleri ve şakaları sadece istediğiniz insanlarla paylaşırsınız."
-      learn_about_host: "Sunucunuzda Diaspora'yı sunmak için bilgi edin."
-      login_here: "buradan oturum açın"
-      ownership: "Sahiplik"
-      ownership_explanation: "Kendi resimlerinin sahibi sensin, paylaşabilmek için bu hakkından olmaman lâzım. Diaspora'da paylaştığın her şeyin sahibi sen olmaya devam edersin ve yayılmasında tüm kontrol sendedir."
-      share_what_you_want: "İstediğinle, istediğini paylaş."
-      simplicity: "Sadelik"
-      simplicity_explanation: "Diaspora, sadeliğe,kolay paylaşıma ve gizliliklere önem verir. Doğal olarak özeldir, Diaspora Java ayarları sayfalarıyla saklama yapmaz. Bu yüzden güvenlidir."
-      tagline_first_half: "İstediğiniz ne ise paylaşın,"
-      tagline_second_half: "istediğiniz."
   invitations:
     a_facebook_user: "Bir Facebook kullanıcısı"
     check_token:

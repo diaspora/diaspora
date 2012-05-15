@@ -203,10 +203,9 @@ sv:
       failure: "Jag kunde inte sluta ignorera den användaren.  #undvik"
       success: "Låt oss se vad de har att säga! #säghej"
   bookmarklet:
-    explanation: "Bokmärk %{link} för att skicka inlägg på Diaspora varifrån som helst."
-    explanation_link_text: "denna länk"
+    explanation: "Bokmärk %{link} för att kunna göra inlägg på Diaspora varifrån som helst."
     heading: "Bookmarklet"
-    post_something: "Posta något till Diaspora"
+    post_something: "Skicka till Diaspora"
     post_success: "Skickat! Stänger!"
   cancel: "Avbryt"
   comments:
@@ -295,20 +294,6 @@ sv:
   fill_me_out: "Fyll i mig"
   find_people: "Hitta personer eller #taggar"
   hide: "Göm"
-  home:
-    show:
-      already_account: "har du redan ett konto?"
-      choice: "Val"
-      choice_explanation: "Diaspora låter dig dela in dina kontakter i grupper som kallas aspekter. Aspekter, som är unika för Diaspora, förhindrar att dina foton, meddelanden och skämt kan ses av någon annan än de personer som du valt."
-      learn_about_host: "Läs om hur du sätter upp en egen Diasporaserver."
-      login_here: "logga in här"
-      ownership: "Ägandeskap"
-      ownership_explanation: "Du äger dina bilder, och du ska inte behöva frångå det när du vill dela med dig av dem. Du behåller äganderätten till allt du delar med dig av på Diaspora, vilket ger dig full kontroll över hur det distribueras."
-      share_what_you_want: "Dela vad du vill, med vem du vill."
-      simplicity: "Enkelhet"
-      simplicity_explanation: "Med  Diaspora är det enkelt dela med sig av information och bilder till rätt personer. Det är lika lätt att behålla den personliga integriteten. Med Diaspora tvingas du inte vada igenom sidor av inställningar och alternativ bara för att hålla din profil säker."
-      tagline_first_half: "Dela vad du vill,"
-      tagline_second_half: "med vem du vill."
   invitation_codes:
     excited: "%{name} är glad för att du är här."
   invitations:
@@ -464,14 +449,12 @@ sv:
 
           Klicka på länken nedan för att börja.
 
-          [%{invite_url}][1]
+          %{invite_url}
 
 
           Med vänlig hälsning,
 
           Diasporas e-postrobot.
-
-          [1]: %{invite_url}
     invited_you: "%{name} har bjudt in dig till Diaspora*."
     liked:
       liked: "%{name} gillar ditt inlägg "
@@ -652,7 +635,7 @@ sv:
     new:
       create_my_account: "Skapa mitt konto!"
       enter_email: "Ange en e-postadress"
-      enter_password: "Skriv in ett lösenord"
+      enter_password: "Skriv in ett lösenord, åtminstone sex tecken långt"
       enter_password_again: "Skriv in samma lösenord som tidigare"
       enter_username: "Välj ett användarnamn (endast bokstäver, nummer och understreck)"
       join_the_movement: "Gå med i rörelsen!"

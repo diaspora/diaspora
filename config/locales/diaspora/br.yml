@@ -71,7 +71,6 @@ br:
   back: "Distreiñ"
   bookmarklet:
     explanation: "%{link} adalek pep lec'h dre lakaat al liamm-se e-barzh ho sinedoù."
-    explanation_link_text: "Embann e-barzh Diaspora"
     heading: "Diaspora Bookmarklet"
     post_something: "Embann un dra bennak e-barzh Diaspora"
     post_success: "Embannet! O serriñ!"
@@ -118,9 +117,6 @@ br:
   email: "Postel"
   find_people: "Find people"
   hide: "Kuzhaat"
-  home:
-    show:
-      choice: "Dibab"
   invitations:
     check_token:
       not_found: "Ar bilhed-pediñ n'eo ket bet kaset"

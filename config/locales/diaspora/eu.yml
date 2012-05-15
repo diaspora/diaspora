@@ -40,6 +40,26 @@ eu:
             username:
               invalid: "baliogabea da. Hizkiak, zenbakiak eta barrabaxuak soilik onartzen ditugu."
               taken: "erabilpenean dago jada."
+  admins:
+    admin_bar:
+      correlations: "Korrelazioak"
+      pages: "Orrialdeak"
+      pod_stats: "Hornitzailearen Estatistikak"
+      resque_overview: "Resqueren Aurrebista"
+      user_search: "Erabiltzaile Bilaketa"
+      weekly_user_stats: "Asteko Erabiltzaile Estatistikak"
+    correlations:
+      correlations_count: "Korrelazioak Sarpen Zenbakiekin:"
+    stats:
+      go: "jarraitu"
+    user_search:
+      add_invites: "gonbidapenak gehitu"
+      email_to: "Gonbidatzeko Emaila"
+      users:
+        one: "erabiltzaile %{count} aurkitu da"
+        other: "%{count} erabiltzaile aurkitu dira"
+        zero: "erabiltzailerik ez da aurkitu"
+      you_currently: "oraindik %{user_invitation} gonbidapen dituzu %{link}"
   ago: "%{time}"
   all_aspects: "Alderdi guztiak"
   application:
@@ -112,11 +132,13 @@ eu:
         have_a_question: "... %{link} bat duzu?"
         here_to_help: "Diaspora komunitatea hemen dago!"
         need_help: "Laguntza Behar Duzu?"
-        tag_bug: "errorea"
+        tag_bug: "errore"
         tag_feature: "funtzioa"
         tag_question: "galdera"
         tutorials_wiki_and_forum: "%{tutorial}, %{wiki} eta %{forum}: Komunitateak egindako tutorialak, nola-eginak eta berriak"
       introduce_yourself: "Hau zure kronologia da.  Animatu eta zure burua aurkeztu."
+      keep_diaspora_running: "Diaspoaren garapena azkartu ezazu hilabeteroko donazio batekin!"
+      keep_pod_running: "Mantendu %{pod} azkar izaten hornitzaileari kafe-konponketa ordainduz hilero!"
       new_here:
         follow: "Jarraitu %{link} eta emaiezu ongietorria Diasporako erabiltzaile berriei!"
         learn_more: "Ikasi gehiago"
@@ -168,6 +190,10 @@ eu:
     index:
       no_applications: "Aplikaziorik ez duzu erregistratu oraindik."
       revoke_access: "Sarbidea Baliogabetu"
+    new:
+      authorize: "Baimendu"
+      cubbies_will: "Cubbies gai izango da zure erabiltzailean argazkiak jartzeko"
+      nope: "Ez"
   back: "Atzera"
   blocks:
     create:
@@ -178,7 +204,6 @@ eu:
       success: "Ikus dezagun zer duzun esateko! #esankaixo"
   bookmarklet:
     explanation: "Diasporan partekatu %{link} erabiliz."
-    explanation_link_text: "esteka hau"
     heading: "Bookmarkleta"
     post_something: "Partekatu zerbait Diasporan"
     post_success: "Bidalia! Irteten!"
@@ -269,20 +294,6 @@ eu:
   fill_me_out: "Bete nazazu"
   find_people: "Jendea edo #etiketak aurkitu"
   hide: "Ezkutatu"
-  home:
-    show:
-      already_account: "kontua duzu jada?"
-      choice: "Hautaketa"
-      choice_explanation: "Diasporan zure lagunak kudeatu ditzakezu arlo izeneko taldeetan. Zure argitalpen guztiak; bai argazkiak, egoera aldaketak, eta abar nahi duzun jendearekin soilik partekatzeko; honek egiten du Diaspora bereizgarri."
-      learn_about_host: "Ikasi nola eskaini Diaspora zure zerbitzarian."
-      login_here: "hemen sartu"
-      ownership: "Jabegoa"
-      ownership_explanation: "Zure argazkiak zureak dira, eta ez duzu hori ahaztu behar partekatzeagatik soilik. Diasporan partekatzen duzun guztiaren jabe zara, zuri eskainiz zer modutan banatzeko askatasuna."
-      share_what_you_want: "Partekatu nahi duzuna, nahi duzun pertsonarekin."
-      simplicity: "Sinplizitatea"
-      simplicity_explanation: "Diasporak partekatzea erraza egiten du - pribatutasuna kontuan hartuz. Izatez pribatutasunera zuzenduta, Diasporak egitura sinplea du zure profila babesturik mantentzearren."
-      tagline_first_half: "Partekatu nahi duzuna,"
-      tagline_second_half: "nahi duzunarekin."
   invitation_codes:
     excited: "%{name} pozik dago zu ikusteaz"
   invitations:
@@ -307,6 +318,7 @@ eu:
         one: "Gonbidapen bat geratzen zaizu kode honekin"
         other: "%{count} gonbidapen geratzen zaizkizu kode honekin"
         zero: "Ez zaizkizu geratzen gonbidapenak kode honekin"
+      comma_separated_plz: "Email desberdinak jarri ditzakezu, koma batez bereiztuak."
       if_they_accept_info: "eskaera onartzen badute, gonbidatutako arlora batuko dira"
       invite_someone_to_join: "Gonbida ezazu norbait Diasporan izen ematera!"
       language: "Hizkuntza"
@@ -401,6 +413,7 @@ eu:
         two: "eta beste %{count}"
         zero: "eta inork gehiago ez"
       mark_all_as_read: "Guztiak irakurrita"
+      mark_unread: "Irakurri gabe gisa markatu"
       notifications: "Jakinarazpenak"
     liked:
       few: "%{actors}(e)k gustuko dute zure %{post_link}."
@@ -470,6 +483,21 @@ eu:
       subject: "Mesedez, gaitu zure e-posta berria %{unconfirmed_email}"
     email_sent_by_diaspora: "Email hau Diasporak bidali dizu.  Horrelako emailik ez baduzu jaso nahi,"
     hello: "Kaixo, %{name}!"
+    invite:
+      message: |-
+          Kaixo!
+
+          Diasporara batzera gonbidatu zaituzte!
+
+          Esteka hau jarraitu hasteko
+
+          %{invite_url}
+
+
+          Adeitasunez,
+
+          Diasporaren email robota!
+    invited_you: "%{name}(e)k Diasporara gonbidatu zaitu"
     liked:
       liked: "%{name}(e)k zure mezua gustuko du"
       view_post: "Mezua ikusi >"
@@ -496,6 +524,8 @@ eu:
   password: "Pasahitza"
   password_confirmation: "Pasahitz baieztapena"
   people:
+    add_contact:
+      invited_by: "honek gonbidatu zaitu:"
     add_contact_small:
       add_contact_from_tag: "gehitu laguna etiketatik abiatuta"
     aspect_list:
@@ -511,6 +541,7 @@ eu:
       no_results: "Aizu! Zerbait bilatu behar duzu."
       results_for: "bilaketa emaitzak hontarako:"
       searching: "bilatzen, mesedez itxaron pixka bat..."
+    last_post: ""
     many: "%{count} pertsona"
     one: "pertsona 1"
     other: "%{count} pertsona"
@@ -586,6 +617,8 @@ eu:
       error: "Huts argazkia aldatzean."
       notice: "Argazkia arrakastaz eguneratua."
   posts:
+    presenter:
+      title: ""
     show:
       destroy: "Ezabatu"
       not_found: "Barkatu, baina ezin izan dugu mezu hori aurkitu."
@@ -800,6 +833,7 @@ eu:
       show: "erakutsi"
       unlike: "Ez dut gustuko"
       via: "%{link}(r)en bidez"
+      via_mobile: "mugikorraren bidez"
       viewable_to_anyone: "Mezu hau edonork ikusi dezake Interneten"
   status_messages:
     create:

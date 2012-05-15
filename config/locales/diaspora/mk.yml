@@ -74,7 +74,6 @@ mk:
   back: "Назад"
   bookmarklet:
     explanation: "%{link} from anywhere by bookmarking this link."
-    explanation_link_text: "Post to Diaspora"
     heading: "Diaspora Bookmarklet"
   cancel: "Откажи"
   comments:
@@ -105,18 +104,6 @@ mk:
       invalid_fields: "Невалидни полиња"
   fill_me_out: "Пополни ме"
   find_people: "Find people"
-  home:
-    show:
-      already_account: "веќе имате корисничка сметка?"
-      choice: "Избор"
-      choice_explanation: "Diaspora ви овозможува сортирање на вашите врски во групи наречени аспекти. Особеност на Diaspora, аспектите осигураат дека вашите слики, стории и шеги се споделени само со луѓето кои вие ќе ги назначите."
-      learn_about_host: "Научете како вие можете да хостирате Diaspora сервер."
-      login_here: "најави се овде"
-      ownership: "Сопственост"
-      ownership_explanation: "Вие ги поседувате вашите слики, и не треба да се откажете од нивната сопственост само за да ги споделите. Во Diaspora секоја содржина која ја споделувате останува во ваша сопственост, давајќи ви целосна контрола врз начинот на нејзиното ширење."
-      share_what_you_want: "Споделувајте се што сакате, со оние кои вие ги изберете."
-      simplicity: "Едноставност"
-      simplicity_explanation: "Diaspora овозможува споделување кое е чисто и едноставно - ова се однесува и за приватноста. Благодарение на вградената приватност, Diaspora не ве тера да пребарувате низ страници со подесувања и опции само за да си го заштитите профилот."
   invitations:
     check_token:
       not_found: "Токенот за поканата не е пронајден"

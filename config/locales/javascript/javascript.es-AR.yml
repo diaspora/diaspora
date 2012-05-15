@@ -9,15 +9,15 @@ es-AR:
     aspect_dropdown:
       add_to_aspect: "Agregar contacto"
       all_aspects: "Todos los aspectos"
-      error: "No se pudo empezar a compartir con {{name}}.  ¿Será que lo/a estás ignorando?"
+      error: "No se pudo empezar a compartir con <%= name %>. ¿Será que la/lo estás ignorando?"
       select_aspects: "Selecciona aspectos"
-      started_sharing_with: "Empezaste a compartir con {{name}}!"
-      stopped_sharing_with: "Dejaste de compartir con {{name}}."
+      started_sharing_with: "¡Has empezado a compartir con <%= name%>!"
+      stopped_sharing_with: "Has dejado de compartir con <%= name =%>"
       toggle:
         few: "En {{count}} aspectos"
         many: "En {{count}} aspectos"
-        one: "En {{count}} aspecto"
-        other: "En {{count}} aspectos"
+        one: "En <%= count %> aspecto"
+        other: "En <%= count %> aspectos"
         two: "En {{count}} aspectos"
         zero: "Seleccionar aspectos"
     aspect_navigation:
@@ -33,11 +33,12 @@ es-AR:
     failed_to_post_message: "¡No pudo publicarse el mensaje!"
     getting_started:
       alright_ill_wait: "Todo bien, voy a esperar."
-      hey: "Che, {{name}}!"
+      hey: "¡Hola, <%= name %>!"
       no_tags: "¡Che, no estás siguiendo ningún tag! ¿Continuar de todos modos?"
       preparing_your_stream: "Preparando tu stream personalizado..."
     header:
       admin: "Administrador"
+      close: "Cerrar"
       contacts: "Contactos"
       home: "Inicio"
       log_out: "Salir"
@@ -104,7 +105,7 @@ es-AR:
       unfollow: "Dejar de seguir"
       unlike: "No me gusta"
     tags:
-      wasnt_that_interesting: "OK, supongamos que #{{tagName}} no era tan interesante..."
+      wasnt_that_interesting: "Bueno, supongo que #<%= tagName %> no era tan interesante..."
     timeago:
       day: "un día"
       days: "%d días"
@@ -114,8 +115,8 @@ es-AR:
       minutes: "%d minutos"
       month: "cerca de un mes"
       months: "%d meses"
-      prefixAgo: "hace"
-      prefixFromNow: "dentro de"
+      prefixAgo: ""
+      prefixFromNow: ""
       seconds: "menos de un minuto"
       suffixAgo: "hace"
       suffixFromNow: "desde ahora"
@@ -127,6 +128,7 @@ es-AR:
     viewer:
       comment: "Comentar"
       follow_post: "Seguir esta publicación"
+      home: "INICIO"
       like: "Me gusta"
       reshare: "Compartir"
       reshared: "Compartido"

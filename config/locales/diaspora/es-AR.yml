@@ -50,6 +50,8 @@ es-AR:
       weekly_user_stats: "Estadísticas semanales de usuario"
     correlations:
       correlations_count: "Correlaciones con el conteo de inicio de sesión:"
+    stats:
+      go: "Ir"
     user_search:
       add_invites: "Añadir invitaciones"
       email_to: "Mandar invitación por correo electrónico a"
@@ -202,7 +204,6 @@ es-AR:
       success: "¡Veamos que tiene que decir! #dihola"
   bookmarklet:
     explanation: "Publicá algo en Diáspora* desde donde quieras agregando %{link} a tus marcadores."
-    explanation_link_text: "este enlace"
     heading: "Marcador"
     post_something: "Publicá algo en Diáspora*"
     post_success: "¡Publicado! Cerrando."
@@ -293,20 +294,6 @@ es-AR:
   fill_me_out: "Completame"
   find_people: "Encontrá gente o #tags"
   hide: "Ocultar"
-  home:
-    show:
-      already_account: "¿Ya tenés una cuenta?"
-      choice: "Elección"
-      choice_explanation: "Diáspora* te permite organizar conexiones en grupos llamados aspectos. Algo único de Diáspora*, los aspectos permiten que tus fotos, historias y bromas sean compartidas sólo con quien vos quieras."
-      learn_about_host: "Aprendé cómo hospedar tu propio servidor Diáspora*."
-      login_here: "conectate acá"
-      ownership: "Propiedad"
-      ownership_explanation: "Sos dueño de tus foto, y no deberías tener que cederlas sólo para compartirlas. Vos mantenés los derechos de cualquier cosa que compartas en Diáspora*, dándote control completo sobre cómo se distribuye."
-      share_what_you_want: "Compartí lo que quieras, con quien quieras."
-      simplicity: "Simplicidad"
-      simplicity_explanation: "Diáspora* hace que compartir sea fácil y transparente —y esto incluye la privacidad. Inherentemente privado, Diáspora* no te hace navegar en páginas de configuración y opciones sólo para mantener tu perfil seguro."
-      tagline_first_half: "Compartí lo que quieras,"
-      tagline_second_half: "con quien vos quieras."
   invitation_codes:
     excited: "%{name} está encantado de verte por aquí."
   invitations:
@@ -504,14 +491,12 @@ es-AR:
 
           Haz click en este enlace para comenzar
 
-          [%{invite_url}][1]
+          %{invite_url}
 
 
           Saludos,
 
           ¡El generador de correo automático de Diaspora*!
-
-          [1]: %{invite_url}
     invited_you: "¡%{name} te ha invitado a Diaspora*!"
     liked:
       liked: "A  %{name} le gustó tu publicación"
@@ -695,7 +680,7 @@ es-AR:
     new:
       create_my_account: "¡Crear mi cuenta!"
       enter_email: "Ingresá un correo electrónico"
-      enter_password: "Elegí una contraseña"
+      enter_password: "Ingresa una contraseña (seis caracteres mínimo)"
       enter_password_again: "Repetí la misma contraseña"
       enter_username: "Elegí un nombre de usuario (sólo letras, números y guión bajo)"
       join_the_movement: "Unite al movimiento!"
@@ -818,7 +803,7 @@ es-AR:
       visibility_dropdown: "Usa este menú para cambiar la visibilidad de tu publicación.  (Sugerimos hacer público el primero.)"
     publisher:
       all: "todo"
-      all_contacts: "agregar contactos"
+      all_contacts: "todos los contactos"
       discard_post: "Descartar publicación"
       make_public: "hacer público"
       new_user_prefill:
@@ -834,7 +819,7 @@ es-AR:
       upload_photos: "Subir fotos"
       whats_on_your_mind: "¿Qué tenés en mente?"
     reshare:
-      reshare: "Republicar"
+      reshare: "Compartir"
     stream_element:
       connect_to_comment: "Conecta con este usuario para comentar en su publicación"
       currently_unavailable: "Comentar no está actualmente disponible"
@@ -886,11 +871,11 @@ es-AR:
       title: "Posts Comentados"
     community_spotlight_stream: "Comunidad Creativa"
     followed_tag:
-      add_a_tag: "Añade un tag"
-      contacts_title: "Personas que usaron estos tags"
+      add_a_tag: "Añade una etiqueta"
+      contacts_title: "Personas que usaron estas etiquetas"
       follow: "Seguir"
-      title: "#Tags"
-    followed_tags_stream: "#Tags"
+      title: "#Etiquetas que sigues"
+    followed_tags_stream: "#Etiquetas que sigues"
     like_stream:
       contacts_title: "Personas de las que te gustan mensajes"
       title: "Tus preferidos"
@@ -905,7 +890,7 @@ es-AR:
       contacts_title: "Autores recientes"
       title: "Actividad Pública"
     tags:
-      contacts_title: "Gente que usó ese tag"
+      contacts_title: "Personas que usaron esta etiqueta"
       tag_prefill_text: "Sobre %{tag_name}... "
       title: "Mensajes tagueados: %{tags}"
   tag_followings:

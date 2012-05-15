@@ -152,7 +152,6 @@ nb:
   back: "Tilbake"
   bookmarklet:
     explanation: "%{link} fra hvor som helst ved å bokmerke denne linken."
-    explanation_link_text: "Post på Diaspora"
     heading: "Diaspora Bookmarklet"
     post_something: "Post noe på Diaspora"
     post_success: "Postet! Lukker!"
@@ -229,20 +228,6 @@ nb:
   fill_me_out: "Fortell meg"
   find_people: "Find people"
   hide: "Skjul"
-  home:
-    show:
-      already_account: "har du allerede en konto?"
-      choice: "Valg"
-      choice_explanation: "Diaspora lar deg sortere dine kontakter i grupper kalt aspekter. Unikt for Diaspora, sørger aspekter for at dine bilder, historier og vitser kun deles med de du vil."
-      learn_about_host: "Lær hvordan du kan sette opp din egen Diaspora server."
-      login_here: "logg inn her"
-      ownership: "Eierskap"
-      ownership_explanation: "Du eier dine bilder, og skal ikke behøve å gi slipp på dem for å dele dem med andre. Du opprettholder eierskap av alt du deler på Diaspora. Det gir deg full kontroll over hvordan det er fordelt."
-      share_what_you_want: "Del hva du vil, med hvem du vil."
-      simplicity: "Enkelhet"
-      simplicity_explanation: "Diaspora gjør deling rent og enkelt - det gjelder personvern også. Diaspora er iboende privat, og du trenger ikke bla deg gjennom sider av innstillinger og valg bare for å holde profilen sikker."
-      tagline_first_half: "Del hva du vil,"
-      tagline_second_half: "med hvem du vil."
   invitations:
     create:
       already_contacts: "Du er allerede tilknyttet denne personen"

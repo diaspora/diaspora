@@ -178,7 +178,6 @@ zh-TW:
       success: "看看他們要說什麼吧! #打招呼"
   bookmarklet:
     explanation: "%{link}加入書籤後可對任何網站使用."
-    explanation_link_text: "這個連結"
     heading: "書籤小程式"
     post_something: "貼些東西到 Diaspora"
     post_success: "貼好了! 關掉中!"
@@ -263,20 +262,6 @@ zh-TW:
   fill_me_out: "填寫我"
   find_people: "找人或 #標籤"
   hide: "隱藏"
-  home:
-    show:
-      already_account: "已經有帳號了嗎?"
-      choice: "選擇"
-      choice_explanation: "Diaspora 讓你將你的關係以\"面向\"來分類. 面向是 Diaspora 的獨創, 用來確保你的相片,遭遇和笑話, 只和你所希望的人分享."
-      learn_about_host: "學習如何架設你自己的 Diaspora 伺服器."
-      login_here: "從這裡登入"
-      ownership: "所有權"
-      ownership_explanation: "你擁有你的圖片, 且不該因為分享出去就失去它. 在 Diaspora, 所有你分享出去的東西, 你都仍有所有權, 你可以控制它們如何散布."
-      share_what_you_want: "分享你想分享的東西, 給你想分享的人."
-      simplicity: "簡單"
-      simplicity_explanation: "Diaspora 讓分享變得單純且簡單, 而隱私也是一樣. 以隱私為出發點, Diaspora 讓你不必千辛萬苦的調整設定, 才能保護你的個人檔案安全."
-      tagline_first_half: "分享你想分享的東西,"
-      tagline_second_half: "給你想分享的人."
   invitations:
     a_facebook_user: "Facebook 使用者"
     check_token:

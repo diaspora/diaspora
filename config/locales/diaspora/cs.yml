@@ -168,7 +168,6 @@ cs:
       success: "Tak ať tedy řekne, co má na srdci!  #pozdrav"
   bookmarklet:
     explanation: "Pište na Diasporu odkudkoliv pomocí %{link}."
-    explanation_link_text: "tohoto odkazu"
     post_something: "Poslat něco na Diasporu"
     post_success: "Odesláno! Zavírám!"
   cancel: "Zrušit"
@@ -244,20 +243,6 @@ cs:
   fill_me_out: "Vyplňte"
   find_people: "Najít lidi nebo #štítky"
   hide: "Skrýt"
-  home:
-    show:
-      already_account: "máte již účet?"
-      choice: "Volba"
-      choice_explanation: "Diaspora Vám umožňuje přiřadit si všechny Vaše kontakty do skupin, které se nazývají aspekty. Ty jsou unikátní právě tím, že dokáží zabezpečit, aby k vašim fotkám, zprávám a stavům měli přístup jen ti, u kterých to máte v úmyslu."
-      learn_about_host: "Dozvědět se o více o tom, jak zprovoznit svůj vlastní Diaspora server."
-      login_here: "přihlásit se zde"
-      ownership: "Vlastnictví"
-      ownership_explanation: "Vaše obrázky jsou Vaším vlastnictvím. Neměli byste se ho zříkat jen kvůli tomu, že je chcete sdílet. Zachovejte si vlastnická práva ke všemu, co zveřejňujete na Diaspoře. Jen tak Vám zůstane plná kontrola nad tím, jak se s nimi nakládá."
-      share_what_you_want: "Sdílejte, co chcete, s kým chcete."
-      simplicity: "Jednoduchost"
-      simplicity_explanation: "Sdílení je v Diaspoře velmi lehké a transparentní — a to je i záruka Vašeho soukromí. Diaspora neobsahuje žádné složité stránky s nastavením, nastavení soukromí nevyjímaje, kterými byste se museli prokouskávat, abyste uchovali svůj profil v bezpečí podle svých představ."
-      tagline_first_half: "Sdílejte, co chcete,"
-      tagline_second_half: "s kým chcete."
   invitations:
     a_facebook_user: "Uživatel Facebooku"
     check_token:

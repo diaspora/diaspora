@@ -38,6 +38,7 @@ es:
       preparing_your_stream: "Preparando tus novedades personalizadas..."
     header:
       admin: "Administrar"
+      close: "cerrar"
       contacts: "Contactos"
       home: "Inicio"
       log_out: "Salir"
@@ -65,7 +66,7 @@ es:
     reshares:
       duplicate: "Que bien, ¿eh? ¡Has compartido esa publicación!"
       post: "¿Compartir la publicación de <%= name %>?"
-      successful: "¡La publicación se compartió correctamente!"
+      successful: "¡Publicación compartida con éxito!"
     search_for: "Buscar a <%= name %>"
     show_more: "mostrar más"
     stream:
