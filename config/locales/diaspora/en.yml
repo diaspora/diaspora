@@ -102,7 +102,44 @@ en:
         many: "%{count} users found"
         other: "%{count} users found"
     stats:
-      go: go
+      week: "Week"
+      2weeks: "2 Week"
+      month: "Month"
+      daily: "Daily"
+      usage_statistic: "Usage Statistics"
+      go: "go"
+      display_results: "Displaying results from the <b>%{segment}</b> segment"
+      posts:
+        zero: "%{count} posts"
+        one: "%{count} post"
+        two: "%{count} posts"
+        few: "%{count} posts"
+        many: "%{count} posts"
+        other: "%{count} posts"
+      comments:
+        zero: "%{count} comments"
+        one: "%{count} comment"
+        two: "%{count} comments"
+        few: "%{count} comments"
+        many: "%{count} comments"
+        other: "%{count} comments"
+      shares:
+        zero: "%{count} shares"
+        one: "%{count} share"
+        two: "%{count} shares"
+        few: "%{count} shares"
+        many: "%{count} shares"
+        other: "%{count} shares"
+      users:
+        zero: "%{count} users"
+        one: "%{count} user"
+        two: "%{count} users"
+        few: "%{count} users"
+        many: "%{count} users"
+        other: "%{count} users"
+      current_segment: "The current segment is averaging <b>%{post_yest}</b> posts per user, from <b>%{post_day}</b>"
+      50_most: "50 Most Popular Tags"
+      tag_name: "Tag Name: <b>%{name_tag}</b> Count: <b>%{count_tag}</b>"
   application:
     helper:
       unknown_person: "unknown person"
