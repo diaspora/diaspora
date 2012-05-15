@@ -1,6 +1,6 @@
 class DropServiceUsers < ActiveRecord::Migration
   def up
-    drop_table :services_users
+    drop_table :service_users
 
   end
 
