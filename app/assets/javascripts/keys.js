@@ -57,8 +57,6 @@ function view_controller() {"use strict"
 			event.preventDefault()
 			return false
 		}
-
-		vc.keys = vc.crypto.encrypt_keys($("#passphrase").val(), vc.keys)
 		
 		$("#secured_encryption_key").val(vc.keys.encryption.sec)
 		$("#public_encryption_key").val(JSON.stringify(vc.keys.encryption.pub))
@@ -67,15 +65,6 @@ function view_controller() {"use strict"
 		$("#guid").val(window.current_user_attributes.guid)
 			
 		$("#keys").submit()
-		//$.ajax({
-		//	url : "/store_keys/",
-		//	type : 'POST',
-		//	dataType : "script",
-		//	data : postdata,
-		//	success : function(data) {
-		//		console.log("keys stored")
-		//	}
-		//})
 
 		return true
 	}

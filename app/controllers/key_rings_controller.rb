@@ -13,11 +13,13 @@ class KeyRingsController < ApplicationController
   # GET /key_rings/1
   # GET /key_rings/1.json
   def show
-    @key_ring = KeyRing.find(params[:id])
+    @key_rings = Contact.where(:id => params[:contact_ids].split(',')).map! do |contact|
+      { :contact => contact.id, :key_ring => contact.person.key_ring }
+    end
 
     respond_to do |format|
       format.html # show.html.erb
-      format.json { render json: @key_ring }
+      format.json { render json: @key_rings }
     end
   end
 

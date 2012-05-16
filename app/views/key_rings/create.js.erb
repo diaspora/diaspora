@@ -1,1 +1,26 @@
-alert("created!")
+$("#instruction").text("Encryption and signing keys stored.")
+$("#instruction").show()
+
+$("#passphrase-div").hide()
+$("#generate-keys").hide()
+
+function htmlDecode(input){
+  var e = document.createElement('div');
+  e.innerHTML = input;
+  return e.childNodes[0].nodeValue;
+}
+
+window.current_user_attributes.key_ring = { 
+	"key_ring": { 
+		"created_at": htmlDecode("<%= @key_ring.created_at %>"),
+		"id": htmlDecode("<%= @key_ring.id %>"),
+		"person_id": htmlDecode("<%= @key_ring.person_id %>"),
+		"public_encryption_key": htmlDecode("<%= @key_ring.public_encryption_key %>"),
+		"secured_encryption_key": htmlDecode("<%= @key_ring.secured_encryption_key %>"),
+		"public_verification_key": htmlDecode("<%= @key_ring.public_verification_key %>"),
+		"secured_signing_key": htmlDecode("<%= @key_ring.secured_signing_key %>"),
+		"updated_at": htmlDecode("<%= @key_ring.updated_at %>")	
+	}
+}
+
+

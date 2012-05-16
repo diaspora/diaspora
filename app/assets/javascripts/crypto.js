@@ -1,5 +1,4 @@
-function crypto() {
-	"use strict"
+function crypto() {"use strict"
 
 	if(!(this instanceof crypto))
 		throw new Error("Constructor called as a function")
@@ -70,50 +69,73 @@ function crypto() {
 		return keys
 	}
 
-	this.prepare_message = function(sender, recipients, passphrase, message) {
-		var signing_key = this.decrypt_signing_key(passphrase, this.get_encrypted_signing_key(sender))
+	this.prepare_message = function(recipients, passphrase, message, subject) {
+		var signing_key = this.decrypt_signing_key(passphrase, window.current_user_attributes.key_ring.key_ring.secured_signing_key)
 		var signature = signing_key.sign(sjcl.hash.sha256.hash(message))
+
+		var recipient_public_keys = this.get_public_keys(recipients)
+		var recipient_message_keys = {}
 		
-		var sender_public_key = this.get_public_keys([sender])[sender]
+		var json = JSON.parse(window.current_user_attributes.key_ring.key_ring.public_encryption_key)
+		var point = sjcl.ecc.curves['c' + json.curve].fromBits(json.point)
+		var sender_public_key = new sjcl.ecc.elGamal.publicKey(json.curve, point.curve, point)
 		var shared_key = sender_public_key.kem(0).key
 		
-		var recipient_public_keys = this.get_public_keys(recipients)	
-		recipient_public_keys[sender] = sender_public_key
+		recipient_message_keys["sender"] = sjcl.encrypt(sender_public_key, JSON.stringify(shared_key))
 		
-		var encrypted_message_keys = {}
-		
-		for(var key in recipient_public_keys) {
-			if(!recipient_public_keys.hasOwnProperty(key)) { continue }
+		for(var recipient_public_key in recipient_public_keys) {
+			if(!recipient_public_keys.hasOwnProperty(recipient_public_key)) { continue }
 			
-			encrypted_message_keys[key] = sjcl.encrypt(recipient_public_keys[key], JSON.stringify(shared_key))
+			recipient_message_keys[recipient_public_key] = sjcl.encrypt(recipient_public_keys[recipient_public_key], JSON.stringify(shared_key))
 		}
 
 		var encrypted_message = sjcl.encrypt(shared_key, message)
+		var encrypted_subject = sjcl.encrypt(shared_key, subject)
 
 		return {
+			"message_keys" : recipient_message_keys,
+			"encrypted_subject" : encrypted_subject,
 			"encrypted_message" : encrypted_message,
-			"encrypted_message_keys" : encrypted_message_keys,
-			"signature" : JSON.stringify(signature)
+			"signature" : signature
 		}
 	}
 
-	this.get_public_keys = function(uuids) {
-		var public_keys = {}
+	this.get_verification_keys = function(contact_ids) {
+		var verification_keys = {}
 
-		for(var i = 0; i < uuids.length; i++) {
-			var uuid = uuids[i]
-			
+		for(var i = 0; i < contact_ids.length; i++) {
+			var contact_id = contact_ids[i]
+
 			$.ajax({
-				url : "/users/" + uuid + ".json",
+				url : "/key_ring?contact_ids=" + contact_id,
 				async : false,
 				dataType : "json",
 				success : function(data) {
-					var json = JSON.parse(data.public_key)
+					var json = JSON.parse(data.key_ring.public_verification_key)
 					var point = sjcl.ecc.curves['c' + json.curve].fromBits(json.point)
-					public_keys[uuid] = new sjcl.ecc.elGamal.publicKey(json.curve, point.curve, point)
+					verification_keys[contact_id] = new sjcl.ecc.ecdsa.publicKey(json.curve, point.curve, point)
 				}
 			})
 		}
+
+		return verification_keys
+	}
+
+	this.get_public_keys = function(contact_ids) {
+		var public_keys = {}
+
+		$.ajax({
+			url : "/key_ring?contact_ids=" + contact_ids,
+			async : false,
+			dataType : "json",
+			success : function(data) {
+				for(var i = 0; i < data.length; i++) {
+					var json = JSON.parse(data[i].key_ring.key_ring.public_encryption_key)
+					var point = sjcl.ecc.curves['c' + json.curve].fromBits(json.point)
+					public_keys[data[i].contact] = new sjcl.ecc.elGamal.publicKey(json.curve, point.curve, point)
+				}
+			}
+		})
 
 		return public_keys
 	}
