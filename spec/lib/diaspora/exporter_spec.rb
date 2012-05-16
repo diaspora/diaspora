@@ -9,7 +9,7 @@ describe Diaspora::Exporter do
 
   before do
     @user1 =  alice
-    @user2 =  Factory(:user)
+    @user2 =  FactoryGirl.create(:user)
     @user3 =  bob
 
     @aspect  =  @user1.aspects.first

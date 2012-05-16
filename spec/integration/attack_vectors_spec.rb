@@ -14,7 +14,7 @@ def receive(post, opts)
 end
 
 def temporary_user(&block)
-  user = Factory(:user)
+  user = FactoryGirl.create(:user)
   block_return_value = yield user
   user.delete
   block_return_value
@@ -131,7 +131,7 @@ describe "attack vectors" do
         original_message = legit_post_from_user1_to_user2(eve, bob)
 
         #someone else tries to make a message with the same guid
-        malicious_message = Factory.build(:status_message, :id => original_message.id, :guid => original_message.guid, :author => alice.person)
+        malicious_message = FactoryGirl.build(:status_message, :id => original_message.id, :guid => original_message.guid, :author => alice.person)
 
         expect{
           receive(malicious_message, :from => alice, :by => bob)
@@ -144,7 +144,7 @@ describe "attack vectors" do
         original_message = legit_post_from_user1_to_user2(eve, bob)
 
         #eve tries to send me another message with the same ID
-        malicious_message = Factory.build( :status_message, :id => original_message.id, :text => 'BAD!!!', :author => eve.person)
+        malicious_message = FactoryGirl.build( :status_message, :id => original_message.id, :text => 'BAD!!!', :author => eve.person)
 
         expect {
           receive(malicious_message, :from => eve, :by => bob)

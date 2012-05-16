@@ -35,7 +35,7 @@ describe MarkdownifyHelper do
 
     context 'when formatting status messages' do
       it "should leave tags intact" do
-        message = Factory(:status_message,
+        message = FactoryGirl.create(:status_message,
                                  :author => alice.person,
                                  :text => "I love #markdown")
         formatted = markdownify(message)
@@ -43,7 +43,7 @@ describe MarkdownifyHelper do
       end
 
       it 'should leave multi-underscore tags intact' do
-        message = Factory(
+        message = FactoryGirl.create(
           :status_message,
           :author => alice.person,
           :text => "Here is a #multi_word tag"
@@ -51,7 +51,7 @@ describe MarkdownifyHelper do
         formatted = markdownify(message)
         formatted.should =~ %r{Here is a <a href="/tags/multi_word" class="tag">#multi_word</a> tag}
 
-        message = Factory(
+        message = FactoryGirl.create(
           :status_message,
           :author => alice.person,
           :text => "Here is a #multi_word_tag yo"
@@ -61,7 +61,7 @@ describe MarkdownifyHelper do
       end
 
       it "should leave mentions intact" do
-        message = Factory(:status_message,
+        message = FactoryGirl.create(:status_message,
                                  :author => alice.person,
                                  :text => "Hey @{Bob; #{bob.diaspora_handle}}!")
         formatted = markdownify(message)
@@ -69,8 +69,8 @@ describe MarkdownifyHelper do
       end
 
       it "should leave mentions intact for real diaspora handles" do
-        new_person = Factory(:person, :diaspora_handle => 'maxwell@joindiaspora.com')
-        message = Factory(:status_message,
+        new_person = FactoryGirl.create(:person, :diaspora_handle => 'maxwell@joindiaspora.com')
+        message = FactoryGirl.create(:status_message,
                                  :author => alice.person,
                                  :text => "Hey @{maxwell@joindiaspora.com; #{new_person.diaspora_handle}}!")
         formatted = markdownify(message)
@@ -78,7 +78,7 @@ describe MarkdownifyHelper do
       end
 
       it 'should process text with both a hashtag and a link' do
-        message = Factory(:status_message,
+        message = FactoryGirl.create(:status_message,
                                  :author => alice.person,
                                  :text => "Test #tag?\nhttps://joindiaspora.com\n")
         formatted = markdownify(message)

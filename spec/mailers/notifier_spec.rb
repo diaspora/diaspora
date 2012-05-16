@@ -3,7 +3,7 @@ require 'spec_helper'
 describe Notifier do
   include ActionView::Helpers::TextHelper
 
-  let(:person) { Factory(:person) }
+  let(:person) { FactoryGirl.create(:person) }
 
   before do
     Notifier.deliveries = []
@@ -23,7 +23,7 @@ describe Notifier do
       before do
         @users = []
         5.times do
-          @users << Factory(:user)
+          @users << FactoryGirl.create(:user)
         end
       end
       it 'has a body' do
@@ -84,7 +84,7 @@ describe Notifier do
   describe ".mentioned" do
     before do
       @user = alice
-      @sm = Factory(:status_message)
+      @sm = FactoryGirl.create(:status_message)
       @m = Mention.create(:person => @user.person, :post=> @sm)
 
       @mail = Notifier.mentioned(@user.id, @sm.author.id, @m.id)
@@ -109,7 +109,7 @@ describe Notifier do
 
   describe ".liked" do
     before do
-      @sm = Factory(:status_message, :author => alice.person)
+      @sm = FactoryGirl.create(:status_message, :author => alice.person)
       @like = @sm.likes.create!(:author => bob.person)
       @mail = Notifier.liked(alice.id, @like.author.id, @like.id)
     end
@@ -131,13 +131,13 @@ describe Notifier do
     end
 
     it 'can handle a reshare' do
-      reshare = Factory(:reshare)
+      reshare = FactoryGirl.create(:reshare)
       like = reshare.likes.create!(:author => bob.person)
       mail = Notifier.liked(alice.id, like.author.id, like.id)
     end
 
     it 'can handle a activity streams photo' do
-      as_photo = Factory(:activity_streams_photo)
+      as_photo = FactoryGirl.create(:activity_streams_photo)
       like = as_photo.likes.create!(:author => bob.person)
       mail = Notifier.liked(alice.id, like.author.id, like.id)
     end
@@ -145,8 +145,8 @@ describe Notifier do
 
   describe ".reshared" do
     before do
-      @sm = Factory(:status_message, :author => alice.person, :public => true)
-      @reshare = Factory(:reshare, :root => @sm, :author => bob.person)
+      @sm = FactoryGirl.create(:status_message, :author => alice.person, :public => true)
+      @reshare = FactoryGirl.create(:reshare, :root => @sm, :author => bob.person)
       @mail = Notifier.reshared(alice.id, @reshare.author.id, @reshare.id)
     end
 
@@ -248,7 +248,7 @@ describe Notifier do
 
       [:reshare, :activity_streams_photo].each do |post_type|
         context post_type.to_s do
-          let(:commented_post) { Factory(post_type, :author => bob.person) }
+          let(:commented_post) { FactoryGirl.create(post_type, :author => bob.person) }
           it 'succeeds' do
             proc {
               comment_mail
@@ -288,7 +288,7 @@ describe Notifier do
       end
       [:reshare, :activity_streams_photo].each do |post_type|
         context post_type.to_s do
-          let(:commented_post) { Factory(post_type, :author => bob.person) }
+          let(:commented_post) { FactoryGirl.create(post_type, :author => bob.person) }
           it 'succeeds' do
             proc {
               comment_mail

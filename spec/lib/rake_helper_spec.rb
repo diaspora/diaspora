@@ -13,7 +13,7 @@ describe RakeHelpers do
     before do
       Devise.mailer.deliveries = []
       @old_admin = AppConfig[:admin_account]
-      AppConfig[:admin_account] = Factory(:user).username
+      AppConfig[:admin_account] = FactoryGirl.create(:user).username
     end
 
     after do

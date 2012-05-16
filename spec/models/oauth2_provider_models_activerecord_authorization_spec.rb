@@ -7,7 +7,7 @@ require 'spec_helper'
 describe OAuth2::Provider::Models::ActiveRecord::Authorization do
   describe 'validations'do
     before do
-      @client = Factory(:app)
+      @client = FactoryGirl.create(:app)
     end
 
     it 'validates uniqueness on resource owner and client' do

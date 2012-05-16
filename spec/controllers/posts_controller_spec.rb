@@ -36,7 +36,7 @@ describe PostsController do
       end
 
       it 'succeeds on mobile with a reshare' do
-        get :show, "id" => Factory(:reshare, :author => alice.person).id, :format => :mobile
+        get :show, "id" => FactoryGirl.create(:reshare, :author => alice.person).id, :format => :mobile
         response.should be_success
       end
 
@@ -50,7 +50,7 @@ describe PostsController do
       end
 
       it 'succeeds with a AS/photo' do
-        photo = Factory(:activity_streams_photo, :author => bob.person)
+        photo = FactoryGirl.create(:activity_streams_photo, :author => bob.person)
         get :show, :id => photo.id
         response.should be_success
       end

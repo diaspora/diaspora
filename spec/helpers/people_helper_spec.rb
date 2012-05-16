@@ -7,7 +7,7 @@ require 'spec_helper'
 describe PeopleHelper do
  before do
     @user = alice
-    @person = Factory(:person)
+    @person = FactoryGirl.create(:person)
   end
 
  describe "#person_image_link" do
@@ -32,7 +32,7 @@ describe PeopleHelper do
 
   describe '#person_link' do
     before do
-    @person = Factory(:person)
+    @person = FactoryGirl.create(:person)
     end
 
     it 'includes the name of the person if they have a first name' do
@@ -76,7 +76,7 @@ describe PeopleHelper do
 
   describe '#local_or_remote_person_path' do
     before do
-      @user = Factory(:user)
+      @user = FactoryGirl.create(:user)
     end
 
     it "links by id if there is a period in the user's username" do

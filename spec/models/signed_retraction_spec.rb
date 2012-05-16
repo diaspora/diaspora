@@ -2,9 +2,9 @@ require 'spec_helper'
 
 describe SignedRetraction do
   before do
-    @post = Factory(:status_message, :author => bob.person, :public => true)
-    @resharer = Factory(:user)
-    @post.reshares << Factory(:reshare, :root => @post, :author => @resharer.person)
+    @post = FactoryGirl.create(:status_message, :author => bob.person, :public => true)
+    @resharer = FactoryGirl.create(:user)
+    @post.reshares << FactoryGirl.create(:reshare, :root => @post, :author => @resharer.person)
     @post.save!
   end
   describe '#perform' do
@@ -20,7 +20,7 @@ describe SignedRetraction do
       retraction.perform(@resharer)
     end
     it 'relays the retraction onward even if the post does not exist' do
-      remote_post = Factory(:status_message, :public => true)
+      remote_post = FactoryGirl.create(:status_message, :public => true)
       bob.post(:reshare, :root_guid => remote_post.guid)
       alice.post(:reshare, :root_guid => remote_post.guid)
 

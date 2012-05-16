@@ -6,7 +6,7 @@ describe Participation do
       @status = bob.post(:status_message, :text => "hello", :to => bob.aspects.first.id)
 
       @local_luke, @local_leia, @remote_raphael = set_up_friends
-      @remote_parent = Factory(:status_message, :author => @remote_raphael)
+      @remote_parent = FactoryGirl.create(:status_message, :author => @remote_raphael)
       @local_parent = @local_luke.post :status_message, :text => "foobar", :to => @local_luke.aspects.first
 
       @object_by_parent_author = @local_luke.participate!(@local_parent)

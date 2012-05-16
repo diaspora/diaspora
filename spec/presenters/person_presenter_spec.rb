@@ -1,7 +1,7 @@
 require "spec_helper"
 
 describe PersonPresenter do
-  let(:profile_user) { Factory(:user_with_aspect) }
+  let(:profile_user) { FactoryGirl.create(:user_with_aspect) }
   let(:person) { profile_user.person }
 
   describe "#as_json" do
@@ -12,7 +12,7 @@ describe PersonPresenter do
     end
 
     context "with a current_user" do
-      let(:current_user) { Factory(:user)}
+      let(:current_user) { FactoryGirl.create(:user)}
       let(:presenter){ PersonPresenter.new(person, current_user) }
 
       it "doesn't share private information when the users aren't connected" do

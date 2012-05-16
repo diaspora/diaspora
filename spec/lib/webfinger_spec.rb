@@ -85,7 +85,7 @@ describe Webfinger do
 
   describe 'existing_person_with_profile?' do
     it 'returns true if cached_person is present and has a profile' do
-      finger.should_receive(:cached_person).twice.and_return(Factory(:person))
+      finger.should_receive(:cached_person).twice.and_return(FactoryGirl.create(:person))
       finger.existing_person_with_profile?.should be_true
     end
 
@@ -95,7 +95,7 @@ describe Webfinger do
     end
 
     it 'returns false if the person has no profile' do
-      p = Factory(:person)
+      p = FactoryGirl.create(:person)
       p.profile = nil
       finger.stub(:cached_person).and_return(p)
       finger.existing_person_with_profile?.should be_false

@@ -1,7 +1,7 @@
 require 'spec_helper'
 describe OEmbedPresenter do
   before do
-   @oembed = OEmbedPresenter.new(Factory(:status_message))
+   @oembed = OEmbedPresenter.new(FactoryGirl.create(:status_message))
   end
 
   it 'is a hash' do
@@ -10,7 +10,7 @@ describe OEmbedPresenter do
 
   context 'required options from oembed spec' do
     it 'supports maxheight + maxwidth(required)' do
-      oembed = OEmbedPresenter.new(Factory(:status_message), :maxwidth => 200, :maxheight => 300).as_json
+      oembed = OEmbedPresenter.new(FactoryGirl.create(:status_message), :maxwidth => 200, :maxheight => 300).as_json
       oembed[:width].should  == 200
       oembed[:height].should == 300
     end

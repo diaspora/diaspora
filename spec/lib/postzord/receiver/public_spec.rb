@@ -9,14 +9,14 @@ require File.join(Rails.root, 'lib/postzord/receiver/public')
 
 describe Postzord::Receiver::Public do
   before do
-    @post = Factory.build(:status_message, :author => alice.person, :public => true)
+    @post = FactoryGirl.build(:status_message, :author => alice.person, :public => true)
     @created_salmon = Salmon::Slap.create_by_user_and_activity(alice, @post.to_diaspora_xml)
     @xml = @created_salmon.xml_for(nil)
   end
 
   context 'round trips works with' do
     it 'a comment' do
-      comment = bob.build_comment(:text => 'yo', :post => Factory(:status_message))
+      comment = bob.build_comment(:text => 'yo', :post => FactoryGirl.create(:status_message))
       comment.save
       xml = Salmon::Slap.create_by_user_and_activity(bob, comment.to_diaspora_xml).xml_for(nil)
       comment.destroy
@@ -91,7 +91,7 @@ describe Postzord::Receiver::Public do
 
   describe '#receive_relayable' do 
     before do
-      @comment = bob.build_comment(:text => 'yo', :post => Factory(:status_message))
+      @comment = bob.build_comment(:text => 'yo', :post => FactoryGirl.create(:status_message))
       @comment.save
       created_salmon = Salmon::Slap.create_by_user_and_activity(alice, @comment.to_diaspora_xml)
       xml = created_salmon.xml_for(nil)

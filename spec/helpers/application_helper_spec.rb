@@ -7,7 +7,7 @@ require 'spec_helper'
 describe ApplicationHelper do
   before do
     @user = alice
-    @person = Factory(:person)
+    @person = FactoryGirl.create(:person)
   end
 
   describe "#contacts_link" do
@@ -18,7 +18,7 @@ describe ApplicationHelper do
     end
 
     it 'links to community spotlight' do
-      @current_user = Factory(:user)
+      @current_user = FactoryGirl.create(:user)
       contacts_link.should == community_spotlight_path
     end
 
@@ -39,7 +39,7 @@ describe ApplicationHelper do
     end
 
     it 'returns true if all networks are connected' do
-      3.times { |t| @current_user.services << Factory.build(:service) }
+      3.times { |t| @current_user.services << FactoryGirl.build(:service) }
       all_services_connected?.should be_true
     end
 

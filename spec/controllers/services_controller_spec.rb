@@ -27,7 +27,7 @@ describe ServicesController do
   describe '#index' do
     it 'displays all connected serivices for a user' do
       4.times do
-        Factory(:service, :user => @user)
+        FactoryGirl.create(:service, :user => @user)
       end
 
       get :index
@@ -97,7 +97,7 @@ describe ServicesController do
 
   describe '#destroy' do
     before do
-      @service1 = Factory(:service, :user => @user)
+      @service1 = FactoryGirl.create(:service, :user => @user)
     end
 
     it 'destroys a service selected by id' do

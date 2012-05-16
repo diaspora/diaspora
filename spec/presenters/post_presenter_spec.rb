@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe PostPresenter do
   before do
-    @sm = Factory(:status_message, :public => true)
+    @sm = FactoryGirl.create(:status_message, :public => true)
     @presenter = PostPresenter.new(@sm, bob)
     @unauthenticated_presenter = PostPresenter.new(@sm)
   end
@@ -45,7 +45,7 @@ describe PostPresenter do
   
   describe '#root' do
     it 'does not raise if the root does not exists' do
-      reshare = Factory :reshare
+      reshare = FactoryGirl.create:reshare
       reshare.root = nil
       expect {
         PostPresenter.new(reshare).root
