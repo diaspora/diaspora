@@ -11,6 +11,8 @@ Diaspora::Application.routes.draw do
   get "/landing" => 'hotlinks#log_referrer'
   get "/landing/*path" => 'hotlinks#log_referrer'
 
+  get "/atom.xml" => redirect('http://blog.diasporafoundation.org/feed/atom') #too many stupid redirects :()
+  
   get 'oembed' => 'posts#oembed', :as => 'oembed'
   # Posting and Reading
   resources :reshares
