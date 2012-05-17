@@ -2,6 +2,13 @@
 -#   licensed under the Affero General Public License version 3 or later.  See
 -#   the COPYRIGHT file.
 
+:javascript
+  $(document).ready(function () {
+  $("#new_message").bind('submit', function(event) {
+      return window.vc.encrypt_message(event)
+    })
+  });
+  
 .conversation_participants
   .right
     = link_to(image_tag('deletelabel.png'), conversation_visibility_path(conversation), :method => 'delete', :confirm => "#{t('.delete')}?", :title => t('.delete'))
