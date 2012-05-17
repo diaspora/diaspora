@@ -9,7 +9,7 @@ describe NotifierHelper do
   
   describe '#comment_message' do
     before do
-      @comment = FactoryGirl.create(:comment)
+      @comment = Factory(:comment)
     end
 
     it 'truncates the comment' do

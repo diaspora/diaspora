@@ -1,5 +1,5 @@
 Given /^a user with username "([^\"]*)" and password "([^\"]*)"$/ do |username, password|
-  @me ||= FactoryGirl.create(:user, :username => username, :password => password,
+  @me ||= Factory(:user, :username => username, :password => password,
                   :password_confirmation => password, :getting_started => false)
   @me.aspects.create(:name => "Besties")
   @me.aspects.create(:name => "Unicorns")
@@ -26,14 +26,14 @@ Given /^a nsfw user with email "([^\"]*)"$/ do |email|
 end
 
 Given /^I have been invited by an admin$/ do
-  admin = FactoryGirl.create(:user)
+  admin = Factory(:user)
   admin.invitation_code
   i = EmailInviter.new("new_invitee@example.com", admin)
   i.send!
 end
 
 Given /^I have been invited by bob$/ do
-  @inviter = FactoryGirl.create(:user, :email => 'bob@bob.bob')
+  @inviter = Factory(:user, :email => 'bob@bob.bob')
   @inviter_invite_count = @inviter.invitation_code.count
   i = EmailInviter.new("new_invitee@example.com", @inviter)
   i.send!
@@ -80,8 +80,8 @@ Given /^there is a user "([^\"]*)" who's tagged "([^\"]*)"$/ do |full_name, tag|
 end
 
 Given /^many posts from alice for bob$/ do
-  alice = FactoryGirl.create(:user_with_aspect, :username => 'alice', :email => 'alice@alice.alice', :password => 'password', :getting_started => false)
-  bob = FactoryGirl.create(:user_with_aspect, :username => 'bob', :email => 'bob@bob.bob', :password => 'password', :getting_started => false)
+  alice = Factory(:user_with_aspect, :username => 'alice', :email => 'alice@alice.alice', :password => 'password', :getting_started => false)
+  bob = Factory(:user_with_aspect, :username => 'bob', :email => 'bob@bob.bob', :password => 'password', :getting_started => false)
   connect_users_with_aspects(alice, bob)
   time_fulcrum = Time.now - 40000
   time_interval = 1000
@@ -132,7 +132,7 @@ end
 
 When /^"([^\"]+)" has posted a status message with a photo$/ do |email|
   user = User.find_for_database_authentication(:username => email)
-  post = FactoryGirl.create(:status_message_with_photo, :text => "Look at this dog", :author => user.person)
+  post = Factory(:status_message_with_photo, :text => "Look at this dog", :author => user.person)
   [post, post.photos.first].each do |p|
     user.add_to_streams(p, user.aspects)
     user.dispatch_post(p)
@@ -151,7 +151,7 @@ Given /^I have (\d+) contacts$/ do |n|
   aspect_memberships = []
 
   count.times do
-    person = FactoryGirl.create(:person)
+    person = Factory(:person)
     people << person
   end
 
@@ -175,7 +175,7 @@ When /^I view "([^\"]*)"'s first post$/ do |email|
 end
 
 Given /^I visit alice's invitation code url$/ do
-  @alice ||= FactoryGirl.create(:user, :username => 'alice', :getting_started => false)
+  @alice ||= Factory(:user, :username => 'alice', :getting_started => false)
   invite_code  = InvitationCode.find_or_create_by_user_id(@alice.id)
   visit invite_code_path(invite_code)
 end

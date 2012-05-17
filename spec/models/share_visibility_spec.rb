@@ -7,7 +7,7 @@ require 'spec_helper'
 describe ShareVisibility do
   describe '.batch_import' do
     before do
-      @post = FactoryGirl.create(:status_message, :author => alice.person)
+      @post = Factory(:status_message, :author => alice.person)
       @contact = bob.contact_for(alice.person)
     end
 

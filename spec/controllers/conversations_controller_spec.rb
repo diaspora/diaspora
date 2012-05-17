@@ -90,7 +90,7 @@ describe ConversationsController do
       end
 
       it 'sets the author to the current_user' do
-        @hash[:author] = FactoryGirl.create(:user)
+        @hash[:author] = Factory(:user)
         post :create, @hash
         Message.first.author.should == alice.person
         Conversation.first.author.should == alice.person

@@ -14,7 +14,7 @@ describe GettingStartedHelper do
 
   describe "#has_connected_cubbies?" do
     it 'returns true if the current user has connected cubbies to their account' do
-      @current_user.authorizations << FactoryGirl.create(:oauth_authorization)
+      @current_user.authorizations << Factory(:oauth_authorization)
       has_connected_cubbies?.should be_true
     end
 

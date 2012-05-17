@@ -4,7 +4,7 @@ Given /^(?:I am signed in|I sign in)$/ do
 end
 
 When /^I try to sign in$/ do
-  @me ||= FactoryGirl.create(:user_with_aspect, :getting_started => false)
+  @me ||= Factory(:user_with_aspect, :getting_started => false)
   page.driver.visit(new_integration_sessions_path(:user_id => @me.id))
   step %(I press "Login")
   # To save time as compared to:

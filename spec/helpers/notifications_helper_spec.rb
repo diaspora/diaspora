@@ -5,12 +5,12 @@ describe NotificationsHelper do
   include ApplicationHelper
 
   before do
-    @user = FactoryGirl.create(:user)
-    @person = FactoryGirl.create(:person)
-    @post = FactoryGirl.create(:status_message, :author => @user.person)
-    @person2 = FactoryGirl.create(:person)
-    @notification = Notification.notify(@user, FactoryGirl.create(:like, :author => @person, :target => @post), @person)
-    @notification =  Notification.notify(@user, FactoryGirl.create(:like, :author => @person2, :target => @post), @person2)
+    @user = Factory(:user)
+    @person = Factory(:person)
+    @post = Factory(:status_message, :author => @user.person)
+    @person2 = Factory(:person)
+    @notification = Notification.notify(@user, Factory(:like, :author => @person, :target => @post), @person)
+    @notification =  Notification.notify(@user, Factory(:like, :author => @person2, :target => @post), @person2)
   end
 
   describe '#notification_people_link' do
@@ -19,19 +19,19 @@ describe NotificationsHelper do
       let(:output){ strip_tags(notification_people_link(@note)) }
 
       before do
-        @max = FactoryGirl.create(:person)
+        @max = Factory(:person)
         @max.profile.first_name = 'max'
         @max.profile.last_name = 'salzberg'
-        @sarah = FactoryGirl.create(:person)
+        @sarah = Factory(:person)
         @sarah.profile.first_name = 'sarah'
         @sarah.profile.last_name = 'mei'
 
 
-        @daniel = FactoryGirl.create(:person)
+        @daniel = Factory(:person)
         @daniel.profile.first_name = 'daniel'
         @daniel.profile.last_name = 'grippi'
 
-        @ilya = FactoryGirl.create(:person)
+        @ilya = Factory(:person)
         @ilya.profile.first_name = 'ilya'
         @ilya.profile.last_name = 'zhit'
         @note = mock()

@@ -3,7 +3,7 @@ require 'spec_helper'
 describe Jobs::Receive do
   before do
     @user = alice
-    @person = FactoryGirl.create(:person)
+    @person = Factory(:person)
     @xml = '<xml></xml>'
     User.stub(:find){ |id|
       if id == @user.id

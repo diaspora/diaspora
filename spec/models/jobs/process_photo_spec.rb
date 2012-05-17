@@ -56,7 +56,7 @@ describe Jobs::ProcessPhoto do
   end
 
   it 'does not throw an error if it is called on a remote photo' do
-    p = FactoryGirl.create(:remote_photo)
+    p = Factory(:remote_photo)
     p.unprocessed_image = nil
     expect{
       result = Jobs::ProcessPhoto.perform(p.id)

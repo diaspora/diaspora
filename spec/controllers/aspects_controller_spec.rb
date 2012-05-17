@@ -98,7 +98,7 @@ describe AspectsController do
     end
 
     it "doesn't overwrite random attributes" do
-      new_user = FactoryGirl.create:user
+      new_user = Factory :user
       params = {"name" => "Bruisers"}
       params[:user_id] = new_user.id
       put('update', :id => @alices_aspect_1.id, "aspect" => params)
@@ -118,11 +118,11 @@ describe AspectsController do
       eve.profile.save
       eve.save
 
-      @zed = FactoryGirl.create(:user_with_aspect, :username => "zed")
+      @zed = Factory(:user_with_aspect, :username => "zed")
       @zed.profile.first_name = "zed"
       @zed.profile.save
       @zed.save
-      @katz = FactoryGirl.create(:user_with_aspect, :username => "katz")
+      @katz = Factory(:user_with_aspect, :username => "katz")
       @katz.profile.first_name = "katz"
       @katz.profile.save
       @katz.save

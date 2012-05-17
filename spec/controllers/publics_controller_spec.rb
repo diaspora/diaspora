@@ -8,7 +8,7 @@ describe PublicsController do
   let(:fixture_path) { File.join(Rails.root, 'spec', 'fixtures')}
   before do
     @user = alice
-    @person = FactoryGirl.create(:person)
+    @person = Factory(:person)
   end
 
   describe '#host_meta' do
@@ -55,7 +55,7 @@ describe PublicsController do
       aspect = @user.aspects.create(:name => 'foo')
       post1 = @user.post(:status_message, :text => 'moms', :to => [aspect.id])
       xml2 = post1.to_diaspora_xml
-      user2 = FactoryGirl.create(:user)
+      user2 = Factory(:user)
 
       salmon_factory = Salmon::EncryptedSlap.create_by_user_and_activity(@user, xml2)
       enc_xml = salmon_factory.xml_for(user2.person)

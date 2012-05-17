@@ -9,28 +9,28 @@ describe Reshare do
 
 
   it 'has a valid Factory' do
-    FactoryGirl.create(:reshare).should be_valid
+    Factory(:reshare).should be_valid
   end
 
   it 'requires root' do
-    reshare = FactoryGirl.build(:reshare, :root => nil)
+    reshare = Factory.build(:reshare, :root => nil)
     reshare.should_not be_valid
   end
 
   it 'require public root' do
-    reshare = FactoryGirl.build(:reshare, :root => FactoryGirl.build(:status_message, :public => false))
+    reshare = Factory.build(:reshare, :root => Factory.build(:status_message, :public => false))
     reshare.should_not be_valid
     reshare.errors[:base].should include('Only posts which are public may be reshared.')
   end
 
   it 'forces public' do
-    FactoryGirl.create(:reshare, :public => false).public.should be_true
+    Factory(:reshare, :public => false).public.should be_true
   end
 
   describe "#receive" do
     let(:receive) {@reshare.receive(@root.author.owner, @reshare.author)}
     before do
-      @reshare = FactoryGirl.create(:reshare, :root => FactoryGirl.create(:status_message, :author => bob.person, :public => true))
+      @reshare = Factory(:reshare, :root => Factory(:status_message, :author => bob.person, :public => true))
       @root = @reshare.root
     end
 
@@ -55,10 +55,10 @@ describe Reshare do
 
   describe '#nsfw' do
     before do
-      sfw  = FactoryGirl.create(:status_message, :author => alice.person, :public => true)
-      nsfw = FactoryGirl.create(:status_message, :author => alice.person, :public => true, :text => "This is #nsfw")
-      @sfw_reshare = FactoryGirl.create(:reshare, :root => sfw)
-      @nsfw_reshare = FactoryGirl.create(:reshare, :root => nsfw)
+      sfw  = Factory(:status_message, :author => alice.person, :public => true)
+      nsfw = Factory(:status_message, :author => alice.person, :public => true, :text => "This is #nsfw")
+      @sfw_reshare = Factory(:reshare, :root => sfw)
+      @nsfw_reshare = Factory(:reshare, :root => nsfw)
     end
 
     it 'deletates #nsfw to the root post' do
@@ -69,8 +69,8 @@ describe Reshare do
 
   describe '#notification_type' do
     before do
-      sm = FactoryGirl.create(:status_message, :author => alice.person, :public => true)
-      @reshare = FactoryGirl.create(:reshare, :root => sm)
+      sm = Factory(:status_message, :author => alice.person, :public => true)
+      @reshare = Factory(:reshare, :root => sm)
     end
     it 'does not return anything for non-author of the original post' do
       @reshare.notification_type(bob, @reshare.author).should be_nil
@@ -83,7 +83,7 @@ describe Reshare do
 
   describe "XML" do
     before do
-      @reshare = FactoryGirl.create(:reshare)
+      @reshare = Factory(:reshare)
       @xml = @reshare.to_xml.to_s
     end
 
@@ -121,7 +121,7 @@ describe Reshare do
 
       describe 'destroy' do
         it 'allows you to destroy the reshare if the root post is missing' do
-          reshare = FactoryGirl.create(:reshare)
+          reshare = Factory(:reshare)
           reshare.root = nil
           
           expect{
@@ -205,7 +205,7 @@ describe Reshare do
             @original_author = @reshare.root.author.dup
             @xml = @reshare.to_xml.to_s
 
-            different_person = FactoryGirl.create(:person)
+            different_person = Factory(:person)
 
             wf_prof_mock = mock
             wf_prof_mock.should_receive(:fetch).and_return(different_person)

@@ -6,7 +6,7 @@ require 'spec_helper'
 
 describe AdminsController do
   before do
-    @user = FactoryGirl.create:user
+    @user = Factory :user
     sign_in :user, @user
   end
 

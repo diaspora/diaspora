@@ -3,7 +3,7 @@ require 'spec_helper'
 describe Jobs::ResetPassword do
   describe "#perform" do
     it "given a user id it sends the reset password instructions for that user" do
-      user = FactoryGirl.create:user
+      user = Factory :user
       expect {
         mail = Jobs::ResetPassword.perform(user.id)
         mail.to.should == [user.email]

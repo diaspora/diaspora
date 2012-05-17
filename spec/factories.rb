@@ -30,24 +30,24 @@ FactoryGirl.define do
     sequence(:diaspora_handle) { |n| "bob-person-#{n}#{r_str}@example.net" }
     sequence(:url)  { |n| AppConfig[:pod_url] }
     serialized_public_key OpenSSL::PKey::RSA.generate(1024).public_key.export
-    after(:build) do |person|
-      person.profile = FactoryGirl.build(:profile, :person => person) unless person.profile.first_name.present?
+    after_build do |person|
+      person.profile = Factory.build(:profile, :person => person) unless person.profile.first_name.present?
     end
-    after(:create) do |person|
+    after_create do |person|
       person.profile.save
     end
   end
 
   factory :account_deletion do
     association :person
-    after(:build) do |delete|
+    after_build do |delete|
       delete.diaspora_handle = delete.person.diaspora_handle
     end
   end
 
   factory :searchable_person, :parent => :person do
-    after(:build) do |person|
-      person.profile = FactoryGirl.build(:profile, :person => person, :searchable => true)
+    after_build do |person|
+      person.profile = Factory.build(:profile, :person => person, :searchable => true)
     end
   end
 
@@ -63,20 +63,20 @@ FactoryGirl.define do
     password "bluepin7"
     password_confirmation { |u| u.password }
     serialized_private_key  OpenSSL::PKey::RSA.generate(1024).export
-    after(:build) do |u|
-      u.person = FactoryGirl.build(:person, :profile => FactoryGirl.build(:profile),
+    after_build do |u|
+      u.person = Factory.build(:person, :profile => Factory.build(:profile),
                                   :owner_id => u.id,
                                   :serialized_public_key => u.encryption_key.public_key.export,
                                   :diaspora_handle => "#{u.username}#{User.diaspora_id_host}")
     end
-    after(:create) do |u|
+    after_create do |u|
       u.person.save
       u.person.profile.save
     end
   end
 
   factory :user_with_aspect, :parent => :user do
-    after(:create) { |u| FactoryGirl.create(:aspect, :user => u) }
+    after_create { |u| Factory(:aspect, :user => u) }
   end
 
   factory :aspect do
@@ -87,22 +87,22 @@ FactoryGirl.define do
   factory(:status_message) do
     sequence(:text) { |n| "jimmy's #{n} whales" }
     association :author, :factory => :person
-    after(:build) do |sm|
+    after_build do |sm|
       sm.diaspora_handle = sm.author.diaspora_handle
     end
   end
 
   factory(:status_message_with_photo, :parent => :status_message) do
     sequence(:text) { |n| "There are #{n} ninjas in this photo." }
-    after(:build) do |sm|
-      FactoryGirl.create(:photo, :author => sm.author, :status_message => sm, :pending => false, :public => sm.public)
+    after_build do |sm|
+      Factory(:photo, :author => sm.author, :status_message => sm, :pending => false, :public => public)
     end
   end
 
   factory(:photo) do
     sequence(:random_string) {|n| SecureRandom.hex(10) }
     association :author, :factory => :person
-    after(:build) do |p|
+    after_build do |p|
       p.unprocessed_image.store! File.open(File.join(File.dirname(__FILE__), 'fixtures', 'button.png'))
       p.update_remote_path
     end
@@ -125,7 +125,7 @@ FactoryGirl.define do
     service "email"
     identifier "bob.smith@smith.com"
     association :sender, :factory => :user_with_aspect
-    after(:build) do |i|
+    after_build do |i|
       i.aspect = i.sender.aspects.first
     end
   end
@@ -163,8 +163,8 @@ FactoryGirl.define do
     association :target, :factory => :comment
     type 'Notifications::AlsoCommented'
 
-    after(:build) do |note|
-      note.actors << FactoryGirl.build(:person)
+    after_build do |note|
+      note.actors << Factory.build(:person)
     end
   end
 
@@ -225,8 +225,8 @@ FactoryGirl.define do
 
   #templates
   factory(:multi_photo, :parent => :status_message_with_photo) do
-    after(:build) do |sm|
-      2.times{ FactoryGirl.create(:photo, :author => sm.author, :status_message => sm, :pending => false, :public => sm.public)}
+    after_build do |sm|
+      2.times{ Factory(:photo, :author => sm.author, :status_message => sm, :pending => false, :public => public)}
     end
   end
 

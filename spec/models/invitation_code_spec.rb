@@ -2,17 +2,17 @@ require 'spec_helper'
 
 describe InvitationCode do
   it 'has a valid factory' do
-    FactoryGirl.create(:invitation_code).should be_valid
+    Factory(:invitation_code).should be_valid
   end
 
   it 'sets the count to a default value' do
-    code = FactoryGirl.create(:invitation_code)
+    code = Factory(:invitation_code)
     code.count.should > 0 
   end
 
   describe '#use!' do
     it 'decrements the count of the code' do
-      code = FactoryGirl.create(:invitation_code)
+      code = Factory(:invitation_code)
 
       expect{
         code.use!
@@ -22,7 +22,7 @@ describe InvitationCode do
 
   describe '.beta?' do
     it 'returns true if the invite code user is beta' do
-      code = FactoryGirl.create(:invitation_code)
+      code = Factory(:invitation_code)
       Role.add_beta(code.user.person)
       code.user.should be_beta
       code.should be_beta

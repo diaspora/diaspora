@@ -33,7 +33,7 @@ JSON
       @url = activity_streams_photos_path
     end
     it 'allows oauth authentication' do
-      token = FactoryGirl.create(:oauth_access_token)
+      token = Factory(:oauth_access_token)
       post @url, @json.merge!(:oauth_token => token.access_token)
       response.should be_success
     end

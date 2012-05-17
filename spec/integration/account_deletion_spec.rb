@@ -11,7 +11,7 @@ describe 'deleteing your account' do
 
       #@bob2's own content
       @bob2.post(:status_message, :text => 'asldkfjs', :to => @bob2.aspects.first)
-      f = FactoryGirl.create(:photo, :author => @bob2.person)
+      f = Factory(:photo, :author => @bob2.person)
 
       @aspect_vis = AspectVisibility.where(:aspect_id => @bob2.aspects.map(&:id))
 
@@ -35,20 +35,20 @@ describe 'deleteing your account' do
       # notifications
       @notifications = []
       3.times do |n|
-        @notifications << FactoryGirl.create(:notification, :recipient => @bob2)
+        @notifications << Factory(:notification, :recipient => @bob2)
       end
 
       # services
       @services = []
       3.times do |n|
-        @services << FactoryGirl.create(:service, :user => @bob2)
+        @services << Factory(:service, :user => @bob2)
       end
 
       # block
       @block = @bob2.blocks.create!(:person => eve.person)
 
       #authorization
-      @authorization = FactoryGirl.create(:oauth_authorization, :resource_owner => @bob2)
+      @authorization = Factory(:oauth_authorization, :resource_owner => @bob2)
 
       AccountDeleter.new(@bob2.person.diaspora_handle).perform!
       @bob2.reload
@@ -109,7 +109,7 @@ describe 'deleteing your account' do
 
       #posts
       @posts = (1..3).map do
-        FactoryGirl.create(:status_message, :author => @person)
+        Factory(:status_message, :author => @person)
       end
 
       @persons_sv = @posts.each do |post|
@@ -119,11 +119,11 @@ describe 'deleteing your account' do
       end
 
       #photos
-      @photo = FactoryGirl.create(:photo, :author => @person)
+      @photo = Factory(:photo, :author => @person)
 
       #mentions
       @mentions = 3.times do
-        FactoryGirl.create(:mention, :person => @person)
+        Factory(:mention, :person => @person)
       end
 
       #conversations

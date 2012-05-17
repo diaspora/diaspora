@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe TagFollowing do
   before do
-    @tag = FactoryGirl.create(:tag)
+    @tag = Factory(:tag)
     TagFollowing.create!(:tag => @tag, :user => alice)
   end
 

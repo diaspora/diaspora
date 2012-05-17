@@ -49,7 +49,7 @@ describe Request do
 
   describe '#notification_type' do
     it 'returns request_accepted' do
-      person = FactoryGirl.create:person
+      person = Factory :person
 
       request = Request.diaspora_initialize(:from => alice.person, :to => eve.person, :into => @aspect)
       alice.contacts.create(:person_id => person.id)
@@ -120,7 +120,7 @@ describe Request do
       alice.auto_follow_back_aspect = alice.aspects.first
       alice.save
       
-      contact = FactoryGirl.create:contact, :user => alice, :person => eve.person,
+      contact = Factory :contact, :user => alice, :person => eve.person,
                                   :receiving => true, :sharing => false
       contact.save
       
