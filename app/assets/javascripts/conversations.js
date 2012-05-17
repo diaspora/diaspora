@@ -6,7 +6,6 @@ jQuery(function($) {
 	window.vc = new view_controller()
 
 	$("#entropy-div").hide()		
-	//$("#instruction").text("Encryption and signing keys are in place.")
 		
 	if(window.current_user_attributes.key_ring) {
 		$("#entropy-div").show()
@@ -32,7 +31,6 @@ function view_controller() {"use strict"
 			sjcl.random.stopCollectors()
 			$(window).unbind('mousemove', window.vc.collect)
 			$("#entropy-div").hide()
-			//$("#instruction").hide()
 		} else {
 			var percentage = progress * 100;
 			$("#entropy").text(percentage.toFixed(0) + "%")
@@ -71,5 +69,37 @@ function view_controller() {"use strict"
 		}
 				
 		return true
+	}
+	
+	this.decrypt_conversations = function() {
+		$('#conversation_show .ltr p').each(function(index) {
+			var msg
+			
+			try {
+				msg = JSON.parse(Base64.decode($(this).text()))
+			} catch (e) {
+				return true
+			}
+			
+			var sec = JSON.parse(sjcl.decrypt($("#passphrase").val(), window.current_user_attributes.key_ring.key_ring.secured_encryption_key))
+			var bn = sjcl.bn.fromBits(sec.exponent)
+			sec = new sjcl.ecc.elGamal.secretKey(sec.curve, sjcl.ecc.curves['c'+sec.curve], bn)
+			
+			var sym = JSON.parse(sjcl.decrypt(sec, msg.message_keys[window.current_user_attributes.key_ring.key_ring.person_id]))
+			var message = sjcl.decrypt(sym, msg.encrypted_message)
+			
+			var subject
+			try {
+				subject = sjcl.decrypt(sym, msg.encrypted_subject)
+			} catch (e) {
+				// do nothing
+			}
+			
+			$(this).text(message)
+			
+			if(subject) {
+				$("#conversation_inbox .conversation .selected .ltr").text(subject)
+			}
+		})
 	}
 }

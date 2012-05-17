@@ -4,35 +4,7 @@ $(".stream_element", "#conversation_inbox").removeClass('selected');
 $(".stream_element[data-guid='<%= @conversation.id %>']", "#conversation_inbox").addClass('selected');
 $(".stream_element[data-guid='<%= @conversation.id %>']", "#conversation_inbox").find(".unread_message_count").remove()
 
-$('#conversation_show .ltr p').each(function(index) {
-	var msg
-	
-	try {
-		msg = JSON.parse(Base64.decode($(this).text()))
-	} catch (e) {
-		return true
-	}
-	
-	var sec = JSON.parse(sjcl.decrypt($("#passphrase").val(), window.current_user_attributes.key_ring.key_ring.secured_encryption_key))
-	var bn = sjcl.bn.fromBits(sec.exponent)
-	sec = new sjcl.ecc.elGamal.secretKey(sec.curve, sjcl.ecc.curves['c'+sec.curve], bn)
-	
-	var sym = JSON.parse(sjcl.decrypt(sec, msg.message_keys[window.current_user_attributes.key_ring.key_ring.person_id]))
-	var message = sjcl.decrypt(sym, msg.encrypted_message)
-	
-	var subject
-	try {
-		subject = sjcl.decrypt(sym, msg.encrypted_subject)
-	} catch (e) {
-		// do nothing
-	}
-	
-	$(this).text(message)
-	
-	if(subject) {
-		$("#conversation_inbox .conversation .selected .ltr").text(subject)
-	}
-})
+window.vc.decrypt_conversations()
 
 Diaspora.page.timeAgo.updateTimeAgo();
 
