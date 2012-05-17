@@ -132,6 +132,45 @@ describe("app.pages.Profile", function(){
     })
   })
 
+  describe("composing", function(){
+    beforeEach(function(){
+      this.page.model.set({is_own_profile : true})
+      this.page.render()
+
+      /* stub navigation changes */
+      spyOn(app.router, "navigate")
+    })
+
+    describe("invoking the interaction", function(){
+      it("shows the publisher and disables the body from scrolling", function(){
+        expect(this.page.$("#composer")).toHaveClass('hidden')
+        this.page.$("#composer-button").click()
+        expect(this.page.$("#composer")).not.toHaveClass('hidden')
+        expect($("body")).toHaveClass('lock')
+      })
+
+      it("changes the URL", function(){
+        this.page.$("#composer-button").click()
+        expect(app.router.navigate).toHaveBeenCalled()
+      })
+    })
+
+    describe("revoking the interaction", function(){
+      beforeEach(function(){
+        /* invoke the composer */
+        this.page.$("#composer-button").click()
+
+        this.evt = Event
+        this.evt.keyCode = 28
+      })
+
+      it("changes the URL", function(){
+        $(window).trigger("keydown", this.evt)
+        expect(app.router.navigate).toHaveBeenCalled()
+      })
+    })
+  });
+
   describe("followingEnabled", function(){
     /* for legacy beta testers */
     it("returns false if following_count is zero", function(){

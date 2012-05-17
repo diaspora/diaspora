@@ -23,13 +23,21 @@ app.pages.Framer = app.views.Base.extend({
   },
 
   navigateNext : function(){
-    if(parent.location.pathname == '/new_bookmarklet'){
-       parent.close()
+    if(parent.location.pathname == '/new_bookmarklet') {
+      this.bookmarkletNavigation()
     } else {
-      var url = app.currentUser.expProfileUrl()
-//      app.router.navigate(url, {trigger: true, replace: true})
-      //window.location = app.currentUser.expProfileUrl();
+      this.defaultNavigation()
     }
+  },
+
+  bookmarkletNavigation : function() {
+    parent.close()
+  },
+
+  defaultNavigation : function() {
+    var url = app.currentUser.expProfileUrl()
+    app.router.navigate(url, {trigger: true, replace: true})
+    //window.location = app.currentUser.expProfileUrl()
   }
 });
 
