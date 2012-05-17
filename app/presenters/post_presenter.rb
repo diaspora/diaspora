@@ -63,7 +63,7 @@ class PostPresenter
   end
 
   def root
-    PostPresenter.new(@post.root, current_user).as_json if @post.respond_to?(:root) && @post.root.present?
+    PostPresenter.new(@post.absolute_root, current_user).as_json if @post.respond_to?(:root) && @post.root.present?
   end
 
   def user_like
@@ -83,6 +83,7 @@ class PostPresenter
   def user_signed_in?
     @current_user.present?
   end
+
 end
 
 class PostInteractionPresenter
