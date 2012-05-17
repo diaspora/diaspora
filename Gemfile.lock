@@ -63,7 +63,7 @@ GEM
       activemodel (>= 3.0.0)
       activesupport (>= 3.0.0)
       rack (>= 1.1.0)
-    addressable (2.2.4)
+    addressable (2.2.8)
     airbrake (3.0.9)
       activesupport
       builder
@@ -444,8 +444,8 @@ GEM
       rack (>= 1.0.0)
     warden (1.2.0)
       rack (>= 1.0)
-    webmock (1.6.2)
-      addressable (>= 2.2.2)
+    webmock (1.8.7)
+      addressable (>= 2.2.7)
       crack (>= 0.1.7)
     whenever (0.7.3)
       activesupport (>= 2.3.4)
@@ -463,7 +463,7 @@ DEPENDENCIES
   activerecord-import (~> 0.2.9)
   acts-as-taggable-on (~> 2.2.2)
   acts_as_api
-  addressable (= 2.2.4)
+  addressable (~> 2.2)
   airbrake
   asset_sync
   bootstrap-sass (~> 2.0.2)
@@ -549,7 +549,7 @@ DEPENDENCIES
   typhoeus
   uglifier
   unicorn (~> 4.3.0)
-  webmock
+  webmock (~> 1.7)
   whenever
   will_paginate
   yard

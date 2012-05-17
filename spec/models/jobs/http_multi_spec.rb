@@ -2,16 +2,17 @@ require 'spec_helper'
 
 describe Jobs::HttpMulti do
   before :all do
+    WebMock.disable_net_connect!(:allow_localhost => true)
     enable_typhoeus
   end
   after :all do
     disable_typhoeus
+    WebMock.disable_net_connect!
   end
 
   before do
     @people = [Factory(:person), Factory(:person)]
     @post_xml = Base64.encode64("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAH")
-
 
     @hydra = Typhoeus::Hydra.new
     @response = Typhoeus::Response.new(:code => 200, :headers => "", :body => "", :time => 0.2, :effective_url => 'http://foobar.com')
@@ -71,6 +72,8 @@ describe Jobs::HttpMulti do
     person = @people.first
     person.url = 'http://remote.net/'
     person.save
+
+    stub_request(:post, person.receive_url).to_return(:status=>200, :body=>"", :headers=>{})
     response = Typhoeus::Response.new(:code => 301,:effective_url => 'https://foobar.com', :headers_hash => {"Location" => person.receive_url.sub('http://', 'https://')}, :body => "", :time => 0.2)
     @hydra.stub(:post, person.receive_url).and_return(response)
 
