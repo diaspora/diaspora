@@ -9,25 +9,23 @@ app.views.Canvas = app.views.Base.extend(_.extend({}, app.views.infiniteScrollMi
   },
 
   renderTemplate : function() {
-    this.stream.deferred.done(_.bind(function(){
-      if(this.stream.items.isEmpty()){
-        var message
-          , person = app.page.model
-        if(person.get("is_own_profile")){
-          message = "Make something to start the magic."
-        } else {
-          var name = person.get("name") || ""
-          message = name + " hasn't posted anything yet."
-        }
-
-        this.$el.html("<p class='no-post-message'>" + message + "</p>")
+    if(this.stream.items.isEmpty()){
+      var message
+        , person = app.page.model
+      if(person.get("is_own_profile")){
+        message = "Make something to start the magic."
       } else {
-        this.renderInitialPosts()
+        var name = person.get("name") || ""
+        message = name + " hasn't posted anything yet."
       }
 
-      //needs to be deferred so it happens after html rendering finishes
-      _.defer(_.bind(this.mason, this))
-    }, this))
+      this.$el.html("<p class='no-post-message'>" + message + "</p>")
+    } else {
+      this.renderInitialPosts()
+    }
+
+    //needs to be deferred so it happens after html rendering finishes
+    _.defer(_.bind(this.mason, this))
   },
 
   addPostView : function(post) {

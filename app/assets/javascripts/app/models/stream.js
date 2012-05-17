@@ -59,14 +59,11 @@ app.models.Stream = Backbone.Collection.extend({
   },
 
   preloadOrFetch : function(){ //hai, plz test me THNX
-    app.hasPreload("stream") ? this.preload() : this.fetch()
-    return this.deferred
+    return $.when(app.hasPreload("stream") ? this.preload() : this.fetch())
   },
 
   preload : function(){
     this.items.reset(app.parsePreload("stream"))
     this.trigger("fetched")
-
-    this.deferred = $.when(true)
   }
 });
