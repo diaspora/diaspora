@@ -1,8 +1,0 @@
-This is a (very very) simple OAuth2 client, designed to work with the Diaspora tests.  To get it running, cd to the client folder, then run:
-
-1) bundle install
-2) bundle exec rackup
-
-This should start the client on port 9292
-
-Assuming an example server is running (such as the one in examples/rails3-example), visit http://localhost:9292.  To read content from the server you'll be asked to login (tomafro/secret) and then authorize the client.  Finally some very simple content from the server will be shown.

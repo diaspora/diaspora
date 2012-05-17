@@ -66,7 +66,6 @@ gem 'carrierwave', '0.5.8'
 gem 'fog'
 gem 'fastercsv', '1.5.4', :require => false
 gem 'mini_magick', '3.4'
-gem 'rest-client', '1.6.7'
 
 # JSON and API
 
@@ -136,7 +135,6 @@ gem 'jquery-rails'
 
 gem 'faraday'
 gem 'faraday_middleware'
-gem 'em-synchrony', '1.0.0', :platforms => :ruby_19
 
 
 gem 'jasmine', :git => 'git://github.com/pivotal/jasmine-gem.git'
@@ -148,7 +146,6 @@ group :test do
   gem 'capybara', '~> 1.1.2'
   gem 'cucumber-rails', '1.3.0', :require => false
   gem 'database_cleaner', '0.7.1'
-  gem 'diaspora-client', :git => 'git://github.com/diaspora/diaspora-client.git'
 
   gem 'timecop'
                           #"0.1.0", #:path => '~/workspace/diaspora-client'
