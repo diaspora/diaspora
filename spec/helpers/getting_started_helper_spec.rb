@@ -12,17 +12,6 @@ describe GettingStartedHelper do
     @current_user
   end
 
-  describe "#has_connected_cubbies?" do
-    it 'returns true if the current user has connected cubbies to their account' do
-      @current_user.authorizations << Factory(:oauth_authorization)
-      has_connected_cubbies?.should be_true
-    end
-
-    it 'returns false if the current user has not connected cubbies to their account' do
-      has_connected_cubbies?.should be_false
-    end
-  end
-
   describe "#has_completed_getting_started?" do
     it 'returns true if the current user has completed getting started' do
       @current_user.getting_started = false

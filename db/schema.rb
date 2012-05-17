@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120510184853) do
+ActiveRecord::Schema.define(:version => 20120517014034) do
 
   create_table "account_deletions", :force => true do |t|
     t.string  "diaspora_handle"
@@ -21,8 +21,8 @@ ActiveRecord::Schema.define(:version => 20120510184853) do
   create_table "aspect_memberships", :force => true do |t|
     t.integer  "aspect_id",  :null => false
     t.integer  "contact_id", :null => false
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   add_index "aspect_memberships", ["aspect_id", "contact_id"], :name => "index_aspect_memberships_on_aspect_id_and_contact_id", :unique => true
@@ -32,8 +32,8 @@ ActiveRecord::Schema.define(:version => 20120510184853) do
   create_table "aspect_visibilities", :force => true do |t|
     t.integer  "shareable_id",                       :null => false
     t.integer  "aspect_id",                          :null => false
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",                         :null => false
+    t.datetime "updated_at",                         :null => false
     t.string   "shareable_type", :default => "Post", :null => false
   end
 
@@ -44,8 +44,8 @@ ActiveRecord::Schema.define(:version => 20120510184853) do
   create_table "aspects", :force => true do |t|
     t.string   "name",                               :null => false
     t.integer  "user_id",                            :null => false
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",                         :null => false
+    t.datetime "updated_at",                         :null => false
     t.boolean  "contacts_visible", :default => true, :null => false
     t.integer  "order_id"
   end
@@ -65,8 +65,8 @@ ActiveRecord::Schema.define(:version => 20120510184853) do
     t.string   "guid",                                                      :null => false
     t.text     "author_signature"
     t.text     "parent_author_signature"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",                                                :null => false
+    t.datetime "updated_at",                                                :null => false
     t.integer  "likes_count",                           :default => 0,      :null => false
     t.string   "commentable_type",        :limit => 60, :default => "Post", :null => false
   end
@@ -78,8 +78,8 @@ ActiveRecord::Schema.define(:version => 20120510184853) do
   create_table "contacts", :force => true do |t|
     t.integer  "user_id",                       :null => false
     t.integer  "person_id",                     :null => false
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",                    :null => false
+    t.datetime "updated_at",                    :null => false
     t.boolean  "sharing",    :default => false, :null => false
     t.boolean  "receiving",  :default => false, :null => false
   end
@@ -91,8 +91,8 @@ ActiveRecord::Schema.define(:version => 20120510184853) do
     t.integer  "conversation_id",                :null => false
     t.integer  "person_id",                      :null => false
     t.integer  "unread",          :default => 0, :null => false
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",                     :null => false
+    t.datetime "updated_at",                     :null => false
   end
 
   add_index "conversation_visibilities", ["conversation_id", "person_id"], :name => "index_conversation_visibilities_usefully", :unique => true
@@ -103,18 +103,16 @@ ActiveRecord::Schema.define(:version => 20120510184853) do
     t.string   "subject"
     t.string   "guid",       :null => false
     t.integer  "author_id",  :null => false
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
-
-  add_index "conversations", ["author_id"], :name => "conversations_author_id_fk"
 
   create_table "invitation_codes", :force => true do |t|
     t.string   "token"
     t.integer  "user_id"
     t.integer  "count"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "invitations", :force => true do |t|
@@ -122,8 +120,8 @@ ActiveRecord::Schema.define(:version => 20120510184853) do
     t.integer  "sender_id"
     t.integer  "recipient_id"
     t.integer  "aspect_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",                      :null => false
+    t.datetime "updated_at",                      :null => false
     t.string   "service"
     t.string   "identifier"
     t.boolean  "admin",        :default => false
@@ -141,12 +139,11 @@ ActiveRecord::Schema.define(:version => 20120510184853) do
     t.string   "guid"
     t.text     "author_signature"
     t.text     "parent_author_signature"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",                                              :null => false
+    t.datetime "updated_at",                                              :null => false
     t.string   "target_type",             :limit => 60,                   :null => false
   end
 
-  add_index "likes", ["author_id"], :name => "likes_author_id_fk"
   add_index "likes", ["guid"], :name => "index_likes_on_guid", :unique => true
   add_index "likes", ["target_id", "author_id", "target_type"], :name => "index_likes_on_target_id_and_author_id_and_target_type", :unique => true
   add_index "likes", ["target_id"], :name => "index_likes_on_post_id"
@@ -165,20 +162,19 @@ ActiveRecord::Schema.define(:version => 20120510184853) do
     t.integer  "author_id",               :null => false
     t.string   "guid",                    :null => false
     t.text     "text",                    :null => false
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",              :null => false
+    t.datetime "updated_at",              :null => false
     t.text     "author_signature"
     t.text     "parent_author_signature"
   end
 
   add_index "messages", ["author_id"], :name => "index_messages_on_author_id"
-  add_index "messages", ["conversation_id"], :name => "messages_conversation_id_fk"
 
   create_table "notification_actors", :force => true do |t|
     t.integer  "notification_id"
     t.integer  "person_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
   end
 
   add_index "notification_actors", ["notification_id", "person_id"], :name => "index_notification_actors_on_notification_id_and_person_id", :unique => true
@@ -190,8 +186,8 @@ ActiveRecord::Schema.define(:version => 20120510184853) do
     t.integer  "target_id"
     t.integer  "recipient_id",                   :null => false
     t.boolean  "unread",       :default => true, :null => false
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",                     :null => false
+    t.datetime "updated_at",                     :null => false
     t.string   "type"
   end
 
@@ -204,52 +200,7 @@ ActiveRecord::Schema.define(:version => 20120510184853) do
     t.text   "data",                 :null => false
   end
 
-  add_index "o_embed_caches", ["url"], :name => "index_o_embed_caches_on_url", :length => {"url"=>255}
-
-  create_table "oauth_access_tokens", :force => true do |t|
-    t.integer  "authorization_id",                :null => false
-    t.string   "access_token",     :limit => 127, :null => false
-    t.string   "refresh_token",    :limit => 127
-    t.datetime "expires_at"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "oauth_authorization_codes", :force => true do |t|
-    t.integer  "authorization_id",                :null => false
-    t.string   "code",             :limit => 127, :null => false
-    t.datetime "expires_at"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.string   "redirect_uri"
-  end
-
-  create_table "oauth_authorizations", :force => true do |t|
-    t.integer  "client_id",                         :null => false
-    t.integer  "resource_owner_id"
-    t.string   "resource_owner_type", :limit => 32
-    t.string   "scope"
-    t.datetime "expires_at"
-  end
-
-  add_index "oauth_authorizations", ["resource_owner_id", "resource_owner_type", "client_id"], :name => "index_oauth_authorizations_on_resource_owner_and_client_id", :unique => true
-
-  create_table "oauth_clients", :force => true do |t|
-    t.string "name",                 :limit => 127, :null => false
-    t.text   "description",                         :null => false
-    t.string "application_base_url", :limit => 127, :null => false
-    t.string "icon_url",             :limit => 127, :null => false
-    t.string "oauth_identifier",     :limit => 127, :null => false
-    t.string "oauth_secret",         :limit => 127, :null => false
-    t.string "nonce",                :limit => 127
-    t.text   "public_key",                          :null => false
-    t.text   "permissions_overview",                :null => false
-    t.string "oauth_redirect_uri"
-  end
-
-  add_index "oauth_clients", ["application_base_url"], :name => "index_oauth_clients_on_application_base_url", :unique => true
-  add_index "oauth_clients", ["name"], :name => "index_oauth_clients_on_name", :unique => true
-  add_index "oauth_clients", ["nonce"], :name => "index_oauth_clients_on_nonce", :unique => true
+  add_index "o_embed_caches", ["url"], :name => "index_o_embed_caches_on_url"
 
   create_table "participations", :force => true do |t|
     t.string   "guid"
@@ -258,8 +209,8 @@ ActiveRecord::Schema.define(:version => 20120510184853) do
     t.integer  "author_id"
     t.text     "author_signature"
     t.text     "parent_author_signature"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",                            :null => false
+    t.datetime "updated_at",                            :null => false
   end
 
   add_index "participations", ["guid"], :name => "index_participations_on_guid"
@@ -271,8 +222,8 @@ ActiveRecord::Schema.define(:version => 20120510184853) do
     t.string   "diaspora_handle",                          :null => false
     t.text     "serialized_public_key",                    :null => false
     t.integer  "owner_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",                               :null => false
+    t.datetime "updated_at",                               :null => false
     t.boolean  "closed_account",        :default => false
   end
 
@@ -306,8 +257,8 @@ ActiveRecord::Schema.define(:version => 20120510184853) do
   create_table "pods", :force => true do |t|
     t.string   "host"
     t.boolean  "ssl"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "posts", :force => true do |t|
@@ -322,8 +273,8 @@ ActiveRecord::Schema.define(:version => 20120510184853) do
     t.string   "remote_photo_name"
     t.string   "random_string"
     t.string   "processed_image"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",                                             :null => false
+    t.datetime "updated_at",                                             :null => false
     t.string   "unprocessed_image"
     t.string   "object_url"
     t.string   "image_url"
@@ -364,8 +315,8 @@ ActiveRecord::Schema.define(:version => 20120510184853) do
     t.text     "bio"
     t.boolean  "searchable",                      :default => true,  :null => false
     t.integer  "person_id",                                          :null => false
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",                                         :null => false
+    t.datetime "updated_at",                                         :null => false
     t.string   "location"
     t.string   "full_name",        :limit => 70
     t.boolean  "nsfw",                            :default => false
@@ -383,8 +334,8 @@ ActiveRecord::Schema.define(:version => 20120510184853) do
     t.string   "table"
     t.integer  "month",      :limit => 2
     t.integer  "year",       :limit => 8
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",              :null => false
+    t.datetime "updated_at",              :null => false
   end
 
   add_index "rails_admin_histories", ["item", "table", "month", "year"], :name => "index_rails_admin_histories"
@@ -392,8 +343,8 @@ ActiveRecord::Schema.define(:version => 20120510184853) do
   create_table "roles", :force => true do |t|
     t.integer  "person_id"
     t.string   "name"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "services", :force => true do |t|
@@ -403,8 +354,8 @@ ActiveRecord::Schema.define(:version => 20120510184853) do
     t.string   "access_token"
     t.string   "access_secret"
     t.string   "nickname"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",                   :null => false
+    t.datetime "updated_at",                   :null => false
   end
 
   add_index "services", ["type", "uid"], :name => "index_services_on_type_and_uid"
@@ -412,8 +363,8 @@ ActiveRecord::Schema.define(:version => 20120510184853) do
 
   create_table "share_visibilities", :force => true do |t|
     t.integer  "shareable_id",                                     :null => false
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",                                       :null => false
+    t.datetime "updated_at",                                       :null => false
     t.boolean  "hidden",                       :default => false,  :null => false
     t.integer  "contact_id",                                       :null => false
     t.string   "shareable_type", :limit => 60, :default => "Post", :null => false
@@ -427,8 +378,8 @@ ActiveRecord::Schema.define(:version => 20120510184853) do
   create_table "tag_followings", :force => true do |t|
     t.integer  "tag_id",     :null => false
     t.integer  "user_id",    :null => false
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   add_index "tag_followings", ["tag_id", "user_id"], :name => "index_tag_followings_on_tag_id_and_user_id", :unique => true
@@ -459,8 +410,8 @@ ActiveRecord::Schema.define(:version => 20120510184853) do
   create_table "user_preferences", :force => true do |t|
     t.string   "email_type"
     t.integer  "user_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "users", :force => true do |t|
@@ -481,8 +432,8 @@ ActiveRecord::Schema.define(:version => 20120510184853) do
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",                                                           :null => false
+    t.datetime "updated_at",                                                           :null => false
     t.string   "invitation_service",                 :limit => 127
     t.string   "invitation_identifier",              :limit => 127
     t.integer  "invitation_limit"

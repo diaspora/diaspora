@@ -180,25 +180,6 @@ FactoryGirl.define do
     public true
   end
 
-  factory(:app, :class => OAuth2::Provider.client_class) do
-    sequence(:name) { |token| "Chubbies#{token}" }
-    sequence(:application_base_url) { |token| "http://chubbi#{token}.es/" }
-
-    description "The best way to chub on the ne"
-    icon_url "/assets/chubbies48.png"
-    permissions_overview "I will use the permissions this way!"
-    sequence(:public_key) {|n| OpenSSL::PKey::RSA.new(2048) }
-  end
-
-  factory(:oauth_authorization, :class => OAuth2::Provider.authorization_class) do
-    association(:client, :factory => :app)
-    association(:resource_owner, :factory => :user)
-  end
-
-  factory(:oauth_access_token, :class => OAuth2::Provider.access_token_class) do
-    association(:authorization, :factory => :oauth_authorization)
-  end
-
   factory(:tag, :class => ActsAsTaggableOn::Tag) do
     name "partytimeexcellent"
   end

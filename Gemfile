@@ -6,10 +6,11 @@ ruby '1.9.3' if ENV['HEROKU']
 gem 'rails', '3.2.2'
 
 gem 'foreman', '0.41'
-gem 'whenever'
+
+gem 'whenever' #why is this in the bundle
 
 gem 'rails_autolink'
-gem 'thin', '~> 1.3.1',    :require => false
+gem 'thin', '~> 1.3.1',    :require => false #why is this here?
 
 # cross-origin resource sharing
 
@@ -18,8 +19,7 @@ gem 'rack-cors', '~> 0.2.4', :require => 'rack/cors'
 # authentication
 
 gem 'devise', '1.5.3'
-gem 'jwt'
-gem 'oauth2-provider', '0.0.19'
+
 gem 'remotipart', '~> 1.0'
 
 gem 'omniauth', '1.0.3'
@@ -90,6 +90,7 @@ gem 'resque', '1.20.0'
 gem 'resque-timeout', '1.0.0'
 gem 'SystemTimer', '1.2.3', :platforms => :ruby_18
 
+gem 'rest-client' #why, need to switch to faraday
 # tags
 
 gem 'acts-as-taggable-on', '~> 2.2.2'
@@ -148,11 +149,9 @@ group :test do
   gem 'database_cleaner', '0.7.1'
 
   gem 'timecop'
-                          #"0.1.0", #:path => '~/workspace/diaspora-client'
   gem 'factory_girl_rails', '1.7.0'
   gem 'fixture_builder', '0.3.3'
   gem 'fuubar', '>= 1.0'
-  gem 'mongrel', :require => false, :platforms => :ruby_18
   gem 'rspec', '>= 2.0.0'
   gem 'rspec-core', '~> 2.9.0'
   gem 'rspec-instafail', '>= 0.1.7', :require => false
@@ -167,6 +166,9 @@ group :test do
   gem 'guard-rspec'
   gem 'guard-spork'
   gem 'guard-cucumber'
+
+
+  gem 'mongrel', :require => false, :platforms => :ruby_18 #why
 end
 
 group :test, :development do
