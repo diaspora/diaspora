@@ -13,19 +13,25 @@ app.pages.Framer = app.views.Base.extend({
     this.model.authorIsCurrentUser = function(){ return true }
 
     this.model.bind("change", this.render, this)
-    this.model.bind("sync", this.navigateToShow, this)
+    this.model.bind("sync", this.navigateNext, this)
 
     this.framerControls = new app.views.framerControls({model : this.model})
   },
 
   postView : function(){
-    return app.views.Post.showFactory(this.model)
+    return new app.views.SmallFrame({model : this.model})
   },
 
-  navigateToShow : function(){
-    app.router.navigate(app.currentUser.expProfileUrl(), {trigger: true, replace: true})
+  navigateNext : function(){
+    if(parent.location.pathname == '/new_bookmarklet'){
+       parent.close()
+    } else {
+      var url = app.currentUser.expProfileUrl()
+//      app.router.navigate(url, {trigger: true, replace: true})
+      //window.location = app.currentUser.expProfileUrl();
+    }
   }
-})
+});
 
 app.views.framerControls = app.views.Base.extend({
   templateName : 'framer-controls',
@@ -39,30 +45,12 @@ app.views.framerControls = app.views.Base.extend({
   },
 
   initialize : function(){
-    this.templatePicker = new app.views.TemplatePicker({ model: this.model })
+    this.templatePicker = new app.views.TemplatePicker({model: this.model})
   },
 
   saveFrame : function(){
     this.$('button').prop('disabled', 'disabled')
-    this.$('button').addClass('disabled')
-    // this is gross hack to make this action work in the iframe version and not iframe version.
-    var callback = {}
-    var parentDoc = parent;
-    var parentPath = parentDoc.location.pathname
-
-    if(parentPath == '/new_bookmarklet'){
-      callback.success = function(){ parentDoc.close() }
-    } else if(parentPath != '/framer'){
-      callback.success = function(){ parentDoc.goToCurrentUserProfile() }
-    } else{
-      // do nothing, and let the navigate event fire
-    }
-
-    this.model.save({}, callback)
+                    .addClass('disabled')
+    this.model.save()
   }
 });
-
-//crazy hack for model publisher.
-function goToCurrentUserProfile(){
-  location = "/people/" + app.currentUser.get("guid")
-};
