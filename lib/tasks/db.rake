@@ -21,13 +21,18 @@ namespace :db do
       abcs = ActiveRecord::Base.configurations
       envs = abcs.keys.select{ |k| k.include?("integration") }
       puts envs.inspect
-      envs.each do |env|
-        puts "dropping #{env}..."
-        `cd "#{Rails.root}" && RAILS_ENV=#{env} bundle exec rake db:drop`
-        puts "creating #{env}..."
-        `cd "#{Rails.root}" && RAILS_ENV=#{env} bundle exec rake db:create`
-        puts "migrating #{env}..."
-        `cd "#{Rails.root}" && RAILS_ENV=#{env} bundle exec rake db:migrate`
+      envs.each_with_index do |env, i|
+        Rails.env = env
+        Rake::Task.tasks.each{ |task| task.reenable }
+
+        print "\n\n## preparing database for #{env}... "
+        puts (i == 0) ? "(go get yourself a coffee)" : "(time for another coffee)"
+
+        # do drop, schema:load_if_ruby, structure:load_if_sql, seed
+        Rake::Task['db:drop'].invoke
+        Rake::Task['db:setup'].invoke
+
+        puts "db #{ActiveRecord::Base.connection.current_database} done"
       end
     end
   end
