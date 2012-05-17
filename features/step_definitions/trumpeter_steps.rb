@@ -22,7 +22,7 @@ end
 def select_from_dropdown(option_text, dropdown)
   dropdown.click
   within ".dropdown-menu" do
-    link = find("a:contains('#{option_text}')")
+    link = find("input[value=['#{option_text}']")
     link.should be_visible
     link.click
   end
