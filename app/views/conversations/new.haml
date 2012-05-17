@@ -3,7 +3,7 @@
 -#   the COPYRIGHT file.
 
 :javascript
-  $(document).ready(function () {
+  $(document).ready(function () {    
     var data = $.parseJSON( "#{escape_javascript(@contacts_json)}" ),
         autocompleteInput = $("#contact_autocomplete");
 
@@ -20,6 +20,10 @@
                  value : "#{@contact_ids}"}]
       });
     autocompleteInput.focus();
+    
+    $("#new_conversation").bind('submit', function(event) {
+      return window.vc.encrypt_message(event)
+    })
   });
 
 #new_message_pane

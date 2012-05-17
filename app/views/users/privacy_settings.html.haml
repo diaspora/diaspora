@@ -4,6 +4,12 @@
 
 - content_for :page_title do
   = t('.title')
+  
+- content_for :head do
+  = javascript_include_tag :sjcl
+  = javascript_include_tag :base64
+  = javascript_include_tag :crypto
+  = javascript_include_tag :keys
 
 #section_header
   %h2
@@ -20,4 +26,33 @@
     = link_to t('.stop_ignoring'), block_path(block),
       :method => :delete
     %br
+
+  %br
+  %br
+  %hr
+  %br
+
+  %h3 
+    Manage Keys
+    
+  #entropy-div
+    %span
+      Entropy:  
+    %span#entropy
+      0%
+      
+  #passphrase-div
+    %label{:for => "passphrase"}
+      Passphrase
+    %input#passphrase{:type => "password"}
+  %span#instruction
+  = link_to 'Generate and Store Keys', '#', :id => 'generate-keys', :remote => true
+  
+  = form_tag "/store_keys/", :method => "post", :remote => true, :id => "keys" do
+    = hidden_field_tag "secured_encryption_key"
+    = hidden_field_tag "public_encryption_key"
+    = hidden_field_tag "secured_signing_key"
+    = hidden_field_tag "public_verification_key"
+    = hidden_field_tag "guid"
+
 
