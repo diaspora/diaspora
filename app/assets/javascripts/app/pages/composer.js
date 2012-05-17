@@ -12,14 +12,19 @@ app.pages.Composer = app.views.Base.extend({
 
   formAttrs : {
     "textarea#text_with_markup" : "text",
-    "input.aspect_ids" : "aspect_ids",
-    "input.service:checked" : "services"
+    "input.aspect_ids" : "aspect_ids[]",
+    "input.services" : "services[]"
   },
 
   initialize : function(){
-    app.frame = this.model = new app.models.StatusMessage();
+    app.frame = this.model = this.model || new app.models.StatusMessage();
     this.postForm = new app.forms.Post({model : this.model});
     this.composerControls = new app.views.ComposerControls({model : this.model});
+  },
+
+  unbind : function(){
+    this.model.off()
+    this.model.photos.off()
   },
 
   navigateNext : function(){
@@ -46,14 +51,12 @@ app.pages.Composer = app.views.Base.extend({
     this.model.set({"photos": this.model.photos.toJSON() })
     this.model.set(overrides)
 
+
     function setValueFromField(memo, attribute, selector){
-      var selectors = form.find(selector);
-      if(selectors.length > 1) {
-        memo[attribute] = _.map(selectors, function(selector){
-          return this.$(selector).val()
-        })
+      if(attribute.slice("-2") === "[]") {
+        memo[attribute.slice(0, attribute.length - 2)] = _.pluck(form.find(selector).serializeArray(), "value")
       } else {
-        memo[attribute] = selectors.val();
+        memo[attribute] = form.find(selector).val();
       }
       return memo
     }
@@ -69,7 +72,7 @@ app.views.ComposerControls = app.views.Base.extend({
   },
 
   initialize : function() {
-    this.aspectsDropdown = new app.views.AspectsDropdown();
-    this.servicesSelector = new app.views.ServicesSelector();
+    this.aspectsDropdown = new app.views.AspectsDropdown({model : this.model});
+    this.servicesSelector = new app.views.ServicesSelector({model : this.model});
   }
 })

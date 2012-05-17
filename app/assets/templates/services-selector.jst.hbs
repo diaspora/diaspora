@@ -1,10 +1,9 @@
 <!--*CSS MAGIC* CHECKBOX IS HIDDEN AND IS CHECKED BY CLICKING THE LABEL, CHANGE THIS AT YOUR OWN PERIL, RUN JASMINE AFTER-->
-<div class="magic-service-selector">
+<form class="magic-service-selector">
     {{#each services}}
-        <input id="service_toggle_{{this}}" type="checkbox" name="services" class="service" value="{{this}}"/>
-        <label for="service_toggle_{{this}}">
-            <img class="legacy-provider-image" src="/assets/social_media_logos/{{this}}-32x32.png" data-provider="{{this}}" data-url="/auth/{{this}}" title="Share on {{this}}" />
+        <input id="services[{{name}}]" type="checkbox" name="services[{{name}}]" class="services" value="{{name}}" {{#if checked}}checked="checked"{{/if}}/>
+        <label for="services[{{name}}]">
+            <img class="legacy-provider-image" src="/assets/social_media_logos/{{name}}-32x32.png" data-provider="{{name}}" data-url="/auth/{{name}}" title="Share on {{name}}" />
         </label>
     {{/each}}
-</div>
-
+</form>

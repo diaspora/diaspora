@@ -15,7 +15,16 @@ app.views.ServicesSelector = app.views.Base.extend({
   ],
 
   presenter : function() {
-    return _.extend(this.defaultPresenter(), {services : this.services})
+    var selectedServices = this.model.get('services');
+
+    return _.extend(this.defaultPresenter(), {
+      services :_.map(this.services, function(service){
+        return {
+          name : service,
+          checked :_.include(selectedServices, service)
+        }
+      })
+    })
   },
 
   askForAuth : function(evt){

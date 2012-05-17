@@ -155,4 +155,8 @@ end
 
 Then /^"([^"]*)" should be the first canvas frame$/ do |post_text|
   find(".canvas-frame").should have_content(post_text)
-end 
+end
+
+When /^I go back to the composer$/ do
+  click_button "Back"
+end

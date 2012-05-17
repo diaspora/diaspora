@@ -18,6 +18,10 @@ app.pages.Framer = app.views.Base.extend({
     this.framerControls = new app.views.framerControls({model : this.model})
   },
 
+  unbind : function(){
+    this.model.off()
+  },
+
   postView : function(){
     return new app.views.SmallFrame({model : this.model})
   },
@@ -45,7 +49,8 @@ app.views.framerControls = app.views.Base.extend({
   templateName : 'framer-controls',
 
   events : {
-    "click button.done" : "saveFrame"
+    "click button.done" : "saveFrame",
+    "click button.back" : "editFrame"
   },
 
   subviews : {
@@ -57,8 +62,12 @@ app.views.framerControls = app.views.Base.extend({
   },
 
   saveFrame : function(){
-    this.$('button').prop('disabled', 'disabled')
-                    .addClass('disabled')
+    this.$('button').prop('disabled', 'disabled').addClass('disabled')
     this.model.save()
+  },
+
+  editFrame : function(){
+    app.router.renderPage(function(){return new app.pages.Composer({model : app.frame})})
+    app.router.navigate("/posts/new")
   }
 });

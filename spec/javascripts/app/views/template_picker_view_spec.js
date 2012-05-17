@@ -5,8 +5,9 @@ describe("app.views.TemplatePicker", function(){
   })
 
   describe("initialization", function(){
-    it("calls setFrameName on the model", function(){
+    it("calls setFrameName on the model when there is no frame_name", function(){
       spyOn(this.model, 'setFrameName')
+      this.model.unset("frame_name")
       new app.views.TemplatePicker({model:this.model})
       expect(this.model.setFrameName).toHaveBeenCalled()
     })

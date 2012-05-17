@@ -5,7 +5,7 @@ describe("app.forms.Picture", function(){
       "content" : "supersecrettokenlol"
     }).prependTo("head")
 
-    this.form = new app.forms.Picture().render()
+    this.form = new app.forms.Picture({model: factory.statusMessage()}).render()
   });
 
   it("sets the authenticity token from the meta tag", function(){

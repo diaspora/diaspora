@@ -6,7 +6,7 @@ describe("app.views.ServicesSelector", function(){
       ]
     });
 
-    this.view = new app.views.ServicesSelector();
+    this.view = new app.views.ServicesSelector({model : factory.statusMessage()});
   });
 
   describe("rendering", function(){
@@ -23,10 +23,10 @@ describe("app.views.ServicesSelector", function(){
     // this tests the crazy css we have in a bassackwards way
     // check out toggling the services on the new publisher and make sure it works if you change stuff.
     it("selects the checkbox when the image is clicked", function(){
-      expect($("label[for=service_toggle_facebook] img").is(".magic-service-selector input:not(:checked) + label img")).toBeTruthy();
+      expect($("label[for='services[facebook]'] img").is(".magic-service-selector input:not(:checked) + label img")).toBeTruthy();
       this.view.$("input[value='facebook']").select()
 
-      expect($("label[for=service_toggle_facebook] img").is(".magic-service-selector input:not(:checked) + label img")).toBeFalsy();
+      expect($("label[for='services[facebook]'] img").is(".magic-service-selector input:not(:checked) + label img")).toBeFalsy();
     });
   });
 

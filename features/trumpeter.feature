@@ -51,17 +51,24 @@ Feature: Creating a new post
     Then the post's default mood should be "Wallpaper"
     Then it should be a wallpaper frame with the background "button.gif"
     Then I should see "This is hella customized" in the framer preview
-    When I select the mood "Day"
-    Then the post's mood should be "Day"
+
+    When I select the mood "Newspaper"
+    Then the post's mood should be "Newspaper"
     And "button.gif" should be in the post's picture viewer
     And I should see "This is hella customized" in the framer preview
 
+    And I go back to the composer
+    And I write "It sure is a beautiful Day"
+    And I start the framing process
+    Then the post's mood should be "Newspaper"
+    And I should see "It sure is a beautiful Day" in the framer preview
+
     When I finalize my frame
     #on stream
-    Then "This is hella customized" should be the first canvas frame
-    When I click the "This is hella customized" post
+    Then "It sure is a beautiful Day" should be the first canvas frame
+    When I click the "It sure is a beautiful Day" post
     #on show page
-    And the post's mood should still be "Day"
+    And the post's mood should still be "Newspaper"
 
   Scenario: The Wallpaper mood
     When I write "This is a pithy status" with body "And this is a long body"
