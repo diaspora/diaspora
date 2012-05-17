@@ -69,6 +69,15 @@ class Reshare < Post
     root.try(:nsfw)
   end
 
+  def absolute_root
+    current = self
+    while( current.is_a?(Reshare) )
+      current = current.root
+    end
+
+    current
+  end
+
   private
 
   def after_parse

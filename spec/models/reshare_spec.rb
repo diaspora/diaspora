@@ -81,6 +81,19 @@ describe Reshare do
     end
   end
 
+  describe '#absolute_root' do
+    before do
+      @sm = Factory(:status_message, :author => alice.person, :public => true)
+      rs1 = Factory(:reshare, :root=>@sm)
+      rs2 = Factory(:reshare, :root=>rs1)
+      @rs3 = Factory(:reshare, :root=>rs2)
+    end
+
+    it 'resolves root posts to the top level' do
+      @rs3.absolute_root.should == @sm
+    end
+  end
+
   describe "XML" do
     before do
       @reshare = Factory(:reshare)
