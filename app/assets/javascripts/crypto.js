@@ -69,11 +69,17 @@ function crypto() {"use strict"
 		return keys
 	}
 
-	this.prepare_message = function(recipients, passphrase, message, subject) {
+	this.prepare_message = function(contacts, people, passphrase, message, subject) {
 		var signing_key = this.decrypt_signing_key(passphrase, window.current_user_attributes.key_ring.key_ring.secured_signing_key)
 		var signature = signing_key.sign(sjcl.hash.sha256.hash(message))
 
-		var recipient_public_keys = this.get_public_keys(recipients)
+		var recipient_public_keys
+		if(!contacts) {
+			recipient_public_keys = this.get_public_keys(null, people)
+		} else { 
+			recipient_public_keys = this.get_public_keys(contacts)
+		}
+		
 		var recipient_message_keys = {}
 		
 		var json = JSON.parse(window.current_user_attributes.key_ring.key_ring.public_encryption_key)
@@ -81,16 +87,22 @@ function crypto() {"use strict"
 		var sender_public_key = new sjcl.ecc.elGamal.publicKey(json.curve, point.curve, point)
 		var shared_key = sender_public_key.kem(0).key
 		
-		recipient_message_keys["sender"] = sjcl.encrypt(sender_public_key, JSON.stringify(shared_key))
+		recipient_message_keys[window.current_user_attributes.key_ring.key_ring.person_id] = sjcl.encrypt(sender_public_key, JSON.stringify(shared_key))
 		
-		for(var recipient_public_key in recipient_public_keys) {
-			if(!recipient_public_keys.hasOwnProperty(recipient_public_key)) { continue }
+		for(var id in recipient_public_keys) {
+			if(!recipient_public_keys.hasOwnProperty(id)) { continue }
 			
-			recipient_message_keys[recipient_public_key] = sjcl.encrypt(recipient_public_keys[recipient_public_key], JSON.stringify(shared_key))
+			recipient_message_keys[recipient_public_keys[id].person_id] = sjcl.encrypt(recipient_public_keys[id], JSON.stringify(shared_key))
 		}
 
 		var encrypted_message = sjcl.encrypt(shared_key, message)
-		var encrypted_subject = sjcl.encrypt(shared_key, subject)
+		
+		var encrypted_subject
+		if(!subject) {
+			encrypted_subject = ""
+		} else {
+			encrypted_subject = sjcl.encrypt(shared_key, subject)
+		}
 
 		return {
 			"message_keys" : recipient_message_keys,
@@ -121,11 +133,18 @@ function crypto() {"use strict"
 		return verification_keys
 	}
 
-	this.get_public_keys = function(contact_ids) {
+	this.get_public_keys = function(contact_ids, person_ids) {
 		var public_keys = {}
 
+		var url
+		if(!contact_ids) {
+			url = "/key_ring?person_ids=" + person_ids
+		} else {
+			url = "/key_ring?contact_ids=" + contact_ids
+		}
+		
 		$.ajax({
-			url : "/key_ring?contact_ids=" + contact_ids,
+			url : url,
 			async : false,
 			dataType : "json",
 			success : function(data) {
@@ -133,6 +152,7 @@ function crypto() {"use strict"
 					var json = JSON.parse(data[i].key_ring.key_ring.public_encryption_key)
 					var point = sjcl.ecc.curves['c' + json.curve].fromBits(json.point)
 					public_keys[data[i].contact] = new sjcl.ecc.elGamal.publicKey(json.curve, point.curve, point)
+					public_keys[data[i].contact].person_id = data[i].key_ring.key_ring.person_id
 				}
 			}
 		})

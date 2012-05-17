@@ -39,15 +39,36 @@ function view_controller() {"use strict"
 		}
 	}
 	
-	this.encrypt_message = function(event) {		
-		var msg = this.crypto.prepare_message(
-			$("#as-values-contact_ids").val(), 
-			$("#passphrase").val(), 
-			$("#conversation_text").val(), 
-			$("#conversation_subject").val())
+	this.encrypt_message = function(event) {
+		var form = event.target
 		
-		$("#conversation_text").val(Base64.encode(JSON.stringify(msg)))
-		$("#conversation_subject").val("encrypted")
+		var text, subject, contacts, people, passphrase
+		
+		passphrase = $("#passphrase").val()
+		
+		if(form.id == "new_message") {
+			text = $("#message_text").val()
+			var people_ids = []
+			
+			$(".conversation_participants .avatar").each( 
+				function(index) { people_ids.push($(this).attr("data-person_id")) 
+			})
+			
+			people = people_ids.join(",")
+		} else {
+			text = $("#conversation_text").val()
+			subject = $("#conversation_subject").val()
+			contacts = $("#as-values-contact_ids").val()
+		}
+		
+		var msg = this.crypto.prepare_message(contacts,people,passphrase,text,subject)
+		
+		if(form.id == "new_message") {
+			$("#message_text").val(Base64.encode(JSON.stringify(msg)))
+		} else {
+			$("#conversation_text").val(Base64.encode(JSON.stringify(msg)))
+			$("#conversation_subject").val("encrypted")
+		}
 				
 		return true
 	}

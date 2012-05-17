@@ -13,8 +13,14 @@ class KeyRingsController < ApplicationController
   # GET /key_rings/1
   # GET /key_rings/1.json
   def show
-    @key_rings = Contact.where(:id => params[:contact_ids].split(',')).map! do |contact|
-      { :contact => contact.id, :key_ring => contact.person.key_ring }
+    if params[:person_ids].blank?
+      @key_rings = Contact.where(:id => params[:contact_ids].split(',')).map! do |contact|
+        { :contact => contact.id, :key_ring => contact.person.key_ring }
+      end
+    else
+      @key_rings = Person.where(:id => params[:person_ids].split(',')).map! do |person|
+        { :contact => person.id, :key_ring => person.key_ring }
+      end
     end
 
     respond_to do |format|
