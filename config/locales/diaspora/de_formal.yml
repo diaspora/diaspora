@@ -175,7 +175,6 @@ de_formal:
       success: "Sehen Sie, was diese zu sagen haben! #sayhello"
   bookmarklet:
     explanation: "Erstellen Sie einen Beitrag in Diaspora von überall, in dem Sie %{link} als Lesezeichen speichern."
-    explanation_link_text: "diesen Link"
     post_something: "Erstellen Sie einen Beitrag in Diaspora"
     post_success: "Erstellt! Schließen …"
   cancel: "Abbrechen"
@@ -261,20 +260,6 @@ de_formal:
   fill_me_out: "Füllen Sie mich aus"
   find_people: "Leute oder #Tags finden"
   hide: "Ausblenden"
-  home:
-    show:
-      already_account: "bereits registriert?"
-      choice: "Ihre Entscheidung"
-      choice_explanation: "Diaspora lässt Sie Ihre Kontakte in Gruppen einordnen, sogenannte Aspekte. Ihre Fotos, Geschichten und Witze werden durch diese Aspekte nur mit den Menschen geteilt, für die sie gedacht sind – einzigartig bei Diaspora."
-      learn_about_host: "Wollen Sie Ihren eigenen Diaspora-Server betreiben?"
-      login_here: "hier anmelden"
-      ownership: "Ihr Eigentum"
-      ownership_explanation: "Ihre Bilder gehören Ihnen. Um sie zu teilen, müssen Sie darauf nicht verzichten: Alles, was Sie auf Diaspora teilen, bleibt Ihr Eigentum – mit voller Kontrolle über die Verbreitung."
-      share_what_you_want: "Teilen Sie was Sie wollen, mit wem Sie wollen."
-      simplicity: "Ganz einfach"
-      simplicity_explanation: "Diaspora macht das Teilen von Inhalten klar und einfach – dasselbe gilt für den Schutz Ihrer Privatsphäre. Diaspora ist von sich aus privat, seitenweise Einstellungen für die Profilsicherheit sind nicht nötig."
-      tagline_first_half: "Teilen Sie was Sie wollen,"
-      tagline_second_half: "mit wem Sie wollen."
   invitations:
     a_facebook_user: "Ein Facebook Nutzer"
     check_token:

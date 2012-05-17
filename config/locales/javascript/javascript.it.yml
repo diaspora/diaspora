@@ -38,6 +38,7 @@ it:
       preparing_your_stream: "Sto preparando il tuo stream personalizzato..."
     header:
       admin: "Amministrazione"
+      close: "chiudi"
       contacts: "Contatti"
       home: "Home"
       log_out: "Esci"
@@ -66,7 +67,7 @@ it:
       duplicate: "Bello eh? Ma hai già condiviso quel post!"
       post: "Vuoi condividere il post di <%= name %>?"
       successful: "Il post è stato condiviso!"
-    search_for: "Ricerca su <%= name %>"
+    search_for: "Cerca su <%= name %>"
     show_more: "continua..."
     stream:
       comment: "Commenta"

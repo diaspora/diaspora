@@ -35,6 +35,7 @@ es-MX:
       preparing_your_stream: "Preparando tu entrada personalizada…"
     header:
       admin: "Administrador"
+      close: "cerrar"
       contacts: "Contactos"
       home: "Inicio"
       log_out: "Salir"
@@ -106,7 +107,7 @@ es-MX:
       prefixFromNow: "dentro de"
       seconds: "menos de un minuto"
       suffixAgo: ""
-      suffixFromNow: ""
+      suffixFromNow: "desde ahora"
       year: "un año aproximadamente"
       years: "%d años"
     videos:

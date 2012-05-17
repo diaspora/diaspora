@@ -179,7 +179,7 @@ end
 
 group :development do
   gem 'heroku'
-  gem 'heroku_san', :platforms => :mri_19
+  gem 'heroku_san', :git => 'git://github.com/maxwell/heroku_san.git', :platforms => :mri_19
   gem 'capistrano', :require => false
   gem 'capistrano_colors', :require => false
   gem 'capistrano-ext', :require => false

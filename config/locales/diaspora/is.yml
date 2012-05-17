@@ -111,7 +111,6 @@ is:
   back: "Til baka"
   bookmarklet:
     explanation: "%{link} from anywhere by bookmarking this link."
-    explanation_link_text: "Post to Diaspora"
     heading: "Diaspora Bookmarklet"
   cancel: "Hætta við"
   comments:
@@ -151,20 +150,6 @@ is:
       correct_the_following_errors_and_try_again: "Það þarf að lagfæra eftirfarandi villur og reyna síðan aftur. "
   fill_me_out: "Fylla út"
   find_people: "Find people"
-  home:
-    show:
-      already_account: "nú þegar með notandastillingar?"
-      choice: "Valkostur"
-      choice_explanation: "Diaspora gerir þér kleift að raða tengingum í hópa sem kallast ásýndir. Einungis í Diaspora tryggja ásýndir að myndir þínar, sögur og brandarar séu einungis samnýtt með þeim sem þú ætlar. "
-      learn_about_host: "Lærðu hvernig á að hýsa sinn eigin Diaspora miðlara."
-      login_here: "innskráning hér"
-      ownership: "Eignarréttur"
-      ownership_explanation: "Þú átt þínar myndir og þú ættir ekki að þurfa að gefa þær frá þér þótt þú deilir þeim. Þú heldur eign þinni á öllu því sem þú deilir um Diaspora, sem gefur þér fulla stjórn á því hvernig því er dreift."
-      share_what_you_want: "Deildu því sem þú vilt, með þeim sem þú vilt."
-      simplicity: "Einfaldleiki"
-      simplicity_explanation: "Diaspora gerir samnýtingu hreina og auðvelda - og það gildir líka fyrir friðhelgi. Þar sem Diaspora er í eðli sínu persónulegt, þarftu ekki að vaða í gegnum síður með stillingum og möguleikum til að halda síðunni þinni öruggri."
-      tagline_first_half: "Deildu því sem þú vilt,"
-      tagline_second_half: "með þeim sem þú vilt."
   invitations:
     create:
       already_contacts: "Þú tengist þessari manneskju nú þegar"

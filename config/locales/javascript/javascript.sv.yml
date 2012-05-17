@@ -38,6 +38,7 @@ sv:
       preparing_your_stream: "Förbereder din personliga ström..."
     header:
       admin: "Administratör"
+      close: "stäng"
       contacts: "Kontakter"
       home: "Hem"
       log_out: "Logga ut"

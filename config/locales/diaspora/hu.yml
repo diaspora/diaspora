@@ -50,6 +50,8 @@ hu:
       weekly_user_stats: "Heti statisztika"
     correlations:
       correlations_count: "Belépések számával való korrelációk:"
+    stats:
+      go: "mehet"
     user_search:
       add_invites: "meghívók hozzáadása"
       email_to: "a meghívandó személy email címe"
@@ -201,8 +203,7 @@ hu:
       success: "Lássuk mit akarnak mondani! #sayhello"
   bookmarklet:
     explanation: "Küldj bejegyzést a Diaspora-ra bárhonnan, csak mentsd el könyvjelzőként %{link}."
-    explanation_link_text: "ezt a linket"
-    heading: "Könyvjelzők"
+    heading: "Könyvjelző"
     post_something: "Írj valamit a Diasporára"
     post_success: "Elküldve! Bezárás!"
   cancel: "Mégsem"
@@ -292,20 +293,6 @@ hu:
   fill_me_out: "Töltsd ki"
   find_people: "Emberek vagy #címkék keresése"
   hide: "Elrejt"
-  home:
-    show:
-      already_account: "már van fiókod?"
-      choice: "Szabadság"
-      choice_explanation: "A Diaspora* lehetővé teszi, hogy tetszőleges szempontok alapján Csoportokba rendezd a kapcsolataidat. Így mindig a megfelelő emberekkel oszthatod meg a történeteidet, vicceidet, képeidet."
-      learn_about_host: "Így indíthatsz el saját Diaspora* szervert."
-      login_here: "Jelentkezz be"
-      ownership: "Biztonság"
-      ownership_explanation: "A képeid a sajátjaid, és ezt nem kell feladnod, hogy megoszthasd őket másokkal. Minden megosztás felett teljes irányításod van a Diaspora* közösségi oldalon."
-      share_what_you_want: "Ossz meg bármit... akivel szeretnél!"
-      simplicity: "Egyszerűség"
-      simplicity_explanation: "A Diaspora megkönnyíti és átláthatóvá teszi a megosztást - és ez a személyes dolgaidra is vonatkozik. Nem kell hosszú beállító oldalakon átvergődnöd, hogy biztonságban tudd a profilodat."
-      tagline_first_half: "Ossz meg bármit..."
-      tagline_second_half: "akivel akarod!"
   invitation_codes:
     excited: "%{name} alig várja, hogy üdvözölhessen nálunk."
   invitations:
@@ -502,14 +489,12 @@ hu:
 
           Kattints erre a linkre a kezdéshez:
 
-          [%{invite_url}][1]
+          %{invite_url}
 
 
           üdv:
 
           a Diaspora* levélküldő automatája
-
-          [1]: %{invite_url}
     invited_you: "%{name} meghívott a Diaspora-ra"
     liked:
       liked: "%{name} kedveli a bejegyzésedet"
@@ -693,7 +678,7 @@ hu:
     new:
       create_my_account: "Fiók létrehozása!"
       enter_email: "Írd be az e-mail címed"
-      enter_password: "Írj be egy jelszót"
+      enter_password: "Adj meg egy jelszót (legalább hat karakterből álljon)"
       enter_password_again: "Ugyanazt a jelszót írd amit az előbb"
       enter_username: "Válassz egy felhasználónevet (csak angol betű, szám és aláhúzás engedett)"
       join_the_movement: "Csatlakozz!"
@@ -749,7 +734,7 @@ hu:
     finder:
       fetching_contacts: "A Diaspora keresi a %{service} ismerőseidet, nézz vissza néhány perc múlva."
       no_friends: "Nincs Facebook ismerősöd"
-      service_friends: "%{service} ismerős"
+      service_friends: "%{service} ismerősök"
     index:
       connect_to_facebook: "Csatlakozás a Facebook-hoz"
       connect_to_tumblr: "Csatlakozás a Tumblr-hez"

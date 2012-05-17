@@ -204,9 +204,8 @@ fr:
       success: "Voyons ce qu'ils ont à dire ! #sayhello"
   bookmarklet:
     explanation: "Publiez sur Diaspora depuis n'importe où en ajoutant %{link} à vos marque-pages."
-    explanation_link_text: "ce lien"
     heading: "Bookmarklet"
-    post_something: "Publiez quelque chose sur Diaspora"
+    post_something: "Publiez sur Diaspora"
     post_success: "Publié ! Fermeture !"
   cancel: "Annuler"
   comments:
@@ -295,20 +294,6 @@ fr:
   fill_me_out: "Remplissez-moi"
   find_people: "Rechercher des personnes ou des #tags"
   hide: "Masquer"
-  home:
-    show:
-      already_account: "vous avez déjà un compte?"
-      choice: "Choix"
-      choice_explanation: "Diaspora vous laisse trier vos connexions dans des groupes appelés aspects. Spécifiques à Diaspora, les aspects garantissent que vos photos, histoires et blagues ne sont partagées qu'avec les personnes avec qui vous souhaitez les partager."
-      learn_about_host: "Apprenez comment héberger votre propre serveur Diaspora."
-      login_here: "connectez-vous ici"
-      ownership: "Propriété"
-      ownership_explanation: "Vous êtes le propriétaire de vos images, et vous ne devriez pas être obligé de renoncer à cela juste pour les partager. Vous conservez la propriété de tout ce que vous partagez sur Diaspora, ce qui vous donne le contrôle total de la manière dont cela est distribué."
-      share_what_you_want: "Partagez ce que vous voulez, avec qui vous voulez."
-      simplicity: "Simplicité"
-      simplicity_explanation: "Diaspora rend le partage propre et facile - et cela est également valable pour la vie privée. Intrinsèquement privé, Diaspora ne vous contraint pas à vous frayer un chemin à travers des pages de configuration et d'options uniquement pour maintenir votre profil sécurisé."
-      tagline_first_half: "Partagez ce que vous voulez,"
-      tagline_second_half: "avec qui vous voudrez."
   invitation_codes:
     excited: "%{name} est content de vous voir ici."
   invitations:
@@ -506,13 +491,11 @@ fr:
 
           Pour commencer, cliquez sur ce lien :
 
-          [%{invite_url}][1]
+          %{invite_url}
 
           Bien le bonjour chez vous,
 
           Le robot de courriel de Diaspora*
-
-          [1]: %{invite_url}
     invited_you: "%{name} vous a invité(e) sur Diaspora*"
     liked:
       liked: "%{name} a épinglé votre message"
@@ -696,7 +679,7 @@ fr:
     new:
       create_my_account: "Créer mon compte !"
       enter_email: "Saisissez une adresse de courrier électronique"
-      enter_password: "Saisissez un mot de passe"
+      enter_password: "Saisissez un mot de passe (d'au moins six caractères)"
       enter_password_again: "Saisissez à nouveau le même mot de passe"
       enter_username: "Choisissez un nom d'utilisateur (uniquement des lettres, chiffres et caractères de soulignement)"
       join_the_movement: "Rejoignez le mouvement !"

@@ -20,17 +20,16 @@ describe("app.pages.Framer", function(){
       expect(app.frame.save).toHaveBeenCalled();
     });
 
-    it("navigates on save", function(){
-      spyOn(app.router, "navigate")
+    it("calls navigateNext on save", function(){
+      spyOn(this.page, "navigateNext")
       this.page.model.trigger("sync")
-      expect(app.router.navigate).toHaveBeenCalled()
+      expect(this.page.navigateNext).toHaveBeenCalled()
     })
 
-    it("makes and renders a new post view when the template is changed", function(){
-      expect(app.frame.get("frame_name")).not.toBe("Night") //pre conditions, yo
+    it("makes and renders a new smallFrame when the template is changed", function(){
+      expect(app.frame.get("frame_name")).not.toBe("night") //pre conditions, yo
       this.page.$("a.mood[data-mood=Night]").click()
       expect(app.frame.get("frame_name")).toBe("Night")
-      expect(this.page.$("article")).toHaveClass("night")
     })
   });
 });

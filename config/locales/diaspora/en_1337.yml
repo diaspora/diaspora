@@ -150,7 +150,6 @@ en_1337:
   back: "<-"
   bookmarklet:
     explanation: "5P4M FR0M 4NYWH3R3, 4NY71M3! %{link}."
-    explanation_link_text: "7H15 L1NK"
     heading: "B00KM4RKL37"
     post_something: "5P4M 50M37H1NG 2 D*"
     post_success: "5P4MM3D! CL051NG!"
@@ -230,20 +229,6 @@ en_1337:
   fill_me_out: "F1LL M3 0U7!"
   find_people: "F1ND N00B5 0R #74G5"
   hide: "PWN?"
-  home:
-    show:
-      already_account: "4LR34DY H4V3 4N 4CC0UN7?"
-      choice: "CH01C3"
-      choice_explanation: "D* L375 U 50R7 Y0UR N00B5 1N GR0UP5 C4LL3D 45P3C75! UN1QU3 70 D*, 45P3C75 3N5UR3 7H47 Y0UR 74RG375, J0K35 4ND PR0N 4R3 5H4R3D 0NLY W17H 7H3 N00B5 U W4N7 2!"
-      learn_about_host: "L34RN 4B0U7 H0W 2 H057 Y0UR 0WN D* 53RV3R!"
-      login_here: "L0G 1N H3R3!"
-      ownership: "0WN(3R5H1P)"
-      ownership_explanation: "U 0WN Y0UR PR0N, 4ND U 5H0ULDN7 H4V3 2 G1V3 7H47 UP JU57 2 5H4R3 17! U M41N741N 0WN3R5H1P 0N 3V3RY7H1NG U 5H4R3 0N D*, G1V1NG U FULL C0N7R0L 0V3R H0W 175 C0N7R1BU73D!"
-      share_what_you_want: "5P4M WH0 U W4N7, W17H WH47 U W4N7!"
-      simplicity: "51MPL1C17Y"
-      simplicity_explanation: "D* M4K35 5H4R1NG CL34N 4ND 345Y F0R N00B5 – 4ND 7H15 G035 F0R PR1V4CY 2! 1NH3R3N7LY PR1V473, D* D035N7 M4K3 U W4D3 7HR0UGH P5G35 0F 53771NG5 4ND 0P710N5 JU57 2 K33P Y0UR PR0F1L3 53CUR3!"
-      tagline_first_half: "5P4M WH0 U W4N7,"
-      tagline_second_half: "W17H WH47 U W4N7!"
   invitations:
     a_facebook_user: "4 F4C3B00K N00B!"
     check_token:

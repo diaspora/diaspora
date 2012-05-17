@@ -54,7 +54,7 @@ D_DB_USER="diaspora"
 
 D_DB_PASS="diaspora"
 
-D_RUBY_VERSION="1.9.2-p290"
+D_RUBY_VERSION="1.9.3-p125"
 
 ####                        INTERNAL VARS                        ####
 
@@ -179,7 +179,7 @@ install_or_use_ruby() {
   rvm use $D_RUBY_VERSION >/dev/null 2>&1
   if [ $? -ne 0 ] ; then
     echo "not ok"
-    rvm install $D_RUBY_VERSION >/dev/null 2>&1
+    rvm --force install $D_RUBY_VERSION
   else
     echo "ok"
   fi
@@ -202,7 +202,8 @@ load_rvmrc() {
 
   # load .rvmrc
   echo -n "loading .rvmrc ... "
-  rvm rvmrc load
+  source .rvmrc
+  #rvm rvmrc load
   if [ $? -eq 0 ] ; then
     echo "ok"
   else 

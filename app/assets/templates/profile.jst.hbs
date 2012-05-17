@@ -47,18 +47,14 @@
 
     <section id="profile-controls">
         {{#if is_own_profile}}
-            <a href="#composer" id="composer-button" class="control small label label-inverse" rel="facebox">
+            <div id="composer" class="hidden"></div>
+
+            <a href="#composer" id="composer-button" class="control small label label-inverse">
                 MAKE
             </a>
             <a href="#" id="edit-mode-toggle" class="control small label label-inverse" title="Edit Posts" rel="tooltip">
                 <img src='{{imageUrl "buttons/edit2@2x.png"}}'/>
             </a>
-
-            <!-- only load up this iframe if the current user is on their own page.
-                 this should be ajax'ed in, regardless. -->
-            <div id="composer" style="display:none;">
-                <iframe src="/posts/new" height=500 width=700 style="border:none;"></iframe>
-            </div>
         {{/if}}
     </section>
 

@@ -38,6 +38,7 @@ eu:
       preparing_your_stream: "Zure kronologia pertsonalizatua prestatzen..."
     header:
       admin: "Kudeatu"
+      close: "itxi"
       contacts: "Lagunak"
       home: "Hasiera"
       log_out: "Atera"
@@ -64,6 +65,8 @@ eu:
       public: "Publikoa - zure mezua edonork ikusi ahalko du, bai eta bilaketa zerbitzuetan agertu ere"
     reshares:
       duplicate: "Oso ona, e? Dagoeneko birpartekatu duzu mezu hori!"
+      post: "Birpartekatu nahi al duzu <%= name %>(r)en mezua?"
+      successful: "Mezua arrakastaz birpartekatu da!"
     search_for: "Bilatu <%= name %>"
     show_more: "erakutsi gehiago"
     stream:
@@ -122,3 +125,5 @@ eu:
     videos:
       unknown: "Bideo mota ezezaguna"
       watch: "Ikusi bideo hau <%= provider %>(e)n"
+    viewer:
+      home: "HASIERA"

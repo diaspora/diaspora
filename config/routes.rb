@@ -7,6 +7,9 @@ Diaspora::Application.routes.draw do
     mount RailsAdmin::Engine => '/admin_panel', :as => 'rails_admin'
   end
 
+
+  get "/atom.xml" => redirect('http://blog.diasporafoundation.org/feed/atom') #too many stupid redirects :()
+  
   get 'oembed' => 'posts#oembed', :as => 'oembed'
   # Posting and Reading
   resources :reshares

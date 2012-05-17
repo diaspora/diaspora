@@ -173,7 +173,6 @@ sl:
       success: "Pa poglejmo, kaj imajo povedati! #sayhello"
   bookmarklet:
     explanation: "Objavite na Diasporo s kjerkoli, da shraniš %{link}."
-    explanation_link_text: "to povezavo"
     heading: "Zaznamek"
     post_something: "Objavite nekaj na Diasporo"
     post_success: "Objavljeno! Zapiram!"
@@ -255,20 +254,6 @@ sl:
   fill_me_out: "Izpolni me"
   find_people: "Poišči ljudi ali #zaznamke"
   hide: "Skrij"
-  home:
-    show:
-      already_account: "Že imate uporabniški račun?"
-      choice: "Izbira"
-      choice_explanation: "V omrežju Diaspora lahko vaše stike razvrščate s pomočjo pogledov. Pogledi kot takšni so unikatni in vam omogočajo, da so vaše slike, zgodbe in šale dostopne le osebam katerim ste jih namenili."
-      learn_about_host: "Preberite več o tem, kako gostiti lasten Diaspora  strežnik."
-      login_here: "prijavite se tukaj"
-      ownership: "Lastništvo"
-      ownership_explanation: "Vaše slike so vaša last in zato je prav, da jih lahko delite, ne da bi jih s tem komerkoli posredovali. Vsebina, ki jo delite v  omrežju Diaspora, se ohrani v vaši lasti, kot tudi kontrola nad distribucijo le-te."
-      share_what_you_want: "Delite kar želite, s komerkoli želite."
-      simplicity: "Preprostost"
-      simplicity_explanation: "Diaspora omogoča preprosto izmenjavo z upoštevanjem vaše zasebnosti. Za ohranjanje zasebnosti v Diaspori ni potrebno skozi neskončen seznam različnih nastavitev in možnosti."
-      tagline_first_half: "Delite kar želite,"
-      tagline_second_half: "s komerkoli želite."
   invitations:
     a_facebook_user: "Facebook uporabnik"
     check_token:

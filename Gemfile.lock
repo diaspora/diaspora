@@ -28,6 +28,16 @@ GIT
       sinatra
 
 GIT
+  remote: git://github.com/maxwell/heroku_san.git
+  revision: 8f6f53717af0736763fef790b08289effc4d1dad
+  specs:
+    heroku_san (3.0.0)
+      activesupport
+      heroku (>= 2)
+      heroku-api (>= 0.1.2)
+      rake
+
+GIT
   remote: git://github.com/pivotal/jasmine-gem.git
   revision: 1e075fbf5a69812fcc914c453f002ecf5bed38ab
   specs:
@@ -226,11 +236,6 @@ GEM
       rubyzip
     heroku-api (0.1.6)
       excon (~> 0.13.3)
-    heroku_san (3.0.0)
-      activesupport
-      heroku (>= 2)
-      heroku-api (>= 0.1.2)
-      rake
     highline (1.6.12)
     hike (1.2.1)
     hodel_3000_compliant_logger (0.1.0)
@@ -425,12 +430,6 @@ GEM
     ruby-progressbar (0.0.10)
     rubyzip (0.9.8)
     sass (3.1.18)
-    sass-rails (3.1.4)
-      actionpack (~> 3.1.0)
-      railties (~> 3.1.0)
-      sass (>= 3.1.4)
-      sprockets (~> 2.0.0)
-      tilt (~> 1.3.2)
     sass-rails (3.2.5)
       railties (~> 3.2.0)
       sass (>= 3.1.10)
@@ -534,7 +533,7 @@ DEPENDENCIES
   haml
   handlebars_assets
   heroku
-  heroku_san
+  heroku_san!
   http_accept_language (~> 1.0.2)
   i18n-inflector-rails (~> 1.0)
   jasmine!

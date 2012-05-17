@@ -43,7 +43,7 @@ es:
         get_connected: "Conéctate"
         get_connected_paragraph: "Un movimiento mundial que comparte la visión de conseguir una red mejor, la primera característica de %{strong_diaspora} es su comunidad. Conoce gente nueva, conecta con amigos y únete a la fiesta."
         have_fun: "Diviértete"
-        have_fun_paragraph: "%{strong_diaspora} trata de descubrir tanto nueva e interesante información como gente conectada. %{Link}, la primera aplicación de %{strong_diaspora} en el mundo es solo el principio. Colecciona y comparte la red en todo su esplendor."
+        have_fun_paragraph: "Con %{strong_diaspora} descubrirás información y gente nueva e interesante. %{link}, la primera aplicación de %{strong_diaspora} del mundo es sólo el principio. Colecciona y comparte la red en todo su esplendor."
         help_fund: "ayuda a financiar Diaspora*"
         here: "aquí"
         ignore: "Si no quieres aceptar la invitación, ignora este email."
@@ -85,7 +85,7 @@ es:
       updated: "Tu contraseña ha sido modificada. Ya has accedido a tu cuenta."
     registrations:
       destroyed: "¡Adiós! Tu cuenta ha sido cancelada. Esperamos volver a verte pronto."
-      signed_up: "Te has registrado con éxito. Un mensaje de confirmación ha sido enviado a tu email."
+      signed_up: "Te has registrado con éxito. En cuanto se valide el registro recibirás un mensaje de confirmación en tu dirección de correo electrónico."
       updated: "Has actualizado tu cuenta con éxito."
     sessions:
       new:

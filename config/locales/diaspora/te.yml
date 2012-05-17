@@ -44,8 +44,6 @@ te:
       work: "సహోద్యోగులు"
     two: "%{count} aspects"
     zero: "no aspects"
-  bookmarklet:
-    explanation_link_text: "ఈ లంకె"
   cancel: "రద్దుచేయి"
   contacts:
     few: "%{count} పరిచయాలు"
@@ -65,9 +63,6 @@ te:
   delete: "తొలగించు"
   fill_me_out: "పూరించండి"
   hide: "దాచు"
-  home:
-    show:
-      already_account: "ఇప్పటికే ఖాతా ఉందా?"
   invitations:
     create:
       already_sent: "ఈ వ్యక్తిని మీరు ఇప్పటికే ఆహ్వానించారు."
