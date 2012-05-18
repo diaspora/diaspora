@@ -62,7 +62,7 @@ gem 'sqlite3' if ENV['DB'] == 'all' || ENV['DB'] == 'sqlite'
 
 # file uploading
 
-gem 'carrierwave', '0.5.8'
+gem 'carrierwave', '0.6.2'
 gem 'fog'
 gem 'fastercsv', '1.5.4', :require => false
 gem 'mini_magick', '3.4'
