@@ -28,9 +28,9 @@ class PostsController < ApplicationController
     mark_corresponding_notification_read if user_signed_in?
 
     respond_to do |format|
-      format.html{ gon.post = PostPresenter.new(@post, current_user); render 'posts/show.html.haml' }
+      format.html{ gon.post = PostPresenter.new(@post, current_user); render 'posts/show' }
       format.xml{ render :xml => @post.to_diaspora_xml }
-      format.mobile{render 'posts/show.mobile.haml', :layout => "application"}
+      format.mobile{render 'posts/show', :layout => "application"}
       format.json{ render :json => PostPresenter.new(@post, current_user) }
     end
   end
