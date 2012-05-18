@@ -45,3 +45,4 @@ Feature: invitation acceptance
       And I fill in "email_inviter_emails" with "alex@example.com"
       And I press "Send an invitation"
       Then I should have 1 Devise email delivery
+      And I should not see "change your notification settings" in the last sent email
