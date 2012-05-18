@@ -48,8 +48,8 @@ class Notifier < ActionMailer::Base
 
     I18n.with_locale(locale) do
       mail(mail_opts) do |format|
-        format.text
-        format.html
+        format.text { render :layout => nil }
+        format.html { render :layout => nil }
       end
     end
   end
