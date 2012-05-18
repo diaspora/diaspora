@@ -529,7 +529,6 @@ DEPENDENCIES
   remotipart (~> 1.0)
   resque (= 1.20.0)
   resque-timeout (= 1.0.0)
-  rest-client
   roxml!
   rpm_contrib (~> 2.1.7)
   rspec (>= 2.0.0)
