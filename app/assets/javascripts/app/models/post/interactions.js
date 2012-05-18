@@ -46,7 +46,8 @@ app.models.Post.Interactions = Backbone.Model.extend({
   },
 
   userReshare : function(){
-    return this.reshares.select(function(reshare){ return reshare.get("author").guid == app.currentUser.get("guid")})[0]
+    return this.reshares.select(function(reshare){
+      return reshare.get("author") &&  reshare.get("author").guid == app.currentUser.get("guid")})[0]
   },
 
   toggleLike : function() {

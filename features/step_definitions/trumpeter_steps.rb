@@ -22,11 +22,10 @@ end
 def select_from_dropdown(option_text, dropdown)
   dropdown.click
   within ".dropdown-menu" do
-    link = find("input[value=['#{option_text}']")
-    link.should be_visible
-    link.click
+    label = find("label:contains('#{option_text}')")
+    label.should be_visible
+    label.click
   end
-  #assert dropdown text is link
 end
 
 def go_to_framer
@@ -115,7 +114,7 @@ Then /^"([^"]*)" should have (\d+) pictures$/ do |post_text, number_of_pictures|
 end
 
 Then /^I should see "([^"]*)" in the framer preview$/ do |post_text|
-  within(find(".post")) { page.should have_content(post_text) }
+  within(find(".canvas-frame")) { page.should have_content(post_text) }
 end
 
 When /^I select the mood "([^"]*)"$/ do |mood|
@@ -132,9 +131,20 @@ When /^"([^"]*)" should be in the post's picture viewer$/ do |file_name|
   end
 end
 
+When /^"([^"]*)" should be in the post's small frame$/ do |file_name|
+  within(".canvas-frame") do
+    find_image_by_filename(file_name).should be_present
+  end
+end
+
 Then /^it should be a wallpaper frame with the background "([^"]*)"$/ do |file_name|
   assert_post_renders_with("Wallpaper")
   find("div.photo-fill")["data-img-src"].should == get_image_filename(file_name)
+end
+
+Then /^it should be a wallpaper small frame with the background "([^"]*)"$/ do |file_name|
+  assert_post_renders_with("Wallpaper")
+  find("div.image-container img")["src"].should == get_image_filename(file_name)
 end
 
 When /^the frame's headline should be "([^"]*)"$/ do |header_text|
@@ -149,8 +159,8 @@ Then /^the post should mention "([^"]*)"$/ do |user_name|
   within('#post-content') { find("a:contains('#{user_name}')").should be_present }
 end
 
-When /^I click the "([^"]*)" post$/ do |post_text|
-   find(".content:contains('#{post_text}') .permalink").click
+When /^I click into the "([^"]*)" post$/ do |post_text|
+  find("#canvas .content:contains('#{post_text}') .permalink").click
 end
 
 Then /^"([^"]*)" should be the first canvas frame$/ do |post_text|

@@ -101,7 +101,7 @@ app.views.SmallFrame = app.views.Post.extend({
 
   goToPost : function(evt) {
     if(evt) { evt.stopImmediatePropagation(); }
-    window.preloads.post = this.model.attributes
+    app.setPreload('post',this.model.attributes)
     app.router.navigate(this.model.url(), true)
   }
 });

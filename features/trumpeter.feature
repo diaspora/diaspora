@@ -49,12 +49,13 @@ Feature: Creating a new post
     And I start the framing process
     #defaults to the prettiest mood
     Then the post's default mood should be "Wallpaper"
-    Then it should be a wallpaper frame with the background "button.gif"
+    Then it should be a wallpaper small frame with the background "button.gif"
     Then I should see "This is hella customized" in the framer preview
 
     When I select the mood "Newspaper"
     Then the post's mood should be "Newspaper"
-    And "button.gif" should be in the post's picture viewer
+    And "button.gif" should be in the post's small frame
+
     And I should see "This is hella customized" in the framer preview
 
     And I go back to the composer
@@ -66,7 +67,8 @@ Feature: Creating a new post
     When I finalize my frame
     #on stream
     Then "It sure is a beautiful Day" should be the first canvas frame
-    When I click the "It sure is a beautiful Day" post
+    When I click into the "It sure is a beautiful Day" post
+
     #on show page
     And the post's mood should still be "Newspaper"
 
@@ -75,6 +77,10 @@ Feature: Creating a new post
     And I upload a fixture picture with filename "button.gif"
     And I start the framing process
     When I select the mood "Wallpaper"
-    Then it should be a wallpaper frame with the background "button.gif"
+    Then it should be a wallpaper small frame with the background "button.gif"
+    When I finalize my frame
+    And I click into the "This is a pithy status" post
     And the frame's headline should be "This is a pithy status"
     And the frame's body should be "And this is a long body"
+    Then it should be a wallpaper frame with the background "button.gif"
+

@@ -51,7 +51,8 @@ Scenario: Resharing an nsfw post
   And I toggle nsfw posts
   And I preemptively confirm the alert
   And I follow "Reshare"
+  And I wait for 2 seconds
   And I wait for the ajax to finish
   And I go to the home page
-  Then I should have 2 nsfw posts
   Then I should not see "Sexy Senators Gone Wild!"
+  And I should have 2 nsfw posts

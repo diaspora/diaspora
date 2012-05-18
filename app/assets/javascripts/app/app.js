@@ -55,6 +55,11 @@ var app = {
     return !!(window.preloads && window.preloads[prop]) //returning boolean variable so that parsePreloads, which cleans up properly is used instead
   },
 
+  setPreload : function(prop, val) {
+    window.preloads = window.preloads || {}
+    window.preloads[prop] = val
+  },
+
   parsePreload : function(prop){
       if(!app.hasPreload(prop)) { return }
 
