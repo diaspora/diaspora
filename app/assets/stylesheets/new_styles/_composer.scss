@@ -53,6 +53,10 @@
     .aspect-selector {
       float: left;
 
+      form {
+        margin: 0
+      }
+
       i, input {
         display: none;
       }
@@ -65,6 +69,13 @@
       }
 
       label {
+        margin : 0;
+        padding : 5px 0;
+
+        &:hover {
+          background-color : #eee;
+        }
+
         span:not(.caret) {
           padding-left: 21px;
         }
@@ -80,23 +91,37 @@
       text-align: left;
     }
 
-    a.mood {
-      @include border-radius();
-      margin-right: 11px;
-      padding: 7px;
-      color: #999;
-      font-size: 14px;
-      line-height: 2em;
+    .template-picker {
+      margin-bottom : 1em;
 
-      &#selected_mood {
-        background-color: #222;
+      input {
+        display : none;
       }
 
-      &:hover {
+      label {
+        @include transition(background-color);
+        @include border-radius();
+
+        cursor : pointer;
+
+        display: inline;
+        margin-right: 11px;
+        padding: 7px;
+        color: #999;
+        font-size: 14px;
+        line-height: 2em;
+
+        &:hover {
+          background-color: #222;
+          text-decoration: none;
+        }
+      }
+
+      input:checked + label {
         background-color: #222;
-        text-decoration: none;
       }
     }
+
   }
 
   // this is about the service toggle icons, there is a jasmine test that tests this in service_selector spec

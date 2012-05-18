@@ -1,5 +1,12 @@
 <div id='controls-wrapper'>
-    <div class='template-picker'></div>
+    <div class='template-picker'>
+        {{#each templates}}
+            <input id='frame_name_{{name}}' name="frame_name" type="radio" class="mood" value={{name}} {{#if checked}}checked=checked{{/if}} />
+            <label for='frame_name_{{name}}'>{{name}}</label>
+        {{/each}}
+    </div>
     <button id='back' class="back btn">Back</button>
     <button id='done' class="done btn btn-success">Post <i class='icon-white icon-ok-sign'></i></button>
+    <div class="aspect-selector"/>
+    <div class="service-selector"/>
 </div>

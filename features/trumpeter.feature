@@ -7,9 +7,10 @@ Feature: Creating a new post
 
   Scenario: Posting a public message with a photo
     And I write "I love RMS"
-    When I select "Public" in my aspects dropdown
     And I upload a fixture picture with filename "button.gif"
-    When I go through the default composer
+    When I start the framing process
+    When I select "Public" in my aspects dropdown
+    And I finalize my frame
     When I go to "/stream"
     Then I should see "I love RMS" as the first post in my stream
     And "I love RMS" should be a public post in my stream
@@ -17,8 +18,9 @@ Feature: Creating a new post
 
   Scenario: Posting to Aspects
     And I write "This is super skrunkle"
+    And I start the framing process
     When I select "All Aspects" in my aspects dropdown
-    And I go through the default composer
+    And I finalize my frame
     When I go to "/stream"
     Then I should see "This is super skrunkle" as the first post in my stream
     Then "This is super skrunkle" should be a limited post in my stream

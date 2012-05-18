@@ -71,6 +71,20 @@ app.views.Base = Backbone.View.extend({
 
   removeTooltips : function() {
     $(".tooltip").remove();
+  },
+
+  setFormAttrs : function(){
+    this.model.set(_.inject(this.formAttrs, _.bind(setValueFromField, this), {}))
+    console.log("set from form", this.model.attributes)
+
+    function setValueFromField(memo, attribute, selector){
+      if(attribute.slice("-2") === "[]") {
+        memo[attribute.slice(0, attribute.length - 2)] = _.pluck(this.$el.find(selector).serializeArray(), "value")
+      } else {
+        memo[attribute] = this.$el.find(selector).val();
+      }
+      return memo
+    }
   }
 });
 

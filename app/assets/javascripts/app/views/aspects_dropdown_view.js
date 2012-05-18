@@ -57,4 +57,4 @@ app.views.AspectsDropdown = app.views.Base.extend({
 
     $.trim(this.$(".dropdown-toggle .text").text(text))
   }
-})
+});

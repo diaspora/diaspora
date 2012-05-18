@@ -118,7 +118,7 @@ Then /^I should see "([^"]*)" in the framer preview$/ do |post_text|
 end
 
 When /^I select the mood "([^"]*)"$/ do |mood|
-  click_link mood
+  find("label:contains('#{mood}')").click
 end
 
 Then /^the post's (?:default |)mood should (?:still |)be "([^"]*)"$/ do |mood|
