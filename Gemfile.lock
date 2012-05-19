@@ -39,7 +39,7 @@ GEM
     rubypython (0.5.1)
       blankslate (>= 2.1.2.3)
       ffi (~> 1.0.7)
-    sass (3.1.5)
+    sass (3.1.18)
     sinatra (1.2.6)
       rack (~> 1.1)
       tilt (>= 1.2.2, < 2.0)

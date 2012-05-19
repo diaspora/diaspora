@@ -13,7 +13,7 @@ body > nav {
     .search {
       padding: .3em .5em 0;
       font-size: .85em;
-      @extend .sans;
+      font-family: $sans;
       line-height: 1.1em;
       width: 95%;
       @include border-radius(.5em);
@@ -54,7 +54,7 @@ body > nav {
     }
     a {
       @include link-colors($nav-color, $nav-color-hover, $visited: $nav-color);
-      @extend .sans;
+      font-family: $sans;
       text-shadow: lighten($nav-bg, 12) 0 1px;
       float: left;
       text-decoration: none;
@@ -134,3 +134,4 @@ body > nav {
   a[rel=subscribe-rss]{ @include mask-subscription-nav('rss.png'); }
   a[rel=subscribe-email]{ @include mask-subscription-nav('email.png'); }
 }
+
