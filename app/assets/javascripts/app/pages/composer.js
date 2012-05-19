@@ -7,7 +7,7 @@ app.pages.Composer = app.views.Base.extend({
   },
 
   events : {
-    "click button.next" : "navigateNext"
+    "click .next" : "navigateNext"
   },
 
   formAttrs : {
@@ -22,7 +22,9 @@ app.pages.Composer = app.views.Base.extend({
 
   unbind : function(){
     this.model.off()
-    this.model.photos.off()
+    if(this.model.photos) {
+      this.model.photos.off()
+    }
   },
 
   navigateNext : function(){

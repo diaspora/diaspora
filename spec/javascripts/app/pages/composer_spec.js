@@ -14,7 +14,7 @@ describe("app.pages.Composer", function(){
       })
 
       it("navigates to the framer", function(){
-        this.page.$("button.next").click()
+        this.page.$("input.next").click()
         expect(this.navigateSpy).toHaveBeenCalledWith("framer", true)
       });
 
@@ -24,7 +24,7 @@ describe("app.pages.Composer", function(){
         })
 
         it("instantiates a post on form submit", function(){
-          this.page.$("button.next").click()
+          this.page.$("input.next").click()
           waitsFor(function(){ return this.navigateSpy.wasCalled })
           runs(function(){
             expect(this.page.model.get("text")).toBe("Oh My")

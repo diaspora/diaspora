@@ -205,12 +205,6 @@ FactoryGirl.define do
   end
 
   #templates
-  factory(:multi_photo, :parent => :status_message_with_photo) do
-    after_build do |sm|
-      2.times{ Factory(:photo, :author => sm.author, :status_message => sm, :pending => false, :public => public)}
-    end
-  end
-
   factory(:status_with_photo_backdrop, :parent => :status_message_with_photo)
 
   factory(:photo_backdrop, :parent => :status_message_with_photo) do

@@ -42,12 +42,6 @@ describe TemplatePicker do
     end
   end
 
-  describe 'multi_photo?' do
-    it 'is true if the post contains more than one photo' do
-      TemplatePicker.new(post).should be_multi_photo
-    end
-  end
-
   describe '#photo_backdrop?' do
     it 'is true if the post contains only one photo' do
       @post_stubs.merge!(:photos => stub(:size => 1))

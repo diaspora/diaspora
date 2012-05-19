@@ -39,6 +39,7 @@
   legend {
     color : #fff;
     text-align : left;
+    border : none;
   }
 
   textarea#post_text{
@@ -51,7 +52,11 @@
     max-height: 68px;
 
     .aspect-selector {
-      float: left;
+      display : inline-block;
+
+      .aspects_dropdown {
+        display : inline-block;
+      }
 
       form {
         margin: 0
@@ -83,8 +88,8 @@
     }
 
     .service-selector {
-      float: left;
       margin-left: 100px;
+      display : inline-block;
     }
 
     .dropdown-menu {
@@ -129,6 +134,8 @@
   // the checkbox should be hidden, and in the off state the service icons should be lighter
   // when the service icons are clicked they should be lighter, and toggle the hidden checkbox.
   .magic-service-selector {
+    margin : 0;
+
     label { display : inline; }
 
     img {
@@ -155,6 +162,21 @@
       display : none;
     }
   }
+}
+
+input[type="image"] {
+  height : 70px;
+  width : 70px;
+
+  &:active {
+    -webkit-transform : scale(0.95);
+       -moz-transform : scale(0.95);
+        -ms-transform : scale(0.95);
+  }
+}
+
+#controls-wrapper {
+  text-align : center;
 }
 
 .new_photo .photo{

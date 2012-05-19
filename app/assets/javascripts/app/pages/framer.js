@@ -49,8 +49,8 @@ app.views.framerControls = app.views.Base.extend({
   templateName : 'framer-controls',
 
   events : {
-    "click button.done" : "saveFrame",
-    "click button.back" : "editFrame",
+    "click input.done" : "saveFrame",
+    "click input.back" : "editFrame",
     "change input" : "setFormAttrs"
   },
 

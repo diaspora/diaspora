@@ -14,11 +14,6 @@ a { color : rgb(42,156,235)  }
 .icon-red   { background-image: image_url("img/glyphicons-halflings-red.png");   }
 .icon-blue  { background-image: image_url("img/glyphicons-halflings-blue.png");  }
 
-.photoset {
-  @include center(horizontal);
-  width: 100%;
-}
-
 .rich-media {
   background-color: $night-background-color;
 
@@ -177,12 +172,6 @@ article { //mood posts
     #author-info {
       color : $night-text-color;
     }
-
-    .photo-viewer {
-      img {
-        max-height: 80%;
-      }
-    }
   }
 
   &.newspaper {
@@ -217,26 +206,15 @@ article { //mood posts
     color : #fff;
   }
 
-  &.multi-photo {
-    p {
-      @include media-text();
-    }
+  .img-bounding-box {
+    margin : 10px;
+    display : inline-block;
+    text-align : left;
+  }
 
-    .img-bounding-box {
-      display: table-cell;
-      text-align: center;
-      vertical-align: middle;
-
-      padding: 20px;
-      max-height: 400px;
-      width: 300px;
-    }
-
-    img {
-      @include photo-shadow();
-      max-width: 100%;
-      max-height: 100%;
-    }
+  img {
+    max-height: 400px;
+    max-width: 400px;
   }
 }
 

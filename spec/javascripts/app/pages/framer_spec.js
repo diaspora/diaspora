@@ -43,7 +43,7 @@ describe("app.pages.Framer", function(){
 
     it("saves the model when you click done",function(){
       spyOn(app.frame, "save");
-      this.page.$("button.done").click();
+      this.page.$("input.done").click();
       expect(app.frame.save).toHaveBeenCalled();
     });
 

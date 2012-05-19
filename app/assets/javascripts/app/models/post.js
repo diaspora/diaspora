@@ -69,7 +69,6 @@ app.models.Post = Backbone.Model.extend(_.extend({}, app.models.formatDateMixin,
     "status-with-photo-backdrop",
     "note",
     "rich-media",
-    "multi-photo",
     "photo-backdrop",
     "activity-streams-photo",
     "status"

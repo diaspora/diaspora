@@ -274,8 +274,7 @@
 
   &.day:not(.sticky-note),
   &.has-text:not(.sticky-note):not(.wallpaper),
-  &.night:not(.sticky-note),
-  &.multi-photo:not(.sticky-note) {
+  &.night:not(.sticky-note) {
     img {
       border-bottom : 1px solid #ddd;
     }

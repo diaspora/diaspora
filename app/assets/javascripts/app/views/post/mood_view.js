@@ -33,7 +33,7 @@ app.views.Post.Day = app.views.Post.Mood.extend({
 })
 
 app.views.Post.Night = app.views.Post.Mood.extend({
-  mood : "night",
+  mood : "night"
 })
 
 app.views.Post.Newspaper = app.views.Post.Mood.extend({
