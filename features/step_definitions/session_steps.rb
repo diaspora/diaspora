@@ -15,10 +15,13 @@ When /^I try to sign in$/ do
 end
 
 When /^I try to sign in manually$/ do
-  step %(I go to the new user session page)
-  step %(I fill in "Username" with "#{@me.username}")
-  step %(I fill in "Password" with "#{@me.password}")
-  step %(I press "Sign in")
+  visit login_page
+  login_as @me.username, @me.password
+end
+
+When /^I (?:sign|log) in manually as "([^"]*)" with password "([^"]*)"$/ do |username, password|
+  visit login_page
+  login_as username, password
 end
 
 When /^I (?:sign|log) in as "([^"]*)"$/ do |email|

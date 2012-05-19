@@ -35,6 +35,10 @@ module NavigationHelpers
         raise "Can't find mapping from \"#{page_name}\" to a path."
     end
   end
+
+  def login_page
+    path_to "the new user session page"
+  end
 end
 
 World(NavigationHelpers)

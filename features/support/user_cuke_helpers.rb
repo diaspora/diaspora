@@ -15,6 +15,12 @@ module UserCukeHelpers
     user.aspects.create(:name => "Besties")
     user.aspects.create(:name => "Unicorns")
   end
+
+  def login_as(user, pass)
+    fill_in 'user_username', :with=>user
+    fill_in 'user_password', :with=>pass
+    click_button :submit
+  end
 end
 
 World(UserCukeHelpers)
