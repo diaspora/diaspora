@@ -391,9 +391,8 @@ echo "bundling..."
 run_or_error "bundle install"
 echo ""
 
-echo "creating and migrating default database in config/database.yml. please wait..."
-run_or_error "rake db:create db:migrate --trace"
-             # I think we could use 'rake db:setup' here...
+echo "creating the default database specified in config/database.yml. please wait..."
+run_or_error "bundle exec rake db:schema:load_if_ruby db:structure:load_if_sql --trace"
 echo ""
 
 define GOODBYE_MSG <<'EOT'
