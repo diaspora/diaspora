@@ -78,10 +78,16 @@ $default-border-radius: 3px;
 }
 
 @mixin transition($type, $speed:$speed, $easing:$easing){
-  -webkit-transition: $type $speed $easing;
-  -moz-transition: $type $speed $easing;
-  -o-transition: $type $speed $easing;
-  transition: $type $speed $easing;
+  -webkit-transition : $type $speed $easing;
+     -moz-transition : $type $speed $easing;
+       -o-transition : $type $speed $easing;
+          transition : $type $speed $easing;
+}
+
+@mixin animate($name, $speed:$speed, $occurances:"") {
+  -webkit-animation : $name $speed $occurances;
+     -moz-animation : $name $speed $occurances;
+      -ms-animation : $name $speed $occurances;
 }
 
 @mixin animation($name, $speed:0.2s, $easing:ease-in-out) {

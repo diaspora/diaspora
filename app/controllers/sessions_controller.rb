@@ -3,4 +3,7 @@
 #   the COPYRIGHT file.
 
 class SessionsController < Devise::SessionsController
+
+  layout "post", :only => [:new]
+
 end

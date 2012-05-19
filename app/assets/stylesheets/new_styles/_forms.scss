@@ -1,3 +1,10 @@
+/* autocomplete colors */
+input:-webkit-autofill{
+  background-color: #fff !important;
+  background-image: none !important;
+}
+
+
 form.block-form {
   display : inline-block;
 
