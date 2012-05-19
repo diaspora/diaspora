@@ -5,11 +5,11 @@
     <ul class="dropdown-menu">
         <form class="necessaryForJS">
         <li>
-            <input id="aspect_ids_public" type="checkbox" name="Public" class="aspect_ids public" value="public" {{#if public}}checked="checked"{{/if}}/>
-            <label for="aspect_ids_public"><i class='icon-ok'/><span>Public</span></label></li>
+            <input id="aspect_ids_public" type="checkbox" name="{{t "stream.public"}}" class="aspect_ids public" value="public" {{#if public}}checked="checked"{{/if}}/>
+            <label for="aspect_ids_public"><i class='icon-ok'/><span>{{t "stream.public"}}</span></label></li>
         <li>
-            <input id="aspect_ids_all_aspects" type="checkbox" name="All Aspects" class="aspect_ids all_aspects" value="all_aspects" {{#if all-aspects}}checked="checked"{{/if}}/>
-            <label for="aspect_ids_all_aspects"><i class='icon-ok'/><span>All Aspects</span></label></li>
+            <input id="aspect_ids_all_aspects" type="checkbox" name="{{t "aspect_dropdown.all_aspects"}}" class="aspect_ids all_aspects" value="all_aspects" {{#if all-aspects}}checked="checked"{{/if}}/>
+            <label for="aspect_ids_all_aspects"><i class='icon-ok'/><span>{{t "aspect_dropdown.all_aspects"}}</span></label></li>
         </li>
 
         <li class="divider"></li>
