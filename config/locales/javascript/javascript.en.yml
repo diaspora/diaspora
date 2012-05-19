@@ -36,6 +36,9 @@ en:
       at_least_one_aspect: "You must publish to at least one aspect"
       limited: "Limited - your post will only be seen by people you are sharing with"
       public: "Public - your post will be visible to everyone and found by search engines"
+      make_something: "Make Something!"
+      add_text: "Add Text"
+      add_photos: "Add Photos"
     infinite_scroll:
       no_more: "No more posts."
     aspect_dropdown:
