@@ -5,6 +5,10 @@
 
 - content_for :head do
   = javascript_include_tag :inbox
+  = javascript_include_tag :base64
+  = javascript_include_tag :sjcl
+  = javascript_include_tag :crypto
+  = javascript_include_tag :conversations
 
 - content_for :page_title do
   = t('.message_inbox')
@@ -18,6 +22,16 @@
       .right
         = link_to t('.new_message'), new_conversation_path, :class => 'button', :rel => 'facebox'
       = t('.inbox')
+  #entropy-div
+    %span
+      Entropy:  
+    %span#entropy
+      0%
+  #passphrase-div
+    %label{:for => "passphrase"}
+      Passphrase
+    %input#passphrase{:type => "password"}
+  %hr
 
   #conversation_inbox
     .stream.conversations

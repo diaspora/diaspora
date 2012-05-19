@@ -62,6 +62,9 @@ Diaspora::Application.routes.draw do
     put :make_profile_photo
   end
 
+  get "key_ring" => "key_rings#show"
+  post "store_keys" => "key_rings#create"
+  
   post "upload_wallpaper" => 'profiles#upload_wallpaper_image'
 
   # ActivityStreams routes
