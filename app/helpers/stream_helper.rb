@@ -6,8 +6,6 @@ module StreamHelper
   def next_page_path(opts ={})
     if controller.instance_of?(TagsController)
       tag_path(:name => @stream.tag_name, :max_time => time_for_scroll(@stream))
-    elsif controller.instance_of?(AppsController)
-      "/apps/1?#{{:max_time => @posts.last.created_at.to_i}.to_param}"
     elsif controller.instance_of?(PeopleController)
       local_or_remote_person_path(@person, :max_time => time_for_scroll(@stream))
     elsif controller.instance_of?(PostsController)
