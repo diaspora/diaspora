@@ -199,7 +199,7 @@ fi:
   bookmarklet:
     explanation: "Voit lähettää viestin Diasporaan mistä tahansa lisäämällä %{link} kirjanmerkkeihisi."
     heading: "Sovelluskirjanmerkki"
-    post_something: "Kirjoita jotain Diasporaan"
+    post_something: "Lähetä viesti Diasporaan"
     post_success: "Lähetetty! Suljetaan!"
   cancel: "Peruuta"
   comments:
@@ -219,6 +219,7 @@ fi:
     index:
       add_a_new_aspect: "Lisää näkymä"
       add_to_aspect: "lisää kontakteja näkymään %{name}"
+      add_to_aspect_link: "lisää kontakteja näkymään %{name}"
       all_contacts: "Kaikki kontaktit"
       community_spotlight: "Yhteisön valokeila"
       many_people_are_you_sure: "Oletko varma, että haluat aloittaa yksityiskeskustelun useamman kuin %{suggested_limit} kontaktin kanssa? Viestin lähettäminen tähän näkymään voisi olla parempi tapa olla yhteydessä heihin."
@@ -405,7 +406,7 @@ fi:
         two: "ja %{count} muuta"
         zero: "eikä kukaan muu"
       mark_all_as_read: "Merkitse kaikki luetuiksi"
-      mark_unread: "Merkite lukemattomaksi"
+      mark_unread: "Merkitse lukemattomaksi"
       notifications: "Ilmoitukset"
     liked:
       few: "%{actors} tykkäsivät %{post_link}stäsi."
@@ -492,7 +493,7 @@ fi:
     invited_you: "%{name} kutsui sinut Diaspora*:an"
     liked:
       liked: "%{name} tykkäsi kirjoituksestasi"
-      view_post: "Katso viesti >"
+      view_post: "Näytä viesti >"
     mentioned:
       mentioned: "mainitsi sinut viestissään:"
       subject: "%{name} on maininnut sinut Diasporassa"
@@ -635,7 +636,7 @@ fi:
       last_name: "Sukunimi"
       update_profile: "Päivitä profiili"
       you_are_nsfw: "Olet merkinnyt itsesi ei-työturvalliseksi. Sisältösi ei näy käyttäjille jotka ovat valinneet etteivät halua nähdä tällaisten henkilöiden virtoja."
-      you_are_safe_for_work: "Olet merkinnyt itsesi työturvalliseksi, näinollen hyväksyt, että kaikki lähettämäsi sisältö on yhteisön suositusten mukaista."
+      you_are_safe_for_work: "Olet merkinnyt itsesi työturvalliseksi, näin ollen hyväksyt, että kaikki lähettämäsi sisältö on yhteisön suositusten mukaista."
       your_bio: "Biografiasi"
       your_birthday: "Syntymäpäiväsi"
       your_gender: "Sukupuolesi"
@@ -670,13 +671,20 @@ fi:
       update: "Päivitä"
     invalid_invite: "Kutsulinkki ei ole enää voimassa!"
     new:
+      continue: "Jatka"
       create_my_account: "Luo käyttäjätili!"
+      diaspora: "<3 Diaspora*"
+      email: "SÄHKÖPOSTI"
       enter_email: "Syötä sähköpostiosoite"
       enter_password: "Syötä salasana (vähintään kuusi merkkiä)"
       enter_password_again: "Syötä sama salasana kuin edellä"
       enter_username: "Valitse käyttäjänimi (vain kirjaimet, numerot ja alaviivat sallittuja)"
+      hey_make: "HEI,<br/>KEHITTELE<br/>JOTAIN."
       join_the_movement: "Liity joukkoon!"
+      password: "SALASANA"
+      sign_up: "REKISTERÖIDY"
       sign_up_message: "Yhteisöpalvelu suurella ♥:llä"
+      username: "KÄYTTÄJÄNIMI"
   requests:
     create:
       sending: "Lähetetään..."
@@ -718,7 +726,7 @@ fi:
   services:
     create:
       already_authorized: "Käyttäjä %{diaspora_id} on jo ottanut käyttöön %{service_name} nimisen käyttäjätilin."
-      failure: "Tunnistautuminen epäonnistui"
+      failure: "Tunnistautuminen epäonnistui."
       success: "Tunnistus onnistui."
     destroy:
       success: "Tunnistuksen poisto onnistui."
@@ -782,6 +790,7 @@ fi:
     notification:
       new: "Uusi %{type} henkilöltä %{from}"
     public_explain:
+      atom_feed: "Atom-syöte"
       control_your_audience: "Hallitse yleisöäsi"
       logged_in: "kirjauduttu palveluun %{service}"
       manage: "hallitse yhdistettyjä palveluita"
@@ -805,7 +814,7 @@ fi:
       publishing_to: "Julkaistaan: "
       share: "Jaa"
       share_with: "Jaa"
-      upload_photos: "Lisää kuv(i)a"
+      upload_photos: "Lisää kuvia"
       whats_on_your_mind: "Mitä mielessä?"
     reshare:
       reshare: "Jaa uudelleen"
@@ -942,6 +951,7 @@ fi:
       close_account_text: "Sulje käyttäjätili"
       comment_on_post: "...joku kommentoi viestiisi?"
       current_password: "Nykyinen salasana"
+      current_password_expl: "se, jolla kirjaudut sisään..."
       download_photos: "Lataa kaikki kuvat"
       download_xml: "Lataa tiedot XML-muodossa"
       edit_account: "Muokkaa käyttäjätiliä"

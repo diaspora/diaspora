@@ -203,7 +203,7 @@ es:
       failure: "No podría dejar de ignorar a esa persona.  #evasion"
       success: "¡Vamos a ver qué tiene que decir! #sayhello"
   bookmarklet:
-    explanation: "Publica en Diaspora* desde donde quieras agregando a tus marcadores este enlace => %{link}."
+    explanation: "Publica en Diaspora* desde cualquier página agregando a tus favoritos este enlace => %{link}."
     heading: "Marcador"
     post_something: "Publicar en Diaspora*"
     post_success: "¡Publicado! ¡Cerrando!"
@@ -484,16 +484,18 @@ es:
       message: |-
           ¡Hola!
 
-          ¡Has sido invitado a unirte a Diaspora*!
+          ¡Has recibido una invitación para unirte a Diaspora*!
 
-          Sigue este enlace para empezar
+          Haz click en este enlace para dar tus primeros pasos
 
-          %{invite_url}
+          [%{invite_url}][1]
 
 
-          Saludos,
+          Paz,
 
-          ¡El correo automático de Diaspora*!
+          ¡El robot de correo automático de Diaspora*!
+
+          [1]: %{invite_url}
     invited_you: "¡%{name} te ha invitado a Diaspora*!"
     liked:
       liked: "A %{name} le gustó tu publicación"
@@ -675,13 +677,20 @@ es:
       update: "Actualizar"
     invalid_invite: "¡El enlace de la invitación ya no es válido!"
     new:
+      continue: "Continuar"
       create_my_account: "¡Crear mi cuenta!"
+      diaspora: "<3 Diaspora*"
+      email: "CORREO ELECTRÓNICO"
       enter_email: "Escribe un correo"
       enter_password: "Escribe una contraseña (seis caracteres como mínimo)"
       enter_password_again: "Escribe la misma contraseña como antes"
       enter_username: "Elige un nombre de usuario (letras, números o guiones bajos)"
+      hey_make: "VAMOS, <br/> HAZ <br/> ALGO."
       join_the_movement: "¡Únete al movimiento!"
+      password: "CONTRASEÑA"
+      sign_up: "REGISTRARSE"
       sign_up_message: "Redes Sociales con un ♥"
+      username: "NOMBRE"
   requests:
     create:
       sending: "Enviando"

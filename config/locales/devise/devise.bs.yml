@@ -1,0 +1,46 @@
+#   Copyright (c) 2010-2012, Diaspora Inc.  This file is
+#   licensed under the Affero General Public License version 3 or later.  See
+#   the COPYRIGHT file.
+
+
+
+bs:
+  devise:
+    confirmations:
+      confirmed: "Vaš račun je uspješno potvrđen. Sada ste prijavljeni."
+      new:
+        resend_confirmation: "Ponovo pošalji uputstva za potvrdu"
+      send_instructions: "Dobit ćete e-mail sa uputstvima kako da potvrdite vaš račun za par minuta."
+    failure:
+      inactive: "Vaš račun još uvijek nije aktiviran."
+      invalid: "Pogrešno korisničko ime ili šifra."
+      invalid_token: "Pogrešan simbol za provjeru."
+      locked: "Vaš račun je zaključan"
+    passwords:
+      edit:
+        change_password: "Promjeni šifru"
+      new:
+        forgot_password: "Zaboravljena šifra?"
+        no_account: "Ne postoji račun sa ovom e-mail adresom. Ako očekujete pozivnicu, šaljemo ih čim prije."
+        send_password_instructions: "Pošalji mi uputstva za resetovanje šifre"
+      send_instructions: "Dobit ćete e-mail sa uputstvima kako da resetujete vašu šifru za par minuta."
+      updated: "Vaša šifra je uspješno promjenjena. Sada ste prijavljeni."
+    registrations:
+      signed_up: "Uspješno ste se registrovali. Ako je uključena opcija, poslali smo potvrdu da Vaš e-mail."
+    sessions:
+      new:
+        alpha_software: "Koristit ćete alpha softver"
+        bugs_and_feedback: "Obavještavamo Vas da će biti grešaka. Preporučujemo Vam da koristite Feedback opciju na desnoj strani pretraživača da nas obavijestite o bilo kakvim greškama! Radit ćemo što je brže moguće da riješimo sve probleme koje prijavite."
+        login: "Prijava"
+        modern_browsers: "podržava samo novije pretraživače."
+        password: "Šifra"
+        remember_me: "Zapamti me"
+        sign_in: "Prijavi se"
+        username: "Korisničko ime"
+      signed_in: "Uspješna prijava."
+      signed_out: "Uspješna odjava."
+  errors:
+    messages:
+      already_confirmed: "već je potvrđeno"
+      not_found: "nije pronađeno"
+      not_locked: "nije zaključano"

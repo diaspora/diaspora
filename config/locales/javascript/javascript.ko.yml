@@ -38,6 +38,7 @@ ko:
       preparing_your_stream: "개인 스트림을 준비하고있습니다···"
     header:
       admin: "관리"
+      close: "닫기"
       contacts: "컨택"
       home: "처음"
       log_out: "로그아웃"
@@ -127,6 +128,7 @@ ko:
     viewer:
       comment: "댓글"
       follow_post: "게시물 팔로우하기"
+      home: "처음"
       like: "좋아요"
       reshare: "재공유"
       reshared: "재공유"

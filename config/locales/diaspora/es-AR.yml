@@ -30,7 +30,7 @@ es-AR:
         reshare:
           attributes:
             root_guid:
-              taken: "¡Has vuelto a compartir esa publicación!"
+              taken: "Está bueno, ¿eh? Ya habías compartido esa publicación!"
         user:
           attributes:
             email:
@@ -64,7 +64,7 @@ es-AR:
   all_aspects: "Todos los aspectos"
   application:
     helper:
-      diaspora_alpha: "DIÁSPORA* ALFA"
+      diaspora_alpha: "DIASPORA* ALPHA"
       unknown_person: "persona desconocida"
       video_title:
         unknown: "Título de video desconocido"
@@ -83,12 +83,12 @@ es-AR:
       done_editing: "aceptar"
     aspect_listings:
       add_an_aspect: "+ Agregar un aspecto"
-      deselect_all: "De-seleccionar todo"
+      deselect_all: "Deseleccionar todo"
       edit_aspect: "Editar %{name}"
       select_all: "Seleccionar todo"
     aspect_stream:
       stay_updated: "Mantenete actualizado"
-      stay_updated_explanation: "En tu stream principal aparecen las publicaciones de tus contactos, más las de tus tags seguidos, y si lo deseas, las de algunos miembros creativos de la comunidad."
+      stay_updated_explanation: "En tu stream principal aparecen las publicaciones de tus contactos, más las de las etiquetas que sigues, y si lo deseas, las de algunos miembros creativos de la comunidad."
     contacts_not_visible: "Los contactos en este aspecto no van a poder verse entre ellos."
     contacts_visible: "Los contactos en este aspecto van a poder verse entre ellos."
     create:
@@ -127,11 +127,11 @@ es-AR:
       help:
         do_you: "Tal vez:"
         email_feedback: "%{link} tu feedback, si preferís"
-        feature_suggestion: "...tiene una %{link}?"
+        feature_suggestion: "...tiene una %{link} sugerencia?"
         find_a_bug: "...encontró un %{link}?"
         have_a_question: "...tiene una %{link}?"
-        here_to_help: "La comunidad de Diáspora está acá!"
-        need_help: "Necesitás ayuda?"
+        here_to_help: "¡La comunidad de Diáspora está acá!"
+        need_help: "¿Necesitás ayuda?"
         tag_bug: "error"
         tag_feature: "idea"
         tag_question: "pregunta"
@@ -140,11 +140,11 @@ es-AR:
       keep_diaspora_running: "¡Haz que el desarrollo de Diaspora vaya más rápido con una donación mensual!"
       keep_pod_running: "¡Haz que %{pod} siga corriendo rápido, y compra a nuestros servidores su dosis de café con una donación mensual!"
       new_here:
-        follow: "Sigue %{link} y da la bienvenida a los nuevos miembros de Diaspora*!"
+        follow: "Sigue %{link} y da la bienvenida a los nuevos usuarios de Diaspora*!"
         learn_more: "Más información"
         title: "Bienvenida"
       no_contacts: "No hay contactos"
-      no_tags: "+ Encuentra un tag para seguir"
+      no_tags: "+ Encuentra una etiqueta para seguir"
       people_sharing_with_you: "Comparten con vos"
       post_a_message: "publicar un mensaje >>"
       services:
@@ -164,9 +164,9 @@ es-AR:
       community_spotlight: "comunidad creativa"
       or_spotlight: "O lo podés compartir con %{link}"
       try_adding_some_more_contacts: "Podés buscar o invitar más contactos."
-      you_should_add_some_more_contacts: "Deberías agregar más contactos!"
+      you_should_add_some_more_contacts: "¡Deberías agregar más contactos!"
     no_posts_message:
-      start_talking: "Nadie dijo nada todavía. ¡Inicia la conversación!"
+      start_talking: "Nadie dijo nada todavía. ¡Inicia una conversación!"
     one: "1 aspecto"
     other: "%{count} aspectos"
     seed:
@@ -228,9 +228,9 @@ es-AR:
       add_to_aspect_link: "Agregar contactos a %{name}"
       all_contacts: "Todos los Contactos"
       community_spotlight: "Lo más destacado de la comunidad"
-      many_people_are_you_sure: "Estás seguro que querés comenzar una conversación privada con más de  %{suggested_limit} contactos? Publicando a este aspecto puede ser una mejor manera de contactarlos."
+      many_people_are_you_sure: "Estás seguro que querés comenzar una conversación privada con más de  %{suggested_limit} contactos? Publicando en este aspecto puede ser una mejor manera de contactarlos."
       my_contacts: "Mis Contactos"
-      no_contacts: "Parece que necesitás agregar algunos contactos!"
+      no_contacts: "¡Parece que necesitás agregar algunos contactos!"
       no_contacts_message: "Echa un vistazo a %{community_spotlight}"
       no_contacts_message_with_aspect: "Echa un vistazo a %{community_spotlight} o %{add_to_aspect_link}"
       only_sharing_with_me: "Compartiendo solo conmigo"
@@ -249,7 +249,7 @@ es-AR:
     zero: "contactos"
   conversations:
     create:
-      fail: "Mensaje invalido"
+      fail: "Mensaje inválido"
       sent: "Mensaje enviado"
     destroy:
       success: "La conversación se eliminó"
@@ -264,12 +264,12 @@ es-AR:
     index:
       create_a_new_message: "crear un nuevo mensaje"
       inbox: "Mensajes"
-      message_inbox: "Buzón de entrada"
-      new_message: "Nuevo"
+      message_inbox: "Bandeja de entrada"
+      new_message: "Nuevo mensaje"
       no_conversation_selected: "ninguna conversación seleccionada"
       no_messages: "no hay mensajes"
     new:
-      abandon_changes: "Abandonar los cambios?"
+      abandon_changes: "¿Descartar los cambios?"
       send: "Enviar"
       sending: "Enviando..."
       subject: "asunto"
@@ -292,7 +292,7 @@ es-AR:
       correct_the_following_errors_and_try_again: "Corregí los siguientes errores e intentá de nuevo."
       invalid_fields: "Campos inválidos"
   fill_me_out: "Completame"
-  find_people: "Encontrá gente o #tags"
+  find_people: "Encontrá gente o #etiquetas"
   hide: "Ocultar"
   invitation_codes:
     excited: "%{name} está encantado de verte por aquí."
@@ -678,13 +678,20 @@ es-AR:
       update: "Actualizar"
     invalid_invite: "¡El enlace de la invitación ya no es válido!"
     new:
+      continue: "Continuar"
       create_my_account: "¡Crear mi cuenta!"
+      diaspora: "<3 Diaspora*"
+      email: "CORREO ELECTRONICO"
       enter_email: "Ingresá un correo electrónico"
       enter_password: "Ingresa una contraseña (seis caracteres mínimo)"
       enter_password_again: "Repetí la misma contraseña"
       enter_username: "Elegí un nombre de usuario (sólo letras, números y guión bajo)"
+      hey_make: "HEY,<br/>HAZ<br/>ALGO."
       join_the_movement: "Unite al movimiento!"
+      password: "CONTRASEÑA"
+      sign_up: "REGISTRARSE"
       sign_up_message: "Redes Sociales con un <3"
+      username: "NOMBRE DE USUARIO"
   requests:
     create:
       sending: "Enviando"

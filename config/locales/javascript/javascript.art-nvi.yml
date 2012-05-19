@@ -50,5 +50,6 @@ art-nvi:
       unknown: "rusikxa rol fnel astxong"
       watch: "Tse'a fìrusikxa rolit <%= provider %>mì"
     viewer:
+      home: "KELUTRAL"
       like: "Sunu"
       unlike: "Ke Sunu"

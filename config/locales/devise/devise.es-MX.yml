@@ -39,7 +39,7 @@ es-MX:
         email_address: "questions@joindiaspora.com"
         email_us: "Para consultas generales o soporte acerca de tu cuenta de Diaspora, por favor envíanos un correo electrónico a %{email}."
         finally: "Por fin – Está aquí"
-        friends_saying: "Lo que están diciendo tus contactos…"
+        friends_saying: "Lo que están diciendo tus amigos…"
         get_connected: "Conéctate"
         get_connected_paragraph: "Un movimiento internacional que comparte la visión de una red mejor, la principal característica de %{strong_diaspora} es su comunidad. Conoce gente nueva, conéctate con amigos, y únete a la diversión."
         have_fun: "Diviértete"

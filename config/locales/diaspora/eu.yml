@@ -203,7 +203,7 @@ eu:
       failure: "Ezin izan diot erabiltzaile horri muzin egiteari utzi.  #sahiestu"
       success: "Ikus dezagun zer duzun esateko! #esankaixo"
   bookmarklet:
-    explanation: "Diasporan partekatu %{link} erabiliz."
+    explanation: "Partekatu zerbait Diasporan laster-markatara gehituz esteka hau => %{link}."
     heading: "Bookmarkleta"
     post_something: "Partekatu zerbait Diasporan"
     post_success: "Bidalia! Irteten!"
@@ -497,6 +497,8 @@ eu:
           Adeitasunez,
 
           Diasporaren email robota!
+
+          [1]: %{invite_url}
     invited_you: "%{name}(e)k Diasporara gonbidatu zaitu"
     liked:
       liked: "%{name}(e)k zure mezua gustuko du"
@@ -541,7 +543,7 @@ eu:
       no_results: "Aizu! Zerbait bilatu behar duzu."
       results_for: "bilaketa emaitzak hontarako:"
       searching: "bilatzen, mesedez itxaron pixka bat..."
-    last_post: ""
+    last_post: "Azken Mezua"
     many: "%{count} pertsona"
     one: "pertsona 1"
     other: "%{count} pertsona"
@@ -678,13 +680,20 @@ eu:
       update: "Eguneratu"
     invalid_invite: "Eman duzun gonbidapen esteka ez da jada baliagarria!"
     new:
+      continue: "Jarraitu"
       create_my_account: "Nire kontua sortu!"
+      diaspora: "<3 Diaspora*"
+      email: "EMAILA"
       enter_email: "Idatzi zure e-posta"
-      enter_password: "Pasahitz bat aukeratu"
+      enter_password: "Pasahitz bat idatzi (sei karaktere gutxienez)"
       enter_password_again: "Lehengo pasahitz berdina idatzi"
       enter_username: "Aukeratu erabiltzaile izen bat (hizkiak, zenbakiak eta gidoibaxuak soilik)"
+      hey_make: "AIZU,<br/>SORTU<br/>ZERBAIT."
       join_the_movement: "Mugimendura batu!"
+      password: "PASAHITZA"
+      sign_up: "IZENA EMAN"
       sign_up_message: "Sare Sozialak ♥ batekin"
+      username: "ERABILTZAILE-IZENA"
   requests:
     create:
       sending: "Bidaltzen"
@@ -904,7 +913,7 @@ eu:
   tags:
     show:
       follow: "Jarraitu #%{tag}"
-      followed_by: "hauek jarraitua:"
+      followed_by: "jarraitzen dute"
       following: "#%{tag} jarraitzen"
       nobody_talking: "Inor ez du %{tag}(r)i buruz hitz egin oraindik."
       none: "Etiketa hutsik ez dago!"
@@ -942,7 +951,7 @@ eu:
       change_email: "Aldatu e-posta"
       change_language: "Hizkuntza aldatu"
       change_password: "Pasahitza aldatu"
-      character_minimum_expl: "gutxienez sei karaktere luze izan behar da"
+      character_minimum_expl: "gutxienez sei karakterekoa izan behar da"
       close_account:
         dont_go: "Aizu, ez joan mesedez!"
         if_you_want_this: "Bentan hau nahi baduzu, idatzi hemen zure pasahitza eta sakatu 'Kontua Ezabatu'"

@@ -51,9 +51,12 @@ ko:
     correlations:
       correlations_count: "로그인 횟수와의 상관 관계"
     user_search:
+      add_invites: "초대 추가"
+      email_to: "이메일 초대"
       users:
         other: "사용자 %{count}명을 찾았습니다"
         zero: "사용자를 찾을 수 없습니다"
+      you_currently: "현재 %{user_invitation} 초대가 남았습니다 %{link}"
   ago: "%{time} 전"
   all_aspects: "모든 애스펙"
   application:
@@ -186,6 +189,7 @@ ko:
       revoke_access: "접속권한 취소"
     new:
       authorize: "허가"
+      cubbies_will: "Cubbies가 나를 대신하여 사진을 게시할 수 있게 됩니다"
       nope: "아니오"
   back: "돌아가기"
   blocks:
@@ -195,7 +199,7 @@ ko:
     destroy:
       failure: "해당 사용자를 무시하기를 멈출 수 없었습니다.  #evasion"
   bookmarklet:
-    explanation: "%{link}를 북마크로 추가하면 어디서든 디아스포라에 게시할 수 있습니다."
+    explanation: "이 링크를 북마크로 추가하면 어디서든 디아스포라에 게시할 수 있습니다 => %{link}"
     heading: "북마클릿"
     post_something: "디아스포라에 게시하기"
     post_success: "올렸습니다! 닫힙니다!"
@@ -482,11 +486,13 @@ ko:
 
           이 링크를 클릭해서 시작하세요.
 
-          %{invite_url}
-          <%=invite_code_url(@invitation_code)%>
+          [%{invite_url}][1]
 
+          Love,
 
           디아스포라* 이메일 로봇 보냄!
+
+          [1]: %{invite_url}
     invited_you: "%{name}님이 나를 디아스포라*로 초대했습니다."
     liked:
       liked: "%{name}님이 내 게시물을 좋아합니다:"
@@ -668,13 +674,19 @@ ko:
       update: "갱신하기"
     invalid_invite: "내가 제공한 초대 링크가 더 이상 유효하지 않습니다!"
     new:
+      continue: "계속"
       create_my_account: "내 계정 만들기!"
+      diaspora: "♥ 디아스포라*"
+      email: "이메일"
       enter_email: "이메일 주소를 입력하세요"
-      enter_password: "암호를 입력하세요"
+      enter_password: "암호를 입력하세요 (최소 여섯 자)"
       enter_password_again: "암호를 다시 입력하세요"
       enter_username: "사용자명을 선택하세요 (로마자, 아라비아 숫자, 언더스코어만)"
       join_the_movement: "합류하세요!"
+      password: "암호"
+      sign_up: "가입"
       sign_up_message: "소셜 네트워크♡"
+      username: "사용자명"
   requests:
     create:
       sending: "공유를 요청하고 있습니다."

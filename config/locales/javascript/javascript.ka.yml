@@ -22,20 +22,20 @@ ka:
         zero: "აირჩიეთ ასპექტები"
     aspect_navigation:
       deselect_all: "მონიშვნის მოხსნა"
-      no_aspects: "ასპექტები არ არჩეულა"
+      no_aspects: "ასპექტები არ არის არჩეული"
       select_all: "ყველას მონიშვნა"
     comments:
       hide: "კომენტარების დამალვა"
       show: "ყველა კომენტარის ჩვენება"
     confirm_dialog: "დარწმუნებული ხართ?"
     delete: "წაშლა"
-    failed_to_like: "მოწონება ჩაიშალა!"
-    failed_to_post_message: "შეტყობინების გამოცხადება ჩაიშალა!"
+    failed_to_like: "მოწონება ვერ მოხერხდა!"
+    failed_to_post_message: "შეტყობინების გამოქვეყნება ვერ მოხერხდა!"
     getting_started:
       alright_ill_wait: "კარგი, მოვიცდი."
       hey: "ჰეი, {{name}}!"
-      no_tags: "ჰეი, თქვენ არ მიყვებით არცერთ ტეგს! მაინც გსურთ გაგრძელება?"
-      preparing_your_stream: "თქვენი პერსონალიზებული ნაკადი მზადდება..."
+      no_tags: "თქვენ არ მიყვებით არცერთ ტეგს! მაინც გსურთ გაგრძელება?"
+      preparing_your_stream: "თქვენი პერსონალიზებული სესია მზადდება..."
     header:
       admin: "ადმინისტრატორი"
       contacts: "კონტაქტები"
@@ -46,7 +46,7 @@ ka:
       notifications: "შეტყობინებები"
       profile: "პროფილი"
       recent_notifications: "ბოლო შეტყობინებები"
-      search: "Find people or #tags"
+      search: "მოძებნე ხალხი ან #ტაგები"
       settings: "პარამეტრები"
       view_all: "ყველას ჩვენება"
     ignore: "იგნორირება"
@@ -58,8 +58,8 @@ ka:
       looking_good: "OMG, ძალიან კარგად გამოიყურები!"
     publisher:
       at_least_one_aspect: "თქვენ უნდა გამოაქვეყნოთ მინიმუმ ერთ ასპექტში"
-      limited: "შეზღუდული - თქვენს პოსტს დაინახავს მხოლოდ ის ხალხი რომელთანაც აზიარებთ"
-      public: "საჯარო - თქვენს პოსტს დაინახავს ყველა და მას მოძებნილი იქნებიან საძიბო სისტემებით"
+      limited: "შეზღუდული - თქვენს პოსტს დაინახავს მხოლოდ ის ხალხი რომელთაც გაუზიარებთ"
+      public: "საჯარო - თქვენს პოსტს დაინახავს ყველა და ის გამოჩნდება საძიებო სისტემაში"
     reshares:
       duplicate: "ასეთი მაგარია?  თქვენ უკვე გააზიარეთ ეს პოსტი!"
     search_for: "<%= name %>-ს მოძებნა"
@@ -69,7 +69,7 @@ ka:
       follow: "გაყოლა"
       hide: "დამალვა"
       hide_nsfw_posts: "#nsfw პოსტების დამალვა"
-      like: "მოწონება"
+      like: "მომწონს"
       likes:
         few: "<%= count %> Likes"
         many: "<%= count %> Likes"
@@ -98,7 +98,7 @@ ka:
       show_nsfw_post: "პოსტის ჩვენება"
       show_nsfw_posts: "ყველას ჩვენება"
       unfollow: "გაყოლის შეწყვეტა"
-      unlike: "არ მოწონება"
+      unlike: "არ მომწონს"
     tags:
       wasnt_that_interesting: "კარგი, მე ვფიქრობ რომ #{{tagName}} არც ისე საინტერესო იყო..."
     timeago:
@@ -112,8 +112,8 @@ ka:
       months: "%d თვე"
       prefixAgo: ""
       prefixFromNow: ""
-      seconds: "წუთზე ნაკლების"
-      suffixAgo: "წინ"
+      seconds: "წუთზე ნაკლები"
+      suffixAgo: "ადრე"
       suffixFromNow: "ამიერიდან"
       year: "დაახლოებით ერთი წელი"
       years: "%d წელი"

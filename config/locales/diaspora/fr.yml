@@ -677,13 +677,20 @@ fr:
       update: "Mettre à jour"
     invalid_invite: "Le lien d'invitation que vous avez fourni n'est plus valide !"
     new:
+      continue: "CONTINUER"
       create_my_account: "Créer mon compte !"
+      diaspora: "<3 Diaspora*"
+      email: "EMAIL"
       enter_email: "Saisissez une adresse de courrier électronique"
       enter_password: "Saisissez un mot de passe (d'au moins six caractères)"
       enter_password_again: "Saisissez à nouveau le même mot de passe"
       enter_username: "Choisissez un nom d'utilisateur (uniquement des lettres, chiffres et caractères de soulignement)"
+      hey_make: "HE !<br/>FAITES<br/>QUELQUE CHOSE."
       join_the_movement: "Rejoignez le mouvement !"
+      password: "MOT DE PASSE"
+      sign_up: "INSCRIVEZ-VOUS"
       sign_up_message: "Le réseau social avec un ♥"
+      username: "NOM D'UTILISATEUR"
   requests:
     create:
       sending: "En cours d'envoi"

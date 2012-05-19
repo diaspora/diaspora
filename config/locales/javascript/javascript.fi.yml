@@ -73,7 +73,7 @@ fi:
       comment: "Kommentoi"
       follow: "Seuraa"
       hide: "Piilota"
-      hide_nsfw_posts: "Piilota #nsfw viestit"
+      hide_nsfw_posts: "Piilota #nsfw-viestit"
       like: "Tykkää"
       likes:
         few: "<%= count %> tykkäystä"
@@ -103,7 +103,7 @@ fi:
       show_nsfw_post: "Näytä viesti"
       show_nsfw_posts: "Näytä kaikki"
       unfollow: "Lopeta seuraaminen"
-      unlike: "Älä tykkää"
+      unlike: "Peru tykkäys"
     tags:
       wasnt_that_interesting: "OK, #<%= tagName %> ei tainnut ollakaan kovin kiinnostava aihe..."
     timeago:
@@ -128,8 +128,9 @@ fi:
     viewer:
       comment: "Kommentoi"
       follow_post: "Seuraa viestiä"
+      home: "KOTI"
       like: "Tykkää"
       reshare: "Jaa uudelleen"
       reshared: "Jaettu uudelleen"
       stop_following_post: "Lopeta viestin seuraaminen"
-      unlike: "Älä tykkää"
+      unlike: "Peru tykkäys"
