@@ -212,6 +212,19 @@ load_rvmrc() {
   echo ""
 }
 
+# rvm doesn't need sudo, otherwise we do have to use it :(
+rvm_or_sudo() {
+  if $RVM_DETECTED ; then
+    run_or_error "$1" 
+  else
+    eval "$1"
+    if [ $? -ne 0 ] ; then
+      echo "\nrunning '$1' didn't succeed, trying again with sudo...\n"
+      run_or_error "sudo $1"
+    fi
+  fi
+}
+
 # we need a valid js runtime...
 define JS_RT_MSG <<'EOT'
 This script was unable to find a JavaScript runtime compatible to ExecJS on
@@ -259,7 +272,7 @@ prepare_install_env() {
   load_rvmrc
   js_runtime_check
 
-  run_or_error "gem install bundler"
+  rvm_or_sudo "gem install bundler"
 }
 
 # do some sanity checking
@@ -333,6 +346,13 @@ database_setup() {
   echo ""
 }
 
+# install all the gems with bundler
+# (assume we are in the Diaspora directory)
+prepare_gem_bundle() {
+  echo "installing all required gems..."
+  rvm_or_sudo "bundle install"
+  echo ""
+}
 
 
 ####                                                             ####
@@ -387,9 +407,10 @@ echo "copying application.yml.example to application.yml"
 run_or_error "cp config/application.yml.example config/application.yml"
 echo ""
 
-echo "bundling..."
-run_or_error "bundle install"
-echo ""
+
+# bundle gems
+prepare_gem_bundle
+
 
 echo "creating the default database specified in config/database.yml. please wait..."
 run_or_error "bundle exec rake db:schema:load_if_ruby db:structure:load_if_sql --trace"
