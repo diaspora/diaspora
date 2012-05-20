@@ -831,6 +831,10 @@ en:
       resend: "resend"
       invite: "invite"
       not_on_diaspora: "Not yet on Diaspora"
+  
+  sessions:
+    new:
+      sign_in: "Sign In"
 
   blocks:
     create:
