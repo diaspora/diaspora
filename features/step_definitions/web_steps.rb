@@ -194,9 +194,9 @@ Then /^the "([^"]*)" checkbox(?: within "([^"]*)")? should not be checked$/ do |
 end
 
 Then /^(?:|I )should be on (.+)$/ do |page_name|
-  current_path = URI.parse(current_url).path
   wait_until(3) do
-    current_path = path_to(page_name)
+    current_path = URI.parse(current_url).path
+    current_path == path_to(page_name)
   end
 
   if current_path.respond_to? :should
