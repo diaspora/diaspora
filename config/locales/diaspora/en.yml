@@ -833,10 +833,6 @@ en:
       invite: "invite"
       not_on_diaspora: "Not yet on Diaspora"
   
-  sessions:
-    new:
-      sign_in: "Sign In"
-
   blocks:
     create:
       success: "Alright, you won't see that user in your stream again. #silencio!"
