@@ -48,9 +48,8 @@ module PeopleHelper
     "<a data-hovercard='#{remote_or_hovercard_link}' #{person_href(person)} class='#{opts[:class]}' #{ ("target=" + opts[:target]) if opts[:target]}>#{h(person.name)}</a>".html_safe
   end
 
-  def person_image_tag(person, size=nil)
-    size ||= :thumb_small
-    "<img alt=\"#{h(person.name)}\" class=\"avatar\" data-person_id=\"#{person.id}\" src=\"#{person.profile.image_url(size)}\" title=\"#{h(person.name)}\">".html_safe
+  def person_image_tag(person, size = :thumb_small)
+    image_tag(person.profile.image_url(size), :alt => person.name, :class => 'avatar', :title => person.name, 'data-person_id' => person.id)
   end
 
   def person_image_link(person, opts={})
