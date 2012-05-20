@@ -261,6 +261,7 @@ en:
     aspect_stream:
       stay_updated: "Stay Updated"
       stay_updated_explanation: "Your main stream is populated with all of your contacts, tags you follow, and posts from some creative members of the community."
+      make_something: "Make something"
 
   aspect_memberships:
     destroy:
@@ -831,6 +832,10 @@ en:
       resend: "resend"
       invite: "invite"
       not_on_diaspora: "Not yet on Diaspora"
+  
+  sessions:
+    new:
+      sign_in: "Sign In"
 
   blocks:
     create:
