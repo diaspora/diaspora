@@ -42,11 +42,11 @@ class Post < ActiveRecord::Base
   }
 
   def self.newer(post)
-    where("posts.created_at > ?", post.created_at).order('posts.created_at ASC').first
+    where("posts.created_at > ?", post.created_at).reorder('posts.created_at ASC').first
   end
 
   def self.older(post)
-    where("posts.created_at < ?", post.created_at).order('posts.created_at DESC').first
+    where("posts.created_at < ?", post.created_at).reorder('posts.created_at DESC').first
   end
 
   def self.visible_from_author(author, current_user=nil)
