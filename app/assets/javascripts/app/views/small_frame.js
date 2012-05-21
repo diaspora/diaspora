@@ -3,7 +3,7 @@
 app.views.SmallFrame = app.views.Post.extend({
   className : "canvas-frame",
 
-  templateName : "small-frame",
+  templateName : "small-frame/default",  // default to fall back to
 
   events : {
     "click .content" : "favoritePost",

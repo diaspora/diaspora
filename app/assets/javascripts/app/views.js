@@ -75,7 +75,6 @@ app.views.Base = Backbone.View.extend({
 
   setFormAttrs : function(){
     this.model.set(_.inject(this.formAttrs, _.bind(setValueFromField, this), {}))
-    console.log("set from form", this.model.attributes)
 
     function setValueFromField(memo, attribute, selector){
       if(attribute.slice("-2") === "[]") {

@@ -1,8 +1,4 @@
 <div class="content">
-    <div class=controls>
-        <a href="#" class="delete"></a>
-    </div>
-
     {{#if photos}}
         <div class="image-container">
             {{#each photos}}
@@ -28,11 +24,16 @@
         <div class="background-color"></div>
     {{/if}}
 
+    <!--Handlebars partial territory-->
+    <div class=controls>
+        <a href="#" class="delete"></a>
+    </div>
+
     <div class="info permalink">
         {{#if root}}
-            {{#linkToPerson root.author}}
-                {{{personImage this}}
-            {{/linkToPerson}}
+        {{#linkToPerson root.author}}
+        {{{personImage this}}
+        {{/linkToPerson}}
         {{/if}}
 
         <i class="icon-time timestamp" title="{{created_at}}" rel="tooltip"></i>
@@ -41,7 +42,6 @@
         <i class="icon-heart"></i> {{likesCount}}
         <i class="icon-retweet"></i> {{resharesCount}}
         <i class="icon-comment"></i> {{commentsCount}}
-
     </div>
 </div>
 
