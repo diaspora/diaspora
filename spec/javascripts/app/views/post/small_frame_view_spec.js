@@ -1,4 +1,4 @@
-describe("app.views.SmallFrame", function(){
+describe("app.views.Post.SmallFrame", function(){
   beforeEach(function(){
     this.model = factory.post({
       photos : [
@@ -19,7 +19,7 @@ describe("app.views.SmallFrame", function(){
       }
     })
 
-    this.view = new app.views.SmallFrame({model : this.model})
+    this.view = new app.views.Post.SmallFrame({model : this.model})
   })
 
   it("passes the model down to the oembed view", function(){

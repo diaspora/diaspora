@@ -37,6 +37,14 @@ module PublishingCukeHelpers
     stream_element_numbers_content(1).text()
   end
 
+  def frame_numbers_content(position)
+    find(".canvas-frame:nth-child(#{position}) .content")
+  end
+
+  def find_frame_by_text(text)
+    find(".canvas-frame:contains('#{text}')")
+  end
+
   def stream_element_numbers_content(position)
     find(".stream_element:nth-child(#{position}) .post-content")
   end

@@ -1,4 +1,3 @@
-//= require ../views/small_frame
 //= require ../views/profile_info_view
 
 app.pages.Profile = app.views.Base.extend({

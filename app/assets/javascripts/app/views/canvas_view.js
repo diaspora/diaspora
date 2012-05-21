@@ -1,8 +1,9 @@
-app.views.Canvas = app.views.Base.extend(_.extend({}, app.views.infiniteScrollMixin,  {
+app.views.Canvas = app.views.InfScroll.extend({
   initialize: function(){
     this.stream = this.model
     this.collection = this.stream.items
-    this.postClass = app.views.CanvasFrame
+    this.postClass = app.views.Post.CanvasFrame
+    this.postViews = []
     this.setupInfiniteScroll()
     this.stream.bind("reLayout", this.reLayout, this)
     this.stream.bind("fetched", this.triggerRelayoutAfterImagesLoaded, this)
@@ -57,10 +58,12 @@ app.views.Canvas = app.views.Base.extend(_.extend({}, app.views.infiniteScrollMi
   },
 
   triggerRelayoutAfterImagesLoaded : function(){
+    //event apparently only fires once
     this.$el.imagesLoaded(_.bind(this.reLayout, this))
   },
 
   reLayout : function(){
+    console.log("relaying out")
     this.$el.isotope("reLayout")
   }
-}));
+});

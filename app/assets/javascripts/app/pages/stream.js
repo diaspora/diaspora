@@ -1,11 +1,11 @@
-app.views.NewStream = app.views.Base.extend(_.extend({}, app.views.infiniteScrollMixin, {
+app.views.NewStream = app.views.InfScroll.extend({
   initialize: function(){
     this.stream = this.model
     this.collection = this.stream.items
-    this.postClass = app.views.SmallFrame
+    this.postClass = app.views.Post.StreamFrame
     this.setupInfiniteScroll()
   }
-}));
+});
 
 app.pages.Stream = app.views.Base.extend({
   templateName : "stream",

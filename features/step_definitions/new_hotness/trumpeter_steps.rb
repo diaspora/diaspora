@@ -96,7 +96,14 @@ Then /^"([^"]*)" should have the "([^"]*)" picture$/ do |post_text, file_name|
   end
 end
 
-When /^I go through the default composer$/ do
+When /^I make a new publisher post "([^"]*)"$/ do |post_text|
+  visit new_post_path
+  fill_in 'text', :with => post_text
+  go_to_framer
+  finalize_frame
+end
+
+When /^I go through the default framer$/ do
   go_to_framer
   finalize_frame
 end

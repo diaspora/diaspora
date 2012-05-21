@@ -1,7 +1,6 @@
 //= require ./small_frame
 
-app.views.CanvasFrame = app.views.SmallFrame.extend({
-
+app.views.Post.CanvasFrame = app.views.Post.SmallFrame.extend({
   SINGLE_COLUMN_WIDTH : 265,
   DOUBLE_COLUMN_WIDTH : 560,
 
@@ -32,12 +31,15 @@ app.views.CanvasFrame = app.views.SmallFrame.extend({
   },
 
   presenter : function(){
+    console.log("here")
+
     return _.extend(this.smallFramePresenter(), {
       adjustedImageHeight : this.adjustedImageHeight()
     })
   },
 
   favoritePost : function(evt) {
+    console.log("in favorite post")
     if(evt) {
       /* follow links instead of faving the targeted post */
       if($(evt.target).is('a')) { return }

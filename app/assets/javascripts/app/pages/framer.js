@@ -24,7 +24,7 @@ app.pages.Framer = app.views.Base.extend({
   },
 
   postView : function(){
-    return new app.views.SmallFrame({model : this.model})
+    return new app.views.Post.SmallFrame({model : this.model})
   },
 
   navigateNext : function(){

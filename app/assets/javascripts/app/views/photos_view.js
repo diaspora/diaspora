@@ -1,4 +1,4 @@
-app.views.Photos = Backbone.View.extend(_.extend({
+app.views.Photos = app.views.InfScroll.extend({
   initialize : function(options) {
     this.stream = this.model;
     this.collection = this.stream.items;
@@ -20,4 +20,4 @@ app.views.Photos = Backbone.View.extend(_.extend({
     });
     $(this.el).delegate("a.photo-link", "click", this.lightbox.lightboxImageClicked);
   }
-}, app.views.infiniteScrollMixin));
+});

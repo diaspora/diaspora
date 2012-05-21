@@ -40,7 +40,7 @@ Feature: Creating a new post
     When I write "check out these pictures"
     And I upload a fixture picture with filename "button.gif"
     And I upload a fixture picture with filename "button.gif"
-    And I go through the default composer
+    And I go through the default framer
     And I go to "/stream"
     Then "check out these pictures" should have 2 pictures
 

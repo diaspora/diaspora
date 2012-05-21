@@ -1,4 +1,4 @@
-describe("app.views.CanvasFrame", function(){
+describe("app.views.Post.CanvasFrame", function(){
   beforeEach(function(){
     this.model = factory.post({
       photos : [
@@ -13,7 +13,7 @@ describe("app.views.CanvasFrame", function(){
       ]
     })
 
-    this.view = new app.views.CanvasFrame({model : this.model})
+    this.view = new app.views.Post.CanvasFrame({model : this.model})
   })
 
   context("images", function() {

@@ -1,6 +1,6 @@
-//= require "./post_view"
+//= require "../post_view"
 
-app.views.SmallFrame = app.views.Post.extend({
+app.views.Post.SmallFrame = app.views.Post.extend({
   className : "canvas-frame",
 
   templateName : "small-frame/default",  // default to fall back to
