@@ -259,6 +259,20 @@ STR
       @object = Factory.build(:status_message)
     end
     it_should_behave_like 'it is taggable'
+
+    it 'associates different-case tags to the same tag entry' do
+      assert_equal ActsAsTaggableOn.force_lowercase, true
+
+      msg_lc = Factory.build(:status_message, :text => '#newhere')
+      msg_uc = Factory.build(:status_message, :text => '#NewHere')
+      msg_cp = Factory.build(:status_message, :text => '#NEWHERE')
+
+      msg_lc.save; msg_uc.save; msg_cp.save
+
+      tag_array = msg_lc.tags
+      msg_uc.tags.should == tag_array
+      msg_cp.tags.should == tag_array
+    end
   end
 
   describe "XML" do
