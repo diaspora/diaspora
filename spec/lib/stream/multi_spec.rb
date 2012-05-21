@@ -36,7 +36,7 @@ describe Stream::Multi do
     end
 
     it 'returns includes new user hashtag' do
-      @stream.send(:publisher_prefill).should include("#NewHere")
+      @stream.send(:publisher_prefill).should match(/#NewHere/i)
     end
 
     it 'includes followed hashtags' do
