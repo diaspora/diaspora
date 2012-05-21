@@ -72,6 +72,19 @@ describe Stream::Tag do
     end
   end
 
+  describe 'case insensitivity' do
+    before do
+      @post_lc = alice.post(:status_message, :text => '#newhere', :public => true, :to => 'all')
+      @post_uc = alice.post(:status_message, :text => '#NewHere', :public => true, :to => 'all')
+      @post_cp = alice.post(:status_message, :text => '#NEWHERE', :public => true, :to => 'all')
+    end
+
+    it 'returns posts regardless of the tag case' do
+      stream = Stream::Tag.new(nil, "newhere")
+      stream.posts.should == [@post_lc, @post_uc, @post_cp]
+    end
+  end
+
   describe 'shared behaviors' do
     before do
       @stream = Stream::Tag.new(Factory(:user), "test")
@@ -90,7 +103,7 @@ describe Stream::Tag do
       stream.tag_name.should == 'what'
     end
   end
-  
+
   describe "#publisher" do
     it 'creates a publisher with the tag prefill' do
       Publisher.should_receive(:new).with(anything(), anything)

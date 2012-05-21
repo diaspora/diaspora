@@ -12,7 +12,7 @@ class Stream::Tag < Stream::Base
   end
 
   def tag
-    @tag ||= ActsAsTaggableOn::Tag.find_by_name(tag_name)
+    @tag ||= ActsAsTaggableOn::Tag.named(tag_name).first
   end
 
   def tag_follow_count
