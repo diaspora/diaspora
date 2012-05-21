@@ -84,26 +84,14 @@ app.views.OEmbed = app.views.Base.extend({
 
   presenter:function () {
     return _.extend(this.defaultPresenter(), {
-      o_embed_html:this.embedHTML()
+      o_embed_html : app.helpers.oEmbed.html(this.model.get("o_embed_cache"))
     })
   },
 
-  embedHTML:function () {
-    if (!this.model.get("o_embed_cache")) {
-      return "";
-    }
-    var data = this.model.get("o_embed_cache").data;
-    if (data.type == "photo") {
-      return '<img src="' + data.url + '" width="' + data.width + '" height="' + data.height + '" />';
-    } else {
-      return data.html || ""
-    }
-  },
-
-  showOembedContent:function () {
-    var insertHTML = $(this.embedHTML());
+  showOembedContent : function () {
+    var insertHTML = $(app.helpers.oEmbed.html(this.model.get("o_embed_cache")));
     var paramSeparator = ( /\?/.test(insertHTML.attr("src")) ) ? "&" : "?";
     insertHTML.attr("src", insertHTML.attr("src") + paramSeparator + "autoplay=1");
     this.$el.html(insertHTML);
-  },
+  }
 })

@@ -63,14 +63,5 @@ app.models.Post = Backbone.Model.extend(_.extend({}, app.models.formatDateMixin,
     "Night",
     "Wallpaper",
     "Newspaper"
-  ],
-
-  legacyTemplateNames : [
-    "status-with-photo-backdrop",
-    "note",
-    "rich-media",
-    "photo-backdrop",
-    "activity-streams-photo",
-    "status"
   ]
 });

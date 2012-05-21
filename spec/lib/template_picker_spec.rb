@@ -36,12 +36,6 @@ describe TemplatePicker do
     end
   end
 
-  describe '#rich_media?' do
-    it 'is true if the post contains an o_embed object' do
-      TemplatePicker.new(post).should be_rich_media
-    end
-  end
-
   describe '#photo_backdrop?' do
     it 'is true if the post contains only one photo' do
       @post_stubs.merge!(:photos => stub(:size => 1))

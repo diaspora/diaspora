@@ -14,40 +14,6 @@ a { color : rgb(42,156,235)  }
 .icon-red   { background-image: image_url("img/glyphicons-halflings-red.png");   }
 .icon-blue  { background-image: image_url("img/glyphicons-halflings-blue.png");  }
 
-.rich-media {
-  background-color: $night-background-color;
-
-  p {
-    @include media-text();
-    color: #999;
-
-    a {
-      font-weight: normal;
-      font-size: smaller;
-    }
-  }
-
-  iframe {
-    @include box-shadow(0, 3px, 15px, #000);
-
-    width: 857px;
-    height: 480px;
-    max-width: 100%;
-    max-height: 100%;
-  }
-}
-
-.rich-media-container {
-  display: table;
-  height: 100%;
-  width: 100%;
-}
-
-.rich-media-container2 {
-  display: table-cell;
-  vertical-align: middle;
-}
-
 .avatar {
   &.micro {
     height: 20px;
@@ -115,8 +81,16 @@ a { color : rgb(42,156,235)  }
   height: 100%;
   width: 100%;
 
-  img {
+  img,
+  iframe {
     @include photo-shadow();
+  }
+
+  iframe {
+    width: 857px;
+    height: 480px;
+    max-width: 100%;
+    max-height: 100%;
   }
 }
 

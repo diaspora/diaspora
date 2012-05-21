@@ -21,7 +21,7 @@ app.views.Post = app.views.StreamObject.extend({
   showFactory : function(model) {
     var frameName = model.get("frame_name");
 
-    //translate obsolete template names to the new Moods, should be removed when template picker comes cliente side.
+    //translate obsolete template names to the new Moods, should be removed when template picker comes client side.
     var map = {
       'status-with-photo-backdrop' : 'Wallpaper', //equivalent
       'status' : 'Day', //equivalent
@@ -31,13 +31,9 @@ app.views.Post = app.views.StreamObject.extend({
 
     frameName = map[frameName] || frameName
 
-    if(_.include(app.models.Post.legacyTemplateNames, frameName)){
-      return legacyShow(model)
-    } else {
-      return new app.views.Post[frameName]({
-        model : model
-      })
-    }
+    return new app.views.Post[frameName]({
+      model : model
+    })
 
     function legacyShow(model) {
       return new app.views.Post.Legacy({

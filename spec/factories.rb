@@ -215,9 +215,5 @@ FactoryGirl.define do
     text SecureRandom.hex(1000)
   end
 
-  factory(:rich_media, :parent => :status_message) do
-    association(:o_embed_cache)
-  end
-
   factory(:status, :parent => :status_message)
 end
