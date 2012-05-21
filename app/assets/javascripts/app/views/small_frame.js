@@ -6,8 +6,6 @@ app.views.SmallFrame = app.views.Post.extend({
   templateName : "small-frame/default",  // default to fall back to
 
   events : {
-    "click .content" : "favoritePost",
-    "click .delete" : "killPost",
     "click .info" : "goToPost"
   },
 
@@ -68,31 +66,6 @@ app.views.SmallFrame = app.views.Post.extend({
 
   dimensionsClass : function() {
     return (this.model.get("favorite")) ?  "x2 width height" : ""
-  },
-
-  favoritePost : function(evt) {
-    if(evt) {
-      /* follow links instead of faving the targeted post */
-      if($(evt.target).is('a')) { return }
-
-      evt.stopImmediatePropagation(); evt.preventDefault();
-    }
-
-    var prevDimension = this.dimensionsClass();
-
-    this.model.toggleFavorite({save : this.model.get("author").diaspora_id == app.currentUser.get("diaspora_id")})
-
-    this.$el.removeClass(prevDimension)
-    this.render()
-
-    app.page.stream.trigger("reLayout")
-    //trigger moar relayouts in the case of images WHOA GROSS HAX
-    _.delay(function(){app.page.stream.trigger("reLayout")}, 200)
-  },
-
-  killPost : function(){
-    this.destroyModel()
-    _.delay(function(){app.page.stream.trigger("reLayout")}, 0)
   },
 
   goToPost : function(evt) {
