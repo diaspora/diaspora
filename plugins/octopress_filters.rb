@@ -24,10 +24,14 @@ module Jekyll
   class ContentFilters < PostFilter
     include OctopressFilters
     def pre_render(post)
-      post.content = pre_filter(post.content)
+      if post.ext.match('html|textile|markdown|haml|slim|xml')
+        post.content = pre_filter(post.content)
+      end
     end
     def post_render(post)
-      post.content = post_filter(post.content)
+      if post.ext.match('html|textile|markdown|haml|slim|xml')
+        post.content = post_filter(post.content)
+      end
     end
   end
 end
