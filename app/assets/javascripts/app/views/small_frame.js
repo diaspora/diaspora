@@ -19,10 +19,6 @@ app.views.SmallFrame = app.views.Post.extend({
     return new app.views.OEmbed({model : this.model})
   },
 
-  presenter : function(){
-    return this.smallFramePresenter()
-  },
-
   smallFramePresenter : function(){
     //todo : we need to have something better for small frame text, probably using the headline() scenario.
     return _.extend(this.defaultPresenter(),

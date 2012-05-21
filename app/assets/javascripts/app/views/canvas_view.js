@@ -39,9 +39,9 @@ app.views.Canvas = app.views.Base.extend(_.extend({}, app.views.infiniteScrollMi
        1) on dom ready
        2) on images ready
      */
-    triggerIsotope(el) && el.imagesLoaded(function(){
-      triggerIsotope(el)
-    })
+    triggerIsotope(el) && el.imagesLoaded(_.bind(function(){
+      this.reLayout()
+    },this))
 
     function triggerIsotope(element) {
       return element.isotope({

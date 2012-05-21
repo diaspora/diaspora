@@ -26,6 +26,7 @@ app.views.CanvasFrame = app.views.SmallFrame.extend({
   },
 
   presenter : function(){
+    console.log(this.adjustedImageHeight())
     return _.extend(this.smallFramePresenter(), {
       adjustedImageHeight : this.adjustedImageHeight()
     })
