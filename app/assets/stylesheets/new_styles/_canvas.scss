@@ -372,11 +372,35 @@
   background-color : #333;
 }
 
+
 #stream-content {
+  .stream-frame {
+    margin-bottom : 40px;
+
+    .info {
+      display : none;
+    }
+
+    /* a media box object */
+    .author {
+      margin : 0;
+
+      .bd {
+        margin-top : 11px;
+      }
+    }
+  }
+
   .canvas-frame {
     width: 100%;
+    margin : 0;
+    float : none;
+
     .content {
       width: 100%;
+
+      /* cursor overrides */
+      cursor : pointer;
     }
   }
 }
