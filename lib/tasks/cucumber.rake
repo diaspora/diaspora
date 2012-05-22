@@ -20,7 +20,6 @@ begin
       t.profile = 'default'
       cucumber_opts = ""
       cucumber_opts << " -f pretty" 
-      cucumber_opts << ((ENV["GROUP"] == "oauth") ? " --tags @oauth-group" : " --tags ~@oauth-group")
       t.cucumber_opts =  cucumber_opts
     end
 
