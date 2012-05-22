@@ -46,7 +46,8 @@ available:
   nn: "Nynorsk"
   pa: "ਪੰਜਾਬੀ"
   pl: "polski"
-  pt-BR: "Português"
+  pt-PT: "Português (Portugal)"
+  pt-BR: "Português (Brasil)"
   ro: "Română"
   ru: "Русский"
   sk: "Slovenčina"
@@ -100,6 +101,10 @@ fallbacks:
     - "de"
   art_nvi:
     - "art-nvi"
+  pt-BR:
+    - "pt"
+  pt-PT:
+    - "pt"
 
 
 rtl:
