@@ -1,0 +1,97 @@
+-#   Copyright (c) 2010-2011, Diaspora Inc.  This file is
+-#   licensed under the Affero General Public License version 3 or later.  See
+-#   the COPYRIGHT file.
+
+
+.stream_element{:id => post.guid, :class => from_group(post)}
+  .right.controls
+    = block_user_control(post.author)
+    = delete_or_hide_button(post)
+
+    = image_tag 'ajax-loader.gif', :class => "hide_loader hidden"
+
+  .undo_text.hidden
+    %p
+      = t('share_visibilites.update.post_hidden_and_muted', :name => person_link(post.author)).html_safe
+    %p
+      = t('share_visibilites.update.see_it_on_their_profile', :name => person_link(post.author)).html_safe
+    = link_to t('undo'), share_visibility_path(:id => "42", :post_id => post.id), :method => :put, :remote => true
+
+  .indicator{:title => "#{what_stream_sentence(post)}"}
+    = stream_settings_link(post)
+
+  .sm_body
+    = person_image_link(post.author, :size => :thumb_small)
+    .content
+      .post_initial_info
+        %span.from
+          = person_link(post.author, :class => 'hovercardable')
+          %time.time.timeago{:datetime => post.created_at, :integer => time_for_sort(post).to_i}
+
+        %span.details
+          –
+          %span.timeago
+            = link_to(how_long_ago(post), post_path(post))
+          - if post.reshares_count > 0
+            –
+            %span.num_reshares
+              = t("reshares.reshare.reshare", :count => post.reshares.size)
+
+      .post-content
+        = nsfw_sheild(post)
+        - if post.activity_streams?
+          = link_to image_tag(post.image_url, 'data-small-photo' => post.image_url, 'data-full-photo' => post.image_url, :class => 'stream-photo'), post.object_url, :class => "stream-photo-link"
+        - elsif reshare?(post)
+          = render 'reshares/reshare', :reshare => post, :post => post.root
+        - else
+          = render 'status_messages/status_message', :post => post, :photos => post.photos
+
+      .info
+        %span.via
+          - if post.activity_streams?
+            = t('.via', :link => link_to("#{post.provider_display_name}", post.actor_url)).html_safe
+            &ndash;
+          - elsif post.provider_display_name == 'mobile'
+            = t('.via', :link => nil)
+            mobile
+            &ndash;
+
+        - if post.public?
+          %span.post_scope{:title => t('.viewable_to_anyone')}
+            = t('public')
+            &ndash;
+        - else
+          - if user_signed_in? && post.author.owner_id == current_user.id
+            - aspects = aspects_with_post(all_aspects, post)
+            %span.post_scope{:title => t('.shared_with', :aspect_names => aspects.map!{|a| a.name}.join(', '))}
+              - if aspects.size == 1
+                = aspects.first
+              - else
+                = t('limited')
+                (#{aspects.size})
+          - else
+            %span.post_scope
+              = t('limited')
+          &ndash;
+
+
+        - if commenting_disabled?(post)
+          %span.federated_person{:title => "#{t('.connect_to_comment')}"}
+            ="[#{t('.currently_unavailable')}]"
+        - else
+          %span.like_action
+            = like_action(post, current_user)
+
+          - if resharable?(post)
+            ·
+            %span.reshare_action
+              = reshare_link(post)
+          ·
+
+          = link_to t('comments.new_comment.comment'), '#', :class => 'focus_comment_textarea'
+
+      .likes.on_post
+        .likes_container
+          = render "likes/likes_container", :target_id => post.id, :likes_count => post.likes_count, :current_user => current_user, :target_type => "Post"
+
+      = render "comments/comments", :post => post, :current_user => current_user, :commenting_disabled => commenting_disabled?(post)
