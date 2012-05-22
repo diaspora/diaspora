@@ -11,7 +11,8 @@ app.pages.Stream = app.views.Base.extend({
   templateName : "stream",
 
   subviews : {
-    "#stream-content" : "streamView"
+    "#stream-content" : "streamView",
+    "#stream-interactions" : "interactionsView"
   },
 
   initialize : function(){
@@ -19,5 +20,10 @@ app.pages.Stream = app.views.Base.extend({
     this.stream.preloadOrFetch();
 
     this.streamView = new app.views.NewStream({ model : this.stream })
+    var interactions = this.interactionsView = new app.views.StreamInteractions()
+
+    this.on("frame:interacted", function(post){
+      interactions.setInteractions(post)
+    })
   }
 });

@@ -2,6 +2,7 @@ describe("app.views.Post.StreamFrame", function(){
   beforeEach(function(){
     this.post = factory.post()
     this.view = new app.views.Post.StreamFrame({model : this.post})
+    app.page = new app.pages.Stream({model : new app.models.Stream()})
   })
 
   describe("rendering", function(){
@@ -14,4 +15,4 @@ describe("app.views.Post.StreamFrame", function(){
       })
     })
   })
-})
+});
