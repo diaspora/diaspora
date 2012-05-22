@@ -38,7 +38,8 @@ app.views.PostViewerReactions = app.views.Base.extend({
 
     this.$("#post-comments").append(new app.views.Comment({
       model: comment,
-      className : "post-comment media"
+      className : "post-comment media",
+      templateName : "post-viewer/comment"
     }).render().el);
   }
 });

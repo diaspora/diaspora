@@ -9,7 +9,8 @@ app.views.Comment = app.views.Content.extend({
     });
   },
 
-  initialize : function(){
+  initialize : function(options){
+    this.templateName = options.templateName || this.templateName
     this.model.on("change", this.render, this)
   },
 
